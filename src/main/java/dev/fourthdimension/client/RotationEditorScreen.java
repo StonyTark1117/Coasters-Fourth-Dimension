@@ -141,6 +141,35 @@ public final class RotationEditorScreen extends Screen {
                 .build());
       }
       addButton("Rebind geometry", left + 230, top + 108, 1);
+      var appearances = dev.fourthdimension.integration.AppearanceProviders.choices(rail.family);
+      if (appearances.size() > 1
+          || !rail.appearance.equals(dev.fourthdimension.integration.TrackAppearance.ORIGINAL)) {
+        var current =
+            java.util.stream.IntStream.range(0, appearances.size())
+                .filter(i -> appearances.get(i).appearance().equals(rail.appearance))
+                .findFirst()
+                .orElse(-1);
+        var next = appearances.get((current + 1) % appearances.size());
+        var button =
+            Button.builder(
+                    Component.literal("Change appearance"),
+                    b -> {
+                      PacketDistributor.sendToServer(
+                          new EditorNetwork.Edit(
+                              target.id(), revision, 5, next.appearance().style()));
+                      onClose();
+                    })
+                .bounds(left, top + 160, 225, 20)
+                .build();
+        button.setTooltip(
+            Tooltip.create(
+                Component.literal(
+                    "Next: "
+                        + next.label()
+                        + ". Cosmetic spine only; functional rails and equipment remain"
+                        + " unchanged.")));
+        addRenderableWidget(button);
+      }
     }
     if (free)
       addRenderableWidget(

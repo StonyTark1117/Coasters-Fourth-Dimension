@@ -39,6 +39,7 @@ public final class CreateIntegration {
             DisplaySource.BY_BLOCK_ENTITY.add(ShuttleContent.ENTITY.get(), entry.get());
           }
           TrackProviders.freeze();
+          dev.fourthdimension.integration.AppearanceProviders.setup();
         });
   }
 }

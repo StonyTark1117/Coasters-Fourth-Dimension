@@ -6,6 +6,9 @@ validating occupied revised-carrier and PAX lifecycle recovery. Integration code
 from commit `9e8ae6f975286fff2831981ce975e689ccdc7b41`; its final changes and evidence
 must be reconciled before release.
 
+Recorded development checks: [foundation/Create/Engineered evidence](evidence/integrations/2026-09-30/README.md)
+and [Track Styles spine evidence](evidence/integrations/2026-09-30/styles-1.2.0/README.md).
+
 ## Implemented foundation
 
 - Functional track providers register before worlds load and must declare a matching
@@ -15,10 +18,11 @@ must be reconciled before release.
   migrate on read. Unknown functional providers retain their saved IDs, profiles,
   magnets and revisions, but cannot resolve or authorize travel. Their absence does not
   invalidate the stored geometry. Unknown appearances retain their saved selection and
-  fall back to our complete original mesh. No external appearance is activated yet.
+  fall back to our complete original mesh. Track Styles 1.2.0 currently offers two
+  optional Arrow spine appearances.
 - Component ownership explicitly covers spine, ties, running rails, control rails and
-  magnetic equipment. The foundation currently assigns all of these to our renderer;
-  an external adapter must implement and validate its ownership changes.
+  magnetic equipment. Only the spine can currently belong to the Track Styles
+  resource adapter; all other components remain with our original renderer.
 - Optional adapters and mixins check mod presence and exact inspected versions before
   resolving external classes. Dependencies are compile-only unless a development
   integration profile is selected. No optional JAR is included in our artifact.
@@ -91,7 +95,7 @@ For simultaneous builds and packaged-client QA, copy the built JAR to an immutab
 temporary path and pass `-PfdPackaged -PfdPackagedJar=/absolute/path/to/snapshot.jar`.
 Do not replace the archive underneath a running client.
 
-## Track Styles 1.2.0 investigation
+## Track Styles 1.2.0 spine adapter
 
 The September 30 release notes explicitly add Arrow 4D single/double-spine styles,
 despite the main description still listing Arrow 4D as future work.
@@ -104,12 +108,54 @@ Both Arrow 4D side-rail models contain main and static control-rail geometry tog
 They do not establish a profile-driven control-rail interface. A full-model overlay
 would duplicate our moving rails; render ownership must be resolved before enabling it.
 
+The development adapter offers **Arrow single spine** and **Arrow double spine**
+through the Rotation Tool's **Change appearance** button. Hover for the next choice.
+Selection applies to one complete, unoccupied Arrow section and uses the same reach,
+build-permission, adjacent-occupancy and revision checks as the profile editor. Other
+families keep their original appearance. This does not integrate Track Styles' own
+paint/tool options or change its behavior on ordinary Coasters tracks.
+
+Only the separately installed center-beam model and textures are read at runtime.
+Our renderer bends the imported vertices along the section, removes internal end
+caps, and keeps the spine centered on our support line. Our original ties, running
+rails, profile-driven control rails and magnetic equipment remain authoritative.
+Different styles meet at section boundaries; there is no within-section style split.
+
+The adapter checks exactly version 1.2.0. Removing it retains the saved style choice
+while rendering the entire original family mesh; reinstalling restores that choice.
+Missing or empty model resources also fall back to the original spine. Resource reloads
+invalidate cached meshes through baked-model identity, and deleted tracks release
+their cached mesh. Functional identity, profile, magnets, clearance and eligibility
+never derive from the appearance.
+
+Run with `-PfdIntegrations=styles`, or `-PfdIntegrations=engineered,styles` for both.
+The 1.2.0 artifact emits client-class mixin warnings on the dedicated server and
+invalid resource-path warnings on the client. Native startup/testing proceeds;
+these warnings are not a clean-startup certification.
+
 The project page reports MIT while the released metadata still says All Rights Reserved.
 No implementation, models or textures were copied into our source or output. Further
 work must use independently authored runtime integration and separately installed assets,
 with applicable terms resolved before distribution. See the updated dependency audit.
-FD801 is now actionable investigation, not blocked on the existence of an Arrow 4D
-release; mechanical compatibility remains unverified.
+FD801 covers a future functional adapter beyond these cosmetic spines. It is now
+actionable investigation, not blocked on the existence of an Arrow 4D release;
+mechanical equivalence remains unverified.
+
+## Additions 0.2.0: next adapter
+
+The current released artifact is
+[`curse.maven:create-coasters-simulated-additions-1661497:8772429`](https://www.curseforge.com/minecraft/mc-mods/create-coasters-simulated-additions/files/8772429).
+Its metadata also requires Simulated 1.3.0+ and Create: Interiors 0.6+, so this is
+a larger dependency profile than Engineered or Track Styles. Exact dependency
+artifacts still need to be selected and tested.
+
+Inspection found that station occupancy accounting scans its own seat registry;
+our independent carrier seats require explicit accounting. Its auto-dispatch
+changes occupied/restraint link outputs rather than calling our operations API.
+Station telemetry comes first, followed by readiness-gated output/dispatch handling
+and propulsion guards. PAX must continue through the winch state machine. Replacing
+our rotating seats remains a separate investigation. No Additions adapter or runtime
+compatibility is claimed yet; the dependency audit records the inspected artifact.
 
 ## Remaining acceptance
 
@@ -118,8 +164,9 @@ release; mechanical compatibility remains unverified.
   checks; PAX propulsion stays excluded until separately proven.
 - Extend the packaged Ponder/goggles visual checks to every animation phase and both
   multiplayer clients; verify live Display Link output in those sessions.
-- Implement and validate Track Styles appearance selection, component rendering,
-  transitions and removal, without altering mechanical data.
+- Finish Track Styles multiplayer, removal/reinstallation, resource replacement,
+  transition and performance evidence; broader appearances and its own tool integration
+  remain outside the current two-spine adapter.
 - Add Additions station signaling first; validate any rotating-seat replacement separately.
 - Test Magnetized acceleration/braking and magnetic equipment interactions.
 - Validate Immersion camera composition, inversion, mouse look, dismount and comfort

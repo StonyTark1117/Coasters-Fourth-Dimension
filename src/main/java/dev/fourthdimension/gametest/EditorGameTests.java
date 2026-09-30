@@ -170,6 +170,14 @@ public final class EditorGameTests {
     data.vehicles.put(occupied.chassis, occupied);
     rejects(
         helper,
+        () ->
+            EditorNetwork.apply(
+                player,
+                new EditorNetwork.Edit(
+                    rail.id, rail.revision, 5, "fourthdimension:family_default")),
+        "Occupied approach accepted appearance edit");
+    rejects(
+        helper,
         () -> EditorNetwork.apply(player, new EditorNetwork.Edit(rail.id, rail.revision, 2, "")),
         "Occupied approach accepted edit");
     data.vehicles.remove(occupied.chassis);
@@ -185,12 +193,75 @@ public final class EditorGameTests {
     EditorNetwork.apply(player, new EditorNetwork.Edit(rail.id, rail.revision, 1, ""));
     helper.assertTrue(
         rail.valid && rail.profile.angleAt(12) < -6, "Explicit rebind erased profile");
+    var profileBefore = rail.profile;
+    var magnetsBefore = rail.magnets;
+    long geometryBefore = rail.geometryHash;
+    var familyBefore = rail.family;
+    String providerBefore = rail.provider, variantBefore = rail.variant;
+    boolean stylesInstalled =
+        dev.fourthdimension.integration.OptionalIntegrations.supported(
+            "coasterssimulatedextratypes", Set.of("1.2.0"));
+    helper.assertTrue(
+        dev.fourthdimension.integration.AppearanceProviders.choices(rail.family).size()
+            == (stylesInstalled ? 3 : 1),
+        "Exact-version appearance registration failed");
+    var unsupported =
+        new dev.fourthdimension.integration.TrackAppearance(
+            dev.fourthdimension.integration.AppearanceProviders.TRACK_STYLES,
+            "coasterssimulatedextratypes:arrow_4d");
+    helper.assertTrue(
+        unsupported
+            .effective(TrackDesign.FREE_SPIN.family)
+            .equals(dev.fourthdimension.integration.TrackAppearance.ORIGINAL),
+        "Arrow appearance activated for a different family");
+    System.out.println(
+        "FD_APPEARANCE styles="
+            + stylesInstalled
+            + " choices="
+            + dev.fourthdimension.integration.AppearanceProviders.choices(rail.family).size());
+    for (var style : dev.fourthdimension.integration.AppearanceProviders.choices(rail.family)) {
+      long beforeRevision = rail.revision;
+      EditorNetwork.apply(
+          player, new EditorNetwork.Edit(rail.id, rail.revision, 5, style.appearance().style()));
+      helper.assertTrue(
+          rail.appearance.equals(style.appearance()) && rail.revision == beforeRevision + 1,
+          "Appearance edit was not synchronized through the track revision");
+      helper.assertTrue(
+          rail.profile == profileBefore
+              && rail.magnets == magnetsBefore
+              && rail.geometryHash == geometryBefore
+              && rail.valid
+              && rail.family == familyBefore
+              && rail.provider.equals(providerBefore)
+              && rail.variant.equals(variantBefore),
+          "Appearance changed functional data");
+      for (var component : dev.fourthdimension.integration.TrackAppearance.Component.values())
+        if (component != dev.fourthdimension.integration.TrackAppearance.Component.SPINE)
+          helper.assertTrue(
+              style
+                  .appearance()
+                  .renderOwners()
+                  .get(component)
+                  .equals(dev.fourthdimension.integration.TrackProviders.ORIGINAL),
+              "Spine appearance took ownership of mechanical rails or equipment");
+    }
+    long beforeRejectedStyle = rail.revision;
+    rejects(
+        helper,
+        () ->
+            EditorNetwork.apply(
+                player, new EditorNetwork.Edit(rail.id, rail.revision, 5, "missing:style")),
+        "Unavailable appearance accepted");
+    helper.assertTrue(rail.revision == beforeRejectedStyle, "Rejected appearance changed revision");
     var saved =
         FoundationData.load(
             data.save(new CompoundTag(), level.registryAccess()), level.registryAccess());
     var restored = saved.rails.stream().filter(r -> r.id.equals(rail.id)).findFirst().orElseThrow();
     helper.assertTrue(
-        restored.revision == rail.revision && restored.valid && restored.profile.angleAt(12) < -6,
+        restored.revision == rail.revision
+            && restored.valid
+            && restored.profile.angleAt(12) < -6
+            && restored.appearance.equals(rail.appearance),
         "Edited profile did not survive save");
     for (var r : List.of(rail, next)) {
       ((CoasterAnchorpointBlockEntity) level.getBlockEntity(r.from))

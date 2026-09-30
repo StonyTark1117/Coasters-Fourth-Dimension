@@ -76,10 +76,12 @@ dependencies {
     implementation 'dev.ryanhcode.sable:sable-neoforge-1.21.1:2.0.3'
     implementation 'curse.maven:create-coasters-simulated-1601871:8655742'
     compileOnly('curse.maven:coasters-engineered-1643631:8863559') { transitive = false }
-    if (project.findProperty('fdIntegrations') == 'engineered') {
-        runtimeOnly('curse.maven:coasters-engineered-1643631:8863559') { transitive = false }
-    } else if (project.hasProperty('fdIntegrations')) {
-        throw new GradleException('Unknown integration profile: ' + project.property('fdIntegrations'))
+    def integrationArtifacts = [engineered: 'curse.maven:coasters-engineered-1643631:8863559', styles: 'curse.maven:coasters-simulated-track-styles-1642719:9020601']
+    if (project.hasProperty('fdIntegrations')) {
+        project.property('fdIntegrations').split(',').toList().unique().each { integration ->
+            if (!integrationArtifacts.containsKey(integration)) throw new GradleException('Unknown integration profile: ' + integration)
+            runtimeOnly(integrationArtifacts[integration]) { transitive = false }
+        }
     }
     testImplementation 'org.junit.jupiter:junit-jupiter:5.11.4'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher:1.11.4'

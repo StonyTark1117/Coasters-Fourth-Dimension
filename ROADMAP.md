@@ -15,7 +15,7 @@ Refer to a package by its permanent ID, for example “implement FD104” or “
 | 0.4 | FD401–FD404 | Optional integration infrastructure, recovery evaluation, crafting, tutorials, and family examples. |
 | 0.9 release candidate | FD901–FD905 | Complete compatibility, lifecycle, migration, and performance evidence. |
 | 1.0 | FD1001–FD1003 | Verified five-family release with documentation and reproducible artifacts. |
-| External compatibility | FD801 | Future Track Styles Arrow 4D integration when an inspectable release exists; does not block standalone releases. |
+| External compatibility | FD801 | Functional Track Styles Arrow 4D integration beyond cosmetic spine choices; does not block standalone releases. |
 
 The dependency chain between release gates is foundation → 0.1 → 0.2 → 0.3 → 0.4 → 0.9 → 1.0. Preparation for later packages may start once their stated prerequisites are done; a release still requires all earlier release gates. Track Styles, a maintainer response, or a future external release is never a prerequisite for our original tracks.
 
@@ -397,7 +397,7 @@ Version 1.0 requires all five functional vehicle families with original matching
 
 ### FD801 Integrate a released Track Styles Arrow 4D
 
-**Status: investigation (2026-09-30).** Released Track Styles 1.2.0 includes Arrow 4D single/double-spine styles. Inspection found combined main/static-control-rail side models; functional equivalence and compatible render ownership are unverified. The release now exists, so the work is gated on adapter validation and applicable terms. See [artifact findings](docs/INTEGRATIONS.md#track-styles-120-investigation).
+**Status: investigation (2026-09-30).** Released Track Styles 1.2.0 includes Arrow 4D single/double-spine styles. FD401 now offers those two cosmetic spines while retaining original functional rails and equipment. The combined main/static-control-rail side models do not establish functional equivalence. This package remains gated on mechanical adapter validation and applicable terms. See [adapter scope and artifact findings](docs/INTEGRATIONS.md#track-styles-120-spine-adapter).
 
 **Depends on:** FD401 and an inspectable external release with applicable terms established. **Design:** D02, D04, D05.
 

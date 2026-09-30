@@ -20,14 +20,21 @@ public record TrackAppearance(String provider, String style) {
     TrackProviders.identity(style);
   }
 
-  // External appearances are retained in saves but remain inactive until an adapter is certified.
   public TrackAppearance effective() {
-    return ORIGINAL;
+    return AppearanceProviders.definition(this) == null ? ORIGINAL : this;
+  }
+
+  public TrackAppearance effective(dev.fourthdimension.contract.Family family) {
+    var definition = AppearanceProviders.definition(this);
+    return definition != null && definition.families().contains(family) ? this : ORIGINAL;
   }
 
   public Map<Component, String> renderOwners() {
     var owners = new EnumMap<Component, String>(Component.class);
     for (var component : Component.values()) owners.put(component, TrackProviders.ORIGINAL);
+    var definition = AppearanceProviders.definition(this);
+    if (definition != null)
+      for (var component : definition.components()) owners.put(component, provider);
     return Map.copyOf(owners);
   }
 }

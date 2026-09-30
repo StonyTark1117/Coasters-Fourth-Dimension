@@ -22,7 +22,9 @@ import org.joml.Matrix4f;
 public final class OriginalTrackRenderer {
   private record Quad(Vec3 a, Vec3 b, Vec3 c, Vec3 d, int color) {}
 
-  private record Mesh(long revision, long geometry, List<Quad> quads) {}
+  private record Mesh(long revision, long geometry, boolean externalSpine, List<Quad> quads) {}
+
+  private record SpineRender(FoundationData.Rail rail, CoasterPathEdge edge, long geometry) {}
 
   private static final Map<UUID, Mesh> MESHES = new HashMap<>();
   private static net.minecraft.world.level.Level lastLevel;
@@ -70,6 +72,7 @@ public final class OriginalTrackRenderer {
         }
       }
     MESHES.keySet().retainAll(live);
+    TrackStylesVisual.retain(live);
     SEEN.keySet().retainAll(live);
   }
 
@@ -84,6 +87,7 @@ public final class OriginalTrackRenderer {
     pose.translate(-camera.x, -camera.y, -camera.z);
     var buffers = mc.renderBuffers().bufferSource();
     var consumer = buffers.getBuffer(RenderType.debugQuads());
+    var spines = new ArrayList<SpineRender>();
     var data = EligibilityHooks.data(mc.level);
     if (data != null)
       for (var rail : data.rails)
@@ -93,21 +97,28 @@ public final class OriginalTrackRenderer {
           var edge = TrackGeometry.resolve(mc.level, rail);
           if (edge == null) continue;
           long hash = TrackGeometry.fingerprint(mc.level, edge);
+          boolean externalSpine = TrackStylesVisual.available(rail);
           var mesh = MESHES.get(rail.id);
-          if (mesh == null || mesh.revision != rail.revision || mesh.geometry != hash) {
+          if (mesh == null
+              || mesh.revision != rail.revision
+              || mesh.geometry != hash
+              || mesh.externalSpine != externalSpine) {
             mesh =
                 new Mesh(
                     rail.revision,
                     hash,
+                    externalSpine,
                     build(
                         edge,
                         TrackDesign.byVariant(rail.variant),
                         edge.from().equals(rail.from) ? rail.profile : rail.profile.reversed(),
                         rail.magnets,
-                        edge.from().equals(rail.from)));
+                        edge.from().equals(rail.from),
+                        !externalSpine));
             MESHES.put(rail.id, mesh);
           }
           draw(consumer, pose.last().pose(), mesh.quads, rail.valid ? 1f : .4f);
+          if (externalSpine) spines.add(new SpineRender(rail, edge, hash));
         }
     var held = mc.player.getMainHandItem();
     if (held.getItem() instanceof FamilyTrackItem item
@@ -136,6 +147,7 @@ public final class OriginalTrackRenderer {
                     new RotationProfile(
                         List.of(new RotationProfile.Key(0, 0), new RotationProfile.Key(length, 0))),
                     List.of(),
+                    true,
                     true);
             ghostKey = key;
           }
@@ -146,6 +158,9 @@ public final class OriginalTrackRenderer {
       }
     }
     buffers.endBatch(RenderType.debugQuads());
+    for (var spine : spines)
+      TrackStylesVisual.render(spine.rail, spine.edge, spine.geometry, pose, buffers);
+    buffers.endBatch(RenderType.cutoutMipped());
     pose.popPose();
   }
 
@@ -154,7 +169,8 @@ public final class OriginalTrackRenderer {
       TrackDesign design,
       RotationProfile profile,
       List<dev.fourthdimension.physics.MagneticSpan> magnets,
-      boolean canonical) {
+      boolean canonical,
+      boolean originalSpine) {
     var level = Minecraft.getInstance().level;
     var table = TrackGeometry.table(level, edge);
     int count = Math.max(8, (int) Math.ceil(table.length() * 4));
@@ -180,6 +196,7 @@ public final class OriginalTrackRenderer {
       };
       if (previous != null) {
         for (int rail = 0; rail < 5; rail++) {
+          if (rail == 4 && !originalSpine) continue;
           if ((rail == 2 || rail == 3) && !design.family.driven()) continue;
           tube(
               result,

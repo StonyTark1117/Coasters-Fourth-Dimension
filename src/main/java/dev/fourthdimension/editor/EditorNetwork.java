@@ -59,7 +59,7 @@ public final class EditorNetwork {
   }
 
   public static void register(RegisterPayloadHandlersEvent event) {
-    var registrar = event.registrar("4");
+    var registrar = event.registrar("5");
     registrar.playToClient(
         Target.TYPE, Target.CODEC, (p, c) -> c.enqueueWork(() -> openClient.accept(p)));
     registrar.playToServer(
@@ -123,6 +123,9 @@ public final class EditorNetwork {
                 request.id,
                 request.revision,
                 dev.fourthdimension.magnetic.MagneticData.parse(request.value));
+        case 5 ->
+            dev.fourthdimension.integration.AppearanceProviders.apply(
+                player, request.id, request.revision, request.value);
         default -> throw new IllegalArgumentException("Unknown profile operation");
       }
     } else {

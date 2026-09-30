@@ -1,0 +1,5 @@
+Command: JAVA_HOME=/usr/lib/jvm/java-21-openjdk ./gradlew build runGameTestServer -PfdIntegrations=styles
+Full transient log SHA-256: 7a2b56e4a1d7a938dd9ae0c69ec2258d742fcf59f479e4ef8027705058bcc5fb
+FD_ENGINEERED_SKIPPED: optional 1.1.1 artifact absent; no compatibility evidence
+[12:56:15] [Server thread/INFO] [minecraft/GameTestServer]: All 21 required tests passed :)
+BUILD SUCCESSFUL in 1m 24s
