@@ -291,6 +291,8 @@ Ship both new families with instructions and examples, including compact and tal
 
 ### FD401 Deliver optional provider infrastructure
 
+**Status: in progress.** Exact-version metadata discovery, client-only public model-catalog access, explicit component ownership, and optional development profiles are implemented. Model selection/rendering, geometry certification, fallback/removal scenarios and operating-addon runtime acceptance remain pending. See [integration scope and profiles](docs/INTEGRATIONS.md).
+
 **Depends on:** FD005, FD305. **Design:** D04, D05, D07, D15.
 
 Implement isolated optional adapters, support/version checks, component render ownership, and appearance fallback. Evaluate available Track Styles styling and operating-addon interfaces against their actual releases and terms.

@@ -213,6 +213,47 @@
         ]
       },
       "inspected_public_signatures": "Compiled from \"TrackSpanGeometry.java\"\npublic final class dev.jwaterfall.coastersengineered.span.TrackSpanGeometry {\n  public static dev.silvergold.simulatedcoasters.track.graph.CoasterPathGraphSpans$SpanPath resolve(net.minecraft.world.level.Level, net.minecraft.core.BlockPos, dev.silvergold.simulatedcoasters.track.graph.CoasterPathTrackFrame$GraphHit, double);\n  public static dev.silvergold.simulatedcoasters.track.graph.CoasterPathGraphSpans$SpanPath rebind(net.minecraft.world.level.Level, dev.jwaterfall.coastersengineered.span.TrackSpan);\n  public static double distanceAlong(net.minecraft.world.level.Level, dev.silvergold.simulatedcoasters.track.graph.CoasterPathGraphSpans$SpanPath, dev.silvergold.simulatedcoasters.track.graph.CoasterPathEdge, double);\n  public static dev.silvergold.simulatedcoasters.track.graph.CoasterPathGraph graphFor(net.minecraft.world.level.Level);\n  public static dev.silvergold.simulatedcoasters.track.graph.CoasterPathEdge findEdge(net.minecraft.world.level.Level, net.minecraft.core.BlockPos, net.minecraft.core.BlockPos);\n  static {};\n}\n"
+    },
+    {
+      "project": "Coasters Simulated: Track Styles",
+      "release_label": "1.2.0",
+      "release_page": "https://www.curseforge.com/minecraft/mc-mods/coasters-simulated-track-styles/files/9020601",
+      "maven_coordinate": "curse.maven:coasters-simulated-track-styles-1642719:9020601",
+      "sha256": "42535a83307f6898b33c13ca201533bb9e337418fd7c73039c867fc80bfbcb38",
+      "bytes": 1056916,
+      "embedded_license": "All Rights Reserved",
+      "project_page_license": "MIT",
+      "embedded_mod_versions": [
+        {
+          "modId": "coasterssimulatedextratypes",
+          "version": "1.2.0"
+        }
+      ],
+      "declared_dependencies": {
+        "coasterssimulatedextratypes": [
+          {
+            "modId": "neoforge",
+            "type": "required",
+            "versionRange": "[21.1.234,)",
+            "ordering": "NONE",
+            "side": "BOTH"
+          },
+          {
+            "modId": "minecraft",
+            "type": "required",
+            "versionRange": "[1.21.1]",
+            "ordering": "NONE",
+            "side": "BOTH"
+          }
+        ]
+      },
+      "inspected_public_signatures": "Compiled from \"MyTrackModels.java\"\npublic final class top.claebcode.coasterssimulatedextratypes.MyTrackModels$TrackComponents extends java.lang.Record {\n  public top.claebcode.coasterssimulatedextratypes.MyTrackModels$TrackComponents(dev.engine_room.flywheel.lib.model.baked.PartialModel, dev.engine_room.flywheel.lib.model.baked.PartialModel, dev.engine_room.flywheel.lib.model.baked.PartialModel, dev.engine_room.flywheel.lib.model.baked.PartialModel);\n  public final java.lang.String toString();\n  public final int hashCode();\n  public final boolean equals(java.lang.Object);\n  public dev.engine_room.flywheel.lib.model.baked.PartialModel centerBeam();\n  public dev.engine_room.flywheel.lib.model.baked.PartialModel tie();\n  public dev.engine_room.flywheel.lib.model.baked.PartialModel leftRail();\n  public dev.engine_room.flywheel.lib.model.baked.PartialModel rightRail();\n}\nCompiled from \"MyTrackModels.java\"\npublic class top.claebcode.coasterssimulatedextratypes.MyTrackModels {\n  public static final dev.engine_room.flywheel.lib.model.baked.PartialModel GIRDER_CIRCULAR;\n  public static final dev.engine_room.flywheel.lib.model.baked.PartialModel GIRDER_SQUARE;\n  public static final java.util.Map<java.lang.String, top.claebcode.coasterssimulatedextratypes.MyTrackModels$TrackComponents> STYLES;\n  public static final java.util.Map<java.lang.String, java.lang.String> COASTER_STYLE_NAMES;\n  public static final java.util.Map<java.lang.String, java.lang.String> ANCHOR_STYLE_NAMES;\n  public static final net.neoforged.neoforge.client.model.data.ModelProperty<dev.silvergold.simulatedcoasters.track.anchor.CoasterAnchorpointBlockEntity> ANCHOR_MODEL_PROP;\n  public top.claebcode.coasterssimulatedextratypes.MyTrackModels();\n  public static java.lang.String getCoasterStyleName(java.lang.String);\n  public static java.lang.String getAnchorStyleName(java.lang.String);\n  public static dev.engine_room.flywheel.lib.model.baked.PartialModel getReplacementModel(java.lang.String, dev.engine_room.flywheel.lib.model.baked.PartialModel);\n  public static dev.engine_room.flywheel.lib.model.baked.PartialModel getGirderModelForStyle(java.lang.String);\n  public static java.lang.String getAnchorStyleFromTag(net.minecraft.nbt.CompoundTag);\n  public static int getAnchorColorFromTag(net.minecraft.nbt.CompoundTag);\n  public static java.lang.String getGirderStyleFromTag(net.minecraft.nbt.CompoundTag);\n  public static int getGirderColorFromTag(net.minecraft.nbt.CompoundTag);\n  public static boolean getGirderInvisibleFromTag(net.minecraft.nbt.CompoundTag);\n  public static net.minecraft.client.resources.model.BakedModel getCustomAnchorModel(dev.silvergold.simulatedcoasters.track.anchor.CoasterAnchorpointBlockEntity);\n  public static int getAnchorTintColor(dev.silvergold.simulatedcoasters.track.anchor.CoasterAnchorpointBlockEntity);\n  public static net.minecraft.client.resources.model.BakedModel getCenterBeamModel(net.minecraft.world.item.ItemStack);\n  public static net.minecraft.client.resources.model.BakedModel getTieModel(net.minecraft.world.item.ItemStack);\n  public static net.minecraft.client.resources.model.BakedModel getLeftRailModel(net.minecraft.world.item.ItemStack);\n  public static net.minecraft.client.resources.model.BakedModel getRightRailModel(net.minecraft.world.item.ItemStack);\n  public static float[] getColorRGB(net.minecraft.world.item.ItemStack, java.lang.String);\n  public static float[] getBeamColorRGB(net.minecraft.world.item.ItemStack);\n  public static float[] getTieColorRGB(net.minecraft.world.item.ItemStack);\n  public static float[] getRailColorRGB(net.minecraft.world.item.ItemStack);\n  static {};\n}\n",
+      "findings": [
+        "Latest page still lists Arrow 4D as future work.",
+        "Four separately accessible partial models: centerBeam, tie, leftRail, rightRail.",
+        "The page/JAR license discrepancy persists; no code or assets copied or bundled.",
+        "No runtime compatibility claim from signature inspection."
+      ]
     }
   ],
   "source_references": [

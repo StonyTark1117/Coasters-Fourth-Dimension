@@ -97,6 +97,25 @@ public final class PrototypeFixture {
                     return 1;
                   }));
     root.then(
+        Commands.literal("integrations")
+            .executes(
+                ctx -> {
+                  for (var release :
+                      dev.fourthdimension.integration.OptionalIntegrations.installed())
+                    ctx.getSource()
+                        .sendSuccess(
+                            () ->
+                                Component.literal(
+                                    release.modId()
+                                        + " "
+                                        + release.version()
+                                        + " "
+                                        + release.status()
+                                        + "; appearance/operations validation separate"),
+                            false);
+                  return 1;
+                }));
+    root.then(
         Commands.literal("status")
             .executes(
                 ctx -> {
