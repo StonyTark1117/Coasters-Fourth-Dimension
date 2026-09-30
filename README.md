@@ -2,7 +2,7 @@
 
 A Create: Coasters Simulated addon with original controlled Arrow/S&S-style four-rail tracks and four-seat cars, plus legacy ZacSpin-style tracks and eight-seat free-rotating cars. The 0.2 build also adds an S&S-inspired magnetic Free Spin family: eight seats in four independent native carrier pairs, matching blue track, and configurable passive inducer/damper spans. Controlled Arrow cars can form trains; both free-spin families operate individually.
 
-FD201–FD204 implement the **bounded 0.2 build**. See [magnetic-family instructions and acceptance](docs/MAGNETIC.md), and the earlier [0.1 acceptance](docs/PLAYABLE.md). Revised ZacSpin, PAX shuttles, and external Track Styles integration remain on the [roadmap to 1.0](ROADMAP.md). The four-pair Free Spin topology is an original game approximation; exact manufacturer coupling is not claimed.
+FD201–FD204 implement the **bounded 0.2 build**. See [magnetic-family instructions and acceptance](docs/MAGNETIC.md), and the earlier [0.1 acceptance](docs/PLAYABLE.md). The current `0.9.0-dev.1` branch adds revised carriers and a physical PAX catch/lift/release shuttle; see [development instructions, native evidence, and outstanding gates](docs/REVISED-SHUTTLE.md). It is not yet the 0.9 release candidate. External Track Styles integration remains on the [roadmap to 1.0](ROADMAP.md). The four-pair Free Spin and revised topologies are original game approximations; exact manufacturer coupling is not claimed.
 
 ## Install
 

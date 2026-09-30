@@ -44,6 +44,25 @@ public final class TrackItems {
       ITEMS.register(
           "free_spin_track",
           () -> new FamilyTrackItem(new Item.Properties(), TrackDesign.FREE_SPIN));
+  public static final DeferredItem<dev.fourthdimension.vehicle.VehicleItem> REVISED_CAR =
+      ITEMS.register(
+          "revised_zacspin_car",
+          () ->
+              new dev.fourthdimension.vehicle.VehicleItem(
+                  new Item.Properties().stacksTo(1), TrackDesign.REVISED));
+  public static final DeferredItem<FamilyTrackItem> REVISED =
+      ITEMS.register(
+          "revised_zacspin_track",
+          () -> new FamilyTrackItem(new Item.Properties(), TrackDesign.REVISED));
+  public static final DeferredItem<dev.fourthdimension.vehicle.VehicleItem> PAX_CAR =
+      ITEMS.register(
+          "pax_car",
+          () ->
+              new dev.fourthdimension.vehicle.VehicleItem(
+                  new Item.Properties().stacksTo(1), TrackDesign.PAX));
+  public static final DeferredItem<FamilyTrackItem> PAX =
+      ITEMS.register(
+          "pax_track", () -> new FamilyTrackItem(new Item.Properties(), TrackDesign.PAX));
   public static final DeferredItem<dev.fourthdimension.editor.RotationTool> ROTATION_TOOL =
       ITEMS.register(
           "rotation_tool",

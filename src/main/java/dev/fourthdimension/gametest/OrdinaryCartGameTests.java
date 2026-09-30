@@ -46,7 +46,11 @@ public final class OrdinaryCartGameTests {
       player.setItemInHand(InteractionHand.MAIN_HAND, TrackItems.ARROW.get().getDefaultInstance());
       rails.add(TrackPlacement.connect(level, from, to, design, player, player.getMainHandItem()));
     }
-    rails.getLast().magnets =
+    rails.stream()
+            .filter(r -> r.family == dev.fourthdimension.contract.Family.FREE_SPIN)
+            .findFirst()
+            .orElseThrow()
+            .magnets =
         List.of(
             new dev.fourthdimension.physics.MagneticSpan(
                 1, 30, dev.fourthdimension.physics.MagneticSpan.Mode.INDUCE, 1, 20, .1, 15));

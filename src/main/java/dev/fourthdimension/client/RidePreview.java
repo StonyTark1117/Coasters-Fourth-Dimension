@@ -124,7 +124,8 @@ public final class RidePreview {
     var table = TrackGeometry.table(mc.level, edge);
     var output = new java.util.ArrayList<Line>();
     boolean magnetic = rail.family == dev.fourthdimension.contract.Family.FREE_SPIN;
-    int groups = magnetic ? 4 : 2;
+    var design = TrackDesign.byVariant(rail.variant);
+    int groups = design.groups();
     var states = new FreeRotor.State[groups];
     java.util.Arrays.fill(states, new FreeRotor.State(Math.PI / 4, 0));
     double previousDistance = 0;
@@ -140,12 +141,16 @@ public final class RidePreview {
       var facing = basis.forward().scale(canonical ? -1 : 1);
       for (int group = 0; group < groups; group++) {
         double side = group < groups / 2 ? -3 : 3;
-        double longitudinal = magnetic ? (group % 2 == 0 ? -3 : 3) : 0;
+        double longitudinal = design.pairedRows() ? (group % 2 == 0 ? -3 : 3) : 0;
         var state = states[group];
         double ballast = loadingPreset == 1 || (loadingPreset == 2 && group == 0) ? 1.6 : 0;
         var loading =
-            magnetic
-                ? new FreeRotor.Loading(4 + ballast, 2.625, 4.111979166666667 + ballast * .12)
+            design != TrackDesign.LEGACY
+                ? new FreeRotor.Loading(
+                    4 + ballast,
+                    design == TrackDesign.REVISED ? 1.5 - ballast * .5 : 2.625,
+                    (design == TrackDesign.REVISED ? 1.994791666666667 : 4.111979166666667)
+                        + ballast * (design == TrackDesign.REVISED ? .37 : .12))
                 : new FreeRotor.Loading(6 + ballast, 3, 7.25 + ballast * 1.12);
         if (!rail.family.driven()) {
           double elapsed = (distance - previousDistance) / 2;
@@ -194,7 +199,7 @@ public final class RidePreview {
         var forward = facing.scale(Math.cos(angle)).subtract(basis.up().scale(Math.sin(angle)));
         var pivot =
             point
-                .add(basis.up().scale(2.3125))
+                .add(basis.up().scale(2.3125 + design.childPivotOffset()))
                 .add(right.scale(side))
                 .add(facing.scale(longitudinal));
         box(output, pivot.add(up.scale(-.65)), right, up, forward, .8, .7, .45, 0x67e5ff);
@@ -202,7 +207,14 @@ public final class RidePreview {
           var center = pivot.add(right.scale(side < 0 ? -.5 : .5));
           boolean blocked =
               dev.fourthdimension.vehicle.SweptClearance.obstructed(
-                  mc.level, center, right, basis.up(), facing, 1.5, 2.7, 2.7);
+                  mc.level,
+                  center,
+                  right,
+                  basis.up(),
+                  facing,
+                  1.5,
+                  design.rotorRadius(),
+                  design.rotorRadius());
           box(
               output,
               center,
@@ -210,8 +222,8 @@ public final class RidePreview {
               basis.up(),
               facing,
               1.5,
-              2.7,
-              2.7,
+              design.rotorRadius(),
+              design.rotorRadius(),
               blocked ? 0xff5b5b : 0xf2d36b);
         }
       }

@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "IRI",
+    "CSC",
+    "ITI"
+  ],
+  "key": {
+    "I": {
+      "tag": "c:ingots/iron"
+    },
+    "R": {
+      "item": "minecraft:redstone"
+    },
+    "C": {
+      "item": "minecraft:copper_ingot"
+    },
+    "S": {
+      "item": "create:shaft"
+    },
+    "T": {
+      "item": "fourthdimension:pax_track"
+    }
+  },
+  "result": {
+    "id": "fourthdimension:shuttle_winch",
+    "count": 1
+  }
+}

@@ -24,6 +24,8 @@ public abstract class ChainDriveGuardMixin {
     var vehicle = FoundationData.get(level).vehicles.get(sub.getUniqueId());
     if (vehicle != null
         && !FoundationData.VARIANT.equals(vehicle.variant)
-        && (vehicle.stopping || vehicle.maintenance)) ci.cancel();
+        && (vehicle.stopping
+            || vehicle.maintenance
+            || vehicle.family == dev.fourthdimension.contract.Family.PAX)) ci.cancel();
   }
 }

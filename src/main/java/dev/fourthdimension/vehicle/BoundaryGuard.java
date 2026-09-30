@@ -22,6 +22,8 @@ public final class BoundaryGuard {
       stop(vehicle, "Incompatible vehicle in linked consist");
       return;
     }
+    // The validated shuttle controller guards both spikes and captures the complete train.
+    if (dev.fourthdimension.shuttle.ShuttleRuntime.running(level, vehicle.chassis)) return;
     var center = CoasterCartResolve.cartCenterWorld(parent);
     if (center == null) {
       stop(vehicle, "Running gear unavailable");

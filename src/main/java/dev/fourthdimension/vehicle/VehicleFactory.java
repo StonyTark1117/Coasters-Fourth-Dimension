@@ -14,7 +14,7 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.phys.*;
 import org.joml.Vector3d;
 
-/** Builds original four-seat controlled cars or eight-seat legacy offset-pivot cars. */
+/** Builds family-defined original native chassis and independent carrier bodies. */
 public final class VehicleFactory {
   private VehicleFactory() {}
 
@@ -44,16 +44,23 @@ public final class VehicleFactory {
       var center = body == null ? null : CoasterCartResolve.cartCenterWorld(body);
       if (center != null
           && center.distanceSquared(new Vector3d(bearing.x, bearing.y, bearing.z))
-              < (design == TrackDesign.FREE_SPIN
-                      || existing.family == dev.fourthdimension.contract.Family.FREE_SPIN
-                  ? 143.99
-                  : 35.99))
+              < Math.pow(
+                      Math.max(
+                          design.axleSpacing(),
+                          FoundationData.VARIANT.equals(existing.variant)
+                              ? 6
+                              : TrackDesign.byVariant(existing.variant).axleSpacing()),
+                      2)
+                  - .01)
         throw new IllegalArgumentException(
-            "Leave six blocks between axles, or twelve for a Free Spin car");
+            "Leave " + design.axleSpacing() + " blocks between these car axles");
     }
     var basis = CoasterPathTrackFrame.trackBasisAtHit(level, hit);
     for (double side : new double[] {-3.5, 3.5}) {
-      var center = hit.point().add(basis.up().scale(2.3125)).add(basis.right().scale(side));
+      var center =
+          hit.point()
+              .add(basis.up().scale(2.3125 + design.childPivotOffset()))
+              .add(basis.right().scale(side));
       if (SweptClearance.obstructed(
           level,
           center,
@@ -61,8 +68,8 @@ public final class VehicleFactory {
           basis.up(),
           basis.forward(),
           1.5,
-          2.7,
-          design == TrackDesign.FREE_SPIN ? 5.7 : 2.7))
+          design.rotorRadius(),
+          design.rotorRadius() + (design.pairedRows() ? 3 : 0)))
         throw new IllegalArgumentException(
             "Clear the full wing and rider rotation envelope before placing this car");
     }
@@ -87,17 +94,22 @@ public final class VehicleFactory {
           3);
       for (int x = -2; x <= 2; x++)
         embedded.setBlock(new BlockPos(x, 2, 0), VehicleParts.STRUT.get().defaultBlockState(), 3);
-      if (design == TrackDesign.FREE_SPIN) {
+      if (design == TrackDesign.REVISED) {
+        for (int z : new int[] {-3, 3})
+          for (int x = -2; x <= 2; x++)
+            embedded.setBlock(
+                new BlockPos(x, 1, z), VehicleParts.REVISED_STRUT.get().defaultBlockState(), 3);
+      }
+      if (design.pairedRows()) {
         for (int z = -3; z <= 3; z++)
           embedded.setBlock(new BlockPos(0, 2, z), VehicleParts.STRUT.get().defaultBlockState(), 3);
         for (int z : new int[] {-3, 3})
-          for (int x = -2; x <= 2; x++)
+          for (int x = -2; x <= 2 && design != TrackDesign.REVISED; x++)
             embedded.setBlock(
                 new BlockPos(x, 2, z), VehicleParts.STRUT.get().defaultBlockState(), 3);
       }
       for (int sign : new int[] {-1, 1}) {
-        for (double longitudinal :
-            design == TrackDesign.FREE_SPIN ? new double[] {-3, 3} : new double[] {0}) {
+        for (double longitudinal : design.pairedRows() ? new double[] {-3, 3} : new double[] {0}) {
           double side = 3 * sign;
           var parentCenter = chassis.getPlot().getCenterBlock();
           var world =
@@ -115,6 +127,8 @@ public final class VehicleFactory {
           var carrier = new FoundationData.Carrier(body.getUniqueId(), side);
           carrier.capture = true;
           carrier.longitudinal = longitudinal;
+          carrier.childPivotOffset = design.childPivotOffset();
+          carrier.pivotHeight = 2 + carrier.childPivotOffset;
           vehicle.carriers.add(carrier);
           carrier.seats =
               design != TrackDesign.LEGACY
@@ -128,25 +142,29 @@ public final class VehicleFactory {
           plot.newEmptyChunk(plot.getCenterChunk());
           var blocks = plot.getEmbeddedLevelAccessor();
           var axle =
-              design == TrackDesign.FREE_SPIN
-                  ? VehicleParts.FREE_SPIN_AXLE.get()
-                  : VehicleParts.AXLE.get();
+              design == TrackDesign.REVISED
+                  ? VehicleParts.REVISED_AXLE.get()
+                  : design == TrackDesign.FREE_SPIN || design == TrackDesign.PAX
+                      ? VehicleParts.FREE_SPIN_AXLE.get()
+                      : VehicleParts.AXLE.get();
           blocks.setBlock(BlockPos.ZERO, axle.defaultBlockState(), 3);
           blocks.setBlock(new BlockPos(sign, 0, 0), axle.defaultBlockState(), 3);
           for (var seat : carrier.seats) {
             var block =
-                design.family.driven()
-                    ? VehicleParts.ARROW_SEAT.get()
-                    : design == TrackDesign.FREE_SPIN
-                        ? VehicleParts.FREE_SPIN_SEAT.get()
-                        : VehicleParts.LEGACY_SEAT.get();
+                switch (design) {
+                  case ARROW -> VehicleParts.ARROW_SEAT.get();
+                  case LEGACY -> VehicleParts.LEGACY_SEAT.get();
+                  case FREE_SPIN -> VehicleParts.FREE_SPIN_SEAT.get();
+                  case REVISED -> VehicleParts.REVISED_SEAT.get();
+                  case PAX -> VehicleParts.PAX_SEAT.get();
+                };
             blocks.setBlock(
                 seat,
                 block
                     .defaultBlockState()
                     .setValue(
                         CarrierSeatBlock.FACING,
-                        (design == TrackDesign.FREE_SPIN ? longitudinal > 0 : seat.getZ() > 0)
+                        (design.pairedRows() ? longitudinal > 0 : seat.getZ() > 0)
                             ? Direction.SOUTH
                             : Direction.NORTH),
                 3);

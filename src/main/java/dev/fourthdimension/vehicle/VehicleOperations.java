@@ -48,6 +48,12 @@ public final class VehicleOperations {
   }
 
   public static void capture(ServerLevel level, FoundationData.Vehicle vehicle) {
+    var winch = dev.fourthdimension.shuttle.ShuttleRuntime.owner(level, vehicle.chassis);
+    if (winch != null
+        && winch.phase != dev.fourthdimension.shuttle.ShuttleWinchEntity.Phase.BOARDING) {
+      winch.fail("Operator emergency capture: inspect the shuttle before recovery");
+      return;
+    }
     for (var v : consist(level, vehicle)) {
       v.stopping = true;
       v.carriers.forEach(c -> c.capture = true);
@@ -57,6 +63,9 @@ public final class VehicleOperations {
   }
 
   public static void restraints(ServerLevel level, FoundationData.Vehicle vehicle, boolean closed) {
+    if (!closed && dev.fourthdimension.shuttle.ShuttleRuntime.running(level, vehicle.chassis))
+      throw new IllegalArgumentException(
+          "Shuttle restraints remain closed until final station capture");
     var consist = consist(level, vehicle);
     for (var v : consist)
       if (!Boarding.ready(level, v))
@@ -70,6 +79,13 @@ public final class VehicleOperations {
   }
 
   public static void dispatch(ServerLevel level, FoundationData.Vehicle vehicle) {
+    if (vehicle.family == dev.fourthdimension.contract.Family.PAX) {
+      var winch = dev.fourthdimension.shuttle.ShuttleRuntime.owner(level, vehicle.chassis);
+      if (winch == null)
+        throw new IllegalArgumentException("Bind a powered shuttle winch before PAX dispatch");
+      winch.start();
+      return;
+    }
     var data = FoundationData.get(level);
     var consist = consist(level, vehicle);
     for (var v : consist) {
@@ -143,14 +159,19 @@ public final class VehicleOperations {
   public static void brake(ServerLevel level, FoundationData.Vehicle vehicle, double dt) {
     var container = SubLevelContainer.getContainer(level);
     var pipeline = container.physicsSystem().getPipeline();
-    var ids = List.of(vehicle.chassis);
+    if (!(container.getSubLevel(vehicle.chassis) instanceof ServerSubLevel parent)) return;
+    var velocity = pipeline.getLinearVelocity(parent, new Vector3d());
+    double speed = velocity.length();
+    if (speed == 0) return;
+    var reduction = velocity.mul(-Math.min(1, 6 * dt / speed));
+    var ids = new ArrayList<UUID>();
+    ids.add(vehicle.chassis);
+    vehicle.carriers.forEach(c -> ids.add(c.body));
     for (var id : ids)
       if (container.getSubLevel(id) instanceof ServerSubLevel body) {
-        var velocity = pipeline.getLinearVelocity(body, new Vector3d());
-        double speed = velocity.length();
-        if (speed > 0)
-          pipeline.addLinearAndAngularVelocity(
-              body, velocity.mul(-Math.min(1, 6 * dt / speed)), new Vector3d());
+        // Brake the common train translation once per body. Braking only the light
+        // chassis lets the loaded carrier joints feed momentum back into it.
+        pipeline.addLinearAndAngularVelocity(body, reduction, new Vector3d());
       }
   }
 }

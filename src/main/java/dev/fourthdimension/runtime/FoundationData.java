@@ -11,7 +11,7 @@ import net.minecraft.world.level.saveddata.SavedData;
 
 /** World-owned authoritative bindings. Native Sable bodies persist poses and velocities. */
 public final class FoundationData extends SavedData {
-  public static final int SCHEMA = 3;
+  public static final int SCHEMA = 4;
   // Keep full functional snapshots below Minecraft's one-megabyte custom-payload limit.
   public static final int MAX_PROFILE_KEYS = 8192;
   public static final String VARIANT = "foundation_v1";
@@ -135,6 +135,7 @@ public final class FoundationData extends SavedData {
     public List<BlockPos> seats = List.of(new BlockPos(0, -1, 0));
     public double pivotHeight = 2;
     public double longitudinal;
+    public double childPivotOffset;
     public double ballast;
 
     public Carrier(UUID body, double side) {
@@ -201,6 +202,7 @@ public final class FoundationData extends SavedData {
         c.putDouble("omega", carrier.omega);
         c.putBoolean("capture", carrier.capture);
         c.putDouble("pivot_height", carrier.pivotHeight);
+        c.putDouble("child_pivot_offset", carrier.childPivotOffset);
         c.putLongArray("seats", carrier.seats.stream().mapToLong(BlockPos::asLong).toArray());
         ListTag occupancy = new ListTag();
         for (UUID occupant : carrier.occupants) occupancy.add(NbtUtils.createUUID(occupant));
@@ -224,7 +226,10 @@ public final class FoundationData extends SavedData {
   }
 
   public static FoundationData load(CompoundTag root, HolderLookup.Provider registries) {
-    if (root.getInt("schema") != SCHEMA && root.getInt("schema") != 2 && root.getInt("schema") != 1)
+    if (root.getInt("schema") != SCHEMA
+        && root.getInt("schema") != 3
+        && root.getInt("schema") != 2
+        && root.getInt("schema") != 1)
       throw new IllegalArgumentException("Unsupported fourthdimension save schema");
     FoundationData data = new FoundationData();
     var rails = root.getList("rails", Tag.TAG_COMPOUND);
@@ -295,6 +300,7 @@ public final class FoundationData extends SavedData {
         var c = (CompoundTag) group;
         var carrier = new Carrier(c.getUUID("body"), c.getDouble("side"));
         carrier.longitudinal = c.getDouble("longitudinal");
+        carrier.childPivotOffset = c.getDouble("child_pivot_offset");
         carrier.ballast = c.getDouble("ballast");
         if (!Double.isFinite(carrier.longitudinal)
             || Math.abs(carrier.longitudinal) > 3
@@ -308,7 +314,10 @@ public final class FoundationData extends SavedData {
         carrier.pivotHeight = c.contains("pivot_height") ? c.getDouble("pivot_height") : 2;
         if (c.contains("seats"))
           carrier.seats = Arrays.stream(c.getLongArray("seats")).mapToObj(BlockPos::of).toList();
-        if (!Double.isFinite(carrier.pivotHeight)
+        if (!Double.isFinite(carrier.childPivotOffset)
+            || carrier.childPivotOffset < -.5
+            || carrier.childPivotOffset > 0
+            || !Double.isFinite(carrier.pivotHeight)
             || carrier.pivotHeight < 0
             || carrier.pivotHeight > 4
             || carrier.seats.isEmpty()
@@ -333,15 +342,23 @@ public final class FoundationData extends SavedData {
         }
         vehicle.carriers.add(carrier);
       }
-      if (vehicle.family == Family.FREE_SPIN && !VARIANT.equals(vehicle.variant)) {
-        if (vehicle.carriers.size() != 4
-            || vehicle.carriers.stream().anyMatch(c -> c.seats.size() != 2)
-            || vehicle.carriers.stream().map(c -> c.body).distinct().count() != 4)
-          throw new IllegalArgumentException("Free Spin requires four distinct two-seat carriers");
-        for (int i = 0; i < 4; i++) {
+      if (!VARIANT.equals(vehicle.variant)) {
+        var layout = dev.fourthdimension.track.TrackDesign.byVariant(vehicle.variant);
+        if (vehicle.carriers.size() != layout.groups()
+            || vehicle.carriers.stream()
+                .anyMatch(
+                    c ->
+                        c.seats.size()
+                            != (layout == dev.fourthdimension.track.TrackDesign.LEGACY ? 4 : 2))
+            || vehicle.carriers.stream().map(c -> c.body).distinct().count() != layout.groups())
+          throw new IllegalArgumentException("Carrier topology does not match " + vehicle.variant);
+        for (int i = 0; i < layout.groups(); i++) {
           var carrier = vehicle.carriers.get(i);
-          if (carrier.side != (i < 2 ? -3 : 3) || carrier.longitudinal != (i % 2 == 0 ? -3 : 3))
-            throw new IllegalArgumentException("Free Spin carrier order or pivot geometry changed");
+          if (carrier.side != (i < layout.groups() / 2 ? -3 : 3)
+              || carrier.longitudinal != (layout.pairedRows() ? (i % 2 == 0 ? -3 : 3) : 0)
+              || carrier.childPivotOffset != layout.childPivotOffset()
+              || carrier.pivotHeight != 2 + layout.childPivotOffset())
+            throw new IllegalArgumentException("Carrier order or pivot geometry changed");
         }
       }
       if (data.vehicles.put(vehicle.chassis, vehicle) != null)

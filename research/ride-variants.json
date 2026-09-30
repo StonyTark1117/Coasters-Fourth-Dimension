@@ -32,14 +32,19 @@
       "source": "https://www.intamin.com/product/zac-spin-coaster/",
       "confirmed": "No generation-specific topology established by the primary source inspected.",
       "planned": "Independently rotating carrier preset with revised pivot geometry, pending verification.",
-      "unverified": "Exact second-generation seating and pivot arrangement; no installation or historical specification asserted."
+      "unverified": "Exact second-generation seating and pivot arrangement; no installation or historical specification asserted.",
+      "brochure": "https://www.intamin.com/wp-content/uploads/2019/09/IAR-2020-Flyer-RollerCoaster-zac-spin-coaster.pdf",
+      "chosen_specification": "Original inspired eight-seat variant: four independent pairs, longitudinal \u00b13, lateral \u00b13, parent pivot height 1.5, child hinge offset -0.5. Native empty pair mass 4, first moment 1.5, hinge inertia 1.9947916667. Historical generation geometry remains unverified.",
+      "specification_document": "docs/REVISED-SHUTTLE.md"
     },
     {
       "id": "pax_bumerang",
-      "source": "https://www.pax.ru/upload/Бумеранг%20–%20две%20петли%2040м.pdf",
-      "confirmed": "Free inertial seat rotation, winch lift, release, and reverse return described in manufacturer brochure.",
+      "source": "https://www.pax.ru/upload/\u0411\u0443\u043c\u0435\u0440\u0430\u043d\u0433%20\u2013%20\u0434\u0432\u0435%20\u043f\u0435\u0442\u043b\u0438%2040\u043c.pdf",
+      "confirmed": "Free inertial seat rotation; specification section lists four four-rider cars (sixteen riders), physical carriage catch, lift/release, return braking, and unloading. A larger twenty-rider installation is described separately in the same brochure.",
       "planned": "Linked free-spin shuttle with lift catch/release and final station capture.",
-      "unverified": "Exact vehicle geometry; compact and tall examples are design targets rather than copied installation specifications."
+      "unverified": "Exact vehicle geometry; compact and tall examples are design targets rather than copied installation specifications.",
+      "brochure_sha256": "824b41bb6d7ddd5dec1e5b3cd7b977b2ae4f32fb062af30e2e1d0c10a0be8a3b",
+      "chosen_specification": "Original sixteen-seat train, maximum four cars, native six-block couplings, two independently rotating pairs per car; fixed Create-powered winch and physical constrained carriage. Compact/tall two-spike examples are game layouts, not manufacturer loop replicas."
     }
   ],
   "track_strategy": {

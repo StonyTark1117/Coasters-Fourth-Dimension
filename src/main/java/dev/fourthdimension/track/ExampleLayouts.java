@@ -31,13 +31,16 @@ public final class ExampleLayouts {
   public static void register(RegisterCommandsEvent event) {
     var root = Commands.literal("fd").requires(s -> s.hasPermission(2));
     var demo = Commands.literal("demo");
-    for (var design : TrackDesign.values())
+    for (var design : TrackDesign.values()) {
+      if (design == TrackDesign.PAX) continue;
       demo.then(
           Commands.literal(
                   switch (design) {
                     case ARROW -> "arrow";
                     case LEGACY -> "legacy";
                     case FREE_SPIN -> "free_spin";
+                    case REVISED -> "revised";
+                    case PAX -> "pax";
                   })
               .executes(
                   ctx -> {
@@ -60,12 +63,16 @@ public final class ExampleLayouts {
                       return 0;
                     }
                   }));
+    }
     root.then(demo);
     event.getDispatcher().register(root);
   }
 
   public static FoundationData.Vehicle create(
       ServerLevel level, BlockPos origin, TrackDesign design) {
+    if (design == TrackDesign.PAX)
+      throw new IllegalArgumentException(
+          "Use /fd demo pax or pax_tall for a physical shuttle example");
     if (Math.abs((long) origin.getX()) > 950 || Math.abs((long) origin.getZ()) > 950)
       throw new IllegalArgumentException("Example circuits must stay near origin");
     for (var pos : BlockPos.betweenClosed(origin.offset(-7, -3, -8), origin.offset(39, 13, 60)))

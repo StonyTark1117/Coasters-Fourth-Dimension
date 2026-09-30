@@ -56,6 +56,7 @@ public final class BoardingStationEntity extends BlockEntity {
                   < 8 * 8;
     }
     if (v != null
+        && v.family != dev.fourthdimension.contract.Family.PAX
         && ((signal && nearby && !v.stopping) || (!signal && station.powered && nearby))) {
       try {
         if (signal) VehicleOperations.capture(level, v);

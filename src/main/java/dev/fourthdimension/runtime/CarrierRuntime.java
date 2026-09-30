@@ -65,6 +65,7 @@ public final class CarrierRuntime {
     if (container == null) return;
     var data = FoundationData.get(level);
     var pipeline = physics.getPipeline();
+    dev.fourthdimension.shuttle.ShuttleRuntime.tick(level, event.getTimeStep());
     for (var vehicle : data.vehicles.values()) {
       var parentRaw = container.getSubLevel(vehicle.chassis);
       if (!(parentRaw instanceof ServerSubLevel parent) || parent.isRemoved()) continue;
@@ -124,7 +125,8 @@ public final class CarrierRuntime {
                           p.getX() + .5 + carrier.side,
                           p.getY() + .5 + carrier.pivotHeight,
                           p.getZ() + .5 + carrier.longitudinal),
-                      new Vector3d(c.getX() + .5, c.getY() + .5, c.getZ() + .5),
+                      new Vector3d(
+                          c.getX() + .5, c.getY() + .5 + carrier.childPivotOffset, c.getZ() + .5),
                       new Vector3d(1, 0, 0),
                       new Vector3d(1, 0, 0)));
           handle.setContactsEnabled(false);

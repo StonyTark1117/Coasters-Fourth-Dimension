@@ -29,6 +29,32 @@ public final class VehicleParts {
           () ->
               new CarrierSeatBlock(
                   BlockBehaviour.Properties.of().strength(3).noOcclusion(), DyeColor.BLUE));
+  public static final DeferredBlock<CarrierSeatBlock> REVISED_SEAT =
+      BLOCKS.register(
+          "revised_seat",
+          () ->
+              new CarrierSeatBlock(
+                  BlockBehaviour.Properties.of().strength(3).noOcclusion(), DyeColor.PURPLE));
+  public static final DeferredBlock<CarrierSeatBlock> PAX_SEAT =
+      BLOCKS.register(
+          "pax_seat",
+          () ->
+              new CarrierSeatBlock(
+                  BlockBehaviour.Properties.of().strength(3).noOcclusion(), DyeColor.GREEN));
+  public static final DeferredBlock<Block> REVISED_AXLE =
+      BLOCKS.register(
+          "revised_axle",
+          () ->
+              new MechanicalPartBlock(
+                  BlockBehaviour.Properties.of().strength(4).noOcclusion(),
+                  Block.box(0, -2, 6, 16, 2, 10)));
+  public static final DeferredBlock<Block> REVISED_STRUT =
+      BLOCKS.register(
+          "revised_strut",
+          () ->
+              new MechanicalPartBlock(
+                  BlockBehaviour.Properties.of().strength(4).noOcclusion(),
+                  Block.box(0, 12, 4, 16, 20, 12)));
   public static final DeferredBlock<Block> AXLE =
       BLOCKS.register(
           "carrier_axle",

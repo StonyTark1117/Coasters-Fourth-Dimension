@@ -1,10 +1,10 @@
 # Coasters: Fourth Dimension addon plan
 
-Implementation update (2026-09-30): FD001–FD008 have a validated native Sable foundation prototype. See [acceptance evidence and limits](docs/FOUNDATION.md) and [package statuses](ROADMAP.md). The design below remains the target for later content releases.
+Implementation update (2026-09-30): foundation, bounded 0.1, and bounded 0.2 gates have acceptance evidence. The revised ZacSpin and physical PAX shuttle are in development toward the 0.9.0 goal; see [new-family progress and limits](docs/REVISED-SHUTTLE.md) and [package statuses](ROADMAP.md). The design below remains the target for unfinished release work.
 
 Plan researched September 30, 2026. This is a proposed implementation, supported by project pages, inspection of released JARs, and selected upstream source files. No mod has been implemented or tested in Minecraft yet.
 
-Use [ROADMAP.md](ROADMAP.md) for addressable work packages, dependencies, acceptance criteria, and release gates through 1.0. IDs such as FD107 identify implementation tasks; D01–D18 below identify design sections. Keep these IDs stable so later requests can name a precise scope. FD001–FD008 are implemented and validated for the bounded foundation prototype; later packages remain planned.
+Use [ROADMAP.md](ROADMAP.md) for addressable work packages, dependencies, acceptance criteria, and release gates through 1.0. IDs such as FD107 identify implementation tasks; D01–D18 below identify design sections. Keep these IDs stable so later requests can name a precise scope. Completion and evidence belong to the individual package statuses; a development version number is not proof that a release gate has passed.
 
 Build an addon for Create: Coasters Simulated covering controlled, freely rotating, magnet-assisted, and shuttle 4D coasters. Ship original functional tracks, working vehicles, rotating seat carriers, spin-control equipment, and rider integration across several ride families. Reuse the base mod’s track graph, cart physics, linking, and lift system where suitable. Track Styles remains an optional integration; its release schedule must not block ours.
 

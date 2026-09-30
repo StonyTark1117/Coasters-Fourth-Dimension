@@ -1,0 +1,32 @@
+Development evidence, 2026-09-30. Not a release acceptance gate.
+Command: JAVA_HOME=/usr/lib/jvm/java-21-openjdk ./gradlew build runGameTestServer
+
+FD_REVISED_MASS mass=4.0 firstMoment=1.5 inertia=1.9947916666666585
+FD_REVISED_MASS mass=4.0 firstMoment=1.5 inertia=1.9947916666666585
+FD_REVISED_MASS mass=4.0 firstMoment=1.5 inertia=1.9947916666666585
+FD_REVISED_MASS mass=4.0 firstMoment=1.5 inertia=1.9947916666666585
+FD_SHUTTLE phase=LIFTING distance=59.07979295672928 center=( 6.005E+2  1.811E+2  6.054E+2) max=62.67979295672933 fault=
+FD_SHUTTLE phase=LIFTING distance=51.079792956729165 center=( 6.005E+2  1.813E+2  5.974E+2) max=62.67979295672933 fault=
+FD_SHUTTLE phase=FAULT distance=44.679792956729074 center=( 6.005E+2  1.824E+2  5.907E+2) max=62.67979295672933 fault=Winch power lost: retain the train; inspect and resume or recover
+FD_SHUTTLE phase=FAULT distance=44.679792956729074 center=( 6.005E+2  1.824E+2  5.907E+2) max=62.67979295672933 fault=Winch power lost: retain the train; inspect and resume or recover
+FD_SHUTTLE phase=FAULT distance=44.679792956729074 center=( 6.005E+2  1.824E+2  5.907E+2) max=62.67979295672933 fault=Winch power lost: retain the train; inspect and resume or recover
+FD_SHUTTLE phase=LIFTING distance=37.079792956728966 center=( 6.005E+2  1.846E+2  5.840E+2) max=62.67979295672933 fault=
+FD_SHUTTLE phase=LIFTING distance=29.079792956728852 center=( 6.005E+2  1.880E+2  5.768E+2) max=62.67979295672933 fault=
+FD_SHUTTLE phase=LIFTING distance=21.07979295672874 center=( 6.005E+2  1.921E+2  5.700E+2) max=62.67979295672933 fault=
+FD_SHUTTLE phase=LIFTING distance=13.079792956728678 center=( 6.005E+2  1.967E+2  5.635E+2) max=62.67979295672933 fault=
+FD_SHUTTLE phase=LIFTING distance=6.160491252814871 center=( 6.005E+2  2.010E+2  5.578E+2) max=62.67979295672933 fault=
+FD_SHUTTLE phase=LIFTING distance=3.1219259195287234 center=( 6.005E+2  2.030E+2  5.553E+2) max=62.67979295672933 fault=
+FD_SHUTTLE phase=OUTBOUND distance=5.84999999999999 center=( 6.005E+2  1.991E+2  5.603E+2) max=62.67979295672933 fault=
+FD_SHUTTLE phase=OUTBOUND distance=9.850000000000009 center=( 6.005E+2  1.846E+2  5.840E+2) max=62.67979295672933 fault=
+FD_SHUTTLE phase=OUTBOUND distance=13.850000000000065 center=( 6.005E+2  1.811E+2  6.172E+2) max=71.00721318908819 fault=
+FD_SHUTTLE_CHUNK_RELOAD recovered=true carriage=f2e43062-33dd-492c-9e1e-f9c72505d4fa
+FD_SHUTTLE phase=OUTBOUND distance=17.850000000000122 center=( 6.005E+2  1.834E+2  6.437E+2) max=98.12298051580868 fault=
+FD_SHUTTLE phase=RETURNING distance=21.85000000000018 center=( 6.005E+2  1.848E+2  6.467E+2) max=103.57138748609654 fault=
+FD_SHUTTLE phase=RETURNING distance=25.850000000000236 center=( 6.005E+2  1.811E+2  6.268E+2) max=103.57138748609654 fault=
+FD_SHUTTLE phase=CAPTURING distance=26.350000000000243 center=( 6.005E+2  1.811E+2  6.098E+2) max=103.57138748609654 fault=
+FD_SHUTTLE phase=CAPTURING distance=62.79764038025437 center=( 6.005E+2  1.811E+2  6.087E+2) max=103.57138748609654 fault=
+FD_SHUTTLE_TALL cycles=2 maximum=142.94324102134905 station=82.92133833155415
+FD_REVISED_NATIVE angles=[-0.7889219871564247, -0.8112944308567169, -0.6380970679020933, -0.7136392228422992]..[0.695419943100824, 0.6539755741543957, 0.6943854228577984, 0.6663929713598111] extent=[32.50425112150509, 52.49993913972105] ready=true fault=
+[11:41:41] [Server thread/INFO] [minecraft/GameTestServer]: ========= 18 GAME TESTS COMPLETE IN 46.79 s ======================
+[11:41:41] [Server thread/INFO] [minecraft/GameTestServer]: All 18 required tests passed :)
+BUILD SUCCESSFUL in 58s

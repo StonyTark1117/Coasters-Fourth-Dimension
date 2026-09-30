@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "SAS",
+    "ITI",
+    "ICI"
+  ],
+  "key": {
+    "S": {
+      "item": "create:red_seat"
+    },
+    "A": {
+      "item": "minecraft:iron_bars"
+    },
+    "I": {
+      "tag": "c:ingots/iron"
+    },
+    "T": {
+      "item": "fourthdimension:revised_zacspin_track"
+    },
+    "C": {
+      "item": "simulatedcoasters:coaster_cart"
+    }
+  },
+  "result": {
+    "id": "fourthdimension:revised_zacspin_car",
+    "count": 1
+  }
+}

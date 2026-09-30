@@ -1,6 +1,6 @@
 # Coasters: Fourth Dimension implementation roadmap to 1.0
 
-This is the addressable execution plan for the design in [PLAN.md](PLAN.md). Foundation packages FD001–FD008 are **done for the bounded prototype**; their implementation, runtime evidence, and limits are recorded in [foundation acceptance](docs/FOUNDATION.md). FD101–FD109 are **done for the bounded 0.1 build**; see [acceptance evidence and limits](docs/PLAYABLE.md). Later packages remain **planned**. Version numbers define scope and order, not dates.
+This is the addressable execution plan for the design in [PLAN.md](PLAN.md). Foundation packages FD001–FD008 are **done for the bounded prototype**; their implementation, runtime evidence, and limits are recorded in [foundation acceptance](docs/FOUNDATION.md). FD101–FD109 and FD201–FD204 are **done for their bounded builds**; see [0.1 acceptance](docs/PLAYABLE.md) and [0.2 acceptance](docs/MAGNETIC.md). Version 0.3 is in progress toward the active 0.9.0 goal; later gates remain planned. Version numbers define scope and order, not dates.
 
 Refer to a package by its permanent ID, for example “implement FD104” or “review FD303.” Keep IDs stable when adding work; split a package using a suffix such as FD104A rather than renumbering existing packages. Record its status, implementation references, and validation evidence under its heading as work proceeds. Statuses are planned, in progress, blocked, and done. A package is done only when its acceptance criteria have evidence, not merely when code exists.
 
@@ -239,6 +239,8 @@ Ship the magnetic family with original track, usable equipment, instructions, an
 
 ### FD301 Resolve revised ZacSpin design evidence
 
+**Status: done (2026-09-30), inspired topology specification.** See [primary evidence, original geometry, and measured mass properties](docs/REVISED-SHUTTLE.md). Generation-specific replica fidelity remains unclaimed.
+
 **Depends on:** FD005. **Design:** D01, D18.
 
 Investigate primary references for revised seating, pivots, and carrier coupling. Document the chosen design and which details are confirmed versus original game approximations.
@@ -246,6 +248,8 @@ Investigate primary references for revised seating, pivots, and carrier coupling
 **Done when:** there is a reviewable topology/pivot specification. If exact historical geometry remains unverified, the deliverable must be labeled an inspired variant and must not claim exact replica fidelity.
 
 ### FD302 Build the revised ZacSpin variant
+
+**Status: in progress.** Original track, four independent paired rotors, lowered pivots, eight actual riders, native circuit traversal, and NBT round-trip have automated evidence. Dedicated-server restart and multiplayer acceptance remain required; see [progress](docs/REVISED-SHUTTLE.md).
 
 **Depends on:** FD204, FD301. **Design:** D01, D02, D09, D11.
 
@@ -255,6 +259,8 @@ Build the revised carrier preset, vehicle, and corresponding track contract/mode
 
 ### FD303 Build the PAX shuttle train and track
 
+**Status: in progress.** Four-car native coupling, sixteen actual riders, guarded route validation, gravity reversal, retained rail engagement, and two cycles of a taller example have automated evidence. Lifecycle and dedicated-server checks remain required.
+
 **Depends on:** FD204. **Design:** D01–D03, D14.
 
 Build a linked free-spin shuttle train, its original matching track, and guarded spike/end behavior. Prototype loaded coupling and reverse traversal.
@@ -262,6 +268,8 @@ Build a linked free-spin shuttle train, its original matching track, and guarded
 **Done when:** the train reverses while retaining carrier state and track engagement, respects its track family, and cannot mistake an open endpoint jump for a valid shuttle turnaround.
 
 ### FD304 Implement shuttle lift and capture
+
+**Status: in progress.** A Create-powered native carriage physically catches, lifts, releases, and recaptures the train. Automated power-loss hold/resume, station restraint checks, loss of route physics availability, winch block-entity reload, and physical recovery pass. Full dedicated-server restart and multiplayer acceptance remain required; see [progress](docs/REVISED-SHUTTLE.md).
 
 **Depends on:** FD303, FD106. **Design:** D14, D16.
 

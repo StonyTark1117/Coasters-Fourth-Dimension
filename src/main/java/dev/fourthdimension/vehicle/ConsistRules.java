@@ -12,15 +12,20 @@ public final class ConsistRules {
 
   public static boolean canCouple(Level level, SubLevel a, SubLevel b, double distance) {
     var data = EligibilityHooks.data(level);
-    if (data == null) return false;
+    if (data == null || a.getUniqueId().equals(b.getUniqueId())) return false;
     var first = data.vehicles.get(a.getUniqueId());
     var second = data.vehicles.get(b.getUniqueId());
     if (first == null && second == null)
       return FamilyControllers.find(a).isEmpty() && FamilyControllers.find(b).isEmpty();
+    var linked = new java.util.HashSet<>(CoasterCartTrainLinkConstraint.getTrainLinkedCartIds(a));
+    linked.addAll(CoasterCartTrainLinkConstraint.getTrainLinkedCartIds(b));
+    linked.add(a.getUniqueId());
+    linked.add(b.getUniqueId());
     return first != null
         && second != null
-        && first.family == Family.ARROW
-        && second.family == Family.ARROW
+        && (first.family == Family.ARROW || first.family == Family.PAX)
+        && second.family == first.family
+        && (first.family != Family.PAX || linked.size() <= 4)
         && first.variant.equals(second.variant)
         && !FoundationData.VARIANT.equals(first.variant)
         && Double.isFinite(distance)
@@ -32,12 +37,14 @@ public final class ConsistRules {
   public static boolean eligible(Level level, SubLevel parent, FoundationData.Vehicle vehicle) {
     var data = EligibilityHooks.data(level);
     var container = SubLevelContainer.getContainer(level);
+    if (vehicle.family == Family.PAX
+        && CoasterCartTrainLinkConstraint.getTrainLinkedCartIds(parent).size() > 4) return false;
     for (var id : CoasterCartTrainLinkConstraint.getTrainLinkedCartIds(parent)) {
       if (id.equals(vehicle.chassis)) continue;
       var other = data.vehicles.get(id);
       if (other == null
-          || other.family != Family.ARROW
-          || vehicle.family != Family.ARROW
+          || other.family != vehicle.family
+          || !(vehicle.family == Family.ARROW || vehicle.family == Family.PAX)
           || !other.variant.equals(vehicle.variant)
           || container == null
           || container.getSubLevel(id) == null) return false;
