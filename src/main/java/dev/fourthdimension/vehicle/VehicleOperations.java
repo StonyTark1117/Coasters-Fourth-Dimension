@@ -113,6 +113,7 @@ public final class VehicleOperations {
       throw new IllegalArgumentException("Damping must be 0..250 and ballast 0..240 per carrier");
     vehicle.damping = damping;
     vehicle.ballast = ballast;
+    vehicle.carriers.forEach(c -> c.ballast = 0);
     vehicle.revision++;
     FoundationData.get(level).setDirty();
   }
@@ -127,6 +128,15 @@ public final class VehicleOperations {
       v.maintenance = retained;
       v.revision++;
     }
+    FoundationData.get(level).setDirty();
+  }
+
+  public static void loadingPreset(ServerLevel level, FoundationData.Vehicle vehicle, int preset) {
+    if (vehicle.family != dev.fourthdimension.contract.Family.FREE_SPIN || preset < 0 || preset > 2)
+      throw new IllegalArgumentException("Select a Free Spin loading preset");
+    tune(level, vehicle, vehicle.damping, 0);
+    for (int i = 0; i < vehicle.carriers.size(); i++)
+      vehicle.carriers.get(i).ballast = preset == 1 || (preset == 2 && i == 0) ? 160 : 0;
     FoundationData.get(level).setDirty();
   }
 

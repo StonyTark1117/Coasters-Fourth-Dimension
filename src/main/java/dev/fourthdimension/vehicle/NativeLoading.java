@@ -46,7 +46,8 @@ public final class NativeLoading {
       // characteristics.
       desired.put(
           seat.above(),
-          MASS_PER_RIDER * passengers.size() + vehicle.ballast / (100 * carrier.seats.size()));
+          MASS_PER_RIDER * passengers.size()
+              + (vehicle.ballast + carrier.ballast) / (100 * carrier.seats.size()));
     }
     var positions = new HashSet<>(applied.masses.keySet());
     positions.addAll(desired.keySet());

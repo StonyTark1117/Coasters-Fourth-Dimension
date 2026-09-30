@@ -23,7 +23,7 @@ import org.joml.Vector3d;
 @PrefixGameTestTemplate(false)
 public final class OrdinaryCartGameTests {
   @GameTest(template = "empty", timeoutTicks = 180)
-  public static void bareBearingsFitBothTracksWithoutReceivingRotation(GameTestHelper helper) {
+  public static void bareBearingsFitAllTracksWithoutReceivingRotation(GameTestHelper helper) {
     var level = helper.getLevel();
     for (int x = 36; x <= 41; x++) for (int z = 6; z <= 10; z++) level.setChunkForced(x, z, true);
     var player =
@@ -46,6 +46,10 @@ public final class OrdinaryCartGameTests {
       player.setItemInHand(InteractionHand.MAIN_HAND, TrackItems.ARROW.get().getDefaultInstance());
       rails.add(TrackPlacement.connect(level, from, to, design, player, player.getMainHandItem()));
     }
+    rails.getLast().magnets =
+        List.of(
+            new dev.fourthdimension.physics.MagneticSpan(
+                1, 30, dev.fourthdimension.physics.MagneticSpan.Mode.INDUCE, 1, 20, .1, 15));
     helper.runAtTickTime(
         15,
         () -> {
@@ -92,6 +96,9 @@ public final class OrdinaryCartGameTests {
             helper.assertTrue(
                 Math.abs(body.logicalPose().orientation().x()) < .05,
                 "Ordinary bearing received seat rotation");
+            helper.assertTrue(
+                dev.fourthdimension.magnetic.MagneticRuntime.audit(body).impulses == 0,
+                "Ordinary bearing received magnetic impulses");
             container.removeSubLevel(body, SubLevelRemovalReason.REMOVED);
           }
           for (var rail : rails) {

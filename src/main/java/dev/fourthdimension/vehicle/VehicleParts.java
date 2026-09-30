@@ -23,12 +23,25 @@ public final class VehicleParts {
           () ->
               new CarrierSeatBlock(
                   BlockBehaviour.Properties.of().strength(3).noOcclusion(), DyeColor.YELLOW));
+  public static final DeferredBlock<CarrierSeatBlock> FREE_SPIN_SEAT =
+      BLOCKS.register(
+          "free_spin_seat",
+          () ->
+              new CarrierSeatBlock(
+                  BlockBehaviour.Properties.of().strength(3).noOcclusion(), DyeColor.BLUE));
   public static final DeferredBlock<Block> AXLE =
       BLOCKS.register(
           "carrier_axle",
           () ->
               new MechanicalPartBlock(
                   BlockBehaviour.Properties.of().strength(4).noOcclusion(), true));
+  public static final DeferredBlock<Block> FREE_SPIN_AXLE =
+      BLOCKS.register(
+          "free_spin_axle",
+          () ->
+              new MechanicalPartBlock(
+                  BlockBehaviour.Properties.of().strength(4).noOcclusion(),
+                  Block.box(0, 6, 6, 16, 10, 10)));
   public static final DeferredBlock<Block> STRUT =
       BLOCKS.register(
           "wing_strut",

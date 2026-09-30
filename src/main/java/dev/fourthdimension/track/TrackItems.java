@@ -34,10 +34,32 @@ public final class TrackItems {
           () ->
               new dev.fourthdimension.vehicle.VehicleItem(
                   new Item.Properties().stacksTo(1), TrackDesign.LEGACY));
+  public static final DeferredItem<dev.fourthdimension.vehicle.VehicleItem> FREE_SPIN_CAR =
+      ITEMS.register(
+          "free_spin_car",
+          () ->
+              new dev.fourthdimension.vehicle.VehicleItem(
+                  new Item.Properties().stacksTo(1), TrackDesign.FREE_SPIN));
+  public static final DeferredItem<FamilyTrackItem> FREE_SPIN =
+      ITEMS.register(
+          "free_spin_track",
+          () -> new FamilyTrackItem(new Item.Properties(), TrackDesign.FREE_SPIN));
   public static final DeferredItem<dev.fourthdimension.editor.RotationTool> ROTATION_TOOL =
       ITEMS.register(
           "rotation_tool",
           () -> new dev.fourthdimension.editor.RotationTool(new Item.Properties().stacksTo(1)));
+  public static final DeferredItem<dev.fourthdimension.magnetic.MagneticEquipmentItem> INDUCER =
+      ITEMS.register(
+          "magnetic_inducer",
+          () ->
+              new dev.fourthdimension.magnetic.MagneticEquipmentItem(
+                  new Item.Properties(), dev.fourthdimension.physics.MagneticSpan.Mode.INDUCE));
+  public static final DeferredItem<dev.fourthdimension.magnetic.MagneticEquipmentItem> DAMPER =
+      ITEMS.register(
+          "magnetic_damper",
+          () ->
+              new dev.fourthdimension.magnetic.MagneticEquipmentItem(
+                  new Item.Properties(), dev.fourthdimension.physics.MagneticSpan.Mode.DAMP));
   public static final DeferredItem<FamilyTrackItem> ARROW =
       ITEMS.register(
           "arrow_track", () -> new FamilyTrackItem(new Item.Properties(), TrackDesign.ARROW));

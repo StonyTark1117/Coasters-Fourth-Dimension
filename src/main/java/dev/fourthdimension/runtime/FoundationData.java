@@ -11,7 +11,7 @@ import net.minecraft.world.level.saveddata.SavedData;
 
 /** World-owned authoritative bindings. Native Sable bodies persist poses and velocities. */
 public final class FoundationData extends SavedData {
-  public static final int SCHEMA = 2;
+  public static final int SCHEMA = 3;
   // Keep full functional snapshots below Minecraft's one-megabyte custom-payload limit.
   public static final int MAX_PROFILE_KEYS = 8192;
   public static final String VARIANT = "foundation_v1";
@@ -45,6 +45,7 @@ public final class FoundationData extends SavedData {
     public final String variant;
     public long geometryHash, revision;
     public boolean valid = true;
+    public List<dev.fourthdimension.physics.MagneticSpan> magnets = List.of();
 
     public Rail(BlockPos from, BlockPos to, Family family, RotationProfile profile) {
       this(from, to, family, profile, UUID.randomUUID(), VARIANT, 0, 0, true);
@@ -133,6 +134,8 @@ public final class FoundationData extends SavedData {
     public final Map<UUID, BlockPos> riderSeats = new HashMap<>();
     public List<BlockPos> seats = List.of(new BlockPos(0, -1, 0));
     public double pivotHeight = 2;
+    public double longitudinal;
+    public double ballast;
 
     public Carrier(UUID body, double side) {
       this.body = body;
@@ -165,6 +168,7 @@ public final class FoundationData extends SavedData {
         keys.add(k);
       }
       tag.put("profile", keys);
+      tag.put("magnets", dev.fourthdimension.magnetic.MagneticData.save(rail.magnets));
       tracks.add(tag);
     }
     root.put("rails", tracks);
@@ -191,6 +195,8 @@ public final class FoundationData extends SavedData {
         CompoundTag c = new CompoundTag();
         c.putUUID("body", carrier.body);
         c.putDouble("side", carrier.side);
+        c.putDouble("longitudinal", carrier.longitudinal);
+        c.putDouble("ballast", carrier.ballast);
         c.putDouble("angle", carrier.angle);
         c.putDouble("omega", carrier.omega);
         c.putBoolean("capture", carrier.capture);
@@ -218,7 +224,7 @@ public final class FoundationData extends SavedData {
   }
 
   public static FoundationData load(CompoundTag root, HolderLookup.Provider registries) {
-    if (root.getInt("schema") != SCHEMA && root.getInt("schema") != 1)
+    if (root.getInt("schema") != SCHEMA && root.getInt("schema") != 2 && root.getInt("schema") != 1)
       throw new IllegalArgumentException("Unsupported fourthdimension save schema");
     FoundationData data = new FoundationData();
     var rails = root.getList("rails", Tag.TAG_COMPOUND);
@@ -250,6 +256,10 @@ public final class FoundationData extends SavedData {
               tag.getLong("geometry_hash"),
               tag.getLong("revision"),
               !tag.contains("valid") || tag.getBoolean("valid")));
+      var loadedRail = data.rails.getLast();
+      loadedRail.magnets =
+          dev.fourthdimension.magnetic.MagneticData.load(tag.getList("magnets", Tag.TAG_COMPOUND));
+      dev.fourthdimension.magnetic.MagneticData.validate(loadedRail);
     }
     for (Tag raw : vehicles) {
       CompoundTag tag = (CompoundTag) raw;
@@ -284,6 +294,14 @@ public final class FoundationData extends SavedData {
       for (Tag group : groups) {
         var c = (CompoundTag) group;
         var carrier = new Carrier(c.getUUID("body"), c.getDouble("side"));
+        carrier.longitudinal = c.getDouble("longitudinal");
+        carrier.ballast = c.getDouble("ballast");
+        if (!Double.isFinite(carrier.longitudinal)
+            || Math.abs(carrier.longitudinal) > 3
+            || !Double.isFinite(carrier.ballast)
+            || carrier.ballast < 0
+            || carrier.ballast > 240)
+          throw new IllegalArgumentException("Invalid carrier offset or loading");
         carrier.angle = c.getDouble("angle");
         carrier.omega = c.getDouble("omega");
         carrier.capture = c.getBoolean("capture");
@@ -315,10 +333,23 @@ public final class FoundationData extends SavedData {
         }
         vehicle.carriers.add(carrier);
       }
+      if (vehicle.family == Family.FREE_SPIN && !VARIANT.equals(vehicle.variant)) {
+        if (vehicle.carriers.size() != 4
+            || vehicle.carriers.stream().anyMatch(c -> c.seats.size() != 2)
+            || vehicle.carriers.stream().map(c -> c.body).distinct().count() != 4)
+          throw new IllegalArgumentException("Free Spin requires four distinct two-seat carriers");
+        for (int i = 0; i < 4; i++) {
+          var carrier = vehicle.carriers.get(i);
+          if (carrier.side != (i < 2 ? -3 : 3) || carrier.longitudinal != (i % 2 == 0 ? -3 : 3))
+            throw new IllegalArgumentException("Free Spin carrier order or pivot geometry changed");
+        }
+      }
       if (data.vehicles.put(vehicle.chassis, vehicle) != null)
         throw new IllegalArgumentException("Duplicate vehicle identity");
     }
     data.checkProfileCapacity(0);
+    if (data.rails.stream().mapToInt(r -> r.magnets.size()).sum() > 512)
+      throw new IllegalArgumentException("Magnetic equipment capacity exceeded");
     return data;
   }
 

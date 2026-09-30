@@ -33,7 +33,12 @@ public final class ExampleLayouts {
     var demo = Commands.literal("demo");
     for (var design : TrackDesign.values())
       demo.then(
-          Commands.literal(design == TrackDesign.ARROW ? "arrow" : "legacy")
+          Commands.literal(
+                  switch (design) {
+                    case ARROW -> "arrow";
+                    case LEGACY -> "legacy";
+                    case FREE_SPIN -> "free_spin";
+                  })
               .executes(
                   ctx -> {
                     try {
@@ -84,7 +89,7 @@ public final class ExampleLayouts {
     var anchors = new ArrayList<BlockPos>();
     for (int index = 0; index < offsets.length; index++) {
       var offset = offsets[index];
-      int height = design == TrackDesign.LEGACY && (index == 2 || index == 3) ? 6 : 0;
+      int height = design != TrackDesign.ARROW && (index == 2 || index == 3) ? 6 : 0;
       var pos = origin.offset(offset[0], height, offset[1]);
       anchors.add(pos);
       level.setBlockAndUpdate(
@@ -165,6 +170,22 @@ public final class ExampleLayouts {
         rail.profile = rail.profile.scaledTo(TrackGeometry.table(level, stored).length());
         rail.geometryHash = TrackGeometry.fingerprint(level, stored);
       }
+    if (design == TrackDesign.FREE_SPIN) {
+      var magneticRail =
+          data.rails.stream()
+              .filter(r -> r.matches(anchors.get(4), anchors.get(5)))
+              .findFirst()
+              .orElseThrow();
+      magneticRail.magnets =
+          List.of(
+              new dev.fourthdimension.physics.MagneticSpan(
+                  3, 9, dev.fourthdimension.physics.MagneticSpan.Mode.INDUCE, 1, 4, .2, 1),
+              new dev.fourthdimension.physics.MagneticSpan(
+                  12, 18, dev.fourthdimension.physics.MagneticSpan.Mode.INDUCE, -1, 4, .2, 8),
+              new dev.fourthdimension.physics.MagneticSpan(
+                  24, 32, dev.fourthdimension.physics.MagneticSpan.Mode.DAMP, 1, 5, .2, 15));
+      magneticRail.revision++;
+    }
     var stationPos = origin.offset(-6, 0, 20);
     level.setBlockAndUpdate(stationPos, StationContent.STATION.get().defaultBlockState());
     var station = (BoardingStationEntity) level.getBlockEntity(stationPos);

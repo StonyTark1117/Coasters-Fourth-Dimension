@@ -24,17 +24,35 @@ public final class RidePreview {
   private static UUID selected;
   private static RotationProfile controlled;
   private static String label;
+  private static int loadingPreset;
+  private static double previewDamping = .8;
+  private static java.util.List<MagneticSpan> magnets = java.util.List.of();
 
   private RidePreview() {}
 
-  public static void select(FoundationData.Rail rail, RotationProfile profile) {
+  public static void select(
+      FoundationData.Rail rail,
+      RotationProfile profile,
+      int preset,
+      double damping,
+      java.util.List<MagneticSpan> equipment) {
+    if (preset < 0 || preset > 2 || !Double.isFinite(damping) || damping < 0 || damping > 250)
+      throw new IllegalArgumentException("Invalid preview loading/damping");
+    dev.fourthdimension.magnetic.MagneticData.validate(rail, equipment);
     selected = rail.id;
     controlled = profile;
     cachedAt = Long.MIN_VALUE;
+    loadingPreset = preset;
+    previewDamping = damping;
+    magnets = java.util.List.copyOf(equipment);
     label =
         rail.family.driven()
             ? "Controlled poses | authored angles | conservative swept clearance"
-            : "Free example | empty | 45 deg, 0 rad/s | 2 blocks/s | conservative swept clearance";
+            : "Free reference | "
+                + new String[] {"empty", "160 kg ballast/group", "160 kg left-front only"}[preset]
+                + " | 45 deg, 0 rad/s | powered 2 blocks/s | damping "
+                + damping
+                + " | original mass model; live motion varies | swept clearance";
   }
 
   @SubscribeEvent
@@ -98,62 +116,96 @@ public final class RidePreview {
     var mc = Minecraft.getInstance();
     var table = TrackGeometry.table(mc.level, edge);
     var output = new java.util.ArrayList<Line>();
-    var state = new FreeRotor.State(Math.PI / 4, 0);
-    var loading = new FreeRotor.Loading(6, 3, 7.25);
+    boolean magnetic = rail.family == dev.fourthdimension.contract.Family.FREE_SPIN;
+    int groups = magnetic ? 4 : 2;
+    var states = new FreeRotor.State[groups];
+    java.util.Arrays.fill(states, new FreeRotor.State(Math.PI / 4, 0));
     double previousDistance = 0;
+    boolean canonical = edge.from().equals(rail.from);
     for (double distance = 0; distance <= table.length(); distance += 2) {
-      double t = table.parameterAt(distance);
+      double t = table.parameterAt(canonical ? distance : table.length() - distance);
       var point = CoasterPathGraphManager.sampleEdgePosition(mc.level, edge, t);
       var basis =
           CoasterPathTrackFrame.trackBasisAtHit(
               mc.level, new CoasterPathTrackFrame.GraphHit(point, edge, t));
-      if (!rail.family.driven()) {
-        // Empty legacy reference: fixed forward speed, native game's gravity scale; no random
-        // phase.
-        double elapsed = (distance - previousDistance) / 2;
-        int steps = (int) Math.ceil(elapsed * 120);
-        for (int n = 0; n < steps; n++) {
-          double sample = previousDistance + (distance - previousDistance) * (n + .5) / steps;
-          double sampleT = table.parameterAt(sample);
-          var p = CoasterPathGraphManager.sampleEdgePosition(mc.level, edge, sampleT);
-          var frame =
-              CoasterPathTrackFrame.trackBasisAtHit(
-                  mc.level, new CoasterPathTrackFrame.GraphHit(p, edge, sampleT));
-          double longitudinalTorque =
-              -9.81 * frame.forward().y * loading.firstMoment() * Math.cos(state.angle());
-          state =
-              FreeRotor.step(
-                  state, loading, 9.81 * frame.up().y, .8, longitudinalTorque, elapsed / steps);
+      var right = basis.right().scale(canonical ? 1 : -1);
+      // Native cart local +Z points opposite track forward (quaternionFromTrackBasis).
+      var facing = basis.forward().scale(canonical ? -1 : 1);
+      for (int group = 0; group < groups; group++) {
+        double side = group < groups / 2 ? -3 : 3;
+        double longitudinal = magnetic ? (group % 2 == 0 ? -3 : 3) : 0;
+        var state = states[group];
+        double ballast = loadingPreset == 1 || (loadingPreset == 2 && group == 0) ? 1.6 : 0;
+        var loading =
+            magnetic
+                ? new FreeRotor.Loading(4 + ballast, 2.625, 4.111979166666667 + ballast * .12)
+                : new FreeRotor.Loading(6 + ballast, 3, 7.25 + ballast * 1.12);
+        if (!rail.family.driven()) {
+          double elapsed = (distance - previousDistance) / 2;
+          int steps = (int) Math.ceil(elapsed * 120);
+          for (int n = 0; n < steps; n++) {
+            double from = previousDistance + (distance - previousDistance) * n / steps;
+            double to = previousDistance + (distance - previousDistance) * (n + 1) / steps;
+            double sampleT =
+                table.parameterAt(canonical ? (from + to) / 2 : table.length() - (from + to) / 2);
+            var p = CoasterPathGraphManager.sampleEdgePosition(mc.level, edge, sampleT);
+            var frame =
+                CoasterPathTrackFrame.trackBasisAtHit(
+                    mc.level, new CoasterPathTrackFrame.GraphHit(p, edge, sampleT));
+            double torque =
+                -9.81
+                    * frame.forward().y
+                    * (canonical ? 1 : -1)
+                    * loading.firstMoment()
+                    * Math.cos(state.angle());
+            state =
+                FreeRotor.step(
+                    state, loading, 9.81 * frame.up().y, previewDamping, torque, elapsed / steps);
+            if (magnetic)
+              for (var span : magnets)
+                if (span.targets(group)) {
+                  double exposure = span.weightedLength(from - longitudinal, to - longitudinal) / 2;
+                  double mass = 37 + (loadingPreset == 1 ? 6.4 : loadingPreset == 2 ? 1.6 : 0);
+                  double cross = loading.firstMoment() * Math.cos(state.angle());
+                  var impulse =
+                      PassiveCoupler.impulse(
+                          mass,
+                          loading.inertia(),
+                          cross,
+                          mass * 2 + cross * state.omega(),
+                          cross * 2 + loading.inertia() * state.omega(),
+                          span,
+                          exposure);
+                  // Declared powered-speed reference: propulsion restores longitudinal speed.
+                  state = new FreeRotor.State(state.angle(), state.omega() + impulse.rotation());
+                }
+          }
         }
-      }
-      double angle =
-          rail.family.driven()
-              ? controlled.angleAt(
-                  edge.from().equals(rail.from) ? distance : table.length() - distance)
-              : state.angle();
-      var up = basis.up().scale(Math.cos(angle)).add(basis.forward().scale(Math.sin(angle)));
-      var forward =
-          basis.forward().scale(Math.cos(angle)).subtract(basis.up().scale(Math.sin(angle)));
-      for (double side : new double[] {-3, 3}) {
-        var pivot = point.add(basis.up().scale(2.3125)).add(basis.right().scale(side));
-        box(output, pivot.add(up.scale(-.65)), basis.right(), up, forward, .8, .7, .45, 0x67e5ff);
-      }
-      if (((int) distance) % 6 == 0) {
-        for (double side : new double[] {-3.5, 3.5}) {
-          var center = point.add(basis.up().scale(2.3125)).add(basis.right().scale(side));
-          boolean obstruction =
+        states[group] = state;
+        double angle = rail.family.driven() ? controlled.angleAt(distance) : state.angle();
+        var up = basis.up().scale(Math.cos(angle)).add(facing.scale(Math.sin(angle)));
+        var forward = facing.scale(Math.cos(angle)).subtract(basis.up().scale(Math.sin(angle)));
+        var pivot =
+            point
+                .add(basis.up().scale(2.3125))
+                .add(right.scale(side))
+                .add(facing.scale(longitudinal));
+        box(output, pivot.add(up.scale(-.65)), right, up, forward, .8, .7, .45, 0x67e5ff);
+        if (((int) distance) % 6 == 0) {
+          var center = pivot.add(right.scale(side < 0 ? -.5 : .5));
+          boolean blocked =
               dev.fourthdimension.vehicle.SweptClearance.obstructed(
-                  mc.level, center, basis.right(), basis.up(), basis.forward(), 1.5, 2.7, 2.7);
+                  mc.level, center, right, basis.up(), facing, 1.5, 2.7, 2.7);
           box(
               output,
               center,
-              basis.right(),
+              right,
               basis.up(),
-              basis.forward(),
+              facing,
               1.5,
               2.7,
               2.7,
-              obstruction ? 0xff5b5b : 0xf2d36b);
+              blocked ? 0xff5b5b : 0xf2d36b);
         }
       }
       previousDistance = distance;

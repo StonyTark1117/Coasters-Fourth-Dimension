@@ -7,7 +7,7 @@ def write(path,value):
     p=ROOT/path;p.parent.mkdir(parents=True,exist_ok=True);p.write_text(json.dumps(value,indent=2)+'\n')
 def box(a,b,texture):
     return {'from':a,'to':b,'faces':{face:{'texture':texture} for face in ('north','south','east','west','up','down')}}
-for family,color in [('arrow','red_concrete'),('legacy','yellow_concrete')]:
+for family,color in [('arrow','red_concrete'),('legacy','yellow_concrete'),('free_spin','blue_concrete')]:
     for closed in (False,True):
         parts=[box([1,2,2],[15,5,14],'#cushion'),box([1,4,12],[15,23,15],'#cushion'),
                box([0,1,2],[2,6,15],'#metal'),box([14,1,2],[16,6,15],'#metal')]
@@ -24,15 +24,15 @@ for family,color in [('arrow','red_concrete'),('legacy','yellow_concrete')]:
         for closed in (False,True):
             variants[f'facing={direction},restrained={str(closed).lower()}']={'model':f'fourthdimension:block/{family}_seat_{"closed" if closed else "open"}','y':angle}
     write(f'assets/fourthdimension/blockstates/{family}_seat.json',{'variants':variants})
-for name,a,b in [('carrier_axle',[0,6,0],[16,10,3]),('wing_strut',[0,4,4],[16,12,12])]:
+for name,a,b in [('carrier_axle',[0,6,0],[16,10,3]),('free_spin_axle',[0,6,6],[16,10,10]),('wing_strut',[0,4,4],[16,12,12])]:
     write(f'assets/fourthdimension/models/block/{name}.json',{'parent':'minecraft:block/block','textures':{'metal':'minecraft:block/iron_block','particle':'minecraft:block/iron_block'},'elements':[box(a,b,'#metal')]})
     write(f'assets/fourthdimension/blockstates/{name}.json',{'variants':{'':{'model':f'fourthdimension:block/{name}'}}})
-for name,family in [('arrow_car','arrow'),('legacy_zacspin_car','legacy')]:
+for name,family in [('arrow_car','arrow'),('legacy_zacspin_car','legacy'),('free_spin_car','free_spin')]:
     write(f'assets/fourthdimension/models/item/{name}.json',{'parent':f'fourthdimension:block/{family}_seat_closed'})
-for name,pigment in [('arrow_track','red_dye'),('legacy_zacspin_track','yellow_dye')]:
+for name,pigment in [('arrow_track','red_dye'),('legacy_zacspin_track','yellow_dye'),('free_spin_track','blue_dye')]:
     write(f'data/fourthdimension/recipe/{name}.json',{'type':'minecraft:crafting_shaped','pattern':['III','CDC','III'],
           'key':{'I':{'tag':'c:ingots/iron'},'C':{'item':'minecraft:copper_ingot'},'D':{'item':f'minecraft:{pigment}'}},'result':{'id':f'fourthdimension:{name}','count':16}})
-for name,track in [('arrow_car','arrow_track'),('legacy_zacspin_car','legacy_zacspin_track')]:
+for name,track in [('arrow_car','arrow_track'),('legacy_zacspin_car','legacy_zacspin_track'),('free_spin_car','free_spin_track')]:
     write(f'data/fourthdimension/recipe/{name}.json',{'type':'minecraft:crafting_shaped','pattern':['SAS','ITI','ICI'],
           'key':{'S':{'item':'create:red_seat'},'A':{'item':'minecraft:iron_bars'},'I':{'tag':'c:ingots/iron'},'T':{'item':f'fourthdimension:{track}'},'C':{'item':'simulatedcoasters:coaster_cart'}},'result':{'id':f'fourthdimension:{name}','count':1}})
 
@@ -50,3 +50,8 @@ for facing,angle in [('north',0),('east',90),('south',180),('west',270)]:
    variants[f'facing={facing},ready={str(ready).lower()},locked={str(locked).lower()}']={'model':f'fourthdimension:block/boarding_station_{int(ready)}{int(locked)}','y':angle}
 write('assets/fourthdimension/blockstates/boarding_station.json',{'variants':variants})
 write('assets/fourthdimension/models/block/boarding_station.json',{'parent':'fourthdimension:block/boarding_station_00'})
+
+for name,color in [('magnetic_inducer','orange_concrete'),('magnetic_damper','cyan_concrete')]:
+    write(f'assets/fourthdimension/models/item/{name}.json',{'parent':'minecraft:block/cube_all','textures':{'all':f'minecraft:block/{color}'}})
+    write(f'data/fourthdimension/recipe/{name}.json',{'type':'minecraft:crafting_shaped','pattern':['ICI','RCR','ICI'],'key':{'I':{'tag':'c:ingots/iron'},'C':{'item':'minecraft:copper_ingot'},'R':{'item':'minecraft:redstone' if name=='magnetic_inducer' else 'minecraft:quartz'}},'result':{'id':f'fourthdimension:{name}','count':2}})
+write('assets/fourthdimension/models/item/free_spin_track.json',{'parent':'fourthdimension:item/legacy_zacspin_track','textures':{'spine':'minecraft:block/blue_concrete','particle':'minecraft:block/blue_concrete'}})

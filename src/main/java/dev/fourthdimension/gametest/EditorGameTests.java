@@ -30,31 +30,43 @@ public final class EditorGameTests {
           new FoundationData.Rail(
               from,
               from.offset(0, 0, 20),
-              TrackDesign.ARROW.family,
+              TrackDesign.FREE_SPIN.family,
               new dev.fourthdimension.physics.RotationProfile(keys),
               UUID.randomUUID(),
-              TrackDesign.ARROW.variant,
+              TrackDesign.FREE_SPIN.variant,
               0,
               0,
               true));
     }
+    for (int i = 0; i < 64; i++)
+      data.rails.get(i).magnets =
+          java.util.stream.IntStream.range(0, 8)
+              .mapToObj(
+                  n ->
+                      new dev.fourthdimension.physics.MagneticSpan(
+                          n,
+                          n + .5,
+                          dev.fourthdimension.physics.MagneticSpan.Mode.INDUCE,
+                          1,
+                          4,
+                          .2,
+                          15))
+              .toList();
     data.checkProfileCapacity(0);
     rejects(helper, () -> data.checkProfileCapacity(1), "Global profile budget exceeded");
     for (int i = 0; i < 64; i++) {
-      var v = new FoundationData.Vehicle(UUID.randomUUID(), TrackDesign.LEGACY.family);
-      v.variant = TrackDesign.LEGACY.variant;
+      var v = new FoundationData.Vehicle(UUID.randomUUID(), TrackDesign.FREE_SPIN.family);
+      v.variant = TrackDesign.FREE_SPIN.variant;
       v.fault = "x".repeat(256);
       for (int side : new int[] {-3, 3}) {
-        var c = new FoundationData.Carrier(UUID.randomUUID(), side);
-        c.seats =
-            List.of(
-                new BlockPos(0, -1, -1),
-                new BlockPos(1, -1, -1),
-                new BlockPos(0, -1, 1),
-                new BlockPos(1, -1, 1));
-        c.seats.forEach(seat -> c.riderSeats.put(UUID.randomUUID(), seat));
-        c.occupants = List.copyOf(c.riderSeats.keySet());
-        v.carriers.add(c);
+        for (int row : new int[] {-3, 3}) {
+          var c = new FoundationData.Carrier(UUID.randomUUID(), side);
+          c.longitudinal = row;
+          c.seats = List.of(new BlockPos(0, -1, 0), new BlockPos(1, -1, 0));
+          c.seats.forEach(seat -> c.riderSeats.put(UUID.randomUUID(), seat));
+          c.occupants = List.copyOf(c.riderSeats.keySet());
+          v.carriers.add(c);
+        }
       }
       data.vehicles.put(v.chassis, v);
     }
@@ -76,8 +88,8 @@ public final class EditorGameTests {
       helper.assertTrue(
           copy.rails.size() == 256
               && copy.vehicles.size() == 64
-              && copy.vehicles.values().iterator().next().carriers.getFirst().riderSeats.size()
-                  == 4,
+              && copy.vehicles.values().iterator().next().carriers.getFirst().riderSeats.size() == 2
+              && copy.rails.stream().mapToInt(r -> r.magnets.size()).sum() == 512,
           "Network round-trip lost identities or rider assignments");
     } finally {
       buf.release();

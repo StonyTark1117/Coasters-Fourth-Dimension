@@ -8,7 +8,8 @@ import java.util.Set;
 /** Original game-scale interfaces, measured in blocks relative to the main-rail centerline. */
 public enum TrackDesign {
   ARROW(Family.ARROW, "arrow_four_rail_v1", 0xb43b48),
-  LEGACY(Family.ZACSPIN, "zacspin_legacy_v1", 0xd8a32b);
+  LEGACY(Family.ZACSPIN, "zacspin_legacy_v1", 0xd8a32b),
+  FREE_SPIN(Family.FREE_SPIN, "sns_magnetic_v1", 0x377fbe);
   // Coasters 0.1.5 wheel renderer: path anchor .3125 + compensation .1875 + axle .1.
   // Main and upstop wheel rows are .55 apart, each with nominal radius .2.
   public static final double HALF_GAUGE = .772;
@@ -16,6 +17,8 @@ public enum TrackDesign {
   public static final double RAIL_HALF_WIDTH = .13125, RAIL_HALF_HEIGHT = .075;
   public static final double WHEEL_RADIUS = .2, WHEEL_ROW_SPACING = .55;
   public static final double TREAD_INNER = .625, TREAD_OUTER = .9375;
+  public static final double MAGNET_HALF_GAUGE = 1.6, MAGNET_HEIGHT = .65, MAGNET_RADIUS = .12;
+  public static final double MAGNET_SUPPORT_HEIGHT = -.55, MAGNET_SUPPORT_RADIUS = .055;
   public static final double CONTROL_HALF_GAUGE = 1.35, CONTROL_BASE_HEIGHT = -.85;
   // Direct rack approximation: 8 pi radians use .5 blocks of signed stroke.
   public static final double BLOCKS_PER_RADIAN = .5 / RotationProfile.MAX_ANGLE;
@@ -37,7 +40,9 @@ public enum TrackDesign {
         new Gear(2 * HALF_GAUGE, WHEEL_RADIUS, TREAD_OUTER, WHEEL_ROW_SPACING),
         family.driven()
             ? Set.of(Mechanism.ROTARY_CLEARANCE, Mechanism.CONTROL_RAILS)
-            : Set.of(Mechanism.ROTARY_CLEARANCE),
+            : family == Family.FREE_SPIN
+                ? Set.of(Mechanism.ROTARY_CLEARANCE, Mechanism.MAGNET_INTERFACE)
+                : Set.of(Mechanism.ROTARY_CLEARANCE),
         new Clearance(5, 5, 3));
   }
 

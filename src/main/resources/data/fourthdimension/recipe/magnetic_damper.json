@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "ICI",
+    "RCR",
+    "ICI"
+  ],
+  "key": {
+    "I": {
+      "tag": "c:ingots/iron"
+    },
+    "C": {
+      "item": "minecraft:copper_ingot"
+    },
+    "R": {
+      "item": "minecraft:quartz"
+    }
+  },
+  "result": {
+    "id": "fourthdimension:magnetic_damper",
+    "count": 2
+  }
+}

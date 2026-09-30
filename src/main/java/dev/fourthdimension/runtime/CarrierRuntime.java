@@ -123,7 +123,7 @@ public final class CarrierRuntime {
                       new Vector3d(
                           p.getX() + .5 + carrier.side,
                           p.getY() + .5 + carrier.pivotHeight,
-                          p.getZ() + .5),
+                          p.getZ() + .5 + carrier.longitudinal),
                       new Vector3d(c.getX() + .5, c.getY() + .5, c.getZ() + .5),
                       new Vector3d(1, 0, 0),
                       new Vector3d(1, 0, 0)));
@@ -181,6 +181,8 @@ public final class CarrierRuntime {
                   .toList();
         }
       }
+      dev.fourthdimension.magnetic.MagneticRuntime.tick(
+          level, vehicle, parent, event.getTimeStep());
       vehicle.boardingReady = dev.fourthdimension.vehicle.Boarding.ready(level, vehicle);
     }
     if (!data.vehicles.isEmpty()) data.setDirty();

@@ -1,0 +1,26 @@
+FD_SNAPSHOT_MAX bytes=659884
+FD_FREE angles=[-1.76683668459473, -1.811236073005772] maximum separation=0.7238598841292474
+FD02_CARRIER mass=4.0 inertia= 2.389E+0  3.260E-9  0.000E+0
+FD02_MASS_REFERENCE com=(-5.000E-1 -6.562E-1  0.000E+0) firstMoment=2.625 inertiaAboutPivot=4.111979166666667
+FD02_CARRIER mass=4.0 inertia= 2.389E+0  3.260E-9  0.000E+0
+FD02_MASS_REFERENCE com=(-5.000E-1 -6.562E-1  0.000E+0) firstMoment=2.625 inertiaAboutPivot=4.111979166666667
+FD02_CARRIER mass=4.0 inertia= 2.389E+0  1.630E-9  0.000E+0
+FD02_MASS_REFERENCE com=( 5.000E-1 -6.562E-1  0.000E+0) firstMoment=2.625 inertiaAboutPivot=4.111979166666667
+FD02_CARRIER mass=4.0 inertia= 2.389E+0  1.630E-9  0.000E+0
+FD02_MASS_REFERENCE com=( 5.000E-1 -6.562E-1  0.000E+0) firstMoment=2.625 inertiaAboutPivot=4.111979166666667
+FD_CONTENT_FREE excursions=[0.5395299261692921, 0.3829439206664921] angle=0.12935258931610727 omega=-0.254451052359288 mass=6.0
+FD_BOUNDARY direction=0 position=(-3.995E+2  1.011E+2  3.382E+2) fault=End of compatible track; capture and inspect the route
+FD_BOUNDARY direction=1 position=(-3.755E+2  1.011E+2  3.027E+2) fault=End of compatible track; capture and inspect the route
+FD_NATIVE at230 position=( 1.650E+1  8.162E+1  5.245E+1) from=BlockPos{x=16, y=80, z=16} angles=[12.124507171201124, 12.12320906187204] velocity=( 0.000E+0  0.000E+0  3.000E+0) disengaged=false
+FD02_SWEEP group=0 distance=0.07500000000000107 impulses=2 energy=-7.770511965922196
+FD02_SWEEP group=1 distance=0.0 impulses=0 energy=0.0
+FD02_SWEEP group=2 distance=0.0 impulses=0 energy=0.0
+FD02_SWEEP group=3 distance=0.0 impulses=0 energy=0.0
+FD_TRAIN maxTurn=6.281191335657813 maxAxleDifference=3.0235868666271344
+FD_TRAIN positions=[(-1.995E+2  1.131E+2  1.462E+2) bound=BlockPos{x=-200, y=112, z=136}->BlockPos{x=-200, y=112, z=172} fault=, (-1.995E+2  1.131E+2  1.402E+2) bound=BlockPos{x=-200, y=112, z=136}->BlockPos{x=-200, y=112, z=172} fault=]
+FD_DEMO family=ARROW angleRange=-0.0012738792756629446..6.281216091989634 maxXZ=32.50027493654636,52.500305463383484 ready=true fault=
+FD_DEMO family=ZACSPIN angleRange=-1.1712565216903301..0.48047259231050815 maxXZ=32.50483530946272,52.500000289785476 ready=true fault=
+FD02_NATIVE applications=733 maxEnergyIncrease=0.0 dissipated=445.49050248443905 maxSpinImpulse=0.24379332125260703 angles=[-0.8965406279605593, -0.975739504193838, -0.7089801664910655, -8.698662943524313]..[8.469451634553435, 0.6609483732246034, 0.6792320962470058, 0.5911047039548406] separation=15.145472023263387 maxXZ=[32.50490430764171, 52.49998490486141] fault=
+[10:17:20] [Server thread/INFO] [minecraft/GameTestServer]: ========= 14 GAME TESTS COMPLETE IN 16.32 s ======================
+[10:17:20] [Server thread/INFO] [minecraft/GameTestServer]: All 14 required tests passed :)
+BUILD SUCCESSFUL in 27s

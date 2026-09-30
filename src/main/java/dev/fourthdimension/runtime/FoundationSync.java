@@ -38,7 +38,7 @@ public final class FoundationSync {
 
   public static void register(RegisterPayloadHandlersEvent event) {
     event
-        .registrar("2")
+        .registrar("3")
         .playToClient(
             Snapshot.TYPE,
             Snapshot.CODEC,

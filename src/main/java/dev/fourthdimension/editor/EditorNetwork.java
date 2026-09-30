@@ -59,7 +59,7 @@ public final class EditorNetwork {
   }
 
   public static void register(RegisterPayloadHandlersEvent event) {
-    var registrar = event.registrar("2");
+    var registrar = event.registrar("3");
     registrar.playToClient(
         Target.TYPE, Target.CODEC, (p, c) -> c.enqueueWork(() -> openClient.accept(p)));
     registrar.playToServer(
@@ -117,6 +117,12 @@ public final class EditorNetwork {
         case 3 ->
             ProfileEditor.apply(
                 player, request.id, request.revision, rail.profile.reversed(), false);
+        case 4 ->
+            dev.fourthdimension.magnetic.MagneticData.apply(
+                player,
+                request.id,
+                request.revision,
+                dev.fourthdimension.magnetic.MagneticData.parse(request.value));
         default -> throw new IllegalArgumentException("Unknown profile operation");
       }
     } else {
@@ -141,6 +147,7 @@ public final class EditorNetwork {
             throw new IllegalArgumentException("Invalid tuning number");
           }
         }
+        case 17, 18, 19 -> VehicleOperations.loadingPreset(level, vehicle, request.action - 17);
         default -> throw new IllegalArgumentException("Unknown vehicle operation");
       }
       FoundationData.get(level).setDirty();

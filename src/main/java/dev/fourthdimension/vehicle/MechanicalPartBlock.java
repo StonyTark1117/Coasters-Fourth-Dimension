@@ -10,8 +10,12 @@ public final class MechanicalPartBlock extends Block {
   private final VoxelShape shape;
 
   public MechanicalPartBlock(Properties properties, boolean axle) {
+    this(properties, axle ? Block.box(0, 6, 0, 16, 10, 3) : Block.box(0, 4, 4, 16, 12, 12));
+  }
+
+  public MechanicalPartBlock(Properties properties, VoxelShape shape) {
     super(properties);
-    shape = axle ? Block.box(0, 6, 0, 16, 10, 3) : Block.box(0, 4, 4, 16, 12, 12);
+    this.shape = shape;
   }
 
   @Override

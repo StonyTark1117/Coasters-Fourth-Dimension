@@ -20,6 +20,8 @@ public final class RotationEditorScreen extends Screen {
   private long revision;
   private String status = "";
   private boolean free;
+  private boolean magnetic;
+  private int previewLoading;
 
   public RotationEditorScreen(EditorNetwork.Target target) {
     super(Component.literal("Fourth Dimension"));
@@ -51,6 +53,7 @@ public final class RotationEditorScreen extends Screen {
       }
       revision = v.revision;
       free = !v.family.driven();
+      magnetic = v.family == dev.fourthdimension.contract.Family.FREE_SPIN;
       status =
           v.family.id()
               + " | "
@@ -58,6 +61,17 @@ public final class RotationEditorScreen extends Screen {
               + " | "
               + (v.restraints ? "Restraints closed" : "Restraints open");
       value.setValue(v.damping + "," + v.ballast);
+      value.setTooltip(
+          net.minecraft.client.gui.components.Tooltip.create(
+              Component.literal(
+                  "Damping,uniform ballast kg. Current group ballast: "
+                      + v.carriers.stream()
+                          .map(
+                              c ->
+                                  String.format(
+                                      java.util.Locale.ROOT, "%.0f", v.ballast + c.ballast))
+                          .collect(Collectors.joining(" / "))
+                      + ". Applying uniform tuning resets per-group ballast.")));
       value.setEditable(free);
       addButton("Capture", left, top + 82, 10);
       addButton("Close restraints", left + 115, top + 82, 11);
@@ -66,6 +80,11 @@ public final class RotationEditorScreen extends Screen {
       addButton("Retain", left + 115, top + 108, 14);
       addButton("Release retention", left + 230, top + 108, 15);
       if (free) addButton("Apply tuning", left, top + 134, 16);
+      if (magnetic) {
+        addButton("Empty ballast", left, top + 186, 17);
+        addButton("Balanced ballast", left + 115, top + 186, 18);
+        addButton("Left-front load", left + 230, top + 186, 19);
+      }
     } else {
       var rail = data.rails.stream().filter(r -> r.id.equals(target.id())).findFirst().orElse(null);
       if (rail == null) {
@@ -74,6 +93,7 @@ public final class RotationEditorScreen extends Screen {
       }
       revision = rail.revision;
       free = !rail.family.driven();
+      magnetic = rail.family == dev.fourthdimension.contract.Family.FREE_SPIN;
       status =
           rail.variant
               + " | revision "
@@ -90,7 +110,19 @@ public final class RotationEditorScreen extends Screen {
                           + ":"
                           + Math.toDegrees(k.slope()))
               .collect(Collectors.joining(";")));
-      value.setEditable(!free);
+      if (magnetic) {
+        value.setValue(dev.fourthdimension.magnetic.MagneticData.format(rail.magnets));
+        value.setTooltip(
+            net.minecraft.client.gui.components.Tooltip.create(
+                Component.literal(
+                    "One span per semicolon: start:end:induce or damp:direction +/-1:strength"
+                        + " 0..20:falloff 0..0.5:target sum. Left-front=1, left-rear=2,"
+                        + " right-front=4, right-rear=8, all=15. Distances start at the section"
+                        + " first anchor. Requires equipment items; removing spans refunds"
+                        + " them.")));
+      }
+      value.setEditable(!free || magnetic);
+      if (magnetic) addButton("Apply magnets", left, top + 82, 4);
       if (!free) {
         addButton("Apply profile", left, top + 82, 0);
         addButton("Mirror angles", left + 115, top + 82, 2);
@@ -110,6 +142,21 @@ public final class RotationEditorScreen extends Screen {
       }
       addButton("Rebind geometry", left + 230, top + 108, 1);
     }
+    if (free)
+      addRenderableWidget(
+          Button.builder(
+                  Component.literal("Preview: empty"),
+                  b -> {
+                    previewLoading = (previewLoading + 1) % 3;
+                    b.setMessage(
+                        Component.literal(
+                            new String[] {
+                                  "Preview: empty", "Preview: balanced", "Preview: front load"
+                                }
+                                [previewLoading]));
+                  })
+              .bounds(left + 230, top + 134, 110, 20)
+              .build());
     addRenderableWidget(
         Button.builder(
                 Component.literal("Preview seats"),
@@ -131,7 +178,12 @@ public final class RotationEditorScreen extends Screen {
                         rail,
                         rail.family.driven() && !target.vehicle()
                             ? EditorNetwork.parse(value.getValue())
-                            : rail.profile);
+                            : rail.profile,
+                        previewLoading,
+                        target.vehicle() ? snapshot.vehicles.get(target.id()).damping : .8,
+                        magnetic && !target.vehicle()
+                            ? dev.fourthdimension.magnetic.MagneticData.parse(value.getValue())
+                            : rail.magnets);
                     onClose();
                   } catch (RuntimeException failure) {
                     status = "Preview: " + failure.getMessage();
@@ -165,7 +217,8 @@ public final class RotationEditorScreen extends Screen {
   @Override
   public void render(GuiGraphics graphics, int mouseX, int mouseY, float partialTick) {
     int left = width / 2 - 180, top = height / 2 - 100;
-    graphics.fill(left, top, left + 360, top + 200, 0xee171d25);
+    graphics.fill(
+        left, top, left + 360, top + (target.vehicle() && magnetic ? 232 : 200), 0xee171d25);
     graphics.drawString(font, title, left + 10, top + 10, 0xffffff);
     graphics.drawString(font, status, left + 10, top + 26, 0xf3d179);
     String hint =
@@ -174,7 +227,9 @@ public final class RotationEditorScreen extends Screen {
                 ? "Damping, ballast kg per carrier (80 kg per rider)"
                 : "Capture, close restraints, then dispatch")
             : (free
-                ? "Free-spin motion is tuned on the car"
+                ? magnetic
+                    ? "start:end:induce/damp:direction:strength:falloff:mask"
+                    : "Free-spin motion is tuned on the car"
                 : "distance:degrees:slope; ...  (angles remain unwrapped)");
     graphics.drawString(font, hint, left + 10, top + 42, 0xc2d2dd);
     super.render(graphics, mouseX, mouseY, partialTick);

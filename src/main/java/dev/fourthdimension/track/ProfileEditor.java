@@ -101,6 +101,11 @@ public final class ProfileEditor {
           rail.profile.scaledTo(TrackGeometry.table(player.level(), edge).length()),
           true);
     else {
+      double length = TrackGeometry.table(player.level(), edge).length();
+      double factor = length / rail.profile.keys().getLast().distance();
+      var magnets = rail.magnets.stream().map(span -> span.scaled(factor)).toList();
+      rail.profile = rail.profile.scaledTo(length);
+      rail.magnets = magnets;
       rail.geometryHash = TrackGeometry.fingerprint(player.level(), edge);
       rail.valid = true;
       rail.revision++;

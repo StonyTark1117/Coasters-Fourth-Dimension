@@ -197,6 +197,8 @@ Package a playable build with both original tracks, both vehicle families, essen
 
 ### FD201 Build the S&S Free Spin family
 
+**Status: done (2026-09-30), bounded 0.2 build.** See [implementation and acceptance evidence](docs/MAGNETIC.md). The near-origin and capacity limits remain; later families and integrations retain their own gates.
+
 **Depends on:** FD109. **Design:** D01, D02, D09.
 
 Confirm the chosen seat-group arrangement and build the eight-seat vehicle, matching functional track, and independent carrier definitions. Keep uncertain real-world coupling details explicitly labeled until verified.
@@ -204,6 +206,8 @@ Confirm the chosen seat-group arrangement and build the eight-seat vehicle, matc
 **Done when:** the vehicle carries eight riders with correct group transforms and family restrictions, and its full swept geometry clears the track and attachments.
 
 ### FD202 Implement magnetic spin equipment
+
+**Status: done (2026-09-30), bounded 0.2 build.** See [implementation and acceptance evidence](docs/MAGNETIC.md). The near-origin and capacity limits remain; later families and integrations retain their own gates.
 
 **Depends on:** FD201, FD006. **Design:** D11, D12.
 
@@ -213,6 +217,8 @@ Implement bounded inducer and damper spans with direction, strength, falloff, ca
 
 ### FD203 Add tuning and capture workflows
 
+**Status: done (2026-09-30), bounded 0.2 build.** See [implementation and acceptance evidence](docs/MAGNETIC.md). The near-origin and capacity limits remain; later families and integrations retain their own gates.
+
 **Depends on:** FD202, FD105, FD106. **Design:** D08, D11, D16.
 
 Expose magnetic-zone editing, loading presets, motion previews, and boarding capture for all carrier groups.
@@ -220,6 +226,8 @@ Expose magnetic-zone editing, loading presets, motion previews, and boarding cap
 **Done when:** users can compare declared loading/tuning cases, edits are validated, and every group must settle and align before restraint release.
 
 ### FD204 Version 0.2 gate
+
+**Status: done (2026-09-30), bounded 0.2 build.** See [implementation and acceptance evidence](docs/MAGNETIC.md). The near-origin and capacity limits remain; later families and integrations retain their own gates.
 
 **Depends on:** FD201–FD203.
 

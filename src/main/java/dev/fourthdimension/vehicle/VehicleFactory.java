@@ -43,14 +43,26 @@ public final class VehicleFactory {
       var body = SubLevelContainer.getContainer(level).getSubLevel(existing.chassis);
       var center = body == null ? null : CoasterCartResolve.cartCenterWorld(body);
       if (center != null
-          && center.distanceSquared(new Vector3d(bearing.x, bearing.y, bearing.z)) < 35.99)
-        throw new IllegalArgumentException("Leave at least six blocks between axles");
+          && center.distanceSquared(new Vector3d(bearing.x, bearing.y, bearing.z))
+              < (design == TrackDesign.FREE_SPIN
+                      || existing.family == dev.fourthdimension.contract.Family.FREE_SPIN
+                  ? 143.99
+                  : 35.99))
+        throw new IllegalArgumentException(
+            "Leave six blocks between axles, or twelve for a Free Spin car");
     }
     var basis = CoasterPathTrackFrame.trackBasisAtHit(level, hit);
     for (double side : new double[] {-3.5, 3.5}) {
       var center = hit.point().add(basis.up().scale(2.3125)).add(basis.right().scale(side));
       if (SweptClearance.obstructed(
-          level, center, basis.right(), basis.up(), basis.forward(), 1.5, 2.7, 2.7))
+          level,
+          center,
+          basis.right(),
+          basis.up(),
+          basis.forward(),
+          1.5,
+          2.7,
+          design == TrackDesign.FREE_SPIN ? 5.7 : 2.7))
         throw new IllegalArgumentException(
             "Clear the full wing and rider rotation envelope before placing this car");
     }
@@ -75,59 +87,80 @@ public final class VehicleFactory {
           3);
       for (int x = -2; x <= 2; x++)
         embedded.setBlock(new BlockPos(x, 2, 0), VehicleParts.STRUT.get().defaultBlockState(), 3);
+      if (design == TrackDesign.FREE_SPIN) {
+        for (int z = -3; z <= 3; z++)
+          embedded.setBlock(new BlockPos(0, 2, z), VehicleParts.STRUT.get().defaultBlockState(), 3);
+        for (int z : new int[] {-3, 3})
+          for (int x = -2; x <= 2; x++)
+            embedded.setBlock(
+                new BlockPos(x, 2, z), VehicleParts.STRUT.get().defaultBlockState(), 3);
+      }
       for (int sign : new int[] {-1, 1}) {
-        double side = 3 * sign;
-        var parentCenter = chassis.getPlot().getCenterBlock();
-        var world =
-            chassis
-                .logicalPose()
-                .transformPosition(
-                    new Vector3d(
-                        parentCenter.getX() + .5 + side,
-                        parentCenter.getY() + 2.5,
-                        parentCenter.getZ() + .5));
-        var pose = new Pose3d();
-        pose.position().set(world);
-        pose.orientation().set(orientation);
-        var body = (ServerSubLevel) container.allocateNewSubLevel(pose);
-        var carrier = new FoundationData.Carrier(body.getUniqueId(), side);
-        carrier.capture = true;
-        vehicle.carriers.add(carrier);
-        carrier.seats =
-            design.family.driven()
-                ? List.of(new BlockPos(0, -1, 0), new BlockPos(sign, -1, 0))
-                : List.of(
-                    new BlockPos(0, -1, -1),
-                    new BlockPos(sign, -1, -1),
-                    new BlockPos(0, -1, 1),
-                    new BlockPos(sign, -1, 1));
-        var plot = body.getPlot();
-        plot.newEmptyChunk(plot.getCenterChunk());
-        var blocks = plot.getEmbeddedLevelAccessor();
-        blocks.setBlock(BlockPos.ZERO, VehicleParts.AXLE.get().defaultBlockState(), 3);
-        blocks.setBlock(new BlockPos(sign, 0, 0), VehicleParts.AXLE.get().defaultBlockState(), 3);
-        for (var seat : carrier.seats) {
-          var block =
-              design.family.driven()
-                  ? VehicleParts.ARROW_SEAT.get()
-                  : VehicleParts.LEGACY_SEAT.get();
-          blocks.setBlock(
-              seat,
-              block
-                  .defaultBlockState()
-                  .setValue(
-                      CarrierSeatBlock.FACING, seat.getZ() > 0 ? Direction.SOUTH : Direction.NORTH),
-              3);
+        for (double longitudinal :
+            design == TrackDesign.FREE_SPIN ? new double[] {-3, 3} : new double[] {0}) {
+          double side = 3 * sign;
+          var parentCenter = chassis.getPlot().getCenterBlock();
+          var world =
+              chassis
+                  .logicalPose()
+                  .transformPosition(
+                      new Vector3d(
+                          parentCenter.getX() + .5 + side,
+                          parentCenter.getY() + 2.5,
+                          parentCenter.getZ() + .5 + longitudinal));
+          var pose = new Pose3d();
+          pose.position().set(world);
+          pose.orientation().set(orientation);
+          var body = (ServerSubLevel) container.allocateNewSubLevel(pose);
+          var carrier = new FoundationData.Carrier(body.getUniqueId(), side);
+          carrier.capture = true;
+          carrier.longitudinal = longitudinal;
+          vehicle.carriers.add(carrier);
+          carrier.seats =
+              design != TrackDesign.LEGACY
+                  ? List.of(new BlockPos(0, -1, 0), new BlockPos(sign, -1, 0))
+                  : List.of(
+                      new BlockPos(0, -1, -1),
+                      new BlockPos(sign, -1, -1),
+                      new BlockPos(0, -1, 1),
+                      new BlockPos(sign, -1, 1));
+          var plot = body.getPlot();
+          plot.newEmptyChunk(plot.getCenterChunk());
+          var blocks = plot.getEmbeddedLevelAccessor();
+          var axle =
+              design == TrackDesign.FREE_SPIN
+                  ? VehicleParts.FREE_SPIN_AXLE.get()
+                  : VehicleParts.AXLE.get();
+          blocks.setBlock(BlockPos.ZERO, axle.defaultBlockState(), 3);
+          blocks.setBlock(new BlockPos(sign, 0, 0), axle.defaultBlockState(), 3);
+          for (var seat : carrier.seats) {
+            var block =
+                design.family.driven()
+                    ? VehicleParts.ARROW_SEAT.get()
+                    : design == TrackDesign.FREE_SPIN
+                        ? VehicleParts.FREE_SPIN_SEAT.get()
+                        : VehicleParts.LEGACY_SEAT.get();
+            blocks.setBlock(
+                seat,
+                block
+                    .defaultBlockState()
+                    .setValue(
+                        CarrierSeatBlock.FACING,
+                        (design == TrackDesign.FREE_SPIN ? longitudinal > 0 : seat.getZ() > 0)
+                            ? Direction.SOUTH
+                            : Direction.NORTH),
+                3);
+          }
+          var center = plot.getCenterBlock();
+          body.logicalPose()
+              .rotationPoint()
+              .set(center.getX() + .5, center.getY() + .5, center.getZ() + .5);
+          body.logicalPose().position().set(world);
+          body.logicalPose().orientation().set(orientation);
+          body.updateLastPose();
+          pipeline.onStatsChanged(body);
+          pipeline.teleport(body, body.logicalPose().position(), body.logicalPose().orientation());
         }
-        var center = plot.getCenterBlock();
-        body.logicalPose()
-            .rotationPoint()
-            .set(center.getX() + .5, center.getY() + .5, center.getZ() + .5);
-        body.logicalPose().position().set(world);
-        body.logicalPose().orientation().set(orientation);
-        body.updateLastPose();
-        pipeline.onStatsChanged(body);
-        pipeline.teleport(body, body.logicalPose().position(), body.logicalPose().orientation());
       }
       CoasterCartTrackSnap.applyInitialSnapAfterSpawn(chassis, level, hit);
       data.setDirty();

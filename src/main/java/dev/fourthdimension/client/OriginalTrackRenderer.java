@@ -102,7 +102,9 @@ public final class OriginalTrackRenderer {
                     build(
                         edge,
                         TrackDesign.byVariant(rail.variant),
-                        edge.from().equals(rail.from) ? rail.profile : rail.profile.reversed()));
+                        edge.from().equals(rail.from) ? rail.profile : rail.profile.reversed(),
+                        rail.magnets,
+                        edge.from().equals(rail.from)));
             MESHES.put(rail.id, mesh);
           }
           draw(consumer, pose.last().pose(), mesh.quads, rail.valid ? 1f : .4f);
@@ -132,8 +134,9 @@ public final class OriginalTrackRenderer {
                     edge,
                     item.design,
                     new RotationProfile(
-                        List.of(
-                            new RotationProfile.Key(0, 0), new RotationProfile.Key(length, 0))));
+                        List.of(new RotationProfile.Key(0, 0), new RotationProfile.Key(length, 0))),
+                    List.of(),
+                    true);
             ghostKey = key;
           }
           draw(consumer, pose.last().pose(), ghost, .35f);
@@ -147,7 +150,11 @@ public final class OriginalTrackRenderer {
   }
 
   private static List<Quad> build(
-      CoasterPathEdge edge, TrackDesign design, RotationProfile profile) {
+      CoasterPathEdge edge,
+      TrackDesign design,
+      RotationProfile profile,
+      List<dev.fourthdimension.physics.MagneticSpan> magnets,
+      boolean canonical) {
     var level = Minecraft.getInstance().level;
     var table = TrackGeometry.table(level, edge);
     int count = Math.max(8, (int) Math.ceil(table.length() * 4));
@@ -227,6 +234,66 @@ public final class OriginalTrackRenderer {
       previous = points;
       oldRight = right;
       oldUp = up;
+    }
+    for (var span : magnets) {
+      Vec3[] last = null;
+      int panels = Math.max(1, (int) Math.ceil((span.end() - span.start()) * 4));
+      for (int n = 0; n <= panels; n++) {
+        double d = span.start() + (span.end() - span.start()) * n / panels;
+        double t = table.parameterAt(canonical ? d : table.length() - d);
+        var p = CoasterPathGraphManager.sampleEdgePosition(level, edge, t);
+        var basis =
+            CoasterPathTrackFrame.trackBasisAtHit(
+                level, new CoasterPathTrackFrame.GraphHit(p, edge, t));
+        Vec3[] points = {
+          p.add(basis.right().scale(-TrackDesign.MAGNET_HALF_GAUGE))
+              .add(basis.up().scale(TrackDesign.MAGNET_HEIGHT)),
+          p.add(basis.right().scale(TrackDesign.MAGNET_HALF_GAUGE))
+              .add(basis.up().scale(TrackDesign.MAGNET_HEIGHT))
+        };
+        if (last != null)
+          for (int side = 0; side < 2; side++)
+            tube(
+                result,
+                last[side],
+                points[side],
+                basis.right(),
+                basis.up(),
+                basis.right(),
+                basis.up(),
+                .12,
+                span.mode() == dev.fourthdimension.physics.MagneticSpan.Mode.INDUCE
+                    ? 0xe89835
+                    : 0x35c4d8);
+        if (n == 0 || n == panels || n % 8 == 0) {
+          var foot = p.add(basis.up().scale(TrackDesign.MAGNET_SUPPORT_HEIGHT));
+          for (int side = 0; side < 2; side++) {
+            var knee =
+                foot.add(basis.right().scale((side == 0 ? -1 : 1) * TrackDesign.MAGNET_HALF_GAUGE));
+            tube(
+                result,
+                foot,
+                knee,
+                basis.forward(),
+                basis.up(),
+                basis.forward(),
+                basis.up(),
+                TrackDesign.MAGNET_SUPPORT_RADIUS,
+                design.color);
+            tube(
+                result,
+                knee,
+                points[side],
+                basis.forward(),
+                basis.right(),
+                basis.forward(),
+                basis.right(),
+                TrackDesign.MAGNET_SUPPORT_RADIUS,
+                design.color);
+          }
+        }
+        last = points;
+      }
     }
     return List.copyOf(result);
   }
