@@ -151,7 +151,9 @@ public final class RotationEditorScreen extends Screen {
                     b.setMessage(
                         Component.literal(
                             new String[] {
-                                  "Preview: empty", "Preview: balanced", "Preview: front load"
+                                  "Preview: empty",
+                                  "Preview: balanced",
+                                  magnetic ? "Preview: front load" : "Preview: left load"
                                 }
                                 [previewLoading]));
                   })

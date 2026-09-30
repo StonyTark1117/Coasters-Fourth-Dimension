@@ -49,7 +49,14 @@ public final class RidePreview {
         rail.family.driven()
             ? "Controlled poses | authored angles | conservative swept clearance"
             : "Free reference | "
-                + new String[] {"empty", "160 kg ballast/group", "160 kg left-front only"}[preset]
+                + new String[] {
+                      "empty",
+                      "160 kg ballast/group",
+                      rail.family == dev.fourthdimension.contract.Family.FREE_SPIN
+                          ? "160 kg left-front only"
+                          : "160 kg left group only"
+                    }
+                    [preset]
                 + " | 45 deg, 0 rad/s | powered 2 blocks/s | damping "
                 + damping
                 + " | original mass model; live motion varies | swept clearance";

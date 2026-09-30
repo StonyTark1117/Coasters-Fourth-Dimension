@@ -57,6 +57,6 @@ The maximum supported functional snapshot includes 512 magnets and 64 four-pair/
 
 ## Evidence and remaining limits
 
-Acceptance artifacts are indexed in [evidence/0.2](evidence/0.2/README.md). The final JAR checksum, native assertions, unit counts, multiplayer/restart/migration comparisons and single-player/visual checks accompany this gate. The post-multiplayer changes refine only reference-preview geometry/mass and equipment support rendering; the final archive runs the complete automated suite and a full single-player ride.
+Acceptance artifacts are indexed in [evidence/0.2](evidence/0.2/README.md). The final JAR checksum, native assertions, unit counts, multiplayer/restart/migration comparisons and single-player/visual checks accompany this gate. The post-multiplayer changes refine only reference-preview geometry/mass and equipment support rendering; that archive passed the complete automated suite and a full single-player ride. A final wording-only follow-up labels the legacy preview as left-group loading; both binary checksums are retained and GitHub Actions validates the final revision.
 
 The ±1024 horizontal coordinate restriction remains. Only the three original families are advertised. Exact manufacturer coupling, revised ZacSpin, PAX shuttle/lift, Track Styles styling/track adapters, recovery towing, broad shader compatibility and large-scene performance certification remain later roadmap work. Restricted third-party assets are not bundled.
