@@ -1,0 +1,9 @@
+Command: JAVA_HOME=/usr/lib/jvm/java-21-openjdk ./gradlew clean build runGameTestServer
+> Task :compileJava
+> Task :compileTestJava FROM-CACHE
+> Task :testClasses UP-TO-DATE
+> Task :test
+FD_FREE angles=[-1.7668285633973646, -1.8112171363808207] maximum separation=0.7238415569140422
+FD_NATIVE at230 position=( 1.650E+1  8.162E+1  5.261E+1) from=BlockPos{x=16, y=80, z=16} angles=[12.154610566152959, 12.153242460828912] velocity=(-4.776E-5 -4.175E-4  3.217E+0) disengaged=false
+[07:06:30] [Server thread/INFO] [minecraft/GameTestServer]: All 2 required tests passed :)
+BUILD SUCCESSFUL in 18s

@@ -1,0 +1,244 @@
+{
+  "researched_on": "2026-09-30",
+  "method": "Project pages, released JAR metadata, archive inventories, and javap signature inspection. No in-game runtime validation.",
+  "artifacts": [
+    {
+      "project": "Create: Coasters Simulated",
+      "release_label": "0.1.5",
+      "release_page": "https://www.curseforge.com/minecraft/mc-mods/create-coasters-simulated/files/8655742",
+      "maven_coordinate": "curse.maven:create-coasters-simulated-1601871:8655742",
+      "sha256": "f80b4c3cdf9fa6188804967147761b0373e150a6eadbdc53626e5ac9700b2049",
+      "bytes": 1892119,
+      "embedded_license": "MIT",
+      "embedded_mod_versions": [
+        {
+          "modId": "simulatedcoasters",
+          "version": "0.1.5"
+        }
+      ],
+      "declared_dependencies": {
+        "simulatedcoasters": [
+          {
+            "modId": "neoforge",
+            "type": "required",
+            "versionRange": "[21.1.228,)",
+            "ordering": "NONE",
+            "side": "BOTH"
+          },
+          {
+            "modId": "minecraft",
+            "type": "required",
+            "versionRange": "[1.21.1]",
+            "ordering": "NONE",
+            "side": "BOTH"
+          },
+          {
+            "modId": "create",
+            "type": "required",
+            "versionRange": "[6.0.10,)",
+            "ordering": "NONE",
+            "side": "BOTH"
+          },
+          {
+            "modId": "flywheel",
+            "type": "required",
+            "versionRange": "[1.0.6,)",
+            "ordering": "NONE",
+            "side": "CLIENT"
+          },
+          {
+            "modId": "sable",
+            "type": "required",
+            "versionRange": "[2.0.0,)",
+            "ordering": "NONE",
+            "side": "BOTH"
+          }
+        ]
+      },
+      "inspected_public_signatures": "Compiled from \"CoasterPathTrackFrame.java\"\npublic final class dev.silvergold.simulatedcoasters.track.graph.CoasterPathTrackFrame {\n  public static final double DEFAULT_MAX_LINK_SQ;\n  public static org.joml.Quaterniond quaternionWorldFromTrackAt(net.minecraft.world.level.Level, dev.silvergold.simulatedcoasters.track.graph.CoasterPathGraph, net.minecraft.world.phys.Vec3, double);\n  public static org.joml.Quaterniond quaternionFromTrackBasis(dev.silvergold.simulatedcoasters.track.graph.CoasterPathTrackFrame$TrackBasis);\n  public static dev.silvergold.simulatedcoasters.track.graph.CoasterPathTrackFrame$GraphHit nearestGraphHit(net.minecraft.world.level.Level, dev.silvergold.simulatedcoasters.track.graph.CoasterPathGraph, net.minecraft.world.phys.Vec3, double);\n  public static dev.silvergold.simulatedcoasters.track.graph.CoasterPathTrackFrame$GraphHit nearestGraphHit(net.minecraft.world.level.Level, dev.silvergold.simulatedcoasters.track.graph.CoasterPathGraph, net.minecraft.world.phys.Vec3, double, java.lang.Double);\n  public static dev.silvergold.simulatedcoasters.track.graph.CoasterPathTrackFrame$GraphHit closestHitOnEdge(net.minecraft.world.level.Level, dev.silvergold.simulatedcoasters.track.graph.CoasterPathEdge, net.minecraft.world.phys.Vec3);\n  public static dev.silvergold.simulatedcoasters.track.graph.CoasterPathTrackFrame$GraphHit closestHitOnEdge(net.minecraft.world.level.Level, dev.silvergold.simulatedcoasters.track.graph.CoasterPathEdge, net.minecraft.world.phys.Vec3, java.lang.Double);\n  public static dev.silvergold.simulatedcoasters.track.graph.CoasterPathTrackFrame$GraphHit closestHitOnEdgeForEngagedSnap(net.minecraft.world.level.Level, dev.silvergold.simulatedcoasters.track.graph.CoasterPathEdge, net.minecraft.world.phys.Vec3);\n  public static dev.silvergold.simulatedcoasters.track.graph.CoasterPathTrackFrame$GraphHit closestHitOnEdgeForEngagedSnap(net.minecraft.world.level.Level, dev.silvergold.simulatedcoasters.track.graph.CoasterPathEdge, net.minecraft.world.phys.Vec3, double, net.minecraft.world.phys.Vec3);\n  public static dev.silvergold.simulatedcoasters.track.graph.CoasterPathTrackFrame$GraphHit nearestGraphHit(net.minecraft.world.level.Level, java.util.List<dev.silvergold.simulatedcoasters.track.graph.CoasterPathEdge>, net.minecraft.world.phys.Vec3, double);\n  public static dev.silvergold.simulatedcoasters.track.graph.CoasterPathTrackFrame$GraphHit nearestGraphHit(net.minecraft.world.level.Level, java.util.List<dev.silvergold.simulatedcoasters.track.graph.CoasterPathEdge>, net.minecraft.world.phys.Vec3, double, java.lang.Double);\n  public static dev.silvergold.simulatedcoasters.track.graph.CoasterPathTrackFrame$TrackBasis trackBasisAtHit(net.minecraft.world.level.Level, dev.silvergold.simulatedcoasters.track.graph.CoasterPathTrackFrame$GraphHit);\n  public static dev.silvergold.simulatedcoasters.track.graph.CoasterPathTrackFrame$TrackBasis trackBasisAtHit(net.minecraft.world.level.Level, dev.silvergold.simulatedcoasters.track.graph.CoasterPathTrackFrame$GraphHit, float);\n  public static dev.silvergold.simulatedcoasters.track.graph.CoasterPathTrackFrame$TrackBasis trackBasisAtHit(net.minecraft.world.level.Level, dev.silvergold.simulatedcoasters.track.graph.CoasterPathTrackFrame$GraphHit, java.lang.Double);\n  public static dev.silvergold.simulatedcoasters.track.graph.CoasterPathTrackFrame$TrackBasis trackBasisPlotLocalAtHit(net.minecraft.world.level.Level, dev.silvergold.simulatedcoasters.track.graph.CoasterPathTrackFrame$GraphHit);\n  public static net.minecraft.world.phys.Vec3 pathAnchorForSnappedBlock(net.minecraft.world.level.Level, dev.silvergold.simulatedcoasters.track.graph.CoasterPathTrackFrame$GraphHit);\n  public static net.minecraft.world.phys.Vec3 pathAnchorForSnappedBlock(net.minecraft.world.level.Level, dev.silvergold.simulatedcoasters.track.graph.CoasterPathTrackFrame$GraphHit, float);\n  public static net.minecraft.world.phys.Vec3 pathAnchorForSnappedBlockAtSpine(net.minecraft.world.level.Level, dev.silvergold.simulatedcoasters.track.graph.CoasterPathTrackFrame$GraphHit, net.minecraft.world.phys.Vec3);\n  static {};\n}\nCompiled from \"CoasterPathTrackFrame.java\"\npublic final class dev.silvergold.simulatedcoasters.track.graph.CoasterPathTrackFrame$GraphHit extends java.lang.Record {\n  public dev.silvergold.simulatedcoasters.track.graph.CoasterPathTrackFrame$GraphHit(net.minecraft.world.phys.Vec3, dev.silvergold.simulatedcoasters.track.graph.CoasterPathEdge, double);\n  public final java.lang.String toString();\n  public final int hashCode();\n  public final boolean equals(java.lang.Object);\n  public net.minecraft.world.phys.Vec3 point();\n  public dev.silvergold.simulatedcoasters.track.graph.CoasterPathEdge edge();\n  public double t();\n}\nCompiled from \"CoasterCartResolve.java\"\npublic final class dev.silvergold.simulatedcoasters.track.cart.CoasterCartResolve {\n  public static boolean isCartSubLevel(dev.ryanhcode.sable.sublevel.SubLevel);\n  public static dev.ryanhcode.sable.sublevel.SubLevel findCartSubLevelAt(net.minecraft.world.level.Level, net.minecraft.core.BlockPos);\n  public static dev.ryanhcode.sable.sublevel.SubLevel findSubLevelAt(net.minecraft.world.level.Level, net.minecraft.core.BlockPos);\n  public static net.minecraft.core.BlockPos plotLocalCellAt(net.minecraft.world.level.Level, dev.ryanhcode.sable.sublevel.SubLevel, net.minecraft.core.BlockPos);\n  public static dev.ryanhcode.sable.sublevel.SubLevel findCartById(net.minecraft.world.level.Level, java.util.UUID);\n  public static dev.ryanhcode.sable.sublevel.ServerSubLevel findCartById(net.minecraft.server.level.ServerLevel, java.util.UUID);\n  public static org.joml.Vector3d bearingPlotCenter(dev.ryanhcode.sable.sublevel.SubLevel);\n  public static org.joml.Vector3d cartCenterWorld(dev.ryanhcode.sable.sublevel.SubLevel);\n  public static void breakCartBlocksAfterAssemblyMove(net.minecraft.server.level.ServerLevel, dev.ryanhcode.sable.api.SubLevelAssemblyHelper$AssemblyTransform, java.lang.Iterable<net.minecraft.core.BlockPos>);\n}\n"
+    },
+    {
+      "project": "Coasters Simulated: Track Styles",
+      "release_label": "1.1.0-hotfix1",
+      "release_page": "https://www.curseforge.com/minecraft/mc-mods/coasters-simulated-track-styles/files/8672156",
+      "maven_coordinate": "curse.maven:coasters-simulated-track-styles-1642719:8672156",
+      "sha256": "2db637054455c92111ffca910f242b48dfe6aa815028cd1be3c1bbad43f63276",
+      "bytes": 754898,
+      "embedded_license": "All Rights Reserved",
+      "embedded_mod_versions": [
+        {
+          "modId": "coasterssimulatedextratypes",
+          "version": "1.1.0"
+        }
+      ],
+      "declared_dependencies": {
+        "coasterssimulatedextratypes": [
+          {
+            "modId": "neoforge",
+            "type": "required",
+            "versionRange": "[21.1.234,)",
+            "ordering": "NONE",
+            "side": "BOTH"
+          },
+          {
+            "modId": "minecraft",
+            "type": "required",
+            "versionRange": "[1.21.1]",
+            "ordering": "NONE",
+            "side": "BOTH"
+          }
+        ]
+      },
+      "inspected_public_signatures": "Compiled from \"MyTrackModels.java\"\npublic class top.claebcode.coasterssimulatedextratypes.MyTrackModels {\n  public static final dev.engine_room.flywheel.lib.model.baked.PartialModel GIRDER_CIRCULAR;\n  public static final dev.engine_room.flywheel.lib.model.baked.PartialModel GIRDER_SQUARE;\n  public static final java.util.Map<java.lang.String, top.claebcode.coasterssimulatedextratypes.MyTrackModels$TrackComponents> STYLES;\n  public static final java.util.Map<java.lang.String, java.lang.String> COASTER_STYLE_NAMES;\n  public static final java.util.Map<java.lang.String, java.lang.String> ANCHOR_STYLE_NAMES;\n  public static final net.neoforged.neoforge.client.model.data.ModelProperty<dev.silvergold.simulatedcoasters.track.anchor.CoasterAnchorpointBlockEntity> ANCHOR_MODEL_PROP;\n  public top.claebcode.coasterssimulatedextratypes.MyTrackModels();\n  public static java.lang.String getCoasterStyleName(java.lang.String);\n  public static java.lang.String getAnchorStyleName(java.lang.String);\n  public static dev.engine_room.flywheel.lib.model.baked.PartialModel getReplacementModel(java.lang.String, dev.engine_room.flywheel.lib.model.baked.PartialModel);\n  public static dev.engine_room.flywheel.lib.model.baked.PartialModel getGirderModelForStyle(java.lang.String);\n  public static java.lang.String getAnchorStyleFromTag(net.minecraft.nbt.CompoundTag);\n  public static int getAnchorColorFromTag(net.minecraft.nbt.CompoundTag);\n  public static java.lang.String getGirderStyleFromTag(net.minecraft.nbt.CompoundTag);\n  public static int getGirderColorFromTag(net.minecraft.nbt.CompoundTag);\n  public static boolean getGirderInvisibleFromTag(net.minecraft.nbt.CompoundTag);\n  public static net.minecraft.client.resources.model.BakedModel getCustomAnchorModel(dev.silvergold.simulatedcoasters.track.anchor.CoasterAnchorpointBlockEntity);\n  public static int getAnchorTintColor(dev.silvergold.simulatedcoasters.track.anchor.CoasterAnchorpointBlockEntity);\n  static {};\n}\nCompiled from \"MyTrackModels.java\"\npublic final class top.claebcode.coasterssimulatedextratypes.MyTrackModels$TrackComponents extends java.lang.Record {\n  public top.claebcode.coasterssimulatedextratypes.MyTrackModels$TrackComponents(dev.engine_room.flywheel.lib.model.baked.PartialModel, dev.engine_room.flywheel.lib.model.baked.PartialModel, dev.engine_room.flywheel.lib.model.baked.PartialModel, dev.engine_room.flywheel.lib.model.baked.PartialModel);\n  public final java.lang.String toString();\n  public final int hashCode();\n  public final boolean equals(java.lang.Object);\n  public dev.engine_room.flywheel.lib.model.baked.PartialModel centerBeam();\n  public dev.engine_room.flywheel.lib.model.baked.PartialModel tie();\n  public dev.engine_room.flywheel.lib.model.baked.PartialModel leftRail();\n  public dev.engine_room.flywheel.lib.model.baked.PartialModel rightRail();\n}\n",
+      "caveat": "CurseForge project lists MIT, but the downloaded JAR metadata says All Rights Reserved. No code or assets copied."
+    },
+    {
+      "project": "Coasters: Immersion",
+      "release_label": "0.2.3",
+      "release_page": "https://www.curseforge.com/minecraft/mc-mods/coasters-immersion/files/8765632",
+      "maven_coordinate": "curse.maven:coasters-immersion-1672383:8765632",
+      "sha256": "bf4012be2ebfd19afd29c37260d2aae9967093290de7e7b0662362f561cedfc9",
+      "bytes": 1008084,
+      "embedded_license": "MIT",
+      "embedded_mod_versions": [
+        {
+          "modId": "coasters_immersion",
+          "version": "0.2.3"
+        }
+      ],
+      "declared_dependencies": {
+        "coasters_immersion": [
+          {
+            "modId": "neoforge",
+            "type": "required",
+            "versionRange": "[21.1,)",
+            "ordering": "NONE",
+            "side": "BOTH"
+          },
+          {
+            "modId": "minecraft",
+            "type": "required",
+            "versionRange": "[1.21.1,1.22)",
+            "ordering": "NONE",
+            "side": "BOTH"
+          },
+          {
+            "modId": "create",
+            "type": "required",
+            "versionRange": "[6.0,)",
+            "ordering": "AFTER",
+            "side": "BOTH"
+          },
+          {
+            "modId": "simulatedcoasters",
+            "type": "required",
+            "versionRange": "[0.1,)",
+            "ordering": "AFTER",
+            "side": "BOTH"
+          },
+          {
+            "modId": "sable",
+            "type": "required",
+            "versionRange": "[2.0,)",
+            "ordering": "AFTER",
+            "side": "CLIENT"
+          },
+          {
+            "modId": "aeronautics",
+            "type": "required",
+            "versionRange": "[1.3,)",
+            "ordering": "AFTER",
+            "side": "BOTH"
+          },
+          {
+            "modId": "sodium",
+            "type": "optional",
+            "versionRange": "[0.8,)",
+            "ordering": "AFTER",
+            "side": "CLIENT"
+          }
+        ]
+      },
+      "inspected_public_signatures": "Compiled from \"ImmersionBlocks.java\"\npublic final class dev.mito.coastersimmersion.registry.ImmersionBlocks {\n  public static final java.util.function.Supplier<net.minecraft.world.item.Item> SEAT_ALIGNER;\n  public static final java.util.function.Supplier<net.minecraft.world.item.CreativeModeTab> TAB;\n  public static void register(net.neoforged.bus.api.IEventBus);\n  static {};\n}\nCompiled from \"SeatFacing.java\"\npublic final class dev.mito.coastersimmersion.content.seat.SeatFacing {\n  public static final int STEPS;\n  public static final byte AUTOMATIC;\n  public static byte client(net.minecraft.core.BlockPos);\n  public static void clientAccept(net.minecraft.core.BlockPos, byte);\n  public static void clientClear();\n  public static byte cycle(net.minecraft.server.level.ServerLevel, net.minecraft.core.BlockPos, int);\n  static {};\n}\n",
+      "inventory_findings": {
+        "nested_jars": [],
+        "bearing_spin_motor_named_entries": [],
+        "caveat": "Page advertises motorized bearings/spin drives; no such implementation identified in this release. Absence of names alone is not proof about other versions."
+      }
+    },
+    {
+      "project": "Coasters: Engineered",
+      "release_label": "1.1.1",
+      "release_page": "https://www.curseforge.com/minecraft/mc-mods/coasters-engineered/files/8863559",
+      "maven_coordinate": "curse.maven:coasters-engineered-1643631:8863559",
+      "sha256": "eea19ed769ed573727b4e15184c229f66aff85f20667464650724e1b2d657f5d",
+      "bytes": 539658,
+      "embedded_license": "MIT",
+      "embedded_mod_versions": [
+        {
+          "modId": "coastersengineered",
+          "version": "1.1.1"
+        }
+      ],
+      "declared_dependencies": {
+        "coastersengineered": [
+          {
+            "modId": "neoforge",
+            "type": "required",
+            "versionRange": "[21.1.228,)",
+            "ordering": "NONE",
+            "side": "BOTH"
+          },
+          {
+            "modId": "minecraft",
+            "type": "required",
+            "versionRange": "[1.21.1]",
+            "ordering": "NONE",
+            "side": "BOTH"
+          },
+          {
+            "modId": "create",
+            "type": "required",
+            "versionRange": "[6.0.10,)",
+            "ordering": "AFTER",
+            "side": "BOTH"
+          },
+          {
+            "modId": "simulatedcoasters",
+            "type": "required",
+            "versionRange": "[0.1.4,)",
+            "ordering": "AFTER",
+            "side": "BOTH"
+          }
+        ]
+      },
+      "inspected_public_signatures": "Compiled from \"TrackSpanGeometry.java\"\npublic final class dev.jwaterfall.coastersengineered.span.TrackSpanGeometry {\n  public static dev.silvergold.simulatedcoasters.track.graph.CoasterPathGraphSpans$SpanPath resolve(net.minecraft.world.level.Level, net.minecraft.core.BlockPos, dev.silvergold.simulatedcoasters.track.graph.CoasterPathTrackFrame$GraphHit, double);\n  public static dev.silvergold.simulatedcoasters.track.graph.CoasterPathGraphSpans$SpanPath rebind(net.minecraft.world.level.Level, dev.jwaterfall.coastersengineered.span.TrackSpan);\n  public static double distanceAlong(net.minecraft.world.level.Level, dev.silvergold.simulatedcoasters.track.graph.CoasterPathGraphSpans$SpanPath, dev.silvergold.simulatedcoasters.track.graph.CoasterPathEdge, double);\n  public static dev.silvergold.simulatedcoasters.track.graph.CoasterPathGraph graphFor(net.minecraft.world.level.Level);\n  public static dev.silvergold.simulatedcoasters.track.graph.CoasterPathEdge findEdge(net.minecraft.world.level.Level, net.minecraft.core.BlockPos, net.minecraft.core.BlockPos);\n  static {};\n}\n"
+    }
+  ],
+  "source_references": [
+    {
+      "project": "Waterparked",
+      "repository": "https://github.com/omorisunn/create-waterparked",
+      "inspected_commit_prefix": "fa2c888",
+      "files": [
+        "gradle.properties",
+        "src/main/java/net/omori_sunny/create_waterparked/mixin/CoasterPathGraphManagerMixin.java",
+        "src/main/kotlin/net/omori_sunny/create_waterparked/content/waterslide/WaterslideTrackMaterials.kt"
+      ]
+    },
+    {
+      "project": "Sable",
+      "repository": "https://github.com/ryanhcode/sable",
+      "inspected_commit": "6f2b321e9fa01f35e47b2258914e3e1a2490a608",
+      "version_note": "Inspected development source; confirm APIs against the chosen released dependency.",
+      "files": [
+        "common/src/main/java/dev/ryanhcode/sable/api/physics/PhysicsPipeline.java",
+        "common/src/main/java/dev/ryanhcode/sable/command/SableJointCommands.java"
+      ]
+    }
+  ],
+  "page_only_reviews": [
+    "https://www.curseforge.com/minecraft/mc-mods/create-coasters-simulated-additions",
+    "https://www.curseforge.com/minecraft/mc-mods/coasters-magnetized"
+  ]
+}

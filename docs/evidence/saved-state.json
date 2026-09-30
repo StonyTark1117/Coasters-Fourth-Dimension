@@ -1,0 +1,126 @@
+{
+  "data": {
+    "schema": 1,
+    "rails": [
+      {
+        "provider": "fourthdimension:prototype",
+        "contact_certificate": "simulatedcoasters:unmodified_0.1.5",
+        "profile": [
+          {
+            "distance": 0.0,
+            "angle": 0.0
+          },
+          {
+            "distance": 40.0,
+            "angle": 12.566370614359172
+          }
+        ],
+        "variant": "foundation_v1",
+        "from": 32853,
+        "to": 196693,
+        "family": "arrow_controlled"
+      },
+      {
+        "provider": "fourthdimension:prototype",
+        "contact_certificate": "simulatedcoasters:unmodified_0.1.5",
+        "profile": [
+          {
+            "distance": 0.0,
+            "angle": 0.0
+          },
+          {
+            "distance": 40.0,
+            "angle": 12.566370614359172
+          }
+        ],
+        "variant": "foundation_v1",
+        "from": 10995116310613,
+        "to": 10995116474453,
+        "family": "zacspin_legacy"
+      }
+    ],
+    "vehicles": [
+      {
+        "variant": "foundation_v1",
+        "boundTo": 196693,
+        "carriers": [
+          {
+            "angle": 2.8083615253643113,
+            "capture": 0,
+            "side": -3.0,
+            "body": [
+              -1175585375,
+              -926531381,
+              -1695750407,
+              898167138
+            ],
+            "omega": -0.01446208410560777,
+            "occupants": []
+          },
+          {
+            "angle": 2.809715985088498,
+            "capture": 0,
+            "side": 3.0,
+            "body": [
+              950066555,
+              -986428908,
+              -1322325443,
+              1757257080
+            ],
+            "omega": -0.017653754799053397,
+            "occupants": []
+          }
+        ],
+        "chassis": [
+          -1511264232,
+          1217413208,
+          -1312265716,
+          1345604515
+        ],
+        "family": "arrow_controlled",
+        "boundFrom": 32853
+      },
+      {
+        "variant": "foundation_v1",
+        "boundTo": 10995116474453,
+        "carriers": [
+          {
+            "angle": -1.6863299401089853,
+            "capture": 0,
+            "side": -3.0,
+            "body": [
+              816060122,
+              2029863807,
+              -2035384623,
+              1722725333
+            ],
+            "omega": -0.44226851473059947,
+            "occupants": []
+          },
+          {
+            "angle": -1.1297053590371422,
+            "capture": 0,
+            "side": 3.0,
+            "body": [
+              710301035,
+              -1877194500,
+              -1324645354,
+              273873215
+            ],
+            "omega": 0.44325577876005406,
+            "occupants": []
+          }
+        ],
+        "chassis": [
+          -423622215,
+          -1460649570,
+          -2076701040,
+          -841662077
+        ],
+        "family": "zacspin_legacy",
+        "boundFrom": 10995116310613
+      }
+    ]
+  },
+  "DataVersion": 3955
+}

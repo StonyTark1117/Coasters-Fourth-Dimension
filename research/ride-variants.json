@@ -1,0 +1,71 @@
+{
+  "researched_on": "2026-09-30",
+  "purpose": "References for the expanded 4D family roadmap; this is a planning record, not an implementation or runtime test.",
+  "initial_reference": {
+    "url": "https://en.wikipedia.org/wiki/Fourth-dimension_roller_coaster",
+    "use": "Family discovery only; proposed mechanical choices are separated from manufacturer-confirmed features."
+  },
+  "families": [
+    {
+      "id": "controlled_arrow_ss",
+      "source": "https://www.s-s.com/ride-pages/4th-dimension-coaster",
+      "confirmed": "Additional rails control wing-seat rotation.",
+      "planned": "Original complete four-rail track, linked controlled vehicles, profile editor."
+    },
+    {
+      "id": "zacspin_legacy",
+      "source": "https://www.intamin.com/product/zac-spin-coaster/",
+      "confirmed": "Manufacturer lists legacy installations, alternative seating, variable flipping, and chain or LSM propulsion.",
+      "planned": "Compact free-spin vehicle with legacy offset pivot preset.",
+      "unverified": "Exact seat grouping, pivot dimensions, and coupling require further visual or engineering reference."
+    },
+    {
+      "id": "ss_free_spin",
+      "source": "https://www.s-s.com/ride-pages/4d-free-spin-coaster",
+      "brochure": "https://assets-global.website-files.com/60be9a2c8c73a085920bb514/636c251f0271e50223f23f92_4d%20Free%20Spin%20Coaster.pdf",
+      "confirmed": "Magnetic spin influence; loading affects motion; brochure specifies eight riders in pairs, four on each side.",
+      "planned": "Eight-seat vehicle, multiple carrier groups, magnetic inducer and damper spans.",
+      "unverified": "Exact mechanical coupling between seat pairs."
+    },
+    {
+      "id": "zacspin_revised",
+      "source": "https://www.intamin.com/product/zac-spin-coaster/",
+      "confirmed": "No generation-specific topology established by the primary source inspected.",
+      "planned": "Independently rotating carrier preset with revised pivot geometry, pending verification.",
+      "unverified": "Exact second-generation seating and pivot arrangement; no installation or historical specification asserted."
+    },
+    {
+      "id": "pax_bumerang",
+      "source": "https://www.pax.ru/upload/Бумеранг%20–%20две%20петли%2040м.pdf",
+      "confirmed": "Free inertial seat rotation, winch lift, release, and reverse return described in manufacturer brochure.",
+      "planned": "Linked free-spin shuttle with lift catch/release and final station capture.",
+      "unverified": "Exact vehicle geometry; compact and tall examples are design targets rather than copied installation specifications."
+    }
+  ],
+  "track_strategy": {
+    "standalone": "Ship independently authored complete functional tracks.",
+    "integration": "Optional provider adapter; vehicles require their matching functional track family and verified running-gear fit, independently of appearance or provider identity.",
+    "future_arrow_4d": "Implement and test against an inspectable Track Styles release; do not block our releases or claim compatibility with unreleased code.",
+    "appearance_removal": "Fallback applies to appearance-only changes; external blocks require explicit migration."
+  },
+  "licensing_references": [
+    {
+      "url": "https://www.copyright.gov/help/faq/faq-protect.html",
+      "relevance": "Distinguishes protected expression from ideas, systems, and methods of operation; does not establish project-specific permission."
+    },
+    {
+      "url": "https://choosealicense.com/no-permission/",
+      "relevance": "Explains that copyright reservation does not supply general copying, modification, or redistribution rights."
+    }
+  ],
+  "licensing_decision": "Write original runtime integration for separately installed Track Styles subject to its applicable terms. Do not copy or bundle its code/assets. Existing MIT-vs-ARR mismatch remains unresolved; no legal clearance or maintainer agreement claimed.",
+  "planned_compatibility_policy": {
+    "source": "User design requirements; these are planned rules, not claims about real rides or tested upstream behavior.",
+    "four_d_carts": "Require corresponding functional track family/variant. Ordinary or other-family track is forbidden even with matching gauge or locked seats.",
+    "ordinary_carts": "May use 4D main rails only with verified running-gear contact geometry and structural clearance; receive no 4D seat behavior.",
+    "appearance": "A cosmetic Arrow 4D style does not qualify ordinary track. Functional conversion and mechanism validation are required.",
+    "external_providers": "Verified equivalent functional tracks may qualify through the same family and fit contract.",
+    "recovery": "Rail access is separate from towing eligibility. Check couplers and every vehicle; a disabled 4D cart must remain on matching track with supported carrier retention.",
+    "enforcement": "Server validates placement, assembly, snap/re-engagement, dispatch, transitions, and rebinding; each vehicle in a linked consist is checked."
+  }
+}
