@@ -249,7 +249,7 @@ Investigate primary references for revised seating, pivots, and carrier coupling
 
 ### FD302 Build the revised ZacSpin variant
 
-**Status: in progress.** Original track, four independent paired rotors, lowered pivots, eight actual riders, native circuit traversal, and NBT round-trip have automated evidence. Dedicated-server restart and multiplayer acceptance remain required; see [progress](docs/REVISED-SHUTTLE.md).
+**Status: done (2026-09-30), bounded inspired-variant package.** Original matching track, four independent paired rotors, lowered pivots and measured inertia, eight native passengers, circuit traversal, all-family locked eligibility, two real clients, occupied moving cold restart, and final platform exits have evidence. See [acceptance and remaining release gates](docs/REVISED-SHUTTLE.md).
 
 **Depends on:** FD204, FD301. **Design:** D01, D02, D09, D11.
 
@@ -259,7 +259,7 @@ Build the revised carrier preset, vehicle, and corresponding track contract/mode
 
 ### FD303 Build the PAX shuttle train and track
 
-**Status: in progress.** Four-car native coupling, sixteen actual riders, guarded route validation, gravity reversal, retained rail engagement, and two cycles of a taller example have automated evidence. Lifecycle and dedicated-server checks remain required.
+**Status: done (2026-09-30), bounded shuttle train package.** Four-car native coupling, sixteen native passengers, original matching track, guarded ends, gravity reversal, retained engagement, and two taller-example cycles have automated evidence. Two real riders also completed an occupied dedicated-server restart/resume and a second cycle. Complete release lifecycle coverage remains FD902; see [acceptance](docs/REVISED-SHUTTLE.md).
 
 **Depends on:** FD204. **Design:** D01–D03, D14.
 
@@ -269,7 +269,7 @@ Build a linked free-spin shuttle train, its original matching track, and guarded
 
 ### FD304 Implement shuttle lift and capture
 
-**Status: in progress.** A Create-powered native carriage physically catches, lifts, releases, and recaptures the train. Automated power-loss hold/resume, station restraint checks, loss of route physics availability, winch block-entity reload, and physical recovery pass. Full dedicated-server restart and multiplayer acceptance remain required; see [progress](docs/REVISED-SHUTTLE.md).
+**Status: done (2026-09-30), bounded lift/capture package.** The powered native carriage physically catches, lifts, releases, and recaptures the train. Power-loss hold/resume, station restraint checks, loss of route physics availability, real winch reload, and physical station recovery pass. Occupied mid-lift cold restart held the carriage coordinate, restored riders, required normal explicit operator resume, and completed capture/unloading. The unexplained first client exit 137 remains a release investigation in FD902/FD904; see [evidence and limitations](docs/REVISED-SHUTTLE.md).
 
 **Depends on:** FD303, FD106. **Design:** D14, D16.
 
@@ -278,6 +278,8 @@ Validate existing lift compatibility; implement the catch/release and lift-carri
 **Done when:** the train completes a real lift-and-release cycle, passes through the station without premature unloading, and returns to controlled capture. Test interrupted lifting and loss of chunk availability. A launch-only fixture does not satisfy this package.
 
 ### FD305 Version 0.3 gate
+
+**Status: in progress.** FD302–FD304 have bounded native and packaged dedicated-client evidence. Complete five-family acceptance in the current packaged build, including the new families in single-player, remains required; later tutorials/integrations and the unexplained client resource exit retain their release gates.
 
 **Depends on:** FD302–FD304.
 

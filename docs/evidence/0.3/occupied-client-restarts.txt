@@ -1,0 +1,67 @@
+Packaged 0.9.0-dev.1 dedicated server, official NeoForge 21.1.248 / Create 6.0.10-280 / Coasters 0.1.5 / Sable 2.0.3.
+2026-09-30; client QA used isolated Xvfb :93.
+
+PAX interrupted occupied lift: entire addon SavedData is exactly equal at frozen cold restart.
+schema=4 rails=14 vehicles=9 carrierGroups=20
+Revised occupied moving car: entire addon SavedData is exactly equal at frozen cold restart.
+schema=4 rails=14 vehicles=9 carrierGroups=20
+
+Evidence: fd03-lift-winch-before.txt
+-6, 145, 73 has the following block data: {Speed: 128.0f, shuttle_carriage: [I; -1269192358, 1780959610, -1970147783, 65896637], shuttle_distance: 38.2797929567289d, shuttle_maximum: 62.679792956729244d, shuttle_start: 69801L, shuttle_station: 62.679792956729244d, Source: [I; -7, 145, 73], shuttle_end: 594097L, shuttle_fault: "", shuttle_cars: [[I; -1986757106, 1346916145, -1158413130, 1948093684], [I; 1155095433, -1496103111, -1535316908, 751135210], [I; 1919869249, 1310869689, -1858869624, 1946064956], [I; 628763307, -775599449, -1232986969, 9177887]], shuttle_interrupted: "BOARDING", shuttle_cycles: 0, Network: {Capacity: 2097152.0f, Size: 2, AddedStress: 8.0f, Id: -1924145049455L, Stress: 1024.0f}, shuttle_phase: "LIFTING", x: -6, y: 145, z: 73, id: "fourthdimension:shuttle_winch", shuttle_vehicle: [I; -1986757106, 1346916145, -1158413130, 1948093684]}
+
+Evidence: fd03-lift-winch-frozen-restart.txt
+-6, 145, 73 has the following block data: {Speed: 128.0f, NeedsSpeedUpdate: 1b, shuttle_carriage: [I; -1269192358, 1780959610, -1970147783, 65896637], shuttle_distance: 38.2797929567289d, shuttle_maximum: 62.679792956729244d, shuttle_start: 69801L, shuttle_station: 62.679792956729244d, Source: [I; -7, 145, 73], shuttle_end: 594097L, shuttle_fault: "Shuttle reloaded: inspect and explicitly resume or recover", shuttle_cars: [[I; -1986757106, 1346916145, -1158413130, 1948093684], [I; 1155095433, -1496103111, -1535316908, 751135210], [I; 1919869249, 1310869689, -1858869624, 1946064956], [I; 628763307, -775599449, -1232986969, 9177887]], shuttle_interrupted: "LIFTING", shuttle_cycles: 0, Network: {Capacity: 2097152.0f, Size: 2, AddedStress: 8.0f, Id: -1924145049455L, Stress: 1024.0f}, shuttle_phase: "FAULT", x: -6, y: 145, z: 73, id: "fourthdimension:shuttle_winch", shuttle_vehicle: [I; -1986757106, 1346916145, -1158413130, 1948093684]}
+
+Evidence: fd03-lift-hold-long.txt
+-6, 145, 73 has the following block data: {Speed: 128.0f, shuttle_carriage: [I; -1269192358, 1780959610, -1970147783, 65896637], shuttle_distance: 38.2797929567289d, shuttle_maximum: 62.679792956729244d, shuttle_start: 69801L, shuttle_station: 62.679792956729244d, Source: [I; -7, 145, 73], shuttle_end: 594097L, shuttle_fault: "Shuttle reloaded: inspect and explicitly resume or recover", shuttle_cars: [[I; -1986757106, 1346916145, -1158413130, 1948093684], [I; 1155095433, -1496103111, -1535316908, 751135210], [I; 1919869249, 1310869689, -1858869624, 1946064956], [I; 628763307, -775599449, -1232986969, 9177887]], shuttle_interrupted: "LIFTING", shuttle_cycles: 0, Network: {Capacity: 2097152.0f, Size: 2, AddedStress: 8.0f, Id: -1924145049455L, Stress: 1024.0f}, shuttle_phase: "FAULT", x: -6, y: 145, z: 73, id: "fourthdimension:shuttle_winch", shuttle_vehicle: [I; -1986757106, 1346916145, -1158413130, 1948093684]}
+
+Evidence: fd03-second-cycle-monitor.txt
+12:18:10 BOARDING cycles 1 distance 62.679792956729244
+12:18:30 LIFTING cycles 1 distance 61.87979295672923
+12:18:47 OUTBOUND cycles 1 distance 3.799999999999997
+12:18:56 RETURNING cycles 1 distance 21.000000000000167
+12:18:58 CAPTURING cycles 1 distance 26.20000000000024
+12:19:03 BOARDING cycles 2 distance 62.679792956729244
+-6, 145, 73 has the following block data: {Speed: 128.0f, shuttle_carriage: [I; -1269192358, 1780959610, -1970147783, 65896637], shuttle_distance: 62.679792956729244d, shuttle_maximum: 104.78940101308046d, shuttle_start: 69801L, shuttle_station: 62.679792956729244d, Source: [I; -7, 145, 73], shuttle_end: 594097L, shuttle_fault: "", shuttle_cars: [[I; -1986757106, 1346916145, -1158413130, 1948093684], [I; 1155095433, -1496103111, -1535316908, 751135210], [I; 1919869249, 1310869689, -1858869624, 1946064956], [I; 628763307, -775599449, -1232986969, 9177887]], shuttle_interrupted: "LIFTING", shuttle_cycles: 2, Network: {Capacity: 2097152.0f, Size: 2, AddedStress: 8.0f, Id: -1924145049455L, Stress: 1024.0f}, shuttle_phase: "BOARDING", x: -6, y: 145, z: 73, id: "fourthdimension:shuttle_winch", shuttle_vehicle: [I; -1986757106, 1346916145, -1158413130, 1948093684]}
+
+Evidence: fd03-dev-restored-seat.txt
+Dev has the following entity data: {Entity: {Motion: [0.0d, 0.0d, 0.0d], FallDistance: 0.0f, "neoforge:attachments": {"create:minecart_controller": {Type: "EMPTY"}}, Pos: [2.04810315E7d, 127.0d, 2.04830805E7d], Fire: -1s, Invulnerable: 0b, id: "create:seat", Air: 300s, OnGround: 0b, PortalCooldown: 0, UUID: [I; 574072382, -904314415, -1227832404, -805775008], Rotation: [0.0f, 0.0f]}, Attach: [I; 574072382, -904314415, -1227832404, -805775008]}
+
+Evidence: fd03-observer-restored-seat.txt
+Observer has the following entity data: {Entity: {Motion: [0.0d, 0.0d, 0.0d], FallDistance: 0.0f, "neoforge:attachments": {"create:minecart_controller": {Type: "EMPTY"}}, Pos: [2.04810335E7d, 127.0d, 2.04851285E7d], Fire: -1s, Invulnerable: 0b, id: "create:seat", Air: 300s, OnGround: 0b, PortalCooldown: 0, UUID: [I; -1770269469, 2079672181, -2141490428, -1714027862], Rotation: [0.0f, 0.0f]}, Attach: [I; -1770269469, 2079672181, -2141490428, -1714027862]}
+
+Evidence: fd03-pax-locked-dismount.txt
+Dev has the following entity data: {Entity: {Motion: [0.0d, 0.0d, 0.0d], FallDistance: 0.0f, "neoforge:attachments": {"create:minecart_controller": {Type: "EMPTY"}}, Pos: [2.04810315E7d, 127.0d, 2.04830805E7d], Fire: -1s, Invulnerable: 0b, id: "create:seat", Air: 300s, OnGround: 0b, PortalCooldown: 0, UUID: [I; 574072382, -904314415, -1227832404, -805775008], Rotation: [0.0f, 0.0f]}, Attach: [I; 574072382, -904314415, -1227832404, -805775008]}
+
+Evidence: fd03-dev-final-dismount.txt
+Found no elements matching RootVehicle
+
+Dev has the following entity data: [6.500001746140148d, 145.0d, 73.4995945828763d]
+
+Found no elements matching NoGravity
+
+Evidence: fd03-observer-final-dismount.txt
+Found no elements matching RootVehicle
+
+Observer has the following entity data: [-5.5d, 146.0d, 73.49959458324979d]
+
+Found no elements matching NoGravity
+
+Evidence: fd03-revised-dev-dismount.txt
+Found no elements matching RootVehicle
+
+Dev has the following entity data: [406.5d, 143.0d, 31.5d]
+
+Found no elements matching NoGravity
+
+Evidence: fd03-revised-observer-dismount.txt
+Found no elements matching RootVehicle
+
+Observer has the following entity data: [394.5d, 144.0d, 32.5d]
+
+Found no elements matching NoGravity
+
+No offline lift advance: saved carriage coordinate 38.2797929567289 remained unchanged in FAULT until a platform operator used the winch normally. Resume completed one cycle; a second normal dispatch recorded BOARDING -> LIFTING -> OUTBOUND -> RETURNING -> CAPTURING -> BOARDING (cycle 2).
+The early open-restraints request used a stale editor revision and was rejected for that reason. This GUI result establishes no bypass; the native taller-shuttle test establishes the explicit active-phase restraint rejection.
+Both riders exited both families through normal open-restraints/sneak interactions. RootVehicle and NoGravity fields are absent after exit (normal unmounted/default gravity), at the recorded platforms.
+An uncapped Dev JVM exited 137 during first same-process PAX reconnect, without a Java crash report. Cause remains unproven. A fresh Dev JVM capped at 2 GiB restored successfully; same-process revised cold restart then succeeded for Dev and Observer. Treat the original exit as an open lifecycle/resource investigation for FD902/FD904.
