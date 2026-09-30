@@ -1,0 +1,6 @@
+PASS schema 3 -> 4: all 3 old vehicles and 24 old rails preserved
+PASS same-process reopen: all 8 chassis, 20 carriers and 35 rails preserved
+PASS profiles, magnetic spans, functional family/provider IDs, seat topology and hinge offsets
+PASS all five families captured, ready, unrestrained, empty and without faults
+PASS unwrapped boarding angles retained within 0.01 rad; runtime drift is allowed
+Scope: these fixture save assertions accompany GUI ride evidence, not full FD903 coverage
