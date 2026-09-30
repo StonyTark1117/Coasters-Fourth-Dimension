@@ -1,0 +1,25 @@
+data get block -6 145 73 shuttle_phase
+-6, 145, 73 has the following block data: "BOARDING"
+
+
+data get block -6 145 73 shuttle_cars
+-6, 145, 73 has the following block data: [[I; -1986757106, 1346916145, -1158413130, 1948093684], [I; 1155095433, -1496103111, -1535316908, 751135210], [I; 1919869249, 1310869689, -1858869624, 1946064956], [I; 628763307, -775599449, -1232986969, 9177887]]
+
+
+data get block 194 145 73 shuttle_phase
+194, 145, 73 has the following block data: "BOARDING"
+
+
+data get block 194 145 73 shuttle_cars
+194, 145, 73 has the following block data: [[I; 1101563939, -81048728, -1755264476, 1268029136], [I; -2035777415, -1915205537, -1709959788, -277608452], [I; -773115785, -2082650782, -1411652307, 1794934199], [I; 1503125705, -1811528645, -1717333735, 152667998]]
+
+
+save-all flush
+Saving the game (this may take a moment!)
+Saved the game
+
+
+Frozen cold restart preserved complete addon SavedData exactly.
+Fresh production JAR, schema 4, 14 rails, 9 vehicles, 20 carrier groups.
+This is boarding-state restart evidence; active-lift and occupied client restart acceptance remains outstanding.
+One resumed native tick preserved all identities, rails/profiles, seats, and hinge offsets. All nine vehicle faults are empty.

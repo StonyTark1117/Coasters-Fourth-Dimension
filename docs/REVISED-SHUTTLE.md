@@ -1,6 +1,6 @@
 # Revised carriers and PAX shuttle development
 
-FD301 is specified. FD302–FD305 are not yet release-approved. The active target is the complete 0.9.0 roadmap, including the prerequisite 0.3 and 0.4 gates. Passing native tests below establishes these scenarios only; dedicated-server restart, real clients, chunk interruptions, full eligibility and migration checks, tutorials, and performance gates remain outstanding.
+FD301 is specified. FD302–FD305 are not yet release-approved. The active target is the complete 0.9.0 roadmap, including the prerequisite 0.3 and 0.4 gates. Passing native tests below establishes these scenarios only; occupied/active dedicated-server restart, real clients, full eligibility and migration checks, tutorials, and performance gates remain outstanding.
 
 ## FD301: evidence and original topology
 
@@ -43,3 +43,11 @@ The 2026-09-30 native run passed **18 GameTests**, including:
 - Existing foundation, Arrow, legacy ZacSpin, magnetic Free Spin, editing, operations, boundary, and ordinary-cart checks.
 
 Evidence excerpt: [native run](evidence/0.3/native-progress.txt). Reproduce with Java 21 and `./gradlew build runGameTestServer`. This is development evidence, not the FD305 or FD905 acceptance gate.
+
+## Packaged server checkpoint
+
+The `0.9.0-dev.1` JAR booted in a fresh official NeoForge 21.1.248 production installation with full Create 6.0.10-280, Coasters 0.1.5, and Sable 2.0.3. Both PAX examples assembled their native four-car consists; the revised example created four independent carrier groups. The save contained schema 4, fourteen original rails, nine vehicles, and twenty carrier groups. See [startup and assembly](evidence/0.3/production-startup.txt).
+
+A clean cold restart at boarding, frozen before resumed simulation, preserved the complete addon SavedData exactly. Both winches retained their four car IDs and boarding phase. One subsequent native tick preserved all identities, rails/profiles, seats and hinge offsets, with all nine vehicle faults empty. See [restart evidence](evidence/0.3/production-frozen-restart.txt). This does not prove occupied or active-lift cold restart, which remains required.
+
+GitHub's clean-build/native workflow also passed at implementation commit `0ab941a`: [CI run](https://github.com/StonyTark1117/Coasters-Fourth-Dimension/actions/runs/36760640541). Development is reviewable in [draft PR #1](https://github.com/StonyTark1117/Coasters-Fourth-Dimension/pull/1).
