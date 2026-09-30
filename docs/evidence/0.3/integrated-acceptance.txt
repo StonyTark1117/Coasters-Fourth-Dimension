@@ -1,0 +1,59 @@
+FD305 five-family packaged integrated-world acceptance, 2026-09-30
+Artifact: integrated-artifact.sha256 (801cc4d test-only matrix build).
+Stack: Minecraft 1.21.1, Java 21, NeoForge 21.1.248, Create 6.0.10-280,
+Coasters 0.1.5, Sable 2.0.3. No optional addons installed.
+Run: JAVA_HOME=/usr/lib/jvm/java-21-openjdk JAVA_TOOL_OPTIONS=-Xmx2G DISPLAY=:93
+     ./gradlew runClient -PfdPackaged -PfdWorld=FD03Acceptance -PfdValidation
+Disposable FD03Acceptance folder copied from FD02Acceptance, retaining its level
+name "FD02 Acceptance". Original save schema 3 held three families and 24 rails.
+Use the folder name, rather than the displayed level name, to identify evidence.
+
+All seat boarding, restraint close/open, dispatch and normal exits used empty-hand
+seat interaction, the mounted Rotation Tool editor and Shift. No mount injection,
+NBT edit, direct angle assignment or addon SavedData mutation was used.
+Public operator commands created the two new examples, moved the observer between
+platforms, and powered the circuit stations after departure. Spectator mode from
+the older fixture was changed to creative before boarding. Both hotbar slots 1
+and 2 contained tools; slot 3 was empty for normal seat interaction.
+
+PAX: initial example command refused an unloaded corridor; after explicit chunk
+loading it assembled four native linked cars. One real Dev rider closed the
+consist and dispatched through the normal editor. Observed LIFTING -> OUTBOUND ->
+RETURNING -> CAPTURING -> BOARDING; winch cycles=1. Ready/restraints-closed editor,
+then open/normal exit with RootVehicle absent. Native and prior dedicated evidence
+covers the taller example and occupied restart/resume separately.
+Revised: real Dev rider, four independent paired rotors, powered hilly circuit,
+normal rear-redstone capture, Ready/restraints-closed, normal restraint opening and
+exit. Native and prior two-client dedicated evidence covers all eight seats,
+independent loading and moving cold restart.
+Arrow: original schema-3 car and rotation profile completed a real occupied
+controlled ride, including first/third person inversion, rear-redstone capture,
+Ready/restraints-closed and normal exit.
+Legacy: original schema-3 car completed a real occupied free circuit and station
+capture; Ready/restraints-closed and normal exit.
+Free Spin: original schema-3 car completed a real occupied circuit with original
+magnetic spans. All four groups differed during travel. At final capture angles
+were approximately 18.84950, -0.000065, -0.000001, -18.84964 rad: retained unwrapped
+turns, all physically upright. Ready/restraints-closed, then normal opening/exit.
+
+Clean Save and Quit persisted schema 4, all five families, 8 chassis, 20 carrier
+bodies and 35 rails. Same-process world reopen, runtime /fd status, revised model
+inspection and PAX winch inspection confirmed ready/empty vehicles and
+BOARDING/cycles=1 with unchanged carriage/train identities. A second clean Save
+and Quit produced the reopened snapshot. The verifier proves original IDs,
+profiles, magnets, functional metadata, seat topology and default old hinge
+positions survived migration, and every final record survived reopening. Angular
+comparison allows <0.01 rad native settling; whole dynamic saves are not claimed
+identical. Quit Game ended Gradle BUILD SUCCESSFUL after 33m 8s with the 2-GiB cap.
+
+Limits retained for FD902/FD903/FD904:
+- /save-all flush is not an integrated-server command. Its rejected use was not
+  treated as evidence of an actual save; snapshots were taken after Save and Quit.
+- During travel between distant fixture chunks, Sable emitted transient
+  "movement packet for a non-existent sub-level" messages. They did not prevent
+  boarding, circuits, capture or these save assertions; their full lifecycle
+  implications require later investigation. These messages are preserved in the
+  selected log, not silently suppressed.
+- A successful capped single-player run does not diagnose the earlier dedicated
+  reconnect exit 137, or prove the complete performance/lifecycle/provider matrix.
+- This is a bounded 0.3 gate, not the 0.9 candidate or 1.0 release gate.

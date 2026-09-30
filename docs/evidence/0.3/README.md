@@ -9,4 +9,6 @@ The production GUI checks used the development artifact recorded in `development
 - PNGs: original geometry, both players, operator resume, and captured revised-car editor.
 - `native-progress.txt` and `unit-tests.txt`: earlier 18-native/17-unit passing checkpoint. Later native matrix results have their own evidence file.
 
-These records do not establish the five-family release gate or the complete FD902/FD904 lifecycle/resource/performance matrix. No external Track Styles compatibility is claimed.
+The integrated-world records establish bounded FD305 alongside the native and dedicated checks. They do not establish the complete FD902/FD904 lifecycle/resource/performance matrix. No external Track Styles compatibility is claimed.
+
+The later packaged single-player gate uses `integrated-artifact.sha256`. See `integrated-acceptance.txt`, `integrated-client.txt`, the three `integrated-schema*.json` snapshots, `integrated-save-assertions.txt`, and the five `integrated-*-captured.png` images. `scripts/verify-integrated-acceptance.py` verifies the committed migration/reopen observations.

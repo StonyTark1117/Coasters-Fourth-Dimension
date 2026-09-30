@@ -1,6 +1,6 @@
 # Revised carriers and PAX shuttle development
 
-FD301–FD304 are done for the documented bounded packages. Revised carriers and the PAX shuttle now have native and packaged dedicated-server evidence with real players, including occupied cold restarts. The active target remains the complete 0.9.0 roadmap, including the prerequisite 0.3 and 0.4 gates. The five-family release gate, complete lifecycle/eligibility/migration matrices, tutorials, and performance acceptance remain outstanding.
+FD301–FD305 are done for the documented bounded packages. Revised carriers and the PAX shuttle now have native and packaged dedicated-server evidence with real players, including occupied cold restarts. The active target remains the complete 0.9.0 roadmap, including the prerequisite 0.3 and 0.4 gates. The bounded five-family 0.3 gate now has packaged single-player, dedicated-server and save/reopen evidence. Complete lifecycle/eligibility/migration matrices, tutorials, integrations and performance acceptance remain outstanding for 0.4/0.9.
 
 ## FD301: evidence and original topology
 
@@ -42,7 +42,7 @@ The 2026-09-30 native run passed **18 GameTests**, including:
 - Removal of the remote spike's forced chunk tickets, proof that it left block-ticking range, interrupted hold, real winch block-entity save/reload preserving body IDs and consist, less than 0.3-block rollback while unavailable, and physical recovery after chunk availability was restored. The base graph can retain loaded geometry, so this proves loss of physics availability rather than complete chunk eviction.
 - Existing foundation, Arrow, legacy ZacSpin, magnetic Free Spin, editing, operations, boundary, and ordinary-cart checks.
 
-Evidence excerpt: [native run](evidence/0.3/native-progress.txt). Reproduce with Java 21 and `./gradlew build runGameTestServer`. This is development evidence, not the FD305 or FD905 acceptance gate.
+Evidence excerpt: [native run](evidence/0.3/native-progress.txt). Reproduce with Java 21 and `./gradlew build runGameTestServer`. This native checkpoint contributes to FD305 alongside the packaged checks below; it does not establish FD905.
 
 ## Packaged server checkpoint
 
@@ -63,3 +63,9 @@ Review [restart assertions, operating phases, and exit records](evidence/0.3/occ
 The first uncapped Dev JVM exited **137** during a same-process PAX reconnect, without a Java crash report. The cause remains unproven. A fresh Dev JVM with a **2 GiB heap cap** restored successfully; its subsequent same-process revised restart also succeeded. This exit remains an explicit FD902/FD904 investigation, not a claimed addon fix or a reason to call the candidate release-ready. The GUI attempt to open PAX restraints during movement used an outdated editor revision and was rejected for that reason; native shuttle tests separately prove the active-phase interlock.
 
 The later native regression run passed **19 GameTests and 17 JUnit tests**, including the full original **5 × 5** locked family matrix. Twenty wrong-family factory allocations and twenty native initial snaps were rejected, matching snaps succeeded, and no rejected hit changed the persistent binding. [Matrix evidence](evidence/0.3/native-family-matrix.txt) records the actual run. This is preparation for FD901; its cosmetic/provider/mixed-consist/all-entry-path matrix remains outstanding.
+
+## Packaged single-player five-family gate
+
+The current packaged build completed all five rides through normal seat/editor interactions and normal exits. A copied schema-3 world preserved all three original vehicle IDs and twenty-four rail IDs, profile keys, magnetic spans and functional bindings while adding the revised car and four PAX cars. Save and Quit, world reopen and a second Save and Quit retained all eight chassis, twenty carriers and thirty-five rails, with every vehicle captured, ready, unrestrained, empty and without faults. The PAX winch remained BOARDING with one completed cycle. Unwrapped Free Spin boarding angles survived within 0.01 rad of native settling.
+
+[Acceptance procedure and limits](evidence/0.3/integrated-acceptance.txt), [selected runtime log](evidence/0.3/integrated-client.txt), [save assertions](evidence/0.3/integrated-save-assertions.txt), and the three committed integrated JSON snapshots provide the evidence. Reproduce the snapshot assertions with `python scripts/verify-integrated-acceptance.py` followed by the before/saved/reopened JSON paths. This closes bounded FD305. Transient Sable movement-packet messages during travel between fixture chunks and the previous unexplained client exit 137 remain recorded for FD902/FD904 investigation; the complete release matrices remain open.
