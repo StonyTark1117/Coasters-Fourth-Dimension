@@ -1,6 +1,6 @@
 # Coasters: Fourth Dimension
 
-A Create: Coasters Simulated addon with original controlled Arrow/S&S-style four-rail tracks and four-seat cars, plus legacy ZacSpin-style tracks and eight-seat free-rotating cars. The 0.2 build also adds an S&S-inspired magnetic Free Spin family: eight seats in four independent native carrier pairs, matching blue track, and configurable passive inducer/damper spans. Controlled Arrow cars can form trains; both free-spin families operate individually.
+A Create: Coasters Simulated addon developing five original 4D families: controlled Arrow/S&S cars, legacy ZacSpin, magnetic S&S Free Spin, revised ZacSpin, and a PAX-style catch/lift/release shuttle. Every family has matching functional track. Arrow and PAX cars support family-specific native coupling; the other families operate individually.
 
 FD201–FD204 implement the **bounded 0.2 build**. See [magnetic-family instructions and acceptance](docs/MAGNETIC.md), and the earlier [0.1 acceptance](docs/PLAYABLE.md). The current `0.9.0-dev.1` branch adds revised carriers and a physical PAX catch/lift/release shuttle; see [development instructions, native evidence, and outstanding gates](docs/REVISED-SHUTTLE.md). It is not yet the 0.9 release candidate. External Track Styles integration remains on the [roadmap to 1.0](ROADMAP.md). The four-pair Free Spin and revised topologies are original game approximations; exact manufacturer coupling is not claimed.
 
@@ -20,12 +20,12 @@ Install the addon and its dependencies on both client and server:
 
 Use the dependencies supplied by those mods, including Flywheel 1.0.6, Sable Companion 1.6.0 and Veil 4.1.4. Exact development artifact pins are in [build.gradle](build.gradle). No optional coaster addon is required or bundled.
 
-Build and ride within **±1024 blocks of horizontal world origin**. The foundation exposed a native physics precision issue at large coordinates; this restriction remains in 0.2. A dimension supports up to 256 sections, 64 vehicles and 8192 total rotation-profile keys, and 512 magnetic spans (eight per section). Back up valuable worlds before trying a development build.
+Build and ride within **±1024 blocks of horizontal world origin**. The foundation exposed a native physics precision issue at large coordinates; this restriction remains in the current development build. A dimension supports up to 256 sections, 64 vehicles and 8192 total rotation-profile keys, and 512 magnetic spans (eight per section). Back up valuable worlds before trying a development build.
 
 ## Build a ride
 
 1. Obtain matching track and car items, a Rotation Tool, and a Boarding Station from crafting or the Fourth Dimension creative tab. Place Coasters anchorpoints and use one of our track items on two anchors. A span may be at most 64 blocks; survival placement consumes one matching track item per four blocks, rounded up.
-2. Place the matching car on its track. Leave room for the full wings, riders, and their rotation. Vehicle placement rejects obstructed wing envelopes. Leave at least six blocks between controlled-car axles. Use Coasters' chain coupling on two captured Arrow cars with a six-block snapped link distance. Legacy and Free Spin cars cannot couple. Leave twelve blocks between axles if either car is Free Spin.
+2. Place the matching car on its track. Leave room for the full wings, riders, and their rotation. Vehicle placement rejects obstructed wing envelopes. Leave at least six blocks between controlled-car axles. Use Coasters' chain coupling on two captured Arrow cars with a six-block snapped link distance. Legacy and Free Spin cars cannot couple. Leave twelve blocks between Free Spin axles and fourteen between revised axles. PAX cars link six blocks apart, up to four cars; their separate winch workflow is described in the shuttle guide.
 3. For Arrow rotation, use the Rotation Tool on a section before placing cars. Keys use `distance:degrees:slope`, separated by semicolons; slope is degrees per block. Keys must cover the entire displayed section length. For a 36-block section, `0:0;18:360;36:0` makes one full turn and returns. Adjacent sections must match unwrapped angle and slope. `360` and `0` have different control-rail positions.
 4. Copy/paste, mirror, reverse and explicit geometry rebinding are available in the editor. Editing occupied sections or their immediate approaches is rejected. Rebind after changing native curve geometry. Use Preview Seats to inspect cyan pose markers and yellow/red conservative clearance boxes. Free-spin previews label their starting conditions and are examples; live motion comes from native physics.
 5. Place loading platforms outside the wing envelope. Wait for stopped translation, captured upright carriers and low angular speed, then right-click an empty seat. Use the Rotation Tool on the car, station, or in the air while riding to close restraints and dispatch. Coasters/Create propulsion moves the chassis; the addon controls the rotary mechanisms.
@@ -51,9 +51,13 @@ Operator level 2 is required. In an empty test world, run:
 /execute positioned -100 120 0 run fd demo arrow
 /execute positioned 100 120 0 run fd demo legacy
 /execute positioned -400 120 0 run fd demo free_spin
+/execute positioned 400 140 0 run fd demo revised
+/execute positioned 0 140 0 run fd demo pax
 ```
 
-Each command reserves a clear 47 × 17 × 69 region starting above/ahead of the command position. The original examples include track, a car, platforms, a boarding station and native Coasters chain drives powered by Create creative motors at 32 RPM. Arrow has a full-turn rotation program; both free-spin examples have hills. Free Spin also has two oppositely directed, separately targeted inducer spans and an all-group damper on the far straight. Board, close restraints and dispatch. After the car leaves, power the rear of the station so it captures the returning car; release power to dispatch again.
+The Arrow, legacy, Free Spin, and revised circuit commands reserve a clear 47 × 17 × 69 region starting above/ahead of the command position. The original examples include track, a car, platforms, a boarding station and native Coasters chain drives powered by Create creative motors at 32 RPM. Arrow has a full-turn rotation program; both free-spin examples have hills. Free Spin also has two oppositely directed, separately targeted inducer spans and an all-group damper on the far straight. Board, close restraints and dispatch. After the car leaves, power the rear of the station so it captures the returning car; release power to dispatch again.
+
+The PAX command builds its separate four-car two-spike layout and physical winch. `/fd demo pax_tall` creates the taller shuttle example. See [shuttle operation and restart recovery](docs/REVISED-SHUTTLE.md); these examples need larger clear corridors.
 
 `/fd status` reports angles, occupancy and capture. `/fd clear` removes this dimension's addon vehicles and their track connections; it leaves station blocks, platforms and motors. Use it only in disposable test worlds. Other `/fd` commands are foundation diagnostics; they do not replace the normal items or station workflow.
 
@@ -68,7 +72,7 @@ Each command reserves a clear 47 × 17 × 69 region starting above/ahead of the 
 
 Use `JAVA_HOME=/usr/lib/jvm/java-21-openjdk` on this workstation. The generated server directory needs Minecraft EULA acceptance. Offline mode is for loopback development identities only.
 
-The artifact is `build/libs/coasters-fourth-dimension-0.2.0.jar`. For Unix checkout paths containing `:`, outputs move to `/tmp/fourthdimension-<path-hash>/build` to avoid Java classpath parsing errors. Run directories live under that build directory. `clean` deletes them; keep valuable worlds elsewhere. GameTests recreate their own disposable world.
+The artifact is `build/libs/coasters-fourth-dimension-0.9.0-dev.1.jar`. For Unix checkout paths containing `:`, outputs move to `/tmp/fourthdimension-<path-hash>/build` to avoid Java classpath parsing errors. Run directories live under that build directory. `clean` deletes them; keep valuable worlds elsewhere. GameTests recreate their own disposable world.
 
 After `build`, `-PfdPackaged` runs the built JAR using an isolated source set and separate `packaged-client`/`packaged-server` directories. It does not load the addon's loose compiled classes. `-PfdConnect=127.0.0.1:25581` connects to a test server; `-PfdWorld=FolderName` opens an existing single-player save. `runObserver` starts a second identity. `-PfdValidation` logs functional/native pose snapshots; `runServer -PfdFrozen` starts paused for saved-state comparisons.
 
