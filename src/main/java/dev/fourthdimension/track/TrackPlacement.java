@@ -147,6 +147,7 @@ public final class TrackPlacement {
     boolean changed = false;
     for (var rail : data.rails)
       if (rail.original()
+          && dev.fourthdimension.integration.TrackProviders.available(rail)
           && rail.valid
           && level.hasChunkAt(rail.from)
           && level.hasChunkAt(rail.to)) {

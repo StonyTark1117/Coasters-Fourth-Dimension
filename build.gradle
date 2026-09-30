@@ -67,7 +67,7 @@ neoForge {
 }
 
 dependencies {
-    if (project.hasProperty('fdPackaged')) packagedRuntimeOnly files(layout.buildDirectory.file("libs/coasters-fourth-dimension-${mod_version}.jar"))
+    if (project.hasProperty('fdPackaged')) packagedRuntimeOnly files(project.findProperty('fdPackagedJar') ?: layout.buildDirectory.file("libs/coasters-fourth-dimension-${mod_version}.jar"))
     implementation('com.simibubi.create:create-1.21.1:6.0.10-280:slim') { transitive = false }
     implementation 'net.createmod.ponder:ponder-neoforge:1.0.82+mc1.21.1'
     compileOnly 'dev.engine-room.flywheel:flywheel-neoforge-api-1.21.1:1.0.6'
@@ -75,6 +75,12 @@ dependencies {
     implementation 'com.tterrag.registrate:Registrate:MC1.21-1.3.0+67'
     implementation 'dev.ryanhcode.sable:sable-neoforge-1.21.1:2.0.3'
     implementation 'curse.maven:create-coasters-simulated-1601871:8655742'
+    compileOnly('curse.maven:coasters-engineered-1643631:8863559') { transitive = false }
+    if (project.findProperty('fdIntegrations') == 'engineered') {
+        runtimeOnly('curse.maven:coasters-engineered-1643631:8863559') { transitive = false }
+    } else if (project.hasProperty('fdIntegrations')) {
+        throw new GradleException('Unknown integration profile: ' + project.property('fdIntegrations'))
+    }
     testImplementation 'org.junit.jupiter:junit-jupiter:5.11.4'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher:1.11.4'
 }

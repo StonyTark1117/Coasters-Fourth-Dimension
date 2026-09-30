@@ -70,6 +70,11 @@ public final class ExampleLayouts {
 
   public static FoundationData.Vehicle create(
       ServerLevel level, BlockPos origin, TrackDesign design) {
+    return create(level, origin, design, true);
+  }
+
+  public static FoundationData.Vehicle create(
+      ServerLevel level, BlockPos origin, TrackDesign design, boolean nativeChainPower) {
     if (design == TrackDesign.PAX)
       throw new IllegalArgumentException(
           "Use /fd demo pax or pax_tall for a physical shuttle example");
@@ -144,26 +149,27 @@ public final class ExampleLayouts {
               0,
               true));
     }
-    for (int i = 0; i < 8; i++) {
-      var anchor = (CoasterAnchorpointBlockEntity) level.getBlockEntity(anchors.get(i));
-      var edge = edges.get(i);
-      var path =
-          new CoasterPathGraphSpans.SpanPath(
-              List.of(new CoasterPathGraphSpans.PathSegment(edge, 0, 1)),
-              TrackGeometry.table(level, edge).length());
-      var axis = Math.abs(tangents[i].z) > .5 ? Direction.Axis.X : Direction.Axis.Z;
-      anchor.commitChainLift(axis, ChainLiftEndRef.anchor(edge.to()), path);
-      var direction = axis == Direction.Axis.X ? Direction.EAST : Direction.SOUTH;
-      var motorPos = anchors.get(i).relative(direction);
-      level.setBlockAndUpdate(
-          motorPos,
-          AllBlocks.CREATIVE_MOTOR
-              .getDefaultState()
-              .setValue(BlockStateProperties.FACING, direction.getOpposite()));
-      var motor = (CreativeMotorBlockEntity) level.getBlockEntity(motorPos);
-      // Native speed is 16 blocks/s at 256 RPM; choose a slow 2 blocks/s demo.
-      motor.generatedSpeed.setValue(32 * anchor.getChainLiftTravelSign());
-    }
+    if (nativeChainPower)
+      for (int i = 0; i < 8; i++) {
+        var anchor = (CoasterAnchorpointBlockEntity) level.getBlockEntity(anchors.get(i));
+        var edge = edges.get(i);
+        var path =
+            new CoasterPathGraphSpans.SpanPath(
+                List.of(new CoasterPathGraphSpans.PathSegment(edge, 0, 1)),
+                TrackGeometry.table(level, edge).length());
+        var axis = Math.abs(tangents[i].z) > .5 ? Direction.Axis.X : Direction.Axis.Z;
+        anchor.commitChainLift(axis, ChainLiftEndRef.anchor(edge.to()), path);
+        var direction = axis == Direction.Axis.X ? Direction.EAST : Direction.SOUTH;
+        var motorPos = anchors.get(i).relative(direction);
+        level.setBlockAndUpdate(
+            motorPos,
+            AllBlocks.CREATIVE_MOTOR
+                .getDefaultState()
+                .setValue(BlockStateProperties.FACING, direction.getOpposite()));
+        var motor = (CreativeMotorBlockEntity) level.getBlockEntity(motorPos);
+        // Native speed is 16 blocks/s at 256 RPM; choose a slow 2 blocks/s demo.
+        motor.generatedSpeed.setValue(32 * anchor.getChainLiftTravelSign());
+      }
     var edge = edges.getFirst();
     double t = TrackGeometry.table(level, edge).parameterAt(12);
     var point = CoasterPathGraphManager.sampleEdgePosition(level, edge, t);

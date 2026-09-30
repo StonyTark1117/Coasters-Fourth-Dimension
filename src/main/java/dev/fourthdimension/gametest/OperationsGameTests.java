@@ -1,5 +1,6 @@
 package dev.fourthdimension.gametest;
 
+import dev.fourthdimension.integration.*;
 import dev.fourthdimension.runtime.*;
 import dev.fourthdimension.station.*;
 import dev.fourthdimension.track.*;
@@ -84,6 +85,26 @@ public final class OperationsGameTests {
         () -> {
           var v = vehicles.getFirst();
           helper.assertTrue(Boarding.ready(level, v), "Vehicle not ready at station");
+          var before = RideTelemetry.sample(level, v.chassis);
+          helper.assertTrue(
+              before.available() && before.boardingReady() && !before.dispatchReady(),
+              "Open restraints reported dispatch ready");
+          long revision = v.revision;
+          EditorGameTests.rejects(
+              helper,
+              () ->
+                  RideOperations.request(
+                      level, stationPos, v.chassis, RideOperations.Request.DISPATCH),
+              "Shared controller bypassed open restraints");
+          helper.assertTrue(
+              v.revision == revision && v.stopping,
+              "Read-only telemetry or rejected dispatch mutated vehicle");
+          EditorGameTests.rejects(
+              helper,
+              () ->
+                  RideOperations.request(
+                      level, stationPos.offset(1, 0, 0), v.chassis, RideOperations.Request.CAPTURE),
+              "Unbound controller operated a ride");
           var c = v.carriers.getFirst();
           var carrier = container.getSubLevel(c.body);
           var dependencies =
@@ -106,6 +127,19 @@ public final class OperationsGameTests {
               level.getSignal(stationPos, Direction.NORTH) == 0,
               "Ready signal leaked into rear input");
           VehicleOperations.restraints(level, v, true);
+          helper.assertTrue(
+              RideTelemetry.sample(level, v.chassis).dispatchReady(),
+              "Closed aligned ride did not report dispatch ready");
+          var sources =
+              com.simibubi.create.api.behaviour.display.DisplaySource.getAll(level, stationPos);
+          helper.assertTrue(
+              sources.stream()
+                      .filter(
+                          s ->
+                              s instanceof dev.fourthdimension.integration.create.RideDisplaySource)
+                      .count()
+                  == 6,
+              "Station Display Link sources not registered");
           var wrong = TrackGeometry.resolve(level, rails.getLast());
           var hit =
               new CoasterPathTrackFrame.GraphHit(
@@ -161,6 +195,72 @@ public final class OperationsGameTests {
         () -> {
           var v = vehicles.getFirst();
           helper.assertTrue(v.maintenance && v.stopping, "Redstone bypassed maintenance retention");
+          var telemetry = RideTelemetry.sample(level, v.chassis);
+          helper.assertTrue(
+              telemetry.retained()
+                  && !telemetry.dispatchReady()
+                  && telemetry.occupied() == 1
+                  && telemetry.capacity() == 4,
+              "Consist telemetry lost occupancy or retention interlock");
+          var panel = (BoardingStationEntity) level.getBlockEntity(stationPos);
+          helper.assertTrue(
+              !panel.telemetry().dispatchReady(), "Station cached stale dispatch readiness");
+          helper.assertTrue(
+              panel.getUpdateTag(level.registryAccess()).contains("ride_telemetry"),
+              "Goggle diagnostics were not synchronized");
+          var remotePos = stationPos.offset(24, 0, 0);
+          level.setBlockAndUpdate(remotePos, StationContent.STATION.get().defaultBlockState());
+          var remote = (BoardingStationEntity) level.getBlockEntity(remotePos);
+          remote.vehicle = v.chassis;
+          helper.runAfterDelay(
+              6,
+              () -> {
+                helper.assertTrue(
+                    remote.telemetry().available()
+                        && remote.telemetry().occupied() == 1
+                        && !remote.telemetry().dispatchReady()
+                        && remote
+                            .telemetry()
+                            .dispatchDenial()
+                            .equals("Vehicle outside station range"),
+                    "Station lost bound ride telemetry outside its operation range");
+                var linkPos = remotePos.above();
+                var signPos = remotePos.east(2);
+                level.setBlockAndUpdate(signPos.below(), Blocks.STONE.defaultBlockState());
+                level.setBlockAndUpdate(signPos, Blocks.OAK_SIGN.defaultBlockState());
+                level.setBlockAndUpdate(
+                    linkPos,
+                    com.simibubi.create.AllBlocks.DISPLAY_LINK
+                        .getDefaultState()
+                        .setValue(
+                            com.simibubi
+                                .create
+                                .content
+                                .redstone
+                                .displayLink
+                                .DisplayLinkBlock
+                                .FACING,
+                            Direction.UP));
+                var link =
+                    (com.simibubi.create.content.redstone.displayLink.DisplayLinkBlockEntity)
+                        level.getBlockEntity(linkPos);
+                link.target(signPos);
+                link.activeSource =
+                    com.simibubi.create.api.behaviour.display.DisplaySource.get(
+                        net.minecraft.resources.ResourceLocation.parse(
+                            "fourthdimension:ride_occupancy"));
+                link.updateGatheredData();
+                var sign =
+                    (net.minecraft.world.level.block.entity.SignBlockEntity)
+                        level.getBlockEntity(signPos);
+                helper.assertTrue(
+                    sign.getFrontText().getMessage(0, false).getString().equals("1 / 4"),
+                    "Create Display Link did not transfer occupied ride data to its target");
+                level.removeBlock(linkPos, false);
+                level.removeBlock(signPos, false);
+                level.removeBlock(signPos.below(), false);
+                level.removeBlock(remotePos, false);
+              });
           ((CoasterAnchorpointBlockEntity) level.getBlockEntity(rails.getFirst().from))
               .removeAnchorPeerCurve(level, rails.getFirst().to);
         });

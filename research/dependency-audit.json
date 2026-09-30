@@ -213,6 +213,46 @@
         ]
       },
       "inspected_public_signatures": "Compiled from \"TrackSpanGeometry.java\"\npublic final class dev.jwaterfall.coastersengineered.span.TrackSpanGeometry {\n  public static dev.silvergold.simulatedcoasters.track.graph.CoasterPathGraphSpans$SpanPath resolve(net.minecraft.world.level.Level, net.minecraft.core.BlockPos, dev.silvergold.simulatedcoasters.track.graph.CoasterPathTrackFrame$GraphHit, double);\n  public static dev.silvergold.simulatedcoasters.track.graph.CoasterPathGraphSpans$SpanPath rebind(net.minecraft.world.level.Level, dev.jwaterfall.coastersengineered.span.TrackSpan);\n  public static double distanceAlong(net.minecraft.world.level.Level, dev.silvergold.simulatedcoasters.track.graph.CoasterPathGraphSpans$SpanPath, dev.silvergold.simulatedcoasters.track.graph.CoasterPathEdge, double);\n  public static dev.silvergold.simulatedcoasters.track.graph.CoasterPathGraph graphFor(net.minecraft.world.level.Level);\n  public static dev.silvergold.simulatedcoasters.track.graph.CoasterPathEdge findEdge(net.minecraft.world.level.Level, net.minecraft.core.BlockPos, net.minecraft.core.BlockPos);\n  static {};\n}\n"
+    },
+    {
+      "project": "Coasters Simulated: Track Styles",
+      "release_label": "1.2.0",
+      "release_page": "https://www.curseforge.com/minecraft/mc-mods/coasters-simulated-track-styles/files/9020601",
+      "maven_coordinate": "curse.maven:coasters-simulated-track-styles-1642719:9020601",
+      "sha256": "42535a83307f6898b33c13ca201533bb9e337418fd7c73039c867fc80bfbcb38",
+      "bytes": 1056916,
+      "embedded_license": "All Rights Reserved",
+      "embedded_mod_versions": [
+        {
+          "modId": "coasterssimulatedextratypes",
+          "version": "1.2.0"
+        }
+      ],
+      "declared_dependencies": {
+        "coasterssimulatedextratypes": [
+          {
+            "modId": "neoforge",
+            "type": "required",
+            "versionRange": "[21.1.234,)",
+            "ordering": "NONE",
+            "side": "BOTH"
+          },
+          {
+            "modId": "minecraft",
+            "type": "required",
+            "versionRange": "[1.21.1]",
+            "ordering": "NONE",
+            "side": "BOTH"
+          }
+        ]
+      },
+      "integration_findings": [
+        "Release notes and registered style IDs include arrow_4d and arrow_4d_dbl_spine despite stale main-page future list.",
+        "TrackComponents provides centerBeam, tie, leftRail and rightRail; left/right Arrow 4D models each combine main and static control-rail geometry.",
+        "No profile-driven control-rail API established by this inspection.",
+        "Project page MIT and embedded All Rights Reserved metadata still differ; no third-party implementation or assets copied into this repository."
+      ],
+      "validation": "Metadata, model inventory and class inspection only; not runtime certification."
     }
   ],
   "source_references": [

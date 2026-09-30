@@ -33,6 +33,8 @@ public final class EligibilityHooks {
             .filter(r -> r.matches(hit.edge().from(), hit.edge().to()))
             .findFirst()
             .orElse(null);
+    if (rail != null && !dev.fourthdimension.integration.TrackProviders.available(rail))
+      return false;
     if (vehicle == null) {
       if (rail == null) return true;
       return rail.valid && dev.fourthdimension.track.OrdinaryGearCertificate.fits(chassis);

@@ -289,6 +289,8 @@ Ship both new families with instructions and examples, including compact and tal
 
 ### FD401 Deliver optional provider infrastructure
 
+**Status: in progress (2026-09-30), integration branch.** Functional provider registry, schema-5 identity separation, immutable consist telemetry, guarded controller requests, and an Engineered 1.1.1 adapter are implemented. External appearance activation and full compatibility acceptance remain pending. See [integration scope and evidence](docs/INTEGRATIONS.md).
+
 **Depends on:** FD005, FD305. **Design:** D04, D05, D07, D15.
 
 Implement isolated optional adapters, support/version checks, component render ownership, and appearance fallback. Evaluate available Track Styles styling and operating-addon interfaces against their actual releases and terms.
@@ -304,6 +306,8 @@ Test couplers, strength, offsets, braking, retained carriers, and loaded towing 
 **Done when:** publish a proven recovery example if feasible, or document the demonstrated coupling limitation and supported rail-access-only workflow. Do not claim towing support merely because wheels fit. A purpose-built recovery vehicle is a separate scope decision if existing couplers cannot work.
 
 ### FD403 Complete crafting and teaching content
+
+**Status: in progress (2026-09-30), integration branch.** Five family Ponder scenes plus station teaching content, goggles diagnostics and six Display Link sources are implemented; visual and multiplayer acceptance remain pending. See [integration scope](docs/INTEGRATIONS.md).
 
 **Depends on:** FD305. **Design:** D08.
 
@@ -392,6 +396,8 @@ Version 1.0 requires all five functional vehicle families with original matching
 ## External compatibility work
 
 ### FD801 Integrate a released Track Styles Arrow 4D
+
+**Status: investigation (2026-09-30).** Released Track Styles 1.2.0 includes Arrow 4D single/double-spine styles. Inspection found combined main/static-control-rail side models; functional equivalence and compatible render ownership are unverified. The release now exists, so the work is gated on adapter validation and applicable terms. See [artifact findings](docs/INTEGRATIONS.md#track-styles-120-investigation).
 
 **Depends on:** FD401 and an inspectable external release with applicable terms established. **Design:** D02, D04, D05.
 

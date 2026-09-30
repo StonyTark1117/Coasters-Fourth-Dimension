@@ -1,0 +1,10 @@
+Command: JAVA_HOME=/usr/lib/jvm/java-21-openjdk ./gradlew build runGameTestServer -PfdIntegrations=engineered
+Full transient log SHA-256: 95dc282ccdd26a823ff4db34add4db719075552109598744826438841e998225
+FD_ENGINEERED_END family=ARROW center=(-7.995E+2  1.511E+2 -6.834E+2) stopped=true ready=true
+FD_ENGINEERED_END family=ZACSPIN center=(-6.495E+2  1.511E+2 -6.739E+2) stopped=true ready=true
+FD_ENGINEERED_END family=FREE_SPIN center=(-4.995E+2  1.511E+2 -6.722E+2) stopped=true ready=true
+FD_ENGINEERED family=ARROW maxXZ=32.50250265113209,52.50250264811973 observer=true ready=true fault=
+FD_ENGINEERED family=ZACSPIN maxXZ=32.57956037655549,52.50501360376154 observer=true ready=true fault=
+FD_ENGINEERED family=FREE_SPIN maxXZ=32.585559787488876,52.5048410922426 observer=true ready=true fault=
+[12:43:31] [Server thread/INFO] [minecraft/GameTestServer]: All 21 required tests passed :)
+BUILD SUCCESSFUL in 1m 34s

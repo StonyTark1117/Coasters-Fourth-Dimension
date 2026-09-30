@@ -128,6 +128,18 @@ public final class ShuttleGameTests {
         () -> {
           if (!measuring[0]) return;
           phases.add(winch.phase);
+          helper.assertTrue(
+              !dev.fourthdimension.integration.ExternalDrivePolicy.allows(level, winch.vehicle),
+              "External propulsion gained control of a PAX shuttle");
+          var telemetry =
+              dev.fourthdimension.integration.RideTelemetry.sample(level, winch.vehicle);
+          helper.assertTrue(
+              telemetry.cars() == 4
+                  && telemetry.capacity() == 16
+                  && telemetry.phase().equals(winch.phase.name()),
+              "Shuttle telemetry lost consist or phase");
+          if (winch.phase != ShuttleWinchEntity.Phase.BOARDING)
+            helper.assertTrue(!telemetry.dispatchReady(), "Active shuttle reported dispatch ready");
           var lead = container.getSubLevel(winch.vehicle);
           var center = CoasterCartResolve.cartCenterWorld(lead);
           heights[0] = Math.max(heights[0], center.y);

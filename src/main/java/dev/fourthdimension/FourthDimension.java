@@ -11,6 +11,8 @@ public final class FourthDimension {
   public static final String ID = "fourthdimension";
 
   public FourthDimension(IEventBus bus) {
+    dev.fourthdimension.integration.create.CreateIntegration.register(bus);
+    NeoForge.EVENT_BUS.addListener(dev.fourthdimension.integration.IntegrationCommands::register);
     dev.fourthdimension.shuttle.ShuttleContent.registerItem();
     dev.fourthdimension.station.StationContent.registerItem();
     dev.fourthdimension.station.StationContent.BLOCKS.register(bus);
