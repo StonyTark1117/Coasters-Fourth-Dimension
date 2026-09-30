@@ -1,0 +1,68 @@
+{
+  "variants": {
+    "facing=north,ready=false,locked=false": {
+      "model": "fourthdimension:block/boarding_station_00",
+      "y": 0
+    },
+    "facing=north,ready=false,locked=true": {
+      "model": "fourthdimension:block/boarding_station_01",
+      "y": 0
+    },
+    "facing=north,ready=true,locked=false": {
+      "model": "fourthdimension:block/boarding_station_10",
+      "y": 0
+    },
+    "facing=north,ready=true,locked=true": {
+      "model": "fourthdimension:block/boarding_station_11",
+      "y": 0
+    },
+    "facing=east,ready=false,locked=false": {
+      "model": "fourthdimension:block/boarding_station_00",
+      "y": 90
+    },
+    "facing=east,ready=false,locked=true": {
+      "model": "fourthdimension:block/boarding_station_01",
+      "y": 90
+    },
+    "facing=east,ready=true,locked=false": {
+      "model": "fourthdimension:block/boarding_station_10",
+      "y": 90
+    },
+    "facing=east,ready=true,locked=true": {
+      "model": "fourthdimension:block/boarding_station_11",
+      "y": 90
+    },
+    "facing=south,ready=false,locked=false": {
+      "model": "fourthdimension:block/boarding_station_00",
+      "y": 180
+    },
+    "facing=south,ready=false,locked=true": {
+      "model": "fourthdimension:block/boarding_station_01",
+      "y": 180
+    },
+    "facing=south,ready=true,locked=false": {
+      "model": "fourthdimension:block/boarding_station_10",
+      "y": 180
+    },
+    "facing=south,ready=true,locked=true": {
+      "model": "fourthdimension:block/boarding_station_11",
+      "y": 180
+    },
+    "facing=west,ready=false,locked=false": {
+      "model": "fourthdimension:block/boarding_station_00",
+      "y": 270
+    },
+    "facing=west,ready=false,locked=true": {
+      "model": "fourthdimension:block/boarding_station_01",
+      "y": 270
+    },
+    "facing=west,ready=true,locked=false": {
+      "model": "fourthdimension:block/boarding_station_10",
+      "y": 270
+    },
+    "facing=west,ready=true,locked=true": {
+      "model": "fourthdimension:block/boarding_station_11",
+      "y": 270
+    }
+  }
+}

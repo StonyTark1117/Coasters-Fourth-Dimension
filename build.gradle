@@ -12,6 +12,11 @@ if (projectDir.absolutePath.contains(':') && File.pathSeparator == ':') {
     layout.buildDirectory = file("${System.getProperty('java.io.tmpdir')}/fourthdimension-${Integer.toHexString(projectDir.absolutePath.hashCode())}/build")
 }
 java.toolchain.languageVersion = JavaLanguageVersion.of(21)
+if (project.hasProperty('fdPackaged')) {
+    sourceSets { packaged }
+    configurations.packagedImplementation.extendsFrom(configurations.implementation)
+    configurations.packagedRuntimeOnly.extendsFrom(configurations.runtimeOnly)
+}
 
 repositories {
     mavenCentral()
@@ -27,20 +32,22 @@ repositories {
 
 neoForge {
     version = neo_version
+    if (project.hasProperty('fdPackaged')) addModdingDependenciesTo sourceSets.packaged
     runs {
         client {
-            client(); gameDirectory = layout.buildDirectory.dir('runs/client').get().asFile
+            client(); gameDirectory = layout.buildDirectory.dir(project.hasProperty('fdPackaged') ? 'runs/packaged-client' : 'runs/client').get().asFile
             if (project.hasProperty('fdConnect')) programArguments.addAll '--quickPlayMultiplayer', project.property('fdConnect')
+            if (project.hasProperty('fdWorld')) programArguments.addAll '--quickPlaySingleplayer', project.property('fdWorld')
             systemProperty 'fourthdimension.validation', project.hasProperty('fdValidation').toString()
         }
         observer {
-            client(); gameDirectory = layout.buildDirectory.dir('runs/observer').get().asFile
+            client(); gameDirectory = layout.buildDirectory.dir(project.hasProperty('fdPackaged') ? 'runs/packaged-observer' : 'runs/observer').get().asFile
             programArguments.addAll '--username', 'Observer'
             if (project.hasProperty('fdConnect')) programArguments.addAll '--quickPlayMultiplayer', project.property('fdConnect')
             systemProperty 'fourthdimension.validation', project.hasProperty('fdValidation').toString()
         }
         server {
-            server(); gameDirectory = layout.buildDirectory.dir('runs/server').get().asFile; programArgument '--nogui'
+            server(); gameDirectory = layout.buildDirectory.dir(project.hasProperty('fdPackaged') ? 'runs/packaged-server' : 'runs/server').get().asFile; programArgument '--nogui'
             systemProperty 'fourthdimension.freezeOnStart', project.hasProperty('fdFrozen').toString()
         }
         gameTestServer {
@@ -48,12 +55,19 @@ neoForge {
             gameDirectory = layout.buildDirectory.dir('runs/gametest').get().asFile
             systemProperty 'neoforge.enabledGameTestNamespaces', 'fourthdimension'
         }
-        configureEach { logLevel = org.slf4j.event.Level.INFO }
+        configureEach {
+            logLevel = org.slf4j.event.Level.INFO
+            if (project.hasProperty('fdPackaged')) {
+                sourceSet = sourceSets.packaged
+                loadedMods = []
+            }
+        }
     }
-    mods { fourthdimension { sourceSet(sourceSets.main) } }
+    if (!project.hasProperty('fdPackaged')) mods { fourthdimension { sourceSet(sourceSets.main) } }
 }
 
 dependencies {
+    if (project.hasProperty('fdPackaged')) packagedRuntimeOnly files(layout.buildDirectory.file("libs/coasters-fourth-dimension-${mod_version}.jar"))
     implementation('com.simibubi.create:create-1.21.1:6.0.10-280:slim') { transitive = false }
     implementation 'net.createmod.ponder:ponder-neoforge:1.0.82+mc1.21.1'
     compileOnly 'dev.engine-room.flywheel:flywheel-neoforge-api-1.21.1:1.0.6'

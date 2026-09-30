@@ -1,6 +1,6 @@
 # Coasters: Fourth Dimension implementation roadmap to 1.0
 
-This is the addressable execution plan for the design in [PLAN.md](PLAN.md). Foundation packages FD001–FD008 are **done for the bounded prototype**; their implementation, runtime evidence, and limits are recorded in [foundation acceptance](docs/FOUNDATION.md). Later packages remain **planned**. Version numbers define scope and order, not dates.
+This is the addressable execution plan for the design in [PLAN.md](PLAN.md). Foundation packages FD001–FD008 are **done for the bounded prototype**; their implementation, runtime evidence, and limits are recorded in [foundation acceptance](docs/FOUNDATION.md). FD101–FD109 are **done for the bounded 0.1 build**; see [acceptance evidence and limits](docs/PLAYABLE.md). Later packages remain **planned**. Version numbers define scope and order, not dates.
 
 Refer to a package by its permanent ID, for example “implement FD104” or “review FD303.” Keep IDs stable when adding work; split a package using a suffix such as FD104A rather than renumbering existing packages. Record its status, implementation references, and validation evidence under its heading as work proceeds. Statuses are planned, in progress, blocked, and done. A package is done only when its acceptance criteria have evidence, not merely when code exists.
 
@@ -105,6 +105,8 @@ Review prototype evidence and record the architecture decisions, version-sensiti
 
 ### FD101 Build matching original tracks
 
+**Status: done (2026-09-30), bounded 0.1 build.** See [implementation and acceptance evidence](docs/PLAYABLE.md). The near-origin and capacity limits remain; later families and integrations retain their own gates.
+
 **Depends on:** FD005, FD008. **Design:** D01, D02, D08, D13.
 
 Build the original Arrow/S&S functional four-rail track and legacy ZacSpin-compatible track, including items, rendering, required mechanical data, and placement previews. Reuse graph infrastructure while preserving distinct family eligibility.
@@ -112,6 +114,8 @@ Build the original Arrow/S&S functional four-rail track and legacy ZacSpin-compa
 **Done when:** both tracks work without Track Styles, retain stable IDs through saves, and expose verified running-gear geometry. Dimensions and clearance are documented rather than assumed from gauge alone.
 
 ### FD102 Complete controlled rotation profiles
+
+**Status: done (2026-09-30), bounded 0.1 build.** See [implementation and acceptance evidence](docs/PLAYABLE.md). The near-origin and capacity limits remain; later families and integrations retain their own gates.
 
 **Depends on:** FD006, FD007, FD101. **Design:** D10, D13.
 
@@ -121,6 +125,8 @@ Implement arc-length sampling, per-axle evaluation, unwrapped angles, interpolat
 
 ### FD103 Complete free carrier dynamics
 
+**Status: done (2026-09-30), bounded 0.1 build.** See [implementation and acceptance evidence](docs/PLAYABLE.md). The near-origin and capacity limits remain; later families and integrations retain their own gates.
+
 **Depends on:** FD006, FD007, FD101. **Design:** D09, D11.
 
 Implement gravity/inertia behavior, damping, occupancy mass, and the legacy pivot preset using the selected physics architecture.
@@ -128,6 +134,8 @@ Implement gravity/inertia behavior, damping, occupancy mass, and the legacy pivo
 **Done when:** motion responds to declared loading and chassis movement, retains angular state through reversals, and settles plausibly with damping. It is not a timed or randomized flip animation.
 
 ### FD104 Build the first two vehicle families
+
+**Status: done (2026-09-30), bounded 0.1 build.** See [implementation and acceptance evidence](docs/PLAYABLE.md). The near-origin and capacity limits remain; later families and integrations retain their own gates.
 
 **Depends on:** FD101–FD103. **Design:** D01, D02, D08, D09.
 
@@ -137,6 +145,8 @@ Create original controlled Arrow/S&S-inspired cars and legacy ZacSpin-inspired v
 
 ### FD105 Add editing and ride previews
 
+**Status: done (2026-09-30), bounded 0.1 build.** See [implementation and acceptance evidence](docs/PLAYABLE.md). The near-origin and capacity limits remain; later families and integrations retain their own gates.
+
 **Depends on:** FD102–FD104. **Design:** D08, D10, D11.
 
 Provide profile editing, free-spin tuning, copy/mirror behavior, ghost seats, and swept-clearance previews. Validate permissions, finite values, revisions, and payload bounds server-side.
@@ -145,13 +155,17 @@ Provide profile editing, free-spin tuning, copy/mirror behavior, ghost seats, an
 
 ### FD106 Add boarding and maintenance retention
 
+**Status: done (2026-09-30), bounded 0.1 build.** See [implementation and acceptance evidence](docs/PLAYABLE.md). The near-origin and capacity limits remain; later families and integrations retain their own gates.
+
 **Depends on:** FD104, FD007. **Design:** D03, D09, D16.
 
-Implement approach alignment, angular damping/capture, restraints, ready/locked signals, and supported maintenance retention. Restore normal rider state on recovery/dismount paths.
+Implement approach alignment, angular damping/capture, restraints, ready/locked signals, and supported maintenance retention. Restore normal rider state on recovery/dismount paths. ready/locked signals, retention, etc can be handled by https://www.curseforge.com/minecraft/mc-mods/coasters-engineered, explore using it as dependency instead of reinventing stop/go cycling and launches
 
 **Done when:** boarding requires stopped translation, aligned carriers, and low angular speed; restraints cannot release prematurely. Retention never changes a vehicle’s required track family.
 
 ### FD107 Complete eligibility enforcement
+
+**Status: done (2026-09-30), bounded 0.1 build.** See [implementation and acceptance evidence](docs/PLAYABLE.md). The near-origin and capacity limits remain; later families and integrations retain their own gates.
 
 **Depends on:** FD002, FD005, FD104. **Design:** D02, D17.
 
@@ -161,6 +175,8 @@ Enforce the contract across placement, assembly, packets, snapping, route transi
 
 ### FD108 Verify ordinary cart access
 
+**Status: done (2026-09-30), bounded 0.1 build.** See [implementation and acceptance evidence](docs/PLAYABLE.md). The near-origin and capacity limits remain; later families and integrations retain their own gates.
+
 **Depends on:** FD101, FD107. **Design:** D02, D03.
 
 Measure and test ordinary-cart main-rail contact and clearance, including side-guide/upstop interfaces where applicable. Document at least one fitting and one non-fitting case.
@@ -168,6 +184,8 @@ Measure and test ordinary-cart main-rail contact and clearance, including side-g
 **Done when:** accepted ordinary carts retain ordinary behavior and all 4D seat effects ignore them. Publish rail access separately from towing support; FD402 owns the towing evaluation.
 
 ### FD109 Version 0.1 gate
+
+**Status: done (2026-09-30), bounded 0.1 build.** See [implementation and acceptance evidence](docs/PLAYABLE.md). The near-origin and capacity limits remain; later families and integrations retain their own gates.
 
 **Depends on:** FD101–FD108.
 

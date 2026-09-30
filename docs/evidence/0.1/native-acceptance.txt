@@ -1,0 +1,13 @@
+Command: JAVA_HOME=/usr/lib/jvm/java-21-openjdk ./gradlew build runGameTestServer
+FD_SNAPSHOT_MAX bytes=569324
+FD_FREE angles=[-1.7668556728130111, -1.8112586723550972] maximum separation=0.7237819017546765
+FD_CONTENT_FREE excursions=[0.5395363715987477, 0.3830879807652937] angle=0.129345257114479 omega=-0.25486528637752043 mass=6.0
+FD_BOUNDARY direction=0 position=(-3.995E+2  1.011E+2  3.382E+2) fault=End of compatible track; capture and inspect the route
+FD_BOUNDARY direction=1 position=(-3.755E+2  1.011E+2  3.027E+2) fault=End of compatible track; capture and inspect the route
+FD_NATIVE at230 position=( 1.650E+1  8.162E+1  5.261E+1) from=BlockPos{x=16, y=80, z=16} angles=[12.154618568806848, 12.153250745634407] velocity=(-4.792E-5 -4.142E-4  3.217E+0) disengaged=false
+FD_TRAIN maxTurn=6.281190452434881 maxAxleDifference=3.023584518820094
+FD_TRAIN positions=[(-1.995E+2  1.131E+2  1.461E+2) bound=BlockPos{x=-200, y=112, z=136}->BlockPos{x=-200, y=112, z=172} fault=, (-1.995E+2  1.131E+2  1.401E+2) bound=BlockPos{x=-200, y=112, z=136}->BlockPos{x=-200, y=112, z=172} fault=]
+FD_DEMO family=ARROW angleRange=-0.0012739021269315305..6.281228674775636 maxXZ=32.50025969705669,52.5003054428617 ready=true fault=
+FD_DEMO family=ZACSPIN angleRange=-1.1712670057119856..0.48056733478844343 maxXZ=32.50485781801274,52.500000287238095 ready=true fault=
+[09:06:55] [Server thread/INFO] [minecraft/GameTestServer]: All 11 required tests passed :)
+BUILD SUCCESSFUL in 20s

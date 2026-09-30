@@ -1,0 +1,22 @@
+package dev.fourthdimension.vehicle;
+
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.phys.shapes.*;
+
+public final class MechanicalPartBlock extends Block {
+  private final VoxelShape shape;
+
+  public MechanicalPartBlock(Properties properties, boolean axle) {
+    super(properties);
+    shape = axle ? Block.box(0, 6, 0, 16, 10, 3) : Block.box(0, 4, 4, 16, 12, 12);
+  }
+
+  @Override
+  public VoxelShape getShape(
+      BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
+    return shape;
+  }
+}

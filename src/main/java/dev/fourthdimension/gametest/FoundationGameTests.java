@@ -50,7 +50,11 @@ public final class FoundationGameTests {
           var data = FoundationData.get(level);
           var edge =
               CoasterPathGraphManager.get(level).edges().stream()
-                  .filter(e -> data.rails.getLast().matches(e.from(), e.to()))
+                  .filter(
+                      e ->
+                          (e.from().equals(vehicle.boundFrom) && e.to().equals(vehicle.boundTo)
+                              || e.to().equals(vehicle.boundFrom)
+                                  && e.from().equals(vehicle.boundTo)))
                   .findFirst()
                   .orElseThrow();
           var chassis = (ServerSubLevel) container.getSubLevel(vehicle.chassis);

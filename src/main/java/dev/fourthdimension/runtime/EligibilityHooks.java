@@ -23,6 +23,7 @@ public final class EligibilityHooks {
     if (data == null) return true;
     var vehicle = data.vehicles.get(chassis.getUniqueId());
     var markers = FamilyControllers.find(chassis);
+    if (vehicle != null && (markers.size() != 1 || !markers.contains(vehicle.family))) return false;
     // An unbound or mixed-family assembly is not an ordinary recovery cart.
     if (!markers.isEmpty()
         && (vehicle == null || markers.size() != 1 || !markers.contains(vehicle.family)))
@@ -34,26 +35,36 @@ public final class EligibilityHooks {
             .orElse(null);
     if (vehicle == null) {
       if (rail == null) return true;
-      // Prototype certificate: the unmodified base bearing uses the exact same main-rail
-      // geometry. Added bodies require a measured swept-clearance certificate (FD108).
-      var bounds = chassis.getPlot().getBoundingBox();
-      return bounds != null
-          && bounds.maxX() - bounds.minX() <= 1
-          && bounds.maxY() - bounds.minY() <= 1
-          && bounds.maxZ() - bounds.minZ() <= 1;
+      return rail.valid && dev.fourthdimension.track.OrdinaryGearCertificate.fits(chassis);
     }
-    if (rail == null || rail.family() != vehicle.family) return false;
+    if (!dev.fourthdimension.vehicle.ConsistRules.eligible(level, chassis, vehicle)) return false;
+    if (rail == null
+        || !rail.valid
+        || rail.family() != vehicle.family
+        || !rail.variant.equals(vehicle.variant)) return false;
     if (vehicle.boundFrom != null
         && !rail.matches(vehicle.boundFrom, vehicle.boundTo)
         && !rail.from().equals(vehicle.boundFrom)
         && !rail.from().equals(vehicle.boundTo)
         && !rail.to().equals(vehicle.boundFrom)
         && !rail.to().equals(vehicle.boundTo)) return false;
-    if (level instanceof ServerLevel) {
-      vehicle.boundFrom = rail.from();
-      vehicle.boundTo = rail.to();
+    return true;
+  }
+
+  public static void bindAccepted(SubLevel chassis, ServerLevel level, GraphHit hit) {
+    if (!allows(chassis, level, hit)) return;
+    var data = FoundationData.get(level);
+    var vehicle = data.vehicles.get(chassis.getUniqueId());
+    if (vehicle == null) return;
+    var rail =
+        data.rails.stream()
+            .filter(r -> r.matches(hit.edge().from(), hit.edge().to()))
+            .findFirst()
+            .orElse(null);
+    if (rail != null && !rail.matches(vehicle.boundFrom, vehicle.boundTo)) {
+      vehicle.boundFrom = rail.from;
+      vehicle.boundTo = rail.to;
       data.setDirty();
     }
-    return true;
   }
 }

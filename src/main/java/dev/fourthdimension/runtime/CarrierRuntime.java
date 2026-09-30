@@ -20,6 +20,8 @@ public final class CarrierRuntime {
   private CarrierRuntime() {}
 
   private static final Map<ServerSubLevel, RotaryConstraintHandle> JOINTS = new WeakHashMap<>();
+  private static final Map<ServerSubLevel, dev.fourthdimension.physics.RotationServo> SERVOS =
+      new WeakHashMap<>();
   public static long nanos, steps;
 
   /** Take the same physical instant as Sable's save, including impulses since the last step. */
@@ -72,23 +74,36 @@ public final class CarrierRuntime {
               .filter(r -> r.matches(vehicle.boundFrom, vehicle.boundTo))
               .findFirst()
               .orElse(null);
-      double target = 0;
-      if (rail != null && vehicle.family.driven()) {
+      boolean content = !FoundationData.VARIANT.equals(vehicle.variant);
+      if (content
+          && (rail == null
+              || !rail.valid
+              || dev.fourthdimension.track.TrackGeometry.resolve(level, rail) == null)) {
+        vehicle.stopping = true;
+        vehicle.restraints = true;
+        vehicle.fault = "Matching track support lost";
+      }
+      if (content) dev.fourthdimension.vehicle.BoundaryGuard.check(level, parent, vehicle, rail);
+      if (content && (vehicle.stopping || vehicle.maintenance))
+        dev.fourthdimension.vehicle.VehicleOperations.brake(level, vehicle, event.getTimeStep());
+      double target = Double.NaN;
+      if (rail != null && rail.valid && vehicle.family.driven()) {
         var edge =
             CoasterPathGraphManager.get(level).edges().stream()
                 .filter(e -> rail.matches(e.from(), e.to()))
                 .findFirst()
                 .orElse(null);
-        if (edge != null) {
+        if (edge != null && CoasterCartResolve.cartCenterWorld(parent) != null) {
           var center = CoasterCartResolve.cartCenterWorld(parent);
           var hit =
               CoasterPathTrackFrame.closestHitOnEdge(
                   level, edge, new Vec3(center.x, center.y, center.z));
           if (hit != null) {
-            double t = edge.from().equals(rail.from()) ? hit.t() : 1 - hit.t();
-            // Foundation fixture is straight; general arc-length sampling is FD102.
-            double length = rail.from().getCenter().distanceTo(rail.to().getCenter());
-            target = rail.profile().angleAt(t * length);
+            target =
+                rail.profile()
+                    .angleAt(
+                        dev.fourthdimension.track.TrackGeometry.distance(
+                            level, edge, rail, hit.t()));
           }
         }
       }
@@ -105,7 +120,10 @@ public final class CarrierRuntime {
                   parent,
                   child,
                   new RotaryConstraintConfiguration(
-                      new Vector3d(p.getX() + .5 + carrier.side, p.getY() + 2.5, p.getZ() + .5),
+                      new Vector3d(
+                          p.getX() + .5 + carrier.side,
+                          p.getY() + .5 + carrier.pivotHeight,
+                          p.getZ() + .5),
                       new Vector3d(c.getX() + .5, c.getY() + .5, c.getZ() + .5),
                       new Vector3d(1, 0, 0),
                       new Vector3d(1, 0, 0)));
@@ -135,21 +153,35 @@ public final class CarrierRuntime {
                 .sub(pipeline.getAngularVelocity(parent, new Vector3d()))
                 .dot(axis);
         boolean drive = vehicle.family.driven() || carrier.capture;
-        double goal = carrier.capture ? 0 : target;
+        double goal =
+            carrier.capture
+                ? Math.rint(carrier.angle / (2 * Math.PI)) * 2 * Math.PI
+                : Double.isFinite(target) ? target : carrier.angle;
+        if (content) {
+          var servo =
+              SERVOS.computeIfAbsent(
+                  child, k -> new dev.fourthdimension.physics.RotationServo(carrier.angle));
+          goal = servo.advance(goal, carrier.angle, event.getTimeStep());
+        }
         handle.setMotor(
             RotaryConstraintHandle.DEFAULT_AXIS,
             Math.atan2(Math.sin(goal), Math.cos(goal)),
             drive ? 30000 : 0,
-            drive ? 2500 : 5,
+            drive ? 2500 : vehicle.damping,
             true,
             80000);
-        BlockPos seat = child.getPlot().getCenterBlock().below();
-        carrier.occupants =
-            level.getEntitiesOfClass(SeatEntity.class, new AABB(seat)).stream()
-                .flatMap(s -> s.getPassengers().stream())
-                .map(Entity::getUUID)
-                .toList();
+        if (!FoundationData.VARIANT.equals(vehicle.variant)) {
+          dev.fourthdimension.vehicle.NativeLoading.update(child, vehicle, carrier);
+        } else {
+          BlockPos seat = child.getPlot().getCenterBlock().below();
+          carrier.occupants =
+              level.getEntitiesOfClass(SeatEntity.class, new AABB(seat)).stream()
+                  .flatMap(s -> s.getPassengers().stream())
+                  .map(Entity::getUUID)
+                  .toList();
+        }
       }
+      vehicle.boardingReady = dev.fourthdimension.vehicle.Boarding.ready(level, vehicle);
     }
     if (!data.vehicles.isEmpty()) data.setDirty();
     nanos += System.nanoTime() - start;

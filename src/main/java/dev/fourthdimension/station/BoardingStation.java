@@ -1,0 +1,128 @@
+package dev.fourthdimension.station;
+
+import com.mojang.serialization.MapCodec;
+import dev.fourthdimension.editor.EditorNetwork;
+import dev.fourthdimension.runtime.FoundationData;
+import dev.ryanhcode.sable.api.sublevel.SubLevelContainer;
+import dev.silvergold.simulatedcoasters.track.cart.CoasterCartResolve;
+import net.minecraft.core.*;
+import net.minecraft.network.chat.Component;
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.InteractionResult;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.context.BlockPlaceContext;
+import net.minecraft.world.level.*;
+import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.entity.*;
+import net.minecraft.world.level.block.state.*;
+import net.minecraft.world.level.block.state.properties.*;
+import net.minecraft.world.phys.BlockHitResult;
+import org.joml.Vector3d;
+
+public final class BoardingStation extends BaseEntityBlock {
+  public static final MapCodec<BoardingStation> CODEC = simpleCodec(BoardingStation::new);
+  public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
+  public static final BooleanProperty READY = BooleanProperty.create("ready"),
+      LOCKED = BooleanProperty.create("locked");
+
+  public BoardingStation(Properties properties) {
+    super(properties);
+    registerDefaultState(
+        defaultBlockState()
+            .setValue(FACING, Direction.NORTH)
+            .setValue(READY, false)
+            .setValue(LOCKED, false));
+  }
+
+  @Override
+  protected MapCodec<? extends BaseEntityBlock> codec() {
+    return CODEC;
+  }
+
+  @Override
+  protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
+    builder.add(FACING, READY, LOCKED);
+  }
+
+  @Override
+  public BlockState getStateForPlacement(BlockPlaceContext context) {
+    return defaultBlockState().setValue(FACING, context.getHorizontalDirection().getOpposite());
+  }
+
+  @Override
+  public RenderShape getRenderShape(BlockState state) {
+    return RenderShape.MODEL;
+  }
+
+  @Override
+  public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
+    return new BoardingStationEntity(pos, state);
+  }
+
+  @Override
+  public <T extends BlockEntity> BlockEntityTicker<T> getTicker(
+      Level level, BlockState state, BlockEntityType<T> type) {
+    return level.isClientSide
+        ? null
+        : createTickerHelper(type, StationContent.ENTITY.get(), BoardingStationEntity::tick);
+  }
+
+  @Override
+  public boolean isSignalSource(BlockState state) {
+    return true;
+  }
+
+  @Override
+  public int getSignal(BlockState state, BlockGetter level, BlockPos pos, Direction side) {
+    return side == state.getValue(FACING).getOpposite()
+        ? (state.getValue(READY) ? 15 : 0)
+        : side == state.getValue(FACING).getClockWise().getOpposite()
+            ? (state.getValue(LOCKED) ? 15 : 0)
+            : 0;
+  }
+
+  @Override
+  protected InteractionResult useWithoutItem(
+      BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hit) {
+    if (!(player instanceof ServerPlayer server)
+        || !(level.getBlockEntity(pos) instanceof BoardingStationEntity station))
+      return InteractionResult.SUCCESS;
+    if (!player.mayBuild() || !level.mayInteract(player, pos)) return InteractionResult.FAIL;
+    var data = FoundationData.get(server.serverLevel());
+    var v = station.vehicle == null ? null : data.vehicles.get(station.vehicle);
+    if (v == null || player.isShiftKeyDown()) {
+      var container = SubLevelContainer.getContainer(level);
+      double closest = 12 * 12;
+      v = null;
+      for (var candidate : data.vehicles.values())
+        if (!FoundationData.VARIANT.equals(candidate.variant)) {
+          var body = container.getSubLevel(candidate.chassis);
+          var point = body == null ? null : CoasterCartResolve.cartCenterWorld(body);
+          if (point != null) {
+            double distance =
+                point.distanceSquared(
+                    new Vector3d(pos.getX() + .5, pos.getY() + .5, pos.getZ() + .5));
+            if (distance < closest) {
+              closest = distance;
+              v = candidate;
+            }
+          }
+        }
+      if (v == null) {
+        player.displayClientMessage(
+            Component.literal("Place a 4D car within twelve blocks to bind the station"), true);
+        return InteractionResult.FAIL;
+      }
+      station.vehicle = v.chassis;
+      station.setChanged();
+    }
+    player.displayClientMessage(
+        Component.literal(
+            "Rear redstone input: capture on power; dispatch on release. Front: ready. Right side:"
+                + " restraints closed. "
+                + station.fault),
+        false);
+    EditorNetwork.open(server, new EditorNetwork.Target(v.chassis, true));
+    return InteractionResult.SUCCESS;
+  }
+}

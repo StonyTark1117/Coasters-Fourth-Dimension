@@ -21,7 +21,14 @@ public final class FoundationSync {
         new Type<>(ResourceLocation.fromNamespaceAndPath(FourthDimension.ID, "foundation"));
     public static final StreamCodec<RegistryFriendlyByteBuf, Snapshot> CODEC =
         StreamCodec.of(
-            (buf, payload) -> buf.writeNbt(payload.tag), (buf) -> new Snapshot(buf.readNbt()));
+            (buf, payload) -> buf.writeNbt(payload.tag),
+            (buf) -> {
+              var tag = buf.readNbt(net.minecraft.nbt.NbtAccounter.create(8 * 1024 * 1024));
+              if (!(tag instanceof CompoundTag compound))
+                throw new io.netty.handler.codec.DecoderException(
+                    "Expected a functional snapshot compound");
+              return new Snapshot(compound);
+            });
 
     @Override
     public Type<Snapshot> type() {
@@ -31,7 +38,7 @@ public final class FoundationSync {
 
   public static void register(RegisterPayloadHandlersEvent event) {
     event
-        .registrar("1")
+        .registrar("2")
         .playToClient(
             Snapshot.TYPE,
             Snapshot.CODEC,
@@ -50,6 +57,10 @@ public final class FoundationSync {
 
   public static void dimension(PlayerEvent.PlayerChangedDimensionEvent event) {
     if (event.getEntity() instanceof ServerPlayer player) send(player);
+  }
+
+  public static void broadcast(ServerLevel level) {
+    for (var player : level.players()) send(player);
   }
 
   private static void send(ServerPlayer player) {

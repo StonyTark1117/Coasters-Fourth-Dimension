@@ -42,6 +42,7 @@ public final class PrototypeFixture {
                   var level = ctx.getSource().getLevel();
                   var data = FoundationData.get(level);
                   var container = SubLevelContainer.getContainer(level);
+                  data.vehicles.values().forEach(v -> v.restraints = false);
                   var carrierIds =
                       data.vehicles.values().stream()
                           .flatMap(v -> v.carriers.stream())
@@ -221,6 +222,7 @@ public final class PrototypeFixture {
 
   public static FoundationData.Vehicle create(ServerLevel level, BlockPos from, Family family) {
     var data = FoundationData.get(level);
+    data.checkProfileCapacity(2);
     if (data.vehicles.size() >= 64 || data.rails.size() >= 256)
       throw new IllegalStateException("Fixture capacity reached");
     BlockPos to = from.offset(0, 0, 40);

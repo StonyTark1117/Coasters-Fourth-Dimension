@@ -17,6 +17,6 @@ public abstract class InitialSnapMixin {
     if (!EligibilityHooks.allows(sub, level, hit)) {
       CoasterCartTrackSnap.markSpawnedDisengaged(sub);
       ci.cancel();
-    }
+    } else EligibilityHooks.bindAccepted(sub, level, hit);
   }
 }

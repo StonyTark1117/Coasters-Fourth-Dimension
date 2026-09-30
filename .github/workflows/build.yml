@@ -1,4 +1,4 @@
-name: Foundation checks
+name: Build and native checks
 on: [push, pull_request]
 permissions:
   contents: read
@@ -17,7 +17,7 @@ jobs:
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         if: always()
         with:
-          name: foundation-evidence
+          name: validation-evidence
           path: |
             build/libs/*.jar
             build/reports/tests/**
