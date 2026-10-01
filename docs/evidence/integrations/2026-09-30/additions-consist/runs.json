@@ -1,0 +1,34 @@
+{
+  "attempt1": {
+    "full_log": "/tmp/fd-additions-consist1.log",
+    "sha256": "5b14f6c189e17de0d535d1cb957654ca3e7724833d8a53c232e287311b6e08de",
+    "exit_status": 1
+  },
+  "attempt2": {
+    "full_log": "/tmp/fd-additions-consist2.log",
+    "sha256": "ca471801f75088ba416813bd0a524ad9ece4644085fc65a5726b758b3c2e656e",
+    "exit_status": 0
+  },
+  "additions": {
+    "full_log": "/tmp/fd-additions-consist4.log",
+    "sha256": "bfaf13388f1fe8920d18ae92d3c44cb18f93eadee19a941c941684533f15400d",
+    "exit_status": 0,
+    "registered_tests_passed": 25,
+    "optional_fixtures_skipped": 2
+  },
+  "combined": {
+    "full_log": "/tmp/fd-additions-consist-combined-final.log",
+    "sha256": "494d5d52b6199d067a1e24f484ce7b008818e5c6c1902fe712dd736d9f182147",
+    "exit_status": 0,
+    "registered_tests_passed": 25,
+    "optional_fixtures_skipped": 0
+  },
+  "base": {
+    "full_log": "/tmp/fd-additions-consist-base.log",
+    "sha256": "0f5ffea1c6fd5b519d66d59c6282e0b620e791d528aa50bda00c80ce2f31e665",
+    "exit_status": 0,
+    "registered_tests_passed": 25,
+    "optional_fixtures_skipped": 4,
+    "source_note": "Before final optional-only STOP interlock/fault assertion; absence gate unchanged."
+  }
+}

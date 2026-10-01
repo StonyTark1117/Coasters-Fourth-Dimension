@@ -333,6 +333,8 @@ Produce the feature-complete candidate scope and list tested optional combinatio
 
 Exercise every family against matching, ordinary, wrong-family, cosmetic-only, and supported external tracks; test regular-cart fit/non-fit, mixed consists, and every entry path. Test optional addons individually and in the supported combined pack.
 
+**Partial evidence (2026-09-30):** [Additions linked-consist checks](docs/evidence/integrations/2026-09-30/additions-consist/README.md) cover a two-car Arrow train, ordinary/uncoupled/partial-span rejection, station timing and occupied forward/reverse fin modes in individual and combined profiles. The full family/entry-path matrix remains open.
+
 **Done when:** each advertised combination has recorded results. Wrong-family 4D carts are rejected everywhere, and ordinary carts receive no 4D benefit.
 
 ### FD902 Validate multiplayer and lifecycle recovery

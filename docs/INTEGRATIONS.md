@@ -200,9 +200,11 @@ carts' proximity-based coupling cannot apply those increments to nearby 4D bodie
 No Additions seat replacement or sensor adapter is included.
 
 Native checks and exact limits are recorded in [Additions evidence](evidence/integrations/2026-09-30/additions-0.2.0/README.md); runtime warnings from this dependency
-stack prevent claiming warning-free dedicated startup. Linked trains, rollback,
-fin speed-control mode, moving track, restart/removal, multiplayer and visual
-acceptance remain open. See the integration evidence directory for exact completed
+stack prevent claiming warning-free dedicated startup. A [linked Arrow follow-up](evidence/integrations/2026-09-30/additions-consist/README.md)
+checks native mixed/partial-span rejection, occupancy thresholds, cooldown,
+continuous readiness, departure latching and BOOST/BRAKE/reverse/STOP with two riders.
+Broader linked families, occupancy patterns, curves/slopes, moving track,
+restart/removal, multiplayer and visual acceptance remain open. See the integration evidence directory for exact completed
 checks before advertising any combination.
 
 ## Magnetized 1.1.0: guarded acceleration and brakes
@@ -304,7 +306,8 @@ passing checks; it does not complete the lifecycle matrix.
   full multiplayer matrix, removal/reinstallation, resource replacement,
   transition and performance evidence; broader appearances and its own tool integration
   remain outside the current two-spine adapter.
-- Finish Additions linked/mixed trains, fin modes, lifecycle and multiplayer acceptance;
+- Extend the bounded Additions linked Arrow/mixed-span/fin-mode checks to the
+  remaining train configurations, lifecycle and multiplayer acceptance;
   validate any rotating-seat replacement separately.
 - Extend Magnetized native straight-track evidence to linked trains, curves/slopes,
   equipment visuals, configuration extremes, lifecycle and multiplayer.
