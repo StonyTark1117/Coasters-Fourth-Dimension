@@ -1,0 +1,42 @@
+{
+  "label": "accept-disabled-first-end",
+  "tick": 9161,
+  "family": "ZACSPIN_REVISED",
+  "chassis": "4ff3a195-548d-4081-b0f4-1af47134a94a",
+  "ready": false,
+  "restraints": true,
+  "stopping": false,
+  "fault": "",
+  "x": 476.02728088675065,
+  "y": 146.90743018201115,
+  "z": 532.3386988191094,
+  "speed": 1.7475321457082427,
+  "carriers": [
+    {
+      "body": "e986edf8-3150-4b86-ab98-142e41c1a932",
+      "angle": 0.02313513717108063,
+      "capture": false,
+      "riders": []
+    },
+    {
+      "body": "487927f3-0711-4c56-8b4a-dc1b97767f07",
+      "angle": 0.16122925221382492,
+      "capture": false,
+      "riders": []
+    },
+    {
+      "body": "eb2739d4-59e2-408a-a338-c435da1120dd",
+      "angle": 0.281724806565568,
+      "capture": false,
+      "riders": []
+    },
+    {
+      "body": "958a148b-1023-4afe-a3bc-eec13130fcf6",
+      "angle": 0.046599678869345317,
+      "capture": false,
+      "riders": [
+        "380df991-f603-344c-a090-369bad2a924a"
+      ]
+    }
+  ]
+}

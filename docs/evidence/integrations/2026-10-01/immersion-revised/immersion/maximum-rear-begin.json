@@ -1,0 +1,42 @@
+{
+  "label": "maximum-rear-begin",
+  "tick": 4007,
+  "family": "ZACSPIN_REVISED",
+  "chassis": "4ff3a195-548d-4081-b0f4-1af47134a94a",
+  "ready": false,
+  "restraints": true,
+  "stopping": false,
+  "fault": "",
+  "x": 476.4988647863596,
+  "y": 146.75406581109291,
+  "z": 532.2305681320994,
+  "speed": 1.8656387461042145,
+  "carriers": [
+    {
+      "body": "e986edf8-3150-4b86-ab98-142e41c1a932",
+      "angle": 0.006112557627207898,
+      "capture": false,
+      "riders": []
+    },
+    {
+      "body": "487927f3-0711-4c56-8b4a-dc1b97767f07",
+      "angle": 0.1614755406542527,
+      "capture": false,
+      "riders": []
+    },
+    {
+      "body": "eb2739d4-59e2-408a-a338-c435da1120dd",
+      "angle": 0.3281176864832597,
+      "capture": false,
+      "riders": []
+    },
+    {
+      "body": "958a148b-1023-4afe-a3bc-eec13130fcf6",
+      "angle": 0.07659621652254495,
+      "capture": false,
+      "riders": [
+        "380df991-f603-344c-a090-369bad2a924a"
+      ]
+    }
+  ]
+}

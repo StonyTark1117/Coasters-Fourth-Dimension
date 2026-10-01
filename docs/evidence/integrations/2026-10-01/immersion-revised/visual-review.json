@@ -1,0 +1,20 @@
+{
+  "method": "Manual review of original owned-display PNG captures; numerical checks alone do not establish visual acceptance.",
+  "reviewed": {
+    "immersion/accept-SUB_LEVEL_VIEW-dev.png": "Rider and seat geometry obstruct much of the view.",
+    "immersion/accept-THIRD_PERSON_BACK-dev.png": "Rear camera renders the rider and part of the circuit.",
+    "immersion/accept-SUB_LEVEL_VIEW_UNLOCKED-dev.png": "Close rider and seat obstruction.",
+    "immersion/accept-THIRD_PERSON_FRONT-dev.png": "Close rider/seat obstruction.",
+    "immersion/accept-control-False-SUB_LEVEL_VIEW-dev.png": "Obstruction remains with effects disabled while frozen.",
+    "immersion/accept-control-False-zoom-out-dev.png": "Frozen zoom input is insufficient evidence of live interpolation.",
+    "immersion/accept-live-control-True-zoom-out-dev.png": "Twenty native zoom-out wheel inputs leave the normally ticking parked view obstructed with effects enabled.",
+    "immersion/accept-live-control-False-zoom-out-dev.png": "Same obstruction remains with effects disabled and ticks running.",
+    "combined/accept-FIRST_PERSON-dev.png": "First-person rider arms and nearby seat geometry are rendered with the circuit beyond.",
+    "combined/accept-SUB_LEVEL_VIEW-observer.png": "Useful outside view of the car and both riders at this pose.",
+    "combined/accept-THIRD_PERSON_FRONT-dev.png": "Useful outside front view at this pose. Does not cancel the obstruction observed in other views.",
+    "combined/accept-second-unloaded-dev.png": "Normal first-person view beside the stopped car after final unloading.",
+    "combined/accept-second-unloaded-observer.png": "Normal first-person view from the station platform after final unloading.",
+    "combined/accept-maximum-first-observer.png": "First-person native seat view with rider arms and visible circuit at maximum tested comfort parameters."
+  },
+  "result": "External-view visual acceptance remains open; obstruction is pose/view dependent. No root cause or universal camera support claimed."
+}

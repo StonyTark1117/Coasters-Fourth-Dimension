@@ -1,0 +1,505 @@
+Compiled from "CameraMixin.java"
+public abstract class dev.ryanhcode.sable.mixin.camera.camera_zoom.CameraMixin implements dev.ryanhcode.sable.mixinterface.camera.camera_zoom.CameraZoomExtension {
+  private net.minecraft.world.level.BlockGetter level;
+
+  private net.minecraft.world.phys.Vec3 position;
+
+  private org.joml.Vector3f forwards;
+
+  private net.minecraft.world.entity.Entity entity;
+
+  private boolean sable$pushed;
+
+  private float sable$zoomAmount;
+
+  private float sable$interpolatedZoom;
+
+  private float sable$lastInterpolatedZoom;
+
+  static final boolean $assertionsDisabled;
+
+  public dev.ryanhcode.sable.mixin.camera.camera_zoom.CameraMixin();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+       4: aload_0
+       5: iconst_0
+       6: putfield      #7                  // Field sable$pushed:Z
+       9: return
+
+  protected abstract void setPosition(double, double, double);
+
+  private void sable$preTick(org.spongepowered.asm.mixin.injection.callback.CallbackInfo);
+    Code:
+       0: aload_0
+       1: aload_0
+       2: getfield      #13                 // Field sable$interpolatedZoom:F
+       5: putfield      #17                 // Field sable$lastInterpolatedZoom:F
+       8: aload_0
+       9: ldc           #20                 // float 0.725f
+      11: aload_0
+      12: getfield      #13                 // Field sable$interpolatedZoom:F
+      15: aload_0
+      16: getfield      #21                 // Field sable$zoomAmount:F
+      19: invokestatic  #24                 // Method net/minecraft/util/Mth.lerp:(FFF)F
+      22: putfield      #13                 // Field sable$interpolatedZoom:F
+      25: return
+
+  private void sable$setup(net.minecraft.world.level.BlockGetter, net.minecraft.world.entity.Entity, boolean, boolean, float, org.spongepowered.asm.mixin.injection.callback.CallbackInfo);
+    Code:
+       0: invokestatic  #30                 // Method net/minecraft/client/Minecraft.getInstance:()Lnet/minecraft/client/Minecraft;
+       3: astore        7
+       5: aload         7
+       7: getfield      #36                 // Field net/minecraft/client/Minecraft.options:Lnet/minecraft/client/Options;
+      10: invokevirtual #40                 // Method net/minecraft/client/Options.getCameraType:()Lnet/minecraft/client/CameraType;
+      13: getstatic     #46                 // Field dev/ryanhcode/sable/mixinhelpers/camera/new_camera_types/SableCameraTypes.SUB_LEVEL_VIEW:Lnet/minecraft/client/CameraType;
+      16: if_acmpeq     33
+      19: aload         7
+      21: getfield      #36                 // Field net/minecraft/client/Minecraft.options:Lnet/minecraft/client/Options;
+      24: invokevirtual #40                 // Method net/minecraft/client/Options.getCameraType:()Lnet/minecraft/client/CameraType;
+      27: getstatic     #52                 // Field dev/ryanhcode/sable/mixinhelpers/camera/new_camera_types/SableCameraTypes.SUB_LEVEL_VIEW_UNLOCKED:Lnet/minecraft/client/CameraType;
+      30: if_acmpne     122
+      33: aload         7
+      35: getfield      #55                 // Field net/minecraft/client/Minecraft.cameraEntity:Lnet/minecraft/world/entity/Entity;
+      38: astore        8
+      40: aload         8
+      42: invokevirtual #59                 // Method net/minecraft/world/entity/Entity.getVehicle:()Lnet/minecraft/world/entity/Entity;
+      45: astore        9
+      47: aload         9
+      49: ifnull        122
+      52: getstatic     #65                 // Field dev/ryanhcode/sable/Sable.HELPER:Ldev/ryanhcode/sable/ActiveSableCompanion;
+      55: aload         7
+      57: getfield      #71                 // Field net/minecraft/client/Minecraft.level:Lnet/minecraft/client/multiplayer/ClientLevel;
+      60: aload         9
+      62: invokevirtual #75                 // Method net/minecraft/world/entity/Entity.position:()Lnet/minecraft/world/phys/Vec3;
+      65: invokevirtual #79                 // Method dev/ryanhcode/sable/ActiveSableCompanion.getContaining:(Lnet/minecraft/world/level/Level;Lnet/minecraft/core/Position;)Ldev/ryanhcode/sable/sublevel/SubLevel;
+      68: astore        10
+      70: aload         10
+      72: instanceof    #85                 // class dev/ryanhcode/sable/sublevel/ClientSubLevel
+      75: ifeq          122
+      78: aload         10
+      80: checkcast     #85                 // class dev/ryanhcode/sable/sublevel/ClientSubLevel
+      83: astore        11
+      85: aload         11
+      87: invokevirtual #87                 // Method dev/ryanhcode/sable/sublevel/ClientSubLevel.renderPose:()Ldev/ryanhcode/sable/companion/math/Pose3dc;
+      90: invokeinterface #91,  1           // InterfaceMethod dev/ryanhcode/sable/companion/math/Pose3dc.position:()Lorg/joml/Vector3dc;
+      95: astore        12
+      97: aload_0
+      98: aload         12
+     100: invokeinterface #96,  1           // InterfaceMethod org/joml/Vector3dc.x:()D
+     105: aload         12
+     107: invokeinterface #102,  1          // InterfaceMethod org/joml/Vector3dc.y:()D
+     112: aload         12
+     114: invokeinterface #105,  1          // InterfaceMethod org/joml/Vector3dc.z:()D
+     119: invokevirtual #108                // Method setPosition:(DDD)V
+     122: return
+
+  private float sable$clampZoom(float, dev.ryanhcode.sable.sublevel.SubLevel);
+    Code:
+       0: fload_1
+       1: fstore_3
+       2: invokestatic  #30                 // Method net/minecraft/client/Minecraft.getInstance:()Lnet/minecraft/client/Minecraft;
+       5: invokevirtual #112                // Method net/minecraft/client/Minecraft.getTimer:()Lnet/minecraft/client/DeltaTracker;
+       8: iconst_0
+       9: invokeinterface #116,  2          // InterfaceMethod net/minecraft/client/DeltaTracker.getGameTimeDeltaPartialTick:(Z)F
+      14: fstore        4
+      16: aload_0
+      17: getfield      #122                // Field entity:Lnet/minecraft/world/entity/Entity;
+      20: invokevirtual #125                // Method net/minecraft/world/entity/Entity.level:()Lnet/minecraft/world/level/Level;
+      23: astore        5
+      25: aload_0
+      26: getfield      #128                // Field level:Lnet/minecraft/world/level/BlockGetter;
+      29: checkcast     #131                // class dev/ryanhcode/sable/mixinterface/clip_overwrite/LevelPoseProviderExtension
+      32: astore        6
+      34: getstatic     #133                // Field $assertionsDisabled:Z
+      37: ifne          53
+      40: aload         6
+      42: ifnonnull     53
+      45: new           #136                // class java/lang/AssertionError
+      48: dup
+      49: invokespecial #138                // Method java/lang/AssertionError."<init>":()V
+      52: athrow
+      53: aload_2
+      54: invokestatic  #139                // Method dev/ryanhcode/sable/api/SubLevelHelper.getConnectedChain:(Ldev/ryanhcode/sable/sublevel/SubLevel;)Ljava/util/Collection;
+      57: astore        7
+      59: aload         6
+      61: fload         4
+      63: invokedynamic #145,  0            // InvokeDynamic #0:get:(F)Lit/unimi/dsi/fastutil/Function;
+      68: invokeinterface #149,  2          // InterfaceMethod dev/ryanhcode/sable/mixinterface/clip_overwrite/LevelPoseProviderExtension.sable$pushPoseSupplier:(Lit/unimi/dsi/fastutil/Function;)V
+      73: iconst_0
+      74: istore        8
+      76: iload         8
+      78: bipush        8
+      80: if_icmpge     282
+      83: iload         8
+      85: iconst_1
+      86: iand
+      87: iconst_2
+      88: imul
+      89: iconst_1
+      90: isub
+      91: i2f
+      92: fstore        9
+      94: iload         8
+      96: iconst_1
+      97: ishr
+      98: iconst_1
+      99: iand
+     100: iconst_2
+     101: imul
+     102: iconst_1
+     103: isub
+     104: i2f
+     105: fstore        10
+     107: iload         8
+     109: iconst_2
+     110: ishr
+     111: iconst_1
+     112: iand
+     113: iconst_2
+     114: imul
+     115: iconst_1
+     116: isub
+     117: i2f
+     118: fstore        11
+     120: aload_0
+     121: getfield      #153                // Field position:Lnet/minecraft/world/phys/Vec3;
+     124: fload         9
+     126: ldc           #156                // float 0.1f
+     128: fmul
+     129: f2d
+     130: fload         10
+     132: ldc           #156                // float 0.1f
+     134: fmul
+     135: f2d
+     136: fload         11
+     138: ldc           #156                // float 0.1f
+     140: fmul
+     141: f2d
+     142: invokevirtual #157                // Method net/minecraft/world/phys/Vec3.add:(DDD)Lnet/minecraft/world/phys/Vec3;
+     145: astore        12
+     147: aload         12
+     149: new           #158                // class net/minecraft/world/phys/Vec3
+     152: dup
+     153: aload_0
+     154: getfield      #163                // Field forwards:Lorg/joml/Vector3f;
+     157: invokespecial #167                // Method net/minecraft/world/phys/Vec3."<init>":(Lorg/joml/Vector3f;)V
+     160: fload_3
+     161: fneg
+     162: f2d
+     163: invokevirtual #170                // Method net/minecraft/world/phys/Vec3.scale:(D)Lnet/minecraft/world/phys/Vec3;
+     166: invokevirtual #174                // Method net/minecraft/world/phys/Vec3.add:(Lnet/minecraft/world/phys/Vec3;)Lnet/minecraft/world/phys/Vec3;
+     169: astore        13
+     171: new           #177                // class net/minecraft/world/level/ClipContext
+     174: dup
+     175: aload         12
+     177: aload         13
+     179: getstatic     #179                // Field net/minecraft/world/level/ClipContext$Block.VISUAL:Lnet/minecraft/world/level/ClipContext$Block;
+     182: getstatic     #185                // Field net/minecraft/world/level/ClipContext$Fluid.NONE:Lnet/minecraft/world/level/ClipContext$Fluid;
+     185: aload_0
+     186: getfield      #122                // Field entity:Lnet/minecraft/world/entity/Entity;
+     189: invokespecial #191                // Method net/minecraft/world/level/ClipContext."<init>":(Lnet/minecraft/world/phys/Vec3;Lnet/minecraft/world/phys/Vec3;Lnet/minecraft/world/level/ClipContext$Block;Lnet/minecraft/world/level/ClipContext$Fluid;Lnet/minecraft/world/entity/Entity;)V
+     192: astore        14
+     194: aload         14
+     196: checkcast     #194                // class dev/ryanhcode/sable/mixinterface/clip_overwrite/ClipContextExtension
+     199: aload         7
+     201: dup
+     202: invokestatic  #196                // Method java/util/Objects.requireNonNull:(Ljava/lang/Object;)Ljava/lang/Object;
+     205: pop
+     206: invokedynamic #202,  0            // InvokeDynamic #1:test:(Ljava/util/Collection;)Ljava/util/function/Predicate;
+     211: invokeinterface #206,  2          // InterfaceMethod dev/ryanhcode/sable/mixinterface/clip_overwrite/ClipContextExtension.sable$setSubLevelIgnoring:(Ljava/util/function/Predicate;)V
+     216: aload_0
+     217: getfield      #128                // Field level:Lnet/minecraft/world/level/BlockGetter;
+     220: aload         14
+     222: invokeinterface #210,  2          // InterfaceMethod net/minecraft/world/level/BlockGetter.clip:(Lnet/minecraft/world/level/ClipContext;)Lnet/minecraft/world/phys/BlockHitResult;
+     227: astore        15
+     229: aload         15
+     231: invokevirtual #216                // Method net/minecraft/world/phys/HitResult.getType:()Lnet/minecraft/world/phys/HitResult$Type;
+     234: getstatic     #222                // Field net/minecraft/world/phys/HitResult$Type.MISS:Lnet/minecraft/world/phys/HitResult$Type;
+     237: if_acmpeq     276
+     240: getstatic     #65                 // Field dev/ryanhcode/sable/Sable.HELPER:Ldev/ryanhcode/sable/ActiveSableCompanion;
+     243: aload         5
+     245: aload         15
+     247: invokevirtual #228                // Method net/minecraft/world/phys/HitResult.getLocation:()Lnet/minecraft/world/phys/Vec3;
+     250: aload_0
+     251: getfield      #153                // Field position:Lnet/minecraft/world/phys/Vec3;
+     254: invokevirtual #231                // Method dev/ryanhcode/sable/ActiveSableCompanion.distanceSquaredWithSubLevels:(Lnet/minecraft/world/level/Level;Lnet/minecraft/core/Position;Lnet/minecraft/core/Position;)D
+     257: d2f
+     258: fstore        16
+     260: fload         16
+     262: fload_3
+     263: invokestatic  #235                // Method net/minecraft/util/Mth.square:(F)F
+     266: fcmpg
+     267: ifge          276
+     270: fload         16
+     272: invokestatic  #239                // Method net/minecraft/util/Mth.sqrt:(F)F
+     275: fstore_3
+     276: iinc          8, 1
+     279: goto          76
+     282: aload         6
+     284: invokeinterface #242,  1          // InterfaceMethod dev/ryanhcode/sable/mixinterface/clip_overwrite/LevelPoseProviderExtension.sable$popPoseSupplier:()V
+     289: fload_3
+     290: freturn
+
+  private void sable$getMaxZoomHead(float, org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable<java.lang.Float>);
+    Code:
+       0: invokestatic  #30                 // Method net/minecraft/client/Minecraft.getInstance:()Lnet/minecraft/client/Minecraft;
+       3: astore_3
+       4: aload_3
+       5: getfield      #36                 // Field net/minecraft/client/Minecraft.options:Lnet/minecraft/client/Options;
+       8: invokevirtual #40                 // Method net/minecraft/client/Options.getCameraType:()Lnet/minecraft/client/CameraType;
+      11: getstatic     #46                 // Field dev/ryanhcode/sable/mixinhelpers/camera/new_camera_types/SableCameraTypes.SUB_LEVEL_VIEW:Lnet/minecraft/client/CameraType;
+      14: if_acmpeq     30
+      17: aload_3
+      18: getfield      #36                 // Field net/minecraft/client/Minecraft.options:Lnet/minecraft/client/Options;
+      21: invokevirtual #40                 // Method net/minecraft/client/Options.getCameraType:()Lnet/minecraft/client/CameraType;
+      24: getstatic     #52                 // Field dev/ryanhcode/sable/mixinhelpers/camera/new_camera_types/SableCameraTypes.SUB_LEVEL_VIEW_UNLOCKED:Lnet/minecraft/client/CameraType;
+      27: if_acmpne     229
+      30: aload_3
+      31: getfield      #55                 // Field net/minecraft/client/Minecraft.cameraEntity:Lnet/minecraft/world/entity/Entity;
+      34: astore        4
+      36: aload         4
+      38: invokevirtual #59                 // Method net/minecraft/world/entity/Entity.getVehicle:()Lnet/minecraft/world/entity/Entity;
+      41: astore        5
+      43: aload         5
+      45: ifnull        52
+      48: iconst_1
+      49: goto          53
+      52: iconst_0
+      53: istore        6
+      55: iload         6
+      57: ifeq          229
+      60: getstatic     #65                 // Field dev/ryanhcode/sable/Sable.HELPER:Ldev/ryanhcode/sable/ActiveSableCompanion;
+      63: aload_3
+      64: getfield      #71                 // Field net/minecraft/client/Minecraft.level:Lnet/minecraft/client/multiplayer/ClientLevel;
+      67: aload         5
+      69: invokevirtual #75                 // Method net/minecraft/world/entity/Entity.position:()Lnet/minecraft/world/phys/Vec3;
+      72: invokevirtual #79                 // Method dev/ryanhcode/sable/ActiveSableCompanion.getContaining:(Lnet/minecraft/world/level/Level;Lnet/minecraft/core/Position;)Ldev/ryanhcode/sable/sublevel/SubLevel;
+      75: astore        7
+      77: aload         7
+      79: ifnull        229
+      82: invokestatic  #30                 // Method net/minecraft/client/Minecraft.getInstance:()Lnet/minecraft/client/Minecraft;
+      85: invokevirtual #112                // Method net/minecraft/client/Minecraft.getTimer:()Lnet/minecraft/client/DeltaTracker;
+      88: iconst_1
+      89: invokeinterface #116,  2          // InterfaceMethod net/minecraft/client/DeltaTracker.getGameTimeDeltaPartialTick:(Z)F
+      94: fstore        8
+      96: fload         8
+      98: aload_0
+      99: getfield      #17                 // Field sable$lastInterpolatedZoom:F
+     102: aload_0
+     103: getfield      #13                 // Field sable$interpolatedZoom:F
+     106: invokestatic  #24                 // Method net/minecraft/util/Mth.lerp:(FFF)F
+     109: fstore        9
+     111: aload         7
+     113: invokevirtual #245                // Method dev/ryanhcode/sable/sublevel/SubLevel.getPlot:()Ldev/ryanhcode/sable/sublevel/plot/LevelPlot;
+     116: invokevirtual #251                // Method dev/ryanhcode/sable/sublevel/plot/LevelPlot.getBoundingBox:()Ldev/ryanhcode/sable/companion/math/BoundingBox3ic;
+     119: astore        10
+     121: new           #158                // class net/minecraft/world/phys/Vec3
+     124: dup
+     125: aload         10
+     127: invokeinterface #257,  1          // InterfaceMethod dev/ryanhcode/sable/companion/math/BoundingBox3ic.maxX:()I
+     132: aload         10
+     134: invokeinterface #263,  1          // InterfaceMethod dev/ryanhcode/sable/companion/math/BoundingBox3ic.minX:()I
+     139: isub
+     140: i2d
+     141: aload         10
+     143: invokeinterface #266,  1          // InterfaceMethod dev/ryanhcode/sable/companion/math/BoundingBox3ic.maxY:()I
+     148: aload         10
+     150: invokeinterface #269,  1          // InterfaceMethod dev/ryanhcode/sable/companion/math/BoundingBox3ic.minY:()I
+     155: isub
+     156: i2d
+     157: aload         10
+     159: invokeinterface #272,  1          // InterfaceMethod dev/ryanhcode/sable/companion/math/BoundingBox3ic.maxZ:()I
+     164: aload         10
+     166: invokeinterface #275,  1          // InterfaceMethod dev/ryanhcode/sable/companion/math/BoundingBox3ic.minZ:()I
+     171: isub
+     172: i2d
+     173: invokespecial #278                // Method net/minecraft/world/phys/Vec3."<init>":(DDD)V
+     176: astore        11
+     178: aload         11
+     180: ldc2_w        #280                // double 0.5d
+     183: invokevirtual #170                // Method net/minecraft/world/phys/Vec3.scale:(D)Lnet/minecraft/world/phys/Vec3;
+     186: invokevirtual #282                // Method net/minecraft/world/phys/Vec3.length:()D
+     189: dstore        12
+     191: fload_1
+     192: f2d
+     193: dload         12
+     195: invokestatic  #285                // Method java/lang/Math.max:(DD)D
+     198: d2f
+     199: ldc_w         #291                // float 1.75f
+     202: fload         9
+     204: fadd
+     205: fmul
+     206: fstore        14
+     208: aload_2
+     209: aload_0
+     210: fload         14
+     212: aload         7
+     214: invokevirtual #292                // Method sable$clampZoom:(FLdev/ryanhcode/sable/sublevel/SubLevel;)F
+     217: invokestatic  #296                // Method java/lang/Float.valueOf:(F)Ljava/lang/Float;
+     220: invokevirtual #302                // Method org/spongepowered/asm/mixin/injection/callback/CallbackInfoReturnable.setReturnValue:(Ljava/lang/Object;)V
+     223: aload_0
+     224: iconst_0
+     225: putfield      #7                  // Field sable$pushed:Z
+     228: return
+     229: aload_3
+     230: getfield      #71                 // Field net/minecraft/client/Minecraft.level:Lnet/minecraft/client/multiplayer/ClientLevel;
+     233: checkcast     #131                // class dev/ryanhcode/sable/mixinterface/clip_overwrite/LevelPoseProviderExtension
+     236: astore        4
+     238: getstatic     #133                // Field $assertionsDisabled:Z
+     241: ifne          257
+     244: aload         4
+     246: ifnonnull     257
+     249: new           #136                // class java/lang/AssertionError
+     252: dup
+     253: invokespecial #138                // Method java/lang/AssertionError."<init>":()V
+     256: athrow
+     257: aload         4
+     259: aload_3
+     260: invokedynamic #308,  0            // InvokeDynamic #2:get:(Lnet/minecraft/client/Minecraft;)Lit/unimi/dsi/fastutil/Function;
+     265: invokeinterface #149,  2          // InterfaceMethod dev/ryanhcode/sable/mixinterface/clip_overwrite/LevelPoseProviderExtension.sable$pushPoseSupplier:(Lit/unimi/dsi/fastutil/Function;)V
+     270: aload_0
+     271: iconst_1
+     272: putfield      #7                  // Field sable$pushed:Z
+     275: return
+
+  private double sable$getMaxZoom(net.minecraft.world.phys.Vec3, net.minecraft.world.phys.Vec3);
+    Code:
+       0: getstatic     #65                 // Field dev/ryanhcode/sable/Sable.HELPER:Ldev/ryanhcode/sable/ActiveSableCompanion;
+       3: aload_0
+       4: getfield      #128                // Field level:Lnet/minecraft/world/level/BlockGetter;
+       7: checkcast     #311                // class net/minecraft/world/level/Level
+      10: aload_1
+      11: aload_2
+      12: invokevirtual #231                // Method dev/ryanhcode/sable/ActiveSableCompanion.distanceSquaredWithSubLevels:(Lnet/minecraft/world/level/Level;Lnet/minecraft/core/Position;Lnet/minecraft/core/Position;)D
+      15: dreturn
+
+  private void sable$getMaxZoomTail(float, org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable<java.lang.Float>);
+    Code:
+       0: aload_0
+       1: getfield      #7                  // Field sable$pushed:Z
+       4: ifeq          46
+       7: invokestatic  #30                 // Method net/minecraft/client/Minecraft.getInstance:()Lnet/minecraft/client/Minecraft;
+      10: getfield      #71                 // Field net/minecraft/client/Minecraft.level:Lnet/minecraft/client/multiplayer/ClientLevel;
+      13: checkcast     #131                // class dev/ryanhcode/sable/mixinterface/clip_overwrite/LevelPoseProviderExtension
+      16: astore_3
+      17: getstatic     #133                // Field $assertionsDisabled:Z
+      20: ifne          35
+      23: aload_3
+      24: ifnonnull     35
+      27: new           #136                // class java/lang/AssertionError
+      30: dup
+      31: invokespecial #138                // Method java/lang/AssertionError."<init>":()V
+      34: athrow
+      35: aload_3
+      36: invokeinterface #242,  1          // InterfaceMethod dev/ryanhcode/sable/mixinterface/clip_overwrite/LevelPoseProviderExtension.sable$popPoseSupplier:()V
+      41: aload_0
+      42: iconst_0
+      43: putfield      #7                  // Field sable$pushed:Z
+      46: return
+
+  public float sable$getZoomAmount();
+    Code:
+       0: aload_0
+       1: getfield      #21                 // Field sable$zoomAmount:F
+       4: freturn
+
+  public void sable$setZoomAmount(float);
+    Code:
+       0: aload_0
+       1: fload_1
+       2: fconst_0
+       3: ldc_w         #313                // float 4.0f
+       6: invokestatic  #314                // Method net/minecraft/util/Mth.clamp:(FFF)F
+       9: putfield      #21                 // Field sable$zoomAmount:F
+      12: return
+
+  private static dev.ryanhcode.sable.companion.math.Pose3dc lambda$sable$getMaxZoomHead$1(net.minecraft.client.Minecraft, java.lang.Object);
+    Code:
+       0: aload_1
+       1: checkcast     #85                 // class dev/ryanhcode/sable/sublevel/ClientSubLevel
+       4: aload_0
+       5: invokevirtual #112                // Method net/minecraft/client/Minecraft.getTimer:()Lnet/minecraft/client/DeltaTracker;
+       8: iconst_0
+       9: invokeinterface #116,  2          // InterfaceMethod net/minecraft/client/DeltaTracker.getGameTimeDeltaPartialTick:(Z)F
+      14: invokevirtual #317                // Method dev/ryanhcode/sable/sublevel/ClientSubLevel.renderPose:(F)Ldev/ryanhcode/sable/companion/math/Pose3dc;
+      17: areturn
+
+  private static dev.ryanhcode.sable.companion.math.Pose3dc lambda$sable$clampZoom$0(float, java.lang.Object);
+    Code:
+       0: aload_1
+       1: checkcast     #85                 // class dev/ryanhcode/sable/sublevel/ClientSubLevel
+       4: fload_0
+       5: invokevirtual #317                // Method dev/ryanhcode/sable/sublevel/ClientSubLevel.renderPose:(F)Ldev/ryanhcode/sable/companion/math/Pose3dc;
+       8: areturn
+
+  static {};
+    Code:
+       0: ldc           #8                  // class dev/ryanhcode/sable/mixin/camera/camera_zoom/CameraMixin
+       2: invokevirtual #320                // Method java/lang/Class.desiredAssertionStatus:()Z
+       5: ifne          12
+       8: iconst_1
+       9: goto          13
+      12: iconst_0
+      13: putstatic     #133                // Field $assertionsDisabled:Z
+      16: return
+}
+Compiled from "MouseHandlerMixin.java"
+public class dev.ryanhcode.sable.mixin.camera.camera_zoom.MouseHandlerMixin {
+  private net.minecraft.client.Minecraft minecraft;
+
+  public dev.ryanhcode.sable.mixin.camera.camera_zoom.MouseHandlerMixin();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+       4: return
+
+  private void sable$onScroll(net.minecraft.world.entity.player.Inventory, double, com.llamalad7.mixinextras.injector.wrapoperation.Operation<java.lang.Void>);
+    Code:
+       0: aload_0
+       1: getfield      #7                  // Field minecraft:Lnet/minecraft/client/Minecraft;
+       4: getfield      #13                 // Field net/minecraft/client/Minecraft.options:Lnet/minecraft/client/Options;
+       7: invokevirtual #19                 // Method net/minecraft/client/Options.getCameraType:()Lnet/minecraft/client/CameraType;
+      10: astore        5
+      12: aload         5
+      14: getstatic     #25                 // Field dev/ryanhcode/sable/mixinhelpers/camera/new_camera_types/SableCameraTypes.SUB_LEVEL_VIEW:Lnet/minecraft/client/CameraType;
+      17: if_acmpeq     28
+      20: aload         5
+      22: getstatic     #31                 // Field dev/ryanhcode/sable/mixinhelpers/camera/new_camera_types/SableCameraTypes.SUB_LEVEL_VIEW_UNLOCKED:Lnet/minecraft/client/CameraType;
+      25: if_acmpne     75
+      28: aload_0
+      29: getfield      #7                  // Field minecraft:Lnet/minecraft/client/Minecraft;
+      32: getfield      #34                 // Field net/minecraft/client/Minecraft.gameRenderer:Lnet/minecraft/client/renderer/GameRenderer;
+      35: invokevirtual #38                 // Method net/minecraft/client/renderer/GameRenderer.getMainCamera:()Lnet/minecraft/client/Camera;
+      38: checkcast     #44                 // class dev/ryanhcode/sable/mixinterface/camera/camera_zoom/CameraZoomExtension
+      41: astore        6
+      43: aload         6
+      45: aload         6
+      47: invokeinterface #46,  1           // InterfaceMethod dev/ryanhcode/sable/mixinterface/camera/camera_zoom/CameraZoomExtension.sable$getZoomAmount:()F
+      52: f2d
+      53: dload_2
+      54: getstatic     #50                 // Field dev/ryanhcode/sable/SableClientConfig.ZOOM_SENSITIVITY:Lnet/neoforged/neoforge/common/ModConfigSpec$DoubleValue;
+      57: invokevirtual #56                 // Method net/neoforged/neoforge/common/ModConfigSpec$DoubleValue.get:()Ljava/lang/Object;
+      60: checkcast     #62                 // class java/lang/Double
+      63: invokevirtual #64                 // Method java/lang/Double.doubleValue:()D
+      66: dmul
+      67: dsub
+      68: d2f
+      69: invokeinterface #68,  2           // InterfaceMethod dev/ryanhcode/sable/mixinterface/camera/camera_zoom/CameraZoomExtension.sable$setZoomAmount:(F)V
+      74: return
+      75: aload         4
+      77: iconst_2
+      78: anewarray     #2                  // class java/lang/Object
+      81: dup
+      82: iconst_0
+      83: aload_1
+      84: aastore
+      85: dup
+      86: iconst_1
+      87: dload_2
+      88: invokestatic  #72                 // Method java/lang/Double.valueOf:(D)Ljava/lang/Double;
+      91: aastore
+      92: invokeinterface #76,  2           // InterfaceMethod com/llamalad7/mixinextras/injector/wrapoperation/Operation.call:([Ljava/lang/Object;)Ljava/lang/Object;
+      97: pop
+      98: return
+}

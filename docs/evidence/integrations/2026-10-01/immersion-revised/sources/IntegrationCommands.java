@@ -1,0 +1,21 @@
+package dev.fourthdimension.integration;
+
+import java.util.Set;
+import net.neoforged.neoforge.event.RegisterCommandsEvent;
+
+public final class IntegrationCommands {
+  private IntegrationCommands() {}
+
+  public static void register(RegisterCommandsEvent event) {
+    dev.fourthdimension.integration.immersion.ImmersionRideFixture.register(event);
+    EquipmentLifecycleFixture.register(event);
+    StylesLifecycleFixture.register(event);
+    if (OptionalIntegrations.supported("coasterfins", Set.of("0.2.0")))
+      dev.fourthdimension.integration.additions.AdditionsLifecycleFixture.register(event);
+    if (OptionalIntegrations.supported("coastersengineered", Set.of("1.1.1"))) {
+      dev.fourthdimension.integration.engineered.EngineeredExamples.register(event);
+      dev.fourthdimension.integration.engineered.EngineeredRestartFixture.register(event);
+      dev.fourthdimension.integration.engineered.EngineeredPaxRestartFixture.register(event);
+    }
+  }
+}

@@ -7,6 +7,7 @@ public final class IntegrationCommands {
   private IntegrationCommands() {}
 
   public static void register(RegisterCommandsEvent event) {
+    dev.fourthdimension.integration.immersion.ImmersionRideFixture.register(event);
     EquipmentLifecycleFixture.register(event);
     StylesLifecycleFixture.register(event);
     if (OptionalIntegrations.supported("coasterfins", Set.of("0.2.0")))

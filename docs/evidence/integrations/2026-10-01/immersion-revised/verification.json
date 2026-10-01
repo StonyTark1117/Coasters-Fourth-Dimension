@@ -1,0 +1,166 @@
+{
+  "cases": {
+    "immersion": {
+      "dev": {
+        "phases": {
+          "FIRST_PERSON": {
+            "samples": 46,
+            "min_carrier_up": 0.9470349197716467,
+            "max_raw_error": 2.9802322387695312e-08
+          },
+          "SUB_LEVEL_VIEW": {
+            "samples": 45,
+            "min_carrier_up": 0.8489421551652314,
+            "max_raw_error": 4.2146848510894035e-08
+          },
+          "THIRD_PERSON_BACK": {
+            "samples": 46,
+            "min_carrier_up": 0.9400987258431596,
+            "max_raw_error": 4.2146848510894035e-08
+          },
+          "SUB_LEVEL_VIEW_UNLOCKED": {
+            "samples": 47,
+            "min_carrier_up": 0.9990775677907338,
+            "max_raw_error": 2.9802322387695312e-08
+          },
+          "THIRD_PERSON_FRONT": {
+            "samples": 46,
+            "min_carrier_up": 0.9772555040297991,
+            "max_raw_error": 4.2146848510894035e-08
+          },
+          "zero-first": {
+            "samples": 57,
+            "min_carrier_up": 0.950265062680249,
+            "max_raw_error": 4.2146848510894035e-08
+          },
+          "disabled-first": {
+            "samples": 58,
+            "min_carrier_up": 0.9773134920755893,
+            "max_raw_error": 4.2146848510894035e-08
+          },
+          "maximum-first": {
+            "samples": 76,
+            "min_carrier_up": 0.9845090052184697,
+            "max_raw_error": 4.2146848510894035e-08
+          },
+          "restored-first": {
+            "samples": 57,
+            "min_carrier_up": 0.990817551109459,
+            "max_raw_error": 4.2146848510894035e-08
+          }
+        },
+        "first_person_dismounts": 6,
+        "matched_snapshots": 602,
+        "min_carrier_up": 0.8377378400008134
+      }
+    },
+    "combined": {
+      "dev": {
+        "phases": {
+          "FIRST_PERSON": {
+            "samples": 46,
+            "min_carrier_up": 0.9461081442648026,
+            "max_raw_error": 4.2146848510894035e-08
+          },
+          "SUB_LEVEL_VIEW": {
+            "samples": 46,
+            "min_carrier_up": 0.9823948242534344,
+            "max_raw_error": 4.2146848510894035e-08
+          },
+          "THIRD_PERSON_BACK": {
+            "samples": 46,
+            "min_carrier_up": 0.9437440110473859,
+            "max_raw_error": 4.2146848510894035e-08
+          },
+          "SUB_LEVEL_VIEW_UNLOCKED": {
+            "samples": 46,
+            "min_carrier_up": 0.9760074858134361,
+            "max_raw_error": 4.2146848510894035e-08
+          },
+          "THIRD_PERSON_FRONT": {
+            "samples": 46,
+            "min_carrier_up": 0.9807168750414894,
+            "max_raw_error": 4.2146848510894035e-08
+          },
+          "zero-first": {
+            "samples": 58,
+            "min_carrier_up": 0.9695128450878514,
+            "max_raw_error": 2.9802322387695312e-08
+          },
+          "disabled-first": {
+            "samples": 57,
+            "min_carrier_up": 0.9678074567703456,
+            "max_raw_error": 4.2146848510894035e-08
+          },
+          "maximum-first": {
+            "samples": 75,
+            "min_carrier_up": 0.9910923545289521,
+            "max_raw_error": 4.2146848510894035e-08
+          },
+          "restored-first": {
+            "samples": 57,
+            "min_carrier_up": 0.990188856273047,
+            "max_raw_error": 2.9802322387695312e-08
+          }
+        },
+        "first_person_dismounts": 2,
+        "matched_snapshots": 210,
+        "min_carrier_up": 0.8464923897582782
+      },
+      "observer": {
+        "phases": {
+          "FIRST_PERSON": {
+            "samples": 46,
+            "min_carrier_up": 0.9437999175565674,
+            "max_raw_error": 4.2146848510894035e-08
+          },
+          "SUB_LEVEL_VIEW": {
+            "samples": 46,
+            "min_carrier_up": 0.9904650246019081,
+            "max_raw_error": 4.2146848510894035e-08
+          },
+          "THIRD_PERSON_BACK": {
+            "samples": 47,
+            "min_carrier_up": 0.9883343312545138,
+            "max_raw_error": 2.9802322387695312e-08
+          },
+          "SUB_LEVEL_VIEW_UNLOCKED": {
+            "samples": 47,
+            "min_carrier_up": 0.9966650410226972,
+            "max_raw_error": 2.9802322387695312e-08
+          },
+          "THIRD_PERSON_FRONT": {
+            "samples": 47,
+            "min_carrier_up": 0.996638182377867,
+            "max_raw_error": 4.2146848510894035e-08
+          },
+          "zero-first": {
+            "samples": 57,
+            "min_carrier_up": 0.9370042015873059,
+            "max_raw_error": 4.2146848510894035e-08
+          },
+          "disabled-first": {
+            "samples": 57,
+            "min_carrier_up": 0.982330405449813,
+            "max_raw_error": 4.2146848510894035e-08
+          },
+          "maximum-first": {
+            "samples": 75,
+            "min_carrier_up": 0.8802425429510606,
+            "max_raw_error": 4.2146848510894035e-08
+          },
+          "restored-first": {
+            "samples": 58,
+            "min_carrier_up": 0.9748887449383239,
+            "max_raw_error": 4.2146848510894035e-08
+          }
+        },
+        "first_person_dismounts": 2,
+        "matched_snapshots": 210,
+        "min_carrier_up": 0.8802425429510606
+      }
+    }
+  },
+  "unit_tests": 19,
+  "scope": "Revised numerical tracking in five camera modes, first-person settings and two carrier assignments; external-view occlusion remains open; no full-inversion, shader, dimension-change or performance certification"
+}

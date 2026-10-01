@@ -1,0 +1,18 @@
+{
+  "pid": 533641,
+  "case": "immersion",
+  "world": "FDImmersionRevisedImmersion",
+  "command": [
+    "./gradlew",
+    "-Dorg.gradle.jvmargs=-Xmx1G",
+    "--max-workers=2",
+    "runServer",
+    "-PfdPackaged",
+    "-PfdPackagedJar=/home/braydon/.cache/fourthdimension-48535694/immersion-revised.jar",
+    "-PfdValidation",
+    "-PfdFrozen",
+    "-PfdIntegrations=immersion"
+  ],
+  "artifact": "/home/braydon/.cache/fourthdimension-48535694/immersion-revised.jar",
+  "sha256": "f262719b42352c452f5beb9026ded39303216998a4b2795db29906fd9262608a"
+}

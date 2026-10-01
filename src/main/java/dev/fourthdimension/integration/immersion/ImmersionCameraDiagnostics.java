@@ -35,7 +35,7 @@ public final class ImmersionCameraDiagnostics {
         .info(
             "FD_IMMERSION metric=normalized-v1 body={} riding={} enabled={} processing={}"
                 + " rawError={} carrierUp={} cameraUp={} yaw={} pitch={} travel={} inertia={}"
-                + " camera={}",
+                + " perspective={} camera={}",
             body == null ? "none" : body.getUniqueId(),
             mc.player.isPassenger(),
             ImmersionClientConfig.cinematicEnabled(),
@@ -47,6 +47,7 @@ public final class ImmersionCameraDiagnostics {
             mc.player.getXRot(),
             BodyTravel.offset(),
             ImmersionClientConfig.headInertiaSeconds(),
+            mc.options.getCameraType(),
             camera.rotation());
   }
 }

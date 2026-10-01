@@ -435,6 +435,13 @@ and 19 unit tests pass; eight occupied old/new pairs record 10.2–35.4% lower m
 carrier-callback time. Overall timing remains variable on the shared host, including
 one new-build P95 above 50 ms. The optimization is retained; FD904 stays open.
 
+The [Revised camera checkpoint](docs/evidence/integrations/2026-10-01/immersion-revised/README.md)
+records first-person settings, mouse look, carrier changes and normal exits with
+Immersion alone and two combined-pack clients. Five camera types track the correct
+carrier numerically. External views expose rider/seat occlusion, still present with
+effects disabled and native zoom input; visual acceptance remains open. This does
+not close full-inversion, shader or performance targets.
+
 **Depends on:** FD404, FD006. **Design:** D17.
 
 Benchmark the declared controlled-train, free-spin, and shuttle scenes against recorded baselines. Profile per-carrier/constraint costs, caches, Flywheel modes, and the supported shader stack.

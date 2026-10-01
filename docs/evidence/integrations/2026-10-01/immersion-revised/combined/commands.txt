@@ -1,0 +1,161 @@
+fd validation camera_ride create: Camera ride: create
+
+
+tick step 100: Stepping 100 tick(s)
+
+
+tick unfreeze: The game is running normally
+
+
+difficulty peaceful: The difficulty has been set to Peaceful
+
+
+time set noon: Set the time to 6000
+
+
+gamerule doDaylightCycle false: Gamerule doDaylightCycle is now set to: false
+
+
+list: There are 2 of a max of 20 players online: Observer, Dev
+
+
+fd validation camera_ride board 0 Dev: Camera ride: boarded
+
+
+fd validation camera_ride board 2 Observer: Camera ride: boarded
+
+
+fd validation camera_ride report accept-boarded: Camera snapshot recorded
+
+
+fd validation camera_ride close: Camera ride: close
+
+
+fd validation camera_ride dispatch: Camera ride: dispatch
+
+
+fd validation camera_ride report accept-FIRST_PERSON-begin: Camera snapshot recorded
+
+
+fd validation camera_ride report accept-FIRST_PERSON-end: Camera snapshot recorded
+
+
+setblock 444 140 501 minecraft:redstone_block: Changed the block at 444, 140, 501
+
+
+fd validation camera_ride report accept-SUB_LEVEL_VIEW-begin: Camera snapshot recorded
+
+
+fd validation camera_ride report accept-SUB_LEVEL_VIEW-end: Camera snapshot recorded
+
+
+fd validation camera_ride report accept-THIRD_PERSON_BACK-begin: Camera snapshot recorded
+
+
+fd validation camera_ride report accept-THIRD_PERSON_BACK-end: Camera snapshot recorded
+
+
+fd validation camera_ride report accept-SUB_LEVEL_VIEW_UNLOCKED-begin: Camera snapshot recorded
+
+
+fd validation camera_ride report accept-SUB_LEVEL_VIEW_UNLOCKED-end: Camera snapshot recorded
+
+
+fd validation camera_ride report accept-THIRD_PERSON_FRONT-begin: Camera snapshot recorded
+
+
+fd validation camera_ride report accept-THIRD_PERSON_FRONT-end: Camera snapshot recorded
+
+
+fd validation camera_ride report accept-first-return-0: Camera snapshot recorded
+
+
+fd validation camera_ride report accept-first-return-1: Camera snapshot recorded
+
+
+fd validation camera_ride open: Camera ride: open
+
+
+fd validation camera_ride report accept-first-unloaded: Camera snapshot recorded
+
+
+data get entity Dev: Dev has the following entity data: {Brain: {memories: {}}, HurtByTimestamp: 0, SleepTimer: 0s, Invulnerable: 0b, FallFlying: 0b, PortalCooldown: 0, AbsorptionAmount: 0.0f, abilities: {invulnerable: 0b, mayfly: 0b, instabuild: 0b, walkSpeed: 0.1f, mayBuild: 1b, flying: 0b, flySpeed: 0.05f}, FallDistance: 0.0f, recipeBook: {recipes: ["minecraft:crafting_table"], isBlastingFurnaceFilteringCraftable: 0b, isSmokerGuiOpen: 0b, isFilteringCraftable: 0b, toBeDisplayed: ["minecraft:crafting_table"], isFurnaceGuiOpen: 0b, isGuiOpen: 0b, isFurnaceFilteringCraftable: 0b, isBlastingFurnaceGuiOpen: 0b, isSmokerFilteringCraftable: 0b}, DeathTime: 0s, XpSeed: 0, XpTotal: 0, UUID: [I; 940439953, -167562164, -1601161573, -1389718966], playerGameType: 0, NeoForgeData: {}, seenCredits: 0b, Motion: [0.0d, -0.0784000015258789d, 0.0d], Health: 20.0f, foodSaturationLevel: 20.0f, ignore_fall_damage_from_current_explosion: 0b, Air: 300s, OnGround: 1b, Dimension: "minecraft:overworld", Rotation: [0.63204956f, 18.143839f], XpLevel: 0, current_impulse_context_reset_grace_time: 0, warden_spawn_tracker: {warning_level: 0, ticks_since_last_warning: 2628, cooldown_ticks: 0}, Score: 0, Pos: [456.5d, 140.0d, 498.5d], Fire: -20s, XpP: 0.0f, EnderItems: [], attributes: [{id: "minecraft:generic.movement_speed", base: 0.10000000149011612d}, {id: "minecraft:player.entity_interaction_range", base: 3.0d}, {id: "minecraft:generic.oxygen_bonus", base: 0.0d}, {id: "minecraft:player.block_interaction_range", base: 4.5d}], DataVersion: 3955, foodLevel: 20, foodExhaustionLevel: 0.0f, spawn_extra_particles_on_fall: 0b, HurtTime: 0s, SelectedItemSlot: 0, Inventory: [], foodTickTimer: 0}
+
+
+data get entity Observer: Observer has the following entity data: {Brain: {memories: {}}, HurtByTimestamp: 0, SleepTimer: 0s, Invulnerable: 0b, FallFlying: 0b, PortalCooldown: 0, AbsorptionAmount: 0.0f, abilities: {invulnerable: 0b, mayfly: 0b, instabuild: 0b, walkSpeed: 0.1f, mayBuild: 1b, flying: 0b, flySpeed: 0.05f}, FallDistance: 0.0f, recipeBook: {recipes: ["minecraft:crafting_table"], isBlastingFurnaceFilteringCraftable: 0b, isSmokerGuiOpen: 0b, isFilteringCraftable: 0b, toBeDisplayed: ["minecraft:crafting_table"], isFurnaceGuiOpen: 0b, isGuiOpen: 0b, isFurnaceFilteringCraftable: 0b, isBlastingFurnaceGuiOpen: 0b, isSmokerFilteringCraftable: 0b}, DeathTime: 0s, XpSeed: 0, XpTotal: 0, UUID: [I; 301266199, -2059649805, -1608804992, -1648951199], playerGameType: 0, NeoForgeData: {}, seenCredits: 0b, Motion: [0.0d, -0.0784000015258789d, 0.0d], Health: 20.0f, foodSaturationLevel: 20.0f, ignore_fall_damage_from_current_explosion: 0b, Air: 300s, OnGround: 1b, Dimension: "minecraft:overworld", Rotation: [2.4832485f, 20.631948f], XpLevel: 0, current_impulse_context_reset_grace_time: 0, warden_spawn_tracker: {warning_level: 0, ticks_since_last_warning: 2676, cooldown_ticks: 0}, Score: 0, Pos: [444.5d, 140.0d, 498.5d], Fire: -20s, XpP: 0.0f, EnderItems: [], attributes: [{id: "minecraft:generic.movement_speed", base: 0.10000000149011612d}, {id: "minecraft:player.entity_interaction_range", base: 3.0d}, {id: "minecraft:generic.oxygen_bonus", base: 0.0d}, {id: "minecraft:player.block_interaction_range", base: 4.5d}], DataVersion: 3955, foodLevel: 20, foodExhaustionLevel: 0.0f, spawn_extra_particles_on_fall: 0b, HurtTime: 0s, SelectedItemSlot: 0, Inventory: [], foodTickTimer: 0}
+
+
+fd validation camera_ride board 3 Dev: Camera ride: boarded
+
+
+fd validation camera_ride board 1 Observer: Camera ride: boarded
+
+
+fd validation camera_ride report accept-second-boarded: Camera snapshot recorded
+
+
+fd validation camera_ride close: Camera ride: close
+
+
+fd validation camera_ride dispatch: Camera ride: dispatch
+
+
+fd validation camera_ride report accept-zero-first-begin: Camera snapshot recorded
+
+
+fd validation camera_ride report accept-zero-first-end: Camera snapshot recorded
+
+
+setblock 444 140 501 minecraft:redstone_block: Changed the block at 444, 140, 501
+
+
+fd validation camera_ride report accept-disabled-first-begin: Camera snapshot recorded
+
+
+fd validation camera_ride report accept-disabled-first-end: Camera snapshot recorded
+
+
+fd validation camera_ride report accept-maximum-first-begin: Camera snapshot recorded
+
+
+fd validation camera_ride report accept-maximum-first-end: Camera snapshot recorded
+
+
+fd validation camera_ride report accept-restored-first-begin: Camera snapshot recorded
+
+
+fd validation camera_ride report accept-restored-first-end: Camera snapshot recorded
+
+
+fd validation camera_ride report accept-second-return-0: Camera snapshot recorded
+
+
+fd validation camera_ride report accept-second-return-1: Camera snapshot recorded
+
+
+fd validation camera_ride report accept-second-return-2: Camera snapshot recorded
+
+
+fd validation camera_ride report accept-second-return-3: Camera snapshot recorded
+
+
+fd validation camera_ride open: Camera ride: open
+
+
+fd validation camera_ride report accept-second-unloaded: Camera snapshot recorded
+
+
+data get entity Dev: Dev has the following entity data: {Brain: {memories: {}}, HurtByTimestamp: 0, SleepTimer: 0s, Invulnerable: 0b, FallFlying: 0b, PortalCooldown: 0, AbsorptionAmount: 0.0f, abilities: {invulnerable: 0b, mayfly: 0b, instabuild: 0b, walkSpeed: 0.1f, mayBuild: 1b, flying: 0b, flySpeed: 0.05f}, FallDistance: 0.0f, recipeBook: {recipes: ["minecraft:crafting_table"], isBlastingFurnaceFilteringCraftable: 0b, isSmokerGuiOpen: 0b, isFilteringCraftable: 0b, toBeDisplayed: ["minecraft:crafting_table"], isFurnaceGuiOpen: 0b, isGuiOpen: 0b, isFurnaceFilteringCraftable: 0b, isBlastingFurnaceGuiOpen: 0b, isSmokerFilteringCraftable: 0b}, DeathTime: 0s, XpSeed: 0, XpTotal: 0, UUID: [I; 940439953, -167562164, -1601161573, -1389718966], playerGameType: 0, NeoForgeData: {}, seenCredits: 0b, Motion: [0.0d, -0.0784000015258789d, 0.0d], Health: 20.0f, foodSaturationLevel: 20.0f, ignore_fall_damage_from_current_explosion: 0b, Air: 300s, OnGround: 1b, Dimension: "minecraft:overworld", Rotation: [-73.498856f, 3.995482f], XpLevel: 0, current_impulse_context_reset_grace_time: 0, warden_spawn_tracker: {warning_level: 0, ticks_since_last_warning: 4457, cooldown_ticks: 0}, Score: 0, Pos: [444.5d, 140.0d, 492.5d], Fire: -20s, XpP: 0.0f, EnderItems: [], attributes: [{id: "minecraft:generic.movement_speed", base: 0.10000000149011612d}, {id: "minecraft:player.entity_interaction_range", base: 3.0d}, {id: "minecraft:generic.oxygen_bonus", base: 0.0d}, {id: "minecraft:player.block_interaction_range", base: 4.5d}], DataVersion: 3955, foodLevel: 20, foodExhaustionLevel: 0.0f, spawn_extra_particles_on_fall: 0b, HurtTime: 0s, SelectedItemSlot: 0, Inventory: [], foodTickTimer: 0}
+
+
+data get entity Observer: Observer has the following entity data: {Brain: {memories: {}}, HurtByTimestamp: 0, SleepTimer: 0s, Invulnerable: 0b, FallFlying: 0b, PortalCooldown: 0, AbsorptionAmount: 0.0f, abilities: {invulnerable: 0b, mayfly: 0b, instabuild: 0b, walkSpeed: 0.1f, mayBuild: 1b, flying: 0b, flySpeed: 0.05f}, FallDistance: 0.0f, recipeBook: {recipes: ["minecraft:crafting_table"], isBlastingFurnaceFilteringCraftable: 0b, isSmokerGuiOpen: 0b, isFilteringCraftable: 0b, toBeDisplayed: ["minecraft:crafting_table"], isFurnaceGuiOpen: 0b, isGuiOpen: 0b, isFurnaceFilteringCraftable: 0b, isBlastingFurnaceGuiOpen: 0b, isSmokerFilteringCraftable: 0b}, DeathTime: 0s, XpSeed: 0, XpTotal: 0, UUID: [I; 301266199, -2059649805, -1608804992, -1648951199], playerGameType: 0, NeoForgeData: {}, seenCredits: 0b, Motion: [0.0d, -0.0784000015258789d, 0.0d], Health: 20.0f, foodSaturationLevel: 20.0f, ignore_fall_damage_from_current_explosion: 0b, Air: 300s, OnGround: 1b, Dimension: "minecraft:overworld", Rotation: [-73.50453f, 3.9977036f], XpLevel: 0, current_impulse_context_reset_grace_time: 0, warden_spawn_tracker: {warning_level: 0, ticks_since_last_warning: 4505, cooldown_ticks: 0}, Score: 0, Pos: [456.5d, 140.0d, 492.5d], Fire: -20s, XpP: 0.0f, EnderItems: [], attributes: [{id: "minecraft:generic.movement_speed", base: 0.10000000149011612d}, {id: "minecraft:player.entity_interaction_range", base: 3.0d}, {id: "minecraft:generic.oxygen_bonus", base: 0.0d}, {id: "minecraft:player.block_interaction_range", base: 4.5d}], DataVersion: 3955, foodLevel: 20, foodExhaustionLevel: 0.0f, spawn_extra_particles_on_fall: 0b, HurtTime: 0s, SelectedItemSlot: 0, Inventory: [], foodTickTimer: 0}
+
+
+list: There are 0 of a max of 20 players online:
+
+
+save-all flush: Saving the game (this may take a moment!)
+Saved the game
+
+
+stop: Stopping the server

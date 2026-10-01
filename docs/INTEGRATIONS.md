@@ -455,6 +455,17 @@ of saved local mouse angles and stale native tracking on frozen-tick reconnect.
 Bounded Arrow cold/live/moving reconnect checks preserve local view direction;
 other families and camera modes still need coverage. Exact observations and outstanding cases
 are recorded in [Immersion evidence](evidence/integrations/2026-09-30/immersion-0.2.3/README.md).
+A [Revised camera checkpoint](evidence/integrations/2026-10-01/immersion-revised/README.md)
+adds occupied native circuits with Immersion alone and two clients in the combined
+pack. It checks first-person zero/default/150 ms inertia, the master switch,
+maximum roll/pitch stabilization, normal mouse input, carrier changes and ordinary
+unloading. Five actual camera types are measured, including Sable's two additional
+views. Numerical carrier tracking passes, but several external views are obstructed
+by rider/seat geometry, including with effects disabled and native zoom input.
+Those views remain an explicit visual acceptance gap. Revised full inversion,
+other-family camera-mode matrices, dimension changes and shader/performance targets
+are not certified by this checkpoint.
+
 Its seat-aligner/pose features are not a replacement for 4D carrier seats or controls.
 
 ## Dedicated-server performance baseline

@@ -1,0 +1,598 @@
+[
+  {
+    "time": 1790895269.7743716,
+    "kind": "mode",
+    "offsets": {
+      "dev": 1956823
+    },
+    "mode": "FIRST_PERSON",
+    "samples": {
+      "dev": {
+        "metric": "normalized-v1",
+        "body": "e986edf8-3150-4b86-ab98-142e41c1a932",
+        "riding": "true",
+        "enabled": "true",
+        "processing": "true",
+        "rawError": "0.0",
+        "carrierUp": "0.9999999990246962",
+        "cameraUp": "0.98481584",
+        "yaw": "89.9995",
+        "pitch": "9.99664",
+        "travel": "-6.756300067011222E-8",
+        "inertia": "0.04",
+        "perspective": "FIRST_PERSON"
+      }
+    }
+  },
+  {
+    "time": 1790895269.779459,
+    "kind": "config",
+    "offsets": {
+      "dev": 1956823
+    },
+    "enabled": true,
+    "inertia": 40,
+    "maximum": false,
+    "samples": {
+      "dev": {
+        "metric": "normalized-v1",
+        "body": "e986edf8-3150-4b86-ab98-142e41c1a932",
+        "riding": "true",
+        "enabled": "true",
+        "processing": "true",
+        "rawError": "0.0",
+        "carrierUp": "0.9999999990246962",
+        "cameraUp": "0.98481584",
+        "yaw": "89.9995",
+        "pitch": "9.99664",
+        "travel": "-6.756300067011222E-8",
+        "inertia": "0.04",
+        "perspective": "FIRST_PERSON"
+      }
+    }
+  },
+  {
+    "time": 1790895269.869537,
+    "kind": "config",
+    "offsets": {
+      "dev": 1957219
+    },
+    "enabled": true,
+    "inertia": 40,
+    "maximum": false,
+    "samples": {
+      "dev": {
+        "metric": "normalized-v1",
+        "body": "e986edf8-3150-4b86-ab98-142e41c1a932",
+        "riding": "true",
+        "enabled": "true",
+        "processing": "true",
+        "rawError": "0.0",
+        "carrierUp": "0.9999999990246962",
+        "cameraUp": "0.98481584",
+        "yaw": "89.9995",
+        "pitch": "9.99664",
+        "travel": "-7.437751410387532E-9",
+        "inertia": "0.04",
+        "perspective": "FIRST_PERSON"
+      }
+    }
+  },
+  {
+    "time": 1790895271.3213472,
+    "kind": "mode",
+    "offsets": {
+      "dev": 1960947
+    },
+    "mode": "SUB_LEVEL_VIEW",
+    "samples": {
+      "dev": {
+        "metric": "normalized-v1",
+        "body": "e986edf8-3150-4b86-ab98-142e41c1a932",
+        "riding": "true",
+        "enabled": "true",
+        "processing": "true",
+        "rawError": "0.0",
+        "carrierUp": "0.9999999990246962",
+        "cameraUp": "0.9865222",
+        "yaw": "89.9995",
+        "pitch": "9.99664",
+        "travel": "-0.022306752309233995",
+        "inertia": "0.04",
+        "perspective": "SUB_LEVEL_VIEW"
+      }
+    }
+  },
+  {
+    "time": 1790895273.426952,
+    "kind": "capture",
+    "offsets": {
+      "dev": 1964753
+    },
+    "name": "SUB_LEVEL_VIEW",
+    "enabled": true,
+    "samples": {
+      "dev": {
+        "metric": "normalized-v1",
+        "body": "e986edf8-3150-4b86-ab98-142e41c1a932",
+        "riding": "true",
+        "enabled": "true",
+        "processing": "true",
+        "rawError": "0.0",
+        "carrierUp": "0.9999999990246962",
+        "cameraUp": "0.98481584",
+        "yaw": "89.9995",
+        "pitch": "9.99664",
+        "travel": "-1.5821177026468033E-8",
+        "inertia": "0.04",
+        "perspective": "SUB_LEVEL_VIEW"
+      }
+    }
+  },
+  {
+    "time": 1790895276.138457,
+    "kind": "zoom-out",
+    "offsets": {
+      "dev": 1970786
+    },
+    "enabled": true
+  },
+  {
+    "time": 1790895281.6327567,
+    "kind": "mode",
+    "offsets": {
+      "dev": 1981792
+    },
+    "mode": "THIRD_PERSON_BACK",
+    "samples": {
+      "dev": {
+        "metric": "normalized-v1",
+        "body": "e986edf8-3150-4b86-ab98-142e41c1a932",
+        "riding": "true",
+        "enabled": "true",
+        "processing": "true",
+        "rawError": "0.0",
+        "carrierUp": "0.9999999990246962",
+        "cameraUp": "0.9849596",
+        "yaw": "90.004944",
+        "pitch": "9.991088",
+        "travel": "-0.0024923491428914123",
+        "inertia": "0.04",
+        "perspective": "THIRD_PERSON_BACK"
+      }
+    }
+  },
+  {
+    "time": 1790895283.729519,
+    "kind": "capture",
+    "offsets": {
+      "dev": 1985640
+    },
+    "name": "THIRD_PERSON_BACK",
+    "enabled": true,
+    "samples": {
+      "dev": {
+        "metric": "normalized-v1",
+        "body": "e986edf8-3150-4b86-ab98-142e41c1a932",
+        "riding": "true",
+        "enabled": "true",
+        "processing": "true",
+        "rawError": "0.0",
+        "carrierUp": "0.9999999990246962",
+        "cameraUp": "0.98483264",
+        "yaw": "90.004944",
+        "pitch": "9.991088",
+        "travel": "5.018404313577457E-7",
+        "inertia": "0.04",
+        "perspective": "THIRD_PERSON_BACK"
+      }
+    }
+  },
+  {
+    "time": 1790895285.1780121,
+    "kind": "mode",
+    "offsets": {
+      "dev": 1988383
+    },
+    "mode": "SUB_LEVEL_VIEW_UNLOCKED",
+    "samples": {
+      "dev": {
+        "metric": "normalized-v1",
+        "body": "e986edf8-3150-4b86-ab98-142e41c1a932",
+        "riding": "true",
+        "enabled": "true",
+        "processing": "true",
+        "rawError": "0.0",
+        "carrierUp": "0.9999999990246962",
+        "cameraUp": "0.9848438",
+        "yaw": "-89.999466",
+        "pitch": "9.987235",
+        "travel": "3.341455787786076E-5",
+        "inertia": "0.04",
+        "perspective": "SUB_LEVEL_VIEW_UNLOCKED"
+      }
+    }
+  },
+  {
+    "time": 1790895287.2738552,
+    "kind": "capture",
+    "offsets": {
+      "dev": 1992996
+    },
+    "name": "SUB_LEVEL_VIEW_UNLOCKED",
+    "enabled": true,
+    "samples": {
+      "dev": {
+        "metric": "normalized-v1",
+        "body": "e986edf8-3150-4b86-ab98-142e41c1a932",
+        "riding": "true",
+        "enabled": "true",
+        "processing": "true",
+        "rawError": "0.0",
+        "carrierUp": "0.9999999990246962",
+        "cameraUp": "0.98484635",
+        "yaw": "-89.999466",
+        "pitch": "9.987235",
+        "travel": "-8.31353731064548E-11",
+        "inertia": "0.04",
+        "perspective": "SUB_LEVEL_VIEW_UNLOCKED"
+      }
+    }
+  },
+  {
+    "time": 1790895287.9998646,
+    "kind": "mode",
+    "offsets": {
+      "dev": 1994526
+    },
+    "mode": "THIRD_PERSON_FRONT",
+    "samples": {
+      "dev": {
+        "metric": "normalized-v1",
+        "body": "e986edf8-3150-4b86-ab98-142e41c1a932",
+        "riding": "true",
+        "enabled": "true",
+        "processing": "true",
+        "rawError": "0.0",
+        "carrierUp": "0.9999999990246962",
+        "cameraUp": "0.9844067",
+        "yaw": "90.004944",
+        "pitch": "9.985605",
+        "travel": "0.005567511019632244",
+        "inertia": "0.04",
+        "perspective": "THIRD_PERSON_FRONT"
+      }
+    }
+  },
+  {
+    "time": 1790895290.1250584,
+    "kind": "capture",
+    "offsets": {
+      "dev": 1998383
+    },
+    "name": "THIRD_PERSON_FRONT",
+    "enabled": true,
+    "samples": {
+      "dev": {
+        "metric": "normalized-v1",
+        "body": "e986edf8-3150-4b86-ab98-142e41c1a932",
+        "riding": "true",
+        "enabled": "true",
+        "processing": "true",
+        "rawError": "0.0",
+        "carrierUp": "0.9999999990246962",
+        "cameraUp": "0.98484933",
+        "yaw": "90.004944",
+        "pitch": "9.985605",
+        "travel": "-1.0117573024559001E-10",
+        "inertia": "0.04",
+        "perspective": "THIRD_PERSON_FRONT"
+      }
+    }
+  },
+  {
+    "time": 1790895290.891643,
+    "kind": "config",
+    "offsets": {
+      "dev": 1999896
+    },
+    "enabled": false,
+    "inertia": 40,
+    "maximum": false,
+    "samples": {
+      "dev": {
+        "metric": "normalized-v1",
+        "body": "e986edf8-3150-4b86-ab98-142e41c1a932",
+        "riding": "true",
+        "enabled": "false",
+        "processing": "false",
+        "rawError": "0.0",
+        "carrierUp": "0.9999999990246962",
+        "cameraUp": "0.98484886",
+        "yaw": "90.004944",
+        "pitch": "9.985605",
+        "travel": "0.0",
+        "inertia": "0.04",
+        "perspective": "THIRD_PERSON_FRONT"
+      }
+    }
+  },
+  {
+    "time": 1790895293.0632374,
+    "kind": "mode",
+    "offsets": {
+      "dev": 2004698
+    },
+    "mode": "SUB_LEVEL_VIEW",
+    "samples": {
+      "dev": {
+        "metric": "normalized-v1",
+        "body": "e986edf8-3150-4b86-ab98-142e41c1a932",
+        "riding": "true",
+        "enabled": "false",
+        "processing": "false",
+        "rawError": "0.0",
+        "carrierUp": "0.9999999990246962",
+        "cameraUp": "0.984849",
+        "yaw": "90.004944",
+        "pitch": "9.985605",
+        "travel": "0.0",
+        "inertia": "0.04",
+        "perspective": "SUB_LEVEL_VIEW"
+      }
+    }
+  },
+  {
+    "time": 1790895295.1594512,
+    "kind": "capture",
+    "offsets": {
+      "dev": 2008003
+    },
+    "name": "SUB_LEVEL_VIEW",
+    "enabled": false,
+    "samples": {
+      "dev": {
+        "metric": "normalized-v1",
+        "body": "e986edf8-3150-4b86-ab98-142e41c1a932",
+        "riding": "true",
+        "enabled": "false",
+        "processing": "false",
+        "rawError": "0.0",
+        "carrierUp": "0.9999999990246962",
+        "cameraUp": "0.984849",
+        "yaw": "90.004944",
+        "pitch": "9.985605",
+        "travel": "0.0",
+        "inertia": "0.04",
+        "perspective": "SUB_LEVEL_VIEW"
+      }
+    }
+  },
+  {
+    "time": 1790895297.8606224,
+    "kind": "zoom-out",
+    "offsets": {
+      "dev": 2013884
+    },
+    "enabled": false
+  },
+  {
+    "time": 1790895303.3661144,
+    "kind": "mode",
+    "offsets": {
+      "dev": 2024657
+    },
+    "mode": "THIRD_PERSON_BACK",
+    "samples": {
+      "dev": {
+        "metric": "normalized-v1",
+        "body": "e986edf8-3150-4b86-ab98-142e41c1a932",
+        "riding": "true",
+        "enabled": "false",
+        "processing": "false",
+        "rawError": "0.0",
+        "carrierUp": "0.9999999990246962",
+        "cameraUp": "0.98486555",
+        "yaw": "90.004944",
+        "pitch": "9.980121",
+        "travel": "0.0",
+        "inertia": "0.04",
+        "perspective": "THIRD_PERSON_BACK"
+      }
+    }
+  },
+  {
+    "time": 1790895305.4491723,
+    "kind": "capture",
+    "offsets": {
+      "dev": 2028385
+    },
+    "name": "THIRD_PERSON_BACK",
+    "enabled": false,
+    "samples": {
+      "dev": {
+        "metric": "normalized-v1",
+        "body": "e986edf8-3150-4b86-ab98-142e41c1a932",
+        "riding": "true",
+        "enabled": "false",
+        "processing": "false",
+        "rawError": "0.0",
+        "carrierUp": "0.9999999990246962",
+        "cameraUp": "0.98486555",
+        "yaw": "90.004944",
+        "pitch": "9.980121",
+        "travel": "0.0",
+        "inertia": "0.04",
+        "perspective": "THIRD_PERSON_BACK"
+      }
+    }
+  },
+  {
+    "time": 1790895306.8900044,
+    "kind": "mode",
+    "offsets": {
+      "dev": 2032067
+    },
+    "mode": "SUB_LEVEL_VIEW_UNLOCKED",
+    "samples": {
+      "dev": {
+        "metric": "normalized-v1",
+        "body": "e986edf8-3150-4b86-ab98-142e41c1a932",
+        "riding": "true",
+        "enabled": "false",
+        "processing": "false",
+        "rawError": "0.0",
+        "carrierUp": "0.9999999990246962",
+        "cameraUp": "0.9848796",
+        "yaw": "-89.999466",
+        "pitch": "9.976268",
+        "travel": "0.0",
+        "inertia": "0.04",
+        "perspective": "SUB_LEVEL_VIEW_UNLOCKED"
+      }
+    }
+  },
+  {
+    "time": 1790895308.9926538,
+    "kind": "capture",
+    "offsets": {
+      "dev": 2035843
+    },
+    "name": "SUB_LEVEL_VIEW_UNLOCKED",
+    "enabled": false,
+    "samples": {
+      "dev": {
+        "metric": "normalized-v1",
+        "body": "e986edf8-3150-4b86-ab98-142e41c1a932",
+        "riding": "true",
+        "enabled": "false",
+        "processing": "false",
+        "rawError": "0.0",
+        "carrierUp": "0.9999999990246962",
+        "cameraUp": "0.9848796",
+        "yaw": "-89.999466",
+        "pitch": "9.976268",
+        "travel": "0.0",
+        "inertia": "0.04",
+        "perspective": "SUB_LEVEL_VIEW_UNLOCKED"
+      }
+    }
+  },
+  {
+    "time": 1790895309.7192163,
+    "kind": "mode",
+    "offsets": {
+      "dev": 2037322
+    },
+    "mode": "THIRD_PERSON_FRONT",
+    "samples": {
+      "dev": {
+        "metric": "normalized-v1",
+        "body": "e986edf8-3150-4b86-ab98-142e41c1a932",
+        "riding": "true",
+        "enabled": "false",
+        "processing": "false",
+        "rawError": "0.0",
+        "carrierUp": "0.9999999990246962",
+        "cameraUp": "0.98488206",
+        "yaw": "90.004944",
+        "pitch": "9.974638",
+        "travel": "0.0",
+        "inertia": "0.04",
+        "perspective": "THIRD_PERSON_FRONT"
+      }
+    }
+  },
+  {
+    "time": 1790895311.8257325,
+    "kind": "capture",
+    "offsets": {
+      "dev": 2042172
+    },
+    "name": "THIRD_PERSON_FRONT",
+    "enabled": false,
+    "samples": {
+      "dev": {
+        "metric": "normalized-v1",
+        "body": "e986edf8-3150-4b86-ab98-142e41c1a932",
+        "riding": "true",
+        "enabled": "false",
+        "processing": "false",
+        "rawError": "0.0",
+        "carrierUp": "0.9999999990246962",
+        "cameraUp": "0.98488206",
+        "yaw": "90.004944",
+        "pitch": "9.974638",
+        "travel": "0.0",
+        "inertia": "0.04",
+        "perspective": "THIRD_PERSON_FRONT"
+      }
+    }
+  },
+  {
+    "time": 1790895312.5510283,
+    "kind": "mode",
+    "offsets": {
+      "dev": 2043246
+    },
+    "mode": "FIRST_PERSON",
+    "samples": {
+      "dev": {
+        "metric": "normalized-v1",
+        "body": "e986edf8-3150-4b86-ab98-142e41c1a932",
+        "riding": "true",
+        "enabled": "false",
+        "processing": "false",
+        "rawError": "0.0",
+        "carrierUp": "0.9999999990246962",
+        "cameraUp": "0.984882",
+        "yaw": "90.004944",
+        "pitch": "9.974638",
+        "travel": "0.0",
+        "inertia": "0.04",
+        "perspective": "FIRST_PERSON"
+      }
+    }
+  },
+  {
+    "time": 1790895313.3180225,
+    "kind": "config",
+    "offsets": {
+      "dev": 2044389
+    },
+    "enabled": true,
+    "inertia": 40,
+    "maximum": false,
+    "samples": {
+      "dev": {
+        "metric": "normalized-v1",
+        "body": "e986edf8-3150-4b86-ab98-142e41c1a932",
+        "riding": "true",
+        "enabled": "true",
+        "processing": "true",
+        "rawError": "0.0",
+        "carrierUp": "0.9999999990246962",
+        "cameraUp": "0.98488206",
+        "yaw": "90.004944",
+        "pitch": "9.974638",
+        "travel": "0.0",
+        "inertia": "0.04",
+        "perspective": "FIRST_PERSON"
+      }
+    }
+  },
+  {
+    "time": 1790895313.3185172,
+    "kind": "already-running",
+    "offsets": {
+      "dev": 2044389
+    }
+  },
+  {
+    "time": 1790895318.5706334,
+    "kind": "complete",
+    "offsets": {
+      "dev": 2054419
+    }
+  }
+]
