@@ -1,0 +1,29 @@
+{
+  "scope": "Arrow, exact combined pack, two local clients; not full FD901\u2013FD904 acceptance",
+  "clients": {
+    "Dev": {
+      "matched_packets": 490,
+      "station_states": 3,
+      "mounted_samples": 792,
+      "inverted_samples": 12,
+      "max_raw_error_radians": 4.2146848510894035e-08,
+      "carrier": "91105a20-26d1-4cee-a5e8-693225f03c50",
+      "normal_dismount_camera_restored": true
+    },
+    "Observer": {
+      "matched_packets": 401,
+      "station_states": 4,
+      "mounted_samples": 722,
+      "inverted_samples": 10,
+      "max_raw_error_radians": 4.2146848510894035e-08,
+      "carrier": "f6b5a685-1437-40ef-9893-3e907b47b0e9",
+      "normal_dismount_camera_restored": true
+    }
+  },
+  "identical_both_client_snapshots": 395,
+  "cold_restart_exact": true,
+  "resumed_seat_assignments_preserved": true,
+  "two_occupied_carriers_completed_return": true,
+  "normal_exit_cleared_assignments": true,
+  "style_change_preserved_mechanical_data": true
+}

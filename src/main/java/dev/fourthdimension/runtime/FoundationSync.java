@@ -46,6 +46,7 @@ public final class FoundationSync {
                 context.enqueueWork(
                     () -> {
                       var level = context.player().level();
+                      IntegrationDiagnostics.snapshot("client", context.player(), payload.tag);
                       EligibilityHooks.CLIENT.put(
                           level, FoundationData.load(payload.tag, level.registryAccess()));
                     }));
@@ -65,9 +66,12 @@ public final class FoundationSync {
 
   private static void send(ServerPlayer player) {
     var level = player.serverLevel();
-    PacketDistributor.sendToPlayer(
-        player,
-        new Snapshot(FoundationData.get(level).save(new CompoundTag(), level.registryAccess())));
+    var tag = FoundationData.get(level).save(new CompoundTag(), level.registryAccess());
+    if (Boolean.getBoolean("fourthdimension.validation")) {
+      tag.putLong("validation_tick", level.getGameTime());
+      IntegrationDiagnostics.snapshot("server", player, tag);
+    }
+    PacketDistributor.sendToPlayer(player, new Snapshot(tag));
   }
 
   public static void tick(LevelTickEvent.Post event) {

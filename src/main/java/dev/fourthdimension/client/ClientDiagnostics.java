@@ -30,6 +30,16 @@ public final class ClientDiagnostics {
     if (!Boolean.getBoolean("fourthdimension.validation") || ++ticks % 100 != 0) return;
     var mc = Minecraft.getInstance();
     if (mc.level == null || mc.player == null) return;
+    if (mc.hitResult instanceof net.minecraft.world.phys.BlockHitResult hit
+        && mc.level.getBlockEntity(hit.getBlockPos())
+            instanceof dev.fourthdimension.integration.create.RideInformation.Source source) {
+      LogUtils.getLogger()
+          .info(
+              "FD_STATION player={} pos={} telemetry={}",
+              mc.player.getName().getString(),
+              hit.getBlockPos(),
+              source.telemetry());
+    }
     var data = EligibilityHooks.CLIENT.get(mc.level);
     var container = SubLevelContainer.getContainer(mc.level);
     if (data == null || container == null) return;

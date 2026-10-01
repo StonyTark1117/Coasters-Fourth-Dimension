@@ -13,7 +13,8 @@ Recorded checks: [family gate](evidence/0.3/README.md),
 [Track Styles](evidence/integrations/2026-09-30/styles-1.2.0/README.md), and
 [Additions](evidence/integrations/2026-09-30/additions-0.2.0/README.md), and
 [Magnetized](evidence/integrations/2026-09-30/magnetized-1.1.0/README.md), and
-[Immersion](evidence/integrations/2026-09-30/immersion-0.2.3/README.md).
+[Immersion](evidence/integrations/2026-09-30/immersion-0.2.3/README.md), and
+[combined two-client Arrow](evidence/integrations/2026-09-30/combined-two-client/README.md).
 
 ## Implemented foundation
 
@@ -252,10 +253,28 @@ passengers keep Immersion's existing behavior.
 
 Current packaged-client evidence covers an Arrow ride, normal controls and dismount,
 mouse input, inversion, zero head inertia and the camera master switch. This does
-not certify every family, spectator/third-person mode, maximum comfort settings,
-multiplayer, late join or occupied restart. Exact observations and outstanding cases
+not certify every family, spectator/third-person mode or maximum comfort settings.
+A later combined-pack Arrow session adds two real clients, late join, occupied
+dedicated restart, inversion and normal exit; exact view-heading preservation
+across reattachment remains unverified. Exact observations and outstanding cases
 are recorded in [Immersion evidence](evidence/integrations/2026-09-30/immersion-0.2.3/README.md).
 Its seat-aligner/pose features are not a replacement for 4D carrier seats or controls.
+
+## Combined-pack multiplayer evidence
+
+A packaged dedicated server and two packaged clients ran all five pinned adapters
+plus Aeronautics/Interiors. The Arrow Engineered circuit exercised normal boarding,
+occupied cold restart, server-validated dispatch/capture, inversion and normal exit.
+All 891 received validation snapshots matched server hashes; 395 snapshots were
+identical on both clients. Goggles/readouts synchronized occupancy, restraint,
+dispatch and retention transitions. Track Styles single/double spine changes retained
+mechanical rail data and survived late join and resource reload. See the
+[reproduction and limitations](evidence/integrations/2026-09-30/combined-two-client/README.md).
+
+`-PfdValidation` enables read-only packet hashes and looked-at station diagnostics
+for packaged server/client runs. A validation tick is attached only to debug
+snapshots and is ignored by persistence. These measurements are not performance
+baselines and never grant operation authority.
 
 ## Remaining acceptance
 
@@ -265,7 +284,8 @@ Its seat-aligner/pose features are not a replacement for 4D carrier seats or con
   checks; PAX propulsion stays excluded until separately proven.
 - Extend the packaged Ponder/goggles visual checks to every animation phase and both
   multiplayer clients; verify live Display Link output in those sessions.
-- Finish Track Styles multiplayer, removal/reinstallation, resource replacement,
+- Extend bounded Track Styles two-client synchronization/reload evidence to the
+  full multiplayer matrix, removal/reinstallation, resource replacement,
   transition and performance evidence; broader appearances and its own tool integration
   remain outside the current two-spine adapter.
 - Finish Additions linked/mixed trains, fin modes, lifecycle and multiplayer acceptance;
@@ -273,7 +293,8 @@ Its seat-aligner/pose features are not a replacement for 4D carrier seats or con
 - Extend Magnetized native straight-track evidence to linked trains, curves/slopes,
   equipment visuals, configuration extremes, lifecycle and multiplayer.
 - Extend Immersion camera evidence to every family, camera mode, comfort extremes,
-  multiplayer and lifecycle transitions with the full dependency stack.
+  and lifecycle transitions; investigate the observed yaw change at Sable reattachment.
+  The combined-pack two-client Arrow cycle is bounded evidence only.
 - Run base, individual-addon and combined-pack dedicated-server/two-client/late-join
   matrices, migrations/removal, interruption cases and measured rendering/performance.
   Publish exact tested versions and evidence, not inferred compatibility.
