@@ -41,3 +41,11 @@ side="BOTH"
 
 [[mixins]]
 config="fourthdimension.mixins.json"
+
+# The client scheduler startup fix is inspected against this exact Veil release.
+[[dependencies.fourthdimension]]
+modId="veil"
+type="required"
+versionRange="[4.1.4]"
+ordering="AFTER"
+side="CLIENT"

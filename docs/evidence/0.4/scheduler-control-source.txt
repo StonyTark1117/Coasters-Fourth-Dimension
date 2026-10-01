@@ -1,0 +1,9 @@
+import foundry.veil.impl.ThreadTaskScheduler;
+public final class NativeEmptyScheduler {
+    public static void main(String[] args) {
+        var nativeScheduler = new ThreadTaskScheduler("FDUnmodifiedEmpty", 6, () -> null);
+        System.out.println("unmodifiedVeil=4.1.4 requestedWorkers=6 tasks=0 completedFutureDone="
+                + nativeScheduler.getCompletedFuture().isDone());
+        if (nativeScheduler.getCompletedFuture().isDone()) throw new AssertionError("Expected native empty-schedule defect");
+    }
+}

@@ -1,0 +1,128 @@
+[
+  {
+    "chassis": [
+      -1563898664,
+      1128874466,
+      -1369900368,
+      2025088135
+    ],
+    "family": "arrow_controlled",
+    "changed_fields": {}
+  },
+  {
+    "chassis": [
+      -223448548,
+      -1943058586,
+      -1709887184,
+      -1332835834
+    ],
+    "family": "zacspin_legacy",
+    "changed_fields": {}
+  },
+  {
+    "chassis": [
+      -368985328,
+      923287975,
+      -1814950169,
+      -1568603336
+    ],
+    "family": "sns_free_spin",
+    "changed_fields": {}
+  },
+  {
+    "chassis": [
+      807290315,
+      538199263,
+      -1526976858,
+      1717011713
+    ],
+    "family": "zacspin_revised",
+    "changed_fields": {}
+  },
+  {
+    "chassis": [
+      1782465958,
+      1814777257,
+      -1547989697,
+      175848633
+    ],
+    "family": "pax_shuttle",
+    "changed_fields": {
+      "fault": {
+        "before": "",
+        "after": "Shuttle lead car unavailable"
+      },
+      "restraints": {
+        "before": 0,
+        "after": 1
+      }
+    }
+  },
+  {
+    "chassis": [
+      -443795716,
+      460800365,
+      -1266248401,
+      -968647300
+    ],
+    "family": "pax_shuttle",
+    "changed_fields": {
+      "fault": {
+        "before": "",
+        "after": "Shuttle lead car unavailable"
+      },
+      "restraints": {
+        "before": 0,
+        "after": 1
+      }
+    }
+  },
+  {
+    "chassis": [
+      1331351397,
+      1158497845,
+      -1255414651,
+      923245055
+    ],
+    "family": "pax_shuttle",
+    "changed_fields": {
+      "fault": {
+        "before": "",
+        "after": "Shuttle lead car unavailable"
+      },
+      "restraints": {
+        "before": 0,
+        "after": 1
+      }
+    }
+  },
+  {
+    "chassis": [
+      -1959608382,
+      1950304663,
+      -1918815440,
+      1178114505
+    ],
+    "family": "pax_shuttle",
+    "changed_fields": {
+      "fault": {
+        "before": "",
+        "after": "Shuttle lead car unavailable"
+      },
+      "restraints": {
+        "before": 0,
+        "after": 1
+      }
+    }
+  },
+  {
+    "chassis": [
+      183506504,
+      843205811,
+      -1433802988,
+      1565541596
+    ],
+    "family": "arrow_controlled",
+    "changed_fields": {}
+  }
+]

@@ -86,3 +86,5 @@ full banked vehicle clearance, recovery towing, the complete Engineered operator
 workflow, migration or measured release performance. The earlier bitmap-glyph
 resource-reload crash remains unresolved. FD401, FD402, FD403, FD404 and
 FD901–FD905 retain their existing acceptance criteria.
+
+The exact dev.11 head `1cb74d9c2f724d6bdc6900d1c4f6dd71c6ed5660` passed all eight push/PR CI jobs; compact [push](survival-ci-push.json) and [PR](survival-ci-pr.json) records were retrieved again during the dev.12 continuation.

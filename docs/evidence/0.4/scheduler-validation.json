@@ -1,0 +1,59 @@
+{
+  "version": "0.9.0-dev.12",
+  "artifact_sha256": "a2bc5d54e34fcede4f12e14d7816e34bc1f0a9496efa37e566df995fa1470224",
+  "unit_tests": 25,
+  "native_required_tests": {
+    "standalone": 28,
+    "combined": 28
+  },
+  "native_client_scheduler": {
+    "schedules": 512,
+    "tasks": 3072,
+    "empty_schedules": 128,
+    "requested_workers": 6
+  },
+  "first_client": {
+    "pid": 36155,
+    "flags": {
+      "schedulerValidation": true,
+      "validation": true,
+      "ponderValidation": false
+    },
+    "reloads_with_suggestions_and_query": 64,
+    "observation_exception": "Cycle seven needed manual world/suggestions/query confirmation after a sunset classifier false timeout; no restart or JVM state mutation",
+    "normal_exit_code": 0,
+    "occupied_arrow_ride": true,
+    "sampled_native_peak_radians": 6.260776752446113,
+    "normal_dismount": true
+  },
+  "cold_client": {
+    "pid": 186750,
+    "flags": {
+      "schedulerValidation": false,
+      "validation": false,
+      "ponderValidation": false
+    },
+    "reloads_with_suggestions_and_query": 4,
+    "normal_exit_code": 0,
+    "rails_and_mechanical_ids_preserved": true,
+    "new_pax_faults": 4,
+    "fault": "Shuttle lead car unavailable",
+    "pax_restraints_closed_on_reopen": true,
+    "accepted_as_fault_free_lifecycle": false
+  },
+  "closed_world_state": {
+    "rails": 43,
+    "vehicles": 9,
+    "carriers": 22,
+    "families": 5,
+    "styled_sections": 1
+  },
+  "open_gates": [
+    "Original bitmap-glyph crash cause/fix",
+    "PAX cold-reopen fault investigation",
+    "FD401 complete clearance/render/Engineered operations",
+    "FD402 physical recovery",
+    "FD403 real-client survival exercises",
+    "FD404 and FD901-FD905"
+  ]
+}

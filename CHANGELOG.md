@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.9.0-dev.12 — Veil scheduler initialization
+
+- Defer native Veil 4.1.4 client workers until the constructor publishes its final worker count; complete zero-worker schedules. Pin this client integration to that exact release.
+- Add opt-in installed-scheduler validation: 512 schedules, 128 empty schedules and 3072 tasks checked exactly once after native completion. Standalone and combined native regressions pass.
+- Record the resource-reload investigation separately from the unresolved dev.8 bitmap-glyph crash. No font cache, image, render return or exception is replaced.
+- Record 64 completed reload/chat/query cycles and a subsequent occupied styled Arrow ride. A default-client cold reopen exposes four PAX lead-unavailable faults; the lifecycle gate remains open.
+- Keep save schema/network protocol 5 and all unfinished 0.4/0.9 gates.
+
 ## 0.9.0-dev.8 — native wheel clearance for installed Arrow decoration
 
 - Lower and adapt separately installed Arrow decoration to clear the native main/upstop wheel swept envelopes on a level straight.

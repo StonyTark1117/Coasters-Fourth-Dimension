@@ -1,0 +1,10 @@
+allprojects {
+    afterEvaluate { p ->
+        if (p.plugins.hasPlugin('net.neoforged.moddev')) {
+            p.neoForge.runs.client {
+                gameDirectory = p.file('/tmp/fd12-client')
+                jvmArgument '-Xmx2G'
+            }
+        }
+    }
+}

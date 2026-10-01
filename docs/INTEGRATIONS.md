@@ -257,3 +257,7 @@ opening chat after F3+T exposed a freed bitmap-glyph image crash. The complete
 report is retained in the checkpoint above. Root cause and the new placement's
 complete post-reload GUI ride remain open; previous dev.6 acceptance does not
 certify this revised adapter.
+
+## Veil scheduler and revised styled replay (dev.12)
+
+The [scheduler checkpoint](evidence/0.4/scheduler-acceptance.md) records a client-only initialization fix for pinned Veil 4.1.4, 512 native schedule checks, 64 completed reload/chat/query cycles and a normal occupied revised double-spine level circuit with recapture, dismount and clean exit. It preserves profiles and saved mechanical identities. The original freed-bitmap crash remains unresolved; complete banked vehicle/rider clearance, render modes and the Engineered operator/FE-network workflow retain FD401.

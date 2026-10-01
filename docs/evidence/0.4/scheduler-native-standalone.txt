@@ -1,0 +1,38 @@
+Command: JAVA_HOME=/usr/lib/jvm/java-21-openjdk ./gradlew runGameTestServer --no-daemon
+Full runtime log SHA-256: 42f4d96521c5ff60551348b633f051882ce87489e534a357021bdeed509bfd70
+
+> Task :createMinecraftArtifacts UP-TO-DATE
+> Task :compileJava UP-TO-DATE
+> Task :processResources UP-TO-DATE
+> Task :classes UP-TO-DATE
+> Task :downloadAssets UP-TO-DATE
+> Task :writeGameTestServerLegacyClasspath
+> Task :prepareGameTestServerRun
+> Task :runGameTestServer
+[04:09:31] [Server thread/INFO] [de.fo.ga.SurvivalBuildingGameTests/]: FD_SURVIVAL craft=arrow_track count=16 gridConsumed=true recipeDiscovered=true
+[04:09:31] [Server thread/INFO] [de.fo.ga.SurvivalBuildingGameTests/]: FD_SURVIVAL craft=arrow_car count=1 gridConsumed=true recipeDiscovered=true
+[04:09:31] [Server thread/INFO] [de.fo.ga.SurvivalBuildingGameTests/]: FD_SURVIVAL craft=legacy_zacspin_track count=16 gridConsumed=true recipeDiscovered=true
+[04:09:31] [Server thread/INFO] [de.fo.ga.SurvivalBuildingGameTests/]: FD_SURVIVAL craft=legacy_zacspin_car count=1 gridConsumed=true recipeDiscovered=true
+[04:09:31] [Server thread/INFO] [de.fo.ga.SurvivalBuildingGameTests/]: FD_SURVIVAL craft=free_spin_track count=16 gridConsumed=true recipeDiscovered=true
+[04:09:31] [Server thread/INFO] [de.fo.ga.SurvivalBuildingGameTests/]: FD_SURVIVAL craft=free_spin_car count=1 gridConsumed=true recipeDiscovered=true
+[04:09:31] [Server thread/INFO] [de.fo.ga.SurvivalBuildingGameTests/]: FD_SURVIVAL craft=revised_zacspin_track count=16 gridConsumed=true recipeDiscovered=true
+[04:09:31] [Server thread/INFO] [de.fo.ga.SurvivalBuildingGameTests/]: FD_SURVIVAL craft=revised_zacspin_car count=1 gridConsumed=true recipeDiscovered=true
+[04:09:31] [Server thread/INFO] [de.fo.ga.SurvivalBuildingGameTests/]: FD_SURVIVAL craft=pax_track count=16 gridConsumed=true recipeDiscovered=true
+[04:09:31] [Server thread/INFO] [de.fo.ga.SurvivalBuildingGameTests/]: FD_SURVIVAL craft=pax_car count=1 gridConsumed=true recipeDiscovered=true
+[04:09:31] [Server thread/INFO] [de.fo.ga.SurvivalBuildingGameTests/]: FD_SURVIVAL craft=rotation_tool count=1 gridConsumed=true recipeDiscovered=true
+[04:09:31] [Server thread/INFO] [de.fo.ga.SurvivalBuildingGameTests/]: FD_SURVIVAL craft=boarding_station count=1 gridConsumed=true recipeDiscovered=true
+[04:09:31] [Server thread/INFO] [de.fo.ga.SurvivalBuildingGameTests/]: FD_SURVIVAL craft=magnetic_inducer count=2 gridConsumed=true recipeDiscovered=true
+[04:09:31] [Server thread/INFO] [de.fo.ga.SurvivalBuildingGameTests/]: FD_SURVIVAL craft=magnetic_damper count=2 gridConsumed=true recipeDiscovered=true
+[04:09:31] [Server thread/INFO] [de.fo.ga.SurvivalBuildingGameTests/]: FD_SURVIVAL craft=shuttle_winch count=1 gridConsumed=true recipeDiscovered=true
+[04:09:32] [Server thread/INFO] [de.fo.ga.SurvivalBuildingGameTests/]: FD_SURVIVAL craft=boarding_station count=1 gridConsumed=true recipeDiscovered=true
+[04:09:32] [Server thread/INFO] [de.fo.ga.SurvivalBuildingGameTests/]: FD_SURVIVAL track=ARROW cost=8 insufficientReject=passed selectionCancel=passed
+[04:09:32] [Server thread/INFO] [de.fo.ga.SurvivalBuildingGameTests/]: FD_SURVIVAL track=LEGACY cost=8 insufficientReject=passed selectionCancel=passed
+[04:09:32] [Server thread/INFO] [de.fo.ga.SurvivalBuildingGameTests/]: FD_SURVIVAL track=FREE_SPIN cost=8 insufficientReject=passed selectionCancel=passed
+[04:09:32] [Server thread/INFO] [de.fo.ga.SurvivalBuildingGameTests/]: FD_SURVIVAL track=REVISED cost=8 insufficientReject=passed selectionCancel=passed
+[04:09:32] [Server thread/INFO] [de.fo.ga.SurvivalBuildingGameTests/]: FD_SURVIVAL track=PAX cost=8 insufficientReject=passed selectionCancel=passed
+[04:09:34] [Server thread/INFO] [de.fo.ga.SurvivalBuildingGameTests/]: FD_SURVIVAL paxStationResult=PASS binding=null
+[04:09:34] [Server thread/INFO] [de.fo.ga.SurvivalBuildingGameTests/]: FD_SURVIVAL passed recipeTypes=15 craftOperations=16 trackFamilies=5 wrongFamilyRejects=20 placedCars=5 equipment=2 stationBinding=passed winchPlacement=passed initialCapture=passed paxStationReject=passed oldPaxBindingCleared=passed invalidShuttleReject=passed
+[04:09:38] [Server thread/INFO] [de.fo.ga.PonderDiagramGameTests/]: FD_PONDER_RESOURCES diagrams=9 decodedBlocks=1968
+[04:10:53] [Server thread/INFO] [minecraft/GameTestServer]: All 28 required tests passed :)
+BUILD SUCCESSFUL in 2m 3s
+7 actionable tasks: 3 executed, 4 up-to-date

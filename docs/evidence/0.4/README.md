@@ -21,10 +21,16 @@ survival building/operating exercises and the full teaching gate remain unfinish
 
 ## Resource reload investigation
 
+The [dev.12 scheduler checkpoint](scheduler-acceptance.md) fixes initialization
+ordering in the pinned Veil client scheduler and validates native completion,
+including empty schedules. This is separate from the original freed-bitmap
+crash; font state is unchanged.
+
 The [font investigation](font-reload-investigation.md) distinguishes incomplete
 dependency-only stress requests from three completed reloads in an observation-only
-diagnostic build. No production cache change was made; the original crash and
-revised styled reload/ride gate remain unresolved.
+diagnostic build. No production cache change was made; the original crash remains unresolved.
+Dev.12 separately records the revised double-spine level circuit through repeated
+reloads and a normal occupied ride; complete rendering/clearance scope remains open.
 
 ## Native-wheel decoration revision
 

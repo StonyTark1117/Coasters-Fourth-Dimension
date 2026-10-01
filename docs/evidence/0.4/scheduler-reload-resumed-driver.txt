@@ -1,0 +1,64 @@
+"""Sequential UI replay on an explicitly owned hidden Xvfb. No JVM mutation."""
+from pathlib import Path
+import json, os, subprocess, time
+from PIL import Image
+DISPLAY=':198'
+CLIENT_DIR=Path('/tmp/fd12-client')
+LOG=Path('/tmp/fd12-client.log')
+OUT=Path('/tmp/fd12-reload-cycles-resumed')
+PID=int(Path('/tmp/fd12-client.pid').read_text())
+CYCLES=64
+os.environ['DISPLAY']=DISPLAY
+if Path(f'/proc/{PID}/cwd').resolve()!=CLIENT_DIR:raise RuntimeError('Client ownership mismatch')
+if b'net.neoforged.devlaunch.Main' not in Path(f'/proc/{PID}/cmdline').read_bytes():raise RuntimeError('Wrong JVM')
+if ('DISPLAY='+DISPLAY).encode() not in Path(f'/proc/{PID}/environ').read_bytes().split(b'\0'):raise RuntimeError('Wrong display')
+owned=False
+for p in Path('/proc').iterdir():
+ try:
+  a=(p/'cmdline').read_bytes().split(b'\0')
+  if a and a[0].endswith(b'Xvfb') and DISPLAY.encode() in a:owned=True
+ except OSError:pass
+if not owned:raise RuntimeError('Hidden Xvfb missing')
+OUT.mkdir(exist_ok=False)
+START='Reloading ResourceManager:'
+CATALOG='FD_OPTIONAL Track Styles 1.2.0: inspected 55 decorative model entries'
+ACK='[CHAT] Dev has the following entity data: {count: 1, id: "minecraft:red_dye"}'
+def log():return LOG.read_text(errors='replace')
+def x(*a):subprocess.run(['xdotool',*a],check=True)
+def capture(path):
+ subprocess.run(['import','-window','root',str(path)],check=True)
+ with Image.open(path) as im:
+  pixels=im.convert('RGB').crop((213,240,1067,400)).resize((171,32))
+  red=sum(abs(r-239)<12 and abs(g-50)<12 and abs(b-61)<12 for r,g,b in pixels.get_flattened_data())
+  return red/(171*32)
+def alive():
+ if not Path(f'/proc/{PID}').exists():raise RuntimeError('Owned client exited')
+records=[]
+try:
+ for cycle in range(8,CYCLES+1):
+  alive();before=log();starts=before.count(START);catalogs=before.count(CATALOG)
+  t=time.monotonic();x('keydown','F3');x('key','t');x('keyup','F3')
+  while time.monotonic()-t<45:
+   time.sleep(1);alive();current=log();red=capture(OUT/'latest.png')
+   if current.count(START)==starts+1 and current.count(CATALOG)==catalogs+1 and red<.5 and time.monotonic()-t>3:break
+  else:raise RuntimeError('Reload did not recover within 45 seconds; no next request sent')
+  reload_seconds=time.monotonic()-t
+  x('key','t');time.sleep(2);x('type','--clearmodifiers','--delay','15','/da');time.sleep(1)
+  capture(OUT/f'{cycle:02d}-suggestions.png')
+  acknowledgements=log().count(ACK)
+  x('key','ctrl+a');x('type','--clearmodifiers','--delay','10','/data get entity @s SelectedItem');time.sleep(.3);x('key','Return')
+  until=time.monotonic()+15
+  while time.monotonic()<until:
+   alive()
+   if log().count(ACK)==acknowledgements+1:break
+   time.sleep(.5)
+  else:raise RuntimeError('Native query not acknowledged; no next reload sent')
+  time.sleep(1);capture(OUT/f'{cycle:02d}-query.png')
+  after=log()
+  records.append({'cycle':cycle,'reload_seconds':round(reload_seconds,3),'resource_manager_starts':after.count(START),'catalog_bakes':after.count(CATALOG),'query_acknowledgements':after.count(ACK),'overlay_red_fraction':red})
+  (OUT/'records.json').write_text(json.dumps(records,indent=2)+'\n')
+  print(json.dumps(records[-1]),flush=True)
+except Exception as failure:
+ (OUT/'failure.txt').write_text(repr(failure)+'\n')
+ capture(OUT/'failure.png')
+ raise

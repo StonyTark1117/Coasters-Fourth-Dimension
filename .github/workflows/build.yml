@@ -42,6 +42,7 @@ jobs:
           python3 scripts/verify-appearance-lifecycle.py
           python3 scripts/verify-styled-ride.py
           python3 scripts/verify-banked-styled-ride.py
+          python3 scripts/verify-scheduler-checkpoint.py
       - run: ./gradlew clean build runGameTestServer --no-daemon "-PfdIntegrations=$FD_INTEGRATIONS"
         env:
           FD_INTEGRATIONS: ${{ matrix.integrations }}
