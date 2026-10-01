@@ -9,6 +9,8 @@ public final class IntegrationCommands {
   public static void register(RegisterCommandsEvent event) {
     EquipmentLifecycleFixture.register(event);
     StylesLifecycleFixture.register(event);
+    if (OptionalIntegrations.supported("coasterfins", Set.of("0.2.0")))
+      dev.fourthdimension.integration.additions.AdditionsLifecycleFixture.register(event);
     if (OptionalIntegrations.supported("coastersengineered", Set.of("1.1.1"))) {
       dev.fourthdimension.integration.engineered.EngineeredExamples.register(event);
       dev.fourthdimension.integration.engineered.EngineeredRestartFixture.register(event);

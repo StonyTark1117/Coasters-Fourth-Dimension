@@ -1,0 +1,632 @@
+{
+  "data": {
+    "schema": 5,
+    "rails": [
+      {
+        "magnets": [],
+        "appearance_style": "fourthdimension:family_default",
+        "profile": [
+          {
+            "distance": 0.0,
+            "slope": 0.0,
+            "angle": 0.0
+          },
+          {
+            "distance": 60.0,
+            "slope": 0.0,
+            "angle": 0.0
+          }
+        ],
+        "geometry_hash": 2926745308409669121,
+        "revision": 0,
+        "valid": 1,
+        "provider": "fourthdimension:original",
+        "variant": "arrow_four_rail_v1",
+        "appearance_provider": "fourthdimension:original",
+        "from": -32985348833160,
+        "to": -32985348587400,
+        "id": [
+          -142296939,
+          -69320599,
+          -2025329769,
+          9833671
+        ],
+        "family": "arrow_controlled"
+      },
+      {
+        "magnets": [],
+        "appearance_style": "fourthdimension:family_default",
+        "profile": [
+          {
+            "distance": 0.0,
+            "slope": 0.0,
+            "angle": 0.0
+          },
+          {
+            "distance": 60.0,
+            "slope": 0.0,
+            "angle": 0.0
+          }
+        ],
+        "geometry_hash": 7917071578878967297,
+        "revision": 0,
+        "valid": 1,
+        "provider": "fourthdimension:original",
+        "variant": "zacspin_legacy_v1",
+        "appearance_provider": "fourthdimension:original",
+        "from": -24189255810952,
+        "to": -24189255565192,
+        "id": [
+          -1025682727,
+          -552710800,
+          -1837457976,
+          1066105188
+        ],
+        "family": "zacspin_legacy"
+      },
+      {
+        "magnets": [
+          {
+            "mode": "INDUCE",
+            "falloff": 0.1,
+            "strength": 2.0,
+            "start": 36.0,
+            "end": 45.0,
+            "targets": 1,
+            "direction": 1
+          }
+        ],
+        "appearance_style": "fourthdimension:family_default",
+        "profile": [
+          {
+            "distance": 0.0,
+            "slope": 0.0,
+            "angle": 0.0
+          },
+          {
+            "distance": 60.0,
+            "slope": 0.0,
+            "angle": 0.0
+          }
+        ],
+        "geometry_hash": -4070566673239804415,
+        "revision": 0,
+        "valid": 1,
+        "provider": "fourthdimension:original",
+        "variant": "sns_magnetic_v1",
+        "appearance_provider": "fourthdimension:original",
+        "from": -15393162788744,
+        "to": -15393162542984,
+        "id": [
+          -427733195,
+          -130658961,
+          -2144269874,
+          302537934
+        ],
+        "family": "sns_free_spin"
+      },
+      {
+        "magnets": [],
+        "appearance_style": "fourthdimension:family_default",
+        "profile": [
+          {
+            "distance": 0.0,
+            "slope": 0.0,
+            "angle": 0.0
+          },
+          {
+            "distance": 60.0,
+            "slope": 0.0,
+            "angle": 0.0
+          }
+        ],
+        "geometry_hash": -3181139445629759999,
+        "revision": 0,
+        "valid": 1,
+        "provider": "fourthdimension:original",
+        "variant": "zacspin_revised_v1",
+        "appearance_provider": "fourthdimension:original",
+        "from": -6597069766536,
+        "to": -6597069520776,
+        "id": [
+          679041943,
+          -1394980857,
+          -1761795453,
+          2107297239
+        ],
+        "family": "zacspin_revised"
+      },
+      {
+        "magnets": [],
+        "appearance_style": "fourthdimension:family_default",
+        "profile": [
+          {
+            "distance": 0.0,
+            "slope": 0.0,
+            "angle": 0.0
+          },
+          {
+            "distance": 60.0,
+            "slope": 0.0,
+            "angle": 0.0
+          }
+        ],
+        "geometry_hash": 2711746353933764097,
+        "revision": 0,
+        "valid": 1,
+        "provider": "fourthdimension:original",
+        "variant": "pax_shuttle_v1",
+        "appearance_provider": "fourthdimension:original",
+        "from": 2199023255672,
+        "to": 2199023501432,
+        "id": [
+          -666550375,
+          568543756,
+          -1273039089,
+          953238916
+        ],
+        "family": "pax_shuttle"
+      }
+    ],
+    "vehicles": [
+      {
+        "fault": "",
+        "boundTo": -32985348587400,
+        "carriers": [
+          {
+            "side": -3.0,
+            "rider_seats": [],
+            "pivot_height": 2.0,
+            "angle": -0.0003427812358231616,
+            "capture": 1,
+            "body": [
+              -451672521,
+              -251967563,
+              -1707863680,
+              549862466
+            ],
+            "longitudinal": 0.0,
+            "child_pivot_offset": 0.0,
+            "seats": [
+              4095,
+              -274877902849
+            ],
+            "ballast": 0.0,
+            "omega": 0.0018114696627642996,
+            "occupants": [
+              [
+                -1201029238,
+                856114347,
+                -1764972129,
+                -1636845952
+              ]
+            ]
+          },
+          {
+            "side": 3.0,
+            "rider_seats": [],
+            "pivot_height": 2.0,
+            "angle": -0.00042116657792579674,
+            "capture": 1,
+            "body": [
+              -1789940277,
+              -1861071759,
+              -2076005861,
+              276990358
+            ],
+            "longitudinal": 0.0,
+            "child_pivot_offset": 0.0,
+            "seats": [
+              4095,
+              274877911039
+            ],
+            "ballast": 0.0,
+            "omega": 0.001969677737595464,
+            "occupants": []
+          }
+        ],
+        "chassis": [
+          -1864000832,
+          -1702017311,
+          -1225736589,
+          2039226445
+        ],
+        "damping": 5.0,
+        "boundFrom": -32985348833160,
+        "ballast": 0.0,
+        "revision": 0,
+        "boarding_ready": 1,
+        "stopping": 1,
+        "variant": "arrow_four_rail_v1",
+        "restraints": 0,
+        "family": "arrow_controlled",
+        "maintenance": 0
+      },
+      {
+        "fault": "",
+        "boundTo": -24189255565192,
+        "carriers": [
+          {
+            "side": -3.0,
+            "rider_seats": [],
+            "pivot_height": 2.0,
+            "angle": -0.00035385299317259526,
+            "capture": 1,
+            "body": [
+              17925458,
+              -713539210,
+              -1876572008,
+              1377561507
+            ],
+            "longitudinal": 0.0,
+            "child_pivot_offset": 0.0,
+            "seats": [
+              274877906943,
+              -1,
+              8191,
+              -274877898753
+            ],
+            "ballast": 0.0,
+            "omega": 0.0012012082316664875,
+            "occupants": [
+              [
+                1842209037,
+                -1489550682,
+                -1358832902,
+                377124715
+              ]
+            ]
+          },
+          {
+            "side": 3.0,
+            "rider_seats": [],
+            "pivot_height": 2.0,
+            "angle": -0.00028783395221496577,
+            "capture": 1,
+            "body": [
+              1582750153,
+              399985894,
+              -1553299731,
+              -2002383130
+            ],
+            "longitudinal": 0.0,
+            "child_pivot_offset": 0.0,
+            "seats": [
+              274877906943,
+              549755813887,
+              8191,
+              274877915135
+            ],
+            "ballast": 0.0,
+            "omega": 0.0007919191791108595,
+            "occupants": []
+          }
+        ],
+        "chassis": [
+          -668252443,
+          1169377743,
+          -1599454958,
+          -1792569528
+        ],
+        "damping": 0.8,
+        "boundFrom": -24189255810952,
+        "ballast": 0.0,
+        "revision": 0,
+        "boarding_ready": 1,
+        "stopping": 1,
+        "variant": "zacspin_legacy_v1",
+        "restraints": 0,
+        "family": "zacspin_legacy",
+        "maintenance": 0
+      },
+      {
+        "fault": "",
+        "boundTo": -15393162542984,
+        "carriers": [
+          {
+            "side": -3.0,
+            "rider_seats": [],
+            "pivot_height": 2.0,
+            "angle": 1.1384293936237974e-05,
+            "capture": 1,
+            "body": [
+              -1656775019,
+              32917741,
+              -1521515438,
+              -475643556
+            ],
+            "longitudinal": -3.0,
+            "child_pivot_offset": 0.0,
+            "seats": [
+              4095,
+              -274877902849
+            ],
+            "ballast": 0.0,
+            "omega": -0.00016087191990899635,
+            "occupants": [
+              [
+                -903090110,
+                107629046,
+                -1247286338,
+                1511311217
+              ]
+            ]
+          },
+          {
+            "side": -3.0,
+            "rider_seats": [],
+            "pivot_height": 2.0,
+            "angle": -6.025200553484846e-05,
+            "capture": 1,
+            "body": [
+              -1247502749,
+              -1281078909,
+              -1800446307,
+              386241301
+            ],
+            "longitudinal": 3.0,
+            "child_pivot_offset": 0.0,
+            "seats": [
+              4095,
+              -274877902849
+            ],
+            "ballast": 0.0,
+            "omega": 0.0005521386159776502,
+            "occupants": []
+          },
+          {
+            "side": 3.0,
+            "rider_seats": [],
+            "pivot_height": 2.0,
+            "angle": 6.682514247219537e-06,
+            "capture": 1,
+            "body": [
+              -1649575276,
+              641157926,
+              -2134240603,
+              379236283
+            ],
+            "longitudinal": -3.0,
+            "child_pivot_offset": 0.0,
+            "seats": [
+              4095,
+              274877911039
+            ],
+            "ballast": 0.0,
+            "omega": -0.0001894743812713016,
+            "occupants": []
+          },
+          {
+            "side": 3.0,
+            "rider_seats": [],
+            "pivot_height": 2.0,
+            "angle": -6.211220541474491e-05,
+            "capture": 1,
+            "body": [
+              -783238955,
+              426591729,
+              -1297181893,
+              -1667544493
+            ],
+            "longitudinal": 3.0,
+            "child_pivot_offset": 0.0,
+            "seats": [
+              4095,
+              274877911039
+            ],
+            "ballast": 0.0,
+            "omega": 0.0004914066495234847,
+            "occupants": []
+          }
+        ],
+        "chassis": [
+          564257516,
+          1644382483,
+          -1619852962,
+          1399523902
+        ],
+        "damping": 0.8,
+        "boundFrom": -15393162788744,
+        "ballast": 0.0,
+        "revision": 0,
+        "boarding_ready": 1,
+        "stopping": 1,
+        "variant": "sns_magnetic_v1",
+        "restraints": 0,
+        "family": "sns_free_spin",
+        "maintenance": 0
+      },
+      {
+        "fault": "",
+        "boundTo": -6597069520776,
+        "carriers": [
+          {
+            "side": -3.0,
+            "rider_seats": [],
+            "pivot_height": 1.5,
+            "angle": 6.50282200640464e-06,
+            "capture": 1,
+            "body": [
+              20029875,
+              1488864432,
+              -1606635255,
+              1220672765
+            ],
+            "longitudinal": -3.0,
+            "child_pivot_offset": -0.5,
+            "seats": [
+              4095,
+              -274877902849
+            ],
+            "ballast": 0.0,
+            "omega": -5.045853433139224e-05,
+            "occupants": [
+              [
+                -1578888421,
+                351027975,
+                -1170423906,
+                -813416027
+              ]
+            ]
+          },
+          {
+            "side": -3.0,
+            "rider_seats": [],
+            "pivot_height": 1.5,
+            "angle": -5.6717387866214386e-05,
+            "capture": 1,
+            "body": [
+              -244629174,
+              827803570,
+              -1269445469,
+              -265952023
+            ],
+            "longitudinal": 3.0,
+            "child_pivot_offset": -0.5,
+            "seats": [
+              4095,
+              -274877902849
+            ],
+            "ballast": 0.0,
+            "omega": 0.0005457036544186904,
+            "occupants": []
+          },
+          {
+            "side": 3.0,
+            "rider_seats": [],
+            "pivot_height": 1.5,
+            "angle": 3.637644455264748e-06,
+            "capture": 1,
+            "body": [
+              1409734878,
+              -1434893212,
+              -1739591545,
+              -2075790706
+            ],
+            "longitudinal": -3.0,
+            "child_pivot_offset": -0.5,
+            "seats": [
+              4095,
+              274877911039
+            ],
+            "ballast": 0.0,
+            "omega": -5.253426309774528e-05,
+            "occupants": []
+          },
+          {
+            "side": 3.0,
+            "rider_seats": [],
+            "pivot_height": 1.5,
+            "angle": -5.876652334026186e-05,
+            "capture": 1,
+            "body": [
+              -1028802120,
+              -1816180480,
+              -1651373205,
+              718341656
+            ],
+            "longitudinal": 3.0,
+            "child_pivot_offset": -0.5,
+            "seats": [
+              4095,
+              274877911039
+            ],
+            "ballast": 0.0,
+            "omega": 0.0005005567924439527,
+            "occupants": []
+          }
+        ],
+        "chassis": [
+          -482983537,
+          -1857138795,
+          -1638544784,
+          -830900486
+        ],
+        "damping": 0.8,
+        "boundFrom": -6597069766536,
+        "ballast": 0.0,
+        "revision": 0,
+        "boarding_ready": 1,
+        "stopping": 1,
+        "variant": "zacspin_revised_v1",
+        "restraints": 0,
+        "family": "zacspin_revised",
+        "maintenance": 0
+      },
+      {
+        "fault": "",
+        "boundTo": 2199023501432,
+        "carriers": [
+          {
+            "side": -3.0,
+            "rider_seats": [],
+            "pivot_height": 2.0,
+            "angle": -1.4367137483832156e-09,
+            "capture": 1,
+            "body": [
+              945843954,
+              808406021,
+              -1683956477,
+              1117668948
+            ],
+            "longitudinal": 0.0,
+            "child_pivot_offset": 0.0,
+            "seats": [
+              4095,
+              -274877902849
+            ],
+            "ballast": 0.0,
+            "omega": -4.956167609290705e-12,
+            "occupants": [
+              [
+                -1836830678,
+                99307133,
+                -2028129121,
+                -643700217
+              ]
+            ]
+          },
+          {
+            "side": 3.0,
+            "rider_seats": [],
+            "pivot_height": 2.0,
+            "angle": -1.9436499004327386e-10,
+            "capture": 1,
+            "body": [
+              59443221,
+              1269055986,
+              -1389975211,
+              1129011942
+            ],
+            "longitudinal": 0.0,
+            "child_pivot_offset": 0.0,
+            "seats": [
+              4095,
+              274877911039
+            ],
+            "ballast": 0.0,
+            "omega": -1.0617804124874564e-11,
+            "occupants": []
+          }
+        ],
+        "chassis": [
+          1108025285,
+          -149010051,
+          -1896155654,
+          1120431722
+        ],
+        "damping": 0.8,
+        "boundFrom": 2199023255672,
+        "ballast": 0.0,
+        "revision": 0,
+        "boarding_ready": 1,
+        "stopping": 1,
+        "variant": "pax_shuttle_v1",
+        "restraints": 0,
+        "family": "pax_shuttle",
+        "maintenance": 0
+      }
+    ]
+  },
+  "DataVersion": 3955
+}

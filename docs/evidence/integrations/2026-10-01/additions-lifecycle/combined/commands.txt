@@ -1,0 +1,265 @@
+time query gametime: The time is 5401
+
+
+tick step 200: Stepping 200 tick(s)
+
+
+time query gametime: The time is 5401
+
+
+time query gametime: The time is 5407
+
+
+time query gametime: The time is 5421
+
+
+time query gametime: The time is 5431
+
+
+time query gametime: The time is 5441
+
+
+time query gametime: The time is 5451
+
+
+time query gametime: The time is 5461
+
+
+time query gametime: The time is 5472
+
+
+time query gametime: The time is 5482
+
+
+time query gametime: The time is 5492
+
+
+time query gametime: The time is 5502
+
+
+time query gametime: The time is 5512
+
+
+time query gametime: The time is 5522
+
+
+time query gametime: The time is 5532
+
+
+time query gametime: The time is 5542
+
+
+time query gametime: The time is 5552
+
+
+time query gametime: The time is 5562
+
+
+time query gametime: The time is 5572
+
+
+time query gametime: The time is 5582
+
+
+time query gametime: The time is 5592
+
+
+time query gametime: The time is 5601
+
+
+fd validation additions_restart report pigs-ready: Additions lifecycle snapshot recorded
+
+
+tick unfreeze: The game is running normally
+
+
+list: There are 2 of a max of 20 players online: Dev, Observer
+
+
+fd validation additions_restart report occupied: Additions lifecycle snapshot recorded
+
+
+tick freeze: The game is frozen
+
+
+fd validation additions_restart report before-release: Additions lifecycle snapshot recorded
+
+
+fd validation additions_restart release: Additions lifecycle fixture: release
+
+
+time query gametime: The time is 6859
+
+
+tick step 20: Stepping 20 tick(s)
+
+
+time query gametime: The time is 6859
+
+
+time query gametime: The time is 6869
+
+
+time query gametime: The time is 6879
+
+
+fd validation additions_restart report ready-delay: Additions lifecycle snapshot recorded
+
+
+time query gametime: The time is 6879
+
+
+tick step 30: Stepping 30 tick(s)
+
+
+time query gametime: The time is 6879
+
+
+time query gametime: The time is 6889
+
+
+time query gametime: The time is 6899
+
+
+time query gametime: The time is 6909
+
+
+fd validation additions_restart report departed: Additions lifecycle snapshot recorded
+
+
+fd validation additions_restart capture: Additions lifecycle fixture: capture
+
+
+time query gametime: The time is 6909
+
+
+tick step 150: Stepping 150 tick(s)
+
+
+time query gametime: The time is 6909
+
+
+time query gametime: The time is 6919
+
+
+time query gametime: The time is 6929
+
+
+time query gametime: The time is 6939
+
+
+time query gametime: The time is 6949
+
+
+time query gametime: The time is 6959
+
+
+time query gametime: The time is 6969
+
+
+time query gametime: The time is 6979
+
+
+time query gametime: The time is 6989
+
+
+time query gametime: The time is 6999
+
+
+time query gametime: The time is 7009
+
+
+time query gametime: The time is 7019
+
+
+time query gametime: The time is 7029
+
+
+time query gametime: The time is 7039
+
+
+time query gametime: The time is 7049
+
+
+time query gametime: The time is 7059
+
+
+fd validation additions_restart report recaptured: Additions lifecycle snapshot recorded
+
+
+fd validation additions_restart unload: Additions lifecycle fixture: unload
+
+
+time query gametime: The time is 7059
+
+
+tick step 20: Stepping 20 tick(s)
+
+
+time query gametime: The time is 7059
+
+
+time query gametime: The time is 7069
+
+
+time query gametime: The time is 7079
+
+
+fd validation additions_restart report unloaded: Additions lifecycle snapshot recorded
+
+
+tick unfreeze: The game is running normally
+
+
+save-all flush: Saving the game (this may take a moment!)
+Saved the game
+
+
+gamemode creative Dev:
+
+item replace entity Dev armor.head with create:goggles: Replaced a slot on Dev with [Engineer's Goggles]
+
+
+gamemode creative Observer:
+
+item replace entity Observer armor.head with create:goggles: Replaced a slot on Observer with [Engineer's Goggles]
+
+
+tp Dev -128.5 119 15.5 -18.435 2.18: Teleported Dev to -128.500000, 119.000000, 15.500000
+
+
+tp Observer -126.5 119 15.5 18.435 2.18: Teleported Observer to -126.500000, 119.000000, 15.500000
+
+
+tp Dev -96.5 119 15.5 -18.435 2.18: Teleported Dev to -96.500000, 119.000000, 15.500000
+
+
+tp Observer -94.5 119 15.5 18.435 2.18: Teleported Observer to -94.500000, 119.000000, 15.500000
+
+
+tp Dev -64.5 119 15.5 -18.435 2.18: Teleported Dev to -64.500000, 119.000000, 15.500000
+
+
+tp Observer -62.5 119 15.5 18.435 2.18: Teleported Observer to -62.500000, 119.000000, 15.500000
+
+
+tp Dev -32.5 119 15.5 -18.435 2.18: Teleported Dev to -32.500000, 119.000000, 15.500000
+
+
+tp Observer -30.5 119 15.5 18.435 2.18: Teleported Observer to -30.500000, 119.000000, 15.500000
+
+
+tp Dev -0.5 119 15.5 -18.435 2.18: Teleported Dev to -0.500000, 119.000000, 15.500000
+
+
+tp Observer 1.5 119 15.5 18.435 2.18: Teleported Observer to 1.500000, 119.000000, 15.500000
+
+
+list: There are 0 of a max of 20 players online:
+
+
+save-all flush: Saving the game (this may take a moment!)
+Saved the game
+
+
+stop: Stopping the server

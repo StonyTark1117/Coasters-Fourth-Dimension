@@ -1,0 +1,50 @@
+{
+  "cases": {
+    "seed": {
+      "occupied": 7,
+      "carriers": 14,
+      "wireless_receivers": 20,
+      "client_snapshot_matches": {
+        "dev": 214,
+        "observer": 215
+      },
+      "operated_and_unloaded": false
+    },
+    "restored": {
+      "occupied": 7,
+      "carriers": 14,
+      "wireless_receivers": 20,
+      "client_snapshot_matches": {
+        "dev": 186,
+        "observer": 187
+      },
+      "operated_and_unloaded": true
+    },
+    "combined": {
+      "occupied": 7,
+      "carriers": 14,
+      "wireless_receivers": 20,
+      "client_snapshot_matches": {
+        "dev": 209,
+        "observer": 205
+      },
+      "operated_and_unloaded": true
+    }
+  },
+  "native": {
+    "additions": {
+      "registered": 36,
+      "absent_addon_skips": 5
+    },
+    "base": {
+      "registered": 36,
+      "absent_addon_skips": 7
+    },
+    "combined": {
+      "registered": 36,
+      "absent_addon_skips": 0
+    }
+  },
+  "unit_tests": 19,
+  "cleanup": true
+}

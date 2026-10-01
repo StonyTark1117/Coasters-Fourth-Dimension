@@ -389,6 +389,14 @@ FD902 open.
 
 **Done when:** no passenger duplication, stale restraints, lost carrier state, or incorrect track rebinding remains in supported cases. Document supported recovery actions for interruptions.
 
+The [Additions occupied-station follow-up (2026-10-01)](docs/evidence/integrations/2026-10-01/additions-lifecycle/README.md)
+adds five-family parked cold restarts in Additions-only and combined packs, with
+five native pigs and two real riders. Station/fin settings, player seat reservations
+and twenty wireless receiver signals survive; four non-PAX families subsequently
+dispatch, capture and unload while PAX remains held. Both clients read every family
+station. The native fixture now verifies real wireless delivery instead of only
+channel values. Moving/chunk/removal cases and the wider family/pack matrix remain open.
+
 ### FD903 Validate save migration and provider changes
 
 **Depends on:** FD404. **Design:** D04, D09, D10, D16.

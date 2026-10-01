@@ -1,0 +1,174 @@
+{
+  "data": {
+    "schema": 5,
+    "rails": [
+      {
+        "magnets": [],
+        "appearance_style": "fourthdimension:family_default",
+        "profile": [
+          {
+            "distance": 0.0,
+            "slope": 0.0,
+            "angle": 0.0
+          },
+          {
+            "distance": 60.0,
+            "slope": 0.0,
+            "angle": 0.0
+          }
+        ],
+        "geometry_hash": 2926745308409669121,
+        "revision": 0,
+        "valid": 1,
+        "provider": "fourthdimension:original",
+        "variant": "arrow_four_rail_v1",
+        "appearance_provider": "fourthdimension:original",
+        "from": -32985348833160,
+        "to": -32985348587400,
+        "id": [
+          648145150,
+          1733379152,
+          -1411090427,
+          -1866188352
+        ],
+        "family": "arrow_controlled"
+      },
+      {
+        "magnets": [],
+        "appearance_style": "fourthdimension:family_default",
+        "profile": [
+          {
+            "distance": 0.0,
+            "slope": 0.0,
+            "angle": 0.0
+          },
+          {
+            "distance": 60.0,
+            "slope": 0.0,
+            "angle": 0.0
+          }
+        ],
+        "geometry_hash": 7917071578878967297,
+        "revision": 0,
+        "valid": 1,
+        "provider": "fourthdimension:original",
+        "variant": "zacspin_legacy_v1",
+        "appearance_provider": "fourthdimension:original",
+        "from": -24189255810952,
+        "to": -24189255565192,
+        "id": [
+          556569672,
+          2134786519,
+          -1756721642,
+          -1612859096
+        ],
+        "family": "zacspin_legacy"
+      },
+      {
+        "magnets": [
+          {
+            "mode": "INDUCE",
+            "falloff": 0.1,
+            "strength": 2.0,
+            "start": 36.0,
+            "end": 45.0,
+            "targets": 1,
+            "direction": 1
+          }
+        ],
+        "appearance_style": "fourthdimension:family_default",
+        "profile": [
+          {
+            "distance": 0.0,
+            "slope": 0.0,
+            "angle": 0.0
+          },
+          {
+            "distance": 60.0,
+            "slope": 0.0,
+            "angle": 0.0
+          }
+        ],
+        "geometry_hash": -4070566673239804415,
+        "revision": 0,
+        "valid": 1,
+        "provider": "fourthdimension:original",
+        "variant": "sns_magnetic_v1",
+        "appearance_provider": "fourthdimension:original",
+        "from": -15393162788744,
+        "to": -15393162542984,
+        "id": [
+          855296119,
+          -464960593,
+          -1563139295,
+          269251916
+        ],
+        "family": "sns_free_spin"
+      },
+      {
+        "magnets": [],
+        "appearance_style": "fourthdimension:family_default",
+        "profile": [
+          {
+            "distance": 0.0,
+            "slope": 0.0,
+            "angle": 0.0
+          },
+          {
+            "distance": 60.0,
+            "slope": 0.0,
+            "angle": 0.0
+          }
+        ],
+        "geometry_hash": -3181139445629759999,
+        "revision": 0,
+        "valid": 1,
+        "provider": "fourthdimension:original",
+        "variant": "zacspin_revised_v1",
+        "appearance_provider": "fourthdimension:original",
+        "from": -6597069766536,
+        "to": -6597069520776,
+        "id": [
+          409731320,
+          2090549410,
+          -1294934929,
+          -1041440709
+        ],
+        "family": "zacspin_revised"
+      },
+      {
+        "magnets": [],
+        "appearance_style": "fourthdimension:family_default",
+        "profile": [
+          {
+            "distance": 0.0,
+            "slope": 0.0,
+            "angle": 0.0
+          },
+          {
+            "distance": 60.0,
+            "slope": 0.0,
+            "angle": 0.0
+          }
+        ],
+        "geometry_hash": 2711746353933764097,
+        "revision": 0,
+        "valid": 1,
+        "provider": "fourthdimension:original",
+        "variant": "pax_shuttle_v1",
+        "appearance_provider": "fourthdimension:original",
+        "from": 2199023255672,
+        "to": 2199023501432,
+        "id": [
+          -2065479560,
+          -1409073102,
+          -2012088255,
+          138293994
+        ],
+        "family": "pax_shuttle"
+      }
+    ],
+    "vehicles": []
+  },
+  "DataVersion": 3955
+}

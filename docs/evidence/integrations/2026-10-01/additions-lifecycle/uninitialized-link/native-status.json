@@ -1,0 +1,18 @@
+{
+  "status": "failed",
+  "runs": [
+    {
+      "case": "additions",
+      "pid": 491900,
+      "command": [
+        "./gradlew",
+        "-Dorg.gradle.jvmargs=-Xmx1G",
+        "--max-workers=2",
+        "runGameTestServer",
+        "-PfdIntegrations=additions"
+      ],
+      "status": "running"
+    }
+  ],
+  "error": "AssertionError('additions')"
+}

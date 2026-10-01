@@ -1,0 +1,1278 @@
+{
+  "label": "pigs-ready",
+  "tick": 281,
+  "additions": true,
+  "foundation": {
+    "schema": 5,
+    "rails": [
+      {
+        "magnets": [],
+        "appearance_style": "fourthdimension:family_default",
+        "profile": [
+          {
+            "distance": 0.0,
+            "angle": 0.0,
+            "slope": 0.0
+          },
+          {
+            "distance": 60.0,
+            "angle": 0.0,
+            "slope": 0.0
+          }
+        ],
+        "geometry_hash": 2926745308409669121,
+        "revision": 0,
+        "valid": 1,
+        "provider": "fourthdimension:original",
+        "variant": "arrow_four_rail_v1",
+        "appearance_provider": "fourthdimension:original",
+        "from": -32985348833160,
+        "to": -32985348587400,
+        "id": [
+          -142296939,
+          -69320599,
+          -2025329769,
+          9833671
+        ],
+        "family": "arrow_controlled"
+      },
+      {
+        "magnets": [],
+        "appearance_style": "fourthdimension:family_default",
+        "profile": [
+          {
+            "distance": 0.0,
+            "angle": 0.0,
+            "slope": 0.0
+          },
+          {
+            "distance": 60.0,
+            "angle": 0.0,
+            "slope": 0.0
+          }
+        ],
+        "geometry_hash": 7917071578878967297,
+        "revision": 0,
+        "valid": 1,
+        "provider": "fourthdimension:original",
+        "variant": "zacspin_legacy_v1",
+        "appearance_provider": "fourthdimension:original",
+        "from": -24189255810952,
+        "to": -24189255565192,
+        "id": [
+          -1025682727,
+          -552710800,
+          -1837457976,
+          1066105188
+        ],
+        "family": "zacspin_legacy"
+      },
+      {
+        "magnets": [
+          {
+            "mode": "INDUCE",
+            "falloff": 0.1,
+            "strength": 2.0,
+            "start": 36.0,
+            "end": 45.0,
+            "targets": 1,
+            "direction": 1
+          }
+        ],
+        "appearance_style": "fourthdimension:family_default",
+        "profile": [
+          {
+            "distance": 0.0,
+            "angle": 0.0,
+            "slope": 0.0
+          },
+          {
+            "distance": 60.0,
+            "angle": 0.0,
+            "slope": 0.0
+          }
+        ],
+        "geometry_hash": -4070566673239804415,
+        "revision": 0,
+        "valid": 1,
+        "provider": "fourthdimension:original",
+        "variant": "sns_magnetic_v1",
+        "appearance_provider": "fourthdimension:original",
+        "from": -15393162788744,
+        "to": -15393162542984,
+        "id": [
+          -427733195,
+          -130658961,
+          -2144269874,
+          302537934
+        ],
+        "family": "sns_free_spin"
+      },
+      {
+        "magnets": [],
+        "appearance_style": "fourthdimension:family_default",
+        "profile": [
+          {
+            "distance": 0.0,
+            "angle": 0.0,
+            "slope": 0.0
+          },
+          {
+            "distance": 60.0,
+            "angle": 0.0,
+            "slope": 0.0
+          }
+        ],
+        "geometry_hash": -3181139445629759999,
+        "revision": 0,
+        "valid": 1,
+        "provider": "fourthdimension:original",
+        "variant": "zacspin_revised_v1",
+        "appearance_provider": "fourthdimension:original",
+        "from": -6597069766536,
+        "to": -6597069520776,
+        "id": [
+          679041943,
+          -1394980857,
+          -1761795453,
+          2107297239
+        ],
+        "family": "zacspin_revised"
+      },
+      {
+        "magnets": [],
+        "appearance_style": "fourthdimension:family_default",
+        "profile": [
+          {
+            "distance": 0.0,
+            "angle": 0.0,
+            "slope": 0.0
+          },
+          {
+            "distance": 60.0,
+            "angle": 0.0,
+            "slope": 0.0
+          }
+        ],
+        "geometry_hash": 2711746353933764097,
+        "revision": 0,
+        "valid": 1,
+        "provider": "fourthdimension:original",
+        "variant": "pax_shuttle_v1",
+        "appearance_provider": "fourthdimension:original",
+        "from": 2199023255672,
+        "to": 2199023501432,
+        "id": [
+          -666550375,
+          568543756,
+          -1273039089,
+          953238916
+        ],
+        "family": "pax_shuttle"
+      }
+    ],
+    "vehicles": [
+      {
+        "fault": "",
+        "boundTo": -32985348587400,
+        "carriers": [
+          {
+            "side": -3.0,
+            "rider_seats": [],
+            "pivot_height": 2.0,
+            "angle": -0.00034273344002047406,
+            "capture": 1,
+            "body": [
+              -451672521,
+              -251967563,
+              -1707863680,
+              549862466
+            ],
+            "longitudinal": 0.0,
+            "child_pivot_offset": 0.0,
+            "seats": [
+              4095,
+              -274877902849
+            ],
+            "ballast": 0.0,
+            "omega": 0.001805674139682749,
+            "occupants": [
+              [
+                -1201029238,
+                856114347,
+                -1764972129,
+                -1636845952
+              ]
+            ]
+          },
+          {
+            "side": 3.0,
+            "rider_seats": [],
+            "pivot_height": 2.0,
+            "angle": -0.0004211333349766601,
+            "capture": 1,
+            "body": [
+              -1789940277,
+              -1861071759,
+              -2076005861,
+              276990358
+            ],
+            "longitudinal": 0.0,
+            "child_pivot_offset": 0.0,
+            "seats": [
+              4095,
+              274877911039
+            ],
+            "ballast": 0.0,
+            "omega": 0.001959742460190229,
+            "occupants": []
+          }
+        ],
+        "chassis": [
+          -1864000832,
+          -1702017311,
+          -1225736589,
+          2039226445
+        ],
+        "damping": 5.0,
+        "boundFrom": -32985348833160,
+        "ballast": 0.0,
+        "revision": 0,
+        "boarding_ready": 1,
+        "stopping": 1,
+        "variant": "arrow_four_rail_v1",
+        "restraints": 0,
+        "family": "arrow_controlled",
+        "maintenance": 0
+      },
+      {
+        "fault": "",
+        "boundTo": -24189255565192,
+        "carriers": [
+          {
+            "side": -3.0,
+            "rider_seats": [],
+            "pivot_height": 2.0,
+            "angle": -0.0003538521670774443,
+            "capture": 1,
+            "body": [
+              17925458,
+              -713539210,
+              -1876572008,
+              1377561507
+            ],
+            "longitudinal": 0.0,
+            "child_pivot_offset": 0.0,
+            "seats": [
+              274877906943,
+              -1,
+              8191,
+              -274877898753
+            ],
+            "ballast": 0.0,
+            "omega": 0.0012006865294190816,
+            "occupants": [
+              [
+                1842209037,
+                -1489550682,
+                -1358832902,
+                377124715
+              ]
+            ]
+          },
+          {
+            "side": 3.0,
+            "rider_seats": [],
+            "pivot_height": 2.0,
+            "angle": -0.00028783784076445896,
+            "capture": 1,
+            "body": [
+              1582750153,
+              399985894,
+              -1553299731,
+              -2002383130
+            ],
+            "longitudinal": 0.0,
+            "child_pivot_offset": 0.0,
+            "seats": [
+              274877906943,
+              549755813887,
+              8191,
+              274877915135
+            ],
+            "ballast": 0.0,
+            "omega": 0.0007918462612674294,
+            "occupants": []
+          }
+        ],
+        "chassis": [
+          -668252443,
+          1169377743,
+          -1599454958,
+          -1792569528
+        ],
+        "damping": 0.8,
+        "boundFrom": -24189255810952,
+        "ballast": 0.0,
+        "revision": 0,
+        "boarding_ready": 1,
+        "stopping": 1,
+        "variant": "zacspin_legacy_v1",
+        "restraints": 0,
+        "family": "zacspin_legacy",
+        "maintenance": 0
+      },
+      {
+        "fault": "",
+        "boundTo": -15393162542984,
+        "carriers": [
+          {
+            "side": -3.0,
+            "rider_seats": [],
+            "pivot_height": 2.0,
+            "angle": 1.1373867659051086e-05,
+            "capture": 1,
+            "body": [
+              -1656775019,
+              32917741,
+              -1521515438,
+              -475643556
+            ],
+            "longitudinal": -3.0,
+            "child_pivot_offset": 0.0,
+            "seats": [
+              4095,
+              -274877902849
+            ],
+            "ballast": 0.0,
+            "omega": -0.00016090820580987562,
+            "occupants": [
+              [
+                -903090110,
+                107629046,
+                -1247286338,
+                1511311217
+              ]
+            ]
+          },
+          {
+            "side": -3.0,
+            "rider_seats": [],
+            "pivot_height": 2.0,
+            "angle": -6.025006354594417e-05,
+            "capture": 1,
+            "body": [
+              -1247502749,
+              -1281078909,
+              -1800446307,
+              386241301
+            ],
+            "longitudinal": 3.0,
+            "child_pivot_offset": 0.0,
+            "seats": [
+              4095,
+              -274877902849
+            ],
+            "ballast": 0.0,
+            "omega": 0.0005521007296112228,
+            "occupants": []
+          },
+          {
+            "side": 3.0,
+            "rider_seats": [],
+            "pivot_height": 2.0,
+            "angle": 6.682899576223303e-06,
+            "capture": 1,
+            "body": [
+              -1649575276,
+              641157926,
+              -2134240603,
+              379236283
+            ],
+            "longitudinal": -3.0,
+            "child_pivot_offset": 0.0,
+            "seats": [
+              4095,
+              274877911039
+            ],
+            "ballast": 0.0,
+            "omega": -0.00019089887869665274,
+            "occupants": []
+          },
+          {
+            "side": 3.0,
+            "rider_seats": [],
+            "pivot_height": 2.0,
+            "angle": -6.211315209167502e-05,
+            "capture": 1,
+            "body": [
+              -783238955,
+              426591729,
+              -1297181893,
+              -1667544493
+            ],
+            "longitudinal": 3.0,
+            "child_pivot_offset": 0.0,
+            "seats": [
+              4095,
+              274877911039
+            ],
+            "ballast": 0.0,
+            "omega": 0.000491372601451512,
+            "occupants": []
+          }
+        ],
+        "chassis": [
+          564257516,
+          1644382483,
+          -1619852962,
+          1399523902
+        ],
+        "damping": 0.8,
+        "boundFrom": -15393162788744,
+        "ballast": 0.0,
+        "revision": 0,
+        "boarding_ready": 1,
+        "stopping": 1,
+        "variant": "sns_magnetic_v1",
+        "restraints": 0,
+        "family": "sns_free_spin",
+        "maintenance": 0
+      },
+      {
+        "fault": "",
+        "boundTo": -6597069520776,
+        "carriers": [
+          {
+            "side": -3.0,
+            "rider_seats": [],
+            "pivot_height": 1.5,
+            "angle": 6.503206495797118e-06,
+            "capture": 1,
+            "body": [
+              20029875,
+              1488864432,
+              -1606635255,
+              1220672765
+            ],
+            "longitudinal": -3.0,
+            "child_pivot_offset": -0.5,
+            "seats": [
+              4095,
+              -274877902849
+            ],
+            "ballast": 0.0,
+            "omega": -5.046855842447781e-05,
+            "occupants": [
+              [
+                -1578888421,
+                351027975,
+                -1170423906,
+                -813416027
+              ]
+            ]
+          },
+          {
+            "side": -3.0,
+            "rider_seats": [],
+            "pivot_height": 1.5,
+            "angle": -5.671688181174887e-05,
+            "capture": 1,
+            "body": [
+              -244629174,
+              827803570,
+              -1269445469,
+              -265952023
+            ],
+            "longitudinal": 3.0,
+            "child_pivot_offset": -0.5,
+            "seats": [
+              4095,
+              -274877902849
+            ],
+            "ballast": 0.0,
+            "omega": 0.0005456942222172389,
+            "occupants": []
+          },
+          {
+            "side": 3.0,
+            "rider_seats": [],
+            "pivot_height": 1.5,
+            "angle": 3.6371519282923e-06,
+            "capture": 1,
+            "body": [
+              1409734878,
+              -1434893212,
+              -1739591545,
+              -2075790706
+            ],
+            "longitudinal": -3.0,
+            "child_pivot_offset": -0.5,
+            "seats": [
+              4095,
+              274877911039
+            ],
+            "ballast": 0.0,
+            "omega": -5.2551660590620154e-05,
+            "occupants": []
+          },
+          {
+            "side": 3.0,
+            "rider_seats": [],
+            "pivot_height": 1.5,
+            "angle": -5.8766476018332966e-05,
+            "capture": 1,
+            "body": [
+              -1028802120,
+              -1816180480,
+              -1651373205,
+              718341656
+            ],
+            "longitudinal": 3.0,
+            "child_pivot_offset": -0.5,
+            "seats": [
+              4095,
+              274877911039
+            ],
+            "ballast": 0.0,
+            "omega": 0.0005005458325606462,
+            "occupants": []
+          }
+        ],
+        "chassis": [
+          -482983537,
+          -1857138795,
+          -1638544784,
+          -830900486
+        ],
+        "damping": 0.8,
+        "boundFrom": -6597069766536,
+        "ballast": 0.0,
+        "revision": 0,
+        "boarding_ready": 1,
+        "stopping": 1,
+        "variant": "zacspin_revised_v1",
+        "restraints": 0,
+        "family": "zacspin_revised",
+        "maintenance": 0
+      },
+      {
+        "fault": "",
+        "boundTo": 2199023501432,
+        "carriers": [
+          {
+            "side": -3.0,
+            "rider_seats": [],
+            "pivot_height": 2.0,
+            "angle": -4.566827013556075e-10,
+            "capture": 1,
+            "body": [
+              945843954,
+              808406021,
+              -1683956477,
+              1117668948
+            ],
+            "longitudinal": 0.0,
+            "child_pivot_offset": 0.0,
+            "seats": [
+              4095,
+              -274877902849
+            ],
+            "ballast": 0.0,
+            "omega": -7.022200463902492e-12,
+            "occupants": [
+              [
+                -1836830678,
+                99307133,
+                -2028129121,
+                -643700217
+              ]
+            ]
+          },
+          {
+            "side": 3.0,
+            "rider_seats": [],
+            "pivot_height": 2.0,
+            "angle": -4.853348751906144e-10,
+            "capture": 1,
+            "body": [
+              59443221,
+              1269055986,
+              -1389975211,
+              1129011942
+            ],
+            "longitudinal": 0.0,
+            "child_pivot_offset": 0.0,
+            "seats": [
+              4095,
+              274877911039
+            ],
+            "ballast": 0.0,
+            "omega": -6.8058185269364574e-12,
+            "occupants": []
+          }
+        ],
+        "chassis": [
+          1108025285,
+          -149010051,
+          -1896155654,
+          1120431722
+        ],
+        "damping": 0.8,
+        "boundFrom": 2199023255672,
+        "ballast": 0.0,
+        "revision": 0,
+        "boarding_ready": 1,
+        "stopping": 1,
+        "variant": "pax_shuttle_v1",
+        "restraints": 0,
+        "family": "pax_shuttle",
+        "maintenance": 0
+      }
+    ]
+  },
+  "rails": [
+    {
+      "id": "f784b895-fbde-4069-8747-eb9700960cc7",
+      "resolved": true
+    },
+    {
+      "id": "c2dd52d9-df0e-4d70-927a-9dc83f8b7964",
+      "resolved": true
+    },
+    {
+      "id": "e6814f35-f836-4d6f-8031-09ce12085cce",
+      "resolved": true
+    },
+    {
+      "id": "28795b97-acda-4807-96fd-22837d9acdd7",
+      "resolved": true
+    },
+    {
+      "id": "d8453f99-21e3-4a0c-b41e-f70f38d14584",
+      "resolved": true
+    }
+  ],
+  "cars": [
+    {
+      "id": "90e59ac0-9a8d-46e1-b6f0-be73798c204d",
+      "loaded": true,
+      "ready": true,
+      "restraints": false,
+      "fault": "",
+      "family": "arrow_controlled",
+      "stopping": true,
+      "driveAllowed": false,
+      "speed": 0.0005601172691231221,
+      "telemetry": {
+        "denial": "All carriers must be captured and restraints closed before dispatch",
+        "phase": "BOARDING",
+        "dispatch": 0,
+        "available": 1,
+        "fault": "",
+        "capacity": 4,
+        "cars": 1,
+        "retained": 0,
+        "captured": 1,
+        "restraints": 0,
+        "family": "arrow_controlled",
+        "occupied": 1,
+        "boarding": 1
+      },
+      "stationNbt": {
+        "DispatchDelay": 60,
+        "DispatchCooldown": 0,
+        "Jammed": 0,
+        "Dispatch": 1,
+        "DispatchMin": 12,
+        "Ch0": {
+          "B": {
+            "count": 1,
+            "id": "minecraft:diamond"
+          }
+        },
+        "DispatchTicks": 0,
+        "Ch2": {
+          "B": {
+            "count": 1,
+            "id": "minecraft:redstone"
+          }
+        },
+        "Span": [
+          {
+            "TowardTo": 1,
+            "THi": 1.0,
+            "TLo": 0.0,
+            "From": -32985348833160,
+            "To": -32985348587400
+          }
+        ],
+        "Ch1": {
+          "B": {
+            "count": 1,
+            "id": "minecraft:emerald"
+          }
+        },
+        "Ch3": {
+          "B": {
+            "count": 1,
+            "id": "minecraft:gold_ingot"
+          }
+        },
+        "PreLatched": 0,
+        "DwellStarted": 0,
+        "CooldownLeft": 0,
+        "x": -128,
+        "y": 120,
+        "z": 18,
+        "id": "coasterfins:station",
+        "PreSpan": []
+      },
+      "channels": [
+        15,
+        5,
+        0,
+        0
+      ],
+      "finNbt": {
+        "SpanSegments": [
+          {
+            "TowardTo": 1,
+            "THi": 1.0,
+            "TLo": 0.0,
+            "From": -32985348833160,
+            "To": -32985348587400
+          }
+        ],
+        "x": -130,
+        "SpanMode": "boost",
+        "IsPowered": 1,
+        "y": 120,
+        "ScrollValue": 10,
+        "z": 24,
+        "id": "coasterfins:coaster_fin",
+        "SignalStrength": 15
+      },
+      "carriers": [
+        {
+          "id": "e5140637-f0fb-47b5-9a34-118020c63c42",
+          "loaded": true,
+          "riders": [
+            {
+              "id": "b869bf8a-3307-44ab-96cc-a99f9e6fb680",
+              "player": false,
+              "alive": true,
+              "seat": "14c79d87-fa0f-4e41-bacc-64c3274df0eb",
+              "carrier": "e5140637-f0fb-47b5-9a34-118020c63c42"
+            }
+          ]
+        },
+        {
+          "id": "954fadcb-9112-4c71-8442-aa1b10828996",
+          "loaded": true,
+          "riders": []
+        }
+      ]
+    },
+    {
+      "id": "d82b46e5-45b3-49cf-a0aa-411295278f48",
+      "loaded": true,
+      "ready": true,
+      "restraints": false,
+      "fault": "",
+      "family": "zacspin_legacy",
+      "stopping": true,
+      "driveAllowed": false,
+      "speed": 0.0007018505451443891,
+      "telemetry": {
+        "denial": "All carriers must be captured and restraints closed before dispatch",
+        "phase": "BOARDING",
+        "dispatch": 0,
+        "available": 1,
+        "fault": "",
+        "capacity": 8,
+        "cars": 1,
+        "retained": 0,
+        "captured": 1,
+        "restraints": 0,
+        "family": "zacspin_legacy",
+        "occupied": 1,
+        "boarding": 1
+      },
+      "stationNbt": {
+        "DispatchDelay": 60,
+        "DispatchCooldown": 0,
+        "Jammed": 0,
+        "Dispatch": 1,
+        "DispatchMin": 12,
+        "Ch0": {
+          "B": {
+            "count": 1,
+            "id": "minecraft:diamond"
+          }
+        },
+        "DispatchTicks": 0,
+        "Ch2": {
+          "B": {
+            "count": 1,
+            "id": "minecraft:redstone"
+          }
+        },
+        "Span": [
+          {
+            "TowardTo": 1,
+            "THi": 1.0,
+            "TLo": 0.0,
+            "From": -24189255810952,
+            "To": -24189255565192
+          }
+        ],
+        "Ch1": {
+          "B": {
+            "count": 1,
+            "id": "minecraft:emerald"
+          }
+        },
+        "Ch3": {
+          "B": {
+            "count": 1,
+            "id": "minecraft:gold_ingot"
+          }
+        },
+        "PreLatched": 0,
+        "DwellStarted": 0,
+        "CooldownLeft": 0,
+        "x": -96,
+        "y": 120,
+        "z": 18,
+        "id": "coasterfins:station",
+        "PreSpan": []
+      },
+      "channels": [
+        15,
+        3,
+        0,
+        0
+      ],
+      "finNbt": {
+        "SpanSegments": [
+          {
+            "TowardTo": 1,
+            "THi": 1.0,
+            "TLo": 0.0,
+            "From": -24189255810952,
+            "To": -24189255565192
+          }
+        ],
+        "x": -98,
+        "SpanMode": "boost",
+        "IsPowered": 1,
+        "y": 120,
+        "ScrollValue": 10,
+        "z": 24,
+        "id": "coasterfins:coaster_fin",
+        "SignalStrength": 15
+      },
+      "carriers": [
+        {
+          "id": "01118552-d578-4176-9025-c898521beba3",
+          "loaded": true,
+          "riders": [
+            {
+              "id": "6dcde10d-a737-42a6-af01-dafa167a776b",
+              "player": false,
+              "alive": true,
+              "seat": "0f3f4b9f-8fc9-4f7d-92d9-be874e602a1b",
+              "carrier": "01118552-d578-4176-9025-c898521beba3"
+            }
+          ]
+        },
+        {
+          "id": "5e56d9c9-17d7-4ce6-a36a-86ed88a60ee6",
+          "loaded": true,
+          "riders": []
+        }
+      ]
+    },
+    {
+      "id": "21a1e2ec-6203-4913-9f73-015e536b0a3e",
+      "loaded": true,
+      "ready": true,
+      "restraints": false,
+      "fault": "",
+      "family": "sns_free_spin",
+      "stopping": true,
+      "driveAllowed": false,
+      "speed": 0.0004466304825068197,
+      "telemetry": {
+        "denial": "All carriers must be captured and restraints closed before dispatch",
+        "phase": "BOARDING",
+        "dispatch": 0,
+        "available": 1,
+        "fault": "",
+        "capacity": 8,
+        "cars": 1,
+        "retained": 0,
+        "captured": 1,
+        "restraints": 0,
+        "family": "sns_free_spin",
+        "occupied": 1,
+        "boarding": 1
+      },
+      "stationNbt": {
+        "DispatchDelay": 60,
+        "DispatchCooldown": 0,
+        "Jammed": 0,
+        "Dispatch": 1,
+        "DispatchMin": 12,
+        "Ch0": {
+          "B": {
+            "count": 1,
+            "id": "minecraft:diamond"
+          }
+        },
+        "DispatchTicks": 0,
+        "Ch2": {
+          "B": {
+            "count": 1,
+            "id": "minecraft:redstone"
+          }
+        },
+        "Span": [
+          {
+            "TowardTo": 1,
+            "THi": 1.0,
+            "TLo": 0.0,
+            "From": -15393162788744,
+            "To": -15393162542984
+          }
+        ],
+        "Ch1": {
+          "B": {
+            "count": 1,
+            "id": "minecraft:emerald"
+          }
+        },
+        "Ch3": {
+          "B": {
+            "count": 1,
+            "id": "minecraft:gold_ingot"
+          }
+        },
+        "PreLatched": 0,
+        "DwellStarted": 0,
+        "CooldownLeft": 0,
+        "x": -64,
+        "y": 120,
+        "z": 18,
+        "id": "coasterfins:station",
+        "PreSpan": []
+      },
+      "channels": [
+        15,
+        3,
+        0,
+        0
+      ],
+      "finNbt": {
+        "SpanSegments": [
+          {
+            "TowardTo": 1,
+            "THi": 1.0,
+            "TLo": 0.0,
+            "From": -15393162788744,
+            "To": -15393162542984
+          }
+        ],
+        "x": -66,
+        "SpanMode": "boost",
+        "IsPowered": 1,
+        "y": 120,
+        "ScrollValue": 10,
+        "z": 24,
+        "id": "coasterfins:coaster_fin",
+        "SignalStrength": 15
+      },
+      "carriers": [
+        {
+          "id": "9d3f9e95-01f6-48ed-a54f-8452e3a6415c",
+          "loaded": true,
+          "riders": [
+            {
+              "id": "ca2bf042-066a-49f6-b5a7-ebbe5a14c771",
+              "player": false,
+              "alive": true,
+              "seat": "40686e20-e0e1-4a59-827e-835a0cc77892",
+              "carrier": "9d3f9e95-01f6-48ed-a54f-8452e3a6415c"
+            }
+          ]
+        },
+        {
+          "id": "b5a49e63-b3a4-4983-94af-5e9d17059315",
+          "loaded": true,
+          "riders": []
+        },
+        {
+          "id": "9dad7a94-2637-4b26-80ca-12a5169aafbb",
+          "loaded": true,
+          "riders": []
+        },
+        {
+          "id": "d150b8d5-196d-45f1-b2ae-933b9c9b4a53",
+          "loaded": true,
+          "riders": []
+        }
+      ]
+    },
+    {
+      "id": "e336418f-914e-4f95-9e55-ca70ce7976fa",
+      "loaded": true,
+      "ready": true,
+      "restraints": false,
+      "fault": "",
+      "family": "zacspin_revised",
+      "stopping": true,
+      "driveAllowed": false,
+      "speed": 0.00042936882407991483,
+      "telemetry": {
+        "denial": "All carriers must be captured and restraints closed before dispatch",
+        "phase": "BOARDING",
+        "dispatch": 0,
+        "available": 1,
+        "fault": "",
+        "capacity": 8,
+        "cars": 1,
+        "retained": 0,
+        "captured": 1,
+        "restraints": 0,
+        "family": "zacspin_revised",
+        "occupied": 1,
+        "boarding": 1
+      },
+      "stationNbt": {
+        "DispatchDelay": 60,
+        "DispatchCooldown": 0,
+        "Jammed": 0,
+        "Dispatch": 1,
+        "DispatchMin": 12,
+        "Ch0": {
+          "B": {
+            "count": 1,
+            "id": "minecraft:diamond"
+          }
+        },
+        "DispatchTicks": 0,
+        "Ch2": {
+          "B": {
+            "count": 1,
+            "id": "minecraft:redstone"
+          }
+        },
+        "Span": [
+          {
+            "TowardTo": 1,
+            "THi": 1.0,
+            "TLo": 0.0,
+            "From": -6597069766536,
+            "To": -6597069520776
+          }
+        ],
+        "Ch1": {
+          "B": {
+            "count": 1,
+            "id": "minecraft:emerald"
+          }
+        },
+        "Ch3": {
+          "B": {
+            "count": 1,
+            "id": "minecraft:gold_ingot"
+          }
+        },
+        "PreLatched": 0,
+        "DwellStarted": 0,
+        "CooldownLeft": 0,
+        "x": -32,
+        "y": 120,
+        "z": 18,
+        "id": "coasterfins:station",
+        "PreSpan": []
+      },
+      "channels": [
+        15,
+        3,
+        0,
+        0
+      ],
+      "finNbt": {
+        "SpanSegments": [
+          {
+            "TowardTo": 1,
+            "THi": 1.0,
+            "TLo": 0.0,
+            "From": -6597069766536,
+            "To": -6597069520776
+          }
+        ],
+        "x": -34,
+        "SpanMode": "boost",
+        "IsPowered": 1,
+        "y": 120,
+        "ScrollValue": 10,
+        "z": 24,
+        "id": "coasterfins:coaster_fin",
+        "SignalStrength": 15
+      },
+      "carriers": [
+        {
+          "id": "0131a1b3-58be-44b0-a03c-b10948c1fcfd",
+          "loaded": true,
+          "riders": [
+            {
+              "id": "a1e4131b-14ec-4307-ba3c-bf9ecf8441a5",
+              "player": false,
+              "alive": true,
+              "seat": "c7be385d-e6c3-4861-b2d2-f58aee46c4d2",
+              "carrier": "0131a1b3-58be-44b0-a03c-b10948c1fcfd"
+            }
+          ]
+        },
+        {
+          "id": "f16b414a-3157-47b2-b455-cca3f025e4e9",
+          "loaded": true,
+          "riders": []
+        },
+        {
+          "id": "5406d8de-aa79-4464-984f-f0878445f28e",
+          "loaded": true,
+          "riders": []
+        },
+        {
+          "id": "c2adb9b8-93bf-4900-9d92-0b6b2ad10618",
+          "loaded": true,
+          "riders": []
+        }
+      ]
+    },
+    {
+      "id": "420b1fc5-f71e-497d-8efa-f5fa42c86e6a",
+      "loaded": true,
+      "ready": true,
+      "restraints": false,
+      "fault": "",
+      "family": "pax_shuttle",
+      "stopping": true,
+      "driveAllowed": false,
+      "speed": 0.0005600610165857126,
+      "telemetry": {
+        "denial": "Operate PAX through its bound shuttle winch",
+        "phase": "BOARDING",
+        "dispatch": 0,
+        "available": 1,
+        "fault": "",
+        "capacity": 4,
+        "cars": 1,
+        "retained": 0,
+        "captured": 1,
+        "restraints": 0,
+        "family": "pax_shuttle",
+        "occupied": 1,
+        "boarding": 1
+      },
+      "stationNbt": {
+        "DispatchDelay": 60,
+        "DispatchCooldown": 0,
+        "Jammed": 0,
+        "Dispatch": 1,
+        "DispatchMin": 12,
+        "Ch0": {
+          "B": {
+            "count": 1,
+            "id": "minecraft:diamond"
+          }
+        },
+        "DispatchTicks": 0,
+        "Ch2": {
+          "B": {
+            "count": 1,
+            "id": "minecraft:redstone"
+          }
+        },
+        "Span": [
+          {
+            "TowardTo": 1,
+            "THi": 1.0,
+            "TLo": 0.0,
+            "From": 2199023255672,
+            "To": 2199023501432
+          }
+        ],
+        "Ch1": {
+          "B": {
+            "count": 1,
+            "id": "minecraft:emerald"
+          }
+        },
+        "Ch3": {
+          "B": {
+            "count": 1,
+            "id": "minecraft:gold_ingot"
+          }
+        },
+        "PreLatched": 0,
+        "DwellStarted": 0,
+        "CooldownLeft": 0,
+        "x": 0,
+        "y": 120,
+        "z": 18,
+        "id": "coasterfins:station",
+        "PreSpan": []
+      },
+      "channels": [
+        15,
+        5,
+        0,
+        0
+      ],
+      "finNbt": {
+        "SpanSegments": [
+          {
+            "TowardTo": 1,
+            "THi": 1.0,
+            "TLo": 0.0,
+            "From": 2199023255672,
+            "To": 2199023501432
+          }
+        ],
+        "x": -2,
+        "SpanMode": "boost",
+        "IsPowered": 1,
+        "y": 120,
+        "ScrollValue": 10,
+        "z": 24,
+        "id": "coasterfins:coaster_fin",
+        "SignalStrength": 15
+      },
+      "carriers": [
+        {
+          "id": "38606ef2-302f-4c05-9ba0-dd03429e4654",
+          "loaded": true,
+          "riders": [
+            {
+              "id": "9284302a-05eb-4e7d-871d-349fd9a1ea07",
+              "player": false,
+              "alive": true,
+              "seat": "ab2fbc2e-a32c-46ac-be5d-a5a0f56a94b0",
+              "carrier": "38606ef2-302f-4c05-9ba0-dd03429e4654"
+            }
+          ]
+        },
+        {
+          "id": "038b0815-4ba4-41f2-ad26-a955434b5ae6",
+          "loaded": true,
+          "riders": []
+        }
+      ]
+    }
+  ]
+}

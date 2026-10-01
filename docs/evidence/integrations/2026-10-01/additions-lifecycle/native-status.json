@@ -1,0 +1,41 @@
+{
+  "status": "complete",
+  "runs": [
+    {
+      "case": "additions",
+      "pid": 498549,
+      "command": [
+        "./gradlew",
+        "-Dorg.gradle.jvmargs=-Xmx1G",
+        "--max-workers=2",
+        "runGameTestServer",
+        "-PfdIntegrations=additions"
+      ],
+      "status": "complete"
+    },
+    {
+      "case": "base",
+      "pid": 504639,
+      "command": [
+        "./gradlew",
+        "-Dorg.gradle.jvmargs=-Xmx1G",
+        "--max-workers=2",
+        "runGameTestServer"
+      ],
+      "status": "complete"
+    },
+    {
+      "case": "combined",
+      "pid": 509323,
+      "command": [
+        "./gradlew",
+        "-Dorg.gradle.jvmargs=-Xmx1G",
+        "--max-workers=2",
+        "runGameTestServer",
+        "-PfdIntegrations=engineered,styles,additions,magnetized,immersion",
+        "-PfdPaxEnergyReload"
+      ],
+      "status": "complete"
+    }
+  ]
+}

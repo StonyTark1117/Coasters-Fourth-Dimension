@@ -371,8 +371,22 @@ stack prevent claiming warning-free dedicated startup. A [linked Arrow follow-up
 checks native mixed/partial-span rejection, occupancy thresholds, cooldown,
 continuous readiness, departure latching and BOOST/BRAKE/reverse/STOP with two riders.
 Other supported train configurations, occupancy patterns, curves/slopes, moving track,
-restart/removal, multiplayer and visual acceptance remain open. See the integration evidence directory for exact completed
-checks before advertising any combination.
+removal and the wider lifecycle/multiplayer/visual matrix remain open.
+
+The [occupied station restart and wireless follow-up](evidence/integrations/2026-10-01/additions-lifecycle/README.md)
+adds Additions-only and combined-pack cold restarts of all five families with five
+native pig passengers and two real players (Arrow and Free Spin). It preserves
+station/fin settings, spans, frequency items, carriers and player seat reservations;
+four eligible families then dispatch, recapture and unload, while PAX remains held.
+Both clients read all five stations through goggles. Twenty actual receiving Create
+Redstone Links verify signal delivery. The prior five-family native check used
+non-item controller blocks as frequency items and therefore established channel
+values only; that fixture is corrected and now checks receivers across four states.
+Failed setup/observation attempts and the short-track boundary-guard recovery are
+retained. This is parked restart followed by straight, single-car operation, not
+moving restart, addon-block removal or a broader geometry/rendering certification.
+See the integration evidence directory for exact completed checks before advertising
+any combination.
 
 ## Magnetized 1.1.0: guarded acceleration and brakes
 
@@ -626,11 +640,12 @@ acceptance remain open.
   PAX phase/power-fault checks to other fault causes, late joining, restart/chunk
   interruption and the complete family/station/winch/addon matrix.
 - Extend bounded Track Styles two-client synchronization/reload evidence to the
-  full multiplayer matrix, occupied removal/reinstallation, resource replacement,
+  full multiplayer matrix, combined-pack/moving occupied removal, resource replacement,
   transition and performance evidence; broader appearances and its own tool integration
   remain outside the current two-spine adapter.
 - Extend the bounded Additions linked Arrow/mixed-span/fin-mode checks to the
-  remaining train configurations, lifecycle and multiplayer acceptance;
+  remaining train configurations, moving/chunk/removal lifecycle and multiplayer
+  acceptance beyond the five-family parked restart and real-receiver checkpoint;
   validate any rotating-seat replacement separately.
 - Extend Magnetized native single-car and two-car Arrow evidence to longer trains,
   curves/slopes, equipment visuals, configuration extremes, moving/chunk lifecycle and

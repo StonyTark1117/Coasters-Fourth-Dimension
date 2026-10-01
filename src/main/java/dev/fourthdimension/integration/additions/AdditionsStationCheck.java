@@ -4,7 +4,6 @@ import com.simibubi.create.content.contraptions.actors.seat.SeatBlock;
 import dev.fourthdimension.contract.Family;
 import dev.fourthdimension.integration.*;
 import dev.fourthdimension.integration.create.RideInformation;
-import dev.fourthdimension.runtime.FamilyControllers;
 import dev.fourthdimension.runtime.FoundationData;
 import dev.fourthdimension.track.*;
 import dev.fourthdimension.vehicle.*;
@@ -88,23 +87,7 @@ public final class AdditionsStationCheck {
             level.setBlockAndUpdate(stationPos, CFBlocks.STATION.get().defaultBlockState());
             var station = (StationBlockEntity) level.getBlockEntity(stationPos);
             station.setSpan(span);
-            var frequencies =
-                List.of(
-                    net.minecraft.world.item.Items.DIAMOND,
-                    net.minecraft.world.item.Items.EMERALD,
-                    net.minecraft.world.item.Items.REDSTONE,
-                    net.minecraft.world.item.Items.GOLD_INGOT);
-            for (int channel = 0; channel < 4; channel++) {
-              station.setFrequency(
-                  channel,
-                  0,
-                  FamilyControllers.CONTROLLERS
-                      .get(design.family)
-                      .get()
-                      .asItem()
-                      .getDefaultInstance());
-              station.setFrequency(channel, 1, frequencies.get(channel).getDefaultInstance());
-            }
+            AdditionsWirelessFixture.place(level, stationPos);
             station.setDispatch(true, 1, 1, 0);
             stations.add(station);
             var finPos = rail.from.offset(-10, 0, 24);
@@ -127,6 +110,8 @@ public final class AdditionsStationCheck {
     helper.runAtTickTime(
         30,
         () -> {
+          for (int i = 0; i < stations.size(); i++)
+            AdditionsWirelessFixture.bind(level, stations.get(i), TrackDesign.values()[i]);
           for (var pos : fins) {
             var fin =
                 (com.simibubi.create.foundation.blockEntity.SmartBlockEntity)
@@ -179,6 +164,7 @@ public final class AdditionsStationCheck {
             helper.assertTrue(
                 station.getUpdateTag(level.registryAccess()).contains("fourthdimension_ride"),
                 "Additions telemetry not synchronized");
+            AdditionsWirelessFixture.assertDelivery(helper, station, "open");
             held.add(
                 new Vector3d(CoasterCartResolve.cartCenterWorld(container.getSubLevel(v.chassis))));
             var pig = net.minecraft.world.entity.EntityType.PIG.create(level);
@@ -223,6 +209,7 @@ public final class AdditionsStationCheck {
                         .distance(held.get(i))
                     < .2,
                 "Fins pulled held car");
+            AdditionsWirelessFixture.assertDelivery(helper, station, "occupied-held");
             VehicleOperations.retention(level, v, false);
           }
         });
@@ -261,6 +248,7 @@ public final class AdditionsStationCheck {
             helper.assertTrue(
                 riders.get(i).isPassenger() && v.fault.isBlank(),
                 "Additions lost passenger or faulted");
+            AdditionsWirelessFixture.assertDelivery(helper, station, "dispatch");
             var fin = level.getBlockEntity(fins.get(i));
             var tag = fin.saveWithoutMetadata(level.registryAccess());
             tag.putString("SpanMode", "stop");
@@ -296,6 +284,7 @@ public final class AdditionsStationCheck {
             helper.assertTrue(
                 !((RideInformation.Source) stations.get(i)).telemetry().available(),
                 "Cleared station retained stale telemetry");
+            AdditionsWirelessFixture.assertDelivery(helper, stations.get(i), "cleared");
             helper.assertTrue(
                 Boarding.ready(level, v), "Additions ride failed recapture: " + v.family);
             VehicleOperations.restraints(level, v, false);

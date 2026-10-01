@@ -1,0 +1,852 @@
+[
+  {
+    "Transmit": 0,
+    "Transmitter": 0,
+    "LastKnownPosition": -36283883626376,
+    "FrequencyLast": {
+      "count": 1,
+      "id": "minecraft:diamond"
+    },
+    "keepPacked": 0,
+    "Receive": 15,
+    "ReceivedChanged": 0,
+    "x": -132,
+    "y": 120,
+    "z": 22,
+    "id": "create:redstone_link",
+    "FrequencyFirst": {
+      "count": 1,
+      "id": "minecraft:red_wool"
+    },
+    "LinkedGauges": []
+  },
+  {
+    "Transmit": 0,
+    "Transmitter": 0,
+    "LastKnownPosition": -36283883618184,
+    "FrequencyLast": {
+      "count": 1,
+      "id": "minecraft:emerald"
+    },
+    "keepPacked": 0,
+    "Receive": 8,
+    "ReceivedChanged": 0,
+    "x": -132,
+    "y": 120,
+    "z": 24,
+    "id": "create:redstone_link",
+    "FrequencyFirst": {
+      "count": 1,
+      "id": "minecraft:red_wool"
+    },
+    "LinkedGauges": []
+  },
+  {
+    "Transmit": 0,
+    "Transmitter": 0,
+    "LastKnownPosition": -36283883609992,
+    "FrequencyLast": {
+      "count": 1,
+      "id": "minecraft:redstone"
+    },
+    "keepPacked": 0,
+    "Receive": 15,
+    "ReceivedChanged": 0,
+    "x": -132,
+    "y": 120,
+    "z": 26,
+    "id": "create:redstone_link",
+    "FrequencyFirst": {
+      "count": 1,
+      "id": "minecraft:red_wool"
+    },
+    "LinkedGauges": []
+  },
+  {
+    "Transmit": 0,
+    "Transmitter": 0,
+    "LastKnownPosition": -36283883601800,
+    "FrequencyLast": {
+      "count": 1,
+      "id": "minecraft:gold_ingot"
+    },
+    "keepPacked": 0,
+    "Receive": 0,
+    "ReceivedChanged": 0,
+    "x": -132,
+    "y": 120,
+    "z": 28,
+    "id": "create:redstone_link",
+    "FrequencyFirst": {
+      "count": 1,
+      "id": "minecraft:red_wool"
+    },
+    "LinkedGauges": []
+  },
+  {
+    "SpanSegments": [
+      {
+        "TowardTo": 1,
+        "THi": 1.0,
+        "TLo": 0.0,
+        "From": -32985348833160,
+        "To": -32985348587400
+      }
+    ],
+    "keepPacked": 0,
+    "x": -130,
+    "SpanMode": "boost",
+    "IsPowered": 1,
+    "y": 120,
+    "ScrollValue": 10,
+    "z": 24,
+    "id": "coasterfins:coaster_fin",
+    "SignalStrength": 15
+  },
+  {
+    "DispatchDelay": 60,
+    "DispatchCooldown": 0,
+    "Jammed": 0,
+    "Dispatch": 1,
+    "DispatchMin": 12,
+    "Ch0": {
+      "A": {
+        "count": 1,
+        "id": "minecraft:red_wool"
+      },
+      "B": {
+        "count": 1,
+        "id": "minecraft:diamond"
+      }
+    },
+    "DispatchTicks": 0,
+    "Ch2": {
+      "A": {
+        "count": 1,
+        "id": "minecraft:red_wool"
+      },
+      "B": {
+        "count": 1,
+        "id": "minecraft:redstone"
+      }
+    },
+    "Span": [
+      {
+        "TowardTo": 1,
+        "THi": 1.0,
+        "TLo": 0.0,
+        "From": -32985348833160,
+        "To": -32985348587400
+      }
+    ],
+    "Ch1": {
+      "A": {
+        "count": 1,
+        "id": "minecraft:red_wool"
+      },
+      "B": {
+        "count": 1,
+        "id": "minecraft:emerald"
+      }
+    },
+    "Ch3": {
+      "A": {
+        "count": 1,
+        "id": "minecraft:red_wool"
+      },
+      "B": {
+        "count": 1,
+        "id": "minecraft:gold_ingot"
+      }
+    },
+    "PreLatched": 0,
+    "DwellStarted": 0,
+    "keepPacked": 0,
+    "CooldownLeft": 0,
+    "x": -128,
+    "y": 120,
+    "z": 18,
+    "id": "coasterfins:station",
+    "PreSpan": []
+  },
+  {
+    "Transmit": 0,
+    "Transmitter": 0,
+    "LastKnownPosition": -27487790604168,
+    "FrequencyLast": {
+      "count": 1,
+      "id": "minecraft:diamond"
+    },
+    "keepPacked": 0,
+    "Receive": 15,
+    "ReceivedChanged": 0,
+    "x": -100,
+    "y": 120,
+    "z": 22,
+    "id": "create:redstone_link",
+    "FrequencyFirst": {
+      "count": 1,
+      "id": "minecraft:orange_wool"
+    },
+    "LinkedGauges": []
+  },
+  {
+    "Transmit": 0,
+    "Transmitter": 0,
+    "LastKnownPosition": -27487790595976,
+    "FrequencyLast": {
+      "count": 1,
+      "id": "minecraft:emerald"
+    },
+    "keepPacked": 0,
+    "Receive": 3,
+    "ReceivedChanged": 0,
+    "x": -100,
+    "y": 120,
+    "z": 24,
+    "id": "create:redstone_link",
+    "FrequencyFirst": {
+      "count": 1,
+      "id": "minecraft:orange_wool"
+    },
+    "LinkedGauges": []
+  },
+  {
+    "Transmit": 0,
+    "Transmitter": 0,
+    "LastKnownPosition": -27487790587784,
+    "FrequencyLast": {
+      "count": 1,
+      "id": "minecraft:redstone"
+    },
+    "keepPacked": 0,
+    "Receive": 15,
+    "ReceivedChanged": 0,
+    "x": -100,
+    "y": 120,
+    "z": 26,
+    "id": "create:redstone_link",
+    "FrequencyFirst": {
+      "count": 1,
+      "id": "minecraft:orange_wool"
+    },
+    "LinkedGauges": []
+  },
+  {
+    "Transmit": 0,
+    "Transmitter": 0,
+    "LastKnownPosition": -27487790579592,
+    "FrequencyLast": {
+      "count": 1,
+      "id": "minecraft:gold_ingot"
+    },
+    "keepPacked": 0,
+    "Receive": 0,
+    "ReceivedChanged": 0,
+    "x": -100,
+    "y": 120,
+    "z": 28,
+    "id": "create:redstone_link",
+    "FrequencyFirst": {
+      "count": 1,
+      "id": "minecraft:orange_wool"
+    },
+    "LinkedGauges": []
+  },
+  {
+    "SpanSegments": [
+      {
+        "TowardTo": 1,
+        "THi": 1.0,
+        "TLo": 0.0,
+        "From": -24189255810952,
+        "To": -24189255565192
+      }
+    ],
+    "keepPacked": 0,
+    "x": -98,
+    "SpanMode": "boost",
+    "IsPowered": 1,
+    "y": 120,
+    "ScrollValue": 10,
+    "z": 24,
+    "id": "coasterfins:coaster_fin",
+    "SignalStrength": 15
+  },
+  {
+    "DispatchDelay": 60,
+    "DispatchCooldown": 0,
+    "Jammed": 0,
+    "Dispatch": 1,
+    "DispatchMin": 12,
+    "Ch0": {
+      "A": {
+        "count": 1,
+        "id": "minecraft:orange_wool"
+      },
+      "B": {
+        "count": 1,
+        "id": "minecraft:diamond"
+      }
+    },
+    "DispatchTicks": 0,
+    "Ch2": {
+      "A": {
+        "count": 1,
+        "id": "minecraft:orange_wool"
+      },
+      "B": {
+        "count": 1,
+        "id": "minecraft:redstone"
+      }
+    },
+    "Span": [
+      {
+        "TowardTo": 1,
+        "THi": 1.0,
+        "TLo": 0.0,
+        "From": -24189255810952,
+        "To": -24189255565192
+      }
+    ],
+    "Ch1": {
+      "A": {
+        "count": 1,
+        "id": "minecraft:orange_wool"
+      },
+      "B": {
+        "count": 1,
+        "id": "minecraft:emerald"
+      }
+    },
+    "Ch3": {
+      "A": {
+        "count": 1,
+        "id": "minecraft:orange_wool"
+      },
+      "B": {
+        "count": 1,
+        "id": "minecraft:gold_ingot"
+      }
+    },
+    "PreLatched": 0,
+    "DwellStarted": 0,
+    "keepPacked": 0,
+    "CooldownLeft": 0,
+    "x": -96,
+    "y": 120,
+    "z": 18,
+    "id": "coasterfins:station",
+    "PreSpan": []
+  },
+  {
+    "Transmit": 0,
+    "Transmitter": 0,
+    "LastKnownPosition": -18691697581960,
+    "FrequencyLast": {
+      "count": 1,
+      "id": "minecraft:diamond"
+    },
+    "keepPacked": 0,
+    "Receive": 15,
+    "ReceivedChanged": 0,
+    "x": -68,
+    "y": 120,
+    "z": 22,
+    "id": "create:redstone_link",
+    "FrequencyFirst": {
+      "count": 1,
+      "id": "minecraft:blue_wool"
+    },
+    "LinkedGauges": []
+  },
+  {
+    "Transmit": 0,
+    "Transmitter": 0,
+    "LastKnownPosition": -18691697573768,
+    "FrequencyLast": {
+      "count": 1,
+      "id": "minecraft:emerald"
+    },
+    "keepPacked": 0,
+    "Receive": 5,
+    "ReceivedChanged": 0,
+    "x": -68,
+    "y": 120,
+    "z": 24,
+    "id": "create:redstone_link",
+    "FrequencyFirst": {
+      "count": 1,
+      "id": "minecraft:blue_wool"
+    },
+    "LinkedGauges": []
+  },
+  {
+    "Transmit": 0,
+    "Transmitter": 0,
+    "LastKnownPosition": -18691697565576,
+    "FrequencyLast": {
+      "count": 1,
+      "id": "minecraft:redstone"
+    },
+    "keepPacked": 0,
+    "Receive": 15,
+    "ReceivedChanged": 0,
+    "x": -68,
+    "y": 120,
+    "z": 26,
+    "id": "create:redstone_link",
+    "FrequencyFirst": {
+      "count": 1,
+      "id": "minecraft:blue_wool"
+    },
+    "LinkedGauges": []
+  },
+  {
+    "Transmit": 0,
+    "Transmitter": 0,
+    "LastKnownPosition": -18691697557384,
+    "FrequencyLast": {
+      "count": 1,
+      "id": "minecraft:gold_ingot"
+    },
+    "keepPacked": 0,
+    "Receive": 0,
+    "ReceivedChanged": 0,
+    "x": -68,
+    "y": 120,
+    "z": 28,
+    "id": "create:redstone_link",
+    "FrequencyFirst": {
+      "count": 1,
+      "id": "minecraft:blue_wool"
+    },
+    "LinkedGauges": []
+  },
+  {
+    "SpanSegments": [
+      {
+        "TowardTo": 1,
+        "THi": 1.0,
+        "TLo": 0.0,
+        "From": -15393162788744,
+        "To": -15393162542984
+      }
+    ],
+    "keepPacked": 0,
+    "x": -66,
+    "SpanMode": "boost",
+    "IsPowered": 1,
+    "y": 120,
+    "ScrollValue": 10,
+    "z": 24,
+    "id": "coasterfins:coaster_fin",
+    "SignalStrength": 15
+  },
+  {
+    "DispatchDelay": 60,
+    "DispatchCooldown": 0,
+    "Jammed": 0,
+    "Dispatch": 1,
+    "DispatchMin": 12,
+    "Ch0": {
+      "A": {
+        "count": 1,
+        "id": "minecraft:blue_wool"
+      },
+      "B": {
+        "count": 1,
+        "id": "minecraft:diamond"
+      }
+    },
+    "DispatchTicks": 0,
+    "Ch2": {
+      "A": {
+        "count": 1,
+        "id": "minecraft:blue_wool"
+      },
+      "B": {
+        "count": 1,
+        "id": "minecraft:redstone"
+      }
+    },
+    "Span": [
+      {
+        "TowardTo": 1,
+        "THi": 1.0,
+        "TLo": 0.0,
+        "From": -15393162788744,
+        "To": -15393162542984
+      }
+    ],
+    "Ch1": {
+      "A": {
+        "count": 1,
+        "id": "minecraft:blue_wool"
+      },
+      "B": {
+        "count": 1,
+        "id": "minecraft:emerald"
+      }
+    },
+    "Ch3": {
+      "A": {
+        "count": 1,
+        "id": "minecraft:blue_wool"
+      },
+      "B": {
+        "count": 1,
+        "id": "minecraft:gold_ingot"
+      }
+    },
+    "PreLatched": 0,
+    "DwellStarted": 0,
+    "keepPacked": 0,
+    "CooldownLeft": 0,
+    "x": -64,
+    "y": 120,
+    "z": 18,
+    "id": "coasterfins:station",
+    "PreSpan": []
+  },
+  {
+    "Transmit": 0,
+    "Transmitter": 0,
+    "LastKnownPosition": -9895604559752,
+    "FrequencyLast": {
+      "count": 1,
+      "id": "minecraft:diamond"
+    },
+    "keepPacked": 0,
+    "Receive": 15,
+    "ReceivedChanged": 0,
+    "x": -36,
+    "y": 120,
+    "z": 22,
+    "id": "create:redstone_link",
+    "FrequencyFirst": {
+      "count": 1,
+      "id": "minecraft:purple_wool"
+    },
+    "LinkedGauges": []
+  },
+  {
+    "Transmit": 0,
+    "Transmitter": 0,
+    "LastKnownPosition": -9895604551560,
+    "FrequencyLast": {
+      "count": 1,
+      "id": "minecraft:emerald"
+    },
+    "keepPacked": 0,
+    "Receive": 3,
+    "ReceivedChanged": 0,
+    "x": -36,
+    "y": 120,
+    "z": 24,
+    "id": "create:redstone_link",
+    "FrequencyFirst": {
+      "count": 1,
+      "id": "minecraft:purple_wool"
+    },
+    "LinkedGauges": []
+  },
+  {
+    "Transmit": 0,
+    "Transmitter": 0,
+    "LastKnownPosition": -9895604543368,
+    "FrequencyLast": {
+      "count": 1,
+      "id": "minecraft:redstone"
+    },
+    "keepPacked": 0,
+    "Receive": 15,
+    "ReceivedChanged": 0,
+    "x": -36,
+    "y": 120,
+    "z": 26,
+    "id": "create:redstone_link",
+    "FrequencyFirst": {
+      "count": 1,
+      "id": "minecraft:purple_wool"
+    },
+    "LinkedGauges": []
+  },
+  {
+    "Transmit": 0,
+    "Transmitter": 0,
+    "LastKnownPosition": -9895604535176,
+    "FrequencyLast": {
+      "count": 1,
+      "id": "minecraft:gold_ingot"
+    },
+    "keepPacked": 0,
+    "Receive": 0,
+    "ReceivedChanged": 0,
+    "x": -36,
+    "y": 120,
+    "z": 28,
+    "id": "create:redstone_link",
+    "FrequencyFirst": {
+      "count": 1,
+      "id": "minecraft:purple_wool"
+    },
+    "LinkedGauges": []
+  },
+  {
+    "SpanSegments": [
+      {
+        "TowardTo": 1,
+        "THi": 1.0,
+        "TLo": 0.0,
+        "From": -6597069766536,
+        "To": -6597069520776
+      }
+    ],
+    "keepPacked": 0,
+    "x": -34,
+    "SpanMode": "boost",
+    "IsPowered": 1,
+    "y": 120,
+    "ScrollValue": 10,
+    "z": 24,
+    "id": "coasterfins:coaster_fin",
+    "SignalStrength": 15
+  },
+  {
+    "DispatchDelay": 60,
+    "DispatchCooldown": 0,
+    "Jammed": 0,
+    "Dispatch": 1,
+    "DispatchMin": 12,
+    "Ch0": {
+      "A": {
+        "count": 1,
+        "id": "minecraft:purple_wool"
+      },
+      "B": {
+        "count": 1,
+        "id": "minecraft:diamond"
+      }
+    },
+    "DispatchTicks": 0,
+    "Ch2": {
+      "A": {
+        "count": 1,
+        "id": "minecraft:purple_wool"
+      },
+      "B": {
+        "count": 1,
+        "id": "minecraft:redstone"
+      }
+    },
+    "Span": [
+      {
+        "TowardTo": 1,
+        "THi": 1.0,
+        "TLo": 0.0,
+        "From": -6597069766536,
+        "To": -6597069520776
+      }
+    ],
+    "Ch1": {
+      "A": {
+        "count": 1,
+        "id": "minecraft:purple_wool"
+      },
+      "B": {
+        "count": 1,
+        "id": "minecraft:emerald"
+      }
+    },
+    "Ch3": {
+      "A": {
+        "count": 1,
+        "id": "minecraft:purple_wool"
+      },
+      "B": {
+        "count": 1,
+        "id": "minecraft:gold_ingot"
+      }
+    },
+    "PreLatched": 0,
+    "DwellStarted": 0,
+    "keepPacked": 0,
+    "CooldownLeft": 0,
+    "x": -32,
+    "y": 120,
+    "z": 18,
+    "id": "coasterfins:station",
+    "PreSpan": []
+  },
+  {
+    "Transmit": 0,
+    "Transmitter": 0,
+    "LastKnownPosition": -1099511537544,
+    "FrequencyLast": {
+      "count": 1,
+      "id": "minecraft:diamond"
+    },
+    "keepPacked": 0,
+    "Receive": 15,
+    "ReceivedChanged": 0,
+    "x": -4,
+    "y": 120,
+    "z": 22,
+    "id": "create:redstone_link",
+    "FrequencyFirst": {
+      "count": 1,
+      "id": "minecraft:cyan_wool"
+    },
+    "LinkedGauges": []
+  },
+  {
+    "Transmit": 0,
+    "Transmitter": 0,
+    "LastKnownPosition": -1099511529352,
+    "FrequencyLast": {
+      "count": 1,
+      "id": "minecraft:emerald"
+    },
+    "keepPacked": 0,
+    "Receive": 5,
+    "ReceivedChanged": 0,
+    "x": -4,
+    "y": 120,
+    "z": 24,
+    "id": "create:redstone_link",
+    "FrequencyFirst": {
+      "count": 1,
+      "id": "minecraft:cyan_wool"
+    },
+    "LinkedGauges": []
+  },
+  {
+    "Transmit": 0,
+    "Transmitter": 0,
+    "LastKnownPosition": -1099511521160,
+    "FrequencyLast": {
+      "count": 1,
+      "id": "minecraft:redstone"
+    },
+    "keepPacked": 0,
+    "Receive": 15,
+    "ReceivedChanged": 0,
+    "x": -4,
+    "y": 120,
+    "z": 26,
+    "id": "create:redstone_link",
+    "FrequencyFirst": {
+      "count": 1,
+      "id": "minecraft:cyan_wool"
+    },
+    "LinkedGauges": []
+  },
+  {
+    "Transmit": 0,
+    "Transmitter": 0,
+    "LastKnownPosition": -1099511512968,
+    "FrequencyLast": {
+      "count": 1,
+      "id": "minecraft:gold_ingot"
+    },
+    "keepPacked": 0,
+    "Receive": 0,
+    "ReceivedChanged": 0,
+    "x": -4,
+    "y": 120,
+    "z": 28,
+    "id": "create:redstone_link",
+    "FrequencyFirst": {
+      "count": 1,
+      "id": "minecraft:cyan_wool"
+    },
+    "LinkedGauges": []
+  },
+  {
+    "SpanSegments": [
+      {
+        "TowardTo": 1,
+        "THi": 1.0,
+        "TLo": 0.0,
+        "From": 2199023255672,
+        "To": 2199023501432
+      }
+    ],
+    "keepPacked": 0,
+    "x": -2,
+    "SpanMode": "boost",
+    "IsPowered": 1,
+    "y": 120,
+    "ScrollValue": 10,
+    "z": 24,
+    "id": "coasterfins:coaster_fin",
+    "SignalStrength": 15
+  },
+  {
+    "DispatchDelay": 60,
+    "DispatchCooldown": 0,
+    "Jammed": 0,
+    "Dispatch": 1,
+    "DispatchMin": 12,
+    "Ch0": {
+      "A": {
+        "count": 1,
+        "id": "minecraft:cyan_wool"
+      },
+      "B": {
+        "count": 1,
+        "id": "minecraft:diamond"
+      }
+    },
+    "DispatchTicks": 0,
+    "Ch2": {
+      "A": {
+        "count": 1,
+        "id": "minecraft:cyan_wool"
+      },
+      "B": {
+        "count": 1,
+        "id": "minecraft:redstone"
+      }
+    },
+    "Span": [
+      {
+        "TowardTo": 1,
+        "THi": 1.0,
+        "TLo": 0.0,
+        "From": 2199023255672,
+        "To": 2199023501432
+      }
+    ],
+    "Ch1": {
+      "A": {
+        "count": 1,
+        "id": "minecraft:cyan_wool"
+      },
+      "B": {
+        "count": 1,
+        "id": "minecraft:emerald"
+      }
+    },
+    "Ch3": {
+      "A": {
+        "count": 1,
+        "id": "minecraft:cyan_wool"
+      },
+      "B": {
+        "count": 1,
+        "id": "minecraft:gold_ingot"
+      }
+    },
+    "PreLatched": 0,
+    "DwellStarted": 0,
+    "keepPacked": 0,
+    "CooldownLeft": 0,
+    "x": 0,
+    "y": 120,
+    "z": 18,
+    "id": "coasterfins:station",
+    "PreSpan": []
+  }
+]

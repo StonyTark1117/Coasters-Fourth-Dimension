@@ -1,0 +1,43 @@
+{
+  "phases": [
+    "seed",
+    "restored",
+    "combined"
+  ],
+  "seed": "fresh Additions-only world",
+  "restored": "stopped seed copied with Additions only",
+  "combined": "same stopped seed copied with all five addons and their dependencies",
+  "families": [
+    "arrow_controlled",
+    "zacspin_legacy",
+    "sns_free_spin",
+    "zacspin_revised",
+    "pax_shuttle"
+  ],
+  "scene": {
+    "cars": 5,
+    "carriers": 14,
+    "pigs": 5,
+    "players": 2,
+    "stations": 5,
+    "fins": 5
+  },
+  "acceptance": [
+    "original riders, carrier identities and local seat reservations after cold restart",
+    "settings/span/frequencies retained",
+    "actual occupancy/restraint channels and station telemetry",
+    "threshold blocks dispatch despite closed restraints",
+    "lower threshold permits non-PAX dispatch after continuous delay",
+    "PAX remains held with winch instruction",
+    "powered fin respects retention then moves eligible cars",
+    "capture and normal unload",
+    "two-client station update and snapshot observations",
+    "clean shutdown, settings restored"
+  ],
+  "limits": [
+    "straight fixed-world tracks",
+    "single car per family",
+    "parked cold restart",
+    "PAX station diagnostics and denied automatic operation, not a powered shuttle cycle"
+  ]
+}

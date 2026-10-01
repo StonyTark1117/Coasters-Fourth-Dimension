@@ -1,0 +1,18 @@
+{
+  "pid": 518189,
+  "case": "combined",
+  "world": "FDAdditionsLifecycleV3RetryCombined",
+  "command": [
+    "./gradlew",
+    "-Dorg.gradle.jvmargs=-Xmx1G",
+    "--max-workers=2",
+    "runServer",
+    "-PfdPackaged",
+    "-PfdPackagedJar=/home/braydon/.cache/fourthdimension-48535694/additions-lifecycle-v3.jar",
+    "-PfdValidation",
+    "-PfdFrozen",
+    "-PfdIntegrations=engineered,styles,additions,magnetized,immersion"
+  ],
+  "artifact": "/home/braydon/.cache/fourthdimension-48535694/additions-lifecycle-v3.jar",
+  "sha256": "16eab3fe39fde5402d63243f05eabf4b6f9472803ab7966e35ce26e1c7871968"
+}

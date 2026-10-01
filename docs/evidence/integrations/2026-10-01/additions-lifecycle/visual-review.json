@@ -1,0 +1,32 @@
+{
+  "reviewed_seed": [
+    "seed/goggles-arrow-dev.png",
+    "seed/goggles-arrow-observer.png",
+    "seed/goggles-legacy-dev.png",
+    "seed/goggles-legacy-observer.png",
+    "seed/goggles-free_spin-dev.png",
+    "seed/goggles-free_spin-observer.png",
+    "seed/goggles-revised-dev.png",
+    "seed/goggles-revised-observer.png",
+    "seed/goggles-pax-dev.png",
+    "seed/goggles-pax-observer.png"
+  ],
+  "reviewed_restored": [
+    "restored/goggles-arrow-dev.png",
+    "restored/goggles-pax-observer.png"
+  ],
+  "reviewed_combined": [
+    "combined/goggles-arrow-dev.png",
+    "combined/goggles-pax-observer.png"
+  ],
+  "observations": "Readable five-family occupancy/capacity/restraint readouts, no clipped denial at tested viewport. PAX directs operation through bound winch. Other post-unload captures retained with all-family client log readback, not claimed as individually visually reviewed.",
+  "viewport": [
+    854,
+    480
+  ],
+  "gui_scale": 2,
+  "excluded": [
+    "seed/overlapping-view-attempt",
+    "seed/feet-anchor-view-attempt"
+  ]
+}
