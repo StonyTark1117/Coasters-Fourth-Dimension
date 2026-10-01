@@ -1,0 +1,21 @@
+FD_APPEARANCE schema=6 oldSchemas=1..5 missingIntentPreserved=true mechanicsUnchanged=true styleFamilyCases=10 strokeCases=0
+FD_RECOVERY_PAX physicalCarriageHandover=true activeHandoverRejected=true originalCarsAndCarriersPreserved=true originalCouplings=4 replacementCarriage=false
+FD_RECOVERY_NATIVE family=ARROW travel=5.578427306704725 riders=4 maxSpacing=2.9515858228634784E-5 maxAngle=5.287254718563784E-4 fault=
+FD_RECOVERY_NATIVE family=LEGACY travel=5.488494559717481 riders=8 maxSpacing=5.547856777621263E-5 maxAngle=2.741171685512867E-4 fault=
+FD_RECOVERY_NATIVE family=FREE_SPIN travel=5.25289914721418 riders=8 maxSpacing=3.0418124746134367E-5 maxAngle=1.602326012201795E-4 fault=
+FD_RECOVERY_NATIVE family=REVISED travel=5.228973390876831 riders=8 maxSpacing=3.0475905379745427E-5 maxAngle=1.0297625498492114E-4 fault=
+FD_RECOVERY_NATIVE family=PAX travel=5.574768066512718 riders=4 maxSpacing=2.7665914430485827E-5 maxAngle=4.1582287657610916E-5 fault=
+FD_RECOVERY_POWER fiveFamilies=true initialPowerCut=true normalLeverStart=true normalLeverStop=true motorRetainedAt8RPM=true anchorStopped=true
+FD_RECOVERY_HOLD fiveFamilies=true allComponentsHeld=true missingResumeRejected=true dormantDisconnectRejected=true permanentRemoval=false
+FD_RECOVERY_HOLD fiveFamiliesRestored=true ridersRestored=32 nativeCouplingsPreserved=true autoResume=false explicitResume=true
+FD_RECOVERY_NATIVE fiveFamilies=true actualChainDrive=true wrongFamilyRecoverySnapsRejected=40 movingUnlinkRejected=true staleEditRejected=true saveRoundTrip=true brokenLinkRetained=true normalDetachAndUnload=true permanentBearingRemoval=true
+FD_RECOVERY_STALL travel=12.198078481334928 bearingDistance=94.98483206707837 nativeTarget=-0.5 maxSpacing=1.0153028870796277E-4 maxAngle=5.81131240228398E-4 maxSpeed=0.4535445390835293 riders=16 originalSeats=true poweredStall=true allCarsBraked=true idlePowerCutNotFaulted=true
+FD_RECOVERY_STALL originalCars=4 originalCarriers=8 originalSeats=16 originalLinksAfterDetach=true noAutomaticResume=true powerCut=true motorRetainedAt8RPM=true normalUnloading=true
+FD_RECOVERY_HANDOVER travel=4.673980930470009 maxSpacing=6.101628777255286E-5 maxAngle=4.532888235025149E-5 maxSpeed=0.4529655103460585 faults=[, , , ]
+FD_RECOVERY_HANDOVER occupiedRiders=16 originalCars=4 originalCarriers=8 physicalCarriageRemoved=true replacementCarriage=false nativeChainDrive=true movingDisconnectRejected=true originalLinksAfterDetach=true originalPassengerSeats=true powerCutWithMotorRetained=true normalUnloading=true
+FD_RECOVERY_TRAIN family=ARROW cars=2 riders=8 travel=4.420469739158649 maxSpacing=1.2128065793604037E-4
+FD_RECOVERY_TRAIN family=PAX cars=4 riders=16 travel=3.7730716470740617 maxSpacing=1.8212428904007538E-4
+FD_RECOVERY_TRAIN originalArrowCars=2 originalPaxCars=4 occupiedRiders=24 nativeChainDrive=true originalLinksAfterDetach=true retentionPreserved=true normalUnloading=true
+[15:30:39] [Server thread/INFO] [minecraft/GameTestServer]: ========= 35 GAME TESTS COMPLETE IN 2.502 min ======================
+[15:30:39] [Server thread/INFO] [minecraft/GameTestServer]: All 35 required tests passed :)
+BUILD SUCCESSFUL in 2m 43s

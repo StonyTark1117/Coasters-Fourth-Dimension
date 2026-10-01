@@ -1,0 +1,6 @@
+[15:25:59] [Server thread/ERROR] [minecraft/LogTestReporter]: occupiedpaxbrakesonpowerednativechainstall failed at 13015242, -60, 9573708! Powered native chain stall was never diagnosed or braked
+FD_RECOVERY_HANDOVER travel=4.675201605018287 maxSpacing=9.069866882782662E-5 maxAngle=6.348271984469768E-5 maxSpeed=0.45361880639786906 faults=[, , , ]
+FD_RECOVERY_HANDOVER occupiedRiders=16 originalCars=4 originalCarriers=8 physicalCarriageRemoved=true replacementCarriage=false nativeChainDrive=true movingDisconnectRejected=true originalLinksAfterDetach=true originalPassengerSeats=true powerCutWithMotorRetained=true normalUnloading=true
+[15:26:11] [Server thread/INFO] [minecraft/GameTestServer]: ========= 35 GAME TESTS COMPLETE IN 2.553 min ======================
+[15:26:11] [Server thread/INFO] [minecraft/GameTestServer]: 1 required tests failed :(
+BUILD FAILED in 2m 54s

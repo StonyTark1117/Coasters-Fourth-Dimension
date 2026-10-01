@@ -1,0 +1,12 @@
+{
+  "sourceManifestSha256": "fa31f148d44bf2759c19de0992bb04cd69cb8d42e4d323c25c7a40c3cddb3e24",
+  "recoveryOperationsSha256": "28bf0b31b736fb8c030c1147396a469bd4ba34aec37d895ca44f277133b504ad",
+  "testSourceSha256": "2b49081704a8841aa1f202a9e5131521eb5c0077efa31a86b25139e2c13cd9fb",
+  "baseCommit": "c23997d4d1201a4ef45b7a3126056dad00434a3f",
+  "requiredNativeTests": 35,
+  "requiredNativeTestsFailed": 1,
+  "expectedFailure": "Powered native chain stall was never diagnosed or braked",
+  "buildSucceeded": false,
+  "allOtherRequiredNativeTestsPassed": true,
+  "negativeLogSha256": "2b1ab5dc9a41a926a09ec9c36e3182370c96fc070cc34df58499636d832bbce9"
+}

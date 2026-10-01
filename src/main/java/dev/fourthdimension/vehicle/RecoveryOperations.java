@@ -20,7 +20,17 @@ public final class RecoveryOperations {
       net.minecraft.resources.ResourceKey<net.minecraft.world.level.Level> dimension, UUID id) {}
 
   private static final Map<ServerPlayer, Selection> SELECTED = new WeakHashMap<>();
+
+  private record ChainProgress(Vector3d start, double seconds) {}
+
+  private static final Map<ServerLevel, Map<UUID, ChainProgress>> CHAIN_PROGRESS =
+      new WeakHashMap<>();
   public static final double MAX_SPEED = .75;
+
+  private static void clearChainProgress(ServerLevel level, UUID cart) {
+    var progress = CHAIN_PROGRESS.get(level);
+    if (progress != null) progress.remove(cart);
+  }
 
   public static void select(ServerPlayer player, SubLevel body) {
     requireOrdinary(player, body);
@@ -231,6 +241,7 @@ public final class RecoveryOperations {
       v.fault = "";
       v.revision++;
     }
+    clearChainProgress(level, selected.recoveryCart);
     FoundationData.get(level).setDirty();
   }
 
@@ -239,6 +250,7 @@ public final class RecoveryOperations {
       v.stopping = true;
       v.revision++;
     }
+    clearChainProgress(level, selected.recoveryCart);
     FoundationData.get(level).setDirty();
   }
 
@@ -255,6 +267,7 @@ public final class RecoveryOperations {
     for (var v : cars)
       dev.fourthdimension.mixin.RecoveryLinkAccess.fourthdimension$unlink(
           level, v.chassis, selected.recoveryCart);
+    clearChainProgress(level, selected.recoveryCart);
     for (var v : cars) {
       v.recoveryCart = null;
       v.recoveryCartRemoved = false;
@@ -285,12 +298,15 @@ public final class RecoveryOperations {
   public static void tick(ServerLevel level, double dt) {
     var container = SubLevelContainer.getContainer(level);
     var data = FoundationData.get(level);
-    for (var id :
+    var ids =
         data.vehicles.values().stream()
             .map(v -> v.recoveryCart)
             .filter(Objects::nonNull)
             .distinct()
-            .toList()) {
+            .toList();
+    var progress = CHAIN_PROGRESS.computeIfAbsent(level, key -> new HashMap<>());
+    progress.keySet().retainAll(ids);
+    for (var id : ids) {
       var cars = group(level, id);
       var cart = container.getSubLevel(id);
       String fault = "";
@@ -317,6 +333,7 @@ public final class RecoveryOperations {
               .anyMatch(v -> speed(level, container.getSubLevel(v.chassis)) > MAX_SPEED))
         fault = "Recovery speed exceeded 0.75 blocks/s: brake and inspect propulsion";
       if (fault.isEmpty() && cart instanceof ServerSubLevel lead) {
+        container.physicsSystem().updatePose(lead);
         var center = CoasterCartResolve.cartCenterWorld(lead);
         var hit =
             CoasterPathTrackFrame.nearestGraphHit(
@@ -332,7 +349,33 @@ public final class RecoveryOperations {
         // Check the ordinary leading axle before it reaches a wrong-family or open end.
         // This only requests braking; it gives the ordinary bearing no 4D mechanism.
         BoundaryGuard.check(level, lead, cars.getFirst(), leadingRail);
+        var chain =
+            dev.silvergold.simulatedcoasters.track.chainlift.ChainLiftSpanQuery.findAtGraphHit(
+                level, hit, 0);
+        double target =
+            chain == null
+                ? 0
+                : Math.abs(
+                    dev.silvergold.simulatedcoasters.track.chainlift.ChainLiftDriveDirection
+                        .signedChainBlocksPerSecond(chain.anchor(), chain.path(), 0, 256, 16));
+        if (target > .1
+            && cars.stream().noneMatch(v -> v.stopping || !v.fault.isEmpty())
+            && Double.isFinite(dt)
+            && dt > 0) {
+          var previous = progress.get(id);
+          // Observe physical displacement, not pre-step velocity: native chain speed matching
+          // can apply a velocity before the loaded couplers solve it back to a standstill.
+          if (previous == null || previous.start.distance(center) > .08) {
+            progress.put(id, new ChainProgress(new Vector3d(center), 0));
+          } else {
+            double seconds = previous.seconds + dt;
+            progress.put(id, new ChainProgress(previous.start, seconds));
+            if (seconds >= 4)
+              fault = "Native chain drive stalled: brake and inspect propulsion before resuming";
+          }
+        } else progress.remove(id);
       }
+      if (!fault.isEmpty()) progress.remove(id);
       if (!fault.isEmpty())
         for (var v : cars) {
           if (!v.stopping || !v.fault.equals(fault)) v.revision++;

@@ -41,6 +41,7 @@ public final class RecoveryHandoverGameTests {
     BlockPos lever;
     CoasterAnchorpointBlockEntity anchor;
     Vector3d start;
+    boolean powered, sawStall, finished;
     double maxSpacing, maxAngle, maxSpeed;
     final List<Pig> riders = new ArrayList<>();
     final Map<UUID, UUID> seats = new HashMap<>();
@@ -48,12 +49,21 @@ public final class RecoveryHandoverGameTests {
 
   @GameTest(template = "empty", batch = "paxRecoveryHandover", timeoutTicks = 900)
   public static void occupiedPaxHandsOverItsWinchThenTowsAndUnloads(GameTestHelper helper) {
+    runRecovery(helper, false);
+  }
+
+  @GameTest(template = "empty", batch = "paxRecoveryStall", timeoutTicks = 2400)
+  public static void occupiedPaxBrakesOnPoweredNativeChainStall(GameTestHelper helper) {
+    runRecovery(helper, true);
+  }
+
+  private static void runRecovery(GameTestHelper helper, boolean stalled) {
     var level = helper.getLevel();
     var data = FoundationData.get(level);
     var container = SubLevelContainer.getContainer(level);
-    for (int x = -47; x <= -44; x++)
+    var origin = new BlockPos(stalled ? -660 : -720, 180, -400);
+    for (int x = (origin.getX() - 12) >> 4; x <= (origin.getX() + 12) >> 4; x++)
       for (int z = -30; z <= -17; z++) level.setChunkForced(x, z, true);
-    var origin = new BlockPos(-720, 180, -400);
     var example = ShuttleExamples.create(level, origin, false);
     var winch = example.winch();
     var lead = example.cars().getFirst();
@@ -68,7 +78,11 @@ public final class RecoveryHandoverGameTests {
         FakePlayerFactory.get(
             level,
             new com.mojang.authlib.GameProfile(
-                UUID.fromString("fdfdfdfd-0000-0000-0000-000000000406"), "FDOccupiedHandover"));
+                UUID.fromString(
+                    stalled
+                        ? "fdfdfdfd-0000-0000-0000-000000000407"
+                        : "fdfdfdfd-0000-0000-0000-000000000406"),
+                "FDOccupiedHandover"));
     operator.setGameMode(GameType.CREATIVE);
     var tow = new Tow();
 
@@ -211,16 +225,123 @@ public final class RecoveryHandoverGameTests {
               new Vector3d(CoasterCartResolve.cartCenterWorld(container.getSubLevel(end.chassis)));
           at(operator, container.getSubLevel(end.chassis));
           edit(operator, end, 21);
-          level
-              .getBlockState(tow.lever)
-              .useWithoutItem(
-                  level,
-                  operator,
-                  new BlockHitResult(Vec3.atCenterOf(tow.lever), Direction.UP, tow.lever, false));
+          if (!stalled) {
+            power(operator, tow.lever);
+            tow.powered = true;
+          }
         });
+    if (stalled) {
+      helper.runAtTickTime(
+          550,
+          () -> {
+            helper.assertTrue(
+                example.cars().stream().allMatch(c -> !c.stopping && c.fault.isEmpty())
+                    && Math.abs(tow.anchor.getSpeed()) < .001,
+                "A recovery waiting for power was incorrectly treated as a driven stall");
+            power(operator, tow.lever);
+            tow.powered = true;
+          });
+      helper.runAtTickTime(
+          2200,
+          () ->
+              helper.assertTrue(
+                  tow.sawStall, "Powered native chain stall was never diagnosed or braked"));
+    }
     helper.onEachTick(
         () -> {
-          if (tow.start == null) return;
+          if (tow.start == null || tow.finished) return;
+          if (tow.sawStall) return;
+          helper.assertTrue(
+              tow.riders.stream()
+                  .allMatch(
+                      r ->
+                          r.isPassenger()
+                              && tow.seats.get(r.getUUID()).equals(r.getVehicle().getUUID())),
+              "Native recovery changed an original passenger seat");
+          if (stalled
+              && tow.powered
+              && example.cars().stream()
+                  .anyMatch(c -> c.fault.startsWith("Native chain drive stalled"))) {
+            tow.sawStall = true;
+            var sample = tow.route.locate(tow.bearing);
+            var chain =
+                dev.silvergold.simulatedcoasters.track.chainlift.ChainLiftSpanQuery.findAtGraphHit(
+                    level, sample.hit(), 0);
+            double travel =
+                CoasterCartResolve.cartCenterWorld(container.getSubLevel(end.chassis))
+                    .distance(tow.start);
+            helper.assertTrue(
+                chain != null
+                    && Math.abs(chain.anchor().getSpeed()) == 8
+                    && travel > 8
+                    && example.cars().stream()
+                        .allMatch(
+                            c ->
+                                c.stopping
+                                    && RecoveryOperations.retained(c)
+                                    && c.fault.startsWith("Native chain drive stalled")),
+                "Driven stall did not brake every retained occupied car");
+            System.out.println(
+                "FD_RECOVERY_STALL travel="
+                    + travel
+                    + " bearingDistance="
+                    + sample.distance()
+                    + " nativeTarget="
+                    + dev.silvergold.simulatedcoasters.track.chainlift.ChainLiftDriveDirection
+                        .signedChainBlocksPerSecond(chain.anchor(), chain.path(), 0, 256, 16)
+                    + " maxSpacing="
+                    + tow.maxSpacing
+                    + " maxAngle="
+                    + tow.maxAngle
+                    + " maxSpeed="
+                    + tow.maxSpeed
+                    + " riders=16 originalSeats=true poweredStall=true allCarsBraked=true"
+                    + " idlePowerCutNotFaulted=true");
+            power(operator, tow.lever);
+            helper.runAfterDelay(
+                80,
+                () -> {
+                  helper.assertTrue(
+                      example.cars().stream()
+                              .allMatch(
+                                  c ->
+                                      c.stopping
+                                          && Boarding.ready(level, c)
+                                          && c.fault.startsWith("Native chain drive stalled"))
+                          && Math.abs(tow.anchor.getSpeed()) < .001
+                          && Math.abs(tow.motor.generatedSpeed.getValue()) == 8
+                          && tow.riders.stream()
+                              .allMatch(
+                                  r ->
+                                      r.isPassenger()
+                                          && tow.seats
+                                              .get(r.getUUID())
+                                              .equals(r.getVehicle().getUUID())),
+                      "Stalled train resumed, lost passengers or failed to settle after power cut");
+                  at(operator, container.getSubLevel(end.chassis));
+                  edit(operator, end, 23);
+                  helper.assertTrue(
+                      CoasterCartTrainLinkConstraint.getTrainLinkedCartIds(
+                                  container.getSubLevel(end.chassis))
+                              .equals(carIds)
+                          && carrierIds.stream().allMatch(id -> container.getSubLevel(id) != null)
+                          && example.cars().stream()
+                              .allMatch(c -> c.recoveryCart == null && c.stopping && c.maintenance)
+                          && !data.vehicles.containsKey(tow.bearing.getUniqueId()),
+                      "Stall recovery disconnection replaced components or original train links");
+                  edit(operator, end, 12);
+                  tow.finished = true;
+                  tow.riders.forEach(Pig::stopRiding);
+                  helper.assertTrue(
+                      tow.riders.stream().noneMatch(Pig::isPassenger),
+                      "Stall passengers failed to unload");
+                  System.out.println(
+                      "FD_RECOVERY_STALL originalCars=4 originalCarriers=8 originalSeats=16"
+                          + " originalLinksAfterDetach=true noAutomaticResume=true powerCut=true"
+                          + " motorRetainedAt8RPM=true normalUnloading=true");
+                  helper.succeed();
+                });
+          }
           for (int i = 1; i < example.cars().size(); i++)
             tow.maxSpacing =
                 Math.max(
@@ -256,6 +377,7 @@ public final class RecoveryHandoverGameTests {
     helper.runAtTickTime(
         590,
         () -> {
+          if (stalled) return;
           double travel =
               CoasterCartResolve.cartCenterWorld(container.getSubLevel(end.chassis))
                   .distance(tow.start);
@@ -300,6 +422,7 @@ public final class RecoveryHandoverGameTests {
     helper.runAtTickTime(
         670,
         () -> {
+          if (stalled) return;
           helper.assertTrue(
               example.cars().stream().allMatch(c -> Boarding.ready(level, c))
                   && Math.abs(tow.anchor.getSpeed()) < .001
@@ -324,6 +447,7 @@ public final class RecoveryHandoverGameTests {
                   && !data.vehicles.containsKey(tow.bearing.getUniqueId()),
               "Recovery disconnection replaced the handed-over PAX train or released retention");
           edit(operator, end, 12);
+          tow.finished = true;
           tow.riders.forEach(Pig::stopRiding);
           helper.assertTrue(
               tow.riders.stream().noneMatch(Pig::isPassenger),
@@ -336,6 +460,14 @@ public final class RecoveryHandoverGameTests {
                   + " normalUnloading=true");
           helper.succeed();
         });
+  }
+
+  private static void power(ServerPlayer player, BlockPos lever) {
+    var level = player.serverLevel();
+    level
+        .getBlockState(lever)
+        .useWithoutItem(
+            level, player, new BlockHitResult(Vec3.atCenterOf(lever), Direction.UP, lever, false));
   }
 
   private static ServerPlayer at(ServerPlayer player, SubLevel body) {

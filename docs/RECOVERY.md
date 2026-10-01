@@ -1,6 +1,6 @@
 # Ordinary-bearing recovery
 
-Development build 0.9.0-dev.17 includes explicit recovery coupling for the five
+Development build 0.9.0-dev.18 includes explicit recovery coupling for the five
 original families. A 4D car stays on its matching functional track throughout.
 Only the pinned, unmodified bare Coasters bearing is certified as the ordinary
 recovery cart. It acquires no carriers, profile, magnetic assistance or 4D data.
@@ -64,6 +64,14 @@ return after the operator has forgotten it. Actual permanent removal records
 a durable tombstone and permits stationary disconnect without recreating that
 bearing. Removal never converts a 4D car into an ordinary cart.
 
+A commanded native chain can stall under the load of an occupied consist. Dev.18
+monitors actual bearing displacement while native chain speed is commanded above
+0.1 blocks/s: remaining within 0.08 blocks for four physics seconds brakes the
+whole group and records “Native chain drive stalled”. Zero chain input is not a
+stall. Inspect propulsion and cut external power; the fault does not clear and
+towing does not resume automatically. Start/brake/disconnect, lost availability
+and power cut reset the transient progress window. It is not saved as ride state.
+
 Save schema and network protocol are **6**. Existing schemas 1–5 load without
 inventing recovery state. Upgrade clients and servers together, back up worlds,
 and do not downgrade a recovery-mode world to a version that cannot read schema 6.
@@ -101,6 +109,15 @@ the complete fault text when it exceeds the visible line. The [dev.16 checkpoint
 The PAX example is an unassigned recovery car; a bound four-car shuttle uses the
 separate handover workflow above. Commands require operator permission and a
 17 by 14 by 57 clear corridor inside the supported track/build bounds.
+
+**Measured incline limit:** the certified bare bearing cannot pull a fully
+occupied four-car PAX train far enough for every car to enter the compact
+example's outbound curved spike under the tested eight-RPM chain input. Its
+chain remains powered and an unlinked bearing ascends the same spike, but the
+loaded group stalls. This does not certify whole-spike recovery or a maximum
+permissible grade. Stronger propulsion or added ordinary assemblies need their
+own physical fit, force and clearance checks. See the
+[failed climb and stall guard](evidence/0.4/recovery/chain-stall/acceptance.md).
 
 The production native test constructs these actual example fixtures and exercises
 normal tool selection, editor request guards, native coupling, fully occupied

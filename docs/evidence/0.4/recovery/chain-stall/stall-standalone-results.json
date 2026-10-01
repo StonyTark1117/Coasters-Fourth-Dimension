@@ -1,0 +1,128 @@
+{
+  "profile": "standalone",
+  "version": "0.9.0-dev.18",
+  "schema": 6,
+  "protocol": 6,
+  "command": "JAVA_HOME=/usr/lib/jvm/java-21-openjdk ./gradlew build runGameTestServer",
+  "originalLog": "/tmp/fd18-stall-fixed-first.log",
+  "sourceManifestSha256": "62dffe5f0a22d0aaf53b14195072645f0febaa19624e7b80a79dc1d5e4207e5e",
+  "artifactSha256": "3a2da6dbaccefcb464d7123205052aa2d7c824d880ea0343f3372315f9b090c4",
+  "unitTests": {
+    "tests": 25,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "requiredNativeTests": 35,
+  "allRequiredNativeTestsPassed": true,
+  "buildSucceeded": true,
+  "noBundledDependencyJars": true,
+  "metrics": [
+    {
+      "scenario": "singleCar",
+      "family": "ARROW",
+      "travel": 5.578427306704725,
+      "riders": 4,
+      "maxSpacing": 2.9515858228634784e-05,
+      "maxAngle": 0.0005287254718563784,
+      "fault": ""
+    },
+    {
+      "scenario": "singleCar",
+      "family": "LEGACY",
+      "travel": 5.488494559717481,
+      "riders": 8,
+      "maxSpacing": 5.547856777621263e-05,
+      "maxAngle": 0.0002741171685512867,
+      "fault": ""
+    },
+    {
+      "scenario": "singleCar",
+      "family": "FREE_SPIN",
+      "travel": 5.25289914721418,
+      "riders": 8,
+      "maxSpacing": 3.0418124746134367e-05,
+      "maxAngle": 0.0001602326012201795,
+      "fault": ""
+    },
+    {
+      "scenario": "singleCar",
+      "family": "REVISED",
+      "travel": 5.228973390876831,
+      "riders": 8,
+      "maxSpacing": 3.0475905379745427e-05,
+      "maxAngle": 0.00010297625498492114,
+      "fault": ""
+    },
+    {
+      "scenario": "singleCar",
+      "family": "PAX",
+      "travel": 5.574768066512718,
+      "riders": 4,
+      "maxSpacing": 2.7665914430485827e-05,
+      "maxAngle": 4.1582287657610916e-05,
+      "fault": ""
+    },
+    {
+      "scenario": "originalTrain",
+      "family": "ARROW",
+      "cars": 2,
+      "riders": 8,
+      "travel": 4.420469739158649,
+      "maxSpacing": 0.00012128065793604037
+    },
+    {
+      "scenario": "originalTrain",
+      "family": "PAX",
+      "cars": 4,
+      "riders": 16,
+      "travel": 3.7730716470740617,
+      "maxSpacing": 0.00018212428904007538
+    }
+  ],
+  "nativeHoldingOccupiedFamilies": 5,
+  "nativeHoldingRiders": 32,
+  "normalLeverPowerStartStopFamilies": 5,
+  "motorRemainsAt8RPMWhenPowerCut": true,
+  "originalTrainRecoveryRiders": 24,
+  "wrongFamilyInitialSnapRejections": 40,
+  "scope": "Headless short occupied PAX handover-to-towing and automatic native-chain-stall braking on the compact spike, preserving original seats and train links through power cut/disconnection/native unloading. Whole-train spike climb failed separately and remains unsupported; no complete curve/bank/strength, rendered occupied recovery, fresh-JVM recovery restart or stronger propulsion claim.",
+  "occupiedPaxHandover": {
+    "riders": 16,
+    "originalCars": 4,
+    "originalCarriers": 8,
+    "metricsDuringTow": {
+      "travel": 4.673980930470009,
+      "maxSpacing": 6.101628777255286e-05,
+      "maxAngle": 4.532888235025149e-05,
+      "maxSpeed": 0.4529655103460585
+    },
+    "originalPassengerSeatsPreserved": true,
+    "originalLinksAfterDetach": true,
+    "physicalCarriageRemovedWithoutReplacement": true,
+    "powerCutWithMotorRetainedAt8RPM": true,
+    "normalUnloading": true
+  },
+  "poweredNativeChainStall": {
+    "riders": 16,
+    "originalCars": 4,
+    "originalCarriers": 8,
+    "metrics": {
+      "travel": 12.198078481334928,
+      "bearingDistance": 94.98483206707837,
+      "nativeTarget": -0.5,
+      "maxSpacing": 0.00010153028870796277,
+      "maxAngle": 0.000581131240228398,
+      "maxSpeed": 0.4535445390835293
+    },
+    "originalPassengerSeatsPreserved": true,
+    "originalLinksAfterDetach": true,
+    "allCarsBraked": true,
+    "noAutomaticResume": true,
+    "idlePowerCutNotFaulted": true,
+    "powerCutWithMotorRetainedAt8RPM": true,
+    "normalUnloading": true
+  },
+  "testSourceSha256": "2b49081704a8841aa1f202a9e5131521eb5c0077efa31a86b25139e2c13cd9fb",
+  "recoveryOperationsSha256": "f9b271bc8d9de8d8096acd48ff16c935054e11c39e3eedef168293b6843e7fe0"
+}

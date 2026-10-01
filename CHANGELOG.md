@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.9.0-dev.18 — powered recovery stall detection
+
+- Detect insufficient physical displacement during active native chain recovery: a commanded speed above 0.1 blocks/s with the bearing remaining within 0.08 blocks for four physics seconds brakes the entire group and requests propulsion inspection. Keep original seats, matching track, native couplings and retention; do not automatically resume.
+- Reset the transient progress window on power cut, unavailability and normal start/brake/disconnect. Waiting with the clutch cutting power does not fault. Native drive force and speed cap are unchanged.
+- Preserve the failed whole-train compact PAX spike diagnostic: the loaded bare bearing stalls despite active chain input, while an unlinked bearing ascends. Add a regression for automatic driven-stall braking, power stop, original-link disconnection and native unloading with sixteen original occupied seats.
+- Keep FD402 and the 0.4/0.9 gates open. Whole-spike recovery, complete curve/bank clearance and rendered occupied recovery remain unverified. Schema/network protocol remain 6.
+
 ## 0.9.0-dev.17 — occupied PAX recovery handover
 
 - Validate one fully occupied sixteen-seat PAX train from its powered physical winch through interruption, retained handover, native-chain towing, braking, power stop, recovery disconnection and normal unloading. Preserve original chassis/carrier IDs, native train links and passenger seat mounts; reject active/unretained handover and moving disconnection.
