@@ -1,0 +1,113 @@
+{
+  "result": "PASS",
+  "baseline_outbound_look_error_degrees": [
+    1.13336181640625,
+    0.21148300170898438
+  ],
+  "profiles": {
+    "combined": {
+      "phases": {
+        "outbound": {
+          "disconnect_phase": "OUTBOUND",
+          "rejoin_phase": "OUTBOUND",
+          "offline_simulation_ticks": 60,
+          "look_drift_degrees": [
+            0.0,
+            0.0
+          ],
+          "completed_cycles": 2
+        },
+        "returning": {
+          "disconnect_phase": "RETURNING",
+          "rejoin_phase": "CAPTURING",
+          "offline_simulation_ticks": 59,
+          "look_drift_degrees": [
+            0.0,
+            0.0
+          ],
+          "completed_cycles": 3
+        },
+        "capturing": {
+          "disconnect_phase": "CAPTURING",
+          "rejoin_phase": "CAPTURING",
+          "offline_simulation_ticks": 66,
+          "look_drift_degrees": [
+            0.0,
+            0.0
+          ],
+          "completed_cycles": 4
+        }
+      },
+      "clients": {
+        "dev": {
+          "server_matched_snapshots": 405,
+          "missing_body_warnings": 13,
+          "unknown_passenger_warnings": 0,
+          "tcp_peer_reset": false
+        },
+        "observer": {
+          "server_matched_snapshots": 387,
+          "missing_body_warnings": 0,
+          "unknown_passenger_warnings": 1,
+          "tcp_peer_reset": false
+        }
+      },
+      "immersion_camera": {
+        "mounted_samples": 1382,
+        "maximum_raw_error_radians": 4.2146848510894035e-08,
+        "mouse_yaw_change_degrees": 3.0
+      },
+      "dismount_camera_up_error": 6.532826544592881e-05
+    },
+    "engineered": {
+      "phases": {
+        "outbound": {
+          "disconnect_phase": "OUTBOUND",
+          "rejoin_phase": "OUTBOUND",
+          "offline_simulation_ticks": 60,
+          "look_drift_degrees": [
+            0.0,
+            0.0
+          ],
+          "completed_cycles": 2
+        },
+        "returning": {
+          "disconnect_phase": "RETURNING",
+          "rejoin_phase": "CAPTURING",
+          "offline_simulation_ticks": 51,
+          "look_drift_degrees": [
+            0.0,
+            0.0
+          ],
+          "completed_cycles": 3
+        },
+        "capturing": {
+          "disconnect_phase": "CAPTURING",
+          "rejoin_phase": "CAPTURING",
+          "offline_simulation_ticks": 60,
+          "look_drift_degrees": [
+            0.0,
+            0.0
+          ],
+          "completed_cycles": 4
+        }
+      },
+      "clients": {
+        "dev": {
+          "server_matched_snapshots": 339,
+          "missing_body_warnings": 0,
+          "unknown_passenger_warnings": 0,
+          "tcp_peer_reset": false
+        },
+        "observer": {
+          "server_matched_snapshots": 332,
+          "missing_body_warnings": 0,
+          "unknown_passenger_warnings": 1,
+          "tcp_peer_reset": false
+        }
+      },
+      "immersion_camera": null,
+      "dismount_camera_up_error": 6.473272021401134e-05
+    }
+  }
+}

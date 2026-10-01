@@ -378,6 +378,15 @@ exception is absent; one initial-join passenger warning and a final TCP peer-res
 screen remain documented. Other phases and the full family/pack lifecycle matrix
 remain open.
 
+The [moving-phase view fix](docs/evidence/integrations/2026-10-01/pax-phase-reconnect/README.md)
+adds six real PAX reconnects across outbound, return and capture in Engineered-only
+and combined packs. It corrects a reproduced server/client pose mismatch by restoring
+saved local angles once the client mounts the exact expected seat/carrier. Corrected
+runs preserve angles exactly, retain FE and original mechanics, complete each cycle
+and unload normally. Three native profiles pass 33 registered checks each and 19
+unit tests pass. Retained loading warnings and the wider family/pack matrix keep
+FD902 open.
+
 **Done when:** no passenger duplication, stale restraints, lost carrier state, or incorrect track rebinding remains in supported cases. Document supported recovery actions for interruptions.
 
 ### FD903 Validate save migration and provider changes

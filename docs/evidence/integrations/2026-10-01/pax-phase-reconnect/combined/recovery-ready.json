@@ -1,0 +1,166 @@
+{
+  "label": "player_recovery_12",
+  "tick": 7680,
+  "required": true,
+  "energy": 12345,
+  "phase": "BOARDING",
+  "interrupted": "RETURNING",
+  "fault": "",
+  "cycles": 1,
+  "carriage": "6b3f2e2d-51ad-4a83-b430-d98ef974739e",
+  "carriageLoaded": true,
+  "carriagePosition": [
+    -599.5000610351562,
+    184.12493896484375,
+    608.5166625976562
+  ],
+  "winch": "{ConnectedToExtraKinetics:0b,Network:{AddedStress:8.0f,Capacity:2097152.0f,Id:-166850887024460L,Size:2,Stress:1024.0f},Source:[I;-607,180,608],Speed:128.0f,id:\"fourthdimension:shuttle_winch\",shuttle_carriage:[I;1799302701,1370311299,-1271866994,-109808738],shuttle_cars:[[I;1626414480,722750707,-1639736133,-1336555213],[I;-205161146,1146898645,-1237137185,258031923],[I;-955420842,1829587058,-2049209914,80887224],[I;-1695763802,-1690613867,-1364625571,1544503665]],shuttle_cycles:1,shuttle_distance:62.67979295672933d,shuttle_end:-164926741380908L,shuttle_fault:\"\",shuttle_interrupted:\"RETURNING\",shuttle_maximum:104.8851106623482d,shuttle_phase:\"BOARDING\",shuttle_start:-164926741905204L,shuttle_station:62.67979295672933d,shuttle_vehicle:[I;1626414480,722750707,-1639736133,-1336555213],x:-606,y:180,z:608}",
+  "span": "{Segments:[{From:-164926741905204L,T0:0.0d,T1:1.0d,To:-164926741708620L},{From:-164926741708620L,T0:0.0d,T1:1.0d,To:-164926741577548L},{From:-164926741577548L,T0:0.0d,T1:1.0d,To:-164926741380908L}]}",
+  "controller": {
+    "Anchor": "-164926741905204L",
+    "Sequence": "[{Heading:\"BACKWARD\",Kind:\"LAUNCH\",Value:100}]",
+    "Step": "0"
+  },
+  "observer": {
+    "Watching": "{From:-164926741708620L,T0:0.5d,T1:0.5d,To:-164926741577548L}"
+  },
+  "observerPower": 0,
+  "motorDriving": true,
+  "externalDriveAllowed": false,
+  "telemetry": {
+    "available": true,
+    "family": "pax_shuttle",
+    "cars": 4,
+    "occupied": 1,
+    "capacity": 16,
+    "captured": true,
+    "boardingReady": true,
+    "restraintsClosed": true,
+    "retained": false,
+    "dispatchReady": true,
+    "dispatchDenial": "",
+    "fault": "",
+    "phase": "BOARDING"
+  },
+  "cars": [
+    {
+      "chassis": "60f11d90-2b14-4cf3-9e43-9cbbb055c933",
+      "ready": true,
+      "restraints": true,
+      "stopping": true,
+      "fault": "",
+      "consist": 4,
+      "position": [
+        -599.5000606015276,
+        181.12498256141083,
+        608.5169769535004
+      ],
+      "speed": 0.06389631312418415,
+      "carriers": [
+        {
+          "body": "d1e9c18a-1812-4c40-8890-a949ac7c9074",
+          "loaded": true,
+          "capture": true,
+          "riders": []
+        },
+        {
+          "body": "8af18a96-9e14-4623-99ab-d01ea90305ec",
+          "loaded": true,
+          "capture": true,
+          "riders": [
+            {
+              "id": "380df991-f603-344c-a090-369bad2a924a",
+              "alive": true,
+              "mounted": true,
+              "carrier": "8af18a96-9e14-4623-99ab-d01ea90305ec"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "chassis": "f3c57d46-445c-48d5-b642-c8df0f614133",
+      "ready": true,
+      "restraints": true,
+      "stopping": true,
+      "fault": "",
+      "consist": 4,
+      "position": [
+        -599.4999999895656,
+        181.12498256138477,
+        614.5173323666702
+      ],
+      "speed": 0.06582603022922495,
+      "carriers": [
+        {
+          "body": "92901583-4aaf-4c38-b9eb-650986958abf",
+          "loaded": true,
+          "capture": true,
+          "riders": []
+        },
+        {
+          "body": "75cba1e9-3d82-42a7-b0cb-ff1b544d2a14",
+          "loaded": true,
+          "capture": true,
+          "riders": []
+        }
+      ]
+    },
+    {
+      "chassis": "c70d6f56-6d0d-4872-85db-89c604d23db8",
+      "ready": true,
+      "restraints": true,
+      "stopping": true,
+      "fault": "",
+      "consist": 4,
+      "position": [
+        -599.4999999976261,
+        181.1249825613849,
+        620.5173932885577
+      ],
+      "speed": 0.0639146926942194,
+      "carriers": [
+        {
+          "body": "3afa1d76-c717-43e1-95fd-919503c3395f",
+          "loaded": true,
+          "capture": true,
+          "riders": []
+        },
+        {
+          "body": "fe8aff97-5cbf-484e-bb13-03408c9f12c6",
+          "loaded": true,
+          "capture": true,
+          "riders": []
+        }
+      ]
+    },
+    {
+      "chassis": "9aecb2a6-9b3b-4795-aea9-775d5c0f4171",
+      "ready": true,
+      "restraints": true,
+      "stopping": true,
+      "fault": "",
+      "consist": 4,
+      "position": [
+        -599.4999999976261,
+        181.1249825613851,
+        626.5175151869709
+      ],
+      "speed": 0.0664166782913222,
+      "carriers": [
+        {
+          "body": "0b6dcf72-bcbb-4253-b8b5-3efe3a1a1134",
+          "loaded": true,
+          "capture": true,
+          "riders": []
+        },
+        {
+          "body": "28f0a5c7-0b0c-4007-9b33-d8459d3c7bdb",
+          "loaded": true,
+          "capture": true,
+          "riders": []
+        }
+      ]
+    }
+  ]
+}

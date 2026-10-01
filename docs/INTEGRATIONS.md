@@ -535,6 +535,16 @@ offline intervals; the occupied train completes recovery and a new cycle with
 UDP exception. One initial-join passenger warning and a final Dev TCP peer-reset
 screen remain recorded. Other occupied phases/packs and adverse transport conditions
 retain their wider acceptance gate.
+The [moving-phase view correction](evidence/integrations/2026-10-01/pax-phase-reconnect/README.md)
+then extends live PAX reconnects to outbound, return and capture in both Engineered-only
+and combined packs. It reproduces a 1.13° outbound view turn caused by composing
+different server/client carrier poses. A one-time local-angle message, matched to the
+exact restored native seat and carrier, removes that turn. All six corrected cases
+retain identical saved angles, original seat/mechanics and 12,345 FE, complete their
+cycles and unload normally. Mouse look remains usable afterward. Base, Engineered
+and combined native regressions each pass 33 registered checks, plus 19 unit tests.
+Transient initial-loading body/passenger warnings remain in the evidence; broader
+family/pack and adverse-network acceptance stays open.
 The full human-client matrix, external energy networks and broader geometry/configuration
 acceptance remain open.
 

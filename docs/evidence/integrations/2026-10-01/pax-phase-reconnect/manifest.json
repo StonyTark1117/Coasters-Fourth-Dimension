@@ -1,0 +1,90 @@
+{
+  "profiles": {
+    "combined": {
+      "server": {
+        "log": "/home/braydon/.codex/worktrees/coaster-integrations/Coasters: Fourth Dimension/build/occupied-phase-reconnect/fixed-combined/server.log",
+        "log_sha256": "464d4b8e007c73026eb56fe27d9cf8d6abc76654f1e754b43d095b9a29012820",
+        "exit_status": 0
+      },
+      "dev": {
+        "log": "/home/braydon/.codex/worktrees/coaster-integrations/Coasters: Fourth Dimension/build/occupied-phase-reconnect/fixed-combined/dev.log",
+        "log_sha256": "674a7749f5c24ebdf27fbacb8f8d7bc99cd852d61cf6cc5ee905df4750405e3c",
+        "exit_status": 0
+      },
+      "observer": {
+        "log": "/home/braydon/.codex/worktrees/coaster-integrations/Coasters: Fourth Dimension/build/occupied-phase-reconnect/fixed-combined/observer.log",
+        "log_sha256": "9c5d083b605df6ec1c49b977c3f362c26a2005fed4c01b9596ca5e6c32b2edd8",
+        "exit_status": 0
+      },
+      "scenarios": {
+        "outbound": 0,
+        "returning": 0,
+        "capturing": 0,
+        "recover": 0
+      }
+    },
+    "engineered": {
+      "server": {
+        "log": "/home/braydon/.codex/worktrees/coaster-integrations/Coasters: Fourth Dimension/build/occupied-phase-reconnect/fixed-engineered/server.log",
+        "log_sha256": "c97d8d6721b8bde08478879ea5f2a1eedb554b83a553fb810f89a53ce0167774",
+        "exit_status": 0
+      },
+      "dev": {
+        "log": "/home/braydon/.codex/worktrees/coaster-integrations/Coasters: Fourth Dimension/build/occupied-phase-reconnect/fixed-engineered/dev.log",
+        "log_sha256": "2f393424b7ae1f48dc9e93a0316f8d25898445215ece6ea9273e10dd49c1e524",
+        "exit_status": 0
+      },
+      "observer": {
+        "log": "/home/braydon/.codex/worktrees/coaster-integrations/Coasters: Fourth Dimension/build/occupied-phase-reconnect/fixed-engineered/observer.log",
+        "log_sha256": "e4ecbcb336b67dcb838a2f5ee9c9d5b075e6285bdb6e99a617b0b93b0449f0f7",
+        "exit_status": 0
+      },
+      "scenarios": {
+        "outbound": 0,
+        "returning": 0,
+        "capturing": 0,
+        "recover": 0
+      }
+    }
+  },
+  "artifact": {
+    "path": "/home/braydon/.cache/fourthdimension-48535694/rider-look-local.jar",
+    "sha256": "08a1f0e6a51b8aad8ca31b65b104f3dda315c3913ee5361c28f8202fa1ad52ed",
+    "baseline_source_commit": "23b4fa2"
+  },
+  "baseline": {
+    "server": {
+      "log": "/home/braydon/.codex/worktrees/coaster-integrations/Coasters: Fourth Dimension/build/occupied-phase-reconnect/combined/server.log",
+      "log_sha256": "290bb00113a4bb7be3ea43bbb68cedc95f91b9217822f8305b249ccd7364da6d",
+      "exit_status": 0
+    },
+    "dev": {
+      "log": "/home/braydon/.codex/worktrees/coaster-integrations/Coasters: Fourth Dimension/build/occupied-phase-reconnect/combined/dev.log",
+      "log_sha256": "fe60e46cd972ea19609be68790dc210c018c9f2a5e1b6d08606319dd77f15812",
+      "exit_status": 0
+    },
+    "observer": {
+      "log": "/home/braydon/.codex/worktrees/coaster-integrations/Coasters: Fourth Dimension/build/occupied-phase-reconnect/combined/observer.log",
+      "log_sha256": "40a161b540ef60e13e868d0910c965f564e884384caa1e0a6e8713daf7e6e871",
+      "exit_status": 0
+    },
+    "artifact_sha256": "daf8e9c039240c6bffa96e49f946d396934c334808c4b2fc31b4dedc0177fa81"
+  },
+  "native": {
+    "native-base": {
+      "log": "/home/braydon/.codex/worktrees/coaster-integrations/Coasters: Fourth Dimension/build/occupied-phase-reconnect/native-base.log",
+      "log_sha256": "1052292ef925dafd1547bf3e3453550c13df5ab26abac17ebdaa5a30fc86f0b4",
+      "exit_status": 0
+    },
+    "native-engineered": {
+      "log": "/home/braydon/.codex/worktrees/coaster-integrations/Coasters: Fourth Dimension/build/occupied-phase-reconnect/native-engineered.log",
+      "log_sha256": "7712188b0c0998230805e784458672dd1c49bbc13a82649c5af8d0e00e6889f4",
+      "exit_status": 0
+    },
+    "native-combined": {
+      "log": "/home/braydon/.codex/worktrees/coaster-integrations/Coasters: Fourth Dimension/build/occupied-phase-reconnect/native-combined.log",
+      "log_sha256": "110924a8a1dd629ca5b83f8231767c265e1bd12aa86a821e39bd409838442ae5",
+      "exit_status": 0
+    }
+  }
+}

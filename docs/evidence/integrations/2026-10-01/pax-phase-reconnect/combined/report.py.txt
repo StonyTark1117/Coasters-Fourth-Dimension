@@ -1,0 +1,25 @@
+from pathlib import Path
+import time,json,math
+from rcon import rcon
+out=Path(__file__).resolve().parent;log=out/'server.log'
+before=json.loads((out/'before.json').read_text())
+identity={r['id']:b['body'] for c in before['cars'] for b in c['carriers'] for r in b['riders']}
+def report(label):
+ assert 'snapshot recorded' in rcon('fd validation pax_energy_restart report '+label)
+ until=time.monotonic()+10
+ while True:
+  rows=[json.loads(l.split('FD_PAX_ENERGY_RESTART ',1)[1]) for l in log.read_text().splitlines() if 'FD_PAX_ENERGY_RESTART {' in l]
+  found=[d for d in rows if d['label']==label]
+  if found:return found[-1]
+  assert time.monotonic()<until;time.sleep(.1)
+def verify(d):
+ ids={r['id']:b['body'] for c in d['cars'] for b in c['carriers'] for r in b['riders']}
+ assert ids==identity and d['energy']==12345 and d['telemetry']['occupied']==1
+ assert d['carriageLoaded'] and d['carriage']==before['carriage'] and not d['externalDriveAllowed']
+ assert all(c['restraints'] and c['consist']==4 for c in d['cars'])
+ assert all(r['alive'] and r['mounted'] and r['carrier']==b['body'] for c in d['cars'] for b in c['carriers'] for r in b['riders'])
+ print(d['label'],d['tick'],d['phase'],[round(c['speed'],5) for c in d['cars']],[c['ready'] for c in d['cars']],flush=True)
+
+if __name__ == "__main__":
+ import sys
+ d=report(sys.argv[1]);(out/(sys.argv[1]+".json")).write_text(json.dumps(d,indent=2)+"\n");print(json.dumps(d,indent=2))

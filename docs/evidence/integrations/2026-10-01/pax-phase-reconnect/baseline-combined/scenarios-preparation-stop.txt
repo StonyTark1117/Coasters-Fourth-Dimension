@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/home/braydon/.codex/worktrees/coaster-integrations/Coasters: Fourth Dimension/build/occupied-phase-reconnect/run-scenarios.py", line 6, in <module>
+    assert Path('/proc/'+pid).exists(),'Recovery process ended without readiness sentinel; inspect its log'
+           ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+AssertionError: Recovery process ended without readiness sentinel; inspect its log

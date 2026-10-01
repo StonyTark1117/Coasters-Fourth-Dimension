@@ -1,0 +1,17 @@
+from pathlib import Path
+import sys,subprocess,time,json
+base=Path(__file__).resolve().parent;out=base/sys.argv[1];deadline=time.monotonic()+600
+while not (out/'recover.exit').exists():
+ pid=(out/'recover.pid').read_text().strip()
+ assert Path('/proc/'+pid).exists(),'Recovery process ended without readiness sentinel; inspect its log'
+ assert time.monotonic()<deadline,'Recovery still live; inspect before any restart'
+ time.sleep(1)
+assert (out/'recover.exit').read_text().strip()=='0'
+for phase in ('outbound','returning','capturing'):
+ assert not (out/(phase+'.exit')).exists()
+ (out/'scenario-status.json').write_text(json.dumps({'phase':phase,'status':'running'})+'\n')
+ with (out/(phase+'.log')).open('w') as f:
+  result=subprocess.run(['python3',str(base/'scenario.py'),str(out),phase.upper()],stdout=f,stderr=subprocess.STDOUT,stdin=subprocess.DEVNULL)
+ assert result.returncode==0,(phase,result.returncode)
+(out/'scenario-status.json').write_text(json.dumps({'status':'complete'})+'\n')
+(out/'scenarios.exit').write_text('0\n')

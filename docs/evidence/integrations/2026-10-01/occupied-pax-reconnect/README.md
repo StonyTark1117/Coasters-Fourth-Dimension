@@ -112,3 +112,10 @@ Both clients enable validation logging and omit the deliberately disconnecting
 The preceding artifact checkpoint supplies its 19 unit tests and base/combined
 33-registered native suites. Those are not rerun or presented as new tests here:
 this checkpoint changes only evidence, documentation and its offline audit script.
+
+The subsequent [moving-phase follow-up](../pax-phase-reconnect/README.md) finds a
+larger view turn when this artifact reconnects during outbound motion. It retains
+that failed control and adds a local-angle synchronization fix, verified across
+outbound, return and capture reconnects in Engineered-only and combined packs. The
+bounded fault/lift measurements above remain historical evidence for this artifact;
+they did not establish every moving-phase view transition.

@@ -1,0 +1,63 @@
+{
+  "UUID": [
+    940439953,
+    -167562164,
+    -1601161573,
+    -1389718966
+  ],
+  "Health": 20.0,
+  "Pos": [
+    -603.4999834435359,
+    185.70945356746347,
+    647.2476859107599
+  ],
+  "Rotation": [
+    90.0,
+    39.995506286621094
+  ],
+  "NoGravity": null,
+  "FallDistance": 0.0,
+  "RootVehicle": {
+    "Entity": {
+      "Motion": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "FallDistance": 0.0,
+      "neoforge:attachments": {
+        "create:minecart_controller": {
+          "Type": "EMPTY"
+        }
+      },
+      "Pos": [
+        20481033.5,
+        127.0,
+        20485128.5
+      ],
+      "Fire": -1,
+      "Invulnerable": 0,
+      "id": "create:seat",
+      "Air": 300,
+      "OnGround": 0,
+      "PortalCooldown": 0,
+      "UUID": [
+        1460258719,
+        1881293401,
+        -2115295775,
+        2130052699
+      ],
+      "Rotation": [
+        0.0,
+        0.0
+      ]
+    },
+    "Attach": [
+      1460258719,
+      1881293401,
+      -2115295775,
+      2130052699
+    ]
+  },
+  "ForgeData": null
+}

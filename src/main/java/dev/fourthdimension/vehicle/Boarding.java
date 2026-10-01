@@ -254,6 +254,7 @@ public final class Boarding {
       if (body != null) {
         var seat = body.getPlot().getCenterBlock().offset(offset);
         if (player.getVehicle() != null && player.getVehicle().blockPosition().equals(seat)) {
+          RiderLookSync.send(player, binding.carrier.body, deadline.localYaw, deadline.localPitch);
           finishRestore(player);
           continue;
         }
@@ -279,6 +280,8 @@ public final class Boarding {
             RESTORING.remove(player.getUUID());
           }
           if (player.isPassenger()) {
+            RiderLookSync.send(
+                player, binding.carrier.body, deadline.localYaw, deadline.localPitch);
             finishRestore(player);
             continue;
           }

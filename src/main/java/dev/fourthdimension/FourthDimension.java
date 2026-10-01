@@ -31,6 +31,7 @@ public final class FourthDimension {
     dev.fourthdimension.track.TrackItems.COMPONENTS.register(bus);
     NeoForge.EVENT_BUS.addListener(dev.fourthdimension.track.TrackPlacement::tick);
     bus.addListener(FoundationSync::register);
+    bus.addListener(dev.fourthdimension.vehicle.RiderLookSync::register);
     bus.addListener(dev.fourthdimension.editor.EditorNetwork::register);
     NeoForge.EVENT_BUS.addListener(PrototypeFixture::register);
     NeoForge.EVENT_BUS.addListener(dev.fourthdimension.track.ExampleLayouts::register);

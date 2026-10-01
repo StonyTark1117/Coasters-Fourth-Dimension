@@ -1,0 +1,6 @@
+player_brake_0 4885 FAULT [1.64639, 1.64337, 1.6422, 1.64094] [False, False, False, False]
+Traceback (most recent call last):
+  File "/home/braydon/.codex/worktrees/coaster-integrations/Coasters: Fourth Dimension/build/occupied-phase-reconnect/combined/recover.py", line 25, in <module>
+    assert all(c['stopping'] and all(b['capture'] for b in c['carriers']) for c in d['cars'])
+           ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

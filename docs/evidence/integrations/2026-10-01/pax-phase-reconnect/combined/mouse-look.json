@@ -1,0 +1,16 @@
+{
+  "rawMouseInput": true,
+  "before": [
+    124.200005,
+    63.99551
+  ],
+  "after_two_relative_moves": [
+    127.200005,
+    63.99551
+  ],
+  "after_one_second": [
+    127.200005,
+    63.99551
+  ],
+  "input": "Two xdotool mousemove_relative -- 20 0 events, 0.3 seconds apart, after returning from Controls through Escape; the first motion after grab was ignored."
+}

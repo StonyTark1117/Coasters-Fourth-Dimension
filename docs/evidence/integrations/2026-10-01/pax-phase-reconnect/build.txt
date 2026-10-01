@@ -1,0 +1,40 @@
+Picked up JAVA_TOOL_OPTIONS: -Xmx2G
+> Task :createMinecraftArtifacts UP-TO-DATE
+
+> Task :compileJava
+/home/braydon/.codex/worktrees/coaster-integrations/Coasters: Fourth Dimension/src/main/java/dev/fourthdimension/client/RotationEditorScreen.java:272: warning: [removal] bus() in EventBusSubscriber has been deprecated and marked for removal
+      bus = EventBusSubscriber.Bus.MOD)
+      ^
+/home/braydon/.codex/worktrees/coaster-integrations/Coasters: Fourth Dimension/src/main/java/dev/fourthdimension/client/RotationEditorScreen.java:272: warning: [removal] Bus in EventBusSubscriber has been deprecated and marked for removal
+      bus = EventBusSubscriber.Bus.MOD)
+                              ^
+/home/braydon/.codex/worktrees/coaster-integrations/Coasters: Fourth Dimension/src/main/java/dev/fourthdimension/client/RestoredRiderLook.java:72: warning: [removal] bus() in EventBusSubscriber has been deprecated and marked for removal
+      bus = EventBusSubscriber.Bus.MOD)
+      ^
+/home/braydon/.codex/worktrees/coaster-integrations/Coasters: Fourth Dimension/src/main/java/dev/fourthdimension/client/RestoredRiderLook.java:72: warning: [removal] Bus in EventBusSubscriber has been deprecated and marked for removal
+      bus = EventBusSubscriber.Bus.MOD)
+                              ^
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+4 warnings
+
+> Task :processResources UP-TO-DATE
+> Task :classes
+> Task :jarJar NO-SOURCE
+> Task :jar
+> Task :assemble
+> Task :compileTestJava UP-TO-DATE
+> Task :processTestResources NO-SOURCE
+> Task :testClasses UP-TO-DATE
+
+> Task :test
+Picked up JAVA_TOOL_OPTIONS: -Xmx2G
+
+> Task :check
+> Task :build
+
+[Incubating] Problems report is available at: file:///tmp/fourthdimension-48535694/build/reports/problems/problems-report.html
+
+BUILD SUCCESSFUL in 5s
+6 actionable tasks: 3 executed, 3 up-to-date
+Consider enabling configuration cache to speed up this build: https://docs.gradle.org/9.2.1/userguide/configuration_cache_enabling.html

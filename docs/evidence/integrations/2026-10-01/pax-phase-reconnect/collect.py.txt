@@ -1,0 +1,74 @@
+from pathlib import Path
+import json,hashlib,shutil
+base=Path(__file__).resolve().parent;repo=base.parents[1]
+out=repo/'docs/evidence/integrations/2026-10-01/pax-phase-reconnect';out.mkdir(exist_ok=True)
+def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
+manifest={'profiles':{}}
+for profile in ('combined','engineered'):
+ w=base/('fixed-'+profile);o=out/profile;o.mkdir(exist_ok=True);runs={}
+ for role in ('server','dev','observer'):
+  p=w/(role+'.log');lines=p.read_text().splitlines()
+  runs[role]={'log':str(p),'log_sha256':sha(p),'exit_status':int((w/(role+'.exit')).read_text())}
+  (o/(role+'-events.txt')).write_text('\n'.join(l for l in lines if any(k in l for k in ('FD_','logged in','joined the game','left the game','loaded from','BUILD ','Stopping server','Client UDP channel','disconnect'))) + '\n')
+  warnings=[];keep=False
+  for l in lines:
+   if l.startswith('['):keep='/WARN]' in l or '/ERROR]' in l
+   if keep:warnings.append(l)
+  (o/(role+'-warnings.txt')).write_text('\n'.join(warnings).rstrip()+'\n')
+  mods=[];record=False
+  for l in lines:
+   if 'Name Version (Mod Id)' in l:record=True
+   if record:
+    if l.startswith('['):break
+    if l.strip():mods.append(l.strip())
+  (o/(role+'-mods.txt')).write_text('\n'.join(mods)+'\n')
+  shutil.copyfile(w/(role+'.sh'),o/(role+'.sh.txt'))
+ for prefix in ['before','outbound-offline','outbound-station','returning-offline','returning-station','capturing-offline','capturing-station','unloaded']:
+  shutil.copyfile(w/(prefix+'-save.json'),o/(prefix+'-save.json'))
+  d=json.loads((w/(prefix+'-player-full.json')).read_text())
+  (o/(prefix+'-player.json')).write_text(json.dumps({k:d.get(k) for k in ('UUID','Health','Pos','Rotation','NoGravity','FallDistance','RootVehicle','ForgeData')},indent=2)+'\n')
+ for name in ['before.json','recovery-ready.json','commands.txt','clients-stopped.json','recover.log','report.py','recover.py','dump.py','start-client.py','rcon.py']:
+  dest=o/(name+'.txt' if name.endswith('.py') else name.replace('.log','.txt'));shutil.copyfile(w/name,dest)
+  if name=='commands.txt':dest.write_text('\n'.join(l.rstrip() for l in dest.read_text().rstrip().splitlines())+'\n')
+ for name in ['recover-early.log','recover-early.exit','recover-retry.py']:
+  if (w/name).exists():shutil.copyfile(w/name,o/(name+'.txt' if name.endswith('.py') else name.replace('.log','.txt')))
+ for p in w.glob('*.png'):shutil.copyfile(p,o/p.name)
+ if (w/'mouse-look.json').exists():shutil.copyfile(w/'mouse-look.json',o/'mouse-look.json')
+ runs['scenarios']={phase:int((w/(phase+'.exit')).read_text()) for phase in ('outbound','returning','capturing','recover')}
+ manifest['profiles'][profile]=runs
+for name in ('scenario.py','run-scenarios.py','native.py','collect.py'):
+ shutil.copyfile(base/name,out/(name+'.txt'))
+shutil.copyfile(base/'settings-restored.json',out/'settings-restored.json')
+shutil.copyfile(base/'classes.json',out/'classes.json')
+shutil.copyfile(base/'source-hashes.json',out/'source-hashes.json')
+shutil.copyfile(base/'build.log',out/'build.txt')
+jar=Path('/home/braydon/.cache/fourthdimension-48535694/rider-look-local.jar')
+manifest['artifact']={'path':str(jar),'sha256':sha(jar),'baseline_source_commit':'23b4fa2'}
+baseline=out/'baseline-combined';baseline.mkdir(exist_ok=True)
+w=base/'combined'
+for name in ('server','dev','observer'):
+    p=w/(name+'.log');lines=p.read_text().splitlines()
+    (baseline/(name+'-events.txt')).write_text('\n'.join(l for l in lines if 'FD_' in l or 'logged in' in l or 'BUILD ' in l)+'\n')
+    manifest.setdefault('baseline',{})[name]={'log':str(p),'log_sha256':sha(p),'exit_status':int((w/(name+'.exit')).read_text())}
+for name in ('outbound-offline-player-full.json','outbound-station-player-full.json','recover-early.log','recover-boundary.log','recover-retry.py','recover-stable.py','scenarios-preparation-stop.log'):
+    shutil.copyfile(w/name,baseline/(name+'.txt' if name.endswith('.py') else name.replace('.log','.txt')))
+for name in ('server','dev','observer'):
+    shutil.copyfile(w/(name+'.sh'),baseline/(name+'.sh.txt'))
+    lines=(w/(name+'.log')).read_text().splitlines();warnings=[];keep=False
+    for l in lines:
+        if l.startswith('['):keep='/WARN]' in l or '/ERROR]' in l
+        if keep:warnings.append(l)
+    (baseline/(name+'-warnings.txt')).write_text('\n'.join(warnings).rstrip()+'\n')
+(baseline/'commands.txt').write_text('\n'.join(l.rstrip() for l in (w/'commands.txt').read_text().rstrip().splitlines())+'\n')
+shutil.copyfile(w/'before-save.json',baseline/'before-save.json')
+shutil.copyfile(w/'before-player-full.json',baseline/'before-player-full.json')
+shutil.copyfile(w/'clients-stopped.json',baseline/'clients-stopped.json')
+manifest['baseline']['artifact_sha256']='daf8e9c039240c6bffa96e49f946d396934c334808c4b2fc31b4dedc0177fa81'
+for name in ('native-base','native-engineered','native-combined'):
+    p=base/(name+'.log');lines=p.read_text().splitlines()
+    manifest.setdefault('native',{})[name]={'log':str(p),'log_sha256':sha(p),'exit_status':int((base/(name+'.exit')).read_text())}
+    (out/(name+'-events.txt')).write_text('\n'.join(l for l in lines if 'FD_' in l or 'required tests' in l or 'BUILD ' in l)+'\n')
+unit=out/'unit';unit.mkdir(exist_ok=True)
+for p in Path('/tmp/fourthdimension-48535694/build/test-results/test').glob('TEST-*.xml'):shutil.copyfile(p,unit/p.name)
+(out/'manifest.json').write_text(json.dumps(manifest,indent=2)+'\n')
+print(out)

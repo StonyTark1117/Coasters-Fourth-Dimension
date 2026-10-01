@@ -1,0 +1,12 @@
+from pathlib import Path
+import nbtlib,json,sys
+out=Path(__file__).resolve().parent
+world=Path('/tmp/fourthdimension-48535694/build/runs/packaged-server/FDRiderLookEngineered')
+def plain(v):
+ if isinstance(v,dict):return {k:plain(x) for k,x in v.items()}
+ if isinstance(v,str):return str(v)
+ if hasattr(v,'__iter__'):return [plain(x) for x in v]
+ if isinstance(v,float):return float(v)
+ return int(v)
+for name,rel in [('save','data/fourthdimension_foundation.dat'),('player-full','playerdata/380df991-f603-344c-a090-369bad2a924a.dat')]:
+ (out/(sys.argv[1]+'-'+name+'.json')).write_text(json.dumps(plain(nbtlib.load(world/rel)),indent=2)+'\n')

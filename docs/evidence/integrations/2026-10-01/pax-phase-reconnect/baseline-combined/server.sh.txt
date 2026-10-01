@@ -1,0 +1,7 @@
+#!/bin/bash
+export JAVA_HOME=/usr/lib/jvm/java-21-openjdk
+export JAVA_TOOL_OPTIONS=-Xmx2G
+./gradlew -Dorg.gradle.jvmargs=-Xmx1G --max-workers=2 runServer -PfdPackaged -PfdPackagedJar=/home/braydon/.cache/fourthdimension-48535694/udp-lifecycle-fixed.jar -PfdIntegrations=engineered,styles,additions,magnetized,immersion -PfdValidation -PfdFrozen > '/home/braydon/.codex/worktrees/coaster-integrations/Coasters: Fourth Dimension/build/occupied-phase-reconnect/combined/server.log' 2>&1
+result=$?
+printf '%s\n' "$result" > '/home/braydon/.codex/worktrees/coaster-integrations/Coasters: Fourth Dimension/build/occupied-phase-reconnect/combined/server.exit'
+exit "$result"

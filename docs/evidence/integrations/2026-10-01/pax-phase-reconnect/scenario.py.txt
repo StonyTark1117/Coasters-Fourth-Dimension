@@ -1,0 +1,57 @@
+from pathlib import Path
+import sys,os,subprocess,time,json
+out=Path(sys.argv[1]).resolve();target=sys.argv[2];assert target in ('OUTBOUND','RETURNING','CAPTURING')
+sys.path.insert(0,str(out));from report import report,verify
+from rcon import rcon
+state=json.loads((out/'clients.json').read_text());env=dict(os.environ,DISPLAY=next(c['display'] for c in state if c['label']=='dev'))
+rows=[];reverse=False;prefix=target.lower()
+def shot(name):subprocess.run(['import','-window','root',str(out/(prefix+'-'+name+'.png'))],env=env,check=True)
+def click(x,y):subprocess.run(['xdotool','mousemove',str(x),str(y),'click','1'],env=env,check=True)
+def sample(label):
+ global reverse
+ d=report(prefix+'_'+label);rows.append(d)
+ print(d['label'],d['tick'],d['phase'],d['telemetry']['occupied'],flush=True)
+ assert d['phase']!='FAULT',d['fault']
+ assert d['energy']==12345 and not d['externalDriveAllowed']
+ if d['phase']=='CAPTURING' and not reverse:
+  assert 'fixture: reverse' in rcon('fd validation pax_energy_restart reverse');reverse=True
+ return d
+try:
+ pre=sample('station_before');verify(pre);assert pre['phase']=='BOARDING' and all(c['ready'] for c in pre['cars'])
+ assert 'fixture: forward' in rcon('fd validation pax_energy_restart forward')
+ subprocess.run(['xdotool','key','Escape'],env=env,check=True);time.sleep(.5);shot('menu')
+ assert 'fixture: dispatch' in rcon('fd validation pax_energy_restart dispatch')
+ for i in range(400):
+  d=sample('approach_'+str(i));verify(d)
+  if d['phase']==target:break
+  assert d['phase']!='BOARDING';time.sleep(.25)
+ else:raise AssertionError('Target phase never reached')
+ shot('before-disconnect');click(640,504)
+ for i in range(40):
+  time.sleep(.15);d=sample('disconnect_'+str(i))
+  if d['telemetry']['occupied']==0:break
+ else:raise AssertionError('Rider did not disconnect')
+ assert 'online: Observer' in rcon('list')
+ rcon('save-all flush')
+ subprocess.run(['/home/braydon/.cache/uv/archive-v0/4gQEPP7WwgjhWWMU2AWLC/bin/python',str(out/'dump.py'),prefix+'-offline'],check=True)
+ shot('offline');click(640,512);time.sleep(.6);shot('direct');click(640,477)
+ for i in range(80):
+  time.sleep(.2);d=sample('join_'+str(i))
+  if d['telemetry']['occupied']==1:break
+ else:raise AssertionError('Rider did not restore')
+ verify(d);shot('rejoined')
+ rcon('data get entity Dev RootVehicle');rcon('data get entity Dev Rotation');rcon('data get entity Dev NoGravity')
+ for i in range(400):
+  d=sample('finish_'+str(i));verify(d)
+  if d['phase']=='BOARDING' and all(c['ready'] for c in d['cars']):break
+  time.sleep(.25)
+ else:raise AssertionError('Did not return to ready station')
+ assert d['cycles']==pre['cycles']+1
+ rcon('save-all flush')
+ subprocess.run(['/home/braydon/.cache/uv/archive-v0/4gQEPP7WwgjhWWMU2AWLC/bin/python',str(out/'dump.py'),prefix+'-station'],check=True)
+ shot('station')
+ (out/(prefix+'.json')).write_text(json.dumps(rows,indent=2)+'\n')
+ (out/(prefix+'.exit')).write_text('0\n')
+except BaseException:
+ (out/(prefix+'.json')).write_text(json.dumps(rows,indent=2)+'\n')
+ (out/(prefix+'.exit')).write_text('1\n');raise
