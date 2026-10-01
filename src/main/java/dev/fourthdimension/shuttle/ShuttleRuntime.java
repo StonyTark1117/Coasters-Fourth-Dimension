@@ -73,6 +73,21 @@ public final class ShuttleRuntime {
     for (var winch : List.copyOf(winches(level))) {
       if (winch.vehicle == null) continue;
       try {
+        // Deserialization can enter FAULT without passing through fail(). Reapply its
+        // persisted train retention before physics, including when chunks return separately.
+        if (winch.phase == ShuttleWinchEntity.Phase.FAULT) {
+          var data = FoundationData.get(level);
+          for (var id : winch.cars) {
+            var car = data.vehicles.get(id);
+            if (car != null
+                && (!car.stopping
+                    || !car.restraints
+                    || car.carriers.stream().anyMatch(c -> !c.capture))) {
+              winch.fail(winch.fault);
+              break;
+            }
+          }
+        }
         // Check simulation availability before any world block lookup. Querying the old winch
         // while its chunk leaves ticking range can renew a FULL ticket and prevent eviction.
         if (!dev.ryanhcode.sable.sublevel.system.ticket.PhysicsChunkTicketManager

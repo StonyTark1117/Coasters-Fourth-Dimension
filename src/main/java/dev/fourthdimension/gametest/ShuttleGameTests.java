@@ -25,15 +25,69 @@ public final class ShuttleGameTests {
     var container = SubLevelContainer.getContainer(level);
     boolean[] recovering = {false};
     double[] stoppedHeight = {0};
+    net.minecraft.nbt.CompoundTag[] boardingState = {null};
     helper.runAtTickTime(
         80,
         () -> {
           ShuttleExamples.assemble(level, example);
           VehicleOperations.restraints(level, example.cars().getFirst(), true);
+          boardingState[0] = winch[0].saveWithFullMetadata(level.registryAccess());
+        });
+    var savedPhases =
+        List.of(
+            ShuttleWinchEntity.Phase.LIFTING, ShuttleWinchEntity.Phase.OUTBOUND,
+            ShuttleWinchEntity.Phase.RETURNING, ShuttleWinchEntity.Phase.CAPTURING);
+    for (int i = 0; i < savedPhases.size(); i++) {
+      var phase = savedPhases.get(i);
+      helper.runAtTickTime(
+          81 + 3 * i,
+          () -> {
+            // A cold process reads the active phase directly, without first calling fail().
+            // Reuse this fixture's native consist to isolate that persistence boundary.
+            example
+                .cars()
+                .forEach(
+                    v -> {
+                      v.stopping = false;
+                      v.restraints = true;
+                      v.fault = "";
+                      v.carriers.forEach(c -> c.capture = false);
+                    });
+            var tag = boardingState[0].copy();
+            tag.putString("shuttle_phase", phase.name());
+            winch[0] = reloadWinch(level, winch[0], tag);
+            helper.assertTrue(
+                winch[0].phase == ShuttleWinchEntity.Phase.FAULT && winch[0].interrupted == phase,
+                "Active saved phase did not enter restart fault");
+          });
+      helper.runAtTickTime(
+          83 + 3 * i,
+          () -> {
+            helper.assertTrue(
+                example.cars().stream()
+                    .allMatch(
+                        v ->
+                            v.stopping
+                                && v.restraints
+                                && v.carriers.stream().allMatch(c -> c.capture)),
+                "Cold " + phase + " fault did not retain every native car and carrier");
+            helper.assertTrue(
+                winch[0].phase == ShuttleWinchEntity.Phase.FAULT && winch[0].interrupted == phase,
+                "Retaining a cold train changed recovery ownership");
+            System.out.println(
+                "FD_SHUTTLE_COLD_RETAIN phase="
+                    + phase
+                    + " cars=4 carriers=8 braking=true restraints=true capture=true");
+          });
+    }
+    helper.runAtTickTime(94, () -> winch[0] = reloadWinch(level, winch[0], boardingState[0]));
+    helper.runAtTickTime(
+        98,
+        () -> {
           VehicleOperations.dispatch(level, example.cars().getFirst());
         });
     helper.runAtTickTime(
-        90,
+        108,
         () -> {
           // Leave the boarding, first spike and loaded bodies available; unload the remote spike.
           for (int x = 51; x <= 53; x++)
@@ -111,6 +165,23 @@ public final class ShuttleGameTests {
         () ->
             helper.fail(
                 "Chunk/reload recovery did not finish: " + winch[0].phase + " " + winch[0].fault));
+  }
+
+  private static ShuttleWinchEntity reloadWinch(
+      net.minecraft.server.level.ServerLevel level,
+      ShuttleWinchEntity previous,
+      net.minecraft.nbt.CompoundTag saved) {
+    var pos = previous.getBlockPos();
+    var state = level.getBlockState(pos);
+    level.removeBlockEntity(pos);
+    var restored =
+        (ShuttleWinchEntity)
+            net.minecraft.world.level.block.entity.BlockEntity.loadStatic(
+                pos, state, saved, level.registryAccess());
+    if (restored == null) throw new IllegalArgumentException("Cannot deserialize test winch");
+    level.setBlockEntity(restored);
+    ShuttleRuntime.register(level, restored);
+    return restored;
   }
 
   @GameTest(template = "empty", timeoutTicks = 2600)

@@ -269,6 +269,14 @@ public final class EngineeredPaxRestartFixture {
     json.addProperty("fault", winch.fault);
     json.addProperty("cycles", winch.cycles);
     json.addProperty("carriage", Objects.toString(winch.carriage, ""));
+    var carriage = winch.carriage == null ? null : container.getSubLevel(winch.carriage);
+    json.addProperty("carriageLoaded", carriage != null);
+    if (carriage != null) {
+      var position = carriage.logicalPose().position();
+      json.add(
+          "carriagePosition",
+          new Gson().toJsonTree(new double[] {position.x(), position.y(), position.z()}));
+    }
     json.addProperty("winch", winch.saveWithFullMetadata(level.registryAccess()).toString());
     json.addProperty(
         "span", TrackSpanBehaviour.at(level, winch.routeStart).span().save().toString());
@@ -291,6 +299,7 @@ public final class EngineeredPaxRestartFixture {
       car.addProperty("chassis", v.chassis.toString());
       car.addProperty("ready", Boarding.ready(level, v));
       car.addProperty("restraints", v.restraints);
+      car.addProperty("stopping", v.stopping);
       car.addProperty("fault", v.fault);
       car.addProperty("consist", VehicleOperations.consist(level, v).size());
       var body = (dev.ryanhcode.sable.sublevel.ServerSubLevel) container.getSubLevel(v.chassis);

@@ -1,0 +1,24 @@
+{
+  "dedicated": {
+    "combined": {
+      "braking_samples": 108,
+      "chassis_travel_while_braking_blocks": 7.5305068322218265,
+      "empty_carriage_drift_blocks": 0.0,
+      "restored_fe": 12345,
+      "riders": 16,
+      "ticks_to_manual_recovery_after_initial_100": 2666
+    },
+    "engineered": {
+      "braking_samples": 116,
+      "chassis_travel_while_braking_blocks": 8.143158418598096,
+      "empty_carriage_drift_blocks": 0.0,
+      "restored_fe": 12345,
+      "riders": 16,
+      "ticks_to_manual_recovery_after_initial_100": 2872
+    }
+  },
+  "native_profiles": 7,
+  "registered_tests": 33,
+  "scope": "Cold-fault train retention plus occupied outbound packaged restart and manual recovery",
+  "unit_tests": 19
+}

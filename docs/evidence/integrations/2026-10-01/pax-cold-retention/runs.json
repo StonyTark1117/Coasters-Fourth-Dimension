@@ -1,0 +1,70 @@
+{
+  "before": {
+    "full_log": "/tmp/fd-pax-phases-cold-outbound_before.log",
+    "sha256": "bec5be4a41025b382d10506e4ac5d74f412f25d734afda59fbbb3ae8ea71ffee",
+    "exit_status": 0,
+    "server_pid": 2400071,
+    "operation_exit_status": 0
+  },
+  "broken": {
+    "full_log": "/tmp/fd-pax-phases-cold-outbound_broken.log",
+    "sha256": "def20f8c97edf9365335fe21f0c0830842e0b9aee28e93ec58ca67940c49b4df",
+    "exit_status": 0,
+    "server_pid": 2402520,
+    "operation_exit_status": 0
+  },
+  "engineered": {
+    "full_log": "/tmp/fd-pax-phases-cold-outbound_engineered.log",
+    "sha256": "f414deeafba76fb37cdd96705d41411f3035c0ab5709e4e1bd3afac7a6f2b7e9",
+    "exit_status": 0,
+    "server_pid": 2409373,
+    "operation_exit_status": 0
+  },
+  "combined": {
+    "full_log": "/tmp/fd-pax-phases-cold-outbound_combined.log",
+    "sha256": "a3a5f3c991bf1fa63753322f9ad46c0c62369cbbb2daa737c40c3858165cf79b",
+    "exit_status": 0,
+    "server_pid": 2420659,
+    "operation_exit_status": 0
+  },
+  "beforefix-native": {
+    "full_log": "/tmp/fd-pax-phases-cold-beforefix-native.log",
+    "sha256": "2288d920a5b29f9e967de21851fe1b71ae1f20585c9b6bd07910605eb5baf14b",
+    "exit_status": 1
+  },
+  "native-base": {
+    "full_log": "/tmp/fd-pax-cold-retain-native-base.log",
+    "sha256": "7cef69330fe05cdd9d687a0c9fdffcdd545dc0cb6d20ba7435d0f7900068f73f",
+    "exit_status": 0
+  },
+  "native-engineered": {
+    "full_log": "/tmp/fd-pax-cold-retain-native-engineered.log",
+    "sha256": "03b2ee97ff84c0fce3dda9a03c53a36ff31d7a7073b45a83458ede0fc87f8633",
+    "exit_status": 0
+  },
+  "native-styles": {
+    "full_log": "/tmp/fd-pax-cold-retain-native-styles.log",
+    "sha256": "c4b22fa88159bf5baf147316a04ba65058c752c984e04c5fe1e9e3504cc9beda",
+    "exit_status": 0
+  },
+  "native-additions": {
+    "full_log": "/tmp/fd-pax-cold-retain-native-additions.log",
+    "sha256": "d490c09c34719a96f4f74e4e8f735fb2f1ca83e36f6823c4b6c7576ac669286b",
+    "exit_status": 0
+  },
+  "native-magnetized": {
+    "full_log": "/tmp/fd-pax-cold-retain-native-magnetized.log",
+    "sha256": "624d6d81c8e06088d71851c534eafd8938fe9f48545cb5533267f20103594152",
+    "exit_status": 0
+  },
+  "native-immersion": {
+    "full_log": "/tmp/fd-pax-cold-retain-native-immersion.log",
+    "sha256": "673f267d1fa3d2dcbb17ff169a4332408751245a8104161bc7717b4b24a182d2",
+    "exit_status": 0
+  },
+  "native-combined": {
+    "full_log": "/tmp/fd-pax-cold-retain-native-combined.log",
+    "sha256": "1fadeef487889a368f8cae2735e6ac02fbdfc3069659a9514354eb5afe820d19",
+    "exit_status": 0
+  }
+}

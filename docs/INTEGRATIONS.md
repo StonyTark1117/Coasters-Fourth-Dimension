@@ -140,6 +140,16 @@ route; the other cold-restart phases, human clients and external networks remain
 All three native regression profiles pass 33 registered tests with explicit optional
 skips, and the build passes 19 unit tests.
 
+The [cold-fault retention follow-up](evidence/integrations/2026-10-01/pax-cold-retention/README.md)
+found that an outbound cold restart entered `FAULT` without enabling saved train
+braking or carrier capture. Faulted winches now reapply those retention flags before
+physics while preserving the interrupted phase. New Engineered-only and combined
+packaged processes retain all sixteen native passengers and exact FE through braking,
+explicit manual recovery and normal unloading. All seven native profiles pass 33
+registered tests (with explicit optional skips), including four new deserialization
+retention checks; all 19 unit tests pass. Returning/capture packaged restarts,
+human-client recovery and external energy networks remain separate acceptance work.
+
 A separate [FE acceptance fixture](evidence/integrations/2026-09-30/engineered-energy/README.md)
 enables the energy requirement for a linked Arrow pair and single legacy, Free Spin
 and revised cars. Real anchor capabilities supply FE. Captured cars remain held,
@@ -456,9 +466,10 @@ instances. Both Engineered-only and combined-pack runs preserve sixteen native
 passenger mounts through recovery and normal unloading. The full four-profile
 checkpoint passes 33 registered native tests and 19 unit tests. The subsequent
 [packaged cold-restart checkpoint](evidence/integrations/2026-10-01/engineered-pax-fe-restart/README.md)
-covers occupied lifting with FE enabled in two new server processes. Cold restart
-during outbound, returning and capture, human-client recovery and external energy
-networks remain open.
+covers occupied lifting with FE enabled in two new server processes. The subsequent
+[cold-fault retention fix](evidence/integrations/2026-10-01/pax-cold-retention/README.md)
+adds occupied outbound braking and manual recovery evidence. Returning/capture
+packaged restarts, human-client recovery and external energy networks remain open.
 
 - Extend reconciled FD305 evidence to the schema-5 optional-addon lifecycle matrix;
   investigate the recorded client resource exit. Extend the bounded transport
