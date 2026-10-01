@@ -1,0 +1,245 @@
+list: There are 1 of a max of 20 players online: Dev
+
+
+tick unfreeze: The game is running normally
+
+
+fd validation pax_energy_restart report player_restored: PAX energy restart snapshot recorded
+
+
+data get entity Dev RootVehicle: Dev has the following entity data: {Entity: {Motion: [0.0d, 0.0d, 0.0d], FallDistance: 0.0f, "neoforge:attachments": {"create:minecart_controller": {Type: "EMPTY"}}, Pos: [2.04810335E7d, 127.0d, 2.04851285E7d], Fire: -1s, Invulnerable: 0b, id: "create:seat", Air: 300s, OnGround: 0b, PortalCooldown: 0, UUID: [I; 55323202, 1978746941, -1936593860, -1215117541], Rotation: [0.0f, 0.0f]}, Attach: [I; 55323202, 1978746941, -1936593860, -1215117541]}
+
+
+data get entity Dev Rotation: Dev has the following entity data: [90.002625f, 39.99447f]
+
+
+data get entity Dev Health: Dev has the following entity data: 20.0f
+
+
+fd validation pax_energy_restart resume: Interrupted gravity run requires manual recovery to the station
+
+
+fd validation pax_energy_restart recover: Stop and capture every carrier before shuttle recovery
+
+
+fd validation pax_energy_restart forward: PAX energy restart fixture: forward
+
+
+list: There are 1 of a max of 20 players online: Dev
+
+
+list: There are 2 of a max of 20 players online: Dev, Observer
+
+
+fd validation pax_energy_restart report observer_late_join: PAX energy restart snapshot recorded
+
+
+tp Observer -611.5 187 642.5 -157 12: Teleported Observer to -611.500000, 187.000000, 642.500000
+
+
+fd validation pax_energy_restart report player_brake_0: PAX energy restart snapshot recorded
+
+
+fd validation pax_energy_restart report player_brake_1: PAX energy restart snapshot recorded
+
+
+fd validation pax_energy_restart report player_brake_2: PAX energy restart snapshot recorded
+
+
+fd validation pax_energy_restart report player_brake_3: PAX energy restart snapshot recorded
+
+
+fd validation pax_energy_restart report player_brake_4: PAX energy restart snapshot recorded
+
+
+fd validation pax_energy_restart report player_brake_5: PAX energy restart snapshot recorded
+
+
+fd validation pax_energy_restart report player_brake_6: PAX energy restart snapshot recorded
+
+
+fd validation pax_energy_restart report player_brake_7: PAX energy restart snapshot recorded
+
+
+fd validation pax_energy_restart report player_brake_8: PAX energy restart snapshot recorded
+
+
+fd validation pax_energy_restart report player_brake_9: PAX energy restart snapshot recorded
+
+
+fd validation pax_energy_restart report player_brake_10: PAX energy restart snapshot recorded
+
+
+fd validation pax_energy_restart report player_brake_11: PAX energy restart snapshot recorded
+
+
+fd validation pax_energy_restart report player_brake_12: PAX energy restart snapshot recorded
+
+
+fd validation pax_energy_restart report player_brake_13: PAX energy restart snapshot recorded
+
+
+fd validation pax_energy_restart report player_brake_14: PAX energy restart snapshot recorded
+
+
+fd validation pax_energy_restart report player_brake_15: PAX energy restart snapshot recorded
+
+
+fd validation pax_energy_restart report player_brake_16: PAX energy restart snapshot recorded
+
+
+fd validation pax_energy_restart report player_brake_17: PAX energy restart snapshot recorded
+
+
+fd validation pax_energy_restart report player_brake_18: PAX energy restart snapshot recorded
+
+
+fd validation pax_energy_restart report player_brake_19: PAX energy restart snapshot recorded
+
+
+fd validation pax_energy_restart report player_brake_20: PAX energy restart snapshot recorded
+
+
+fd validation pax_energy_restart report player_brake_21: PAX energy restart snapshot recorded
+
+
+fd validation pax_energy_restart report player_brake_22: PAX energy restart snapshot recorded
+
+
+fd validation pax_energy_restart report player_brake_23: PAX energy restart snapshot recorded
+
+
+fd validation pax_energy_restart report player_brake_24: PAX energy restart snapshot recorded
+
+
+fd validation pax_energy_restart report player_brake_25: PAX energy restart snapshot recorded
+
+
+fd validation pax_energy_restart report player_brake_26: PAX energy restart snapshot recorded
+
+
+fd validation pax_energy_restart report player_brake_27: PAX energy restart snapshot recorded
+
+
+fd validation pax_energy_restart report player_brake_28: PAX energy restart snapshot recorded
+
+
+fd validation pax_energy_restart report player_brake_29: PAX energy restart snapshot recorded
+
+
+fd validation pax_energy_restart report player_brake_30: PAX energy restart snapshot recorded
+
+
+fd validation pax_energy_restart report player_brake_31: PAX energy restart snapshot recorded
+
+
+fd validation pax_energy_restart report player_brake_32: PAX energy restart snapshot recorded
+
+
+fd validation pax_energy_restart report player_brake_33: PAX energy restart snapshot recorded
+
+
+fd validation pax_energy_restart report player_brake_34: PAX energy restart snapshot recorded
+
+
+fd validation pax_energy_restart report player_brake_35: PAX energy restart snapshot recorded
+
+
+fd validation pax_energy_restart report player_brake_36: PAX energy restart snapshot recorded
+
+
+fd validation pax_energy_restart report player_brake_37: PAX energy restart snapshot recorded
+
+
+fd validation pax_energy_restart report player_brake_38: PAX energy restart snapshot recorded
+
+
+fd validation pax_energy_restart report player_brake_39: PAX energy restart snapshot recorded
+
+
+fd validation pax_energy_restart report player_brake_40: PAX energy restart snapshot recorded
+
+
+fd validation pax_energy_restart report player_brake_41: PAX energy restart snapshot recorded
+
+
+fd validation pax_energy_restart recover: PAX energy restart fixture: recover
+
+
+fd validation pax_energy_restart report player_recovery_0: PAX energy restart snapshot recorded
+
+
+fd validation pax_energy_restart reverse: PAX energy restart fixture: reverse
+
+
+fd validation pax_energy_restart report player_recovery_1: PAX energy restart snapshot recorded
+
+
+fd validation pax_energy_restart report player_recovery_2: PAX energy restart snapshot recorded
+
+
+fd validation pax_energy_restart report player_recovery_3: PAX energy restart snapshot recorded
+
+
+fd validation pax_energy_restart report player_recovery_4: PAX energy restart snapshot recorded
+
+
+fd validation pax_energy_restart report player_recovery_5: PAX energy restart snapshot recorded
+
+
+fd validation pax_energy_restart report player_recovery_6: PAX energy restart snapshot recorded
+
+
+fd validation pax_energy_restart report player_recovery_7: PAX energy restart snapshot recorded
+
+
+fd validation pax_energy_restart report player_recovery_8: PAX energy restart snapshot recorded
+
+
+fd validation pax_energy_restart report player_recovery_9: PAX energy restart snapshot recorded
+
+
+fd validation pax_energy_restart report player_recovery_10: PAX energy restart snapshot recorded
+
+
+fd validation pax_energy_restart report player_recovery_11: PAX energy restart snapshot recorded
+
+
+fd validation pax_energy_restart report player_recovery_12: PAX energy restart snapshot recorded
+
+
+fd validation pax_energy_restart forward: PAX energy restart fixture: forward
+
+
+fd validation pax_energy_restart report player_station: PAX energy restart snapshot recorded
+
+
+data get block -610 181 608 front_text: -610, 181, 608 has the following block data: {has_glowing_text: 0b, color: "black", messages: ['"1 / 16"', '""', '""', '""']}
+
+
+fd validation pax_energy_restart report player_unloaded: PAX energy restart snapshot recorded
+
+
+data get entity Dev RootVehicle: Found no elements matching RootVehicle
+
+
+data get entity Dev Pos: Dev has the following entity data: [-605.5d, 181.5625d, 608.5d]
+
+
+data get entity Dev Rotation: Dev has the following entity data: [-89.9966f, 39.98935f]
+
+
+data get entity Dev Health: Dev has the following entity data: 20.0f
+
+
+data get entity Dev NoGravity: Found no elements matching NoGravity
+
+
+data get block -610 181 608 front_text: -610, 181, 608 has the following block data: {has_glowing_text: 0b, color: "black", messages: ['"0 / 16"', '""', '""', '""']}
+
+
+save-all flush: Saving the game (this may take a moment!)
+Saved the game
+
+
+stop: Stopping the server

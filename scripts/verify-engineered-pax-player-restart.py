@@ -7,6 +7,8 @@ import sys
 import uuid
 from pathlib import Path
 root = Path(sys.argv[1])
+assert sys.argv[2:] in ([], ['--combined'])
+combined = sys.argv[2:] == ['--combined']
 def read(name): return json.loads((root / name).read_text())
 def uid(values): return str(uuid.UUID(bytes=b''.join((v & 0xffffffff).to_bytes(4, 'big') for v in values)))
 def records(name):
@@ -113,8 +115,11 @@ for role in ('dev', 'observer'):
     if role == 'dev':
         assert any('body=' + carrier in l and rider in l and 'riding=true' in l for l in native)
         assert all('riding=false' in l for l in native[-8:])
+    warnings = (root / (role + '-warnings.txt')).read_text()
     clients[role] = {'server_matched_snapshots': len(rows), 'native_carriers_available_at_end': 8,
-                     'transient_missing_body_messages': (root / (role + '-warnings.txt')).read_text().count('movement packet for a non-existent sub-level')}
+                     'transient_missing_body_messages': warnings.count('movement packet for a non-existent sub-level'),
+                     'unknown_passenger_messages': warnings.count('Received passengers for unknown entity'),
+                     'packet_task_errors': warnings.count('Error executing packet handle task')}
 assert len(common[0] & common[1]) > 100
 manifest = read('manifest.json')
 for role in ('server', 'server-restart', 'dev', 'observer'):
@@ -122,16 +127,48 @@ for role in ('server', 'server-restart', 'dev', 'observer'):
     mods = (root / (role + '-mods.txt')).read_text()
     for name in ('Minecraft 1.21.1', 'NeoForge 21.1.248', 'Create 6.0.10', 'Sable 2.0.3', 'Engineered 1.1.1'):
         assert name in mods
-    for name in ('Track Styles', 'Additions', 'Immersion', 'Magnetized'):
-        assert name not in mods
+    if combined and role != 'server':
+        for name in ('Track Styles 1.2.0', 'Additions 0.2.0', 'Immersion 0.2.3',
+                     'Magnetized 1.1.0', 'Aeronautics 1.3.2', 'Interiors 0.6.1'):
+            assert name in mods
+    else:
+        for name in ('Track Styles', 'Additions', 'Immersion', 'Magnetized'):
+            assert name not in mods
     assert 'passenger-load-fixed.jar' in (root / (role + '-events.txt')).read_text()
 assert all(x['original_sha256'] == x['restored_sha256'] for x in read('settings-restored.json').values())
 assert all(x['client_exit'] == 0 and x['display_stop_signal'] == 'SIGTERM' for x in read('clients-stopped.json'))
-print(json.dumps({'scope': 'Engineered-only occupied returning cold restart; one real client rider, one late-joining spectator',
+camera = None
+if combined:
+    samples = []
+    for line in (root / 'dev-events.txt').read_text().splitlines():
+        if 'FD_IMMERSION ' not in line:
+            continue
+        row = dict(re.findall(r'(\w+)=([^ ]+)', line.split(' camera=', 1)[0]))
+        assert row['metric'] == 'normalized-v1'
+        for key in ('rawError', 'carrierUp', 'cameraUp', 'yaw', 'pitch', 'travel'):
+            row[key] = float(row[key])
+            assert math.isfinite(row[key])
+        samples.append(row)
+    mounted = [r for r in samples if r['body'] != 'none' and r['riding'] == 'true']
+    assert len(mounted) > 100
+    assert all(r['body'] == carrier and r['enabled'] == r['processing'] == 'true'
+               and 0 <= r['rawError'] < 1e-6 for r in mounted)
+    exits = [(a, b) for a, b in zip(samples, samples[1:])
+             if a['body'] == carrier and a['riding'] == 'true' and b['riding'] == 'false']
+    assert exits
+    for _, after in exits:
+        assert after['body'] == 'none' and after['travel'] == 0
+        assert abs(after['cameraUp'] - math.cos(math.radians(after['pitch']))) < .001
+    assert samples[-1]['body'] == 'none' and samples[-1]['travel'] == 0
+    camera = {'mounted_samples': len(mounted), 'max_raw_error_radians': max(r['rawError'] for r in mounted),
+              'normal_dismount_transitions': len(exits), 'final_travel': samples[-1]['travel'],
+              'scope': 'Default enabled Immersion camera during returning fault, recovery and normal dismount; no inversion or mode sweep'}
+print(json.dumps({'scope': ('Combined-pack recovery from Engineered occupied returning baseline' if combined else 'Engineered-only occupied returning cold restart') + '; one real client rider, one late-joining spectator',
                   'rider_uuid': rider, 'carrier_uuid': carrier, 'fe_retained': 12345, 'completed_cycles': 1,
                   'normal_unload_health': q['Health'], 'saved_rider_maps_cleared': True,
                   'observer_join_delay_seconds': logins['Observer'] - logins['Dev'],
                   'recorded_local_look_error_degrees': look_error, 'clients': clients,
+                  'immersion_camera': camera,
                   'identical_both_client_snapshots': len(common[0] & common[1]),
                   'fault_sample_to_ready_ticks': brakes[-1]['tick'] - restored['tick'],
                   'empty_carriage_drift_blocks': max(math.dist(d['carriagePosition'], restored['carriagePosition']) for d in [late, *brakes])}, indent=2))

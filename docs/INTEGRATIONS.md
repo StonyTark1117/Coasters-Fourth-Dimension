@@ -493,6 +493,11 @@ adds occupied outbound braking and manual recovery evidence. The subsequent
 adds returning/capture recovery in both packs with sixteen original native passengers
 and exact FE retained. A later [two-client Engineered run](evidence/integrations/2026-10-01/engineered-pax-player-restart/README.md)
 adds one real returning-phase rider, late spectator join and normal recovery/unload.
+The [combined-pack player follow-up](evidence/integrations/2026-10-01/combined-pax-player-restart/README.md)
+restores that same occupied Engineered baseline with all five addons present,
+preserving the rider, exact FE, authoritative camera pose and normal dismount reset.
+Both clients exit successfully, but log a Sable UDP keepalive null-channel exception
+at server shutdown; that limitation remains open.
 The full human-client matrix, external energy networks and broader geometry/configuration
 acceptance remain open.
 

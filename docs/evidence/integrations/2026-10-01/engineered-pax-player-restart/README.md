@@ -118,3 +118,8 @@ client rider and one late spectator on one host. Other occupied seats, restart p
 combined-pack FE player recovery, adverse networks, resource limits, full camera
 behavior and broader FD305/FD901–FD904 acceptance remain open. This is not a rendering
 performance benchmark.
+
+The later [combined-pack recovery](../combined-pax-player-restart/README.md) reuses
+this run's stopped occupied baseline and verifies restoration with all five addons,
+default Immersion camera tracking and normal dismount. It retains an unresolved
+Sable UDP keepalive exception at server shutdown and does not close the wider matrix.

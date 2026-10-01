@@ -1,0 +1,40 @@
+{
+  "scope": "Combined-pack recovery from Engineered occupied returning baseline; one real client rider, one late-joining spectator",
+  "rider_uuid": "380df991-f603-344c-a090-369bad2a924a",
+  "carrier_uuid": "8af18a96-9e14-4623-99ab-d01ea90305ec",
+  "fe_retained": 12345,
+  "completed_cycles": 1,
+  "normal_unload_health": 20.0,
+  "saved_rider_maps_cleared": true,
+  "observer_join_delay_seconds": 49,
+  "recorded_local_look_error_degrees": [
+    0.0026249999999947704,
+    0.001036286621094007
+  ],
+  "clients": {
+    "dev": {
+      "server_matched_snapshots": 183,
+      "native_carriers_available_at_end": 8,
+      "transient_missing_body_messages": 0,
+      "unknown_passenger_messages": 0,
+      "packet_task_errors": 1
+    },
+    "observer": {
+      "server_matched_snapshots": 139,
+      "native_carriers_available_at_end": 8,
+      "transient_missing_body_messages": 0,
+      "unknown_passenger_messages": 1,
+      "packet_task_errors": 1
+    }
+  },
+  "immersion_camera": {
+    "mounted_samples": 599,
+    "max_raw_error_radians": 4.2146848510894035e-08,
+    "normal_dismount_transitions": 1,
+    "final_travel": 0.0,
+    "scope": "Default enabled Immersion camera during returning fault, recovery and normal dismount; no inversion or mode sweep"
+  },
+  "identical_both_client_snapshots": 128,
+  "fault_sample_to_ready_ticks": 2331,
+  "empty_carriage_drift_blocks": 0.0
+}

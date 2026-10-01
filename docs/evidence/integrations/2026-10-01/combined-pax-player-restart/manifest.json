@@ -1,0 +1,27 @@
+{
+  "server": {
+    "log": "/home/braydon/.codex/worktrees/coaster-integrations/Coasters: Fourth Dimension/build/pax-player-restart/server.log",
+    "log_sha256": "297acf4028071e367128ebce9f00220b06d45e350bdde78a027e93e9b27781a9",
+    "exit": 0
+  },
+  "server-restart": {
+    "log": "/home/braydon/.codex/worktrees/coaster-integrations/Coasters: Fourth Dimension/build/pax-player-combined/server-restart.log",
+    "log_sha256": "d1d2eaa513fe75c611d67da30c2fc4d3ecebe41fc1e99417b7458e72032bec3b",
+    "exit": 0
+  },
+  "dev": {
+    "log": "/home/braydon/.codex/worktrees/coaster-integrations/Coasters: Fourth Dimension/build/pax-player-combined/dev.log",
+    "log_sha256": "b5ec89e69a19a7f568f479bcd59052203e4ca91dc68ca58c0af973ffbfff473d",
+    "exit": 0
+  },
+  "observer": {
+    "log": "/home/braydon/.codex/worktrees/coaster-integrations/Coasters: Fourth Dimension/build/pax-player-combined/observer.log",
+    "log_sha256": "a3cab4802e30bbb274b484c99f2f7fdbf3240dad4ff3ce0a6dbfbda24d6a4ed3",
+    "exit": 0
+  },
+  "artifact": {
+    "path": "/home/braydon/.cache/fourthdimension-48535694/passenger-load-fixed.jar",
+    "sha256": "070cd31028aeffb41c77c0b027a019dd30e8853b7247ada199aceb5ad46d20ce"
+  },
+  "baseline_source": "../engineered-pax-player-restart; original Engineered-only moving RETURNING world"
+}
