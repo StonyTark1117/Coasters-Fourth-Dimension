@@ -1,0 +1,90 @@
+
+SOURCE: fd04-styled-client.log
+[20:32:40] [Render thread/INFO] [minecraft/ReloadableResourceManager]: Reloading ResourceManager: vanilla, mod_resources, mod/simulatedcoasters, mod/veil, mod/sablecompanion, mod/flywheel, mod/ponder, mod/create, mod/sable, mod/fourthdimension, mod/coastersengineered, mod/coasterssimulatedextratypes, mod/neoforge
+[20:32:42] [Render thread/INFO] [de.fo.cl.in.TrackStylesCatalog/]: FD_OPTIONAL Track Styles 1.2.0: inspected 55 decorative model entries; geometry certification pending
+[20:42:31] [Server thread/INFO] [minecraft/MinecraftServer]: Stopping server
+[20:42:32] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (FD04StyledRide): All chunks are saved
+[20:42:52] [Render thread/INFO] [minecraft/Minecraft]: Stopping!
+BUILD SUCCESSFUL in 10m 21s
+
+SOURCE: fd04-styled-reopened-client.log
+[20:43:46] [Render thread/INFO] [minecraft/ReloadableResourceManager]: Reloading ResourceManager: vanilla, mod_resources, mod/simulatedcoasters, mod/veil, mod/sablecompanion, mod/flywheel, mod/ponder, mod/create, mod/sable, mod/fourthdimension, mod/coastersengineered, mod/coasterssimulatedextratypes, mod/neoforge
+[20:43:48] [Render thread/INFO] [de.fo.cl.in.TrackStylesCatalog/]: FD_OPTIONAL Track Styles 1.2.0: inspected 55 decorative model entries; geometry certification pending
+[20:43:53] [Render thread/ERROR] [de.ry.sa.Sable/]: Received a sub-level movement packet for a non-existent sub-level
+[20:43:53] [Render thread/ERROR] [de.ry.sa.Sable/]: Received a sub-level movement packet for a non-existent sub-level
+[20:43:53] [Render thread/ERROR] [de.ry.sa.Sable/]: Received a sub-level movement packet for a non-existent sub-level
+[20:46:59] [Render thread/INFO] [minecraft/ReloadableResourceManager]: Reloading ResourceManager: vanilla, mod_resources, mod/simulatedcoasters, mod/veil, mod/sablecompanion, mod/flywheel, mod/ponder, mod/create, mod/sable, mod/fourthdimension, mod/coastersengineered, mod/coasterssimulatedextratypes, mod/neoforge
+[20:47:00] [Render thread/INFO] [de.fo.cl.in.TrackStylesCatalog/]: FD_OPTIONAL Track Styles 1.2.0: inspected 55 decorative model entries; geometry certification pending
+[20:51:30] [Server thread/INFO] [minecraft/MinecraftServer]: [Dev: Changed the block at -69, 122, 14]
+[20:51:30] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] Changed the block at -69, 122, 14
+[20:52:15] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] Unknown or incomplete command, see below for error
+[20:52:17] [Server thread/INFO] [minecraft/MinecraftServer]: [Dev: Changed the block at -96, 122, 20]
+[20:52:17] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] Changed the block at -96, 122, 20
+[20:52:18] [Server thread/INFO] [minecraft/MinecraftServer]: [Dev: Changed the block at -98, 122, 17]
+[20:52:18] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] Changed the block at -98, 122, 17
+[20:52:19] [Server thread/INFO] [minecraft/MinecraftServer]: [Dev: Changed the block at -66, 122, 23]
+[20:52:19] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] Changed the block at -66, 122, 23
+[20:52:20] [Server thread/INFO] [minecraft/MinecraftServer]: [Dev: Changed the block at -69, 122, 14]
+[20:52:20] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] Changed the block at -69, 122, 14
+[20:52:36] [Server thread/INFO] [minecraft/MinecraftServer]: Stopping server
+[20:52:36] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (FD04StyledRide): All chunks are saved
+[20:53:00] [Render thread/ERROR] [de.ry.sa.Sable/]: Received a sub-level movement packet for a non-existent sub-level
+[20:53:00] [Render thread/ERROR] [de.ry.sa.Sable/]: Received a sub-level movement packet for a non-existent sub-level
+[20:53:00] [Render thread/ERROR] [de.ry.sa.Sable/]: Received a sub-level movement packet for a non-existent sub-level
+[20:54:02] [Render thread/INFO] [de.fo.cl.ClientDiagnostics/]: FD_CLIENT player=Dev body=44811b50-6427-4ea2-a59e-f667ff859f86 snapshotAngle=-2.528880063208859E-4 nativeAngle=-2.72737428258014E-4 occupants=[380df991-f603-344c-a090-369bad2a924a] riding=true camera=( 3.093E-2 -7.064E-1  3.074E-2  7.064E-1)
+[20:54:07] [Render thread/INFO] [de.fo.cl.ClientDiagnostics/]: FD_CLIENT player=Dev body=44811b50-6427-4ea2-a59e-f667ff859f86 snapshotAngle=-2.5288760864093044E-4 nativeAngle=-2.72737428258014E-4 occupants=[380df991-f603-344c-a090-369bad2a924a] riding=true camera=( 3.093E-2 -7.064E-1  3.074E-2  7.064E-1)
+[20:54:12] [Render thread/INFO] [de.fo.cl.ClientDiagnostics/]: FD_CLIENT player=Dev body=44811b50-6427-4ea2-a59e-f667ff859f86 snapshotAngle=-2.5289805769591943E-4 nativeAngle=-2.72737428258014E-4 occupants=[380df991-f603-344c-a090-369bad2a924a] riding=true camera=( 3.093E-2 -7.064E-1  3.074E-2  7.064E-1)
+[20:54:17] [Render thread/INFO] [de.fo.cl.ClientDiagnostics/]: FD_CLIENT player=Dev body=44811b50-6427-4ea2-a59e-f667ff859f86 snapshotAngle=-2.528967103401729E-4 nativeAngle=-0.001379798768985558 occupants=[380df991-f603-344c-a090-369bad2a924a] riding=true camera=( 3.114E-2 -7.064E-1  3.054E-2  7.064E-1)
+[20:54:22] [Render thread/INFO] [de.fo.cl.ClientDiagnostics/]: FD_CLIENT player=Dev body=44811b50-6427-4ea2-a59e-f667ff859f86 snapshotAngle=-2.6063676362966185E-4 nativeAngle=-2.8280162591642227E-4 occupants=[380df991-f603-344c-a090-369bad2a924a] riding=true camera=( 3.094E-2 -7.064E-1  3.074E-2  7.064E-1)
+[20:54:27] [Render thread/INFO] [de.fo.cl.ClientDiagnostics/]: FD_CLIENT player=Dev body=44811b50-6427-4ea2-a59e-f667ff859f86 snapshotAngle=-2.606469105101054E-4 nativeAngle=-2.8280162591642227E-4 occupants=[380df991-f603-344c-a090-369bad2a924a] riding=true camera=( 3.094E-2 -7.064E-1  3.074E-2  7.064E-1)
+[20:54:32] [Render thread/INFO] [de.fo.cl.ClientDiagnostics/]: FD_CLIENT player=Dev body=44811b50-6427-4ea2-a59e-f667ff859f86 snapshotAngle=-2.6062879371151383E-4 nativeAngle=-2.8280162591642227E-4 occupants=[380df991-f603-344c-a090-369bad2a924a] riding=true camera=( 3.094E-2 -7.064E-1  3.074E-2  7.064E-1)
+[20:54:37] [Render thread/INFO] [de.fo.cl.ClientDiagnostics/]: FD_CLIENT player=Dev body=44811b50-6427-4ea2-a59e-f667ff859f86 snapshotAngle=-2.606453968529423E-4 nativeAngle=-2.8280162591642227E-4 occupants=[380df991-f603-344c-a090-369bad2a924a] riding=true camera=( 3.094E-2 -7.064E-1  3.074E-2  7.064E-1)
+[20:54:41] [Server thread/INFO] [minecraft/MinecraftServer]: [Dev: Changed the block at -106, 123, 33]
+[20:54:41] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] Changed the block at -106, 123, 33
+[20:54:42] [Render thread/INFO] [de.fo.cl.ClientDiagnostics/]: FD_CLIENT player=Dev body=44811b50-6427-4ea2-a59e-f667ff859f86 snapshotAngle=-2.793134658757978E-4 nativeAngle=-2.7866938928421657E-4 occupants=[380df991-f603-344c-a090-369bad2a924a] riding=true camera=( 3.094E-2 -7.064E-1  3.074E-2  7.064E-1)
+[20:54:47] [Render thread/INFO] [de.fo.cl.ClientDiagnostics/]: FD_CLIENT player=Dev body=44811b50-6427-4ea2-a59e-f667ff859f86 snapshotAngle=-2.8482217992374664E-4 nativeAngle=-2.8468169541402417E-4 occupants=[380df991-f603-344c-a090-369bad2a924a] riding=true camera=( 3.094E-2 -7.064E-1  3.074E-2  7.064E-1)
+[20:54:52] [Render thread/INFO] [de.fo.cl.ClientDiagnostics/]: FD_CLIENT player=Dev body=44811b50-6427-4ea2-a59e-f667ff859f86 snapshotAngle=-2.8472607000396504E-4 nativeAngle=-2.846858462494323E-4 occupants=[380df991-f603-344c-a090-369bad2a924a] riding=true camera=( 3.094E-2 -7.064E-1  3.074E-2  7.064E-1)
+[20:54:57] [Render thread/INFO] [de.fo.cl.ClientDiagnostics/]: FD_CLIENT player=Dev body=44811b50-6427-4ea2-a59e-f667ff859f86 snapshotAngle=-0.002138863903959588 nativeAngle=-0.0021885709549295303 occupants=[380df991-f603-344c-a090-369bad2a924a] riding=true camera=( 3.661E-2 -5.642E-1  2.373E-2  8.245E-1)
+[20:55:02] [Render thread/INFO] [de.fo.cl.ClientDiagnostics/]: FD_CLIENT player=Dev body=44811b50-6427-4ea2-a59e-f667ff859f86 snapshotAngle=-0.0018690970217074207 nativeAngle=-0.0017865928226211947 occupants=[380df991-f603-344c-a090-369bad2a924a] riding=true camera=( 4.362E-2 -2.393E-2  1.406E-4  9.988E-1)
+[20:55:07] [Render thread/INFO] [de.fo.cl.ClientDiagnostics/]: FD_CLIENT player=Dev body=44811b50-6427-4ea2-a59e-f667ff859f86 snapshotAngle=-2.891253043579689E-4 nativeAngle=-2.8912729959360256E-4 occupants=[380df991-f603-344c-a090-369bad2a924a] riding=true camera=( 4.361E-2  6.080E-6 -1.450E-4  9.990E-1)
+[20:55:12] [Render thread/INFO] [de.fo.cl.ClientDiagnostics/]: FD_CLIENT player=Dev body=44811b50-6427-4ea2-a59e-f667ff859f86 snapshotAngle=-0.00211293627975678 nativeAngle=-0.0021653847895639414 occupants=[380df991-f603-344c-a090-369bad2a924a] riding=true camera=( 4.279E-2  1.703E-1 -8.498E-3  9.844E-1)
+[20:55:17] [Render thread/INFO] [de.fo.cl.ClientDiagnostics/]: FD_CLIENT player=Dev body=44811b50-6427-4ea2-a59e-f667ff859f86 snapshotAngle=-0.0018992154860449678 nativeAngle=-0.001826811566317517 occupants=[380df991-f603-344c-a090-369bad2a924a] riding=true camera=( 3.126E-2  6.816E-1 -3.043E-2  7.304E-1)
+[20:55:22] [Render thread/INFO] [de.fo.cl.ClientDiagnostics/]: FD_CLIENT player=Dev body=44811b50-6427-4ea2-a59e-f667ff859f86 snapshotAngle=2.9343461581207637 nativeAngle=3.2022410830248056 occupants=[380df991-f603-344c-a090-369bad2a924a] riding=true camera=( 7.066E-1  3.479E-2  7.063E-1 -2.688E-2)
+[20:55:27] [Render thread/INFO] [de.fo.cl.ClientDiagnostics/]: FD_CLIENT player=Dev body=44811b50-6427-4ea2-a59e-f667ff859f86 snapshotAngle=6.252640607975717 nativeAngle=6.200635084224253 occupants=[380df991-f603-344c-a090-369bad2a924a] riding=true camera=(-6.577E-3 -7.050E-1  5.506E-2 -7.071E-1)
+[20:55:32] [Render thread/INFO] [de.fo.cl.ClientDiagnostics/]: FD_CLIENT player=Dev body=44811b50-6427-4ea2-a59e-f667ff859f86 snapshotAngle=2.3248245971311605 nativeAngle=2.076482896993175 occupants=[380df991-f603-344c-a090-369bad2a924a] riding=true camera=(-3.083E-2  7.066E-1  3.084E-2  7.063E-1)
+[20:55:37] [Render thread/INFO] [de.fo.cl.ClientDiagnostics/]: FD_CLIENT player=Dev body=44811b50-6427-4ea2-a59e-f667ff859f86 snapshotAngle=-0.0020886138192521067 nativeAngle=-0.0021447886099731847 occupants=[380df991-f603-344c-a090-369bad2a924a] riding=true camera=(-3.083E-2  7.066E-1  3.084E-2  7.063E-1)
+[20:55:42] [Render thread/INFO] [de.fo.cl.ClientDiagnostics/]: FD_CLIENT player=Dev body=44811b50-6427-4ea2-a59e-f667ff859f86 snapshotAngle=-0.0019313667185762834 nativeAngle=-0.001864241264916863 occupants=[380df991-f603-344c-a090-369bad2a924a] riding=true camera=( 3.623E-2 -5.408E-1  2.388E-2  8.400E-1)
+[20:55:47] [Render thread/INFO] [de.fo.cl.ClientDiagnostics/]: FD_CLIENT player=Dev body=44811b50-6427-4ea2-a59e-f667ff859f86 snapshotAngle=-2.88317225356251E-4 nativeAngle=-2.8831811012211474E-4 occupants=[380df991-f603-344c-a090-369bad2a924a] riding=true camera=( 3.688E-2 -5.016E-1  2.150E-2  8.640E-1)
+[20:55:52] [Render thread/INFO] [de.fo.cl.ClientDiagnostics/]: FD_CLIENT player=Dev body=44811b50-6427-4ea2-a59e-f667ff859f86 snapshotAngle=-0.002066600403157254 nativeAngle=-0.002122118358287088 occupants=[380df991-f603-344c-a090-369bad2a924a] riding=true camera=( 4.020E-2 -3.698E-1  1.658E-2  9.281E-1)
+[20:55:57] [Render thread/INFO] [de.fo.cl.ClientDiagnostics/]: FD_CLIENT player=Dev body=44811b50-6427-4ea2-a59e-f667ff859f86 snapshotAngle=-0.001961553593031484 nativeAngle=-0.001889731155913865 occupants=[380df991-f603-344c-a090-369bad2a924a] riding=true camera=( 4.259E-2  2.029E-1 -8.349E-3  9.782E-1)
+[20:56:02] [Render thread/INFO] [de.fo.cl.ClientDiagnostics/]: FD_CLIENT player=Dev body=44811b50-6427-4ea2-a59e-f667ff859f86 snapshotAngle=-2.7470120490659405E-4 nativeAngle=-2.747132598974939E-4 occupants=[380df991-f603-344c-a090-369bad2a924a] riding=true camera=( 4.128E-2  2.563E-1 -1.088E-2  9.657E-1)
+[20:56:03] [Server thread/INFO] [minecraft/MinecraftServer]: [Dev: Changed the block at -106, 123, 33]
+[20:56:03] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] Changed the block at -106, 123, 33
+[20:56:07] [Render thread/INFO] [de.fo.cl.ClientDiagnostics/]: FD_CLIENT player=Dev body=44811b50-6427-4ea2-a59e-f667ff859f86 snapshotAngle=-2.644678094265135E-4 nativeAngle=-2.651225454337692E-4 occupants=[380df991-f603-344c-a090-369bad2a924a] riding=true camera=( 1.088E-2  9.657E-1  4.127E-2 -2.563E-1)
+[20:56:12] [Render thread/INFO] [de.fo.cl.ClientDiagnostics/]: FD_CLIENT player=Dev body=44811b50-6427-4ea2-a59e-f667ff859f86 snapshotAngle=-2.6445559228702143E-4 nativeAngle=-2.651225454337692E-4 occupants=[380df991-f603-344c-a090-369bad2a924a] riding=true camera=( 1.088E-2  9.657E-1  4.127E-2 -2.563E-1)
+[20:56:17] [Render thread/INFO] [de.fo.cl.ClientDiagnostics/]: FD_CLIENT player=Dev body=44811b50-6427-4ea2-a59e-f667ff859f86 snapshotAngle=-2.64466194689999E-4 nativeAngle=-2.651225454337692E-4 occupants=[380df991-f603-344c-a090-369bad2a924a] riding=true camera=( 1.088E-2  9.657E-1  4.127E-2 -2.563E-1)
+[20:56:22] [Render thread/INFO] [de.fo.cl.ClientDiagnostics/]: FD_CLIENT player=Dev body=44811b50-6427-4ea2-a59e-f667ff859f86 snapshotAngle=-2.644665286710513E-4 nativeAngle=-2.651225454337692E-4 occupants=[380df991-f603-344c-a090-369bad2a924a] riding=true camera=( 1.088E-2  9.657E-1  4.127E-2 -2.563E-1)
+[20:56:27] [Render thread/INFO] [de.fo.cl.ClientDiagnostics/]: FD_CLIENT player=Dev body=44811b50-6427-4ea2-a59e-f667ff859f86 snapshotAngle=-2.6446789664791813E-4 nativeAngle=-2.651225454337692E-4 occupants=[380df991-f603-344c-a090-369bad2a924a] riding=true camera=( 1.088E-2  9.657E-1  4.127E-2 -2.563E-1)
+[20:56:32] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] Found no elements matching NoGravity
+[20:56:32] [Render thread/INFO] [de.fo.cl.ClientDiagnostics/]: FD_CLIENT player=Dev body=44811b50-6427-4ea2-a59e-f667ff859f86 snapshotAngle=-2.644616641545243E-4 nativeAngle=-2.651225454337692E-4 occupants=[380df991-f603-344c-a090-369bad2a924a] riding=true camera=( 1.088E-2  9.657E-1  4.127E-2 -2.563E-1)
+[20:56:32] [Server thread/INFO] [minecraft/MinecraftServer]: Stopping server
+[20:56:33] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (FD04StyledRide): All chunks are saved
+[20:56:34] [Render thread/INFO] [minecraft/Minecraft]: Stopping!
+BUILD SUCCESSFUL in 12m 56s
+
+SOURCE: fd04-styled-exit-client.log
+[20:57:15] [Render thread/INFO] [minecraft/ReloadableResourceManager]: Reloading ResourceManager: vanilla, mod_resources, mod/simulatedcoasters, mod/veil, mod/sablecompanion, mod/flywheel, mod/ponder, mod/create, mod/sable, mod/fourthdimension, mod/coastersengineered, mod/coasterssimulatedextratypes, mod/neoforge
+[20:57:17] [Render thread/INFO] [de.fo.cl.in.TrackStylesCatalog/]: FD_OPTIONAL Track Styles 1.2.0: inspected 55 decorative model entries; geometry certification pending
+[20:57:25] [Render thread/INFO] [de.fo.cl.ClientDiagnostics/]: FD_CLIENT player=Dev body=44811b50-6427-4ea2-a59e-f667ff859f86 snapshotAngle=-2.1969711798125826E-4 nativeAngle=-1.7430977559545831E-4 occupants=[380df991-f603-344c-a090-369bad2a924a] riding=true camera=( 4.116E-2 -2.563E-1 -1.097E-2 -9.657E-1)
+[20:57:30] [Render thread/INFO] [de.fo.cl.ClientDiagnostics/]: FD_CLIENT player=Dev body=44811b50-6427-4ea2-a59e-f667ff859f86 snapshotAngle=-2.1975617255918218E-4 nativeAngle=-1.7430977559545831E-4 occupants=[380df991-f603-344c-a090-369bad2a924a] riding=true camera=( 4.116E-2 -2.563E-1 -1.097E-2 -9.657E-1)
+[20:57:35] [Render thread/INFO] [de.fo.cl.ClientDiagnostics/]: FD_CLIENT player=Dev body=44811b50-6427-4ea2-a59e-f667ff859f86 snapshotAngle=-2.1969307129498066E-4 nativeAngle=-1.7430977559545831E-4 occupants=[380df991-f603-344c-a090-369bad2a924a] riding=true camera=( 4.116E-2 -2.563E-1 -1.097E-2 -9.657E-1)
+[20:57:40] [Render thread/INFO] [de.fo.cl.ClientDiagnostics/]: FD_CLIENT player=Dev body=44811b50-6427-4ea2-a59e-f667ff859f86 snapshotAngle=-2.5723736105016655E-4 nativeAngle=-2.4072430838825855E-4 occupants=[] riding=false camera=(-4.115E-2  2.563E-1  1.092E-2  9.657E-1)
+[20:57:41] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] Found no elements matching RootVehicle
+[20:57:42] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] Found no elements matching NoGravity
+[20:57:45] [Render thread/INFO] [de.fo.cl.ClientDiagnostics/]: FD_CLIENT player=Dev body=44811b50-6427-4ea2-a59e-f667ff859f86 snapshotAngle=-2.57253091214205E-4 nativeAngle=-2.4072430838825855E-4 occupants=[] riding=false camera=(-4.115E-2  2.563E-1  1.092E-2  9.657E-1)
+[20:57:50] [Render thread/INFO] [de.fo.cl.ClientDiagnostics/]: FD_CLIENT player=Dev body=44811b50-6427-4ea2-a59e-f667ff859f86 snapshotAngle=-2.5725070012998734E-4 nativeAngle=-2.4072430838825855E-4 occupants=[] riding=false camera=(-4.115E-2  2.563E-1  1.092E-2  9.657E-1)
+[20:57:55] [Render thread/INFO] [de.fo.cl.ClientDiagnostics/]: FD_CLIENT player=Dev body=44811b50-6427-4ea2-a59e-f667ff859f86 snapshotAngle=-2.5717064697498035E-4 nativeAngle=-2.4072430838825855E-4 occupants=[] riding=false camera=(-4.115E-2  2.563E-1  1.092E-2  9.657E-1)
+[20:58:01] [Server thread/INFO] [minecraft/MinecraftServer]: Stopping server
+[20:58:01] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (FD04StyledRide): All chunks are saved
+[20:58:02] [Render thread/INFO] [minecraft/Minecraft]: Stopping!
+BUILD SUCCESSFUL in 59s

@@ -36,9 +36,10 @@ Appearance intent is saved separately in schema 5. Earlier schema 1–4 rails
 default to Original; missing provider IDs and tint are retained while the original
 family geometry is shown. Reinstalling the same provider restores the selection.
 Network protocol 5 requires matching client and server builds. This checkpoint
-does not certify all exposed development choices: the single-spine Arrow straight
-has visual and provider-lifecycle evidence; double spine, curves/banking,
-clearance and complete styled rides remain to be validated.
+does not certify all exposed development choices: single-spine provider removal
+and reinstallation, double-spine fallback/resource reload, a flat single-spine
+quarter curve and a real styled Arrow circuit now have bounded evidence. Banking,
+complete clearance and broader graphics coverage remain to be validated.
 
 ## Reproducible development profiles
 
@@ -74,7 +75,12 @@ The audit retains both observations in `research/dependency-audit.json`.
 
 Complete style geometry and clearance checks and record supported styles/render
 modes and styled ride behavior. Resource reload and a real removal/reinstallation
-cycle now pass for one single-spine controlled Arrow section. Engineered operating spans now have the bounded native results below. A native coupled Arrow full-turn/STOP/powered-rollback fixture now passes. Complete styled GUI rides, FE-enabled operation, real-player operator actions and boarding-signal wiring still need evidence. Publish supported
+cycle now pass for one single-spine controlled Arrow section. Engineered operating
+spans and a native coupled Arrow full-turn/STOP/powered-rollback fixture now have
+the bounded results below. The packaged styled Arrow circuit covers real-player
+restraint actions and rear station input dispatch/capture. FE-enabled Engineered
+operation, its complete operator workflow, banking and broader rendering/clearance
+still need evidence. Publish supported
 combinations only after the runtime matrix; inspection profiles alone are not
 advertised gameplay support.
 
@@ -102,8 +108,9 @@ certificate. Separate transforms center the spine and ties; a positive-handed
 model frame preserves textured-model winding even though the native travel basis
 has different handedness. Resource baking invalidates meshes by catalog
 generation. Original running/control rails and mechanical supports remain ours;
-external rail models are never rendered. Native curved/banked alignment and
-clearance still need evidence before these development choices are advertised.
+external rail models are never rendered. The packaged flat quarter curve now has
+exterior alignment and occupied circuit evidence. Banking and complete clearance
+still need evidence before broad style compatibility is advertised.
 
 ## Engineered operating adapter checkpoint
 

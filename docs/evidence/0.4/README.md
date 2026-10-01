@@ -2,6 +2,16 @@
 
 This is partial FD401 evidence, not the 0.4 or 0.9 release gate.
 
+## Packaged styled ride checkpoint
+
+The dev.4 [styled acceptance](styled-acceptance.md) records actual editor selection
+of double spine, +1080° Original fallback, cold reopen, +360° restoration,
+resource reload, a flat single-spine quarter curve, and a real occupied circuit
+with station recapture and verified final dismount. Run
+`python scripts/verify-styled-ride.py` to check the committed save observations.
+Banking, complete clearance and rendering modes remain open. Earlier sections
+below describe historical artifacts and their then-pending work.
+
 ## Powered train and control-stroke checkpoint
 
 The dev.4 [powered-train acceptance](powered-train-acceptance.md) extends the

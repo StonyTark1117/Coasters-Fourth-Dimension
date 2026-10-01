@@ -1,0 +1,6 @@
+high-save: schema=5; 35 rails, 8 vehicles, 20 carriers; expected intent/profile/operator state
+restored-save: schema=5; 35 rails, 8 vehicles, 20 carriers; expected intent/profile/operator state
+occupied-save: schema=5; 35 rails, 8 vehicles, 20 carriers; expected intent/profile/operator state
+final-save: schema=5; 35 rails, 8 vehicles, 20 carriers; expected intent/profile/operator state
+Occupied turn: peak recorded target=6.252641 rad; final boarding/dismount preserved
+PASS: bounded dev.4 GUI/save/ride observations; graphics/clearance breadth remains separate
