@@ -1,6 +1,6 @@
 # Ordinary-bearing recovery
 
-Development build 0.9.0-dev.15 adds explicit recovery coupling for the five
+Development build 0.9.0-dev.16 includes explicit recovery coupling for the five
 original families. A 4D car stays on its matching functional track throughout.
 Only the pinned, unmodified bare Coasters bearing is certified as the ordinary
 recovery cart. It acquires no carriers, profile, magnetic assistance or 4D data.
@@ -24,6 +24,8 @@ disconnecting restores its independent ordinary-cart access.
 4. Supply slow ordinary longitudinal propulsion. **Start tow** releases the
    common translational hold while keeping carriers retained and restraints
    closed. The native chain demonstration uses eight RPM, targeting 0.5 blocks/s.
+   In the dev.16 example, set motor speed while its clutch lever is ON (power
+   disconnected), then turn the lever OFF to supply chain power.
    The recovery speed limit is 0.75 blocks/s. Ride dispatch and releasing
    restraints or retention are prohibited while recovery remains attached.
 5. Choose **Brake tow**, then stop the propulsion input. Wait for the ordinary
@@ -86,12 +88,16 @@ In a clear, loaded corridor, operators can create these standalone examples:
 
 Each example supplies 48 blocks of matching original track, the correct car,
 a correctly spaced ordinary bearing, a native chain drive with its Create
-creative motor initially at zero RPM, and side platforms. Coupling and recovery
+creative motor initially at zero RPM, a clutch with its stop lever ON, and side platforms. Coupling and recovery
 controls are left to the operator. Set eight RPM in the direction of the ordinary
-bearing after attachment; **Start tow** enables travel. Brake before the end and
-stop chain power before disconnecting the now-independent ordinary bearing. The
-current example starts unpowered; the bounded client check stops power by normal
-creative removal of its motor. A clearer switchable example remains needed.
+bearing after attachment; **Start tow** enables travel. Turn the clutch lever
+OFF to supply power. Choose **Brake tow** before the end, then turn the lever
+ON to disconnect chain power before detaching the now-independent ordinary
+bearing. The motor can remain installed at eight RPM. The earlier dev.15
+client check removed its directly connected motor; dev.16 replaces that setup
+with the switchable clutch. Recovery buttons explain the sequence, ride-only
+controls are disabled while attached, and hovering over the live status shows
+the complete fault text when it exceeds the visible line. The [dev.16 checkpoint](evidence/0.4/recovery/power-control/acceptance.md) records native five-family lever checks and an empty Arrow client manual-brake, power-stop and fresh-process restoration exercise.
 The PAX example is an unassigned recovery car; a bound four-car shuttle uses the
 separate handover workflow above. Commands require operator permission and a
 17 by 14 by 57 clear corridor inside the supported track/build bounds.

@@ -135,5 +135,14 @@
   "fourthdimension.ponder.pax.text_5": "The mechanical catch lifts the train. The catch releases at the crest; the train then travels freely.",
   "fourthdimension.ponder.pax.text_6": "The shuttle passes outbound, reverses and returns. Seat rotation remains free during the ride.",
   "fourthdimension.ponder.pax.text_7": "The returning train is caught and retained. Wait for the winch to report boarding readiness before opening restraints.",
-  "fourthdimension.ponder.pax.text_8": "If lift power is interrupted, restore power, inspect the route and use the winch normally to resume."
+  "fourthdimension.ponder.pax.text_8": "If lift power is interrupted, restore power, inspect the route and use the winch normally to resume.",
+  "editor.fourthdimension.recovery.braked": "Recovery braked | carriers retained",
+  "editor.fourthdimension.recovery.towing": "Recovery towing | carriers retained",
+  "editor.fourthdimension.recovery.hint": "Brake tow, stop power, then detach (max 0.75 b/s)",
+  "editor.fourthdimension.recovery.locked": "Disconnect recovery before ride dispatch, opening restraints or releasing retention.",
+  "editor.fourthdimension.recovery.action_20": "Close restraints and retain every car. Sneak-use the Rotation Tool on a stopped bare bearing on matching track, then attach at the correct axle spacing.",
+  "editor.fourthdimension.recovery.action_21": "Inspect any fault and restore matching track, gear, bodies and couplings before resuming. Keep restraints closed and carriers retained. Towing never resumes automatically.",
+  "editor.fourthdimension.recovery.action_22": "Brake the whole recovery consist, then stop its external propulsion before disconnecting.",
+  "editor.fourthdimension.recovery.action_23": "Stop external propulsion and wait for the complete consist to stop and align. Only the recovery coupling is removed; original train links and carrier retention remain.",
+  "editor.fourthdimension.recovery.action_24": "Stop the PAX shuttle and retain every car with closed restraints. Hand over its loaded physical winch and carriage before attaching recovery."
 }

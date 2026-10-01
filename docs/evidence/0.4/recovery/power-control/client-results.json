@@ -1,0 +1,50 @@
+{
+  "version": "0.9.0-dev.16",
+  "artifactSha256": "1a8c898d0280206697055d73ca24a1a1d4e145f7cd7430562bc7480c78a820ff",
+  "sourceManifestSha256": "9c375ee536daf066b979b1e8c940dd327fff8d6d7afbc6a8146bf0f1a03af37a",
+  "profile": "standalone",
+  "clientRuns": {
+    "final": {
+      "path": "/tmp/fd16-final-packaged-client.log",
+      "cleanExit": true,
+      "missingSublevelMovementWarnings": 4
+    },
+    "reopened": {
+      "path": "/tmp/fd16-reopened-packaged-client.log",
+      "cleanExit": true,
+      "missingSublevelMovementWarnings": 4
+    }
+  },
+  "display": ":117",
+  "window": [
+    1280,
+    720
+  ],
+  "guiScale": 3,
+  "validationFlags": {
+    "validation": false,
+    "ponderValidation": false,
+    "schedulerValidation": false,
+    "shuttleValidation": false
+  },
+  "primaryChassis": "581bac82-941e-40c2-8583-5765b54e9876",
+  "primaryRecoveryBearing": "725cb8d3-918a-4758-b74e-85a6122372b7",
+  "normalNativeLeverPowerCutAndSupply": true,
+  "motorRemainsInstalledAt8RPM": true,
+  "manualEmptyArrowBrakeBeforeBoundary": true,
+  "freshProcessTwoOriginalRecoveryCouplingsRestored": true,
+  "restorationAutoResume": false,
+  "restorationAvailabilityFaultRequiresExplicitInspectionResume": true,
+  "originalVehicleAndCarrierIdentitiesStable": true,
+  "railAndProfileRecordsUnchanged": true,
+  "carrierConfigurationUnchanged": true,
+  "finalRecoveryIdentitiesCleared": 2,
+  "finalAllRetainedStoppedRestraintsOpen": true,
+  "finalPrimaryFault": "",
+  "finalOtherFaults": [
+    "End of compatible track; capture and inspect the route",
+    "Recovery equipment, coupling or matching track unavailable: brake and inspect before resume"
+  ],
+  "worldBackup": "/home/braydon/Documents/Coasters: Fourth Dimension/runs/recovery-dev16/finished-world",
+  "scope": "Empty Arrow GUI operation and cold restoration; five-family lever checks are native headless tests. No quantitative rendered braking, occupied GUI, complete curve/bank/strength or multiplayer-lifecycle claim."
+}

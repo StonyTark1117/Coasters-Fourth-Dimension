@@ -1,0 +1,17 @@
+FD_APPEARANCE schema=6 oldSchemas=1..5 missingIntentPreserved=true mechanicsUnchanged=true styleFamilyCases=10 strokeCases=2
+FD_RECOVERY_PAX physicalCarriageHandover=true activeHandoverRejected=true originalCarsAndCarriersPreserved=true originalCouplings=4 replacementCarriage=false
+FD_RECOVERY_NATIVE family=ARROW travel=5.580688186355076 riders=4 maxSpacing=6.095140303141733E-5 maxAngle=5.092224447271239E-4 fault=
+FD_RECOVERY_NATIVE family=LEGACY travel=5.487636766355251 riders=8 maxSpacing=5.547874575295708E-5 maxAngle=2.8629213890466186E-4 fault=
+FD_RECOVERY_NATIVE family=FREE_SPIN travel=5.252899157232093 riders=8 maxSpacing=3.0424205514023583E-5 maxAngle=1.609997434374365E-4 fault=
+FD_RECOVERY_NATIVE family=REVISED travel=5.229095446588644 riders=8 maxSpacing=3.0497585800759452E-5 maxAngle=1.0476869023350712E-4 fault=
+FD_RECOVERY_NATIVE family=PAX travel=5.574768068242861 riders=4 maxSpacing=2.7665914430485827E-5 maxAngle=4.158226037275226E-5 fault=
+FD_RECOVERY_POWER fiveFamilies=true initialPowerCut=true normalLeverStart=true normalLeverStop=true motorRetainedAt8RPM=true anchorStopped=true
+FD_RECOVERY_HOLD fiveFamilies=true allComponentsHeld=true missingResumeRejected=true dormantDisconnectRejected=true permanentRemoval=false
+FD_RECOVERY_HOLD fiveFamiliesRestored=true ridersRestored=32 nativeCouplingsPreserved=true autoResume=false explicitResume=true
+FD_RECOVERY_NATIVE fiveFamilies=true actualChainDrive=true wrongFamilyRecoverySnapsRejected=40 movingUnlinkRejected=true staleEditRejected=true saveRoundTrip=true brokenLinkRetained=true normalDetachAndUnload=true permanentBearingRemoval=true
+FD_RECOVERY_TRAIN family=ARROW cars=2 riders=8 travel=4.42016456342276 maxSpacing=1.2128065793604037E-4
+FD_RECOVERY_TRAIN family=PAX cars=4 riders=16 travel=3.7695314271297775 maxSpacing=6.171710583657841E-5
+FD_RECOVERY_TRAIN originalArrowCars=2 originalPaxCars=4 occupiedRiders=24 nativeChainDrive=true originalLinksAfterDetach=true retentionPreserved=true normalUnloading=true
+[14:14:13] [Server thread/INFO] [minecraft/GameTestServer]: ========= 33 GAME TESTS COMPLETE IN 2.779 min ======================
+[14:14:13] [Server thread/INFO] [minecraft/GameTestServer]: All 33 required tests passed :)
+BUILD SUCCESSFUL in 3m 3s

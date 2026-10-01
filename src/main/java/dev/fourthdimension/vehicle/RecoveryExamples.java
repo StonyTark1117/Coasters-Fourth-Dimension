@@ -17,6 +17,7 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.level.GameType;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.properties.AttachFace;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.neoforged.neoforge.common.util.FakePlayerFactory;
 import net.neoforged.neoforge.event.RegisterCommandsEvent;
@@ -47,7 +48,10 @@ public final class RecoveryExamples {
                                           + " the Rotation Tool on the bare bearing; select Attach"
                                           + " recovery on the end car, then Start tow. Set the"
                                           + " creative motor to 8 RPM in the bearing's direction."
-                                          + " Brake tow before Detach recovery; carriers remain"
+                                          + " The lever above the clutch starts ON (power OFF)."
+                                          + " Turn it OFF to supply towing power."
+                                          + " Brake tow, turn the lever ON to stop power, then"
+                                          + " Detach recovery; carriers remain"
                                           + " retained. Maximum recovery speed: 0.75 blocks/s."),
                               false);
                       return 1;
@@ -62,7 +66,8 @@ public final class RecoveryExamples {
   public record Example(
       FoundationData.Vehicle car,
       dev.ryanhcode.sable.sublevel.ServerSubLevel bearing,
-      CreativeMotorBlockEntity motor) {}
+      CreativeMotorBlockEntity motor,
+      BlockPos powerLever) {}
 
   public static Example create(ServerLevel level, BlockPos origin, TrackDesign design) {
     var data = FoundationData.get(level);
@@ -135,7 +140,22 @@ public final class RecoveryExamples {
         new CoasterPathGraphSpans.SpanPath(
             List.of(new CoasterPathGraphSpans.PathSegment(edge, 0, 1)),
             TrackGeometry.table(level, edge).length()));
-    var motorPos = origin.east();
+    var clutchPos = origin.east();
+    level.setBlockAndUpdate(
+        clutchPos,
+        AllBlocks.CLUTCH
+            .getDefaultState()
+            .setValue(BlockStateProperties.AXIS, Direction.Axis.X)
+            .setValue(BlockStateProperties.POWERED, true));
+    var leverPos = clutchPos.above();
+    level.setBlockAndUpdate(
+        leverPos,
+        Blocks.LEVER
+            .defaultBlockState()
+            .setValue(BlockStateProperties.ATTACH_FACE, AttachFace.FLOOR)
+            .setValue(BlockStateProperties.HORIZONTAL_FACING, Direction.NORTH)
+            .setValue(BlockStateProperties.POWERED, true));
+    var motorPos = origin.east(2);
     level.setBlockAndUpdate(
         motorPos,
         AllBlocks.CREATIVE_MOTOR
@@ -149,6 +169,7 @@ public final class RecoveryExamples {
         level.setBlockAndUpdate(p, Blocks.SMOOTH_STONE.defaultBlockState());
     data.setDirty();
     FoundationSync.broadcast(level);
-    return new Example(car, ordinary, (CreativeMotorBlockEntity) level.getBlockEntity(motorPos));
+    return new Example(
+        car, ordinary, (CreativeMotorBlockEntity) level.getBlockEntity(motorPos), leverPos);
   }
 }

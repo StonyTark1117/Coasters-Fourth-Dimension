@@ -35,6 +35,7 @@ public final class RecoveryGameTests {
     FoundationData.Vehicle car;
     ServerSubLevel ordinary;
     CreativeMotorBlockEntity motor;
+    BlockPos powerLever;
     Vector3d start;
     double maxAngle, maxSpacing;
     final List<net.minecraft.world.entity.animal.Pig> riders = new ArrayList<>();
@@ -66,6 +67,7 @@ public final class RecoveryGameTests {
       c.car = example.car();
       c.ordinary = example.bearing();
       c.motor = example.motor();
+      c.powerLever = example.powerLever();
       c.rail =
           data.rails.stream()
               .filter(r -> r.matches(c.car.boundFrom, c.car.boundTo))
@@ -78,6 +80,10 @@ public final class RecoveryGameTests {
           for (var c : cases) {
             helper.assertTrue(
                 Boarding.ready(level, c.car), "Recovery car failed initial alignment");
+            c.motor.generatedSpeed.setValue(
+                8
+                    * ((CoasterAnchorpointBlockEntity) level.getBlockEntity(c.rail.from))
+                        .getChainLiftTravelSign());
             for (var carrier : c.car.carriers)
               for (var offset : carrier.seats) {
                 var body = container.getSubLevel(carrier.body);
@@ -160,11 +166,26 @@ public final class RecoveryGameTests {
             c.start =
                 new Vector3d(
                     CoasterCartResolve.cartCenterWorld(container.getSubLevel(c.car.chassis)));
+            helper.assertTrue(
+                ((CoasterAnchorpointBlockEntity) level.getBlockEntity(c.rail.from)).getSpeed() == 0
+                    && Math.abs(c.motor.generatedSpeed.getValue()) == 8
+                    && level
+                        .getBlockState(c.powerLever)
+                        .getValue(
+                            net.minecraft.world.level.block.state.properties.BlockStateProperties
+                                .POWERED),
+                "Initial recovery clutch transmitted power with its stop lever on " + c.design);
             edit(player, c.car, 21);
-            c.motor.generatedSpeed.setValue(
-                8
-                    * ((CoasterAnchorpointBlockEntity) level.getBlockEntity(c.rail.from))
-                        .getChainLiftTravelSign());
+            helper.assertTrue(
+                level
+                    .getBlockState(c.powerLever)
+                    .useWithoutItem(
+                        level,
+                        player,
+                        new BlockHitResult(
+                            Vec3.atCenterOf(c.powerLever), Direction.UP, c.powerLever, false))
+                    .consumesAction(),
+                "Normal recovery power lever interaction failed");
           }
         });
     helper.onEachTick(
@@ -218,6 +239,13 @@ public final class RecoveryGameTests {
             position(player, container.getSubLevel(c.car.chassis));
             reject(helper, () -> edit(player, c.car, 23), "Moving recovery unlink accepted");
             edit(player, c.car, 22);
+            level
+                .getBlockState(c.powerLever)
+                .useWithoutItem(
+                    level,
+                    player,
+                    new BlockHitResult(
+                        Vec3.atCenterOf(c.powerLever), Direction.UP, c.powerLever, false));
           }
         });
     helper.runAtTickTime(
@@ -252,7 +280,16 @@ public final class RecoveryGameTests {
                     && saved.maintenance
                     && saved.restraints,
                 "Recovery save lost its identity or retained state");
-            c.motor.generatedSpeed.setValue(0);
+            helper.assertTrue(
+                ((CoasterAnchorpointBlockEntity) level.getBlockEntity(c.rail.from)).getSpeed() == 0
+                    && Math.abs(c.motor.generatedSpeed.getValue()) == 8
+                    && level
+                        .getBlockState(c.powerLever)
+                        .getValue(
+                            net.minecraft.world.level.block.state.properties.BlockStateProperties
+                                .POWERED),
+                "Recovery lever failed to cut chain power without removing or zeroing the motor "
+                    + c.design);
             var members = new ArrayList<UUID>();
             members.add(c.ordinary.getUniqueId());
             members.add(c.car.chassis);
@@ -284,6 +321,9 @@ public final class RecoveryGameTests {
                 () -> RecoveryOperations.start(level, c.car),
                 "Unavailable recovery resumed");
           }
+          System.out.println(
+              "FD_RECOVERY_POWER fiveFamilies=true initialPowerCut=true normalLeverStart=true"
+                  + " normalLeverStop=true motorRetainedAt8RPM=true anchorStopped=true");
           RecoveryOperations.tick(level, .05);
           helper.assertTrue(
               cases.stream()

@@ -151,6 +151,17 @@ public final class RecoveryTrainGameTests {
             train.start =
                 new Vector3d(
                     CoasterCartResolve.cartCenterWorld(container.getSubLevel(end.chassis)));
+            var lever = train.example.powerLever();
+            level
+                .getBlockState(lever)
+                .useWithoutItem(
+                    level,
+                    operator,
+                    new net.minecraft.world.phys.BlockHitResult(
+                        net.minecraft.world.phys.Vec3.atCenterOf(lever),
+                        Direction.UP,
+                        lever,
+                        false));
             train
                 .example
                 .motor()

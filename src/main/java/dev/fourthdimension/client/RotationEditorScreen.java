@@ -21,6 +21,7 @@ public final class RotationEditorScreen extends Screen {
   private String status = "";
   private boolean free;
   private boolean magnetic;
+  private boolean recovery;
   private int previewLoading;
 
   public RotationEditorScreen(EditorNetwork.Target target) {
@@ -54,12 +55,8 @@ public final class RotationEditorScreen extends Screen {
       revision = v.revision;
       free = !v.family.driven();
       magnetic = v.family == dev.fourthdimension.contract.Family.FREE_SPIN;
-      status =
-          v.family.id()
-              + " | "
-              + (v.boardingReady ? "Ready" : "Aligning / moving")
-              + " | "
-              + (v.restraints ? "Restraints closed" : "Restraints open");
+      recovery = v.recoveryCart != null;
+      updateVehicleStatus(v);
       value.setValue(v.damping + "," + v.ballast);
       value.setTooltip(
           net.minecraft.client.gui.components.Tooltip.create(
@@ -88,7 +85,6 @@ public final class RotationEditorScreen extends Screen {
         addButton("Start tow", left, top + 212, 21);
         addButton("Brake tow", left + 115, top + 212, 22);
         addButton("Detach recovery", left + 230, top + 212, 23);
-        status = "Recovery " + (v.stopping ? "braked" : "towing") + " | carriers retained";
       }
       if (magnetic) {
         addButton("Empty ballast", left, top + 186, 17);
@@ -219,7 +215,7 @@ public final class RotationEditorScreen extends Screen {
   }
 
   private void addButton(String label, int x, int y, int action) {
-    addRenderableWidget(
+    var button =
         Button.builder(
                 Component.literal(label),
                 b -> {
@@ -228,7 +224,33 @@ public final class RotationEditorScreen extends Screen {
                   onClose();
                 })
             .bounds(x, y, 110, 20)
-            .build());
+            .build();
+    if (recovery && (action == 12 || action == 13 || action == 15)) {
+      button.active = false;
+      button.setTooltip(
+          Tooltip.create(Component.translatable("editor.fourthdimension.recovery.locked")));
+    } else if (action >= 20 && action <= 24) {
+      button.setTooltip(
+          Tooltip.create(
+              Component.translatable("editor.fourthdimension.recovery.action_" + action)));
+    }
+    addRenderableWidget(button);
+  }
+
+  private void updateVehicleStatus(FoundationData.Vehicle vehicle) {
+    status =
+        recovery
+            ? Component.translatable(
+                    vehicle.stopping
+                        ? "editor.fourthdimension.recovery.braked"
+                        : "editor.fourthdimension.recovery.towing")
+                .getString()
+            : vehicle.family.id()
+                + " | "
+                + (vehicle.boardingReady ? "Ready" : "Aligning / moving")
+                + " | "
+                + (vehicle.restraints ? "Restraints closed" : "Restraints open");
+    if (!vehicle.fault.isEmpty()) status += " | " + vehicle.fault;
   }
 
   @Override
@@ -239,12 +261,21 @@ public final class RotationEditorScreen extends Screen {
     int left = width / 2 - 180, top = height / 2 - (target.vehicle() ? 126 : 100);
     graphics.fill(left, top, left + 360, top + (target.vehicle() ? 252 : 200), 0xee171d25);
     graphics.drawString(font, title, left + 10, top + 10, 0xffffff);
-    graphics.drawString(font, status, left + 10, top + 26, 0xf3d179);
+    if (target.vehicle()) {
+      var snapshot = EligibilityHooks.data(minecraft.level);
+      var vehicle = snapshot == null ? null : snapshot.vehicles.get(target.id());
+      if (vehicle != null) updateVehicleStatus(vehicle);
+    }
+    String visibleStatus =
+        font.width(status) <= 340 ? status : font.plainSubstrByWidth(status, 330) + "…";
+    graphics.drawString(font, visibleStatus, left + 10, top + 26, 0xf3d179);
     String hint =
         target.vehicle()
-            ? (free
-                ? "Damping, ballast kg per carrier (80 kg per rider)"
-                : "Capture, close restraints, then dispatch")
+            ? (recovery
+                ? Component.translatable("editor.fourthdimension.recovery.hint").getString()
+                : free
+                    ? "Damping, ballast kg per carrier (80 kg per rider)"
+                    : "Capture, close restraints, then dispatch")
             : (free
                 ? magnetic
                     ? "start:end:induce/damp:direction:strength:falloff:mask"
@@ -252,6 +283,9 @@ public final class RotationEditorScreen extends Screen {
                 : "distance:degrees:slope; ...  (angles remain unwrapped)");
     graphics.drawString(font, hint, left + 10, top + 42, 0xc2d2dd);
     super.render(graphics, mouseX, mouseY, partialTick);
+    if (mouseX >= left + 10 && mouseX < left + 350 && mouseY >= top + 26 && mouseY < top + 36)
+      graphics.renderTooltip(
+          font, font.split(Component.literal(status), Math.min(300, width - 24)), mouseX, mouseY);
   }
 
   @EventBusSubscriber(modid = "fourthdimension", value = Dist.CLIENT)
