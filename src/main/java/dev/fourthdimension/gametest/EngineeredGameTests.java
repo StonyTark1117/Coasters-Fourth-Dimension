@@ -628,7 +628,7 @@ public final class EngineeredGameTests {
     return probe;
   }
 
-  private static Object configureMotor(
+  static Object configureMotor(
       GameTestHelper helper, FoundationData.Rail rail, BlockPos pos, int speed, String heading) {
     var level = helper.getLevel();
     var segment = construct("span.SpanSegment", rail.from, rail.to, 0d, 1d);
@@ -649,7 +649,7 @@ public final class EngineeredGameTests {
     return controller;
   }
 
-  private static void setMode(Object controller, String kind, int value) {
+  static void setMode(Object controller, String kind, int value) {
     setMode(controller, kind, "FORWARD", value);
   }
 
@@ -663,7 +663,7 @@ public final class EngineeredGameTests {
     invoke(controller, "setSteps", List.of(step));
   }
 
-  private static void assertMass(GameTestHelper helper, FoundationData.Vehicle vehicle) {
+  static void assertMass(GameTestHelper helper, FoundationData.Vehicle vehicle) {
     var level = helper.getLevel();
     var container = SubLevelContainer.getContainer(level);
     var chassis = (ServerSubLevel) container.getSubLevel(vehicle.chassis);
@@ -687,7 +687,7 @@ public final class EngineeredGameTests {
         Math.abs(actual - expected) < 1e-6, "Engineered mass differs from native assembly mass");
   }
 
-  private static Class<?> type(String name) {
+  static Class<?> type(String name) {
     try {
       return Class.forName(API + name);
     } catch (ReflectiveOperationException failure) {
@@ -713,7 +713,7 @@ public final class EngineeredGameTests {
     }
   }
 
-  private static Object invoke(Object target, String name, Object... args) {
+  static Object invoke(Object target, String name, Object... args) {
     try {
       var type = target instanceof Class<?> c ? c : target.getClass();
       for (var method : type.getMethods())

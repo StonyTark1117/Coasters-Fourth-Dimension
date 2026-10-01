@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.9.0-dev.5 — styled ride and native FE validation
+
+- Record a real packaged dev.4 Arrow circuit with double-spine controlled track, a single-spine flat quarter curve, station dispatch/recapture and verified dismount.
+- Preserve double-spine intent and a +1080° profile through Original fallback and cold reopen; restore +360° styling and verify resource reload.
+- Add an isolated native Engineered FE batch using its real anchor capability: empty-buffer starvation, supplied launches, regenerative braking, PAX ownership and retained-car holds without energy consumption. Restore the previous energy configuration after the batch.
+- Add committed GUI/save observation verifiers to CI. Schema/network protocol remains 5. Banking, complete clearance, rendering modes and the complete Engineered operator workflow still gate FD401.
+
 ## 0.9.0-dev.4 — powered controlled train and decorative stroke guard
 
 - Validate an actual Engineered-driven coupled Arrow train through independent full-turn axle targets, STOP hold, powered rollback, recapture and passenger unloading.

@@ -78,8 +78,9 @@ modes and styled ride behavior. Resource reload and a real removal/reinstallatio
 cycle now pass for one single-spine controlled Arrow section. Engineered operating
 spans and a native coupled Arrow full-turn/STOP/powered-rollback fixture now have
 the bounded results below. The packaged styled Arrow circuit covers real-player
-restraint actions and rear station input dispatch/capture. FE-enabled Engineered
-operation, its complete operator workflow, banking and broader rendering/clearance
+restraint actions and rear station input dispatch/capture. Native FE-enabled
+starvation/supply/braking/retention now passes in an isolated batch. The complete
+Engineered operator/FE-network workflow, banking and broader rendering/clearance
 still need evidence. Publish supported
 combinations only after the runtime matrix; inspection profiles alone are not
 advertised gameplay support.
@@ -171,4 +172,22 @@ Engineered motors through full unwrapped turns at their own axles. Actual STOP
 holds the full-turn plateau, reverse LAUNCH retraces the program, and normal
 capture/restraint release unloads both native passengers. It adds real native
 coupled/non-flat operating coverage to the earlier flat single-car fixture;
-it does not establish an external functional track provider or styled GUI ride.
+it does not establish an external functional track provider. The separate dev.4
+[styled GUI checkpoint](evidence/0.4/styled-acceptance.md) used native chains,
+with bounded appearance/ride evidence and its own exact artifact hash.
+
+## Native FE-enabled checkpoint
+
+The dev.5 [FE acceptance](evidence/0.4/fe-acceptance.md) adds an isolated batch with
+Engineered's energy requirement enabled and real NeoForge anchor capabilities.
+Empty buffers prevent propulsion; supplied buffers launch four loaded non-PAX
+families and a fitting ordinary bearing. Native STOP regenerates energy while
+braking and may spend some of it on subsequent positional holding. Capture,
+unloading and supplied maintenance retention pass without energy consumption;
+PAX retains exclusive winch ownership and spends no motor FE.
+
+The batch restores the previous configuration before the existing default-energy
+scenarios run. Missing or uninspected versions explicitly skip FE operation.
+This does not certify a generator/cable integration, controller GUI sequence,
+FE-network reload or every powered layout. The earlier operating and GUI
+checkpoints retain their distinct artifacts and bounded scopes.

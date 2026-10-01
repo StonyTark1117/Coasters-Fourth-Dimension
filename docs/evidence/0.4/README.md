@@ -2,6 +2,14 @@
 
 This is partial FD401 evidence, not the 0.4 or 0.9 release gate.
 
+## FE-enabled operating checkpoint
+
+The dev.5 [FE acceptance](fe-acceptance.md) exercises installed native anchor
+capabilities with energy required: empty-buffer starvation, supplied launch,
+sampled regenerative braking, PAX ownership, normal unloading and powered
+maintenance holds without FE loss. The isolated batch restores its original
+configuration. Real-player controller/FE-network workflows remain separate.
+
 ## Packaged styled ride checkpoint
 
 The dev.4 [styled acceptance](styled-acceptance.md) records actual editor selection

@@ -1,0 +1,21 @@
+FD_ENGINEERED_FE isolatedBatch requireEnergy=true previous=false
+FD_ENGINEERED_FE starved arrow_controlled drift=0.0 supplied=100000
+FD_ENGINEERED_FE starved zacspin_legacy drift=0.075164794921875 supplied=100000
+FD_ENGINEERED_FE starved sns_free_spin drift=0.0 supplied=100000
+FD_ENGINEERED_FE starved zacspin_revised drift=0.0 supplied=100000
+FD_ENGINEERED_FE starved pax_shuttle drift=0.0 supplied=100000
+FD_ENGINEERED_FE starved ordinary drift=0.0 supplied=100000
+FD_ENGINEERED_FE supplied arrow_controlled distance=16.17132568359375 speed=6.257407213549441 remaining=96265
+FD_ENGINEERED_FE supplied zacspin_legacy distance=16.26019287109375 speed=6.173841515733915 remaining=95277
+FD_ENGINEERED_FE supplied sns_free_spin distance=16.538330078125 speed=6.431303516213439 remaining=91025
+FD_ENGINEERED_FE supplied zacspin_revised distance=16.55072021484375 speed=6.439516558715689 remaining=90561
+FD_ENGINEERED_FE supplied pax_shuttle distance=0.0 speed=5.60060085263296E-4 remaining=100000
+FD_ENGINEERED_FE supplied ordinary distance=17.45452880859375 speed=6.9347381636187695 remaining=99649
+FD_ENGINEERED_FE stopped arrow_controlled speed=0.0067661253837088455 recovered=708
+FD_ENGINEERED_FE stopped zacspin_legacy speed=0.015740499620031125 recovered=682
+FD_ENGINEERED_FE stopped sns_free_spin speed=0.007063526479341687 recovered=1567
+FD_ENGINEERED_FE stopped zacspin_revised speed=0.0033994213976807374 recovered=1708
+FD_ENGINEERED_FE stopped pax_shuttle speed=5.600608419628879E-4 recovered=0
+[21:09:14] [Server thread/ERROR] [minecraft/LogTestReporter]: nativeenergystarvationsupplybrakeandretention failed at -701117, -60, -10913919! Native STOP did not regenerate FE
+FD_ENGINEERED_FE restored requireEnergy=false
+BUILD FAILED in 1m 5s
