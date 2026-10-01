@@ -14,15 +14,25 @@ public final class EngineeredShuttleCheck {
   private EngineeredShuttleCheck() {}
 
   public static Runnable attach(GameTestHelper helper, ShuttleExamples.Example example) {
-    return attach(helper, example, false);
+    return attach(helper, example, false, null);
   }
 
   public static Runnable attachReload(GameTestHelper helper, ShuttleExamples.Example example) {
-    return attach(helper, example, true);
+    return attachReload(helper, example, ShuttleWinchEntity.Phase.LIFTING);
+  }
+
+  public static Runnable attachReload(
+      GameTestHelper helper,
+      ShuttleExamples.Example example,
+      ShuttleWinchEntity.Phase interruptedPhase) {
+    return attach(helper, example, true, interruptedPhase);
   }
 
   private static Runnable attach(
-      GameTestHelper helper, ShuttleExamples.Example example, boolean reload) {
+      GameTestHelper helper,
+      ShuttleExamples.Example example,
+      boolean reload,
+      ShuttleWinchEntity.Phase interruptedPhase) {
     var level = helper.getLevel();
     var winch = example.winch();
     var route = ShuttleRoute.resolve(level, winch.routeStart, winch.routeEnd);
@@ -69,7 +79,7 @@ public final class EngineeredShuttleCheck {
             + route.segments.size()
             + " energyRequired=false cars="
             + example.cars().size());
-    String prefix = reload ? "FD_ENGINEERED_PAX_RELOAD" : "FD_ENGINEERED_PAX";
+    String prefix = reload ? "FD_ENGINEERED_PAX_PHASE_" + interruptedPhase : "FD_ENGINEERED_PAX";
     return () -> {
       var currentWinch = winch;
       var currentMotor = motor;
@@ -116,14 +126,17 @@ public final class EngineeredShuttleCheck {
       observerSeen[0] |= currentObserver.getPower() > 0;
       if (currentMotor.isDriving()) sightings.merge(phase, 1, Integer::sum);
       if (currentWinch.cycles == 1 && ++boardingTicks[0] == 20) {
-        for (var required :
-            List.of(
+        var requiredPhases =
+            EnumSet.of(
                 ShuttleWinchEntity.Phase.LIFTING,
                 ShuttleWinchEntity.Phase.FAULT,
                 ShuttleWinchEntity.Phase.OUTBOUND,
                 ShuttleWinchEntity.Phase.RETURNING,
                 ShuttleWinchEntity.Phase.CAPTURING,
-                ShuttleWinchEntity.Phase.BOARDING))
+                ShuttleWinchEntity.Phase.BOARDING);
+        if (interruptedPhase == ShuttleWinchEntity.Phase.OUTBOUND)
+          requiredPhases.remove(ShuttleWinchEntity.Phase.RETURNING);
+        for (var required : requiredPhases)
           helper.assertTrue(
               sightings.getOrDefault(required, 0) > 2,
               "Engineered motor never reported a PAX train in " + required);

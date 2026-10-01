@@ -1,0 +1,100 @@
+[00:35:49] [Server thread/INFO] [minecraft/GameTestServer]: 32 tests are now running at position -1484272, -59, -8585174!
+FD_ENGINEERED_ENERGY_SKIPPED: optional 1.1.1 artifact absent
+FD_PAX_PHASE_REFERENCES target=CAPTURING replacedBeforeRelease=0
+FD_PAX_PHASE_RELEASE target=CAPTURING tick=656 speed=11.794575712234446 bodies=13 riders=16
+FD_PAX_PHASE_FLUSH target=CAPTURING native=true
+FD_PAX_PHASE_WAIT target=CAPTURING blocks=[BlockPos{x=-600, y=180, z=600}:false:resident=false:ticking=false, BlockPos{x=-600, y=180, z=632}:false:resident=false:ticking=false, BlockPos{x=-607, y=180, z=608}:false:resident=true:ticking=false, BlockPos{x=-600, y=212, z=680}:false:resident=false:ticking=false, BlockPos{x=-606, y=180, z=608}:false:resident=true:ticking=false, BlockPos{x=-600, y=204, z=552}:false:resident=false:ticking=false] bodies=[69b979a9-02b8-4de3-8ca6-ac2ca365aee4:true:false, ed05b421-9a70-4bd1-8856-b5ed2ffdff40:true:false, 081da61a-0375-4ed9-bd87-f325c1a0d4c5:true:false, c82ee69d-25b4-41aa-b0ce-ae9dd3d47c9e:true:false, f49ce380-2959-4536-a2eb-b534cbe83e91:true:false, 0fcef30e-2cc2-4d62-a081-adf707a2416f:true:false, 59ab7f09-4cbf-45f1-b1eb-de1d2431f250:true:false, 3cb7ee98-1071-4936-b61d-b723a9e82ea5:true:false, 385bd63f-64ec-49cb-ae77-33dae97ba4c8:true:false, 2daf65ec-453c-40c8-97d0-170cb95668c0:true:false, 4a59bc4e-1194-49d1-b391-6fcb7b165963:true:false, b459c27b-2880-47ec-88e2-4547c840d075:true:false, 383aed20-231c-461b-8b03-4ef987ffdd67:true:false]
+FD_PAX_PHASE_EVICTED target=CAPTURING tick=1407 blocks=6 bodies=13 occupants=16 phase=FAULT interrupted=CAPTURING
+FD_PAX_PHASE_RESTORED target=CAPTURING fresh=true riders=16 phase=FAULT interrupted=CAPTURING fault=Shuttle winch chunk unavailable or winch removed
+FD_PAX_PHASE_RECOVERY target=CAPTURING action=resume holdTicks=60 drift=2.5421149729252077E-13 maxReloadStep=0.5485792620388127 phase=CAPTURING
+FD_PAX_PHASE_COMPLETE target=CAPTURING cycles=1 cars=4 riders=16 alive=true unloaded=true phases=[BOARDING, LIFTING, OUTBOUND, RETURNING, CAPTURING]
+FD_PAX_PHASE_REFERENCES target=RETURNING replacedBeforeRelease=0
+FD_PAX_PHASE_RELEASE target=RETURNING tick=598 speed=1.7432895445756333 bodies=13 riders=16
+FD_PAX_PHASE_FLUSH target=RETURNING native=true
+FD_PAX_PHASE_WAIT target=RETURNING blocks=[BlockPos{x=-680, y=180, z=600}:false:resident=false:ticking=false, BlockPos{x=-680, y=180, z=632}:false:resident=false:ticking=false, BlockPos{x=-687, y=180, z=608}:false:resident=true:ticking=false, BlockPos{x=-680, y=212, z=680}:false:resident=false:ticking=false, BlockPos{x=-686, y=180, z=608}:false:resident=true:ticking=false, BlockPos{x=-680, y=204, z=552}:false:resident=false:ticking=false] bodies=[559eaaee-b2bb-450e-bf2d-171735f3594c:true:false, 6004828b-d751-4d82-8a26-ce4e5fd54b23:true:false, ad9425a5-eea2-41c5-9809-b14bca3ea4ef:true:false, 36ed7950-4b15-4d36-b218-761c6bafe43c:true:false, 77bcaf02-77ef-4bd3-87d4-ca5b79a8db28:true:false, e660516e-cd7a-4377-9f33-5d9044f9c9f4:true:false, 69a4aff1-8169-4b1b-8d45-336c4da8afc9:true:false, c4ec494b-7105-46ba-b5e0-77d6a18c2c96:true:false, 53a2b197-b653-4c6a-96c9-bae4f93b570f:true:false, a6f1f10a-495d-4a4e-95df-84c3876ede02:true:false, 06d02fd3-7209-4a47-9100-5392cfb34275:true:false, ea64f753-62f1-4a65-99fa-1370f2a2b510:true:false, a06afdac-384b-41ac-a4dc-620e0019fdf6:true:false]
+FD_PAX_PHASE_FLUSH target=RETURNING retry=true
+FD_PAX_PHASE_WAIT target=RETURNING blocks=[BlockPos{x=-680, y=180, z=600}:false:resident=false:ticking=false, BlockPos{x=-680, y=180, z=632}:false:resident=false:ticking=false, BlockPos{x=-687, y=180, z=608}:false:resident=false:ticking=false, BlockPos{x=-680, y=212, z=680}:false:resident=false:ticking=false, BlockPos{x=-686, y=180, z=608}:false:resident=false:ticking=false, BlockPos{x=-680, y=204, z=552}:false:resident=false:ticking=false] bodies=[559eaaee-b2bb-450e-bf2d-171735f3594c:true:false, 6004828b-d751-4d82-8a26-ce4e5fd54b23:true:false, ad9425a5-eea2-41c5-9809-b14bca3ea4ef:true:false, 36ed7950-4b15-4d36-b218-761c6bafe43c:true:false, 77bcaf02-77ef-4bd3-87d4-ca5b79a8db28:true:false, e660516e-cd7a-4377-9f33-5d9044f9c9f4:true:false, 69a4aff1-8169-4b1b-8d45-336c4da8afc9:true:false, c4ec494b-7105-46ba-b5e0-77d6a18c2c96:true:false, 53a2b197-b653-4c6a-96c9-bae4f93b570f:true:false, a6f1f10a-495d-4a4e-95df-84c3876ede02:true:false, 06d02fd3-7209-4a47-9100-5392cfb34275:true:false, ea64f753-62f1-4a65-99fa-1370f2a2b510:true:false, a06afdac-384b-41ac-a4dc-620e0019fdf6:true:false]
+[00:36:04] [Server thread/ERROR] [minecraft/LogTestReporter]: occupiedreturningnativeevictionmanualrecovery failed at -1484226, -60, -8585174! PAX fixture never physically evicted
+FD_APPEARANCE styles=false choices=1
+FD_ADDITIONS_CONSIST_SKIPPED: optional 0.2.0 artifact absent; no compatibility evidence
+FD_MAGNETIZED_SKIPPED: optional 1.1.0 artifact absent; no compatibility evidence
+FD_ENGINEERED_SKIPPED: optional 1.1.1 artifact absent; no compatibility evidence
+FD_SNAPSHOT_MAX bytes=692652
+FD_ADDITIONS_SKIPPED: optional 0.2.0 artifact absent; no compatibility evidence
+FD_ENDPOINT_AVAILABILITY inactiveRefs=3 ordinaryRefs=2 falseJunction=false
+FD_ENDPOINT_AVAILABILITY restoredRefs=4 nativeMatch=true
+FD_FREE angles=[-1.7668239092381248, -1.8112235047512562] maximum separation=0.723827577812312
+FD_REVISED_MASS mass=4.0 firstMoment=1.5 inertia=1.9947916666666585
+FD_REVISED_MASS mass=4.0 firstMoment=1.5 inertia=1.9947916666666585
+FD_REVISED_MASS mass=4.0 firstMoment=1.5 inertia=1.9947916666666585
+FD_REVISED_MASS mass=4.0 firstMoment=1.5 inertia=1.9947916666666585
+FD_SAVED_PASSENGER nativeReplay=true unknownRejected=true liveUnchanged=true
+FD_FAMILY_MATRIX decisions=25 factoryRejects=20 lockedNativeInitialSnapRejects=20 bindingPreserved=true
+FD_SHUTTLE phase=LIFTING distance=57.27979295672925 center=( 6.005E+2  1.811E+2  6.036E+2) max=62.67979295672933 fault=
+FD_CONTENT_FREE excursions=[0.5824696879041978, 0.38478864246726985] angle=0.09729577519135071 omega=-0.5461319589385678 mass=6.0
+FD_SHUTTLE phase=LIFTING distance=49.27979295672914 center=( 6.005E+2  1.814E+2  5.957E+2) max=62.67979295672933 fault=
+FD_SHUTTLE phase=FAULT distance=44.679792956729074 center=( 6.005E+2  1.824E+2  5.907E+2) max=62.67979295672933 fault=Winch power lost: retain the train; inspect and resume or recover
+FD_BOUNDARY direction=0 position=(-3.995E+2  1.011E+2  3.380E+2) fault=End of compatible track; capture and inspect the route
+FD_BOUNDARY direction=1 position=(-3.755E+2  1.011E+2  3.030E+2) fault=End of compatible track; capture and inspect the route
+FD_SHUTTLE phase=FAULT distance=44.679792956729074 center=( 6.005E+2  1.824E+2  5.907E+2) max=62.67979295672933 fault=Winch power lost: retain the train; inspect and resume or recover
+FD_NATIVE at230 position=( 1.650E+1  8.162E+1  5.261E+1) from=BlockPos{x=16, y=80, z=16} angles=[12.154606085009732, 12.153236068647086] velocity=( 0.000E+0  0.000E+0  3.000E+0) disengaged=false
+FD_SHUTTLE phase=LIFTING distance=43.279792956729054 center=( 6.005E+2  1.826E+2  5.898E+2) max=62.67979295672933 fault=
+FD_SHUTTLE phase=LIFTING distance=35.27979295672894 center=( 6.005E+2  1.853E+2  5.823E+2) max=62.67979295672933 fault=
+FD_SHUTTLE phase=LIFTING distance=27.279792956728826 center=( 6.005E+2  1.889E+2  5.752E+2) max=62.67979295672933 fault=
+FD_SHUTTLE phase=LIFTING distance=19.279792956728713 center=( 6.005E+2  1.931E+2  5.685E+2) max=62.67979295672933 fault=
+FD_SHUTTLE phase=LIFTING distance=11.279792956728684 center=( 6.005E+2  1.978E+2  5.620E+2) max=62.67979295672933 fault=
+FD_TRAIN maxTurn=6.281204577631095 maxAxleDifference=3.0234792061361615
+FD_TRAIN positions=[(-1.995E+2  1.131E+2  1.461E+2) bound=BlockPos{x=-200, y=112, z=136}->BlockPos{x=-200, y=112, z=172} fault=, (-1.995E+2  1.131E+2  1.401E+2) bound=BlockPos{x=-200, y=112, z=136}->BlockPos{x=-200, y=112, z=172} fault=]
+FD_SHUTTLE phase=LIFTING distance=5.125254419988725 center=( 6.005E+2  2.017E+2  5.570E+2) max=62.67979295672933 fault=
+FD_SHUTTLE phase=LIFTING distance=3.0 center=( 6.005E+2  2.031E+2  5.551E+2) max=62.67979295672933 fault=
+FD_SHUTTLE phase=OUTBOUND distance=6.749999999999987 center=( 6.005E+2  1.963E+2  5.640E+2) max=62.67979295672933 fault=
+FD_SHUTTLE phase=OUTBOUND distance=10.750000000000021 center=( 6.005E+2  1.822E+2  5.915E+2) max=62.67979295672933 fault=
+FD_SHUTTLE phase=OUTBOUND distance=14.750000000000078 center=( 6.005E+2  1.811E+2  6.244E+2) max=78.17520672426318 fault=
+FD_SHUTTLE_CHUNK_RELOAD recovered=true carriage=948a359b-b8fc-4676-aef4-fb867c107225
+FD_SHUTTLE phase=OUTBOUND distance=18.750000000000135 center=( 6.005E+2  1.848E+2  6.466E+2) max=101.34709165632893 fault=
+FD_SHUTTLE phase=RETURNING distance=22.750000000000192 center=( 6.005E+2  1.836E+2  6.441E+2) max=103.5844649482613 fault=
+FD_SHUTTLE phase=CAPTURING distance=26.25000000000024 center=( 6.005E+2  1.811E+2  6.209E+2) max=103.5844649482613 fault=
+FD_SHUTTLE phase=CAPTURING distance=64.14384372084484 center=( 6.005E+2  1.811E+2  6.100E+2) max=103.5844649482613 fault=
+FD_SHUTTLE phase=CAPTURING distance=62.747109884435275 center=( 6.005E+2  1.811E+2  6.086E+2) max=103.5844649482613 fault=
+FD_SHUTTLE_TALL cycles=2 maximum=142.95638250252804 station=82.92133833155415
+FD_DEMO family=ARROW angleRange=-0.0012762793182983696..6.281216324929916 maxXZ=32.50025969428563,52.500305457990976 ready=true fault=
+FD_DEMO family=ZACSPIN angleRange=-1.1712783582222497..0.4804478986116605 maxXZ=32.5048535350291,52.50000029576893 ready=true fault=
+FD_REVISED_NATIVE angles=[-0.7890095274934601, -0.812209910148102, -0.6383261811718508, -0.7132601909346744]..[0.6955241378401983, 0.6538700069548152, 0.6941153312972796, 0.6664315497922256] extent=[32.50423814293782, 52.49993914624292] ready=true fault=
+FD_TRACK_PARTIAL_FLUSH native=true
+FD_TRACK_PARTIAL_WAITED ticks=201
+FD_TRACK_PARTIAL family=ARROW banked=false evicted=true valid=true endpoints=1
+FD_TRACK_PARTIAL family=ARROW banked=true evicted=true valid=true endpoints=1
+FD_TRACK_PARTIAL family=ZACSPIN banked=false evicted=true valid=true endpoints=1
+FD_TRACK_PARTIAL family=ZACSPIN banked=true evicted=true valid=true endpoints=1
+FD_TRACK_PARTIAL family=FREE_SPIN banked=false evicted=true valid=true endpoints=1
+FD_TRACK_PARTIAL family=FREE_SPIN banked=true evicted=true valid=true endpoints=1
+FD_TRACK_PARTIAL family=ZACSPIN_REVISED banked=false evicted=true valid=true endpoints=1
+FD_TRACK_PARTIAL family=ZACSPIN_REVISED banked=true evicted=true valid=true endpoints=1
+FD_TRACK_PARTIAL family=PAX banked=false evicted=true valid=true endpoints=1
+FD_TRACK_PARTIAL family=PAX banked=true evicted=true valid=true endpoints=1
+FD_TRACK_PARTIAL_RELOADED family=ARROW banked=false fresh=true geometry=true endpoints=2
+FD_TRACK_PARTIAL_RELOADED family=ARROW banked=true fresh=true geometry=true endpoints=2
+FD_TRACK_PARTIAL_RELOADED family=ZACSPIN banked=false fresh=true geometry=true endpoints=2
+FD_TRACK_PARTIAL_RELOADED family=ZACSPIN banked=true fresh=true geometry=true endpoints=2
+FD_TRACK_PARTIAL_RELOADED family=FREE_SPIN banked=false fresh=true geometry=true endpoints=2
+FD_TRACK_PARTIAL_RELOADED family=FREE_SPIN banked=true fresh=true geometry=true endpoints=2
+FD_TRACK_PARTIAL_RELOADED family=ZACSPIN_REVISED banked=false fresh=true geometry=true endpoints=2
+FD_TRACK_PARTIAL_RELOADED family=ZACSPIN_REVISED banked=true fresh=true geometry=true endpoints=2
+FD_TRACK_PARTIAL_RELOADED family=PAX banked=false fresh=true geometry=true endpoints=2
+FD_TRACK_PARTIAL_RELOADED family=PAX banked=true fresh=true geometry=true endpoints=2
+FD_PAX_PHASE_REFERENCES target=OUTBOUND replacedBeforeRelease=0
+FD_PAX_PHASE_RELEASE target=OUTBOUND tick=424 speed=1.5521645020634525 bodies=13 riders=16
+FD_PAX_PHASE_FLUSH target=OUTBOUND native=true
+FD_PAX_PHASE_WAIT target=OUTBOUND blocks=[BlockPos{x=-760, y=180, z=600}:false:resident=false:ticking=false, BlockPos{x=-760, y=180, z=632}:false:resident=false:ticking=false, BlockPos{x=-767, y=180, z=608}:false:resident=true:ticking=false, BlockPos{x=-760, y=212, z=680}:false:resident=false:ticking=false, BlockPos{x=-766, y=180, z=608}:false:resident=true:ticking=false, BlockPos{x=-760, y=204, z=552}:false:resident=false:ticking=false] bodies=[89746c1c-57b5-4783-8913-3dac778bd58b:true:false, 304c0f55-cc14-42d7-8573-18a16b831d4c:true:false, b93f5bd8-866f-40f2-aac7-8b437fa0b4b7:true:false, a16c341b-0d88-42f2-9b2e-9fd5a6dbe707:true:false, 24876ab1-33b9-4777-8b0e-5a51afb52158:true:false, e1618c7f-e699-4993-a21a-4ca66d46b662:true:false, 3d9a7e88-99cd-4f92-b22c-48d5aa94824f:true:false, 037c623b-fd41-41ac-a024-6f0d37b3c182:true:false, 668813f5-ba54-4459-82d7-a9c371fc8c8a:true:false, b147b2d0-4e18-48aa-a778-177be9f830aa:true:false, ab74d15a-0d72-45ad-b184-93bc50a55734:true:false, eb307004-b1fd-4a32-9ff7-e91eb5cae882:true:false, 7f43d739-1918-4246-b57e-38362535aa26:true:false]
+FD_PAX_PHASE_FLUSH target=OUTBOUND retry=true
+FD_PAX_PHASE_WAIT target=OUTBOUND blocks=[BlockPos{x=-760, y=180, z=600}:false:resident=false:ticking=false, BlockPos{x=-760, y=180, z=632}:false:resident=false:ticking=false, BlockPos{x=-767, y=180, z=608}:false:resident=true:ticking=false, BlockPos{x=-760, y=212, z=680}:false:resident=false:ticking=false, BlockPos{x=-766, y=180, z=608}:false:resident=true:ticking=false, BlockPos{x=-760, y=204, z=552}:false:resident=false:ticking=false] bodies=[89746c1c-57b5-4783-8913-3dac778bd58b:true:false, 304c0f55-cc14-42d7-8573-18a16b831d4c:true:false, b93f5bd8-866f-40f2-aac7-8b437fa0b4b7:true:false, a16c341b-0d88-42f2-9b2e-9fd5a6dbe707:true:false, 24876ab1-33b9-4777-8b0e-5a51afb52158:true:false, e1618c7f-e699-4993-a21a-4ca66d46b662:true:false, 3d9a7e88-99cd-4f92-b22c-48d5aa94824f:true:false, 037c623b-fd41-41ac-a024-6f0d37b3c182:true:false, 668813f5-ba54-4459-82d7-a9c371fc8c8a:true:false, b147b2d0-4e18-48aa-a778-177be9f830aa:true:false, ab74d15a-0d72-45ad-b184-93bc50a55734:true:false, eb307004-b1fd-4a32-9ff7-e91eb5cae882:true:false, 7f43d739-1918-4246-b57e-38362535aa26:true:false]
+[00:37:16] [Server thread/ERROR] [minecraft/LogTestReporter]: occupiedoutboundnativeevictionmanualrecovery failed at -1484134, -60, -8585012! PAX fixture never physically evicted
+FD_PAX_PHASE_REFERENCES target=LIFTING replacedBeforeRelease=0
+FD_PAX_PHASE_RELEASE target=LIFTING tick=150 speed=3.7692597765764715 bodies=13 riders=16
+FD_PAX_PHASE_FLUSH target=LIFTING native=true
+FD_PAX_PHASE_WAIT target=LIFTING blocks=[BlockPos{x=-840, y=180, z=600}:false:resident=false:ticking=false, BlockPos{x=-840, y=180, z=632}:false:resident=false:ticking=false, BlockPos{x=-847, y=180, z=608}:false:resident=true:ticking=false, BlockPos{x=-840, y=212, z=680}:false:resident=false:ticking=false, BlockPos{x=-846, y=180, z=608}:false:resident=true:ticking=false, BlockPos{x=-840, y=204, z=552}:false:resident=false:ticking=false] bodies=[5e22faa8-6072-44c1-bcb9-8342d1907853:true:false, 24408791-2a47-4997-8cfb-411c1dce7229:true:false, a32b4bd0-c4b4-4a4e-9fe4-40023e9b1799:true:false, c165252c-44eb-43d5-868a-964bc84c217d:true:false, 03433017-6e40-46d7-9805-bb7b0108f65d:true:false, 17eb1f3f-5510-4830-937d-8ba94ec4e02e:true:false, 08762bf1-e154-49ca-b384-84f6ce5e6abe:true:false, 5b28f3dd-7955-4cdf-ab05-c98ef8c681c1:true:false, 2606e0e5-d20d-4f6e-bdd8-f93d33e7ce91:true:false, 8f10d622-5a12-4d39-8de3-cb20513c50f0:true:false, acb7b0b1-8931-4c9a-b566-173e74543bfd:true:false, 92040f9a-2c72-4692-aa94-184099b198a7:true:false, db045e1e-207f-4f5c-b57d-09179ab87157:true:false]
+FD_PAX_PHASE_FLUSH target=LIFTING retry=true
+FD_PAX_PHASE_WAIT target=LIFTING blocks=[BlockPos{x=-840, y=180, z=600}:false:resident=false:ticking=false, BlockPos{x=-840, y=180, z=632}:false:resident=false:ticking=false, BlockPos{x=-847, y=180, z=608}:false:resident=true:ticking=false, BlockPos{x=-840, y=212, z=680}:false:resident=false:ticking=false, BlockPos{x=-846, y=180, z=608}:false:resident=true:ticking=false, BlockPos{x=-840, y=204, z=552}:false:resident=false:ticking=false] bodies=[5e22faa8-6072-44c1-bcb9-8342d1907853:true:false, 24408791-2a47-4997-8cfb-411c1dce7229:true:false, a32b4bd0-c4b4-4a4e-9fe4-40023e9b1799:true:false, c165252c-44eb-43d5-868a-964bc84c217d:true:false, 03433017-6e40-46d7-9805-bb7b0108f65d:true:false, 17eb1f3f-5510-4830-937d-8ba94ec4e02e:true:false, 08762bf1-e154-49ca-b384-84f6ce5e6abe:true:false, 5b28f3dd-7955-4cdf-ab05-c98ef8c681c1:true:false, 2606e0e5-d20d-4f6e-bdd8-f93d33e7ce91:true:false, 8f10d622-5a12-4d39-8de3-cb20513c50f0:true:false, acb7b0b1-8931-4c9a-b566-173e74543bfd:true:false, 92040f9a-2c72-4692-aa94-184099b198a7:true:false, db045e1e-207f-4f5c-b57d-09179ab87157:true:false]
+[00:37:20] [Server thread/ERROR] [minecraft/LogTestReporter]: occupiedliftnativeevictionexplicitresume failed at -1484111, -60, -8585012! PAX fixture never physically evicted
+[00:37:20] [Server thread/INFO] [minecraft/GameTestServer]: 3 required tests failed :(
+BUILD FAILED in 1m 45s

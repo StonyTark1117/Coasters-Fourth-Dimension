@@ -24,6 +24,18 @@ Operating phases are boarding → lifting → outbound → returning → capturi
 
 Power loss while lifting holds the mechanical catch and requires explicit inspection/resume. Persisted active phases reload interrupted, rather than continuing offline travel. Winch, car, carrier, route, and consist availability are checked. Route chunks must remain in the server's block-ticking range, as required by Sable physics; cached geometry in a merely loaded chunk is insufficient. Missing or changed support faults the train. An occupied active-lift cold restart restored the winch as an interrupted fault, retained its carriage coordinate, restored both players to their assigned seats, and completed the cycle after explicit operator resume. The broader FD902 lifecycle matrix remains pending.
 
+An interrupted outbound or returning train has already released its mechanical catch.
+It remains restrained and brakes toward readiness; `resume` is rejected and the
+operator must use recovery after every car and carrier is ready. On a slope this can
+take substantial simulation time. The empty carriage retains its world guide across
+reload, and a catch engages only when its actual attachment points are within 0.25
+blocks. An interrupted capture therefore aligns the carriage before reconnecting
+the train. Chunk availability is checked before reading the winch block, so this
+validation does not keep an inactive winch chunk loaded. Native loading dependencies
+include all linked chassis and their rotary carriers as one group. Native phase-specific
+regressions and their limits are recorded in the
+[recovery investigation](evidence/integrations/2026-10-01/pax-phase-recovery/README.md).
+
 ## Player workflow and examples
 
 Craft matching PAX track and four PAX cars, place them six blocks apart on level track between the spikes, and use native couplings. Place the winch within twelve blocks of the train. Sneak-use binds the captured train; the controller chooses the car nearest the lift spike. Supply Create shaft power, board, and close restraints with the rotation tool. Use the winch or dispatch through the car editor to begin. After final capture, open restraints and unload. Ordinary boarding-station redstone does not dispatch or capture a PAX train during its shuttle cycle.

@@ -1,0 +1,147 @@
+{
+  "attempt1": {
+    "full_log": "/tmp/fd-pax-phases-base1.log",
+    "sha256": "c1a69d375f2c692760c06daed1b68b3ef544411099c3c5221471a9d377bcec6e",
+    "exit_status": 1
+  },
+  "attempt2": {
+    "full_log": "/tmp/fd-pax-phases-base2.log",
+    "sha256": "c5bdaeb5414bd913fc87f4cb382ddb752d0a3386056282f95eb4bb396ad61617",
+    "exit_status": 1
+  },
+  "attempt3": {
+    "full_log": "/tmp/fd-pax-phases-base3.log",
+    "sha256": "3c73f575b4185101e90252e77db5b5f61f2374c69abafb1dce340f32be0f76e7",
+    "exit_status": 1
+  },
+  "attempt4": {
+    "full_log": "/tmp/fd-pax-phases-base4.log",
+    "sha256": "01f6dd83430932e15d985f8ea8e5566830f7138499e63e6cfbae60dc6baa09ad",
+    "exit_status": 1
+  },
+  "attempt5": {
+    "full_log": "/tmp/fd-pax-phases-base5.log",
+    "sha256": "0e32cfbf083e7ff22089a6cc55dafedaf69daff929ff3a554f993756d32981e2",
+    "exit_status": 1
+  },
+  "attempt6": {
+    "full_log": "/tmp/fd-pax-phases-base6.log",
+    "sha256": "158e21ba4cd1783edea7aa0591e9a0b09e32d794c47c423397c05bf048d71a8b",
+    "exit_status": 1
+  },
+  "attempt7": {
+    "full_log": "/tmp/fd-pax-phases-base7.log",
+    "sha256": "2c9ac21440e4769a0874c3ff376c2181fdfa209a07b61d643013605d58ce9c6c",
+    "exit_status": 1
+  },
+  "exploratory": {
+    "full_log": "/tmp/fd-pax-phases-base8.log",
+    "sha256": "4bd2cb1230065264a4ce3f8f3b388aa55422faf96bba577ccf7f4b0115a391cc",
+    "exit_status": 0
+  },
+  "candidate-base": {
+    "full_log": "/tmp/fd-pax-phases-candidate-base.log",
+    "sha256": "ecefdb50990ac9b354a888bc2e27c2b3b5e28886c8a9e01d0dc78b1bc29032d0",
+    "exit_status": 0
+  },
+  "candidate-engineered": {
+    "full_log": "/tmp/fd-pax-phases-candidate-engineered.log",
+    "sha256": "c7b26e62f7735a6b0ccc486fadef9b8dd13ec909f1bf0e0b9e77793a31293882",
+    "exit_status": 1
+  },
+  "engineered-repeat": {
+    "full_log": "/tmp/fd-pax-phases-engineered2.log",
+    "sha256": "b36de536edcbf4616f0055e939a41f75c2d66480e75e983eec2575c98b925e90",
+    "exit_status": 0
+  },
+  "load-race": {
+    "full_log": "/tmp/fd-pax-phases-load-race-base.log",
+    "sha256": "989955b54278f82b7a15a77438675489d4c03757d5d42aaa8e236b32cca4b1d0",
+    "exit_status": 1
+  },
+  "race-fixed": {
+    "full_log": "/tmp/fd-pax-phases-race-fixed.log",
+    "sha256": "a7cff1a08c15340dcde993783b0564d969ea000ac42b7856a224be5b29b04bf8",
+    "exit_status": 0
+  },
+  "staggered-layout": {
+    "full_log": "/tmp/fd-pax-phases-staggered.log",
+    "sha256": "86c0b7d6c934055eae3b328f58367ea43e38391fc8c2407c684c026ef5c8f9c3",
+    "exit_status": 1
+  },
+  "staggered-magnetized": {
+    "full_log": "/tmp/fd-pax-phases-staggered-final-magnetized.log",
+    "sha256": "22787aabbdad514ed07ffcf45572de79586e984e1892b214a83a83efd0b17289",
+    "exit_status": 1
+  },
+  "magnetized-diagnostic": {
+    "full_log": "/tmp/fd-pax-phases-magnetized-diagnostic.log",
+    "sha256": "902b0ab8731e2fe370ed4bd4bf9c64c9d044982c7ccce194c1d5c1e7596372e0",
+    "exit_status": 0
+  },
+  "staggered-base": {
+    "full_log": "/tmp/fd-pax-phases-staggered-final-base.log",
+    "sha256": "33b81a92d287eef1a7578b700612cf6bcf40259103e9191da0c748d21dea6934",
+    "exit_status": 0
+  },
+  "staggered-engineered": {
+    "full_log": "/tmp/fd-pax-phases-staggered-final-engineered.log",
+    "sha256": "e26e049d261ccd5cf8a11b2d158a12ff927fb75b07bcd71d35d89c672488def8",
+    "exit_status": 0
+  },
+  "staggered-styles": {
+    "full_log": "/tmp/fd-pax-phases-staggered-final-styles.log",
+    "sha256": "d7784fcf4a67d88053a364860e86fe40543f28dd5267478f3d327e5b3d3b2e31",
+    "exit_status": 0
+  },
+  "staggered-additions": {
+    "full_log": "/tmp/fd-pax-phases-staggered-final-additions.log",
+    "sha256": "2fa14ed93477783e18c8d22bb9777be4e2a9452987a49d4edf62b0521903481c",
+    "exit_status": 0
+  },
+  "dependencies-before": {
+    "full_log": "/tmp/fd-pax-phases-dependencies-before.log",
+    "sha256": "1f0503cac3c49c1e6beef3a74e4e982b590f90abfe96d3e2d71cacb62eeef6fb",
+    "exit_status": 1
+  },
+  "dependencies-after": {
+    "full_log": "/tmp/fd-pax-phases-dependencies-after.log",
+    "sha256": "ad3e476ab212bfb56766fff1c218b20ebf92b5795d7bff622ad1e0e5d614a0aa",
+    "exit_status": 0
+  },
+  "base": {
+    "full_log": "/tmp/fd-pax-phases-group-final-base.log",
+    "sha256": "986c180a069fa900f7a8ec05a90a2583c662c9c27620747e3c96bae4847b50bf",
+    "exit_status": 0
+  },
+  "engineered": {
+    "full_log": "/tmp/fd-pax-phases-group-final-engineered.log",
+    "sha256": "1dbe3423382af348d6055af5d116b42e7bcdb7eb159cecc035da39c47c2b5822",
+    "exit_status": 0
+  },
+  "styles": {
+    "full_log": "/tmp/fd-pax-phases-group-final-styles.log",
+    "sha256": "ec2e0a0101d7394281a1a56170ff6010ae57f673e709b2535394bfc7c102d1b0",
+    "exit_status": 0
+  },
+  "additions": {
+    "full_log": "/tmp/fd-pax-phases-group-final-additions.log",
+    "sha256": "86823c858de5c6c185cc01f3e56baa321e53e01a9d4582d2311d9a9dd41f354d",
+    "exit_status": 0
+  },
+  "magnetized": {
+    "full_log": "/tmp/fd-pax-phases-group-final-magnetized.log",
+    "sha256": "39bcb7c88f2dd547d2a9528162abba9f982e72907c84d1bdc35caaefeb6bd235",
+    "exit_status": 0
+  },
+  "immersion": {
+    "full_log": "/tmp/fd-pax-phases-group-final-immersion.log",
+    "sha256": "9fb5aaf1a4a6e230f0d289dfb5eefa832f857aceb9559cd7f74e5ef85bdd01f5",
+    "exit_status": 0
+  },
+  "combined": {
+    "full_log": "/tmp/fd-pax-phases-group-final-combined.log",
+    "sha256": "54b9c449678f32882936bcec47a7cafbc72d7dff3495304f3fab3c9582e53b7b",
+    "exit_status": 0
+  }
+}

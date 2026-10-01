@@ -73,8 +73,20 @@ public final class ShuttleRuntime {
     for (var winch : List.copyOf(winches(level))) {
       if (winch.vehicle == null) continue;
       try {
-        if (level.hasChunkAt(winch.getBlockPos())
-            && !level.getBlockState(winch.getBlockPos()).is(ShuttleContent.WINCH.get())) {
+        // Check simulation availability before any world block lookup. Querying the old winch
+        // while its chunk leaves ticking range can renew a FULL ticket and prevent eviction.
+        if (!dev.ryanhcode.sable.sublevel.system.ticket.PhysicsChunkTicketManager
+                .isChunkLoadedEnough(
+                    level, winch.getBlockPos().getX() >> 4, winch.getBlockPos().getZ() >> 4)
+            || !level.hasChunkAt(winch.getBlockPos())) {
+          if (winch.phase != ShuttleWinchEntity.Phase.FAULT)
+            winch.fail("Shuttle winch chunk unavailable or winch removed");
+          // Native bodies can return before the winch chunk. Retain their guide without a
+          // world-block lookup, rather than allowing that load-order gap to drop the carriage.
+          holdCarriage(level, winch);
+          continue;
+        }
+        if (!level.getBlockState(winch.getBlockPos()).is(ShuttleContent.WINCH.get())) {
           winch.fail("Shuttle winch removed: retain and inspect every car before recovery");
           var handles = HANDLES.remove(winch);
           if (handles != null) {
@@ -89,26 +101,12 @@ public final class ShuttleRuntime {
           WINCHES.get(level).remove(winch.getBlockPos(), winch);
           continue;
         }
-        if (!level.hasChunkAt(winch.getBlockPos())
-            || !dev.ryanhcode.sable.sublevel.system.ticket.PhysicsChunkTicketManager
-                .isChunkLoadedEnough(
-                    level, winch.getBlockPos().getX() >> 4, winch.getBlockPos().getZ() >> 4)
-            || level.getBlockEntity(winch.getBlockPos()) != winch)
+        if (level.getBlockEntity(winch.getBlockPos()) != winch)
           throw new IllegalArgumentException("Shuttle winch chunk unavailable or winch removed");
         if (winch.phase == ShuttleWinchEntity.Phase.FAULT) {
           // Native constraints are transient. Rebuild the stationary catch after a reload,
           // without advancing the persisted carriage coordinate or resuming the lift.
-          var container = SubLevelContainer.getContainer(level);
-          if (winch.carriage != null
-              && container.getSubLevel(winch.carriage) != null
-              && container.getSubLevel(winch.vehicle) instanceof ServerSubLevel lead
-              && (winch.interrupted == ShuttleWinchEntity.Phase.LIFTING
-                  || winch.interrupted == ShuttleWinchEntity.Phase.CAPTURING
-                  || winch.interrupted == ShuttleWinchEntity.Phase.BOARDING)) {
-            var held = HANDLES.computeIfAbsent(winch, k -> new Handles());
-            ensureCarriage(level, winch, null, held);
-            catchTrain(level, lead, winch, held);
-          }
+          holdCarriage(level, winch);
           continue;
         }
         var route = ShuttleRoute.resolve(level, winch.routeStart, winch.routeEnd);
@@ -129,7 +127,10 @@ public final class ShuttleRuntime {
         var handles = HANDLES.computeIfAbsent(winch, k -> new Handles());
         if (winch.phase == ShuttleWinchEntity.Phase.LIFTING) {
           ensureCarriage(level, winch, route, handles);
-          catchTrain(level, lead, winch, handles);
+          if (!catchTrain(level, lead, winch, handles))
+            throw new IllegalArgumentException(
+                "Native carriage is not aligned with the train; capture and recover before"
+                    + " lifting");
           double rate = Math.min(128, Math.abs(winch.getSpeed())) / 32.0;
           // Ease to a stationary release rather than imparting launch velocity.
           double remaining = winch.carriageDistance - 3;
@@ -186,7 +187,7 @@ public final class ShuttleRuntime {
             var body = container.getSubLevel(winch.carriage);
             var target = handles.worldAnchor;
             if (body.logicalPose().position().distance(target) > .1) continue;
-            catchTrain(level, lead, winch, handles);
+            if (!catchTrain(level, lead, winch, handles)) continue;
             releaseBrakes(level, winch, true);
           }
           double delta = winch.stationDistance - winch.carriageDistance;
@@ -216,6 +217,18 @@ public final class ShuttleRuntime {
             || !winch.fault.equals(failure.getMessage())) winch.fail(failure.getMessage());
       }
     }
+  }
+
+  private static void holdCarriage(ServerLevel level, ShuttleWinchEntity winch) {
+    var container = SubLevelContainer.getContainer(level);
+    if (winch.carriage == null || container.getSubLevel(winch.carriage) == null) return;
+    var held = HANDLES.computeIfAbsent(winch, k -> new Handles());
+    ensureCarriage(level, winch, null, held);
+    if (container.getSubLevel(winch.vehicle) instanceof ServerSubLevel lead
+        && (winch.interrupted == ShuttleWinchEntity.Phase.LIFTING
+            || winch.interrupted == ShuttleWinchEntity.Phase.CAPTURING
+            || winch.interrupted == ShuttleWinchEntity.Phase.BOARDING))
+      catchTrain(level, lead, winch, held);
   }
 
   private static void ensureCarriage(
@@ -294,13 +307,23 @@ public final class ShuttleRuntime {
         .wakeUp((ServerSubLevel) container.getSubLevel(winch.carriage));
   }
 
-  private static void catchTrain(
+  private static boolean catchTrain(
       ServerLevel level, ServerSubLevel lead, ShuttleWinchEntity winch, Handles handles) {
-    if (handles.catchJoint != null && handles.catchJoint.isValid()) return;
+    if (handles.catchJoint != null && handles.catchJoint.isValid()) return true;
     var container = SubLevelContainer.getContainer(level);
     var carriage = (ServerSubLevel) container.getSubLevel(winch.carriage);
     var a = lead.getPlot().getCenterBlock();
     var b = carriage.getPlot().getCenterBlock();
+    // CAPTURING includes braking and moving the empty carriage before engagement. Restoring
+    // that phase must not turn a separated carriage into a long-range constraint on the train.
+    var trainPoint =
+        lead.logicalPose()
+            .transformPosition(new Vector3d(a.getX() + .5, a.getY() + 3.5, a.getZ() + .5));
+    var carriagePoint =
+        carriage
+            .logicalPose()
+            .transformPosition(new Vector3d(b.getX() + .5, b.getY() + .5, b.getZ() + .5));
+    if (trainPoint.distanceSquared(carriagePoint) > .25 * .25) return false;
     handles.catchJoint =
         container
             .physicsSystem()
@@ -318,6 +341,7 @@ public final class ShuttleRuntime {
                         ConstraintJointAxis.LINEAR_Y,
                         ConstraintJointAxis.LINEAR_Z)));
     handles.catchJoint.setContactsEnabled(false);
+    return true;
   }
 
   private static void remove(PhysicsConstraintHandle handle) {

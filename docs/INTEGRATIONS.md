@@ -404,8 +404,19 @@ passenger attachments. The winch retains a fault hold until explicit resume, the
 completes the gravity-return/capture cycle and normal unloading. The Engineered
 variant also evicts/reloads its controller and observer and exercises competing
 commands throughout recovery under the default energy-free configuration. This
-extends lift-interruption evidence only; other interrupted phases, FE-on PAX and
-human-player/client recovery remain open.
+earlier checkpoint covered lift interruption only. The follow-up below extends the
+phase coverage; FE-on PAX and human-player/client recovery remain open.
+
+The [PAX phase-recovery follow-up](evidence/integrations/2026-10-01/pax-phase-recovery/README.md)
+extends the native fixture to outbound, returning and capture interruptions. It
+corrects premature catch engagement, an inactive-winch block lookup that could
+retain chunks, and missing world-guide restoration for an empty carriage, including
+when the carriage reloads before the winch chunk. It also closes the native loading
+dependency group over every linked chassis and rotary carrier. Gravity faults retain restraints and require braking/readiness followed by explicit manual
+recovery; they do not promise an instantaneous stationary hold on a slope. All four
+occupied phase regressions pass in base, five individual-addon and combined native
+profiles, with 32 registered checks and explicit absent-addon skips per profile,
+plus 19 unit tests. This does not close the wider lifecycle/client matrix.
 
 - Extend reconciled FD305 evidence to the schema-5 optional-addon lifecycle matrix;
   investigate the recorded client resource exit. Extend the bounded transport
