@@ -1,0 +1,79 @@
+{
+  "providerSha256": "42535a83307f6898b33c13ca201533bb9e337418fd7c73039c867fc80bfbcb38",
+  "nativeFramesSha256": "cc8588d318c0450e988e26115dd606c7f2119cf8914cfab2d5f3846afd0da305",
+  "jointErrors": {
+    "maximumCenterError": 0,
+    "maximumUpError": 8.409694009568193e-05,
+    "maximumTangentError": 0.00017347193836045446
+  },
+  "sections": 8,
+  "controlSegments": 1244,
+  "turnInterval": [
+    -4,
+    2
+  ],
+  "method": "convex volume of rendered square-tube segment over continuous stroke; conservative projection/SAT distance bounds",
+  "scope": "recorded native circuit and default provider OBJ meshes only; excludes riders, chassis, wheels, linked vehicles and resource overrides",
+  "models": [
+    {
+      "resource": "assets/coasterssimulatedextratypes/models/block/track/arrow_4d/arrow_4d_center_beam.obj",
+      "pieces": 312,
+      "trianglesPerModel": 204,
+      "nearSegmentPairs": 0,
+      "separatingAxisRefinements": 0,
+      "minimumConservativeGap": 0.2224628830086241,
+      "requiredGap": 0.01,
+      "closestRefinedPair": null,
+      "passes": true
+    },
+    {
+      "resource": "assets/coasterssimulatedextratypes/models/block/track/arrow_4d/arrow_4d_tie.obj",
+      "pieces": 84,
+      "trianglesPerModel": 208,
+      "nearSegmentPairs": 756,
+      "separatingAxisRefinements": 0,
+      "minimumConservativeGap": 0.043313595020379125,
+      "requiredGap": 0.01,
+      "closestRefinedPair": {
+        "decorationSection": 1,
+        "decorationDistance": 6.0,
+        "control": {
+          "section": 1,
+          "segment": 26,
+          "side": -1
+        }
+      },
+      "passes": true
+    },
+    {
+      "resource": "assets/coasterssimulatedextratypes/models/block/track/arrow_4d_dbl_spine/arrow_4d_dbl_spine_center_beam.obj",
+      "pieces": 312,
+      "trianglesPerModel": 408,
+      "nearSegmentPairs": 220,
+      "separatingAxisRefinements": 0,
+      "minimumConservativeGap": 0.04375925930088442,
+      "requiredGap": 0.01,
+      "closestRefinedPair": null,
+      "passes": true
+    },
+    {
+      "resource": "assets/coasterssimulatedextratypes/models/block/track/arrow_4d_dbl_spine/arrow_4d_dbl_spine_tie.obj",
+      "pieces": 84,
+      "trianglesPerModel": 208,
+      "nearSegmentPairs": 756,
+      "separatingAxisRefinements": 0,
+      "minimumConservativeGap": 0.043313595020379125,
+      "requiredGap": 0.01,
+      "closestRefinedPair": {
+        "decorationSection": 1,
+        "decorationDistance": 6.0,
+        "control": {
+          "section": 1,
+          "segment": 26,
+          "side": -1
+        }
+      },
+      "passes": true
+    }
+  ]
+}

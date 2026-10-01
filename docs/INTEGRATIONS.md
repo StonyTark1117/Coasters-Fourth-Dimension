@@ -191,3 +191,19 @@ scenarios run. Missing or uninspected versions explicitly skip FE operation.
 This does not certify a generator/cable integration, controller GUI sequence,
 FE-network reload or every powered layout. The earlier operating and GUI
 checkpoints retain their distinct artifacts and bounded scopes.
+
+
+The dev.6 [native bank acceptance](evidence/0.4/bank-acceptance.md) adds a
+continuous eight-section circuit with native 30° banking, actual loaded turns
+on both banked and level straights, and station capture/unloading. Shared joint
+normals and lifted centers are resolved before installing incident curves.
+Banked chain motors use the high side and the corresponding rotation sign.
+The native test exports only our frame positions and axes. An independent
+stdlib audit reads separately installed default provider meshes in memory and
+checks every placed spine/tie against all rendered control segments over the
+continuous -4..+2-turn stroke, including their square cross-sections. CI repeats
+this measurement for Styles and combined profiles. This certifies the recorded
+circuit's decoration/control-rail gap; it excludes arbitrary layouts, resource
+replacements, wheels, chassis, riders and linked-car clearance. It is not a
+banked GUI or graphics-backend observation. Those remaining checks keep FD401
+and the later release gates open.

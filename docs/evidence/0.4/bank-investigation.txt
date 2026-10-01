@@ -1,0 +1,24 @@
+Investigation run first (pre-dev.6 working source)
+[21:33:12] [Server thread/ERROR] [minecraft/LogTestReporter]: nativebankedframesandloadedfullturns failed at 8918986, -60, 5941745! Native frame did not retain the declared 30-degree bank
+BUILD FAILED in 1m 8s
+Investigation run fourth (pre-dev.6 working source)
+[21:52:43] [Server thread/ERROR] [minecraft/LogTestReporter]: nativebankedframesandloadedfullturns failed at -4371028, -60, -4150059! Native bank tangent is discontinuous at section 0
+BUILD FAILED in 1m 42s
+Investigation run seventh (pre-dev.6 working source)
+FD_BANK progress tick=400 section=1 stopping=false ready=false peaks=0.0,0.005711884106144161 center=(-3.470E+2  2.111E+2 -1.493E+2) nativeVelocity=( 1.430E+0 -1.666E-2  1.384E+0)
+FD_BANK progress tick=800 section=1 stopping=false ready=false peaks=0.0,0.006242407695448029 center=(-3.423E+2  2.110E+2 -1.471E+2) nativeVelocity=(-5.241E-2 -4.818E-4 -4.788E-3)
+FD_BANK progress tick=1200 section=1 stopping=false ready=false peaks=0.0,0.006242407695448029 center=(-3.423E+2  2.110E+2 -1.471E+2) nativeVelocity=(-5.239E-2 -4.797E-4 -4.786E-3)
+FD_BANK progress tick=1600 section=1 stopping=false ready=false peaks=0.0,0.006242407695448029 center=(-3.423E+2  2.110E+2 -1.471E+2) nativeVelocity=(-5.239E-2 -4.797E-4 -4.785E-3)
+FD_BANK progress tick=2000 section=1 stopping=false ready=false peaks=0.0,0.006242407695448029 center=(-3.423E+2  2.110E+2 -1.471E+2) nativeVelocity=(-5.239E-2 -4.796E-4 -4.785E-3)
+FD_BANK progress tick=2400 section=1 stopping=false ready=false peaks=0.0,0.006242407695448029 center=(-3.423E+2  2.110E+2 -1.471E+2) nativeVelocity=(-5.238E-2 -4.797E-4 -4.784E-3)
+[22:00:44] [Server thread/ERROR] [minecraft/LogTestReporter]: nativebankedframesandloadedfullturns failed at 10862378, -60, 7945181! Didn't succeed or fail within 2400 ticks
+BUILD FAILED in 1m 20s
+Investigation run eighth (pre-dev.6 working source)
+FD_BANK progress tick=400 section=1 stopping=false ready=false peaks=0.0,0.005711884106144161 center=(-3.470E+2  2.111E+2 -1.493E+2) nativeVelocity=( 1.430E+0 -1.666E-2  1.384E+0)
+FD_BANK progress tick=800 section=1 stopping=false ready=false peaks=0.00484284921597634,0.006242407695448029 center=(-3.415E+2  2.110E+2 -1.471E+2) nativeVelocity=( 4.601E-1 -6.018E-4  2.911E-3)
+FD_BANK progress tick=1200 section=2 stopping=false ready=false peaks=0.00484284921597634,0.006242407695448029 center=(-3.415E+2  2.110E+2 -1.471E+2) nativeVelocity=(-7.678E-1 -5.527E-4 -9.999E-6)
+FD_BANK progress tick=1600 section=1 stopping=false ready=false peaks=0.00484284921597634,0.006242407695448029 center=(-3.415E+2  2.110E+2 -1.471E+2) nativeVelocity=( 6.440E-1 -5.929E-4  1.648E-3)
+FD_BANK progress tick=2000 section=1 stopping=false ready=false peaks=0.00484284921597634,0.006242407695448029 center=(-3.415E+2  2.110E+2 -1.471E+2) nativeVelocity=( 1.106E+0 -6.760E-4  6.094E-3)
+FD_BANK progress tick=2400 section=2 stopping=false ready=false peaks=0.00484284921597634,0.006242407695448029 center=(-3.416E+2  2.110E+2 -1.471E+2) nativeVelocity=(-1.614E+0 -5.564E-4 -3.336E-6)
+[22:02:45] [Server thread/ERROR] [minecraft/LogTestReporter]: nativebankedframesandloadedfullturns failed at 12597871, -60, -13041928! Didn't succeed or fail within 2400 ticks
+BUILD FAILED in 1m 14s

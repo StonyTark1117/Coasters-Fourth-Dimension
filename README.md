@@ -2,7 +2,7 @@
 
 A Create: Coasters Simulated addon developing five original 4D families: controlled Arrow/S&S cars, legacy ZacSpin, magnetic S&S Free Spin, revised ZacSpin, and a PAX-style catch/lift/release shuttle. Every family has matching functional track. Arrow and PAX cars support family-specific native coupling; the other families operate individually.
 
-FD201–FD204 implement the **bounded 0.2 build**. See [magnetic-family instructions and acceptance](docs/MAGNETIC.md), and the earlier [0.1 acceptance](docs/PLAYABLE.md). The current `0.9.0-dev.5` branch retains the completed **bounded 0.3 gate**, adding revised carriers and a physical PAX catch/lift/release shuttle with five-family packaged single-player and dedicated-server evidence; see [instructions, acceptance, and outstanding gates](docs/REVISED-SHUTTLE.md). Optional track appearance and Engineered operating adapters are in development under [FD401](docs/INTEGRATIONS.md), with schema/protocol 5; clients and servers must upgrade together. Engineered native tests include a coupled Arrow full turn/rollback and FE-enabled starvation/supply/braking/retention. Inspected Arrow decoration falls back to Original above +720° without changing the profile; a real styled Arrow circuit now has bounded evidence. It is not yet the 0.9 release candidate. The four-pair Free Spin and revised topologies are original game approximations; exact manufacturer coupling is not claimed.
+FD201–FD204 implement the **bounded 0.2 build**. See [magnetic-family instructions and acceptance](docs/MAGNETIC.md), and the earlier [0.1 acceptance](docs/PLAYABLE.md). The current `0.9.0-dev.6` branch retains the completed **bounded 0.3 gate**, adding revised carriers and a physical PAX catch/lift/release shuttle with five-family packaged single-player and dedicated-server evidence; see [instructions, acceptance, and outstanding gates](docs/REVISED-SHUTTLE.md). Optional track appearance and Engineered operating adapters are in development under [FD401](docs/INTEGRATIONS.md), with schema/protocol 5; clients and servers must upgrade together. Engineered native tests include a coupled Arrow full turn/rollback and FE-enabled starvation/supply/braking/retention. Inspected Arrow decoration falls back to Original above +720° without changing the profile; a real styled Arrow circuit now has bounded evidence. A native 30° banked circuit adds loaded full-turn/capture checks and a recorded default-decoration/control-rail clearance audit; banked GUI/render-mode evidence and complete vehicle clearance remain open. It is not yet the 0.9 release candidate. The four-pair Free Spin and revised topologies are original game approximations; exact manufacturer coupling is not claimed.
 
 ## Install
 
@@ -47,6 +47,7 @@ Operator level 2 is required. In an empty test world, run:
 
 ```text
 /execute positioned -100 120 0 run fd demo arrow
+/execute positioned -350 207 -212 run fd demo arrow_bank
 /execute positioned 100 120 0 run fd demo legacy
 /execute positioned -400 120 0 run fd demo free_spin
 /execute positioned 400 140 0 run fd demo revised
@@ -54,6 +55,8 @@ Operator level 2 is required. In an empty test world, run:
 ```
 
 The Arrow, legacy, Free Spin, and revised circuit commands reserve a clear 47 × 17 × 69 region starting above/ahead of the command position. The original examples include track, a car, platforms, a boarding station and native Coasters chain drives powered by Create creative motors at 32 RPM. Arrow has a full-turn rotation program; both free-spin examples have hills. Free Spin also has two oppositely directed, separately targeted inducer spans and an all-group damper on the far straight. Board, close restraints and dispatch. After the car leaves, power the rear of the station so it captures the returning car; release power to dispatch again.
+
+`arrow_bank` uses the same circuit footprint with native 30° banking, a level station, and full controlled turns on both the banked upper straight and level right straight. Its chain motors sit on the high side of the banked joints. Styling remains optional; the native-motion and recorded default-mesh checks are described in [bank acceptance](docs/evidence/0.4/bank-acceptance.md).
 
 The PAX command builds its separate four-car two-spike layout and physical winch. `/fd demo pax_tall` creates the taller shuttle example. See [shuttle operation and restart recovery](docs/REVISED-SHUTTLE.md); these examples need larger clear corridors.
 
@@ -70,7 +73,7 @@ The PAX command builds its separate four-car two-spike layout and physical winch
 
 Use `JAVA_HOME=/usr/lib/jvm/java-21-openjdk` on this workstation. The generated server directory needs Minecraft EULA acceptance. Offline mode is for loopback development identities only.
 
-The artifact is `build/libs/coasters-fourth-dimension-0.9.0-dev.5.jar`. For Unix checkout paths containing `:`, outputs move to `/tmp/fourthdimension-<path-hash>/build` to avoid Java classpath parsing errors. Run directories live under that build directory. `clean` deletes them; keep valuable worlds elsewhere. GameTests recreate their own disposable world.
+The artifact is `build/libs/coasters-fourth-dimension-0.9.0-dev.6.jar`. For Unix checkout paths containing `:`, outputs move to `/tmp/fourthdimension-<path-hash>/build` to avoid Java classpath parsing errors. Run directories live under that build directory. `clean` deletes them; keep valuable worlds elsewhere. GameTests recreate their own disposable world.
 
 After `build`, `-PfdPackaged` runs the built JAR using an isolated source set and separate `packaged-client`/`packaged-server` directories. It does not load the addon's loose compiled classes. `-PfdConnect=127.0.0.1:25581` connects to a test server; `-PfdWorld=FolderName` opens an existing single-player save. `runObserver` starts a second identity. `-PfdValidation` logs functional/native pose snapshots; `runServer -PfdFrozen` starts paused for saved-state comparisons.
 

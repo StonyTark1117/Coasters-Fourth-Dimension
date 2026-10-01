@@ -38,6 +38,13 @@ jobs:
       - run: ./gradlew clean build runGameTestServer --no-daemon "-PfdIntegrations=$FD_INTEGRATIONS"
         env:
           FD_INTEGRATIONS: ${{ matrix.integrations }}
+      - name: Audit installed Arrow decoration on native bank frames
+        if: matrix.profile == 'styles' || matrix.profile == 'combined'
+        run: |
+          FD_STYLE_JARS=("$HOME"/.gradle/caches/modules-2/files-2.1/curse.maven/coasters-simulated-track-styles-1642719/9020601/*/*.jar)
+          test "${#FD_STYLE_JARS[@]}" -eq 1
+          python3 scripts/audit-arrow-style-geometry.py "${FD_STYLE_JARS[0]}" \
+            build/runs/gametest/bank-native-frames.json > build/banked-clearance.json
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         if: always()
         with:
@@ -47,3 +54,5 @@ jobs:
             build/reports/tests/**
             build/test-results/**
             build/runs/gametest/logs/**
+            build/runs/gametest/bank-native-frames.json
+            build/banked-clearance.json

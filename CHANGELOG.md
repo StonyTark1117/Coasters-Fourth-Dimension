@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.9.0-dev.6 — native banking and recorded mesh clearance
+
+- Add `/fd demo arrow_bank`, with a level station, native 30° banked upper section and full controlled turns on both banked and level straights.
+- Resolve shared endpoint normals and lifted centers before installing curves; place banked chain motors on the high side with the matching rotation sign.
+- Check joint center/frame continuity, real passenger retention, both full turns, station capture and unloading in a native circuit test.
+- Export our native render frames and independently audit both separately installed default Arrow spine/tie meshes against the rendered square control rails over the full supported stroke. Run that audit in Styles/combined CI. No provider vertices or assets are saved or bundled.
+- Schema/network protocol remains 5. This advances FD401; banked GUI/rendering, full vehicle/rider clearance, operating workflows and the remaining 0.9 gates are still open.
+
 ## 0.9.0-dev.5 — styled ride and native FE validation
 
 - Record a real packaged dev.4 Arrow circuit with double-spine controlled track, a single-spine flat quarter curve, station dispatch/recapture and verified dismount.

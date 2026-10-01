@@ -2,6 +2,14 @@
 
 This is partial FD401 evidence, not the 0.4 or 0.9 release gate.
 
+## Native banked circuit checkpoint
+
+The dev.6 [bank acceptance](bank-acceptance.md) adds a native continuous 30°
+banked circuit, loaded full turns on banked and level straights, and station
+capture/unloading. The independent installed-default-mesh audit covers every
+spine/tie against all rendered square control segments over continuous stroke.
+It leaves banked GUI/rendering and full vehicle/rider clearance open.
+
 ## FE-enabled operating checkpoint
 
 The dev.5 [FE acceptance](fe-acceptance.md) exercises installed native anchor

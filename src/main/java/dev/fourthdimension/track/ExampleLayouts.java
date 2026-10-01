@@ -8,6 +8,7 @@ import dev.fourthdimension.runtime.*;
 import dev.fourthdimension.station.*;
 import dev.fourthdimension.vehicle.VehicleFactory;
 import dev.silvergold.simulatedcoasters.*;
+import dev.silvergold.simulatedcoasters.track.CoasterTrackPlacement;
 import dev.silvergold.simulatedcoasters.track.anchor.CoasterAnchorpointBlockEntity;
 import dev.silvergold.simulatedcoasters.track.chainlift.*;
 import dev.silvergold.simulatedcoasters.track.graph.*;
@@ -64,12 +65,45 @@ public final class ExampleLayouts {
                     }
                   }));
     }
+    demo.then(
+        Commands.literal("arrow_bank")
+            .executes(
+                ctx -> {
+                  try {
+                    createBankedArrow(
+                        ctx.getSource().getLevel(),
+                        BlockPos.containing(ctx.getSource().getPosition()).offset(0, 3, 12));
+                    ctx.getSource()
+                        .sendSuccess(
+                            () ->
+                                Component.literal(
+                                    "Banked Arrow example built with native 30-degree banks. The"
+                                        + " station is level; the upper banked straight and right"
+                                        + " straight each have a full controlled turn. Track"
+                                        + " styling is optional and selected with the rotation"
+                                        + " tool."),
+                            false);
+                    return 1;
+                  } catch (IllegalArgumentException failure) {
+                    ctx.getSource().sendFailure(Component.literal(failure.getMessage()));
+                    return 0;
+                  }
+                }));
     root.then(demo);
     event.getDispatcher().register(root);
   }
 
   public static FoundationData.Vehicle create(
       ServerLevel level, BlockPos origin, TrackDesign design) {
+    return create(level, origin, design, false);
+  }
+
+  public static FoundationData.Vehicle createBankedArrow(ServerLevel level, BlockPos origin) {
+    return create(level, origin, TrackDesign.ARROW, true);
+  }
+
+  private static FoundationData.Vehicle create(
+      ServerLevel level, BlockPos origin, TrackDesign design, boolean banked) {
     if (design == TrackDesign.PAX)
       throw new IllegalArgumentException(
           "Use /fd demo pax or pax_tall for a physical shuttle example");
@@ -79,7 +113,7 @@ public final class ExampleLayouts {
       if (!level.getBlockState(pos).isAir())
         throw new IllegalArgumentException("Example requires an empty 47 x 17 x 69 area: " + pos);
     var data = FoundationData.get(level);
-    data.checkProfileCapacity(design.family.driven() ? 17 : 16);
+    data.checkProfileCapacity(banked ? 18 : design.family.driven() ? 17 : 16);
     if (data.rails.size() > 248 || data.vehicles.size() >= 64)
       throw new IllegalArgumentException("Example capacity exceeded");
     int[][] offsets = {{0, 8}, {0, 44}, {8, 52}, {24, 52}, {32, 44}, {32, 8}, {24, 0}, {8, 0}};
@@ -101,6 +135,22 @@ public final class ExampleLayouts {
       anchors.add(pos);
       level.setBlockAndUpdate(
           pos, SimulatedCoastersBlocks.COASTER_ANCHORPOINT.get().defaultBlockState());
+      if (banked && (index == 2 || index == 3))
+        ((CoasterAnchorpointBlockEntity) level.getBlockEntity(pos))
+            .setJointBankRadians((float) Math.toRadians(30));
+    }
+    // A face normal belongs to the joint, independent of which curve approaches it.
+    // Resolve once before adding incident curves so bank-side selection stays consistent.
+    var normals = new ArrayList<Vec3>();
+    for (int i = 0; i < anchors.size(); i++)
+      normals.add(
+          CoasterTrackPlacement.anchorFaceNormalForAxis(level, anchors.get(i), tangents[i]));
+    var centers = new ArrayList<Vec3>();
+    for (int i = 0; i < anchors.size(); i++) {
+      var anchor = (CoasterAnchorpointBlockEntity) level.getBlockEntity(anchors.get(i));
+      centers.add(
+          CoasterAnchorpointBlockEntity.worldCenterBase(level, anchors.get(i))
+              .add(normals.get(i).scale(anchor.getLiftBlocks())));
     }
     var edges = new ArrayList<CoasterPathEdge>();
     for (int i = 0; i < 8; i++) {
@@ -110,11 +160,9 @@ public final class ExampleLayouts {
       var curve =
           new BezierConnection(
               Couple.create(from, to),
-              Couple.create(
-                  CoasterAnchorpointBlockEntity.worldCenter(level, from),
-                  CoasterAnchorpointBlockEntity.worldCenter(level, to)),
+              Couple.create(centers.get(i), centers.get(next)),
               Couple.create(tangents[i], tangents[next].scale(-1)),
-              Couple.create(new Vec3(0, 1, 0), new Vec3(0, 1, 0)),
+              Couple.create(normals.get(i), normals.get(next)),
               true,
               false,
               CoasterTrackMaterials.COASTER);
@@ -124,7 +172,7 @@ public final class ExampleLayouts {
       edges.add(edge);
       double length = TrackGeometry.table(level, edge).length();
       var profile =
-          design.family.driven() && i == 4
+          design.family.driven() && (i == 4 || (banked && i == 2))
               ? new RotationProfile(
                   List.of(
                       new RotationProfile.Key(0, 0),
@@ -153,7 +201,12 @@ public final class ExampleLayouts {
               TrackGeometry.table(level, edge).length());
       var axis = Math.abs(tangents[i].z) > .5 ? Direction.Axis.X : Direction.Axis.Z;
       anchor.commitChainLift(axis, ChainLiftEndRef.anchor(edge.to()), path);
-      var direction = axis == Direction.Axis.X ? Direction.EAST : Direction.SOUTH;
+      // Keep the motor on the high side of the banked joint; a low-side full
+      // block intersects the tilted native bearing as it approaches the anchor.
+      var direction =
+          axis == Direction.Axis.X
+              ? Direction.EAST
+              : banked && (i == 2 || i == 3) ? Direction.NORTH : Direction.SOUTH;
       var motorPos = anchors.get(i).relative(direction);
       level.setBlockAndUpdate(
           motorPos,
@@ -162,7 +215,8 @@ public final class ExampleLayouts {
               .setValue(BlockStateProperties.FACING, direction.getOpposite()));
       var motor = (CreativeMotorBlockEntity) level.getBlockEntity(motorPos);
       // Native speed is 16 blocks/s at 256 RPM; choose a slow 2 blocks/s demo.
-      motor.generatedSpeed.setValue(32 * anchor.getChainLiftTravelSign());
+      motor.generatedSpeed.setValue(
+          32 * anchor.getChainLiftTravelSign() * (direction == Direction.NORTH ? -1 : 1));
     }
     var edge = edges.getFirst();
     double t = TrackGeometry.table(level, edge).parameterAt(12);

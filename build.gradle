@@ -101,7 +101,10 @@ tasks.named('jar') {
     from('LICENSE') { into 'META-INF'; rename { 'LICENSE-fourthdimension.txt' } }
 }
 tasks.named('runGameTestServer') {
-    doFirst { delete layout.buildDirectory.dir('runs/gametest/world') }
+    doFirst {
+        delete layout.buildDirectory.dir('runs/gametest/world')
+        delete layout.buildDirectory.file('runs/gametest/bank-native-frames.json')
+    }
 }
 tasks.named('processResources') {
     inputs.property 'version', project.version
