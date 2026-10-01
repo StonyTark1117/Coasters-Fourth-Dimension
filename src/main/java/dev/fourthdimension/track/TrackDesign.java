@@ -19,6 +19,11 @@ public enum TrackDesign {
   public static final double RAIL_HALF_WIDTH = .13125, RAIL_HALF_HEIGHT = .075;
   public static final double WHEEL_RADIUS = .2, WHEEL_ROW_SPACING = .55;
   public static final double TREAD_INNER = .625, TREAD_OUTER = .9375;
+  public static final double SPINE_HEIGHT = -.55;
+  public static final double RUNNING_CROSSBAR_RADIUS = .06;
+  public static final double RUNNING_MOUNT_HALF_GAUGE = .5;
+  public static final double RUNNING_MOUNT_RADIUS = .08;
+  public static final double CONTROL_SUPPORT_RADIUS = .055;
   public static final double MAGNET_HALF_GAUGE = 1.6, MAGNET_HEIGHT = .65, MAGNET_RADIUS = .12;
   public static final double MAGNET_SUPPORT_HEIGHT = -.55, MAGNET_SUPPORT_RADIUS = .055;
   public static final double CONTROL_HALF_GAUGE = 1.35, CONTROL_BASE_HEIGHT = -.85;

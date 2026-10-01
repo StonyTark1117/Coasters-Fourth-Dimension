@@ -46,6 +46,10 @@ jobs:
           test "${#FD_STYLE_JARS[@]}" -eq 1
           python3 scripts/audit-arrow-style-geometry.py "${FD_STYLE_JARS[0]}" \
             build/runs/gametest/bank-native-frames.json > build/banked-clearance.json
+          FD_BASE_JARS=("$HOME"/.gradle/caches/modules-2/files-2.1/curse.maven/create-coasters-simulated-1601871/8655742/*/*.jar)
+          test "${#FD_BASE_JARS[@]}" -eq 1
+          python3 scripts/audit-arrow-wheel-clearance.py "${FD_BASE_JARS[0]}" \
+            "${FD_STYLE_JARS[0]}" > build/wheel-clearance.json
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         if: always()
         with:
@@ -57,3 +61,4 @@ jobs:
             build/runs/gametest/logs/**
             build/runs/gametest/bank-native-frames.json
             build/banked-clearance.json
+            build/wheel-clearance.json

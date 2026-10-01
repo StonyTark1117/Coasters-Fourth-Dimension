@@ -23,7 +23,7 @@ provides references to separately installed models; this addon includes no copie
 Track Styles resources or code.
 
 The rendering ownership contract gives every component one owner. A cosmetic
-provider can reserve spine and ties only. Original running rails, position-driven
+provider can reserve spine and ties only. Original running rails and their supports, position-driven
 control geometry, and magnetic equipment remain ours. Appearance identifiers do
 not participate in the functional track/vehicle contract, and cannot change
 family eligibility or carrier profiles. The Rotation Tool's section editor now
@@ -151,7 +151,7 @@ were not exercised; passing availability checks are not motor-operation evidence
 
 ## Decorative stroke limit and powered controlled-train checkpoint
 
-The pinned default Arrow ties clear our local straight control cylinders by at
+The original dev.3–dev.7 placement of the pinned default Arrow ties clears the local straight control cylinders by at
 least 0.0725 blocks throughout -1440°..+720°. Their upper outer tips intersect
 those cylinders within +1080°..+1440°. The reproducible continuous-stroke triangle
 projection audit and exact artifact hash are in
@@ -225,3 +225,35 @@ current stable boarding readiness after the historical cycle count advances,
 verifies deterministic native post-capture motion cannot open restraints, then
 recovers and unloads normally. Production speed/alignment thresholds and
 operator interlocks are unchanged. Neither checkpoint closes FD401 or FD902.
+
+## Native-wheel decoration revision
+
+The dev.8 adapter lowers installed Arrow spine/tie geometry by 0.6 blocks in
+track-local up and scales tie width to 85% about the provider's own model origin.
+Our main-rail crossbars and diagonal mounts remain present; an additional native
+crossbrace connects the lowered single or double spine to those mounts, with
+end brackets bridging the transition to Original appearance. The
+external provider still owns only decorative spine and ties. No external mesh
+or texture is copied or redistributed.
+
+The [wheel-clearance checkpoint](evidence/0.4/wheel-placement-acceptance.md)
+records why this changed: the previous control-rail audit did not include the
+native main/upstop wheel meshes. Both old tie placements enter the lower-wheel
+swept envelope. The new independent audit encloses every cuboid in the pinned
+native wheel model over continuous spin and longitudinal travel on a level
+straight. It also checks our rendered support geometry. CI runs this audit and
+the banked decoration/control-rail audit for both installed-style profiles.
+
+Historical dev.6/dev.7 bank geometry results are reproduced with
+`audit-arrow-style-geometry.py <installed-jar> <recorded-frames> --placement legacy`.
+The default audit now reads the dev.8 production placement constants. The +720°
+styling guard remains pending wider profile and whole-vehicle validation; the
+old tip-conflict measurement describes the old placement. Banked wheel sweeps,
+chassis, carriers, riders, linked cars and resource overrides remain separate
+unfinished checks. This revision does not close FD401 or the 0.9 gate.
+
+The final dev.8 packaged client shows both styles and the end transition, but
+opening chat after F3+T exposed a freed bitmap-glyph image crash. The complete
+report is retained in the checkpoint above. Root cause and the new placement's
+complete post-reload GUI ride remain open; previous dev.6 acceptance does not
+certify this revised adapter.

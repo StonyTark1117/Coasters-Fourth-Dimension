@@ -211,7 +211,13 @@ public final class OriginalTrackRenderer {
         center.add(right.scale(TrackDesign.HALF_GAUGE)).add(up.scale(TrackDesign.MAIN_RAIL_HEIGHT)),
         center.add(right.scale(-TrackDesign.CONTROL_HALF_GAUGE)).add(up.scale(control)),
         center.add(right.scale(TrackDesign.CONTROL_HALF_GAUGE)).add(up.scale(control)),
-        center.add(up.scale(-.55))
+        center.add(
+            up.scale(
+                TrackDesign.SPINE_HEIGHT
+                    + (ownership.originalOwns(
+                            dev.fourthdimension.integration.TrackRenderOwnership.Component.SPINE)
+                        ? 0
+                        : dev.fourthdimension.physics.ArrowDecorationPlacement.VERTICAL_OFFSET)))
       };
       if (previous != null) {
         for (int rail = 0; rail < 5; rail++) {
@@ -232,9 +238,9 @@ public final class OriginalTrackRenderer {
               rail < 2 ? 0xc6d0d4 : rail == 4 ? decorationColor : 0xf0ca69);
         }
       }
-      if (i % 8 == 0) {
+      if (i % 8 == 0 || i == count) {
         if (ownership.originalOwns(
-            dev.fourthdimension.integration.TrackRenderOwnership.Component.TIES))
+            dev.fourthdimension.integration.TrackRenderOwnership.Component.RUNNING_SUPPORTS))
           tube(
               result,
               points[0],
@@ -243,22 +249,48 @@ public final class OriginalTrackRenderer {
               up,
               basis.forward(),
               up,
-              .06,
+              TrackDesign.RUNNING_CROSSBAR_RADIUS,
               decorationColor);
+        // This native crossbrace joins both external spine beams to the mechanical mounts.
+        if (!ownership.originalOwns(
+            dev.fourthdimension.integration.TrackRenderOwnership.Component.SPINE)) {
+          tube(
+              result,
+              points[4].add(right.scale(-TrackDesign.RUNNING_MOUNT_HALF_GAUGE)),
+              points[4].add(right.scale(TrackDesign.RUNNING_MOUNT_HALF_GAUGE)),
+              basis.forward(),
+              up,
+              basis.forward(),
+              up,
+              TrackDesign.RUNNING_CROSSBAR_RADIUS,
+              decorationColor);
+          // Bridge the spine-height step when this section meets Original appearance.
+          if (i == 0 || i == count)
+            tube(
+                result,
+                center.add(up.scale(TrackDesign.SPINE_HEIGHT)),
+                points[4],
+                basis.forward(),
+                right,
+                basis.forward(),
+                right,
+                TrackDesign.RUNNING_MOUNT_RADIUS,
+                decorationColor);
+        }
         for (int side = 0; side < 2; side++) {
           if (ownership.originalOwns(
-              dev.fourthdimension.integration.TrackRenderOwnership.Component.TIES))
+              dev.fourthdimension.integration.TrackRenderOwnership.Component.RUNNING_SUPPORTS))
             tube(
                 result,
                 center
-                    .add(right.scale(side == 0 ? -.5 : .5))
+                    .add(right.scale((side == 0 ? -1 : 1) * TrackDesign.RUNNING_MOUNT_HALF_GAUGE))
                     .add(up.scale(TrackDesign.MAIN_RAIL_HEIGHT)),
                 points[4],
                 basis.forward(),
                 right,
                 basis.forward(),
                 right,
-                .08,
+                TrackDesign.RUNNING_MOUNT_RADIUS,
                 decorationColor);
           if (design.family.driven())
             tube(
@@ -269,7 +301,7 @@ public final class OriginalTrackRenderer {
                 right,
                 basis.forward(),
                 right,
-                .055,
+                TrackDesign.CONTROL_SUPPORT_RADIUS,
                 decorationColor);
         }
       }

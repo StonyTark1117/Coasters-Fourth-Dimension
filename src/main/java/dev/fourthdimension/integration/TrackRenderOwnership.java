@@ -11,6 +11,7 @@ public record TrackRenderOwnership(Map<Component, String> owners) {
     SPINE,
     TIES,
     RUNNING_RAILS,
+    RUNNING_SUPPORTS,
     CONTROL_RAILS,
     MAGNETIC_EQUIPMENT
   }
@@ -37,6 +38,7 @@ public record TrackRenderOwnership(Map<Component, String> owners) {
             Component.SPINE, provider,
             Component.TIES, provider,
             Component.RUNNING_RAILS, ORIGINAL,
+            Component.RUNNING_SUPPORTS, ORIGINAL,
             Component.CONTROL_RAILS, ORIGINAL,
             Component.MAGNETIC_EQUIPMENT, ORIGINAL));
   }

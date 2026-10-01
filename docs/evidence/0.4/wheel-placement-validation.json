@@ -1,0 +1,31 @@
+{
+  "version": "0.9.0-dev.8",
+  "profiles": [
+    {
+      "profile": "standalone",
+      "nativeRequiredTests": 25,
+      "passed": true
+    },
+    {
+      "profile": "styles",
+      "nativeRequiredTests": 25,
+      "passed": true
+    },
+    {
+      "profile": "engineered",
+      "nativeRequiredTests": 25,
+      "passed": true
+    },
+    {
+      "profile": "combined",
+      "nativeRequiredTests": 25,
+      "passed": true
+    }
+  ],
+  "unit": {
+    "tests": 25,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  }
+}

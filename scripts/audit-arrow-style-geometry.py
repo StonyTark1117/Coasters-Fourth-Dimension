@@ -14,6 +14,8 @@ import itertools
 import json
 import math
 from pathlib import Path
+import re
+import struct
 import zipfile
 
 spec = importlib.util.spec_from_file_location("stroke", Path(__file__).with_name("audit-arrow-style-stroke.py"))
@@ -95,13 +97,29 @@ def separating_gap(volume, triangle):
     return best
 
 
-def model(source, component):
+def placement_config(placement):
+    if placement == "legacy":
+        return 1.0, 0.0, None
+    source = Path(__file__).resolve().parents[1] / "src/main/java/dev/fourthdimension/physics/ArrowDecorationPlacement.java"
+    content = source.read_text()
+    def constant(name):
+        match = re.search(r"public static final float " + name + r" = ([\d.\-]+)f;", content)
+        if match is None:
+            raise ValueError("Unrecognized production decoration placement: " + name)
+        return struct.unpack("f", struct.pack("f", float(match[1])))[0]
+    return constant("TIE_SCALE_X"), constant("VERTICAL_OFFSET"), hashlib.sha256(source.read_bytes()).hexdigest()
+
+
+def model(source, component, placement="legacy"):
+    tie_scale, vertical, _ = placement_config(placement)
     vertices, faces = [], []
     for line in source.splitlines():
         if line.startswith("v "):
             p = tuple(map(float, line.split()[1:4]))
             if component == "tie":
                 p = sub(p, (.5, 0, .25))
+                p = (p[0] * tie_scale, p[1], p[2])
+            p = (p[0], p[1] + vertical, p[2])
             vertices.append(p)
         elif line.startswith("f "):
             face = [int(x.split("/")[0]) for x in line.split()[1:]]
@@ -216,6 +234,7 @@ def main():
     parser.add_argument("--margin", type=float, default=.01)
     parser.add_argument("--low-turn", type=float, default=-4)
     parser.add_argument("--high-turn", type=float, default=2)
+    parser.add_argument("--placement", choices=("legacy", "wheel-clearance-v2"), default="wheel-clearance-v2")
     args = parser.parse_args()
     if not 0 < args.margin <= .05:
         parser.error("Margin must be finite and within (0, .05]")
@@ -238,9 +257,10 @@ def main():
         for style in ("arrow_4d", "arrow_4d_dbl_spine"):
             for component in ("center_beam", "tie"):
                 resource = f"assets/coasterssimulatedextratypes/models/block/track/{style}/{style}_{component}.obj"
-                triangles = model(archive.read(resource).decode(), component)
+                triangles = model(archive.read(resource).decode(), component, args.placement)
                 results.append({"resource": resource, **measure(triangles, sections, component, controls, args.margin)})
     output = {"providerSha256": digest, "nativeFramesSha256": hashlib.sha256(args.frames.read_bytes()).hexdigest(),
+              "placement": args.placement, "placementSourceSha256": placement_config(args.placement)[2],
               "jointErrors": joint_errors, "sections": len(sections), "controlSegments": len(controls), "turnInterval": [args.low_turn, args.high_turn],
               "method": "convex volume of rendered square-tube segment over continuous stroke; conservative projection/SAT distance bounds",
               "scope": "recorded native circuit and default provider OBJ meshes only; excludes riders, chassis, wheels, linked vehicles and resource overrides",

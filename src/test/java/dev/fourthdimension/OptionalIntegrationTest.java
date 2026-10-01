@@ -31,6 +31,7 @@ class OptionalIntegrationTest {
     for (var component :
         new TrackRenderOwnership.Component[] {
           TrackRenderOwnership.Component.RUNNING_RAILS,
+          TrackRenderOwnership.Component.RUNNING_SUPPORTS,
           TrackRenderOwnership.Component.CONTROL_RAILS,
           TrackRenderOwnership.Component.MAGNETIC_EQUIPMENT
         }) {

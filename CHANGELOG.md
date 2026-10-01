@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.9.0-dev.8 — native wheel clearance for installed Arrow decoration
+
+- Lower and adapt separately installed Arrow decoration to clear the native main/upstop wheel swept envelopes on a level straight.
+- Retain original main-rail supports with external styles and connect the lowered spine with a native crossbrace.
+- Add a pinned default-wheel geometry audit, reproduce the previous tie-envelope failure, and repeat the recorded native-bank control-rail check with production placement constants.
+- Full banked wheel, chassis, carrier, rider and linked-car clearance remains open under FD401.
+- Preserve a packaged-client bitmap-glyph crash after F3+T; new GUI reload/ride acceptance remains open while its cause is investigated.
+
 ## 0.9.0-dev.7 — banked GUI evidence and current shuttle readiness
 
 - Record packaged dev.6 editor styling on the native banked circuit, real resource reload, cold reopen, normal occupied ride, station recapture, dismount and clean save/exit. Preserve all profiles and existing mechanical identities; add a saved-observation verifier to CI.

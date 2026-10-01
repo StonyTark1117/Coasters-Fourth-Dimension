@@ -55,7 +55,8 @@ public final class TrackStylesRenderer {
         pieces.add(
             new Piece(
                 decoration.spine(),
-                frame.transform.scale(1, 1, (float) step),
+                dev.fourthdimension.physics.ArrowDecorationPlacement.spine(
+                    frame.transform, (float) step),
                 BlockPos.containing(frame.center)));
       }
       for (double distance = 0; distance <= table.length() + 1e-6; distance += 2) {
@@ -64,7 +65,7 @@ public final class TrackStylesRenderer {
         pieces.add(
             new Piece(
                 decoration.ties(),
-                frame.transform.translate(-.5f, 0, -.25f),
+                dev.fourthdimension.physics.ArrowDecorationPlacement.tie(frame.transform),
                 BlockPos.containing(frame.center)));
       }
       int tint =

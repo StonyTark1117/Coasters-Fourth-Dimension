@@ -2,6 +2,15 @@
 
 This is partial FD401 evidence, not the 0.4 or 0.9 release gate.
 
+## Native-wheel decoration revision
+
+The [dev.8 wheel-clearance checkpoint](wheel-placement-acceptance.md) records a
+native lower-wheel envelope conflict missed by the earlier control-only audit,
+the revised installed-model placement, retained mechanical supports and an
+independent continuous-spin/longitudinal-travel check on level straight track.
+Complete banked wheel, chassis, carrier, rider and linked-car clearance remains
+open. Earlier banked screenshots describe the earlier adapter placement.
+
 ## Native banked circuit checkpoint
 
 The dev.6 [bank acceptance](bank-acceptance.md) adds a native continuous 30°
