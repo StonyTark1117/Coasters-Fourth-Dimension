@@ -1,0 +1,42 @@
+{
+  "scope": "Same-tick saved-provider loss during a native linked Arrow junction traversal; not addon removal or motor-force certification",
+  "pre_fix_failure_reproduced": true,
+  "profiles": {
+    "base": {
+      "registered": 33,
+      "absent_addon_skips": 6,
+      "linked_provider_loss_probes": 2
+    },
+    "engineered": {
+      "registered": 33,
+      "absent_addon_skips": 3,
+      "linked_provider_loss_probes": 2
+    },
+    "styles": {
+      "registered": 33,
+      "absent_addon_skips": 6,
+      "linked_provider_loss_probes": 2
+    },
+    "additions": {
+      "registered": 33,
+      "absent_addon_skips": 4,
+      "linked_provider_loss_probes": 2
+    },
+    "magnetized": {
+      "registered": 33,
+      "absent_addon_skips": 5,
+      "linked_provider_loss_probes": 2
+    },
+    "immersion": {
+      "registered": 33,
+      "absent_addon_skips": 6,
+      "linked_provider_loss_probes": 2
+    },
+    "combined": {
+      "registered": 33,
+      "absent_addon_skips": 0,
+      "linked_provider_loss_probes": 2
+    }
+  },
+  "unit_tests": 19
+}

@@ -53,6 +53,11 @@ adds 200 stationary native snap/filter/binding cases across all five family pair
 both shared endpoints and four appearances. A deliberate guard mutation fails the
 new test while keeping route continuity enabled; production code is restored and
 unchanged. Moving mixed-family traversal and linked-consist boundaries remain separate.
+The [linked-support regression](evidence/integrations/2026-10-01/linked-support/README.md)
+reproduces a missing partner-provider gap during a two-car Arrow junction traversal.
+Native consist eligibility and shared external-drive policy now require matching,
+available functional support. Same-tick loss/restoration probes preserve coupling,
+bindings and operating state; addon-removal and physical stopping cases remain separate.
 
 ## Create
 

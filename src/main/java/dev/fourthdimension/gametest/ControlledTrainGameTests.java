@@ -1,5 +1,6 @@
 package dev.fourthdimension.gametest;
 
+import dev.fourthdimension.integration.ExternalDrivePolicy;
 import dev.fourthdimension.physics.RotationProfile;
 import dev.fourthdimension.runtime.*;
 import dev.fourthdimension.track.*;
@@ -58,11 +59,18 @@ public final class ControlledTrainGameTests {
     var vehicles = new ArrayList<FoundationData.Vehicle>();
     var moving = new AtomicBoolean(false);
     var reverse = new AtomicBoolean(false);
+    var supportProbed = new AtomicBoolean(false);
     var max = new double[3];
     var container = SubLevelContainer.getContainer(level);
     helper.onEachTick(
         () -> {
           if (!moving.get()) return;
+          if (!supportProbed.get()
+              && second.matches(vehicles.getFirst().boundFrom, vehicles.getFirst().boundTo)
+              && first.matches(vehicles.getLast().boundFrom, vehicles.getLast().boundTo)) {
+            probeLinkedSupport(helper, vehicles, List.of(second, first));
+            supportProbed.set(true);
+          }
           for (var v : vehicles) {
             var body = (ServerSubLevel) container.getSubLevel(v.chassis);
             var pipeline = container.physicsSystem().getPipeline();
@@ -113,6 +121,7 @@ public final class ControlledTrainGameTests {
     helper.runAtTickTime(
         440,
         () -> {
+          helper.assertTrue(supportProbed.get(), "Train never reached split-support probe");
           System.out.println("FD_TRAIN maxTurn=" + max[0] + " maxAxleDifference=" + max[1]);
           helper.assertTrue(max[0] > 6, "Controlled production car did not complete its full turn");
           helper.assertTrue(
@@ -172,5 +181,83 @@ public final class ControlledTrainGameTests {
           for (var p : List.of(from, middle, end)) level.removeBlock(p, false);
           helper.succeed();
         });
+  }
+
+  private static void probeLinkedSupport(
+      GameTestHelper helper,
+      List<FoundationData.Vehicle> vehicles,
+      List<FoundationData.Rail> supports) {
+    var level = helper.getLevel();
+    var data = FoundationData.get(level);
+    var container = SubLevelContainer.getContainer(level);
+    for (int damaged = 0; damaged < vehicles.size(); damaged++) {
+      var rail = supports.get(damaged);
+      int index = data.rails.indexOf(rail);
+      helper.assertTrue(index >= 0, "Linked support disappeared before probe");
+      for (var v : vehicles)
+        helper.assertTrue(ExternalDrivePolicy.allows(level, v.chassis), "Valid train drive denied");
+      var unavailable =
+          new FoundationData.Rail(
+              rail.from,
+              rail.to,
+              rail.family,
+              rail.profile,
+              rail.id,
+              rail.variant,
+              rail.geometryHash,
+              rail.revision,
+              rail.valid,
+              "missing:functional");
+      unavailable.magnets = rail.magnets;
+      unavailable.appearance = rail.appearance;
+      try {
+        data.rails.set(index, unavailable);
+        int healthy = 1 - damaged;
+        var vehicle = vehicles.get(healthy);
+        var body = container.getSubLevel(vehicle.chassis);
+        var edge = TrackGeometry.resolve(level, supports.get(healthy));
+        helper.assertTrue(edge != null, "Healthy support lost native geometry");
+        var hit =
+            new CoasterPathTrackFrame.GraphHit(
+                CoasterPathGraphManager.sampleEdgePosition(level, edge, .5), edge, .5);
+        boolean eligible = EligibilityHooks.allows(body, level, hit);
+        boolean filtered =
+            CoasterCartRailSnapEligibility.filterHitForBearing(body, level, hit) != null;
+        var drive =
+            vehicles.stream().map(v -> ExternalDrivePolicy.allows(level, v.chassis)).toList();
+        System.out.println(
+            "FD_LINKED_SUPPORT damaged="
+                + damaged
+                + " eligible="
+                + eligible
+                + " filtered="
+                + filtered
+                + " drive="
+                + drive);
+        helper.assertTrue(
+            !eligible && !filtered && drive.stream().noneMatch(Boolean::booleanValue),
+            "Unavailable partner provider passed linked eligibility or external drive");
+      } finally {
+        data.rails.set(index, rail);
+      }
+      for (int i = 0; i < vehicles.size(); i++) {
+        var v = vehicles.get(i);
+        var body = container.getSubLevel(v.chassis);
+        helper.assertTrue(
+            ExternalDrivePolicy.allows(level, v.chassis)
+                && ConsistRules.eligible(level, body, v)
+                && supports.get(i).matches(v.boundFrom, v.boundTo)
+                && !v.stopping
+                && !v.maintenance
+                && v.restraints
+                && v.fault.isBlank(),
+            "Support probe changed healthy train state");
+      }
+      helper.assertTrue(
+          CoasterCartTrainLinkConstraint.areLinkedCarts(
+              container.getSubLevel(vehicles.getFirst().chassis),
+              container.getSubLevel(vehicles.getLast().chassis)),
+          "Support probe broke native coupling");
+    }
   }
 }

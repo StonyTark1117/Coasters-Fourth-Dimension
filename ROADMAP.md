@@ -343,6 +343,12 @@ The [connected-endpoint follow-up](docs/evidence/integrations/2026-10-01/connect
 isolates native family rejection from disconnected-route rejection, with matching
 positive controls and a deliberate guard mutation. Dynamic traversal and linked
 mixed-family boundary coverage remain open.
+The [linked-support follow-up](docs/evidence/integrations/2026-10-01/linked-support/README.md)
+fixes native partner eligibility and external-drive permission when either car loses
+its saved functional provider. It probes both cars during a genuine connected Arrow
+traversal, restores metadata before the next physics tick and retains the rollback
+check. Prolonged support loss, addon-removal restarts and other linked families remain
+separate acceptance cases.
 
 **Done when:** each advertised combination has recorded results. Wrong-family 4D carts are rejected everywhere, and ordinary carts receive no 4D benefit.
 
