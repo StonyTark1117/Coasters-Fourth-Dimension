@@ -1,0 +1,53 @@
+from pathlib import Path
+import hashlib,json,shutil,zipfile,re
+repo=Path(__file__).resolve().parents[2];work=Path(__file__).resolve().parent
+out=repo/'docs/evidence/integrations/2026-10-01/provider-boundary';out.mkdir(exist_ok=True)
+def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
+runs={}
+for name in ('red','timing-base','base','engineered','styles','additions','magnetized','immersion','combined'):
+ p=work/(name+'.log');lines=p.read_text().splitlines()
+ runs[name]={'log':str(p),'log_sha256':sha(p),'exit_status':int((work/(name+'.exit')).read_text())}
+ checks=[l for l in lines if 'FD_' in l or 'GAME TESTS COMPLETE' in l or 'required tests' in l or 'BUILD ' in l or 'failed at' in l or 'loaded from' in l]
+ (out/(name+'-checks.txt')).write_text('\n'.join(checks)+'\n')
+ mods=[];record=False
+ for l in lines:
+  if 'Name Version (Mod Id)' in l:record=True
+  if record:
+   if l.startswith('['):break
+   if l.strip():mods.append(l.strip())
+ (out/(name+'-mods.txt')).write_text('\n'.join(mods)+'\n')
+ warnings=[];keep=False
+ for l in lines:
+  if l.startswith('['):keep='/WARN]' in l or '/ERROR]' in l
+  if keep:warnings.append(l)
+ (out/(name+'-warnings.txt')).write_text('\n'.join(warnings).rstrip()+'\n')
+unit=out/'unit';unit.mkdir(exist_ok=True)
+for p in Path('/tmp/fourthdimension-48535694/build/test-results/test').glob('TEST-*.xml'):shutil.copyfile(p,unit/p.name)
+for name in ('BoundaryGuard-before.java.txt','initial-fixture.java.txt','before.json','matrix.py','collect.py'):
+ shutil.copyfile(work/name,out/(name+'.txt' if name.endswith('.py') else name))
+jar=work/'fixed.jar';classes={}
+prior=Path('/home/braydon/.cache/fourthdimension-48535694/linked-support.jar')
+with zipfile.ZipFile(jar) as z,zipfile.ZipFile(prior) as baseline:
+ for path in ['dev/fourthdimension/vehicle/BoundaryGuard.class'] + sorted(n for n in z.namelist() if n.startswith('dev/fourthdimension/gametest/BoundaryGameTests') and n.endswith('.class')):
+  compiled=Path('/tmp/fourthdimension-48535694/build/classes/java/main')/path
+  a=sha(compiled);b=hashlib.sha256(z.read(path)).hexdigest();assert a==b
+  classes[path]={'compiled_sha256':a,'jar_sha256':b,'prior_jar_sha256':hashlib.sha256(baseline.read(path)).hexdigest() if path in baseline.namelist() else None}
+ names=set(z.namelist());old=set(baseline.namelist())
+ artifact={'prior_sha256':sha(prior),'current_sha256':sha(jar),'added':sorted(names-old),'removed':sorted(old-names),'changed':sorted(n for n in names&old if z.read(n)!=baseline.read(n))}
+(out/'classes.json').write_text(json.dumps(classes,indent=2)+'\n')
+(out/'artifact-diff.json').write_text(json.dumps(artifact,indent=2)+'\n')
+paths=[jar]+[repo/'src/main/java/dev/fourthdimension'/p for p in ('vehicle/BoundaryGuard.java','gametest/BoundaryGameTests.java')]
+(out/'artifacts.json').write_text(json.dumps({str(p.relative_to(repo)):sha(p) for p in paths},indent=2)+'\n')
+(out/'runs.json').write_text(json.dumps(runs,indent=2)+'\n');print(list(runs))
+
+def warnings(text):
+ result=set()
+ for line in text.splitlines():
+  if '/WARN]' not in line and '/ERROR]' not in line:continue
+  line=re.sub(r'^\[[^]]+\] ', '', line)
+  line=re.sub(r'[0-9a-f]{8}-[0-9a-f-]{27,}', '<UUID>', line)
+  result.add(line)
+ return result
+prior_evidence=repo/'docs/evidence/integrations/2026-10-01/linked-support'
+comparison={name:sorted(warnings((work/(name+'.log')).read_text())-warnings((prior_evidence/(name+'-warnings.txt')).read_text())) for name in runs if name not in ('red','timing-base')}
+(out/'additional-warning-categories.json').write_text(json.dumps(comparison,indent=2)+'\n')

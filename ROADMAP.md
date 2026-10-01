@@ -349,6 +349,12 @@ its saved functional provider. It probes both cars during a genuine connected Ar
 traversal, restores metadata before the next physics tick and retains the rollback
 check. Prolonged support loss, addon-removal restarts and other linked families remain
 separate acceptance cases.
+The [moving-provider-boundary regression](docs/evidence/integrations/2026-10-01/provider-boundary/README.md)
+adds actual approach braking for all four non-shuttle families in both directions,
+with wrong-family and unavailable-provider stops and matching crossings. It fixes
+the next-segment provider check, while keeping PAX under its shuttle controller.
+This is bounded single-car, flat-track evidence, not the remaining loaded-train and
+lifecycle matrix.
 
 **Done when:** each advertised combination has recorded results. Wrong-family 4D carts are rejected everywhere, and ordinary carts receive no 4D benefit.
 

@@ -1,0 +1,56 @@
+{
+  "scope": "Four non-shuttle families, single cars, flat connected tracks, both directions, initial 4 m/s; not loaded trains, slopes or arbitrary stopping speeds",
+  "pre_fix_crossing_reproduced": true,
+  "profiles": {
+    "base": {
+      "registered": 33,
+      "absent_addon_skips": 6,
+      "wrong_family_stops": 8,
+      "missing_provider_stops": 8,
+      "matching_crossings": 8
+    },
+    "engineered": {
+      "registered": 33,
+      "absent_addon_skips": 3,
+      "wrong_family_stops": 8,
+      "missing_provider_stops": 8,
+      "matching_crossings": 8
+    },
+    "styles": {
+      "registered": 33,
+      "absent_addon_skips": 6,
+      "wrong_family_stops": 8,
+      "missing_provider_stops": 8,
+      "matching_crossings": 8
+    },
+    "additions": {
+      "registered": 33,
+      "absent_addon_skips": 4,
+      "wrong_family_stops": 8,
+      "missing_provider_stops": 8,
+      "matching_crossings": 8
+    },
+    "magnetized": {
+      "registered": 33,
+      "absent_addon_skips": 5,
+      "wrong_family_stops": 8,
+      "missing_provider_stops": 8,
+      "matching_crossings": 8
+    },
+    "immersion": {
+      "registered": 33,
+      "absent_addon_skips": 6,
+      "wrong_family_stops": 8,
+      "missing_provider_stops": 8,
+      "matching_crossings": 8
+    },
+    "combined": {
+      "registered": 33,
+      "absent_addon_skips": 0,
+      "wrong_family_stops": 8,
+      "missing_provider_stops": 8,
+      "matching_crossings": 8
+    }
+  },
+  "unit_tests": 19
+}

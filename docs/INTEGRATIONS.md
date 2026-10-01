@@ -58,6 +58,12 @@ reproduces a missing partner-provider gap during a two-car Arrow junction traver
 Native consist eligibility and shared external-drive policy now require matching,
 available functional support. Same-tick loss/restoration probes preserve coupling,
 bindings and operating state; addon-removal and physical stopping cases remain separate.
+The [moving-boundary follow-up](evidence/integrations/2026-10-01/provider-boundary/README.md)
+reproduces cars crossing an unavailable-provider junction without braking, despite
+native binding rejection. The approach guard now validates the next functional
+provider. Four non-shuttle families have forward/reverse single-car stopping and
+matching-crossing checks on flat track; loaded trains, slopes and removal restarts
+remain separate.
 
 ## Create
 

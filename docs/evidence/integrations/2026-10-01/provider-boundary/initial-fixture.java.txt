@@ -1,0 +1,294 @@
+package dev.fourthdimension.gametest;
+
+import dev.fourthdimension.runtime.*;
+import dev.fourthdimension.track.*;
+import dev.fourthdimension.vehicle.*;
+import dev.ryanhcode.sable.api.sublevel.SubLevelContainer;
+import dev.ryanhcode.sable.sublevel.ServerSubLevel;
+import dev.ryanhcode.sable.sublevel.storage.SubLevelRemovalReason;
+import dev.silvergold.simulatedcoasters.SimulatedCoastersBlocks;
+import dev.silvergold.simulatedcoasters.track.anchor.CoasterAnchorpointBlockEntity;
+import dev.silvergold.simulatedcoasters.track.cart.*;
+import dev.silvergold.simulatedcoasters.track.graph.*;
+import java.util.*;
+import net.minecraft.core.BlockPos;
+import net.minecraft.gametest.framework.*;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.level.GameType;
+import net.neoforged.neoforge.common.util.FakePlayerFactory;
+import net.neoforged.neoforge.gametest.*;
+import org.joml.Vector3d;
+
+@GameTestHolder("fourthdimension")
+@PrefixGameTestTemplate(false)
+public final class BoundaryGameTests {
+  private enum Mode {
+    WRONG_FAMILY,
+    MISSING_PROVIDER,
+    MATCHING
+  }
+
+  private static final class Lane {
+    final TrackDesign design;
+    final Mode mode;
+    final boolean reverse;
+    final List<FoundationData.Rail> rails = new ArrayList<>();
+    FoundationData.Vehicle vehicle;
+
+    Lane(TrackDesign design, Mode mode, boolean reverse) {
+      this.design = design;
+      this.mode = mode;
+      this.reverse = reverse;
+    }
+
+    FoundationData.Rail current() {
+      return rails.get(1);
+    }
+
+    FoundationData.Rail next() {
+      return rails.get(reverse ? 0 : 2);
+    }
+
+    String label() {
+      return design + "/" + mode + "/" + (reverse ? "REVERSE" : "FORWARD");
+    }
+  }
+
+  @GameTest(template = "empty", timeoutTicks = 980)
+  public static void unusableBoundariesBrakeInBothDirections(GameTestHelper helper) {
+    var level = helper.getLevel();
+    for (int x = -26; x <= -17; x++)
+      for (int z = 15; z <= 24; z++) level.setChunkForced(x, z, true);
+    var lanes = new ArrayList<Lane>();
+    var designs =
+        List.of(TrackDesign.ARROW, TrackDesign.LEGACY, TrackDesign.FREE_SPIN, TrackDesign.REVISED);
+    for (int wave = 0; wave < designs.size(); wave++) {
+      int start = wave * 240;
+      var design = designs.get(wave);
+      helper.runAtTickTime(start + 1, () -> createLanes(helper, design, lanes));
+      helper.runAtTickTime(start + 15, () -> spawn(helper, lanes));
+      helper.runAtTickTime(start + 80, () -> dispatch(helper, lanes));
+      helper.runAtTickTime(start + 210, () -> verify(helper, lanes));
+      helper.runAtTickTime(start + 230, () -> cleanup(helper, lanes));
+    }
+    helper.runAtTickTime(
+        970,
+        () -> {
+          System.out.println(
+              "FD_BOUNDARY_MATRIX families=4 directions=2 wrongFamilyStops=8 missingProviderStops=8"
+                  + " matchingCrossings=8");
+          helper.succeed();
+        });
+  }
+
+  private static void createLanes(GameTestHelper helper, TrackDesign design, List<Lane> lanes) {
+    var level = helper.getLevel();
+    var data = FoundationData.get(level);
+    helper.assertTrue(lanes.isEmpty(), "Previous boundary wave was not cleaned up");
+    var player =
+        FakePlayerFactory.get(
+            level,
+            new com.mojang.authlib.GameProfile(
+                UUID.fromString("fdfdfdfd-0000-0000-0000-000000000107"), "FDBoundaryTest"));
+    player.setGameMode(GameType.CREATIVE);
+    player.setItemInHand(
+        InteractionHand.MAIN_HAND,
+        (switch (design) {
+              case ARROW -> TrackItems.ARROW.get();
+              case LEGACY -> TrackItems.LEGACY.get();
+              case FREE_SPIN -> TrackItems.FREE_SPIN.get();
+              case REVISED -> TrackItems.REVISED.get();
+              case PAX -> TrackItems.PAX.get();
+            })
+            .getDefaultInstance());
+    for (var mode : Mode.values())
+      for (int direction = 0; direction < 2; direction++) {
+        var lane = new Lane(design, mode, direction == 1);
+        var points = new ArrayList<BlockPos>();
+        for (int n = 0; n < 4; n++) {
+          var p = new BlockPos(-400 + 24 * lanes.size(), 100, 260 + 40 * n);
+          points.add(p);
+          level.setBlockAndUpdate(
+              p, SimulatedCoastersBlocks.COASTER_ANCHORPOINT.get().defaultBlockState());
+        }
+        for (int n = 0; n < 3; n++) {
+          var to = points.get(n + 1);
+          player.setPos(to.getX() + 2, to.getY() + 1, to.getZ());
+          lane.rails.add(
+              TrackPlacement.connect(
+                  level, points.get(n), to, design, player, player.getMainHandItem()));
+        }
+        // Preserve the real connected native geometry; replace only the approaching support
+        // contract.
+        if (mode != Mode.MATCHING) {
+          var old = lane.next();
+          var target =
+              mode == Mode.WRONG_FAMILY
+                  ? (design == TrackDesign.ARROW ? TrackDesign.LEGACY : TrackDesign.ARROW)
+                  : design;
+          var replacement =
+              new FoundationData.Rail(
+                  old.from,
+                  old.to,
+                  target.family,
+                  old.profile,
+                  old.id,
+                  target.variant,
+                  old.geometryHash,
+                  old.revision,
+                  true,
+                  mode == Mode.MISSING_PROVIDER ? "missing:functional" : old.provider);
+          data.rails.set(data.rails.indexOf(old), replacement);
+          lane.rails.set(lane.reverse ? 0 : 2, replacement);
+        }
+        lanes.add(lane);
+      }
+  }
+
+  private static void spawn(GameTestHelper helper, List<Lane> lanes) {
+    var level = helper.getLevel();
+    for (var lane : lanes) {
+      var edge = TrackGeometry.resolve(level, lane.current());
+      double t = lane.reverse ? .2 : .8;
+      var hit =
+          new CoasterPathTrackFrame.GraphHit(
+              CoasterPathGraphManager.sampleEdgePosition(level, edge, t), edge, t);
+      lane.vehicle = VehicleFactory.create(level, lane.design, hit);
+    }
+  }
+
+  private static void dispatch(GameTestHelper helper, List<Lane> lanes) {
+    var level = helper.getLevel();
+    var container = SubLevelContainer.getContainer(level);
+    for (var lane : lanes) {
+      var v = lane.vehicle;
+      var body = (ServerSubLevel) container.getSubLevel(v.chassis);
+      var nextEdge = TrackGeometry.resolveNative(level, lane.next());
+      helper.assertTrue(nextEdge != null, "Boundary fixture lost native geometry " + lane.label());
+      var nextHit =
+          new CoasterPathTrackFrame.GraphHit(
+              CoasterPathGraphManager.sampleEdgePosition(level, nextEdge, .5), nextEdge, .5);
+      helper.assertTrue(
+          EligibilityHooks.allows(body, level, nextHit) == (lane.mode == Mode.MATCHING),
+          "Boundary re-engagement mismatch " + lane.label());
+      if (lane.mode != Mode.MATCHING) {
+        var before = new Vector3d(body.logicalPose().position());
+        CoasterCartTrackSnap.applyInitialSnapAfterSpawn(body, level, nextHit);
+        helper.assertTrue(
+            before.distance(body.logicalPose().position()) < 1e-8
+                && lane.current().matches(v.boundFrom, v.boundTo),
+            "Initial-snap API bypassed restriction " + lane.label());
+        var currentEdge = TrackGeometry.resolve(level, lane.current());
+        double t = lane.reverse ? .2 : .8;
+        CoasterCartTrackSnap.applyInitialSnapAfterSpawn(
+            body,
+            level,
+            new CoasterPathTrackFrame.GraphHit(
+                CoasterPathGraphManager.sampleEdgePosition(level, currentEdge, t), currentEdge, t));
+      }
+      // Neighboring lanes have matching contracts but no shared endpoint.
+      var other = lanes.get((lanes.indexOf(lane) + 1) % lanes.size());
+      var otherEdge = TrackGeometry.resolve(level, other.current());
+      helper.assertTrue(
+          !EligibilityHooks.allows(
+              body,
+              level,
+              new CoasterPathTrackFrame.GraphHit(
+                  CoasterPathGraphManager.sampleEdgePosition(level, otherEdge, .5), otherEdge, .5)),
+          "Disconnected matching track stole binding " + lane.label());
+      VehicleOperations.restraints(level, v, true);
+      VehicleOperations.dispatch(level, v);
+      helper.assertTrue(
+          !v.stopping && v.fault.isBlank(), "Boundary fixture started held " + lane.label());
+      container
+          .physicsSystem()
+          .getPipeline()
+          .addLinearAndAngularVelocity(
+              body, new Vector3d(0, 0, lane.reverse ? -4 : 4), new Vector3d());
+    }
+  }
+
+  private static void verify(GameTestHelper helper, List<Lane> lanes) {
+    var level = helper.getLevel();
+    var container = SubLevelContainer.getContainer(level);
+    for (var lane : lanes) {
+      var v = lane.vehicle;
+      var body = (ServerSubLevel) container.getSubLevel(v.chassis);
+      var point = CoasterCartResolve.cartCenterWorld(body);
+      double speed =
+          container.physicsSystem().getPipeline().getLinearVelocity(body, new Vector3d()).length();
+      System.out.println(
+          "FD_BOUNDARY_CASE family="
+              + lane.design
+              + " mode="
+              + lane.mode
+              + " direction="
+              + (lane.reverse ? "REVERSE" : "FORWARD")
+              + " z="
+              + point.z
+              + " speed="
+              + speed
+              + " stopping="
+              + v.stopping
+              + " restraints="
+              + v.restraints
+              + " originalBinding="
+              + lane.current().matches(v.boundFrom, v.boundTo)
+              + " nextBinding="
+              + lane.next().matches(v.boundFrom, v.boundTo)
+              + " fault="
+              + v.fault);
+    }
+    for (var lane : lanes) {
+      var v = lane.vehicle;
+      var body = (ServerSubLevel) container.getSubLevel(v.chassis);
+      var point = CoasterCartResolve.cartCenterWorld(body);
+      if (lane.mode == Mode.MATCHING) {
+        helper.assertTrue(
+            !v.stopping
+                && v.restraints
+                && v.fault.isBlank()
+                && lane.next().matches(v.boundFrom, v.boundTo)
+                && (lane.reverse ? point.z < 299 : point.z > 341),
+            "Matching boundary did not cross " + lane.label());
+      } else {
+        helper.assertTrue(
+            v.stopping && v.restraints && !v.fault.isBlank(),
+            "Unusable boundary did not brake " + lane.label());
+        helper.assertTrue(
+            point.z > 301 && point.z < 340, "Vehicle crossed unusable boundary " + lane.label());
+        helper.assertTrue(
+            container.physicsSystem().getPipeline().getLinearVelocity(body, new Vector3d()).length()
+                < .1,
+            "Boundary braking did not stop translation " + lane.label());
+        helper.assertTrue(
+            lane.current().matches(v.boundFrom, v.boundTo),
+            "Unusable track replaced binding " + lane.label());
+      }
+    }
+  }
+
+  private static void cleanup(GameTestHelper helper, List<Lane> lanes) {
+    var level = helper.getLevel();
+    var data = FoundationData.get(level);
+    var container = SubLevelContainer.getContainer(level);
+    for (var lane : lanes) {
+      for (var carrier : lane.vehicle.carriers)
+        container.removeSubLevel(
+            container.getSubLevel(carrier.body), SubLevelRemovalReason.REMOVED);
+      container.removeSubLevel(
+          container.getSubLevel(lane.vehicle.chassis), SubLevelRemovalReason.REMOVED);
+      data.vehicles.remove(lane.vehicle.chassis);
+      for (var rail : lane.rails) {
+        ((CoasterAnchorpointBlockEntity) level.getBlockEntity(rail.from))
+            .removeAnchorPeerCurve(level, rail.to);
+        data.rails.remove(rail);
+      }
+      for (var rail : lane.rails) {
+        level.removeBlock(rail.from, false);
+        level.removeBlock(rail.to, false);
+      }
+    }
+    lanes.clear();
+  }
+}
