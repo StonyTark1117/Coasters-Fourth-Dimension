@@ -1,0 +1,30 @@
+{
+  "server1": {
+    "source_log_sha256": "0b9dc8b51a5cbcb3c52a384bad70b2b9fa6233c713459968d20a028fd8f36eef",
+    "exit": 0
+  },
+  "server2": {
+    "source_log_sha256": "367912e5eaad096c436e895eb6b5a58cfec62b3b9914029a81ad42319f0da7a4",
+    "exit": 0
+  },
+  "dev": {
+    "source_log_sha256": "3b23c8300479ffce9a9e1b137be67fd0fe2702fff32e3f9e99d3b5c9dd9702c8",
+    "exit": 0,
+    "events_window": "21:26:00 through 21:31:59; excludes invalid preceding fixture"
+  },
+  "observer": {
+    "source_log_sha256": "41746d65cf9d916987c9d42de125df2de61d704d847897a4297366740de619c4",
+    "exit": 0,
+    "events_window": "21:26:00 through 21:31:59; excludes invalid preceding fixture"
+  },
+  "jar": {
+    "path": "/tmp/fd-engineered-pax-final.jar",
+    "sha256": "1e201ff27a811d4c2b6958ca5888589ed27f715dc66b4fc2876ea854f7e837f6",
+    "source_head": "17dfe5d",
+    "last_production_change": "e7ea2a1"
+  },
+  "cleanup": {
+    "server_properties_restored": true,
+    "owned_xvfb_stopped": true
+  }
+}

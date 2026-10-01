@@ -1,0 +1,29 @@
+data get block 194 180 8 shuttle_fault: 194, 180, 8 has the following block data: "Shuttle consist changed; recover and rebind before operating"
+
+data get block 194 180 8 shuttle_interrupted: 194, 180, 8 has the following block data: "LIFTING"
+
+data get block 194 180 8 Speed: 194, 180, 8 has the following block data: 128.0f
+
+data get block -12 180 24 Dispatch: -12, 180, 24 has the following block data: 1b
+
+fd status: arrow_controlled f6b5a685-1437-40ef-9893-3e907b47b0e9 angle=-3.7360633870940456E-4 omega=0.00197234887818041 capture=true occupants=0
+arrow_controlled 91105a20-26d1-4cee-a5e8-693225f03c50 angle=-4.5021742422789857E-4 omega=0.0025485541127761215 capture=true occupants=0
+zacspin_legacy a4a971fd-8644-405c-85e7-8f96c1dae9bb angle=-2.0033181249660997E-4 omega=9.550384929673756E-4 capture=true occupants=0
+zacspin_legacy 7630aa35-f6cd-463a-bcac-d10728647203 angle=-2.4441695343955806E-4 omega=8.759693074996345E-4 capture=true occupants=0
+sns_free_spin 870aafd8-aec8-4448-b639-0037d2a632ba angle=-9.800064931681963E-7 omega=1.2845692371940223E-4 capture=true occupants=0
+sns_free_spin aa4a8cde-0be6-4939-8bec-fcef996e7412 angle=-6.193272728106521E-5 omega=8.445776489062692E-4 capture=true occupants=0
+sns_free_spin dea79ad2-6e1c-4bb2-961e-7a72b82233ed angle=-1.7491372178218432E-5 omega=2.4294784468513347E-4 capture=true occupants=0
+sns_free_spin 1a21f15c-6135-4301-92b1-f32efcaa3494 angle=-8.032882799669833E-5 omega=0.0011494457734694155 capture=true occupants=0
+zacspin_revised 0c5282db-23cc-4661-a174-ea4bb5ca4e29 angle=-1.0885095698494497E-5 omega=2.508458636042638E-4 capture=true occupants=0
+zacspin_revised 71ca0587-6dc5-4bb6-ae83-9811edec133b angle=-5.354653323386349E-5 omega=4.864835569610683E-4 capture=true occupants=0
+zacspin_revised 4681341e-9b94-41a4-a941-605b65e8efba angle=-7.598950864128978E-6 omega=1.255643993898663E-4 capture=true occupants=0
+zacspin_revised bbdc83b1-cab5-4c8c-a770-6caad7697abb angle=-5.896425571556979E-5 omega=4.887701159784727E-4 capture=true occupants=1
+pax_shuttle 72f95d57-401d-4190-af7a-17e2090395e2 angle=-1.0454799350230134E-6 omega=-1.7744347471611006E-4 capture=true occupants=0
+pax_shuttle b8071d1d-9514-4149-8193-72f2a8a96fd7 angle=-1.6890622207642541E-6 omega=-2.3572912282697066E-4 capture=true occupants=1
+pax_shuttle 17c0b48f-0aa5-459c-a93e-e3bfc8a049b5 angle=2.1962583741817885E-6 omega=-6.034932573208561E-5 capture=true occupants=0
+pax_shuttle 97d65dbb-9825-42cc-856f-9cf259763079 angle=2.146119542965978E-6 omega=-5.125926151590058E-5 capture=true occupants=0
+pax_shuttle 7cd5ca88-ca0f-4747-bdc0-4327dafab195 angle=1.951416354805557E-6 omega=-4.527471777950841E-5 capture=true occupants=0
+pax_shuttle 35a42412-2e12-42f6-82ef-da6f19f737ae angle=2.142636232444244E-6 omega=-4.456295905540129E-5 capture=true occupants=0
+pax_shuttle a487f3f6-0e48-4c23-a11a-5d39726a4807 angle=1.9629172353489185E-6 omega=-1.7696279768447048E-5 capture=true occupants=0
+pax_shuttle 5e4dc12c-031a-4cf1-bb9b-81c1480568ff angle=2.632757351982058E-6 omega=-4.62107500292723E-5 capture=true occupants=0
+Carrier update average: 371785 ns

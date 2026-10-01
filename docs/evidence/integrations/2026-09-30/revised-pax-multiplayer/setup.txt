@@ -1,0 +1,39 @@
+tick step 100: Stepping 100 tick(s)
+
+gamerule sendCommandFeedback false: Gamerule sendCommandFeedback is now set to: false
+
+gamerule logAdminCommands false: Gamerule logAdminCommands is now set to: false
+
+data merge block -12 180 24 {Dispatch:0b}: Modified block data of -12, 180, 24
+
+setblock -10 180 20 minecraft:smooth_stone: Changed the block at -10, 180, 20
+
+setblock -10 181 20 minecraft:oak_sign[rotation=4]: Changed the block at -10, 181, 20
+
+setblock -6 181 20 create:display_link[facing=up]{TargetOffset:[I;-4,0,0],TargetLine:0,Source:{Id:"fourthdimension:ride_occupancy"}}: Changed the block at -6, 181, 20
+
+setblock 190 180 8 minecraft:smooth_stone: Changed the block at 190, 180, 8
+
+setblock 190 181 8 minecraft:oak_sign[rotation=4]: Changed the block at 190, 181, 8
+
+setblock 194 181 8 create:display_link[facing=up]{TargetOffset:[I;-4,0,0],TargetLine:0,Source:{Id:"fourthdimension:ride_occupancy"}}: Changed the block at 194, 181, 8
+
+list: There are 2 of a max of 4 players online: Observer, Dev
+
+tick unfreeze: The game is running normally
+
+item replace entity Dev armor.head with create:goggles: Replaced a slot on Dev with [Engineer's Goggles]
+
+item replace entity Observer armor.head with create:goggles: Replaced a slot on Observer with [Engineer's Goggles]
+
+item replace entity Dev hotbar.0 with minecraft:air: Replaced a slot on Dev with [Air]
+
+item replace entity Observer hotbar.0 with minecraft:air: Replaced a slot on Observer with [Air]
+
+item replace entity Dev hotbar.1 with fourthdimension:rotation_tool: Replaced a slot on Dev with [Rotation Tool]
+
+item replace entity Observer hotbar.1 with fourthdimension:rotation_tool: Replaced a slot on Observer with [Rotation Tool]
+
+tp Dev -5.5 180 17.5 -90 -12: Teleported Dev to -5.500000, 180.000000, 17.500000
+
+tp Observer 194.5 181 8.5 -90 15: Teleported Observer to 194.500000, 181.000000, 8.500000

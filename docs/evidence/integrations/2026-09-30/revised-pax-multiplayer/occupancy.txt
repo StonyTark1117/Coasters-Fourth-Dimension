@@ -1,0 +1,7 @@
+data get block -10 181 20 front_text: -10, 181, 20 has the following block data: {has_glowing_text: 0b, color: "black", messages: ['"1 / 8"', '""', '""', '""']}
+
+data get block 190 181 8 front_text: 190, 181, 8 has the following block data: {has_glowing_text: 0b, color: "black", messages: ['"1 / 16"', '""', '""', '""']}
+
+data merge block -6 181 20 {Source:{Id:"fourthdimension:ride_dispatch"}}: Modified block data of -6, 181, 20
+
+data merge block 194 181 8 {Source:{Id:"fourthdimension:ride_dispatch"}}: Modified block data of 194, 181, 8

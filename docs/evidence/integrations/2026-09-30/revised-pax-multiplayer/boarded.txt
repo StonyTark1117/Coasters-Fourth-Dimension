@@ -1,0 +1,7 @@
+data get entity Dev RootVehicle: Dev has the following entity data: {Entity: {Motion: [0.0d, 0.0d, 0.0d], FallDistance: 0.0f, "neoforge:attachments": {"create:minecart_controller": {Type: "EMPTY"}}, Pos: [2.04810335E7d, 127.0d, 2.05117525E7d], Fire: -1s, Invulnerable: 0b, id: "create:seat", Air: 300s, OnGround: 0b, PortalCooldown: 0, UUID: [I; -1332573522, -1250473863, -1698603491, 1709987553], Rotation: [0.0f, 0.0f]}, Attach: [I; -1332573522, -1250473863, -1698603491, 1709987553]}
+
+data get entity Observer RootVehicle: Observer has the following entity data: {Entity: {Motion: [0.0d, 0.0d, 0.0d], FallDistance: 0.0f, "neoforge:attachments": {"create:minecart_controller": {Type: "EMPTY"}}, Pos: [2.04810335E7d, 127.0d, 2.05178965E7d], Fire: -1s, Invulnerable: 0b, id: "create:seat", Air: 300s, OnGround: 0b, PortalCooldown: 0, UUID: [I; -1355250706, -1113571233, -2070500925, -2009425725], Rotation: [0.0f, 0.0f]}, Attach: [I; -1355250706, -1113571233, -2070500925, -2009425725]}
+
+data get block -10 181 20 front_text: -10, 181, 20 has the following block data: {has_glowing_text: 0b, color: "black", messages: ['"1 / 8"', '""', '""', '""']}
+
+data get block 190 181 8 front_text: 190, 181, 8 has the following block data: {has_glowing_text: 0b, color: "black", messages: ['"1 / 16"', '""', '""', '""']}

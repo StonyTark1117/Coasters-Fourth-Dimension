@@ -1,0 +1,10 @@
+data get block -10 181 20 front_text: -10, 181, 20 has the following block data: {has_glowing_text: 0b, color: "black", messages: ['"0 / 8"', '""', '""', '""']}
+
+data get block 190 181 8 front_text: 190, 181, 8 has the following block data: {has_glowing_text: 0b, color: "black", messages: ['"0 / 16"', '""', '""', '""']}
+
+tick freeze: The game is frozen
+
+save-all flush: Saving the game (this may take a moment!)
+Saved the game
+
+stop: Stopping the server

@@ -298,6 +298,16 @@ session exposed and corrected demonstration braking/approach placement and held-
 Engineered presence reporting. It preserves the failed runs as well as the bounded
 passing checks; it does not complete the lifecycle matrix.
 
+Revised ZacSpin and PAX also have [occupied two-client restart and riding
+evidence](evidence/integrations/2026-09-30/revised-pax-multiplayer/README.md).
+Both restored their original carrier/seat assignments, completed a native circuit
+or winch cycle, and allowed normal unloading. Create displays followed occupancy,
+readiness and PAX phases; all 460 received snapshots matched the server. The
+clean repeat disables revised Additions auto-dispatch to retain native station
+ownership. An invalid preceding automation attempt is preserved separately.
+This extends bounded combined-pack occupied restart evidence to all five families,
+but does not establish full inversion, every seat, camera mode or lifecycle case.
+
 ## Removing optional addons
 
 A [schema-5 dedicated-server removal matrix](evidence/integrations/2026-09-30/removal-matrix/README.md)
@@ -337,10 +347,9 @@ migration, Immersion camera removal, client rendering or the full lifecycle matr
   validate any rotating-seat replacement separately.
 - Extend Magnetized native straight-track evidence to linked trains, curves/slopes,
   equipment visuals, configuration extremes, lifecycle and multiplayer.
-- Extend Immersion camera evidence to every family, camera mode, comfort extremes,
-  and lifecycle transitions. Extend the verified saved-angle/tracking recovery fix
-  beyond the bounded Arrow, legacy and Free Spin occupied cold restarts. The combined-pack two-client cycle remains
-  bounded evidence only.
+- Extend the bounded five-family Immersion camera/restart evidence to every camera
+  mode, comfort extreme, inversion and lifecycle transition. The combined-pack
+  two-client cycles remain bounded evidence only.
 - Run base, individual-addon and combined-pack dedicated-server/two-client/late-join
   matrices, migrations/removal, interruption cases and measured rendering/performance.
   Publish exact tested versions and evidence, not inferred compatibility.

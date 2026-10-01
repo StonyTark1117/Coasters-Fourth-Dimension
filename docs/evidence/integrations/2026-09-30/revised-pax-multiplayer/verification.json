@@ -1,0 +1,27 @@
+{
+  "scope": "Combined pack; two local clients; one revised car and four-car PAX, one rider each.",
+  "cold_restart_exact": true,
+  "pax_completed_cycles": 1,
+  "clients": {
+    "dev": {
+      "matched_packets": 232,
+      "mounted_samples": 691,
+      "cold_view_delta_degrees": 0.006857049860945756,
+      "mouse_look_yaw_span": 39.45145999999998,
+      "minimum_carrier_up": 0.944418303085888,
+      "maximum_raw_error_radians": 4.2146848510894035e-08,
+      "normal_exit_restored": true
+    },
+    "observer": {
+      "matched_packets": 228,
+      "mounted_samples": 677,
+      "cold_view_delta_degrees": 0.004819904846455421,
+      "mouse_look_yaw_span": 39.45000999999999,
+      "minimum_carrier_up": 0.7175337892278975,
+      "maximum_raw_error_radians": 4.2146848510894035e-08,
+      "normal_exit_restored": true
+    }
+  },
+  "identical_both_client_snapshots": 209,
+  "invalid_first_attempt_preserved": true
+}
