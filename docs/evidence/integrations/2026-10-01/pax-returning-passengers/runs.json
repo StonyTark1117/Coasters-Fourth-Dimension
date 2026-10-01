@@ -1,0 +1,16 @@
+{
+  "before": {
+    "full_log": "/tmp/fd-pax-phases-cold-returning_before2.log",
+    "sha256": "05287050061fc2859aea99d6dc10a1827f8b4ccbcbdb2c698752ca9714406618",
+    "server_pid": 2489444,
+    "exit_status": 0,
+    "operation_exit_status": 0
+  },
+  "after": {
+    "full_log": "/tmp/fd-pax-phases-cold-returning_engineered2.log",
+    "sha256": "bdbdabfbb6a4d5cb02c89c8ac531ab2ac70ba89001896f799cffd5748c789a1d",
+    "server_pid": 2492959,
+    "exit_status": 0,
+    "operation_exit_status": 1
+  }
+}

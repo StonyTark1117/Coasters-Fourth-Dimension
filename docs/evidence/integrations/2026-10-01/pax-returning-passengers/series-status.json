@@ -1,0 +1,34 @@
+{
+  "status": "failed",
+  "artifact": "/tmp/fd-pax-cold-retain.jar",
+  "artifact_sha256": "898ad402f87d212de115a6eb2fc941d55cfab277649afc5640df4f4b1c423a02",
+  "jobs": [
+    {
+      "case": "returning_before2",
+      "phase": "RETURNING",
+      "profile": "engineered",
+      "world": "FDPaxColdReturningBefore2",
+      "seed": "FDPaxFEColdBaseline",
+      "server_pid": 2489444,
+      "prefix": "/tmp/fd-pax-phases-cold-returning_before2",
+      "state": "complete",
+      "operator_pid": 2489445,
+      "operation_exit_status": 0,
+      "exit_status": 0
+    },
+    {
+      "case": "returning_engineered2",
+      "phase": "RETURNING",
+      "profile": "engineered",
+      "world": "FDPaxColdReturningEngineered2",
+      "seed": "FDPaxColdReturningBefore2",
+      "server_pid": 2492959,
+      "prefix": "/tmp/fd-pax-phases-cold-returning_engineered2",
+      "state": "running",
+      "operator_pid": 2492960,
+      "operation_exit_status": 1
+    }
+  ],
+  "error": "AssertionError('Operator failed: returning_engineered2')",
+  "settings_restored": true
+}

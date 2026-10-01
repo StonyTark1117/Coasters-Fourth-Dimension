@@ -150,6 +150,12 @@ registered tests (with explicit optional skips), including four new deserializat
 retention checks; all 19 unit tests pass. Returning/capture packaged restarts,
 human-client recovery and external energy networks remain separate acceptance work.
 
+A subsequent [returning restart investigation](evidence/integrations/2026-10-01/pax-returning-passengers/README.md)
+currently fails occupied acceptance: all sixteen native pigs survive, but fourteen
+restore without their Create seat parents. Braking, capture, FE and the carriage
+restore correctly. This attachment failure remains unresolved; returning/capture
+packaged acceptance and broader human-client lifecycle claims remain open.
+
 A separate [FE acceptance fixture](evidence/integrations/2026-09-30/engineered-energy/README.md)
 enables the energy requirement for a linked Arrow pair and single legacy, Free Spin
 and revised cars. Real anchor capabilities supply FE. Captured cars remain held,

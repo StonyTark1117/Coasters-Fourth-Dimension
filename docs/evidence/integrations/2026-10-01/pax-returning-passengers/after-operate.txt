@@ -1,0 +1,6 @@
+returning_engineered2 restored tick 1002 phase FAULT energy 12345 occupied 2 cycles 0
+Traceback (most recent call last):
+  File "/tmp/fd-pax-phases-cold-after.py", line 5, in <module>
+    restored=occupied(report('restored'))
+  File "<string>", line 41, in occupied
+AssertionError

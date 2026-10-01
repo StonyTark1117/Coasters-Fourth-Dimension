@@ -1,0 +1,11 @@
+START returning_before2 2489444
+COMPLETE returning_before2
+START returning_engineered2 2492959
+Traceback (most recent call last):
+  File "/tmp/fd-pax-cold-phases2-series.py", line 67, in <module>
+    run(phase.lower()+'_'+profile+'2','FDPaxCold'+title+profile.title()+'2',world,addons,phase,case)
+    ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/fd-pax-cold-phases2-series.py", line 47, in run
+    assert result==0,'Operator failed: '+case
+           ^^^^^^^^^
+AssertionError: Operator failed: returning_engineered2
