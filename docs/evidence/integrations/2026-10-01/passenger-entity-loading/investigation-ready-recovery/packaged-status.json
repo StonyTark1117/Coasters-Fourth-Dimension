@@ -1,0 +1,46 @@
+{
+  "status": "failed",
+  "artifact_sha256": "070cd31028aeffb41c77c0b027a019dd30e8853b7247ada199aceb5ad46d20ce",
+  "runs": [
+    {
+      "case": "returning-before",
+      "world": "FDPassenger2ReturningBefore",
+      "profile": "engineered",
+      "pid": 68067,
+      "command": [
+        "./gradlew",
+        "-Dorg.gradle.jvmargs=-Xmx1G",
+        "--max-workers=2",
+        "runServer",
+        "-PfdPackaged",
+        "-PfdPackagedJar=/home/braydon/.cache/fourthdimension-48535694/passenger-load-fixed.jar",
+        "-PfdFrozen",
+        "-PfdValidation",
+        "-PfdIntegrations=engineered"
+      ],
+      "status": "complete",
+      "exit": 0,
+      "log_sha256": "b80b20f41943beabafd39983403612f50a632fb809faaf8e15fdcd641b0efe26"
+    },
+    {
+      "case": "returning-engineered",
+      "world": "FDPassenger2ReturningEngineered",
+      "profile": "engineered",
+      "pid": 72530,
+      "command": [
+        "./gradlew",
+        "-Dorg.gradle.jvmargs=-Xmx1G",
+        "--max-workers=2",
+        "runServer",
+        "-PfdPackaged",
+        "-PfdPackagedJar=/home/braydon/.cache/fourthdimension-48535694/passenger-load-fixed.jar",
+        "-PfdFrozen",
+        "-PfdValidation",
+        "-PfdIntegrations=engineered"
+      ],
+      "status": "running",
+      "cleanup_exit": 0
+    }
+  ],
+  "error": "AssertionError('PAX energy restart fixture: recover\\n')"
+}

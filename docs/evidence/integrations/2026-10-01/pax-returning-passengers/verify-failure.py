@@ -38,4 +38,4 @@ commands = (root / 'after-commands.txt').read_text()
 assert 'pax_energy_restart resume' not in commands and 'pax_energy_restart unload' not in commands
 settings = json.loads((root / 'settings-restored.json').read_text())
 assert all(r['original_sha256'] == r['restored_sha256'] for r in settings.values())
-print('Confirmed unresolved failure: 16 original pigs alive, 14 detached after returning cold restart; settings restored.')
+print('Confirmed original failed run: 16 original pigs alive, 14 detached after returning cold restart; settings restored.')

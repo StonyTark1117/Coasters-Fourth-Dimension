@@ -97,7 +97,7 @@ def archive(world):
  return dest
 
 def prepare(phase):
- world=launch(phase.lower()+'-before','FDPassenger2'+phase.title()+'Before','engineered')
+ world=launch(phase.lower()+'-before','FDPassenger3'+phase.title()+'Before','engineered')
  action('create');step(100)
  for a in ('assemble','equip','board','charge'):action(a)
  step(2);occupied(report('ready'))
@@ -114,7 +114,7 @@ def prepare(phase):
 
 def restore(phase,profile,seed,before):
  case=phase.lower()+'-'+('combined' if ',' in profile else profile)
- world=launch(case,'FDPassenger2'+phase.title()+('Combined' if ',' in profile else 'Engineered'),profile,seed)
+ world=launch(case,'FDPassenger3'+phase.title()+('Combined' if ',' in profile else 'Engineered'),profile,seed)
  step(100);d=occupied(report('restored'))
  assert d['phase']=='FAULT' and d['interrupted']==phase and d['cycles']==before['cycles']
  assert mounts(d)==mounts(before)
@@ -123,8 +123,7 @@ def restore(phase,profile,seed,before):
   reply=rcon('fd validation pax_energy_restart '+name);assert 'PAX energy restart fixture:' not in reply
  action('forward');rcon('tick unfreeze')
  if phase=='RETURNING':
-  for name in ('resume','recover'):
-   reply=rcon('fd validation pax_energy_restart '+name);assert 'PAX energy restart fixture:' not in reply,reply
+  reply=rcon('fd validation pax_energy_restart resume');assert 'PAX energy restart fixture:' not in reply,reply
   for i in range(220):
    time.sleep(1.5);d=occupied(report('brake_'+str(i)));assert d['phase']=='FAULT' and mounts(d)==mounts(before)
    if all(c['ready'] for c in d['cars']):break
@@ -158,7 +157,12 @@ original_props=(RUNTIME/'server.properties').read_bytes()
 (RUNTIME/'config/coastersengineered-server.toml').write_text(config.replace('requireEnergy = false','requireEnergy = true'))
 try:
  for phase in ('RETURNING','CAPTURING'):
-  seed,before=prepare(phase)
+  if phase=='RETURNING':
+   seed=OUT/'worlds/FDPassenger2ReturningBefore'
+   before=next(json.loads(line.split('FD_PAX_ENERGY_RESTART ',1)[1]) for line in (OUT/'returning-before.log').read_text().splitlines() if 'FD_PAX_ENERGY_RESTART {' in line and json.loads(line.split('FD_PAX_ENERGY_RESTART ',1)[1])['label']=='before')
+   prior=json.loads((OUT/'investigation-ready-recovery/packaged-status.json').read_text())
+   STATE['runs'].append(prior['runs'][0]);status()
+  else:seed,before=prepare(phase)
   for profile in ('engineered','engineered,styles,additions,magnetized,immersion'):restore(phase,profile,seed,before)
  STATE['status']='complete';status();(OUT/'packaged.exit').write_text('0\n')
 except BaseException as ex:

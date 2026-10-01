@@ -1,6 +1,8 @@
 # Returning cold restart: native passenger attachment failure
 
-This is **unresolved failure evidence**, not an additional compatibility pass.
+This records the **original failed run**, not a compatibility pass. A later
+[loading-boundary fix and fresh packaged recovery check](../passenger-entity-loading/README.md)
+resolves the reproduced bug; the original reports below remain unchanged.
 The validated `f8dbccb` artifact correctly applies cold-fault braking/capture, but
 a later occupied returning cold restart restores only two of sixteen native rider
 attachments. All sixteen pigs survive with their original UUIDs and health 10.
@@ -51,6 +53,7 @@ From the repository root, the retained inspector can reproduce the entity invent
 python3 docs/evidence/integrations/2026-10-01/pax-returning-passengers/inspect-entities.py /absolute/path/to/stopped/world
 ```
 
-The preserved local worlds are `FDPaxColdReturningBefore2` and
-`FDPaxColdReturningEngineered2` under the worktree's packaged-server runtime.
-They must remain stopped while their saves are inspected or copied.
+The original local worlds were `FDPaxColdReturningBefore2` and
+`FDPaxColdReturningEngineered2`. The temporary runtime was later cleared, so those
+world files are no longer available. Their inspected entity inventories, saved-data
+reports, command transcripts and hashes remain in this directory.

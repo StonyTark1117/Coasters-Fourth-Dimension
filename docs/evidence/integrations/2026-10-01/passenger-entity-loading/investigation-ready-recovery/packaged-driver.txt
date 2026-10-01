@@ -1,0 +1,36 @@
+returning-before ready 102 BOARDING 16
+returning-before prepare_0 122 LIFTING 16
+returning-before prepare_1 144 LIFTING 16
+returning-before prepare_2 166 LIFTING 16
+returning-before prepare_3 189 LIFTING 16
+returning-before prepare_4 211 LIFTING 16
+returning-before prepare_5 233 LIFTING 16
+returning-before prepare_6 255 LIFTING 16
+returning-before prepare_7 277 LIFTING 16
+returning-before prepare_8 300 LIFTING 16
+returning-before prepare_9 322 LIFTING 16
+returning-before prepare_10 344 LIFTING 16
+returning-before prepare_11 367 LIFTING 16
+returning-before prepare_12 389 LIFTING 16
+returning-before prepare_13 411 LIFTING 16
+returning-before prepare_14 435 LIFTING 16
+returning-before prepare_15 458 OUTBOUND 16
+returning-before prepare_16 481 OUTBOUND 16
+returning-before prepare_17 503 OUTBOUND 16
+returning-before prepare_18 525 OUTBOUND 16
+returning-before prepare_19 548 OUTBOUND 16
+returning-before prepare_20 570 OUTBOUND 16
+returning-before prepare_21 593 OUTBOUND 16
+returning-before prepare_22 615 OUTBOUND 16
+returning-before prepare_23 637 RETURNING 16
+returning-before before 639 RETURNING 16
+returning-engineered restored 739 FAULT 16
+Traceback (most recent call last):
+  File "/home/braydon/.codex/worktrees/coaster-integrations/Coasters: Fourth Dimension/build/passenger-load/packaged.py", line 162, in <module>
+    for profile in ('engineered','engineered,styles,additions,magnetized,immersion'):restore(phase,profile,seed,before)
+                                                                                     ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/braydon/.codex/worktrees/coaster-integrations/Coasters: Fourth Dimension/build/passenger-load/packaged.py", line 127, in restore
+    reply=rcon('fd validation pax_energy_restart '+name);assert 'PAX energy restart fixture:' not in reply,reply
+                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: PAX energy restart fixture: recover
+

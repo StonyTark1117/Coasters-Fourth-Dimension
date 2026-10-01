@@ -1,0 +1,38 @@
+{
+  "human_clients": "not established",
+  "profiles": {
+    "capturing-combined": {
+      "cycle_samples": 3,
+      "empty_carriage_drift_blocks": 0.0,
+      "fault_samples": 1,
+      "retained_fe": 12345,
+      "riders_restored_and_unloaded_alive": 16,
+      "ticks_from_restore_to_recovery_sample": 60
+    },
+    "capturing-engineered": {
+      "cycle_samples": 3,
+      "empty_carriage_drift_blocks": 0.0,
+      "fault_samples": 1,
+      "retained_fe": 12345,
+      "riders_restored_and_unloaded_alive": 16,
+      "ticks_from_restore_to_recovery_sample": 60
+    },
+    "returning-combined": {
+      "cycle_samples": 12,
+      "empty_carriage_drift_blocks": 0.0,
+      "fault_samples": 1,
+      "retained_fe": 12345,
+      "riders_restored_and_unloaded_alive": 16,
+      "ticks_from_restore_to_recovery_sample": 30
+    },
+    "returning-engineered": {
+      "cycle_samples": 12,
+      "empty_carriage_drift_blocks": 0.0,
+      "fault_samples": 1,
+      "retained_fe": 12345,
+      "riders_restored_and_unloaded_alive": 16,
+      "ticks_from_restore_to_recovery_sample": 30
+    }
+  },
+  "scope": "Native pig occupied returning/capture packaged restart and recovery"
+}

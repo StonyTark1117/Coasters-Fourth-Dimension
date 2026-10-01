@@ -1,5 +1,5 @@
 {
-  "status": "starting",
+  "status": "complete",
   "artifact_sha256": "070cd31028aeffb41c77c0b027a019dd30e8853b7247ada199aceb5ad46d20ce",
   "runs": [
     {
@@ -18,7 +18,109 @@
         "-PfdValidation",
         "-PfdIntegrations=engineered"
       ],
-      "status": "running"
+      "status": "complete",
+      "exit": 0,
+      "log_sha256": "b80b20f41943beabafd39983403612f50a632fb809faaf8e15fdcd641b0efe26"
+    },
+    {
+      "case": "returning-engineered",
+      "world": "FDPassenger3ReturningEngineered",
+      "profile": "engineered",
+      "pid": 81529,
+      "command": [
+        "./gradlew",
+        "-Dorg.gradle.jvmargs=-Xmx1G",
+        "--max-workers=2",
+        "runServer",
+        "-PfdPackaged",
+        "-PfdPackagedJar=/home/braydon/.cache/fourthdimension-48535694/passenger-load-fixed.jar",
+        "-PfdFrozen",
+        "-PfdValidation",
+        "-PfdIntegrations=engineered"
+      ],
+      "status": "complete",
+      "exit": 0,
+      "log_sha256": "d51671ff9d31be2f96b52bb71b40ce814cb20736a1366abb905d5a8fb7287e86"
+    },
+    {
+      "case": "returning-combined",
+      "world": "FDPassenger3ReturningCombined",
+      "profile": "engineered,styles,additions,magnetized,immersion",
+      "pid": 85538,
+      "command": [
+        "./gradlew",
+        "-Dorg.gradle.jvmargs=-Xmx1G",
+        "--max-workers=2",
+        "runServer",
+        "-PfdPackaged",
+        "-PfdPackagedJar=/home/braydon/.cache/fourthdimension-48535694/passenger-load-fixed.jar",
+        "-PfdFrozen",
+        "-PfdValidation",
+        "-PfdIntegrations=engineered,styles,additions,magnetized,immersion"
+      ],
+      "status": "complete",
+      "exit": 0,
+      "log_sha256": "a17ece61881be232fa307889efb7cc33afada0729bc57609de61f14c9d0d8795"
+    },
+    {
+      "case": "capturing-before",
+      "world": "FDPassenger3CapturingBefore",
+      "profile": "engineered",
+      "pid": 89670,
+      "command": [
+        "./gradlew",
+        "-Dorg.gradle.jvmargs=-Xmx1G",
+        "--max-workers=2",
+        "runServer",
+        "-PfdPackaged",
+        "-PfdPackagedJar=/home/braydon/.cache/fourthdimension-48535694/passenger-load-fixed.jar",
+        "-PfdFrozen",
+        "-PfdValidation",
+        "-PfdIntegrations=engineered"
+      ],
+      "status": "complete",
+      "exit": 0,
+      "log_sha256": "de15ee989ee092b1e78301137d5b2f655eee385a36d7e248fc25edb386de3fa8"
+    },
+    {
+      "case": "capturing-engineered",
+      "world": "FDPassenger3CapturingEngineered",
+      "profile": "engineered",
+      "pid": 93511,
+      "command": [
+        "./gradlew",
+        "-Dorg.gradle.jvmargs=-Xmx1G",
+        "--max-workers=2",
+        "runServer",
+        "-PfdPackaged",
+        "-PfdPackagedJar=/home/braydon/.cache/fourthdimension-48535694/passenger-load-fixed.jar",
+        "-PfdFrozen",
+        "-PfdValidation",
+        "-PfdIntegrations=engineered"
+      ],
+      "status": "complete",
+      "exit": 0,
+      "log_sha256": "0df14cd14d3f040d2828f66b9bfbb4b164139f24770a7accea323f95e8cb42c4"
+    },
+    {
+      "case": "capturing-combined",
+      "world": "FDPassenger3CapturingCombined",
+      "profile": "engineered,styles,additions,magnetized,immersion",
+      "pid": 96332,
+      "command": [
+        "./gradlew",
+        "-Dorg.gradle.jvmargs=-Xmx1G",
+        "--max-workers=2",
+        "runServer",
+        "-PfdPackaged",
+        "-PfdPackagedJar=/home/braydon/.cache/fourthdimension-48535694/passenger-load-fixed.jar",
+        "-PfdFrozen",
+        "-PfdValidation",
+        "-PfdIntegrations=engineered,styles,additions,magnetized,immersion"
+      ],
+      "status": "complete",
+      "exit": 0,
+      "log_sha256": "b4a1bdedb63fb8644e389207ec516f56a283e876ace783dcda8d831c6f0df341"
     }
   ]
 }

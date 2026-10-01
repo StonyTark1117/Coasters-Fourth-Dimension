@@ -147,16 +147,19 @@ physics while preserving the interrupted phase. New Engineered-only and combined
 packaged processes retain all sixteen native passengers and exact FE through braking,
 explicit manual recovery and normal unloading. All seven native profiles pass 33
 registered tests (with explicit optional skips), including four new deserialization
-retention checks; all 19 unit tests pass. Returning/capture packaged restarts,
-human-client recovery and external energy networks remain separate acceptance work.
+retention checks; all 19 unit tests pass. The returning/capture follow-up is recorded
+below; human-client recovery and external energy networks remain separate work.
 
 A subsequent [returning restart investigation](evidence/integrations/2026-10-01/pax-returning-passengers/README.md)
 recorded an occupied acceptance failure: all sixteen native pigs survived, but fourteen
 restored without their Create seat parents. Braking, capture, FE and the carriage
 restored correctly. A [native loading-boundary regression and fix](evidence/integrations/2026-10-01/passenger-entity-loading/README.md)
 now preserve saved passenger identity until the seat chunks finish loading their
-entities. The Engineered native suite and 19 unit tests pass; fresh returning/capture
-packaged acceptance and broader human-client lifecycle claims remain open.
+entities. The Engineered native suite and 19 unit tests pass. Fresh returning and
+capture restarts now preserve all sixteen original mounts and 12,345 FE in both
+Engineered-only and combined packs, then finish explicit recovery/resume and normal
+unloading. Independent stopped-save inspection confirms every original pig alive.
+Broader human-client lifecycle acceptance remains open.
 
 A separate [FE acceptance fixture](evidence/integrations/2026-09-30/engineered-energy/README.md)
 enables the energy requirement for a linked Arrow pair and single legacy, Free Spin
@@ -476,8 +479,11 @@ checkpoint passes 33 registered native tests and 19 unit tests. The subsequent
 [packaged cold-restart checkpoint](evidence/integrations/2026-10-01/engineered-pax-fe-restart/README.md)
 covers occupied lifting with FE enabled in two new server processes. The subsequent
 [cold-fault retention fix](evidence/integrations/2026-10-01/pax-cold-retention/README.md)
-adds occupied outbound braking and manual recovery evidence. Returning/capture
-packaged restarts, human-client recovery and external energy networks remain open.
+adds occupied outbound braking and manual recovery evidence. The subsequent
+[entity-loading fix and packaged follow-up](evidence/integrations/2026-10-01/passenger-entity-loading/README.md)
+adds returning/capture recovery in both packs with sixteen original native passengers
+and exact FE retained. Human-client recovery, external energy networks and broader
+geometry/configuration acceptance remain open.
 
 - Extend reconciled FD305 evidence to the schema-5 optional-addon lifecycle matrix;
   investigate the recorded client resource exit. Extend the bounded transport
