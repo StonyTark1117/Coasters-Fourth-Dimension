@@ -1,0 +1,90 @@
+FD_ENGINEERED_ENERGY_SKIPPED: optional 1.1.1 artifact absent
+FD_APPEARANCE styles=false choices=1
+FD_MAGNETIZED_SKIPPED: optional 1.1.0 artifact absent; no compatibility evidence
+FD_ENGINEERED_SKIPPED: optional 1.1.1 artifact absent; no compatibility evidence
+FD_SNAPSHOT_MAX bytes=692652
+FD_ENDPOINT_AVAILABILITY inactiveRefs=3 ordinaryRefs=2 falseJunction=false
+FD_ENDPOINT_AVAILABILITY restoredRefs=4 nativeMatch=true
+FD_FREE angles=[-1.7668556728130111, -1.8112586723550972] maximum separation=0.7237819017546765
+FD_REVISED_MASS mass=4.0 firstMoment=1.5 inertia=1.9947916666666585
+FD_REVISED_MASS mass=4.0 firstMoment=1.5 inertia=1.9947916666666585
+FD_REVISED_MASS mass=4.0 firstMoment=1.5 inertia=1.9947916666666585
+FD_REVISED_MASS mass=4.0 firstMoment=1.5 inertia=1.9947916666666585
+FD_ADDITIONS_PAX_PROBE powered BOOST across all 3 route segments; auto station delay=0
+FD_SHUTTLE phase=LIFTING distance=60.879792956729304 center=( 6.005E+2  1.811E+2  6.072E+2) max=62.67979295672933 fault=
+FD_FAMILY_MATRIX decisions=25 factoryRejects=20 lockedNativeInitialSnapRejects=20 bindingPreserved=true
+FD_SHUTTLE phase=LIFTING distance=52.87979295672919 center=( 6.005E+2  1.811E+2  5.992E+2) max=62.67979295672933 fault=
+FD_CONTENT_FREE excursions=[0.5824685083341798, 0.38482273905530684] angle=0.09729688621748832 omega=-0.5461436765170337 mass=6.0
+FD_SHUTTLE phase=LIFTING distance=44.87979295672908 center=( 6.005E+2  1.822E+2  5.914E+2) max=62.67979295672933 fault=
+FD_ADDITIONS family=ARROW travel=6.045410616043347 stopped=false telemetry=RideTelemetry[available=true, family=arrow_controlled, cars=1, occupied=1, capacity=4, captured=false, boardingReady=false, restraintsClosed=true, retained=false, dispatchReady=false, dispatchDenial=All carriers must be captured and restraints closed before dispatch, fault=, phase=RUNNING]
+FD_ADDITIONS family=ZACSPIN travel=6.2418226224161835 stopped=false telemetry=RideTelemetry[available=true, family=zacspin_legacy, cars=1, occupied=1, capacity=8, captured=false, boardingReady=false, restraintsClosed=true, retained=false, dispatchReady=false, dispatchDenial=All carriers must be captured and restraints closed before dispatch, fault=, phase=RUNNING]
+FD_ADDITIONS family=FREE_SPIN travel=6.082763582294092 stopped=false telemetry=RideTelemetry[available=true, family=sns_free_spin, cars=1, occupied=1, capacity=8, captured=false, boardingReady=false, restraintsClosed=true, retained=false, dispatchReady=false, dispatchDenial=All carriers must be captured and restraints closed before dispatch, fault=, phase=RUNNING]
+FD_ADDITIONS family=ZACSPIN_REVISED travel=6.080505287097708 stopped=false telemetry=RideTelemetry[available=true, family=zacspin_revised, cars=1, occupied=1, capacity=8, captured=false, boardingReady=false, restraintsClosed=true, retained=false, dispatchReady=false, dispatchDenial=All carriers must be captured and restraints closed before dispatch, fault=, phase=RUNNING]
+FD_ADDITIONS family=PAX travel=1.4791066860198043E-7 stopped=true telemetry=RideTelemetry[available=true, family=pax_shuttle, cars=1, occupied=1, capacity=4, captured=true, boardingReady=true, restraintsClosed=true, retained=false, dispatchReady=false, dispatchDenial=Operate PAX through its bound shuttle winch, fault=, phase=BOARDING]
+FD_ADDITIONS_REJECT kind=uncoupled 4D car telemetry=RideTelemetry[available=false, family=, cars=0, occupied=0, capacity=0, captured=false, boardingReady=false, restraintsClosed=false, retained=false, dispatchReady=false, dispatchDenial=Station span must contain exactly one complete 4D consist, fault=Station span must contain exactly one complete 4D consist, phase=]
+FD_SHUTTLE phase=FAULT distance=44.679792956729074 center=( 6.005E+2  1.824E+2  5.907E+2) max=62.67979295672933 fault=Winch power lost: retain the train; inspect and resume or recover
+FD_BOUNDARY direction=0 position=(-3.995E+2  1.011E+2  3.380E+2) fault=End of compatible track; capture and inspect the route
+FD_BOUNDARY direction=1 position=(-3.755E+2  1.011E+2  3.030E+2) fault=End of compatible track; capture and inspect the route
+FD_NATIVE at230 position=( 1.650E+1  8.162E+1  5.261E+1) from=BlockPos{x=16, y=80, z=16} angles=[12.154606085009732, 12.153236068647086] velocity=( 0.000E+0  0.000E+0  3.000E+0) disengaged=false
+FD_ADDITIONS_REJECT kind=ordinary cart telemetry=RideTelemetry[available=false, family=, cars=0, occupied=0, capacity=0, captured=false, boardingReady=false, restraintsClosed=false, retained=false, dispatchReady=false, dispatchDenial=Station span must contain exactly one complete 4D consist, fault=Station span must contain exactly one complete 4D consist, phase=]
+FD_SHUTTLE phase=FAULT distance=44.679792956729074 center=( 6.005E+2  1.824E+2  5.907E+2) max=62.67979295672933 fault=Winch power lost: retain the train; inspect and resume or recover
+FD_ADDITIONS_STOP family=ARROW speed=0.016742494932767804
+FD_ADDITIONS_STOP family=ZACSPIN speed=0.004793433730333767
+FD_ADDITIONS_STOP family=FREE_SPIN speed=0.008285912693177922
+FD_ADDITIONS_STOP family=ZACSPIN_REVISED speed=0.007309445263873385
+FD_ADDITIONS_STOP family=PAX speed=5.600592121482083E-4
+FD_SHUTTLE phase=LIFTING distance=38.87979295672899 center=( 6.005E+2  1.839E+2  5.857E+2) max=62.67979295672933 fault=
+FD_SHUTTLE phase=LIFTING distance=30.879792956728878 center=( 6.005E+2  1.872E+2  5.784E+2) max=62.67979295672933 fault=
+FD_SHUTTLE phase=LIFTING distance=22.879792956728764 center=( 6.005E+2  1.911E+2  5.715E+2) max=62.67979295672933 fault=
+FD_SHUTTLE phase=LIFTING distance=14.879792956728672 center=( 6.005E+2  1.956E+2  5.649E+2) max=62.67979295672933 fault=
+FD_TRAIN maxTurn=6.28119404261076 maxAxleDifference=3.0235897486262067
+FD_TRAIN positions=[(-1.995E+2  1.131E+2  1.461E+2) bound=BlockPos{x=-200, y=112, z=136}->BlockPos{x=-200, y=112, z=172} fault=, (-1.995E+2  1.131E+2  1.401E+2) bound=BlockPos{x=-200, y=112, z=136}->BlockPos{x=-200, y=112, z=172} fault=]
+FD_SHUTTLE phase=LIFTING distance=7.3992403569734195 center=( 6.005E+2  2.002E+2  5.589E+2) max=62.67979295672933 fault=
+FD_SHUTTLE phase=LIFTING distance=3.45316901617975 center=( 6.005E+2  2.028E+2  5.556E+2) max=62.67979295672933 fault=
+FD_SHUTTLE phase=OUTBOUND distance=4.949999999999993 center=( 6.005E+2  2.012E+2  5.576E+2) max=62.67979295672933 fault=
+FD_ADDITIONS_CONSIST linked=true ambiguousRejected=true mixedRejected=true partialRejected=true threshold=5 cooldown=true continuousDelay=true departureLatch=true telemetry=RideTelemetry[available=true, family=arrow_controlled, cars=2, occupied=2, capacity=8, captured=false, boardingReady=false, restraintsClosed=true, retained=false, dispatchReady=false, dispatchDenial=All carriers must be captured and restraints closed before dispatch, fault=, phase=RUNNING]
+FD_SHUTTLE phase=OUTBOUND distance=8.949999999999996 center=( 6.005E+2  1.878E+2  5.771E+2) max=62.67979295672933 fault=
+FD_ADDITIONS_LINKED_FIN mode=BOOST car=0 speed=11.679861068725586 travel=6.046996958457727
+FD_ADDITIONS_LINKED_FIN mode=BOOST car=1 speed=11.681428909301758 travel=6.0470089015333315
+FD_SHUTTLE phase=OUTBOUND distance=12.950000000000053 center=( 6.005E+2  1.811E+2  6.100E+2) max=63.73050886942017 fault=
+FD_ADDITIONS_LINKED_FIN mode=BRAKE car=0 speed=2.990882158279419
+FD_ADDITIONS_LINKED_FIN mode=BRAKE car=1 speed=2.9881694316864014
+FD_SHUTTLE_CHUNK_RELOAD recovered=true carriage=9e72ebcd-cd08-4e43-9226-42f51bb012b3
+FD_SHUTTLE phase=OUTBOUND distance=16.95000000000011 center=( 6.005E+2  1.820E+2  6.395E+2) max=93.55438301129207 fault=
+FD_ADDITIONS_LINKED_FIN mode=REVERSE car=0 speed=-2.9877753257751465
+FD_ADDITIONS_LINKED_FIN mode=REVERSE car=1 speed=-2.9905195236206055
+FD_SHUTTLE phase=RETURNING distance=20.950000000000166 center=( 6.005E+2  1.856E+2  6.481E+2) max=103.58525195765004 fault=
+FD_ADDITIONS_LINKED_FIN mode=STOP car=0 speed=0.017612492344040817
+FD_ADDITIONS_LINKED_FIN mode=STOP car=1 speed=0.019531132091061377
+FD_SHUTTLE phase=RETURNING distance=24.950000000000223 center=( 6.005E+2  1.811E+2  6.328E+2) max=103.58525195765004 fault=
+FD_SHUTTLE phase=CAPTURING distance=26.25000000000024 center=( 6.005E+2  1.811E+2  6.118E+2) max=103.58525195765004 fault=
+FD_SHUTTLE phase=CAPTURING distance=63.50700573762505 center=( 6.005E+2  1.811E+2  6.095E+2) max=103.58525195765004 fault=
+FD_SHUTTLE phase=BOARDING distance=62.67979295672933 center=( 6.005E+2  1.811E+2  6.085E+2) max=103.58525195765004 fault=
+FD_SHUTTLE_TALL cycles=2 maximum=142.95694205512504 station=82.92133833155415
+FD_DEMO family=ARROW angleRange=-0.0012762793182983696..6.281216324929916 maxXZ=32.50025969428563,52.500305457990976 ready=true fault=
+FD_DEMO family=ZACSPIN angleRange=-1.1712783582222497..0.4804478986116605 maxXZ=32.5048535350291,52.50000029576893 ready=true fault=
+FD_REVISED_NATIVE angles=[-0.7889219871564247, -0.8112944308567169, -0.6380970679020933, -0.7136392228422992]..[0.695419943100824, 0.6539755741543957, 0.6943854228577984, 0.6663929713598111] extent=[32.50425112150509, 52.49993913972105] ready=true fault=
+FD_TRACK_PARTIAL_FLUSH native=true
+FD_TRACK_PARTIAL_WAITED ticks=200
+FD_TRACK_PARTIAL family=ARROW banked=false evicted=true valid=true endpoints=1
+FD_TRACK_PARTIAL family=ARROW banked=true evicted=true valid=true endpoints=1
+FD_TRACK_PARTIAL family=ZACSPIN banked=false evicted=true valid=true endpoints=1
+FD_TRACK_PARTIAL family=ZACSPIN banked=true evicted=true valid=true endpoints=1
+FD_TRACK_PARTIAL family=FREE_SPIN banked=false evicted=true valid=true endpoints=1
+FD_TRACK_PARTIAL family=FREE_SPIN banked=true evicted=true valid=true endpoints=1
+FD_TRACK_PARTIAL family=ZACSPIN_REVISED banked=false evicted=true valid=true endpoints=1
+FD_TRACK_PARTIAL family=ZACSPIN_REVISED banked=true evicted=true valid=true endpoints=1
+FD_TRACK_PARTIAL family=PAX banked=false evicted=true valid=true endpoints=1
+FD_TRACK_PARTIAL family=PAX banked=true evicted=true valid=true endpoints=1
+FD_TRACK_PARTIAL_RELOADED family=ARROW banked=false fresh=true geometry=true endpoints=2
+FD_TRACK_PARTIAL_RELOADED family=ARROW banked=true fresh=true geometry=true endpoints=2
+FD_TRACK_PARTIAL_RELOADED family=ZACSPIN banked=false fresh=true geometry=true endpoints=2
+FD_TRACK_PARTIAL_RELOADED family=ZACSPIN banked=true fresh=true geometry=true endpoints=2
+FD_TRACK_PARTIAL_RELOADED family=FREE_SPIN banked=false fresh=true geometry=true endpoints=2
+FD_TRACK_PARTIAL_RELOADED family=FREE_SPIN banked=true fresh=true geometry=true endpoints=2
+FD_TRACK_PARTIAL_RELOADED family=ZACSPIN_REVISED banked=false fresh=true geometry=true endpoints=2
+FD_TRACK_PARTIAL_RELOADED family=ZACSPIN_REVISED banked=true fresh=true geometry=true endpoints=2
+FD_TRACK_PARTIAL_RELOADED family=PAX banked=false fresh=true geometry=true endpoints=2
+FD_TRACK_PARTIAL_RELOADED family=PAX banked=true fresh=true geometry=true endpoints=2
+[23:02:02] [Server thread/INFO] [minecraft/GameTestServer]: All 28 required tests passed :)
+BUILD SUCCESSFUL in 1m 9s

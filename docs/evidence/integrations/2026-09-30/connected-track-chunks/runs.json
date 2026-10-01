@@ -1,0 +1,82 @@
+{
+  "attempt1": {
+    "full_log": "/tmp/fd-partial-chunk1.log",
+    "sha256": "3010d81d803fe0ed0757de8401ccb85a07286eeb2c2c19216014ab229f652315",
+    "exit_status": 1
+  },
+  "attempt2": {
+    "full_log": "/tmp/fd-partial-chunk2.log",
+    "sha256": "c4da1f5c8e50ca2ec072dac334477a3b9bf4431780af2bbc42df70cd2e6b2648",
+    "exit_status": 1
+  },
+  "attempt3": {
+    "full_log": "/tmp/fd-partial-chunk3.log",
+    "sha256": "7eda01981efcf677cb9b5b550ac264bd8422e85d31c922668b0070388bc45964",
+    "exit_status": 1
+  },
+  "attempt4": {
+    "full_log": "/tmp/fd-partial-chunk4.log",
+    "sha256": "e508ef4f755f076a13752be78d81586063788de95aecf27d8215146945550b92",
+    "exit_status": 1
+  },
+  "attempt5": {
+    "full_log": "/tmp/fd-partial-chunk5.log",
+    "sha256": "87f4384809c7d80c194bd7f6b4c54e32002d748159fd2f8dd37c8bc4da47c5dc",
+    "exit_status": 1
+  },
+  "attempt6": {
+    "full_log": "/tmp/fd-partial-chunk6.log",
+    "sha256": "2464b0741a8a1a91e601a065eacc496ea6afa94b628b3ec1526e43bc05f58845",
+    "exit_status": 1
+  },
+  "attempt7": {
+    "full_log": "/tmp/fd-partial-chunk7.log",
+    "sha256": "1e623034626fa2f79c89904af97d47b8f48786e278eb4e421438f8ac3cbaa453",
+    "exit_status": 1
+  },
+  "pre_cleanup": {
+    "full_log": "/tmp/fd-partial-chunk8.log",
+    "sha256": "61a0de3bb4b3b788da941e9e4cf70d025cfc5463f4699abc853478fbb58dcc78",
+    "exit_status": 0
+  },
+  "build": {
+    "full_log": "/tmp/fd-partial-build.log",
+    "sha256": "f14d9c24662afb25870487aa1532bc7303e7e711ab560dd79a78ef973791e2e1",
+    "exit_status": 0
+  },
+  "base": {
+    "full_log": "/tmp/fd-partial-final-base.log",
+    "sha256": "30ba51a57ba143d9b814c5219ce6facc3095fe17935ca704873043e410d04e33",
+    "exit_status": 0
+  },
+  "engineered": {
+    "full_log": "/tmp/fd-partial-final-engineered.log",
+    "sha256": "d80b512986dd34d32c5fb2d9a40db2050f76e5c6c4a6c2277325273a54b963a6",
+    "exit_status": 0
+  },
+  "styles": {
+    "full_log": "/tmp/fd-partial-final-styles.log",
+    "sha256": "cc313ac41e8f5fee2f3225f153efd480d54d4f1dfe51d596e6c060ffcd5d8449",
+    "exit_status": 0
+  },
+  "additions": {
+    "full_log": "/tmp/fd-partial-final-additions.log",
+    "sha256": "90d2e5530d329941ec34b68273fba712e507e46c329746374036b25107db7a61",
+    "exit_status": 0
+  },
+  "magnetized": {
+    "full_log": "/tmp/fd-partial-final-magnetized.log",
+    "sha256": "4da6a54df7ecc05c19b4345a60a044dd627a1819a1abb3a3f9a78a4292b6b777",
+    "exit_status": 0
+  },
+  "immersion": {
+    "full_log": "/tmp/fd-partial-final-immersion.log",
+    "sha256": "364820483607b8b7b89883b36a2aa3e9b97795bea94e8aee7708f5c24a41f384",
+    "exit_status": 0
+  },
+  "combined": {
+    "full_log": "/tmp/fd-partial-final-combined.log",
+    "sha256": "36e4183d7eebd7af971c833c9b7cae4cb504fc21ea77fbbb7255c2cc50c97cce",
+    "exit_status": 0
+  }
+}

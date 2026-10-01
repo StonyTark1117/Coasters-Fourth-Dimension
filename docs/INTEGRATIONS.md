@@ -131,6 +131,16 @@ endpoints. All 27 native checks pass in base, five individual-addon and combined
 profiles, with explicit optional skips recorded. Occupied chunk interruption and
 full process restart with FE enabled remain open.
 
+A further [connected-route interruption check](evidence/integrations/2026-09-30/connected-track-chunks/README.md)
+covers flat and varying-bank routes for all five families. Native bank-chain lookups
+now read only resident inactive 4D anchors, preventing the active end of a connected
+route from renewing distant chunk tickets. Ten unoccupied routes retain their true
+endpoint topology and all sixty geometry fingerprints through partial eviction and
+reload. The fixture explicitly flushes native pending saves before asserting actual
+block-entity removal; it is not an automatic-eviction timing or occupied-interruption
+claim. All 28 registered native checks pass across the seven profiles, with optional
+skips recorded, alongside 19 unit tests.
+
 For simultaneous builds and packaged-client QA, copy the built JAR to an immutable
 temporary path and pass `-PfdPackaged -PfdPackagedJar=/absolute/path/to/snapshot.jar`.
 Do not replace the archive underneath a running client.

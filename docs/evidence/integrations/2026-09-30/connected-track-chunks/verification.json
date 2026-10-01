@@ -1,0 +1,56 @@
+{
+  "scope": "Ten unoccupied connected routes, native save flush, partial eviction and reload",
+  "profiles": {
+    "base": {
+      "registered_tests": 28,
+      "optional_skips": 5,
+      "routes_reloaded": 10,
+      "geometry_sections": 60,
+      "eviction_observed_at_tick": 201
+    },
+    "engineered": {
+      "registered_tests": 28,
+      "optional_skips": 3,
+      "routes_reloaded": 10,
+      "geometry_sections": 60,
+      "eviction_observed_at_tick": 201
+    },
+    "styles": {
+      "registered_tests": 28,
+      "optional_skips": 5,
+      "routes_reloaded": 10,
+      "geometry_sections": 60,
+      "eviction_observed_at_tick": 200
+    },
+    "additions": {
+      "registered_tests": 28,
+      "optional_skips": 3,
+      "routes_reloaded": 10,
+      "geometry_sections": 60,
+      "eviction_observed_at_tick": 200
+    },
+    "magnetized": {
+      "registered_tests": 28,
+      "optional_skips": 4,
+      "routes_reloaded": 10,
+      "geometry_sections": 60,
+      "eviction_observed_at_tick": 200
+    },
+    "immersion": {
+      "registered_tests": 28,
+      "optional_skips": 5,
+      "routes_reloaded": 10,
+      "geometry_sections": 60,
+      "eviction_observed_at_tick": 201
+    },
+    "combined": {
+      "registered_tests": 28,
+      "optional_skips": 0,
+      "routes_reloaded": 10,
+      "geometry_sections": 60,
+      "eviction_observed_at_tick": 200
+    }
+  },
+  "unit_tests_passed": 19,
+  "failed_attempts_preserved": 7
+}

@@ -11,7 +11,8 @@
     "EngagedTrackMixin",
     "ChainDriveGuardMixin",
     "LoadingDependencyMixin",
-    "OpenEndAvailabilityMixin"
+    "OpenEndAvailabilityMixin",
+    "BankBlendAvailabilityMixin"
   ],
   "injectors": {
     "defaultRequire": 1
