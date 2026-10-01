@@ -164,7 +164,14 @@
         "nested_jars": [],
         "bearing_spin_motor_named_entries": [],
         "caveat": "Page advertises motorized bearings/spin drives; no such implementation identified in this release. Absence of names alone is not proof about other versions."
-      }
+      },
+      "integration_findings": [
+        "Sable getEntityOrientation CAMERA return hook filters the actual ridden sublevel pose. Fourth Dimension keeps this single physical transform owner.",
+        "CameraFilter freshOrientation normally depends on smoothing cache; a client-only exact-version adapter supplies the authoritative registered carrier render pose even with head inertia disabled.",
+        "Camera master did not guard cameraProcessingActive; the adapter bypasses orientation filtering for local 4D riders when camera.enabled is false.",
+        "Transient bank, G response, head inertia, body travel, launch and motion history reset on local 4D seat/carrier/rider/world transitions and camera master toggles.",
+        "The runtime item registry contains the seat aligner. No CoasterDrive/motorized-bearing or spin-drive implementation was found in this artifact; page descriptions do not establish this release API."
+      ]
     },
     {
       "project": "Coasters: Engineered",

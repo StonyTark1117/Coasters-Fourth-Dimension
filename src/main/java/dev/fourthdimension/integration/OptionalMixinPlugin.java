@@ -36,6 +36,15 @@ public final class OptionalMixinPlugin implements IMixinConfigPlugin {
                       mod.getModId().equals("coastersmagnetized")
                           && mod.getVersion().toString().equals("1.1.0"));
     }
+    if (mixin.substring(mixin.lastIndexOf('.') + 1).startsWith("Immersion")) {
+      var mods = LoadingModList.get();
+      return mods != null
+          && mods.getMods().stream()
+              .anyMatch(
+                  mod ->
+                      mod.getModId().equals("coasters_immersion")
+                          && mod.getVersion().toString().equals("0.2.3"));
+    }
     return false;
   }
 

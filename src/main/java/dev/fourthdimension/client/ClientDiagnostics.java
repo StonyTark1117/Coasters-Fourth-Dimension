@@ -16,6 +16,16 @@ public final class ClientDiagnostics {
   private static int ticks;
 
   @SubscribeEvent
+  public static void camera(net.neoforged.neoforge.client.event.RenderLevelStageEvent event) {
+    if (Boolean.getBoolean("fourthdimension.validation")
+        && event.getStage()
+            == net.neoforged.neoforge.client.event.RenderLevelStageEvent.Stage.AFTER_LEVEL
+        && dev.fourthdimension.integration.OptionalIntegrations.supported(
+            "coasters_immersion", java.util.Set.of("0.2.3")))
+      dev.fourthdimension.integration.immersion.ImmersionCameraDiagnostics.sample(event);
+  }
+
+  @SubscribeEvent
   public static void tick(ClientTickEvent.Post event) {
     if (!Boolean.getBoolean("fourthdimension.validation") || ++ticks % 100 != 0) return;
     var mc = Minecraft.getInstance();

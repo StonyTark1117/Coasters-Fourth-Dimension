@@ -12,7 +12,8 @@ Recorded checks: [family gate](evidence/0.3/README.md),
 [foundation/Create/Engineered](evidence/integrations/2026-09-30/README.md),
 [Track Styles](evidence/integrations/2026-09-30/styles-1.2.0/README.md), and
 [Additions](evidence/integrations/2026-09-30/additions-0.2.0/README.md), and
-[Magnetized](evidence/integrations/2026-09-30/magnetized-1.1.0/README.md).
+[Magnetized](evidence/integrations/2026-09-30/magnetized-1.1.0/README.md), and
+[Immersion](evidence/integrations/2026-09-30/immersion-0.2.3/README.md).
 
 ## Implemented foundation
 
@@ -227,6 +228,35 @@ rail models target the base Coasters renderer and are not imported into our mesh
 Client equipment visibility, linked trains, curves/slopes, configuration extremes,
 restart/removal and multiplayer still need acceptance before advertising support.
 
+## Immersion 0.2.3: carrier camera adapter
+
+The `-PfdIntegrations=immersion` profile installs the exact
+[0.2.3 artifact](https://www.curseforge.com/minecraft/mc-mods/coasters-immersion/files/8765632)
+and Aeronautics bundled 1.3.2 alongside our baseline. It can be combined with all
+four other integration profiles. The adapter applies only to this Immersion version
+and loads its optional camera classes only on the client.
+
+Sable remains the sole owner of the rider's physical camera rotation. Immersion's
+existing smoothing filters that carrier orientation; our adapter supplies its
+telemetry/body effects with the actual registered carrier's render pose, independent
+of mouse look or smoothing-cache availability. It does not apply a second chassis
+or carrier rotation. This also keeps inversion/G axes correct when head inertia is
+set to zero and Immersion clears its own raw-orientation cache.
+
+For a local 4D rider, Immersion's `camera.enabled` master switch also bypasses its
+orientation filter. Physical seat rotation still comes from Sable. Bank, shake,
+G response, neck state, body travel and motion history reset when changing seats,
+carriers, worlds or riders, on dismount, and when toggling that switch. The adapter
+does not change the player's mouse angles or saved comfort settings. Ordinary
+passengers keep Immersion's existing behavior.
+
+Current packaged-client evidence covers an Arrow ride, normal controls and dismount,
+mouse input, inversion, zero head inertia and the camera master switch. This does
+not certify every family, spectator/third-person mode, maximum comfort settings,
+multiplayer, late join or occupied restart. Exact observations and outstanding cases
+are recorded in [Immersion evidence](evidence/integrations/2026-09-30/immersion-0.2.3/README.md).
+Its seat-aligner/pose features are not a replacement for 4D carrier seats or controls.
+
 ## Remaining acceptance
 
 - Extend reconciled FD305 evidence to the schema-5 optional-addon lifecycle matrix;
@@ -242,8 +272,8 @@ restart/removal and multiplayer still need acceptance before advertising support
   validate any rotating-seat replacement separately.
 - Extend Magnetized native straight-track evidence to linked trains, curves/slopes,
   equipment visuals, configuration extremes, lifecycle and multiplayer.
-- Validate Immersion camera composition, inversion, mouse look, dismount and comfort
-  behavior with its full dependency stack.
+- Extend Immersion camera evidence to every family, camera mode, comfort extremes,
+  multiplayer and lifecycle transitions with the full dependency stack.
 - Run base, individual-addon and combined-pack dedicated-server/two-client/late-join
   matrices, migrations/removal, interruption cases and measured rendering/performance.
   Publish exact tested versions and evidence, not inferred compatibility.

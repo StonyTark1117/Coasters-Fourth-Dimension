@@ -14,5 +14,10 @@
   ],
   "injectors": {
     "defaultRequire": 1
-  }
+  },
+  "client": [
+    "ImmersionOrientationMixin",
+    "ImmersionConfigMixin",
+    "ImmersionEffectsMixin"
+  ]
 }
