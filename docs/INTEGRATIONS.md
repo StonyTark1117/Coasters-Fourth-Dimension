@@ -439,6 +439,14 @@ their equipment or custom appearances. Server timing does not establish frame
 cost, two-client networking cost, shader compatibility, or a release capacity
 guarantee. See the evidence for measured values and the remaining scope.
 
+A [paired optimization checkpoint](evidence/integrations/2026-10-01/projection-reuse/README.md)
+reuses each vehicle's native center/edge/projection within a single physics update.
+It preserves boundary and dispatch checks and passes all seven native profiles.
+Across 9,600 accepted occupied-scene ticks, mean carrier-callback time is lower in
+every old/new comparison, while total server-event timing remains variable. One
+new-build P95 exceeds the 50 ms development target. The retained failed harness
+attempt, raw windows and limits are documented; FD904 remains open.
+
 ## Combined-pack multiplayer evidence
 
 A packaged dedicated server and two packaged clients ran all five pinned adapters

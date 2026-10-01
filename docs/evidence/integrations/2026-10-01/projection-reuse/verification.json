@@ -1,0 +1,365 @@
+{
+  "regressions": {
+    "base": {
+      "registered": 35,
+      "absent_addon_skips": 7,
+      "connected_eligibility_cases": 200,
+      "moving_boundary_cases": 24,
+      "linked_provider_loss_probes": 2,
+      "controlled_max_turn": 6.281208713617681,
+      "controlled_max_axle_difference": 3.0235946611662765
+    },
+    "engineered": {
+      "registered": 35,
+      "absent_addon_skips": 4,
+      "connected_eligibility_cases": 200,
+      "moving_boundary_cases": 24,
+      "linked_provider_loss_probes": 2,
+      "controlled_max_turn": 6.281193163915398,
+      "controlled_max_axle_difference": 3.023589456956983
+    },
+    "styles": {
+      "registered": 35,
+      "absent_addon_skips": 7,
+      "connected_eligibility_cases": 200,
+      "moving_boundary_cases": 24,
+      "linked_provider_loss_probes": 2,
+      "controlled_max_turn": 6.281204577631095,
+      "controlled_max_axle_difference": 3.023595027051506
+    },
+    "additions": {
+      "registered": 35,
+      "absent_addon_skips": 5,
+      "connected_eligibility_cases": 200,
+      "moving_boundary_cases": 24,
+      "linked_provider_loss_probes": 2,
+      "controlled_max_turn": 6.281205412760206,
+      "controlled_max_axle_difference": 3.02359052201324
+    },
+    "magnetized": {
+      "registered": 35,
+      "absent_addon_skips": 5,
+      "connected_eligibility_cases": 200,
+      "moving_boundary_cases": 24,
+      "linked_provider_loss_probes": 2,
+      "controlled_max_turn": 6.281190055358682,
+      "controlled_max_axle_difference": 3.0235882850979863
+    },
+    "immersion": {
+      "registered": 35,
+      "absent_addon_skips": 7,
+      "connected_eligibility_cases": 200,
+      "moving_boundary_cases": 24,
+      "linked_provider_loss_probes": 2,
+      "controlled_max_turn": 6.281204577631095,
+      "controlled_max_axle_difference": 3.0235886464517145
+    },
+    "combined": {
+      "registered": 35,
+      "absent_addon_skips": 0,
+      "connected_eligibility_cases": 200,
+      "moving_boundary_cases": 24,
+      "linked_provider_loss_probes": 2,
+      "controlled_max_turn": 6.2812025259271325,
+      "controlled_max_axle_difference": 3.0235910892280793
+    }
+  },
+  "unit_tests": 19,
+  "scene": {
+    "cars": 21,
+    "carriers": 48,
+    "riders": 96
+  },
+  "samples": {
+    "base-0-old-parked": {
+      "mean_ms": 40.65617219333333,
+      "p95_ms": 51.051626,
+      "p99_ms": 58.833878,
+      "max_ms": 69.427192,
+      "over_50ms": 45,
+      "carrier_callback_ms_per_tick": 17.062486221666667
+    },
+    "base-0-old-operating": {
+      "mean_ms": 33.951145325000006,
+      "p95_ms": 41.25711,
+      "p99_ms": 51.412515,
+      "max_ms": 62.197794,
+      "over_50ms": 8,
+      "carrier_callback_ms_per_tick": 14.211327448333334
+    },
+    "base-0-new-parked": {
+      "mean_ms": 36.61060425,
+      "p95_ms": 43.833303,
+      "p99_ms": 50.989388,
+      "max_ms": 60.449432,
+      "over_50ms": 7,
+      "carrier_callback_ms_per_tick": 12.2991861
+    },
+    "base-0-new-operating": {
+      "mean_ms": 39.8176023,
+      "p95_ms": 54.627493,
+      "p99_ms": 64.88255,
+      "max_ms": 92.27256,
+      "over_50ms": 59,
+      "carrier_callback_ms_per_tick": 12.758100028333335
+    },
+    "combined-0-old-parked": {
+      "mean_ms": 48.27508898666667,
+      "p95_ms": 69.793628,
+      "p99_ms": 84.377457,
+      "max_ms": 131.827658,
+      "over_50ms": 190,
+      "carrier_callback_ms_per_tick": 18.865829771666668
+    },
+    "combined-0-old-operating": {
+      "mean_ms": 48.84753903833333,
+      "p95_ms": 58.960077,
+      "p99_ms": 76.094641,
+      "max_ms": 99.959207,
+      "over_50ms": 174,
+      "carrier_callback_ms_per_tick": 18.962056118333333
+    },
+    "combined-0-new-parked": {
+      "mean_ms": 41.77183908333333,
+      "p95_ms": 49.949931,
+      "p99_ms": 57.806644,
+      "max_ms": 65.251725,
+      "over_50ms": 30,
+      "carrier_callback_ms_per_tick": 13.403889173333333
+    },
+    "combined-0-new-operating": {
+      "mean_ms": 38.71158983833333,
+      "p95_ms": 49.369657,
+      "p99_ms": 56.757376,
+      "max_ms": 124.18393,
+      "over_50ms": 27,
+      "carrier_callback_ms_per_tick": 12.25542041
+    },
+    "base-1-new-parked": {
+      "mean_ms": 29.220060685,
+      "p95_ms": 40.256,
+      "p99_ms": 53.04272,
+      "max_ms": 89.283668,
+      "over_50ms": 10,
+      "carrier_callback_ms_per_tick": 9.673941885
+    },
+    "base-1-new-operating": {
+      "mean_ms": 28.912258870000002,
+      "p95_ms": 33.735592,
+      "p99_ms": 39.597961,
+      "max_ms": 50.208467,
+      "over_50ms": 1,
+      "carrier_callback_ms_per_tick": 9.60559219
+    },
+    "base-1-old-parked": {
+      "mean_ms": 33.51178750666667,
+      "p95_ms": 38.353036,
+      "p99_ms": 43.006925,
+      "max_ms": 47.437977,
+      "over_50ms": 0,
+      "carrier_callback_ms_per_tick": 14.18315164
+    },
+    "base-1-old-operating": {
+      "mean_ms": 34.86423588833333,
+      "p95_ms": 40.89354,
+      "p99_ms": 46.486821,
+      "max_ms": 54.440617,
+      "over_50ms": 2,
+      "carrier_callback_ms_per_tick": 14.434745666666666
+    },
+    "combined-1-new-parked": {
+      "mean_ms": 31.681074488333334,
+      "p95_ms": 36.572754,
+      "p99_ms": 40.59695,
+      "max_ms": 49.737457,
+      "over_50ms": 0,
+      "carrier_callback_ms_per_tick": 9.873124486666667
+    },
+    "combined-1-new-operating": {
+      "mean_ms": 33.02723734,
+      "p95_ms": 37.881729,
+      "p99_ms": 42.104436,
+      "max_ms": 87.715075,
+      "over_50ms": 3,
+      "carrier_callback_ms_per_tick": 10.037424138333334
+    },
+    "combined-1-old-parked": {
+      "mean_ms": 35.88954538666666,
+      "p95_ms": 40.606025,
+      "p99_ms": 44.982402,
+      "max_ms": 46.024181,
+      "over_50ms": 0,
+      "carrier_callback_ms_per_tick": 14.211523173333333
+    },
+    "combined-1-old-operating": {
+      "mean_ms": 36.84069793,
+      "p95_ms": 42.565061,
+      "p99_ms": 46.942991,
+      "max_ms": 89.129223,
+      "over_50ms": 4,
+      "carrier_callback_ms_per_tick": 14.271141193333333
+    }
+  },
+  "pairs": {
+    "base-0-parked": {
+      "old": {
+        "mean_ms": 40.65617219333333,
+        "p95_ms": 51.051626,
+        "p99_ms": 58.833878,
+        "max_ms": 69.427192,
+        "over_50ms": 45,
+        "carrier_callback_ms_per_tick": 17.062486221666667
+      },
+      "new": {
+        "mean_ms": 36.61060425,
+        "p95_ms": 43.833303,
+        "p99_ms": 50.989388,
+        "max_ms": 60.449432,
+        "over_50ms": 7,
+        "carrier_callback_ms_per_tick": 12.2991861
+      },
+      "callback_reduction_percent": 27.916799813253636,
+      "mean_tick_reduction_percent": 9.950685775570163
+    },
+    "base-0-operating": {
+      "old": {
+        "mean_ms": 33.951145325000006,
+        "p95_ms": 41.25711,
+        "p99_ms": 51.412515,
+        "max_ms": 62.197794,
+        "over_50ms": 8,
+        "carrier_callback_ms_per_tick": 14.211327448333334
+      },
+      "new": {
+        "mean_ms": 39.8176023,
+        "p95_ms": 54.627493,
+        "p99_ms": 64.88255,
+        "max_ms": 92.27256,
+        "over_50ms": 59,
+        "carrier_callback_ms_per_tick": 12.758100028333335
+      },
+      "callback_reduction_percent": 10.225838685959134,
+      "mean_tick_reduction_percent": -17.279113617060254
+    },
+    "base-1-parked": {
+      "old": {
+        "mean_ms": 33.51178750666667,
+        "p95_ms": 38.353036,
+        "p99_ms": 43.006925,
+        "max_ms": 47.437977,
+        "over_50ms": 0,
+        "carrier_callback_ms_per_tick": 14.18315164
+      },
+      "new": {
+        "mean_ms": 29.220060685,
+        "p95_ms": 40.256,
+        "p99_ms": 53.04272,
+        "max_ms": 89.283668,
+        "over_50ms": 10,
+        "carrier_callback_ms_per_tick": 9.673941885
+      },
+      "callback_reduction_percent": 31.79272047182315,
+      "mean_tick_reduction_percent": 12.806618628782175
+    },
+    "base-1-operating": {
+      "old": {
+        "mean_ms": 34.86423588833333,
+        "p95_ms": 40.89354,
+        "p99_ms": 46.486821,
+        "max_ms": 54.440617,
+        "over_50ms": 2,
+        "carrier_callback_ms_per_tick": 14.434745666666666
+      },
+      "new": {
+        "mean_ms": 28.912258870000002,
+        "p95_ms": 33.735592,
+        "p99_ms": 39.597961,
+        "max_ms": 50.208467,
+        "over_50ms": 1,
+        "carrier_callback_ms_per_tick": 9.60559219
+      },
+      "callback_reduction_percent": 33.45506452405569,
+      "mean_tick_reduction_percent": 17.071869974138885
+    },
+    "combined-0-parked": {
+      "old": {
+        "mean_ms": 48.27508898666667,
+        "p95_ms": 69.793628,
+        "p99_ms": 84.377457,
+        "max_ms": 131.827658,
+        "over_50ms": 190,
+        "carrier_callback_ms_per_tick": 18.865829771666668
+      },
+      "new": {
+        "mean_ms": 41.77183908333333,
+        "p95_ms": 49.949931,
+        "p99_ms": 57.806644,
+        "max_ms": 65.251725,
+        "over_50ms": 30,
+        "carrier_callback_ms_per_tick": 13.403889173333333
+      },
+      "callback_reduction_percent": 28.951499427479515,
+      "mean_tick_reduction_percent": 13.471233383183403
+    },
+    "combined-0-operating": {
+      "old": {
+        "mean_ms": 48.84753903833333,
+        "p95_ms": 58.960077,
+        "p99_ms": 76.094641,
+        "max_ms": 99.959207,
+        "over_50ms": 174,
+        "carrier_callback_ms_per_tick": 18.962056118333333
+      },
+      "new": {
+        "mean_ms": 38.71158983833333,
+        "p95_ms": 49.369657,
+        "p99_ms": 56.757376,
+        "max_ms": 124.18393,
+        "over_50ms": 27,
+        "carrier_callback_ms_per_tick": 12.25542041
+      },
+      "callback_reduction_percent": 35.368715641807796,
+      "mean_tick_reduction_percent": 20.750173702805714
+    },
+    "combined-1-parked": {
+      "old": {
+        "mean_ms": 35.88954538666666,
+        "p95_ms": 40.606025,
+        "p99_ms": 44.982402,
+        "max_ms": 46.024181,
+        "over_50ms": 0,
+        "carrier_callback_ms_per_tick": 14.211523173333333
+      },
+      "new": {
+        "mean_ms": 31.681074488333334,
+        "p95_ms": 36.572754,
+        "p99_ms": 40.59695,
+        "max_ms": 49.737457,
+        "over_50ms": 0,
+        "carrier_callback_ms_per_tick": 9.873124486666667
+      },
+      "callback_reduction_percent": 30.527330770619212,
+      "mean_tick_reduction_percent": 11.726174998853061
+    },
+    "combined-1-operating": {
+      "old": {
+        "mean_ms": 36.84069793,
+        "p95_ms": 42.565061,
+        "p99_ms": 46.942991,
+        "max_ms": 89.129223,
+        "over_50ms": 4,
+        "carrier_callback_ms_per_tick": 14.271141193333333
+      },
+      "new": {
+        "mean_ms": 33.02723734,
+        "p95_ms": 37.881729,
+        "p99_ms": 42.104436,
+        "max_ms": 87.715075,
+        "over_50ms": 3,
+        "carrier_callback_ms_per_tick": 10.037424138333334
+      },
+      "callback_reduction_percent": 29.66628244823022,
+      "mean_tick_reduction_percent": 10.35121700801068
+    }
+  }
+}

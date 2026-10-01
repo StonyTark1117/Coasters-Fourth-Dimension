@@ -1,0 +1,164 @@
+{
+  "status": "complete",
+  "artifacts": {
+    "old": {
+      "path": "/home/braydon/.cache/fourthdimension-48535694/server-benchmark-v2.jar",
+      "sha256": "426c2786c2b5a0bba0bb677349ef86f5414f8652fef1de55de67be60658afb58"
+    },
+    "new": {
+      "path": "/home/braydon/.cache/fourthdimension-48535694/server-projection-reuse.jar",
+      "sha256": "0020592f0b6a69510d07e08bf19f6e9dc713311a8de627962dc23679ea5c8884"
+    }
+  },
+  "runs": [
+    {
+      "case": "base-0-old",
+      "profile": null,
+      "world": "FDProjectionReuseBase0Old",
+      "pid": 384689,
+      "command": [
+        "./gradlew",
+        "-Dorg.gradle.jvmargs=-Xmx1G",
+        "--max-workers=2",
+        "runServer",
+        "-PfdPackaged",
+        "-PfdPackagedJar=/home/braydon/.cache/fourthdimension-48535694/server-benchmark-v2.jar",
+        "-PfdValidation",
+        "-PfdFrozen"
+      ],
+      "status": "complete",
+      "artifact_sha256": "426c2786c2b5a0bba0bb677349ef86f5414f8652fef1de55de67be60658afb58"
+    },
+    {
+      "case": "base-0-new",
+      "profile": null,
+      "world": "FDProjectionReuseBase0NewRetry",
+      "pid": 402449,
+      "command": [
+        "./gradlew",
+        "-Dorg.gradle.jvmargs=-Xmx1G",
+        "--max-workers=2",
+        "runServer",
+        "-PfdPackaged",
+        "-PfdPackagedJar=/home/braydon/.cache/fourthdimension-48535694/server-projection-reuse.jar",
+        "-PfdValidation",
+        "-PfdFrozen"
+      ],
+      "status": "complete",
+      "artifact_sha256": "0020592f0b6a69510d07e08bf19f6e9dc713311a8de627962dc23679ea5c8884"
+    },
+    {
+      "case": "combined-0-old",
+      "profile": "engineered,styles,additions,magnetized,immersion",
+      "world": "FDProjectionReuseCombined0Old",
+      "pid": 407131,
+      "command": [
+        "./gradlew",
+        "-Dorg.gradle.jvmargs=-Xmx1G",
+        "--max-workers=2",
+        "runServer",
+        "-PfdPackaged",
+        "-PfdPackagedJar=/home/braydon/.cache/fourthdimension-48535694/server-benchmark-v2.jar",
+        "-PfdValidation",
+        "-PfdFrozen",
+        "-PfdIntegrations=engineered,styles,additions,magnetized,immersion"
+      ],
+      "status": "complete",
+      "artifact_sha256": "426c2786c2b5a0bba0bb677349ef86f5414f8652fef1de55de67be60658afb58"
+    },
+    {
+      "case": "combined-0-new",
+      "profile": "engineered,styles,additions,magnetized,immersion",
+      "world": "FDProjectionReuseCombined0New",
+      "pid": 412703,
+      "command": [
+        "./gradlew",
+        "-Dorg.gradle.jvmargs=-Xmx1G",
+        "--max-workers=2",
+        "runServer",
+        "-PfdPackaged",
+        "-PfdPackagedJar=/home/braydon/.cache/fourthdimension-48535694/server-projection-reuse.jar",
+        "-PfdValidation",
+        "-PfdFrozen",
+        "-PfdIntegrations=engineered,styles,additions,magnetized,immersion"
+      ],
+      "status": "complete",
+      "artifact_sha256": "0020592f0b6a69510d07e08bf19f6e9dc713311a8de627962dc23679ea5c8884"
+    },
+    {
+      "case": "base-1-new",
+      "profile": null,
+      "world": "FDProjectionReuseBase1New",
+      "pid": 415939,
+      "command": [
+        "./gradlew",
+        "-Dorg.gradle.jvmargs=-Xmx1G",
+        "--max-workers=2",
+        "runServer",
+        "-PfdPackaged",
+        "-PfdPackagedJar=/home/braydon/.cache/fourthdimension-48535694/server-projection-reuse.jar",
+        "-PfdValidation",
+        "-PfdFrozen"
+      ],
+      "status": "complete",
+      "artifact_sha256": "0020592f0b6a69510d07e08bf19f6e9dc713311a8de627962dc23679ea5c8884"
+    },
+    {
+      "case": "base-1-old",
+      "profile": null,
+      "world": "FDProjectionReuseBase1Old",
+      "pid": 418156,
+      "command": [
+        "./gradlew",
+        "-Dorg.gradle.jvmargs=-Xmx1G",
+        "--max-workers=2",
+        "runServer",
+        "-PfdPackaged",
+        "-PfdPackagedJar=/home/braydon/.cache/fourthdimension-48535694/server-benchmark-v2.jar",
+        "-PfdValidation",
+        "-PfdFrozen"
+      ],
+      "status": "complete",
+      "artifact_sha256": "426c2786c2b5a0bba0bb677349ef86f5414f8652fef1de55de67be60658afb58"
+    },
+    {
+      "case": "combined-1-new",
+      "profile": "engineered,styles,additions,magnetized,immersion",
+      "world": "FDProjectionReuseCombined1New",
+      "pid": 419878,
+      "command": [
+        "./gradlew",
+        "-Dorg.gradle.jvmargs=-Xmx1G",
+        "--max-workers=2",
+        "runServer",
+        "-PfdPackaged",
+        "-PfdPackagedJar=/home/braydon/.cache/fourthdimension-48535694/server-projection-reuse.jar",
+        "-PfdValidation",
+        "-PfdFrozen",
+        "-PfdIntegrations=engineered,styles,additions,magnetized,immersion"
+      ],
+      "status": "complete",
+      "artifact_sha256": "0020592f0b6a69510d07e08bf19f6e9dc713311a8de627962dc23679ea5c8884"
+    },
+    {
+      "case": "combined-1-old",
+      "profile": "engineered,styles,additions,magnetized,immersion",
+      "world": "FDProjectionReuseCombined1Old",
+      "pid": 422473,
+      "command": [
+        "./gradlew",
+        "-Dorg.gradle.jvmargs=-Xmx1G",
+        "--max-workers=2",
+        "runServer",
+        "-PfdPackaged",
+        "-PfdPackagedJar=/home/braydon/.cache/fourthdimension-48535694/server-benchmark-v2.jar",
+        "-PfdValidation",
+        "-PfdFrozen",
+        "-PfdIntegrations=engineered,styles,additions,magnetized,immersion"
+      ],
+      "status": "complete",
+      "artifact_sha256": "426c2786c2b5a0bba0bb677349ef86f5414f8652fef1de55de67be60658afb58"
+    }
+  ],
+  "resumed_after": "partial log record in first base-0-new attempt; original artifacts retained in failed-attempt"
+}

@@ -3,10 +3,8 @@ package dev.fourthdimension.vehicle;
 import dev.fourthdimension.runtime.*;
 import dev.ryanhcode.sable.api.sublevel.SubLevelContainer;
 import dev.ryanhcode.sable.sublevel.ServerSubLevel;
-import dev.silvergold.simulatedcoasters.track.cart.CoasterCartResolve;
 import dev.silvergold.simulatedcoasters.track.graph.*;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.world.phys.Vec3;
 import org.joml.Vector3d;
 
 public final class BoundaryGuard {
@@ -17,6 +15,16 @@ public final class BoundaryGuard {
       ServerSubLevel parent,
       FoundationData.Vehicle vehicle,
       FoundationData.Rail rail) {
+    check(level, parent, vehicle, rail, new VehicleTrackSample(level, parent, rail));
+  }
+
+  /** The caller may reuse the projection before advancing physics or changing geometry. */
+  public static void check(
+      ServerLevel level,
+      ServerSubLevel parent,
+      FoundationData.Vehicle vehicle,
+      FoundationData.Rail rail,
+      VehicleTrackSample sample) {
     if (rail == null || !rail.valid) return;
     if (!ConsistRules.eligible(level, parent, vehicle)) {
       stop(vehicle, "Incompatible vehicle in linked consist");
@@ -24,22 +32,16 @@ public final class BoundaryGuard {
     }
     // The validated shuttle controller guards both spikes and captures the complete train.
     if (dev.fourthdimension.shuttle.ShuttleRuntime.running(level, vehicle.chassis)) return;
-    var center = CoasterCartResolve.cartCenterWorld(parent);
-    if (center == null) {
+    if (!sample.hasRunningGear()) {
       stop(vehicle, "Running gear unavailable");
       return;
     }
-    var edge =
-        CoasterPathGraphManager.get(level).edges().stream()
-            .filter(e -> rail.matches(e.from(), e.to()))
-            .findFirst()
-            .orElse(null);
+    var edge = sample.edge();
     if (edge == null) {
       stop(vehicle, "Engaged track unavailable");
       return;
     }
-    var hit =
-        CoasterPathTrackFrame.closestHitOnEdge(level, edge, new Vec3(center.x, center.y, center.z));
+    var hit = sample.hit();
     if (hit == null) return;
     var velocity =
         SubLevelContainer.getContainer(level)

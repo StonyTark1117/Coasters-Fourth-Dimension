@@ -1,0 +1,91 @@
+{
+  "status": "complete",
+  "artifact_sha256": "0020592f0b6a69510d07e08bf19f6e9dc713311a8de627962dc23679ea5c8884",
+  "runs": [
+    {
+      "profile": "base",
+      "pid": 338789,
+      "status": "complete",
+      "command": [
+        "./gradlew",
+        "-Dorg.gradle.jvmargs=-Xmx1G",
+        "--max-workers=2",
+        "runGameTestServer"
+      ]
+    },
+    {
+      "profile": "engineered",
+      "pid": 347851,
+      "status": "complete",
+      "command": [
+        "./gradlew",
+        "-Dorg.gradle.jvmargs=-Xmx1G",
+        "--max-workers=2",
+        "runGameTestServer",
+        "-PfdIntegrations=engineered",
+        "-PfdPaxEnergyReload"
+      ]
+    },
+    {
+      "profile": "styles",
+      "pid": 352878,
+      "status": "complete",
+      "command": [
+        "./gradlew",
+        "-Dorg.gradle.jvmargs=-Xmx1G",
+        "--max-workers=2",
+        "runGameTestServer",
+        "-PfdIntegrations=styles"
+      ]
+    },
+    {
+      "profile": "additions",
+      "pid": 357639,
+      "status": "complete",
+      "command": [
+        "./gradlew",
+        "-Dorg.gradle.jvmargs=-Xmx1G",
+        "--max-workers=2",
+        "runGameTestServer",
+        "-PfdIntegrations=additions"
+      ]
+    },
+    {
+      "profile": "magnetized",
+      "pid": 364637,
+      "status": "complete",
+      "command": [
+        "./gradlew",
+        "-Dorg.gradle.jvmargs=-Xmx1G",
+        "--max-workers=2",
+        "runGameTestServer",
+        "-PfdIntegrations=magnetized"
+      ]
+    },
+    {
+      "profile": "immersion",
+      "pid": 369853,
+      "status": "complete",
+      "command": [
+        "./gradlew",
+        "-Dorg.gradle.jvmargs=-Xmx1G",
+        "--max-workers=2",
+        "runGameTestServer",
+        "-PfdIntegrations=immersion"
+      ]
+    },
+    {
+      "profile": "combined",
+      "pid": 374564,
+      "status": "complete",
+      "command": [
+        "./gradlew",
+        "-Dorg.gradle.jvmargs=-Xmx1G",
+        "--max-workers=2",
+        "runGameTestServer",
+        "-PfdIntegrations=engineered,styles,additions,magnetized,immersion",
+        "-PfdPaxEnergyReload"
+      ]
+    }
+  ]
+}

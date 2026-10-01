@@ -1,0 +1,52 @@
+{
+  "status": "failed",
+  "artifacts": {
+    "old": {
+      "path": "/home/braydon/.cache/fourthdimension-48535694/server-benchmark-v2.jar",
+      "sha256": "426c2786c2b5a0bba0bb677349ef86f5414f8652fef1de55de67be60658afb58"
+    },
+    "new": {
+      "path": "/home/braydon/.cache/fourthdimension-48535694/server-projection-reuse.jar",
+      "sha256": "0020592f0b6a69510d07e08bf19f6e9dc713311a8de627962dc23679ea5c8884"
+    }
+  },
+  "runs": [
+    {
+      "case": "base-0-old",
+      "profile": null,
+      "world": "FDProjectionReuseBase0Old",
+      "pid": 384689,
+      "command": [
+        "./gradlew",
+        "-Dorg.gradle.jvmargs=-Xmx1G",
+        "--max-workers=2",
+        "runServer",
+        "-PfdPackaged",
+        "-PfdPackagedJar=/home/braydon/.cache/fourthdimension-48535694/server-benchmark-v2.jar",
+        "-PfdValidation",
+        "-PfdFrozen"
+      ],
+      "status": "complete",
+      "artifact_sha256": "426c2786c2b5a0bba0bb677349ef86f5414f8652fef1de55de67be60658afb58"
+    },
+    {
+      "case": "base-0-new",
+      "profile": null,
+      "world": "FDProjectionReuseBase0New",
+      "pid": 387769,
+      "command": [
+        "./gradlew",
+        "-Dorg.gradle.jvmargs=-Xmx1G",
+        "--max-workers=2",
+        "runServer",
+        "-PfdPackaged",
+        "-PfdPackagedJar=/home/braydon/.cache/fourthdimension-48535694/server-projection-reuse.jar",
+        "-PfdValidation",
+        "-PfdFrozen"
+      ],
+      "status": "running",
+      "artifact_sha256": "0020592f0b6a69510d07e08bf19f6e9dc713311a8de627962dc23679ea5c8884"
+    }
+  ],
+  "error": "JSONDecodeError('Expecting value: line 1 column 57259 (char 57258)')"
+}

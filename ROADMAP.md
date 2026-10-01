@@ -309,7 +309,7 @@ Test couplers, strength, offsets, braking, retained carriers, and loaded towing 
 
 ### FD403 Complete crafting and teaching content
 
-**Status: in progress (2026-09-30), integration branch.** Five family Ponder scenes plus station teaching content, goggles diagnostics and six Display Link sources are implemented; visual and multiplayer acceptance remain pending. See [integration scope](docs/INTEGRATIONS.md).
+**Status: in progress (2026-10-01), integration branch.** Five family Ponder scenes plus station teaching content, goggles diagnostics and six Display Link sources are implemented. The [six-scene, two-client playback checkpoint](docs/evidence/integrations/2026-10-01/create-ponder/README.md) and [occupied PAX telemetry cycles](docs/evidence/integrations/2026-10-01/create-live-phases/README.md) provide bounded visual and multiplayer acceptance. Finish the acquisition/build-path, item-description and standalone sample-layout audit before closing this gate. See [integration scope](docs/INTEGRATIONS.md).
 
 **Depends on:** FD305. **Design:** D08.
 
@@ -412,6 +412,12 @@ Test upgrades from released save formats, stable IDs, profile rebinding, appeara
 ### FD904 Meet measured performance and rendering targets
 
 **Partial evidence (2026-10-01):** A [dedicated-server baseline](docs/evidence/integrations/2026-10-01/server-benchmark/README.md) measures two occupied seven-car Arrow trains, three eight-seat Free Spin cars and a four-car PAX shuttle in the base and combined packs. Exact tick windows, rider/body identities, host load and separate CPU profiles are retained. This does not close client/rendering, shader, moving-inversion or active optional-equipment performance coverage.
+
+The [scoped projection-reuse checkpoint](docs/evidence/integrations/2026-10-01/projection-reuse/README.md)
+shares native geometry within each vehicle's physics update. Seven native profiles
+and 19 unit tests pass; eight occupied old/new pairs record 10.2–35.4% lower mean
+carrier-callback time. Overall timing remains variable on the shared host, including
+one new-build P95 above 50 ms. The optimization is retained; FD904 stays open.
 
 **Depends on:** FD404, FD006. **Design:** D17.
 

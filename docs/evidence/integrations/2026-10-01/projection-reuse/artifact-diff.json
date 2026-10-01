@@ -1,0 +1,24 @@
+{
+  "added": [
+    "dev/fourthdimension/runtime/VehicleTrackSample.class"
+  ],
+  "removed": [],
+  "changed": [
+    "dev/fourthdimension/runtime/CarrierRuntime.class",
+    "dev/fourthdimension/vehicle/BoundaryGuard.class"
+  ],
+  "hashes": {
+    "dev/fourthdimension/runtime/CarrierRuntime.class": {
+      "before": "667c8935199b96fcb9549d62ae08363ad7c5dbaa89c1abd13c7dec83cc95d8cb",
+      "after": "3fbdd0e092a61c5c8aadef3a74a5df060ca74147aad9d78aa7efd8516552245f"
+    },
+    "dev/fourthdimension/runtime/VehicleTrackSample.class": {
+      "before": null,
+      "after": "61d92d40aa956873b7539e4856c07b2b5d796ad2b067de8977df7fc6d8a418e5"
+    },
+    "dev/fourthdimension/vehicle/BoundaryGuard.class": {
+      "before": "e2f1718f12b53263bb2e6871528352799caca3c2ef34d1e5f08ad94d12a91247",
+      "after": "70c7e70ed85844e4567065dea5c38a3a263f15c472deea15e1917e68a8987cfa"
+    }
+  }
+}

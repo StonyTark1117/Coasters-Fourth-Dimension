@@ -6,13 +6,10 @@ import dev.ryanhcode.sable.api.physics.constraint.*;
 import dev.ryanhcode.sable.api.sublevel.SubLevelContainer;
 import dev.ryanhcode.sable.neoforge.event.ForgeSablePrePhysicsTickEvent;
 import dev.ryanhcode.sable.sublevel.ServerSubLevel;
-import dev.silvergold.simulatedcoasters.track.cart.CoasterCartResolve;
-import dev.silvergold.simulatedcoasters.track.graph.*;
 import java.util.*;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.phys.AABB;
-import net.minecraft.world.phys.Vec3;
 import org.joml.Quaterniond;
 import org.joml.Vector3d;
 
@@ -84,28 +81,20 @@ public final class CarrierRuntime {
         vehicle.restraints = true;
         vehicle.fault = "Matching track support lost";
       }
-      if (content) dev.fourthdimension.vehicle.BoundaryGuard.check(level, parent, vehicle, rail);
+      var trackSample = new VehicleTrackSample(level, parent, rail);
+      if (content)
+        dev.fourthdimension.vehicle.BoundaryGuard.check(level, parent, vehicle, rail, trackSample);
       if (content && (vehicle.stopping || vehicle.maintenance))
         dev.fourthdimension.vehicle.VehicleOperations.brake(level, vehicle, event.getTimeStep());
       double target = Double.NaN;
       if (rail != null && rail.valid && vehicle.family.driven()) {
-        var edge =
-            CoasterPathGraphManager.get(level).edges().stream()
-                .filter(e -> rail.matches(e.from(), e.to()))
-                .findFirst()
-                .orElse(null);
-        if (edge != null && CoasterCartResolve.cartCenterWorld(parent) != null) {
-          var center = CoasterCartResolve.cartCenterWorld(parent);
-          var hit =
-              CoasterPathTrackFrame.closestHitOnEdge(
-                  level, edge, new Vec3(center.x, center.y, center.z));
-          if (hit != null) {
-            target =
-                rail.profile()
-                    .angleAt(
-                        dev.fourthdimension.track.TrackGeometry.distance(
-                            level, edge, rail, hit.t()));
-          }
+        var hit = trackSample.hit();
+        if (hit != null) {
+          target =
+              rail.profile()
+                  .angleAt(
+                      dev.fourthdimension.track.TrackGeometry.distance(
+                          level, hit.edge(), rail, hit.t()));
         }
       }
       for (var carrier : vehicle.carriers) {
