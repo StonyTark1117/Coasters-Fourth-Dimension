@@ -40,7 +40,7 @@ public final class RotationEditorScreen extends Screen {
       onClose();
       return;
     }
-    int left = width / 2 - 170, top = height / 2 - 90;
+    int left = width / 2 - 170, top = height / 2 - (target.vehicle() ? 116 : 90);
     value =
         new EditBox(
             font, left, top + 50, 340, 22, Component.literal("Profile or free-spin tuning"));
@@ -80,6 +80,16 @@ public final class RotationEditorScreen extends Screen {
       addButton("Retain", left + 115, top + 108, 14);
       addButton("Release retention", left + 230, top + 108, 15);
       if (free) addButton("Apply tuning", left, top + 134, 16);
+      if (v.recoveryCart == null) {
+        addButton("Attach recovery", left, top + 212, 20);
+        if (v.family == dev.fourthdimension.contract.Family.PAX)
+          addButton("Detach shuttle", left + 115, top + 212, 24);
+      } else {
+        addButton("Start tow", left, top + 212, 21);
+        addButton("Brake tow", left + 115, top + 212, 22);
+        addButton("Detach recovery", left + 230, top + 212, 23);
+        status = "Recovery " + (v.stopping ? "braked" : "towing") + " | carriers retained";
+      }
       if (magnetic) {
         addButton("Empty ballast", left, top + 186, 17);
         addButton("Balanced ballast", left + 115, top + 186, 18);
@@ -226,9 +236,8 @@ public final class RotationEditorScreen extends Screen {
 
   @Override
   public void render(GuiGraphics graphics, int mouseX, int mouseY, float partialTick) {
-    int left = width / 2 - 180, top = height / 2 - 100;
-    graphics.fill(
-        left, top, left + 360, top + (target.vehicle() && magnetic ? 232 : 200), 0xee171d25);
+    int left = width / 2 - 180, top = height / 2 - (target.vehicle() ? 126 : 100);
+    graphics.fill(left, top, left + 360, top + (target.vehicle() ? 252 : 200), 0xee171d25);
     graphics.drawString(font, title, left + 10, top + 10, 0xffffff);
     graphics.drawString(font, status, left + 10, top + 26, 0xf3d179);
     String hint =

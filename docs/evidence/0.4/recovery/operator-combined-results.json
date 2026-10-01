@@ -1,0 +1,88 @@
+{
+  "profile": "combined",
+  "version": "0.9.0-dev.15",
+  "schema": 6,
+  "protocol": 6,
+  "command": "JAVA_HOME=/usr/lib/jvm/java-21-openjdk ./gradlew --no-daemon build runGameTestServer -PfdIntegrations=styles,engineered",
+  "originalLog": "/tmp/fd15-recovery-release-combined.log",
+  "sourceManifestSha256": "716f9c756efbcb9e69dc730d0c0dffbf125f1e7d46106dd275d41b3adf16160b",
+  "artifactSha256": "6b31a038e9a8fe8b636b7e485bc8640c03e9592a03c6eab49ea3bec2dccf7668",
+  "unitTests": {
+    "tests": 25,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "requiredNativeTests": 33,
+  "allRequiredNativeTestsPassed": true,
+  "buildSucceeded": true,
+  "noBundledDependencyJars": true,
+  "metrics": [
+    {
+      "scenario": "singleCar",
+      "family": "ARROW",
+      "travel": 5.602627382421474,
+      "riders": 4,
+      "maxSpacing": 2.866175942894955e-05,
+      "maxAngle": 0.0005285676161240989,
+      "fault": ""
+    },
+    {
+      "scenario": "singleCar",
+      "family": "LEGACY",
+      "travel": 5.513546132492422,
+      "riders": 8,
+      "maxSpacing": 6.0941889603149946e-05,
+      "maxAngle": 0.00028614173195940635,
+      "fault": ""
+    },
+    {
+      "scenario": "singleCar",
+      "family": "FREE_SPIN",
+      "travel": 5.280090302069993,
+      "riders": 8,
+      "maxSpacing": 3.0472162542594106e-05,
+      "maxAngle": 0.00016136705362886536,
+      "fault": ""
+    },
+    {
+      "scenario": "singleCar",
+      "family": "REVISED",
+      "travel": 5.253234850885519,
+      "riders": 8,
+      "maxSpacing": 3.0497585175481845e-05,
+      "maxAngle": 0.0001048696802003812,
+      "fault": ""
+    },
+    {
+      "scenario": "singleCar",
+      "family": "PAX",
+      "travel": 5.5990600604486644,
+      "riders": 4,
+      "maxSpacing": 3.033773403160467e-05,
+      "maxAngle": 4.1582271514077906e-05,
+      "fault": ""
+    },
+    {
+      "scenario": "originalTrain",
+      "family": "ARROW",
+      "cars": 2,
+      "riders": 8,
+      "travel": 4.422728964008911,
+      "maxSpacing": 6.147925239474716e-05
+    },
+    {
+      "scenario": "originalTrain",
+      "family": "PAX",
+      "cars": 4,
+      "riders": 16,
+      "travel": 3.772094908402096,
+      "maxSpacing": 6.156364065645903e-05
+    }
+  ],
+  "nativeHoldingOccupiedFamilies": 5,
+  "nativeHoldingRiders": 32,
+  "originalTrainRecoveryRiders": 24,
+  "wrongFamilyInitialSnapRejections": 40,
+  "scope": "Headless actual native bodies/couplers/seats/chains/motors/tool-use and editor-handler operations. No rendered-client, fresh-JVM recovery-mode restart, complete bank/curve/strength or FE-network recovery claim."
+}

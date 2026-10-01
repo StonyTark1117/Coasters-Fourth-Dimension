@@ -59,7 +59,7 @@ public final class EditorNetwork {
   }
 
   public static void register(RegisterPayloadHandlersEvent event) {
-    var registrar = event.registrar("5");
+    var registrar = event.registrar("6");
     registrar.playToClient(
         Target.TYPE, Target.CODEC, (p, c) -> c.enqueueWork(() -> openClient.accept(p)));
     registrar.playToServer(
@@ -153,6 +153,11 @@ public final class EditorNetwork {
             throw new IllegalArgumentException("Invalid tuning number");
           }
         }
+        case 20 -> RecoveryOperations.attach(player, vehicle);
+        case 21 -> RecoveryOperations.start(level, vehicle);
+        case 22 -> RecoveryOperations.brake(level, vehicle);
+        case 23 -> RecoveryOperations.detach(level, vehicle);
+        case 24 -> dev.fourthdimension.shuttle.ShuttleRuntime.detachForRecovery(player, vehicle);
         case 17, 18, 19 -> VehicleOperations.loadingPreset(level, vehicle, request.action - 17);
         default -> throw new IllegalArgumentException("Unknown vehicle operation");
       }

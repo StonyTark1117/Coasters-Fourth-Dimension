@@ -11,6 +11,10 @@ public final class PropulsionInterlock {
 
   public static boolean holds(ServerSubLevel body, ServerLevel level) {
     var vehicle = FoundationData.get(level).vehicles.get(body.getUniqueId());
+    if (vehicle == null)
+      return FoundationData.get(level).vehicles.values().stream()
+          .anyMatch(
+              v -> body.getUniqueId().equals(v.recoveryCart) && (v.stopping || !v.fault.isEmpty()));
     return vehicle != null
         && !FoundationData.VARIANT.equals(vehicle.variant)
         && (vehicle.stopping || vehicle.maintenance || vehicle.family == Family.PAX);

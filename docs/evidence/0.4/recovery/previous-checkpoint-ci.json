@@ -1,0 +1,79 @@
+{
+  "scope": "Historical dev.14 mechanical-evidence checkpoint; does not validate new dev.15 production recovery code.",
+  "runs": [
+    {
+      "conclusion": "success",
+      "event": "push",
+      "headSha": "70f604a501f808a145d70d565a531239b0ba7960",
+      "status": "completed",
+      "url": "https://github.com/StonyTark1117/Coasters-Fourth-Dimension/actions/runs/36878621863",
+      "jobs": [
+        {
+          "name": "Validate (styles)",
+          "databaseId": 110424387221,
+          "status": "completed",
+          "conclusion": "success",
+          "url": "https://github.com/StonyTark1117/Coasters-Fourth-Dimension/actions/runs/36878621863/job/110424387221"
+        },
+        {
+          "name": "Validate (engineered)",
+          "databaseId": 110424387741,
+          "status": "completed",
+          "conclusion": "success",
+          "url": "https://github.com/StonyTark1117/Coasters-Fourth-Dimension/actions/runs/36878621863/job/110424387741"
+        },
+        {
+          "name": "Validate (combined)",
+          "databaseId": 110424387800,
+          "status": "completed",
+          "conclusion": "success",
+          "url": "https://github.com/StonyTark1117/Coasters-Fourth-Dimension/actions/runs/36878621863/job/110424387800"
+        },
+        {
+          "name": "Validate (standalone)",
+          "databaseId": 110424387841,
+          "status": "completed",
+          "conclusion": "success",
+          "url": "https://github.com/StonyTark1117/Coasters-Fourth-Dimension/actions/runs/36878621863/job/110424387841"
+        }
+      ]
+    },
+    {
+      "conclusion": "success",
+      "event": "pull_request",
+      "headSha": "70f604a501f808a145d70d565a531239b0ba7960",
+      "status": "completed",
+      "url": "https://github.com/StonyTark1117/Coasters-Fourth-Dimension/actions/runs/36878633147",
+      "jobs": [
+        {
+          "name": "Validate (combined)",
+          "databaseId": 110424424897,
+          "status": "completed",
+          "conclusion": "success",
+          "url": "https://github.com/StonyTark1117/Coasters-Fourth-Dimension/actions/runs/36878633147/job/110424424897"
+        },
+        {
+          "name": "Validate (styles)",
+          "databaseId": 110424425390,
+          "status": "completed",
+          "conclusion": "success",
+          "url": "https://github.com/StonyTark1117/Coasters-Fourth-Dimension/actions/runs/36878633147/job/110424425390"
+        },
+        {
+          "name": "Validate (engineered)",
+          "databaseId": 110424425435,
+          "status": "completed",
+          "conclusion": "success",
+          "url": "https://github.com/StonyTark1117/Coasters-Fourth-Dimension/actions/runs/36878633147/job/110424425435"
+        },
+        {
+          "name": "Validate (standalone)",
+          "databaseId": 110424425478,
+          "status": "completed",
+          "conclusion": "success",
+          "url": "https://github.com/StonyTark1117/Coasters-Fourth-Dimension/actions/runs/36878633147/job/110424425478"
+        }
+      ]
+    }
+  ]
+}

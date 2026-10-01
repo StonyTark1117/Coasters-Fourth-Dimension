@@ -11,7 +11,7 @@ import net.minecraft.world.level.saveddata.SavedData;
 
 /** World-owned authoritative bindings. Native Sable bodies persist poses and velocities. */
 public final class FoundationData extends SavedData {
-  public static final int SCHEMA = 5;
+  public static final int SCHEMA = 6;
   // Keep full functional snapshots below Minecraft's one-megabyte custom-payload limit.
   public static final int MAX_PROFILE_KEYS = 8192;
   public static final String VARIANT = "foundation_v1";
@@ -115,6 +115,8 @@ public final class FoundationData extends SavedData {
     public String variant = VARIANT;
     public boolean restraints, boardingReady;
     public boolean stopping, maintenance;
+    public UUID recoveryCart;
+    public boolean recoveryCartRemoved;
     public String fault = "";
     public long revision;
     public double damping = 5, ballast;
@@ -188,6 +190,10 @@ public final class FoundationData extends SavedData {
       tag.putBoolean("restraints", vehicle.restraints);
       tag.putBoolean("stopping", vehicle.stopping);
       tag.putBoolean("maintenance", vehicle.maintenance);
+      if (vehicle.recoveryCart != null) {
+        tag.putUUID("recovery_cart", vehicle.recoveryCart);
+        tag.putBoolean("recovery_cart_removed", vehicle.recoveryCartRemoved);
+      }
       tag.putString("fault", vehicle.fault);
       tag.putLong("revision", vehicle.revision);
       tag.putBoolean("boarding_ready", vehicle.boardingReady);
@@ -233,6 +239,7 @@ public final class FoundationData extends SavedData {
 
   public static FoundationData load(CompoundTag root, HolderLookup.Provider registries) {
     if (root.getInt("schema") != SCHEMA
+        && root.getInt("schema") != 5
         && root.getInt("schema") != 4
         && root.getInt("schema") != 3
         && root.getInt("schema") != 2
@@ -287,6 +294,12 @@ public final class FoundationData extends SavedData {
       vehicle.restraints = tag.getBoolean("restraints");
       vehicle.stopping = tag.getBoolean("stopping");
       vehicle.maintenance = tag.getBoolean("maintenance");
+      if (tag.contains("recovery_cart") && !tag.hasUUID("recovery_cart"))
+        throw new IllegalArgumentException("Invalid recovery cart identity");
+      vehicle.recoveryCart = tag.hasUUID("recovery_cart") ? tag.getUUID("recovery_cart") : null;
+      vehicle.recoveryCartRemoved = tag.getBoolean("recovery_cart_removed");
+      if (vehicle.recoveryCart == null && vehicle.recoveryCartRemoved)
+        throw new IllegalArgumentException("Removed recovery partner has no identity");
       vehicle.fault = tag.getString("fault");
       vehicle.revision = tag.getLong("revision");
       vehicle.boardingReady = tag.getBoolean("boarding_ready");
@@ -378,6 +391,17 @@ public final class FoundationData extends SavedData {
       if (data.vehicles.put(vehicle.chassis, vehicle) != null)
         throw new IllegalArgumentException("Duplicate vehicle identity");
     }
+    var recoveryVariants = new java.util.HashMap<UUID, String>();
+    for (var vehicle : data.vehicles.values())
+      if (vehicle.recoveryCart != null
+          && (VARIANT.equals(vehicle.variant) || data.vehicles.containsKey(vehicle.recoveryCart)))
+        throw new IllegalArgumentException("Recovery partner must be an ordinary cart identity");
+    for (var vehicle : data.vehicles.values())
+      if (vehicle.recoveryCart != null) {
+        var previous = recoveryVariants.putIfAbsent(vehicle.recoveryCart, vehicle.variant);
+        if (previous != null && !previous.equals(vehicle.variant))
+          throw new IllegalArgumentException("Mixed functional families in saved recovery consist");
+      }
     data.checkProfileCapacity(0);
     if (data.rails.stream().mapToInt(r -> r.magnets.size()).sum() > 512)
       throw new IllegalArgumentException("Magnetic equipment capacity exceeded");

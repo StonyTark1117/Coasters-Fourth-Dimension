@@ -56,6 +56,66 @@ public final class ShuttleRuntime {
     return w != null && w.phase != ShuttleWinchEntity.Phase.BOARDING;
   }
 
+  /** An explicit stationary handover; never pulls against the powered physical catch. */
+  public static void detachForRecovery(
+      net.minecraft.server.level.ServerPlayer player, FoundationData.Vehicle selected) {
+    var level = player.serverLevel();
+    var winch = owner(level, selected.chassis);
+    if (winch == null)
+      throw new IllegalArgumentException("This car has no shuttle winch assignment");
+    if (!level.hasChunkAt(winch.getBlockPos())
+        || level.getBlockEntity(winch.getBlockPos()) != winch
+        || player.distanceToSqr(
+                winch.getBlockPos().getX() + .5,
+                winch.getBlockPos().getY() + .5,
+                winch.getBlockPos().getZ() + .5)
+            > 12 * 12
+        || !level.mayInteract(player, winch.getBlockPos())
+        || !player.mayBuild()
+        || winch.phase != ShuttleWinchEntity.Phase.BOARDING
+            && winch.phase != ShuttleWinchEntity.Phase.FAULT)
+      throw new IllegalArgumentException(
+          "Stop the shuttle and inspect its nearby loaded winch before detaching");
+    var data = FoundationData.get(level);
+    var cars = winch.cars.stream().map(data.vehicles::get).toList();
+    if (cars.isEmpty()
+        || cars.stream()
+            .anyMatch(
+                v ->
+                    v == null
+                        || v.recoveryCart != null
+                        || !RecoveryOperations.retained(v)
+                        || !Boarding.ready(level, v)))
+      throw new IllegalArgumentException(
+          "Capture, retain and close restraints on the complete stopped PAX train");
+    var container = SubLevelContainer.getContainer(level);
+    var carriage = winch.carriage == null ? null : container.getSubLevel(winch.carriage);
+    if (winch.carriage != null && carriage == null)
+      throw new IllegalArgumentException(
+          "Restore the assigned native carriage before handing over recovery");
+    var handles = HANDLES.remove(winch);
+    if (handles != null) {
+      remove(handles.catchJoint);
+      remove(handles.guide);
+    }
+    cars.forEach(
+        v -> {
+          v.stopping = true;
+          v.revision++;
+        });
+    winch.vehicle = null;
+    winch.cars = List.of();
+    winch.carriage = null;
+    winch.routeStart = winch.routeEnd = null;
+    winch.phase = winch.interrupted = ShuttleWinchEntity.Phase.BOARDING;
+    winch.fault = "";
+    winch.changed();
+    if (carriage != null)
+      container.removeSubLevel(
+          carriage, dev.ryanhcode.sable.sublevel.storage.SubLevelRemovalReason.REMOVED);
+    data.setDirty();
+  }
+
   /** Permanent native destruction is a fault; normal unloading must never call this. */
   public static void onBodyRemoved(ServerLevel level, UUID body) {
     var data = FoundationData.get(level);

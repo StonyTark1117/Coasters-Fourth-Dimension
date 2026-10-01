@@ -39,6 +39,9 @@ public final class VehicleOperations {
     var result = new ArrayList<FoundationData.Vehicle>();
     for (var id : ids) {
       var v = FoundationData.get(level).vehicles.get(id);
+      if (v == null
+          && id.equals(vehicle.recoveryCart)
+          && RecoveryOperations.ordinary(level, container.getSubLevel(id))) continue;
       if (v == null || !v.variant.equals(vehicle.variant))
         throw new IllegalArgumentException("Incompatible or missing vehicle in consist");
       result.add(v);
@@ -63,6 +66,8 @@ public final class VehicleOperations {
   }
 
   public static void restraints(ServerLevel level, FoundationData.Vehicle vehicle, boolean closed) {
+    if (!closed && vehicle.recoveryCart != null)
+      throw new IllegalArgumentException("Disconnect recovery before opening restraints");
     if (!closed && dev.fourthdimension.shuttle.ShuttleRuntime.running(level, vehicle.chassis))
       throw new IllegalArgumentException(
           "Shuttle restraints remain closed until final station capture");
@@ -79,6 +84,8 @@ public final class VehicleOperations {
   }
 
   public static void dispatch(ServerLevel level, FoundationData.Vehicle vehicle) {
+    if (vehicle.recoveryCart != null)
+      throw new IllegalArgumentException("Disconnect recovery before ride dispatch");
     if (vehicle.family == dev.fourthdimension.contract.Family.PAX) {
       var winch = dev.fourthdimension.shuttle.ShuttleRuntime.owner(level, vehicle.chassis);
       if (winch == null)
@@ -137,6 +144,8 @@ public final class VehicleOperations {
   public static void retention(
       ServerLevel level, FoundationData.Vehicle vehicle, boolean retained) {
     var cars = consist(level, vehicle);
+    if (!retained && cars.stream().anyMatch(v -> v.recoveryCart != null))
+      throw new IllegalArgumentException("Disconnect recovery before releasing retention");
     if (!retained && cars.stream().anyMatch(v -> !Boarding.ready(level, v)))
       throw new IllegalArgumentException("Capture every vehicle before releasing retention");
     if (retained) capture(level, vehicle);

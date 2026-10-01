@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.9.0-dev.15 — guarded ordinary-bearing recovery
+
+- Add explicit selection, native coupling, start, brake and stationary disconnection for certified bare ordinary bearings recovering all five original families. Carriers stay retained, restraints stay closed, and every 4D car requires matching functional track. Ordinary bearings acquire no 4D state.
+- Guard ride dispatch, restraint/retention release, stale requests, incomplete or incompatible consists, ordinary gear changes, overspeed and upcoming route ends. Keep disabled cars on matching rails when a recovery link breaks; missing equipment stops towing without automatic resume.
+- Persist recovery identity and actual permanent-bearing removal; wait for an unavailable bearing to restore before disconnection. Extend loading dependencies to the whole recovery group.
+- Add explicit stationary handover from a loaded PAX winch, removing its physical catch/guide/carriage while preserving the original four-car train and its links.
+- Add five flat operator examples and production native checks for fully occupied chain/Create-motor towing, braking, failed-link retention, actual bearing destruction, normal disconnect/unloading, occupied native holding/restoration, save identity, schema-5 loading and PAX handover. Also tow fully occupied two-car Arrow and four-car PAX trains and preserve their original links through normal recovery disconnect.
+- Use save schema/network protocol 6; read existing schemas 1–5 without assigning recovery state. Clients and servers upgrade together. Full FD402 rendered/curved/banked/strength/lifecycle acceptance and the 0.4/0.9 gates remain open.
+
 ## 0.9.0-dev.14 — caught boarding restoration
 
 - Record FD402 mechanical feasibility: fifteen flat native-coupler pulls across five families, including fully occupied retained carriers. Archive the diagnostic fixture/policy separately; production mixed-consist policy and the dev.14 artifact remain unchanged. Normal recovery workflow and full towing acceptance remain open.

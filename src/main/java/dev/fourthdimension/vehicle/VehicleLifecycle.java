@@ -26,6 +26,16 @@ public final class VehicleLifecycle {
                 if (reason != SubLevelRemovalReason.REMOVED) return;
                 dev.fourthdimension.shuttle.ShuttleRuntime.onBodyRemoved(level, body.getUniqueId());
                 for (var vehicle : FoundationData.get(level).vehicles.values()) {
+                  if (body.getUniqueId().equals(vehicle.recoveryCart)) {
+                    vehicle.recoveryCartRemoved = true;
+                    vehicle.stopping = true;
+                    vehicle.restraints = true;
+                    vehicle.carriers.forEach(c -> c.capture = true);
+                    vehicle.fault =
+                        "Recovery bearing permanently removed: brake and disconnect recovery";
+                    vehicle.revision++;
+                    FoundationData.get(level).setDirty();
+                  }
                   if (FoundationData.VARIANT.equals(vehicle.variant)) continue;
                   if (vehicle.chassis.equals(body.getUniqueId())
                       || vehicle.carriers.stream()

@@ -163,7 +163,7 @@ public final class AppearanceGameTests {
             && restored.appearance.equals(rail.appearance)
             && restored.profile.keys().equals(rail.profile.keys()),
         "Appearance NBT changed identities or profile");
-    for (int schema = 1; schema <= 4; schema++) {
+    for (int schema = 1; schema <= 5; schema++) {
       var old = saved.copy();
       old.putInt("schema", schema);
       old.getList("rails", net.minecraft.nbt.Tag.TAG_COMPOUND).getCompound(0).remove("appearance");
@@ -186,7 +186,9 @@ public final class AppearanceGameTests {
             && missing.variant.equals(rail.variant),
         "Provider removal erased cosmetic intent or mechanics");
     System.out.println(
-        "FD_APPEARANCE schema=5 oldSchemas=1..4 missingIntentPreserved=true"
+        "FD_APPEARANCE schema="
+            + FoundationData.SCHEMA
+            + " oldSchemas=1..5 missingIntentPreserved=true"
             + " mechanicsUnchanged=true styleFamilyCases=10 strokeCases="
             + (OptionalIntegrations.installed(OptionalIntegrations.TRACK_STYLES).mayInspect()
                 ? 2

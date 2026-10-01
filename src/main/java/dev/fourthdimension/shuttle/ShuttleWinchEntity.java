@@ -51,6 +51,8 @@ public final class ShuttleWinchEntity extends KineticBlockEntity {
     if (phase != Phase.BOARDING || carriage != null)
       throw new IllegalArgumentException("Finish or recover the existing shuttle before rebinding");
     var consist = VehicleOperations.consist(server, selected);
+    if (consist.stream().anyMatch(v -> v.recoveryCart != null))
+      throw new IllegalArgumentException("Disconnect recovery before binding a shuttle winch");
     if (consist.isEmpty()
         || consist.size() > 4
         || consist.stream().anyMatch(v -> v.family != Family.PAX || !Boarding.ready(server, v)))

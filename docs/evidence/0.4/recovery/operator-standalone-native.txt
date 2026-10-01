@@ -1,0 +1,16 @@
+FD_APPEARANCE schema=6 oldSchemas=1..5 missingIntentPreserved=true mechanicsUnchanged=true styleFamilyCases=10 strokeCases=0
+FD_RECOVERY_PAX physicalCarriageHandover=true activeHandoverRejected=true originalCarsAndCarriersPreserved=true originalCouplings=4 replacementCarriage=false
+FD_RECOVERY_NATIVE family=ARROW travel=5.604888246873486 riders=4 maxSpacing=6.0951225623107064E-5 maxAngle=4.968389810966078E-4 fault=
+FD_RECOVERY_NATIVE family=LEGACY travel=5.511867723395312 riders=8 maxSpacing=5.5478781450624126E-5 maxAngle=2.6749479899098645E-4 fault=
+FD_RECOVERY_NATIVE family=FREE_SPIN travel=5.280883775541383 riders=8 maxSpacing=3.045017022174079E-5 maxAngle=1.2330784164776116E-4 fault=
+FD_RECOVERY_NATIVE family=REVISED travel=5.253692636790106 riders=8 maxSpacing=3.0479453659637556E-5 maxAngle=1.0723088968398389E-4 fault=
+FD_RECOVERY_NATIVE family=PAX travel=5.5997619647328065 riders=4 maxSpacing=6.0675252895769916E-5 maxAngle=9.810005521485585E-5 fault=
+FD_RECOVERY_HOLD fiveFamilies=true allComponentsHeld=true missingResumeRejected=true dormantDisconnectRejected=true permanentRemoval=false
+FD_RECOVERY_HOLD fiveFamiliesRestored=true ridersRestored=32 nativeCouplingsPreserved=true autoResume=false explicitResume=true
+FD_RECOVERY_NATIVE fiveFamilies=true actualChainDrive=true wrongFamilyRecoverySnapsRejected=40 movingUnlinkRejected=true staleEditRejected=true saveRoundTrip=true brokenLinkRetained=true normalDetachAndUnload=true permanentBearingRemoval=true
+FD_RECOVERY_TRAIN family=ARROW cars=2 riders=8 travel=4.42016456342276 maxSpacing=1.2128065793604037E-4
+FD_RECOVERY_TRAIN family=PAX cars=4 riders=16 travel=3.7724000842480336 maxSpacing=6.132442058515153E-5
+FD_RECOVERY_TRAIN originalArrowCars=2 originalPaxCars=4 occupiedRiders=24 nativeChainDrive=true originalLinksAfterDetach=true retentionPreserved=true normalUnloading=true
+[12:52:18] [Server thread/INFO] [minecraft/GameTestServer]: ========= 33 GAME TESTS COMPLETE IN 1.738 min ======================
+[12:52:18] [Server thread/INFO] [minecraft/GameTestServer]: All 33 required tests passed :)
+BUILD SUCCESSFUL in 1m 58s

@@ -34,6 +34,15 @@ public final class EligibilityHooks {
             .findFirst()
             .orElse(null);
     if (vehicle == null) {
+      var recovery =
+          data.vehicles.values().stream()
+              .filter(v -> chassis.getUniqueId().equals(v.recoveryCart))
+              .toList();
+      if (!recovery.isEmpty())
+        return rail != null
+            && rail.valid
+            && dev.fourthdimension.track.OrdinaryGearCertificate.fits(chassis)
+            && recovery.stream().allMatch(v -> v.variant.equals(rail.variant));
       if (rail == null) return true;
       return rail.valid && dev.fourthdimension.track.OrdinaryGearCertificate.fits(chassis);
     }

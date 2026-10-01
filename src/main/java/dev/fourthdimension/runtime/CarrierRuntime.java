@@ -66,6 +66,7 @@ public final class CarrierRuntime {
     var data = FoundationData.get(level);
     var pipeline = physics.getPipeline();
     dev.fourthdimension.shuttle.ShuttleRuntime.tick(level, event.getTimeStep());
+    dev.fourthdimension.vehicle.RecoveryOperations.tick(level, event.getTimeStep());
     for (var vehicle : data.vehicles.values()) {
       var parentRaw = container.getSubLevel(vehicle.chassis);
       if (!(parentRaw instanceof ServerSubLevel parent) || parent.isRemoved()) continue;
@@ -85,7 +86,7 @@ public final class CarrierRuntime {
         vehicle.fault = "Matching track support lost";
       }
       if (content) dev.fourthdimension.vehicle.BoundaryGuard.check(level, parent, vehicle, rail);
-      if (content && (vehicle.stopping || vehicle.maintenance))
+      if (content && (vehicle.stopping || vehicle.maintenance && vehicle.recoveryCart == null))
         dev.fourthdimension.vehicle.VehicleOperations.brake(level, vehicle, event.getTimeStep());
       double target = Double.NaN;
       if (rail != null && rail.valid && vehicle.family.driven()) {

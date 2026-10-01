@@ -39,6 +39,21 @@ public final class RotationTool extends Item {
     var body = Sable.HELPER.getContaining(level, context.getClickedPos());
     var data = FoundationData.get(level);
     if (body != null) {
+      if (player.isShiftKeyDown()
+          && dev.fourthdimension.vehicle.RecoveryOperations.ordinary(level, body)) {
+        try {
+          dev.fourthdimension.vehicle.RecoveryOperations.select(player, body);
+          player.displayClientMessage(
+              Component.literal(
+                  "Recovery bearing selected. Open the retained end car and choose Attach"
+                      + " recovery."),
+              false);
+          return InteractionResult.SUCCESS;
+        } catch (IllegalArgumentException failure) {
+          player.displayClientMessage(Component.literal(failure.getMessage()), true);
+          return InteractionResult.FAIL;
+        }
+      }
       var binding = Boarding.at(level, context.getClickedPos());
       var vehicle = binding == null ? data.vehicles.get(body.getUniqueId()) : binding.vehicle();
       if (vehicle != null) {

@@ -146,14 +146,14 @@ magnetic seat assistance. It does not acquire 4D benefits simply by attaching
 to a 4D track.
 
 Arrow cars require controlled Arrow track even during recovery. Disabled 4D cars
-also remain on their matching family track. Mixed ordinary/4D consists are
-currently rejected by policy; physical recovery coupling is still being
-evaluated under FD402. Wheel fit alone is not towing evidence, and recovery towing
-is not yet certified. Native Arrow-to-Arrow and PAX-to-PAX coupling remain separate
-supported mechanisms. A [native mechanical bench](evidence/0.4/recovery/mechanical-acceptance.md)
-has pulled captured and maintenance-retained cars from all five families on flat
-matching track. Its diagnostic actuator and temporary admission policy do not
-provide a player-operated recovery workflow.
+also remain on their matching family track. Dev.15 permits guarded mixed recovery
+consists with a selected certified bare bearing, retained carriers and closed
+restraints. It supplies separate start/brake/disconnect controls and a stationary
+PAX winch handover. Follow the [recovery guide](RECOVERY.md). Native Arrow-to-Arrow
+and PAX-to-PAX coupling remain separate mechanisms. The earlier
+[mechanical bench](evidence/0.4/recovery/mechanical-acceptance.md) established flat
+feasibility. Full real-client, curved/banked, strength and lifecycle recovery
+acceptance remains open under FD402.
 
 This guide, item guidance, recipe discovery and the Ponder lessons progress
 FD403. Complete survival building/operating exercises and the full 0.4 gate
