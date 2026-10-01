@@ -9,6 +9,15 @@ import org.spongepowered.asm.mixin.extensibility.*;
 public final class OptionalMixinPlugin implements IMixinConfigPlugin {
   @Override
   public boolean shouldApplyMixin(String target, String mixin) {
+    if (mixin.endsWith(".SableClientQueueMixin")) {
+      var mods = LoadingModList.get();
+      return mods != null
+          && mods.getMods().stream()
+              .anyMatch(
+                  mod ->
+                      mod.getModId().equals("sable")
+                          && mod.getVersion().toString().equals("2.0.3"));
+    }
     if ((mixin.endsWith(".EngineeredDriveMixin") || mixin.endsWith(".EngineeredMassMixin"))) {
       var mods = LoadingModList.get();
       return mods != null

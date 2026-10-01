@@ -1,0 +1,39 @@
+{
+  "scope": "Combined-pack two-client native queued disconnect/reconnect probes, empty PAX cycle and subsequent server stop; not adverse-network or occupied reconnect certification",
+  "clients": {
+    "baseline-dev": {
+      "queued_packet_errors": 1,
+      "matched_snapshots": 106,
+      "missing_body_warnings": 0,
+      "unknown_passenger_warnings": 0
+    },
+    "baseline-observer": {
+      "queued_packet_errors": 1,
+      "matched_snapshots": 112,
+      "missing_body_warnings": 0,
+      "unknown_passenger_warnings": 0
+    },
+    "fixed-dev": {
+      "queued_packet_errors": 0,
+      "matched_snapshots": 334,
+      "missing_body_warnings": 0,
+      "unknown_passenger_warnings": 0,
+      "moving_native_samples": 56,
+      "moving_native_carriers": 8
+    },
+    "fixed-observer": {
+      "queued_packet_errors": 0,
+      "matched_snapshots": 333,
+      "missing_body_warnings": 0,
+      "unknown_passenger_warnings": 0,
+      "moving_native_samples": 56,
+      "moving_native_carriers": 8
+    }
+  },
+  "native_profiles": {
+    "base": 33,
+    "combined": 33
+  },
+  "unit_tests": 19,
+  "identical_probe_classes_in_baseline_and_fixed": true
+}

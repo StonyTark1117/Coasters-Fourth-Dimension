@@ -39,12 +39,14 @@ neoForge {
             if (project.hasProperty('fdConnect')) programArguments.addAll '--quickPlayMultiplayer', project.property('fdConnect')
             if (project.hasProperty('fdWorld')) programArguments.addAll '--quickPlaySingleplayer', project.property('fdWorld')
             systemProperty 'fourthdimension.validation', project.hasProperty('fdValidation').toString()
+            systemProperty 'fourthdimension.validation.udp', project.hasProperty('fdUdpProbe').toString()
         }
         observer {
             client(); gameDirectory = layout.buildDirectory.dir(project.hasProperty('fdPackaged') ? 'runs/packaged-observer' : 'runs/observer').get().asFile
             programArguments.addAll '--username', 'Observer'
             if (project.hasProperty('fdConnect')) programArguments.addAll '--quickPlayMultiplayer', project.property('fdConnect')
             systemProperty 'fourthdimension.validation', project.hasProperty('fdValidation').toString()
+            systemProperty 'fourthdimension.validation.udp', project.hasProperty('fdUdpProbe').toString()
         }
         server {
             server(); gameDirectory = layout.buildDirectory.dir(project.hasProperty('fdPackaged') ? 'runs/packaged-server' : 'runs/server').get().asFile; programArgument '--nogui'

@@ -1,0 +1,22 @@
+from pathlib import Path
+import time,json,re
+from rcon import rcon
+out=Path(__file__).resolve().parent/'fixed';rows=[];baseline=None;started=False
+try:
+ for i in range(240):
+  raw=rcon('data get block -606 180 608')
+  phase=re.search(r'shuttle_phase: "(\w+)"',raw).group(1)
+  cycles=int(re.search(r'shuttle_cycles: (\d+)',raw).group(1))
+  row={'sample':i,'time':time.time(),'phase':phase,'cycles':cycles,'distance':float(re.search(r'shuttle_distance: ([\d.Ee+-]+)d',raw).group(1)),'fault':re.search(r'shuttle_fault: "([^"]*)"',raw).group(1)}
+  rows.append(row);(out/'ride.json').write_text(json.dumps(rows,indent=2)+'\n')
+  print(json.dumps(row),flush=True)
+  if baseline is None:baseline=cycles
+  started |= phase=='LIFTING'
+  assert phase!='FAULT',row
+  if started and phase=='BOARDING' and cycles==baseline+1:
+   assert {x['phase'] for x in rows}>={'BOARDING','LIFTING','OUTBOUND','RETURNING','CAPTURING'}
+   (out/'ride.exit').write_text('0\n');break
+  time.sleep(1)
+ else:raise AssertionError('Shuttle did not complete normal cycle')
+except BaseException as e:
+ (out/'ride-error.txt').write_text(repr(e)+'\n');(out/'ride.exit').write_text('1\n');raise

@@ -1,0 +1,30 @@
+[
+  {
+    "phase": "baseline",
+    "label": "dev",
+    "client_exit": 0,
+    "display_pid": 399757,
+    "display_stop_signal": "SIGTERM"
+  },
+  {
+    "phase": "baseline",
+    "label": "observer",
+    "client_exit": 0,
+    "display_pid": 399792,
+    "display_stop_signal": "SIGTERM"
+  },
+  {
+    "phase": "fixed",
+    "label": "dev",
+    "client_exit": 0,
+    "display_pid": 409320,
+    "display_stop_signal": "SIGTERM"
+  },
+  {
+    "phase": "fixed",
+    "label": "observer",
+    "client_exit": 0,
+    "display_pid": 409353,
+    "display_stop_signal": "SIGTERM"
+  }
+]

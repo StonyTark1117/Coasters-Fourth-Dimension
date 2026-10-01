@@ -1,0 +1,47 @@
+from pathlib import Path
+import hashlib,json,shutil,zipfile,time
+repo=Path(__file__).resolve().parents[2];work=Path(__file__).resolve().parent
+out=repo/'docs/evidence/integrations/2026-10-01/udp-lifecycle';out.mkdir(exist_ok=True)
+def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
+runs={}
+for name in ('baseline/server','baseline/dev','baseline/observer','fixed/server','fixed/dev','fixed/observer','native-base','native-combined'):
+ p=work/(name+'.log');text=p.read_text();lines=text.splitlines();label=name.replace('/','-')
+ runs[label]={'log':str(p),'log_sha256':sha(p),'exit_status':int((work/(name+'.exit')).read_text())}
+ events=[l for l in lines if any(s in l for s in ('FD_','BUILD ','required tests','loaded from','logged in','left the game','Stopping server','Game test server shutting down'))]
+ (out/(label+'-events.txt')).write_text('\n'.join(events)+'\n')
+ warnings=[];keep=False
+ for line in lines:
+  if line.startswith('['):keep='/WARN]' in line or '/ERROR]' in line
+  if keep:warnings.append(line)
+ (out/(label+'-warnings.txt')).write_text('\n'.join(warnings).rstrip()+'\n')
+ mods=[];record=False
+ for line in lines:
+  if 'Name Version (Mod Id)' in line:record=True
+  if record:
+   if line.startswith('['):break
+   if line.strip():mods.append(line.strip())
+ (out/(label+'-mods.txt')).write_text('\n'.join(mods)+'\n')
+for phase in ('baseline','fixed'):
+ for label in ('dev','observer'):
+  shutil.copyfile(work/phase/(label+'-probe.json'),out/(phase+'-'+label+'-probe.json'))
+  for kind in ('disconnected','server-stopped'):
+   shutil.copyfile(work/phase/(label+'-'+kind+'.png'),out/(phase+'-'+label+'-'+kind+'.png'))
+for name in ('dev-restraint-editor.png','dev-dispatch-editor.png','observer-after-cycle.png','ride.json','ride.exit'):
+ shutil.copyfile(work/'fixed'/name,out/name)
+for name in ('artifact-diff.json','settings-restored.json','clients-stopped.json','OptionalMixinPlugin-before.java.txt','optional-mixins-before.json','commands.txt','start-client.py','native.py','ride.py','collect.py'):
+ shutil.copyfile(work/name,out/(name+'.txt' if name.endswith('.py') else name))
+(out/'commands.txt').write_text((out/'commands.txt').read_text().rstrip()+'\n')
+unit=out/'unit';unit.mkdir(exist_ok=True)
+for p in Path('/tmp/fourthdimension-48535694/build/test-results/test').glob('TEST-*.xml'):shutil.copyfile(p,unit/p.name)
+classes={};prefix='dev/fourthdimension/'
+jar=Path('/home/braydon/.cache/fourthdimension-48535694/udp-lifecycle-fixed.jar')
+with zipfile.ZipFile(jar) as z:
+ for name in ('client/UdpLifecycleProbe','client/UdpLifecycleProbe$1','mixin/optional/SableClientQueueMixin','integration/OptionalMixinPlugin'):
+  key=prefix+name+'.class';compiled=Path('/tmp/fourthdimension-48535694/build/classes/java/main')/key
+  a=sha(compiled);b=hashlib.sha256(z.read(key)).hexdigest();assert a==b
+  classes[key]={'compiled_sha256':a,'jar_sha256':b}
+(out/'classes.json').write_text(json.dumps(classes,indent=2)+'\n')
+(out/'runs.json').write_text(json.dumps(runs,indent=2)+'\n')
+ride=json.loads((work/'fixed/ride.json').read_text());interval={'start':time.strftime('%H:%M:%S',time.localtime(ride[0]['time'])),'end':time.strftime('%H:%M:%S',time.localtime(ride[-1]['time'])),'timezone':time.tzname}
+(out/'ride-interval.json').write_text(json.dumps(interval,indent=2)+'\n')
+print(list(runs))

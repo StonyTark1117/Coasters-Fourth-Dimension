@@ -1,0 +1,12 @@
+{
+  "baseline_sha256": "f34d0788b144a49e6d52fce7a437a4465ebe8a09f58abcf9f3ea33a791eee46b",
+  "fixed_sha256": "daf8e9c039240c6bffa96e49f946d396934c334808c4b2fc31b4dedc0177fa81",
+  "added": [
+    "dev/fourthdimension/mixin/optional/SableClientQueueMixin.class"
+  ],
+  "removed": [],
+  "changed": [
+    "dev/fourthdimension/integration/OptionalMixinPlugin.class",
+    "fourthdimension.optional.mixins.json"
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "dev.fourthdimension.mixin.optional",
+  "plugin": "dev.fourthdimension.integration.OptionalMixinPlugin",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [
+    "EngineeredDriveMixin",
+    "EngineeredMassMixin",
+    "AdditionsStationMixin",
+    "AdditionsStationHandlerMixin",
+    "AdditionsFinMixin",
+    "MagnetizedDriveMixin",
+    "AdditionsAnchorAvailabilityMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "client": [
+    "ImmersionOrientationMixin",
+    "ImmersionConfigMixin",
+    "ImmersionEffectsMixin"
+  ]
+}

@@ -520,8 +520,15 @@ adds one real returning-phase rider, late spectator join and normal recovery/unl
 The [combined-pack player follow-up](evidence/integrations/2026-10-01/combined-pax-player-restart/README.md)
 restores that same occupied Engineered baseline with all five addons present,
 preserving the rider, exact FE, authoritative camera pose and normal dismount reset.
-Both clients exit successfully, but log a Sable UDP keepalive null-channel exception
-at server shutdown; that limitation remains open.
+Both clients exit successfully, but that artifact logs a Sable UDP keepalive
+null-channel exception at server shutdown. The subsequent
+[queued-connection guard](evidence/integrations/2026-10-01/udp-lifecycle/README.md)
+reproduces the failure and old-handler delivery after reconnect on both clients.
+A Sable 2.0.3 client-only guard drops callbacks whose original connection/channel is
+no longer current and active. Identical before/after probes preserve healthy delivery,
+and two guarded clients complete an empty PAX cycle and server shutdown without the
+queued packet exception. Occupied reconnects and adverse transport conditions retain
+their wider acceptance gate.
 The full human-client matrix, external energy networks and broader geometry/configuration
 acceptance remain open.
 

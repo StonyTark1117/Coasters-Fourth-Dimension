@@ -366,6 +366,12 @@ Run two-client and late-join scenarios, disconnects, chunk unloads, server resta
 
 **Partial evidence (2026-09-30):** [combined-pack Arrow](docs/evidence/integrations/2026-09-30/combined-two-client/README.md) covers two real clients, synchronized station/appearance data, occupied cold restart, an Engineered circuit with both riders, capture and normal exit. The [view-recovery follow-up](docs/evidence/integrations/2026-09-30/rider-view-recovery/README.md) fixes the observed restart turn and frozen-reconnect tracking failure, with bounded cold/live/moving Arrow checks. The [legacy/Free Spin follow-up](docs/evidence/integrations/2026-09-30/spin-multiplayer/README.md) adds live Display Links, occupied cold restarts, camera restoration and corrected Engineered demonstration circuits, retaining the original failures. The remaining family/interruption matrix stays open.
 
+The [Sable queue-lifecycle follow-up](docs/evidence/integrations/2026-10-01/udp-lifecycle/README.md)
+reproduces and guards stale UDP callbacks after disconnect/reconnect for Sable 2.0.3.
+Two packaged clients retain healthy delivery and complete an empty shuttle cycle;
+the recorded shutdown null-channel exception is absent in the guarded runs.
+Occupied reconnects and the full family/pack lifecycle matrix remain open.
+
 **Done when:** no passenger duplication, stale restraints, lost carrier state, or incorrect track rebinding remains in supported cases. Document supported recovery actions for interruptions.
 
 ### FD903 Validate save migration and provider changes

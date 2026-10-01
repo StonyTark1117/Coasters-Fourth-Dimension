@@ -112,3 +112,12 @@ save/player data and manifest hashes preserve this run. Audit it with:
 ```sh
 python3 scripts/verify-engineered-pax-player-restart.py docs/evidence/integrations/2026-10-01/combined-pax-player-restart --combined
 ```
+
+## Subsequent queued-packet fix
+
+The later [UDP lifecycle checkpoint](../udp-lifecycle/README.md) preserves this
+failure as historical evidence and adds a Sable 2.0.3 connection/channel guard.
+Identical native-handler probes reproduce stale callbacks before the guard and
+reject them after it on both clients, with healthy delivery and an empty PAX cycle
+retained. That follow-up does not repeat this occupied recovery scenario or close
+the broader lifecycle matrix.
