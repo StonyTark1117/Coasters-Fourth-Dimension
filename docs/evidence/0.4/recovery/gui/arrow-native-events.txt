@@ -1,0 +1,21 @@
+PACKAGED CLIENT 1
+[12:59:19] [modloading-worker-0/INFO] [de.fo.FourthDimension/]: Coasters: Fourth Dimension loaded from union:/tmp/fourthdimension-7af457c2/build/libs/coasters-fourth-dimension-0.9.0-dev.15.jar%23179!/
+[13:05:58] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] Recovery example built with an unpowered native chain drive. Board, close restraints and retain the car. Sneak-use the Rotation Tool on the bare bearing; select Attach recovery on the end car, then Start tow. Set the creative motor to 8 RPM in the bearing's direction. Brake tow before Detach recovery; carriers remain retained. Maximum recovery speed: 0.75 blocks/s.
+[13:13:57] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] Recovery bearing selected. Open the retained end car and choose Attach recovery.
+[13:14:35] [Server thread/INFO] [de.si.si.SimulatedCoasters/]: [cart-link] linked carts daaaf95d-f248-439b-abf0-cc97b582f493 <-> be856020-4f1c-43ed-ba97-66e405721514 at distance 6.000
+[13:18:50] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] 1, 80, 24 has the following block data: {Speed: 8.0f, HasAttachedComputer: 0b, Network: {Capacity: 131072.0f, Size: 2, AddedCapacity: 16384.0f, Id: 274878005328L, Stress: 0.0f}, x: 1, y: 80, ScrollValue: -8, z: 24, id: "create:motor"}
+[13:19:39] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] 0, 80, 24 has the following block data: {AnchorPeerCurves: [{Peer: 294992L, Bezier: {Starts: [{V: [0.5d, 0.75d, 0.5d]}, {V: [0.5d, 0.75d, 48.5d]}], Girder: 0b, Normals: [{V: [0.0d, 1.0d, 0.0d]}, {V: [0.0d, 1.0d, 0.0d]}], Primary: 1b, Positions: [{Pos: [I; 0, 0, 0]}, {Pos: [I; 0, 0, 48]}], Axes: [{V: [0.0d, 0.0d, 1.0d]}, {V: [0.0d, 0.0d, -1.0d]}], Material: "simulatedcoasters:coaster_track"}, HHi: 16.0d, HLo: 16.0d}], Speed: 8.0f, ChainLiftFirstHop: 294992L, ChainLiftCommittedSegments: [{TStart: 0.0d, TEnd: 1.0d, EdgeFrom: 98384L, EdgeTo: 294992L}], ChainLiftTravelSign: -1, AnchorPeerCurveTints: [], Source: [I; 1, 80, 24], ChainLiftShaftAxis: "x", ChainLiftCommittedLength: 48.0d, ChainLiftSpan: {EdgeFrom: 0L, Kind: "ANCHOR", EdgeTo: 0L, EndT: 0.0d, EndAnchor: 294992L}, JointBank: 0.0f, Network: {Capacity: 131072.0f, Size: 2, Id: 274878005328L, Stress: 0.0f}, x: 0, y: 80, z: 24, id: "simulatedcoasters:coaster_anchorpoint"}
+[13:20:14] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage: All dimensions are saved
+BUILD SUCCESSFUL in 21m 32s
+PACKAGED CLIENT 2
+[13:21:06] [modloading-worker-0/INFO] [de.fo.FourthDimension/]: Coasters: Fourth Dimension loaded from union:/tmp/fourthdimension-7af457c2/build/libs/coasters-fourth-dimension-0.9.0-dev.15.jar%23179!/
+[13:21:12] [Server thread/INFO] [de.si.si.SimulatedCoasters/]: [cart-link] restored link daaaf95d-f248-439b-abf0-cc97b582f493 <-> be856020-4f1c-43ed-ba97-66e405721514 (distance 6.0)
+[13:32:28] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] 0, 80, 24 has the following block data: {AnchorPeerCurves: [{Peer: 294992L, Bezier: {Starts: [{V: [0.5d, 0.75d, 0.5d]}, {V: [0.5d, 0.75d, 48.5d]}], Girder: 0b, Normals: [{V: [0.0d, 1.0d, 0.0d]}, {V: [0.0d, 1.0d, 0.0d]}], Primary: 1b, Positions: [{Pos: [I; 0, 0, 0]}, {Pos: [I; 0, 0, 48]}], Axes: [{V: [0.0d, 0.0d, 1.0d]}, {V: [0.0d, 0.0d, -1.0d]}], Material: "simulatedcoasters:coaster_track"}, HHi: 16.0d, HLo: 16.0d}], Speed: 0.0f, ChainLiftFirstHop: 294992L, ChainLiftCommittedSegments: [{TStart: 0.0d, TEnd: 1.0d, EdgeFrom: 98384L, EdgeTo: 294992L}], ChainLiftTravelSign: -1, AnchorPeerCurveTints: [], ChainLiftShaftAxis: "x", ChainLiftCommittedLength: 48.0d, ChainLiftSpan: {EdgeFrom: 0L, Kind: "ANCHOR", EdgeTo: 0L, EndT: 0.0d, EndAnchor: 294992L}, JointBank: 0.0f, x: 0, y: 80, z: 24, id: "simulatedcoasters:coaster_anchorpoint"}
+[13:32:59] [Server thread/INFO] [de.si.si.SimulatedCoasters/]: [cart-link] unlinked daaaf95d-f248-439b-abf0-cc97b582f493 <-> be856020-4f1c-43ed-ba97-66e405721514
+[13:33:51] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage: All dimensions are saved
+BUILD SUCCESSFUL in 14m 14s
+CLIENT VALIDATION FLAGS
+-Dfourthdimension.ponderValidation=false
+-Dfourthdimension.validation=false
+-Dfourthdimension.schedulerValidation=false
+-Dfourthdimension.shuttleValidation=false

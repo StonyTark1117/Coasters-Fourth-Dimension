@@ -26,8 +26,8 @@ disconnecting restores its independent ordinary-cart access.
    closed. The native chain demonstration uses eight RPM, targeting 0.5 blocks/s.
    The recovery speed limit is 0.75 blocks/s. Ride dispatch and releasing
    restraints or retention are prohibited while recovery remains attached.
-5. Choose **Brake tow**. Wait for the ordinary bearing to stop and every carrier
-   to align, then choose **Detach recovery**. Only the recovery links are removed;
+5. Choose **Brake tow**, then stop the propulsion input. Wait for the ordinary
+   bearing to stop and every carrier to align, then choose **Detach recovery**. Only the recovery links are removed;
    original Arrow/PAX links and maintenance retention remain. Open restraints
    and unload normally. Restore ordinary ride operation separately after inspection.
 
@@ -65,6 +65,9 @@ bearing. Removal never converts a 4D car into an ordinary cart.
 Save schema and network protocol are **6**. Existing schemas 1–5 load without
 inventing recovery state. Upgrade clients and servers together, back up worlds,
 and do not downgrade a recovery-mode world to a version that cannot read schema 6.
+A packaged empty Arrow example also preserves its actual coupling through a
+fresh-JVM reopening, remains braked, and completes normal start/disconnect and
+restraint opening; see the [bounded client check](evidence/0.4/recovery/gui/arrow-gui-acceptance.md).
 The native checks include serialization, legacy-schema loading, and actual Sable
 holding/restoration of all five occupied recovery groups: bearing, chassis,
 carriers, native couplings and 32 passengers. They stay braked after restoration
@@ -85,7 +88,10 @@ Each example supplies 48 blocks of matching original track, the correct car,
 a correctly spaced ordinary bearing, a native chain drive with its Create
 creative motor initially at zero RPM, and side platforms. Coupling and recovery
 controls are left to the operator. Set eight RPM in the direction of the ordinary
-bearing after attachment; **Start tow** enables travel. Brake before the end.
+bearing after attachment; **Start tow** enables travel. Brake before the end and
+stop chain power before disconnecting the now-independent ordinary bearing. The
+current example starts unpowered; the bounded client check stops power by normal
+creative removal of its motor. A clearer switchable example remains needed.
 The PAX example is an unassigned recovery car; a bound four-car shuttle uses the
 separate handover workflow above. Commands require operator permission and a
 17 by 14 by 57 clear corridor inside the supported track/build bounds.

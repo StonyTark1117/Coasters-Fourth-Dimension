@@ -1,0 +1,109 @@
+{
+  "data": {
+    "schema": 6,
+    "rails": [
+      {
+        "valid": 1,
+        "appearance": {
+          "tint": -1,
+          "id": "fourthdimension:original"
+        },
+        "provider": "fourthdimension:original",
+        "magnets": [],
+        "profile": [
+          {
+            "distance": 0.0,
+            "slope": 0.0,
+            "angle": 0.0
+          },
+          {
+            "distance": 48.0,
+            "slope": 0.0,
+            "angle": 0.0
+          }
+        ],
+        "variant": "arrow_four_rail_v1",
+        "from": 98384,
+        "to": 294992,
+        "id": [
+          983443573,
+          2129808690,
+          -1097671415,
+          1140869217
+        ],
+        "geometry_hash": 4439505743753526401,
+        "family": "arrow_controlled",
+        "revision": 0
+      }
+    ],
+    "vehicles": [
+      {
+        "fault": "End of compatible track; capture and inspect the route",
+        "boundTo": 294992,
+        "carriers": [
+          {
+            "side": -3.0,
+            "rider_seats": [],
+            "pivot_height": 2.0,
+            "angle": -0.00040473121382942836,
+            "capture": 1,
+            "body": [
+              2064809610,
+              -275823563,
+              -1453056763,
+              451351218
+            ],
+            "longitudinal": 0.0,
+            "child_pivot_offset": 0.0,
+            "seats": [
+              4095,
+              -274877902849
+            ],
+            "ballast": 0.0,
+            "omega": 0.0015719322687498297,
+            "occupants": []
+          },
+          {
+            "side": 3.0,
+            "rider_seats": [],
+            "pivot_height": 2.0,
+            "angle": -0.0003993877814236233,
+            "capture": 1,
+            "body": [
+              -330317624,
+              170936895,
+              -1204817553,
+              -556011864
+            ],
+            "longitudinal": 0.0,
+            "child_pivot_offset": 0.0,
+            "seats": [
+              4095,
+              274877911039
+            ],
+            "ballast": 0.0,
+            "omega": 0.0025113099146372867,
+            "occupants": []
+          }
+        ],
+        "chassis": [
+          -626329251,
+          -230145125,
+          -1410282345,
+          -1249708909
+        ],
+        "damping": 5.0,
+        "boundFrom": 98384,
+        "ballast": 0.0,
+        "revision": 9,
+        "boarding_ready": 1,
+        "stopping": 1,
+        "variant": "arrow_four_rail_v1",
+        "restraints": 0,
+        "family": "arrow_controlled",
+        "maintenance": 1
+      }
+    ]
+  },
+  "DataVersion": 3955
+}

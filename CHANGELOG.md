@@ -7,6 +7,7 @@
 - Persist recovery identity and actual permanent-bearing removal; wait for an unavailable bearing to restore before disconnection. Extend loading dependencies to the whole recovery group.
 - Add explicit stationary handover from a loaded PAX winch, removing its physical catch/guide/carriage while preserving the original four-car train and its links.
 - Add five flat operator examples and production native checks for fully occupied chain/Create-motor towing, braking, failed-link retention, actual bearing destruction, normal disconnect/unloading, occupied native holding/restoration, save identity, schema-5 loading and PAX handover. Also tow fully occupied two-car Arrow and four-car PAX trains and preserve their original links through normal recovery disconnect.
+- On the unchanged JAR, record an empty Arrow real-client workflow through same-ID braked fresh-JVM restoration, explicit start, route-end braking, power stop, disconnect and restraint reopening; preserve identities/bindings/profiles and normal client exits. Recovery-specific teaching and switchable demo power control remain needed.
 - Use save schema/network protocol 6; read existing schemas 1–5 without assigning recovery state. Clients and servers upgrade together. Full FD402 rendered/curved/banked/strength/lifecycle acceptance and the 0.4/0.9 gates remain open.
 
 ## 0.9.0-dev.14 — caught boarding restoration

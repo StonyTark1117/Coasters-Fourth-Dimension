@@ -92,6 +92,18 @@ Reproduce with Java 21:
 GameTests recreate their disposable world. Do not use `clean` where important
 packaged GUI worlds remain inside the build directory.
 
+## Packaged client checkpoint
+
+The same JAR now has an [empty standalone Arrow client check](gui/arrow-gui-acceptance.md):
+normal selection/attachment and motor-value controls, same-ID braked coupling
+restoration in a fresh JVM, explicit start, a route-end stop, brake action,
+power stop, normal disconnect and restraint opening. Both clients exit normally
+with all validation flags false. The explicit brake action follows the automatic
+route stop; it is not a new rendered moving-brake measurement. Saved snapshots
+preserve identities, bindings, carrier configuration and all rail/profile fields.
+All eight exact-head CI jobs on 5130179 also passed all 33 required native tests;
+see `operator-checkpoint-ci.json`. All-family rendered acceptance remains open.
+
 ## Remaining acceptance
 
 Rendered ordinary player selection/editor/propulsion/boarding, command invocation,
