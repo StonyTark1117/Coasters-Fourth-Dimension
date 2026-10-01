@@ -309,7 +309,7 @@ Test couplers, strength, offsets, braking, retained carriers, and loaded towing 
 
 ### FD403 Complete crafting and teaching content
 
-**Status: in progress.** Dev.9 adds localized guidance for all fifteen craftable items, vanilla recipe discovery and a five-family building/operating guide. A native check exercises all fifteen crafting outputs, missing-ingredient rejects and inventory-triggered recipe rewards. Interactive Ponder scenes and the complete teaching review remain pending. See [building guide](docs/BUILDING.md) and [teaching checkpoint](docs/evidence/0.4/teaching-acceptance.md).
+**Status: in progress.** Dev.9 adds localized guidance for all fifteen craftable items, vanilla recipe discovery and a five-family building/operating guide. A native check exercises all fifteen crafting outputs, missing-ingredient rejects and inventory-triggered recipe rewards. Dev.10 adds nine original Ponder scenes with 53 registrations across all fifteen items, client-only registration, generated translations/schematics and native resource checks. Packaged standalone playback/replay and a completed resource reload cover every registration; the rendered review uses normal inventory shortcuts. Complete survival building/operating exercises and the full teaching gate remain pending. See [building guide](docs/BUILDING.md), [teaching checkpoint](docs/evidence/0.4/teaching-acceptance.md) and [Ponder checkpoint](docs/evidence/0.4/ponder-acceptance.md).
 
 **Depends on:** FD305. **Design:** D08.
 

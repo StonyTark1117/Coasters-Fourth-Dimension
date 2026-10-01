@@ -1,6 +1,6 @@
 # Coasters: Fourth Dimension addon plan
 
-Implementation update (2026-10-01): foundation and the bounded 0.1, 0.2, and five-family 0.3 gates have acceptance evidence. Optional integration and teaching work are in progress at FD401 and FD403 toward the active 0.9.0 goal; see [new-family acceptance and limits](docs/REVISED-SHUTTLE.md), [integration progress](docs/INTEGRATIONS.md), and [package statuses](ROADMAP.md). The design below remains the target for unfinished release work.
+Implementation update (2026-10-01): foundation and the bounded 0.1, 0.2, and five-family 0.3 gates have acceptance evidence. Optional integration and teaching work are in progress at FD401 and FD403 toward the active 0.9.0 goal; see [new-family acceptance and limits](docs/REVISED-SHUTTLE.md), [integration progress](docs/INTEGRATIONS.md), and [package statuses](ROADMAP.md). FD403 now includes original Ponder lessons for all fifteen craftable items; complete survival exercises remain open. The design below remains the target for unfinished release work.
 
 The initial design was researched September 30, 2026, using project pages, released JARs, and selected upstream source files. Research observations below describe that planning baseline; later inspection and runtime evidence are recorded in the implementation documents and roadmap. The addon has since been implemented and tested through the bounded gates listed above.
 

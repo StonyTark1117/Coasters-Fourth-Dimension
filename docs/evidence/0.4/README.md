@@ -6,8 +6,13 @@ These are partial FD401 and FD403 records, not the 0.4 or 0.9 release gate.
 
 The [dev.9 teaching checkpoint](teaching-acceptance.md) covers all fifteen native
 crafting outputs, missing-ingredient rejections, inventory-triggered recipe
-discovery and packaged item guidance. Ponder and the complete teaching gate
-remain unfinished.
+discovery and packaged item guidance. All eight dev.9 CI jobs passed; the compact
+[push](teaching-ci-push.json) and [PR](teaching-ci-pr.json) records identify the head.
+
+The [dev.10 Ponder checkpoint](ponder-acceptance.md) adds nine original scenes
+for all fifteen items, native schematic validation, packaged playback/replay,
+resource reload and rendered review. Complete survival exercises and the full
+teaching gate remain unfinished.
 
 ## Resource reload investigation
 

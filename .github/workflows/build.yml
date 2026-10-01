@@ -30,7 +30,8 @@ jobs:
         if: matrix.profile == 'standalone'
         run: |
           python3 scripts/generate-teaching-data.py
-          git diff --exit-code -- src/main/resources
+          python3 scripts/generate-ponder.py
+          git diff --exit-code -- src/main/resources src/main/java/dev/fourthdimension/client/ponder/PonderLessons.java
       - name: Verify recorded GUI and save observations
         if: matrix.profile == 'standalone'
         run: |

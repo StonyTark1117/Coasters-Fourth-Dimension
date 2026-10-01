@@ -98,6 +98,30 @@ controls. The PAX examples are original two-spike game layouts, not replicas of
 PAX's real loop geometry. The existing powered-layout tests and packaged
 five-family observations are recorded under the bounded 0.3 gate.
 
+## In-game Ponder tutorials
+
+Hover any Fourth Dimension item in an inventory and hold the Ponder key
+(W by default). Every one of the fifteen craftable items has lessons. Use the
+on-screen next/previous controls to move between scenes, and replay to review a
+step. The matching lesson explains all five families and the ordinary-cart
+exception. Track and car items also teach anchor construction and the relevant
+carrier mechanism. The Rotation Tool, magnetic equipment, boarding station and
+winch expose the lessons for their workflows.
+
+Nine original scenes cover matching, construction, controlled Arrow, legacy
+free rotation, magnetic Free Spin, revised carriers, magnetic spans, boarding,
+and PAX catch/lift/release/return. Colored strips and the compact shuttle route
+are diagrams, not native track blocks to copy into a world. Their animations
+explain the controls and sequence; actual free spin depends on physics and rider
+loading. Use the family walkthroughs and playable examples for a real layout.
+
+For a packaged development client with English selected,
+`./gradlew runClient -PfdPackaged -PfdPonderValidation` runs an opt-in check after
+joining a world. It compiles and plays every item registration, replays restored
+scenes, checks the English translations and repeats after a completed resource
+reload. `FD_PONDER passed` is client playback evidence; visual readability and
+normal shortcut access are checked separately.
+
 ## Ordinary carts and recovery
 
 Ordinary access is conditional on a verified adapter fitting the main running
@@ -113,5 +137,7 @@ evaluated under FD402. Wheel fit alone is not towing evidence, and recovery towi
 is not yet certified. Native Arrow-to-Arrow and PAX-to-PAX coupling remain separate
 supported mechanisms.
 
-This guide, item guidance and recipe discovery progress FD403. Interactive Ponder
-scenes, the complete teaching-content review and the 0.4 gate remain unfinished.
+This guide, item guidance, recipe discovery and the Ponder lessons progress
+FD403. Complete survival building/operating exercises and the full 0.4 gate
+remain unfinished. See the [Ponder checkpoint](evidence/0.4/ponder-acceptance.md)
+for the exact packaged-client and native-resource checks.

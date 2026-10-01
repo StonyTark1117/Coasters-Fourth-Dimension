@@ -1,0 +1,82 @@
+{
+  "checkpoint": "FD403 original Ponder lessons",
+  "version": "0.9.0-dev.10",
+  "artifact": {
+    "name": "coasters-fourth-dimension-0.9.0-dev.10.jar",
+    "sha256": "b20977c741914c33929aea42a1ad7e54a59113c29de5220120ab76b347f6b914"
+  },
+  "schema": 5,
+  "protocol": 5,
+  "native": {
+    "standalone": {
+      "path": "/tmp/fd-ponder-final-standalone.log",
+      "sha256": "46fe559ad9d5cd5b7164d9d7009541e3a375ef4c2414ea5001b6d9cb43d0d340",
+      "required_tests_passed": 27
+    },
+    "combined": {
+      "path": "/tmp/fd-ponder-final-combined.log",
+      "sha256": "0dc4d08614416d1dbc97c02bf9d83bb6ab939d6b8204b4655e11ff2095032a63",
+      "required_tests_passed": 27
+    }
+  },
+  "client": {
+    "path": "/tmp/fd-ponder-final-client.log",
+    "sha256": "fdcdca8a249af8472ee9d6e92ed117088c2fb695a89bf83df0bb1205e7e2ad9a",
+    "exit_code": 0,
+    "profile": "standalone",
+    "passes": [
+      {
+        "items": 15,
+        "registrations": 53,
+        "unique_scenes": 9,
+        "language_identity": 147813461
+      },
+      {
+        "items": 15,
+        "registrations": 53,
+        "unique_scenes": 9,
+        "language_identity": 796774700
+      }
+    ]
+  },
+  "unit": {
+    "tests": 25,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "visual": {
+    "window": [
+      854,
+      480
+    ],
+    "unique_scenes_reviewed": 9,
+    "normal_shortcut_families": [
+      "arrow",
+      "legacy",
+      "free_spin",
+      "revised",
+      "pax"
+    ],
+    "caption_overlap_fixed": true,
+    "screenshots": [
+      "matching",
+      "construction",
+      "arrow",
+      "legacy",
+      "free-spin",
+      "revised",
+      "magnets",
+      "boarding",
+      "pax-bind",
+      "pax-release",
+      "pax-return",
+      "suggestions",
+      "query",
+      "title"
+    ],
+    "occupied_ride": false,
+    "full_survival_exercises_complete": false
+  },
+  "open_gate": "FD403 full survival teaching exercises; FD401/402/404 and FD901-905"
+}
