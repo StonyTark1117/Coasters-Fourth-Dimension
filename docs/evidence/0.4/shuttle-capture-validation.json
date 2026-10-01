@@ -1,0 +1,53 @@
+{
+  "artifactSha256": "1266c4f369cba03f5267fb7a2d1f3e8316ec282494f9348446967b7ebe55390c",
+  "profiles": {
+    "standalone": {
+      "registeredNativeTests": 25,
+      "requiredNativeFailures": 0,
+      "settledTicks": 20,
+      "consecutiveReadyTicks": 10,
+      "rejectedOpenings": 1,
+      "nativeDisturbance": true
+    },
+    "styles": {
+      "registeredNativeTests": 25,
+      "requiredNativeFailures": 0,
+      "settledTicks": 20,
+      "consecutiveReadyTicks": 10,
+      "rejectedOpenings": 1,
+      "nativeDisturbance": true,
+      "audit": {
+        "providerSha256": "42535a83307f6898b33c13ca201533bb9e337418fd7c73039c867fc80bfbcb38",
+        "nativeFramesSha256": "48ef63cba5651898fafdd8349de5fa65771806d4ac6ad8b30d9be0271c40c86c",
+        "minimumConservativeGap": 0.043313595020379125,
+        "requiredGap": 0.01,
+        "passed": true
+      }
+    },
+    "engineered": {
+      "registeredNativeTests": 25,
+      "requiredNativeFailures": 0,
+      "settledTicks": 20,
+      "consecutiveReadyTicks": 10,
+      "rejectedOpenings": 1,
+      "nativeDisturbance": true
+    },
+    "combined": {
+      "registeredNativeTests": 25,
+      "requiredNativeFailures": 0,
+      "settledTicks": 20,
+      "consecutiveReadyTicks": 10,
+      "rejectedOpenings": 1,
+      "nativeDisturbance": true,
+      "audit": {
+        "providerSha256": "42535a83307f6898b33c13ca201533bb9e337418fd7c73039c867fc80bfbcb38",
+        "nativeFramesSha256": "e2822d715ca7a4d9866a77a33fdb6905267e3adf667271363569361d8fd73bb4",
+        "minimumConservativeGap": 0.043313595020379125,
+        "requiredGap": 0.01,
+        "passed": true
+      }
+    }
+  },
+  "auditScope": "recorded native circuit decoration/control segments only",
+  "geometryEqualsDev6ExceptSectionUUIDs": true
+}

@@ -50,8 +50,10 @@ scenarios; they are not installed operating evidence.
 
 Both Styles and combined reran the independent installed-default-mesh audit
 successfully, with the same 0.0433135950-block minimum conservative gap. The native
-frame export hash is unchanged from the committed dev.6 frame dataset, because
-this checkpoint changes only the regression harness and evidence. These checks
+frame export has fresh generated section UUIDs, so its file hash differs from
+the dev.6 dataset. Removing only the section `id` fields confirms exact equality
+of every recorded length, position and axis. The dev.7 combined export is retained
+as `shuttle-capture-native-frames.json`, with its exact hash in the validation report. These checks
 retain the audit's recorded-layout/control-rail scope and do not certify full
 vehicle clearance. GitHub results for the new head are recorded separately from
 the preserved failed dev.6 run.
