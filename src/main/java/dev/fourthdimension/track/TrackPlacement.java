@@ -149,8 +149,9 @@ public final class TrackPlacement {
       if (rail.original()
           && dev.fourthdimension.integration.TrackProviders.available(rail)
           && rail.valid
-          && level.hasChunkAt(rail.from)
-          && level.hasChunkAt(rail.to)) {
+          // Resolving border-loaded geometry renews native tickets while chunks leave simulation.
+          && TrackGeometry.ticking(level, rail.from)
+          && TrackGeometry.ticking(level, rail.to)) {
         var edge = TrackGeometry.resolve(level, rail);
         if (edge == null || TrackGeometry.fingerprint(level, edge) != rail.geometryHash) {
           rail.valid = false;

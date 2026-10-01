@@ -34,6 +34,17 @@ public final class TrackGeometry {
     return dev.fourthdimension.integration.TrackProviders.resolve(level, rail);
   }
 
+  /** Read simulation availability without adding tickets or loading an endpoint chunk. */
+  public static boolean ticking(
+      net.minecraft.server.level.ServerLevel level, net.minecraft.core.BlockPos pos) {
+    return level
+        .getChunkSource()
+        .chunkMap
+        .getDistanceManager()
+        .inBlockTickingRange(
+            net.minecraft.world.level.ChunkPos.asLong(pos.getX() >> 4, pos.getZ() >> 4));
+  }
+
   public static CoasterPathEdge resolveNative(Level level, FoundationData.Rail rail) {
     if (!level.hasChunkAt(rail.from) || !level.hasChunkAt(rail.to)) return null;
     if (!(level.getBlockEntity(rail.from) instanceof CoasterAnchorpointBlockEntity anchor))

@@ -14,6 +14,96 @@ import net.neoforged.neoforge.gametest.*;
 @GameTestHolder("fourthdimension")
 @PrefixGameTestTemplate(false)
 public final class IntegrationGameTests {
+  @GameTest(template = "empty", timeoutTicks = 80)
+  public static void unavailableRailKeepsJunctionTopologyAndOrdinaryEndpoints(
+      GameTestHelper helper) {
+    var level = helper.getLevel();
+    var a = new BlockPos(700, 130, -500);
+    var b = a.offset(20, 0, 0);
+    var c = b.offset(64, 0, 0);
+    var d = c.offset(80, 0, 0);
+    var e = d.offset(20, 0, 0);
+    level.setChunkForced(a.getX() >> 4, a.getZ() >> 4, true);
+    level.setChunkForced(b.getX() >> 4, b.getZ() >> 4, true);
+    var graph = new dev.silvergold.simulatedcoasters.track.graph.CoasterPathGraph();
+    var rails = new ArrayList<FoundationData.Rail>();
+    for (var pair : List.of(List.of(a, b), List.of(b, c), List.of(d, e))) {
+      var from = pair.getFirst();
+      var to = pair.getLast();
+      graph.addEdge(
+          dev.silvergold.simulatedcoasters.track.graph.CoasterPathEdge.straight(
+              from, to, from.getCenter(), to.getCenter()));
+      if (!from.equals(d)) {
+        var rail =
+            new FoundationData.Rail(
+                from,
+                to,
+                TrackDesign.ARROW.family,
+                new RotationProfile(
+                    List.of(new RotationProfile.Key(0, 0), new RotationProfile.Key(64, 0))),
+                UUID.randomUUID(),
+                TrackDesign.ARROW.variant,
+                0,
+                0,
+                false);
+        rails.add(rail);
+      }
+    }
+    var data = FoundationData.get(level);
+    data.rails.addAll(rails);
+    helper.runAtTickTime(
+        20,
+        () -> {
+          helper.assertTrue(
+              TrackGeometry.ticking(level, a)
+                  && TrackGeometry.ticking(level, b)
+                  && !TrackGeometry.ticking(level, c),
+              "Endpoint fixture availability is wrong");
+          var refs =
+              TrackEndpointAvailability.sample(
+                  level,
+                  graph,
+                  Set.of(0, 1, 2),
+                  dev.silvergold.simulatedcoasters.track.graph.CoasterPathTraceEndpoints
+                      ::pathOpenEndRefs);
+          helper.assertTrue(
+              refs.size() == 3 && refs.stream().filter(r -> r.edgeIndex() == 2).count() == 2,
+              "Inactive 4D rail changed ordinary endpoints");
+          helper.assertTrue(
+              refs.stream()
+                  .filter(r -> r.edgeIndex() != 2)
+                  .allMatch(r -> r.edgeIndex() == 0 && r.atFrom()),
+              "Missing section created a false junction endpoint");
+          System.out.println(
+              "FD_ENDPOINT_AVAILABILITY inactiveRefs=3 ordinaryRefs=2 falseJunction=false");
+          level.setChunkForced(c.getX() >> 4, c.getZ() >> 4, true);
+        });
+    helper.runAtTickTime(
+        40,
+        () -> {
+          helper.assertTrue(
+              TrackGeometry.ticking(level, c), "Endpoint fixture did not resume ticking");
+          var expected =
+              dev.silvergold.simulatedcoasters.track.graph.CoasterPathTraceEndpoints
+                  .pathOpenEndRefs(level, graph, Set.of(0, 1, 2));
+          var actual =
+              TrackEndpointAvailability.sample(
+                  level,
+                  graph,
+                  Set.of(0, 1, 2),
+                  dev.silvergold.simulatedcoasters.track.graph.CoasterPathTraceEndpoints
+                      ::pathOpenEndRefs);
+          helper.assertTrue(
+              actual.size() == 4 && new HashSet<>(actual).equals(new HashSet<>(expected)),
+              "Active endpoint sampling differs from native topology");
+          data.rails.removeAll(rails);
+          for (var pos : List.of(a, b, c))
+            level.setChunkForced(pos.getX() >> 4, pos.getZ() >> 4, false);
+          System.out.println("FD_ENDPOINT_AVAILABILITY restoredRefs=4 nativeMatch=true");
+          helper.succeed();
+        });
+  }
+
   @GameTest(template = "empty")
   public static void missingProvidersPreserveMechanicalData(GameTestHelper helper) {
     var data = new FoundationData();

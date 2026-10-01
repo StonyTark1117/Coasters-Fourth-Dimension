@@ -121,6 +121,16 @@ passengers remain mounted through recapture, with the Arrow coupling intact. The
 External cables/generators, partial power, configuration extremes, energy persistence,
 linked curves/slopes and gravity rollback remain outside this result.
 
+The [chunk persistence follow-up](evidence/integrations/2026-09-30/engineered-energy-reload/README.md)
+verifies exact FE, native span and controller sequence restoration after actual
+unoccupied equipment chunk eviction, then repeats the occupied operations checks.
+It exposed global endpoint sampling and Additions redstone polling that kept idle
+4D anchors loaded. Inactive 4D sections now avoid those reads; endpoint filtering
+preserves junction topology, and periodic geometry validation waits for ticking
+endpoints. All 27 native checks pass in base, five individual-addon and combined
+profiles, with explicit optional skips recorded. Occupied chunk interruption and
+full process restart with FE enabled remain open.
+
 For simultaneous builds and packaged-client QA, copy the built JAR to an immutable
 temporary path and pass `-PfdPackaged -PfdPackagedJar=/absolute/path/to/snapshot.jar`.
 Do not replace the archive underneath a running client.

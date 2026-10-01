@@ -1,0 +1,77 @@
+{
+  "attempt1": {
+    "full_log": "/tmp/fd-energy-chunk1.log",
+    "sha256": "df848836c908d06739caf6e76b24569b330f555fd73fd2af4a2f3ee599afbf02",
+    "exit_status": 1
+  },
+  "attempt2": {
+    "full_log": "/tmp/fd-energy-chunk2.log",
+    "sha256": "2070f40ddf10b96bdb925e1c8c3d73a6e3462a4451307a28200b21218ffcf5ff",
+    "exit_status": 1
+  },
+  "attempt3": {
+    "full_log": "/tmp/fd-energy-chunk3.log",
+    "sha256": "d64980a28814fec30b968954740eb0cbcea67d7fc084c73df1d8c2bbea42f881",
+    "exit_status": 1
+  },
+  "attempt4": {
+    "full_log": "/tmp/fd-energy-chunk4.log",
+    "sha256": "f6ce42004184de391261cc08f37a442086a6b2dd9b7e896d185050d1aec37baf",
+    "exit_status": 1
+  },
+  "attempt5": {
+    "full_log": "/tmp/fd-energy-chunk-final-combined.log",
+    "sha256": "ac9c4a53b5a82fd323c62ce8fc3242483fb5aaffe6eeb7d37c703277fefaae1b",
+    "exit_status": 1
+  },
+  "attempt6": {
+    "full_log": "/tmp/fd-energy-chunk6.log",
+    "sha256": "17c472efafba8d08b2d05b5364ddf3bcc4a3382b140351e7c10d460a75d27f99",
+    "exit_status": 1
+  },
+  "pre_topology_engineered": {
+    "full_log": "/tmp/fd-energy-chunk5.log",
+    "sha256": "f303bfa2b6aaf8f868cad99d3f969b739d574840e93de2864dd820c21b7f7f0d",
+    "exit_status": 0
+  },
+  "pre_additions_engineered": {
+    "full_log": "/tmp/fd-energy-chunk-final-engineered.log",
+    "sha256": "e21b754255a41456ff787473703e0eddd4f694b72620c27d8f68d217da44d88e",
+    "exit_status": 0
+  },
+  "combined": {
+    "full_log": "/tmp/fd-energy-chunk7.log",
+    "sha256": "9f170a1b386347dd1fb047126b36aa1431bb9477c0d88be091a877bc8489f351",
+    "exit_status": 0
+  },
+  "engineered": {
+    "full_log": "/tmp/fd-energy-reload-engineered.log",
+    "sha256": "455583fe83278df10ac094387f2d03f41bfde681375257f41c9a0270ee31e784",
+    "exit_status": 0
+  },
+  "base": {
+    "full_log": "/tmp/fd-energy-reload-base.log",
+    "sha256": "85e709fdf017f5296b23193d89e5b2bb5778e185dd06697aac5b9687b309666d",
+    "exit_status": 0
+  },
+  "styles": {
+    "full_log": "/tmp/fd-energy-reload-styles.log",
+    "sha256": "a956fbef64e4be319f8cb7a60b12c854bfe13c2d5e8909b30ed24021377b5e49",
+    "exit_status": 0
+  },
+  "additions": {
+    "full_log": "/tmp/fd-energy-reload-additions.log",
+    "sha256": "87dc87282536d6a7ae88b4398474861b931d9c7fab9fb23a1275739a6dc0848a",
+    "exit_status": 0
+  },
+  "magnetized": {
+    "full_log": "/tmp/fd-energy-reload-magnetized.log",
+    "sha256": "a29dcc6efcca765b6fe246bbe617f2723d2e6caabde41bebae5bcb3adf33a3aa",
+    "exit_status": 0
+  },
+  "immersion": {
+    "full_log": "/tmp/fd-energy-reload-immersion.log",
+    "sha256": "8deb2cbb40f97af33f85d6413b91b2055b36b2988ef26e030bc16e89809b8061",
+    "exit_status": 0
+  }
+}

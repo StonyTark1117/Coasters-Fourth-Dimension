@@ -66,14 +66,15 @@ public final class EngineeredEnergyCheck {
     var riders = new ArrayList<Pig>();
     var held = new HashMap<UUID, Vector3d>();
     var filled = new HashMap<TrackDesign, Integer>();
+    var anchors = new HashMap<TrackDesign, net.minecraft.world.level.block.entity.BlockEntity>();
+    var savedMotors = new HashMap<TrackDesign, net.minecraft.nbt.CompoundTag>();
+    var savedSpans = new HashMap<TrackDesign, TrackSpan>();
     for (var design :
         List.of(
             TrackDesign.ARROW, TrackDesign.LEGACY, TrackDesign.FREE_SPIN, TrackDesign.REVISED)) {
       var from = new BlockPos(-960 + design.ordinal() * 32, 170, -1000);
       var to = from.offset(0, 0, 60);
-      for (int x = (from.getX() - 16) >> 4; x <= (from.getX() + 16) >> 4; x++)
-        for (int z = (from.getZ() - 16) >> 4; z <= (to.getZ() + 16) >> 4; z++)
-          level.setChunkForced(x, z, true);
+      force(level, from, to, true);
       for (var pos : List.of(from, to))
         level.setBlockAndUpdate(
             pos, SimulatedCoastersBlocks.COASTER_ANCHORPOINT.get().defaultBlockState());
@@ -103,6 +104,85 @@ public final class EngineeredEnergyCheck {
         20,
         () -> {
           for (var f : fixtures) {
+            var energy = energy(helper, f);
+            int stored = 12345 + f.design.ordinal();
+            helper.assertTrue(
+                energy.receiveEnergy(stored, false) == stored, "Initial FE input failed");
+            anchors.put(f.design, level.getBlockEntity(f.rail.from));
+            savedSpans.put(f.design, TrackSpanBehaviour.at(level, f.rail.from).span());
+            savedMotors.put(f.design, f.motor.saveWithFullMetadata(level.registryAccess()));
+            System.out.println(
+                "FD_ENGINEERED_ENERGY_UNLOAD family=" + f.design.family + " stored=" + stored);
+          }
+          for (var f : fixtures) force(level, f.rail.from, f.rail.to, false);
+        });
+    helper.runAtTickTime(
+        450,
+        () -> {
+          // getChunkNow does not request loading; null proves eviction, not just stopped ticking.
+          for (var f : fixtures) {
+            for (var pos : List.of(f.rail.from, f.rail.to, f.motor.getBlockPos()))
+              helper.assertTrue(
+                  level.getChunkSource().getChunkNow(pos.getX() >> 4, pos.getZ() >> 4) == null,
+                  "Energy equipment chunk did not unload: " + pos);
+            helper.assertTrue(
+                anchors.get(f.design).isRemoved() && f.motor.isRemoved(),
+                "Old energy block entities remained active after chunk eviction");
+            System.out.println("FD_ENGINEERED_ENERGY_EVICTED family=" + f.design.family);
+          }
+          for (var f : fixtures) {
+            force(level, f.rail.from, f.rail.to, true);
+            level.getChunkAt(f.rail.from);
+            level.getChunkAt(f.rail.to);
+            level.getChunkAt(f.motor.getBlockPos());
+          }
+        });
+    helper.runAtTickTime(
+        490,
+        () -> {
+          for (int i = 0; i < fixtures.size(); i++) {
+            var f = fixtures.get(i);
+            var anchor = level.getBlockEntity(f.rail.from);
+            var motor =
+                (LinearMotorControllerBlockEntity) level.getBlockEntity(f.motor.getBlockPos());
+            helper.assertTrue(
+                anchor != anchors.get(f.design) && motor != f.motor,
+                "Chunk reload reused removed equipment instances");
+            helper.assertTrue(
+                TrackSpanBehaviour.at(level, f.rail.from).span().equals(savedSpans.get(f.design)),
+                "Reload lost native motor span");
+            helper.assertTrue(
+                motor
+                    .saveWithFullMetadata(level.registryAccess())
+                    .equals(savedMotors.get(f.design)),
+                "Reload changed controller binding or sequence");
+            helper.assertTrue(
+                TrackGeometry.resolve(level, f.rail) != null, "Reload lost functional track");
+            var restored = new Fixture(f.design, f.rail, motor, f.cars);
+            fixtures.set(i, restored);
+            var energy = energy(helper, restored);
+            int expected = 12345 + f.design.ordinal();
+            helper.assertTrue(
+                energy.getEnergyStored() == expected, "Chunk reload changed FE buffer");
+            helper.assertTrue(
+                energy.extractEnergy(Integer.MAX_VALUE, true) == expected
+                    && energy.getEnergyStored() == expected,
+                "Simulated extraction changed restored FE");
+            System.out.println(
+                "FD_ENGINEERED_ENERGY_RELOADED family="
+                    + f.design.family
+                    + " stored="
+                    + energy.getEnergyStored()
+                    + " span=true controller=true fresh=true");
+            helper.assertTrue(
+                energy.extractEnergy(Integer.MAX_VALUE, false) == expected,
+                "Restored capability did not supply saved FE");
+          }
+        });
+    helper.runAtTickTime(
+        520,
+        () -> {
+          for (var f : fixtures) {
             var edge = TrackGeometry.resolve(level, f.rail);
             for (double distance :
                 f.design == TrackDesign.ARROW ? new double[] {24, 18} : new double[] {24}) {
@@ -117,7 +197,7 @@ public final class EngineeredEnergyCheck {
           }
         });
     helper.runAtTickTime(
-        90,
+        590,
         () -> {
           for (var f : fixtures) {
             if (f.cars.size() == 2)
@@ -156,7 +236,7 @@ public final class EngineeredEnergyCheck {
           }
         });
     helper.runAtTickTime(
-        130,
+        630,
         () -> {
           for (var f : fixtures) {
             var energy = energy(helper, f);
@@ -179,7 +259,7 @@ public final class EngineeredEnergyCheck {
           }
         });
     helper.runAtTickTime(
-        170,
+        670,
         () -> {
           for (var f : fixtures) {
             helper.assertTrue(f.motor.isDriving(), "Energy-starved cart lost native presence");
@@ -203,7 +283,7 @@ public final class EngineeredEnergyCheck {
           }
         });
     helper.runAtTickTime(
-        250,
+        750,
         () -> {
           for (var f : fixtures) {
             var energy = energy(helper, f);
@@ -221,7 +301,7 @@ public final class EngineeredEnergyCheck {
           }
         });
     helper.runAtTickTime(
-        290,
+        790,
         () -> {
           for (var f : fixtures) {
             for (var v : f.cars)
@@ -234,7 +314,7 @@ public final class EngineeredEnergyCheck {
           }
         });
     helper.runAtTickTime(
-        340,
+        840,
         () -> {
           for (var f : fixtures) {
             for (var v : f.cars)
@@ -246,7 +326,7 @@ public final class EngineeredEnergyCheck {
           }
         });
     helper.runAtTickTime(
-        400,
+        900,
         () -> {
           for (var f : fixtures) {
             for (var v : f.cars)
@@ -262,7 +342,7 @@ public final class EngineeredEnergyCheck {
           }
         });
     helper.runAtTickTime(
-        440,
+        940,
         () -> {
           for (var f : fixtures) {
             for (var v : f.cars)
@@ -274,7 +354,7 @@ public final class EngineeredEnergyCheck {
           }
         });
     helper.runAtTickTime(
-        570,
+        1070,
         () -> {
           for (var f : fixtures) {
             helper.assertTrue(
@@ -297,6 +377,12 @@ public final class EngineeredEnergyCheck {
           System.out.println("FD_ENGINEERED_ENERGY_COMPLETE families=4 cars=5 riders=5");
           helper.succeed();
         });
+  }
+
+  private static void force(ServerLevel level, BlockPos from, BlockPos to, boolean forced) {
+    for (int x = (from.getX() - 16) >> 4; x <= (from.getX() + 16) >> 4; x++)
+      for (int z = (from.getZ() - 16) >> 4; z <= (to.getZ() + 16) >> 4; z++)
+        level.setChunkForced(x, z, forced);
   }
 
   private static IEnergyStorage energy(GameTestHelper h, Fixture f) {

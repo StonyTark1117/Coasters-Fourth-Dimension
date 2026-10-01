@@ -10,7 +10,8 @@
     "ConsistLinkMixin",
     "EngagedTrackMixin",
     "ChainDriveGuardMixin",
-    "LoadingDependencyMixin"
+    "LoadingDependencyMixin",
+    "OpenEndAvailabilityMixin"
   ],
   "injectors": {
     "defaultRequire": 1

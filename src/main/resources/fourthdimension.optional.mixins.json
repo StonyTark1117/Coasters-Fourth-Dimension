@@ -10,7 +10,8 @@
     "AdditionsStationMixin",
     "AdditionsStationHandlerMixin",
     "AdditionsFinMixin",
-    "MagnetizedDriveMixin"
+    "MagnetizedDriveMixin",
+    "AdditionsAnchorAvailabilityMixin"
   ],
   "injectors": {
     "defaultRequire": 1

@@ -1,0 +1,286 @@
+{
+  "scope": "Unoccupied equipment chunk eviction/reload, followed by five occupied cars on four straight tracks",
+  "profiles": {
+    "engineered": {
+      "registered_tests": 27,
+      "optional_skips": 3,
+      "endpoint_topology_passed": true,
+      "families": {
+        "ARROW": {
+          "persisted_fe": 12345,
+          "measurements": {
+            "FORWARD": {
+              "stored_fe": 91505,
+              "speeds": [
+                6.800535678863525,
+                6.800379276275635
+              ]
+            },
+            "BRAKE": {
+              "stored_fe": 2148,
+              "speeds": [
+                0.8980088829994202,
+                0.8980096578598022
+              ]
+            },
+            "REVERSE": {
+              "stored_fe": 98851,
+              "speeds": [
+                -2.4226083755493164,
+                -2.4226393699645996
+              ]
+            },
+            "REVERSE_BRAKE": {
+              "stored_fe": 236,
+              "speeds": [
+                -0.901431679725647,
+                -0.9014315009117126
+              ]
+            }
+          }
+        },
+        "ZACSPIN": {
+          "persisted_fe": 12346,
+          "measurements": {
+            "FORWARD": {
+              "stored_fe": 93788,
+              "speeds": [
+                7.268717288970947
+              ]
+            },
+            "BRAKE": {
+              "stored_fe": 1430,
+              "speeds": [
+                0.6287721991539001
+              ]
+            },
+            "REVERSE": {
+              "stored_fe": 99248,
+              "speeds": [
+                -2.2883548736572266
+              ]
+            },
+            "REVERSE_BRAKE": {
+              "stored_fe": 188,
+              "speeds": [
+                -0.5367807745933533
+              ]
+            }
+          }
+        },
+        "FREE_SPIN": {
+          "persisted_fe": 12347,
+          "measurements": {
+            "FORWARD": {
+              "stored_fe": 88061,
+              "speeds": [
+                7.472465515136719
+              ]
+            },
+            "BRAKE": {
+              "stored_fe": 2891,
+              "speeds": [
+                0.20678485929965973
+              ]
+            },
+            "REVERSE": {
+              "stored_fe": 98936,
+              "speeds": [
+                -2.2624905109405518
+              ]
+            },
+            "REVERSE_BRAKE": {
+              "stored_fe": 239,
+              "speeds": [
+                -0.8028975129127502
+              ]
+            }
+          }
+        },
+        "ZACSPIN_REVISED": {
+          "persisted_fe": 12348,
+          "measurements": {
+            "FORWARD": {
+              "stored_fe": 87460,
+              "speeds": [
+                7.5125346183776855
+              ]
+            },
+            "BRAKE": {
+              "stored_fe": 3181,
+              "speeds": [
+                0.5458821654319763
+              ]
+            },
+            "REVERSE": {
+              "stored_fe": 98985,
+              "speeds": [
+                -2.0758678913116455
+              ]
+            },
+            "REVERSE_BRAKE": {
+              "stored_fe": 217,
+              "speeds": [
+                -0.8400775194168091
+              ]
+            }
+          }
+        }
+      }
+    },
+    "combined": {
+      "registered_tests": 27,
+      "optional_skips": 0,
+      "endpoint_topology_passed": true,
+      "families": {
+        "ARROW": {
+          "persisted_fe": 12345,
+          "measurements": {
+            "FORWARD": {
+              "stored_fe": 91505,
+              "speeds": [
+                6.800535678863525,
+                6.800379276275635
+              ]
+            },
+            "BRAKE": {
+              "stored_fe": 2148,
+              "speeds": [
+                0.8980088829994202,
+                0.8980096578598022
+              ]
+            },
+            "REVERSE": {
+              "stored_fe": 98851,
+              "speeds": [
+                -2.4226083755493164,
+                -2.4226393699645996
+              ]
+            },
+            "REVERSE_BRAKE": {
+              "stored_fe": 236,
+              "speeds": [
+                -0.901431679725647,
+                -0.9014315009117126
+              ]
+            }
+          }
+        },
+        "ZACSPIN": {
+          "persisted_fe": 12346,
+          "measurements": {
+            "FORWARD": {
+              "stored_fe": 93788,
+              "speeds": [
+                7.268717288970947
+              ]
+            },
+            "BRAKE": {
+              "stored_fe": 1430,
+              "speeds": [
+                0.6287721991539001
+              ]
+            },
+            "REVERSE": {
+              "stored_fe": 99248,
+              "speeds": [
+                -2.2883548736572266
+              ]
+            },
+            "REVERSE_BRAKE": {
+              "stored_fe": 188,
+              "speeds": [
+                -0.5367807745933533
+              ]
+            }
+          }
+        },
+        "FREE_SPIN": {
+          "persisted_fe": 12347,
+          "measurements": {
+            "FORWARD": {
+              "stored_fe": 88061,
+              "speeds": [
+                7.472465515136719
+              ]
+            },
+            "BRAKE": {
+              "stored_fe": 2891,
+              "speeds": [
+                0.20678485929965973
+              ]
+            },
+            "REVERSE": {
+              "stored_fe": 98936,
+              "speeds": [
+                -2.2624905109405518
+              ]
+            },
+            "REVERSE_BRAKE": {
+              "stored_fe": 239,
+              "speeds": [
+                -0.8028975129127502
+              ]
+            }
+          }
+        },
+        "ZACSPIN_REVISED": {
+          "persisted_fe": 12348,
+          "measurements": {
+            "FORWARD": {
+              "stored_fe": 87460,
+              "speeds": [
+                7.5125346183776855
+              ]
+            },
+            "BRAKE": {
+              "stored_fe": 3181,
+              "speeds": [
+                0.5458821654319763
+              ]
+            },
+            "REVERSE": {
+              "stored_fe": 98985,
+              "speeds": [
+                -2.0758678913116455
+              ]
+            },
+            "REVERSE_BRAKE": {
+              "stored_fe": 217,
+              "speeds": [
+                -0.8400775194168091
+              ]
+            }
+          }
+        }
+      }
+    },
+    "base": {
+      "registered_tests": 27,
+      "optional_skips": 5,
+      "endpoint_topology_passed": true
+    },
+    "styles": {
+      "registered_tests": 27,
+      "optional_skips": 5,
+      "endpoint_topology_passed": true
+    },
+    "additions": {
+      "registered_tests": 27,
+      "optional_skips": 3,
+      "endpoint_topology_passed": true
+    },
+    "magnetized": {
+      "registered_tests": 27,
+      "optional_skips": 4,
+      "endpoint_topology_passed": true
+    },
+    "immersion": {
+      "registered_tests": 27,
+      "optional_skips": 5,
+      "endpoint_topology_passed": true
+    }
+  },
+  "unit_tests_passed": 19,
+  "failed_unload_runs_preserved": 6
+}
