@@ -307,6 +307,8 @@ Implement isolated optional adapters, support/version checks, component render o
 
 ### FD402 Evaluate and document recovery towing
 
+**Status: in progress.** A temporary native mechanical bench now proves fifteen slow, flat-track pulls across all five families: empty captured, fully occupied captured and fully occupied maintenance-retained. Native couplers remain linked, every car stays on matching track, carriers remain aligned and certified ordinary bearings acquire no 4D state. Coupler spacing is 6/12/14 blocks according to the family. The fixture drives only the ordinary bearing through an artificial world constraint, so this establishes feasibility rather than a normal recovery workflow. The experimental admission policy was removed from production. Guarded player coupling/unlinking, native propulsion and braking/strength, curved/banked offsets and clearance, nonzero controlled profiles, assigned PAX catch ownership, mixed-consist operations and lifecycle recovery remain. A policy rejection is not a demonstrated physical coupling limitation. See [mechanical evidence and reproduction](docs/evidence/0.4/recovery/mechanical-acceptance.md).
+
 **Depends on:** FD108, FD106, FD305. **Design:** D03.
 
 Test couplers, strength, offsets, braking, retained carriers, and loaded towing with fitting ordinary carts. Validate every vehicle separately and keep disabled 4D units on matching track.

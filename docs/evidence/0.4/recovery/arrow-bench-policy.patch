@@ -1,0 +1,34 @@
+diff --git a/src/main/java/dev/fourthdimension/vehicle/ConsistRules.java b/src/main/java/dev/fourthdimension/vehicle/ConsistRules.java
+index bbaffd1..4465922 100644
+--- a/src/main/java/dev/fourthdimension/vehicle/ConsistRules.java
++++ b/src/main/java/dev/fourthdimension/vehicle/ConsistRules.java
+@@ -17,6 +17,16 @@ public final class ConsistRules {
+     var second = data.vehicles.get(b.getUniqueId());
+     if (first == null && second == null)
+       return FamilyControllers.find(a).isEmpty() && FamilyControllers.find(b).isEmpty();
++    // Temporary FD402 mechanical-bench admission; never ship this experimental policy.
++    if ((first == null) != (second == null)) {
++      var ordinary = first == null ? a : b;
++      var fourD = first == null ? second : first;
++      return dev.fourthdimension.track.OrdinaryGearCertificate.fits(ordinary)
++          && FamilyControllers.find(ordinary).isEmpty()
++          && fourD.carriers.stream().allMatch(c -> c.capture)
++          && Double.isFinite(distance)
++          && Math.abs(distance - 6) < .01;
++    }
+     var linked = new java.util.HashSet<>(CoasterCartTrainLinkConstraint.getTrainLinkedCartIds(a));
+     linked.addAll(CoasterCartTrainLinkConstraint.getTrainLinkedCartIds(b));
+     linked.add(a.getUniqueId());
+@@ -42,6 +52,12 @@ public final class ConsistRules {
+     for (var id : CoasterCartTrainLinkConstraint.getTrainLinkedCartIds(parent)) {
+       if (id.equals(vehicle.chassis)) continue;
+       var other = data.vehicles.get(id);
++      if (other == null
++          && container != null
++          && container.getSubLevel(id) != null
++          && dev.fourthdimension.track.OrdinaryGearCertificate.fits(container.getSubLevel(id))
++          && FamilyControllers.find(container.getSubLevel(id)).isEmpty()
++          && vehicle.carriers.stream().allMatch(c -> c.capture)) continue;
+       if (other == null
+           || other.family != vehicle.family
+           || !(vehicle.family == Family.ARROW || vehicle.family == Family.PAX)

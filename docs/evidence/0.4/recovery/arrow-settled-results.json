@@ -1,0 +1,45 @@
+{
+  "scope": "Temporary experimental admission policy; flat controlled Arrow track; world-joint actuator on certified ordinary bearing only",
+  "sourceHead": "2dc1bfbf668bcadb30e42fe669f0bd043a9a9317",
+  "cases": [
+    {
+      "case": "empty_captured",
+      "leadTravel": 9.999786376953125,
+      "trailingTravel": 9.99978649371451,
+      "linked": true,
+      "maxStretch": 5.994415282284393e-05,
+      "maxAngle": 0.0004936331195066192,
+      "lostAt": -1,
+      "riders": 0,
+      "ordinary4DState": false,
+      "carFault": ""
+    },
+    {
+      "case": "loaded_captured",
+      "leadTravel": 9.999786376953125,
+      "trailingTravel": 9.99978626149209,
+      "linked": true,
+      "maxStretch": 8.935309590007989e-05,
+      "maxAngle": 0.0004445423185235069,
+      "lostAt": -1,
+      "riders": 4,
+      "ordinary4DState": false,
+      "carFault": ""
+    },
+    {
+      "case": "loaded_retained",
+      "leadTravel": 10.00018310546875,
+      "trailingTravel": 10.000180262052083,
+      "linked": true,
+      "maxStretch": 6.075188203169546e-05,
+      "maxAngle": 0.0008875574283486871,
+      "lostAt": -1,
+      "riders": 4,
+      "ordinary4DState": false,
+      "carFault": ""
+    }
+  ],
+  "requiredNativeTests": 31,
+  "nativeTestsPassed": true,
+  "buildSucceeded": true
+}

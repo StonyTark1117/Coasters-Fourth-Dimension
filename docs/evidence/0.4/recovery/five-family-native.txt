@@ -1,0 +1,122 @@
+FD_RECOVERY_BENCH start case=arrow_empty_captured riders=0 ballastPerCarrier=0.0 ordinary4DState=false
+FD_RECOVERY_BENCH start case=arrow_loaded_captured riders=4 ballastPerCarrier=0.0 ordinary4DState=false
+FD_RECOVERY_BENCH start case=arrow_loaded_retained riders=4 ballastPerCarrier=0.0 ordinary4DState=false
+FD_RECOVERY_BENCH start case=legacy_empty_captured riders=0 ballastPerCarrier=0.0 ordinary4DState=false
+FD_RECOVERY_BENCH start case=legacy_loaded_captured riders=8 ballastPerCarrier=0.0 ordinary4DState=false
+FD_RECOVERY_BENCH start case=legacy_loaded_retained riders=8 ballastPerCarrier=0.0 ordinary4DState=false
+FD_RECOVERY_BENCH start case=free_spin_empty_captured riders=0 ballastPerCarrier=0.0 ordinary4DState=false
+FD_RECOVERY_BENCH start case=free_spin_loaded_captured riders=8 ballastPerCarrier=0.0 ordinary4DState=false
+FD_RECOVERY_BENCH start case=free_spin_loaded_retained riders=8 ballastPerCarrier=0.0 ordinary4DState=false
+FD_RECOVERY_BENCH start case=revised_empty_captured riders=0 ballastPerCarrier=0.0 ordinary4DState=false
+FD_RECOVERY_BENCH start case=revised_loaded_captured riders=8 ballastPerCarrier=0.0 ordinary4DState=false
+FD_RECOVERY_BENCH start case=revised_loaded_retained riders=8 ballastPerCarrier=0.0 ordinary4DState=false
+FD_RECOVERY_BENCH start case=pax_empty_captured riders=0 ballastPerCarrier=0.0 ordinary4DState=false
+FD_RECOVERY_BENCH start case=pax_loaded_captured riders=4 ballastPerCarrier=0.0 ordinary4DState=false
+FD_RECOVERY_BENCH start case=pax_loaded_retained riders=4 ballastPerCarrier=0.0 ordinary4DState=false
+FD_RECOVERY_BENCH sample case=arrow_empty_captured elapsed=100 leadTravel=1.1854248046875 trailingTravel=1.1854115075308869 stretch=3.563408050233363E-5 linked=true carFault=
+FD_RECOVERY_BENCH sample case=arrow_loaded_captured elapsed=100 leadTravel=1.185394287109375 trailingTravel=1.1854533876564233 stretch=5.986394613177737E-5 linked=true carFault=
+FD_RECOVERY_BENCH sample case=arrow_loaded_retained elapsed=100 leadTravel=1.177398681640625 trailingTravel=1.1773656127243726 stretch=6.076715227720797E-5 linked=true carFault=
+FD_RECOVERY_BENCH sample case=legacy_empty_captured elapsed=100 leadTravel=1.185211181640625 trailingTravel=1.1852443021958265 stretch=4.437040921168034E-5 linked=true carFault=
+FD_RECOVERY_BENCH sample case=legacy_loaded_captured elapsed=100 leadTravel=1.185150146484375 trailingTravel=1.18520688381858 stretch=8.945339702037813E-5 linked=true carFault=
+FD_RECOVERY_BENCH sample case=legacy_loaded_retained elapsed=100 leadTravel=1.174224853515625 trailingTravel=1.174219983044452 stretch=9.006905533137655E-5 linked=true carFault=
+FD_RECOVERY_BENCH sample case=free_spin_empty_captured elapsed=100 leadTravel=1.1849365234375 trailingTravel=1.1849364400708282 stretch=3.053455619372869E-5 linked=true carFault=
+FD_RECOVERY_BENCH sample case=free_spin_loaded_captured elapsed=100 leadTravel=1.184906005859375 trailingTravel=1.1849013202752872 stretch=2.7988555492797218E-5 linked=true carFault=
+FD_RECOVERY_BENCH sample case=free_spin_loaded_retained elapsed=100 leadTravel=1.166839599609375 trailingTravel=1.166842420734497 stretch=2.6696562295924764E-5 linked=true carFault=
+FD_RECOVERY_BENCH sample case=revised_empty_captured elapsed=100 leadTravel=1.1849365234375 trailingTravel=1.1849336923515352 stretch=2.9212600605177386E-5 linked=true carFault=
+FD_RECOVERY_BENCH sample case=revised_loaded_captured elapsed=100 leadTravel=1.184783935546875 trailingTravel=1.1847808275248326 stretch=2.8145805554657954E-5 linked=true carFault=
+FD_RECOVERY_BENCH sample case=revised_loaded_retained elapsed=100 leadTravel=1.165863037109375 trailingTravel=1.165865136292382 stretch=2.742783762599288E-5 linked=true carFault=
+FD_RECOVERY_BENCH sample case=pax_empty_captured elapsed=100 leadTravel=1.184295654296875 trailingTravel=1.184309827041261 stretch=4.227816889024183E-5 linked=true carFault=
+FD_RECOVERY_BENCH sample case=pax_loaded_captured elapsed=100 leadTravel=1.184356689453125 trailingTravel=1.184362699136102 stretch=4.634024569938333E-5 linked=true carFault=
+FD_RECOVERY_BENCH sample case=pax_loaded_retained elapsed=100 leadTravel=1.17584228515625 trailingTravel=1.175811586067823 stretch=6.076910530250501E-5 linked=true carFault=
+FD_RECOVERY_BENCH sample case=arrow_empty_captured elapsed=200 leadTravel=3.68365478515625 trailingTravel=3.683714398214363 stretch=5.9118041219718975E-5 linked=true carFault=
+FD_RECOVERY_BENCH sample case=arrow_loaded_captured elapsed=200 leadTravel=3.6837158203125 trailingTravel=3.6837747965193444 stretch=8.93510634067951E-5 linked=true carFault=
+FD_RECOVERY_BENCH sample case=arrow_loaded_retained elapsed=200 leadTravel=3.67572021484375 trailingTravel=3.6757482234037866 stretch=6.076715227720797E-5 linked=true carFault=
+FD_RECOVERY_BENCH sample case=legacy_empty_captured elapsed=200 leadTravel=3.68365478515625 trailingTravel=3.683713838105973 stretch=8.952497686820493E-5 linked=true carFault=
+FD_RECOVERY_BENCH sample case=legacy_loaded_captured elapsed=200 leadTravel=3.68353271484375 trailingTravel=3.68361994441824 stretch=8.945339702037813E-5 linked=true carFault=
+FD_RECOVERY_BENCH sample case=legacy_loaded_retained elapsed=200 leadTravel=3.67279052734375 trailingTravel=3.6727553120456378 stretch=9.006905533137655E-5 linked=true carFault=
+FD_RECOVERY_BENCH sample case=free_spin_empty_captured elapsed=200 leadTravel=3.683380126953125 trailingTravel=3.68338003738603 stretch=3.053455619372869E-5 linked=true carFault=
+FD_RECOVERY_BENCH sample case=free_spin_loaded_captured elapsed=200 leadTravel=3.683197021484375 trailingTravel=3.6831968828534514 stretch=3.0415030684238786E-5 linked=true carFault=
+FD_RECOVERY_BENCH sample case=free_spin_loaded_retained elapsed=200 leadTravel=3.66546630859375 trailingTravel=3.6654662028338407 stretch=3.031132113306967E-5 linked=true carFault=
+FD_RECOVERY_BENCH sample case=revised_empty_captured elapsed=200 leadTravel=3.683349609375 trailingTravel=3.68334954835251 stretch=2.9212600605177386E-5 linked=true carFault=
+FD_RECOVERY_BENCH sample case=revised_loaded_captured elapsed=200 leadTravel=3.683135986328125 trailingTravel=3.6831663628150295 stretch=3.040454968683548E-5 linked=true carFault=
+FD_RECOVERY_BENCH sample case=revised_loaded_retained elapsed=200 leadTravel=3.664520263671875 trailingTravel=3.6644897406205814 stretch=3.0361254250266256E-5 linked=true carFault=
+FD_RECOVERY_BENCH sample case=pax_empty_captured elapsed=200 leadTravel=3.6826171875 trailingTravel=3.682646070989506 stretch=5.943834740573806E-5 linked=true carFault=
+FD_RECOVERY_BENCH sample case=pax_loaded_captured elapsed=200 leadTravel=3.68255615234375 trailingTravel=3.68261520604068 stretch=8.957161058642527E-5 linked=true carFault=
+FD_RECOVERY_BENCH sample case=pax_loaded_retained elapsed=200 leadTravel=3.674072265625 trailingTravel=3.674102512126865 stretch=6.076910530250501E-5 linked=true carFault=
+FD_RECOVERY_BENCH sample case=arrow_empty_captured elapsed=300 leadTravel=6.18365478515625 trailingTravel=6.1837143982145335 stretch=5.9118041219718975E-5 linked=true carFault=
+FD_RECOVERY_BENCH sample case=arrow_loaded_captured elapsed=300 leadTravel=6.1837158203125 trailingTravel=6.183774796492173 stretch=8.93510634067951E-5 linked=true carFault=
+FD_RECOVERY_BENCH sample case=arrow_loaded_retained elapsed=300 leadTravel=6.17572021484375 trailingTravel=6.175748223348137 stretch=6.076715227720797E-5 linked=true carFault=
+FD_RECOVERY_BENCH sample case=legacy_empty_captured elapsed=300 leadTravel=6.18365478515625 trailingTravel=6.183713838109554 stretch=8.952497686820493E-5 linked=true carFault=
+FD_RECOVERY_BENCH sample case=legacy_loaded_captured elapsed=300 leadTravel=6.18353271484375 trailingTravel=6.18361994441409 stretch=8.945339702037813E-5 linked=true carFault=
+FD_RECOVERY_BENCH sample case=legacy_loaded_retained elapsed=300 leadTravel=6.17279052734375 trailingTravel=6.172755312045808 stretch=9.006905533137655E-5 linked=true carFault=
+FD_RECOVERY_BENCH sample case=free_spin_empty_captured elapsed=300 leadTravel=6.183349609375 trailingTravel=6.183349519299668 stretch=3.053455619372869E-5 linked=true carFault=
+FD_RECOVERY_BENCH sample case=free_spin_loaded_captured elapsed=300 leadTravel=6.183258056640625 trailingTravel=6.183257916838215 stretch=3.0417076649413843E-5 linked=true carFault=
+FD_RECOVERY_BENCH sample case=free_spin_loaded_retained elapsed=300 leadTravel=6.16546630859375 trailingTravel=6.165466202834011 stretch=3.031132113306967E-5 linked=true carFault=
+FD_RECOVERY_BENCH sample case=revised_empty_captured elapsed=300 leadTravel=6.183349609375 trailingTravel=6.183349542735073 stretch=2.9212600605177386E-5 linked=true carFault=
+FD_RECOVERY_BENCH sample case=revised_loaded_captured elapsed=300 leadTravel=6.183135986328125 trailingTravel=6.183166362815825 stretch=3.040454968683548E-5 linked=true carFault=
+FD_RECOVERY_BENCH sample case=revised_loaded_retained elapsed=300 leadTravel=6.16448974609375 trailingTravel=6.164489725771773 stretch=3.0361254250266256E-5 linked=true carFault=
+FD_RECOVERY_BENCH sample case=pax_empty_captured elapsed=300 leadTravel=6.1826171875 trailingTravel=6.182646070975409 stretch=5.943834757626831E-5 linked=true carFault=
+FD_RECOVERY_BENCH sample case=pax_loaded_captured elapsed=300 leadTravel=6.18255615234375 trailingTravel=6.182615206167895 stretch=8.957165759593266E-5 linked=true carFault=
+FD_RECOVERY_BENCH sample case=pax_loaded_retained elapsed=300 leadTravel=6.174072265625 trailingTravel=6.174102512126353 stretch=6.076910530250501E-5 linked=true carFault=
+FD_RECOVERY_BENCH sample case=arrow_empty_captured elapsed=400 leadTravel=8.68365478515625 trailingTravel=8.683714398214875 stretch=5.9118041219718975E-5 linked=true carFault=
+FD_RECOVERY_BENCH sample case=arrow_loaded_captured elapsed=400 leadTravel=8.6837158203125 trailingTravel=8.683774796501098 stretch=8.93510634067951E-5 linked=true carFault=
+FD_RECOVERY_BENCH sample case=arrow_loaded_retained elapsed=400 leadTravel=8.67572021484375 trailingTravel=8.675748223405776 stretch=6.076715227720797E-5 linked=true carFault=
+FD_RECOVERY_BENCH sample case=legacy_empty_captured elapsed=400 leadTravel=8.68365478515625 trailingTravel=8.683713838112226 stretch=8.952497686820493E-5 linked=true carFault=
+FD_RECOVERY_BENCH sample case=legacy_loaded_captured elapsed=400 leadTravel=8.683258056640625 trailingTravel=8.683249795659947 stretch=8.945339702037813E-5 linked=true carFault=
+FD_RECOVERY_BENCH sample case=legacy_loaded_retained elapsed=400 leadTravel=8.67279052734375 trailingTravel=8.672755312049105 stretch=9.006905533137655E-5 linked=true carFault=
+FD_RECOVERY_BENCH sample case=free_spin_empty_captured elapsed=400 leadTravel=8.68341064453125 trailingTravel=8.683410553782949 stretch=3.053455619372869E-5 linked=true carFault=
+FD_RECOVERY_BENCH sample case=free_spin_loaded_captured elapsed=400 leadTravel=8.68316650390625 trailingTravel=8.683196914617554 stretch=3.0417446019725958E-5 linked=true carFault=
+FD_RECOVERY_BENCH sample case=free_spin_loaded_retained elapsed=400 leadTravel=8.66546630859375 trailingTravel=8.66546620283367 stretch=3.031132113306967E-5 linked=true carFault=
+FD_RECOVERY_BENCH sample case=revised_empty_captured elapsed=400 leadTravel=8.68341064453125 trailingTravel=8.683410577070333 stretch=2.9212600605177386E-5 linked=true carFault=
+FD_RECOVERY_BENCH sample case=revised_loaded_captured elapsed=400 leadTravel=8.68316650390625 trailingTravel=8.683196880491607 stretch=3.040454968683548E-5 linked=true carFault=
+FD_RECOVERY_BENCH sample case=revised_loaded_retained elapsed=400 leadTravel=8.66448974609375 trailingTravel=8.664489725771489 stretch=3.0361254250266256E-5 linked=true carFault=
+FD_RECOVERY_BENCH sample case=pax_empty_captured elapsed=400 leadTravel=8.6826171875 trailingTravel=8.682646070978251 stretch=5.943834882682353E-5 linked=true carFault=
+FD_RECOVERY_BENCH sample case=pax_loaded_captured elapsed=400 leadTravel=8.68255615234375 trailingTravel=8.682615206163803 stretch=8.957165759593266E-5 linked=true carFault=
+FD_RECOVERY_BENCH sample case=pax_loaded_retained elapsed=400 leadTravel=8.673980712890625 trailingTravel=8.673971523729335 stretch=6.076910530250501E-5 linked=true carFault=
+FD_RECOVERY_BENCH sample case=arrow_empty_captured elapsed=500 leadTravel=10.000030517578125 trailingTravel=10.00003074711833 stretch=5.923955749942422E-5 linked=true carFault=
+FD_RECOVERY_BENCH sample case=arrow_loaded_captured elapsed=500 leadTravel=9.999969482421875 trailingTravel=9.999969483861207 stretch=8.93510634067951E-5 linked=true carFault=
+FD_RECOVERY_BENCH sample case=arrow_loaded_retained elapsed=500 leadTravel=10.000213623046875 trailingTravel=10.00021142994683 stretch=6.076715227720797E-5 linked=true carFault=
+FD_RECOVERY_BENCH sample case=legacy_empty_captured elapsed=500 leadTravel=9.999908447265625 trailingTravel=9.999908145515292 stretch=8.952497686820493E-5 linked=true carFault=
+FD_RECOVERY_BENCH sample case=legacy_loaded_captured elapsed=500 leadTravel=9.999755859375 trailingTravel=9.999753726321615 stretch=8.945339702037813E-5 linked=true carFault=
+FD_RECOVERY_BENCH sample case=legacy_loaded_retained elapsed=500 leadTravel=10.00018310546875 trailingTravel=10.000178087173481 stretch=9.006905533137655E-5 linked=true carFault=
+FD_RECOVERY_BENCH sample case=free_spin_empty_captured elapsed=500 leadTravel=9.999481201171875 trailingTravel=9.999481257335788 stretch=3.053455619372869E-5 linked=true carFault=
+FD_RECOVERY_BENCH sample case=free_spin_loaded_captured elapsed=500 leadTravel=9.99957275390625 trailingTravel=9.999572794396954 stretch=3.0417446019725958E-5 linked=true carFault=
+FD_RECOVERY_BENCH sample case=free_spin_loaded_retained elapsed=500 leadTravel=9.9990234375 trailingTravel=9.999023258936063 stretch=3.0319315820648285E-5 linked=true carFault=
+FD_RECOVERY_BENCH sample case=revised_empty_captured elapsed=500 leadTravel=9.99951171875 trailingTravel=9.99951174763845 stretch=2.9212600605177386E-5 linked=true carFault=
+FD_RECOVERY_BENCH sample case=revised_loaded_captured elapsed=500 leadTravel=9.999542236328125 trailingTravel=9.999542199482221 stretch=3.042150255438969E-5 linked=true carFault=
+FD_RECOVERY_BENCH sample case=revised_loaded_retained elapsed=500 leadTravel=9.99884033203125 trailingTravel=9.998840258585176 stretch=3.0427825452150614E-5 linked=true carFault=
+FD_RECOVERY_BENCH sample case=pax_empty_captured elapsed=500 leadTravel=9.998809814453125 trailingTravel=9.998809797198248 stretch=5.9438355420660116E-5 linked=true carFault=
+FD_RECOVERY_BENCH sample case=pax_loaded_captured elapsed=500 leadTravel=9.998748779296875 trailingTravel=9.998748779435061 stretch=8.957165759593266E-5 linked=true carFault=
+FD_RECOVERY_BENCH sample case=pax_loaded_retained elapsed=500 leadTravel=9.99835205078125 trailingTravel=9.99835514371398 stretch=6.076910530250501E-5 linked=true carFault=
+FD_RECOVERY_BENCH sample case=arrow_empty_captured elapsed=600 leadTravel=10.000030517578125 trailingTravel=10.000030747047674 stretch=5.923955749942422E-5 linked=true carFault=
+FD_RECOVERY_BENCH sample case=arrow_loaded_captured elapsed=600 leadTravel=9.999969482421875 trailingTravel=9.999969502677402 stretch=8.93510634067951E-5 linked=true carFault=
+FD_RECOVERY_BENCH sample case=arrow_loaded_retained elapsed=600 leadTravel=10.000213623046875 trailingTravel=10.000211429779881 stretch=6.076715227720797E-5 linked=true carFault=
+FD_RECOVERY_BENCH sample case=legacy_empty_captured elapsed=600 leadTravel=9.999908447265625 trailingTravel=9.999908145596919 stretch=8.952497686820493E-5 linked=true carFault=
+FD_RECOVERY_BENCH sample case=legacy_loaded_captured elapsed=600 leadTravel=9.999755859375 trailingTravel=9.999753726525853 stretch=8.945339702037813E-5 linked=true carFault=
+FD_RECOVERY_BENCH sample case=legacy_loaded_retained elapsed=600 leadTravel=10.00018310546875 trailingTravel=10.000178087174959 stretch=9.006905533137655E-5 linked=true carFault=
+FD_RECOVERY_BENCH sample case=free_spin_empty_captured elapsed=600 leadTravel=9.999481201171875 trailingTravel=9.999481257234947 stretch=3.053455619372869E-5 linked=true carFault=
+FD_RECOVERY_BENCH sample case=free_spin_loaded_captured elapsed=600 leadTravel=9.99957275390625 trailingTravel=9.999572808764697 stretch=3.0417446019725958E-5 linked=true carFault=
+FD_RECOVERY_BENCH sample case=free_spin_loaded_retained elapsed=600 leadTravel=9.9990234375 trailingTravel=9.999023258936234 stretch=3.0319315820648285E-5 linked=true carFault=
+FD_RECOVERY_BENCH sample case=revised_empty_captured elapsed=600 leadTravel=9.99951171875 trailingTravel=9.999511748021689 stretch=2.9212600605177386E-5 linked=true carFault=
+FD_RECOVERY_BENCH sample case=revised_loaded_captured elapsed=600 leadTravel=9.999542236328125 trailingTravel=9.999542199481198 stretch=3.042150255438969E-5 linked=true carFault=
+FD_RECOVERY_BENCH sample case=revised_loaded_retained elapsed=600 leadTravel=9.99884033203125 trailingTravel=9.998840258584892 stretch=3.0427825452150614E-5 linked=true carFault=
+FD_RECOVERY_BENCH sample case=pax_empty_captured elapsed=600 leadTravel=9.998809814453125 trailingTravel=9.998809797202512 stretch=5.9438355420660116E-5 linked=true carFault=
+FD_RECOVERY_BENCH sample case=pax_loaded_captured elapsed=600 leadTravel=9.998748779296875 trailingTravel=9.998748779421021 stretch=8.957165759593266E-5 linked=true carFault=
+FD_RECOVERY_BENCH sample case=pax_loaded_retained elapsed=600 leadTravel=9.99835205078125 trailingTravel=9.99835514364321 stretch=6.076910530250501E-5 linked=true carFault=
+FD_RECOVERY_BENCH result case=arrow_empty_captured leadTravel=10.000030517578125 trailingTravel=10.00003073373557 linked=true maxStretch=5.923955749942422E-5 maxAngle=4.958982148161948E-4 lostAt=-1 riders=0 ordinary4DState=false carFault=
+FD_RECOVERY_BENCH result case=arrow_loaded_captured leadTravel=9.999969482421875 trailingTravel=9.99996948198634 linked=true maxStretch=8.93510634067951E-5 maxAngle=4.424633041574183E-4 lostAt=-1 riders=4 ordinary4DState=false carFault=
+FD_RECOVERY_BENCH result case=arrow_loaded_retained leadTravel=10.000213623046875 trailingTravel=10.000211429786987 linked=true maxStretch=6.076715227720797E-5 maxAngle=8.875570788780504E-4 lostAt=-1 riders=4 ordinary4DState=false carFault=
+FD_RECOVERY_BENCH result case=legacy_empty_captured leadTravel=9.999908447265625 trailingTravel=9.999908127044762 linked=true maxStretch=8.952497686820493E-5 maxAngle=3.224030859273009E-4 lostAt=-1 riders=0 ordinary4DState=false carFault=
+FD_RECOVERY_BENCH result case=legacy_loaded_captured leadTravel=9.999755859375 trailingTravel=9.999753726391987 linked=true maxStretch=8.945339702037813E-5 maxAngle=2.4823700040225717E-4 lostAt=-1 riders=8 ordinary4DState=false carFault=
+FD_RECOVERY_BENCH result case=legacy_loaded_retained leadTravel=10.00018310546875 trailingTravel=10.00017808717962 linked=true maxStretch=9.006905533137655E-5 maxAngle=7.591613682386997E-4 lostAt=-1 riders=8 ordinary4DState=false carFault=
+FD_RECOVERY_BENCH result case=free_spin_empty_captured leadTravel=9.999481201171875 trailingTravel=9.999481257315097 linked=true maxStretch=3.053455619372869E-5 maxAngle=1.3954794719412965E-4 lostAt=-1 riders=0 ordinary4DState=false carFault=
+FD_RECOVERY_BENCH result case=free_spin_loaded_captured leadTravel=9.99957275390625 trailingTravel=9.999572794230005 linked=true maxStretch=3.0417446019725958E-5 maxAngle=1.346381833481736E-4 lostAt=-1 riders=8 ordinary4DState=false carFault=
+FD_RECOVERY_BENCH result case=free_spin_loaded_retained leadTravel=9.9990234375 trailingTravel=9.999023258936973 linked=true maxStretch=3.0319315820648285E-5 maxAngle=4.536093019909794E-4 lostAt=-1 riders=8 ordinary4DState=false carFault=
+FD_RECOVERY_BENCH result case=revised_empty_captured leadTravel=9.99951171875 trailingTravel=9.999511747495205 linked=true maxStretch=2.9212600605177386E-5 maxAngle=1.238117559703639E-4 lostAt=-1 riders=0 ordinary4DState=false carFault=
+FD_RECOVERY_BENCH result case=revised_loaded_captured leadTravel=9.999542236328125 trailingTravel=9.999542199476082 linked=true maxStretch=3.042150255438969E-5 maxAngle=1.0172543903820154E-4 lostAt=-1 riders=8 ordinary4DState=false carFault=
+FD_RECOVERY_BENCH result case=revised_loaded_retained leadTravel=9.99884033203125 trailingTravel=9.998840258585119 linked=true maxStretch=3.0427825452150614E-5 maxAngle=1.9952035597384221E-4 lostAt=-1 riders=8 ordinary4DState=false carFault=
+FD_RECOVERY_BENCH result case=pax_empty_captured leadTravel=9.998809814453125 trailingTravel=9.99880978041034 linked=true maxStretch=5.9438355420660116E-5 maxAngle=1.8386488294228862E-4 lostAt=-1 riders=0 ordinary4DState=false carFault=
+FD_RECOVERY_BENCH result case=pax_loaded_captured leadTravel=9.998748779296875 trailingTravel=9.99874877943131 linked=true maxStretch=8.957165759593266E-5 maxAngle=1.5462961636828246E-4 lostAt=-1 riders=4 ordinary4DState=false carFault=
+FD_RECOVERY_BENCH result case=pax_loaded_retained leadTravel=9.99835205078125 trailingTravel=9.998355143630022 linked=true maxStretch=6.076910530250501E-5 maxAngle=5.832609145160316E-4 lostAt=-1 riders=4 ordinary4DState=false carFault=
+[07:39:05] [Server thread/INFO] [minecraft/GameTestServer]: All 31 required tests passed :)
+BUILD SUCCESSFUL in 2m 28s

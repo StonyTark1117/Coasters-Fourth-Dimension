@@ -1,0 +1,23 @@
+FD_RECOVERY_BENCH start case=empty_captured riders=0 ballastPerCarrier=0.0 ordinary4DState=false
+FD_RECOVERY_BENCH start case=loaded_captured riders=4 ballastPerCarrier=0.0 ordinary4DState=false
+FD_RECOVERY_BENCH start case=loaded_retained riders=4 ballastPerCarrier=0.0 ordinary4DState=false
+FD_RECOVERY_BENCH sample case=empty_captured elapsed=100 leadTravel=1.18536376953125 trailingTravel=1.1853929397369143 stretch=5.994415282284393E-5 linked=true carFault=
+FD_RECOVERY_BENCH sample case=loaded_captured elapsed=100 leadTravel=1.185333251953125 trailingTravel=1.1854226516400672 stretch=8.91153966176006E-5 linked=true carFault=
+FD_RECOVERY_BENCH sample case=loaded_retained elapsed=100 leadTravel=1.177154541015625 trailingTravel=1.177121689619014 stretch=6.075188203169546E-5 linked=true carFault=
+FD_RECOVERY_BENCH sample case=empty_captured elapsed=200 leadTravel=3.68365478515625 trailingTravel=3.6837143868085604 stretch=5.994415282284393E-5 linked=true carFault=
+FD_RECOVERY_BENCH sample case=loaded_captured elapsed=200 leadTravel=3.683685302734375 trailingTravel=3.6837748635237517 stretch=8.935309590007989E-5 linked=true carFault=
+FD_RECOVERY_BENCH sample case=loaded_retained elapsed=200 leadTravel=3.675689697265625 trailingTravel=3.6757170613568633 stretch=6.075188203169546E-5 linked=true carFault=
+FD_RECOVERY_BENCH sample case=empty_captured elapsed=300 leadTravel=6.183685302734375 trailingTravel=6.18366988114883 stretch=5.994415282284393E-5 linked=true carFault=
+FD_RECOVERY_BENCH sample case=loaded_captured elapsed=300 leadTravel=6.1837158203125 trailingTravel=6.183774647772054 stretch=8.935309590007989E-5 linked=true carFault=
+FD_RECOVERY_BENCH sample case=loaded_retained elapsed=300 leadTravel=6.1754150390625 trailingTravel=6.175431599478827 stretch=6.075188203169546E-5 linked=true carFault=
+FD_RECOVERY_BENCH sample case=empty_captured elapsed=400 leadTravel=8.683685302734375 trailingTravel=8.683669881145988 stretch=5.994415282284393E-5 linked=true carFault=
+FD_RECOVERY_BENCH sample case=loaded_captured elapsed=400 leadTravel=8.683685302734375 trailingTravel=8.6837213561314 stretch=8.935309590007989E-5 linked=true carFault=
+FD_RECOVERY_BENCH sample case=loaded_retained elapsed=400 leadTravel=8.675689697265625 trailingTravel=8.675717056109363 stretch=6.075188203169546E-5 linked=true carFault=
+FD_RECOVERY_BENCH sample case=empty_captured elapsed=500 leadTravel=9.999786376953125 trailingTravel=9.999786477831265 stretch=5.994415282284393E-5 linked=true carFault=
+FD_RECOVERY_BENCH sample case=loaded_captured elapsed=500 leadTravel=9.999786376953125 trailingTravel=9.999786264371892 stretch=8.935309590007989E-5 linked=true carFault=
+FD_RECOVERY_BENCH sample case=loaded_retained elapsed=500 leadTravel=10.00018310546875 trailingTravel=10.000180262149343 stretch=6.075188203169546E-5 linked=true carFault=
+FD_RECOVERY_BENCH result case=empty_captured leadTravel=9.999786376953125 trailingTravel=9.99978649371451 linked=true maxStretch=5.994415282284393E-5 maxAngle=4.936331195066192E-4 lostAt=-1 riders=0 ordinary4DState=false carFault=
+FD_RECOVERY_BENCH result case=loaded_captured leadTravel=9.999786376953125 trailingTravel=9.99978626149209 linked=true maxStretch=8.935309590007989E-5 maxAngle=4.445423185235069E-4 lostAt=-1 riders=4 ordinary4DState=false carFault=
+FD_RECOVERY_BENCH result case=loaded_retained leadTravel=10.00018310546875 trailingTravel=10.000180262052083 linked=true maxStretch=6.075188203169546E-5 maxAngle=8.875574283486871E-4 lostAt=-1 riders=4 ordinary4DState=false carFault=
+[07:35:54] [Server thread/INFO] [minecraft/GameTestServer]: All 31 required tests passed :)
+BUILD SUCCESSFUL in 1m 59s

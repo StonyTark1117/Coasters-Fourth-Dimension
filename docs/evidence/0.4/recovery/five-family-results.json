@@ -1,0 +1,200 @@
+{
+  "scope": "Temporary experimental admission policy; fifteen flat matching-track cases; world-joint actuator on certified ordinary bearing only",
+  "sourceHead": "2dc1bfbf668bcadb30e42fe669f0bd043a9a9317",
+  "fixtureSha256": {
+    "five-family-bench.java.txt": "c1b8c571c14c5d18d3dcf5202152cae59562b1355da2480dc3124a369ebb883a",
+    "five-family-bench-policy.patch": "adef509fe46f117283648da0bc43812f92160010a537d04940764a4aec29f638"
+  },
+  "couplerSpacingByFamily": {
+    "arrow": 6,
+    "legacy": 6,
+    "free_spin": 12,
+    "revised": 14,
+    "pax": 6
+  },
+  "cases": [
+    {
+      "case": "arrow_empty_captured",
+      "leadTravel": 10.000030517578125,
+      "trailingTravel": 10.00003073373557,
+      "linked": true,
+      "maxStretch": 5.923955749942422e-05,
+      "maxAngle": 0.0004958982148161948,
+      "lostAt": -1,
+      "riders": 0,
+      "ordinary4DState": false,
+      "carFault": ""
+    },
+    {
+      "case": "arrow_loaded_captured",
+      "leadTravel": 9.999969482421875,
+      "trailingTravel": 9.99996948198634,
+      "linked": true,
+      "maxStretch": 8.93510634067951e-05,
+      "maxAngle": 0.0004424633041574183,
+      "lostAt": -1,
+      "riders": 4,
+      "ordinary4DState": false,
+      "carFault": ""
+    },
+    {
+      "case": "arrow_loaded_retained",
+      "leadTravel": 10.000213623046875,
+      "trailingTravel": 10.000211429786987,
+      "linked": true,
+      "maxStretch": 6.076715227720797e-05,
+      "maxAngle": 0.0008875570788780504,
+      "lostAt": -1,
+      "riders": 4,
+      "ordinary4DState": false,
+      "carFault": ""
+    },
+    {
+      "case": "legacy_empty_captured",
+      "leadTravel": 9.999908447265625,
+      "trailingTravel": 9.999908127044762,
+      "linked": true,
+      "maxStretch": 8.952497686820493e-05,
+      "maxAngle": 0.0003224030859273009,
+      "lostAt": -1,
+      "riders": 0,
+      "ordinary4DState": false,
+      "carFault": ""
+    },
+    {
+      "case": "legacy_loaded_captured",
+      "leadTravel": 9.999755859375,
+      "trailingTravel": 9.999753726391987,
+      "linked": true,
+      "maxStretch": 8.945339702037813e-05,
+      "maxAngle": 0.00024823700040225717,
+      "lostAt": -1,
+      "riders": 8,
+      "ordinary4DState": false,
+      "carFault": ""
+    },
+    {
+      "case": "legacy_loaded_retained",
+      "leadTravel": 10.00018310546875,
+      "trailingTravel": 10.00017808717962,
+      "linked": true,
+      "maxStretch": 9.006905533137655e-05,
+      "maxAngle": 0.0007591613682386997,
+      "lostAt": -1,
+      "riders": 8,
+      "ordinary4DState": false,
+      "carFault": ""
+    },
+    {
+      "case": "free_spin_empty_captured",
+      "leadTravel": 9.999481201171875,
+      "trailingTravel": 9.999481257315097,
+      "linked": true,
+      "maxStretch": 3.053455619372869e-05,
+      "maxAngle": 0.00013954794719412965,
+      "lostAt": -1,
+      "riders": 0,
+      "ordinary4DState": false,
+      "carFault": ""
+    },
+    {
+      "case": "free_spin_loaded_captured",
+      "leadTravel": 9.99957275390625,
+      "trailingTravel": 9.999572794230005,
+      "linked": true,
+      "maxStretch": 3.0417446019725958e-05,
+      "maxAngle": 0.0001346381833481736,
+      "lostAt": -1,
+      "riders": 8,
+      "ordinary4DState": false,
+      "carFault": ""
+    },
+    {
+      "case": "free_spin_loaded_retained",
+      "leadTravel": 9.9990234375,
+      "trailingTravel": 9.999023258936973,
+      "linked": true,
+      "maxStretch": 3.0319315820648285e-05,
+      "maxAngle": 0.0004536093019909794,
+      "lostAt": -1,
+      "riders": 8,
+      "ordinary4DState": false,
+      "carFault": ""
+    },
+    {
+      "case": "revised_empty_captured",
+      "leadTravel": 9.99951171875,
+      "trailingTravel": 9.999511747495205,
+      "linked": true,
+      "maxStretch": 2.9212600605177386e-05,
+      "maxAngle": 0.0001238117559703639,
+      "lostAt": -1,
+      "riders": 0,
+      "ordinary4DState": false,
+      "carFault": ""
+    },
+    {
+      "case": "revised_loaded_captured",
+      "leadTravel": 9.999542236328125,
+      "trailingTravel": 9.999542199476082,
+      "linked": true,
+      "maxStretch": 3.042150255438969e-05,
+      "maxAngle": 0.00010172543903820154,
+      "lostAt": -1,
+      "riders": 8,
+      "ordinary4DState": false,
+      "carFault": ""
+    },
+    {
+      "case": "revised_loaded_retained",
+      "leadTravel": 9.99884033203125,
+      "trailingTravel": 9.998840258585119,
+      "linked": true,
+      "maxStretch": 3.0427825452150614e-05,
+      "maxAngle": 0.00019952035597384221,
+      "lostAt": -1,
+      "riders": 8,
+      "ordinary4DState": false,
+      "carFault": ""
+    },
+    {
+      "case": "pax_empty_captured",
+      "leadTravel": 9.998809814453125,
+      "trailingTravel": 9.99880978041034,
+      "linked": true,
+      "maxStretch": 5.9438355420660116e-05,
+      "maxAngle": 0.00018386488294228862,
+      "lostAt": -1,
+      "riders": 0,
+      "ordinary4DState": false,
+      "carFault": ""
+    },
+    {
+      "case": "pax_loaded_captured",
+      "leadTravel": 9.998748779296875,
+      "trailingTravel": 9.99874877943131,
+      "linked": true,
+      "maxStretch": 8.957165759593266e-05,
+      "maxAngle": 0.00015462961636828246,
+      "lostAt": -1,
+      "riders": 4,
+      "ordinary4DState": false,
+      "carFault": ""
+    },
+    {
+      "case": "pax_loaded_retained",
+      "leadTravel": 9.99835205078125,
+      "trailingTravel": 9.998355143630022,
+      "linked": true,
+      "maxStretch": 6.076910530250501e-05,
+      "maxAngle": 0.0005832609145160316,
+      "lostAt": -1,
+      "riders": 4,
+      "ordinary4DState": false,
+      "carFault": ""
+    }
+  ],
+  "requiredNativeTests": 31,
+  "nativeTestsPassed": true,
+  "buildSucceeded": true
+}

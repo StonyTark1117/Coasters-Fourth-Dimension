@@ -150,7 +150,10 @@ also remain on their matching family track. Mixed ordinary/4D consists are
 currently rejected by policy; physical recovery coupling is still being
 evaluated under FD402. Wheel fit alone is not towing evidence, and recovery towing
 is not yet certified. Native Arrow-to-Arrow and PAX-to-PAX coupling remain separate
-supported mechanisms.
+supported mechanisms. A [native mechanical bench](evidence/0.4/recovery/mechanical-acceptance.md)
+has pulled captured and maintenance-retained cars from all five families on flat
+matching track. Its diagnostic actuator and temporary admission policy do not
+provide a player-operated recovery workflow.
 
 This guide, item guidance, recipe discovery and the Ponder lessons progress
 FD403. Complete survival building/operating exercises and the full 0.4 gate

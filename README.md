@@ -35,7 +35,7 @@ Build and ride within **±1024 blocks of horizontal world origin**. The foundati
 
 A Boarding Station binds to a car within twelve blocks on first use; shift-use rebinds it. Its **rear input** requests capture when powered and dispatch on the falling edge. It acts when the bound car is within eight blocks. The **front output** is ready/aligned; the **right output** is restraints closed. The lights show the same states. Dispatch also requires captured carriers, closed restraints and valid matching track. Retain/Release Retention provides a maintenance interlock.
 
-Locking seats never changes the track family. An Arrow car requires Arrow functional track; a legacy car requires legacy track; a Free Spin car requires magnetic Free Spin track. Ordinary access is certified only for the pinned, unmodified Coasters bearing. It receives no rotating seats or 4D behavior. Added bodies are rejected until their gear and clearance are separately certified. Rail access does not certify towing a 4D train.
+Locking seats never changes the track family. An Arrow car requires Arrow functional track; a legacy car requires legacy track; a Free Spin car requires magnetic Free Spin track. Ordinary access is certified only for the pinned, unmodified Coasters bearing. It receives no rotating seats or 4D behavior. Added bodies are rejected until their gear and clearance are separately certified. Rail access does not certify towing a 4D train. The [FD402 mechanical bench](docs/evidence/0.4/recovery/mechanical-acceptance.md) now proves slow flat pulls for all five families, including occupied retained carriers; player-operated recovery remains unfinished.
 
 ## Magnetic equipment
 

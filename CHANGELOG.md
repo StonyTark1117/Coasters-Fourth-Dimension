@@ -2,6 +2,7 @@
 
 ## 0.9.0-dev.14 — caught boarding restoration
 
+- Record FD402 mechanical feasibility: fifteen flat native-coupler pulls across five families, including fully occupied retained carriers. Archive the diagnostic fixture/policy separately; production mixed-consist policy and the dev.14 artifact remain unchanged. Normal recovery workflow and full towing acceptance remain open.
 - Preserve a stationary boarding shuttle with its existing physical carriage while native bodies unload/restore, and rebuild its catch when both bodies return.
 - Fault on actual permanent removal of an assigned native component; reject operations with a missing carriage before advancing phase or allocating a replacement.
 - Record normal recovery of four inherited PAX faults, the failing dev.13 cold reopen, a native holding regression, and a fixed unoccupied default-flags boundary reopen with stable IDs/rails and zero saved faults.

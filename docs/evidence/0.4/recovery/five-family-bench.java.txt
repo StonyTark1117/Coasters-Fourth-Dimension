@@ -1,0 +1,292 @@
+package dev.fourthdimension.gametest;
+
+import com.simibubi.create.content.contraptions.actors.seat.SeatBlock;
+import dev.fourthdimension.runtime.*;
+import dev.fourthdimension.track.*;
+import dev.fourthdimension.vehicle.*;
+import dev.ryanhcode.sable.api.physics.constraint.*;
+import dev.ryanhcode.sable.api.sublevel.SubLevelContainer;
+import dev.ryanhcode.sable.sublevel.ServerSubLevel;
+import dev.silvergold.simulatedcoasters.SimulatedCoastersBlocks;
+import dev.silvergold.simulatedcoasters.track.cart.*;
+import dev.silvergold.simulatedcoasters.track.graph.*;
+import java.util.*;
+import net.minecraft.core.BlockPos;
+import net.minecraft.gametest.framework.*;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.level.GameType;
+import net.neoforged.neoforge.common.util.FakePlayerFactory;
+import net.neoforged.neoforge.gametest.*;
+import org.joml.Quaterniond;
+import org.joml.Vector3d;
+
+/** Temporary FD402 mechanical experiment. Requires the separately recorded bench policy patch. */
+@GameTestHolder("fourthdimension")
+@PrefixGameTestTemplate(false)
+public final class RecoveryCouplerBench {
+  private static final class Case {
+    final String name;
+    final boolean loaded, retained;
+    final TrackDesign design;
+    final double spacing;
+    FoundationData.Rail rail;
+    FoundationData.Vehicle car;
+    ServerSubLevel ordinary;
+    GenericConstraintHandle puller;
+    Vector3d anchor, start, leadStart;
+    Quaterniond orientation;
+    double travel, maxStretch, maxAngle;
+    int lostAt = -1;
+
+    Case(TrackDesign design, String name, boolean loaded, boolean retained) {
+      this.design = design;
+      this.spacing = design.axleSpacing();
+      this.name = design.name().toLowerCase(java.util.Locale.ROOT) + "_" + name;
+      this.loaded = loaded;
+      this.retained = retained;
+    }
+  }
+
+  @GameTest(template = "empty", timeoutTicks = 800)
+  public static void nativeCouplerPullsCapturedAndRetainedFiveFamilies(GameTestHelper helper) {
+    var level = helper.getLevel();
+    for (int x = -57; x <= -34; x++)
+      for (int z = 24; z <= 31; z++) level.setChunkForced(x, z, true);
+    var player =
+        FakePlayerFactory.get(
+            level,
+            new com.mojang.authlib.GameProfile(
+                UUID.fromString("fdfdfdfd-0000-0000-0000-000000000402"), "FDRecoveryBench"));
+    player.setGameMode(GameType.CREATIVE);
+    var cases = new ArrayList<Case>();
+    for (var design : TrackDesign.values()) {
+      cases.add(new Case(design, "empty_captured", false, false));
+      cases.add(new Case(design, "loaded_captured", true, false));
+      cases.add(new Case(design, "loaded_retained", true, true));
+    }
+    var container = SubLevelContainer.getContainer(level);
+    var pipeline = container.physicsSystem().getPipeline();
+    for (int i = 0; i < cases.size(); i++) {
+      var from = new BlockPos(-900 + 24 * i, 160, 400);
+      var to = from.offset(0, 0, 48);
+      for (var pos : List.of(from, to))
+        level.setBlockAndUpdate(
+            pos, SimulatedCoastersBlocks.COASTER_ANCHORPOINT.get().defaultBlockState());
+      player.setPos(to.getX() + 2, to.getY() + 1, to.getZ());
+      player.setItemInHand(
+          InteractionHand.MAIN_HAND,
+          (switch (cases.get(i).design) {
+                case ARROW -> TrackItems.ARROW;
+                case LEGACY -> TrackItems.LEGACY;
+                case FREE_SPIN -> TrackItems.FREE_SPIN;
+                case REVISED -> TrackItems.REVISED;
+                case PAX -> TrackItems.PAX;
+              })
+              .get()
+              .getDefaultInstance());
+      cases.get(i).rail =
+          TrackPlacement.connect(
+              level, from, to, cases.get(i).design, player, player.getMainHandItem());
+    }
+    helper.runAtTickTime(
+        15,
+        () -> {
+          for (var c : cases) {
+            var edge = TrackGeometry.resolve(level, c.rail);
+            double t = TrackGeometry.table(level, edge).parameterAt(12);
+            var hit =
+                new CoasterPathTrackFrame.GraphHit(
+                    CoasterPathGraphManager.sampleEdgePosition(level, edge, t), edge, t);
+            c.car = VehicleFactory.create(level, c.design, hit);
+            t = TrackGeometry.table(level, edge).parameterAt(12 + c.spacing);
+            hit =
+                new CoasterPathTrackFrame.GraphHit(
+                    CoasterPathGraphManager.sampleEdgePosition(level, edge, t), edge, t);
+            var q =
+                CoasterPathTrackFrame.quaternionFromTrackBasis(
+                    CoasterPathTrackFrame.trackBasisAtHit(level, hit));
+            c.ordinary =
+                CoasterCartSpawner.spawnMinimalContraption(
+                    level,
+                    CoasterCartLinkPlacement.plotOriginForBearingCenter(
+                        CoasterPathTrackFrame.pathAnchorForSnappedBlock(level, hit), q),
+                    q,
+                    hit,
+                    true);
+            helper.assertTrue(
+                c.ordinary != null && OrdinaryGearCertificate.fits(c.ordinary),
+                "Bench failed to create the certified bare ordinary bearing");
+          }
+        });
+    helper.runAtTickTime(
+        60,
+        () -> {
+          for (var c : cases) {
+            helper.assertTrue(Boarding.ready(level, c.car), "Bench car is not captured and ready");
+            if (c.loaded) {
+              for (var carrier : c.car.carriers) {
+                var body = container.getSubLevel(carrier.body);
+                for (var offset : carrier.seats) {
+                  var seat = body.getPlot().getCenterBlock().offset(offset);
+                  var pig = EntityType.PIG.create(level);
+                  pig.setNoAi(true);
+                  pig.setPos(c.rail.from.getX(), c.rail.from.getY(), c.rail.from.getZ());
+                  level.addFreshEntity(pig);
+                  SeatBlock.sitDown(level, seat, pig);
+                  helper.assertTrue(pig.isPassenger(), "Bench rider did not mount the native seat");
+                }
+              }
+            }
+          }
+        });
+    helper.runAtTickTime(
+        100,
+        () -> {
+          for (var c : cases) {
+            helper.assertTrue(Boarding.ready(level, c.car), "Loaded bench car lost readiness");
+            VehicleOperations.restraints(level, c.car, true);
+            if (c.retained) VehicleOperations.retention(level, c.car, true);
+            else
+              c.car.stopping = false; // Captured hinges without translational braking: bench only.
+            var body = (ServerSubLevel) container.getSubLevel(c.car.chassis);
+            helper.assertTrue(
+                CoasterCartTrainLinkConstraint.linkCarts(level, body, c.ordinary, c.spacing),
+                "Bench policy failed to admit the captured matching pair");
+            c.start = new Vector3d(CoasterCartResolve.cartCenterWorld(body));
+            c.leadStart = new Vector3d(CoasterCartResolve.cartCenterWorld(c.ordinary));
+            c.anchor = new Vector3d(c.ordinary.logicalPose().position());
+            c.orientation = new Quaterniond(c.ordinary.logicalPose().orientation());
+            c.puller =
+                pipeline.addConstraint(
+                    null,
+                    c.ordinary,
+                    new GenericConstraintConfiguration(
+                        c.anchor,
+                        new Vector3d(c.ordinary.logicalPose().rotationPoint()),
+                        c.orientation,
+                        new Quaterniond()));
+            for (var axis : ConstraintJointAxis.ALL)
+              c.puller.setMotor(axis, 0, 30000, 4000, true, 80000);
+            System.out.println(
+                "FD_RECOVERY_BENCH start case="
+                    + c.name
+                    + " riders="
+                    + c.car.carriers.stream().mapToInt(group -> group.occupants.size()).sum()
+                    + " ballastPerCarrier="
+                    + c.car.ballast
+                    + " ordinary4DState="
+                    + FoundationData.get(level).vehicles.containsKey(c.ordinary.getUniqueId()));
+          }
+        });
+    boolean[] driving = {false};
+    helper.runAtTickTime(
+        140,
+        () -> {
+          for (var c : cases) {
+            c.start =
+                new Vector3d(
+                    CoasterCartResolve.cartCenterWorld(container.getSubLevel(c.car.chassis)));
+            c.leadStart = new Vector3d(CoasterCartResolve.cartCenterWorld(c.ordinary));
+            helper.assertTrue(
+                Math.abs(c.start.distance(c.leadStart) - c.spacing) < .001,
+                "Coupler did not settle to the requested spacing");
+          }
+          driving[0] = true;
+        });
+    int[] elapsed = {0};
+    helper.onEachTick(
+        () -> {
+          if (!driving[0] || cases.getFirst().puller == null) return;
+          elapsed[0]++;
+          double seconds = elapsed[0] / 20.0;
+          for (var c : cases) {
+            double rate = Math.min(.5, .1 * seconds);
+            double advance = c.travel < 10 ? Math.min(10 - c.travel, rate * .05) : 0;
+            c.travel += advance;
+            c.anchor.z += advance;
+            c.puller.setFrame1(c.anchor, c.orientation);
+            pipeline.wakeUp(c.ordinary);
+            var body = container.getSubLevel(c.car.chassis);
+            var trailing = CoasterCartResolve.cartCenterWorld(body);
+            var leading = CoasterCartResolve.cartCenterWorld(c.ordinary);
+            c.maxStretch = Math.max(c.maxStretch, Math.abs(leading.distance(trailing) - c.spacing));
+            c.maxAngle =
+                Math.max(
+                    c.maxAngle,
+                    c.car.carriers.stream()
+                        .mapToDouble(group -> Math.abs(group.angle))
+                        .max()
+                        .orElse(0));
+            if (!CoasterCartTrainLinkConstraint.areLinkedCarts(body, c.ordinary) && c.lostAt < 0)
+              c.lostAt = elapsed[0];
+            if (elapsed[0] % 100 == 0)
+              System.out.println(
+                  "FD_RECOVERY_BENCH sample case="
+                      + c.name
+                      + " elapsed="
+                      + elapsed[0]
+                      + " leadTravel="
+                      + (leading.z - c.leadStart.z)
+                      + " trailingTravel="
+                      + (trailing.z - c.start.z)
+                      + " stretch="
+                      + c.maxStretch
+                      + " linked="
+                      + CoasterCartTrainLinkConstraint.areLinkedCarts(body, c.ordinary)
+                      + " carFault="
+                      + c.car.fault);
+          }
+        });
+    helper.runAtTickTime(
+        740,
+        () -> {
+          for (var c : cases) {
+            var body = container.getSubLevel(c.car.chassis);
+            var trailing = CoasterCartResolve.cartCenterWorld(body);
+            var leading = CoasterCartResolve.cartCenterWorld(c.ordinary);
+            System.out.println(
+                "FD_RECOVERY_BENCH result case="
+                    + c.name
+                    + " leadTravel="
+                    + (leading.z - c.leadStart.z)
+                    + " trailingTravel="
+                    + (trailing.z - c.start.z)
+                    + " linked="
+                    + CoasterCartTrainLinkConstraint.areLinkedCarts(body, c.ordinary)
+                    + " maxStretch="
+                    + c.maxStretch
+                    + " maxAngle="
+                    + c.maxAngle
+                    + " lostAt="
+                    + c.lostAt
+                    + " riders="
+                    + c.car.carriers.stream().mapToInt(group -> group.occupants.size()).sum()
+                    + " ordinary4DState="
+                    + FoundationData.get(level).vehicles.containsKey(c.ordinary.getUniqueId())
+                    + " carFault="
+                    + c.car.fault);
+            helper.assertTrue(
+                CoasterCartTrainLinkConstraint.areLinkedCarts(body, c.ordinary)
+                    && c.lostAt == -1
+                    && trailing.z - c.start.z > 9.5
+                    && Math.abs((leading.z - c.leadStart.z) - (trailing.z - c.start.z)) < .1,
+                "Native coupler failed to carry the trailing body: " + c.name);
+            helper.assertTrue(
+                c.maxAngle < .04 && c.maxStretch < .15 && c.car.fault.isEmpty(),
+                "Tow lost retained alignment, spacing or track support: " + c.name);
+            helper.assertTrue(
+                c.car.carriers.stream().mapToInt(group -> group.occupants.size()).sum()
+                        == (c.loaded
+                            ? c.car.carriers.stream().mapToInt(group -> group.seats.size()).sum()
+                            : 0)
+                    && !FoundationData.get(level).vehicles.containsKey(c.ordinary.getUniqueId())
+                    && c.rail.matches(c.car.boundFrom, c.car.boundTo),
+                "Tow lost its riders, main-rail eligibility or ordinary classification");
+            c.puller.remove();
+            c.puller = null;
+          }
+          helper.succeed();
+        });
+  }
+}
