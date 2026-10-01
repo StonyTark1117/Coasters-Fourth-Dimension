@@ -1,8 +1,8 @@
 # Coasters: Fourth Dimension addon plan
 
-Implementation update (2026-09-30): foundation, bounded 0.1, and bounded 0.2 gates have acceptance evidence. The revised ZacSpin and physical PAX shuttle are in development toward the 0.9.0 goal; see [new-family progress and limits](docs/REVISED-SHUTTLE.md) and [package statuses](ROADMAP.md). The design below remains the target for unfinished release work.
+Implementation update (2026-09-30): foundation and the bounded 0.1, 0.2, and five-family 0.3 gates have acceptance evidence. Optional integration work is in progress at FD401 toward the active 0.9.0 goal; see [new-family acceptance and limits](docs/REVISED-SHUTTLE.md), [integration progress](docs/INTEGRATIONS.md), and [package statuses](ROADMAP.md). The design below remains the target for unfinished release work.
 
-Plan researched September 30, 2026. This is a proposed implementation, supported by project pages, inspection of released JARs, and selected upstream source files. No mod has been implemented or tested in Minecraft yet.
+The initial design was researched September 30, 2026, using project pages, released JARs, and selected upstream source files. Research observations below describe that planning baseline; later inspection and runtime evidence are recorded in the implementation documents and roadmap. The addon has since been implemented and tested through the bounded gates listed above.
 
 Use [ROADMAP.md](ROADMAP.md) for addressable work packages, dependencies, acceptance criteria, and release gates through 1.0. IDs such as FD107 identify implementation tasks; D01–D18 below identify design sections. Keep these IDs stable so later requests can name a precise scope. Completion and evidence belong to the individual package statuses; a development version number is not proof that a release gate has passed.
 

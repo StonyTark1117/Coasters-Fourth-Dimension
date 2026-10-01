@@ -11,7 +11,7 @@ import net.minecraft.world.level.saveddata.SavedData;
 
 /** World-owned authoritative bindings. Native Sable bodies persist poses and velocities. */
 public final class FoundationData extends SavedData {
-  public static final int SCHEMA = 4;
+  public static final int SCHEMA = 5;
   // Keep full functional snapshots below Minecraft's one-megabyte custom-payload limit.
   public static final int MAX_PROFILE_KEYS = 8192;
   public static final String VARIANT = "foundation_v1";
@@ -46,6 +46,8 @@ public final class FoundationData extends SavedData {
     public long geometryHash, revision;
     public boolean valid = true;
     public List<dev.fourthdimension.physics.MagneticSpan> magnets = List.of();
+    public dev.fourthdimension.integration.TrackAppearance appearance =
+        dev.fourthdimension.integration.TrackAppearance.DEFAULT;
 
     public Rail(BlockPos from, BlockPos to, Family family, RotationProfile profile) {
       this(from, to, family, profile, UUID.randomUUID(), VARIANT, 0, 0, true);
@@ -170,6 +172,10 @@ public final class FoundationData extends SavedData {
       }
       tag.put("profile", keys);
       tag.put("magnets", dev.fourthdimension.magnetic.MagneticData.save(rail.magnets));
+      CompoundTag appearance = new CompoundTag();
+      appearance.putString("id", rail.appearance.id());
+      appearance.putInt("tint", rail.appearance.tint());
+      tag.put("appearance", appearance);
       tracks.add(tag);
     }
     root.put("rails", tracks);
@@ -227,6 +233,7 @@ public final class FoundationData extends SavedData {
 
   public static FoundationData load(CompoundTag root, HolderLookup.Provider registries) {
     if (root.getInt("schema") != SCHEMA
+        && root.getInt("schema") != 4
         && root.getInt("schema") != 3
         && root.getInt("schema") != 2
         && root.getInt("schema") != 1)
@@ -262,6 +269,13 @@ public final class FoundationData extends SavedData {
               tag.getLong("revision"),
               !tag.contains("valid") || tag.getBoolean("valid")));
       var loadedRail = data.rails.getLast();
+      if (tag.contains("appearance", Tag.TAG_COMPOUND)) {
+        var appearance = tag.getCompound("appearance");
+        loadedRail.appearance =
+            new dev.fourthdimension.integration.TrackAppearance(
+                appearance.getString("id"),
+                appearance.contains("tint") ? appearance.getInt("tint") : -1);
+      }
       loadedRail.magnets =
           dev.fourthdimension.magnetic.MagneticData.load(tag.getList("magnets", Tag.TAG_COMPOUND));
       dev.fourthdimension.magnetic.MagneticData.validate(loadedRail);

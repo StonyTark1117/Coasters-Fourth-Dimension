@@ -83,6 +83,8 @@ dependencies {
     implementation 'dev.ryanhcode.sable:sable-neoforge-1.21.1:2.0.3'
     implementation 'curse.maven:create-coasters-simulated-1601871:8655742'
     testImplementation 'org.junit.jupiter:junit-jupiter:5.11.4'
+    // Standalone math tests do not inherit the Minecraft runtime libraries.
+    testImplementation 'org.joml:joml:1.10.5'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher:1.11.4'
 }
 configurations.configureEach {

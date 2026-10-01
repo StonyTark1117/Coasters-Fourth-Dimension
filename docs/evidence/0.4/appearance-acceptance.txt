@@ -1,0 +1,5 @@
+appearance-saved: schema=5 rails=35 vehicles=8 carriers=20 profiles/bindings/intent preserved
+appearance-reloaded: schema=5 rails=35 vehicles=8 carriers=20 profiles/bindings/intent preserved
+provider-removed: schema=5 rails=35 vehicles=8 carriers=20 profiles/bindings/intent preserved
+provider-restored: schema=5 rails=35 vehicles=8 carriers=20 profiles/bindings/intent preserved
+PASS: real schema-4 upgrade, resource reload, provider removal/save and reinstallation/save

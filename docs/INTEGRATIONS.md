@@ -26,8 +26,19 @@ The rendering ownership contract gives every component one owner. A cosmetic
 provider can reserve spine and ties only. Original running rails, position-driven
 control geometry, and magnetic equipment remain ours. Appearance identifiers do
 not participate in the functional track/vehicle contract, and cannot change
-family eligibility or carrier profiles. The catalog is preparation: selecting and
-rendering a geometry-certified style is still unfinished.
+family eligibility or carrier profiles. The Rotation Tool's section editor now
+opens **Track appearance**, with Original and the two inspected Arrow spine
+choices, plus an optional `#RRGGBB` spine/tie color. Selection uses the same
+permission, distance, revision, and occupied-section guards as profile editing.
+Only separately installed Track Styles 1.2.0 enables its choices.
+
+Appearance intent is saved separately in schema 5. Earlier schema 1–4 rails
+default to Original; missing provider IDs and tint are retained while the original
+family geometry is shown. Reinstalling the same provider restores the selection.
+Network protocol 5 requires matching client and server builds. This checkpoint
+does not certify all exposed development choices: the single-spine Arrow straight
+has visual and provider-lifecycle evidence; double spine, curves/banking,
+clearance and complete styled rides remain to be validated.
 
 ## Reproducible development profiles
 
@@ -61,14 +72,16 @@ The audit retains both observations in `research/dependency-audit.json`.
 
 ## Remaining FD401 acceptance
 
-Validate style geometry and clearance, wire component rendering and selection,
-exercise resource reload/provider removal and original fallback, and record actual
-supported styles/render modes. Evaluate Engineered operating spans on real 4D
+Complete style geometry and clearance checks and record supported styles/render
+modes and styled ride behavior. Resource reload and a real removal/reinstallation
+cycle now pass for one single-spine controlled Arrow section. Evaluate Engineered operating spans on real 4D
 vehicles, including PAX phase ownership and boarding signals. Publish supported
 combinations only after the runtime matrix; inspection profiles alone are not
 advertised gameplay support.
 
-The [partial infrastructure evidence](evidence/0.4/README.md) records 19 native and 19 unit passing checks, public catalog discovery of 55 installed entries, and original Arrow rendering. Resource reload, style rendering and clean optional-client exit/removal acceptance remain pending.
+The [partial integration evidence](evidence/0.4/README.md) retains the earlier
+catalog-only checkpoint and the newer appearance transaction, model-frame and
+provider-lifecycle checks. Neither checkpoint closes FD401 or the 0.4 gate.
 
 ## Released Arrow model finding
 
@@ -79,12 +92,16 @@ fixed offsets. This changes the appearance investigation: the released models
 are available to inspect. It does not prove the functional profile interface or
 variable control-rail movement needed by FD801.
 
-The independent adapter will consume decorative components only and retain our
+The independent adapter consumes decorative components only and retains our
 profile-driven control rails. Native model origins differ: the inspected spines
 are centered on X/Z, while tie bounds include a local X offset. They require
 separate transforms, not a shared guessed translation. Raw extrema and the
 source JAR hash are recorded in `research/track-styles-1.2.0-model-bounds.json`;
 reproduce them with `python scripts/inspect-track-style-models.py <installed-jar>`.
 These aggregate measurements are not copied models and are not a clearance
-certificate. Native curve alignment, connector ownership and visual clearance
-remain required before enabling a style.
+certificate. Separate transforms center the spine and ties; a positive-handed
+model frame preserves textured-model winding even though the native travel basis
+has different handedness. Resource baking invalidates meshes by catalog
+generation. Original running/control rails and mechanical supports remain ours;
+external rail models are never rendered. Native curved/banked alignment and
+clearance still need evidence before these development choices are advertised.

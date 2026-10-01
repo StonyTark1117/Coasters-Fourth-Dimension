@@ -141,6 +141,14 @@ public final class RotationEditorScreen extends Screen {
                 .build());
       }
       addButton("Rebind geometry", left + 230, top + 108, 1);
+      addRenderableWidget(
+          Button.builder(
+                  Component.literal("Track appearance"),
+                  b ->
+                      minecraft.setScreen(
+                          new dev.fourthdimension.client.integration.AppearanceScreen(target.id())))
+              .bounds(left, top + 160, 110, 20)
+              .build());
     }
     if (free)
       addRenderableWidget(
@@ -237,10 +245,7 @@ public final class RotationEditorScreen extends Screen {
     super.render(graphics, mouseX, mouseY, partialTick);
   }
 
-  @EventBusSubscriber(
-      modid = "fourthdimension",
-      value = Dist.CLIENT,
-      bus = EventBusSubscriber.Bus.MOD)
+  @EventBusSubscriber(modid = "fourthdimension", value = Dist.CLIENT)
   public static final class Registration {
     @SubscribeEvent
     public static void setup(FMLClientSetupEvent event) {

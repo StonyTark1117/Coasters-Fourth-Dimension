@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.9.0-dev.2 — partial optional appearance integration
+
+- Add guarded section appearance editing, independent saved style/color intent, and optional installed Track Styles spine/tie rendering.
+- Retain original running/control rails and all family, profile and eligibility behavior; restore original geometry when the appearance provider is missing.
+- Verify a single-spine Arrow straight through resource reload and real provider removal/reinstallation. Other style geometry and operating integrations remain in FD401.
+- Use schema/network protocol 5. Schema 1–4 load forward; clients and servers must use matching builds. Back up worlds and do not downgrade upgraded saves.
+
+This remains a development build toward 0.9, retaining the bounded five-family 0.3 gate. It is not the release candidate; see `ROADMAP.md` for outstanding acceptance gates.
+
 ## 0.2.0 — magnetic Free Spin
 
 - Add original matching blue track and an eight-seat car with four independent native carrier pairs.

@@ -2,7 +2,7 @@
 
 A Create: Coasters Simulated addon developing five original 4D families: controlled Arrow/S&S cars, legacy ZacSpin, magnetic S&S Free Spin, revised ZacSpin, and a PAX-style catch/lift/release shuttle. Every family has matching functional track. Arrow and PAX cars support family-specific native coupling; the other families operate individually.
 
-FD201–FD204 implement the **bounded 0.2 build**. See [magnetic-family instructions and acceptance](docs/MAGNETIC.md), and the earlier [0.1 acceptance](docs/PLAYABLE.md). The current `0.9.0-dev.1` branch completes the **bounded 0.3 gate**, adding revised carriers and a physical PAX catch/lift/release shuttle with five-family packaged single-player and dedicated-server evidence; see [instructions, acceptance, and outstanding gates](docs/REVISED-SHUTTLE.md). It is not yet the 0.9 release candidate. External Track Styles integration remains on the [roadmap to 1.0](ROADMAP.md). The four-pair Free Spin and revised topologies are original game approximations; exact manufacturer coupling is not claimed.
+FD201–FD204 implement the **bounded 0.2 build**. See [magnetic-family instructions and acceptance](docs/MAGNETIC.md), and the earlier [0.1 acceptance](docs/PLAYABLE.md). The current `0.9.0-dev.2` branch retains the completed **bounded 0.3 gate**, adding revised carriers and a physical PAX catch/lift/release shuttle with five-family packaged single-player and dedicated-server evidence; see [instructions, acceptance, and outstanding gates](docs/REVISED-SHUTTLE.md). Optional track appearance editing is now in development under [FD401](docs/INTEGRATIONS.md), with schema/protocol 5; clients and servers must upgrade together. It is not yet the 0.9 release candidate. The four-pair Free Spin and revised topologies are original game approximations; exact manufacturer coupling is not claimed.
 
 ## Install
 
@@ -70,7 +70,7 @@ The PAX command builds its separate four-car two-spike layout and physical winch
 
 Use `JAVA_HOME=/usr/lib/jvm/java-21-openjdk` on this workstation. The generated server directory needs Minecraft EULA acceptance. Offline mode is for loopback development identities only.
 
-The artifact is `build/libs/coasters-fourth-dimension-0.9.0-dev.1.jar`. For Unix checkout paths containing `:`, outputs move to `/tmp/fourthdimension-<path-hash>/build` to avoid Java classpath parsing errors. Run directories live under that build directory. `clean` deletes them; keep valuable worlds elsewhere. GameTests recreate their own disposable world.
+The artifact is `build/libs/coasters-fourth-dimension-0.9.0-dev.2.jar`. For Unix checkout paths containing `:`, outputs move to `/tmp/fourthdimension-<path-hash>/build` to avoid Java classpath parsing errors. Run directories live under that build directory. `clean` deletes them; keep valuable worlds elsewhere. GameTests recreate their own disposable world.
 
 After `build`, `-PfdPackaged` runs the built JAR using an isolated source set and separate `packaged-client`/`packaged-server` directories. It does not load the addon's loose compiled classes. `-PfdConnect=127.0.0.1:25581` connects to a test server; `-PfdWorld=FolderName` opens an existing single-player save. `runObserver` starts a second identity. `-PfdValidation` logs functional/native pose snapshots; `runServer -PfdFrozen` starts paused for saved-state comparisons.
 

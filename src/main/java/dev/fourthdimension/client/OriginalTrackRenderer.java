@@ -22,7 +22,12 @@ import org.joml.Matrix4f;
 public final class OriginalTrackRenderer {
   private record Quad(Vec3 a, Vec3 b, Vec3 c, Vec3 d, int color) {}
 
-  private record Mesh(long revision, long geometry, List<Quad> quads) {}
+  private record Mesh(
+      long revision,
+      long geometry,
+      long modelGeneration,
+      List<Quad> quads,
+      dev.fourthdimension.client.integration.TrackStylesRenderer.Mesh decoration) {}
 
   private static final Map<UUID, Mesh> MESHES = new HashMap<>();
   private static net.minecraft.world.level.Level lastLevel;
@@ -84,6 +89,8 @@ public final class OriginalTrackRenderer {
     pose.translate(-camera.x, -camera.y, -camera.z);
     var buffers = mc.renderBuffers().bufferSource();
     var consumer = buffers.getBuffer(RenderType.debugQuads());
+    var decorations =
+        new ArrayList<dev.fourthdimension.client.integration.TrackStylesRenderer.Mesh>();
     var data = EligibilityHooks.data(mc.level);
     if (data != null)
       for (var rail : data.rails)
@@ -94,20 +101,41 @@ public final class OriginalTrackRenderer {
           if (edge == null) continue;
           long hash = TrackGeometry.fingerprint(mc.level, edge);
           var mesh = MESHES.get(rail.id);
-          if (mesh == null || mesh.revision != rail.revision || mesh.geometry != hash) {
+          long generation = dev.fourthdimension.client.integration.TrackStylesCatalog.generation();
+          if (mesh == null
+              || mesh.revision != rail.revision
+              || mesh.geometry != hash
+              || mesh.modelGeneration != generation) {
+            var decoration =
+                dev.fourthdimension.client.integration.TrackStylesRenderer.build(edge, rail);
+            var ownership =
+                decoration == null
+                    ? dev.fourthdimension.integration.TrackRenderOwnership.original()
+                    : decoration.ownership();
+            int tint =
+                decoration == null && !rail.appearance.original()
+                    ? TrackDesign.byVariant(rail.variant).color
+                    : rail.appearance.tint() < 0
+                        ? TrackDesign.byVariant(rail.variant).color
+                        : rail.appearance.tint();
             mesh =
                 new Mesh(
                     rail.revision,
                     hash,
+                    generation,
                     build(
                         edge,
                         TrackDesign.byVariant(rail.variant),
                         edge.from().equals(rail.from) ? rail.profile : rail.profile.reversed(),
                         rail.magnets,
-                        edge.from().equals(rail.from)));
+                        edge.from().equals(rail.from),
+                        ownership,
+                        tint),
+                    decoration);
             MESHES.put(rail.id, mesh);
           }
           draw(consumer, pose.last().pose(), mesh.quads, rail.valid ? 1f : .4f);
+          if (mesh.decoration != null) decorations.add(mesh.decoration);
         }
     var held = mc.player.getMainHandItem();
     if (held.getItem() instanceof FamilyTrackItem item
@@ -136,7 +164,9 @@ public final class OriginalTrackRenderer {
                     new RotationProfile(
                         List.of(new RotationProfile.Key(0, 0), new RotationProfile.Key(length, 0))),
                     List.of(),
-                    true);
+                    true,
+                    dev.fourthdimension.integration.TrackRenderOwnership.original(),
+                    item.design.color);
             ghostKey = key;
           }
           draw(consumer, pose.last().pose(), ghost, .35f);
@@ -146,6 +176,9 @@ public final class OriginalTrackRenderer {
       }
     }
     buffers.endBatch(RenderType.debugQuads());
+    for (var decoration : decorations)
+      dev.fourthdimension.client.integration.TrackStylesRenderer.draw(decoration, pose, buffers);
+    if (!decorations.isEmpty()) buffers.endBatch(RenderType.cutoutMipped());
     pose.popPose();
   }
 
@@ -154,7 +187,9 @@ public final class OriginalTrackRenderer {
       TrackDesign design,
       RotationProfile profile,
       List<dev.fourthdimension.physics.MagneticSpan> magnets,
-      boolean canonical) {
+      boolean canonical,
+      dev.fourthdimension.integration.TrackRenderOwnership ownership,
+      int decorationColor) {
     var level = Minecraft.getInstance().level;
     var table = TrackGeometry.table(level, edge);
     int count = Math.max(8, (int) Math.ceil(table.length() * 4));
@@ -181,6 +216,9 @@ public final class OriginalTrackRenderer {
       if (previous != null) {
         for (int rail = 0; rail < 5; rail++) {
           if ((rail == 2 || rail == 3) && !design.family.driven()) continue;
+          if (rail == 4
+              && !ownership.originalOwns(
+                  dev.fourthdimension.integration.TrackRenderOwnership.Component.SPINE)) continue;
           tube(
               result,
               previous[rail],
@@ -191,33 +229,37 @@ public final class OriginalTrackRenderer {
               up,
               rail < 2 ? TrackDesign.RAIL_HALF_WIDTH : rail == 4 ? .22 : .09,
               rail < 2 ? TrackDesign.RAIL_HALF_HEIGHT : rail == 4 ? .22 : .09,
-              rail < 2 ? 0xc6d0d4 : rail == 4 ? design.color : 0xf0ca69);
+              rail < 2 ? 0xc6d0d4 : rail == 4 ? decorationColor : 0xf0ca69);
         }
       }
       if (i % 8 == 0) {
-        tube(
-            result,
-            points[0],
-            points[1],
-            basis.forward(),
-            up,
-            basis.forward(),
-            up,
-            .06,
-            design.color);
-        for (int side = 0; side < 2; side++) {
+        if (ownership.originalOwns(
+            dev.fourthdimension.integration.TrackRenderOwnership.Component.TIES))
           tube(
               result,
-              center
-                  .add(right.scale(side == 0 ? -.5 : .5))
-                  .add(up.scale(TrackDesign.MAIN_RAIL_HEIGHT)),
-              points[4],
+              points[0],
+              points[1],
               basis.forward(),
-              right,
+              up,
               basis.forward(),
-              right,
-              .08,
-              design.color);
+              up,
+              .06,
+              decorationColor);
+        for (int side = 0; side < 2; side++) {
+          if (ownership.originalOwns(
+              dev.fourthdimension.integration.TrackRenderOwnership.Component.TIES))
+            tube(
+                result,
+                center
+                    .add(right.scale(side == 0 ? -.5 : .5))
+                    .add(up.scale(TrackDesign.MAIN_RAIL_HEIGHT)),
+                points[4],
+                basis.forward(),
+                right,
+                basis.forward(),
+                right,
+                .08,
+                decorationColor);
           if (design.family.driven())
             tube(
                 result,
@@ -228,7 +270,7 @@ public final class OriginalTrackRenderer {
                 basis.forward(),
                 right,
                 .055,
-                design.color);
+                decorationColor);
         }
       }
       previous = points;
@@ -279,7 +321,7 @@ public final class OriginalTrackRenderer {
                 basis.forward(),
                 basis.up(),
                 TrackDesign.MAGNET_SUPPORT_RADIUS,
-                design.color);
+                decorationColor);
             tube(
                 result,
                 knee,
@@ -289,7 +331,7 @@ public final class OriginalTrackRenderer {
                 basis.forward(),
                 basis.right(),
                 TrackDesign.MAGNET_SUPPORT_RADIUS,
-                design.color);
+                decorationColor);
           }
         }
         last = points;

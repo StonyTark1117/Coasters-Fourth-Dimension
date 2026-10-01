@@ -291,7 +291,7 @@ Ship both new families with instructions and examples, including compact and tal
 
 ### FD401 Deliver optional provider infrastructure
 
-**Status: in progress.** Exact-version metadata discovery, client-only public model-catalog access, explicit component ownership, and optional development profiles are implemented. Model selection/rendering, geometry certification, fallback/removal scenarios and operating-addon runtime acceptance remain pending. See [integration scope and profiles](docs/INTEGRATIONS.md).
+**Status: in progress.** Exact-version discovery, client-only catalog access, component ownership, and guarded appearance editing/persistence/rendering are implemented. The single-spine Arrow appearance has resource-reload and real provider-removal/reinstallation evidence without changing its controlled profile. Curved/banked geometry and clearance, the double-spine appearance, render-mode coverage, styled rides, and operating-addon acceptance remain pending. See [integration scope and evidence](docs/INTEGRATIONS.md).
 
 **Depends on:** FD005, FD305. **Design:** D04, D05, D07, D15.
 
