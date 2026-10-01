@@ -1,0 +1,78 @@
+{
+  "scope": "Eight parked, unoccupied vehicles across all five families",
+  "runs": {
+    "control": {
+      "rails": 35,
+      "vehicles": 8,
+      "carriers": 20,
+      "restored_pax_links": 3,
+      "addon_stations": 5,
+      "addon_fins": 5,
+      "engineered_controller": true
+    },
+    "without-engineered": {
+      "rails": 35,
+      "vehicles": 8,
+      "carriers": 20,
+      "restored_pax_links": 3,
+      "addon_stations": 5,
+      "addon_fins": 5,
+      "engineered_controller": false
+    },
+    "without-styles": {
+      "rails": 35,
+      "vehicles": 8,
+      "carriers": 20,
+      "restored_pax_links": 3,
+      "addon_stations": 5,
+      "addon_fins": 5,
+      "engineered_controller": true
+    },
+    "without-additions": {
+      "rails": 35,
+      "vehicles": 8,
+      "carriers": 20,
+      "restored_pax_links": 3,
+      "addon_stations": 0,
+      "addon_fins": 0,
+      "engineered_controller": true
+    },
+    "without-magnetized": {
+      "rails": 35,
+      "vehicles": 8,
+      "carriers": 20,
+      "restored_pax_links": 3,
+      "addon_stations": 5,
+      "addon_fins": 5,
+      "engineered_controller": true
+    },
+    "without-immersion": {
+      "rails": 35,
+      "vehicles": 8,
+      "carriers": 20,
+      "restored_pax_links": 3,
+      "addon_stations": 5,
+      "addon_fins": 5,
+      "engineered_controller": true
+    },
+    "base": {
+      "rails": 35,
+      "vehicles": 8,
+      "carriers": 20,
+      "restored_pax_links": 3,
+      "addon_stations": 0,
+      "addon_fins": 0,
+      "engineered_controller": false
+    },
+    "reinstalled": {
+      "rails": 35,
+      "vehicles": 8,
+      "carriers": 20,
+      "restored_pax_links": 3,
+      "addon_stations": 0,
+      "addon_fins": 0,
+      "engineered_controller": false
+    }
+  },
+  "reinstalled_missing_blocks_confirmed_air": 11
+}

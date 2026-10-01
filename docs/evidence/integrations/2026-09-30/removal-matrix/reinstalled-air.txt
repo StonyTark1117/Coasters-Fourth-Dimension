@@ -1,0 +1,11 @@
+execute if block -612 230 36 minecraft:air run say FD_REMOVED_BLOCK_AIR arrow_controlled station:
+execute if block -614 230 36 minecraft:air run say FD_REMOVED_BLOCK_AIR arrow_controlled fin:
+execute if block -412 180 24 minecraft:air run say FD_REMOVED_BLOCK_AIR zacspin_legacy station:
+execute if block -414 180 24 minecraft:air run say FD_REMOVED_BLOCK_AIR zacspin_legacy fin:
+execute if block -212 180 24 minecraft:air run say FD_REMOVED_BLOCK_AIR sns_free_spin station:
+execute if block -214 180 24 minecraft:air run say FD_REMOVED_BLOCK_AIR sns_free_spin fin:
+execute if block -12 180 24 minecraft:air run say FD_REMOVED_BLOCK_AIR zacspin_revised station:
+execute if block -14 180 24 minecraft:air run say FD_REMOVED_BLOCK_AIR zacspin_revised fin:
+execute if block 188 180 16 minecraft:air run say FD_REMOVED_BLOCK_AIR pax_shuttle station:
+execute if block 186 180 16 minecraft:air run say FD_REMOVED_BLOCK_AIR pax_shuttle fin:
+execute if block -606 230 34 minecraft:air run say FD_REMOVED_BLOCK_AIR arrow_controlled engineered_controller:

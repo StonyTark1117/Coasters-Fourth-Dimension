@@ -1,0 +1,62 @@
+{
+  "control": {
+    "full_log": "/tmp/fd-removal-control.log",
+    "log_sha256": "196920f9e133e207914037dbdd8a35c8a5ff9fcdd50072dc636e3a292d9f2362",
+    "exit_status": 0,
+    "snapshot_sha256": "22436085f9f74b87dbdb2b9af7d411a86bebe08bfc235e9aa6a214390b12bb96",
+    "saved_nbt_sha256": "aac3900d6ce0f753d7d126a31f986d1eea05971191d0ede0554e84600b3d2155"
+  },
+  "without-engineered": {
+    "full_log": "/tmp/fd-removal-without-engineered.log",
+    "log_sha256": "0f0cf0c423e15300dd6208d942038f69186ee98a73aca2bbee801f80800f33b5",
+    "exit_status": 0,
+    "snapshot_sha256": "2603a80c92ff55813909686392b2d1f1b671e8750d76b5f869b0edafeda190f7",
+    "saved_nbt_sha256": "5aa335979bc4827c516df7c34db86b1306e98a3c3aed22674b03805041ef4108"
+  },
+  "without-styles": {
+    "full_log": "/tmp/fd-removal-without-styles.log",
+    "log_sha256": "743837da0729321b8de6d36653c58dadd968bb338c82a9a0f7758cbdbcb53d34",
+    "exit_status": 0,
+    "snapshot_sha256": "2603a80c92ff55813909686392b2d1f1b671e8750d76b5f869b0edafeda190f7",
+    "saved_nbt_sha256": "5aa335979bc4827c516df7c34db86b1306e98a3c3aed22674b03805041ef4108"
+  },
+  "without-additions": {
+    "full_log": "/tmp/fd-removal-without-additions.log",
+    "log_sha256": "796ba0cc48a1179933b620aa9be162694eda509370c8a1ed68011053d2ba59d2",
+    "exit_status": 0,
+    "snapshot_sha256": "2603a80c92ff55813909686392b2d1f1b671e8750d76b5f869b0edafeda190f7",
+    "saved_nbt_sha256": "5aa335979bc4827c516df7c34db86b1306e98a3c3aed22674b03805041ef4108"
+  },
+  "without-magnetized": {
+    "full_log": "/tmp/fd-removal-without-magnetized.log",
+    "log_sha256": "4cd89c11c67af53f3d6c2490de7acef514fab8a8f08eb7b2e52e4b9858667c57",
+    "exit_status": 0,
+    "snapshot_sha256": "2603a80c92ff55813909686392b2d1f1b671e8750d76b5f869b0edafeda190f7",
+    "saved_nbt_sha256": "5aa335979bc4827c516df7c34db86b1306e98a3c3aed22674b03805041ef4108"
+  },
+  "without-immersion": {
+    "full_log": "/tmp/fd-removal-without-immersion.log",
+    "log_sha256": "2c469078e22ecc7400246754a3341ea5aa2a681f908c7f638a448cc7fe1048c6",
+    "exit_status": 0,
+    "snapshot_sha256": "2603a80c92ff55813909686392b2d1f1b671e8750d76b5f869b0edafeda190f7",
+    "saved_nbt_sha256": "5aa335979bc4827c516df7c34db86b1306e98a3c3aed22674b03805041ef4108"
+  },
+  "base": {
+    "full_log": "/tmp/fd-removal-base.log",
+    "log_sha256": "f1780fb2cb33a60703a3cd9bc6d12471b425876eea925e3c6bae538e17d66f30",
+    "exit_status": 0,
+    "snapshot_sha256": "2603a80c92ff55813909686392b2d1f1b671e8750d76b5f869b0edafeda190f7",
+    "saved_nbt_note": "World reused for reinstallation; original decoded snapshot retained and hashed before that restart."
+  },
+  "reinstalled": {
+    "full_log": "/tmp/fd-removal-reinstalled.log",
+    "log_sha256": "59b50f6f0882289ea7df2e14a6fc1c6c43c12baed9c177c53112363254f75d69",
+    "exit_status": 0,
+    "snapshot_sha256": "78543f33890bb62e03ae8443fa170a1575775bb730bb89ddfbc9c45746154eb8",
+    "saved_nbt_sha256": "0756cd0b0127ad9bb31ced711b7218c4ba2278e70233c66098c85853fb8ed168"
+  },
+  "baseline": {
+    "saved_nbt_sha256": "33b1ae7d2d49d0ffc537e01310eedf5e3da74879307e6ca3fae2bb5fc71edb45",
+    "snapshot_sha256": "4274987c18ceba00e46b4f68cc88687af4a4abf53b8008f29184d636882b467a"
+  }
+}

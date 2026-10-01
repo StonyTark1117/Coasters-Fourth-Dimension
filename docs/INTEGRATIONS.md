@@ -298,17 +298,38 @@ session exposed and corrected demonstration braking/approach placement and held-
 Engineered presence reporting. It preserves the failed runs as well as the bounded
 passing checks; it does not complete the lifecycle matrix.
 
+## Removing optional addons
+
+A [schema-5 dedicated-server removal matrix](evidence/integrations/2026-09-30/removal-matrix/README.md)
+now covers all five families while parked and unoccupied: a combined-pack control,
+each addon omitted separately, all five omitted, and reinstallation on the saved
+base-pack world. All eight cold restarts preserved the 35 rail sections, eight
+vehicles, twenty carrier bodies, functional/appearance IDs, profiles, magnetic
+spans and operating state. All three PAX couplings were restored. Only live carrier
+angle and angular velocity were excluded from exact saved-field comparisons.
+
+Missing Engineered and Additions registries discard their blocks when affected
+chunks load. Reinstalling those JARs after saving does **not** restore the controllers,
+stations or fins; eleven queried blocks remained air in the reinstalled test world.
+Back up the complete stopped world before changing a pack. Restore that backup with
+its original pack to recover removed equipment, or rebuild/rebind equipment and
+validate operation before boarding riders. Retained appearance IDs and original
+functional track data do not constitute a backup of an addon's blocks.
+
+This result does not cover occupied removal, Magnetized-specific anchor-mode
+migration, Immersion camera removal, client rendering or the full lifecycle matrix.
+
 ## Remaining acceptance
 
 - Extend reconciled FD305 evidence to the schema-5 optional-addon lifecycle matrix;
   investigate the recorded client resource exit and transient movement-packet messages.
 - Finish Engineered rollback, linked-train, optional FE, lifecycle and multiplayer
-  checks; PAX propulsion stays excluded until separately proven.
+  checks; PAX remains winch-owned, with the bounded opposing-equipment checks recorded above.
 - Extend the packaged Ponder/goggles visual checks to every animation phase and both
   multiplayer clients; extend the verified live legacy/Free Spin Display Links to
   the complete station/winch and addon matrix.
 - Extend bounded Track Styles two-client synchronization/reload evidence to the
-  full multiplayer matrix, removal/reinstallation, resource replacement,
+  full multiplayer matrix, occupied removal/reinstallation, resource replacement,
   transition and performance evidence; broader appearances and its own tool integration
   remain outside the current two-spine adapter.
 - Extend the bounded Additions linked Arrow/mixed-span/fin-mode checks to the

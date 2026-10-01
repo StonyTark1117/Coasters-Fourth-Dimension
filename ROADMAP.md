@@ -351,6 +351,8 @@ Run two-client and late-join scenarios, disconnects, chunk unloads, server resta
 
 **Depends on:** FD404. **Design:** D04, D09, D10, D16.
 
+**Partial evidence (2026-09-30):** The [schema-5 removal matrix](docs/evidence/integrations/2026-09-30/removal-matrix/README.md) preserves all five families' parked ride data through eight dedicated-server restart/removal cases. Missing addon blocks are discarded and require a complete backup restore or rebuilding; exact scope and recovery instructions are recorded. Occupied, older-schema and addon-specific state migration remain open.
+
 Test upgrades from released save formats, stable IDs, profile rebinding, appearance-provider removal, and explicit conversions involving external blocks.
 
 **Done when:** supported upgrades preserve functional families and profiles; unsupported conversions are rejected clearly. Backups and recovery instructions accompany any destructive migration.
