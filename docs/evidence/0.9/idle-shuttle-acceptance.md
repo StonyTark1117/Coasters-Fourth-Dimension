@@ -92,3 +92,7 @@ Run `python3 scripts/verify-idle-shuttle-checkpoint.py` to check these recorded
 observations. It reads the evidence and does not replay clients or close any open gate.
 
 The fixed packaged JAR SHA-256 is `68046fab96ebca81ce1e639337ea8fd189b52ef37ad413d881849f56175280ac`, unchanged across the standalone and combined builds. The diagnostic control JAR SHA-256 is `da0ed73980f50bdee686b6470586cfa2023a7add70c3caa31a9878fe4181489e`. The control native test uses the unchanged controller with the new regression through the development source set. Neither artifact bundles optional addon JARs or copied upstream implementation.
+
+## Subsequent lifecycle checkpoint
+
+The [dev.14 caught shuttle checkpoint](caught-shuttle-acceptance.md) records normal recovery of the inherited PAX faults and a separate caught-boarding restoration fix. The original observations above remain historical evidence; the full FD902 gate remains open.

@@ -73,4 +73,4 @@ assert read('scheduler-unit.json') == {'tests': 25, 'failures': 0, 'errors': 0, 
 report = read('scheduler-validation.json')
 assert report['cold_client']['new_pax_faults'] == 4
 assert not report['cold_client']['accepted_as_fault_free_lifecycle']
-print('Verified recorded dev.12 scheduler/reload/Arrow ride data; four cold PAX faults remain explicitly open.')
+print('Verified historical dev.12 scheduler/reload/Arrow ride data, including its documented cold PAX failure.')

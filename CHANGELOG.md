@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.9.0-dev.14 — caught boarding restoration
+
+- Preserve a stationary boarding shuttle with its existing physical carriage while native bodies unload/restore, and rebuild its catch when both bodies return.
+- Fault on actual permanent removal of an assigned native component; reject operations with a missing carriage before advancing phase or allocating a replacement.
+- Record normal recovery of four inherited PAX faults, the failing dev.13 cold reopen, a native holding regression, and a fixed unoccupied default-flags boundary reopen with stable IDs/rails and zero saved faults.
+- Pass 25 unit tests and all 30 required native tests in standalone and combined profiles. Complete 0.4 and FD902 acceptance remain open, including occupied caught-boarding coverage and the original bitmap-glyph crash.
+
 ## 0.9.0-dev.13 — idle shuttle availability
 
 - Preserve BOARDING state while a never-lifted PAX train is in native holding. An idle winch without a carriage no longer faults or closes restraints merely because its lead is unavailable.

@@ -24,6 +24,7 @@ public final class VehicleLifecycle {
               @Override
               public void onSubLevelRemoved(SubLevel body, SubLevelRemovalReason reason) {
                 if (reason != SubLevelRemovalReason.REMOVED) return;
+                dev.fourthdimension.shuttle.ShuttleRuntime.onBodyRemoved(level, body.getUniqueId());
                 for (var vehicle : FoundationData.get(level).vehicles.values()) {
                   if (FoundationData.VARIANT.equals(vehicle.variant)) continue;
                   if (vehicle.chassis.equals(body.getUniqueId())

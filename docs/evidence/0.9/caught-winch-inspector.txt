@@ -1,0 +1,15 @@
+import sys,io,runpy,contextlib,struct,zlib,gzip,json
+from pathlib import Path
+world=Path(sys.argv[1]); x,y,z=map(int,sys.argv[2:5]); target=sys.argv[5]
+sys.argv=['inspect-foundation-save.py',str(world/'data/fourthdimension_foundation.dat')]
+with contextlib.redirect_stdout(io.StringIO()): ns=runpy.run_path('scripts/inspect-foundation-save.py')
+cx,cz=x>>4,z>>4; region=world/'region'/f'r.{cx>>5}.{cz>>5}.mca'
+with region.open('rb') as f:
+ f.seek(4*((cx&31)+32*(cz&31)));loc=int.from_bytes(f.read(3),'big'); sectors=f.read(1);assert loc
+ f.seek(loc*4096);length=struct.unpack('>I',f.read(4))[0];ctype=f.read(1)[0];raw=f.read(length-1)
+raw={1:gzip.decompress,2:zlib.decompress,3:lambda v:v}[ctype](raw)
+ns['number'].__globals__['stream']=io.BytesIO(raw)
+root=ns['number']('B');ns['string']();data=ns['value'](root)
+result=next(v for v in data['block_entities'] if (v['x'],v['y'],v['z'])==(x,y,z))
+Path(target).write_text(json.dumps(result,indent=2)+'\n')
+print({k:v for k,v in result.items() if k.startswith('shuttle_')})

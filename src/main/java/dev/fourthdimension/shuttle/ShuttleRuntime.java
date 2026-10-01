@@ -56,6 +56,25 @@ public final class ShuttleRuntime {
     return w != null && w.phase != ShuttleWinchEntity.Phase.BOARDING;
   }
 
+  /** Permanent native destruction is a fault; normal unloading must never call this. */
+  public static void onBodyRemoved(ServerLevel level, UUID body) {
+    var data = FoundationData.get(level);
+    for (var winch : List.copyOf(winches(level))) {
+      boolean assigned =
+          body.equals(winch.carriage)
+              || winch.cars.contains(body)
+              || winch.cars.stream()
+                  .map(data.vehicles::get)
+                  .filter(Objects::nonNull)
+                  .anyMatch(v -> v.carriers.stream().anyMatch(c -> c.body.equals(body)));
+      if (assigned) {
+        winch.fail(
+            "Native shuttle component removed: retain and inspect every car before recovery");
+        data.setDirty();
+      }
+    }
+  }
+
   public static void releaseBrakes(ServerLevel level, ShuttleWinchEntity winch, boolean capture) {
     for (var id : winch.cars) {
       var v = FoundationData.get(level).vehicles.get(id);
@@ -90,10 +109,21 @@ public final class ShuttleRuntime {
           WINCHES.get(level).remove(winch.getBlockPos(), winch);
           continue;
         }
-        // An idle winch without a carriage owns no native constraint to update.
-        // Sable may retain its train in holding while chunk availability changes.
-        // Leave boarding state intact; start() validates all bodies and the route.
-        if (winch.phase == ShuttleWinchEntity.Phase.BOARDING && winch.carriage == null) continue;
+        // Boarding is stationary, including a train already caught by its carriage.
+        // Native bodies can restore after the winch or wait in Sable holding.
+        // Rebuild an existing catch only when both bodies are available; start()
+        // still validates the complete train, carriage and route before moving.
+        if (winch.phase == ShuttleWinchEntity.Phase.BOARDING) {
+          var container = SubLevelContainer.getContainer(level);
+          if (winch.carriage != null
+              && container.getSubLevel(winch.carriage) instanceof ServerSubLevel
+              && container.getSubLevel(winch.vehicle) instanceof ServerSubLevel lead) {
+            var held = HANDLES.computeIfAbsent(winch, k -> new Handles());
+            ensureCarriage(level, winch, null, held);
+            catchTrain(level, lead, winch, held);
+          }
+          continue;
+        }
         if (!level.hasChunkAt(winch.getBlockPos())
             || !dev.ryanhcode.sable.sublevel.system.ticket.PhysicsChunkTicketManager
                 .isChunkLoadedEnough(

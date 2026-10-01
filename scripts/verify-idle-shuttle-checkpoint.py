@@ -74,4 +74,4 @@ assert read('idle-unit.json') == {'tests': 25, 'failures': 0, 'errors': 0, 'skip
 player = read('idle-final-player.json')
 assert 'RootVehicle' not in player and not player.get('NoGravity', 0)
 assert player['Pos'] == [343.5, 85.0, -26.5]
-print('Verified recorded idle-winch control/fix, default cold reopen and stable identities; inherited faults and broader FD902 remain open.')
+print('Verified historical dev.13 idle-winch control/fix and default cold reopen; see the caught-shuttle checkpoint for subsequent inherited-fault recovery.')

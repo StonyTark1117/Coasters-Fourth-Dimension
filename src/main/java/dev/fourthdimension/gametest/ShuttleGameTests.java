@@ -123,6 +123,167 @@ public final class ShuttleGameTests {
         });
   }
 
+  @GameTest(template = "empty", timeoutTicks = 320)
+  public static void caughtWinchPreservesStateWhileNativeTrainRestores(GameTestHelper helper) {
+    var level = helper.getLevel();
+    for (int x = 55; x <= 57; x++)
+      for (int z = -45; z <= -35; z++) level.setChunkForced(x, z, true);
+    var example = ShuttleExamples.create(level, new BlockPos(900, 180, -650), false);
+    ShuttleWinchEntity[] winch = {example.winch()};
+    var container = SubLevelContainer.getContainer(level);
+    UUID[] carriage = {null};
+    double[] station = {0};
+    int[] cycles = {0};
+    helper.runAtTickTime(80, () -> ShuttleExamples.assemble(level, example));
+    helper.runAtTickTime(
+        100,
+        () -> {
+          winch[0].fail("Interrupted boarding fixture: inspect and recover");
+          winch[0].recover();
+        });
+    helper.runAtTickTime(
+        160,
+        () -> {
+          helper.assertTrue(
+              winch[0].phase == ShuttleWinchEntity.Phase.BOARDING
+                  && winch[0].carriage != null
+                  && example.cars().stream().allMatch(v -> Boarding.ready(level, v)),
+              "Normal recovery did not physically catch the boarding train");
+          VehicleOperations.restraints(level, example.cars().getFirst(), false);
+          carriage[0] = winch[0].carriage;
+          station[0] = winch[0].carriageDistance;
+          cycles[0] = winch[0].cycles;
+          var revisions = example.cars().stream().map(v -> v.revision).toList();
+          var pos = winch[0].getBlockPos();
+          var state = level.getBlockState(pos);
+          var saved = winch[0].saveWithFullMetadata(level.registryAccess());
+          level.removeBlockEntity(pos);
+          var restored =
+              (ShuttleWinchEntity)
+                  net.minecraft.world.level.block.entity.BlockEntity.loadStatic(
+                      pos, state, saved, level.registryAccess());
+          helper.assertTrue(
+              restored != null && restored.carriage.equals(carriage[0]),
+              "Reload lost the existing carriage identity");
+          level.setBlockEntity(restored);
+          ShuttleRuntime.register(level, restored);
+          winch[0] = restored;
+          ShuttleRuntime.tick(level, .05);
+          var lead =
+              (dev.ryanhcode.sable.sublevel.ServerSubLevel) container.getSubLevel(restored.vehicle);
+          container
+              .getHoldingChunkMap()
+              .moveToUnloaded(
+                  lead,
+                  new net.minecraft.world.level.ChunkPos(
+                      BlockPos.containing(
+                          lead.logicalPose().position().x,
+                          lead.logicalPose().position().y,
+                          lead.logicalPose().position().z)));
+          helper.assertTrue(
+              container.getSubLevel(restored.vehicle) == null
+                  && container.getSubLevel(carriage[0]) == null
+                  && container.getHoldingChunkMap().getHoldingSubLevel(restored.vehicle) != null
+                  && container.getHoldingChunkMap().getHoldingSubLevel(carriage[0]) != null,
+              "Native holding did not retain both the caught train and carriage");
+          ShuttleRuntime.tick(level, .05);
+          System.out.println(
+              "FD_SHUTTLE_CAUGHT observedPhase="
+                  + restored.phase
+                  + " fault="
+                  + restored.fault
+                  + " leadLoaded=false carriageLoaded=false"
+                  + " leadHeld=true carriageHeld=true restraints="
+                  + example.cars().stream().map(v -> v.restraints).toList());
+          helper.assertTrue(
+              restored.phase == ShuttleWinchEntity.Phase.BOARDING
+                  && restored.fault.isEmpty()
+                  && restored.carriage.equals(carriage[0])
+                  && restored.carriageDistance == station[0]
+                  && restored.cycles == cycles[0]
+                  && example.cars().stream().allMatch(v -> !v.restraints && v.fault.isEmpty())
+                  && example.cars().stream().map(v -> v.revision).toList().equals(revisions),
+              "Caught native restoration changed phase, faults, restraints, coordinate or"
+                  + " revisions");
+          try {
+            restored.start();
+            helper.fail("Missing caught train allowed dispatch");
+          } catch (IllegalArgumentException expected) {
+            helper.assertTrue(
+                expected.getMessage().equals("Shuttle lead car unavailable"),
+                "Unavailable dispatch failed for another reason: " + expected.getMessage());
+          }
+          helper.assertTrue(
+              restored.phase == ShuttleWinchEntity.Phase.BOARDING,
+              "Rejected caught-train dispatch advanced the phase");
+        });
+    helper.runAtTickTime(
+        220,
+        () -> {
+          helper.assertTrue(
+              winch[0].phase == ShuttleWinchEntity.Phase.BOARDING
+                  && winch[0].fault.isEmpty()
+                  && winch[0].carriage.equals(carriage[0])
+                  && container.getSubLevel(carriage[0]) != null
+                  && example.cars().stream()
+                      .allMatch(v -> Boarding.ready(level, v) && !v.restraints && v.fault.isEmpty())
+                  && CoasterCartTrainLinkConstraint.getTrainLinkedCartIds(
+                              container.getSubLevel(winch[0].vehicle))
+                          .size()
+                      == 4,
+              "Native restoration lost the physical boarding catch or ready consist");
+          var carriageBody = container.getSubLevel(carriage[0]);
+          var lead = container.getSubLevel(winch[0].vehicle);
+          helper.assertTrue(
+              carriageBody.logicalPose().position().distance(lead.logicalPose().position()) < 3.2,
+              "Restored physical carriage drifted away from its boarding train");
+          VehicleOperations.restraints(level, example.cars().getFirst(), true);
+          level.setBlockAndUpdate(
+              winch[0].routeStart, net.minecraft.world.level.block.Blocks.AIR.defaultBlockState());
+          try {
+            winch[0].start();
+            helper.fail("Deleted remote route anchor allowed caught-train dispatch");
+          } catch (IllegalArgumentException expected) {
+            helper.assertTrue(
+                winch[0].phase == ShuttleWinchEntity.Phase.BOARDING,
+                "Deleted-route dispatch partially advanced the caught train");
+          }
+          System.out.println(
+              "FD_SHUTTLE_CAUGHT restoredCars=4 restoredCarriers=8 links=4 sameCarriage=true"
+                  + " missingLeadDispatchRejected=true missingSupportDispatchRejected=true");
+        });
+    helper.runAtTickTime(
+        260,
+        () -> {
+          container.removeSubLevel(
+              container.getSubLevel(carriage[0]),
+              dev.ryanhcode.sable.sublevel.storage.SubLevelRemovalReason.REMOVED);
+          helper.assertTrue(
+              winch[0].phase == ShuttleWinchEntity.Phase.FAULT
+                  && example.cars().stream().allMatch(v -> v.restraints && !v.fault.isEmpty()),
+              "Permanent carriage destruction was treated as temporary native holding");
+          try {
+            winch[0].recover();
+            helper.fail("Missing physical carriage allowed recovery to advance");
+          } catch (IllegalArgumentException expected) {
+            helper.assertTrue(
+                expected
+                    .getMessage()
+                    .equals("Native lift carriage unavailable; recover the shuttle"),
+                "Deleted-carriage recovery failed for another reason: " + expected.getMessage());
+          }
+          helper.assertTrue(
+              winch[0].phase == ShuttleWinchEntity.Phase.FAULT
+                  && winch[0].carriage.equals(carriage[0])
+                  && container.getSubLevel(carriage[0]) == null,
+              "Rejected recovery silently replaced the destroyed carriage");
+          System.out.println(
+              "FD_SHUTTLE_CAUGHT permanentCarriageRemovalFaulted=true"
+                  + " destroyedCarriageRecoveryRejected=true replacementAllocated=false");
+          helper.succeed();
+        });
+  }
+
   @GameTest(template = "empty", timeoutTicks = 1800)
   public static void routeChunkStopsTickingWinchReloadAndPhysicalRecovery(GameTestHelper helper) {
     var level = helper.getLevel();

@@ -1,0 +1,35 @@
+FD_SHUTTLE_IDLE observedPhase=BOARDING fault= leadLoaded=false leadHeld=true restraints=[false, false, false, false]
+FD_SHUTTLE_IDLE gapPreserved=true missingLeadDispatchRejected=true lead=84d41119-93b7-4993-8717-14b4bc4dffcc
+FD_SHUTTLE phase=LIFTING distance=57.87979295672926 center=( 6.005E+2  1.811E+2  6.043E+2) max=62.67979295672933 fault=
+FD_SHUTTLE phase=LIFTING distance=49.87979295672915 center=( 6.005E+2  1.814E+2  5.963E+2) max=62.67979295672933 fault=
+FD_SHUTTLE_IDLE restoredCars=4 restoredCarriers=8 links=4 missingSupportDispatchRejected=true
+FD_SHUTTLE_CAUGHT observedPhase=FAULT fault=Shuttle lead car unavailable leadLoaded=false carriageLoaded=false leadHeld=true carriageHeld=true restraints=[true, true, true, true]
+[06:01:42] [Server thread/ERROR] [minecraft/LogTestReporter]: caughtwinchpreservesstatewhilenativetrainrestores failed at 10056098, -60, -11230156! Caught native restoration changed phase, faults, restraints, coordinate or revisions
+FD_SHUTTLE phase=FAULT distance=44.079792956729065 center=( 6.005E+2  1.825E+2  5.901E+2) max=62.67979295672933 fault=Winch power lost: retain the train; inspect and resume or recover
+FD_SHUTTLE phase=FAULT distance=44.079792956729065 center=( 6.005E+2  1.825E+2  5.901E+2) max=62.67979295672933 fault=Winch power lost: retain the train; inspect and resume or recover
+FD_SHUTTLE phase=LIFTING distance=43.47979295672906 center=( 6.005E+2  1.826E+2  5.899E+2) max=62.67979295672933 fault=
+FD_SHUTTLE phase=LIFTING distance=35.47979295672894 center=( 6.005E+2  1.852E+2  5.825E+2) max=62.67979295672933 fault=
+FD_SHUTTLE phase=LIFTING distance=27.47979295672883 center=( 6.005E+2  1.888E+2  5.754E+2) max=62.67979295672933 fault=
+FD_SHUTTLE phase=LIFTING distance=19.479792956728716 center=( 6.005E+2  1.930E+2  5.687E+2) max=62.67979295672933 fault=
+FD_SHUTTLE phase=LIFTING distance=11.479792956728684 center=( 6.005E+2  1.976E+2  5.622E+2) max=62.67979295672933 fault=
+FD_SHUTTLE phase=LIFTING distance=5.2302245531278 center=( 6.005E+2  2.016E+2  5.571E+2) max=62.67979295672933 fault=
+FD_SHUTTLE phase=LIFTING distance=3.002405502569156 center=( 6.005E+2  2.031E+2  5.551E+2) max=62.67979295672933 fault=
+FD_SHUTTLE phase=OUTBOUND distance=6.649999999999987 center=( 6.005E+2  1.966E+2  5.636E+2) max=62.67979295672933 fault=
+FD_SHUTTLE phase=OUTBOUND distance=10.65000000000002 center=( 6.005E+2  1.824E+2  5.906E+2) max=62.67979295672933 fault=
+FD_SHUTTLE phase=OUTBOUND distance=14.650000000000077 center=( 6.005E+2  1.811E+2  6.236E+2) max=77.39250332734493 fault=
+FD_SHUTTLE_CHUNK_RELOAD recovered=true carriage=bee1da05-cc5f-42a4-866c-5e70e5066c4c
+FD_SHUTTLE phase=OUTBOUND distance=18.650000000000134 center=( 6.005E+2  1.846E+2  6.463E+2) max=101.07692746494769 fault=
+FD_SHUTTLE phase=RETURNING distance=22.65000000000019 center=( 6.005E+2  1.838E+2  6.444E+2) max=103.60536811979514 fault=
+FD_SHUTTLE phase=CAPTURING distance=26.25000000000024 center=( 6.005E+2  1.811E+2  6.215E+2) max=103.60536811979514 fault=
+FD_SHUTTLE phase=CAPTURING distance=64.15507418490441 center=( 6.005E+2  1.811E+2  6.100E+2) max=103.60536811979514 fault=
+FD_SHUTTLE phase=CAPTURING distance=62.77022091438981 center=( 6.005E+2  1.811E+2  6.087E+2) max=103.60536811979514 fault=
+FD_SHUTTLE_BOARDING first=[ready=true speed=0.07344464195590943 carriers=[capture=true,angle=3.181789097408043E-4,omega=-0.003114491921381253, capture=true,angle=3.412707047577348E-4,omega=-0.0025858761731887576], ready=true speed=0.07133226514498346 carriers=[capture=true,angle=3.2146454480065645E-4,omega=-0.0029403032466494942, capture=true,angle=3.117899405227213E-4,omega=-0.0025055296631873764], ready=true speed=0.0702315546649793 carriers=[capture=true,angle=3.2358518210930234E-4,omega=-0.002364787223568662, capture=true,angle=3.039684719285225E-4,omega=-0.0014392250216076505], ready=true speed=0.07265218682283885 carriers=[capture=true,angle=3.266044786042834E-4,omega=-0.001875200743683438, capture=true,angle=3.1563547525556075E-4,omega=-0.0016874116465626736]]
+FD_SHUTTLE_BOARDING settledTicks=20 consecutiveReady=10 rejectedOpenings=1 disturbed=true final=[ready=true speed=0.022351167338052005 carriers=[capture=true,angle=2.5677025903390264E-4,omega=-0.0030218799588618414, capture=true,angle=2.4555119863981976E-4,omega=-0.0036998583185264217], ready=true speed=0.01818561239669215 carriers=[capture=true,angle=7.298549484108868E-5,omega=-1.6955257638157136E-4, capture=true,angle=6.80206864905598E-5,omega=-1.1381492245911517E-4], ready=true speed=0.018783058476799678 carriers=[capture=true,angle=6.513693320093173E-5,omega=-7.062560308089564E-5, capture=true,angle=6.431714467599512E-5,omega=3.8236601226488196E-5], ready=true speed=0.02010402203800782 carriers=[capture=true,angle=6.580017478766866E-5,omega=1.499824624448231E-4, capture=true,angle=6.622871343085083E-5,omega=-1.9660828495611946E-4]]
+FD_SHUTTLE_TALL cycles=2 maximum=142.9461079140006 station=82.92133833155415
+[06:02:43] [Server thread/INFO] [minecraft/GameTestServer]: ========= 30 GAME TESTS COMPLETE IN 1.229 min ======================
+[06:02:43] [Server thread/INFO] [minecraft/GameTestServer]: 1 required tests failed :(
+[06:02:44] [Server thread/INFO] [de.ry.sa.Sable/]: Saving sub-levels for level 'ServerLevel[Test Level]'/minecraft:overworld
+[06:02:44] [Server thread/INFO] [de.ry.sa.Sable/]: Saving sub-levels for level 'ServerLevel[Test Level]'/minecraft:the_end
+[06:02:44] [Server thread/INFO] [de.ry.sa.Sable/]: Saving sub-levels for level 'ServerLevel[Test Level]'/minecraft:the_nether
+[06:02:44] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage: All dimensions are saved
+BUILD FAILED in 1m 29s

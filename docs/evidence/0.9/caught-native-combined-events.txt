@@ -1,0 +1,33 @@
+FD_SHUTTLE phase=LIFTING distance=61.679792956729315 center=( 6.005E+2  1.811E+2  6.080E+2) max=62.67979295672933 fault=
+FD_SHUTTLE_IDLE observedPhase=BOARDING fault= leadLoaded=false leadHeld=true restraints=[false, false, false, false]
+FD_SHUTTLE_IDLE gapPreserved=true missingLeadDispatchRejected=true lead=d286e01d-85f7-4499-89c8-e924fb0b172a
+FD_SHUTTLE phase=LIFTING distance=53.4797929567292 center=( 6.005E+2  1.811E+2  5.998E+2) max=62.67979295672933 fault=
+FD_SHUTTLE_IDLE restoredCars=4 restoredCarriers=8 links=4 missingSupportDispatchRejected=true
+FD_SHUTTLE_CAUGHT observedPhase=BOARDING fault= leadLoaded=false carriageLoaded=false leadHeld=true carriageHeld=true restraints=[false, false, false, false]
+FD_SHUTTLE phase=LIFTING distance=45.07979295672908 center=( 6.005E+2  1.822E+2  5.916E+2) max=62.67979295672933 fault=
+FD_SHUTTLE phase=FAULT distance=44.079792956729065 center=( 6.005E+2  1.825E+2  5.901E+2) max=62.67979295672933 fault=Winch power lost: retain the train; inspect and resume or recover
+FD_SHUTTLE_CAUGHT restoredCars=4 restoredCarriers=8 links=4 sameCarriage=true missingLeadDispatchRejected=true missingSupportDispatchRejected=true
+FD_SHUTTLE phase=FAULT distance=44.079792956729065 center=( 6.005E+2  1.825E+2  5.901E+2) max=62.67979295672933 fault=Winch power lost: retain the train; inspect and resume or recover
+FD_SHUTTLE_CAUGHT permanentCarriageRemovalFaulted=true destroyedCarriageRecoveryRejected=true replacementAllocated=false
+FD_SHUTTLE phase=LIFTING distance=39.079792956728994 center=( 6.005E+2  1.839E+2  5.858E+2) max=62.67979295672933 fault=
+FD_SHUTTLE phase=LIFTING distance=31.07979295672888 center=( 6.005E+2  1.871E+2  5.786E+2) max=62.67979295672933 fault=
+FD_SHUTTLE phase=LIFTING distance=23.079792956728767 center=( 6.005E+2  1.910E+2  5.717E+2) max=62.67979295672933 fault=
+FD_SHUTTLE phase=LIFTING distance=15.07979295672867 center=( 6.005E+2  1.955E+2  5.651E+2) max=62.67979295672933 fault=
+FD_SHUTTLE phase=LIFTING distance=7.549434401599762 center=( 6.005E+2  2.001E+2  5.590E+2) max=62.67979295672933 fault=
+FD_SHUTTLE phase=LIFTING distance=3.5026693118357843 center=( 6.005E+2  2.027E+2  5.556E+2) max=62.67979295672933 fault=
+FD_SHUTTLE phase=OUTBOUND distance=4.849999999999993 center=( 6.005E+2  2.014E+2  5.574E+2) max=62.67979295672933 fault=
+FD_SHUTTLE phase=OUTBOUND distance=8.849999999999994 center=( 6.005E+2  1.882E+2  5.764E+2) max=62.67979295672933 fault=
+FD_SHUTTLE phase=OUTBOUND distance=12.850000000000051 center=( 6.005E+2  1.811E+2  6.091E+2) max=62.91325289610139 fault=
+FD_SHUTTLE phase=OUTBOUND distance=16.850000000000108 center=( 6.005E+2  1.819E+2  6.389E+2) max=92.96450893259998 fault=
+FD_SHUTTLE_CHUNK_RELOAD recovered=true carriage=cc7f6212-abf1-4aff-bfe4-22d7a9ef0d2c
+FD_SHUTTLE phase=RETURNING distance=20.850000000000165 center=( 6.005E+2  1.856E+2  6.482E+2) max=103.57969186243419 fault=
+FD_SHUTTLE phase=RETURNING distance=24.85000000000022 center=( 6.005E+2  1.811E+2  6.334E+2) max=103.57969186243419 fault=
+FD_SHUTTLE phase=CAPTURING distance=26.350000000000243 center=( 6.005E+2  1.811E+2  6.117E+2) max=103.57969186243419 fault=
+FD_SHUTTLE phase=CAPTURING distance=63.179734757596044 center=( 6.005E+2  1.811E+2  6.091E+2) max=103.57969186243419 fault=
+FD_SHUTTLE_BOARDING first=[ready=true speed=0.0726580803010909 carriers=[capture=true,angle=3.1868400954255003E-4,omega=-0.0033628239877548944, capture=true,angle=3.3224377554280887E-4,omega=-0.003057778538985504], ready=true speed=0.06443181266512303 carriers=[capture=true,angle=2.6543195299835905E-4,omega=-0.0016563280388215177, capture=true,angle=2.4299461502320599E-4,omega=-0.0018817154356577394], ready=true speed=0.07049250769423651 carriers=[capture=true,angle=3.475841630451156E-4,omega=-0.002181015515125876, capture=true,angle=3.306001831875649E-4,omega=-0.001992729917839369], ready=true speed=0.0716004527706709 carriers=[capture=true,angle=3.345510168777813E-4,omega=-0.0020123720293581484, capture=true,angle=3.373842131518034E-4,omega=-0.0020747552836309535]]
+FD_SHUTTLE phase=BOARDING distance=62.67979295672933 center=( 6.005E+2  1.811E+2  6.085E+2) max=103.57969186243419 fault=
+FD_SHUTTLE_BOARDING settledTicks=20 consecutiveReady=10 rejectedOpenings=1 disturbed=true final=[ready=true speed=0.022500409883206035 carriers=[capture=true,angle=7.682063884411357E-5,omega=-4.6202784279190387E-4, capture=true,angle=8.940759587494061E-5,omega=-7.950907555319903E-4], ready=true speed=0.019423794765572135 carriers=[capture=true,angle=7.291723906140336E-5,omega=-4.1851224438742144E-4, capture=true,angle=7.410775469700248E-5,omega=-6.444000345434258E-4], ready=true speed=0.019282915567215723 carriers=[capture=true,angle=7.801776210386181E-5,omega=-4.1742730809241844E-4, capture=true,angle=8.200644867802476E-5,omega=-4.3277784353481797E-4], ready=true speed=0.019036029730912504 carriers=[capture=true,angle=8.313947418933043E-5,omega=-4.28873186072759E-4, capture=true,angle=8.889466345023731E-5,omega=-4.563283673500938E-4]]
+FD_SHUTTLE_TALL cycles=2 maximum=142.93815255114214 station=82.92133833155415
+[06:06:52] [Server thread/INFO] [minecraft/GameTestServer]: ========= 30 GAME TESTS COMPLETE IN 1.194 min ======================
+[06:06:52] [Server thread/INFO] [minecraft/GameTestServer]: All 30 required tests passed :)
+BUILD SUCCESSFUL in 1m 25s

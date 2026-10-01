@@ -168,6 +168,8 @@ public final class ShuttleWinchEntity extends KineticBlockEntity {
     var v = data.vehicles.get(vehicle);
     if (v == null || container.getSubLevel(vehicle) == null)
       throw new IllegalArgumentException("Shuttle lead car unavailable");
+    if (carriage != null && container.getSubLevel(carriage) == null)
+      throw new IllegalArgumentException("Native lift carriage unavailable; recover the shuttle");
     var actual =
         VehicleOperations.consist(server, v).stream()
             .map(c -> c.chassis)

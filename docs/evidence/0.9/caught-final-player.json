@@ -1,0 +1,139 @@
+{
+  "Brain": {
+    "memories": {}
+  },
+  "HurtByTimestamp": 0,
+  "SleepTimer": 0,
+  "Invulnerable": 0,
+  "FallFlying": 0,
+  "PortalCooldown": 0,
+  "AbsorptionAmount": 0.0,
+  "abilities": {
+    "invulnerable": 1,
+    "mayfly": 1,
+    "instabuild": 1,
+    "walkSpeed": 0.10000000149011612,
+    "mayBuild": 1,
+    "flying": 0,
+    "flySpeed": 0.05000000074505806
+  },
+  "FallDistance": 0.0,
+  "recipeBook": {
+    "recipes": [
+      "minecraft:purple_dye",
+      "minecraft:orange_dye_from_red_yellow",
+      "minecraft:pink_dye_from_red_white_dye",
+      "minecraft:crafting_table",
+      "minecraft:magenta_dye_from_blue_red_pink",
+      "minecraft:red_stained_glass_pane_from_glass_pane",
+      "minecraft:dye_red_carpet",
+      "minecraft:dye_red_wool",
+      "fourthdimension:arrow_track",
+      "minecraft:red_candle",
+      "minecraft:magenta_dye_from_blue_red_white_dye",
+      "minecraft:dye_red_bed"
+    ],
+    "isBlastingFurnaceFilteringCraftable": 0,
+    "isSmokerGuiOpen": 0,
+    "isFilteringCraftable": 0,
+    "toBeDisplayed": [
+      "minecraft:purple_dye",
+      "minecraft:orange_dye_from_red_yellow",
+      "minecraft:pink_dye_from_red_white_dye",
+      "minecraft:crafting_table",
+      "minecraft:magenta_dye_from_blue_red_pink",
+      "minecraft:red_stained_glass_pane_from_glass_pane",
+      "minecraft:dye_red_carpet",
+      "minecraft:dye_red_wool",
+      "fourthdimension:arrow_track",
+      "minecraft:red_candle",
+      "minecraft:magenta_dye_from_blue_red_white_dye",
+      "minecraft:dye_red_bed"
+    ],
+    "isFurnaceGuiOpen": 0,
+    "isGuiOpen": 0,
+    "isFurnaceFilteringCraftable": 0,
+    "isBlastingFurnaceGuiOpen": 0,
+    "isSmokerFilteringCraftable": 0
+  },
+  "DeathTime": 0,
+  "XpSeed": 1977642121,
+  "XpTotal": 0,
+  "UUID": [
+    940439953,
+    -167562164,
+    -1601161573,
+    -1389718966
+  ],
+  "playerGameType": 1,
+  "NeoForgeData": {},
+  "seenCredits": 0,
+  "Motion": [
+    0.0,
+    -0.0784000015258789,
+    0.0
+  ],
+  "Health": 20.0,
+  "foodSaturationLevel": 20.0,
+  "ignore_fall_damage_from_current_explosion": 0,
+  "Air": 300,
+  "OnGround": 1,
+  "Dimension": "minecraft:overworld",
+  "Rotation": [
+    -90.0,
+    -15.0
+  ],
+  "XpLevel": 0,
+  "current_impulse_context_reset_grace_time": 0,
+  "warden_spawn_tracker": {
+    "warning_level": 0,
+    "ticks_since_last_warning": 5290,
+    "cooldown_ticks": 0
+  },
+  "Score": 0,
+  "Pos": [
+    93.5,
+    85.0,
+    -26.5
+  ],
+  "Fire": -20,
+  "XpP": 0.0,
+  "EnderItems": [],
+  "attributes": [
+    {
+      "id": "minecraft:player.entity_interaction_range",
+      "base": 3.0
+    },
+    {
+      "id": "minecraft:generic.oxygen_bonus",
+      "base": 0.0
+    },
+    {
+      "id": "minecraft:generic.movement_speed",
+      "base": 0.10000000149011612
+    },
+    {
+      "id": "minecraft:player.block_interaction_range",
+      "base": 4.5
+    }
+  ],
+  "DataVersion": 3955,
+  "foodLevel": 20,
+  "foodExhaustionLevel": 0.0,
+  "spawn_extra_particles_on_fall": 0,
+  "HurtTime": 0,
+  "SelectedItemSlot": 1,
+  "Inventory": [
+    {
+      "count": 1,
+      "Slot": 0,
+      "id": "minecraft:red_dye"
+    },
+    {
+      "count": 1,
+      "Slot": 1,
+      "id": "fourthdimension:rotation_tool"
+    }
+  ],
+  "foodTickTimer": 0
+}
