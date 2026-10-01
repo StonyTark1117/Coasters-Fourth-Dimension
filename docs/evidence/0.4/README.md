@@ -2,6 +2,15 @@
 
 This is partial FD401 evidence, not the 0.4 or 0.9 release gate.
 
+## Powered train and control-stroke checkpoint
+
+The dev.4 [powered-train acceptance](powered-train-acceptance.md) extends the
+operating evidence with a loaded coupled Arrow full turn and powered rollback,
+and a reproducible default-model stroke audit. A known upper-stroke tie conflict
+now has selection rejection and Original fallback while profile/intent persist.
+The dev.3 evidence below remains a separate historical artifact and test count.
+Neither checkpoint closes FD401.
+
 ## Operating integration checkpoint
 
 The newer dev.3 [operating acceptance](operating-acceptance.md) records real

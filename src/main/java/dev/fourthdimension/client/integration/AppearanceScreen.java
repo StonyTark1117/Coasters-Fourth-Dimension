@@ -54,15 +54,20 @@ public final class AppearanceScreen extends Screen {
       return;
     }
     revision = rail.revision;
+    savedStatus = "";
     choices = new ArrayList<>();
     choices.add(TrackAppearance.ORIGINAL);
     for (String id : TrackAppearance.CANDIDATES)
       if (new TrackAppearance(id, -1).supports(rail.family)
+          && new TrackAppearance(id, -1).supportsProfile(rail.profile)
           && TrackStylesCatalog.snapshot().containsKey(new TrackAppearance(id, -1).style()))
         choices.add(id);
     if (!choices.contains(rail.appearance.id())) {
       choices.add(rail.appearance.id());
-      savedStatus = "Saved style unavailable; original geometry is shown";
+      savedStatus =
+          rail.appearance.supportsProfile(rail.profile)
+              ? "Saved style unavailable; original geometry is shown"
+              : "Profile exceeds +720 degrees; Original is shown";
     }
     choice = choices.indexOf(rail.appearance.id());
     int left = width / 2 - 150, top = height / 2 - 70;

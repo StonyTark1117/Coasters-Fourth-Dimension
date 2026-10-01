@@ -8,6 +8,32 @@ import org.junit.jupiter.api.Test;
 
 class TrackAppearanceTest {
   @Test
+  void decorativeStrokeFallbackDoesNotClampOrEraseFullTurns() {
+    for (var id : TrackAppearance.CANDIDATES) {
+      var appearance = new TrackAppearance(id, 0x123456);
+      for (double peak : new double[] {-8 * Math.PI, 0, 2 * Math.PI, 4 * Math.PI}) {
+        var profile = profile(peak);
+        assertTrue(appearance.supportsProfile(profile));
+      }
+      for (double peak : new double[] {Math.nextUp(4 * Math.PI), 6 * Math.PI, 8 * Math.PI}) {
+        var profile = profile(peak);
+        assertFalse(appearance.supportsProfile(profile));
+        assertEquals(peak, profile.angleAt(16));
+        assertTrue(TrackAppearance.DEFAULT.supportsProfile(profile));
+        assertEquals(appearance, TrackAppearance.parse(id + ";#123456"));
+      }
+    }
+  }
+
+  private static dev.fourthdimension.physics.RotationProfile profile(double peak) {
+    return new dev.fourthdimension.physics.RotationProfile(
+        List.of(
+            new dev.fourthdimension.physics.RotationProfile.Key(0, 0),
+            new dev.fourthdimension.physics.RotationProfile.Key(16, peak),
+            new dev.fourthdimension.physics.RotationProfile.Key(32, 0)));
+  }
+
+  @Test
   void arrowDecorationDoesNotClaimOtherFamilyGeometry() {
     for (var family : dev.fourthdimension.contract.Family.values()) {
       assertTrue(TrackAppearance.DEFAULT.supports(family));

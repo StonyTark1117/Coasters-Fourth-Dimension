@@ -26,6 +26,13 @@ public record TrackAppearance(String id, int tint) {
         || (CANDIDATES.contains(id) && family == dev.fourthdimension.contract.Family.ARROW);
   }
 
+  /** Pinned ties intrude into the upper control-rail stroke; never clamp a ride profile. */
+  public boolean supportsProfile(dev.fourthdimension.physics.RotationProfile profile) {
+    return original()
+        || (CANDIDATES.contains(id)
+            && profile.keys().stream().allMatch(key -> key.angle() <= 4 * Math.PI));
+  }
+
   public String style() {
     return id.substring(id.indexOf(':') + 1);
   }

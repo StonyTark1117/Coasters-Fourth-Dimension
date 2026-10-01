@@ -101,6 +101,41 @@ public final class AppearanceGameTests {
           EditorNetwork.apply(player, edit);
           helper.assertTrue(
               candidate.appearance.id().equals(id), "Installed Arrow style not selected");
+          var selected = candidate.appearance;
+          EditorNetwork.apply(
+              player,
+              new EditorNetwork.Edit(candidate.id, candidate.revision, 0, "0:0;16:1080;32:0"));
+          long highRevision = candidate.revision;
+          helper.assertTrue(
+              !selected.supportsProfile(candidate.profile)
+                  && candidate.appearance.equals(selected)
+                  && Math.abs(candidate.profile.angleAt(16) - 6 * Math.PI) < 1e-9,
+              "High-stroke profile was clamped or lost appearance intent");
+          EditorGameTests.rejects(
+              helper,
+              () ->
+                  EditorNetwork.apply(
+                      player, new EditorNetwork.Edit(candidate.id, highRevision, 5, id + ";")),
+              "Style selection accepted a conflicting control-rail stroke");
+          helper.assertTrue(
+              candidate.revision == highRevision, "Rejected stroke edit mutated revision");
+          var strokeSnapshot = new FoundationData();
+          strokeSnapshot.rails.add(candidate);
+          var strokeReload =
+              FoundationData.load(
+                      strokeSnapshot.save(new CompoundTag(), level.registryAccess()),
+                      level.registryAccess())
+                  .rails
+                  .getFirst();
+          helper.assertTrue(
+              strokeReload.appearance.equals(selected)
+                  && strokeReload.profile.keys().equals(candidate.profile.keys())
+                  && !strokeReload.appearance.supportsProfile(strokeReload.profile),
+              "High-stroke fallback did not retain saved profile/intent");
+          ProfileEditor.apply(player, candidate.id, candidate.revision, profile, false);
+          helper.assertTrue(
+              selected.supportsProfile(candidate.profile),
+              "Lower stroke did not restore style eligibility");
         } else {
           EditorGameTests.rejects(
               helper, () -> EditorNetwork.apply(player, edit), "Unverified style/family accepted");
@@ -152,7 +187,10 @@ public final class AppearanceGameTests {
         "Provider removal erased cosmetic intent or mechanics");
     System.out.println(
         "FD_APPEARANCE schema=5 oldSchemas=1..4 missingIntentPreserved=true"
-            + " mechanicsUnchanged=true styleFamilyCases=10");
+            + " mechanicsUnchanged=true styleFamilyCases=10 strokeCases="
+            + (OptionalIntegrations.installed(OptionalIntegrations.TRACK_STYLES).mayInspect()
+                ? 2
+                : 0));
     data.rails.remove(rail);
     for (var p : List.of(from, to)) level.removeBlock(p, false);
     helper.succeed();

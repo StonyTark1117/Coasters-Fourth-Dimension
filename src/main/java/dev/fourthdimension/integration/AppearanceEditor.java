@@ -15,6 +15,10 @@ public final class AppearanceEditor {
     var rail = ProfileEditor.requireEditable(player, id, revision);
     if (!appearance.supports(rail.family))
       throw new IllegalArgumentException("This decorative style fits controlled Arrow track only");
+    if (!appearance.supportsProfile(rail.profile))
+      throw new IllegalArgumentException(
+          "Arrow decorative ties need angles at or below +720 degrees; use Original for this"
+              + " profile");
     if (!appearance.original()
         && (!TrackAppearance.CANDIDATES.contains(appearance.id())
             || !OptionalIntegrations.installed(OptionalIntegrations.TRACK_STYLES).mayInspect()))

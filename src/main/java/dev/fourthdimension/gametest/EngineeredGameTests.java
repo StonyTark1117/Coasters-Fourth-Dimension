@@ -354,6 +354,244 @@ public final class EngineeredGameTests {
         });
   }
 
+  @GameTest(template = "empty", timeoutTicks = 1000)
+  public static void installedMotorDrivesLinkedControlledTurnsAndRollback(GameTestHelper helper) {
+    if (!OptionalIntegrations.installed(OptionalIntegrations.ENGINEERED).mayInspect()) {
+      System.out.println("FD_ENGINEERED controlled train: absent/uninspected, not exercised");
+      helper.succeed();
+      return;
+    }
+    var level = helper.getLevel();
+    for (int x = -24; x <= -21; x++)
+      for (int z = -51; z <= -46; z++) level.setChunkForced(x, z, true);
+    var player =
+        FakePlayerFactory.get(
+            level,
+            new com.mojang.authlib.GameProfile(
+                UUID.fromString("fdfdfdfd-0000-0000-0000-000000000413"), "FDEngineeredTrain"));
+    player.setGameMode(GameType.CREATIVE);
+    player.setItemInHand(InteractionHand.MAIN_HAND, TrackItems.ARROW.get().getDefaultInstance());
+    var from = new BlockPos(-360, 120, -800);
+    var to = from.offset(0, 0, 48);
+    for (var pos : List.of(from, to))
+      level.setBlockAndUpdate(
+          pos, SimulatedCoastersBlocks.COASTER_ANCHORPOINT.get().defaultBlockState());
+    player.setPos(to.getX() + 2, to.getY() + 1, to.getZ());
+    var rail =
+        TrackPlacement.connect(
+            level, from, to, TrackDesign.ARROW, player, player.getMainHandItem());
+    rail.profile =
+        new dev.fourthdimension.physics.RotationProfile(
+            List.of(
+                new dev.fourthdimension.physics.RotationProfile.Key(0, 0),
+                new dev.fourthdimension.physics.RotationProfile.Key(20, 0),
+                new dev.fourthdimension.physics.RotationProfile.Key(26, 2 * Math.PI),
+                new dev.fourthdimension.physics.RotationProfile.Key(36, 2 * Math.PI),
+                new dev.fourthdimension.physics.RotationProfile.Key(44, 0),
+                new dev.fourthdimension.physics.RotationProfile.Key(48, 0)));
+    var originalProfile = rail.profile;
+    var controllerPos = from.offset(-6, 0, 0);
+    level.setBlockAndUpdate(
+        controllerPos,
+        BuiltInRegistries.BLOCK
+            .get(ResourceLocation.parse("coastersengineered:linear_motor_controller"))
+            .defaultBlockState());
+    var container = SubLevelContainer.getContainer(level);
+    var cars = new ArrayList<FoundationData.Vehicle>();
+    var riders = new ArrayList<net.minecraft.world.entity.animal.Pig>();
+    Object[] controller = {null};
+    int[] phase = {0}, ticks = {0}, phaseStart = {0};
+    double[] maxAngle = new double[2],
+        rollbackMin = {Double.POSITIVE_INFINITY, Double.POSITIVE_INFINITY};
+    double[] maxAxleDifference = {0}, maxSpacingError = {0};
+    helper.runAtTickTime(
+        15,
+        () -> {
+          controller[0] = configureMotor(helper, rail, controllerPos, 8, "FORWARD");
+          var edge = TrackGeometry.resolve(level, rail);
+          for (double distance : new double[] {20, 14}) {
+            double t = edge.from().equals(from) ? distance / 48 : 1 - distance / 48;
+            cars.add(
+                VehicleFactory.create(
+                    level,
+                    TrackDesign.ARROW,
+                    new CoasterPathTrackFrame.GraphHit(
+                        CoasterPathGraphManager.sampleEdgePosition(level, edge, t), edge, t)));
+          }
+        });
+    helper.runAtTickTime(
+        80,
+        () -> {
+          for (var car : cars)
+            helper.assertTrue(Boarding.ready(level, car), "Powered train not ready to board");
+          helper.assertTrue(
+              CoasterCartTrainLinkConstraint.linkCarts(
+                  level,
+                  (ServerSubLevel) container.getSubLevel(cars.getFirst().chassis),
+                  (ServerSubLevel) container.getSubLevel(cars.getLast().chassis),
+                  6),
+              "Powered train native coupling rejected");
+          for (var car : cars) {
+            var carrier = car.carriers.getFirst();
+            var body = container.getSubLevel(carrier.body);
+            var position = container.getSubLevel(car.chassis).logicalPose().position();
+            var pig = net.minecraft.world.entity.EntityType.PIG.create(level);
+            pig.setNoAi(true);
+            pig.setPos(position.x(), position.y(), position.z());
+            level.addFreshEntity(pig);
+            SeatBlock.sitDown(
+                level, body.getPlot().getCenterBlock().offset(carrier.seats.getFirst()), pig);
+            helper.assertTrue(pig.isPassenger(), "Powered train boarding failed");
+            riders.add(pig);
+          }
+          VehicleOperations.restraints(level, cars.getFirst(), true);
+          VehicleOperations.dispatch(level, cars.getFirst());
+          phase[0] = 1;
+          phaseStart[0] = ticks[0];
+        });
+    helper.onEachTick(
+        () -> {
+          ticks[0]++;
+          if (phase[0] == 0 || phase[0] == 6) return;
+          var a = (ServerSubLevel) container.getSubLevel(cars.getFirst().chassis);
+          var b = (ServerSubLevel) container.getSubLevel(cars.getLast().chassis);
+          helper.assertTrue(
+              CoasterCartTrainLinkConstraint.areLinkedCarts(a, b),
+              "Motor-driven native coupling broke");
+          double front = a.logicalPose().position().z() - from.getZ() - .5;
+          double rear = b.logicalPose().position().z() - from.getZ() - .5;
+          maxSpacingError[0] = Math.max(maxSpacingError[0], Math.abs(front - rear - 6));
+          double difference =
+              Math.abs(
+                  cars.getFirst().carriers.getFirst().angle
+                      - cars.getLast().carriers.getFirst().angle);
+          maxAxleDifference[0] = Math.max(maxAxleDifference[0], difference);
+          double speed =
+              Math.max(
+                  container
+                      .physicsSystem()
+                      .getPipeline()
+                      .getLinearVelocity(a, new Vector3d())
+                      .length(),
+                  container
+                      .physicsSystem()
+                      .getPipeline()
+                      .getLinearVelocity(b, new Vector3d())
+                      .length());
+          helper.assertTrue(
+              rail.profile == originalProfile, "Motor controller changed the rotation profile");
+          for (int i = 0; i < cars.size(); i++) {
+            var car = cars.get(i);
+            helper.assertTrue(
+                car.restraints, "Powered train opened restraints before normal unloading");
+            helper.assertTrue(
+                car.family == Family.ARROW
+                    && rail.matches(car.boundFrom, car.boundTo)
+                    && car.fault.isEmpty(),
+                "Powered train lost its matching functional binding: " + car.fault);
+            helper.assertTrue(riders.get(i).isPassenger(), "Powered train lost passenger");
+            for (var carrier : car.carriers) {
+              maxAngle[i] = Math.max(maxAngle[i], carrier.angle);
+              if (phase[0] >= 3) rollbackMin[i] = Math.min(rollbackMin[i], carrier.angle);
+            }
+          }
+          int elapsed = ticks[0] - phaseStart[0];
+          if (phase[0] == 1 && front >= 32) {
+            setMode(controller[0], "STOP", 0);
+            phase[0] = 2;
+            phaseStart[0] = ticks[0];
+            System.out.println(
+                "FD_ENGINEERED_TRAIN forwardStop front="
+                    + front
+                    + " rear="
+                    + rear
+                    + " speed="
+                    + speed);
+          } else if (phase[0] == 2 && elapsed >= 120) {
+            helper.assertTrue(
+                speed < .1 && rear > 26 && front < 36,
+                "Native motor STOP missed the full-turn plateau");
+            for (var car : cars)
+              for (var carrier : car.carriers)
+                helper.assertTrue(
+                    !carrier.capture && Math.abs(carrier.angle - 2 * Math.PI) < .08,
+                    "Native motor did not complete/hold the unwrapped full turn");
+            helper.assertTrue(
+                maxAngle[0] > 6.2 && maxAngle[1] > 6.2 && maxAxleDifference[0] > 1,
+                "Motor-driven train skipped turns or used a shared axle target");
+            for (var car : cars) assertMass(helper, car);
+            setMode(controller[0], "LAUNCH", "BACKWARD", 8);
+            phase[0] = 3;
+            phaseStart[0] = ticks[0];
+          } else if (phase[0] == 3 && front <= 18) {
+            setMode(controller[0], "STOP", 0);
+            phase[0] = 4;
+            phaseStart[0] = ticks[0];
+            System.out.println(
+                "FD_ENGINEERED_TRAIN rollbackStop front="
+                    + front
+                    + " rear="
+                    + rear
+                    + " speed="
+                    + speed);
+          } else if (phase[0] == 4 && elapsed >= 120) {
+            helper.assertTrue(
+                speed < .1 && rear > 8 && front < 20,
+                "Native reverse STOP missed the original zero-angle plateau");
+            for (var car : cars)
+              for (var carrier : car.carriers)
+                helper.assertTrue(
+                    !carrier.capture
+                        && Math.abs(carrier.angle) < .08
+                        && Math.abs(carrier.omega) < .08,
+                    "Native rollback failed to retrace the angle program");
+            helper.assertTrue(
+                rollbackMin[0] < .08 && rollbackMin[1] < .08,
+                "Rollback lost original full-turn index");
+            VehicleOperations.capture(level, cars.getFirst());
+            phase[0] = 5;
+            phaseStart[0] = ticks[0];
+          } else if (phase[0] == 5 && elapsed >= 100) {
+            for (var car : cars)
+              helper.assertTrue(
+                  Boarding.ready(level, car), "Powered rollback train failed normal recapture");
+            VehicleOperations.restraints(level, cars.getFirst(), false);
+            for (var pig : riders) {
+              pig.stopRiding();
+              helper.assertTrue(!pig.isPassenger(), "Powered train could not unload");
+              pig.discard();
+            }
+            helper.assertTrue(
+                maxSpacingError[0] < .25, "Motor forces overstretched native coupler");
+            CoasterCartTrainLinkConstraint.clearAllLinks(level, a);
+            for (var car : cars) {
+              for (var carrier : car.carriers)
+                container.removeSubLevel(
+                    container.getSubLevel(carrier.body), SubLevelRemovalReason.REMOVED);
+              container.removeSubLevel(
+                  container.getSubLevel(car.chassis), SubLevelRemovalReason.REMOVED);
+              FoundationData.get(level).vehicles.remove(car.chassis);
+            }
+            ((CoasterAnchorpointBlockEntity) level.getBlockEntity(from))
+                .removeAnchorPeerCurve(level, to);
+            FoundationData.get(level).rails.remove(rail);
+            for (var pos : List.of(from, to, controllerPos)) level.removeBlock(pos, false);
+            phase[0] = 6;
+            System.out.println(
+                "FD_ENGINEERED_TRAIN fullTurns="
+                    + Arrays.toString(maxAngle)
+                    + " rollback="
+                    + Arrays.toString(rollbackMin)
+                    + " perAxleDifference="
+                    + maxAxleDifference[0]
+                    + " spacingError="
+                    + maxSpacingError[0]
+                    + " unloaded=true");
+            helper.succeed();
+          }
+        });
+  }
+
   public static Runnable addOpposingShuttleMotors(GameTestHelper helper, ShuttleWinchEntity winch) {
     if (!OptionalIntegrations.installed(OptionalIntegrations.ENGINEERED).mayInspect())
       return () -> {};
@@ -412,11 +650,15 @@ public final class EngineeredGameTests {
   }
 
   private static void setMode(Object controller, String kind, int value) {
+    setMode(controller, kind, "FORWARD", value);
+  }
+
+  private static void setMode(Object controller, String kind, String heading, int value) {
     var step =
         construct(
             "controller.MotorStep",
             enumeration("controller.MotorStep$Kind", kind),
-            enumeration("controller.MotorStep$Heading", "FORWARD"),
+            enumeration("controller.MotorStep$Heading", heading),
             value);
     invoke(controller, "setSteps", List.of(step));
   }

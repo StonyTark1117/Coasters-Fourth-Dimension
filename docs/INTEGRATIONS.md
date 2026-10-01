@@ -74,7 +74,7 @@ The audit retains both observations in `research/dependency-audit.json`.
 
 Complete style geometry and clearance checks and record supported styles/render
 modes and styled ride behavior. Resource reload and a real removal/reinstallation
-cycle now pass for one single-spine controlled Arrow section. Engineered operating spans now have the bounded native results below. Complete powered controlled-profile rides, FE-enabled operation, real-player operator actions and boarding-signal wiring still need evidence. Publish supported
+cycle now pass for one single-spine controlled Arrow section. Engineered operating spans now have the bounded native results below. A native coupled Arrow full-turn/STOP/powered-rollback fixture now passes. Complete styled GUI rides, FE-enabled operation, real-player operator actions and boarding-signal wiring still need evidence. Publish supported
 combinations only after the runtime matrix; inspection profiles alone are not
 advertised gameplay support.
 
@@ -132,9 +132,36 @@ Existing sixteen-rider and repeated tall PAX cycle fixtures now contain opposing
 motor spans and direct installed-motor call probes through powered lift, release,
 gravity return and recapture. These tests use real native passengers and physics,
 with default FE requirements disabled. They do not certify every controller
-sequence, resource configuration, complete powered rotation-profile ride,
+sequence, resource configuration, every powered layout or GUI ride,
 redstone operator workflow, unload/reload of motor spans or rendering mode.
 
 CI exercises standalone, Styles-only, Engineered-only and combined profiles.
-Without Engineered, its two dedicated operating tests explicitly report that they
+Without Engineered, its three dedicated operating tests explicitly report that they
 were not exercised; passing availability checks are not motor-operation evidence.
+
+## Decorative stroke limit and powered controlled-train checkpoint
+
+The pinned default Arrow ties clear our local straight control cylinders by at
+least 0.0725 blocks throughout -1440°..+720°. Their upper outer tips intersect
+those cylinders within +1080°..+1440°. The reproducible continuous-stroke triangle
+projection audit and exact artifact hash are in
+`research/track-styles-1.2.0-control-stroke.json`; run
+`python scripts/audit-arrow-style-stroke.py <installed-jar>`. It prints aggregate
+measurements and never extracts or copies models. This establishes the local
+straight stroke boundary, not curved/banked, rider or resource-pack clearance.
+
+Both decorative choices therefore require profile keys at or below +720°.
+Original geometry continues to support the full -1440°..+1440° contract. A profile
+edit can exceed the decorative limit without clamping angles or deleting saved
+appearance intent; the renderer uses Original until the stroke is supported
+again. The appearance editor reports this fallback. The server rejects a new
+external selection at an unsupported stroke. Monotone profile interpolation
+keeps the complete section within its key extrema.
+
+The newer [powered-train evidence](evidence/0.4/powered-train-acceptance.md)
+records two loaded six-block-coupled Arrow cars driven solely by installed
+Engineered motors through full unwrapped turns at their own axles. Actual STOP
+holds the full-turn plateau, reverse LAUNCH retraces the program, and normal
+capture/restraint release unloads both native passengers. It adds real native
+coupled/non-flat operating coverage to the earlier flat single-car fixture;
+it does not establish an external functional track provider or styled GUI ride.

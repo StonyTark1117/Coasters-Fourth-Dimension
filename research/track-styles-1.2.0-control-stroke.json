@@ -1,0 +1,122 @@
+{
+  "sha256": "42535a83307f6898b33c13ca201533bb9e337418fd7c73039c867fc80bfbcb38",
+  "space": "default OBJ local X/Y, tie origin X=0.5",
+  "controlRailHalfGauge": 1.35,
+  "controlRailRadius": 0.09,
+  "method": "continuous stroke segment against projected face triangles",
+  "scope": "straight local cylinder; excludes curves, banking, riders and resource overrides",
+  "models": [
+    {
+      "resource": "assets/coasterssimulatedextratypes/models/block/track/arrow_4d/arrow_4d_center_beam.obj",
+      "projectedTriangles": 204,
+      "acceptedStroke": {
+        "turnInterval": [
+          -4,
+          2
+        ],
+        "controlHeightInterval": [
+          -1.35,
+          -0.6
+        ],
+        "minimumCenterDistance": 1.0600037500000001,
+        "minimumSurfaceClearance": 0.9700037500000002
+      },
+      "knownConflict": {
+        "turnInterval": [
+          3,
+          4
+        ],
+        "controlHeightInterval": [
+          -0.475,
+          -0.35
+        ],
+        "minimumCenterDistance": 1.076455837048425,
+        "minimumSurfaceClearance": 0.986455837048425
+      }
+    },
+    {
+      "resource": "assets/coasterssimulatedextratypes/models/block/track/arrow_4d/arrow_4d_tie.obj",
+      "projectedTriangles": 208,
+      "acceptedStroke": {
+        "turnInterval": [
+          -4,
+          2
+        ],
+        "controlHeightInterval": [
+          -1.35,
+          -0.6
+        ],
+        "minimumCenterDistance": 0.1625000000000001,
+        "minimumSurfaceClearance": 0.07250000000000009
+      },
+      "knownConflict": {
+        "turnInterval": [
+          3,
+          4
+        ],
+        "controlHeightInterval": [
+          -0.475,
+          -0.35
+        ],
+        "minimumCenterDistance": 0.03749433578715933,
+        "minimumSurfaceClearance": -0.05250566421284067
+      }
+    },
+    {
+      "resource": "assets/coasterssimulatedextratypes/models/block/track/arrow_4d_dbl_spine/arrow_4d_dbl_spine_center_beam.obj",
+      "projectedTriangles": 408,
+      "acceptedStroke": {
+        "turnInterval": [
+          -4,
+          2
+        ],
+        "controlHeightInterval": [
+          -1.35,
+          -0.6
+        ],
+        "minimumCenterDistance": 0.6225036875000001,
+        "minimumSurfaceClearance": 0.5325036875000001
+      },
+      "knownConflict": {
+        "turnInterval": [
+          3,
+          4
+        ],
+        "controlHeightInterval": [
+          -0.475,
+          -0.35
+        ],
+        "minimumCenterDistance": 0.6501231114586377,
+        "minimumSurfaceClearance": 0.5601231114586377
+      }
+    },
+    {
+      "resource": "assets/coasterssimulatedextratypes/models/block/track/arrow_4d_dbl_spine/arrow_4d_dbl_spine_tie.obj",
+      "projectedTriangles": 208,
+      "acceptedStroke": {
+        "turnInterval": [
+          -4,
+          2
+        ],
+        "controlHeightInterval": [
+          -1.35,
+          -0.6
+        ],
+        "minimumCenterDistance": 0.1625000000000001,
+        "minimumSurfaceClearance": 0.07250000000000009
+      },
+      "knownConflict": {
+        "turnInterval": [
+          3,
+          4
+        ],
+        "controlHeightInterval": [
+          -0.475,
+          -0.35
+        ],
+        "minimumCenterDistance": 0.03749433578715933,
+        "minimumSurfaceClearance": -0.05250566421284067
+      }
+    }
+  ]
+}

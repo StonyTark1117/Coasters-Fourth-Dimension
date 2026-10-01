@@ -1,0 +1,36 @@
+{
+  "version": "0.9.0-dev.4",
+  "command": "./gradlew build runGameTestServer -PfdIntegrations=styles,engineered",
+  "results": {
+    "tests": 24,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "suites": [
+    {
+      "name": "dev.fourthdimension.ModelFrameTest",
+      "tests": 2
+    },
+    {
+      "name": "dev.fourthdimension.OptionalIntegrationTest",
+      "tests": 2
+    },
+    {
+      "name": "dev.fourthdimension.MagneticMathTest",
+      "tests": 5
+    },
+    {
+      "name": "dev.fourthdimension.TrackMathTest",
+      "tests": 5
+    },
+    {
+      "name": "dev.fourthdimension.FoundationMathTest",
+      "tests": 7
+    },
+    {
+      "name": "dev.fourthdimension.TrackAppearanceTest",
+      "tests": 3
+    }
+  ]
+}

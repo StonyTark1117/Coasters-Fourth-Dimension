@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.9.0-dev.4 — powered controlled train and decorative stroke guard
+
+- Validate an actual Engineered-driven coupled Arrow train through independent full-turn axle targets, STOP hold, powered rollback, recapture and passenger unloading.
+- Audit the pinned Arrow tie/control-rail geometry over continuous stroke ranges. Both installed tie models intersect the upper +3..+4-turn range.
+- Restrict decorative selection to profiles at or below +720°. Higher existing or newly edited profiles retain all angles and saved appearance intent while Original geometry is shown; lowering the profile restores decoration eligibility.
+- Keep schema/network protocol 5. Curves/banking, styled GUI rides and broader rendering/operator checks remain open in FD401.
+
+
 ## 0.9.0-dev.3 — bounded operating integration
 
 - Restrict both inspected Arrow decorative styles to controlled Arrow functional track; all other families retain Original.
