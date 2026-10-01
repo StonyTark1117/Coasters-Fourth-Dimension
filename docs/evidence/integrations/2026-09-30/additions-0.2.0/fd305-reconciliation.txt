@@ -1,0 +1,9 @@
+FD305 evidence reconciliation, 2026-09-30
+Imported 801cc4d and 5ebe6fd as f71e131 and 31a759d.
+Ran scripts/verify-integrated-acceptance.py against all three committed integrated snapshots: all assertions passed.
+PASS revised: complete JSON SavedData equality across occupied frozen cold restart; source SHA-256 062dd624db3f8464616811580deed96b3c747da465650ac87199c22840e7f5b1
+PASS pax: complete JSON SavedData equality across occupied frozen cold restart; source SHA-256 fce4cb1acf06e8c6b134887deca1aa57112ca2629795cc41bcff2d2b8801d711
+Current Additions-only build/native suite: 23 registered required tests passed; Engineered explicitly skipped.
+Includes 25 family-pair decisions, 20 wrong-family factory rejects and 20 locked native initial-snap rejects with binding preserved.
+Includes the powered Additions fin and zero-delay station probe throughout the sixteen-rider PAX catch/lift/power-loss/resume/return cycle.
+Scope: bounded FD305 is reconciled. These older schema-4 lifecycle snapshots do not prove the current schema-5 optional-addon migration/removal or full FD901–FD904 matrix.

@@ -1,13 +1,17 @@
 # Optional integrations: development and acceptance
 
-This work extends FD401 and FD403 on the integration branch. It does not close FD305,
-FD404, or the FD901–FD904 release gates. The original release chat is separately
-validating occupied revised-carrier and PAX lifecycle recovery. Integration code starts
-from commit `9e8ae6f975286fff2831981ce975e689ccdc7b41`; its final changes and evidence
-must be reconciled before release.
+This branch implements FD401/FD403 integration work; FD404 and the FD901–FD904
+release gates remain open. Bounded FD305 evidence has been reconciled from
+`801cc4d` and `5ebe6fd` (local cherry-picks `f71e131` and `31a759d`). The committed
+schema-3 → 4 integrated-world verifier passes, and both occupied revised/PAX
+SavedData pairs compare exactly across frozen cold restart. This does not certify
+the later schema-5 optional-addon lifecycle matrix or resolve the recorded client
+resource exit and transient movement-packet investigation.
 
-Recorded development checks: [foundation/Create/Engineered evidence](evidence/integrations/2026-09-30/README.md)
-and [Track Styles spine evidence](evidence/integrations/2026-09-30/styles-1.2.0/README.md).
+Recorded checks: [family gate](evidence/0.3/README.md),
+[foundation/Create/Engineered](evidence/integrations/2026-09-30/README.md),
+[Track Styles](evidence/integrations/2026-09-30/styles-1.2.0/README.md), and
+[Additions](evidence/integrations/2026-09-30/additions-0.2.0/README.md).
 
 ## Implemented foundation
 
@@ -193,7 +197,8 @@ checks before advertising any combination.
 
 ## Remaining acceptance
 
-- Complete and reconcile FD305 occupied restart, rider and lifecycle evidence.
+- Extend reconciled FD305 evidence to the schema-5 optional-addon lifecycle matrix;
+  investigate the recorded client resource exit and transient movement-packet messages.
 - Finish Engineered rollback, linked-train, optional FE, lifecycle and multiplayer
   checks; PAX propulsion stays excluded until separately proven.
 - Extend the packaged Ponder/goggles visual checks to every animation phase and both

@@ -18,6 +18,13 @@ profile arguments. Each native run starts a fresh disposable GameTest world.
 | `-PfdIntegrations=engineered,styles,additions` | All 22 tests executed and passed | Final adapter, occupied PAX interference probe, three Engineered powered circuits and Styles registry/persistence checks. |
 | No profile | 22 registered tests passed; Additions and Engineered explicitly skipped | Standalone startup and native regressions with optional APIs absent. This is a clean world, not removal from an occupied addon save. |
 
+After importing FD305 evidence and its family eligibility test, the current
+Additions-only profile passed all 23 registered native tests (Engineered skipped),
+including the final occupied PAX interference probe and all 25 family-pair decisions.
+See `reconciled-additions-native.txt`, `reconciled-artifact.sha256` and
+`fd305-reconciliation.txt`. Runtime integration code is unchanged from the combined
+22-test pass; the extra registered test is the imported family matrix.
+
 All 17 unit tests passed. Selected logs retain the original full-log hashes.
 `artifact.sha256` identifies the immutable build copy; these native tests load
 production classes in the development harness, not a packaged two-client session.

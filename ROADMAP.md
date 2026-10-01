@@ -291,7 +291,7 @@ Ship both new families with instructions and examples, including compact and tal
 
 ### FD401 Deliver optional provider infrastructure
 
-**Status: in progress (2026-09-30), integration branch.** Functional provider registry, schema-5 identity separation, immutable consist telemetry, guarded controller requests, and an Engineered 1.1.1 adapter are implemented. External appearance activation and full compatibility acceptance remain pending. See [integration scope and evidence](docs/INTEGRATIONS.md).
+**Status: in progress (2026-09-30), integration branch.** Functional provider registry, schema-5 identity separation, shared telemetry/operations, Engineered 1.1.1, Track Styles 1.2.0 cosmetic spines and Additions 0.2.0 station/fin adapters are implemented. Native individual/combined checks are recorded; the full compatibility and lifecycle matrix remains pending. See [integration scope and evidence](docs/INTEGRATIONS.md).
 
 **Depends on:** FD005, FD305. **Design:** D04, D05, D07, D15.
 
