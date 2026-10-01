@@ -12,6 +12,13 @@ complete clearance/render coverage, physical recovery and real-client survival
 construction/operation remain 0.4 work. Lifecycle investigation has also begun
 under FD902 toward 0.9.0; this does not close the earlier 0.4 gate.
 
+**Current work package: FD402 recovery towing.** Dev.17 connects occupied physical
+PAX winch handover to native-chain towing, braking, stationary disconnection and
+unloading in one test, preserving the original sixteen seat mounts and four-car
+train. See the [checkpoint evidence](docs/evidence/0.4/recovery/occupied-handover/acceptance.md).
+FD401 and FD403 also remain in progress. The next release gate is FD404 (0.4);
+the subsequent candidate gate is FD905 (0.9).
+
 | Stage | Packages | Status | Required result |
 | --- | --- | --- | --- |
 | Foundation | FD001–FD008 | Done for bounded prototype | Viable carrier architecture, strict cart/track eligibility, persistence, and rider integration. |
@@ -307,7 +314,7 @@ Implement isolated optional adapters, support/version checks, component render o
 
 ### FD402 Evaluate and document recovery towing
 
-**Status: in progress.** Dev.15 implements guarded production selection/coupling/start/brake/disconnect and stationary PAX winch handover. Native tests tow fully occupied cars from all five actual flat examples using Coasters chains/Create motors; forty actual wrong-family initial snaps are rejected. They preserve matching rail support after broken links, handle permanent bearing destruction, persist recovery identity and load schema-5 state. Actual native holding restores all five recovery groups and 32 passengers with unchanged component IDs/couplings; towing stays braked until explicit resume. A separate check hands over a stopped physical PAX carriage while preserving its four-car train. Fully occupied two-car Arrow and four-car PAX trains also tow, brake and disconnect while preserving original links and retention. A packaged empty Arrow check also completes real tool selection/coupling/motor controls, same-ID braked fresh-JVM restoration, explicit start, guarded route-end stop, brake/power stop, disconnect and restraint opening. Both clients exit normally with validation flags false; its saved identities/bindings/profiles persist. The brake action follows the automatic route stop. Dev.16 adds recovery-specific action guidance, live fault status with wrapped hover text, disabled incompatible ride controls and a lever-controlled native Create clutch for demo power. Standalone and combined checks validate native lever start/stop for all five occupied examples with motors retained at eight RPM. The final packaged Arrow example has independent manual braking before the boundary, normal lever power stop, fresh-JVM same-ID coupling restoration, inspection/resume, disconnect and restraint opening; [dev.16 evidence](docs/evidence/0.4/recovery/power-control/acceptance.md) records the surviving startup movement warnings and bounded scope; see [bounded client evidence](docs/evidence/0.4/recovery/gui/arrow-gui-acceptance.md). Schema/protocol 6 protects the new state; older schemas 1–5 remain readable. Complete rendered operator acceptance, curved/banked offsets and clearance, nonzero controlled profiles, broader strength/propulsion and recovery lifecycle evidence remain open. See [operator workflow](docs/RECOVERY.md) and [operator acceptance evidence](docs/evidence/0.4/recovery/operator-acceptance.md).
+**Status: in progress.** Dev.15 implements guarded production selection/coupling/start/brake/disconnect and stationary PAX winch handover. Native tests tow fully occupied cars from all five actual flat examples using Coasters chains/Create motors; forty actual wrong-family initial snaps are rejected. They preserve matching rail support after broken links, handle permanent bearing destruction, persist recovery identity and load schema-5 state. Actual native holding restores all five recovery groups and 32 passengers with unchanged component IDs/couplings; towing stays braked until explicit resume. A separate check hands over a stopped physical PAX carriage while preserving its four-car train. Fully occupied two-car Arrow and four-car PAX trains also tow, brake and disconnect while preserving original links and retention. A packaged empty Arrow check also completes real tool selection/coupling/motor controls, same-ID braked fresh-JVM restoration, explicit start, guarded route-end stop, brake/power stop, disconnect and restraint opening. Both clients exit normally with validation flags false; its saved identities/bindings/profiles persist. The brake action follows the automatic route stop. Dev.16 adds recovery-specific action guidance, live fault status with wrapped hover text, disabled incompatible ride controls and a lever-controlled native Create clutch for demo power. Standalone and combined checks validate native lever start/stop for all five occupied examples with motors retained at eight RPM. The final packaged Arrow example has independent manual braking before the boundary, normal lever power stop, fresh-JVM same-ID coupling restoration, inspection/resume, disconnect and restraint opening; [dev.16 evidence](docs/evidence/0.4/recovery/power-control/acceptance.md) records the surviving startup movement warnings and bounded scope; see [bounded client evidence](docs/evidence/0.4/recovery/gui/arrow-gui-acceptance.md). Dev.17 adds an occupied end-to-end physical handover/recovery test: all sixteen native passengers retain their original seat mounts through towing and braking; chain power is cut with the motor retained at eight RPM, then the original four-car links survive disconnection and normal unloading. See the [occupied handover checkpoint](docs/evidence/0.4/recovery/occupied-handover/acceptance.md) for native metrics and scope. Schema/protocol 6 protects the new state; older schemas 1–5 remain readable. Complete rendered operator acceptance, curved/banked offsets and clearance, nonzero controlled profiles, broader strength/propulsion and recovery lifecycle evidence remain open. See [operator workflow](docs/RECOVERY.md) and [operator acceptance evidence](docs/evidence/0.4/recovery/operator-acceptance.md).
 
 The preceding mechanical checkpoint proved fifteen slow, flat native-coupler pulls across all five families: empty captured, fully occupied captured and fully occupied maintenance-retained, at family-specific 6/12/14-block spacing. It used an artificial actuator on the ordinary bearing and a temporary admission policy; both were removed before production recovery was implemented. It establishes feasibility, while the dev.15 operator tests use actual native chains and production guards. A policy rejection is not a demonstrated physical coupling limitation. See [mechanical evidence and reproduction](docs/evidence/0.4/recovery/mechanical-acceptance.md).
 
@@ -329,6 +336,8 @@ Complete recipes, item descriptions, Ponder scenes, family demonstrations, diagn
 
 ### FD404 Version 0.4 gate
 
+**Status: planned; awaiting FD401–FD403 acceptance.**
+
 **Depends on:** FD401–FD403.
 
 Produce the feature-complete candidate scope and list tested optional combinations, known limits, and deferred external support.
@@ -338,6 +347,8 @@ Produce the feature-complete candidate scope and list tested optional combinatio
 ## Version 0.9 release candidate
 
 ### FD901 Run the full compatibility matrix
+
+**Status: planned; bounded checks exist, full release matrix pending.**
 
 **Depends on:** FD404. **Design:** D02, D04, D17.
 
@@ -357,6 +368,8 @@ Run two-client and late-join scenarios, disconnects, chunk unloads, server resta
 
 ### FD903 Validate save migration and provider changes
 
+**Status: planned; earlier migration/provider checkpoints do not close this gate.**
+
 **Depends on:** FD404. **Design:** D04, D09, D10, D16.
 
 Test upgrades from released save formats, stable IDs, profile rebinding, appearance-provider removal, and explicit conversions involving external blocks.
@@ -365,6 +378,8 @@ Test upgrades from released save formats, stable IDs, profile rebinding, appeara
 
 ### FD904 Meet measured performance and rendering targets
 
+**Status: planned; quantitative release targets and full rendering acceptance pending.**
+
 **Depends on:** FD404, FD006. **Design:** D17.
 
 Benchmark the declared controlled-train, free-spin, and shuttle scenes against recorded baselines. Profile per-carrier/constraint costs, caches, Flywheel modes, and the supported shader stack.
@@ -372,6 +387,8 @@ Benchmark the declared controlled-train, free-spin, and shuttle scenes against r
 **Done when:** quantitative targets chosen from the baseline are documented and met on stated hardware; required render modes work; no unresolved performance regression prevents the advertised scene sizes. Record limitations rather than inventing universal FPS guarantees.
 
 ### FD905 Release candidate gate
+
+**Status: planned; awaiting FD901–FD904 and all earlier release gates.**
 
 **Depends on:** FD901–FD904.
 

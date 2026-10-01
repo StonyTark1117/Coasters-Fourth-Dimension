@@ -1,0 +1,106 @@
+{
+  "profile": "standalone",
+  "version": "0.9.0-dev.17",
+  "schema": 6,
+  "protocol": 6,
+  "command": "JAVA_HOME=/usr/lib/jvm/java-21-openjdk ./gradlew build runGameTestServer",
+  "originalLog": "/tmp/fd17-final-standalone.log",
+  "sourceManifestSha256": "2d47a9e5a1cc4e81bb268ee562382275eea26ad6134a73d681ea99f72858d039",
+  "artifactSha256": "25ae73967f43c0a5cd866e8cc0f122981a7681464b365d9bc66af17dca6f3ac0",
+  "unitTests": {
+    "tests": 25,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "requiredNativeTests": 34,
+  "allRequiredNativeTestsPassed": true,
+  "buildSucceeded": true,
+  "noBundledDependencyJars": true,
+  "metrics": [
+    {
+      "scenario": "singleCar",
+      "family": "ARROW",
+      "travel": 5.580688186355076,
+      "riders": 4,
+      "maxSpacing": 6.095140303141733e-05,
+      "maxAngle": 0.0005092224447271239,
+      "fault": ""
+    },
+    {
+      "scenario": "singleCar",
+      "family": "LEGACY",
+      "travel": 5.491210444868841,
+      "riders": 8,
+      "maxSpacing": 6.08741094536569e-05,
+      "maxAngle": 0.0002741187284696591,
+      "fault": ""
+    },
+    {
+      "scenario": "singleCar",
+      "family": "FREE_SPIN",
+      "travel": 5.252899170079274,
+      "riders": 8,
+      "maxSpacing": 3.041981236862057e-05,
+      "maxAngle": 0.00016091917510857224,
+      "fault": ""
+    },
+    {
+      "scenario": "singleCar",
+      "family": "REVISED",
+      "travel": 5.226837168041811,
+      "riders": 8,
+      "maxSpacing": 3.0483355901722575e-05,
+      "maxAngle": 0.00010440441754015166,
+      "fault": ""
+    },
+    {
+      "scenario": "singleCar",
+      "family": "PAX",
+      "travel": 5.574768066510387,
+      "riders": 4,
+      "maxSpacing": 2.7665914430485827e-05,
+      "maxAngle": 4.158226037275226e-05,
+      "fault": ""
+    },
+    {
+      "scenario": "originalTrain",
+      "family": "ARROW",
+      "cars": 2,
+      "riders": 8,
+      "travel": 4.421264146238968,
+      "maxSpacing": 6.109700314027577e-05
+    },
+    {
+      "scenario": "originalTrain",
+      "family": "PAX",
+      "cars": 4,
+      "riders": 16,
+      "travel": 3.77240008425008,
+      "maxSpacing": 6.132441319550708e-05
+    }
+  ],
+  "nativeHoldingOccupiedFamilies": 5,
+  "nativeHoldingRiders": 32,
+  "normalLeverPowerStartStopFamilies": 5,
+  "motorRemainsAt8RPMWhenPowerCut": true,
+  "originalTrainRecoveryRiders": 24,
+  "wrongFamilyInitialSnapRejections": 40,
+  "scope": "Headless native physical winch interruption/handover, bodies/couplers/seats/chains/motors and production editor handlers. Same original sixteen occupied seats through short recovery towing and braking. No rendered operator, full-train curved/banked clearance, fresh-JVM recovery restart, stronger propulsion or FE-network acceptance claim.",
+  "occupiedPaxHandover": {
+    "riders": 16,
+    "originalCars": 4,
+    "originalCarriers": 8,
+    "metricsDuringTow": {
+      "travel": 4.674102968420641,
+      "maxSpacing": 9.073170650708562e-05,
+      "maxAngle": 6.371039171761752e-05,
+      "maxSpeed": 0.4536023257302565
+    },
+    "originalPassengerSeatsPreserved": true,
+    "originalLinksAfterDetach": true,
+    "physicalCarriageRemovedWithoutReplacement": true,
+    "powerCutWithMotorRetainedAt8RPM": true,
+    "normalUnloading": true
+  }
+}

@@ -1,0 +1,360 @@
+package dev.fourthdimension.gametest;
+
+import com.simibubi.create.AllBlocks;
+import com.simibubi.create.content.contraptions.actors.seat.SeatBlock;
+import com.simibubi.create.content.kinetics.motor.CreativeMotorBlockEntity;
+import dev.fourthdimension.editor.EditorNetwork;
+import dev.fourthdimension.runtime.*;
+import dev.fourthdimension.shuttle.*;
+import dev.fourthdimension.vehicle.*;
+import dev.ryanhcode.sable.api.sublevel.SubLevelContainer;
+import dev.ryanhcode.sable.sublevel.ServerSubLevel;
+import dev.ryanhcode.sable.sublevel.SubLevel;
+import dev.silvergold.simulatedcoasters.track.anchor.CoasterAnchorpointBlockEntity;
+import dev.silvergold.simulatedcoasters.track.cart.*;
+import dev.silvergold.simulatedcoasters.track.chainlift.ChainLiftEndRef;
+import dev.silvergold.simulatedcoasters.track.graph.*;
+import java.util.*;
+import java.util.stream.Collectors;
+import net.minecraft.core.*;
+import net.minecraft.gametest.framework.*;
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.animal.Pig;
+import net.minecraft.world.level.GameType;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.properties.*;
+import net.minecraft.world.phys.*;
+import net.neoforged.neoforge.common.util.FakePlayerFactory;
+import net.neoforged.neoforge.gametest.*;
+import org.joml.Vector3d;
+
+/** One occupied train from its actual powered catch through ordinary native recovery. */
+@GameTestHolder("fourthdimension")
+@PrefixGameTestTemplate(false)
+public final class RecoveryHandoverGameTests {
+  private static final class Tow {
+    ShuttleRoute route;
+    UUID carriage;
+    ServerSubLevel bearing;
+    CreativeMotorBlockEntity motor;
+    BlockPos lever;
+    CoasterAnchorpointBlockEntity anchor;
+    Vector3d start;
+    double maxSpacing, maxAngle, maxSpeed;
+    final List<Pig> riders = new ArrayList<>();
+    final Map<UUID, UUID> seats = new HashMap<>();
+  }
+
+  @GameTest(template = "empty", batch = "paxRecoveryHandover", timeoutTicks = 900)
+  public static void occupiedPaxHandsOverItsWinchThenTowsAndUnloads(GameTestHelper helper) {
+    var level = helper.getLevel();
+    var data = FoundationData.get(level);
+    var container = SubLevelContainer.getContainer(level);
+    for (int x = -47; x <= -44; x++)
+      for (int z = -30; z <= -17; z++) level.setChunkForced(x, z, true);
+    var origin = new BlockPos(-720, 180, -400);
+    var example = ShuttleExamples.create(level, origin, false);
+    var winch = example.winch();
+    var lead = example.cars().getFirst();
+    var end = example.cars().getLast();
+    var carIds = example.cars().stream().map(c -> c.chassis).collect(Collectors.toSet());
+    var carrierIds =
+        example.cars().stream()
+            .flatMap(c -> c.carriers.stream())
+            .map(c -> c.body)
+            .collect(Collectors.toSet());
+    var operator =
+        FakePlayerFactory.get(
+            level,
+            new com.mojang.authlib.GameProfile(
+                UUID.fromString("fdfdfdfd-0000-0000-0000-000000000406"), "FDOccupiedHandover"));
+    operator.setGameMode(GameType.CREATIVE);
+    var tow = new Tow();
+
+    helper.runAtTickTime(
+        80,
+        () -> {
+          ShuttleExamples.assemble(level, example);
+          tow.route = ShuttleRoute.resolve(level, winch.routeStart, winch.routeEnd);
+          for (var car : example.cars())
+            for (var carrier : car.carriers)
+              for (var seat : carrier.seats) {
+                var rider = EntityType.PIG.create(level);
+                rider.setNoAi(true);
+                rider.setPos(origin.getX(), origin.getY(), origin.getZ());
+                level.addFreshEntity(rider);
+                SeatBlock.sitDown(
+                    level,
+                    container.getSubLevel(carrier.body).getPlot().getCenterBlock().offset(seat),
+                    rider);
+                helper.assertTrue(rider.isPassenger(), "PAX handover rider failed to board");
+                tow.riders.add(rider);
+                tow.seats.put(rider.getUUID(), rider.getVehicle().getUUID());
+              }
+          helper.assertTrue(tow.riders.size() == 16, "PAX handover did not fill every seat");
+          at(operator, container.getSubLevel(lead.chassis));
+          edit(operator, lead, 11);
+          reject(helper, () -> edit(operator, lead, 24), "Unretained occupied handover accepted");
+        });
+    helper.runAtTickTime(
+        100,
+        () -> {
+          winch.start();
+          at(operator, container.getSubLevel(lead.chassis));
+          reject(helper, () -> edit(operator, lead, 24), "Active occupied handover accepted");
+        });
+    helper.runAtTickTime(
+        120,
+        () -> {
+          helper.assertTrue(
+              winch.carriage != null && container.getSubLevel(winch.carriage) != null,
+              "Occupied shuttle never allocated its physical lift carriage");
+          tow.carriage = winch.carriage;
+          at(operator, container.getSubLevel(lead.chassis));
+          edit(operator, lead, 10);
+          edit(operator, lead, 14);
+        });
+    helper.runAtTickTime(
+        210,
+        () -> {
+          helper.assertTrue(
+              example.cars().stream()
+                      .allMatch(c -> Boarding.ready(level, c) && RecoveryOperations.retained(c))
+                  && tow.riders.stream().allMatch(Pig::isPassenger),
+              "Occupied interrupted shuttle did not settle for handover");
+          at(operator, container.getSubLevel(lead.chassis));
+          edit(operator, lead, 24);
+          helper.assertTrue(
+              winch.vehicle == null
+                  && winch.carriage == null
+                  && winch.cars.isEmpty()
+                  && container.getSubLevel(tow.carriage) == null
+                  && CoasterCartTrainLinkConstraint.getTrainLinkedCartIds(
+                          container.getSubLevel(end.chassis))
+                      .equals(carIds),
+              "Occupied handover damaged original train or kept the carriage");
+          var hit =
+              tow.route
+                  .sample(tow.route.locate(container.getSubLevel(end.chassis)).distance() + 6)
+                  .hit();
+          var orientation =
+              CoasterPathTrackFrame.quaternionFromTrackBasis(
+                  CoasterPathTrackFrame.trackBasisAtHit(level, hit));
+          // Initial recovery-bearing placement after handover. Never relocate the train or drive it
+          // artificially.
+          tow.bearing =
+              CoasterCartSpawner.spawnMinimalContraption(
+                  level,
+                  CoasterCartLinkPlacement.plotOriginForBearingCenter(
+                      CoasterPathTrackFrame.pathAnchorForSnappedBlock(level, hit), orientation),
+                  orientation,
+                  hit,
+                  true);
+          helper.assertTrue(tow.bearing != null, "Ordinary PAX recovery bearing failed to place");
+
+          var station = tow.route.segments.get(1);
+          var spike = tow.route.segments.get(2);
+          var anchor = (CoasterAnchorpointBlockEntity) level.getBlockEntity(station.edge().from());
+          tow.anchor = anchor;
+          anchor.commitChainLift(
+              Direction.Axis.X,
+              ChainLiftEndRef.anchor(spike.edge().to()),
+              new CoasterPathGraphSpans.SpanPath(
+                  List.of(
+                      new CoasterPathGraphSpans.PathSegment(station.edge(), 0, 1),
+                      new CoasterPathGraphSpans.PathSegment(spike.edge(), 0, 1)),
+                  station.length() + spike.length()));
+          var clutch = origin.east();
+          level.setBlockAndUpdate(
+              clutch,
+              AllBlocks.CLUTCH
+                  .getDefaultState()
+                  .setValue(BlockStateProperties.AXIS, Direction.Axis.X)
+                  .setValue(BlockStateProperties.POWERED, true));
+          tow.lever = clutch.above();
+          level.setBlockAndUpdate(
+              tow.lever,
+              Blocks.LEVER
+                  .defaultBlockState()
+                  .setValue(BlockStateProperties.ATTACH_FACE, AttachFace.FLOOR)
+                  .setValue(BlockStateProperties.HORIZONTAL_FACING, Direction.NORTH)
+                  .setValue(BlockStateProperties.POWERED, true));
+          level.setBlockAndUpdate(
+              origin.east(2),
+              AllBlocks.CREATIVE_MOTOR
+                  .getDefaultState()
+                  .setValue(BlockStateProperties.FACING, Direction.WEST));
+          tow.motor = (CreativeMotorBlockEntity) level.getBlockEntity(origin.east(2));
+          tow.motor.generatedSpeed.setValue(8 * anchor.getChainLiftTravelSign());
+        });
+    helper.runAtTickTime(
+        290,
+        () -> {
+          RecoveryOperations.select(at(operator, tow.bearing), tow.bearing);
+          at(operator, container.getSubLevel(end.chassis));
+          edit(operator, end, 20);
+          helper.assertTrue(
+              example.cars().stream()
+                      .allMatch(c -> tow.bearing.getUniqueId().equals(c.recoveryCart))
+                  && !data.vehicles.containsKey(tow.bearing.getUniqueId()),
+              "Occupied handover did not become one ordinary recovery group");
+          reject(helper, () -> winch.bind(lead), "Winch retook an attached recovery train");
+          helper.assertTrue(
+              Math.abs(tow.anchor.getSpeed()) < .001,
+              "Initial stop lever did not cut recovery chain power");
+        });
+    helper.runAtTickTime(
+        350,
+        () -> {
+          tow.start =
+              new Vector3d(CoasterCartResolve.cartCenterWorld(container.getSubLevel(end.chassis)));
+          at(operator, container.getSubLevel(end.chassis));
+          edit(operator, end, 21);
+          level
+              .getBlockState(tow.lever)
+              .useWithoutItem(
+                  level,
+                  operator,
+                  new BlockHitResult(Vec3.atCenterOf(tow.lever), Direction.UP, tow.lever, false));
+        });
+    helper.onEachTick(
+        () -> {
+          if (tow.start == null) return;
+          for (int i = 1; i < example.cars().size(); i++)
+            tow.maxSpacing =
+                Math.max(
+                    tow.maxSpacing,
+                    Math.abs(
+                        CoasterCartResolve.cartCenterWorld(
+                                    container.getSubLevel(example.cars().get(i - 1).chassis))
+                                .distance(
+                                    CoasterCartResolve.cartCenterWorld(
+                                        container.getSubLevel(example.cars().get(i).chassis)))
+                            - 6));
+          tow.maxSpacing =
+              Math.max(
+                  tow.maxSpacing,
+                  Math.abs(
+                      CoasterCartResolve.cartCenterWorld(container.getSubLevel(end.chassis))
+                              .distance(CoasterCartResolve.cartCenterWorld(tow.bearing))
+                          - 6));
+          for (var car : example.cars()) {
+            for (var carrier : car.carriers)
+              tow.maxAngle = Math.max(tow.maxAngle, Math.abs(carrier.angle));
+            tow.maxSpeed =
+                Math.max(
+                    tow.maxSpeed,
+                    container
+                        .physicsSystem()
+                        .getPipeline()
+                        .getLinearVelocity(
+                            (ServerSubLevel) container.getSubLevel(car.chassis), new Vector3d())
+                        .length());
+          }
+        });
+    helper.runAtTickTime(
+        590,
+        () -> {
+          double travel =
+              CoasterCartResolve.cartCenterWorld(container.getSubLevel(end.chassis))
+                  .distance(tow.start);
+          System.out.println(
+              "FD_RECOVERY_HANDOVER travel="
+                  + travel
+                  + " maxSpacing="
+                  + tow.maxSpacing
+                  + " maxAngle="
+                  + tow.maxAngle
+                  + " maxSpeed="
+                  + tow.maxSpeed
+                  + " faults="
+                  + example.cars().stream().map(c -> c.fault).toList());
+          helper.assertTrue(
+              travel > 3
+                  && tow.maxSpacing < .15
+                  && tow.maxAngle < .04
+                  && tow.maxSpeed <= RecoveryOperations.MAX_SPEED + .01
+                  && example.cars().stream()
+                      .allMatch(c -> c.fault.isEmpty() && RecoveryOperations.retained(c))
+                  && tow.riders.stream()
+                      .allMatch(
+                          r ->
+                              r.isPassenger()
+                                  && tow.seats.get(r.getUUID()).equals(r.getVehicle().getUUID()))
+                  && winch.vehicle == null
+                  && winch.carriage == null
+                  && container.getSubLevel(tow.carriage) == null,
+              "Original occupied PAX train failed recovery towing after physical handover");
+          at(operator, container.getSubLevel(end.chassis));
+          reject(
+              helper, () -> edit(operator, end, 23), "Occupied moving handover train disconnected");
+          edit(operator, end, 22);
+          level
+              .getBlockState(tow.lever)
+              .useWithoutItem(
+                  level,
+                  operator,
+                  new BlockHitResult(Vec3.atCenterOf(tow.lever), Direction.UP, tow.lever, false));
+        });
+    helper.runAtTickTime(
+        670,
+        () -> {
+          helper.assertTrue(
+              example.cars().stream().allMatch(c -> Boarding.ready(level, c))
+                  && Math.abs(tow.anchor.getSpeed()) < .001
+                  && Math.abs(tow.motor.generatedSpeed.getValue()) == 8
+                  && tow.riders.stream()
+                      .allMatch(
+                          r ->
+                              r.isPassenger()
+                                  && tow.seats.get(r.getUUID()).equals(r.getVehicle().getUUID())),
+              "Occupied handed-over PAX train failed to brake");
+          at(operator, container.getSubLevel(end.chassis));
+          edit(operator, end, 23);
+          helper.assertTrue(
+              CoasterCartTrainLinkConstraint.getTrainLinkedCartIds(
+                          container.getSubLevel(end.chassis))
+                      .equals(carIds)
+                  && carrierIds.stream().allMatch(id -> container.getSubLevel(id) != null)
+                  && example.cars().stream()
+                      .allMatch(c -> c.recoveryCart == null && c.stopping && c.maintenance)
+                  && winch.vehicle == null
+                  && winch.carriage == null
+                  && !data.vehicles.containsKey(tow.bearing.getUniqueId()),
+              "Recovery disconnection replaced the handed-over PAX train or released retention");
+          edit(operator, end, 12);
+          tow.riders.forEach(Pig::stopRiding);
+          helper.assertTrue(
+              tow.riders.stream().noneMatch(Pig::isPassenger),
+              "Handed-over riders failed to unload");
+          System.out.println(
+              "FD_RECOVERY_HANDOVER occupiedRiders=16 originalCars=4 originalCarriers=8"
+                  + " physicalCarriageRemoved=true replacementCarriage=false nativeChainDrive=true"
+                  + " movingDisconnectRejected=true originalLinksAfterDetach=true"
+                  + " originalPassengerSeats=true powerCutWithMotorRetained=true"
+                  + " normalUnloading=true");
+          helper.succeed();
+        });
+  }
+
+  private static ServerPlayer at(ServerPlayer player, SubLevel body) {
+    var center = CoasterCartResolve.cartCenterWorld(body);
+    player.setPos(center.x + 1, center.y + 1, center.z);
+    return player;
+  }
+
+  private static void edit(ServerPlayer player, FoundationData.Vehicle car, int action) {
+    EditorNetwork.apply(player, new EditorNetwork.Edit(car.chassis, car.revision, action, ""));
+  }
+
+  private static void reject(GameTestHelper helper, Runnable action, String message) {
+    boolean rejected = false;
+    try {
+      action.run();
+    } catch (IllegalArgumentException expected) {
+      rejected = true;
+    }
+    helper.assertTrue(rejected, message);
+  }
+}

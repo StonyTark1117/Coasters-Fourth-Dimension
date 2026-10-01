@@ -1,5 +1,18 @@
 # Changelog
 
+## 0.9.0-dev.17 — occupied PAX recovery handover
+
+- Validate one fully occupied sixteen-seat PAX train from its powered physical winch through interruption, retained handover, native-chain towing, braking, power stop, recovery disconnection and normal unloading. Preserve original chassis/carrier IDs, native train links and passenger seat mounts; reject active/unretained handover and moving disconnection.
+- Record standalone and combined native acceptance separately from rendered player operation. FD402 remains in progress in the 0.4 stage toward 0.9.0. Save schema/network protocol remain 6.
+- Correct the README artifact version and make the active work package and remaining gate statuses explicit in the roadmap.
+
+## 0.9.0-dev.16 — switchable recovery power and guidance
+
+- Add a native Create clutch and vanilla lever to recovery examples: ON cuts chain power and OFF supplies it. The motor can remain installed at eight RPM after braking and power stop.
+- Add recovery action guidance, live state/fault display with wrapped hover text, and disable incompatible ride controls while attached.
+- Record five-family native power checks and an empty Arrow real-client manual brake, power stop, same-ID fresh-JVM restoration, disconnection and restraint opening. Startup movement warnings and the broader rendered/lifecycle gates remain open.
+- Correct generated translation ordering after CI detected resource-generator drift; the corrected revision passes push/PR CI.
+
 ## 0.9.0-dev.15 — guarded ordinary-bearing recovery
 
 - Add explicit selection, native coupling, start, brake and stationary disconnection for certified bare ordinary bearings recovering all five original families. Carriers stay retained, restraints stay closed, and every 4D car requires matching functional track. Ordinary bearings acquire no 4D state.

@@ -1,6 +1,6 @@
 # Ordinary-bearing recovery
 
-Development build 0.9.0-dev.16 includes explicit recovery coupling for the five
+Development build 0.9.0-dev.17 includes explicit recovery coupling for the five
 original families. A 4D car stays on its matching functional track throughout.
 Only the pinned, unmodified bare Coasters bearing is certified as the ordinary
 recovery cart. It acquires no carriers, profile, magnetic assistance or 4D data.
@@ -109,8 +109,12 @@ bearing removal, retained rail support, save identity, occupied native
 holding/restoration, stationary disconnect and normal unloading. A separate loaded train test tows a two-car Arrow train with eight native
 passengers and a four-car PAX train with sixteen; stationary recovery disconnect
 preserves all original train links and maintenance retention before normal
-unloading. Another test hands over an actual powered PAX carriage without
-removing its original train. These headless checks do not establish rendered
+unloading. The dev.17 test fills an actual four-car powered shuttle with sixteen native
+passengers, interrupts its winch, retains it and hands over its physical carriage.
+The same original train then tows under native chain power, brakes, cuts power
+with its eight-RPM motor retained, disconnects and opens restraints for unloading.
+Every passenger keeps its original seat mount until unloading; see the
+[occupied handover evidence](evidence/0.4/recovery/occupied-handover/acceptance.md). These headless checks do not establish rendered
 operator acceptance, complete banked/curved offsets, nonzero Arrow rack/profile
 clearance, Engineered recovery propulsion/FE, coupler strength across those scenes,
 or the complete recovery lifecycle matrix. FD402 and the 0.4 gate remain open.
