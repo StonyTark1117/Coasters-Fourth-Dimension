@@ -18,4 +18,14 @@ public final class MagnetizedIntegrationGameTests {
     }
     dev.fourthdimension.integration.magnetized.MagnetizedRideCheck.run(helper);
   }
+
+  @GameTest(template = "empty", timeoutTicks = 500)
+  public static void magnetizedLinkedArrowAndTrailingInterlocks(GameTestHelper helper) {
+    if (!OptionalIntegrations.supported("coastersmagnetized", Set.of("1.1.0"))) {
+      System.out.println("FD_MAGNETIZED_LINKED_SKIPPED: optional 1.1.0 artifact absent");
+      helper.succeed();
+      return;
+    }
+    dev.fourthdimension.integration.magnetized.MagnetizedRideCheck.runLinked(helper);
+  }
 }

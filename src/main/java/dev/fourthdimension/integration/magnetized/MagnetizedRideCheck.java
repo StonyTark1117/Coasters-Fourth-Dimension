@@ -52,6 +52,14 @@ public final class MagnetizedRideCheck {
   }
 
   public static void run(GameTestHelper helper) {
+    run(helper, false);
+  }
+
+  public static void runLinked(GameTestHelper helper) {
+    run(helper, true);
+  }
+
+  private static void run(GameTestHelper helper, boolean linked) {
     var level = helper.getLevel();
     var container = SubLevelContainer.getContainer(level);
     var physics = container.physicsSystem().getPipeline();
@@ -59,14 +67,21 @@ public final class MagnetizedRideCheck {
         FakePlayerFactory.get(
             level,
             new com.mojang.authlib.GameProfile(
-                UUID.fromString("fdfdfdfd-0000-0000-0000-000000000402"), "FDMagnetizedTest"));
+                UUID.fromString(
+                    linked
+                        ? "fdfdfdfd-0000-0000-0000-000000000409"
+                        : "fdfdfdfd-0000-0000-0000-000000000402"),
+                "FDMagnetizedTest"));
     player.setGameMode(GameType.CREATIVE);
     player.setItemInHand(InteractionHand.MAIN_HAND, TrackItems.ARROW.get().getDefaultInstance());
+    var designs = linked ? List.of(TrackDesign.ARROW) : List.of(TrackDesign.values());
+    String marker = linked ? "FD_MAGNETIZED_LINKED" : "FD_MAGNETIZED";
     var rails = new ArrayList<FoundationData.Rail>();
+    var carRails = new ArrayList<FoundationData.Rail>();
     var cars = new ArrayList<FoundationData.Vehicle>();
     var riders = new ArrayList<net.minecraft.world.entity.animal.Pig>();
-    for (var design : TrackDesign.values()) {
-      var from = new BlockPos(-900 + design.ordinal() * 32, 160, -200);
+    for (var design : designs) {
+      var from = new BlockPos(-900 + design.ordinal() * 32, 160, linked ? 200 : -200);
       var to = from.offset(0, 0, 60);
       for (int x = (from.getX() - 16) >> 4; x <= (from.getX() + 16) >> 4; x++)
         for (int z = (from.getZ() - 16) >> 4; z <= (to.getZ() + 16) >> 4; z++)
@@ -83,24 +98,35 @@ public final class MagnetizedRideCheck {
     helper.runAtTickTime(
         15,
         () -> {
-          for (var design : TrackDesign.values()) {
+          for (var design : designs) {
             var rail = rails.get(design.ordinal());
             var edge = TrackGeometry.resolve(level, rail);
-            cars.add(
-                VehicleFactory.create(
-                    level,
-                    design,
-                    new CoasterPathTrackFrame.GraphHit(
-                        CoasterPathGraphManager.sampleEdgePosition(level, edge, .5), edge, .5)));
+            for (double t : linked ? new double[] {.5, .4} : new double[] {.5}) {
+              cars.add(
+                  VehicleFactory.create(
+                      level,
+                      design,
+                      new CoasterPathTrackFrame.GraphHit(
+                          CoasterPathGraphManager.sampleEdgePosition(level, edge, t), edge, t)));
+              carRails.add(rail);
+            }
             setEquipment(level, rail, AnchorMode.MAGNET, 10);
           }
         });
     helper.runAtTickTime(
         85,
         () -> {
+          if (linked)
+            helper.assertTrue(
+                CoasterCartTrainLinkConstraint.linkCarts(
+                    level,
+                    (ServerSubLevel) container.getSubLevel(cars.getFirst().chassis),
+                    (ServerSubLevel) container.getSubLevel(cars.getLast().chassis),
+                    6),
+                "Magnetized Arrow train link failed");
           for (int i = 0; i < cars.size(); i++) {
             var v = cars.get(i);
-            var edge = TrackGeometry.resolve(level, rails.get(i));
+            var edge = TrackGeometry.resolve(level, carRails.get(i));
             helper.assertTrue(
                 Boarding.ready(level, v), "Magnetized held fixture not ready: " + v.family);
             helper.assertTrue(
@@ -134,7 +160,7 @@ public final class MagnetizedRideCheck {
             velocity(level, v, 0);
             var pig = net.minecraft.world.entity.EntityType.PIG.create(level);
             pig.setNoAi(true);
-            pig.setPos(rails.get(i).from.getX(), 163, -170);
+            pig.setPos(carRails.get(i).from.getX(), 163, carRails.get(i).from.getZ() + 30);
             level.addFreshEntity(pig);
             var c = v.carriers.getFirst();
             com.simibubi.create.content.contraptions.actors.seat.SeatBlock.sitDown(
@@ -143,9 +169,66 @@ public final class MagnetizedRideCheck {
                 pig);
             helper.assertTrue(pig.isPassenger(), "Magnetized rider failed to board");
             riders.add(pig);
-            VehicleOperations.restraints(level, v, true);
+          }
+          for (var v : cars) VehicleOperations.restraints(level, v, true);
+          if (linked) {
+            var lead = cars.getFirst();
+            var peer = cars.getLast();
+            var body = (ServerSubLevel) container.getSubLevel(lead.chassis);
+            var edge = TrackGeometry.resolve(level, carRails.getFirst());
+            var hit =
+                new CoasterPathTrackFrame.GraphHit(
+                    CoasterPathGraphManager.sampleEdgePosition(level, edge, .5), edge, .5);
+            var basis = CoasterPathTrackFrame.trackBasisAtHit(level, hit);
+            for (var v : cars) v.stopping = false;
+            for (int invalid = 0; invalid < 4; invalid++) {
+              peer.stopping = invalid == 0;
+              peer.restraints = invalid != 1;
+              peer.maintenance = invalid == 2;
+              peer.fault = invalid == 3 ? "Integration peer guard probe" : "";
+              velocity(level, lead, .75);
+              var before = physics.getLinearVelocity(body, new Vector3d());
+              CoasterCartChainLiftDrive.applySpeedMatch(
+                  body, level, container.physicsSystem(), hit, basis, .1);
+              helper.assertTrue(
+                  physics.getLinearVelocity(body, new Vector3d()).distance(before) < 1e-8,
+                  "Magnetized drove a train with unsafe trailing car " + invalid);
+              peer.stopping = false;
+              peer.restraints = true;
+              peer.maintenance = false;
+              peer.fault = "";
+              CoasterCartChainLiftDrive.applySpeedMatch(
+                  body, level, container.physicsSystem(), hit, basis, .1);
+              double healthyDelta =
+                  physics.getLinearVelocity(body, new Vector3d()).distance(before);
+              helper.assertTrue(
+                  healthyDelta > .001,
+                  "Healthy trailing car did not restore native propulsion for probe " + invalid);
+              System.out.println(
+                  marker
+                      + "_PEER_GUARD invalid="
+                      + invalid
+                      + " unchanged=true healthyDelta="
+                      + healthyDelta);
+            }
+            peer.restraints = true;
+            peer.maintenance = false;
+            peer.fault = "";
+            for (var v : cars) {
+              v.stopping = true;
+              velocity(level, v, 0);
+            }
+          }
+          for (int i = 0; i < cars.size(); i++) {
+            var v = cars.get(i);
             if (v.family != Family.PAX) {
-              VehicleOperations.dispatch(level, v);
+              if (v.stopping) VehicleOperations.dispatch(level, v);
+              var body = (ServerSubLevel) container.getSubLevel(v.chassis);
+              var edge = TrackGeometry.resolve(level, carRails.get(i));
+              var hit =
+                  new CoasterPathTrackFrame.GraphHit(
+                      CoasterPathGraphManager.sampleEdgePosition(level, edge, .5), edge, .5);
+              var basis = CoasterPathTrackFrame.trackBasisAtHit(level, hit);
               velocity(level, v, 1);
               var before = physics.getLinearVelocity(body, new Vector3d());
               CoasterCartChainLiftDrive.applySpeedMatch(
@@ -168,16 +251,11 @@ public final class MagnetizedRideCheck {
                         (ServerSubLevel) container.getSubLevel(v.chassis), new Vector3d())
                     .z;
             System.out.println(
-                "FD_MAGNETIZED_FORWARD family="
-                    + v.family
-                    + " speed="
-                    + speed
-                    + " fault="
-                    + v.fault);
+                marker + "_FORWARD family=" + v.family + " speed=" + speed + " fault=" + v.fault);
             helper.assertTrue(
                 v.family == Family.PAX ? Math.abs(speed) < .01 : speed > 1.1,
                 "Native Magnetized acceleration failed: " + v.family);
-            setEquipment(level, rails.get(i), AnchorMode.BRAKE, 100);
+            setEquipment(level, carRails.get(i), AnchorMode.BRAKE, 100);
           }
         });
     helper.runAtTickTime(
@@ -190,9 +268,9 @@ public final class MagnetizedRideCheck {
                     .getLinearVelocity(
                         (ServerSubLevel) container.getSubLevel(v.chassis), new Vector3d())
                     .length();
-            System.out.println("FD_MAGNETIZED_BRAKE family=" + v.family + " speed=" + speed);
+            System.out.println(marker + "_BRAKE family=" + v.family + " speed=" + speed);
             helper.assertTrue(speed < .15, "Magnetized forward brake failed: " + v.family);
-            setEquipment(level, rails.get(i), AnchorMode.MAGNET, 10);
+            setEquipment(level, carRails.get(i), AnchorMode.MAGNET, 10);
             if (v.family != Family.PAX) velocity(level, v, -1);
           }
         });
@@ -206,16 +284,11 @@ public final class MagnetizedRideCheck {
                         (ServerSubLevel) container.getSubLevel(v.chassis), new Vector3d())
                     .z;
             System.out.println(
-                "FD_MAGNETIZED_ROLLBACK family="
-                    + v.family
-                    + " speed="
-                    + speed
-                    + " fault="
-                    + v.fault);
+                marker + "_ROLLBACK family=" + v.family + " speed=" + speed + " fault=" + v.fault);
             helper.assertTrue(
                 v.family == Family.PAX ? Math.abs(speed) < .01 : speed < -1.1,
                 "Magnetized rollback acceleration failed: " + v.family);
-            setEquipment(level, rails.get(i), AnchorMode.BRAKE, 100);
+            setEquipment(level, carRails.get(i), AnchorMode.BRAKE, 100);
           }
         });
     helper.runAtTickTime(
@@ -229,6 +302,11 @@ public final class MagnetizedRideCheck {
                         (ServerSubLevel) container.getSubLevel(v.chassis), new Vector3d())
                     .length();
             helper.assertTrue(speed < .15, "Magnetized rollback brake failed: " + v.family);
+            System.out.println(marker + "_REVERSE_BRAKE car=" + i + " speed=" + speed);
+            if (linked)
+              helper.assertTrue(
+                  VehicleOperations.consist(level, v).size() == 2,
+                  "Magnetized motion lost the Arrow coupling");
             helper.assertTrue(
                 v.fault.isBlank() && riders.get(i).isPassenger(),
                 "Magnetized run lost rider or matching track");
@@ -248,7 +326,8 @@ public final class MagnetizedRideCheck {
                     MagneticRuntime.audit(
                         (ServerSubLevel) container.getSubLevel(v.carriers.get(c).body));
                 System.out.println(
-                    "FD_MAGNETIZED_SEAT group="
+                    marker
+                        + "_SEAT group="
                         + c
                         + " impulses="
                         + audit.impulses
@@ -260,12 +339,22 @@ public final class MagnetizedRideCheck {
                 helper.assertTrue(
                     audit.energyChange <= 1e-6, "Combined magnetic equipment added energy");
               }
+            if (linked)
+              helper.assertTrue(
+                  VehicleOperations.consist(level, v).size() == 2,
+                  "Magnetized capture lost the Arrow coupling");
+            System.out.println(
+                marker + "_CAPTURE car=" + i + " ready=true rider=" + riders.get(i).isPassenger());
+          }
+          for (int i = 0; i < cars.size(); i++) {
+            var v = cars.get(i);
             VehicleOperations.restraints(level, v, false);
             riders.get(i).stopRiding();
             riders.get(i).discard();
+          }
+          for (var v : cars)
             container.removeSubLevel(
                 container.getSubLevel(v.chassis), SubLevelRemovalReason.REMOVED);
-          }
           helper.succeed();
         });
   }

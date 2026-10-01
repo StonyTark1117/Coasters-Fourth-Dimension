@@ -1,0 +1,67 @@
+{
+  "magnetized": {
+    "registered": 34,
+    "absent_addon_skips": 5,
+    "peer_guard_cases": 4,
+    "healthy_impulses": [
+      0.31999993324279785,
+      0.31999993324279785,
+      0.31999993324279785,
+      0.31999993324279785
+    ],
+    "native_speeds": {
+      "forward": [
+        3.602302074432373,
+        3.602301836013794
+      ],
+      "rollback": [
+        -3.603564977645874,
+        -3.6035654544830322
+      ],
+      "brake": [
+        0.0007276615881003973,
+        0.0007276690502345332
+      ]
+    },
+    "reverse_braked_speeds": [
+      0.0007789582623693065,
+      0.0007789590185193365
+    ],
+    "recaptured_occupied_cars": 2
+  },
+  "combined": {
+    "registered": 34,
+    "absent_addon_skips": 0,
+    "peer_guard_cases": 4,
+    "healthy_impulses": [
+      0.31999993324279785,
+      0.31999993324279785,
+      0.31999993324279785,
+      0.31999993324279785
+    ],
+    "native_speeds": {
+      "forward": [
+        3.602302074432373,
+        3.602301836013794
+      ],
+      "rollback": [
+        -3.603564977645874,
+        -3.6035654544830322
+      ],
+      "brake": [
+        0.0007276615881003973,
+        0.0007276690502345332
+      ]
+    },
+    "reverse_braked_speeds": [
+      0.000778965705716778,
+      0.0007789662944728768
+    ],
+    "recaptured_occupied_cars": 2
+  },
+  "base": {
+    "registered": 34,
+    "absent_addon_skips": 7
+  },
+  "unit_tests": 19
+}

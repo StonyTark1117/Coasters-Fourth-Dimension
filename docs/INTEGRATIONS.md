@@ -387,7 +387,12 @@ its anchor equipment separately; no rail/provider identity is rewritten. Our
 renderer retains the running rails, ties, spine and mechanical equipment, with
 Track Styles optionally owning the Arrow spine as above. Magnetized's replacement
 rail models target the base Coasters renderer and are not imported into our mesh.
-Client equipment visibility, linked trains, curves/slopes, configuration extremes,
+A [native coupled Arrow checkpoint](evidence/integrations/2026-10-01/magnetized-linked/README.md)
+extends this to two cars with native riders, forward/reverse acceleration and braking,
+retained coupling and normal recapture. Each unsafe trailing-car state blocks lead-car
+propulsion; restoring the peer immediately restores the native impulse. This flat-track
+check does not establish gravity rollback or braking distance on slopes.
+Client equipment visibility, longer trains, curves/slopes, configuration extremes,
 restart/removal and multiplayer still need acceptance before advertising support.
 
 ## Immersion 0.2.3: carrier camera adapter
@@ -580,8 +585,8 @@ acceptance remain open.
 - Extend the bounded Additions linked Arrow/mixed-span/fin-mode checks to the
   remaining train configurations, lifecycle and multiplayer acceptance;
   validate any rotating-seat replacement separately.
-- Extend Magnetized native straight-track evidence to linked trains, curves/slopes,
-  equipment visuals, configuration extremes, lifecycle and multiplayer.
+- Extend Magnetized native single-car and two-car Arrow evidence to longer trains,
+  curves/slopes, equipment visuals, configuration extremes, lifecycle and multiplayer.
 - Extend the bounded five-family Immersion camera/restart evidence to every camera
   mode, comfort extreme, inversion and lifecycle transition. The combined-pack
   two-client cycles remain bounded evidence only.

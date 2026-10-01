@@ -1,0 +1,37 @@
+{
+  "parent_commit": "fd527911dbbf7dce36e8e971eaa6577a66b03c4c",
+  "artifact_sha256": "ec91bc30fa2c8afa04bcc7c508b4b221a4469bd492d1245644e8ad62bc887c95",
+  "sources": {
+    "src/main/java/dev/fourthdimension/integration/magnetized/MagnetizedRideCheck.java": "6393d861781087dcb27069308c3255f072608f350bd658f85d971897ccbbaecc",
+    "src/main/java/dev/fourthdimension/gametest/MagnetizedIntegrationGameTests.java": "140bcde6a04d887ce621100bd78623db9312111d7e580d6080ed224397b5f7c5"
+  },
+  "files": {
+    "base-events.txt": "a6f3e1bc1d8e7c7a21899d2e932b0dc2452bff0047f98acecf5be13309f4583e",
+    "base.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "base.log.gz": "a7deb080cddb38e507f9f038e4389a91c4fe6dae373b5303f55510a037e157e7",
+    "combined-events.txt": "80668f2d494ea319bef1c98389dce7e76f20ed70367c9f21be5de631c30f2228",
+    "combined.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "combined.log.gz": "534c5b53236893fed728f84d12bc888bf48f4b31f54554fdf4ea67b4308bdcc6",
+    "compile-first-events.txt": "2216c2aa1b2cbcb7eeb3b3a292d0385acf7807b8f93f596c11eca519013b2f58",
+    "compile-first.exit": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865",
+    "compile-first.log.gz": "c97f1996ea26024bf8e6c06d313caed9f1721845afbd575a431fa63b0af4bd06",
+    "followup.py": "55f890ab00bea632d74205ffa20fdc28cc8b62692d4b16ef40f73b075abb3323",
+    "layout-first-events.txt": "ce57d35619268c6f9667fb97e62cd0e110545ea6c0328226eaa98c9dc92d358e",
+    "layout-first.exit": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865",
+    "layout-first.log.gz": "733184dab748f75d3bdbf15d8eecf52f3bda9b1a266d86597fa017006af0cbde",
+    "magnetized-events.txt": "d92c8341a225b1bd067ddce2cb272c9f1071454b021e6ade748fa5dd3ae3202b",
+    "magnetized.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "magnetized.log.gz": "984c24350d564a27ca3c172ed313c91c18962165ff503f536f41bea59ebbf998",
+    "run.sh": "acb6c7c353db4e7480f09dc2e854bbd8c87d8251895d1e44998771f07f2104bb",
+    "source.patch.gz": "6c7f290cf46cd13144c84533e10248d2d683b3e53607f3bd7b54ef77dd4df7c0",
+    "unit-tests/TEST-dev.fourthdimension.FoundationMathTest.xml": "7a4e7ffb995d336e13ef1be1a19afba660a39350833685ac91d72bbcbb198c64",
+    "unit-tests/TEST-dev.fourthdimension.MagneticMathTest.xml": "e73f6311f00bdbe4e601e43981410f5a2b82b3a0314a0cf06afa6b0783f4299a",
+    "unit-tests/TEST-dev.fourthdimension.RiderLookTest.xml": "dcb5a5ef4b7f31caf63aa5e8d5cea9e8b1234afbeda9dc7b8f1499a3e9c88199",
+    "unit-tests/TEST-dev.fourthdimension.TrackMathTest.xml": "a58913e96349471e33d3f2491e46b6abd858d506b94298c78ff81cf3a71c0839"
+  },
+  "compiled_classes": {
+    "dev/fourthdimension/integration/magnetized/MagnetizedRideCheck.class": "c90af179fd620cdb93519dcd0daa0811f35fa443cfa2957b3f4ffc56f83240b7",
+    "dev/fourthdimension/gametest/MagnetizedIntegrationGameTests.class": "cb669007cdf2f02893d2bdab3c8e8361dc75f39dc2322ff0d2529b233d88c447"
+  },
+  "artifact_path": "/home/braydon/.cache/fourthdimension-48535694/magnetized-linked.jar"
+}
