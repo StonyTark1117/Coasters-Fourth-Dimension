@@ -1,0 +1,56 @@
+{
+  "scope": "Native factory, survival item use, locked snap/filter/binding, appearance save/load; not the complete FD901 entry-path or rendering matrix",
+  "negative_control_failed": true,
+  "profiles": {
+    "base": {
+      "registered": 33,
+      "absent_addon_skips": 6,
+      "family_appearance_decisions": 100,
+      "rejected_survival_placements": 95,
+      "successful_survival_placements": 5
+    },
+    "styles": {
+      "registered": 33,
+      "absent_addon_skips": 6,
+      "family_appearance_decisions": 100,
+      "rejected_survival_placements": 95,
+      "successful_survival_placements": 5
+    },
+    "engineered": {
+      "registered": 33,
+      "absent_addon_skips": 3,
+      "family_appearance_decisions": 100,
+      "rejected_survival_placements": 95,
+      "successful_survival_placements": 5
+    },
+    "combined": {
+      "registered": 33,
+      "absent_addon_skips": 0,
+      "family_appearance_decisions": 100,
+      "rejected_survival_placements": 95,
+      "successful_survival_placements": 5
+    },
+    "additions": {
+      "registered": 33,
+      "absent_addon_skips": 4,
+      "family_appearance_decisions": 100,
+      "rejected_survival_placements": 95,
+      "successful_survival_placements": 5
+    },
+    "magnetized": {
+      "registered": 33,
+      "absent_addon_skips": 5,
+      "family_appearance_decisions": 100,
+      "rejected_survival_placements": 95,
+      "successful_survival_placements": 5
+    },
+    "immersion": {
+      "registered": 33,
+      "absent_addon_skips": 6,
+      "family_appearance_decisions": 100,
+      "rejected_survival_placements": 95,
+      "successful_survival_placements": 5
+    }
+  },
+  "unit_tests": 19
+}

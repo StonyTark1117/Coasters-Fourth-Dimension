@@ -335,6 +335,11 @@ Exercise every family against matching, ordinary, wrong-family, cosmetic-only, a
 
 **Partial evidence (2026-09-30):** [Additions linked-consist checks](docs/evidence/integrations/2026-09-30/additions-consist/README.md) cover a two-car Arrow train, ordinary/uncoupled/partial-span rejection, station timing and occupied forward/reverse fin modes in individual and combined profiles. [Engineered PAX checks](docs/evidence/integrations/2026-09-30/engineered-pax/README.md) add active opposing commands through an occupied winch cycle and power interruption. The full family/entry-path matrix remains open.
 
+The [provider/appearance extension (2026-10-01)](docs/evidence/integrations/2026-10-01/provider-eligibility/README.md)
+fixes allocation on unavailable functional providers and exercises all five families
+through factory, survival item use and locked native snap/binding paths across four
+appearance states. This extends the matrix without closing the remaining entry paths.
+
 **Done when:** each advertised combination has recorded results. Wrong-family 4D carts are rejected everywhere, and ordinary carts receive no 4D benefit.
 
 ### FD902 Validate multiplayer and lifecycle recovery

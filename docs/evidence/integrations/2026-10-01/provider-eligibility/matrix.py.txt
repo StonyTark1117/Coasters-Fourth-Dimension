@@ -1,0 +1,20 @@
+from pathlib import Path
+import subprocess,time,os,json,shutil
+root=Path(__file__).resolve().parents[2];out=Path(__file__).resolve().parent
+try:
+ while not (out/'fixed-base.exit').exists():
+  os.kill(int((out/'fixed-base.pid').read_text()),0);time.sleep(2)
+ assert (out/'fixed-base.exit').read_text().strip()=='0','Base regression failed'
+ jar=Path('/tmp/fourthdimension-48535694/build/libs/coasters-fourth-dimension-0.9.0-dev.1.jar')
+ shutil.copyfile(jar,out/'fixed.jar')
+ for name,profile in [('styles','styles'),('engineered','engineered'),('combined','engineered,styles,additions,magnetized,immersion'),('additions','additions'),('magnetized','magnetized'),('immersion','immersion')]:
+  cmd=['./gradlew','-Dorg.gradle.jvmargs=-Xmx1G','--max-workers=2','runGameTestServer','-PfdIntegrations='+profile]
+  if name in ('engineered','combined'):cmd.append('-PfdPaxEnergyReload')
+  with (out/('fixed-'+name+'.log')).open('w') as log:
+   p=subprocess.Popen(cmd,cwd=root,stdin=subprocess.DEVNULL,stdout=log,stderr=subprocess.STDOUT,env={**os.environ,'JAVA_HOME':'/usr/lib/jvm/java-21-openjdk','JAVA_TOOL_OPTIONS':'-Xmx2G'})
+   (out/'matrix-status.json').write_text(json.dumps({'status':'running','profile':name,'pid':p.pid,'command':cmd})+'\n');code=p.wait()
+  (out/('fixed-'+name+'.exit')).write_text(str(code)+'\n');assert code==0,'Native profile failed: '+name
+ (out/'matrix-status.json').write_text(json.dumps({'status':'complete'})+'\n')
+ (out/'matrix.exit').write_text('0\n')
+except BaseException as e:
+ (out/'matrix-error.txt').write_text(repr(e)+'\n');(out/'matrix.exit').write_text('1\n');raise

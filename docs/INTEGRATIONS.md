@@ -41,6 +41,14 @@ Recorded checks: [family gate](evidence/0.3/README.md),
   requests verify the actual binding and station distance; PAX uses its winch state
   machine. Telemetry is advisory and never bypasses a fresh operation check.
 
+A [provider/appearance eligibility regression](evidence/integrations/2026-10-01/provider-eligibility/README.md)
+found that vehicle placement could allocate a car on saved geometry whose functional
+provider was missing, even though native snapping refused engagement. The factory now
+validates the provider contract before allocation. The extended five-family matrix
+covers survival item consumption, native snap/binding rejection, original/two optional/
+missing appearances and mechanical save preservation. Full mixed-consist, boundary,
+external-material and client-rendering acceptance remains separate.
+
 ## Create
 
 Boarding Stations and PAX Shuttle Winches expose goggles diagnostics and six Display

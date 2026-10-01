@@ -32,6 +32,9 @@ public final class VehicleFactory {
                         "A 4D car requires its matching functional track"));
     if (!rail.valid || !rail.variant.equals(design.variant))
       throw new IllegalArgumentException("Vehicle and track families do not match");
+    if (!dev.fourthdimension.integration.TrackProviders.available(rail))
+      throw new IllegalArgumentException(
+          "The functional track provider is unavailable or incompatible");
     if (CoasterPathGraphManager.edgeHostedOnSubLevel(level, hit.edge()))
       throw new IllegalArgumentException("Place vehicles on fixed world tracks");
     var orientation =
