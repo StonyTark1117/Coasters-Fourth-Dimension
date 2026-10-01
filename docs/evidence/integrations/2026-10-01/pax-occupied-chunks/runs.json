@@ -1,0 +1,37 @@
+{
+  "attempt1": {
+    "full_log": "/tmp/fd-pax-chunks-base1.log",
+    "sha256": "703661e6eadccb498120027595be479eb03da156697c5b2f599a455eac124d59",
+    "exit_status": 1
+  },
+  "attempt2": {
+    "full_log": "/tmp/fd-pax-chunks-base2.log",
+    "sha256": "d0e92aa04f3fece828c4fb68c5a45999ce774f1891d614f984501c1cd3048578",
+    "exit_status": 1
+  },
+  "exploratory": {
+    "full_log": "/tmp/fd-pax-chunks-base3.log",
+    "sha256": "3d851d2e942d91418b65ffd903d51d5f9390be62c6202707d65dcdee2b8ea9cb",
+    "exit_status": 0
+  },
+  "base-before-observer-guard": {
+    "full_log": "/tmp/fd-pax-chunks-final-native-base.log",
+    "sha256": "b4dac65bad60b5942cbdee3c83ad3534b3bf216a4c3a87252b58ec7cd78e59ac",
+    "exit_status": 0
+  },
+  "engineered": {
+    "full_log": "/tmp/fd-pax-chunks-final-native-engineered.log",
+    "sha256": "ffb39e4f7f4946a6774ba74e01b25d7c6c00685cf2881ed859ede049fb3b3485",
+    "exit_status": 0
+  },
+  "combined": {
+    "full_log": "/tmp/fd-pax-chunks-final-native-combined.log",
+    "sha256": "2abd52ff1778f87ca4d8faea3ce33983c4d0a687d0405fff00c731d1ef34a654",
+    "exit_status": 0
+  },
+  "base": {
+    "full_log": "/tmp/fd-pax-chunks-base-final.log",
+    "sha256": "15335bc1c5bf00e09d12d30101a6dfd4aa9cd70463b6d26dae3d313cc05ac8a2",
+    "exit_status": 0
+  }
+}

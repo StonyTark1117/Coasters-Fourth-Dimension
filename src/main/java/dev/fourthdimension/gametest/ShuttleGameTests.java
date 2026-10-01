@@ -16,6 +16,303 @@ import net.neoforged.neoforge.gametest.*;
 @GameTestHolder("fourthdimension")
 @PrefixGameTestTemplate(false)
 public final class ShuttleGameTests {
+  @GameTest(template = "empty", batch = "fourthdimension_shuttle_chunks", timeoutTicks = 12000)
+  public static void occupiedLiftNativeEvictionExplicitResume(GameTestHelper helper) {
+    var level = helper.getLevel();
+    var origin = new BlockPos(-840, 180, 600);
+    java.util.function.Consumer<Boolean> tickets =
+        force -> {
+          for (int x = -54; x <= -52; x++)
+            for (int z = 33; z <= 43; z++) level.setChunkForced(x, z, force);
+        };
+    tickets.accept(true);
+    var example = ShuttleExamples.create(level, origin, false);
+    var container = SubLevelContainer.getContainer(level);
+    var oldWinch = example.winch();
+    var anchors =
+        dev.fourthdimension.runtime.FoundationData.get(level).rails.stream()
+            .filter(
+                r -> r.family == dev.fourthdimension.contract.Family.PAX && r.from.getX() == -840)
+            .flatMap(r -> java.util.stream.Stream.of(r.from, r.to))
+            .distinct()
+            .toList();
+    var oldBlocks = new HashMap<BlockPos, net.minecraft.world.level.block.entity.BlockEntity>();
+    anchors.forEach(p -> oldBlocks.put(p, level.getBlockEntity(p)));
+    oldBlocks.put(oldWinch.getBlockPos(), oldWinch);
+    oldBlocks.put(
+        oldWinch.getBlockPos().west(), level.getBlockEntity(oldWinch.getBlockPos().west()));
+    var oldBodies = new HashMap<UUID, dev.ryanhcode.sable.sublevel.SubLevel>();
+    var assignments = new HashMap<UUID, UUID>();
+    ShuttleWinchEntity[] live = {oldWinch};
+    long start = level.getGameTime();
+    long[] restoredAt = {-1}, resumedAt = {-1};
+    double[] hold = {0};
+    long[] completedAt = {-1};
+    var externalChecks = new ArrayList<Runnable>();
+    var phases = EnumSet.noneOf(ShuttleWinchEntity.Phase.class);
+    helper.runAtTickTime(
+        80,
+        () -> {
+          ShuttleExamples.assemble(level, example);
+          if (dev.fourthdimension.integration.OptionalIntegrations.supported(
+              "coastersengineered", Set.of("1.1.1"))) {
+            externalChecks.add(
+                dev.fourthdimension.integration.engineered.EngineeredShuttleCheck.attachReload(
+                    helper, example));
+            var motorPos = oldWinch.getBlockPos().offset(-6, 0, 4);
+            oldBlocks.put(motorPos, level.getBlockEntity(motorPos));
+            oldBlocks.put(motorPos.above(2), level.getBlockEntity(motorPos.above(2)));
+          }
+
+          for (var v : example.cars())
+            for (var c : v.carriers)
+              for (var offset : c.seats) {
+                var pig = EntityType.PIG.create(level);
+                pig.setNoAi(true);
+                pig.setPersistenceRequired();
+                pig.setPos(origin.getCenter().add(0, 3, 0));
+                level.addFreshEntity(pig);
+                SeatBlock.sitDown(
+                    level,
+                    container.getSubLevel(c.body).getPlot().getCenterBlock().offset(offset),
+                    pig);
+                helper.assertTrue(pig.isPassenger(), "PAX interruption boarding failed");
+                assignments.put(pig.getUUID(), c.body);
+              }
+          helper.assertTrue(assignments.size() == 16, "PAX interruption requires sixteen riders");
+          VehicleOperations.restraints(level, example.cars().getFirst(), true);
+          VehicleOperations.dispatch(level, example.cars().getFirst());
+        });
+    helper.runAtTickTime(
+        150,
+        () -> {
+          helper.assertTrue(
+              oldWinch.phase == ShuttleWinchEntity.Phase.LIFTING && oldWinch.carriage != null,
+              "PAX interruption did not start during an actual carriage lift");
+          for (var v : example.cars()) {
+            oldBodies.put(v.chassis, container.getSubLevel(v.chassis));
+            for (var c : v.carriers) oldBodies.put(c.body, container.getSubLevel(c.body));
+          }
+          oldBodies.put(oldWinch.carriage, container.getSubLevel(oldWinch.carriage));
+          helper.assertTrue(
+              oldBodies.size() == 13 && oldBodies.values().stream().allMatch(Objects::nonNull),
+              "Expected four PAX chassis, eight carriers and one carriage");
+          tickets.accept(false);
+          System.out.println(
+              "FD_PAX_EVICTION_RELEASE phase="
+                  + oldWinch.phase
+                  + " bodies="
+                  + oldBodies.size()
+                  + " riders="
+                  + assignments.size());
+        });
+    helper.runAtTickTime(
+        400,
+        () -> {
+          level.getChunkSource().save(true);
+          System.out.println("FD_PAX_EVICTION_FLUSH native=true");
+        });
+    helper.onEachTick(
+        () -> {
+          long tick = level.getGameTime() - start;
+          externalChecks.forEach(Runnable::run);
+          if (tick < 400) return;
+          if (restoredAt[0] < 0) {
+            boolean absent =
+                oldBlocks.entrySet().stream()
+                        .allMatch(
+                            e ->
+                                e.getValue().isRemoved()
+                                    && level
+                                            .getChunkSource()
+                                            .getChunkNow(
+                                                e.getKey().getX() >> 4, e.getKey().getZ() >> 4)
+                                        == null)
+                    && oldBodies.entrySet().stream()
+                        .allMatch(
+                            e ->
+                                e.getValue().isRemoved()
+                                    && container.getSubLevel(e.getKey()) == null);
+            if (!absent) {
+              if (tick == 900 || tick == 1300)
+                System.out.println(
+                    "FD_PAX_EVICTION_WAIT blocks="
+                        + oldBlocks.entrySet().stream()
+                            .map(
+                                e ->
+                                    e.getKey()
+                                        + ":"
+                                        + e.getValue().isRemoved()
+                                        + ":resident="
+                                        + (level
+                                                .getChunkSource()
+                                                .getChunkNow(
+                                                    e.getKey().getX() >> 4, e.getKey().getZ() >> 4)
+                                            != null)
+                                        + ":ticking="
+                                        + dev.fourthdimension.track.TrackGeometry.ticking(
+                                            level, e.getKey()))
+                            .toList()
+                        + " bodies="
+                        + oldBodies.entrySet().stream()
+                            .map(
+                                e ->
+                                    e.getKey()
+                                        + ":"
+                                        + e.getValue().isRemoved()
+                                        + ":"
+                                        + (container.getSubLevel(e.getKey()) != null))
+                            .toList());
+              if (tick == 1000) {
+                level.getChunkSource().save(true);
+                System.out.println("FD_PAX_EVICTION_FLUSH retry=true");
+              }
+              helper.assertTrue(tick < 8000, "PAX fixture never physically evicted");
+              return;
+            }
+            helper.assertTrue(
+                example.cars().stream()
+                    .allMatch(
+                        v ->
+                            v.restraints
+                                && v.carriers.stream().allMatch(c -> c.occupants.size() == 2)),
+                "Unloaded PAX lost restrained saved occupancy");
+            System.out.println(
+                "FD_PAX_EVICTED tick="
+                    + tick
+                    + " blocks="
+                    + oldBlocks.size()
+                    + " bodies="
+                    + oldBodies.size()
+                    + " occupants=16 phase="
+                    + oldWinch.phase
+                    + " interrupted="
+                    + oldWinch.interrupted);
+            tickets.accept(true);
+            restoredAt[0] = tick;
+            return;
+          }
+          if (tick < restoredAt[0] + 100) return;
+          if (resumedAt[0] < 0) {
+            live[0] = (ShuttleWinchEntity) level.getBlockEntity(oldWinch.getBlockPos());
+            var w = live[0];
+            helper.assertTrue(
+                w != null
+                    && w != oldWinch
+                    && w.carriage.equals(oldWinch.carriage)
+                    && w.cars.equals(oldWinch.cars),
+                "PAX native reload lost winch or train/carriage identity");
+            helper.assertTrue(
+                oldBlocks.entrySet().stream()
+                    .allMatch(
+                        e ->
+                            level.getBlockEntity(e.getKey()) != null
+                                && level.getBlockEntity(e.getKey()) != e.getValue()),
+                "PAX native reload reused old block entities");
+            helper.assertTrue(
+                oldBodies.entrySet().stream()
+                    .allMatch(
+                        e ->
+                            container.getSubLevel(e.getKey()) != null
+                                && container.getSubLevel(e.getKey()) != e.getValue()),
+                "PAX native reload lost bodies or reused old instances");
+            helper.assertTrue(
+                w.phase == ShuttleWinchEntity.Phase.FAULT
+                    && w.interrupted == ShuttleWinchEntity.Phase.LIFTING,
+                "PAX reloaded lift resumed without explicit authorization: "
+                    + w.phase
+                    + " "
+                    + w.fault);
+            verifyReloadedPassengers(helper, assignments);
+            if (tick == restoredAt[0] + 100) {
+              hold[0] = CoasterCartResolve.cartCenterWorld(container.getSubLevel(w.vehicle)).y;
+              System.out.println(
+                  "FD_PAX_RESTORED fresh=true riders=16 phase="
+                      + w.phase
+                      + " interrupted="
+                      + w.interrupted
+                      + " fault="
+                      + w.fault);
+            }
+            try {
+              VehicleOperations.restraints(level, example.cars().getFirst(), false);
+              helper.fail("Reloaded interrupted PAX opened restraints");
+            } catch (IllegalArgumentException expected) {
+            }
+            if (tick < restoredAt[0] + 160) return;
+            double drift =
+                Math.abs(
+                    CoasterCartResolve.cartCenterWorld(container.getSubLevel(w.vehicle)).y
+                        - hold[0]);
+            helper.assertTrue(drift < .3, "Reloaded PAX mechanical catch rolled back: " + drift);
+            w.resume();
+            resumedAt[0] = tick;
+            System.out.println("FD_PAX_RESUMED holdTicks=60 drift=" + drift + " phase=" + w.phase);
+            return;
+          }
+          var w = live[0];
+          phases.add(w.phase);
+          verifyReloadedPassengers(helper, assignments);
+          helper.assertTrue(
+              !dev.fourthdimension.integration.ExternalDrivePolicy.allows(level, w.vehicle),
+              "External drive gained PAX ownership after reload");
+          helper.assertTrue(
+              w.phase != ShuttleWinchEntity.Phase.FAULT, "Resumed PAX faulted: " + w.fault);
+          if (w.cycles == 1 && w.phase == ShuttleWinchEntity.Phase.BOARDING) {
+            if (completedAt[0] < 0) completedAt[0] = tick;
+            if (tick - completedAt[0] < 20) return;
+            helper.assertTrue(
+                phases.containsAll(
+                    EnumSet.of(
+                        ShuttleWinchEntity.Phase.LIFTING,
+                        ShuttleWinchEntity.Phase.OUTBOUND,
+                        ShuttleWinchEntity.Phase.RETURNING,
+                        ShuttleWinchEntity.Phase.CAPTURING,
+                        ShuttleWinchEntity.Phase.BOARDING)),
+                "Reloaded PAX skipped a cycle phase");
+            helper.assertTrue(
+                CoasterCartTrainLinkConstraint.getTrainLinkedCartIds(
+                            container.getSubLevel(w.vehicle))
+                        .size()
+                    == 4,
+                "PAX reload broke the four-car consist");
+            helper.assertTrue(
+                example.cars().stream().allMatch(v -> Boarding.ready(level, v)),
+                "Reloaded PAX did not return ready");
+            VehicleOperations.restraints(level, example.cars().getFirst(), false);
+            for (var id : assignments.keySet()) {
+              var pig = level.getEntity(id);
+              pig.stopRiding();
+              helper.assertTrue(
+                  pig.isAlive() && !pig.isPassenger(), "Reloaded PAX failed normal unloading");
+            }
+            System.out.println(
+                "FD_PAX_EVICTION_COMPLETE cycles="
+                    + w.cycles
+                    + " cars=4 riders=16 alive=true unloaded=true phases="
+                    + phases);
+            helper.succeed();
+          }
+        });
+  }
+
+  private static void verifyReloadedPassengers(GameTestHelper helper, Map<UUID, UUID> assignments) {
+    var level = helper.getLevel();
+    for (var entry : assignments.entrySet()) {
+      var rider = level.getEntity(entry.getKey());
+      var parent =
+          rider == null || rider.getVehicle() == null
+              ? null
+              : dev.ryanhcode.sable.Sable.HELPER.getContaining(rider.getVehicle());
+      helper.assertTrue(
+          rider != null
+              && rider.isAlive()
+              && parent != null
+              && entry.getValue().equals(parent.getUniqueId()),
+          "Native PAX reload lost original rider/carrier attachment: " + entry.getKey());
+    }
+  }
+
   @GameTest(template = "empty", timeoutTicks = 1800)
   public static void routeChunkStopsTickingWinchReloadAndPhysicalRecovery(GameTestHelper helper) {
     var level = helper.getLevel();

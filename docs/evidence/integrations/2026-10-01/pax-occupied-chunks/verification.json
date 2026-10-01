@@ -1,0 +1,44 @@
+{
+  "scope": "Occupied PAX lift eviction and explicit recovery; native pigs; default Engineered energy mode",
+  "profiles": {
+    "base": {
+      "evicted_tick": 901,
+      "block_entities": 6,
+      "native_bodies": 13,
+      "riders": 16,
+      "hold_drift_blocks": 3.4016522931779036e-09
+    },
+    "engineered": {
+      "evicted_tick": 901,
+      "block_entities": 8,
+      "native_bodies": 13,
+      "riders": 16,
+      "hold_drift_blocks": 3.401453341211891e-09,
+      "controller_presence_ticks": {
+        "BOARDING": 20,
+        "LIFTING": 338,
+        "OUTBOUND": 174,
+        "RETURNING": 58,
+        "CAPTURING": 98,
+        "FAULT": 159
+      }
+    },
+    "combined": {
+      "evicted_tick": 901,
+      "block_entities": 8,
+      "native_bodies": 13,
+      "riders": 16,
+      "hold_drift_blocks": 4.119129926039022e-09,
+      "controller_presence_ticks": {
+        "BOARDING": 20,
+        "LIFTING": 338,
+        "OUTBOUND": 174,
+        "RETURNING": 59,
+        "CAPTURING": 90,
+        "FAULT": 159
+      }
+    }
+  },
+  "registered_tests": 29,
+  "unit_tests": 19
+}

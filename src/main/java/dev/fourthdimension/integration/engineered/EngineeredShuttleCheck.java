@@ -14,6 +14,15 @@ public final class EngineeredShuttleCheck {
   private EngineeredShuttleCheck() {}
 
   public static Runnable attach(GameTestHelper helper, ShuttleExamples.Example example) {
+    return attach(helper, example, false);
+  }
+
+  public static Runnable attachReload(GameTestHelper helper, ShuttleExamples.Example example) {
+    return attach(helper, example, true);
+  }
+
+  private static Runnable attach(
+      GameTestHelper helper, ShuttleExamples.Example example, boolean reload) {
     var level = helper.getLevel();
     var winch = example.winch();
     var route = ShuttleRoute.resolve(level, winch.routeStart, winch.routeEnd);
@@ -60,28 +69,53 @@ public final class EngineeredShuttleCheck {
             + route.segments.size()
             + " energyRequired=false cars="
             + example.cars().size());
+    String prefix = reload ? "FD_ENGINEERED_PAX_RELOAD" : "FD_ENGINEERED_PAX";
     return () -> {
-      var phase = winch.phase;
+      var currentWinch = winch;
+      var currentMotor = motor;
+      var currentObserver = observer;
+      if (reload) {
+        // Never load a chunk while observing the native eviction interval.
+        // Upstream isLinked() resolves the anchor. Only query it when the complete route ticks.
+        if (route.segments.stream()
+            .anyMatch(
+                s ->
+                    !dev.fourthdimension.track.TrackGeometry.ticking(level, s.rail().from)
+                        || !dev.fourthdimension.track.TrackGeometry.ticking(level, s.rail().to)))
+          return;
+        var chunk = level.getChunkSource().getChunkNow(pos.getX() >> 4, pos.getZ() >> 4);
+        var winchChunk =
+            level
+                .getChunkSource()
+                .getChunkNow(winch.getBlockPos().getX() >> 4, winch.getBlockPos().getZ() >> 4);
+        if (chunk == null || winchChunk == null) return;
+        currentWinch = (ShuttleWinchEntity) winchChunk.getBlockEntities().get(winch.getBlockPos());
+        currentMotor = (LinearMotorControllerBlockEntity) chunk.getBlockEntities().get(pos);
+        currentObserver = (CoasterObserverBlockEntity) chunk.getBlockEntities().get(observerPos);
+        if (currentWinch == null || currentMotor == null || currentObserver == null) return;
+      }
+      var phase = currentWinch.phase;
       if (previous[0] != phase) {
-        motor.setSteps(List.of(command(phase)));
+        currentMotor.setSteps(List.of(command(phase)));
         previous[0] = phase;
         changes.add(phase);
         System.out.println(
-            "FD_ENGINEERED_PAX_COMMAND phase="
+            prefix
+                + "_COMMAND phase="
                 + phase
                 + " mode="
-                + motor.commandMode()
+                + currentMotor.commandMode()
                 + " heading="
-                + motor.commandHeading()
+                + currentMotor.commandHeading()
                 + " value="
-                + motor.commandValue());
+                + currentMotor.commandValue());
       }
       helper.assertTrue(
-          motor.isLinked() && motor.commandMode() == command(phase).kind(),
+          currentMotor.isLinked() && currentMotor.commandMode() == command(phase).kind(),
           "Engineered PAX motor lost its active command or span");
-      observerSeen[0] |= observer.getPower() > 0;
-      if (motor.isDriving()) sightings.merge(phase, 1, Integer::sum);
-      if (winch.cycles == 1 && ++boardingTicks[0] == 20) {
+      observerSeen[0] |= currentObserver.getPower() > 0;
+      if (currentMotor.isDriving()) sightings.merge(phase, 1, Integer::sum);
+      if (currentWinch.cycles == 1 && ++boardingTicks[0] == 20) {
         for (var required :
             List.of(
                 ShuttleWinchEntity.Phase.LIFTING,
@@ -98,8 +132,9 @@ public final class EngineeredShuttleCheck {
             changes.contains(ShuttleWinchEntity.Phase.BOARDING),
             "Engineered PAX probe did not reach final boarding");
         System.out.println(
-            "FD_ENGINEERED_PAX_COMPLETE cycles="
-                + winch.cycles
+            prefix
+                + "_COMPLETE cycles="
+                + currentWinch.cycles
                 + " observer=true sightings="
                 + sightings);
       }

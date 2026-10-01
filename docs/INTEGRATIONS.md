@@ -398,6 +398,15 @@ unloading. The four straight-track families retain mechanical data and parked FE
 balances. Human-player/client interruption, PAX and partly loaded occupied routes
 remain outside that evidence.
 
+A separate [occupied PAX lift eviction check](evidence/integrations/2026-10-01/pax-occupied-chunks/README.md)
+restores four coupled cars, eight carriers, the native carriage and sixteen original
+passenger attachments. The winch retains a fault hold until explicit resume, then
+completes the gravity-return/capture cycle and normal unloading. The Engineered
+variant also evicts/reloads its controller and observer and exercises competing
+commands throughout recovery under the default energy-free configuration. This
+extends lift-interruption evidence only; other interrupted phases, FE-on PAX and
+human-player/client recovery remain open.
+
 - Extend reconciled FD305 evidence to the schema-5 optional-addon lifecycle matrix;
   investigate the recorded client resource exit. Extend the bounded transport
   diagnosis above to adverse network conditions and any persistent missing-body case.
