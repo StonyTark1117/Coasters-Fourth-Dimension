@@ -1,0 +1,7 @@
+before ready_frozen tick 182 phase BOARDING energy 12345 occupied 16 cycles 0
+before before tick 273 phase FAULT energy 12345 occupied 16 cycles 0
+Traceback (most recent call last):
+  File "/tmp/fd-pax-cold-before-continue.py", line 5, in <module>
+    before=occupied(report('before'));assert before['phase']=='LIFTING' and before['carriage']
+  File "<string>", line 36, in occupied
+AssertionError

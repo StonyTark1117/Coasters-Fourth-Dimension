@@ -1,0 +1,7 @@
+engineered restored tick 464 phase FAULT energy 12345 occupied 16 cycles 0
+Traceback (most recent call last):
+  File "/tmp/fd-pax-cold-after.py", line 15, in <module>
+    rcon('fd validation pax_energy_restart unload','Cannot open')
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<string>", line 15, in rcon
+AssertionError: fd validation pax_energy_restart unload: Shuttle restraints remain closed until final station capture

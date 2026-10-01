@@ -1,0 +1,6 @@
+before ready tick 102 phase BOARDING energy 12345 occupied 16 cycles 0
+Traceback (most recent call last):
+  File "/tmp/fd-pax-cold-before.py", line 3, in <module>
+    ready=occupied(report('ready'));assert ready['telemetry']['dispatchReady']
+                                           ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+AssertionError
