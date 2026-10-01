@@ -1,6 +1,6 @@
 {
   "researched_on": "2026-09-30",
-  "method": "Project pages, released JAR metadata, archive inventories, and javap signature inspection. No in-game runtime validation.",
+  "method": "Project pages, released JAR metadata, archive inventories, and bytecode/API inspection. Runtime evidence and its limits are recorded separately in docs/evidence/integrations.",
   "artifacts": [
     {
       "project": "Create: Coasters Simulated",
@@ -330,7 +330,116 @@
         ],
         "seat_accounting": "StationHandler.countSeats scans CoasterSeatRegistry; independent 4D carrier seats need explicit accounting.",
         "dispatch": "StationBlockEntity.setOccupied schedules link-output release; no direct 4D operation call. Must coordinate with validated 4D station requests and propulsion guards.",
-        "scope": "Research only. No Additions runtime adapter or compatibility evidence yet."
+        "scope": "Development adapter for station telemetry/dispatch and fin interlocks. Native acceptance evidence is maintained separately; rotating-seat replacement and complete addon certification remain open."
+      }
+    },
+    {
+      "project": "Create: Aeronautics (bundled)",
+      "release_page": "https://www.curseforge.com/minecraft/mc-mods/create-aeronautics/files/8763471",
+      "maven_coordinate": "curse.maven:create-aeronautics-676721:8763471",
+      "sha256": "a3f330d4757640f8715d991a43eedb826e4d0e51558d859c843ae6693bd35f1e",
+      "bytes": 33123131,
+      "embedded_license": "Read attached LICENSE.md",
+      "embedded_mod_versions": [
+        {
+          "modId": "aeronautics_bundled",
+          "version": "1.3.2"
+        }
+      ],
+      "declared_dependencies": {
+        "aeronautics_bundled": [
+          {
+            "modId": "neoforge",
+            "type": "required",
+            "versionRange": "[21.1.228,)",
+            "ordering": "NONE",
+            "side": "BOTH"
+          },
+          {
+            "modId": "minecraft",
+            "type": "required",
+            "versionRange": "[1.21.1]",
+            "ordering": "NONE",
+            "side": "BOTH"
+          }
+        ]
+      },
+      "nested_artifacts": [
+        {
+          "identifier": {
+            "group": "dev.eriksonn.aeronautics",
+            "artifact": "aeronautics-neoforge-1.21.1"
+          },
+          "version": {
+            "range": "[1.3.2,)",
+            "artifactVersion": "1.3.2"
+          },
+          "path": "META-INF/jarjar/dev.eriksonn.aeronautics.aeronautics-neoforge-1.21.1-1.3.2.jar",
+          "isObfuscated": false
+        },
+        {
+          "identifier": {
+            "group": "dev.ryanhcode.offroad",
+            "artifact": "offroad-neoforge-1.21.1"
+          },
+          "version": {
+            "range": "[1.3.2,)",
+            "artifactVersion": "1.3.2"
+          },
+          "path": "META-INF/jarjar/dev.ryanhcode.offroad.offroad-neoforge-1.21.1-1.3.2.jar",
+          "isObfuscated": false
+        },
+        {
+          "identifier": {
+            "group": "dev.simulated_team.simulated",
+            "artifact": "simulated"
+          },
+          "version": {
+            "range": "[1.3.2,)",
+            "artifactVersion": "1.3.2"
+          },
+          "path": "META-INF/jarjar/dev.simulated_team.simulated.simulated-neoforge-1.21.1-1.3.2.jar",
+          "isObfuscated": false
+        }
+      ]
+    },
+    {
+      "project": "Create: Interiors",
+      "release_page": "https://www.curseforge.com/minecraft/mc-mods/interiors/files/8974633",
+      "maven_coordinate": "curse.maven:interiors-906239:8974633",
+      "sha256": "d230a2960dcb0c3d5753bc1d4adb71c8c18c9491b8e3cfd4a6b56533dae7a2c6",
+      "bytes": 471085,
+      "embedded_license": "MIT",
+      "embedded_mod_versions": [
+        {
+          "modId": "interiors",
+          "version": "0.6.1"
+        }
+      ],
+      "declared_dependencies": {
+        "interiors": [
+          {
+            "modId": "create",
+            "type": "required",
+            "versionRange": "[6,)",
+            "ordering": "AFTER",
+            "side": "BOTH"
+          },
+          {
+            "modId": "neoforge",
+            "type": "required",
+            "versionRange": "[21.1.0,)",
+            "ordering": "NONE",
+            "side": "BOTH"
+          },
+          {
+            "modId": "minecraft",
+            "type": "required",
+            "versionRange": "[1.21.1]",
+            "ordering": "NONE",
+            "side": "BOTH"
+          }
+        ]
       }
     }
   ],

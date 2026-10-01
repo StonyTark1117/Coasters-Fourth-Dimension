@@ -37,6 +37,11 @@ public final class CreateIntegration {
           for (var entry : ENTRIES) {
             DisplaySource.BY_BLOCK_ENTITY.add(StationContent.ENTITY.get(), entry.get());
             DisplaySource.BY_BLOCK_ENTITY.add(ShuttleContent.ENTITY.get(), entry.get());
+            dev.fourthdimension.integration.OptionalIntegrations.load(
+                    "coasterfins",
+                    Set.of("0.2.0"),
+                    () -> dev.plushivr.coasterfins.registry.CFBlockEntities.STATION.get())
+                .ifPresent(type -> DisplaySource.BY_BLOCK_ENTITY.add(type, entry.get()));
           }
           TrackProviders.freeze();
           dev.fourthdimension.integration.AppearanceProviders.setup();

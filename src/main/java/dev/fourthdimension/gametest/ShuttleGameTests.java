@@ -128,6 +128,9 @@ public final class ShuttleGameTests {
         () -> {
           if (!measuring[0]) return;
           phases.add(winch.phase);
+          if (dev.fourthdimension.integration.OptionalIntegrations.supported(
+              "coasterfins", java.util.Set.of("0.2.0")))
+            dev.fourthdimension.integration.additions.AdditionsShuttleCheck.verify(helper, winch);
           helper.assertTrue(
               !dev.fourthdimension.integration.ExternalDrivePolicy.allows(level, winch.vehicle),
               "External propulsion gained control of a PAX shuttle");
@@ -196,6 +199,9 @@ public final class ShuttleGameTests {
         80,
         () -> {
           ShuttleExamples.assemble(level, example);
+          if (dev.fourthdimension.integration.OptionalIntegrations.supported(
+              "coasterfins", java.util.Set.of("0.2.0")))
+            dev.fourthdimension.integration.additions.AdditionsShuttleCheck.attach(helper, example);
           for (var v : example.cars())
             for (var c : v.carriers) {
               var body = container.getSubLevel(c.body);

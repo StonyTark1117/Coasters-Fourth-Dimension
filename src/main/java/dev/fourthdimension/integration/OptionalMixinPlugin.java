@@ -18,6 +18,15 @@ public final class OptionalMixinPlugin implements IMixinConfigPlugin {
                       mod.getModId().equals("coastersengineered")
                           && mod.getVersion().toString().equals("1.1.1"));
     }
+    if (mixin.substring(mixin.lastIndexOf('.') + 1).startsWith("Additions")) {
+      var mods = LoadingModList.get();
+      return mods != null
+          && mods.getMods().stream()
+              .anyMatch(
+                  mod ->
+                      mod.getModId().equals("coasterfins")
+                          && mod.getVersion().toString().equals("0.2.0"));
+    }
     return false;
   }
 

@@ -20,6 +20,11 @@ public final class RideOperations {
     DISPATCH
   }
 
+  /** Server adapter capability, valid only during a fresh, complete native span scan. */
+  public interface SpanController {
+    boolean authorizesRide(UUID chassis);
+  }
+
   private RideOperations() {}
 
   public static boolean nearby(ServerLevel level, BlockPos controller, UUID id) {
@@ -49,6 +54,9 @@ public final class RideOperations {
         && id.equals(winch.vehicle)
         && ShuttleRuntime.owner(level, id) == winch) {
       // The winch validates its entire route and consist, including station position for dispatch.
+    } else if (block instanceof SpanController span && span.authorizesRide(id)) {
+      if (v.family == Family.PAX)
+        throw new IllegalArgumentException("Operate PAX through its bound shuttle winch");
     } else throw new IllegalArgumentException("Controller is not bound to this vehicle");
     switch (request) {
       case CAPTURE -> VehicleOperations.capture(level, v);

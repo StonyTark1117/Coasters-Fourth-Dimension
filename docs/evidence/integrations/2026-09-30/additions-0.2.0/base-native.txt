@@ -1,0 +1,29 @@
+Full log: /tmp/fd-additions-base1.log
+SHA-256: 31e7241c665aa26f62d53b9dccf20b7d7b799bc66f0609e2c35f2351489cdd55
+
+[18:32:31] [Server thread/INFO] [minecraft/GameTestServer]: 22 tests are now running at position 1915255, -59, 6491378!
+FD_ADDITIONS_SKIPPED: optional 0.2.0 artifact absent; no compatibility evidence
+FD_APPEARANCE styles=false choices=1
+FD_ENGINEERED_SKIPPED: optional 1.1.1 artifact absent; no compatibility evidence
+FD_SHUTTLE phase=LIFTING distance=59.07979295672928 center=( 6.005E+2  1.811E+2  6.054E+2) max=62.67979295672933 fault=
+FD_SHUTTLE phase=LIFTING distance=51.079792956729165 center=( 6.005E+2  1.813E+2  5.974E+2) max=62.67979295672933 fault=
+FD_SHUTTLE phase=FAULT distance=44.679792956729074 center=( 6.005E+2  1.824E+2  5.907E+2) max=62.67979295672933 fault=Winch power lost: retain the train; inspect and resume or recover
+FD_SHUTTLE phase=FAULT distance=44.679792956729074 center=( 6.005E+2  1.824E+2  5.907E+2) max=62.67979295672933 fault=Winch power lost: retain the train; inspect and resume or recover
+FD_SHUTTLE phase=FAULT distance=44.679792956729074 center=( 6.005E+2  1.824E+2  5.907E+2) max=62.67979295672933 fault=Winch power lost: retain the train; inspect and resume or recover
+FD_SHUTTLE phase=LIFTING distance=37.079792956728966 center=( 6.005E+2  1.846E+2  5.840E+2) max=62.67979295672933 fault=
+FD_SHUTTLE phase=LIFTING distance=29.079792956728852 center=( 6.005E+2  1.880E+2  5.768E+2) max=62.67979295672933 fault=
+FD_SHUTTLE phase=LIFTING distance=21.07979295672874 center=( 6.005E+2  1.921E+2  5.700E+2) max=62.67979295672933 fault=
+FD_SHUTTLE phase=LIFTING distance=13.079792956728678 center=( 6.005E+2  1.967E+2  5.635E+2) max=62.67979295672933 fault=
+FD_SHUTTLE phase=LIFTING distance=6.160491252814871 center=( 6.005E+2  2.010E+2  5.578E+2) max=62.67979295672933 fault=
+FD_SHUTTLE phase=LIFTING distance=3.1219259195287234 center=( 6.005E+2  2.030E+2  5.553E+2) max=62.67979295672933 fault=
+FD_SHUTTLE phase=OUTBOUND distance=5.84999999999999 center=( 6.005E+2  1.991E+2  5.603E+2) max=62.67979295672933 fault=
+FD_SHUTTLE phase=OUTBOUND distance=9.850000000000009 center=( 6.005E+2  1.846E+2  5.840E+2) max=62.67979295672933 fault=
+FD_SHUTTLE phase=OUTBOUND distance=13.850000000000065 center=( 6.005E+2  1.811E+2  6.172E+2) max=71.01104313822151 fault=
+FD_SHUTTLE phase=OUTBOUND distance=17.850000000000122 center=( 6.005E+2  1.834E+2  6.437E+2) max=98.13165484353506 fault=
+FD_SHUTTLE phase=RETURNING distance=21.85000000000018 center=( 6.005E+2  1.848E+2  6.467E+2) max=103.58326060656866 fault=
+FD_SHUTTLE phase=RETURNING distance=25.850000000000236 center=( 6.005E+2  1.811E+2  6.268E+2) max=103.58326060656866 fault=
+FD_SHUTTLE phase=CAPTURING distance=26.25000000000024 center=( 6.005E+2  1.811E+2  6.103E+2) max=103.58326060656866 fault=
+FD_SHUTTLE phase=CAPTURING distance=63.02343203685584 center=( 6.005E+2  1.811E+2  6.090E+2) max=103.58326060656866 fault=
+FD_SHUTTLE_TALL cycles=2 maximum=142.93348411149162 station=82.92133833155415
+[18:33:31] [Server thread/INFO] [minecraft/GameTestServer]: All 22 required tests passed :)
+BUILD SUCCESSFUL in 1m 17s

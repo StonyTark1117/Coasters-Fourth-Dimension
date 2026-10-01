@@ -141,21 +141,55 @@ FD801 covers a future functional adapter beyond these cosmetic spines. It is now
 actionable investigation, not blocked on the existence of an Arrow 4D release;
 mechanical equivalence remains unverified.
 
-## Additions 0.2.0: next adapter
+## Additions 0.2.0: station and fin adapter
 
-The current released artifact is
-[`curse.maven:create-coasters-simulated-additions-1661497:8772429`](https://www.curseforge.com/minecraft/mc-mods/create-coasters-simulated-additions/files/8772429).
-Its metadata also requires Simulated 1.3.0+ and Create: Interiors 0.6+, so this is
-a larger dependency profile than Engineered or Track Styles. Exact dependency
-artifacts still need to be selected and tested.
+The optional development profile `-PfdIntegrations=additions` installs the exact
+[Additions 0.2.0 artifact](https://www.curseforge.com/minecraft/mc-mods/create-coasters-simulated-additions/files/8772429),
+[Aeronautics bundled 1.3.2](https://www.curseforge.com/minecraft/mc-mods/create-aeronautics/files/8763471)
+(including Simulated and Offroad 1.3.2), and
+[Interiors 0.6.1 v3](https://www.curseforge.com/minecraft/mc-mods/interiors/files/8974633).
+This satisfies Additions' Simulated/Interiors dependencies alongside our existing
+Create 6.0.10, Coasters 0.1.5 and Sable 2.0.3 baseline. Combine profile names with
+commas, for example `-PfdIntegrations=engineered,styles,additions`.
 
-Inspection found that station occupancy accounting scans its own seat registry;
-our independent carrier seats require explicit accounting. Its auto-dispatch
-changes occupied/restraint link outputs rather than calling our operations API.
-Station telemetry comes first, followed by readiness-gated output/dispatch handling
-and propulsion guards. PAX must continue through the winch state machine. Replacing
-our rotating seats remains a separate investigation. No Additions adapter or runtime
-compatibility is claimed yet; the dependency audit records the inspected artifact.
+The adapter applies only to Additions 0.2.0. Its station's native span scanner
+identifies the complete consist; shared 4D telemetry supplies independent-carrier
+capacity, occupancy, restraint/alignment state, faults and readiness. Stations
+provide the same six Create Display Link sources and goggle readout as our station.
+Snapshots synchronize to clients but are not persisted as operation authority.
+
+For a 4D consist, wireless channels mean:
+
+| Channel | Meaning |
+| --- | --- |
+| Occupied | 15 while held in the scanned station; drops to 0 only after successful automatic dispatch. |
+| Weight | 1–15 using actual occupied seats divided by total carrier capacity; 1 for an empty car. |
+| Bars | 15 when every car's restraints are closed, otherwise 0. This reports actual restraints rather than the native early-release timer. |
+| Pre-station | Retains the native waiting-train signal until the station clears. |
+
+Enable auto-dispatch to capture an arriving non-PAX consist. The station waits for
+alignment, closed restraints, released maintenance retention, no fault, its weight
+threshold and arrival cooldown, then a continuous ready delay. Capture and dispatch
+call the shared server-validated operations interface. Authority exists only during
+that station's fresh native span scan; cached state or a remote request cannot reuse
+it. An ambiguous/mixed span cannot dispatch. A successful departure remains latched
+until the span empties, avoiding repeated capture of the departing car.
+
+PAX diagnostics remain available, but automatic capture/dispatch is denied with a
+winch instruction. Its catch and shuttle phases retain control. This is an explicit
+unsupported propulsion combination, not PAX interoperability certification.
+
+Additions fins cannot propel a held, unrestrained, retained or faulted 4D consist,
+or any PAX car. For an eligible 4D car, velocity increments reach only its chassis
+and registered carrier bodies, preserving each body's angular velocity. Ordinary
+carts' proximity-based coupling cannot apply those increments to nearby 4D bodies.
+No Additions seat replacement or sensor adapter is included.
+
+Native checks and exact limits are recorded in [Additions evidence](evidence/integrations/2026-09-30/additions-0.2.0/README.md); runtime warnings from this dependency
+stack prevent claiming warning-free dedicated startup. Linked trains, rollback,
+fin speed-control mode, moving track, restart/removal, multiplayer and visual
+acceptance remain open. See the integration evidence directory for exact completed
+checks before advertising any combination.
 
 ## Remaining acceptance
 
@@ -167,7 +201,8 @@ compatibility is claimed yet; the dependency audit records the inspected artifac
 - Finish Track Styles multiplayer, removal/reinstallation, resource replacement,
   transition and performance evidence; broader appearances and its own tool integration
   remain outside the current two-spine adapter.
-- Add Additions station signaling first; validate any rotating-seat replacement separately.
+- Finish Additions linked/mixed trains, fin modes, lifecycle and multiplayer acceptance;
+  validate any rotating-seat replacement separately.
 - Test Magnetized acceleration/braking and magnetic equipment interactions.
 - Validate Immersion camera composition, inversion, mouse look, dismount and comfort
   behavior with its full dependency stack.

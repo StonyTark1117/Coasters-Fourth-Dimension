@@ -4,6 +4,14 @@
   "package": "dev.fourthdimension.mixin.optional",
   "plugin": "dev.fourthdimension.integration.OptionalMixinPlugin",
   "compatibilityLevel": "JAVA_21",
-  "mixins": ["EngineeredDriveMixin", "EngineeredMassMixin"],
-  "injectors": {"defaultRequire": 1}
+  "mixins": [
+    "EngineeredDriveMixin",
+    "EngineeredMassMixin",
+    "AdditionsStationMixin",
+    "AdditionsStationHandlerMixin",
+    "AdditionsFinMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
 }
