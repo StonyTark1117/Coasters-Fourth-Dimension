@@ -77,7 +77,9 @@ dependencies {
     implementation 'curse.maven:create-coasters-simulated-1601871:8655742'
     compileOnly('curse.maven:coasters-engineered-1643631:8863559') { transitive = false }
     compileOnly('curse.maven:create-coasters-simulated-additions-1661497:8772429') { transitive = false }
+    compileOnly('curse.maven:coasters-magnetized-1642979:8668703') { transitive = false }
     def integrationArtifacts = [
+        magnetized: ['curse.maven:coasters-magnetized-1642979:8668703'],
         engineered: ['curse.maven:coasters-engineered-1643631:8863559'],
         styles: ['curse.maven:coasters-simulated-track-styles-1642719:9020601'],
         additions: ['curse.maven:create-coasters-simulated-additions-1661497:8772429',

@@ -1,0 +1,67 @@
+{
+  "project": "Coasters: Magnetized",
+  "release_label": "1.1.0",
+  "release_page": "https://www.curseforge.com/minecraft/mc-mods/coasters-magnetized/files/8668703",
+  "maven_coordinate": "curse.maven:coasters-magnetized-1642979:8668703",
+  "sha256": "52314bdace976a41d7d0948d4505ef96561719616d50dfffddce33f8f014e32a",
+  "bytes": 242057,
+  "embedded_license": "MIT License",
+  "embedded_mod_versions": [
+    {
+      "modId": "coastersmagnetized",
+      "version": "1.1.0"
+    }
+  ],
+  "declared_dependencies": {
+    "coastersmagnetized": [
+      {
+        "modId": "neoforge",
+        "type": "required",
+        "versionRange": "[21.1.231,)",
+        "ordering": "NONE",
+        "side": "BOTH"
+      },
+      {
+        "modId": "minecraft",
+        "type": "required",
+        "versionRange": "[1.21.1]",
+        "ordering": "NONE",
+        "side": "BOTH"
+      },
+      {
+        "modId": "simulatedcoasters",
+        "type": "required",
+        "versionRange": "[0.1.2,)",
+        "ordering": "AFTER",
+        "side": "BOTH"
+      },
+      {
+        "modId": "create",
+        "type": "required",
+        "versionRange": "[6.0.10,)",
+        "ordering": "AFTER",
+        "side": "BOTH"
+      },
+      {
+        "modId": "sable",
+        "type": "required",
+        "versionRange": "[2.0.0,)",
+        "ordering": "AFTER",
+        "side": "BOTH"
+      },
+      {
+        "modId": "flywheel",
+        "type": "required",
+        "versionRange": "[1.0.6,)",
+        "ordering": "AFTER",
+        "side": "CLIENT"
+      }
+    ]
+  },
+  "integration_findings": [
+    "Acceleration is injected at the head of native CoasterCartChainLiftDrive.applySpeedMatch and changes chassis velocity. An optional whole-method wrapper guards all injected propulsion before it can run.",
+    "Powered anchor modes accelerate in the existing direction of travel and brake toward zero; initial speed below 0.001 does not launch.",
+    "Native client replacements target the base Coasters track renderer. Fourth Dimension retains its own rails, ties, controls and seat magnets; native Magnetized rail models are not imported.",
+    "Exact-version native fixture evidence is recorded separately; client equipment visuals and full lifecycle certification remain pending."
+  ]
+}

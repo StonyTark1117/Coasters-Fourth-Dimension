@@ -124,10 +124,12 @@ public final class ShuttleGameTests {
     var phases = EnumSet.noneOf(ShuttleWinchEntity.Phase.class);
     double[] heights = {0, 0};
     boolean[] measuring = {false};
+    var externalDriveChecks = new ArrayList<Runnable>();
     helper.onEachTick(
         () -> {
           if (!measuring[0]) return;
           phases.add(winch.phase);
+          externalDriveChecks.forEach(Runnable::run);
           if (dev.fourthdimension.integration.OptionalIntegrations.supported(
               "coasterfins", java.util.Set.of("0.2.0")))
             dev.fourthdimension.integration.additions.AdditionsShuttleCheck.verify(helper, winch);
@@ -202,6 +204,11 @@ public final class ShuttleGameTests {
           if (dev.fourthdimension.integration.OptionalIntegrations.supported(
               "coasterfins", java.util.Set.of("0.2.0")))
             dev.fourthdimension.integration.additions.AdditionsShuttleCheck.attach(helper, example);
+          if (dev.fourthdimension.integration.OptionalIntegrations.supported(
+              "coastersmagnetized", java.util.Set.of("1.1.0")))
+            externalDriveChecks.add(
+                dev.fourthdimension.integration.magnetized.MagnetizedShuttleCheck.attach(
+                    helper, example));
           for (var v : example.cars())
             for (var c : v.carriers) {
               var body = container.getSubLevel(c.body);

@@ -27,6 +27,15 @@ public final class OptionalMixinPlugin implements IMixinConfigPlugin {
                       mod.getModId().equals("coasterfins")
                           && mod.getVersion().toString().equals("0.2.0"));
     }
+    if (mixin.endsWith(".MagnetizedDriveMixin")) {
+      var mods = LoadingModList.get();
+      return mods != null
+          && mods.getMods().stream()
+              .anyMatch(
+                  mod ->
+                      mod.getModId().equals("coastersmagnetized")
+                          && mod.getVersion().toString().equals("1.1.0"));
+    }
     return false;
   }
 

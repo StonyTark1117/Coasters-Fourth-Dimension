@@ -11,7 +11,8 @@ resource exit and transient movement-packet investigation.
 Recorded checks: [family gate](evidence/0.3/README.md),
 [foundation/Create/Engineered](evidence/integrations/2026-09-30/README.md),
 [Track Styles](evidence/integrations/2026-09-30/styles-1.2.0/README.md), and
-[Additions](evidence/integrations/2026-09-30/additions-0.2.0/README.md).
+[Additions](evidence/integrations/2026-09-30/additions-0.2.0/README.md), and
+[Magnetized](evidence/integrations/2026-09-30/magnetized-1.1.0/README.md).
 
 ## Implemented foundation
 
@@ -195,6 +196,37 @@ fin speed-control mode, moving track, restart/removal, multiplayer and visual
 acceptance remain open. See the integration evidence directory for exact completed
 checks before advertising any combination.
 
+## Magnetized 1.1.0: guarded acceleration and brakes
+
+The `-PfdIntegrations=magnetized` profile installs the exact
+[1.1.0 artifact](https://www.curseforge.com/minecraft/mc-mods/coasters-magnetized/files/8668703),
+`curse.maven:coasters-magnetized-1642979:8668703`. It can be combined with
+`engineered,styles,additions`. Its runtime adapter checks exactly version 1.1.0.
+
+Magnetized injects propulsion into Coasters' chain-drive method. A whole-method
+wrapper applies our consist interlocks before any injected drive callback runs,
+independent of injection order. Held, unrestrained, retained or faulted 4D consists
+cannot be driven. PAX remains under winch control throughout its shuttle cycle;
+Magnetized propulsion is deliberately excluded even after the mechanical catch
+releases. Ordinary Coasters cars continue through the original method.
+
+Powered MAGNET anchors accelerate in the car's existing direction of travel;
+BRAKE anchors decelerate toward rest. This artifact needs initial motion to select
+a direction and does not launch a stationary car. The native fixture supplies
+that initial motion explicitly. Its four non-PAX families accelerate forward and
+backward, brake, retain riders and recapture; Free Spin's independent seat-magnet
+selection continues to apply to its selected carrier only. Equipment strength and
+braking distance remain layout constraints. See the exact native measurements in
+[Magnetized evidence](evidence/integrations/2026-09-30/magnetized-1.1.0/README.md).
+
+Functional family, control profiles and seat magnets remain ours. The addon saves
+its anchor equipment separately; no rail/provider identity is rewritten. Our
+renderer retains the running rails, ties, spine and mechanical equipment, with
+Track Styles optionally owning the Arrow spine as above. Magnetized's replacement
+rail models target the base Coasters renderer and are not imported into our mesh.
+Client equipment visibility, linked trains, curves/slopes, configuration extremes,
+restart/removal and multiplayer still need acceptance before advertising support.
+
 ## Remaining acceptance
 
 - Extend reconciled FD305 evidence to the schema-5 optional-addon lifecycle matrix;
@@ -208,7 +240,8 @@ checks before advertising any combination.
   remain outside the current two-spine adapter.
 - Finish Additions linked/mixed trains, fin modes, lifecycle and multiplayer acceptance;
   validate any rotating-seat replacement separately.
-- Test Magnetized acceleration/braking and magnetic equipment interactions.
+- Extend Magnetized native straight-track evidence to linked trains, curves/slopes,
+  equipment visuals, configuration extremes, lifecycle and multiplayer.
 - Validate Immersion camera composition, inversion, mouse look, dismount and comfort
   behavior with its full dependency stack.
 - Run base, individual-addon and combined-pack dedicated-server/two-client/late-join
