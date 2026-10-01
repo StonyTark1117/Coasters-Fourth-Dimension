@@ -1,0 +1,8 @@
+HEAD 0a75881dcc66f7a7d1444cdfa7e1b241c651511e; PR run 36819333291; engineered job 110231278337
+2026-10-01T05:23:31.0682013Z FD_SHUTTLE phase=RETURNING distance=22.150000000000183 center=( 6.005E+2  1.844E+2  6.459E+2) max=103.56657009414349 fault=
+2026-10-01T05:23:32.4682060Z FD_SHUTTLE phase=RETURNING distance=26.15000000000024 center=( 6.005E+2  1.811E+2  6.248E+2) max=103.56657009414349 fault=
+2026-10-01T05:23:34.6682098Z FD_SHUTTLE phase=CAPTURING distance=26.350000000000243 center=( 6.005E+2  1.811E+2  6.095E+2) max=103.56657009414349 fault=
+2026-10-01T05:23:36.0695323Z FD_SHUTTLE phase=CAPTURING distance=62.733421041669594 center=( 6.005E+2  1.811E+2  6.086E+2) max=103.56657009414349 fault=
+2026-10-01T05:23:36.4706148Z [05:23:36] [Server thread/ERROR] [minecraft/LogTestReporter]: sixteenridersphysicalcarriagepowerholdgravityreturn failed at 13645630, -60, 8627282! Stop and align every carrier before operating restraints
+2026-10-01T05:24:27.1972363Z [05:24:27] [Server thread/INFO] [minecraft/GameTestServer]: 1 required tests failed :(
+2026-10-01T05:24:37.3919721Z BUILD FAILED in 3m 23s

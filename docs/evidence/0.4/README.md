@@ -8,7 +8,11 @@ The dev.6 [bank acceptance](bank-acceptance.md) adds a native continuous 30°
 banked circuit, loaded full turns on banked and level straights, and station
 capture/unloading. The independent installed-default-mesh audit covers every
 spine/tie against all rendered square control segments over continuous stroke.
-It leaves banked GUI/rendering and full vehicle/rider clearance open.
+The newer [banked GUI acceptance](bank-gui-acceptance.md) adds actual styling, resource reload, cold reopen, occupied circuit, station capture and clean normal unload/save/exit. Full vehicle/rider clearance and other render modes remain open. Run `python3 scripts/verify-banked-styled-ride.py` to check its saved observations.
+
+## PAX post-capture readiness regression
+
+The [dev.7 investigation](shuttle-capture-investigation.md) preserves the failed dev.6 PR job, corrects a cycle-counter readiness assumption, and adds a bounded real native-motion rejection/recovery check before sixteen-rider unloading. Production thresholds and guards remain unchanged. Final profile results are recorded separately in `shuttle-capture-native-*.txt`.
 
 ## FE-enabled operating checkpoint
 
@@ -25,7 +29,7 @@ of double spine, +1080° Original fallback, cold reopen, +360° restoration,
 resource reload, a flat single-spine quarter curve, and a real occupied circuit
 with station recapture and verified final dismount. Run
 `python scripts/verify-styled-ride.py` to check the committed save observations.
-Banking, complete clearance and rendering modes remain open. Earlier sections
+Banking now has the separate dev.6 checkpoint above; complete clearance and rendering modes remain open. Earlier sections
 below describe historical artifacts and their then-pending work.
 
 ## Powered train and control-stroke checkpoint

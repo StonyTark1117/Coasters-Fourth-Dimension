@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.9.0-dev.7 — banked GUI evidence and current shuttle readiness
+
+- Record packaged dev.6 editor styling on the native banked circuit, real resource reload, cold reopen, normal occupied ride, station recapture, dismount and clean save/exit. Preserve all profiles and existing mechanical identities; add a saved-observation verifier to CI.
+- Correct the sixteen-rider PAX test's assumption that a completed cycle guarantees current readiness after native physics. Require ten consecutive ready ticks within a bounded four-second settling window, exercise real post-capture native motion, verify rejected opening leaves the whole consist unchanged, and unload normally after recovery. Production boarding thresholds and restraint checks are unchanged.
+- Keep schema/network protocol 5. FD401 and the 0.9 release gates remain open for complete vehicle/rider clearance, render modes, Engineered operator/FE-network workflows and the remaining roadmap packages.
+
 ## 0.9.0-dev.6 — native banking and recorded mesh clearance
 
 - Add `/fd demo arrow_bank`, with a level station, native 30° banked upper section and full controlled turns on both banked and level straights.

@@ -38,8 +38,10 @@ family geometry is shown. Reinstalling the same provider restores the selection.
 Network protocol 5 requires matching client and server builds. This checkpoint
 does not certify all exposed development choices: single-spine provider removal
 and reinstallation, double-spine fallback/resource reload, a flat single-spine
-quarter curve and a real styled Arrow circuit now have bounded evidence. Banking,
-complete clearance and broader graphics coverage remain to be validated.
+quarter curve and a real styled Arrow circuit now have bounded evidence. A separate
+[packaged banked checkpoint](evidence/0.4/bank-gui-acceptance.md) covers default styling,
+reload, reopen and normal occupied operation. Complete clearance and broader
+graphics coverage remain to be validated.
 
 ## Reproducible development profiles
 
@@ -80,8 +82,8 @@ spans and a native coupled Arrow full-turn/STOP/powered-rollback fixture now hav
 the bounded results below. The packaged styled Arrow circuit covers real-player
 restraint actions and rear station input dispatch/capture. Native FE-enabled
 starvation/supply/braking/retention now passes in an isolated batch. The complete
-Engineered operator/FE-network workflow, banking and broader rendering/clearance
-still need evidence. Publish supported
+Engineered operator/FE-network workflow and broader rendering/vehicle clearance
+still need evidence; the native banked circuit now has packaged GUI evidence. Publish supported
 combinations only after the runtime matrix; inspection profiles alone are not
 advertised gameplay support.
 
@@ -110,8 +112,8 @@ model frame preserves textured-model winding even though the native travel basis
 has different handedness. Resource baking invalidates meshes by catalog
 generation. Original running/control rails and mechanical supports remain ours;
 external rail models are never rendered. The packaged flat quarter curve now has
-exterior alignment and occupied circuit evidence. Banking and complete clearance
-still need evidence before broad style compatibility is advertised.
+exterior alignment and occupied circuit evidence. The banked circuit now has a separate packaged checkpoint; complete clearance
+still needs evidence before broad style compatibility is advertised.
 
 ## Engineered operating adapter checkpoint
 
@@ -205,5 +207,21 @@ continuous -4..+2-turn stroke, including their square cross-sections. CI repeats
 this measurement for Styles and combined profiles. This certifies the recorded
 circuit's decoration/control-rail gap; it excludes arbitrary layouts, resource
 replacements, wheels, chassis, riders and linked-car clearance. It is not a
-banked GUI or graphics-backend observation. Those remaining checks keep FD401
-and the later release gates open.
+banked GUI or graphics-backend observation; the packaged GUI checkpoint below
+is separate. Complete vehicle/rider clearance and broader rendering checks keep
+FD401 and the later release gates open.
+
+## New banked GUI and shuttle readiness observations
+
+The [packaged dev.6 banked ride](evidence/0.4/bank-gui-acceptance.md) adds actual
+editor styling, resource reload, cold reopen, occupied native motion, station
+capture and verified normal unloading/save/exit on one llvmpipe/indirect rendering
+configuration. The earlier first client lost its display connection; that failure
+is retained and no clean-exit claim is made for it.
+
+The [dev.7 shuttle investigation](evidence/0.4/shuttle-capture-investigation.md)
+retains the dev.6 failed Engineered PR job. The sixteen-rider test now requires
+current stable boarding readiness after the historical cycle count advances,
+verifies deterministic native post-capture motion cannot open restraints, then
+recovers and unloads normally. Production speed/alignment thresholds and
+operator interlocks are unchanged. Neither checkpoint closes FD401 or FD902.

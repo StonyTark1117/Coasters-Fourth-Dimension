@@ -125,6 +125,8 @@ public final class ShuttleGameTests {
     double[] heights = {0, 0};
     boolean[] measuring = {false};
     Runnable[] motorProbe = {() -> {}};
+    int[] parking = {0, 0, 0}; // elapsed ticks, consecutive ready ticks, rejected openings
+    boolean[] disturbed = {false};
     helper.onEachTick(
         () -> {
           if (!measuring[0]) return;
@@ -157,6 +159,50 @@ public final class ShuttleGameTests {
                 "Shuttle cycle lost native track engagement");
           }
           if (winch.cycles == 1) {
+            // A completed cycle records the pre-physics capture. Native constraints can
+            // still settle afterward; operator actions must use current readiness, not cycles.
+            parking[0]++;
+            helper.assertTrue(
+                winch.phase == ShuttleWinchEntity.Phase.BOARDING,
+                "Completed shuttle left its boarding phase");
+            helper.assertTrue(
+                parking[0] <= 80,
+                "Captured train did not settle within four seconds: "
+                    + boardingSnapshot(level, example.cars()));
+            boolean ready = example.cars().stream().allMatch(v -> Boarding.ready(level, v));
+            if (parking[0] == 1)
+              System.out.println(
+                  "FD_SHUTTLE_BOARDING first=" + boardingSnapshot(level, example.cars()));
+            if (!ready) {
+              assertOpeningRejected(helper, example.cars());
+              parking[2]++;
+              parking[1] = 0;
+              return;
+            }
+            if (++parking[1] < 10) return;
+            if (!disturbed[0]) {
+              // Reproduce post-capture motion deterministically through the real pipeline.
+              // Do not change saved readiness or loosen the normal operator interlock.
+              var car = example.cars().getFirst();
+              var bodies = new ArrayList<UUID>();
+              bodies.add(car.chassis);
+              car.carriers.forEach(c -> bodies.add(c.body));
+              for (var id : bodies)
+                container
+                    .physicsSystem()
+                    .getPipeline()
+                    .addLinearAndAngularVelocity(
+                        (dev.ryanhcode.sable.sublevel.ServerSubLevel) container.getSubLevel(id),
+                        new org.joml.Vector3d(.2, 0, 0),
+                        new org.joml.Vector3d());
+              helper.assertTrue(
+                  !Boarding.ready(level, car), "Native disturbance missed readiness guard");
+              assertOpeningRejected(helper, example.cars());
+              parking[2]++;
+              parking[1] = 0;
+              disturbed[0] = true;
+              return;
+            }
             helper.assertTrue(
                 phases.containsAll(
                     EnumSet.of(
@@ -174,6 +220,17 @@ public final class ShuttleGameTests {
             helper.assertTrue(
                 CoasterCartTrainLinkConstraint.getTrainLinkedCartIds(lead).size() == 4,
                 "Loaded PAX coupling broke");
+            System.out.println(
+                "FD_SHUTTLE_BOARDING settledTicks="
+                    + parking[0]
+                    + " consecutiveReady="
+                    + parking[1]
+                    + " rejectedOpenings="
+                    + parking[2]
+                    + " disturbed="
+                    + disturbed[0]
+                    + " final="
+                    + boardingSnapshot(level, example.cars()));
             VehicleOperations.restraints(level, example.cars().getFirst(), false);
             for (var p : riders) {
               p.stopRiding();
@@ -297,5 +354,49 @@ public final class ShuttleGameTests {
     helper.runAtTickTime(
         2990,
         () -> helper.fail("Tall shuttle did not finish twice: " + winch.phase + " " + winch.fault));
+  }
+
+  private static String boardingSnapshot(
+      net.minecraft.server.level.ServerLevel level,
+      List<dev.fourthdimension.runtime.FoundationData.Vehicle> cars) {
+    var container = SubLevelContainer.getContainer(level);
+    return cars.stream()
+        .map(
+            v ->
+                "ready="
+                    + Boarding.ready(level, v)
+                    + " speed="
+                    + container
+                        .physicsSystem()
+                        .getPipeline()
+                        .getLinearVelocity(
+                            (dev.ryanhcode.sable.sublevel.ServerSubLevel)
+                                container.getSubLevel(v.chassis),
+                            new org.joml.Vector3d())
+                        .length()
+                    + " carriers="
+                    + v.carriers.stream()
+                        .map(
+                            c -> "capture=" + c.capture + ",angle=" + c.angle + ",omega=" + c.omega)
+                        .toList())
+        .toList()
+        .toString();
+  }
+
+  private static void assertOpeningRejected(
+      GameTestHelper helper, List<dev.fourthdimension.runtime.FoundationData.Vehicle> cars) {
+    var revisions = cars.stream().map(v -> v.revision).toList();
+    try {
+      VehicleOperations.restraints(helper.getLevel(), cars.getFirst(), false);
+      helper.fail("Unready captured shuttle opened restraints");
+    } catch (IllegalArgumentException expected) {
+      helper.assertTrue(
+          expected.getMessage().equals("Stop and align every carrier before operating restraints"),
+          "Unexpected post-capture opening rejection: " + expected.getMessage());
+    }
+    helper.assertTrue(
+        cars.stream().allMatch(v -> v.restraints)
+            && cars.stream().map(v -> v.revision).toList().equals(revisions),
+        "Rejected opening partially mutated the consist");
   }
 }
