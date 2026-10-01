@@ -106,3 +106,9 @@ Engineered FE recovery propulsion, a general coupler/grade rating, or all-family
 multiplayer and fresh-JVM interruption recovery. Native pig unloading is not a
 rendered safe player exit. The failed compact PAX spike climb remains unsupported.
 FD402, FD404 and the 0.9 release gate remain open.
+
+Dev.19 push/PR CI subsequently passes all eight jobs at `17c7cf8`; each job log
+confirms all 36 required native tests, all five banked completion markers and
+the independent geometry step. See `ci-dev19.json`. Dev.20 extends the separate
+linked-train native scope in the [banked train checkpoint](../banked-trains/acceptance.md);
+the original dev.19 measurements and hashes above remain historical.

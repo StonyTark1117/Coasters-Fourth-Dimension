@@ -1,6 +1,6 @@
 # Ordinary-bearing recovery
 
-Development build 0.9.0-dev.19 includes explicit recovery coupling for the five
+Development build 0.9.0-dev.20 includes explicit recovery coupling for the five
 original families. A 4D car stays on its matching functional track throughout.
 Only the pinned, unmodified bare Coasters bearing is certified as the ordinary
 recovery cart. It acquires no carriers, profile, magnetic assistance or 4D data.
@@ -132,9 +132,35 @@ an assigned four-car shuttle.
 All five **single-car** routes have occupied native traversal and original seat
 identity evidence, with normal brake/power/disconnect/unload controls and measured
 body/track anchor and orientation offsets. These are headless native checks;
-complete rendered vehicle/rider and control-rack clearance, linked-train recovery
-on these curves/banks and the full operator/lifecycle matrix remain open. See the
+complete rendered vehicle/rider and control-rack clearance and the full
+operator/lifecycle matrix remain open. Dev.20 supplies separate occupied original
+train acceptance below. See the
 [banked towing checkpoint](evidence/0.4/recovery/banked-tow/acceptance.md).
+
+## Original train bend/bank examples
+
+Dev.20 adds `/fd demo recovery_bank_train_arrow` and
+`/fd demo recovery_bank_train_pax`. They build two original Arrow cars or four
+original PAX cars at six-block axle spacing, with the certified bare ordinary
+bearing ahead of the front car. Allow four seconds for native coupling while
+all cars remain captured and stopped. Assembly rejects unavailable/not-ready
+cars or unexpected external links and records an inspection fault.
+
+The clear, loaded corridor is 153 by 14 by 93 blocks. Each 202.53-block route
+keeps the quarter bend and 32-block sustained 30-degree bank, with a 48-block
+level approach and 48-block level runout. These extensions leave room for the
+entire four-car train to settle on level track before braking. The PAX train is
+unassigned; an assigned shuttle still needs actual stationary winch handover.
+
+After assembly, board, close restraints and retain the train. Select the bare
+bearing, attach recovery at the front car, start, set eight RPM and turn the
+clutch lever OFF to supply power. Wait until **every car** has reached the final
+level runout, then brake, cut power with the lever ON, wait for readiness,
+detach recovery, open restraints and unload. The native check preserves all
+24 original seat mounts and original train links through this complete sequence;
+see the [banked train checkpoint](evidence/0.4/recovery/banked-trains/acceptance.md).
+Native traversal/alignment does not establish complete mesh/rider/rack clearance
+or rendered safe player exits.
 
 **Measured incline limit:** the certified bare bearing cannot pull a fully
 occupied four-car PAX train far enough for every car to enter the compact
@@ -159,6 +185,6 @@ with its eight-RPM motor retained, disconnects and opens restraints for unloadin
 Every passenger keeps its original seat mount until unloading; see the
 [occupied handover evidence](evidence/0.4/recovery/occupied-handover/acceptance.md). These headless checks do not establish rendered
 operator acceptance, complete vehicle/rider/rack mesh
-clearance, linked-train curved/banked recovery, Engineered recovery propulsion/FE,
+clearance, rendered occupied linked-train recovery, Engineered recovery propulsion/FE,
 coupler strength across those scenes,
 or the complete recovery lifecycle matrix. FD402 and the 0.4 gate remain open.

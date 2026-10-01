@@ -89,6 +89,38 @@ public final class RecoveryExamples {
                     }
                   }));
     }
+    for (var design : List.of(TrackDesign.ARROW, TrackDesign.PAX))
+      demo.then(
+          Commands.literal("recovery_bank_train_" + design.name().toLowerCase(Locale.ROOT))
+              .executes(
+                  ctx -> {
+                    try {
+                      var level = ctx.getSource().getLevel();
+                      var example =
+                          BankedRecoveryExamples.createTrain(
+                              level,
+                              BlockPos.containing(ctx.getSource().getPosition()).offset(0, 3, 12),
+                              design);
+                      BankedRecoveryExamples.queueAssembly(level, example);
+                      ctx.getSource()
+                          .sendSuccess(
+                              () ->
+                                  Component.literal(
+                                      "Banked recovery train route built. Allow four seconds for"
+                                          + " native train assembly. Board, close restraints,"
+                                          + " retain, select the bare bearing and attach at the"
+                                          + " front car. Start tow, set 8 RPM and turn the clutch"
+                                          + " lever OFF. Wait until every car is on the level"
+                                          + " runout before braking; lever ON cuts power. Wait for"
+                                          + " readiness, detach, open and unload. Complete rendered"
+                                          + " clearance is pending."),
+                              false);
+                      return 1;
+                    } catch (IllegalArgumentException | IllegalStateException failure) {
+                      ctx.getSource().sendFailure(Component.literal(failure.getMessage()));
+                      return 0;
+                    }
+                  }));
     event.getDispatcher().register(root.then(demo));
   }
 

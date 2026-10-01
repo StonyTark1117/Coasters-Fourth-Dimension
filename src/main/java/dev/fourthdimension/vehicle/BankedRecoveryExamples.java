@@ -6,6 +6,8 @@ import com.simibubi.create.content.trains.track.BezierConnection;
 import dev.fourthdimension.physics.RotationProfile;
 import dev.fourthdimension.runtime.*;
 import dev.fourthdimension.track.*;
+import dev.ryanhcode.sable.api.sublevel.SubLevelContainer;
+import dev.ryanhcode.sable.sublevel.ServerSubLevel;
 import dev.silvergold.simulatedcoasters.CoasterTrackMaterials;
 import dev.silvergold.simulatedcoasters.SimulatedCoastersBlocks;
 import dev.silvergold.simulatedcoasters.track.CoasterTrackPlacement;
@@ -20,17 +22,93 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.properties.*;
 import net.minecraft.world.phys.Vec3;
+import net.neoforged.neoforge.event.tick.LevelTickEvent;
 
 /** Native quarter-bend, sustained bank and level runout for occupied recovery acceptance. */
 public final class BankedRecoveryExamples {
   private BankedRecoveryExamples() {}
 
   public record Example(
-      RecoveryExamples.Example recovery, List<FoundationData.Rail> rails, List<BlockPos> anchors) {}
+      RecoveryExamples.Example recovery,
+      List<FoundationData.Rail> rails,
+      List<BlockPos> anchors,
+      List<FoundationData.Vehicle> cars) {}
+
+  private record Pending(Example example, long tick) {}
+
+  private static final Map<ServerLevel, List<Pending>> PENDING = new WeakHashMap<>();
+
+  public static void queueAssembly(ServerLevel level, Example example) {
+    PENDING
+        .computeIfAbsent(level, k -> new ArrayList<>())
+        .add(new Pending(example, level.getGameTime() + 80));
+  }
+
+  public static void tick(LevelTickEvent.Post event) {
+    if (!(event.getLevel() instanceof ServerLevel level)) return;
+    var pending = PENDING.get(level);
+    if (pending == null) return;
+    for (var iterator = pending.iterator(); iterator.hasNext(); ) {
+      var p = iterator.next();
+      if (level.getGameTime() < p.tick) continue;
+      iterator.remove();
+      try {
+        assemble(level, p.example);
+      } catch (IllegalArgumentException failure) {
+        for (var car : p.example.cars()) {
+          car.stopping = true;
+          car.fault = failure.getMessage();
+        }
+        FoundationData.get(level).setDirty();
+        FoundationSync.broadcast(level);
+      }
+    }
+    if (pending.isEmpty()) PENDING.remove(level);
+  }
+
+  public static void assemble(ServerLevel level, Example example) {
+    var container = SubLevelContainer.getContainer(level);
+    var expected =
+        example.cars().stream().map(c -> c.chassis).collect(java.util.stream.Collectors.toSet());
+    for (var car : example.cars()) {
+      var body = container.getSubLevel(car.chassis);
+      if (body == null
+          || !Boarding.ready(level, car)
+          || CoasterCartTrainLinkConstraint.getTrainLinkedCartIds(body).stream()
+              .anyMatch(id -> !expected.contains(id)))
+        throw new IllegalArgumentException(
+            "Recovery example assembly failed: capture and inspect every original car");
+    }
+    for (int i = 1; i < example.cars().size(); i++)
+      if (!CoasterCartTrainLinkConstraint.areLinkedCarts(
+              container.getSubLevel(example.cars().get(i - 1).chassis),
+              container.getSubLevel(example.cars().get(i).chassis))
+          && !CoasterCartTrainLinkConstraint.linkCarts(
+              level,
+              (ServerSubLevel) container.getSubLevel(example.cars().get(i - 1).chassis),
+              (ServerSubLevel) container.getSubLevel(example.cars().get(i).chassis),
+              6))
+        throw new IllegalArgumentException(
+            "Native recovery train coupling failed: capture and inspect every original car");
+  }
 
   public static Example create(ServerLevel level, BlockPos origin, TrackDesign design) {
+    return create(level, origin, design, 1);
+  }
+
+  public static Example createTrain(ServerLevel level, BlockPos origin, TrackDesign design) {
+    if (design != TrackDesign.ARROW && design != TrackDesign.PAX)
+      throw new IllegalArgumentException("Only Arrow and PAX support these linked train examples");
+    return create(level, origin, design, design == TrackDesign.ARROW ? 2 : 4);
+  }
+
+  private static Example create(
+      ServerLevel level, BlockPos origin, TrackDesign design, int carCount) {
+    int approach = carCount > 1 ? 48 : 32;
+    int runout = carCount > 1 ? 48 : 24;
+    int endZ = approach + 32;
     var minimum = origin.offset(-8, -1, -4);
-    var maximum = origin.offset(120, 12, 72);
+    var maximum = origin.offset(88 + runout + 8, 12, endZ + 8);
     if (Math.abs((long) minimum.getX()) > 1024
         || Math.abs((long) maximum.getX()) > 1024
         || Math.abs((long) minimum.getZ()) > 1024
@@ -40,13 +118,20 @@ public final class BankedRecoveryExamples {
       throw new IllegalArgumentException(
           "Choose a loaded recovery corridor inside the supported bounds");
     var data = FoundationData.get(level);
-    if (data.vehicles.size() >= 64 || data.rails.size() > 251)
+    if (data.vehicles.size() + carCount > 64 || data.rails.size() > 251)
       throw new IllegalArgumentException("Example capacity reached");
     data.checkProfileCapacity(design.family.driven() ? 11 : 10);
     for (var p : BlockPos.betweenClosed(minimum, maximum))
       if (!level.hasChunkAt(p) || !level.getBlockState(p).isAir())
-        throw new IllegalArgumentException("Load and clear a 129 by 14 by 77 recovery corridor");
-    int[][] offsets = {{0, 0}, {0, 32}, {32, 64}, {64, 64}, {88, 64}, {112, 64}};
+        throw new IllegalArgumentException(
+            "Load and clear a "
+                + (maximum.getX() - minimum.getX() + 1)
+                + " by 14 by "
+                + (maximum.getZ() - minimum.getZ() + 1)
+                + " recovery corridor");
+    int[][] offsets = {
+      {0, 0}, {0, approach}, {32, endZ}, {64, endZ}, {88, endZ}, {88 + runout, endZ}
+    };
     var anchors = new ArrayList<BlockPos>();
     var tangents = new ArrayList<Vec3>();
     for (int i = 0; i < offsets.length; i++) {
@@ -118,14 +203,18 @@ public final class BankedRecoveryExamples {
       rail.geometryHash = TrackGeometry.fingerprint(level, edge);
     }
     var edge = edges.getFirst();
-    double t = TrackGeometry.table(level, edge).parameterAt(12);
-    var car =
-        VehicleFactory.create(
-            level,
-            design,
-            new CoasterPathTrackFrame.GraphHit(
-                CoasterPathGraphManager.sampleEdgePosition(level, edge, t), edge, t));
-    t = TrackGeometry.table(level, edge).parameterAt(12 + design.axleSpacing());
+    var cars = new ArrayList<FoundationData.Vehicle>();
+    for (int i = 0; i < carCount; i++) {
+      double t = TrackGeometry.table(level, edge).parameterAt(12 + i * design.axleSpacing());
+      cars.add(
+          VehicleFactory.create(
+              level,
+              design,
+              new CoasterPathTrackFrame.GraphHit(
+                  CoasterPathGraphManager.sampleEdgePosition(level, edge, t), edge, t)));
+    }
+    var car = cars.getLast();
+    double t = TrackGeometry.table(level, edge).parameterAt(12 + carCount * design.axleSpacing());
     var hit =
         new CoasterPathTrackFrame.GraphHit(
             CoasterPathGraphManager.sampleEdgePosition(level, edge, t), edge, t);
@@ -176,12 +265,13 @@ public final class BankedRecoveryExamples {
     for (int side : new int[] {-6, 6}) {
       for (var p :
           BlockPos.betweenClosed(
-              origin.offset(side, -1, 8), origin.offset(side + (side < 0 ? -1 : 1), -1, 28)))
+              origin.offset(side, -1, 8),
+              origin.offset(side + (side < 0 ? -1 : 1), -1, approach - 4)))
         level.setBlockAndUpdate(p, Blocks.SMOOTH_STONE.defaultBlockState());
       for (var p :
           BlockPos.betweenClosed(
-              origin.offset(92, -1, 64 + side),
-              origin.offset(108, -1, 64 + side + (side < 0 ? -1 : 1))))
+              origin.offset(92, -1, endZ + side),
+              origin.offset(84 + runout, -1, endZ + side + (side < 0 ? -1 : 1))))
         level.setBlockAndUpdate(p, Blocks.SMOOTH_STONE.defaultBlockState());
     }
     data.setDirty();
@@ -189,6 +279,7 @@ public final class BankedRecoveryExamples {
     return new Example(
         new RecoveryExamples.Example(car, ordinary, motor, lever),
         List.copyOf(rails),
-        List.copyOf(anchors));
+        List.copyOf(anchors),
+        List.copyOf(cars));
   }
 }

@@ -1,0 +1,74 @@
+[
+  {
+    "event": "push",
+    "headSha": "17c7cf864379bafbafaa3fa1d1175444ef5a2c6e",
+    "url": "https://github.com/StonyTark1117/Coasters-Fourth-Dimension/actions/runs/36940738422",
+    "conclusion": "success",
+    "jobs": [
+      {
+        "name": "Validate (standalone)",
+        "conclusion": "success",
+        "requiredNativeTests": 36,
+        "bankedCompletionFamilies": 5,
+        "nativeGeometryCheckPassed": true
+      },
+      {
+        "name": "Validate (combined)",
+        "conclusion": "success",
+        "requiredNativeTests": 36,
+        "bankedCompletionFamilies": 5,
+        "nativeGeometryCheckPassed": true
+      },
+      {
+        "name": "Validate (styles)",
+        "conclusion": "success",
+        "requiredNativeTests": 36,
+        "bankedCompletionFamilies": 5,
+        "nativeGeometryCheckPassed": true
+      },
+      {
+        "name": "Validate (engineered)",
+        "conclusion": "success",
+        "requiredNativeTests": 36,
+        "bankedCompletionFamilies": 5,
+        "nativeGeometryCheckPassed": true
+      }
+    ]
+  },
+  {
+    "event": "pr",
+    "headSha": "17c7cf864379bafbafaa3fa1d1175444ef5a2c6e",
+    "url": "https://github.com/StonyTark1117/Coasters-Fourth-Dimension/actions/runs/36940743692",
+    "conclusion": "success",
+    "jobs": [
+      {
+        "name": "Validate (styles)",
+        "conclusion": "success",
+        "requiredNativeTests": 36,
+        "bankedCompletionFamilies": 5,
+        "nativeGeometryCheckPassed": true
+      },
+      {
+        "name": "Validate (standalone)",
+        "conclusion": "success",
+        "requiredNativeTests": 36,
+        "bankedCompletionFamilies": 5,
+        "nativeGeometryCheckPassed": true
+      },
+      {
+        "name": "Validate (engineered)",
+        "conclusion": "success",
+        "requiredNativeTests": 36,
+        "bankedCompletionFamilies": 5,
+        "nativeGeometryCheckPassed": true
+      },
+      {
+        "name": "Validate (combined)",
+        "conclusion": "success",
+        "requiredNativeTests": 36,
+        "bankedCompletionFamilies": 5,
+        "nativeGeometryCheckPassed": true
+      }
+    ]
+  }
+]

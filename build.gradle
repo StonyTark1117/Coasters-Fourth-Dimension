@@ -108,6 +108,7 @@ tasks.named('runGameTestServer') {
         delete layout.buildDirectory.dir('runs/gametest/world')
         delete layout.buildDirectory.file('runs/gametest/bank-native-frames.json')
         delete layout.buildDirectory.file('runs/gametest/recovery-bank-native-frames.json')
+        delete layout.buildDirectory.file('runs/gametest/recovery-bank-train-native-frames.json')
     }
 }
 tasks.named('processResources') {

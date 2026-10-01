@@ -9,8 +9,6 @@ import dev.ryanhcode.sable.api.sublevel.SubLevelContainer;
 import dev.silvergold.simulatedcoasters.track.anchor.CoasterAnchorpointBlockEntity;
 import dev.silvergold.simulatedcoasters.track.cart.*;
 import dev.silvergold.simulatedcoasters.track.graph.*;
-import java.io.*;
-import java.nio.file.*;
 import java.util.*;
 import net.minecraft.core.*;
 import net.minecraft.gametest.framework.*;
@@ -69,56 +67,15 @@ public final class BankedRecoveryGameTests {
               design,
               BankedRecoveryExamples.create(
                   level, new BlockPos(-900, 240, 500 + 80 * design.ordinal()), design)));
-    var geometry = new ArrayList<Map<String, Object>>();
     for (var c : cases) {
       helper.assertTrue(
           !c.design.family.driven()
               || c.profiles.get(2).keys().stream()
                   .anyMatch(k -> Math.abs(k.angle() - 2 * Math.PI) < 1e-9),
           "Controlled recovery fixture erased its nonzero rotation profile");
-      var sections = new ArrayList<Map<String, Object>>();
-      for (var rail : c.example.rails()) {
-        var edge = TrackGeometry.resolve(level, rail);
-        var table = TrackGeometry.table(level, edge);
-        var frames = new ArrayList<Map<String, Object>>();
-        int samples = Math.max(8, (int) Math.ceil(table.length() * 4));
-        for (int i = 0; i <= samples; i++) {
-          double distance = table.length() * i / samples;
-          double t = table.parameterAt(distance);
-          var point = CoasterPathGraphManager.sampleEdgePosition(level, edge, t);
-          var frame =
-              CoasterPathTrackFrame.trackBasisAtHit(
-                  level, new CoasterPathTrackFrame.GraphHit(point, edge, t));
-          frames.add(
-              Map.of(
-                  "distance",
-                  distance,
-                  "center",
-                  vector(point),
-                  "right",
-                  vector(frame.right()),
-                  "up",
-                  vector(frame.up()),
-                  "forward",
-                  vector(frame.forward()),
-                  "profileAngle",
-                  rail.profile.angleAt(distance)));
-        }
-        sections.add(
-            Map.of("rail", rail.id.toString(), "length", table.length(), "frames", frames));
-      }
-      geometry.add(
-          Map.of("family", c.design.name(), "variant", c.design.variant, "sections", sections));
     }
-    try {
-      Files.writeString(
-          net.neoforged.fml.loading.FMLPaths.GAMEDIR
-              .get()
-              .resolve("recovery-bank-native-frames.json"),
-          new com.google.gson.Gson().toJson(geometry));
-    } catch (IOException failedExport) {
-      throw new UncheckedIOException(failedExport);
-    }
+    RecoveryRouteFrames.write(
+        level, "recovery-bank-native-frames.json", cases.stream().map(c -> c.example).toList());
     helper.runAtTickTime(
         80,
         () -> {
@@ -407,10 +364,6 @@ public final class BankedRecoveryGameTests {
             helper.succeed();
           }
         });
-  }
-
-  private static double[] vector(Vec3 value) {
-    return new double[] {value.x, value.y, value.z};
   }
 
   private static void position(ServerPlayer player, dev.ryanhcode.sable.sublevel.SubLevel body) {

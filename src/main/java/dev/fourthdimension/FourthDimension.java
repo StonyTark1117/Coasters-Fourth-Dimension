@@ -35,6 +35,7 @@ public final class FourthDimension {
     NeoForge.EVENT_BUS.addListener(dev.fourthdimension.vehicle.RecoveryExamples::register);
     NeoForge.EVENT_BUS.addListener(dev.fourthdimension.shuttle.ShuttleExamples::register);
     NeoForge.EVENT_BUS.addListener(dev.fourthdimension.shuttle.ShuttleExamples::tick);
+    NeoForge.EVENT_BUS.addListener(dev.fourthdimension.vehicle.BankedRecoveryExamples::tick);
     NeoForge.EVENT_BUS.addListener(CarrierRuntime::tick);
     NeoForge.EVENT_BUS.addListener(FoundationSync::login);
     NeoForge.EVENT_BUS.addListener(FoundationSync::dimension);

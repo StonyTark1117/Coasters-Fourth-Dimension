@@ -18,14 +18,19 @@ def bank(frame):
     return math.degrees(math.acos(max(-1, min(1, frame["up"][1]))))
 
 
-def verify(path):
+def verify(path, train_routes=False):
     routes = json.loads(Path(path).read_text())
-    assert {r["family"] for r in routes} == {"ARROW", "LEGACY", "FREE_SPIN", "REVISED", "PAX"}
-    assert len(routes) == 5
+    expected = {"ARROW", "PAX"} if train_routes else {"ARROW", "LEGACY", "FREE_SPIN", "REVISED", "PAX"}
+    assert {r["family"] for r in routes} == expected
+    assert len(routes) == len(expected)
     results = []
     for route in routes:
         sections = route["sections"]
         assert len(sections) == 5
+        if train_routes:
+            assert route["carCount"] == (2 if route["family"] == "ARROW" else 4)
+            assert abs(sections[0]["length"]-48) < 1e-6
+            assert abs(sections[4]["length"]-48) < 1e-6
         assert len({s["rail"] for s in sections}) == 5
         maximum_gap = maximum_frame_gap = maximum_bank = maximum_grade = 0
         for index, section in enumerate(sections):
@@ -73,4 +78,4 @@ def verify(path):
 
 
 if __name__ == "__main__":
-    print(json.dumps(verify(sys.argv[1]), indent=2))
+    print(json.dumps(verify(sys.argv[1], train_routes="--trains" in sys.argv[2:]), indent=2))

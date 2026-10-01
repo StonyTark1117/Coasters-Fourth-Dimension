@@ -50,7 +50,9 @@ jobs:
         env:
           FD_INTEGRATIONS: ${{ matrix.integrations }}
       - name: Verify native recovery route geometry
-        run: python3 scripts/verify-recovery-bank-frames.py build/runs/gametest/recovery-bank-native-frames.json > build/recovery-route-geometry.json
+        run: |
+          python3 scripts/verify-recovery-bank-frames.py build/runs/gametest/recovery-bank-native-frames.json > build/recovery-route-geometry.json
+          python3 scripts/verify-recovery-bank-frames.py build/runs/gametest/recovery-bank-train-native-frames.json --trains > build/recovery-train-geometry.json
       - name: Audit installed Arrow decoration on native bank frames
         if: matrix.profile == 'styles' || matrix.profile == 'combined'
         run: |
@@ -74,5 +76,7 @@ jobs:
             build/runs/gametest/bank-native-frames.json
             build/runs/gametest/recovery-bank-native-frames.json
             build/recovery-route-geometry.json
+            build/runs/gametest/recovery-bank-train-native-frames.json
+            build/recovery-train-geometry.json
             build/banked-clearance.json
             build/wheel-clearance.json

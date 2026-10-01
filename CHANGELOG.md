@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.9.0-dev.20 — occupied train recovery across bends and banks
+
+- Add longer original recovery layouts for two-car Arrow and four-car PAX trains, with four-second queued native coupling and `/fd demo recovery_bank_train_arrow` / `recovery_bank_train_pax` operator examples.
+- Require every original car to traverse the full quarter bend, sustained 30-degree bank, bank-down and level runout before braking. Preserve all 24 original native seats, carrier IDs and original train links through external power cut, stationary recovery disconnection and native unloading. Measure every chassis and ordinary bearing against native track anchors/orientations.
+- Share native route-frame export between single-car and train fixtures; independently check both extended routes in CI and retain their frames for later clearance work. Keep prior dev.19 acceptance and CI evidence pinned to its original revision.
+- Keep FD402 and the 0.4/0.9 gates open for complete rendered vehicle/rider/rack clearance and occupied operator/lifecycle/propulsion coverage. The compact occupied PAX spike limitation remains. Save schema/network protocol remain 6.
+
 ## 0.9.0-dev.19 — occupied curved and banked recovery
 
 - Add five original native recovery routes with a 90-degree bend, 32-block sustained 30-degree bank, transition to level and level runout. `/fd demo recovery_bank_<family>` uses the same tool/editor, eight-RPM motor and switchable chain-power workflow as the flat examples.
