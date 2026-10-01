@@ -339,6 +339,10 @@ The [provider/appearance extension (2026-10-01)](docs/evidence/integrations/2026
 fixes allocation on unavailable functional providers and exercises all five families
 through factory, survival item use and locked native snap/binding paths across four
 appearance states. This extends the matrix without closing the remaining entry paths.
+The [connected-endpoint follow-up](docs/evidence/integrations/2026-10-01/connected-eligibility/README.md)
+isolates native family rejection from disconnected-route rejection, with matching
+positive controls and a deliberate guard mutation. Dynamic traversal and linked
+mixed-family boundary coverage remain open.
 
 **Done when:** each advertised combination has recorded results. Wrong-family 4D carts are rejected everywhere, and ordinary carts receive no 4D benefit.
 

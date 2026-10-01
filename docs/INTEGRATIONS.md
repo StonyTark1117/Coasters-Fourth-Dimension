@@ -48,6 +48,11 @@ validates the provider contract before allocation. The extended five-family matr
 covers survival item consumption, native snap/binding rejection, original/two optional/
 missing appearances and mechanical save preservation. Full mixed-consist, boundary,
 external-material and client-rendering acceptance remains separate.
+The [connected-endpoint extension](evidence/integrations/2026-10-01/connected-eligibility/README.md)
+adds 200 stationary native snap/filter/binding cases across all five family pairs,
+both shared endpoints and four appearances. A deliberate guard mutation fails the
+new test while keeping route continuity enabled; production code is restored and
+unchanged. Moving mixed-family traversal and linked-consist boundaries remain separate.
 
 ## Create
 

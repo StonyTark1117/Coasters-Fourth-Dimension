@@ -1,0 +1,72 @@
+package dev.fourthdimension.runtime;
+
+import dev.ryanhcode.sable.sublevel.SubLevel;
+import dev.silvergold.simulatedcoasters.track.graph.CoasterPathTrackFrame.GraphHit;
+import java.util.*;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.level.Level;
+
+public final class EligibilityHooks {
+  private EligibilityHooks() {}
+
+  // Client copies are replaced on full snapshots and keyed by level lifetime.
+  public static final Map<Level, FoundationData> CLIENT =
+      Collections.synchronizedMap(new WeakHashMap<>());
+
+  public static FoundationData data(Level level) {
+    return level instanceof ServerLevel server ? FoundationData.get(server) : CLIENT.get(level);
+  }
+
+  public static boolean allows(SubLevel chassis, Level level, GraphHit hit) {
+    if (hit == null) return false;
+    var data = data(level);
+    if (data == null) return true;
+    var vehicle = data.vehicles.get(chassis.getUniqueId());
+    var markers = FamilyControllers.find(chassis);
+    if (vehicle != null && (markers.size() != 1 || !markers.contains(vehicle.family))) return false;
+    // An unbound or mixed-family assembly is not an ordinary recovery cart.
+    if (!markers.isEmpty()
+        && (vehicle == null || markers.size() != 1 || !markers.contains(vehicle.family)))
+      return false;
+    var rail =
+        data.rails.stream()
+            .filter(r -> r.matches(hit.edge().from(), hit.edge().to()))
+            .findFirst()
+            .orElse(null);
+    if (rail != null && !dev.fourthdimension.integration.TrackProviders.available(rail))
+      return false;
+    if (vehicle == null) {
+      if (rail == null) return true;
+      return rail.valid && dev.fourthdimension.track.OrdinaryGearCertificate.fits(chassis);
+    }
+    if (!dev.fourthdimension.vehicle.ConsistRules.eligible(level, chassis, vehicle)) return false;
+    if (rail == null
+        || !rail.valid
+        || rail.family() != vehicle.family
+        || !rail.variant.equals(vehicle.variant)) return false;
+    if (vehicle.boundFrom != null
+        && !rail.matches(vehicle.boundFrom, vehicle.boundTo)
+        && !rail.from().equals(vehicle.boundFrom)
+        && !rail.from().equals(vehicle.boundTo)
+        && !rail.to().equals(vehicle.boundFrom)
+        && !rail.to().equals(vehicle.boundTo)) return false;
+    return true;
+  }
+
+  public static void bindAccepted(SubLevel chassis, ServerLevel level, GraphHit hit) {
+    if (!allows(chassis, level, hit)) return;
+    var data = FoundationData.get(level);
+    var vehicle = data.vehicles.get(chassis.getUniqueId());
+    if (vehicle == null) return;
+    var rail =
+        data.rails.stream()
+            .filter(r -> r.matches(hit.edge().from(), hit.edge().to()))
+            .findFirst()
+            .orElse(null);
+    if (rail != null && !rail.matches(vehicle.boundFrom, vehicle.boundTo)) {
+      vehicle.boundFrom = rail.from;
+      vehicle.boundTo = rail.to;
+      data.setDirty();
+    }
+  }
+}

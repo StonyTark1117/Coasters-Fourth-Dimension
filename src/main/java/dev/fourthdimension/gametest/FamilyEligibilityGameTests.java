@@ -54,17 +54,32 @@ public final class FamilyEligibilityGameTests {
     var data = FoundationData.get(level);
     var container = SubLevelContainer.getContainer(level);
     var rails = new ArrayList<FoundationData.Rail>();
+    var neighbors = new ArrayList<List<FoundationData.Rail>>();
+    var allRails = new ArrayList<FoundationData.Rail>();
     var hits = new ArrayList<CoasterPathTrackFrame.GraphHit>();
     var vehicles = new ArrayList<FoundationData.Vehicle>();
     for (var design : TrackDesign.values()) {
       var from = new BlockPos(-800 + design.ordinal() * 24, 120, -640);
       var to = from.offset(0, 0, 32);
-      for (var anchor : List.of(from, to))
+      var lower = from.offset(0, 0, -16);
+      var upper = to.offset(0, 0, 16);
+      for (var anchor : List.of(lower, from, to, upper))
         level.setBlockAndUpdate(
             anchor, SimulatedCoastersBlocks.COASTER_ANCHORPOINT.get().defaultBlockState());
       player.setPos(to.getX() + 2, to.getY() + 1, to.getZ());
       player.setItemInHand(InteractionHand.MAIN_HAND, TrackItems.ARROW.get().getDefaultInstance());
       rails.add(TrackPlacement.connect(level, from, to, design, player, player.getMainHandItem()));
+      var adjacent = new ArrayList<FoundationData.Rail>();
+      for (var pair : List.of(List.of(lower, from), List.of(to, upper))) {
+        var end = pair.getLast();
+        player.setPos(end.getX() + 2, end.getY() + 1, end.getZ());
+        adjacent.add(
+            TrackPlacement.connect(
+                level, pair.getFirst(), end, design, player, player.getMainHandItem()));
+      }
+      neighbors.add(adjacent);
+      allRails.add(rails.getLast());
+      allRails.addAll(adjacent);
     }
     rails.get(TrackDesign.FREE_SPIN.ordinal()).magnets =
         List.of(
@@ -194,6 +209,7 @@ public final class FamilyEligibilityGameTests {
                   "Matching initial snap failed after rejects");
             }
           }
+          connectedMatrix(helper, rails, neighbors, allRails, vehicles, hits);
           for (int i = 0; i < vehicles.size(); i++) {
             var vehicle = vehicles.get(i);
             var body = (ServerSubLevel) container.getSubLevel(vehicle.chassis);
@@ -234,16 +250,131 @@ public final class FamilyEligibilityGameTests {
                 container.getSubLevel(vehicle.chassis), SubLevelRemovalReason.REMOVED);
             data.vehicles.remove(vehicle.chassis);
           }
-          for (var rail : rails) {
+          for (var rail : allRails) {
             ((dev.silvergold.simulatedcoasters.track.anchor.CoasterAnchorpointBlockEntity)
                     level.getBlockEntity(rail.from))
                 .removeAnchorPeerCurve(level, rail.to);
             data.rails.remove(rail);
+          }
+          for (var rail : allRails) {
             level.removeBlock(rail.from, false);
             level.removeBlock(rail.to, false);
           }
           helper.succeed();
         });
+  }
+
+  private static void connectedMatrix(
+      GameTestHelper helper,
+      List<FoundationData.Rail> rails,
+      List<List<FoundationData.Rail>> neighbors,
+      List<FoundationData.Rail> allRails,
+      List<FoundationData.Vehicle> vehicles,
+      List<CoasterPathTrackFrame.GraphHit> homeHits) {
+    var level = helper.getLevel();
+    var data = FoundationData.get(level);
+    var container = SubLevelContainer.getContainer(level);
+    int accepted = 0, rejected = 0;
+    for (var appearance : APPEARANCES) {
+      setAppearance(helper, allRails, appearance);
+      for (int i = 0; i < vehicles.size(); i++) {
+        var vehicle = vehicles.get(i);
+        var body = (ServerSubLevel) container.getSubLevel(vehicle.chassis);
+        var home = rails.get(i);
+        helper.assertTrue(
+            home.matches(vehicle.boundFrom, vehicle.boundTo),
+            "Connected matrix lost its initial binding");
+        for (int side = 0; side < 2; side++) {
+          var original = neighbors.get(i).get(side);
+          var shared = side == 0 ? home.from : home.to;
+          helper.assertTrue(
+              original.from.equals(shared) || original.to.equals(shared),
+              "Family probe is disconnected from its original rail");
+          var edge = TrackGeometry.resolve(level, original);
+          var hit =
+              new CoasterPathTrackFrame.GraphHit(
+                  CoasterPathGraphManager.sampleEdgePosition(level, edge, .5), edge, .5);
+          int index = data.rails.indexOf(original);
+          for (var design : TrackDesign.values()) {
+            // Model a persisted or externally supplied mixed junction. Normal track placement
+            // refuses mixed-family junctions; the native re-engagement guard must also reject them.
+            var candidate =
+                new FoundationData.Rail(
+                    original.from,
+                    original.to,
+                    design.family,
+                    original.profile,
+                    original.id,
+                    design.variant,
+                    original.geometryHash,
+                    original.revision,
+                    true,
+                    original.provider);
+            candidate.appearance = appearance;
+            data.rails.set(index, candidate);
+            try {
+              helper.assertTrue(
+                  TrackProviders.available(candidate)
+                      && TrackGeometry.resolve(level, candidate) != null,
+                  "Connected probe has an unavailable functional provider or geometry");
+              boolean matching = vehicle.family == design.family;
+              helper.assertTrue(
+                  EligibilityHooks.allows(body, level, hit) == matching,
+                  "Connected family eligibility mismatch " + vehicle.family + "/" + design.family);
+              helper.assertTrue(
+                  (CoasterCartRailSnapEligibility.filterHitForBearing(body, level, hit) != null)
+                      == matching,
+                  "Connected native filter mismatch " + vehicle.family + "/" + design.family);
+              var before = new org.joml.Vector3d(body.logicalPose().position());
+              EligibilityHooks.bindAccepted(body, level, hit);
+              CoasterCartTrackSnap.applyInitialSnapAfterSpawn(body, level, hit);
+              if (matching) {
+                var bearing = CoasterCartTrackSnap.representativeBearingPlotPos(body);
+                helper.assertTrue(
+                    candidate.matches(vehicle.boundFrom, vehicle.boundTo)
+                        && bearing != null
+                        && level.getBlockState(bearing).getValue(CoasterCartBlock.SNAP_ENGAGED),
+                    "Matching connected snap failed to advance the native binding");
+                accepted++;
+              } else {
+                helper.assertTrue(
+                    home.matches(vehicle.boundFrom, vehicle.boundTo)
+                        && CoasterCartTrackSnap.isBearingDisengaged(body)
+                        && before.distance(body.logicalPose().position()) < 1e-8,
+                    "Wrong-family connected snap changed binding, pose or engagement");
+                rejected++;
+              }
+              System.out.println(
+                  "FD_CONNECTED_FAMILY car="
+                      + vehicle.family.id()
+                      + " track="
+                      + design.family.id()
+                      + " side="
+                      + (side == 0 ? "from" : "to")
+                      + " appearance="
+                      + appearance.style()
+                      + " accepted="
+                      + matching);
+            } finally {
+              data.rails.set(index, original);
+              EligibilityHooks.bindAccepted(body, level, homeHits.get(i));
+              CoasterCartTrackSnap.applyInitialSnapAfterSpawn(body, level, homeHits.get(i));
+            }
+            helper.assertTrue(
+                home.matches(vehicle.boundFrom, vehicle.boundTo),
+                "Connected probe failed to restore its original binding");
+          }
+        }
+      }
+    }
+    setAppearance(helper, allRails, TrackAppearance.ORIGINAL);
+    helper.assertTrue(accepted == 40 && rejected == 160, "Incomplete connected family matrix");
+    System.out.println(
+        "FD_CONNECTED_MATRIX cases=200 matchingAccepted="
+            + accepted
+            + " wrongFamilyRejected="
+            + rejected
+            + " endpoints=2 appearances=4 bindingRestored=true");
   }
 
   private static void itemPlacement(

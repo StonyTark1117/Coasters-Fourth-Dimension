@@ -1,0 +1,50 @@
+{
+  "scope": "Stationary native connected family/filter/initial-snap/binding matrix; not dynamic traversal, linked consists or every external material",
+  "guard_mutation_detected": true,
+  "production_guard_restored": true,
+  "profiles": {
+    "base": {
+      "registered": 33,
+      "absent_addon_skips": 6,
+      "connected_matching_accepts": 40,
+      "connected_wrong_family_rejections": 160
+    },
+    "styles": {
+      "registered": 33,
+      "absent_addon_skips": 6,
+      "connected_matching_accepts": 40,
+      "connected_wrong_family_rejections": 160
+    },
+    "engineered": {
+      "registered": 33,
+      "absent_addon_skips": 3,
+      "connected_matching_accepts": 40,
+      "connected_wrong_family_rejections": 160
+    },
+    "combined": {
+      "registered": 33,
+      "absent_addon_skips": 0,
+      "connected_matching_accepts": 40,
+      "connected_wrong_family_rejections": 160
+    },
+    "additions": {
+      "registered": 33,
+      "absent_addon_skips": 4,
+      "connected_matching_accepts": 40,
+      "connected_wrong_family_rejections": 160
+    },
+    "magnetized": {
+      "registered": 33,
+      "absent_addon_skips": 5,
+      "connected_matching_accepts": 40,
+      "connected_wrong_family_rejections": 160
+    },
+    "immersion": {
+      "registered": 33,
+      "absent_addon_skips": 6,
+      "connected_matching_accepts": 40,
+      "connected_wrong_family_rejections": 160
+    }
+  },
+  "unit_tests": 19
+}

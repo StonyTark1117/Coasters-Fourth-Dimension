@@ -64,6 +64,10 @@ and route-continuity restrictions together. Factory/item family rejections have 
 adjacency restriction, and the unavailable-provider native cases use each car's own
 matching lane. Isolating every native family restriction at a shared mixed-family
 junction remains additional matrix work; this test is not sufficient by itself.
+The later [connected-endpoint check](../connected-eligibility/README.md) covers those
+stationary native family/filter/initial-snap/binding decisions at both ends, including
+matching positive controls and a deliberate guard-mutation failure. Dynamic traversal
+and linked consists remain outside that extension.
 
 ## Run status
 

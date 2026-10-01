@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="dev.fourthdimension.TrackMathTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2026-10-01T12:29:37.716Z" hostname="Hades" time="0.004">
+  <properties/>
+  <testcase name="explicitTangentsAreContinuousWithoutOvershoot()" classname="dev.fourthdimension.TrackMathTest" time="0.0"/>
+  <testcase name="servoKeepsFullTurnsAndRetracesWithoutQuaternionShortcut()" classname="dev.fourthdimension.TrackMathTest" time="0.001"/>
+  <testcase name="nativeBearingContactPlanesAndTreadOverlap()" classname="dev.fourthdimension.TrackMathTest" time="0.0"/>
+  <testcase name="curvedDistanceIsNotChordOrParameter()" classname="dev.fourthdimension.TrackMathTest" time="0.001"/>
+  <testcase name="mechanicalContinuityDoesNotWrapFullTurns()" classname="dev.fourthdimension.TrackMathTest" time="0.002"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
