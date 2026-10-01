@@ -411,6 +411,8 @@ Test upgrades from released save formats, stable IDs, profile rebinding, appeara
 
 ### FD904 Meet measured performance and rendering targets
 
+**Partial evidence (2026-10-01):** A [dedicated-server baseline](docs/evidence/integrations/2026-10-01/server-benchmark/README.md) measures two occupied seven-car Arrow trains, three eight-seat Free Spin cars and a four-car PAX shuttle in the base and combined packs. Exact tick windows, rider/body identities, host load and separate CPU profiles are retained. This does not close client/rendering, shader, moving-inversion or active optional-equipment performance coverage.
+
 **Depends on:** FD404, FD006. **Design:** D17.
 
 Benchmark the declared controlled-train, free-spin, and shuttle scenes against recorded baselines. Profile per-carrier/constraint costs, caches, Flywheel modes, and the supported shader stack.

@@ -428,6 +428,17 @@ other families and camera modes still need coverage. Exact observations and outs
 are recorded in [Immersion evidence](evidence/integrations/2026-09-30/immersion-0.2.3/README.md).
 Its seat-aligner/pose features are not a replacement for 4D carrier seats or controls.
 
+## Dedicated-server performance baseline
+
+The [FD904 benchmark](evidence/integrations/2026-10-01/server-benchmark/README.md)
+uses one saved scene with 21 cars, 48 carriers and 96 native passengers in base
+and combined-pack runs. It records repeated parked and operating tick windows,
+identity checks, host load, and separate Java Flight Recorder profiles. The
+combined profile has all pinned addons installed; this scene does not activate
+their equipment or custom appearances. Server timing does not establish frame
+cost, two-client networking cost, shader compatibility, or a release capacity
+guarantee. See the evidence for measured values and the remaining scope.
+
 ## Combined-pack multiplayer evidence
 
 A packaged dedicated server and two packaged clients ran all five pinned adapters

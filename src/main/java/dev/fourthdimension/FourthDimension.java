@@ -46,6 +46,7 @@ public final class FourthDimension {
           if (Boolean.getBoolean("fourthdimension.freezeOnStart"))
             event.getServer().tickRateManager().setFrozen(true);
         });
+    dev.fourthdimension.integration.PerformanceFixture.install();
     LogUtils.getLogger()
         .info(
             "Coasters: Fourth Dimension loaded from {}",

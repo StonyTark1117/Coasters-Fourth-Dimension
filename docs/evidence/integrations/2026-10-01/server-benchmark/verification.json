@@ -1,0 +1,436 @@
+{
+  "samples": {
+    "base-operating-0": {
+      "mean_ms": 33.30786327166667,
+      "p50_ms": 32.55531,
+      "p95_ms": 39.571288,
+      "p99_ms": 46.480704,
+      "max_ms": 51.948798,
+      "over_50ms": 4,
+      "profiled": false,
+      "wall_seconds": 29.961120262,
+      "carrier_callback_ms_per_tick": 14.073293080000001,
+      "physics_callbacks": 3600,
+      "phases": {
+        "CAPTURING": 30,
+        "LIFTING": 338,
+        "OUTBOUND": 174,
+        "RETURNING": 58
+      },
+      "amortized_callback_us_per_carrier_per_server_tick": 293.1936058333333,
+      "non_pax_displacement_blocks": {
+        "min": 7.291420019303615,
+        "max": 8.094108594657854
+      }
+    },
+    "base-operating-1": {
+      "mean_ms": 34.65010444166667,
+      "p50_ms": 32.57042,
+      "p95_ms": 47.890055,
+      "p99_ms": 55.95626,
+      "max_ms": 76.369194,
+      "over_50ms": 18,
+      "profiled": false,
+      "wall_seconds": 29.976314208,
+      "carrier_callback_ms_per_tick": 14.502021005000001,
+      "physics_callbacks": 3600,
+      "phases": {
+        "CAPTURING": 29,
+        "LIFTING": 339,
+        "OUTBOUND": 174,
+        "RETURNING": 58
+      },
+      "amortized_callback_us_per_carrier_per_server_tick": 302.1254376041667,
+      "non_pax_displacement_blocks": {
+        "min": 7.310981860117693,
+        "max": 8.11392975287555
+      }
+    },
+    "base-operating-2": {
+      "mean_ms": 39.63529249666667,
+      "p50_ms": 38.355532,
+      "p95_ms": 49.460118,
+      "p99_ms": 59.267417,
+      "max_ms": 68.793703,
+      "over_50ms": 28,
+      "profiled": false,
+      "wall_seconds": 29.982196564,
+      "carrier_callback_ms_per_tick": 16.35419942,
+      "physics_callbacks": 3600,
+      "phases": {
+        "CAPTURING": 29,
+        "LIFTING": 339,
+        "OUTBOUND": 174,
+        "RETURNING": 58
+      },
+      "amortized_callback_us_per_carrier_per_server_tick": 340.71248791666665,
+      "non_pax_displacement_blocks": {
+        "min": 7.311554047881003,
+        "max": 8.112785344729545
+      }
+    },
+    "base-parked-0": {
+      "mean_ms": 35.623543936666664,
+      "p50_ms": 34.44209,
+      "p95_ms": 43.524008,
+      "p99_ms": 51.12975,
+      "max_ms": 60.511006,
+      "over_50ms": 9,
+      "profiled": false,
+      "wall_seconds": 29.992164331,
+      "carrier_callback_ms_per_tick": 15.253305398333334,
+      "physics_callbacks": 3600,
+      "phases": {
+        "BOARDING": 600
+      },
+      "amortized_callback_us_per_carrier_per_server_tick": 317.7771957986111
+    },
+    "base-parked-1": {
+      "mean_ms": 35.708794706666666,
+      "p50_ms": 34.995336,
+      "p95_ms": 41.743885,
+      "p99_ms": 46.121497,
+      "max_ms": 50.052209,
+      "over_50ms": 2,
+      "profiled": false,
+      "wall_seconds": 29.980828565,
+      "carrier_callback_ms_per_tick": 15.302077,
+      "physics_callbacks": 3600,
+      "phases": {
+        "BOARDING": 600
+      },
+      "amortized_callback_us_per_carrier_per_server_tick": 318.79327083333334
+    },
+    "base-parked-2": {
+      "mean_ms": 35.27363730833333,
+      "p50_ms": 34.108265,
+      "p95_ms": 41.979075,
+      "p99_ms": 49.46031,
+      "max_ms": 60.885558,
+      "over_50ms": 5,
+      "profiled": false,
+      "wall_seconds": 29.983694003,
+      "carrier_callback_ms_per_tick": 15.095339618333334,
+      "physics_callbacks": 3600,
+      "phases": {
+        "BOARDING": 600
+      },
+      "amortized_callback_us_per_carrier_per_server_tick": 314.48624204861113
+    },
+    "combined-operating-0": {
+      "mean_ms": 41.97429015833333,
+      "p50_ms": 39.620242,
+      "p95_ms": 56.937236,
+      "p99_ms": 76.665217,
+      "max_ms": 106.441475,
+      "over_50ms": 71,
+      "profiled": false,
+      "wall_seconds": 29.988385281,
+      "carrier_callback_ms_per_tick": 16.04256387,
+      "physics_callbacks": 3600,
+      "phases": {
+        "CAPTURING": 29,
+        "LIFTING": 339,
+        "OUTBOUND": 174,
+        "RETURNING": 58
+      },
+      "amortized_callback_us_per_carrier_per_server_tick": 334.220080625,
+      "non_pax_displacement_blocks": {
+        "min": 7.311554047881003,
+        "max": 8.112785344729545
+      }
+    },
+    "combined-operating-1": {
+      "mean_ms": 42.83480777333333,
+      "p50_ms": 41.237561,
+      "p95_ms": 56.736752,
+      "p99_ms": 64.87848,
+      "max_ms": 80.876734,
+      "over_50ms": 73,
+      "profiled": false,
+      "wall_seconds": 29.990186609,
+      "carrier_callback_ms_per_tick": 16.31258268666667,
+      "physics_callbacks": 3600,
+      "phases": {
+        "CAPTURING": 29,
+        "LIFTING": 339,
+        "OUTBOUND": 174,
+        "RETURNING": 58
+      },
+      "amortized_callback_us_per_carrier_per_server_tick": 339.8454726388889,
+      "non_pax_displacement_blocks": {
+        "min": 7.310188385128555,
+        "max": 8.113014226422251
+      }
+    },
+    "combined-operating-2": {
+      "mean_ms": 46.863870983333335,
+      "p50_ms": 46.122643,
+      "p95_ms": 56.909313,
+      "p99_ms": 69.062654,
+      "max_ms": 78.929959,
+      "over_50ms": 135,
+      "profiled": false,
+      "wall_seconds": 30.011761873,
+      "carrier_callback_ms_per_tick": 18.27671606166667,
+      "physics_callbacks": 3600,
+      "phases": {
+        "CAPTURING": 29,
+        "LIFTING": 339,
+        "OUTBOUND": 174,
+        "RETURNING": 58
+      },
+      "amortized_callback_us_per_carrier_per_server_tick": 380.76491795138895,
+      "non_pax_displacement_blocks": {
+        "min": 7.311218348349101,
+        "max": 8.11392975287555
+      }
+    },
+    "combined-parked-0": {
+      "mean_ms": 37.213492105,
+      "p50_ms": 36.570514,
+      "p95_ms": 43.42633,
+      "p99_ms": 48.955934,
+      "max_ms": 54.516404,
+      "over_50ms": 3,
+      "profiled": false,
+      "wall_seconds": 29.987227997,
+      "carrier_callback_ms_per_tick": 14.855241603333333,
+      "physics_callbacks": 3600,
+      "phases": {
+        "BOARDING": 600
+      },
+      "amortized_callback_us_per_carrier_per_server_tick": 309.48420006944446
+    },
+    "combined-parked-1": {
+      "mean_ms": 38.20052127,
+      "p50_ms": 37.678424,
+      "p95_ms": 43.576558,
+      "p99_ms": 47.401291,
+      "max_ms": 49.858673,
+      "over_50ms": 0,
+      "profiled": false,
+      "wall_seconds": 29.987610702,
+      "carrier_callback_ms_per_tick": 15.419319198333334,
+      "physics_callbacks": 3600,
+      "phases": {
+        "BOARDING": 600
+      },
+      "amortized_callback_us_per_carrier_per_server_tick": 321.23581663194443
+    },
+    "combined-parked-2": {
+      "mean_ms": 41.930110035,
+      "p50_ms": 40.851403,
+      "p95_ms": 50.79092,
+      "p99_ms": 62.140777,
+      "max_ms": 75.391057,
+      "over_50ms": 39,
+      "profiled": false,
+      "wall_seconds": 29.991330083,
+      "carrier_callback_ms_per_tick": 16.74992350833333,
+      "physics_callbacks": 3600,
+      "phases": {
+        "BOARDING": 600
+      },
+      "amortized_callback_us_per_carrier_per_server_tick": 348.9567397569444
+    },
+    "profile-base-operating": {
+      "mean_ms": 45.75470360333333,
+      "p50_ms": 45.126642,
+      "p95_ms": 54.453179,
+      "p99_ms": 58.053865,
+      "max_ms": 63.971437,
+      "over_50ms": 82,
+      "profiled": true,
+      "wall_seconds": 29.419962219,
+      "carrier_callback_ms_per_tick": 19.690913831666666,
+      "physics_callbacks": 3600,
+      "phases": {
+        "CAPTURING": 29,
+        "LIFTING": 338,
+        "OUTBOUND": 174,
+        "RETURNING": 59
+      },
+      "amortized_callback_us_per_carrier_per_server_tick": 410.22737149305556,
+      "non_pax_displacement_blocks": {
+        "min": 7.290367172367652,
+        "max": 8.09430694905869
+      }
+    },
+    "profile-base-parked": {
+      "mean_ms": 44.123693939999995,
+      "p50_ms": 41.832049,
+      "p95_ms": 58.188919,
+      "p99_ms": 73.40919,
+      "max_ms": 111.15829,
+      "over_50ms": 105,
+      "profiled": true,
+      "wall_seconds": 28.382647494,
+      "carrier_callback_ms_per_tick": 19.014050488333332,
+      "physics_callbacks": 3600,
+      "phases": {
+        "BOARDING": 600
+      },
+      "amortized_callback_us_per_carrier_per_server_tick": 396.1260518402778
+    },
+    "profile-combined-operating": {
+      "mean_ms": 59.186042455,
+      "p50_ms": 57.244203,
+      "p95_ms": 74.878484,
+      "p99_ms": 91.581445,
+      "max_ms": 138.856685,
+      "over_50ms": 541,
+      "profiled": true,
+      "wall_seconds": 35.542643117,
+      "carrier_callback_ms_per_tick": 23.48590253,
+      "physics_callbacks": 3600,
+      "phases": {
+        "CAPTURING": 30,
+        "LIFTING": 338,
+        "OUTBOUND": 174,
+        "RETURNING": 58
+      },
+      "amortized_callback_us_per_carrier_per_server_tick": 489.28963604166665,
+      "non_pax_displacement_blocks": {
+        "min": 7.2908579850490725,
+        "max": 8.094451931406596
+      }
+    },
+    "profile-combined-parked": {
+      "mean_ms": 55.042924105,
+      "p50_ms": 52.977364,
+      "p95_ms": 73.083302,
+      "p99_ms": 93.323234,
+      "max_ms": 119.315798,
+      "over_50ms": 420,
+      "profiled": true,
+      "wall_seconds": 33.06642847,
+      "carrier_callback_ms_per_tick": 22.077298263333333,
+      "physics_callbacks": 3600,
+      "phases": {
+        "BOARDING": 600
+      },
+      "amortized_callback_us_per_carrier_per_server_tick": 459.94371381944444
+    },
+    "reference-0": {
+      "mean_ms": 1.1829717283333332,
+      "p50_ms": 1.10515,
+      "p95_ms": 1.980462,
+      "p99_ms": 2.600626,
+      "max_ms": 3.804394,
+      "over_50ms": 0,
+      "profiled": false,
+      "wall_seconds": 29.950995892,
+      "carrier_callback_ms_per_tick": 0.008260376666666666,
+      "physics_callbacks": 3600,
+      "phases": {}
+    },
+    "reference-1": {
+      "mean_ms": 1.1022328583333334,
+      "p50_ms": 1.008541,
+      "p95_ms": 1.842513,
+      "p99_ms": 2.452197,
+      "max_ms": 3.696576,
+      "over_50ms": 0,
+      "profiled": false,
+      "wall_seconds": 29.951322216,
+      "carrier_callback_ms_per_tick": 0.004885166666666667,
+      "physics_callbacks": 3600,
+      "phases": {}
+    },
+    "reference-2": {
+      "mean_ms": 1.1517946200000002,
+      "p50_ms": 1.018501,
+      "p95_ms": 2.053411,
+      "p99_ms": 3.649606,
+      "max_ms": 4.917985,
+      "over_50ms": 0,
+      "profiled": false,
+      "wall_seconds": 29.950950116,
+      "carrier_callback_ms_per_tick": 0.00317191,
+      "physics_callbacks": 3600,
+      "phases": {}
+    }
+  },
+  "scope": "NeoForge server Pre-to-Post elapsed time; no clients; zero-angle Arrow profile",
+  "scene": {
+    "cars": 21,
+    "carriers": 48,
+    "riders": 96,
+    "forced_chunks": 158
+  },
+  "groups": {
+    "reference": {
+      "mean_ms": 1.1456664022222223,
+      "p50_ms": 1.036681,
+      "p95_ms": 1.967872,
+      "p99_ms": 2.863283,
+      "max_ms": 4.917985,
+      "over_50ms": 0,
+      "p95_development_budget_met": true,
+      "window_mean_ms": [
+        1.1829717283333332,
+        1.1022328583333334,
+        1.1517946200000002
+      ]
+    },
+    "base-parked": {
+      "mean_ms": 35.535325317222224,
+      "p50_ms": 34.58599,
+      "p95_ms": 42.317361,
+      "p99_ms": 49.595953,
+      "max_ms": 60.885558,
+      "over_50ms": 16,
+      "p95_development_budget_met": true,
+      "window_mean_ms": [
+        35.623543936666664,
+        35.708794706666666,
+        35.27363730833333
+      ]
+    },
+    "combined-parked": {
+      "mean_ms": 39.11470780333333,
+      "p50_ms": 38.059285,
+      "p95_ms": 47.120177,
+      "p99_ms": 53.713714,
+      "max_ms": 75.391057,
+      "over_50ms": 42,
+      "p95_development_budget_met": true,
+      "window_mean_ms": [
+        37.213492105,
+        38.20052127,
+        41.930110035
+      ]
+    },
+    "base-operating": {
+      "mean_ms": 35.86442007,
+      "p50_ms": 34.840283,
+      "p95_ms": 47.069407,
+      "p99_ms": 55.368981,
+      "max_ms": 76.369194,
+      "over_50ms": 50,
+      "p95_development_budget_met": true,
+      "window_mean_ms": [
+        33.30786327166667,
+        34.65010444166667,
+        39.63529249666667
+      ]
+    },
+    "combined-operating": {
+      "mean_ms": 43.89098963833334,
+      "p50_ms": 42.473558,
+      "p95_ms": 56.909313,
+      "p99_ms": 69.062654,
+      "max_ms": 106.441475,
+      "over_50ms": 279,
+      "p95_development_budget_met": false,
+      "window_mean_ms": [
+        41.97429015833333,
+        42.83480777333333,
+        46.863870983333335
+      ]
+    }
+  },
+  "unit_tests": 19,
+  "jfr_recordings": 4
+}

@@ -1,0 +1,163 @@
+{
+  "status": "complete",
+  "artifact_sha256": "426c2786c2b5a0bba0bb677349ef86f5414f8652fef1de55de67be60658afb58",
+  "runs": [
+    {
+      "case": "seed",
+      "profile": null,
+      "world": "FDServerBenchmarkV2Seed",
+      "pid": 272890,
+      "command": [
+        "./gradlew",
+        "-Dorg.gradle.jvmargs=-Xmx1G",
+        "--max-workers=2",
+        "runServer",
+        "-PfdPackaged",
+        "-PfdPackagedJar=/home/braydon/.cache/fourthdimension-48535694/server-benchmark-v2.jar",
+        "-PfdValidation",
+        "-PfdFrozen"
+      ],
+      "status": "complete"
+    },
+    {
+      "case": "base-parked",
+      "profile": null,
+      "world": "FDServerBenchmarkV2Baseparked",
+      "pid": 275856,
+      "command": [
+        "./gradlew",
+        "-Dorg.gradle.jvmargs=-Xmx1G",
+        "--max-workers=2",
+        "runServer",
+        "-PfdPackaged",
+        "-PfdPackagedJar=/home/braydon/.cache/fourthdimension-48535694/server-benchmark-v2.jar",
+        "-PfdValidation",
+        "-PfdFrozen"
+      ],
+      "status": "complete"
+    },
+    {
+      "case": "combined-parked",
+      "profile": "engineered,styles,additions,magnetized,immersion",
+      "world": "FDServerBenchmarkV2Combinedparked",
+      "pid": 278764,
+      "command": [
+        "./gradlew",
+        "-Dorg.gradle.jvmargs=-Xmx1G",
+        "--max-workers=2",
+        "runServer",
+        "-PfdPackaged",
+        "-PfdPackagedJar=/home/braydon/.cache/fourthdimension-48535694/server-benchmark-v2.jar",
+        "-PfdValidation",
+        "-PfdFrozen",
+        "-PfdIntegrations=engineered,styles,additions,magnetized,immersion"
+      ],
+      "status": "complete"
+    },
+    {
+      "case": "resumed-base-operating-0",
+      "profile": null,
+      "world": "FDServerBenchmarkV2Resumedbaseoperating0",
+      "pid": 285820,
+      "command": [
+        "./gradlew",
+        "-Dorg.gradle.jvmargs=-Xmx1G",
+        "--max-workers=2",
+        "runServer",
+        "-PfdPackaged",
+        "-PfdPackagedJar=/home/braydon/.cache/fourthdimension-48535694/server-benchmark-v2.jar",
+        "-PfdValidation",
+        "-PfdFrozen"
+      ],
+      "status": "complete"
+    },
+    {
+      "case": "resumed-combined-operating-0",
+      "profile": "engineered,styles,additions,magnetized,immersion",
+      "world": "FDServerBenchmarkV2Resumedcombinedoperating0",
+      "pid": 287285,
+      "command": [
+        "./gradlew",
+        "-Dorg.gradle.jvmargs=-Xmx1G",
+        "--max-workers=2",
+        "runServer",
+        "-PfdPackaged",
+        "-PfdPackagedJar=/home/braydon/.cache/fourthdimension-48535694/server-benchmark-v2.jar",
+        "-PfdValidation",
+        "-PfdFrozen",
+        "-PfdIntegrations=engineered,styles,additions,magnetized,immersion"
+      ],
+      "status": "complete"
+    },
+    {
+      "case": "resumed-base-operating-1",
+      "profile": null,
+      "world": "FDServerBenchmarkV2Resumedbaseoperating1",
+      "pid": 290262,
+      "command": [
+        "./gradlew",
+        "-Dorg.gradle.jvmargs=-Xmx1G",
+        "--max-workers=2",
+        "runServer",
+        "-PfdPackaged",
+        "-PfdPackagedJar=/home/braydon/.cache/fourthdimension-48535694/server-benchmark-v2.jar",
+        "-PfdValidation",
+        "-PfdFrozen"
+      ],
+      "status": "complete"
+    },
+    {
+      "case": "resumed-combined-operating-1",
+      "profile": "engineered,styles,additions,magnetized,immersion",
+      "world": "FDServerBenchmarkV2Resumedcombinedoperating1",
+      "pid": 292889,
+      "command": [
+        "./gradlew",
+        "-Dorg.gradle.jvmargs=-Xmx1G",
+        "--max-workers=2",
+        "runServer",
+        "-PfdPackaged",
+        "-PfdPackagedJar=/home/braydon/.cache/fourthdimension-48535694/server-benchmark-v2.jar",
+        "-PfdValidation",
+        "-PfdFrozen",
+        "-PfdIntegrations=engineered,styles,additions,magnetized,immersion"
+      ],
+      "status": "complete"
+    },
+    {
+      "case": "resumed-base-operating-2",
+      "profile": null,
+      "world": "FDServerBenchmarkV2Resumedbaseoperating2",
+      "pid": 295352,
+      "command": [
+        "./gradlew",
+        "-Dorg.gradle.jvmargs=-Xmx1G",
+        "--max-workers=2",
+        "runServer",
+        "-PfdPackaged",
+        "-PfdPackagedJar=/home/braydon/.cache/fourthdimension-48535694/server-benchmark-v2.jar",
+        "-PfdValidation",
+        "-PfdFrozen"
+      ],
+      "status": "complete"
+    },
+    {
+      "case": "resumed-combined-operating-2",
+      "profile": "engineered,styles,additions,magnetized,immersion",
+      "world": "FDServerBenchmarkV2Resumedcombinedoperating2",
+      "pid": 297630,
+      "command": [
+        "./gradlew",
+        "-Dorg.gradle.jvmargs=-Xmx1G",
+        "--max-workers=2",
+        "runServer",
+        "-PfdPackaged",
+        "-PfdPackagedJar=/home/braydon/.cache/fourthdimension-48535694/server-benchmark-v2.jar",
+        "-PfdValidation",
+        "-PfdFrozen",
+        "-PfdIntegrations=engineered,styles,additions,magnetized,immersion"
+      ],
+      "status": "complete"
+    }
+  ]
+}
