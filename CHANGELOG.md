@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.9.0-dev.13 — idle shuttle availability
+
+- Preserve BOARDING state while a never-lifted PAX train is in native holding. An idle winch without a carriage no longer faults or closes restraints merely because its lead is unavailable.
+- Keep dispatch validation for native bodies, actual consist, matching tracks, restraints, readiness, route and power. Existing faults require explicit recovery; active and caught-carriage behavior is unchanged.
+- Add a native regression that fails against the original controller, preserves idle state with the fix, restores all four cars/eight carriers, and rejects missing-lead or deleted-support dispatch. Standalone and combined runs pass all 29 native tests; all 25 unit tests pass.
+- Record the packaged loading-boundary control/fix and default-flags cold reopen with stable IDs/profiles. Add an at-a-glance current-stage summary to the roadmap; full 0.4 and 0.9 gates remain open.
+
 ## 0.9.0-dev.12 — Veil scheduler initialization
 
 - Defer native Veil 4.1.4 client workers until the constructor publishes its final worker count; complete zero-worker schedules. Pin this client integration to that exact release.

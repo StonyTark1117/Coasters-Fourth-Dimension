@@ -1,0 +1,16 @@
+Selected events from fd13-fixed-client-cold.log
+Full log SHA-256: accf996d22b05e607917b23444f5fa4f20f2df5f1dc8f99227bb7620b02cd96f
+
+[05:24:52] [Server thread/INFO] [minecraft/PlayerList]: Dev[local:E:94766e09] logged in with entity id 1 at (128.5, 90.0, -26.5)
+[05:26:07] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] 344, 85, -27 has the following block data: {Speed: 128.0f, shuttle_distance: 62.67979295672922d, shuttle_maximum: 0.0d, shuttle_start: 96482144997485L, shuttle_station: 62.67979295672922d, Source: [I; 343, 85, -27], shuttle_end: 96207267614837L, shuttle_fault: "", shuttle_cars: [[I; -2001166593, -474068321, -1669750606, 1088237818], [I; 1694143542, -1812970502, -1304176361, 1971778035], [I; 210259587, 430132006, -1947330427, -1156620489], [I; 1638124845, -1193916417, -1220059863, -1406409486]], shuttle_interrupted: "BOARDING", shuttle_cycles: 0, Network: {Capacity: 2097152.0f, Size: 2, AddedStress: 8.0f, Id: 94557999878229L, Stress: 1024.0f}, shuttle_phase: "BOARDING", x: 344, y: 85, z: -27, id: "fourthdimension:shuttle_winch", shuttle_vehicle: [I; -2001166593, -474068321, -1669750606, 1088237818]}
+[05:26:09] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] Teleported Dev to 343.500000, 85.000000, -26.500000
+[05:27:44] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] 344, 85, -27 has the following block data: {Speed: 128.0f, shuttle_distance: 62.67979295672922d, shuttle_maximum: 0.0d, shuttle_start: 96482144997485L, shuttle_station: 62.67979295672922d, Source: [I; 343, 85, -27], shuttle_end: 96207267614837L, shuttle_fault: "", shuttle_cars: [[I; -2001166593, -474068321, -1669750606, 1088237818], [I; 1694143542, -1812970502, -1304176361, 1971778035], [I; 210259587, 430132006, -1947330427, -1156620489], [I; 1638124845, -1193916417, -1220059863, -1406409486]], shuttle_interrupted: "BOARDING", shuttle_cycles: 0, Network: {Capacity: 2097152.0f, Size: 2, AddedStress: 8.0f, Id: 94557999878229L, Stress: 1024.0f}, shuttle_phase: "BOARDING", x: 344, y: 85, z: -27, id: "fourthdimension:shuttle_winch", shuttle_vehicle: [I; -2001166593, -474068321, -1669750606, 1088237818]}
+[05:27:46] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] Found no elements matching RootVehicle
+[05:27:48] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] Found no elements matching NoGravity
+[05:30:07] [Server thread/INFO] [minecraft/MinecraftServer]: Stopping server
+[05:30:07] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (FD13PaxFixed): All chunks are saved
+[05:30:07] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (DIM1): All chunks are saved
+[05:30:07] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
+[05:30:07] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage: All dimensions are saved
+[05:32:46] [Render thread/INFO] [minecraft/Minecraft]: Stopping!
+BUILD SUCCESSFUL in 8m 12s

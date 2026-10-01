@@ -1,0 +1,10 @@
+Selected events from fd13-control-server-reopen.log
+Full log SHA-256: e97f42cc228efcb00bd0ebbcee5cf6f89c2ac0a4e60de70d78dcc26b1bc37389
+
+[05:05:20] [Server thread/INFO] [de.fo.sh.ShuttleDiagnostics/]: FD_SHUTTLE_LIFECYCLE tick=1365 winch=BlockPos{x=-6, y=105, z=73} lead=fce2a802-d69f-45b2-b2ea-5fc214eff155 phase=BOARDING interrupted=BOARDING leadLoaded=true carsLoaded=4 carriage=null carriageLoaded=false winchAvailable=true fault=
+[05:06:48] [Server thread/INFO] [minecraft/MinecraftServer]: Stopping server
+[05:06:48] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (world): All chunks are saved
+[05:06:48] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
+[05:06:48] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (DIM1): All chunks are saved
+[05:06:48] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage: All dimensions are saved
+BUILD SUCCESSFUL in 1m 39s

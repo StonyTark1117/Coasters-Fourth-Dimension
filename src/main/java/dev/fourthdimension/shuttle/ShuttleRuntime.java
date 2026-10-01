@@ -72,6 +72,7 @@ public final class ShuttleRuntime {
   public static void tick(ServerLevel level, double dt) {
     for (var winch : List.copyOf(winches(level))) {
       if (winch.vehicle == null) continue;
+      ShuttleDiagnostics.observe(level, winch);
       try {
         if (level.hasChunkAt(winch.getBlockPos())
             && !level.getBlockState(winch.getBlockPos()).is(ShuttleContent.WINCH.get())) {
@@ -89,6 +90,10 @@ public final class ShuttleRuntime {
           WINCHES.get(level).remove(winch.getBlockPos(), winch);
           continue;
         }
+        // An idle winch without a carriage owns no native constraint to update.
+        // Sable may retain its train in holding while chunk availability changes.
+        // Leave boarding state intact; start() validates all bodies and the route.
+        if (winch.phase == ShuttleWinchEntity.Phase.BOARDING && winch.carriage == null) continue;
         if (!level.hasChunkAt(winch.getBlockPos())
             || !dev.ryanhcode.sable.sublevel.system.ticket.PhysicsChunkTicketManager
                 .isChunkLoadedEnough(

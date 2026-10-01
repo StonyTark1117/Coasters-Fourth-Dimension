@@ -159,3 +159,9 @@ hypothesis, not yet a proven cause or a shipped PAX fix. Determining the missing
 lead's lifecycle and validating the supported recovery are further FD902 work.
 The successful Arrow ride/reload and shader scheduler checks remain distinct
 from this new PAX failure.
+
+## Exact-head CI and subsequent lifecycle work
+
+All eight dev.12 jobs passed for commit `688d4ce8b89b0189f10a4ff103ec9f6795b5070e`: push run 36858676979 and PR run 36858681928, across standalone, Track Styles, Engineered and combined profiles. Compact records are `scheduler-ci-{push,pr}.json`.
+
+The subsequent [dev.13 idle shuttle checkpoint](../0.9/idle-shuttle-acceptance.md) reproduces and fixes the idle native-availability failure path. This does not rewrite the four faults in this historical dev.12 record or close FD902.

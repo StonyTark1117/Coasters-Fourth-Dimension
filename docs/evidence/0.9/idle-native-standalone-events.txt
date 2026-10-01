@@ -1,0 +1,37 @@
+Selected events from fd13-fixed-native-standalone.log
+Full log SHA-256: 4bf5edfec178add7e5e3b2a12a94f3c9943f003664fea2f4fc897d183c31ffc6
+
+FD_SHUTTLE_IDLE observedPhase=BOARDING fault= leadLoaded=false leadHeld=true restraints=[false, false, false, false]
+FD_SHUTTLE_IDLE gapPreserved=true missingLeadDispatchRejected=true lead=8f0a8b94-6e98-4a58-a04d-cf2d6b1c9dc1
+FD_SHUTTLE phase=LIFTING distance=55.87979295672923 center=( 6.005E+2  1.811E+2  6.022E+2) max=62.67979295672933 fault=
+FD_SHUTTLE phase=LIFTING distance=47.87979295672912 center=( 6.005E+2  1.816E+2  5.943E+2) max=62.67979295672933 fault=
+FD_SHUTTLE_IDLE restoredCars=4 restoredCarriers=8 links=4 missingSupportDispatchRejected=true
+FD_SHUTTLE phase=FAULT distance=44.47979295672907 center=( 6.005E+2  1.824E+2  5.905E+2) max=62.67979295672933 fault=Winch power lost: retain the train; inspect and resume or recover
+FD_SHUTTLE phase=FAULT distance=44.47979295672907 center=( 6.005E+2  1.824E+2  5.905E+2) max=62.67979295672933 fault=Winch power lost: retain the train; inspect and resume or recover
+FD_SHUTTLE phase=LIFTING distance=41.879792956729034 center=( 6.005E+2  1.830E+2  5.885E+2) max=62.67979295672933 fault=
+FD_SHUTTLE phase=LIFTING distance=33.87979295672892 center=( 6.005E+2  1.858E+2  5.811E+2) max=62.67979295672933 fault=
+FD_SHUTTLE phase=LIFTING distance=25.879792956728807 center=( 6.005E+2  1.896E+2  5.740E+2) max=62.67979295672933 fault=
+FD_SHUTTLE phase=LIFTING distance=17.879792956728693 center=( 6.005E+2  1.939E+2  5.674E+2) max=62.67979295672933 fault=
+FD_SHUTTLE phase=LIFTING distance=9.915668424222922 center=( 6.005E+2  1.986E+2  5.609E+2) max=62.67979295672933 fault=
+FD_SHUTTLE phase=LIFTING distance=4.4609106077508915 center=( 6.005E+2  2.021E+2  5.564E+2) max=62.67979295672933 fault=
+FD_SHUTTLE phase=OUTBOUND distance=3.4499999999999984 center=( 6.005E+2  2.030E+2  5.553E+2) max=62.67979295672933 fault=
+FD_SHUTTLE phase=OUTBOUND distance=7.449999999999984 center=( 6.005E+2  1.938E+2  5.676E+2) max=62.67979295672933 fault=
+FD_SHUTTLE phase=OUTBOUND distance=11.450000000000031 center=( 6.005E+2  1.812E+2  5.975E+2) max=62.67979295672933 fault=
+FD_SHUTTLE phase=OUTBOUND distance=15.450000000000088 center=( 6.005E+2  1.811E+2  6.297E+2) max=83.49464947862907 fault=
+FD_SHUTTLE_CHUNK_RELOAD recovered=true carriage=574d2a10-fa85-40d5-a277-3d72a373a27c
+FD_SHUTTLE phase=OUTBOUND distance=19.450000000000145 center=( 6.005E+2  1.854E+2  6.478E+2) max=102.87330506138127 fault=
+FD_SHUTTLE phase=RETURNING distance=23.450000000000202 center=( 6.005E+2  1.825E+2  6.412E+2) max=103.58717687638286 fault=
+FD_SHUTTLE phase=CAPTURING distance=26.25000000000024 center=( 6.005E+2  1.811E+2  6.172E+2) max=103.58717687638286 fault=
+FD_SHUTTLE phase=CAPTURING distance=64.1459799490423 center=( 6.005E+2  1.811E+2  6.100E+2) max=103.58717687638286 fault=
+FD_SHUTTLE phase=CAPTURING distance=62.67979295672933 center=( 6.005E+2  1.811E+2  6.085E+2) max=103.58717687638286 fault=
+FD_SHUTTLE_BOARDING first=[ready=true speed=0.07187469147092808 carriers=[capture=true,angle=4.2532790705624796E-4,omega=-0.004603940129423526, capture=true,angle=4.0138453451609357E-4,omega=-0.0036442988568696775], ready=true speed=0.0669675922533836 carriers=[capture=true,angle=2.998038596171556E-4,omega=-0.0017675698100483095, capture=true,angle=2.806148255020455E-4,omega=-0.0017235959885406119], ready=true speed=0.06979795671573956 carriers=[capture=true,angle=3.143868943231098E-4,omega=-0.0021966116670577495, capture=true,angle=3.041885034572471E-4,omega=-0.002269374994243733], ready=true speed=0.07098967173860701 carriers=[capture=true,angle=3.136427685184401E-4,omega=-0.0018658764342442313, capture=true,angle=2.9453950936807584E-4,omega=-0.0011760504804335893]]
+FD_SHUTTLE_BOARDING settledTicks=20 consecutiveReady=10 rejectedOpenings=1 disturbed=true final=[ready=true speed=0.023008551563480806 carriers=[capture=true,angle=1.1863475631836628E-4,omega=-0.0016816069154796853, capture=true,angle=1.1801491906011229E-4,omega=-0.0013723479394566935], ready=true speed=0.018521936054533495 carriers=[capture=true,angle=7.616837666435054E-5,omega=1.1529167272869066E-4, capture=true,angle=1.0500450998509185E-4,omega=-0.0011085840664237254], ready=true speed=0.01699269952533891 carriers=[capture=true,angle=6.73534779560849E-5,omega=-6.629310294220316E-4, capture=true,angle=6.109938657534738E-5,omega=-0.0011140982439915555], ready=true speed=0.018032216735122418 carriers=[capture=true,angle=6.448385479984859E-5,omega=1.893120883908984E-5, capture=true,angle=6.826319832216253E-5,omega=9.261679654609109E-5]]
+FD_SHUTTLE_TALL cycles=2 maximum=142.93663578349106 station=82.92133833155415
+[05:19:14] [Server thread/INFO] [minecraft/GameTestServer]: ========= 29 GAME TESTS COMPLETE IN 1.087 min ======================
+[05:19:14] [Server thread/INFO] [minecraft/GameTestServer]: All 29 required tests passed :)
+[05:19:14] [Server thread/INFO] [minecraft/MinecraftServer]: Stopping server
+[05:19:15] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (world): All chunks are saved
+[05:19:15] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (DIM1): All chunks are saved
+[05:19:15] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
+[05:19:15] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage: All dimensions are saved
+BUILD SUCCESSFUL in 1m 21s

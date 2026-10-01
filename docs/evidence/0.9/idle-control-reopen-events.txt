@@ -1,0 +1,19 @@
+Selected events from fd13-control-client-reopen.log
+Full log SHA-256: 9305249853d75189034e9610a691cb7d7b749a1d71b0bf2886bff65f8cdd8f0c
+
+[05:11:52] [Server thread/INFO] [minecraft/PlayerList]: Dev[local:E:7d45a5b1] logged in with entity id 1 at (343.5, 85.0, -26.5)
+[05:11:52] [Server thread/INFO] [de.fo.sh.ShuttleDiagnostics/]: FD_SHUTTLE_LIFECYCLE tick=39128 winch=BlockPos{x=344, y=85, z=-27} lead=88b89eff-e3be-4a9f-9c79-a0b240dd30fa phase=BOARDING interrupted=BOARDING leadLoaded=true carsLoaded=4 carriage=null carriageLoaded=false winchAvailable=true fault=
+[05:12:14] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] Changed the block at 160, 89, -27
+[05:12:16] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] Teleported Dev to 160.500000, 90.000000, -26.500000
+[05:12:16] [Server thread/INFO] [de.fo.sh.ShuttleDiagnostics/]: FD_SHUTTLE_LIFECYCLE tick=39609 winch=BlockPos{x=94, y=85, z=-27} lead=6a3e45a6-6c2b-4da9-a3bb-8d3f0a7b3cb9 phase=FAULT interrupted=BOARDING leadLoaded=true carsLoaded=4 carriage=null carriageLoaded=false winchAvailable=true fault=Shuttle winch chunk unavailable or winch removed
+[05:13:41] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] Changed the block at 128, 89, -27
+[05:13:43] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] Teleported Dev to 128.500000, 90.000000, -26.500000
+[05:13:44] [Server thread/INFO] [de.fo.sh.ShuttleDiagnostics/]: FD_SHUTTLE_LIFECYCLE tick=41359 winch=BlockPos{x=344, y=85, z=-27} lead=88b89eff-e3be-4a9f-9c79-a0b240dd30fa phase=BOARDING interrupted=BOARDING leadLoaded=false carsLoaded=0 carriage=null carriageLoaded=false winchAvailable=true fault=
+[05:13:44] [Server thread/INFO] [de.fo.sh.ShuttleDiagnostics/]: FD_SHUTTLE_LIFECYCLE tick=41359 winch=BlockPos{x=344, y=85, z=-27} lead=88b89eff-e3be-4a9f-9c79-a0b240dd30fa phase=FAULT interrupted=BOARDING leadLoaded=false carsLoaded=0 carriage=null carriageLoaded=false winchAvailable=true fault=Shuttle lead car unavailable
+[05:14:37] [Server thread/INFO] [minecraft/MinecraftServer]: Stopping server
+[05:14:37] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (FD13PaxControl): All chunks are saved
+[05:14:37] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (DIM1): All chunks are saved
+[05:14:37] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
+[05:14:37] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage: All dimensions are saved
+[05:15:28] [Render thread/INFO] [minecraft/Minecraft]: Stopping!
+BUILD SUCCESSFUL in 3m 53s

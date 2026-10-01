@@ -1,0 +1,38 @@
+{
+  "version": "0.9.0-dev.13",
+  "source_control_head": "688d4ce8b89b0189f10a4ff103ec9f6795b5070e",
+  "control_client_jar_sha256": "da0ed73980f50bdee686b6470586cfa2023a7add70c3caa31a9878fe4181489e",
+  "fixed_jar_sha256": "68046fab96ebca81ce1e639337ea8fd189b52ef37ad413d881849f56175280ac",
+  "scope": "Empty bound PAX train in BOARDING with no carriage, before first lift",
+  "control_native_exit": 1,
+  "control_native_tests": 29,
+  "control_native_failed": [
+    "idlewinchpreservesstatewhilenativetrainrestores"
+  ],
+  "fixed_native": {
+    "standalone": {
+      "tests": 29,
+      "exit": 0
+    },
+    "combined": {
+      "tests": 29,
+      "exit": 0
+    }
+  },
+  "clients": {
+    "control_create_exit": 0,
+    "control_reopen_exit": 0,
+    "fixed_first_exit": 0,
+    "fixed_cold_exit": 0,
+    "cold_validation_flags": false
+  },
+  "tested_new_cars": 4,
+  "tested_new_carriers": 8,
+  "inherited_faulted_cars": 4,
+  "rails": 46,
+  "total_chassis": 13,
+  "total_carriers": 30,
+  "complete_FD902_accepted": false,
+  "save_schema": 5,
+  "network_protocol": 5
+}

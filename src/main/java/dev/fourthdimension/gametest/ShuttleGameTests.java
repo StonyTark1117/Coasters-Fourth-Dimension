@@ -16,6 +16,113 @@ import net.neoforged.neoforge.gametest.*;
 @GameTestHolder("fourthdimension")
 @PrefixGameTestTemplate(false)
 public final class ShuttleGameTests {
+  @GameTest(template = "empty", timeoutTicks = 240)
+  public static void idleWinchPreservesStateWhileNativeTrainRestores(GameTestHelper helper) {
+    var level = helper.getLevel();
+    for (int x = 55; x <= 57; x++)
+      for (int z = -22; z <= -13; z++) level.setChunkForced(x, z, true);
+    var example = ShuttleExamples.create(level, new BlockPos(900, 180, -300), false);
+    var winch = example.winch();
+    var container = SubLevelContainer.getContainer(level);
+    helper.runAtTickTime(80, () -> ShuttleExamples.assemble(level, example));
+    helper.runAtTickTime(
+        100,
+        () -> {
+          helper.assertTrue(
+              winch.carriage == null && winch.phase == ShuttleWinchEntity.Phase.BOARDING,
+              "Fixture must be bound and idle before its first lift");
+          var revisions = example.cars().stream().map(v -> v.revision).toList();
+          var lead =
+              (dev.ryanhcode.sable.sublevel.ServerSubLevel) container.getSubLevel(winch.vehicle);
+          // Native holding preserves the train and restores it when physics chunks are ready.
+          // Observe the real gap before Sable's next normal holding-map tick.
+          container
+              .getHoldingChunkMap()
+              .moveToUnloaded(
+                  lead,
+                  new net.minecraft.world.level.ChunkPos(
+                      BlockPos.containing(
+                          lead.logicalPose().position().x,
+                          lead.logicalPose().position().y,
+                          lead.logicalPose().position().z)));
+          helper.assertTrue(
+              container.getSubLevel(winch.vehicle) == null,
+              "Native holding did not create an availability gap");
+          helper.assertTrue(
+              container.getHoldingChunkMap().getHoldingSubLevel(winch.vehicle) != null,
+              "Fixture deleted the native lead instead of retaining it in holding");
+          ShuttleRuntime.tick(level, .05);
+          System.out.println(
+              "FD_SHUTTLE_IDLE observedPhase="
+                  + winch.phase
+                  + " fault="
+                  + winch.fault
+                  + " leadLoaded="
+                  + (container.getSubLevel(winch.vehicle) != null)
+                  + " leadHeld="
+                  + (container.getHoldingChunkMap().getHoldingSubLevel(winch.vehicle) != null)
+                  + " restraints="
+                  + example.cars().stream().map(v -> v.restraints).toList());
+          helper.assertTrue(
+              winch.phase == ShuttleWinchEntity.Phase.BOARDING
+                  && winch.fault.isEmpty()
+                  && example.cars().stream().allMatch(v -> !v.restraints && v.fault.isEmpty())
+                  && example.cars().stream().map(v -> v.revision).toList().equals(revisions),
+              "Idle native restoration changed phase, faults, restraints or revisions");
+          try {
+            winch.start();
+            helper.fail("Missing lead allowed shuttle dispatch");
+          } catch (IllegalArgumentException expected) {
+            helper.assertTrue(
+                expected.getMessage().equals("Shuttle lead car unavailable"),
+                "Unavailable dispatch failed for another reason: " + expected.getMessage());
+          }
+          helper.assertTrue(
+              winch.phase == ShuttleWinchEntity.Phase.BOARDING && winch.carriage == null,
+              "Rejected dispatch allocated a carriage or advanced the shuttle");
+          System.out.println(
+              "FD_SHUTTLE_IDLE gapPreserved=true missingLeadDispatchRejected=true lead="
+                  + winch.vehicle);
+        });
+    helper.runAtTickTime(
+        160,
+        () -> {
+          helper.assertTrue(
+              example.cars().stream()
+                  .allMatch(
+                      v ->
+                          container.getSubLevel(v.chassis) != null
+                              && v.carriers.stream()
+                                  .allMatch(c -> container.getSubLevel(c.body) != null)
+                              && Boarding.ready(level, v)
+                              && !v.restraints
+                              && v.fault.isEmpty()),
+              "Native holding failed to restore captured, unrestrained matching cars");
+          helper.assertTrue(
+              CoasterCartTrainLinkConstraint.getTrainLinkedCartIds(
+                          container.getSubLevel(winch.vehicle))
+                      .size()
+                  == 4,
+              "Native restoration lost the consist");
+          VehicleOperations.restraints(level, example.cars().getFirst(), true);
+          // Idle waiting must not turn a lost route into an eligible dispatch.
+          level.setBlockAndUpdate(
+              winch.routeStart, net.minecraft.world.level.block.Blocks.AIR.defaultBlockState());
+          try {
+            winch.start();
+            helper.fail("Deleted shuttle support allowed dispatch");
+          } catch (IllegalArgumentException expected) {
+            helper.assertTrue(
+                winch.phase == ShuttleWinchEntity.Phase.BOARDING && winch.carriage == null,
+                "Invalid route dispatch partially advanced the shuttle");
+          }
+          System.out.println(
+              "FD_SHUTTLE_IDLE restoredCars=4 restoredCarriers=8 links=4"
+                  + " missingSupportDispatchRejected=true");
+          helper.succeed();
+        });
+  }
+
   @GameTest(template = "empty", timeoutTicks = 1800)
   public static void routeChunkStopsTickingWinchReloadAndPhysicalRecovery(GameTestHelper helper) {
     var level = helper.getLevel();

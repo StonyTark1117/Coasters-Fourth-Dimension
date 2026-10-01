@@ -1,0 +1,14 @@
+Selected events from fd13-control-server-create.log
+Full log SHA-256: 4c1859413c33fe4266b7dbe0ab63efa6aacdfcd625a19a3846e504c1627b48e4
+
+[05:04:30] [Server thread/INFO] [de.fo.sh.ShuttleDiagnostics/]: FD_SHUTTLE_LIFECYCLE tick=1027 winch=BlockPos{x=-6, y=105, z=73} lead=fce2a802-d69f-45b2-b2ea-5fc214eff155 phase=BOARDING interrupted=BOARDING leadLoaded=true carsLoaded=4 carriage=null carriageLoaded=false winchAvailable=true fault=
+[05:04:47] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (world): All chunks are saved
+[05:04:47] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
+[05:04:47] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (DIM1): All chunks are saved
+[05:04:47] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage: All dimensions are saved
+[05:04:47] [Server thread/INFO] [minecraft/MinecraftServer]: Stopping server
+[05:04:47] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (world): All chunks are saved
+[05:04:47] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
+[05:04:47] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (DIM1): All chunks are saved
+[05:04:47] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage: All dimensions are saved
+BUILD SUCCESSFUL in 42s

@@ -6,16 +6,22 @@ Refer to a package by its permanent ID, for example “implement FD104” or “
 
 ## Release map
 
-| Stage | Packages | Required result |
-| --- | --- | --- |
-| Foundation | FD001–FD008 | Viable carrier architecture, strict cart/track eligibility, persistence, and rider integration. |
-| 0.1 | FD101–FD109 | Playable controlled Arrow/S&S and first-generation ZacSpin families, original matching tracks, and ordinary-cart access where physically valid. |
-| 0.2 | FD201–FD204 | S&S Free Spin vehicle and track with magnetic seat-rotation equipment. |
-| 0.3 | FD301–FD305 | Revised ZacSpin variant and functional PAX-style shuttle system. |
-| 0.4 | FD401–FD404 | Optional integration infrastructure, recovery evaluation, crafting, tutorials, and family examples. |
-| 0.9 release candidate | FD901–FD905 | Complete compatibility, lifecycle, migration, and performance evidence. |
-| 1.0 | FD1001–FD1003 | Verified five-family release with documentation and reproducible artifacts. |
-| External compatibility | FD801 | Future Track Styles Arrow 4D integration when an inspectable release exists; does not block standalone releases. |
+**Current stage: completing 0.4.** The five-family bounded 0.3 gate is complete.
+Integrations, crafting and tutorials are implemented with partial acceptance;
+complete clearance/render coverage, physical recovery and real-client survival
+construction/operation remain 0.4 work. Lifecycle investigation has also begun
+under FD902 toward 0.9.0; this does not close the earlier 0.4 gate.
+
+| Stage | Packages | Status | Required result |
+| --- | --- | --- | --- |
+| Foundation | FD001–FD008 | Done for bounded prototype | Viable carrier architecture, strict cart/track eligibility, persistence, and rider integration. |
+| 0.1 | FD101–FD109 | Done for bounded build | Playable controlled Arrow/S&S and first-generation ZacSpin families, original matching tracks, and ordinary-cart access where physically valid. |
+| 0.2 | FD201–FD204 | Done for bounded build | S&S Free Spin vehicle and track with magnetic seat-rotation equipment. |
+| 0.3 | FD301–FD305 | Done for bounded five-family gate | Revised ZacSpin variant and functional PAX-style shuttle system. |
+| 0.4 | FD401–FD404 | In progress | Optional integration infrastructure, recovery evaluation, crafting, tutorials, and family examples. |
+| 0.9 release candidate | FD901–FD905 | In progress; release gate open | Complete compatibility, lifecycle, migration, and performance evidence. |
+| 1.0 | FD1001–FD1003 | Planned | Verified five-family release with documentation and reproducible artifacts. |
+| External compatibility | FD801 | Planned | Future Track Styles Arrow 4D integration when an inspectable release exists; does not block standalone releases. |
 
 The dependency chain between release gates is foundation → 0.1 → 0.2 → 0.3 → 0.4 → 0.9 → 1.0. Preparation for later packages may start once their stated prerequisites are done; a release still requires all earlier release gates. Track Styles, a maintainer response, or a future external release is never a prerequisite for our original tracks.
 
@@ -337,7 +343,7 @@ Exercise every family against matching, ordinary, wrong-family, cosmetic-only, a
 
 ### FD902 Validate multiplayer and lifecycle recovery
 
-**Status: in progress.** The dev.12 default-client cold reopen preserves all mechanical IDs/profiles but changes all four PAX cars to a lead-unavailable fault with closed restraints. Its cause and recovery remain under investigation; this is not accepted as a fault-free five-family reopen. The same checkpoint separately records the Veil scheduler fix, 64 completed reload/chat/query cycles and a normal occupied styled Arrow ride. See [checkpoint and limits](docs/evidence/0.4/scheduler-acceptance.md).
+**Status: in progress.** Dev.13 reproduces the dev.12 lead-unavailable failure path with an available idle winch and its train in native holding. A never-lifted winch now preserves BOARDING state while native bodies are unavailable; dispatch still rejects missing bodies or deleted track. The regression fails before the fix and passes afterward; standalone and combined runs each pass all 29 required native tests. A packaged control/fix and default-flags boundary cold reopen preserve the tested four-car train, profiles and IDs. Previously saved faults are retained rather than automatically cleared. Normal recovery of those faults, caught-carriage/occupied cold reopen and the complete lifecycle matrix remain open; see [idle shuttle acceptance and limits](docs/evidence/0.9/idle-shuttle-acceptance.md). The preceding [dev.12 checkpoint](docs/evidence/0.4/scheduler-acceptance.md) separately records the Veil scheduler fix, 64 completed reload/chat/query cycles and an occupied styled Arrow ride.
 
 **Depends on:** FD404. **Design:** D14, D16, D17.
 

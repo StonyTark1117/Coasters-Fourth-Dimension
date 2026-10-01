@@ -1,0 +1,20 @@
+Selected events from fd13-control-client-create.log
+Full log SHA-256: c31f4be503fb5823a9cd0e3ffdfea76a070bdc2d60fa117bf03d621c54d641b5
+
+[05:07:23] [Server thread/INFO] [minecraft/PlayerList]: Dev[local:E:a5bf46c2] logged in with entity id 1 at (-55.5, 90.0, -48.5)
+[05:07:24] [Server thread/INFO] [de.fo.sh.ShuttleDiagnostics/]: FD_SHUTTLE_LIFECYCLE tick=35159 winch=BlockPos{x=94, y=85, z=-27} lead=6a3e45a6-6c2b-4da9-a3bb-8d3f0a7b3cb9 phase=FAULT interrupted=BOARDING leadLoaded=true carsLoaded=4 carriage=null carriageLoaded=false winchAvailable=true fault=Shuttle lead car unavailable
+[05:07:58] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] Set the time to 1000
+[05:08:01] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] Teleported Dev to 350.500000, 90.000000, -34.500000
+[05:08:01] [Server thread/INFO] [de.fo.sh.ShuttleDiagnostics/]: FD_SHUTTLE_LIFECYCLE tick=35885 winch=BlockPos{x=94, y=85, z=-27} lead=6a3e45a6-6c2b-4da9-a3bb-8d3f0a7b3cb9 phase=FAULT interrupted=BOARDING leadLoaded=false carsLoaded=0 carriage=null carriageLoaded=false winchAvailable=false fault=Shuttle lead car unavailable
+[05:08:01] [Server thread/INFO] [de.fo.sh.ShuttleDiagnostics/]: FD_SHUTTLE_LIFECYCLE tick=35885 winch=BlockPos{x=94, y=85, z=-27} lead=6a3e45a6-6c2b-4da9-a3bb-8d3f0a7b3cb9 phase=FAULT interrupted=BOARDING leadLoaded=false carsLoaded=0 carriage=null carriageLoaded=false winchAvailable=false fault=Shuttle winch chunk unavailable or winch removed
+[05:08:16] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] PAX shuttle built. Allow four seconds for train assembly. Board sixteen seats, close restraints, then use the powered winch to lift and release.
+[05:08:20] [Server thread/INFO] [de.fo.sh.ShuttleDiagnostics/]: FD_SHUTTLE_LIFECYCLE tick=36274 winch=BlockPos{x=344, y=85, z=-27} lead=88b89eff-e3be-4a9f-9c79-a0b240dd30fa phase=BOARDING interrupted=BOARDING leadLoaded=true carsLoaded=4 carriage=null carriageLoaded=false winchAvailable=true fault=
+[05:09:25] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] Teleported Dev to 343.500000, 85.000000, -26.500000
+[05:09:27] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] 344, 85, -27 has the following block data: {Speed: 128.0f, shuttle_distance: 62.67979295672922d, shuttle_maximum: 0.0d, shuttle_start: 96482144997485L, shuttle_station: 62.67979295672922d, Source: [I; 343, 85, -27], shuttle_end: 96207267614837L, shuttle_fault: "", shuttle_cars: [[I; -2001166593, -474068321, -1669750606, 1088237818], [I; 1694143542, -1812970502, -1304176361, 1971778035], [I; 210259587, 430132006, -1947330427, -1156620489], [I; 1638124845, -1193916417, -1220059863, -1406409486]], shuttle_interrupted: "BOARDING", shuttle_cycles: 0, Network: {Capacity: 2097152.0f, Size: 2, AddedStress: 8.0f, Id: 94557999878229L, Stress: 1024.0f}, shuttle_phase: "BOARDING", x: 344, y: 85, z: -27, id: "fourthdimension:shuttle_winch", shuttle_vehicle: [I; -2001166593, -474068321, -1669750606, 1088237818]}
+[05:11:01] [Server thread/INFO] [minecraft/MinecraftServer]: Stopping server
+[05:11:01] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (FD13PaxControl): All chunks are saved
+[05:11:01] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
+[05:11:01] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (DIM1): All chunks are saved
+[05:11:01] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage: All dimensions are saved
+[05:11:34] [Render thread/INFO] [minecraft/Minecraft]: Stopping!
+BUILD SUCCESSFUL in 4m 28s
