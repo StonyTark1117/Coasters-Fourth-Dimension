@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/home/braydon/.codex/worktrees/coaster-integrations/Coasters: Fourth Dimension/build/create-guidance/framed/check-winch-display.py", line 27, in <module>
+    opened=displays('empty_open');assert opened['telemetry']['occupied']==0 and not opened['telemetry']['dispatchReady']
+  File "/home/braydon/.codex/worktrees/coaster-integrations/Coasters: Fourth Dimension/build/create-guidance/framed/check-winch-display.py", line 14, in displays
+    before=report(label+'_before')
+  File "/home/braydon/.codex/worktrees/coaster-integrations/Coasters: Fourth Dimension/build/create-guidance/framed/check-winch-display.py", line 12, in report
+    raise AssertionError(label)
+AssertionError: empty_open_before

@@ -1,0 +1,172 @@
+list: There are 0 of a max of 20 players online:
+
+
+list: There are 2 of a max of 20 players online: Observer, Dev
+
+
+fd validation pax_energy_restart report guidance_before: PAX energy restart snapshot recorded
+
+
+ponder fourthdimension:arrow_car @a:
+
+ponder fourthdimension:legacy_zacspin_car @a:
+
+ponder fourthdimension:free_spin_car @a:
+
+ponder fourthdimension:revised_zacspin_car @a:
+
+ponder fourthdimension:pax_car @a:
+
+ponder fourthdimension:boarding_station @a:
+
+data get block -606 180 608: -606, 180, 608 has the following block data: {Speed: 128.0f, shuttle_carriage: [I; 1799302701, 1370311299, -1271866994, -109808738], shuttle_distance: 62.67979295672933d, shuttle_maximum: 104.91543790324856d, shuttle_start: -164926741905204L, shuttle_station: 62.67979295672933d, Source: [I; -607, 180, 608], shuttle_end: -164926741380908L, shuttle_fault: "", shuttle_cars: [[I; 1626414480, 722750707, -1639736133, -1336555213], [I; -205161146, 1146898645, -1237137185, 258031923], [I; -955420842, 1829587058, -2049209914, 80887224], [I; -1695763802, -1690613867, -1364625571, 1544503665]], shuttle_interrupted: "RETURNING", shuttle_cycles: 4, ConnectedToExtraKinetics: 0b, Network: {Capacity: 2097152.0f, Size: 2, AddedStress: 8.0f, Id: -166850887024460L, Stress: 1024.0f}, shuttle_phase: "BOARDING", x: -606, y: 180, z: 608, id: "fourthdimension:shuttle_winch", shuttle_vehicle: [I; 1626414480, 722750707, -1639736133, -1336555213]}
+
+
+data get block -606 181 608: -606, 181, 608 has the following block data: {TargetOffset: [I; -4, 0, 0], HasAttachedComputer: 0b, x: -606, y: 181, TargetLine: 0, z: 608, id: "create:display_link", LinkedGauges: [], Source: {Id: "fourthdimension:ride_occupancy"}}
+
+
+item replace entity Dev armor.head with create:goggles: Replaced a slot on Dev with [Engineer's Goggles]
+
+
+item replace entity Observer armor.head with create:goggles: Replaced a slot on Observer with [Engineer's Goggles]
+
+
+tp Dev -605.5 181.5625 611.5 180 42: Teleported Dev to -605.500000, 181.562500, 611.500000
+
+
+tp Observer -605.5 181.5625 611.5 180 42: Teleported Observer to -605.500000, 181.562500, 611.500000
+
+
+time set day: Set the time to 1000
+
+
+data get entity Dev Pos: Dev has the following entity data: [-605.5d, 180.0d, 611.5d]
+
+
+gamemode creative Observer: Set Observer's game mode to Creative Mode
+
+
+tp Observer -605.5 180 611.5 180 20.5: Teleported Observer to -605.500000, 180.000000, 611.500000
+
+
+tp Dev -605.5 180 611.5 180 20.5: Teleported Dev to -605.500000, 180.000000, 611.500000
+
+
+data get block -610 181 608 front_text.messages: -610, 181, 608 has the following block data: ['"0 / 16"', '""', '""', '""']
+
+
+tp Observer -606.5 180 611.5 -161.565 19.5: Teleported Observer to -606.500000, 180.000000, 611.500000
+
+
+data merge block -606 181 608 {Source:{Id:"fourthdimension:ride_status"}}: Modified block data of -606, 181, 608
+
+
+data get block -610 181 608 front_text.messages[0]: -610, 181, 608 has the following block data: '"Boarding"'
+
+
+fd validation pax_energy_restart report empty_open_before: PAX energy restart snapshot recorded
+
+
+fd validation pax_energy_restart report empty_open_before: PAX energy restart snapshot recorded
+
+
+data merge block -606 181 608 {Source:{Id:"fourthdimension:ride_status"}}: Nothing changed. The specified properties already have these values
+
+
+data get block -610 181 608 front_text.messages[0]: -610, 181, 608 has the following block data: '"Boarding"'
+
+
+data merge block -606 181 608 {Source:{Id:"fourthdimension:ride_occupancy"}}: Modified block data of -606, 181, 608
+
+
+data get block -610 181 608 front_text.messages[0]: -610, 181, 608 has the following block data: '"0 / 16"'
+
+
+data merge block -606 181 608 {Source:{Id:"fourthdimension:ride_restraints"}}: Modified block data of -606, 181, 608
+
+
+data get block -610 181 608 front_text.messages[0]: -610, 181, 608 has the following block data: '"Restraints closed: No"'
+
+
+data merge block -606 181 608 {Source:{Id:"fourthdimension:ride_dispatch"}}: Modified block data of -606, 181, 608
+
+
+data get block -610 181 608 front_text.messages[0]: -610, 181, 608 has the following block data: '"Every shuttle car must be available, retained on matching track, and restrained"'
+
+
+data merge block -606 181 608 {Source:{Id:"fourthdimension:ride_phase"}}: Modified block data of -606, 181, 608
+
+
+data get block -610 181 608 front_text.messages[0]: -610, 181, 608 has the following block data: '"Boarding"'
+
+
+data merge block -606 181 608 {Source:{Id:"fourthdimension:ride_fault"}}: Modified block data of -606, 181, 608
+
+
+data get block -610 181 608 front_text.messages[0]: -610, 181, 608 has the following block data: '""'
+
+
+fd validation pax_energy_restart report empty_open_after: PAX energy restart snapshot recorded
+
+
+fd validation pax_energy_restart board: PAX energy restart fixture: board
+
+
+fd validation pax_energy_restart report occupied_closed_before: PAX energy restart snapshot recorded
+
+
+data merge block -606 181 608 {Source:{Id:"fourthdimension:ride_status"}}: Modified block data of -606, 181, 608
+
+
+data get block -610 181 608 front_text.messages[0]: -610, 181, 608 has the following block data: '"Ready to dispatch"'
+
+
+data merge block -606 181 608 {Source:{Id:"fourthdimension:ride_occupancy"}}: Modified block data of -606, 181, 608
+
+
+data get block -610 181 608 front_text.messages[0]: -610, 181, 608 has the following block data: '"16 / 16"'
+
+
+data merge block -606 181 608 {Source:{Id:"fourthdimension:ride_restraints"}}: Modified block data of -606, 181, 608
+
+
+data get block -610 181 608 front_text.messages[0]: -610, 181, 608 has the following block data: '"Restraints closed: Yes"'
+
+
+data merge block -606 181 608 {Source:{Id:"fourthdimension:ride_dispatch"}}: Modified block data of -606, 181, 608
+
+
+data get block -610 181 608 front_text.messages[0]: -610, 181, 608 has the following block data: '"Ready to dispatch"'
+
+
+data merge block -606 181 608 {Source:{Id:"fourthdimension:ride_phase"}}: Modified block data of -606, 181, 608
+
+
+data get block -610 181 608 front_text.messages[0]: -610, 181, 608 has the following block data: '"Boarding"'
+
+
+data merge block -606 181 608 {Source:{Id:"fourthdimension:ride_fault"}}: Modified block data of -606, 181, 608
+
+
+data get block -610 181 608 front_text.messages[0]: -610, 181, 608 has the following block data: '""'
+
+
+fd validation pax_energy_restart report occupied_closed_after: PAX energy restart snapshot recorded
+
+
+fd validation pax_energy_restart unload: PAX energy restart fixture: unload
+
+
+fd validation pax_energy_restart report guidance_unloaded: PAX energy restart snapshot recorded
+
+
+data merge block -606 181 608 {Source:{Id:"fourthdimension:ride_occupancy"}}: Modified block data of -606, 181, 608
+
+
+data get block -610 181 608 front_text.messages[0]: -610, 181, 608 has the following block data: '"0 / 16"'
+
+
+list: There are 0 of a max of 20 players online:
+
+
+stop: Stopping the server

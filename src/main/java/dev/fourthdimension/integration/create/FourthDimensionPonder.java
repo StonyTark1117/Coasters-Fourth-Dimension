@@ -80,7 +80,8 @@ public final class FourthDimensionPonder implements PonderPlugin {
 
   private static void base(SceneBuilder scene, SceneBuildingUtil util) {
     scene.configureBasePlate(0, 0, 13);
-    scene.scaleSceneView(.65f);
+    // Reserve headroom for the rear carriers' swept envelope at the minimum GUI height.
+    scene.scaleSceneView(.55f);
     scene.showBasePlate();
     scene.world().showSection(util.select().fromTo(0, 1, 0, 12, 2, 12), Direction.DOWN);
   }

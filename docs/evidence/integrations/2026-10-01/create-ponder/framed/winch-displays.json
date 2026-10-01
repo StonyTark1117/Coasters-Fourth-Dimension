@@ -1,0 +1,242 @@
+[
+  {
+    "state": "empty_open",
+    "field": "status",
+    "sign_response": "-610, 181, 608 has the following block data: '\"Boarding\"'\n",
+    "telemetry": {
+      "available": true,
+      "family": "pax_shuttle",
+      "cars": 4,
+      "occupied": 0,
+      "capacity": 16,
+      "captured": true,
+      "boardingReady": true,
+      "restraintsClosed": false,
+      "retained": false,
+      "dispatchReady": false,
+      "dispatchDenial": "Every shuttle car must be available, retained on matching track, and restrained",
+      "fault": "",
+      "phase": "BOARDING"
+    }
+  },
+  {
+    "state": "empty_open",
+    "field": "occupancy",
+    "sign_response": "-610, 181, 608 has the following block data: '\"0 / 16\"'\n",
+    "telemetry": {
+      "available": true,
+      "family": "pax_shuttle",
+      "cars": 4,
+      "occupied": 0,
+      "capacity": 16,
+      "captured": true,
+      "boardingReady": true,
+      "restraintsClosed": false,
+      "retained": false,
+      "dispatchReady": false,
+      "dispatchDenial": "Every shuttle car must be available, retained on matching track, and restrained",
+      "fault": "",
+      "phase": "BOARDING"
+    }
+  },
+  {
+    "state": "empty_open",
+    "field": "restraints",
+    "sign_response": "-610, 181, 608 has the following block data: '\"Restraints closed: No\"'\n",
+    "telemetry": {
+      "available": true,
+      "family": "pax_shuttle",
+      "cars": 4,
+      "occupied": 0,
+      "capacity": 16,
+      "captured": true,
+      "boardingReady": true,
+      "restraintsClosed": false,
+      "retained": false,
+      "dispatchReady": false,
+      "dispatchDenial": "Every shuttle car must be available, retained on matching track, and restrained",
+      "fault": "",
+      "phase": "BOARDING"
+    }
+  },
+  {
+    "state": "empty_open",
+    "field": "dispatch",
+    "sign_response": "-610, 181, 608 has the following block data: '\"Every shuttle car must be available, retained on matching track, and restrained\"'\n",
+    "telemetry": {
+      "available": true,
+      "family": "pax_shuttle",
+      "cars": 4,
+      "occupied": 0,
+      "capacity": 16,
+      "captured": true,
+      "boardingReady": true,
+      "restraintsClosed": false,
+      "retained": false,
+      "dispatchReady": false,
+      "dispatchDenial": "Every shuttle car must be available, retained on matching track, and restrained",
+      "fault": "",
+      "phase": "BOARDING"
+    }
+  },
+  {
+    "state": "empty_open",
+    "field": "phase",
+    "sign_response": "-610, 181, 608 has the following block data: '\"Boarding\"'\n",
+    "telemetry": {
+      "available": true,
+      "family": "pax_shuttle",
+      "cars": 4,
+      "occupied": 0,
+      "capacity": 16,
+      "captured": true,
+      "boardingReady": true,
+      "restraintsClosed": false,
+      "retained": false,
+      "dispatchReady": false,
+      "dispatchDenial": "Every shuttle car must be available, retained on matching track, and restrained",
+      "fault": "",
+      "phase": "BOARDING"
+    }
+  },
+  {
+    "state": "empty_open",
+    "field": "fault",
+    "sign_response": "-610, 181, 608 has the following block data: '\"\"'\n",
+    "telemetry": {
+      "available": true,
+      "family": "pax_shuttle",
+      "cars": 4,
+      "occupied": 0,
+      "capacity": 16,
+      "captured": true,
+      "boardingReady": true,
+      "restraintsClosed": false,
+      "retained": false,
+      "dispatchReady": false,
+      "dispatchDenial": "Every shuttle car must be available, retained on matching track, and restrained",
+      "fault": "",
+      "phase": "BOARDING"
+    }
+  },
+  {
+    "state": "occupied_closed",
+    "field": "status",
+    "sign_response": "-610, 181, 608 has the following block data: '\"Ready to dispatch\"'\n",
+    "telemetry": {
+      "available": true,
+      "family": "pax_shuttle",
+      "cars": 4,
+      "occupied": 16,
+      "capacity": 16,
+      "captured": true,
+      "boardingReady": true,
+      "restraintsClosed": true,
+      "retained": false,
+      "dispatchReady": true,
+      "dispatchDenial": "",
+      "fault": "",
+      "phase": "BOARDING"
+    }
+  },
+  {
+    "state": "occupied_closed",
+    "field": "occupancy",
+    "sign_response": "-610, 181, 608 has the following block data: '\"16 / 16\"'\n",
+    "telemetry": {
+      "available": true,
+      "family": "pax_shuttle",
+      "cars": 4,
+      "occupied": 16,
+      "capacity": 16,
+      "captured": true,
+      "boardingReady": true,
+      "restraintsClosed": true,
+      "retained": false,
+      "dispatchReady": true,
+      "dispatchDenial": "",
+      "fault": "",
+      "phase": "BOARDING"
+    }
+  },
+  {
+    "state": "occupied_closed",
+    "field": "restraints",
+    "sign_response": "-610, 181, 608 has the following block data: '\"Restraints closed: Yes\"'\n",
+    "telemetry": {
+      "available": true,
+      "family": "pax_shuttle",
+      "cars": 4,
+      "occupied": 16,
+      "capacity": 16,
+      "captured": true,
+      "boardingReady": true,
+      "restraintsClosed": true,
+      "retained": false,
+      "dispatchReady": true,
+      "dispatchDenial": "",
+      "fault": "",
+      "phase": "BOARDING"
+    }
+  },
+  {
+    "state": "occupied_closed",
+    "field": "dispatch",
+    "sign_response": "-610, 181, 608 has the following block data: '\"Ready to dispatch\"'\n",
+    "telemetry": {
+      "available": true,
+      "family": "pax_shuttle",
+      "cars": 4,
+      "occupied": 16,
+      "capacity": 16,
+      "captured": true,
+      "boardingReady": true,
+      "restraintsClosed": true,
+      "retained": false,
+      "dispatchReady": true,
+      "dispatchDenial": "",
+      "fault": "",
+      "phase": "BOARDING"
+    }
+  },
+  {
+    "state": "occupied_closed",
+    "field": "phase",
+    "sign_response": "-610, 181, 608 has the following block data: '\"Boarding\"'\n",
+    "telemetry": {
+      "available": true,
+      "family": "pax_shuttle",
+      "cars": 4,
+      "occupied": 16,
+      "capacity": 16,
+      "captured": true,
+      "boardingReady": true,
+      "restraintsClosed": true,
+      "retained": false,
+      "dispatchReady": true,
+      "dispatchDenial": "",
+      "fault": "",
+      "phase": "BOARDING"
+    }
+  },
+  {
+    "state": "occupied_closed",
+    "field": "fault",
+    "sign_response": "-610, 181, 608 has the following block data: '\"\"'\n",
+    "telemetry": {
+      "available": true,
+      "family": "pax_shuttle",
+      "cars": 4,
+      "occupied": 16,
+      "capacity": 16,
+      "captured": true,
+      "boardingReady": true,
+      "restraintsClosed": true,
+      "retained": false,
+      "dispatchReady": true,
+      "dispatchDenial": "",
+      "fault": "",
+      "phase": "BOARDING"
+    }
+  }
+]

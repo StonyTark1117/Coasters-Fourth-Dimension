@@ -27,8 +27,29 @@ public final class ClientDiagnostics {
 
   @SubscribeEvent
   public static void tick(ClientTickEvent.Post event) {
-    if (!Boolean.getBoolean("fourthdimension.validation") || ++ticks % 100 != 0) return;
+    if (!Boolean.getBoolean("fourthdimension.validation")) return;
+    ticks++;
     var mc = Minecraft.getInstance();
+    if (ticks % 10 == 0
+        && mc.screen instanceof net.createmod.ponder.foundation.ui.PonderUI ponder) {
+      var scene = ponder.getActiveScene();
+      if (scene != null && scene.getNamespace().equals("fourthdimension"))
+        LogUtils.getLogger()
+            .info(
+                "FD_PONDER player={} scene={} time={} total={} keyframes={} finished={} width={}"
+                    + " height={}",
+                mc.player == null ? "none" : mc.player.getName().getString(),
+                scene.getId(),
+                scene.getCurrentTime(),
+                scene.getTotalTime(),
+                java.util.stream.IntStream.range(0, scene.getKeyframeCount())
+                    .mapToObj(i -> Integer.toString(scene.getKeyframeTime(i)))
+                    .collect(java.util.stream.Collectors.joining(",")),
+                scene.isFinished(),
+                ponder.width,
+                ponder.height);
+    }
+    if (ticks % 100 != 0) return;
     if (mc.level == null || mc.player == null) return;
     if (mc.hitResult instanceof net.minecraft.world.phys.BlockHitResult hit
         && mc.level.getBlockEntity(hit.getBlockPos())

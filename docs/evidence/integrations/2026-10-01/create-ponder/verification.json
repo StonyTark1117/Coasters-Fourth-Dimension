@@ -1,0 +1,192 @@
+{
+  "baseline": {
+    "dev": {
+      "family_arrow": {
+        "samples": 56,
+        "captures": 6,
+        "first_tick": 4,
+        "last_tick": 550
+      },
+      "family_legacy": {
+        "samples": 56,
+        "captures": 6,
+        "first_tick": 3,
+        "last_tick": 550
+      },
+      "family_free_spin": {
+        "samples": 56,
+        "captures": 6,
+        "first_tick": 4,
+        "last_tick": 550
+      },
+      "family_revised": {
+        "samples": 56,
+        "captures": 6,
+        "first_tick": 5,
+        "last_tick": 550
+      },
+      "family_pax": {
+        "samples": 77,
+        "captures": 9,
+        "first_tick": 4,
+        "last_tick": 760
+      },
+      "station_operations": {
+        "samples": 58,
+        "captures": 5,
+        "first_tick": 5,
+        "last_tick": 570
+      }
+    },
+    "observer": {
+      "family_arrow": {
+        "samples": 56,
+        "captures": 6,
+        "first_tick": 2,
+        "last_tick": 550
+      },
+      "family_legacy": {
+        "samples": 56,
+        "captures": 6,
+        "first_tick": 2,
+        "last_tick": 550
+      },
+      "family_free_spin": {
+        "samples": 56,
+        "captures": 6,
+        "first_tick": 1,
+        "last_tick": 550
+      },
+      "family_revised": {
+        "samples": 56,
+        "captures": 6,
+        "first_tick": 2,
+        "last_tick": 550
+      },
+      "family_pax": {
+        "samples": 77,
+        "captures": 9,
+        "first_tick": 1,
+        "last_tick": 760
+      },
+      "station_operations": {
+        "samples": 58,
+        "captures": 5,
+        "first_tick": 3,
+        "last_tick": 570
+      }
+    }
+  },
+  "framed": {
+    "dev": {
+      "family_arrow": {
+        "samples": 56,
+        "captures": 9,
+        "first_tick": 2,
+        "last_tick": 550
+      },
+      "family_legacy": {
+        "samples": 56,
+        "captures": 9,
+        "first_tick": 1,
+        "last_tick": 550
+      },
+      "family_free_spin": {
+        "samples": 56,
+        "captures": 9,
+        "first_tick": 10,
+        "last_tick": 550
+      },
+      "family_revised": {
+        "samples": 56,
+        "captures": 9,
+        "first_tick": 6,
+        "last_tick": 550
+      },
+      "family_pax": {
+        "samples": 77,
+        "captures": 14,
+        "first_tick": 1,
+        "last_tick": 760
+      },
+      "station_operations": {
+        "samples": 58,
+        "captures": 5,
+        "first_tick": 2,
+        "last_tick": 570
+      }
+    },
+    "observer": {
+      "family_arrow": {
+        "samples": 56,
+        "captures": 9,
+        "first_tick": 6,
+        "last_tick": 550
+      },
+      "family_legacy": {
+        "samples": 56,
+        "captures": 9,
+        "first_tick": 5,
+        "last_tick": 550
+      },
+      "family_free_spin": {
+        "samples": 56,
+        "captures": 9,
+        "first_tick": 5,
+        "last_tick": 550
+      },
+      "family_revised": {
+        "samples": 56,
+        "captures": 9,
+        "first_tick": 10,
+        "last_tick": 550
+      },
+      "family_pax": {
+        "samples": 77,
+        "captures": 14,
+        "first_tick": 5,
+        "last_tick": 760
+      },
+      "station_operations": {
+        "samples": 58,
+        "captures": 5,
+        "first_tick": 6,
+        "last_tick": 570
+      }
+    }
+  },
+  "winch_display_fields": {
+    "empty_open": {
+      "status": "Boarding",
+      "occupancy": "0 / 16",
+      "restraints": "Restraints closed: No",
+      "dispatch": "Every shuttle car must be available, retained on matching track, and restrained",
+      "phase": "Boarding",
+      "fault": ""
+    },
+    "occupied_closed": {
+      "status": "Ready to dispatch",
+      "occupancy": "16 / 16",
+      "restraints": "Restraints closed: Yes",
+      "dispatch": "Ready to dispatch",
+      "phase": "Boarding",
+      "fault": ""
+    }
+  },
+  "unit_tests": 19,
+  "visual_review": {
+    "window": [
+      854,
+      480
+    ],
+    "gui": [
+      427,
+      240
+    ],
+    "language": "en_us",
+    "baseline": "Rear Free Spin and Revised carriers clip the upper viewport during rotation.",
+    "framed": "All 110 captured views reviewed. Captions readable; sampled carrier rotation and PAX lift remain within the viewport. Native overlays can cover portions of the schematic.",
+    "winch": "Both clients show empty/open and 16 native pig riders/closed/ready. All text readable; Create moves the long denial tooltip to the left and clips its leading kinetic icon.",
+    "scope": "Pinned combined pack, default Ponder camera and GUI scale 2; sampled animation stages, not every rendered frame or every window/zoom setting."
+  }
+}

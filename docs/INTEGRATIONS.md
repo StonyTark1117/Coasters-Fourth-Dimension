@@ -80,6 +80,15 @@ magnetic equipment, and shuttle phases. Animation illustrates operation; it is n
 native physics evidence. Structures are reproducible with
 `python scripts/generate-ponder-scenes.py`.
 
+The [two-client Ponder checkpoint](evidence/integrations/2026-10-01/create-ponder/README.md)
+plays all six scenes to completion in the pinned combined pack. Timed captures cover
+every caption plus rotation and PAX lift stages at 854 × 480, GUI scale 2. Reducing the
+schematic scale fixes rear-carrier clipping in Free Spin and Revised ZacSpin. The same
+checkpoint verifies both clients' PAX winch goggles and all six native Display Link
+fields with an empty/open train and sixteen seated fixture pigs with closed restraints.
+These are bounded presentation and station-state checks; moving/faulted telemetry,
+other window/camera settings and the full station/addon matrix remain separate.
+
 ## Engineered 1.1.1
 
 Pinned artifact: `curse.maven:coasters-engineered-1643631:8863559`.
@@ -555,9 +564,9 @@ acceptance remain open.
   rollback, further supply patterns/configuration extremes, external energy networks and
   lifecycle/multiplayer checks. PAX remains winch-owned, with the bounded
   opposing-equipment checks recorded above.
-- Extend the packaged Ponder/goggles visual checks to every animation phase and both
-  multiplayer clients; extend the verified live legacy/Free Spin Display Links to
-  the complete station/winch and addon matrix.
+- Extend the six-scene, two-client Ponder checkpoint to other window sizes, GUI scales
+  and user camera settings. Extend live legacy/Free Spin Display Links and the six-field
+  PAX boarding checks to moving/faulted states and the complete station/winch/addon matrix.
 - Extend bounded Track Styles two-client synchronization/reload evidence to the
   full multiplayer matrix, occupied removal/reinstallation, resource replacement,
   transition and performance evidence; broader appearances and its own tool integration
