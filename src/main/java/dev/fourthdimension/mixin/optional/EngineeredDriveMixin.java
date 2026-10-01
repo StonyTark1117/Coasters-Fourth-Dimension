@@ -21,6 +21,10 @@ public abstract class EngineeredDriveMixin {
       CoasterPathTrackFrame.TrackBasis basis,
       double dt,
       CallbackInfo ci) {
-    if (!ExternalDrivePolicy.allows(level, sub.getUniqueId())) ci.cancel();
+    if (!ExternalDrivePolicy.allows(level, sub.getUniqueId())) {
+      dev.fourthdimension.integration.engineered.EngineeredPresence.sample(
+          sub, level, physics, hit);
+      ci.cancel();
+    }
   }
 }

@@ -1,0 +1,39 @@
+{
+  "scope": "Two local clients; combined pack; legacy and Free Spin occupied cold restart. Original Free Spin circuit stalled.",
+  "cold_restart_exact": true,
+  "clients": {
+    "Dev": {
+      "matched_packets": 731,
+      "mounted_samples": 883,
+      "carrier": "28983446-eb08-4ede-bef8-2917f3228f9d",
+      "minimum_carrier_up": -0.6415374697644476,
+      "maximum_raw_error_radians": 4.2146848510894035e-08,
+      "normal_exit_restored": true,
+      "cold_view_delta_degrees": 0.008539118099967843
+    },
+    "Observer": {
+      "matched_packets": 681,
+      "mounted_samples": 1266,
+      "carrier": "4aefaf84-44c9-49aa-bb10-3dfba4ee639c",
+      "minimum_carrier_up": -0.9714378655190661,
+      "maximum_raw_error_radians": 4.2146848510894035e-08,
+      "normal_exit_restored": true,
+      "cold_view_delta_degrees": 0.010126606018304018
+    }
+  },
+  "identical_both_client_snapshots": 677,
+  "layout_fixed_two_client_circuit_and_cold_restart": true,
+  "combined_native_held_presence_regression_passed": true,
+  "final_artifact": {
+    "Dev": {
+      "matched_packets": 220,
+      "cold_view_delta_degrees": 0.009633328990502397
+    },
+    "Observer": {
+      "matched_packets": 239,
+      "cold_view_delta_degrees": 0.010382802219035224
+    }
+  },
+  "final_cold_restart_exact": true,
+  "final_controllers_still_coast_after_cold_restart": true
+}

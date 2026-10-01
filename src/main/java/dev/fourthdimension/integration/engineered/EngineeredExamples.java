@@ -72,6 +72,12 @@ public final class EngineeredExamples {
     var station = origin.offset(-6, 0, 20);
     int launchSpeed = design == TrackDesign.ARROW ? 4 : 12;
     int trimSpeed = design == TrackDesign.ARROW ? 2 : 8;
+    // Brake before entering the station and keep its launch slow enough that
+    // capture can settle within the station's eight-block operating range.
+    int stationSpeed = 4;
+    // Passive spin induction also consumes translation energy. Keep its Free Spin
+    // section powered; demonstrate trim braking on the separate elevated straight.
+    int trimSection = design == TrackDesign.FREE_SPIN ? 2 : 4;
     LinearMotorControllerBlockEntity launch = null;
     for (int i = 0; i < rails.size(); i++) {
       var rail = rails.get(i);
@@ -96,16 +102,20 @@ public final class EngineeredExamples {
         controller.setSteps(
             List.of(
                 new MotorStep(MotorStep.Kind.STOP, MotorStep.Heading.FORWARD, 12),
-                new MotorStep(MotorStep.Kind.LAUNCH, MotorStep.Heading.FORWARD, launchSpeed),
+                new MotorStep(MotorStep.Kind.LAUNCH, MotorStep.Heading.FORWARD, stationSpeed),
                 new MotorStep(MotorStep.Kind.COAST)));
         launch = controller;
       } else
         controller.setSteps(
             List.of(
                 new MotorStep(
-                    i == 4 ? MotorStep.Kind.TRIM : MotorStep.Kind.LAUNCH,
+                    i == trimSection || i == rails.size() - 1
+                        ? MotorStep.Kind.TRIM
+                        : MotorStep.Kind.LAUNCH,
                     MotorStep.Heading.FORWARD,
-                    i == 4 ? trimSpeed : launchSpeed)));
+                    i == rails.size() - 1
+                        ? stationSpeed
+                        : i == trimSection ? trimSpeed : launchSpeed)));
     }
     var observerPos = station.offset(0, 0, -2);
     level.setBlockAndUpdate(

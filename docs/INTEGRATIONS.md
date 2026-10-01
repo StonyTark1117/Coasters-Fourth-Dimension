@@ -60,10 +60,12 @@ native physics evidence. Structures are reproducible with
 
 Pinned artifact: `curse.maven:coasters-engineered-1643631:8863559`.
 
-Two narrow mixins target the inspected motor entry and mass calculation:
+The adapter targets the inspected motor entry and mass calculation:
 
 - Held, unrestrained, retained or faulted 4D consists cannot be driven by the motor.
   PAX remains excluded from external motor propulsion throughout its lifecycle.
+  Held cars still supply native span/controller and observer presence reports,
+  including when the outer Magnetized guard cancels the complete drive.
 - Engineered's native rivet accounting is augmented with our independent carrier
   bodies, including their declared loading, without counting bodies already included.
   Missing or unsettled carriers produce zero available drive mass.
@@ -82,6 +84,10 @@ Close restraints, then pulse the station's rear input. The same input advances t
 nearby Engineered controller; its falling edge requests validated dispatch. An early
 motor launch command cannot release the held car. After departure, power the input
 again to request return capture. Reset the first motor controller before another cycle.
+New Free Spin examples brake on a separate elevated straight and keep the passive
+spin equipment section powered. A 4-block/s station launch and approach brake keep
+captured cars inside the station operating range. Existing saved examples must be
+rebuilt or have their native controllers reconfigured; they are not silently changed.
 The occupied single-car native fixtures pass for all three listed families. These
 remain development fixtures while the wider compatibility matrix is completed.
 
@@ -279,6 +285,12 @@ for packaged server/client runs. A validation tick is attached only to debug
 snapshots and is ignored by persistence. These measurements are not performance
 baselines and never grant operation authority.
 
+Legacy and Free Spin now have [two-client Display Link, occupied restart and
+circuit evidence](evidence/integrations/2026-09-30/spin-multiplayer/README.md). That
+session exposed and corrected demonstration braking/approach placement and held-car
+Engineered presence reporting. It preserves the failed runs as well as the bounded
+passing checks; it does not complete the lifecycle matrix.
+
 ## Remaining acceptance
 
 - Extend reconciled FD305 evidence to the schema-5 optional-addon lifecycle matrix;
@@ -286,7 +298,8 @@ baselines and never grant operation authority.
 - Finish Engineered rollback, linked-train, optional FE, lifecycle and multiplayer
   checks; PAX propulsion stays excluded until separately proven.
 - Extend the packaged Ponder/goggles visual checks to every animation phase and both
-  multiplayer clients; verify live Display Link output in those sessions.
+  multiplayer clients; extend the verified live legacy/Free Spin Display Links to
+  the complete station/winch and addon matrix.
 - Extend bounded Track Styles two-client synchronization/reload evidence to the
   full multiplayer matrix, removal/reinstallation, resource replacement,
   transition and performance evidence; broader appearances and its own tool integration
@@ -297,7 +310,7 @@ baselines and never grant operation authority.
   equipment visuals, configuration extremes, lifecycle and multiplayer.
 - Extend Immersion camera evidence to every family, camera mode, comfort extremes,
   and lifecycle transitions. Extend the verified saved-angle/tracking recovery fix
-  beyond the bounded Arrow cases. The combined-pack two-client cycle remains
+  beyond the bounded Arrow, legacy and Free Spin occupied cold restarts. The combined-pack two-client cycle remains
   bounded evidence only.
 - Run base, individual-addon and combined-pack dedicated-server/two-client/late-join
   matrices, migrations/removal, interruption cases and measured rendering/performance.

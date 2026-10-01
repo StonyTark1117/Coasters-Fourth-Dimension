@@ -1,0 +1,32 @@
+execute positioned -600 227 0 run fd demo engineered legacy: Engineered demonstration built. Close restraints, then pulse the station rear input. That pulse advances the nearby motor controller; its falling edge requests validated dispatch. Power the rear input again after departure to capture the return. Reset the first controller before another cycle.
+
+execute positioned -400 227 0 run fd demo engineered free_spin: Engineered demonstration built. Close restraints, then pulse the station rear input. That pulse advances the nearby motor controller; its falling edge requests validated dispatch. Power the rear input again after departure to capture the return. Reset the first controller before another cycle.
+
+forceload add -608 0 -560 80: Marked 24 chunks in Overworld from [-38, 0] to [-35, 5] to be force loaded
+
+forceload add -408 0 -360 80: Marked 24 chunks in Overworld from [-26, 0] to [-23, 5] to be force loaded
+
+time set day: Set the time to 1000
+
+gamerule doDaylightCycle false: Gamerule doDaylightCycle is now set to: false
+
+fill -614 229 27 -606 229 37 smooth_stone: Successfully filled 77 block(s)
+
+fill -414 229 27 -406 229 37 smooth_stone: Successfully filled 77 block(s)
+
+setblock -606 231 32 create:display_link[facing=up]: Changed the block at -606, 231, 32
+
+setblock -610 230 32 stone: Changed the block at -610, 230, 32
+
+setblock -610 231 32 oak_sign[rotation=4]: Changed the block at -610, 231, 32
+
+data merge block -606 231 32 {TargetOffset:[I;-4,0,0],TargetLine:0,Source:{Id:"fourthdimension:ride_dispatch"}}: Modified block data of -606, 231, 32
+
+setblock -406 231 32 create:display_link[facing=up]: Changed the block at -406, 231, 32
+
+setblock -410 230 32 stone: Changed the block at -410, 230, 32
+
+setblock -410 231 32 oak_sign[rotation=4]: Changed the block at -410, 231, 32
+
+data merge block -406 231 32 {TargetOffset:[I;-4,0,0],TargetLine:0,Source:{Id:"fourthdimension:ride_dispatch"}}: Modified block data of -406, 231, 32
+

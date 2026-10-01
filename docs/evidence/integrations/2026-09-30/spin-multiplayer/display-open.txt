@@ -1,0 +1,24 @@
+data merge block -606 231 32 {Source:{Id:"fourthdimension:ride_status"}}: Modified block data of -606, 231, 32
+
+data get block -610 231 32 front_text.messages: -610, 231, 32 has the following block data: ['"Boarding"', '""', '""', '""']
+
+data merge block -606 231 32 {Source:{Id:"fourthdimension:ride_occupancy"}}: Modified block data of -606, 231, 32
+
+data get block -610 231 32 front_text.messages: -610, 231, 32 has the following block data: ['"1 / 8"', '""', '""', '""']
+
+data merge block -606 231 32 {Source:{Id:"fourthdimension:ride_restraints"}}: Modified block data of -606, 231, 32
+
+data get block -610 231 32 front_text.messages: -610, 231, 32 has the following block data: ['"Restraints closed: No"', '""', '""', '""']
+
+data merge block -606 231 32 {Source:{Id:"fourthdimension:ride_dispatch"}}: Modified block data of -606, 231, 32
+
+data get block -610 231 32 front_text.messages: -610, 231, 32 has the following block data: ['"All carriers must be captured and restraints closed before dispatch"', '""', '""', '""']
+
+data merge block -606 231 32 {Source:{Id:"fourthdimension:ride_phase"}}: Modified block data of -606, 231, 32
+
+data get block -610 231 32 front_text.messages: -610, 231, 32 has the following block data: ['"Boarding"', '""', '""', '""']
+
+data merge block -606 231 32 {Source:{Id:"fourthdimension:ride_fault"}}: Modified block data of -606, 231, 32
+
+data get block -610 231 32 front_text.messages: -610, 231, 32 has the following block data: ['""', '""', '""', '""']
+

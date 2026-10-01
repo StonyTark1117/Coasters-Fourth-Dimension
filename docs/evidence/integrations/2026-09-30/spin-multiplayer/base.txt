@@ -1,0 +1,44 @@
+FD_ADDITIONS_SKIPPED: optional 0.2.0 artifact absent; no compatibility evidence
+FD_APPEARANCE styles=false choices=1
+FD_MAGNETIZED_SKIPPED: optional 1.1.0 artifact absent; no compatibility evidence
+FD_ENGINEERED_SKIPPED: optional 1.1.1 artifact absent; no compatibility evidence
+FD_SNAPSHOT_MAX bytes=692652
+FD_FREE angles=[-1.7668266156868306, -1.8112381062933967] maximum separation=0.7238215996194586
+FD_REVISED_MASS mass=4.0 firstMoment=1.5 inertia=1.9947916666666585
+FD_REVISED_MASS mass=4.0 firstMoment=1.5 inertia=1.9947916666666585
+FD_REVISED_MASS mass=4.0 firstMoment=1.5 inertia=1.9947916666666585
+FD_REVISED_MASS mass=4.0 firstMoment=1.5 inertia=1.9947916666666585
+FD_SHUTTLE phase=LIFTING distance=59.07979295672928 center=( 6.005E+2  1.811E+2  6.054E+2) max=62.67979295672933 fault=
+FD_FAMILY_MATRIX decisions=25 factoryRejects=20 lockedNativeInitialSnapRejects=20 bindingPreserved=true
+FD_SHUTTLE phase=LIFTING distance=51.079792956729165 center=( 6.005E+2  1.812E+2  5.974E+2) max=62.67979295672933 fault=
+FD_CONTENT_FREE excursions=[0.5824696879041978, 0.38478864246726985] angle=0.09729577519135071 omega=-0.5461319589385678 mass=6.0
+FD_SHUTTLE phase=FAULT distance=44.679792956729074 center=( 6.005E+2  1.824E+2  5.907E+2) max=62.67979295672933 fault=Winch power lost: retain the train; inspect and resume or recover
+FD_BOUNDARY direction=0 position=(-3.995E+2  1.011E+2  3.380E+2) fault=End of compatible track; capture and inspect the route
+FD_BOUNDARY direction=1 position=(-3.755E+2  1.011E+2  3.030E+2) fault=End of compatible track; capture and inspect the route
+FD_SHUTTLE phase=FAULT distance=44.679792956729074 center=( 6.005E+2  1.824E+2  5.907E+2) max=62.67979295672933 fault=Winch power lost: retain the train; inspect and resume or recover
+FD_NATIVE at230 position=( 1.650E+1  8.162E+1  5.261E+1) from=BlockPos{x=16, y=80, z=16} angles=[12.154606085009732, 12.153236068647086] velocity=( 0.000E+0  0.000E+0  3.000E+0) disengaged=false
+FD_SHUTTLE phase=FAULT distance=44.679792956729074 center=( 6.005E+2  1.824E+2  5.907E+2) max=62.67979295672933 fault=Winch power lost: retain the train; inspect and resume or recover
+FD_SHUTTLE phase=LIFTING distance=37.079792956728966 center=( 6.005E+2  1.846E+2  5.840E+2) max=62.67979295672933 fault=
+FD_SHUTTLE phase=LIFTING distance=29.079792956728852 center=( 6.005E+2  1.880E+2  5.768E+2) max=62.67979295672933 fault=
+FD_SHUTTLE phase=LIFTING distance=21.07979295672874 center=( 6.005E+2  1.921E+2  5.700E+2) max=62.67979295672933 fault=
+FD_SHUTTLE phase=LIFTING distance=13.079792956728678 center=( 6.005E+2  1.967E+2  5.635E+2) max=62.67979295672933 fault=
+FD_TRAIN maxTurn=6.281190055358682 maxAxleDifference=3.0234726918247357
+FD_TRAIN positions=[(-1.995E+2  1.131E+2  1.462E+2) bound=BlockPos{x=-200, y=112, z=136}->BlockPos{x=-200, y=112, z=172} fault=, (-1.995E+2  1.131E+2  1.402E+2) bound=BlockPos{x=-200, y=112, z=136}->BlockPos{x=-200, y=112, z=172} fault=]
+FD_SHUTTLE phase=LIFTING distance=6.160491252814871 center=( 6.005E+2  2.010E+2  5.578E+2) max=62.67979295672933 fault=
+FD_SHUTTLE phase=LIFTING distance=3.1219259195287234 center=( 6.005E+2  2.030E+2  5.553E+2) max=62.67979295672933 fault=
+FD_SHUTTLE phase=OUTBOUND distance=5.84999999999999 center=( 6.005E+2  1.991E+2  5.603E+2) max=62.67979295672933 fault=
+FD_SHUTTLE phase=OUTBOUND distance=9.850000000000009 center=( 6.005E+2  1.846E+2  5.840E+2) max=62.67979295672933 fault=
+FD_SHUTTLE phase=OUTBOUND distance=13.850000000000065 center=( 6.005E+2  1.811E+2  6.172E+2) max=71.01349408209634 fault=
+FD_SHUTTLE_CHUNK_RELOAD recovered=true carriage=f32d5c58-5e5a-421d-8aa3-5166dc2f3fa3
+FD_SHUTTLE phase=OUTBOUND distance=17.850000000000122 center=( 6.005E+2  1.834E+2  6.437E+2) max=98.13330836182861 fault=
+FD_SHUTTLE phase=RETURNING distance=21.85000000000018 center=( 6.005E+2  1.848E+2  6.467E+2) max=103.58469152257143 fault=
+FD_SHUTTLE phase=RETURNING distance=25.850000000000236 center=( 6.005E+2  1.811E+2  6.268E+2) max=103.58469152257143 fault=
+FD_SHUTTLE phase=CAPTURING distance=26.25000000000024 center=( 6.005E+2  1.811E+2  6.103E+2) max=103.58469152257143 fault=
+FD_SHUTTLE phase=CAPTURING distance=63.02239048001071 center=( 6.005E+2  1.811E+2  6.090E+2) max=103.58469152257143 fault=
+FD_SHUTTLE_TALL cycles=2 maximum=142.93192969834695 station=82.92133833155415
+FD_DEMO family=ARROW angleRange=-0.0012762793182983696..6.281216324929916 maxXZ=32.50025969428563,52.500305457990976 ready=true fault=
+FD_DEMO family=ZACSPIN angleRange=-1.1711594998678843..0.4804102423533683 maxXZ=32.504837212818416,52.50000029154501 ready=true fault=
+FD_REVISED_NATIVE angles=[-0.7889219871564247, -0.8112944308567169, -0.6380970679020933, -0.7136392228422992]..[0.695419943100824, 0.6539755741543957, 0.6943854228577984, 0.6663929713598111] extent=[32.50425112150509, 52.49993913972105] ready=true fault=
+[20:38:28] [Server thread/INFO] [minecraft/GameTestServer]: ========= 24 GAME TESTS COMPLETE IN 1.142 min ======================
+[20:38:28] [Server thread/INFO] [minecraft/GameTestServer]: All 24 required tests passed :)
+BUILD SUCCESSFUL in 1m 21s

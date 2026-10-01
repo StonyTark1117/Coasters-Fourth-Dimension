@@ -116,14 +116,16 @@ public final class EngineeredRideCheck {
             rider.setNoAi(true);
             rider.setPos(ex.station().getX(), ex.station().getY() + 1, ex.station().getZ());
             level.addFreshEntity(rider);
-            var carrier = ex.vehicle().carriers.getFirst();
+            // The outer seat on the last Free Spin carrier reproduced a stall
+            // when passive induction and trim braking shared the same section.
+            var carrier = ex.vehicle().carriers.getLast();
             com.simibubi.create.content.contraptions.actors.seat.SeatBlock.sitDown(
                 level,
                 container
                     .getSubLevel(carrier.body)
                     .getPlot()
                     .getCenterBlock()
-                    .offset(carrier.seats.getFirst()),
+                    .offset(carrier.seats.getLast()),
                 rider);
             helper.assertTrue(rider.isPassenger(), "Engineered rider failed to board");
             riders.add(rider);
@@ -158,7 +160,9 @@ public final class EngineeredRideCheck {
                     + " stopped="
                     + v.stopping
                     + " ready="
-                    + Boarding.ready(level, v));
+                    + Boarding.ready(level, v)
+                    + " controller="
+                    + ex.launch().commandMode());
           }
           for (int i = 0; i < examples.size(); i++) {
             var ex = examples.get(i);
@@ -188,6 +192,12 @@ public final class EngineeredRideCheck {
             helper.assertTrue(
                 !ExternalDrivePolicy.allows(level, v.chassis),
                 "Returning capture did not inhibit motors");
+            helper.assertTrue(
+                RideOperations.nearby(level, ex.station(), v.chassis),
+                "Returning car coasted outside its station's dispatch range");
+            helper.assertTrue(
+                ex.launch().commandMode() == MotorStep.Kind.COAST,
+                "Held returning car disappeared from the Engineered sequence's span report");
             VehicleOperations.restraints(level, v, false);
             riders.get(i).stopRiding();
             riders.get(i).discard();

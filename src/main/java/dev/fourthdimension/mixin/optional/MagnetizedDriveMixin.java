@@ -24,5 +24,6 @@ public abstract class MagnetizedDriveMixin {
       Operation<Void> original) {
     if (ExternalDrivePolicy.allows(level, body.getUniqueId()))
       original.call(body, level, physics, hit, basis, dt);
+    else dev.fourthdimension.integration.ExternalDriveTelemetry.held(body, level, physics, hit);
   }
 }
