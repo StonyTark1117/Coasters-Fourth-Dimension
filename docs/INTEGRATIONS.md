@@ -162,6 +162,14 @@ Engineered-only and combined packs, then finish explicit recovery/resume and nor
 unloading. Independent stopped-save inspection confirms every original pig alive.
 Broader human-client lifecycle acceptance remains open.
 
+A subsequent [Engineered-only player restart](evidence/integrations/2026-10-01/engineered-pax-player-restart/README.md)
+now restores an actual PAX client rider from moving `RETURNING`, followed by a late
+spectator join, explicit recovery, one completed cycle and normal unloading. The
+original carrier/seat and 12,345 FE survive; all 904 received validation snapshots
+match server hashes. Thirteen transient Sable missing-body messages on the rider's
+client remain recorded. This covers one occupied seat and phase, not the full player,
+combined-pack or adverse-network lifecycle matrix.
+
 A separate [FE acceptance fixture](evidence/integrations/2026-09-30/engineered-energy/README.md)
 enables the energy requirement for a linked Arrow pair and single legacy, Free Spin
 and revised cars. Real anchor capabilities supply FE. Captured cars remain held,
@@ -483,8 +491,10 @@ covers occupied lifting with FE enabled in two new server processes. The subsequ
 adds occupied outbound braking and manual recovery evidence. The subsequent
 [entity-loading fix and packaged follow-up](evidence/integrations/2026-10-01/passenger-entity-loading/README.md)
 adds returning/capture recovery in both packs with sixteen original native passengers
-and exact FE retained. Human-client recovery, external energy networks and broader
-geometry/configuration acceptance remain open.
+and exact FE retained. A later [two-client Engineered run](evidence/integrations/2026-10-01/engineered-pax-player-restart/README.md)
+adds one real returning-phase rider, late spectator join and normal recovery/unload.
+The full human-client matrix, external energy networks and broader geometry/configuration
+acceptance remain open.
 
 - Extend reconciled FD305 evidence to the schema-5 optional-addon lifecycle matrix;
   investigate the recorded client resource exit. Extend the bounded transport

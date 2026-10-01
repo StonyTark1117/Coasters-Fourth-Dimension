@@ -1,0 +1,29 @@
+{
+  "scope": "Engineered-only occupied returning cold restart; one real client rider, one late-joining spectator",
+  "rider_uuid": "380df991-f603-344c-a090-369bad2a924a",
+  "carrier_uuid": "8af18a96-9e14-4623-99ab-d01ea90305ec",
+  "fe_retained": 12345,
+  "completed_cycles": 1,
+  "normal_unload_health": 20.0,
+  "saved_rider_maps_cleared": true,
+  "observer_join_delay_seconds": 87,
+  "recorded_local_look_error_degrees": [
+    0.08740000000000236,
+    0.001186286621091881
+  ],
+  "clients": {
+    "dev": {
+      "server_matched_snapshots": 489,
+      "native_carriers_available_at_end": 8,
+      "transient_missing_body_messages": 13
+    },
+    "observer": {
+      "server_matched_snapshots": 415,
+      "native_carriers_available_at_end": 8,
+      "transient_missing_body_messages": 0
+    }
+  },
+  "identical_both_client_snapshots": 398,
+  "fault_sample_to_ready_ticks": 2754,
+  "empty_carriage_drift_blocks": 0.0
+}

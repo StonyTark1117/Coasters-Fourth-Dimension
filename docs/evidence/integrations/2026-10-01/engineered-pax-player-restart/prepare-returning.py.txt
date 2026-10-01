@@ -1,0 +1,40 @@
+from pathlib import Path
+import time,json,shutil
+from rcon import rcon
+out=Path(__file__).resolve().parent
+log=out/'server.log'
+def report(label):
+ result=rcon('fd validation pax_energy_restart report '+label);assert 'snapshot recorded' in result
+ deadline=time.monotonic()+10
+ while True:
+  rows=[json.loads(l.split('FD_PAX_ENERGY_RESTART ',1)[1]) for l in log.read_text().splitlines() if 'FD_PAX_ENERGY_RESTART {' in l]
+  found=[d for d in rows if d['label']==label]
+  if found:return found[-1]
+  assert time.monotonic()<deadline;time.sleep(.1)
+def occupied(d):
+ riders=[(b,r) for c in d['cars'] for b in c['carriers'] for r in b['riders']]
+ assert d['energy']==12345 and d['telemetry']['occupied']==1 and len(riders)==1
+ assert all(r['alive'] and r['mounted'] and r['carrier']==b['body'] for b,r in riders)
+ assert all(c['restraints'] and c['consist']==4 for c in d['cars'])
+ return riders[0][1]['id'],riders[0][0]['body']
+selected=None;identity=None
+for i in range(180):
+ time.sleep(1);d=report('player_prepare_'+str(i));ids=occupied(d)
+ if identity is None:identity=ids
+ assert ids==identity
+ print(d['tick'],d['phase'],ids,flush=True)
+ assert d['phase']!='FAULT',d['fault']
+ if d['phase']=='RETURNING' and max(c['speed'] for c in d['cars'])>.2:
+  assert 'fixture: trim' in rcon('fd validation pax_energy_restart trim')
+  rcon('tick freeze');d=report('player_before_returning');assert occupied(d)==identity and d['phase']=='RETURNING'
+  for c in ('data get entity Dev RootVehicle','data get entity Dev Rotation','data get entity Dev Pos','data get block -610 181 608 front_text','save-all flush','stop'):rcon(c)
+  deadline=time.monotonic()+120
+  while not (out/'server.exit').exists():
+   assert time.monotonic()<deadline,'Shutdown observation expired';time.sleep(1)
+  assert (out/'server.exit').read_text().strip()=='0'
+  shutil.copytree('/tmp/fourthdimension-48535694/build/runs/packaged-server/FDPaxPlayerReturning',out/'before-world')
+  (out/'before.json').write_text(json.dumps(d,indent=2)+'\n')
+  (out/'prepare-returning.exit').write_text('0\n');break
+ if d['phase']=='OUTBOUND' and selected!='stop_motor':
+  assert 'fixture: stop_motor' in rcon('fd validation pax_energy_restart stop_motor');selected='stop_motor'
+else:raise AssertionError('Moving returning phase not seen')

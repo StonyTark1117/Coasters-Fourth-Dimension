@@ -1,0 +1,20 @@
+[
+  {
+    "label": "dev",
+    "task": "runClient",
+    "display": ":0",
+    "display_pid": 128916,
+    "wrapper_pid": 128938,
+    "client_exit": 0,
+    "display_stop_signal": "SIGTERM"
+  },
+  {
+    "label": "observer",
+    "task": "runObserver",
+    "display": ":1",
+    "display_pid": 128940,
+    "wrapper_pid": 128978,
+    "client_exit": 0,
+    "display_stop_signal": "SIGTERM"
+  }
+]
