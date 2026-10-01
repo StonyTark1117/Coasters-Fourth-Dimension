@@ -1,0 +1,642 @@
+[
+  {
+    "action": "release_chunks",
+    "family": "ARROW",
+    "tick": 380,
+    "chunks": [
+      {
+        "pos": "-800, 170, -800",
+        "ticking": true,
+        "accessible": true,
+        "resident": true,
+        "oldRemoved": false
+      },
+      {
+        "pos": "-800, 170, -740",
+        "ticking": true,
+        "accessible": true,
+        "resident": true,
+        "oldRemoved": false
+      },
+      {
+        "pos": "-812, 170, -780",
+        "ticking": true,
+        "accessible": true,
+        "resident": true,
+        "oldRemoved": false
+      }
+    ],
+    "cars": [
+      {
+        "chassis": "b6524ce9-d727-4dbf-bd51-9f512dee71ae",
+        "loaded": true,
+        "restraints": true,
+        "stopping": true,
+        "fault": "",
+        "occupants": 1
+      },
+      {
+        "chassis": "72aa2550-5ed8-4f2b-8211-c0fe72304190",
+        "loaded": true,
+        "restraints": true,
+        "stopping": true,
+        "fault": "",
+        "occupants": 1
+      }
+    ]
+  },
+  {
+    "action": "release_chunks",
+    "family": "ZACSPIN",
+    "tick": 380,
+    "chunks": [
+      {
+        "pos": "-760, 170, -800",
+        "ticking": true,
+        "accessible": true,
+        "resident": true,
+        "oldRemoved": false
+      },
+      {
+        "pos": "-760, 170, -740",
+        "ticking": true,
+        "accessible": true,
+        "resident": true,
+        "oldRemoved": false
+      },
+      {
+        "pos": "-772, 170, -780",
+        "ticking": true,
+        "accessible": true,
+        "resident": true,
+        "oldRemoved": false
+      }
+    ],
+    "cars": [
+      {
+        "chassis": "78415ae1-d102-48e0-92a5-4cb8283f1d35",
+        "loaded": true,
+        "restraints": true,
+        "stopping": true,
+        "fault": "",
+        "occupants": 1
+      }
+    ]
+  },
+  {
+    "action": "release_chunks",
+    "family": "FREE_SPIN",
+    "tick": 380,
+    "chunks": [
+      {
+        "pos": "-720, 170, -800",
+        "ticking": true,
+        "accessible": true,
+        "resident": true,
+        "oldRemoved": false
+      },
+      {
+        "pos": "-720, 170, -740",
+        "ticking": true,
+        "accessible": true,
+        "resident": true,
+        "oldRemoved": false
+      },
+      {
+        "pos": "-732, 170, -780",
+        "ticking": true,
+        "accessible": true,
+        "resident": true,
+        "oldRemoved": false
+      }
+    ],
+    "cars": [
+      {
+        "chassis": "5040c2d5-aa37-4e1d-9429-e886a8eccd4a",
+        "loaded": true,
+        "restraints": true,
+        "stopping": true,
+        "fault": "",
+        "occupants": 1
+      }
+    ]
+  },
+  {
+    "action": "release_chunks",
+    "family": "ZACSPIN_REVISED",
+    "tick": 380,
+    "chunks": [
+      {
+        "pos": "-680, 170, -800",
+        "ticking": true,
+        "accessible": true,
+        "resident": true,
+        "oldRemoved": false
+      },
+      {
+        "pos": "-680, 170, -740",
+        "ticking": true,
+        "accessible": true,
+        "resident": true,
+        "oldRemoved": false
+      },
+      {
+        "pos": "-692, 170, -780",
+        "ticking": true,
+        "accessible": true,
+        "resident": true,
+        "oldRemoved": false
+      }
+    ],
+    "cars": [
+      {
+        "chassis": "80ec0e39-f6fe-4bc1-a463-330eb695849f",
+        "loaded": true,
+        "restraints": true,
+        "stopping": true,
+        "fault": "",
+        "occupants": 1
+      }
+    ]
+  },
+  {
+    "action": "check_chunks",
+    "family": "ARROW",
+    "tick": 880,
+    "chunks": [
+      {
+        "pos": "-800, 170, -800",
+        "ticking": false,
+        "accessible": false,
+        "resident": false,
+        "oldRemoved": true
+      },
+      {
+        "pos": "-800, 170, -740",
+        "ticking": false,
+        "accessible": false,
+        "resident": false,
+        "oldRemoved": true
+      },
+      {
+        "pos": "-812, 170, -780",
+        "ticking": false,
+        "accessible": false,
+        "resident": false,
+        "oldRemoved": true
+      }
+    ],
+    "cars": [
+      {
+        "chassis": "b6524ce9-d727-4dbf-bd51-9f512dee71ae",
+        "loaded": false,
+        "restraints": true,
+        "stopping": true,
+        "fault": "",
+        "occupants": 1
+      },
+      {
+        "chassis": "72aa2550-5ed8-4f2b-8211-c0fe72304190",
+        "loaded": false,
+        "restraints": true,
+        "stopping": true,
+        "fault": "",
+        "occupants": 1
+      }
+    ]
+  },
+  {
+    "action": "check_chunks",
+    "family": "ZACSPIN",
+    "tick": 880,
+    "chunks": [
+      {
+        "pos": "-760, 170, -800",
+        "ticking": false,
+        "accessible": false,
+        "resident": false,
+        "oldRemoved": true
+      },
+      {
+        "pos": "-760, 170, -740",
+        "ticking": false,
+        "accessible": false,
+        "resident": false,
+        "oldRemoved": true
+      },
+      {
+        "pos": "-772, 170, -780",
+        "ticking": false,
+        "accessible": false,
+        "resident": false,
+        "oldRemoved": true
+      }
+    ],
+    "cars": [
+      {
+        "chassis": "78415ae1-d102-48e0-92a5-4cb8283f1d35",
+        "loaded": false,
+        "restraints": true,
+        "stopping": true,
+        "fault": "",
+        "occupants": 1
+      }
+    ]
+  },
+  {
+    "action": "check_chunks",
+    "family": "FREE_SPIN",
+    "tick": 880,
+    "chunks": [
+      {
+        "pos": "-720, 170, -800",
+        "ticking": false,
+        "accessible": false,
+        "resident": false,
+        "oldRemoved": true
+      },
+      {
+        "pos": "-720, 170, -740",
+        "ticking": false,
+        "accessible": false,
+        "resident": false,
+        "oldRemoved": true
+      },
+      {
+        "pos": "-732, 170, -780",
+        "ticking": false,
+        "accessible": false,
+        "resident": false,
+        "oldRemoved": true
+      }
+    ],
+    "cars": [
+      {
+        "chassis": "5040c2d5-aa37-4e1d-9429-e886a8eccd4a",
+        "loaded": false,
+        "restraints": true,
+        "stopping": true,
+        "fault": "",
+        "occupants": 1
+      }
+    ]
+  },
+  {
+    "action": "check_chunks",
+    "family": "ZACSPIN_REVISED",
+    "tick": 880,
+    "chunks": [
+      {
+        "pos": "-680, 170, -800",
+        "ticking": false,
+        "accessible": false,
+        "resident": false,
+        "oldRemoved": true
+      },
+      {
+        "pos": "-680, 170, -740",
+        "ticking": false,
+        "accessible": false,
+        "resident": false,
+        "oldRemoved": true
+      },
+      {
+        "pos": "-692, 170, -780",
+        "ticking": false,
+        "accessible": false,
+        "resident": false,
+        "oldRemoved": true
+      }
+    ],
+    "cars": [
+      {
+        "chassis": "80ec0e39-f6fe-4bc1-a463-330eb695849f",
+        "loaded": false,
+        "restraints": true,
+        "stopping": true,
+        "fault": "",
+        "occupants": 1
+      }
+    ]
+  },
+  {
+    "action": "check_chunks",
+    "family": "ARROW",
+    "tick": 880,
+    "chunks": [
+      {
+        "pos": "-800, 170, -800",
+        "ticking": false,
+        "accessible": false,
+        "resident": false,
+        "oldRemoved": true
+      },
+      {
+        "pos": "-800, 170, -740",
+        "ticking": false,
+        "accessible": false,
+        "resident": false,
+        "oldRemoved": true
+      },
+      {
+        "pos": "-812, 170, -780",
+        "ticking": false,
+        "accessible": false,
+        "resident": false,
+        "oldRemoved": true
+      }
+    ],
+    "cars": [
+      {
+        "chassis": "b6524ce9-d727-4dbf-bd51-9f512dee71ae",
+        "loaded": false,
+        "restraints": true,
+        "stopping": true,
+        "fault": "",
+        "occupants": 1
+      },
+      {
+        "chassis": "72aa2550-5ed8-4f2b-8211-c0fe72304190",
+        "loaded": false,
+        "restraints": true,
+        "stopping": true,
+        "fault": "",
+        "occupants": 1
+      }
+    ]
+  },
+  {
+    "action": "check_chunks",
+    "family": "ZACSPIN",
+    "tick": 880,
+    "chunks": [
+      {
+        "pos": "-760, 170, -800",
+        "ticking": false,
+        "accessible": false,
+        "resident": false,
+        "oldRemoved": true
+      },
+      {
+        "pos": "-760, 170, -740",
+        "ticking": false,
+        "accessible": false,
+        "resident": false,
+        "oldRemoved": true
+      },
+      {
+        "pos": "-772, 170, -780",
+        "ticking": false,
+        "accessible": false,
+        "resident": false,
+        "oldRemoved": true
+      }
+    ],
+    "cars": [
+      {
+        "chassis": "78415ae1-d102-48e0-92a5-4cb8283f1d35",
+        "loaded": false,
+        "restraints": true,
+        "stopping": true,
+        "fault": "",
+        "occupants": 1
+      }
+    ]
+  },
+  {
+    "action": "check_chunks",
+    "family": "FREE_SPIN",
+    "tick": 880,
+    "chunks": [
+      {
+        "pos": "-720, 170, -800",
+        "ticking": false,
+        "accessible": false,
+        "resident": false,
+        "oldRemoved": true
+      },
+      {
+        "pos": "-720, 170, -740",
+        "ticking": false,
+        "accessible": false,
+        "resident": false,
+        "oldRemoved": true
+      },
+      {
+        "pos": "-732, 170, -780",
+        "ticking": false,
+        "accessible": false,
+        "resident": false,
+        "oldRemoved": true
+      }
+    ],
+    "cars": [
+      {
+        "chassis": "5040c2d5-aa37-4e1d-9429-e886a8eccd4a",
+        "loaded": false,
+        "restraints": true,
+        "stopping": true,
+        "fault": "",
+        "occupants": 1
+      }
+    ]
+  },
+  {
+    "action": "check_chunks",
+    "family": "ZACSPIN_REVISED",
+    "tick": 880,
+    "chunks": [
+      {
+        "pos": "-680, 170, -800",
+        "ticking": false,
+        "accessible": false,
+        "resident": false,
+        "oldRemoved": true
+      },
+      {
+        "pos": "-680, 170, -740",
+        "ticking": false,
+        "accessible": false,
+        "resident": false,
+        "oldRemoved": true
+      },
+      {
+        "pos": "-692, 170, -780",
+        "ticking": false,
+        "accessible": false,
+        "resident": false,
+        "oldRemoved": true
+      }
+    ],
+    "cars": [
+      {
+        "chassis": "80ec0e39-f6fe-4bc1-a463-330eb695849f",
+        "loaded": false,
+        "restraints": true,
+        "stopping": true,
+        "fault": "",
+        "occupants": 1
+      }
+    ]
+  },
+  {
+    "action": "restore_chunks",
+    "family": "ARROW",
+    "tick": 880,
+    "chunks": [
+      {
+        "pos": "-800, 170, -800",
+        "ticking": true,
+        "accessible": true,
+        "resident": true,
+        "oldRemoved": true
+      },
+      {
+        "pos": "-800, 170, -740",
+        "ticking": true,
+        "accessible": true,
+        "resident": true,
+        "oldRemoved": true
+      },
+      {
+        "pos": "-812, 170, -780",
+        "ticking": true,
+        "accessible": true,
+        "resident": true,
+        "oldRemoved": true
+      }
+    ],
+    "cars": [
+      {
+        "chassis": "b6524ce9-d727-4dbf-bd51-9f512dee71ae",
+        "loaded": false,
+        "restraints": true,
+        "stopping": true,
+        "fault": "",
+        "occupants": 1
+      },
+      {
+        "chassis": "72aa2550-5ed8-4f2b-8211-c0fe72304190",
+        "loaded": false,
+        "restraints": true,
+        "stopping": true,
+        "fault": "",
+        "occupants": 1
+      }
+    ]
+  },
+  {
+    "action": "restore_chunks",
+    "family": "ZACSPIN",
+    "tick": 880,
+    "chunks": [
+      {
+        "pos": "-760, 170, -800",
+        "ticking": true,
+        "accessible": true,
+        "resident": true,
+        "oldRemoved": true
+      },
+      {
+        "pos": "-760, 170, -740",
+        "ticking": true,
+        "accessible": true,
+        "resident": true,
+        "oldRemoved": true
+      },
+      {
+        "pos": "-772, 170, -780",
+        "ticking": true,
+        "accessible": true,
+        "resident": true,
+        "oldRemoved": true
+      }
+    ],
+    "cars": [
+      {
+        "chassis": "78415ae1-d102-48e0-92a5-4cb8283f1d35",
+        "loaded": false,
+        "restraints": true,
+        "stopping": true,
+        "fault": "",
+        "occupants": 1
+      }
+    ]
+  },
+  {
+    "action": "restore_chunks",
+    "family": "FREE_SPIN",
+    "tick": 880,
+    "chunks": [
+      {
+        "pos": "-720, 170, -800",
+        "ticking": true,
+        "accessible": true,
+        "resident": true,
+        "oldRemoved": true
+      },
+      {
+        "pos": "-720, 170, -740",
+        "ticking": true,
+        "accessible": true,
+        "resident": true,
+        "oldRemoved": true
+      },
+      {
+        "pos": "-732, 170, -780",
+        "ticking": true,
+        "accessible": true,
+        "resident": true,
+        "oldRemoved": true
+      }
+    ],
+    "cars": [
+      {
+        "chassis": "5040c2d5-aa37-4e1d-9429-e886a8eccd4a",
+        "loaded": false,
+        "restraints": true,
+        "stopping": true,
+        "fault": "",
+        "occupants": 1
+      }
+    ]
+  },
+  {
+    "action": "restore_chunks",
+    "family": "ZACSPIN_REVISED",
+    "tick": 880,
+    "chunks": [
+      {
+        "pos": "-680, 170, -800",
+        "ticking": true,
+        "accessible": true,
+        "resident": true,
+        "oldRemoved": true
+      },
+      {
+        "pos": "-680, 170, -740",
+        "ticking": true,
+        "accessible": true,
+        "resident": true,
+        "oldRemoved": true
+      },
+      {
+        "pos": "-692, 170, -780",
+        "ticking": true,
+        "accessible": true,
+        "resident": true,
+        "oldRemoved": true
+      }
+    ],
+    "cars": [
+      {
+        "chassis": "80ec0e39-f6fe-4bc1-a463-330eb695849f",
+        "loaded": false,
+        "restraints": true,
+        "stopping": true,
+        "fault": "",
+        "occupants": 1
+      }
+    ]
+  }
+]

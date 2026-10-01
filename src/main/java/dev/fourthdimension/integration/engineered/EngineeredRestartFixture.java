@@ -36,6 +36,13 @@ public final class EngineeredRestartFixture {
   private static final List<TrackDesign> DESIGNS =
       List.of(TrackDesign.ARROW, TrackDesign.LEGACY, TrackDesign.FREE_SPIN, TrackDesign.REVISED);
 
+  private record ChunkProbe(
+      int cycle,
+      Map<BlockPos, net.minecraft.world.level.block.entity.BlockEntity> blocks,
+      Map<UUID, dev.ryanhcode.sable.sublevel.SubLevel> bodies) {}
+
+  private static final Map<ServerLevel, ChunkProbe> CHUNK_PROBES = new WeakHashMap<>();
+
   private EngineeredRestartFixture() {}
 
   private record Fixture(
@@ -48,7 +55,19 @@ public final class EngineeredRestartFixture {
     if (!Boolean.getBoolean("fourthdimension.validation")) return;
     var root = Commands.literal("energy_restart");
     for (String action :
-        List.of("create", "cars", "board", "charge", "dispatch", "brake", "capture", "unload"))
+        List.of(
+            "create",
+            "cars",
+            "board",
+            "charge",
+            "dispatch",
+            "slow_launch",
+            "brake",
+            "capture",
+            "unload",
+            "release_chunks",
+            "check_chunks",
+            "restore_chunks"))
       root.then(
           Commands.literal(action)
               .executes(
@@ -179,6 +198,106 @@ public final class EngineeredRestartFixture {
       }
       return;
     }
+    if (action.endsWith("_chunks")) {
+      if (action.equals("release_chunks")) {
+        var previous = new HashMap<BlockPos, net.minecraft.world.level.block.entity.BlockEntity>();
+        for (var design : DESIGNS)
+          for (var pos :
+              List.of(
+                  from(design), from(design).offset(0, 0, 60), from(design).offset(-12, 0, 20))) {
+            var entity = level.getBlockEntity(pos);
+            if (entity == null)
+              throw new IllegalArgumentException("Chunk probe requires the loaded fixture");
+            previous.put(pos, entity);
+          }
+        var bodies = new HashMap<UUID, dev.ryanhcode.sable.sublevel.SubLevel>();
+        var container = SubLevelContainer.getContainer(level);
+        for (var v : FoundationData.get(level).vehicles.values()) {
+          var ids = new ArrayList<UUID>();
+          ids.add(v.chassis);
+          v.carriers.forEach(c -> ids.add(c.body));
+          for (var id : ids) {
+            var body = container.getSubLevel(id);
+            if (body == null)
+              throw new IllegalArgumentException("Chunk probe requires loaded bodies");
+            bodies.put(id, body);
+          }
+        }
+        var earlier = CHUNK_PROBES.get(level);
+        CHUNK_PROBES.put(
+            level,
+            new ChunkProbe(
+                earlier == null ? 1 : earlier.cycle + 1, Map.copyOf(previous), Map.copyOf(bodies)));
+      }
+      var previous = CHUNK_PROBES.get(level);
+      if (previous == null)
+        throw new IllegalArgumentException("Release the fixture chunk tickets first");
+      if (!action.equals("check_chunks")) {
+        boolean force = action.equals("restore_chunks");
+        for (var design : DESIGNS) {
+          var from = from(design);
+          for (int x = (from.getX() - 16) >> 4; x <= (from.getX() + 16) >> 4; x++)
+            for (int z = (from.getZ() - 16) >> 4; z <= (from.getZ() + 76) >> 4; z++)
+              level.setChunkForced(x, z, force);
+        }
+      }
+      for (var design : DESIGNS) {
+        var result = new JsonObject();
+        result.addProperty("action", action);
+        result.addProperty("cycle", previous.cycle);
+        result.addProperty("family", design.family.name());
+        result.addProperty("tick", level.getGameTime());
+        var chunks = new JsonArray();
+        for (var pos :
+            List.of(from(design), from(design).offset(0, 0, 60), from(design).offset(-12, 0, 20))) {
+          var state = new JsonObject();
+          state.addProperty("pos", pos.toShortString());
+          state.addProperty("ticking", TrackGeometry.ticking(level, pos));
+          state.addProperty("accessible", level.hasChunkAt(pos));
+          state.addProperty(
+              "resident",
+              level.getChunkSource().getChunkNow(pos.getX() >> 4, pos.getZ() >> 4) != null);
+          state.addProperty("oldRemoved", previous.blocks.get(pos).isRemoved());
+          var chunk = level.getChunkSource().getChunkNow(pos.getX() >> 4, pos.getZ() >> 4);
+          var current = chunk == null ? null : chunk.getBlockEntities().get(pos);
+          state.addProperty("fresh", current != null && current != previous.blocks.get(pos));
+          chunks.add(state);
+        }
+        result.add("chunks", chunks);
+        var cars = new JsonArray();
+        for (var v : FoundationData.get(level).vehicles.values()) {
+          if (v.family != design.family) continue;
+          var state = new JsonObject();
+          state.addProperty("chassis", v.chassis.toString());
+          state.addProperty(
+              "loaded", SubLevelContainer.getContainer(level).getSubLevel(v.chassis) != null);
+          var current = SubLevelContainer.getContainer(level).getSubLevel(v.chassis);
+          state.addProperty("oldRemoved", previous.bodies.get(v.chassis).isRemoved());
+          state.addProperty("fresh", current != null && current != previous.bodies.get(v.chassis));
+          var carriers = new JsonArray();
+          for (var carrier : v.carriers) {
+            var child = SubLevelContainer.getContainer(level).getSubLevel(carrier.body);
+            var value = new JsonObject();
+            value.addProperty("body", carrier.body.toString());
+            value.addProperty("loaded", child != null);
+            value.addProperty("oldRemoved", previous.bodies.get(carrier.body).isRemoved());
+            value.addProperty("fresh", child != null && child != previous.bodies.get(carrier.body));
+            value.addProperty("capture", carrier.capture);
+            carriers.add(value);
+          }
+          state.add("carriers", carriers);
+          state.addProperty("restraints", v.restraints);
+          state.addProperty("stopping", v.stopping);
+          state.addProperty("fault", v.fault);
+          state.addProperty(
+              "occupants", v.carriers.stream().mapToInt(c -> c.occupants.size()).sum());
+          cars.add(state);
+        }
+        result.add("cars", cars);
+        LogUtils.getLogger().info("FD_OCCUPIED_CHUNKS {}", result);
+      }
+      return;
+    }
     var fixtures = fixtures(level);
     if (action.equals("cars")) {
       if (fixtures.stream().anyMatch(f -> !f.cars.isEmpty()))
@@ -235,6 +354,9 @@ public final class EngineeredRestartFixture {
           if (energy.receiveEnergy(charge, false) != charge)
             throw new IllegalArgumentException("Restart charge rejected");
         }
+        case "slow_launch" ->
+            f.motor.setSteps(
+                List.of(new MotorStep(MotorStep.Kind.LAUNCH, MotorStep.Heading.FORWARD, 4)));
         case "dispatch" -> VehicleOperations.dispatch(level, f.cars.getFirst());
         case "brake" -> {
           energy(level, f).extractEnergy(Integer.MAX_VALUE, false);

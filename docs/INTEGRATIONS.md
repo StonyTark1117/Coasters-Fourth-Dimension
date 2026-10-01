@@ -389,6 +389,15 @@ migration, Immersion camera removal, client rendering or the full lifecycle matr
 
 ## Remaining acceptance
 
+Five native passengers now survive [parked and moving chunk eviction/reload with
+Engineered energy enabled](evidence/integrations/2026-10-01/engineered-occupied-chunks/README.md)
+in Engineered-only and combined-pack dedicated servers. Both runs prove removal and
+fresh recreation of all five chassis, fourteen carriers and twelve anchor/controller
+references, then verify original passenger mounts, motion, recapture and normal
+unloading. The four straight-track families retain mechanical data and parked FE
+balances. Human-player/client interruption, PAX and partly loaded occupied routes
+remain outside that evidence.
+
 - Extend reconciled FD305 evidence to the schema-5 optional-addon lifecycle matrix;
   investigate the recorded client resource exit. Extend the bounded transport
   diagnosis above to adverse network conditions and any persistent missing-body case.

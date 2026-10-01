@@ -1,0 +1,34 @@
+{
+  "exploratory": {
+    "full_log": "/tmp/fd-occupied-chunks1.log",
+    "sha256": "aa58d8edf933eadf9b2795f889118afbcb5d99c81520203e8e965a51830c032d",
+    "exit_status": 0
+  },
+  "combined": {
+    "full_log": "/tmp/fd-occupied-chunks-combined.log",
+    "sha256": "56f12eb80700bd0d852a29fa421c3833eabe68dbbdaf8d982f12df099adce994",
+    "exit_status": 0,
+    "operation_exit_status": 0
+  },
+  "isolated": {
+    "full_log": "/tmp/fd-occupied-chunks-isolated.log",
+    "sha256": "77c70a5340e8cc36faf262bcbd2427109441421e8937ba26f3c958a5b292d93e",
+    "exit_status": 0,
+    "operation_exit_status": 0
+  },
+  "native-base": {
+    "full_log": "/tmp/fd-occupied-chunks-native-base.log",
+    "sha256": "c8b81e7d4d73549bee59523dfcb881d190d3de9ec308ceb183ffa3a3ada8adf8",
+    "exit_status": 0
+  },
+  "native-engineered": {
+    "full_log": "/tmp/fd-occupied-chunks-native-engineered.log",
+    "sha256": "c049c303847c7980c655d3d0472bcc7cbd612be635a2f11b6d6f8dc81319774e",
+    "exit_status": 0
+  },
+  "native-combined": {
+    "full_log": "/tmp/fd-occupied-chunks-native-combined.log",
+    "sha256": "59b2ea3e2d19c7e85a24504812bf112e54d168b9cad2c2205d4241b3bd282c57",
+    "exit_status": 0
+  }
+}

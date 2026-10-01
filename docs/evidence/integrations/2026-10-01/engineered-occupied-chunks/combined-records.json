@@ -1,0 +1,1299 @@
+[
+  {
+    "label": "before_chunks",
+    "family": "ARROW",
+    "tick": 380,
+    "required": true,
+    "energy": 12345,
+    "anchor": "{AnchorPeerCurveTints:[],AnchorPeerCurves:[{Bezier:{Axes:[{V:[0.0d,0.0d,1.0d]},{V:[0.0d,0.0d,-1.0d]}],Girder:0b,Material:\"simulatedcoasters:coaster_track\",Normals:[{V:[0.0d,1.0d,0.0d]},{V:[0.0d,1.0d,0.0d]}],Positions:[{Pos:[I;0,0,0]},{Pos:[I;0,0,60]}],Primary:1b,Starts:[{V:[0.5d,0.75d,0.5d]},{V:[0.5d,0.75d,60.5d]}]},HHi:20.0d,HLo:20.0d,Peer:-219627450679126L}],CoasterfinsSpanAnimation:0b,CoasterfinsSpanDelay:0b,CoasterfinsSpanMode:\"boost\",CoasterfinsSpanParticles:1b,CoasterfinsSpanSound:1b,CoastersEngineeredEnergy:12345,CoastersEngineeredMotorSpan:{Segments:[{From:-219627450924886L,T0:0.0d,T1:1.0d,To:-219627450679126L}]},JointBank:0.0f,NeoForgeData:{},ScrollValue:100,Speed:0.0f,WoodenCurves:[],id:\"simulatedcoasters:coaster_anchorpoint\",x:-800,y:170,z:-800}",
+    "motor": "{CoastersEngineeredAnchor:-219627450924886L,CoastersEngineeredDriving:1b,CoastersEngineeredLastCart:{Speed:0.006459271f,Ticks:200},CoastersEngineeredPass:0,CoastersEngineeredPassReached:0.0d,CoastersEngineeredPassShort:0b,CoastersEngineeredPassStarved:0b,CoastersEngineeredPassTarget:0,CoastersEngineeredPrevPowered:0b,CoastersEngineeredReturning:0b,CoastersEngineeredSequence:[{Heading:\"FORWARD\",Kind:\"LAUNCH\",Value:12}],CoastersEngineeredStarving:0b,CoastersEngineeredStep:0,id:\"coastersengineered:linear_motor_controller\",x:-812,y:170,z:-780}",
+    "span": "{Segments:[{From:-219627450924886L,T0:0.0d,T1:1.0d,To:-219627450679126L}]}",
+    "cars": [
+      {
+        "chassis": "b6524ce9-d727-4dbf-bd51-9f512dee71ae",
+        "ready": true,
+        "restraints": true,
+        "fault": "",
+        "consist": 2,
+        "distance": 24.370115850102366,
+        "speed": -0.006400467827916145,
+        "carriers": [
+          {
+            "body": "ae81f99d-7c18-47ca-bba2-8cc1da4341aa",
+            "loaded": true,
+            "capture": true,
+            "riders": []
+          },
+          {
+            "body": "0561ae9a-335a-486a-bc2f-d186ef7251a2",
+            "loaded": true,
+            "capture": true,
+            "riders": [
+              {
+                "id": "0c96a676-a881-4005-880d-c11f4367e201",
+                "alive": true,
+                "mounted": true,
+                "carrier": "0561ae9a-335a-486a-bc2f-d186ef7251a2"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "chassis": "72aa2550-5ed8-4f2b-8211-c0fe72304190",
+        "ready": true,
+        "restraints": true,
+        "fault": "",
+        "consist": 2,
+        "distance": 18.37001994169748,
+        "speed": 0.0063245235942304134,
+        "carriers": [
+          {
+            "body": "8616f6c7-2943-45ae-a2ea-a90cda798671",
+            "loaded": true,
+            "capture": true,
+            "riders": []
+          },
+          {
+            "body": "72bff747-a07d-4779-9e37-905abfc437d2",
+            "loaded": true,
+            "capture": true,
+            "riders": [
+              {
+                "id": "2924d1e6-bc6d-4f12-978d-11b7e09b0492",
+                "alive": true,
+                "mounted": true,
+                "carrier": "72bff747-a07d-4779-9e37-905abfc437d2"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "label": "before_chunks",
+    "family": "ZACSPIN",
+    "tick": 380,
+    "required": true,
+    "energy": 12346,
+    "anchor": "{AnchorPeerCurveTints:[],AnchorPeerCurves:[{Bezier:{Axes:[{V:[0.0d,0.0d,1.0d]},{V:[0.0d,0.0d,-1.0d]}],Girder:0b,Material:\"simulatedcoasters:coaster_track\",Normals:[{V:[0.0d,1.0d,0.0d]},{V:[0.0d,1.0d,0.0d]}],Positions:[{Pos:[I;0,0,0]},{Pos:[I;0,0,60]}],Primary:1b,Starts:[{V:[0.5d,0.75d,0.5d]},{V:[0.5d,0.75d,60.5d]}]},HHi:20.0d,HLo:20.0d,Peer:-208632334401366L}],CoasterfinsSpanAnimation:0b,CoasterfinsSpanDelay:0b,CoasterfinsSpanMode:\"boost\",CoasterfinsSpanParticles:1b,CoasterfinsSpanSound:1b,CoastersEngineeredEnergy:12346,CoastersEngineeredMotorSpan:{Segments:[{From:-208632334647126L,T0:0.0d,T1:1.0d,To:-208632334401366L}]},JointBank:0.0f,NeoForgeData:{},ScrollValue:100,Speed:0.0f,WoodenCurves:[],id:\"simulatedcoasters:coaster_anchorpoint\",x:-760,y:170,z:-800}",
+    "motor": "{CoastersEngineeredAnchor:-208632334647126L,CoastersEngineeredDriving:1b,CoastersEngineeredLastCart:{Speed:1.9074753E-6f,Ticks:200},CoastersEngineeredPass:0,CoastersEngineeredPassReached:0.0d,CoastersEngineeredPassShort:0b,CoastersEngineeredPassStarved:0b,CoastersEngineeredPassTarget:0,CoastersEngineeredPrevPowered:0b,CoastersEngineeredReturning:0b,CoastersEngineeredSequence:[{Heading:\"FORWARD\",Kind:\"LAUNCH\",Value:12}],CoastersEngineeredStarving:0b,CoastersEngineeredStep:0,id:\"coastersengineered:linear_motor_controller\",x:-772,y:170,z:-780}",
+    "span": "{Segments:[{From:-208632334647126L,T0:0.0d,T1:1.0d,To:-208632334401366L}]}",
+    "cars": [
+      {
+        "chassis": "78415ae1-d102-48e0-92a5-4cb8283f1d35",
+        "ready": true,
+        "restraints": true,
+        "fault": "",
+        "consist": 1,
+        "distance": 24.33129869185848,
+        "speed": -1.1103459655714687e-05,
+        "carriers": [
+          {
+            "body": "d5c4f843-ca09-420e-894b-c213eaa5045a",
+            "loaded": true,
+            "capture": true,
+            "riders": []
+          },
+          {
+            "body": "8c67b031-8a60-4b0b-b57d-8b05a6c7e64b",
+            "loaded": true,
+            "capture": true,
+            "riders": [
+              {
+                "id": "340451aa-fe7e-470d-8cb8-3b1304fd57a8",
+                "alive": true,
+                "mounted": true,
+                "carrier": "8c67b031-8a60-4b0b-b57d-8b05a6c7e64b"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "label": "before_chunks",
+    "family": "FREE_SPIN",
+    "tick": 380,
+    "required": true,
+    "energy": 12347,
+    "anchor": "{AnchorPeerCurveTints:[],AnchorPeerCurves:[{Bezier:{Axes:[{V:[0.0d,0.0d,1.0d]},{V:[0.0d,0.0d,-1.0d]}],Girder:0b,Material:\"simulatedcoasters:coaster_track\",Normals:[{V:[0.0d,1.0d,0.0d]},{V:[0.0d,1.0d,0.0d]}],Positions:[{Pos:[I;0,0,0]},{Pos:[I;0,0,60]}],Primary:1b,Starts:[{V:[0.5d,0.75d,0.5d]},{V:[0.5d,0.75d,60.5d]}]},HHi:20.0d,HLo:20.0d,Peer:-197637218123606L}],CoasterfinsSpanAnimation:0b,CoasterfinsSpanDelay:0b,CoasterfinsSpanMode:\"boost\",CoasterfinsSpanParticles:1b,CoasterfinsSpanSound:1b,CoastersEngineeredEnergy:12347,CoastersEngineeredMotorSpan:{Segments:[{From:-197637218369366L,T0:0.0d,T1:1.0d,To:-197637218123606L}]},JointBank:0.0f,NeoForgeData:{},ScrollValue:100,Speed:0.0f,WoodenCurves:[],id:\"simulatedcoasters:coaster_anchorpoint\",x:-720,y:170,z:-800}",
+    "motor": "{CoastersEngineeredAnchor:-197637218369366L,CoastersEngineeredDriving:1b,CoastersEngineeredLastCart:{Speed:6.1928426E-7f,Ticks:200},CoastersEngineeredPass:0,CoastersEngineeredPassReached:0.0d,CoastersEngineeredPassShort:0b,CoastersEngineeredPassStarved:0b,CoastersEngineeredPassTarget:0,CoastersEngineeredPrevPowered:0b,CoastersEngineeredReturning:0b,CoastersEngineeredSequence:[{Heading:\"FORWARD\",Kind:\"LAUNCH\",Value:12}],CoastersEngineeredStarving:0b,CoastersEngineeredStep:0,id:\"coastersengineered:linear_motor_controller\",x:-732,y:170,z:-780}",
+    "span": "{Segments:[{From:-197637218369366L,T0:0.0d,T1:1.0d,To:-197637218123606L}]}",
+    "cars": [
+      {
+        "chassis": "5040c2d5-aa37-4e1d-9429-e886a8eccd4a",
+        "ready": true,
+        "restraints": true,
+        "fault": "",
+        "consist": 1,
+        "distance": 24.498229976088965,
+        "speed": 3.1785364171810215e-06,
+        "carriers": [
+          {
+            "body": "810f026f-9a50-4faa-ae9b-2f8a8e78cc75",
+            "loaded": true,
+            "capture": true,
+            "riders": []
+          },
+          {
+            "body": "4da3ae62-5b66-458c-a4e5-7b245bc1d234",
+            "loaded": true,
+            "capture": true,
+            "riders": []
+          },
+          {
+            "body": "1adab7c0-7d22-4b30-9d9e-e746ad37818f",
+            "loaded": true,
+            "capture": true,
+            "riders": []
+          },
+          {
+            "body": "d0d918bd-9a97-4725-a25f-16d0cbe9ad78",
+            "loaded": true,
+            "capture": true,
+            "riders": [
+              {
+                "id": "51993e27-9d11-4d85-a5c9-76f1d0b5a628",
+                "alive": true,
+                "mounted": true,
+                "carrier": "d0d918bd-9a97-4725-a25f-16d0cbe9ad78"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "label": "before_chunks",
+    "family": "ZACSPIN_REVISED",
+    "tick": 380,
+    "required": true,
+    "energy": 12348,
+    "anchor": "{AnchorPeerCurveTints:[],AnchorPeerCurves:[{Bezier:{Axes:[{V:[0.0d,0.0d,1.0d]},{V:[0.0d,0.0d,-1.0d]}],Girder:0b,Material:\"simulatedcoasters:coaster_track\",Normals:[{V:[0.0d,1.0d,0.0d]},{V:[0.0d,1.0d,0.0d]}],Positions:[{Pos:[I;0,0,0]},{Pos:[I;0,0,60]}],Primary:1b,Starts:[{V:[0.5d,0.75d,0.5d]},{V:[0.5d,0.75d,60.5d]}]},HHi:20.0d,HLo:20.0d,Peer:-186642101845846L}],CoasterfinsSpanAnimation:0b,CoasterfinsSpanDelay:0b,CoasterfinsSpanMode:\"boost\",CoasterfinsSpanParticles:1b,CoasterfinsSpanSound:1b,CoastersEngineeredEnergy:12348,CoastersEngineeredMotorSpan:{Segments:[{From:-186642102091606L,T0:0.0d,T1:1.0d,To:-186642101845846L}]},JointBank:0.0f,NeoForgeData:{},ScrollValue:100,Speed:0.0f,WoodenCurves:[],id:\"simulatedcoasters:coaster_anchorpoint\",x:-680,y:170,z:-800}",
+    "motor": "{CoastersEngineeredAnchor:-186642102091606L,CoastersEngineeredDriving:1b,CoastersEngineeredLastCart:{Speed:2.103863E-4f,Ticks:200},CoastersEngineeredPass:0,CoastersEngineeredPassReached:0.0d,CoastersEngineeredPassShort:0b,CoastersEngineeredPassStarved:0b,CoastersEngineeredPassTarget:0,CoastersEngineeredPrevPowered:0b,CoastersEngineeredReturning:0b,CoastersEngineeredSequence:[{Heading:\"FORWARD\",Kind:\"LAUNCH\",Value:12}],CoastersEngineeredStarving:0b,CoastersEngineeredStep:0,id:\"coastersengineered:linear_motor_controller\",x:-692,y:170,z:-780}",
+    "span": "{Segments:[{From:-186642102091606L,T0:0.0d,T1:1.0d,To:-186642101845846L}]}",
+    "cars": [
+      {
+        "chassis": "80ec0e39-f6fe-4bc1-a463-330eb695849f",
+        "ready": true,
+        "restraints": true,
+        "fault": "",
+        "consist": 1,
+        "distance": 24.498413135513715,
+        "speed": -5.7454621128272265e-05,
+        "carriers": [
+          {
+            "body": "65be9206-76e9-4d31-ae5b-5a1c6c6f99d6",
+            "loaded": true,
+            "capture": true,
+            "riders": []
+          },
+          {
+            "body": "43c28659-bfa7-4853-9961-2e4452b08e3d",
+            "loaded": true,
+            "capture": true,
+            "riders": []
+          },
+          {
+            "body": "daf9e63a-077b-47ef-8f9e-3220167284dc",
+            "loaded": true,
+            "capture": true,
+            "riders": []
+          },
+          {
+            "body": "9fbd58f0-b0eb-4ee7-877d-03013a496582",
+            "loaded": true,
+            "capture": true,
+            "riders": [
+              {
+                "id": "77032cfc-1cc7-4cf2-b846-2810842cfbdf",
+                "alive": true,
+                "mounted": true,
+                "carrier": "9fbd58f0-b0eb-4ee7-877d-03013a496582"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "label": "parked_restored",
+    "family": "ARROW",
+    "tick": 980,
+    "required": true,
+    "energy": 12345,
+    "anchor": "{AnchorPeerCurveTints:[],AnchorPeerCurves:[{Bezier:{Axes:[{V:[0.0d,0.0d,1.0d]},{V:[0.0d,0.0d,-1.0d]}],Girder:0b,Material:\"simulatedcoasters:coaster_track\",Normals:[{V:[0.0d,1.0d,0.0d]},{V:[0.0d,1.0d,0.0d]}],Positions:[{Pos:[I;0,0,0]},{Pos:[I;0,0,60]}],Primary:1b,Starts:[{V:[0.5d,0.75d,0.5d]},{V:[0.5d,0.75d,60.5d]}]},HHi:20.0d,HLo:20.0d,Peer:-219627450679126L}],CoasterfinsSpanAnimation:0b,CoasterfinsSpanDelay:0b,CoasterfinsSpanMode:\"boost\",CoasterfinsSpanParticles:1b,CoasterfinsSpanSound:1b,CoastersEngineeredEnergy:12345,CoastersEngineeredMotorSpan:{Segments:[{From:-219627450924886L,T0:0.0d,T1:1.0d,To:-219627450679126L}]},JointBank:0.0f,NeoForgeData:{},ScrollValue:100,Speed:0.0f,WoodenCurves:[],id:\"simulatedcoasters:coaster_anchorpoint\",x:-800,y:170,z:-800}",
+    "motor": "{CoastersEngineeredAnchor:-219627450924886L,CoastersEngineeredDriving:1b,CoastersEngineeredLastCart:{Speed:0.006520679f,Ticks:200},CoastersEngineeredPass:0,CoastersEngineeredPassReached:0.0d,CoastersEngineeredPassShort:0b,CoastersEngineeredPassStarved:0b,CoastersEngineeredPassTarget:0,CoastersEngineeredPrevPowered:0b,CoastersEngineeredReturning:0b,CoastersEngineeredSequence:[{Heading:\"FORWARD\",Kind:\"LAUNCH\",Value:12}],CoastersEngineeredStarving:0b,CoastersEngineeredStep:0,id:\"coastersengineered:linear_motor_controller\",x:-812,y:170,z:-780}",
+    "span": "{Segments:[{From:-219627450924886L,T0:0.0d,T1:1.0d,To:-219627450679126L}]}",
+    "cars": [
+      {
+        "chassis": "b6524ce9-d727-4dbf-bd51-9f512dee71ae",
+        "ready": true,
+        "restraints": true,
+        "fault": "",
+        "consist": 2,
+        "distance": 24.360899538276158,
+        "speed": -0.006711275782436132,
+        "carriers": [
+          {
+            "body": "ae81f99d-7c18-47ca-bba2-8cc1da4341aa",
+            "loaded": true,
+            "capture": true,
+            "riders": []
+          },
+          {
+            "body": "0561ae9a-335a-486a-bc2f-d186ef7251a2",
+            "loaded": true,
+            "capture": true,
+            "riders": [
+              {
+                "id": "0c96a676-a881-4005-880d-c11f4367e201",
+                "alive": true,
+                "mounted": true,
+                "carrier": "0561ae9a-335a-486a-bc2f-d186ef7251a2"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "chassis": "72aa2550-5ed8-4f2b-8211-c0fe72304190",
+        "ready": true,
+        "restraints": true,
+        "fault": "",
+        "consist": 2,
+        "distance": 18.36080464240615,
+        "speed": 0.005996353458613157,
+        "carriers": [
+          {
+            "body": "8616f6c7-2943-45ae-a2ea-a90cda798671",
+            "loaded": true,
+            "capture": true,
+            "riders": []
+          },
+          {
+            "body": "72bff747-a07d-4779-9e37-905abfc437d2",
+            "loaded": true,
+            "capture": true,
+            "riders": [
+              {
+                "id": "2924d1e6-bc6d-4f12-978d-11b7e09b0492",
+                "alive": true,
+                "mounted": true,
+                "carrier": "72bff747-a07d-4779-9e37-905abfc437d2"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "label": "parked_restored",
+    "family": "ZACSPIN",
+    "tick": 980,
+    "required": true,
+    "energy": 12346,
+    "anchor": "{AnchorPeerCurveTints:[],AnchorPeerCurves:[{Bezier:{Axes:[{V:[0.0d,0.0d,1.0d]},{V:[0.0d,0.0d,-1.0d]}],Girder:0b,Material:\"simulatedcoasters:coaster_track\",Normals:[{V:[0.0d,1.0d,0.0d]},{V:[0.0d,1.0d,0.0d]}],Positions:[{Pos:[I;0,0,0]},{Pos:[I;0,0,60]}],Primary:1b,Starts:[{V:[0.5d,0.75d,0.5d]},{V:[0.5d,0.75d,60.5d]}]},HHi:20.0d,HLo:20.0d,Peer:-208632334401366L}],CoasterfinsSpanAnimation:0b,CoasterfinsSpanDelay:0b,CoasterfinsSpanMode:\"boost\",CoasterfinsSpanParticles:1b,CoasterfinsSpanSound:1b,CoastersEngineeredEnergy:12346,CoastersEngineeredMotorSpan:{Segments:[{From:-208632334647126L,T0:0.0d,T1:1.0d,To:-208632334401366L}]},JointBank:0.0f,NeoForgeData:{},ScrollValue:100,Speed:0.0f,WoodenCurves:[],id:\"simulatedcoasters:coaster_anchorpoint\",x:-760,y:170,z:-800}",
+    "motor": "{CoastersEngineeredAnchor:-208632334647126L,CoastersEngineeredDriving:1b,CoastersEngineeredLastCart:{Speed:2.0935115E-6f,Ticks:200},CoastersEngineeredPass:0,CoastersEngineeredPassReached:0.0d,CoastersEngineeredPassShort:0b,CoastersEngineeredPassStarved:0b,CoastersEngineeredPassTarget:0,CoastersEngineeredPrevPowered:0b,CoastersEngineeredReturning:0b,CoastersEngineeredSequence:[{Heading:\"FORWARD\",Kind:\"LAUNCH\",Value:12}],CoastersEngineeredStarving:0b,CoastersEngineeredStep:0,id:\"coastersengineered:linear_motor_controller\",x:-772,y:170,z:-780}",
+    "span": "{Segments:[{From:-208632334647126L,T0:0.0d,T1:1.0d,To:-208632334401366L}]}",
+    "cars": [
+      {
+        "chassis": "78415ae1-d102-48e0-92a5-4cb8283f1d35",
+        "ready": true,
+        "restraints": true,
+        "fault": "",
+        "consist": 1,
+        "distance": 24.29034410202712,
+        "speed": -1.1333338989061303e-05,
+        "carriers": [
+          {
+            "body": "d5c4f843-ca09-420e-894b-c213eaa5045a",
+            "loaded": true,
+            "capture": true,
+            "riders": []
+          },
+          {
+            "body": "8c67b031-8a60-4b0b-b57d-8b05a6c7e64b",
+            "loaded": true,
+            "capture": true,
+            "riders": [
+              {
+                "id": "340451aa-fe7e-470d-8cb8-3b1304fd57a8",
+                "alive": true,
+                "mounted": true,
+                "carrier": "8c67b031-8a60-4b0b-b57d-8b05a6c7e64b"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "label": "parked_restored",
+    "family": "FREE_SPIN",
+    "tick": 980,
+    "required": true,
+    "energy": 12347,
+    "anchor": "{AnchorPeerCurveTints:[],AnchorPeerCurves:[{Bezier:{Axes:[{V:[0.0d,0.0d,1.0d]},{V:[0.0d,0.0d,-1.0d]}],Girder:0b,Material:\"simulatedcoasters:coaster_track\",Normals:[{V:[0.0d,1.0d,0.0d]},{V:[0.0d,1.0d,0.0d]}],Positions:[{Pos:[I;0,0,0]},{Pos:[I;0,0,60]}],Primary:1b,Starts:[{V:[0.5d,0.75d,0.5d]},{V:[0.5d,0.75d,60.5d]}]},HHi:20.0d,HLo:20.0d,Peer:-197637218123606L}],CoasterfinsSpanAnimation:0b,CoasterfinsSpanDelay:0b,CoasterfinsSpanMode:\"boost\",CoasterfinsSpanParticles:1b,CoasterfinsSpanSound:1b,CoastersEngineeredEnergy:12347,CoastersEngineeredMotorSpan:{Segments:[{From:-197637218369366L,T0:0.0d,T1:1.0d,To:-197637218123606L}]},JointBank:0.0f,NeoForgeData:{},ScrollValue:100,Speed:0.0f,WoodenCurves:[],id:\"simulatedcoasters:coaster_anchorpoint\",x:-720,y:170,z:-800}",
+    "motor": "{CoastersEngineeredAnchor:-197637218369366L,CoastersEngineeredDriving:1b,CoastersEngineeredLastCart:{Speed:3.9581614E-6f,Ticks:200},CoastersEngineeredPass:0,CoastersEngineeredPassReached:0.0d,CoastersEngineeredPassShort:0b,CoastersEngineeredPassStarved:0b,CoastersEngineeredPassTarget:0,CoastersEngineeredPrevPowered:0b,CoastersEngineeredReturning:0b,CoastersEngineeredSequence:[{Heading:\"FORWARD\",Kind:\"LAUNCH\",Value:12}],CoastersEngineeredStarving:0b,CoastersEngineeredStep:0,id:\"coastersengineered:linear_motor_controller\",x:-732,y:170,z:-780}",
+    "span": "{Segments:[{From:-197637218369366L,T0:0.0d,T1:1.0d,To:-197637218123606L}]}",
+    "cars": [
+      {
+        "chassis": "5040c2d5-aa37-4e1d-9429-e886a8eccd4a",
+        "ready": true,
+        "restraints": true,
+        "fault": "",
+        "consist": 1,
+        "distance": 24.498107916550566,
+        "speed": 2.2412136786442716e-06,
+        "carriers": [
+          {
+            "body": "810f026f-9a50-4faa-ae9b-2f8a8e78cc75",
+            "loaded": true,
+            "capture": true,
+            "riders": []
+          },
+          {
+            "body": "4da3ae62-5b66-458c-a4e5-7b245bc1d234",
+            "loaded": true,
+            "capture": true,
+            "riders": []
+          },
+          {
+            "body": "1adab7c0-7d22-4b30-9d9e-e746ad37818f",
+            "loaded": true,
+            "capture": true,
+            "riders": []
+          },
+          {
+            "body": "d0d918bd-9a97-4725-a25f-16d0cbe9ad78",
+            "loaded": true,
+            "capture": true,
+            "riders": [
+              {
+                "id": "51993e27-9d11-4d85-a5c9-76f1d0b5a628",
+                "alive": true,
+                "mounted": true,
+                "carrier": "d0d918bd-9a97-4725-a25f-16d0cbe9ad78"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "label": "parked_restored",
+    "family": "ZACSPIN_REVISED",
+    "tick": 980,
+    "required": true,
+    "energy": 12348,
+    "anchor": "{AnchorPeerCurveTints:[],AnchorPeerCurves:[{Bezier:{Axes:[{V:[0.0d,0.0d,1.0d]},{V:[0.0d,0.0d,-1.0d]}],Girder:0b,Material:\"simulatedcoasters:coaster_track\",Normals:[{V:[0.0d,1.0d,0.0d]},{V:[0.0d,1.0d,0.0d]}],Positions:[{Pos:[I;0,0,0]},{Pos:[I;0,0,60]}],Primary:1b,Starts:[{V:[0.5d,0.75d,0.5d]},{V:[0.5d,0.75d,60.5d]}]},HHi:20.0d,HLo:20.0d,Peer:-186642101845846L}],CoasterfinsSpanAnimation:0b,CoasterfinsSpanDelay:0b,CoasterfinsSpanMode:\"boost\",CoasterfinsSpanParticles:1b,CoasterfinsSpanSound:1b,CoastersEngineeredEnergy:12348,CoastersEngineeredMotorSpan:{Segments:[{From:-186642102091606L,T0:0.0d,T1:1.0d,To:-186642101845846L}]},JointBank:0.0f,NeoForgeData:{},ScrollValue:100,Speed:0.0f,WoodenCurves:[],id:\"simulatedcoasters:coaster_anchorpoint\",x:-680,y:170,z:-800}",
+    "motor": "{CoastersEngineeredAnchor:-186642102091606L,CoastersEngineeredDriving:1b,CoastersEngineeredLastCart:{Speed:1.4267588E-4f,Ticks:200},CoastersEngineeredPass:0,CoastersEngineeredPassReached:0.0d,CoastersEngineeredPassShort:0b,CoastersEngineeredPassStarved:0b,CoastersEngineeredPassTarget:0,CoastersEngineeredPrevPowered:0b,CoastersEngineeredReturning:0b,CoastersEngineeredSequence:[{Heading:\"FORWARD\",Kind:\"LAUNCH\",Value:12}],CoastersEngineeredStarving:0b,CoastersEngineeredStep:0,id:\"coastersengineered:linear_motor_controller\",x:-692,y:170,z:-780}",
+    "span": "{Segments:[{From:-186642102091606L,T0:0.0d,T1:1.0d,To:-186642101845846L}]}",
+    "cars": [
+      {
+        "chassis": "80ec0e39-f6fe-4bc1-a463-330eb695849f",
+        "ready": true,
+        "restraints": true,
+        "fault": "",
+        "consist": 1,
+        "distance": 24.498291064724867,
+        "speed": -3.0438612157013267e-05,
+        "carriers": [
+          {
+            "body": "65be9206-76e9-4d31-ae5b-5a1c6c6f99d6",
+            "loaded": true,
+            "capture": true,
+            "riders": []
+          },
+          {
+            "body": "43c28659-bfa7-4853-9961-2e4452b08e3d",
+            "loaded": true,
+            "capture": true,
+            "riders": []
+          },
+          {
+            "body": "daf9e63a-077b-47ef-8f9e-3220167284dc",
+            "loaded": true,
+            "capture": true,
+            "riders": []
+          },
+          {
+            "body": "9fbd58f0-b0eb-4ee7-877d-03013a496582",
+            "loaded": true,
+            "capture": true,
+            "riders": [
+              {
+                "id": "77032cfc-1cc7-4cf2-b846-2810842cfbdf",
+                "alive": true,
+                "mounted": true,
+                "carrier": "9fbd58f0-b0eb-4ee7-877d-03013a496582"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "label": "moving_before",
+    "family": "ARROW",
+    "tick": 1060,
+    "required": true,
+    "energy": 12025,
+    "anchor": "{AnchorPeerCurveTints:[],AnchorPeerCurves:[{Bezier:{Axes:[{V:[0.0d,0.0d,1.0d]},{V:[0.0d,0.0d,-1.0d]}],Girder:0b,Material:\"simulatedcoasters:coaster_track\",Normals:[{V:[0.0d,1.0d,0.0d]},{V:[0.0d,1.0d,0.0d]}],Positions:[{Pos:[I;0,0,0]},{Pos:[I;0,0,60]}],Primary:1b,Starts:[{V:[0.5d,0.75d,0.5d]},{V:[0.5d,0.75d,60.5d]}]},HHi:20.0d,HLo:20.0d,Peer:-219627450679126L}],CoasterfinsSpanAnimation:0b,CoasterfinsSpanDelay:0b,CoasterfinsSpanMode:\"boost\",CoasterfinsSpanParticles:1b,CoasterfinsSpanSound:1b,CoastersEngineeredEnergy:12025,CoastersEngineeredMotorSpan:{Segments:[{From:-219627450924886L,T0:0.0d,T1:1.0d,To:-219627450679126L}]},JointBank:0.0f,NeoForgeData:{},ScrollValue:100,Speed:0.0f,WoodenCurves:[],id:\"simulatedcoasters:coaster_anchorpoint\",x:-800,y:170,z:-800}",
+    "motor": "{CoastersEngineeredAnchor:-219627450924886L,CoastersEngineeredDriving:1b,CoastersEngineeredLastCart:{Speed:0.73745704f,Ticks:200},CoastersEngineeredPass:0,CoastersEngineeredPassReached:0.0d,CoastersEngineeredPassShort:0b,CoastersEngineeredPassStarved:0b,CoastersEngineeredPassTarget:0,CoastersEngineeredPrevPowered:0b,CoastersEngineeredReturning:0b,CoastersEngineeredSequence:[{Heading:\"FORWARD\",Kind:\"LAUNCH\",Value:4}],CoastersEngineeredStarving:0b,CoastersEngineeredStep:0,id:\"coastersengineered:linear_motor_controller\",x:-812,y:170,z:-780}",
+    "span": "{Segments:[{From:-219627450924886L,T0:0.0d,T1:1.0d,To:-219627450679126L}]}",
+    "cars": [
+      {
+        "chassis": "b6524ce9-d727-4dbf-bd51-9f512dee71ae",
+        "ready": false,
+        "restraints": true,
+        "fault": "",
+        "consist": 2,
+        "distance": 25.904540760424652,
+        "speed": 0.7436433434486389,
+        "carriers": [
+          {
+            "body": "ae81f99d-7c18-47ca-bba2-8cc1da4341aa",
+            "loaded": true,
+            "capture": false,
+            "riders": []
+          },
+          {
+            "body": "0561ae9a-335a-486a-bc2f-d186ef7251a2",
+            "loaded": true,
+            "capture": false,
+            "riders": [
+              {
+                "id": "0c96a676-a881-4005-880d-c11f4367e201",
+                "alive": true,
+                "mounted": true,
+                "carrier": "0561ae9a-335a-486a-bc2f-d186ef7251a2"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "chassis": "72aa2550-5ed8-4f2b-8211-c0fe72304190",
+        "ready": false,
+        "restraints": true,
+        "fault": "",
+        "consist": 2,
+        "distance": 19.904539606131607,
+        "speed": 0.7416850328445435,
+        "carriers": [
+          {
+            "body": "8616f6c7-2943-45ae-a2ea-a90cda798671",
+            "loaded": true,
+            "capture": false,
+            "riders": []
+          },
+          {
+            "body": "72bff747-a07d-4779-9e37-905abfc437d2",
+            "loaded": true,
+            "capture": false,
+            "riders": [
+              {
+                "id": "2924d1e6-bc6d-4f12-978d-11b7e09b0492",
+                "alive": true,
+                "mounted": true,
+                "carrier": "72bff747-a07d-4779-9e37-905abfc437d2"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "label": "moving_before",
+    "family": "ZACSPIN",
+    "tick": 1060,
+    "required": true,
+    "energy": 12186,
+    "anchor": "{AnchorPeerCurveTints:[],AnchorPeerCurves:[{Bezier:{Axes:[{V:[0.0d,0.0d,1.0d]},{V:[0.0d,0.0d,-1.0d]}],Girder:0b,Material:\"simulatedcoasters:coaster_track\",Normals:[{V:[0.0d,1.0d,0.0d]},{V:[0.0d,1.0d,0.0d]}],Positions:[{Pos:[I;0,0,0]},{Pos:[I;0,0,60]}],Primary:1b,Starts:[{V:[0.5d,0.75d,0.5d]},{V:[0.5d,0.75d,60.5d]}]},HHi:20.0d,HLo:20.0d,Peer:-208632334401366L}],CoasterfinsSpanAnimation:0b,CoasterfinsSpanDelay:0b,CoasterfinsSpanMode:\"boost\",CoasterfinsSpanParticles:1b,CoasterfinsSpanSound:1b,CoastersEngineeredEnergy:12186,CoastersEngineeredMotorSpan:{Segments:[{From:-208632334647126L,T0:0.0d,T1:1.0d,To:-208632334401366L}]},JointBank:0.0f,NeoForgeData:{},ScrollValue:100,Speed:0.0f,WoodenCurves:[],id:\"simulatedcoasters:coaster_anchorpoint\",x:-760,y:170,z:-800}",
+    "motor": "{CoastersEngineeredAnchor:-208632334647126L,CoastersEngineeredDriving:1b,CoastersEngineeredLastCart:{Speed:0.76513577f,Ticks:200},CoastersEngineeredPass:0,CoastersEngineeredPassReached:0.0d,CoastersEngineeredPassShort:0b,CoastersEngineeredPassStarved:0b,CoastersEngineeredPassTarget:0,CoastersEngineeredPrevPowered:0b,CoastersEngineeredReturning:0b,CoastersEngineeredSequence:[{Heading:\"FORWARD\",Kind:\"LAUNCH\",Value:4}],CoastersEngineeredStarving:0b,CoastersEngineeredStep:0,id:\"coastersengineered:linear_motor_controller\",x:-772,y:170,z:-780}",
+    "span": "{Segments:[{From:-208632334647126L,T0:0.0d,T1:1.0d,To:-208632334401366L}]}",
+    "cars": [
+      {
+        "chassis": "78415ae1-d102-48e0-92a5-4cb8283f1d35",
+        "ready": false,
+        "restraints": true,
+        "fault": "",
+        "consist": 1,
+        "distance": 26.03674316577144,
+        "speed": 0.764674723148346,
+        "carriers": [
+          {
+            "body": "d5c4f843-ca09-420e-894b-c213eaa5045a",
+            "loaded": true,
+            "capture": false,
+            "riders": []
+          },
+          {
+            "body": "8c67b031-8a60-4b0b-b57d-8b05a6c7e64b",
+            "loaded": true,
+            "capture": false,
+            "riders": [
+              {
+                "id": "340451aa-fe7e-470d-8cb8-3b1304fd57a8",
+                "alive": true,
+                "mounted": true,
+                "carrier": "8c67b031-8a60-4b0b-b57d-8b05a6c7e64b"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "label": "moving_before",
+    "family": "FREE_SPIN",
+    "tick": 1060,
+    "required": true,
+    "energy": 12117,
+    "anchor": "{AnchorPeerCurveTints:[],AnchorPeerCurves:[{Bezier:{Axes:[{V:[0.0d,0.0d,1.0d]},{V:[0.0d,0.0d,-1.0d]}],Girder:0b,Material:\"simulatedcoasters:coaster_track\",Normals:[{V:[0.0d,1.0d,0.0d]},{V:[0.0d,1.0d,0.0d]}],Positions:[{Pos:[I;0,0,0]},{Pos:[I;0,0,60]}],Primary:1b,Starts:[{V:[0.5d,0.75d,0.5d]},{V:[0.5d,0.75d,60.5d]}]},HHi:20.0d,HLo:20.0d,Peer:-197637218123606L}],CoasterfinsSpanAnimation:0b,CoasterfinsSpanDelay:0b,CoasterfinsSpanMode:\"boost\",CoasterfinsSpanParticles:1b,CoasterfinsSpanSound:1b,CoastersEngineeredEnergy:12117,CoastersEngineeredMotorSpan:{Segments:[{From:-197637218369366L,T0:0.0d,T1:1.0d,To:-197637218123606L}]},JointBank:0.0f,NeoForgeData:{},ScrollValue:100,Speed:0.0f,WoodenCurves:[],id:\"simulatedcoasters:coaster_anchorpoint\",x:-720,y:170,z:-800}",
+    "motor": "{CoastersEngineeredAnchor:-197637218369366L,CoastersEngineeredDriving:1b,CoastersEngineeredLastCart:{Speed:0.8111763f,Ticks:200},CoastersEngineeredPass:0,CoastersEngineeredPassReached:0.0d,CoastersEngineeredPassShort:0b,CoastersEngineeredPassStarved:0b,CoastersEngineeredPassTarget:0,CoastersEngineeredPrevPowered:0b,CoastersEngineeredReturning:0b,CoastersEngineeredSequence:[{Heading:\"FORWARD\",Kind:\"LAUNCH\",Value:4}],CoastersEngineeredStarving:0b,CoastersEngineeredStep:0,id:\"coastersengineered:linear_motor_controller\",x:-732,y:170,z:-780}",
+    "span": "{Segments:[{From:-197637218369366L,T0:0.0d,T1:1.0d,To:-197637218123606L}]}",
+    "cars": [
+      {
+        "chassis": "5040c2d5-aa37-4e1d-9429-e886a8eccd4a",
+        "ready": false,
+        "restraints": true,
+        "fault": "",
+        "consist": 1,
+        "distance": 26.20275887710477,
+        "speed": 0.8160483837127686,
+        "carriers": [
+          {
+            "body": "810f026f-9a50-4faa-ae9b-2f8a8e78cc75",
+            "loaded": true,
+            "capture": false,
+            "riders": []
+          },
+          {
+            "body": "4da3ae62-5b66-458c-a4e5-7b245bc1d234",
+            "loaded": true,
+            "capture": false,
+            "riders": []
+          },
+          {
+            "body": "1adab7c0-7d22-4b30-9d9e-e746ad37818f",
+            "loaded": true,
+            "capture": false,
+            "riders": []
+          },
+          {
+            "body": "d0d918bd-9a97-4725-a25f-16d0cbe9ad78",
+            "loaded": true,
+            "capture": false,
+            "riders": [
+              {
+                "id": "51993e27-9d11-4d85-a5c9-76f1d0b5a628",
+                "alive": true,
+                "mounted": true,
+                "carrier": "d0d918bd-9a97-4725-a25f-16d0cbe9ad78"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "label": "moving_before",
+    "family": "ZACSPIN_REVISED",
+    "tick": 1060,
+    "required": true,
+    "energy": 12113,
+    "anchor": "{AnchorPeerCurveTints:[],AnchorPeerCurves:[{Bezier:{Axes:[{V:[0.0d,0.0d,1.0d]},{V:[0.0d,0.0d,-1.0d]}],Girder:0b,Material:\"simulatedcoasters:coaster_track\",Normals:[{V:[0.0d,1.0d,0.0d]},{V:[0.0d,1.0d,0.0d]}],Positions:[{Pos:[I;0,0,0]},{Pos:[I;0,0,60]}],Primary:1b,Starts:[{V:[0.5d,0.75d,0.5d]},{V:[0.5d,0.75d,60.5d]}]},HHi:20.0d,HLo:20.0d,Peer:-186642101845846L}],CoasterfinsSpanAnimation:0b,CoasterfinsSpanDelay:0b,CoasterfinsSpanMode:\"boost\",CoasterfinsSpanParticles:1b,CoasterfinsSpanSound:1b,CoastersEngineeredEnergy:12113,CoastersEngineeredMotorSpan:{Segments:[{From:-186642102091606L,T0:0.0d,T1:1.0d,To:-186642101845846L}]},JointBank:0.0f,NeoForgeData:{},ScrollValue:100,Speed:0.0f,WoodenCurves:[],id:\"simulatedcoasters:coaster_anchorpoint\",x:-680,y:170,z:-800}",
+    "motor": "{CoastersEngineeredAnchor:-186642102091606L,CoastersEngineeredDriving:1b,CoastersEngineeredLastCart:{Speed:0.8177086f,Ticks:200},CoastersEngineeredPass:0,CoastersEngineeredPassReached:0.0d,CoastersEngineeredPassShort:0b,CoastersEngineeredPassStarved:0b,CoastersEngineeredPassTarget:0,CoastersEngineeredPrevPowered:0b,CoastersEngineeredReturning:0b,CoastersEngineeredSequence:[{Heading:\"FORWARD\",Kind:\"LAUNCH\",Value:4}],CoastersEngineeredStarving:0b,CoastersEngineeredStep:0,id:\"coastersengineered:linear_motor_controller\",x:-692,y:170,z:-780}",
+    "span": "{Segments:[{From:-186642102091606L,T0:0.0d,T1:1.0d,To:-186642101845846L}]}",
+    "cars": [
+      {
+        "chassis": "80ec0e39-f6fe-4bc1-a463-330eb695849f",
+        "ready": false,
+        "restraints": true,
+        "fault": "",
+        "consist": 1,
+        "distance": 26.205871616622176,
+        "speed": 0.8224661350250244,
+        "carriers": [
+          {
+            "body": "65be9206-76e9-4d31-ae5b-5a1c6c6f99d6",
+            "loaded": true,
+            "capture": false,
+            "riders": []
+          },
+          {
+            "body": "43c28659-bfa7-4853-9961-2e4452b08e3d",
+            "loaded": true,
+            "capture": false,
+            "riders": []
+          },
+          {
+            "body": "daf9e63a-077b-47ef-8f9e-3220167284dc",
+            "loaded": true,
+            "capture": false,
+            "riders": []
+          },
+          {
+            "body": "9fbd58f0-b0eb-4ee7-877d-03013a496582",
+            "loaded": true,
+            "capture": false,
+            "riders": [
+              {
+                "id": "77032cfc-1cc7-4cf2-b846-2810842cfbdf",
+                "alive": true,
+                "mounted": true,
+                "carrier": "9fbd58f0-b0eb-4ee7-877d-03013a496582"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "label": "moving_restored",
+    "family": "ARROW",
+    "tick": 1660,
+    "required": true,
+    "energy": 11498,
+    "anchor": "{AnchorPeerCurveTints:[],AnchorPeerCurves:[{Bezier:{Axes:[{V:[0.0d,0.0d,1.0d]},{V:[0.0d,0.0d,-1.0d]}],Girder:0b,Material:\"simulatedcoasters:coaster_track\",Normals:[{V:[0.0d,1.0d,0.0d]},{V:[0.0d,1.0d,0.0d]}],Positions:[{Pos:[I;0,0,0]},{Pos:[I;0,0,60]}],Primary:1b,Starts:[{V:[0.5d,0.75d,0.5d]},{V:[0.5d,0.75d,60.5d]}]},HHi:20.0d,HLo:20.0d,Peer:-219627450679126L}],CoasterfinsSpanAnimation:0b,CoasterfinsSpanDelay:0b,CoasterfinsSpanMode:\"boost\",CoasterfinsSpanParticles:1b,CoasterfinsSpanSound:1b,CoastersEngineeredEnergy:11498,CoastersEngineeredMotorSpan:{Segments:[{From:-219627450924886L,T0:0.0d,T1:1.0d,To:-219627450679126L}]},JointBank:0.0f,NeoForgeData:{},ScrollValue:100,Speed:0.0f,WoodenCurves:[],id:\"simulatedcoasters:coaster_anchorpoint\",x:-800,y:170,z:-800}",
+    "motor": "{CoastersEngineeredAnchor:-219627450924886L,CoastersEngineeredDriving:1b,CoastersEngineeredLastCart:{Speed:1.4389961f,Ticks:200},CoastersEngineeredPass:0,CoastersEngineeredPassReached:0.0d,CoastersEngineeredPassShort:0b,CoastersEngineeredPassStarved:0b,CoastersEngineeredPassTarget:0,CoastersEngineeredPrevPowered:0b,CoastersEngineeredReturning:0b,CoastersEngineeredSequence:[{Heading:\"FORWARD\",Kind:\"LAUNCH\",Value:4}],CoastersEngineeredStarving:0b,CoastersEngineeredStep:0,id:\"coastersengineered:linear_motor_controller\",x:-812,y:170,z:-780}",
+    "span": "{Segments:[{From:-219627450924886L,T0:0.0d,T1:1.0d,To:-219627450679126L}]}",
+    "cars": [
+      {
+        "chassis": "b6524ce9-d727-4dbf-bd51-9f512dee71ae",
+        "ready": false,
+        "restraints": true,
+        "fault": "",
+        "consist": 2,
+        "distance": 31.1964108775893,
+        "speed": 1.4445385932922363,
+        "carriers": [
+          {
+            "body": "ae81f99d-7c18-47ca-bba2-8cc1da4341aa",
+            "loaded": true,
+            "capture": false,
+            "riders": []
+          },
+          {
+            "body": "0561ae9a-335a-486a-bc2f-d186ef7251a2",
+            "loaded": true,
+            "capture": false,
+            "riders": [
+              {
+                "id": "0c96a676-a881-4005-880d-c11f4367e201",
+                "alive": true,
+                "mounted": true,
+                "carrier": "0561ae9a-335a-486a-bc2f-d186ef7251a2"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "chassis": "72aa2550-5ed8-4f2b-8211-c0fe72304190",
+        "ready": false,
+        "restraints": true,
+        "fault": "",
+        "consist": 2,
+        "distance": 25.19640954778663,
+        "speed": 1.442603588104248,
+        "carriers": [
+          {
+            "body": "8616f6c7-2943-45ae-a2ea-a90cda798671",
+            "loaded": true,
+            "capture": false,
+            "riders": []
+          },
+          {
+            "body": "72bff747-a07d-4779-9e37-905abfc437d2",
+            "loaded": true,
+            "capture": false,
+            "riders": [
+              {
+                "id": "2924d1e6-bc6d-4f12-978d-11b7e09b0492",
+                "alive": true,
+                "mounted": true,
+                "carrier": "72bff747-a07d-4779-9e37-905abfc437d2"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "label": "moving_restored",
+    "family": "ZACSPIN",
+    "tick": 1660,
+    "required": true,
+    "energy": 11832,
+    "anchor": "{AnchorPeerCurveTints:[],AnchorPeerCurves:[{Bezier:{Axes:[{V:[0.0d,0.0d,1.0d]},{V:[0.0d,0.0d,-1.0d]}],Girder:0b,Material:\"simulatedcoasters:coaster_track\",Normals:[{V:[0.0d,1.0d,0.0d]},{V:[0.0d,1.0d,0.0d]}],Positions:[{Pos:[I;0,0,0]},{Pos:[I;0,0,60]}],Primary:1b,Starts:[{V:[0.5d,0.75d,0.5d]},{V:[0.5d,0.75d,60.5d]}]},HHi:20.0d,HLo:20.0d,Peer:-208632334401366L}],CoasterfinsSpanAnimation:0b,CoasterfinsSpanDelay:0b,CoasterfinsSpanMode:\"boost\",CoasterfinsSpanParticles:1b,CoasterfinsSpanSound:1b,CoastersEngineeredEnergy:11832,CoastersEngineeredMotorSpan:{Segments:[{From:-208632334647126L,T0:0.0d,T1:1.0d,To:-208632334401366L}]},JointBank:0.0f,NeoForgeData:{},ScrollValue:100,Speed:0.0f,WoodenCurves:[],id:\"simulatedcoasters:coaster_anchorpoint\",x:-760,y:170,z:-800}",
+    "motor": "{CoastersEngineeredAnchor:-208632334647126L,CoastersEngineeredDriving:1b,CoastersEngineeredLastCart:{Speed:1.5164566f,Ticks:200},CoastersEngineeredPass:0,CoastersEngineeredPassReached:0.0d,CoastersEngineeredPassShort:0b,CoastersEngineeredPassStarved:0b,CoastersEngineeredPassTarget:0,CoastersEngineeredPrevPowered:0b,CoastersEngineeredReturning:0b,CoastersEngineeredSequence:[{Heading:\"FORWARD\",Kind:\"LAUNCH\",Value:4}],CoastersEngineeredStarving:0b,CoastersEngineeredStep:0,id:\"coastersengineered:linear_motor_controller\",x:-772,y:170,z:-780}",
+    "span": "{Segments:[{From:-208632334647126L,T0:0.0d,T1:1.0d,To:-208632334401366L}]}",
+    "cars": [
+      {
+        "chassis": "78415ae1-d102-48e0-92a5-4cb8283f1d35",
+        "ready": false,
+        "restraints": true,
+        "fault": "",
+        "consist": 1,
+        "distance": 31.596679953544253,
+        "speed": 1.5173875093460083,
+        "carriers": [
+          {
+            "body": "d5c4f843-ca09-420e-894b-c213eaa5045a",
+            "loaded": true,
+            "capture": false,
+            "riders": []
+          },
+          {
+            "body": "8c67b031-8a60-4b0b-b57d-8b05a6c7e64b",
+            "loaded": true,
+            "capture": false,
+            "riders": [
+              {
+                "id": "340451aa-fe7e-470d-8cb8-3b1304fd57a8",
+                "alive": true,
+                "mounted": true,
+                "carrier": "8c67b031-8a60-4b0b-b57d-8b05a6c7e64b"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "label": "moving_restored",
+    "family": "FREE_SPIN",
+    "tick": 1660,
+    "required": true,
+    "energy": 11507,
+    "anchor": "{AnchorPeerCurveTints:[],AnchorPeerCurves:[{Bezier:{Axes:[{V:[0.0d,0.0d,1.0d]},{V:[0.0d,0.0d,-1.0d]}],Girder:0b,Material:\"simulatedcoasters:coaster_track\",Normals:[{V:[0.0d,1.0d,0.0d]},{V:[0.0d,1.0d,0.0d]}],Positions:[{Pos:[I;0,0,0]},{Pos:[I;0,0,60]}],Primary:1b,Starts:[{V:[0.5d,0.75d,0.5d]},{V:[0.5d,0.75d,60.5d]}]},HHi:20.0d,HLo:20.0d,Peer:-197637218123606L}],CoasterfinsSpanAnimation:0b,CoasterfinsSpanDelay:0b,CoasterfinsSpanMode:\"boost\",CoasterfinsSpanParticles:1b,CoasterfinsSpanSound:1b,CoastersEngineeredEnergy:11507,CoastersEngineeredMotorSpan:{Segments:[{From:-197637218369366L,T0:0.0d,T1:1.0d,To:-197637218123606L}]},JointBank:0.0f,NeoForgeData:{},ScrollValue:100,Speed:0.0f,WoodenCurves:[],id:\"simulatedcoasters:coaster_anchorpoint\",x:-720,y:170,z:-800}",
+    "motor": "{CoastersEngineeredAnchor:-197637218369366L,CoastersEngineeredDriving:1b,CoastersEngineeredLastCart:{Speed:1.6244464f,Ticks:200},CoastersEngineeredPass:0,CoastersEngineeredPassReached:0.0d,CoastersEngineeredPassShort:0b,CoastersEngineeredPassStarved:0b,CoastersEngineeredPassTarget:0,CoastersEngineeredPrevPowered:0b,CoastersEngineeredReturning:0b,CoastersEngineeredSequence:[{Heading:\"FORWARD\",Kind:\"LAUNCH\",Value:4}],CoastersEngineeredStarving:0b,CoastersEngineeredStep:0,id:\"coastersengineered:linear_motor_controller\",x:-732,y:170,z:-780}",
+    "span": "{Segments:[{From:-197637218369366L,T0:0.0d,T1:1.0d,To:-197637218123606L}]}",
+    "cars": [
+      {
+        "chassis": "5040c2d5-aa37-4e1d-9429-e886a8eccd4a",
+        "ready": false,
+        "restraints": true,
+        "fault": "",
+        "consist": 1,
+        "distance": 32.12927247304799,
+        "speed": 1.6286274194717407,
+        "carriers": [
+          {
+            "body": "810f026f-9a50-4faa-ae9b-2f8a8e78cc75",
+            "loaded": true,
+            "capture": false,
+            "riders": []
+          },
+          {
+            "body": "4da3ae62-5b66-458c-a4e5-7b245bc1d234",
+            "loaded": true,
+            "capture": false,
+            "riders": []
+          },
+          {
+            "body": "1adab7c0-7d22-4b30-9d9e-e746ad37818f",
+            "loaded": true,
+            "capture": false,
+            "riders": []
+          },
+          {
+            "body": "d0d918bd-9a97-4725-a25f-16d0cbe9ad78",
+            "loaded": true,
+            "capture": false,
+            "riders": [
+              {
+                "id": "51993e27-9d11-4d85-a5c9-76f1d0b5a628",
+                "alive": true,
+                "mounted": true,
+                "carrier": "d0d918bd-9a97-4725-a25f-16d0cbe9ad78"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "label": "moving_restored",
+    "family": "ZACSPIN_REVISED",
+    "tick": 1660,
+    "required": true,
+    "energy": 11481,
+    "anchor": "{AnchorPeerCurveTints:[],AnchorPeerCurves:[{Bezier:{Axes:[{V:[0.0d,0.0d,1.0d]},{V:[0.0d,0.0d,-1.0d]}],Girder:0b,Material:\"simulatedcoasters:coaster_track\",Normals:[{V:[0.0d,1.0d,0.0d]},{V:[0.0d,1.0d,0.0d]}],Positions:[{Pos:[I;0,0,0]},{Pos:[I;0,0,60]}],Primary:1b,Starts:[{V:[0.5d,0.75d,0.5d]},{V:[0.5d,0.75d,60.5d]}]},HHi:20.0d,HLo:20.0d,Peer:-186642101845846L}],CoasterfinsSpanAnimation:0b,CoasterfinsSpanDelay:0b,CoasterfinsSpanMode:\"boost\",CoasterfinsSpanParticles:1b,CoasterfinsSpanSound:1b,CoastersEngineeredEnergy:11481,CoastersEngineeredMotorSpan:{Segments:[{From:-186642102091606L,T0:0.0d,T1:1.0d,To:-186642101845846L}]},JointBank:0.0f,NeoForgeData:{},ScrollValue:100,Speed:0.0f,WoodenCurves:[],id:\"simulatedcoasters:coaster_anchorpoint\",x:-680,y:170,z:-800}",
+    "motor": "{CoastersEngineeredAnchor:-186642102091606L,CoastersEngineeredDriving:1b,CoastersEngineeredLastCart:{Speed:1.6326371f,Ticks:200},CoastersEngineeredPass:0,CoastersEngineeredPassReached:0.0d,CoastersEngineeredPassShort:0b,CoastersEngineeredPassStarved:0b,CoastersEngineeredPassTarget:0,CoastersEngineeredPrevPowered:0b,CoastersEngineeredReturning:0b,CoastersEngineeredSequence:[{Heading:\"FORWARD\",Kind:\"LAUNCH\",Value:4}],CoastersEngineeredStarving:0b,CoastersEngineeredStep:0,id:\"coastersengineered:linear_motor_controller\",x:-692,y:170,z:-780}",
+    "span": "{Segments:[{From:-186642102091606L,T0:0.0d,T1:1.0d,To:-186642101845846L}]}",
+    "cars": [
+      {
+        "chassis": "80ec0e39-f6fe-4bc1-a463-330eb695849f",
+        "ready": false,
+        "restraints": true,
+        "fault": "",
+        "consist": 1,
+        "distance": 32.14178465334646,
+        "speed": 1.6369121074676514,
+        "carriers": [
+          {
+            "body": "65be9206-76e9-4d31-ae5b-5a1c6c6f99d6",
+            "loaded": true,
+            "capture": false,
+            "riders": []
+          },
+          {
+            "body": "43c28659-bfa7-4853-9961-2e4452b08e3d",
+            "loaded": true,
+            "capture": false,
+            "riders": []
+          },
+          {
+            "body": "daf9e63a-077b-47ef-8f9e-3220167284dc",
+            "loaded": true,
+            "capture": false,
+            "riders": []
+          },
+          {
+            "body": "9fbd58f0-b0eb-4ee7-877d-03013a496582",
+            "loaded": true,
+            "capture": false,
+            "riders": [
+              {
+                "id": "77032cfc-1cc7-4cf2-b846-2810842cfbdf",
+                "alive": true,
+                "mounted": true,
+                "carrier": "9fbd58f0-b0eb-4ee7-877d-03013a496582"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "label": "captured",
+    "family": "ARROW",
+    "tick": 1790,
+    "required": true,
+    "energy": 11498,
+    "anchor": "{AnchorPeerCurveTints:[],AnchorPeerCurves:[{Bezier:{Axes:[{V:[0.0d,0.0d,1.0d]},{V:[0.0d,0.0d,-1.0d]}],Girder:0b,Material:\"simulatedcoasters:coaster_track\",Normals:[{V:[0.0d,1.0d,0.0d]},{V:[0.0d,1.0d,0.0d]}],Positions:[{Pos:[I;0,0,0]},{Pos:[I;0,0,60]}],Primary:1b,Starts:[{V:[0.5d,0.75d,0.5d]},{V:[0.5d,0.75d,60.5d]}]},HHi:20.0d,HLo:20.0d,Peer:-219627450679126L}],CoasterfinsSpanAnimation:0b,CoasterfinsSpanDelay:0b,CoasterfinsSpanMode:\"boost\",CoasterfinsSpanParticles:1b,CoasterfinsSpanSound:1b,CoastersEngineeredEnergy:11498,CoastersEngineeredMotorSpan:{Segments:[{From:-219627450924886L,T0:0.0d,T1:1.0d,To:-219627450679126L}]},JointBank:0.0f,NeoForgeData:{},ScrollValue:100,Speed:0.0f,WoodenCurves:[],id:\"simulatedcoasters:coaster_anchorpoint\",x:-800,y:170,z:-800}",
+    "motor": "{CoastersEngineeredAnchor:-219627450924886L,CoastersEngineeredDriving:1b,CoastersEngineeredLastCart:{Speed:9.802879E-4f,Ticks:200},CoastersEngineeredPass:0,CoastersEngineeredPassReached:0.0d,CoastersEngineeredPassShort:0b,CoastersEngineeredPassStarved:0b,CoastersEngineeredPassTarget:0,CoastersEngineeredPrevPowered:0b,CoastersEngineeredReturning:0b,CoastersEngineeredSequence:[{Heading:\"FORWARD\",Kind:\"LAUNCH\",Value:4}],CoastersEngineeredStarving:0b,CoastersEngineeredStep:0,id:\"coastersengineered:linear_motor_controller\",x:-812,y:170,z:-780}",
+    "span": "{Segments:[{From:-219627450924886L,T0:0.0d,T1:1.0d,To:-219627450679126L}]}",
+    "cars": [
+      {
+        "chassis": "b6524ce9-d727-4dbf-bd51-9f512dee71ae",
+        "ready": true,
+        "restraints": true,
+        "fault": "",
+        "consist": 2,
+        "distance": 31.351745351040222,
+        "speed": 0.0009742486290633678,
+        "carriers": [
+          {
+            "body": "ae81f99d-7c18-47ca-bba2-8cc1da4341aa",
+            "loaded": true,
+            "capture": true,
+            "riders": []
+          },
+          {
+            "body": "0561ae9a-335a-486a-bc2f-d186ef7251a2",
+            "loaded": true,
+            "capture": true,
+            "riders": [
+              {
+                "id": "0c96a676-a881-4005-880d-c11f4367e201",
+                "alive": true,
+                "mounted": true,
+                "carrier": "0561ae9a-335a-486a-bc2f-d186ef7251a2"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "chassis": "72aa2550-5ed8-4f2b-8211-c0fe72304190",
+        "ready": true,
+        "restraints": true,
+        "fault": "",
+        "consist": 2,
+        "distance": 25.351744009793833,
+        "speed": -0.000988644897006452,
+        "carriers": [
+          {
+            "body": "8616f6c7-2943-45ae-a2ea-a90cda798671",
+            "loaded": true,
+            "capture": true,
+            "riders": []
+          },
+          {
+            "body": "72bff747-a07d-4779-9e37-905abfc437d2",
+            "loaded": true,
+            "capture": true,
+            "riders": [
+              {
+                "id": "2924d1e6-bc6d-4f12-978d-11b7e09b0492",
+                "alive": true,
+                "mounted": true,
+                "carrier": "72bff747-a07d-4779-9e37-905abfc437d2"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "label": "captured",
+    "family": "ZACSPIN",
+    "tick": 1790,
+    "required": true,
+    "energy": 11832,
+    "anchor": "{AnchorPeerCurveTints:[],AnchorPeerCurves:[{Bezier:{Axes:[{V:[0.0d,0.0d,1.0d]},{V:[0.0d,0.0d,-1.0d]}],Girder:0b,Material:\"simulatedcoasters:coaster_track\",Normals:[{V:[0.0d,1.0d,0.0d]},{V:[0.0d,1.0d,0.0d]}],Positions:[{Pos:[I;0,0,0]},{Pos:[I;0,0,60]}],Primary:1b,Starts:[{V:[0.5d,0.75d,0.5d]},{V:[0.5d,0.75d,60.5d]}]},HHi:20.0d,HLo:20.0d,Peer:-208632334401366L}],CoasterfinsSpanAnimation:0b,CoasterfinsSpanDelay:0b,CoasterfinsSpanMode:\"boost\",CoasterfinsSpanParticles:1b,CoasterfinsSpanSound:1b,CoastersEngineeredEnergy:11832,CoastersEngineeredMotorSpan:{Segments:[{From:-208632334647126L,T0:0.0d,T1:1.0d,To:-208632334401366L}]},JointBank:0.0f,NeoForgeData:{},ScrollValue:100,Speed:0.0f,WoodenCurves:[],id:\"simulatedcoasters:coaster_anchorpoint\",x:-760,y:170,z:-800}",
+    "motor": "{CoastersEngineeredAnchor:-208632334647126L,CoastersEngineeredDriving:1b,CoastersEngineeredLastCart:{Speed:5.0166374E-5f,Ticks:200},CoastersEngineeredPass:0,CoastersEngineeredPassReached:0.0d,CoastersEngineeredPassShort:0b,CoastersEngineeredPassStarved:0b,CoastersEngineeredPassTarget:0,CoastersEngineeredPrevPowered:0b,CoastersEngineeredReturning:0b,CoastersEngineeredSequence:[{Heading:\"FORWARD\",Kind:\"LAUNCH\",Value:4}],CoastersEngineeredStarving:0b,CoastersEngineeredStep:0,id:\"coastersengineered:linear_motor_controller\",x:-772,y:170,z:-780}",
+    "span": "{Segments:[{From:-208632334647126L,T0:0.0d,T1:1.0d,To:-208632334401366L}]}",
+    "cars": [
+      {
+        "chassis": "78415ae1-d102-48e0-92a5-4cb8283f1d35",
+        "ready": true,
+        "restraints": true,
+        "fault": "",
+        "consist": 1,
+        "distance": 31.73046915740406,
+        "speed": -0.00019133900059387088,
+        "carriers": [
+          {
+            "body": "d5c4f843-ca09-420e-894b-c213eaa5045a",
+            "loaded": true,
+            "capture": true,
+            "riders": []
+          },
+          {
+            "body": "8c67b031-8a60-4b0b-b57d-8b05a6c7e64b",
+            "loaded": true,
+            "capture": true,
+            "riders": [
+              {
+                "id": "340451aa-fe7e-470d-8cb8-3b1304fd57a8",
+                "alive": true,
+                "mounted": true,
+                "carrier": "8c67b031-8a60-4b0b-b57d-8b05a6c7e64b"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "label": "captured",
+    "family": "FREE_SPIN",
+    "tick": 1790,
+    "required": true,
+    "energy": 11507,
+    "anchor": "{AnchorPeerCurveTints:[],AnchorPeerCurves:[{Bezier:{Axes:[{V:[0.0d,0.0d,1.0d]},{V:[0.0d,0.0d,-1.0d]}],Girder:0b,Material:\"simulatedcoasters:coaster_track\",Normals:[{V:[0.0d,1.0d,0.0d]},{V:[0.0d,1.0d,0.0d]}],Positions:[{Pos:[I;0,0,0]},{Pos:[I;0,0,60]}],Primary:1b,Starts:[{V:[0.5d,0.75d,0.5d]},{V:[0.5d,0.75d,60.5d]}]},HHi:20.0d,HLo:20.0d,Peer:-197637218123606L}],CoasterfinsSpanAnimation:0b,CoasterfinsSpanDelay:0b,CoasterfinsSpanMode:\"boost\",CoasterfinsSpanParticles:1b,CoasterfinsSpanSound:1b,CoastersEngineeredEnergy:11507,CoastersEngineeredMotorSpan:{Segments:[{From:-197637218369366L,T0:0.0d,T1:1.0d,To:-197637218123606L}]},JointBank:0.0f,NeoForgeData:{},ScrollValue:100,Speed:0.0f,WoodenCurves:[],id:\"simulatedcoasters:coaster_anchorpoint\",x:-720,y:170,z:-800}",
+    "motor": "{CoastersEngineeredAnchor:-197637218369366L,CoastersEngineeredDriving:1b,CoastersEngineeredLastCart:{Speed:1.3410777E-4f,Ticks:200},CoastersEngineeredPass:0,CoastersEngineeredPassReached:0.0d,CoastersEngineeredPassShort:0b,CoastersEngineeredPassStarved:0b,CoastersEngineeredPassTarget:0,CoastersEngineeredPrevPowered:0b,CoastersEngineeredReturning:0b,CoastersEngineeredSequence:[{Heading:\"FORWARD\",Kind:\"LAUNCH\",Value:4}],CoastersEngineeredStarving:0b,CoastersEngineeredStep:0,id:\"coastersengineered:linear_motor_controller\",x:-732,y:170,z:-780}",
+    "span": "{Segments:[{From:-197637218369366L,T0:0.0d,T1:1.0d,To:-197637218123606L}]}",
+    "cars": [
+      {
+        "chassis": "5040c2d5-aa37-4e1d-9429-e886a8eccd4a",
+        "ready": true,
+        "restraints": true,
+        "fault": "",
+        "consist": 1,
+        "distance": 32.32250979339881,
+        "speed": 0.00016789970686659217,
+        "carriers": [
+          {
+            "body": "810f026f-9a50-4faa-ae9b-2f8a8e78cc75",
+            "loaded": true,
+            "capture": true,
+            "riders": []
+          },
+          {
+            "body": "4da3ae62-5b66-458c-a4e5-7b245bc1d234",
+            "loaded": true,
+            "capture": true,
+            "riders": []
+          },
+          {
+            "body": "1adab7c0-7d22-4b30-9d9e-e746ad37818f",
+            "loaded": true,
+            "capture": true,
+            "riders": []
+          },
+          {
+            "body": "d0d918bd-9a97-4725-a25f-16d0cbe9ad78",
+            "loaded": true,
+            "capture": true,
+            "riders": [
+              {
+                "id": "51993e27-9d11-4d85-a5c9-76f1d0b5a628",
+                "alive": true,
+                "mounted": true,
+                "carrier": "d0d918bd-9a97-4725-a25f-16d0cbe9ad78"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "label": "captured",
+    "family": "ZACSPIN_REVISED",
+    "tick": 1790,
+    "required": true,
+    "energy": 11481,
+    "anchor": "{AnchorPeerCurveTints:[],AnchorPeerCurves:[{Bezier:{Axes:[{V:[0.0d,0.0d,1.0d]},{V:[0.0d,0.0d,-1.0d]}],Girder:0b,Material:\"simulatedcoasters:coaster_track\",Normals:[{V:[0.0d,1.0d,0.0d]},{V:[0.0d,1.0d,0.0d]}],Positions:[{Pos:[I;0,0,0]},{Pos:[I;0,0,60]}],Primary:1b,Starts:[{V:[0.5d,0.75d,0.5d]},{V:[0.5d,0.75d,60.5d]}]},HHi:20.0d,HLo:20.0d,Peer:-186642101845846L}],CoasterfinsSpanAnimation:0b,CoasterfinsSpanDelay:0b,CoasterfinsSpanMode:\"boost\",CoasterfinsSpanParticles:1b,CoasterfinsSpanSound:1b,CoastersEngineeredEnergy:11481,CoastersEngineeredMotorSpan:{Segments:[{From:-186642102091606L,T0:0.0d,T1:1.0d,To:-186642101845846L}]},JointBank:0.0f,NeoForgeData:{},ScrollValue:100,Speed:0.0f,WoodenCurves:[],id:\"simulatedcoasters:coaster_anchorpoint\",x:-680,y:170,z:-800}",
+    "motor": "{CoastersEngineeredAnchor:-186642102091606L,CoastersEngineeredDriving:1b,CoastersEngineeredLastCart:{Speed:5.0175872E-6f,Ticks:200},CoastersEngineeredPass:0,CoastersEngineeredPassReached:0.0d,CoastersEngineeredPassShort:0b,CoastersEngineeredPassStarved:0b,CoastersEngineeredPassTarget:0,CoastersEngineeredPrevPowered:0b,CoastersEngineeredReturning:0b,CoastersEngineeredSequence:[{Heading:\"FORWARD\",Kind:\"LAUNCH\",Value:4}],CoastersEngineeredStarving:0b,CoastersEngineeredStep:0,id:\"coastersengineered:linear_motor_controller\",x:-692,y:170,z:-780}",
+    "span": "{Segments:[{From:-186642102091606L,T0:0.0d,T1:1.0d,To:-186642101845846L}]}",
+    "cars": [
+      {
+        "chassis": "80ec0e39-f6fe-4bc1-a463-330eb695849f",
+        "ready": true,
+        "restraints": true,
+        "fault": "",
+        "consist": 1,
+        "distance": 32.34027102051823,
+        "speed": -9.418665740668075e-07,
+        "carriers": [
+          {
+            "body": "65be9206-76e9-4d31-ae5b-5a1c6c6f99d6",
+            "loaded": true,
+            "capture": true,
+            "riders": []
+          },
+          {
+            "body": "43c28659-bfa7-4853-9961-2e4452b08e3d",
+            "loaded": true,
+            "capture": true,
+            "riders": []
+          },
+          {
+            "body": "daf9e63a-077b-47ef-8f9e-3220167284dc",
+            "loaded": true,
+            "capture": true,
+            "riders": []
+          },
+          {
+            "body": "9fbd58f0-b0eb-4ee7-877d-03013a496582",
+            "loaded": true,
+            "capture": true,
+            "riders": [
+              {
+                "id": "77032cfc-1cc7-4cf2-b846-2810842cfbdf",
+                "alive": true,
+                "mounted": true,
+                "carrier": "9fbd58f0-b0eb-4ee7-877d-03013a496582"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "label": "unloaded",
+    "family": "ARROW",
+    "tick": 1800,
+    "required": true,
+    "energy": 11498,
+    "anchor": "{AnchorPeerCurveTints:[],AnchorPeerCurves:[{Bezier:{Axes:[{V:[0.0d,0.0d,1.0d]},{V:[0.0d,0.0d,-1.0d]}],Girder:0b,Material:\"simulatedcoasters:coaster_track\",Normals:[{V:[0.0d,1.0d,0.0d]},{V:[0.0d,1.0d,0.0d]}],Positions:[{Pos:[I;0,0,0]},{Pos:[I;0,0,60]}],Primary:1b,Starts:[{V:[0.5d,0.75d,0.5d]},{V:[0.5d,0.75d,60.5d]}]},HHi:20.0d,HLo:20.0d,Peer:-219627450679126L}],CoasterfinsSpanAnimation:0b,CoasterfinsSpanDelay:0b,CoasterfinsSpanMode:\"boost\",CoasterfinsSpanParticles:1b,CoasterfinsSpanSound:1b,CoastersEngineeredEnergy:11498,CoastersEngineeredMotorSpan:{Segments:[{From:-219627450924886L,T0:0.0d,T1:1.0d,To:-219627450679126L}]},JointBank:0.0f,NeoForgeData:{},ScrollValue:100,Speed:0.0f,WoodenCurves:[],id:\"simulatedcoasters:coaster_anchorpoint\",x:-800,y:170,z:-800}",
+    "motor": "{CoastersEngineeredAnchor:-219627450924886L,CoastersEngineeredDriving:1b,CoastersEngineeredLastCart:{Speed:4.4607584E-4f,Ticks:200},CoastersEngineeredPass:0,CoastersEngineeredPassReached:0.0d,CoastersEngineeredPassShort:0b,CoastersEngineeredPassStarved:0b,CoastersEngineeredPassTarget:0,CoastersEngineeredPrevPowered:0b,CoastersEngineeredReturning:0b,CoastersEngineeredSequence:[{Heading:\"FORWARD\",Kind:\"LAUNCH\",Value:4}],CoastersEngineeredStarving:0b,CoastersEngineeredStep:0,id:\"coastersengineered:linear_motor_controller\",x:-812,y:170,z:-780}",
+    "span": "{Segments:[{From:-219627450924886L,T0:0.0d,T1:1.0d,To:-219627450679126L}]}",
+    "cars": [
+      {
+        "chassis": "b6524ce9-d727-4dbf-bd51-9f512dee71ae",
+        "ready": true,
+        "restraints": false,
+        "fault": "",
+        "consist": 2,
+        "distance": 31.3517453262034,
+        "speed": 0.0012145054060965776,
+        "carriers": [
+          {
+            "body": "ae81f99d-7c18-47ca-bba2-8cc1da4341aa",
+            "loaded": true,
+            "capture": true,
+            "riders": []
+          },
+          {
+            "body": "0561ae9a-335a-486a-bc2f-d186ef7251a2",
+            "loaded": true,
+            "capture": true,
+            "riders": []
+          }
+        ]
+      },
+      {
+        "chassis": "72aa2550-5ed8-4f2b-8211-c0fe72304190",
+        "ready": true,
+        "restraints": false,
+        "fault": "",
+        "consist": 2,
+        "distance": 25.35174404594852,
+        "speed": -0.00043460039887577295,
+        "carriers": [
+          {
+            "body": "8616f6c7-2943-45ae-a2ea-a90cda798671",
+            "loaded": true,
+            "capture": true,
+            "riders": []
+          },
+          {
+            "body": "72bff747-a07d-4779-9e37-905abfc437d2",
+            "loaded": true,
+            "capture": true,
+            "riders": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "label": "unloaded",
+    "family": "ZACSPIN",
+    "tick": 1800,
+    "required": true,
+    "energy": 11832,
+    "anchor": "{AnchorPeerCurveTints:[],AnchorPeerCurves:[{Bezier:{Axes:[{V:[0.0d,0.0d,1.0d]},{V:[0.0d,0.0d,-1.0d]}],Girder:0b,Material:\"simulatedcoasters:coaster_track\",Normals:[{V:[0.0d,1.0d,0.0d]},{V:[0.0d,1.0d,0.0d]}],Positions:[{Pos:[I;0,0,0]},{Pos:[I;0,0,60]}],Primary:1b,Starts:[{V:[0.5d,0.75d,0.5d]},{V:[0.5d,0.75d,60.5d]}]},HHi:20.0d,HLo:20.0d,Peer:-208632334401366L}],CoasterfinsSpanAnimation:0b,CoasterfinsSpanDelay:0b,CoasterfinsSpanMode:\"boost\",CoasterfinsSpanParticles:1b,CoasterfinsSpanSound:1b,CoastersEngineeredEnergy:11832,CoastersEngineeredMotorSpan:{Segments:[{From:-208632334647126L,T0:0.0d,T1:1.0d,To:-208632334401366L}]},JointBank:0.0f,NeoForgeData:{},ScrollValue:100,Speed:0.0f,WoodenCurves:[],id:\"simulatedcoasters:coaster_anchorpoint\",x:-760,y:170,z:-800}",
+    "motor": "{CoastersEngineeredAnchor:-208632334647126L,CoastersEngineeredDriving:1b,CoastersEngineeredLastCart:{Speed:3.1827614E-5f,Ticks:200},CoastersEngineeredPass:0,CoastersEngineeredPassReached:0.0d,CoastersEngineeredPassShort:0b,CoastersEngineeredPassStarved:0b,CoastersEngineeredPassTarget:0,CoastersEngineeredPrevPowered:0b,CoastersEngineeredReturning:0b,CoastersEngineeredSequence:[{Heading:\"FORWARD\",Kind:\"LAUNCH\",Value:4}],CoastersEngineeredStarving:0b,CoastersEngineeredStep:0,id:\"coastersengineered:linear_motor_controller\",x:-772,y:170,z:-780}",
+    "span": "{Segments:[{From:-208632334647126L,T0:0.0d,T1:1.0d,To:-208632334401366L}]}",
+    "cars": [
+      {
+        "chassis": "78415ae1-d102-48e0-92a5-4cb8283f1d35",
+        "ready": true,
+        "restraints": false,
+        "fault": "",
+        "consist": 1,
+        "distance": 31.730468848969508,
+        "speed": -0.0001616696681594476,
+        "carriers": [
+          {
+            "body": "d5c4f843-ca09-420e-894b-c213eaa5045a",
+            "loaded": true,
+            "capture": true,
+            "riders": []
+          },
+          {
+            "body": "8c67b031-8a60-4b0b-b57d-8b05a6c7e64b",
+            "loaded": true,
+            "capture": true,
+            "riders": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "label": "unloaded",
+    "family": "FREE_SPIN",
+    "tick": 1800,
+    "required": true,
+    "energy": 11507,
+    "anchor": "{AnchorPeerCurveTints:[],AnchorPeerCurves:[{Bezier:{Axes:[{V:[0.0d,0.0d,1.0d]},{V:[0.0d,0.0d,-1.0d]}],Girder:0b,Material:\"simulatedcoasters:coaster_track\",Normals:[{V:[0.0d,1.0d,0.0d]},{V:[0.0d,1.0d,0.0d]}],Positions:[{Pos:[I;0,0,0]},{Pos:[I;0,0,60]}],Primary:1b,Starts:[{V:[0.5d,0.75d,0.5d]},{V:[0.5d,0.75d,60.5d]}]},HHi:20.0d,HLo:20.0d,Peer:-197637218123606L}],CoasterfinsSpanAnimation:0b,CoasterfinsSpanDelay:0b,CoasterfinsSpanMode:\"boost\",CoasterfinsSpanParticles:1b,CoasterfinsSpanSound:1b,CoastersEngineeredEnergy:11507,CoastersEngineeredMotorSpan:{Segments:[{From:-197637218369366L,T0:0.0d,T1:1.0d,To:-197637218123606L}]},JointBank:0.0f,NeoForgeData:{},ScrollValue:100,Speed:0.0f,WoodenCurves:[],id:\"simulatedcoasters:coaster_anchorpoint\",x:-720,y:170,z:-800}",
+    "motor": "{CoastersEngineeredAnchor:-197637218369366L,CoastersEngineeredDriving:1b,CoastersEngineeredLastCart:{Speed:2.1832178E-5f,Ticks:200},CoastersEngineeredPass:0,CoastersEngineeredPassReached:0.0d,CoastersEngineeredPassShort:0b,CoastersEngineeredPassStarved:0b,CoastersEngineeredPassTarget:0,CoastersEngineeredPrevPowered:0b,CoastersEngineeredReturning:0b,CoastersEngineeredSequence:[{Heading:\"FORWARD\",Kind:\"LAUNCH\",Value:4}],CoastersEngineeredStarving:0b,CoastersEngineeredStep:0,id:\"coastersengineered:linear_motor_controller\",x:-732,y:170,z:-780}",
+    "span": "{Segments:[{From:-197637218369366L,T0:0.0d,T1:1.0d,To:-197637218123606L}]}",
+    "cars": [
+      {
+        "chassis": "5040c2d5-aa37-4e1d-9429-e886a8eccd4a",
+        "ready": true,
+        "restraints": false,
+        "fault": "",
+        "consist": 1,
+        "distance": 32.32250977137949,
+        "speed": -1.3859028058504919e-06,
+        "carriers": [
+          {
+            "body": "810f026f-9a50-4faa-ae9b-2f8a8e78cc75",
+            "loaded": true,
+            "capture": true,
+            "riders": []
+          },
+          {
+            "body": "4da3ae62-5b66-458c-a4e5-7b245bc1d234",
+            "loaded": true,
+            "capture": true,
+            "riders": []
+          },
+          {
+            "body": "1adab7c0-7d22-4b30-9d9e-e746ad37818f",
+            "loaded": true,
+            "capture": true,
+            "riders": []
+          },
+          {
+            "body": "d0d918bd-9a97-4725-a25f-16d0cbe9ad78",
+            "loaded": true,
+            "capture": true,
+            "riders": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "label": "unloaded",
+    "family": "ZACSPIN_REVISED",
+    "tick": 1800,
+    "required": true,
+    "energy": 11481,
+    "anchor": "{AnchorPeerCurveTints:[],AnchorPeerCurves:[{Bezier:{Axes:[{V:[0.0d,0.0d,1.0d]},{V:[0.0d,0.0d,-1.0d]}],Girder:0b,Material:\"simulatedcoasters:coaster_track\",Normals:[{V:[0.0d,1.0d,0.0d]},{V:[0.0d,1.0d,0.0d]}],Positions:[{Pos:[I;0,0,0]},{Pos:[I;0,0,60]}],Primary:1b,Starts:[{V:[0.5d,0.75d,0.5d]},{V:[0.5d,0.75d,60.5d]}]},HHi:20.0d,HLo:20.0d,Peer:-186642101845846L}],CoasterfinsSpanAnimation:0b,CoasterfinsSpanDelay:0b,CoasterfinsSpanMode:\"boost\",CoasterfinsSpanParticles:1b,CoasterfinsSpanSound:1b,CoastersEngineeredEnergy:11481,CoastersEngineeredMotorSpan:{Segments:[{From:-186642102091606L,T0:0.0d,T1:1.0d,To:-186642101845846L}]},JointBank:0.0f,NeoForgeData:{},ScrollValue:100,Speed:0.0f,WoodenCurves:[],id:\"simulatedcoasters:coaster_anchorpoint\",x:-680,y:170,z:-800}",
+    "motor": "{CoastersEngineeredAnchor:-186642102091606L,CoastersEngineeredDriving:1b,CoastersEngineeredLastCart:{Speed:1.1144684E-6f,Ticks:200},CoastersEngineeredPass:0,CoastersEngineeredPassReached:0.0d,CoastersEngineeredPassShort:0b,CoastersEngineeredPassStarved:0b,CoastersEngineeredPassTarget:0,CoastersEngineeredPrevPowered:0b,CoastersEngineeredReturning:0b,CoastersEngineeredSequence:[{Heading:\"FORWARD\",Kind:\"LAUNCH\",Value:4}],CoastersEngineeredStarving:0b,CoastersEngineeredStep:0,id:\"coastersengineered:linear_motor_controller\",x:-692,y:170,z:-780}",
+    "span": "{Segments:[{From:-186642102091606L,T0:0.0d,T1:1.0d,To:-186642101845846L}]}",
+    "cars": [
+      {
+        "chassis": "80ec0e39-f6fe-4bc1-a463-330eb695849f",
+        "ready": true,
+        "restraints": false,
+        "fault": "",
+        "consist": 1,
+        "distance": 32.3402710038182,
+        "speed": -8.959562478594307e-07,
+        "carriers": [
+          {
+            "body": "65be9206-76e9-4d31-ae5b-5a1c6c6f99d6",
+            "loaded": true,
+            "capture": true,
+            "riders": []
+          },
+          {
+            "body": "43c28659-bfa7-4853-9961-2e4452b08e3d",
+            "loaded": true,
+            "capture": true,
+            "riders": []
+          },
+          {
+            "body": "daf9e63a-077b-47ef-8f9e-3220167284dc",
+            "loaded": true,
+            "capture": true,
+            "riders": []
+          },
+          {
+            "body": "9fbd58f0-b0eb-4ee7-877d-03013a496582",
+            "loaded": true,
+            "capture": true,
+            "riders": []
+          }
+        ]
+      }
+    ]
+  }
+]

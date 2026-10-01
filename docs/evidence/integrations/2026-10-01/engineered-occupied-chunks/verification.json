@@ -1,0 +1,51 @@
+{
+  "scope": "Five native pigs; parked and moving chunk eviction/reload; four straight families",
+  "profiles": {
+    "combined": {
+      "ARROW": {
+        "parked_fe": 12345,
+        "moving_before_fe": 12025,
+        "moving_restored_fe": 11498
+      },
+      "ZACSPIN": {
+        "parked_fe": 12346,
+        "moving_before_fe": 12186,
+        "moving_restored_fe": 11832
+      },
+      "FREE_SPIN": {
+        "parked_fe": 12347,
+        "moving_before_fe": 12117,
+        "moving_restored_fe": 11507
+      },
+      "ZACSPIN_REVISED": {
+        "parked_fe": 12348,
+        "moving_before_fe": 12113,
+        "moving_restored_fe": 11481
+      }
+    },
+    "isolated": {
+      "ARROW": {
+        "parked_fe": 12345,
+        "moving_before_fe": 12025,
+        "moving_restored_fe": 11498
+      },
+      "ZACSPIN": {
+        "parked_fe": 12346,
+        "moving_before_fe": 12186,
+        "moving_restored_fe": 11832
+      },
+      "FREE_SPIN": {
+        "parked_fe": 12347,
+        "moving_before_fe": 12117,
+        "moving_restored_fe": 11507
+      },
+      "ZACSPIN_REVISED": {
+        "parked_fe": 12348,
+        "moving_before_fe": 12113,
+        "moving_restored_fe": 11481
+      }
+    }
+  },
+  "native_profiles": 3,
+  "unit_tests": 19
+}
