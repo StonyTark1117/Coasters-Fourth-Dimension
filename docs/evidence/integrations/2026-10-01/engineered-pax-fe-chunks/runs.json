@@ -1,0 +1,27 @@
+{
+  "base": {
+    "full_log": "/tmp/fd-pax-fe-chunks-final-base.log",
+    "sha256": "c28a00befc1e47b53756c84df3cb81d431b48171d095dce455607c0f8264840e",
+    "exit_status": 0
+  },
+  "engineered_default": {
+    "full_log": "/tmp/fd-pax-fe-chunks-final-engineered_default.log",
+    "sha256": "42f3b23a2dbb2741f32acdafc91f2bca9fbc4efcf7c28cac39b0f52c5b574cd4",
+    "exit_status": 0
+  },
+  "engineered_fe": {
+    "full_log": "/tmp/fd-pax-fe-chunks-final-engineered_fe.log",
+    "sha256": "e77225eee1f720cc9867313e8fdb5407de4ca2409666155e99ba6bab5de78269",
+    "exit_status": 0
+  },
+  "combined_fe": {
+    "full_log": "/tmp/fd-pax-fe-chunks-final-combined_fe.log",
+    "sha256": "981a6227812d8c5179418b8ff1a9d4cc4261403982a8e4fc962e265916854756",
+    "exit_status": 0
+  },
+  "exploratory": {
+    "full_log": "/tmp/fd-pax-fe-chunks1.log",
+    "sha256": "537ee9c9018d231e53d697e242d9dd6a8b51ac63d8a8ce56b50c3c4cd35cec6a",
+    "exit_status": 0
+  }
+}

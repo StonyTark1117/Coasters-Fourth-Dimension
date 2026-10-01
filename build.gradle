@@ -55,6 +55,7 @@ neoForge {
             type = 'gameTestServer'
             gameDirectory = layout.buildDirectory.dir('runs/gametest').get().asFile
             systemProperty 'neoforge.enabledGameTestNamespaces', 'fourthdimension'
+            systemProperty 'fourthdimension.paxEnergyReload', project.hasProperty('fdPaxEnergyReload').toString()
         }
         configureEach {
             logLevel = org.slf4j.event.Level.INFO

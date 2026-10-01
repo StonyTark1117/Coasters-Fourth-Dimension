@@ -1,0 +1,228 @@
+{
+  "profiles": {
+    "base": {
+      "CAPTURING": {
+        "action": "resume",
+        "eviction_ticks": 250,
+        "largest_initial_reload_step_blocks": 0.5476663973855811,
+        "lead_travel_during_wait_blocks": 6.821210263296962e-13,
+        "wait_after_initial_100_ticks": 60
+      },
+      "LIFTING": {
+        "action": "resume",
+        "eviction_ticks": 250,
+        "largest_initial_reload_step_blocks": 0.0034235979102578804,
+        "lead_travel_during_wait_blocks": 1.87480964086717e-09,
+        "wait_after_initial_100_ticks": 60
+      },
+      "OUTBOUND": {
+        "action": "recover",
+        "eviction_ticks": 250,
+        "largest_initial_reload_step_blocks": 0.10335125811548929,
+        "lead_travel_during_wait_blocks": 15.636251225509362,
+        "wait_after_initial_100_ticks": 4918
+      },
+      "RETURNING": {
+        "action": "recover",
+        "eviction_ticks": 250,
+        "largest_initial_reload_step_blocks": 0.10533744255208109,
+        "lead_travel_during_wait_blocks": 7.911119644207229,
+        "wait_after_initial_100_ticks": 2556
+      }
+    },
+    "combined_fe": {
+      "CAPTURING": {
+        "action": "resume",
+        "controller_presence_ticks": {
+          "BOARDING": 20,
+          "CAPTURING": 80,
+          "FAULT": 159,
+          "LIFTING": 338,
+          "OUTBOUND": 174,
+          "RETURNING": 58
+        },
+        "eviction_ticks": 250,
+        "largest_initial_reload_step_blocks": 0.5483387926061574,
+        "lead_travel_during_wait_blocks": 9.094947017729282e-13,
+        "restored_energy_fe": 12349,
+        "wait_after_initial_100_ticks": 60
+      },
+      "LIFTING": {
+        "action": "resume",
+        "controller_presence_ticks": {
+          "BOARDING": 20,
+          "CAPTURING": 98,
+          "FAULT": 159,
+          "LIFTING": 338,
+          "OUTBOUND": 174,
+          "RETURNING": 58
+        },
+        "eviction_ticks": 250,
+        "largest_initial_reload_step_blocks": 0.0034147274225085475,
+        "lead_travel_during_wait_blocks": 4.257003638485912e-09,
+        "restored_energy_fe": 12346,
+        "wait_after_initial_100_ticks": 60
+      },
+      "OUTBOUND": {
+        "action": "recover",
+        "controller_presence_ticks": {
+          "BOARDING": 20,
+          "CAPTURING": 344,
+          "FAULT": 5010,
+          "LIFTING": 338,
+          "OUTBOUND": 5
+        },
+        "eviction_ticks": 250,
+        "largest_initial_reload_step_blocks": 0.10333320263925978,
+        "lead_travel_during_wait_blocks": 15.618861565152834,
+        "restored_energy_fe": 12347,
+        "wait_after_initial_100_ticks": 4911
+      },
+      "RETURNING": {
+        "action": "recover",
+        "controller_presence_ticks": {
+          "BOARDING": 20,
+          "CAPTURING": 286,
+          "FAULT": 2655,
+          "LIFTING": 338,
+          "OUTBOUND": 174,
+          "RETURNING": 5
+        },
+        "eviction_ticks": 250,
+        "largest_initial_reload_step_blocks": 0.10530704566888617,
+        "lead_travel_during_wait_blocks": 8.413170230271257,
+        "restored_energy_fe": 12348,
+        "wait_after_initial_100_ticks": 2556
+      }
+    },
+    "engineered_default": {
+      "CAPTURING": {
+        "action": "resume",
+        "controller_presence_ticks": {
+          "BOARDING": 20,
+          "CAPTURING": 80,
+          "FAULT": 159,
+          "LIFTING": 338,
+          "OUTBOUND": 174,
+          "RETURNING": 58
+        },
+        "eviction_ticks": 250,
+        "largest_initial_reload_step_blocks": 0.5483387926503817,
+        "lead_travel_during_wait_blocks": 5.684341886080801e-13,
+        "wait_after_initial_100_ticks": 60
+      },
+      "LIFTING": {
+        "action": "resume",
+        "controller_presence_ticks": {
+          "BOARDING": 20,
+          "CAPTURING": 90,
+          "FAULT": 159,
+          "LIFTING": 338,
+          "OUTBOUND": 174,
+          "RETURNING": 59
+        },
+        "eviction_ticks": 250,
+        "largest_initial_reload_step_blocks": 0.003364988860331378,
+        "lead_travel_during_wait_blocks": 1.8137939150619786e-08,
+        "wait_after_initial_100_ticks": 60
+      },
+      "OUTBOUND": {
+        "action": "recover",
+        "controller_presence_ticks": {
+          "BOARDING": 20,
+          "CAPTURING": 347,
+          "FAULT": 4988,
+          "LIFTING": 338,
+          "OUTBOUND": 5
+        },
+        "eviction_ticks": 250,
+        "largest_initial_reload_step_blocks": 0.10333388370801493,
+        "lead_travel_during_wait_blocks": 15.57685774186769,
+        "wait_after_initial_100_ticks": 4889
+      },
+      "RETURNING": {
+        "action": "recover",
+        "controller_presence_ticks": {
+          "BOARDING": 20,
+          "CAPTURING": 286,
+          "FAULT": 2644,
+          "LIFTING": 338,
+          "OUTBOUND": 174,
+          "RETURNING": 5
+        },
+        "eviction_ticks": 250,
+        "largest_initial_reload_step_blocks": 0.10532080953967383,
+        "lead_travel_during_wait_blocks": 7.572053502445051,
+        "wait_after_initial_100_ticks": 2545
+      }
+    },
+    "engineered_fe": {
+      "CAPTURING": {
+        "action": "resume",
+        "controller_presence_ticks": {
+          "BOARDING": 20,
+          "CAPTURING": 74,
+          "FAULT": 159,
+          "LIFTING": 338,
+          "OUTBOUND": 174,
+          "RETURNING": 59
+        },
+        "eviction_ticks": 250,
+        "largest_initial_reload_step_blocks": 0.5481556609038772,
+        "lead_travel_during_wait_blocks": 3.410605131648481e-13,
+        "restored_energy_fe": 12349,
+        "wait_after_initial_100_ticks": 60
+      },
+      "LIFTING": {
+        "action": "resume",
+        "controller_presence_ticks": {
+          "BOARDING": 20,
+          "CAPTURING": 91,
+          "FAULT": 159,
+          "LIFTING": 338,
+          "OUTBOUND": 174,
+          "RETURNING": 59
+        },
+        "eviction_ticks": 250,
+        "largest_initial_reload_step_blocks": 0.0034235088240314056,
+        "lead_travel_during_wait_blocks": 8.990041525334431e-08,
+        "restored_energy_fe": 12346,
+        "wait_after_initial_100_ticks": 60
+      },
+      "OUTBOUND": {
+        "action": "recover",
+        "controller_presence_ticks": {
+          "BOARDING": 20,
+          "CAPTURING": 343,
+          "FAULT": 4999,
+          "LIFTING": 338,
+          "OUTBOUND": 5
+        },
+        "eviction_ticks": 250,
+        "largest_initial_reload_step_blocks": 0.10333621264627044,
+        "lead_travel_during_wait_blocks": 15.596201065382377,
+        "restored_energy_fe": 12347,
+        "wait_after_initial_100_ticks": 4900
+      },
+      "RETURNING": {
+        "action": "recover",
+        "controller_presence_ticks": {
+          "BOARDING": 20,
+          "CAPTURING": 285,
+          "FAULT": 2677,
+          "LIFTING": 338,
+          "OUTBOUND": 174,
+          "RETURNING": 5
+        },
+        "eviction_ticks": 250,
+        "largest_initial_reload_step_blocks": 0.10521905243249001,
+        "lead_travel_during_wait_blocks": 8.156442614902753,
+        "restored_energy_fe": 12348,
+        "wait_after_initial_100_ticks": 2578
+      }
+    }
+  },
+  "registered_tests": 33,
+  "scope": "Four occupied PAX native chunk interruption phases with exact FE and selected equipment configuration restoration",
+  "unit_tests": 19
+}

@@ -42,7 +42,15 @@ public final class EngineeredShuttleCheck {
       GameTestHelper helper,
       ShuttleExamples.Example example,
       ShuttleWinchEntity.Phase interruptedPhase) {
-    return attach(helper, example, true, interruptedPhase, false);
+    return attachReload(helper, example, interruptedPhase, false);
+  }
+
+  public static Runnable attachReload(
+      GameTestHelper helper,
+      ShuttleExamples.Example example,
+      ShuttleWinchEntity.Phase interruptedPhase,
+      boolean energyRequired) {
+    return attach(helper, example, true, interruptedPhase, energyRequired);
   }
 
   private static Runnable attach(
@@ -102,7 +110,15 @@ public final class EngineeredShuttleCheck {
       helper.assertTrue(
           energy != null && energy.canReceive() && energy.canExtract(),
           "PAX span did not expose the native FE capability");
-    int[] expectedEnergy = {0}, energyTicks = {0};
+    int[] expectedEnergy = {energyRequired && reload ? 12345 + interruptedPhase.ordinal() : 0};
+    int[] energyTicks = {0}, restoredEquipment = {0};
+    if (energyRequired && reload)
+      helper.assertTrue(
+          energy.receiveEnergy(expectedEnergy[0], false) == expectedEnergy[0],
+          "Could not seed native reload FE balance");
+    var checkedMotor = new LinearMotorControllerBlockEntity[] {motor};
+    var checkedObserver = new CoasterObserverBlockEntity[] {observer};
+    var checkedEnergy = new net.neoforged.neoforge.energy.IEnergyStorage[] {energy};
     var energyStages =
         new EnumMap<ShuttleWinchEntity.Phase, Set<Integer>>(ShuttleWinchEntity.Phase.class);
     System.out.println(
@@ -114,8 +130,15 @@ public final class EngineeredShuttleCheck {
             + example.cars().size());
     String prefix =
         energyRequired
-            ? "FD_ENGINEERED_PAX_FE"
+            ? reload ? "FD_ENGINEERED_PAX_FE_PHASE_" + interruptedPhase : "FD_ENGINEERED_PAX_FE"
             : reload ? "FD_ENGINEERED_PAX_PHASE_" + interruptedPhase : "FD_ENGINEERED_PAX";
+    if (energyRequired && reload)
+      System.out.println(
+          prefix
+              + "_SEEDED stored="
+              + expectedEnergy[0]
+              + " capacity="
+              + energy.getMaxEnergyStored());
     return () -> {
       var currentWinch = winch;
       var currentMotor = motor;
@@ -141,19 +164,66 @@ public final class EngineeredShuttleCheck {
         if (currentWinch == null || currentMotor == null || currentObserver == null) return;
       }
       var phase = currentWinch.phase;
+      var currentEnergy = energy;
+      if (energyRequired && reload) {
+        currentEnergy =
+            level.getCapability(
+                net.neoforged.neoforge.capabilities.Capabilities.EnergyStorage.BLOCK,
+                anchor,
+                net.minecraft.core.Direction.DOWN);
+        helper.assertTrue(currentEnergy != null, "Reloaded PAX span lost its FE capability");
+        if (currentMotor != checkedMotor[0]) {
+          helper.assertTrue(
+              checkedMotor[0].isRemoved()
+                  && checkedObserver[0].isRemoved()
+                  && currentObserver != checkedObserver[0]
+                  && currentEnergy != checkedEnergy[0],
+              "PAX equipment did not reload as fresh native instances");
+          sameFields(
+              helper,
+              "controller",
+              checkedMotor[0].saveWithFullMetadata(level.registryAccess()),
+              currentMotor.saveWithFullMetadata(level.registryAccess()),
+              "Anchor",
+              "Sequence",
+              "Step");
+          sameFields(
+              helper,
+              "observer",
+              checkedObserver[0].saveWithFullMetadata(level.registryAccess()),
+              currentObserver.saveWithFullMetadata(level.registryAccess()),
+              "Watching");
+          helper.assertTrue(
+              span.span().equals(TrackSpanBehaviour.at(level, anchor).span()),
+              "Native reload changed the complete PAX span");
+          helper.assertTrue(
+              currentEnergy.getEnergyStored() == expectedEnergy[0],
+              "Native reload changed the PAX FE balance");
+          restoredEquipment[0]++;
+          System.out.println(
+              prefix
+                  + "_RELOADED stored="
+                  + currentEnergy.getEnergyStored()
+                  + " freshMotor=true freshObserver=true freshEnergy=true controller=true span=true"
+                  + " observer=true");
+          checkedMotor[0] = currentMotor;
+          checkedObserver[0] = currentObserver;
+          checkedEnergy[0] = currentEnergy;
+        }
+      }
       if (energyRequired) {
         helper.assertTrue(
             CoastersEngineeredConfig.get(CoastersEngineeredConfig.REQUIRE_ENERGY),
             "PAX FE requirement changed during its batch");
         helper.assertTrue(
-            energy.getEnergyStored() == expectedEnergy[0],
+            currentEnergy.getEnergyStored() == expectedEnergy[0],
             "External PAX motor consumed or regenerated FE: expected="
                 + expectedEnergy[0]
                 + " actual="
-                + energy.getEnergyStored());
+                + currentEnergy.getEnergyStored());
         if (previous[0] != phase) energyTicks[0] = 0;
         int age = energyTicks[0]++;
-        if (age == 0 || age == 5 || age == 10 || age == 15) {
+        if (!reload && (age == 0 || age == 5 || age == 10 || age == 15)) {
           int target =
               age == 5
                   ? energy.getMaxEnergyStored()
@@ -215,7 +285,11 @@ public final class EngineeredShuttleCheck {
           helper.assertTrue(
               sightings.getOrDefault(required, 0) > 2,
               "Engineered motor never reported a PAX train in " + required);
-        if (energyRequired)
+        if (energyRequired && reload)
+          helper.assertTrue(
+              restoredEquipment[0] == 1,
+              "PAX FE probe did not verify one native equipment restoration");
+        if (energyRequired && !reload)
           for (var required : requiredPhases)
             helper.assertTrue(
                 energyStages.getOrDefault(required, Set.of()).containsAll(Set.of(0, 5, 10, 15)),
@@ -232,6 +306,22 @@ public final class EngineeredShuttleCheck {
                 + sightings);
       }
     };
+  }
+
+  private static void sameFields(
+      GameTestHelper helper,
+      String kind,
+      net.minecraft.nbt.CompoundTag previous,
+      net.minecraft.nbt.CompoundTag current,
+      String... fields) {
+    for (var field : fields) {
+      var key = dev.jwaterfall.coastersengineered.CoastersEngineered.storageKey(field);
+      helper.assertTrue(
+          previous.contains(key)
+              && current.contains(key)
+              && Objects.equals(previous.get(key), current.get(key)),
+          "Native PAX reload changed " + kind + " " + field);
+    }
   }
 
   private static MotorStep command(ShuttleWinchEntity.Phase phase) {

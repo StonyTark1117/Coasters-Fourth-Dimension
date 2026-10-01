@@ -117,8 +117,18 @@ physical winch retains ownership, including its power-loss fault and explicit re
 The probes require exact energy balances, original rider/carrier attachments and
 occupied telemetry. Base, Engineered-only and combined profiles pass all 33 registered
 native tests (with explicit optional skips) and 19 unit tests. This is direct capability
-input; FE-powered PAX chunk/cold-restart,
-human-client and external-energy-network checks remain separate acceptance work.
+input; the chunk-recovery extension below adds FE-powered PAX interruption evidence.
+Cold restart, human clients and external energy networks remain separate acceptance work.
+
+The [FE-powered phase-recovery extension](evidence/integrations/2026-10-01/engineered-pax-fe-chunks/README.md)
+runs the same four native interruption fixtures with `-PfdPaxEnergyReload`. It checks
+nonzero FE and selected controller/observer configuration on fresh block entities
+before issuing recovery-phase commands. The original native body, occupancy, restraint,
+mechanical hold and explicit recovery assertions remain in force. Cold process restart,
+human clients, external power networks and arbitrary controller-program resumption
+remain outside this fixture. Base, default Engineered, FE-enabled Engineered and
+FE-enabled combined profiles each pass 33 registered native tests, with respectively
+6, 3, 3 and 0 explicit absent-addon skips; the build passes 19 unit tests.
 
 A separate [FE acceptance fixture](evidence/integrations/2026-09-30/engineered-energy/README.md)
 enables the energy requirement for a linked Arrow pair and single legacy, Free Spin
@@ -415,7 +425,8 @@ completes the gravity-return/capture cycle and normal unloading. The Engineered
 variant also evicts/reloads its controller and observer and exercises competing
 commands throughout recovery under the default energy-free configuration. This
 earlier checkpoint covered lift interruption only. The follow-up below extends the
-phase coverage; FE-on PAX lifecycle and human-player/client recovery remain open.
+phase coverage. The FE-enabled extension below covers native chunk recovery; cold
+restart and human-player/client recovery remain open.
 
 The [PAX phase-recovery follow-up](evidence/integrations/2026-10-01/pax-phase-recovery/README.md)
 extends the native fixture to outbound, returning and capture interruptions. It
@@ -427,6 +438,14 @@ recovery; they do not promise an instantaneous stationary hold on a slope. All f
 occupied phase regressions pass in base, five individual-addon and combined native
 profiles, with 32 registered checks and explicit absent-addon skips per profile,
 plus 19 unit tests. This does not close the wider lifecycle/client matrix.
+
+The [FE-enabled PAX extension](evidence/integrations/2026-10-01/engineered-pax-fe-chunks/README.md)
+now repeats all four interruptions with Engineered energy required, retaining exact
+nonzero FE balances and selected controller/observer configuration on fresh native
+instances. Both Engineered-only and combined-pack runs preserve sixteen native
+passenger mounts through recovery and normal unloading. The full four-profile
+checkpoint passes 33 registered native tests and 19 unit tests; FE-powered cold
+process restart, human-client recovery and external energy networks remain open.
 
 - Extend reconciled FD305 evidence to the schema-5 optional-addon lifecycle matrix;
   investigate the recorded client resource exit. Extend the bounded transport

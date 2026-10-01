@@ -14,6 +14,53 @@ import net.neoforged.neoforge.gametest.*;
 @GameTestHolder("fourthdimension")
 @PrefixGameTestTemplate(false)
 public final class ShuttleChunkGameTests {
+  @BeforeBatch(batch = "fourthdimension_shuttle_chunks_lift")
+  public static void enableLiftEnergy(net.minecraft.server.level.ServerLevel level) {
+    configureEnergy(true);
+  }
+
+  @AfterBatch(batch = "fourthdimension_shuttle_chunks_lift")
+  public static void restoreLiftEnergy(net.minecraft.server.level.ServerLevel level) {
+    configureEnergy(false);
+  }
+
+  @BeforeBatch(batch = "fourthdimension_shuttle_chunks_outbound")
+  public static void enableOutboundEnergy(net.minecraft.server.level.ServerLevel level) {
+    configureEnergy(true);
+  }
+
+  @AfterBatch(batch = "fourthdimension_shuttle_chunks_outbound")
+  public static void restoreOutboundEnergy(net.minecraft.server.level.ServerLevel level) {
+    configureEnergy(false);
+  }
+
+  @BeforeBatch(batch = "fourthdimension_shuttle_chunks_returning")
+  public static void enableReturningEnergy(net.minecraft.server.level.ServerLevel level) {
+    configureEnergy(true);
+  }
+
+  @AfterBatch(batch = "fourthdimension_shuttle_chunks_returning")
+  public static void restoreReturningEnergy(net.minecraft.server.level.ServerLevel level) {
+    configureEnergy(false);
+  }
+
+  @BeforeBatch(batch = "fourthdimension_shuttle_chunks_capture")
+  public static void enableCaptureEnergy(net.minecraft.server.level.ServerLevel level) {
+    configureEnergy(true);
+  }
+
+  @AfterBatch(batch = "fourthdimension_shuttle_chunks_capture")
+  public static void restoreCaptureEnergy(net.minecraft.server.level.ServerLevel level) {
+    configureEnergy(false);
+  }
+
+  private static void configureEnergy(boolean begin) {
+    if (Boolean.getBoolean("fourthdimension.paxEnergyReload")
+        && dev.fourthdimension.integration.OptionalIntegrations.supported(
+            "coastersengineered", Set.of("1.1.1")))
+      dev.fourthdimension.integration.engineered.EngineeredShuttleCheck.configureEnergy(begin);
+  }
+
   @GameTest(template = "empty", batch = "fourthdimension_shuttle_chunks_lift", timeoutTicks = 12000)
   public static void occupiedLiftNativeEvictionExplicitResume(GameTestHelper helper) {
     occupiedEviction(helper, ShuttleWinchEntity.Phase.LIFTING, -840);
@@ -45,6 +92,14 @@ public final class ShuttleChunkGameTests {
 
   private static void occupiedEviction(
       GameTestHelper helper, ShuttleWinchEntity.Phase interruptedPhase, int xOrigin) {
+    boolean energyRequired = Boolean.getBoolean("fourthdimension.paxEnergyReload");
+    helper.assertTrue(
+        !energyRequired
+            || dev.fourthdimension.integration.OptionalIntegrations.supported(
+                "coastersengineered", Set.of("1.1.1")),
+        "FE reload mode requires Engineered 1.1.1");
+    System.out.println(
+        "FD_PAX_PHASE_ENERGY target=" + interruptedPhase + " required=" + energyRequired);
     var level = helper.getLevel();
     var origin = new BlockPos(xOrigin, 180, 600);
     java.util.function.Consumer<Boolean> tickets =
@@ -99,7 +154,7 @@ public final class ShuttleChunkGameTests {
               "coastersengineered", Set.of("1.1.1"))) {
             externalChecks.add(
                 dev.fourthdimension.integration.engineered.EngineeredShuttleCheck.attachReload(
-                    helper, example, interruptedPhase));
+                    helper, example, interruptedPhase, energyRequired));
             var motorPos = oldWinch.getBlockPos().offset(-6, 0, 4);
             oldBlocks.put(motorPos, level.getBlockEntity(motorPos));
             oldBlocks.put(motorPos.above(2), level.getBlockEntity(motorPos.above(2)));

@@ -1,0 +1,148 @@
+[02:21:45] [Server thread/INFO] [minecraft/GameTestServer]: 33 tests are now running at position -3626667, -59, -12675575!
+FD_ENGINEERED_ENERGY_SKIPPED: optional 1.1.1 artifact absent
+FD_PAX_PHASE_ENERGY target=CAPTURING required=false
+FD_PAX_PHASE_DEPENDENCIES target=CAPTURING seeds=12 requiredBodies=12 complete=true
+FD_PAX_PHASE_REFERENCES target=CAPTURING replacedBeforeRelease=0
+FD_PAX_PHASE_RELEASE target=CAPTURING tick=657 speed=11.862864514676529 bodies=13 riders=16
+FD_PAX_PHASE_FLUSH target=CAPTURING native=true
+FD_PAX_PHASE_EVICTED target=CAPTURING tick=907 blocks=6 bodies=13 occupants=16 phase=FAULT interrupted=CAPTURING
+FD_PAX_PHASE_STAGGERED target=CAPTURING winchTicking=false carriage=true ticks=100 travel=8.631674575031098E-5
+FD_PAX_PHASE_RESTORED target=CAPTURING fresh=true riders=16 phase=FAULT interrupted=CAPTURING fault=Shuttle winch chunk unavailable or winch removed
+FD_PAX_PHASE_RECOVERY target=CAPTURING action=resume waitTicks=60 drift=6.821210263296962E-13 initialCarriageTravel=0.0 maxCarriageStep=0.0 carriageDrift=0.0 maxReloadStep=0.5476663973855811 phase=CAPTURING
+FD_PAX_PHASE_COMPLETE target=CAPTURING cycles=1 cars=4 riders=16 alive=true unloaded=true telemetry=true phases=[BOARDING, LIFTING, OUTBOUND, RETURNING, CAPTURING]
+FD_PAX_PHASE_ENERGY target=RETURNING required=false
+FD_PAX_PHASE_DEPENDENCIES target=RETURNING seeds=12 requiredBodies=12 complete=true
+FD_PAX_PHASE_REFERENCES target=RETURNING replacedBeforeRelease=0
+FD_PAX_PHASE_RELEASE target=RETURNING tick=598 speed=1.7386800006095464 bodies=13 riders=16
+FD_PAX_PHASE_FLUSH target=RETURNING native=true
+FD_PAX_PHASE_EVICTED target=RETURNING tick=848 blocks=6 bodies=13 occupants=16 phase=FAULT interrupted=RETURNING
+FD_PAX_PHASE_STAGGERED target=RETURNING winchTicking=false carriage=true ticks=100 travel=4.2396374479522107E-4
+FD_PAX_PHASE_RESTORED target=RETURNING fresh=true riders=16 phase=FAULT interrupted=RETURNING fault=Shuttle winch chunk unavailable or winch removed
+FD_PAX_PHASE_BRAKING target=RETURNING sinceRestore=1000 cars=[7ef51ea9-13d8-4615-91f4-cc0f2d823306:distance=91.53398517393778:speed=0.1133596102668371:ready=false, 8b0f0545-2105-4969-aad6-90dcf67b8979:distance=97.60485154006582:speed=0.10987401895533949:ready=false, da4d08d5-ed92-4ab8-b0a1-5df81097bc19:distance=103.65823288479426:speed=0.1125592159406544:ready=false, b0754229-5835-49e1-b02f-b0c8e0ba0045:distance=109.69503418058203:speed=0.11258673918079613:ready=false]
+FD_PAX_PHASE_BRAKING target=RETURNING sinceRestore=2000 cars=[7ef51ea9-13d8-4615-91f4-cc0f2d823306:distance=88.65361756697452:speed=0.09404266237917522:ready=false, 8b0f0545-2105-4969-aad6-90dcf67b8979:distance=94.73055356150925:speed=0.09296640131161707:ready=false, da4d08d5-ed92-4ab8-b0a1-5df81097bc19:distance=100.79246727520407:speed=0.09153136647918185:ready=false, b0754229-5835-49e1-b02f-b0c8e0ba0045:distance=106.83682612832644:speed=0.0910612713340045:ready=false]
+FD_PAX_PHASE_RECOVERY target=RETURNING action=recover waitTicks=2556 drift=7.911119644207229 initialCarriageTravel=0.0 maxCarriageStep=0.0 carriageDrift=0.0 maxReloadStep=0.10533744255208109 phase=CAPTURING
+FD_PAX_PHASE_COMPLETE target=RETURNING cycles=1 cars=4 riders=16 alive=true unloaded=true telemetry=true phases=[BOARDING, LIFTING, OUTBOUND, RETURNING, CAPTURING]
+FD_APPEARANCE styles=false choices=1
+FD_ADDITIONS_CONSIST_SKIPPED: optional 0.2.0 artifact absent; no compatibility evidence
+FD_MAGNETIZED_SKIPPED: optional 1.1.0 artifact absent; no compatibility evidence
+FD_ENGINEERED_SKIPPED: optional 1.1.1 artifact absent; no compatibility evidence
+FD_SNAPSHOT_MAX bytes=692652
+FD_ADDITIONS_SKIPPED: optional 0.2.0 artifact absent; no compatibility evidence
+FD_ENDPOINT_AVAILABILITY inactiveRefs=3 ordinaryRefs=2 falseJunction=false
+FD_ENDPOINT_AVAILABILITY restoredRefs=4 nativeMatch=true
+FD_FREE angles=[-1.7668556728130111, -1.8112586723550972] maximum separation=0.7237819017546765
+FD_REVISED_MASS mass=4.0 firstMoment=1.5 inertia=1.9947916666666585
+FD_REVISED_MASS mass=4.0 firstMoment=1.5 inertia=1.9947916666666585
+FD_REVISED_MASS mass=4.0 firstMoment=1.5 inertia=1.9947916666666585
+FD_REVISED_MASS mass=4.0 firstMoment=1.5 inertia=1.9947916666666585
+FD_SAVED_PASSENGER nativeReplay=true unknownRejected=true liveUnchanged=true
+FD_SHUTTLE phase=LIFTING distance=60.07979295672929 center=( 6.005E+2  1.811E+2  6.064E+2) max=62.67979295672933 fault=
+FD_FAMILY_MATRIX decisions=25 factoryRejects=20 lockedNativeInitialSnapRejects=20 bindingPreserved=true
+FD_SHUTTLE phase=LIFTING distance=52.07979295672918 center=( 6.005E+2  1.812E+2  5.984E+2) max=62.67979295672933 fault=
+FD_CONTENT_FREE excursions=[0.5824699579245666, 0.3848300774996377] angle=0.09732645518635384 omega=-0.5464224891984935 mass=6.0
+FD_SHUTTLE phase=FAULT distance=44.87979295672908 center=( 6.005E+2  1.823E+2  5.909E+2) max=62.67979295672933 fault=Winch power lost: retain the train; inspect and resume or recover
+FD_BOUNDARY direction=0 position=(-3.995E+2  1.011E+2  3.380E+2) fault=End of compatible track; capture and inspect the route
+FD_BOUNDARY direction=1 position=(-3.755E+2  1.011E+2  3.030E+2) fault=End of compatible track; capture and inspect the route
+FD_SHUTTLE phase=FAULT distance=44.87979295672908 center=( 6.005E+2  1.823E+2  5.909E+2) max=62.67979295672933 fault=Winch power lost: retain the train; inspect and resume or recover
+FD_NATIVE at230 position=( 1.650E+1  8.162E+1  5.261E+1) from=BlockPos{x=16, y=80, z=16} angles=[12.154606085009732, 12.153236068647086] velocity=( 0.000E+0  0.000E+0  3.000E+0) disengaged=false
+FD_PAX_POWER_HOLD energyRequired=false ticks=40 drift=0.0011851662234254774 phase=FAULT
+FD_SHUTTLE phase=FAULT distance=44.87979295672908 center=( 6.005E+2  1.823E+2  5.909E+2) max=62.67979295672933 fault=Winch power lost: retain the train; inspect and resume or recover
+FD_SHUTTLE phase=LIFTING distance=38.07979295672898 center=( 6.005E+2  1.842E+2  5.849E+2) max=62.67979295672933 fault=
+FD_SHUTTLE phase=LIFTING distance=30.079792956728866 center=( 6.005E+2  1.875E+2  5.777E+2) max=62.67979295672933 fault=
+FD_SHUTTLE phase=LIFTING distance=22.079792956728753 center=( 6.005E+2  1.916E+2  5.708E+2) max=62.67979295672933 fault=
+FD_SHUTTLE phase=LIFTING distance=14.079792956728674 center=( 6.005E+2  1.961E+2  5.643E+2) max=62.67979295672933 fault=
+FD_TRAIN maxTurn=6.281204577631095 maxAxleDifference=3.0235922697875575
+FD_TRAIN positions=[(-1.995E+2  1.131E+2  1.461E+2) bound=BlockPos{x=-200, y=112, z=136}->BlockPos{x=-200, y=112, z=172} fault=, (-1.995E+2  1.131E+2  1.401E+2) bound=BlockPos{x=-200, y=112, z=136}->BlockPos{x=-200, y=112, z=172} fault=]
+FD_SHUTTLE phase=LIFTING distance=6.823571379672597 center=( 6.005E+2  2.006E+2  5.584E+2) max=62.67979295672933 fault=
+FD_SHUTTLE phase=LIFTING distance=3.280515765981536 center=( 6.005E+2  2.029E+2  5.554E+2) max=62.67979295672933 fault=
+FD_SHUTTLE phase=OUTBOUND distance=5.349999999999992 center=( 6.005E+2  2.003E+2  5.587E+2) max=62.67979295672933 fault=
+FD_SHUTTLE phase=OUTBOUND distance=9.350000000000001 center=( 6.005E+2  1.863E+2  5.801E+2) max=62.67979295672933 fault=
+FD_SHUTTLE phase=OUTBOUND distance=13.350000000000058 center=( 6.005E+2  1.811E+2  6.132E+2) max=66.9755135229523 fault=
+FD_SHUTTLE_CHUNK_RELOAD recovered=true carriage=d262fbc3-e03a-45b7-8aba-20a6279d3973
+FD_SHUTTLE phase=OUTBOUND distance=17.350000000000115 center=( 6.005E+2  1.826E+2  6.416E+2) max=95.75346277260749 fault=
+FD_SHUTTLE phase=RETURNING distance=21.350000000000172 center=( 6.005E+2  1.853E+2  6.476E+2) max=103.58592822994484 fault=
+FD_SHUTTLE phase=RETURNING distance=25.35000000000023 center=( 6.005E+2  1.811E+2  6.302E+2) max=103.58592822994484 fault=
+FD_SHUTTLE phase=CAPTURING distance=26.350000000000243 center=( 6.005E+2  1.811E+2  6.105E+2) max=103.58592822994484 fault=
+FD_SHUTTLE phase=CAPTURING distance=62.95788346541952 center=( 6.005E+2  1.811E+2  6.089E+2) max=103.58592822994484 fault=
+FD_SHUTTLE phase=BOARDING distance=62.67979295672933 center=( 6.005E+2  1.811E+2  6.085E+2) max=103.58592822994484 fault=
+FD_PAX_POWER_COMPLETE energyRequired=false cars=4 riders=16 alive=true unloaded=true mounts=true telemetry=true cycles=1
+FD_SHUTTLE_TALL cycles=2 maximum=142.94586503565478 station=82.92133833155415
+FD_DEMO family=ARROW angleRange=-0.0012762793182983696..6.281216324929916 maxXZ=32.50025969428563,52.500305457990976 ready=true fault=
+FD_DEMO family=ZACSPIN angleRange=-1.1712783582222497..0.4804478986116605 maxXZ=32.5048535350291,52.50000029576893 ready=true fault=
+FD_REVISED_NATIVE angles=[-0.7890095274934601, -0.812209910148102, -0.6383261811718508, -0.7132601909346744]..[0.6955241378401983, 0.6538700069548152, 0.6941153312972796, 0.6664315497922256] extent=[32.50423814293782, 52.49993914624292] ready=true fault=
+FD_TRACK_PARTIAL_FLUSH native=true
+FD_TRACK_PARTIAL_WAITED ticks=201
+FD_TRACK_PARTIAL family=ARROW banked=false evicted=true valid=true endpoints=1
+FD_TRACK_PARTIAL family=ARROW banked=true evicted=true valid=true endpoints=1
+FD_TRACK_PARTIAL family=ZACSPIN banked=false evicted=true valid=true endpoints=1
+FD_TRACK_PARTIAL family=ZACSPIN banked=true evicted=true valid=true endpoints=1
+FD_TRACK_PARTIAL family=FREE_SPIN banked=false evicted=true valid=true endpoints=1
+FD_TRACK_PARTIAL family=FREE_SPIN banked=true evicted=true valid=true endpoints=1
+FD_TRACK_PARTIAL family=ZACSPIN_REVISED banked=false evicted=true valid=true endpoints=1
+FD_TRACK_PARTIAL family=ZACSPIN_REVISED banked=true evicted=true valid=true endpoints=1
+FD_TRACK_PARTIAL family=PAX banked=false evicted=true valid=true endpoints=1
+FD_TRACK_PARTIAL family=PAX banked=true evicted=true valid=true endpoints=1
+FD_TRACK_PARTIAL_RELOADED family=ARROW banked=false fresh=true geometry=true endpoints=2
+FD_TRACK_PARTIAL_RELOADED family=ARROW banked=true fresh=true geometry=true endpoints=2
+FD_TRACK_PARTIAL_RELOADED family=ZACSPIN banked=false fresh=true geometry=true endpoints=2
+FD_TRACK_PARTIAL_RELOADED family=ZACSPIN banked=true fresh=true geometry=true endpoints=2
+FD_TRACK_PARTIAL_RELOADED family=FREE_SPIN banked=false fresh=true geometry=true endpoints=2
+FD_TRACK_PARTIAL_RELOADED family=FREE_SPIN banked=true fresh=true geometry=true endpoints=2
+FD_TRACK_PARTIAL_RELOADED family=ZACSPIN_REVISED banked=false fresh=true geometry=true endpoints=2
+FD_TRACK_PARTIAL_RELOADED family=ZACSPIN_REVISED banked=true fresh=true geometry=true endpoints=2
+FD_TRACK_PARTIAL_RELOADED family=PAX banked=false fresh=true geometry=true endpoints=2
+FD_TRACK_PARTIAL_RELOADED family=PAX banked=true fresh=true geometry=true endpoints=2
+FD_ENGINEERED_PAX_FE_SKIPPED: optional 1.1.1 artifact absent
+FD_PAX_PHASE_ENERGY target=OUTBOUND required=false
+FD_PAX_PHASE_DEPENDENCIES target=OUTBOUND seeds=12 requiredBodies=12 complete=true
+FD_PAX_PHASE_REFERENCES target=OUTBOUND replacedBeforeRelease=0
+FD_PAX_PHASE_RELEASE target=OUTBOUND tick=424 speed=1.5521645020634525 bodies=13 riders=16
+FD_PAX_PHASE_FLUSH target=OUTBOUND native=true
+FD_PAX_PHASE_EVICTED target=OUTBOUND tick=674 blocks=6 bodies=13 occupants=16 phase=FAULT interrupted=OUTBOUND
+FD_PAX_PHASE_NATIVE target=OUTBOUND stage=partial age=20 trainBodies=0
+FD_PAX_PHASE_NATIVE target=OUTBOUND stage=partial age=40 trainBodies=12
+FD_PAX_PHASE_NATIVE target=OUTBOUND stage=partial age=60 trainBodies=12
+FD_PAX_PHASE_NATIVE target=OUTBOUND stage=partial age=80 trainBodies=0
+FD_PAX_PHASE_NATIVE target=OUTBOUND stage=partial age=100 trainBodies=0
+FD_PAX_PHASE_NATIVE target=OUTBOUND stage=partial age=120 trainBodies=0
+FD_PAX_PHASE_STAGGERED target=OUTBOUND winchTicking=false carriage=true ticks=100 travel=2.6995553608633624E-4
+FD_PAX_PHASE_NATIVE target=OUTBOUND stage=full age=1 trainBodies=12
+FD_PAX_PHASE_NATIVE target=OUTBOUND stage=full age=2 trainBodies=12
+FD_PAX_PHASE_NATIVE target=OUTBOUND stage=full age=3 trainBodies=12
+FD_PAX_PHASE_NATIVE target=OUTBOUND stage=full age=4 trainBodies=12
+FD_PAX_PHASE_NATIVE target=OUTBOUND stage=full age=5 trainBodies=12
+FD_PAX_PHASE_NATIVE target=OUTBOUND stage=full age=6 trainBodies=12
+FD_PAX_PHASE_NATIVE target=OUTBOUND stage=full age=7 trainBodies=12
+FD_PAX_PHASE_NATIVE target=OUTBOUND stage=full age=8 trainBodies=12
+FD_PAX_PHASE_NATIVE target=OUTBOUND stage=full age=9 trainBodies=12
+FD_PAX_PHASE_NATIVE target=OUTBOUND stage=full age=10 trainBodies=12
+FD_PAX_PHASE_NATIVE target=OUTBOUND stage=full age=11 trainBodies=12
+FD_PAX_PHASE_NATIVE target=OUTBOUND stage=full age=12 trainBodies=12
+FD_PAX_PHASE_NATIVE target=OUTBOUND stage=full age=13 trainBodies=12
+FD_PAX_PHASE_NATIVE target=OUTBOUND stage=full age=14 trainBodies=12
+FD_PAX_PHASE_NATIVE target=OUTBOUND stage=full age=15 trainBodies=12
+FD_PAX_PHASE_NATIVE target=OUTBOUND stage=full age=16 trainBodies=12
+FD_PAX_PHASE_NATIVE target=OUTBOUND stage=full age=17 trainBodies=12
+FD_PAX_PHASE_NATIVE target=OUTBOUND stage=full age=18 trainBodies=12
+FD_PAX_PHASE_NATIVE target=OUTBOUND stage=full age=19 trainBodies=12
+FD_PAX_PHASE_NATIVE target=OUTBOUND stage=full age=20 trainBodies=12
+FD_PAX_PHASE_RESTORED target=OUTBOUND fresh=true riders=16 phase=FAULT interrupted=OUTBOUND fault=Shuttle winch chunk unavailable or winch removed
+FD_PAX_PHASE_BRAKING target=OUTBOUND sinceRestore=1000 cars=[c17f39f6-cb6f-4d5a-8552-a7461c9f44dc:distance=20.89731642385376:speed=0.1259569270136391:ready=false, 86f32d56-8754-432a-80d2-e356b2065def:distance=26.916027960383765:speed=0.12583824730591245:ready=false, c059133e-8018-4bd3-a035-c7c08c49c0a5:distance=32.9410318470155:speed=0.12656575615412818:ready=false, 70a1ca2e-524c-4d58-b89b-22f4bf6df911:distance=38.973496135991454:speed=0.1280715407481174:ready=false]
+FD_PAX_PHASE_BRAKING target=OUTBOUND sinceRestore=2000 cars=[c17f39f6-cb6f-4d5a-8552-a7461c9f44dc:distance=24.176284124943784:speed=0.11436001712574478:ready=false, 86f32d56-8754-432a-80d2-e356b2065def:distance=30.198140862969726:speed=0.11685536173172724:ready=false, c059133e-8018-4bd3-a035-c7c08c49c0a5:distance=36.22697906993146:speed=0.11504104384877989:ready=false, 70a1ca2e-524c-4d58-b89b-22f4bf6df911:distance=42.26413762504266:speed=0.11545396146662298:ready=false]
+FD_PAX_PHASE_BRAKING target=OUTBOUND sinceRestore=3000 cars=[c17f39f6-cb6f-4d5a-8552-a7461c9f44dc:distance=27.164057044525748:speed=0.1054275588914388:ready=false, 86f32d56-8754-432a-80d2-e356b2065def:distance=33.18928901643577:speed=0.10405173647645354:ready=false, c059133e-8018-4bd3-a035-c7c08c49c0a5:distance=39.22201293004556:speed=0.10607455751633854:ready=false, 70a1ca2e-524c-4d58-b89b-22f4bf6df911:distance=45.26359248189789:speed=0.10554395918770415:ready=false]
+FD_PAX_PHASE_BRAKING target=OUTBOUND sinceRestore=4000 cars=[c17f39f6-cb6f-4d5a-8552-a7461c9f44dc:distance=29.87675556948908:speed=0.09042723226063443:ready=false, 86f32d56-8754-432a-80d2-e356b2065def:distance=35.90511856264209:speed=0.09261086772480295:ready=false, c059133e-8018-4bd3-a035-c7c08c49c0a5:distance=41.94176292130118:speed=0.09276614458636756:ready=false, 70a1ca2e-524c-4d58-b89b-22f4bf6df911:distance=47.987378894463355:speed=0.0919017039477458:ready=false]
+FD_PAX_PHASE_BRAKING target=OUTBOUND sinceRestore=5000 cars=[c17f39f6-cb6f-4d5a-8552-a7461c9f44dc:distance=32.27228882472915:speed=0.08004665822267433:ready=false, 86f32d56-8754-432a-80d2-e356b2065def:distance=38.30378334601544:speed=0.08017482349749917:ready=false, c059133e-8018-4bd3-a035-c7c08c49c0a5:distance=44.343914873357775:speed=0.08124962484774158:ready=false, 70a1ca2e-524c-4d58-b89b-22f4bf6df911:distance=50.39301725289758:speed=0.08092764594892803:ready=false]
+FD_PAX_PHASE_RECOVERY target=OUTBOUND action=recover waitTicks=4918 drift=15.636251225509362 initialCarriageTravel=0.0 maxCarriageStep=0.0 carriageDrift=0.0 maxReloadStep=0.10335125811548929 phase=CAPTURING
+FD_PAX_PHASE_COMPLETE target=OUTBOUND cycles=1 cars=4 riders=16 alive=true unloaded=true telemetry=true phases=[BOARDING, LIFTING, OUTBOUND, CAPTURING]
+FD_PAX_PHASE_ENERGY target=LIFTING required=false
+FD_PAX_PHASE_DEPENDENCIES target=LIFTING seeds=12 requiredBodies=12 complete=true
+FD_PAX_PHASE_REFERENCES target=LIFTING replacedBeforeRelease=0
+FD_PAX_PHASE_RELEASE target=LIFTING tick=320 speed=3.8460112187798714 bodies=13 riders=16
+FD_PAX_PHASE_FLUSH target=LIFTING native=true
+FD_PAX_PHASE_EVICTED target=LIFTING tick=570 blocks=6 bodies=13 occupants=16 phase=FAULT interrupted=LIFTING
+FD_PAX_PHASE_STAGGERED target=LIFTING winchTicking=false carriage=true ticks=100 travel=0.0755633290803828
+FD_PAX_PHASE_RESTORED target=LIFTING fresh=true riders=16 phase=FAULT interrupted=LIFTING fault=Shuttle winch chunk unavailable or winch removed
+FD_PAX_PHASE_RECOVERY target=LIFTING action=resume waitTicks=60 drift=1.87480964086717E-9 initialCarriageTravel=0.029782857962567084 maxCarriageStep=0.0038689080177569 carriageDrift=0.0 maxReloadStep=0.0034235979102578804 phase=LIFTING
+FD_PAX_PHASE_COMPLETE target=LIFTING cycles=1 cars=4 riders=16 alive=true unloaded=true telemetry=true phases=[BOARDING, LIFTING, OUTBOUND, RETURNING, CAPTURING]
+[02:23:19] [Server thread/INFO] [minecraft/GameTestServer]: All 33 required tests passed :)
+BUILD SUCCESSFUL in 1m 43s
