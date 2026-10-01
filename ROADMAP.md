@@ -341,7 +341,7 @@ Exercise every family against matching, ordinary, wrong-family, cosmetic-only, a
 
 Run two-client and late-join scenarios, disconnects, chunk unloads, server restart, support loss, cart disassembly, and repeated shuttle station passes across all families.
 
-**Partial evidence (2026-09-30):** [combined-pack Arrow](docs/evidence/integrations/2026-09-30/combined-two-client/README.md) covers two real clients, synchronized station/appearance data, occupied cold restart, an Engineered circuit with both riders, capture and normal exit. This does not close the other-family/interruption matrix or the reattachment view-heading investigation.
+**Partial evidence (2026-09-30):** [combined-pack Arrow](docs/evidence/integrations/2026-09-30/combined-two-client/README.md) covers two real clients, synchronized station/appearance data, occupied cold restart, an Engineered circuit with both riders, capture and normal exit. The [view-recovery follow-up](docs/evidence/integrations/2026-09-30/rider-view-recovery/README.md) fixes the observed restart turn and frozen-reconnect tracking failure, with bounded cold/live/moving Arrow checks. The other-family/interruption matrix remains open.
 
 **Done when:** no passenger duplication, stale restraints, lost carrier state, or incorrect track rebinding remains in supported cases. Document supported recovery actions for interruptions.
 

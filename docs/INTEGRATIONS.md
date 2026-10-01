@@ -14,7 +14,8 @@ Recorded checks: [family gate](evidence/0.3/README.md),
 [Additions](evidence/integrations/2026-09-30/additions-0.2.0/README.md), and
 [Magnetized](evidence/integrations/2026-09-30/magnetized-1.1.0/README.md), and
 [Immersion](evidence/integrations/2026-09-30/immersion-0.2.3/README.md), and
-[combined two-client Arrow](evidence/integrations/2026-09-30/combined-two-client/README.md).
+[combined two-client Arrow](evidence/integrations/2026-09-30/combined-two-client/README.md), and
+[rider view recovery](evidence/integrations/2026-09-30/rider-view-recovery/README.md).
 
 ## Implemented foundation
 
@@ -255,8 +256,10 @@ Current packaged-client evidence covers an Arrow ride, normal controls and dismo
 mouse input, inversion, zero head inertia and the camera master switch. This does
 not certify every family, spectator/third-person mode or maximum comfort settings.
 A later combined-pack Arrow session adds two real clients, late join, occupied
-dedicated restart, inversion and normal exit; exact view-heading preservation
-across reattachment remains unverified. Exact observations and outstanding cases
+dedicated restart, inversion and normal exit. A follow-up fixes double conversion
+of saved local mouse angles and stale native tracking on frozen-tick reconnect.
+Bounded Arrow cold/live/moving reconnect checks preserve local view direction;
+other families and camera modes still need coverage. Exact observations and outstanding cases
 are recorded in [Immersion evidence](evidence/integrations/2026-09-30/immersion-0.2.3/README.md).
 Its seat-aligner/pose features are not a replacement for 4D carrier seats or controls.
 
@@ -293,8 +296,9 @@ baselines and never grant operation authority.
 - Extend Magnetized native straight-track evidence to linked trains, curves/slopes,
   equipment visuals, configuration extremes, lifecycle and multiplayer.
 - Extend Immersion camera evidence to every family, camera mode, comfort extremes,
-  and lifecycle transitions; investigate the observed yaw change at Sable reattachment.
-  The combined-pack two-client Arrow cycle is bounded evidence only.
+  and lifecycle transitions. Extend the verified saved-angle/tracking recovery fix
+  beyond the bounded Arrow cases. The combined-pack two-client cycle remains
+  bounded evidence only.
 - Run base, individual-addon and combined-pack dedicated-server/two-client/late-join
   matrices, migrations/removal, interruption cases and measured rendering/performance.
   Publish exact tested versions and evidence, not inferred compatibility.

@@ -1,0 +1,52 @@
+{
+  "scope": "One real Arrow rider, exact combined pack; not all-family acceptance",
+  "phases": {
+    "initial_cold": {
+      "yaw_delta_degrees": 0.005474999999989905,
+      "pitch_delta_degrees": 0.00032500000000368345,
+      "same_carrier": "49149932-a814-478e-8e28-06ef14a2ae01",
+      "rendered_view_delta_degrees": 0.016689200982780955
+    },
+    "live_reconnect": {
+      "yaw_delta_degrees": 0.0035100000000056752,
+      "pitch_delta_degrees": 0.00195510000000354,
+      "same_carrier": "49149932-a814-478e-8e28-06ef14a2ae01",
+      "rendered_view_delta_degrees": 0.002560783004921938
+    },
+    "moving_reconnect": {
+      "yaw_delta_degrees": 0.018660000000011223,
+      "pitch_delta_degrees": 0.076868300000001,
+      "same_carrier": "49149932-a814-478e-8e28-06ef14a2ae01",
+      "disconnected_during_inversion": true
+    },
+    "frozen_reconnect": {
+      "yaw_delta_degrees": 0.0005800000000135697,
+      "pitch_delta_degrees": 0.0032587000000035005,
+      "same_carrier": "49149932-a814-478e-8e28-06ef14a2ae01",
+      "rendered_view_delta_degrees": 0.008100410168281584
+    },
+    "final_cold": {
+      "yaw_delta_degrees": 0.002720000000010714,
+      "pitch_delta_degrees": 0.016792600000002267,
+      "same_carrier": "49149932-a814-478e-8e28-06ef14a2ae01",
+      "rendered_view_delta_degrees": 0.017841642493094147
+    },
+    "open_frozen_reconnect": {
+      "yaw_delta_degrees": 0.004604999999997972,
+      "pitch_delta_degrees": 0.00042909999999096726,
+      "same_carrier": "7922bfad-d404-4eef-be67-57d931a5f1e4",
+      "rendered_view_delta_degrees": 0.008110366480679225
+    },
+    "open_cold": {
+      "yaw_delta_degrees": 0.00283999999999196,
+      "pitch_delta_degrees": 0.005512699999997039,
+      "same_carrier": "7922bfad-d404-4eef-be67-57d931a5f1e4",
+      "rendered_view_delta_degrees": 0.014894513484451642
+    }
+  },
+  "old_cold_turn_degrees": 179.99940009985616,
+  "open_restraint_restart_preserved_seat_then_exited": true,
+  "saved_ride_data_exact": true,
+  "normal_exit_cleared_seat": true,
+  "normal_exit_camera_restored": true
+}

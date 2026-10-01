@@ -19,7 +19,7 @@ public final class Boarding {
 
   private record Exit(net.minecraft.world.phys.Vec3 position, long tick) {}
 
-  private record Restore(long deadline, boolean noGravity) {}
+  private record Restore(long deadline, boolean noGravity, float localYaw, float localPitch) {}
 
   private static final java.util.Map<java.util.UUID, Restore> RESTORE = new java.util.HashMap<>();
   private static final java.util.Set<java.util.UUID> RESTORING = new java.util.HashSet<>();
@@ -63,6 +63,17 @@ public final class Boarding {
   public static void mount(EntityMountEvent event) {
     Entity seat = event.getEntityBeingMounted();
     if (!(seat.level() instanceof ServerLevel level)) return;
+    // Vanilla replays RootVehicle before the login event. Defer saved 4D riders
+    // even with open restraints, so every restored seat uses the same local-view
+    // conversion and waits for its carrier rather than mounting during player load.
+    if (event.isMounting()
+        && seat instanceof com.simibubi.create.content.contraptions.actors.seat.SeatEntity
+        && !RESTORING.contains(event.getEntityMounting().getUUID())
+        && event.getEntityMounting() instanceof net.minecraft.server.level.ServerPlayer player
+        && hasSavedSeat(level, player.getUUID())) {
+      event.setCanceled(true);
+      return;
+    }
     var binding = at(level, seat.blockPosition());
     if (binding == null || FoundationData.VARIANT.equals(binding.vehicle.variant)) return;
     if (event.isMounting()) {
@@ -157,17 +168,25 @@ public final class Boarding {
       player.setNoGravity(player.getPersistentData().getBoolean(GRAVITY_RESTORE));
       player.getPersistentData().remove(GRAVITY_RESTORE);
     }
-    if (FoundationData.get(player.serverLevel()).vehicles.values().stream()
-        .flatMap(v -> v.carriers.stream())
-        .anyMatch(c -> c.riderSeats.containsKey(player.getUUID()))) {
+    if (hasSavedSeat(player.serverLevel(), player.getUUID())) {
       RESTORE.put(
           player.getUUID(),
-          new Restore(player.serverLevel().getGameTime() + 200, player.isNoGravity()));
+          new Restore(
+              player.serverLevel().getGameTime() + 200,
+              player.isNoGravity(),
+              player.getYRot(),
+              player.getXRot()));
       player.getPersistentData().putBoolean(GRAVITY_RESTORE, player.isNoGravity());
       player.setNoGravity(true);
       player.setDeltaMovement(net.minecraft.world.phys.Vec3.ZERO);
       player.fallDistance = 0;
     }
+  }
+
+  private static boolean hasSavedSeat(ServerLevel level, java.util.UUID player) {
+    return FoundationData.get(level).vehicles.values().stream()
+        .flatMap(v -> v.carriers.stream())
+        .anyMatch(c -> c.riderSeats.containsKey(player));
   }
 
   private static void finishRestore(net.minecraft.server.level.ServerPlayer player) {
@@ -179,8 +198,25 @@ public final class Boarding {
 
   public static void logout(
       net.neoforged.neoforge.event.entity.player.PlayerEvent.PlayerLoggedOutEvent event) {
-    if (event.getEntity() instanceof net.minecraft.server.level.ServerPlayer player)
+    if (event.getEntity() instanceof net.minecraft.server.level.ServerPlayer player) {
       finishRestore(player);
+      // Sable normally prunes disconnected UUIDs during its next simulation tick.
+      // A reconnect while ticks are frozen can otherwise inherit the old connection's
+      // tracking membership and never receive the native bodies' full initial sync.
+      var level = player.serverLevel();
+      var container = SubLevelContainer.getContainer(level);
+      if (container == null) return;
+      for (var vehicle : FoundationData.get(level).vehicles.values()) {
+        forgetTracker(container.getSubLevel(vehicle.chassis), player.getUUID());
+        for (var carrier : vehicle.carriers)
+          forgetTracker(container.getSubLevel(carrier.body), player.getUUID());
+      }
+    }
+  }
+
+  private static void forgetTracker(
+      dev.ryanhcode.sable.sublevel.SubLevel body, java.util.UUID player) {
+    if (body instanceof ServerSubLevel server) server.getTrackingPlayers().remove(player);
   }
 
   private static void restore(ServerLevel level) {
@@ -208,10 +244,21 @@ public final class Boarding {
             && !com.simibubi.create.content.contraptions.actors.seat.SeatBlock.isSeatOccupied(
                 level, seat)) {
           RESTORING.add(player.getUUID());
+          // Persisted rider angles are already carrier-local. Sable's client mount hook
+          // expects world angles and transforms them into local space once more.
+          var worldLook =
+              dev.fourthdimension.physics.RiderLook.toWorld(
+                  deadline.localYaw, deadline.localPitch, body.logicalPose().orientation());
+          player.setYRot(worldLook.yaw());
+          player.setXRot(worldLook.pitch());
           try {
             com.simibubi.create.content.contraptions.actors.seat.SeatBlock.sitDown(
                 level, seat, player);
           } finally {
+            // The mount teleport packet captured the world input. Server-side saved
+            // rider state remains local, including when a boarding attempt is rejected.
+            player.setYRot(deadline.localYaw);
+            player.setXRot(deadline.localPitch);
             RESTORING.remove(player.getUUID());
           }
           if (player.isPassenger()) {

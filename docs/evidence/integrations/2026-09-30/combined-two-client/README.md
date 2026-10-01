@@ -109,7 +109,9 @@ Create Display Link output and Ponder animations were not exercised in this sess
 Exact view-heading preservation across reattachment is **not certified**: the logged
 player yaw changes by approximately 180° when Sable reattaches each rider after the
 cold restart. Carrier orientation input and post-ride dismount restoration pass;
-the local/world camera-heading conversion still needs a separate investigation.
+the local/world camera-heading conversion was unresolved in this recorded build.
+The [subsequent recovery fix and regression checks](../rider-view-recovery/README.md)
+address it without rewriting these historical observations.
 
 Known upstream dedicated client-class mixin warnings and client resource warnings
 remain (including unused Track Styles models, Coasters track variants and Magnetized
