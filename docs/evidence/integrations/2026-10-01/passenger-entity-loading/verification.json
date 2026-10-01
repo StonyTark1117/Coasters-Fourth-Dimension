@@ -1,10 +1,16 @@
 {
   "scope": "Native pending entity-load identity/mass boundary",
   "pre_fix_failure_reproduced": true,
-  "native_profiles": 1,
+  "native_profiles": 7,
   "registered_tests": 33,
   "absent_addon_skips": {
-    "engineered": 3
+    "base": 6,
+    "engineered": 3,
+    "styles": 6,
+    "additions": 4,
+    "magnetized": 5,
+    "immersion": 6,
+    "combined": 0
   },
   "unit_tests": 19,
   "packaged_acceptance": "audited separately"

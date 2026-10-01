@@ -155,7 +155,8 @@ recorded an occupied acceptance failure: all sixteen native pigs survived, but f
 restored without their Create seat parents. Braking, capture, FE and the carriage
 restored correctly. A [native loading-boundary regression and fix](evidence/integrations/2026-10-01/passenger-entity-loading/README.md)
 now preserve saved passenger identity until the seat chunks finish loading their
-entities. The Engineered native suite and 19 unit tests pass. Fresh returning and
+entities. All seven native addon profiles and 19 unit tests pass; each profile has
+33 registered checks with explicit absent-addon skips. Fresh returning and
 capture restarts now preserve all sixteen original mounts and 12,345 FE in both
 Engineered-only and combined packs, then finish explicit recovery/resume and normal
 unloading. Independent stopped-save inspection confirms every original pig alive.

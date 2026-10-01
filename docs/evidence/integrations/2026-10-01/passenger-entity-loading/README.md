@@ -32,9 +32,11 @@ passengers and preserve restrictions on live riders.
 
 - The original code fails the new regression in an Engineered native run; its
   terminal process exits 1 with one required test failure.
-- The fixed Engineered run exits 0 with all 33 registered native tests passing,
-  including the four occupied PAX phase checks with FE required. Three absent-addon
-  cases are explicitly skipped, not compatibility passes.
+- All seven fixed native profiles exit 0 with 33 registered tests passing in each:
+  base, Engineered, Styles, Additions, Magnetized, Immersion and combined. Their
+  explicit absent-addon skip counts are 6/3/6/4/5/6/0 respectively. Engineered and
+  combined enable FE for all four occupied PAX phase checks. Skips are not
+  compatibility passes. The delayed-entity regression runs in every profile.
 - All 19 unit tests pass, and the packaged artifact builds successfully.
 - The compiled native and packaged `NativeLoading`, `Boarding`, and vehicle test
   classes have identical hashes recorded in `classes.json`.
@@ -84,12 +86,11 @@ every-tick packaged assertion or a performance benchmark.
 All six successful processes exit 0. `runs.json` records their versions, commands,
 log hashes and exits; `packaged-status.json` is complete. `packaged-verification.json`
 contains the independent audit results. Private runtime settings are restored by
-hash. The full remaining native addon matrix is still running; this checkpoint's
-native result above is specifically Engineered-only.
+hash. The full seven-profile native matrix is complete, with every terminal exit,
+loaded mod list, warning excerpt and delayed-passenger check retained.
 
 ```sh
 python3 scripts/verify-pax-returning-capture.py docs/evidence/integrations/2026-10-01/passenger-entity-loading
-# After collecting the remaining native profiles:
 python3 scripts/verify-passenger-entity-loading.py docs/evidence/integrations/2026-10-01/passenger-entity-loading --matrix
 ```
 
