@@ -1,0 +1,24 @@
+[
+  {
+    "state": "unbound",
+    "signs": {
+      "status": "No bound vehicle",
+      "occupancy": "No bound vehicle",
+      "restraints": "No bound vehicle",
+      "dispatch": "No bound vehicle",
+      "phase": "No bound vehicle",
+      "fault": "No bound vehicle"
+    }
+  },
+  {
+    "state": "rebound",
+    "signs": {
+      "status": "Boarding",
+      "occupancy": "0 / 16",
+      "restraints": "Restraints closed: No",
+      "dispatch": "Vehicle outside station range",
+      "phase": "Boarding",
+      "fault": ""
+    }
+  }
+]

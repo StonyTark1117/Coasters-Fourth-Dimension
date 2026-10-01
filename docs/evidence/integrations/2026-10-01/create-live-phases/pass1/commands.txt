@@ -1,0 +1,4435 @@
+list: There are 2 of a max of 20 players online: Observer, Dev
+
+
+data get block -607 180 608: -607, 180, 608 has the following block data: {Speed: 128.0f, HasAttachedComputer: 0b, Network: {Capacity: 2097152.0f, Size: 2, AddedCapacity: 16384.0f, Id: -166850887024460L, Stress: 1024.0f}, x: -607, y: 180, ScrollValue: 128, z: 608, id: "create:motor"}
+
+
+data get entity Dev Pos: Dev has the following entity data: [-605.5000804147144d, 181.5625d, 608.4976017143416d]
+
+
+setblock -611 180 604 minecraft:stone: Changed the block at -611, 180, 604
+
+
+setblock -611 181 604 minecraft:oak_sign[rotation=4]: Changed the block at -611, 181, 604
+
+
+setblock -606 181 608 create:display_link[facing=up]{TargetOffset:[I;-5,0,-4],TargetLine:0,Source:{Id:"fourthdimension:ride_status"}}: Could not set the block
+
+
+setblock -611 180 605 minecraft:stone: Changed the block at -611, 180, 605
+
+
+setblock -611 181 605 minecraft:oak_sign[rotation=4]: Changed the block at -611, 181, 605
+
+
+setblock -606 180 607 create:display_link[facing=north]{TargetOffset:[I;-5,1,-2],TargetLine:0,Source:{Id:"fourthdimension:ride_occupancy"}}: Changed the block at -606, 180, 607
+
+
+setblock -611 180 606 minecraft:stone: Changed the block at -611, 180, 606
+
+
+setblock -611 181 606 minecraft:oak_sign[rotation=4]: Changed the block at -611, 181, 606
+
+
+setblock -606 180 609 create:display_link[facing=south]{TargetOffset:[I;-5,1,-3],TargetLine:0,Source:{Id:"fourthdimension:ride_restraints"}}: Changed the block at -606, 180, 609
+
+
+setblock -611 180 607 minecraft:stone: Changed the block at -611, 180, 607
+
+
+setblock -611 181 607 minecraft:oak_sign[rotation=4]: Changed the block at -611, 181, 607
+
+
+setblock -605 180 608 create:display_link[facing=east]{TargetOffset:[I;-6,1,-1],TargetLine:0,Source:{Id:"fourthdimension:ride_dispatch"}}: Changed the block at -605, 180, 608
+
+
+setblock -611 180 608 minecraft:stone: Changed the block at -611, 180, 608
+
+
+setblock -611 181 608 minecraft:oak_sign[rotation=4]: Changed the block at -611, 181, 608
+
+
+setblock -606 179 608 create:display_link[facing=down]{TargetOffset:[I;-5,2,0],TargetLine:0,Source:{Id:"fourthdimension:ride_phase"}}: Changed the block at -606, 179, 608
+
+
+gamemode creative Dev:
+
+item replace entity Dev armor.head with create:goggles: Replaced a slot on Dev with [Engineer's Goggles]
+
+
+tp Dev -605.5 180 611.5 180 20.5: Teleported Dev to -605.500000, 180.000000, 611.500000
+
+
+gamemode creative Observer: Set Observer's game mode to Creative Mode
+
+
+item replace entity Observer armor.head with create:goggles: Replaced a slot on Observer with [Engineer's Goggles]
+
+
+tp Observer -606.5 180 611.5 -161.565 20.5: Teleported Observer to -606.500000, 180.000000, 611.500000
+
+
+time set day: Set the time to 1000
+
+
+execute if block -607 180 608 create:creative_motor[facing=east] run say FD_CREATIVE_MOTOR_FACING_EAST:
+
+setblock -606 180 609 minecraft:air: Changed the block at -606, 180, 609
+
+
+setblock -616 180 608 fourthdimension:boarding_station{vehicle:[I;1626414480,722750707,-1639736133,-1336555213]}: Changed the block at -616, 180, 608
+
+
+setblock -615 182 604 minecraft:stone: Changed the block at -615, 182, 604
+
+
+setblock -615 183 604 minecraft:oak_sign[rotation=4]: Changed the block at -615, 183, 604
+
+
+setblock -616 181 608 create:display_link[facing=up]{TargetOffset:[I;1,2,-4],TargetLine:0,Source:{Id:"fourthdimension:ride_status"}}: Changed the block at -616, 181, 608
+
+
+setblock -615 182 605 minecraft:stone: Changed the block at -615, 182, 605
+
+
+setblock -615 183 605 minecraft:oak_sign[rotation=4]: Changed the block at -615, 183, 605
+
+
+setblock -616 180 607 create:display_link[facing=north]{TargetOffset:[I;1,3,-2],TargetLine:0,Source:{Id:"fourthdimension:ride_occupancy"}}: Changed the block at -616, 180, 607
+
+
+setblock -615 182 606 minecraft:stone: Changed the block at -615, 182, 606
+
+
+setblock -615 183 606 minecraft:oak_sign[rotation=4]: Changed the block at -615, 183, 606
+
+
+setblock -616 180 609 create:display_link[facing=south]{TargetOffset:[I;1,3,-3],TargetLine:0,Source:{Id:"fourthdimension:ride_restraints"}}: Changed the block at -616, 180, 609
+
+
+setblock -615 182 607 minecraft:stone: Changed the block at -615, 182, 607
+
+
+setblock -615 183 607 minecraft:oak_sign[rotation=4]: Changed the block at -615, 183, 607
+
+
+setblock -615 180 608 create:display_link[facing=east]{TargetOffset:[I;0,3,-1],TargetLine:0,Source:{Id:"fourthdimension:ride_dispatch"}}: Changed the block at -615, 180, 608
+
+
+setblock -615 182 608 minecraft:stone: Changed the block at -615, 182, 608
+
+
+setblock -615 183 608 minecraft:oak_sign[rotation=4]: Changed the block at -615, 183, 608
+
+
+setblock -616 179 608 create:display_link[facing=down]{TargetOffset:[I;1,4,0],TargetLine:0,Source:{Id:"fourthdimension:ride_phase"}}: Changed the block at -616, 179, 608
+
+
+setblock -615 182 609 minecraft:stone: Changed the block at -615, 182, 609
+
+
+setblock -615 183 609 minecraft:oak_sign[rotation=4]: Changed the block at -615, 183, 609
+
+
+setblock -617 180 608 create:display_link[facing=west]{TargetOffset:[I;2,3,1],TargetLine:0,Source:{Id:"fourthdimension:ride_fault"}}: Changed the block at -617, 180, 608
+
+
+fd validation pax_energy_restart board: PAX energy restart fixture: board
+
+
+data get block -615 183 607 front_text.messages[0]: -615, 183, 607 has the following block data: '"Vehicle outside station range"'
+
+
+fd validation pax_energy_restart report live_before: PAX energy restart snapshot recorded
+
+
+fd validation pax_energy_restart report ready_before_1: PAX energy restart snapshot recorded
+
+
+data get block -611 181 604 front_text.messages[0]: -611, 181, 604 has the following block data: '""'
+
+
+data get block -611 181 605 front_text.messages[0]: -611, 181, 605 has the following block data: '"16 / 16"'
+
+
+data get block -611 181 607 front_text.messages[0]: -611, 181, 607 has the following block data: '"Ready to dispatch"'
+
+
+data get block -611 181 608 front_text.messages[0]: -611, 181, 608 has the following block data: '"Boarding"'
+
+
+data get block -615 183 604 front_text.messages[0]: -615, 183, 604 has the following block data: '"Boarding"'
+
+
+data get block -615 183 605 front_text.messages[0]: -615, 183, 605 has the following block data: '"16 / 16"'
+
+
+data get block -615 183 606 front_text.messages[0]: -615, 183, 606 has the following block data: '"Restraints closed: Yes"'
+
+
+data get block -615 183 607 front_text.messages[0]: -615, 183, 607 has the following block data: '"Vehicle outside station range"'
+
+
+data get block -615 183 608 front_text.messages[0]: -615, 183, 608 has the following block data: '"Boarding"'
+
+
+data get block -615 183 609 front_text.messages[0]: -615, 183, 609 has the following block data: '""'
+
+
+fd validation pax_energy_restart report ready_after_2: PAX energy restart snapshot recorded
+
+
+fd validation pax_energy_restart report ready_before_3: PAX energy restart snapshot recorded
+
+
+data get block -611 181 604 front_text.messages[0]: -611, 181, 604 has the following block data: '""'
+
+
+data get block -611 181 605 front_text.messages[0]: -611, 181, 605 has the following block data: '"16 / 16"'
+
+
+data get block -611 181 607 front_text.messages[0]: -611, 181, 607 has the following block data: '"Ready to dispatch"'
+
+
+data get block -611 181 608 front_text.messages[0]: -611, 181, 608 has the following block data: '"Boarding"'
+
+
+data get block -615 183 604 front_text.messages[0]: -615, 183, 604 has the following block data: '"Boarding"'
+
+
+data get block -615 183 605 front_text.messages[0]: -615, 183, 605 has the following block data: '"16 / 16"'
+
+
+data get block -615 183 606 front_text.messages[0]: -615, 183, 606 has the following block data: '"Restraints closed: Yes"'
+
+
+data get block -615 183 607 front_text.messages[0]: -615, 183, 607 has the following block data: '"Vehicle outside station range"'
+
+
+data get block -615 183 608 front_text.messages[0]: -615, 183, 608 has the following block data: '"Boarding"'
+
+
+data get block -615 183 609 front_text.messages[0]: -615, 183, 609 has the following block data: '""'
+
+
+fd validation pax_energy_restart report ready_after_4: PAX energy restart snapshot recorded
+
+
+fd validation pax_energy_restart report ready_before_5: PAX energy restart snapshot recorded
+
+
+data get block -611 181 604 front_text.messages[0]: -611, 181, 604 has the following block data: '""'
+
+
+data get block -611 181 605 front_text.messages[0]: -611, 181, 605 has the following block data: '"16 / 16"'
+
+
+data get block -611 181 607 front_text.messages[0]: -611, 181, 607 has the following block data: '"Ready to dispatch"'
+
+
+data get block -611 181 608 front_text.messages[0]: -611, 181, 608 has the following block data: '"Boarding"'
+
+
+data get block -615 183 604 front_text.messages[0]: -615, 183, 604 has the following block data: '"Boarding"'
+
+
+data get block -615 183 605 front_text.messages[0]: -615, 183, 605 has the following block data: '"16 / 16"'
+
+
+data get block -615 183 606 front_text.messages[0]: -615, 183, 606 has the following block data: '"Restraints closed: Yes"'
+
+
+data get block -615 183 607 front_text.messages[0]: -615, 183, 607 has the following block data: '"Vehicle outside station range"'
+
+
+data get block -615 183 608 front_text.messages[0]: -615, 183, 608 has the following block data: '"Boarding"'
+
+
+data get block -615 183 609 front_text.messages[0]: -615, 183, 609 has the following block data: '""'
+
+
+fd validation pax_energy_restart report ready_after_6: PAX energy restart snapshot recorded
+
+
+fd validation pax_energy_restart report ready_before_7: PAX energy restart snapshot recorded
+
+
+data get block -611 181 604 front_text.messages[0]: -611, 181, 604 has the following block data: '""'
+
+
+data get block -611 181 605 front_text.messages[0]: -611, 181, 605 has the following block data: '"16 / 16"'
+
+
+data get block -611 181 607 front_text.messages[0]: -611, 181, 607 has the following block data: '"Ready to dispatch"'
+
+
+data get block -611 181 608 front_text.messages[0]: -611, 181, 608 has the following block data: '"Boarding"'
+
+
+data get block -615 183 604 front_text.messages[0]: -615, 183, 604 has the following block data: '"Boarding"'
+
+
+data get block -615 183 605 front_text.messages[0]: -615, 183, 605 has the following block data: '"16 / 16"'
+
+
+data get block -615 183 606 front_text.messages[0]: -615, 183, 606 has the following block data: '"Restraints closed: Yes"'
+
+
+data get block -615 183 607 front_text.messages[0]: -615, 183, 607 has the following block data: '"Vehicle outside station range"'
+
+
+data get block -615 183 608 front_text.messages[0]: -615, 183, 608 has the following block data: '"Boarding"'
+
+
+data get block -615 183 609 front_text.messages[0]: -615, 183, 609 has the following block data: '""'
+
+
+fd validation pax_energy_restart report ready_after_8: PAX energy restart snapshot recorded
+
+
+fd validation pax_energy_restart report ready_before_9: PAX energy restart snapshot recorded
+
+
+data get block -611 181 604 front_text.messages[0]: -611, 181, 604 has the following block data: '""'
+
+
+data get block -611 181 605 front_text.messages[0]: -611, 181, 605 has the following block data: '"16 / 16"'
+
+
+data get block -611 181 607 front_text.messages[0]: -611, 181, 607 has the following block data: '"Ready to dispatch"'
+
+
+data get block -611 181 608 front_text.messages[0]: -611, 181, 608 has the following block data: '"Boarding"'
+
+
+data get block -615 183 604 front_text.messages[0]: -615, 183, 604 has the following block data: '"Boarding"'
+
+
+data get block -615 183 605 front_text.messages[0]: -615, 183, 605 has the following block data: '"16 / 16"'
+
+
+data get block -615 183 606 front_text.messages[0]: -615, 183, 606 has the following block data: '"Restraints closed: Yes"'
+
+
+data get block -615 183 607 front_text.messages[0]: -615, 183, 607 has the following block data: '"Vehicle outside station range"'
+
+
+data get block -615 183 608 front_text.messages[0]: -615, 183, 608 has the following block data: '"Boarding"'
+
+
+data get block -615 183 609 front_text.messages[0]: -615, 183, 609 has the following block data: '""'
+
+
+fd validation pax_energy_restart report ready_after_10: PAX energy restart snapshot recorded
+
+
+fd validation pax_energy_restart report ready_before_11: PAX energy restart snapshot recorded
+
+
+data get block -611 181 604 front_text.messages[0]: -611, 181, 604 has the following block data: '""'
+
+
+data get block -611 181 605 front_text.messages[0]: -611, 181, 605 has the following block data: '"16 / 16"'
+
+
+data get block -611 181 607 front_text.messages[0]: -611, 181, 607 has the following block data: '"Ready to dispatch"'
+
+
+data get block -611 181 608 front_text.messages[0]: -611, 181, 608 has the following block data: '"Boarding"'
+
+
+data get block -615 183 604 front_text.messages[0]: -615, 183, 604 has the following block data: '"Boarding"'
+
+
+data get block -615 183 605 front_text.messages[0]: -615, 183, 605 has the following block data: '"16 / 16"'
+
+
+data get block -615 183 606 front_text.messages[0]: -615, 183, 606 has the following block data: '"Restraints closed: Yes"'
+
+
+data get block -615 183 607 front_text.messages[0]: -615, 183, 607 has the following block data: '"Vehicle outside station range"'
+
+
+data get block -615 183 608 front_text.messages[0]: -615, 183, 608 has the following block data: '"Boarding"'
+
+
+data get block -615 183 609 front_text.messages[0]: -615, 183, 609 has the following block data: '""'
+
+
+fd validation pax_energy_restart report ready_after_12: PAX energy restart snapshot recorded
+
+
+fd validation pax_energy_restart report ready_before_13: PAX energy restart snapshot recorded
+
+
+data get block -611 181 604 front_text.messages[0]: -611, 181, 604 has the following block data: '""'
+
+
+data get block -611 181 605 front_text.messages[0]: -611, 181, 605 has the following block data: '"16 / 16"'
+
+
+data get block -611 181 607 front_text.messages[0]: -611, 181, 607 has the following block data: '"Ready to dispatch"'
+
+
+data get block -611 181 608 front_text.messages[0]: -611, 181, 608 has the following block data: '"Boarding"'
+
+
+data get block -615 183 604 front_text.messages[0]: -615, 183, 604 has the following block data: '"Boarding"'
+
+
+data get block -615 183 605 front_text.messages[0]: -615, 183, 605 has the following block data: '"16 / 16"'
+
+
+data get block -615 183 606 front_text.messages[0]: -615, 183, 606 has the following block data: '"Restraints closed: Yes"'
+
+
+data get block -615 183 607 front_text.messages[0]: -615, 183, 607 has the following block data: '"Vehicle outside station range"'
+
+
+data get block -615 183 608 front_text.messages[0]: -615, 183, 608 has the following block data: '"Boarding"'
+
+
+data get block -615 183 609 front_text.messages[0]: -615, 183, 609 has the following block data: '""'
+
+
+fd validation pax_energy_restart report ready_after_14: PAX energy restart snapshot recorded
+
+
+fd validation pax_energy_restart report ready_before_15: PAX energy restart snapshot recorded
+
+
+data get block -611 181 604 front_text.messages[0]: -611, 181, 604 has the following block data: '""'
+
+
+data get block -611 181 605 front_text.messages[0]: -611, 181, 605 has the following block data: '"16 / 16"'
+
+
+data get block -611 181 607 front_text.messages[0]: -611, 181, 607 has the following block data: '"Ready to dispatch"'
+
+
+data get block -611 181 608 front_text.messages[0]: -611, 181, 608 has the following block data: '"Boarding"'
+
+
+data get block -615 183 604 front_text.messages[0]: -615, 183, 604 has the following block data: '"Boarding"'
+
+
+data get block -615 183 605 front_text.messages[0]: -615, 183, 605 has the following block data: '"16 / 16"'
+
+
+data get block -615 183 606 front_text.messages[0]: -615, 183, 606 has the following block data: '"Restraints closed: Yes"'
+
+
+data get block -615 183 607 front_text.messages[0]: -615, 183, 607 has the following block data: '"Vehicle outside station range"'
+
+
+data get block -615 183 608 front_text.messages[0]: -615, 183, 608 has the following block data: '"Boarding"'
+
+
+data get block -615 183 609 front_text.messages[0]: -615, 183, 609 has the following block data: '""'
+
+
+fd validation pax_energy_restart report ready_after_16: PAX energy restart snapshot recorded
+
+
+fd validation pax_energy_restart report ready_before_17: PAX energy restart snapshot recorded
+
+
+data get block -611 181 604 front_text.messages[0]: -611, 181, 604 has the following block data: '""'
+
+
+data get block -611 181 605 front_text.messages[0]: -611, 181, 605 has the following block data: '"16 / 16"'
+
+
+data get block -611 181 607 front_text.messages[0]: -611, 181, 607 has the following block data: '"Ready to dispatch"'
+
+
+data get block -611 181 608 front_text.messages[0]: -611, 181, 608 has the following block data: '"Boarding"'
+
+
+data get block -615 183 604 front_text.messages[0]: -615, 183, 604 has the following block data: '"Boarding"'
+
+
+data get block -615 183 605 front_text.messages[0]: -615, 183, 605 has the following block data: '"16 / 16"'
+
+
+data get block -615 183 606 front_text.messages[0]: -615, 183, 606 has the following block data: '"Restraints closed: Yes"'
+
+
+data get block -615 183 607 front_text.messages[0]: -615, 183, 607 has the following block data: '"Vehicle outside station range"'
+
+
+data get block -615 183 608 front_text.messages[0]: -615, 183, 608 has the following block data: '"Boarding"'
+
+
+data get block -615 183 609 front_text.messages[0]: -615, 183, 609 has the following block data: '""'
+
+
+fd validation pax_energy_restart report ready_after_18: PAX energy restart snapshot recorded
+
+
+fd validation pax_energy_restart report ready_before_19: PAX energy restart snapshot recorded
+
+
+data get block -611 181 604 front_text.messages[0]: -611, 181, 604 has the following block data: '""'
+
+
+data get block -611 181 605 front_text.messages[0]: -611, 181, 605 has the following block data: '"16 / 16"'
+
+
+data get block -611 181 607 front_text.messages[0]: -611, 181, 607 has the following block data: '"Ready to dispatch"'
+
+
+data get block -611 181 608 front_text.messages[0]: -611, 181, 608 has the following block data: '"Boarding"'
+
+
+data get block -615 183 604 front_text.messages[0]: -615, 183, 604 has the following block data: '"Boarding"'
+
+
+data get block -615 183 605 front_text.messages[0]: -615, 183, 605 has the following block data: '"16 / 16"'
+
+
+data get block -615 183 606 front_text.messages[0]: -615, 183, 606 has the following block data: '"Restraints closed: Yes"'
+
+
+data get block -615 183 607 front_text.messages[0]: -615, 183, 607 has the following block data: '"Vehicle outside station range"'
+
+
+data get block -615 183 608 front_text.messages[0]: -615, 183, 608 has the following block data: '"Boarding"'
+
+
+data get block -615 183 609 front_text.messages[0]: -615, 183, 609 has the following block data: '""'
+
+
+fd validation pax_energy_restart report ready_after_20: PAX energy restart snapshot recorded
+
+
+fd validation pax_energy_restart report ready_before_21: PAX energy restart snapshot recorded
+
+
+data get block -611 181 604 front_text.messages[0]: -611, 181, 604 has the following block data: '""'
+
+
+data get block -611 181 605 front_text.messages[0]: -611, 181, 605 has the following block data: '"16 / 16"'
+
+
+data get block -611 181 607 front_text.messages[0]: -611, 181, 607 has the following block data: '"Ready to dispatch"'
+
+
+data get block -611 181 608 front_text.messages[0]: -611, 181, 608 has the following block data: '"Boarding"'
+
+
+data get block -615 183 604 front_text.messages[0]: -615, 183, 604 has the following block data: '"Boarding"'
+
+
+data get block -615 183 605 front_text.messages[0]: -615, 183, 605 has the following block data: '"16 / 16"'
+
+
+data get block -615 183 606 front_text.messages[0]: -615, 183, 606 has the following block data: '"Restraints closed: Yes"'
+
+
+data get block -615 183 607 front_text.messages[0]: -615, 183, 607 has the following block data: '"Vehicle outside station range"'
+
+
+data get block -615 183 608 front_text.messages[0]: -615, 183, 608 has the following block data: '"Boarding"'
+
+
+data get block -615 183 609 front_text.messages[0]: -615, 183, 609 has the following block data: '""'
+
+
+fd validation pax_energy_restart report ready_after_22: PAX energy restart snapshot recorded
+
+
+fd validation pax_energy_restart report ready_before_23: PAX energy restart snapshot recorded
+
+
+data get block -611 181 604 front_text.messages[0]: -611, 181, 604 has the following block data: '""'
+
+
+data get block -611 181 605 front_text.messages[0]: -611, 181, 605 has the following block data: '"16 / 16"'
+
+
+data get block -611 181 607 front_text.messages[0]: -611, 181, 607 has the following block data: '"Ready to dispatch"'
+
+
+data get block -611 181 608 front_text.messages[0]: -611, 181, 608 has the following block data: '"Boarding"'
+
+
+data get block -615 183 604 front_text.messages[0]: -615, 183, 604 has the following block data: '"Boarding"'
+
+
+data get block -615 183 605 front_text.messages[0]: -615, 183, 605 has the following block data: '"16 / 16"'
+
+
+data get block -615 183 606 front_text.messages[0]: -615, 183, 606 has the following block data: '"Restraints closed: Yes"'
+
+
+data get block -615 183 607 front_text.messages[0]: -615, 183, 607 has the following block data: '"Vehicle outside station range"'
+
+
+data get block -615 183 608 front_text.messages[0]: -615, 183, 608 has the following block data: '"Boarding"'
+
+
+data get block -615 183 609 front_text.messages[0]: -615, 183, 609 has the following block data: '""'
+
+
+fd validation pax_energy_restart report ready_after_24: PAX energy restart snapshot recorded
+
+
+fd validation pax_energy_restart report ready_before_25: PAX energy restart snapshot recorded
+
+
+data get block -611 181 604 front_text.messages[0]: -611, 181, 604 has the following block data: '""'
+
+
+data get block -611 181 605 front_text.messages[0]: -611, 181, 605 has the following block data: '"16 / 16"'
+
+
+data get block -611 181 607 front_text.messages[0]: -611, 181, 607 has the following block data: '"Ready to dispatch"'
+
+
+data get block -611 181 608 front_text.messages[0]: -611, 181, 608 has the following block data: '"Boarding"'
+
+
+data get block -615 183 604 front_text.messages[0]: -615, 183, 604 has the following block data: '"Boarding"'
+
+
+data get block -615 183 605 front_text.messages[0]: -615, 183, 605 has the following block data: '"16 / 16"'
+
+
+data get block -615 183 606 front_text.messages[0]: -615, 183, 606 has the following block data: '"Restraints closed: Yes"'
+
+
+data get block -615 183 607 front_text.messages[0]: -615, 183, 607 has the following block data: '"Vehicle outside station range"'
+
+
+data get block -615 183 608 front_text.messages[0]: -615, 183, 608 has the following block data: '"Boarding"'
+
+
+data get block -615 183 609 front_text.messages[0]: -615, 183, 609 has the following block data: '""'
+
+
+fd validation pax_energy_restart report ready_after_26: PAX energy restart snapshot recorded
+
+
+fd validation pax_energy_restart report ready_before_27: PAX energy restart snapshot recorded
+
+
+data get block -611 181 604 front_text.messages[0]: -611, 181, 604 has the following block data: '""'
+
+
+data get block -611 181 605 front_text.messages[0]: -611, 181, 605 has the following block data: '"16 / 16"'
+
+
+data get block -611 181 607 front_text.messages[0]: -611, 181, 607 has the following block data: '"Ready to dispatch"'
+
+
+data get block -611 181 608 front_text.messages[0]: -611, 181, 608 has the following block data: '"Boarding"'
+
+
+data get block -615 183 604 front_text.messages[0]: -615, 183, 604 has the following block data: '"Boarding"'
+
+
+data get block -615 183 605 front_text.messages[0]: -615, 183, 605 has the following block data: '"16 / 16"'
+
+
+data get block -615 183 606 front_text.messages[0]: -615, 183, 606 has the following block data: '"Restraints closed: Yes"'
+
+
+data get block -615 183 607 front_text.messages[0]: -615, 183, 607 has the following block data: '"Vehicle outside station range"'
+
+
+data get block -615 183 608 front_text.messages[0]: -615, 183, 608 has the following block data: '"Boarding"'
+
+
+data get block -615 183 609 front_text.messages[0]: -615, 183, 609 has the following block data: '""'
+
+
+fd validation pax_energy_restart report ready_after_28: PAX energy restart snapshot recorded
+
+
+fd validation pax_energy_restart report ready_before_29: PAX energy restart snapshot recorded
+
+
+data get block -611 181 604 front_text.messages[0]: -611, 181, 604 has the following block data: '""'
+
+
+data get block -611 181 605 front_text.messages[0]: -611, 181, 605 has the following block data: '"16 / 16"'
+
+
+data get block -611 181 607 front_text.messages[0]: -611, 181, 607 has the following block data: '"Ready to dispatch"'
+
+
+data get block -611 181 608 front_text.messages[0]: -611, 181, 608 has the following block data: '"Boarding"'
+
+
+data get block -615 183 604 front_text.messages[0]: -615, 183, 604 has the following block data: '"Boarding"'
+
+
+data get block -615 183 605 front_text.messages[0]: -615, 183, 605 has the following block data: '"16 / 16"'
+
+
+data get block -615 183 606 front_text.messages[0]: -615, 183, 606 has the following block data: '"Restraints closed: Yes"'
+
+
+data get block -615 183 607 front_text.messages[0]: -615, 183, 607 has the following block data: '"Vehicle outside station range"'
+
+
+data get block -615 183 608 front_text.messages[0]: -615, 183, 608 has the following block data: '"Boarding"'
+
+
+data get block -615 183 609 front_text.messages[0]: -615, 183, 609 has the following block data: '""'
+
+
+fd validation pax_energy_restart report ready_after_30: PAX energy restart snapshot recorded
+
+
+fd validation pax_energy_restart report ready_before_31: PAX energy restart snapshot recorded
+
+
+data get block -611 181 604 front_text.messages[0]: -611, 181, 604 has the following block data: '""'
+
+
+data get block -611 181 605 front_text.messages[0]: -611, 181, 605 has the following block data: '"16 / 16"'
+
+
+data get block -611 181 607 front_text.messages[0]: -611, 181, 607 has the following block data: '"Ready to dispatch"'
+
+
+data get block -611 181 608 front_text.messages[0]: -611, 181, 608 has the following block data: '"Boarding"'
+
+
+data get block -615 183 604 front_text.messages[0]: -615, 183, 604 has the following block data: '"Boarding"'
+
+
+data get block -615 183 605 front_text.messages[0]: -615, 183, 605 has the following block data: '"16 / 16"'
+
+
+data get block -615 183 606 front_text.messages[0]: -615, 183, 606 has the following block data: '"Restraints closed: Yes"'
+
+
+data get block -615 183 607 front_text.messages[0]: -615, 183, 607 has the following block data: '"Vehicle outside station range"'
+
+
+data get block -615 183 608 front_text.messages[0]: -615, 183, 608 has the following block data: '"Boarding"'
+
+
+data get block -615 183 609 front_text.messages[0]: -615, 183, 609 has the following block data: '""'
+
+
+fd validation pax_energy_restart report ready_after_32: PAX energy restart snapshot recorded
+
+
+fd validation pax_energy_restart report ready_before_33: PAX energy restart snapshot recorded
+
+
+data get block -611 181 604 front_text.messages[0]: -611, 181, 604 has the following block data: '""'
+
+
+data get block -611 181 605 front_text.messages[0]: -611, 181, 605 has the following block data: '"16 / 16"'
+
+
+data get block -611 181 607 front_text.messages[0]: -611, 181, 607 has the following block data: '"Ready to dispatch"'
+
+
+data get block -611 181 608 front_text.messages[0]: -611, 181, 608 has the following block data: '"Boarding"'
+
+
+data get block -615 183 604 front_text.messages[0]: -615, 183, 604 has the following block data: '"Boarding"'
+
+
+data get block -615 183 605 front_text.messages[0]: -615, 183, 605 has the following block data: '"16 / 16"'
+
+
+data get block -615 183 606 front_text.messages[0]: -615, 183, 606 has the following block data: '"Restraints closed: Yes"'
+
+
+data get block -615 183 607 front_text.messages[0]: -615, 183, 607 has the following block data: '"Vehicle outside station range"'
+
+
+data get block -615 183 608 front_text.messages[0]: -615, 183, 608 has the following block data: '"Boarding"'
+
+
+data get block -615 183 609 front_text.messages[0]: -615, 183, 609 has the following block data: '""'
+
+
+fd validation pax_energy_restart report ready_after_34: PAX energy restart snapshot recorded
+
+
+fd validation pax_energy_restart report ready_before_35: PAX energy restart snapshot recorded
+
+
+data get block -611 181 604 front_text.messages[0]: -611, 181, 604 has the following block data: '""'
+
+
+data get block -611 181 605 front_text.messages[0]: -611, 181, 605 has the following block data: '"16 / 16"'
+
+
+data get block -611 181 607 front_text.messages[0]: -611, 181, 607 has the following block data: '"Ready to dispatch"'
+
+
+data get block -611 181 608 front_text.messages[0]: -611, 181, 608 has the following block data: '"Boarding"'
+
+
+data get block -615 183 604 front_text.messages[0]: -615, 183, 604 has the following block data: '"Boarding"'
+
+
+data get block -615 183 605 front_text.messages[0]: -615, 183, 605 has the following block data: '"16 / 16"'
+
+
+data get block -615 183 606 front_text.messages[0]: -615, 183, 606 has the following block data: '"Restraints closed: Yes"'
+
+
+data get block -615 183 607 front_text.messages[0]: -615, 183, 607 has the following block data: '"Vehicle outside station range"'
+
+
+data get block -615 183 608 front_text.messages[0]: -615, 183, 608 has the following block data: '"Boarding"'
+
+
+data get block -615 183 609 front_text.messages[0]: -615, 183, 609 has the following block data: '""'
+
+
+fd validation pax_energy_restart report ready_after_36: PAX energy restart snapshot recorded
+
+
+fd validation pax_energy_restart report ready_before_37: PAX energy restart snapshot recorded
+
+
+data get block -611 181 604 front_text.messages[0]: -611, 181, 604 has the following block data: '""'
+
+
+data get block -611 181 605 front_text.messages[0]: -611, 181, 605 has the following block data: '"16 / 16"'
+
+
+data get block -611 181 607 front_text.messages[0]: -611, 181, 607 has the following block data: '"Ready to dispatch"'
+
+
+data get block -611 181 608 front_text.messages[0]: -611, 181, 608 has the following block data: '"Boarding"'
+
+
+data get block -615 183 604 front_text.messages[0]: -615, 183, 604 has the following block data: '"Boarding"'
+
+
+data get block -615 183 605 front_text.messages[0]: -615, 183, 605 has the following block data: '"16 / 16"'
+
+
+data get block -615 183 606 front_text.messages[0]: -615, 183, 606 has the following block data: '"Restraints closed: Yes"'
+
+
+data get block -615 183 607 front_text.messages[0]: -615, 183, 607 has the following block data: '"Vehicle outside station range"'
+
+
+data get block -615 183 608 front_text.messages[0]: -615, 183, 608 has the following block data: '"Boarding"'
+
+
+data get block -615 183 609 front_text.messages[0]: -615, 183, 609 has the following block data: '""'
+
+
+fd validation pax_energy_restart report ready_after_38: PAX energy restart snapshot recorded
+
+
+fd validation pax_energy_restart report ready_before_39: PAX energy restart snapshot recorded
+
+
+data get block -611 181 604 front_text.messages[0]: -611, 181, 604 has the following block data: '""'
+
+
+data get block -611 181 605 front_text.messages[0]: -611, 181, 605 has the following block data: '"16 / 16"'
+
+
+data get block -611 181 607 front_text.messages[0]: -611, 181, 607 has the following block data: '"Ready to dispatch"'
+
+
+data get block -611 181 608 front_text.messages[0]: -611, 181, 608 has the following block data: '"Boarding"'
+
+
+data get block -615 183 604 front_text.messages[0]: -615, 183, 604 has the following block data: '"Boarding"'
+
+
+data get block -615 183 605 front_text.messages[0]: -615, 183, 605 has the following block data: '"16 / 16"'
+
+
+data get block -615 183 606 front_text.messages[0]: -615, 183, 606 has the following block data: '"Restraints closed: Yes"'
+
+
+data get block -615 183 607 front_text.messages[0]: -615, 183, 607 has the following block data: '"Vehicle outside station range"'
+
+
+data get block -615 183 608 front_text.messages[0]: -615, 183, 608 has the following block data: '"Boarding"'
+
+
+data get block -615 183 609 front_text.messages[0]: -615, 183, 609 has the following block data: '""'
+
+
+fd validation pax_energy_restart report ready_after_40: PAX energy restart snapshot recorded
+
+
+fd validation pax_energy_restart report ready_before_41: PAX energy restart snapshot recorded
+
+
+data get block -611 181 604 front_text.messages[0]: -611, 181, 604 has the following block data: '""'
+
+
+data get block -611 181 605 front_text.messages[0]: -611, 181, 605 has the following block data: '"16 / 16"'
+
+
+data get block -611 181 607 front_text.messages[0]: -611, 181, 607 has the following block data: '"Ready to dispatch"'
+
+
+data get block -611 181 608 front_text.messages[0]: -611, 181, 608 has the following block data: '"Boarding"'
+
+
+data get block -615 183 604 front_text.messages[0]: -615, 183, 604 has the following block data: '"Boarding"'
+
+
+data get block -615 183 605 front_text.messages[0]: -615, 183, 605 has the following block data: '"16 / 16"'
+
+
+data get block -615 183 606 front_text.messages[0]: -615, 183, 606 has the following block data: '"Restraints closed: Yes"'
+
+
+data get block -615 183 607 front_text.messages[0]: -615, 183, 607 has the following block data: '"Vehicle outside station range"'
+
+
+data get block -615 183 608 front_text.messages[0]: -615, 183, 608 has the following block data: '"Boarding"'
+
+
+data get block -615 183 609 front_text.messages[0]: -615, 183, 609 has the following block data: '""'
+
+
+fd validation pax_energy_restart report ready_after_42: PAX energy restart snapshot recorded
+
+
+fd validation pax_energy_restart report ready_before_43: PAX energy restart snapshot recorded
+
+
+data get block -611 181 604 front_text.messages[0]: -611, 181, 604 has the following block data: '""'
+
+
+data get block -611 181 605 front_text.messages[0]: -611, 181, 605 has the following block data: '"16 / 16"'
+
+
+data get block -611 181 607 front_text.messages[0]: -611, 181, 607 has the following block data: '"Ready to dispatch"'
+
+
+data get block -611 181 608 front_text.messages[0]: -611, 181, 608 has the following block data: '"Boarding"'
+
+
+data get block -615 183 604 front_text.messages[0]: -615, 183, 604 has the following block data: '"Boarding"'
+
+
+data get block -615 183 605 front_text.messages[0]: -615, 183, 605 has the following block data: '"16 / 16"'
+
+
+data get block -615 183 606 front_text.messages[0]: -615, 183, 606 has the following block data: '"Restraints closed: Yes"'
+
+
+data get block -615 183 607 front_text.messages[0]: -615, 183, 607 has the following block data: '"Vehicle outside station range"'
+
+
+data get block -615 183 608 front_text.messages[0]: -615, 183, 608 has the following block data: '"Boarding"'
+
+
+data get block -615 183 609 front_text.messages[0]: -615, 183, 609 has the following block data: '""'
+
+
+fd validation pax_energy_restart report ready_after_44: PAX energy restart snapshot recorded
+
+
+fd validation pax_energy_restart report ready_before_45: PAX energy restart snapshot recorded
+
+
+data get block -611 181 604 front_text.messages[0]: -611, 181, 604 has the following block data: '""'
+
+
+data get block -611 181 605 front_text.messages[0]: -611, 181, 605 has the following block data: '"16 / 16"'
+
+
+data get block -611 181 607 front_text.messages[0]: -611, 181, 607 has the following block data: '"Ready to dispatch"'
+
+
+data get block -611 181 608 front_text.messages[0]: -611, 181, 608 has the following block data: '"Boarding"'
+
+
+data get block -615 183 604 front_text.messages[0]: -615, 183, 604 has the following block data: '"Boarding"'
+
+
+data get block -615 183 605 front_text.messages[0]: -615, 183, 605 has the following block data: '"16 / 16"'
+
+
+data get block -615 183 606 front_text.messages[0]: -615, 183, 606 has the following block data: '"Restraints closed: Yes"'
+
+
+data get block -615 183 607 front_text.messages[0]: -615, 183, 607 has the following block data: '"Vehicle outside station range"'
+
+
+data get block -615 183 608 front_text.messages[0]: -615, 183, 608 has the following block data: '"Boarding"'
+
+
+data get block -615 183 609 front_text.messages[0]: -615, 183, 609 has the following block data: '""'
+
+
+fd validation pax_energy_restart report ready_after_46: PAX energy restart snapshot recorded
+
+
+fd validation pax_energy_restart report ready_before_47: PAX energy restart snapshot recorded
+
+
+data get block -611 181 604 front_text.messages[0]: -611, 181, 604 has the following block data: '""'
+
+
+data get block -611 181 605 front_text.messages[0]: -611, 181, 605 has the following block data: '"16 / 16"'
+
+
+data get block -611 181 607 front_text.messages[0]: -611, 181, 607 has the following block data: '"Ready to dispatch"'
+
+
+data get block -611 181 608 front_text.messages[0]: -611, 181, 608 has the following block data: '"Boarding"'
+
+
+data get block -615 183 604 front_text.messages[0]: -615, 183, 604 has the following block data: '"Boarding"'
+
+
+data get block -615 183 605 front_text.messages[0]: -615, 183, 605 has the following block data: '"16 / 16"'
+
+
+data get block -615 183 606 front_text.messages[0]: -615, 183, 606 has the following block data: '"Restraints closed: Yes"'
+
+
+data get block -615 183 607 front_text.messages[0]: -615, 183, 607 has the following block data: '"Vehicle outside station range"'
+
+
+data get block -615 183 608 front_text.messages[0]: -615, 183, 608 has the following block data: '"Boarding"'
+
+
+data get block -615 183 609 front_text.messages[0]: -615, 183, 609 has the following block data: '""'
+
+
+fd validation pax_energy_restart report ready_after_48: PAX energy restart snapshot recorded
+
+
+fd validation pax_energy_restart report ready_before_49: PAX energy restart snapshot recorded
+
+
+data get block -611 181 604 front_text.messages[0]: -611, 181, 604 has the following block data: '""'
+
+
+data get block -611 181 605 front_text.messages[0]: -611, 181, 605 has the following block data: '"16 / 16"'
+
+
+data get block -611 181 607 front_text.messages[0]: -611, 181, 607 has the following block data: '"Ready to dispatch"'
+
+
+data get block -611 181 608 front_text.messages[0]: -611, 181, 608 has the following block data: '"Boarding"'
+
+
+data get block -615 183 604 front_text.messages[0]: -615, 183, 604 has the following block data: '"Boarding"'
+
+
+data get block -615 183 605 front_text.messages[0]: -615, 183, 605 has the following block data: '"16 / 16"'
+
+
+data get block -615 183 606 front_text.messages[0]: -615, 183, 606 has the following block data: '"Restraints closed: Yes"'
+
+
+data get block -615 183 607 front_text.messages[0]: -615, 183, 607 has the following block data: '"Vehicle outside station range"'
+
+
+data get block -615 183 608 front_text.messages[0]: -615, 183, 608 has the following block data: '"Boarding"'
+
+
+data get block -615 183 609 front_text.messages[0]: -615, 183, 609 has the following block data: '""'
+
+
+fd validation pax_energy_restart report ready_after_50: PAX energy restart snapshot recorded
+
+
+data get block -617 180 608: -617, 180, 608 has the following block data: {TargetOffset: [I; 2, 3, 1], HasAttachedComputer: 0b, x: -617, y: 180, TargetLine: 0, z: 608, id: "create:display_link", LinkedGauges: [], Source: {Id: "fourthdimension:ride_fault"}}
+
+
+data get block -615 180 608: -615, 180, 608 has the following block data: {TargetOffset: [I; 0, 3, -1], HasAttachedComputer: 0b, x: -615, y: 180, TargetLine: 0, z: 608, id: "create:display_link", LinkedGauges: [], Source: {Id: "fourthdimension:ride_dispatch"}}
+
+
+data get block -606 181 608: -606, 181, 608 has the following block data: {TargetOffset: [I; -4, 0, 0], HasAttachedComputer: 0b, x: -606, y: 181, TargetLine: 0, z: 608, id: "create:display_link", LinkedGauges: [], Source: {Id: "fourthdimension:ride_occupancy"}}
+
+
+execute if block -606 181 608 create:display_link[powered=true] run say FD_LINK_POWERED:
+
+data merge block -606 181 608 {TargetOffset:[I;-5,0,-4],TargetLine:0,Source:{Id:"fourthdimension:ride_status"}}: Modified block data of -606, 181, 608
+
+
+data get block -606 181 608: -606, 181, 608 has the following block data: {TargetOffset: [I; -5, 0, -4], HasAttachedComputer: 0b, x: -606, y: 181, TargetLine: 0, z: 608, id: "create:display_link", LinkedGauges: [], Source: {Id: "fourthdimension:ride_status"}}
+
+
+data get block -606 180 607: -606, 180, 607 has the following block data: {TargetOffset: [I; -5, 1, -2], HasAttachedComputer: 0b, x: -606, y: 180, TargetLine: 0, z: 607, id: "create:display_link", LinkedGauges: [], Source: {Id: "fourthdimension:ride_occupancy"}}
+
+
+data get block -605 180 608: -605, 180, 608 has the following block data: {TargetOffset: [I; -6, 1, -1], HasAttachedComputer: 0b, x: -605, y: 180, TargetLine: 0, z: 608, id: "create:display_link", LinkedGauges: [], Source: {Id: "fourthdimension:ride_dispatch"}}
+
+
+data get block -606 179 608: -606, 179, 608 has the following block data: {TargetOffset: [I; -5, 2, 0], HasAttachedComputer: 0b, x: -606, y: 179, TargetLine: 0, z: 608, id: "create:display_link", LinkedGauges: [], Source: {Id: "fourthdimension:ride_phase"}}
+
+
+data get block -616 181 608: -616, 181, 608 has the following block data: {TargetOffset: [I; 1, 2, -4], HasAttachedComputer: 0b, x: -616, y: 181, TargetLine: 0, z: 608, id: "create:display_link", LinkedGauges: [], Source: {Id: "fourthdimension:ride_status"}}
+
+
+data get block -616 180 607: -616, 180, 607 has the following block data: {TargetOffset: [I; 1, 3, -2], HasAttachedComputer: 0b, x: -616, y: 180, TargetLine: 0, z: 607, id: "create:display_link", LinkedGauges: [], Source: {Id: "fourthdimension:ride_occupancy"}}
+
+
+data get block -616 180 609: -616, 180, 609 has the following block data: {TargetOffset: [I; 1, 3, -3], HasAttachedComputer: 0b, x: -616, y: 180, TargetLine: 0, z: 609, id: "create:display_link", LinkedGauges: [], Source: {Id: "fourthdimension:ride_restraints"}}
+
+
+data get block -615 180 608: -615, 180, 608 has the following block data: {TargetOffset: [I; 0, 3, -1], HasAttachedComputer: 0b, x: -615, y: 180, TargetLine: 0, z: 608, id: "create:display_link", LinkedGauges: [], Source: {Id: "fourthdimension:ride_dispatch"}}
+
+
+data get block -616 179 608: -616, 179, 608 has the following block data: {TargetOffset: [I; 1, 4, 0], HasAttachedComputer: 0b, x: -616, y: 179, TargetLine: 0, z: 608, id: "create:display_link", LinkedGauges: [], Source: {Id: "fourthdimension:ride_phase"}}
+
+
+data get block -617 180 608: -617, 180, 608 has the following block data: {TargetOffset: [I; 2, 3, 1], HasAttachedComputer: 0b, x: -617, y: 180, TargetLine: 0, z: 608, id: "create:display_link", LinkedGauges: [], Source: {Id: "fourthdimension:ride_fault"}}
+
+
+fd validation pax_energy_restart report live1790881027587010572_ready_before_1: PAX energy restart snapshot recorded
+
+
+data get block -611 181 604 front_text.messages[0]: -611, 181, 604 has the following block data: '"Ready to dispatch"'
+
+
+data get block -611 181 605 front_text.messages[0]: -611, 181, 605 has the following block data: '"16 / 16"'
+
+
+data get block -611 181 607 front_text.messages[0]: -611, 181, 607 has the following block data: '"Ready to dispatch"'
+
+
+data get block -611 181 608 front_text.messages[0]: -611, 181, 608 has the following block data: '"Boarding"'
+
+
+data get block -615 183 604 front_text.messages[0]: -615, 183, 604 has the following block data: '"Boarding"'
+
+
+data get block -615 183 605 front_text.messages[0]: -615, 183, 605 has the following block data: '"16 / 16"'
+
+
+data get block -615 183 606 front_text.messages[0]: -615, 183, 606 has the following block data: '"Restraints closed: Yes"'
+
+
+data get block -615 183 607 front_text.messages[0]: -615, 183, 607 has the following block data: '"Vehicle outside station range"'
+
+
+data get block -615 183 608 front_text.messages[0]: -615, 183, 608 has the following block data: '"Boarding"'
+
+
+data get block -615 183 609 front_text.messages[0]: -615, 183, 609 has the following block data: '""'
+
+
+fd validation pax_energy_restart report live1790881027587010572_ready_after_2: PAX energy restart snapshot recorded
+
+
+fd validation pax_energy_restart dispatch: PAX energy restart fixture: dispatch
+
+
+fd validation pax_energy_restart report live1790881027587010572_first_lift_before_3: PAX energy restart snapshot recorded
+
+
+data get block -611 181 604 front_text.messages[0]: -611, 181, 604 has the following block data: '"Ready to dispatch"'
+
+
+data get block -611 181 605 front_text.messages[0]: -611, 181, 605 has the following block data: '"16 / 16"'
+
+
+data get block -611 181 607 front_text.messages[0]: -611, 181, 607 has the following block data: '"Ready to dispatch"'
+
+
+data get block -611 181 608 front_text.messages[0]: -611, 181, 608 has the following block data: '"Boarding"'
+
+
+data get block -615 183 604 front_text.messages[0]: -615, 183, 604 has the following block data: '"Boarding"'
+
+
+data get block -615 183 605 front_text.messages[0]: -615, 183, 605 has the following block data: '"16 / 16"'
+
+
+data get block -615 183 606 front_text.messages[0]: -615, 183, 606 has the following block data: '"Restraints closed: Yes"'
+
+
+data get block -615 183 607 front_text.messages[0]: -615, 183, 607 has the following block data: '"Vehicle outside station range"'
+
+
+data get block -615 183 608 front_text.messages[0]: -615, 183, 608 has the following block data: '"Boarding"'
+
+
+data get block -615 183 609 front_text.messages[0]: -615, 183, 609 has the following block data: '""'
+
+
+fd validation pax_energy_restart report live1790881027587010572_first_lift_after_4: PAX energy restart snapshot recorded
+
+
+fd validation pax_energy_restart report live1790881027587010572_first_lift_before_5: PAX energy restart snapshot recorded
+
+
+data get block -611 181 604 front_text.messages[0]: -611, 181, 604 has the following block data: '"Ready to dispatch"'
+
+
+data get block -611 181 605 front_text.messages[0]: -611, 181, 605 has the following block data: '"16 / 16"'
+
+
+data get block -611 181 607 front_text.messages[0]: -611, 181, 607 has the following block data: '"Bind and capture the shuttle before starting"'
+
+
+data get block -611 181 608 front_text.messages[0]: -611, 181, 608 has the following block data: '"Lifting"'
+
+
+data get block -615 183 604 front_text.messages[0]: -615, 183, 604 has the following block data: '"Lifting"'
+
+
+data get block -615 183 605 front_text.messages[0]: -615, 183, 605 has the following block data: '"16 / 16"'
+
+
+data get block -615 183 606 front_text.messages[0]: -615, 183, 606 has the following block data: '"Restraints closed: Yes"'
+
+
+data get block -615 183 607 front_text.messages[0]: -615, 183, 607 has the following block data: '"Vehicle outside station range"'
+
+
+data get block -615 183 608 front_text.messages[0]: -615, 183, 608 has the following block data: '"Lifting"'
+
+
+data get block -615 183 609 front_text.messages[0]: -615, 183, 609 has the following block data: '""'
+
+
+fd validation pax_energy_restart report live1790881027587010572_first_lift_after_6: PAX energy restart snapshot recorded
+
+
+fd validation pax_energy_restart report live1790881027587010572_first_lift_before_7: PAX energy restart snapshot recorded
+
+
+data get block -611 181 604 front_text.messages[0]: -611, 181, 604 has the following block data: '"Lifting"'
+
+
+data get block -611 181 605 front_text.messages[0]: -611, 181, 605 has the following block data: '"16 / 16"'
+
+
+data get block -611 181 607 front_text.messages[0]: -611, 181, 607 has the following block data: '"Bind and capture the shuttle before starting"'
+
+
+data get block -611 181 608 front_text.messages[0]: -611, 181, 608 has the following block data: '"Lifting"'
+
+
+data get block -615 183 604 front_text.messages[0]: -615, 183, 604 has the following block data: '"Lifting"'
+
+
+data get block -615 183 605 front_text.messages[0]: -615, 183, 605 has the following block data: '"16 / 16"'
+
+
+data get block -615 183 606 front_text.messages[0]: -615, 183, 606 has the following block data: '"Restraints closed: Yes"'
+
+
+data get block -615 183 607 front_text.messages[0]: -615, 183, 607 has the following block data: '"Vehicle outside station range"'
+
+
+data get block -615 183 608 front_text.messages[0]: -615, 183, 608 has the following block data: '"Lifting"'
+
+
+data get block -615 183 609 front_text.messages[0]: -615, 183, 609 has the following block data: '""'
+
+
+fd validation pax_energy_restart report live1790881027587010572_first_lift_after_8: PAX energy restart snapshot recorded
+
+
+setblock -607 180 608 minecraft:air: Changed the block at -607, 180, 608
+
+
+fd validation pax_energy_restart report live1790881027587010572_power_fault_before_9: PAX energy restart snapshot recorded
+
+
+data get block -611 181 604 front_text.messages[0]: -611, 181, 604 has the following block data: '"Lifting"'
+
+
+data get block -611 181 605 front_text.messages[0]: -611, 181, 605 has the following block data: '"16 / 16"'
+
+
+data get block -611 181 607 front_text.messages[0]: -611, 181, 607 has the following block data: '"Bind and capture the shuttle before starting"'
+
+
+data get block -611 181 608 front_text.messages[0]: -611, 181, 608 has the following block data: '"Lifting"'
+
+
+data get block -615 183 604 front_text.messages[0]: -615, 183, 604 has the following block data: '"Lifting"'
+
+
+data get block -615 183 605 front_text.messages[0]: -615, 183, 605 has the following block data: '"16 / 16"'
+
+
+data get block -615 183 606 front_text.messages[0]: -615, 183, 606 has the following block data: '"Restraints closed: Yes"'
+
+
+data get block -615 183 607 front_text.messages[0]: -615, 183, 607 has the following block data: '"Vehicle outside station range"'
+
+
+data get block -615 183 608 front_text.messages[0]: -615, 183, 608 has the following block data: '"Lifting"'
+
+
+data get block -615 183 609 front_text.messages[0]: -615, 183, 609 has the following block data: '""'
+
+
+fd validation pax_energy_restart report live1790881027587010572_power_fault_after_10: PAX energy restart snapshot recorded
+
+
+fd validation pax_energy_restart report live1790881027587010572_power_fault_before_11: PAX energy restart snapshot recorded
+
+
+data get block -611 181 604 front_text.messages[0]: -611, 181, 604 has the following block data: '"Lifting"'
+
+
+data get block -611 181 605 front_text.messages[0]: -611, 181, 605 has the following block data: '"16 / 16"'
+
+
+data get block -611 181 607 front_text.messages[0]: -611, 181, 607 has the following block data: '"Bind and capture the shuttle before starting"'
+
+
+data get block -611 181 608 front_text.messages[0]: -611, 181, 608 has the following block data: '"Fault"'
+
+
+data get block -615 183 604 front_text.messages[0]: -615, 183, 604 has the following block data: '"Lifting"'
+
+
+data get block -615 183 605 front_text.messages[0]: -615, 183, 605 has the following block data: '"16 / 16"'
+
+
+data get block -615 183 606 front_text.messages[0]: -615, 183, 606 has the following block data: '"Restraints closed: Yes"'
+
+
+data get block -615 183 607 front_text.messages[0]: -615, 183, 607 has the following block data: '"Vehicle outside station range"'
+
+
+data get block -615 183 608 front_text.messages[0]: -615, 183, 608 has the following block data: '"Lifting"'
+
+
+data get block -615 183 609 front_text.messages[0]: -615, 183, 609 has the following block data: '""'
+
+
+fd validation pax_energy_restart report live1790881027587010572_power_fault_after_12: PAX energy restart snapshot recorded
+
+
+fd validation pax_energy_restart report live1790881027587010572_power_fault_before_13: PAX energy restart snapshot recorded
+
+
+data get block -611 181 604 front_text.messages[0]: -611, 181, 604 has the following block data: '"Winch power lost: retain the train; inspect and resume or recover"'
+
+
+data get block -611 181 605 front_text.messages[0]: -611, 181, 605 has the following block data: '"16 / 16"'
+
+
+data get block -611 181 607 front_text.messages[0]: -611, 181, 607 has the following block data: '"Bind and capture the shuttle before starting"'
+
+
+data get block -611 181 608 front_text.messages[0]: -611, 181, 608 has the following block data: '"Fault"'
+
+
+data get block -615 183 604 front_text.messages[0]: -615, 183, 604 has the following block data: '"Winch power lost: retain the train; inspect and resume or recover"'
+
+
+data get block -615 183 605 front_text.messages[0]: -615, 183, 605 has the following block data: '"16 / 16"'
+
+
+data get block -615 183 606 front_text.messages[0]: -615, 183, 606 has the following block data: '"Restraints closed: Yes"'
+
+
+data get block -615 183 607 front_text.messages[0]: -615, 183, 607 has the following block data: '"Vehicle outside station range"'
+
+
+data get block -615 183 608 front_text.messages[0]: -615, 183, 608 has the following block data: '"Fault"'
+
+
+data get block -615 183 609 front_text.messages[0]: -615, 183, 609 has the following block data: '"Winch power lost: retain the train; inspect and resume or recover"'
+
+
+fd validation pax_energy_restart report live1790881027587010572_power_fault_after_14: PAX energy restart snapshot recorded
+
+
+fd validation pax_energy_restart dispatch: Bind and capture the shuttle before starting
+
+
+fd validation pax_energy_restart unload: Shuttle restraints remain closed until final station capture
+
+
+data merge block -606 181 608 {Source:{Id:"fourthdimension:ride_fault"}}: Modified block data of -606, 181, 608
+
+
+fd validation pax_energy_restart report live1790881027587010572_native_fault_source_before_15: PAX energy restart snapshot recorded
+
+
+data get block -611 181 604 front_text.messages[0]: -611, 181, 604 has the following block data: '"Winch power lost: retain the train; inspect and resume or recover"'
+
+
+data get block -611 181 605 front_text.messages[0]: -611, 181, 605 has the following block data: '"16 / 16"'
+
+
+data get block -611 181 607 front_text.messages[0]: -611, 181, 607 has the following block data: '"Bind and capture the shuttle before starting"'
+
+
+data get block -611 181 608 front_text.messages[0]: -611, 181, 608 has the following block data: '"Fault"'
+
+
+data get block -615 183 604 front_text.messages[0]: -615, 183, 604 has the following block data: '"Winch power lost: retain the train; inspect and resume or recover"'
+
+
+data get block -615 183 605 front_text.messages[0]: -615, 183, 605 has the following block data: '"16 / 16"'
+
+
+data get block -615 183 606 front_text.messages[0]: -615, 183, 606 has the following block data: '"Restraints closed: Yes"'
+
+
+data get block -615 183 607 front_text.messages[0]: -615, 183, 607 has the following block data: '"Vehicle outside station range"'
+
+
+data get block -615 183 608 front_text.messages[0]: -615, 183, 608 has the following block data: '"Fault"'
+
+
+data get block -615 183 609 front_text.messages[0]: -615, 183, 609 has the following block data: '"Winch power lost: retain the train; inspect and resume or recover"'
+
+
+fd validation pax_energy_restart report live1790881027587010572_native_fault_source_after_16: PAX energy restart snapshot recorded
+
+
+setblock -607 180 608 create:creative_motor[facing=east]{ScrollValue:128}: Changed the block at -607, 180, 608
+
+
+fd validation pax_energy_restart report live1790881027587010572_power_restored_latched_before_17: PAX energy restart snapshot recorded
+
+
+data get block -611 181 604 front_text.messages[0]: -611, 181, 604 has the following block data: '"Winch power lost: retain the train; inspect and resume or recover"'
+
+
+data get block -611 181 605 front_text.messages[0]: -611, 181, 605 has the following block data: '"16 / 16"'
+
+
+data get block -611 181 607 front_text.messages[0]: -611, 181, 607 has the following block data: '"Bind and capture the shuttle before starting"'
+
+
+data get block -611 181 608 front_text.messages[0]: -611, 181, 608 has the following block data: '"Fault"'
+
+
+data get block -615 183 604 front_text.messages[0]: -615, 183, 604 has the following block data: '"Winch power lost: retain the train; inspect and resume or recover"'
+
+
+data get block -615 183 605 front_text.messages[0]: -615, 183, 605 has the following block data: '"16 / 16"'
+
+
+data get block -615 183 606 front_text.messages[0]: -615, 183, 606 has the following block data: '"Restraints closed: Yes"'
+
+
+data get block -615 183 607 front_text.messages[0]: -615, 183, 607 has the following block data: '"Vehicle outside station range"'
+
+
+data get block -615 183 608 front_text.messages[0]: -615, 183, 608 has the following block data: '"Fault"'
+
+
+data get block -615 183 609 front_text.messages[0]: -615, 183, 609 has the following block data: '"Winch power lost: retain the train; inspect and resume or recover"'
+
+
+fd validation pax_energy_restart report live1790881027587010572_power_restored_latched_after_18: PAX energy restart snapshot recorded
+
+
+data merge block -606 181 608 {Source:{Id:"fourthdimension:ride_status"}}: Modified block data of -606, 181, 608
+
+
+fd validation pax_energy_restart resume: PAX energy restart fixture: resume
+
+
+fd validation pax_energy_restart report live1790881027587010572_resumed_lift_before_19: PAX energy restart snapshot recorded
+
+
+data get block -611 181 604 front_text.messages[0]: -611, 181, 604 has the following block data: '"Winch power lost: retain the train; inspect and resume or recover"'
+
+
+data get block -611 181 605 front_text.messages[0]: -611, 181, 605 has the following block data: '"16 / 16"'
+
+
+data get block -611 181 607 front_text.messages[0]: -611, 181, 607 has the following block data: '"Bind and capture the shuttle before starting"'
+
+
+data get block -611 181 608 front_text.messages[0]: -611, 181, 608 has the following block data: '"Fault"'
+
+
+data get block -615 183 604 front_text.messages[0]: -615, 183, 604 has the following block data: '"Winch power lost: retain the train; inspect and resume or recover"'
+
+
+data get block -615 183 605 front_text.messages[0]: -615, 183, 605 has the following block data: '"16 / 16"'
+
+
+data get block -615 183 606 front_text.messages[0]: -615, 183, 606 has the following block data: '"Restraints closed: Yes"'
+
+
+data get block -615 183 607 front_text.messages[0]: -615, 183, 607 has the following block data: '"Vehicle outside station range"'
+
+
+data get block -615 183 608 front_text.messages[0]: -615, 183, 608 has the following block data: '"Fault"'
+
+
+data get block -615 183 609 front_text.messages[0]: -615, 183, 609 has the following block data: '"Winch power lost: retain the train; inspect and resume or recover"'
+
+
+fd validation pax_energy_restart report live1790881027587010572_resumed_lift_after_20: PAX energy restart snapshot recorded
+
+
+fd validation pax_energy_restart report live1790881027587010572_resumed_lift_before_21: PAX energy restart snapshot recorded
+
+
+data get block -611 181 604 front_text.messages[0]: -611, 181, 604 has the following block data: '"Winch power lost: retain the train; inspect and resume or recover"'
+
+
+data get block -611 181 605 front_text.messages[0]: -611, 181, 605 has the following block data: '"16 / 16"'
+
+
+data get block -611 181 607 front_text.messages[0]: -611, 181, 607 has the following block data: '"Bind and capture the shuttle before starting"'
+
+
+data get block -611 181 608 front_text.messages[0]: -611, 181, 608 has the following block data: '"Fault"'
+
+
+data get block -615 183 604 front_text.messages[0]: -615, 183, 604 has the following block data: '"Lifting"'
+
+
+data get block -615 183 605 front_text.messages[0]: -615, 183, 605 has the following block data: '"16 / 16"'
+
+
+data get block -615 183 606 front_text.messages[0]: -615, 183, 606 has the following block data: '"Restraints closed: Yes"'
+
+
+data get block -615 183 607 front_text.messages[0]: -615, 183, 607 has the following block data: '"Vehicle outside station range"'
+
+
+data get block -615 183 608 front_text.messages[0]: -615, 183, 608 has the following block data: '"Lifting"'
+
+
+data get block -615 183 609 front_text.messages[0]: -615, 183, 609 has the following block data: '""'
+
+
+fd validation pax_energy_restart report live1790881027587010572_resumed_lift_after_22: PAX energy restart snapshot recorded
+
+
+fd validation pax_energy_restart report live1790881027587010572_resumed_lift_before_23: PAX energy restart snapshot recorded
+
+
+data get block -611 181 604 front_text.messages[0]: -611, 181, 604 has the following block data: '"Winch power lost: retain the train; inspect and resume or recover"'
+
+
+data get block -611 181 605 front_text.messages[0]: -611, 181, 605 has the following block data: '"16 / 16"'
+
+
+data get block -611 181 607 front_text.messages[0]: -611, 181, 607 has the following block data: '"Bind and capture the shuttle before starting"'
+
+
+data get block -611 181 608 front_text.messages[0]: -611, 181, 608 has the following block data: '"Lifting"'
+
+
+data get block -615 183 604 front_text.messages[0]: -615, 183, 604 has the following block data: '"Lifting"'
+
+
+data get block -615 183 605 front_text.messages[0]: -615, 183, 605 has the following block data: '"16 / 16"'
+
+
+data get block -615 183 606 front_text.messages[0]: -615, 183, 606 has the following block data: '"Restraints closed: Yes"'
+
+
+data get block -615 183 607 front_text.messages[0]: -615, 183, 607 has the following block data: '"Vehicle outside station range"'
+
+
+data get block -615 183 608 front_text.messages[0]: -615, 183, 608 has the following block data: '"Lifting"'
+
+
+data get block -615 183 609 front_text.messages[0]: -615, 183, 609 has the following block data: '""'
+
+
+fd validation pax_energy_restart report live1790881027587010572_resumed_lift_after_24: PAX energy restart snapshot recorded
+
+
+fd validation pax_energy_restart report live1790881027587010572_resumed_lift_before_25: PAX energy restart snapshot recorded
+
+
+data get block -611 181 604 front_text.messages[0]: -611, 181, 604 has the following block data: '"Lifting"'
+
+
+data get block -611 181 605 front_text.messages[0]: -611, 181, 605 has the following block data: '"16 / 16"'
+
+
+data get block -611 181 607 front_text.messages[0]: -611, 181, 607 has the following block data: '"Bind and capture the shuttle before starting"'
+
+
+data get block -611 181 608 front_text.messages[0]: -611, 181, 608 has the following block data: '"Lifting"'
+
+
+data get block -615 183 604 front_text.messages[0]: -615, 183, 604 has the following block data: '"Lifting"'
+
+
+data get block -615 183 605 front_text.messages[0]: -615, 183, 605 has the following block data: '"16 / 16"'
+
+
+data get block -615 183 606 front_text.messages[0]: -615, 183, 606 has the following block data: '"Restraints closed: Yes"'
+
+
+data get block -615 183 607 front_text.messages[0]: -615, 183, 607 has the following block data: '"Vehicle outside station range"'
+
+
+data get block -615 183 608 front_text.messages[0]: -615, 183, 608 has the following block data: '"Lifting"'
+
+
+data get block -615 183 609 front_text.messages[0]: -615, 183, 609 has the following block data: '""'
+
+
+fd validation pax_energy_restart report live1790881027587010572_resumed_lift_after_26: PAX energy restart snapshot recorded
+
+
+fd validation pax_energy_restart report live1790881027587010572_cycle_26_before_27: PAX energy restart snapshot recorded
+
+
+data get block -611 181 604 front_text.messages[0]: -611, 181, 604 has the following block data: '"Lifting"'
+
+
+data get block -611 181 605 front_text.messages[0]: -611, 181, 605 has the following block data: '"16 / 16"'
+
+
+data get block -611 181 607 front_text.messages[0]: -611, 181, 607 has the following block data: '"Bind and capture the shuttle before starting"'
+
+
+data get block -611 181 608 front_text.messages[0]: -611, 181, 608 has the following block data: '"Lifting"'
+
+
+data get block -615 183 604 front_text.messages[0]: -615, 183, 604 has the following block data: '"Lifting"'
+
+
+data get block -615 183 605 front_text.messages[0]: -615, 183, 605 has the following block data: '"16 / 16"'
+
+
+data get block -615 183 606 front_text.messages[0]: -615, 183, 606 has the following block data: '"Restraints closed: Yes"'
+
+
+data get block -615 183 607 front_text.messages[0]: -615, 183, 607 has the following block data: '"Vehicle outside station range"'
+
+
+data get block -615 183 608 front_text.messages[0]: -615, 183, 608 has the following block data: '"Lifting"'
+
+
+data get block -615 183 609 front_text.messages[0]: -615, 183, 609 has the following block data: '""'
+
+
+fd validation pax_energy_restart report live1790881027587010572_cycle_26_after_28: PAX energy restart snapshot recorded
+
+
+fd validation pax_energy_restart report live1790881027587010572_cycle_28_before_29: PAX energy restart snapshot recorded
+
+
+data get block -611 181 604 front_text.messages[0]: -611, 181, 604 has the following block data: '"Lifting"'
+
+
+data get block -611 181 605 front_text.messages[0]: -611, 181, 605 has the following block data: '"16 / 16"'
+
+
+data get block -611 181 607 front_text.messages[0]: -611, 181, 607 has the following block data: '"Bind and capture the shuttle before starting"'
+
+
+data get block -611 181 608 front_text.messages[0]: -611, 181, 608 has the following block data: '"Lifting"'
+
+
+data get block -615 183 604 front_text.messages[0]: -615, 183, 604 has the following block data: '"Lifting"'
+
+
+data get block -615 183 605 front_text.messages[0]: -615, 183, 605 has the following block data: '"16 / 16"'
+
+
+data get block -615 183 606 front_text.messages[0]: -615, 183, 606 has the following block data: '"Restraints closed: Yes"'
+
+
+data get block -615 183 607 front_text.messages[0]: -615, 183, 607 has the following block data: '"Vehicle outside station range"'
+
+
+data get block -615 183 608 front_text.messages[0]: -615, 183, 608 has the following block data: '"Lifting"'
+
+
+data get block -615 183 609 front_text.messages[0]: -615, 183, 609 has the following block data: '""'
+
+
+fd validation pax_energy_restart report live1790881027587010572_cycle_28_after_30: PAX energy restart snapshot recorded
+
+
+fd validation pax_energy_restart report live1790881027587010572_cycle_30_before_31: PAX energy restart snapshot recorded
+
+
+data get block -611 181 604 front_text.messages[0]: -611, 181, 604 has the following block data: '"Lifting"'
+
+
+data get block -611 181 605 front_text.messages[0]: -611, 181, 605 has the following block data: '"16 / 16"'
+
+
+data get block -611 181 607 front_text.messages[0]: -611, 181, 607 has the following block data: '"Bind and capture the shuttle before starting"'
+
+
+data get block -611 181 608 front_text.messages[0]: -611, 181, 608 has the following block data: '"Lifting"'
+
+
+data get block -615 183 604 front_text.messages[0]: -615, 183, 604 has the following block data: '"Lifting"'
+
+
+data get block -615 183 605 front_text.messages[0]: -615, 183, 605 has the following block data: '"16 / 16"'
+
+
+data get block -615 183 606 front_text.messages[0]: -615, 183, 606 has the following block data: '"Restraints closed: Yes"'
+
+
+data get block -615 183 607 front_text.messages[0]: -615, 183, 607 has the following block data: '"Vehicle outside station range"'
+
+
+data get block -615 183 608 front_text.messages[0]: -615, 183, 608 has the following block data: '"Lifting"'
+
+
+data get block -615 183 609 front_text.messages[0]: -615, 183, 609 has the following block data: '""'
+
+
+fd validation pax_energy_restart report live1790881027587010572_cycle_30_after_32: PAX energy restart snapshot recorded
+
+
+fd validation pax_energy_restart report live1790881027587010572_cycle_32_before_33: PAX energy restart snapshot recorded
+
+
+data get block -611 181 604 front_text.messages[0]: -611, 181, 604 has the following block data: '"Lifting"'
+
+
+data get block -611 181 605 front_text.messages[0]: -611, 181, 605 has the following block data: '"16 / 16"'
+
+
+data get block -611 181 607 front_text.messages[0]: -611, 181, 607 has the following block data: '"Bind and capture the shuttle before starting"'
+
+
+data get block -611 181 608 front_text.messages[0]: -611, 181, 608 has the following block data: '"Lifting"'
+
+
+data get block -615 183 604 front_text.messages[0]: -615, 183, 604 has the following block data: '"Lifting"'
+
+
+data get block -615 183 605 front_text.messages[0]: -615, 183, 605 has the following block data: '"16 / 16"'
+
+
+data get block -615 183 606 front_text.messages[0]: -615, 183, 606 has the following block data: '"Restraints closed: Yes"'
+
+
+data get block -615 183 607 front_text.messages[0]: -615, 183, 607 has the following block data: '"Vehicle outside station range"'
+
+
+data get block -615 183 608 front_text.messages[0]: -615, 183, 608 has the following block data: '"Lifting"'
+
+
+data get block -615 183 609 front_text.messages[0]: -615, 183, 609 has the following block data: '""'
+
+
+fd validation pax_energy_restart report live1790881027587010572_cycle_32_after_34: PAX energy restart snapshot recorded
+
+
+fd validation pax_energy_restart report live1790881027587010572_cycle_34_before_35: PAX energy restart snapshot recorded
+
+
+data get block -611 181 604 front_text.messages[0]: -611, 181, 604 has the following block data: '"Lifting"'
+
+
+data get block -611 181 605 front_text.messages[0]: -611, 181, 605 has the following block data: '"16 / 16"'
+
+
+data get block -611 181 607 front_text.messages[0]: -611, 181, 607 has the following block data: '"Bind and capture the shuttle before starting"'
+
+
+data get block -611 181 608 front_text.messages[0]: -611, 181, 608 has the following block data: '"Lifting"'
+
+
+data get block -615 183 604 front_text.messages[0]: -615, 183, 604 has the following block data: '"Lifting"'
+
+
+data get block -615 183 605 front_text.messages[0]: -615, 183, 605 has the following block data: '"16 / 16"'
+
+
+data get block -615 183 606 front_text.messages[0]: -615, 183, 606 has the following block data: '"Restraints closed: Yes"'
+
+
+data get block -615 183 607 front_text.messages[0]: -615, 183, 607 has the following block data: '"Vehicle outside station range"'
+
+
+data get block -615 183 608 front_text.messages[0]: -615, 183, 608 has the following block data: '"Lifting"'
+
+
+data get block -615 183 609 front_text.messages[0]: -615, 183, 609 has the following block data: '""'
+
+
+fd validation pax_energy_restart report live1790881027587010572_cycle_34_after_36: PAX energy restart snapshot recorded
+
+
+fd validation pax_energy_restart report live1790881027587010572_cycle_36_before_37: PAX energy restart snapshot recorded
+
+
+data get block -611 181 604 front_text.messages[0]: -611, 181, 604 has the following block data: '"Lifting"'
+
+
+data get block -611 181 605 front_text.messages[0]: -611, 181, 605 has the following block data: '"16 / 16"'
+
+
+data get block -611 181 607 front_text.messages[0]: -611, 181, 607 has the following block data: '"Bind and capture the shuttle before starting"'
+
+
+data get block -611 181 608 front_text.messages[0]: -611, 181, 608 has the following block data: '"Lifting"'
+
+
+data get block -615 183 604 front_text.messages[0]: -615, 183, 604 has the following block data: '"Lifting"'
+
+
+data get block -615 183 605 front_text.messages[0]: -615, 183, 605 has the following block data: '"16 / 16"'
+
+
+data get block -615 183 606 front_text.messages[0]: -615, 183, 606 has the following block data: '"Restraints closed: Yes"'
+
+
+data get block -615 183 607 front_text.messages[0]: -615, 183, 607 has the following block data: '"Vehicle outside station range"'
+
+
+data get block -615 183 608 front_text.messages[0]: -615, 183, 608 has the following block data: '"Lifting"'
+
+
+data get block -615 183 609 front_text.messages[0]: -615, 183, 609 has the following block data: '""'
+
+
+fd validation pax_energy_restart report live1790881027587010572_cycle_36_after_38: PAX energy restart snapshot recorded
+
+
+fd validation pax_energy_restart report live1790881027587010572_cycle_38_before_39: PAX energy restart snapshot recorded
+
+
+data get block -611 181 604 front_text.messages[0]: -611, 181, 604 has the following block data: '"Lifting"'
+
+
+data get block -611 181 605 front_text.messages[0]: -611, 181, 605 has the following block data: '"16 / 16"'
+
+
+data get block -611 181 607 front_text.messages[0]: -611, 181, 607 has the following block data: '"Bind and capture the shuttle before starting"'
+
+
+data get block -611 181 608 front_text.messages[0]: -611, 181, 608 has the following block data: '"Lifting"'
+
+
+data get block -615 183 604 front_text.messages[0]: -615, 183, 604 has the following block data: '"Lifting"'
+
+
+data get block -615 183 605 front_text.messages[0]: -615, 183, 605 has the following block data: '"16 / 16"'
+
+
+data get block -615 183 606 front_text.messages[0]: -615, 183, 606 has the following block data: '"Restraints closed: Yes"'
+
+
+data get block -615 183 607 front_text.messages[0]: -615, 183, 607 has the following block data: '"Vehicle outside station range"'
+
+
+data get block -615 183 608 front_text.messages[0]: -615, 183, 608 has the following block data: '"Lifting"'
+
+
+data get block -615 183 609 front_text.messages[0]: -615, 183, 609 has the following block data: '""'
+
+
+fd validation pax_energy_restart report live1790881027587010572_cycle_38_after_40: PAX energy restart snapshot recorded
+
+
+fd validation pax_energy_restart report live1790881027587010572_cycle_40_before_41: PAX energy restart snapshot recorded
+
+
+data get block -611 181 604 front_text.messages[0]: -611, 181, 604 has the following block data: '"Lifting"'
+
+
+data get block -611 181 605 front_text.messages[0]: -611, 181, 605 has the following block data: '"16 / 16"'
+
+
+data get block -611 181 607 front_text.messages[0]: -611, 181, 607 has the following block data: '"Bind and capture the shuttle before starting"'
+
+
+data get block -611 181 608 front_text.messages[0]: -611, 181, 608 has the following block data: '"Lifting"'
+
+
+data get block -615 183 604 front_text.messages[0]: -615, 183, 604 has the following block data: '"Lifting"'
+
+
+data get block -615 183 605 front_text.messages[0]: -615, 183, 605 has the following block data: '"16 / 16"'
+
+
+data get block -615 183 606 front_text.messages[0]: -615, 183, 606 has the following block data: '"Restraints closed: Yes"'
+
+
+data get block -615 183 607 front_text.messages[0]: -615, 183, 607 has the following block data: '"Vehicle outside station range"'
+
+
+data get block -615 183 608 front_text.messages[0]: -615, 183, 608 has the following block data: '"Lifting"'
+
+
+data get block -615 183 609 front_text.messages[0]: -615, 183, 609 has the following block data: '""'
+
+
+fd validation pax_energy_restart report live1790881027587010572_cycle_40_after_42: PAX energy restart snapshot recorded
+
+
+fd validation pax_energy_restart report live1790881027587010572_cycle_42_before_43: PAX energy restart snapshot recorded
+
+
+data get block -611 181 604 front_text.messages[0]: -611, 181, 604 has the following block data: '"Lifting"'
+
+
+data get block -611 181 605 front_text.messages[0]: -611, 181, 605 has the following block data: '"16 / 16"'
+
+
+data get block -611 181 607 front_text.messages[0]: -611, 181, 607 has the following block data: '"Bind and capture the shuttle before starting"'
+
+
+data get block -611 181 608 front_text.messages[0]: -611, 181, 608 has the following block data: '"Lifting"'
+
+
+data get block -615 183 604 front_text.messages[0]: -615, 183, 604 has the following block data: '"Lifting"'
+
+
+data get block -615 183 605 front_text.messages[0]: -615, 183, 605 has the following block data: '"16 / 16"'
+
+
+data get block -615 183 606 front_text.messages[0]: -615, 183, 606 has the following block data: '"Restraints closed: Yes"'
+
+
+data get block -615 183 607 front_text.messages[0]: -615, 183, 607 has the following block data: '"Vehicle outside station range"'
+
+
+data get block -615 183 608 front_text.messages[0]: -615, 183, 608 has the following block data: '"Lifting"'
+
+
+data get block -615 183 609 front_text.messages[0]: -615, 183, 609 has the following block data: '""'
+
+
+fd validation pax_energy_restart report live1790881027587010572_cycle_42_after_44: PAX energy restart snapshot recorded
+
+
+fd validation pax_energy_restart report live1790881027587010572_cycle_44_before_45: PAX energy restart snapshot recorded
+
+
+data get block -611 181 604 front_text.messages[0]: -611, 181, 604 has the following block data: '"Lifting"'
+
+
+data get block -611 181 605 front_text.messages[0]: -611, 181, 605 has the following block data: '"16 / 16"'
+
+
+data get block -611 181 607 front_text.messages[0]: -611, 181, 607 has the following block data: '"Bind and capture the shuttle before starting"'
+
+
+data get block -611 181 608 front_text.messages[0]: -611, 181, 608 has the following block data: '"Lifting"'
+
+
+data get block -615 183 604 front_text.messages[0]: -615, 183, 604 has the following block data: '"Lifting"'
+
+
+data get block -615 183 605 front_text.messages[0]: -615, 183, 605 has the following block data: '"16 / 16"'
+
+
+data get block -615 183 606 front_text.messages[0]: -615, 183, 606 has the following block data: '"Restraints closed: Yes"'
+
+
+data get block -615 183 607 front_text.messages[0]: -615, 183, 607 has the following block data: '"Vehicle outside station range"'
+
+
+data get block -615 183 608 front_text.messages[0]: -615, 183, 608 has the following block data: '"Lifting"'
+
+
+data get block -615 183 609 front_text.messages[0]: -615, 183, 609 has the following block data: '""'
+
+
+fd validation pax_energy_restart report live1790881027587010572_cycle_44_after_46: PAX energy restart snapshot recorded
+
+
+fd validation pax_energy_restart report live1790881027587010572_cycle_46_before_47: PAX energy restart snapshot recorded
+
+
+data get block -611 181 604 front_text.messages[0]: -611, 181, 604 has the following block data: '"Lifting"'
+
+
+data get block -611 181 605 front_text.messages[0]: -611, 181, 605 has the following block data: '"16 / 16"'
+
+
+data get block -611 181 607 front_text.messages[0]: -611, 181, 607 has the following block data: '"Bind and capture the shuttle before starting"'
+
+
+data get block -611 181 608 front_text.messages[0]: -611, 181, 608 has the following block data: '"Lifting"'
+
+
+data get block -615 183 604 front_text.messages[0]: -615, 183, 604 has the following block data: '"Lifting"'
+
+
+data get block -615 183 605 front_text.messages[0]: -615, 183, 605 has the following block data: '"16 / 16"'
+
+
+data get block -615 183 606 front_text.messages[0]: -615, 183, 606 has the following block data: '"Restraints closed: Yes"'
+
+
+data get block -615 183 607 front_text.messages[0]: -615, 183, 607 has the following block data: '"Vehicle outside station range"'
+
+
+data get block -615 183 608 front_text.messages[0]: -615, 183, 608 has the following block data: '"Lifting"'
+
+
+data get block -615 183 609 front_text.messages[0]: -615, 183, 609 has the following block data: '""'
+
+
+fd validation pax_energy_restart report live1790881027587010572_cycle_46_after_48: PAX energy restart snapshot recorded
+
+
+fd validation pax_energy_restart report live1790881027587010572_cycle_48_before_49: PAX energy restart snapshot recorded
+
+
+data get block -611 181 604 front_text.messages[0]: -611, 181, 604 has the following block data: '"Lifting"'
+
+
+data get block -611 181 605 front_text.messages[0]: -611, 181, 605 has the following block data: '"16 / 16"'
+
+
+data get block -611 181 607 front_text.messages[0]: -611, 181, 607 has the following block data: '"Bind and capture the shuttle before starting"'
+
+
+data get block -611 181 608 front_text.messages[0]: -611, 181, 608 has the following block data: '"Lifting"'
+
+
+data get block -615 183 604 front_text.messages[0]: -615, 183, 604 has the following block data: '"Lifting"'
+
+
+data get block -615 183 605 front_text.messages[0]: -615, 183, 605 has the following block data: '"16 / 16"'
+
+
+data get block -615 183 606 front_text.messages[0]: -615, 183, 606 has the following block data: '"Restraints closed: Yes"'
+
+
+data get block -615 183 607 front_text.messages[0]: -615, 183, 607 has the following block data: '"Vehicle outside station range"'
+
+
+data get block -615 183 608 front_text.messages[0]: -615, 183, 608 has the following block data: '"Lifting"'
+
+
+data get block -615 183 609 front_text.messages[0]: -615, 183, 609 has the following block data: '""'
+
+
+fd validation pax_energy_restart report live1790881027587010572_cycle_48_after_50: PAX energy restart snapshot recorded
+
+
+fd validation pax_energy_restart report live1790881027587010572_cycle_50_before_51: PAX energy restart snapshot recorded
+
+
+data get block -611 181 604 front_text.messages[0]: -611, 181, 604 has the following block data: '"Lifting"'
+
+
+data get block -611 181 605 front_text.messages[0]: -611, 181, 605 has the following block data: '"16 / 16"'
+
+
+data get block -611 181 607 front_text.messages[0]: -611, 181, 607 has the following block data: '"Bind and capture the shuttle before starting"'
+
+
+data get block -611 181 608 front_text.messages[0]: -611, 181, 608 has the following block data: '"Lifting"'
+
+
+data get block -615 183 604 front_text.messages[0]: -615, 183, 604 has the following block data: '"Lifting"'
+
+
+data get block -615 183 605 front_text.messages[0]: -615, 183, 605 has the following block data: '"16 / 16"'
+
+
+data get block -615 183 606 front_text.messages[0]: -615, 183, 606 has the following block data: '"Restraints closed: Yes"'
+
+
+data get block -615 183 607 front_text.messages[0]: -615, 183, 607 has the following block data: '"Vehicle outside station range"'
+
+
+data get block -615 183 608 front_text.messages[0]: -615, 183, 608 has the following block data: '"Lifting"'
+
+
+data get block -615 183 609 front_text.messages[0]: -615, 183, 609 has the following block data: '""'
+
+
+fd validation pax_energy_restart report live1790881027587010572_cycle_50_after_52: PAX energy restart snapshot recorded
+
+
+fd validation pax_energy_restart report live1790881027587010572_cycle_52_before_53: PAX energy restart snapshot recorded
+
+
+data get block -611 181 604 front_text.messages[0]: -611, 181, 604 has the following block data: '"Lifting"'
+
+
+data get block -611 181 605 front_text.messages[0]: -611, 181, 605 has the following block data: '"16 / 16"'
+
+
+data get block -611 181 607 front_text.messages[0]: -611, 181, 607 has the following block data: '"Bind and capture the shuttle before starting"'
+
+
+data get block -611 181 608 front_text.messages[0]: -611, 181, 608 has the following block data: '"Lifting"'
+
+
+data get block -615 183 604 front_text.messages[0]: -615, 183, 604 has the following block data: '"Lifting"'
+
+
+data get block -615 183 605 front_text.messages[0]: -615, 183, 605 has the following block data: '"16 / 16"'
+
+
+data get block -615 183 606 front_text.messages[0]: -615, 183, 606 has the following block data: '"Restraints closed: Yes"'
+
+
+data get block -615 183 607 front_text.messages[0]: -615, 183, 607 has the following block data: '"Vehicle outside station range"'
+
+
+data get block -615 183 608 front_text.messages[0]: -615, 183, 608 has the following block data: '"Lifting"'
+
+
+data get block -615 183 609 front_text.messages[0]: -615, 183, 609 has the following block data: '""'
+
+
+fd validation pax_energy_restart report live1790881027587010572_cycle_52_after_54: PAX energy restart snapshot recorded
+
+
+fd validation pax_energy_restart report live1790881027587010572_cycle_54_before_55: PAX energy restart snapshot recorded
+
+
+data get block -611 181 604 front_text.messages[0]: -611, 181, 604 has the following block data: '"Lifting"'
+
+
+data get block -611 181 605 front_text.messages[0]: -611, 181, 605 has the following block data: '"16 / 16"'
+
+
+data get block -611 181 607 front_text.messages[0]: -611, 181, 607 has the following block data: '"Bind and capture the shuttle before starting"'
+
+
+data get block -611 181 608 front_text.messages[0]: -611, 181, 608 has the following block data: '"Lifting"'
+
+
+data get block -615 183 604 front_text.messages[0]: -615, 183, 604 has the following block data: '"Lifting"'
+
+
+data get block -615 183 605 front_text.messages[0]: -615, 183, 605 has the following block data: '"16 / 16"'
+
+
+data get block -615 183 606 front_text.messages[0]: -615, 183, 606 has the following block data: '"Restraints closed: Yes"'
+
+
+data get block -615 183 607 front_text.messages[0]: -615, 183, 607 has the following block data: '"Vehicle outside station range"'
+
+
+data get block -615 183 608 front_text.messages[0]: -615, 183, 608 has the following block data: '"Lifting"'
+
+
+data get block -615 183 609 front_text.messages[0]: -615, 183, 609 has the following block data: '""'
+
+
+fd validation pax_energy_restart report live1790881027587010572_cycle_54_after_56: PAX energy restart snapshot recorded
+
+
+fd validation pax_energy_restart report live1790881027587010572_cycle_56_before_57: PAX energy restart snapshot recorded
+
+
+data get block -611 181 604 front_text.messages[0]: -611, 181, 604 has the following block data: '"Lifting"'
+
+
+data get block -611 181 605 front_text.messages[0]: -611, 181, 605 has the following block data: '"16 / 16"'
+
+
+data get block -611 181 607 front_text.messages[0]: -611, 181, 607 has the following block data: '"Bind and capture the shuttle before starting"'
+
+
+data get block -611 181 608 front_text.messages[0]: -611, 181, 608 has the following block data: '"Lifting"'
+
+
+data get block -615 183 604 front_text.messages[0]: -615, 183, 604 has the following block data: '"Lifting"'
+
+
+data get block -615 183 605 front_text.messages[0]: -615, 183, 605 has the following block data: '"16 / 16"'
+
+
+data get block -615 183 606 front_text.messages[0]: -615, 183, 606 has the following block data: '"Restraints closed: Yes"'
+
+
+data get block -615 183 607 front_text.messages[0]: -615, 183, 607 has the following block data: '"Vehicle outside station range"'
+
+
+data get block -615 183 608 front_text.messages[0]: -615, 183, 608 has the following block data: '"Lifting"'
+
+
+data get block -615 183 609 front_text.messages[0]: -615, 183, 609 has the following block data: '""'
+
+
+fd validation pax_energy_restart report live1790881027587010572_cycle_56_after_58: PAX energy restart snapshot recorded
+
+
+fd validation pax_energy_restart report live1790881027587010572_cycle_58_before_59: PAX energy restart snapshot recorded
+
+
+data get block -611 181 604 front_text.messages[0]: -611, 181, 604 has the following block data: '"Lifting"'
+
+
+data get block -611 181 605 front_text.messages[0]: -611, 181, 605 has the following block data: '"16 / 16"'
+
+
+data get block -611 181 607 front_text.messages[0]: -611, 181, 607 has the following block data: '"Bind and capture the shuttle before starting"'
+
+
+data get block -611 181 608 front_text.messages[0]: -611, 181, 608 has the following block data: '"Lifting"'
+
+
+data get block -615 183 604 front_text.messages[0]: -615, 183, 604 has the following block data: '"Lifting"'
+
+
+data get block -615 183 605 front_text.messages[0]: -615, 183, 605 has the following block data: '"16 / 16"'
+
+
+data get block -615 183 606 front_text.messages[0]: -615, 183, 606 has the following block data: '"Restraints closed: Yes"'
+
+
+data get block -615 183 607 front_text.messages[0]: -615, 183, 607 has the following block data: '"Vehicle outside station range"'
+
+
+data get block -615 183 608 front_text.messages[0]: -615, 183, 608 has the following block data: '"Lifting"'
+
+
+data get block -615 183 609 front_text.messages[0]: -615, 183, 609 has the following block data: '""'
+
+
+fd validation pax_energy_restart report live1790881027587010572_cycle_58_after_60: PAX energy restart snapshot recorded
+
+
+fd validation pax_energy_restart report live1790881027587010572_cycle_60_before_61: PAX energy restart snapshot recorded
+
+
+data get block -611 181 604 front_text.messages[0]: -611, 181, 604 has the following block data: '"Lifting"'
+
+
+data get block -611 181 605 front_text.messages[0]: -611, 181, 605 has the following block data: '"16 / 16"'
+
+
+data get block -611 181 607 front_text.messages[0]: -611, 181, 607 has the following block data: '"Bind and capture the shuttle before starting"'
+
+
+data get block -611 181 608 front_text.messages[0]: -611, 181, 608 has the following block data: '"Lifting"'
+
+
+data get block -615 183 604 front_text.messages[0]: -615, 183, 604 has the following block data: '"Lifting"'
+
+
+data get block -615 183 605 front_text.messages[0]: -615, 183, 605 has the following block data: '"16 / 16"'
+
+
+data get block -615 183 606 front_text.messages[0]: -615, 183, 606 has the following block data: '"Restraints closed: Yes"'
+
+
+data get block -615 183 607 front_text.messages[0]: -615, 183, 607 has the following block data: '"Vehicle outside station range"'
+
+
+data get block -615 183 608 front_text.messages[0]: -615, 183, 608 has the following block data: '"Lifting"'
+
+
+data get block -615 183 609 front_text.messages[0]: -615, 183, 609 has the following block data: '""'
+
+
+fd validation pax_energy_restart report live1790881027587010572_cycle_60_after_62: PAX energy restart snapshot recorded
+
+
+fd validation pax_energy_restart report live1790881027587010572_cycle_62_before_63: PAX energy restart snapshot recorded
+
+
+data get block -611 181 604 front_text.messages[0]: -611, 181, 604 has the following block data: '"Lifting"'
+
+
+data get block -611 181 605 front_text.messages[0]: -611, 181, 605 has the following block data: '"16 / 16"'
+
+
+data get block -611 181 607 front_text.messages[0]: -611, 181, 607 has the following block data: '"Bind and capture the shuttle before starting"'
+
+
+data get block -611 181 608 front_text.messages[0]: -611, 181, 608 has the following block data: '"Lifting"'
+
+
+data get block -615 183 604 front_text.messages[0]: -615, 183, 604 has the following block data: '"Lifting"'
+
+
+data get block -615 183 605 front_text.messages[0]: -615, 183, 605 has the following block data: '"16 / 16"'
+
+
+data get block -615 183 606 front_text.messages[0]: -615, 183, 606 has the following block data: '"Restraints closed: Yes"'
+
+
+data get block -615 183 607 front_text.messages[0]: -615, 183, 607 has the following block data: '"Vehicle outside station range"'
+
+
+data get block -615 183 608 front_text.messages[0]: -615, 183, 608 has the following block data: '"Lifting"'
+
+
+data get block -615 183 609 front_text.messages[0]: -615, 183, 609 has the following block data: '""'
+
+
+fd validation pax_energy_restart report live1790881027587010572_cycle_62_after_64: PAX energy restart snapshot recorded
+
+
+fd validation pax_energy_restart report live1790881027587010572_cycle_64_before_65: PAX energy restart snapshot recorded
+
+
+data get block -611 181 604 front_text.messages[0]: -611, 181, 604 has the following block data: '"Lifting"'
+
+
+data get block -611 181 605 front_text.messages[0]: -611, 181, 605 has the following block data: '"16 / 16"'
+
+
+data get block -611 181 607 front_text.messages[0]: -611, 181, 607 has the following block data: '"Bind and capture the shuttle before starting"'
+
+
+data get block -611 181 608 front_text.messages[0]: -611, 181, 608 has the following block data: '"Lifting"'
+
+
+data get block -615 183 604 front_text.messages[0]: -615, 183, 604 has the following block data: '"Lifting"'
+
+
+data get block -615 183 605 front_text.messages[0]: -615, 183, 605 has the following block data: '"16 / 16"'
+
+
+data get block -615 183 606 front_text.messages[0]: -615, 183, 606 has the following block data: '"Restraints closed: Yes"'
+
+
+data get block -615 183 607 front_text.messages[0]: -615, 183, 607 has the following block data: '"Vehicle outside station range"'
+
+
+data get block -615 183 608 front_text.messages[0]: -615, 183, 608 has the following block data: '"Lifting"'
+
+
+data get block -615 183 609 front_text.messages[0]: -615, 183, 609 has the following block data: '""'
+
+
+fd validation pax_energy_restart report live1790881027587010572_cycle_64_after_66: PAX energy restart snapshot recorded
+
+
+fd validation pax_energy_restart report live1790881027587010572_cycle_66_before_67: PAX energy restart snapshot recorded
+
+
+data get block -611 181 604 front_text.messages[0]: -611, 181, 604 has the following block data: '"Lifting"'
+
+
+data get block -611 181 605 front_text.messages[0]: -611, 181, 605 has the following block data: '"16 / 16"'
+
+
+data get block -611 181 607 front_text.messages[0]: -611, 181, 607 has the following block data: '"Bind and capture the shuttle before starting"'
+
+
+data get block -611 181 608 front_text.messages[0]: -611, 181, 608 has the following block data: '"Lifting"'
+
+
+data get block -615 183 604 front_text.messages[0]: -615, 183, 604 has the following block data: '"Lifting"'
+
+
+data get block -615 183 605 front_text.messages[0]: -615, 183, 605 has the following block data: '"16 / 16"'
+
+
+data get block -615 183 606 front_text.messages[0]: -615, 183, 606 has the following block data: '"Restraints closed: Yes"'
+
+
+data get block -615 183 607 front_text.messages[0]: -615, 183, 607 has the following block data: '"Vehicle outside station range"'
+
+
+data get block -615 183 608 front_text.messages[0]: -615, 183, 608 has the following block data: '"Lifting"'
+
+
+data get block -615 183 609 front_text.messages[0]: -615, 183, 609 has the following block data: '""'
+
+
+fd validation pax_energy_restart report live1790881027587010572_cycle_66_after_68: PAX energy restart snapshot recorded
+
+
+fd validation pax_energy_restart report live1790881027587010572_cycle_68_before_69: PAX energy restart snapshot recorded
+
+
+data get block -611 181 604 front_text.messages[0]: -611, 181, 604 has the following block data: '"Lifting"'
+
+
+data get block -611 181 605 front_text.messages[0]: -611, 181, 605 has the following block data: '"16 / 16"'
+
+
+data get block -611 181 607 front_text.messages[0]: -611, 181, 607 has the following block data: '"Bind and capture the shuttle before starting"'
+
+
+data get block -611 181 608 front_text.messages[0]: -611, 181, 608 has the following block data: '"Lifting"'
+
+
+data get block -615 183 604 front_text.messages[0]: -615, 183, 604 has the following block data: '"Lifting"'
+
+
+data get block -615 183 605 front_text.messages[0]: -615, 183, 605 has the following block data: '"16 / 16"'
+
+
+data get block -615 183 606 front_text.messages[0]: -615, 183, 606 has the following block data: '"Restraints closed: Yes"'
+
+
+data get block -615 183 607 front_text.messages[0]: -615, 183, 607 has the following block data: '"Vehicle outside station range"'
+
+
+data get block -615 183 608 front_text.messages[0]: -615, 183, 608 has the following block data: '"Lifting"'
+
+
+data get block -615 183 609 front_text.messages[0]: -615, 183, 609 has the following block data: '""'
+
+
+fd validation pax_energy_restart report live1790881027587010572_cycle_68_after_70: PAX energy restart snapshot recorded
+
+
+fd validation pax_energy_restart report live1790881027587010572_cycle_70_before_71: PAX energy restart snapshot recorded
+
+
+data get block -611 181 604 front_text.messages[0]: -611, 181, 604 has the following block data: '"Lifting"'
+
+
+data get block -611 181 605 front_text.messages[0]: -611, 181, 605 has the following block data: '"16 / 16"'
+
+
+data get block -611 181 607 front_text.messages[0]: -611, 181, 607 has the following block data: '"Bind and capture the shuttle before starting"'
+
+
+data get block -611 181 608 front_text.messages[0]: -611, 181, 608 has the following block data: '"Lifting"'
+
+
+data get block -615 183 604 front_text.messages[0]: -615, 183, 604 has the following block data: '"Lifting"'
+
+
+data get block -615 183 605 front_text.messages[0]: -615, 183, 605 has the following block data: '"16 / 16"'
+
+
+data get block -615 183 606 front_text.messages[0]: -615, 183, 606 has the following block data: '"Restraints closed: Yes"'
+
+
+data get block -615 183 607 front_text.messages[0]: -615, 183, 607 has the following block data: '"Vehicle outside station range"'
+
+
+data get block -615 183 608 front_text.messages[0]: -615, 183, 608 has the following block data: '"Lifting"'
+
+
+data get block -615 183 609 front_text.messages[0]: -615, 183, 609 has the following block data: '""'
+
+
+fd validation pax_energy_restart report live1790881027587010572_cycle_70_after_72: PAX energy restart snapshot recorded
+
+
+fd validation pax_energy_restart report live1790881027587010572_cycle_72_before_73: PAX energy restart snapshot recorded
+
+
+data get block -611 181 604 front_text.messages[0]: -611, 181, 604 has the following block data: '"Lifting"'
+
+
+data get block -611 181 605 front_text.messages[0]: -611, 181, 605 has the following block data: '"16 / 16"'
+
+
+data get block -611 181 607 front_text.messages[0]: -611, 181, 607 has the following block data: '"Bind and capture the shuttle before starting"'
+
+
+data get block -611 181 608 front_text.messages[0]: -611, 181, 608 has the following block data: '"Lifting"'
+
+
+data get block -615 183 604 front_text.messages[0]: -615, 183, 604 has the following block data: '"Lifting"'
+
+
+data get block -615 183 605 front_text.messages[0]: -615, 183, 605 has the following block data: '"16 / 16"'
+
+
+data get block -615 183 606 front_text.messages[0]: -615, 183, 606 has the following block data: '"Restraints closed: Yes"'
+
+
+data get block -615 183 607 front_text.messages[0]: -615, 183, 607 has the following block data: '"Vehicle outside station range"'
+
+
+data get block -615 183 608 front_text.messages[0]: -615, 183, 608 has the following block data: '"Lifting"'
+
+
+data get block -615 183 609 front_text.messages[0]: -615, 183, 609 has the following block data: '""'
+
+
+fd validation pax_energy_restart report live1790881027587010572_cycle_72_after_74: PAX energy restart snapshot recorded
+
+
+fd validation pax_energy_restart report live1790881027587010572_cycle_74_before_75: PAX energy restart snapshot recorded
+
+
+data get block -611 181 604 front_text.messages[0]: -611, 181, 604 has the following block data: '"Lifting"'
+
+
+data get block -611 181 605 front_text.messages[0]: -611, 181, 605 has the following block data: '"16 / 16"'
+
+
+data get block -611 181 607 front_text.messages[0]: -611, 181, 607 has the following block data: '"Bind and capture the shuttle before starting"'
+
+
+data get block -611 181 608 front_text.messages[0]: -611, 181, 608 has the following block data: '"Lifting"'
+
+
+data get block -615 183 604 front_text.messages[0]: -615, 183, 604 has the following block data: '"Lifting"'
+
+
+data get block -615 183 605 front_text.messages[0]: -615, 183, 605 has the following block data: '"16 / 16"'
+
+
+data get block -615 183 606 front_text.messages[0]: -615, 183, 606 has the following block data: '"Restraints closed: Yes"'
+
+
+data get block -615 183 607 front_text.messages[0]: -615, 183, 607 has the following block data: '"Vehicle outside station range"'
+
+
+data get block -615 183 608 front_text.messages[0]: -615, 183, 608 has the following block data: '"Lifting"'
+
+
+data get block -615 183 609 front_text.messages[0]: -615, 183, 609 has the following block data: '""'
+
+
+fd validation pax_energy_restart report live1790881027587010572_cycle_74_after_76: PAX energy restart snapshot recorded
+
+
+fd validation pax_energy_restart report live1790881027587010572_cycle_76_before_77: PAX energy restart snapshot recorded
+
+
+data get block -611 181 604 front_text.messages[0]: -611, 181, 604 has the following block data: '"Lifting"'
+
+
+data get block -611 181 605 front_text.messages[0]: -611, 181, 605 has the following block data: '"16 / 16"'
+
+
+data get block -611 181 607 front_text.messages[0]: -611, 181, 607 has the following block data: '"Bind and capture the shuttle before starting"'
+
+
+data get block -611 181 608 front_text.messages[0]: -611, 181, 608 has the following block data: '"Lifting"'
+
+
+data get block -615 183 604 front_text.messages[0]: -615, 183, 604 has the following block data: '"Lifting"'
+
+
+data get block -615 183 605 front_text.messages[0]: -615, 183, 605 has the following block data: '"16 / 16"'
+
+
+data get block -615 183 606 front_text.messages[0]: -615, 183, 606 has the following block data: '"Restraints closed: Yes"'
+
+
+data get block -615 183 607 front_text.messages[0]: -615, 183, 607 has the following block data: '"Vehicle outside station range"'
+
+
+data get block -615 183 608 front_text.messages[0]: -615, 183, 608 has the following block data: '"Lifting"'
+
+
+data get block -615 183 609 front_text.messages[0]: -615, 183, 609 has the following block data: '""'
+
+
+fd validation pax_energy_restart report live1790881027587010572_cycle_76_after_78: PAX energy restart snapshot recorded
+
+
+fd validation pax_energy_restart report live1790881027587010572_cycle_78_before_79: PAX energy restart snapshot recorded
+
+
+data get block -611 181 604 front_text.messages[0]: -611, 181, 604 has the following block data: '"Lifting"'
+
+
+data get block -611 181 605 front_text.messages[0]: -611, 181, 605 has the following block data: '"16 / 16"'
+
+
+data get block -611 181 607 front_text.messages[0]: -611, 181, 607 has the following block data: '"Bind and capture the shuttle before starting"'
+
+
+data get block -611 181 608 front_text.messages[0]: -611, 181, 608 has the following block data: '"Lifting"'
+
+
+data get block -615 183 604 front_text.messages[0]: -615, 183, 604 has the following block data: '"Lifting"'
+
+
+data get block -615 183 605 front_text.messages[0]: -615, 183, 605 has the following block data: '"16 / 16"'
+
+
+data get block -615 183 606 front_text.messages[0]: -615, 183, 606 has the following block data: '"Restraints closed: Yes"'
+
+
+data get block -615 183 607 front_text.messages[0]: -615, 183, 607 has the following block data: '"Vehicle outside station range"'
+
+
+data get block -615 183 608 front_text.messages[0]: -615, 183, 608 has the following block data: '"Lifting"'
+
+
+data get block -615 183 609 front_text.messages[0]: -615, 183, 609 has the following block data: '""'
+
+
+fd validation pax_energy_restart report live1790881027587010572_cycle_78_after_80: PAX energy restart snapshot recorded
+
+
+fd validation pax_energy_restart report live1790881027587010572_cycle_80_before_81: PAX energy restart snapshot recorded
+
+
+data get block -611 181 604 front_text.messages[0]: -611, 181, 604 has the following block data: '"Lifting"'
+
+
+data get block -611 181 605 front_text.messages[0]: -611, 181, 605 has the following block data: '"16 / 16"'
+
+
+data get block -611 181 607 front_text.messages[0]: -611, 181, 607 has the following block data: '"Bind and capture the shuttle before starting"'
+
+
+data get block -611 181 608 front_text.messages[0]: -611, 181, 608 has the following block data: '"Lifting"'
+
+
+data get block -615 183 604 front_text.messages[0]: -615, 183, 604 has the following block data: '"Lifting"'
+
+
+data get block -615 183 605 front_text.messages[0]: -615, 183, 605 has the following block data: '"16 / 16"'
+
+
+data get block -615 183 606 front_text.messages[0]: -615, 183, 606 has the following block data: '"Restraints closed: Yes"'
+
+
+data get block -615 183 607 front_text.messages[0]: -615, 183, 607 has the following block data: '"Vehicle outside station range"'
+
+
+data get block -615 183 608 front_text.messages[0]: -615, 183, 608 has the following block data: '"Lifting"'
+
+
+data get block -615 183 609 front_text.messages[0]: -615, 183, 609 has the following block data: '""'
+
+
+fd validation pax_energy_restart report live1790881027587010572_cycle_80_after_82: PAX energy restart snapshot recorded
+
+
+fd validation pax_energy_restart report live1790881027587010572_cycle_82_before_83: PAX energy restart snapshot recorded
+
+
+data get block -611 181 604 front_text.messages[0]: -611, 181, 604 has the following block data: '"Lifting"'
+
+
+data get block -611 181 605 front_text.messages[0]: -611, 181, 605 has the following block data: '"16 / 16"'
+
+
+data get block -611 181 607 front_text.messages[0]: -611, 181, 607 has the following block data: '"Bind and capture the shuttle before starting"'
+
+
+data get block -611 181 608 front_text.messages[0]: -611, 181, 608 has the following block data: '"Lifting"'
+
+
+data get block -615 183 604 front_text.messages[0]: -615, 183, 604 has the following block data: '"Lifting"'
+
+
+data get block -615 183 605 front_text.messages[0]: -615, 183, 605 has the following block data: '"16 / 16"'
+
+
+data get block -615 183 606 front_text.messages[0]: -615, 183, 606 has the following block data: '"Restraints closed: Yes"'
+
+
+data get block -615 183 607 front_text.messages[0]: -615, 183, 607 has the following block data: '"Vehicle outside station range"'
+
+
+data get block -615 183 608 front_text.messages[0]: -615, 183, 608 has the following block data: '"Lifting"'
+
+
+data get block -615 183 609 front_text.messages[0]: -615, 183, 609 has the following block data: '""'
+
+
+fd validation pax_energy_restart report live1790881027587010572_cycle_82_after_84: PAX energy restart snapshot recorded
+
+
+fd validation pax_energy_restart report live1790881027587010572_cycle_84_before_85: PAX energy restart snapshot recorded
+
+
+data get block -611 181 604 front_text.messages[0]: -611, 181, 604 has the following block data: '"Lifting"'
+
+
+data get block -611 181 605 front_text.messages[0]: -611, 181, 605 has the following block data: '"16 / 16"'
+
+
+data get block -611 181 607 front_text.messages[0]: -611, 181, 607 has the following block data: '"Bind and capture the shuttle before starting"'
+
+
+data get block -611 181 608 front_text.messages[0]: -611, 181, 608 has the following block data: '"Lifting"'
+
+
+data get block -615 183 604 front_text.messages[0]: -615, 183, 604 has the following block data: '"Lifting"'
+
+
+data get block -615 183 605 front_text.messages[0]: -615, 183, 605 has the following block data: '"16 / 16"'
+
+
+data get block -615 183 606 front_text.messages[0]: -615, 183, 606 has the following block data: '"Restraints closed: Yes"'
+
+
+data get block -615 183 607 front_text.messages[0]: -615, 183, 607 has the following block data: '"Vehicle outside station range"'
+
+
+data get block -615 183 608 front_text.messages[0]: -615, 183, 608 has the following block data: '"Lifting"'
+
+
+data get block -615 183 609 front_text.messages[0]: -615, 183, 609 has the following block data: '""'
+
+
+fd validation pax_energy_restart report live1790881027587010572_cycle_84_after_86: PAX energy restart snapshot recorded
+
+
+fd validation pax_energy_restart report live1790881027587010572_cycle_86_before_87: PAX energy restart snapshot recorded
+
+
+data get block -611 181 604 front_text.messages[0]: -611, 181, 604 has the following block data: '"Lifting"'
+
+
+data get block -611 181 605 front_text.messages[0]: -611, 181, 605 has the following block data: '"16 / 16"'
+
+
+data get block -611 181 607 front_text.messages[0]: -611, 181, 607 has the following block data: '"Bind and capture the shuttle before starting"'
+
+
+data get block -611 181 608 front_text.messages[0]: -611, 181, 608 has the following block data: '"Lifting"'
+
+
+data get block -615 183 604 front_text.messages[0]: -615, 183, 604 has the following block data: '"Lifting"'
+
+
+data get block -615 183 605 front_text.messages[0]: -615, 183, 605 has the following block data: '"16 / 16"'
+
+
+data get block -615 183 606 front_text.messages[0]: -615, 183, 606 has the following block data: '"Restraints closed: Yes"'
+
+
+data get block -615 183 607 front_text.messages[0]: -615, 183, 607 has the following block data: '"Vehicle outside station range"'
+
+
+data get block -615 183 608 front_text.messages[0]: -615, 183, 608 has the following block data: '"Lifting"'
+
+
+data get block -615 183 609 front_text.messages[0]: -615, 183, 609 has the following block data: '""'
+
+
+fd validation pax_energy_restart report live1790881027587010572_cycle_86_after_88: PAX energy restart snapshot recorded
+
+
+fd validation pax_energy_restart report live1790881027587010572_cycle_88_before_89: PAX energy restart snapshot recorded
+
+
+data get block -611 181 604 front_text.messages[0]: -611, 181, 604 has the following block data: '"Lifting"'
+
+
+data get block -611 181 605 front_text.messages[0]: -611, 181, 605 has the following block data: '"16 / 16"'
+
+
+data get block -611 181 607 front_text.messages[0]: -611, 181, 607 has the following block data: '"Bind and capture the shuttle before starting"'
+
+
+data get block -611 181 608 front_text.messages[0]: -611, 181, 608 has the following block data: '"Lifting"'
+
+
+data get block -615 183 604 front_text.messages[0]: -615, 183, 604 has the following block data: '"Lifting"'
+
+
+data get block -615 183 605 front_text.messages[0]: -615, 183, 605 has the following block data: '"16 / 16"'
+
+
+data get block -615 183 606 front_text.messages[0]: -615, 183, 606 has the following block data: '"Restraints closed: Yes"'
+
+
+data get block -615 183 607 front_text.messages[0]: -615, 183, 607 has the following block data: '"Vehicle outside station range"'
+
+
+data get block -615 183 608 front_text.messages[0]: -615, 183, 608 has the following block data: '"Lifting"'
+
+
+data get block -615 183 609 front_text.messages[0]: -615, 183, 609 has the following block data: '""'
+
+
+fd validation pax_energy_restart report live1790881027587010572_cycle_88_after_90: PAX energy restart snapshot recorded
+
+
+fd validation pax_energy_restart report live1790881027587010572_cycle_90_before_91: PAX energy restart snapshot recorded
+
+
+data get block -611 181 604 front_text.messages[0]: -611, 181, 604 has the following block data: '"Lifting"'
+
+
+data get block -611 181 605 front_text.messages[0]: -611, 181, 605 has the following block data: '"16 / 16"'
+
+
+data get block -611 181 607 front_text.messages[0]: -611, 181, 607 has the following block data: '"Bind and capture the shuttle before starting"'
+
+
+data get block -611 181 608 front_text.messages[0]: -611, 181, 608 has the following block data: '"Lifting"'
+
+
+data get block -615 183 604 front_text.messages[0]: -615, 183, 604 has the following block data: '"Lifting"'
+
+
+data get block -615 183 605 front_text.messages[0]: -615, 183, 605 has the following block data: '"16 / 16"'
+
+
+data get block -615 183 606 front_text.messages[0]: -615, 183, 606 has the following block data: '"Restraints closed: Yes"'
+
+
+data get block -615 183 607 front_text.messages[0]: -615, 183, 607 has the following block data: '"Vehicle outside station range"'
+
+
+data get block -615 183 608 front_text.messages[0]: -615, 183, 608 has the following block data: '"Lifting"'
+
+
+data get block -615 183 609 front_text.messages[0]: -615, 183, 609 has the following block data: '""'
+
+
+fd validation pax_energy_restart report live1790881027587010572_cycle_90_after_92: PAX energy restart snapshot recorded
+
+
+fd validation pax_energy_restart report live1790881027587010572_cycle_92_before_93: PAX energy restart snapshot recorded
+
+
+data get block -611 181 604 front_text.messages[0]: -611, 181, 604 has the following block data: '"Lifting"'
+
+
+data get block -611 181 605 front_text.messages[0]: -611, 181, 605 has the following block data: '"16 / 16"'
+
+
+data get block -611 181 607 front_text.messages[0]: -611, 181, 607 has the following block data: '"Bind and capture the shuttle before starting"'
+
+
+data get block -611 181 608 front_text.messages[0]: -611, 181, 608 has the following block data: '"Lifting"'
+
+
+data get block -615 183 604 front_text.messages[0]: -615, 183, 604 has the following block data: '"Lifting"'
+
+
+data get block -615 183 605 front_text.messages[0]: -615, 183, 605 has the following block data: '"16 / 16"'
+
+
+data get block -615 183 606 front_text.messages[0]: -615, 183, 606 has the following block data: '"Restraints closed: Yes"'
+
+
+data get block -615 183 607 front_text.messages[0]: -615, 183, 607 has the following block data: '"Vehicle outside station range"'
+
+
+data get block -615 183 608 front_text.messages[0]: -615, 183, 608 has the following block data: '"Lifting"'
+
+
+data get block -615 183 609 front_text.messages[0]: -615, 183, 609 has the following block data: '""'
+
+
+fd validation pax_energy_restart report live1790881027587010572_cycle_92_after_94: PAX energy restart snapshot recorded
+
+
+fd validation pax_energy_restart report live1790881027587010572_cycle_94_before_95: PAX energy restart snapshot recorded
+
+
+data get block -611 181 604 front_text.messages[0]: -611, 181, 604 has the following block data: '"Lifting"'
+
+
+data get block -611 181 605 front_text.messages[0]: -611, 181, 605 has the following block data: '"16 / 16"'
+
+
+data get block -611 181 607 front_text.messages[0]: -611, 181, 607 has the following block data: '"Bind and capture the shuttle before starting"'
+
+
+data get block -611 181 608 front_text.messages[0]: -611, 181, 608 has the following block data: '"Lifting"'
+
+
+data get block -615 183 604 front_text.messages[0]: -615, 183, 604 has the following block data: '"Lifting"'
+
+
+data get block -615 183 605 front_text.messages[0]: -615, 183, 605 has the following block data: '"16 / 16"'
+
+
+data get block -615 183 606 front_text.messages[0]: -615, 183, 606 has the following block data: '"Restraints closed: Yes"'
+
+
+data get block -615 183 607 front_text.messages[0]: -615, 183, 607 has the following block data: '"Vehicle outside station range"'
+
+
+data get block -615 183 608 front_text.messages[0]: -615, 183, 608 has the following block data: '"Lifting"'
+
+
+data get block -615 183 609 front_text.messages[0]: -615, 183, 609 has the following block data: '""'
+
+
+fd validation pax_energy_restart report live1790881027587010572_cycle_94_after_96: PAX energy restart snapshot recorded
+
+
+fd validation pax_energy_restart report live1790881027587010572_cycle_96_before_97: PAX energy restart snapshot recorded
+
+
+data get block -611 181 604 front_text.messages[0]: -611, 181, 604 has the following block data: '"Lifting"'
+
+
+data get block -611 181 605 front_text.messages[0]: -611, 181, 605 has the following block data: '"16 / 16"'
+
+
+data get block -611 181 607 front_text.messages[0]: -611, 181, 607 has the following block data: '"Bind and capture the shuttle before starting"'
+
+
+data get block -611 181 608 front_text.messages[0]: -611, 181, 608 has the following block data: '"Lifting"'
+
+
+data get block -615 183 604 front_text.messages[0]: -615, 183, 604 has the following block data: '"Lifting"'
+
+
+data get block -615 183 605 front_text.messages[0]: -615, 183, 605 has the following block data: '"16 / 16"'
+
+
+data get block -615 183 606 front_text.messages[0]: -615, 183, 606 has the following block data: '"Restraints closed: Yes"'
+
+
+data get block -615 183 607 front_text.messages[0]: -615, 183, 607 has the following block data: '"Vehicle outside station range"'
+
+
+data get block -615 183 608 front_text.messages[0]: -615, 183, 608 has the following block data: '"Lifting"'
+
+
+data get block -615 183 609 front_text.messages[0]: -615, 183, 609 has the following block data: '""'
+
+
+fd validation pax_energy_restart report live1790881027587010572_cycle_96_after_98: PAX energy restart snapshot recorded
+
+
+fd validation pax_energy_restart report live1790881027587010572_cycle_98_before_99: PAX energy restart snapshot recorded
+
+
+data get block -611 181 604 front_text.messages[0]: -611, 181, 604 has the following block data: '"Lifting"'
+
+
+data get block -611 181 605 front_text.messages[0]: -611, 181, 605 has the following block data: '"16 / 16"'
+
+
+data get block -611 181 607 front_text.messages[0]: -611, 181, 607 has the following block data: '"Bind and capture the shuttle before starting"'
+
+
+data get block -611 181 608 front_text.messages[0]: -611, 181, 608 has the following block data: '"Outbound"'
+
+
+data get block -615 183 604 front_text.messages[0]: -615, 183, 604 has the following block data: '"Lifting"'
+
+
+data get block -615 183 605 front_text.messages[0]: -615, 183, 605 has the following block data: '"16 / 16"'
+
+
+data get block -615 183 606 front_text.messages[0]: -615, 183, 606 has the following block data: '"Restraints closed: Yes"'
+
+
+data get block -615 183 607 front_text.messages[0]: -615, 183, 607 has the following block data: '"Vehicle outside station range"'
+
+
+data get block -615 183 608 front_text.messages[0]: -615, 183, 608 has the following block data: '"Lifting"'
+
+
+data get block -615 183 609 front_text.messages[0]: -615, 183, 609 has the following block data: '""'
+
+
+fd validation pax_energy_restart report live1790881027587010572_cycle_98_after_100: PAX energy restart snapshot recorded
+
+
+fd validation pax_energy_restart report live1790881027587010572_cycle_100_before_101: PAX energy restart snapshot recorded
+
+
+data get block -611 181 604 front_text.messages[0]: -611, 181, 604 has the following block data: '"Outbound"'
+
+
+data get block -611 181 605 front_text.messages[0]: -611, 181, 605 has the following block data: '"16 / 16"'
+
+
+data get block -611 181 607 front_text.messages[0]: -611, 181, 607 has the following block data: '"Bind and capture the shuttle before starting"'
+
+
+data get block -611 181 608 front_text.messages[0]: -611, 181, 608 has the following block data: '"Outbound"'
+
+
+data get block -615 183 604 front_text.messages[0]: -615, 183, 604 has the following block data: '"Outbound"'
+
+
+data get block -615 183 605 front_text.messages[0]: -615, 183, 605 has the following block data: '"16 / 16"'
+
+
+data get block -615 183 606 front_text.messages[0]: -615, 183, 606 has the following block data: '"Restraints closed: Yes"'
+
+
+data get block -615 183 607 front_text.messages[0]: -615, 183, 607 has the following block data: '"Vehicle outside station range"'
+
+
+data get block -615 183 608 front_text.messages[0]: -615, 183, 608 has the following block data: '"Outbound"'
+
+
+data get block -615 183 609 front_text.messages[0]: -615, 183, 609 has the following block data: '""'
+
+
+fd validation pax_energy_restart report live1790881027587010572_cycle_100_after_102: PAX energy restart snapshot recorded
+
+
+fd validation pax_energy_restart report live1790881027587010572_cycle_102_before_103: PAX energy restart snapshot recorded
+
+
+data get block -611 181 604 front_text.messages[0]: -611, 181, 604 has the following block data: '"Outbound"'
+
+
+data get block -611 181 605 front_text.messages[0]: -611, 181, 605 has the following block data: '"16 / 16"'
+
+
+data get block -611 181 607 front_text.messages[0]: -611, 181, 607 has the following block data: '"Bind and capture the shuttle before starting"'
+
+
+data get block -611 181 608 front_text.messages[0]: -611, 181, 608 has the following block data: '"Outbound"'
+
+
+data get block -615 183 604 front_text.messages[0]: -615, 183, 604 has the following block data: '"Outbound"'
+
+
+data get block -615 183 605 front_text.messages[0]: -615, 183, 605 has the following block data: '"16 / 16"'
+
+
+data get block -615 183 606 front_text.messages[0]: -615, 183, 606 has the following block data: '"Restraints closed: Yes"'
+
+
+data get block -615 183 607 front_text.messages[0]: -615, 183, 607 has the following block data: '"Vehicle outside station range"'
+
+
+data get block -615 183 608 front_text.messages[0]: -615, 183, 608 has the following block data: '"Outbound"'
+
+
+data get block -615 183 609 front_text.messages[0]: -615, 183, 609 has the following block data: '""'
+
+
+fd validation pax_energy_restart report live1790881027587010572_cycle_102_after_104: PAX energy restart snapshot recorded
+
+
+fd validation pax_energy_restart report live1790881027587010572_cycle_104_before_105: PAX energy restart snapshot recorded
+
+
+data get block -611 181 604 front_text.messages[0]: -611, 181, 604 has the following block data: '"Outbound"'
+
+
+data get block -611 181 605 front_text.messages[0]: -611, 181, 605 has the following block data: '"16 / 16"'
+
+
+data get block -611 181 607 front_text.messages[0]: -611, 181, 607 has the following block data: '"Bind and capture the shuttle before starting"'
+
+
+data get block -611 181 608 front_text.messages[0]: -611, 181, 608 has the following block data: '"Outbound"'
+
+
+data get block -615 183 604 front_text.messages[0]: -615, 183, 604 has the following block data: '"Outbound"'
+
+
+data get block -615 183 605 front_text.messages[0]: -615, 183, 605 has the following block data: '"16 / 16"'
+
+
+data get block -615 183 606 front_text.messages[0]: -615, 183, 606 has the following block data: '"Restraints closed: Yes"'
+
+
+data get block -615 183 607 front_text.messages[0]: -615, 183, 607 has the following block data: '"Vehicle outside station range"'
+
+
+data get block -615 183 608 front_text.messages[0]: -615, 183, 608 has the following block data: '"Outbound"'
+
+
+data get block -615 183 609 front_text.messages[0]: -615, 183, 609 has the following block data: '""'
+
+
+fd validation pax_energy_restart report live1790881027587010572_cycle_104_after_106: PAX energy restart snapshot recorded
+
+
+fd validation pax_energy_restart report live1790881027587010572_cycle_106_before_107: PAX energy restart snapshot recorded
+
+
+data get block -611 181 604 front_text.messages[0]: -611, 181, 604 has the following block data: '"Outbound"'
+
+
+data get block -611 181 605 front_text.messages[0]: -611, 181, 605 has the following block data: '"16 / 16"'
+
+
+data get block -611 181 607 front_text.messages[0]: -611, 181, 607 has the following block data: '"Bind and capture the shuttle before starting"'
+
+
+data get block -611 181 608 front_text.messages[0]: -611, 181, 608 has the following block data: '"Outbound"'
+
+
+data get block -615 183 604 front_text.messages[0]: -615, 183, 604 has the following block data: '"Outbound"'
+
+
+data get block -615 183 605 front_text.messages[0]: -615, 183, 605 has the following block data: '"16 / 16"'
+
+
+data get block -615 183 606 front_text.messages[0]: -615, 183, 606 has the following block data: '"Restraints closed: Yes"'
+
+
+data get block -615 183 607 front_text.messages[0]: -615, 183, 607 has the following block data: '"Vehicle outside station range"'
+
+
+data get block -615 183 608 front_text.messages[0]: -615, 183, 608 has the following block data: '"Outbound"'
+
+
+data get block -615 183 609 front_text.messages[0]: -615, 183, 609 has the following block data: '""'
+
+
+fd validation pax_energy_restart report live1790881027587010572_cycle_106_after_108: PAX energy restart snapshot recorded
+
+
+fd validation pax_energy_restart report live1790881027587010572_cycle_108_before_109: PAX energy restart snapshot recorded
+
+
+data get block -611 181 604 front_text.messages[0]: -611, 181, 604 has the following block data: '"Outbound"'
+
+
+data get block -611 181 605 front_text.messages[0]: -611, 181, 605 has the following block data: '"16 / 16"'
+
+
+data get block -611 181 607 front_text.messages[0]: -611, 181, 607 has the following block data: '"Bind and capture the shuttle before starting"'
+
+
+data get block -611 181 608 front_text.messages[0]: -611, 181, 608 has the following block data: '"Outbound"'
+
+
+data get block -615 183 604 front_text.messages[0]: -615, 183, 604 has the following block data: '"Outbound"'
+
+
+data get block -615 183 605 front_text.messages[0]: -615, 183, 605 has the following block data: '"16 / 16"'
+
+
+data get block -615 183 606 front_text.messages[0]: -615, 183, 606 has the following block data: '"Restraints closed: Yes"'
+
+
+data get block -615 183 607 front_text.messages[0]: -615, 183, 607 has the following block data: '"Vehicle outside station range"'
+
+
+data get block -615 183 608 front_text.messages[0]: -615, 183, 608 has the following block data: '"Outbound"'
+
+
+data get block -615 183 609 front_text.messages[0]: -615, 183, 609 has the following block data: '""'
+
+
+fd validation pax_energy_restart report live1790881027587010572_cycle_108_after_110: PAX energy restart snapshot recorded
+
+
+fd validation pax_energy_restart report live1790881027587010572_cycle_110_before_111: PAX energy restart snapshot recorded
+
+
+data get block -611 181 604 front_text.messages[0]: -611, 181, 604 has the following block data: '"Outbound"'
+
+
+data get block -611 181 605 front_text.messages[0]: -611, 181, 605 has the following block data: '"16 / 16"'
+
+
+data get block -611 181 607 front_text.messages[0]: -611, 181, 607 has the following block data: '"Bind and capture the shuttle before starting"'
+
+
+data get block -611 181 608 front_text.messages[0]: -611, 181, 608 has the following block data: '"Outbound"'
+
+
+data get block -615 183 604 front_text.messages[0]: -615, 183, 604 has the following block data: '"Outbound"'
+
+
+data get block -615 183 605 front_text.messages[0]: -615, 183, 605 has the following block data: '"16 / 16"'
+
+
+data get block -615 183 606 front_text.messages[0]: -615, 183, 606 has the following block data: '"Restraints closed: Yes"'
+
+
+data get block -615 183 607 front_text.messages[0]: -615, 183, 607 has the following block data: '"Vehicle outside station range"'
+
+
+data get block -615 183 608 front_text.messages[0]: -615, 183, 608 has the following block data: '"Outbound"'
+
+
+data get block -615 183 609 front_text.messages[0]: -615, 183, 609 has the following block data: '""'
+
+
+fd validation pax_energy_restart report live1790881027587010572_cycle_110_after_112: PAX energy restart snapshot recorded
+
+
+fd validation pax_energy_restart report live1790881027587010572_cycle_112_before_113: PAX energy restart snapshot recorded
+
+
+data get block -611 181 604 front_text.messages[0]: -611, 181, 604 has the following block data: '"Outbound"'
+
+
+data get block -611 181 605 front_text.messages[0]: -611, 181, 605 has the following block data: '"16 / 16"'
+
+
+data get block -611 181 607 front_text.messages[0]: -611, 181, 607 has the following block data: '"Bind and capture the shuttle before starting"'
+
+
+data get block -611 181 608 front_text.messages[0]: -611, 181, 608 has the following block data: '"Outbound"'
+
+
+data get block -615 183 604 front_text.messages[0]: -615, 183, 604 has the following block data: '"Outbound"'
+
+
+data get block -615 183 605 front_text.messages[0]: -615, 183, 605 has the following block data: '"16 / 16"'
+
+
+data get block -615 183 606 front_text.messages[0]: -615, 183, 606 has the following block data: '"Restraints closed: Yes"'
+
+
+data get block -615 183 607 front_text.messages[0]: -615, 183, 607 has the following block data: '"Vehicle outside station range"'
+
+
+data get block -615 183 608 front_text.messages[0]: -615, 183, 608 has the following block data: '"Outbound"'
+
+
+data get block -615 183 609 front_text.messages[0]: -615, 183, 609 has the following block data: '""'
+
+
+fd validation pax_energy_restart report live1790881027587010572_cycle_112_after_114: PAX energy restart snapshot recorded
+
+
+fd validation pax_energy_restart report live1790881027587010572_cycle_114_before_115: PAX energy restart snapshot recorded
+
+
+data get block -611 181 604 front_text.messages[0]: -611, 181, 604 has the following block data: '"Outbound"'
+
+
+data get block -611 181 605 front_text.messages[0]: -611, 181, 605 has the following block data: '"16 / 16"'
+
+
+data get block -611 181 607 front_text.messages[0]: -611, 181, 607 has the following block data: '"Bind and capture the shuttle before starting"'
+
+
+data get block -611 181 608 front_text.messages[0]: -611, 181, 608 has the following block data: '"Outbound"'
+
+
+data get block -615 183 604 front_text.messages[0]: -615, 183, 604 has the following block data: '"Outbound"'
+
+
+data get block -615 183 605 front_text.messages[0]: -615, 183, 605 has the following block data: '"16 / 16"'
+
+
+data get block -615 183 606 front_text.messages[0]: -615, 183, 606 has the following block data: '"Restraints closed: Yes"'
+
+
+data get block -615 183 607 front_text.messages[0]: -615, 183, 607 has the following block data: '"Vehicle outside station range"'
+
+
+data get block -615 183 608 front_text.messages[0]: -615, 183, 608 has the following block data: '"Outbound"'
+
+
+data get block -615 183 609 front_text.messages[0]: -615, 183, 609 has the following block data: '""'
+
+
+fd validation pax_energy_restart report live1790881027587010572_cycle_114_after_116: PAX energy restart snapshot recorded
+
+
+fd validation pax_energy_restart report live1790881027587010572_cycle_116_before_117: PAX energy restart snapshot recorded
+
+
+data get block -611 181 604 front_text.messages[0]: -611, 181, 604 has the following block data: '"Outbound"'
+
+
+data get block -611 181 605 front_text.messages[0]: -611, 181, 605 has the following block data: '"16 / 16"'
+
+
+data get block -611 181 607 front_text.messages[0]: -611, 181, 607 has the following block data: '"Bind and capture the shuttle before starting"'
+
+
+data get block -611 181 608 front_text.messages[0]: -611, 181, 608 has the following block data: '"Outbound"'
+
+
+data get block -615 183 604 front_text.messages[0]: -615, 183, 604 has the following block data: '"Outbound"'
+
+
+data get block -615 183 605 front_text.messages[0]: -615, 183, 605 has the following block data: '"16 / 16"'
+
+
+data get block -615 183 606 front_text.messages[0]: -615, 183, 606 has the following block data: '"Restraints closed: Yes"'
+
+
+data get block -615 183 607 front_text.messages[0]: -615, 183, 607 has the following block data: '"Vehicle outside station range"'
+
+
+data get block -615 183 608 front_text.messages[0]: -615, 183, 608 has the following block data: '"Outbound"'
+
+
+data get block -615 183 609 front_text.messages[0]: -615, 183, 609 has the following block data: '""'
+
+
+fd validation pax_energy_restart report live1790881027587010572_cycle_116_after_118: PAX energy restart snapshot recorded
+
+
+fd validation pax_energy_restart report live1790881027587010572_cycle_118_before_119: PAX energy restart snapshot recorded
+
+
+data get block -611 181 604 front_text.messages[0]: -611, 181, 604 has the following block data: '"Outbound"'
+
+
+data get block -611 181 605 front_text.messages[0]: -611, 181, 605 has the following block data: '"16 / 16"'
+
+
+data get block -611 181 607 front_text.messages[0]: -611, 181, 607 has the following block data: '"Bind and capture the shuttle before starting"'
+
+
+data get block -611 181 608 front_text.messages[0]: -611, 181, 608 has the following block data: '"Outbound"'
+
+
+data get block -615 183 604 front_text.messages[0]: -615, 183, 604 has the following block data: '"Outbound"'
+
+
+data get block -615 183 605 front_text.messages[0]: -615, 183, 605 has the following block data: '"16 / 16"'
+
+
+data get block -615 183 606 front_text.messages[0]: -615, 183, 606 has the following block data: '"Restraints closed: Yes"'
+
+
+data get block -615 183 607 front_text.messages[0]: -615, 183, 607 has the following block data: '"Vehicle outside station range"'
+
+
+data get block -615 183 608 front_text.messages[0]: -615, 183, 608 has the following block data: '"Outbound"'
+
+
+data get block -615 183 609 front_text.messages[0]: -615, 183, 609 has the following block data: '""'
+
+
+fd validation pax_energy_restart report live1790881027587010572_cycle_118_after_120: PAX energy restart snapshot recorded
+
+
+fd validation pax_energy_restart report live1790881027587010572_cycle_120_before_121: PAX energy restart snapshot recorded
+
+
+data get block -611 181 604 front_text.messages[0]: -611, 181, 604 has the following block data: '"Outbound"'
+
+
+data get block -611 181 605 front_text.messages[0]: -611, 181, 605 has the following block data: '"16 / 16"'
+
+
+data get block -611 181 607 front_text.messages[0]: -611, 181, 607 has the following block data: '"Bind and capture the shuttle before starting"'
+
+
+data get block -611 181 608 front_text.messages[0]: -611, 181, 608 has the following block data: '"Outbound"'
+
+
+data get block -615 183 604 front_text.messages[0]: -615, 183, 604 has the following block data: '"Outbound"'
+
+
+data get block -615 183 605 front_text.messages[0]: -615, 183, 605 has the following block data: '"16 / 16"'
+
+
+data get block -615 183 606 front_text.messages[0]: -615, 183, 606 has the following block data: '"Restraints closed: Yes"'
+
+
+data get block -615 183 607 front_text.messages[0]: -615, 183, 607 has the following block data: '"Vehicle outside station range"'
+
+
+data get block -615 183 608 front_text.messages[0]: -615, 183, 608 has the following block data: '"Outbound"'
+
+
+data get block -615 183 609 front_text.messages[0]: -615, 183, 609 has the following block data: '""'
+
+
+fd validation pax_energy_restart report live1790881027587010572_cycle_120_after_122: PAX energy restart snapshot recorded
+
+
+fd validation pax_energy_restart report live1790881027587010572_cycle_122_before_123: PAX energy restart snapshot recorded
+
+
+data get block -611 181 604 front_text.messages[0]: -611, 181, 604 has the following block data: '"Outbound"'
+
+
+data get block -611 181 605 front_text.messages[0]: -611, 181, 605 has the following block data: '"16 / 16"'
+
+
+data get block -611 181 607 front_text.messages[0]: -611, 181, 607 has the following block data: '"Bind and capture the shuttle before starting"'
+
+
+data get block -611 181 608 front_text.messages[0]: -611, 181, 608 has the following block data: '"Outbound"'
+
+
+data get block -615 183 604 front_text.messages[0]: -615, 183, 604 has the following block data: '"Outbound"'
+
+
+data get block -615 183 605 front_text.messages[0]: -615, 183, 605 has the following block data: '"16 / 16"'
+
+
+data get block -615 183 606 front_text.messages[0]: -615, 183, 606 has the following block data: '"Restraints closed: Yes"'
+
+
+data get block -615 183 607 front_text.messages[0]: -615, 183, 607 has the following block data: '"Vehicle outside station range"'
+
+
+data get block -615 183 608 front_text.messages[0]: -615, 183, 608 has the following block data: '"Outbound"'
+
+
+data get block -615 183 609 front_text.messages[0]: -615, 183, 609 has the following block data: '""'
+
+
+fd validation pax_energy_restart report live1790881027587010572_cycle_122_after_124: PAX energy restart snapshot recorded
+
+
+fd validation pax_energy_restart report live1790881027587010572_cycle_124_before_125: PAX energy restart snapshot recorded
+
+
+data get block -611 181 604 front_text.messages[0]: -611, 181, 604 has the following block data: '"Outbound"'
+
+
+data get block -611 181 605 front_text.messages[0]: -611, 181, 605 has the following block data: '"16 / 16"'
+
+
+data get block -611 181 607 front_text.messages[0]: -611, 181, 607 has the following block data: '"Bind and capture the shuttle before starting"'
+
+
+data get block -611 181 608 front_text.messages[0]: -611, 181, 608 has the following block data: '"Outbound"'
+
+
+data get block -615 183 604 front_text.messages[0]: -615, 183, 604 has the following block data: '"Outbound"'
+
+
+data get block -615 183 605 front_text.messages[0]: -615, 183, 605 has the following block data: '"16 / 16"'
+
+
+data get block -615 183 606 front_text.messages[0]: -615, 183, 606 has the following block data: '"Restraints closed: Yes"'
+
+
+data get block -615 183 607 front_text.messages[0]: -615, 183, 607 has the following block data: '"Vehicle outside station range"'
+
+
+data get block -615 183 608 front_text.messages[0]: -615, 183, 608 has the following block data: '"Outbound"'
+
+
+data get block -615 183 609 front_text.messages[0]: -615, 183, 609 has the following block data: '""'
+
+
+fd validation pax_energy_restart report live1790881027587010572_cycle_124_after_126: PAX energy restart snapshot recorded
+
+
+fd validation pax_energy_restart report live1790881027587010572_cycle_126_before_127: PAX energy restart snapshot recorded
+
+
+data get block -611 181 604 front_text.messages[0]: -611, 181, 604 has the following block data: '"Outbound"'
+
+
+data get block -611 181 605 front_text.messages[0]: -611, 181, 605 has the following block data: '"16 / 16"'
+
+
+data get block -611 181 607 front_text.messages[0]: -611, 181, 607 has the following block data: '"Bind and capture the shuttle before starting"'
+
+
+data get block -611 181 608 front_text.messages[0]: -611, 181, 608 has the following block data: '"Outbound"'
+
+
+data get block -615 183 604 front_text.messages[0]: -615, 183, 604 has the following block data: '"Outbound"'
+
+
+data get block -615 183 605 front_text.messages[0]: -615, 183, 605 has the following block data: '"16 / 16"'
+
+
+data get block -615 183 606 front_text.messages[0]: -615, 183, 606 has the following block data: '"Restraints closed: Yes"'
+
+
+data get block -615 183 607 front_text.messages[0]: -615, 183, 607 has the following block data: '"Vehicle outside station range"'
+
+
+data get block -615 183 608 front_text.messages[0]: -615, 183, 608 has the following block data: '"Outbound"'
+
+
+data get block -615 183 609 front_text.messages[0]: -615, 183, 609 has the following block data: '""'
+
+
+fd validation pax_energy_restart report live1790881027587010572_cycle_126_after_128: PAX energy restart snapshot recorded
+
+
+fd validation pax_energy_restart report live1790881027587010572_cycle_128_before_129: PAX energy restart snapshot recorded
+
+
+data get block -611 181 604 front_text.messages[0]: -611, 181, 604 has the following block data: '"Outbound"'
+
+
+data get block -611 181 605 front_text.messages[0]: -611, 181, 605 has the following block data: '"16 / 16"'
+
+
+data get block -611 181 607 front_text.messages[0]: -611, 181, 607 has the following block data: '"Bind and capture the shuttle before starting"'
+
+
+data get block -611 181 608 front_text.messages[0]: -611, 181, 608 has the following block data: '"Outbound"'
+
+
+data get block -615 183 604 front_text.messages[0]: -615, 183, 604 has the following block data: '"Outbound"'
+
+
+data get block -615 183 605 front_text.messages[0]: -615, 183, 605 has the following block data: '"16 / 16"'
+
+
+data get block -615 183 606 front_text.messages[0]: -615, 183, 606 has the following block data: '"Restraints closed: Yes"'
+
+
+data get block -615 183 607 front_text.messages[0]: -615, 183, 607 has the following block data: '"Vehicle outside station range"'
+
+
+data get block -615 183 608 front_text.messages[0]: -615, 183, 608 has the following block data: '"Outbound"'
+
+
+data get block -615 183 609 front_text.messages[0]: -615, 183, 609 has the following block data: '""'
+
+
+fd validation pax_energy_restart report live1790881027587010572_cycle_128_after_130: PAX energy restart snapshot recorded
+
+
+fd validation pax_energy_restart report live1790881027587010572_cycle_130_before_131: PAX energy restart snapshot recorded
+
+
+data get block -611 181 604 front_text.messages[0]: -611, 181, 604 has the following block data: '"Outbound"'
+
+
+data get block -611 181 605 front_text.messages[0]: -611, 181, 605 has the following block data: '"16 / 16"'
+
+
+data get block -611 181 607 front_text.messages[0]: -611, 181, 607 has the following block data: '"Bind and capture the shuttle before starting"'
+
+
+data get block -611 181 608 front_text.messages[0]: -611, 181, 608 has the following block data: '"Outbound"'
+
+
+data get block -615 183 604 front_text.messages[0]: -615, 183, 604 has the following block data: '"Outbound"'
+
+
+data get block -615 183 605 front_text.messages[0]: -615, 183, 605 has the following block data: '"16 / 16"'
+
+
+data get block -615 183 606 front_text.messages[0]: -615, 183, 606 has the following block data: '"Restraints closed: Yes"'
+
+
+data get block -615 183 607 front_text.messages[0]: -615, 183, 607 has the following block data: '"Vehicle outside station range"'
+
+
+data get block -615 183 608 front_text.messages[0]: -615, 183, 608 has the following block data: '"Outbound"'
+
+
+data get block -615 183 609 front_text.messages[0]: -615, 183, 609 has the following block data: '""'
+
+
+fd validation pax_energy_restart report live1790881027587010572_cycle_130_after_132: PAX energy restart snapshot recorded
+
+
+fd validation pax_energy_restart report live1790881027587010572_cycle_132_before_133: PAX energy restart snapshot recorded
+
+
+data get block -611 181 604 front_text.messages[0]: -611, 181, 604 has the following block data: '"Outbound"'
+
+
+data get block -611 181 605 front_text.messages[0]: -611, 181, 605 has the following block data: '"16 / 16"'
+
+
+data get block -611 181 607 front_text.messages[0]: -611, 181, 607 has the following block data: '"Bind and capture the shuttle before starting"'
+
+
+data get block -611 181 608 front_text.messages[0]: -611, 181, 608 has the following block data: '"Outbound"'
+
+
+data get block -615 183 604 front_text.messages[0]: -615, 183, 604 has the following block data: '"Outbound"'
+
+
+data get block -615 183 605 front_text.messages[0]: -615, 183, 605 has the following block data: '"16 / 16"'
+
+
+data get block -615 183 606 front_text.messages[0]: -615, 183, 606 has the following block data: '"Restraints closed: Yes"'
+
+
+data get block -615 183 607 front_text.messages[0]: -615, 183, 607 has the following block data: '"Vehicle outside station range"'
+
+
+data get block -615 183 608 front_text.messages[0]: -615, 183, 608 has the following block data: '"Outbound"'
+
+
+data get block -615 183 609 front_text.messages[0]: -615, 183, 609 has the following block data: '""'
+
+
+fd validation pax_energy_restart report live1790881027587010572_cycle_132_after_134: PAX energy restart snapshot recorded
+
+
+fd validation pax_energy_restart report live1790881027587010572_cycle_134_before_135: PAX energy restart snapshot recorded
+
+
+data get block -611 181 604 front_text.messages[0]: -611, 181, 604 has the following block data: '"Outbound"'
+
+
+data get block -611 181 605 front_text.messages[0]: -611, 181, 605 has the following block data: '"16 / 16"'
+
+
+data get block -611 181 607 front_text.messages[0]: -611, 181, 607 has the following block data: '"Bind and capture the shuttle before starting"'
+
+
+data get block -611 181 608 front_text.messages[0]: -611, 181, 608 has the following block data: '"Outbound"'
+
+
+data get block -615 183 604 front_text.messages[0]: -615, 183, 604 has the following block data: '"Outbound"'
+
+
+data get block -615 183 605 front_text.messages[0]: -615, 183, 605 has the following block data: '"16 / 16"'
+
+
+data get block -615 183 606 front_text.messages[0]: -615, 183, 606 has the following block data: '"Restraints closed: Yes"'
+
+
+data get block -615 183 607 front_text.messages[0]: -615, 183, 607 has the following block data: '"Vehicle outside station range"'
+
+
+data get block -615 183 608 front_text.messages[0]: -615, 183, 608 has the following block data: '"Outbound"'
+
+
+data get block -615 183 609 front_text.messages[0]: -615, 183, 609 has the following block data: '""'
+
+
+fd validation pax_energy_restart report live1790881027587010572_cycle_134_after_136: PAX energy restart snapshot recorded
+
+
+fd validation pax_energy_restart report live1790881027587010572_cycle_136_before_137: PAX energy restart snapshot recorded
+
+
+data get block -611 181 604 front_text.messages[0]: -611, 181, 604 has the following block data: '"Outbound"'
+
+
+data get block -611 181 605 front_text.messages[0]: -611, 181, 605 has the following block data: '"16 / 16"'
+
+
+data get block -611 181 607 front_text.messages[0]: -611, 181, 607 has the following block data: '"Bind and capture the shuttle before starting"'
+
+
+data get block -611 181 608 front_text.messages[0]: -611, 181, 608 has the following block data: '"Outbound"'
+
+
+data get block -615 183 604 front_text.messages[0]: -615, 183, 604 has the following block data: '"Outbound"'
+
+
+data get block -615 183 605 front_text.messages[0]: -615, 183, 605 has the following block data: '"16 / 16"'
+
+
+data get block -615 183 606 front_text.messages[0]: -615, 183, 606 has the following block data: '"Restraints closed: Yes"'
+
+
+data get block -615 183 607 front_text.messages[0]: -615, 183, 607 has the following block data: '"Vehicle outside station range"'
+
+
+data get block -615 183 608 front_text.messages[0]: -615, 183, 608 has the following block data: '"Outbound"'
+
+
+data get block -615 183 609 front_text.messages[0]: -615, 183, 609 has the following block data: '""'
+
+
+fd validation pax_energy_restart report live1790881027587010572_cycle_136_after_138: PAX energy restart snapshot recorded
+
+
+fd validation pax_energy_restart report live1790881027587010572_cycle_138_before_139: PAX energy restart snapshot recorded
+
+
+data get block -611 181 604 front_text.messages[0]: -611, 181, 604 has the following block data: '"Outbound"'
+
+
+data get block -611 181 605 front_text.messages[0]: -611, 181, 605 has the following block data: '"16 / 16"'
+
+
+data get block -611 181 607 front_text.messages[0]: -611, 181, 607 has the following block data: '"Bind and capture the shuttle before starting"'
+
+
+data get block -611 181 608 front_text.messages[0]: -611, 181, 608 has the following block data: '"Outbound"'
+
+
+data get block -615 183 604 front_text.messages[0]: -615, 183, 604 has the following block data: '"Outbound"'
+
+
+data get block -615 183 605 front_text.messages[0]: -615, 183, 605 has the following block data: '"16 / 16"'
+
+
+data get block -615 183 606 front_text.messages[0]: -615, 183, 606 has the following block data: '"Restraints closed: Yes"'
+
+
+data get block -615 183 607 front_text.messages[0]: -615, 183, 607 has the following block data: '"Vehicle outside station range"'
+
+
+data get block -615 183 608 front_text.messages[0]: -615, 183, 608 has the following block data: '"Outbound"'
+
+
+data get block -615 183 609 front_text.messages[0]: -615, 183, 609 has the following block data: '""'
+
+
+fd validation pax_energy_restart report live1790881027587010572_cycle_138_after_140: PAX energy restart snapshot recorded
+
+
+fd validation pax_energy_restart report live1790881027587010572_cycle_140_before_141: PAX energy restart snapshot recorded
+
+
+data get block -611 181 604 front_text.messages[0]: -611, 181, 604 has the following block data: '"Outbound"'
+
+
+data get block -611 181 605 front_text.messages[0]: -611, 181, 605 has the following block data: '"16 / 16"'
+
+
+data get block -611 181 607 front_text.messages[0]: -611, 181, 607 has the following block data: '"Bind and capture the shuttle before starting"'
+
+
+data get block -611 181 608 front_text.messages[0]: -611, 181, 608 has the following block data: '"Outbound"'
+
+
+data get block -615 183 604 front_text.messages[0]: -615, 183, 604 has the following block data: '"Outbound"'
+
+
+data get block -615 183 605 front_text.messages[0]: -615, 183, 605 has the following block data: '"16 / 16"'
+
+
+data get block -615 183 606 front_text.messages[0]: -615, 183, 606 has the following block data: '"Restraints closed: Yes"'
+
+
+data get block -615 183 607 front_text.messages[0]: -615, 183, 607 has the following block data: '"Vehicle outside station range"'
+
+
+data get block -615 183 608 front_text.messages[0]: -615, 183, 608 has the following block data: '"Outbound"'
+
+
+data get block -615 183 609 front_text.messages[0]: -615, 183, 609 has the following block data: '""'
+
+
+fd validation pax_energy_restart report live1790881027587010572_cycle_140_after_142: PAX energy restart snapshot recorded
+
+
+fd validation pax_energy_restart report live1790881027587010572_cycle_142_before_143: PAX energy restart snapshot recorded
+
+
+data get block -611 181 604 front_text.messages[0]: -611, 181, 604 has the following block data: '"Outbound"'
+
+
+data get block -611 181 605 front_text.messages[0]: -611, 181, 605 has the following block data: '"16 / 16"'
+
+
+data get block -611 181 607 front_text.messages[0]: -611, 181, 607 has the following block data: '"Bind and capture the shuttle before starting"'
+
+
+data get block -611 181 608 front_text.messages[0]: -611, 181, 608 has the following block data: '"Returning"'
+
+
+data get block -615 183 604 front_text.messages[0]: -615, 183, 604 has the following block data: '"Returning"'
+
+
+data get block -615 183 605 front_text.messages[0]: -615, 183, 605 has the following block data: '"16 / 16"'
+
+
+data get block -615 183 606 front_text.messages[0]: -615, 183, 606 has the following block data: '"Restraints closed: Yes"'
+
+
+data get block -615 183 607 front_text.messages[0]: -615, 183, 607 has the following block data: '"Vehicle outside station range"'
+
+
+data get block -615 183 608 front_text.messages[0]: -615, 183, 608 has the following block data: '"Returning"'
+
+
+data get block -615 183 609 front_text.messages[0]: -615, 183, 609 has the following block data: '""'
+
+
+fd validation pax_energy_restart report live1790881027587010572_cycle_142_after_144: PAX energy restart snapshot recorded
+
+
+fd validation pax_energy_restart report live1790881027587010572_cycle_144_before_145: PAX energy restart snapshot recorded
+
+
+data get block -611 181 604 front_text.messages[0]: -611, 181, 604 has the following block data: '"Returning"'
+
+
+data get block -611 181 605 front_text.messages[0]: -611, 181, 605 has the following block data: '"16 / 16"'
+
+
+data get block -611 181 607 front_text.messages[0]: -611, 181, 607 has the following block data: '"Bind and capture the shuttle before starting"'
+
+
+data get block -611 181 608 front_text.messages[0]: -611, 181, 608 has the following block data: '"Returning"'
+
+
+data get block -615 183 604 front_text.messages[0]: -615, 183, 604 has the following block data: '"Returning"'
+
+
+data get block -615 183 605 front_text.messages[0]: -615, 183, 605 has the following block data: '"16 / 16"'
+
+
+data get block -615 183 606 front_text.messages[0]: -615, 183, 606 has the following block data: '"Restraints closed: Yes"'
+
+
+data get block -615 183 607 front_text.messages[0]: -615, 183, 607 has the following block data: '"Vehicle outside station range"'
+
+
+data get block -615 183 608 front_text.messages[0]: -615, 183, 608 has the following block data: '"Returning"'
+
+
+data get block -615 183 609 front_text.messages[0]: -615, 183, 609 has the following block data: '""'
+
+
+fd validation pax_energy_restart report live1790881027587010572_cycle_144_after_146: PAX energy restart snapshot recorded
+
+
+fd validation pax_energy_restart report live1790881027587010572_cycle_146_before_147: PAX energy restart snapshot recorded
+
+
+data get block -611 181 604 front_text.messages[0]: -611, 181, 604 has the following block data: '"Returning"'
+
+
+data get block -611 181 605 front_text.messages[0]: -611, 181, 605 has the following block data: '"16 / 16"'
+
+
+data get block -611 181 607 front_text.messages[0]: -611, 181, 607 has the following block data: '"Bind and capture the shuttle before starting"'
+
+
+data get block -611 181 608 front_text.messages[0]: -611, 181, 608 has the following block data: '"Returning"'
+
+
+data get block -615 183 604 front_text.messages[0]: -615, 183, 604 has the following block data: '"Returning"'
+
+
+data get block -615 183 605 front_text.messages[0]: -615, 183, 605 has the following block data: '"16 / 16"'
+
+
+data get block -615 183 606 front_text.messages[0]: -615, 183, 606 has the following block data: '"Restraints closed: Yes"'
+
+
+data get block -615 183 607 front_text.messages[0]: -615, 183, 607 has the following block data: '"Vehicle outside station range"'
+
+
+data get block -615 183 608 front_text.messages[0]: -615, 183, 608 has the following block data: '"Returning"'
+
+
+data get block -615 183 609 front_text.messages[0]: -615, 183, 609 has the following block data: '""'
+
+
+fd validation pax_energy_restart report live1790881027587010572_cycle_146_after_148: PAX energy restart snapshot recorded
+
+
+fd validation pax_energy_restart report live1790881027587010572_cycle_148_before_149: PAX energy restart snapshot recorded
+
+
+data get block -611 181 604 front_text.messages[0]: -611, 181, 604 has the following block data: '"Returning"'
+
+
+data get block -611 181 605 front_text.messages[0]: -611, 181, 605 has the following block data: '"16 / 16"'
+
+
+data get block -611 181 607 front_text.messages[0]: -611, 181, 607 has the following block data: '"Bind and capture the shuttle before starting"'
+
+
+data get block -611 181 608 front_text.messages[0]: -611, 181, 608 has the following block data: '"Returning"'
+
+
+data get block -615 183 604 front_text.messages[0]: -615, 183, 604 has the following block data: '"Returning"'
+
+
+data get block -615 183 605 front_text.messages[0]: -615, 183, 605 has the following block data: '"16 / 16"'
+
+
+data get block -615 183 606 front_text.messages[0]: -615, 183, 606 has the following block data: '"Restraints closed: Yes"'
+
+
+data get block -615 183 607 front_text.messages[0]: -615, 183, 607 has the following block data: '"Vehicle outside station range"'
+
+
+data get block -615 183 608 front_text.messages[0]: -615, 183, 608 has the following block data: '"Returning"'
+
+
+data get block -615 183 609 front_text.messages[0]: -615, 183, 609 has the following block data: '""'
+
+
+fd validation pax_energy_restart report live1790881027587010572_cycle_148_after_150: PAX energy restart snapshot recorded
+
+
+fd validation pax_energy_restart report live1790881027587010572_cycle_150_before_151: PAX energy restart snapshot recorded
+
+
+data get block -611 181 604 front_text.messages[0]: -611, 181, 604 has the following block data: '"Returning"'
+
+
+data get block -611 181 605 front_text.messages[0]: -611, 181, 605 has the following block data: '"16 / 16"'
+
+
+data get block -611 181 607 front_text.messages[0]: -611, 181, 607 has the following block data: '"Bind and capture the shuttle before starting"'
+
+
+data get block -611 181 608 front_text.messages[0]: -611, 181, 608 has the following block data: '"Returning"'
+
+
+data get block -615 183 604 front_text.messages[0]: -615, 183, 604 has the following block data: '"Returning"'
+
+
+data get block -615 183 605 front_text.messages[0]: -615, 183, 605 has the following block data: '"16 / 16"'
+
+
+data get block -615 183 606 front_text.messages[0]: -615, 183, 606 has the following block data: '"Restraints closed: Yes"'
+
+
+data get block -615 183 607 front_text.messages[0]: -615, 183, 607 has the following block data: '"Vehicle outside station range"'
+
+
+data get block -615 183 608 front_text.messages[0]: -615, 183, 608 has the following block data: '"Returning"'
+
+
+data get block -615 183 609 front_text.messages[0]: -615, 183, 609 has the following block data: '""'
+
+
+fd validation pax_energy_restart report live1790881027587010572_cycle_150_after_152: PAX energy restart snapshot recorded
+
+
+fd validation pax_energy_restart report live1790881027587010572_cycle_152_before_153: PAX energy restart snapshot recorded
+
+
+data get block -611 181 604 front_text.messages[0]: -611, 181, 604 has the following block data: '"Returning"'
+
+
+data get block -611 181 605 front_text.messages[0]: -611, 181, 605 has the following block data: '"16 / 16"'
+
+
+data get block -611 181 607 front_text.messages[0]: -611, 181, 607 has the following block data: '"Bind and capture the shuttle before starting"'
+
+
+data get block -611 181 608 front_text.messages[0]: -611, 181, 608 has the following block data: '"Returning"'
+
+
+data get block -615 183 604 front_text.messages[0]: -615, 183, 604 has the following block data: '"Returning"'
+
+
+data get block -615 183 605 front_text.messages[0]: -615, 183, 605 has the following block data: '"16 / 16"'
+
+
+data get block -615 183 606 front_text.messages[0]: -615, 183, 606 has the following block data: '"Restraints closed: Yes"'
+
+
+data get block -615 183 607 front_text.messages[0]: -615, 183, 607 has the following block data: '"Vehicle outside station range"'
+
+
+data get block -615 183 608 front_text.messages[0]: -615, 183, 608 has the following block data: '"Returning"'
+
+
+data get block -615 183 609 front_text.messages[0]: -615, 183, 609 has the following block data: '""'
+
+
+fd validation pax_energy_restart report live1790881027587010572_cycle_152_after_154: PAX energy restart snapshot recorded
+
+
+fd validation pax_energy_restart report live1790881027587010572_cycle_154_before_155: PAX energy restart snapshot recorded
+
+
+data get block -611 181 604 front_text.messages[0]: -611, 181, 604 has the following block data: '"Returning"'
+
+
+data get block -611 181 605 front_text.messages[0]: -611, 181, 605 has the following block data: '"16 / 16"'
+
+
+data get block -611 181 607 front_text.messages[0]: -611, 181, 607 has the following block data: '"Bind and capture the shuttle before starting"'
+
+
+data get block -611 181 608 front_text.messages[0]: -611, 181, 608 has the following block data: '"Capturing"'
+
+
+data get block -615 183 604 front_text.messages[0]: -615, 183, 604 has the following block data: '"Returning"'
+
+
+data get block -615 183 605 front_text.messages[0]: -615, 183, 605 has the following block data: '"16 / 16"'
+
+
+data get block -615 183 606 front_text.messages[0]: -615, 183, 606 has the following block data: '"Restraints closed: Yes"'
+
+
+data get block -615 183 607 front_text.messages[0]: -615, 183, 607 has the following block data: '"Vehicle outside station range"'
+
+
+data get block -615 183 608 front_text.messages[0]: -615, 183, 608 has the following block data: '"Returning"'
+
+
+data get block -615 183 609 front_text.messages[0]: -615, 183, 609 has the following block data: '""'
+
+
+fd validation pax_energy_restart report live1790881027587010572_cycle_154_after_156: PAX energy restart snapshot recorded
+
+
+fd validation pax_energy_restart report live1790881027587010572_cycle_156_before_157: PAX energy restart snapshot recorded
+
+
+data get block -611 181 604 front_text.messages[0]: -611, 181, 604 has the following block data: '"Capturing"'
+
+
+data get block -611 181 605 front_text.messages[0]: -611, 181, 605 has the following block data: '"16 / 16"'
+
+
+data get block -611 181 607 front_text.messages[0]: -611, 181, 607 has the following block data: '"Bind and capture the shuttle before starting"'
+
+
+data get block -611 181 608 front_text.messages[0]: -611, 181, 608 has the following block data: '"Capturing"'
+
+
+data get block -615 183 604 front_text.messages[0]: -615, 183, 604 has the following block data: '"Capturing"'
+
+
+data get block -615 183 605 front_text.messages[0]: -615, 183, 605 has the following block data: '"16 / 16"'
+
+
+data get block -615 183 606 front_text.messages[0]: -615, 183, 606 has the following block data: '"Restraints closed: Yes"'
+
+
+data get block -615 183 607 front_text.messages[0]: -615, 183, 607 has the following block data: '"Vehicle outside station range"'
+
+
+data get block -615 183 608 front_text.messages[0]: -615, 183, 608 has the following block data: '"Capturing"'
+
+
+data get block -615 183 609 front_text.messages[0]: -615, 183, 609 has the following block data: '""'
+
+
+fd validation pax_energy_restart report live1790881027587010572_cycle_156_after_158: PAX energy restart snapshot recorded
+
+
+fd validation pax_energy_restart report live1790881027587010572_cycle_158_before_159: PAX energy restart snapshot recorded
+
+
+data get block -611 181 604 front_text.messages[0]: -611, 181, 604 has the following block data: '"Capturing"'
+
+
+data get block -611 181 605 front_text.messages[0]: -611, 181, 605 has the following block data: '"16 / 16"'
+
+
+data get block -611 181 607 front_text.messages[0]: -611, 181, 607 has the following block data: '"Bind and capture the shuttle before starting"'
+
+
+data get block -611 181 608 front_text.messages[0]: -611, 181, 608 has the following block data: '"Capturing"'
+
+
+data get block -615 183 604 front_text.messages[0]: -615, 183, 604 has the following block data: '"Capturing"'
+
+
+data get block -615 183 605 front_text.messages[0]: -615, 183, 605 has the following block data: '"16 / 16"'
+
+
+data get block -615 183 606 front_text.messages[0]: -615, 183, 606 has the following block data: '"Restraints closed: Yes"'
+
+
+data get block -615 183 607 front_text.messages[0]: -615, 183, 607 has the following block data: '"Vehicle outside station range"'
+
+
+data get block -615 183 608 front_text.messages[0]: -615, 183, 608 has the following block data: '"Capturing"'
+
+
+data get block -615 183 609 front_text.messages[0]: -615, 183, 609 has the following block data: '""'
+
+
+fd validation pax_energy_restart report live1790881027587010572_cycle_158_after_160: PAX energy restart snapshot recorded
+
+
+fd validation pax_energy_restart report live1790881027587010572_cycle_160_before_161: PAX energy restart snapshot recorded
+
+
+data get block -611 181 604 front_text.messages[0]: -611, 181, 604 has the following block data: '"Capturing"'
+
+
+data get block -611 181 605 front_text.messages[0]: -611, 181, 605 has the following block data: '"16 / 16"'
+
+
+data get block -611 181 607 front_text.messages[0]: -611, 181, 607 has the following block data: '"Bind and capture the shuttle before starting"'
+
+
+data get block -611 181 608 front_text.messages[0]: -611, 181, 608 has the following block data: '"Capturing"'
+
+
+data get block -615 183 604 front_text.messages[0]: -615, 183, 604 has the following block data: '"Capturing"'
+
+
+data get block -615 183 605 front_text.messages[0]: -615, 183, 605 has the following block data: '"16 / 16"'
+
+
+data get block -615 183 606 front_text.messages[0]: -615, 183, 606 has the following block data: '"Restraints closed: Yes"'
+
+
+data get block -615 183 607 front_text.messages[0]: -615, 183, 607 has the following block data: '"Vehicle outside station range"'
+
+
+data get block -615 183 608 front_text.messages[0]: -615, 183, 608 has the following block data: '"Capturing"'
+
+
+data get block -615 183 609 front_text.messages[0]: -615, 183, 609 has the following block data: '""'
+
+
+fd validation pax_energy_restart report live1790881027587010572_cycle_160_after_162: PAX energy restart snapshot recorded
+
+
+fd validation pax_energy_restart report live1790881027587010572_cycle_162_before_163: PAX energy restart snapshot recorded
+
+
+data get block -611 181 604 front_text.messages[0]: -611, 181, 604 has the following block data: '"Capturing"'
+
+
+data get block -611 181 605 front_text.messages[0]: -611, 181, 605 has the following block data: '"16 / 16"'
+
+
+data get block -611 181 607 front_text.messages[0]: -611, 181, 607 has the following block data: '"Bind and capture the shuttle before starting"'
+
+
+data get block -611 181 608 front_text.messages[0]: -611, 181, 608 has the following block data: '"Capturing"'
+
+
+data get block -615 183 604 front_text.messages[0]: -615, 183, 604 has the following block data: '"Capturing"'
+
+
+data get block -615 183 605 front_text.messages[0]: -615, 183, 605 has the following block data: '"16 / 16"'
+
+
+data get block -615 183 606 front_text.messages[0]: -615, 183, 606 has the following block data: '"Restraints closed: Yes"'
+
+
+data get block -615 183 607 front_text.messages[0]: -615, 183, 607 has the following block data: '"Vehicle outside station range"'
+
+
+data get block -615 183 608 front_text.messages[0]: -615, 183, 608 has the following block data: '"Capturing"'
+
+
+data get block -615 183 609 front_text.messages[0]: -615, 183, 609 has the following block data: '""'
+
+
+fd validation pax_energy_restart report live1790881027587010572_cycle_162_after_164: PAX energy restart snapshot recorded
+
+
+fd validation pax_energy_restart report live1790881027587010572_cycle_164_before_165: PAX energy restart snapshot recorded
+
+
+data get block -611 181 604 front_text.messages[0]: -611, 181, 604 has the following block data: '"Capturing"'
+
+
+data get block -611 181 605 front_text.messages[0]: -611, 181, 605 has the following block data: '"16 / 16"'
+
+
+data get block -611 181 607 front_text.messages[0]: -611, 181, 607 has the following block data: '"Bind and capture the shuttle before starting"'
+
+
+data get block -611 181 608 front_text.messages[0]: -611, 181, 608 has the following block data: '"Capturing"'
+
+
+data get block -615 183 604 front_text.messages[0]: -615, 183, 604 has the following block data: '"Capturing"'
+
+
+data get block -615 183 605 front_text.messages[0]: -615, 183, 605 has the following block data: '"16 / 16"'
+
+
+data get block -615 183 606 front_text.messages[0]: -615, 183, 606 has the following block data: '"Restraints closed: Yes"'
+
+
+data get block -615 183 607 front_text.messages[0]: -615, 183, 607 has the following block data: '"Vehicle outside station range"'
+
+
+data get block -615 183 608 front_text.messages[0]: -615, 183, 608 has the following block data: '"Capturing"'
+
+
+data get block -615 183 609 front_text.messages[0]: -615, 183, 609 has the following block data: '""'
+
+
+fd validation pax_energy_restart report live1790881027587010572_cycle_164_after_166: PAX energy restart snapshot recorded
+
+
+fd validation pax_energy_restart report live1790881027587010572_cycle_166_before_167: PAX energy restart snapshot recorded
+
+
+data get block -611 181 604 front_text.messages[0]: -611, 181, 604 has the following block data: '"Capturing"'
+
+
+data get block -611 181 605 front_text.messages[0]: -611, 181, 605 has the following block data: '"16 / 16"'
+
+
+data get block -611 181 607 front_text.messages[0]: -611, 181, 607 has the following block data: '"Bind and capture the shuttle before starting"'
+
+
+data get block -611 181 608 front_text.messages[0]: -611, 181, 608 has the following block data: '"Capturing"'
+
+
+data get block -615 183 604 front_text.messages[0]: -615, 183, 604 has the following block data: '"Capturing"'
+
+
+data get block -615 183 605 front_text.messages[0]: -615, 183, 605 has the following block data: '"16 / 16"'
+
+
+data get block -615 183 606 front_text.messages[0]: -615, 183, 606 has the following block data: '"Restraints closed: Yes"'
+
+
+data get block -615 183 607 front_text.messages[0]: -615, 183, 607 has the following block data: '"Vehicle outside station range"'
+
+
+data get block -615 183 608 front_text.messages[0]: -615, 183, 608 has the following block data: '"Capturing"'
+
+
+data get block -615 183 609 front_text.messages[0]: -615, 183, 609 has the following block data: '""'
+
+
+fd validation pax_energy_restart report live1790881027587010572_cycle_166_after_168: PAX energy restart snapshot recorded
+
+
+fd validation pax_energy_restart report live1790881027587010572_cycle_168_before_169: PAX energy restart snapshot recorded
+
+
+data get block -611 181 604 front_text.messages[0]: -611, 181, 604 has the following block data: '"Capturing"'
+
+
+data get block -611 181 605 front_text.messages[0]: -611, 181, 605 has the following block data: '"16 / 16"'
+
+
+data get block -611 181 607 front_text.messages[0]: -611, 181, 607 has the following block data: '"Bind and capture the shuttle before starting"'
+
+
+data get block -611 181 608 front_text.messages[0]: -611, 181, 608 has the following block data: '"Capturing"'
+
+
+data get block -615 183 604 front_text.messages[0]: -615, 183, 604 has the following block data: '"Capturing"'
+
+
+data get block -615 183 605 front_text.messages[0]: -615, 183, 605 has the following block data: '"16 / 16"'
+
+
+data get block -615 183 606 front_text.messages[0]: -615, 183, 606 has the following block data: '"Restraints closed: Yes"'
+
+
+data get block -615 183 607 front_text.messages[0]: -615, 183, 607 has the following block data: '"Vehicle outside station range"'
+
+
+data get block -615 183 608 front_text.messages[0]: -615, 183, 608 has the following block data: '"Capturing"'
+
+
+data get block -615 183 609 front_text.messages[0]: -615, 183, 609 has the following block data: '""'
+
+
+fd validation pax_energy_restart report live1790881027587010572_cycle_168_after_170: PAX energy restart snapshot recorded
+
+
+fd validation pax_energy_restart report live1790881027587010572_cycle_170_before_171: PAX energy restart snapshot recorded
+
+
+data get block -611 181 604 front_text.messages[0]: -611, 181, 604 has the following block data: '"Capturing"'
+
+
+data get block -611 181 605 front_text.messages[0]: -611, 181, 605 has the following block data: '"16 / 16"'
+
+
+data get block -611 181 607 front_text.messages[0]: -611, 181, 607 has the following block data: '"Bind and capture the shuttle before starting"'
+
+
+data get block -611 181 608 front_text.messages[0]: -611, 181, 608 has the following block data: '"Capturing"'
+
+
+data get block -615 183 604 front_text.messages[0]: -615, 183, 604 has the following block data: '"Capturing"'
+
+
+data get block -615 183 605 front_text.messages[0]: -615, 183, 605 has the following block data: '"16 / 16"'
+
+
+data get block -615 183 606 front_text.messages[0]: -615, 183, 606 has the following block data: '"Restraints closed: Yes"'
+
+
+data get block -615 183 607 front_text.messages[0]: -615, 183, 607 has the following block data: '"Vehicle outside station range"'
+
+
+data get block -615 183 608 front_text.messages[0]: -615, 183, 608 has the following block data: '"Capturing"'
+
+
+data get block -615 183 609 front_text.messages[0]: -615, 183, 609 has the following block data: '""'
+
+
+fd validation pax_energy_restart report live1790881027587010572_cycle_170_after_172: PAX energy restart snapshot recorded
+
+
+fd validation pax_energy_restart report live1790881027587010572_cycle_172_before_173: PAX energy restart snapshot recorded
+
+
+data get block -611 181 604 front_text.messages[0]: -611, 181, 604 has the following block data: '"Capturing"'
+
+
+data get block -611 181 605 front_text.messages[0]: -611, 181, 605 has the following block data: '"16 / 16"'
+
+
+data get block -611 181 607 front_text.messages[0]: -611, 181, 607 has the following block data: '"Bind and capture the shuttle before starting"'
+
+
+data get block -611 181 608 front_text.messages[0]: -611, 181, 608 has the following block data: '"Capturing"'
+
+
+data get block -615 183 604 front_text.messages[0]: -615, 183, 604 has the following block data: '"Capturing"'
+
+
+data get block -615 183 605 front_text.messages[0]: -615, 183, 605 has the following block data: '"16 / 16"'
+
+
+data get block -615 183 606 front_text.messages[0]: -615, 183, 606 has the following block data: '"Restraints closed: Yes"'
+
+
+data get block -615 183 607 front_text.messages[0]: -615, 183, 607 has the following block data: '"Vehicle outside station range"'
+
+
+data get block -615 183 608 front_text.messages[0]: -615, 183, 608 has the following block data: '"Capturing"'
+
+
+data get block -615 183 609 front_text.messages[0]: -615, 183, 609 has the following block data: '""'
+
+
+fd validation pax_energy_restart report live1790881027587010572_cycle_172_after_174: PAX energy restart snapshot recorded
+
+
+fd validation pax_energy_restart report live1790881027587010572_cycle_174_before_175: PAX energy restart snapshot recorded
+
+
+data get block -611 181 604 front_text.messages[0]: -611, 181, 604 has the following block data: '"Capturing"'
+
+
+data get block -611 181 605 front_text.messages[0]: -611, 181, 605 has the following block data: '"16 / 16"'
+
+
+data get block -611 181 607 front_text.messages[0]: -611, 181, 607 has the following block data: '"Bind and capture the shuttle before starting"'
+
+
+data get block -611 181 608 front_text.messages[0]: -611, 181, 608 has the following block data: '"Capturing"'
+
+
+data get block -615 183 604 front_text.messages[0]: -615, 183, 604 has the following block data: '"Capturing"'
+
+
+data get block -615 183 605 front_text.messages[0]: -615, 183, 605 has the following block data: '"16 / 16"'
+
+
+data get block -615 183 606 front_text.messages[0]: -615, 183, 606 has the following block data: '"Restraints closed: Yes"'
+
+
+data get block -615 183 607 front_text.messages[0]: -615, 183, 607 has the following block data: '"Vehicle outside station range"'
+
+
+data get block -615 183 608 front_text.messages[0]: -615, 183, 608 has the following block data: '"Capturing"'
+
+
+data get block -615 183 609 front_text.messages[0]: -615, 183, 609 has the following block data: '""'
+
+
+fd validation pax_energy_restart report live1790881027587010572_cycle_174_after_176: PAX energy restart snapshot recorded
+
+
+fd validation pax_energy_restart report live1790881027587010572_cycle_176_before_177: PAX energy restart snapshot recorded
+
+
+data get block -611 181 604 front_text.messages[0]: -611, 181, 604 has the following block data: '"Capturing"'
+
+
+data get block -611 181 605 front_text.messages[0]: -611, 181, 605 has the following block data: '"16 / 16"'
+
+
+data get block -611 181 607 front_text.messages[0]: -611, 181, 607 has the following block data: '"Ready to dispatch"'
+
+
+data get block -611 181 608 front_text.messages[0]: -611, 181, 608 has the following block data: '"Boarding"'
+
+
+data get block -615 183 604 front_text.messages[0]: -615, 183, 604 has the following block data: '"Capturing"'
+
+
+data get block -615 183 605 front_text.messages[0]: -615, 183, 605 has the following block data: '"16 / 16"'
+
+
+data get block -615 183 606 front_text.messages[0]: -615, 183, 606 has the following block data: '"Restraints closed: Yes"'
+
+
+data get block -615 183 607 front_text.messages[0]: -615, 183, 607 has the following block data: '"Vehicle outside station range"'
+
+
+data get block -615 183 608 front_text.messages[0]: -615, 183, 608 has the following block data: '"Capturing"'
+
+
+data get block -615 183 609 front_text.messages[0]: -615, 183, 609 has the following block data: '""'
+
+
+fd validation pax_energy_restart report live1790881027587010572_cycle_176_after_178: PAX energy restart snapshot recorded
+
+
+fd validation pax_energy_restart report live1790881027587010572_cycle_178_before_179: PAX energy restart snapshot recorded
+
+
+data get block -611 181 604 front_text.messages[0]: -611, 181, 604 has the following block data: '"Ready to dispatch"'
+
+
+data get block -611 181 605 front_text.messages[0]: -611, 181, 605 has the following block data: '"16 / 16"'
+
+
+data get block -611 181 607 front_text.messages[0]: -611, 181, 607 has the following block data: '"Ready to dispatch"'
+
+
+data get block -611 181 608 front_text.messages[0]: -611, 181, 608 has the following block data: '"Boarding"'
+
+
+data get block -615 183 604 front_text.messages[0]: -615, 183, 604 has the following block data: '"Boarding"'
+
+
+data get block -615 183 605 front_text.messages[0]: -615, 183, 605 has the following block data: '"16 / 16"'
+
+
+data get block -615 183 606 front_text.messages[0]: -615, 183, 606 has the following block data: '"Restraints closed: Yes"'
+
+
+data get block -615 183 607 front_text.messages[0]: -615, 183, 607 has the following block data: '"Vehicle outside station range"'
+
+
+data get block -615 183 608 front_text.messages[0]: -615, 183, 608 has the following block data: '"Boarding"'
+
+
+data get block -615 183 609 front_text.messages[0]: -615, 183, 609 has the following block data: '""'
+
+
+fd validation pax_energy_restart report live1790881027587010572_cycle_178_after_180: PAX energy restart snapshot recorded
+
+
+fd validation pax_energy_restart unload: PAX energy restart fixture: unload
+
+
+fd validation pax_energy_restart report live1790881027587010572_unloaded_181: PAX energy restart snapshot recorded
+
+
+kill @e[tag=fd_pax_energy_restart]: Killed 16 entities
+
+
+data merge block -606 181 608 {Source:{Id:"fourthdimension:ride_fault"}}: Modified block data of -606, 181, 608
+
+
+data merge block -606 180 607 {Source:{Id:"fourthdimension:ride_restraints"}}: Modified block data of -606, 180, 607
+
+
+fd validation pax_energy_restart board: PAX energy restart fixture: board
+
+
+setblock -616 180 609 minecraft:air: Changed the block at -616, 180, 609
+
+
+fill -617 179 610 -615 179 612 minecraft:stone: Successfully filled 9 block(s)
+
+
+tp Dev -615.5 180 611.5 180 20.5: Teleported Dev to -615.500000, 180.000000, 611.500000
+
+
+tp Observer -616.5 180 611.5 -161.565 20.5: Teleported Observer to -616.500000, 180.000000, 611.500000
+
+
+data remove block -616 180 608 vehicle: Modified block data of -616, 180, 608
+
+
+setblock -616 180 609 create:display_link[facing=south]{TargetOffset:[I;1,3,-3],TargetLine:0,Source:{Id:"fourthdimension:ride_restraints"}}: Changed the block at -616, 180, 609
+
+
+data get block -615 183 604 front_text.messages[0]: -615, 183, 604 has the following block data: '"No bound vehicle"'
+
+
+data get block -615 183 605 front_text.messages[0]: -615, 183, 605 has the following block data: '"No bound vehicle"'
+
+
+data get block -615 183 606 front_text.messages[0]: -615, 183, 606 has the following block data: '"No bound vehicle"'
+
+
+data get block -615 183 607 front_text.messages[0]: -615, 183, 607 has the following block data: '"No bound vehicle"'
+
+
+data get block -615 183 608 front_text.messages[0]: -615, 183, 608 has the following block data: '"No bound vehicle"'
+
+
+data get block -615 183 609 front_text.messages[0]: -615, 183, 609 has the following block data: '"No bound vehicle"'
+
+
+data merge block -616 180 608 {vehicle:[I;1626414480,722750707,-1639736133,-1336555213]}: Modified block data of -616, 180, 608
+
+
+data get block -615 183 604 front_text.messages[0]: -615, 183, 604 has the following block data: '"Boarding"'
+
+
+data get block -615 183 605 front_text.messages[0]: -615, 183, 605 has the following block data: '"0 / 16"'
+
+
+data get block -615 183 606 front_text.messages[0]: -615, 183, 606 has the following block data: '"Restraints closed: No"'
+
+
+data get block -615 183 607 front_text.messages[0]: -615, 183, 607 has the following block data: '"Vehicle outside station range"'
+
+
+data get block -615 183 608 front_text.messages[0]: -615, 183, 608 has the following block data: '"Boarding"'
+
+
+data get block -615 183 609 front_text.messages[0]: -615, 183, 609 has the following block data: '""'
+
+
+list: There are 0 of a max of 20 players online:
+
+
+list: There are 0 of a max of 20 players online:
+
+
+stop: Stopping the server

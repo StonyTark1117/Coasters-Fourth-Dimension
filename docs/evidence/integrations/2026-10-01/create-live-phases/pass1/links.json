@@ -1,0 +1,152 @@
+[
+  {
+    "field": "status",
+    "link": [
+      -606,
+      181,
+      608
+    ],
+    "target": [
+      -611,
+      181,
+      604
+    ],
+    "facing": "up",
+    "source": "winch"
+  },
+  {
+    "field": "occupancy",
+    "link": [
+      -606,
+      180,
+      607
+    ],
+    "target": [
+      -611,
+      181,
+      605
+    ],
+    "facing": "north",
+    "source": "winch"
+  },
+  {
+    "field": "dispatch",
+    "link": [
+      -605,
+      180,
+      608
+    ],
+    "target": [
+      -611,
+      181,
+      607
+    ],
+    "facing": "east",
+    "source": "winch"
+  },
+  {
+    "field": "phase",
+    "link": [
+      -606,
+      179,
+      608
+    ],
+    "target": [
+      -611,
+      181,
+      608
+    ],
+    "facing": "down",
+    "source": "winch"
+  },
+  {
+    "field": "status",
+    "source": "station",
+    "link": [
+      -616,
+      181,
+      608
+    ],
+    "target": [
+      -615,
+      183,
+      604
+    ],
+    "facing": "up"
+  },
+  {
+    "field": "occupancy",
+    "source": "station",
+    "link": [
+      -616,
+      180,
+      607
+    ],
+    "target": [
+      -615,
+      183,
+      605
+    ],
+    "facing": "north"
+  },
+  {
+    "field": "restraints",
+    "source": "station",
+    "link": [
+      -616,
+      180,
+      609
+    ],
+    "target": [
+      -615,
+      183,
+      606
+    ],
+    "facing": "south"
+  },
+  {
+    "field": "dispatch",
+    "source": "station",
+    "link": [
+      -615,
+      180,
+      608
+    ],
+    "target": [
+      -615,
+      183,
+      607
+    ],
+    "facing": "east"
+  },
+  {
+    "field": "phase",
+    "source": "station",
+    "link": [
+      -616,
+      179,
+      608
+    ],
+    "target": [
+      -615,
+      183,
+      608
+    ],
+    "facing": "down"
+  },
+  {
+    "field": "fault",
+    "source": "station",
+    "link": [
+      -617,
+      180,
+      608
+    ],
+    "target": [
+      -615,
+      183,
+      609
+    ],
+    "facing": "west"
+  }
+]

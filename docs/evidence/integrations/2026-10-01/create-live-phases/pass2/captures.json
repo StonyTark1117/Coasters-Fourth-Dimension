@@ -1,0 +1,162 @@
+[
+  {
+    "label": "ready",
+    "client": "dev",
+    "image": "ready-dev.png",
+    "sample_label": "ready",
+    "server_tick": 21403,
+    "phase": "BOARDING"
+  },
+  {
+    "label": "ready",
+    "client": "observer",
+    "image": "ready-observer.png",
+    "sample_label": "ready",
+    "server_tick": 21403,
+    "phase": "BOARDING"
+  },
+  {
+    "label": "first_lift",
+    "client": "dev",
+    "image": "first_lift-dev.png",
+    "sample_label": "first_lift",
+    "server_tick": 21419,
+    "phase": "LIFTING"
+  },
+  {
+    "label": "first_lift",
+    "client": "observer",
+    "image": "first_lift-observer.png",
+    "sample_label": "first_lift",
+    "server_tick": 21419,
+    "phase": "LIFTING"
+  },
+  {
+    "label": "power_fault",
+    "client": "dev",
+    "image": "power_fault-dev.png",
+    "sample_label": "power_fault",
+    "server_tick": 21443,
+    "phase": "FAULT"
+  },
+  {
+    "label": "power_fault",
+    "client": "observer",
+    "image": "power_fault-observer.png",
+    "sample_label": "power_fault",
+    "server_tick": 21443,
+    "phase": "FAULT"
+  },
+  {
+    "label": "native_fault_source",
+    "client": "dev",
+    "image": "native_fault_source-dev.png",
+    "sample_label": "native_fault_source",
+    "server_tick": 21449,
+    "phase": "FAULT"
+  },
+  {
+    "label": "native_fault_source",
+    "client": "observer",
+    "image": "native_fault_source-observer.png",
+    "sample_label": "native_fault_source",
+    "server_tick": 21449,
+    "phase": "FAULT"
+  },
+  {
+    "label": "power_restored_latched",
+    "client": "dev",
+    "image": "power_restored_latched-dev.png",
+    "sample_label": "power_restored_latched",
+    "server_tick": 21477,
+    "phase": "FAULT"
+  },
+  {
+    "label": "power_restored_latched",
+    "client": "observer",
+    "image": "power_restored_latched-observer.png",
+    "sample_label": "power_restored_latched",
+    "server_tick": 21477,
+    "phase": "FAULT"
+  },
+  {
+    "label": "resumed_lift",
+    "client": "dev",
+    "image": "resumed_lift-dev.png",
+    "sample_label": "resumed_lift",
+    "server_tick": 21499,
+    "phase": "LIFTING"
+  },
+  {
+    "label": "resumed_lift",
+    "client": "observer",
+    "image": "resumed_lift-observer.png",
+    "sample_label": "resumed_lift",
+    "server_tick": 21499,
+    "phase": "LIFTING"
+  },
+  {
+    "label": "outbound",
+    "client": "dev",
+    "image": "outbound-dev.png",
+    "sample_label": "cycle_102",
+    "server_tick": 21823,
+    "phase": "OUTBOUND"
+  },
+  {
+    "label": "outbound",
+    "client": "observer",
+    "image": "outbound-observer.png",
+    "sample_label": "cycle_102",
+    "server_tick": 21823,
+    "phase": "OUTBOUND"
+  },
+  {
+    "label": "returning",
+    "client": "dev",
+    "image": "returning-dev.png",
+    "sample_label": "cycle_142",
+    "server_tick": 21989,
+    "phase": "RETURNING"
+  },
+  {
+    "label": "returning",
+    "client": "observer",
+    "image": "returning-observer.png",
+    "sample_label": "cycle_142",
+    "server_tick": 21989,
+    "phase": "RETURNING"
+  },
+  {
+    "label": "capturing",
+    "client": "dev",
+    "image": "capturing-dev.png",
+    "sample_label": "cycle_156",
+    "server_tick": 22051,
+    "phase": "CAPTURING"
+  },
+  {
+    "label": "capturing",
+    "client": "observer",
+    "image": "capturing-observer.png",
+    "sample_label": "cycle_156",
+    "server_tick": 22051,
+    "phase": "CAPTURING"
+  },
+  {
+    "label": "boarding",
+    "client": "dev",
+    "image": "boarding-dev.png",
+    "sample_label": "cycle_178",
+    "server_tick": 22153,
+    "phase": "BOARDING"
+  },
+  {
+    "label": "boarding",
+    "client": "observer",
+    "image": "boarding-observer.png",
+    "sample_label": "cycle_178",
+    "server_tick": 22153,
+    "phase": "BOARDING"
+  }
+]

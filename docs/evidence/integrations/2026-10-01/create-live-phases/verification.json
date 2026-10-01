@@ -1,0 +1,122 @@
+{
+  "pass1": {
+    "samples": 90,
+    "converged": 78,
+    "captures": 20,
+    "final_cycle": 5,
+    "transitions": [
+      {
+        "phase": "LIFTING",
+        "last_old_sample_tick": 19089,
+        "first_converged_tick": 19111,
+        "bracket_ticks": 22
+      },
+      {
+        "phase": "FAULT",
+        "last_old_sample_tick": 19111,
+        "first_converged_tick": 19133,
+        "bracket_ticks": 22
+      },
+      {
+        "phase": "LIFTING",
+        "last_old_sample_tick": 19165,
+        "first_converged_tick": 19195,
+        "bracket_ticks": 30
+      },
+      {
+        "phase": "OUTBOUND",
+        "last_old_sample_tick": 19485,
+        "first_converged_tick": 19501,
+        "bracket_ticks": 16
+      },
+      {
+        "phase": "RETURNING",
+        "last_old_sample_tick": 19657,
+        "first_converged_tick": 19681,
+        "bracket_ticks": 24
+      },
+      {
+        "phase": "CAPTURING",
+        "last_old_sample_tick": 19717,
+        "first_converged_tick": 19733,
+        "bracket_ticks": 16
+      },
+      {
+        "phase": "BOARDING",
+        "last_old_sample_tick": 19813,
+        "first_converged_tick": 19829,
+        "bracket_ticks": 16
+      }
+    ]
+  },
+  "pass2": {
+    "samples": 90,
+    "converged": 77,
+    "captures": 20,
+    "final_cycle": 6,
+    "transitions": [
+      {
+        "phase": "LIFTING",
+        "last_old_sample_tick": 21403,
+        "first_converged_tick": 21419,
+        "bracket_ticks": 16
+      },
+      {
+        "phase": "FAULT",
+        "last_old_sample_tick": 21419,
+        "first_converged_tick": 21443,
+        "bracket_ticks": 24
+      },
+      {
+        "phase": "LIFTING",
+        "last_old_sample_tick": 21477,
+        "first_converged_tick": 21499,
+        "bracket_ticks": 22
+      },
+      {
+        "phase": "OUTBOUND",
+        "last_old_sample_tick": 21799,
+        "first_converged_tick": 21823,
+        "bracket_ticks": 24
+      },
+      {
+        "phase": "RETURNING",
+        "last_old_sample_tick": 21973,
+        "first_converged_tick": 21989,
+        "bracket_ticks": 16
+      },
+      {
+        "phase": "CAPTURING",
+        "last_old_sample_tick": 22035,
+        "first_converged_tick": 22051,
+        "bracket_ticks": 16
+      },
+      {
+        "phase": "BOARDING",
+        "last_old_sample_tick": 22133,
+        "first_converged_tick": 22153,
+        "bracket_ticks": 20
+      }
+    ]
+  },
+  "six_field_phase_coverage": {
+    "winch": [
+      "BOARDING",
+      "CAPTURING",
+      "FAULT",
+      "LIFTING",
+      "OUTBOUND",
+      "RETURNING"
+    ],
+    "station": [
+      "BOARDING",
+      "CAPTURING",
+      "FAULT",
+      "LIFTING",
+      "OUTBOUND",
+      "RETURNING"
+    ]
+  },
+  "visual_review": "All 40 indexed cycle screenshots plus four station screenshots reviewed. Both clients show all six phases, latched power fault, explicit resume and final capture. 854x480, GUI scale 2, software OpenGL.",
+  "clean_shutdown": true
+}

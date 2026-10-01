@@ -86,8 +86,13 @@ every caption plus rotation and PAX lift stages at 854 × 480, GUI scale 2. Redu
 schematic scale fixes rear-carrier clipping in Free Spin and Revised ZacSpin. The same
 checkpoint verifies both clients' PAX winch goggles and all six native Display Link
 fields with an empty/open train and sixteen seated fixture pigs with closed restraints.
-These are bounded presentation and station-state checks; moving/faulted telemetry,
-other window/camera settings and the full station/addon matrix remain separate.
+The [occupied PAX telemetry checkpoint](evidence/integrations/2026-10-01/create-live-phases/README.md)
+adds two full sixteen-rider cycles, native power-loss faults, explicit resume and
+station unbinding/rebinding. Across the two passes, all six winch and station fields
+converge through every shuttle phase; both clients show the correct goggle state.
+Faulted dispatch/unloading remain denied, restored power alone cannot resume, and
+final capture restores readiness. Other window/camera settings, fault causes,
+lifecycle interruptions and the full family/station/addon matrix remain separate.
 
 ## Engineered 1.1.1
 
@@ -565,8 +570,9 @@ acceptance remain open.
   lifecycle/multiplayer checks. PAX remains winch-owned, with the bounded
   opposing-equipment checks recorded above.
 - Extend the six-scene, two-client Ponder checkpoint to other window sizes, GUI scales
-  and user camera settings. Extend live legacy/Free Spin Display Links and the six-field
-  PAX boarding checks to moving/faulted states and the complete station/winch/addon matrix.
+  and user camera settings. Extend live legacy/Free Spin Display Links and the occupied
+  PAX phase/power-fault checks to other fault causes, late joining, restart/chunk
+  interruption and the complete family/station/winch/addon matrix.
 - Extend bounded Track Styles two-client synchronization/reload evidence to the
   full multiplayer matrix, occupied removal/reinstallation, resource replacement,
   transition and performance evidence; broader appearances and its own tool integration
