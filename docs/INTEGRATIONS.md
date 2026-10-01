@@ -1,7 +1,7 @@
 # Optional integrations: development and acceptance
 
-This branch implements FD401/FD403 integration work; FD404 and the FD901–FD904
-release gates remain open. Bounded FD305 evidence has been reconciled from
+This branch implements FD401 adapters and completes the bounded FD403 teaching
+gate; FD404 and the FD901–FD904 release gates remain open. Bounded FD305 evidence has been reconciled from
 `801cc4d` and `5ebe6fd` (local cherry-picks `f71e131` and `31a759d`). The committed
 schema-3 → 4 integrated-world verifier passes, and both occupied revised/PAX
 SavedData pairs compare exactly across frozen cold restart. This does not certify
@@ -93,6 +93,13 @@ converge through every shuttle phase; both clients show the correct goggle state
 Faulted dispatch/unloading remain denied, restored power alone cannot resume, and
 final capture restores readiness. Other window/camera settings, fault causes,
 lifecycle interruptions and the full family/station/addon matrix remain separate.
+
+The [standalone acquisition checkpoint](evidence/integrations/2026-10-01/acquisition/README.md)
+adds vanilla recipe discovery and short inventory descriptions for all fifteen
+acquisition items. Base and combined native checks, live survival discovery,
+crafting-table material consumption and reviewed tooltips complete the bounded
+FD403 teaching gate together with the unchanged Ponder scenes and native standalone
+family demonstrations. Optional-adapter and release certification remain separate.
 
 ## Engineered 1.1.1
 

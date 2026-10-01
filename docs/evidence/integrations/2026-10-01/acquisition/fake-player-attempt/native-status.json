@@ -1,0 +1,32 @@
+{
+  "status": "failed",
+  "runs": [
+    {
+      "case": "build",
+      "pid": 432551,
+      "command": [
+        "./gradlew",
+        "-Dorg.gradle.jvmargs=-Xmx1G",
+        "--max-workers=2",
+        "build"
+      ],
+      "status": "complete"
+    },
+    {
+      "case": "base",
+      "pid": 432692,
+      "command": [
+        "./gradlew",
+        "-Dorg.gradle.jvmargs=-Xmx1G",
+        "--max-workers=2",
+        "runGameTestServer"
+      ],
+      "status": "running"
+    }
+  ],
+  "artifact": {
+    "path": "/home/braydon/.cache/fourthdimension-48535694/acquisition.jar",
+    "sha256": "7f6b65b7bb4d92884ca7f6cc02627d76a23a670524f11dc776d1e8a8dcab7ba2"
+  },
+  "error": "AssertionError('base')"
+}

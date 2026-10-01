@@ -1,0 +1,44 @@
+{
+  "status": "complete",
+  "runs": [
+    {
+      "case": "build",
+      "pid": 437902,
+      "command": [
+        "./gradlew",
+        "-Dorg.gradle.jvmargs=-Xmx1G",
+        "--max-workers=2",
+        "build"
+      ],
+      "status": "complete"
+    },
+    {
+      "case": "base",
+      "pid": 438069,
+      "command": [
+        "./gradlew",
+        "-Dorg.gradle.jvmargs=-Xmx1G",
+        "--max-workers=2",
+        "runGameTestServer"
+      ],
+      "status": "complete"
+    },
+    {
+      "case": "combined",
+      "pid": 441929,
+      "command": [
+        "./gradlew",
+        "-Dorg.gradle.jvmargs=-Xmx1G",
+        "--max-workers=2",
+        "runGameTestServer",
+        "-PfdIntegrations=engineered,styles,additions,magnetized,immersion",
+        "-PfdPaxEnergyReload"
+      ],
+      "status": "complete"
+    }
+  ],
+  "artifact": {
+    "path": "/home/braydon/.cache/fourthdimension-48535694/acquisition-v2.jar",
+    "sha256": "a6d9ad905f0fc0453b0b61cf94c30a65a588e62fd8015ca46bb71318bbfd545d"
+  }
+}

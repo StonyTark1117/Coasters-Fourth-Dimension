@@ -1,0 +1,17 @@
+{
+  "status": "failed",
+  "runs": [
+    {
+      "case": "build",
+      "pid": 436744,
+      "command": [
+        "./gradlew",
+        "-Dorg.gradle.jvmargs=-Xmx1G",
+        "--max-workers=2",
+        "build"
+      ],
+      "status": "running"
+    }
+  ],
+  "error": "AssertionError('build')"
+}

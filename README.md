@@ -2,7 +2,7 @@
 
 A Create: Coasters Simulated addon developing five original 4D families: controlled Arrow/S&S cars, legacy ZacSpin, magnetic S&S Free Spin, revised ZacSpin, and a PAX-style catch/lift/release shuttle. Every family has matching functional track. Arrow and PAX cars support family-specific native coupling; the other families operate individually.
 
-FD201–FD204 implement the **bounded 0.2 build**. See [magnetic-family instructions and acceptance](docs/MAGNETIC.md), and the earlier [0.1 acceptance](docs/PLAYABLE.md). The current `0.9.0-dev.1` branch completes the **bounded 0.3 gate**, adding revised carriers and a physical PAX catch/lift/release shuttle with five-family packaged single-player and dedicated-server evidence; see [instructions, acceptance, and outstanding gates](docs/REVISED-SHUTTLE.md). It is not yet the 0.9 release candidate. External Track Styles integration remains on the [roadmap to 1.0](ROADMAP.md). The four-pair Free Spin and revised topologies are original game approximations; exact manufacturer coupling is not claimed.
+FD201–FD204 implement the **bounded 0.2 build**. See [magnetic-family instructions and acceptance](docs/MAGNETIC.md), and the earlier [0.1 acceptance](docs/PLAYABLE.md). The current `0.9.0-dev.1` branch completes the **bounded 0.3 gate**, adding revised carriers and a physical PAX catch/lift/release shuttle with five-family packaged single-player and dedicated-server evidence; see [instructions, acceptance, and outstanding gates](docs/REVISED-SHUTTLE.md). It is not yet the 0.9 release candidate. Optional adapters, including two Track Styles spine appearances, have bounded [integration evidence](docs/INTEGRATIONS.md); their wider certification remains on the [roadmap to 1.0](ROADMAP.md). The four-pair Free Spin and revised topologies are original game approximations; exact manufacturer coupling is not claimed.
 
 Integration development adds shared ride telemetry, Create teaching/display support, and an Engineered adapter. See [implementation scope and pending acceptance](docs/INTEGRATIONS.md); this is not yet a certified optional-mod compatibility matrix.
 
@@ -25,15 +25,41 @@ Build and ride within **±1024 blocks of horizontal world origin**. The foundati
 ## Build a ride
 
 1. Obtain matching track and car items, a Rotation Tool, and a Boarding Station from crafting or the Fourth Dimension creative tab. Place Coasters anchorpoints and use one of our track items on two anchors. A span may be at most 64 blocks; survival placement consumes one matching track item per four blocks, rounded up.
-2. Place the matching car on its track. Leave room for the full wings, riders, and their rotation. Vehicle placement rejects obstructed wing envelopes. Leave at least six blocks between controlled-car axles. Use Coasters' chain coupling on two captured Arrow cars with a six-block snapped link distance. Legacy and Free Spin cars cannot couple. Leave twelve blocks between Free Spin axles and fourteen between revised axles. PAX cars link six blocks apart, up to four cars; their separate winch workflow is described in the shuttle guide.
+2. Place the matching car on its track. Leave room for the full wings, riders, and their rotation. Vehicle placement rejects obstructed wing envelopes. Leave at least six blocks between controlled-car axles. Use Coasters' chain coupling on two captured Arrow cars with a six-block snapped link distance. Legacy, Free Spin and revised cars cannot couple. Leave twelve blocks between Free Spin axles and fourteen between revised axles. PAX cars link six blocks apart, up to four cars; their separate winch workflow is described in the shuttle guide.
 3. For Arrow rotation, use the Rotation Tool on a section before placing cars. Keys use `distance:degrees:slope`, separated by semicolons; slope is degrees per block. Keys must cover the entire displayed section length. For a 36-block section, `0:0;18:360;36:0` makes one full turn and returns. Adjacent sections must match unwrapped angle and slope. `360` and `0` have different control-rail positions.
 4. Copy/paste, mirror, reverse and explicit geometry rebinding are available in the editor. Editing occupied sections or their immediate approaches is rejected. Rebind after changing native curve geometry. Use Preview Seats to inspect cyan pose markers and yellow/red conservative clearance boxes. Free-spin previews label their starting conditions and are examples; live motion comes from native physics.
 5. Place loading platforms outside the wing envelope. Wait for stopped translation, captured upright carriers and low angular speed, then right-click an empty seat. Use the Rotation Tool on the car, station, or in the air while riding to close restraints and dispatch. Coasters/Create propulsion moves the chassis; the addon controls the rotary mechanisms.
-6. For either free-spin family, tune damping and declared ballast on an empty captured car. Each rider contributes a declared 80 kg at the same modeled torso location; ballast is per carrier. Gravity, chassis movement and inertia determine free motion. Free Spin also offers empty, balanced (160 kg per pair), and left-front-only ballast presets; these change ballast, not passenger count. Apply them only to an empty captured car.
+6. For legacy ZacSpin, magnetic Free Spin and revised ZacSpin, tune damping and declared ballast on an empty captured car. Each rider contributes a declared 80 kg at the same modeled torso location; ballast is per carrier. Gravity, chassis movement and inertia determine free motion. Free Spin also offers empty, balanced (160 kg per pair), and left-front-only ballast presets; these change ballast, not passenger count. Apply them only to an empty captured car.
 
 A Boarding Station binds to a car within twelve blocks on first use; shift-use rebinds it. Its **rear input** requests capture when powered and dispatch on the falling edge. It acts when the bound car is within eight blocks. The **front output** is ready/aligned; the **right output** is restraints closed. The lights show the same states. Dispatch also requires captured carriers, closed restraints and valid matching track. Retain/Release Retention provides a maintenance interlock.
 
-Locking seats never changes the track family. An Arrow car requires Arrow functional track; a legacy car requires legacy track; a Free Spin car requires magnetic Free Spin track. Ordinary access is certified only for the pinned, unmodified Coasters bearing. It receives no rotating seats or 4D behavior. Added bodies are rejected until their gear and clearance are separately certified. Rail access does not certify towing a 4D train.
+Locking seats never changes the track family. Each of the five 4D car families requires its own matching functional track, including when using an optional appearance. Ordinary access is certified only for the pinned, unmodified Coasters bearing. It receives no rotating seats or 4D behavior. Added bodies are rejected until their gear and clearance are separately certified. Rail access does not certify towing a 4D train.
+
+## Crafting and recipe discovery
+
+All fifteen acquisition items can be crafted with the base dependencies. Picking
+up iron reveals the five track recipes; a native Coasters cart reveals the five
+car recipes. A comparator reveals the Boarding Station, brass reveals the Rotation
+Tool, a shaft reveals the Shuttle Winch, and redstone/quartz reveal the inducer/damper.
+Use the vanilla crafting-table recipe book to view their layouts. Discovery does
+not grant materials. Inventory tooltips give short operating hints; hold the
+Ponder key for the full family or station lesson.
+
+| Item | Materials per craft | Output |
+| --- | --- | --- |
+| Family track | 6 iron ingots, 2 copper ingots, 1 family dye | 16 |
+| Family car | 4 iron ingots, 2 Create red seats, 1 iron bars item, 1 matching track item, 1 native Coasters cart | 1 |
+| Boarding Station | 2 iron ingots, 2 redstone dust, 1 comparator, 1 copper block | 1 |
+| Rotation Tool | 1 compass, 1 Create brass ingot, 1 stick | 1 |
+| Shuttle Winch | 4 iron ingots, 2 copper ingots, 1 redstone dust, 1 Create shaft, 1 PAX track item | 1 |
+| Magnetic Inducer | 4 iron ingots, 3 copper ingots, 2 redstone dust | 2 |
+| Magnetic Damper | 4 iron ingots, 3 copper ingots, 2 quartz | 2 |
+
+Track dyes are red for Arrow, yellow for legacy ZacSpin, blue for magnetic Free
+Spin, purple for revised ZacSpin and green for PAX. Iron ingredients use the common
+iron-ingot tag. Crafting a car supplies its assembled carrier and seat components;
+those internal blocks are not separate acquisition requirements. Powered sample
+layouts use Create creative motors and are demonstrations, not survival power sources.
 
 ## Magnetic equipment
 
@@ -55,7 +81,7 @@ Operator level 2 is required. In an empty test world, run:
 /execute positioned 0 140 0 run fd demo pax
 ```
 
-The Arrow, legacy, Free Spin, and revised circuit commands reserve a clear 47 × 17 × 69 region starting above/ahead of the command position. The original examples include track, a car, platforms, a boarding station and native Coasters chain drives powered by Create creative motors at 32 RPM. Arrow has a full-turn rotation program; both free-spin examples have hills. Free Spin also has two oppositely directed, separately targeted inducer spans and an all-group damper on the far straight. Board, close restraints and dispatch. After the car leaves, power the rear of the station so it captures the returning car; release power to dispatch again.
+The Arrow, legacy, Free Spin, and revised circuit commands reserve a clear 47 × 17 × 69 region starting above/ahead of the command position. The original examples include track, a car, platforms, a boarding station and native Coasters chain drives powered by Create creative motors at 32 RPM. Arrow has a full-turn rotation program; the free-rotor examples have hills. Free Spin also has two oppositely directed, separately targeted inducer spans and an all-group damper on the far straight. Board, close restraints and dispatch. After the car leaves, power the rear of the station so it captures the returning car; release power to dispatch again.
 
 The PAX command builds its separate four-car two-spike layout and physical winch. `/fd demo pax_tall` creates the taller shuttle example. See [shuttle operation and restart recovery](docs/REVISED-SHUTTLE.md); these examples need larger clear corridors.
 

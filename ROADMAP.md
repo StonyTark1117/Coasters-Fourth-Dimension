@@ -309,7 +309,7 @@ Test couplers, strength, offsets, braking, retained carriers, and loaded towing 
 
 ### FD403 Complete crafting and teaching content
 
-**Status: in progress (2026-10-01), integration branch.** Five family Ponder scenes plus station teaching content, goggles diagnostics and six Display Link sources are implemented. The [six-scene, two-client playback checkpoint](docs/evidence/integrations/2026-10-01/create-ponder/README.md) and [occupied PAX telemetry cycles](docs/evidence/integrations/2026-10-01/create-live-phases/README.md) provide bounded visual and multiplayer acceptance. Finish the acquisition/build-path, item-description and standalone sample-layout audit before closing this gate. See [integration scope](docs/INTEGRATIONS.md).
+**Status: done (2026-10-01), bounded acquisition and teaching gate.** All fifteen recipes have ingredient-based discovery and translated item descriptions; native base/combined checks and a live survival client verify their acquisition paths. The [acquisition audit](docs/evidence/integrations/2026-10-01/acquisition/README.md) reconciles five standalone family demonstrations with the [six-scene Ponder playback](docs/evidence/integrations/2026-10-01/create-ponder/README.md) and [occupied PAX telemetry](docs/evidence/integrations/2026-10-01/create-live-phases/README.md) evidence. This does not close the wider optional-integration or release matrix. See [integration scope](docs/INTEGRATIONS.md).
 
 **Depends on:** FD305. **Design:** D08.
 
