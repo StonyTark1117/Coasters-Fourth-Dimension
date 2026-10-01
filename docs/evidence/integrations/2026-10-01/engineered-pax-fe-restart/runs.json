@@ -1,0 +1,37 @@
+{
+  "before": {
+    "full_log": "/tmp/fd-pax-cold-before.log",
+    "sha256": "c1b353cf8b393d2a3b26547a530ded705d4ea222159fb004b9c3b5d448e8a3e5",
+    "exit_status": 0,
+    "server_pid": 2375554
+  },
+  "engineered": {
+    "full_log": "/tmp/fd-pax-cold-engineered.log",
+    "sha256": "7dfd5e7a950110bf5116a0a8b4fe2563f0c04e313b3c60dc4544ddec773e74ae",
+    "exit_status": 0,
+    "server_pid": 2380585,
+    "operation_exit_status": 0
+  },
+  "combined": {
+    "full_log": "/tmp/fd-pax-cold-combined.log",
+    "sha256": "0616f88c9ebdd90dab61aea58f9be701c40b8f5030978dafed61a993abc581d9",
+    "exit_status": 0,
+    "server_pid": 2382278,
+    "operation_exit_status": 0
+  },
+  "native-base": {
+    "full_log": "/tmp/fd-pax-cold-native-base.log",
+    "sha256": "9187cbc0c4cfa49e7698b54a3bdabb46662b1d4727c24c8e492ae0e125eb74b5",
+    "exit_status": 0
+  },
+  "native-engineered": {
+    "full_log": "/tmp/fd-pax-cold-native-engineered.log",
+    "sha256": "c618fdc783de1fb6311c6c167884ab57d223b70dee980db31f0a1a6921f7013f",
+    "exit_status": 0
+  },
+  "native-combined": {
+    "full_log": "/tmp/fd-pax-cold-native-combined.log",
+    "sha256": "81e9742b5de185be5564c3cefba4dde3ef31c6d877d4ef9882356945b8d6e94d",
+    "exit_status": 0
+  }
+}

@@ -118,7 +118,8 @@ The probes require exact energy balances, original rider/carrier attachments and
 occupied telemetry. Base, Engineered-only and combined profiles pass all 33 registered
 native tests (with explicit optional skips) and 19 unit tests. This is direct capability
 input; the chunk-recovery extension below adds FE-powered PAX interruption evidence.
-Cold restart, human clients and external energy networks remain separate acceptance work.
+The cold-restart follow-up below covers occupied lifting. Other restart phases,
+human clients and external energy networks remain separate acceptance work.
 
 The [FE-powered phase-recovery extension](evidence/integrations/2026-10-01/engineered-pax-fe-chunks/README.md)
 runs the same four native interruption fixtures with `-PfdPaxEnergyReload`. It checks
@@ -126,9 +127,18 @@ nonzero FE and selected controller/observer configuration on fresh block entitie
 before issuing recovery-phase commands. The original native body, occupancy, restraint,
 mechanical hold and explicit recovery assertions remain in force. Cold process restart,
 human clients, external power networks and arbitrary controller-program resumption
-remain outside this fixture. Base, default Engineered, FE-enabled Engineered and
+remain outside this chunk fixture. Base, default Engineered, FE-enabled Engineered and
 FE-enabled combined profiles each pass 33 registered native tests, with respectively
 6, 3, 3 and 0 explicit absent-addon skips; the build passes 19 unit tests.
+
+The [FE-powered PAX cold-restart fixture](evidence/integrations/2026-10-01/engineered-pax-fe-restart/README.md)
+loads the same stopped, occupied lifting world in new Engineered-only and combined
+packaged-server processes. Both restore sixteen native passenger mounts, exact FE,
+selected equipment configuration and an explicit fault hold. Validated resume then
+completes one occupied cycle and normal unloading. This covers lifting on the compact
+route; the other cold-restart phases, human clients and external networks remain open.
+All three native regression profiles pass 33 registered tests with explicit optional
+skips, and the build passes 19 unit tests.
 
 A separate [FE acceptance fixture](evidence/integrations/2026-09-30/engineered-energy/README.md)
 enables the energy requirement for a linked Arrow pair and single legacy, Free Spin
@@ -444,8 +454,11 @@ now repeats all four interruptions with Engineered energy required, retaining ex
 nonzero FE balances and selected controller/observer configuration on fresh native
 instances. Both Engineered-only and combined-pack runs preserve sixteen native
 passenger mounts through recovery and normal unloading. The full four-profile
-checkpoint passes 33 registered native tests and 19 unit tests; FE-powered cold
-process restart, human-client recovery and external energy networks remain open.
+checkpoint passes 33 registered native tests and 19 unit tests. The subsequent
+[packaged cold-restart checkpoint](evidence/integrations/2026-10-01/engineered-pax-fe-restart/README.md)
+covers occupied lifting with FE enabled in two new server processes. Cold restart
+during outbound, returning and capture, human-client recovery and external energy
+networks remain open.
 
 - Extend reconciled FD305 evidence to the schema-5 optional-addon lifecycle matrix;
   investigate the recorded client resource exit. Extend the bounded transport

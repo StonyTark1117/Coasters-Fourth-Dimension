@@ -1,0 +1,36 @@
+{
+  "dedicated": {
+    "combined": {
+      "cycle_samples": 24,
+      "initial_reload_motion_blocks": 0.006822610272193455,
+      "phases": [
+        "BOARDING",
+        "CAPTURING",
+        "LIFTING",
+        "OUTBOUND",
+        "RETURNING"
+      ],
+      "powered_fault_hold_drift_blocks": 3.1685851270927246e-08,
+      "restored_fe": 12345,
+      "riders": 16
+    },
+    "engineered": {
+      "cycle_samples": 24,
+      "initial_reload_motion_blocks": 0.006822610271940886,
+      "phases": [
+        "BOARDING",
+        "CAPTURING",
+        "LIFTING",
+        "OUTBOUND",
+        "RETURNING"
+      ],
+      "powered_fault_hold_drift_blocks": 1.2871410387652022e-08,
+      "restored_fe": 12345,
+      "riders": 16
+    }
+  },
+  "native_profiles": 3,
+  "registered_tests": 33,
+  "scope": "Occupied compact PAX lifting cold restart with direct native FE input",
+  "unit_tests": 19
+}

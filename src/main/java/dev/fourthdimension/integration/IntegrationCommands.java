@@ -10,6 +10,7 @@ public final class IntegrationCommands {
     if (OptionalIntegrations.supported("coastersengineered", Set.of("1.1.1"))) {
       dev.fourthdimension.integration.engineered.EngineeredExamples.register(event);
       dev.fourthdimension.integration.engineered.EngineeredRestartFixture.register(event);
+      dev.fourthdimension.integration.engineered.EngineeredPaxRestartFixture.register(event);
     }
   }
 }
