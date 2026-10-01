@@ -11,10 +11,27 @@ import net.minecraft.gametest.framework.GameTestHelper;
 
 /** Real Engineered motor commands opposing the occupied native PAX winch cycle. */
 public final class EngineeredShuttleCheck {
+  private static Boolean previousEnergy;
+
   private EngineeredShuttleCheck() {}
 
+  public static void configureEnergy(boolean begin) {
+    if (begin) {
+      previousEnergy = CoastersEngineeredConfig.get(CoastersEngineeredConfig.REQUIRE_ENERGY);
+      CoastersEngineeredConfig.REQUIRE_ENERGY.set(true);
+    } else if (previousEnergy != null) {
+      CoastersEngineeredConfig.REQUIRE_ENERGY.set(previousEnergy);
+      System.out.println("FD_ENGINEERED_PAX_FE_RESTORED requireEnergy=" + previousEnergy);
+      previousEnergy = null;
+    }
+  }
+
+  public static Runnable attachEnergy(GameTestHelper helper, ShuttleExamples.Example example) {
+    return attach(helper, example, false, null, true);
+  }
+
   public static Runnable attach(GameTestHelper helper, ShuttleExamples.Example example) {
-    return attach(helper, example, false, null);
+    return attach(helper, example, false, null, false);
   }
 
   public static Runnable attachReload(GameTestHelper helper, ShuttleExamples.Example example) {
@@ -25,21 +42,21 @@ public final class EngineeredShuttleCheck {
       GameTestHelper helper,
       ShuttleExamples.Example example,
       ShuttleWinchEntity.Phase interruptedPhase) {
-    return attach(helper, example, true, interruptedPhase);
+    return attach(helper, example, true, interruptedPhase, false);
   }
 
   private static Runnable attach(
       GameTestHelper helper,
       ShuttleExamples.Example example,
       boolean reload,
-      ShuttleWinchEntity.Phase interruptedPhase) {
+      ShuttleWinchEntity.Phase interruptedPhase,
+      boolean energyRequired) {
     var level = helper.getLevel();
     var winch = example.winch();
     var route = ShuttleRoute.resolve(level, winch.routeStart, winch.routeEnd);
-    // The upstream default requires no FE. Do not accept an unpowered fixture as evidence.
     helper.assertTrue(
-        !CoastersEngineeredConfig.get(CoastersEngineeredConfig.REQUIRE_ENERGY),
-        "Engineered PAX fixture requires its default energy-free motor configuration");
+        CoastersEngineeredConfig.get(CoastersEngineeredConfig.REQUIRE_ENERGY) == energyRequired,
+        "Engineered PAX fixture energy configuration mismatch");
     var anchor = route.segments.getFirst().rail().from;
     var span = TrackSpanBehaviour.at(level, anchor);
     helper.assertTrue(
@@ -74,12 +91,31 @@ public final class EngineeredShuttleCheck {
     boolean[] observerSeen = {false};
     int[] boardingTicks = {0};
     ShuttleWinchEntity.Phase[] previous = {null};
+    var energy =
+        energyRequired
+            ? level.getCapability(
+                net.neoforged.neoforge.capabilities.Capabilities.EnergyStorage.BLOCK,
+                anchor,
+                net.minecraft.core.Direction.DOWN)
+            : null;
+    if (energyRequired)
+      helper.assertTrue(
+          energy != null && energy.canReceive() && energy.canExtract(),
+          "PAX span did not expose the native FE capability");
+    int[] expectedEnergy = {0}, energyTicks = {0};
+    var energyStages =
+        new EnumMap<ShuttleWinchEntity.Phase, Set<Integer>>(ShuttleWinchEntity.Phase.class);
     System.out.println(
         "FD_ENGINEERED_PAX_PROBE segments="
             + route.segments.size()
-            + " energyRequired=false cars="
+            + " energyRequired="
+            + energyRequired
+            + " cars="
             + example.cars().size());
-    String prefix = reload ? "FD_ENGINEERED_PAX_PHASE_" + interruptedPhase : "FD_ENGINEERED_PAX";
+    String prefix =
+        energyRequired
+            ? "FD_ENGINEERED_PAX_FE"
+            : reload ? "FD_ENGINEERED_PAX_PHASE_" + interruptedPhase : "FD_ENGINEERED_PAX";
     return () -> {
       var currentWinch = winch;
       var currentMotor = motor;
@@ -105,6 +141,45 @@ public final class EngineeredShuttleCheck {
         if (currentWinch == null || currentMotor == null || currentObserver == null) return;
       }
       var phase = currentWinch.phase;
+      if (energyRequired) {
+        helper.assertTrue(
+            CoastersEngineeredConfig.get(CoastersEngineeredConfig.REQUIRE_ENERGY),
+            "PAX FE requirement changed during its batch");
+        helper.assertTrue(
+            energy.getEnergyStored() == expectedEnergy[0],
+            "External PAX motor consumed or regenerated FE: expected="
+                + expectedEnergy[0]
+                + " actual="
+                + energy.getEnergyStored());
+        if (previous[0] != phase) energyTicks[0] = 0;
+        int age = energyTicks[0]++;
+        if (age == 0 || age == 5 || age == 10 || age == 15) {
+          int target =
+              age == 5
+                  ? energy.getMaxEnergyStored()
+                  : age == 15 ? Math.min(12345, energy.getMaxEnergyStored()) : 0;
+          int before = energy.getEnergyStored();
+          int moved =
+              target > before
+                  ? energy.receiveEnergy(target - before, false)
+                  : energy.extractEnergy(before - target, false);
+          helper.assertTrue(
+              moved == Math.abs(target - before) && energy.getEnergyStored() == target,
+              "Native PAX FE supply transition failed");
+          expectedEnergy[0] = target;
+          energyStages.computeIfAbsent(phase, p -> new HashSet<>()).add(age);
+          System.out.println(
+              prefix
+                  + "_BUFFER phase="
+                  + phase
+                  + " phaseTick="
+                  + age
+                  + " stored="
+                  + target
+                  + " capacity="
+                  + energy.getMaxEnergyStored());
+        }
+      }
       if (previous[0] != phase) {
         currentMotor.setSteps(List.of(command(phase)));
         previous[0] = phase;
@@ -140,6 +215,11 @@ public final class EngineeredShuttleCheck {
           helper.assertTrue(
               sightings.getOrDefault(required, 0) > 2,
               "Engineered motor never reported a PAX train in " + required);
+        if (energyRequired)
+          for (var required : requiredPhases)
+            helper.assertTrue(
+                energyStages.getOrDefault(required, Set.of()).containsAll(Set.of(0, 5, 10, 15)),
+                "Missing empty/full/refill FE stages in " + required);
         helper.assertTrue(observerSeen[0], "Engineered observer missed the PAX train");
         helper.assertTrue(
             changes.contains(ShuttleWinchEntity.Phase.BOARDING),

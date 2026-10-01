@@ -110,6 +110,16 @@ through lift, power-loss hold/resume, gravity return and capture, while the nati
 controller and observer continue receiving train-presence reports. This bounded
 native check does not complete the client/lifecycle or FE-on PAX matrix.
 
+An [FE-powered PAX extension](evidence/integrations/2026-10-01/engineered-pax-fe/README.md)
+enables Engineered's energy requirement during an occupied compact shuttle cycle.
+Empty, full and partial native FE buffers exercise each controller phase while the
+physical winch retains ownership, including its power-loss fault and explicit resume.
+The probes require exact energy balances, original rider/carrier attachments and
+occupied telemetry. Base, Engineered-only and combined profiles pass all 33 registered
+native tests (with explicit optional skips) and 19 unit tests. This is direct capability
+input; FE-powered PAX chunk/cold-restart,
+human-client and external-energy-network checks remain separate acceptance work.
+
 A separate [FE acceptance fixture](evidence/integrations/2026-09-30/engineered-energy/README.md)
 enables the energy requirement for a linked Arrow pair and single legacy, Free Spin
 and revised cars. Real anchor capabilities supply FE. Captured cars remain held,
@@ -405,7 +415,7 @@ completes the gravity-return/capture cycle and normal unloading. The Engineered
 variant also evicts/reloads its controller and observer and exercises competing
 commands throughout recovery under the default energy-free configuration. This
 earlier checkpoint covered lift interruption only. The follow-up below extends the
-phase coverage; FE-on PAX and human-player/client recovery remain open.
+phase coverage; FE-on PAX lifecycle and human-player/client recovery remain open.
 
 The [PAX phase-recovery follow-up](evidence/integrations/2026-10-01/pax-phase-recovery/README.md)
 extends the native fixture to outbound, returning and capture interruptions. It

@@ -1,0 +1,46 @@
+{
+  "profiles": {
+    "base": {
+      "energy_case": "explicit absent-addon skip"
+    },
+    "combined": {
+      "buffer_capacity_fe": 100000,
+      "buffer_transition_records": 28,
+      "cars": 4,
+      "controller_presence_ticks": {
+        "BOARDING": 20,
+        "CAPTURING": 98,
+        "FAULT": 89,
+        "LIFTING": 340,
+        "OUTBOUND": 174,
+        "RETURNING": 58
+      },
+      "hold_3d_drift_blocks": 0.0005300769654951596,
+      "hold_ticks": 40,
+      "occupied_cycles": 1,
+      "partial_refill_fe": 12345,
+      "riders": 16
+    },
+    "engineered": {
+      "buffer_capacity_fe": 100000,
+      "buffer_transition_records": 28,
+      "cars": 4,
+      "controller_presence_ticks": {
+        "BOARDING": 20,
+        "CAPTURING": 91,
+        "FAULT": 90,
+        "LIFTING": 339,
+        "OUTBOUND": 174,
+        "RETURNING": 59
+      },
+      "hold_3d_drift_blocks": 0.0008559751792004379,
+      "hold_ticks": 40,
+      "occupied_cycles": 1,
+      "partial_refill_fe": 12345,
+      "riders": 16
+    }
+  },
+  "registered_tests": 33,
+  "scope": "Occupied compact PAX with FE-powered opposing Engineered commands and winch power interruption",
+  "unit_tests": 19
+}

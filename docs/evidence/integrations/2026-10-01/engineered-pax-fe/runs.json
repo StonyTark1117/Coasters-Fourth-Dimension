@@ -1,0 +1,27 @@
+{
+  "base": {
+    "full_log": "/tmp/fd-pax-fe-ready-base.log",
+    "sha256": "bddb1a7906569bd9f0d3be5350de2557e183332f9efc7a1337d81705a1fdfef0",
+    "exit_status": 0
+  },
+  "engineered": {
+    "full_log": "/tmp/fd-pax-fe-ready-engineered.log",
+    "sha256": "7e96cb3998329a665e1b7afa53def1c839558c307c2a7e9e82c0cdfcfe2eebcb",
+    "exit_status": 0
+  },
+  "combined": {
+    "full_log": "/tmp/fd-pax-fe-ready-combined.log",
+    "sha256": "d4b7aff7606f26a9c085c4f469223ee99cef4821215d07d76e10a7720c347264",
+    "exit_status": 0
+  },
+  "exploratory": {
+    "full_log": "/tmp/fd-pax-fe1.log",
+    "sha256": "5c5b8e37dac2d3cbcd62f7bf7622f7c6cb5658b87a442f54a85a1af8ae6bc08e",
+    "exit_status": 0
+  },
+  "early-snapshot": {
+    "full_log": "/tmp/fd-pax-fe-final-base.log",
+    "sha256": "9d00edeecad3103119f7a08142e304fee5beb5f4cbd1e897d7cf34b7eec207ee",
+    "exit_status": 1
+  }
+}
