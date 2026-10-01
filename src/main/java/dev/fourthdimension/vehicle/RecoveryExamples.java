@@ -29,7 +29,7 @@ public final class RecoveryExamples {
   public static void register(RegisterCommandsEvent event) {
     var root = Commands.literal("fd").requires(s -> s.hasPermission(2));
     var demo = Commands.literal("demo");
-    for (var design : TrackDesign.values())
+    for (var design : TrackDesign.values()) {
       demo.then(
           Commands.literal("recovery_" + design.name().toLowerCase(Locale.ROOT))
               .executes(
@@ -60,6 +60,35 @@ public final class RecoveryExamples {
                       return 0;
                     }
                   }));
+      demo.then(
+          Commands.literal("recovery_bank_" + design.name().toLowerCase(Locale.ROOT))
+              .executes(
+                  ctx -> {
+                    try {
+                      BankedRecoveryExamples.create(
+                          ctx.getSource().getLevel(),
+                          BlockPos.containing(ctx.getSource().getPosition()).offset(0, 3, 12),
+                          design);
+                      ctx.getSource()
+                          .sendSuccess(
+                              () ->
+                                  Component.literal(
+                                      "Banked recovery test route built: quarter bend, 30-degree"
+                                          + " bank and level runout. Use the flat recovery"
+                                          + " workflow: close restraints, retain, select the bare"
+                                          + " bearing, attach and start towing. Set 8 RPM; lever"
+                                          + " OFF supplies power, ON cuts it. Brake on the level"
+                                          + " runout, cut power, wait, then detach and unload."
+                                          + " Native occupied traversal is tested; complete"
+                                          + " rendered clearance is pending."),
+                              false);
+                      return 1;
+                    } catch (IllegalArgumentException | IllegalStateException failure) {
+                      ctx.getSource().sendFailure(Component.literal(failure.getMessage()));
+                      return 0;
+                    }
+                  }));
+    }
     event.getDispatcher().register(root.then(demo));
   }
 

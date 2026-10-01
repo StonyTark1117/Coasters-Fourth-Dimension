@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.9.0-dev.19 — occupied curved and banked recovery
+
+- Add five original native recovery routes with a 90-degree bend, 32-block sustained 30-degree bank, transition to level and level runout. `/fd demo recovery_bank_<family>` uses the same tool/editor, eight-RPM motor and switchable chain-power workflow as the flat examples.
+- Tow one fully occupied retained car from each family using the certified bare ordinary bearing and native coupler/chain propulsion. Preserve all 32 original native passenger seats and track profiles, including Arrow’s full controlled turn, through manual braking, power cut, stationary disconnection and native unloading.
+- Measure native body/track anchor and orientation offsets. Export native frames; add an independent geometry check and CI artifact retention for quarter-turn, joint continuity, sustained bank and nonzero-profile evidence.
+- Keep FD402 and the 0.4/0.9 gates open for linked-train curved/banked recovery, complete rendered clearance/operator acceptance and lifecycle/propulsion coverage. The compact occupied PAX spike limitation remains. Save schema/network protocol remain 6.
+
 ## 0.9.0-dev.18 — powered recovery stall detection
 
 - Detect insufficient physical displacement during active native chain recovery: a commanded speed above 0.1 blocks/s with the bearing remaining within 0.08 blocks for four physics seconds brakes the entire group and requests propulsion inspection. Keep original seats, matching track, native couplings and retention; do not automatically resume.

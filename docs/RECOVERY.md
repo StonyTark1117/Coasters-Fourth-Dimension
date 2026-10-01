@@ -1,6 +1,6 @@
 # Ordinary-bearing recovery
 
-Development build 0.9.0-dev.18 includes explicit recovery coupling for the five
+Development build 0.9.0-dev.19 includes explicit recovery coupling for the five
 original families. A 4D car stays on its matching functional track throughout.
 Only the pinned, unmodified bare Coasters bearing is certified as the ordinary
 recovery cart. It acquires no carriers, profile, magnetic assistance or 4D data.
@@ -110,6 +110,32 @@ The PAX example is an unassigned recovery car; a bound four-car shuttle uses the
 separate handover workflow above. Commands require operator permission and a
 17 by 14 by 57 clear corridor inside the supported track/build bounds.
 
+## Curved and banked native recovery examples
+
+Dev.19 adds `/fd demo recovery_bank_arrow`, `recovery_bank_legacy`,
+`recovery_bank_free_spin`, `recovery_bank_revised` and `recovery_bank_pax`
+under the same `/fd demo` prefix. Each requires a clear, loaded 129 by 14 by
+77 corridor inside the supported bounds. Its 162.53-block native route has a
+32-block level approach, a quarter bend, a 32-block sustained 30-degree bank,
+a 24-block bank-down transition and a 24-block level runout. The initial car
+and certified bare bearing have their normal family-specific axle spacing.
+The motor starts at zero RPM and the clutch lever starts ON (power cut).
+
+Use the same retained recovery workflow as the flat examples. Brake after the
+car returns to the final level runout, turn the lever ON to cut chain power,
+wait for readiness, detach recovery, open restraints and unload. Keep the
+motor installed at eight RPM. Arrow track contains a full 360-degree profile
+on the banked straight; recovery keeps carriers retained without erasing that
+profile. An unassigned PAX recovery car does not replace physical handover of
+an assigned four-car shuttle.
+
+All five **single-car** routes have occupied native traversal and original seat
+identity evidence, with normal brake/power/disconnect/unload controls and measured
+body/track anchor and orientation offsets. These are headless native checks;
+complete rendered vehicle/rider and control-rack clearance, linked-train recovery
+on these curves/banks and the full operator/lifecycle matrix remain open. See the
+[banked towing checkpoint](evidence/0.4/recovery/banked-tow/acceptance.md).
+
 **Measured incline limit:** the certified bare bearing cannot pull a fully
 occupied four-car PAX train far enough for every car to enter the compact
 example's outbound curved spike under the tested eight-RPM chain input. Its
@@ -132,6 +158,7 @@ The same original train then tows under native chain power, brakes, cuts power
 with its eight-RPM motor retained, disconnects and opens restraints for unloading.
 Every passenger keeps its original seat mount until unloading; see the
 [occupied handover evidence](evidence/0.4/recovery/occupied-handover/acceptance.md). These headless checks do not establish rendered
-operator acceptance, complete banked/curved offsets, nonzero Arrow rack/profile
-clearance, Engineered recovery propulsion/FE, coupler strength across those scenes,
+operator acceptance, complete vehicle/rider/rack mesh
+clearance, linked-train curved/banked recovery, Engineered recovery propulsion/FE,
+coupler strength across those scenes,
 or the complete recovery lifecycle matrix. FD402 and the 0.4 gate remain open.

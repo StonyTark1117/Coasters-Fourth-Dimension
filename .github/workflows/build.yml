@@ -49,6 +49,8 @@ jobs:
       - run: ./gradlew clean build runGameTestServer --no-daemon "-PfdIntegrations=$FD_INTEGRATIONS"
         env:
           FD_INTEGRATIONS: ${{ matrix.integrations }}
+      - name: Verify native recovery route geometry
+        run: python3 scripts/verify-recovery-bank-frames.py build/runs/gametest/recovery-bank-native-frames.json > build/recovery-route-geometry.json
       - name: Audit installed Arrow decoration on native bank frames
         if: matrix.profile == 'styles' || matrix.profile == 'combined'
         run: |
@@ -70,5 +72,7 @@ jobs:
             build/test-results/**
             build/runs/gametest/logs/**
             build/runs/gametest/bank-native-frames.json
+            build/runs/gametest/recovery-bank-native-frames.json
+            build/recovery-route-geometry.json
             build/banked-clearance.json
             build/wheel-clearance.json
