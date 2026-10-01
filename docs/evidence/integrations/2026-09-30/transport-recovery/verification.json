@@ -1,0 +1,34 @@
+{
+  "scope": "One client, combined pack; tracking range transitions and matched occupied cold restarts.",
+  "cases": {
+    "udp": {
+      "matched_snapshots": 138,
+      "native_carriers_observed": 16,
+      "missing_body_errors": 0,
+      "verified_departures_and_returns": 6
+    },
+    "tcp": {
+      "matched_snapshots": 121,
+      "native_carriers_observed": 16,
+      "missing_body_errors": 0,
+      "verified_departures_and_returns": 6
+    },
+    "tcp-cold": {
+      "matched_snapshots": 13,
+      "native_carriers_observed": 16,
+      "missing_body_errors": 0,
+      "occupied_restart_exact": true,
+      "restored_mounted_samples": 45
+    },
+    "udp-cold": {
+      "matched_snapshots": 55,
+      "native_carriers_observed": 16,
+      "missing_body_errors": 23,
+      "recovered_after_error_burst": true,
+      "occupied_restart_exact": true,
+      "restored_mounted_samples": 176
+    }
+  },
+  "normal_exit_after_udp_recovery": true,
+  "diagnosis": "Supports cross-transport ordering; no packet-level ordering capture and no upstream fix claimed."
+}

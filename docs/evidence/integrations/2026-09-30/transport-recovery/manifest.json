@@ -1,0 +1,37 @@
+{
+  "jar_sha256": "1e201ff27a811d4c2b6958ca5888589ed27f715dc66b4fc2876ea854f7e837f6",
+  "source_head": "0971dd7",
+  "cases": {
+    "udp": {
+      "server_log_sha256": "90fb122ef6f0da1c752f9c02f4c03fc11a2ff91c8896978ffac07e2133962b36",
+      "client_excerpt_sha256": "d98c34661dc4503c46e0f90a1b203e8b59c2a4d2518195561fda512506486427",
+      "server_exit": 0,
+      "attempt_udp_networking": true,
+      "frozen_start": false
+    },
+    "tcp": {
+      "server_log_sha256": "0ac62a2122cbf32cea43339231b9d5067117c4ca8efcbc21d70d82069724cf5f",
+      "client_excerpt_sha256": "c2d1482bbac128210c51e77ed95e7bdc1379db49aed87e18ad52bcab0592de85",
+      "server_exit": 0,
+      "attempt_udp_networking": false,
+      "frozen_start": false
+    },
+    "tcp-cold": {
+      "server_log_sha256": "ecf75824f9e1a26a2912ecd61205983232b388e0d74726c9a5eb20a22ec9430a",
+      "client_excerpt_sha256": "ea3fe012b87078e281859d58ed57473266f6cbca2e526ed747b6f4b390709719",
+      "server_exit": 0,
+      "attempt_udp_networking": false,
+      "frozen_start": true
+    },
+    "udp-cold": {
+      "server_log_sha256": "af61781bc76b4aaa813ff76fd2b7a38faecbdf6e957c2c5a4141b01ec90ae515",
+      "client_excerpt_sha256": "665a2261bbedb6fc58b7c1d0be87dfab5a27ad4eb2bb17faaa4434323b589089",
+      "server_exit": 0,
+      "attempt_udp_networking": true,
+      "frozen_start": true
+    }
+  },
+  "client_exit": 0,
+  "config_restored": true,
+  "client_full_log_sha256": "4032d2df42367376b49a5d8c792bb6be4d951aa6a5f599a2a6de0c205a75e701"
+}

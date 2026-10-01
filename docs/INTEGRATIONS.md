@@ -308,6 +308,15 @@ ownership. An invalid preceding automation attempt is preserved separately.
 This extends bounded combined-pack occupied restart evidence to all five families,
 but does not establish full inversion, every seat, camera mode or lifecycle case.
 
+A [transport comparison](evidence/integrations/2026-09-30/transport-recovery/README.md)
+reproduced the transient missing-body burst on an occupied UDP cold restart while
+an identical TCP restart had no such errors. Both restored the rider and native
+carriers. Six client tracking-range departures/returns per transport restored all
+sixteen nearby carrier bodies. This supports a Sable cross-transport ordering
+explanation; it is not an upstream fix or server chunk-unload certification.
+The report documents the tested `attempt_udp_networking=false` troubleshooting
+fallback. Default transport settings remain unchanged.
+
 ## Removing optional addons
 
 A [schema-5 dedicated-server removal matrix](evidence/integrations/2026-09-30/removal-matrix/README.md)
@@ -332,7 +341,8 @@ migration, Immersion camera removal, client rendering or the full lifecycle matr
 ## Remaining acceptance
 
 - Extend reconciled FD305 evidence to the schema-5 optional-addon lifecycle matrix;
-  investigate the recorded client resource exit and transient movement-packet messages.
+  investigate the recorded client resource exit. Extend the bounded transport
+  diagnosis above to adverse network conditions and any persistent missing-body case.
 - Finish Engineered rollback, linked-train, optional FE, lifecycle and multiplayer
   checks; PAX remains winch-owned, with the bounded opposing-equipment checks recorded above.
 - Extend the packaged Ponder/goggles visual checks to every animation phase and both
