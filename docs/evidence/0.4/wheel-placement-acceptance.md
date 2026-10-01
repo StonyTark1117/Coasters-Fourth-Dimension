@@ -84,3 +84,10 @@ linked-car sweeps, custom resource meshes and graphics backends. Those checks
 remain required for FD401. The +720° styling guard remains while wider profile
 and whole-vehicle validation is unfinished. This checkpoint cannot be used to
 claim those broader requirements complete.
+
+Push run 36828838808 and PR run 36828844086 both completed successfully for
+revision `1006d020959a2972a4843f1389a8fd711c232607`, with all four profiles green.
+The compact job records are `wheel-placement-ci-{push,pr}.json`. These automated
+checks do not close the packaged GUI reload failure. Subsequent
+[font investigation](font-reload-investigation.md) records control and diagnostic
+observations separately from production acceptance.

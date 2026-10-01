@@ -1,6 +1,20 @@
-# Optional-provider infrastructure checkpoint
+# Integration and teaching checkpoints
 
-This is partial FD401 evidence, not the 0.4 or 0.9 release gate.
+These are partial FD401 and FD403 records, not the 0.4 or 0.9 release gate.
+
+## Crafting discovery and item guidance
+
+The [dev.9 teaching checkpoint](teaching-acceptance.md) covers all fifteen native
+crafting outputs, missing-ingredient rejections, inventory-triggered recipe
+discovery and packaged item guidance. Ponder and the complete teaching gate
+remain unfinished.
+
+## Resource reload investigation
+
+The [font investigation](font-reload-investigation.md) distinguishes incomplete
+dependency-only stress requests from three completed reloads in an observation-only
+diagnostic build. No production cache change was made; the original crash and
+revised styled reload/ride gate remain unresolved.
 
 ## Native-wheel decoration revision
 

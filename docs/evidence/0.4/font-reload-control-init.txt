@@ -1,0 +1,16 @@
+gradle.beforeProject { fdProject ->
+    fdProject.afterEvaluate {
+        if (!fdProject.hasProperty('fdPackaged')) throw new GradleException('Control requires fdPackaged')
+        def fdConfiguration = fdProject.configurations.getByName('packagedRuntimeOnly')
+        def fdDependencies = fdConfiguration.dependencies.findAll { fdDependency ->
+            fdDependency instanceof org.gradle.api.artifacts.FileCollectionDependency &&
+                fdDependency.files.files.any { it.name.startsWith('coasters-fourth-dimension-') }
+        }
+        if (fdDependencies.size() != 1) throw new GradleException('Control could not identify exactly one addon artifact')
+        fdConfiguration.dependencies.removeAll(fdDependencies)
+        fdProject.neoForge.runs.named('client') {
+            gameDirectory = fdProject.layout.buildDirectory.dir('runs/font-control-client').get().asFile
+        }
+        println('FD_FONT_CONTROL: omitted Fourth Dimension artifact; separate font-control-client directory')
+    }
+}

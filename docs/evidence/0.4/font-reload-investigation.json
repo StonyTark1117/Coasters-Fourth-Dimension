@@ -1,0 +1,35 @@
+{
+  "productionVersion": "0.9.0-dev.8",
+  "productionRevision": "1006d020959a2972a4843f1389a8fd711c232607",
+  "productionJarSha256": "de65612464ec52df2a4202594aab3c1c5d65a0b4fd9cf1ee85fa6dcd93411881",
+  "diagnostic": {
+    "version": "0.9.0-font-diag.1",
+    "jarSha256": "9af9a84b6710b1c726e7157cd1358aff532cac7a2c6eb56e747ed26dd4837f0b",
+    "logSha256": "a4282c648ea1b51c487a79977ae923e04c4b364fb86b40d4351c38e3db95bec1",
+    "applyGenerations": [
+      "1",
+      "2",
+      "3",
+      "4"
+    ],
+    "completedInWorldReloads": 3,
+    "staleCacheObserved": false,
+    "targetBitmapErrorObserved": false,
+    "clientExitCode": 0,
+    "normalSaveQuitAndExit": true,
+    "editorOpened": false,
+    "occupiedRidePerformed": false
+  },
+  "dependencyOnlyControl": {
+    "fourthDimensionOmitted": true,
+    "loopRequests": 40,
+    "resourceManagerStartsIncludingStartup": 17,
+    "debugNotifications": 28,
+    "completedReloadChatCycles": null,
+    "targetBitmapErrorObserved": false,
+    "uiRecoveredAfterFinalRequest": false,
+    "termination": "Owned X window closed; BadWindow X_WarpPointer; client/Gradle exit 1",
+    "logSha256": "914881c25db96ffd48809ecdec62a8676fc6775301300ae378bf75e0f7bb6850"
+  },
+  "status": "Original production crash unresolved; no production font workaround added"
+}

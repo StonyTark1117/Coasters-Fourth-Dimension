@@ -1,0 +1,24 @@
+FD_FONT_DIAG: separate build/client directories and diagnostic-only client mixin
+[00:57:52] [modloading-worker-0/INFO] [de.fo.FourthDimension/]: Coasters: Fourth Dimension loaded from union:/tmp/fd-font-diagnostic/build/libs/coasters-fourth-dimension-0.9.0-font-diag.1.jar%23179!/
+[00:57:54] [Render thread/INFO] [minecraft/ReloadableResourceManager]: Reloading ResourceManager: vanilla, mod_resources, mod/simulatedcoasters, mod/veil, mod/sablecompanion, mod/flywheel, mod/ponder, mod/create, mod/sable, mod/fourthdimension, mod/coastersengineered, mod/coasterssimulatedextratypes, mod/neoforge
+[00:57:56] [Render thread/INFO] [minecraft/FontManager]: FD_FONT_APPLY_START generation=1 sets=0 thread=Render thread
+[00:57:56] [Render thread/INFO] [minecraft/FontManager]: FD_FONT_APPLY_END generation=1 cache=empty stale=false thread=Render thread
+[00:57:56] [Render thread/INFO] [de.fo.cl.in.TrackStylesCatalog/]: FD_OPTIONAL Track Styles 1.2.0: inspected 55 decorative model entries; geometry certification pending
+[00:58:43] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] [Debug]: Reloaded resource packs
+[00:58:43] [Render thread/INFO] [minecraft/ReloadableResourceManager]: Reloading ResourceManager: vanilla, mod_resources, mod/simulatedcoasters, mod/veil, mod/sablecompanion, mod/flywheel, mod/ponder, mod/create, mod/sable, mod/fourthdimension, mod/coastersengineered, mod/coasterssimulatedextratypes, mod/neoforge
+[00:58:44] [Render thread/INFO] [minecraft/FontManager]: FD_FONT_APPLY_START generation=2 sets=7 thread=Render thread
+[00:58:44] [Render thread/INFO] [minecraft/FontManager]: FD_FONT_APPLY_END generation=2 cache=minecraft:default@2047472472 stale=false thread=Render thread
+[00:58:44] [Render thread/INFO] [de.fo.cl.in.TrackStylesCatalog/]: FD_OPTIONAL Track Styles 1.2.0: inspected 55 decorative model entries; geometry certification pending
+[00:59:32] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] [Debug]: Reloaded resource packs
+[00:59:32] [Render thread/INFO] [minecraft/ReloadableResourceManager]: Reloading ResourceManager: vanilla, mod_resources, mod/simulatedcoasters, mod/veil, mod/sablecompanion, mod/flywheel, mod/ponder, mod/create, mod/sable, mod/fourthdimension, mod/coastersengineered, mod/coasterssimulatedextratypes, mod/neoforge
+[00:59:33] [Render thread/INFO] [minecraft/FontManager]: FD_FONT_APPLY_START generation=3 sets=7 thread=Render thread
+[00:59:33] [Render thread/INFO] [minecraft/FontManager]: FD_FONT_APPLY_END generation=3 cache=minecraft:default@2143736571 stale=false thread=Render thread
+[00:59:33] [Render thread/INFO] [de.fo.cl.in.TrackStylesCatalog/]: FD_OPTIONAL Track Styles 1.2.0: inspected 55 decorative model entries; geometry certification pending
+[01:00:03] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] [Debug]: Reloaded resource packs
+[01:00:03] [Render thread/INFO] [minecraft/ReloadableResourceManager]: Reloading ResourceManager: vanilla, mod_resources, mod/simulatedcoasters, mod/veil, mod/sablecompanion, mod/flywheel, mod/ponder, mod/create, mod/sable, mod/fourthdimension, mod/coastersengineered, mod/coasterssimulatedextratypes, mod/neoforge
+[01:00:04] [Render thread/INFO] [minecraft/FontManager]: FD_FONT_APPLY_START generation=4 sets=7 thread=Render thread
+[01:00:04] [Render thread/INFO] [minecraft/FontManager]: FD_FONT_APPLY_END generation=4 cache=empty stale=false thread=Render thread
+[01:00:04] [Render thread/INFO] [de.fo.cl.in.TrackStylesCatalog/]: FD_OPTIONAL Track Styles 1.2.0: inspected 55 decorative model entries; geometry certification pending
+[01:04:41] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] Dev has the following entity data: {count: 1, id: "fourthdimension:rotation_tool"}
+[01:05:51] [Render thread/INFO] [minecraft/Minecraft]: Stopping!
+BUILD SUCCESSFUL in 8m 8s

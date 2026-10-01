@@ -1,0 +1,18 @@
+gradle.beforeProject { fdProject ->
+    fdProject.afterEvaluate {
+        fdProject.layout.buildDirectory = fdProject.file('/tmp/fd-font-diagnostic/build')
+        fdProject.sourceSets.main.java.srcDir('/tmp/fd-font-debug-src')
+        fdProject.tasks.named('processResources') {
+            doLast {
+                def fdMixinFile = new File(destinationDir, 'fourthdimension.mixins.json')
+                def fdMixin = new groovy.json.JsonSlurper().parse(fdMixinFile)
+                fdMixin.client.add('FontLifecycleDiagnosticMixin')
+                fdMixinFile.text = groovy.json.JsonOutput.prettyPrint(groovy.json.JsonOutput.toJson(fdMixin))
+            }
+        }
+        fdProject.neoForge.runs.named('client') {
+            gameDirectory = fdProject.file('/tmp/fd-font-diagnostic/client')
+        }
+        println('FD_FONT_DIAG: separate build/client directories and diagnostic-only client mixin')
+    }
+}

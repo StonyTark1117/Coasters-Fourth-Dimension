@@ -1,0 +1,48 @@
+package dev.fourthdimension.mixin;
+
+import com.mojang.logging.LogUtils;
+import java.util.Map;
+import net.minecraft.client.gui.font.FontManager;
+import net.minecraft.client.gui.font.FontSet;
+import net.minecraft.resources.ResourceLocation;
+import org.slf4j.Logger;
+import org.spongepowered.asm.mixin.Final;
+import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Shadow;
+import org.spongepowered.asm.mixin.Unique;
+import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
+
+/** Temporary observation only; does not reset caches or modify return values. */
+@Mixin(FontManager.class)
+public abstract class FontLifecycleDiagnosticMixin {
+  @Shadow private FontSet lastFontSetCache;
+  @Shadow @Final private Map<ResourceLocation, FontSet> fontSets;
+  @Shadow @Final private FontSet missingFontSet;
+  @Unique private int fd$generation;
+  @Unique private static final Logger FD_FONT_LOG = LogUtils.getLogger();
+
+  @Inject(method = "apply", at = @At("HEAD"))
+  private void fd$beforeApply(CallbackInfo ci) {
+    fd$generation++;
+    FD_FONT_LOG.info("FD_FONT_APPLY_START generation={} sets={} thread={}", fd$generation, fontSets.size(), Thread.currentThread().getName());
+  }
+
+  @Inject(method = "apply", at = @At("RETURN"))
+  private void fd$afterApply(CallbackInfo ci) {
+    FontSet cached = lastFontSetCache;
+    boolean stale = cached != null && cached != fontSets.getOrDefault(cached.name(), missingFontSet);
+    FD_FONT_LOG.info("FD_FONT_APPLY_END generation={} cache={} stale={} thread={}", fd$generation, cached == null ? "empty" : cached.name() + "@" + System.identityHashCode(cached), stale, Thread.currentThread().getName());
+  }
+
+  @Inject(method = "getFontSetCached", at = @At("HEAD"))
+  private void fd$beforeLookup(ResourceLocation name, CallbackInfoReturnable<FontSet> ci) {
+    FontSet cached = lastFontSetCache;
+    FontSet current = fontSets.getOrDefault(name, missingFontSet);
+    if (cached != null && name.equals(cached.name()) && cached != current) {
+      FD_FONT_LOG.error("FD_FONT_STALE generation={} request={} cached={} current={} thread={}", fd$generation, name, System.identityHashCode(cached), System.identityHashCode(current), Thread.currentThread().getName());
+    }
+  }
+}

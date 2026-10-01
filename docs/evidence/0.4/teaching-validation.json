@@ -1,0 +1,40 @@
+{
+  "version": "0.9.0-dev.9",
+  "nativeProfiles": {
+    "standalone": {
+      "requiredTests": 26,
+      "passed": true,
+      "crafts": 15,
+      "missingIngredientRejections": 15,
+      "inventoryDiscoveries": 15
+    },
+    "combined": {
+      "requiredTests": 26,
+      "passed": true,
+      "crafts": 15,
+      "missingIngredientRejections": 15,
+      "inventoryDiscoveries": 15
+    }
+  },
+  "unit": {
+    "tests": 25,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "packagedClient": {
+    "profiles": [
+      "styles",
+      "engineered"
+    ],
+    "tooltipItemsCaptured": 15,
+    "realResourceReloads": 1,
+    "postReloadCommandSuggestionsRendered": true,
+    "actualPlayerRecipeDiscovery": "arrow_track via red dye acquisition",
+    "normalSaveQuitAndExit": true,
+    "exitCode": 0,
+    "logSha256": "5179b98eb8b34a4001ce31a62ceef73e0e7af93cfa8475ac06b2deaa89d849d2",
+    "occupiedRidePerformed": false
+  },
+  "gate": "Partial FD403; Ponder and complete teaching review remain unfinished"
+}
