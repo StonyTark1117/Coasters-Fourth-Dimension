@@ -108,7 +108,18 @@ places active Engineered equipment across the occupied four-car shuttle route.
 Opposing launch, STOP and TRIM commands remain subordinate to the physical winch
 through lift, power-loss hold/resume, gravity return and capture, while the native
 controller and observer continue receiving train-presence reports. This bounded
-native check does not complete the client/lifecycle or FE-on matrix.
+native check does not complete the client/lifecycle or FE-on PAX matrix.
+
+A separate [FE acceptance fixture](evidence/integrations/2026-09-30/engineered-energy/README.md)
+enables the energy requirement for a linked Arrow pair and single legacy, Free Spin
+and revised cars. Real anchor capabilities supply FE. Captured cars remain held,
+empty buffers prevent launch and report starvation, filling permits forward/reverse
+launch, and empty-buffer braking regenerates FE in both directions. All five native
+passengers remain mounted through recapture, with the Arrow coupling intact. The
+26-test suites pass with Engineered alone, the combined pack and base isolation;
+19 unit tests pass. This is straight-track evidence at default energy tuning.
+External cables/generators, partial power, configuration extremes, energy persistence,
+linked curves/slopes and gravity rollback remain outside this result.
 
 For simultaneous builds and packaged-client QA, copy the built JAR to an immutable
 temporary path and pass `-PfdPackaged -PfdPackagedJar=/absolute/path/to/snapshot.jar`.
@@ -343,8 +354,10 @@ migration, Immersion camera removal, client rendering or the full lifecycle matr
 - Extend reconciled FD305 evidence to the schema-5 optional-addon lifecycle matrix;
   investigate the recorded client resource exit. Extend the bounded transport
   diagnosis above to adverse network conditions and any persistent missing-body case.
-- Finish Engineered rollback, linked-train, optional FE, lifecycle and multiplayer
-  checks; PAX remains winch-owned, with the bounded opposing-equipment checks recorded above.
+- Extend Engineered straight linked-train and FE evidence to curves/slopes, gravity
+  rollback, partial power, configuration extremes, external energy networks and
+  lifecycle/multiplayer checks. PAX remains winch-owned, with the bounded
+  opposing-equipment checks recorded above.
 - Extend the packaged Ponder/goggles visual checks to every animation phase and both
   multiplayer clients; extend the verified live legacy/Free Spin Display Links to
   the complete station/winch and addon matrix.

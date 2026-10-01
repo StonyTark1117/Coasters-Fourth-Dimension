@@ -1,0 +1,27 @@
+{
+  "attempt1": {
+    "full_log": "/tmp/fd-energy-first.log",
+    "sha256": "bdf80b9977fd6428da896fe8234dde30d094f60812178a816867b3438d30e593",
+    "exit_status": 1
+  },
+  "attempt2": {
+    "full_log": "/tmp/fd-energy-second.log",
+    "sha256": "23117f2c3b6acfb65c3c87050ce62666c8392d2ac29698e79d07b5891cb790a6",
+    "exit_status": 1
+  },
+  "engineered": {
+    "full_log": "/tmp/fd-energy-third.log",
+    "sha256": "dd30d3f24098d04665b3ebcd4b178772359f498b57214092be7e31335422ce9f",
+    "exit_status": 0
+  },
+  "combined": {
+    "full_log": "/tmp/fd-energy-combined.log",
+    "sha256": "d4f964fb435f8533a5d5ddc6bd54d806428799b1d9a864b80ec2130f8cde56fd",
+    "exit_status": 0
+  },
+  "base": {
+    "full_log": "/tmp/fd-energy-base.log",
+    "sha256": "acad6425dd113abffac564d05f97fc9af44b4c881d769edf2a50a26d61593bb4",
+    "exit_status": 0
+  }
+}
