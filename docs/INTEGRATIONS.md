@@ -151,9 +151,11 @@ retention checks; all 19 unit tests pass. Returning/capture packaged restarts,
 human-client recovery and external energy networks remain separate acceptance work.
 
 A subsequent [returning restart investigation](evidence/integrations/2026-10-01/pax-returning-passengers/README.md)
-currently fails occupied acceptance: all sixteen native pigs survive, but fourteen
-restore without their Create seat parents. Braking, capture, FE and the carriage
-restore correctly. This attachment failure remains unresolved; returning/capture
+recorded an occupied acceptance failure: all sixteen native pigs survived, but fourteen
+restored without their Create seat parents. Braking, capture, FE and the carriage
+restored correctly. A [native loading-boundary regression and fix](evidence/integrations/2026-10-01/passenger-entity-loading/README.md)
+now preserve saved passenger identity until the seat chunks finish loading their
+entities. The Engineered native suite and 19 unit tests pass; fresh returning/capture
 packaged acceptance and broader human-client lifecycle claims remain open.
 
 A separate [FE acceptance fixture](evidence/integrations/2026-09-30/engineered-energy/README.md)

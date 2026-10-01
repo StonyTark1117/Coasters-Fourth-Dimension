@@ -1,0 +1,12 @@
+returning-before ready 102 BOARDING 16
+Traceback (most recent call last):
+  File "/home/braydon/.codex/worktrees/coaster-integrations/Coasters: Fourth Dimension/build/passenger-load/packaged.py", line 159, in <module>
+    seed,before=prepare(phase)
+                ~~~~~~~^^^^^^^
+  File "/home/braydon/.codex/worktrees/coaster-integrations/Coasters: Fourth Dimension/build/passenger-load/packaged.py", line 102, in prepare
+    step(2);occupied(report('ready'))
+            ~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/braydon/.codex/worktrees/coaster-integrations/Coasters: Fourth Dimension/build/passenger-load/packaged.py", line 54, in occupied
+    assert len(d['cars'])==4 and d['carriageLoaded']
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

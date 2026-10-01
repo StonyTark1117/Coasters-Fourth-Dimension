@@ -23,6 +23,13 @@ public final class NativeLoading {
   public static void update(
       ServerSubLevel child, FoundationData.Vehicle vehicle, FoundationData.Carrier carrier) {
     var level = child.getLevel();
+    // Sable can expose the plot before Minecraft finishes loading its entities. An empty
+    // query then is not an empty seat: overwriting saved UUIDs would reject later passenger NBT.
+    // Wait for every seat chunk before changing either occupancy or the applied rider mass.
+    for (var offset : carrier.seats) {
+      var seat = child.getPlot().getCenterBlock().offset(offset);
+      if (!level.areEntitiesLoaded(new net.minecraft.world.level.ChunkPos(seat).toLong())) return;
+    }
     var tracker = child.getSelfMassTracker();
     var applied = APPLIED.get(child);
     if (applied == null || applied.tracker != tracker) {

@@ -1,0 +1,24 @@
+{
+  "status": "starting",
+  "artifact_sha256": "070cd31028aeffb41c77c0b027a019dd30e8853b7247ada199aceb5ad46d20ce",
+  "runs": [
+    {
+      "case": "returning-before",
+      "world": "FDPassenger2ReturningBefore",
+      "profile": "engineered",
+      "pid": 68067,
+      "command": [
+        "./gradlew",
+        "-Dorg.gradle.jvmargs=-Xmx1G",
+        "--max-workers=2",
+        "runServer",
+        "-PfdPackaged",
+        "-PfdPackagedJar=/home/braydon/.cache/fourthdimension-48535694/passenger-load-fixed.jar",
+        "-PfdFrozen",
+        "-PfdValidation",
+        "-PfdIntegrations=engineered"
+      ],
+      "status": "running"
+    }
+  ]
+}

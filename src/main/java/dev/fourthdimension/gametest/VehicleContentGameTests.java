@@ -145,6 +145,7 @@ public final class VehicleContentGameTests {
           helper.assertTrue(rider.isPassenger(), "Moving restraint can be bypassed with dismount");
           v.restraints = false;
           rider.stopRiding();
+          delayedPassengerLoad(helper, body, v, c, savedSeat, rider.getUUID(), masses[0]);
           v.carriers.forEach(group -> group.capture = false);
           container
               .physicsSystem()
@@ -200,5 +201,72 @@ public final class VehicleContentGameTests {
           }
           helper.succeed();
         });
+  }
+
+  /** Exercise the native PENDING -> LOADED boundary without depending on disk I/O timing. */
+  @SuppressWarnings({"unchecked", "rawtypes"})
+  private static void delayedPassengerLoad(
+      GameTestHelper helper,
+      ServerSubLevel body,
+      FoundationData.Vehicle vehicle,
+      FoundationData.Carrier carrier,
+      net.minecraft.nbt.CompoundTag savedSeat,
+      UUID rider,
+      double emptyMass) {
+    var level = helper.getLevel();
+    var prior = new HashMap<Long, Object>();
+    it.unimi.dsi.fastutil.longs.Long2ObjectMap<Object> statuses;
+    try {
+      var field =
+          net.minecraft.world.level.entity.PersistentEntitySectionManager.class.getDeclaredField(
+              "chunkLoadStatuses");
+      field.setAccessible(true);
+      var manager = net.minecraft.server.level.ServerLevel.class.getDeclaredField("entityManager");
+      manager.setAccessible(true);
+      statuses = (it.unimi.dsi.fastutil.longs.Long2ObjectMap<Object>) field.get(manager.get(level));
+    } catch (ReflectiveOperationException ex) {
+      throw new IllegalStateException("Cannot control native entity loading for regression", ex);
+    }
+    try {
+      for (var offset : carrier.seats) {
+        long chunk =
+            new net.minecraft.world.level.ChunkPos(body.getPlot().getCenterBlock().offset(offset))
+                .toLong();
+        helper.assertTrue(level.areEntitiesLoaded(chunk), "Carrier entity chunk was not loaded");
+        prior.putIfAbsent(chunk, statuses.get(chunk));
+      }
+      for (var entry : prior.entrySet())
+        statuses.put(
+            entry.getKey().longValue(),
+            Enum.valueOf((Class) entry.getValue().getClass(), "PENDING"));
+      vehicle.restraints = true;
+      NativeLoading.update(body, vehicle, carrier);
+      helper.assertTrue(
+          carrier.occupants.contains(rider), "Pending entity load erased saved passenger identity");
+      helper.assertTrue(
+          Math.abs(body.getMassTracker().getMass() - emptyMass - NativeLoading.MASS_PER_RIDER)
+              < 1e-5,
+          "Pending entity load removed passenger mass");
+      var replay =
+          net.minecraft.world.entity.EntityType.loadEntityRecursive(
+              savedSeat, level, entity -> entity);
+      helper.assertTrue(
+          replay != null
+              && replay.getPassengers().size() == 1
+              && replay.getFirstPassenger().getUUID().equals(rider),
+          "Delayed saved passenger could not restore behind closed restraints");
+    } finally {
+      prior.forEach((chunk, status) -> statuses.put(chunk.longValue(), status));
+      vehicle.restraints = false;
+    }
+    NativeLoading.update(body, vehicle, carrier);
+    NativeLoading.update(body, vehicle, carrier);
+    helper.assertTrue(carrier.occupants.isEmpty(), "Loaded empty seats retained stale occupants");
+    helper.assertTrue(
+        Math.abs(body.getMassTracker().getMass() - emptyMass) < 1e-5,
+        "Loaded empty seats did not remove passenger mass exactly once");
+    System.out.println(
+        "FD_DELAYED_PASSENGER pendingIdentity=true pendingMass=true delayedReplay=true"
+            + " loadedEmpty=true");
   }
 }

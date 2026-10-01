@@ -1,0 +1,21 @@
+{
+  "case": "returning-before",
+  "world": "FDPassengerReturningBefore",
+  "profile": "engineered",
+  "pid": 55527,
+  "command": [
+    "./gradlew",
+    "-Dorg.gradle.jvmargs=-Xmx1G",
+    "--max-workers=2",
+    "runServer",
+    "-PfdPackaged",
+    "-PfdPackagedJar=/home/braydon/.cache/fourthdimension-48535694/passenger-load-fixed.jar",
+    "-PfdFrozen",
+    "-PfdValidation",
+    "-PfdIntegrations=engineered"
+  ],
+  "status": "running",
+  "cleanup_exit": 0,
+  "log": "/home/braydon/.codex/worktrees/coaster-integrations/Coasters: Fourth Dimension/build/passenger-load/investigation-ready/returning-before.log",
+  "log_sha256": "2c9912eea7e0875d0c22a1b9063b20da1d9798cbdefe11dabc0dc33462928658"
+}
