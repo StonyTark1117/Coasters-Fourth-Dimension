@@ -438,9 +438,12 @@ one new-build P95 above 50 ms. The optimization is retained; FD904 stays open.
 The [Revised camera checkpoint](docs/evidence/integrations/2026-10-01/immersion-revised/README.md)
 records first-person settings, mouse look, carrier changes and normal exits with
 Immersion alone and two combined-pack clients. Five camera types track the correct
-carrier numerically. External views expose rider/seat occlusion, still present with
-effects disabled and native zoom input; visual acceptance remains open. This does
-not close full-inversion, shader or performance targets.
+carrier numerically. A [follow-up orbit-camera fix](docs/evidence/integrations/2026-10-01/camera-connections/README.md)
+adds missing native connection membership for the physics-created carrier joints.
+Both Sable orbit views can now leave the car and zoom normally while retaining world
+collision. The standalone, Immersion-only and combined checks retain normal exits;
+vanilla third-person collision behavior, other-family/linked camera acceptance,
+full inversion, shader and performance targets remain separate.
 
 **Depends on:** FD404, FD006. **Design:** D17.
 

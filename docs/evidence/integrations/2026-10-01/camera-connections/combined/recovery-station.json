@@ -1,0 +1,42 @@
+{
+  "label": "recovery-station",
+  "tick": 16681,
+  "family": "ZACSPIN_REVISED",
+  "chassis": "4ff3a195-548d-4081-b0f4-1af47134a94a",
+  "ready": true,
+  "restraints": true,
+  "stopping": true,
+  "fault": "",
+  "x": 450.49996937937414,
+  "y": 141.1249980097232,
+  "z": 495.8474120963857,
+  "speed": 0.00042937150801780285,
+  "carriers": [
+    {
+      "body": "e986edf8-3150-4b86-ab98-142e41c1a932",
+      "angle": -0.00012110371204582735,
+      "capture": true,
+      "riders": [
+        "380df991-f603-344c-a090-369bad2a924a"
+      ]
+    },
+    {
+      "body": "487927f3-0711-4c56-8b4a-dc1b97767f07",
+      "angle": 0.00019663318017439904,
+      "capture": true,
+      "riders": []
+    },
+    {
+      "body": "eb2739d4-59e2-408a-a338-c435da1120dd",
+      "angle": -0.00011541539033743772,
+      "capture": true,
+      "riders": []
+    },
+    {
+      "body": "958a148b-1023-4afe-a3bc-eec13130fcf6",
+      "angle": -0.00020930704655678278,
+      "capture": true,
+      "riders": []
+    }
+  ]
+}

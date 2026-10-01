@@ -17,11 +17,12 @@ public final class ClientDiagnostics {
 
   @SubscribeEvent
   public static void camera(net.neoforged.neoforge.client.event.RenderLevelStageEvent event) {
-    if (Boolean.getBoolean("fourthdimension.validation")
-        && event.getStage()
-            == net.neoforged.neoforge.client.event.RenderLevelStageEvent.Stage.AFTER_LEVEL
-        && dev.fourthdimension.integration.OptionalIntegrations.supported(
-            "coasters_immersion", java.util.Set.of("0.2.3")))
+    if (!Boolean.getBoolean("fourthdimension.validation")
+        || event.getStage()
+            != net.neoforged.neoforge.client.event.RenderLevelStageEvent.Stage.AFTER_LEVEL) return;
+    CarrierCameraDiagnostics.sample(event);
+    if (dev.fourthdimension.integration.OptionalIntegrations.supported(
+        "coasters_immersion", java.util.Set.of("0.2.3")))
       dev.fourthdimension.integration.immersion.ImmersionCameraDiagnostics.sample(event);
   }
 

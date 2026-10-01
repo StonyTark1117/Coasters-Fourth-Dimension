@@ -1,0 +1,104 @@
+[
+  {
+    "time": 1790896716.2762687,
+    "kind": "mode",
+    "offsets": {
+      "dev": 535192,
+      "observer": 250694
+    },
+    "mode": "FIRST_PERSON",
+    "samples": {
+      "dev": {
+        "metric": "normalized-v1",
+        "body": "e986edf8-3150-4b86-ab98-142e41c1a932",
+        "riding": "true",
+        "enabled": "true",
+        "processing": "true",
+        "rawError": "0.0",
+        "carrierUp": "0.9999999988899982",
+        "cameraUp": "0.98481584",
+        "yaw": "89.9995",
+        "pitch": "9.996639",
+        "travel": "4.84597252523832E-9",
+        "inertia": "0.04",
+        "perspective": "FIRST_PERSON"
+      },
+      "observer": {
+        "metric": "normalized-v1",
+        "body": "none",
+        "riding": "false",
+        "enabled": "true",
+        "processing": "true",
+        "rawError": "-1.0",
+        "carrierUp": "1.0",
+        "cameraUp": "0.9848078",
+        "yaw": "-90.0",
+        "pitch": "10.0",
+        "travel": "0.0",
+        "inertia": "0.04",
+        "perspective": "FIRST_PERSON"
+      }
+    }
+  },
+  {
+    "time": 1790896716.2786293,
+    "kind": "config",
+    "offsets": {
+      "dev": 535192,
+      "observer": 250694
+    },
+    "enabled": true,
+    "inertia": 40,
+    "maximum": false,
+    "samples": {
+      "dev": {
+        "metric": "normalized-v1",
+        "body": "e986edf8-3150-4b86-ab98-142e41c1a932",
+        "riding": "true",
+        "enabled": "true",
+        "processing": "true",
+        "rawError": "0.0",
+        "carrierUp": "0.9999999988899982",
+        "cameraUp": "0.98481584",
+        "yaw": "89.9995",
+        "pitch": "9.996639",
+        "travel": "4.84597252523832E-9",
+        "inertia": "0.04",
+        "perspective": "FIRST_PERSON"
+      },
+      "observer": {
+        "metric": "normalized-v1",
+        "body": "none",
+        "riding": "false",
+        "enabled": "true",
+        "processing": "true",
+        "rawError": "-1.0",
+        "carrierUp": "1.0",
+        "cameraUp": "0.9848078",
+        "yaw": "-90.0",
+        "pitch": "10.0",
+        "travel": "0.0",
+        "inertia": "0.04",
+        "perspective": "FIRST_PERSON"
+      }
+    }
+  },
+  {
+    "time": 1790896716.5905666,
+    "kind": "phase-start",
+    "offsets": {
+      "dev": 538056,
+      "observer": 251021
+    },
+    "name": "FIRST_PERSON"
+  },
+  {
+    "time": 1790896729.0369108,
+    "kind": "phase-end",
+    "offsets": {
+      "dev": 604573,
+      "observer": 266063
+    },
+    "name": "FIRST_PERSON"
+  }
+]

@@ -1,0 +1,15 @@
+{
+  "method": "Manual inspection of original owned-display screenshots; distances independently measured from native camera coordinates.",
+  "reviewed": {
+    "before/orbit-zoom-dev.png": "Original build remains inside/behind rider-seat geometry at native zoom accumulator 4.",
+    "after/SUB_LEVEL_VIEW-dev.png": "Default orbit distance leaves the original close rider obstruction; nearby car geometry is visible.",
+    "after/orbit-zoom-dev.png": "Native maximum scroll zoom gives a wide external view of the parked car.",
+    "after/wall-dev.png": "Native camera moves closer to the car with the world-space wall behind it.",
+    "after/wall-removed-dev.png": "Original wide view returns after removing the wall.",
+    "base/orbit-zoom-dev.png": "The same wide native orbit view works without Immersion.",
+    "combined/accept-SUB_LEVEL_VIEW-dev.png": "Occupied moving native orbit shows the car exterior; full connection set and 7-block radius measured.",
+    "combined/accept-SUB_LEVEL_VIEW_UNLOCKED-observer.png": "Occupied moving unlocked orbit has a useful exterior view and correct ridden-carrier tracking.",
+    "combined/accept-second-unloaded-observer.png": "Ordinary first-person platform view after normal final exit.",
+    "combined/interrupted-observer.png": "Retained failed setup: death screen explicitly reports Observer slain by Slime, before the two-rider retry."
+  }
+}

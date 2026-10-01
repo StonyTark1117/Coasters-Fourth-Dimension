@@ -1,0 +1,18 @@
+{
+  "pid": 588533,
+  "case": "before",
+  "world": "FDCameraConnectionsBefore",
+  "command": [
+    "./gradlew",
+    "-Dorg.gradle.jvmargs=-Xmx1G",
+    "--max-workers=2",
+    "runServer",
+    "-PfdPackaged",
+    "-PfdPackagedJar=/home/braydon/.cache/fourthdimension-48535694/camera-connections-before.jar",
+    "-PfdValidation",
+    "-PfdFrozen",
+    "-PfdIntegrations=immersion"
+  ],
+  "artifact": "/home/braydon/.cache/fourthdimension-48535694/camera-connections-before.jar",
+  "sha256": "5f10787b1ae8cc2a91f6b468175ebb358334e9bf3c8e09f67ef77383b26fad82"
+}

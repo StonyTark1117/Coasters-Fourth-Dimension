@@ -1,0 +1,26 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "dev.fourthdimension.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [
+    "RailEligibilityMixin",
+    "InitialSnapMixin",
+    "TrackMutationMixin",
+    "ConsistLinkMixin",
+    "EngagedTrackMixin",
+    "ChainDriveGuardMixin",
+    "LoadingDependencyMixin",
+    "OpenEndAvailabilityMixin",
+    "BankBlendAvailabilityMixin",
+    "OptionalAnchorStrengthMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "client": [
+    "OriginalTrackBerMixin",
+    "OriginalTrackVisualMixin",
+    "CarrierConnectionMixin"
+  ]
+}

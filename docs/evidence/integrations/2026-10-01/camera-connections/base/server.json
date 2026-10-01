@@ -1,0 +1,17 @@
+{
+  "pid": 602185,
+  "case": "base",
+  "world": "FDCameraConnectionsBase",
+  "command": [
+    "./gradlew",
+    "-Dorg.gradle.jvmargs=-Xmx1G",
+    "--max-workers=2",
+    "runServer",
+    "-PfdPackaged",
+    "-PfdPackagedJar=/home/braydon/.cache/fourthdimension-48535694/camera-connections-fixed.jar",
+    "-PfdValidation",
+    "-PfdFrozen"
+  ],
+  "artifact": "/home/braydon/.cache/fourthdimension-48535694/camera-connections-fixed.jar",
+  "sha256": "57567994d1bb4098676bb960c55168c236fa402fb19e81c4eacaedd219c07b93"
+}

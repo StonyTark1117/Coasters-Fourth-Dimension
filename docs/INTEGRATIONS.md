@@ -462,7 +462,14 @@ maximum roll/pitch stabilization, normal mouse input, carrier changes and ordina
 unloading. Five actual camera types are measured, including Sable's two additional
 views. Numerical carrier tracking passes, but several external views are obstructed
 by rider/seat geometry, including with effects disabled and native zoom input.
-Those views remain an explicit visual acceptance gap. Revised full inversion,
+A [native orbit-camera fix](evidence/integrations/2026-10-01/camera-connections/README.md)
+identifies the missing physics-joint connections in Sable's camera exclusion group.
+The client now supplies registered chassis/carrier and native train-link membership.
+Before/after checks restore both Sable orbit modes and scroll zoom while retaining
+collision against a separate world wall. This works in standalone, Immersion-only
+and combined profiles; first-person camera transforms remain unchanged. Vanilla
+third-person views retain their normal collision policy and can still be obstructed
+at some angles. Revised full inversion,
 other-family camera-mode matrices, dimension changes and shader/performance targets
 are not certified by this checkpoint.
 

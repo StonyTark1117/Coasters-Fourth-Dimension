@@ -117,3 +117,10 @@ Run from the repository root:
 ```sh
 python3 scripts/verify-immersion-revised.py docs/evidence/integrations/2026-10-01/immersion-revised
 ```
+
+## Follow-up
+
+The [camera connection checkpoint](../camera-connections/README.md) identifies
+and fixes the missing native orbit-camera connection group. This original evidence
+remains the pre-fix observation, including its obstructed captures. Vanilla third-
+person collision behavior and the broader release gates are still separate.
