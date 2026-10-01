@@ -131,6 +131,15 @@ endpoints. All 27 native checks pass in base, five individual-addon and combined
 profiles, with explicit optional skips recorded. Occupied chunk interruption and
 full process restart with FE enabled remain open.
 
+The [limited-energy extension](evidence/integrations/2026-09-30/engineered-limited-energy/README.md)
+adds a 100 FE pulse, 5 FE/tick trickle, supply loss and full-refill recovery for the
+same five occupied cars. Braking works with regeneration disabled; full regeneration
+fills the minimum 1,000 FE buffer exactly without overflow. Normal recapture retains
+all passengers and the Arrow coupling. The test restores its energy settings and
+passes in Engineered-only and combined packs, with base isolation checked separately.
+This is direct capability input, not an external generator/cable test; broader
+configuration and occupied lifecycle coverage remains open.
+
 A further [connected-route interruption check](evidence/integrations/2026-09-30/connected-track-chunks/README.md)
 covers flat and varying-bank routes for all five families. Native bank-chain lookups
 now read only resident inactive 4D anchors, preventing the active end of a connected
@@ -375,7 +384,7 @@ migration, Immersion camera removal, client rendering or the full lifecycle matr
   investigate the recorded client resource exit. Extend the bounded transport
   diagnosis above to adverse network conditions and any persistent missing-body case.
 - Extend Engineered straight linked-train and FE evidence to curves/slopes, gravity
-  rollback, partial power, configuration extremes, external energy networks and
+  rollback, further supply patterns/configuration extremes, external energy networks and
   lifecycle/multiplayer checks. PAX remains winch-owned, with the bounded
   opposing-equipment checks recorded above.
 - Extend the packaged Ponder/goggles visual checks to every animation phase and both

@@ -20,7 +20,7 @@ public final class EngineeredIntegrationGameTests {
       dev.fourthdimension.integration.engineered.EngineeredEnergyCheck.configure(false);
   }
 
-  @GameTest(template = "empty", batch = "fourthdimension_engineered_energy", timeoutTicks = 1150)
+  @GameTest(template = "empty", batch = "fourthdimension_engineered_energy", timeoutTicks = 1800)
   public static void energyRequiredLinkedTrainLaunchBrakeAndReverse(GameTestHelper helper) {
     if (!OptionalIntegrations.supported("coastersengineered", Set.of("1.1.1"))) {
       System.out.println("FD_ENGINEERED_ENERGY_SKIPPED: optional 1.1.1 artifact absent");

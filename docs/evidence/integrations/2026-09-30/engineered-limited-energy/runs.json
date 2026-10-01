@@ -1,0 +1,32 @@
+{
+  "attempt1": {
+    "full_log": "/tmp/fd-energy-limited1.log",
+    "sha256": "5882d9a56f315fbf379ff19e018d3cb1485f1d70887c3e6d5d8d79f67e462c26",
+    "exit_status": 1
+  },
+  "attempt2": {
+    "full_log": "/tmp/fd-energy-limited2.log",
+    "sha256": "1bcb0057136259873f46b62d14fa8068a3c3030ec8c552b7767d0d4547f53611",
+    "exit_status": 1
+  },
+  "attempt3": {
+    "full_log": "/tmp/fd-energy-limited3.log",
+    "sha256": "df81fe5a71b88f70101adb765cdd35b28856a37e184f21f745afd5d847bd9943",
+    "exit_status": 1
+  },
+  "engineered": {
+    "full_log": "/tmp/fd-energy-limited4.log",
+    "sha256": "aa1174ecde52ef218e5f8132ccfa955aa6b8d9241371e3687c12d4d1c664536e",
+    "exit_status": 0
+  },
+  "base": {
+    "full_log": "/tmp/fd-energy-limited-base.log",
+    "sha256": "a32f496ff952d11ff06fa82fc7da3781855d7a8f74efd4649d027340bc251112",
+    "exit_status": 0
+  },
+  "combined": {
+    "full_log": "/tmp/fd-energy-limited-combined.log",
+    "sha256": "bf4f7dd7af897c3b096bda682726304848807a851d2a467ac0285359b185a6e3",
+    "exit_status": 0
+  }
+}

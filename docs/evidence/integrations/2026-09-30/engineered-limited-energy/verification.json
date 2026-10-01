@@ -1,0 +1,389 @@
+{
+  "scope": "Five occupied cars on four straight tracks, native FE capability input",
+  "profiles": {
+    "engineered": {
+      "registered_tests": 28,
+      "optional_skips": 3,
+      "families": {
+        "ARROW": {
+          "PULSE": {
+            "stored_fe": 0,
+            "speeds": [
+              0.6825504302978516,
+              0.6825506091117859
+            ]
+          },
+          "COAST": {
+            "stored_fe": 0,
+            "speeds": [
+              0.6173542141914368,
+              0.6173544526100159
+            ]
+          },
+          "TRICKLE": {
+            "stored_fe": 0,
+            "speeds": [
+              1.1451293230056763,
+              1.1451284885406494
+            ]
+          },
+          "REFILLED": {
+            "stored_fe": 91844,
+            "speeds": [
+              6.956026554107666,
+              6.958045482635498
+            ]
+          },
+          "REGEN_DISABLED": {
+            "stored_fe": 0,
+            "speeds": [
+              0.8995135426521301,
+              0.8995134830474854
+            ]
+          },
+          "REGEN_SETUP_REVERSE": {
+            "stored_fe": 94125,
+            "speeds": [
+              -5.630423069000244,
+              -5.630458354949951
+            ]
+          },
+          "REGEN_SATURATED": {
+            "stored_fe": 1000,
+            "speeds": [
+              -0.9004644751548767,
+              -0.9004642367362976
+            ]
+          }
+        },
+        "ZACSPIN": {
+          "PULSE": {
+            "stored_fe": 0,
+            "speeds": [
+              0.7626020312309265
+            ]
+          },
+          "COAST": {
+            "stored_fe": 0,
+            "speeds": [
+              0.635812520980835
+            ]
+          },
+          "TRICKLE": {
+            "stored_fe": 0,
+            "speeds": [
+              1.3333303928375244
+            ]
+          },
+          "REFILLED": {
+            "stored_fe": 92052,
+            "speeds": [
+              8.323287963867188
+            ]
+          },
+          "REGEN_DISABLED": {
+            "stored_fe": 0,
+            "speeds": [
+              0.8532484173774719
+            ]
+          },
+          "REGEN_SETUP_REVERSE": {
+            "stored_fe": 97226,
+            "speeds": [
+              -4.829570770263672
+            ]
+          },
+          "REGEN_SATURATED": {
+            "stored_fe": 1000,
+            "speeds": [
+              -0.6276621222496033
+            ]
+          }
+        },
+        "FREE_SPIN": {
+          "PULSE": {
+            "stored_fe": 0,
+            "speeds": [
+              0.6603147387504578
+            ]
+          },
+          "COAST": {
+            "stored_fe": 0,
+            "speeds": [
+              0.5729677677154541
+            ]
+          },
+          "TRICKLE": {
+            "stored_fe": 0,
+            "speeds": [
+              1.076799750328064
+            ]
+          },
+          "REFILLED": {
+            "stored_fe": 86342,
+            "speeds": [
+              8.22445011138916
+            ]
+          },
+          "REGEN_DISABLED": {
+            "stored_fe": 0,
+            "speeds": [
+              0.20483967661857605
+            ]
+          },
+          "REGEN_SETUP_REVERSE": {
+            "stored_fe": 94447,
+            "speeds": [
+              -5.073309898376465
+            ]
+          },
+          "REGEN_SATURATED": {
+            "stored_fe": 1000,
+            "speeds": [
+              -0.3187640309333801
+            ]
+          }
+        },
+        "ZACSPIN_REVISED": {
+          "PULSE": {
+            "stored_fe": 0,
+            "speeds": [
+              0.6451466679573059
+            ]
+          },
+          "COAST": {
+            "stored_fe": 0,
+            "speeds": [
+              0.5827118754386902
+            ]
+          },
+          "TRICKLE": {
+            "stored_fe": 0,
+            "speeds": [
+              1.0597611665725708
+            ]
+          },
+          "REFILLED": {
+            "stored_fe": 85337,
+            "speeds": [
+              8.363847732543945
+            ]
+          },
+          "REGEN_DISABLED": {
+            "stored_fe": 0,
+            "speeds": [
+              0.5604466795921326
+            ]
+          },
+          "REGEN_SETUP_REVERSE": {
+            "stored_fe": 94277,
+            "speeds": [
+              -5.051967620849609
+            ]
+          },
+          "REGEN_SATURATED": {
+            "stored_fe": 1000,
+            "speeds": [
+              -0.6028971672058105
+            ]
+          }
+        }
+      }
+    },
+    "combined": {
+      "registered_tests": 28,
+      "optional_skips": 0,
+      "families": {
+        "ARROW": {
+          "PULSE": {
+            "stored_fe": 0,
+            "speeds": [
+              0.6825504302978516,
+              0.6825506091117859
+            ]
+          },
+          "COAST": {
+            "stored_fe": 0,
+            "speeds": [
+              0.6173542141914368,
+              0.6173544526100159
+            ]
+          },
+          "TRICKLE": {
+            "stored_fe": 0,
+            "speeds": [
+              1.1451293230056763,
+              1.1451284885406494
+            ]
+          },
+          "REFILLED": {
+            "stored_fe": 91844,
+            "speeds": [
+              6.956026554107666,
+              6.958045482635498
+            ]
+          },
+          "REGEN_DISABLED": {
+            "stored_fe": 0,
+            "speeds": [
+              0.8995135426521301,
+              0.8995134830474854
+            ]
+          },
+          "REGEN_SETUP_REVERSE": {
+            "stored_fe": 94125,
+            "speeds": [
+              -5.630423069000244,
+              -5.630458354949951
+            ]
+          },
+          "REGEN_SATURATED": {
+            "stored_fe": 1000,
+            "speeds": [
+              -0.9004644751548767,
+              -0.9004642367362976
+            ]
+          }
+        },
+        "ZACSPIN": {
+          "PULSE": {
+            "stored_fe": 0,
+            "speeds": [
+              0.7626020312309265
+            ]
+          },
+          "COAST": {
+            "stored_fe": 0,
+            "speeds": [
+              0.635812520980835
+            ]
+          },
+          "TRICKLE": {
+            "stored_fe": 0,
+            "speeds": [
+              1.3333303928375244
+            ]
+          },
+          "REFILLED": {
+            "stored_fe": 92052,
+            "speeds": [
+              8.323287963867188
+            ]
+          },
+          "REGEN_DISABLED": {
+            "stored_fe": 0,
+            "speeds": [
+              0.8532484173774719
+            ]
+          },
+          "REGEN_SETUP_REVERSE": {
+            "stored_fe": 97226,
+            "speeds": [
+              -4.829570770263672
+            ]
+          },
+          "REGEN_SATURATED": {
+            "stored_fe": 1000,
+            "speeds": [
+              -0.6276621222496033
+            ]
+          }
+        },
+        "FREE_SPIN": {
+          "PULSE": {
+            "stored_fe": 0,
+            "speeds": [
+              0.6603147387504578
+            ]
+          },
+          "COAST": {
+            "stored_fe": 0,
+            "speeds": [
+              0.5729677677154541
+            ]
+          },
+          "TRICKLE": {
+            "stored_fe": 0,
+            "speeds": [
+              1.076799750328064
+            ]
+          },
+          "REFILLED": {
+            "stored_fe": 86342,
+            "speeds": [
+              8.22445011138916
+            ]
+          },
+          "REGEN_DISABLED": {
+            "stored_fe": 0,
+            "speeds": [
+              0.20483967661857605
+            ]
+          },
+          "REGEN_SETUP_REVERSE": {
+            "stored_fe": 94447,
+            "speeds": [
+              -5.073309898376465
+            ]
+          },
+          "REGEN_SATURATED": {
+            "stored_fe": 1000,
+            "speeds": [
+              -0.3187640309333801
+            ]
+          }
+        },
+        "ZACSPIN_REVISED": {
+          "PULSE": {
+            "stored_fe": 0,
+            "speeds": [
+              0.6451466679573059
+            ]
+          },
+          "COAST": {
+            "stored_fe": 0,
+            "speeds": [
+              0.5827118754386902
+            ]
+          },
+          "TRICKLE": {
+            "stored_fe": 0,
+            "speeds": [
+              1.0597611665725708
+            ]
+          },
+          "REFILLED": {
+            "stored_fe": 85337,
+            "speeds": [
+              8.363847732543945
+            ]
+          },
+          "REGEN_DISABLED": {
+            "stored_fe": 0,
+            "speeds": [
+              0.5604466795921326
+            ]
+          },
+          "REGEN_SETUP_REVERSE": {
+            "stored_fe": 94277,
+            "speeds": [
+              -5.051967620849609
+            ]
+          },
+          "REGEN_SATURATED": {
+            "stored_fe": 1000,
+            "speeds": [
+              -0.6028971672058105
+            ]
+          }
+        }
+      }
+    },
+    "base": {
+      "registered_tests": 28,
+      "optional_skips": 5
+    }
+  },
+  "unit_tests_passed": 19,
+  "rejected_fixture_attempts_preserved": 3
+}

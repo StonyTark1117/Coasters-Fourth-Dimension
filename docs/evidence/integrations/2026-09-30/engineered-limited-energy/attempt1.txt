@@ -1,0 +1,128 @@
+> Task :testClasses UP-TO-DATE
+> Task :test
+> Task :build
+FD_ENGINEERED_ENERGY_UNLOAD family=ARROW stored=12345
+FD_ENGINEERED_ENERGY_UNLOAD family=ZACSPIN stored=12346
+FD_ENGINEERED_ENERGY_UNLOAD family=FREE_SPIN stored=12347
+FD_ENGINEERED_ENERGY_UNLOAD family=ZACSPIN_REVISED stored=12348
+FD_ENGINEERED_ENERGY_EVICTED family=ARROW
+FD_ENGINEERED_ENERGY_EVICTED family=ZACSPIN
+FD_ENGINEERED_ENERGY_EVICTED family=FREE_SPIN
+FD_ENGINEERED_ENERGY_EVICTED family=ZACSPIN_REVISED
+FD_ENGINEERED_ENERGY_RELOADED family=ARROW stored=12345 span=true controller=true fresh=true
+FD_ENGINEERED_ENERGY_RELOADED family=ZACSPIN stored=12346 span=true controller=true fresh=true
+FD_ENGINEERED_ENERGY_RELOADED family=FREE_SPIN stored=12347 span=true controller=true fresh=true
+FD_ENGINEERED_ENERGY_RELOADED family=ZACSPIN_REVISED stored=12348 span=true controller=true fresh=true
+FD_ENGINEERED_ENERGY_HELD family=ARROW cars=2 stored=100000
+FD_ENGINEERED_ENERGY_HELD family=ZACSPIN cars=1 stored=100000
+FD_ENGINEERED_ENERGY_HELD family=FREE_SPIN cars=1 stored=100000
+FD_ENGINEERED_ENERGY_HELD family=ZACSPIN_REVISED cars=1 stored=100000
+FD_ENGINEERED_ENERGY_STARVED family=ARROW cars=2
+FD_ENGINEERED_ENERGY_STARVED family=ZACSPIN cars=1
+FD_ENGINEERED_ENERGY_STARVED family=FREE_SPIN cars=1
+FD_ENGINEERED_ENERGY_STARVED family=ZACSPIN_REVISED cars=1
+FD_ENGINEERED_ENERGY_FORWARD family=ARROW stored=91505 speeds=[6.800535678863525, 6.800379276275635]
+FD_ENGINEERED_ENERGY_FORWARD family=ZACSPIN stored=93788 speeds=[7.268717288970947]
+FD_ENGINEERED_ENERGY_FORWARD family=FREE_SPIN stored=88061 speeds=[7.472465515136719]
+FD_ENGINEERED_ENERGY_FORWARD family=ZACSPIN_REVISED stored=87460 speeds=[7.5125346183776855]
+FD_ENGINEERED_ENERGY_BRAKE family=ARROW stored=2148 speeds=[0.8980088829994202, 0.8980096578598022]
+FD_ENGINEERED_ENERGY_BRAKE family=ZACSPIN stored=1430 speeds=[0.6287721991539001]
+FD_ENGINEERED_ENERGY_BRAKE family=FREE_SPIN stored=2891 speeds=[0.20678485929965973]
+FD_ENGINEERED_ENERGY_BRAKE family=ZACSPIN_REVISED stored=3181 speeds=[0.5458821654319763]
+FD_ENGINEERED_ENERGY_REVERSE family=ARROW stored=98851 speeds=[-2.4226083755493164, -2.4226393699645996]
+FD_ENGINEERED_ENERGY_REVERSE family=ZACSPIN stored=99248 speeds=[-2.2883548736572266]
+FD_ENGINEERED_ENERGY_REVERSE family=FREE_SPIN stored=98936 speeds=[-2.2624905109405518]
+FD_ENGINEERED_ENERGY_REVERSE family=ZACSPIN_REVISED stored=98985 speeds=[-2.0758678913116455]
+FD_ENGINEERED_ENERGY_REVERSE_BRAKE family=ARROW stored=236 speeds=[-0.901431679725647, -0.9014315009117126]
+FD_ENGINEERED_ENERGY_REVERSE_BRAKE family=ZACSPIN stored=188 speeds=[-0.5367807745933533]
+FD_ENGINEERED_ENERGY_REVERSE_BRAKE family=FREE_SPIN stored=239 speeds=[-0.8028975129127502]
+FD_ENGINEERED_ENERGY_REVERSE_BRAKE family=ZACSPIN_REVISED stored=217 speeds=[-0.8400775194168091]
+FD_ENGINEERED_ENERGY_PULSE family=ARROW stored=0 speeds=[0.6825504302978516, 0.6825506091117859]
+FD_ENGINEERED_ENERGY_PULSE family=ZACSPIN stored=0 speeds=[0.7626020312309265]
+FD_ENGINEERED_ENERGY_PULSE family=FREE_SPIN stored=0 speeds=[0.6603147387504578]
+FD_ENGINEERED_ENERGY_PULSE family=ZACSPIN_REVISED stored=0 speeds=[0.6451466679573059]
+[23:09:51] [Server thread/ERROR] [minecraft/LogTestReporter]: energyrequiredlinkedtrainlaunchbrakeandreverse failed at 7845104, -60, -5614760! Limited-power motor lost presence or starvation state: ARROW
+FD_ENGINEERED_ENERGY_TUNING_RESTORED buffer=100000 regen=0.3
+FD_ENGINEERED_ENERGY_RESTORED requireEnergy=false
+FD_APPEARANCE styles=false choices=1
+FD_ADDITIONS_CONSIST_SKIPPED: optional 0.2.0 artifact absent; no compatibility evidence
+FD_MAGNETIZED_SKIPPED: optional 1.1.0 artifact absent; no compatibility evidence
+FD_SNAPSHOT_MAX bytes=692652
+FD_ADDITIONS_SKIPPED: optional 0.2.0 artifact absent; no compatibility evidence
+FD_ENDPOINT_AVAILABILITY inactiveRefs=3 ordinaryRefs=2 falseJunction=false
+FD_ENDPOINT_AVAILABILITY restoredRefs=4 nativeMatch=true
+FD_FREE angles=[-1.7668543972305841, -1.8113180186774134] maximum separation=0.7237582353029676
+FD_REVISED_MASS mass=4.0 firstMoment=1.5 inertia=1.9947916666666585
+FD_REVISED_MASS mass=4.0 firstMoment=1.5 inertia=1.9947916666666585
+FD_REVISED_MASS mass=4.0 firstMoment=1.5 inertia=1.9947916666666585
+FD_REVISED_MASS mass=4.0 firstMoment=1.5 inertia=1.9947916666666585
+FD_ENGINEERED_PAX_PROBE segments=3 energyRequired=false cars=4
+FD_ENGINEERED_PAX_COMMAND phase=LIFTING mode=LAUNCH heading=BACKWARD value=100
+FD_SHUTTLE phase=LIFTING distance=57.67979295672926 center=( 6.005E+2  1.811E+2  6.040E+2) max=62.67979295672933 fault=
+FD_FAMILY_MATRIX decisions=25 factoryRejects=20 lockedNativeInitialSnapRejects=20 bindingPreserved=true
+FD_CONTENT_FREE excursions=[0.5824927266569845, 0.3847997490403743] angle=0.09731370158236335 omega=-0.5460240450513593 mass=6.0
+FD_SHUTTLE phase=LIFTING distance=49.679792956729145 center=( 6.005E+2  1.814E+2  5.961E+2) max=62.67979295672933 fault=
+FD_ENGINEERED_PAX_COMMAND phase=FAULT mode=LAUNCH heading=FORWARD value=100
+FD_SHUTTLE phase=FAULT distance=44.679792956729074 center=( 6.005E+2  1.824E+2  5.907E+2) max=62.67979295672933 fault=Winch power lost: retain the train; inspect and resume or recover
+FD_BOUNDARY direction=0 position=(-3.995E+2  1.011E+2  3.380E+2) fault=End of compatible track; capture and inspect the route
+FD_BOUNDARY direction=1 position=(-3.755E+2  1.011E+2  3.030E+2) fault=End of compatible track; capture and inspect the route
+FD_SHUTTLE phase=FAULT distance=44.679792956729074 center=( 6.005E+2  1.824E+2  5.907E+2) max=62.67979295672933 fault=Winch power lost: retain the train; inspect and resume or recover
+FD_NATIVE at230 position=( 1.650E+1  8.162E+1  5.261E+1) from=BlockPos{x=16, y=80, z=16} angles=[12.154606085009732, 12.153236068647086] velocity=( 0.000E+0  0.000E+0  3.000E+0) disengaged=false
+FD_ENGINEERED_PAX_COMMAND phase=LIFTING mode=LAUNCH heading=BACKWARD value=100
+FD_SHUTTLE phase=LIFTING distance=43.67979295672906 center=( 6.005E+2  1.825E+2  5.902E+2) max=62.67979295672933 fault=
+FD_SHUTTLE phase=LIFTING distance=35.679792956728946 center=( 6.005E+2  1.851E+2  5.827E+2) max=62.67979295672933 fault=
+FD_SHUTTLE phase=LIFTING distance=27.679792956728832 center=( 6.005E+2  1.887E+2  5.756E+2) max=62.67979295672933 fault=
+FD_SHUTTLE phase=LIFTING distance=19.67979295672872 center=( 6.005E+2  1.929E+2  5.688E+2) max=62.67979295672933 fault=
+FD_SHUTTLE phase=LIFTING distance=11.679792956728683 center=( 6.005E+2  1.975E+2  5.623E+2) max=62.67979295672933 fault=
+FD_TRAIN maxTurn=6.281204577631095 maxAxleDifference=3.0234782977738894
+FD_TRAIN positions=[(-1.995E+2  1.131E+2  1.461E+2) bound=BlockPos{x=-200, y=112, z=136}->BlockPos{x=-200, y=112, z=172} fault=, (-1.995E+2  1.131E+2  1.401E+2) bound=BlockPos{x=-200, y=112, z=136}->BlockPos{x=-200, y=112, z=172} fault=]
+FD_SHUTTLE phase=LIFTING distance=5.3377094833595775 center=( 6.005E+2  2.015E+2  5.572E+2) max=62.67979295672933 fault=
+FD_SHUTTLE phase=LIFTING distance=3.0080448672249096 center=( 6.005E+2  2.031E+2  5.551E+2) max=62.67979295672933 fault=
+FD_ENGINEERED_PAX_COMMAND phase=OUTBOUND mode=STOP heading=FORWARD value=0
+FD_SHUTTLE phase=OUTBOUND distance=6.549999999999987 center=( 6.005E+2  1.969E+2  5.631E+2) max=62.67979295672933 fault=
+FD_SHUTTLE phase=OUTBOUND distance=10.550000000000018 center=( 6.005E+2  1.826E+2  5.898E+2) max=62.67979295672933 fault=
+FD_SHUTTLE phase=OUTBOUND distance=14.550000000000075 center=( 6.005E+2  1.811E+2  6.228E+2) max=76.60119398035586 fault=
+FD_SHUTTLE_CHUNK_RELOAD recovered=true carriage=5af5cb6a-e816-491d-ab3c-5279374ee13d
+FD_SHUTTLE phase=OUTBOUND distance=18.550000000000132 center=( 6.005E+2  1.845E+2  6.461E+2) max=100.7669488974403 fault=
+FD_ENGINEERED_PAX_COMMAND phase=RETURNING mode=TRIM heading=ROLLING value=1
+FD_SHUTTLE phase=RETURNING distance=22.55000000000019 center=( 6.005E+2  1.839E+2  6.448E+2) max=103.60007036954303 fault=
+FD_ENGINEERED_PAX_COMMAND phase=CAPTURING mode=LAUNCH heading=BACKWARD value=100
+FD_SHUTTLE phase=CAPTURING distance=26.25000000000024 center=( 6.005E+2  1.811E+2  6.222E+2) max=103.60007036954303 fault=
+FD_SHUTTLE phase=CAPTURING distance=64.15588672175603 center=( 6.005E+2  1.811E+2  6.100E+2) max=103.60007036954303 fault=
+FD_SHUTTLE phase=CAPTURING distance=62.79364239323903 center=( 6.005E+2  1.811E+2  6.087E+2) max=103.60007036954303 fault=
+FD_ENGINEERED_PAX_COMMAND phase=BOARDING mode=LAUNCH heading=FORWARD value=100
+FD_ENGINEERED_PAX_COMPLETE cycles=1 observer=true sightings={BOARDING=20, LIFTING=338, OUTBOUND=174, RETURNING=58, CAPTURING=99, FAULT=90}
+FD_SHUTTLE_TALL cycles=2 maximum=142.94420062487296 station=82.92133833155415
+FD_DEMO family=ARROW angleRange=-0.0012762793182983696..6.281216324929916 maxXZ=32.50025969428563,52.500305457990976 ready=true fault=
+FD_DEMO family=ZACSPIN angleRange=-1.1712783582222497..0.4804478986116605 maxXZ=32.5048535350291,52.50000029576893 ready=true fault=
+FD_ENGINEERED_END family=ARROW center=(-7.995E+2  1.511E+2 -6.840E+2) stopped=true ready=true controller=COAST
+FD_ENGINEERED_END family=ZACSPIN center=(-6.495E+2  1.511E+2 -6.841E+2) stopped=true ready=true controller=COAST
+FD_ENGINEERED_END family=FREE_SPIN center=(-4.995E+2  1.511E+2 -6.840E+2) stopped=true ready=true controller=COAST
+FD_ENGINEERED family=ARROW maxXZ=32.50213589731027,52.50219697358477 observer=true ready=true fault=
+FD_ENGINEERED family=ZACSPIN maxXZ=32.568280807444125,52.50318411404669 observer=true ready=true fault=
+FD_ENGINEERED family=FREE_SPIN maxXZ=32.56984875575557,52.50325235954085 observer=true ready=true fault=
+FD_REVISED_NATIVE angles=[-0.7891146334000775, -0.8120196691126066, -0.6381077003147462, -0.7134459418818064]..[0.6955580878319242, 0.6537078207726231, 0.694079345504098, 0.666430472365255] extent=[32.50424357884634, 52.49993914792401] ready=true fault=
+FD_TRACK_PARTIAL_FLUSH native=true
+FD_TRACK_PARTIAL_WAITED ticks=200
+FD_TRACK_PARTIAL family=ARROW banked=false evicted=true valid=true endpoints=1
+FD_TRACK_PARTIAL family=ARROW banked=true evicted=true valid=true endpoints=1
+FD_TRACK_PARTIAL family=ZACSPIN banked=false evicted=true valid=true endpoints=1
+FD_TRACK_PARTIAL family=ZACSPIN banked=true evicted=true valid=true endpoints=1
+FD_TRACK_PARTIAL family=FREE_SPIN banked=false evicted=true valid=true endpoints=1
+FD_TRACK_PARTIAL family=FREE_SPIN banked=true evicted=true valid=true endpoints=1
+FD_TRACK_PARTIAL family=ZACSPIN_REVISED banked=false evicted=true valid=true endpoints=1
+FD_TRACK_PARTIAL family=ZACSPIN_REVISED banked=true evicted=true valid=true endpoints=1
+FD_TRACK_PARTIAL family=PAX banked=false evicted=true valid=true endpoints=1
+FD_TRACK_PARTIAL family=PAX banked=true evicted=true valid=true endpoints=1
+FD_TRACK_PARTIAL_RELOADED family=ARROW banked=false fresh=true geometry=true endpoints=2
+FD_TRACK_PARTIAL_RELOADED family=ARROW banked=true fresh=true geometry=true endpoints=2
+FD_TRACK_PARTIAL_RELOADED family=ZACSPIN banked=false fresh=true geometry=true endpoints=2
+FD_TRACK_PARTIAL_RELOADED family=ZACSPIN banked=true fresh=true geometry=true endpoints=2
+FD_TRACK_PARTIAL_RELOADED family=FREE_SPIN banked=false fresh=true geometry=true endpoints=2
+FD_TRACK_PARTIAL_RELOADED family=FREE_SPIN banked=true fresh=true geometry=true endpoints=2
+FD_TRACK_PARTIAL_RELOADED family=ZACSPIN_REVISED banked=false fresh=true geometry=true endpoints=2
+FD_TRACK_PARTIAL_RELOADED family=ZACSPIN_REVISED banked=true fresh=true geometry=true endpoints=2
+FD_TRACK_PARTIAL_RELOADED family=PAX banked=false fresh=true geometry=true endpoints=2
+FD_TRACK_PARTIAL_RELOADED family=PAX banked=true fresh=true geometry=true endpoints=2
+[23:10:45] [Server thread/INFO] [minecraft/GameTestServer]: 1 required tests failed :(
+BUILD FAILED in 1m 9s
