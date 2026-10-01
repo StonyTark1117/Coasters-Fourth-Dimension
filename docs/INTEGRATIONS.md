@@ -103,7 +103,12 @@ The optional native test explicitly logs a skip when Engineered 1.1.1 is absent.
 That skip is not compatibility evidence. It exercises occupied circuits, the real
 observer, controller STOP-to-LAUNCH transition, carrier mass, rejected early dispatch,
 and station return capture. Braking distances and uphill launch speeds remain physical
-layout constraints.
+layout constraints. A [PAX ownership follow-up](evidence/integrations/2026-09-30/engineered-pax/README.md)
+places active Engineered equipment across the occupied four-car shuttle route.
+Opposing launch, STOP and TRIM commands remain subordinate to the physical winch
+through lift, power-loss hold/resume, gravity return and capture, while the native
+controller and observer continue receiving train-presence reports. This bounded
+native check does not complete the client/lifecycle or FE-on matrix.
 
 For simultaneous builds and packaged-client QA, copy the built JAR to an immutable
 temporary path and pass `-PfdPackaged -PfdPackagedJar=/absolute/path/to/snapshot.jar`.
@@ -203,7 +208,7 @@ Native checks and exact limits are recorded in [Additions evidence](evidence/int
 stack prevent claiming warning-free dedicated startup. A [linked Arrow follow-up](evidence/integrations/2026-09-30/additions-consist/README.md)
 checks native mixed/partial-span rejection, occupancy thresholds, cooldown,
 continuous readiness, departure latching and BOOST/BRAKE/reverse/STOP with two riders.
-Broader linked families, occupancy patterns, curves/slopes, moving track,
+Other supported train configurations, occupancy patterns, curves/slopes, moving track,
 restart/removal, multiplayer and visual acceptance remain open. See the integration evidence directory for exact completed
 checks before advertising any combination.
 

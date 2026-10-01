@@ -123,6 +123,7 @@ public final class ShuttleGameTests {
     var riders = new ArrayList<Pig>();
     var phases = EnumSet.noneOf(ShuttleWinchEntity.Phase.class);
     double[] heights = {0, 0};
+    long[] completedAt = {-1};
     boolean[] measuring = {false};
     var externalDriveChecks = new ArrayList<Runnable>();
     helper.onEachTick(
@@ -172,6 +173,9 @@ public final class ShuttleGameTests {
                 "Shuttle cycle lost native track engagement");
           }
           if (winch.cycles == 1) {
+            if (completedAt[0] < 0) completedAt[0] = level.getGameTime();
+            // Observe a settled occupied boarding hold before unloading, with optional drives live.
+            if (level.getGameTime() - completedAt[0] < 20) return;
             helper.assertTrue(
                 phases.containsAll(
                     EnumSet.of(
@@ -208,6 +212,11 @@ public final class ShuttleGameTests {
               "coastersmagnetized", java.util.Set.of("1.1.0")))
             externalDriveChecks.add(
                 dev.fourthdimension.integration.magnetized.MagnetizedShuttleCheck.attach(
+                    helper, example));
+          if (dev.fourthdimension.integration.OptionalIntegrations.supported(
+              "coastersengineered", java.util.Set.of("1.1.1")))
+            externalDriveChecks.add(
+                dev.fourthdimension.integration.engineered.EngineeredShuttleCheck.attach(
                     helper, example));
           for (var v : example.cars())
             for (var c : v.carriers) {

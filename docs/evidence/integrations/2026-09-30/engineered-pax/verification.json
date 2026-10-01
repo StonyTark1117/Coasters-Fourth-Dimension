@@ -1,0 +1,28 @@
+{
+  "scope": "Four PAX cars, sixteen native passengers, compact fixed shuttle route",
+  "profiles": {
+    "engineered": {
+      "commands": 7,
+      "native_presence_ticks": {
+        "BOARDING": 20,
+        "LIFTING": 338,
+        "OUTBOUND": 174,
+        "RETURNING": 59,
+        "CAPTURING": 90,
+        "FAULT": 90
+      }
+    },
+    "combined": {
+      "commands": 7,
+      "native_presence_ticks": {
+        "BOARDING": 20,
+        "LIFTING": 338,
+        "OUTBOUND": 174,
+        "RETURNING": 58,
+        "CAPTURING": 98,
+        "FAULT": 90
+      }
+    }
+  },
+  "base_optional_isolation_passed": true
+}

@@ -1,0 +1,36 @@
+FD_ADDITIONS_SKIPPED: optional 0.2.0 artifact absent; no compatibility evidence
+FD_APPEARANCE styles=false choices=1
+FD_ADDITIONS_CONSIST_SKIPPED: optional 0.2.0 artifact absent; no compatibility evidence
+FD_MAGNETIZED_SKIPPED: optional 1.1.0 artifact absent; no compatibility evidence
+FD_SNAPSHOT_MAX bytes=692652
+[20:58:23] [Server thread/WARN] [minecraft/MinecraftServer]: Can't keep up! Is the server overloaded? Running 2568ms or 51 ticks behind
+FD_FREE angles=[-1.7668317866087555, -1.811224865365611] maximum separation=0.7238805950193867
+FD_REVISED_MASS mass=4.0 firstMoment=1.5 inertia=1.9947916666666585
+FD_REVISED_MASS mass=4.0 firstMoment=1.5 inertia=1.9947916666666585
+FD_REVISED_MASS mass=4.0 firstMoment=1.5 inertia=1.9947916666666585
+FD_REVISED_MASS mass=4.0 firstMoment=1.5 inertia=1.9947916666666585
+FD_ENGINEERED_PAX_PROBE segments=3 energyRequired=false cars=4
+FD_ENGINEERED_PAX_COMMAND phase=LIFTING mode=LAUNCH heading=BACKWARD value=100
+FD_SHUTTLE phase=LIFTING distance=59.07979295672928 center=( 6.005E+2  1.811E+2  6.084E+2) max=62.67979295672933 fault=
+FD_FAMILY_MATRIX decisions=25 factoryRejects=20 lockedNativeInitialSnapRejects=20 bindingPreserved=true
+[20:58:29] [Server thread/INFO] [de.si.si.SimulatedCoasters/]: [cart-link] coupler snapped under tension 98dd4aef-4409-493f-8d9e-e347930819fd <-> 18cc55ad-94ca-44ca-8d24-d30de6281f1e
+[20:58:29] [Server thread/ERROR] [minecraft/LogTestReporter]: sixteenridersphysicalcarriagepowerholdgravityreturn failed at 12771041, -60, 14644310! Shuttle telemetry lost consist or phase
+FD_CONTENT_FREE excursions=[0.5824935375570668, 0.38479943799879934] angle=0.09727866235311895 omega=-0.5460247006518942 mass=6.0
+FD_BOUNDARY direction=0 position=(-3.995E+2  1.011E+2  3.380E+2) fault=End of compatible track; capture and inspect the route
+FD_BOUNDARY direction=1 position=(-3.755E+2  1.011E+2  3.030E+2) fault=End of compatible track; capture and inspect the route
+FD_NATIVE at230 position=( 1.650E+1  8.162E+1  5.261E+1) from=BlockPos{x=16, y=80, z=16} angles=[12.154606085009732, 12.153236068647086] velocity=(-4.411E-5 -4.125E-4  3.217E+0) disengaged=false
+FD_TRAIN maxTurn=6.2812025259271325 maxAxleDifference=3.023476850000802
+FD_TRAIN positions=[(-1.995E+2  1.131E+2  1.462E+2) bound=BlockPos{x=-200, y=112, z=136}->BlockPos{x=-200, y=112, z=172} fault=, (-1.995E+2  1.131E+2  1.402E+2) bound=BlockPos{x=-200, y=112, z=136}->BlockPos{x=-200, y=112, z=172} fault=]
+FD_SHUTTLE_CHUNK_RELOAD recovered=true carriage=a1758d71-02a2-415f-942d-e664a31a059f
+FD_SHUTTLE_TALL cycles=2 maximum=142.94341008419116 station=82.92133833155415
+FD_DEMO family=ARROW angleRange=-0.0012762793182983696..6.281216324929916 maxXZ=32.50025969428563,52.500305457990976 ready=true fault=
+FD_DEMO family=ZACSPIN angleRange=-1.1711594998678843..0.4804102423533683 maxXZ=32.504837212818416,52.50000029154501 ready=true fault=
+FD_ENGINEERED_END family=ARROW center=(-7.995E+2  1.511E+2 -6.836E+2) stopped=true ready=true controller=COAST
+FD_ENGINEERED_END family=ZACSPIN center=(-6.495E+2  1.511E+2 -6.842E+2) stopped=true ready=true controller=COAST
+FD_ENGINEERED_END family=FREE_SPIN center=(-4.995E+2  1.511E+2 -6.841E+2) stopped=true ready=true controller=COAST
+FD_ENGINEERED family=ARROW maxXZ=32.50213589731027,52.50219697358477 observer=true ready=true fault=
+FD_ENGINEERED family=ZACSPIN maxXZ=32.5688260702326,52.503034823786265 observer=true ready=true fault=
+FD_ENGINEERED family=FREE_SPIN maxXZ=32.569420473388504,52.5032450971388 observer=true ready=true fault=
+FD_REVISED_NATIVE angles=[-0.7889219871564247, -0.8112944308567169, -0.6380970679020933, -0.7136392228422992]..[0.695419943100824, 0.6539755741543957, 0.6943854228577984, 0.6663929713598111] extent=[32.50425112150509, 52.49993913972105] ready=true fault=
+[20:59:20] [Server thread/INFO] [minecraft/GameTestServer]: 1 required tests failed :(
+BUILD FAILED in 1m 12s

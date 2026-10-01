@@ -1,0 +1,40 @@
+{
+  "attempt1": {
+    "full_log": "/tmp/fd-engineered-pax1.log",
+    "sha256": "c2088958d578823aa5e3c1245386b90fe64198764a68cd807b1d262dff389745",
+    "exit_status": 1
+  },
+  "engineered": {
+    "full_log": "/tmp/fd-engineered-pax-final-engineered.log",
+    "sha256": "750837cafa9efc5063da130e02c84e678023a828017012b5565cd586fed3981e",
+    "exit_status": 0,
+    "registered_tests_passed": 25,
+    "optional_fixtures_skipped": 3
+  },
+  "pre_hold_engineered": {
+    "full_log": "/tmp/fd-engineered-pax2.log",
+    "sha256": "5b5ea1aac5b3275198e8453f72cda41dd60dc3d89b21c4df2eb9744c71d3a435",
+    "exit_status": 0,
+    "note": "Corrected clearance; before final 20-tick occupied boarding assertion."
+  },
+  "pre_hold_combined": {
+    "full_log": "/tmp/fd-engineered-pax-combined.log",
+    "sha256": "fe35e5154f98ba97d46141d9ed8000a85c2dc2b5adb1e285474dbe622cba83d3",
+    "exit_status": 0,
+    "note": "Corrected clearance; before final 20-tick occupied boarding assertion."
+  },
+  "combined": {
+    "full_log": "/tmp/fd-engineered-pax-final-combined.log",
+    "sha256": "49b41b940096fbb155e49372b2a227d4348d2c103066eacbc3894201056e5bcd",
+    "exit_status": 0,
+    "registered_tests_passed": 25,
+    "optional_fixtures_skipped": 0
+  },
+  "base": {
+    "full_log": "/tmp/fd-engineered-pax-final-base.log",
+    "sha256": "6f2f0c7f31147bf75fbe95a00e9c430f972e921550df5543a8ac6ab1088d126a",
+    "exit_status": 0,
+    "registered_tests_passed": 25,
+    "optional_fixtures_skipped": 4
+  }
+}
