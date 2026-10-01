@@ -69,3 +69,22 @@ combinations only after the runtime matrix; inspection profiles alone are not
 advertised gameplay support.
 
 The [partial infrastructure evidence](evidence/0.4/README.md) records 19 native and 19 unit passing checks, public catalog discovery of 55 installed entries, and original Arrow rendering. Resource reload, style rendering and clean optional-client exit/removal acceptance remain pending.
+
+## Released Arrow model finding
+
+The 1.2.0 public catalog initialization includes `arrow_4d` and
+`arrow_4d_dbl_spine`, and the JAR contains their spine, tie and rail resources,
+despite the page's future-feature label. Both rail models include extra rails at
+fixed offsets. This changes the appearance investigation: the released models
+are available to inspect. It does not prove the functional profile interface or
+variable control-rail movement needed by FD801.
+
+The independent adapter will consume decorative components only and retain our
+profile-driven control rails. Native model origins differ: the inspected spines
+are centered on X/Z, while tie bounds include a local X offset. They require
+separate transforms, not a shared guessed translation. Raw extrema and the
+source JAR hash are recorded in `research/track-styles-1.2.0-model-bounds.json`;
+reproduce them with `python scripts/inspect-track-style-models.py <installed-jar>`.
+These aggregate measurements are not copied models and are not a clearance
+certificate. Native curve alignment, connector ownership and visual clearance
+remain required before enabling a style.

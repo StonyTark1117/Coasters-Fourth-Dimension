@@ -253,6 +253,11 @@
         "Four separately accessible partial models: centerBeam, tie, leftRail, rightRail.",
         "The page/JAR license discrepancy persists; no code or assets copied or bundled.",
         "No runtime compatibility claim from signature inspection."
+      ],
+      "additional_model_findings": [
+        "Public catalog initialization registers arrow_4d and arrow_4d_dbl_spine despite the project page listing Arrow 4D as future work.",
+        "Their two rail model resources each contain fixed extra rail geometry. This is a rendered style, not evidence of a variable control-rail profile or functional cart-family contract.",
+        "Aggregate raw OBJ bounds for candidate spine/tie models are recorded in research/track-styles-1.2.0-model-bounds.json. Native component offsets, curve transforms and swept clearance still need runtime validation."
       ]
     }
   ],
