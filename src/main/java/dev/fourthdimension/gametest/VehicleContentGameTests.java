@@ -114,6 +114,33 @@ public final class VehicleContentGameTests {
               c.occupants.contains(rider.getUUID()),
               "Carrier occupancy is not synchronized with passenger entities");
           v.restraints = true;
+          var savedSeat = new net.minecraft.nbt.CompoundTag();
+          helper.assertTrue(
+              rider.getVehicle().save(savedSeat), "Native occupied seat did not serialize");
+          var replay =
+              net.minecraft.world.entity.EntityType.loadEntityRecursive(
+                  savedSeat, level, entity -> entity);
+          helper.assertTrue(
+              replay != null
+                  && replay.getPassengers().size() == 1
+                  && replay.getFirstPassenger().getUUID().equals(rider.getUUID())
+                  && !replay.isAddedToLevel()
+                  && !replay.getFirstPassenger().isAddedToLevel(),
+              "Saved passenger was rejected by closed restraints during deserialization");
+          var unknownSeat = savedSeat.copy();
+          unknownSeat
+              .getList("Passengers", net.minecraft.nbt.Tag.TAG_COMPOUND)
+              .getCompound(0)
+              .putUUID("UUID", java.util.UUID.randomUUID());
+          var rejected =
+              net.minecraft.world.entity.EntityType.loadEntityRecursive(
+                  unknownSeat, level, entity -> entity);
+          helper.assertTrue(
+              rejected != null && rejected.getPassengers().isEmpty(),
+              "Unknown serialized passenger bypassed closed restraints");
+          helper.assertTrue(rider.isPassenger(), "Deserialization probe disturbed the live rider");
+          System.out.println(
+              "FD_SAVED_PASSENGER nativeReplay=true unknownRejected=true liveUnchanged=true");
           rider.stopRiding();
           helper.assertTrue(rider.isPassenger(), "Moving restraint can be bypassed with dismount");
           v.restraints = false;

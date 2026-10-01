@@ -1,0 +1,10 @@
+tick query: The game is frozen
+Target tick rate: 20.0 per second.
+Average time per tick: 0.2ms (Target: 50.0ms)
+Percentiles: P50: 0.2ms P95: 0.2ms P99: 0.5ms, sample: 100
+
+fd validation energy_restart create: Native physics currently requires building within 1024 blocks of origin
+
+tick step 40: Stepping 40 tick(s)
+
+stop: Stopping the server

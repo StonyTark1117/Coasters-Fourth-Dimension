@@ -78,6 +78,7 @@ public final class Boarding {
     if (binding == null || FoundationData.VARIANT.equals(binding.vehicle.variant)) return;
     if (event.isMounting()) {
       if (!RESTORING.contains(event.getEntityMounting().getUUID())
+          && !restoringSavedPassenger(level, event.getEntityMounting(), seat, binding)
           && !canBoard(level, seat.blockPosition())) event.setCanceled(true);
     } else if (binding.vehicle.restraints
         && !event.getEntityMounting().isRemoved()
@@ -96,6 +97,22 @@ public final class Boarding {
         if (exit != null) queueExit(level, player, exit);
       }
     }
+  }
+
+  private static boolean restoringSavedPassenger(
+      ServerLevel level, Entity rider, Entity seat, Binding binding) {
+    // Native entity NBT replays passengers before either entity joins the level. Keep that
+    // saved attachment even with closed restraints; live boarding still uses canBoard.
+    if (rider instanceof net.minecraft.world.entity.player.Player
+        || rider.isAddedToLevel()
+        || seat.isAddedToLevel()
+        || !rider.isAlive()
+        || !(seat instanceof com.simibubi.create.content.contraptions.actors.seat.SeatEntity)
+        || !binding.carrier.occupants.contains(rider.getUUID())) return false;
+    var body = SubLevelContainer.getContainer(level).getSubLevel(binding.carrier.body);
+    return body != null
+        && binding.carrier.seats.contains(
+            seat.blockPosition().subtract(body.getPlot().getCenterBlock()));
   }
 
   private static net.minecraft.world.phys.Vec3 findExit(

@@ -1,0 +1,31 @@
+fd validation energy_restart report cold: An unexpected error occurred trying to execute that command
+Vehicle chassis is unavailable
+
+tick step 100: Stepping 100 tick(s)
+
+fd validation energy_restart report restored: Energy restart snapshot recorded
+
+save-all flush: Saving the game (this may take a moment!)
+Saved the game
+
+execute as @e[type=minecraft:pig,tag=fd_energy_restart] run data get entity @s UUID: Pig has the following entity data: [I; 872698282, -25278707, -1934083309, 83711912]
+Pig has the following entity data: [I; 1368997415, -1659810427, -1513523471, -793401816]
+Pig has the following entity data: [I; 211199606, -1467924475, -2012364513, 1130881537]
+Pig has the following entity data: [I; 1996696828, 482823410, -1203361776, -2077426721]
+Pig has the following entity data: [I; 690278886, -1133687022, -1752362569, -526711662]
+
+execute as @e[type=create:seat] run data get entity @s:
+tick step 100: Stepping 100 tick(s)
+
+execute as @e[type=minecraft:pig,tag=fd_energy_restart] run data get entity @s Pos: Pig has the following entity data: [-763.5004247453887d, 216.6622475157984d, -776.5885344637571d]
+Pig has the following entity data: [-723.5000761302884d, 216.66246711338457d, -778.5136159350079d]
+Pig has the following entity data: [-803.5004550385183d, 216.6623734785382d, -775.6068440892852d]
+Pig has the following entity data: [-683.5001407043327d, 216.66245704803634d, -778.5072325957776d]
+Pig has the following entity data: [-803.5004550383959d, 216.66237347853001d, -781.6068440868652d]
+
+fd validation energy_restart report missing: Energy restart snapshot recorded
+
+save-all flush: Saving the game (this may take a moment!)
+Saved the game
+
+stop: Stopping the server

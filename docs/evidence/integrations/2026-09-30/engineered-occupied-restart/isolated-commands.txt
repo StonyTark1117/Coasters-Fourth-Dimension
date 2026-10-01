@@ -1,0 +1,41 @@
+tick step 100: Stepping 100 tick(s)
+
+fd validation energy_restart report restored: Energy restart snapshot recorded
+
+save-all flush: Saving the game (this may take a moment!)
+Saved the game
+
+fd validation energy_restart dispatch: Energy restart fixture: dispatch
+
+tick step 80: Stepping 80 tick(s)
+
+fd validation energy_restart report forward: Energy restart snapshot recorded
+
+fd validation energy_restart brake: Energy restart fixture: brake
+
+tick step 40: Stepping 40 tick(s)
+
+fd validation energy_restart report braked: Energy restart snapshot recorded
+
+fd validation energy_restart capture: Energy restart fixture: capture
+
+tick step 130: Stepping 130 tick(s)
+
+fd validation energy_restart report captured: Energy restart snapshot recorded
+
+fd validation energy_restart unload: Energy restart fixture: unload
+
+tick step 10: Stepping 10 tick(s)
+
+fd validation energy_restart report unloaded: Energy restart snapshot recorded
+
+execute as @e[type=minecraft:pig,tag=fd_energy_restart] run data get entity @s UUID: Pig has the following entity data: [I; 872698282, -25278707, -1934083309, 83711912]
+Pig has the following entity data: [I; 1368997415, -1659810427, -1513523471, -793401816]
+Pig has the following entity data: [I; 211199606, -1467924475, -2012364513, 1130881537]
+Pig has the following entity data: [I; 1996696828, 482823410, -1203361776, -2077426721]
+Pig has the following entity data: [I; 690278886, -1133687022, -1752362569, -526711662]
+
+save-all flush: Saving the game (this may take a moment!)
+Saved the game
+
+stop: Stopping the server

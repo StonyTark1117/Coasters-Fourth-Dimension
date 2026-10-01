@@ -129,7 +129,7 @@ It exposed global endpoint sampling and Additions redstone polling that kept idl
 preserves junction topology, and periodic geometry validation waits for ticking
 endpoints. All 27 native checks pass in base, five individual-addon and combined
 profiles, with explicit optional skips recorded. Occupied chunk interruption and
-full process restart with FE enabled remain open.
+human-player process restart with FE enabled remain open.
 
 The [limited-energy extension](evidence/integrations/2026-09-30/engineered-limited-energy/README.md)
 adds a 100 FE pulse, 5 FE/tick trickle, supply loss and full-refill recovery for the
@@ -139,6 +139,15 @@ all passengers and the Arrow coupling. The test restores its energy settings and
 passes in Engineered-only and combined packs, with base isolation checked separately.
 This is direct capability input, not an external generator/cable test; broader
 configuration and occupied lifecycle coverage remains open.
+
+A [packaged occupied FE restart](evidence/integrations/2026-09-30/engineered-occupied-restart/README.md)
+now preserves five native pig passengers, fourteen carrier bodies, an Arrow coupling
+and four exact FE balances in combined and Engineered-only processes. It exposed a
+boarding guard that rejected saved non-player attachments through closed restraints;
+the fix recognizes only known saved occupants and valid seats before the entities
+join the level. Unknown serialized riders remain rejected, and live boarding retains
+its checks. The restored cars launch, regenerate while braking, recapture and unload.
+Human-player FE reconnect and occupied chunk interruption remain separate open cases.
 
 A further [connected-route interruption check](evidence/integrations/2026-09-30/connected-track-chunks/README.md)
 covers flat and varying-bank routes for all five families. Native bank-chain lookups

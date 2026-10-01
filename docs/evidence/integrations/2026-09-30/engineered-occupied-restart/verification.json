@@ -1,0 +1,62 @@
+{
+  "scope": "Five native pig passengers; four straight FE-driven families; cold dedicated-server restart",
+  "dedicated": {
+    "fixed-after": {
+      "ARROW": {
+        "restored_fe": 12345,
+        "after_launch_fe": 3854,
+        "after_braking_fe": 2148,
+        "riders": 2
+      },
+      "ZACSPIN": {
+        "restored_fe": 12346,
+        "after_launch_fe": 6133,
+        "after_braking_fe": 1412,
+        "riders": 1
+      },
+      "FREE_SPIN": {
+        "restored_fe": 12347,
+        "after_launch_fe": 411,
+        "after_braking_fe": 2889,
+        "riders": 1
+      },
+      "ZACSPIN_REVISED": {
+        "restored_fe": 12348,
+        "after_launch_fe": 0,
+        "after_braking_fe": 3126,
+        "riders": 1
+      }
+    },
+    "isolated": {
+      "ARROW": {
+        "restored_fe": 12345,
+        "after_launch_fe": 3854,
+        "after_braking_fe": 2148,
+        "riders": 2
+      },
+      "ZACSPIN": {
+        "restored_fe": 12346,
+        "after_launch_fe": 6133,
+        "after_braking_fe": 1412,
+        "riders": 1
+      },
+      "FREE_SPIN": {
+        "restored_fe": 12347,
+        "after_launch_fe": 411,
+        "after_braking_fe": 2889,
+        "riders": 1
+      },
+      "ZACSPIN_REVISED": {
+        "restored_fe": 12348,
+        "after_launch_fe": 0,
+        "after_braking_fe": 3126,
+        "riders": 1
+      }
+    }
+  },
+  "native_profiles": 7,
+  "registered_tests_per_profile": 28,
+  "unit_tests": 19,
+  "preserved_passengers": 5,
+  "preserved_carrier_bodies": 14
+}

@@ -1,0 +1,79 @@
+{
+  "setup": {
+    "full_log": "/tmp/fd-energy-restart-setup.log",
+    "sha256": "8ec43be34dcbfa35c4430479dae3acd8f28b875eaf597ffc82a60d768929e039",
+    "exit_status": 0
+  },
+  "before": {
+    "full_log": "/tmp/fd-energy-restart-before.log",
+    "sha256": "ad202da3ef83b49d8d6445075483d72a0a5afb2ae313b7982cdc02176d2a936d",
+    "exit_status": 0
+  },
+  "combined-before": {
+    "full_log": "/tmp/fd-energy-restart-combined-before.log",
+    "sha256": "f7af7ba006d607537e6f526adc2a135200f1a78d82bb01769ca90f708ed4ba38",
+    "exit_status": 0
+  },
+  "combined-after": {
+    "full_log": "/tmp/fd-energy-restart-combined-after.log",
+    "sha256": "513218e92b32ee56de59181c7241850a6628e0fad859431e985e9d3a2675ba85",
+    "exit_status": 0
+  },
+  "probe": {
+    "full_log": "/tmp/fd-energy-restart-probe.log",
+    "sha256": "b9b8335c52eae93a7efb75ddb95267667eddec26e324803fe7afd00a07b9ecec",
+    "exit_status": 0
+  },
+  "fixed-before": {
+    "full_log": "/tmp/fd-energy-restart-fixed-before.log",
+    "sha256": "71dfb7dc8cd5128233e9900a8bc746afe56d34ff9b0b1c2cd38a2351f443ce31",
+    "exit_status": 0
+  },
+  "fixed-after": {
+    "full_log": "/tmp/fd-energy-restart-fixed-after.log",
+    "sha256": "7bd321108ccfe8fccdfb5eb3979e167e864d0856a476553ec80690dab346629a",
+    "exit_status": 0,
+    "operation_exit_status": 0
+  },
+  "isolated": {
+    "full_log": "/tmp/fd-energy-restart-isolated.log",
+    "sha256": "85e830cdde9e0dbb79e9e41a70813eb1fc4a01d4b746d75b49ab8ea77ba2002e",
+    "exit_status": 0,
+    "operation_exit_status": 0
+  },
+  "native-base": {
+    "full_log": "/tmp/fd-energy-restart-native-base.log",
+    "sha256": "d821429301cd67b7409ad0dc168077742dd235f69d8db1bf5fbabea902e7f09f",
+    "exit_status": 0
+  },
+  "native-engineered": {
+    "full_log": "/tmp/fd-energy-restart-native-engineered.log",
+    "sha256": "b365719d6e8bc64fd8d45602ae6b5be12cdf710e0d1641b98c7176a42475f837",
+    "exit_status": 0
+  },
+  "native-styles": {
+    "full_log": "/tmp/fd-energy-restart-native-styles.log",
+    "sha256": "e3bab9de4799cce400cade7be5ab50739a934c1b232a6082acd1f89c97a7bfec",
+    "exit_status": 0
+  },
+  "native-additions": {
+    "full_log": "/tmp/fd-energy-restart-native-additions.log",
+    "sha256": "264cf31c7888a0bc7cc2639b65efdc021da3bf0310a344e91290ed6204616703",
+    "exit_status": 0
+  },
+  "native-magnetized": {
+    "full_log": "/tmp/fd-energy-restart-native-magnetized.log",
+    "sha256": "de0e30ddf046372ecd2cefd9bc6a70da434e2abe2ca739d6b70a48968458de31",
+    "exit_status": 0
+  },
+  "native-immersion": {
+    "full_log": "/tmp/fd-energy-restart-native-immersion.log",
+    "sha256": "16f285980ad596ae93fe5faeb3782a9dd1454efc9e3538c10eeb5bc0131f8c36",
+    "exit_status": 0
+  },
+  "native-combined": {
+    "full_log": "/tmp/fd-energy-restart-native-combined.log",
+    "sha256": "e916c1776aa2cf9912f6df8729604270b54493f526b1252467a17ccedc612b4f",
+    "exit_status": 0
+  }
+}
