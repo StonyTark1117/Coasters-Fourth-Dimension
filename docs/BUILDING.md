@@ -36,6 +36,10 @@ to obtain these items.
 1. Place two native Coasters anchors in a clear area. Use the matching family
    track item on the first anchor and then the second. Sneak-click cancels the
    first selection. Use the native Coasters tools to shape the connection.
+   Survival placement consumes one matching track item for every four blocks
+   of sampled curve length, rounded up for each connection: a 32-block straight
+   costs eight items. Have the required items in your inventory before the second
+   click. Anchor endpoints must be distinct and no more than 64 blocks apart.
 2. Connect the rest of the route with the same family. Leave room for the entire
    car, rotating carriers and riders; a wheel-sized corridor is insufficient.
 3. Use the matching car item on a track anchor to assemble the car. Carriers
@@ -71,10 +75,21 @@ tested bounds, not general-world or unlimited-layout support.
 The ordinary boarding station binds a nearby non-PAX car when used empty-handed.
 Power at its rear requests capture; releasing power requests dispatch. Its front
 indicates readiness and its right side indicates closed restraints. Binding the
-station does not supply propulsion. PAX uses the winch's cycle instead of the
+station does not supply propulsion. Binding searches within twelve blocks;
+capture, dispatch and the status outputs operate when the car center is within
+eight blocks. Position the station beside a clear boarding platform outside the
+carriers' swept envelope. PAX uses the winch's cycle instead of the
 station's normal redstone dispatch.
 
-For PAX, place the winch within twelve blocks of a stopped train and sneak-use it
+For PAX, build an unbranched matching route with two open ends. Both spike
+samples, three blocks inward from their ends, must be at least ten blocks above
+the station track. The station tangent must be nearly level. Leave at least
+25 blocks of route before the lead car and at least `6 × (cars − 1) + 20` blocks
+after it, measured along the route. You can operate one to four matching cars;
+the four-car walkthrough needs at least 38 blocks after the lead car. A flat
+straight section can hold a car but cannot bind as a working shuttle route.
+
+Place the winch within twelve blocks of a stopped train and sneak-use it
 to bind. An operator uses the winch to start the cycle. After an interrupted lift,
 restore power and inspect the route, then use the winch normally to resume.
 Restrained riders need an operator on the platform. Keep the winch, its supports
@@ -139,5 +154,7 @@ supported mechanisms.
 
 This guide, item guidance, recipe discovery and the Ponder lessons progress
 FD403. Complete survival building/operating exercises and the full 0.4 gate
-remain unfinished. See the [Ponder checkpoint](evidence/0.4/ponder-acceptance.md)
+through a real client remain unfinished. Native survival crafting/placement has
+[separate bounded evidence](evidence/0.4/survival-acceptance.md). See the
+[Ponder checkpoint](evidence/0.4/ponder-acceptance.md)
 for the exact packaged-client and native-resource checks.

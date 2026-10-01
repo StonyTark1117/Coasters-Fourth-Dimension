@@ -1,0 +1,63 @@
+{
+  "checkpoint": "FD403 native survival crafting and world placement; PAX station rejection",
+  "version": "0.9.0-dev.11",
+  "schema": 5,
+  "protocol": 5,
+  "native": {
+    "standalone": {
+      "path": "/tmp/fd-survival-final-standalone.log",
+      "sha256": "2f20bb3c9b52b5b27116214cebff58b178a0f3964d7129da32261e7b9b894c1e",
+      "required_tests_passed": 28
+    },
+    "combined": {
+      "path": "/tmp/fd-survival-final-combined.log",
+      "sha256": "29a39999ee6bc2f89958dc16bb843e0d65de21c94f946d6382427f27f9c0ee30",
+      "required_tests_passed": 28
+    }
+  },
+  "regression_before": {
+    "path": "/tmp/fd-survival-station-regression-before.log",
+    "sha256": "14ba6abf37cdbbf0e9e5920507a805e31412dcfd64c818faab5d43737411d3f9",
+    "station_source_revision": "64836ce4058ae8d6894700854fbf6b492e7b4803",
+    "station_source_sha256": "fef0a3de47d3b6a66b0a7cb22d2416c11ae9398531696f26d8f3a867bf22e52d",
+    "accepted_pax": true,
+    "note": "Old station source with the new survival test and uncommitted metadata; a failing probe, not an accepted release artifact."
+  },
+  "coverage": {
+    "recipe_types": 15,
+    "craft_operations": 16,
+    "native_result_slot": true,
+    "survival_game_mode": true,
+    "track_families": 5,
+    "insufficient_stock_graph_atomicity": true,
+    "selection_cancellation": true,
+    "wrong_family_car_rejections": 20,
+    "matching_cars_placed": 5,
+    "native_magnetic_items_used": 2,
+    "initial_capture": true,
+    "non_pax_station_binding": true,
+    "pax_station_rejection": true,
+    "old_pax_binding_cleared_on_use": true,
+    "flat_shuttle_route_rejected_without_allocation": true
+  },
+  "fixture_limits": [
+    "Raw materials, native upstream components, stone supports, crafting table and loaded chunks are supplied.",
+    "The detached native ServerPlayer uses a fake outbound connection; it is not a negotiated real client.",
+    "Craft grids are populated from the owned inventory; menus and world interactions run on the server.",
+    "Straight sections are not powered circuits or a complete PAX shuttle route.",
+    "No physical rider interaction, client GUI, resource reload or occupied ride is asserted."
+  ],
+  "unit": {
+    "tests": 25,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "artifact": {
+    "name": "coasters-fourth-dimension-0.9.0-dev.11.jar",
+    "sha256": "2a55e6776994628c4b6577b167ae21afd3b2dc5c5cac91a566e59c64f621cdfb",
+    "same_after_combined_build": true
+  },
+  "full_survival_exercises_complete": false,
+  "open_gates": "FD403 full survival operating exercises; FD401/402/404 and FD901-905"
+}

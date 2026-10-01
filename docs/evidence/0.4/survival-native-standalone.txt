@@ -1,0 +1,29 @@
+FD_ENGINEERED_FE absent/uninspected: energy scenario not exercised
+[02:51:30] [Server thread/INFO] [de.fo.ga.SurvivalBuildingGameTests/]: FD_SURVIVAL craft=arrow_track count=16 gridConsumed=true recipeDiscovered=true
+[02:51:30] [Server thread/INFO] [de.fo.ga.SurvivalBuildingGameTests/]: FD_SURVIVAL craft=arrow_car count=1 gridConsumed=true recipeDiscovered=true
+[02:51:30] [Server thread/INFO] [de.fo.ga.SurvivalBuildingGameTests/]: FD_SURVIVAL craft=legacy_zacspin_track count=16 gridConsumed=true recipeDiscovered=true
+[02:51:30] [Server thread/INFO] [de.fo.ga.SurvivalBuildingGameTests/]: FD_SURVIVAL craft=legacy_zacspin_car count=1 gridConsumed=true recipeDiscovered=true
+[02:51:30] [Server thread/INFO] [de.fo.ga.SurvivalBuildingGameTests/]: FD_SURVIVAL craft=free_spin_track count=16 gridConsumed=true recipeDiscovered=true
+[02:51:30] [Server thread/INFO] [de.fo.ga.SurvivalBuildingGameTests/]: FD_SURVIVAL craft=free_spin_car count=1 gridConsumed=true recipeDiscovered=true
+[02:51:30] [Server thread/INFO] [de.fo.ga.SurvivalBuildingGameTests/]: FD_SURVIVAL craft=revised_zacspin_track count=16 gridConsumed=true recipeDiscovered=true
+[02:51:30] [Server thread/INFO] [de.fo.ga.SurvivalBuildingGameTests/]: FD_SURVIVAL craft=revised_zacspin_car count=1 gridConsumed=true recipeDiscovered=true
+[02:51:30] [Server thread/INFO] [de.fo.ga.SurvivalBuildingGameTests/]: FD_SURVIVAL craft=pax_track count=16 gridConsumed=true recipeDiscovered=true
+[02:51:30] [Server thread/INFO] [de.fo.ga.SurvivalBuildingGameTests/]: FD_SURVIVAL craft=pax_car count=1 gridConsumed=true recipeDiscovered=true
+[02:51:30] [Server thread/INFO] [de.fo.ga.SurvivalBuildingGameTests/]: FD_SURVIVAL craft=rotation_tool count=1 gridConsumed=true recipeDiscovered=true
+[02:51:30] [Server thread/INFO] [de.fo.ga.SurvivalBuildingGameTests/]: FD_SURVIVAL craft=boarding_station count=1 gridConsumed=true recipeDiscovered=true
+[02:51:30] [Server thread/INFO] [de.fo.ga.SurvivalBuildingGameTests/]: FD_SURVIVAL craft=magnetic_inducer count=2 gridConsumed=true recipeDiscovered=true
+[02:51:30] [Server thread/INFO] [de.fo.ga.SurvivalBuildingGameTests/]: FD_SURVIVAL craft=magnetic_damper count=2 gridConsumed=true recipeDiscovered=true
+[02:51:30] [Server thread/INFO] [de.fo.ga.SurvivalBuildingGameTests/]: FD_SURVIVAL craft=shuttle_winch count=1 gridConsumed=true recipeDiscovered=true
+[02:51:30] [Server thread/INFO] [de.fo.ga.SurvivalBuildingGameTests/]: FD_SURVIVAL craft=boarding_station count=1 gridConsumed=true recipeDiscovered=true
+[02:51:30] [Server thread/INFO] [de.fo.ga.SurvivalBuildingGameTests/]: FD_SURVIVAL track=ARROW cost=8 insufficientReject=passed selectionCancel=passed
+[02:51:30] [Server thread/INFO] [de.fo.ga.SurvivalBuildingGameTests/]: FD_SURVIVAL track=LEGACY cost=8 insufficientReject=passed selectionCancel=passed
+[02:51:30] [Server thread/INFO] [de.fo.ga.SurvivalBuildingGameTests/]: FD_SURVIVAL track=FREE_SPIN cost=8 insufficientReject=passed selectionCancel=passed
+[02:51:30] [Server thread/INFO] [de.fo.ga.SurvivalBuildingGameTests/]: FD_SURVIVAL track=REVISED cost=8 insufficientReject=passed selectionCancel=passed
+[02:51:30] [Server thread/INFO] [de.fo.ga.SurvivalBuildingGameTests/]: FD_SURVIVAL track=PAX cost=8 insufficientReject=passed selectionCancel=passed
+[02:51:31] [Server thread/INFO] [de.fo.ga.SurvivalBuildingGameTests/]: FD_SURVIVAL paxStationResult=PASS binding=null
+[02:51:31] [Server thread/INFO] [de.fo.ga.SurvivalBuildingGameTests/]: FD_SURVIVAL passed recipeTypes=15 craftOperations=16 trackFamilies=5 wrongFamilyRejects=20 placedCars=5 equipment=2 stationBinding=passed winchPlacement=passed initialCapture=passed paxStationReject=passed oldPaxBindingCleared=passed invalidShuttleReject=passed
+[02:51:33] [Server thread/INFO] [de.fo.ga.PonderDiagramGameTests/]: FD_PONDER_RESOURCES diagrams=9 decodedBlocks=1968
+[02:51:34] [Server thread/INFO] [de.fo.ga.TeachingContentGameTests/]: FD_TEACHING nativeCrafts=15 missingIngredientRejections=15 inventoryDiscoveries=15
+[02:52:25] [Server thread/INFO] [minecraft/GameTestServer]: ========= 28 GAME TESTS COMPLETE IN 55.09 s ======================
+[02:52:25] [Server thread/INFO] [minecraft/GameTestServer]: All 28 required tests passed :)
+BUILD SUCCESSFUL in 1m 10s

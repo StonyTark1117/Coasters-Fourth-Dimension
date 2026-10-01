@@ -1,6 +1,7 @@
 package dev.fourthdimension.station;
 
 import com.mojang.serialization.MapCodec;
+import dev.fourthdimension.contract.Family;
 import dev.fourthdimension.editor.EditorNetwork;
 import dev.fourthdimension.runtime.FoundationData;
 import dev.ryanhcode.sable.api.sublevel.SubLevelContainer;
@@ -90,12 +91,17 @@ public final class BoardingStation extends BaseEntityBlock {
     if (!player.mayBuild() || !level.mayInteract(player, pos)) return InteractionResult.FAIL;
     var data = FoundationData.get(server.serverLevel());
     var v = station.vehicle == null ? null : data.vehicles.get(station.vehicle);
+    if (v != null && v.family == Family.PAX) {
+      station.vehicle = null;
+      station.setChanged();
+      v = null;
+    }
     if (v == null || player.isShiftKeyDown()) {
       var container = SubLevelContainer.getContainer(level);
       double closest = 12 * 12;
       v = null;
       for (var candidate : data.vehicles.values())
-        if (!FoundationData.VARIANT.equals(candidate.variant)) {
+        if (!FoundationData.VARIANT.equals(candidate.variant) && candidate.family != Family.PAX) {
           var body = container.getSubLevel(candidate.chassis);
           var point = body == null ? null : CoasterCartResolve.cartCenterWorld(body);
           if (point != null) {
@@ -110,7 +116,9 @@ public final class BoardingStation extends BaseEntityBlock {
         }
       if (v == null) {
         player.displayClientMessage(
-            Component.literal("Place a 4D car within twelve blocks to bind the station"), true);
+            Component.literal(
+                "Place a non-PAX 4D car within twelve blocks. PAX requires its shuttle winch."),
+            true);
         return InteractionResult.FAIL;
       }
       station.vehicle = v.chassis;

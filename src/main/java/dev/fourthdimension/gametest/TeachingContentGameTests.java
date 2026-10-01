@@ -21,14 +21,14 @@ import net.neoforged.neoforge.gametest.PrefixGameTestTemplate;
 @GameTestHolder("fourthdimension")
 @PrefixGameTestTemplate(false)
 public final class TeachingContentGameTests {
-  private record Craft(
+  record Craft(
       String name,
       List<String> pattern,
       Map<Character, String> ingredients,
       int count,
       String discoveryItem) {}
 
-  private static List<Craft> crafts() {
+  static List<Craft> crafts() {
     var result = new ArrayList<Craft>();
     String[] families = {"arrow", "legacy_zacspin", "free_spin", "revised_zacspin", "pax"};
     String[] dyes = {"red", "yellow", "blue", "purple", "green"};
