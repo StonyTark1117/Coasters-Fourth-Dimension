@@ -13,6 +13,8 @@ public final class AppearanceEditor {
   public static void apply(
       ServerPlayer player, UUID id, long revision, TrackAppearance appearance) {
     var rail = ProfileEditor.requireEditable(player, id, revision);
+    if (!appearance.supports(rail.family))
+      throw new IllegalArgumentException("This decorative style fits controlled Arrow track only");
     if (!appearance.original()
         && (!TrackAppearance.CANDIDATES.contains(appearance.id())
             || !OptionalIntegrations.installed(OptionalIntegrations.TRACK_STYLES).mayInspect()))

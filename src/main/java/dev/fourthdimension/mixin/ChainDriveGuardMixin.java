@@ -1,6 +1,6 @@
 package dev.fourthdimension.mixin;
 
-import dev.fourthdimension.runtime.FoundationData;
+import dev.fourthdimension.integration.PropulsionInterlock;
 import dev.ryanhcode.sable.sublevel.ServerSubLevel;
 import dev.ryanhcode.sable.sublevel.system.SubLevelPhysicsSystem;
 import dev.silvergold.simulatedcoasters.track.cart.CoasterCartChainLiftDrive;
@@ -21,11 +21,6 @@ public abstract class ChainDriveGuardMixin {
       CoasterPathTrackFrame.TrackBasis basis,
       double dt,
       CallbackInfo ci) {
-    var vehicle = FoundationData.get(level).vehicles.get(sub.getUniqueId());
-    if (vehicle != null
-        && !FoundationData.VARIANT.equals(vehicle.variant)
-        && (vehicle.stopping
-            || vehicle.maintenance
-            || vehicle.family == dev.fourthdimension.contract.Family.PAX)) ci.cancel();
+    if (PropulsionInterlock.holds(sub, level)) ci.cancel();
   }
 }

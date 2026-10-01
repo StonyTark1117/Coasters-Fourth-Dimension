@@ -124,9 +124,11 @@ public final class ShuttleGameTests {
     var phases = EnumSet.noneOf(ShuttleWinchEntity.Phase.class);
     double[] heights = {0, 0};
     boolean[] measuring = {false};
+    Runnable[] motorProbe = {() -> {}};
     helper.onEachTick(
         () -> {
           if (!measuring[0]) return;
+          motorProbe[0].run();
           phases.add(winch.phase);
           var lead = container.getSubLevel(winch.vehicle);
           var center = CoasterCartResolve.cartCenterWorld(lead);
@@ -198,6 +200,7 @@ public final class ShuttleGameTests {
               }
             }
           helper.assertTrue(riders.size() == 16, "PAX train must carry sixteen riders");
+          motorProbe[0] = EngineeredGameTests.addOpposingShuttleMotors(helper, winch);
           VehicleOperations.restraints(level, example.cars().getFirst(), true);
           VehicleOperations.dispatch(level, example.cars().getFirst());
           measuring[0] = true;
@@ -244,10 +247,12 @@ public final class ShuttleGameTests {
     var winch = example.winch();
     var container = SubLevelContainer.getContainer(level);
     boolean[] running = {false}, second = {false}, rejected = {false};
+    Runnable[] motorProbe = {() -> {}};
     helper.runAtTickTime(
         80,
         () -> {
           ShuttleExamples.assemble(level, example);
+          motorProbe[0] = EngineeredGameTests.addOpposingShuttleMotors(helper, winch);
           VehicleOperations.restraints(level, example.cars().getFirst(), true);
           VehicleOperations.dispatch(level, example.cars().getFirst());
           running[0] = true;
@@ -255,6 +260,7 @@ public final class ShuttleGameTests {
     helper.onEachTick(
         () -> {
           if (!running[0]) return;
+          motorProbe[0].run();
           if (winch.phase == ShuttleWinchEntity.Phase.OUTBOUND && !rejected[0]) {
             rejected[0] = true;
             try {

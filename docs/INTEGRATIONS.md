@@ -30,7 +30,7 @@ family eligibility or carrier profiles. The Rotation Tool's section editor now
 opens **Track appearance**, with Original and the two inspected Arrow spine
 choices, plus an optional `#RRGGBB` spine/tie color. Selection uses the same
 permission, distance, revision, and occupied-section guards as profile editing.
-Only separately installed Track Styles 1.2.0 enables its choices.
+Only separately installed Track Styles 1.2.0 enables its choices, and both choices are permitted only on controlled Arrow functional track. The server rejects selection on all four other families; renderer fallback also enforces this boundary.
 
 Appearance intent is saved separately in schema 5. Earlier schema 1–4 rails
 default to Original; missing provider IDs and tint are retained while the original
@@ -74,8 +74,7 @@ The audit retains both observations in `research/dependency-audit.json`.
 
 Complete style geometry and clearance checks and record supported styles/render
 modes and styled ride behavior. Resource reload and a real removal/reinstallation
-cycle now pass for one single-spine controlled Arrow section. Evaluate Engineered operating spans on real 4D
-vehicles, including PAX phase ownership and boarding signals. Publish supported
+cycle now pass for one single-spine controlled Arrow section. Engineered operating spans now have the bounded native results below. Complete powered controlled-profile rides, FE-enabled operation, real-player operator actions and boarding-signal wiring still need evidence. Publish supported
 combinations only after the runtime matrix; inspection profiles alone are not
 advertised gameplay support.
 
@@ -105,3 +104,37 @@ has different handedness. Resource baking invalidates meshes by catalog
 generation. Original running/control rails and mechanical supports remain ours;
 external rail models are never rendered. Native curved/banked alignment and
 clearance still need evidence before these development choices are advertised.
+
+## Engineered operating adapter checkpoint
+
+The independent optional adapters activate only for the audited Engineered 1.1.1
+release. They reference optional classes through target names rather than common
+class imports. Missing or uninspected releases leave the adapters inactive.
+
+Engineered's native assembly membership follows riveted bodies. Our rotating
+carriers use rotary joints, so the adapter appends this cart's live carrier bodies
+without duplicating native members or including other cars in the train. Its
+native motor therefore receives the complete per-cart mass; its native force
+application remains responsible for propulsion. Real loaded tests check that
+each passenger's native mass appears once.
+
+A direct motor-entry guard retains captured and maintenance-held vehicles, and
+preserves exclusive PAX winch/gravity-return ownership. Engineered STOP brakes
+translation; the operator must still request carrier capture and wait for ready
+alignment before releasing restraints. A longitudinal stop never automatically
+unloads or aligns rotating seats. Ordinary bearings bypass these 4D policies.
+
+The [operating evidence](evidence/0.4/operating-acceptance.md) covers installed
+controllers on all five matching straight track families: four non-PAX cars
+launch and stop, captured/retained cars hold, and the PAX car rejects motor
+propulsion. A fitting ordinary bearing launches and stops with no 4D state.
+Existing sixteen-rider and repeated tall PAX cycle fixtures now contain opposing
+motor spans and direct installed-motor call probes through powered lift, release,
+gravity return and recapture. These tests use real native passengers and physics,
+with default FE requirements disabled. They do not certify every controller
+sequence, resource configuration, complete powered rotation-profile ride,
+redstone operator workflow, unload/reload of motor spans or rendering mode.
+
+CI exercises standalone, Styles-only, Engineered-only and combined profiles.
+Without Engineered, its two dedicated operating tests explicitly report that they
+were not exercised; passing availability checks are not motor-operation evidence.

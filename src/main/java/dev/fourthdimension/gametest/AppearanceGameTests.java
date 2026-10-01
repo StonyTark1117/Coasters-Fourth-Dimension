@@ -21,7 +21,7 @@ public final class AppearanceGameTests {
   public static void cosmeticTransactionsMigrationAndMissingProviderPersistence(
       GameTestHelper helper) {
     var level = helper.getLevel();
-    for (int x = 46; x <= 48; x++)
+    for (int x = 46; x <= 55; x++)
       for (int z = -47; z <= -44; z++) level.setChunkForced(x, z, true);
     var player =
         FakePlayerFactory.get(
@@ -83,6 +83,42 @@ public final class AppearanceGameTests {
     helper.assertTrue(
         rail.revision == revision && rail.appearance.tint() == 0x12abcd,
         "Rejected appearance edit mutated state");
+    for (var design : TrackDesign.values()) {
+      var start = from.offset(24 + design.ordinal() * 24, 0, 0);
+      var finish = start.offset(0, 0, 32);
+      for (var pos : List.of(start, finish))
+        level.setBlockAndUpdate(
+            pos, SimulatedCoastersBlocks.COASTER_ANCHORPOINT.get().defaultBlockState());
+      player.setPos(finish.getX() + 2, finish.getY() + 1, finish.getZ());
+      var candidate =
+          TrackPlacement.connect(level, start, finish, design, player, player.getMainHandItem());
+      var profile = candidate.profile;
+      for (var id : TrackAppearance.CANDIDATES) {
+        long before = candidate.revision;
+        var edit = new EditorNetwork.Edit(candidate.id, before, 5, id + ";#001122");
+        if (design == TrackDesign.ARROW
+            && OptionalIntegrations.installed(OptionalIntegrations.TRACK_STYLES).mayInspect()) {
+          EditorNetwork.apply(player, edit);
+          helper.assertTrue(
+              candidate.appearance.id().equals(id), "Installed Arrow style not selected");
+        } else {
+          EditorGameTests.rejects(
+              helper, () -> EditorNetwork.apply(player, edit), "Unverified style/family accepted");
+          helper.assertTrue(candidate.revision == before, "Rejected style/family mutated revision");
+        }
+        helper.assertTrue(
+            candidate.profile == profile
+                && candidate.family == design.family
+                && candidate.variant.equals(design.variant),
+            "Styling changed mechanical family");
+      }
+      ((dev.silvergold.simulatedcoasters.track.anchor.CoasterAnchorpointBlockEntity)
+              level.getBlockEntity(start))
+          .removeAnchorPeerCurve(level, finish);
+      data.rails.remove(candidate);
+      level.removeBlock(start, false);
+      level.removeBlock(finish, false);
+    }
     var snapshot = new FoundationData();
     snapshot.rails.add(rail);
     var saved = snapshot.save(new CompoundTag(), level.registryAccess());
@@ -116,7 +152,7 @@ public final class AppearanceGameTests {
         "Provider removal erased cosmetic intent or mechanics");
     System.out.println(
         "FD_APPEARANCE schema=5 oldSchemas=1..4 missingIntentPreserved=true"
-            + " mechanicsUnchanged=true");
+            + " mechanicsUnchanged=true styleFamilyCases=10");
     data.rails.remove(rail);
     for (var p : List.of(from, to)) level.removeBlock(p, false);
     helper.succeed();

@@ -21,6 +21,11 @@ public record TrackAppearance(String id, int tint) {
     return ORIGINAL.equals(id);
   }
 
+  public boolean supports(dev.fourthdimension.contract.Family family) {
+    return original()
+        || (CANDIDATES.contains(id) && family == dev.fourthdimension.contract.Family.ARROW);
+  }
+
   public String style() {
     return id.substring(id.indexOf(':') + 1);
   }

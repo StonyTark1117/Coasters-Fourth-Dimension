@@ -2,6 +2,16 @@
 
 This is partial FD401 evidence, not the 0.4 or 0.9 release gate.
 
+## Operating integration checkpoint
+
+The newer dev.3 [operating acceptance](operating-acceptance.md) records real
+Engineered 1.1.1 controller/force behavior, rotary assembly mass, station/maintenance
+holds, ordinary-bearing operation and full PAX cycles with opposing motor spans.
+All four optional profiles have final native results; 23 unit tests pass. Both
+Arrow decorative choices are now restricted to controlled Arrow functional track.
+The evidence below remains historical and does not imply that dev.3 has a separate
+GUI/rendering observation. FD401 remains open.
+
 ## Appearance editing and provider lifecycle checkpoint
 
 The newer checkpoint implements independent appearance identity/color intent,

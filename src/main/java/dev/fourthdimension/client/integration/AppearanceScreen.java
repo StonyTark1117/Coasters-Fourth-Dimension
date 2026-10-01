@@ -57,7 +57,8 @@ public final class AppearanceScreen extends Screen {
     choices = new ArrayList<>();
     choices.add(TrackAppearance.ORIGINAL);
     for (String id : TrackAppearance.CANDIDATES)
-      if (TrackStylesCatalog.snapshot().containsKey(new TrackAppearance(id, -1).style()))
+      if (new TrackAppearance(id, -1).supports(rail.family)
+          && TrackStylesCatalog.snapshot().containsKey(new TrackAppearance(id, -1).style()))
         choices.add(id);
     if (!choices.contains(rail.appearance.id())) {
       choices.add(rail.appearance.id());

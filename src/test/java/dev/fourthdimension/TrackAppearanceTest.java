@@ -8,6 +8,18 @@ import org.junit.jupiter.api.Test;
 
 class TrackAppearanceTest {
   @Test
+  void arrowDecorationDoesNotClaimOtherFamilyGeometry() {
+    for (var family : dev.fourthdimension.contract.Family.values()) {
+      assertTrue(TrackAppearance.DEFAULT.supports(family));
+      for (var id : TrackAppearance.CANDIDATES)
+        assertEquals(
+            family == dev.fourthdimension.contract.Family.ARROW,
+            new TrackAppearance(id, -1).supports(family));
+      assertFalse(new TrackAppearance("future:missing", -1).supports(family));
+    }
+  }
+
+  @Test
   void missingProviderIntentAndRgbAreBoundedAndPreserved() {
     var missing = TrackAppearance.parse("future:spine;#12aBCd");
     assertEquals("future:spine", missing.id());

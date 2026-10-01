@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.9.0-dev.3 — bounded operating integration
+
+- Restrict both inspected Arrow decorative styles to controlled Arrow functional track; all other families retain Original.
+- Add exact-version optional Engineered 1.1.1 adapters for station/maintenance propulsion holds, exclusive PAX winch ownership, and rotary-body assembly mass. Ordinary bearings retain native membership and behavior.
+- Exercise real installed controllers through four-family launch, STOP, carrier capture, unloading and maintenance retention; test the ordinary bearing and opposing motor spans during complete PAX cycles. FE-enabled operation and complete powered rotation-profile rides remain unverified.
+- Add standalone, Styles-only, Engineered-only and combined validation jobs to CI. Schema/network protocol remain 5.
+
+This checkpoint leaves FD401 and the 0.4/0.9 gates open. See `docs/evidence/0.4/operating-acceptance.md` for the exact test scope and limitations.
+
 ## 0.9.0-dev.2 — partial optional appearance integration
 
 - Add guarded section appearance editing, independent saved style/color intent, and optional installed Track Styles spine/tie rendering.

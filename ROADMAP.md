@@ -291,7 +291,7 @@ Ship both new families with instructions and examples, including compact and tal
 
 ### FD401 Deliver optional provider infrastructure
 
-**Status: in progress.** Exact-version discovery, client-only catalog access, component ownership, and guarded appearance editing/persistence/rendering are implemented. The single-spine Arrow appearance has resource-reload and real provider-removal/reinstallation evidence without changing its controlled profile. Curved/banked geometry and clearance, the double-spine appearance, render-mode coverage, styled rides, and operating-addon acceptance remain pending. See [integration scope and evidence](docs/INTEGRATIONS.md).
+**Status: in progress.** Exact-version discovery, client-only catalog access, component ownership, and guarded appearance editing/persistence/rendering are implemented. The single-spine Arrow appearance has resource-reload and real provider-removal/reinstallation evidence without changing its controlled profile. Both inspected Arrow styles are restricted to controlled Arrow track. Exact-version Engineered adapters now have native evidence for four-family straight launch/STOP/capture/retention, ordinary-bearing operation and full PAX cycles with opposing motors. Curved/banked geometry and clearance, the double-spine appearance, render-mode coverage, styled rides, FE-enabled motors and the complete operator workflow remain pending. See [integration scope and evidence](docs/INTEGRATIONS.md).
 
 **Depends on:** FD005, FD305. **Design:** D04, D05, D07, D15.
 

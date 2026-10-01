@@ -31,7 +31,8 @@ public final class TrackStylesRenderer {
   private TrackStylesRenderer() {}
 
   public static Mesh build(CoasterPathEdge edge, FoundationData.Rail rail) {
-    if (!TrackAppearance.CANDIDATES.contains(rail.appearance.id())) return null;
+    if (!TrackAppearance.CANDIDATES.contains(rail.appearance.id())
+        || !rail.appearance.supports(rail.family)) return null;
     var decoration = TrackStylesCatalog.snapshot().get(rail.appearance.style());
     if (decoration == null) return null;
     var mc = Minecraft.getInstance();
