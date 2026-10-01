@@ -1,0 +1,25 @@
+import os,subprocess,time,re,json
+from pathlib import Path
+os.environ['DISPLAY']=':198';log=Path('/tmp/fd15-occupied-ride.log'); records=[];previous=None
+for attempt in range(90):
+ before=log.stat().st_size
+ subprocess.run(['xdotool','key','t'],check=True);time.sleep(.7)
+ subprocess.run(['xdotool','type','--clearmodifiers','--delay','3','/data get block 94 85 -27 shuttle_phase'],check=True)
+ subprocess.run(['xdotool','key','Return'],check=True)
+ phase=None;line=None
+ for wait in range(35):
+  time.sleep(.1)
+  with log.open() as f:f.seek(before);text=f.read()
+  matches=[x for x in text.splitlines() if '[CHAT]' in x and 'has the following block data: "' in x]
+  if matches:
+   line=matches[-1];phase=re.search(r'block data: "([A-Z]+)"',line).group(1);break
+ if phase is None:raise RuntimeError('No native query acknowledgement; not restarting the client')
+ records.append({'query':attempt+1,'phase':phase,'native_line':line})
+ if phase!=previous:
+  print(line,flush=True)
+  subprocess.run(['import','-window','2097160',f'/tmp/fd15-ride-{phase.lower()}.png'],check=True)
+  previous=phase
+ Path('/tmp/fd15-ride-phases.json').write_text(json.dumps(records,indent=2)+'\n')
+ if phase in ['BOARDING','FAULT']:break
+ time.sleep(.5)
+else:raise RuntimeError('Ride observation limit reached; client remains live')

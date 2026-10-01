@@ -45,6 +45,7 @@ jobs:
           python3 scripts/verify-scheduler-checkpoint.py
           python3 scripts/verify-idle-shuttle-checkpoint.py
           python3 scripts/verify-caught-shuttle-checkpoint.py
+          python3 scripts/verify-occupied-shuttle-checkpoint.py
       - run: ./gradlew clean build runGameTestServer --no-daemon "-PfdIntegrations=$FD_INTEGRATIONS"
         env:
           FD_INTEGRATIONS: ${{ matrix.integrations }}

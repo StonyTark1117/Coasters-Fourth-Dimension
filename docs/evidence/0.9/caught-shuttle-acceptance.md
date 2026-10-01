@@ -97,3 +97,7 @@ Occupied caught-boarding cold reopen, the complete multiplayer/disconnect/suppor
 loss matrix, migration and performance acceptance remain open. Full 0.4 acceptance
 also remains open. The original dev.8 bitmap-glyph crash is unresolved; preserving
 this shuttle state does not establish a font fix or complete render-mode coverage.
+
+## Subsequent occupied boarding evidence
+
+The [occupied boarding checkpoint](occupied-shuttle-acceptance.md) uses this unchanged dev.14 artifact for one real rider through two fresh-JVM boarding restores, a full post-reopen ride and normal unloading. The unoccupied observations above retain their original scope; the complete multiplayer/lifecycle gate remains open.

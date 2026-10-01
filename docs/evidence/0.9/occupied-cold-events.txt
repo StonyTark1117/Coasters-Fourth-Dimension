@@ -1,0 +1,16 @@
+[06:33:01] [Server thread/INFO] [de.ry.sa.Sable/]: Player logged in with tracking point in non-loaded sub-level. Attempting to load.
+[06:33:01] [Server thread/INFO] [minecraft/PlayerList]: Dev[local:E:5d99662e] logged in with entity id 3 at (96.50000063769939, 86.43741982825347, -26.499999999012612)
+[06:33:22] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] Dev has the following entity data: {Entity: {Motion: [0.0d, 0.0d, 0.0d], FallDistance: 0.0f, "neoforge:attachments": {"create:minecart_controller": {Type: "EMPTY"}}, Pos: [2.04810335E7d, 127.0d, 2.05178965E7d], Fire: -1s, Invulnerable: 0b, id: "create:seat", Air: 300s, OnGround: 0b, PortalCooldown: 0, UUID: [I; 1585991316, -1319876861, -1562782692, 290967889], Rotation: [0.0f, 0.0f]}, Attach: [I; 1585991316, -1319876861, -1562782692, 290967889]}
+[06:33:24] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] Found no elements matching NoGravity
+[06:33:26] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] Seat has the following entity data: [I; 1585991316, -1319876861, -1562782692, 290967889]
+[06:33:28] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] 94, 85, -27 has the following block data: {Speed: 128.0f, shuttle_carriage: [I; -133561419, -927185268, -2060102316, -96450345], shuttle_distance: 62.67979295672922d, shuttle_maximum: 0.0d, shuttle_start: 27762668261485L, shuttle_station: 62.67979295672922d, Source: [I; 93, 85, -27], shuttle_end: 27487790878837L, shuttle_fault: "", shuttle_cars: [[I; 1782465958, 1814777257, -1547989697, 175848633], [I; -443795716, 460800365, -1266248401, -968647300], [I; 1331351397, 1158497845, -1255414651, 923245055], [I; -1959608382, 1950304663, -1918815440, 1178114505]], shuttle_interrupted: "BOARDING", shuttle_cycles: 1, Network: {Capacity: 2097152.0f, Size: 2, AddedStress: 8.0f, Id: 25838523142229L, Stress: 1024.0f}, shuttle_phase: "BOARDING", x: 94, y: 85, z: -27, id: "fourthdimension:shuttle_winch", shuttle_vehicle: [I; 1782465958, 1814777257, -1547989697, 175848633]}
+[06:34:41] [Server thread/INFO] [de.ry.sa.Sable/]: Saving sub-levels for level 'ServerLevel[FD12Reload]'/minecraft:overworld
+[06:34:41] [Server thread/INFO] [de.ry.sa.Sable/]: Saving sub-levels for level 'ServerLevel[FD12Reload]'/minecraft:the_nether
+[06:34:41] [Server thread/INFO] [de.ry.sa.Sable/]: Saving sub-levels for level 'ServerLevel[FD12Reload]'/minecraft:the_end
+[06:34:42] [Server thread/INFO] [minecraft/MinecraftServer]: Saving players
+[06:34:42] [Server thread/INFO] [de.ry.sa.Sable/]: Saving sub-levels for level 'ServerLevel[FD12Reload]'/minecraft:overworld
+[06:34:42] [Server thread/INFO] [de.ry.sa.Sable/]: Saving sub-levels for level 'ServerLevel[FD12Reload]'/minecraft:the_nether
+[06:34:42] [Server thread/INFO] [de.ry.sa.Sable/]: Saving sub-levels for level 'ServerLevel[FD12Reload]'/minecraft:the_end
+[06:34:42] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage: All dimensions are saved
+[06:34:45] [Render thread/INFO] [minecraft/Minecraft]: Stopping!
+BUILD SUCCESSFUL in 1m 58s

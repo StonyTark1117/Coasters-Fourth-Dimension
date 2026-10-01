@@ -1,0 +1,18 @@
+[06:27:06] [Server thread/INFO] [minecraft/PlayerList]: Dev[local:E:90e3d0ae] logged in with entity id 3 at (93.5, 85.0, -26.5)
+[06:28:24] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] Teleported Dev to 93.500000, 85.000000, -26.500000
+[06:28:28] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] Found no elements matching RootVehicle
+[06:29:20] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] Teleported Dev to 93.500000, 85.000000, -26.800000
+[06:29:45] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] Dev has the following entity data: {Entity: {Motion: [0.0d, 0.0d, 0.0d], FallDistance: 0.0f, "neoforge:attachments": {"create:minecart_controller": {Type: "EMPTY"}}, Pos: [2.04810335E7d, 127.0d, 2.05178965E7d], Fire: -1s, Invulnerable: 0b, id: "create:seat", Air: 300s, OnGround: 0b, PortalCooldown: 0, UUID: [I; -462375646, -677033804, -1288300079, 1695740142], Rotation: [0.0f, 0.0f]}, Attach: [I; -462375646, -677033804, -1288300079, 1695740142]}
+[06:31:22] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] Dev has the following entity data: {Entity: {Motion: [0.0d, 0.0d, 0.0d], FallDistance: 0.0f, "neoforge:attachments": {"create:minecart_controller": {Type: "EMPTY"}}, Pos: [2.04810335E7d, 127.0d, 2.05178965E7d], Fire: -1s, Invulnerable: 0b, id: "create:seat", Air: 300s, OnGround: 0b, PortalCooldown: 0, UUID: [I; -462375646, -677033804, -1288300079, 1695740142], Rotation: [0.0f, 0.0f]}, Attach: [I; -462375646, -677033804, -1288300079, 1695740142]}
+[06:31:24] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] 94, 85, -27 has the following block data: {Speed: 128.0f, shuttle_carriage: [I; -133561419, -927185268, -2060102316, -96450345], shuttle_distance: 62.67979295672922d, shuttle_maximum: 0.0d, shuttle_start: 27762668261485L, shuttle_station: 62.67979295672922d, Source: [I; 93, 85, -27], shuttle_end: 27487790878837L, shuttle_fault: "", shuttle_cars: [[I; 1782465958, 1814777257, -1547989697, 175848633], [I; -443795716, 460800365, -1266248401, -968647300], [I; 1331351397, 1158497845, -1255414651, 923245055], [I; -1959608382, 1950304663, -1918815440, 1178114505]], shuttle_interrupted: "BOARDING", shuttle_cycles: 1, Network: {Capacity: 2097152.0f, Size: 2, AddedStress: 8.0f, Id: 25838523142229L, Stress: 1024.0f}, shuttle_phase: "BOARDING", x: 94, y: 85, z: -27, id: "fourthdimension:shuttle_winch", shuttle_vehicle: [I; 1782465958, 1814777257, -1547989697, 175848633]}
+[06:31:26] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] Seat has the following entity data: [I; -462375646, -677033804, -1288300079, 1695740142]
+[06:31:27] [Server thread/INFO] [de.ry.sa.Sable/]: Saving sub-levels for level 'ServerLevel[FD12Reload]'/minecraft:overworld
+[06:31:27] [Server thread/INFO] [de.ry.sa.Sable/]: Saving sub-levels for level 'ServerLevel[FD12Reload]'/minecraft:the_nether
+[06:31:27] [Server thread/INFO] [de.ry.sa.Sable/]: Saving sub-levels for level 'ServerLevel[FD12Reload]'/minecraft:the_end
+[06:32:17] [Server thread/INFO] [minecraft/MinecraftServer]: Saving players
+[06:32:17] [Server thread/INFO] [de.ry.sa.Sable/]: Saving sub-levels for level 'ServerLevel[FD12Reload]'/minecraft:overworld
+[06:32:17] [Server thread/INFO] [de.ry.sa.Sable/]: Saving sub-levels for level 'ServerLevel[FD12Reload]'/minecraft:the_nether
+[06:32:17] [Server thread/INFO] [de.ry.sa.Sable/]: Saving sub-levels for level 'ServerLevel[FD12Reload]'/minecraft:the_end
+[06:32:17] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage: All dimensions are saved
+[06:32:20] [Render thread/INFO] [minecraft/Minecraft]: Stopping!
+BUILD SUCCESSFUL in 5m 35s
