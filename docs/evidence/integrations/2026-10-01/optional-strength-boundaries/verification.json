@@ -1,0 +1,31 @@
+{
+  "base": {
+    "registered": 35,
+    "absent_addon_skips": 7,
+    "retained_values": [
+      0,
+      37,
+      100
+    ],
+    "invalid_values_rejected": 5,
+    "explicit_deletion": true,
+    "unrelated_anchor_untouched": true,
+    "replacement_empty": true,
+    "inactive_values_in_client_packet": false
+  },
+  "additions": {
+    "registered": 35,
+    "absent_addon_skips": 5,
+    "owner": "com.simibubi.create.foundation.blockEntity.behaviour.scrollValue.ScrollValueBehaviour",
+    "remembered_value": 83,
+    "saved_current_value": 7
+  },
+  "magnetized": {
+    "registered": 35,
+    "absent_addon_skips": 5,
+    "owner": "net.antopfr.coastersmagnetized.magnet.MagnetScrollValue$1",
+    "remembered_value": 83,
+    "saved_current_value": 7
+  },
+  "unit_tests": 19
+}

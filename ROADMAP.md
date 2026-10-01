@@ -395,6 +395,16 @@ FD902 open.
 
 **Partial evidence (2026-09-30):** The [schema-5 removal matrix](docs/evidence/integrations/2026-09-30/removal-matrix/README.md) preserves all five families' parked ride data through eight dedicated-server restart/removal cases. Missing addon blocks are discarded and require a complete backup restore or rebuilding; exact scope and recovery instructions are recorded. Occupied, older-schema and addon-specific state migration remain open.
 
+The [occupied Magnetized removal follow-up (2026-10-01)](docs/evidence/integrations/2026-10-01/magnetized-lifecycle/README.md)
+adds five parked riders and fourteen carriers through individual/base and combined-pack
+round trips. It reproduces loss of strength percentages on base-pack saves, then
+preserves those inactive fields on owned anchors without overriding installed
+behaviours. Native saved entity data verifies original rider/seat identities and
+normal unloading. The [serialization-boundary checks](docs/evidence/integrations/2026-10-01/optional-strength-boundaries/README.md)
+cover explicit deletion, malformed values, unrelated/replacement anchors, client
+update exclusion, and current Additions/Magnetized behaviour ownership. Moving
+removal, other addons' occupied removal, older schemas and the wider matrix remain open.
+
 Test upgrades from released save formats, stable IDs, profile rebinding, appearance-provider removal, and explicit conversions involving external blocks.
 
 **Done when:** supported upgrades preserve functional families and profiles; unsupported conversions are rejected clearly. Backups and recovery instructions accompany any destructive migration.

@@ -1,0 +1,31 @@
+{
+  "parent_commit": "7f8f4f95ce4b463b663d36bbc9a91d33fdf139e0",
+  "artifact": {
+    "path": "/home/braydon/.cache/fourthdimension-48535694/optional-strength-boundaries.jar",
+    "sha256": "30870c35ded0d82a4493a88f7c2861494c3dfb840b7b84fc205f628b751ea45b",
+    "classes": {
+      "dev/fourthdimension/gametest/OptionalEquipmentGameTests.class": "0f44fac8fd2edfcd1f133206a11100cbcbeb1d71bc2ce4bd0fe95f3b06a45b56",
+      "dev/fourthdimension/mixin/OptionalAnchorStrengthMixin.class": "15a5525e26b6d1e0d3f8821482054373cd0828c181d4abda4cc0b2aab9d653c4"
+    }
+  },
+  "sources": {
+    "src/main/java/dev/fourthdimension/gametest/OptionalEquipmentGameTests.java": "3dff7d1ebcd220ea5e26a6b0c02856c2f8ba67ae830299d986ab05d95534ba3f",
+    "src/main/java/dev/fourthdimension/mixin/OptionalAnchorStrengthMixin.java": "fb0672e5de8dd31f56c9f408542ed63c5f84b67d736fc1f3f2a207ef8f4efaf7"
+  },
+  "files": {
+    "additions-events.txt": "a77f6ef66e8000a1b418a5d7d674b069a95622d5b09096a9c96b7d2181d150fe",
+    "additions.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "additions.log.gz": "0a1b477998cb23cb75ed96d9b07d03140b8d0821ed6cbdfc731e0e91492ea1b4",
+    "base-events.txt": "9550449807ddff2b4c879d0c842e064f829031bc6374052834c9bbceaed94bf2",
+    "base.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "base.log.gz": "fa8c41b6e2ea49191de037cc5c2cac9865c85f437bd927ec06a8b3f70b71ac7d",
+    "magnetized-events.txt": "94f64aad987e8a30ae4f17ff40575bbc3e464a08a67eba39e2e9041f93956048",
+    "magnetized.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "magnetized.log.gz": "6c7d6f821214816ea611aa11a1b2d7f50169db39db68ef7f02101fb8b56588e8",
+    "run.py": "dd38807179c17d967c214a9aa2429cd462c8b88922bf7973ce0be5f4811324c9",
+    "unit-tests/TEST-dev.fourthdimension.FoundationMathTest.xml": "8d62ced73c253ffd674ec9c386958363e34b4c722a6fa460e8de3893b084552a",
+    "unit-tests/TEST-dev.fourthdimension.MagneticMathTest.xml": "bfaca9819771a4def7282929651cba9041a441e3572ffb3acdf2cf63559d3d57",
+    "unit-tests/TEST-dev.fourthdimension.RiderLookTest.xml": "72d314bc0ca900287f1e851f8a3806d622d0a054e1ff0c88116ccc73304e42ae",
+    "unit-tests/TEST-dev.fourthdimension.TrackMathTest.xml": "74133c4518b8050e1a3186d4990462c2c306702ff4feed895f08fc6abec8cb0d"
+  }
+}

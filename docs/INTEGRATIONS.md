@@ -495,6 +495,10 @@ read zero strength. Our anchors now retain the inactive 0–100 integer while th
 and its behaviour are absent. Existing installed behaviours keep ownership. Both
 round trips preserve 37%/63%, original riders, seats and our mechanical data.
 Already-lost settings still require the original world backup or manual reconfiguration.
+The [native boundary regression](evidence/integrations/2026-10-01/optional-strength-boundaries/README.md)
+checks intentional field deletion, invalid values, client update exclusion, unrelated
+anchors and replacement blocks. Actual Additions and Magnetized behaviours retain
+ownership of later setting changes rather than receiving the old cached value.
 
 Moving occupied removal, other addons' occupied removal, automatic chunk interruption,
 Immersion camera removal, client rendering and the full lifecycle matrix remain open.
