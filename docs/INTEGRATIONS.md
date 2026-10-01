@@ -527,8 +527,14 @@ reproduces the failure and old-handler delivery after reconnect on both clients.
 A Sable 2.0.3 client-only guard drops callbacks whose original connection/channel is
 no longer current and active. Identical before/after probes preserve healthy delivery,
 and two guarded clients complete an empty PAX cycle and server shutdown without the
-queued packet exception. Occupied reconnects and adverse transport conditions retain
-their wider acceptance gate.
+queued packet exception. The [occupied PAX follow-up](evidence/integrations/2026-10-01/occupied-pax-reconnect/README.md)
+adds ordinary rider reconnects during RETURNING fault recovery and a fresh powered
+lift, with Observer remaining online. Original seat reservations survive both
+offline intervals; the occupied train completes recovery and a new cycle with
+12,345 FE retained, then unloads normally. Both clients exit zero without the queued
+UDP exception. One initial-join passenger warning and a final Dev TCP peer-reset
+screen remain recorded. Other occupied phases/packs and adverse transport conditions
+retain their wider acceptance gate.
 The full human-client matrix, external energy networks and broader geometry/configuration
 acceptance remain open.
 

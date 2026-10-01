@@ -1,0 +1,29 @@
+{
+  "server": {
+    "log": "/home/braydon/.codex/worktrees/coaster-integrations/Coasters: Fourth Dimension/build/occupied-reconnect/server.log",
+    "log_sha256": "cb55dba1ad277333e2b6342072c0d08fdd90a177b9ea5618c7b7f4389eef197d",
+    "exit_status": 0
+  },
+  "dev": {
+    "log": "/home/braydon/.codex/worktrees/coaster-integrations/Coasters: Fourth Dimension/build/occupied-reconnect/dev.log",
+    "log_sha256": "1a7025a73bcbdb95eaeeaaa66d9ef706dc4295f91e6217eab3e51b68c8c22d3a",
+    "exit_status": 0
+  },
+  "observer": {
+    "log": "/home/braydon/.codex/worktrees/coaster-integrations/Coasters: Fourth Dimension/build/occupied-reconnect/observer.log",
+    "log_sha256": "fbf19e21977baee20e6bcaccd6ad6255835371be61a2717644c4f5b8f2bc6b78",
+    "exit_status": 0
+  },
+  "artifact": {
+    "path": "/home/braydon/.cache/fourthdimension-48535694/udp-lifecycle-fixed.jar",
+    "sha256": "daf8e9c039240c6bffa96e49f946d396934c334808c4b2fc31b4dedc0177fa81",
+    "source_commit": "23b4fa2"
+  },
+  "baseline_source": "../engineered-pax-player-restart; occupied moving RETURNING world",
+  "world": "FDOccupiedReconnect",
+  "probes": {
+    "recover": 0,
+    "lift-reconnect": 0,
+    "cycle": 0
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "result": "PASS",
+  "rider": "380df991-f603-344c-a090-369bad2a924a",
+  "carrier": "8af18a96-9e14-4623-99ab-d01ea90305ec",
+  "reconnect_phases": [
+    "FAULT (RETURNING)",
+    "LIFTING"
+  ],
+  "station_cycles_after_recovery_and_run": 2,
+  "retained_energy": 12345,
+  "look_error_degrees": {
+    "offline": [
+      0.00262451171875,
+      0.00103759765625
+    ],
+    "rejoined": [
+      0.0030517578125,
+      0.004241943359375
+    ],
+    "recovered": [
+      0.0030517578125,
+      0.004241943359375
+    ],
+    "lift-offline": [
+      0.0030517578125,
+      0.004241943359375
+    ],
+    "cycle-station": [
+      0.229400634765625,
+      0.007823944091796875
+    ]
+  },
+  "mounted_camera_samples": 792,
+  "maximum_raw_carrier_error_radians": 4.2146848510894035e-08,
+  "shared_snapshot_states": 212,
+  "clients": {
+    "dev": {
+      "server_matched_snapshots": 243,
+      "missing_body_warnings": 0,
+      "unknown_passenger_warnings": 0,
+      "tcp_peer_reset": true
+    },
+    "observer": {
+      "server_matched_snapshots": 276,
+      "missing_body_warnings": 0,
+      "unknown_passenger_warnings": 1,
+      "tcp_peer_reset": false
+    }
+  }
+}

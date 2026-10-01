@@ -370,7 +370,13 @@ The [Sable queue-lifecycle follow-up](docs/evidence/integrations/2026-10-01/udp-
 reproduces and guards stale UDP callbacks after disconnect/reconnect for Sable 2.0.3.
 Two packaged clients retain healthy delivery and complete an empty shuttle cycle;
 the recorded shutdown null-channel exception is absent in the guarded runs.
-Occupied reconnects and the full family/pack lifecycle matrix remain open.
+The [occupied PAX reconnect follow-up](docs/evidence/integrations/2026-10-01/occupied-pax-reconnect/README.md)
+preserves the original seat through ordinary reconnects in RETURNING fault recovery
+and a fresh powered lift, with a second client online. Recovery, the following
+occupied cycle and normal unloading pass with exact FE retained. The queued UDP
+exception is absent; one initial-join passenger warning and a final TCP peer-reset
+screen remain documented. Other phases and the full family/pack lifecycle matrix
+remain open.
 
 **Done when:** no passenger duplication, stale restraints, lost carrier state, or incorrect track rebinding remains in supported cases. Document supported recovery actions for interruptions.
 

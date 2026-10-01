@@ -1,0 +1,41 @@
+from pathlib import Path
+import hashlib,json,shutil
+work=Path(__file__).resolve().parent;repo=work.parents[1]
+out=repo/'docs/evidence/integrations/2026-10-01/occupied-pax-reconnect';out.mkdir(exist_ok=True)
+def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
+manifest={}
+for role in ('server','dev','observer'):
+ p=work/(role+'.log');lines=p.read_text().splitlines()
+ manifest[role]={'log':str(p),'log_sha256':sha(p),'exit_status':int((work/(role+'.exit')).read_text())}
+ (out/(role+'-events.txt')).write_text('\n'.join(l for l in lines if any(k in l for k in ('FD_','logged in','joined the game','left the game','loaded from','BUILD ','Stopping server','Client UDP channel','disconnect'))) + '\n')
+ warnings=[];keep=False
+ for line in lines:
+  if line.startswith('['):keep='/WARN]' in line or '/ERROR]' in line
+  if keep:warnings.append(line)
+ (out/(role+'-warnings.txt')).write_text('\n'.join(warnings).rstrip()+'\n')
+ mods=[];record=False
+ for line in lines:
+  if 'Name Version (Mod Id)' in line:record=True
+  if record:
+   if line.startswith('['):break
+   if line.strip():mods.append(line.strip())
+ (out/(role+'-mods.txt')).write_text('\n'.join(mods)+'\n')
+ shutil.copyfile(work/(role+'.sh'),out/(role+'.sh.txt'))
+for name in ['before.json','before-save.json','offline-save.json','rejoined-save.json','recovered-save.json','lift-offline-save.json','cycle-station-save.json','unloaded-save.json','settings-restored.json','clients-stopped.json','recover.log','cycle.log','commands.txt','report.py','recover.py','cycle.py','lift-reconnect.py','dump.py','start-client.py','collect.py','rcon.py']:
+ target=out/(name+'.txt' if name.endswith('.py') else name.replace('.log','.txt'))
+ shutil.copyfile(work/name,target)
+ if name=='commands.txt':target.write_text('\n'.join(line.rstrip() for line in target.read_text().rstrip().splitlines())+'\n')
+for prefix in ('before','offline','rejoined','recovered','lift-offline','cycle-station','unloaded'):
+ d=json.loads((work/(prefix+'-player-full.json')).read_text())
+ (out/(prefix+'-player.json')).write_text(json.dumps({k:d.get(k) for k in ('UUID','Health','Pos','Rotation','NoGravity','FallDistance','RootVehicle','ForgeData')},indent=2)+'\n')
+for name in ('dev-restored','dev-pause','dev-disconnected','dev-rejoined','dev-before-lift','dev-lift-disconnected','dev-lift-direct','dev-lift-rejoined','dev-unload-editor','dev-unloaded','observer-offline','observer-station','observer-unloaded','dev-server-stopped','observer-server-stopped'):
+ shutil.copyfile(work/(name+'.png'),out/(name+'.png'))
+for role,game in [('dev','packaged-client'),('observer','packaged-observer')]:
+ shutil.copyfile(Path('/tmp/fourthdimension-48535694/build/runs')/game/'config/coasters_immersion-client.toml',out/(role+'-immersion.toml'))
+jar=Path('/home/braydon/.cache/fourthdimension-48535694/udp-lifecycle-fixed.jar')
+manifest['artifact']={'path':str(jar),'sha256':sha(jar),'source_commit':'23b4fa2'}
+manifest['baseline_source']='../engineered-pax-player-restart; occupied moving RETURNING world'
+manifest['world']='FDOccupiedReconnect'
+manifest['probes']={name:int((work/(name+'.exit')).read_text()) for name in ('recover','lift-reconnect','cycle')}
+(out/'manifest.json').write_text(json.dumps(manifest,indent=2)+'\n')
+print(out)

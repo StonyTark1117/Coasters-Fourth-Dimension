@@ -119,3 +119,9 @@ This closes the reproduced queued-disconnect/replacement failure for the pinned
 stack under these checks. Occupied reconnects, adverse networks, packet loss and
 reordering, other Sable versions, and the wider FD902–FD904 lifecycle/rendering/
 performance matrices remain separate acceptance work.
+
+The subsequent [occupied PAX follow-up](../occupied-pax-reconnect/README.md) uses this
+unchanged guarded artifact for real rider reconnects during fault recovery and a
+fresh lift. It preserves seat ownership and completes occupied recovery/cycling and
+normal unloading. Its retained initial-join warning and shutdown TCP peer-reset
+screen keep the wider transport and lifecycle limitations explicit.

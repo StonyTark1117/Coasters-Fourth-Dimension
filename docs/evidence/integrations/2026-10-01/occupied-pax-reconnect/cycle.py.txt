@@ -1,0 +1,15 @@
+from pathlib import Path
+import time,json
+from rcon import rcon
+from report import report,verify
+out=Path(__file__).resolve().parent;rows=[];reverse=False
+for i in range(240):
+ d=report('cycle_'+str(i));verify(d);rows.append(d)
+ assert d['phase']!='FAULT',d['fault']
+ if d['phase']=='BOARDING':
+  assert d['cycles']==2 and all(c['ready'] for c in d['cars']);break
+ if d['phase']=='CAPTURING' and not reverse:
+  assert 'fixture: reverse' in rcon('fd validation pax_energy_restart reverse');reverse=True
+ time.sleep(.5)
+else:raise AssertionError('Cycle never completed')
+(out/'cycle.json').write_text(json.dumps(rows,indent=2)+'\n');(out/'cycle.exit').write_text('0\n')

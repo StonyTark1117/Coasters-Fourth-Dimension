@@ -1,0 +1,367 @@
+{
+  "data": {
+    "schema": 5,
+    "rails": [
+      {
+        "magnets": [],
+        "appearance_style": "fourthdimension:family_default",
+        "profile": [
+          {
+            "distance": 0.0,
+            "slope": 0.0,
+            "angle": 0.0
+          },
+          {
+            "distance": 54.67979295672933,
+            "slope": 0.0,
+            "angle": 0.0
+          }
+        ],
+        "geometry_hash": -4465017442608833459,
+        "revision": 0,
+        "valid": 1,
+        "provider": "fourthdimension:original",
+        "variant": "pax_shuttle_v1",
+        "appearance_provider": "fourthdimension:original",
+        "from": -164926741905204,
+        "to": -164926741708620,
+        "id": [
+          1998787872,
+          2095597809,
+          -1244939648,
+          -1088757472
+        ],
+        "family": "pax_shuttle"
+      },
+      {
+        "magnets": [],
+        "appearance_style": "fourthdimension:family_default",
+        "profile": [
+          {
+            "distance": 0.0,
+            "slope": 0.0,
+            "angle": 0.0
+          },
+          {
+            "distance": 32.0,
+            "slope": 0.0,
+            "angle": 0.0
+          }
+        ],
+        "geometry_hash": -469866959506572671,
+        "revision": 0,
+        "valid": 1,
+        "provider": "fourthdimension:original",
+        "variant": "pax_shuttle_v1",
+        "appearance_provider": "fourthdimension:original",
+        "from": -164926741708620,
+        "to": -164926741577548,
+        "id": [
+          1092036095,
+          1999455117,
+          -1720031703,
+          193257408
+        ],
+        "family": "pax_shuttle"
+      },
+      {
+        "magnets": [],
+        "appearance_style": "fourthdimension:family_default",
+        "profile": [
+          {
+            "distance": 0.0,
+            "slope": 0.0,
+            "angle": 0.0
+          },
+          {
+            "distance": 59.00074272237126,
+            "slope": 0.0,
+            "angle": 0.0
+          }
+        ],
+        "geometry_hash": 2534523091968891445,
+        "revision": 0,
+        "valid": 1,
+        "provider": "fourthdimension:original",
+        "variant": "pax_shuttle_v1",
+        "appearance_provider": "fourthdimension:original",
+        "from": -164926741577548,
+        "to": -164926741380908,
+        "id": [
+          647098461,
+          -1437053868,
+          -1761668333,
+          -1220281576
+        ],
+        "family": "pax_shuttle"
+      }
+    ],
+    "vehicles": [
+      {
+        "fault": "",
+        "boundTo": -164926741577548,
+        "carriers": [
+          {
+            "side": -3.0,
+            "rider_seats": [],
+            "pivot_height": 2.0,
+            "angle": 8.075275007049138e-05,
+            "capture": 1,
+            "body": [
+              -773209718,
+              403852352,
+              -2003785399,
+              -1401122700
+            ],
+            "longitudinal": 0.0,
+            "child_pivot_offset": 0.0,
+            "seats": [
+              4095,
+              -274877902849
+            ],
+            "ballast": 0.0,
+            "omega": -0.0006094976987201119,
+            "occupants": []
+          },
+          {
+            "side": 3.0,
+            "rider_seats": [],
+            "pivot_height": 2.0,
+            "angle": 8.900883114778082e-05,
+            "capture": 1,
+            "body": [
+              -1963881834,
+              -1642838493,
+              -1716793314,
+              -1459419668
+            ],
+            "longitudinal": 0.0,
+            "child_pivot_offset": 0.0,
+            "seats": [
+              4095,
+              274877911039
+            ],
+            "ballast": 0.0,
+            "omega": -0.0007990644743946511,
+            "occupants": []
+          }
+        ],
+        "chassis": [
+          1626414480,
+          722750707,
+          -1639736133,
+          -1336555213
+        ],
+        "damping": 0.8,
+        "boundFrom": -164926741708620,
+        "ballast": 0.0,
+        "revision": 8,
+        "boarding_ready": 1,
+        "stopping": 1,
+        "variant": "pax_shuttle_v1",
+        "restraints": 0,
+        "family": "pax_shuttle",
+        "maintenance": 0
+      },
+      {
+        "fault": "",
+        "boundTo": -164926741577548,
+        "carriers": [
+          {
+            "side": -3.0,
+            "rider_seats": [],
+            "pivot_height": 2.0,
+            "angle": 6.214714582219433e-05,
+            "capture": 1,
+            "body": [
+              -1836051069,
+              1253002296,
+              -1175755511,
+              -2037019969
+            ],
+            "longitudinal": 0.0,
+            "child_pivot_offset": 0.0,
+            "seats": [
+              4095,
+              -274877902849
+            ],
+            "ballast": 0.0,
+            "omega": 5.605425295209728e-06,
+            "occupants": []
+          },
+          {
+            "side": 3.0,
+            "rider_seats": [],
+            "pivot_height": 2.0,
+            "angle": 6.879061248371134e-05,
+            "capture": 1,
+            "body": [
+              1976279529,
+              1031946919,
+              -1328808165,
+              1414343188
+            ],
+            "longitudinal": 0.0,
+            "child_pivot_offset": 0.0,
+            "seats": [
+              4095,
+              274877911039
+            ],
+            "ballast": 0.0,
+            "omega": -6.728954166531748e-05,
+            "occupants": []
+          }
+        ],
+        "chassis": [
+          -205161146,
+          1146898645,
+          -1237137185,
+          258031923
+        ],
+        "damping": 0.8,
+        "boundFrom": -164926741708620,
+        "ballast": 0.0,
+        "revision": 8,
+        "boarding_ready": 1,
+        "stopping": 1,
+        "variant": "pax_shuttle_v1",
+        "restraints": 0,
+        "family": "pax_shuttle",
+        "maintenance": 0
+      },
+      {
+        "fault": "",
+        "boundTo": -164926741577548,
+        "carriers": [
+          {
+            "side": -3.0,
+            "rider_seats": [],
+            "pivot_height": 2.0,
+            "angle": 6.303293363819447e-05,
+            "capture": 1,
+            "body": [
+              989470070,
+              -954776607,
+              -1778544235,
+              63125855
+            ],
+            "longitudinal": 0.0,
+            "child_pivot_offset": 0.0,
+            "seats": [
+              4095,
+              -274877902849
+            ],
+            "ballast": 0.0,
+            "omega": -3.990050344705718e-06,
+            "occupants": []
+          },
+          {
+            "side": 3.0,
+            "rider_seats": [],
+            "pivot_height": 2.0,
+            "angle": 6.993311036584293e-05,
+            "capture": 1,
+            "body": [
+              -24445033,
+              1556039758,
+              -1156381888,
+              -1935732026
+            ],
+            "longitudinal": 0.0,
+            "child_pivot_offset": 0.0,
+            "seats": [
+              4095,
+              274877911039
+            ],
+            "ballast": 0.0,
+            "omega": -7.940560777319714e-05,
+            "occupants": []
+          }
+        ],
+        "chassis": [
+          -955420842,
+          1829587058,
+          -2049209914,
+          80887224
+        ],
+        "damping": 0.8,
+        "boundFrom": -164926741708620,
+        "ballast": 0.0,
+        "revision": 8,
+        "boarding_ready": 1,
+        "stopping": 1,
+        "variant": "pax_shuttle_v1",
+        "restraints": 0,
+        "family": "pax_shuttle",
+        "maintenance": 0
+      },
+      {
+        "fault": "",
+        "boundTo": -164926741577548,
+        "carriers": [
+          {
+            "side": -3.0,
+            "rider_seats": [],
+            "pivot_height": 2.0,
+            "angle": 6.412464967248127e-05,
+            "capture": 1,
+            "body": [
+              191745906,
+              -1128578477,
+              -1196081410,
+              974786868
+            ],
+            "longitudinal": 0.0,
+            "child_pivot_offset": 0.0,
+            "seats": [
+              4095,
+              -274877902849
+            ],
+            "ballast": 0.0,
+            "omega": -2.675860329850128e-05,
+            "occupants": []
+          },
+          {
+            "side": 3.0,
+            "rider_seats": [],
+            "pivot_height": 2.0,
+            "angle": 6.749351926251853e-05,
+            "capture": 1,
+            "body": [
+              686859719,
+              185352199,
+              -1691101115,
+              -1656980517
+            ],
+            "longitudinal": 0.0,
+            "child_pivot_offset": 0.0,
+            "seats": [
+              4095,
+              274877911039
+            ],
+            "ballast": 0.0,
+            "omega": -1.4375640669095519e-05,
+            "occupants": []
+          }
+        ],
+        "chassis": [
+          -1695763802,
+          -1690613867,
+          -1364625571,
+          1544503665
+        ],
+        "damping": 0.8,
+        "boundFrom": -164926741708620,
+        "ballast": 0.0,
+        "revision": 8,
+        "boarding_ready": 1,
+        "stopping": 1,
+        "variant": "pax_shuttle_v1",
+        "restraints": 0,
+        "family": "pax_shuttle",
+        "maintenance": 0
+      }
+    ]
+  },
+  "DataVersion": 3955
+}

@@ -1,0 +1,27 @@
+from pathlib import Path
+import os,subprocess,time,json
+from report import report,verify
+from rcon import rcon
+out=Path(__file__).resolve().parent;env=dict(os.environ,DISPLAY=':0')
+def shot(name):subprocess.run(['import','-window','root',str(out/(name+'.png'))],env=env,check=True)
+def click(x,y):subprocess.run(['xdotool','mousemove',str(x),str(y),'click','1'],env=env,check=True)
+def sample(label):
+ d=report(label);(out/(label+'.json')).write_text(json.dumps(d,indent=2)+'\n');print(label,d['tick'],d['phase'],d['telemetry']['occupied'],flush=True);return d
+assert 'fixture: dispatch' in rcon('fd validation pax_energy_restart dispatch')
+d=sample('lift_before_disconnect');verify(d);assert d['phase']=='LIFTING'
+click(640,504)
+for i in range(20):
+ time.sleep(.25)
+ if 'online: Observer' in rcon('list'):break
+else:raise AssertionError('Dev did not disconnect')
+d=sample('lift_offline');assert d['phase']=='LIFTING' and d['telemetry']['occupied']==0
+shot('dev-lift-disconnected');rcon('save-all flush')
+subprocess.run(['/home/braydon/.cache/uv/archive-v0/4gQEPP7WwgjhWWMU2AWLC/bin/python',str(out/'dump.py'),'lift-offline'],check=True)
+click(640,512);time.sleep(.6);shot('dev-lift-direct');click(640,477)
+for i in range(40):
+ time.sleep(.25)
+ d=sample('lift_join_'+str(i))
+ if d['telemetry']['occupied']==1:break
+else:raise AssertionError('Rider not restored')
+verify(d);assert d['phase']=='LIFTING';shot('dev-lift-rejoined')
+(out/'lift-reconnect.exit').write_text('0\n')
