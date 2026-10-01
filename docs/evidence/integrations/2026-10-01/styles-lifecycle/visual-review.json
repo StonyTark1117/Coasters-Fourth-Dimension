@@ -1,0 +1,24 @@
+{
+  "method": "Visual inspection of both original 1280x720 screenshots per phase; Minecraft viewport 854x480, GUI scale 2, third-person view.",
+  "accepted": {
+    "seed/third-person-dev.png": "Styled spines visible; double spine distinguishable on middle track. Original rail/tie/control components and occupied car remain visible.",
+    "seed/third-person-observer.png": "Styled spines visible; double spine distinguishable on middle track. Original rail/tie/control components and occupied car remain visible.",
+    "removed/third-person-dev.png": "All tracks use original spine; middle track no longer has imported double spine. Riders remain seated.",
+    "removed/third-person-observer.png": "All tracks use original spine; middle track no longer has imported double spine. Riders remain seated.",
+    "reinstalled/third-person-dev.png": "Saved single/double spines visible again; middle double spine restored.",
+    "reinstalled/third-person-observer.png": "Saved single/double spines visible again; middle double spine restored.",
+    "reinstalled/unloaded-dev.png": "Player visible standing on smooth-stone platform after normal dismount.",
+    "reinstalled/unloaded-observer.png": "Player visible standing on smooth-stone platform after normal dismount."
+  },
+  "excluded": {
+    "seed/styled-overview-dev.png": "Captured before teleport settled; shows spawn ground.",
+    "seed/styled-overview-observer.png": "Captured before teleport settled; not appearance evidence.",
+    "reinstalled/early-observation.json": "Three-pig report before client join; not occupied human restoration proof.",
+    "reinstalled/occupied-final.json": "Stale repeated-label read of early report. Superseded by unique occupied-verified report after fixing reader offset."
+  },
+  "limits": [
+    "Visual review is not pixel-perfect equivalence.",
+    "Model availability logging alone does not establish rendered output.",
+    "No shader/Flywheel backend matrix or moving inversion claim."
+  ]
+}

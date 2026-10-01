@@ -1,0 +1,106 @@
+{
+  "Brain": {
+    "memories": {}
+  },
+  "HurtByTimestamp": 0,
+  "SleepTimer": 0,
+  "Invulnerable": 0,
+  "FallFlying": 0,
+  "PortalCooldown": 0,
+  "AbsorptionAmount": 0.0,
+  "abilities": {
+    "invulnerable": 1,
+    "mayfly": 1,
+    "instabuild": 1,
+    "walkSpeed": 0.10000000149011612,
+    "mayBuild": 1,
+    "flying": 0,
+    "flySpeed": 0.05000000074505806
+  },
+  "FallDistance": 0.0,
+  "recipeBook": {
+    "recipes": [
+      "minecraft:crafting_table"
+    ],
+    "isBlastingFurnaceFilteringCraftable": 0,
+    "isSmokerGuiOpen": 0,
+    "isFilteringCraftable": 0,
+    "toBeDisplayed": [
+      "minecraft:crafting_table"
+    ],
+    "isFurnaceGuiOpen": 0,
+    "isGuiOpen": 0,
+    "isFurnaceFilteringCraftable": 0,
+    "isBlastingFurnaceGuiOpen": 0,
+    "isSmokerFilteringCraftable": 0
+  },
+  "DeathTime": 0,
+  "XpSeed": 2117063028,
+  "XpTotal": 0,
+  "UUID": [
+    301266199,
+    -2059649805,
+    -1608804992,
+    -1648951199
+  ],
+  "playerGameType": 1,
+  "NeoForgeData": {},
+  "seenCredits": 0,
+  "Motion": [
+    0.0,
+    -0.0784000015258789,
+    0.0
+  ],
+  "Health": 20.0,
+  "foodSaturationLevel": 20.0,
+  "ignore_fall_damage_from_current_explosion": 0,
+  "Air": 300,
+  "OnGround": 1,
+  "Dimension": "minecraft:overworld",
+  "Rotation": [
+    -0.004322347696870565,
+    24.99584197998047
+  ],
+  "XpLevel": 0,
+  "current_impulse_context_reset_grace_time": 0,
+  "warden_spawn_tracker": {
+    "warning_level": 0,
+    "ticks_since_last_warning": 8162,
+    "cooldown_ticks": 0
+  },
+  "Score": 0,
+  "Pos": [
+    -95.5,
+    116.0,
+    6.5
+  ],
+  "Fire": -20,
+  "XpP": 0.0,
+  "EnderItems": [],
+  "attributes": [
+    {
+      "id": "minecraft:player.entity_interaction_range",
+      "base": 3.0
+    },
+    {
+      "id": "minecraft:generic.oxygen_bonus",
+      "base": 0.0
+    },
+    {
+      "id": "minecraft:generic.movement_speed",
+      "base": 0.10000000149011612
+    },
+    {
+      "id": "minecraft:player.block_interaction_range",
+      "base": 4.5
+    }
+  ],
+  "DataVersion": 3955,
+  "foodLevel": 20,
+  "foodExhaustionLevel": 0.0,
+  "spawn_extra_particles_on_fall": 0,
+  "HurtTime": 0,
+  "SelectedItemSlot": 0,
+  "Inventory": [],
+  "foodTickTimer": 0
+}

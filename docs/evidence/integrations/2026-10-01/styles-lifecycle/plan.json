@@ -1,0 +1,40 @@
+{
+  "phases": [
+    "seed",
+    "removed",
+    "reinstalled"
+  ],
+  "optional_profiles": {
+    "seed": "styles",
+    "removed": null,
+    "reinstalled": "styles"
+  },
+  "scene": {
+    "rails": 3,
+    "cars": 3,
+    "carriers": 6,
+    "pigs": 3,
+    "human_players": 2
+  },
+  "appearances": [
+    "coasterssimulatedextratypes:arrow_4d",
+    "coasterssimulatedextratypes:arrow_4d_dbl_spine",
+    "fourthdimension:family_default"
+  ],
+  "acceptance": [
+    "normal appearance/profile validation before boarding",
+    "occupied appearance edit rejection",
+    "same profiles and functional providers after each stopped save",
+    "original pig seats and human carrier/local-seat reservations",
+    "both clients late join or restore under closed restraints",
+    "two appearances available, then original fallback, then restored",
+    "normal final unloading",
+    "clean process shutdown and property restoration"
+  ],
+  "limits": [
+    "parked occupied lifecycle",
+    "straight fixed-world rails with nontrivial rotation profiles",
+    "Track Styles only and base pack",
+    "default resources and current client rendering settings"
+  ]
+}

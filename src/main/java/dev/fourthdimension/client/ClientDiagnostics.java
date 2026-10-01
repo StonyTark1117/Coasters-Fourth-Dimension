@@ -64,6 +64,20 @@ public final class ClientDiagnostics {
     var data = EligibilityHooks.CLIENT.get(mc.level);
     var container = SubLevelContainer.getContainer(mc.level);
     if (data == null || container == null) return;
+    for (var rail : data.rails) {
+      if (!rail.appearance
+          .provider()
+          .equals(dev.fourthdimension.integration.AppearanceProviders.TRACK_STYLES)) continue;
+      LogUtils.getLogger()
+          .info(
+              "FD_STYLE_VIEW player={} rail={} savedStyle={} effectiveStyle={} externalSpine={}",
+              mc.player.getName().getString(),
+              rail.id,
+              rail.appearance.style(),
+              rail.appearance.effective(rail.family).style(),
+              TrackStylesVisual.available(rail));
+    }
+
     for (var v : data.vehicles.values()) {
       var parent = container.getSubLevel(v.chassis);
       if (parent == null) continue;

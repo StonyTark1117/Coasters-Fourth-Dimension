@@ -1,0 +1,23 @@
+tick step 200: Stepping 200 tick(s)
+
+
+fd validation styles_restart report pigs-ready: Styles lifecycle snapshot recorded
+
+
+tick unfreeze: The game is running normally
+
+
+fd validation styles_restart report occupied-final: Styles lifecycle snapshot recorded
+
+
+fd validation styles_restart reject_edit: Styles lifecycle fixture: reject_edit
+
+
+fd validation styles_restart report disconnected: Styles lifecycle snapshot recorded
+
+
+save-all flush: Saving the game (this may take a moment!)
+Saved the game
+
+
+stop: Stopping the server

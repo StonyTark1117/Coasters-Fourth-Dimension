@@ -1,0 +1,430 @@
+{
+  "label": "unloaded",
+  "tick": 9875,
+  "styles": true,
+  "foundation": {
+    "schema": 5,
+    "rails": [
+      {
+        "magnets": [],
+        "appearance_style": "coasterssimulatedextratypes:arrow_4d",
+        "profile": [
+          {
+            "distance": 0.0,
+            "angle": 0.0,
+            "slope": 0.0
+          },
+          {
+            "distance": 12.0,
+            "angle": 0.0,
+            "slope": 0.0
+          },
+          {
+            "distance": 36.0,
+            "angle": 6.283185307179586,
+            "slope": 0.0
+          },
+          {
+            "distance": 60.0,
+            "angle": 0.0,
+            "slope": 0.0
+          }
+        ],
+        "geometry_hash": 2926745308409669121,
+        "revision": 2,
+        "valid": 1,
+        "provider": "fourthdimension:original",
+        "variant": "arrow_four_rail_v1",
+        "appearance_provider": "coasterssimulatedextratypes:spines",
+        "from": -32985348833160,
+        "to": -32985348587400,
+        "id": [
+          1343258013,
+          1156727953,
+          -1723700044,
+          -20665234
+        ],
+        "family": "arrow_controlled"
+      },
+      {
+        "magnets": [],
+        "appearance_style": "coasterssimulatedextratypes:arrow_4d_dbl_spine",
+        "profile": [
+          {
+            "distance": 0.0,
+            "angle": 0.0,
+            "slope": 0.0
+          },
+          {
+            "distance": 12.0,
+            "angle": 0.0,
+            "slope": 0.0
+          },
+          {
+            "distance": 36.0,
+            "angle": 6.283185307179586,
+            "slope": 0.0
+          },
+          {
+            "distance": 60.0,
+            "angle": 0.0,
+            "slope": 0.0
+          }
+        ],
+        "geometry_hash": 4874946812481814785,
+        "revision": 2,
+        "valid": 1,
+        "provider": "fourthdimension:original",
+        "variant": "arrow_four_rail_v1",
+        "appearance_provider": "coasterssimulatedextratypes:spines",
+        "from": -27487790694280,
+        "to": -27487790448520,
+        "id": [
+          55924137,
+          -1952889934,
+          -2096325906,
+          1700022552
+        ],
+        "family": "arrow_controlled"
+      },
+      {
+        "magnets": [],
+        "appearance_style": "fourthdimension:family_default",
+        "profile": [
+          {
+            "distance": 0.0,
+            "angle": 0.0,
+            "slope": 0.0
+          },
+          {
+            "distance": 12.0,
+            "angle": 0.0,
+            "slope": 0.0
+          },
+          {
+            "distance": 36.0,
+            "angle": 6.283185307179586,
+            "slope": 0.0
+          },
+          {
+            "distance": 60.0,
+            "angle": 0.0,
+            "slope": 0.0
+          }
+        ],
+        "geometry_hash": 8618710367976159233,
+        "revision": 2,
+        "valid": 1,
+        "provider": "fourthdimension:original",
+        "variant": "arrow_four_rail_v1",
+        "appearance_provider": "fourthdimension:original",
+        "from": -21990232555400,
+        "to": -21990232309640,
+        "id": [
+          -1610381387,
+          -1053408182,
+          -1579763193,
+          878646955
+        ],
+        "family": "arrow_controlled"
+      }
+    ],
+    "vehicles": [
+      {
+        "fault": "",
+        "boundTo": -32985348587400,
+        "carriers": [
+          {
+            "side": -3.0,
+            "rider_seats": [],
+            "pivot_height": 2.0,
+            "angle": -0.00038315699551790325,
+            "capture": 1,
+            "body": [
+              -2007807642,
+              -896382282,
+              -1263448364,
+              -1172864179
+            ],
+            "longitudinal": 0.0,
+            "child_pivot_offset": 0.0,
+            "seats": [
+              4095,
+              -274877902849
+            ],
+            "ballast": 0.0,
+            "omega": 0.0021279949558438943,
+            "occupants": []
+          },
+          {
+            "side": 3.0,
+            "rider_seats": [],
+            "pivot_height": 2.0,
+            "angle": -0.00042662199198387267,
+            "capture": 1,
+            "body": [
+              -1899880689,
+              2707430,
+              -1951089215,
+              1738168420
+            ],
+            "longitudinal": 0.0,
+            "child_pivot_offset": 0.0,
+            "seats": [
+              4095,
+              274877911039
+            ],
+            "ballast": 0.0,
+            "omega": 0.0021204349702424936,
+            "occupants": []
+          }
+        ],
+        "chassis": [
+          104264164,
+          -5878707,
+          -1784798639,
+          -1692872937
+        ],
+        "damping": 5.0,
+        "boundFrom": -32985348833160,
+        "ballast": 0.0,
+        "revision": 2,
+        "boarding_ready": 1,
+        "stopping": 1,
+        "variant": "arrow_four_rail_v1",
+        "restraints": 0,
+        "family": "arrow_controlled",
+        "maintenance": 0
+      },
+      {
+        "fault": "",
+        "boundTo": -27487790448520,
+        "carriers": [
+          {
+            "side": -3.0,
+            "rider_seats": [],
+            "pivot_height": 2.0,
+            "angle": -0.00038380278457812527,
+            "capture": 1,
+            "body": [
+              -1421275196,
+              730024782,
+              -1240951787,
+              1748543224
+            ],
+            "longitudinal": 0.0,
+            "child_pivot_offset": 0.0,
+            "seats": [
+              4095,
+              -274877902849
+            ],
+            "ballast": 0.0,
+            "omega": 0.002144262779468878,
+            "occupants": []
+          },
+          {
+            "side": 3.0,
+            "rider_seats": [],
+            "pivot_height": 2.0,
+            "angle": -0.0004272272973074039,
+            "capture": 1,
+            "body": [
+              -955749975,
+              -438745664,
+              -2138323524,
+              -1001886888
+            ],
+            "longitudinal": 0.0,
+            "child_pivot_offset": 0.0,
+            "seats": [
+              4095,
+              274877911039
+            ],
+            "ballast": 0.0,
+            "omega": 0.0021165662085189546,
+            "occupants": []
+          }
+        ],
+        "chassis": [
+          -2104173832,
+          -725922418,
+          -1121693953,
+          782851239
+        ],
+        "damping": 5.0,
+        "boundFrom": -27487790694280,
+        "ballast": 0.0,
+        "revision": 2,
+        "boarding_ready": 1,
+        "stopping": 1,
+        "variant": "arrow_four_rail_v1",
+        "restraints": 0,
+        "family": "arrow_controlled",
+        "maintenance": 0
+      },
+      {
+        "fault": "",
+        "boundTo": -21990232309640,
+        "carriers": [
+          {
+            "side": -3.0,
+            "rider_seats": [],
+            "pivot_height": 2.0,
+            "angle": -0.0003838298397714935,
+            "capture": 1,
+            "body": [
+              159442731,
+              1477724755,
+              -1991155874,
+              988169261
+            ],
+            "longitudinal": 0.0,
+            "child_pivot_offset": 0.0,
+            "seats": [
+              4095,
+              -274877902849
+            ],
+            "ballast": 0.0,
+            "omega": 0.0021466681057267776,
+            "occupants": []
+          },
+          {
+            "side": 3.0,
+            "rider_seats": [],
+            "pivot_height": 2.0,
+            "angle": -0.0004228996340354739,
+            "capture": 1,
+            "body": [
+              2013453763,
+              -548843536,
+              -1218621908,
+              1226972970
+            ],
+            "longitudinal": 0.0,
+            "child_pivot_offset": 0.0,
+            "seats": [
+              4095,
+              274877911039
+            ],
+            "ballast": 0.0,
+            "omega": 0.002023635884792615,
+            "occupants": []
+          }
+        ],
+        "chassis": [
+          -478240678,
+          459031669,
+          -1609990810,
+          183811373
+        ],
+        "damping": 5.0,
+        "boundFrom": -21990232555400,
+        "ballast": 0.0,
+        "revision": 2,
+        "boarding_ready": 1,
+        "stopping": 1,
+        "variant": "arrow_four_rail_v1",
+        "restraints": 0,
+        "family": "arrow_controlled",
+        "maintenance": 0
+      }
+    ]
+  },
+  "rails": [
+    {
+      "id": "50107d9d-44f2-4491-9942-6cb4fec4ac6e",
+      "resolved": true,
+      "effectiveStyle": "coasterssimulatedextratypes:arrow_4d",
+      "owners": {
+        "CONTROL_RAILS": "fourthdimension:original",
+        "MAGNETIC_EQUIPMENT": "fourthdimension:original",
+        "TIES": "fourthdimension:original",
+        "SPINE": "coasterssimulatedextratypes:spines",
+        "RUNNING_RAILS": "fourthdimension:original"
+      }
+    },
+    {
+      "id": "035555a9-8b99-43b2-830c-9aee65544918",
+      "resolved": true,
+      "effectiveStyle": "coasterssimulatedextratypes:arrow_4d_dbl_spine",
+      "owners": {
+        "CONTROL_RAILS": "fourthdimension:original",
+        "MAGNETIC_EQUIPMENT": "fourthdimension:original",
+        "TIES": "fourthdimension:original",
+        "SPINE": "coasterssimulatedextratypes:spines",
+        "RUNNING_RAILS": "fourthdimension:original"
+      }
+    },
+    {
+      "id": "a00387b5-c136-444a-a1d6-ba07345f16ab",
+      "resolved": true,
+      "effectiveStyle": "fourthdimension:family_default",
+      "owners": {
+        "CONTROL_RAILS": "fourthdimension:original",
+        "MAGNETIC_EQUIPMENT": "fourthdimension:original",
+        "TIES": "fourthdimension:original",
+        "SPINE": "fourthdimension:original",
+        "RUNNING_RAILS": "fourthdimension:original"
+      }
+    }
+  ],
+  "cars": [
+    {
+      "id": "0636f1e4-ffa6-4c4d-959e-22519b18cf17",
+      "loaded": true,
+      "ready": true,
+      "restraints": false,
+      "fault": "",
+      "carriers": [
+        {
+          "id": "88534966-ca92-4ab6-b4b1-4ed4ba17834d",
+          "loaded": true,
+          "riders": []
+        },
+        {
+          "id": "8ec21f0f-0029-4fe6-8bb4-bdc1679a5864",
+          "loaded": true,
+          "riders": []
+        }
+      ]
+    },
+    {
+      "id": "8294daf8-d4bb-4d8e-bd24-4eff2ea95ca7",
+      "loaded": true,
+      "ready": true,
+      "restraints": false,
+      "fault": "",
+      "carriers": [
+        {
+          "id": "ab490fc4-2b83-4b4e-b608-94156838a6f8",
+          "loaded": true,
+          "riders": []
+        },
+        {
+          "id": "c70869a9-e5d9-45c0-808b-c5bcc4486b58",
+          "loaded": true,
+          "riders": []
+        }
+      ]
+    },
+    {
+      "id": "e37ea05a-1b5c-4475-a009-7d660af4bd2d",
+      "loaded": true,
+      "ready": true,
+      "restraints": false,
+      "fault": "",
+      "carriers": [
+        {
+          "id": "0980e72b-5814-4a53-8951-5f5e3ae6442d",
+          "loaded": true,
+          "riders": []
+        },
+        {
+          "id": "7802ddc3-df49-4ff0-b75d-4e2c49221f2a",
+          "loaded": true,
+          "riders": []
+        }
+      ]
+    }
+  ]
+}

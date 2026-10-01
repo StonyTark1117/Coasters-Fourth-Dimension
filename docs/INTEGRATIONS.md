@@ -301,6 +301,14 @@ invalidate cached meshes through baked-model identity, and deleted tracks releas
 their cached mesh. Functional identity, profile, magnets, clearance and eligibility
 never derive from the appearance.
 
+The [occupied removal round trip](evidence/integrations/2026-10-01/styles-lifecycle/README.md)
+verifies these two choices through Styles-only → base-pack save → Styles-only
+reinstallation with two real clients and three native pig passengers. Original
+functional/profile data, carrier identities and local player seat reservations
+survive; native pig seats retain their UUIDs. Both clients show original fallback
+and restored styled spines, and normal final unloading succeeds. This covers parked
+Arrow cars on three straight fixed-world sections, not moving or combined-pack removal.
+
 Run with `-PfdIntegrations=styles`, or `-PfdIntegrations=engineered,styles` for both.
 The 1.2.0 artifact emits client-class mixin warnings on the dedicated server and
 invalid resource-path warnings on the client. Native startup/testing proceeds;

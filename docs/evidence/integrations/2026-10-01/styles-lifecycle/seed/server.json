@@ -1,0 +1,18 @@
+{
+  "pid": 456101,
+  "case": "seed",
+  "world": "FDStylesLifecycleSeed",
+  "command": [
+    "./gradlew",
+    "-Dorg.gradle.jvmargs=-Xmx1G",
+    "--max-workers=2",
+    "runServer",
+    "-PfdPackaged",
+    "-PfdPackagedJar=/home/braydon/.cache/fourthdimension-48535694/styles-lifecycle.jar",
+    "-PfdValidation",
+    "-PfdFrozen",
+    "-PfdIntegrations=styles"
+  ],
+  "artifact": "/home/braydon/.cache/fourthdimension-48535694/styles-lifecycle.jar",
+  "sha256": "d5bf815bbd5210a94016517f4014e136c49516693cdf6fef5ef6da87c35202ab"
+}

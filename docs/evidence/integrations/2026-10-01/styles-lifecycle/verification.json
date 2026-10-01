@@ -1,0 +1,34 @@
+{
+  "cases": {
+    "seed": {
+      "occupied_riders": 5,
+      "carriers": 6,
+      "client_snapshot_matches": {
+        "dev": 296,
+        "observer": 296
+      },
+      "external_spines": true
+    },
+    "removed": {
+      "occupied_riders": 5,
+      "carriers": 6,
+      "client_snapshot_matches": {
+        "dev": 43,
+        "observer": 44
+      },
+      "external_spines": false
+    },
+    "reinstalled": {
+      "occupied_riders": 5,
+      "carriers": 6,
+      "client_snapshot_matches": {
+        "dev": 42,
+        "observer": 39
+      },
+      "external_spines": true
+    }
+  },
+  "unit_tests": 19,
+  "normal_unload": true,
+  "cleanup": true
+}

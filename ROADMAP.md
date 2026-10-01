@@ -405,6 +405,14 @@ cover explicit deletion, malformed values, unrelated/replacement anchors, client
 update exclusion, and current Additions/Magnetized behaviour ownership. Moving
 removal, other addons' occupied removal, older schemas and the wider matrix remain open.
 
+The [occupied Track Styles round trip (2026-10-01)](docs/evidence/integrations/2026-10-01/styles-lifecycle/README.md)
+adds both Arrow spine choices plus an original control through Styles-only/base/Styles
+with two real players and three native pig passengers. Saved profiles, functional
+identity, carrier/local-seat reservations and original pig seat UUIDs survive.
+Both clients show fallback/restored spines; normal final unloading and clean process
+shutdown pass. This narrows the parked appearance-provider removal gap; moving and
+combined-pack removal, other addons and older schemas remain open.
+
 Test upgrades from released save formats, stable IDs, profile rebinding, appearance-provider removal, and explicit conversions involving external blocks.
 
 **Done when:** supported upgrades preserve functional families and profiles; unsupported conversions are rejected clearly. Backups and recovery instructions accompany any destructive migration.
