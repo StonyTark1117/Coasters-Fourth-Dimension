@@ -1,0 +1,273 @@
+{
+  "before": {
+    "seed": {
+      "occupied_restored": 5,
+      "carriers": 14,
+      "mode_records": 10,
+      "saved_strengths": [
+        37,
+        63,
+        37,
+        63,
+        37,
+        63,
+        37,
+        63,
+        37,
+        63
+      ],
+      "normal_unload": false
+    },
+    "control": {
+      "occupied_restored": 5,
+      "carriers": 14,
+      "mode_records": 10,
+      "saved_strengths": [
+        37,
+        63,
+        37,
+        63,
+        37,
+        63,
+        37,
+        63,
+        37,
+        63
+      ],
+      "normal_unload": false
+    },
+    "removed": {
+      "occupied_restored": 5,
+      "carriers": 14,
+      "mode_records": 10,
+      "saved_strengths": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "normal_unload": false
+    },
+    "reinstalled": {
+      "occupied_restored": 5,
+      "carriers": 14,
+      "mode_records": 10,
+      "saved_strengths": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "normal_unload": true
+    },
+    "combined": {
+      "occupied_restored": 5,
+      "carriers": 14,
+      "mode_records": 10,
+      "saved_strengths": [
+        37,
+        63,
+        37,
+        63,
+        37,
+        63,
+        37,
+        63,
+        37,
+        63
+      ],
+      "normal_unload": false
+    },
+    "combined-removed": {
+      "occupied_restored": 5,
+      "carriers": 14,
+      "mode_records": 10,
+      "saved_strengths": [
+        37,
+        63,
+        37,
+        63,
+        37,
+        63,
+        37,
+        63,
+        37,
+        63
+      ],
+      "normal_unload": false
+    },
+    "combined-reinstalled": {
+      "occupied_restored": 5,
+      "carriers": 14,
+      "mode_records": 10,
+      "saved_strengths": [
+        37,
+        63,
+        37,
+        63,
+        37,
+        63,
+        37,
+        63,
+        37,
+        63
+      ],
+      "normal_unload": true
+    }
+  },
+  "fixed": {
+    "seed": {
+      "occupied_restored": 5,
+      "carriers": 14,
+      "mode_records": 10,
+      "saved_strengths": [
+        37,
+        63,
+        37,
+        63,
+        37,
+        63,
+        37,
+        63,
+        37,
+        63
+      ],
+      "normal_unload": false
+    },
+    "control": {
+      "occupied_restored": 5,
+      "carriers": 14,
+      "mode_records": 10,
+      "saved_strengths": [
+        37,
+        63,
+        37,
+        63,
+        37,
+        63,
+        37,
+        63,
+        37,
+        63
+      ],
+      "normal_unload": false
+    },
+    "removed": {
+      "occupied_restored": 5,
+      "carriers": 14,
+      "mode_records": 10,
+      "saved_strengths": [
+        37,
+        63,
+        37,
+        63,
+        37,
+        63,
+        37,
+        63,
+        37,
+        63
+      ],
+      "normal_unload": false
+    },
+    "reinstalled": {
+      "occupied_restored": 5,
+      "carriers": 14,
+      "mode_records": 10,
+      "saved_strengths": [
+        37,
+        63,
+        37,
+        63,
+        37,
+        63,
+        37,
+        63,
+        37,
+        63
+      ],
+      "normal_unload": true
+    },
+    "combined": {
+      "occupied_restored": 5,
+      "carriers": 14,
+      "mode_records": 10,
+      "saved_strengths": [
+        37,
+        63,
+        37,
+        63,
+        37,
+        63,
+        37,
+        63,
+        37,
+        63
+      ],
+      "normal_unload": false
+    },
+    "combined-removed": {
+      "occupied_restored": 5,
+      "carriers": 14,
+      "mode_records": 10,
+      "saved_strengths": [
+        37,
+        63,
+        37,
+        63,
+        37,
+        63,
+        37,
+        63,
+        37,
+        63
+      ],
+      "normal_unload": false
+    },
+    "combined-reinstalled": {
+      "occupied_restored": 5,
+      "carriers": 14,
+      "mode_records": 10,
+      "saved_strengths": [
+        37,
+        63,
+        37,
+        63,
+        37,
+        63,
+        37,
+        63,
+        37,
+        63
+      ],
+      "normal_unload": true
+    }
+  },
+  "native_regressions": {
+    "base": {
+      "registered": 34,
+      "absent_addon_skips": 7
+    },
+    "magnetized": {
+      "registered": 34,
+      "absent_addon_skips": 5
+    },
+    "combined": {
+      "registered": 34,
+      "absent_addon_skips": 0
+    }
+  },
+  "unit_tests": 19
+}

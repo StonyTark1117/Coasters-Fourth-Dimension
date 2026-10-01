@@ -1,0 +1,131 @@
+{
+  "status": "complete",
+  "artifact_sha256": "e651fa9053b1ffb9be1f8842e3a7ab50a835bcdaf1ba69195959b7a71c4dd35b",
+  "runs": [
+    {
+      "case": "seed",
+      "profile": "magnetized",
+      "world": "FDMagnetizedLifecycleFixedSeed",
+      "pid": 202274,
+      "command": [
+        "./gradlew",
+        "-Dorg.gradle.jvmargs=-Xmx1G",
+        "--max-workers=2",
+        "runServer",
+        "-PfdPackaged",
+        "-PfdPackagedJar=/home/braydon/.cache/fourthdimension-48535694/magnetized-lifecycle-fixed.jar",
+        "-PfdValidation",
+        "-PfdFrozen",
+        "-PfdIntegrations=magnetized"
+      ],
+      "status": "complete"
+    },
+    {
+      "case": "control",
+      "profile": "magnetized",
+      "world": "FDMagnetizedLifecycleFixedControl",
+      "pid": 203153,
+      "command": [
+        "./gradlew",
+        "-Dorg.gradle.jvmargs=-Xmx1G",
+        "--max-workers=2",
+        "runServer",
+        "-PfdPackaged",
+        "-PfdPackagedJar=/home/braydon/.cache/fourthdimension-48535694/magnetized-lifecycle-fixed.jar",
+        "-PfdValidation",
+        "-PfdFrozen",
+        "-PfdIntegrations=magnetized"
+      ],
+      "status": "complete"
+    },
+    {
+      "case": "removed",
+      "profile": null,
+      "world": "FDMagnetizedLifecycleFixedRemoved",
+      "pid": 203968,
+      "command": [
+        "./gradlew",
+        "-Dorg.gradle.jvmargs=-Xmx1G",
+        "--max-workers=2",
+        "runServer",
+        "-PfdPackaged",
+        "-PfdPackagedJar=/home/braydon/.cache/fourthdimension-48535694/magnetized-lifecycle-fixed.jar",
+        "-PfdValidation",
+        "-PfdFrozen"
+      ],
+      "status": "complete"
+    },
+    {
+      "case": "reinstalled",
+      "profile": "magnetized",
+      "world": "FDMagnetizedLifecycleFixedReinstalled",
+      "pid": 204873,
+      "command": [
+        "./gradlew",
+        "-Dorg.gradle.jvmargs=-Xmx1G",
+        "--max-workers=2",
+        "runServer",
+        "-PfdPackaged",
+        "-PfdPackagedJar=/home/braydon/.cache/fourthdimension-48535694/magnetized-lifecycle-fixed.jar",
+        "-PfdValidation",
+        "-PfdFrozen",
+        "-PfdIntegrations=magnetized"
+      ],
+      "status": "complete"
+    },
+    {
+      "case": "combined",
+      "profile": "engineered,styles,additions,magnetized,immersion",
+      "world": "FDMagnetizedLifecycleFixedCombined",
+      "pid": 205569,
+      "command": [
+        "./gradlew",
+        "-Dorg.gradle.jvmargs=-Xmx1G",
+        "--max-workers=2",
+        "runServer",
+        "-PfdPackaged",
+        "-PfdPackagedJar=/home/braydon/.cache/fourthdimension-48535694/magnetized-lifecycle-fixed.jar",
+        "-PfdValidation",
+        "-PfdFrozen",
+        "-PfdIntegrations=engineered,styles,additions,magnetized,immersion"
+      ],
+      "status": "complete"
+    },
+    {
+      "case": "combined-removed",
+      "profile": "engineered,styles,additions,immersion",
+      "world": "FDMagnetizedLifecycleFixedCombinedremoved",
+      "pid": 206359,
+      "command": [
+        "./gradlew",
+        "-Dorg.gradle.jvmargs=-Xmx1G",
+        "--max-workers=2",
+        "runServer",
+        "-PfdPackaged",
+        "-PfdPackagedJar=/home/braydon/.cache/fourthdimension-48535694/magnetized-lifecycle-fixed.jar",
+        "-PfdValidation",
+        "-PfdFrozen",
+        "-PfdIntegrations=engineered,styles,additions,immersion"
+      ],
+      "status": "complete"
+    },
+    {
+      "case": "combined-reinstalled",
+      "profile": "engineered,styles,additions,magnetized,immersion",
+      "world": "FDMagnetizedLifecycleFixedCombinedreinstalled",
+      "pid": 208140,
+      "command": [
+        "./gradlew",
+        "-Dorg.gradle.jvmargs=-Xmx1G",
+        "--max-workers=2",
+        "runServer",
+        "-PfdPackaged",
+        "-PfdPackagedJar=/home/braydon/.cache/fourthdimension-48535694/magnetized-lifecycle-fixed.jar",
+        "-PfdValidation",
+        "-PfdFrozen",
+        "-PfdIntegrations=engineered,styles,additions,magnetized,immersion"
+      ],
+      "status": "complete"
+    }
+  ]
+}

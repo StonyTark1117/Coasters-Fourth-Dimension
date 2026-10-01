@@ -1,0 +1,136 @@
+Compiled from "CoasterAnchorpointBehavioursMixin.java"
+public abstract class net.antopfr.coastersmagnetized.mixin.CoasterAnchorpointBehavioursMixin {
+  public net.antopfr.coastersmagnetized.mixin.CoasterAnchorpointBehavioursMixin();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+       4: return
+
+  private void coastersmagnetized$addAccelerationValue(java.util.List<com.simibubi.create.foundation.blockEntity.behaviour.BlockEntityBehaviour>, org.spongepowered.asm.mixin.injection.callback.CallbackInfo);
+    Code:
+       0: aload_0
+       1: checkcast     #7                  // class com/simibubi/create/foundation/blockEntity/SmartBlockEntity
+       4: astore_3
+       5: aload_1
+       6: aload_3
+       7: invokestatic  #9                  // Method net/antopfr/coastersmagnetized/magnet/MagnetScrollValue.create:(Lcom/simibubi/create/foundation/blockEntity/SmartBlockEntity;)Lcom/simibubi/create/foundation/blockEntity/behaviour/scrollValue/ScrollValueBehaviour;
+      10: invokeinterface #15,  2           // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+      15: pop
+      16: aload_1
+      17: new           #21                 // class net/antopfr/coastersmagnetized/wood/WoodenTrackBehaviour
+      20: dup
+      21: aload_3
+      22: invokespecial #23                 // Method net/antopfr/coastersmagnetized/wood/WoodenTrackBehaviour."<init>":(Lcom/simibubi/create/foundation/blockEntity/SmartBlockEntity;)V
+      25: invokeinterface #15,  2           // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+      30: pop
+      31: return
+}
+Compiled from "MagnetBoost.java"
+public final class net.antopfr.coastersmagnetized.magnet.MagnetBoost {
+  public static final double MIN_SPEED_TO_PICK_DIRECTION;
+
+  private net.antopfr.coastersmagnetized.magnet.MagnetBoost();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+       4: return
+
+  public static double maxAcceleration();
+    Code:
+       0: getstatic     #7                  // Field net/antopfr/coastersmagnetized/config/CMConfig.ACCELERATION:Lnet/neoforged/neoforge/common/ModConfigSpec$DoubleValue;
+       3: invokevirtual #13                 // Method net/neoforged/neoforge/common/ModConfigSpec$DoubleValue.get:()Ljava/lang/Object;
+       6: checkcast     #19                 // class java/lang/Double
+       9: invokevirtual #21                 // Method java/lang/Double.doubleValue:()D
+      12: dreturn
+
+  public static double maxSpeed();
+    Code:
+       0: getstatic     #25                 // Field net/antopfr/coastersmagnetized/config/CMConfig.MAX_SPEED:Lnet/neoforged/neoforge/common/ModConfigSpec$DoubleValue;
+       3: invokevirtual #13                 // Method net/neoforged/neoforge/common/ModConfigSpec$DoubleValue.get:()Ljava/lang/Object;
+       6: checkcast     #19                 // class java/lang/Double
+       9: invokevirtual #21                 // Method java/lang/Double.doubleValue:()D
+      12: dreturn
+
+  public static double accelerationFor(net.minecraft.server.level.ServerLevel, dev.silvergold.simulatedcoasters.track.graph.CoasterPathEdge);
+    Code:
+       0: aload_0
+       1: ifnull        8
+       4: aload_1
+       5: ifnonnull     10
+       8: dconst_0
+       9: dreturn
+      10: aload_0
+      11: aload_1
+      12: invokevirtual #28                 // Method dev/silvergold/simulatedcoasters/track/graph/CoasterPathEdge.from:()Lnet/minecraft/core/BlockPos;
+      15: invokestatic  #34                 // Method signedFactor:(Lnet/minecraft/server/level/ServerLevel;Lnet/minecraft/core/BlockPos;)D
+      18: dstore_2
+      19: aload_0
+      20: aload_1
+      21: invokevirtual #40                 // Method dev/silvergold/simulatedcoasters/track/graph/CoasterPathEdge.to:()Lnet/minecraft/core/BlockPos;
+      24: invokestatic  #34                 // Method signedFactor:(Lnet/minecraft/server/level/ServerLevel;Lnet/minecraft/core/BlockPos;)D
+      27: dstore        4
+      29: dload_2
+      30: dload         4
+      32: invokestatic  #43                 // Method java/lang/Math.min:(DD)D
+      35: dconst_0
+      36: dcmpg
+      37: ifge          49
+      40: dload_2
+      41: dload         4
+      43: invokestatic  #43                 // Method java/lang/Math.min:(DD)D
+      46: goto          55
+      49: dload_2
+      50: dload         4
+      52: invokestatic  #49                 // Method java/lang/Math.max:(DD)D
+      55: dstore        6
+      57: dload         6
+      59: dconst_0
+      60: dcmpl
+      61: ifne          68
+      64: dconst_0
+      65: goto          74
+      68: dload         6
+      70: invokestatic  #52                 // Method maxAcceleration:()D
+      73: dmul
+      74: dreturn
+
+  private static double signedFactor(net.minecraft.server.level.ServerLevel, net.minecraft.core.BlockPos);
+    Code:
+       0: aload_1
+       1: ifnonnull     6
+       4: dconst_0
+       5: dreturn
+       6: aload_0
+       7: aload_1
+       8: invokestatic  #55                 // Method net/antopfr/coastersmagnetized/magnet/MagnetizedAnchors.modeOf:(Lnet/minecraft/world/level/Level;Lnet/minecraft/core/BlockPos;)Lnet/antopfr/coastersmagnetized/magnet/AnchorMode;
+      11: astore_2
+      12: aload_2
+      13: invokevirtual #61                 // Method net/antopfr/coastersmagnetized/magnet/AnchorMode.isActive:()Z
+      16: ifeq          27
+      19: aload_0
+      20: aload_1
+      21: invokevirtual #67                 // Method net/minecraft/server/level/ServerLevel.hasNeighborSignal:(Lnet/minecraft/core/BlockPos;)Z
+      24: ifne          29
+      27: dconst_0
+      28: dreturn
+      29: aload_2
+      30: getstatic     #73                 // Field net/antopfr/coastersmagnetized/magnet/AnchorMode.BRAKE:Lnet/antopfr/coastersmagnetized/magnet/AnchorMode;
+      33: if_acmpne     40
+      36: iconst_0
+      37: goto          42
+      40: bipush        100
+      42: istore_3
+      43: aload_0
+      44: aload_1
+      45: iload_3
+      46: invokestatic  #79                 // Method net/antopfr/coastersmagnetized/magnet/MagnetScrollValue.percentAt:(Lnet/minecraft/world/level/BlockGetter;Lnet/minecraft/core/BlockPos;I)I
+      49: i2d
+      50: ldc2_w        #83                 // double 100.0d
+      53: ddiv
+      54: dstore        4
+      56: dload         4
+      58: aload_2
+      59: invokevirtual #85                 // Method net/antopfr/coastersmagnetized/magnet/AnchorMode.sign:()D
+      62: dmul
+      63: dreturn
+}

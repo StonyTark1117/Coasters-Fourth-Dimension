@@ -487,8 +487,17 @@ its original pack to recover removed equipment, or rebuild/rebind equipment and
 validate operation before boarding riders. Retained appearance IDs and original
 functional track data do not constitute a backup of an addon's blocks.
 
-This result does not cover occupied removal, Magnetized-specific anchor-mode
-migration, Immersion camera removal, client rendering or the full lifecycle matrix.
+A later [occupied Magnetized removal checkpoint](evidence/integrations/2026-10-01/magnetized-lifecycle/README.md)
+covers one parked rider in each family across normal restart, removal to the base
+pack and reinstallation, plus the combined-pack round trip. It exposes and fixes
+loss of anchor strength on base-pack saves: modes survived, but reinstall previously
+read zero strength. Our anchors now retain the inactive 0–100 integer while the addon
+and its behaviour are absent. Existing installed behaviours keep ownership. Both
+round trips preserve 37%/63%, original riders, seats and our mechanical data.
+Already-lost settings still require the original world backup or manual reconfiguration.
+
+Moving occupied removal, other addons' occupied removal, automatic chunk interruption,
+Immersion camera removal, client rendering and the full lifecycle matrix remain open.
 
 ## Remaining acceptance
 
@@ -586,7 +595,8 @@ acceptance remain open.
   remaining train configurations, lifecycle and multiplayer acceptance;
   validate any rotating-seat replacement separately.
 - Extend Magnetized native single-car and two-car Arrow evidence to longer trains,
-  curves/slopes, equipment visuals, configuration extremes, lifecycle and multiplayer.
+  curves/slopes, equipment visuals, configuration extremes, moving/chunk lifecycle and
+  multiplayer; parked occupied removal/reinstall now has the bounded checkpoint above.
 - Extend the bounded five-family Immersion camera/restart evidence to every camera
   mode, comfort extreme, inversion and lifecycle transition. The combined-pack
   two-client cycles remain bounded evidence only.

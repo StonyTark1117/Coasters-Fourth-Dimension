@@ -1,0 +1,283 @@
+{
+  "label": "restored",
+  "tick": 805,
+  "magnetized": true,
+  "anchors": [
+    {
+      "family": "ARROW",
+      "pos": "-900, 160, -200",
+      "powered": true,
+      "nbt": "{AnchorPeerCurveTints:[],AnchorPeerCurves:[{Bezier:{Axes:[{V:[0.0d,0.0d,1.0d]},{V:[0.0d,0.0d,-1.0d]}],Girder:0b,Material:\"simulatedcoasters:coaster_track\",Normals:[{V:[0.0d,1.0d,0.0d]},{V:[0.0d,1.0d,0.0d]}],Positions:[{Pos:[I;0,0,0]},{Pos:[I;0,0,60]}],Primary:1b,Starts:[{V:[0.5d,0.75d,0.5d]},{V:[0.5d,0.75d,60.5d]}]},HHi:20.0d,HLo:20.0d,Peer:-247115238915936L}],CoasterfinsSpanAnimation:0b,CoasterfinsSpanDelay:0b,CoasterfinsSpanMode:\"boost\",CoasterfinsSpanParticles:1b,CoasterfinsSpanSound:1b,JointBank:0.0f,ScrollValue:37,Speed:0.0f,WoodenCurves:[],id:\"simulatedcoasters:coaster_anchorpoint\",x:-900,y:160,z:-200}",
+      "equipment": {
+        "mode": "MAGNET",
+        "percent": 37
+      }
+    },
+    {
+      "family": "ARROW",
+      "pos": "-900, 160, -140",
+      "powered": true,
+      "nbt": "{AnchorPeerCurveTints:[],AnchorPeerCurves:[{Bezier:{Axes:[{V:[0.0d,0.0d,-1.0d]},{V:[0.0d,0.0d,1.0d]}],Girder:0b,Material:\"simulatedcoasters:coaster_track\",Normals:[{V:[0.0d,1.0d,0.0d]},{V:[0.0d,1.0d,0.0d]}],Positions:[{Pos:[I;0,0,0]},{Pos:[I;0,0,-60]}],Primary:0b,Starts:[{V:[0.5d,0.75d,0.5d]},{V:[0.5d,0.75d,-59.5d]}]},HHi:20.0d,HLo:20.0d,Peer:-247115239161696L}],CoasterfinsSpanAnimation:0b,CoasterfinsSpanDelay:0b,CoasterfinsSpanMode:\"boost\",CoasterfinsSpanParticles:1b,CoasterfinsSpanSound:1b,JointBank:0.0f,ScrollValue:63,Speed:0.0f,WoodenCurves:[],id:\"simulatedcoasters:coaster_anchorpoint\",x:-900,y:160,z:-140}",
+      "equipment": {
+        "mode": "BRAKE",
+        "percent": 63
+      }
+    },
+    {
+      "family": "ZACSPIN",
+      "pos": "-868, 160, -200",
+      "powered": true,
+      "nbt": "{AnchorPeerCurveTints:[],AnchorPeerCurves:[{Bezier:{Axes:[{V:[0.0d,0.0d,1.0d]},{V:[0.0d,0.0d,-1.0d]}],Girder:0b,Material:\"simulatedcoasters:coaster_track\",Normals:[{V:[0.0d,1.0d,0.0d]},{V:[0.0d,1.0d,0.0d]}],Positions:[{Pos:[I;0,0,0]},{Pos:[I;0,0,60]}],Primary:1b,Starts:[{V:[0.5d,0.75d,0.5d]},{V:[0.5d,0.75d,60.5d]}]},HHi:20.0d,HLo:20.0d,Peer:-238319145893728L}],CoasterfinsSpanAnimation:0b,CoasterfinsSpanDelay:0b,CoasterfinsSpanMode:\"boost\",CoasterfinsSpanParticles:1b,CoasterfinsSpanSound:1b,JointBank:0.0f,ScrollValue:37,Speed:0.0f,WoodenCurves:[],id:\"simulatedcoasters:coaster_anchorpoint\",x:-868,y:160,z:-200}",
+      "equipment": {
+        "mode": "MAGNET",
+        "percent": 37
+      }
+    },
+    {
+      "family": "ZACSPIN",
+      "pos": "-868, 160, -140",
+      "powered": true,
+      "nbt": "{AnchorPeerCurveTints:[],AnchorPeerCurves:[{Bezier:{Axes:[{V:[0.0d,0.0d,-1.0d]},{V:[0.0d,0.0d,1.0d]}],Girder:0b,Material:\"simulatedcoasters:coaster_track\",Normals:[{V:[0.0d,1.0d,0.0d]},{V:[0.0d,1.0d,0.0d]}],Positions:[{Pos:[I;0,0,0]},{Pos:[I;0,0,-60]}],Primary:0b,Starts:[{V:[0.5d,0.75d,0.5d]},{V:[0.5d,0.75d,-59.5d]}]},HHi:20.0d,HLo:20.0d,Peer:-238319146139488L}],CoasterfinsSpanAnimation:0b,CoasterfinsSpanDelay:0b,CoasterfinsSpanMode:\"boost\",CoasterfinsSpanParticles:1b,CoasterfinsSpanSound:1b,JointBank:0.0f,ScrollValue:63,Speed:0.0f,WoodenCurves:[],id:\"simulatedcoasters:coaster_anchorpoint\",x:-868,y:160,z:-140}",
+      "equipment": {
+        "mode": "BRAKE",
+        "percent": 63
+      }
+    },
+    {
+      "family": "FREE_SPIN",
+      "pos": "-836, 160, -200",
+      "powered": true,
+      "nbt": "{AnchorPeerCurveTints:[],AnchorPeerCurves:[{Bezier:{Axes:[{V:[0.0d,0.0d,1.0d]},{V:[0.0d,0.0d,-1.0d]}],Girder:0b,Material:\"simulatedcoasters:coaster_track\",Normals:[{V:[0.0d,1.0d,0.0d]},{V:[0.0d,1.0d,0.0d]}],Positions:[{Pos:[I;0,0,0]},{Pos:[I;0,0,60]}],Primary:1b,Starts:[{V:[0.5d,0.75d,0.5d]},{V:[0.5d,0.75d,60.5d]}]},HHi:20.0d,HLo:20.0d,Peer:-229523052871520L}],CoasterfinsSpanAnimation:0b,CoasterfinsSpanDelay:0b,CoasterfinsSpanMode:\"boost\",CoasterfinsSpanParticles:1b,CoasterfinsSpanSound:1b,JointBank:0.0f,ScrollValue:37,Speed:0.0f,WoodenCurves:[],id:\"simulatedcoasters:coaster_anchorpoint\",x:-836,y:160,z:-200}",
+      "equipment": {
+        "mode": "MAGNET",
+        "percent": 37
+      }
+    },
+    {
+      "family": "FREE_SPIN",
+      "pos": "-836, 160, -140",
+      "powered": true,
+      "nbt": "{AnchorPeerCurveTints:[],AnchorPeerCurves:[{Bezier:{Axes:[{V:[0.0d,0.0d,-1.0d]},{V:[0.0d,0.0d,1.0d]}],Girder:0b,Material:\"simulatedcoasters:coaster_track\",Normals:[{V:[0.0d,1.0d,0.0d]},{V:[0.0d,1.0d,0.0d]}],Positions:[{Pos:[I;0,0,0]},{Pos:[I;0,0,-60]}],Primary:0b,Starts:[{V:[0.5d,0.75d,0.5d]},{V:[0.5d,0.75d,-59.5d]}]},HHi:20.0d,HLo:20.0d,Peer:-229523053117280L}],CoasterfinsSpanAnimation:0b,CoasterfinsSpanDelay:0b,CoasterfinsSpanMode:\"boost\",CoasterfinsSpanParticles:1b,CoasterfinsSpanSound:1b,JointBank:0.0f,ScrollValue:63,Speed:0.0f,WoodenCurves:[],id:\"simulatedcoasters:coaster_anchorpoint\",x:-836,y:160,z:-140}",
+      "equipment": {
+        "mode": "BRAKE",
+        "percent": 63
+      }
+    },
+    {
+      "family": "ZACSPIN_REVISED",
+      "pos": "-804, 160, -200",
+      "powered": true,
+      "nbt": "{AnchorPeerCurveTints:[],AnchorPeerCurves:[{Bezier:{Axes:[{V:[0.0d,0.0d,1.0d]},{V:[0.0d,0.0d,-1.0d]}],Girder:0b,Material:\"simulatedcoasters:coaster_track\",Normals:[{V:[0.0d,1.0d,0.0d]},{V:[0.0d,1.0d,0.0d]}],Positions:[{Pos:[I;0,0,0]},{Pos:[I;0,0,60]}],Primary:1b,Starts:[{V:[0.5d,0.75d,0.5d]},{V:[0.5d,0.75d,60.5d]}]},HHi:20.0d,HLo:20.0d,Peer:-220726959849312L}],CoasterfinsSpanAnimation:0b,CoasterfinsSpanDelay:0b,CoasterfinsSpanMode:\"boost\",CoasterfinsSpanParticles:1b,CoasterfinsSpanSound:1b,JointBank:0.0f,ScrollValue:37,Speed:0.0f,WoodenCurves:[],id:\"simulatedcoasters:coaster_anchorpoint\",x:-804,y:160,z:-200}",
+      "equipment": {
+        "mode": "MAGNET",
+        "percent": 37
+      }
+    },
+    {
+      "family": "ZACSPIN_REVISED",
+      "pos": "-804, 160, -140",
+      "powered": true,
+      "nbt": "{AnchorPeerCurveTints:[],AnchorPeerCurves:[{Bezier:{Axes:[{V:[0.0d,0.0d,-1.0d]},{V:[0.0d,0.0d,1.0d]}],Girder:0b,Material:\"simulatedcoasters:coaster_track\",Normals:[{V:[0.0d,1.0d,0.0d]},{V:[0.0d,1.0d,0.0d]}],Positions:[{Pos:[I;0,0,0]},{Pos:[I;0,0,-60]}],Primary:0b,Starts:[{V:[0.5d,0.75d,0.5d]},{V:[0.5d,0.75d,-59.5d]}]},HHi:20.0d,HLo:20.0d,Peer:-220726960095072L}],CoasterfinsSpanAnimation:0b,CoasterfinsSpanDelay:0b,CoasterfinsSpanMode:\"boost\",CoasterfinsSpanParticles:1b,CoasterfinsSpanSound:1b,JointBank:0.0f,ScrollValue:63,Speed:0.0f,WoodenCurves:[],id:\"simulatedcoasters:coaster_anchorpoint\",x:-804,y:160,z:-140}",
+      "equipment": {
+        "mode": "BRAKE",
+        "percent": 63
+      }
+    },
+    {
+      "family": "PAX",
+      "pos": "-772, 160, -200",
+      "powered": true,
+      "nbt": "{AnchorPeerCurveTints:[],AnchorPeerCurves:[{Bezier:{Axes:[{V:[0.0d,0.0d,1.0d]},{V:[0.0d,0.0d,-1.0d]}],Girder:0b,Material:\"simulatedcoasters:coaster_track\",Normals:[{V:[0.0d,1.0d,0.0d]},{V:[0.0d,1.0d,0.0d]}],Positions:[{Pos:[I;0,0,0]},{Pos:[I;0,0,60]}],Primary:1b,Starts:[{V:[0.5d,0.75d,0.5d]},{V:[0.5d,0.75d,60.5d]}]},HHi:20.0d,HLo:20.0d,Peer:-211930866827104L}],CoasterfinsSpanAnimation:0b,CoasterfinsSpanDelay:0b,CoasterfinsSpanMode:\"boost\",CoasterfinsSpanParticles:1b,CoasterfinsSpanSound:1b,JointBank:0.0f,ScrollValue:37,Speed:0.0f,WoodenCurves:[],id:\"simulatedcoasters:coaster_anchorpoint\",x:-772,y:160,z:-200}",
+      "equipment": {
+        "mode": "MAGNET",
+        "percent": 37
+      }
+    },
+    {
+      "family": "PAX",
+      "pos": "-772, 160, -140",
+      "powered": true,
+      "nbt": "{AnchorPeerCurveTints:[],AnchorPeerCurves:[{Bezier:{Axes:[{V:[0.0d,0.0d,-1.0d]},{V:[0.0d,0.0d,1.0d]}],Girder:0b,Material:\"simulatedcoasters:coaster_track\",Normals:[{V:[0.0d,1.0d,0.0d]},{V:[0.0d,1.0d,0.0d]}],Positions:[{Pos:[I;0,0,0]},{Pos:[I;0,0,-60]}],Primary:0b,Starts:[{V:[0.5d,0.75d,0.5d]},{V:[0.5d,0.75d,-59.5d]}]},HHi:20.0d,HLo:20.0d,Peer:-211930867072864L}],CoasterfinsSpanAnimation:0b,CoasterfinsSpanDelay:0b,CoasterfinsSpanMode:\"boost\",CoasterfinsSpanParticles:1b,CoasterfinsSpanSound:1b,JointBank:0.0f,ScrollValue:63,Speed:0.0f,WoodenCurves:[],id:\"simulatedcoasters:coaster_anchorpoint\",x:-772,y:160,z:-140}",
+      "equipment": {
+        "mode": "BRAKE",
+        "percent": 63
+      }
+    }
+  ],
+  "cars": [
+    {
+      "chassis": "60139234-25e5-4165-a55b-435b95d7908c",
+      "family": "ARROW",
+      "ready": true,
+      "restraints": true,
+      "stopping": true,
+      "fault": "",
+      "externalDriveAllowed": false,
+      "carriers": [
+        {
+          "body": "e8fe297f-796f-461a-bd28-d79f673b73a7",
+          "loaded": true,
+          "capture": true,
+          "riders": [
+            {
+              "id": "a8f1252a-f8a3-47fb-8d36-a7dc38bcccf4",
+              "alive": true,
+              "mounted": true,
+              "carrier": "e8fe297f-796f-461a-bd28-d79f673b73a7"
+            }
+          ]
+        },
+        {
+          "body": "95e3482d-6d54-45ca-adfa-40ce48b7f54f",
+          "loaded": true,
+          "capture": true,
+          "riders": []
+        }
+      ]
+    },
+    {
+      "chassis": "5183c6c1-4f4a-479f-8a92-c5a960e06c94",
+      "family": "ZACSPIN",
+      "ready": true,
+      "restraints": true,
+      "stopping": true,
+      "fault": "",
+      "externalDriveAllowed": false,
+      "carriers": [
+        {
+          "body": "36d73508-2d38-4d73-866f-1b0d83a71910",
+          "loaded": true,
+          "capture": true,
+          "riders": [
+            {
+              "id": "2ecf73da-5ade-4918-8b80-cdfb508c3f55",
+              "alive": true,
+              "mounted": true,
+              "carrier": "36d73508-2d38-4d73-866f-1b0d83a71910"
+            }
+          ]
+        },
+        {
+          "body": "17531082-fd87-464e-ae62-3fb7201e93d4",
+          "loaded": true,
+          "capture": true,
+          "riders": []
+        }
+      ]
+    },
+    {
+      "chassis": "8caebcaf-5aca-4562-9395-3a455fa1a968",
+      "family": "FREE_SPIN",
+      "ready": true,
+      "restraints": true,
+      "stopping": true,
+      "fault": "",
+      "externalDriveAllowed": false,
+      "carriers": [
+        {
+          "body": "b5e1eeed-81c4-4065-9c9e-22bcd2aaee32",
+          "loaded": true,
+          "capture": true,
+          "riders": [
+            {
+              "id": "3a6e693c-2237-4612-8818-fc40ab70498d",
+              "alive": true,
+              "mounted": true,
+              "carrier": "b5e1eeed-81c4-4065-9c9e-22bcd2aaee32"
+            }
+          ]
+        },
+        {
+          "body": "5658d9f0-5b34-4805-835a-b1a6766de7cc",
+          "loaded": true,
+          "capture": true,
+          "riders": []
+        },
+        {
+          "body": "faaf421d-e952-4618-83e4-118ac71e34a4",
+          "loaded": true,
+          "capture": true,
+          "riders": []
+        },
+        {
+          "body": "b314bf17-44fb-4b37-86d2-bcc0e0a278d2",
+          "loaded": true,
+          "capture": true,
+          "riders": []
+        }
+      ]
+    },
+    {
+      "chassis": "c2eef2db-2d90-4fa7-9b10-2c8ee53f0054",
+      "family": "ZACSPIN_REVISED",
+      "ready": true,
+      "restraints": true,
+      "stopping": true,
+      "fault": "",
+      "externalDriveAllowed": false,
+      "carriers": [
+        {
+          "body": "85a49297-be74-4baf-b4ac-a8954fbc5bc2",
+          "loaded": true,
+          "capture": true,
+          "riders": [
+            {
+              "id": "61cfa4a0-89e7-4154-9380-826cb4667d8d",
+              "alive": true,
+              "mounted": true,
+              "carrier": "85a49297-be74-4baf-b4ac-a8954fbc5bc2"
+            }
+          ]
+        },
+        {
+          "body": "d4873188-da6b-4648-b86e-ea7450b434f4",
+          "loaded": true,
+          "capture": true,
+          "riders": []
+        },
+        {
+          "body": "35f62ef8-2b73-4106-923f-805e6b958c83",
+          "loaded": true,
+          "capture": true,
+          "riders": []
+        },
+        {
+          "body": "df0d4a30-1c3b-466e-b0de-48dcd3c1c48c",
+          "loaded": true,
+          "capture": true,
+          "riders": []
+        }
+      ]
+    },
+    {
+      "chassis": "2cc07dfe-10b3-4b36-9e47-3084294766d4",
+      "family": "PAX",
+      "ready": true,
+      "restraints": true,
+      "stopping": true,
+      "fault": "",
+      "externalDriveAllowed": false,
+      "carriers": [
+        {
+          "body": "70f2eafa-b124-4719-b160-421752c468ce",
+          "loaded": true,
+          "capture": true,
+          "riders": [
+            {
+              "id": "259e1517-025f-49d8-83bd-6c2eaa3a5c00",
+              "alive": true,
+              "mounted": true,
+              "carrier": "70f2eafa-b124-4719-b160-421752c468ce"
+            }
+          ]
+        },
+        {
+          "body": "c7422236-06c9-4ca6-9642-223ecdb72a4d",
+          "loaded": true,
+          "capture": true,
+          "riders": []
+        }
+      ]
+    }
+  ]
+}

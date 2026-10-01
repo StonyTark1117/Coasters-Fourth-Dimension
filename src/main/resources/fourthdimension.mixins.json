@@ -12,7 +12,8 @@
     "ChainDriveGuardMixin",
     "LoadingDependencyMixin",
     "OpenEndAvailabilityMixin",
-    "BankBlendAvailabilityMixin"
+    "BankBlendAvailabilityMixin",
+    "OptionalAnchorStrengthMixin"
   ],
   "injectors": {
     "defaultRequire": 1

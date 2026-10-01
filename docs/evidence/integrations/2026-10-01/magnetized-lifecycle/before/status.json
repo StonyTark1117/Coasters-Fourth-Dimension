@@ -1,0 +1,131 @@
+{
+  "status": "complete",
+  "artifact_sha256": "c75c9e9e5f68c2ab14c304a0d6b5e9acf692c8346698051b3e37599310016113",
+  "runs": [
+    {
+      "case": "seed",
+      "profile": "magnetized",
+      "world": "FDMagnetizedLifecycleSeed",
+      "pid": 191788,
+      "command": [
+        "./gradlew",
+        "-Dorg.gradle.jvmargs=-Xmx1G",
+        "--max-workers=2",
+        "runServer",
+        "-PfdPackaged",
+        "-PfdPackagedJar=/home/braydon/.cache/fourthdimension-48535694/magnetized-lifecycle.jar",
+        "-PfdValidation",
+        "-PfdFrozen",
+        "-PfdIntegrations=magnetized"
+      ],
+      "status": "complete"
+    },
+    {
+      "case": "control",
+      "profile": "magnetized",
+      "world": "FDMagnetizedLifecycleControl",
+      "pid": 192319,
+      "command": [
+        "./gradlew",
+        "-Dorg.gradle.jvmargs=-Xmx1G",
+        "--max-workers=2",
+        "runServer",
+        "-PfdPackaged",
+        "-PfdPackagedJar=/home/braydon/.cache/fourthdimension-48535694/magnetized-lifecycle.jar",
+        "-PfdValidation",
+        "-PfdFrozen",
+        "-PfdIntegrations=magnetized"
+      ],
+      "status": "complete"
+    },
+    {
+      "case": "removed",
+      "profile": null,
+      "world": "FDMagnetizedLifecycleRemoved",
+      "pid": 193401,
+      "command": [
+        "./gradlew",
+        "-Dorg.gradle.jvmargs=-Xmx1G",
+        "--max-workers=2",
+        "runServer",
+        "-PfdPackaged",
+        "-PfdPackagedJar=/home/braydon/.cache/fourthdimension-48535694/magnetized-lifecycle.jar",
+        "-PfdValidation",
+        "-PfdFrozen"
+      ],
+      "status": "complete"
+    },
+    {
+      "case": "reinstalled",
+      "profile": "magnetized",
+      "world": "FDMagnetizedLifecycleReinstalled",
+      "pid": 193941,
+      "command": [
+        "./gradlew",
+        "-Dorg.gradle.jvmargs=-Xmx1G",
+        "--max-workers=2",
+        "runServer",
+        "-PfdPackaged",
+        "-PfdPackagedJar=/home/braydon/.cache/fourthdimension-48535694/magnetized-lifecycle.jar",
+        "-PfdValidation",
+        "-PfdFrozen",
+        "-PfdIntegrations=magnetized"
+      ],
+      "status": "complete"
+    },
+    {
+      "case": "combined",
+      "profile": "engineered,styles,additions,magnetized,immersion",
+      "world": "FDMagnetizedLifecycleCombined",
+      "pid": 194783,
+      "command": [
+        "./gradlew",
+        "-Dorg.gradle.jvmargs=-Xmx1G",
+        "--max-workers=2",
+        "runServer",
+        "-PfdPackaged",
+        "-PfdPackagedJar=/home/braydon/.cache/fourthdimension-48535694/magnetized-lifecycle.jar",
+        "-PfdValidation",
+        "-PfdFrozen",
+        "-PfdIntegrations=engineered,styles,additions,magnetized,immersion"
+      ],
+      "status": "complete"
+    },
+    {
+      "case": "combined-removed",
+      "profile": "engineered,styles,additions,immersion",
+      "world": "FDMagnetizedLifecycleCombinedremoved",
+      "pid": 196065,
+      "command": [
+        "./gradlew",
+        "-Dorg.gradle.jvmargs=-Xmx1G",
+        "--max-workers=2",
+        "runServer",
+        "-PfdPackaged",
+        "-PfdPackagedJar=/home/braydon/.cache/fourthdimension-48535694/magnetized-lifecycle.jar",
+        "-PfdValidation",
+        "-PfdFrozen",
+        "-PfdIntegrations=engineered,styles,additions,immersion"
+      ],
+      "status": "complete"
+    },
+    {
+      "case": "combined-reinstalled",
+      "profile": "engineered,styles,additions,magnetized,immersion",
+      "world": "FDMagnetizedLifecycleCombinedreinstalled",
+      "pid": 197556,
+      "command": [
+        "./gradlew",
+        "-Dorg.gradle.jvmargs=-Xmx1G",
+        "--max-workers=2",
+        "runServer",
+        "-PfdPackaged",
+        "-PfdPackagedJar=/home/braydon/.cache/fourthdimension-48535694/magnetized-lifecycle.jar",
+        "-PfdValidation",
+        "-PfdFrozen",
+        "-PfdIntegrations=engineered,styles,additions,magnetized,immersion"
+      ],
+      "status": "complete"
+    }
+  ]
+}
