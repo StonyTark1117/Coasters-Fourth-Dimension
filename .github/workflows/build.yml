@@ -64,6 +64,19 @@ jobs:
           test "${#FD_BASE_JARS[@]}" -eq 1
           python3 scripts/audit-arrow-wheel-clearance.py "${FD_BASE_JARS[0]}" \
             "${FD_STYLE_JARS[0]}" > build/wheel-clearance.json
+      - name: Audit sampled native recovery block models
+        run: |
+          python3 -m pip install -r scripts/requirements-geometry.txt
+          FD_BASE_JARS=("$HOME"/.gradle/caches/modules-2/files-2.1/curse.maven/create-coasters-simulated-1601871/8655742/*/*.jar)
+          test "${#FD_BASE_JARS[@]}" -eq 1
+          FD_MC_JAR="$HOME/.gradle/caches/neoformruntime/artifacts/minecraft_1.21.1_client.jar"
+          test -f "$FD_MC_JAR"
+          python3 scripts/audit-recovery-mesh-trace.py "${FD_BASE_JARS[0]}" "$FD_MC_JAR" \
+            build/runs/gametest/recovery-bank-native-frames.json \
+            build/runs/gametest/recovery-bank-mesh-trace.jsonl > build/recovery-model-clearance.json
+          python3 scripts/audit-recovery-mesh-trace.py "${FD_BASE_JARS[0]}" "$FD_MC_JAR" \
+            build/runs/gametest/recovery-bank-train-native-frames.json \
+            build/runs/gametest/recovery-bank-train-mesh-trace.jsonl > build/recovery-train-model-clearance.json
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         if: always()
         with:
@@ -78,5 +91,9 @@ jobs:
             build/recovery-route-geometry.json
             build/runs/gametest/recovery-bank-train-native-frames.json
             build/recovery-train-geometry.json
+            build/runs/gametest/recovery-bank-mesh-trace.jsonl
+            build/runs/gametest/recovery-bank-train-mesh-trace.jsonl
+            build/recovery-model-clearance.json
+            build/recovery-train-model-clearance.json
             build/banked-clearance.json
             build/wheel-clearance.json

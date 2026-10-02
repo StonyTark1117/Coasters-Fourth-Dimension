@@ -1,0 +1,75 @@
+{
+  "baseSha256": "f80b4c3cdf9fa6188804967147761b0373e150a6eadbdc53626e5ac9700b2049",
+  "minecraftSha256": "499f6897d1837516680f3114072d8106e11c9adcd933fe5cf051b551089b0c99",
+  "framesSha256": "9772d76601b3c2234e3e2d4bc05eec5e0ed2867e3f16e5fa16b4bb3f5ab42f2f",
+  "traceSha256": "77b7ad928ba013414496cfc1794f238a453e6ebe01e196be773be6355c88b6d1",
+  "sourceHashes": {
+    "src/main/java/dev/fourthdimension/client/OriginalTrackRenderer.java": "87d292af8233164d1a4fc294e12f755f5265aecd980e573b15ca303fc31ef240",
+    "src/main/java/dev/fourthdimension/track/TrackDesign.java": "71212961dcbdc17e9dca8a16a23ecfc5ab9fcff82d0f87f39dd5749b8fff7088",
+    "src/main/java/dev/fourthdimension/gametest/RecoveryMeshTrace.java": "b96eea0e398182aa06f99dacc862533a0728c03e575c8ec071248849edf5aa29",
+    "src/main/java/dev/fourthdimension/vehicle/BankedRecoveryExamples.java": "0d6597a484cf83cca90671ab6351c81cca42a4e9b96075b4843b136d81229439"
+  },
+  "resourceHashes": {
+    "assets/fourthdimension/blockstates/wing_strut.json": "0dd8ae19cbbc888ad6ae6c3d27dca6e04382c55576eb141fe0662a4497f45b64",
+    "assets/fourthdimension/models/block/wing_strut.json": "bf441e1d280411505c209acdf7906925b18ab24cfeac7c8461440cc400d59025",
+    "assets/simulatedcoasters/blockstates/coaster_cart.json": "14535bb6399df8fc0ffeb50918ed51463c9faec5c23c6dfcc2dc219a2c3c375f",
+    "assets/simulatedcoasters/models/block/coaster_cart.json": "fbeec04b7a448a193350090c022b3c04bb5e5924cf207fbd8b1c1b085cf03290",
+    "assets/fourthdimension/blockstates/arrow_controlled_controller.json": "4c168c2bca280737141ff54ae1efd30672dff9ef1a4900482920c37f760c34f9",
+    "assets/fourthdimension/models/block/arrow_controlled_controller.json": "76dff79bcacac6fe8e81fd279a6ffe92b2cbf7dd02885e7e3bf27ad7e9a93a3b",
+    "assets/fourthdimension/blockstates/arrow_seat.json": "c40dc92f7c3cc335d421ed3bc1b91afbfa4b7ec0c431c4229d165d7979a87381",
+    "assets/fourthdimension/models/block/arrow_seat_closed.json": "5fcef06c2a6abb6d67ce0d5aa6507ecc3fb55e868adc405aa9a80117001b5868",
+    "assets/fourthdimension/blockstates/carrier_axle.json": "420b54a2c9dfa491c51628c0051a874ce1f2f639357f7a8c132c60fa15e5e02b",
+    "assets/fourthdimension/models/block/carrier_axle.json": "d2a39c19a9fc7fdbe58b90208701188a4c76e3876e11d7560bbeaa7da0346a24",
+    "assets/fourthdimension/blockstates/pax_shuttle_controller.json": "73ec8e44f74a31d75201087999ace4abca62724f5b975dd619e35c0ee7918fec",
+    "assets/fourthdimension/models/block/pax_shuttle_controller.json": "7bd2ca365c502723cda18f439649b27eabe1fdf186a37ea68019bce03dcbdae8",
+    "assets/minecraft/models/block/cube_all.json": "be3205d629ffb9e03834c3d1d083f8a2c62e9f9ae80820755129408634e9144a",
+    "assets/minecraft/models/block/cube.json": "3e4aacd02e816aeba38f83076596e18ded4cf49c01e17c62d1fce79850ffb84e",
+    "assets/fourthdimension/blockstates/pax_seat.json": "8664667673a9e97239a3f89f5e478c2cc1b1434a2001e3e048906c8b0be8a6da",
+    "assets/fourthdimension/models/block/pax_seat_closed.json": "69d3dc0151286b70988b798fc5972a68f4d08e9d619e83ddc09ac0eb099ab34a",
+    "assets/fourthdimension/blockstates/free_spin_axle.json": "e7e2b02c4d169467aeb601076bfde77be14bf5adae1ceb3e8cfeee1ed0ba0050",
+    "assets/fourthdimension/models/block/free_spin_axle.json": "332d2f3de98a1a0670dc05b42435fb3c614576f416fa3aec1a730e4b79705a97"
+  },
+  "sampleIntervalTicks": 20,
+  "scope": "sampled original default block-model volumes against original track tubes; no continuous sweep, special native wheel/bottom rendering, player meshes, linkage, decorations or resource overrides",
+  "method": "2-block spatial bins; omitted pairs certify at least 4x margin; world AABB separation refined by OBB/triangle SAT lower distance bounds",
+  "routes": [
+    {
+      "family": "ARROW",
+      "cars": 2,
+      "samples": 327,
+      "trackTriangles": 73600,
+      "minimumSeparatingBound": 0.08,
+      "closest": null,
+      "requiredGap": 0.02,
+      "passes": true,
+      "neighborMinimumSeparatingBound": 3.323590721081735,
+      "neighborClosest": {
+        "tick": 2720,
+        "first": "fourthdimension:carrier_axle@[-1, 0, 0]:element0",
+        "second": "fourthdimension:arrow_seat@[-1, -1, 0]:element1"
+      },
+      "neighborPairs": 604296,
+      "uncertifiedPairs": [],
+      "allCarsVisitedSections": 5
+    },
+    {
+      "family": "PAX",
+      "cars": 4,
+      "samples": 348,
+      "trackTriangles": 44160,
+      "minimumSeparatingBound": 0.08,
+      "closest": null,
+      "requiredGap": 0.02,
+      "passes": true,
+      "neighborMinimumSeparatingBound": 3.501107832776278,
+      "neighborClosest": {
+        "tick": 2960,
+        "first": "fourthdimension:pax_seat@[-1, -1, 0]:element0",
+        "second": "fourthdimension:pax_seat@[-1, -1, 0]:element1"
+      },
+      "neighborPairs": 3230136,
+      "uncertifiedPairs": [],
+      "allCarsVisitedSections": 5
+    }
+  ]
+}

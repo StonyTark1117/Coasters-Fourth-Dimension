@@ -71,6 +71,7 @@ public final class BankedRecoveryTrainGameTests {
             new com.mojang.authlib.GameProfile(
                 UUID.fromString("fdfdfdfd-0000-0000-0000-000000000420"), "FDBankedTrain"));
     operator.setGameMode(GameType.CREATIVE);
+    var meshTrace = new RecoveryMeshTrace("recovery-bank-train-mesh-trace.jsonl");
     var trains =
         List.of(
             new Train(
@@ -173,6 +174,7 @@ public final class BankedRecoveryTrainGameTests {
         () -> {
           for (var train : trains) {
             if (!train.started || train.finished) continue;
+            if (helper.getTick() % 20 == 0) meshTrace.sample(level, train.example, helper.getTick());
             var e = train.example.recovery();
             var cars = train.example.cars();
             helper.assertTrue(
@@ -346,6 +348,7 @@ public final class BankedRecoveryTrainGameTests {
               helper.assertTrue(
                   train.riders.stream().noneMatch(Pig::isPassenger),
                   "Banked original train failed native unloading");
+              meshTrace.complete(train.example, helper.getTick());
               train.finished = true;
               System.out.println(
                   "FD_RECOVERY_BANK_TRAIN family="

@@ -1,0 +1,322 @@
+#!/usr/bin/env python3
+"""Audit default block-model volumes at recorded native recovery poses.
+
+This is sampled clearance evidence, not continuous swept clearance. Original
+track tubes are reconstructed from the exact renderer sampling and source-pinned
+dimensions. Body transforms and block states come from the native test, not ideal
+track frames. External resources are read from the separately installed pinned
+JAR and never copied. Special bearing bottom/wheel rendering, players, Arrow's
+unmodeled mechanical linkage, decorations and resource overrides remain outside
+this audit. A zero separating bound is UNCERTIFIED, not a proven mesh collision.
+"""
+import argparse
+import hashlib
+import gzip
+from functools import lru_cache
+import itertools
+import json
+import math
+from pathlib import Path
+import re
+import zipfile
+
+import numpy as np
+
+ROOT = Path(__file__).resolve().parents[1]
+BASE_PIN = "f80b4c3cdf9fa6188804967147761b0373e150a6eadbdc53626e5ac9700b2049"
+MINECRAFT_PIN = "499f6897d1837516680f3114072d8106e11c9adcd933fe5cf051b551089b0c99"
+SOURCE_PINS = {
+    "src/main/java/dev/fourthdimension/client/OriginalTrackRenderer.java": "87d292af8233164d1a4fc294e12f755f5265aecd980e573b15ca303fc31ef240",
+    "src/main/java/dev/fourthdimension/track/TrackDesign.java": "71212961dcbdc17e9dca8a16a23ecfc5ab9fcff82d0f87f39dd5749b8fff7088",
+    "src/main/java/dev/fourthdimension/vehicle/BankedRecoveryExamples.java": "0d6597a484cf83cca90671ab6351c81cca42a4e9b96075b4843b136d81229439",
+}
+
+
+def digest(path):
+    return hashlib.sha256(path.read_bytes()).hexdigest()
+
+
+@lru_cache(maxsize=None)
+def constant(name):
+    source = (ROOT / "src/main/java/dev/fourthdimension/track/TrackDesign.java").read_text()
+    match = re.search(r"\b" + name + r"\s*=\s*([\d.\-]+)\s*[,;]", source)
+    if match is None:
+        raise ValueError("Unrecognized renderer dimension: " + name)
+    return float(match[1])
+
+
+def tube(a, b, ar, au, br, bu, rx, ry):
+    angles = np.arange(8) * math.pi / 4
+    first = a + np.cos(angles)[:, None] * rx * ar + np.sin(angles)[:, None] * ry * au
+    last = b + np.cos(angles)[:, None] * rx * br + np.sin(angles)[:, None] * ry * bu
+    return [tri for i in range(8) for tri in
+            ((first[i], first[(i + 1) % 8], last[(i + 1) % 8]),
+             (first[i], last[(i + 1) % 8], last[i]))]
+
+
+def track_mesh(route):
+    triangles, labels = [], []
+    def put(label, *args):
+        result = tube(*args)
+        triangles.extend(result)
+        labels.extend([label] * len(result))
+    for section_index, section in enumerate(route["sections"]):
+        previous = None
+        frames = section["frames"]
+        count = max(8, math.ceil(section["length"] * 4))
+        if len(frames) != count + 1:
+            raise ValueError("Native frames differ from renderer panel count")
+        for i, frame in enumerate(frames):
+            c, r, u, f = (np.array(frame[key]) for key in ("center", "right", "up", "forward"))
+            control = constant("CONTROL_BASE_HEIGHT") + frame["profileAngle"] * .5 / (8 * math.pi)
+            points = [c + side * constant("HALF_GAUGE") * r + constant("MAIN_RAIL_HEIGHT") * u
+                      for side in (-1, 1)]
+            points += [c + side * constant("CONTROL_HALF_GAUGE") * r + control * u
+                       for side in (-1, 1)]
+            points += [c + constant("SPINE_HEIGHT") * u]
+            if previous is not None:
+                old_points, old_r, old_u = previous
+                for rail in range(5):
+                    if rail in (2, 3) and route["family"] != "ARROW":
+                        continue
+                    rx = constant("RAIL_HALF_WIDTH") if rail < 2 else .22 if rail == 4 else .09
+                    ry = constant("RAIL_HALF_HEIGHT") if rail < 2 else rx
+                    put(f"section{section_index}:rail{rail}", old_points[rail], points[rail],
+                        old_r, old_u, r, u, rx, ry)
+            if i % 8 == 0 or i == count:
+                radius = constant("RUNNING_CROSSBAR_RADIUS")
+                put(f"section{section_index}:crossbar", points[0], points[1], f, u, f, u, radius, radius)
+                for side in (-1, 1):
+                    radius = constant("RUNNING_MOUNT_RADIUS")
+                    put(f"section{section_index}:mount{side}",
+                        c + r * side * constant("RUNNING_MOUNT_HALF_GAUGE") + u * constant("MAIN_RAIL_HEIGHT"),
+                        points[4], f, r, f, r, radius, radius)
+                    if route["family"] == "ARROW":
+                        radius = constant("CONTROL_SUPPORT_RADIUS")
+                        put(f"section{section_index}:controlMount{side}", points[2 if side < 0 else 3],
+                            points[4], f, r, f, r, radius, radius)
+            previous = points, r, u
+    return np.array(triangles), labels
+
+
+class Resources:
+    def __init__(self, base, minecraft):
+        self.base = base
+        self.minecraft = minecraft
+        self.hashes = {}
+    def read(self, name):
+        path = ROOT / "src/main/resources" / name
+        data = path.read_bytes() if path.exists() else (self.minecraft if name.startswith("assets/minecraft/") else self.base).read(name)
+        self.hashes[name] = hashlib.sha256(data).hexdigest()
+        return json.loads(data)
+    def elements(self, model):
+        namespace, resource = model.split(":") if ":" in model else ("minecraft", model)
+        data = self.read(f"assets/{namespace}/models/{resource}.json")
+        if "elements" in data:
+            return data["elements"]
+        return self.elements(data["parent"])
+    def boxes(self, block):
+        namespace, name = block["block"].split(":")
+        state = self.read(f"assets/{namespace}/blockstates/{name}.json")
+        if "variants" not in state:
+            raise ValueError("Unsupported multipart model: " + block["block"])
+        matches = []
+        for key, entry in state["variants"].items():
+            if all(block["properties"].get(k) == v for k, v in
+                   (part.split("=") for part in key.split(",") if part)):
+                matches.append(entry)
+        if len(matches) != 1 or not isinstance(matches[0], dict):
+            raise ValueError("Ambiguous or weighted block model")
+        entry = matches[0]
+        if entry.get("x", 0) or entry.get("y", 0) % 90:
+            raise ValueError("Unsupported blockstate rotation")
+        angle = math.radians(-entry.get("y", 0))
+        rotation = np.array([[math.cos(angle), 0, math.sin(angle)], [0, 1, 0],
+                             [-math.sin(angle), 0, math.cos(angle)]])
+        result = []
+        for index, element in enumerate(self.elements(entry["model"])):
+            if element.get("rotation", {}).get("angle", 0):
+                raise ValueError("Unsupported model element rotation")
+            low, high = (np.array(element[key]) / 16 - .5 for key in ("from", "to"))
+            points = np.array(list(itertools.product(*zip(low, high)))) @ rotation.T + block["offset"]
+            result.append((points, f'{block["block"]}@{block["offset"]}:element{index}'))
+        return result
+
+
+def separation(box, axes, triangles):
+    """OBB/triangle SAT lower distance bounds, including contained triangles."""
+    edges = np.roll(triangles, -1, axis=1) - triangles
+    directions = [np.broadcast_to(axis, (len(triangles), 3)) for axis in axes]
+    directions += [np.cross(edges[:, 0], edges[:, 1])]
+    directions += [np.cross(axis, edges[:, edge]) for axis in axes for edge in range(3)]
+    best = np.zeros(len(triangles))
+    for direction in directions:
+        length = np.linalg.norm(direction, axis=1)
+        direction = direction / np.maximum(length, 1e-15)[:, None]
+        a = direction @ box.T
+        b = np.einsum("nik,nk->ni", triangles, direction)
+        best = np.maximum(best, np.maximum(a.min(axis=1) - b.max(axis=1), b.min(axis=1) - a.max(axis=1)))
+    return best
+
+
+def boxes_separation(first, axes, second, other_axes):
+    directions = list(axes) + list(other_axes)
+    directions += [np.cross(a, b) for a in axes for b in other_axes]
+    best = 0.0
+    for direction in directions:
+        length = np.linalg.norm(direction)
+        if length < 1e-12:
+            continue
+        direction = direction / length
+        a, b = first @ direction, second @ direction
+        best = max(best, float(a.min() - b.max()), float(b.min() - a.max()))
+    return best
+
+
+def audit(route, entries, resources, margin):
+    triangles, labels = track_mesh(route)
+    lows, highs = triangles.min(axis=1), triangles.max(axis=1)
+    grid = {}
+    for index, (low, high) in enumerate(zip(lows, highs)):
+        for cell in itertools.product(*(range(a, b + 1) for a, b in zip(np.floor(low / 2).astype(int), np.floor(high / 2).astype(int)))):
+            grid.setdefault(cell, []).append(index)
+    centers = [np.array([frame["center"] for frame in section["frames"]]) for section in route["sections"]]
+    specs, samples, completed, visited = {}, 0, False, {}
+    previous_tick, original_body_ids = None, None
+    closest, failures = None, []
+    minimum = math.inf
+    neighbor_minimum, neighbor_closest = math.inf, None
+    neighbor_pairs = 0
+    for entry in entries:
+        if entry["type"] == "body":
+            specs[entry["id"]] = {**entry, "boxes": [box for block in entry["blocks"] for box in resources.boxes(block)]}
+        elif entry.get("variant") == route["variant"] and entry["type"] == "complete":
+            if entry["cars"] != route["carCount"]:
+                raise ValueError("Incorrect completed car count")
+            completed = True
+        elif entry.get("variant") == route["variant"] and entry["type"] == "sample":
+            samples += 1
+            if previous_tick is not None and entry["tick"] - previous_tick != 20:
+                raise ValueError("Missing or out-of-order native pose samples")
+            previous_tick = entry["tick"]
+            ids = [pose["id"] for pose in entry["poses"]]
+            if len(ids) != len(set(ids)) or (original_body_ids is not None and set(ids) != original_body_ids):
+                raise ValueError("Duplicated or replaced original mesh bodies")
+            original_body_ids = set(ids)
+            sample_boxes = []
+            cars = [specs[p["id"]] for p in entry["poses"] if specs[p["id"]]["role"] == "chassis"]
+            carriers = [specs[p["id"]] for p in entry["poses"] if specs[p["id"]]["role"] == "carrier"]
+            if len(cars) != route["carCount"] or len(carriers) != len(cars) * (4 if route["family"] in ("FREE_SPIN", "REVISED") else 2):
+                raise ValueError("Incomplete original bodies in mesh sample")
+            for pose in entry["poses"]:
+                body = specs[pose["id"]]
+                axes, origin = np.array(pose["axes"]), np.array(pose["origin"])
+                if not np.isfinite(axes).all() or not np.isfinite(origin).all() or not np.allclose(axes @ axes.T, np.eye(3), atol=1e-5):
+                    raise ValueError("Invalid native pose")
+                if body["role"] == "chassis":
+                    distances = [np.linalg.norm(section - origin, axis=1).min() for section in centers]
+                    if min(distances) > 2:
+                        raise ValueError("Original chassis left recorded route")
+                    nearest = int(np.argmin(distances))
+                    visited.setdefault(pose["id"], set()).add(nearest)
+                for points, label in body["boxes"]:
+                    world = points @ axes + origin
+                    low, high = world.min(axis=0), world.max(axis=0)
+                    sample_boxes.append((world, axes, low, high, body["car"], label))
+                    padding = margin * 4
+                    cells = itertools.product(*(range(a, b + 1) for a, b in zip(np.floor((low - padding) / 2).astype(int), np.floor((high + padding) / 2).astype(int))))
+                    indices = np.array(sorted({index for cell in cells for index in grid.get(cell, [])}), dtype=int)
+                    if not len(indices):
+                        minimum = min(minimum, padding)
+                        continue
+                    gaps = np.linalg.norm(np.maximum(0, np.maximum(low - highs[indices], lows[indices] - high)), axis=1)
+                    candidates = np.flatnonzero(gaps < padding)
+                    if candidates.size:
+                        gaps[candidates] = separation(world, axes, triangles[indices[candidates]])
+                    best = int(np.argmin(gaps))
+                    index = int(indices[best])
+                    gap = min(padding, float(gaps[best]))
+                    if gap < minimum:
+                        minimum = gap
+                        closest = {"tick": entry["tick"], "body": pose["id"], "role": body["role"],
+                                   "modelElement": label, "trackComponent": labels[index]}
+                    if gap < margin and len(failures) < 20:
+                        failures.append({"gap": gap, "tick": entry["tick"], "body": pose["id"],
+                                         "modelElement": label, "trackComponent": labels[index]})
+            # Contacts within one car include intentional strut/hinge joints.
+            # Different original cars and the ordinary recovery body cannot
+            # share those joints, so every pair of recorded model volumes is checked.
+            for first, second in itertools.combinations(sample_boxes, 2):
+                if first[4] == second[4]:
+                    continue
+                neighbor_pairs += 1
+                gap = float(np.linalg.norm(np.maximum(0, np.maximum(first[2] - second[3], second[2] - first[3]))))
+                if gap < margin * 4:
+                    gap = boxes_separation(first[0], first[1], second[0], second[1])
+                if gap < neighbor_minimum:
+                    neighbor_minimum = gap
+                    neighbor_closest = {"tick": entry["tick"], "first": first[5], "second": second[5]}
+                if gap < margin and len(failures) < 20:
+                    failures.append({"gap": gap, "tick": entry["tick"], "neighborPair": neighbor_closest})
+    if not completed or samples < 150 or len(visited) != route["carCount"] or any(len(v) != 5 for v in visited.values()):
+        raise ValueError("Mesh trace lacks full original-car route coverage and normal completion")
+    return {"family": route["family"], "cars": route["carCount"], "samples": samples,
+            "trackTriangles": len(triangles), "minimumSeparatingBound": minimum,
+            "closest": closest, "requiredGap": margin, "passes": not failures,
+            "neighborMinimumSeparatingBound": neighbor_minimum,
+            "neighborClosest": neighbor_closest, "neighborPairs": neighbor_pairs,
+            "uncertifiedPairs": failures, "allCarsVisitedSections": 5}
+
+
+def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("base_jar", type=Path)
+    parser.add_argument("minecraft_jar", type=Path)
+    parser.add_argument("frames", type=Path)
+    parser.add_argument("trace", type=Path)
+    parser.add_argument("--margin", type=float, default=.02)
+    args = parser.parse_args()
+    if not math.isfinite(args.margin) or not 0 < args.margin <= .05:
+        parser.error("Margin must be finite and in (0, .05]")
+    if digest(args.base_jar) != BASE_PIN:
+        parser.error("Requires inspected native Coasters 0.1.5 artifact")
+    if digest(args.minecraft_jar) != MINECRAFT_PIN:
+        parser.error("Requires inspected Minecraft 1.21.1 client resources")
+    for name, pin in SOURCE_PINS.items():
+        if digest(ROOT / name) != pin:
+            parser.error("Reinspect geometry reconstruction after source change: " + name)
+    # A contained triangle must be uncertified; a separated one needs a real gap.
+    box = np.array(list(itertools.product((-1, 1), repeat=3)))
+    control = np.array([[(0, 0, 0), (.5, 0, 0), (0, .5, 0)],
+                        [(2, 0, 0), (2, .5, 0), (2, 0, .5)]])
+    assert np.allclose(separation(box, np.eye(3), control), [0, 1])
+    angle = math.pi / 6
+    rotation = np.array([[math.cos(angle), -math.sin(angle), 0], [math.sin(angle), math.cos(angle), 0], [0, 0, 1]])
+    assert np.allclose(separation(box @ rotation.T, np.eye(3) @ rotation.T, control @ rotation.T), [0, 1])
+    assert boxes_separation(box, np.eye(3), box, np.eye(3)) == 0
+    assert boxes_separation(box, np.eye(3), box + [3, 0, 0], np.eye(3)) == 1
+    def read_text(path):
+        return gzip.decompress(path.read_bytes()).decode() if path.suffix == ".gz" else path.read_text()
+    routes = json.loads(read_text(args.frames))
+    text = read_text(args.trace)
+    entries = [json.loads(line) for line in text.splitlines()]
+    with zipfile.ZipFile(args.base_jar) as base, zipfile.ZipFile(args.minecraft_jar) as minecraft:
+        resources = Resources(base, minecraft)
+        results = [audit(route, entries, resources, args.margin) for route in routes]
+    output = {"baseSha256": BASE_PIN, "minecraftSha256": digest(args.minecraft_jar), "framesSha256": digest(args.frames), "traceSha256": digest(args.trace),
+              "sourceHashes": {name: digest(ROOT / name) for name in
+                               ("src/main/java/dev/fourthdimension/client/OriginalTrackRenderer.java",
+                                "src/main/java/dev/fourthdimension/track/TrackDesign.java",
+                                "src/main/java/dev/fourthdimension/gametest/RecoveryMeshTrace.java",
+                                "src/main/java/dev/fourthdimension/vehicle/BankedRecoveryExamples.java") },
+              "resourceHashes": resources.hashes, "sampleIntervalTicks": 20,
+              "scope": "sampled original default block-model volumes against original track tubes; no continuous sweep, special native wheel/bottom rendering, player meshes, linkage, decorations or resource overrides",
+              "method": "2-block spatial bins; omitted pairs certify at least 4x margin; world AABB separation refined by OBB/triangle SAT lower distance bounds",
+              "routes": results}
+    print(json.dumps(output, indent=2))
+    if not all(result["passes"] for result in results):
+        raise SystemExit("Sampled model clearance contains uncertified pairs")
+
+
+if __name__ == "__main__":
+    main()

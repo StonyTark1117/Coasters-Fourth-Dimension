@@ -1,0 +1,56 @@
+{
+  "nativeRouteGeometryPassed": true,
+  "routes": [
+    {
+      "family": "ARROW",
+      "length": 162.5266036814023,
+      "maxJointGap": 0,
+      "maxFrameGap": 0.00016211068059941513,
+      "maxBankDegrees": 30.00000083482606,
+      "maxAbsTangentY": 0.004185835494041764,
+      "sustainedBankLength": 32.0,
+      "profilePeak": 6.283185307179586
+    },
+    {
+      "family": "LEGACY",
+      "length": 162.5266036814023,
+      "maxJointGap": 0,
+      "maxFrameGap": 0.00016211068059941513,
+      "maxBankDegrees": 30.00000083482606,
+      "maxAbsTangentY": 0.004185835494041764,
+      "sustainedBankLength": 32.0,
+      "profilePeak": 0.0
+    },
+    {
+      "family": "FREE_SPIN",
+      "length": 162.5266036814023,
+      "maxJointGap": 0,
+      "maxFrameGap": 0.00016211068059941513,
+      "maxBankDegrees": 30.00000083482606,
+      "maxAbsTangentY": 0.004185835494041764,
+      "sustainedBankLength": 32.0,
+      "profilePeak": 0.0
+    },
+    {
+      "family": "REVISED",
+      "length": 162.5266036814023,
+      "maxJointGap": 0,
+      "maxFrameGap": 0.00016211068059941513,
+      "maxBankDegrees": 30.00000083482606,
+      "maxAbsTangentY": 0.004185835494041764,
+      "sustainedBankLength": 32.0,
+      "profilePeak": 0.0
+    },
+    {
+      "family": "PAX",
+      "length": 162.5266036814023,
+      "maxJointGap": 0,
+      "maxFrameGap": 0.00016211068059941513,
+      "maxBankDegrees": 30.00000083482606,
+      "maxAbsTangentY": 0.004185835494041764,
+      "sustainedBankLength": 32.0,
+      "profilePeak": 0.0
+    }
+  ],
+  "scope": "Native centerline/frame/profile geometry only; no mesh, rider, collision or rendered clearance claim."
+}

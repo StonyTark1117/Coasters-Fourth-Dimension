@@ -111,6 +111,17 @@ only their disposable world. Keep valuable GUI worlds outside directories that
 `clean` deletes. Dev.19's source, metrics and all eight CI jobs remain separately
 pinned in the [single-car checkpoint](../banked-tow/acceptance.md).
 
+## Exact-source CI
+
+All twelve jobs on `b6888fcabb5d0daa37a63bde8c00ced8254ae55c` passed. GitHub
+reported two push runs (36943634352, 36943636504) and one PR run (36943637290),
+each with standalone, Styles, Engineered and combined profiles. Each full job
+log confirms all 37 required native tests, five single-car and two original-train
+completion markers, preserved original seats/carriers/train links and normal
+brake/power-cut/detach/unload, plus both independent route geometry checks.
+[Recorded run/job identities](ci-dev20.json) pin this checkpoint separately
+from later source revisions.
+
 ## Remaining FD402 work
 
 This proves native occupied recovery of these original trains across these

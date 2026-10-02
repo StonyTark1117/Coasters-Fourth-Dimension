@@ -1,6 +1,6 @@
 # Ordinary-bearing recovery
 
-Development build 0.9.0-dev.20 includes explicit recovery coupling for the five
+Development build 0.9.0-dev.21 includes explicit recovery coupling for the five
 original families. A 4D car stays on its matching functional track throughout.
 Only the pinned, unmodified bare Coasters bearing is certified as the ordinary
 recovery cart. It acquires no carriers, profile, magnetic assistance or 4D data.
@@ -188,3 +188,13 @@ operator acceptance, complete vehicle/rider/rack mesh
 clearance, rendered occupied linked-train recovery, Engineered recovery propulsion/FE,
 coupler strength across those scenes,
 or the complete recovery lifecycle matrix. FD402 and the 0.4 gate remain open.
+
+## Sampled native model clearance
+
+Dev.21 records actual chassis, carrier and ordinary-body poses during the occupied
+five-family and original Arrow/PAX train bend/bank recovery tests. An independent
+audit checks default placed block-model volumes against the original track tubes
+and model volumes of neighboring cars. See the [checkpoint](evidence/0.4/recovery/model-clearance/acceptance.md)
+for source/resource pins and limits. Twenty-tick samples do not certify continuous
+swept clearance, special native wheels/bottoms, rendered players, linkage or
+optional decoration. Full rendered/operator/lifecycle acceptance remains FD402.

@@ -60,6 +60,7 @@ public final class BankedRecoveryGameTests {
             new com.mojang.authlib.GameProfile(
                 UUID.fromString("fdfdfdfd-0000-0000-0000-000000000419"), "FDBankedRecovery"));
     player.setGameMode(GameType.CREATIVE);
+    var meshTrace = new RecoveryMeshTrace("recovery-bank-mesh-trace.jsonl");
     var cases = new ArrayList<Case>();
     for (var design : TrackDesign.values())
       cases.add(
@@ -146,6 +147,7 @@ public final class BankedRecoveryGameTests {
         () -> {
           for (var c : cases) {
             if (!c.started || c.finished) continue;
+            if (helper.getTick() % 20 == 0) meshTrace.sample(level, c.example, helper.getTick());
             var e = c.example.recovery();
             var car = e.car();
             var body = container.getSubLevel(car.chassis);
@@ -313,6 +315,7 @@ public final class BankedRecoveryGameTests {
               helper.assertTrue(
                   c.riders.stream().noneMatch(Pig::isPassenger),
                   "Banked recovery unloading failed");
+              meshTrace.complete(c.example, helper.getTick());
               c.finished = true;
               System.out.println(
                   "FD_RECOVERY_BANK family="

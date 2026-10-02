@@ -1,0 +1,17 @@
+{
+  "scriptSha256": "1125de92f538d9faa45026fdf2defd4826d881387efee31d95d29ddad954a686",
+  "framesSha256": "e122d47e382c897a58e1c783df0d7f9c24d16bcb43f323e22f54608dcf3367b6",
+  "traceSha256": "51de5826135ec65a8dc286211ea77a009f7f2a01ac0a35586100a55d998d6caf",
+  "movedCarrierIntoMainRail": {
+    "rejected": true,
+    "minimumSeparatingBound": 0,
+    "construction": "first Arrow carrier origin set to nearest first-section center + 0.772*right + 0.325*up; orientation and all other poses unchanged"
+  },
+  "missingMiddlePoseSample": {
+    "rejected": true,
+    "construction": "remove sixth Arrow sample",
+    "reason": "Missing or out-of-order native pose samples"
+  },
+  "rotatedSatControl": "30-degree rigid transform preserves containment/separation",
+  "scope": "offline verifier controls on final standalone trace; no native body motion altered"
+}

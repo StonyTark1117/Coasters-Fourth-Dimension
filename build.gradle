@@ -109,6 +109,8 @@ tasks.named('runGameTestServer') {
         delete layout.buildDirectory.file('runs/gametest/bank-native-frames.json')
         delete layout.buildDirectory.file('runs/gametest/recovery-bank-native-frames.json')
         delete layout.buildDirectory.file('runs/gametest/recovery-bank-train-native-frames.json')
+        delete layout.buildDirectory.file('runs/gametest/recovery-bank-mesh-trace.jsonl')
+        delete layout.buildDirectory.file('runs/gametest/recovery-bank-train-mesh-trace.jsonl')
     }
 }
 tasks.named('processResources') {

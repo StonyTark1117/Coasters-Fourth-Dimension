@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.9.0-dev.21 — sampled recovery block-model clearance
+
+- Record actual native chassis/carrier/ordinary-body poses and placed block states every twenty ticks during the existing occupied five-family and original Arrow/PAX train recovery tests. Recording does not change motion, forces or saved gameplay state.
+- Add an independent source-pinned reconstruction of original track tube triangles and default block-model volumes. Check sampled track clearance and model volumes belonging to different original cars, including the ordinary recovery body. Reject missing pose intervals, replaced bodies, unsupported resources and intersecting negative controls.
+- Run the audit for all four CI profiles and retain pose traces, native frames and clearance reports. Keep dev.20’s twelve passed CI jobs pinned separately.
+- This is sampled default block-model evidence. Special native wheel/bottom rendering, player meshes, linkage, decorations, continuous swept clearance and real occupied operator/lifecycle acceptance remain open under FD402. Save schema/network protocol remain 6.
+
 ## 0.9.0-dev.20 — occupied train recovery across bends and banks
 
 - Add longer original recovery layouts for two-car Arrow and four-car PAX trains, with four-second queued native coupling and `/fd demo recovery_bank_train_arrow` / `recovery_bank_train_pax` operator examples.
