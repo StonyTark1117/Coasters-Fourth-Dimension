@@ -99,3 +99,7 @@ the reload future completed. No closed-set lookup, unallocated-image trace, or
 `Image is not allocated` error was logged before the process was deliberately
 stopped. This is one clean controlled lifecycle sample; it does not reproduce or
 resolve the intermittent packaged crash.
+
+The same controlled sequence also completed with the actual packaged JAR and
+the pinned standalone dependency set. Its artifact hash, command, observations,
+and limits are recorded in [the packaged validation](font-reload-packaged-validation.md).
