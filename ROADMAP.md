@@ -391,7 +391,10 @@ ordinary-bearing fit and deliberately widened-body rejection across all five
 original tracks through both direct eligibility and the native snap filter. The
 same run confirms ordinary traversal has no vehicle record, carrier rotation or
 magnetic impulse; see the [ordinary snap matrix](docs/evidence/0.9/ordinary-cart-snap-matrix.md).
-This advances the regular-cart fit/non-fit portion before FD404, but it does not
+The current branch also passes all 39 native GameTests under Track Styles-only,
+Engineered-only, and combined audited profiles; see the [optional-profile
+matrix](docs/evidence/0.9/optional-profile-matrix.md). This advances the
+regular-cart and audited optional-profile portions before FD404, but it does not
 close the full compatibility matrix.
 
 **Depends on:** FD404. **Design:** D02, D04, D17.
