@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.9.0-dev.24 — sampled occupied native-rider clearance
+
+- Extend the source-pinned recovery trace with each live mounted passenger's eye point and native dimensions. The independent audit reconstructs its carrier-oriented volume and requires at least one mounted rider on every original car for every twenty-tick sample.
+- The combined Track Styles/Engineered run passes all 37 required GameTests. Its five single-car routes and two occupied original train routes certify at least a 0.08-block sampled rider-to-original-track bound, above the 0.02 required margin.
+- This is a bounded native Pig-passenger occupancy result. It does not certify player meshes/cosmetics, the client renderer, a rider's own rack/seat contact, linkage, continuous sweeping or real-client operation. FD402 remains in progress.
+
 ## 0.9.0-dev.23 — sampled banked wheel-envelope clearance
 
 - Extend the source-pinned recovery audit with full-spin envelopes for the pinned native wheel model at each recorded banked recovery frame. Exclude only the two running rails as intentional wheel contact; check all other original track components and all neighboring original-car volumes.

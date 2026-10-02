@@ -9,7 +9,9 @@ JAR and never copied. The native lower bearing model and full-spin wheel
 envelopes use the same recorded track-aligned anchor as the chassis. Wheels are
 checked against non-contact original track components and neighboring cars; the
 two running rails are excluded because they are the intended wheel contact.
-Players, Arrow's unmodeled mechanical linkage, decorations and resource
+The sampled live native-seat passengers contribute their mounted oriented
+envelopes. This does not verify player meshes, a client renderer or arbitrary
+player cosmetics. Arrow's unmodeled mechanical linkage, decorations and resource
 overrides remain outside this audit. A zero separating bound is UNCERTIFIED, not
 a proven mesh collision.
 """
@@ -227,6 +229,7 @@ def audit(route, entries, resources, margin):
     closest, failures = None, []
     minimum = math.inf
     wheel_minimum, wheel_closest, wheel_checks = math.inf, None, 0
+    rider_minimum, rider_closest, rider_checks = math.inf, None, 0
     neighbor_minimum, neighbor_closest = math.inf, None
     neighbor_pairs = 0
     for entry in entries:
@@ -245,11 +248,54 @@ def audit(route, entries, resources, margin):
             if len(ids) != len(set(ids)) or (original_body_ids is not None and set(ids) != original_body_ids):
                 raise ValueError("Duplicated or replaced original mesh bodies")
             original_body_ids = set(ids)
-            sample_boxes = []
             cars = [specs[p["id"]] for p in entry["poses"] if specs[p["id"]]["role"] == "chassis"]
             carriers = [specs[p["id"]] for p in entry["poses"] if specs[p["id"]]["role"] == "carrier"]
             if len(cars) != route["carCount"] or len(carriers) != len(cars) * (4 if route["family"] in ("FREE_SPIN", "REVISED") else 2):
                 raise ValueError("Incomplete original bodies in mesh sample")
+            sample_boxes = []
+            pose_by_id = {pose["id"]: pose for pose in entry["poses"]}
+            rider_cars, rider_ids = set(), set()
+            for rider in entry.get("riders", []):
+                if rider["id"] in rider_ids:
+                    raise ValueError("Duplicated mounted rider in recovery trace")
+                rider_ids.add(rider["id"])
+                if rider["body"] not in pose_by_id or rider["body"] not in specs:
+                    raise ValueError("Mounted rider is not attached to a sampled carrier")
+                body = specs[rider["body"]]
+                if body["role"] != "carrier":
+                    raise ValueError("Mounted rider is not attached to a carrier")
+                axes, eye = np.array(pose_by_id[rider["body"]]["axes"]), np.array(rider["eye"])
+                width, height, eye_height = (float(rider[key]) for key in ("width", "height", "eyeHeight"))
+                if (not np.isfinite(eye).all() or not all(math.isfinite(value) for value in (width, height, eye_height))
+                        or not .5 <= width <= 1.1 or not .5 <= height <= 2.1 or not .3 <= eye_height <= 1.8):
+                    raise ValueError("Mounted rider has unexpected dimensions")
+                # Sable renders a passenger around its live eye point with the containing carrier's
+                # orientation. The native passenger dimensions define this mounted body envelope.
+                local_low, local_high = np.array((-width / 2, -eye_height, -width / 2)), np.array((width / 2, height - eye_height, width / 2))
+                world = np.array(list(itertools.product(*zip(local_low, local_high)))) @ axes + eye
+                low, high = world.min(axis=0), world.max(axis=0)
+                sample_boxes.append((world, axes, low, high, body["car"], "nativeRider"))
+                rider_cars.add(body["car"])
+                padding = margin * 4
+                cells = itertools.product(*(range(a, b + 1) for a, b in zip(np.floor((low - padding) / 2).astype(int), np.floor((high + padding) / 2).astype(int))))
+                indices = np.array(sorted({index for cell in cells for index in grid.get(cell, [])}), dtype=int)
+                rider_checks += 1
+                if not len(indices):
+                    rider_minimum = min(rider_minimum, padding)
+                    continue
+                gaps = np.linalg.norm(np.maximum(0, np.maximum(low - highs[indices], lows[indices] - high)), axis=1)
+                candidates = np.flatnonzero(gaps < padding)
+                if candidates.size:
+                    gaps[candidates] = separation(world, axes, triangles[indices[candidates]])
+                index = int(indices[int(np.argmin(gaps))])
+                gap = min(padding, float(gaps.min()))
+                if gap < rider_minimum:
+                    rider_minimum = gap
+                    rider_closest = {"tick": entry["tick"], "body": rider["body"], "modelElement": "nativeRider", "trackComponent": labels[index]}
+                if gap < margin and len(failures) < 20:
+                    failures.append({"gap": gap, "tick": entry["tick"], "body": rider["body"], "modelElement": "nativeRider", "trackComponent": labels[index]})
+            if len(rider_cars) != route["carCount"]:
+                raise ValueError("Missing a mounted rider for an original car")
             for pose in entry["poses"]:
                 body = specs[pose["id"]]
                 axes, origin = np.array(pose["axes"]), np.array(pose["origin"])
@@ -329,12 +375,17 @@ def audit(route, entries, resources, margin):
         raise ValueError("Mesh trace lacks full original-car route coverage and normal completion")
     if wheel_checks == 0 or not math.isfinite(wheel_minimum):
         raise ValueError("Native wheel envelopes were not audited")
+    if rider_checks == 0 or not math.isfinite(rider_minimum):
+        raise ValueError("Mounted rider envelopes were not audited")
     return {"family": route["family"], "cars": route["carCount"], "samples": samples,
             "trackTriangles": len(triangles), "minimumSeparatingBound": minimum,
             "closest": closest, "requiredGap": margin, "passes": not failures,
             "wheelEnvelopeCount": wheel_checks,
             "wheelMinimumSeparatingBound": wheel_minimum,
             "wheelClosest": wheel_closest,
+            "riderEnvelopeCount": rider_checks,
+            "riderMinimumSeparatingBound": rider_minimum,
+            "riderClosest": rider_closest,
             "neighborMinimumSeparatingBound": neighbor_minimum,
             "neighborClosest": neighbor_closest, "neighborPairs": neighbor_pairs,
             "uncertifiedPairs": failures, "allCarsVisitedSections": 5}
@@ -383,7 +434,7 @@ def main():
                                 "src/main/java/dev/fourthdimension/gametest/RecoveryMeshTrace.java",
                                 "src/main/java/dev/fourthdimension/vehicle/BankedRecoveryExamples.java") },
               "resourceHashes": resources.hashes, "sampleIntervalTicks": 20,
-              "scope": "sampled original default block-model, native lower-bearing and full-spin wheel-envelope volumes against original track tubes; running rails are excluded only for wheels as intended contact; no continuous sweep, player meshes, linkage, decorations or resource overrides",
+              "scope": "sampled original default block-model, native lower-bearing, full-spin wheel-envelope and mounted native-rider rendered-orientation volumes against original track tubes; running rails are excluded only for wheels as intended contact; no continuous sweep, player meshes, client renderer/cosmetics, linkage, decorations or resource overrides",
               "method": "2-block spatial bins; omitted pairs certify at least 4x margin; world AABB separation refined by OBB/triangle SAT lower distance bounds",
               "routes": results}
     print(json.dumps(output, indent=2))

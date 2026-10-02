@@ -6,12 +6,14 @@ import dev.ryanhcode.sable.sublevel.SubLevel;
 import java.io.*;
 import java.nio.file.*;
 import java.util.*;
+import com.simibubi.create.content.contraptions.actors.seat.SeatEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.phys.AABB;
 import org.joml.Vector3d;
 
-/** Read-only native block/state and logical-pose samples for an independent mesh audit. */
+/** Read-only native block/state, pose and mounted-rider samples for an independent mesh audit. */
 final class RecoveryMeshTrace {
   private final Path path;
   private final Set<UUID> registered = new HashSet<>();
@@ -35,10 +37,15 @@ final class RecoveryMeshTrace {
     }
     var ordinary = example.recovery().bearing();
     record(poses, ordinary, ordinary.getUniqueId(), "ordinary");
+    var riders = new ArrayList<Map<String, Object>>();
+    for (var car : example.cars())
+      for (var carrier : car.carriers)
+        recordMountedPlayers(riders, container.getSubLevel(carrier.body), carrier.seats);
     append(
         Map.of(
             "type", "sample", "family", example.recovery().car().family.name(),
-            "variant", example.recovery().car().variant, "tick", tick, "poses", poses));
+            "variant", example.recovery().car().variant, "tick", tick, "poses", poses,
+            "riders", riders));
   }
 
   void complete(BankedRecoveryExamples.Example example, long tick) {
@@ -86,6 +93,28 @@ final class RecoveryMeshTrace {
       axes.add(vector(axis.rotate(pose.orientation())));
     poses.add(
         Map.of("id", body.getUniqueId().toString(), "origin", vector(origin), "axes", axes));
+  }
+
+  /**
+   * Sable renders a rider with its containing carrier pose. Recording the live eye point and the
+   * native passenger dimensions lets the offline verifier reconstruct its oriented body volume.
+   */
+  private void recordMountedPlayers(
+      List<Map<String, Object>> riders, SubLevel body, List<BlockPos> seats) {
+    if (body == null) throw new IllegalStateException("Missing carrier during rider trace");
+    var center = body.getPlot().getCenterBlock();
+    for (var offset : seats) {
+      var seat = center.offset(offset);
+      for (var seatEntity : body.getLevel().getEntitiesOfClass(SeatEntity.class, new AABB(seat)))
+        for (var passenger : seatEntity.getPassengers()) {
+          riders.add(
+              Map.of(
+                  "id", passenger.getUUID().toString(), "body", body.getUniqueId().toString(),
+                  "eye", vector(new Vector3d(passenger.getEyePosition().x, passenger.getEyePosition().y, passenger.getEyePosition().z)),
+                  "width", (double) passenger.getBbWidth(), "height", (double) passenger.getBbHeight(),
+                  "eyeHeight", (double) passenger.getEyeHeight()));
+        }
+    }
   }
 
   private static double[] vector(Vector3d value) {
