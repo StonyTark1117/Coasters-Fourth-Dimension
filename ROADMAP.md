@@ -560,6 +560,15 @@ than a full camera sweep or vehicle/rider/linkage visual-clearance result. See
 the [five-family fixture render checkpoint]
 (docs/evidence/0.9/client-render-five-family-fixture.md).
 
+Dev.39 adds an opt-in packaged-client vehicle render-compilation check to the
+same five-family fixture. Before dispatch, all eight native chassis and all 20
+carrier bodies have client Sable sections compiled while their synchronized
+carrier angles still meet the 40-sample gate; the subsequent movement gate again
+observes all four PAX chassis. This proves that each replicated native vehicle
+body entered the block-render compilation pipeline, not that it submitted in a
+particular camera frame or cleared player/linkage meshes. See the [vehicle
+render-compilation checkpoint](docs/evidence/0.9/client-carrier-render-compile.md).
+
 **Depends on:** FD404, FD006. **Design:** D17.
 
 Benchmark the declared controlled-train, free-spin, and shuttle scenes against recorded baselines. Profile per-carrier/constraint costs, caches, Flywheel modes, and the supported shader stack.

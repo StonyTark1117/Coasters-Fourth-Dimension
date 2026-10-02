@@ -4,6 +4,7 @@ import com.mojang.logging.LogUtils;
 import dev.fourthdimension.contract.Family;
 import dev.fourthdimension.runtime.EligibilityHooks;
 import dev.ryanhcode.sable.api.sublevel.SubLevelContainer;
+import dev.ryanhcode.sable.sublevel.ClientSubLevel;
 import java.util.EnumMap;
 import java.util.EnumSet;
 import java.util.UUID;
@@ -34,6 +35,7 @@ public final class CarrierTransformValidation {
   private static double maxAngleError;
   private static java.util.Map<UUID, Vector3d> motionStarts = new java.util.HashMap<>();
   private static java.util.Map<UUID, Double> maxMotionDistances = new java.util.HashMap<>();
+  private static java.util.Set<UUID> compiledBodies = new java.util.HashSet<>();
   private static boolean completed;
   private static net.minecraft.world.level.Level lastLevel;
 
@@ -49,6 +51,7 @@ public final class CarrierTransformValidation {
       maxAngleError = 0;
       motionStarts = new java.util.HashMap<>();
       maxMotionDistances = new java.util.HashMap<>();
+      compiledBodies = new java.util.HashSet<>();
       completed = false;
       lastLevel = minecraft.level;
     }
@@ -63,6 +66,7 @@ public final class CarrierTransformValidation {
     var families = EnumSet.noneOf(Family.class);
     int carriers = 0;
     int riderAssignments = 0;
+    int nativeBodies = 0;
     double sampleMaxError = 0;
     boolean staticPhase = !motionRequired() || completeSamples < requiredSamples();
     for (var vehicle : data.vehicles.values()) {
@@ -71,6 +75,8 @@ public final class CarrierTransformValidation {
         incomplete("missing chassis " + vehicle.chassis);
         return;
       }
+      nativeBodies++;
+      recordCompiled(parent, vehicle.chassis);
       families.add(vehicle.family);
       if (motionRequired()) {
         var center = parent.getPlot().getCenterBlock();
@@ -89,6 +95,8 @@ public final class CarrierTransformValidation {
           incomplete("missing carrier " + carrier.body);
           return;
         }
+        nativeBodies++;
+        recordCompiled(child, carrier.body);
         var relative =
             new Quaterniond(parent.logicalPose().orientation())
                 .conjugate()
@@ -114,14 +122,20 @@ public final class CarrierTransformValidation {
         riderAssignments += carrier.riderSeats.size();
       }
     }
-    if (families.size() < requiredFamilies() || (staticPhase && carriers == 0)) {
+    if (families.size() < requiredFamilies()
+        || (staticPhase && carriers == 0)
+        || (staticPhase && renderRequired() && compiledBodies.size() < nativeBodies)) {
       incomplete(
           "required family matrix is not loaded required="
               + requiredFamilies()
               + " families="
               + families
               + " carriers="
-              + carriers);
+              + carriers
+              + " compiledBodies="
+              + compiledBodies.size()
+              + "/"
+              + nativeBodies);
       return;
     }
     if (staticPhase) {
@@ -177,7 +191,7 @@ public final class CarrierTransformValidation {
         .info(
             "FD_CARRIER_VALIDATION passed samples={} target={} waitedTicks={} families={} "
                 + "requiredFamilies={} carriers={} riderAssignments={} maxAngleError={} "
-                + "motionFamilies={} motionChassis={} motionDistances={}",
+                + "compiledBodies={} renderRequired={} motionFamilies={} motionChassis={} motionDistances={}",
             completeSamples,
             requiredSamples(),
             waitedTicks,
@@ -186,6 +200,8 @@ public final class CarrierTransformValidation {
             carriers,
             riderAssignments,
             maxAngleError,
+            compiledBodies.size(),
+            renderRequired(),
             movedFamilies,
             movedChassis,
             maxMotionDistances);
@@ -221,6 +237,25 @@ public final class CarrierTransformValidation {
 
   private static boolean motionRequired() {
     return Boolean.getBoolean("fourthdimension.carrierValidationMotion");
+  }
+
+  /**
+   * Records that Sable compiled the native model section containing this vehicle body.
+   *
+   * <p>This does not assert a submitted frame, shader behavior, occlusion result, player mesh, or
+   * clearance. It only proves that the replicated chassis/carrier entered Sable's client block
+   * rendering pipeline.
+   */
+  private static void recordCompiled(
+      dev.ryanhcode.sable.sublevel.SubLevel body, UUID id) {
+    if (!renderRequired() || !(body instanceof ClientSubLevel clientBody)) return;
+    var center = clientBody.getPlot().getCenterBlock();
+    if (clientBody.getRenderData().isSectionCompiled(center.getX(), center.getY(), center.getZ()))
+      compiledBodies.add(id);
+  }
+
+  private static boolean renderRequired() {
+    return Boolean.getBoolean("fourthdimension.carrierValidationRender");
   }
 
   private static int requiredMotionPaxChassis() {
