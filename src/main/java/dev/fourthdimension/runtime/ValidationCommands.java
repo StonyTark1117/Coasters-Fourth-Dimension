@@ -1,6 +1,10 @@
 package dev.fourthdimension.runtime;
 
 import com.simibubi.create.content.contraptions.actors.seat.SeatBlock;
+import dev.fourthdimension.contract.Family;
+import dev.fourthdimension.integration.AppearanceEditor;
+import dev.fourthdimension.integration.TrackAppearance;
+import dev.fourthdimension.track.TrackPlacement;
 import dev.fourthdimension.vehicle.Boarding;
 import dev.fourthdimension.vehicle.CarrierSeatBlock;
 import dev.ryanhcode.sable.api.sublevel.SubLevelContainer;
@@ -40,7 +44,16 @@ public final class ValidationCommands {
                                     board(
                                         context.getSource(),
                                         EntityArgument.getPlayer(context, "player"),
-                                        true))));
+                                        true))))
+            .then(
+                Commands.literal("style")
+                    .then(
+                        Commands.argument("player", EntityArgument.player())
+                            .executes(
+                                context ->
+                                    style(
+                                        context.getSource(),
+                                        EntityArgument.getPlayer(context, "player")))));
     event
         .getDispatcher()
         .register(
@@ -122,6 +135,42 @@ public final class ValidationCommands {
       }
     }
     return failure(source, "No ready unoccupied fourth-dimension carrier seat was found");
+  }
+
+  private static int style(net.minecraft.commands.CommandSourceStack source, ServerPlayer player) {
+    var data = FoundationData.get(player.serverLevel());
+    var rail =
+        data.rails.stream()
+            .filter(
+                candidate ->
+                    candidate.family == Family.ARROW && candidate.appearance.original())
+            .filter(
+                candidate ->
+                    Math.min(
+                            player.distanceToSqr(candidate.from.getCenter()),
+                            player.distanceToSqr(candidate.to.getCenter()))
+                        <= 64)
+            .filter(
+                candidate ->
+                    data.rails.stream()
+                        .filter(other -> other == candidate || other.adjacent(candidate))
+                        .noneMatch(other -> TrackPlacement.occupied(data, other)))
+            .findFirst()
+            .orElse(null);
+    if (rail == null)
+      return failure(source, "No original controlled Arrow rail is within eight blocks");
+    try {
+      AppearanceEditor.apply(
+          player,
+          rail.id,
+          rail.revision,
+          new TrackAppearance(TrackAppearance.CANDIDATES.getFirst(), -1));
+    } catch (IllegalArgumentException exception) {
+      return failure(source, exception.getMessage());
+    }
+    source.sendSuccess(
+        () -> Component.literal("Validation selected Track Styles Arrow appearance"), false);
+    return 1;
   }
 
   private static int failure(net.minecraft.commands.CommandSourceStack source, String message) {

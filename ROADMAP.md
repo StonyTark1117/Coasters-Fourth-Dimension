@@ -441,8 +441,9 @@ checkpoint adds a third combined run and host-scoped limits of 120,000 ns per in
 all three sampled scenes. Packaged real-client runs validate the opt-in
 per-stage original-track instrumentation under llvmpipe and on the stated AMD
 RX 7900 XTX host; [the hardware observation](docs/evidence/0.9/client-render-sampling.md)
-measures 3.16 ms average stage work without making an FPS claim. Shader and
-decorated-style measurements and full acceptance remain pending.
+measures 3.16 ms average original-stage work and separately observes 21,476
+Track Styles decoration pieces without making an FPS claim. Shader measurements
+and full acceptance remain pending.
 
 **Depends on:** FD404, FD006. **Design:** D17.
 

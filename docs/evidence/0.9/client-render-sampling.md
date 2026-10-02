@@ -69,3 +69,29 @@ does not measure whole-frame time or FPS, record the desktop resolution, set a
 cross-hardware target, validate a shader pack, or cover Track Styles decoration
 because the saved scene contains no decoration pieces. Those render modes remain
 required FD904 work.
+
+## Native GPU decorated Track Styles observation
+
+A fresh dedicated packaged server was started with Track Styles 1.2.0 and
+Coasters: Engineered 1.1.1. A fresh original Arrow example was built at a
+force-loaded location, then a local validation command selected an unoccupied
+nearby Arrow section and called the normal server-side `AppearanceEditor`
+transaction. The command was accepted as `Validation selected Track Styles Arrow
+appearance`; it did not write the provider's assets or bypass the normal
+permission, revision, original-track, profile, provider, or occupancy checks.
+
+A native-desktop client connected to that server on the same AMD Radeon RX 7900
+XTX / Mesa 26.2.3 host. Its final sample, from the packaged
+`0.9.0-dev.27` JAR SHA-256
+`605aa0c4d26913e213d6314df4bd2a99db9616240dd549ca8c3ac336723dc7e6`,
+was:
+
+```text
+FD_CLIENT_RENDER stages=3463 avgStageNanos=330831 meshBuilds=9 avgMeshBuildNanos=2185150 inRangeRails=1874 inRangeQuads=6576984 inRangeDecorationPieces=21476
+```
+
+The nonzero decoration-piece count demonstrates that the sampled renderer
+observed the inspected Track Styles decoration path on a genuine original Arrow
+rail. It remains a cumulative stage-instrumentation observation: it does not
+establish FPS, full-frame timing, a cross-hardware performance target, or shader
+pack compatibility. Shader-mode and broader FD904 acceptance remain open.

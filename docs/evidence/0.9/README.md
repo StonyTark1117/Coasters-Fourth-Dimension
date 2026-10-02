@@ -47,7 +47,8 @@ not the complete compatibility matrix.
 
 [Client track-render instrumentation](client-render-sampling.md) records an
 initial packaged real-client sample on the recovery scene, under llvmpipe and
-on the stated RX 7900 XTX host. It does not claim FPS, shader or decorated-style
+on the stated RX 7900 XTX host, plus a native-GPU dedicated-server observation
+with a real Track Styles-decorated Arrow rail. It does not claim FPS or shader
 coverage; those measurements remain FD904 work.
 
 [Idle shuttle availability, dev.13](idle-shuttle-acceptance.md) records the native/control failure, production fix, packaged loading-boundary comparison and default-flags cold reopen. Its scope is an empty bound shuttle before its first lift. The four inherited PAX faults remain recorded; complete FD902 and earlier 0.4 gates stay open.
