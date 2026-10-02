@@ -17,6 +17,7 @@ public final class Boarding {
   private Boarding() {}
 
   private static final Logger LOGGER = LogUtils.getLogger();
+  private static final boolean VALIDATION = Boolean.getBoolean("fourthdimension.validation");
 
   private static final java.util.Map<ServerLevel, java.util.Map<java.util.UUID, Exit>> EXITS =
       new java.util.WeakHashMap<>();
@@ -69,15 +70,63 @@ public final class Boarding {
     if (!(seat.level() instanceof ServerLevel level)) return;
     var binding = at(level, seat.blockPosition());
     if (binding == null || FoundationData.VARIANT.equals(binding.vehicle.variant)) return;
+    if (VALIDATION && event.getEntityMounting() instanceof net.minecraft.server.level.ServerPlayer player)
+      LOGGER.info(
+          "FD_BOARDING_EVENT player={} action={} seat={} restraints={} restoring={}",
+          player.getGameProfile().getName(),
+          event.isMounting() ? "mount" : "dismount",
+          seat.blockPosition(),
+          binding.vehicle.restraints,
+          RESTORING.contains(player.getUUID()));
     if (event.isMounting()) {
       if (!RESTORING.contains(event.getEntityMounting().getUUID())
-          && !canBoard(level, seat.blockPosition())) event.setCanceled(true);
+          && !canBoard(level, seat.blockPosition())) {
+        event.setCanceled(true);
+        return;
+      }
+      if (event.getEntityMounting() instanceof net.minecraft.server.level.ServerPlayer player) {
+        var container = SubLevelContainer.getContainer(level);
+        var body = container == null ? null : container.getSubLevel(binding.carrier.body);
+        if (body != null) {
+          var offset = seat.blockPosition().subtract(body.getPlot().getCenterBlock());
+          if (VALIDATION)
+            LOGGER.info(
+                "FD_BOARDING_ASSIGN player={} seat={} offset={} knownSeats={} accepted={}",
+                player.getGameProfile().getName(),
+                seat.blockPosition(),
+                offset,
+                binding.carrier.seats,
+                binding.carrier.seats.contains(offset));
+          if (binding.carrier.seats.contains(offset)) {
+            FoundationData.get(level)
+                .vehicles
+                .values()
+                .forEach(v -> v.carriers.forEach(c -> c.riderSeats.remove(player.getUUID())));
+            binding.carrier.riderSeats.put(player.getUUID(), offset);
+            FoundationData.get(level).setDirty();
+          }
+        }
+      }
     } else if (binding.vehicle.restraints
         && !event.getEntityMounting().isRemoved()
-        && event.getEntityMounting().isAlive()) event.setCanceled(true);
+        && event.getEntityMounting().isAlive()) {
+      if (VALIDATION)
+        LOGGER.info(
+            "FD_BOARDING_DISMOUNT_CANCEL player={} assignedSeats={}",
+            event.getEntityMounting().getName().getString(),
+            binding.carrier.riderSeats.size());
+      event.setCanceled(true);
+    }
     else if (event.isDismounting()
         && event.getEntityMounting() instanceof net.minecraft.server.level.ServerPlayer player) {
       if (!player.connection.isAcceptingMessages()) return;
+      if (VALIDATION)
+        LOGGER.info(
+            "FD_BOARDING_DISMOUNT_CLEAR player={} restraints={} removed={} alive={}",
+            player.getGameProfile().getName(),
+            binding.vehicle.restraints,
+            player.isRemoved(),
+            player.isAlive());
       binding.carrier.riderSeats.remove(player.getUUID());
       var body = Sable.HELPER.getContaining(seat);
       if (body != null && player.isAlive()) {

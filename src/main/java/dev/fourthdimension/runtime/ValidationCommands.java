@@ -29,7 +29,18 @@ public final class ValidationCommands {
                                 context ->
                                     board(
                                         context.getSource(),
-                                        EntityArgument.getPlayer(context, "player")))));
+                                        EntityArgument.getPlayer(context, "player"),
+                                        false))))
+            .then(
+                Commands.literal("board_locked")
+                    .then(
+                        Commands.argument("player", EntityArgument.player())
+                            .executes(
+                                context ->
+                                    board(
+                                        context.getSource(),
+                                        EntityArgument.getPlayer(context, "player"),
+                                        true))));
     event
         .getDispatcher()
         .register(
@@ -74,7 +85,8 @@ public final class ValidationCommands {
     return 1;
   }
 
-  private static int board(net.minecraft.commands.CommandSourceStack source, ServerPlayer player) {
+  private static int board(
+      net.minecraft.commands.CommandSourceStack source, ServerPlayer player, boolean closeRestraints) {
     var level = player.serverLevel();
     var container = SubLevelContainer.getContainer(level);
     if (container == null) return failure(source, "No native sublevel container is available");
@@ -90,8 +102,20 @@ public final class ValidationCommands {
               || carrier.riderSeats.containsValue(offset)) continue;
           SeatBlock.sitDown(level, seat, player);
           if (!player.isPassenger()) return failure(source, "Seat rejected the validation mount");
+          if (closeRestraints) {
+            try {
+              dev.fourthdimension.vehicle.VehicleOperations.restraints(level, vehicle, true);
+            } catch (IllegalArgumentException exception) {
+              player.stopRiding();
+              return failure(source, exception.getMessage());
+            }
+          }
           source.sendSuccess(
-              () -> Component.literal("Validation boarded " + player.getGameProfile().getName()),
+              () ->
+                  Component.literal(
+                      "Validation boarded "
+                          + player.getGameProfile().getName()
+                          + (closeRestraints ? " and closed restraints" : "")),
               false);
           return 1;
         }
