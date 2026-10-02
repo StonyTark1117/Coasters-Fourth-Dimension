@@ -9,14 +9,14 @@ mesh-clearance, rider-render, or camera test.
 ## Method
 
 The packaged JAR SHA-256 was
-`ca7e9ff0eaf1f9790ca0b245f92a348d10381e71b08fc4b93824a47d6b1e6543`.
-A fresh disposable `FDFiveChunkedSectionRenderMatrix` quick-play save ran on
+`7df53638615e7ae42e5705c873a1078761100535ae88519ae37e754cdac6fc1d`.
+A fresh disposable `FDFiveChunkedSectionRenderMatrixFix` quick-play save ran on
 Xvfb:
 
 ```sh
 xvfb-run -a env JAVA_HOME=/usr/lib/jvm/java-21-openjdk \
   ./gradlew runClient --no-daemon -PfdPackaged \
-  -PfdWorld=FDFiveChunkedSectionRenderMatrix \
+  -PfdWorld=FDFiveChunkedSectionRenderMatrixFix \
   -PfdCarrierFixture -PfdCarrierFixtureMotion \
   -PfdCarrierValidation -PfdCarrierValidationRender \
   -PfdCarrierValidationMotion \
@@ -39,11 +39,11 @@ movement for all four PAX chassis.
 
 ## Result
 
-The client passed after 505 ticks. All 28 expected native body sections had
-compiled, and the same 28 chunked bodies passed through 3,230 section-layer
+The client passed after 502 ticks. All 28 expected native body sections had
+compiled, and the same 28 chunked bodies passed through 2,340 section-layer
 dispatches (`compiledBodies=28`, `sectionLayerBodies=28`,
-`sectionLayerCalls=3230`). The maximum static carrier-angle error was
-`0.005636223361145938` radians. Every functional family moved, including all
+`sectionLayerCalls=2340`). The maximum static carrier-angle error was
+`3.581027940612285E-4` radians. Every functional family moved, including all
 four PAX chassis. The client requested normal shutdown and the integrated
 server saved the disposable world. The selected log lines are in [the
 section-render record](client-carrier-render-compile.txt).
