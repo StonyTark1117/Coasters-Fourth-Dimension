@@ -4,7 +4,12 @@ import dev.fourthdimension.editor.EditorNetwork;
 import dev.fourthdimension.integration.*;
 import dev.fourthdimension.runtime.*;
 import dev.fourthdimension.track.*;
+import dev.fourthdimension.vehicle.VehicleFactory;
+import dev.ryanhcode.sable.api.sublevel.SubLevelContainer;
+import dev.ryanhcode.sable.sublevel.storage.SubLevelRemovalReason;
 import dev.silvergold.simulatedcoasters.SimulatedCoastersBlocks;
+import dev.silvergold.simulatedcoasters.track.graph.CoasterPathGraphManager;
+import dev.silvergold.simulatedcoasters.track.graph.CoasterPathTrackFrame;
 import java.util.*;
 import net.minecraft.core.BlockPos;
 import net.minecraft.gametest.framework.*;
@@ -17,6 +22,73 @@ import net.neoforged.neoforge.gametest.*;
 @GameTestHolder("fourthdimension")
 @PrefixGameTestTemplate(false)
 public final class AppearanceGameTests {
+  @GameTest(template = "empty", timeoutTicks = 120)
+  public static void cosmeticStyleCannotChangeOriginalFamilyEligibility(GameTestHelper helper) {
+    var level = helper.getLevel();
+    for (int x = 46; x <= 50; x++)
+      for (int z = -42; z <= -38; z++) level.setChunkForced(x, z, true);
+    var player =
+        FakePlayerFactory.get(
+            level,
+            new com.mojang.authlib.GameProfile(
+                UUID.fromString("fdfdfdfd-0000-0000-0000-000000000402"), "FDCosmeticBoundary"));
+    player.setGameMode(GameType.CREATIVE);
+    player.setItemInHand(InteractionHand.MAIN_HAND, TrackItems.ARROW.get().getDefaultInstance());
+    var from = new BlockPos(800, 120, -672);
+    var to = from.offset(0, 0, 32);
+    for (var point : List.of(from, to))
+      level.setBlockAndUpdate(
+          point, SimulatedCoastersBlocks.COASTER_ANCHORPOINT.get().defaultBlockState());
+    player.setPos(to.getX() + 2, to.getY() + 1, to.getZ());
+    var rail =
+        TrackPlacement.connect(
+            level, from, to, TrackDesign.ARROW, player, player.getMainHandItem());
+    var data = FoundationData.get(level);
+    var container = SubLevelContainer.getContainer(level);
+    helper.runAtTickTime(
+        20,
+        () -> {
+          var edge = TrackGeometry.resolve(level, rail);
+          var hit =
+              new CoasterPathTrackFrame.GraphHit(
+                  CoasterPathGraphManager.sampleEdgePosition(level, edge, .5), edge, .5);
+          for (var style : TrackAppearance.CANDIDATES) {
+            rail.appearance = new TrackAppearance(style, 0x224466);
+            int before = data.vehicles.size();
+            EditorGameTests.rejects(
+                helper,
+                () -> VehicleFactory.create(level, TrackDesign.LEGACY, hit),
+                "Cosmetic Arrow style granted Legacy eligibility: " + style);
+            helper.assertTrue(
+                data.vehicles.size() == before,
+                "Rejected styled-track vehicle allocation leaked state: " + style);
+            var arrow = VehicleFactory.create(level, TrackDesign.ARROW, hit);
+            helper.assertTrue(
+                arrow.family == TrackDesign.ARROW.family
+                    && arrow.variant.equals(TrackDesign.ARROW.variant)
+                    && rail.appearance.id().equals(style),
+                "Styled Arrow lost its original functional contract: " + style);
+            for (var carrier : arrow.carriers)
+              container.removeSubLevel(
+                  container.getSubLevel(carrier.body), SubLevelRemovalReason.REMOVED);
+            container.removeSubLevel(
+                container.getSubLevel(arrow.chassis), SubLevelRemovalReason.REMOVED);
+            data.vehicles.remove(arrow.chassis);
+          }
+          System.out.println(
+              "FD_COSMETIC_BOUNDARY styles="
+                  + TrackAppearance.CANDIDATES.size()
+                  + " arrowAccepts=2 legacyRejects=2 mechanicsUnchanged=true");
+          ((dev.silvergold.simulatedcoasters.track.anchor.CoasterAnchorpointBlockEntity)
+                  level.getBlockEntity(from))
+              .removeAnchorPeerCurve(level, to);
+          data.rails.remove(rail);
+          level.removeBlock(from, false);
+          level.removeBlock(to, false);
+          helper.succeed();
+        });
+  }
+
   @GameTest(template = "empty", timeoutTicks = 60)
   public static void cosmeticTransactionsMigrationAndMissingProviderPersistence(
       GameTestHelper helper) {

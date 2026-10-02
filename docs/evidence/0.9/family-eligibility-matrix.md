@@ -23,8 +23,8 @@ initial snap must engage the bearing after the rejected attempts.
 JAVA_HOME=/usr/lib/jvm/java-21-openjdk ./gradlew runGameTestServer --no-daemon -PfdIntegrations=styles,engineered -PfdPerformanceTargets
 ```
 
-The combined target-gated profile passed all **40 required GameTests** in
-**4.067 minutes** and emitted:
+The combined target-gated profile passed all **41 required GameTests** in
+**4.113 minutes** and emitted:
 
 ```text
 FD_FAMILY_MATRIX decisions=25 factoryRejects=20 lockedNativeInitialSnapRejects=20 bindingPreserved=true
@@ -41,6 +41,11 @@ wrong-family placements without consuming an item or allocating a vehicle:
 ```text
 FD_SURVIVAL ... trackFamilies=5 wrongFamilyRejects=20 placedCars=5 ...
 ```
+
+The additional 41st test applies each inspected Track Styles cosmetic ID to an
+Arrow rail, rejects a Legacy car through `VehicleFactory`, accepts an Arrow car,
+and removes the temporary vehicle state. It directly proves that a decorative
+Arrow appearance cannot grant a different family mechanical eligibility.
 
 ## Limits
 

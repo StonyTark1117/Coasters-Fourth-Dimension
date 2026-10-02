@@ -398,7 +398,9 @@ rejection across all five original tracks through both direct eligibility and
 the native snap filter. The same run confirms ordinary traversal has no vehicle
 record, carrier rotation or magnetic impulse, and rejects unassigned ordinary/4D
 train coupling without mutating the 4D car; see the [ordinary snap matrix](docs/evidence/0.9/ordinary-cart-snap-matrix.md).
-The current branch passes all 40 native GameTests under Track Styles-only,
+Each inspected Track Styles appearance also retains Arrow-only functional
+eligibility in a direct regression. The current branch passes all 41 native
+GameTests under Track Styles-only,
 Engineered-only, and combined audited profiles; see the [optional-profile
 matrix](docs/evidence/0.9/optional-profile-matrix.md). This advances the
 regular-cart and audited optional-profile portions before FD404, but it does not

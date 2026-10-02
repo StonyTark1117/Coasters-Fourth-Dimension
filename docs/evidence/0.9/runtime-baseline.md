@@ -59,6 +59,15 @@ Its sampled lines were:
 The exact run-four diagnostic lines and test summary are retained in the local
 GameTest log at `/tmp/fourthdimension-7af457c2/build/runs/gametest/logs/latest.log`.
 
+Run five repeated the target-gated combined profile after the cosmetic-boundary
+regression was added: all **41 required GameTests** passed in **4.113 minutes**.
+
+| Workload | Run | Runtime invocations | Average / invocation | Carrier updates | Carrier total | Average / carrier | Rebuilds |
+| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| Controlled — Arrow and legacy ZacSpin circuit | 5 | 11,520 | 50,324 ns | 15,360 | 54,511,282 ns | 3,548 ns | 0 |
+| PAX shuttle — 16 riders; lift, gravity return and capture | 5 | 4,674 | 113,510 ns | 12,464 | 34,803,592 ns | 2,792 ns | 0 |
+| Free Spin — 8 riders; magnetic circuit and capture | 5 | 14,220 | 107,120 ns | 18,960 | 58,658,403 ns | 3,093 ns | 0 |
+
 ## Target-host gate
 
 The declared target-host limits are at most **120,000 ns per runtime invocation**
@@ -66,13 +75,13 @@ and **6,000 ns per live-carrier update**. They are based on a rounded margin
 above the three-run observed maxima of 107,376 ns and 3,901 ns, respectively.
 They are only enabled by `-PfdPerformanceTargets`, which checks each named
 performance GameTest after its required sampling window. Run three meets both
-limits in all three scenes. Across all four recorded target-host samples, the
-highest values are 107,747 ns per invocation for the PAX shuttle and 3,901 ns
+limits in all three scenes. Across all five recorded target-host samples, the
+highest values are 113,510 ns per invocation for the PAX shuttle and 3,901 ns
 per carrier update for the controlled scene.
 
 ## Limits and next work
 
-The values are four integrated GameTest runs on the stated host. The carrier
+The values are five integrated GameTest runs on the stated host. The carrier
 figures normalize the direct carrier body but do not allocate shared runtime
 work among carriers. Their visible variation remains host-specific and does not
 generalize to other hardware. The gate deliberately omits whole-server time,

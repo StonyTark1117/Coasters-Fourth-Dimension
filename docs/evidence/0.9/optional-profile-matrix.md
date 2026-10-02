@@ -13,16 +13,14 @@ Fourth Dimension 0.9.0-dev.27.
 
 | Profile | Command options | Result |
 | --- | --- | --- |
-| Track Styles 1.2.0 only | `-PfdIntegrations=styles` | 40 required GameTests passed in 4.071 minutes. |
-| Engineered 1.1.1 only | `-PfdIntegrations=engineered` | 40 required GameTests passed in 4.112 minutes. |
-| Both audited addons | `-PfdIntegrations=styles,engineered` | 40 required GameTests passed in 4.293 minutes. |
+| Track Styles 1.2.0 only | `-PfdIntegrations=styles` | 41 required GameTests passed in 3.973 minutes. |
+| Engineered 1.1.1 only | `-PfdIntegrations=engineered` | 41 required GameTests passed in 4.072 minutes. |
+| Both audited addons | `-PfdIntegrations=styles,engineered -PfdPerformanceTargets` | 41 required GameTests passed in 4.113 minutes. |
 
 The Engineered-only run exercised its motor/assembly cases. The Styles-only run
 exercised the native matrix with the decorative provider installed. The combined
 run is separately recorded in the [runtime baseline](runtime-baseline.md) and
-the packaged lifecycle checks. A separate earlier target-host performance run
-used `-PfdPerformanceTargets`; its timing results remain recorded in the
-runtime baseline.
+the packaged lifecycle checks. It also enabled the target-host performance gate.
 
 ## Limits
 
