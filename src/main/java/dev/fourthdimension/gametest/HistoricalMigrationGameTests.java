@@ -62,6 +62,20 @@ public final class HistoricalMigrationGameTests {
             && reopened.vehicles.values().stream()
                 .allMatch(vehicle -> vehicle.recoveryCart == null && !vehicle.recoveryCartRemoved),
         "Current-schema reopen changed historic migration state");
+
+    // A historical Fourth Dimension record may be upgraded, but an external functional
+    // track provider cannot be guessed from an Arrow-looking identifier during migration.
+    var foreignProvider = source.copy();
+    foreignProvider
+        .getList("rails", Tag.TAG_COMPOUND)
+        .getCompound(0)
+        .putString("provider", "coasterssimulatedextratypes:arrow_4d");
+    EditorGameTests.rejects(
+        helper,
+        () -> FoundationData.load(foreignProvider, helper.getLevel().registryAccess()),
+        "Foreign functional provider was silently converted during migration");
+    System.out.println(
+        "FD903_HISTORICAL schema3Rails=24 chassis=3 providerConversionRejected=true");
     helper.succeed();
   }
 

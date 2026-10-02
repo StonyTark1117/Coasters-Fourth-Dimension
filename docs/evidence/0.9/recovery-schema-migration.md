@@ -57,24 +57,32 @@ identitiesPreserved=true recoveryInvented=false
 
 The schema-6 file passed the same verifier after the packaged-server reopen.
 
+## Unsupported provider conversion
+
+`HistoricalMigrationGameTests` now copies the recorded schema-3 fixture and
+replaces one original rail's provider with
+`coasterssimulatedextratypes:arrow_4d`. The current loader must reject that
+record as an unregistered functional provider. It must never infer mechanical
+equivalence from the provider or the Arrow-like name, create a replacement rail,
+or silently convert it to the original family.
+
 ## Result
 
 ```sh
-JAVA_HOME=/usr/lib/jvm/java-21-openjdk ./gradlew build runGameTestServer --no-daemon -PfdIntegrations=styles,engineered
+JAVA_HOME=/usr/lib/jvm/java-21-openjdk ./gradlew runGameTestServer --no-daemon -PfdIntegrations=styles,engineered -PfdPerformanceTargets
 ```
 
-The schema-migration checkpoint's recorded combined run passed all **38 required
-GameTests**. The later dev.27 support-loss checkpoint raises the current combined
-suite to 39; the current combined suite has 40; see [five-family support loss](five-family-support-loss.md).
-The matrix covered five legacy schema declarations across the actual five-family
-occupied recovery fixture, preserving all five chassis identities in every case
-and inventing no recovery state.
+The current combined target-gated run passed all **41 required GameTests** in
+**4.162 minutes**. The matrix covered five legacy schema declarations across the
+actual five-family occupied recovery fixture, preserving all five chassis
+identities in every case and inventing no recovery state. Its recorded historical
+fixture now also rejects an injected third-party functional provider.
 
 ## Limits
 
 The packaged replay establishes one recorded historical `FoundationData` file,
 not a complete saved-world directory with native Sable sublevels. It does not
-establish upgrades from every released historical world, provider removal or
-external-block conversion, backup/recovery procedures, real-client migration,
-or the complete FD903 release matrix. Those remain required before the 0.9
-candidate gate can close.
+establish upgrades from every released historical world, provider removal or a
+supported external-block conversion, backup/recovery procedures, real-client
+migration, or the complete FD903 release matrix. Those remain required before
+the 0.9 candidate gate can close.
