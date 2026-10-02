@@ -34,9 +34,9 @@ first and independently received the same six 4D body snapshots. The separate
 [occupied five-family disconnect/reconnect check](occupied-disconnect-reconnect.md)
 uses fresh client processes and confirms an assigned rider returns to the
 intended carrier for every family. It also records a Legacy server-process
-restart plus normal Legacy, Arrow and Free Spin holding-state unload/reload.
-Remaining cold-restart families, Revised/PAX chunk unloads, motion and
-concurrent-rider lifecycle acceptance remain FD902 work.
+restart plus normal holding-state unload/reload for every family. Remaining
+cold-restart families, motion and concurrent-rider lifecycle acceptance remain
+FD902 work.
 
 [Ordinary-cart native snap matrix, dev.27](ordinary-cart-snap-matrix.md)
 verifies fitting and deliberately non-fitting ordinary bearings on all five
