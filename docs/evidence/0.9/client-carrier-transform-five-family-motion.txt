@@ -1,5 +1,8 @@
-[02Oct2026 08:40:21.456] [Server thread/INFO] [dev.fourthdimension.runtime.CarrierValidationFixture/]: FD_CARRIER_FIXTURE created families=5 vehicles=8 carriers=20 rails=35
-[02Oct2026 08:40:25.972] [Server thread/INFO] [dev.fourthdimension.runtime.CarrierValidationFixture/]: FD_CARRIER_FIXTURE dispatched motion chassis=f23751fd-9f6d-494f-8093-9dd27bbf68ba family=ARROW
-[02Oct2026 08:40:28.540] [Render thread/INFO] [dev.fourthdimension.client.CarrierTransformValidation/]: FD_CARRIER_VALIDATION passed samples=40 target=40 waitedTicks=128 families=5 requiredFamilies=5 carriers=20 riderAssignments=0 maxAngleError=0.005636209134113855 motionDistance=4.9857955498446485
-[02Oct2026 08:40:28.573] [Render thread/INFO] [net.minecraft.client.Minecraft/]: Stopping!
-[02Oct2026 08:40:29.020] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: ThreadedAnvilChunkStorage (FDMotionCarrierMatrix): All chunks are saved
+[02Oct2026 08:52:22.881] [Server thread/INFO] [dev.fourthdimension.runtime.CarrierValidationFixture/]: FD_CARRIER_FIXTURE created families=5 vehicles=8 carriers=20 rails=35
+[02Oct2026 08:52:24.398] [Render thread/ERROR] [dev.ryanhcode.sable.Sable/]: Received a sub-level movement packet for a non-existent sub-level
+[02Oct2026 08:52:24.399] [Render thread/ERROR] [dev.ryanhcode.sable.Sable/]: Received a sub-level movement packet for a non-existent sub-level
+[02Oct2026 08:52:24.399] [Render thread/ERROR] [dev.ryanhcode.sable.Sable/]: Received a sub-level movement packet for a non-existent sub-level
+[02Oct2026 08:52:48.444] [Server thread/INFO] [dev.fourthdimension.runtime.CarrierValidationFixture/]: FD_CARRIER_FIXTURE dispatched controlled motion chassis=[7227441a-dce8-4552-a943-b45fe9b13542, 3574e871-a5d4-4b88-9b37-e3b7fd662dc1, b1f54eab-3ade-43d3-9505-ae908530a38e, dcf148da-55eb-4d5a-9f3d-5bf4b310f351] families=[ARROW, ZACSPIN, FREE_SPIN, ZACSPIN_REVISED]
+[02Oct2026 08:52:49.092] [Render thread/INFO] [dev.fourthdimension.client.CarrierTransformValidation/]: FD_CARRIER_VALIDATION passed samples=40 target=40 waitedTicks=510 families=5 requiredFamilies=5 carriers=0 riderAssignments=0 maxAngleError=2.687598022542719E-4 motionFamilies=[ARROW, ZACSPIN, FREE_SPIN, ZACSPIN_REVISED] motionDistances={ARROW=1.0834601098650583, ZACSPIN=1.078991726770371, FREE_SPIN=1.108615833446712, ZACSPIN_REVISED=1.1063523290191744}
+[02Oct2026 08:52:49.200] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Stopping server
+[02Oct2026 08:52:49.625] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: ThreadedAnvilChunkStorage (FDMultiMotionCarrierMatrixPass): All chunks are saved

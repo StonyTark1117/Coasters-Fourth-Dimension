@@ -81,11 +81,12 @@ lifecycle coverage. Riders, motion, camera, rendering and multiplayer remain
 FD902/FD904 work.
 
 [Five-family packaged client carrier motion](client-carrier-transform-five-family-motion.md)
-uses normal production dispatch for the fixture Arrow car while all five families
-remain loaded. The client maintained the 0.02-radian carrier gate for 40 complete
-samples and observed 4.99 blocks of Arrow chassis movement. It is one controlled,
-rider-free motion path; all-family motion, cameras, interpolation, multiplayer and
-rendered clearance remain open.
+uses normal production dispatch for Arrow, Legacy, Free Spin, and Revised after
+the five-family static matrix has passed. The client completed 40 pre-dispatch
+20-carrier samples within the 0.02-radian gate, then observed at least 1.07 blocks
+of client-native chassis motion for every four circuit families. PAX is static in
+this fixture; rider, camera, interpolation, multiplayer and rendered-clearance
+coverage remain open.
 
 [Client track-render instrumentation](client-render-sampling.md) records an
 initial packaged real-client sample on the recovery scene, under llvmpipe and

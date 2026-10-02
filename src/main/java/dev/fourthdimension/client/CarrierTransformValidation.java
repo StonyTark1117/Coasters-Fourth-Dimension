@@ -4,6 +4,7 @@ import com.mojang.logging.LogUtils;
 import dev.fourthdimension.contract.Family;
 import dev.fourthdimension.runtime.EligibilityHooks;
 import dev.ryanhcode.sable.api.sublevel.SubLevelContainer;
+import java.util.EnumMap;
 import java.util.EnumSet;
 import net.minecraft.client.Minecraft;
 import net.neoforged.api.distmarker.Dist;
@@ -19,8 +20,10 @@ import org.joml.Vector3d;
  * <p>It observes the client snapshot and its live Sable bodies; it never writes poses, riders, or
  * camera state. The required number of functional families is configurable because client worlds
  * can intentionally contain a single-family fixture. A passing sample establishes synchronized
- * carrier orientation, and optionally observes bounded controlled-car displacement. It does not
- * verify rendered mesh clearance, player appearance, camera behavior, or a moving-ride lifecycle.
+ * carrier orientation before dispatch, then optionally observes controlled-car displacement. The
+ * dynamic phase intentionally does not compare a replicated carrier snapshot with a live body: those
+ * sources can be one simulation tick apart while a car moves. It does not verify rendered mesh
+ * clearance, player appearance, camera behavior, or a moving-ride lifecycle.
  */
 @EventBusSubscriber(modid = "fourthdimension", value = Dist.CLIENT)
 public final class CarrierTransformValidation {
@@ -28,8 +31,8 @@ public final class CarrierTransformValidation {
   private static int completeSamples;
   private static int waitedTicks;
   private static double maxAngleError;
-  private static Vector3d motionStart;
-  private static double maxMotionDistance;
+  private static EnumMap<Family, Vector3d> motionStarts = new EnumMap<>(Family.class);
+  private static EnumMap<Family, Double> maxMotionDistances = new EnumMap<>(Family.class);
   private static boolean completed;
   private static net.minecraft.world.level.Level lastLevel;
 
@@ -43,8 +46,8 @@ public final class CarrierTransformValidation {
       completeSamples = 0;
       waitedTicks = 0;
       maxAngleError = 0;
-      motionStart = null;
-      maxMotionDistance = 0;
+      motionStarts = new EnumMap<>(Family.class);
+      maxMotionDistances = new EnumMap<>(Family.class);
       completed = false;
       lastLevel = minecraft.level;
     }
@@ -60,6 +63,7 @@ public final class CarrierTransformValidation {
     int carriers = 0;
     int riderAssignments = 0;
     double sampleMaxError = 0;
+    boolean staticPhase = !motionRequired() || completeSamples < requiredSamples();
     for (var vehicle : data.vehicles.values()) {
       var parent = container.getSubLevel(vehicle.chassis);
       if (parent == null) {
@@ -67,15 +71,17 @@ public final class CarrierTransformValidation {
         return;
       }
       families.add(vehicle.family);
-      if (vehicle.family == Family.ARROW && motionRequired()) {
+      if (motionRequired() && vehicle.family != Family.PAX) {
         var center = parent.getPlot().getCenterBlock();
         var position =
             parent
                 .logicalPose()
                 .transformPosition(new Vector3d(center.getX() + .5, center.getY() + .5, center.getZ() + .5));
-        if (motionStart == null) motionStart = new Vector3d(position);
-        else maxMotionDistance = Math.max(maxMotionDistance, position.distance(motionStart));
+        var start = motionStarts.putIfAbsent(vehicle.family, new Vector3d(position));
+        if (start != null)
+          maxMotionDistances.merge(vehicle.family, position.distance(start), Math::max);
       }
+      if (!staticPhase) continue;
       for (var carrier : vehicle.carriers) {
         var child = container.getSubLevel(carrier.body);
         if (child == null) {
@@ -107,7 +113,7 @@ public final class CarrierTransformValidation {
         riderAssignments += carrier.riderSeats.size();
       }
     }
-    if (families.size() < requiredFamilies() || carriers == 0) {
+    if (families.size() < requiredFamilies() || (staticPhase && carriers == 0)) {
       incomplete(
           "required family matrix is not loaded required="
               + requiredFamilies()
@@ -117,18 +123,43 @@ public final class CarrierTransformValidation {
               + carriers);
       return;
     }
-    if (motionRequired() && maxMotionDistance < 1) {
-      incomplete("Arrow chassis has not moved one block; observed=" + maxMotionDistance);
+    if (staticPhase) {
+      completeSamples++;
+      maxAngleError = Math.max(maxAngleError, sampleMaxError);
+      if (completeSamples < requiredSamples()) return;
+      if (!motionRequired()) {
+        finish(minecraft, families, carriers, riderAssignments, EnumSet.noneOf(Family.class));
+      }
       return;
     }
-    completeSamples++;
-    maxAngleError = Math.max(maxAngleError, sampleMaxError);
-    if (completeSamples < requiredSamples()) return;
+    var movedFamilies =
+        maxMotionDistances.entrySet().stream()
+            .filter(entry -> entry.getValue() >= 1)
+            .map(java.util.Map.Entry::getKey)
+            .collect(java.util.stream.Collectors.toCollection(() -> EnumSet.noneOf(Family.class)));
+    if (motionRequired() && movedFamilies.size() < requiredMotionFamilies()) {
+      incomplete(
+          "controlled chassis motion below requirement required="
+              + requiredMotionFamilies()
+              + " observed="
+              + maxMotionDistances);
+      return;
+    }
+    finish(minecraft, families, carriers, riderAssignments, movedFamilies);
+  }
+
+  private static void finish(
+      Minecraft minecraft,
+      EnumSet<Family> families,
+      int carriers,
+      int riderAssignments,
+      EnumSet<Family> movedFamilies) {
     completed = true;
     LogUtils.getLogger()
         .info(
             "FD_CARRIER_VALIDATION passed samples={} target={} waitedTicks={} families={} "
-                + "requiredFamilies={} carriers={} riderAssignments={} maxAngleError={} motionDistance={}",
+                + "requiredFamilies={} carriers={} riderAssignments={} maxAngleError={} "
+                + "motionFamilies={} motionDistances={}",
             completeSamples,
             requiredSamples(),
             waitedTicks,
@@ -137,7 +168,8 @@ public final class CarrierTransformValidation {
             carriers,
             riderAssignments,
             maxAngleError,
-            maxMotionDistance);
+            movedFamilies,
+            maxMotionDistances);
     if (Boolean.getBoolean("fourthdimension.carrierValidationExit")) minecraft.stop();
   }
 
@@ -170,5 +202,16 @@ public final class CarrierTransformValidation {
 
   private static boolean motionRequired() {
     return Boolean.getBoolean("fourthdimension.carrierValidationMotion");
+  }
+
+  private static int requiredMotionFamilies() {
+    try {
+      return Math.clamp(
+          Integer.parseInt(System.getProperty("fourthdimension.carrierValidationMotionFamilies", "1")),
+          1,
+          Family.values().length - 1);
+    } catch (NumberFormatException ignored) {
+      return 1;
+    }
   }
 }

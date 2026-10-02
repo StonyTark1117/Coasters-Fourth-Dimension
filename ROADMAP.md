@@ -471,15 +471,18 @@ this proves eventual static agreement, not clean startup ordering, riders,
 motion, cameras or a complete lifecycle. See the [five-family transform
 checkpoint](docs/evidence/0.9/client-carrier-transform-five-family.md).
 
-Dev.35 adds an opt-in motion mode to that fixture. After the local client loads,
-it waits for the Arrow car to become ready, invokes ordinary production restraint
-closing and dispatch, and requires the client to observe at least one block of
-native chassis displacement while all five families continue through the same
-40-sample/0.02-radian carrier gate. The packaged run observed 4.9857955498446485
-blocks of Arrow movement, 20 carriers and five families with a maximum angle
-error of `0.005636209134113855` radians, then saved and stopped normally. It is
-one rider-free controlled-car path, not all-family motion, camera, interpolation,
-multiplayer or rendered-clearance acceptance; see the [five-family motion
+Dev.35 added an opt-in motion mode to the fixture and recorded one Arrow
+controlled-car path. Dev.36 expands that checkpoint to Arrow, Legacy, Free Spin,
+and Revised. The packaged client first completed 40 pre-dispatch static samples
+for all 20 carrier bodies across the five loaded families, with a maximum angle
+error of `0.0002687598022542719` radians. Normal production restraint closing and
+dispatch then moved the four circuit chassis by 1.0834601098650583,
+1.078991726770371, 1.108615833446712, and 1.1063523290191744 blocks respectively.
+The dynamic phase deliberately measures chassis translation only because a live
+Sable body and replicated carrier snapshot can be one simulation tick apart while
+moving. PAX remains statically covered only in this fixture. This is rider-free
+controlled-car validation, not camera, interpolation, multiplayer or
+rendered-clearance acceptance; see the [five-family motion
 checkpoint](docs/evidence/0.9/client-carrier-transform-five-family-motion.md).
 
 **Latest FD902 checkpoint: two live riders across all five families.** Clean

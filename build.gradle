@@ -47,6 +47,7 @@ neoForge {
             systemProperty 'fourthdimension.carrierValidationSamples', project.findProperty('fdCarrierValidationSamples') ?: '40'
             systemProperty 'fourthdimension.carrierValidationFamilies', project.findProperty('fdCarrierValidationFamilies') ?: '1'
             systemProperty 'fourthdimension.carrierValidationMotion', project.hasProperty('fdCarrierValidationMotion').toString()
+            systemProperty 'fourthdimension.carrierValidationMotionFamilies', project.findProperty('fdCarrierValidationMotionFamilies') ?: '1'
             systemProperty 'fourthdimension.carrierFixture', project.hasProperty('fdCarrierFixture').toString()
             systemProperty 'fourthdimension.carrierFixtureMotion', project.hasProperty('fdCarrierFixtureMotion').toString()
             systemProperty 'fourthdimension.ponderValidation', project.hasProperty('fdPonderValidation').toString()
