@@ -33,8 +33,15 @@ BASE_PIN = "f80b4c3cdf9fa6188804967147761b0373e150a6eadbdc53626e5ac9700b2049"
 MINECRAFT_PIN = "499f6897d1837516680f3114072d8106e11c9adcd933fe5cf051b551089b0c99"
 BOTTOM_MODEL = "simulatedcoasters:block/coaster_cart_bottom"
 WHEEL_MODEL = "simulatedcoasters:block/coaster_cart_wheel_axis"
+LINKAGE_BLOCKS = {
+    "fourthdimension:wing_strut",
+    "fourthdimension:revised_strut",
+    "fourthdimension:carrier_axle",
+    "fourthdimension:free_spin_axle",
+    "fourthdimension:revised_axle",
+}
 SOURCE_PINS = {
-    "src/main/java/dev/fourthdimension/client/OriginalTrackRenderer.java": "5089ed597ef5651d5b221eb437e088469f2f28d21028c7bc6be6c9266eca0f0f",
+    "src/main/java/dev/fourthdimension/client/OriginalTrackRenderer.java": "dc27216c67c5506aa472773ecaf5adb6406166fc5a09d5ab50d4832123262667",
     "src/main/java/dev/fourthdimension/track/TrackDesign.java": "e3a88c3ca661d7b232ee0b9d3c853a6e66c1d0d1147ac4266b001616b1fe1ff1",
     "src/main/java/dev/fourthdimension/vehicle/BankedRecoveryExamples.java": "0d6597a484cf83cca90671ab6351c81cca42a4e9b96075b4843b136d81229439",
     "src/main/java/dev/fourthdimension/gametest/RecoveryMeshTrace.java": "62206f5b5da11aaeedfcab504968abef33245dcd9175992ea0cdbb424c8d4b34",
@@ -217,6 +224,18 @@ def boxes_separation(first, axes, second, other_axes):
     return best
 
 
+def is_linkage(label):
+    """Return whether an exported block-model element is a moving car linkage part.
+
+    The chassis wing struts and each carrier's axle are real blocks in their
+    independently posed Sable bodies.  They are not decorative rail geometry,
+    so report them separately from the general default-model result.  Native
+    lower-bearing and wheel models deliberately remain outside this category:
+    those have their own contact/envelope checks.
+    """
+    return any(label.startswith(block + "@") for block in LINKAGE_BLOCKS)
+
+
 def audit(route, entries, resources, margin):
     triangles, labels = track_mesh(route)
     lows, highs = triangles.min(axis=1), triangles.max(axis=1)
@@ -232,6 +251,7 @@ def audit(route, entries, resources, margin):
     closest, failures = None, []
     minimum = math.inf
     wheel_minimum, wheel_closest, wheel_checks = math.inf, None, 0
+    linkage_minimum, linkage_closest, linkage_checks = math.inf, None, 0
     rider_minimum, rider_closest, rider_checks = math.inf, None, 0
     rider_rack_minimum, rider_rack_closest, rider_rack_checks = math.inf, None, 0
     neighbor_minimum, neighbor_closest = math.inf, None
@@ -360,6 +380,7 @@ def audit(route, entries, resources, margin):
                     cells = itertools.product(*(range(a, b + 1) for a, b in zip(np.floor((low - padding) / 2).astype(int), np.floor((high + padding) / 2).astype(int))))
                     indices = np.array(sorted({index for cell in cells for index in grid.get(cell, [])}), dtype=int)
                     wheel = label.startswith("nativeWheel:")
+                    linkage = is_linkage(label)
                     if wheel:
                         indices = np.array(
                             [index for index in indices if not labels[index].endswith((":rail0", ":rail1"))],
@@ -368,8 +389,10 @@ def audit(route, entries, resources, margin):
                     if not len(indices):
                         if wheel:
                             wheel_minimum = min(wheel_minimum, padding)
-                        else:
-                            minimum = min(minimum, padding)
+                        if linkage:
+                            linkage_checks += 1
+                            linkage_minimum = min(linkage_minimum, padding)
+                        minimum = min(minimum, padding)
                         continue
                     gaps = np.linalg.norm(np.maximum(0, np.maximum(low - highs[indices], lows[indices] - high)), axis=1)
                     candidates = np.flatnonzero(gaps < padding)
@@ -386,6 +409,12 @@ def audit(route, entries, resources, margin):
                         wheel_minimum = gap
                         wheel_closest = {"tick": entry["tick"], "body": pose["id"], "role": body["role"],
                                          "modelElement": label, "trackComponent": labels[index]}
+                    if linkage:
+                        linkage_checks += 1
+                        if gap < linkage_minimum:
+                            linkage_minimum = gap
+                            linkage_closest = {"tick": entry["tick"], "body": pose["id"], "role": body["role"],
+                                               "modelElement": label, "trackComponent": labels[index]}
                     if gap < margin and len(failures) < 20:
                         failures.append({"gap": gap, "tick": entry["tick"], "body": pose["id"],
                                          "modelElement": label, "trackComponent": labels[index]})
@@ -408,6 +437,8 @@ def audit(route, entries, resources, margin):
         raise ValueError("Mesh trace lacks full original-car route coverage and normal completion")
     if wheel_checks == 0 or not math.isfinite(wheel_minimum):
         raise ValueError("Native wheel envelopes were not audited")
+    if linkage_checks == 0 or not math.isfinite(linkage_minimum):
+        raise ValueError("Native chassis/carrier linkage blocks were not audited")
     if rider_checks == 0 or not math.isfinite(rider_minimum):
         raise ValueError("Mounted rider envelopes were not audited")
     if rider_rack_checks == 0 or not math.isfinite(rider_rack_minimum):
@@ -418,6 +449,9 @@ def audit(route, entries, resources, margin):
             "wheelEnvelopeCount": wheel_checks,
             "wheelMinimumSeparatingBound": wheel_minimum,
             "wheelClosest": wheel_closest,
+            "linkageEnvelopeCount": linkage_checks,
+            "linkageMinimumSeparatingBound": linkage_minimum,
+            "linkageClosest": linkage_closest,
             "riderEnvelopeCount": rider_checks,
             "riderMinimumSeparatingBound": rider_minimum,
             "riderClosest": rider_closest,
@@ -474,7 +508,7 @@ def main():
                                 "src/main/java/dev/fourthdimension/gametest/BankedRecoveryTrainGameTests.java",
                                 "src/main/java/dev/fourthdimension/vehicle/BankedRecoveryExamples.java") },
               "resourceHashes": resources.hashes, "sampleIntervalTicks": 10,
-              "scope": "10-tick sampled original default block-model, native lower-bearing, full-spin wheel-envelope and mounted native-rider rendered-orientation volumes against original track tubes; running rails are excluded only for wheels as intended contact; no continuous sweep, player meshes, client renderer/cosmetics, linkage, decorations or resource overrides",
+              "scope": "10-tick sampled original default block-model, explicit chassis/carrier linkage blocks, native lower-bearing, full-spin wheel-envelope and mounted native-rider rendered-orientation volumes against original track tubes; running rails are excluded only for wheels as intended contact; no continuous sweep, player meshes, client renderer/cosmetics, unmodeled kinematic linkage, decorations or resource overrides",
               "method": "2-block spatial bins; omitted pairs certify at least 4x margin; world AABB separation refined by OBB/triangle SAT lower distance bounds",
               "routes": results}
     print(json.dumps(output, indent=2))

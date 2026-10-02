@@ -19,8 +19,10 @@ original train routes pass fresh dense audits with 577–697 samples per route,
 at least 0.04602 blocks of body/track clearance, 0.08 blocks of rider/track
 clearance and 0.0625 blocks of rider/rack clearance; see the
 [dense-clearance checkpoint](docs/evidence/0.4/recovery/dense-clearance/acceptance.md).
-This is still sampled default-model/native-Pig evidence: player meshes, linkage,
-client rendering and continuous swept clearance remain open. Dev.22 moves Original visual
+This is still sampled default-model/native-Pig evidence. Dev.27 separately
+audits the exported chassis wing-strut/carrier-axle linkage blocks across these
+same routes; unmodeled linkage, player meshes, client rendering and continuous
+swept clearance remain open. See the [linkage-clearance checkpoint](docs/evidence/0.4/recovery/linkage-clearance/acceptance.md). Dev.22 moves Original visual
 supports out of the native lower-bearing channel and independently samples that
 native lower-bearing model against occupied banked recovery routes; see the
 [bearing-clearance checkpoint](docs/evidence/0.4/recovery/bearing-clearance/acceptance.md).

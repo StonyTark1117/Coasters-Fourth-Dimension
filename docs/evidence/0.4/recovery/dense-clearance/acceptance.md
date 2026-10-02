@@ -46,8 +46,11 @@ The verifier SHA-256 is
 
 ## Limits
 
-This is ten-tick sampled native Pig/default-model evidence. It does not certify
-continuous swept clearance, player meshes or cosmetics, client rendering,
-intentional seat contact, carrier linkage, optional decoration/resource
-overrides, real-client operator behavior, general strength or the recovery
-lifecycle matrix. FD402, FD404 and the 0.9 release gate remain open.
+This is ten-tick sampled native Pig/default-model evidence. The separate
+[linkage checkpoint](../linkage-clearance/acceptance.md) covers the exported
+parent struts and carrier-axle blocks. It does not certify continuous swept
+clearance, player meshes or cosmetics, client rendering, intentional seat
+contact, linkage not represented by those native blocks, optional
+decoration/resource overrides, real-client operator behavior, general strength
+or the recovery lifecycle matrix. FD402, FD404 and the 0.9 release gate remain
+open.
