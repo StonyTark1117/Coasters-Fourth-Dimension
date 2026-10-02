@@ -360,6 +360,24 @@ reported `capture=false` with native velocity of approximately 1.994 blocks/s.
 This completes the current moving concurrent rider checkpoint for Arrow and
 Revised.
 
+## Concurrent moving Legacy checkpoint
+
+Two real riders boarded the same four-seat carrier of the original Legacy
+circuit, closed restraints, and used the real dispatch path. After ten seconds
+the native motion probe reported `assignments=2`, `capture=false`, and nonzero
+velocity (`x=1.228`, `y=0.686`, `z=0.488` blocks/s). Its server-side position
+had advanced from `z=-667.5` to `z=-636.1`.
+
+Observer then disconnected while Dev remained mounted. The running server kept
+`chassis=1/1 carriers=2/2 assignments=2`; Dev's original native `create:seat`
+remained present and the chassis continued at approximately 1.986 blocks/s
+with `capture=false`. A fresh Observer client rejoined the same running
+server. The production restore queue mounted Observer at game tick `2849`
+before deadline `3048`. The server then reported two assignments and two
+distinct native `create:seat` entities, with continued nonzero motion and
+`capture=false`. This completes the current moving concurrent rider checkpoint
+for Arrow, Legacy and Revised.
+
 The validation-only trace records accepted player-seat assignments before the
 carrier runtime's next loading update, plus mount/dismount state. It identified
 the stale tracking-point condition in the earlier failure and makes subsequent
