@@ -7,6 +7,7 @@
 - Regenerate a compressed NBT fixture from the recorded 0.3 schema-3 integrated-world extract in CI. The current loader must preserve that fixture's 24 rail IDs, three chassis IDs and original functional families through a schema-6 write and reopen without inventing recovery state.
 - Publish a recovery-world backup, staged-upgrade and restore procedure, and correct the development artifact name in the README. The procedure deliberately excludes third-party functional-block conversion.
 - Add an occupied support-loss regression for all five native families. Removing each car's only matching connection keeps its rider mounted, binding and captured carriers intact, closes restraints, and applies the specific `Matching track support lost` fault without letting the boundary guard overwrite it.
+- Exercise every original functional track with a bare ordinary bearing through both the direct eligibility hook and Coasters Simulated's native snap filter. A one-block widened assembly is rejected through both paths, while fitting bearings traverse without a 4D vehicle record, carrier rotation, or magnetic impulse.
 - The combined Track Styles/Engineered build passes all 39 required GameTests. This is bounded loader-contract and native support-loss coverage; packaged historical-world migration, provider removal/conversion, real-client migration, disconnect, and complete lifecycle coverage remain FD902/FD903 work.
 
 ## 0.9.0-dev.26 — dense sampled recovery clearance

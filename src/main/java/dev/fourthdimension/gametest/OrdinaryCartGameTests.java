@@ -71,12 +71,18 @@ public final class OrdinaryCartGameTests {
             helper.assertTrue(
                 body != null && EligibilityHooks.allows(body, level, hit),
                 "Bare bearing was rejected");
+            helper.assertTrue(
+                CoasterCartRailSnapEligibility.filterHitForBearing(body, level, hit) != null,
+                "Native snap filter rejected a fitting bare bearing");
             bodies.add(body);
             starts.add(new Vector3d(body.logicalPose().position()));
             var embedded = body.getPlot().getEmbeddedLevelAccessor();
             embedded.setBlock(new BlockPos(2, 0, 0), Blocks.IRON_BLOCK.defaultBlockState(), 3);
             helper.assertTrue(
                 !EligibilityHooks.allows(body, level, hit), "Uncertified wide body was accepted");
+            helper.assertTrue(
+                CoasterCartRailSnapEligibility.filterHitForBearing(body, level, hit) == null,
+                "Native snap filter accepted an uncertified wide body");
             embedded.setBlock(new BlockPos(2, 0, 0), Blocks.AIR.defaultBlockState(), 3);
             helper.assertTrue(
                 EligibilityHooks.allows(body, level, hit), "Restored bare bearing rejected");
@@ -112,6 +118,10 @@ public final class OrdinaryCartGameTests {
             level.removeBlock(rail.from, false);
             level.removeBlock(rail.to, false);
           }
+          System.out.println(
+              "FD_ORDINARY_MATRIX families="
+                  + TrackDesign.values().length
+                  + " directFits=5 nativeFits=5 wideRejects=5 nativeWideRejects=5 no4D=true");
           helper.succeed();
         });
   }

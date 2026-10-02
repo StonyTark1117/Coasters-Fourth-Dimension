@@ -386,7 +386,13 @@ Produce the feature-complete candidate scope and list tested optional combinatio
 
 ### FD901 Run the full compatibility matrix
 
-**Status: planned; bounded checks exist, full release matrix pending.**
+**Status: in progress, bounded pre-FD404 checkpoint.** Dev.27 verifies bare
+ordinary-bearing fit and deliberately widened-body rejection across all five
+original tracks through both direct eligibility and the native snap filter. The
+same run confirms ordinary traversal has no vehicle record, carrier rotation or
+magnetic impulse; see the [ordinary snap matrix](docs/evidence/0.9/ordinary-cart-snap-matrix.md).
+This advances the regular-cart fit/non-fit portion before FD404, but it does not
+close the full compatibility matrix.
 
 **Depends on:** FD404. **Design:** D02, D04, D17.
 
