@@ -4,8 +4,9 @@
 
 - Exercise every advertised legacy save schema (1–5) using the actual occupied five-family recovery fixture. Each synthetic legacy record omits the recovery-partner fields introduced by schema 6.
 - Require every migrated vehicle to retain its chassis identity while having neither an invented ordinary recovery partner nor a removed-partner marker. Keep the invalid saved 4D-to-4D recovery link rejection in the same native test.
+- Regenerate a compressed NBT fixture from the recorded 0.3 schema-3 integrated-world extract in CI. The current loader must preserve that fixture's 24 rail IDs, three chassis IDs and original functional families through a schema-6 write and reopen without inventing recovery state.
 - Publish a recovery-world backup, staged-upgrade and restore procedure, and correct the development artifact name in the README. The procedure deliberately excludes third-party functional-block conversion.
-- The combined Track Styles/Engineered build passes all 37 required GameTests. This is loader-contract coverage for the supported schema reader; packaged historical-world migration, provider removal/conversion and real-client migration remain FD903 work.
+- The combined Track Styles/Engineered build passes all 38 required GameTests. This is loader-contract coverage for the supported schema reader; packaged historical-world migration, provider removal/conversion and real-client migration remain FD903 work.
 
 ## 0.9.0-dev.26 — dense sampled recovery clearance
 

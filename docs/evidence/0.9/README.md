@@ -2,8 +2,9 @@
 
 [Recovery schema migration, dev.27](recovery-schema-migration.md) verifies the
 supported schema-1–5 loader contract for occupied five-family recovery records.
-It is a native regression, not packaged historic-world or provider-conversion
-acceptance.
+It also pins the recorded 0.3 schema-3 world extract as a current-loader,
+schema-6-reopen regression. This remains below packaged historic-world or
+provider-conversion acceptance.
 
 [World upgrade and recovery procedure](../../MIGRATION.md) gives the supported
 backup, staged-upgrade and restore steps. It does not convert third-party

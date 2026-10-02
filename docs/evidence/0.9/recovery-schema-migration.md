@@ -12,6 +12,13 @@ native chain power, brakes and saves the live `FoundationData`. For each legacy
 schema number, the test removes `recovery_cart` and `recovery_cart_removed` from
 each saved vehicle record before loading it through `FoundationData.load`.
 
+A separate GameTest reads the recorded schema-3 integrated-world extract from
+the 0.3 acceptance evidence. CI regenerates its compressed NBT fixture from that
+read-only JSON record, then the current loader reads it, writes schema 6 and
+reopens the result. It requires the original 24 rail IDs and three chassis IDs
+to remain unchanged, preserves the original Arrow/legacy ZacSpin/Free Spin
+families, and confirms that no recovery state is invented.
+
 Every loaded vehicle must retain its original chassis UUID and have neither a
 recovery partner nor a removed-recovery-partner state. The same test retains the
 negative control: a saved 4D chassis cannot be accepted as another 4D vehicle's
@@ -23,7 +30,8 @@ ordinary recovery partner.
 JAVA_HOME=/usr/lib/jvm/java-21-openjdk ./gradlew build runGameTestServer --no-daemon -PfdIntegrations=styles,engineered
 ```
 
-The combined run passed all **37 required GameTests**. The new matrix covered
+The combined Track Styles/Engineered run passed all **38 required GameTests**.
+The matrix covered
 five legacy schema declarations across the actual five-family occupied recovery
 fixture, preserving all five chassis identities in every case and inventing no
 recovery state.
