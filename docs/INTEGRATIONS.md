@@ -65,6 +65,14 @@ provider. Four non-shuttle families have forward/reverse single-car stopping and
 matching-crossing checks on flat track; loaded trains, slopes and removal restarts
 remain separate.
 
+The [ordinary-bearing extension](evidence/integrations/2026-10-02/ordinary-access/README.md)
+adds 140 native eligibility/filter/initial-snap/binding decisions and ten measured
+forward/reverse travel legs per profile across all five original functional families.
+Base, each optional addon and combined pass. Four appearance selections, two
+uncertified added bodies and unavailable/misidentified functional providers preserve
+the ordinary-cart boundary. This is single-bearing flat-track evidence; recovery
+towing, arbitrary bodies and the remaining entry paths are separate gates.
+
 ## Create
 
 Boarding Stations and PAX Shuttle Winches expose goggles diagnostics and six Display

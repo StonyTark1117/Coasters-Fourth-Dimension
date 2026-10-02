@@ -356,6 +356,13 @@ the next-segment provider check, while keeping PAX under its shuttle controller.
 This is bounded single-car, flat-track evidence, not the remaining loaded-train and
 lifecycle matrix.
 
+The [ordinary-bearing extension (2026-10-02)](docs/evidence/integrations/2026-10-02/ordinary-access/README.md)
+adds five-family native filter/initial-snap/binding decisions across four appearances,
+two uncertified added bodies and unavailable functional providers, plus measured
+forward/reverse flat-track travel. All seven profiles pass 140 decisions and ten
+travel legs each. Production classes are unchanged. Mixed recovery consists,
+arbitrary assembled bodies and the remaining entry paths are not closed by this check.
+
 **Done when:** each advertised combination has recorded results. Wrong-family 4D carts are rejected everywhere, and ordinary carts receive no 4D benefit.
 
 ### FD902 Validate multiplayer and lifecycle recovery
