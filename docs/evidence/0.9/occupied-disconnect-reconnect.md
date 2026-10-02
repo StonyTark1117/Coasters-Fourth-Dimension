@@ -329,8 +329,19 @@ while the other rider stays mounted. Legacy restored Observer at game tick
 at `2681` before `2880`. Each server retained both assignments and Dev's native
 seat. PAX restored Observer at game tick `2700` before deadline `2899`, while
 retaining four chassis, eight carriers and both assignments. This completes the
-stationary concurrent disconnect/reconnect matrix across all five families;
-moving-route concurrent cases remain FD902 work.
+stationary concurrent disconnect/reconnect matrix across all five families.
+
+## Concurrent moving Revised checkpoint
+
+Two real riders boarded the same Revised carrier, restraints were closed, and
+the real dispatch path released it. Native motion advanced from `z=-667.5` to
+`z=-647.5` at approximately 2 blocks/s with `assignments=2`. Observer then
+disconnected while Dev remained mounted. The running server retained both
+assignments; a fresh Observer client restored at game tick `3013` before
+deadline `3212`, with both RootVehicle queries reporting distinct native
+`create:seat` entities. The read-only motion probe still reported
+`capture=false` and nonzero native velocity after restoration. This completes
+the current moving concurrent rider checkpoint.
 
 The validation-only trace records accepted player-seat assignments before the
 carrier runtime's next loading update, plus mount/dismount state. It identified

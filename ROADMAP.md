@@ -438,7 +438,7 @@ its original seat before the deadline while Dev stayed mounted. This closes the
 prior stale-tracking-point failure and the bounded initial concurrency matrix.
 The existing five-family stationary normal unload/cold-restart and current
 Revised moving-route checkpoints remain valid. Stationary concurrent
-interruption coverage is complete; moving-route concurrency remains open; see [occupied disconnect/reconnect evidence](docs/evidence/0.9/occupied-disconnect-reconnect.md).
+interruption and current Revised moving-route concurrency coverage are complete; see [occupied disconnect/reconnect evidence](docs/evidence/0.9/occupied-disconnect-reconnect.md).
 
 **Depends on:** FD404. **Design:** D14, D16, D17.
 
