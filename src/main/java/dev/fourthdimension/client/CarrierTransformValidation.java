@@ -23,9 +23,10 @@ import org.joml.Vector3d;
  * camera state. The required number of functional families is configurable because client worlds
  * can intentionally contain a single-family fixture. A passing sample establishes synchronized
  * carrier orientation before dispatch, then optionally observes family-level chassis displacement.
- * The dynamic phase intentionally does not compare a replicated carrier snapshot with a live body: those
- * sources can be one simulation tick apart while a car moves. It does not verify rendered mesh
- * clearance, player appearance, camera behavior, or a moving-ride lifecycle.
+ * The dynamic phase intentionally does not compare a replicated carrier snapshot with a live body:
+ * those sources can be one simulation tick apart while a car moves. An optional rider mode requires
+ * the local player to remain assigned to and mounted in one carrier seat. It does not verify rendered
+ * mesh clearance, player appearance, camera behavior, or a complete moving-ride lifecycle.
  */
 @EventBusSubscriber(modid = "fourthdimension", value = Dist.CLIENT)
 public final class CarrierTransformValidation {
@@ -89,8 +90,9 @@ public final class CarrierTransformValidation {
         if (start != null)
           maxMotionDistances.merge(vehicle.chassis, position.distance(start), Math::max);
       }
-      if (!staticPhase) continue;
       for (var carrier : vehicle.carriers) {
+        riderAssignments += carrier.riderSeats.size();
+        if (!staticPhase) continue;
         var child = container.getSubLevel(carrier.body);
         if (child == null) {
           incomplete("missing carrier " + carrier.body);
@@ -120,11 +122,11 @@ public final class CarrierTransformValidation {
         }
         sampleMaxError = Math.max(sampleMaxError, error);
         carriers++;
-        riderAssignments += carrier.riderSeats.size();
       }
     }
     if (families.size() < requiredFamilies()
         || (staticPhase && carriers == 0)
+        || (riderRequired() && !localRiderReady(minecraft))
         || (staticPhase && renderRequired() && compiledBodies.size() < nativeBodies)
         || (staticPhase
             && renderRequired()
@@ -136,6 +138,10 @@ public final class CarrierTransformValidation {
               + families
               + " carriers="
               + carriers
+              + " riderRequired="
+              + riderRequired()
+              + " riderMounted="
+              + localRiderReady(minecraft)
               + " compiledBodies="
               + compiledBodies.size()
               + "/"
@@ -200,7 +206,7 @@ public final class CarrierTransformValidation {
             "FD_CARRIER_VALIDATION passed samples={} target={} waitedTicks={} families={} "
                 + "requiredFamilies={} carriers={} riderAssignments={} maxAngleError={} "
                 + "compiledBodies={} sectionLayerCalls={} sectionLayerBodies={} renderRequired={} "
-                + "motionFamilies={} motionChassis={} motionDistances={}",
+                + "riderRequired={} riderMounted={} motionFamilies={} motionChassis={} motionDistances={}",
             completeSamples,
             requiredSamples(),
             waitedTicks,
@@ -213,6 +219,8 @@ public final class CarrierTransformValidation {
             CarrierRenderMetrics.snapshot().sectionLayerCalls(),
             CarrierRenderMetrics.snapshot().sectionLayerBodies().size(),
             renderRequired(),
+            riderRequired(),
+            localRiderReady(minecraft),
             movedFamilies,
             movedChassis,
             maxMotionDistances);
@@ -220,8 +228,19 @@ public final class CarrierTransformValidation {
   }
 
   private static void incomplete(String reason) {
-    if (waitedTicks > 600)
+    if (waitedTicks > requiredTimeout())
       throw new IllegalStateException("FD_CARRIER_VALIDATION did not initialize: " + reason);
+  }
+
+  private static int requiredTimeout() {
+    try {
+      return Math.clamp(
+          Integer.parseInt(System.getProperty("fourthdimension.carrierValidationTimeout", "600")),
+          600,
+          12_000);
+    } catch (NumberFormatException ignored) {
+      return 600;
+    }
   }
 
   private static int requiredFamilies() {
@@ -248,6 +267,19 @@ public final class CarrierTransformValidation {
 
   private static boolean motionRequired() {
     return Boolean.getBoolean("fourthdimension.carrierValidationMotion");
+  }
+
+  /** Verifies the local client has the replicated fourth-dimension seat binding it is riding. */
+  private static boolean localRiderReady(Minecraft minecraft) {
+    var player = minecraft.player;
+    if (player == null || !player.isPassenger() || player.getVehicle() == null) return false;
+    var binding =
+        dev.fourthdimension.vehicle.Boarding.at(minecraft.level, player.getVehicle().blockPosition());
+    return binding != null && binding.carrier().riderSeats.containsKey(player.getUUID());
+  }
+
+  private static boolean riderRequired() {
+    return Boolean.getBoolean("fourthdimension.carrierValidationRider");
   }
 
   /**

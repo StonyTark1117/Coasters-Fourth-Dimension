@@ -1,9 +1,13 @@
 package dev.fourthdimension.runtime;
 
 import com.mojang.logging.LogUtils;
+import com.simibubi.create.content.contraptions.actors.seat.SeatBlock;
 import dev.fourthdimension.shuttle.ShuttleExamples;
 import dev.fourthdimension.track.ExampleLayouts;
 import dev.fourthdimension.track.TrackDesign;
+import dev.fourthdimension.vehicle.Boarding;
+import dev.fourthdimension.vehicle.CarrierSeatBlock;
+import dev.ryanhcode.sable.api.sublevel.SubLevelContainer;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -13,7 +17,7 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.level.block.Blocks;
 import net.neoforged.neoforge.event.tick.ServerTickEvent;
 
-/** Creates an opt-in, empty-world five-family scene for packaged client transform validation. */
+/** Creates an opt-in empty-world scene for packaged client transform validation. */
 public final class CarrierValidationFixture {
   private static final List<BlockPos> CIRCUIT_ORIGINS =
       List.of(
@@ -30,11 +34,15 @@ public final class CarrierValidationFixture {
   private static final BlockPos PAX_ORIGIN = new BlockPos(145, 180, 0);
   private static final BlockPos SPAWN = new BlockPos(0, 180, -30);
   private static List<UUID> motionChassis = List.of();
+  private static int controlledCircuitCount;
   private static ShuttleExamples.Example motionPax;
   private static boolean motionPaxAssembled;
   private static int motionDelay = -1;
   private static int motionReadyDeadline;
   private static boolean motionStarted;
+  private static UUID riderFixturePlayer;
+  private static int riderFixtureDeadline;
+  private static boolean riderFixtureBoarded;
 
   private CarrierValidationFixture() {}
 
@@ -53,17 +61,22 @@ public final class CarrierValidationFixture {
     motionStarted = false;
     motionPax = null;
     motionPaxAssembled = false;
-    for (int i = 0; i < CIRCUIT_ORIGINS.size(); i++) {
-      var vehicle = ExampleLayouts.create(level, CIRCUIT_ORIGINS.get(i), CIRCUIT_DESIGNS.get(i));
+    riderFixturePlayer = null;
+    riderFixtureDeadline = 0;
+    riderFixtureBoarded = false;
+    var circuitDesigns = riderFixtureOnly() ? List.of(TrackDesign.ARROW) : CIRCUIT_DESIGNS;
+    for (int i = 0; i < circuitDesigns.size(); i++) {
+      var vehicle = ExampleLayouts.create(level, CIRCUIT_ORIGINS.get(i), circuitDesigns.get(i));
       controlledMotionChassis.add(vehicle.chassis);
     }
     motionChassis = List.copyOf(controlledMotionChassis);
-    motionPax = ShuttleExamples.create(level, PAX_ORIGIN, false);
+    controlledCircuitCount = circuitDesigns.size();
+    if (!riderFixtureOnly()) motionPax = ShuttleExamples.create(level, PAX_ORIGIN, false);
     int carriers = data.vehicles.values().stream().mapToInt(v -> v.carriers.size()).sum();
     LogUtils.getLogger()
         .info(
             "FD_CARRIER_FIXTURE created families={} vehicles={} carriers={} rails={}",
-            TrackDesign.values().length,
+            circuitDesigns.size() + (riderFixtureOnly() ? 0 : 1),
             data.vehicles.size(),
             carriers,
             data.rails.size());
@@ -75,24 +88,39 @@ public final class CarrierValidationFixture {
         || !(event.getEntity() instanceof ServerPlayer player)
         || player.serverLevel() != player.server.overworld()) return;
     player.teleportTo(SPAWN.getX() + .5, SPAWN.getY(), SPAWN.getZ() + .5);
-    if (Boolean.getBoolean("fourthdimension.carrierFixtureMotion") && !motionStarted) {
+    if (riderFixtureRequired()) {
+      riderFixturePlayer = player.getUUID();
+      riderFixtureDeadline = 2_000;
+    } else if (Boolean.getBoolean("fourthdimension.carrierFixtureMotion") && !motionStarted) {
       // Give the joining client time to receive and statically validate every body before dispatch.
       motionDelay = 500;
       motionReadyDeadline = 2_000;
     }
   }
 
-  /** Dispatches the four circuit cars and the assembled PAX shuttle for the opt-in motion checkpoint. */
+  /** Dispatches the configured circuit cars and optional PAX shuttle for the opt-in motion checkpoint. */
   public static void tick(ServerTickEvent.Post event) {
+    var level = event.getServer().overworld();
+    if (riderFixtureRequired() && riderFixturePlayer != null && !riderFixtureBoarded) {
+      if (!boardFixtureRider(event.getServer(), level)) {
+        if (riderFixtureDeadline-- <= 0)
+          throw new IllegalStateException("FD_CARRIER_FIXTURE rider never reached an Arrow carrier seat");
+        return;
+      }
+      riderFixtureBoarded = true;
+      if (Boolean.getBoolean("fourthdimension.carrierFixtureMotion") && !motionStarted) {
+        motionDelay = 500;
+        motionReadyDeadline = 2_000;
+      }
+    }
     if (!Boolean.getBoolean("fourthdimension.carrierFixtureMotion")
         || motionStarted
         || motionDelay < 0)
       return;
     if (motionDelay-- > 0) return;
-    var level = event.getServer().overworld();
-    if (motionPax == null)
+    if (!riderFixtureOnly() && motionPax == null)
       throw new IllegalStateException("FD_CARRIER_FIXTURE missing PAX motion example");
-    if (!motionPaxAssembled) {
+    if (!riderFixtureOnly() && !motionPaxAssembled) {
       try {
         ShuttleExamples.assemble(level, motionPax);
         motionPaxAssembled = true;
@@ -104,11 +132,11 @@ public final class CarrierValidationFixture {
     }
     var data = FoundationData.get(level);
     var circuitVehicles = motionChassis.stream().map(data.vehicles::get).toList();
-    var paxCars = motionPax.cars();
+    var paxCars = riderFixtureOnly() ? List.<FoundationData.Vehicle>of() : motionPax.cars();
     var vehicles = new ArrayList<FoundationData.Vehicle>(circuitVehicles.size() + paxCars.size());
     vehicles.addAll(circuitVehicles);
     vehicles.addAll(paxCars);
-    if (circuitVehicles.size() != CIRCUIT_DESIGNS.size()
+    if (circuitVehicles.size() != controlledCircuitCount
         || vehicles.stream().anyMatch(java.util.Objects::isNull))
       throw new IllegalStateException("FD_CARRIER_FIXTURE missing controlled motion vehicle");
     if (vehicles.stream().anyMatch(vehicle -> !dev.fourthdimension.vehicle.Boarding.ready(level, vehicle))) {
@@ -120,15 +148,57 @@ public final class CarrierValidationFixture {
       dev.fourthdimension.vehicle.VehicleOperations.restraints(level, vehicle, true);
       dev.fourthdimension.vehicle.VehicleOperations.dispatch(level, vehicle);
     }
-    var paxLead = paxCars.getFirst();
-    dev.fourthdimension.vehicle.VehicleOperations.restraints(level, paxLead, true);
-    dev.fourthdimension.vehicle.VehicleOperations.dispatch(level, paxLead);
+    if (!paxCars.isEmpty()) {
+      var paxLead = paxCars.getFirst();
+      dev.fourthdimension.vehicle.VehicleOperations.restraints(level, paxLead, true);
+      dev.fourthdimension.vehicle.VehicleOperations.dispatch(level, paxLead);
+    }
     motionStarted = true;
     LogUtils.getLogger()
         .info(
             "FD_CARRIER_FIXTURE dispatched controlled motion chassis={} families={}",
             vehicles.stream().map(vehicle -> vehicle.chassis).toList(),
             vehicles.stream().map(vehicle -> vehicle.family).distinct().toList());
+  }
+
+  /** Boards the local packaged-client player only when explicit native carrier boarding is ready. */
+  private static boolean boardFixtureRider(net.minecraft.server.MinecraftServer server, ServerLevel level) {
+    var player = riderFixturePlayer == null ? null : server.getPlayerList().getPlayer(riderFixturePlayer);
+    if (player == null) return false;
+    var arrow = motionChassis.isEmpty() ? null : FoundationData.get(level).vehicles.get(motionChassis.getFirst());
+    var container = SubLevelContainer.getContainer(level);
+    if (arrow == null || arrow.restraints || container == null || !Boarding.ready(level, arrow)) return false;
+    for (var carrier : arrow.carriers) {
+      var body = container.getSubLevel(carrier.body);
+      if (body == null) continue;
+      for (var offset : carrier.seats) {
+        var seat = body.getPlot().getCenterBlock().offset(offset);
+        if (!(level.getBlockState(seat).getBlock() instanceof CarrierSeatBlock)
+            || SeatBlock.isSeatOccupied(level, seat)
+            || carrier.riderSeats.containsValue(offset)) continue;
+        SeatBlock.sitDown(level, seat, player);
+        if (!player.isPassenger() || !carrier.riderSeats.containsKey(player.getUUID())) return false;
+        LogUtils.getLogger()
+            .info(
+                "FD_CARRIER_FIXTURE boarded rider={} family={} carrier={} seat={}",
+                player.getGameProfile().getName(),
+                arrow.family,
+                carrier.body,
+                seat);
+        return true;
+      }
+    }
+    return false;
+  }
+
+  private static boolean riderFixtureRequired() {
+    return Boolean.getBoolean("fourthdimension.carrierFixtureRider");
+  }
+
+  /** Limits the opt-in occupied client fixture to its one Arrow train. */
+  private static boolean riderFixtureOnly() {
+    return riderFixtureRequired()
+        && Boolean.getBoolean("fourthdimension.carrierFixtureRiderOnly");
   }
 
   private static void preload(ServerLevel level, BlockPos min, BlockPos max) {

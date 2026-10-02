@@ -22,6 +22,14 @@ import org.joml.Vector3d;
 @GameTestHolder("fourthdimension")
 @PrefixGameTestTemplate(false)
 public final class VehicleContentGameTests {
+  @GameTest(template = "empty")
+  public static void incompleteNativeLinkEndpointsAreRejected(GameTestHelper helper) {
+    helper.assertTrue(
+        !ConsistRules.canCouple(helper.getLevel(), null, null, 6),
+        "An unresolved native link endpoint must be rejected without a crash");
+    helper.succeed();
+  }
+
   @GameTest(template = "empty", timeoutTicks = 140)
   public static void distinctPlayersRetainDistinctCarrierSeats(GameTestHelper helper) {
     var level = helper.getLevel();

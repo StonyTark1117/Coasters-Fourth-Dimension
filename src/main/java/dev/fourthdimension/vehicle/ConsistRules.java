@@ -11,6 +11,9 @@ public final class ConsistRules {
   private ConsistRules() {}
 
   public static boolean canCouple(Level level, SubLevel a, SubLevel b, double distance) {
+    // Coasters can ask its coupling callback while a native body is still being resolved.
+    // Treat an incomplete endpoint as an ineligible link instead of crashing the server tick.
+    if (a == null || b == null) return false;
     var data = EligibilityHooks.data(level);
     if (data == null || a.getUniqueId().equals(b.getUniqueId())) return false;
     var first = data.vehicles.get(a.getUniqueId());

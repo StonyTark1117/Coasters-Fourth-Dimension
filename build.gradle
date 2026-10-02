@@ -45,6 +45,7 @@ neoForge {
             systemProperty 'fourthdimension.carrierValidation', project.hasProperty('fdCarrierValidation').toString()
             systemProperty 'fourthdimension.carrierValidationExit', project.hasProperty('fdCarrierValidationExit').toString()
             systemProperty 'fourthdimension.carrierValidationSamples', project.findProperty('fdCarrierValidationSamples') ?: '40'
+            systemProperty 'fourthdimension.carrierValidationTimeout', project.findProperty('fdCarrierValidationTimeout') ?: '600'
             systemProperty 'fourthdimension.carrierValidationFamilies', project.findProperty('fdCarrierValidationFamilies') ?: '1'
             systemProperty 'fourthdimension.carrierValidationMotion', project.hasProperty('fdCarrierValidationMotion').toString()
             systemProperty 'fourthdimension.carrierValidationMotionFamilies', project.findProperty('fdCarrierValidationMotionFamilies') ?: '1'
@@ -52,6 +53,9 @@ neoForge {
             systemProperty 'fourthdimension.carrierValidationRender', project.hasProperty('fdCarrierValidationRender').toString()
             systemProperty 'fourthdimension.carrierFixture', project.hasProperty('fdCarrierFixture').toString()
             systemProperty 'fourthdimension.carrierFixtureMotion', project.hasProperty('fdCarrierFixtureMotion').toString()
+            systemProperty 'fourthdimension.carrierFixtureRider', project.hasProperty('fdCarrierFixtureRider').toString()
+            systemProperty 'fourthdimension.carrierFixtureRiderOnly', project.hasProperty('fdCarrierFixtureRiderOnly').toString()
+            systemProperty 'fourthdimension.carrierValidationRider', project.hasProperty('fdCarrierValidationRider').toString()
             systemProperty 'fourthdimension.ponderValidation', project.hasProperty('fdPonderValidation').toString()
             systemProperty 'fourthdimension.schedulerValidation', project.hasProperty('fdSchedulerValidation').toString()
             systemProperty 'fourthdimension.fontValidation', project.hasProperty('fdFontValidation').toString()

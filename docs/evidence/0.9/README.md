@@ -88,6 +88,14 @@ least 1.02 blocks of client-native chassis motion for every family, including al
 four PAX chassis. Rider, camera, interpolation, multiplayer and rendered-clearance
 coverage remain open.
 
+[Packaged occupied Arrow carrier](client-occupied-arrow-carrier.md) adds a
+separate, opt-in single-train fixture that boards the connected local player in
+a real addon carrier seat. The client retained the mounted replicated seat
+assignment through a short production dispatch, while the Arrow chassis and both
+carrier sections entered the native section-render path. The all-five-family
+matrix remains rider-free; camera, mesh, clearance, multiplayer, and lifecycle
+coverage remain open.
+
 [Client track-render instrumentation](client-render-sampling.md) records an
 initial packaged real-client sample on the recovery scene, under llvmpipe and
 on the stated RX 7900 XTX host, plus a native-GPU dedicated-server observation

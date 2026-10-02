@@ -569,6 +569,17 @@ four PAX chassis. This proves entry into Sable's vanilla vehicle section-render
 path, not camera visibility or player/linkage mesh clearance. See the [vehicle
 section-render checkpoint](docs/evidence/0.9/client-carrier-render-compile.md).
 
+Dev.40 adds a separate opt-in occupied single-Arrow packaged-client fixture so
+that the whole five-family render matrix need not carry an actual rider. It
+waits for a native carrier seat, boards the connected player through Create's
+seat API, and requires the client to retain both the mounted player and the
+replicated carrier-seat assignment through 40 static samples and normal
+production dispatch. The Arrow chassis moved `1.0790031301446994` blocks; its
+chassis and both carrier sections compiled and entered the section-layer path.
+This is a one-rider Arrow checkpoint, not camera, mesh-clearance, multiplayer,
+or whole-lifecycle acceptance. See the [occupied Arrow carrier checkpoint]
+(docs/evidence/0.9/client-occupied-arrow-carrier.md).
+
 **Depends on:** FD404, FD006. **Design:** D17.
 
 Benchmark the declared controlled-train, free-spin, and shuttle scenes against recorded baselines. Profile per-carrier/constraint costs, caches, Flywheel modes, and the supported shader stack.
