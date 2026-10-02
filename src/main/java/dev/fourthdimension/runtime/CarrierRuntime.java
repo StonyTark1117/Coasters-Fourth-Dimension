@@ -24,6 +24,22 @@ public final class CarrierRuntime {
       new WeakHashMap<>();
   public static long nanos, steps;
 
+  /** Server-side cost of this addon runtime only; it intentionally excludes Sable and renderer time. */
+  public record PerformanceSnapshot(long steps, long nanos) {
+    public long averageNanos() {
+      return steps == 0 ? 0 : nanos / steps;
+    }
+  }
+
+  public static PerformanceSnapshot performanceSnapshot() {
+    return new PerformanceSnapshot(steps, nanos);
+  }
+
+  public static void resetPerformanceSnapshot() {
+    nanos = 0;
+    steps = 0;
+  }
+
   /** Take the same physical instant as Sable's save, including impulses since the last step. */
   public static void refreshForSave(
       FoundationData data, net.minecraft.server.level.ServerLevel level) {

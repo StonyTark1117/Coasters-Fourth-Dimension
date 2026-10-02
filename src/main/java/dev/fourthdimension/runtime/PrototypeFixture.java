@@ -151,6 +151,38 @@ public final class PrototypeFixture {
                   return data.vehicles.size();
                 }));
     root.then(
+        Commands.literal("performance")
+            .executes(
+                ctx -> {
+                  var snapshot = CarrierRuntime.performanceSnapshot();
+                  ctx.getSource()
+                      .sendSuccess(
+                          () ->
+                              Component.literal(
+                                  "Fourth Dimension runtime: "
+                                      + snapshot.steps()
+                                      + " physics ticks, "
+                                      + snapshot.nanos()
+                                      + " ns total, "
+                                      + snapshot.averageNanos()
+                                      + " ns/tick"),
+                          false);
+                  return (int) Math.min(Integer.MAX_VALUE, snapshot.steps());
+                })
+            .then(
+                Commands.literal("reset")
+                    .executes(
+                        ctx -> {
+                          CarrierRuntime.resetPerformanceSnapshot();
+                          ctx.getSource()
+                              .sendSuccess(
+                                  () ->
+                                      Component.literal(
+                                          "Reset Fourth Dimension runtime performance sample"),
+                                  false);
+                          return 1;
+                        })));
+    root.then(
         Commands.literal("capture")
             .executes(
                 ctx -> {

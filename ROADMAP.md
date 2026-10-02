@@ -422,7 +422,13 @@ Test upgrades from released save formats, stable IDs, profile rebinding, appeara
 
 ### FD904 Meet measured performance and rendering targets
 
-**Status: planned; quantitative release targets and full rendering acceptance pending.**
+**Status: in progress, baseline instrumentation available.** Dev.27 adds the
+resettable `/fd performance` runtime snapshot, which reports this addon's
+server-side carrier-runtime ticks, total nanoseconds and average nanoseconds per
+tick. Its scope and repeatable sampling procedure are documented in
+[performance sampling](docs/PERFORMANCE.md). Controlled-train, free-spin and
+shuttle baselines, targets, renderer/shader measurements and acceptance remain
+pending.
 
 **Depends on:** FD404, FD006. **Design:** D17.
 
