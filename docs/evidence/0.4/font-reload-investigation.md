@@ -102,6 +102,8 @@ stopped. This is one clean controlled lifecycle sample; it does not reproduce or
 resolve the intermittent packaged crash.
 
 Sixteen sequential controlled reloads also completed with the actual packaged
-JAR and the pinned standalone dependency set, advancing generations 1–17 with
-seven previous font sets on each reload and no target trace/error. Its artifact
-hash, command, observations, and limits are recorded in [the packaged validation](font-reload-packaged-validation.md).
+JAR and the same pinned Track Styles/Engineered combination as the dev.8 crash,
+advancing generations 1–17 with seven previous font sets on each reload and no
+target trace/error. Track Styles registered its 55-entry catalog after every
+apply. Its artifact hash, command, observations, and limits are recorded in
+[the packaged validation](font-reload-packaged-validation.md).
