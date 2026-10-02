@@ -39,3 +39,25 @@ above did not demonstrate that condition. Neither that hypothesis nor the
 similar upstream report is a proven cause. An unmodified production replay,
 a reproduction with actionable lifecycle traces, and the revised styled
 post-reload ride gate remain required.
+
+## Current dependency check
+
+The pinned Create **6.0.10** is the current Minecraft 1.21.1 release. The
+upstream Create tracker has an open [issue 9422](https://github.com/Creators-of-Create/Create/issues/9422)
+reporting the same class of post-reload failure: a `BitmapProvider` later tries
+to upload a closed native image while a menu or other GUI renders. That report
+first reproduced with Create 6.0.4 and Curios, and can also occur in larger
+Create mod sets; its dependency set is therefore evidence of a matching upstream
+failure mode, not proof that this addon's provider integration causes the
+recorded dev.8 crash.
+
+The exact 1.21.1 `FontManager.apply` source used by this project clears
+`lastFontSetCache` before closing old font sets and providers. The temporary
+diagnostic likewise found no stale cached `FontSet` in its three reloads. There
+is no published upstream fix or newer compatible Create release to adopt at
+this checkpoint. Fourth Dimension intentionally does not alter FontManager,
+NativeImage, or bitmap-provider lifecycle without a reproduction that proves
+such an intervention correct. The next useful acceptance evidence is a
+reproduction with provider/image identity traces or a clean, repeated packaged
+post-reload styled ride; until then the crash remains a release-blocking FD401,
+FD902, and FD904 investigation.
