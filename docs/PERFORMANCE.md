@@ -19,4 +19,8 @@ profile and scene documented beside the result:
 
 The controlled train, free-spin and PAX shuttle scenes still need baseline
 runs, targets, renderer/shader measurements and acceptance results before FD904
-can close. This command is instrumentation, not a performance guarantee.
+can close. The automated controlled-family GameTest also resets this sample for
+its isolated 1,800-tick occupied Arrow/legacy circuit window and requires that
+window to be observed. It emits a diagnostic snapshot but does not turn the
+current host's timing into a release target. This command and harness are
+instrumentation, not a performance guarantee.

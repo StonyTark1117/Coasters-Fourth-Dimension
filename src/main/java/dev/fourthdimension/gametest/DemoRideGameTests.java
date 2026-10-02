@@ -15,7 +15,7 @@ import net.neoforged.neoforge.gametest.*;
 @GameTestHolder("fourthdimension")
 @PrefixGameTestTemplate(false)
 public final class DemoRideGameTests {
-  @GameTest(template = "empty", timeoutTicks = 2100)
+  @GameTest(template = "empty", batch = "performanceControlled", timeoutTicks = 2100)
   public static void occupiedExamplesCompleteNativePoweredCircuits(GameTestHelper helper) {
     var level = helper.getLevel();
     for (int x = -14; x <= 10; x++)
@@ -29,6 +29,7 @@ public final class DemoRideGameTests {
     double[] maxAngle = {Double.NEGATIVE_INFINITY, Double.NEGATIVE_INFINITY};
     double[] minAngle = {Double.POSITIVE_INFINITY, Double.POSITIVE_INFINITY};
     double[] maxX = {0, 0}, maxZ = {0, 0};
+    CarrierRuntime.PerformanceSnapshot[] performance = {null};
     var running = new java.util.concurrent.atomic.AtomicBoolean(false);
     helper.onEachTick(
         () -> {
@@ -45,6 +46,7 @@ public final class DemoRideGameTests {
     helper.runAtTickTime(
         80,
         () -> {
+          CarrierRuntime.resetPerformanceSnapshot();
           for (var v : vehicles) {
             helper.assertTrue(Boarding.ready(level, v), "Example did not start captured");
             var rider = net.minecraft.world.entity.EntityType.PIG.create(level);
@@ -73,6 +75,10 @@ public final class DemoRideGameTests {
         2000,
         () -> {
           running.set(false);
+          performance[0] = CarrierRuntime.performanceSnapshot();
+          helper.assertTrue(
+              performance[0].steps() >= 1800,
+              "Controlled performance baseline did not cover the active circuit window");
           for (int i = 0; i < 2; i++) {
             var v = vehicles.get(i);
             System.out.println(
@@ -105,6 +111,13 @@ public final class DemoRideGameTests {
             container.removeSubLevel(
                 container.getSubLevel(v.chassis), SubLevelRemovalReason.REMOVED);
           }
+          System.out.println(
+              "FD_PERFORMANCE_CONTROLLED families=[ARROW, ZACSPIN] activeTicks="
+                  + performance[0].steps()
+                  + " runtimeNanos="
+                  + performance[0].nanos()
+                  + " averageNanosPerTick="
+                  + performance[0].averageNanos());
           running.set(false);
           helper.succeed();
         });
