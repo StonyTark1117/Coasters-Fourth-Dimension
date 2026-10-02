@@ -6,6 +6,11 @@ It also pins the recorded 0.3 schema-3 world extract as a current-loader,
 schema-6-reopen regression. This remains below packaged historic-world or
 provider-conversion acceptance.
 
+[Appearance provider removal](appearance-provider-lifecycle.md) combines a
+recorded save/remove/reinstall cycle with a current-schema absent-provider
+GameTest. It verifies cosmetic-provider loss does not alter a functional rail,
+but does not establish external functional-track conversion.
+
 [World upgrade and recovery procedure](../../MIGRATION.md) gives the supported
 backup, staged-upgrade and restore steps. It does not convert third-party
 functional blocks or establish the remaining FD903 acceptance evidence.

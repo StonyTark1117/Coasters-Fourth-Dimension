@@ -174,21 +174,33 @@ public final class AppearanceGameTests {
               && migrated.profile.keys().equals(rail.profile.keys()),
           "Older schema did not retain original appearance/profile");
     }
-    rail.appearance = new TrackAppearance("future:missing_provider", 0x223344);
-    var missing =
-        FoundationData.load(
-                snapshot.save(new CompoundTag(), level.registryAccess()), level.registryAccess())
-            .rails
-            .getFirst();
-    helper.assertTrue(
-        missing.appearance.equals(rail.appearance)
-            && missing.family == rail.family
-            && missing.variant.equals(rail.variant),
-        "Provider removal erased cosmetic intent or mechanics");
+    // A saved appearance cannot make the functional rail depend on its optional provider. Exercise
+    // both inspected Track Styles identifiers and an arbitrary future provider through the current
+    // schema loader; this runs in the standalone profile as well as with Track Styles installed.
+    for (var missingProvider :
+        java.util.stream.Stream.concat(
+                TrackAppearance.CANDIDATES.stream(),
+                java.util.stream.Stream.of("future:missing_provider"))
+            .toList()) {
+      rail.appearance = new TrackAppearance(missingProvider, 0x223344);
+      var missing =
+          FoundationData.load(
+                  snapshot.save(new CompoundTag(), level.registryAccess()), level.registryAccess())
+              .rails
+              .getFirst();
+      helper.assertTrue(
+          missing.appearance.equals(rail.appearance)
+              && missing.family == rail.family
+              && missing.variant.equals(rail.variant)
+              && missing.id.equals(rail.id)
+              && missing.profile.keys().equals(rail.profile.keys()),
+          "Provider removal erased cosmetic intent or mechanics for " + missingProvider);
+    }
     System.out.println(
         "FD_APPEARANCE schema="
             + FoundationData.SCHEMA
-            + " oldSchemas=1..5 missingIntentPreserved=true"
+            + " oldSchemas=1..5 missingProviderAppearances="
+            + (TrackAppearance.CANDIDATES.size() + 1)
             + " mechanicsUnchanged=true styleFamilyCases=10 strokeCases="
             + (OptionalIntegrations.installed(OptionalIntegrations.TRACK_STYLES).mayInspect()
                 ? 2
