@@ -372,7 +372,11 @@ Additions fins cannot propel a held, unrestrained, retained or faulted 4D consis
 or any PAX car. For an eligible 4D car, velocity increments reach only its chassis
 and registered carrier bodies, preserving each body's angular velocity. Ordinary
 carts' proximity-based coupling cannot apply those increments to nearby 4D bodies.
-No Additions seat replacement or sensor adapter is included.
+No Additions seat replacement or sensor adapter is included. The separate
+[seat-contract investigation](evidence/integrations/2026-10-02/additions-seat-inspection/README.md)
+identifies independent wireless bar/lock authority and a player-restoration type
+exclusion, plus unverified offset/loading and removal behavior. Shared Create seat
+ancestry does not establish a supported rotating-carrier seat replacement.
 
 Native checks and exact limits are recorded in [Additions evidence](evidence/integrations/2026-09-30/additions-0.2.0/README.md); runtime warnings from this dependency
 stack prevent claiming warning-free dedicated startup. A [linked Arrow follow-up](evidence/integrations/2026-09-30/additions-consist/README.md)

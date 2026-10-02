@@ -1,0 +1,34 @@
+{
+  "method": "Static inspection of pinned JAR bytecode with OpenJDK 21 javap -c -p; no native seat substitution or client validation performed.",
+  "source_commit": "b70583ecfabf63a79475d34f23b42663da4ecc8e",
+  "artifacts": {
+    "additions": {
+      "filename": "create-coasters-simulated-additions-1661497-8772429.jar",
+      "sha256": "398a65f7c651a098b7608c6c8d600f074e7a359f239a8bdb7b49446f3deb9883",
+      "classes": {
+        "dev/plushivr/coasterfins/block/CoasterSeatBlock.class": "0ce0450e1d48242e52a5ebc6bb555bd1a70b720a4268fa2800c5875b2bce0bfd",
+        "dev/plushivr/coasterfins/block/CoasterSeatBlockEntity.class": "568b64529b9073c26f233bed4ab0f4fe5c4dde56badd6548fa4ba3fde06c5845",
+        "dev/plushivr/coasterfins/entity/OffsetSeatEntity.class": "24fddab119fdd2e116c16962c7a4b5c31fa47345fc5f03f7aee67c0b433b1a8b",
+        "dev/plushivr/coasterfins/event/SeatDismountHandler.class": "13eca186ecd357271bc5ca8f32f1de5a9c4b1f8480b3da6184cd8e5dba4e7738",
+        "dev/plushivr/coasterfins/event/SeatLockTicker.class": "93b8b128f5e8528c0268bf735ef09937d854fff74d90e2046dbab2ca2b66bb7b",
+        "dev/plushivr/coasterfins/mixin/SeatEntityMixin.class": "1b5e531f447a253f2408b2846e2c35683754d1d0cfa8adfcb0a4301729a0aefc",
+        "dev/plushivr/coasterfins/logic/CoasterSeatRegistry.class": "3870eec2ad28c21de6f0935e273894c67e8b5a7e4fc63ffca9af49c45fa7c94e"
+      }
+    },
+    "interiors": {
+      "filename": "interiors-906239-8974633.jar",
+      "sha256": "d230a2960dcb0c3d5753bc1d4adb71c8c18c9491b8e3cfd4a6b56533dae7a2c6",
+      "classes": {
+        "com/aesefficio/interiors/content/block/chair/DirectionalSeatBlock.class": "68931da32e187606cd1090dac9996a8ee2bd885d63da2448e59533fd25317d18"
+      }
+    }
+  },
+  "local_sources": {
+    "src/main/java/dev/fourthdimension/vehicle/CarrierSeatBlock.java": "4d9757b92eea1fe50f788c70d5245538f79f12affe04be85f7de49870babbc1b",
+    "src/main/java/dev/fourthdimension/vehicle/VehicleFactory.java": "fd22eecb150603c0094880371e785cf3fabcb637828cf34a7d659752e1b2bf57",
+    "src/main/java/dev/fourthdimension/vehicle/VehicleVisualState.java": "658ef7f18d41b0a8dff9b267b06a7a5a3cb3d2998d4cad6d6ef4fc77893dfa03",
+    "src/main/java/dev/fourthdimension/vehicle/Boarding.java": "f6e7a178a8603c9f1a0b57862e693e20dacc69932f1f10eda03bcdea46c7a2d1",
+    "src/main/java/dev/fourthdimension/vehicle/NativeLoading.java": "0b24ac85ff7de7170dcd839b85aaa6c1dd437f4c753c88c4f4bcf5f51edca734",
+    "src/main/java/dev/fourthdimension/runtime/FoundationData.java": "4b6006ed9c9e1c2c29fd6a51a053bc198115d5e12ac9d45ffe5e5468e02e442c"
+  }
+}
