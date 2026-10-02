@@ -378,6 +378,24 @@ distinct native `create:seat` entities, with continued nonzero motion and
 `capture=false`. This completes the current moving concurrent rider checkpoint
 for Arrow, Legacy and Revised.
 
+## Concurrent moving Free Spin checkpoint
+
+Two real riders boarded the same original Free Spin carrier, closed restraints,
+and used the real dispatch path. After ten seconds its native motion probe
+reported `chassis=1/1 carriers=4/4 assignments=2`, `capture=false`, and
+nonzero velocity (`x=1.431`, `y=0.532`, `z=0.352` blocks/s); the chassis had
+advanced from `z=-667.5` to `z=-635.8`.
+
+Observer then disconnected while Dev remained mounted. The running server kept
+all four carriers and both assignments; Dev's original native `create:seat`
+remained present and the chassis continued at approximately 1.995 blocks/s
+with `capture=false`. A fresh Observer client rejoined the same running
+server. The production restore queue mounted Observer at game tick `2768`
+before deadline `2967`. The server then reported two assignments and two
+distinct native `create:seat` entities, with continued nonzero motion and
+`capture=false`. This completes the current moving concurrent rider checkpoint
+for Arrow, Legacy, Free Spin and Revised.
+
 The validation-only trace records accepted player-seat assignments before the
 carrier runtime's next loading update, plus mount/dismount state. It identified
 the stale tracking-point condition in the earlier failure and makes subsequent
