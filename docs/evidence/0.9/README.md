@@ -35,7 +35,7 @@ first and independently received the same six 4D body snapshots. The separate
 uses fresh client processes and confirms an assigned rider returns to the
 intended carrier for every family. It also records Legacy and PAX server-process
 restarts plus normal holding-state unload/reload for every family. Remaining
-Arrow/Free Spin/Revised cold restarts, motion and concurrent-rider lifecycle
+Free Spin/Revised cold restarts, motion and concurrent-rider lifecycle
 acceptance remain FD902 work.
 
 [Ordinary-cart native snap matrix, dev.27](ordinary-cart-snap-matrix.md)

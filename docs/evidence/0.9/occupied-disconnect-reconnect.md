@@ -98,6 +98,33 @@ again identified Dev's RootVehicle as a native `create:seat`. This establishes
 an occupied multi-car PAX cold restart. Arrow, Free Spin and Revised
 cold-restart coverage, moving routes and concurrent riders remain FD902 work.
 
+## Arrow server-process restart
+
+A fresh stationary original Arrow fixture was boarded through the same real
+`SeatBlock.sitDown` validation path. After its client and the dedicated server
+were stopped normally, a new dedicated-server process opened the unchanged
+world. Before any client joined, the read-only report retained its assignment
+while the native bodies remained unloaded:
+
+```text
+Validation availability chassis=0/1 carriers=0/2 assignments=1
+```
+
+The fresh client caused the chassis and both carriers to load. The server then
+recorded:
+
+```text
+FD_BOARDING_RESTORE queued player=Dev assignments=1 deadlineTick=207654
+FD_BOARDING_RESTORE mounted player=Dev gameTick=207456 deadlineTick=207654
+```
+
+Availability returned to `chassis=1/1 carriers=2/2 assignments=1`. RCON
+identified Dev's RootVehicle as a native `create:seat`, and fresh-client
+diagnostics showed Dev in carrier `3458758f-585a-44fe-9902-63739fa460a8` with
+`riding=true`. This establishes an occupied original Arrow cold restart.
+Free Spin and Revised cold restarts, moving routes and concurrent riders remain
+FD902 work.
+
 ## Legacy normal chunk/sublevel unload
 
 On the same stationary Legacy fixture, `fd validation availability` first
@@ -152,8 +179,8 @@ unmarked before the disconnect. In every case RCON confirmed a native
 `create:seat` RootVehicle after reconnect and the server logged
 `FD_BOARDING_RESTORE queued` followed by `mounted` before the respective
 200-tick deadline. This completes stationary normal unload/reload evidence for
-all five family architectures. Cold restarts beyond Legacy, moving-route and
-concurrent-rider lifecycle coverage remain open.
+all five family architectures. Cold restarts beyond Legacy, PAX and Arrow,
+moving-route and concurrent-rider lifecycle coverage remain open.
 
 ## Concurrent-rider investigation
 
