@@ -492,8 +492,12 @@ controlled-train, free-spin and shuttle scenes, and two [integrated host
 baselines](docs/evidence/0.9/runtime-baseline.md) are recorded. The current
 checkpoint adds a third combined run and host-scoped limits of 120,000 ns per invocation and
 6,000 ns per live carrier update; `-PfdPerformanceTargets` verifies them in
-all three sampled scenes. Packaged real-client runs validate the opt-in
-per-stage original-track instrumentation under llvmpipe and on the stated AMD
+all three sampled scenes. Dev.28 removes transient stream allocations from the
+per-carrier rail and edge lookups while preserving first-match resolution; the
+target-gated combined profile passed all 41 GameTests with 103,889 ns per
+invocation and 2,488 ns per carrier in the 16-rider PAX shuttle scene. Packaged
+real-client runs validate the opt-in per-stage original-track instrumentation
+under llvmpipe and on the stated AMD
 RX 7900 XTX host; [the hardware observation](docs/evidence/0.9/client-render-sampling.md)
 measures 3.16 ms average original-stage work and separately observes 21,476
 Track Styles decoration pieces without making an FPS claim. A native Iris/Solas

@@ -109,6 +109,10 @@ public final class CarrierRuntime {
     if (container == null) return;
     var data = FoundationData.get(level);
     var pipeline = physics.getPipeline();
+    // Every active car checks its bound rail once per physics callback. The PAX
+    // shuttle has four cars, so avoid allocating two stream pipelines for each
+    // one; the direct searches preserve the previous first-match behavior.
+    var graph = CoasterPathGraphManager.get(level);
     dev.fourthdimension.shuttle.ShuttleRuntime.tick(level, event.getTimeStep());
     dev.fourthdimension.vehicle.RecoveryOperations.tick(level, event.getTimeStep());
     for (var vehicle : data.vehicles.values()) {
@@ -116,11 +120,7 @@ public final class CarrierRuntime {
       if (!(parentRaw instanceof ServerSubLevel parent) || parent.isRemoved()) continue;
       vehicleUpdates++;
       physics.updatePose(parent);
-      FoundationData.Rail rail =
-          data.rails.stream()
-              .filter(r -> r.matches(vehicle.boundFrom, vehicle.boundTo))
-              .findFirst()
-              .orElse(null);
+      FoundationData.Rail rail = matchingRail(data, vehicle);
       boolean content = !FoundationData.VARIANT.equals(vehicle.variant);
       boolean supportLost =
           content
@@ -138,11 +138,7 @@ public final class CarrierRuntime {
         dev.fourthdimension.vehicle.VehicleOperations.brake(level, vehicle, event.getTimeStep());
       double target = Double.NaN;
       if (rail != null && rail.valid && vehicle.family.driven()) {
-        var edge =
-            CoasterPathGraphManager.get(level).edges().stream()
-                .filter(e -> rail.matches(e.from(), e.to()))
-                .findFirst()
-                .orElse(null);
+        var edge = matchingEdge(graph, rail);
         if (edge != null && CoasterCartResolve.cartCenterWorld(parent) != null) {
           var center = CoasterCartResolve.cartCenterWorld(parent);
           var hit =
@@ -243,5 +239,18 @@ public final class CarrierRuntime {
     if (!data.vehicles.isEmpty()) data.setDirty();
     nanos += System.nanoTime() - start;
     steps++;
+  }
+
+  private static FoundationData.Rail matchingRail(
+      FoundationData data, FoundationData.Vehicle vehicle) {
+    for (var rail : data.rails)
+      if (rail.matches(vehicle.boundFrom, vehicle.boundTo)) return rail;
+    return null;
+  }
+
+  private static CoasterPathEdge matchingEdge(
+      CoasterPathGraph graph, FoundationData.Rail rail) {
+    for (var edge : graph.edges()) if (rail.matches(edge.from(), edge.to())) return edge;
+    return null;
   }
 }
