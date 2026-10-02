@@ -498,6 +498,13 @@ Track Styles decoration pieces without making an FPS claim. A native Iris/Solas
 shader-mode sample also records original-stage work, but Flywheel fell back to
 `off`; shader and full-render acceptance remain pending.
 
+A packaged Xvfb replay now also preserves a HUD-free framebuffer of the actual
+`FD16Recovery` world after turning toward its recovery vehicle, native chassis
+and original rail/support geometry; see the [rendered recovery
+capture](docs/evidence/0.9/rendered-client-fd16.md). This confirms one live
+llvmpipe rendered scene, not full model/rider, shader, clearance or target-FPS
+acceptance.
+
 **Depends on:** FD404, FD006. **Design:** D17.
 
 Benchmark the declared controlled-train, free-spin, and shuttle scenes against recorded baselines. Profile per-carrier/constraint costs, caches, Flywheel modes, and the supported shader stack.
