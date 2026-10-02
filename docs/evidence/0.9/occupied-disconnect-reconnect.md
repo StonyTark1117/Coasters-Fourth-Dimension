@@ -95,8 +95,9 @@ FD_BOARDING_RESTORE mounted player=Dev gameTick=202809 deadlineTick=203007
 
 Availability returned to `chassis=4/4 carriers=8/8 assignments=1`, and RCON
 again identified Dev's RootVehicle as a native `create:seat`. This establishes
-an occupied multi-car PAX cold restart. Arrow, Free Spin and Revised
-cold-restart coverage, moving routes and concurrent riders remain FD902 work.
+an occupied multi-car PAX cold restart. The later Arrow and Free Spin checks
+leave Revised cold-restart coverage, moving routes and concurrent riders as
+FD902 work.
 
 ## Arrow server-process restart
 
@@ -123,6 +124,32 @@ identified Dev's RootVehicle as a native `create:seat`, and fresh-client
 diagnostics showed Dev in carrier `3458758f-585a-44fe-9902-63739fa460a8` with
 `riding=true`. This establishes an occupied original Arrow cold restart.
 Free Spin and Revised cold restarts, moving routes and concurrent riders remain
+FD902 work.
+
+## Free Spin server-process restart
+
+A fresh stationary Free Spin recovery fixture was boarded through the same real
+`SeatBlock.sitDown` validation path, then its client and dedicated server were
+stopped normally. The newly launched dedicated server opened the unchanged
+world. Its read-only report before a client joined retained the assignment with
+the chassis and all four native carriers unloaded:
+
+```text
+Validation availability chassis=0/1 carriers=0/4 assignments=1
+```
+
+The fresh client loaded the fixture. The server recorded:
+
+```text
+FD_BOARDING_RESTORE queued player=Dev assignments=1 deadlineTick=212480
+FD_BOARDING_RESTORE mounted player=Dev gameTick=212282 deadlineTick=212480
+```
+
+Availability returned to `chassis=1/1 carriers=4/4 assignments=1`. RCON
+identified Dev's RootVehicle as a native `create:seat`, and fresh-client
+diagnostics showed Dev in carrier `48f98802-4d82-4ebc-9823-7423cc4daed7` with
+`riding=true`. This establishes an occupied Free Spin cold restart. Revised
+cold restart, moving-route and concurrent-rider lifecycle coverage remain
 FD902 work.
 
 ## Legacy normal chunk/sublevel unload
@@ -179,7 +206,8 @@ unmarked before the disconnect. In every case RCON confirmed a native
 `create:seat` RootVehicle after reconnect and the server logged
 `FD_BOARDING_RESTORE queued` followed by `mounted` before the respective
 200-tick deadline. This completes stationary normal unload/reload evidence for
-all five family architectures. Cold restarts beyond Legacy, PAX and Arrow,
+all five family architectures. Cold restarts beyond Legacy, PAX, Arrow and Free
+Spin,
 moving-route and concurrent-rider lifecycle coverage remain open.
 
 ## Concurrent-rider investigation
