@@ -34,6 +34,9 @@ The verifier caps separated track results at 0.08 blocks. `0.08` therefore
 proves at least that gap; it is not an exact closest-surface measurement. The
 dev.24 verifier SHA-256 is
 `a26a912567e57246de89c04088936e7ac7f8ff3c4310a99ea4093b21ddc4421e`.
+Both clean GitHub matrices for this exact source revision passed all required
+checks; their immutable workflow and job records are in
+[ci-dev24.json](ci-dev24.json).
 
 ## Limits
 
