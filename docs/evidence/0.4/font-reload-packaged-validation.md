@@ -4,8 +4,11 @@
 
 **Profile:** Track Styles 1.2.0 + Coasters: Engineered 1.1.1, packaged Fourth Dimension JAR
 
-**Artifact:** `coasters-fourth-dimension-0.9.0-dev.27.jar`
-**SHA-256:** `cddbf61bbc758f4423b1eb37b82376df122b5e309fb0ddf308e9e63f7aeec121`
+**Headless artifact:** `coasters-fourth-dimension-0.9.0-dev.27.jar`
+
+**Headless SHA-256:** `cddbf61bbc758f4423b1eb37b82376df122b5e309fb0ddf308e9e63f7aeec121`
+
+**World/chat artifact SHA-256:** `55e82fbae402ad322a5b82e8310c148a0b4b7cfd81f7a7a1255b328851e220dd`
 
 ## Procedure
 
@@ -13,6 +16,11 @@
 2. Start an isolated Xvfb client with `runClient -PfdPackaged -PfdIntegrations=styles,engineered -PfdFontValidation -PfdFontValidationReloads=16`.
 3. Wait for the sixteen sequential opt-in resource reloads to complete, then inspect `packaged-client/logs/latest.log`.
 4. Deliberately interrupt the isolated client. This is not a clean-exit check.
+
+For the world-loaded screen path, start the same profile with
+`-PfdWorld=FD16Recovery -PfdFontValidationReloads=3 -PfdFontValidationChat`.
+The opt-in chat check waits for the level to load, opens `"/"` command chat
+after the final reload, and logs after twenty client ticks with that screen open.
 
 ## Result
 
@@ -27,11 +35,17 @@ each apply (17 catalog lines total). No
 `FD_FONT_CLOSED_SET_LOOKUP`, `FD_FONT_IMAGE_UNALLOCATED`, or `Image is not
 allocated` line occurred before the deliberate interruption.
 
+The world-loaded check completed its three reloads through generation 4, then
+logged `FD_FONT_CHAT_OPEN generation=4` and `FD_FONT_CHAT_RENDERED generation=4
+ticks=20`. It likewise had no closed-set lookup, unallocated-image trace, or
+target bitmap error before deliberate interruption.
+
 ## Limit
 
 This proves sixteen controlled resource reloads of the packaged artifact under
 the same Track Styles and Engineered versions present in the original dev.8
-crash report. It does not reproduce the intermittent post-reload GUI failure,
-validate an interactive F3+T path, or establish a production workaround. FD401,
-FD902, and FD904 remain open until an actionable reproduction or broader
-packaged lifecycle acceptance exists.
+crash report, plus a three-reload world-loaded command-chat rendering sample.
+It does not reproduce the intermittent post-reload GUI failure, validate an
+interactive F3+T path, or establish a production workaround. FD401, FD902, and
+FD904 remain open until an actionable reproduction or broader packaged
+lifecycle acceptance exists.

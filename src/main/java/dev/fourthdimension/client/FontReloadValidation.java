@@ -2,6 +2,7 @@ package dev.fourthdimension.client;
 
 import com.mojang.logging.LogUtils;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.screens.ChatScreen;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
@@ -15,15 +16,23 @@ import net.neoforged.neoforge.client.event.ClientTickEvent;
 public final class FontReloadValidation {
   private static int requested;
   private static int completed;
+  private static int chatTicks;
+  private static boolean chatOpened;
 
   private FontReloadValidation() {}
 
   @SubscribeEvent
   public static void tick(ClientTickEvent.Post event) {
-    int target = targetReloads();
-    if (!FontReloadTrace.enabled() || requested >= target || requested > completed) return;
+    if (!FontReloadTrace.enabled()) return;
     var minecraft = Minecraft.getInstance();
-    if (FontReloadTrace.generation() < 1 || minecraft.getOverlay() != null) return;
+    if (chatOpened && minecraft.screen instanceof ChatScreen && ++chatTicks == 20)
+      LogUtils.getLogger()
+          .info("FD_FONT_CHAT_RENDERED generation={} ticks={}", FontReloadTrace.generation(), chatTicks);
+    int target = targetReloads();
+    if (requested >= target || requested > completed) return;
+    if (FontReloadTrace.generation() < 1
+        || minecraft.getOverlay() != null
+        || (chatRequested() && minecraft.level == null)) return;
     int request = ++requested;
     int before = FontReloadTrace.generation();
     LogUtils.getLogger()
@@ -32,15 +41,28 @@ public final class FontReloadValidation {
         .reloadResourcePacks()
         .whenComplete(
             (ignored, failure) -> {
-              if (failure == null)
+              if (failure == null) {
+                int complete = ++completed;
                 LogUtils.getLogger()
                     .info(
                         "FD_FONT_RELOAD_COMPLETE request={} completed={} target={} generation={}",
                         request,
-                        ++completed,
+                        complete,
                         target,
                         FontReloadTrace.generation());
-              else
+                if (complete == target && chatRequested())
+                  minecraft.execute(
+                      () -> {
+                        if (minecraft.level == null) {
+                          LogUtils.getLogger().error("FD_FONT_CHAT_SKIPPED no active level");
+                          return;
+                        }
+                        chatOpened = true;
+                        minecraft.setScreen(new ChatScreen("/"));
+                        LogUtils.getLogger()
+                            .info("FD_FONT_CHAT_OPEN generation={}", FontReloadTrace.generation());
+                      });
+              } else
                 LogUtils.getLogger()
                     .error(
                         "FD_FONT_RELOAD_FAILED request={} target={} generation={}",
@@ -58,5 +80,9 @@ public final class FontReloadValidation {
     } catch (NumberFormatException ignored) {
       return 0;
     }
+  }
+
+  private static boolean chatRequested() {
+    return Boolean.getBoolean("fourthdimension.fontValidationChat");
   }
 }
