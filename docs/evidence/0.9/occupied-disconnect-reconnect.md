@@ -112,6 +112,12 @@ which that player entity was already removed. The fixture therefore never
 reached two live native seat mounts or two retained assignments, and it is not
 recorded as a passing concurrency result.
 
+In a subsequent run, Observer was selected for an empty carrier body after
+Dev's first mount. The same already-removed Observer dismount occurred after
+admission to that independent body. The current evidence therefore rules out
+both same-seat and same-carrier placement as the explanation; it does not
+identify an upstream cause or establish a supported concurrent-rider path.
+
 The validation-only trace now records accepted player-seat assignments before
 the carrier runtime's next loading update, plus mount/dismount state. It makes
 the next native-fixture investigation distinguish an admission failure from an
