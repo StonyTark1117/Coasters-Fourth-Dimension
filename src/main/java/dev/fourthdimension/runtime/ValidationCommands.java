@@ -46,6 +46,15 @@ public final class ValidationCommands {
                                         EntityArgument.getPlayer(context, "player"),
                                         true))))
             .then(
+                Commands.literal("dispatch")
+                    .then(
+                        Commands.argument("player", EntityArgument.player())
+                            .executes(
+                                context ->
+                                    dispatch(
+                                        context.getSource(),
+                                        EntityArgument.getPlayer(context, "player")))))
+            .then(
                 Commands.literal("style")
                     .then(
                         Commands.argument("player", EntityArgument.player())
@@ -170,6 +179,25 @@ public final class ValidationCommands {
     }
     source.sendSuccess(
         () -> Component.literal("Validation selected Track Styles Arrow appearance"), false);
+    return 1;
+  }
+
+  private static int dispatch(net.minecraft.commands.CommandSourceStack source, ServerPlayer player) {
+    var level = player.serverLevel();
+    var vehicle =
+        FoundationData.get(level).vehicles.values().stream()
+            .filter(candidate -> candidate.carriers.stream().anyMatch(c -> c.riderSeats.containsKey(player.getUUID())))
+            .findFirst()
+            .orElse(null);
+    if (vehicle == null)
+      return failure(source, "No assigned fourth-dimension vehicle was found for the player");
+    try {
+      dev.fourthdimension.vehicle.VehicleOperations.dispatch(level, vehicle);
+    } catch (IllegalArgumentException exception) {
+      return failure(source, exception.getMessage());
+    }
+    source.sendSuccess(
+        () -> Component.literal("Validation dispatched " + player.getGameProfile().getName()), false);
     return 1;
   }
 
