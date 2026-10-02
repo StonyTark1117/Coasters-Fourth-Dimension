@@ -438,9 +438,11 @@ controlled-train, free-spin and shuttle scenes, and two [integrated host
 baselines](docs/evidence/0.9/runtime-baseline.md) are recorded. The current
 checkpoint adds a third combined run and host-scoped limits of 120,000 ns per invocation and
 6,000 ns per live carrier update; `-PfdPerformanceTargets` verifies them in
-all three sampled scenes. An initial packaged real-client llvmpipe sample
-validates the opt-in per-stage track-render instrumentation; hardware, shader
-and decorated-style measurements and full acceptance remain pending.
+all three sampled scenes. Packaged real-client runs validate the opt-in
+per-stage original-track instrumentation under llvmpipe and on the stated AMD
+RX 7900 XTX host; [the hardware observation](docs/evidence/0.9/client-render-sampling.md)
+measures 3.16 ms average stage work without making an FPS claim. Shader and
+decorated-style measurements and full acceptance remain pending.
 
 **Depends on:** FD404, FD006. **Design:** D17.
 

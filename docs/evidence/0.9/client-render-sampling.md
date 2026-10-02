@@ -46,3 +46,26 @@ stage time includes only this addon's procedural original-track work and buffer
 submission. It excludes the rest of Minecraft rendering, Flywheel, Veil,
 Sable, shader execution and FPS. Hardware and supported-shader measurements,
 including a decorated Track Styles scene, remain FD904 work.
+
+## Native GPU observation
+
+The same bounded packaged-world procedure was repeated on the host's native
+desktop OpenGL context with the final `0.9.0-dev.27` JAR SHA-256
+`697f14eb9e58c38789587f7af1efc33b30d79fb10a4ef871dd08c4b82b446712`.
+The early renderer log identified an **AMD Radeon RX 7900 XTX** using Mesa
+26.2.3 on the standard renderer; Track Styles 1.2.0 and Coasters: Engineered
+1.1.1 remained installed. The interactive client was again stopped by the
+55-second timeout after sampling. No crash or fatal exception was recorded
+before that intentional stop.
+
+Its final cumulative sample was:
+
+```text
+FD_CLIENT_RENDER stages=2308 avgStageNanos=3156350 meshBuilds=3 avgMeshBuildNanos=2654895 inRangeRails=6924 inRangeQuads=61485120 inRangeDecorationPieces=0
+```
+
+This is a native-GPU observation of the original-track stage on this host. It
+does not measure whole-frame time or FPS, record the desktop resolution, set a
+cross-hardware target, validate a shader pack, or cover Track Styles decoration
+because the saved scene contains no decoration pieces. Those render modes remain
+required FD904 work.

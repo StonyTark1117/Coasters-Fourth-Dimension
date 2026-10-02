@@ -46,9 +46,9 @@ recovery remains the sole mixed-consist path. It is a bounded FD901 checkpoint,
 not the complete compatibility matrix.
 
 [Client track-render instrumentation](client-render-sampling.md) records an
-initial packaged real-client sample on the recovery scene. It validates the
-sampler under llvmpipe only; player-hardware, shader and decorated-style
-measurements remain FD904 work.
+initial packaged real-client sample on the recovery scene, under llvmpipe and
+on the stated RX 7900 XTX host. It does not claim FPS, shader or decorated-style
+coverage; those measurements remain FD904 work.
 
 [Idle shuttle availability, dev.13](idle-shuttle-acceptance.md) records the native/control failure, production fix, packaged loading-boundary comparison and default-flags cold reopen. Its scope is an empty bound shuttle before its first lift. The four inherited PAX faults remain recorded; complete FD902 and earlier 0.4 gates stay open.
 
