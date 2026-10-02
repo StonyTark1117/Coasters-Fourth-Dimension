@@ -34,9 +34,17 @@ The 25 decisions are the complete five-cart by five-original-track table. The
 20 off-diagonal cases rejected in the factory and native initial-snap paths;
 the five diagonal matching cases attached successfully.
 
+The same run's native survival dispatcher fixture independently placed all five
+matching cars through their held-item interaction path and rejected all 20
+wrong-family placements without consuming an item or allocating a vehicle:
+
+```text
+FD_SURVIVAL ... trackFamilies=5 wrongFamilyRejects=20 placedCars=5 ...
+```
+
 ## Limits
 
 This is an original functional-track, server-side regression. It does not
 certify cosmetic-only styles as functional tracks, external functional-track
-providers, modified assemblies, every player placement and connection path, or
-future addon versions. Those cases remain in FD901 and its FD404 prerequisite.
+providers, modified assemblies, a real connected player, every connection path,
+or future addon versions. Those cases remain in FD901 and its FD404 prerequisite.

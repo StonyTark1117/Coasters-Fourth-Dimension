@@ -391,6 +391,8 @@ five-by-five original-family matrix through factory, locked eligibility and
 native initial-snap paths: all five matching cases bind, while all 20
 wrong-family cases reject without stealing the existing binding; see the
 [family eligibility matrix](docs/evidence/0.9/family-eligibility-matrix.md).
+Its held-item survival dispatcher also accepts the five matching placements and
+rejects the 20 wrong-family placements without consumption or vehicle creation.
 It also verifies bare ordinary-bearing fit and deliberately widened-body
 rejection across all five original tracks through both direct eligibility and
 the native snap filter. The same run confirms ordinary traversal has no vehicle
