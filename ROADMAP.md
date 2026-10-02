@@ -415,8 +415,8 @@ carriers, Free Spin and Revised each lost one chassis/four carriers, and PAX
 lost four chassis/eight carriers. A fresh client caused normal Sable loading and
 was restored to the original seat before the 200-tick deadline in every case.
 This completes stationary normal chunk/sublevel unload coverage across the five
-family architectures, not cold restarts beyond Legacy, moving-route or
-concurrent-rider coverage; see [occupied disconnect/reconnect evidence](docs/evidence/0.9/occupied-disconnect-reconnect.md).
+family architectures, not Arrow, Free Spin and Revised cold restarts,
+moving-route or concurrent-rider coverage; see [occupied disconnect/reconnect evidence](docs/evidence/0.9/occupied-disconnect-reconnect.md).
 
 **Depends on:** FD404. **Design:** D14, D16, D17.
 

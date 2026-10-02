@@ -74,6 +74,30 @@ is an occupied Legacy cold-restart result. It does not establish cold-restart
 coverage for the other four families, moving routes, chunk unloads, or multiple
 simultaneous riders.
 
+## PAX server-process restart
+
+The occupied four-car PAX shuttle from the normal-unload validation was saved
+and stopped through the dedicated server's normal stop path. A fresh dedicated
+server process opened that unchanged world. Before a client joined, the
+read-only availability report showed the expected held state:
+
+```text
+Validation availability chassis=0/4 carriers=0/8 assignments=1
+```
+
+A fresh client then caused normal loading of all four chassis and eight
+carriers. The server recorded:
+
+```text
+FD_BOARDING_RESTORE queued player=Dev assignments=1 deadlineTick=203007
+FD_BOARDING_RESTORE mounted player=Dev gameTick=202809 deadlineTick=203007
+```
+
+Availability returned to `chassis=4/4 carriers=8/8 assignments=1`, and RCON
+again identified Dev's RootVehicle as a native `create:seat`. This establishes
+an occupied multi-car PAX cold restart. Arrow, Free Spin and Revised
+cold-restart coverage, moving routes and concurrent riders remain FD902 work.
+
 ## Legacy normal chunk/sublevel unload
 
 On the same stationary Legacy fixture, `fd validation availability` first
