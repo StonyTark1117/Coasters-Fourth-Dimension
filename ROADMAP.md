@@ -455,7 +455,7 @@ see the [repeated station reload evidence](docs/evidence/0.9/repeated-shuttle-re
 Dev.32 adds an opt-in packaged-client carrier transform gate. In the existing
 Arrow-only `FDRenderMatrix` fixture, all six client-native carrier bodies stayed
 within 0.02 radians of their synchronized snapshot angles for 40 consecutive
-samples (observed maximum `7.63e-7` radians) before normal shutdown. The same
+samples (observed maximum `7.88e-7` radians) before normal shutdown. The same
 gate accepts a required family count from one through five for future all-family
 worlds; this bounded one-family static result does not claim riders, motion,
 clearance or a complete client matrix. See the [client transform checkpoint]

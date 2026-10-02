@@ -9,7 +9,7 @@ acceptance.
 ## Method
 
 The packaged JAR SHA-256 was
-`3bc610d7a89ec31d3b2d777e5c928abb4f14b7c0a3f4e254cdf9beb26bb9b4db`.
+`eb157f9c8900cf9e0255e1c56c31cd4a9a27387b44d7e07c5ff4b9f52955a934`.
 It quick-played the existing `FDRenderMatrix` single-player world on Xvfb, with
 Track Styles 1.2.0 and Coasters: Engineered 1.1.1 installed:
 
@@ -34,7 +34,7 @@ accepts values 1 through 5; a five-family world can use the same gate later.
 `FDRenderMatrix` is deliberately an Arrow-only render fixture. It contains six
 loaded carrier bodies and no rider assignments. The client passed all 40 requested
 consecutive samples after 40 world ticks, with a maximum angle error of
-`7.628734241442252e-7` radians. It then requested normal Minecraft shutdown;
+`7.879373870500663e-7` radians. It then requested normal Minecraft shutdown;
 the integrated server saved `FDRenderMatrix` and Gradle exited successfully.
 The selected source-log lines are retained in
 [the transform record](client-carrier-transform-fdrender-matrix.txt).

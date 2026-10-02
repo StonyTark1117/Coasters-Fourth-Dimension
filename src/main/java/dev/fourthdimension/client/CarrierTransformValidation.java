@@ -28,14 +28,22 @@ public final class CarrierTransformValidation {
   private static int waitedTicks;
   private static double maxAngleError;
   private static boolean completed;
+  private static net.minecraft.world.level.Level lastLevel;
 
   private CarrierTransformValidation() {}
 
   @SubscribeEvent
   public static void tick(ClientTickEvent.Post event) {
-    if (completed || !Boolean.getBoolean("fourthdimension.carrierValidation")) return;
+    if (!Boolean.getBoolean("fourthdimension.carrierValidation")) return;
     var minecraft = Minecraft.getInstance();
-    if (minecraft.level == null || minecraft.getOverlay() != null) return;
+    if (minecraft.level != lastLevel) {
+      completeSamples = 0;
+      waitedTicks = 0;
+      maxAngleError = 0;
+      completed = false;
+      lastLevel = minecraft.level;
+    }
+    if (completed || minecraft.level == null || minecraft.getOverlay() != null) return;
     waitedTicks++;
     var data = EligibilityHooks.CLIENT.get(minecraft.level);
     var container = SubLevelContainer.getContainer(minecraft.level);
@@ -65,7 +73,10 @@ public final class CarrierTransformValidation {
                 .conjugate()
                 .mul(child.logicalPose().orientation());
         double nativeAngle = 2 * Math.atan2(relative.x, relative.w);
-        double error = Math.abs(Math.atan2(Math.sin(nativeAngle - carrier.angle), Math.cos(nativeAngle - carrier.angle)));
+        double error =
+            Math.abs(
+                Math.atan2(
+                    Math.sin(nativeAngle - carrier.angle), Math.cos(nativeAngle - carrier.angle)));
         if (!Double.isFinite(error) || error > MAX_ANGLE_ERROR) {
           throw new IllegalStateException(
               "FD_CARRIER_VALIDATION angle mismatch body="
