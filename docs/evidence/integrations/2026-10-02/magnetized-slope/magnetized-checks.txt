@@ -1,0 +1,679 @@
+FD_MAGNETIZED_SLOPE_CONFIG acceleration=32.0 maxSpeed=128.0 rise=12 run=60 rollbackPercent=10 uphillPercent=30 brakePercent=100
+FD_MAGNETIZED_SLOPE phase=release family=ARROW powered=false y=167.07348259556787 z=430.20533798148165 tangentY=0.19611613513818407 along=0.0 speed=0.0 brakeApproachSpeed=0.0 stopping=false rider=true health=10.0 restraints=true matchingSupport=true fault=none
+FD_MAGNETIZED_SLOPE phase=release family=ARROW powered=true y=167.07348259556787 z=430.20533798148165 tangentY=0.19611613513818407 along=0.0 speed=0.0 brakeApproachSpeed=0.0 stopping=false rider=true health=10.0 restraints=true matchingSupport=true fault=none
+FD_MAGNETIZED_SLOPE phase=release family=LEGACY powered=false y=167.07851800966827 z=430.2305455695618 tangentY=0.19611613513818407 along=0.0 speed=0.0 brakeApproachSpeed=0.0 stopping=false rider=true health=10.0 restraints=true matchingSupport=true fault=none
+FD_MAGNETIZED_SLOPE phase=release family=LEGACY powered=true y=167.07851800966827 z=430.2305455695618 tangentY=0.19611613513818407 along=0.0 speed=0.0 brakeApproachSpeed=0.0 stopping=false rider=true health=10.0 restraints=true matchingSupport=true fault=none
+FD_MAGNETIZED_SLOPE phase=release family=FREE_SPIN powered=false y=167.09566965246879 z=430.3163030984135 tangentY=0.19611613513818407 along=0.0 speed=0.0 brakeApproachSpeed=0.0 stopping=false rider=true health=10.0 restraints=true matchingSupport=true fault=none
+FD_MAGNETIZED_SLOPE phase=release family=FREE_SPIN powered=true y=167.09566965246879 z=430.3163030984135 tangentY=0.19611613513818407 along=0.0 speed=0.0 brakeApproachSpeed=0.0 stopping=false rider=true health=10.0 restraints=true matchingSupport=true fault=none
+FD_MAGNETIZED_SLOPE phase=release family=REVISED powered=false y=167.09573923384545 z=430.31662484133653 tangentY=0.19611613513818407 along=0.0 speed=0.0 brakeApproachSpeed=0.0 stopping=false rider=true health=10.0 restraints=true matchingSupport=true fault=none
+FD_MAGNETIZED_SLOPE phase=release family=REVISED powered=true y=167.09573923384545 z=430.31662484133653 tangentY=0.19611613513818407 along=0.0 speed=0.0 brakeApproachSpeed=0.0 stopping=false rider=true health=10.0 restraints=true matchingSupport=true fault=none
+FD_MAGNETIZED_SLOPE phase=gravity_rollback family=ARROW powered=false y=166.6085930692007 z=427.8809056084348 tangentY=0.19611613513818407 along=-3.1133891289008004 speed=3.113389179610355 brakeApproachSpeed=0.0 stopping=false rider=true health=10.0 restraints=true matchingSupport=true fault=none
+FD_MAGNETIZED_SLOPE phase=gravity_rollback family=ARROW powered=true y=166.30768975802806 z=426.3763280174153 tangentY=0.19611613513818407 along=-5.130025990651256 speed=5.130026020747974 brakeApproachSpeed=0.0 stopping=false rider=true health=10.0 restraints=true matchingSupport=true fault=none
+FD_MAGNETIZED_SLOPE phase=gravity_rollback family=LEGACY powered=false y=166.6566125332195 z=428.1209571521617 tangentY=0.19611613513818407 along=-3.2010615447619126 speed=3.201061615107674 brakeApproachSpeed=0.0 stopping=false rider=true health=10.0 restraints=true matchingSupport=true fault=none
+FD_MAGNETIZED_SLOPE phase=gravity_rollback family=LEGACY powered=true y=166.3970910534144 z=426.82341078829256 tangentY=0.19611613513818407 along=-4.757729626802826 speed=4.757729673909812 brakeApproachSpeed=0.0 stopping=false rider=true health=10.0 restraints=true matchingSupport=true fault=none
+FD_MAGNETIZED_SLOPE phase=gravity_rollback family=FREE_SPIN powered=false y=166.75127877792733 z=428.5942266553938 tangentY=0.19611613513818407 along=-2.0285347636605366 speed=2.028534807701819 brakeApproachSpeed=0.0 stopping=false rider=true health=10.0 restraints=true matchingSupport=true fault=none
+FD_MAGNETIZED_SLOPE phase=gravity_rollback family=FREE_SPIN powered=true y=166.46999826575004 z=427.18791564724165 tangentY=0.19611613513818407 along=-3.561859913877902 speed=3.5618599382628644 brakeApproachSpeed=0.0 stopping=false rider=true health=10.0 restraints=true matchingSupport=true fault=none
+FD_MAGNETIZED_SLOPE phase=gravity_rollback family=REVISED powered=false y=166.62752329146264 z=427.9754993530553 tangentY=0.19611613513818407 along=-3.141722045699675 speed=3.141722074079387 brakeApproachSpeed=0.0 stopping=false rider=true health=10.0 restraints=true matchingSupport=true fault=none
+FD_MAGNETIZED_SLOPE phase=gravity_rollback family=REVISED powered=true y=166.22592721748 z=425.9675342419312 tangentY=0.19611613513818407 along=-5.761589854213903 speed=5.761589869454375 brakeApproachSpeed=0.0 stopping=false rider=true health=10.0 restraints=true matchingSupport=true fault=none
+FD_MAGNETIZED_SLOPE phase=rollback_brake family=ARROW powered=false y=166.4941368924429 z=427.3085484307004 tangentY=0.19611613513818407 along=-0.12144193578549976 speed=0.12144317574176075 brakeApproachSpeed=3.113389179610355 stopping=false rider=true health=10.0 restraints=true matchingSupport=true fault=none
+FD_MAGNETIZED_SLOPE phase=rollback_brake family=ARROW powered=true y=166.06869133580227 z=425.18141220023165 tangentY=0.19611613513818407 along=-0.12145628821692667 speed=0.1214575285316989 brakeApproachSpeed=5.130026020747974 stopping=false rider=true health=10.0 restraints=true matchingSupport=true fault=none
+FD_MAGNETIZED_SLOPE phase=rollback_brake family=LEGACY powered=false y=166.52117548856143 z=427.4437719288713 tangentY=0.19611613513818407 along=-0.09269409819402917 speed=0.09269662811293486 brakeApproachSpeed=3.201061615107674 stopping=false rider=true health=10.0 restraints=true matchingSupport=true fault=none
+FD_MAGNETIZED_SLOPE phase=rollback_brake family=LEGACY powered=true y=166.16653075430014 z=425.6705482575649 tangentY=0.19611613513818407 along=-0.05418763078820344 speed=0.05419143566633361 brakeApproachSpeed=4.757729673909812 stopping=false rider=true health=10.0 restraints=true matchingSupport=true fault=none
+FD_MAGNETIZED_SLOPE phase=rollback_brake family=FREE_SPIN powered=false y=166.70383919193037 z=428.35713553693245 tangentY=0.19611613513818407 along=-0.09995277847072258 speed=0.09995374064408383 brakeApproachSpeed=2.028534807701819 stopping=false rider=true health=10.0 restraints=true matchingSupport=true fault=none
+FD_MAGNETIZED_SLOPE phase=rollback_brake family=FREE_SPIN powered=true y=166.38732613580777 z=426.77452447995216 tangentY=0.19611613513818407 along=-0.08696491112836126 speed=0.08696612322002573 brakeApproachSpeed=3.5618599382628644 stopping=false rider=true health=10.0 restraints=true matchingSupport=true fault=none
+FD_MAGNETIZED_SLOPE phase=rollback_brake family=REVISED powered=false y=166.55003915595657 z=427.58807867552497 tangentY=0.19611613513818407 along=-0.09816202790294484 speed=0.09816294402225542 brakeApproachSpeed=3.141722074079387 stopping=false rider=true health=10.0 restraints=true matchingSupport=true fault=none
+FD_MAGNETIZED_SLOPE phase=rollback_brake family=REVISED powered=true y=166.03131662642357 z=424.9944202514928 tangentY=0.19611613513818407 along=-0.0781700311940003 speed=0.0781712653410466 brakeApproachSpeed=5.761589869454375 stopping=false rider=true health=10.0 restraints=true matchingSupport=true fault=none
+FD_MAGNETIZED_SLOPE phase=uphill family=ARROW powered=false y=166.42242060212885 z=426.95002801428643 tangentY=0.19611613513818407 along=-2.291010556727248 speed=2.2910106219486654 brakeApproachSpeed=3.113389179610355 stopping=false rider=true health=10.0 restraints=true matchingSupport=true fault=none
+FD_MAGNETIZED_SLOPE phase=uphill family=ARROW powered=true y=167.63523490576398 z=433.014084273673 tangentY=0.19611613513818407 along=5.8080437060033585 speed=5.808043731928681 brakeApproachSpeed=5.130026020747974 stopping=false rider=true health=10.0 restraints=true matchingSupport=true fault=none
+FD_MAGNETIZED_SLOPE phase=uphill family=LEGACY powered=false y=166.4548913509531 z=427.1123817584078 tangentY=0.19611613513818407 along=-2.404322018738548 speed=2.4043221182851107 brakeApproachSpeed=3.201061615107674 stopping=false rider=true health=10.0 restraints=true matchingSupport=true fault=none
+FD_MAGNETIZED_SLOPE phase=uphill family=LEGACY powered=true y=167.4843866532401 z=432.2598430110536 tangentY=0.19611613513818407 along=3.464898022848027 speed=3.4648980939051057 brakeApproachSpeed=4.757729673909812 stopping=false rider=true health=10.0 restraints=true matchingSupport=true fault=none
+FD_MAGNETIZED_SLOPE phase=uphill family=FREE_SPIN powered=false y=166.56667795325004 z=427.67131408474165 tangentY=0.19611613513818407 along=-1.8570868380740513 speed=1.8570868858514322 brakeApproachSpeed=2.028534807701819 stopping=false rider=true health=10.0 restraints=true matchingSupport=true fault=none
+FD_MAGNETIZED_SLOPE phase=uphill family=FREE_SPIN powered=true y=167.61616223318384 z=432.91865919046535 tangentY=0.19611613513818407 along=3.88975402655774 speed=3.8897540472125405 brakeApproachSpeed=3.5618599382628644 stopping=false rider=true health=10.0 restraints=true matchingSupport=true fault=none
+FD_MAGNETIZED_SLOPE phase=uphill family=REVISED powered=false y=166.4749964267005 z=427.2128650292446 tangentY=0.19611613513818407 along=-2.2362643383672194 speed=2.236264378041323 brakeApproachSpeed=3.141722074079387 stopping=false rider=true health=10.0 restraints=true matchingSupport=true fault=none
+FD_MAGNETIZED_SLOPE phase=uphill family=REVISED powered=true y=168.1283167345538 z=435.47946656851116 tangentY=0.19611613513818407 along=8.453420977463026 speed=8.453420988193859 brakeApproachSpeed=5.761589869454375 stopping=false rider=true health=10.0 restraints=true matchingSupport=true fault=none
+FD_MAGNETIZED_SLOPE phase=uphill_brake family=ARROW powered=false y=166.34035880256127 z=426.5397190164483 tangentY=0.19611613513818407 along=-0.12080068785243783 speed=0.12080193413511899 brakeApproachSpeed=2.2910106219486654 stopping=false rider=true health=10.0 restraints=true matchingSupport=true fault=none
+FD_MAGNETIZED_SLOPE phase=uphill_brake family=ARROW powered=true y=167.78557976353665 z=433.7657933037473 tangentY=0.19611613513818407 along=-0.12112228350305114 speed=0.12112352761703195 brakeApproachSpeed=5.808043731928681 stopping=false rider=true health=10.0 restraints=true matchingSupport=true fault=none
+FD_MAGNETIZED_SLOPE phase=uphill_brake family=LEGACY powered=false y=166.35395444664505 z=426.6076819780785 tangentY=0.19611613513818407 along=-0.09656830016406491 speed=0.09657078158938794 brakeApproachSpeed=2.4043221182851107 stopping=false rider=true health=10.0 restraints=true matchingSupport=true fault=none
+FD_MAGNETIZED_SLOPE phase=uphill_brake family=LEGACY powered=true y=167.50770206007795 z=432.37645056282105 tangentY=0.19611613513818407 along=-0.21742273127862594 speed=0.21742344117963017 brakeApproachSpeed=3.4648980939051057 stopping=false rider=true health=10.0 restraints=true matchingSupport=true fault=none
+FD_MAGNETIZED_SLOPE phase=uphill_brake family=FREE_SPIN powered=false y=166.52164925592496 z=427.44615533932716 tangentY=0.19611613513818407 along=-0.10147612304021644 speed=0.10147705561714807 brakeApproachSpeed=1.8570868858514322 stopping=false rider=true health=10.0 restraints=true matchingSupport=true fault=none
+FD_MAGNETIZED_SLOPE phase=uphill_brake family=FREE_SPIN powered=true y=167.647930999607 z=433.07759457531563 tangentY=0.19611613513818407 along=-0.09163920507770001 speed=0.09164028082465647 brakeApproachSpeed=3.8897540472125405 stopping=false rider=true health=10.0 restraints=true matchingSupport=true fault=none
+FD_MAGNETIZED_SLOPE phase=uphill_brake family=REVISED powered=false y=166.42047678267357 z=426.94028206789903 tangentY=0.19611613513818407 along=-0.09982302102036766 speed=0.09982389140632142 brakeApproachSpeed=2.236264378041323 stopping=false rider=true health=10.0 restraints=true matchingSupport=true fault=none
+FD_MAGNETIZED_SLOPE phase=uphill_brake family=REVISED powered=true y=168.394216406697 z=436.8088733764928 tangentY=0.19611613513818407 along=-0.12297472468592036 speed=0.12297543108725349 brakeApproachSpeed=8.453420988193859 stopping=false rider=true health=10.0 restraints=true matchingSupport=true fault=none
+FD_MAGNETIZED_SLOPE phase=brake_drift_10 family=ARROW powered=false y=166.33089835334252 z=426.49241677035457 tangentY=0.19611613513818407 along=-0.1208008014591106 speed=0.12080204773232375 brakeApproachSpeed=2.2910106219486654 stopping=false rider=true health=10.0 restraints=true matchingSupport=true fault=none
+FD_MAGNETIZED_SLOPE phase=brake_drift_10 family=ARROW powered=true y=167.77618034947415 z=433.7187962334348 tangentY=0.19611613513818407 along=-0.12112230395955814 speed=0.12112354819252416 brakeApproachSpeed=5.808043731928681 stopping=false rider=true health=10.0 restraints=true matchingSupport=true fault=none
+FD_MAGNETIZED_SLOPE phase=brake_drift_10 family=LEGACY powered=false y=166.34588254266106 z=426.5673071993695 tangentY=0.19611613513818407 along=-0.11994519746041869 speed=0.11994729406486733 brakeApproachSpeed=2.4043221182851107 stopping=false rider=true health=10.0 restraints=true matchingSupport=true fault=none
+FD_MAGNETIZED_SLOPE phase=brake_drift_10 family=LEGACY powered=true y=167.4881403199194 z=432.27861134445016 tangentY=0.19611613513818407 along=-0.2656753164224201 speed=0.26567622493234877 brakeApproachSpeed=3.4648980939051057 stopping=false rider=true health=10.0 restraints=true matchingSupport=true fault=none
+FD_MAGNETIZED_SLOPE phase=brake_drift_10 family=FREE_SPIN powered=false y=166.51403512018277 z=427.4080999194053 tangentY=0.19611613513818407 along=-0.1138041810917743 speed=0.11380496468926063 brakeApproachSpeed=1.8570868858514322 stopping=false rider=true health=10.0 restraints=true matchingSupport=true fault=none
+FD_MAGNETIZED_SLOPE phase=brake_drift_10 family=FREE_SPIN powered=true y=167.64149178522183 z=433.04539850338966 tangentY=0.19611613513818407 along=-0.08732624244793168 speed=0.08732736463968159 brakeApproachSpeed=3.8897540472125405 stopping=false rider=true health=10.0 restraints=true matchingSupport=true fault=none
+FD_MAGNETIZED_SLOPE phase=brake_drift_10 family=REVISED powered=false y=166.41325936615362 z=426.90421024408835 tangentY=0.19611613513818407 along=-0.1023587500846512 speed=0.10235959591180403 brakeApproachSpeed=2.236264378041323 stopping=false rider=true health=10.0 restraints=true matchingSupport=true fault=none
+FD_MAGNETIZED_SLOPE phase=brake_drift_10 family=REVISED powered=true y=168.38757882880813 z=436.7757617809937 tangentY=0.19611613513818407 along=-0.07062566319442627 speed=0.07062691444690505 brakeApproachSpeed=8.453420988193859 stopping=false rider=true health=10.0 restraints=true matchingSupport=true fault=none
+FD_MAGNETIZED_SLOPE phase=brake_drift_20 family=ARROW powered=false y=166.32143790412377 z=426.4451145242608 tangentY=0.19611613513818407 along=-0.120800778810835 speed=0.12080202508760016 brakeApproachSpeed=2.2910106219486654 stopping=false rider=true health=10.0 restraints=true matchingSupport=true fault=none
+FD_MAGNETIZED_SLOPE phase=brake_drift_20 family=ARROW powered=true y=167.76678093541165 z=433.6717991631223 tangentY=0.19611613513818407 along=-0.12111828060298559 speed=0.12111952478789605 brakeApproachSpeed=5.808043731928681 stopping=false rider=true health=10.0 restraints=true matchingSupport=true fault=none
+FD_MAGNETIZED_SLOPE phase=brake_drift_20 family=LEGACY powered=false y=166.33449950887007 z=426.5103615128364 tangentY=0.19611613513818407 along=-0.17258514591522353 speed=0.1725865556062039 brakeApproachSpeed=2.4043221182851107 stopping=false rider=true health=10.0 restraints=true matchingSupport=true fault=none
+FD_MAGNETIZED_SLOPE phase=brake_drift_20 family=LEGACY powered=true y=167.47414795550995 z=432.2086342636139 tangentY=0.19611613513818407 along=-0.07646346828488383 speed=0.07646727112347139 brakeApproachSpeed=3.4648980939051057 stopping=false rider=true health=10.0 restraints=true matchingSupport=true fault=none
+FD_MAGNETIZED_SLOPE phase=brake_drift_20 family=FREE_SPIN powered=false y=166.50655831354214 z=427.37068536862404 tangentY=0.19611613513818407 along=-0.10260285100733892 speed=0.10260376886185549 brakeApproachSpeed=1.8570868858514322 stopping=false rider=true health=10.0 restraints=true matchingSupport=true fault=none
+FD_MAGNETIZED_SLOPE phase=brake_drift_20 family=FREE_SPIN powered=true y=167.63493051132576 z=433.01256161633125 tangentY=0.19611613513818407 along=-0.09988420789397434 speed=0.09988519444353529 brakeApproachSpeed=3.8897540472125405 stopping=false rider=true health=10.0 restraints=true matchingSupport=true fault=none
+FD_MAGNETIZED_SLOPE phase=brake_drift_20 family=REVISED powered=false y=166.40640817451126 z=426.86990850950934 tangentY=0.19611613513818407 along=-0.09163157735765357 speed=0.09163252924466465 brakeApproachSpeed=2.236264378041323 stopping=false rider=true health=10.0 restraints=true matchingSupport=true fault=none
+FD_MAGNETIZED_SLOPE phase=brake_drift_20 family=REVISED powered=true y=168.3825434284175 z=436.75052374388434 tangentY=0.19611613513818407 along=-0.07197272637193806 speed=0.07197398339314733 brakeApproachSpeed=8.453420988193859 stopping=false rider=true health=10.0 restraints=true matchingSupport=true fault=none
+FD_MAGNETIZED_SLOPE phase=brake_drift_30 family=ARROW powered=false y=166.31197745490502 z=426.39781227816707 tangentY=0.19611613513818407 along=-0.12080068018124769 speed=0.12080192646234887 brakeApproachSpeed=2.2910106219486654 stopping=false rider=true health=10.0 restraints=true matchingSupport=true fault=none
+FD_MAGNETIZED_SLOPE phase=brake_drift_30 family=ARROW powered=true y=167.75738152134915 z=433.6248020928098 tangentY=0.19611613513818407 along=-0.12112156131529521 speed=0.12112280542841468 brakeApproachSpeed=5.808043731928681 stopping=false rider=true health=10.0 restraints=true matchingSupport=true fault=none
+FD_MAGNETIZED_SLOPE phase=brake_drift_30 family=LEGACY powered=false y=166.3200647172666 z=426.438187554819 tangentY=0.19611613513818407 along=-0.19152469332983552 speed=0.19152575702486452 brakeApproachSpeed=2.4043221182851107 stopping=false rider=true health=10.0 restraints=true matchingSupport=true fault=none
+FD_MAGNETIZED_SLOPE phase=brake_drift_30 family=LEGACY powered=true y=167.47005854063215 z=432.1882177068029 tangentY=0.19611613513818407 along=-0.0487161895006849 speed=0.04872045224987543 brakeApproachSpeed=3.4648980939051057 stopping=false rider=true health=10.0 restraints=true matchingSupport=true fault=none
+FD_MAGNETIZED_SLOPE phase=brake_drift_30 family=FREE_SPIN powered=false y=166.50024116946943 z=427.33906913068245 tangentY=0.19611613513818407 along=-0.08374519172082491 speed=0.083746348129346 brakeApproachSpeed=1.8570868858514322 stopping=false rider=true health=10.0 restraints=true matchingSupport=true fault=none
+FD_MAGNETIZED_SLOPE phase=brake_drift_30 family=FREE_SPIN powered=true y=167.6277893926437 z=432.97691705807716 tangentY=0.19611613513818407 along=-0.10677133444231518 speed=0.10677218928240066 brakeApproachSpeed=3.8897540472125405 stopping=false rider=true health=10.0 restraints=true matchingSupport=true fault=none
+FD_MAGNETIZED_SLOPE phase=brake_drift_30 family=REVISED powered=false y=166.40024362373 z=426.83905523802497 tangentY=0.19611613513818407 along=-0.08549118600835688 speed=0.08549221837237075 brakeApproachSpeed=2.236264378041323 stopping=false rider=true health=10.0 restraints=true matchingSupport=true fault=none
+FD_MAGNETIZED_SLOPE phase=brake_drift_30 family=REVISED powered=true y=168.37640939986107 z=436.71997567141466 tangentY=0.19611613513818407 along=-0.10389123250276161 speed=0.10389209115209151 brakeApproachSpeed=8.453420988193859 stopping=false rider=true health=10.0 restraints=true matchingSupport=true fault=none
+FD_MAGNETIZED_SLOPE phase=brake_drift_40 family=ARROW powered=false y=166.30251700568627 z=426.3505100320733 tangentY=0.19611613513818407 along=-0.12080069515833317 speed=0.12080194143430206 brakeApproachSpeed=2.2910106219486654 stopping=false rider=true health=10.0 restraints=true matchingSupport=true fault=none
+FD_MAGNETIZED_SLOPE phase=brake_drift_40 family=ARROW powered=true y=167.74798211185657 z=433.5778050453469 tangentY=0.19611613513818407 along=-0.12126833419593429 speed=0.12126957628253972 brakeApproachSpeed=5.808043731928681 stopping=false rider=true health=10.0 restraints=true matchingSupport=true fault=none
+FD_MAGNETIZED_SLOPE phase=brake_drift_40 family=LEGACY powered=false y=166.30561462117475 z=426.36598285072705 tangentY=0.19611613513818407 along=-0.17406797527672582 speed=0.17406934374056057 brakeApproachSpeed=2.4043221182851107 stopping=false rider=true health=10.0 restraints=true matchingSupport=true fault=none
+FD_MAGNETIZED_SLOPE phase=brake_drift_40 family=LEGACY powered=true y=167.46541987789698 z=432.1649633579709 tangentY=0.19611613513818407 along=-0.08518686916555532 speed=0.08519008058732908 brakeApproachSpeed=3.4648980939051057 stopping=false rider=true health=10.0 restraints=true matchingSupport=true fault=none
+FD_MAGNETIZED_SLOPE phase=brake_drift_40 family=FREE_SPIN powered=false y=166.4946106817062 z=427.3109319506553 tangentY=0.19611613513818407 along=-0.08479710512773311 speed=0.08479824515916043 brakeApproachSpeed=1.8570868858514322 stopping=false rider=true health=10.0 restraints=true matchingSupport=true fault=none
+FD_MAGNETIZED_SLOPE phase=brake_drift_40 family=FREE_SPIN powered=true y=167.62077034967496 z=432.94173029049904 tangentY=0.19611613513818407 along=-0.0996865717351614 speed=0.09968749549734277 brakeApproachSpeed=3.8897540472125405 stopping=false rider=true health=10.0 restraints=true matchingSupport=true fault=none
+FD_MAGNETIZED_SLOPE phase=brake_drift_40 family=REVISED powered=false y=166.39397225677862 z=426.8077441796352 tangentY=0.19611613513818407 along=-0.09272619993292877 speed=0.09272714499946441 brakeApproachSpeed=2.236264378041323 stopping=false rider=true health=10.0 restraints=true matchingSupport=true fault=none
+FD_MAGNETIZED_SLOPE phase=brake_drift_40 family=REVISED powered=true y=168.36897836029425 z=436.6828052147915 tangentY=0.19611613513818407 along=-0.1054923994695878 speed=0.10549320076412828 brakeApproachSpeed=8.453420988193859 stopping=false rider=true health=10.0 restraints=true matchingSupport=true fault=none
+FD_MAGNETIZED_SLOPE phase=capture family=ARROW powered=false y=166.25417717564602 z=426.1088108818723 tangentY=0.19611613513818407 along=-0.05380850395137221 speed=0.0538113801775355 brakeApproachSpeed=2.2910106219486654 stopping=true rider=true health=10.0 restraints=true matchingSupport=true fault=none
+FD_MAGNETIZED_SLOPE phase=capture family=ARROW powered=true y=167.6996727856847 z=433.3363194496438 tangentY=0.19611613513818407 along=-0.053784194497811966 speed=0.053787177342992924 brakeApproachSpeed=5.808043731928681 stopping=true rider=true health=10.0 restraints=true matchingSupport=true fault=none
+FD_MAGNETIZED_SLOPE phase=capture family=LEGACY powered=false y=166.25162893864305 z=426.09614599080265 tangentY=0.19611613513818407 along=-0.05364633060861739 speed=0.05365088982481032 brakeApproachSpeed=2.4043221182851107 stopping=true rider=true health=10.0 restraints=true matchingSupport=true fault=none
+FD_MAGNETIZED_SLOPE phase=capture family=LEGACY powered=true y=167.4014549939675 z=431.8452610086359 tangentY=0.19611613513818407 along=-0.053649726754073646 speed=0.05365429508153424 brakeApproachSpeed=3.4648980939051057 stopping=true rider=true health=10.0 restraints=true matchingSupport=true fault=none
+FD_MAGNETIZED_SLOPE phase=capture family=FREE_SPIN powered=false y=166.44334115157872 z=427.0546148175961 tangentY=0.19611613513818407 along=-0.0537384888164647 speed=0.05374021855882542 brakeApproachSpeed=1.8570868858514322 stopping=true rider=true health=10.0 restraints=true matchingSupport=true fault=none
+FD_MAGNETIZED_SLOPE_SEAT powered=false group=0 impulses=418 energy=-104.14142912739709
+FD_MAGNETIZED_SLOPE_SEAT powered=false group=1 impulses=0 energy=0.0
+FD_MAGNETIZED_SLOPE_SEAT powered=false group=2 impulses=0 energy=0.0
+FD_MAGNETIZED_SLOPE_SEAT powered=false group=3 impulses=0 energy=0.0
+FD_MAGNETIZED_SLOPE phase=capture family=FREE_SPIN powered=true y=167.57078256322956 z=432.69179135827204 tangentY=0.19611613513818407 along=-0.05375154262499207 speed=0.05375329794883287 brakeApproachSpeed=3.8897540472125405 stopping=true rider=true health=10.0 restraints=true matchingSupport=true fault=none
+FD_MAGNETIZED_SLOPE_SEAT powered=true group=0 impulses=418 energy=-716.7290694520455
+FD_MAGNETIZED_SLOPE_SEAT powered=true group=1 impulses=0 energy=0.0
+FD_MAGNETIZED_SLOPE_SEAT powered=true group=2 impulses=0 energy=0.0
+FD_MAGNETIZED_SLOPE_SEAT powered=true group=3 impulses=0 energy=0.0
+FD_MAGNETIZED_SLOPE phase=capture family=REVISED powered=false y=166.343404635438 z=426.554906072932 tangentY=0.19611613513818407 along=-0.05376696957097846 speed=0.05376865235964496 brakeApproachSpeed=2.236264378041323 stopping=true rider=true health=10.0 restraints=true matchingSupport=true fault=none
+FD_MAGNETIZED_SLOPE phase=capture family=REVISED powered=true y=168.31863961982376 z=436.4311267712281 tangentY=0.19611613513818407 along=-0.0537601451341264 speed=0.0537618276335033 brakeApproachSpeed=8.453420988193859 stopping=true rider=true health=10.0 restraints=true matchingSupport=true fault=none
+FD_MAGNETIZED_SLOPE_COMPLETE families=4 lanes=8 riders=8 phases=10 paxExternalDrive=false
+FD_ENGINEERED_ENERGY_SKIPPED: optional 1.1.1 artifact absent
+FD_PAX_PHASE_ENERGY target=CAPTURING required=false
+FD_PAX_PHASE_DEPENDENCIES target=CAPTURING seeds=12 requiredBodies=12 complete=true
+FD_PAX_PHASE_REFERENCES target=CAPTURING replacedBeforeRelease=0
+FD_PAX_PHASE_RELEASE target=CAPTURING tick=657 speed=11.873225232363742 bodies=13 riders=16
+FD_PAX_PHASE_FLUSH target=CAPTURING native=true
+FD_PAX_PHASE_EVICTED target=CAPTURING tick=907 blocks=6 bodies=13 occupants=16 phase=FAULT interrupted=CAPTURING
+FD_PAX_PHASE_STAGGERED target=CAPTURING winchTicking=false carriage=true ticks=100 travel=8.631674575031098E-5
+FD_PAX_PHASE_RESTORED target=CAPTURING fresh=true riders=16 phase=FAULT interrupted=CAPTURING fault=Shuttle winch chunk unavailable or winch removed
+FD_PAX_PHASE_RECOVERY target=CAPTURING action=resume waitTicks=60 drift=1.1368683772161603E-13 initialCarriageTravel=0.0 maxCarriageStep=0.0 carriageDrift=0.0 maxReloadStep=0.5480926476160939 phase=CAPTURING
+FD_PAX_PHASE_COMPLETE target=CAPTURING cycles=1 cars=4 riders=16 alive=true unloaded=true telemetry=true phases=[BOARDING, LIFTING, OUTBOUND, RETURNING, CAPTURING]
+FD_PAX_PHASE_ENERGY target=RETURNING required=false
+FD_PAX_PHASE_DEPENDENCIES target=RETURNING seeds=12 requiredBodies=12 complete=true
+FD_PAX_PHASE_REFERENCES target=RETURNING replacedBeforeRelease=0
+FD_PAX_PHASE_RELEASE target=RETURNING tick=598 speed=1.7386800006095464 bodies=13 riders=16
+FD_PAX_PHASE_FLUSH target=RETURNING native=true
+FD_PAX_PHASE_EVICTED target=RETURNING tick=848 blocks=6 bodies=13 occupants=16 phase=FAULT interrupted=RETURNING
+FD_PAX_PHASE_STAGGERED target=RETURNING winchTicking=false carriage=true ticks=100 travel=4.2396374479522107E-4
+FD_PAX_PHASE_RESTORED target=RETURNING fresh=true riders=16 phase=FAULT interrupted=RETURNING fault=Shuttle winch chunk unavailable or winch removed
+FD_PAX_PHASE_BRAKING target=RETURNING sinceRestore=1000 cars=[bad100be-84f8-4765-9e32-cc22c44cfa7b:distance=91.50937406097717:speed=0.11301623108966849:ready=false, 44cc8b12-12c9-483f-adfb-26f1b66d014d:distance=97.58038283386492:speed=0.11314096871799675:ready=false, 78483a05-1d3c-4c13-b381-d5505f035198:distance=103.63377606033977:speed=0.11174491442608807:ready=false, ed217ab7-dcc6-491c-b05b-dfe7ea4e62d6:distance=109.67066674387439:speed=0.11168068010435027:ready=false]
+FD_PAX_PHASE_BRAKING target=RETURNING sinceRestore=2000 cars=[bad100be-84f8-4765-9e32-cc22c44cfa7b:distance=88.63109457027554:speed=0.09257500282939174:ready=false, 44cc8b12-12c9-483f-adfb-26f1b66d014d:distance=94.70802553695562:speed=0.09118159909466231:ready=false, 78483a05-1d3c-4c13-b381-d5505f035198:distance=100.76998852485406:speed=0.09123239912306444:ready=false, ed217ab7-dcc6-491c-b05b-dfe7ea4e62d6:distance=106.81446537339573:speed=0.0929826909839011:ready=false]
+FD_PAX_PHASE_RECOVERY target=RETURNING action=recover waitTicks=2552 drift=7.590343817020814 initialCarriageTravel=0.0 maxCarriageStep=0.0 carriageDrift=0.0 maxReloadStep=0.10534354793660221 phase=CAPTURING
+FD_PAX_PHASE_COMPLETE target=RETURNING cycles=1 cars=4 riders=16 alive=true unloaded=true telemetry=true phases=[BOARDING, LIFTING, OUTBOUND, RETURNING, CAPTURING]
+FD_APPEARANCE styles=false choices=1
+FD_ADDITIONS_CONSIST_SKIPPED: optional 0.2.0 artifact absent; no compatibility evidence
+FD_ENGINEERED_SKIPPED: optional 1.1.1 artifact absent; no compatibility evidence
+FD_SNAPSHOT_MAX bytes=692652
+FD_ADDITIONS_SKIPPED: optional 0.2.0 artifact absent; no compatibility evidence
+FD_ACQUISITION recipe=fourthdimension:arrow_track count=16 trigger=minecraft:iron_ingot missingRejected=true unrelatedRejected=true discovered=true
+FD_ACQUISITION recipe=fourthdimension:arrow_car count=1 trigger=simulatedcoasters:coaster_cart missingRejected=true unrelatedRejected=true discovered=true
+FD_ACQUISITION recipe=fourthdimension:legacy_zacspin_track count=16 trigger=minecraft:iron_ingot missingRejected=true unrelatedRejected=true discovered=true
+FD_ACQUISITION recipe=fourthdimension:legacy_zacspin_car count=1 trigger=simulatedcoasters:coaster_cart missingRejected=true unrelatedRejected=true discovered=true
+FD_ACQUISITION recipe=fourthdimension:free_spin_track count=16 trigger=minecraft:iron_ingot missingRejected=true unrelatedRejected=true discovered=true
+FD_ACQUISITION recipe=fourthdimension:free_spin_car count=1 trigger=simulatedcoasters:coaster_cart missingRejected=true unrelatedRejected=true discovered=true
+FD_ACQUISITION recipe=fourthdimension:revised_zacspin_track count=16 trigger=minecraft:iron_ingot missingRejected=true unrelatedRejected=true discovered=true
+FD_ACQUISITION recipe=fourthdimension:revised_zacspin_car count=1 trigger=simulatedcoasters:coaster_cart missingRejected=true unrelatedRejected=true discovered=true
+FD_ACQUISITION recipe=fourthdimension:pax_track count=16 trigger=minecraft:iron_ingot missingRejected=true unrelatedRejected=true discovered=true
+FD_ACQUISITION recipe=fourthdimension:pax_car count=1 trigger=simulatedcoasters:coaster_cart missingRejected=true unrelatedRejected=true discovered=true
+FD_ACQUISITION recipe=fourthdimension:boarding_station count=1 trigger=minecraft:comparator missingRejected=true unrelatedRejected=true discovered=true
+FD_ACQUISITION recipe=fourthdimension:rotation_tool count=1 trigger=create:brass_ingot missingRejected=true unrelatedRejected=true discovered=true
+FD_ACQUISITION recipe=fourthdimension:shuttle_winch count=1 trigger=create:shaft missingRejected=true unrelatedRejected=true discovered=true
+FD_ACQUISITION recipe=fourthdimension:magnetic_inducer count=2 trigger=minecraft:redstone missingRejected=true unrelatedRejected=true discovered=true
+FD_ACQUISITION recipe=fourthdimension:magnetic_damper count=2 trigger=minecraft:quartz missingRejected=true unrelatedRejected=true discovered=true
+FD_OPTIONAL_STRENGTH owner=net.antopfr.coastersmagnetized.magnet.MagnetScrollValue$1 remembered=83 saved=7 currentOwner=true
+FD_ENDPOINT_AVAILABILITY inactiveRefs=3 ordinaryRefs=2 falseJunction=false
+FD_ORDINARY_DECISION family=arrow_controlled appearance=0 condition=bare accepted=true nativeFilter=true initialSnap=true bindingUnregistered=true bearingDrift=0.0
+FD_ORDINARY_DECISION family=arrow_controlled appearance=0 condition=body_above accepted=false nativeFilter=true initialSnap=true bindingUnregistered=true bearingDrift=2.5431315009427635E-6
+FD_ORDINARY_DECISION family=arrow_controlled appearance=0 condition=ordinary_track accepted=true nativeFilter=true initialSnap=true bindingUnregistered=true bearingDrift=0.0
+FD_ORDINARY_DECISION family=arrow_controlled appearance=0 condition=body_beside accepted=false nativeFilter=true initialSnap=true bindingUnregistered=true bearingDrift=2.0347535610198975E-5
+FD_ORDINARY_DECISION family=arrow_controlled appearance=0 condition=invalid_rail accepted=false nativeFilter=true initialSnap=true bindingUnregistered=true bearingDrift=0.0
+FD_ORDINARY_DECISION family=arrow_controlled appearance=0 condition=missing:functional accepted=false nativeFilter=true initialSnap=true bindingUnregistered=true bearingDrift=0.0
+FD_ORDINARY_DECISION family=arrow_controlled appearance=0 condition=coasterssimulatedextratypes:spines accepted=false nativeFilter=true initialSnap=true bindingUnregistered=true bearingDrift=0.0
+FD_ORDINARY_DECISION family=arrow_controlled appearance=1 condition=bare accepted=true nativeFilter=true initialSnap=true bindingUnregistered=true bearingDrift=2.034008502960205E-5
+FD_ORDINARY_DECISION family=arrow_controlled appearance=1 condition=body_above accepted=false nativeFilter=true initialSnap=true bindingUnregistered=true bearingDrift=2.5431315009427635E-6
+FD_ORDINARY_DECISION family=arrow_controlled appearance=1 condition=ordinary_track accepted=true nativeFilter=true initialSnap=true bindingUnregistered=true bearingDrift=0.0
+FD_ORDINARY_DECISION family=arrow_controlled appearance=1 condition=body_beside accepted=false nativeFilter=true initialSnap=true bindingUnregistered=true bearingDrift=0.0
+FD_ORDINARY_DECISION family=arrow_controlled appearance=1 condition=invalid_rail accepted=false nativeFilter=true initialSnap=true bindingUnregistered=true bearingDrift=0.0
+FD_ORDINARY_DECISION family=arrow_controlled appearance=1 condition=missing:functional accepted=false nativeFilter=true initialSnap=true bindingUnregistered=true bearingDrift=0.0
+FD_ORDINARY_DECISION family=arrow_controlled appearance=1 condition=coasterssimulatedextratypes:spines accepted=false nativeFilter=true initialSnap=true bindingUnregistered=true bearingDrift=0.0
+FD_ORDINARY_DECISION family=arrow_controlled appearance=2 condition=bare accepted=true nativeFilter=true initialSnap=true bindingUnregistered=true bearingDrift=2.0325183868408203E-5
+FD_ORDINARY_DECISION family=arrow_controlled appearance=2 condition=body_above accepted=false nativeFilter=true initialSnap=true bindingUnregistered=true bearingDrift=2.5431997121308796E-6
+FD_ORDINARY_DECISION family=arrow_controlled appearance=2 condition=ordinary_track accepted=true nativeFilter=true initialSnap=true bindingUnregistered=true bearingDrift=0.0
+FD_ORDINARY_DECISION family=arrow_controlled appearance=2 condition=body_beside accepted=false nativeFilter=true initialSnap=true bindingUnregistered=true bearingDrift=0.0
+FD_ORDINARY_DECISION family=arrow_controlled appearance=2 condition=invalid_rail accepted=false nativeFilter=true initialSnap=true bindingUnregistered=true bearingDrift=0.0
+FD_ORDINARY_DECISION family=arrow_controlled appearance=2 condition=missing:functional accepted=false nativeFilter=true initialSnap=true bindingUnregistered=true bearingDrift=0.0
+FD_ORDINARY_DECISION family=arrow_controlled appearance=2 condition=coasterssimulatedextratypes:spines accepted=false nativeFilter=true initialSnap=true bindingUnregistered=true bearingDrift=0.0
+FD_ORDINARY_DECISION family=arrow_controlled appearance=3 condition=bare accepted=true nativeFilter=true initialSnap=true bindingUnregistered=true bearingDrift=2.0325183868408203E-5
+FD_ORDINARY_DECISION family=arrow_controlled appearance=3 condition=body_above accepted=false nativeFilter=true initialSnap=true bindingUnregistered=true bearingDrift=2.5431997121308796E-6
+FD_ORDINARY_DECISION family=arrow_controlled appearance=3 condition=ordinary_track accepted=true nativeFilter=true initialSnap=true bindingUnregistered=true bearingDrift=0.0
+FD_ORDINARY_DECISION family=arrow_controlled appearance=3 condition=body_beside accepted=false nativeFilter=true initialSnap=true bindingUnregistered=true bearingDrift=0.0
+FD_ORDINARY_DECISION family=arrow_controlled appearance=3 condition=invalid_rail accepted=false nativeFilter=true initialSnap=true bindingUnregistered=true bearingDrift=0.0
+FD_ORDINARY_DECISION family=arrow_controlled appearance=3 condition=missing:functional accepted=false nativeFilter=true initialSnap=true bindingUnregistered=true bearingDrift=0.0
+FD_ORDINARY_DECISION family=arrow_controlled appearance=3 condition=coasterssimulatedextratypes:spines accepted=false nativeFilter=true initialSnap=true bindingUnregistered=true bearingDrift=0.0
+FD_ORDINARY_DECISION family=zacspin_legacy appearance=0 condition=bare accepted=true nativeFilter=true initialSnap=true bindingUnregistered=true bearingDrift=0.0
+FD_ORDINARY_DECISION family=zacspin_legacy appearance=0 condition=body_above accepted=false nativeFilter=true initialSnap=true bindingUnregistered=true bearingDrift=2.5431315009427635E-6
+FD_ORDINARY_DECISION family=zacspin_legacy appearance=0 condition=ordinary_track accepted=true nativeFilter=true initialSnap=true bindingUnregistered=true bearingDrift=0.0
+FD_ORDINARY_DECISION family=zacspin_legacy appearance=0 condition=body_beside accepted=false nativeFilter=true initialSnap=true bindingUnregistered=true bearingDrift=2.0347535610198975E-5
+FD_ORDINARY_DECISION family=zacspin_legacy appearance=0 condition=invalid_rail accepted=false nativeFilter=true initialSnap=true bindingUnregistered=true bearingDrift=0.0
+FD_ORDINARY_DECISION family=zacspin_legacy appearance=0 condition=missing:functional accepted=false nativeFilter=true initialSnap=true bindingUnregistered=true bearingDrift=0.0
+FD_ORDINARY_DECISION family=zacspin_legacy appearance=0 condition=coasterssimulatedextratypes:spines accepted=false nativeFilter=true initialSnap=true bindingUnregistered=true bearingDrift=0.0
+FD_ORDINARY_DECISION family=zacspin_legacy appearance=1 condition=bare accepted=true nativeFilter=true initialSnap=true bindingUnregistered=true bearingDrift=2.034008502960205E-5
+FD_ORDINARY_DECISION family=zacspin_legacy appearance=1 condition=body_above accepted=false nativeFilter=true initialSnap=true bindingUnregistered=true bearingDrift=2.5431315009427635E-6
+FD_ORDINARY_DECISION family=zacspin_legacy appearance=1 condition=ordinary_track accepted=true nativeFilter=true initialSnap=true bindingUnregistered=true bearingDrift=0.0
+FD_ORDINARY_DECISION family=zacspin_legacy appearance=1 condition=body_beside accepted=false nativeFilter=true initialSnap=true bindingUnregistered=true bearingDrift=0.0
+FD_ORDINARY_DECISION family=zacspin_legacy appearance=1 condition=invalid_rail accepted=false nativeFilter=true initialSnap=true bindingUnregistered=true bearingDrift=0.0
+FD_ORDINARY_DECISION family=zacspin_legacy appearance=1 condition=missing:functional accepted=false nativeFilter=true initialSnap=true bindingUnregistered=true bearingDrift=0.0
+FD_ORDINARY_DECISION family=zacspin_legacy appearance=1 condition=coasterssimulatedextratypes:spines accepted=false nativeFilter=true initialSnap=true bindingUnregistered=true bearingDrift=0.0
+FD_ORDINARY_DECISION family=zacspin_legacy appearance=2 condition=bare accepted=true nativeFilter=true initialSnap=true bindingUnregistered=true bearingDrift=2.0325183868408203E-5
+FD_ORDINARY_DECISION family=zacspin_legacy appearance=2 condition=body_above accepted=false nativeFilter=true initialSnap=true bindingUnregistered=true bearingDrift=2.5431997121308796E-6
+FD_ORDINARY_DECISION family=zacspin_legacy appearance=2 condition=ordinary_track accepted=true nativeFilter=true initialSnap=true bindingUnregistered=true bearingDrift=0.0
+FD_ORDINARY_DECISION family=zacspin_legacy appearance=2 condition=body_beside accepted=false nativeFilter=true initialSnap=true bindingUnregistered=true bearingDrift=0.0
+FD_ORDINARY_DECISION family=zacspin_legacy appearance=2 condition=invalid_rail accepted=false nativeFilter=true initialSnap=true bindingUnregistered=true bearingDrift=0.0
+FD_ORDINARY_DECISION family=zacspin_legacy appearance=2 condition=missing:functional accepted=false nativeFilter=true initialSnap=true bindingUnregistered=true bearingDrift=0.0
+FD_ORDINARY_DECISION family=zacspin_legacy appearance=2 condition=coasterssimulatedextratypes:spines accepted=false nativeFilter=true initialSnap=true bindingUnregistered=true bearingDrift=0.0
+FD_ORDINARY_DECISION family=zacspin_legacy appearance=3 condition=bare accepted=true nativeFilter=true initialSnap=true bindingUnregistered=true bearingDrift=2.0325183868408203E-5
+FD_ORDINARY_DECISION family=zacspin_legacy appearance=3 condition=body_above accepted=false nativeFilter=true initialSnap=true bindingUnregistered=true bearingDrift=2.5431997121308796E-6
+FD_ORDINARY_DECISION family=zacspin_legacy appearance=3 condition=ordinary_track accepted=true nativeFilter=true initialSnap=true bindingUnregistered=true bearingDrift=0.0
+FD_ORDINARY_DECISION family=zacspin_legacy appearance=3 condition=body_beside accepted=false nativeFilter=true initialSnap=true bindingUnregistered=true bearingDrift=0.0
+FD_ORDINARY_DECISION family=zacspin_legacy appearance=3 condition=invalid_rail accepted=false nativeFilter=true initialSnap=true bindingUnregistered=true bearingDrift=0.0
+FD_ORDINARY_DECISION family=zacspin_legacy appearance=3 condition=missing:functional accepted=false nativeFilter=true initialSnap=true bindingUnregistered=true bearingDrift=0.0
+FD_ORDINARY_DECISION family=zacspin_legacy appearance=3 condition=coasterssimulatedextratypes:spines accepted=false nativeFilter=true initialSnap=true bindingUnregistered=true bearingDrift=0.0
+FD_ORDINARY_DECISION family=sns_free_spin appearance=0 condition=bare accepted=true nativeFilter=true initialSnap=true bindingUnregistered=true bearingDrift=0.0
+FD_ORDINARY_DECISION family=sns_free_spin appearance=0 condition=body_above accepted=false nativeFilter=true initialSnap=true bindingUnregistered=true bearingDrift=2.5431315009427635E-6
+FD_ORDINARY_DECISION family=sns_free_spin appearance=0 condition=ordinary_track accepted=true nativeFilter=true initialSnap=true bindingUnregistered=true bearingDrift=0.0
+FD_ORDINARY_DECISION family=sns_free_spin appearance=0 condition=body_beside accepted=false nativeFilter=true initialSnap=true bindingUnregistered=true bearingDrift=2.0347535610198975E-5
+FD_ORDINARY_DECISION family=sns_free_spin appearance=0 condition=invalid_rail accepted=false nativeFilter=true initialSnap=true bindingUnregistered=true bearingDrift=0.0
+FD_ORDINARY_DECISION family=sns_free_spin appearance=0 condition=missing:functional accepted=false nativeFilter=true initialSnap=true bindingUnregistered=true bearingDrift=0.0
+FD_ORDINARY_DECISION family=sns_free_spin appearance=0 condition=coasterssimulatedextratypes:spines accepted=false nativeFilter=true initialSnap=true bindingUnregistered=true bearingDrift=0.0
+FD_ORDINARY_DECISION family=sns_free_spin appearance=1 condition=bare accepted=true nativeFilter=true initialSnap=true bindingUnregistered=true bearingDrift=2.034008502960205E-5
+FD_ORDINARY_DECISION family=sns_free_spin appearance=1 condition=body_above accepted=false nativeFilter=true initialSnap=true bindingUnregistered=true bearingDrift=2.5431315009427635E-6
+FD_ORDINARY_DECISION family=sns_free_spin appearance=1 condition=ordinary_track accepted=true nativeFilter=true initialSnap=true bindingUnregistered=true bearingDrift=0.0
+FD_ORDINARY_DECISION family=sns_free_spin appearance=1 condition=body_beside accepted=false nativeFilter=true initialSnap=true bindingUnregistered=true bearingDrift=0.0
+FD_ORDINARY_DECISION family=sns_free_spin appearance=1 condition=invalid_rail accepted=false nativeFilter=true initialSnap=true bindingUnregistered=true bearingDrift=0.0
+FD_ORDINARY_DECISION family=sns_free_spin appearance=1 condition=missing:functional accepted=false nativeFilter=true initialSnap=true bindingUnregistered=true bearingDrift=0.0
+FD_ORDINARY_DECISION family=sns_free_spin appearance=1 condition=coasterssimulatedextratypes:spines accepted=false nativeFilter=true initialSnap=true bindingUnregistered=true bearingDrift=0.0
+FD_ORDINARY_DECISION family=sns_free_spin appearance=2 condition=bare accepted=true nativeFilter=true initialSnap=true bindingUnregistered=true bearingDrift=2.0325183868408203E-5
+FD_ORDINARY_DECISION family=sns_free_spin appearance=2 condition=body_above accepted=false nativeFilter=true initialSnap=true bindingUnregistered=true bearingDrift=2.5431997121308796E-6
+FD_ORDINARY_DECISION family=sns_free_spin appearance=2 condition=ordinary_track accepted=true nativeFilter=true initialSnap=true bindingUnregistered=true bearingDrift=0.0
+FD_ORDINARY_DECISION family=sns_free_spin appearance=2 condition=body_beside accepted=false nativeFilter=true initialSnap=true bindingUnregistered=true bearingDrift=0.0
+FD_ORDINARY_DECISION family=sns_free_spin appearance=2 condition=invalid_rail accepted=false nativeFilter=true initialSnap=true bindingUnregistered=true bearingDrift=0.0
+FD_ORDINARY_DECISION family=sns_free_spin appearance=2 condition=missing:functional accepted=false nativeFilter=true initialSnap=true bindingUnregistered=true bearingDrift=0.0
+FD_ORDINARY_DECISION family=sns_free_spin appearance=2 condition=coasterssimulatedextratypes:spines accepted=false nativeFilter=true initialSnap=true bindingUnregistered=true bearingDrift=0.0
+FD_ORDINARY_DECISION family=sns_free_spin appearance=3 condition=bare accepted=true nativeFilter=true initialSnap=true bindingUnregistered=true bearingDrift=2.0325183868408203E-5
+FD_ORDINARY_DECISION family=sns_free_spin appearance=3 condition=body_above accepted=false nativeFilter=true initialSnap=true bindingUnregistered=true bearingDrift=2.5431997121308796E-6
+FD_ORDINARY_DECISION family=sns_free_spin appearance=3 condition=ordinary_track accepted=true nativeFilter=true initialSnap=true bindingUnregistered=true bearingDrift=0.0
+FD_ORDINARY_DECISION family=sns_free_spin appearance=3 condition=body_beside accepted=false nativeFilter=true initialSnap=true bindingUnregistered=true bearingDrift=0.0
+FD_ORDINARY_DECISION family=sns_free_spin appearance=3 condition=invalid_rail accepted=false nativeFilter=true initialSnap=true bindingUnregistered=true bearingDrift=0.0
+FD_ORDINARY_DECISION family=sns_free_spin appearance=3 condition=missing:functional accepted=false nativeFilter=true initialSnap=true bindingUnregistered=true bearingDrift=0.0
+FD_ORDINARY_DECISION family=sns_free_spin appearance=3 condition=coasterssimulatedextratypes:spines accepted=false nativeFilter=true initialSnap=true bindingUnregistered=true bearingDrift=0.0
+FD_ORDINARY_DECISION family=zacspin_revised appearance=0 condition=bare accepted=true nativeFilter=true initialSnap=true bindingUnregistered=true bearingDrift=0.0
+FD_ORDINARY_DECISION family=zacspin_revised appearance=0 condition=body_above accepted=false nativeFilter=true initialSnap=true bindingUnregistered=true bearingDrift=2.5431315009427635E-6
+FD_ORDINARY_DECISION family=zacspin_revised appearance=0 condition=ordinary_track accepted=true nativeFilter=true initialSnap=true bindingUnregistered=true bearingDrift=0.0
+FD_ORDINARY_DECISION family=zacspin_revised appearance=0 condition=body_beside accepted=false nativeFilter=true initialSnap=true bindingUnregistered=true bearingDrift=2.0347535610198975E-5
+FD_ORDINARY_DECISION family=zacspin_revised appearance=0 condition=invalid_rail accepted=false nativeFilter=true initialSnap=true bindingUnregistered=true bearingDrift=0.0
+FD_ORDINARY_DECISION family=zacspin_revised appearance=0 condition=missing:functional accepted=false nativeFilter=true initialSnap=true bindingUnregistered=true bearingDrift=0.0
+FD_ORDINARY_DECISION family=zacspin_revised appearance=0 condition=coasterssimulatedextratypes:spines accepted=false nativeFilter=true initialSnap=true bindingUnregistered=true bearingDrift=0.0
+FD_ORDINARY_DECISION family=zacspin_revised appearance=1 condition=bare accepted=true nativeFilter=true initialSnap=true bindingUnregistered=true bearingDrift=2.034008502960205E-5
+FD_ORDINARY_DECISION family=zacspin_revised appearance=1 condition=body_above accepted=false nativeFilter=true initialSnap=true bindingUnregistered=true bearingDrift=2.5431315009427635E-6
+FD_ORDINARY_DECISION family=zacspin_revised appearance=1 condition=ordinary_track accepted=true nativeFilter=true initialSnap=true bindingUnregistered=true bearingDrift=0.0
+FD_ORDINARY_DECISION family=zacspin_revised appearance=1 condition=body_beside accepted=false nativeFilter=true initialSnap=true bindingUnregistered=true bearingDrift=0.0
+FD_ORDINARY_DECISION family=zacspin_revised appearance=1 condition=invalid_rail accepted=false nativeFilter=true initialSnap=true bindingUnregistered=true bearingDrift=0.0
+FD_ORDINARY_DECISION family=zacspin_revised appearance=1 condition=missing:functional accepted=false nativeFilter=true initialSnap=true bindingUnregistered=true bearingDrift=0.0
+FD_ORDINARY_DECISION family=zacspin_revised appearance=1 condition=coasterssimulatedextratypes:spines accepted=false nativeFilter=true initialSnap=true bindingUnregistered=true bearingDrift=0.0
+FD_ORDINARY_DECISION family=zacspin_revised appearance=2 condition=bare accepted=true nativeFilter=true initialSnap=true bindingUnregistered=true bearingDrift=2.0325183868408203E-5
+FD_ORDINARY_DECISION family=zacspin_revised appearance=2 condition=body_above accepted=false nativeFilter=true initialSnap=true bindingUnregistered=true bearingDrift=2.5431997121308796E-6
+FD_ORDINARY_DECISION family=zacspin_revised appearance=2 condition=ordinary_track accepted=true nativeFilter=true initialSnap=true bindingUnregistered=true bearingDrift=0.0
+FD_ORDINARY_DECISION family=zacspin_revised appearance=2 condition=body_beside accepted=false nativeFilter=true initialSnap=true bindingUnregistered=true bearingDrift=0.0
+FD_ORDINARY_DECISION family=zacspin_revised appearance=2 condition=invalid_rail accepted=false nativeFilter=true initialSnap=true bindingUnregistered=true bearingDrift=0.0
+FD_ORDINARY_DECISION family=zacspin_revised appearance=2 condition=missing:functional accepted=false nativeFilter=true initialSnap=true bindingUnregistered=true bearingDrift=0.0
+FD_ORDINARY_DECISION family=zacspin_revised appearance=2 condition=coasterssimulatedextratypes:spines accepted=false nativeFilter=true initialSnap=true bindingUnregistered=true bearingDrift=0.0
+FD_ORDINARY_DECISION family=zacspin_revised appearance=3 condition=bare accepted=true nativeFilter=true initialSnap=true bindingUnregistered=true bearingDrift=2.0325183868408203E-5
+FD_ORDINARY_DECISION family=zacspin_revised appearance=3 condition=body_above accepted=false nativeFilter=true initialSnap=true bindingUnregistered=true bearingDrift=2.5431997121308796E-6
+FD_ORDINARY_DECISION family=zacspin_revised appearance=3 condition=ordinary_track accepted=true nativeFilter=true initialSnap=true bindingUnregistered=true bearingDrift=0.0
+FD_ORDINARY_DECISION family=zacspin_revised appearance=3 condition=body_beside accepted=false nativeFilter=true initialSnap=true bindingUnregistered=true bearingDrift=0.0
+FD_ORDINARY_DECISION family=zacspin_revised appearance=3 condition=invalid_rail accepted=false nativeFilter=true initialSnap=true bindingUnregistered=true bearingDrift=0.0
+FD_ORDINARY_DECISION family=zacspin_revised appearance=3 condition=missing:functional accepted=false nativeFilter=true initialSnap=true bindingUnregistered=true bearingDrift=0.0
+FD_ORDINARY_DECISION family=zacspin_revised appearance=3 condition=coasterssimulatedextratypes:spines accepted=false nativeFilter=true initialSnap=true bindingUnregistered=true bearingDrift=0.0
+FD_ORDINARY_DECISION family=pax_shuttle appearance=0 condition=bare accepted=true nativeFilter=true initialSnap=true bindingUnregistered=true bearingDrift=0.0
+FD_ORDINARY_DECISION family=pax_shuttle appearance=0 condition=body_above accepted=false nativeFilter=true initialSnap=true bindingUnregistered=true bearingDrift=2.5431315009427635E-6
+FD_ORDINARY_DECISION family=pax_shuttle appearance=0 condition=ordinary_track accepted=true nativeFilter=true initialSnap=true bindingUnregistered=true bearingDrift=0.0
+FD_ORDINARY_DECISION family=pax_shuttle appearance=0 condition=body_beside accepted=false nativeFilter=true initialSnap=true bindingUnregistered=true bearingDrift=2.0347535610198975E-5
+FD_ORDINARY_DECISION family=pax_shuttle appearance=0 condition=invalid_rail accepted=false nativeFilter=true initialSnap=true bindingUnregistered=true bearingDrift=0.0
+FD_ORDINARY_DECISION family=pax_shuttle appearance=0 condition=missing:functional accepted=false nativeFilter=true initialSnap=true bindingUnregistered=true bearingDrift=0.0
+FD_ORDINARY_DECISION family=pax_shuttle appearance=0 condition=coasterssimulatedextratypes:spines accepted=false nativeFilter=true initialSnap=true bindingUnregistered=true bearingDrift=0.0
+FD_ORDINARY_DECISION family=pax_shuttle appearance=1 condition=bare accepted=true nativeFilter=true initialSnap=true bindingUnregistered=true bearingDrift=2.034008502960205E-5
+FD_ORDINARY_DECISION family=pax_shuttle appearance=1 condition=body_above accepted=false nativeFilter=true initialSnap=true bindingUnregistered=true bearingDrift=2.5431315009427635E-6
+FD_ORDINARY_DECISION family=pax_shuttle appearance=1 condition=ordinary_track accepted=true nativeFilter=true initialSnap=true bindingUnregistered=true bearingDrift=0.0
+FD_ORDINARY_DECISION family=pax_shuttle appearance=1 condition=body_beside accepted=false nativeFilter=true initialSnap=true bindingUnregistered=true bearingDrift=0.0
+FD_ORDINARY_DECISION family=pax_shuttle appearance=1 condition=invalid_rail accepted=false nativeFilter=true initialSnap=true bindingUnregistered=true bearingDrift=0.0
+FD_ORDINARY_DECISION family=pax_shuttle appearance=1 condition=missing:functional accepted=false nativeFilter=true initialSnap=true bindingUnregistered=true bearingDrift=0.0
+FD_ORDINARY_DECISION family=pax_shuttle appearance=1 condition=coasterssimulatedextratypes:spines accepted=false nativeFilter=true initialSnap=true bindingUnregistered=true bearingDrift=0.0
+FD_ORDINARY_DECISION family=pax_shuttle appearance=2 condition=bare accepted=true nativeFilter=true initialSnap=true bindingUnregistered=true bearingDrift=2.0325183868408203E-5
+FD_ORDINARY_DECISION family=pax_shuttle appearance=2 condition=body_above accepted=false nativeFilter=true initialSnap=true bindingUnregistered=true bearingDrift=2.5431997121308796E-6
+FD_ORDINARY_DECISION family=pax_shuttle appearance=2 condition=ordinary_track accepted=true nativeFilter=true initialSnap=true bindingUnregistered=true bearingDrift=0.0
+FD_ORDINARY_DECISION family=pax_shuttle appearance=2 condition=body_beside accepted=false nativeFilter=true initialSnap=true bindingUnregistered=true bearingDrift=0.0
+FD_ORDINARY_DECISION family=pax_shuttle appearance=2 condition=invalid_rail accepted=false nativeFilter=true initialSnap=true bindingUnregistered=true bearingDrift=0.0
+FD_ORDINARY_DECISION family=pax_shuttle appearance=2 condition=missing:functional accepted=false nativeFilter=true initialSnap=true bindingUnregistered=true bearingDrift=0.0
+FD_ORDINARY_DECISION family=pax_shuttle appearance=2 condition=coasterssimulatedextratypes:spines accepted=false nativeFilter=true initialSnap=true bindingUnregistered=true bearingDrift=0.0
+FD_ORDINARY_DECISION family=pax_shuttle appearance=3 condition=bare accepted=true nativeFilter=true initialSnap=true bindingUnregistered=true bearingDrift=2.0325183868408203E-5
+FD_ORDINARY_DECISION family=pax_shuttle appearance=3 condition=body_above accepted=false nativeFilter=true initialSnap=true bindingUnregistered=true bearingDrift=2.5431997121308796E-6
+FD_ORDINARY_DECISION family=pax_shuttle appearance=3 condition=ordinary_track accepted=true nativeFilter=true initialSnap=true bindingUnregistered=true bearingDrift=0.0
+FD_ORDINARY_DECISION family=pax_shuttle appearance=3 condition=body_beside accepted=false nativeFilter=true initialSnap=true bindingUnregistered=true bearingDrift=0.0
+FD_ORDINARY_DECISION family=pax_shuttle appearance=3 condition=invalid_rail accepted=false nativeFilter=true initialSnap=true bindingUnregistered=true bearingDrift=0.0
+FD_ORDINARY_DECISION family=pax_shuttle appearance=3 condition=missing:functional accepted=false nativeFilter=true initialSnap=true bindingUnregistered=true bearingDrift=0.0
+FD_ORDINARY_DECISION family=pax_shuttle appearance=3 condition=coasterssimulatedextratypes:spines accepted=false nativeFilter=true initialSnap=true bindingUnregistered=true bearingDrift=0.0
+FD_ENDPOINT_AVAILABILITY restoredRefs=4 nativeMatch=true
+FD_ORDINARY_TRAVERSAL family=arrow_controlled direction=forward progress=3.7353515625 lateral=0.0 vertical=0.0 engaged=true registered4D=false
+FD_ORDINARY_TRAVERSAL family=zacspin_legacy direction=forward progress=3.7353515625 lateral=0.0 vertical=0.0 engaged=true registered4D=false
+FD_ORDINARY_TRAVERSAL family=sns_free_spin direction=forward progress=3.7353515625 lateral=0.0 vertical=0.0 engaged=true registered4D=false
+FD_ORDINARY_TRAVERSAL family=zacspin_revised direction=forward progress=3.7353515625 lateral=0.0 vertical=0.0 engaged=true registered4D=false
+FD_ORDINARY_TRAVERSAL family=pax_shuttle direction=forward progress=3.7353515625 lateral=0.0 vertical=0.0 engaged=true registered4D=false
+FD_FREE angles=[-1.7668556728130111, -1.8112586723550972] maximum separation=0.7237819017546765
+FD_REVISED_MASS mass=4.0 firstMoment=1.5 inertia=1.9947916666666585
+FD_REVISED_MASS mass=4.0 firstMoment=1.5 inertia=1.9947916666666585
+FD_REVISED_MASS mass=4.0 firstMoment=1.5 inertia=1.9947916666666585
+FD_REVISED_MASS mass=4.0 firstMoment=1.5 inertia=1.9947916666666585
+FD_MAGNETIZED_PAX_PROBE powered magnets at 100% across all 3 route segments
+FD_ORDINARY_TRAVERSAL family=arrow_controlled direction=reverse progress=3.7353515625 lateral=0.0 vertical=0.0 engaged=true registered4D=false
+FD_ORDINARY_TRAVERSAL family=zacspin_legacy direction=reverse progress=3.7353515625 lateral=0.0 vertical=0.0 engaged=true registered4D=false
+FD_ORDINARY_TRAVERSAL family=sns_free_spin direction=reverse progress=3.7353515625 lateral=0.0 vertical=0.0 engaged=true registered4D=false
+FD_ORDINARY_TRAVERSAL family=zacspin_revised direction=reverse progress=3.7353515625 lateral=0.0 vertical=0.0 engaged=true registered4D=false
+FD_ORDINARY_TRAVERSAL family=pax_shuttle direction=reverse progress=3.7353515625 lateral=0.0 vertical=0.0 engaged=true registered4D=false
+FD_ORDINARY_MATRIX families=5 appearances=4 accepted=40 rejected=100 traversals=10 registered4D=0
+FD_SHUTTLE_COLD_RETAIN phase=LIFTING cars=4 carriers=8 braking=true restraints=true capture=true
+FD_MAGNETIZED_LINKED_PEER_GUARD invalid=0 unchanged=true healthyDelta=0.31999993324279785
+FD_MAGNETIZED_LINKED_PEER_GUARD invalid=1 unchanged=true healthyDelta=0.31999993324279785
+FD_MAGNETIZED_LINKED_PEER_GUARD invalid=2 unchanged=true healthyDelta=0.31999993324279785
+FD_MAGNETIZED_LINKED_PEER_GUARD invalid=3 unchanged=true healthyDelta=0.31999993324279785
+FD_SHUTTLE phase=LIFTING distance=61.87979295672932 center=( 6.005E+2  1.811E+2  6.082E+2) max=62.67979295672933 fault=
+FD_SHUTTLE_COLD_RETAIN phase=OUTBOUND cars=4 carriers=8 braking=true restraints=true capture=true
+FD_SHUTTLE_COLD_RETAIN phase=RETURNING cars=4 carriers=8 braking=true restraints=true capture=true
+FD_SAVED_PASSENGER nativeReplay=true unknownRejected=true liveUnchanged=true
+FD_DELAYED_PASSENGER pendingIdentity=true pendingMass=true delayedReplay=true loadedEmpty=true
+FD_SHUTTLE_COLD_RETAIN phase=CAPTURING cars=4 carriers=8 braking=true restraints=true capture=true
+FD_CONNECTED_FAMILY car=arrow_controlled track=arrow_controlled side=from appearance=fourthdimension:family_default accepted=true
+FD_CONNECTED_FAMILY car=arrow_controlled track=zacspin_legacy side=from appearance=fourthdimension:family_default accepted=false
+FD_CONNECTED_FAMILY car=arrow_controlled track=sns_free_spin side=from appearance=fourthdimension:family_default accepted=false
+FD_CONNECTED_FAMILY car=arrow_controlled track=zacspin_revised side=from appearance=fourthdimension:family_default accepted=false
+FD_CONNECTED_FAMILY car=arrow_controlled track=pax_shuttle side=from appearance=fourthdimension:family_default accepted=false
+FD_CONNECTED_FAMILY car=arrow_controlled track=arrow_controlled side=to appearance=fourthdimension:family_default accepted=true
+FD_CONNECTED_FAMILY car=arrow_controlled track=zacspin_legacy side=to appearance=fourthdimension:family_default accepted=false
+FD_CONNECTED_FAMILY car=arrow_controlled track=sns_free_spin side=to appearance=fourthdimension:family_default accepted=false
+FD_CONNECTED_FAMILY car=arrow_controlled track=zacspin_revised side=to appearance=fourthdimension:family_default accepted=false
+FD_CONNECTED_FAMILY car=arrow_controlled track=pax_shuttle side=to appearance=fourthdimension:family_default accepted=false
+FD_CONNECTED_FAMILY car=zacspin_legacy track=arrow_controlled side=from appearance=fourthdimension:family_default accepted=false
+FD_CONNECTED_FAMILY car=zacspin_legacy track=zacspin_legacy side=from appearance=fourthdimension:family_default accepted=true
+FD_CONNECTED_FAMILY car=zacspin_legacy track=sns_free_spin side=from appearance=fourthdimension:family_default accepted=false
+FD_CONNECTED_FAMILY car=zacspin_legacy track=zacspin_revised side=from appearance=fourthdimension:family_default accepted=false
+FD_CONNECTED_FAMILY car=zacspin_legacy track=pax_shuttle side=from appearance=fourthdimension:family_default accepted=false
+FD_CONNECTED_FAMILY car=zacspin_legacy track=arrow_controlled side=to appearance=fourthdimension:family_default accepted=false
+FD_CONNECTED_FAMILY car=zacspin_legacy track=zacspin_legacy side=to appearance=fourthdimension:family_default accepted=true
+FD_CONNECTED_FAMILY car=zacspin_legacy track=sns_free_spin side=to appearance=fourthdimension:family_default accepted=false
+FD_CONNECTED_FAMILY car=zacspin_legacy track=zacspin_revised side=to appearance=fourthdimension:family_default accepted=false
+FD_CONNECTED_FAMILY car=zacspin_legacy track=pax_shuttle side=to appearance=fourthdimension:family_default accepted=false
+FD_CONNECTED_FAMILY car=sns_free_spin track=arrow_controlled side=from appearance=fourthdimension:family_default accepted=false
+FD_CONNECTED_FAMILY car=sns_free_spin track=zacspin_legacy side=from appearance=fourthdimension:family_default accepted=false
+FD_CONNECTED_FAMILY car=sns_free_spin track=sns_free_spin side=from appearance=fourthdimension:family_default accepted=true
+FD_CONNECTED_FAMILY car=sns_free_spin track=zacspin_revised side=from appearance=fourthdimension:family_default accepted=false
+FD_CONNECTED_FAMILY car=sns_free_spin track=pax_shuttle side=from appearance=fourthdimension:family_default accepted=false
+FD_CONNECTED_FAMILY car=sns_free_spin track=arrow_controlled side=to appearance=fourthdimension:family_default accepted=false
+FD_CONNECTED_FAMILY car=sns_free_spin track=zacspin_legacy side=to appearance=fourthdimension:family_default accepted=false
+FD_CONNECTED_FAMILY car=sns_free_spin track=sns_free_spin side=to appearance=fourthdimension:family_default accepted=true
+FD_CONNECTED_FAMILY car=sns_free_spin track=zacspin_revised side=to appearance=fourthdimension:family_default accepted=false
+FD_CONNECTED_FAMILY car=sns_free_spin track=pax_shuttle side=to appearance=fourthdimension:family_default accepted=false
+FD_CONNECTED_FAMILY car=zacspin_revised track=arrow_controlled side=from appearance=fourthdimension:family_default accepted=false
+FD_CONNECTED_FAMILY car=zacspin_revised track=zacspin_legacy side=from appearance=fourthdimension:family_default accepted=false
+FD_CONNECTED_FAMILY car=zacspin_revised track=sns_free_spin side=from appearance=fourthdimension:family_default accepted=false
+FD_CONNECTED_FAMILY car=zacspin_revised track=zacspin_revised side=from appearance=fourthdimension:family_default accepted=true
+FD_CONNECTED_FAMILY car=zacspin_revised track=pax_shuttle side=from appearance=fourthdimension:family_default accepted=false
+FD_CONNECTED_FAMILY car=zacspin_revised track=arrow_controlled side=to appearance=fourthdimension:family_default accepted=false
+FD_CONNECTED_FAMILY car=zacspin_revised track=zacspin_legacy side=to appearance=fourthdimension:family_default accepted=false
+FD_CONNECTED_FAMILY car=zacspin_revised track=sns_free_spin side=to appearance=fourthdimension:family_default accepted=false
+FD_CONNECTED_FAMILY car=zacspin_revised track=zacspin_revised side=to appearance=fourthdimension:family_default accepted=true
+FD_CONNECTED_FAMILY car=zacspin_revised track=pax_shuttle side=to appearance=fourthdimension:family_default accepted=false
+FD_CONNECTED_FAMILY car=pax_shuttle track=arrow_controlled side=from appearance=fourthdimension:family_default accepted=false
+FD_CONNECTED_FAMILY car=pax_shuttle track=zacspin_legacy side=from appearance=fourthdimension:family_default accepted=false
+FD_CONNECTED_FAMILY car=pax_shuttle track=sns_free_spin side=from appearance=fourthdimension:family_default accepted=false
+FD_CONNECTED_FAMILY car=pax_shuttle track=zacspin_revised side=from appearance=fourthdimension:family_default accepted=false
+FD_CONNECTED_FAMILY car=pax_shuttle track=pax_shuttle side=from appearance=fourthdimension:family_default accepted=true
+FD_CONNECTED_FAMILY car=pax_shuttle track=arrow_controlled side=to appearance=fourthdimension:family_default accepted=false
+FD_CONNECTED_FAMILY car=pax_shuttle track=zacspin_legacy side=to appearance=fourthdimension:family_default accepted=false
+FD_CONNECTED_FAMILY car=pax_shuttle track=sns_free_spin side=to appearance=fourthdimension:family_default accepted=false
+FD_CONNECTED_FAMILY car=pax_shuttle track=zacspin_revised side=to appearance=fourthdimension:family_default accepted=false
+FD_CONNECTED_FAMILY car=pax_shuttle track=pax_shuttle side=to appearance=fourthdimension:family_default accepted=true
+FD_CONNECTED_FAMILY car=arrow_controlled track=arrow_controlled side=from appearance=coasterssimulatedextratypes:arrow_4d accepted=true
+FD_CONNECTED_FAMILY car=arrow_controlled track=zacspin_legacy side=from appearance=coasterssimulatedextratypes:arrow_4d accepted=false
+FD_CONNECTED_FAMILY car=arrow_controlled track=sns_free_spin side=from appearance=coasterssimulatedextratypes:arrow_4d accepted=false
+FD_CONNECTED_FAMILY car=arrow_controlled track=zacspin_revised side=from appearance=coasterssimulatedextratypes:arrow_4d accepted=false
+FD_CONNECTED_FAMILY car=arrow_controlled track=pax_shuttle side=from appearance=coasterssimulatedextratypes:arrow_4d accepted=false
+FD_CONNECTED_FAMILY car=arrow_controlled track=arrow_controlled side=to appearance=coasterssimulatedextratypes:arrow_4d accepted=true
+FD_CONNECTED_FAMILY car=arrow_controlled track=zacspin_legacy side=to appearance=coasterssimulatedextratypes:arrow_4d accepted=false
+FD_CONNECTED_FAMILY car=arrow_controlled track=sns_free_spin side=to appearance=coasterssimulatedextratypes:arrow_4d accepted=false
+FD_CONNECTED_FAMILY car=arrow_controlled track=zacspin_revised side=to appearance=coasterssimulatedextratypes:arrow_4d accepted=false
+FD_CONNECTED_FAMILY car=arrow_controlled track=pax_shuttle side=to appearance=coasterssimulatedextratypes:arrow_4d accepted=false
+FD_CONNECTED_FAMILY car=zacspin_legacy track=arrow_controlled side=from appearance=coasterssimulatedextratypes:arrow_4d accepted=false
+FD_CONNECTED_FAMILY car=zacspin_legacy track=zacspin_legacy side=from appearance=coasterssimulatedextratypes:arrow_4d accepted=true
+FD_CONNECTED_FAMILY car=zacspin_legacy track=sns_free_spin side=from appearance=coasterssimulatedextratypes:arrow_4d accepted=false
+FD_CONNECTED_FAMILY car=zacspin_legacy track=zacspin_revised side=from appearance=coasterssimulatedextratypes:arrow_4d accepted=false
+FD_CONNECTED_FAMILY car=zacspin_legacy track=pax_shuttle side=from appearance=coasterssimulatedextratypes:arrow_4d accepted=false
+FD_CONNECTED_FAMILY car=zacspin_legacy track=arrow_controlled side=to appearance=coasterssimulatedextratypes:arrow_4d accepted=false
+FD_CONNECTED_FAMILY car=zacspin_legacy track=zacspin_legacy side=to appearance=coasterssimulatedextratypes:arrow_4d accepted=true
+FD_CONNECTED_FAMILY car=zacspin_legacy track=sns_free_spin side=to appearance=coasterssimulatedextratypes:arrow_4d accepted=false
+FD_CONNECTED_FAMILY car=zacspin_legacy track=zacspin_revised side=to appearance=coasterssimulatedextratypes:arrow_4d accepted=false
+FD_CONNECTED_FAMILY car=zacspin_legacy track=pax_shuttle side=to appearance=coasterssimulatedextratypes:arrow_4d accepted=false
+FD_CONNECTED_FAMILY car=sns_free_spin track=arrow_controlled side=from appearance=coasterssimulatedextratypes:arrow_4d accepted=false
+FD_CONNECTED_FAMILY car=sns_free_spin track=zacspin_legacy side=from appearance=coasterssimulatedextratypes:arrow_4d accepted=false
+FD_CONNECTED_FAMILY car=sns_free_spin track=sns_free_spin side=from appearance=coasterssimulatedextratypes:arrow_4d accepted=true
+FD_CONNECTED_FAMILY car=sns_free_spin track=zacspin_revised side=from appearance=coasterssimulatedextratypes:arrow_4d accepted=false
+FD_CONNECTED_FAMILY car=sns_free_spin track=pax_shuttle side=from appearance=coasterssimulatedextratypes:arrow_4d accepted=false
+FD_CONNECTED_FAMILY car=sns_free_spin track=arrow_controlled side=to appearance=coasterssimulatedextratypes:arrow_4d accepted=false
+FD_CONNECTED_FAMILY car=sns_free_spin track=zacspin_legacy side=to appearance=coasterssimulatedextratypes:arrow_4d accepted=false
+FD_CONNECTED_FAMILY car=sns_free_spin track=sns_free_spin side=to appearance=coasterssimulatedextratypes:arrow_4d accepted=true
+FD_CONNECTED_FAMILY car=sns_free_spin track=zacspin_revised side=to appearance=coasterssimulatedextratypes:arrow_4d accepted=false
+FD_CONNECTED_FAMILY car=sns_free_spin track=pax_shuttle side=to appearance=coasterssimulatedextratypes:arrow_4d accepted=false
+FD_CONNECTED_FAMILY car=zacspin_revised track=arrow_controlled side=from appearance=coasterssimulatedextratypes:arrow_4d accepted=false
+FD_CONNECTED_FAMILY car=zacspin_revised track=zacspin_legacy side=from appearance=coasterssimulatedextratypes:arrow_4d accepted=false
+FD_CONNECTED_FAMILY car=zacspin_revised track=sns_free_spin side=from appearance=coasterssimulatedextratypes:arrow_4d accepted=false
+FD_CONNECTED_FAMILY car=zacspin_revised track=zacspin_revised side=from appearance=coasterssimulatedextratypes:arrow_4d accepted=true
+FD_CONNECTED_FAMILY car=zacspin_revised track=pax_shuttle side=from appearance=coasterssimulatedextratypes:arrow_4d accepted=false
+FD_CONNECTED_FAMILY car=zacspin_revised track=arrow_controlled side=to appearance=coasterssimulatedextratypes:arrow_4d accepted=false
+FD_CONNECTED_FAMILY car=zacspin_revised track=zacspin_legacy side=to appearance=coasterssimulatedextratypes:arrow_4d accepted=false
+FD_CONNECTED_FAMILY car=zacspin_revised track=sns_free_spin side=to appearance=coasterssimulatedextratypes:arrow_4d accepted=false
+FD_CONNECTED_FAMILY car=zacspin_revised track=zacspin_revised side=to appearance=coasterssimulatedextratypes:arrow_4d accepted=true
+FD_CONNECTED_FAMILY car=zacspin_revised track=pax_shuttle side=to appearance=coasterssimulatedextratypes:arrow_4d accepted=false
+FD_CONNECTED_FAMILY car=pax_shuttle track=arrow_controlled side=from appearance=coasterssimulatedextratypes:arrow_4d accepted=false
+FD_CONNECTED_FAMILY car=pax_shuttle track=zacspin_legacy side=from appearance=coasterssimulatedextratypes:arrow_4d accepted=false
+FD_CONNECTED_FAMILY car=pax_shuttle track=sns_free_spin side=from appearance=coasterssimulatedextratypes:arrow_4d accepted=false
+FD_CONNECTED_FAMILY car=pax_shuttle track=zacspin_revised side=from appearance=coasterssimulatedextratypes:arrow_4d accepted=false
+FD_CONNECTED_FAMILY car=pax_shuttle track=pax_shuttle side=from appearance=coasterssimulatedextratypes:arrow_4d accepted=true
+FD_CONNECTED_FAMILY car=pax_shuttle track=arrow_controlled side=to appearance=coasterssimulatedextratypes:arrow_4d accepted=false
+FD_CONNECTED_FAMILY car=pax_shuttle track=zacspin_legacy side=to appearance=coasterssimulatedextratypes:arrow_4d accepted=false
+FD_CONNECTED_FAMILY car=pax_shuttle track=sns_free_spin side=to appearance=coasterssimulatedextratypes:arrow_4d accepted=false
+FD_CONNECTED_FAMILY car=pax_shuttle track=zacspin_revised side=to appearance=coasterssimulatedextratypes:arrow_4d accepted=false
+FD_CONNECTED_FAMILY car=pax_shuttle track=pax_shuttle side=to appearance=coasterssimulatedextratypes:arrow_4d accepted=true
+FD_CONNECTED_FAMILY car=arrow_controlled track=arrow_controlled side=from appearance=coasterssimulatedextratypes:arrow_4d_dbl_spine accepted=true
+FD_CONNECTED_FAMILY car=arrow_controlled track=zacspin_legacy side=from appearance=coasterssimulatedextratypes:arrow_4d_dbl_spine accepted=false
+FD_CONNECTED_FAMILY car=arrow_controlled track=sns_free_spin side=from appearance=coasterssimulatedextratypes:arrow_4d_dbl_spine accepted=false
+FD_CONNECTED_FAMILY car=arrow_controlled track=zacspin_revised side=from appearance=coasterssimulatedextratypes:arrow_4d_dbl_spine accepted=false
+FD_CONNECTED_FAMILY car=arrow_controlled track=pax_shuttle side=from appearance=coasterssimulatedextratypes:arrow_4d_dbl_spine accepted=false
+FD_CONNECTED_FAMILY car=arrow_controlled track=arrow_controlled side=to appearance=coasterssimulatedextratypes:arrow_4d_dbl_spine accepted=true
+FD_CONNECTED_FAMILY car=arrow_controlled track=zacspin_legacy side=to appearance=coasterssimulatedextratypes:arrow_4d_dbl_spine accepted=false
+FD_CONNECTED_FAMILY car=arrow_controlled track=sns_free_spin side=to appearance=coasterssimulatedextratypes:arrow_4d_dbl_spine accepted=false
+FD_CONNECTED_FAMILY car=arrow_controlled track=zacspin_revised side=to appearance=coasterssimulatedextratypes:arrow_4d_dbl_spine accepted=false
+FD_CONNECTED_FAMILY car=arrow_controlled track=pax_shuttle side=to appearance=coasterssimulatedextratypes:arrow_4d_dbl_spine accepted=false
+FD_CONNECTED_FAMILY car=zacspin_legacy track=arrow_controlled side=from appearance=coasterssimulatedextratypes:arrow_4d_dbl_spine accepted=false
+FD_CONNECTED_FAMILY car=zacspin_legacy track=zacspin_legacy side=from appearance=coasterssimulatedextratypes:arrow_4d_dbl_spine accepted=true
+FD_CONNECTED_FAMILY car=zacspin_legacy track=sns_free_spin side=from appearance=coasterssimulatedextratypes:arrow_4d_dbl_spine accepted=false
+FD_CONNECTED_FAMILY car=zacspin_legacy track=zacspin_revised side=from appearance=coasterssimulatedextratypes:arrow_4d_dbl_spine accepted=false
+FD_CONNECTED_FAMILY car=zacspin_legacy track=pax_shuttle side=from appearance=coasterssimulatedextratypes:arrow_4d_dbl_spine accepted=false
+FD_CONNECTED_FAMILY car=zacspin_legacy track=arrow_controlled side=to appearance=coasterssimulatedextratypes:arrow_4d_dbl_spine accepted=false
+FD_CONNECTED_FAMILY car=zacspin_legacy track=zacspin_legacy side=to appearance=coasterssimulatedextratypes:arrow_4d_dbl_spine accepted=true
+FD_CONNECTED_FAMILY car=zacspin_legacy track=sns_free_spin side=to appearance=coasterssimulatedextratypes:arrow_4d_dbl_spine accepted=false
+FD_CONNECTED_FAMILY car=zacspin_legacy track=zacspin_revised side=to appearance=coasterssimulatedextratypes:arrow_4d_dbl_spine accepted=false
+FD_CONNECTED_FAMILY car=zacspin_legacy track=pax_shuttle side=to appearance=coasterssimulatedextratypes:arrow_4d_dbl_spine accepted=false
+FD_CONNECTED_FAMILY car=sns_free_spin track=arrow_controlled side=from appearance=coasterssimulatedextratypes:arrow_4d_dbl_spine accepted=false
+FD_CONNECTED_FAMILY car=sns_free_spin track=zacspin_legacy side=from appearance=coasterssimulatedextratypes:arrow_4d_dbl_spine accepted=false
+FD_CONNECTED_FAMILY car=sns_free_spin track=sns_free_spin side=from appearance=coasterssimulatedextratypes:arrow_4d_dbl_spine accepted=true
+FD_CONNECTED_FAMILY car=sns_free_spin track=zacspin_revised side=from appearance=coasterssimulatedextratypes:arrow_4d_dbl_spine accepted=false
+FD_CONNECTED_FAMILY car=sns_free_spin track=pax_shuttle side=from appearance=coasterssimulatedextratypes:arrow_4d_dbl_spine accepted=false
+FD_CONNECTED_FAMILY car=sns_free_spin track=arrow_controlled side=to appearance=coasterssimulatedextratypes:arrow_4d_dbl_spine accepted=false
+FD_CONNECTED_FAMILY car=sns_free_spin track=zacspin_legacy side=to appearance=coasterssimulatedextratypes:arrow_4d_dbl_spine accepted=false
+FD_CONNECTED_FAMILY car=sns_free_spin track=sns_free_spin side=to appearance=coasterssimulatedextratypes:arrow_4d_dbl_spine accepted=true
+FD_CONNECTED_FAMILY car=sns_free_spin track=zacspin_revised side=to appearance=coasterssimulatedextratypes:arrow_4d_dbl_spine accepted=false
+FD_CONNECTED_FAMILY car=sns_free_spin track=pax_shuttle side=to appearance=coasterssimulatedextratypes:arrow_4d_dbl_spine accepted=false
+FD_CONNECTED_FAMILY car=zacspin_revised track=arrow_controlled side=from appearance=coasterssimulatedextratypes:arrow_4d_dbl_spine accepted=false
+FD_CONNECTED_FAMILY car=zacspin_revised track=zacspin_legacy side=from appearance=coasterssimulatedextratypes:arrow_4d_dbl_spine accepted=false
+FD_CONNECTED_FAMILY car=zacspin_revised track=sns_free_spin side=from appearance=coasterssimulatedextratypes:arrow_4d_dbl_spine accepted=false
+FD_CONNECTED_FAMILY car=zacspin_revised track=zacspin_revised side=from appearance=coasterssimulatedextratypes:arrow_4d_dbl_spine accepted=true
+FD_CONNECTED_FAMILY car=zacspin_revised track=pax_shuttle side=from appearance=coasterssimulatedextratypes:arrow_4d_dbl_spine accepted=false
+FD_CONNECTED_FAMILY car=zacspin_revised track=arrow_controlled side=to appearance=coasterssimulatedextratypes:arrow_4d_dbl_spine accepted=false
+FD_CONNECTED_FAMILY car=zacspin_revised track=zacspin_legacy side=to appearance=coasterssimulatedextratypes:arrow_4d_dbl_spine accepted=false
+FD_CONNECTED_FAMILY car=zacspin_revised track=sns_free_spin side=to appearance=coasterssimulatedextratypes:arrow_4d_dbl_spine accepted=false
+FD_CONNECTED_FAMILY car=zacspin_revised track=zacspin_revised side=to appearance=coasterssimulatedextratypes:arrow_4d_dbl_spine accepted=true
+FD_CONNECTED_FAMILY car=zacspin_revised track=pax_shuttle side=to appearance=coasterssimulatedextratypes:arrow_4d_dbl_spine accepted=false
+FD_CONNECTED_FAMILY car=pax_shuttle track=arrow_controlled side=from appearance=coasterssimulatedextratypes:arrow_4d_dbl_spine accepted=false
+FD_CONNECTED_FAMILY car=pax_shuttle track=zacspin_legacy side=from appearance=coasterssimulatedextratypes:arrow_4d_dbl_spine accepted=false
+FD_CONNECTED_FAMILY car=pax_shuttle track=sns_free_spin side=from appearance=coasterssimulatedextratypes:arrow_4d_dbl_spine accepted=false
+FD_CONNECTED_FAMILY car=pax_shuttle track=zacspin_revised side=from appearance=coasterssimulatedextratypes:arrow_4d_dbl_spine accepted=false
+FD_CONNECTED_FAMILY car=pax_shuttle track=pax_shuttle side=from appearance=coasterssimulatedextratypes:arrow_4d_dbl_spine accepted=true
+FD_CONNECTED_FAMILY car=pax_shuttle track=arrow_controlled side=to appearance=coasterssimulatedextratypes:arrow_4d_dbl_spine accepted=false
+FD_CONNECTED_FAMILY car=pax_shuttle track=zacspin_legacy side=to appearance=coasterssimulatedextratypes:arrow_4d_dbl_spine accepted=false
+FD_CONNECTED_FAMILY car=pax_shuttle track=sns_free_spin side=to appearance=coasterssimulatedextratypes:arrow_4d_dbl_spine accepted=false
+FD_CONNECTED_FAMILY car=pax_shuttle track=zacspin_revised side=to appearance=coasterssimulatedextratypes:arrow_4d_dbl_spine accepted=false
+FD_CONNECTED_FAMILY car=pax_shuttle track=pax_shuttle side=to appearance=coasterssimulatedextratypes:arrow_4d_dbl_spine accepted=true
+FD_CONNECTED_FAMILY car=arrow_controlled track=arrow_controlled side=from appearance=missing:style accepted=true
+FD_CONNECTED_FAMILY car=arrow_controlled track=zacspin_legacy side=from appearance=missing:style accepted=false
+FD_CONNECTED_FAMILY car=arrow_controlled track=sns_free_spin side=from appearance=missing:style accepted=false
+FD_CONNECTED_FAMILY car=arrow_controlled track=zacspin_revised side=from appearance=missing:style accepted=false
+FD_CONNECTED_FAMILY car=arrow_controlled track=pax_shuttle side=from appearance=missing:style accepted=false
+FD_CONNECTED_FAMILY car=arrow_controlled track=arrow_controlled side=to appearance=missing:style accepted=true
+FD_CONNECTED_FAMILY car=arrow_controlled track=zacspin_legacy side=to appearance=missing:style accepted=false
+FD_CONNECTED_FAMILY car=arrow_controlled track=sns_free_spin side=to appearance=missing:style accepted=false
+FD_CONNECTED_FAMILY car=arrow_controlled track=zacspin_revised side=to appearance=missing:style accepted=false
+FD_CONNECTED_FAMILY car=arrow_controlled track=pax_shuttle side=to appearance=missing:style accepted=false
+FD_CONNECTED_FAMILY car=zacspin_legacy track=arrow_controlled side=from appearance=missing:style accepted=false
+FD_CONNECTED_FAMILY car=zacspin_legacy track=zacspin_legacy side=from appearance=missing:style accepted=true
+FD_CONNECTED_FAMILY car=zacspin_legacy track=sns_free_spin side=from appearance=missing:style accepted=false
+FD_CONNECTED_FAMILY car=zacspin_legacy track=zacspin_revised side=from appearance=missing:style accepted=false
+FD_CONNECTED_FAMILY car=zacspin_legacy track=pax_shuttle side=from appearance=missing:style accepted=false
+FD_CONNECTED_FAMILY car=zacspin_legacy track=arrow_controlled side=to appearance=missing:style accepted=false
+FD_CONNECTED_FAMILY car=zacspin_legacy track=zacspin_legacy side=to appearance=missing:style accepted=true
+FD_CONNECTED_FAMILY car=zacspin_legacy track=sns_free_spin side=to appearance=missing:style accepted=false
+FD_CONNECTED_FAMILY car=zacspin_legacy track=zacspin_revised side=to appearance=missing:style accepted=false
+FD_CONNECTED_FAMILY car=zacspin_legacy track=pax_shuttle side=to appearance=missing:style accepted=false
+FD_CONNECTED_FAMILY car=sns_free_spin track=arrow_controlled side=from appearance=missing:style accepted=false
+FD_CONNECTED_FAMILY car=sns_free_spin track=zacspin_legacy side=from appearance=missing:style accepted=false
+FD_CONNECTED_FAMILY car=sns_free_spin track=sns_free_spin side=from appearance=missing:style accepted=true
+FD_CONNECTED_FAMILY car=sns_free_spin track=zacspin_revised side=from appearance=missing:style accepted=false
+FD_CONNECTED_FAMILY car=sns_free_spin track=pax_shuttle side=from appearance=missing:style accepted=false
+FD_CONNECTED_FAMILY car=sns_free_spin track=arrow_controlled side=to appearance=missing:style accepted=false
+FD_CONNECTED_FAMILY car=sns_free_spin track=zacspin_legacy side=to appearance=missing:style accepted=false
+FD_CONNECTED_FAMILY car=sns_free_spin track=sns_free_spin side=to appearance=missing:style accepted=true
+FD_CONNECTED_FAMILY car=sns_free_spin track=zacspin_revised side=to appearance=missing:style accepted=false
+FD_CONNECTED_FAMILY car=sns_free_spin track=pax_shuttle side=to appearance=missing:style accepted=false
+FD_CONNECTED_FAMILY car=zacspin_revised track=arrow_controlled side=from appearance=missing:style accepted=false
+FD_CONNECTED_FAMILY car=zacspin_revised track=zacspin_legacy side=from appearance=missing:style accepted=false
+FD_CONNECTED_FAMILY car=zacspin_revised track=sns_free_spin side=from appearance=missing:style accepted=false
+FD_CONNECTED_FAMILY car=zacspin_revised track=zacspin_revised side=from appearance=missing:style accepted=true
+FD_CONNECTED_FAMILY car=zacspin_revised track=pax_shuttle side=from appearance=missing:style accepted=false
+FD_CONNECTED_FAMILY car=zacspin_revised track=arrow_controlled side=to appearance=missing:style accepted=false
+FD_CONNECTED_FAMILY car=zacspin_revised track=zacspin_legacy side=to appearance=missing:style accepted=false
+FD_CONNECTED_FAMILY car=zacspin_revised track=sns_free_spin side=to appearance=missing:style accepted=false
+FD_CONNECTED_FAMILY car=zacspin_revised track=zacspin_revised side=to appearance=missing:style accepted=true
+FD_CONNECTED_FAMILY car=zacspin_revised track=pax_shuttle side=to appearance=missing:style accepted=false
+FD_CONNECTED_FAMILY car=pax_shuttle track=arrow_controlled side=from appearance=missing:style accepted=false
+FD_CONNECTED_FAMILY car=pax_shuttle track=zacspin_legacy side=from appearance=missing:style accepted=false
+FD_CONNECTED_FAMILY car=pax_shuttle track=sns_free_spin side=from appearance=missing:style accepted=false
+FD_CONNECTED_FAMILY car=pax_shuttle track=zacspin_revised side=from appearance=missing:style accepted=false
+FD_CONNECTED_FAMILY car=pax_shuttle track=pax_shuttle side=from appearance=missing:style accepted=true
+FD_CONNECTED_FAMILY car=pax_shuttle track=arrow_controlled side=to appearance=missing:style accepted=false
+FD_CONNECTED_FAMILY car=pax_shuttle track=zacspin_legacy side=to appearance=missing:style accepted=false
+FD_CONNECTED_FAMILY car=pax_shuttle track=sns_free_spin side=to appearance=missing:style accepted=false
+FD_CONNECTED_FAMILY car=pax_shuttle track=zacspin_revised side=to appearance=missing:style accepted=false
+FD_CONNECTED_FAMILY car=pax_shuttle track=pax_shuttle side=to appearance=missing:style accepted=true
+FD_CONNECTED_MATRIX cases=200 matchingAccepted=40 wrongFamilyRejected=160 endpoints=2 appearances=4 bindingRestored=true
+FD_FAMILY_MATRIX decisions=100 factoryRejects=80 lockedNativeInitialSnapRejects=80 bindingPreserved=true
+FD_APPEARANCE_MATRIX phases=4 families=5 unavailableProviderFactoryRejects=10 ordinaryFactoryRejects=5 unavailableProviderNativeRejects=10 ordinaryNativeRejects=5 survivalItemRejects=95 survivalItemPlacements=5 savedMechanicsPreserved=true stylesAvailable=false
+FD_MAGNETIZED_FORWARD family=ARROW speed=3.6022980213165283 fault=
+FD_MAGNETIZED_FORWARD family=ZACSPIN speed=2.715845823287964 fault=
+FD_MAGNETIZED_FORWARD family=FREE_SPIN speed=1.977644443511963 fault=
+FD_MAGNETIZED_FORWARD family=ZACSPIN_REVISED speed=4.4784040451049805 fault=
+FD_MAGNETIZED_FORWARD family=PAX speed=1.1437449294951496E-12 fault=
+FD_MAGNETIZED_LINKED_FORWARD family=ARROW speed=3.602302074432373 fault=
+FD_MAGNETIZED_LINKED_FORWARD family=ARROW speed=3.602301836013794 fault=
+FD_SHUTTLE phase=LIFTING distance=53.879792956729204 center=( 6.005E+2  1.811E+2  6.002E+2) max=62.67979295672933 fault=
+FD_CONTENT_FREE excursions=[0.5824927266569845, 0.3847997490403743] angle=0.09731370158236335 omega=-0.5460240450513593 mass=6.0
+FD_SHUTTLE phase=LIFTING distance=45.87979295672909 center=( 6.005E+2  1.820E+2  5.923E+2) max=62.67979295672933 fault=
+FD_MAGNETIZED_BRAKE family=ARROW speed=9.00868719432E-4
+FD_MAGNETIZED_BRAKE family=ZACSPIN speed=0.07833441881373232
+FD_MAGNETIZED_BRAKE family=FREE_SPIN speed=0.010336493363214967
+FD_MAGNETIZED_BRAKE family=ZACSPIN_REVISED speed=0.005109112968659053
+FD_MAGNETIZED_BRAKE family=PAX speed=5.600592703558986E-4
+FD_MAGNETIZED_LINKED_BRAKE family=ARROW speed=7.276615881003973E-4
+FD_MAGNETIZED_LINKED_BRAKE family=ARROW speed=7.276690502345332E-4
+FD_SHUTTLE phase=FAULT distance=44.87979295672908 center=( 6.005E+2  1.823E+2  5.909E+2) max=62.67979295672933 fault=Winch power lost: retain the train; inspect and resume or recover
+FD_MAGNETIZED_ROLLBACK family=ARROW speed=-3.603566884994507 fault=
+FD_MAGNETIZED_ROLLBACK family=ZACSPIN speed=-2.450357437133789 fault=
+FD_MAGNETIZED_ROLLBACK family=FREE_SPIN speed=-2.0403950214385986 fault=
+FD_MAGNETIZED_ROLLBACK family=ZACSPIN_REVISED speed=-4.53812837600708 fault=
+FD_MAGNETIZED_ROLLBACK family=PAX speed=-1.9891009412492666E-12 fault=
+FD_MAGNETIZED_LINKED_ROLLBACK family=ARROW speed=-3.603564977645874 fault=
+FD_MAGNETIZED_LINKED_ROLLBACK family=ARROW speed=-3.6035654544830322 fault=
+FD_NATIVE at230 position=( 1.650E+1  8.162E+1  5.261E+1) from=BlockPos{x=16, y=80, z=16} angles=[12.154606085009732, 12.153236068647086] velocity=( 0.000E+0  0.000E+0  3.000E+0) disengaged=false
+FD_PAX_POWER_HOLD energyRequired=false ticks=40 drift=7.339040780135862E-4 phase=FAULT
+FD_SHUTTLE phase=FAULT distance=44.87979295672908 center=( 6.005E+2  1.823E+2  5.909E+2) max=62.67979295672933 fault=Winch power lost: retain the train; inspect and resume or recover
+FD_MAGNETIZED_REVERSE_BRAKE car=0 speed=8.020956266202433E-4
+FD_MAGNETIZED_REVERSE_BRAKE car=1 speed=0.08875766478122744
+FD_MAGNETIZED_REVERSE_BRAKE car=2 speed=0.01119254740563511
+FD_MAGNETIZED_REVERSE_BRAKE car=3 speed=0.004407692093317381
+FD_MAGNETIZED_REVERSE_BRAKE car=4 speed=5.600608419627072E-4
+FD_MAGNETIZED_LINKED_REVERSE_BRAKE car=0 speed=7.790244462605159E-4
+FD_MAGNETIZED_LINKED_REVERSE_BRAKE car=1 speed=7.790246206203652E-4
+FD_SHUTTLE phase=LIFTING distance=39.879792956729005 center=( 6.005E+2  1.836E+2  5.866E+2) max=62.67979295672933 fault=
+FD_SHUTTLE phase=LIFTING distance=31.879792956728892 center=( 6.005E+2  1.867E+2  5.793E+2) max=62.67979295672933 fault=
+FD_LINKED_SUPPORT damaged=0 eligible=false filtered=false drive=[false, false]
+FD_LINKED_SUPPORT damaged=1 eligible=false filtered=false drive=[false, false]
+FD_SHUTTLE phase=LIFTING distance=23.879792956728778 center=( 6.005E+2  1.906E+2  5.723E+2) max=62.67979295672933 fault=
+FD_BOUNDARY_CASE family=ARROW mode=WRONG_FAMILY direction=FORWARD z=338.0070187725496 speed=5.289276318869786E-4 stopping=true restraints=true originalBinding=true nextBinding=false fault=End of compatible track; capture and inspect the route
+FD_BOUNDARY_CASE family=ARROW mode=WRONG_FAMILY direction=REVERSE z=302.99172944273903 speed=5.31208107698982E-4 stopping=true restraints=true originalBinding=true nextBinding=false fault=End of compatible track; capture and inspect the route
+FD_BOUNDARY_CASE family=ARROW mode=MISSING_PROVIDER direction=FORWARD z=338.0070187733026 speed=5.31415660006432E-4 stopping=true restraints=true originalBinding=true nextBinding=false fault=End of compatible track; capture and inspect the route
+FD_BOUNDARY_CASE family=ARROW mode=MISSING_PROVIDER direction=REVERSE z=302.99172944273903 speed=5.31208107698982E-4 stopping=true restraints=true originalBinding=true nextBinding=false fault=End of compatible track; capture and inspect the route
+FD_BOUNDARY_CASE family=ARROW mode=MATCHING direction=FORWARD z=352.83975190977014 speed=0.8874044247986216 stopping=false restraints=true originalBinding=false nextBinding=true fault=
+FD_BOUNDARY_CASE family=ARROW mode=MATCHING direction=REVERSE z=287.8816525541579 speed=0.891337672512082 stopping=false restraints=true originalBinding=false nextBinding=true fault=
+FD_SHUTTLE phase=LIFTING distance=15.879792956728668 center=( 6.005E+2  1.950E+2  5.657E+2) max=62.67979295672933 fault=
+FD_MAGNETIZED_CAPTURE car=0 ready=true rider=true
+FD_MAGNETIZED_CAPTURE car=1 ready=true rider=true
+FD_MAGNETIZED_SEAT group=0 impulses=338 energy=-310.1117725582648
+FD_MAGNETIZED_SEAT group=1 impulses=0 energy=0.0
+FD_MAGNETIZED_SEAT group=2 impulses=0 energy=0.0
+FD_MAGNETIZED_SEAT group=3 impulses=0 energy=0.0
+FD_MAGNETIZED_CAPTURE car=2 ready=true rider=true
+FD_MAGNETIZED_CAPTURE car=3 ready=true rider=true
+FD_MAGNETIZED_CAPTURE car=4 ready=true rider=true
+FD_MAGNETIZED_LINKED_CAPTURE car=0 ready=true rider=true
+FD_MAGNETIZED_LINKED_CAPTURE car=1 ready=true rider=true
+FD_TRAIN maxTurn=6.2812025259271325 maxAxleDifference=3.0235906352022184
+FD_TRAIN positions=[(-1.995E+2  1.131E+2  1.462E+2) bound=BlockPos{x=-200, y=112, z=136}->BlockPos{x=-200, y=112, z=172} fault=, (-1.995E+2  1.131E+2  1.402E+2) bound=BlockPos{x=-200, y=112, z=136}->BlockPos{x=-200, y=112, z=172} fault=]
+FD_SHUTTLE phase=LIFTING distance=8.175312512027306 center=( 6.005E+2  1.997E+2  5.595E+2) max=62.67979295672933 fault=
+FD_SHUTTLE phase=LIFTING distance=3.725967903411537 center=( 6.005E+2  2.026E+2  5.558E+2) max=62.67979295672933 fault=
+FD_SHUTTLE phase=OUTBOUND distance=4.449999999999995 center=( 6.005E+2  2.020E+2  5.565E+2) max=62.67979295672933 fault=
+FD_SHUTTLE phase=OUTBOUND distance=8.449999999999989 center=( 6.005E+2  1.898E+2  5.736E+2) max=62.67979295672933 fault=
+FD_SHUTTLE phase=OUTBOUND distance=12.450000000000045 center=( 6.005E+2  1.811E+2  6.059E+2) max=62.67979295672933 fault=
+FD_SHUTTLE phase=OUTBOUND distance=16.450000000000102 center=( 6.005E+2  1.814E+2  6.365E+2) max=90.4727910182262 fault=
+FD_SHUTTLE_CHUNK_RELOAD recovered=true carriage=1b00ae68-691e-4b71-b15b-7b9628832b34
+FD_SHUTTLE phase=RETURNING distance=20.45000000000016 center=( 6.005E+2  1.857E+2  6.484E+2) max=103.58495556133468 fault=
+FD_SHUTTLE phase=RETURNING distance=24.450000000000216 center=( 6.005E+2  1.813E+2  6.359E+2) max=103.58495556133468 fault=
+FD_SHUTTLE phase=CAPTURING distance=26.25000000000024 center=( 6.005E+2  1.811E+2  6.132E+2) max=103.58495556133468 fault=
+FD_SHUTTLE phase=CAPTURING distance=63.86402530557064 center=( 6.005E+2  1.811E+2  6.098E+2) max=103.58495556133468 fault=
+FD_BOUNDARY_CASE family=LEGACY mode=WRONG_FAMILY direction=FORWARD z=338.01538071352945 speed=0.002209518291523435 stopping=true restraints=true originalBinding=true nextBinding=false fault=End of compatible track; capture and inspect the route
+FD_BOUNDARY_CASE family=LEGACY mode=WRONG_FAMILY direction=REVERSE z=302.9971009096614 speed=0.0018082760882141072 stopping=true restraints=true originalBinding=true nextBinding=false fault=End of compatible track; capture and inspect the route
+FD_BOUNDARY_CASE family=LEGACY mode=MISSING_PROVIDER direction=FORWARD z=338.01538071352945 speed=0.002209518291523435 stopping=true restraints=true originalBinding=true nextBinding=false fault=End of compatible track; capture and inspect the route
+FD_BOUNDARY_CASE family=LEGACY mode=MISSING_PROVIDER direction=REVERSE z=302.9971009096614 speed=0.0018082760882141072 stopping=true restraints=true originalBinding=true nextBinding=false fault=End of compatible track; capture and inspect the route
+FD_BOUNDARY_CASE family=LEGACY mode=MATCHING direction=FORWARD z=347.7325438003833 speed=0.6413477048721391 stopping=false restraints=true originalBinding=false nextBinding=true fault=
+FD_BOUNDARY_CASE family=LEGACY mode=MATCHING direction=REVERSE z=293.2343752816086 speed=0.6178021523382436 stopping=false restraints=true originalBinding=false nextBinding=true fault=
+FD_SHUTTLE phase=BOARDING distance=62.67979295672933 center=( 6.005E+2  1.811E+2  6.085E+2) max=103.58495556133468 fault=
+FD_PAX_POWER_COMPLETE energyRequired=false cars=4 riders=16 alive=true unloaded=true mounts=true telemetry=true cycles=1
+FD_BOUNDARY_CASE family=FREE_SPIN mode=WRONG_FAMILY direction=FORWARD z=337.96456908099776 speed=4.7574638512713443E-4 stopping=true restraints=true originalBinding=true nextBinding=false fault=End of compatible track; capture and inspect the route
+FD_BOUNDARY_CASE family=FREE_SPIN mode=WRONG_FAMILY direction=REVERSE z=303.0323181000348 speed=4.898652074754864E-4 stopping=true restraints=true originalBinding=true nextBinding=false fault=End of compatible track; capture and inspect the route
+FD_BOUNDARY_CASE family=FREE_SPIN mode=MISSING_PROVIDER direction=FORWARD z=337.96463011658165 speed=5.098829936972067E-4 stopping=true restraints=true originalBinding=true nextBinding=false fault=End of compatible track; capture and inspect the route
+FD_BOUNDARY_CASE family=FREE_SPIN mode=MISSING_PROVIDER direction=REVERSE z=303.0307006944859 speed=4.8434247080067586E-4 stopping=true restraints=true originalBinding=true nextBinding=false fault=End of compatible track; capture and inspect the route
+FD_BOUNDARY_CASE family=FREE_SPIN mode=MATCHING direction=FORWARD z=359.0017089923551 speed=1.246287422479971 stopping=false restraints=true originalBinding=false nextBinding=true fault=
+FD_BOUNDARY_CASE family=FREE_SPIN mode=MATCHING direction=REVERSE z=281.98913572457315 speed=1.246735291812472 stopping=false restraints=true originalBinding=false nextBinding=true fault=
+FD_BOUNDARY_CASE family=REVISED mode=WRONG_FAMILY direction=FORWARD z=337.95800780682816 speed=4.3706593028465355E-4 stopping=true restraints=true originalBinding=true nextBinding=false fault=End of compatible track; capture and inspect the route
+FD_BOUNDARY_CASE family=REVISED mode=WRONG_FAMILY direction=REVERSE z=303.03820801120713 speed=4.2513565131364336E-4 stopping=true restraints=true originalBinding=true nextBinding=false fault=End of compatible track; capture and inspect the route
+FD_BOUNDARY_CASE family=REVISED mode=MISSING_PROVIDER direction=FORWARD z=337.95800781427874 speed=4.3706593028465355E-4 stopping=true restraints=true originalBinding=true nextBinding=false fault=End of compatible track; capture and inspect the route
+FD_BOUNDARY_CASE family=REVISED mode=MISSING_PROVIDER direction=REVERSE z=303.03836059874675 speed=4.2701649988733585E-4 stopping=true restraints=true originalBinding=true nextBinding=false fault=End of compatible track; capture and inspect the route
+FD_BOUNDARY_CASE family=REVISED mode=MATCHING direction=FORWARD z=360.42596436120596 speed=1.3334083028808155 stopping=false restraints=true originalBinding=false nextBinding=true fault=
+FD_BOUNDARY_CASE family=REVISED mode=MATCHING direction=REVERSE z=280.565856922984 speed=1.333774036945508 stopping=false restraints=true originalBinding=false nextBinding=true fault=
+FD_SHUTTLE_TALL cycles=2 maximum=142.9452626077378 station=82.92133833155415
+FD_BOUNDARY_MATRIX families=4 directions=2 wrongFamilyStops=8 missingProviderStops=8 matchingCrossings=8
+FD_DEMO family=ARROW angleRange=-0.0012762793182983696..6.281216324929916 maxXZ=32.50025969428563,52.500305457990976 ready=true fault=
+FD_DEMO family=ZACSPIN angleRange=-1.1712783582222497..0.4804478986116605 maxXZ=32.5048535350291,52.50000029576893 ready=true fault=
+FD_REVISED_NATIVE angles=[-0.7890095274934601, -0.812209910148102, -0.6383261811718508, -0.7132601909346744]..[0.6955241378401983, 0.6538700069548152, 0.6941153312972796, 0.6664315497922256] extent=[32.50423814293782, 52.49993914624292] ready=true fault=
+FD_TRACK_PARTIAL_FLUSH native=true
+FD_TRACK_PARTIAL_WAITED ticks=201
+FD_TRACK_PARTIAL family=ARROW banked=false evicted=true valid=true endpoints=1
+FD_TRACK_PARTIAL family=ARROW banked=true evicted=true valid=true endpoints=1
+FD_TRACK_PARTIAL family=ZACSPIN banked=false evicted=true valid=true endpoints=1
+FD_TRACK_PARTIAL family=ZACSPIN banked=true evicted=true valid=true endpoints=1
+FD_TRACK_PARTIAL family=FREE_SPIN banked=false evicted=true valid=true endpoints=1
+FD_TRACK_PARTIAL family=FREE_SPIN banked=true evicted=true valid=true endpoints=1
+FD_TRACK_PARTIAL family=ZACSPIN_REVISED banked=false evicted=true valid=true endpoints=1
+FD_TRACK_PARTIAL family=ZACSPIN_REVISED banked=true evicted=true valid=true endpoints=1
+FD_TRACK_PARTIAL family=PAX banked=false evicted=true valid=true endpoints=1
+FD_TRACK_PARTIAL family=PAX banked=true evicted=true valid=true endpoints=1
+FD_TRACK_PARTIAL_RELOADED family=ARROW banked=false fresh=true geometry=true endpoints=2
+FD_TRACK_PARTIAL_RELOADED family=ARROW banked=true fresh=true geometry=true endpoints=2
+FD_TRACK_PARTIAL_RELOADED family=ZACSPIN banked=false fresh=true geometry=true endpoints=2
+FD_TRACK_PARTIAL_RELOADED family=ZACSPIN banked=true fresh=true geometry=true endpoints=2
+FD_TRACK_PARTIAL_RELOADED family=FREE_SPIN banked=false fresh=true geometry=true endpoints=2
+FD_TRACK_PARTIAL_RELOADED family=FREE_SPIN banked=true fresh=true geometry=true endpoints=2
+FD_TRACK_PARTIAL_RELOADED family=ZACSPIN_REVISED banked=false fresh=true geometry=true endpoints=2
+FD_TRACK_PARTIAL_RELOADED family=ZACSPIN_REVISED banked=true fresh=true geometry=true endpoints=2
+FD_TRACK_PARTIAL_RELOADED family=PAX banked=false fresh=true geometry=true endpoints=2
+FD_TRACK_PARTIAL_RELOADED family=PAX banked=true fresh=true geometry=true endpoints=2
+FD_ENGINEERED_PAX_FE_SKIPPED: optional 1.1.1 artifact absent
+FD_PAX_PHASE_ENERGY target=OUTBOUND required=false
+FD_PAX_PHASE_DEPENDENCIES target=OUTBOUND seeds=12 requiredBodies=12 complete=true
+FD_PAX_PHASE_REFERENCES target=OUTBOUND replacedBeforeRelease=0
+FD_PAX_PHASE_RELEASE target=OUTBOUND tick=424 speed=1.5531310385076547 bodies=13 riders=16
+FD_PAX_PHASE_FLUSH target=OUTBOUND native=true
+FD_PAX_PHASE_EVICTED target=OUTBOUND tick=674 blocks=6 bodies=13 occupants=16 phase=FAULT interrupted=OUTBOUND
+FD_PAX_PHASE_NATIVE target=OUTBOUND stage=partial age=20 trainBodies=0
+FD_PAX_PHASE_NATIVE target=OUTBOUND stage=partial age=40 trainBodies=12
+FD_PAX_PHASE_NATIVE target=OUTBOUND stage=partial age=60 trainBodies=12
+FD_PAX_PHASE_NATIVE target=OUTBOUND stage=partial age=80 trainBodies=12
+FD_PAX_PHASE_NATIVE target=OUTBOUND stage=partial age=100 trainBodies=0
+FD_PAX_PHASE_NATIVE target=OUTBOUND stage=partial age=120 trainBodies=0
+FD_PAX_PHASE_STAGGERED target=OUTBOUND winchTicking=false carriage=true ticks=100 travel=2.6995553608633624E-4
+FD_PAX_PHASE_NATIVE target=OUTBOUND stage=full age=1 trainBodies=12
+FD_PAX_PHASE_NATIVE target=OUTBOUND stage=full age=2 trainBodies=12
+FD_PAX_PHASE_NATIVE target=OUTBOUND stage=full age=3 trainBodies=12
+FD_PAX_PHASE_NATIVE target=OUTBOUND stage=full age=4 trainBodies=12
+FD_PAX_PHASE_NATIVE target=OUTBOUND stage=full age=5 trainBodies=12
+FD_PAX_PHASE_NATIVE target=OUTBOUND stage=full age=6 trainBodies=12
+FD_PAX_PHASE_NATIVE target=OUTBOUND stage=full age=7 trainBodies=12
+FD_PAX_PHASE_NATIVE target=OUTBOUND stage=full age=8 trainBodies=12
+FD_PAX_PHASE_NATIVE target=OUTBOUND stage=full age=9 trainBodies=12
+FD_PAX_PHASE_NATIVE target=OUTBOUND stage=full age=10 trainBodies=12
+FD_PAX_PHASE_NATIVE target=OUTBOUND stage=full age=11 trainBodies=12
+FD_PAX_PHASE_NATIVE target=OUTBOUND stage=full age=12 trainBodies=12
+FD_PAX_PHASE_NATIVE target=OUTBOUND stage=full age=13 trainBodies=12
+FD_PAX_PHASE_NATIVE target=OUTBOUND stage=full age=14 trainBodies=12
+FD_PAX_PHASE_NATIVE target=OUTBOUND stage=full age=15 trainBodies=12
+FD_PAX_PHASE_NATIVE target=OUTBOUND stage=full age=16 trainBodies=12
+FD_PAX_PHASE_NATIVE target=OUTBOUND stage=full age=17 trainBodies=12
+FD_PAX_PHASE_NATIVE target=OUTBOUND stage=full age=18 trainBodies=12
+FD_PAX_PHASE_NATIVE target=OUTBOUND stage=full age=19 trainBodies=12
+FD_PAX_PHASE_NATIVE target=OUTBOUND stage=full age=20 trainBodies=12
+FD_PAX_PHASE_RESTORED target=OUTBOUND fresh=true riders=16 phase=FAULT interrupted=OUTBOUND fault=Shuttle winch chunk unavailable or winch removed
+FD_PAX_PHASE_BRAKING target=OUTBOUND sinceRestore=1000 cars=[b9e03c8e-a44f-4ada-9cc4-292deb282ab1:distance=20.898363285428367:speed=0.12473143425405425:ready=false, e20ce107-a971-4a5f-8248-20c1a83444aa:distance=26.917101992212814:speed=0.12658920004955596:ready=false, 647c8a43-6eb1-4326-b5f4-8f7a0b6ae818:distance=32.94189629741655:speed=0.12944340788918351:ready=false, c4735f33-ad07-4cb5-a224-0efd90db399c:distance=38.97444908555867:speed=0.12910617996607476:ready=false]
+FD_PAX_PHASE_BRAKING target=OUTBOUND sinceRestore=2000 cars=[b9e03c8e-a44f-4ada-9cc4-292deb282ab1:distance=24.179380644835323:speed=0.11459672703095367:ready=false, e20ce107-a971-4a5f-8248-20c1a83444aa:distance=30.201314492289804:speed=0.11568611079085338:ready=false, 647c8a43-6eb1-4326-b5f4-8f7a0b6ae818:distance=36.23012433486455:speed=0.11664867568598215:ready=false, c4735f33-ad07-4cb5-a224-0efd90db399c:distance=42.26731162635986:speed=0.11693672904445206:ready=false]
+FD_PAX_PHASE_BRAKING target=OUTBOUND sinceRestore=3000 cars=[b9e03c8e-a44f-4ada-9cc4-292deb282ab1:distance=27.168595928351984:speed=0.10321995721957093:ready=false, e20ce107-a971-4a5f-8248-20c1a83444aa:distance=33.19383700944141:speed=0.10316087012067568:ready=false, 647c8a43-6eb1-4326-b5f4-8f7a0b6ae818:distance=39.22652804075314:speed=0.10429595136458211:ready=false, c4735f33-ad07-4cb5-a224-0efd90db399c:distance=45.26811156103265:speed=0.10395048739044466:ready=false]
+FD_PAX_PHASE_BRAKING target=OUTBOUND sinceRestore=4000 cars=[b9e03c8e-a44f-4ada-9cc4-292deb282ab1:distance=29.881253442100032:speed=0.09242625781010505:ready=false, e20ce107-a971-4a5f-8248-20c1a83444aa:distance=35.90978459207627:speed=0.09250504880248035:ready=false, 647c8a43-6eb1-4326-b5f4-8f7a0b6ae818:distance=41.94634396890354:speed=0.09112705670033795:ready=false, c4735f33-ad07-4cb5-a224-0efd90db399c:distance=47.99197983875375:speed=0.09369058412584265:ready=false]
+FD_PAX_PHASE_BRAKING target=OUTBOUND sinceRestore=5000 cars=[b9e03c8e-a44f-4ada-9cc4-292deb282ab1:distance=32.275521063407446:speed=0.07900424992124368:ready=true, e20ce107-a971-4a5f-8248-20c1a83444aa:distance=38.30716483211763:speed=0.07809794051682235:ready=true, 647c8a43-6eb1-4326-b5f4-8f7a0b6ae818:distance=44.34726042885404:speed=0.0818591527761524:ready=false, c4735f33-ad07-4cb5-a224-0efd90db399c:distance=50.39643293601522:speed=0.08013029117131386:ready=false]
+FD_PAX_PHASE_RECOVERY target=OUTBOUND action=recover waitTicks=4929 drift=15.662408382733279 initialCarriageTravel=0.0 maxCarriageStep=0.0 carriageDrift=0.0 maxReloadStep=0.10336840871930025 phase=CAPTURING
+FD_PAX_PHASE_COMPLETE target=OUTBOUND cycles=1 cars=4 riders=16 alive=true unloaded=true telemetry=true phases=[BOARDING, LIFTING, OUTBOUND, CAPTURING]
+FD_PAX_PHASE_ENERGY target=LIFTING required=false
+FD_PAX_PHASE_DEPENDENCIES target=LIFTING seeds=12 requiredBodies=12 complete=true
+FD_PAX_PHASE_REFERENCES target=LIFTING replacedBeforeRelease=0
+FD_PAX_PHASE_RELEASE target=LIFTING tick=320 speed=3.8497508170508814 bodies=13 riders=16
+FD_PAX_PHASE_FLUSH target=LIFTING native=true
+FD_PAX_PHASE_EVICTED target=LIFTING tick=570 blocks=6 bodies=13 occupants=16 phase=FAULT interrupted=LIFTING
+FD_PAX_PHASE_STAGGERED target=LIFTING winchTicking=false carriage=true ticks=100 travel=0.07552297376060386
+FD_PAX_PHASE_RESTORED target=LIFTING fresh=true riders=16 phase=FAULT interrupted=LIFTING fault=Shuttle winch chunk unavailable or winch removed
+FD_PAX_PHASE_RECOVERY target=LIFTING action=resume waitTicks=60 drift=2.1943833417026326E-9 initialCarriageTravel=0.029756004106540824 maxCarriageStep=0.0038013989396506937 carriageDrift=0.0 maxReloadStep=0.0033649888709850733 phase=LIFTING
+FD_PAX_PHASE_COMPLETE target=LIFTING cycles=1 cars=4 riders=16 alive=true unloaded=true telemetry=true phases=[BOARDING, LIFTING, OUTBOUND, RETURNING, CAPTURING]
+[08:28:42] [Server thread/INFO] [minecraft/GameTestServer]: All 38 required tests passed :)
+BUILD SUCCESSFUL in 2m 15s

@@ -1,0 +1,348 @@
+package dev.fourthdimension.integration.magnetized;
+
+import com.simibubi.create.content.contraptions.actors.seat.SeatBlock;
+import dev.fourthdimension.magnetic.MagneticRuntime;
+import dev.fourthdimension.physics.MagneticSpan;
+import dev.fourthdimension.runtime.FoundationData;
+import dev.fourthdimension.track.*;
+import dev.fourthdimension.vehicle.*;
+import dev.ryanhcode.sable.api.sublevel.SubLevelContainer;
+import dev.ryanhcode.sable.sublevel.ServerSubLevel;
+import dev.ryanhcode.sable.sublevel.storage.SubLevelRemovalReason;
+import dev.silvergold.simulatedcoasters.SimulatedCoastersBlocks;
+import dev.silvergold.simulatedcoasters.track.anchor.CoasterAnchorpointBlockEntity;
+import dev.silvergold.simulatedcoasters.track.cart.CoasterCartResolve;
+import dev.silvergold.simulatedcoasters.track.graph.*;
+import java.util.*;
+import net.antopfr.coastersmagnetized.magnet.*;
+import net.minecraft.core.BlockPos;
+import net.minecraft.gametest.framework.GameTestHelper;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.animal.Pig;
+import net.minecraft.world.level.GameType;
+import net.minecraft.world.phys.Vec3;
+import net.neoforged.neoforge.common.util.FakePlayerFactory;
+import org.joml.Vector3d;
+
+/** Occupied gravity rollback and propulsion on paired, original functional inclines. */
+public final class MagnetizedSlopeCheck {
+  private MagnetizedSlopeCheck() {}
+
+  private static final class Lane {
+    final TrackDesign design;
+    final boolean powered;
+    final FoundationData.Rail rail;
+    FoundationData.Vehicle car;
+    Pig rider;
+    UUID seat;
+    double startZ, startY, uphillZ;
+
+    Lane(TrackDesign design, boolean powered, FoundationData.Rail rail) {
+      this.design = design;
+      this.powered = powered;
+      this.rail = rail;
+    }
+  }
+
+  public static void run(GameTestHelper helper) {
+    var level = helper.getLevel();
+    var container = SubLevelContainer.getContainer(level);
+    var data = FoundationData.get(level);
+    var player =
+        FakePlayerFactory.get(
+            level,
+            new com.mojang.authlib.GameProfile(
+                UUID.fromString("fdfdfdfd-0000-0000-0000-000000000419"), "FDMagnetSlope"));
+    player.setGameMode(GameType.CREATIVE);
+    player.setItemInHand(InteractionHand.MAIN_HAND, TrackItems.ARROW.get().getDefaultInstance());
+    var lanes = new ArrayList<Lane>();
+    for (var design :
+        List.of(
+            TrackDesign.ARROW, TrackDesign.LEGACY, TrackDesign.FREE_SPIN, TrackDesign.REVISED)) {
+      for (boolean powered : new boolean[] {false, true}) {
+        var from = new BlockPos(-900 + lanes.size() * 24, 160, 400);
+        var to = from.offset(0, 12, 60);
+        for (int x = (from.getX() - 16) >> 4; x <= (from.getX() + 16) >> 4; x++)
+          for (int z = 24; z <= 30; z++) level.setChunkForced(x, z, true);
+        for (var pos : List.of(from, to))
+          level.setBlockAndUpdate(
+              pos, SimulatedCoastersBlocks.COASTER_ANCHORPOINT.get().defaultBlockState());
+        player.setPos(to.getX() + 2, to.getY() + 1, to.getZ());
+        var rail =
+            TrackPlacement.connect(level, from, to, design, player, player.getMainHandItem());
+        if (design == TrackDesign.FREE_SPIN)
+          rail.magnets =
+              List.of(
+                  new MagneticSpan(
+                      0,
+                      TrackGeometry.table(level, TrackGeometry.resolve(level, rail)).length(),
+                      MagneticSpan.Mode.INDUCE,
+                      1,
+                      2,
+                      .1,
+                      1));
+        lanes.add(new Lane(design, powered, rail));
+      }
+    }
+    System.out.println(
+        "FD_MAGNETIZED_SLOPE_CONFIG acceleration="
+            + MagnetBoost.maxAcceleration()
+            + " maxSpeed="
+            + MagnetBoost.maxSpeed()
+            + " rise=12 run=60 rollbackPercent=10 uphillPercent=30 brakePercent=100");
+    helper.runAtTickTime(
+        20,
+        () -> {
+          for (var lane : lanes) {
+            var edge = TrackGeometry.resolve(level, lane.rail);
+            lane.car =
+                VehicleFactory.create(
+                    level,
+                    lane.design,
+                    new CoasterPathTrackFrame.GraphHit(
+                        CoasterPathGraphManager.sampleEdgePosition(level, edge, .5), edge, .5));
+            equipment(level, lane, AnchorMode.MAGNET, 10, lane.powered);
+          }
+        });
+    helper.runAtTickTime(
+        100,
+        () -> {
+          for (var lane : lanes) {
+            helper.assertTrue(
+                Boarding.ready(level, lane.car), "Slope station not ready " + lane.design);
+            lane.rider = EntityType.PIG.create(level);
+            lane.rider.setNoAi(true);
+            var center = center(level, lane);
+            lane.rider.setPos(center.x, center.y + 2, center.z);
+            level.addFreshEntity(lane.rider);
+            var carrier = lane.car.carriers.getFirst();
+            SeatBlock.sitDown(
+                level,
+                container
+                    .getSubLevel(carrier.body)
+                    .getPlot()
+                    .getCenterBlock()
+                    .offset(carrier.seats.getFirst()),
+                lane.rider);
+            helper.assertTrue(lane.rider.isPassenger(), "Slope rider failed to board");
+            lane.seat = lane.rider.getVehicle().getUUID();
+            VehicleOperations.restraints(level, lane.car, true);
+            VehicleOperations.dispatch(level, lane.car);
+            velocity(level, lane, 0);
+            lane.startZ = center.z;
+            lane.startY = center.y;
+            var tangent = tangent(level, lane);
+            helper.assertTrue(tangent.y > .1 && tangent.z > .8, "Fixture is not an uphill incline");
+            report(helper, lane, "release");
+          }
+        });
+    helper.runAtTickTime(
+        130,
+        () -> {
+          for (var lane : lanes) report(helper, lane, "gravity_rollback");
+          for (int i = 0; i < lanes.size(); i += 2) {
+            var control = lanes.get(i);
+            var powered = lanes.get(i + 1);
+            for (var lane : List.of(control, powered)) {
+              var center = center(level, lane);
+              helper.assertTrue(
+                  center.z < lane.startZ - .25
+                      && center.y < lane.startY - .05
+                      && along(level, lane) < -.2,
+                  "Gravity failed to produce rollback " + lane.design + "/" + lane.powered);
+            }
+            helper.assertTrue(
+                along(level, powered) < along(level, control) - .1,
+                "Magnetized did not accelerate gravity rollback beyond control " + powered.design);
+          }
+          for (var lane : lanes) equipment(level, lane, AnchorMode.BRAKE, 100, true);
+        });
+    helper.runAtTickTime(
+        180,
+        () -> {
+          for (var lane : lanes) {
+            report(helper, lane, "rollback_brake");
+            helper.assertTrue(
+                speed(level, lane) < .15, "Slope rollback brake failed " + lane.design);
+            lane.uphillZ = center(level, lane).z;
+            equipment(level, lane, AnchorMode.MAGNET, 30, lane.powered);
+            velocity(level, lane, 2);
+          }
+        });
+    helper.runAtTickTime(
+        220,
+        () -> {
+          for (var lane : lanes) report(helper, lane, "uphill");
+          for (int i = 0; i < lanes.size(); i += 2) {
+            var control = lanes.get(i);
+            var powered = lanes.get(i + 1);
+            helper.assertTrue(
+                along(level, powered) > 2.1 && center(level, powered).z > powered.uphillZ + 1,
+                "Magnetized failed to accelerate uphill " + powered.design);
+            helper.assertTrue(
+                along(level, powered) > along(level, control) + .2,
+                "Uphill propulsion did not exceed unpowered control " + powered.design);
+          }
+          for (var lane : lanes) equipment(level, lane, AnchorMode.BRAKE, 100, true);
+        });
+    helper.runAtTickTime(
+        270,
+        () -> {
+          for (var lane : lanes) {
+            report(helper, lane, "uphill_brake");
+            helper.assertTrue(speed(level, lane) < .15, "Uphill brake failed " + lane.design);
+            VehicleOperations.capture(level, lane.car);
+          }
+        });
+    helper.runAtTickTime(
+        450,
+        () -> {
+          for (var lane : lanes) {
+            report(helper, lane, "capture");
+            helper.assertTrue(
+                Boarding.ready(level, lane.car), "Slope recapture failed " + lane.design);
+            if (lane.design == TrackDesign.FREE_SPIN)
+              for (int i = 0; i < lane.car.carriers.size(); i++) {
+                var audit =
+                    MagneticRuntime.audit(
+                        (ServerSubLevel) container.getSubLevel(lane.car.carriers.get(i).body));
+                helper.assertTrue(
+                    (i == 0 ? audit.impulses > 0 : audit.impulses == 0)
+                        && audit.energyChange <= 1e-6,
+                    "Slope drive changed passive seat-magnet ownership or added energy");
+                System.out.println(
+                    "FD_MAGNETIZED_SLOPE_SEAT powered="
+                        + lane.powered
+                        + " group="
+                        + i
+                        + " impulses="
+                        + audit.impulses
+                        + " energy="
+                        + audit.energyChange);
+              }
+            VehicleOperations.restraints(level, lane.car, false);
+            lane.rider.stopRiding();
+            helper.assertTrue(!lane.rider.isPassenger(), "Slope rider failed restraint release");
+            lane.rider.discard();
+            for (var carrier : lane.car.carriers)
+              container.removeSubLevel(
+                  container.getSubLevel(carrier.body), SubLevelRemovalReason.REMOVED);
+            container.removeSubLevel(
+                container.getSubLevel(lane.car.chassis), SubLevelRemovalReason.REMOVED);
+            data.vehicles.remove(lane.car.chassis);
+            ((CoasterAnchorpointBlockEntity) level.getBlockEntity(lane.rail.from))
+                .removeAnchorPeerCurve(level, lane.rail.to);
+            data.rails.remove(lane.rail);
+            level.removeBlock(lane.rail.from.below(), false);
+            level.removeBlock(lane.rail.from, false);
+            level.removeBlock(lane.rail.to, false);
+          }
+          System.out.println(
+              "FD_MAGNETIZED_SLOPE_COMPLETE families=4 lanes=8 riders=8 phases=6"
+                  + " paxExternalDrive=false");
+          helper.succeed();
+        });
+  }
+
+  private static void equipment(
+      ServerLevel level, Lane lane, AnchorMode mode, int percent, boolean powered) {
+    MagnetizedRideCheck.setEquipment(level, lane.rail, mode, percent);
+    if (!powered) level.removeBlock(lane.rail.from.below(), false);
+    double acceleration =
+        MagnetBoost.accelerationFor(level, TrackGeometry.resolve(level, lane.rail));
+    if (powered
+        ? (mode == AnchorMode.BRAKE ? acceleration >= 0 : acceleration <= 0)
+        : acceleration != 0) throw new IllegalStateException("Slope equipment power/mode mismatch");
+  }
+
+  private static ServerSubLevel body(ServerLevel level, Lane lane) {
+    return (ServerSubLevel) SubLevelContainer.getContainer(level).getSubLevel(lane.car.chassis);
+  }
+
+  private static Vector3d center(ServerLevel level, Lane lane) {
+    return new Vector3d(CoasterCartResolve.cartCenterWorld(body(level, lane)));
+  }
+
+  private static Vector3d tangent(ServerLevel level, Lane lane) {
+    var p = center(level, lane);
+    var edge = TrackGeometry.resolve(level, lane.rail);
+    var hit = CoasterPathTrackFrame.closestHitOnEdge(level, edge, new Vec3(p.x, p.y, p.z));
+    var forward = CoasterPathTrackFrame.trackBasisAtHit(level, hit).forward();
+    var tangent = new Vector3d(forward.x, forward.y, forward.z);
+    if (tangent.z < 0) tangent.negate();
+    return tangent.normalize();
+  }
+
+  private static double along(ServerLevel level, Lane lane) {
+    return SubLevelContainer.getContainer(level)
+        .physicsSystem()
+        .getPipeline()
+        .getLinearVelocity(body(level, lane), new Vector3d())
+        .dot(tangent(level, lane));
+  }
+
+  private static double speed(ServerLevel level, Lane lane) {
+    return SubLevelContainer.getContainer(level)
+        .physicsSystem()
+        .getPipeline()
+        .getLinearVelocity(body(level, lane), new Vector3d())
+        .length();
+  }
+
+  private static void velocity(ServerLevel level, Lane lane, double along) {
+    var container = SubLevelContainer.getContainer(level);
+    var pipeline = container.physicsSystem().getPipeline();
+    var velocity = tangent(level, lane).mul(along);
+    var ids = new ArrayList<UUID>();
+    ids.add(lane.car.chassis);
+    lane.car.carriers.forEach(c -> ids.add(c.body));
+    for (var id : ids) {
+      var body = (ServerSubLevel) container.getSubLevel(id);
+      pipeline.addLinearAndAngularVelocity(
+          body,
+          new Vector3d(velocity).sub(pipeline.getLinearVelocity(body, new Vector3d())),
+          new Vector3d());
+    }
+  }
+
+  private static void report(GameTestHelper helper, Lane lane, String phase) {
+    var level = helper.getLevel();
+    var center = center(level, lane);
+    var tangent = tangent(level, lane);
+    boolean rider = lane.rider.isPassenger() && lane.rider.getVehicle().getUUID().equals(lane.seat);
+    helper.assertTrue(
+        rider
+            && lane.rider.getHealth() == lane.rider.getMaxHealth()
+            && lane.car.restraints
+            && lane.car.fault.isBlank()
+            && lane.rail.matches(lane.car.boundFrom, lane.car.boundTo),
+        "Slope lost rider, restraints or matching support " + phase);
+    helper.assertTrue(
+        center.z > lane.rail.from.getZ() + 4 && center.z < lane.rail.to.getZ() - 4,
+        "Slope measurement reached a boundary " + lane.design + "/" + phase);
+    System.out.println(
+        "FD_MAGNETIZED_SLOPE phase="
+            + phase
+            + " family="
+            + lane.design
+            + " powered="
+            + lane.powered
+            + " y="
+            + center.y
+            + " z="
+            + center.z
+            + " tangentY="
+            + tangent.y
+            + " along="
+            + along(level, lane)
+            + " speed="
+            + speed(level, lane)
+            + " stopping="
+            + lane.car.stopping
+            + " rider=true health="
+            + lane.rider.getHealth()
+            + " restraints=true matchingSupport=true fault=none");
+  }
+}

@@ -28,4 +28,14 @@ public final class MagnetizedIntegrationGameTests {
     }
     dev.fourthdimension.integration.magnetized.MagnetizedRideCheck.runLinked(helper);
   }
+
+  @GameTest(template = "empty", batch = "fourthdimension_magnetized_slopes", timeoutTicks = 560)
+  public static void magnetizedOccupiedSlopesAndGravityRollback(GameTestHelper helper) {
+    if (!OptionalIntegrations.supported("coastersmagnetized", Set.of("1.1.0"))) {
+      System.out.println("FD_MAGNETIZED_SLOPE_SKIPPED: optional 1.1.0 artifact absent");
+      helper.succeed();
+      return;
+    }
+    dev.fourthdimension.integration.magnetized.MagnetizedSlopeCheck.run(helper);
+  }
 }

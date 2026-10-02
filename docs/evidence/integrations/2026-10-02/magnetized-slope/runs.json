@@ -1,0 +1,94 @@
+{
+  "first": {
+    "exit_status": 1,
+    "raw_log_sha256": "2d0987ac317b79ff6318dc2b67baf8b2a0811f7b0bd44b145ff44081a2530103"
+  },
+  "observation-magnetized": {
+    "status": "complete",
+    "profile": "magnetized",
+    "pid": 1599864,
+    "command": [
+      "./gradlew",
+      "-Dorg.gradle.jvmargs=-Xmx1G",
+      "--max-workers=2",
+      "build",
+      "runGameTestServer",
+      "-PfdIntegrations=magnetized"
+    ],
+    "exit_status": 0,
+    "raw_log_sha256": "472b5c2876368170fe19d82c38805725532d34c7da59ae507940eb8240e5995f"
+  },
+  "prebatch-magnetized": {
+    "status": "complete",
+    "profile": "magnetized",
+    "pid": 1603291,
+    "command": [
+      "./gradlew",
+      "-Dorg.gradle.jvmargs=-Xmx1G",
+      "--max-workers=2",
+      "build",
+      "runGameTestServer",
+      "-PfdIntegrations=magnetized"
+    ],
+    "exit_status": 0,
+    "raw_log_sha256": "d5ff39862d0bb0d6fc88f7649eae60bf37d1328c9e509e301c3cd7a9d618463c"
+  },
+  "capacity-combined": {
+    "status": "complete",
+    "profile": "combined",
+    "pid": 1609081,
+    "command": [
+      "./gradlew",
+      "-Dorg.gradle.jvmargs=-Xmx1G",
+      "--max-workers=2",
+      "runGameTestServer",
+      "-PfdIntegrations=engineered,styles,additions,magnetized,immersion",
+      "-PfdPaxEnergyReload"
+    ],
+    "exit_status": 1,
+    "raw_log_sha256": "863b0f298edbd32f29d6c2e7be8ba1f452200c4f887bf41e4f1f26c666c3075a"
+  },
+  "magnetized": {
+    "status": "complete",
+    "profile": "magnetized",
+    "pid": 1624725,
+    "command": [
+      "./gradlew",
+      "-Dorg.gradle.jvmargs=-Xmx1G",
+      "--max-workers=2",
+      "build",
+      "runGameTestServer",
+      "-PfdIntegrations=magnetized"
+    ],
+    "exit_status": 0,
+    "raw_log_sha256": "6810c98371c12656ac95972fd3c54a11875c9632895a974527584401d6ad0ca5"
+  },
+  "combined": {
+    "status": "complete",
+    "profile": "combined",
+    "pid": 1630291,
+    "command": [
+      "./gradlew",
+      "-Dorg.gradle.jvmargs=-Xmx1G",
+      "--max-workers=2",
+      "runGameTestServer",
+      "-PfdIntegrations=engineered,styles,additions,magnetized,immersion",
+      "-PfdPaxEnergyReload"
+    ],
+    "exit_status": 0,
+    "raw_log_sha256": "a79c7f3a2de5cd95bdb9c742e3861c177222a34d527e8a250b7326981d3d61a5"
+  },
+  "base": {
+    "status": "complete",
+    "profile": "base",
+    "pid": 1634570,
+    "command": [
+      "./gradlew",
+      "-Dorg.gradle.jvmargs=-Xmx1G",
+      "--max-workers=2",
+      "runGameTestServer"
+    ],
+    "exit_status": 0,
+    "raw_log_sha256": "0c82871d7cbe03c25ba0cc42261de3b48bd8dcc8b5cb37b1a9e8bf4caa5f03ae"
+  }
+}

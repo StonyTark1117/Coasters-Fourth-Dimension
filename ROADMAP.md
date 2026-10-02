@@ -363,6 +363,14 @@ forward/reverse flat-track travel. All seven profiles pass 140 decisions and ten
 travel legs each. Production classes are unchanged. Mixed recovery consists,
 arbitrary assembled bodies and the remaining entry paths are not closed by this check.
 
+The [Magnetized incline checkpoint (2026-10-02)](docs/evidence/integrations/2026-10-02/magnetized-slope/README.md)
+adds occupied, paired powered/unpowered tests for the four non-PAX families on a
+12:60 grade. It verifies gravity rollback, uphill propulsion, greater-than-90%
+braking speed reduction and passive seat-magnet ownership in individual and combined
+profiles. It also records continued downhill creep under powered brakes and normal
+capture, so rigid inclined station holding remains unverified and is not advertised.
+The fixture runs in its own batch to respect the unchanged 64-vehicle limit.
+
 **Done when:** each advertised combination has recorded results. Wrong-family 4D carts are rejected everywhere, and ordinary carts receive no 4D benefit.
 
 ### FD902 Validate multiplayer and lifecycle recovery

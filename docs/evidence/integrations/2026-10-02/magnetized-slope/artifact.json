@@ -1,0 +1,32 @@
+{
+  "baseline_jar_sha256": "45e0de545163e99077b799a20b4dce81feddff6b8be27c0c512a77f53aabc803",
+  "jar_sha256": "1842fda2f44f7ee9b83d5ef56939057d4f3a6f00d918b1b372871fbd4481d0e8",
+  "diff": {
+    "added": [
+      "dev/fourthdimension/integration/magnetized/MagnetizedSlopeCheck$Lane.class",
+      "dev/fourthdimension/integration/magnetized/MagnetizedSlopeCheck.class"
+    ],
+    "removed": [],
+    "changed": [
+      "dev/fourthdimension/gametest/MagnetizedIntegrationGameTests.class"
+    ]
+  },
+  "classes": {
+    "dev/fourthdimension/integration/magnetized/MagnetizedSlopeCheck$Lane.class": {
+      "compiled_sha256": "dc27f52cf028c8ffa2b32639ab2f19f8fe14e34ad1849385a23a7577d52154e0",
+      "jar_sha256": "dc27f52cf028c8ffa2b32639ab2f19f8fe14e34ad1849385a23a7577d52154e0"
+    },
+    "dev/fourthdimension/integration/magnetized/MagnetizedSlopeCheck.class": {
+      "compiled_sha256": "2935573294f0376b60c24b39936fd3c8f5adb5c40d4050a2725f5915ba37a88c",
+      "jar_sha256": "2935573294f0376b60c24b39936fd3c8f5adb5c40d4050a2725f5915ba37a88c"
+    },
+    "dev/fourthdimension/gametest/MagnetizedIntegrationGameTests.class": {
+      "compiled_sha256": "9835bc84fdb8e41a650287f9012e8cc5b6922ed4e1e10e0dc0faabf52a6794cc",
+      "jar_sha256": "9835bc84fdb8e41a650287f9012e8cc5b6922ed4e1e10e0dc0faabf52a6794cc"
+    }
+  },
+  "sources": {
+    "fixture.java.txt": "72e52e3f567ef5768d215c27eac5607b71ccd5499829b43f8e8bf5a91ebc1c30",
+    "registration.java.txt": "885a2547397e019e3088d3fb1bf8571a1a17aec19ceee0278aef1ed8c5d43299"
+  }
+}

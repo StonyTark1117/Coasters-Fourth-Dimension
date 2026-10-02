@@ -1,0 +1,53 @@
+{
+  "scope": "Occupied single-car 12:60 original inclines; gravity rollback, propulsion, at least 90% braking speed reduction, passive seat magnets and capture readiness. Powered brakes and normal capture do not certify a rigid inclined station hold.",
+  "profiles": {
+    "magnetized": {
+      "registered": 38,
+      "absent_addon_skips": 5,
+      "occupied_lanes": 8,
+      "phase_samples": 80,
+      "worst_remaining_speed_fraction": 0.0627503133676822,
+      "powered_uphill_speed_range": [
+        3.464898022848027,
+        8.453420977463026
+      ],
+      "brake_downhill_drift_over_40_ticks": [
+        0.12606816170131196,
+        0.2416991273514668
+      ],
+      "capture_downhill_drift_over_180_ticks": [
+        0.241485595703125,
+        0.3197023493350457
+      ],
+      "rigid_hold_certified": false
+    },
+    "combined": {
+      "registered": 38,
+      "absent_addon_skips": 0,
+      "occupied_lanes": 8,
+      "phase_samples": 80,
+      "worst_remaining_speed_fraction": 0.0627503133676822,
+      "powered_uphill_speed_range": [
+        3.464898022848027,
+        8.453420977463026
+      ],
+      "brake_downhill_drift_over_40_ticks": [
+        0.12606816170131196,
+        0.2416991273514668
+      ],
+      "capture_downhill_drift_over_180_ticks": [
+        0.241485595703125,
+        0.3197023493350457
+      ],
+      "rigid_hold_certified": false
+    },
+    "base": {
+      "registered": 38,
+      "absent_addon_skips": 8,
+      "slope_test_skipped": true
+    }
+  },
+  "unit_tests": 19,
+  "existing_gameplay_entries_unchanged": true,
+  "manifest_artifacts": 36
+}

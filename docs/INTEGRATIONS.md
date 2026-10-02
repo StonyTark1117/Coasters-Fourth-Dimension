@@ -429,7 +429,17 @@ extends this to two cars with native riders, forward/reverse acceleration and br
 retained coupling and normal recapture. Each unsafe trailing-car state blocks lead-car
 propulsion; restoring the peer immediately restores the native impulse. This flat-track
 check does not establish gravity rollback or braking distance on slopes.
-Client equipment visibility, longer trains, curves/slopes, configuration extremes,
+The [occupied incline checkpoint](evidence/integrations/2026-10-02/magnetized-slope/README.md)
+adds paired powered/unpowered cars for all four non-PAX families on 12:60 original
+inclines. Gravity starts rollback without a backward seed; powered cars accelerate
+uphill and amplify rollback. At the recorded settings, braking removes more than
+90% of approach speed and Free Spin seat-magnet ownership remains intact.
+**Neither 100% powered brakes nor normal capture provides a rigid hold on these
+inclines.** Capture restores carrier alignment/readiness, but measured downhill
+creep continues. This does not certify inclined boarding stations; use the separate
+level-station workflows. The failed stop expectation and exact movement measurements
+are retained alongside the passing bounded checks.
+Client equipment visibility, longer trains, other grades/curves, configuration extremes,
 restart/removal and multiplayer still need acceptance before advertising support.
 
 ## Immersion 0.2.3: carrier camera adapter
