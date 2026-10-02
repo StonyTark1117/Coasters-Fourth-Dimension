@@ -118,3 +118,11 @@ active. Flywheel reported a fallback from `flywheel:indirect` to
 `flywheel:off`, so this run cannot certify the normal Flywheel backend, visual
 quality, whole-frame performance, FPS, Track Styles decoration, or general
 shader-pack compatibility. Those remain FD904 acceptance work.
+
+The fallback is expected for the pinned Flywheel 1.0.6 release: inspection of
+its `Backends` class shows that both `indirect` and `instancing` require
+`ShadersModHelper.isShaderPackInUse()` to be false. With Iris reporting Solas
+active, neither backend is supported and Flywheel selects `off`. This is an
+upstream backend limitation, not a Fourth Dimension renderer failure. The
+remaining FD904 shader check is therefore visual/direct-render validation with
+the documented backend limitation, not an attempt to force a disabled backend.

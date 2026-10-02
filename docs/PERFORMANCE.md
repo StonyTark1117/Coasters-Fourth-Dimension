@@ -54,3 +54,8 @@ GPU, and Flywheel backend chosen at startup. A loaded pipeline and nonzero
 was active; they do not prove image quality, whole-frame performance, or every
 Flywheel backend. Record a backend fallback as a limitation of that run rather
 than treating it as full rendering acceptance.
+
+With the pinned Flywheel 1.0.6, both built-in accelerated backends require no
+shader pack to be active. Iris/Solas therefore causes Flywheel to select `off`;
+that expected upstream behavior does not stop this addon's direct render stage,
+but it prevents an accelerated-Flywheel claim for shader-mode sampling.
