@@ -1,12 +1,16 @@
 # Ordinary-bearing recovery
 
-Development build 0.9.0-dev.24 includes explicit recovery coupling for the five
+Development build 0.9.0-dev.25 includes explicit recovery coupling for the five
 original families. A 4D car stays on its matching functional track throughout.
 Only the pinned, unmodified bare Coasters bearing is certified as the ordinary
 recovery cart. It acquires no carriers, profile, magnetic assistance or 4D data.
 Added blocks or controllers invalidate that certification. While recovery remains
 attached, the ordinary bearing also stays on the consist’s functional family;
 disconnecting restores its independent ordinary-cart access.
+
+The occupied banked recovery fixtures now check the mounted native rider against
+the carrier's non-seat mechanical rack at every recorded pose. The intentional
+seat attachment is excluded; see the [rider-rack checkpoint](evidence/0.4/recovery/rider-rack-clearance/acceptance.md).
 
 ## Operator workflow
 

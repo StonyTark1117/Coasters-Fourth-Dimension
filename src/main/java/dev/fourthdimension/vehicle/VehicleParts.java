@@ -47,7 +47,7 @@ public final class VehicleParts {
           () ->
               new MechanicalPartBlock(
                   BlockBehaviour.Properties.of().strength(4).noOcclusion(),
-                  Block.box(0, -2, 6, 16, 2, 10)));
+                  Block.box(0, 6, 6, 16, 10, 10)));
   public static final DeferredBlock<Block> REVISED_STRUT =
       BLOCKS.register(
           "revised_strut",

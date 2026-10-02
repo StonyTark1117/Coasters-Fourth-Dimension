@@ -230,6 +230,7 @@ def audit(route, entries, resources, margin):
     minimum = math.inf
     wheel_minimum, wheel_closest, wheel_checks = math.inf, None, 0
     rider_minimum, rider_closest, rider_checks = math.inf, None, 0
+    rider_rack_minimum, rider_rack_closest, rider_rack_checks = math.inf, None, 0
     neighbor_minimum, neighbor_closest = math.inf, None
     neighbor_pairs = 0
     for entry in entries:
@@ -264,7 +265,9 @@ def audit(route, entries, resources, margin):
                 body = specs[rider["body"]]
                 if body["role"] != "carrier":
                     raise ValueError("Mounted rider is not attached to a carrier")
-                axes, eye = np.array(pose_by_id[rider["body"]]["axes"]), np.array(rider["eye"])
+                axes = np.array(pose_by_id[rider["body"]]["axes"])
+                origin = np.array(pose_by_id[rider["body"]]["origin"])
+                eye = np.array(rider["eye"])
                 width, height, eye_height = (float(rider[key]) for key in ("width", "height", "eyeHeight"))
                 if (not np.isfinite(eye).all() or not all(math.isfinite(value) for value in (width, height, eye_height))
                         or not .5 <= width <= 1.1 or not .5 <= height <= 2.1 or not .3 <= eye_height <= 1.8):
@@ -294,6 +297,27 @@ def audit(route, entries, resources, margin):
                     rider_closest = {"tick": entry["tick"], "body": rider["body"], "modelElement": "nativeRider", "trackComponent": labels[index]}
                 if gap < margin and len(failures) < 20:
                     failures.append({"gap": gap, "tick": entry["tick"], "body": rider["body"], "modelElement": "nativeRider", "trackComponent": labels[index]})
+                # A rider is mounted to a seat, so its seat volume is intentional contact.
+                # Every other block-model volume in that exact carrier is mechanical rack
+                # geometry and must retain the same clearance as the route/neighbor audit.
+                for rack_points, rack_label in body["boxes"]:
+                    if rack_label.startswith("fourthdimension:") and "_seat@" in rack_label:
+                        continue
+                    rack_world = rack_points @ axes + origin
+                    rack_low, rack_high = rack_world.min(axis=0), rack_world.max(axis=0)
+                    rack_gap = float(np.linalg.norm(np.maximum(0, np.maximum(low - rack_high, rack_low - high))))
+                    if rack_gap < margin * 4:
+                        rack_gap = boxes_separation(world, axes, rack_world, axes)
+                    rider_rack_checks += 1
+                    if rack_gap < rider_rack_minimum:
+                        rider_rack_minimum = rack_gap
+                        rider_rack_closest = {
+                            "tick": entry["tick"], "body": rider["body"],
+                            "modelElement": "nativeRider", "rackComponent": rack_label}
+                    if rack_gap < margin and len(failures) < 20:
+                        failures.append({
+                            "gap": rack_gap, "tick": entry["tick"], "body": rider["body"],
+                            "modelElement": "nativeRider", "rackComponent": rack_label})
             if len(rider_cars) != route["carCount"]:
                 raise ValueError("Missing a mounted rider for an original car")
             for pose in entry["poses"]:
@@ -377,6 +401,8 @@ def audit(route, entries, resources, margin):
         raise ValueError("Native wheel envelopes were not audited")
     if rider_checks == 0 or not math.isfinite(rider_minimum):
         raise ValueError("Mounted rider envelopes were not audited")
+    if rider_rack_checks == 0 or not math.isfinite(rider_rack_minimum):
+        raise ValueError("Mounted rider envelopes were not audited against carrier rack geometry")
     return {"family": route["family"], "cars": route["carCount"], "samples": samples,
             "trackTriangles": len(triangles), "minimumSeparatingBound": minimum,
             "closest": closest, "requiredGap": margin, "passes": not failures,
@@ -386,6 +412,9 @@ def audit(route, entries, resources, margin):
             "riderEnvelopeCount": rider_checks,
             "riderMinimumSeparatingBound": rider_minimum,
             "riderClosest": rider_closest,
+            "riderRackEnvelopeCount": rider_rack_checks,
+            "riderRackMinimumSeparatingBound": rider_rack_minimum,
+            "riderRackClosest": rider_rack_closest,
             "neighborMinimumSeparatingBound": neighbor_minimum,
             "neighborClosest": neighbor_closest, "neighborPairs": neighbor_pairs,
             "uncertifiedPairs": failures, "allCarsVisitedSections": 5}

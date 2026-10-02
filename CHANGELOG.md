@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.9.0-dev.25 — sampled native-rider carrier-rack clearance
+
+- Extend the occupied banked-recovery audit from rider-to-track and different-car clearance to each rider's own non-seat carrier rack. The verifier fails when a trace lacks a rider/rack pair, replaces a carrier, or leaves less than the required 0.02-block gap.
+- The new check exposed the Revised carrier axle intersecting its mounted rider. Move its matching rendered/collision volume to the paired-row axle position, then pass all 37 combined native GameTests and seven fresh route audits with a 0.0625-block rider-to-rack lower bound.
+- This remains bounded default-model/Pig evidence: player meshes/cosmetics, client rendering, intentional seat contact, linkage, decorations, continuous sweeping and operator/lifecycle acceptance remain open under FD402.
+
 ## 0.9.0-dev.24 — sampled occupied native-rider clearance
 
 - Extend the source-pinned recovery trace with each live mounted passenger's eye point and native dimensions. The independent audit reconstructs its carrier-oriented volume and requires at least one mounted rider on every original car for every twenty-tick sample.

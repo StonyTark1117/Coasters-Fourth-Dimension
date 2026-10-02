@@ -12,17 +12,22 @@ complete clearance/render coverage, physical recovery and real-client survival
 construction/operation remain 0.4 work. Lifecycle investigation has also begun
 under FD902 toward 0.9.0; this does not close the earlier 0.4 gate.
 
-**Current work package: FD402 recovery towing.** Dev.22 moves Original visual
+**Current work package: FD402 recovery towing.** Dev.25 checks every sampled
+mounted native rider against its own carrier's non-seat mechanical rack. That
+check exposed a Revised axle/rider intersection, which the matched rendered and
+collision axle relocation resolves at a 0.0625-block lower bound; see the
+[rider-rack checkpoint](docs/evidence/0.4/recovery/rider-rack-clearance/acceptance.md).
+Player meshes, linkage and continuous swept clearance remain open. Dev.22 moves Original visual
 supports out of the native lower-bearing channel and independently samples that
 native lower-bearing model against occupied banked recovery routes; see the
 [bearing-clearance checkpoint](docs/evidence/0.4/recovery/bearing-clearance/acceptance.md).
 Dev.24 adds sampled mounted native-rider envelopes at those frames; see the
 [rider-clearance checkpoint](docs/evidence/0.4/recovery/rider-clearance/acceptance.md).
-This bounded Pig-passenger check does not certify player meshes, rider/own-rack
-contact or client rendering. Dev.23 adds sampled full-spin native-wheel envelopes at those banked frames,
+This bounded Pig-passenger check does not certify player meshes, intentional
+seat contact or client rendering. Dev.23 adds sampled full-spin native-wheel envelopes at those banked frames,
 excluding only intended running-rail contact; see the
 [wheel-clearance checkpoint](docs/evidence/0.4/recovery/wheel-clearance/acceptance.md).
-Player meshes, linkage and continuous swept clearance remain open. Dev.21 records actual native body poses and block states for
+Dev.21 records actual native body poses and block states for
 independent sampled default model/track/neighbor clearance; see the
 [model clearance checkpoint](docs/evidence/0.4/recovery/model-clearance/acceptance.md).
 Dev.20 validates original occupied
@@ -31,7 +36,7 @@ runout before normal braking, power cut, disconnection and unloading. All 24
 original native seat mounts, carriers and train links survive. Four-second queued
 native assembly supplies the new operator train demos. See the
 [banked train checkpoint](docs/evidence/0.4/recovery/banked-trains/acceptance.md).
-The next FD402 work is complete rendered vehicle/rider/rack clearance and
+The next FD402 work is complete rendered vehicle/rider/linkage clearance and
 occupied operator/lifecycle acceptance. Dev.19 validates occupied single-car
 native towing across all five families through a quarter bend, a 32-block
 sustained 30-degree bank, a bank-to-level transition and level runout. Original

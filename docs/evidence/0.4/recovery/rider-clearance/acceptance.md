@@ -38,12 +38,17 @@ Both clean GitHub matrices for this exact source revision passed all required
 checks; their immutable workflow and job records are in
 [ci-dev24.json](ci-dev24.json).
 
+Dev.25 separately checks each rider against its own non-seat carrier rack and
+fixes the exposed Revised axle collision; see the
+[rider-rack checkpoint](../rider-rack-clearance/acceptance.md).
+
 ## Limits
 
 The fixtures use mounted Pigs, so this does not establish a player model,
 player cosmetics, animation, client rendering or camera behavior. Same-car
 volumes are intentionally excluded from the neighbor check because their seat
-and hinge contacts are intended; rider clearance to its own rack remains open.
+and hinge contacts are intended. The dedicated dev.25 check excludes only the
+intentional seat contact and covers the remaining own-carrier rack volumes.
 Samples are twenty ticks apart and do not prove continuous curve/bank sweeping,
 linkage clearance, decoration/resource overrides, real-client operator behavior,
 general strength or the recovery lifecycle matrix. FD402, FD404 and the 0.9
