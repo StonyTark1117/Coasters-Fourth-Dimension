@@ -12,12 +12,15 @@ complete clearance/render coverage, physical recovery and real-client survival
 construction/operation remain 0.4 work. Lifecycle investigation has also begun
 under FD902 toward 0.9.0; this does not close the earlier 0.4 gate.
 
-**Current work package: FD402 recovery towing.** Dev.25 checks every sampled
-mounted native rider against its own carrier's non-seat mechanical rack. That
-check exposed a Revised axle/rider intersection, which the matched rendered and
-collision axle relocation resolves at a 0.0625-block lower bound; see the
-[rider-rack checkpoint](docs/evidence/0.4/recovery/rider-rack-clearance/acceptance.md).
-Player meshes, linkage and continuous swept clearance remain open. Dev.22 moves Original visual
+**Current work package: FD402 recovery towing.** Dev.26 records actual native
+chassis, rider and non-seat carrier-rack poses every ten ticks, replacing the
+previous twenty-tick cadence. The five single-car families and two occupied
+original train routes pass fresh dense audits with 577–697 samples per route,
+at least 0.04602 blocks of body/track clearance, 0.08 blocks of rider/track
+clearance and 0.0625 blocks of rider/rack clearance; see the
+[dense-clearance checkpoint](docs/evidence/0.4/recovery/dense-clearance/acceptance.md).
+This is still sampled default-model/native-Pig evidence: player meshes, linkage,
+client rendering and continuous swept clearance remain open. Dev.22 moves Original visual
 supports out of the native lower-bearing channel and independently samples that
 native lower-bearing model against occupied banked recovery routes; see the
 [bearing-clearance checkpoint](docs/evidence/0.4/recovery/bearing-clearance/acceptance.md).

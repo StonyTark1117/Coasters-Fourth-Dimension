@@ -147,7 +147,8 @@ public final class BankedRecoveryGameTests {
         () -> {
           for (var c : cases) {
             if (!c.started || c.finished) continue;
-            if (helper.getTick() % 20 == 0) meshTrace.sample(level, c.example, helper.getTick());
+            if (helper.getTick() % RecoveryMeshTrace.SAMPLE_INTERVAL_TICKS == 0)
+              meshTrace.sample(level, c.example, helper.getTick());
             var e = c.example.recovery();
             var car = e.car();
             var body = container.getSubLevel(car.chassis);

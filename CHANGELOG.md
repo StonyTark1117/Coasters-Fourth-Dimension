@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.9.0-dev.26 — dense sampled recovery clearance
+
+- Record source-pinned actual chassis, rider and carrier-rack poses every ten ticks in the occupied banked-recovery fixtures, replacing the previous twenty-tick cadence. Write each trace through one buffered JSONL stream with an explicit interval header, leaving vehicle motion and saved gameplay state unchanged.
+- Require the independent mesh auditor to read that header, reject missing/out-of-order samples and require at least 500 samples per original route. Pin both trace producers alongside the existing renderer, route and resource inputs.
+- A fresh combined Track Styles/Engineered run passes all 37 required GameTests. The five single-car families and original Arrow/PAX trains pass seven dense route audits: 577–697 pose samples per route, at least 0.04602 blocks of body/track clearance, 0.08 blocks of rider/track clearance and 0.0625 blocks of rider-to-own-rack clearance. This remains 10-tick sampled default-model/Pig evidence, not continuous swept, player, client-rendered, linkage, operator or lifecycle acceptance.
+
 ## 0.9.0-dev.25 — sampled native-rider carrier-rack clearance
 
 - Extend the occupied banked-recovery audit from rider-to-track and different-car clearance to each rider's own non-seat carrier rack. The verifier fails when a trace lacks a rider/rack pair, replaces a carrier, or leaves less than the required 0.02-block gap.

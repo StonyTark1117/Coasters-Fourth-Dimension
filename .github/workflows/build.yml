@@ -64,7 +64,7 @@ jobs:
           test "${#FD_BASE_JARS[@]}" -eq 1
           python3 scripts/audit-arrow-wheel-clearance.py "${FD_BASE_JARS[0]}" \
             "${FD_STYLE_JARS[0]}" > build/wheel-clearance.json
-      - name: Audit sampled native recovery bodies, lower bearings, wheels, riders and carrier racks
+      - name: Audit dense native recovery bodies, lower bearings, wheels, riders and carrier racks
         run: |
           python3 -m pip install -r scripts/requirements-geometry.txt
           FD_BASE_JARS=("$HOME"/.gradle/caches/modules-2/files-2.1/curse.maven/create-coasters-simulated-1601871/8655742/*/*.jar)

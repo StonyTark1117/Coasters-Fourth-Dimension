@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Audit default block-model volumes at recorded native recovery poses.
 
-This is sampled clearance evidence, not continuous swept clearance. Original
+This is dense sampled clearance evidence, not continuous swept clearance. Original
 track tubes are reconstructed from the exact renderer sampling and source-pinned
 dimensions. Body transforms and block states come from the native test, not ideal
 track frames. External resources are read from the separately installed pinned
@@ -37,6 +37,9 @@ SOURCE_PINS = {
     "src/main/java/dev/fourthdimension/client/OriginalTrackRenderer.java": "5089ed597ef5651d5b221eb437e088469f2f28d21028c7bc6be6c9266eca0f0f",
     "src/main/java/dev/fourthdimension/track/TrackDesign.java": "e3a88c3ca661d7b232ee0b9d3c853a6e66c1d0d1147ac4266b001616b1fe1ff1",
     "src/main/java/dev/fourthdimension/vehicle/BankedRecoveryExamples.java": "0d6597a484cf83cca90671ab6351c81cca42a4e9b96075b4843b136d81229439",
+    "src/main/java/dev/fourthdimension/gametest/RecoveryMeshTrace.java": "62206f5b5da11aaeedfcab504968abef33245dcd9175992ea0cdbb424c8d4b34",
+    "src/main/java/dev/fourthdimension/gametest/BankedRecoveryGameTests.java": "89324021f6c70ea8578036b4ae1c924320ef442a9ec3da239c972f89417be66a",
+    "src/main/java/dev/fourthdimension/gametest/BankedRecoveryTrainGameTests.java": "e35abf4b656410bf0bb74c65f1c1942802ee45121d0aeda2a5f5a8c7080e0b47",
 }
 
 
@@ -225,7 +228,7 @@ def audit(route, entries, resources, margin):
     native_bottom_boxes = resources.model_boxes(BOTTOM_MODEL, "nativeLowerBearing")
     native_wheel_boxes = resources.wheel_envelopes()
     specs, samples, completed, visited = {}, 0, False, {}
-    previous_tick, original_body_ids = None, None
+    sample_interval, previous_tick, original_body_ids = None, None, None
     closest, failures = None, []
     minimum = math.inf
     wheel_minimum, wheel_closest, wheel_checks = math.inf, None, 0
@@ -234,7 +237,11 @@ def audit(route, entries, resources, margin):
     neighbor_minimum, neighbor_closest = math.inf, None
     neighbor_pairs = 0
     for entry in entries:
-        if entry["type"] == "body":
+        if entry["type"] == "trace":
+            if sample_interval is not None or entry.get("sampleIntervalTicks") != 10:
+                raise ValueError("Recovery trace does not declare the required 10-tick interval")
+            sample_interval = entry["sampleIntervalTicks"]
+        elif entry["type"] == "body":
             specs[entry["id"]] = {**entry, "boxes": [box for block in entry["blocks"] for box in resources.boxes(block)]}
         elif entry.get("variant") == route["variant"] and entry["type"] == "complete":
             if entry["cars"] != route["carCount"]:
@@ -242,7 +249,9 @@ def audit(route, entries, resources, margin):
             completed = True
         elif entry.get("variant") == route["variant"] and entry["type"] == "sample":
             samples += 1
-            if previous_tick is not None and entry["tick"] - previous_tick != 20:
+            if sample_interval is None:
+                raise ValueError("Recovery trace omits its sampling interval")
+            if previous_tick is not None and entry["tick"] - previous_tick != sample_interval:
                 raise ValueError("Missing or out-of-order native pose samples")
             previous_tick = entry["tick"]
             ids = [pose["id"] for pose in entry["poses"]]
@@ -395,7 +404,7 @@ def audit(route, entries, resources, margin):
                     neighbor_closest = {"tick": entry["tick"], "first": first[5], "second": second[5]}
                 if gap < margin and len(failures) < 20:
                     failures.append({"gap": gap, "tick": entry["tick"], "neighborPair": neighbor_closest})
-    if not completed or samples < 150 or len(visited) != route["carCount"] or any(len(v) != 5 for v in visited.values()):
+    if not completed or samples < 500 or len(visited) != route["carCount"] or any(len(v) != 5 for v in visited.values()):
         raise ValueError("Mesh trace lacks full original-car route coverage and normal completion")
     if wheel_checks == 0 or not math.isfinite(wheel_minimum):
         raise ValueError("Native wheel envelopes were not audited")
@@ -461,9 +470,11 @@ def main():
                                ("src/main/java/dev/fourthdimension/client/OriginalTrackRenderer.java",
                                 "src/main/java/dev/fourthdimension/track/TrackDesign.java",
                                 "src/main/java/dev/fourthdimension/gametest/RecoveryMeshTrace.java",
+                                "src/main/java/dev/fourthdimension/gametest/BankedRecoveryGameTests.java",
+                                "src/main/java/dev/fourthdimension/gametest/BankedRecoveryTrainGameTests.java",
                                 "src/main/java/dev/fourthdimension/vehicle/BankedRecoveryExamples.java") },
-              "resourceHashes": resources.hashes, "sampleIntervalTicks": 20,
-              "scope": "sampled original default block-model, native lower-bearing, full-spin wheel-envelope and mounted native-rider rendered-orientation volumes against original track tubes; running rails are excluded only for wheels as intended contact; no continuous sweep, player meshes, client renderer/cosmetics, linkage, decorations or resource overrides",
+              "resourceHashes": resources.hashes, "sampleIntervalTicks": 10,
+              "scope": "10-tick sampled original default block-model, native lower-bearing, full-spin wheel-envelope and mounted native-rider rendered-orientation volumes against original track tubes; running rails are excluded only for wheels as intended contact; no continuous sweep, player meshes, client renderer/cosmetics, linkage, decorations or resource overrides",
               "method": "2-block spatial bins; omitted pairs certify at least 4x margin; world AABB separation refined by OBB/triangle SAT lower distance bounds",
               "routes": results}
     print(json.dumps(output, indent=2))

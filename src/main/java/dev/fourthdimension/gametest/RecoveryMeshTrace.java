@@ -15,16 +15,19 @@ import org.joml.Vector3d;
 
 /** Read-only native block/state, pose and mounted-rider samples for an independent mesh audit. */
 final class RecoveryMeshTrace {
+  static final int SAMPLE_INTERVAL_TICKS = 10;
   private final Path path;
+  private final BufferedWriter writer;
   private final Set<UUID> registered = new HashSet<>();
 
   RecoveryMeshTrace(String fileName) {
     path = net.neoforged.fml.loading.FMLPaths.GAMEDIR.get().resolve(fileName);
     try {
-      Files.writeString(path, "");
+      writer = Files.newBufferedWriter(path);
     } catch (IOException failure) {
       throw new UncheckedIOException(failure);
     }
+    append(Map.of("type", "trace", "sampleIntervalTicks", SAMPLE_INTERVAL_TICKS));
   }
 
   void sample(ServerLevel level, BankedRecoveryExamples.Example example, long tick) {
@@ -53,6 +56,11 @@ final class RecoveryMeshTrace {
         Map.of(
             "type", "complete", "variant", example.recovery().car().variant,
             "tick", tick, "cars", example.cars().size()));
+    try {
+      writer.flush();
+    } catch (IOException failure) {
+      throw new UncheckedIOException(failure);
+    }
   }
 
   private void record(List<Map<String, Object>> poses, SubLevel body, UUID car, String role) {
@@ -123,8 +131,8 @@ final class RecoveryMeshTrace {
 
   private void append(Map<String, Object> entry) {
     try {
-      Files.writeString(
-          path, new com.google.gson.Gson().toJson(entry) + "\n", StandardOpenOption.APPEND);
+      writer.write(new com.google.gson.Gson().toJson(entry));
+      writer.newLine();
     } catch (IOException failure) {
       throw new UncheckedIOException(failure);
     }

@@ -174,7 +174,8 @@ public final class BankedRecoveryTrainGameTests {
         () -> {
           for (var train : trains) {
             if (!train.started || train.finished) continue;
-            if (helper.getTick() % 20 == 0) meshTrace.sample(level, train.example, helper.getTick());
+            if (helper.getTick() % RecoveryMeshTrace.SAMPLE_INTERVAL_TICKS == 0)
+              meshTrace.sample(level, train.example, helper.getTick());
             var e = train.example.recovery();
             var cars = train.example.cars();
             helper.assertTrue(
