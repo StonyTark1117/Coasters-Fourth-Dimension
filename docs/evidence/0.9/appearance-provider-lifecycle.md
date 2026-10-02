@@ -40,6 +40,20 @@ FD_APPEARANCE schema=6 oldSchemas=1..5 missingProviderAppearances=3
 mechanicsUnchanged=true styleFamilyCases=10 strokeCases=0
 ```
 
+The combined Track Styles 1.2.0 and Coasters: Engineered 1.1.1 profile also
+passed all **39 required GameTests** in **4.042 minutes**, with both Track
+Styles appearance strokes exercised:
+
+```sh
+JAVA_HOME=/usr/lib/jvm/java-21-openjdk ./gradlew runGameTestServer --no-daemon \
+  -PfdIntegrations=styles,engineered
+```
+
+```
+FD_APPEARANCE schema=6 oldSchemas=1..5 missingProviderAppearances=3
+mechanicsUnchanged=true styleFamilyCases=10 strokeCases=2
+```
+
 ## Limits
 
 The recorded lifecycle is schema 5 and the current schema-6 check is a native
