@@ -414,29 +414,31 @@ case retains the one rider assignment, restores the original native carrier and
 returns the player to a `create:seat` before the 200-tick deadline. The
 combined audited integration profile now passes 40 GameTests, including a
 server-side two-live-player regression that retains distinct seat entities and
-UUID-to-seat assignments across a native update. A fresh-world real two-client
-Arrow fixture retains both riders in distinct seats of one carrier and restores
-one rider after a fresh-client reconnect while the other remains mounted. The
-earlier second-rider removal was a stale Sable tracking point in a removed
-sublevel. Native support-loss, late-join, shuttle availability-gap behavior and
-occupied Revised moving-route restart also have bounded evidence. Concurrent
-lifecycle checks on the other four family architectures remain open. See
+UUID-to-seat assignments across a native update. Fresh-world real two-client
+fixtures retain both riders in distinct seats of one carrier across all five
+current families; Arrow also restores one rider after a fresh-client reconnect
+while the other remains mounted. The earlier second-rider removal was a stale
+Sable tracking point in a removed sublevel. Native support-loss, late-join,
+shuttle availability-gap behavior and occupied Revised moving-route restart
+also have bounded evidence. Concurrent interruption coverage beyond Arrow
+remains open. See
 [occupied disconnect/reconnect evidence](docs/evidence/0.9/occupied-disconnect-reconnect.md),
 [support-loss evidence](docs/evidence/0.9/five-family-support-loss.md),
 [two-client late-join evidence](docs/evidence/0.9/two-client-snapshot.md),
 [caught shuttle acceptance and limits](docs/evidence/0.9/caught-shuttle-acceptance.md)
 and [occupied boarding acceptance](docs/evidence/0.9/occupied-shuttle-acceptance.md).
 
-**Latest FD902 checkpoint: two live Arrow riders and reconnect.** A clean
-dedicated-server world admitted Dev and Observer to distinct native seats in the
-same Arrow carrier. It held two assignments and two live `create:seat` mounts
-for fifteen seconds. After Observer disconnected, the server retained both
-assignments while Dev remained mounted; a fresh Observer client was restored
-to the original seat at game tick 3251, before its 3450 deadline. This closes
-the previous Arrow concurrent-rider failure, which was caused by a stale Sable
-tracking point. The existing five-family stationary normal unload/cold-restart
-and current Revised moving-route checkpoints remain valid. Concurrent lifecycle
-coverage for the other four family architectures remains open; see [occupied disconnect/reconnect evidence](docs/evidence/0.9/occupied-disconnect-reconnect.md).
+**Latest FD902 checkpoint: two live riders across all five families.** Clean
+dedicated-server worlds admitted Dev and Observer to distinct native seats in
+the same carrier for Arrow, Legacy, Free Spin, Revised, and the four-chassis
+PAX shuttle. Each retained two assignments and two live `create:seat` mounts
+for fifteen seconds. Arrow additionally retained Observer's assignment during
+disconnect and restored a fresh Observer client to its original seat before the
+deadline while Dev stayed mounted. This closes the prior stale-tracking-point
+failure and the bounded initial concurrency matrix. The existing five-family
+stationary normal unload/cold-restart and current Revised moving-route
+checkpoints remain valid. Concurrent interruption coverage beyond Arrow remains
+open; see [occupied disconnect/reconnect evidence](docs/evidence/0.9/occupied-disconnect-reconnect.md).
 
 **Depends on:** FD404. **Design:** D14, D16, D17.
 

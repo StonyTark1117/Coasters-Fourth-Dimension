@@ -34,10 +34,10 @@ first and independently received the same six 4D body snapshots. The separate
 [occupied five-family disconnect/reconnect check](occupied-disconnect-reconnect.md)
 uses fresh client processes and confirms an assigned rider returns to the
 intended carrier for every family. It also records server-process restarts and
-normal holding-state unload/reload for every family. A clean-world two-client
-Arrow checkpoint also retains distinct same-carrier seats and restores one
-rider while the other stays mounted. Moving-route coverage is recorded for
-Revised; concurrent lifecycle acceptance across the other four families remains
+normal holding-state unload/reload for every family. Clean-world two-client
+fixtures retain distinct same-carrier seats across all five families; Arrow
+also restores one rider while the other stays mounted. Moving-route coverage is
+recorded for Revised; concurrent interruption coverage beyond Arrow remains
 FD902 work.
 
 [Ordinary-cart native snap matrix, dev.27](ordinary-cart-snap-matrix.md)

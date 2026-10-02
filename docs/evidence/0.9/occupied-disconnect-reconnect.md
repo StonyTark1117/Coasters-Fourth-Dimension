@@ -304,9 +304,28 @@ The reconnected live server again reported `assignments=2`, and both players'
 RootVehicle queries identified separate native `create:seat` mounts. This is a
 real two-client, same-carrier Arrow mount and one-rider reconnect result. The
 previous immediate Observer removal was caused by that client's stale tracking
-point in a removed sublevel, rather than an Arrow seat collision. Concurrent
-lifecycle checks on the other four family architectures and moving routes
-remain FD902 work.
+point in a removed sublevel, rather than an Arrow seat collision.
+
+The same clean-world, two-real-client fifteen-second hold was repeated for the
+other original family architectures. Each run placed Dev and Observer in
+distinct seats of the same carrier through the production seat path, then used
+the availability query and two RootVehicle queries before and after the hold:
+
+| Family | Loaded native state with two riders | Seats in selected carrier |
+| --- | --- | ---: |
+| Original Arrow | `chassis=1/1 carriers=2/2 assignments=2` | 2 |
+| Legacy | `chassis=1/1 carriers=2/2 assignments=2` | 4 |
+| Free Spin | `chassis=1/1 carriers=4/4 assignments=2` | 2 |
+| Revised | `chassis=1/1 carriers=4/4 assignments=2` | 2 |
+| PAX shuttle | `chassis=4/4 carriers=8/8 assignments=2` | 2 |
+
+Every before/after RootVehicle query identified a separate native
+`create:seat` for each player. The PAX result covers the four-chassis,
+eight-carrier shuttle architecture. This completes the bounded two-live-rider
+hold across all five current families. Only Arrow has the additional
+one-rider-disconnect/fresh-client-reconnect check while the other rider stays
+mounted; equivalent concurrent interruption and moving-route cases remain
+FD902 work.
 
 The validation-only trace records accepted player-seat assignments before the
 carrier runtime's next loading update, plus mount/dismount state. It identified
@@ -319,6 +338,6 @@ instances with discard-only fake network connections, boards them on separate
 seat offsets of one ready original Arrow carrier, and requires separate native
 seat entities plus both UUID-to-offset assignments after a native update. All
 40 required GameTests passed in 4.293 minutes. This proves the addon-side
-multi-player assignment and retention path. The real two-client Arrow run now
-confirms the corresponding packaged path; the other four family architectures
-still need their concurrent lifecycle checks.
+multi-player assignment and retention path. The real two-client matrix now
+confirms the corresponding packaged hold for all five current families; the
+remaining concurrent interruption cases are called out above.
