@@ -1,0 +1,33 @@
+{
+  "commit": "3cb6ce891884a16302ed62f2b1b5089b1c1f9c05",
+  "workflows": [
+    {
+      "id": 36949092690,
+      "event": "push",
+      "conclusion": "success",
+      "jobs": {
+        "engineered": 110657783926,
+        "combined": 110657784058,
+        "styles": 110657784078,
+        "standalone": 110657784125
+      }
+    },
+    {
+      "id": 36949097265,
+      "event": "pull_request",
+      "conclusion": "success",
+      "jobs": {
+        "engineered": 110657798015,
+        "styles": 110657798241,
+        "standalone": 110657798285,
+        "combined": 110657798389
+      }
+    }
+  ],
+  "requiredChecks": [
+    "all 37 native GameTests passed in every job",
+    "native recovery route geometry passed in every job",
+    "sampled native recovery bodies and lower bearings passed in every job",
+    "installed Arrow decoration audit passed in each Styles and combined job"
+  ]
+}

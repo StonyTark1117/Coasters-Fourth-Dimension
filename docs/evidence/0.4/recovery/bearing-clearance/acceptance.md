@@ -38,6 +38,12 @@ level-straight wheel audit also measures every revised support component and
 rejects a support projection with no nondegenerate triangles. CI repeats the
 same audits in its standalone, Styles, Engineered and combined profiles.
 
+Both exact-head CI workflows passed on commit `3cb6ce8`: push run 36949092690
+and pull-request run 36949097265. Every one of their eight profile jobs passed
+the native route geometry and lower-bearing audits; Styles and combined jobs
+also passed the installed-decoration audit. Job identities and conclusions are
+recorded in [ci-dev22.json](ci-dev22.json).
+
 ## Scope still open
 
 This does not certify rotating native wheel sweeps through banks or curves,
