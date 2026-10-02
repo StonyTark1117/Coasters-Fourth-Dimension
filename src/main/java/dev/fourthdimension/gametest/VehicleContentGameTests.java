@@ -22,6 +22,109 @@ import org.joml.Vector3d;
 @GameTestHolder("fourthdimension")
 @PrefixGameTestTemplate(false)
 public final class VehicleContentGameTests {
+  @GameTest(template = "empty", timeoutTicks = 140)
+  public static void distinctPlayersRetainDistinctCarrierSeats(GameTestHelper helper) {
+    var level = helper.getLevel();
+    for (int x = -10; x <= -7; x++) for (int z = 10; z <= 14; z++) level.setChunkForced(x, z, true);
+    var builder =
+        FakePlayerFactory.get(
+            level,
+            new com.mojang.authlib.GameProfile(
+                UUID.fromString("fdfdfdfd-0000-0000-0000-000000000105"), "FDSeatBuilder"));
+    builder.setGameMode(GameType.CREATIVE);
+    var firstProfile =
+        new com.mojang.authlib.GameProfile(
+            UUID.fromString("fdfdfdfd-0000-0000-0000-000000000106"), "FDSeatFirst");
+    var secondProfile =
+        new com.mojang.authlib.GameProfile(
+            UUID.fromString("fdfdfdfd-0000-0000-0000-000000000107"), "FDSeatSecond");
+    var first =
+        new net.minecraft.server.level.ServerPlayer(
+            level.getServer(),
+            level,
+            firstProfile,
+            net.minecraft.server.level.ClientInformation.createDefault());
+    var second =
+        new net.minecraft.server.level.ServerPlayer(
+            level.getServer(),
+            level,
+            secondProfile,
+            net.minecraft.server.level.ClientInformation.createDefault());
+    first.connection = FakePlayerFactory.get(level, firstProfile).connection;
+    second.connection = FakePlayerFactory.get(level, secondProfile).connection;
+    first.setGameMode(GameType.CREATIVE);
+    second.setGameMode(GameType.CREATIVE);
+    var from = new BlockPos(-148, 96, 173);
+    var to = from.offset(0, 0, 36);
+    for (var point : List.of(from, to))
+      level.setBlockAndUpdate(
+          point, SimulatedCoastersBlocks.COASTER_ANCHORPOINT.get().defaultBlockState());
+    builder.setPos(to.getX() + 2, to.getY() + 1, to.getZ());
+    builder.setItemInHand(InteractionHand.MAIN_HAND, TrackItems.ARROW.get().getDefaultInstance());
+    var rail = TrackPlacement.connect(level, from, to, TrackDesign.ARROW, builder, builder.getMainHandItem());
+    final FoundationData.Vehicle[] vehicle = new FoundationData.Vehicle[1];
+    var container = SubLevelContainer.getContainer(level);
+    helper.runAtTickTime(
+        10,
+        () -> {
+          var edge =
+              CoasterPathGraphManager.get(level).edges().stream()
+                  .filter(candidate -> rail.matches(candidate.from(), candidate.to()))
+                  .findFirst()
+                  .orElseThrow();
+          var point = CoasterPathGraphManager.sampleEdgePosition(level, edge, .4);
+          vehicle[0] =
+              VehicleFactory.create(
+                  level, TrackDesign.ARROW, new CoasterPathTrackFrame.GraphHit(point, edge, .4));
+        });
+    helper.runAtTickTime(
+        80,
+        () -> {
+          var car = vehicle[0];
+          helper.assertTrue(Boarding.ready(level, car), "Carrier did not settle before boarding");
+          var carrier = car.carriers.getFirst();
+          var body = (ServerSubLevel) container.getSubLevel(carrier.body);
+          var firstSeat = body.getPlot().getCenterBlock().offset(carrier.seats.get(0));
+          var secondSeat = body.getPlot().getCenterBlock().offset(carrier.seats.get(1));
+          first.setPos(firstSeat.getX(), firstSeat.getY(), firstSeat.getZ());
+          second.setPos(secondSeat.getX(), secondSeat.getY(), secondSeat.getZ());
+          SeatBlock.sitDown(level, firstSeat, first);
+          SeatBlock.sitDown(level, secondSeat, second);
+          helper.assertTrue(first.isPassenger() && second.isPassenger(), "Distinct players failed to mount");
+          helper.assertTrue(
+              first.getVehicle() != second.getVehicle(), "Distinct players shared one native seat entity");
+          helper.assertTrue(
+              carrier.riderSeats.size() == 2
+                  && carrier.riderSeats.get(first.getUUID()).equals(carrier.seats.get(0))
+                  && carrier.riderSeats.get(second.getUUID()).equals(carrier.seats.get(1)),
+              "Distinct player-to-seat assignments were not retained");
+        });
+    helper.runAtTickTime(
+        100,
+        () -> {
+          var carrier = vehicle[0].carriers.getFirst();
+          helper.assertTrue(
+              first.isPassenger()
+                  && second.isPassenger()
+                  && carrier.riderSeats.keySet().containsAll(List.of(first.getUUID(), second.getUUID())),
+              "Separate player assignments did not survive a native update");
+          first.stopRiding();
+          second.stopRiding();
+          for (var carrierToRemove : vehicle[0].carriers)
+            container.removeSubLevel(
+                container.getSubLevel(carrierToRemove.body), SubLevelRemovalReason.REMOVED);
+          container.removeSubLevel(
+              container.getSubLevel(vehicle[0].chassis), SubLevelRemovalReason.REMOVED);
+          FoundationData.get(level).vehicles.remove(vehicle[0].chassis);
+          ((CoasterAnchorpointBlockEntity) level.getBlockEntity(rail.from))
+              .removeAnchorPeerCurve(level, rail.to);
+          level.removeBlock(rail.from, false);
+          level.removeBlock(rail.to, false);
+          FoundationData.get(level).rails.remove(rail);
+          helper.succeed();
+        });
+  }
+
   @GameTest(template = "empty", timeoutTicks = 260)
   public static void originalVehiclesLoadingAndCapture(GameTestHelper helper) {
     var level = helper.getLevel();

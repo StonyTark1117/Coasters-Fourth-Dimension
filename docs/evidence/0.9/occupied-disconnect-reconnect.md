@@ -255,3 +255,12 @@ the next native-fixture investigation distinguish an admission failure from an
 immediate native player removal, but it does not establish that the packaged
 fixture supports two simultaneously mounted players. Concurrent rider lifecycle
 recovery remains open in FD902.
+
+The combined integration GameTest suite now also includes
+`distinctPlayersRetainDistinctCarrierSeats`. It creates two live `ServerPlayer`
+instances with discard-only fake network connections, boards them on separate
+seat offsets of one ready original Arrow carrier, and requires separate native
+seat entities plus both UUID-to-offset assignments after a native update. All
+40 required GameTests passed in 4.293 minutes. This proves the addon-side
+multi-player assignment and retention path; it does not replace the failed
+two-real-client packaged test or close the concurrent-rider lifecycle gate.
