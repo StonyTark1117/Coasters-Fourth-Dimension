@@ -61,6 +61,24 @@ FontSets plus `minecraft:missing`. Gradle exited successfully in 1.2 minutes;
 the timeout was not reached. There was no closed-set lookup, unallocated-image
 trace, or `Image is not allocated` error.
 
+The existing `FD16Recovery` world then ran the command-chat variation under the
+same clean-exit switch:
+
+```sh
+xvfb-run -a timeout 300s env JAVA_HOME=/usr/lib/jvm/java-21-openjdk \
+  ./gradlew runClient --no-daemon -PfdPackaged \
+  -PfdIntegrations=styles,engineered -PfdWorld=FD16Recovery \
+  -PfdFontValidation -PfdFontValidationReloads=16 \
+  -PfdFontValidationChat -PfdFontValidationExit
+```
+
+It logged `FD_FONT_CHAT_OPEN generation=17`, then
+`FD_FONT_CHAT_RENDERED generation=17 ticks=20`, followed by
+`FD_FONT_VALIDATION_EXIT reason=chat-rendered completed=16 target=16
+generation=17`. Minecraft closed the client and its integrated server normally,
+saved the `FD16Recovery` dimensions and all current FontSets, and Gradle exited
+successfully in 1.05 minutes. The target font traces/errors were again absent.
+
 ## Limit
 
 This proves sixteen controlled resource reloads and a normal client shutdown of

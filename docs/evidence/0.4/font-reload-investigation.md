@@ -126,5 +126,7 @@ reloads under Xvfb and requests Minecraft's ordinary stop from the validation
 completion callback. Generation 17 completed, the current FontSets closed, and
 Gradle exited successfully without reaching the external timeout; see the
 [clean-shutdown record](font-reload-packaged-validation.md#clean-controlled-shutdown).
-This improves the bounded client lifecycle evidence without reproducing the
+The existing world-loaded command-chat path also completed that clean shutdown
+after twenty rendered chat ticks and an ordinary integrated-server save. This
+improves the bounded client lifecycle evidence without reproducing the
 intermittent post-F3+T GUI failure.
