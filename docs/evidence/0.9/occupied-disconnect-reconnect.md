@@ -102,6 +102,29 @@ Legacy carrier with one occupant. This proves one real no-player unload/reload
 boundary for Legacy. Other families, moving routes and concurrent riders still
 need chunk-lifecycle coverage.
 
+## Arrow and Free Spin normal chunk/sublevel unload
+
+The same live dedicated-server procedure was repeated on fresh, stationary
+original Arrow and Free Spin examples. Before each client disconnect, the
+validation command boarded Dev through `SeatBlock.sitDown`, closed restraints,
+and reported one rider assignment. The target chunks were explicitly checked
+and were not force-loaded; an earlier stale force-load at the Arrow test site
+was removed before starting the normal unload wait.
+
+| Family | Loaded before disconnect | Normal no-player state | Loaded after fresh client | Mounted game tick |
+| --- | --- | --- | --- | ---: |
+| Original Arrow | `chassis=1/1 carriers=2/2 assignments=1` | `chassis=0/1 carriers=0/2 assignments=1` | `chassis=1/1 carriers=2/2 assignments=1` | 187611 |
+| Free Spin | `chassis=1/1 carriers=4/4 assignments=1` | `chassis=0/1 carriers=0/4 assignments=1` | `chassis=1/1 carriers=4/4 assignments=1` | 190812 |
+
+The fresh Arrow client reported Dev in carrier
+`322366ef-9d09-4dfa-a7fb-0c29aa060863`; the Free Spin client reported Dev in
+carrier `3af37017-0607-4c8a-bc22-cc2be8db969b`. In both cases RCON confirmed a
+native `create:seat` RootVehicle after reconnect and the server logged
+`FD_BOARDING_RESTORE queued` followed by `mounted` before the respective
+200-tick deadline. This adds real normal unload/reload evidence for the
+two- and four-carrier architectures. Revised, PAX, moving-route and
+concurrent-rider lifecycle coverage remain open.
+
 ## Concurrent-rider investigation
 
 A separate two-client packaged Arrow fixture was used to investigate the
