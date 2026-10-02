@@ -52,3 +52,24 @@ deadline for every supported family. The test covers deliberate client-process
 disconnects on stationary recovery fixtures. It does not cover a server restart,
 a sublevel/chunk unload, a route in motion, or concurrent riders. Those remain
 FD902 acceptance work.
+
+## Legacy server-process restart
+
+The Legacy fixture was then rebuilt in a separate recovery corridor, boarded
+through the same validation-only seat invocation, and confirmed with one
+occupant on carrier `4ad9b08b-7283-48ce-93b9-c83dd2e4e151`. The client and
+dedicated server were stopped. A newly launched dedicated-server process opened
+the unchanged world; a new client process joined it.
+
+The restarted server logged:
+
+```
+FD_BOARDING_RESTORE queued player=Dev assignments=1 deadlineTick=118532
+FD_BOARDING_RESTORE mounted player=Dev gameTick=118334 deadlineTick=118532
+```
+
+`data get entity Dev RootVehicle` reported one native `create:seat`, and
+`fd status` again showed exactly one occupant on the same Legacy carrier. This
+is an occupied Legacy cold-restart result. It does not establish cold-restart
+coverage for the other four families, moving routes, chunk unloads, or multiple
+simultaneous riders.
