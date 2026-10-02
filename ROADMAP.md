@@ -12,7 +12,7 @@ complete clearance/render coverage, physical recovery and real-client survival
 construction/operation remain 0.4 work. Lifecycle investigation has also begun
 under FD902 toward 0.9.0; this does not close the earlier 0.4 gate.
 
-**Current work package: FD402 recovery towing.** Dev.26 records actual native
+**Current work packages: FD401–FD403, with FD902–FD904 evidence advancing in parallel.** FD402 recovery towing remains the earliest substantial 0.4 acceptance gap. Dev.26 records actual native
 chassis, rider and non-seat carrier-rack poses every ten ticks, replacing the
 previous twenty-tick cadence. The five single-car families and two occupied
 original train routes pass fresh dense audits with 577–697 samples per route,
