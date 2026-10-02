@@ -17,6 +17,10 @@ import org.joml.Quaterniond;
 import org.joml.Vector3d;
 
 public final class CarrierRuntime {
+  /** Target-host FD904 limits; they cover this addon's timing only, never full server ticks or FPS. */
+  public static final long TARGET_AVERAGE_INVOCATION_NANOS = 120_000;
+  public static final long TARGET_AVERAGE_CARRIER_NANOS = 6_000;
+
   private CarrierRuntime() {}
 
   private static final Map<ServerSubLevel, RotaryConstraintHandle> JOINTS = new WeakHashMap<>();
@@ -48,6 +52,11 @@ public final class CarrierRuntime {
   public static PerformanceSnapshot performanceSnapshot() {
     return new PerformanceSnapshot(
         steps, nanos, vehicleUpdates, carrierUpdates, carrierNanos, constraintsRebuilt);
+  }
+
+  public static boolean meetsPerformanceTarget(PerformanceSnapshot snapshot) {
+    return snapshot.averageNanos() <= TARGET_AVERAGE_INVOCATION_NANOS
+        && snapshot.averageCarrierNanos() <= TARGET_AVERAGE_CARRIER_NANOS;
   }
 
   public static void resetPerformanceSnapshot() {

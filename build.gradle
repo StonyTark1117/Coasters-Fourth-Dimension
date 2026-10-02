@@ -62,6 +62,7 @@ neoForge {
         configureEach {
             logLevel = org.slf4j.event.Level.INFO
             systemProperty 'fourthdimension.shuttleValidation', project.hasProperty('fdShuttleValidation').toString()
+            systemProperty 'fourthdimension.performanceTargetValidation', project.hasProperty('fdPerformanceTargets').toString()
             if (project.hasProperty('fdPackaged')) {
                 sourceSet = sourceSets.packaged
                 loadedMods = []

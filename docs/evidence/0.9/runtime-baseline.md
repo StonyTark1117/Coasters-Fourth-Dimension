@@ -1,13 +1,14 @@
 # FD904 integrated runtime baseline
 
-This is a host-specific server-side baseline for the addon's carrier runtime.
-It is an input to FD904 target selection, not an FPS claim or release
-acceptance result.
+This is a host-specific server-side baseline and target check for the addon's
+carrier runtime. It is not an FPS claim or a complete FD904 release-acceptance
+result.
 
 ## Profile
 
 - Run date: 2026-10-01 (America/Phoenix).
 - Java: Arch Linux OpenJDK 21.0.12.1+1; Linux amd64, kernel 7.2.7-zen1-1.
+- CPU: AMD Ryzen 9 7900X3D, 12 cores / 24 threads; boost enabled.
 - Minecraft 1.21.1; NeoForge 21.1.248; Create 6.0.10; Coasters Simulated
   0.1.5; Sable 2.0.3; Sable Companion 1.6.0; Veil 4.1.4; Track Styles 1.2.0;
   Coasters: Engineered 1.1.1.
@@ -39,18 +40,32 @@ one in **3.969 minutes** and run two in **4.123 minutes**. Their logs recorded:
 | PAX shuttle — 16 riders; lift, gravity return and capture | 2 | 4,638 | 102,080 ns | 12,368 | 30,155,175 ns | 2,438 ns | 0 |
 | Free Spin — 8 riders; magnetic circuit and capture | 1 | 14,220 | 101,318 ns | 18,960 | 71,962,359 ns | 3,795 ns | 0 |
 | Free Spin — 8 riders; magnetic circuit and capture | 2 | 14,220 | 89,377 ns | 18,960 | 50,629,872 ns | 2,670 ns | 0 |
+| Controlled — Arrow and legacy ZacSpin circuit | 3 | 11,520 | 50,387 ns | 15,360 | 59,541,303 ns | 3,876 ns | 0 |
+| PAX shuttle — 16 riders; lift, gravity return and capture | 3 | 4,674 | 107,376 ns | 12,464 | 36,640,220 ns | 2,939 ns | 0 |
+| Free Spin — 8 riders; magnetic circuit and capture | 3 | 14,220 | 99,894 ns | 18,960 | 59,267,247 ns | 3,125 ns | 0 |
 
-The exact run-two diagnostic lines and test summary are retained in the local
+Run three enabled the FD904 target gate with
+`-PfdPerformanceTargets`. All 39 required GameTests passed in **4.158 minutes**.
+The exact run-three diagnostic lines and test summary are retained in the local
 GameTest log at `/tmp/fourthdimension-7af457c2/build/runs/gametest/logs/latest.log`.
+
+## Target-host gate
+
+The declared target-host limits are at most **120,000 ns per runtime invocation**
+and **6,000 ns per live-carrier update**. They are based on a rounded margin
+above the three-run observed maxima of 107,376 ns and 3,901 ns, respectively.
+They are only enabled by `-PfdPerformanceTargets`, which checks each named
+performance GameTest after its required sampling window. Run three meets both
+limits in all three scenes; its highest values are 107,376 ns per invocation
+for the PAX shuttle and 3,876 ns per carrier update for the controlled scene.
 
 ## Limits and next work
 
-The values are two integrated GameTest runs on the stated host. The carrier
+The values are three integrated GameTest runs on the stated host. The carrier
 figures normalize the direct carrier body but do not allocate shared runtime
-work among carriers. Their visible variation confirms that this shared-host
-pair is a range, not a release threshold. They have not been repeated enough
-for variance analysis, compared across hardware, or converted into targets.
-They also omit all client render modes and shader stacks. FD904 remains open
-until it records reproducible target hardware, chooses quantitative limits from
-repeated baselines, measures the required render modes, and verifies that
-advertised scene sizes meet those limits.
+work among carriers. Their visible variation remains host-specific and does not
+generalize to other hardware. The gate deliberately omits whole-server time,
+client render modes, and shader stacks. FD904 remains open until it measures
+the required render modes and shader stack, records any supported-hardware
+limits, and verifies that advertised scene sizes meet their full acceptance
+scope.

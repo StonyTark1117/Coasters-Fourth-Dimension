@@ -80,6 +80,14 @@ public final class DemoRideGameTests {
           helper.assertTrue(
               performance[0].carrierUpdates() >= 10_000,
               "Controlled performance baseline did not cover enough live carrier updates");
+          if (Boolean.getBoolean("fourthdimension.performanceTargetValidation"))
+            helper.assertTrue(
+                CarrierRuntime.meetsPerformanceTarget(performance[0]),
+                "Controlled scene exceeded FD904 target: invocation="
+                    + performance[0].averageNanos()
+                    + "ns carrier="
+                    + performance[0].averageCarrierNanos()
+                    + "ns");
           for (int i = 0; i < 2; i++) {
             var v = vehicles.get(i);
             System.out.println(

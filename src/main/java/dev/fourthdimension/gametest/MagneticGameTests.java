@@ -126,6 +126,14 @@ public final class MagneticGameTests {
           helper.assertTrue(
               performance[0].carrierUpdates() >= 8_000,
               "Free Spin performance baseline did not cover enough live carrier updates");
+          if (Boolean.getBoolean("fourthdimension.performanceTargetValidation"))
+            helper.assertTrue(
+                CarrierRuntime.meetsPerformanceTarget(performance[0]),
+                "Free Spin scene exceeded FD904 target: invocation="
+                    + performance[0].averageNanos()
+                    + "ns carrier="
+                    + performance[0].averageCarrierNanos()
+                    + "ns");
           System.out.println(
               "FD02_NATIVE applications="
                   + (MagneticRuntime.applications - baseline[0])

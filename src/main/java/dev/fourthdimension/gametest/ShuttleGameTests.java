@@ -495,6 +495,14 @@ public final class ShuttleGameTests {
             helper.assertTrue(
                 performance[0].carrierUpdates() >= 1_600,
                 "PAX performance baseline did not cover enough live carrier updates");
+            if (Boolean.getBoolean("fourthdimension.performanceTargetValidation"))
+              helper.assertTrue(
+                  CarrierRuntime.meetsPerformanceTarget(performance[0]),
+                  "PAX shuttle scene exceeded FD904 target: invocation="
+                      + performance[0].averageNanos()
+                      + "ns carrier="
+                      + performance[0].averageCarrierNanos()
+                      + "ns");
             System.out.println(
                 "FD_SHUTTLE_BOARDING settledTicks="
                     + parking[0]
