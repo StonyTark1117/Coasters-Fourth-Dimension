@@ -77,15 +77,18 @@ public final class CarrierRuntime {
               .findFirst()
               .orElse(null);
       boolean content = !FoundationData.VARIANT.equals(vehicle.variant);
-      if (content
-          && (rail == null
-              || !rail.valid
-              || dev.fourthdimension.track.TrackGeometry.resolve(level, rail) == null)) {
+      boolean supportLost =
+          content
+              && (rail == null
+                  || !rail.valid
+                  || dev.fourthdimension.track.TrackGeometry.resolve(level, rail) == null);
+      if (supportLost) {
         vehicle.stopping = true;
         vehicle.restraints = true;
         vehicle.fault = "Matching track support lost";
       }
-      if (content) dev.fourthdimension.vehicle.BoundaryGuard.check(level, parent, vehicle, rail);
+      if (content && !supportLost)
+        dev.fourthdimension.vehicle.BoundaryGuard.check(level, parent, vehicle, rail);
       if (content && (vehicle.stopping || vehicle.maintenance && vehicle.recoveryCart == null))
         dev.fourthdimension.vehicle.VehicleOperations.brake(level, vehicle, event.getTimeStep());
       double target = Double.NaN;

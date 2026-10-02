@@ -201,4 +201,117 @@ public final class OperationsGameTests {
           helper.succeed();
         });
   }
+
+  @GameTest(template = "empty", timeoutTicks = 220)
+  public static void fiveFamilySupportLossFailsClosedWithoutRebindingOrDuplicatingRiders(
+      GameTestHelper helper) {
+    var level = helper.getLevel();
+    for (int x = -58; x <= -50; x++)
+      for (int z = -33; z <= -29; z++) level.setChunkForced(x, z, true);
+    var player =
+        FakePlayerFactory.get(
+            level,
+            new com.mojang.authlib.GameProfile(
+                UUID.fromString("fdfdfdfd-0000-0000-0000-000000000902"), "FDSupportLoss"));
+    player.setGameMode(GameType.CREATIVE);
+    var data = FoundationData.get(level);
+    var container = SubLevelContainer.getContainer(level);
+    var rails = new ArrayList<FoundationData.Rail>();
+    var cars = new ArrayList<FoundationData.Vehicle>();
+    var riders = new ArrayList<net.minecraft.world.entity.animal.Pig>();
+    var originalBindings = new HashMap<UUID, List<BlockPos>>();
+    for (var design : TrackDesign.values()) {
+      // Keep this recovery test away from the family matrix's fixed fixture coordinates.
+      // Simulated Coasters' native physics also requires this fixture to remain within 1024 blocks.
+      var from = new BlockPos(-900 + design.ordinal() * 24, 120, -500);
+      var to = from.offset(0, 0, 32);
+      for (var anchor : List.of(from, to))
+        level.setBlockAndUpdate(
+            anchor, SimulatedCoastersBlocks.COASTER_ANCHORPOINT.get().defaultBlockState());
+      player.setPos(to.getX() + 2, to.getY() + 1, to.getZ());
+      player.setItemInHand(InteractionHand.MAIN_HAND, TrackItems.ARROW.get().getDefaultInstance());
+      rails.add(TrackPlacement.connect(level, from, to, design, player, player.getMainHandItem()));
+    }
+    helper.runAtTickTime(
+        20,
+        () -> {
+          for (int i = 0; i < rails.size(); i++) {
+            var rail = rails.get(i);
+            var edge = TrackGeometry.resolve(level, rail);
+            var hit =
+                new CoasterPathTrackFrame.GraphHit(
+                    CoasterPathGraphManager.sampleEdgePosition(level, edge, .5), edge, .5);
+            cars.add(VehicleFactory.create(level, TrackDesign.values()[i], hit));
+          }
+        });
+    helper.runAtTickTime(
+        90,
+        () -> {
+          for (var car : cars) {
+            helper.assertTrue(Boarding.ready(level, car), "Support-loss fixture did not reach boarding");
+            var carrier = (ServerSubLevel) container.getSubLevel(car.carriers.getFirst().body);
+            var rider = net.minecraft.world.entity.EntityType.PIG.create(level);
+            rider.setNoAi(true);
+            rider.setPos(carrier.logicalPose().position().x, carrier.logicalPose().position().y, carrier.logicalPose().position().z);
+            level.addFreshEntity(rider);
+            com.simibubi.create.content.contraptions.actors.seat.SeatBlock.sitDown(
+                level, carrier.getPlot().getCenterBlock().offset(car.carriers.getFirst().seats.getFirst()), rider);
+            helper.assertTrue(rider.isPassenger(), "Support-loss fixture rider did not mount");
+            riders.add(rider);
+            VehicleOperations.restraints(level, car, true);
+            originalBindings.put(car.chassis, List.of(car.boundFrom, car.boundTo));
+          }
+          for (var rail : rails)
+            ((CoasterAnchorpointBlockEntity) level.getBlockEntity(rail.from))
+                .removeAnchorPeerCurve(level, rail.to);
+        });
+    helper.runAtTickTime(
+        140,
+        () -> {
+          helper.assertTrue(
+              riders.size() == 5 && riders.stream().allMatch(net.minecraft.world.entity.Entity::isPassenger),
+              "Support loss displaced or duplicated a mounted rider");
+          for (var car : cars) {
+            helper.assertTrue(
+                car.stopping
+                    && car.restraints
+                    && car.fault.equals("Matching track support lost")
+                    && List.of(car.boundFrom, car.boundTo).equals(originalBindings.get(car.chassis)),
+                "Support loss did not preserve a fail-closed functional binding for " + car.variant);
+            helper.assertTrue(
+                data.vehicles.get(car.chassis) == car
+                    && car.carriers.stream()
+                        .allMatch(
+                            carrier ->
+                                carrier.capture && container.getSubLevel(carrier.body) != null),
+                "Support loss removed or released a carrier for " + car.variant);
+          }
+          System.out.println(
+              "FD_SUPPORT_LOSS families="
+                  + cars.stream().map(car -> car.family).toList()
+                  + " riders="
+                  + riders.size()
+                  + " bindingsPreserved=true failClosed=true");
+        });
+    helper.runAtTickTime(
+        180,
+        () -> {
+          for (var rider : riders) {
+            rider.stopRiding();
+            rider.discard();
+          }
+          for (var car : cars) {
+            for (var carrier : car.carriers)
+              container.removeSubLevel(container.getSubLevel(carrier.body), SubLevelRemovalReason.REMOVED);
+            container.removeSubLevel(container.getSubLevel(car.chassis), SubLevelRemovalReason.REMOVED);
+            data.vehicles.remove(car.chassis);
+          }
+          for (var rail : rails) {
+            data.rails.remove(rail);
+            level.removeBlock(rail.from, false);
+            level.removeBlock(rail.to, false);
+          }
+          helper.succeed();
+        });
+  }
 }

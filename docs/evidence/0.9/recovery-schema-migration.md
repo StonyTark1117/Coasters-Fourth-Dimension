@@ -30,8 +30,9 @@ ordinary recovery partner.
 JAVA_HOME=/usr/lib/jvm/java-21-openjdk ./gradlew build runGameTestServer --no-daemon -PfdIntegrations=styles,engineered
 ```
 
-The combined Track Styles/Engineered run passed all **38 required GameTests**.
-The matrix covered
+The schema-migration checkpoint's recorded combined run passed all **38 required
+GameTests**. The later dev.27 support-loss checkpoint raises the current combined
+suite to 39; see [five-family support loss](five-family-support-loss.md). The matrix covered
 five legacy schema declarations across the actual five-family occupied recovery
 fixture, preserving all five chassis identities in every case and inventing no
 recovery state.

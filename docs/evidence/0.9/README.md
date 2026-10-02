@@ -10,6 +10,12 @@ provider-conversion acceptance.
 backup, staged-upgrade and restore steps. It does not convert third-party
 functional blocks or establish the remaining FD903 acceptance evidence.
 
+[Five-family support loss, dev.27](five-family-support-loss.md) verifies that
+an occupied native car fails closed when its only matching track connection is
+removed. It preserves rider ownership, matching binding, carrier capture, and
+closed restraints across all five families. Client, disconnect and full
+lifecycle coverage remain FD902 work.
+
 [Idle shuttle availability, dev.13](idle-shuttle-acceptance.md) records the native/control failure, production fix, packaged loading-boundary comparison and default-flags cold reopen. Its scope is an empty bound shuttle before its first lift. The four inherited PAX faults remain recorded; complete FD902 and earlier 0.4 gates stay open.
 
 Run `python3 scripts/verify-idle-shuttle-checkpoint.py` to verify the committed observations. This reads evidence; it does not replay clients or certify the complete lifecycle matrix.
