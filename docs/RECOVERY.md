@@ -1,6 +1,6 @@
 # Ordinary-bearing recovery
 
-Development build 0.9.0-dev.26 includes explicit recovery coupling for the five
+Development build 0.9.0-dev.27 includes explicit recovery coupling for the five
 original families. A 4D car stays on its matching functional track throughout.
 Only the pinned, unmodified bare Coasters bearing is certified as the ordinary
 recovery cart. It acquires no carriers, profile, magnetic assistance or 4D data.
@@ -79,6 +79,10 @@ and power cut reset the transient progress window. It is not saved as ride state
 Save schema and network protocol are **6**. Existing schemas 1–5 load without
 inventing recovery state. Upgrade clients and servers together, back up worlds,
 and do not downgrade a recovery-mode world to a version that cannot read schema 6.
+Dev.27 exercises that loader contract for all five supported legacy schema numbers
+using the occupied five-family recovery fixture; see the
+[migration checkpoint](evidence/0.9/recovery-schema-migration.md). This does not
+replace a packaged historic-world upgrade or backup/recovery procedure.
 A packaged empty Arrow example also preserves its actual coupling through a
 fresh-JVM reopening, remains braked, and completes normal start/disconnect and
 restraint opening; see the [bounded client check](evidence/0.4/recovery/gui/arrow-gui-acceptance.md).

@@ -406,7 +406,7 @@ Run two-client and late-join scenarios, disconnects, chunk unloads, server resta
 
 ### FD903 Validate save migration and provider changes
 
-**Status: planned; earlier migration/provider checkpoints do not close this gate.**
+**Status: in progress.** Dev.27 expands the recovery loader regression from schema 5 to every supported legacy schema (1–5). It serializes the occupied five-family recovery fixture, removes the schema-6 recovery fields, loads each declared legacy schema and requires every chassis identity to survive with no invented recovery partner or removed-partner state. The existing invalid 4D-to-4D saved recovery reference remains rejected. This is a loader-contract checkpoint, not a packaged historic-world migration or provider conversion; see the [recovery migration checkpoint](docs/evidence/0.9/recovery-schema-migration.md).
 
 **Depends on:** FD404. **Design:** D04, D09, D10, D16.
 

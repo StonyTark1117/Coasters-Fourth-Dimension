@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.9.0-dev.27 — recovery schema migration matrix
+
+- Exercise every advertised legacy save schema (1–5) using the actual occupied five-family recovery fixture. Each synthetic legacy record omits the recovery-partner fields introduced by schema 6.
+- Require every migrated vehicle to retain its chassis identity while having neither an invented ordinary recovery partner nor a removed-partner marker. Keep the invalid saved 4D-to-4D recovery link rejection in the same native test.
+- The combined Track Styles/Engineered build passes all 37 required GameTests. This is loader-contract coverage for the supported schema reader; packaged historical-world migration, provider removal/conversion, backups and recovery instructions remain FD903 work.
+
 ## 0.9.0-dev.26 — dense sampled recovery clearance
 
 - Record source-pinned actual chassis, rider and carrier-rack poses every ten ticks in the occupied banked-recovery fixtures, replacing the previous twenty-tick cadence. Write each trace through one buffered JSONL stream with an explicit interval header, leaving vehicle motion and saved gameplay state unchanged.

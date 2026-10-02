@@ -254,15 +254,21 @@ public final class RecoveryGameTests {
           var restored =
               FoundationData.load(
                   data.save(new CompoundTag(), level.registryAccess()), level.registryAccess());
-          var legacyTag = data.save(new CompoundTag(), level.registryAccess());
-          legacyTag.putInt("schema", 5);
-          for (var raw : legacyTag.getList("vehicles", net.minecraft.nbt.Tag.TAG_COMPOUND))
-            ((CompoundTag) raw).remove("recovery_cart");
-          var legacy = FoundationData.load(legacyTag, level.registryAccess());
-          helper.assertTrue(
-              legacy.vehicles.values().stream().allMatch(v -> v.recoveryCart == null)
-                  && legacy.vehicles.keySet().equals(data.vehicles.keySet()),
-              "Schema 5 migration inferred recovery or lost identity");
+          for (int schema = 1; schema <= 5; schema++) {
+            var legacyTag = data.save(new CompoundTag(), level.registryAccess());
+            legacyTag.putInt("schema", schema);
+            for (var raw : legacyTag.getList("vehicles", net.minecraft.nbt.Tag.TAG_COMPOUND)) {
+              var legacyVehicle = (CompoundTag) raw;
+              legacyVehicle.remove("recovery_cart");
+              legacyVehicle.remove("recovery_cart_removed");
+            }
+            var legacy = FoundationData.load(legacyTag, level.registryAccess());
+            helper.assertTrue(
+                legacy.vehicles.values().stream()
+                        .allMatch(v -> v.recoveryCart == null && !v.recoveryCartRemoved)
+                    && legacy.vehicles.keySet().equals(data.vehicles.keySet()),
+                "Schema " + schema + " migration inferred recovery or lost identity");
+          }
           var invalid = data.save(new CompoundTag(), level.registryAccess());
           var invalidVehicle =
               invalid.getList("vehicles", net.minecraft.nbt.Tag.TAG_COMPOUND).getCompound(0);
