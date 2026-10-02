@@ -327,7 +327,10 @@ also have the additional one-rider-disconnect/fresh-client-reconnect check
 while the other rider stays mounted. Legacy restored Observer at game tick
 `2727` before deadline `2926`; Free Spin at `2766` before `2965`; and Revised
 at `2681` before `2880`. Each server retained both assignments and Dev's native
-seat. The PAX concurrent interruption and moving-route cases remain FD902 work.
+seat. PAX restored Observer at game tick `2700` before deadline `2899`, while
+retaining four chassis, eight carriers and both assignments. This completes the
+stationary concurrent disconnect/reconnect matrix across all five families;
+moving-route concurrent cases remain FD902 work.
 
 The validation-only trace records accepted player-seat assignments before the
 carrier runtime's next loading update, plus mount/dismount state. It identified

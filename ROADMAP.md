@@ -421,7 +421,7 @@ after a fresh-client reconnect while the other remains mounted. The earlier
 second-rider removal was a stale Sable tracking point in a removed sublevel.
 Native support-loss, late-join, shuttle availability-gap behavior and occupied
 Revised moving-route restart also have bounded evidence. Concurrent
-interruption coverage for PAX remains open. See
+stationary concurrent interruption coverage is complete. See
 [occupied disconnect/reconnect evidence](docs/evidence/0.9/occupied-disconnect-reconnect.md),
 [support-loss evidence](docs/evidence/0.9/five-family-support-loss.md),
 [two-client late-join evidence](docs/evidence/0.9/two-client-snapshot.md),
