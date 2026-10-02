@@ -1,0 +1,33 @@
+# Packaged world-loaded controlled font reload: 64 cycles plus chat
+
+Date: 2026-10-02
+Command:
+xvfb-run -a timeout 600s env JAVA_HOME=/usr/lib/jvm/java-21-openjdk   ./gradlew runClient --no-daemon -PfdPackaged   -PfdIntegrations=styles,engineered -PfdWorld=FD16Recovery   -PfdFontValidation -PfdFontValidationReloads=64   -PfdFontValidationChat -PfdFontValidationExit
+
+Artifact:
+coasters-fourth-dimension-0.9.0-dev.27.jar
+SHA-256: 7eefec9a70552cc8bf491e1c179b4ab3adf9696ddaa45e13e0e92e5a79f13525
+
+Client log SHA-256:
+35c6c8d4f0f1bc8b64f2e3678b543184abe859adb3238fe342f6df333d88cdaf
+
+Result:
+- FD_FONT_RELOAD_REQUEST: 64
+- FD_FONT_RELOAD_COMPLETE: 64
+- FD_FONT_APPLY_START: 65
+- FD_FONT_APPLY_END: 65
+- Track Styles 55-entry catalog bakes: 65
+- FD_FONT_CHAT_OPEN: generation=65
+- FD_FONT_CHAT_RENDERED: generation=65 ticks=20
+- FD_FONT_CLOSED_SET_LOOKUP: 0
+- FD_FONT_IMAGE_UNALLOCATED: 0
+- Image is not allocated: 0
+- FD_FONT_VALIDATION_EXIT: reason=chat-rendered completed=64 target=64 generation=65
+- Minecraft Stopping!: 1
+- Integrated server Saving worlds: 1
+- Gradle: BUILD SUCCESSFUL in 3m 32s
+
+This is a validation-only controlled reload and rendered command-chat sequence in
+the recorded FD16Recovery world. It does not exercise interactive F3+T input,
+a gameplay GUI, or provide a production workaround for the intermittent
+bitmap-glyph failure.

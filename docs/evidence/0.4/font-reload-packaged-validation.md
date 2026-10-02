@@ -106,12 +106,27 @@ This is a controlled, headless lifecycle result. It does not reproduce the
 intermittent interactive F3+T GUI failure or provide a production workaround.
 
 
+## Extended world-loaded chat sequence
+
+The recorded FD16Recovery world then repeated the same **64** controlled reloads
+with the opt-in command-chat check enabled. After request 64 completed at
+generation 65, the client opened command chat, kept it rendered for 20 client
+ticks, saved the integrated server, and shut down normally. It recorded 64
+requests/completions, 65 FontManager apply starts/ends, and 65 Track Styles
+catalog bakes, with no closed-FontSet lookup, unallocated-image trace, or target
+bitmap allocation error. The compact [world-chat record](font-reload-64-world-chat-clean.txt)
+pins its command, client log SHA-256, and counts.
+
+This remains an automated post-reload command-chat path; it does not reproduce
+the intermittent interactive F3+T GUI failure or establish a production
+workaround.
+
 ## Limit
 
-This proves sixteen controlled resource reloads and a normal client shutdown of
-the packaged artifact under the same Track Styles and Engineered versions
-present in the original dev.8 crash report, plus a sixteen-reload world-loaded
-command-chat rendering sample. It does not reproduce the intermittent
+This proves controlled 16- and 64-reload normal shutdown paths for the
+packaged artifact under the same Track Styles and Engineered versions present
+in the original dev.8 crash report, plus a 64-reload world-loaded command-chat
+rendering sample. It does not reproduce the intermittent
 post-reload GUI failure, validate an interactive F3+T path, or establish a
 production workaround. FD401, FD902, and FD904 remain open until an actionable
 reproduction or broader packaged lifecycle acceptance exists.
