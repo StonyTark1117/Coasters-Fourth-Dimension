@@ -36,9 +36,9 @@ uses fresh client processes and confirms an assigned rider returns to the
 intended carrier for every family. It also records server-process restarts and
 normal holding-state unload/reload for every family. Clean-world two-client
 fixtures retain distinct same-carrier seats across all five families; Arrow,
-Legacy and Free Spin also restore one rider while the other stays mounted.
-Moving-route coverage is recorded for Revised; concurrent interruption coverage
-for Revised and PAX remains FD902 work.
+Legacy, Free Spin and Revised also restore one rider while the other stays
+mounted. Moving-route coverage is recorded for Revised; concurrent interruption
+coverage for PAX remains FD902 work.
 
 [Ordinary-cart native snap matrix, dev.27](ordinary-cart-snap-matrix.md)
 verifies fitting and deliberately non-fitting ordinary bearings on all five

@@ -322,13 +322,12 @@ the availability query and two RootVehicle queries before and after the hold:
 Every before/after RootVehicle query identified a separate native
 `create:seat` for each player. The PAX result covers the four-chassis,
 eight-carrier shuttle architecture. This completes the bounded two-live-rider
-hold across all five current families. Arrow, Legacy and Free Spin also have
-the additional one-rider-disconnect/fresh-client-reconnect check while the
-other rider stays mounted. Legacy restored Observer at game tick `2727` before
-deadline `2926`; Free Spin restored Observer at `2766` before `2965`. Each
-server retained both assignments and Dev's native seat. Equivalent concurrent
-interruption checks for Revised and PAX, plus moving-route cases, remain FD902
-work.
+hold across all five current families. Arrow, Legacy, Free Spin and Revised
+also have the additional one-rider-disconnect/fresh-client-reconnect check
+while the other rider stays mounted. Legacy restored Observer at game tick
+`2727` before deadline `2926`; Free Spin at `2766` before `2965`; and Revised
+at `2681` before `2880`. Each server retained both assignments and Dev's native
+seat. The PAX concurrent interruption and moving-route cases remain FD902 work.
 
 The validation-only trace records accepted player-seat assignments before the
 carrier runtime's next loading update, plus mount/dismount state. It identified
