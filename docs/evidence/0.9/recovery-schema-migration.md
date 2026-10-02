@@ -15,9 +15,10 @@ each saved vehicle record before loading it through `FoundationData.load`.
 A separate GameTest reads the recorded schema-3 integrated-world extract from
 the 0.3 acceptance evidence. CI regenerates its compressed NBT fixture from that
 read-only JSON record, then the current loader reads it, writes schema 6 and
-reopens the result. It requires the original 24 rail IDs and three chassis IDs
-to remain unchanged, preserves the original Arrow/legacy ZacSpin/Free Spin
-families, and confirms that no recovery state is invented.
+reopens the result. It requires the original 24 rail IDs, their complete
+distance/angle/slope rotation-profile keys, and three chassis IDs to remain
+unchanged, preserves the original Arrow/legacy ZacSpin/Free Spin families, and
+confirms that no recovery state is invented.
 
 Every loaded vehicle must retain its original chassis UUID and have neither a
 recovery partner nor a removed-recovery-partner state. The same test retains the
@@ -52,7 +53,7 @@ python3 scripts/verify-packaged-historical-migration.py SOURCE.dat UPGRADED.dat
 ```text
 FD903_PACKAGED_MIGRATION sourceSchema=3 upgradedSchema=6 rails=24 vehicles=3 \
 families=arrow_controlled,sns_free_spin,zacspin_legacy \
-identitiesPreserved=true recoveryInvented=false
+identitiesPreserved=true recoveryInvented=false profilesPreserved=true
 ```
 
 The schema-6 file passed the same verifier after the packaged-server reopen.
@@ -73,10 +74,13 @@ JAVA_HOME=/usr/lib/jvm/java-21-openjdk ./gradlew runGameTestServer --no-daemon -
 ```
 
 The current combined target-gated run passed all **41 required GameTests** in
-**4.162 minutes**. The matrix covered five legacy schema declarations across the
+**4.249 minutes**. The matrix covered five legacy schema declarations across the
 actual five-family occupied recovery fixture, preserving all five chassis
 identities in every case and inventing no recovery state. Its recorded historical
-fixture now also rejects an injected third-party functional provider.
+fixture now also rejects an injected third-party functional provider. The
+schema-3 profile-key map is compared both by the native regression and the
+packaged replay verifier, so the upgrade cannot silently flatten, rescale or
+otherwise rebind the historical controlled-track profiles.
 
 ## Limits
 

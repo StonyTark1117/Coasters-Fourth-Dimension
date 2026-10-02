@@ -70,6 +70,15 @@ def identities(records, field):
     return {tuple(record[field]) for record in records}
 
 
+def profiles(records):
+    return {
+        tuple(record["id"]): [
+            (key["distance"], key["angle"], key.get("slope", 0.0)) for key in record["profile"]
+        ]
+        for record in records
+    }
+
+
 def verify(source_path, upgraded_path):
     source = read_root(source_path)
     upgraded = read_root(upgraded_path)
@@ -81,6 +90,8 @@ def verify(source_path, upgraded_path):
         raise ValueError("The source record no longer has 24 rails and 3 vehicles")
     if identities(source["rails"], "id") != identities(upgraded["rails"], "id"):
         raise ValueError("The packaged migration changed a rail ID")
+    if profiles(source["rails"]) != profiles(upgraded["rails"]):
+        raise ValueError("The packaged migration changed a historic rotation profile")
     if identities(source["vehicles"], "chassis") != identities(upgraded["vehicles"], "chassis"):
         raise ValueError("The packaged migration changed a chassis ID")
     source_families = {vehicle["family"] for vehicle in source["vehicles"]}
@@ -97,6 +108,7 @@ def verify(source_path, upgraded_path):
         f"sourceSchema={source['schema']} upgradedSchema={upgraded['schema']} "
         f"rails={len(upgraded['rails'])} vehicles={len(upgraded['vehicles'])} "
         f"families={','.join(sorted(families))} identitiesPreserved=true recoveryInvented=false"
+        " profilesPreserved=true"
     )
 
 

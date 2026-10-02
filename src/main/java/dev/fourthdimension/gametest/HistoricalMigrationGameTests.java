@@ -1,6 +1,7 @@
 package dev.fourthdimension.gametest;
 
 import dev.fourthdimension.contract.Family;
+import dev.fourthdimension.physics.RotationProfile;
 import dev.fourthdimension.runtime.FoundationData;
 import java.io.IOException;
 import java.util.Base64;
@@ -36,12 +37,23 @@ public final class HistoricalMigrationGameTests {
         sourceVehicles.stream().map(tag -> ((CompoundTag) tag).getUUID("chassis")).collect(Collectors.toSet());
     var sourceRailIds =
         sourceRails.stream().map(tag -> ((CompoundTag) tag).getUUID("id")).collect(Collectors.toSet());
+    var sourceProfiles =
+        sourceRails.stream()
+            .collect(
+                Collectors.toMap(
+                    tag -> ((CompoundTag) tag).getUUID("id"),
+                    tag -> readProfile((CompoundTag) tag)));
 
     var migrated = FoundationData.load(source, helper.getLevel().registryAccess());
     helper.assertTrue(
         migrated.vehicles.keySet().equals(sourceChassis)
             && migrated.rails.stream().map(rail -> rail.id).collect(Collectors.toSet()).equals(sourceRailIds),
         "Schema-3 migration changed historic chassis or rail identities");
+    helper.assertTrue(
+        migrated.rails.stream()
+            .collect(Collectors.toMap(rail -> rail.id, rail -> rail.profile))
+            .equals(sourceProfiles),
+        "Schema-3 migration changed a historic rotation profile");
     helper.assertTrue(
         migrated.vehicles.values().stream()
             .allMatch(vehicle -> vehicle.recoveryCart == null && !vehicle.recoveryCartRemoved),
@@ -59,9 +71,12 @@ public final class HistoricalMigrationGameTests {
     helper.assertTrue(
         reopened.vehicles.keySet().equals(sourceChassis)
             && reopened.rails.stream().map(rail -> rail.id).collect(Collectors.toSet()).equals(sourceRailIds)
+            && reopened.rails.stream()
+                .collect(Collectors.toMap(rail -> rail.id, rail -> rail.profile))
+                .equals(sourceProfiles)
             && reopened.vehicles.values().stream()
                 .allMatch(vehicle -> vehicle.recoveryCart == null && !vehicle.recoveryCartRemoved),
-        "Current-schema reopen changed historic migration state");
+        "Current-schema reopen changed historic migration state or rotation profile");
 
     // A historical Fourth Dimension record may be upgraded, but an external functional
     // track provider cannot be guessed from an Arrow-looking identifier during migration.
@@ -77,6 +92,18 @@ public final class HistoricalMigrationGameTests {
     System.out.println(
         "FD903_HISTORICAL schema3Rails=24 chassis=3 providerConversionRejected=true");
     helper.succeed();
+  }
+
+  private static RotationProfile readProfile(CompoundTag rail) {
+    return new RotationProfile(
+        rail.getList("profile", Tag.TAG_COMPOUND).stream()
+            .map(
+                raw -> {
+                  var key = (CompoundTag) raw;
+                  return new RotationProfile.Key(
+                      key.getDouble("distance"), key.getDouble("angle"), key.getDouble("slope"));
+                })
+            .toList());
   }
 
   private static CompoundTag readHistoricalFixture() {
