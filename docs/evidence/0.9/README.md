@@ -21,6 +21,12 @@ a queued old-dimension snapshot from replacing the newly active client level.
 It advances the snapshot lifecycle boundary, while live two-client,
 late-join, disconnect and chunk-unload acceptance remains FD902 work.
 
+[Two-client late-join snapshot replication](two-client-snapshot.md) records a
+dedicated-server recovery-world run where a second client joined after the
+first and independently received the same six 4D body snapshots. Occupied
+trains, disconnect/reconnect, chunk unload and dimension-transition replay
+remain FD902 work.
+
 [Ordinary-cart native snap matrix, dev.27](ordinary-cart-snap-matrix.md)
 verifies fitting and deliberately non-fitting ordinary bearings on all five
 original tracks through direct and native-filter entry paths. It also rejects
