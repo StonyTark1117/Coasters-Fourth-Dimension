@@ -55,6 +55,10 @@ all 20 wrong-family rejections and preserves the prior matching binding. It is
 still bounded to original functional tracks and does not certify external
 providers or every real-player entry path.
 
+[Advertised compatibility scope](supported-compatibility-scope.md) names every
+currently supported standalone and optional profile, and explicitly excludes
+third-party functional tracks until a separately verified adapter is released.
+
 [Client track-render instrumentation](client-render-sampling.md) records an
 initial packaged real-client sample on the recovery scene, under llvmpipe and
 on the stated RX 7900 XTX host, plus a native-GPU dedicated-server observation

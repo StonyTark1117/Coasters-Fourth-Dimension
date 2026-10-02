@@ -404,7 +404,10 @@ GameTests under Track Styles-only,
 Engineered-only, and combined audited profiles; see the [optional-profile
 matrix](docs/evidence/0.9/optional-profile-matrix.md). This advances the
 regular-cart and audited optional-profile portions before FD404, but it does not
-close the full compatibility matrix.
+close the full compatibility matrix. The [advertised compatibility
+scope](docs/evidence/0.9/supported-compatibility-scope.md) records that no
+third-party functional track is currently supported: Track Styles remains a
+cosmetic Arrow appearance and Engineered remains an operating adapter.
 
 **Depends on:** FD404. **Design:** D02, D04, D17.
 
