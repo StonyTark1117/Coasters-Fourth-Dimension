@@ -340,8 +340,25 @@ disconnected while Dev remained mounted. The running server retained both
 assignments; a fresh Observer client restored at game tick `3013` before
 deadline `3212`, with both RootVehicle queries reporting distinct native
 `create:seat` entities. The read-only motion probe still reported
-`capture=false` and nonzero native velocity after restoration. This completes
-the current moving concurrent rider checkpoint.
+`capture=false` and nonzero native velocity after restoration.
+
+## Concurrent moving Arrow checkpoint
+
+Two real riders boarded the same carrier of the original two-car Arrow circuit,
+closed restraints, and used the real dispatch path. Native motion advanced from
+`z=-667.5` to `z=-647.6` at approximately 2 blocks/s with `assignments=2`.
+Observer then disconnected while Dev remained mounted. The running server kept
+both assignments and Dev's native `create:seat`; its Arrow chassis continued at
+nonzero velocity (`x=-175.2`, `z=-635.5`, approximately 1.46 blocks/s) with
+`capture=false`.
+
+A fresh Observer client rejoined the same running server. The production
+restore queue mounted Observer at game tick `3357` before deadline `3556`. The
+server then reported `chassis=1/1 carriers=2/2 assignments=2`; both RootVehicle
+queries identified distinct native `create:seat` entities and the motion probe
+reported `capture=false` with native velocity of approximately 1.994 blocks/s.
+This completes the current moving concurrent rider checkpoint for Arrow and
+Revised.
 
 The validation-only trace records accepted player-seat assignments before the
 carrier runtime's next loading update, plus mount/dismount state. It identified
