@@ -36,6 +36,12 @@ route and 39,360/69,800 in the Arrow/PAX train routes. CI repeats the verifier
 in standalone, Styles, Engineered and combined profiles. The local verifier
 SHA-256 is `455ba8a7e37473dcd073db1481de3aa8260462464ac7b017e96d7d9a2e15bcb5`.
 
+Both exact-head dev.23 workflows passed on commit `0bd40e4`: push run
+36950775897 and pull-request run 36950779404. Their eight jobs passed all 37
+native GameTests, native route geometry and the extended recovery audit; Styles
+and combined jobs also passed the installed-decoration audit. Job identities
+are recorded in [ci-dev23.json](ci-dev23.json).
+
 ## Limits
 
 Each observation is twenty ticks apart, so this is not continuous longitudinal
