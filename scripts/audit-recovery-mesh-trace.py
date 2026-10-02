@@ -5,9 +5,11 @@ This is sampled clearance evidence, not continuous swept clearance. Original
 track tubes are reconstructed from the exact renderer sampling and source-pinned
 dimensions. Body transforms and block states come from the native test, not ideal
 track frames. External resources are read from the separately installed pinned
-JAR and never copied. The native lower bearing model uses the same recorded
-track-aligned anchor as the chassis and is checked separately. Its rotating
-wheels, players, Arrow's unmodeled mechanical linkage, decorations and resource
+JAR and never copied. The native lower bearing model and full-spin wheel
+envelopes use the same recorded track-aligned anchor as the chassis. Wheels are
+checked against non-contact original track components and neighboring cars; the
+two running rails are excluded because they are the intended wheel contact.
+Players, Arrow's unmodeled mechanical linkage, decorations and resource
 overrides remain outside this audit. A zero separating bound is UNCERTIFIED, not
 a proven mesh collision.
 """
@@ -28,6 +30,7 @@ ROOT = Path(__file__).resolve().parents[1]
 BASE_PIN = "f80b4c3cdf9fa6188804967147761b0373e150a6eadbdc53626e5ac9700b2049"
 MINECRAFT_PIN = "499f6897d1837516680f3114072d8106e11c9adcd933fe5cf051b551089b0c99"
 BOTTOM_MODEL = "simulatedcoasters:block/coaster_cart_bottom"
+WHEEL_MODEL = "simulatedcoasters:block/coaster_cart_wheel_axis"
 SOURCE_PINS = {
     "src/main/java/dev/fourthdimension/client/OriginalTrackRenderer.java": "5089ed597ef5651d5b221eb437e088469f2f28d21028c7bc6be6c9266eca0f0f",
     "src/main/java/dev/fourthdimension/track/TrackDesign.java": "e3a88c3ca661d7b232ee0b9d3c853a6e66c1d0d1147ac4266b001616b1fe1ff1",
@@ -155,6 +158,29 @@ class Resources:
                 (np.array(list(itertools.product(*zip(low, high)))), f"{label}:element{index}"))
         return result
 
+    def wheel_envelopes(self):
+        elements = self.elements(WHEEL_MODEL)
+        if len(elements) != 10:
+            raise ValueError("Unexpected native wheel model")
+        result = []
+        for index, element in enumerate(elements):
+            rotation = element.get("rotation", {})
+            if rotation.get("angle", 0) != 0 and (
+                rotation.get("axis") != "x" or rotation.get("rescale", False)
+                or rotation.get("origin", [0, 0, 0])[1:] != [8, 8]
+            ):
+                raise ValueError("Wheel cuboid rotation does not preserve the spin axis")
+            low, high = (np.array(element[key]) / 16 - .5 for key in ("from", "to"))
+            radius = max(math.hypot(y, z) for y in (low[1], high[1]) for z in (low[2], high[2]))
+            for row, height in (("main", .6), ("upstop", .05)):
+                for axle, longitudinal in (("front", -.7), ("back", .7)):
+                    envelope_low = np.array((low[0], height - radius, longitudinal - radius))
+                    envelope_high = np.array((high[0], height + radius, longitudinal + radius))
+                    result.append(
+                        (np.array(list(itertools.product(*zip(envelope_low, envelope_high)))),
+                         f"nativeWheel:{row}:{axle}:element{index}"))
+        return result
+
 
 def separation(box, axes, triangles):
     """OBB/triangle SAT lower distance bounds, including contained triangles."""
@@ -195,10 +221,12 @@ def audit(route, entries, resources, margin):
             grid.setdefault(cell, []).append(index)
     centers = [np.array([frame["center"] for frame in section["frames"]]) for section in route["sections"]]
     native_bottom_boxes = resources.model_boxes(BOTTOM_MODEL, "nativeLowerBearing")
+    native_wheel_boxes = resources.wheel_envelopes()
     specs, samples, completed, visited = {}, 0, False, {}
     previous_tick, original_body_ids = None, None
     closest, failures = None, []
     minimum = math.inf
+    wheel_minimum, wheel_closest, wheel_checks = math.inf, None, 0
     neighbor_minimum, neighbor_closest = math.inf, None
     neighbor_pairs = 0
     for entry in entries:
@@ -240,6 +268,11 @@ def audit(route, entries, resources, margin):
                     # chassis origin/axes are bounded against that native frame
                     # by the GameTest, so these centered model points use it.
                     rendered_boxes.extend(native_bottom_boxes)
+                    # Coasters rotates the wheel model around local X. A box
+                    # enclosing its full spin is conservative at each sampled
+                    # qPath-equivalent frame. Running rails are intentionally
+                    # filtered below because both wheel rows contact them.
+                    rendered_boxes.extend(native_wheel_boxes)
                 for points, label in rendered_boxes:
                     world = points @ axes + origin
                     low, high = world.min(axis=0), world.max(axis=0)
@@ -247,8 +280,17 @@ def audit(route, entries, resources, margin):
                     padding = margin * 4
                     cells = itertools.product(*(range(a, b + 1) for a, b in zip(np.floor((low - padding) / 2).astype(int), np.floor((high + padding) / 2).astype(int))))
                     indices = np.array(sorted({index for cell in cells for index in grid.get(cell, [])}), dtype=int)
+                    wheel = label.startswith("nativeWheel:")
+                    if wheel:
+                        indices = np.array(
+                            [index for index in indices if not labels[index].endswith((":rail0", ":rail1"))],
+                            dtype=int)
+                        wheel_checks += 1
                     if not len(indices):
-                        minimum = min(minimum, padding)
+                        if wheel:
+                            wheel_minimum = min(wheel_minimum, padding)
+                        else:
+                            minimum = min(minimum, padding)
                         continue
                     gaps = np.linalg.norm(np.maximum(0, np.maximum(low - highs[indices], lows[indices] - high)), axis=1)
                     candidates = np.flatnonzero(gaps < padding)
@@ -261,6 +303,10 @@ def audit(route, entries, resources, margin):
                         minimum = gap
                         closest = {"tick": entry["tick"], "body": pose["id"], "role": body["role"],
                                    "modelElement": label, "trackComponent": labels[index]}
+                    if wheel and gap < wheel_minimum:
+                        wheel_minimum = gap
+                        wheel_closest = {"tick": entry["tick"], "body": pose["id"], "role": body["role"],
+                                         "modelElement": label, "trackComponent": labels[index]}
                     if gap < margin and len(failures) < 20:
                         failures.append({"gap": gap, "tick": entry["tick"], "body": pose["id"],
                                          "modelElement": label, "trackComponent": labels[index]})
@@ -281,9 +327,14 @@ def audit(route, entries, resources, margin):
                     failures.append({"gap": gap, "tick": entry["tick"], "neighborPair": neighbor_closest})
     if not completed or samples < 150 or len(visited) != route["carCount"] or any(len(v) != 5 for v in visited.values()):
         raise ValueError("Mesh trace lacks full original-car route coverage and normal completion")
+    if wheel_checks == 0 or not math.isfinite(wheel_minimum):
+        raise ValueError("Native wheel envelopes were not audited")
     return {"family": route["family"], "cars": route["carCount"], "samples": samples,
             "trackTriangles": len(triangles), "minimumSeparatingBound": minimum,
             "closest": closest, "requiredGap": margin, "passes": not failures,
+            "wheelEnvelopeCount": wheel_checks,
+            "wheelMinimumSeparatingBound": wheel_minimum,
+            "wheelClosest": wheel_closest,
             "neighborMinimumSeparatingBound": neighbor_minimum,
             "neighborClosest": neighbor_closest, "neighborPairs": neighbor_pairs,
             "uncertifiedPairs": failures, "allCarsVisitedSections": 5}
@@ -325,13 +376,14 @@ def main():
         resources = Resources(base, minecraft)
         results = [audit(route, entries, resources, args.margin) for route in routes]
     output = {"baseSha256": BASE_PIN, "minecraftSha256": digest(args.minecraft_jar), "framesSha256": digest(args.frames), "traceSha256": digest(args.trace),
+              "verifierSha256": digest(Path(__file__)),
               "sourceHashes": {name: digest(ROOT / name) for name in
                                ("src/main/java/dev/fourthdimension/client/OriginalTrackRenderer.java",
                                 "src/main/java/dev/fourthdimension/track/TrackDesign.java",
                                 "src/main/java/dev/fourthdimension/gametest/RecoveryMeshTrace.java",
                                 "src/main/java/dev/fourthdimension/vehicle/BankedRecoveryExamples.java") },
               "resourceHashes": resources.hashes, "sampleIntervalTicks": 20,
-              "scope": "sampled original default block-model and native lower-bearing volumes against original track tubes; no continuous sweep, rotating native wheels, player meshes, linkage, decorations or resource overrides",
+              "scope": "sampled original default block-model, native lower-bearing and full-spin wheel-envelope volumes against original track tubes; running rails are excluded only for wheels as intended contact; no continuous sweep, player meshes, linkage, decorations or resource overrides",
               "method": "2-block spatial bins; omitted pairs certify at least 4x margin; world AABB separation refined by OBB/triangle SAT lower distance bounds",
               "routes": results}
     print(json.dumps(output, indent=2))

@@ -16,8 +16,10 @@ under FD902 toward 0.9.0; this does not close the earlier 0.4 gate.
 supports out of the native lower-bearing channel and independently samples that
 native lower-bearing model against occupied banked recovery routes; see the
 [bearing-clearance checkpoint](docs/evidence/0.4/recovery/bearing-clearance/acceptance.md).
-Rotating wheel rendering, player meshes, linkage and continuous swept clearance
-remain open. Dev.21 records actual native body poses and block states for
+Dev.23 adds sampled full-spin native-wheel envelopes at those banked frames,
+excluding only intended running-rail contact; see the
+[wheel-clearance checkpoint](docs/evidence/0.4/recovery/wheel-clearance/acceptance.md).
+Player meshes, linkage and continuous swept clearance remain open. Dev.21 records actual native body poses and block states for
 independent sampled default model/track/neighbor clearance; see the
 [model clearance checkpoint](docs/evidence/0.4/recovery/model-clearance/acceptance.md).
 Dev.20 validates original occupied

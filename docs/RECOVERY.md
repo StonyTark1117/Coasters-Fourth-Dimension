@@ -1,6 +1,6 @@
 # Ordinary-bearing recovery
 
-Development build 0.9.0-dev.22 includes explicit recovery coupling for the five
+Development build 0.9.0-dev.23 includes explicit recovery coupling for the five
 original families. A 4D car stays on its matching functional track throughout.
 Only the pinned, unmodified bare Coasters bearing is certified as the ordinary
 recovery cart. It acquires no carriers, profile, magnetic assistance or 4D data.
@@ -198,6 +198,8 @@ and model volumes of neighboring cars. See the [checkpoint](evidence/0.4/recover
 for source/resource pins and limits. Dev.22 additionally samples the native
 lower-bearing model at the recorded chassis frame and moves Original visual
 supports outboard and below its channel; see the [bearing checkpoint](evidence/0.4/recovery/bearing-clearance/acceptance.md).
-Twenty-tick samples do not certify continuous swept clearance, rotating native
-wheels, rendered players, linkage or optional decoration. Full rendered/operator/lifecycle
+Dev.23 also checks full-spin native-wheel envelopes at those frames, excluding
+only their intended main-rail contact; see the [wheel checkpoint](evidence/0.4/recovery/wheel-clearance/acceptance.md).
+Twenty-tick samples do not certify continuous swept clearance, rendered players,
+linkage or optional decoration. Full rendered/operator/lifecycle
 acceptance remains FD402.

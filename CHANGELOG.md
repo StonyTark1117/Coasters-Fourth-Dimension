@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.9.0-dev.23 — sampled banked wheel-envelope clearance
+
+- Extend the source-pinned recovery audit with full-spin envelopes for the pinned native wheel model at each recorded banked recovery frame. Exclude only the two running rails as intentional wheel contact; check all other original track components and all neighboring original-car volumes.
+- Record conservative sampled wheel-envelope bounds of 0.04602 blocks across the five single-car routes and 0.04608 blocks across original Arrow/PAX trains, above the 0.02 required margin. Retain continuous curve/bank motion, riders, linkage, decorations and real-client rendering as separate FD402 work.
+
 ## 0.9.0-dev.22 — native lower-bearing clearance truss
 
 - Replace Original running-rail crossbars and diagonal mounts with an outboard, below-channel visual truss. Functional rails, track family eligibility and native vehicle physics are unchanged.
