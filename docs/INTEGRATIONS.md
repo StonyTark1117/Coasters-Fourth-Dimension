@@ -30,7 +30,7 @@ family eligibility or carrier profiles. The Rotation Tool's section editor now
 opens **Track appearance**, with Original and the two inspected Arrow spine
 choices, plus an optional `#RRGGBB` spine/tie color. Selection uses the same
 permission, distance, revision, and occupied-section guards as profile editing.
-Only separately installed Track Styles 1.2.0 enables its choices, and both choices are permitted only on controlled Arrow functional track. The server rejects selection on all four other families; renderer fallback also enforces this boundary.
+Only separately installed Track Styles 1.2.0 enables its choices, and both choices are permitted only on controlled Arrow functional track. The server rejects selection on all four other families; renderer fallback also enforces this boundary. A saved decorative choice is intent, not a renderer guarantee: if either separately installed baked spine/tie model is missing, cannot create a cached buffer, or fails during drawing, the original spine/tie renderer remains active for that rail. This addon neither copies nor substitutes the provider's assets.
 
 Appearance intent is saved separately in the current schema 6. Earlier schema 1–4 rails
 default to Original; missing provider IDs and tint are retained while the original
