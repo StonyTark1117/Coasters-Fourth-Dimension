@@ -202,7 +202,7 @@ public final class OperationsGameTests {
         });
   }
 
-  @GameTest(template = "empty", timeoutTicks = 220)
+  @GameTest(template = "empty", timeoutTicks = 250)
   public static void fiveFamilySupportLossFailsClosedWithoutRebindingOrDuplicatingRiders(
       GameTestHelper helper) {
     var level = helper.getLevel();
@@ -309,16 +309,59 @@ public final class OperationsGameTests {
                   + " bindingsPreserved=true savedStatePreserved=true failClosed=true");
         });
     helper.runAtTickTime(
-        180,
+        155,
+        () -> {
+          // A real carrier removal must recover every rider and permanently remove its entire
+          // vehicle group. Do this after support loss so disassembly cannot silently rebind a
+          // stopped vehicle to another route.
+          for (var car : cars) {
+            var body = container.getSubLevel(car.carriers.getFirst().body);
+            helper.assertTrue(body != null, "Disassembly fixture lost carrier before removal");
+            container.removeSubLevel(body, SubLevelRemovalReason.REMOVED);
+          }
+        });
+    helper.runAtTickTime(
+        195,
+        () -> {
+          helper.assertTrue(
+              riders.stream().noneMatch(net.minecraft.world.entity.Entity::isPassenger),
+              "Permanent disassembly stranded a rider");
+          for (var car : cars) {
+            helper.assertTrue(
+                !data.vehicles.containsKey(car.chassis),
+                "Permanent disassembly retained vehicle state for " + car.variant);
+            helper.assertTrue(
+                container.getSubLevel(car.chassis) == null
+                    && car.carriers.stream().allMatch(c -> container.getSubLevel(c.body) == null),
+                "Permanent disassembly left an orphan native body for " + car.variant);
+          }
+          var saved =
+              FoundationData.load(
+                  data.save(new net.minecraft.nbt.CompoundTag(), level.registryAccess()),
+                  level.registryAccess());
+          helper.assertTrue(
+              cars.stream().noneMatch(car -> saved.vehicles.containsKey(car.chassis)),
+              "Permanent disassembly left stale vehicle state in the saved record");
+          System.out.println(
+              "FD_PERMANENT_DISASSEMBLY families="
+                  + cars.stream().map(car -> car.family).toList()
+                  + " ridersRecovered="
+                  + riders.size()
+                  + " bodiesRemoved=true savedStateRemoved=true");
+        });
+    helper.runAtTickTime(
+        215,
         () -> {
           for (var rider : riders) {
-            rider.stopRiding();
             rider.discard();
           }
           for (var car : cars) {
-            for (var carrier : car.carriers)
-              container.removeSubLevel(container.getSubLevel(carrier.body), SubLevelRemovalReason.REMOVED);
-            container.removeSubLevel(container.getSubLevel(car.chassis), SubLevelRemovalReason.REMOVED);
+            for (var carrier : car.carriers) {
+              var body = container.getSubLevel(carrier.body);
+              if (body != null) container.removeSubLevel(body, SubLevelRemovalReason.REMOVED);
+            }
+            var chassis = container.getSubLevel(car.chassis);
+            if (chassis != null) container.removeSubLevel(chassis, SubLevelRemovalReason.REMOVED);
             data.vehicles.remove(car.chassis);
           }
           for (var rail : rails) {

@@ -18,7 +18,9 @@ functional blocks or establish the remaining FD903 acceptance evidence.
 [Five-family support loss, dev.27](five-family-support-loss.md) verifies that
 an occupied native car fails closed when its only matching track connection is
 removed. It preserves rider ownership, matching binding, carrier capture, and
-closed restraints across all five families. Live late-join is covered
+closed restraints across all five families, then permanently removes one
+carrier from every family and verifies rider recovery with no retained native
+or saved vehicle state. Live late-join is covered
 separately; occupied clients, disconnect and full lifecycle coverage remain
 FD902 work.
 

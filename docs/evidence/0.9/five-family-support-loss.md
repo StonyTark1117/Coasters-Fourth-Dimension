@@ -21,17 +21,25 @@ The runtime now records that specific support fault before the generic boundary
 guard runs. The guard is skipped for an already-invalid support so it cannot
 replace the actionable fault with `Engaged track unavailable`.
 
+After that fail-closed state has been saved and verified, the fixture permanently
+removes one native carrier from every vehicle. Each mounted rider must dismount,
+the vehicle's chassis and every carrier body must be removed, and a new saved
+`FoundationData` record must contain none of the five chassis IDs. This covers
+permanent disassembly without permitting a stopped vehicle to rebind to a
+different route.
+
 ## Result
 
 ```sh
-JAVA_HOME=/usr/lib/jvm/java-21-openjdk ./gradlew build runGameTestServer --no-daemon -PfdIntegrations=styles,engineered
+JAVA_HOME=/usr/lib/jvm/java-21-openjdk ./gradlew runGameTestServer --no-daemon -PfdIntegrations=styles,engineered -PfdPerformanceTargets
 ```
 
-The combined profile passed all **39 required GameTests** in 4.275 minutes. The
-new test emitted:
+The combined target-gated profile passed all **41 required GameTests** in
+**4.007 minutes**. The expanded test emitted:
 
 ```text
 FD_SUPPORT_LOSS families=[ARROW, ZACSPIN, FREE_SPIN, ZACSPIN_REVISED, PAX] riders=5 bindingsPreserved=true savedStatePreserved=true failClosed=true
+FD_PERMANENT_DISASSEMBLY families=[ARROW, ZACSPIN, FREE_SPIN, ZACSPIN_REVISED, PAX] ridersRecovered=5 bodiesRemoved=true savedStateRemoved=true
 ```
 
 ## Limits

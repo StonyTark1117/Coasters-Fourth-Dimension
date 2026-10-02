@@ -430,8 +430,11 @@ fixtures retain both riders in distinct seats of one carrier across all five
 current families; Arrow, Legacy, Free Spin, Revised and PAX also restore one rider
 after a fresh-client reconnect while the other remains mounted. The earlier
 second-rider removal was a stale Sable tracking point in a removed sublevel.
-Native support-loss, late-join, shuttle availability-gap behavior and occupied
-Arrow, Legacy, Free Spin and Revised moving-route restarts, plus PAX active-lift recovery, also have bounded evidence. Stationary concurrent
+Native support-loss now also permanently removes one carrier from each of the
+five families and verifies rider recovery with no retained native or saved
+vehicle state. Late-join, shuttle availability-gap behavior and occupied Arrow,
+Legacy, Free Spin and Revised moving-route restarts, plus PAX active-lift
+recovery, also have bounded evidence. Stationary concurrent
 interruption coverage is complete. See
 [occupied disconnect/reconnect evidence](docs/evidence/0.9/occupied-disconnect-reconnect.md),
 [support-loss evidence](docs/evidence/0.9/five-family-support-loss.md),
