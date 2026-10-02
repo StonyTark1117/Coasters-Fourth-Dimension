@@ -78,3 +78,12 @@ There was no Fourth Dimension injection failure. The process was deliberately
 stopped by its 55-second startup timeout, so this checks the mixin bindings and
 initial trace only; it is neither a clean client-exit result nor a reload/crash
 reproduction.
+
+A second isolated Xvfb attempt reached the same initial trace, then sent F3+T
+to the focused Minecraft window both directly and while holding F3 across the
+T keypress. Neither input produced a second `FontManager.apply` generation.
+The process was deliberately interrupted after the attempted input. This
+headless environment therefore validates startup binding only; it cannot add
+post-reload acceptance evidence. The next reproduction attempt must use an
+interactive client where F3+T is known to reach the game, or another controlled
+resource-reload trigger that preserves the packaged dependency set.
