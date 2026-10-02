@@ -18,13 +18,15 @@ functional blocks or establish the remaining FD903 acceptance evidence.
 [Five-family support loss, dev.27](five-family-support-loss.md) verifies that
 an occupied native car fails closed when its only matching track connection is
 removed. It preserves rider ownership, matching binding, carrier capture, and
-closed restraints across all five families. Client, disconnect and full
-lifecycle coverage remain FD902 work.
+closed restraints across all five families. Live late-join is covered
+separately; occupied clients, disconnect and full lifecycle coverage remain
+FD902 work.
 
 [Dimension-scoped snapshot contract](dimension-snapshot-contract.md) prevents
 a queued old-dimension snapshot from replacing the newly active client level.
-It advances the snapshot lifecycle boundary, while live two-client,
-late-join, disconnect and chunk-unload acceptance remains FD902 work.
+It advances the snapshot lifecycle boundary. The separate live two-client
+late-join check is complete; disconnect, chunk-unload and dimension-transition
+replay acceptance remain FD902 work.
 
 [Two-client late-join snapshot replication](two-client-snapshot.md) records a
 dedicated-server recovery-world run where a second client joined after the

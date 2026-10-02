@@ -88,8 +88,9 @@ No production source or artifact change was needed. The preceding code checkpoin
 passes 25 unit tests and 30 native tests in all four CI profiles; its exact-head
 push/PR results are retained as `caught-ci-{push,pr}.json`.
 
-The complete two-client/late-join/disconnect matrix, occupied route/support loss and
-all-family lifecycle coverage remain FD902 work. This fixture does not certify
+The separate two-client late-join snapshot check is complete; disconnect,
+occupied route/support loss and all-family lifecycle coverage remain FD902 work.
+This fixture does not certify
 survival construction, towing, migration, rendering modes or performance. The
 original bitmap-glyph crash remains unresolved. All three owned clients and the
 isolated display were stopped after their normal exits.
