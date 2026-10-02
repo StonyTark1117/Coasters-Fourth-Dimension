@@ -55,6 +55,15 @@ public final class ValidationCommands {
                                         context.getSource(),
                                         EntityArgument.getPlayer(context, "player")))))
             .then(
+                Commands.literal("motion")
+                    .then(
+                        Commands.argument("player", EntityArgument.player())
+                            .executes(
+                                context ->
+                                    motion(
+                                        context.getSource(),
+                                        EntityArgument.getPlayer(context, "player")))))
+            .then(
                 Commands.literal("style")
                     .then(
                         Commands.argument("player", EntityArgument.player())
@@ -184,11 +193,7 @@ public final class ValidationCommands {
 
   private static int dispatch(net.minecraft.commands.CommandSourceStack source, ServerPlayer player) {
     var level = player.serverLevel();
-    var vehicle =
-        FoundationData.get(level).vehicles.values().stream()
-            .filter(candidate -> candidate.carriers.stream().anyMatch(c -> c.riderSeats.containsKey(player.getUUID())))
-            .findFirst()
-            .orElse(null);
+    var vehicle = assigned(level, player);
     if (vehicle == null)
       return failure(source, "No assigned fourth-dimension vehicle was found for the player");
     try {
@@ -199,6 +204,41 @@ public final class ValidationCommands {
     source.sendSuccess(
         () -> Component.literal("Validation dispatched " + player.getGameProfile().getName()), false);
     return 1;
+  }
+
+  private static int motion(net.minecraft.commands.CommandSourceStack source, ServerPlayer player) {
+    var level = player.serverLevel();
+    var vehicle = assigned(level, player);
+    var container = SubLevelContainer.getContainer(level);
+    if (vehicle == null || container == null || container.getSubLevel(vehicle.chassis) == null)
+      return failure(source, "No loaded assigned fourth-dimension vehicle was found for the player");
+    var body = container.getSubLevel(vehicle.chassis);
+    if (!(body instanceof dev.ryanhcode.sable.sublevel.ServerSubLevel parent))
+      return failure(source, "The assigned vehicle has no server-native chassis body");
+    var pose = dev.silvergold.simulatedcoasters.track.cart.CoasterCartResolve.cartCenterWorld(body);
+    var velocity =
+        container.physicsSystem().getPipeline().getLinearVelocity(parent, new org.joml.Vector3d());
+    source.sendSuccess(
+        () ->
+            Component.literal(
+                "Validation motion chassis="
+                    + vehicle.chassis
+                    + " position="
+                    + pose
+                    + " velocity="
+                    + velocity
+                    + " capture="
+                    + vehicle.carriers.stream().allMatch(c -> c.capture)),
+        false);
+    return 1;
+  }
+
+  private static FoundationData.Vehicle assigned(
+      net.minecraft.server.level.ServerLevel level, ServerPlayer player) {
+    return FoundationData.get(level).vehicles.values().stream()
+        .filter(candidate -> candidate.carriers.stream().anyMatch(c -> c.riderSeats.containsKey(player.getUUID())))
+        .findFirst()
+        .orElse(null);
   }
 
   private static int failure(net.minecraft.commands.CommandSourceStack source, String message) {
