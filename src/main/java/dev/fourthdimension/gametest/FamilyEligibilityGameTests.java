@@ -115,10 +115,35 @@ public final class FamilyEligibilityGameTests {
                     && level.getBlockState(bearing).getValue(CoasterCartBlock.SNAP_ENGAGED),
                 "Matching initial snap failed after rejects");
           }
+          int mixedConsistRejects = 0;
+          for (int i = 0; i < vehicles.size(); i++) {
+            var first = vehicles.get(i);
+            var firstBody = (ServerSubLevel) container.getSubLevel(first.chassis);
+            var firstFrom = first.boundFrom;
+            var firstTo = first.boundTo;
+            for (int j = 0; j < vehicles.size(); j++) {
+              if (i == j) continue;
+              var second = vehicles.get(j);
+              var secondBody = (ServerSubLevel) container.getSubLevel(second.chassis);
+              helper.assertTrue(
+                  !CoasterCartTrainLinkConstraint.linkCarts(level, firstBody, secondBody, 6),
+                  "Mixed-family native coupling accepted " + first.family + " -> " + second.family);
+              helper.assertTrue(
+                  !CoasterCartTrainLinkConstraint.areLinkedCarts(firstBody, secondBody)
+                      && first.boundFrom.equals(firstFrom)
+                      && first.boundTo.equals(firstTo)
+                      && second.boundFrom != null
+                      && second.boundTo != null,
+                  "Rejected mixed coupling changed a vehicle state");
+              mixedConsistRejects++;
+            }
+          }
           System.out.println(
               "FD_FAMILY_MATRIX decisions="
                   + decisions
-                  + " factoryRejects=20 lockedNativeInitialSnapRejects=20 bindingPreserved=true");
+                  + " factoryRejects=20 lockedNativeInitialSnapRejects=20 mixedConsistRejects="
+                  + mixedConsistRejects
+                  + " bindingPreserved=true");
           for (var vehicle : vehicles) {
             for (var carrier : vehicle.carriers)
               container.removeSubLevel(

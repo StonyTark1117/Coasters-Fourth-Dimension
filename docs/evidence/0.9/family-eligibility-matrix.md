@@ -17,6 +17,11 @@ the existing persisted `boundFrom` and `boundTo` rail binding unchanged; an
 initial snap on a wrong-family hit must leave the bearing disengaged. A matching
 initial snap must engage the bearing after the rejected attempts.
 
+After every matching car is captured on its own original rail, the test requests
+each directed off-diagonal native six-block train coupling. All twenty mixed
+family requests must reject without creating a link or changing either car's
+track binding.
+
 ## Result
 
 ```sh
@@ -24,15 +29,15 @@ JAVA_HOME=/usr/lib/jvm/java-21-openjdk ./gradlew runGameTestServer --no-daemon -
 ```
 
 The combined target-gated profile passed all **41 required GameTests** in
-**4.113 minutes** and emitted:
+**4.097 minutes** and emitted:
 
 ```text
-FD_FAMILY_MATRIX decisions=25 factoryRejects=20 lockedNativeInitialSnapRejects=20 bindingPreserved=true
+FD_FAMILY_MATRIX decisions=25 factoryRejects=20 lockedNativeInitialSnapRejects=20 mixedConsistRejects=20 bindingPreserved=true
 ```
 
 The 25 decisions are the complete five-cart by five-original-track table. The
-20 off-diagonal cases rejected in the factory and native initial-snap paths;
-the five diagonal matching cases attached successfully.
+20 off-diagonal cases rejected in the factory, native initial-snap, and native
+train-coupling paths; the five diagonal matching cases attached successfully.
 
 The same run's native survival dispatcher fixture independently placed all five
 matching cars through their held-item interaction path and rejected all 20
