@@ -595,15 +595,15 @@ public final class ShuttleGameTests {
     var level = helper.getLevel();
     for (int x = 44; x <= 46; x++) for (int z = 32; z <= 45; z++) level.setChunkForced(x, z, true);
     var example = ShuttleExamples.create(level, new BlockPos(720, 180, 600), true);
-    var winch = example.winch();
+    ShuttleWinchEntity[] winch = {example.winch()};
     var container = SubLevelContainer.getContainer(level);
-    boolean[] running = {false}, second = {false}, rejected = {false};
+    boolean[] running = {false}, second = {false}, rejected = {false}, reloaded = {false};
     Runnable[] motorProbe = {() -> {}};
     helper.runAtTickTime(
         80,
         () -> {
           ShuttleExamples.assemble(level, example);
-          motorProbe[0] = EngineeredGameTests.addOpposingShuttleMotors(helper, winch);
+          motorProbe[0] = EngineeredGameTests.addOpposingShuttleMotors(helper, winch[0]);
           VehicleOperations.restraints(level, example.cars().getFirst(), true);
           VehicleOperations.dispatch(level, example.cars().getFirst());
           running[0] = true;
@@ -612,7 +612,7 @@ public final class ShuttleGameTests {
         () -> {
           if (!running[0]) return;
           motorProbe[0].run();
-          if (winch.phase == ShuttleWinchEntity.Phase.OUTBOUND && !rejected[0]) {
+          if (winch[0].phase == ShuttleWinchEntity.Phase.OUTBOUND && !rejected[0]) {
             rejected[0] = true;
             try {
               VehicleOperations.restraints(level, example.cars().getFirst(), false);
@@ -620,15 +620,36 @@ public final class ShuttleGameTests {
             } catch (IllegalArgumentException expected) {
             }
           }
-          if (winch.cycles == 1 && !second[0]) {
+          if (winch[0].cycles == 1 && !second[0]) {
             second[0] = true;
+            var pos = winch[0].getBlockPos();
+            var state = level.getBlockState(pos);
+            var saved = winch[0].saveWithFullMetadata(level.registryAccess());
+            var carriage = winch[0].carriage;
+            level.removeBlockEntity(pos);
+            var restored =
+                (ShuttleWinchEntity)
+                    net.minecraft.world.level.block.entity.BlockEntity.loadStatic(
+                        pos, state, saved, level.registryAccess());
+            helper.assertTrue(
+                restored != null
+                    && restored.phase == ShuttleWinchEntity.Phase.BOARDING
+                    && restored.cycles == 1
+                    && restored.carriage.equals(carriage)
+                    && restored.cars.equals(winch[0].cars),
+                "First station return lost the persisted shuttle state");
+            level.setBlockEntity(restored);
+            ShuttleRuntime.register(level, restored);
+            winch[0] = restored;
+            reloaded[0] = true;
             VehicleOperations.dispatch(level, example.cars().getFirst());
           }
-          if (winch.cycles == 2) {
+          if (winch[0].cycles == 2) {
             helper.assertTrue(rejected[0], "Tall shuttle never completed an outbound pass");
+            helper.assertTrue(reloaded[0], "Tall shuttle completed twice without reloading at the station");
             helper.assertTrue(
                 CoasterCartTrainLinkConstraint.getTrainLinkedCartIds(
-                            container.getSubLevel(winch.vehicle))
+                            container.getSubLevel(winch[0].vehicle))
                         .size()
                     == 4,
                 "Tall repeated shuttle lost a native coupling");
@@ -637,17 +658,21 @@ public final class ShuttleGameTests {
                 "Tall train did not capture all carriers");
             System.out.println(
                 "FD_SHUTTLE_TALL cycles="
-                    + winch.cycles
+                    + winch[0].cycles
+                    + " stationReloaded="
+                    + reloaded[0]
                     + " maximum="
-                    + winch.maximumDistance
+                    + winch[0].maximumDistance
                     + " station="
-                    + winch.stationDistance);
+                    + winch[0].stationDistance);
             helper.succeed();
           }
         });
     helper.runAtTickTime(
         2990,
-        () -> helper.fail("Tall shuttle did not finish twice: " + winch.phase + " " + winch.fault));
+        () ->
+            helper.fail(
+                "Tall shuttle did not finish twice: " + winch[0].phase + " " + winch[0].fault));
   }
 
   private static String boardingSnapshot(

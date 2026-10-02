@@ -423,7 +423,7 @@ chunk/sublevel unload/reload, and full dedicated-server cold restart for each
 stationary original Arrow, Legacy, Free Spin, Revised and PAX family. Every
 case retains the one rider assignment, restores the original native carrier and
 returns the player to a `create:seat` before the 200-tick deadline. The
-combined audited integration profile now passes 40 GameTests, including a
+combined audited integration profile now passes 41 GameTests, including a
 server-side two-live-player regression that retains distinct seat entities and
 UUID-to-seat assignments across a native update. Fresh-world real two-client
 fixtures retain both riders in distinct seats of one carrier across all five
@@ -441,6 +441,11 @@ interruption coverage is complete. See
 [two-client late-join evidence](docs/evidence/0.9/two-client-snapshot.md),
 [caught shuttle acceptance and limits](docs/evidence/0.9/caught-shuttle-acceptance.md)
 and [occupied boarding acceptance](docs/evidence/0.9/occupied-shuttle-acceptance.md).
+
+The tall native PAX shuttle now also serializes and reinstalls its real winch
+at the first captured station return, retains its physical carriage and ordered
+four-car consist, and completes a second cycle with outbound restraints locked;
+see the [repeated station reload evidence](docs/evidence/0.9/repeated-shuttle-reload.md).
 
 **Latest FD902 checkpoint: two live riders across all five families.** Clean
 dedicated-server worlds admitted Dev and Observer to distinct native seats in

@@ -24,6 +24,12 @@ or saved vehicle state. Live late-join is covered
 separately; occupied clients, disconnect and full lifecycle coverage remain
 FD902 work.
 
+[Repeated PAX shuttle station reload](repeated-shuttle-reload.md) saves and
+reinstalls the real winch at its first captured station return, then verifies
+that its physical carriage and ordered native consist complete a second cycle.
+It is a server-side persistence boundary, with wider client and lifecycle
+coverage still open under FD902.
+
 [Dimension-scoped snapshot contract](dimension-snapshot-contract.md) prevents
 a queued old-dimension snapshot from replacing the newly active client level.
 It advances the snapshot lifecycle boundary. The separate live two-client
