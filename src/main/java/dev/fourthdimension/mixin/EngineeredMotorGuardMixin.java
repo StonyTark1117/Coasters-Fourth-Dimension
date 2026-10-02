@@ -1,7 +1,7 @@
 package dev.fourthdimension.mixin;
 
+import dev.fourthdimension.integration.EngineeredInterlock;
 import dev.fourthdimension.integration.OptionalIntegrations;
-import dev.fourthdimension.integration.PropulsionInterlock;
 import dev.ryanhcode.sable.sublevel.ServerSubLevel;
 import dev.ryanhcode.sable.sublevel.system.SubLevelPhysicsSystem;
 import dev.silvergold.simulatedcoasters.track.graph.CoasterPathTrackFrame;
@@ -30,6 +30,6 @@ public abstract class EngineeredMotorGuardMixin {
       double dt,
       CallbackInfo callback) {
     if (OptionalIntegrations.installed(OptionalIntegrations.ENGINEERED).mayInspect()
-        && PropulsionInterlock.holds(body, level)) callback.cancel();
+        && EngineeredInterlock.holds(body, level)) callback.cancel();
   }
 }

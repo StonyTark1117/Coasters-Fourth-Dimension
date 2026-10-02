@@ -134,6 +134,11 @@ translation; the operator must still request carrier capture and wait for ready
 alignment before releasing restraints. A longitudinal stop never automatically
 unloads or aligns rotating seats. Ordinary bearings bypass these 4D policies.
 
+The [consist interlock regression](evidence/integrations/2026-10-02/engineered-interlock/README.md)
+adds callback-time checks for open restraints, faults and held linked cars, and
+rejects missing peer registrations. It preserves the ordinary recovery-cart
+policy and verifies native queued impulses with valid-launch controls.
+
 The [operating evidence](evidence/0.4/operating-acceptance.md) covers installed
 controllers on all five matching straight track families: four non-PAX cars
 launch and stop, captured/retained cars hold, and the PAX car rejects motor

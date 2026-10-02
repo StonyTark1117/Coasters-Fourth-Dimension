@@ -1,0 +1,65 @@
+[
+  {
+    "profile": "build",
+    "command": [
+      "./gradlew",
+      "-Dorg.gradle.jvmargs=-Xmx1G",
+      "--max-workers=2",
+      "build"
+    ],
+    "exit": 0,
+    "seconds": 1.451185941696167
+  },
+  {
+    "profile": "engineered",
+    "command": [
+      "./gradlew",
+      "-Dorg.gradle.jvmargs=-Xmx1G",
+      "--max-workers=2",
+      "-PfdPackaged",
+      "-PfdIntegrations=engineered",
+      "runGameTestServer"
+    ],
+    "exit": 0,
+    "seconds": 286.37617659568787
+  },
+  {
+    "profile": "combined",
+    "command": [
+      "./gradlew",
+      "-Dorg.gradle.jvmargs=-Xmx1G",
+      "--max-workers=2",
+      "-PfdPackaged",
+      "-PfdIntegrations=styles,engineered",
+      "runGameTestServer"
+    ],
+    "exit": 0,
+    "seconds": 291.9957101345062
+  },
+  {
+    "profile": "base",
+    "command": [
+      "./gradlew",
+      "-Dorg.gradle.jvmargs=-Xmx1G",
+      "--max-workers=2",
+      "-PfdPackaged",
+      "-PfdIntegrations=",
+      "runGameTestServer"
+    ],
+    "exit": 0,
+    "seconds": 254.90895175933838
+  },
+  {
+    "profile": "styles",
+    "command": [
+      "./gradlew",
+      "-Dorg.gradle.jvmargs=-Xmx1G",
+      "--max-workers=2",
+      "-PfdPackaged",
+      "-PfdIntegrations=styles",
+      "runGameTestServer"
+    ],
+    "exit": 0,
+    "seconds": 310.13706636428833
+  }
+]

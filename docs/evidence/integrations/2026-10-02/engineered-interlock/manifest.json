@@ -1,0 +1,70 @@
+{
+  "baseCommit": "eaa23bcb6ca7939d7e2119beec4275e292d1bd18",
+  "regressionBaseCommit": "8da29836e7c16da3036a01b95af08a1172273c62",
+  "modVersion": "0.9.0-dev.27",
+  "javaVersion": "21.0.12.1+1",
+  "jarSha256": "c11c9eafa729d079a58c5f84195d8d55bbb8bf589ca5912eb8535fc385a053db",
+  "unitTests": {
+    "tests": 26,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "optionalArtifacts": {
+    "engineered": {
+      "coordinate": "curse.maven:coasters-engineered-1643631:8863559",
+      "sha256": "eea19ed769ed573727b4e15184c229f66aff85f20667464650724e1b2d657f5d"
+    },
+    "styles": {
+      "coordinate": "curse.maven:coasters-simulated-track-styles-1642719:9020601",
+      "sha256": "42535a83307f6898b33c13ca201533bb9e337418fd7c73039c867fc80bfbcb38"
+    }
+  },
+  "sourceSha256": {
+    "src/main/java/dev/fourthdimension/integration/EngineeredInterlock.java": "b1e3fd437db958ecc3bfc5094ee3fb5e702eeb96b5369a71f2489da3f217e335",
+    "src/main/java/dev/fourthdimension/mixin/EngineeredMotorGuardMixin.java": "d23eb3debd8821357ed3102f73e263b15f93e2da9108860ebca419e7eadef333",
+    "src/main/java/dev/fourthdimension/gametest/EngineeredInterlockGameTests.java": "f210915e99dbcfe363e1de6ebc0f2eacb971544aa5a0d4c5df5b3bd5118c51cc"
+  },
+  "profiles": {
+    "engineered": {
+      "exit": 0,
+      "packaged": true,
+      "registeredGameTests": 42
+    },
+    "combined": {
+      "exit": 0,
+      "packaged": true,
+      "registeredGameTests": 42
+    },
+    "base": {
+      "exit": 0,
+      "packaged": true,
+      "registeredGameTests": 42
+    },
+    "styles": {
+      "exit": 0,
+      "packaged": true,
+      "registeredGameTests": 42
+    }
+  },
+  "files": {
+    "TEST-dev.fourthdimension.FoundationMathTest.xml.gz": "8088ed10daf9196b1a05449feee30c16e8a5297e418b888608bdf9088be6da63",
+    "TEST-dev.fourthdimension.MagneticMathTest.xml.gz": "c38094eb43739dd8ac467be15f2068119bc290bf0206e9fad6dca9f3c8eef1cd",
+    "TEST-dev.fourthdimension.ModelFrameTest.xml.gz": "e328e24fe8b141a86c5c313e82f4fc2cd653745a66c078ba8ec62d695edba6d0",
+    "TEST-dev.fourthdimension.OptionalIntegrationTest.xml.gz": "53977f19c4d5d08baf0d04f7400f8121877a1c3c2282224bff437646ca9b5ad7",
+    "TEST-dev.fourthdimension.TrackAppearanceTest.xml.gz": "26155c5f0bbeebc41f1fc09948324ccad0377f2d33add17b1de23ebb280b74ed",
+    "TEST-dev.fourthdimension.TrackMathTest.xml.gz": "63c1589ff8a8a65675a014411e8c0206659baa029ec34fd8588eb156a32d9e24",
+    "TEST-dev.fourthdimension.TrackRenderMetricsTest.xml.gz": "257ca1efc6ae043953ba27ae88563a28c7a5a5dda55f1d79920313d5e2783ea9",
+    "artifact-diff.json": "7a6408c2552f17f395afecf557853b3c5ff84a6ef2c590aa1a284215d87ffe60",
+    "base.log.gz": "0a03bb466f0efe02a56c401cc9c566f0d8a26af90f07703ed81330959f1b1023",
+    "before-source.json": "6874219f1beb451f1f0596cd0e1c2cce5697a26d4276d74894913677321a0e6d",
+    "before.log.gz": "bba2532a4590f6b495d781897d46f63d3638c581cc20bba7ad46fff4272d464b",
+    "build.log.gz": "c8a801a7c6847145e33d6daffb5b3481c31c4dbed0d8b321370c14022189f8ce",
+    "combined.log.gz": "d3bfd4b87e1cf0eddab7311286e1932d471800af950b051f9313cf987b9a32bd",
+    "commands.json": "f77860764d531f340ccb431a7980973fea0476c4e7471b19cf1312a659453fc7",
+    "compile-attempt.log.gz": "de4b5a72adeddf2883aa53c4168d0d3a78fa2eac27272045fad73090e0a84312",
+    "engineered.log.gz": "240dc4c8314691aeb715a6e817f334d7797b1e774c9271babfcff8ab733c56c6",
+    "styles.log.gz": "7dff7e00ce601a4f148156dca61d4a17d6781a606be70d0f4c50f5feda926dfa",
+    "velocity-probe-attempt.log.gz": "549a679b3a380a962ef0c01c77f3115581cec086963ace469369d52dc8f8511b"
+  }
+}
