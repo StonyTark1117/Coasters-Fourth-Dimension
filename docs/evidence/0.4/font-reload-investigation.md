@@ -86,10 +86,11 @@ The process was deliberately interrupted after the attempted input. This
 headless environment therefore validates startup binding only; it cannot add
 post-reload acceptance evidence. `-PfdFontValidationReload` now provides one
 opt-in, client-side controlled reload after the initial load, preserving the
-same packaged dependency set. It requires `-PfdFontValidation`, changes no
-normal client behavior, and logs request/completion separately from the FontSet
-and image lifecycle observations. An interactive F3+T replay remains useful for
-comparing the controlled path with the reported failure.
+same packaged dependency set. `-PfdFontValidationReloads=N` requests 1–64
+sequential reloads. Both require `-PfdFontValidation`, change no normal client
+behavior, and log request/completion separately from the FontSet and image
+lifecycle observations. An interactive F3+T replay remains useful for comparing
+the controlled path with the reported failure.
 
 On 2026-10-01, the controlled trigger was run in the isolated standalone
 profile. It recorded generation 1 with zero previous font sets, issued one
@@ -100,6 +101,7 @@ the reload future completed. No closed-set lookup, unallocated-image trace, or
 stopped. This is one clean controlled lifecycle sample; it does not reproduce or
 resolve the intermittent packaged crash.
 
-The same controlled sequence also completed with the actual packaged JAR and
-the pinned standalone dependency set. Its artifact hash, command, observations,
-and limits are recorded in [the packaged validation](font-reload-packaged-validation.md).
+Three sequential controlled reloads also completed with the actual packaged JAR
+and the pinned standalone dependency set, advancing generations 1–4 with seven
+previous font sets on each reload and no target trace/error. Its artifact hash,
+command, observations, and limits are recorded in [the packaged validation](font-reload-packaged-validation.md).
