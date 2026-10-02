@@ -101,3 +101,20 @@ again identified one native `create:seat`, and `fd status` reported the original
 Legacy carrier with one occupant. This proves one real no-player unload/reload
 boundary for Legacy. Other families, moving routes and concurrent riders still
 need chunk-lifecycle coverage.
+
+## Concurrent-rider investigation
+
+A separate two-client packaged Arrow fixture was used to investigate the
+remaining concurrent-rider case. The server accepted Dev on one matching seat
+and Observer on a distinct matching seat in the same carrier, including the
+expected relative offsets. It then received an immediate Observer dismount in
+which that player entity was already removed. The fixture therefore never
+reached two live native seat mounts or two retained assignments, and it is not
+recorded as a passing concurrency result.
+
+The validation-only trace now records accepted player-seat assignments before
+the carrier runtime's next loading update, plus mount/dismount state. It makes
+the next native-fixture investigation distinguish an admission failure from an
+immediate native player removal, but it does not establish that the packaged
+fixture supports two simultaneously mounted players. Concurrent rider lifecycle
+recovery remains open in FD902.
