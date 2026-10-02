@@ -31,10 +31,10 @@ replay acceptance remain FD902 work.
 [Two-client late-join snapshot replication](two-client-snapshot.md) records a
 dedicated-server recovery-world run where a second client joined after the
 first and independently received the same six 4D body snapshots. The separate
-[occupied Arrow disconnect/reconnect check](occupied-disconnect-reconnect.md)
-uses a fresh client process and confirms a real assigned rider returns to the
-same carrier. Chunk unload, server-process restart, motion and all-family
-lifecycle acceptance remain FD902 work.
+[occupied five-family disconnect/reconnect check](occupied-disconnect-reconnect.md)
+uses fresh client processes and confirms an assigned rider returns to the
+intended carrier for every family. Chunk unload, server-process restart, motion
+and concurrent-rider lifecycle acceptance remain FD902 work.
 
 [Ordinary-cart native snap matrix, dev.27](ordinary-cart-snap-matrix.md)
 verifies fitting and deliberately non-fitting ordinary bearings on all five
