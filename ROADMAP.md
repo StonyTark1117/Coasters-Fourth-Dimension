@@ -420,8 +420,8 @@ current families; Arrow, Legacy, Free Spin and Revised also restore one rider
 after a fresh-client reconnect while the other remains mounted. The earlier
 second-rider removal was a stale Sable tracking point in a removed sublevel.
 Native support-loss, late-join, shuttle availability-gap behavior and occupied
-Revised moving-route restart also have bounded evidence. Concurrent
-stationary concurrent interruption coverage is complete. See
+Revised moving-route restart also have bounded evidence. Stationary concurrent
+interruption coverage is complete. See
 [occupied disconnect/reconnect evidence](docs/evidence/0.9/occupied-disconnect-reconnect.md),
 [support-loss evidence](docs/evidence/0.9/five-family-support-loss.md),
 [two-client late-join evidence](docs/evidence/0.9/two-client-snapshot.md),
@@ -437,8 +437,8 @@ Observer's assignment during disconnect and restored a fresh Observer client to
 its original seat before the deadline while Dev stayed mounted. This closes the
 prior stale-tracking-point failure and the bounded initial concurrency matrix.
 The existing five-family stationary normal unload/cold-restart and current
-Revised moving-route checkpoints remain valid. Concurrent interruption
-coverage for PAX remains open; see [occupied disconnect/reconnect evidence](docs/evidence/0.9/occupied-disconnect-reconnect.md).
+Revised moving-route checkpoints remain valid. Stationary concurrent
+interruption coverage is complete; moving-route concurrency remains open; see [occupied disconnect/reconnect evidence](docs/evidence/0.9/occupied-disconnect-reconnect.md).
 
 **Depends on:** FD404. **Design:** D14, D16, D17.
 
