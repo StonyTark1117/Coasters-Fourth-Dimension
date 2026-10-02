@@ -95,3 +95,26 @@ observed the inspected Track Styles decoration path on a genuine original Arrow
 rail. It remains a cumulative stage-instrumentation observation: it does not
 establish FPS, full-frame timing, a cross-hardware performance target, or shader
 pack compatibility. Shader-mode and broader FD904 acceptance remain open.
+
+## Native Iris/Solas shader-mode observation
+
+The same packaged `0.9.0-dev.27` client and `FD16Recovery` world were launched
+on the native desktop GPU with the audited Track Styles 1.2.0 and Engineered
+1.1.1 addons. The disposable client directory additionally contained Iris
+1.8.14-beta.1, Sodium 0.8.13, and Solas Shader V3.7b; none is packaged with
+Fourth Dimension or declared as a release dependency. Iris logged `Using
+shaderpack: Solas Shader V3.7b.zip` and created its Overworld pipeline on the
+AMD Radeon RX 7900 XTX / Mesa 26.2.3 host.
+
+The 55-second bounded run reached its planned timeout without a fatal exception or crash report.
+Its final sampler entry was:
+
+```text
+FD_CLIENT_RENDER stages=2022 avgStageNanos=1865860 meshBuilds=3 avgMeshBuildNanos=1526743 inRangeRails=6066 inRangeQuads=53866080 inRangeDecorationPieces=0
+```
+
+This confirms that the packaged original-track stage rendered while Solas was
+active. Flywheel reported a fallback from `flywheel:indirect` to
+`flywheel:off`, so this run cannot certify the normal Flywheel backend, visual
+quality, whole-frame performance, FPS, Track Styles decoration, or general
+shader-pack compatibility. Those remain FD904 acceptance work.

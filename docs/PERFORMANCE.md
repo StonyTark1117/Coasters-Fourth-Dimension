@@ -47,3 +47,10 @@ procedural-quad and optional-decoration-piece counts within the renderer's
 the client level changes. They time this addon's `AFTER_BLOCK_ENTITIES` track
 stage only; they do not measure Minecraft's whole frame, GPU work, Flywheel,
 Veil or shader time, and cannot establish an FPS target.
+
+Shader-mode sampling additionally records the shader loader, exact shader pack,
+GPU, and Flywheel backend chosen at startup. A loaded pipeline and nonzero
+`FD_CLIENT_RENDER` samples prove that this addon's stage ran while the shader
+was active; they do not prove image quality, whole-frame performance, or every
+Flywheel backend. Record a backend fallback as a limitation of that run rather
+than treating it as full rendering acceptance.
