@@ -86,6 +86,13 @@ on the stated RX 7900 XTX host, plus a native-GPU dedicated-server observation
 with a real Track Styles-decorated Arrow rail. It does not claim FPS or shader
 coverage; those measurements remain FD904 work.
 
+[Five-family fixture render checkpoint](client-render-five-family-fixture.md)
+records 101 packaged llvmpipe client stages in the fresh Arrow, Legacy, Free
+Spin, Revised, and PAX fixture. It covers sustained original-track submission
+with more than 33 in-range rails per stage on average; the fixed camera and
+metrics do not assert full rail, vehicle, rider, clearance, shader, or FPS
+coverage.
+
 [Packaged rendered recovery capture](rendered-client-fd16.md) preserves a
 HUD-free framebuffer from the actual `FD16Recovery` client world after the
 camera was turned toward native vehicle, rail and support geometry. It is a

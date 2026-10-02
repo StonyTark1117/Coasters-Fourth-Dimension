@@ -534,6 +534,17 @@ live `FDRenderMatrix` stages with three mesh builds, 1,508 in-range rails and
 confirms original-track submission, not decoration, full model/rider, shader,
 clearance or target-FPS acceptance.
 
+
+Dev.34 replays the same render gate in the fresh five-family carrier fixture.
+The packaged llvmpipe client submits original-track geometry for 101 stages,
+with 34 mesh builds, 3,422 in-range rail observations and 9,939,376 procedural
+quads, then shuts down and saves normally. The fixture contains Arrow, Legacy,
+Free Spin, Revised and PAX examples, but its fixed camera averages more than 33
+of 35 rails in range per stage; this is sustained submission evidence rather
+than a full camera sweep or vehicle/rider/linkage visual-clearance result. See
+the [five-family fixture render checkpoint]
+(docs/evidence/0.9/client-render-five-family-fixture.md).
+
 **Depends on:** FD404, FD006. **Design:** D17.
 
 Benchmark the declared controlled-train, free-spin, and shuttle scenes against recorded baselines. Profile per-carrier/constraint costs, caches, Flywheel modes, and the supported shader stack.
