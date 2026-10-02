@@ -82,7 +82,9 @@ and do not downgrade a recovery-mode world to a version that cannot read schema 
 Dev.27 exercises that loader contract for all five supported legacy schema numbers
 using the occupied five-family recovery fixture; see the
 [migration checkpoint](evidence/0.9/recovery-schema-migration.md). This does not
-replace a packaged historic-world upgrade or backup/recovery procedure.
+replace a packaged historic-world upgrade or backup/recovery procedure. Follow
+the [world upgrade and recovery procedure](MIGRATION.md) before opening a
+recovery-mode world in a newer build.
 A packaged empty Arrow example also preserves its actual coupling through a
 fresh-JVM reopening, remains braked, and completes normal start/disconnect and
 restraint opening; see the [bounded client check](evidence/0.4/recovery/gui/arrow-gui-acceptance.md).
