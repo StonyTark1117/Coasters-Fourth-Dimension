@@ -84,6 +84,18 @@ to the focused Minecraft window both directly and while holding F3 across the
 T keypress. Neither input produced a second `FontManager.apply` generation.
 The process was deliberately interrupted after the attempted input. This
 headless environment therefore validates startup binding only; it cannot add
-post-reload acceptance evidence. The next reproduction attempt must use an
-interactive client where F3+T is known to reach the game, or another controlled
-resource-reload trigger that preserves the packaged dependency set.
+post-reload acceptance evidence. `-PfdFontValidationReload` now provides one
+opt-in, client-side controlled reload after the initial load, preserving the
+same packaged dependency set. It requires `-PfdFontValidation`, changes no
+normal client behavior, and logs request/completion separately from the FontSet
+and image lifecycle observations. An interactive F3+T replay remains useful for
+comparing the controlled path with the reported failure.
+
+On 2026-10-01, the controlled trigger was run in the isolated standalone
+profile. It recorded generation 1 with zero previous font sets, issued one
+reload request, then recorded generation 2 with seven prior font sets and seven
+matching close events. The generation-2 apply completed with seven new sets and
+the reload future completed. No closed-set lookup, unallocated-image trace, or
+`Image is not allocated` error was logged before the process was deliberately
+stopped. This is one clean controlled lifecycle sample; it does not reproduce or
+resolve the intermittent packaged crash.

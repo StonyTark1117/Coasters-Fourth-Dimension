@@ -42,6 +42,7 @@ neoForge {
             systemProperty 'fourthdimension.ponderValidation', project.hasProperty('fdPonderValidation').toString()
             systemProperty 'fourthdimension.schedulerValidation', project.hasProperty('fdSchedulerValidation').toString()
             systemProperty 'fourthdimension.fontValidation', project.hasProperty('fdFontValidation').toString()
+            systemProperty 'fourthdimension.fontValidationReload', project.hasProperty('fdFontValidationReload').toString()
         }
         observer {
             client(); gameDirectory = layout.buildDirectory.dir(project.hasProperty('fdPackaged') ? 'runs/packaged-observer' : 'runs/observer').get().asFile

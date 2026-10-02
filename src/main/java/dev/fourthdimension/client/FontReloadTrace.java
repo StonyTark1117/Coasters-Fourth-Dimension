@@ -21,6 +21,10 @@ public final class FontReloadTrace {
     return Boolean.getBoolean("fourthdimension.fontValidation");
   }
 
+  public static int generation() {
+    return GENERATION.get();
+  }
+
   public static void applyStart(int fontSets) {
     if (!enabled()) return;
     LogUtils.getLogger()
