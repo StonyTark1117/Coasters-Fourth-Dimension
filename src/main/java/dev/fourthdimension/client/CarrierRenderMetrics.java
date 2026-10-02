@@ -22,12 +22,13 @@ public final class CarrierRenderMetrics {
   }
 
   /** Called at Sable's actual chunked section-layer dispatch point on the render thread. */
-  public static void sectionLayer(Iterable<ClientSubLevel> bodies) {
+  public static void sectionLayer(Iterable<?> bodies) {
     if (!ENABLED) return;
     sectionLayerCalls++;
     // VanillaSubLevelRenderDispatcher calls renderChunkedSubLevel for precisely these bodies.
-    for (var body : bodies)
-      if (body.getRenderData() instanceof VanillaChunkedSubLevelRenderData)
+    for (var value : bodies)
+      if (value instanceof ClientSubLevel body
+          && body.getRenderData() instanceof VanillaChunkedSubLevelRenderData)
         sectionLayerBodies.add(body.getUniqueId());
   }
 
