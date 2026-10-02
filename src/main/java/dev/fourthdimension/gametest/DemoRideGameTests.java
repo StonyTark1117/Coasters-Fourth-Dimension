@@ -1,5 +1,6 @@
 package dev.fourthdimension.gametest;
 
+import com.mojang.logging.LogUtils;
 import dev.fourthdimension.runtime.*;
 import dev.fourthdimension.track.*;
 import dev.fourthdimension.vehicle.*;
@@ -111,13 +112,12 @@ public final class DemoRideGameTests {
             container.removeSubLevel(
                 container.getSubLevel(v.chassis), SubLevelRemovalReason.REMOVED);
           }
-          System.out.println(
-              "FD_PERFORMANCE_CONTROLLED families=[ARROW, ZACSPIN] activeTicks="
-                  + performance[0].steps()
-                  + " runtimeNanos="
-                  + performance[0].nanos()
-                  + " averageNanosPerTick="
-                  + performance[0].averageNanos());
+          LogUtils.getLogger()
+              .info(
+                  "FD_PERFORMANCE_CONTROLLED families=[ARROW, ZACSPIN] activeTicks={} runtimeNanos={} averageNanosPerTick={}",
+                  performance[0].steps(),
+                  performance[0].nanos(),
+                  performance[0].averageNanos());
           running.set(false);
           helper.succeed();
         });

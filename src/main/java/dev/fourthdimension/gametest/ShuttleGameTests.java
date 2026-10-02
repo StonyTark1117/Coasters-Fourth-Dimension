@@ -1,7 +1,9 @@
 package dev.fourthdimension.gametest;
 
+import com.mojang.logging.LogUtils;
 import com.simibubi.create.content.contraptions.actors.seat.SeatBlock;
 import com.simibubi.create.content.kinetics.motor.CreativeMotorBlockEntity;
+import dev.fourthdimension.runtime.CarrierRuntime;
 import dev.fourthdimension.shuttle.*;
 import dev.fourthdimension.vehicle.*;
 import dev.ryanhcode.sable.api.sublevel.SubLevelContainer;
@@ -381,7 +383,7 @@ public final class ShuttleGameTests {
                 "Chunk/reload recovery did not finish: " + winch[0].phase + " " + winch[0].fault));
   }
 
-  @GameTest(template = "empty", timeoutTicks = 2600)
+  @GameTest(template = "empty", batch = "performanceShuttle", timeoutTicks = 2600)
   public static void sixteenRidersPhysicalCarriagePowerHoldGravityReturn(GameTestHelper helper) {
     var level = helper.getLevel();
     for (int x = 36; x <= 38; x++) for (int z = 33; z <= 43; z++) level.setChunkForced(x, z, true);
@@ -392,6 +394,7 @@ public final class ShuttleGameTests {
     var phases = EnumSet.noneOf(ShuttleWinchEntity.Phase.class);
     double[] heights = {0, 0};
     boolean[] measuring = {false};
+    CarrierRuntime.PerformanceSnapshot[] performance = {null};
     Runnable[] motorProbe = {() -> {}};
     int[] parking = {0, 0, 0}; // elapsed ticks, consecutive ready ticks, rejected openings
     boolean[] disturbed = {false};
@@ -488,6 +491,10 @@ public final class ShuttleGameTests {
             helper.assertTrue(
                 CoasterCartTrainLinkConstraint.getTrainLinkedCartIds(lead).size() == 4,
                 "Loaded PAX coupling broke");
+            performance[0] = CarrierRuntime.performanceSnapshot();
+            helper.assertTrue(
+                performance[0].steps() >= 200,
+                "PAX performance baseline did not cover a sustained shuttle cycle");
             System.out.println(
                 "FD_SHUTTLE_BOARDING settledTicks="
                     + parking[0]
@@ -499,6 +506,12 @@ public final class ShuttleGameTests {
                     + disturbed[0]
                     + " final="
                     + boardingSnapshot(level, example.cars()));
+            LogUtils.getLogger()
+                .info(
+                    "FD_PERFORMANCE_SHUTTLE riders=16 activeTicks={} runtimeNanos={} averageNanosPerTick={}",
+                    performance[0].steps(),
+                    performance[0].nanos(),
+                    performance[0].averageNanos());
             VehicleOperations.restraints(level, example.cars().getFirst(), false);
             for (var p : riders) {
               p.stopRiding();
@@ -527,6 +540,7 @@ public final class ShuttleGameTests {
           helper.assertTrue(riders.size() == 16, "PAX train must carry sixteen riders");
           motorProbe[0] = EngineeredGameTests.addOpposingShuttleMotors(helper, winch);
           VehicleOperations.restraints(level, example.cars().getFirst(), true);
+          CarrierRuntime.resetPerformanceSnapshot();
           VehicleOperations.dispatch(level, example.cars().getFirst());
           measuring[0] = true;
         });

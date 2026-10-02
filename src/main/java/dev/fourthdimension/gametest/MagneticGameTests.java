@@ -1,5 +1,6 @@
 package dev.fourthdimension.gametest;
 
+import com.mojang.logging.LogUtils;
 import com.simibubi.create.content.contraptions.actors.seat.SeatBlock;
 import dev.fourthdimension.magnetic.*;
 import dev.fourthdimension.physics.*;
@@ -144,13 +145,12 @@ public final class MagneticGameTests {
                   + Arrays.toString(maxXZ)
                   + " fault="
                   + vehicle.fault);
-          System.out.println(
-              "FD_PERFORMANCE_FREE_SPIN riders=8 activeTicks="
-                  + performance[0].steps()
-                  + " runtimeNanos="
-                  + performance[0].nanos()
-                  + " averageNanosPerTick="
-                  + performance[0].averageNanos());
+          LogUtils.getLogger()
+              .info(
+                  "FD_PERFORMANCE_FREE_SPIN riders=8 activeTicks={} runtimeNanos={} averageNanosPerTick={}",
+                  performance[0].steps(),
+                  performance[0].nanos(),
+                  performance[0].averageNanos());
           helper.assertTrue(
               maxXZ[0] > 30 && maxXZ[1] > 50, "Magnetic car did not complete circuit");
           helper.assertTrue(
