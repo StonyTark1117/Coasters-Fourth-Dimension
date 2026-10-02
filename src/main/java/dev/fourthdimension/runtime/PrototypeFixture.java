@@ -120,6 +120,7 @@ public final class PrototypeFixture {
             .executes(
                 ctx -> {
                   var data = FoundationData.get(ctx.getSource().getLevel());
+                  var performance = CarrierRuntime.performanceSnapshot();
                   for (var v : data.vehicles.values())
                     for (var c : v.carriers)
                       ctx.getSource()
@@ -143,10 +144,10 @@ public final class PrototypeFixture {
                           () ->
                               Component.literal(
                                   "Carrier update average: "
-                                      + (CarrierRuntime.steps == 0
-                                          ? 0
-                                          : CarrierRuntime.nanos / CarrierRuntime.steps)
-                                      + " ns"),
+                                      + performance.averageCarrierNanos()
+                                      + " ns across "
+                                      + performance.carrierUpdates()
+                                      + " updates"),
                           false);
                   return data.vehicles.size();
                 }));
@@ -161,11 +162,19 @@ public final class PrototypeFixture {
                               Component.literal(
                                   "Fourth Dimension runtime: "
                                       + snapshot.steps()
-                                      + " physics ticks, "
+                                      + " invocations, "
                                       + snapshot.nanos()
                                       + " ns total, "
                                       + snapshot.averageNanos()
-                                      + " ns/tick"),
+                                      + " ns/invocation; "
+                                      + snapshot.carrierUpdates()
+                                      + " carrier updates, "
+                                      + snapshot.carrierNanos()
+                                      + " ns total, "
+                                      + snapshot.averageCarrierNanos()
+                                      + " ns/carrier; "
+                                      + snapshot.constraintsRebuilt()
+                                      + " constraint rebuilds"),
                           false);
                   return (int) Math.min(Integer.MAX_VALUE, snapshot.steps());
                 })

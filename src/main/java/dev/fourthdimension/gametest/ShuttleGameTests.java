@@ -493,8 +493,8 @@ public final class ShuttleGameTests {
                 "Loaded PAX coupling broke");
             performance[0] = CarrierRuntime.performanceSnapshot();
             helper.assertTrue(
-                performance[0].steps() >= 200,
-                "PAX performance baseline did not cover a sustained shuttle cycle");
+                performance[0].carrierUpdates() >= 1_600,
+                "PAX performance baseline did not cover enough live carrier updates");
             System.out.println(
                 "FD_SHUTTLE_BOARDING settledTicks="
                     + parking[0]
@@ -508,10 +508,14 @@ public final class ShuttleGameTests {
                     + boardingSnapshot(level, example.cars()));
             LogUtils.getLogger()
                 .info(
-                    "FD_PERFORMANCE_SHUTTLE riders=16 activeTicks={} runtimeNanos={} averageNanosPerTick={}",
+                    "FD_PERFORMANCE_SHUTTLE riders=16 runtimeInvocations={} runtimeNanos={} averageNanosPerInvocation={} carrierUpdates={} carrierNanos={} averageNanosPerCarrier={} constraintsRebuilt={}",
                     performance[0].steps(),
                     performance[0].nanos(),
-                    performance[0].averageNanos());
+                    performance[0].averageNanos(),
+                    performance[0].carrierUpdates(),
+                    performance[0].carrierNanos(),
+                    performance[0].averageCarrierNanos(),
+                    performance[0].constraintsRebuilt());
             VehicleOperations.restraints(level, example.cars().getFirst(), false);
             for (var p : riders) {
               p.stopRiding();

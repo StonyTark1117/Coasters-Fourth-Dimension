@@ -78,8 +78,8 @@ public final class DemoRideGameTests {
           running.set(false);
           performance[0] = CarrierRuntime.performanceSnapshot();
           helper.assertTrue(
-              performance[0].steps() >= 1800,
-              "Controlled performance baseline did not cover the active circuit window");
+              performance[0].carrierUpdates() >= 10_000,
+              "Controlled performance baseline did not cover enough live carrier updates");
           for (int i = 0; i < 2; i++) {
             var v = vehicles.get(i);
             System.out.println(
@@ -114,10 +114,14 @@ public final class DemoRideGameTests {
           }
           LogUtils.getLogger()
               .info(
-                  "FD_PERFORMANCE_CONTROLLED families=[ARROW, ZACSPIN] activeTicks={} runtimeNanos={} averageNanosPerTick={}",
+                  "FD_PERFORMANCE_CONTROLLED families=[ARROW, ZACSPIN] runtimeInvocations={} runtimeNanos={} averageNanosPerInvocation={} carrierUpdates={} carrierNanos={} averageNanosPerCarrier={} constraintsRebuilt={}",
                   performance[0].steps(),
                   performance[0].nanos(),
-                  performance[0].averageNanos());
+                  performance[0].averageNanos(),
+                  performance[0].carrierUpdates(),
+                  performance[0].carrierNanos(),
+                  performance[0].averageCarrierNanos(),
+                  performance[0].constraintsRebuilt());
           running.set(false);
           helper.succeed();
         });

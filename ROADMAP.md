@@ -422,13 +422,14 @@ Test upgrades from released save formats, stable IDs, profile rebinding, appeara
 
 ### FD904 Meet measured performance and rendering targets
 
-**Status: in progress, baseline instrumentation available.** Dev.27 adds the
-resettable `/fd performance` runtime snapshot, which reports this addon's
-server-side carrier-runtime invocations, total nanoseconds and average
-nanoseconds per invocation. Its scope and repeatable sampling procedure are
-documented in [performance sampling](docs/PERFORMANCE.md). Automated sampling
-windows cover controlled-train, free-spin and shuttle scenes, and the first
-[integrated host baseline](docs/evidence/0.9/runtime-baseline.md) is recorded.
+**Status: in progress, per-carrier baseline instrumentation available.** Dev.27
+adds the resettable `/fd performance` runtime snapshot, which reports this
+addon's server-side carrier-runtime invocation totals alongside live-carrier
+update totals, per-carrier timing and constraint rebuild counts. Its scope and
+repeatable sampling procedure are documented in [performance
+sampling](docs/PERFORMANCE.md). Automated sampling windows cover
+controlled-train, free-spin and shuttle scenes, and the first [integrated host
+baseline](docs/evidence/0.9/runtime-baseline.md) is recorded.
 Repeated baselines, targets, renderer/shader measurements and acceptance remain
 pending.
 

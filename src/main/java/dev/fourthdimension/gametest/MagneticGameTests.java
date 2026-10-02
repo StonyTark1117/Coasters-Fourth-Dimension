@@ -124,8 +124,8 @@ public final class MagneticGameTests {
           running.set(false);
           performance[0] = CarrierRuntime.performanceSnapshot();
           helper.assertTrue(
-              performance[0].steps() >= 2200,
-              "Free Spin performance baseline did not cover the active circuit window");
+              performance[0].carrierUpdates() >= 8_000,
+              "Free Spin performance baseline did not cover enough live carrier updates");
           System.out.println(
               "FD02_NATIVE applications="
                   + (MagneticRuntime.applications - baseline[0])
@@ -147,10 +147,14 @@ public final class MagneticGameTests {
                   + vehicle.fault);
           LogUtils.getLogger()
               .info(
-                  "FD_PERFORMANCE_FREE_SPIN riders=8 activeTicks={} runtimeNanos={} averageNanosPerTick={}",
+                  "FD_PERFORMANCE_FREE_SPIN riders=8 runtimeInvocations={} runtimeNanos={} averageNanosPerInvocation={} carrierUpdates={} carrierNanos={} averageNanosPerCarrier={} constraintsRebuilt={}",
                   performance[0].steps(),
                   performance[0].nanos(),
-                  performance[0].averageNanos());
+                  performance[0].averageNanos(),
+                  performance[0].carrierUpdates(),
+                  performance[0].carrierNanos(),
+                  performance[0].averageCarrierNanos(),
+                  performance[0].constraintsRebuilt());
           helper.assertTrue(
               maxXZ[0] > 30 && maxXZ[1] > 50, "Magnetic car did not complete circuit");
           helper.assertTrue(

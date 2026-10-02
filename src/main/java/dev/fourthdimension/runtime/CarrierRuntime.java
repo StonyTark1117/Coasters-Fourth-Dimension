@@ -22,22 +22,41 @@ public final class CarrierRuntime {
   private static final Map<ServerSubLevel, RotaryConstraintHandle> JOINTS = new WeakHashMap<>();
   private static final Map<ServerSubLevel, dev.fourthdimension.physics.RotationServo> SERVOS =
       new WeakHashMap<>();
-  public static long nanos, steps;
+  public static long nanos, steps, vehicleUpdates, carrierUpdates, carrierNanos, constraintsRebuilt;
 
   /** Server-side cost of this addon runtime only; it intentionally excludes Sable and renderer time. */
-  public record PerformanceSnapshot(long steps, long nanos) {
+  /**
+   * Server-side callback accounting. Carrier time is the work inside one live carrier body's
+   * update; invocation time also includes shared shuttle, recovery, vehicle and magnetic work.
+   */
+  public record PerformanceSnapshot(
+      long steps,
+      long nanos,
+      long vehicleUpdates,
+      long carrierUpdates,
+      long carrierNanos,
+      long constraintsRebuilt) {
     public long averageNanos() {
       return steps == 0 ? 0 : nanos / steps;
+    }
+
+    public long averageCarrierNanos() {
+      return carrierUpdates == 0 ? 0 : carrierNanos / carrierUpdates;
     }
   }
 
   public static PerformanceSnapshot performanceSnapshot() {
-    return new PerformanceSnapshot(steps, nanos);
+    return new PerformanceSnapshot(
+        steps, nanos, vehicleUpdates, carrierUpdates, carrierNanos, constraintsRebuilt);
   }
 
   public static void resetPerformanceSnapshot() {
     nanos = 0;
     steps = 0;
+    vehicleUpdates = 0;
+    carrierUpdates = 0;
+    carrierNanos = 0;
+    constraintsRebuilt = 0;
   }
 
   /** Take the same physical instant as Sable's save, including impulses since the last step. */
@@ -86,6 +105,7 @@ public final class CarrierRuntime {
     for (var vehicle : data.vehicles.values()) {
       var parentRaw = container.getSubLevel(vehicle.chassis);
       if (!(parentRaw instanceof ServerSubLevel parent) || parent.isRemoved()) continue;
+      vehicleUpdates++;
       physics.updatePose(parent);
       FoundationData.Rail rail =
           data.rails.stream()
@@ -131,9 +151,12 @@ public final class CarrierRuntime {
       for (var carrier : vehicle.carriers) {
         var childRaw = container.getSubLevel(carrier.body);
         if (!(childRaw instanceof ServerSubLevel child) || child.isRemoved()) continue;
+        long carrierStart = System.nanoTime();
+        carrierUpdates++;
         physics.updatePose(child);
         var handle = JOINTS.get(child);
         if (handle == null || !handle.isValid()) {
+          constraintsRebuilt++;
           var p = parent.getPlot().getCenterBlock();
           var c = child.getPlot().getCenterBlock();
           handle =
@@ -202,6 +225,7 @@ public final class CarrierRuntime {
                   .map(Entity::getUUID)
                   .toList();
         }
+        carrierNanos += System.nanoTime() - carrierStart;
       }
       dev.fourthdimension.magnetic.MagneticRuntime.tick(
           level, vehicle, parent, event.getTimeStep());

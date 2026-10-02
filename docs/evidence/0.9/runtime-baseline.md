@@ -18,29 +18,33 @@ acceptance result.
   ```
 
 `CarrierRuntime` begins sampling after each scene has assembled and occupants
-are seated. Its counter is runtime invocations, which can exceed Minecraft game
-ticks when the physics integration invokes the addon more than once per game
-tick. The timing excludes Sable's physics, whole-server time, rendering,
-shaders, networking and client FPS.
+are seated. Runtime invocations can exceed Minecraft game ticks when the
+physics integration invokes the addon more than once per game tick. The
+instrumentation also counts each valid live-carrier update and times its
+individual update body, allowing shared runtime work to be distinguished from
+carrier work. Constraint rebuilds are counted separately. The timing excludes
+Sable's physics, whole-server time, rendering, shaders, networking and client
+FPS.
 
 ## Result
 
-The integrated profile passed all **39 required GameTests** in **4.032
+The integrated profile passed all **39 required GameTests** in **3.969
 minutes**. The game log recorded:
 
-| Workload | Occupancy and scene | Runtime invocations | Runtime total | Average per invocation |
-| --- | --- | ---: | ---: | ---: |
-| Controlled | Arrow and legacy ZacSpin circuit | 11,520 | 567,769,363 ns | 49,285 ns |
-| PAX shuttle | 16 riders; lift, gravity return and capture | 4,638 | 469,019,101 ns | 101,125 ns |
-| Free Spin | 8 riders; magnetic circuit and capture | 14,220 | 1,510,229,959 ns | 106,204 ns |
+| Workload | Occupancy and scene | Runtime invocations | Average / invocation | Carrier updates | Carrier total | Average / carrier | Rebuilds |
+| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| Controlled | Arrow and legacy ZacSpin circuit | 11,520 | 50,057 ns | 15,360 | 59,925,361 ns | 3,901 ns | 0 |
+| PAX shuttle | 16 riders; lift, gravity return and capture | 4,638 | 94,323 ns | 12,368 | 31,170,666 ns | 2,520 ns | 0 |
+| Free Spin | 8 riders; magnetic circuit and capture | 14,220 | 101,318 ns | 18,960 | 71,962,359 ns | 3,795 ns | 0 |
 
 The exact diagnostic lines and test summary are retained in the local GameTest
 log at `/tmp/fourthdimension-7af457c2/build/runs/gametest/logs/latest.log`.
 
 ## Limits and next work
 
-The values are one integrated GameTest run on the stated host. They have not
-been repeated for variance, normalized by carrier count, compared across
+The values are one integrated GameTest run on the stated host. The carrier
+figures normalize the direct carrier body but do not allocate shared runtime
+work among carriers. They have not been repeated for variance, compared across
 hardware, or converted into targets. They also omit all client render modes and
 shader stacks. FD904 remains open until it records reproducible target hardware,
 chooses quantitative limits from repeated baselines, measures the required
