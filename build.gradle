@@ -63,6 +63,7 @@ neoForge {
         }
         configureEach {
             logLevel = org.slf4j.event.Level.INFO
+            systemProperty 'fourthdimension.validation', project.hasProperty('fdValidation').toString()
             systemProperty 'fourthdimension.shuttleValidation', project.hasProperty('fdShuttleValidation').toString()
             systemProperty 'fourthdimension.performanceTargetValidation', project.hasProperty('fdPerformanceTargets').toString()
             if (project.hasProperty('fdPackaged')) {

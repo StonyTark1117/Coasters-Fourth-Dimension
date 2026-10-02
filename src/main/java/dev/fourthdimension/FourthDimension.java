@@ -31,6 +31,7 @@ public final class FourthDimension {
     bus.addListener(FoundationSync::register);
     bus.addListener(dev.fourthdimension.editor.EditorNetwork::register);
     NeoForge.EVENT_BUS.addListener(PrototypeFixture::register);
+    NeoForge.EVENT_BUS.addListener(dev.fourthdimension.runtime.ValidationCommands::register);
     NeoForge.EVENT_BUS.addListener(dev.fourthdimension.track.ExampleLayouts::register);
     NeoForge.EVENT_BUS.addListener(dev.fourthdimension.vehicle.RecoveryExamples::register);
     NeoForge.EVENT_BUS.addListener(dev.fourthdimension.shuttle.ShuttleExamples::register);
