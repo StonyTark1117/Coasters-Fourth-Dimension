@@ -21,6 +21,7 @@
   "client": [
     "OriginalTrackBerMixin",
     "OriginalTrackVisualMixin",
+    "SableSectionRenderMixin",
     "VeilSchedulerStartupMixin",
     "FontManagerReloadTraceMixin",
     "FontSetReloadTraceMixin",

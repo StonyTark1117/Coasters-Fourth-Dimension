@@ -52,6 +52,7 @@ public final class CarrierTransformValidation {
       motionStarts = new java.util.HashMap<>();
       maxMotionDistances = new java.util.HashMap<>();
       compiledBodies = new java.util.HashSet<>();
+      CarrierRenderMetrics.reset();
       completed = false;
       lastLevel = minecraft.level;
     }
@@ -124,7 +125,10 @@ public final class CarrierTransformValidation {
     }
     if (families.size() < requiredFamilies()
         || (staticPhase && carriers == 0)
-        || (staticPhase && renderRequired() && compiledBodies.size() < nativeBodies)) {
+        || (staticPhase && renderRequired() && compiledBodies.size() < nativeBodies)
+        || (staticPhase
+            && renderRequired()
+            && CarrierRenderMetrics.snapshot().sectionLayerBodies().size() < nativeBodies)) {
       incomplete(
           "required family matrix is not loaded required="
               + requiredFamilies()
@@ -134,6 +138,10 @@ public final class CarrierTransformValidation {
               + carriers
               + " compiledBodies="
               + compiledBodies.size()
+              + "/"
+              + nativeBodies
+              + " sectionLayerBodies="
+              + CarrierRenderMetrics.snapshot().sectionLayerBodies().size()
               + "/"
               + nativeBodies);
       return;
@@ -191,7 +199,8 @@ public final class CarrierTransformValidation {
         .info(
             "FD_CARRIER_VALIDATION passed samples={} target={} waitedTicks={} families={} "
                 + "requiredFamilies={} carriers={} riderAssignments={} maxAngleError={} "
-                + "compiledBodies={} renderRequired={} motionFamilies={} motionChassis={} motionDistances={}",
+                + "compiledBodies={} sectionLayerCalls={} sectionLayerBodies={} renderRequired={} "
+                + "motionFamilies={} motionChassis={} motionDistances={}",
             completeSamples,
             requiredSamples(),
             waitedTicks,
@@ -201,6 +210,8 @@ public final class CarrierTransformValidation {
             riderAssignments,
             maxAngleError,
             compiledBodies.size(),
+            CarrierRenderMetrics.snapshot().sectionLayerCalls(),
+            CarrierRenderMetrics.snapshot().sectionLayerBodies().size(),
             renderRequired(),
             movedFamilies,
             movedChassis,
