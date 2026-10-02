@@ -61,3 +61,20 @@ such an intervention correct. The next useful acceptance evidence is a
 reproduction with provider/image identity traces or a clean, repeated packaged
 post-reload styled ride; until then the crash remains a release-blocking FD401,
 FD902, and FD904 investigation.
+
+The production artifact now exposes those traces only with `-PfdFontValidation`.
+It records FontManager apply generations, closed FontSet identities, and an
+`FD_FONT_IMAGE_UNALLOCATED` line with the active font/codepoint context if
+Minecraft is about to upload an already-closed native image. The trace does not
+clear a cache, catch the exception, retain the image, or otherwise change the
+font lifecycle; a successful build only verifies that the diagnostic is
+packaged, not that the intermittent crash has been reproduced or fixed.
+
+An isolated Xvfb startup on 2026-10-01 ran `runClient -PfdFontValidation` with
+the pinned standalone dependency profile. All three trace mixins applied and
+the first resource load recorded `FD_FONT_APPLY_START generation=1
+oldFontSets=0` followed by `FD_FONT_APPLY_END generation=1 newFontSets=7`.
+There was no Fourth Dimension injection failure. The process was deliberately
+stopped by its 55-second startup timeout, so this checks the mixin bindings and
+initial trace only; it is neither a clean client-exit result nor a reload/crash
+reproduction.

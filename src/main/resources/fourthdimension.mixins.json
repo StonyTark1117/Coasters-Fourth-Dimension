@@ -21,6 +21,9 @@
   "client": [
     "OriginalTrackBerMixin",
     "OriginalTrackVisualMixin",
-    "VeilSchedulerStartupMixin"
+    "VeilSchedulerStartupMixin",
+    "FontManagerReloadTraceMixin",
+    "FontSetReloadTraceMixin",
+    "NativeImageUploadTraceMixin"
   ]
 }
