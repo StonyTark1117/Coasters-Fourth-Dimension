@@ -2,6 +2,7 @@ package dev.fourthdimension.gametest;
 
 import dev.fourthdimension.runtime.*;
 import dev.fourthdimension.track.*;
+import dev.fourthdimension.vehicle.VehicleFactory;
 import dev.ryanhcode.sable.api.sublevel.SubLevelContainer;
 import dev.ryanhcode.sable.sublevel.ServerSubLevel;
 import dev.ryanhcode.sable.sublevel.storage.SubLevelRemovalReason;
@@ -35,6 +36,7 @@ public final class OrdinaryCartGameTests {
     var rails = new ArrayList<FoundationData.Rail>();
     var bodies = new ArrayList<ServerSubLevel>();
     var starts = new ArrayList<Vector3d>();
+    FoundationData.Vehicle[] controlledArrow = {null};
     var container = SubLevelContainer.getContainer(level);
     for (var design : TrackDesign.values()) {
       var from = new BlockPos(600 + design.ordinal() * 24, 116, 110);
@@ -91,6 +93,16 @@ public final class OrdinaryCartGameTests {
                 .getPipeline()
                 .addLinearAndAngularVelocity(body, new Vector3d(0, 0, 3), new Vector3d());
           }
+          var arrowRail =
+              rails.stream()
+                  .filter(rail -> rail.family == TrackDesign.ARROW.family)
+                  .findFirst()
+                  .orElseThrow();
+          var arrowEdge = TrackGeometry.resolve(level, arrowRail);
+          var arrowHit =
+              new CoasterPathTrackFrame.GraphHit(
+                  CoasterPathGraphManager.sampleEdgePosition(level, arrowEdge, .75), arrowEdge, .75);
+          controlledArrow[0] = VehicleFactory.create(level, TrackDesign.ARROW, arrowHit);
         });
     helper.runAtTickTime(
         100,
@@ -109,8 +121,22 @@ public final class OrdinaryCartGameTests {
             helper.assertTrue(
                 dev.fourthdimension.magnetic.MagneticRuntime.audit(body).impulses == 0,
                 "Ordinary bearing received magnetic impulses");
-            container.removeSubLevel(body, SubLevelRemovalReason.REMOVED);
           }
+          var arrow = controlledArrow[0];
+          var arrowBody = (ServerSubLevel) container.getSubLevel(arrow.chassis);
+          helper.assertTrue(
+              !CoasterCartTrainLinkConstraint.linkCarts(level, arrowBody, bodies.getFirst(), 6),
+              "Unassigned ordinary bearing coupled into a 4D consist");
+          helper.assertTrue(
+              arrow.recoveryCart == null
+                  && !CoasterCartTrainLinkConstraint.areLinkedCarts(arrowBody, bodies.getFirst()),
+              "Rejected mixed coupling changed the 4D car state");
+          for (var carrier : arrow.carriers)
+            container.removeSubLevel(
+                container.getSubLevel(carrier.body), SubLevelRemovalReason.REMOVED);
+          container.removeSubLevel(arrowBody, SubLevelRemovalReason.REMOVED);
+          data.vehicles.remove(arrow.chassis);
+          for (var body : bodies) container.removeSubLevel(body, SubLevelRemovalReason.REMOVED);
           for (var rail : rails) {
             ((CoasterAnchorpointBlockEntity) level.getBlockEntity(rail.from))
                 .removeAnchorPeerCurve(level, rail.to);
@@ -121,7 +147,8 @@ public final class OrdinaryCartGameTests {
           System.out.println(
               "FD_ORDINARY_MATRIX families="
                   + TrackDesign.values().length
-                  + " directFits=5 nativeFits=5 wideRejects=5 nativeWideRejects=5 no4D=true");
+                  + " directFits=5 nativeFits=5 wideRejects=5 nativeWideRejects=5"
+                  + " mixedConsistRejects=1 no4D=true");
           helper.succeed();
         });
   }

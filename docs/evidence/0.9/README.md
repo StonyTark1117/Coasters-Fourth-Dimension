@@ -18,8 +18,10 @@ lifecycle coverage remain FD902 work.
 
 [Ordinary-cart native snap matrix, dev.27](ordinary-cart-snap-matrix.md)
 verifies fitting and deliberately non-fitting ordinary bearings on all five
-original tracks through direct and native-filter entry paths. It is a bounded
-FD901 checkpoint, not the complete compatibility matrix.
+original tracks through direct and native-filter entry paths. It also rejects
+an unassigned ordinary/4D train coupling without mutating the 4D car; guarded
+recovery remains the sole mixed-consist path. It is a bounded FD901 checkpoint,
+not the complete compatibility matrix.
 
 [Idle shuttle availability, dev.13](idle-shuttle-acceptance.md) records the native/control failure, production fix, packaged loading-boundary comparison and default-flags cold reopen. Its scope is an empty bound shuttle before its first lift. The four inherited PAX faults remain recorded; complete FD902 and earlier 0.4 gates stay open.
 
