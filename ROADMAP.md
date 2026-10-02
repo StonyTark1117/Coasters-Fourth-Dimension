@@ -452,6 +452,15 @@ at the first captured station return, retains its physical carriage and ordered
 four-car consist, and completes a second cycle with outbound restraints locked;
 see the [repeated station reload evidence](docs/evidence/0.9/repeated-shuttle-reload.md).
 
+Dev.32 adds an opt-in packaged-client carrier transform gate. In the existing
+Arrow-only `FDRenderMatrix` fixture, all six client-native carrier bodies stayed
+within 0.02 radians of their synchronized snapshot angles for 40 consecutive
+samples (observed maximum `7.63e-7` radians) before normal shutdown. The same
+gate accepts a required family count from one through five for future all-family
+worlds; this bounded one-family static result does not claim riders, motion,
+clearance or a complete client matrix. See the [client transform checkpoint]
+(docs/evidence/0.9/client-carrier-transform-sampling.md).
+
 **Latest FD902 checkpoint: two live riders across all five families.** Clean
 dedicated-server worlds admitted Dev and Observer to distinct native seats in
 the same carrier for Arrow, Legacy, Free Spin, Revised, and the four-chassis

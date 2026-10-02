@@ -67,6 +67,11 @@ providers or every real-player entry path.
 currently supported standalone and optional profile, and explicitly excludes
 third-party functional tracks until a separately verified adapter is released.
 
+[Packaged client carrier transforms](client-carrier-transform-sampling.md)
+records a real-client snapshot/native-body orientation check for the six loaded
+carriers in the Arrow-only `FDRenderMatrix` fixture. It is deliberately scoped:
+five-family, rider, motion, camera and rendered-clearance coverage remain open.
+
 [Client track-render instrumentation](client-render-sampling.md) records an
 initial packaged real-client sample on the recovery scene, under llvmpipe and
 on the stated RX 7900 XTX host, plus a native-GPU dedicated-server observation

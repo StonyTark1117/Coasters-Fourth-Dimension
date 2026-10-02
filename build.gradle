@@ -42,6 +42,10 @@ neoForge {
             systemProperty 'fourthdimension.renderValidation', project.hasProperty('fdRenderValidation').toString()
             systemProperty 'fourthdimension.renderValidationExit', project.hasProperty('fdRenderValidationExit').toString()
             systemProperty 'fourthdimension.renderValidationStages', project.findProperty('fdRenderValidationStages') ?: '500'
+            systemProperty 'fourthdimension.carrierValidation', project.hasProperty('fdCarrierValidation').toString()
+            systemProperty 'fourthdimension.carrierValidationExit', project.hasProperty('fdCarrierValidationExit').toString()
+            systemProperty 'fourthdimension.carrierValidationSamples', project.findProperty('fdCarrierValidationSamples') ?: '40'
+            systemProperty 'fourthdimension.carrierValidationFamilies', project.findProperty('fdCarrierValidationFamilies') ?: '1'
             systemProperty 'fourthdimension.ponderValidation', project.hasProperty('fdPonderValidation').toString()
             systemProperty 'fourthdimension.schedulerValidation', project.hasProperty('fdSchedulerValidation').toString()
             systemProperty 'fourthdimension.fontValidation', project.hasProperty('fdFontValidation').toString()
