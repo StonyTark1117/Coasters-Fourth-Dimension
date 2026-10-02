@@ -19,8 +19,9 @@ profile and scene documented beside the result:
 
 The controlled train, free-spin and PAX shuttle scenes still need baseline
 runs, targets, renderer/shader measurements and acceptance results before FD904
-can close. The automated controlled-family GameTest also resets this sample for
-its isolated 1,800-tick occupied Arrow/legacy circuit window and requires that
-window to be observed. It emits a diagnostic snapshot but does not turn the
+can close. The automated controlled-family GameTest resets this sample for its
+isolated 1,800-tick occupied Arrow/legacy circuit window. The Free Spin
+GameTest does the same for an occupied eight-rider magnetic circuit over at
+least 2,200 physics ticks. Both emit diagnostic snapshots but do not turn the
 current host's timing into a release target. This command and harness are
 instrumentation, not a performance guarantee.

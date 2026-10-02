@@ -20,7 +20,7 @@ import net.neoforged.neoforge.gametest.*;
 @GameTestHolder("fourthdimension")
 @PrefixGameTestTemplate(false)
 public final class MagneticGameTests {
-  @GameTest(template = "empty", timeoutTicks = 2600)
+  @GameTest(template = "empty", batch = "performanceFreeSpin", timeoutTicks = 2600)
   public static void eightRidersPassiveMagnetCircuitAndCapture(GameTestHelper helper) {
     var level = helper.getLevel();
     for (int x = -45; x <= -40; x++)
@@ -31,6 +31,7 @@ public final class MagneticGameTests {
     var riders = new ArrayList<net.minecraft.world.entity.animal.Pig>();
     double[] low = {0, 0, 0, 0}, high = {0, 0, 0, 0}, maxXZ = {0, 0}, separation = {0};
     long[] baseline = {0};
+    CarrierRuntime.PerformanceSnapshot[] performance = {null};
     var running = new java.util.concurrent.atomic.AtomicBoolean(false);
     helper.onEachTick(
         () -> {
@@ -106,6 +107,7 @@ public final class MagneticGameTests {
             }
           }
           VehicleOperations.restraints(level, vehicle, true);
+          CarrierRuntime.resetPerformanceSnapshot();
           VehicleOperations.dispatch(level, vehicle);
           baseline[0] = MagneticRuntime.applications;
           running.set(true);
@@ -119,6 +121,10 @@ public final class MagneticGameTests {
         2450,
         () -> {
           running.set(false);
+          performance[0] = CarrierRuntime.performanceSnapshot();
+          helper.assertTrue(
+              performance[0].steps() >= 2200,
+              "Free Spin performance baseline did not cover the active circuit window");
           System.out.println(
               "FD02_NATIVE applications="
                   + (MagneticRuntime.applications - baseline[0])
@@ -138,6 +144,13 @@ public final class MagneticGameTests {
                   + Arrays.toString(maxXZ)
                   + " fault="
                   + vehicle.fault);
+          System.out.println(
+              "FD_PERFORMANCE_FREE_SPIN riders=8 activeTicks="
+                  + performance[0].steps()
+                  + " runtimeNanos="
+                  + performance[0].nanos()
+                  + " averageNanosPerTick="
+                  + performance[0].averageNanos());
           helper.assertTrue(
               maxXZ[0] > 30 && maxXZ[1] > 50, "Magnetic car did not complete circuit");
           helper.assertTrue(
