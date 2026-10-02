@@ -11,6 +11,7 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.client.event.ClientTickEvent;
 import org.joml.Quaterniond;
+import org.joml.Vector3d;
 
 /**
  * Opt-in packaged-client check for replicated fourth-dimension carrier transforms.
@@ -18,8 +19,8 @@ import org.joml.Quaterniond;
  * <p>It observes the client snapshot and its live Sable bodies; it never writes poses, riders, or
  * camera state. The required number of functional families is configurable because client worlds
  * can intentionally contain a single-family fixture. A passing sample establishes synchronized
- * carrier orientation only, not rendered mesh clearance, player appearance, camera behavior, or a
- * moving-ride lifecycle.
+ * carrier orientation, and optionally observes bounded controlled-car displacement. It does not
+ * verify rendered mesh clearance, player appearance, camera behavior, or a moving-ride lifecycle.
  */
 @EventBusSubscriber(modid = "fourthdimension", value = Dist.CLIENT)
 public final class CarrierTransformValidation {
@@ -27,6 +28,8 @@ public final class CarrierTransformValidation {
   private static int completeSamples;
   private static int waitedTicks;
   private static double maxAngleError;
+  private static Vector3d motionStart;
+  private static double maxMotionDistance;
   private static boolean completed;
   private static net.minecraft.world.level.Level lastLevel;
 
@@ -40,6 +43,8 @@ public final class CarrierTransformValidation {
       completeSamples = 0;
       waitedTicks = 0;
       maxAngleError = 0;
+      motionStart = null;
+      maxMotionDistance = 0;
       completed = false;
       lastLevel = minecraft.level;
     }
@@ -62,6 +67,15 @@ public final class CarrierTransformValidation {
         return;
       }
       families.add(vehicle.family);
+      if (vehicle.family == Family.ARROW && motionRequired()) {
+        var center = parent.getPlot().getCenterBlock();
+        var position =
+            parent
+                .logicalPose()
+                .transformPosition(new Vector3d(center.getX() + .5, center.getY() + .5, center.getZ() + .5));
+        if (motionStart == null) motionStart = new Vector3d(position);
+        else maxMotionDistance = Math.max(maxMotionDistance, position.distance(motionStart));
+      }
       for (var carrier : vehicle.carriers) {
         var child = container.getSubLevel(carrier.body);
         if (child == null) {
@@ -103,6 +117,10 @@ public final class CarrierTransformValidation {
               + carriers);
       return;
     }
+    if (motionRequired() && maxMotionDistance < 1) {
+      incomplete("Arrow chassis has not moved one block; observed=" + maxMotionDistance);
+      return;
+    }
     completeSamples++;
     maxAngleError = Math.max(maxAngleError, sampleMaxError);
     if (completeSamples < requiredSamples()) return;
@@ -110,7 +128,7 @@ public final class CarrierTransformValidation {
     LogUtils.getLogger()
         .info(
             "FD_CARRIER_VALIDATION passed samples={} target={} waitedTicks={} families={} "
-                + "requiredFamilies={} carriers={} riderAssignments={} maxAngleError={}",
+                + "requiredFamilies={} carriers={} riderAssignments={} maxAngleError={} motionDistance={}",
             completeSamples,
             requiredSamples(),
             waitedTicks,
@@ -118,7 +136,8 @@ public final class CarrierTransformValidation {
             requiredFamilies(),
             carriers,
             riderAssignments,
-            maxAngleError);
+            maxAngleError,
+            maxMotionDistance);
     if (Boolean.getBoolean("fourthdimension.carrierValidationExit")) minecraft.stop();
   }
 
@@ -147,5 +166,9 @@ public final class CarrierTransformValidation {
     } catch (NumberFormatException ignored) {
       return 40;
     }
+  }
+
+  private static boolean motionRequired() {
+    return Boolean.getBoolean("fourthdimension.carrierValidationMotion");
   }
 }

@@ -80,6 +80,13 @@ so it records eventual transform agreement rather than clean startup or wider
 lifecycle coverage. Riders, motion, camera, rendering and multiplayer remain
 FD902/FD904 work.
 
+[Five-family packaged client carrier motion](client-carrier-transform-five-family-motion.md)
+uses normal production dispatch for the fixture Arrow car while all five families
+remain loaded. The client maintained the 0.02-radian carrier gate for 40 complete
+samples and observed 4.99 blocks of Arrow chassis movement. It is one controlled,
+rider-free motion path; all-family motion, cameras, interpolation, multiplayer and
+rendered clearance remain open.
+
 [Client track-render instrumentation](client-render-sampling.md) records an
 initial packaged real-client sample on the recovery scene, under llvmpipe and
 on the stated RX 7900 XTX host, plus a native-GPU dedicated-server observation

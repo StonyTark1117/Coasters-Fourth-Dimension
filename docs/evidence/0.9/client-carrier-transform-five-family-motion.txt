@@ -1,0 +1,5 @@
+[02Oct2026 08:40:21.456] [Server thread/INFO] [dev.fourthdimension.runtime.CarrierValidationFixture/]: FD_CARRIER_FIXTURE created families=5 vehicles=8 carriers=20 rails=35
+[02Oct2026 08:40:25.972] [Server thread/INFO] [dev.fourthdimension.runtime.CarrierValidationFixture/]: FD_CARRIER_FIXTURE dispatched motion chassis=f23751fd-9f6d-494f-8093-9dd27bbf68ba family=ARROW
+[02Oct2026 08:40:28.540] [Render thread/INFO] [dev.fourthdimension.client.CarrierTransformValidation/]: FD_CARRIER_VALIDATION passed samples=40 target=40 waitedTicks=128 families=5 requiredFamilies=5 carriers=20 riderAssignments=0 maxAngleError=0.005636209134113855 motionDistance=4.9857955498446485
+[02Oct2026 08:40:28.573] [Render thread/INFO] [net.minecraft.client.Minecraft/]: Stopping!
+[02Oct2026 08:40:29.020] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: ThreadedAnvilChunkStorage (FDMotionCarrierMatrix): All chunks are saved
