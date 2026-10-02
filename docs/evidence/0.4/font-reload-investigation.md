@@ -108,8 +108,8 @@ target trace/error. Track Styles registered its 55-entry catalog after every
 apply. Its artifact hash, command, observations, and limits are recorded in
 [the packaged validation](font-reload-packaged-validation.md).
 
-The packaged combined profile also has a world-loaded three-reload command-chat
-sample. It opened `"/"` chat after generation 4 and kept that screen rendered
+The packaged combined profile also has a world-loaded sixteen-reload command-chat
+sample. It opened `"/"` chat after generation 17 and kept that screen rendered
 for twenty client ticks without a target trace/error. This enters the same
 post-reload screen category as the original crash, but it remains a controlled
 surrogate rather than an interactive F3+T reproduction.
