@@ -62,6 +62,29 @@ the timeout was not reached. There was no closed-set lookup, unallocated-image
 trace, or `Image is not allocated` error.
 
 The existing `FD16Recovery` world then ran the command-chat variation under the
+## Extended clean sequence
+
+On 2026-10-02, a fresh packaged combined-profile Xvfb client repeated the
+controlled clean-exit path for **64** sequential reloads:
+
+~~~sh
+xvfb-run -a timeout 600s env JAVA_HOME=/usr/lib/jvm/java-21-openjdk   ./gradlew runClient --no-daemon -PfdPackaged   -PfdIntegrations=styles,engineered -PfdFontValidation   -PfdFontValidationReloads=64 -PfdFontValidationExit
+~~~
+
+The current packaged artifact SHA-256 was
+7eefec9a70552cc8bf491e1c179b4ab3adf9696ddaa45e13e0e92e5a79f13525.
+It completed all 64 requests at generation 65, logged 65 FontManager apply
+starts and ends, and rebuilt the 55-entry Track Styles catalog 65 times.
+FD_FONT_VALIDATION_EXIT requested the normal stop after completion; Minecraft
+closed normally and Gradle succeeded in 3m27s. The full client log SHA-256 is
+8fe45a73de1d1f92029ff78a4578618a5709d4c08b9d1c79fff1e3c18c11cccd.
+There was no closed-FontSet lookup, unallocated-image trace, or target bitmap
+allocation error. The compact [64-cycle record](font-reload-64-clean.txt)
+preserves the command, artifact, counts, and limits.
+
+This is a controlled, headless lifecycle result. It does not reproduce the
+intermittent interactive F3+T GUI failure or provide a production workaround.
+
 same clean-exit switch:
 
 ```sh
