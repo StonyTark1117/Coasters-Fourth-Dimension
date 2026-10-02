@@ -286,12 +286,27 @@ public final class OperationsGameTests {
                                 carrier.capture && container.getSubLevel(carrier.body) != null),
                 "Support loss removed or released a carrier for " + car.variant);
           }
+          var restored =
+              FoundationData.load(
+                  data.save(new net.minecraft.nbt.CompoundTag(), level.registryAccess()),
+                  level.registryAccess());
+          for (var car : cars) {
+            var loaded = restored.vehicles.get(car.chassis);
+            helper.assertTrue(
+                loaded != null
+                    && loaded.stopping
+                    && loaded.restraints
+                    && loaded.fault.equals("Matching track support lost")
+                    && List.of(loaded.boundFrom, loaded.boundTo).equals(originalBindings.get(car.chassis))
+                    && loaded.carriers.stream().allMatch(carrier -> carrier.capture),
+                "Support-loss state did not survive save/load for " + car.variant);
+          }
           System.out.println(
               "FD_SUPPORT_LOSS families="
                   + cars.stream().map(car -> car.family).toList()
                   + " riders="
                   + riders.size()
-                  + " bindingsPreserved=true failClosed=true");
+                  + " bindingsPreserved=true savedStatePreserved=true failClosed=true");
         });
     helper.runAtTickTime(
         180,
