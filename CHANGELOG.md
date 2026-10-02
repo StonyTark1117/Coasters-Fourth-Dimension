@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.9.0-dev.22 — native lower-bearing clearance truss
+
+- Replace Original running-rail crossbars and diagonal mounts with an outboard, below-channel visual truss. Functional rails, track family eligibility and native vehicle physics are unchanged.
+- Extend the source-pinned sampled recovery audit to include the separately rendered native lower-bearing model at the recorded chassis frame. Keep rotating wheels, players, linkage, decorations and continuous swept motion outside its stated scope.
+- Correct the wheel-clearance audit so vertical and horizontal support hulls cannot become degenerate and pass by omission. Validate the resulting support geometry against the full native wheel envelope on a level straight.
+- FD402 remains in progress: this clears a measured visual-support candidate and adds sampled lower-bearing evidence; it does not certify banked wheel sweeps, player clearance or rendered operator operation. Save schema/network protocol remain 6.
+
 ## 0.9.0-dev.21 — sampled recovery block-model clearance
 
 - Record actual native chassis/carrier/ordinary-body poses and placed block states every twenty ticks during the existing occupied five-family and original Arrow/PAX train recovery tests. Recording does not change motion, forces or saved gameplay state.

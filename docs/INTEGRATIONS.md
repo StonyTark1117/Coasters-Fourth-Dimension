@@ -230,19 +230,24 @@ operator interlocks are unchanged. Neither checkpoint closes FD401 or FD902.
 
 The dev.8 adapter lowers installed Arrow spine/tie geometry by 0.6 blocks in
 track-local up and scales tie width to 85% about the provider's own model origin.
-Our main-rail crossbars and diagonal mounts remain present; an additional native
-crossbrace connects the lowered single or double spine to those mounts, with
-end brackets bridging the transition to Original appearance. The
-external provider still owns only decorative spine and ties. No external mesh
-or texture is copied or redistributed.
+Dev.22 replaces Original's former centerline crossbars and diagonal mounts with
+an outboard, below-channel truss: 0.06-radius tubes at ±1.12 local right join a
+local-up -0.70 underbrace. The external spine crossbrace follows the same lower
+path, and end brackets still bridge transitions to Original appearance. This
+avoids the native lower-bearing channel while leaving functional rails and
+provider ownership unchanged. The external provider still owns only decorative
+spine and ties. No external mesh or texture is copied or redistributed.
 
 The [wheel-clearance checkpoint](evidence/0.4/wheel-placement-acceptance.md)
 records why this changed: the previous control-rail audit did not include the
 native main/upstop wheel meshes. Both old tie placements enter the lower-wheel
 swept envelope. The new independent audit encloses every cuboid in the pinned
 native wheel model over continuous spin and longitudinal travel on a level
-straight. It also checks our rendered support geometry. CI runs this audit and
-the banked decoration/control-rail audit for both installed-style profiles.
+straight. Dev.22 corrects the support-hull projection and checks the revised
+truss; its bearing-specific sampled recovery evidence is separate in the
+[FD402 checkpoint](evidence/0.4/recovery/bearing-clearance/acceptance.md). CI
+runs this audit and the banked decoration/control-rail audit for both
+installed-style profiles.
 
 Historical dev.6/dev.7 bank geometry results are reproduced with
 `audit-arrow-style-geometry.py <installed-jar> <recorded-frames> --placement legacy`.

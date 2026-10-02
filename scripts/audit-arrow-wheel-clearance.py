@@ -54,6 +54,8 @@ def measure(triangles, envelopes, margin):
             if gap < best:
                 best = gap
                 closest = {"element": envelope["element"], "row": envelope["row"], "triangle": index}
+    if not math.isfinite(best):
+        raise ValueError("Wheel-clearance component produced no nondegenerate projected triangles")
     return {"minimumConservativeGap": best, "requiredGap": margin, "closestPair": closest,
             "triangles": len(triangles), "passes": best >= margin}
 
@@ -67,24 +69,30 @@ def native_supports(placement):
             raise ValueError("Unrecognized production track support: " + name)
         return float(match[1])
     gauge, height = constant("HALF_GAUGE"), constant("MAIN_RAIL_HEIGHT")
-    mount = constant("RUNNING_MOUNT_HALF_GAUGE")
+    outboard = constant("RUNNING_OUTBOARD_HALF_GAUGE")
+    underbrace = constant("RUNNING_UNDERBRACE_HEIGHT")
     spine = constant("SPINE_HEIGHT") + geometry.placement_config(placement)[1]
     crossbar = constant("RUNNING_CROSSBAR_RADIUS")
     # XY hulls enclose the renderer's octagonal tube cross-sections. Projecting
     # away Z covers every longitudinal phase of the front and rear wheel axes.
     def support(a, b, radius, vertical):
-        offsets = [(0, -radius), (0, radius)] if vertical else [(-radius, 0), (radius, 0)]
+        # A vertical support needs lateral offsets; a horizontal beam needs
+        # vertical offsets. Reversing these creates a collinear hull and would
+        # silently omit the support from the wheel-envelope audit.
+        offsets = [(-radius, 0), (radius, 0)] if vertical else [(0, -radius), (0, radius)]
         points = [(x + dx, y + dy) for x, y in (a, b) for dx, dy in offsets]
         polygon = geometry.hull(points)
         return [[(polygon[0][0], polygon[0][1], 0),
                  (polygon[i][0], polygon[i][1], 0),
                  (polygon[i + 1][0], polygon[i + 1][1], 0)] for i in range(1, len(polygon) - 1)]
-    result = [("running crossbar", support((-gauge, height), (gauge, height), crossbar, True))]
-    if placement != "legacy":
-        result.append(("external spine crossbrace", support((-mount, spine), (mount, spine), crossbar, True)))
-        result.append(("appearance end bracket", support((0, constant("SPINE_HEIGHT")), (0, spine), constant("RUNNING_MOUNT_RADIUS"), False)))
+    result = []
     for side in (-1, 1):
-        result.append((f"running mount {side}", support((side * mount, height), (0, spine), constant("RUNNING_MOUNT_RADIUS"), False)))
+        result.append((f"outboard support {side}", support((side * outboard, underbrace), (side * outboard, height), crossbar, True)))
+        result.append((f"underbrace {side}", support((0, underbrace), (side * outboard, underbrace), crossbar, False)))
+    if placement != "legacy":
+        result.append(("external spine crossbrace", support((-outboard, underbrace), (outboard, underbrace), crossbar, False)))
+        result.append(("appearance end bracket", support((0, constant("SPINE_HEIGHT")), (0, spine), constant("RUNNING_MOUNT_RADIUS"), True)))
+    for side in (-1, 1):
         # Both endpoint heights bound all supported continuous control strokes.
         points = [(side * 1.35 + dx, y) for dx in (-constant("CONTROL_SUPPORT_RADIUS"), constant("CONTROL_SUPPORT_RADIUS")) for y in (-1.35, -.6)]
         points.extend([(dx, spine) for dx in (-constant("CONTROL_SUPPORT_RADIUS"), constant("CONTROL_SUPPORT_RADIUS"))])

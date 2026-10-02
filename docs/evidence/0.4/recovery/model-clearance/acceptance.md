@@ -108,7 +108,7 @@ cars. Samples begin after native recovery starts and end before disconnection;
 they do not cover every continuous position, all possible routes or all car
 orientations. Twenty-tick samples are not a continuous swept-clearance proof.
 
-Special native bearing bottom/wheel rendering, running-wheel contact behavior,
+Rotating native bearing wheel rendering, running-wheel contact behavior,
 rendered player meshes/animation and safe exits, Arrow's mechanical linkage,
 optional decoration, resource overrides, complete rendered operator workflows,
 Engineered recovery FE operation, general grade/coupler ratings and full

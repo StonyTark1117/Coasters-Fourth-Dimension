@@ -239,25 +239,51 @@ public final class OriginalTrackRenderer {
         }
       }
       if (i % 8 == 0 || i == count) {
+        // Native lower bearing slices render through the main-rail centreline. The support
+        // truss therefore stays outboard of its wheel envelope and joins below the spine.
         if (ownership.originalOwns(
-            dev.fourthdimension.integration.TrackRenderOwnership.Component.RUNNING_SUPPORTS))
-          tube(
-              result,
-              points[0],
-              points[1],
-              basis.forward(),
-              up,
-              basis.forward(),
-              up,
-              TrackDesign.RUNNING_CROSSBAR_RADIUS,
-              decorationColor);
-        // This native crossbrace joins both external spine beams to the mechanical mounts.
+            dev.fourthdimension.integration.TrackRenderOwnership.Component.RUNNING_SUPPORTS)) {
+          var underbrace = center.add(up.scale(TrackDesign.RUNNING_UNDERBRACE_HEIGHT));
+          for (int side : new int[] {-1, 1}) {
+            var outerBottom =
+                underbrace.add(right.scale(side * TrackDesign.RUNNING_OUTBOARD_HALF_GAUGE));
+            var outerTop =
+                center
+                    .add(right.scale(side * TrackDesign.RUNNING_OUTBOARD_HALF_GAUGE))
+                    .add(up.scale(TrackDesign.MAIN_RAIL_HEIGHT));
+            tube(
+                result,
+                underbrace,
+                outerBottom,
+                basis.forward(),
+                up,
+                basis.forward(),
+                up,
+                TrackDesign.RUNNING_CROSSBAR_RADIUS,
+                decorationColor);
+            tube(
+                result,
+                outerBottom,
+                outerTop,
+                basis.forward(),
+                right,
+                basis.forward(),
+                right,
+                TrackDesign.RUNNING_CROSSBAR_RADIUS,
+                decorationColor);
+          }
+        }
+        // This native crossbrace joins both external spine beams below the cart channel.
         if (!ownership.originalOwns(
             dev.fourthdimension.integration.TrackRenderOwnership.Component.SPINE)) {
           tube(
               result,
-              points[4].add(right.scale(-TrackDesign.RUNNING_MOUNT_HALF_GAUGE)),
-              points[4].add(right.scale(TrackDesign.RUNNING_MOUNT_HALF_GAUGE)),
+              center
+                  .add(up.scale(TrackDesign.RUNNING_UNDERBRACE_HEIGHT))
+                  .add(right.scale(-TrackDesign.RUNNING_OUTBOARD_HALF_GAUGE)),
+              center
+                  .add(up.scale(TrackDesign.RUNNING_UNDERBRACE_HEIGHT))
+                  .add(right.scale(TrackDesign.RUNNING_OUTBOARD_HALF_GAUGE)),
               basis.forward(),
               up,
               basis.forward(),
@@ -278,20 +304,6 @@ public final class OriginalTrackRenderer {
                 decorationColor);
         }
         for (int side = 0; side < 2; side++) {
-          if (ownership.originalOwns(
-              dev.fourthdimension.integration.TrackRenderOwnership.Component.RUNNING_SUPPORTS))
-            tube(
-                result,
-                center
-                    .add(right.scale((side == 0 ? -1 : 1) * TrackDesign.RUNNING_MOUNT_HALF_GAUGE))
-                    .add(up.scale(TrackDesign.MAIN_RAIL_HEIGHT)),
-                points[4],
-                basis.forward(),
-                right,
-                basis.forward(),
-                right,
-                TrackDesign.RUNNING_MOUNT_RADIUS,
-                decorationColor);
           if (design.family.driven())
             tube(
                 result,

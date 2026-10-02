@@ -1,0 +1,98 @@
+{
+  "headSha": "0ab4dc77ab0f8d7cf3c0687d01b657c3b3e8e698",
+  "runs": [
+    {
+      "id": 36946557227,
+      "url": "https://github.com/StonyTark1117/Coasters-Fourth-Dimension/actions/runs/36946557227",
+      "jobs": [
+        {
+          "name": "Validate (standalone)",
+          "id": 110649906690,
+          "url": "https://github.com/StonyTark1117/Coasters-Fourth-Dimension/actions/runs/36946557227/job/110649906690",
+          "nativeTests": 37,
+          "singleCompletionMarkers": 5,
+          "trainCompletionMarkers": 2,
+          "routeGeometry": "passed",
+          "sampledModelClearance": "passed"
+        },
+        {
+          "name": "Validate (styles)",
+          "id": 110649906885,
+          "url": "https://github.com/StonyTark1117/Coasters-Fourth-Dimension/actions/runs/36946557227/job/110649906885",
+          "nativeTests": 37,
+          "singleCompletionMarkers": 5,
+          "trainCompletionMarkers": 2,
+          "routeGeometry": "passed",
+          "sampledModelClearance": "passed"
+        },
+        {
+          "name": "Validate (engineered)",
+          "id": 110649906981,
+          "url": "https://github.com/StonyTark1117/Coasters-Fourth-Dimension/actions/runs/36946557227/job/110649906981",
+          "nativeTests": 37,
+          "singleCompletionMarkers": 5,
+          "trainCompletionMarkers": 2,
+          "routeGeometry": "passed",
+          "sampledModelClearance": "passed"
+        },
+        {
+          "name": "Validate (combined)",
+          "id": 110649907021,
+          "url": "https://github.com/StonyTark1117/Coasters-Fourth-Dimension/actions/runs/36946557227/job/110649907021",
+          "nativeTests": 37,
+          "singleCompletionMarkers": 5,
+          "trainCompletionMarkers": 2,
+          "routeGeometry": "passed",
+          "sampledModelClearance": "passed"
+        }
+      ]
+    },
+    {
+      "id": 36946561020,
+      "url": "https://github.com/StonyTark1117/Coasters-Fourth-Dimension/actions/runs/36946561020",
+      "jobs": [
+        {
+          "name": "Validate (standalone)",
+          "id": 110649917409,
+          "url": "https://github.com/StonyTark1117/Coasters-Fourth-Dimension/actions/runs/36946561020/job/110649917409",
+          "nativeTests": 37,
+          "singleCompletionMarkers": 5,
+          "trainCompletionMarkers": 2,
+          "routeGeometry": "passed",
+          "sampledModelClearance": "passed"
+        },
+        {
+          "name": "Validate (combined)",
+          "id": 110649917556,
+          "url": "https://github.com/StonyTark1117/Coasters-Fourth-Dimension/actions/runs/36946561020/job/110649917556",
+          "nativeTests": 37,
+          "singleCompletionMarkers": 5,
+          "trainCompletionMarkers": 2,
+          "routeGeometry": "passed",
+          "sampledModelClearance": "passed"
+        },
+        {
+          "name": "Validate (styles)",
+          "id": 110649917608,
+          "url": "https://github.com/StonyTark1117/Coasters-Fourth-Dimension/actions/runs/36946561020/job/110649917608",
+          "nativeTests": 37,
+          "singleCompletionMarkers": 5,
+          "trainCompletionMarkers": 2,
+          "routeGeometry": "passed",
+          "sampledModelClearance": "passed"
+        },
+        {
+          "name": "Validate (engineered)",
+          "id": 110649917645,
+          "url": "https://github.com/StonyTark1117/Coasters-Fourth-Dimension/actions/runs/36946561020/job/110649917645",
+          "nativeTests": 37,
+          "singleCompletionMarkers": 5,
+          "trainCompletionMarkers": 2,
+          "routeGeometry": "passed",
+          "sampledModelClearance": "passed"
+        }
+      ]
+    }
+  ],
+  "requiredNativeTests": 37
+}

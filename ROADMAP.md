@@ -12,12 +12,15 @@ complete clearance/render coverage, physical recovery and real-client survival
 construction/operation remain 0.4 work. Lifecycle investigation has also begun
 under FD902 toward 0.9.0; this does not close the earlier 0.4 gate.
 
-**Current work package: FD402 recovery towing.** Dev.21 records actual native body
-poses and block states for independent sampled default model/track/neighbor
-clearance on the occupied banked routes. See the
+**Current work package: FD402 recovery towing.** Dev.22 moves Original visual
+supports out of the native lower-bearing channel and independently samples that
+native lower-bearing model against occupied banked recovery routes; see the
+[bearing-clearance checkpoint](docs/evidence/0.4/recovery/bearing-clearance/acceptance.md).
+Rotating wheel rendering, player meshes, linkage and continuous swept clearance
+remain open. Dev.21 records actual native body poses and block states for
+independent sampled default model/track/neighbor clearance; see the
 [model clearance checkpoint](docs/evidence/0.4/recovery/model-clearance/acceptance.md).
-Special wheel/bottom rendering, player meshes, linkage and continuous swept
-clearance remain open. Dev.20 validates original occupied
+Dev.20 validates original occupied
 two-car Arrow and four-car PAX trains across the complete bend, bank and level
 runout before normal braking, power cut, disconnection and unloading. All 24
 original native seat mounts, carriers and train links survive. Four-second queued

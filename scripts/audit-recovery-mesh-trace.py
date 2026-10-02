@@ -5,9 +5,11 @@ This is sampled clearance evidence, not continuous swept clearance. Original
 track tubes are reconstructed from the exact renderer sampling and source-pinned
 dimensions. Body transforms and block states come from the native test, not ideal
 track frames. External resources are read from the separately installed pinned
-JAR and never copied. Special bearing bottom/wheel rendering, players, Arrow's
-unmodeled mechanical linkage, decorations and resource overrides remain outside
-this audit. A zero separating bound is UNCERTIFIED, not a proven mesh collision.
+JAR and never copied. The native lower bearing model uses the same recorded
+track-aligned anchor as the chassis and is checked separately. Its rotating
+wheels, players, Arrow's unmodeled mechanical linkage, decorations and resource
+overrides remain outside this audit. A zero separating bound is UNCERTIFIED, not
+a proven mesh collision.
 """
 import argparse
 import hashlib
@@ -25,9 +27,10 @@ import numpy as np
 ROOT = Path(__file__).resolve().parents[1]
 BASE_PIN = "f80b4c3cdf9fa6188804967147761b0373e150a6eadbdc53626e5ac9700b2049"
 MINECRAFT_PIN = "499f6897d1837516680f3114072d8106e11c9adcd933fe5cf051b551089b0c99"
+BOTTOM_MODEL = "simulatedcoasters:block/coaster_cart_bottom"
 SOURCE_PINS = {
-    "src/main/java/dev/fourthdimension/client/OriginalTrackRenderer.java": "87d292af8233164d1a4fc294e12f755f5265aecd980e573b15ca303fc31ef240",
-    "src/main/java/dev/fourthdimension/track/TrackDesign.java": "71212961dcbdc17e9dca8a16a23ecfc5ab9fcff82d0f87f39dd5749b8fff7088",
+    "src/main/java/dev/fourthdimension/client/OriginalTrackRenderer.java": "5089ed597ef5651d5b221eb437e088469f2f28d21028c7bc6be6c9266eca0f0f",
+    "src/main/java/dev/fourthdimension/track/TrackDesign.java": "e3a88c3ca661d7b232ee0b9d3c853a6e66c1d0d1147ac4266b001616b1fe1ff1",
     "src/main/java/dev/fourthdimension/vehicle/BankedRecoveryExamples.java": "0d6597a484cf83cca90671ab6351c81cca42a4e9b96075b4843b136d81229439",
 }
 
@@ -85,12 +88,12 @@ def track_mesh(route):
                         old_r, old_u, r, u, rx, ry)
             if i % 8 == 0 or i == count:
                 radius = constant("RUNNING_CROSSBAR_RADIUS")
-                put(f"section{section_index}:crossbar", points[0], points[1], f, u, f, u, radius, radius)
+                underbrace = c + constant("RUNNING_UNDERBRACE_HEIGHT") * u
                 for side in (-1, 1):
-                    radius = constant("RUNNING_MOUNT_RADIUS")
-                    put(f"section{section_index}:mount{side}",
-                        c + r * side * constant("RUNNING_MOUNT_HALF_GAUGE") + u * constant("MAIN_RAIL_HEIGHT"),
-                        points[4], f, r, f, r, radius, radius)
+                    outer_bottom = underbrace + side * constant("RUNNING_OUTBOARD_HALF_GAUGE") * r
+                    outer_top = c + side * constant("RUNNING_OUTBOARD_HALF_GAUGE") * r + constant("MAIN_RAIL_HEIGHT") * u
+                    put(f"section{section_index}:underbrace{side}", underbrace, outer_bottom, f, u, f, u, radius, radius)
+                    put(f"section{section_index}:outboardSupport{side}", outer_bottom, outer_top, f, r, f, r, radius, radius)
                     if route["family"] == "ARROW":
                         radius = constant("CONTROL_SUPPORT_RADIUS")
                         put(f"section{section_index}:controlMount{side}", points[2 if side < 0 else 3],
@@ -142,6 +145,16 @@ class Resources:
             result.append((points, f'{block["block"]}@{block["offset"]}:element{index}'))
         return result
 
+    def model_boxes(self, model, label):
+        result = []
+        for index, element in enumerate(self.elements(model)):
+            if element.get("rotation", {}).get("angle", 0):
+                raise ValueError("Unsupported native lower-bearing element rotation")
+            low, high = (np.array(element[key]) / 16 - .5 for key in ("from", "to"))
+            result.append(
+                (np.array(list(itertools.product(*zip(low, high)))), f"{label}:element{index}"))
+        return result
+
 
 def separation(box, axes, triangles):
     """OBB/triangle SAT lower distance bounds, including contained triangles."""
@@ -181,6 +194,7 @@ def audit(route, entries, resources, margin):
         for cell in itertools.product(*(range(a, b + 1) for a, b in zip(np.floor(low / 2).astype(int), np.floor(high / 2).astype(int)))):
             grid.setdefault(cell, []).append(index)
     centers = [np.array([frame["center"] for frame in section["frames"]]) for section in route["sections"]]
+    native_bottom_boxes = resources.model_boxes(BOTTOM_MODEL, "nativeLowerBearing")
     specs, samples, completed, visited = {}, 0, False, {}
     previous_tick, original_body_ids = None, None
     closest, failures = None, []
@@ -219,7 +233,14 @@ def audit(route, entries, resources, margin):
                         raise ValueError("Original chassis left recorded route")
                     nearest = int(np.argmin(distances))
                     visited.setdefault(pose["id"], set()).add(nearest)
-                for points, label in body["boxes"]:
+                rendered_boxes = list(body["boxes"])
+                if body["role"] in ("chassis", "ordinary"):
+                    # Coasters draws this model at pathAnchorBottom, qPath and
+                    # translates -0.5 before model coordinates. The recorded
+                    # chassis origin/axes are bounded against that native frame
+                    # by the GameTest, so these centered model points use it.
+                    rendered_boxes.extend(native_bottom_boxes)
+                for points, label in rendered_boxes:
                     world = points @ axes + origin
                     low, high = world.min(axis=0), world.max(axis=0)
                     sample_boxes.append((world, axes, low, high, body["car"], label))
@@ -310,7 +331,7 @@ def main():
                                 "src/main/java/dev/fourthdimension/gametest/RecoveryMeshTrace.java",
                                 "src/main/java/dev/fourthdimension/vehicle/BankedRecoveryExamples.java") },
               "resourceHashes": resources.hashes, "sampleIntervalTicks": 20,
-              "scope": "sampled original default block-model volumes against original track tubes; no continuous sweep, special native wheel/bottom rendering, player meshes, linkage, decorations or resource overrides",
+              "scope": "sampled original default block-model and native lower-bearing volumes against original track tubes; no continuous sweep, rotating native wheels, player meshes, linkage, decorations or resource overrides",
               "method": "2-block spatial bins; omitted pairs certify at least 4x margin; world AABB separation refined by OBB/triangle SAT lower distance bounds",
               "routes": results}
     print(json.dumps(output, indent=2))

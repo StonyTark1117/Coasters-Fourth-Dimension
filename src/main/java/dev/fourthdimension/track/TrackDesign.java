@@ -21,7 +21,10 @@ public enum TrackDesign {
   public static final double TREAD_INNER = .625, TREAD_OUTER = .9375;
   public static final double SPINE_HEIGHT = -.55;
   public static final double RUNNING_CROSSBAR_RADIUS = .06;
-  public static final double RUNNING_MOUNT_HALF_GAUGE = .5;
+  // The native cart renders a lower bearing through the main-rail centreline.
+  // Keep decoration outboard of its full wheel envelope and join it below.
+  public static final double RUNNING_OUTBOARD_HALF_GAUGE = 1.12;
+  public static final double RUNNING_UNDERBRACE_HEIGHT = -.70;
   public static final double RUNNING_MOUNT_RADIUS = .08;
   public static final double CONTROL_SUPPORT_RADIUS = .055;
   public static final double MAGNET_HALF_GAUGE = 1.6, MAGNET_HEIGHT = .65, MAGNET_RADIUS = .12;
