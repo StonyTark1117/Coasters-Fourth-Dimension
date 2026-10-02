@@ -175,6 +175,27 @@ diagnostics showed Dev in carrier `054d1523-b1f4-458e-ad02-9487dbb3869d` with
 `riding=true`. This establishes an occupied Revised cold restart. Moving-route
 and concurrent-rider lifecycle coverage remain FD902 work.
 
+## Revised dispatched-route restart boundary
+
+The current packaged artifact built a fresh Revised circuit, boarded Dev through
+`SeatBlock.sitDown`, closed restraints, and dispatched through the real
+`VehicleOperations.dispatch` path. Immediately before normal client and server
+shutdown, `fd status` recorded the occupied carrier as `capture=false`, with
+angle `-0.545800745013543` and omega `-0.05683826743381138`; all four Revised
+carriers were outside their captured state.
+
+The restarted server retained `chassis=0/1 carriers=0/4 assignments=1` before
+the client joined. The fresh client loaded all bodies and the server recorded
+`FD_BOARDING_RESTORE queued` with deadline `222844`, followed by `mounted` at
+game tick `222650`. Availability returned to `chassis=1/1 carriers=4/4
+assignments=1`; the occupied carrier remained `capture=false`, Dev's
+RootVehicle was a native `create:seat`, and client diagnostics reported Dev in
+carrier `ef164250-b7fc-4009-b90b-3e9e52f9e1ac` with `riding=true`.
+
+This is an occupied dispatched-route restart boundary for the current artifact.
+It does not yet establish that translational route coordinate and momentum
+continue through the restart, so complete moving-route recovery remains open.
+
 ## Legacy normal chunk/sublevel unload
 
 On the same stationary Legacy fixture, `fd validation availability` first
