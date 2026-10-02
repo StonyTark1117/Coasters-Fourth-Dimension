@@ -1,5 +1,6 @@
 package dev.fourthdimension.vehicle;
 
+import com.mojang.logging.LogUtils;
 import dev.fourthdimension.runtime.*;
 import dev.ryanhcode.sable.Sable;
 import dev.ryanhcode.sable.api.sublevel.SubLevelContainer;
@@ -10,9 +11,12 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.level.Level;
 import net.neoforged.neoforge.event.entity.EntityMountEvent;
 import org.joml.Vector3d;
+import org.slf4j.Logger;
 
 public final class Boarding {
   private Boarding() {}
+
+  private static final Logger LOGGER = LogUtils.getLogger();
 
   private static final java.util.Map<ServerLevel, java.util.Map<java.util.UUID, Exit>> EXITS =
       new java.util.WeakHashMap<>();
@@ -157,22 +161,40 @@ public final class Boarding {
       player.setNoGravity(player.getPersistentData().getBoolean(GRAVITY_RESTORE));
       player.getPersistentData().remove(GRAVITY_RESTORE);
     }
-    if (FoundationData.get(player.serverLevel()).vehicles.values().stream()
-        .flatMap(v -> v.carriers.stream())
-        .anyMatch(c -> c.riderSeats.containsKey(player.getUUID()))) {
+    long assignments =
+        FoundationData.get(player.serverLevel()).vehicles.values().stream()
+            .flatMap(v -> v.carriers.stream())
+            .filter(c -> c.riderSeats.containsKey(player.getUUID()))
+            .count();
+    if (assignments > 0) {
+      long deadline = player.serverLevel().getGameTime() + 200;
       RESTORE.put(
           player.getUUID(),
-          new Restore(player.serverLevel().getGameTime() + 200, player.isNoGravity()));
+          new Restore(deadline, player.isNoGravity()));
       player.getPersistentData().putBoolean(GRAVITY_RESTORE, player.isNoGravity());
       player.setNoGravity(true);
       player.setDeltaMovement(net.minecraft.world.phys.Vec3.ZERO);
       player.fallDistance = 0;
+      LOGGER.info(
+          "FD_BOARDING_RESTORE queued player={} assignments={} deadlineTick={}",
+          player.getGameProfile().getName(),
+          assignments,
+          deadline);
     }
   }
 
-  private static void finishRestore(net.minecraft.server.level.ServerPlayer player) {
+  private static void finishRestore(
+      net.minecraft.server.level.ServerPlayer player, String outcome) {
     var state = RESTORE.remove(player.getUUID());
-    if (state != null) player.setNoGravity(state.noGravity);
+    if (state != null) {
+      player.setNoGravity(state.noGravity);
+      LOGGER.info(
+          "FD_BOARDING_RESTORE {} player={} gameTick={} deadlineTick={}",
+          outcome,
+          player.getGameProfile().getName(),
+          player.serverLevel().getGameTime(),
+          state.deadline);
+    }
     player.getPersistentData().remove(GRAVITY_RESTORE);
     player.fallDistance = 0;
   }
@@ -180,7 +202,7 @@ public final class Boarding {
   public static void logout(
       net.neoforged.neoforge.event.entity.player.PlayerEvent.PlayerLoggedOutEvent event) {
     if (event.getEntity() instanceof net.minecraft.server.level.ServerPlayer player)
-      finishRestore(player);
+      finishRestore(player, "cancelled-logout");
   }
 
   private static void restore(ServerLevel level) {
@@ -192,7 +214,7 @@ public final class Boarding {
         for (var c : v.carriers)
           if (c.riderSeats.containsKey(player.getUUID())) found = new Binding(v, c);
       if (found == null) {
-        finishRestore(player);
+        finishRestore(player, "assignment-cleared");
         continue;
       }
       var binding = found;
@@ -201,7 +223,7 @@ public final class Boarding {
       if (body != null) {
         var seat = body.getPlot().getCenterBlock().offset(offset);
         if (player.getVehicle() != null && player.getVehicle().blockPosition().equals(seat)) {
-          finishRestore(player);
+          finishRestore(player, "already-mounted");
           continue;
         }
         if (level.getBlockState(seat).getBlock() instanceof CarrierSeatBlock
@@ -215,14 +237,14 @@ public final class Boarding {
             RESTORING.remove(player.getUUID());
           }
           if (player.isPassenger()) {
-            finishRestore(player);
+            finishRestore(player, "mounted");
             continue;
           }
         }
       }
       if (level.getGameTime() > deadline.deadline) {
         binding.carrier.riderSeats.remove(player.getUUID());
-        finishRestore(player);
+        finishRestore(player, "timed-out");
         var exit = findExit(level, player, player.position());
         if (exit == null) exit = level.getSharedSpawnPos().above().getCenter();
         queueExit(level, player, exit);
