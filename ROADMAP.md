@@ -392,7 +392,7 @@ original tracks through both direct eligibility and the native snap filter. The
 same run confirms ordinary traversal has no vehicle record, carrier rotation or
 magnetic impulse, and rejects unassigned ordinary/4D train coupling without
 mutating the 4D car; see the [ordinary snap matrix](docs/evidence/0.9/ordinary-cart-snap-matrix.md).
-The current branch also passes all 39 native GameTests under Track Styles-only,
+The current branch passes all 40 native GameTests under Track Styles-only,
 Engineered-only, and combined audited profiles; see the [optional-profile
 matrix](docs/evidence/0.9/optional-profile-matrix.md). This advances the
 regular-cart and audited optional-profile portions before FD404, but it does not
@@ -416,7 +416,7 @@ combined audited integration profile now passes 40 GameTests, including a
 server-side two-live-player regression that retains distinct seat entities and
 UUID-to-seat assignments across a native update. Fresh-world real two-client
 fixtures retain both riders in distinct seats of one carrier across all five
-current families; Arrow, Legacy, Free Spin and Revised also restore one rider
+current families; Arrow, Legacy, Free Spin, Revised and PAX also restore one rider
 after a fresh-client reconnect while the other remains mounted. The earlier
 second-rider removal was a stale Sable tracking point in a removed sublevel.
 Native support-loss, late-join, shuttle availability-gap behavior and occupied
@@ -432,7 +432,7 @@ and [occupied boarding acceptance](docs/evidence/0.9/occupied-shuttle-acceptance
 dedicated-server worlds admitted Dev and Observer to distinct native seats in
 the same carrier for Arrow, Legacy, Free Spin, Revised, and the four-chassis
 PAX shuttle. Each retained two assignments and two live `create:seat` mounts
-for fifteen seconds. Arrow, Legacy, Free Spin and Revised additionally retained
+for fifteen seconds. Arrow, Legacy, Free Spin, Revised and PAX additionally retained
 Observer's assignment during disconnect and restored a fresh Observer client to
 its original seat before the deadline while Dev stayed mounted. This closes the
 prior stale-tracking-point failure and the bounded initial concurrency matrix.
