@@ -461,6 +461,16 @@ worlds; this bounded one-family static result does not claim riders, motion,
 clearance or a complete client matrix. See the [client transform checkpoint]
 (docs/evidence/0.9/client-carrier-transform-sampling.md).
 
+Dev.33 adds an opt-in empty-world packaged-client fixture for the five original
+functional families. It creates eight vehicles, 20 carrier bodies and 35 rails,
+then requires all 20 native carrier angles to match their snapshots for 40
+consecutive samples. The fixture passed after 55 client ticks with a maximum
+error of `0.005636176411582603` radians and normal shutdown. Sable emitted three
+early "movement packet for a non-existent sub-level" errors before convergence;
+this proves eventual static agreement, not clean startup ordering, riders,
+motion, cameras or a complete lifecycle. See the [five-family transform
+checkpoint](docs/evidence/0.9/client-carrier-transform-five-family.md).
+
 **Latest FD902 checkpoint: two live riders across all five families.** Clean
 dedicated-server worlds admitted Dev and Observer to distinct native seats in
 the same carrier for Arrow, Legacy, Free Spin, Revised, and the four-chassis

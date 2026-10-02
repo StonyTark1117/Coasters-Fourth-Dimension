@@ -39,12 +39,14 @@ public final class FourthDimension {
     NeoForge.EVENT_BUS.addListener(dev.fourthdimension.vehicle.BankedRecoveryExamples::tick);
     NeoForge.EVENT_BUS.addListener(CarrierRuntime::tick);
     NeoForge.EVENT_BUS.addListener(FoundationSync::login);
+    NeoForge.EVENT_BUS.addListener(CarrierValidationFixture::placePlayer);
     NeoForge.EVENT_BUS.addListener(FoundationSync::dimension);
     NeoForge.EVENT_BUS.addListener(FoundationSync::tick);
     NeoForge.EVENT_BUS.addListener(
         (net.neoforged.neoforge.event.server.ServerStartedEvent event) -> {
           if (Boolean.getBoolean("fourthdimension.freezeOnStart"))
             event.getServer().tickRateManager().setFrozen(true);
+          CarrierValidationFixture.create(event.getServer().overworld());
         });
     LogUtils.getLogger()
         .info(

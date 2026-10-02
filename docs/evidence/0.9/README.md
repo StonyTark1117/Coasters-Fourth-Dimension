@@ -72,6 +72,14 @@ records a real-client snapshot/native-body orientation check for the six loaded
 carriers in the Arrow-only `FDRenderMatrix` fixture. It is deliberately scoped:
 five-family, rider, motion, camera and rendered-clearance coverage remain open.
 
+[Five-family packaged client carrier transforms](client-carrier-transform-five-family.md)
+adds a fresh-world static client check for Arrow, Legacy, Free Spin, Revised and
+PAX: 20 carrier bodies stayed within the 0.02-radian gate for 40 consecutive
+samples. Three early Sable sub-level packet-order errors preceded convergence,
+so it records eventual transform agreement rather than clean startup or wider
+lifecycle coverage. Riders, motion, camera, rendering and multiplayer remain
+FD902/FD904 work.
+
 [Client track-render instrumentation](client-render-sampling.md) records an
 initial packaged real-client sample on the recovery scene, under llvmpipe and
 on the stated RX 7900 XTX host, plus a native-GPU dedicated-server observation
