@@ -695,7 +695,7 @@ public final class EngineeredGameTests {
     }
   }
 
-  private static Object enumeration(String type, String name) {
+  static Object enumeration(String type, String name) {
     try {
       return type(type).getField(name).get(null);
     } catch (ReflectiveOperationException failure) {
@@ -703,7 +703,7 @@ public final class EngineeredGameTests {
     }
   }
 
-  private static Object construct(String name, Object... args) {
+  static Object construct(String name, Object... args) {
     try {
       for (var constructor : type(name).getConstructors())
         if (matches(constructor.getParameterTypes(), args)) return constructor.newInstance(args);

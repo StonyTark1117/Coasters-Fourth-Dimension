@@ -1,0 +1,62 @@
+{
+  "parentCommit": "11d1e216d3d7a11e40dab127ebe7e3bcc5261441",
+  "modVersion": "0.9.0-dev.27",
+  "javaVersion": "21.0.12.1+1",
+  "jarSha256": "9daf801509869f4791a8db70b45c1177b23a7de3278379ecac4c05014a49eb7c",
+  "unitTests": {
+    "tests": 26,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "artifacts": {
+    "engineered": {
+      "coordinate": "curse.maven:coasters-engineered-1643631:8863559",
+      "sha256": "eea19ed769ed573727b4e15184c229f66aff85f20667464650724e1b2d657f5d"
+    },
+    "styles": {
+      "coordinate": "curse.maven:coasters-simulated-track-styles-1642719:9020601",
+      "sha256": "42535a83307f6898b33c13ca201533bb9e337418fd7c73039c867fc80bfbcb38"
+    },
+    "coasters": {
+      "coordinate": "curse.maven:create-coasters-simulated-1601871:8655742",
+      "sha256": "f80b4c3cdf9fa6188804967147761b0373e150a6eadbdc53626e5ac9700b2049"
+    }
+  },
+  "sourceSha256": {
+    "src/main/java/dev/fourthdimension/mixin/EngineeredMotorGuardMixin.java": "16c0e3bd6f5d8c12d9e2979b6d18fa6b20f496d6a62a0f76cabeebbd5779a89e",
+    "src/main/java/dev/fourthdimension/mixin/ChainDriveGuardMixin.java": "15fb923aba82b583f967505693555078e051ad9bd68b892cf3462ad2841f206a",
+    "src/main/java/dev/fourthdimension/gametest/EngineeredSequenceGameTests.java": "bbb43892915d849f4164fe8844d7ae02f30b5ae60687fa9d58c1ccd6c5e47e04",
+    "src/main/java/dev/fourthdimension/gametest/EngineeredGameTests.java": "a245b1254fda9abda67ec1ce081015d2d8ff6d26488999805086346dc8e665d5",
+    "src/main/java/dev/fourthdimension/gametest/EngineeredInterlockGameTests.java": "f210915e99dbcfe363e1de6ebc0f2eacb971544aa5a0d4c5df5b3bd5118c51cc"
+  },
+  "registeredTestsPerProfile": 43,
+  "profiles": [
+    "engineered",
+    "combined",
+    "base",
+    "styles"
+  ],
+  "files": {
+    "TEST-dev.fourthdimension.FoundationMathTest.xml.gz": "5900767398fcdbefd8c6cf3eb3f0b9f34e97358c8eb0405ad621b2e9a68dc82f",
+    "TEST-dev.fourthdimension.MagneticMathTest.xml.gz": "d5f7173ef14c9fbcb077b1672fe598cb60fa436d12866eaa43ca87df76f77920",
+    "TEST-dev.fourthdimension.ModelFrameTest.xml.gz": "31c0642aab9a45a9090e60e35b444786b6f1f698e3e3f9bd034db5cc3d03425f",
+    "TEST-dev.fourthdimension.OptionalIntegrationTest.xml.gz": "a227423aa42ba6fb03c1868b9425e0a4a72777c75aafbd3aaee514c03b88037e",
+    "TEST-dev.fourthdimension.TrackAppearanceTest.xml.gz": "1c785a24ee10f3279422f8edb8ea5783590f935e1a9ef65dfc8353d5890aad67",
+    "TEST-dev.fourthdimension.TrackMathTest.xml.gz": "d09c038c315b2c50f162bd297d6ed013038e62a6d49258a0f961d7550a7535d3",
+    "TEST-dev.fourthdimension.TrackRenderMetricsTest.xml.gz": "a5d7dd88c0e20647621df9c28d2274fd0d39e60471a39b813fc6f942469397a7",
+    "base.log.gz": "4fe0ba4727001e0dbb36da9d186f4cd14a2740323a3e83449ca4670d478c90ed",
+    "before-source.json": "148e9511e32400c26d3b7cc32a47301bc45e7ef1a84ffe5c05980b6784e702fb",
+    "before.log.gz": "c48db4033173b32778af21e15bffb83a7fe3f4a8829ae370972c1a99bc993708",
+    "build.log.gz": "c8a801a7c6847145e33d6daffb5b3481c31c4dbed0d8b321370c14022189f8ce",
+    "combined.log.gz": "a54a2bc71ca3fe29eb537c1542aeca0ea4ca92e027166ed8afe37d2f3c7a1359",
+    "commands.json": "f79ebd8ae25da528de80416b6fb1fc289be10cd89397918cc7fba65b75f6570c",
+    "engineered.log.gz": "0e1db2eb21c3cea08279efbb46f39be55882add67c1f6b5edf128878527add09",
+    "motor-only-artifact.json": "bb0173154d07a6eab2f09a296144af0ab6060625804a396e0849f1bcb75b98e2",
+    "motor-only-attempt.log.gz": "b0a35571078306c257db99068ca9a7d3fb5f8941a543c30b43450ea88ed88ffa",
+    "motor-only-build.log.gz": "c8a801a7c6847145e33d6daffb5b3481c31c4dbed0d8b321370c14022189f8ce",
+    "motor-only-results.json": "b0e407279816563bec30caf4525e4788af788603c87692b56581372f6bf93286",
+    "setup-attempt.log.gz": "f0ceed648c64601cb3e19e64fd219d4ca1dcdb373d19e2ad7cac717ee8cebe1d",
+    "styles.log.gz": "a727d62d301624efb98477232c1421d632305bb552a72ff913a754b452d5fc7c"
+  }
+}

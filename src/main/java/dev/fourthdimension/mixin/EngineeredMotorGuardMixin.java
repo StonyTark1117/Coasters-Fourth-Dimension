@@ -18,7 +18,13 @@ public abstract class EngineeredMotorGuardMixin {
   @Inject(
       method =
           "apply(Ldev/ryanhcode/sable/sublevel/ServerSubLevel;Lnet/minecraft/server/level/ServerLevel;Ldev/ryanhcode/sable/sublevel/system/SubLevelPhysicsSystem;Ldev/silvergold/simulatedcoasters/track/graph/CoasterPathTrackFrame$GraphHit;Ldev/silvergold/simulatedcoasters/track/graph/CoasterPathTrackFrame$TrackBasis;D)V",
-      at = @At("HEAD"),
+      // The native prefix only resolves the span and reports cart speed/presence.
+      // Keep those reports alive while denying all following propulsion/parking work.
+      at =
+          @At(
+              value = "INVOKE",
+              target =
+                  "Ldev/jwaterfall/coastersengineered/controller/LinearMotorControllerBlockEntity;commandMode()Ldev/jwaterfall/coastersengineered/controller/MotorStep$Kind;"),
       cancellable = true,
       require = 0)
   private static void fourthdimension$holdMotor(

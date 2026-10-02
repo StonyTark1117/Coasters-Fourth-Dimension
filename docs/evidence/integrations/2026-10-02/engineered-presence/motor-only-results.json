@@ -1,0 +1,26 @@
+[
+  {
+    "profile": "build",
+    "command": [
+      "./gradlew",
+      "-Dorg.gradle.jvmargs=-Xmx1G",
+      "--max-workers=2",
+      "build"
+    ],
+    "exit": 0,
+    "seconds": 1.5154829025268555
+  },
+  {
+    "profile": "engineered",
+    "command": [
+      "./gradlew",
+      "-Dorg.gradle.jvmargs=-Xmx1G",
+      "--max-workers=2",
+      "-PfdPackaged",
+      "-PfdIntegrations=engineered",
+      "runGameTestServer"
+    ],
+    "exit": 1,
+    "seconds": 376.4076180458069
+  }
+]

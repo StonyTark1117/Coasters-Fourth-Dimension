@@ -139,6 +139,15 @@ adds callback-time checks for open restraints, faults and held linked cars, and
 rejects missing peer registrations. It preserves the ordinary recovery-cart
 policy and verifies native queued impulses with valid-launch controls.
 
+The [held-presence and native-sequence checkpoint](evidence/integrations/2026-10-02/engineered-presence/README.md)
+preserves Engineered's native speed/presence reports before cancelling held-car
+propulsion. Exact inspected Engineered also receives its HEAD reporting callback
+before base chain matching is cancelled. A real redstone pulse can arm LAUNCH
+while Fourth Dimension still retains an unready car; validated dispatch remains
+necessary. Native sequences, observer output, recapture and unloading have a
+separate five-family regression. Controller GUI and external FE-network acceptance
+remain open.
+
 The [operating evidence](evidence/0.4/operating-acceptance.md) covers installed
 controllers on all five matching straight track families: four non-PAX cars
 launch and stop, captured/retained cars hold, and the PAX car rejects motor

@@ -1,5 +1,6 @@
 package dev.fourthdimension.mixin;
 
+import dev.fourthdimension.integration.OptionalIntegrations;
 import dev.fourthdimension.integration.PropulsionInterlock;
 import dev.ryanhcode.sable.sublevel.ServerSubLevel;
 import dev.ryanhcode.sable.sublevel.system.SubLevelPhysicsSystem;
@@ -21,6 +22,30 @@ public abstract class ChainDriveGuardMixin {
       CoasterPathTrackFrame.TrackBasis basis,
       double dt,
       CallbackInfo ci) {
-    if (PropulsionInterlock.holds(sub, level)) ci.cancel();
+    // With the inspected addon, its HEAD callback must run its native reports.
+    // EngineeredMotorGuardMixin still cancels before its force/parking commands.
+    if (!OptionalIntegrations.installed(OptionalIntegrations.ENGINEERED).mayInspect()
+        && PropulsionInterlock.holds(sub, level)) ci.cancel();
+  }
+
+  @Inject(
+      method = "applySpeedMatch",
+      at =
+          @At(
+              value = "INVOKE",
+              target =
+                  "Ldev/silvergold/simulatedcoasters/track/chainlift/ChainLiftSpanQuery;findAtGraphHit(Lnet/minecraft/world/level/Level;Ldev/silvergold/simulatedcoasters/track/graph/CoasterPathTrackFrame$GraphHit;D)Ldev/silvergold/simulatedcoasters/track/chainlift/ChainLiftSpanQuery$ChainLiftSpanHit;"),
+      cancellable = true)
+  private static void fourthdimension$holdAfterEngineeredReports(
+      ServerSubLevel sub,
+      ServerLevel level,
+      SubLevelPhysicsSystem physics,
+      CoasterPathTrackFrame.GraphHit hit,
+      CoasterPathTrackFrame.TrackBasis basis,
+      double dt,
+      CallbackInfo ci) {
+    // This is the first native chain query, before any chain speed matching.
+    if (OptionalIntegrations.installed(OptionalIntegrations.ENGINEERED).mayInspect()
+        && PropulsionInterlock.holds(sub, level)) ci.cancel();
   }
 }
