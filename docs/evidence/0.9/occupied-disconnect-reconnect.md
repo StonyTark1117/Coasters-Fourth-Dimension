@@ -396,6 +396,27 @@ distinct native `create:seat` entities, with continued nonzero motion and
 `capture=false`. This completes the current moving concurrent rider checkpoint
 for Arrow, Legacy, Free Spin and Revised.
 
+## Concurrent moving PAX powered-lift checkpoint
+
+Two real riders boarded the same carrier in the original four-chassis PAX
+shuttle, closed restraints, and used the real powered-winch dispatch path. The
+shuttle completed its initial cycle, then a second dispatch reached an active
+lift with `chassis=4/4 carriers=8/8 assignments=2`, `capture=true`, and native
+velocity (`x≈0`, `y=1.301`, `z=-3.513` blocks/s). Capture remains true during
+this supported powered-lift phase; the recorded velocity and position change
+from `y=206.1, z=-626.5` to `y=209.1, z=-649.7` prove that the consist was
+moving.
+
+Observer then disconnected while Dev remained mounted. The running server kept
+all four chassis, eight carriers and both assignments; Dev's native
+`create:seat` remained present while the active lift continued at nonzero
+velocity (`y=0.517`, `z=-0.651` blocks/s). A fresh Observer client rejoined
+the same server. The production restore queue mounted Observer at game tick
+`3590` before deadline `3789`; the server again reported two distinct native
+`create:seat` entities and all eight carriers. This completes the current
+five-family moving concurrent-rider recovery checkpoint, with PAX covered in
+its supported powered-lift phase.
+
 The validation-only trace records accepted player-seat assignments before the
 carrier runtime's next loading update, plus mount/dismount state. It identified
 the stale tracking-point condition in the earlier failure and makes subsequent
