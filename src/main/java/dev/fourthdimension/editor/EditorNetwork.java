@@ -59,7 +59,7 @@ public final class EditorNetwork {
   }
 
   public static void register(RegisterPayloadHandlersEvent event) {
-    var registrar = event.registrar("6");
+    var registrar = event.registrar("7");
     registrar.playToClient(
         Target.TYPE, Target.CODEC, (p, c) -> c.enqueueWork(() -> openClient.accept(p)));
     registrar.playToServer(

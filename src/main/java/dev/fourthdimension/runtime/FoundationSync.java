@@ -16,18 +16,23 @@ import net.neoforged.neoforge.network.event.RegisterPayloadHandlersEvent;
 public final class FoundationSync {
   private FoundationSync() {}
 
-  public record Snapshot(CompoundTag tag) implements CustomPacketPayload {
+  /** A full dimension-scoped state replacement; stale snapshots are ignored client-side. */
+  public record Snapshot(ResourceLocation dimension, CompoundTag tag) implements CustomPacketPayload {
     public static final Type<Snapshot> TYPE =
         new Type<>(ResourceLocation.fromNamespaceAndPath(FourthDimension.ID, "foundation"));
     public static final StreamCodec<RegistryFriendlyByteBuf, Snapshot> CODEC =
         StreamCodec.of(
-            (buf, payload) -> buf.writeNbt(payload.tag),
+            (buf, payload) -> {
+              buf.writeResourceLocation(payload.dimension);
+              buf.writeNbt(payload.tag);
+            },
             (buf) -> {
+              var dimension = buf.readResourceLocation();
               var tag = buf.readNbt(net.minecraft.nbt.NbtAccounter.create(8 * 1024 * 1024));
               if (!(tag instanceof CompoundTag compound))
                 throw new io.netty.handler.codec.DecoderException(
                     "Expected a functional snapshot compound");
-              return new Snapshot(compound);
+              return new Snapshot(dimension, compound);
             });
 
     @Override
@@ -38,7 +43,7 @@ public final class FoundationSync {
 
   public static void register(RegisterPayloadHandlersEvent event) {
     event
-        .registrar("6")
+        .registrar("7")
         .playToClient(
             Snapshot.TYPE,
             Snapshot.CODEC,
@@ -46,6 +51,7 @@ public final class FoundationSync {
                 context.enqueueWork(
                     () -> {
                       var level = context.player().level();
+                      if (!accepts(level, payload)) return;
                       EligibilityHooks.CLIENT.put(
                           level, FoundationData.load(payload.tag, level.registryAccess()));
                     }));
@@ -67,7 +73,13 @@ public final class FoundationSync {
     var level = player.serverLevel();
     PacketDistributor.sendToPlayer(
         player,
-        new Snapshot(FoundationData.get(level).save(new CompoundTag(), level.registryAccess())));
+        new Snapshot(
+            level.dimension().location(),
+            FoundationData.get(level).save(new CompoundTag(), level.registryAccess())));
+  }
+
+  public static boolean accepts(net.minecraft.world.level.Level level, Snapshot snapshot) {
+    return level != null && level.dimension().location().equals(snapshot.dimension);
   }
 
   public static void tick(LevelTickEvent.Post event) {

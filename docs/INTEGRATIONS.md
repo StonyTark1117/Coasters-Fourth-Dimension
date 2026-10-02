@@ -32,10 +32,10 @@ choices, plus an optional `#RRGGBB` spine/tie color. Selection uses the same
 permission, distance, revision, and occupied-section guards as profile editing.
 Only separately installed Track Styles 1.2.0 enables its choices, and both choices are permitted only on controlled Arrow functional track. The server rejects selection on all four other families; renderer fallback also enforces this boundary.
 
-Appearance intent is saved separately in schema 5. Earlier schema 1–4 rails
+Appearance intent is saved separately in the current schema 6. Earlier schema 1–4 rails
 default to Original; missing provider IDs and tint are retained while the original
 family geometry is shown. Reinstalling the same provider restores the selection.
-Network protocol 5 requires matching client and server builds. This checkpoint
+Network protocol 7 requires matching client and server builds. This checkpoint
 does not certify all exposed development choices: single-spine provider removal
 and reinstallation, double-spine fallback/resource reload, a flat single-spine
 quarter curve and a real styled Arrow circuit now have bounded evidence. A separate

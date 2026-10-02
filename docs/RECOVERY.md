@@ -76,7 +76,7 @@ stall. Inspect propulsion and cut external power; the fault does not clear and
 towing does not resume automatically. Start/brake/disconnect, lost availability
 and power cut reset the transient progress window. It is not saved as ride state.
 
-Save schema and network protocol are **6**. Existing schemas 1–5 load without
+Save schema is **6** and network protocol is **7**. Existing schemas 1–5 load without
 inventing recovery state. Upgrade clients and servers together, back up worlds,
 and do not downgrade a recovery-mode world to a version that cannot read schema 6.
 Dev.27 exercises that loader contract for all five supported legacy schema numbers

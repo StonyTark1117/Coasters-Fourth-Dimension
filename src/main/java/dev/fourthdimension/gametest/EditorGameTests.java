@@ -77,14 +77,22 @@ public final class EditorGameTests {
       dev.fourthdimension.runtime.FoundationSync.Snapshot.CODEC.encode(
           buf,
           new dev.fourthdimension.runtime.FoundationSync.Snapshot(
+              helper.getLevel().dimension().location(),
               data.save(new CompoundTag(), helper.getLevel().registryAccess())));
       System.out.println("FD_SNAPSHOT_MAX bytes=" + buf.readableBytes());
       helper.assertTrue(
           buf.readableBytes() < 1_048_576, "Valid snapshot exceeds Minecraft custom-payload limit");
-      var copy =
-          FoundationData.load(
-              dev.fourthdimension.runtime.FoundationSync.Snapshot.CODEC.decode(buf).tag(),
-              helper.getLevel().registryAccess());
+      var snapshot = dev.fourthdimension.runtime.FoundationSync.Snapshot.CODEC.decode(buf);
+      helper.assertTrue(
+          snapshot.dimension().equals(helper.getLevel().dimension().location())
+              && dev.fourthdimension.runtime.FoundationSync.accepts(helper.getLevel(), snapshot)
+              && !dev.fourthdimension.runtime.FoundationSync.accepts(
+                  helper.getLevel(),
+                  new dev.fourthdimension.runtime.FoundationSync.Snapshot(
+                      net.minecraft.resources.ResourceLocation.withDefaultNamespace("fd_stale"),
+                      snapshot.tag())),
+          "Network snapshot lost or ignored its dimension scope");
+      var copy = FoundationData.load(snapshot.tag(), helper.getLevel().registryAccess());
       helper.assertTrue(
           copy.rails.size() == 256
               && copy.vehicles.size() == 64

@@ -16,6 +16,11 @@ removed. It preserves rider ownership, matching binding, carrier capture, and
 closed restraints across all five families. Client, disconnect and full
 lifecycle coverage remain FD902 work.
 
+[Dimension-scoped snapshot contract](dimension-snapshot-contract.md) prevents
+a queued old-dimension snapshot from replacing the newly active client level.
+It advances the snapshot lifecycle boundary, while live two-client,
+late-join, disconnect and chunk-unload acceptance remains FD902 work.
+
 [Ordinary-cart native snap matrix, dev.27](ordinary-cart-snap-matrix.md)
 verifies fitting and deliberately non-fitting ordinary bearings on all five
 original tracks through direct and native-filter entry paths. It also rejects
