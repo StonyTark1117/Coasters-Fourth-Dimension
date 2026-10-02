@@ -428,10 +428,11 @@ addon's server-side carrier-runtime invocation totals alongside live-carrier
 update totals, per-carrier timing and constraint rebuild counts. Its scope and
 repeatable sampling procedure are documented in [performance
 sampling](docs/PERFORMANCE.md). Automated sampling windows cover
-controlled-train, free-spin and shuttle scenes, and the first [integrated host
-baseline](docs/evidence/0.9/runtime-baseline.md) is recorded.
-Repeated baselines, targets, renderer/shader measurements and acceptance remain
-pending.
+controlled-train, free-spin and shuttle scenes, and two [integrated host
+baselines](docs/evidence/0.9/runtime-baseline.md) are recorded. Their shared-host
+variation is documented rather than treated as a target. Repeated target-host
+baselines, quantitative limits, renderer/shader measurements and acceptance
+remain pending.
 
 **Depends on:** FD404, FD006. **Design:** D17.
 
