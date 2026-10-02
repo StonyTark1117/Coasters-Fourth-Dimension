@@ -23,6 +23,20 @@ public final class ClientDiagnostics {
     var data = EligibilityHooks.CLIENT.get(mc.level);
     var container = SubLevelContainer.getContainer(mc.level);
     if (data == null || container == null) return;
+    if (Boolean.getBoolean("fourthdimension.renderValidation")) {
+      var render = TrackRenderMetrics.snapshot();
+      LogUtils.getLogger()
+          .info(
+              "FD_CLIENT_RENDER stages={} avgStageNanos={} meshBuilds={} avgMeshBuildNanos={}"
+                  + " inRangeRails={} inRangeQuads={} inRangeDecorationPieces={}",
+              render.renderStages(),
+              render.averageRenderStageNanos(),
+              render.meshBuilds(),
+              render.averageMeshBuildNanos(),
+              render.inRangeRails(),
+              render.inRangeQuads(),
+              render.inRangeDecorationPieces());
+    }
     for (var v : data.vehicles.values()) {
       var parent = container.getSubLevel(v.chassis);
       if (parent == null) continue;

@@ -436,8 +436,9 @@ controlled-train, free-spin and shuttle scenes, and two [integrated host
 baselines](docs/evidence/0.9/runtime-baseline.md) are recorded. The current
 checkpoint adds a third combined run and host-scoped limits of 120,000 ns per invocation and
 6,000 ns per live carrier update; `-PfdPerformanceTargets` verifies them in
-all three sampled scenes. Renderer/shader measurements and full acceptance
-remain pending.
+all three sampled scenes. An initial packaged real-client llvmpipe sample
+validates the opt-in per-stage track-render instrumentation; hardware, shader
+and decorated-style measurements and full acceptance remain pending.
 
 **Depends on:** FD404, FD006. **Design:** D17.
 

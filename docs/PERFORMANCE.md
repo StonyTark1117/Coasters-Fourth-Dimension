@@ -35,3 +35,15 @@ harness are host-scoped instrumentation, not a universal performance guarantee.
 
 The current integrated GameTest result is recorded in the
 [FD904 baseline evidence](evidence/0.9/runtime-baseline.md).
+
+## Client track-render sampling
+
+For a real-client render sample, launch an existing functional-track world with
+`-PfdValidation -PfdRenderValidation`. Every 100 client ticks the log emits
+`FD_CLIENT_RENDER`, which includes cumulative render-stage and mesh-build
+counts, average nanoseconds for each, and cumulative in-range original-rail,
+procedural-quad and optional-decoration-piece counts within the renderer's
+160-block distance test. The counters reset when
+the client level changes. They time this addon's `AFTER_BLOCK_ENTITIES` track
+stage only; they do not measure Minecraft's whole frame, GPU work, Flywheel,
+Veil or shader time, and cannot establish an FPS target.

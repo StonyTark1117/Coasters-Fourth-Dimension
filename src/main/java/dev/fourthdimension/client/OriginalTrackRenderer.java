@@ -54,6 +54,7 @@ public final class OriginalTrackRenderer {
     if (level != lastLevel) {
       MESHES.clear();
       SEEN.clear();
+      TrackRenderMetrics.reset();
       ghostKey = "";
       ghost = List.of();
       lastLevel = level;
@@ -89,6 +90,10 @@ public final class OriginalTrackRenderer {
     pose.translate(-camera.x, -camera.y, -camera.z);
     var buffers = mc.renderBuffers().bufferSource();
     var consumer = buffers.getBuffer(RenderType.debugQuads());
+    long renderStart = System.nanoTime();
+    int inRangeRails = 0;
+    int inRangeQuads = 0;
+    int inRangeDecorationPieces = 0;
     var decorations =
         new ArrayList<dev.fourthdimension.client.integration.TrackStylesRenderer.Mesh>();
     var data = EligibilityHooks.data(mc.level);
@@ -106,6 +111,7 @@ public final class OriginalTrackRenderer {
               || mesh.revision != rail.revision
               || mesh.geometry != hash
               || mesh.modelGeneration != generation) {
+            long buildStart = System.nanoTime();
             var decoration =
                 dev.fourthdimension.client.integration.TrackStylesRenderer.build(edge, rail);
             var ownership =
@@ -133,9 +139,15 @@ public final class OriginalTrackRenderer {
                         tint),
                     decoration);
             MESHES.put(rail.id, mesh);
+            TrackRenderMetrics.meshBuilt(System.nanoTime() - buildStart);
           }
           draw(consumer, pose.last().pose(), mesh.quads, rail.valid ? 1f : .4f);
-          if (mesh.decoration != null) decorations.add(mesh.decoration);
+          inRangeRails++;
+          inRangeQuads += mesh.quads.size();
+          if (mesh.decoration != null) {
+            decorations.add(mesh.decoration);
+            inRangeDecorationPieces += mesh.decoration.pieces().size();
+          }
         }
     var held = mc.player.getMainHandItem();
     if (held.getItem() instanceof FamilyTrackItem item
@@ -180,6 +192,11 @@ public final class OriginalTrackRenderer {
       dev.fourthdimension.client.integration.TrackStylesRenderer.draw(decoration, pose, buffers);
     if (!decorations.isEmpty()) buffers.endBatch(RenderType.cutoutMipped());
     pose.popPose();
+    TrackRenderMetrics.rendered(
+        System.nanoTime() - renderStart,
+        inRangeRails,
+        inRangeQuads,
+        inRangeDecorationPieces);
   }
 
   private static List<Quad> build(

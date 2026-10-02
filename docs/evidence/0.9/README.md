@@ -23,6 +23,11 @@ an unassigned ordinary/4D train coupling without mutating the 4D car; guarded
 recovery remains the sole mixed-consist path. It is a bounded FD901 checkpoint,
 not the complete compatibility matrix.
 
+[Client track-render instrumentation](client-render-sampling.md) records an
+initial packaged real-client sample on the recovery scene. It validates the
+sampler under llvmpipe only; player-hardware, shader and decorated-style
+measurements remain FD904 work.
+
 [Idle shuttle availability, dev.13](idle-shuttle-acceptance.md) records the native/control failure, production fix, packaged loading-boundary comparison and default-flags cold reopen. Its scope is an empty bound shuttle before its first lift. The four inherited PAX faults remain recorded; complete FD902 and earlier 0.4 gates stay open.
 
 Run `python3 scripts/verify-idle-shuttle-checkpoint.py` to verify the committed observations. This reads evidence; it does not replay clients or certify the complete lifecycle matrix.
