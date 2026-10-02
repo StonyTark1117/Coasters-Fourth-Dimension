@@ -47,6 +47,34 @@ submission. It excludes the rest of Minecraft rendering, Flywheel, Veil,
 Sable, shader execution and FPS. Hardware and supported-shader measurements,
 including a decorated Track Styles scene, remain FD904 work.
 
+## Reproducible packaged matrix completion
+
+The prior Xvfb samples ended through an external timeout. The current artifact adds an
+opt-in completion gate that requires a loaded client world to submit a configurable
+number of original-track render stages and to observe at least one mesh build, one
+in-range rail, and one procedural quad per required stage. It does not require a
+decoration, shader, frame rate, or whole-frame metric.
+
+The current packaged JAR has SHA-256
+`a4a9c4ed6dca3420210b701385deb2f97fe45a9dcb7fd393de887b93b03340ab`.
+It passed the following full optional-profile Xvfb run on 2026-10-02:
+
+```sh
+xvfb-run -a env JAVA_HOME=/usr/lib/jvm/java-21-openjdk \
+  ./gradlew runClient --no-daemon -PfdPackaged \
+  -PfdIntegrations=styles,engineered -PfdWorld=FDRenderMatrix \
+  -PfdValidation -PfdRenderValidation -PfdRenderValidationExit \
+  -PfdRenderValidationStages=500
+```
+
+The client logged `FD_RENDER_VALIDATION passed` at 503 stages: three mesh builds,
+1,508 in-range rail observations, and 13,391,040 procedural quads. It then requested
+normal Minecraft shutdown; the integrated server saved `FDRenderMatrix` and Gradle
+exited successfully. The selected source-log lines are retained in
+[the matrix completion record](render-validation-fdrender-matrix.txt). Track Styles
+1.2.0 and Engineered 1.1.1 were loaded, but this fixed camera had zero decoration
+pieces, so this is only an original-track path regression.
+
 ## Native GPU observation
 
 The same bounded packaged-world procedure was repeated on the host's native

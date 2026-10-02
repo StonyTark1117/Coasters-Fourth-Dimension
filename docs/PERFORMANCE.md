@@ -39,7 +39,11 @@ The current integrated GameTest result is recorded in the
 ## Client track-render sampling
 
 For a real-client render sample, launch an existing functional-track world with
-`-PfdValidation -PfdRenderValidation`. Every 100 client ticks the log emits
+`-PfdValidation -PfdRenderValidation`. Add `-PfdRenderValidationExit` to make the
+client stop normally after the configured `-PfdRenderValidationStages=N` original-track
+stages (default 500). This opt-in completion gate requires at least one mesh build and
+nonzero in-range rail and procedural-quad totals; it does not require decorations or a
+shader. Every 100 client ticks the log emits
 `FD_CLIENT_RENDER`, which includes cumulative render-stage and mesh-build
 counts, average nanoseconds for each, and cumulative in-range original-rail,
 procedural-quad and optional-decoration-piece counts within the renderer's

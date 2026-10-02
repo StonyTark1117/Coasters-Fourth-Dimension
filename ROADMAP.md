@@ -507,9 +507,13 @@ shader-mode sample also records original-stage work, but Flywheel fell back to
 A packaged Xvfb replay now also preserves a HUD-free framebuffer of the actual
 `FD16Recovery` world after turning toward its recovery vehicle, native chassis
 and original rail/support geometry; see the [rendered recovery
-capture](docs/evidence/0.9/rendered-client-fd16.md). This confirms one live
-llvmpipe rendered scene, not full model/rider, shader, clearance or target-FPS
-acceptance.
+capture](docs/evidence/0.9/rendered-client-fd16.md). Dev.31 adds an opt-in
+self-terminating original-track render gate: the full optional profile reaches 503
+live `FDRenderMatrix` stages with three mesh builds, 1,508 in-range rails and
+13,391,040 procedural quads before normal client/server shutdown; see the
+[reproducible matrix record](docs/evidence/0.9/client-render-sampling.md). This
+confirms original-track submission, not decoration, full model/rider, shader,
+clearance or target-FPS acceptance.
 
 **Depends on:** FD404, FD006. **Design:** D17.
 
