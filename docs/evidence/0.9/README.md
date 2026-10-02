@@ -84,8 +84,9 @@ FD902/FD904 work.
 uses normal production dispatch for the four circuit cars and the assembled PAX
 winch after the five-family static matrix has passed. The client completed 40
 pre-dispatch 20-carrier samples within the 0.02-radian gate, then observed at
-least 1.03 blocks of client-native chassis motion for every family. Rider,
-camera, interpolation, multiplayer and rendered-clearance coverage remain open.
+least 1.02 blocks of client-native chassis motion for every family, including all
+four PAX chassis. Rider, camera, interpolation, multiplayer and rendered-clearance
+coverage remain open.
 
 [Client track-render instrumentation](client-render-sampling.md) records an
 initial packaged real-client sample on the recovery scene, under llvmpipe and

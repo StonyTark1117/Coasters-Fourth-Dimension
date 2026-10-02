@@ -474,12 +474,12 @@ checkpoint](docs/evidence/0.9/client-carrier-transform-five-family.md).
 Dev.35 added an opt-in motion mode to the fixture and recorded one Arrow
 controlled-car path. Dev.36 expanded it to the four circuit families. Dev.37
 assembles the PAX train with its real shuttle winch and validates client-native
-motion for every family. The packaged client first completed 40 pre-dispatch
-static samples for all 20 carrier bodies, with a maximum angle error of
-`0.005636196234582461` radians. Production restraint closing and dispatch then
-moved Arrow, Legacy, Free Spin, Revised, and PAX chassis by
-1.0340346209126012, 1.0305849438119161, 1.056600768467801,
-1.0568885816473406, and 1.7131083083809422 blocks respectively. The dynamic
+motion for every family. Dev.38 further requires all four PAX chassis, not just
+one representative, to cross the one-block threshold. The packaged client first
+completed 40 pre-dispatch static samples for all 20 carrier bodies, with a
+maximum angle error of `0.008198643866018637` radians. Production restraint
+closing and dispatch then moved every circuit chassis by at least 1.0288093276302406
+blocks and all four PAX chassis by at least 1.709099938887872 blocks. The dynamic
 phase deliberately measures chassis translation only because a live Sable body
 and replicated carrier snapshot can be one simulation tick apart while moving.
 This is rider-free controlled-car validation, not camera, interpolation,

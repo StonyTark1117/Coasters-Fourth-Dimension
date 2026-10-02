@@ -33,7 +33,7 @@ public final class CarrierTransformValidation {
   private static int waitedTicks;
   private static double maxAngleError;
   private static java.util.Map<UUID, Vector3d> motionStarts = new java.util.HashMap<>();
-  private static EnumMap<Family, Double> maxMotionDistances = new EnumMap<>(Family.class);
+  private static java.util.Map<UUID, Double> maxMotionDistances = new java.util.HashMap<>();
   private static boolean completed;
   private static net.minecraft.world.level.Level lastLevel;
 
@@ -48,7 +48,7 @@ public final class CarrierTransformValidation {
       waitedTicks = 0;
       maxAngleError = 0;
       motionStarts = new java.util.HashMap<>();
-      maxMotionDistances = new EnumMap<>(Family.class);
+      maxMotionDistances = new java.util.HashMap<>();
       completed = false;
       lastLevel = minecraft.level;
     }
@@ -80,7 +80,7 @@ public final class CarrierTransformValidation {
                 .transformPosition(new Vector3d(center.getX() + .5, center.getY() + .5, center.getZ() + .5));
         var start = motionStarts.putIfAbsent(vehicle.chassis, new Vector3d(position));
         if (start != null)
-          maxMotionDistances.merge(vehicle.family, position.distance(start), Math::max);
+          maxMotionDistances.merge(vehicle.chassis, position.distance(start), Math::max);
       }
       if (!staticPhase) continue;
       for (var carrier : vehicle.carriers) {
@@ -129,24 +129,40 @@ public final class CarrierTransformValidation {
       maxAngleError = Math.max(maxAngleError, sampleMaxError);
       if (completeSamples < requiredSamples()) return;
       if (!motionRequired()) {
-        finish(minecraft, families, carriers, riderAssignments, EnumSet.noneOf(Family.class));
+        finish(
+            minecraft,
+            families,
+            carriers,
+            riderAssignments,
+            EnumSet.noneOf(Family.class),
+            new EnumMap<>(Family.class));
       }
       return;
     }
-    var movedFamilies =
-        maxMotionDistances.entrySet().stream()
-            .filter(entry -> entry.getValue() >= 1)
-            .map(java.util.Map.Entry::getKey)
-            .collect(java.util.stream.Collectors.toCollection(() -> EnumSet.noneOf(Family.class)));
-    if (motionRequired() && movedFamilies.size() < requiredMotionFamilies()) {
+    var movedFamilies = EnumSet.noneOf(Family.class);
+    var movedChassis = new EnumMap<Family, Integer>(Family.class);
+    for (var vehicle : data.vehicles.values()) {
+      if (maxMotionDistances.getOrDefault(vehicle.chassis, 0d) < 1) continue;
+      movedFamilies.add(vehicle.family);
+      movedChassis.merge(vehicle.family, 1, Integer::sum);
+    }
+    if (motionRequired()
+        && (movedFamilies.size() < requiredMotionFamilies()
+            || movedChassis.getOrDefault(Family.PAX, 0) < requiredMotionPaxChassis())) {
       incomplete(
-          "controlled chassis motion below requirement required="
+          "controlled chassis motion below requirement families="
               + requiredMotionFamilies()
+              + " paxChassis="
+              + requiredMotionPaxChassis()
+              + " movedFamilies="
+              + movedFamilies
+              + " movedChassis="
+              + movedChassis
               + " observed="
               + maxMotionDistances);
       return;
     }
-    finish(minecraft, families, carriers, riderAssignments, movedFamilies);
+    finish(minecraft, families, carriers, riderAssignments, movedFamilies, movedChassis);
   }
 
   private static void finish(
@@ -154,13 +170,14 @@ public final class CarrierTransformValidation {
       EnumSet<Family> families,
       int carriers,
       int riderAssignments,
-      EnumSet<Family> movedFamilies) {
+      EnumSet<Family> movedFamilies,
+      EnumMap<Family, Integer> movedChassis) {
     completed = true;
     LogUtils.getLogger()
         .info(
             "FD_CARRIER_VALIDATION passed samples={} target={} waitedTicks={} families={} "
                 + "requiredFamilies={} carriers={} riderAssignments={} maxAngleError={} "
-                + "motionFamilies={} motionDistances={}",
+                + "motionFamilies={} motionChassis={} motionDistances={}",
             completeSamples,
             requiredSamples(),
             waitedTicks,
@@ -170,6 +187,7 @@ public final class CarrierTransformValidation {
             riderAssignments,
             maxAngleError,
             movedFamilies,
+            movedChassis,
             maxMotionDistances);
     if (Boolean.getBoolean("fourthdimension.carrierValidationExit")) minecraft.stop();
   }
@@ -203,6 +221,17 @@ public final class CarrierTransformValidation {
 
   private static boolean motionRequired() {
     return Boolean.getBoolean("fourthdimension.carrierValidationMotion");
+  }
+
+  private static int requiredMotionPaxChassis() {
+    try {
+      return Math.clamp(
+          Integer.parseInt(System.getProperty("fourthdimension.carrierValidationMotionPaxChassis", "0")),
+          0,
+          4);
+    } catch (NumberFormatException ignored) {
+      return 0;
+    }
   }
 
   private static int requiredMotionFamilies() {
