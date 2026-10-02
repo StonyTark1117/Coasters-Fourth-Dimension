@@ -73,3 +73,31 @@ FD_BOARDING_RESTORE mounted player=Dev gameTick=118334 deadlineTick=118532
 is an occupied Legacy cold-restart result. It does not establish cold-restart
 coverage for the other four families, moving routes, chunk unloads, or multiple
 simultaneous riders.
+
+## Legacy normal chunk/sublevel unload
+
+On the same stationary Legacy fixture, `fd validation availability` first
+reported `chassis=1/1 carriers=2/2 assignments=1`. The only client then
+disconnected and the server was left empty for the normal chunk timeout. No
+server shutdown, body-removal command, or saved-data edit occurred. The
+read-only availability report became:
+
+```
+Validation availability chassis=0/1 carriers=0/2 assignments=1
+```
+
+This is Sable's normal holding-state unload: both native carrier bodies and the
+chassis were absent while Fourth Dimension retained the rider assignment. A
+fresh client joined the still-running server. Sable reloaded the tracking point
+and the boarding log recorded:
+
+```
+FD_BOARDING_RESTORE queued player=Dev assignments=1 deadlineTick=122280
+FD_BOARDING_RESTORE mounted player=Dev gameTick=122082 deadlineTick=122280
+```
+
+Availability returned to `chassis=1/1 carriers=2/2 assignments=1`; RootVehicle
+again identified one native `create:seat`, and `fd status` reported the original
+Legacy carrier with one occupant. This proves one real no-player unload/reload
+boundary for Legacy. Other families, moving routes and concurrent riders still
+need chunk-lifecycle coverage.

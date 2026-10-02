@@ -16,23 +16,62 @@ public final class ValidationCommands {
 
   public static void register(RegisterCommandsEvent event) {
     if (!Boolean.getBoolean("fourthdimension.validation")) return;
+    var validation =
+        Commands.literal("validation")
+            .then(
+                Commands.literal("availability")
+                    .executes(context -> availability(context.getSource())))
+            .then(
+                Commands.literal("board")
+                    .then(
+                        Commands.argument("player", EntityArgument.player())
+                            .executes(
+                                context ->
+                                    board(
+                                        context.getSource(),
+                                        EntityArgument.getPlayer(context, "player")))));
     event
         .getDispatcher()
         .register(
             Commands.literal("fd")
                 .requires(source -> source.hasPermission(2))
-                .then(
-                    Commands.literal("validation")
-                        .then(
-                            Commands.literal("board")
-                                .then(
-                                    Commands.argument("player", EntityArgument.player())
-                                        .executes(
-                                            context ->
-                                                board(
-                                                    context.getSource(),
-                                                    EntityArgument.getPlayer(
-                                                        context, "player")))))));
+                .then(validation));
+  }
+
+  private static int availability(net.minecraft.commands.CommandSourceStack source) {
+    var level = source.getLevel();
+    var container = SubLevelContainer.getContainer(level);
+    if (container == null) return failure(source, "No native sublevel container is available");
+    int chassis = 0, chassisTotal = 0, carriers = 0, carriersTotal = 0, assignments = 0;
+    for (var vehicle : FoundationData.get(level).vehicles.values()) {
+      chassisTotal++;
+      if (container.getSubLevel(vehicle.chassis) != null) chassis++;
+      for (var carrier : vehicle.carriers) {
+        carriersTotal++;
+        if (container.getSubLevel(carrier.body) != null) carriers++;
+        assignments += carrier.riderSeats.size();
+      }
+    }
+    int loadedChassis = chassis;
+    int loadedCarriers = carriers;
+    int totalChassis = chassisTotal;
+    int totalCarriers = carriersTotal;
+    int totalAssignments = assignments;
+    source.sendSuccess(
+        () ->
+            Component.literal(
+                "Validation availability chassis="
+                    + loadedChassis
+                    + "/"
+                    + totalChassis
+                    + " carriers="
+                    + loadedCarriers
+                    + "/"
+                    + totalCarriers
+                    + " assignments="
+                    + totalAssignments),
+        false);
+    return 1;
   }
 
   private static int board(net.minecraft.commands.CommandSourceStack source, ServerPlayer player) {
