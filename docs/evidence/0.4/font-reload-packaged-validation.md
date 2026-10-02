@@ -40,12 +40,33 @@ logged `FD_FONT_CHAT_OPEN generation=17` and `FD_FONT_CHAT_RENDERED generation=1
 ticks=20`. It likewise had no closed-set lookup, unallocated-image trace, or
 target bitmap error before deliberate interruption.
 
+## Clean controlled shutdown
+
+On 2026-10-02, the same packaged combined profile ran under Xvfb with the new
+validation-only `-PfdFontValidationExit` switch:
+
+```sh
+xvfb-run -a timeout 240s env JAVA_HOME=/usr/lib/jvm/java-21-openjdk \
+  ./gradlew runClient --no-daemon -PfdPackaged \
+  -PfdIntegrations=styles,engineered -PfdFontValidation \
+  -PfdFontValidationReloads=16 -PfdFontValidationExit
+```
+
+The packaged JAR SHA-256 was
+`0497ff2847744a33dd890e86b95a8c05e793c73723828c75416a1aea22508713`.
+It completed request 16 at generation 17, logged
+`FD_FONT_VALIDATION_EXIT reason=reloads-complete completed=16 target=16
+generation=17`, then Minecraft logged `Stopping!` and closed all seven current
+FontSets plus `minecraft:missing`. Gradle exited successfully in 1.2 minutes;
+the timeout was not reached. There was no closed-set lookup, unallocated-image
+trace, or `Image is not allocated` error.
+
 ## Limit
 
-This proves sixteen controlled resource reloads of the packaged artifact under
-the same Track Styles and Engineered versions present in the original dev.8
-crash report, plus a sixteen-reload world-loaded command-chat rendering sample.
-It does not reproduce the intermittent post-reload GUI failure, validate an
-interactive F3+T path, or establish a production workaround. FD401, FD902, and
-FD904 remain open until an actionable reproduction or broader packaged
-lifecycle acceptance exists.
+This proves sixteen controlled resource reloads and a normal client shutdown of
+the packaged artifact under the same Track Styles and Engineered versions
+present in the original dev.8 crash report, plus a sixteen-reload world-loaded
+command-chat rendering sample. It does not reproduce the intermittent
+post-reload GUI failure, validate an interactive F3+T path, or establish a
+production workaround. FD401, FD902, and FD904 remain open until an actionable
+reproduction or broader packaged lifecycle acceptance exists.

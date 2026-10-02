@@ -92,6 +92,13 @@ behavior, and log request/completion separately from the FontSet and image
 lifecycle observations. An interactive F3+T replay remains useful for comparing
 the controlled path with the reported failure.
 
+`-PfdFontValidationExit` is an additional validation-only switch. After the
+requested sequence completes, or after the optional command-chat has remained
+rendered for twenty ticks, it logs the completed generation and requests
+Minecraft's normal client stop. It does not run in ordinary clients and does
+not intercept failed reloads; it exists only to make a completed controlled
+run's orderly teardown observable.
+
 On 2026-10-01, the controlled trigger was run in the isolated standalone
 profile. It recorded generation 1 with zero previous font sets, issued one
 reload request, then recorded generation 2 with seven prior font sets and seven
@@ -113,3 +120,11 @@ sample. It opened `"/"` chat after generation 17 and kept that screen rendered
 for twenty client ticks without a target trace/error. This enters the same
 post-reload screen category as the original crash, but it remains a controlled
 surrogate rather than an interactive F3+T reproduction.
+
+The packaged combined profile now also completes the same sixteen controlled
+reloads under Xvfb and requests Minecraft's ordinary stop from the validation
+completion callback. Generation 17 completed, the current FontSets closed, and
+Gradle exited successfully without reaching the external timeout; see the
+[clean-shutdown record](font-reload-packaged-validation.md#clean-controlled-shutdown).
+This improves the bounded client lifecycle evidence without reproducing the
+intermittent post-F3+T GUI failure.

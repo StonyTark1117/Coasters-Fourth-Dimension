@@ -18,6 +18,7 @@ public final class FontReloadValidation {
   private static int completed;
   private static int chatTicks;
   private static boolean chatOpened;
+  private static boolean exitRequested;
 
   private FontReloadValidation() {}
 
@@ -25,10 +26,16 @@ public final class FontReloadValidation {
   public static void tick(ClientTickEvent.Post event) {
     if (!FontReloadTrace.enabled()) return;
     var minecraft = Minecraft.getInstance();
-    if (chatOpened && minecraft.screen instanceof ChatScreen && ++chatTicks == 20)
+    if (chatOpened && minecraft.screen instanceof ChatScreen && ++chatTicks == 20) {
       LogUtils.getLogger()
           .info("FD_FONT_CHAT_RENDERED generation={} ticks={}", FontReloadTrace.generation(), chatTicks);
+      requestExit(minecraft, "chat-rendered");
+    }
     int target = targetReloads();
+    if (target > 0 && completed >= target && !chatRequested()) {
+      requestExit(minecraft, "reloads-complete");
+      return;
+    }
     if (requested >= target || requested > completed) return;
     if (FontReloadTrace.generation() < 1
         || minecraft.getOverlay() != null
@@ -62,6 +69,7 @@ public final class FontReloadValidation {
                         LogUtils.getLogger()
                             .info("FD_FONT_CHAT_OPEN generation={}", FontReloadTrace.generation());
                       });
+                else if (complete == target) requestExit(minecraft, "reloads-complete");
               } else
                 LogUtils.getLogger()
                     .error(
@@ -84,5 +92,18 @@ public final class FontReloadValidation {
 
   private static boolean chatRequested() {
     return Boolean.getBoolean("fourthdimension.fontValidationChat");
+  }
+
+  private static void requestExit(Minecraft minecraft, String reason) {
+    if (!Boolean.getBoolean("fourthdimension.fontValidationExit") || exitRequested) return;
+    exitRequested = true;
+    LogUtils.getLogger()
+        .info(
+            "FD_FONT_VALIDATION_EXIT reason={} completed={} target={} generation={}",
+            reason,
+            completed,
+            targetReloads(),
+            FontReloadTrace.generation());
+    minecraft.stop();
   }
 }
