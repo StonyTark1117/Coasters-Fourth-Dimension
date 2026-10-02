@@ -16,21 +16,21 @@ their intended wheel-to-running-rail contact is unchanged.
 
 ## Combined optional-profile result
 
-The current combined Track Styles/Engineered recovery run produced the live
-ten-tick traces below. The verifier's conservative 0.08 result means every
+The current target-gated combined Track Styles/Engineered recovery run produced the live
+one-tick traces below. The verifier's conservative 0.08 result means every
 checked linkage volume was farther than four times the required 0.02-block
 margin from a candidate tube, so it reports the capped lower bound rather than
 an exact closest surface.
 
 | Route | Cars | Linkage volume checks | Certified lower bound |
 | --- | ---: | ---: | ---: |
-| Arrow | 1 | 5,193 | at least 0.08 blocks |
-| Legacy ZacSpin | 1 | 5,256 | at least 0.08 blocks |
-| Free Spin | 1 | 15,876 | at least 0.08 blocks |
-| Revised ZacSpin | 1 | 17,023 | at least 0.08 blocks |
-| PAX shuttle | 1 | 5,193 | at least 0.08 blocks |
-| Arrow train | 2 | 11,790 | at least 0.08 blocks |
-| PAX train | 4 | 25,128 | at least 0.08 blocks |
+| Arrow | 1 | 51,867 | at least 0.08 blocks |
+| Legacy ZacSpin | 1 | 52,596 | at least 0.08 blocks |
+| Free Spin | 1 | 158,571 | at least 0.08 blocks |
+| Revised ZacSpin | 1 | 170,085 | at least 0.08 blocks |
+| PAX shuttle | 1 | 51,903 | at least 0.08 blocks |
+| Arrow train | 2 | 117,864 | at least 0.08 blocks |
+| PAX train | 4 | 251,064 | at least 0.08 blocks |
 
 The updated verifier SHA-256 is
 `03c17b196be5cd3c8cfc51f69f6cf8ebd731a3e51d1ad527fdfe39107a92d196`.
@@ -50,7 +50,7 @@ python3 scripts/audit-recovery-mesh-trace.py BASE_COASTERS_JAR MINECRAFT_CLIENT_
 
 ## Limits
 
-This remains a ten-tick sampled, source-pinned native block-model audit. It
+This remains a one-game-tick sampled, source-pinned native block-model audit. It
 does not prove continuous swept clearance, player meshes/cosmetics, a client
 renderer, optional decoration/resource overrides, or any linkage that is not
 represented by the exported native block geometry. FD402, FD404 and the 0.9

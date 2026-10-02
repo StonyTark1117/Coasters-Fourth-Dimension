@@ -15,7 +15,9 @@ import org.joml.Vector3d;
 
 /** Read-only native block/state, pose and mounted-rider samples for an independent mesh audit. */
 final class RecoveryMeshTrace {
-  static final int SAMPLE_INTERVAL_TICKS = 10;
+  // GameTest callbacks are tick-granular. Record every tick to minimize the
+  // interval the independent clearance audit must leave unobserved.
+  static final int SAMPLE_INTERVAL_TICKS = 1;
   private final Path path;
   private final BufferedWriter writer;
   private final Set<UUID> registered = new HashSet<>();

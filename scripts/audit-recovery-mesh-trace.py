@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Audit default block-model volumes at recorded native recovery poses.
 
-This is dense sampled clearance evidence, not continuous swept clearance. Original
+This is per-game-tick sampled clearance evidence, not continuous physics-step swept clearance. Original
 track tubes are reconstructed from the exact renderer sampling and source-pinned
 dimensions. Body transforms and block states come from the native test, not ideal
 track frames. External resources are read from the separately installed pinned
@@ -44,7 +44,7 @@ SOURCE_PINS = {
     "src/main/java/dev/fourthdimension/client/OriginalTrackRenderer.java": "dc27216c67c5506aa472773ecaf5adb6406166fc5a09d5ab50d4832123262667",
     "src/main/java/dev/fourthdimension/track/TrackDesign.java": "e3a88c3ca661d7b232ee0b9d3c853a6e66c1d0d1147ac4266b001616b1fe1ff1",
     "src/main/java/dev/fourthdimension/vehicle/BankedRecoveryExamples.java": "0d6597a484cf83cca90671ab6351c81cca42a4e9b96075b4843b136d81229439",
-    "src/main/java/dev/fourthdimension/gametest/RecoveryMeshTrace.java": "62206f5b5da11aaeedfcab504968abef33245dcd9175992ea0cdbb424c8d4b34",
+    "src/main/java/dev/fourthdimension/gametest/RecoveryMeshTrace.java": "3b57c5812aec72ed36ee458d6bdd02a443207d32d1579ec80ba5752a6886913a",
     "src/main/java/dev/fourthdimension/gametest/BankedRecoveryGameTests.java": "89324021f6c70ea8578036b4ae1c924320ef442a9ec3da239c972f89417be66a",
     "src/main/java/dev/fourthdimension/gametest/BankedRecoveryTrainGameTests.java": "e35abf4b656410bf0bb74c65f1c1942802ee45121d0aeda2a5f5a8c7080e0b47",
 }
@@ -174,8 +174,12 @@ class Resources:
         elements = self.elements(WHEEL_MODEL)
         if len(elements) != 10:
             raise ValueError("Unexpected native wheel model")
-        result = []
-        for index, element in enumerate(elements):
+        # Each element rotates about the same local X axis. Unioning all ten
+        # element sweeps into one conservative envelope for each row/axle
+        # retains the full rendered wheel volume while avoiding forty
+        # duplicate OBB/triangle checks at every recorded pose.
+        bounds = []
+        for element in elements:
             rotation = element.get("rotation", {})
             if rotation.get("angle", 0) != 0 and (
                 rotation.get("axis") != "x" or rotation.get("rescale", False)
@@ -184,13 +188,18 @@ class Resources:
                 raise ValueError("Wheel cuboid rotation does not preserve the spin axis")
             low, high = (np.array(element[key]) / 16 - .5 for key in ("from", "to"))
             radius = max(math.hypot(y, z) for y in (low[1], high[1]) for z in (low[2], high[2]))
-            for row, height in (("main", .6), ("upstop", .05)):
-                for axle, longitudinal in (("front", -.7), ("back", .7)):
-                    envelope_low = np.array((low[0], height - radius, longitudinal - radius))
-                    envelope_high = np.array((high[0], height + radius, longitudinal + radius))
-                    result.append(
-                        (np.array(list(itertools.product(*zip(envelope_low, envelope_high)))),
-                         f"nativeWheel:{row}:{axle}:element{index}"))
+            bounds.append((low[0], high[0], radius))
+        min_x = min(low for low, _, _ in bounds)
+        max_x = max(high for _, high, _ in bounds)
+        radius = max(radius for _, _, radius in bounds)
+        result = []
+        for row, height in (("main", .6), ("upstop", .05)):
+            for axle, longitudinal in (("front", -.7), ("back", .7)):
+                envelope_low = np.array((min_x, height - radius, longitudinal - radius))
+                envelope_high = np.array((max_x, height + radius, longitudinal + radius))
+                result.append(
+                    (np.array(list(itertools.product(*zip(envelope_low, envelope_high)))),
+                     f"nativeWheel:{row}:{axle}:fullSpinEnvelope"))
         return result
 
 
@@ -258,8 +267,8 @@ def audit(route, entries, resources, margin):
     neighbor_pairs = 0
     for entry in entries:
         if entry["type"] == "trace":
-            if sample_interval is not None or entry.get("sampleIntervalTicks") != 10:
-                raise ValueError("Recovery trace does not declare the required 10-tick interval")
+            if sample_interval is not None or entry.get("sampleIntervalTicks") != 1:
+                raise ValueError("Recovery trace does not declare the required one-tick interval")
             sample_interval = entry["sampleIntervalTicks"]
         elif entry["type"] == "body":
             specs[entry["id"]] = {**entry, "boxes": [box for block in entry["blocks"] for box in resources.boxes(block)]}
@@ -433,7 +442,7 @@ def audit(route, entries, resources, margin):
                     neighbor_closest = {"tick": entry["tick"], "first": first[5], "second": second[5]}
                 if gap < margin and len(failures) < 20:
                     failures.append({"gap": gap, "tick": entry["tick"], "neighborPair": neighbor_closest})
-    if not completed or samples < 500 or len(visited) != route["carCount"] or any(len(v) != 5 for v in visited.values()):
+    if not completed or samples < 5000 or len(visited) != route["carCount"] or any(len(v) != 5 for v in visited.values()):
         raise ValueError("Mesh trace lacks full original-car route coverage and normal completion")
     if wheel_checks == 0 or not math.isfinite(wheel_minimum):
         raise ValueError("Native wheel envelopes were not audited")
@@ -507,8 +516,8 @@ def main():
                                 "src/main/java/dev/fourthdimension/gametest/BankedRecoveryGameTests.java",
                                 "src/main/java/dev/fourthdimension/gametest/BankedRecoveryTrainGameTests.java",
                                 "src/main/java/dev/fourthdimension/vehicle/BankedRecoveryExamples.java") },
-              "resourceHashes": resources.hashes, "sampleIntervalTicks": 10,
-              "scope": "10-tick sampled original default block-model, explicit chassis/carrier linkage blocks, native lower-bearing, full-spin wheel-envelope and mounted native-rider rendered-orientation volumes against original track tubes; running rails are excluded only for wheels as intended contact; no continuous sweep, player meshes, client renderer/cosmetics, unmodeled kinematic linkage, decorations or resource overrides",
+              "resourceHashes": resources.hashes, "sampleIntervalTicks": 1,
+              "scope": "one-tick sampled original default block-model, explicit chassis/carrier linkage blocks, native lower-bearing, full-spin wheel-envelope and mounted native-rider rendered-orientation volumes against original track tubes; running rails are excluded only for wheels as intended contact; no continuous physics-step sweep, player meshes, client renderer/cosmetics, unmodeled kinematic linkage, decorations or resource overrides",
               "method": "2-block spatial bins; omitted pairs certify at least 4x margin; world AABB separation refined by OBB/triangle SAT lower distance bounds",
               "routes": results}
     print(json.dumps(output, indent=2))
