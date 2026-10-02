@@ -416,9 +416,9 @@ combined audited integration profile now passes 40 GameTests, including a
 server-side two-live-player regression that retains distinct seat entities and
 UUID-to-seat assignments across a native update. A real two-client packaged
 fixture still removes the second player during the native mount handoff, so it
-does not establish concurrent rider support. Native support-loss, late-join and
-shuttle availability-gap behavior also have bounded evidence. Moving-route
-recovery and the real concurrent-rider lifecycle remain open. See
+does not establish concurrent rider support. Native support-loss, late-join,
+shuttle availability-gap behavior and occupied Revised moving-route restart
+also have bounded evidence. The real concurrent-rider lifecycle remains open. See
 [occupied disconnect/reconnect evidence](docs/evidence/0.9/occupied-disconnect-reconnect.md),
 [support-loss evidence](docs/evidence/0.9/five-family-support-loss.md),
 [two-client late-join evidence](docs/evidence/0.9/two-client-snapshot.md),
@@ -433,7 +433,8 @@ lost four chassis/eight carriers. A fresh client caused normal Sable loading and
 was restored to the original seat before the 200-tick deadline in every case.
 This completes stationary normal chunk/sublevel unload coverage across the five
 family architectures, and stationary occupied cold restarts now cover all five
-families. Moving-route and concurrent-rider coverage remain open; see [occupied disconnect/reconnect evidence](docs/evidence/0.9/occupied-disconnect-reconnect.md).
+families. The current Revised artifact also has an occupied moving-route restart
+with preserved native velocity. Concurrent-rider coverage remains open; see [occupied disconnect/reconnect evidence](docs/evidence/0.9/occupied-disconnect-reconnect.md).
 
 **Depends on:** FD404. **Design:** D14, D16, D17.
 

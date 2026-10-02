@@ -192,9 +192,18 @@ assignments=1`; the occupied carrier remained `capture=false`, Dev's
 RootVehicle was a native `create:seat`, and client diagnostics reported Dev in
 carrier `ef164250-b7fc-4009-b90b-3e9e52f9e1ac` with `riding=true`.
 
-This is an occupied dispatched-route restart boundary for the current artifact.
-It does not yet establish that translational route coordinate and momentum
-continue through the restart, so complete moving-route recovery remains open.
+The read-only native motion probe measured the dispatched chassis before the
+normal shutdown at position `(-199.5, 204.1, -457.5)` with velocity
+`(-0.000001052, -0.0004293, 1.997)`. The forced physical-route corridor kept
+the route available to the restarted server. After the fresh client joined, the
+same chassis reported position `(-199.5, 204.1, -467.1)` with velocity
+`(0.000000156, -0.0004294, 1.997)` and still had `capture=false`. This proves
+the route coordinate advanced and its approximately two-block-per-second native
+motion continued across the restart. The rider was restored at game tick
+`228601` before deadline `228800`.
+
+This completes the occupied dispatched-route restart check for the current
+Revised artifact. Real concurrent-rider lifecycle recovery remains FD902 work.
 
 ## Legacy normal chunk/sublevel unload
 
