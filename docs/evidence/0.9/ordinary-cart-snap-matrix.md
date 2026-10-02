@@ -28,8 +28,8 @@ closed restraints and selected recovery identity.
 JAVA_HOME=/usr/lib/jvm/java-21-openjdk ./gradlew build runGameTestServer --no-daemon -PfdIntegrations=styles,engineered
 ```
 
-The combined Track Styles/Engineered profile passed all **39 required
-GameTests** in 4.10 minutes and emitted:
+The combined Track Styles/Engineered profile with the performance-target gate
+passed all **40 required GameTests** in **4.067 minutes** and emitted:
 
 ```text
 FD_ORDINARY_MATRIX families=5 directFits=5 nativeFits=5 wideRejects=5 nativeWideRejects=5 mixedConsistRejects=1 no4D=true

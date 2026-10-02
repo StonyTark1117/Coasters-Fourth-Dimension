@@ -46,7 +46,17 @@ one in **3.969 minutes** and run two in **4.123 minutes**. Their logs recorded:
 
 Run three enabled the FD904 target gate with
 `-PfdPerformanceTargets`. All 39 required GameTests passed in **4.158 minutes**.
-The exact run-three diagnostic lines and test summary are retained in the local
+Run four repeated that target-gated combined profile after the FD901 family
+matrix was added: all **40 required GameTests** passed in **4.067 minutes**.
+Its sampled lines were:
+
+| Workload | Run | Runtime invocations | Average / invocation | Carrier updates | Carrier total | Average / carrier | Rebuilds |
+| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| Controlled — Arrow and legacy ZacSpin circuit | 4 | 11,520 | 46,440 ns | 15,360 | 52,511,842 ns | 3,418 ns | 0 |
+| PAX shuttle — 16 riders; lift, gravity return and capture | 4 | 4,674 | 107,747 ns | 12,464 | 33,906,019 ns | 2,720 ns | 0 |
+| Free Spin — 8 riders; magnetic circuit and capture | 4 | 14,220 | 98,805 ns | 18,960 | 58,414,480 ns | 3,080 ns | 0 |
+
+The exact run-four diagnostic lines and test summary are retained in the local
 GameTest log at `/tmp/fourthdimension-7af457c2/build/runs/gametest/logs/latest.log`.
 
 ## Target-host gate
@@ -56,12 +66,13 @@ and **6,000 ns per live-carrier update**. They are based on a rounded margin
 above the three-run observed maxima of 107,376 ns and 3,901 ns, respectively.
 They are only enabled by `-PfdPerformanceTargets`, which checks each named
 performance GameTest after its required sampling window. Run three meets both
-limits in all three scenes; its highest values are 107,376 ns per invocation
-for the PAX shuttle and 3,876 ns per carrier update for the controlled scene.
+limits in all three scenes. Across all four recorded target-host samples, the
+highest values are 107,747 ns per invocation for the PAX shuttle and 3,901 ns
+per carrier update for the controlled scene.
 
 ## Limits and next work
 
-The values are three integrated GameTest runs on the stated host. The carrier
+The values are four integrated GameTest runs on the stated host. The carrier
 figures normalize the direct carrier body but do not allocate shared runtime
 work among carriers. Their visible variation remains host-specific and does not
 generalize to other hardware. The gate deliberately omits whole-server time,

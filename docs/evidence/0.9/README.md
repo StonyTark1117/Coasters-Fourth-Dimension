@@ -48,6 +48,13 @@ an unassigned ordinary/4D train coupling without mutating the 4D car; guarded
 recovery remains the sole mixed-consist path. It is a bounded FD901 checkpoint,
 not the complete compatibility matrix.
 
+[Family eligibility matrix, dev.27](family-eligibility-matrix.md) verifies
+all five original 4D cart families across the five original functional tracks
+through construction, locked eligibility and native initial snap. It records
+all 20 wrong-family rejections and preserves the prior matching binding. It is
+still bounded to original functional tracks and does not certify external
+providers or every real-player entry path.
+
 [Client track-render instrumentation](client-render-sampling.md) records an
 initial packaged real-client sample on the recovery scene, under llvmpipe and
 on the stated RX 7900 XTX host, plus a native-GPU dedicated-server observation
