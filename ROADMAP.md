@@ -416,12 +416,12 @@ combined audited integration profile now passes 40 GameTests, including a
 server-side two-live-player regression that retains distinct seat entities and
 UUID-to-seat assignments across a native update. Fresh-world real two-client
 fixtures retain both riders in distinct seats of one carrier across all five
-current families; Arrow and Legacy also restore one rider after a fresh-client
-reconnect while the other remains mounted. The earlier second-rider removal was
-a stale Sable tracking point in a removed sublevel. Native support-loss,
-late-join, shuttle availability-gap behavior and occupied Revised moving-route
-restart also have bounded evidence. Concurrent interruption coverage for Free
-Spin, Revised and PAX remains open. See
+current families; Arrow, Legacy and Free Spin also restore one rider after a
+fresh-client reconnect while the other remains mounted. The earlier
+second-rider removal was a stale Sable tracking point in a removed sublevel.
+Native support-loss, late-join, shuttle availability-gap behavior and occupied
+Revised moving-route restart also have bounded evidence. Concurrent
+interruption coverage for Revised and PAX remains open. See
 [occupied disconnect/reconnect evidence](docs/evidence/0.9/occupied-disconnect-reconnect.md),
 [support-loss evidence](docs/evidence/0.9/five-family-support-loss.md),
 [two-client late-join evidence](docs/evidence/0.9/two-client-snapshot.md),
@@ -432,13 +432,13 @@ and [occupied boarding acceptance](docs/evidence/0.9/occupied-shuttle-acceptance
 dedicated-server worlds admitted Dev and Observer to distinct native seats in
 the same carrier for Arrow, Legacy, Free Spin, Revised, and the four-chassis
 PAX shuttle. Each retained two assignments and two live `create:seat` mounts
-for fifteen seconds. Arrow and Legacy additionally retained Observer's
-assignment during disconnect and restored a fresh Observer client to its
-original seat before the deadline while Dev stayed mounted. This closes the
+for fifteen seconds. Arrow, Legacy and Free Spin additionally retained
+Observer's assignment during disconnect and restored a fresh Observer client to
+its original seat before the deadline while Dev stayed mounted. This closes the
 prior stale-tracking-point failure and the bounded initial concurrency matrix.
 The existing five-family stationary normal unload/cold-restart and current
 Revised moving-route checkpoints remain valid. Concurrent interruption
-coverage for Free Spin, Revised and PAX remains open; see [occupied disconnect/reconnect evidence](docs/evidence/0.9/occupied-disconnect-reconnect.md).
+coverage for Revised and PAX remains open; see [occupied disconnect/reconnect evidence](docs/evidence/0.9/occupied-disconnect-reconnect.md).
 
 **Depends on:** FD404. **Design:** D14, D16, D17.
 
