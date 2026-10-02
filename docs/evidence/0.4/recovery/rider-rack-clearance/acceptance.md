@@ -29,6 +29,9 @@ route and own-rack checks:
 
 The verifier SHA-256 is
 `d617bc02d6f61f3beae259073a1fe2dba2e5a801adc42a467ea6d7f0ae0ac681`.
+Both clean GitHub matrices for the exact source revision passed all required
+checks; their immutable workflow and job records are in
+[ci-dev25.json](ci-dev25.json).
 
 ## Limits
 
