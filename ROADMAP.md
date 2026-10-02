@@ -472,17 +472,18 @@ motion, cameras or a complete lifecycle. See the [five-family transform
 checkpoint](docs/evidence/0.9/client-carrier-transform-five-family.md).
 
 Dev.35 added an opt-in motion mode to the fixture and recorded one Arrow
-controlled-car path. Dev.36 expands that checkpoint to Arrow, Legacy, Free Spin,
-and Revised. The packaged client first completed 40 pre-dispatch static samples
-for all 20 carrier bodies across the five loaded families, with a maximum angle
-error of `0.0002687598022542719` radians. Normal production restraint closing and
-dispatch then moved the four circuit chassis by 1.0834601098650583,
-1.078991726770371, 1.108615833446712, and 1.1063523290191744 blocks respectively.
-The dynamic phase deliberately measures chassis translation only because a live
-Sable body and replicated carrier snapshot can be one simulation tick apart while
-moving. PAX remains statically covered only in this fixture. This is rider-free
-controlled-car validation, not camera, interpolation, multiplayer or
-rendered-clearance acceptance; see the [five-family motion
+controlled-car path. Dev.36 expanded it to the four circuit families. Dev.37
+assembles the PAX train with its real shuttle winch and validates client-native
+motion for every family. The packaged client first completed 40 pre-dispatch
+static samples for all 20 carrier bodies, with a maximum angle error of
+`0.005636196234582461` radians. Production restraint closing and dispatch then
+moved Arrow, Legacy, Free Spin, Revised, and PAX chassis by
+1.0340346209126012, 1.0305849438119161, 1.056600768467801,
+1.0568885816473406, and 1.7131083083809422 blocks respectively. The dynamic
+phase deliberately measures chassis translation only because a live Sable body
+and replicated carrier snapshot can be one simulation tick apart while moving.
+This is rider-free controlled-car validation, not camera, interpolation,
+multiplayer or rendered-clearance acceptance; see the [five-family motion
 checkpoint](docs/evidence/0.9/client-carrier-transform-five-family-motion.md).
 
 **Latest FD902 checkpoint: two live riders across all five families.** Clean

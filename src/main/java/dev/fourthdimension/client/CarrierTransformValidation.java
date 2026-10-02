@@ -6,6 +6,7 @@ import dev.fourthdimension.runtime.EligibilityHooks;
 import dev.ryanhcode.sable.api.sublevel.SubLevelContainer;
 import java.util.EnumMap;
 import java.util.EnumSet;
+import java.util.UUID;
 import net.minecraft.client.Minecraft;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -20,8 +21,8 @@ import org.joml.Vector3d;
  * <p>It observes the client snapshot and its live Sable bodies; it never writes poses, riders, or
  * camera state. The required number of functional families is configurable because client worlds
  * can intentionally contain a single-family fixture. A passing sample establishes synchronized
- * carrier orientation before dispatch, then optionally observes controlled-car displacement. The
- * dynamic phase intentionally does not compare a replicated carrier snapshot with a live body: those
+ * carrier orientation before dispatch, then optionally observes family-level chassis displacement.
+ * The dynamic phase intentionally does not compare a replicated carrier snapshot with a live body: those
  * sources can be one simulation tick apart while a car moves. It does not verify rendered mesh
  * clearance, player appearance, camera behavior, or a moving-ride lifecycle.
  */
@@ -31,7 +32,7 @@ public final class CarrierTransformValidation {
   private static int completeSamples;
   private static int waitedTicks;
   private static double maxAngleError;
-  private static EnumMap<Family, Vector3d> motionStarts = new EnumMap<>(Family.class);
+  private static java.util.Map<UUID, Vector3d> motionStarts = new java.util.HashMap<>();
   private static EnumMap<Family, Double> maxMotionDistances = new EnumMap<>(Family.class);
   private static boolean completed;
   private static net.minecraft.world.level.Level lastLevel;
@@ -46,7 +47,7 @@ public final class CarrierTransformValidation {
       completeSamples = 0;
       waitedTicks = 0;
       maxAngleError = 0;
-      motionStarts = new EnumMap<>(Family.class);
+      motionStarts = new java.util.HashMap<>();
       maxMotionDistances = new EnumMap<>(Family.class);
       completed = false;
       lastLevel = minecraft.level;
@@ -71,13 +72,13 @@ public final class CarrierTransformValidation {
         return;
       }
       families.add(vehicle.family);
-      if (motionRequired() && vehicle.family != Family.PAX) {
+      if (motionRequired()) {
         var center = parent.getPlot().getCenterBlock();
         var position =
             parent
                 .logicalPose()
                 .transformPosition(new Vector3d(center.getX() + .5, center.getY() + .5, center.getZ() + .5));
-        var start = motionStarts.putIfAbsent(vehicle.family, new Vector3d(position));
+        var start = motionStarts.putIfAbsent(vehicle.chassis, new Vector3d(position));
         if (start != null)
           maxMotionDistances.merge(vehicle.family, position.distance(start), Math::max);
       }
@@ -209,7 +210,7 @@ public final class CarrierTransformValidation {
       return Math.clamp(
           Integer.parseInt(System.getProperty("fourthdimension.carrierValidationMotionFamilies", "1")),
           1,
-          Family.values().length - 1);
+          Family.values().length);
     } catch (NumberFormatException ignored) {
       return 1;
     }

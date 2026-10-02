@@ -30,6 +30,8 @@ public final class CarrierValidationFixture {
   private static final BlockPos PAX_ORIGIN = new BlockPos(145, 180, 0);
   private static final BlockPos SPAWN = new BlockPos(0, 180, -30);
   private static List<UUID> motionChassis = List.of();
+  private static ShuttleExamples.Example motionPax;
+  private static boolean motionPaxAssembled;
   private static int motionDelay = -1;
   private static int motionReadyDeadline;
   private static boolean motionStarted;
@@ -49,12 +51,14 @@ public final class CarrierValidationFixture {
     motionDelay = -1;
     motionReadyDeadline = 0;
     motionStarted = false;
+    motionPax = null;
+    motionPaxAssembled = false;
     for (int i = 0; i < CIRCUIT_ORIGINS.size(); i++) {
       var vehicle = ExampleLayouts.create(level, CIRCUIT_ORIGINS.get(i), CIRCUIT_DESIGNS.get(i));
       controlledMotionChassis.add(vehicle.chassis);
     }
     motionChassis = List.copyOf(controlledMotionChassis);
-    ShuttleExamples.create(level, PAX_ORIGIN, false);
+    motionPax = ShuttleExamples.create(level, PAX_ORIGIN, false);
     int carriers = data.vehicles.values().stream().mapToInt(v -> v.carriers.size()).sum();
     LogUtils.getLogger()
         .info(
@@ -78,7 +82,7 @@ public final class CarrierValidationFixture {
     }
   }
 
-  /** Dispatches the four original controlled cars only for the opt-in client motion checkpoint. */
+  /** Dispatches the four circuit cars and the assembled PAX shuttle for the opt-in motion checkpoint. */
   public static void tick(ServerTickEvent.Post event) {
     if (!Boolean.getBoolean("fourthdimension.carrierFixtureMotion")
         || motionStarted
@@ -86,21 +90,45 @@ public final class CarrierValidationFixture {
       return;
     if (motionDelay-- > 0) return;
     var level = event.getServer().overworld();
-    var vehicles = motionChassis.stream().map(FoundationData.get(level).vehicles::get).toList();
-    if (vehicles.size() != CIRCUIT_DESIGNS.size() || vehicles.stream().anyMatch(java.util.Objects::isNull))
+    if (motionPax == null)
+      throw new IllegalStateException("FD_CARRIER_FIXTURE missing PAX motion example");
+    if (!motionPaxAssembled) {
+      try {
+        ShuttleExamples.assemble(level, motionPax);
+        motionPaxAssembled = true;
+      } catch (IllegalArgumentException failure) {
+        if (motionReadyDeadline-- <= 0)
+          throw new IllegalStateException("FD_CARRIER_FIXTURE PAX train never assembled", failure);
+        return;
+      }
+    }
+    var data = FoundationData.get(level);
+    var circuitVehicles = motionChassis.stream().map(data.vehicles::get).toList();
+    var paxCars = motionPax.cars();
+    var vehicles = new ArrayList<FoundationData.Vehicle>(circuitVehicles.size() + paxCars.size());
+    vehicles.addAll(circuitVehicles);
+    vehicles.addAll(paxCars);
+    if (circuitVehicles.size() != CIRCUIT_DESIGNS.size()
+        || vehicles.stream().anyMatch(java.util.Objects::isNull))
       throw new IllegalStateException("FD_CARRIER_FIXTURE missing controlled motion vehicle");
     if (vehicles.stream().anyMatch(vehicle -> !dev.fourthdimension.vehicle.Boarding.ready(level, vehicle))) {
       if (motionReadyDeadline-- <= 0)
         throw new IllegalStateException("FD_CARRIER_FIXTURE controlled motion vehicles never became ready");
       return;
     }
-    for (var vehicle : vehicles) {
+    for (var vehicle : circuitVehicles) {
       dev.fourthdimension.vehicle.VehicleOperations.restraints(level, vehicle, true);
       dev.fourthdimension.vehicle.VehicleOperations.dispatch(level, vehicle);
     }
+    var paxLead = paxCars.getFirst();
+    dev.fourthdimension.vehicle.VehicleOperations.restraints(level, paxLead, true);
+    dev.fourthdimension.vehicle.VehicleOperations.dispatch(level, paxLead);
     motionStarted = true;
     LogUtils.getLogger()
-        .info("FD_CARRIER_FIXTURE dispatched controlled motion chassis={} families={}", motionChassis, vehicles.stream().map(vehicle -> vehicle.family).toList());
+        .info(
+            "FD_CARRIER_FIXTURE dispatched controlled motion chassis={} families={}",
+            vehicles.stream().map(vehicle -> vehicle.chassis).toList(),
+            vehicles.stream().map(vehicle -> vehicle.family).distinct().toList());
   }
 
   private static void preload(ServerLevel level, BlockPos min, BlockPos max) {
