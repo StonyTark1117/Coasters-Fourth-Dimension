@@ -263,28 +263,55 @@ all five family architectures. All five families now also have stationary
 occupied cold-restart evidence. Moving-route and concurrent-rider lifecycle
 coverage remain open.
 
-## Concurrent-rider investigation
+## Concurrent-rider Arrow checkpoint
 
-A separate two-client packaged Arrow fixture was used to investigate the
-remaining concurrent-rider case. The server accepted Dev on one matching seat
-and Observer on a distinct matching seat in the same carrier, including the
-expected relative offsets. It then received an immediate Observer dismount in
-which that player entity was already removed. The fixture therefore never
-reached two live native seat mounts or two retained assignments, and it is not
-recorded as a passing concurrency result.
+A fresh, disposable dedicated-server world was created to eliminate the stale
+Sable tracking point carried by the earlier Observer profile. It ran the same
+two audited optional addons and a new original Arrow fixture. Both real
+clients were teleported to the fixture; the validation-only command invoked
+the production `SeatBlock.sitDown` path for Dev, then for Observer while
+closing restraints:
 
-In a subsequent run, Observer was selected for an empty carrier body after
-Dev's first mount. The same already-removed Observer dismount occurred after
-admission to that independent body. The current evidence therefore rules out
-both same-seat and same-carrier placement as the explanation; it does not
-identify an upstream cause or establish a supported concurrent-rider path.
+```text
+fd validation board Dev
+fd validation board_locked Observer
+```
 
-The validation-only trace now records accepted player-seat assignments before
-the carrier runtime's next loading update, plus mount/dismount state. It makes
-the next native-fixture investigation distinguish an admission failure from an
-immediate native player removal, but it does not establish that the packaged
-fixture supports two simultaneously mounted players. Concurrent rider lifecycle
-recovery remains open in FD902.
+The server accepted the two distinct offsets in the *same* carrier at game
+time `03:21:42`:
+
+```text
+FD_BOARDING_ASSIGN player=Dev seat=BlockPos{x=20481032, y=127, z=20483080} offset=BlockPos{x=0, y=-1, z=0}
+FD_BOARDING_ASSIGN player=Observer seat=BlockPos{x=20481031, y=127, z=20483080} offset=BlockPos{x=-1, y=-1, z=0}
+```
+
+After fifteen seconds, the live server still reported
+`chassis=1/1 carriers=2/2 assignments=2`. Both `data get entity ...
+RootVehicle` queries identified different native `create:seat` UUIDs. The
+Observer client independently reported both UUIDs in the carrier's occupant
+snapshot with `riding=true`.
+
+Observer was then disconnected while Dev remained on the carrier. The server
+kept `assignments=2`, Dev remained mounted on its native seat, and a fresh
+Observer client triggered:
+
+```text
+FD_BOARDING_RESTORE queued player=Observer assignments=1 deadlineTick=3450
+FD_BOARDING_RESTORE mounted player=Observer gameTick=3251 deadlineTick=3450
+```
+
+The reconnected live server again reported `assignments=2`, and both players'
+RootVehicle queries identified separate native `create:seat` mounts. This is a
+real two-client, same-carrier Arrow mount and one-rider reconnect result. The
+previous immediate Observer removal was caused by that client's stale tracking
+point in a removed sublevel, rather than an Arrow seat collision. Concurrent
+lifecycle checks on the other four family architectures and moving routes
+remain FD902 work.
+
+The validation-only trace records accepted player-seat assignments before the
+carrier runtime's next loading update, plus mount/dismount state. It identified
+the stale tracking-point condition in the earlier failure and makes subsequent
+native-fixture investigations distinguish it from an admission failure.
 
 The combined integration GameTest suite now also includes
 `distinctPlayersRetainDistinctCarrierSeats`. It creates two live `ServerPlayer`
@@ -292,5 +319,6 @@ instances with discard-only fake network connections, boards them on separate
 seat offsets of one ready original Arrow carrier, and requires separate native
 seat entities plus both UUID-to-offset assignments after a native update. All
 40 required GameTests passed in 4.293 minutes. This proves the addon-side
-multi-player assignment and retention path; it does not replace the failed
-two-real-client packaged test or close the concurrent-rider lifecycle gate.
+multi-player assignment and retention path. The real two-client Arrow run now
+confirms the corresponding packaged path; the other four family architectures
+still need their concurrent lifecycle checks.

@@ -414,27 +414,29 @@ case retains the one rider assignment, restores the original native carrier and
 returns the player to a `create:seat` before the 200-tick deadline. The
 combined audited integration profile now passes 40 GameTests, including a
 server-side two-live-player regression that retains distinct seat entities and
-UUID-to-seat assignments across a native update. A real two-client packaged
-fixture still removes the second player during the native mount handoff, so it
-does not establish concurrent rider support. Native support-loss, late-join,
-shuttle availability-gap behavior and occupied Revised moving-route restart
-also have bounded evidence. The real concurrent-rider lifecycle remains open. See
+UUID-to-seat assignments across a native update. A fresh-world real two-client
+Arrow fixture retains both riders in distinct seats of one carrier and restores
+one rider after a fresh-client reconnect while the other remains mounted. The
+earlier second-rider removal was a stale Sable tracking point in a removed
+sublevel. Native support-loss, late-join, shuttle availability-gap behavior and
+occupied Revised moving-route restart also have bounded evidence. Concurrent
+lifecycle checks on the other four family architectures remain open. See
 [occupied disconnect/reconnect evidence](docs/evidence/0.9/occupied-disconnect-reconnect.md),
 [support-loss evidence](docs/evidence/0.9/five-family-support-loss.md),
 [two-client late-join evidence](docs/evidence/0.9/two-client-snapshot.md),
 [caught shuttle acceptance and limits](docs/evidence/0.9/caught-shuttle-acceptance.md)
 and [occupied boarding acceptance](docs/evidence/0.9/occupied-shuttle-acceptance.md).
 
-**Latest FD902 checkpoint: five normal holding-state unloads.** With the client
-disconnected, the normal no-player chunk timeout unloaded every family while
-retaining one rider assignment: Legacy and Arrow each lost one chassis/two
-carriers, Free Spin and Revised each lost one chassis/four carriers, and PAX
-lost four chassis/eight carriers. A fresh client caused normal Sable loading and
-was restored to the original seat before the 200-tick deadline in every case.
-This completes stationary normal chunk/sublevel unload coverage across the five
-family architectures, and stationary occupied cold restarts now cover all five
-families. The current Revised artifact also has an occupied moving-route restart
-with preserved native velocity. Concurrent-rider coverage remains open; see [occupied disconnect/reconnect evidence](docs/evidence/0.9/occupied-disconnect-reconnect.md).
+**Latest FD902 checkpoint: two live Arrow riders and reconnect.** A clean
+dedicated-server world admitted Dev and Observer to distinct native seats in the
+same Arrow carrier. It held two assignments and two live `create:seat` mounts
+for fifteen seconds. After Observer disconnected, the server retained both
+assignments while Dev remained mounted; a fresh Observer client was restored
+to the original seat at game tick 3251, before its 3450 deadline. This closes
+the previous Arrow concurrent-rider failure, which was caused by a stale Sable
+tracking point. The existing five-family stationary normal unload/cold-restart
+and current Revised moving-route checkpoints remain valid. Concurrent lifecycle
+coverage for the other four family architectures remains open; see [occupied disconnect/reconnect evidence](docs/evidence/0.9/occupied-disconnect-reconnect.md).
 
 **Depends on:** FD404. **Design:** D14, D16, D17.
 
