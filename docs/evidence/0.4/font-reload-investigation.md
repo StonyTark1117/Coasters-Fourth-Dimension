@@ -101,7 +101,7 @@ the reload future completed. No closed-set lookup, unallocated-image trace, or
 stopped. This is one clean controlled lifecycle sample; it does not reproduce or
 resolve the intermittent packaged crash.
 
-Three sequential controlled reloads also completed with the actual packaged JAR
-and the pinned standalone dependency set, advancing generations 1–4 with seven
-previous font sets on each reload and no target trace/error. Its artifact hash,
-command, observations, and limits are recorded in [the packaged validation](font-reload-packaged-validation.md).
+Sixteen sequential controlled reloads also completed with the actual packaged
+JAR and the pinned standalone dependency set, advancing generations 1–17 with
+seven previous font sets on each reload and no target trace/error. Its artifact
+hash, command, observations, and limits are recorded in [the packaged validation](font-reload-packaged-validation.md).
