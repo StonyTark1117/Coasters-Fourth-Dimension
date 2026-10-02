@@ -406,7 +406,24 @@ Exercise every family against matching, ordinary, wrong-family, cosmetic-only, a
 
 ### FD902 Validate multiplayer and lifecycle recovery
 
-**Status: in progress.** Dev.14 validates normal operator recovery of the four inherited PAX faults, physical recapture and opening the full consist's restraints. It reproduces a separate caught-boarding cold-reopen failure: an available winch faults one tick before its native train/carriage restore. Boarding now preserves its state through native availability gaps and rebuilds the stationary physical catch when both bodies return. Permanent REMOVED components still fault; missing equipment and deleted track reject operation without phase advancement or replacement allocation. The regression fails before the fix and passes afterward. Standalone and combined each pass all 30 required native tests and 25 unit tests pass. A separate packaged comparison reaches an available winch with all four cars and its original carriage unloaded; a default-flags boundary cold reopen restores Ready / restraints open with stable IDs, coordinate, profiles and zero vehicle faults. This is unoccupied boarding coverage, not a new outbound ride-cycle claim. Subsequent unchanged-artifact validation adds one real rider, two fresh-JVM occupied boarding restores, a complete post-reopen ride and normal unloading. The rider/carrier/slot, complete winch state and non-angular vehicle fields survive the occupied save comparison; exactly one loaded native seat is observed, and final unloading clears mounts, rider assignments and gravity overrides. Server logs now mark each assigned-rider reconnect as `FD_BOARDING_RESTORE` queued and then `mounted`, `already-mounted`, `assignment-cleared`, `timed-out` or `cancelled-logout`, retaining the game/deadline ticks for the pending cases. A packaged dedicated-server run now exercises occupied client disconnect and fresh-client restore on a stationary original Arrow, Legacy, free-spin, revised and PAX carrier; a separate Legacy server-process restart restores its occupied carrier too. See [occupied disconnect/reconnect evidence](docs/evidence/0.9/occupied-disconnect-reconnect.md). Dev.27 adds a native occupied support-loss regression: removing each five-family car's only compatible connection leaves its rider mounted, original binding and captured carrier bodies intact, with restraints closed and the precise matching-track fault retained. That fail-closed state also survives a FoundationData save/load round trip. The combined integration profile now passes all 39 GameTests. A dedicated-server two-client run verifies that a late-joining observer independently restores all six unoccupied bodies in the packaged recovery scene. This is bounded native support-loss, late-join, all-family stationary reconnect and Legacy cold-restart evidence; remaining cold-restart families, chunk-unload, moving-route and concurrent-rider lifecycle coverage remain open. See [support-loss evidence](docs/evidence/0.9/five-family-support-loss.md), [two-client late-join evidence](docs/evidence/0.9/two-client-snapshot.md), [caught shuttle acceptance and limits](docs/evidence/0.9/caught-shuttle-acceptance.md) and [occupied boarding acceptance](docs/evidence/0.9/occupied-shuttle-acceptance.md). Dev.13's preceding [idle shuttle checkpoint](docs/evidence/0.9/idle-shuttle-acceptance.md) records the never-lifted control/fix. The [dev.12 checkpoint](docs/evidence/0.4/scheduler-acceptance.md) separately records the Veil scheduler fix, 64 completed reload/chat/query cycles and an occupied styled Arrow ride.
+**Status: in progress.** The current packaged dedicated-server checkpoint covers
+occupied client disconnect/fresh-client restoration, normal no-player
+chunk/sublevel unload/reload, and full dedicated-server cold restart for each
+stationary original Arrow, Legacy, Free Spin, Revised and PAX family. Every
+case retains the one rider assignment, restores the original native carrier and
+returns the player to a `create:seat` before the 200-tick deadline. The
+combined audited integration profile now passes 40 GameTests, including a
+server-side two-live-player regression that retains distinct seat entities and
+UUID-to-seat assignments across a native update. A real two-client packaged
+fixture still removes the second player during the native mount handoff, so it
+does not establish concurrent rider support. Native support-loss, late-join and
+shuttle availability-gap behavior also have bounded evidence. Moving-route
+recovery and the real concurrent-rider lifecycle remain open. See
+[occupied disconnect/reconnect evidence](docs/evidence/0.9/occupied-disconnect-reconnect.md),
+[support-loss evidence](docs/evidence/0.9/five-family-support-loss.md),
+[two-client late-join evidence](docs/evidence/0.9/two-client-snapshot.md),
+[caught shuttle acceptance and limits](docs/evidence/0.9/caught-shuttle-acceptance.md)
+and [occupied boarding acceptance](docs/evidence/0.9/occupied-shuttle-acceptance.md).
 
 **Latest FD902 checkpoint: five normal holding-state unloads.** With the client
 disconnected, the normal no-player chunk timeout unloaded every family while
