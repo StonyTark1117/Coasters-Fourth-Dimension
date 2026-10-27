@@ -8,6 +8,7 @@ import dev.fourthdimension.track.TrackDesign;
 import dev.fourthdimension.vehicle.Boarding;
 import dev.fourthdimension.vehicle.CarrierSeatBlock;
 import dev.ryanhcode.sable.api.sublevel.SubLevelContainer;
+import dev.silvergold.simulatedcoasters.track.anchor.CoasterAnchorpointBlockEntity;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -43,6 +44,10 @@ public final class CarrierValidationFixture {
   private static UUID riderFixturePlayer;
   private static int riderFixtureDeadline;
   private static boolean riderFixtureBoarded;
+  private static int supportLossDelay = -1;
+  private static int supportLossDeadline;
+  private static boolean supportLossTriggered;
+  private static boolean supportLossReported;
 
   private CarrierValidationFixture() {}
 
@@ -64,6 +69,10 @@ public final class CarrierValidationFixture {
     riderFixturePlayer = null;
     riderFixtureDeadline = 0;
     riderFixtureBoarded = false;
+    supportLossDelay = -1;
+    supportLossDeadline = 0;
+    supportLossTriggered = false;
+    supportLossReported = false;
     var circuitDesigns = riderFixtureOnly() ? List.of(TrackDesign.ARROW) : CIRCUIT_DESIGNS;
     for (int i = 0; i < circuitDesigns.size(); i++) {
       var vehicle = ExampleLayouts.create(level, CIRCUIT_ORIGINS.get(i), circuitDesigns.get(i));
@@ -108,9 +117,25 @@ public final class CarrierValidationFixture {
         return;
       }
       riderFixtureBoarded = true;
-      if (Boolean.getBoolean("fourthdimension.carrierFixtureMotion") && !motionStarted) {
+      if (supportLossRequired()) {
+        // Let the client receive the real occupied carrier before withdrawing support.
+        supportLossDelay = 100;
+        supportLossDeadline = 1_000;
+      } else if (Boolean.getBoolean("fourthdimension.carrierFixtureMotion") && !motionStarted) {
         motionDelay = 500;
         motionReadyDeadline = 2_000;
+      }
+    }
+    if (supportLossRequired() && riderFixtureBoarded && !supportLossTriggered) {
+      if (supportLossDelay-- > 0) return;
+      triggerSupportLoss(level);
+      supportLossTriggered = true;
+    }
+    if (supportLossRequired() && supportLossTriggered) {
+      if (!supportLossSettled(event.getServer(), level)) {
+        if (supportLossDeadline-- <= 0)
+          throw new IllegalStateException("FD_CARRIER_FIXTURE support loss did not fail closed");
+        return;
       }
     }
     if (!Boolean.getBoolean("fourthdimension.carrierFixtureMotion")
@@ -193,6 +218,53 @@ public final class CarrierValidationFixture {
 
   private static boolean riderFixtureRequired() {
     return Boolean.getBoolean("fourthdimension.carrierFixtureRider");
+  }
+
+  private static boolean supportLossRequired() {
+    return riderFixtureRequired()
+        && Boolean.getBoolean("fourthdimension.carrierFixtureSupportLoss");
+  }
+
+  /** Removes the actual Coasters graph connection; the runtime must fail closed without unseating. */
+  private static void triggerSupportLoss(ServerLevel level) {
+    var arrow = motionChassis.isEmpty() ? null : FoundationData.get(level).vehicles.get(motionChassis.getFirst());
+    if (arrow == null
+        || !(level.getBlockEntity(arrow.boundFrom) instanceof CoasterAnchorpointBlockEntity anchor))
+      throw new IllegalStateException("FD_CARRIER_FIXTURE missing Arrow support for support-loss checkpoint");
+    anchor.removeAnchorPeerCurve(level, arrow.boundTo);
+    LogUtils.getLogger()
+        .info(
+            "FD_CARRIER_FIXTURE removed Arrow support chassis={} from={} to={}",
+            arrow.chassis,
+            arrow.boundFrom,
+            arrow.boundTo);
+  }
+
+  /** Confirms the running server's fail-closed state before the client is allowed to pass. */
+  private static boolean supportLossSettled(
+      net.minecraft.server.MinecraftServer server, ServerLevel level) {
+    var player = riderFixturePlayer == null ? null : server.getPlayerList().getPlayer(riderFixturePlayer);
+    var arrow = motionChassis.isEmpty() ? null : FoundationData.get(level).vehicles.get(motionChassis.getFirst());
+    if (player == null || arrow == null) return false;
+    boolean riderRetained =
+        player.isPassenger()
+            && arrow.carriers.stream().anyMatch(c -> c.riderSeats.containsKey(player.getUUID()));
+    boolean settled =
+        riderRetained
+            && arrow.stopping
+            && arrow.restraints
+            && "Matching track support lost".equals(arrow.fault);
+    if (settled && !supportLossReported) {
+      supportLossReported = true;
+      LogUtils.getLogger()
+          .info(
+              "FD_CARRIER_FIXTURE support-loss settled chassis={} rider={} retained={} fault={}",
+              arrow.chassis,
+              player.getGameProfile().getName(),
+              riderRetained,
+              arrow.fault);
+    }
+    return settled;
   }
 
   /** Limits the opt-in occupied client fixture to its one Arrow train. */

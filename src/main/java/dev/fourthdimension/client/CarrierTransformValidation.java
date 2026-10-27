@@ -25,7 +25,8 @@ import org.joml.Vector3d;
  * carrier orientation before dispatch, then optionally observes family-level chassis displacement.
  * The dynamic phase intentionally does not compare a replicated carrier snapshot with a live body:
  * those sources can be one simulation tick apart while a car moves. An optional rider mode requires
- * the local player to remain assigned to and mounted in one carrier seat. It does not verify rendered
+ * the local player to remain assigned to and mounted in one carrier seat. An optional support-loss
+ * mode further requires that rider's Arrow car to reach its replicated fail-closed state. It does not verify rendered
  * mesh clearance, player appearance, camera behavior, or a complete moving-ride lifecycle.
  */
 @EventBusSubscriber(modid = "fourthdimension", value = Dist.CLIENT)
@@ -124,9 +125,12 @@ public final class CarrierTransformValidation {
         carriers++;
       }
     }
+    boolean riderMounted = localRiderReady(minecraft);
+    boolean supportLossObserved = supportLossReady(minecraft);
     if (families.size() < requiredFamilies()
         || (staticPhase && carriers == 0)
-        || (riderRequired() && !localRiderReady(minecraft))
+        || (riderRequired() && !riderMounted)
+        || (supportLossRequired() && !supportLossObserved)
         || (staticPhase && renderRequired() && compiledBodies.size() < nativeBodies)
         || (staticPhase
             && renderRequired()
@@ -141,7 +145,11 @@ public final class CarrierTransformValidation {
               + " riderRequired="
               + riderRequired()
               + " riderMounted="
-              + localRiderReady(minecraft)
+              + riderMounted
+              + " supportLossRequired="
+              + supportLossRequired()
+              + " supportLossObserved="
+              + supportLossObserved
               + " compiledBodies="
               + compiledBodies.size()
               + "/"
@@ -206,7 +214,8 @@ public final class CarrierTransformValidation {
             "FD_CARRIER_VALIDATION passed samples={} target={} waitedTicks={} families={} "
                 + "requiredFamilies={} carriers={} riderAssignments={} maxAngleError={} "
                 + "compiledBodies={} sectionLayerCalls={} sectionLayerBodies={} renderRequired={} "
-                + "riderRequired={} riderMounted={} motionFamilies={} motionChassis={} motionDistances={}",
+                + "riderRequired={} riderMounted={} supportLossRequired={} supportLossObserved={} "
+                + "motionFamilies={} motionChassis={} motionDistances={}",
             completeSamples,
             requiredSamples(),
             waitedTicks,
@@ -221,6 +230,8 @@ public final class CarrierTransformValidation {
             renderRequired(),
             riderRequired(),
             localRiderReady(minecraft),
+            supportLossRequired(),
+            supportLossReady(minecraft),
             movedFamilies,
             movedChassis,
             maxMotionDistances);
@@ -280,6 +291,25 @@ public final class CarrierTransformValidation {
 
   private static boolean riderRequired() {
     return Boolean.getBoolean("fourthdimension.carrierValidationRider");
+  }
+
+  /** The client must receive the exact fail-closed state while its local rider remains assigned. */
+  private static boolean supportLossReady(Minecraft minecraft) {
+    if (!supportLossRequired() || minecraft.level == null) return !supportLossRequired();
+    var player = minecraft.player;
+    if (player == null || !player.isPassenger() || player.getVehicle() == null) return false;
+    var binding =
+        dev.fourthdimension.vehicle.Boarding.at(minecraft.level, player.getVehicle().blockPosition());
+    return binding != null
+        && binding.vehicle().family == Family.ARROW
+        && binding.vehicle().stopping
+        && binding.vehicle().restraints
+        && "Matching track support lost".equals(binding.vehicle().fault)
+        && binding.carrier().riderSeats.containsKey(player.getUUID());
+  }
+
+  private static boolean supportLossRequired() {
+    return Boolean.getBoolean("fourthdimension.carrierValidationSupportLoss");
   }
 
   /**
