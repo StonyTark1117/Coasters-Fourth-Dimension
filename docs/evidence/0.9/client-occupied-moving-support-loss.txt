@@ -1,0 +1,35 @@
+Packaged Xvfb checkpoints, 2026-10-27
+JAR SHA-256: 7745a1c8ca725334ce38711df790608af26d76009cd53066372dcaef094a643a
+
+ARROW
+FD_CARRIER_FIXTURE dispatched controlled motion chassis=[afd70ef9-3fef-4d68-b93a-b7b3c2f76113] families=[ARROW]
+FD_CARRIER_FIXTURE removed ARROW support chassis=afd70ef9-3fef-4d68-b93a-b7b3c2f76113 from=BlockPos{x=-150, y=180, z=8} to=BlockPos{x=-150, y=180, z=44}
+FD_CARRIER_FIXTURE support-loss settled chassis=afd70ef9-3fef-4d68-b93a-b7b3c2f76113 rider=Dev retained=true fault=Matching track support lost
+FD_CARRIER_VALIDATION passed samples=40 target=40 waitedTicks=566 families=1 requiredFamilies=1 carriers=0 riderAssignments=1 maxAngleError=4.580291806882897E-5 compiledBodies=0 sectionLayerCalls=0 sectionLayerBodies=0 renderRequired=false riderRequired=true riderMounted=true supportLossRequired=true supportLossObserved=true supportLossAfterMotion=true motionFamilies=[ARROW] motionChassis={ARROW=1} motionDistances={afd70ef9-3fef-4d68-b93a-b7b3c2f76113=11.222608499086881}
+
+ZACSPIN
+FD_CARRIER_FIXTURE dispatched controlled motion chassis=[692468ee-126b-4018-8448-0db6ea4ac3d9] families=[ZACSPIN]
+FD_CARRIER_FIXTURE removed ZACSPIN support chassis=692468ee-126b-4018-8448-0db6ea4ac3d9 from=BlockPos{x=-150, y=180, z=8} to=BlockPos{x=-150, y=180, z=44}
+FD_CARRIER_FIXTURE support-loss settled chassis=692468ee-126b-4018-8448-0db6ea4ac3d9 rider=Dev retained=true fault=Matching track support lost
+FD_CARRIER_VALIDATION passed samples=40 target=40 waitedTicks=528 families=1 requiredFamilies=1 carriers=0 riderAssignments=1 maxAngleError=3.500362902901998E-5 compiledBodies=0 sectionLayerCalls=0 sectionLayerBodies=0 renderRequired=false riderRequired=true riderMounted=true supportLossRequired=true supportLossObserved=true supportLossAfterMotion=true motionFamilies=[ZACSPIN] motionChassis={ZACSPIN=1} motionDistances={692468ee-126b-4018-8448-0db6ea4ac3d9=2.290152066529232}
+
+FREE_SPIN
+FD_CARRIER_FIXTURE dispatched controlled motion chassis=[f52ac47e-d215-4e7b-a1b7-7bb7ffa7d275] families=[FREE_SPIN]
+FD_CARRIER_FIXTURE removed FREE_SPIN support chassis=f52ac47e-d215-4e7b-a1b7-7bb7ffa7d275 from=BlockPos{x=-150, y=180, z=8} to=BlockPos{x=-150, y=180, z=44}
+FD_CARRIER_FIXTURE support-loss settled chassis=f52ac47e-d215-4e7b-a1b7-7bb7ffa7d275 rider=Dev retained=true fault=Matching track support lost
+FD_CARRIER_VALIDATION passed samples=40 target=40 waitedTicks=527 families=1 requiredFamilies=1 carriers=0 riderAssignments=1 maxAngleError=1.734048699999883E-6 compiledBodies=0 sectionLayerCalls=0 sectionLayerBodies=0 renderRequired=false riderRequired=true riderMounted=true supportLossRequired=true supportLossObserved=true supportLossAfterMotion=true motionFamilies=[FREE_SPIN] motionChassis={FREE_SPIN=1} motionDistances={f52ac47e-d215-4e7b-a1b7-7bb7ffa7d275=2.3440982981822973}
+
+ZACSPIN_REVISED
+FD_CARRIER_FIXTURE dispatched controlled motion chassis=[525ac571-6a6e-4ef3-94a3-af378a9bc562] families=[ZACSPIN_REVISED]
+FD_CARRIER_FIXTURE removed ZACSPIN_REVISED support chassis=525ac571-6a6e-4ef3-94a3-af378a9bc562 from=BlockPos{x=-150, y=180, z=8} to=BlockPos{x=-150, y=180, z=44}
+FD_CARRIER_FIXTURE support-loss settled chassis=525ac571-6a6e-4ef3-94a3-af378a9bc562 rider=Dev retained=true fault=Matching track support lost
+FD_CARRIER_VALIDATION passed samples=40 target=40 waitedTicks=537 families=1 requiredFamilies=1 carriers=0 riderAssignments=1 maxAngleError=7.63383104291138E-6 compiledBodies=0 sectionLayerCalls=0 sectionLayerBodies=0 renderRequired=false riderRequired=true riderMounted=true supportLossRequired=true supportLossObserved=true supportLossAfterMotion=true motionFamilies=[ZACSPIN_REVISED] motionChassis={ZACSPIN_REVISED=1} motionDistances={525ac571-6a6e-4ef3-94a3-af378a9bc562=2.727140722924312}
+
+PAX
+[cart-link] linked carts 9b58e51b-9226-4e20-88f5-94708c09973f <-> 4fbb4e39-f8c6-4b69-9ab3-87c8d9f6e966 at distance 6.000
+[cart-link] linked carts 4fbb4e39-f8c6-4b69-9ab3-87c8d9f6e966 <-> 756b35ea-b11e-4425-b781-4e53a14fb2bc at distance 6.000
+[cart-link] linked carts 756b35ea-b11e-4425-b781-4e53a14fb2bc <-> cb63ea22-a861-410c-b4e1-6f1186e4830b at distance 6.000
+FD_CARRIER_FIXTURE dispatched controlled motion chassis=[9b58e51b-9226-4e20-88f5-94708c09973f, 4fbb4e39-f8c6-4b69-9ab3-87c8d9f6e966, 756b35ea-b11e-4425-b781-4e53a14fb2bc, cb63ea22-a861-410c-b4e1-6f1186e4830b] families=[PAX]
+FD_CARRIER_FIXTURE removed PAX support chassis=9b58e51b-9226-4e20-88f5-94708c09973f from=BlockPos{x=145, y=180, z=0} to=BlockPos{x=145, y=180, z=32}
+FD_CARRIER_FIXTURE support-loss settled chassis=9b58e51b-9226-4e20-88f5-94708c09973f rider=Dev retained=true fault=Matching track support lost
+FD_CARRIER_VALIDATION passed samples=40 target=40 waitedTicks=514 families=1 requiredFamilies=1 carriers=0 riderAssignments=1 maxAngleError=2.680350514416194E-11 compiledBodies=0 sectionLayerCalls=0 sectionLayerBodies=0 renderRequired=false riderRequired=true riderMounted=true supportLossRequired=true supportLossObserved=true supportLossAfterMotion=true motionFamilies=[PAX] motionChassis={PAX=4} motionDistances={cb63ea22-a861-410c-b4e1-6f1186e4830b=2.207294368723953, 4fbb4e39-f8c6-4b69-9ab3-87c8d9f6e966=2.2073184057675546, 9b58e51b-9226-4e20-88f5-94708c09973f=2.207206295071642, 756b35ea-b11e-4425-b781-4e53a14fb2bc=2.2073155054720717}

@@ -103,6 +103,12 @@ while its own matching Coasters connection is removed and the replicated vehicle
 fails closed. Moving-route loss, repair, and concurrent-client coverage remain
 open.
 
+[Packaged occupied five-family moving support loss](client-occupied-moving-support-loss.md)
+uses normal dispatch before the fixture removes each selected vehicle's live
+matching curve. The client confirms movement occurred before the rider remains
+mounted in the replicated fail-closed state; PAX uses its real four-car train.
+Repair, multi-client loss, and complete post-stop lifecycle coverage remain open.
+
 [Client track-render instrumentation](client-render-sampling.md) records an
 initial packaged real-client sample on the recovery scene, under llvmpipe and
 on the stated RX 7900 XTX host, plus a native-GPU dedicated-server observation

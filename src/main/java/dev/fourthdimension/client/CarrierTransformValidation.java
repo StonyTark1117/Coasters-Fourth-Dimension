@@ -26,7 +26,8 @@ import org.joml.Vector3d;
  * The dynamic phase intentionally does not compare a replicated carrier snapshot with a live body:
  * those sources can be one simulation tick apart while a car moves. An optional rider mode requires
  * the local player to remain assigned to and mounted in one carrier seat. An optional support-loss
- * mode further requires that rider's Arrow car to reach its replicated fail-closed state. It does not verify rendered
+ * mode further requires that rider's selected-family car to reach its replicated fail-closed state. When
+ * configured, that state must arrive only after the client observed the chassis move. It does not verify rendered
  * mesh clearance, player appearance, camera behavior, or a complete moving-ride lifecycle.
  */
 @EventBusSubscriber(modid = "fourthdimension", value = Dist.CLIENT)
@@ -127,10 +128,18 @@ public final class CarrierTransformValidation {
     }
     boolean riderMounted = localRiderReady(minecraft);
     boolean supportLossObserved = supportLossReady(minecraft);
+    boolean supportLossAfterMotion = supportLossAfterMotion(supportLossObserved);
+    // The active-route fixture deliberately delays support loss until after the pre-dispatch
+    // angle samples. Do not keep comparing free carriers against a static snapshot while their
+    // chassis is in normal motion; require the exact fail-closed state once that phase begins.
+    boolean mayAwaitMovingSupportLoss =
+        staticPhase && supportLossMotionRequired() && !supportLossObserved;
+    boolean supportLossIncomplete =
+        supportLossRequired() && (!supportLossObserved || !supportLossAfterMotion);
     if (families.size() < requiredFamilies()
         || (staticPhase && carriers == 0)
         || (riderRequired() && !riderMounted)
-        || (supportLossRequired() && !supportLossObserved)
+        || (supportLossIncomplete && !mayAwaitMovingSupportLoss)
         || (staticPhase && renderRequired() && compiledBodies.size() < nativeBodies)
         || (staticPhase
             && renderRequired()
@@ -150,6 +159,8 @@ public final class CarrierTransformValidation {
               + supportLossRequired()
               + " supportLossObserved="
               + supportLossObserved
+              + " supportLossAfterMotion="
+              + supportLossAfterMotion
               + " compiledBodies="
               + compiledBodies.size()
               + "/"
@@ -215,6 +226,7 @@ public final class CarrierTransformValidation {
                 + "requiredFamilies={} carriers={} riderAssignments={} maxAngleError={} "
                 + "compiledBodies={} sectionLayerCalls={} sectionLayerBodies={} renderRequired={} "
                 + "riderRequired={} riderMounted={} supportLossRequired={} supportLossObserved={} "
+                + "supportLossAfterMotion={} "
                 + "motionFamilies={} motionChassis={} motionDistances={}",
             completeSamples,
             requiredSamples(),
@@ -232,6 +244,7 @@ public final class CarrierTransformValidation {
             localRiderReady(minecraft),
             supportLossRequired(),
             supportLossReady(minecraft),
+            supportLossAfterMotion(supportLossReady(minecraft)),
             movedFamilies,
             movedChassis,
             maxMotionDistances);
@@ -277,7 +290,8 @@ public final class CarrierTransformValidation {
   }
 
   private static boolean motionRequired() {
-    return Boolean.getBoolean("fourthdimension.carrierValidationMotion");
+    return Boolean.getBoolean("fourthdimension.carrierValidationMotion")
+        || Boolean.getBoolean("fourthdimension.carrierValidationSupportLossMotion");
   }
 
   /** Verifies the local client has the replicated fourth-dimension seat binding it is riding. */
@@ -310,6 +324,25 @@ public final class CarrierTransformValidation {
 
   private static boolean supportLossRequired() {
     return Boolean.getBoolean("fourthdimension.carrierValidationSupportLoss");
+  }
+
+  private static boolean supportLossMotionRequired() {
+    return Boolean.getBoolean("fourthdimension.carrierValidationSupportLossMotion");
+  }
+
+  /** Requires the observed fail-closed state to follow an actual local chassis displacement. */
+  private static boolean supportLossAfterMotion(boolean supportLossObserved) {
+    if (!supportLossMotionRequired()) return true;
+    if (!supportLossObserved) return false;
+    return maxMotionDistances.entrySet().stream()
+        .anyMatch(
+            entry -> {
+              var data = EligibilityHooks.CLIENT.get(Minecraft.getInstance().level);
+              var vehicle = data == null ? null : data.vehicles.get(entry.getKey());
+              return vehicle != null
+                  && vehicle.family == supportLossFamily()
+                  && entry.getValue() >= 1;
+            });
   }
 
   private static Family supportLossFamily() {

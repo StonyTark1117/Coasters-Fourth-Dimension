@@ -10,9 +10,11 @@ import dev.fourthdimension.vehicle.Boarding;
 import dev.fourthdimension.vehicle.CarrierSeatBlock;
 import dev.ryanhcode.sable.api.sublevel.SubLevelContainer;
 import dev.silvergold.simulatedcoasters.track.anchor.CoasterAnchorpointBlockEntity;
+import dev.silvergold.simulatedcoasters.track.cart.CoasterCartResolve;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
+import org.joml.Vector3d;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
@@ -49,6 +51,7 @@ public final class CarrierValidationFixture {
   private static int supportLossDeadline;
   private static boolean supportLossTriggered;
   private static boolean supportLossReported;
+  private static Vector3d supportLossMotionStart;
 
   private CarrierValidationFixture() {}
 
@@ -74,6 +77,7 @@ public final class CarrierValidationFixture {
     supportLossDeadline = 0;
     supportLossTriggered = false;
     supportLossReported = false;
+    supportLossMotionStart = null;
     var circuitDesigns = riderFixtureOnly() ? selectedCircuitDesigns() : CIRCUIT_DESIGNS;
     for (int i = 0; i < circuitDesigns.size(); i++) {
       var vehicle = ExampleLayouts.create(level, CIRCUIT_ORIGINS.get(i), circuitDesigns.get(i));
@@ -81,7 +85,6 @@ public final class CarrierValidationFixture {
     }
     if (riderFixtureOnly() && riderFixtureFamily() == Family.PAX) {
       motionPax = ShuttleExamples.create(level, PAX_ORIGIN, false);
-      controlledMotionChassis.addAll(motionPax.cars().stream().map(vehicle -> vehicle.chassis).toList());
     } else if (!riderFixtureOnly()) {
       motionPax = ShuttleExamples.create(level, PAX_ORIGIN, false);
     }
@@ -127,17 +130,22 @@ public final class CarrierValidationFixture {
       riderFixtureBoarded = true;
       if (supportLossRequired()) {
         // Let the client receive the real occupied carrier before withdrawing support.
-        supportLossDelay = 100;
+        supportLossDelay = supportLossMotionRequired() ? -1 : 100;
         supportLossDeadline = 1_000;
+        if (supportLossMotionRequired() && !motionStarted) {
+          motionDelay = 500;
+          motionReadyDeadline = 2_000;
+        }
       } else if (Boolean.getBoolean("fourthdimension.carrierFixtureMotion") && !motionStarted) {
         motionDelay = 500;
         motionReadyDeadline = 2_000;
       }
     }
     if (supportLossRequired() && riderFixtureBoarded && !supportLossTriggered) {
-      if (supportLossDelay-- > 0) return;
-      triggerSupportLoss(level);
-      supportLossTriggered = true;
+      if (supportLossReadyToTrigger(level)) {
+        triggerSupportLoss(level);
+        supportLossTriggered = true;
+      }
     }
     if (supportLossRequired() && supportLossTriggered) {
       if (!supportLossSettled(event.getServer(), level)) {
@@ -146,14 +154,14 @@ public final class CarrierValidationFixture {
         return;
       }
     }
-    if (!Boolean.getBoolean("fourthdimension.carrierFixtureMotion")
+    if (!(Boolean.getBoolean("fourthdimension.carrierFixtureMotion") || supportLossMotionRequired())
         || motionStarted
         || motionDelay < 0)
       return;
     if (motionDelay-- > 0) return;
-    if (!riderFixtureOnly() && motionPax == null)
+    if (motionPax == null && !riderFixtureOnly())
       throw new IllegalStateException("FD_CARRIER_FIXTURE missing PAX motion example");
-    if (!riderFixtureOnly() && !motionPaxAssembled) {
+    if (motionPax != null && !motionPaxAssembled) {
       try {
         ShuttleExamples.assemble(level, motionPax);
         motionPaxAssembled = true;
@@ -165,7 +173,7 @@ public final class CarrierValidationFixture {
     }
     var data = FoundationData.get(level);
     var circuitVehicles = motionChassis.stream().map(data.vehicles::get).toList();
-    var paxCars = riderFixtureOnly() ? List.<FoundationData.Vehicle>of() : motionPax.cars();
+    var paxCars = motionPax == null ? List.<FoundationData.Vehicle>of() : motionPax.cars();
     var vehicles = new ArrayList<FoundationData.Vehicle>(circuitVehicles.size() + paxCars.size());
     vehicles.addAll(circuitVehicles);
     vehicles.addAll(paxCars);
@@ -231,6 +239,30 @@ public final class CarrierValidationFixture {
   private static boolean supportLossRequired() {
     return riderFixtureRequired()
         && Boolean.getBoolean("fourthdimension.carrierFixtureSupportLoss");
+  }
+
+  /**
+   * An active-route checkpoint must remove support only after the occupied chassis really moved.
+   */
+  private static boolean supportLossReadyToTrigger(ServerLevel level) {
+    if (!supportLossMotionRequired()) return supportLossDelay-- <= 0;
+    if (!motionStarted) return false;
+    var vehicle = supportLossVehicle(level);
+    var container = SubLevelContainer.getContainer(level);
+    if (vehicle == null || container == null) return false;
+    var parent = container.getSubLevel(vehicle.chassis);
+    var center = parent == null ? null : CoasterCartResolve.cartCenterWorld(parent);
+    if (center == null) return false;
+    if (supportLossMotionStart == null) {
+      supportLossMotionStart = center;
+      return false;
+    }
+    return center.distanceSquared(supportLossMotionStart) >= 4;
+  }
+
+  private static boolean supportLossMotionRequired() {
+    return supportLossRequired()
+        && Boolean.getBoolean("fourthdimension.carrierFixtureSupportLossMotion");
   }
 
   /** Removes the actual Coasters graph connection; the runtime must fail closed without unseating. */
