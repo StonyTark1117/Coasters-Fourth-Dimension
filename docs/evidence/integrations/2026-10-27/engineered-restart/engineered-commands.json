@@ -1,0 +1,53 @@
+[
+  {
+    "phase": "prepare",
+    "profiles": "engineered",
+    "command": [
+      "./gradlew",
+      "-Dorg.gradle.jvmargs=-Xmx1G",
+      "--max-workers=2",
+      "-PfdPackaged",
+      "-PfdIntegrations=engineered",
+      "-PfdEngineeredRestart=prepare",
+      "-PfdRestartDirectory=/tmp/fd-engineered-restart-mxalx872",
+      "runEngineeredRestartServer"
+    ],
+    "exit": 0,
+    "success": true,
+    "seconds": 32.40166104899981
+  },
+  {
+    "phase": "restore",
+    "profiles": "engineered",
+    "command": [
+      "./gradlew",
+      "-Dorg.gradle.jvmargs=-Xmx1G",
+      "--max-workers=2",
+      "-PfdPackaged",
+      "-PfdIntegrations=engineered",
+      "-PfdEngineeredRestart=restore",
+      "-PfdRestartDirectory=/tmp/fd-engineered-restart-mxalx872",
+      "runEngineeredRestartServer"
+    ],
+    "exit": 0,
+    "success": true,
+    "seconds": 44.07510958400053
+  },
+  {
+    "phase": "restoreAbsent",
+    "profiles": "",
+    "command": [
+      "./gradlew",
+      "-Dorg.gradle.jvmargs=-Xmx1G",
+      "--max-workers=2",
+      "-PfdPackaged",
+      "-PfdIntegrations=",
+      "-PfdEngineeredRestart=restoreAbsent",
+      "-PfdRestartDirectory=/tmp/fd-engineered-restart-mxalx872",
+      "runEngineeredRestartServer"
+    ],
+    "exit": 0,
+    "success": true,
+    "seconds": 25.8302381529993
+  }
+]

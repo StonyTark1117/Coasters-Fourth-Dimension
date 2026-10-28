@@ -13,7 +13,8 @@
     "ChainDriveGuardMixin",
     "EngineeredMotorGuardMixin",
     "EngineeredAssemblyMixin",
-    "LoadingDependencyMixin"
+    "LoadingDependencyMixin",
+    "SavedPassengerRestoreMixin"
   ],
   "injectors": {
     "defaultRequire": 1

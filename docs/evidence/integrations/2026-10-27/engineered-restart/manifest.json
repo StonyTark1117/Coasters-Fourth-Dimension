@@ -1,0 +1,79 @@
+{
+  "parentCommit": "1846f5db302212be71385bbde376669bc61fbcb7",
+  "modVersion": "0.9.0-dev.27",
+  "javaVersion": "21.0.13.0.2+1",
+  "jarSha256": "7c1f37fd55fb04e210b2752812f549b56049a8e0a5ce31e9a27bafeb94960b19",
+  "baselineJarSha256": "c64515f17191b9a15b50525d6e8a2b5a3a9e80e89a19f8c7d79b33523df34d65",
+  "unitTests": {
+    "tests": 26,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "artifacts": {
+    "engineered": {
+      "coordinate": "curse.maven:coasters-engineered-1643631:8863559",
+      "sha256": "eea19ed769ed573727b4e15184c229f66aff85f20667464650724e1b2d657f5d"
+    },
+    "styles": {
+      "coordinate": "curse.maven:coasters-simulated-track-styles-1642719:9020601",
+      "sha256": "42535a83307f6898b33c13ca201533bb9e337418fd7c73039c867fc80bfbcb38"
+    },
+    "coasters": {
+      "coordinate": "curse.maven:create-coasters-simulated-1601871:8655742",
+      "sha256": "f80b4c3cdf9fa6188804967147761b0373e150a6eadbdc53626e5ac9700b2049"
+    }
+  },
+  "sourceSha256": {
+    "build.gradle": "4ddbc7d2157f52f38627fbc5495810391fe35b8d0344ba7b419769eefed3e04b",
+    "src/main/java/dev/fourthdimension/gametest/EngineeredRestartGameTests.java": "b9c5c26f816f07517b9dbcfa04a2e2798c2ecb5bd17cd12c96726e5dd9b82eb2",
+    "src/main/java/dev/fourthdimension/mixin/SavedPassengerRestoreMixin.java": "f460cf028e9f9547d2af6285ff47ef166f8df89434de7f6bbb5bcdb4dda77348",
+    "src/main/java/dev/fourthdimension/vehicle/Boarding.java": "001a53f6056b327685ab9c42342d003433f4d46b092d85f5662834a9d23993d4",
+    "src/main/resources/fourthdimension.mixins.json": "9736e6eff813c4dc0eda2bf96df1515eb53df0d5fcbb4e432f02e161faaae3e2",
+    "scripts/run-engineered-restart.py": "f7b7b49c16ffb599b050a16cec03bffe299b80364c8367284bfc6a3f578cd4ce"
+  },
+  "registeredTestsPerProfile": 44,
+  "gameTestProfiles": [
+    "base",
+    "combined"
+  ],
+  "coldRestartProfiles": [
+    "engineered",
+    "combined"
+  ],
+  "files": {
+    "TEST-dev.fourthdimension.FoundationMathTest.xml.gz": "068117e67c7c04497eea19019e672ffd23332ee35ac2db0d7123aa2b13828033",
+    "TEST-dev.fourthdimension.MagneticMathTest.xml.gz": "8777d7d69019ffa22997f0aff3e431599d274e16a39565c4bd196ee1dc1a0fc9",
+    "TEST-dev.fourthdimension.ModelFrameTest.xml.gz": "3dc750a50e17346745e35356a8937901ff6a069ed2ee1eb263d30ff19b6bb332",
+    "TEST-dev.fourthdimension.OptionalIntegrationTest.xml.gz": "bab2d9b693694600fdcd6590e77df16daaa976e52ba8d91ebbe3c75c583beba4",
+    "TEST-dev.fourthdimension.TrackAppearanceTest.xml.gz": "afa2463b78d462da9ed337d515ed7b95f6f237a39ff841b857598c26d1690ba0",
+    "TEST-dev.fourthdimension.TrackMathTest.xml.gz": "c8519f81dda5d4a8e318e29bbf669cfd516d9b1c54c5a05713a0bb9651eb6dd8",
+    "TEST-dev.fourthdimension.TrackRenderMetricsTest.xml.gz": "c0cb36908c36b0fa29ad16962715ede738abac20e0e9b86b97767f9811a44443",
+    "base-gametest-command.json": "15b87001fd5faa7c9a91654fec3f007227448fcc34ec686cf24b08acb261314c",
+    "base-gametest.log.gz": "b4f5ecf0f19f369a8a511fb9354bad1342f53c3569a5eaadb8fd87bcd059829b",
+    "before-build.log.gz": "71e3c7a137fece379116164d8f78d159f9f614bca0eebd4db7a0c8da95497610",
+    "before-commands.json": "3725ac102ebe8d6204863c839e03d986ebd1939feff29a61779851f045ef8a80",
+    "before-prepare.log.gz": "802e5bc8d5cb673e572034e4fa808109e99d2a4491727825f335325816f20e39",
+    "before-restore.log.gz": "4e6952053f0be9e3cf869f42f13c6b92c912e3734e0e798f2a094df477673103",
+    "before-source.json": "3c102e5b05686b079b88065279ca7523f63a58bff65966ed8cd7a8d9e874640d",
+    "before-test.java.gz": "34b675f5e3295fc8fa69cde6d3050bb3833c9088e646d3b09cc6d5e3bbcf0c8e",
+    "build.log.gz": "c8a801a7c6847145e33d6daffb5b3481c31c4dbed0d8b321370c14022189f8ce",
+    "combined-commands.json": "8ecf9cc2d1d9830c603fa20b5403c1ea071a981289e65e8bff804638208a6c7a",
+    "combined-fixture.json": "2f1371d1350c62d192fdd2e7e0d47760144cb8f893b532bc385327d1a6055922",
+    "combined-gametest-command.json": "2a5555f9fc4767afa487fe81fc07063403d10dfe77a085eff7e4b75a6f716720",
+    "combined-gametest.log.gz": "210be33aba619c606c8b256441b038587b36ff13edc41f0d0fcd733ccee0d069",
+    "combined-prepare.log.gz": "26ee62b09014f81b442f2405d756ccf388c586f35ac1c81a6a7dd7e20239348d",
+    "combined-prepared-world-sha256.json": "ca15ab22ea09920558b0f3f73134b063173656ffcdf1b86f9459875057217f8c",
+    "combined-restore.log.gz": "1afaa56793f468e4d7db608cdae1b549147c0e5dfe606e2c39656fc0336bcc7f",
+    "combined-restoreAbsent.log.gz": "b9cb145a75a242de5336fb60dc953ce28835b26a68e3186d6c4523e09ae8f68f",
+    "engineered-commands.json": "ec8fab7701f49d28095c9598c3c3ec0bbbf130efec8d8b372d922c296052396b",
+    "engineered-fixture.json": "c227fc48b270d7b84347ca63284ec44b89bafc6f49ecd542e160719094a9b052",
+    "engineered-prepare.log.gz": "81bfd249259bd7eff9764d49e8f346c7800d2bc61b3806585965310426ae9422",
+    "engineered-prepared-world-sha256.json": "29644a7ea3a8f2a1d149392f8029bf27c551ae54a83dd4b459944541e11f1648",
+    "engineered-restore.log.gz": "c491cb818434550e5686909f1654516589d4cc37366c412161599b72831d3a95",
+    "engineered-restoreAbsent.log.gz": "f7da55be437d3d3266c21aa4b650d05c8742fe9557da8c993dc89252bb08a0f7",
+    "slow-save-prepare.log.gz": "a64aedc6e8ebfe03ac0de5aa7e8c56d18460c55487865613a4d0d5f7c05c8ef0",
+    "slow-save-runner.log.gz": "2a33567c0281d0d5ce6273ddae8ea9563c703d3426b8c49b7126c266f836f5a1",
+    "slow-save-thread-dump.txt.gz": "da6df79f56dedc44be9c2790022b3e541201b260ec1e64a55224caa521f5f899"
+  }
+}

@@ -73,6 +73,14 @@ neoForge {
             gameDirectory = layout.buildDirectory.dir('runs/gametest').get().asFile
             systemProperty 'neoforge.enabledGameTestNamespaces', 'fourthdimension'
         }
+        engineeredRestartServer {
+            server()
+            gameDirectory = project.hasProperty('fdRestartDirectory') ? file(project.property('fdRestartDirectory')) : layout.buildDirectory.dir('runs/engineered-restart').get().asFile
+            programArgument '--nogui'
+            systemProperty 'neoforge.enableGameTest', 'true'
+            systemProperty 'neoforge.enabledGameTestNamespaces', 'fourthdimension'
+            systemProperty 'fourthdimension.engineeredRestart', project.findProperty('fdEngineeredRestart') ?: ''
+        }
         configureEach {
             logLevel = org.slf4j.event.Level.INFO
             systemProperty 'fourthdimension.validation', project.hasProperty('fdValidation').toString()

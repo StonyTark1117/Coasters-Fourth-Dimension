@@ -1,0 +1,11 @@
+{
+  "command": [
+    "./gradlew",
+    "-Dorg.gradle.jvmargs=-Xmx1G",
+    "--max-workers=2",
+    "-PfdPackaged",
+    "runGameTestServer"
+  ],
+  "exit": 0,
+  "seconds": 334.9403838090002
+}

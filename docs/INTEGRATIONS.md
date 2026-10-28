@@ -128,7 +128,7 @@ native motor therefore receives the complete per-cart mass; its native force
 application remains responsible for propulsion. Real loaded tests check that
 each passenger's native mass appears once.
 
-A direct motor-entry guard retains captured and maintenance-held vehicles, and
+A guard before motor force commands retains captured and maintenance-held vehicles, and
 preserves exclusive PAX winch/gravity-return ownership. Engineered STOP brakes
 translation; the operator must still request carrier capture and wait for ready
 alignment before releasing restraints. A longitudinal stop never automatically
@@ -148,6 +148,15 @@ necessary. Native sequences, observer output, recapture and unloading have a
 separate five-family regression. Controller GUI and external FE-network acceptance
 remain open.
 
+The [occupied cold-restart checkpoint](evidence/integrations/2026-10-27/engineered-restart/README.md)
+adds separate dedicated JVMs for clean save/reopen and Engineered removal. It
+exposed closed restraints rejecting native restoration of saved non-player
+passengers. A scoped saved-passenger loader adapter restores existing seat
+relationships while rejecting new boarding. The fixture checks retained car/rider
+identities, native controller programs and span/observer links, post-restart
+operation, and safe unloading after addon removal. It does not certify moving
+shutdown or human-player reconnect; those remain separate acceptance scenarios.
+
 The [operating evidence](evidence/0.4/operating-acceptance.md) covers installed
 controllers on all five matching straight track families: four non-PAX cars
 launch and stop, captured/retained cars hold, and the PAX car rejects motor
@@ -160,7 +169,7 @@ sequence, resource configuration, every powered layout or GUI ride,
 redstone operator workflow, unload/reload of motor spans or rendering mode.
 
 CI exercises standalone, Styles-only, Engineered-only and combined profiles.
-Without Engineered, its three dedicated operating tests explicitly report that they
+Without Engineered, its dedicated operating tests explicitly report that they
 were not exercised; passing availability checks are not motor-operation evidence.
 
 ## Decorative stroke limit and powered controlled-train checkpoint

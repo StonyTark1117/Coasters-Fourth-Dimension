@@ -29,6 +29,29 @@ public final class Boarding {
   private static final java.util.Map<java.util.UUID, Restore> RESTORE = new java.util.HashMap<>();
   private static final java.util.Set<java.util.UUID> RESTORING = new java.util.HashSet<>();
 
+  /** Preserve an existing NBT passenger relation; this is not a new boarding request. */
+  public static boolean restoreSavedPassenger(
+      Entity passenger, Entity seat, java.util.function.BooleanSupplier mount) {
+    var binding = at(seat.level(), seat.blockPosition());
+    var body = Sable.HELPER.getContaining(seat.level(), seat.blockPosition());
+    boolean knownSeat =
+        seat.level() instanceof ServerLevel
+            && seat instanceof com.simibubi.create.content.contraptions.actors.seat.SeatEntity
+            && seat.getPassengers().isEmpty()
+            && binding != null
+            && body != null
+            && seat.level().getBlockState(seat.blockPosition()).getBlock() instanceof CarrierSeatBlock
+            && binding.carrier.seats.contains(
+                seat.blockPosition().subtract(body.getPlot().getCenterBlock()));
+    if (!knownSeat) return mount.getAsBoolean();
+    boolean added = RESTORING.add(passenger.getUUID());
+    try {
+      return mount.getAsBoolean();
+    } finally {
+      if (added) RESTORING.remove(passenger.getUUID());
+    }
+  }
+
   public record Binding(FoundationData.Vehicle vehicle, FoundationData.Carrier carrier) {}
 
   public static Binding at(Level level, BlockPos seat) {

@@ -1,0 +1,32 @@
+[
+  {
+    "phase": "prepare",
+    "command": [
+      "./gradlew",
+      "-Dorg.gradle.jvmargs=-Xmx1G",
+      "--max-workers=2",
+      "-PfdPackaged",
+      "-PfdIntegrations=engineered",
+      "-PfdEngineeredRestart=prepare",
+      "runEngineeredRestartServer"
+    ],
+    "exit": 0,
+    "success": true,
+    "seconds": 22.788924952001253
+  },
+  {
+    "phase": "restore",
+    "command": [
+      "./gradlew",
+      "-Dorg.gradle.jvmargs=-Xmx1G",
+      "--max-workers=2",
+      "-PfdPackaged",
+      "-PfdIntegrations=engineered",
+      "-PfdEngineeredRestart=restore",
+      "runEngineeredRestartServer"
+    ],
+    "exit": 0,
+    "success": false,
+    "seconds": 17.64257993999854
+  }
+]

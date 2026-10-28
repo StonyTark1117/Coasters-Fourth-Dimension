@@ -1,0 +1,53 @@
+[
+  {
+    "phase": "prepare",
+    "profiles": "styles,engineered",
+    "command": [
+      "./gradlew",
+      "-Dorg.gradle.jvmargs=-Xmx1G",
+      "--max-workers=2",
+      "-PfdPackaged",
+      "-PfdIntegrations=styles,engineered",
+      "-PfdEngineeredRestart=prepare",
+      "-PfdRestartDirectory=/tmp/fd-engineered-restart-5h5nhpy_",
+      "runEngineeredRestartServer"
+    ],
+    "exit": 0,
+    "success": true,
+    "seconds": 27.92810846700013
+  },
+  {
+    "phase": "restore",
+    "profiles": "styles,engineered",
+    "command": [
+      "./gradlew",
+      "-Dorg.gradle.jvmargs=-Xmx1G",
+      "--max-workers=2",
+      "-PfdPackaged",
+      "-PfdIntegrations=styles,engineered",
+      "-PfdEngineeredRestart=restore",
+      "-PfdRestartDirectory=/tmp/fd-engineered-restart-5h5nhpy_",
+      "runEngineeredRestartServer"
+    ],
+    "exit": 0,
+    "success": true,
+    "seconds": 43.778865141001006
+  },
+  {
+    "phase": "restoreAbsent",
+    "profiles": "styles",
+    "command": [
+      "./gradlew",
+      "-Dorg.gradle.jvmargs=-Xmx1G",
+      "--max-workers=2",
+      "-PfdPackaged",
+      "-PfdIntegrations=styles",
+      "-PfdEngineeredRestart=restoreAbsent",
+      "-PfdRestartDirectory=/tmp/fd-engineered-restart-5h5nhpy_",
+      "runEngineeredRestartServer"
+    ],
+    "exit": 0,
+    "success": true,
+    "seconds": 26.21101371399891
+  }
+]
