@@ -2,6 +2,7 @@ package dev.fourthdimension.runtime;
 
 import com.mojang.logging.LogUtils;
 import com.simibubi.create.content.contraptions.actors.seat.SeatBlock;
+import dev.fourthdimension.contract.Family;
 import dev.fourthdimension.shuttle.ShuttleExamples;
 import dev.fourthdimension.track.ExampleLayouts;
 import dev.fourthdimension.track.TrackDesign;
@@ -73,22 +74,28 @@ public final class CarrierValidationFixture {
     supportLossDeadline = 0;
     supportLossTriggered = false;
     supportLossReported = false;
-    var circuitDesigns = riderFixtureOnly() ? List.of(TrackDesign.ARROW) : CIRCUIT_DESIGNS;
+    var circuitDesigns = riderFixtureOnly() ? selectedCircuitDesigns() : CIRCUIT_DESIGNS;
     for (int i = 0; i < circuitDesigns.size(); i++) {
       var vehicle = ExampleLayouts.create(level, CIRCUIT_ORIGINS.get(i), circuitDesigns.get(i));
       controlledMotionChassis.add(vehicle.chassis);
     }
+    if (riderFixtureOnly() && riderFixtureFamily() == Family.PAX) {
+      motionPax = ShuttleExamples.create(level, PAX_ORIGIN, false);
+      controlledMotionChassis.addAll(motionPax.cars().stream().map(vehicle -> vehicle.chassis).toList());
+    } else if (!riderFixtureOnly()) {
+      motionPax = ShuttleExamples.create(level, PAX_ORIGIN, false);
+    }
     motionChassis = List.copyOf(controlledMotionChassis);
     controlledCircuitCount = circuitDesigns.size();
-    if (!riderFixtureOnly()) motionPax = ShuttleExamples.create(level, PAX_ORIGIN, false);
     int carriers = data.vehicles.values().stream().mapToInt(v -> v.carriers.size()).sum();
     LogUtils.getLogger()
         .info(
-            "FD_CARRIER_FIXTURE created families={} vehicles={} carriers={} rails={}",
-            circuitDesigns.size() + (riderFixtureOnly() ? 0 : 1),
+            "FD_CARRIER_FIXTURE created families={} vehicles={} carriers={} rails={} riderFamily={}",
+            data.vehicles.values().stream().map(vehicle -> vehicle.family).distinct().count(),
             data.vehicles.size(),
             carriers,
-            data.rails.size());
+            data.rails.size(),
+            riderFixtureRequired() ? riderFixtureFamily() : "none");
   }
 
   public static void placePlayer(
@@ -113,7 +120,8 @@ public final class CarrierValidationFixture {
     if (riderFixtureRequired() && riderFixturePlayer != null && !riderFixtureBoarded) {
       if (!boardFixtureRider(event.getServer(), level)) {
         if (riderFixtureDeadline-- <= 0)
-          throw new IllegalStateException("FD_CARRIER_FIXTURE rider never reached an Arrow carrier seat");
+          throw new IllegalStateException(
+              "FD_CARRIER_FIXTURE rider never reached a " + riderFixtureFamily() + " carrier seat");
         return;
       }
       riderFixtureBoarded = true;
@@ -190,10 +198,10 @@ public final class CarrierValidationFixture {
   private static boolean boardFixtureRider(net.minecraft.server.MinecraftServer server, ServerLevel level) {
     var player = riderFixturePlayer == null ? null : server.getPlayerList().getPlayer(riderFixturePlayer);
     if (player == null) return false;
-    var arrow = motionChassis.isEmpty() ? null : FoundationData.get(level).vehicles.get(motionChassis.getFirst());
+    var vehicle = supportLossVehicle(level);
     var container = SubLevelContainer.getContainer(level);
-    if (arrow == null || arrow.restraints || container == null || !Boarding.ready(level, arrow)) return false;
-    for (var carrier : arrow.carriers) {
+    if (vehicle == null || vehicle.restraints || container == null || !Boarding.ready(level, vehicle)) return false;
+    for (var carrier : vehicle.carriers) {
       var body = container.getSubLevel(carrier.body);
       if (body == null) continue;
       for (var offset : carrier.seats) {
@@ -207,7 +215,7 @@ public final class CarrierValidationFixture {
             .info(
                 "FD_CARRIER_FIXTURE boarded rider={} family={} carrier={} seat={}",
                 player.getGameProfile().getName(),
-                arrow.family,
+                vehicle.family,
                 carrier.body,
                 seat);
         return true;
@@ -227,50 +235,78 @@ public final class CarrierValidationFixture {
 
   /** Removes the actual Coasters graph connection; the runtime must fail closed without unseating. */
   private static void triggerSupportLoss(ServerLevel level) {
-    var arrow = motionChassis.isEmpty() ? null : FoundationData.get(level).vehicles.get(motionChassis.getFirst());
-    if (arrow == null
-        || !(level.getBlockEntity(arrow.boundFrom) instanceof CoasterAnchorpointBlockEntity anchor))
-      throw new IllegalStateException("FD_CARRIER_FIXTURE missing Arrow support for support-loss checkpoint");
-    anchor.removeAnchorPeerCurve(level, arrow.boundTo);
+    var vehicle = supportLossVehicle(level);
+    if (vehicle == null
+        || !(level.getBlockEntity(vehicle.boundFrom) instanceof CoasterAnchorpointBlockEntity anchor))
+      throw new IllegalStateException(
+          "FD_CARRIER_FIXTURE missing " + riderFixtureFamily() + " support for support-loss checkpoint");
+    anchor.removeAnchorPeerCurve(level, vehicle.boundTo);
     LogUtils.getLogger()
         .info(
-            "FD_CARRIER_FIXTURE removed Arrow support chassis={} from={} to={}",
-            arrow.chassis,
-            arrow.boundFrom,
-            arrow.boundTo);
+            "FD_CARRIER_FIXTURE removed {} support chassis={} from={} to={}",
+            vehicle.family,
+            vehicle.chassis,
+            vehicle.boundFrom,
+            vehicle.boundTo);
   }
 
   /** Confirms the running server's fail-closed state before the client is allowed to pass. */
   private static boolean supportLossSettled(
       net.minecraft.server.MinecraftServer server, ServerLevel level) {
     var player = riderFixturePlayer == null ? null : server.getPlayerList().getPlayer(riderFixturePlayer);
-    var arrow = motionChassis.isEmpty() ? null : FoundationData.get(level).vehicles.get(motionChassis.getFirst());
-    if (player == null || arrow == null) return false;
+    var vehicle = supportLossVehicle(level);
+    if (player == null || vehicle == null) return false;
     boolean riderRetained =
         player.isPassenger()
-            && arrow.carriers.stream().anyMatch(c -> c.riderSeats.containsKey(player.getUUID()));
+            && vehicle.carriers.stream().anyMatch(c -> c.riderSeats.containsKey(player.getUUID()));
     boolean settled =
         riderRetained
-            && arrow.stopping
-            && arrow.restraints
-            && "Matching track support lost".equals(arrow.fault);
+            && vehicle.stopping
+            && vehicle.restraints
+            && "Matching track support lost".equals(vehicle.fault);
     if (settled && !supportLossReported) {
       supportLossReported = true;
       LogUtils.getLogger()
           .info(
               "FD_CARRIER_FIXTURE support-loss settled chassis={} rider={} retained={} fault={}",
-              arrow.chassis,
+              vehicle.chassis,
               player.getGameProfile().getName(),
               riderRetained,
-              arrow.fault);
+              vehicle.fault);
     }
     return settled;
   }
 
-  /** Limits the opt-in occupied client fixture to its one Arrow train. */
+  /** Limits the opt-in occupied client fixture to the requested vehicle family. */
   private static boolean riderFixtureOnly() {
     return riderFixtureRequired()
         && Boolean.getBoolean("fourthdimension.carrierFixtureRiderOnly");
+  }
+
+  private static List<TrackDesign> selectedCircuitDesigns() {
+    return switch (riderFixtureFamily()) {
+      case ARROW -> List.of(TrackDesign.ARROW);
+      case ZACSPIN -> List.of(TrackDesign.LEGACY);
+      case FREE_SPIN -> List.of(TrackDesign.FREE_SPIN);
+      case ZACSPIN_REVISED -> List.of(TrackDesign.REVISED);
+      case PAX -> List.of();
+    };
+  }
+
+  private static FoundationData.Vehicle supportLossVehicle(ServerLevel level) {
+    return FoundationData.get(level).vehicles.values().stream()
+        .filter(vehicle -> vehicle.family == riderFixtureFamily())
+        .findFirst()
+        .orElse(null);
+  }
+
+  private static Family riderFixtureFamily() {
+    var requested = System.getProperty("fourthdimension.carrierFixtureRiderFamily", Family.ARROW.name());
+    try {
+      return Family.valueOf(requested.trim().toUpperCase(java.util.Locale.ROOT));
+    } catch (IllegalArgumentException ignored) {
+      return Family.byId(requested.trim());
+    }
   }
 
   private static void preload(ServerLevel level, BlockPos min, BlockPos max) {

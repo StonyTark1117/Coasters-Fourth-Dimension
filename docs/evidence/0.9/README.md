@@ -96,12 +96,12 @@ carrier sections entered the native section-render path. The all-five-family
 matrix remains rider-free; camera, mesh, clearance, multiplayer, and lifecycle
 coverage remain open.
 
-[Packaged occupied Arrow support loss](client-occupied-arrow-support-loss.md)
-extends that connected-client fixture by removing its actual matching Coasters
-connection after boarding. The server retains the rider and fails closed; the
-client receives the mounted assignment, closed restraints, stopped vehicle, and
-exact support-loss fault. This is one stationary Arrow case, while the full
-family, moving-route, repair, and multi-client lifecycle matrix remains open.
+[Packaged occupied five-family support loss](client-occupied-five-family-support-loss.md)
+now runs the connected-client fixture separately for Arrow, legacy ZacSpin,
+Free Spin, revised ZacSpin, and PAX. Each rider remains mounted and assigned
+while its own matching Coasters connection is removed and the replicated vehicle
+fails closed. Moving-route loss, repair, and concurrent-client coverage remain
+open.
 
 [Client track-render instrumentation](client-render-sampling.md) records an
 initial packaged real-client sample on the recovery scene, under llvmpipe and

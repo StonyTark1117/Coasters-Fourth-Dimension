@@ -1,0 +1,39 @@
+## arrow
+[17:03:30] [Server thread/INFO] [de.fo.ru.CarrierValidationFixture/]: FD_CARRIER_FIXTURE created families=1 vehicles=1 carriers=2 rails=8 riderFamily=ARROW
+[17:03:31] [Server thread/INFO] [de.fo.ru.CarrierValidationFixture/]: FD_CARRIER_FIXTURE boarded rider=Dev family=ARROW carrier=def88f10-b8bc-4941-8322-2652ab93a0e1 seat=BlockPos{x=20481032, y=127, z=20483080}
+[17:03:36] [Server thread/INFO] [de.fo.ru.CarrierValidationFixture/]: FD_CARRIER_FIXTURE removed ARROW support chassis=681454c8-fb60-4d73-9bb7-1b952f635639 from=BlockPos{x=-150, y=180, z=8} to=BlockPos{x=-150, y=180, z=44}
+[17:03:36] [Server thread/INFO] [de.fo.ru.CarrierValidationFixture/]: FD_CARRIER_FIXTURE support-loss settled chassis=681454c8-fb60-4d73-9bb7-1b952f635639 rider=Dev retained=true fault=Matching track support lost
+[17:03:38] [Render thread/INFO] [de.fo.cl.CarrierTransformValidation/]: FD_CARRIER_VALIDATION passed samples=40 target=40 waitedTicks=162 families=1 requiredFamilies=1 carriers=2 riderAssignments=1 maxAngleError=2.485027535170161E-6 compiledBodies=0 sectionLayerCalls=0 sectionLayerBodies=0 renderRequired=false riderRequired=true riderMounted=true supportLossRequired=true supportLossObserved=true motionFamilies=[] motionChassis={} motionDistances={}
+BUILD SUCCESSFUL in 26s
+
+## legacy
+FD_CARRIER_FIXTURE created families=1 vehicles=1 carriers=2 rails=8 riderFamily=ZACSPIN
+FD_CARRIER_FIXTURE boarded rider=Dev family=ZACSPIN
+FD_CARRIER_FIXTURE removed ZACSPIN support
+FD_CARRIER_FIXTURE support-loss settled rider=Dev retained=true fault=Matching track support lost
+FD_CARRIER_VALIDATION passed samples=40 target=40 waitedTicks=154 families=1 requiredFamilies=1 carriers=2 riderAssignments=1 maxAngleError=2.2530695589914897E-6 renderRequired=false riderRequired=true riderMounted=true supportLossRequired=true supportLossObserved=true
+BUILD SUCCESSFUL in 25s
+
+## free-spin
+[17:00:03] [Server thread/INFO] [de.fo.ru.CarrierValidationFixture/]: FD_CARRIER_FIXTURE created families=1 vehicles=1 carriers=4 rails=8 riderFamily=FREE_SPIN
+[17:00:04] [Server thread/INFO] [de.fo.ru.CarrierValidationFixture/]: FD_CARRIER_FIXTURE boarded rider=Dev family=FREE_SPIN carrier=2ee6c0f8-5df9-48d6-ae31-f61498d95743 seat=BlockPos{x=20481032, y=127, z=20483080}
+[17:00:09] [Server thread/INFO] [de.fo.ru.CarrierValidationFixture/]: FD_CARRIER_FIXTURE removed FREE_SPIN support chassis=41b01d61-269f-43da-9023-b75eec82d302 from=BlockPos{x=-150, y=180, z=8} to=BlockPos{x=-150, y=180, z=44}
+[17:00:09] [Server thread/INFO] [de.fo.ru.CarrierValidationFixture/]: FD_CARRIER_FIXTURE support-loss settled chassis=41b01d61-269f-43da-9023-b75eec82d302 rider=Dev retained=true fault=Matching track support lost
+[17:00:11] [Render thread/INFO] [de.fo.cl.CarrierTransformValidation/]: FD_CARRIER_VALIDATION passed samples=40 target=40 waitedTicks=152 families=1 requiredFamilies=1 carriers=4 riderAssignments=1 maxAngleError=1.2657914816239955E-5 compiledBodies=0 sectionLayerCalls=0 sectionLayerBodies=0 renderRequired=false riderRequired=true riderMounted=true supportLossRequired=true supportLossObserved=true motionFamilies=[] motionChassis={} motionDistances={}
+BUILD SUCCESSFUL in 23s
+
+## revised
+[17:00:32] [Server thread/INFO] [de.fo.ru.CarrierValidationFixture/]: FD_CARRIER_FIXTURE created families=1 vehicles=1 carriers=4 rails=8 riderFamily=ZACSPIN_REVISED
+[17:00:33] [Server thread/INFO] [de.fo.ru.CarrierValidationFixture/]: FD_CARRIER_FIXTURE boarded rider=Dev family=ZACSPIN_REVISED carrier=c40046e7-ee4a-4137-9e2f-94a3b17e6d00 seat=BlockPos{x=20481032, y=127, z=20483080}
+[17:00:38] [Server thread/INFO] [de.fo.ru.CarrierValidationFixture/]: FD_CARRIER_FIXTURE removed ZACSPIN_REVISED support chassis=d86fd993-696d-4840-9d9b-7317366dbe9f from=BlockPos{x=-150, y=180, z=8} to=BlockPos{x=-150, y=180, z=44}
+[17:00:38] [Server thread/INFO] [de.fo.ru.CarrierValidationFixture/]: FD_CARRIER_FIXTURE support-loss settled chassis=d86fd993-696d-4840-9d9b-7317366dbe9f rider=Dev retained=true fault=Matching track support lost
+[17:00:40] [Render thread/INFO] [de.fo.cl.CarrierTransformValidation/]: FD_CARRIER_VALIDATION passed samples=40 target=40 waitedTicks=153 families=1 requiredFamilies=1 carriers=4 riderAssignments=1 maxAngleError=5.791172961219245E-6 compiledBodies=0 sectionLayerCalls=0 sectionLayerBodies=0 renderRequired=false riderRequired=true riderMounted=true supportLossRequired=true supportLossObserved=true motionFamilies=[] motionChassis={} motionDistances={}
+BUILD SUCCESSFUL in 23s
+
+## pax
+[17:01:03] [Server thread/INFO] [de.fo.ru.CarrierValidationFixture/]: FD_CARRIER_FIXTURE created families=1 vehicles=4 carriers=8 rails=3 riderFamily=PAX
+[17:01:04] [Server thread/INFO] [de.fo.ru.CarrierValidationFixture/]: FD_CARRIER_FIXTURE boarded rider=Dev family=PAX carrier=7ce8cf2b-80ba-4b09-8554-1682336edf11 seat=BlockPos{x=20481032, y=127, z=20483080}
+[17:01:09] [Server thread/INFO] [de.fo.ru.CarrierValidationFixture/]: FD_CARRIER_FIXTURE removed PAX support chassis=e34b2ce5-ca93-4fe6-ac6c-75b1e4b29ff9 from=BlockPos{x=145, y=180, z=0} to=BlockPos{x=145, y=180, z=32}
+[17:01:09] [Server thread/INFO] [de.fo.ru.CarrierValidationFixture/]: FD_CARRIER_FIXTURE support-loss settled chassis=e34b2ce5-ca93-4fe6-ac6c-75b1e4b29ff9 rider=Dev retained=true fault=Matching track support lost
+[17:01:11] [Render thread/INFO] [de.fo.cl.CarrierTransformValidation/]: FD_CARRIER_VALIDATION passed samples=40 target=40 waitedTicks=153 families=1 requiredFamilies=1 carriers=8 riderAssignments=1 maxAngleError=3.370362156292002E-13 compiledBodies=0 sectionLayerCalls=0 sectionLayerBodies=0 renderRequired=false riderRequired=true riderMounted=true supportLossRequired=true supportLossObserved=true motionFamilies=[] motionChassis={} motionDistances={}
+BUILD SUCCESSFUL in 24s

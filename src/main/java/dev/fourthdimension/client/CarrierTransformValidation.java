@@ -301,7 +301,7 @@ public final class CarrierTransformValidation {
     var binding =
         dev.fourthdimension.vehicle.Boarding.at(minecraft.level, player.getVehicle().blockPosition());
     return binding != null
-        && binding.vehicle().family == Family.ARROW
+        && binding.vehicle().family == supportLossFamily()
         && binding.vehicle().stopping
         && binding.vehicle().restraints
         && "Matching track support lost".equals(binding.vehicle().fault)
@@ -310,6 +310,16 @@ public final class CarrierTransformValidation {
 
   private static boolean supportLossRequired() {
     return Boolean.getBoolean("fourthdimension.carrierValidationSupportLoss");
+  }
+
+  private static Family supportLossFamily() {
+    var requested =
+        System.getProperty("fourthdimension.carrierValidationSupportLossFamily", Family.ARROW.name());
+    try {
+      return Family.valueOf(requested.trim().toUpperCase(java.util.Locale.ROOT));
+    } catch (IllegalArgumentException ignored) {
+      return Family.byId(requested.trim());
+    }
   }
 
   /**
