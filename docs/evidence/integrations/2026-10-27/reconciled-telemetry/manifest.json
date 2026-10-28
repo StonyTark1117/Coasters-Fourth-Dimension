@@ -1,0 +1,46 @@
+{
+  "parent": "b0d894b68a312bfc0883d3e1f6b097fcb826a3c4",
+  "referenceBranchCommit": "8f97fc211fc61d807100c9fadafc5f0b2439469e",
+  "artifact": {
+    "name": "coasters-fourth-dimension-0.9.0-dev.27.jar",
+    "sha256": "43482c6c421f588c889826f6b2740c96cbf57a78f556c30a06ff6389d4e305f3"
+  },
+  "unitTests": {
+    "tests": 26,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "processExits": {
+    "base": 0,
+    "combined": 0,
+    "targeted": 0
+  },
+  "sourceHashes": {
+    "src/main/java/dev/fourthdimension/FourthDimension.java": "d6737a51c4f7112781f6edc8be55947700de6292d6f2123c95e98ab3cfa9507e",
+    "src/main/java/dev/fourthdimension/gametest/RideTelemetryGameTests.java": "98c1814de756573e977265d456375c181718ff834d85fcc6b34a6191d192de04",
+    "src/main/java/dev/fourthdimension/integration/RideOperations.java": "a7d42ccadc8cb5b8f5532a71af97f770326a9949b3fdae2764d4a99b46e04324",
+    "src/main/java/dev/fourthdimension/integration/RideTelemetry.java": "ced26b90a628f1a967b23bafba3fcacf6590a6a4df996318b4bf876eb83a7d59",
+    "src/main/java/dev/fourthdimension/integration/create/CreateIntegration.java": "49eaa0026b6b0953302ddcb0225984770b21953d6da73416ea362860069256e4",
+    "src/main/java/dev/fourthdimension/integration/create/RideDisplaySource.java": "ba612ab8f4384949aeabc04beeea798ff21aa61e4f28cb8610af2e698bdd22f5",
+    "src/main/java/dev/fourthdimension/integration/create/RideInformation.java": "61af39d85d7f74fbfec1e0aa41fffce842574b54bfa7dec998dec0956838b4c4",
+    "src/main/java/dev/fourthdimension/shuttle/ShuttleWinchEntity.java": "d3d70cb33dc40c3476a57026332cb12d483910e020753f390353d3c013872111",
+    "src/main/java/dev/fourthdimension/station/BoardingStationEntity.java": "d5e7b02c2328cba9047518277830a5d6913dd20980bba82bc7d838612f57109e",
+    "src/main/java/dev/fourthdimension/vehicle/VehicleOperations.java": "a42a47afbaa02f48bfb067a9c2ef2ee1703139486bf60e2de9ae05e2ac99b4ca",
+    "src/main/resources/assets/fourthdimension/lang/en_us.json": "291d4ea2f34d07708de634975e434e3ad894d175c87d7dac63c4750d2fa24254"
+  },
+  "files": {
+    "targeted.log.gz": "54820b22d4053b7a9928f4a82461c2b9447dc8aa6f246c001e3500e118956fe8",
+    "headless-client-path-diagnostic.log.gz": "8d968fe23d092934a733a12b5df8dbb8fe53d626a3045183f9cb346e7e65dfaa",
+    "base-gametest.log.gz": "bbf3aae898de89429fee979d06ab17969b940a69cda8059ee7f6bbfbef058f3d",
+    "combined-gametest.log.gz": "ed2c56484e415b5332aa77ac2a8df58292a70d33af12b57a0c396251719d8a0c",
+    "build.log.gz": "c8a801a7c6847145e33d6daffb5b3481c31c4dbed0d8b321370c14022189f8ce",
+    "TEST-dev.fourthdimension.FoundationMathTest.xml.gz": "1bd7b679d520f9be95b46fab87ecfc7849d8535444b2cd1013ad99fc6d4d1abe",
+    "TEST-dev.fourthdimension.MagneticMathTest.xml.gz": "f9074f07f2a6189d2e0074cc7fdb6ce5ad6bf7fa0c7c5bdf9df82ad6e0410123",
+    "TEST-dev.fourthdimension.ModelFrameTest.xml.gz": "934aa1bdb776c3c1332a0e03e4d40501b2180ac52a56a802dce8b235614e2e91",
+    "TEST-dev.fourthdimension.OptionalIntegrationTest.xml.gz": "f008a1e1b212323eb31ac61b0c2be218c028ad6683e907c17f58c21df706861f",
+    "TEST-dev.fourthdimension.TrackAppearanceTest.xml.gz": "353a117f05362511f5bb3fb2b8fe869d9924691e3c29b9a34c804c9dca5e3564",
+    "TEST-dev.fourthdimension.TrackMathTest.xml.gz": "603d43161e4cc034581b6d510c8037e10b5c6a27eb53c49c1c36ebb04757b757",
+    "TEST-dev.fourthdimension.TrackRenderMetricsTest.xml.gz": "708a91425cf8cc630399ef90a8cdab8848d0c2cab279ac44221b7309df7563e9"
+  }
+}

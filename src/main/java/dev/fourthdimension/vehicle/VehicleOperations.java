@@ -83,14 +83,15 @@ public final class VehicleOperations {
     FoundationData.get(level).setDirty();
   }
 
-  public static void dispatch(ServerLevel level, FoundationData.Vehicle vehicle) {
+  /** Read-only preflight shared by telemetry and every dispatch path. */
+  public static void validateDispatch(ServerLevel level, FoundationData.Vehicle vehicle) {
     if (vehicle.recoveryCart != null)
       throw new IllegalArgumentException("Disconnect recovery before ride dispatch");
     if (vehicle.family == dev.fourthdimension.contract.Family.PAX) {
       var winch = dev.fourthdimension.shuttle.ShuttleRuntime.owner(level, vehicle.chassis);
       if (winch == null)
         throw new IllegalArgumentException("Bind a powered shuttle winch before PAX dispatch");
-      winch.start();
+      winch.validateStart();
       return;
     }
     var data = FoundationData.get(level);
@@ -112,7 +113,16 @@ public final class VehicleOperations {
           || TrackGeometry.resolve(level, rail) == null)
         throw new IllegalArgumentException("Vehicle has lost its matching track support");
     }
-    for (var v : consist) {
+  }
+
+  public static void dispatch(ServerLevel level, FoundationData.Vehicle vehicle) {
+    validateDispatch(level, vehicle);
+    if (vehicle.family == dev.fourthdimension.contract.Family.PAX) {
+      dev.fourthdimension.shuttle.ShuttleRuntime.owner(level, vehicle.chassis).start();
+      return;
+    }
+    var data = FoundationData.get(level);
+    for (var v : consist(level, vehicle)) {
       v.stopping = false;
       v.fault = "";
       v.carriers.forEach(c -> c.capture = false);

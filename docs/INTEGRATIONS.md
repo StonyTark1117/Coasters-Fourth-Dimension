@@ -75,6 +75,15 @@ The audit retains both observations in `research/dependency-audit.json`.
 
 ## Remaining FD401 acceptance
 
+The [reconciled telemetry checkpoint](evidence/integrations/2026-10-27/reconciled-telemetry/README.md)
+adds shared whole-consist station/winch snapshots, server-validated operations,
+Create goggles fields and six Display Link sources to the current release
+baseline. Recovery dispatch guards and PAX winch ownership are preserved.
+Native source output and packet data have bounded headless coverage; live-client
+overlays, display configuration and synchronization remain separate acceptance
+items. The older integration branch's general provider registry and remaining
+addon adapters have not yet been reconciled onto this baseline.
+
 Complete style geometry and clearance checks and record supported styles/render
 modes and styled ride behavior. Resource reload and a real removal/reinstallation
 cycle now pass for one single-spine controlled Arrow section. Engineered operating
