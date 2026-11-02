@@ -6,6 +6,12 @@ is the supported operational procedure for upgrading to the current schema-6
 build. It does not convert third-party functional blocks, replace a removed
 provider, or make a downgrade safe.
 
+The [expanded integration plan](INTEGRATION-BACKLOG.md#current-baseline-and-branch-reconciliation)
+retains schema 6 / protocol 7 for the current release candidate. Pending schema-7/
+protocol-8 provider work is deferred and requires a separate migration decision;
+this procedure does not certify it. Staged addons and their newer dependencies
+must not be added as an incidental part of this upgrade.
+
 ## Before the upgrade
 
 1. Stop every active ride and recovery tow. For a recovery group, use **Brake
