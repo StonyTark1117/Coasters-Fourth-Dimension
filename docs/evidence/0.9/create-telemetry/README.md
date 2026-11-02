@@ -59,6 +59,16 @@ one-tick sampling requirement, minimum sample count, margins and audit algorithm
 are unchanged. YAML parsing and command/matrix equivalence checks passed. A full
 run under the corrected budget is still required.
 
+## Replacement run could not start
+
+[Replacement run 41541895778](https://github.com/StonyTark1117/Coasters-Fourth-Dimension/actions/runs/41541895778)
+on `5af4a97` failed before executing any job steps. GitHub reported an account
+payment/spending-limit restriction; see the [original annotations](replacement-ci-annotations.json)
+and [job results](replacement-ci-result.json). No runner was assigned and no test
+or audit ran. This is neither validation nor a runtime failure of the correction.
+Remote retries should wait until the account restriction is resolved. Local
+validation remains possible when the shared runtime is available.
+
 ## Remaining acceptance
 
 This checkpoint does not certify goggles rendering, Display Link configuration

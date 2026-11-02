@@ -42,7 +42,16 @@
     "styles.log.gz": "6651122515d4f52e91c18655df0b312bfdcd5c1fefb7f061dfde6846cd89efc8",
     "engineered.log.gz": "0267eb3fe24806aea1a8486e75177ecaf6ff5c543d356fa49a76b9e8a4754d8c",
     "combined.log.gz": "2595fcc5dac2fd15dad8bd34afadc85dec5c6c3da8919a777eb4bc0f522fb956",
-    "ci-result.json": "d06a0a596101f9b028fa18765e6d31858fcbb87ea1ef14b1784064089fb249c5"
+    "ci-result.json": "d06a0a596101f9b028fa18765e6d31858fcbb87ea1ef14b1784064089fb249c5",
+    "replacement-ci-result.json": "0b9e5e4c52f4d2e3d0493b6570c325cdf2570475a5623ae8ca1b989f17182fdb",
+    "replacement-ci-annotations.json": "2846a07214495059bb19741b27b7e9aef77bc9ddaf3bbe756a1c3d00828f23ed"
   },
-  "scope": "Native telemetry assertions passed on all four profiles. Dense clearance audits timed out; not a complete CI pass or live-client certification."
+  "scope": "Native telemetry assertions passed on all four profiles. Dense clearance audits timed out; not a complete CI pass or live-client certification.",
+  "replacementRun": {
+    "id": 41541895778,
+    "head": "5af4a97dd25c1efc3a08d5574d629a39e446e328",
+    "conclusion": "failure",
+    "stepsExecuted": 0,
+    "reason": "GitHub Actions account payment/spending-limit restriction; workflow did not start"
+  }
 }
