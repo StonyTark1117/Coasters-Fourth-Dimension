@@ -20,6 +20,13 @@ records an occupied active-lift support loss, exact repair, explicit physical
 realignment, guarded winch recovery, and powered relaunch of the original
 four-car train.
 
+[Engineered connected-client operator check](fd401-engineered-client-operator.md)
+records native motor-span placement, linked controller configuration, a bounded
+occupied ride consuming 2,999 FE, client-operated capture and unloading, and
+cold persistence with the pinned Engineered addon. The short fixture ended at
+the track-boundary safety stop; full-circuit operation, a graceful automatic
+station stop, and an external FE network remain open.
+
 [World upgrade and recovery procedure](../../MIGRATION.md) gives the supported
 backup, staged-upgrade and restore steps. It does not convert third-party
 functional blocks or establish the remaining FD903 acceptance evidence.
