@@ -1,0 +1,13 @@
+# Selected packaged-client lines
+# Full log SHA-256: cf3e02639b5f2785e09aa2602ee6ee451112d8e42103ffd0c6c79186370fb97a
+[13:00:45] [Server thread/INFO] [de.fo.ru.CarrierValidationFixture/]: FD_CARRIER_FIXTURE created families=1 vehicles=1 carriers=2 rails=8 riderFamily=ARROW
+[13:00:46] [Server thread/INFO] [de.fo.ru.CarrierValidationFixture/]: FD_CARRIER_FIXTURE boarded rider=Dev family=ARROW carrier=a780aa01-029d-4789-94e0-157b7b7c194d seat=BlockPos{x=20481032, y=127, z=20483080}
+[13:01:11] [Server thread/INFO] [de.fo.ru.CarrierValidationFixture/]: FD_CARRIER_FIXTURE dispatched controlled motion chassis=[17cc9d6c-9fe8-4190-8145-4c7b3aa7af51] families=[ARROW]
+[13:01:12] [Server thread/INFO] [de.fo.ru.CarrierValidationFixture/]: FD_CARRIER_FIXTURE removed ARROW support chassis=17cc9d6c-9fe8-4190-8145-4c7b3aa7af51 from=BlockPos{x=-150, y=180, z=8} to=BlockPos{x=-150, y=180, z=44}
+[13:01:12] [Server thread/INFO] [de.fo.ru.CarrierValidationFixture/]: FD_CARRIER_FIXTURE support-loss settled chassis=17cc9d6c-9fe8-4190-8145-4c7b3aa7af51 rider=Dev retained=true fault=Matching track support lost
+[13:01:13] [Server thread/INFO] [de.fo.ru.CarrierValidationFixture/]: FD_CARRIER_FIXTURE rebuilt exact ARROW support chassis=17cc9d6c-9fe8-4190-8145-4c7b3aa7af51 from=BlockPos{x=-150, y=180, z=8} to=BlockPos{x=-150, y=180, z=44}
+[13:01:14] [Server thread/INFO] [de.fo.ru.CarrierValidationFixture/]: FD_CARRIER_FIXTURE support repair settled chassis=17cc9d6c-9fe8-4190-8145-4c7b3aa7af51 stopped=true restraints=true ridersRetained=1
+[13:01:14] [Server thread/INFO] [de.fo.ru.CarrierValidationFixture/]: FD_CARRIER_FIXTURE physically realigned ARROW support chassis=17cc9d6c-9fe8-4190-8145-4c7b3aa7af51
+[13:01:14] [Server thread/INFO] [de.fo.ru.CarrierValidationFixture/]: FD_CARRIER_FIXTURE support realignment settled chassis=17cc9d6c-9fe8-4190-8145-4c7b3aa7af51 ridersRetained=1
+[13:01:17] [Render thread/INFO] [de.fo.cl.CarrierTransformValidation/]: FD_CARRIER_VALIDATION passed samples=40 target=40 waitedTicks=635 families=1 requiredFamilies=1 carriers=0 riderAssignments=1 maxAngleError=1.8586870102418396E-4 compiledBodies=0 sectionLayerCalls=0 sectionLayerBodies=0 renderRequired=false riderRequired=true riderMounted=true supportLossRequired=true supportLossObserved=true supportLossAfterMotion=true supportRepairRequired=true supportRepairObserved=true supportRealignmentRequired=true supportRealignmentObserved=true motionFamilies=[ARROW] motionChassis={ARROW=1} motionDistances={17cc9d6c-9fe8-4190-8145-4c7b3aa7af51=2.148903735773872}
+BUILD SUCCESSFUL in 49s
