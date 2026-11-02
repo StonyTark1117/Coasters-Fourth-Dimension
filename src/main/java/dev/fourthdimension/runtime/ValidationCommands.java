@@ -4,10 +4,12 @@ import com.simibubi.create.content.contraptions.actors.seat.SeatBlock;
 import dev.fourthdimension.contract.Family;
 import dev.fourthdimension.integration.AppearanceEditor;
 import dev.fourthdimension.integration.TrackAppearance;
+import dev.fourthdimension.track.ExampleLayouts;
 import dev.fourthdimension.track.TrackPlacement;
 import dev.fourthdimension.vehicle.Boarding;
 import dev.fourthdimension.vehicle.CarrierSeatBlock;
 import dev.ryanhcode.sable.api.sublevel.SubLevelContainer;
+import net.minecraft.core.BlockPos;
 import net.minecraft.commands.Commands;
 import net.minecraft.commands.arguments.EntityArgument;
 import net.minecraft.network.chat.Component;
@@ -25,6 +27,12 @@ public final class ValidationCommands {
             .then(
                 Commands.literal("availability")
                     .executes(context -> availability(context.getSource())))
+            .then(
+                Commands.literal("engineered_loop")
+                    .executes(context -> engineeredLoop(context.getSource())))
+            .then(
+                Commands.literal("engineered_car")
+                    .executes(context -> engineeredCar(context.getSource())))
             .then(
                 Commands.literal("board")
                     .then(
@@ -78,6 +86,35 @@ public final class ValidationCommands {
             Commands.literal("fd")
                 .requires(source -> source.hasPermission(2))
                 .then(validation));
+  }
+
+  private static int engineeredLoop(net.minecraft.commands.CommandSourceStack source) {
+    try {
+      ExampleLayouts.createBareArrow(
+          source.getLevel(), BlockPos.containing(source.getPosition()).offset(0, 3, 12));
+      source.sendSuccess(
+          () ->
+              Component.literal(
+                  "Bare original Arrow circuit built; install the optional motor and place a car before binding the station."),
+          false);
+      return 1;
+    } catch (IllegalArgumentException failure) {
+      return failure(source, failure.getMessage());
+    }
+  }
+
+  private static int engineeredCar(net.minecraft.commands.CommandSourceStack source) {
+    try {
+      var vehicle =
+          ExampleLayouts.addBareArrowCar(
+              source.getLevel(), BlockPos.containing(source.getPosition()).offset(0, 3, 12));
+      source.sendSuccess(
+          () -> Component.literal("Bare Arrow loop car placed and station bound: " + vehicle.chassis),
+          false);
+      return 1;
+    } catch (IllegalArgumentException | IllegalStateException failure) {
+      return failure(source, failure.getMessage());
+    }
   }
 
   private static int availability(net.minecraft.commands.CommandSourceStack source) {
