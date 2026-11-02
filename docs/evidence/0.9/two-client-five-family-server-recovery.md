@@ -17,8 +17,5 @@ and tracked all four linked chassis before the lead lost support. The concise
 per-family server markers are in
 [two-client-five-family-server-recovery.txt](two-client-five-family-server-recovery.txt).
 
-This is strong evidence for concurrent native-seat retention and production
-recovery operations with two real connected clients. It deliberately does not
-claim ordered post-repair observation on both clients: the client validation
-guard must first require loss → repair → realignment in that order. The next
-checkpoint will replay this same matrix against that guard.
+This is server-authoritative evidence for concurrent native-seat retention and
+production recovery operations. The follow-up [ordered two-client matrix](two-client-five-family-ordered-recovery.md) replays every family with the corrected client guard and confirms loss → repair → realignment on both replicas.

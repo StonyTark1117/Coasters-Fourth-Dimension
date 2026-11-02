@@ -37,8 +37,7 @@ covers its real four-chassis train with a full-consist emergency native-velocity
 reset before reattachment. [two-client Arrow server recovery](two-client-arrow-support-recovery.md)
 and the [five-family server matrix](two-client-five-family-server-recovery.md)
 now carry Dev and Observer through moving support loss, exact repair, and
-physical realignment. Ordered post-repair client observation, PAX lift dispatch,
-and post-repair client reconnect or cold-restart coverage remain FD902 work.
+physical realignment. The [ordered two-client five-family recovery](two-client-five-family-ordered-recovery.md) now confirms both replicas observe loss before repair before realignment. PAX lift dispatch and post-repair client reconnect or cold-restart coverage remain FD902 work.
 
 [Repeated PAX shuttle station reload](repeated-shuttle-reload.md) saves and
 reinstalls the real winch at its first captured station return, then verifies
