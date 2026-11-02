@@ -58,7 +58,10 @@ no recovery fields, loading leaves `recovery_cart` absent and does not invent a
 removed-bearing marker. Saved 4D-to-4D recovery references are rejected rather
 than being reinterpreted as ordinary recovery equipment. The current regression
 proves that contract for the occupied five-family fixture; see the
-[FD903 migration evidence](evidence/0.9/recovery-schema-migration.md).
+[FD903 migration evidence](evidence/0.9/recovery-schema-migration.md). A
+[complete schema-3 world replay](evidence/0.9/native-schema3-world-replay.md)
+also verifies that one historical world retains all three chassis and eight
+native carriers after upgrade and reopen.
 
 This is not proof of a packaged upgrade from every historical release, a
 real-client migration, provider removal, or a conversion between this addon's

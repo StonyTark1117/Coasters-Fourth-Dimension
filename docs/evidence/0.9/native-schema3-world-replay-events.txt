@@ -1,0 +1,31 @@
+# Selected FD903 complete-world replay lines
+
+# Historical packaged server
+# Full log SHA-256: 2131a8021892ec83e61630fca6291d6d7d057490f26cfc872be4f9252cdda6e5
+[13:16:44] [modloading-worker-0/INFO] [de.fo.FourthDimension/]: Coasters: Fourth Dimension loaded from union:/tmp/fourthdimension-d99c3548/build/libs/coasters-fourth-dimension-0.2.0.jar%23127!/
+[13:17:22] [Server thread/INFO] [de.ry.sa.Sable/]: Saving sub-levels for level 'ServerLevel[world]'/minecraft:overworld
+[13:17:22] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage: All dimensions are saved
+[13:17:24] [Server thread/INFO] [de.ry.sa.Sable/]: Saving sub-levels for level 'ServerLevel[world]'/minecraft:overworld
+[13:17:24] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage: All dimensions are saved
+BUILD SUCCESSFUL in 50s
+
+# Current packaged upgrade
+# Full log SHA-256: ba53f5f03473a96827731e854daebf5392aa645764c5b837d33a7d7e4c581a2c
+[13:18:20] [modloading-worker-0/INFO] [de.fo.FourthDimension/]: Coasters: Fourth Dimension loaded from union:/tmp/fourthdimension-d99c3548/build/libs/coasters-fourth-dimension-0.9.0-dev.27.jar%23127!/
+fourthdimension (version 0.2.0 -> 0.9.0-dev.27)
+[13:18:51] [Server thread/INFO] [de.ry.sa.Sable/]: Saving sub-levels for level 'ServerLevel[world]'/minecraft:overworld
+[13:18:51] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage: All dimensions are saved
+[13:18:55] [Server thread/INFO] [de.ry.sa.Sable/]: Saving sub-levels for level 'ServerLevel[world]'/minecraft:overworld
+[13:18:55] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage: All dimensions are saved
+BUILD SUCCESSFUL in 44s
+
+# Current packaged reopen
+# Full log SHA-256: c359b0364435b136fa0a940fc8bcda54f038bba0643b4da8f8a6d4b6d6fdb2c6
+[13:19:21] [modloading-worker-0/INFO] [de.fo.FourthDimension/]: Coasters: Fourth Dimension loaded from union:/tmp/fourthdimension-d99c3548/build/libs/coasters-fourth-dimension-0.9.0-dev.27.jar%23127!/
+[13:19:47] [Server thread/INFO] [de.ry.sa.Sable/]: Saving sub-levels for level 'ServerLevel[world]'/minecraft:overworld
+[13:19:47] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage: All dimensions are saved
+BUILD SUCCESSFUL in 37s
+
+# RCON observations from the two current packaged-server runs
+upgrade: Validation availability chassis=3/3 carriers=8/8 assignments=0
+reopen:  Validation availability chassis=3/3 carriers=8/8 assignments=0

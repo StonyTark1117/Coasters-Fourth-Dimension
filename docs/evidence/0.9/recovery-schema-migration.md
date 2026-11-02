@@ -58,6 +58,17 @@ identitiesPreserved=true recoveryInvented=false profilesPreserved=true
 
 The schema-6 file passed the same verifier after the packaged-server reopen.
 
+## Complete historical world replay
+
+A subsequent [schema-3 native-world replay](native-schema3-world-replay.md)
+builds the historical `0.2.0` addon at commit `d97ea01`, creates three real
+family circuits in its packaged server, and archives the complete world with
+Coasters paths and Sable sublevels. The current packaged server loads that
+world with all three saved chassis and all eight carriers available, saves
+schema 6 with all 24 rail IDs and profile keys preserved, and reopens with the
+same 3/3 chassis and 8/8 carriers available. This removes the missing-sublevel
+limit of the earlier data-only replay for that one generated historical world.
+
 ## Unsupported provider conversion
 
 `HistoricalMigrationGameTests` now copies the recorded schema-3 fixture and
@@ -84,9 +95,9 @@ otherwise rebind the historical controlled-track profiles.
 
 ## Limits
 
-The packaged replay establishes one recorded historical `FoundationData` file,
-not a complete saved-world directory with native Sable sublevels. It does not
-establish upgrades from every released historical world, provider removal or a
-supported external-block conversion, backup/recovery procedures, real-client
-migration, or the complete FD903 release matrix. Those remain required before
-the 0.9 candidate gate can close.
+The data-only packaged replay establishes one recorded historical
+`FoundationData` file; the later native-world replay establishes one separate
+complete schema-3 world. Neither proves upgrades from every released historical
+world, provider removal or a supported external-block conversion, real-client
+migration, rider operation after upgrade, or the complete FD903 release matrix.
+Those remain required before the 0.9 candidate gate can close.
