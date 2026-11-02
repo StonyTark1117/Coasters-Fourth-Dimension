@@ -116,6 +116,7 @@ public final class ShuttleWinchEntity extends KineticBlockEntity {
   public void start() {
     if (phase != Phase.BOARDING || vehicle == null)
       throw new IllegalArgumentException("Bind and capture the shuttle before starting");
+    validateNoPendingRealignment();
     validateTrain(true);
     if (Math.abs(getSpeed()) < 16)
       throw new IllegalArgumentException("Power the shuttle winch at 16..128 RPM");
@@ -131,6 +132,7 @@ public final class ShuttleWinchEntity extends KineticBlockEntity {
 
   public void resume() {
     if (phase != Phase.FAULT) return;
+    validateNoPendingRealignment();
     validateTrain(false);
     ShuttleRoute.resolve((ServerLevel) level, routeStart, routeEnd);
     if (Math.abs(getSpeed()) < 16)
@@ -148,6 +150,7 @@ public final class ShuttleWinchEntity extends KineticBlockEntity {
   public void recover() {
     if (phase != Phase.FAULT)
       throw new IllegalArgumentException("Recovery requires an interrupted shuttle");
+    validateNoPendingRealignment();
     validateTrain(false);
     var server = (ServerLevel) level;
     ShuttleRoute.resolve(server, routeStart, routeEnd);
@@ -161,6 +164,17 @@ public final class ShuttleWinchEntity extends KineticBlockEntity {
     fault = "";
     for (var id : cars) FoundationData.get(server).vehicles.get(id).stopping = true;
     changed();
+  }
+
+  /** Support repair must be followed by native snap before the coupled lift can move again. */
+  private void validateNoPendingRealignment() {
+    if (!(level instanceof ServerLevel server)) return;
+    var data = FoundationData.get(server);
+    if (cars.stream()
+        .map(data.vehicles::get)
+        .anyMatch(car -> car != null && car.alignmentRequired))
+      throw new IllegalArgumentException(
+          "Use Realign matching track after repair before resuming the shuttle");
   }
 
   public void validateTrain(boolean boarding) {

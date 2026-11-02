@@ -41,6 +41,11 @@ public final class VehicleOperations {
       car.alignmentRequired = true;
       car.revision++;
     }
+    // An active PAX lift owns the same coupled cars. Fault it immediately so its next physics
+    // callback cannot continue a guide/catch motion after support recovery has become required.
+    var winch = dev.fourthdimension.shuttle.ShuttleRuntime.owner(level, vehicle.chassis);
+    if (winch != null && winch.phase != dev.fourthdimension.shuttle.ShuttleWinchEntity.Phase.BOARDING)
+      winch.fail(MATCHING_SUPPORT_LOST);
   }
 
   public static FoundationData.Vehicle accessible(ServerPlayer player, UUID id) {
@@ -190,6 +195,7 @@ public final class VehicleOperations {
         throw new IllegalArgumentException(
             "Restored geometry changed; unload riders and explicitly rebind the profile before operating");
     }
+    var shuttleRoute = repairedShuttleRoute(level, vehicle);
     var repaired = new HashSet<FoundationData.Rail>();
     for (var v : consist) {
       var rail =
@@ -201,8 +207,53 @@ public final class VehicleOperations {
       v.fault = "";
       v.revision++;
     }
+    for (var rail : shuttleRoute)
+      if (!rail.valid) {
+        rail.valid = true;
+        rail.revision++;
+      }
     TrackGeometry.invalidate(level);
     data.setDirty();
+  }
+
+  /**
+   * An active shuttle's route is one operating unit. A single removed curve can make the
+   * upstream graph temporarily report every route leg as stale; restore only legs whose stored
+   * geometry still matches, then let the winch perform its normal captured recovery.
+   */
+  private static List<FoundationData.Rail> repairedShuttleRoute(
+      ServerLevel level, FoundationData.Vehicle vehicle) {
+    if (vehicle.family != dev.fourthdimension.contract.Family.PAX) return List.of();
+    var winch = dev.fourthdimension.shuttle.ShuttleRuntime.owner(level, vehicle.chassis);
+    if (winch == null || winch.routeStart == null || winch.routeEnd == null) return List.of();
+    var data = FoundationData.get(level);
+    var nodes = new ArrayDeque<net.minecraft.core.BlockPos>();
+    var seenNodes = new HashSet<net.minecraft.core.BlockPos>();
+    var seenRails = new LinkedHashSet<FoundationData.Rail>();
+    nodes.add(winch.routeStart);
+    while (!nodes.isEmpty()) {
+      var node = nodes.remove();
+      if (!seenNodes.add(node)) continue;
+      var legs =
+          data.rails.stream().filter(rail -> rail.from.equals(node) || rail.to.equals(node)).toList();
+      int expected = node.equals(winch.routeStart) || node.equals(winch.routeEnd) ? 1 : 2;
+      if (legs.size() != expected)
+        throw new IllegalArgumentException("Shuttle route must have exactly two open terminals and no branches");
+      for (var rail : legs) {
+        if (rail.family != dev.fourthdimension.contract.Family.PAX
+            || !rail.variant.equals(dev.fourthdimension.track.TrackDesign.PAX.variant))
+          throw new IllegalArgumentException("Every shuttle segment requires valid matching PAX track");
+        var edge = TrackGeometry.resolve(level, rail);
+        if (edge == null || TrackGeometry.fingerprint(level, edge) != rail.geometryHash)
+          throw new IllegalArgumentException(
+              "Restored geometry changed; unload riders and explicitly rebind the profile before operating");
+        seenRails.add(rail);
+        nodes.add(rail.from.equals(node) ? rail.to : rail.from);
+      }
+    }
+    if (!seenNodes.contains(winch.routeEnd) || seenRails.size() < 3)
+      throw new IllegalArgumentException("Shuttle needs a station and two spikes");
+    return List.copyOf(seenRails);
   }
 
   /**

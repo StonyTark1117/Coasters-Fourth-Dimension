@@ -15,6 +15,11 @@ recorded save/remove/reinstall cycle with a current-schema absent-provider
 GameTest. It verifies cosmetic-provider loss does not alter a functional rail,
 but does not establish external functional-track conversion.
 
+[PAX shuttle support-recovery checkpoint](pax-shuttle-support-recovery.md)
+records an occupied active-lift support loss, exact repair, explicit physical
+realignment, guarded winch recovery, and powered relaunch of the original
+four-car train.
+
 [World upgrade and recovery procedure](../../MIGRATION.md) gives the supported
 backup, staged-upgrade and restore steps. It does not convert third-party
 functional blocks or establish the remaining FD903 acceptance evidence.

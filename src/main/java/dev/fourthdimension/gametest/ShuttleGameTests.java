@@ -3,6 +3,7 @@ package dev.fourthdimension.gametest;
 import com.mojang.logging.LogUtils;
 import com.simibubi.create.content.contraptions.actors.seat.SeatBlock;
 import com.simibubi.create.content.kinetics.motor.CreativeMotorBlockEntity;
+import com.simibubi.create.content.trains.track.BezierConnection;
 import dev.fourthdimension.runtime.CarrierRuntime;
 import dev.fourthdimension.runtime.FoundationData;
 import dev.fourthdimension.shuttle.*;
@@ -382,6 +383,173 @@ public final class ShuttleGameTests {
         () ->
             helper.fail(
                 "Chunk/reload recovery did not finish: " + winch[0].phase + " " + winch[0].fault));
+  }
+
+  @GameTest(template = "empty", timeoutTicks = 1400)
+  public static void paxSupportRepairRealignmentResumesPoweredWinch(GameTestHelper helper) {
+    var level = helper.getLevel();
+    for (int x = 48; x <= 52; x++)
+      for (int z = -43; z <= -33; z++) level.setChunkForced(x, z, true);
+    var example = ShuttleExamples.create(level, new BlockPos(800, 180, -600), false);
+    var winch = example.winch();
+    var container = SubLevelContainer.getContainer(level);
+    var riders = new ArrayList<Pig>();
+    BezierConnection[] restoredCurve = {null};
+    boolean[] repaired = {false}, realigned = {false}, recovering = {false}, relaunched = {false};
+    int[] realignDeadline = {0};
+    helper.runAtTickTime(
+        80,
+        () -> {
+          ShuttleExamples.assemble(level, example);
+          for (var car : example.cars())
+            for (var carrier : car.carriers) {
+              var body = container.getSubLevel(carrier.body);
+              for (var offset : carrier.seats) {
+                var rider = EntityType.PIG.create(level);
+                rider.setNoAi(true);
+                rider.setPos(800, 183, -600);
+                level.addFreshEntity(rider);
+                SeatBlock.sitDown(level, body.getPlot().getCenterBlock().offset(offset), rider);
+                helper.assertTrue(rider.isPassenger(), "PAX repair fixture failed native boarding");
+                riders.add(rider);
+              }
+            }
+          helper.assertTrue(riders.size() == 16, "PAX repair fixture did not fill every seat");
+          VehicleOperations.restraints(level, example.cars().getFirst(), true);
+          VehicleOperations.dispatch(level, example.cars().getFirst());
+        });
+    helper.runAtTickTime(
+        88,
+        () -> {
+          helper.assertTrue(
+              winch.phase == ShuttleWinchEntity.Phase.LIFTING,
+              "PAX support-loss fixture did not enter an active lift");
+          var lead = example.cars().getFirst();
+          var anchor =
+              (dev.silvergold.simulatedcoasters.track.anchor.CoasterAnchorpointBlockEntity)
+                  level.getBlockEntity(lead.boundFrom);
+          restoredCurve[0] = anchor.getAnchorPeerCurvesView().get(lead.boundTo);
+          helper.assertTrue(restoredCurve[0] != null, "PAX fixture has no original matching curve");
+          anchor.removeAnchorPeerCurve(level, lead.boundTo);
+        });
+    helper.runAtTickTime(
+        115,
+        () -> {
+          helper.assertTrue(
+              winch.phase == ShuttleWinchEntity.Phase.FAULT
+                  && example.cars().stream()
+                      .allMatch(
+                          car ->
+                              car.stopping
+                                  && car.restraints
+                                  && car.alignmentRequired
+                                  && VehicleOperations.MATCHING_SUPPORT_LOST.equals(car.fault)
+                                  && car.carriers.stream().allMatch(carrier -> carrier.capture)),
+              "Active PAX support loss did not fault the complete powered train");
+          helper.assertTrue(
+              riders.stream().allMatch(Pig::isPassenger),
+              "PAX support loss displaced a mounted rider");
+          var lead = example.cars().getFirst();
+          ((dev.silvergold.simulatedcoasters.track.anchor.CoasterAnchorpointBlockEntity)
+                  level.getBlockEntity(lead.boundFrom))
+              .putAnchorPeerCurve(level, lead.boundTo, restoredCurve[0]);
+        });
+    helper.runAtTickTime(
+        145,
+        () -> {
+          VehicleOperations.repairMatchingSupport(level, example.cars().getFirst());
+          var revisions = example.cars().stream().map(car -> car.revision).toList();
+          for (Runnable action : List.<Runnable>of(winch::resume, winch::recover)) {
+            try {
+              action.run();
+              helper.fail("PAX shuttle resumed before physical realignment");
+            } catch (IllegalArgumentException expected) {
+              helper.assertTrue(
+                  expected.getMessage().contains("Realign matching track"),
+                  "PAX pending-realignment action failed for another reason: "
+                      + expected.getMessage());
+            }
+          }
+          helper.assertTrue(
+              winch.phase == ShuttleWinchEntity.Phase.FAULT
+                  && VehicleOperations.MATCHING_SUPPORT_LOST.equals(winch.fault)
+                  && example.cars().stream()
+                      .allMatch(
+                          car ->
+                              car.stopping
+                                  && car.restraints
+                                  && car.alignmentRequired
+                                  && car.carriers.stream().allMatch(carrier -> carrier.capture))
+                  && example.cars().stream().map(car -> car.revision).toList().equals(revisions),
+              "Rejected PAX pre-realignment recovery mutated the stopped train");
+          repaired[0] = true;
+          realignDeadline[0] = 400;
+        });
+    helper.onEachTick(
+        () -> {
+          if (!repaired[0] || realigned[0]) return;
+          try {
+            VehicleOperations.realignMatchingSupport(level, example.cars().getFirst());
+            realigned[0] = true;
+          } catch (IllegalArgumentException waiting) {
+            if (--realignDeadline[0] <= 0)
+              helper.fail("PAX physical realignment did not settle: " + waiting.getMessage());
+          }
+        });
+    helper.onEachTick(
+        () -> {
+          if (!realigned[0] || recovering[0]) return;
+          try {
+            winch.recover();
+            recovering[0] = true;
+          } catch (IllegalArgumentException waiting) {
+            if (--realignDeadline[0] <= 0)
+              helper.fail("PAX shuttle recovery did not accept realigned train: " + waiting.getMessage());
+          }
+        });
+    helper.onEachTick(
+        () -> {
+          if (!recovering[0] || relaunched[0] || winch.phase != ShuttleWinchEntity.Phase.BOARDING)
+            return;
+          if (!example.cars().stream().allMatch(car -> Boarding.ready(level, car))) return;
+          VehicleOperations.dispatch(level, example.cars().getFirst());
+          relaunched[0] = true;
+        });
+    helper.onEachTick(
+        () -> {
+          if (!relaunched[0] || winch.phase != ShuttleWinchEntity.Phase.LIFTING) return;
+          helper.assertTrue(
+              example.cars().stream()
+                  .allMatch(
+                      car ->
+                          !car.alignmentRequired
+                              && car.fault.isEmpty()
+                              && car.restraints
+                              && !car.stopping),
+              "PAX powered relaunch retained stale support-recovery state");
+          helper.assertTrue(
+              riders.stream().allMatch(Pig::isPassenger),
+              "PAX powered relaunch displaced a mounted rider");
+          System.out.println(
+              "FD_PAX_SUPPORT_RECOVERY repaired=true realigned=true recovered=true relaunched=true"
+                  + " riders="
+                  + riders.size());
+          helper.succeed();
+        });
+    helper.runAtTickTime(
+        1390,
+        () ->
+            helper.fail(
+                "PAX support recovery did not relaunch: "
+                    + winch.phase
+                    + " "
+                    + winch.fault
+                    + " repaired="
+                    + repaired[0]
+                    + " realigned="
+                    + realigned[0]
+                    + " recovering="
+                    + recovering[0]));
   }
 
   @GameTest(template = "empty", timeoutTicks = 240)
