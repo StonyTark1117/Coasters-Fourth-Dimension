@@ -10,8 +10,8 @@
   "nativeResult": "passed",
   "unitTests": 26,
   "unitResult": "passed",
-  "singleClearance": "passed",
-  "trainClearance": "passed",
+  "singleClearance": "original verifier passed; complete rider-to-rack coverage unproven",
+  "trainClearance": "original verifier passed; complete rider-to-rack coverage unproven",
   "renderEnvironment": "Xvfb :121, 854x480, llvmpipe LLVM23.1.3 Mesa26.2.5; no hardware/FPS acceptance",
   "clientNames": [
     "Dev",
@@ -72,7 +72,7 @@
     }
   ],
   "files": {
-    "README.md": "6bd33bd8565a51f5aa34b6b42f5810ea5048d3b5b456ed7e4fdfcb69a9df7ae4",
+    "README.md": "53de2092c14c4ded82518d16145fac770d3b6ea3ff73dd9eefd7fdb9b0db4da0",
     "after-cold-restart.png": "b06df795dba27ac7f20d93704a48ab72d299c9b27e8330bd679fbf40abfefef0",
     "after-resource-reload.png": "faf29bf839854d987042f5e907d5a89023c30892e513506d257bd8e329163f3d",
     "arrow-goggles.png": "87fa2a7b315cfbda7adc8cdccc6ae686b36aa6979f8abbc3caddd5ae03447b3e",
@@ -112,5 +112,6 @@
     "standalone-native.log.gz": "9549aee9ca4ab99f862a218bf94db07a2c3ba2b8343f948517ff7113c43b4e1d",
     "train-clearance.json": "cf503fd94cbbd606b0c6f507bb7ba6a0515f3df9ce033d44e011da4912152df1",
     "train-route-geometry.json": "543b348edbcd1a2918645ed36835f4ad6ffbfa6ff2fc6d8ae2faa055cd4273fa"
-  }
+  },
+  "clearanceLimitation": "Verifier b7b704b5 skips rider-to-rack checks when no nearby track triangle exists; corrected audit required on retained traces."
 }
