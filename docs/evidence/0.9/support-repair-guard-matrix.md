@@ -1,14 +1,14 @@
 # Exact support-repair rejection matrix
 
 **Scope:** FD902 native server guards for the original five functional families.
-This extends `fiveFamilySupportRepairRequiresExactTrackAndExplicitResume` in
+This extends `fiveFamilySupportRepairRequiresExactTrackAndRealignment` in
 `OperationsGameTests`; it does not add a packaged-client or multiplayer claim.
 
 ## Checks
 
 For each occupied Arrow, legacy ZacSpin, Free Spin, revised ZacSpin and PAX car,
-the fixture removes its real Coasters matching curve while a pig remains in a
-native carrier seat. It then requires:
+the fixture removes its real Coasters matching curve while two independent
+server-player riders remain in native carrier seats. It then requires:
 
 1. explicit repair to reject while that native curve is missing, retaining the
    support-loss fault;
@@ -35,10 +35,10 @@ JAVA_HOME=/usr/lib/jvm/java-21-openjdk ./gradlew test runGameTestServer --consol
 On 2026-11-02 the isolated branch ran against the default dependency profile:
 
 ```text
-FD_SUPPORT_REPAIR families=[ARROW, ZACSPIN, FREE_SPIN, ZACSPIN_REVISED, PAX] riders=5 exactGeometryOnly=true noAutoResume=true realignmentRequiredBeforeDispatch=true missingSectionRejected=true wrongFamilyRejected=true changedFingerprintRejected=true uncapturedRejected=true repeatRejected=true nativeReengagement=true normalDispatch=true
-========= 44 GAME TESTS COMPLETE IN 4.977 min ======================
+FD_SUPPORT_REPAIR families=[ARROW, ZACSPIN, FREE_SPIN, ZACSPIN_REVISED, PAX] riders=10 exactGeometryOnly=true noAutoResume=true realignmentRequiredBeforeDispatch=true missingSectionRejected=true wrongFamilyRejected=true changedFingerprintRejected=true uncapturedRejected=true repeatRejected=true nativeReengagement=true normalDispatch=true postRepairHoldingReload=true
+========= 44 GAME TESTS COMPLETE IN 4.783 min ======================
 All 44 required tests passed :)
-BUILD SUCCESSFUL in 5m 15s
+BUILD SUCCESSFUL in 5m 7s
 ```
 
 The same command ran 26 unit tests with no failures. The five additional
@@ -47,7 +47,8 @@ at 44.
 
 ## Limits
 
-This is server-side guard coverage. The underlying fixture now also verifies
-physical realignment and later dispatch. A real changed-curve rebuild,
-simultaneous clients and full post-stop recovery remain FD902 acceptance work;
-packaged-client repair has separate five-family evidence.
+This is server-side guard coverage. The underlying fixture also verifies
+physical realignment, later dispatch, and a native holding-store reload.
+A real changed-curve rebuild, simultaneous recovery replicated to two real
+clients, and a post-repair client reconnect or cold server restart remain
+FD902 acceptance work; packaged-client repair has separate five-family evidence.
