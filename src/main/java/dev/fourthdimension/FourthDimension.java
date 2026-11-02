@@ -11,6 +11,7 @@ public final class FourthDimension {
   public static final String ID = "fourthdimension";
 
   public FourthDimension(IEventBus bus) {
+    dev.fourthdimension.integration.create.CreateIntegration.register(bus);
     dev.fourthdimension.shuttle.ShuttleContent.registerItem();
     dev.fourthdimension.station.StationContent.registerItem();
     dev.fourthdimension.station.StationContent.BLOCKS.register(bus);

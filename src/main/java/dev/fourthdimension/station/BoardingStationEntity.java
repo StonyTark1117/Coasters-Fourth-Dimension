@@ -1,7 +1,9 @@
 package dev.fourthdimension.station;
 
+import com.simibubi.create.api.equipment.goggles.IHaveGoggleInformation;
+import dev.fourthdimension.integration.*;
+import dev.fourthdimension.integration.create.RideInformation;
 import dev.fourthdimension.runtime.FoundationData;
-import dev.fourthdimension.vehicle.VehicleOperations;
 import java.util.UUID;
 import net.minecraft.core.*;
 import net.minecraft.nbt.CompoundTag;
@@ -10,10 +12,43 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 
-public final class BoardingStationEntity extends BlockEntity {
+public final class BoardingStationEntity extends BlockEntity
+    implements IHaveGoggleInformation, RideInformation.Source {
   public UUID vehicle;
   public String fault = "";
   private boolean powered;
+  private RideTelemetry telemetry = RideTelemetry.unavailable("Waiting for station state");
+
+  @Override
+  public RideTelemetry telemetry() {
+    return telemetry;
+  }
+
+  @Override
+  public boolean addToGoggleTooltip(
+      java.util.List<net.minecraft.network.chat.Component> tooltip, boolean sneaking) {
+    return RideInformation.goggles(tooltip, telemetry);
+  }
+
+  @Override
+  public CompoundTag getUpdateTag(HolderLookup.Provider registries) {
+    var tag = saveWithoutMetadata(registries);
+    tag.put("ride_telemetry", telemetry.save());
+    return tag;
+  }
+
+  @Override
+  public net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket getUpdatePacket() {
+    return net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket.create(this);
+  }
+
+  private void updateTelemetry(ServerLevel server) {
+    var next = RideTelemetry.atController(server, worldPosition, vehicle);
+    if (!next.equals(telemetry)) {
+      telemetry = next;
+      server.sendBlockUpdated(worldPosition, getBlockState(), getBlockState(), 2);
+    }
+  }
 
   public BoardingStationEntity(BlockPos pos, BlockState state) {
     super(StationContent.ENTITY.get(), pos, state);
@@ -31,6 +66,8 @@ public final class BoardingStationEntity extends BlockEntity {
     super.loadAdditional(tag, provider);
     vehicle = tag.hasUUID("vehicle") ? tag.getUUID("vehicle") : null;
     powered = tag.getBoolean("powered");
+    if (tag.contains("ride_telemetry"))
+      telemetry = RideTelemetry.load(tag.getCompound("ride_telemetry"));
   }
 
   public static void tick(
@@ -40,36 +77,28 @@ public final class BoardingStationEntity extends BlockEntity {
         station.vehicle == null ? null : FoundationData.get(level).vehicles.get(station.vehicle);
     var rear = state.getValue(BoardingStation.FACING).getOpposite();
     boolean signal = level.getSignal(pos.relative(rear), rear) > 0;
-    boolean nearby = false;
-    if (v != null) {
-      var container = dev.ryanhcode.sable.api.sublevel.SubLevelContainer.getContainer(level);
-      var body = container == null ? null : container.getSubLevel(v.chassis);
-      var center =
-          body == null
-              ? null
-              : dev.silvergold.simulatedcoasters.track.cart.CoasterCartResolve.cartCenterWorld(
-                  body);
-      nearby =
-          center != null
-              && center.distanceSquared(
-                      new org.joml.Vector3d(pos.getX() + .5, pos.getY() + .5, pos.getZ() + .5))
-                  < 8 * 8;
-    }
+    boolean nearby = RideOperations.nearby(level, pos, station.vehicle);
     if (v != null
         && v.family != dev.fourthdimension.contract.Family.PAX
         && ((signal && nearby && !v.stopping) || (!signal && station.powered && nearby))) {
       try {
-        if (signal) VehicleOperations.capture(level, v);
-        else VehicleOperations.dispatch(level, v);
+        RideOperations.request(
+            level,
+            pos,
+            v.chassis,
+            signal ? RideOperations.Request.CAPTURE : RideOperations.Request.DISPATCH);
         station.fault = "";
       } catch (IllegalArgumentException failure) {
         station.fault = failure.getMessage();
       }
     }
-    station.powered = signal;
-    station.setChanged();
-    boolean ready = nearby && v != null && v.boardingReady,
-        locked = nearby && v != null && v.restraints;
+    if (station.powered != signal) {
+      station.powered = signal;
+      station.setChanged();
+    }
+    station.updateTelemetry(level);
+    boolean ready = nearby && station.telemetry.boardingReady(),
+        locked = nearby && station.telemetry.restraintsClosed();
     if (state.getValue(BoardingStation.READY) != ready
         || state.getValue(BoardingStation.LOCKED) != locked)
       level.setBlock(

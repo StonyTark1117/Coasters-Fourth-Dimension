@@ -12,7 +12,8 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.level.block.state.BlockState;
 
 /** Persisted operating state; native constraint handles live only in ShuttleRuntime. */
-public final class ShuttleWinchEntity extends KineticBlockEntity {
+public final class ShuttleWinchEntity extends KineticBlockEntity
+    implements dev.fourthdimension.integration.create.RideInformation.Source {
   public enum Phase {
     BOARDING,
     LIFTING,
@@ -31,6 +32,21 @@ public final class ShuttleWinchEntity extends KineticBlockEntity {
   public double maximumDistance;
   public int cycles;
 
+  private dev.fourthdimension.integration.RideTelemetry telemetry =
+      dev.fourthdimension.integration.RideTelemetry.unavailable("Waiting for winch state");
+
+  @Override
+  public dev.fourthdimension.integration.RideTelemetry telemetry() {
+    return telemetry;
+  }
+
+  @Override
+  public boolean addToGoggleTooltip(
+      java.util.List<net.minecraft.network.chat.Component> tooltip, boolean sneaking) {
+    super.addToGoggleTooltip(tooltip, sneaking);
+    return dev.fourthdimension.integration.create.RideInformation.goggles(tooltip, telemetry);
+  }
+
   public ShuttleWinchEntity(BlockPos pos, BlockState state) {
     super(ShuttleContent.ENTITY.get(), pos, state);
   }
@@ -38,7 +54,18 @@ public final class ShuttleWinchEntity extends KineticBlockEntity {
   @Override
   public void tick() {
     super.tick();
-    if (level instanceof ServerLevel server) ShuttleRuntime.register(server, this);
+    if (level instanceof ServerLevel server) {
+      ShuttleRuntime.register(server, this);
+      if (server.getGameTime() % 10 == 0) {
+        var next =
+            dev.fourthdimension.integration.RideTelemetry.atController(
+                server, worldPosition, vehicle);
+        if (!next.equals(telemetry)) {
+          telemetry = next;
+          sendData();
+        }
+      }
+    }
   }
 
   @Override
@@ -113,7 +140,8 @@ public final class ShuttleWinchEntity extends KineticBlockEntity {
     changed();
   }
 
-  public void start() {
+  /** Read-only preflight; preserves all current support and whole-train guards. */
+  public void validateStart() {
     if (phase != Phase.BOARDING || vehicle == null)
       throw new IllegalArgumentException("Bind and capture the shuttle before starting");
     validateNoPendingRealignment();
@@ -124,6 +152,10 @@ public final class ShuttleWinchEntity extends KineticBlockEntity {
     var container = SubLevelContainer.getContainer(level);
     if (Math.abs(route.locate(container.getSubLevel(vehicle)).distance() - stationDistance) > .5)
       throw new IllegalArgumentException("Return the train to its bound station before starting");
+  }
+
+  public void start() {
+    validateStart();
     phase = Phase.LIFTING;
     maximumDistance = stationDistance;
     ShuttleRuntime.releaseBrakes((ServerLevel) level, this, true);
@@ -244,6 +276,7 @@ public final class ShuttleWinchEntity extends KineticBlockEntity {
   @Override
   protected void write(CompoundTag tag, HolderLookup.Provider registries, boolean client) {
     super.write(tag, registries, client);
+    if (client) tag.put("ride_telemetry", telemetry.save());
     if (vehicle != null) tag.putUUID("shuttle_vehicle", vehicle);
     if (carriage != null) tag.putUUID("shuttle_carriage", carriage);
     var list = new ListTag();
@@ -263,6 +296,9 @@ public final class ShuttleWinchEntity extends KineticBlockEntity {
   @Override
   protected void read(CompoundTag tag, HolderLookup.Provider registries, boolean client) {
     super.read(tag, registries, client);
+    if (client)
+      telemetry =
+          dev.fourthdimension.integration.RideTelemetry.load(tag.getCompound("ride_telemetry"));
     vehicle = tag.hasUUID("shuttle_vehicle") ? tag.getUUID("shuttle_vehicle") : null;
     carriage = tag.hasUUID("shuttle_carriage") ? tag.getUUID("shuttle_carriage") : null;
     var ids = new ArrayList<UUID>();
