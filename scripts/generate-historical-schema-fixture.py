@@ -123,5 +123,9 @@ payload = compound([
     ('vehicles', LIST, list_tag(COMPOUND, data['vehicles'], vehicle)),
 ])
 raw = bytes([COMPOUND]) + utf('') + named(COMPOUND, 'data', payload) + b'\0'
+compressed = bytearray(gzip.compress(raw, mtime=0))
+# Python versions differ in the gzip OS header byte when mtime=0. Keep the
+# fixture stable across local generation and GitHub's Python runtime.
+compressed[9] = 255
 with destination.open("w", encoding="ascii") as output_file:
-    output_file.write(base64.b64encode(gzip.compress(raw, mtime=0)).decode("ascii") + "\n")
+    output_file.write(base64.b64encode(compressed).decode("ascii") + "\n")
