@@ -391,7 +391,27 @@ public final class OperationsGameTests {
     var container = SubLevelContainer.getContainer(level);
     var rails = new ArrayList<FoundationData.Rail>();
     var cars = new ArrayList<FoundationData.Vehicle>();
-    var riders = new ArrayList<net.minecraft.world.entity.animal.Pig>();
+    // Use two independent server-player identities per family. The live-client acceptance run
+    // still proves packet replication, while this regression keeps the authoritative support
+    // recovery path honest about distinct seat assignments throughout the five-family sequence.
+    var riders = new ArrayList<net.minecraft.server.level.ServerPlayer>();
+    for (int index = 0; index < TrackDesign.values().length * 2; index++) {
+      var profile =
+          new com.mojang.authlib.GameProfile(
+              UUID.nameUUIDFromBytes(
+                  ("FDSupportRepairRider" + index)
+                      .getBytes(java.nio.charset.StandardCharsets.UTF_8)),
+              "FDSupportRider" + index);
+      var rider =
+          new net.minecraft.server.level.ServerPlayer(
+              level.getServer(),
+              level,
+              profile,
+              net.minecraft.server.level.ClientInformation.createDefault());
+      rider.connection = FakePlayerFactory.get(level, profile).connection;
+      rider.setGameMode(GameType.CREATIVE);
+      riders.add(rider);
+    }
     for (var design : TrackDesign.values()) {
       // Use a separate chunk-loaded corridor; native carrier clearance extends beyond each car's
       // center and cannot overlap concurrently running fixtures.
@@ -418,22 +438,26 @@ public final class OperationsGameTests {
     helper.runAtTickTime(
         85,
         () -> {
-          for (var car : cars) {
+          for (int carIndex = 0; carIndex < cars.size(); carIndex++) {
+            var car = cars.get(carIndex);
             helper.assertTrue(Boarding.ready(level, car), "Repair fixture did not reach boarding");
-            var carrier = (ServerSubLevel) container.getSubLevel(car.carriers.getFirst().body);
-            var rider = net.minecraft.world.entity.EntityType.PIG.create(level);
-            rider.setNoAi(true);
-            rider.setPos(
-                carrier.logicalPose().position().x,
-                carrier.logicalPose().position().y,
-                carrier.logicalPose().position().z);
-            level.addFreshEntity(rider);
-            com.simibubi.create.content.contraptions.actors.seat.SeatBlock.sitDown(
-                level,
-                carrier.getPlot().getCenterBlock().offset(car.carriers.getFirst().seats.getFirst()),
-                rider);
-            helper.assertTrue(rider.isPassenger(), "Repair fixture rider did not mount");
-            riders.add(rider);
+            var carrier = car.carriers.getFirst();
+            var body = (ServerSubLevel) container.getSubLevel(carrier.body);
+            var first = riders.get(carIndex * 2);
+            var second = riders.get(carIndex * 2 + 1);
+            var firstSeat = body.getPlot().getCenterBlock().offset(carrier.seats.get(0));
+            var secondSeat = body.getPlot().getCenterBlock().offset(carrier.seats.get(1));
+            first.setPos(firstSeat.getX(), firstSeat.getY(), firstSeat.getZ());
+            second.setPos(secondSeat.getX(), secondSeat.getY(), secondSeat.getZ());
+            com.simibubi.create.content.contraptions.actors.seat.SeatBlock.sitDown(level, firstSeat, first);
+            com.simibubi.create.content.contraptions.actors.seat.SeatBlock.sitDown(level, secondSeat, second);
+            helper.assertTrue(
+                first.isPassenger()
+                    && second.isPassenger()
+                    && first.getVehicle() != second.getVehicle()
+                    && carrier.riderSeats.size() == 2
+                    && carrier.riderSeats.keySet().containsAll(List.of(first.getUUID(), second.getUUID())),
+                "Repair fixture did not retain two distinct player-seat assignments for " + car.variant);
             VehicleOperations.restraints(level, car, true);
             var rail =
                 data.rails.stream()
@@ -449,7 +473,7 @@ public final class OperationsGameTests {
         () -> {
           helper.assertTrue(
               riders.stream().allMatch(net.minecraft.world.entity.Entity::isPassenger),
-              "Support loss displaced a rider before repair");
+              "Support loss displaced a concurrent rider before repair");
           for (var car : cars) {
             helper.assertTrue(
                 car.stopping
@@ -457,6 +481,9 @@ public final class OperationsGameTests {
                     && VehicleOperations.MATCHING_SUPPORT_LOST.equals(car.fault)
                     && car.carriers.stream().allMatch(carrier -> carrier.capture),
                 "Support loss did not retain a serviceable captured car for " + car.variant);
+            helper.assertTrue(
+                car.carriers.getFirst().riderSeats.size() == 2,
+                "Support loss changed concurrent seat assignments for " + car.variant);
             boolean rejected = false;
             try {
               VehicleOperations.dispatch(level, car);
@@ -523,7 +550,7 @@ public final class OperationsGameTests {
           }
           helper.assertTrue(
               riders.stream().allMatch(net.minecraft.world.entity.Entity::isPassenger),
-              "Realignment duplicated or displaced a retained rider");
+              "Realignment duplicated or displaced a concurrent rider");
         });
     helper.runAtTickTime(
         235,
@@ -575,7 +602,10 @@ public final class OperationsGameTests {
           }
           helper.assertTrue(
               riders.stream().allMatch(net.minecraft.world.entity.Entity::isPassenger),
-              "Realignment duplicated or displaced a retained rider");
+              "Realignment duplicated or displaced a concurrent rider");
+          helper.assertTrue(
+              cars.stream().allMatch(car -> car.carriers.getFirst().riderSeats.size() == 2),
+              "Realignment changed concurrent seat assignments");
           // The dispatch assertion above proves that physical realignment clears the native
           // interlock. Recapture before the lifecycle boundary so holding-store reload checks
           // the safe, stopped condition operators are expected to preserve during service.
@@ -644,7 +674,10 @@ public final class OperationsGameTests {
           }
           helper.assertTrue(
               riders.stream().allMatch(net.minecraft.world.entity.Entity::isPassenger),
-              "Holding reload displaced a rider after physical realignment");
+              "Holding reload displaced a concurrent rider after physical realignment");
+          helper.assertTrue(
+              cars.stream().allMatch(car -> car.carriers.getFirst().riderSeats.size() == 2),
+              "Holding reload changed concurrent seat assignments after physical realignment");
           System.out.println(
               "FD_SUPPORT_REPAIR families="
                   + cars.stream().map(car -> car.family).toList()
