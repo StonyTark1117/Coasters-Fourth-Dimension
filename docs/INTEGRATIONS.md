@@ -108,10 +108,13 @@ update data without changing FoundationData schema 6 or network protocol 7.
 Compilation and 26 existing unit tests pass. The native telemetry regression
 includes all five families, linked-car repair/realignment rejection, stale
 snapshots, controller range, PAX ownership, Display Link source output and
-serialized block updates; execution on this revision is pending. The earlier
-telemetry branch's native results are not acceptance for this reconciled build.
-Live goggles, Display Link configuration/rendering, two-client synchronization,
-late joining and current standalone/combined native checks remain required.
+serialized block updates. [Current four-profile CI evidence](evidence/0.9/create-telemetry/README.md)
+records all 47 required native tests passing on source revision `177d4f6`, including
+the telemetry assertions. Each job then hit its 25-minute limit during the dense
+clearance audit; this is not a complete CI pass. The earlier telemetry branch's
+native results are not substituted for this run. Live goggles, Display Link
+configuration/rendering, two-client synchronization, late joining, completed
+clearance audits and final integrated-artifact checks remain required.
 
 ## Remaining FD401 acceptance
 
