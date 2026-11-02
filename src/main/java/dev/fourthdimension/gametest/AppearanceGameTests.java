@@ -22,7 +22,9 @@ import net.neoforged.neoforge.gametest.*;
 @GameTestHolder("fourthdimension")
 @PrefixGameTestTemplate(false)
 public final class AppearanceGameTests {
-  @GameTest(template = "empty", timeoutTicks = 120)
+  // This creates native bodies while it cycles cosmetic providers. Run it independently so the
+  // bounded 64-vehicle runtime pool is never consumed by unrelated default-batch fixtures.
+  @GameTest(template = "empty", batch = "fd_appearance_eligibility", timeoutTicks = 120)
   public static void cosmeticStyleCannotChangeOriginalFamilyEligibility(GameTestHelper helper) {
     var level = helper.getLevel();
     for (int x = 46; x <= 50; x++)

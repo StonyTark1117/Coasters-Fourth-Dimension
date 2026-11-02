@@ -23,7 +23,9 @@ import org.joml.Vector3d;
 @GameTestHolder("fourthdimension")
 @PrefixGameTestTemplate(false)
 public final class MagneticTraversalGameTests {
-  @GameTest(template = "empty", timeoutTicks = 330)
+  // The traversal fixture owns several live native bodies and must not contend with optional
+  // provider fixtures for the global vehicle pool.
+  @GameTest(template = "empty", batch = "fd_magnetic_traversal", timeoutTicks = 330)
   public static void fastForwardReverseNarrowSpanNoReplayOrOtherTargets(GameTestHelper helper) {
     var level = helper.getLevel();
     for (int x = -38; x <= -35; x++)

@@ -354,7 +354,9 @@ public final class EngineeredGameTests {
         });
   }
 
-  @GameTest(template = "empty", timeoutTicks = 1000)
+  // This installed-provider rollback scenario deliberately keeps a five-family train live.
+  // Separate it from the default concurrent batch to preserve the production 64-vehicle limit.
+  @GameTest(template = "empty", batch = "fd_engineered_controlled", timeoutTicks = 1000)
   public static void installedMotorDrivesLinkedControlledTurnsAndRollback(GameTestHelper helper) {
     if (!OptionalIntegrations.installed(OptionalIntegrations.ENGINEERED).mayInspect()) {
       System.out.println("FD_ENGINEERED controlled train: absent/uninspected, not exercised");
