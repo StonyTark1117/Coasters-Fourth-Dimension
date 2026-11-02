@@ -1,0 +1,11 @@
+# Selected packaged-client lines
+# Full log SHA-256: 9a5a1d4cbee5942016ff7d008335d77f60fdff67243eb9568f304ee74d5d873c
+[13:01:53] [Server thread/INFO] [de.fo.ru.CarrierValidationFixture/]: FD_CARRIER_FIXTURE created families=1 vehicles=1 carriers=2 rails=8 riderFamily=ARROW
+[13:01:55] [Server thread/INFO] [de.fo.ru.CarrierValidationFixture/]: FD_CARRIER_FIXTURE boarded rider=Dev family=ARROW carrier=6ea99d6f-3749-4a0a-b269-da70dd2d8893 seat=BlockPos{x=20481032, y=127, z=20483080}
+[13:02:20] [Server thread/INFO] [de.fo.ru.CarrierValidationFixture/]: FD_CARRIER_FIXTURE dispatched controlled motion chassis=[86daf66d-2048-4b32-83e7-e5d2d246a59d] families=[ARROW]
+[13:02:21] [Server thread/INFO] [de.fo.ru.CarrierValidationFixture/]: FD_CARRIER_FIXTURE removed ARROW support chassis=86daf66d-2048-4b32-83e7-e5d2d246a59d from=BlockPos{x=-150, y=180, z=8} to=BlockPos{x=-150, y=180, z=44}
+[13:02:21] [Server thread/INFO] [de.fo.ru.CarrierValidationFixture/]: FD_CARRIER_FIXTURE support-loss settled chassis=86daf66d-2048-4b32-83e7-e5d2d246a59d rider=Dev retained=true fault=Matching track support lost
+[13:02:22] [Server thread/INFO] [de.fo.ru.CarrierValidationFixture/]: FD_CARRIER_FIXTURE rebuilt exact ARROW support chassis=86daf66d-2048-4b32-83e7-e5d2d246a59d from=BlockPos{x=-150, y=180, z=8} to=BlockPos{x=-150, y=180, z=44}
+[13:02:23] [Server thread/INFO] [de.fo.ru.CarrierValidationFixture/]: FD_CARRIER_FIXTURE support repair settled chassis=86daf66d-2048-4b32-83e7-e5d2d246a59d stopped=true restraints=true ridersRetained=1
+[13:02:45] [Render thread/ERROR] [ne.ne.bu.EventBus/EVENTBUS]: Exception caught during firing event: FD_CARRIER_VALIDATION did not initialize: required family matrix is not loaded required=1 families=[ARROW] carriers=2 riderRequired=true riderMounted=true supportLossRequired=true supportLossObserved=true supportLossAfterMotion=true supportRepairRequired=true supportRepairObserved=true supportRealignmentRequired=true supportRealignmentObserved=false compiledBodies=0/3 sectionLayerBodies=0/3
+BUILD FAILED in 1m 13s
