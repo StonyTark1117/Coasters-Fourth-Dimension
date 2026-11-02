@@ -71,6 +71,9 @@ validation remains possible when the shared runtime is available.
 
 ## Remaining acceptance
 
+The [client acceptance protocol](client-acceptance.md) defines the pending visible
+output, normal-control and multiplayer checks; it is not a record of passing tests.
+
 This checkpoint does not certify goggles rendering, Display Link configuration
 or visible output, client packet application, two-client/late-join behavior, or
 the full FD401/FD904 release gates. The winch's native client goggles method is
