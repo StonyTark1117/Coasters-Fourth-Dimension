@@ -25,6 +25,7 @@ import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.animal.Pig;
 import net.minecraft.world.level.GameType;
+import net.minecraft.world.level.block.entity.BlockEntity;
 import net.neoforged.neoforge.capabilities.Capabilities;
 import net.neoforged.neoforge.common.ModConfigSpec;
 import net.neoforged.neoforge.common.util.FakePlayerFactory;
@@ -86,6 +87,175 @@ public final class EngineeredEnergyGameTests {
     boolean pax() {
       return vehicle != null && vehicle.family == Family.PAX;
     }
+  }
+
+  @GameTest(template = "empty", batch = BATCH, timeoutTicks = 440)
+  public static void nativeMotorSpanAndEnergySurviveBlockEntityReload(GameTestHelper helper) {
+    if (!OptionalIntegrations.installed(OptionalIntegrations.ENGINEERED).mayInspect()) {
+      System.out.println("FD_ENGINEERED_FE_RELOAD absent/uninspected: scenario not exercised");
+      helper.succeed();
+      return;
+    }
+    helper.assertTrue((boolean) invoke(type("TrackEnergy"), "required"), "FE requirement disabled");
+    var level = helper.getLevel();
+    var container = SubLevelContainer.getContainer(level);
+    for (int x = -45; x <= -43; x++)
+      for (int z = -39; z <= -35; z++) level.setChunkForced(x, z, true);
+    var player =
+        FakePlayerFactory.get(
+            level,
+            new com.mojang.authlib.GameProfile(
+                UUID.fromString("fdfdfdfd-0000-0000-0000-000000000415"), "FDEngineeredReload"));
+    player.setGameMode(GameType.CREATIVE);
+    player.setItemInHand(InteractionHand.MAIN_HAND, TrackItems.ARROW.get().getDefaultInstance());
+    var from = new BlockPos(-704, 120, -608);
+    var to = from.offset(0, 0, 48);
+    for (var pos : List.of(from, to))
+      level.setBlockAndUpdate(
+          pos, SimulatedCoastersBlocks.COASTER_ANCHORPOINT.get().defaultBlockState());
+    player.setPos(to.getX() + 2, to.getY() + 1, to.getZ());
+    var rail =
+        TrackPlacement.connect(
+            level, from, to, TrackDesign.ARROW, player, player.getMainHandItem());
+    var controllerPos = from.offset(-6, 0, 0);
+    level.setBlockAndUpdate(
+        controllerPos,
+        BuiltInRegistries.BLOCK
+            .get(ResourceLocation.parse("coastersengineered:linear_motor_controller"))
+            .defaultBlockState());
+    FoundationData.Vehicle[] vehicle = {null};
+    Pig[] rider = {null};
+    Object[] controller = {null};
+    IEnergyStorage[] energy = {null};
+    double[] heldZ = {0};
+    int[] supplied = {0};
+
+    helper.runAtTickTime(
+        15,
+        () -> {
+          controller[0] = configureMotor(helper, rail, controllerPos, 10, "FORWARD");
+          var edge = TrackGeometry.resolve(level, rail);
+          double t = edge.from().equals(from) ? .25 : .75;
+          var hit =
+              new CoasterPathTrackFrame.GraphHit(
+                  CoasterPathGraphManager.sampleEdgePosition(level, edge, t), edge, t);
+          vehicle[0] = VehicleFactory.create(level, TrackDesign.ARROW, hit);
+        });
+    helper.runAtTickTime(
+        80,
+        () -> {
+          var v = vehicle[0];
+          helper.assertTrue(Boarding.ready(level, v), "Reload fixture not ready to board");
+          var chassis = (ServerSubLevel) container.getSubLevel(v.chassis);
+          var carrier = v.carriers.getFirst();
+          var body = container.getSubLevel(carrier.body);
+          rider[0] = EntityType.PIG.create(level);
+          rider[0].setNoAi(true);
+          rider[0].setPos(
+              chassis.logicalPose().position().x(), 123, chassis.logicalPose().position().z());
+          level.addFreshEntity(rider[0]);
+          SeatBlock.sitDown(
+              level, body.getPlot().getCenterBlock().offset(carrier.seats.getFirst()), rider[0]);
+          helper.assertTrue(rider[0].isPassenger(), "Reload fixture failed native boarding");
+          VehicleOperations.restraints(level, v, true);
+          VehicleOperations.retention(level, v, true);
+          energy[0] = level.getCapability(Capabilities.EnergyStorage.BLOCK, from, Direction.UP);
+          helper.assertTrue(energy[0] != null, "Motor anchor exposes no FE capability");
+          supplied[0] = energy[0].receiveEnergy(40000, false);
+          helper.assertTrue(supplied[0] == 40000, "Motor anchor failed FE supply");
+          heldZ[0] = chassis.logicalPose().position().z();
+          helper.assertTrue(
+              (boolean) invoke(controller[0], "isLinked"), "Motor unlinked before reload");
+          reloadBlockEntity(helper, from);
+          reloadBlockEntity(helper, controllerPos);
+        });
+    helper.runAtTickTime(
+        140,
+        () -> {
+          var v = vehicle[0];
+          var chassis = (ServerSubLevel) container.getSubLevel(v.chassis);
+          controller[0] = level.getBlockEntity(controllerPos);
+          energy[0] = level.getCapability(Capabilities.EnergyStorage.BLOCK, from, Direction.UP);
+          helper.assertTrue(energy[0] != null, "Reload lost motor FE capability");
+          helper.assertTrue(energy[0].getEnergyStored() == supplied[0], "Reload lost stored FE");
+          helper.assertTrue(
+              (boolean) invoke(controller[0], "isLinked"), "Reload lost controller link");
+          helper.assertTrue(
+              invoke(controller[0], "boundAnchor").equals(from), "Reload changed controller anchor");
+          helper.assertTrue(
+              invoke(controller[0], "commandMode").toString().equals("LAUNCH")
+                  && ((Number) invoke(controller[0], "commandValue")).intValue() == 10,
+              "Reload changed motor step");
+          helper.assertTrue(
+              Math.abs(chassis.logicalPose().position().z() - heldZ[0]) < .1,
+              "Reloaded motor bypassed maintenance retention");
+          helper.assertTrue(
+              rider[0].isPassenger() && v.restraints, "Reload lost occupied restraints");
+          assertMass(helper, v);
+          System.out.println(
+              "FD_ENGINEERED_FE_RELOAD linked=true stored="
+                  + energy[0].getEnergyStored()
+                  + " retained=true rider=true");
+          VehicleOperations.retention(level, v, false);
+          VehicleOperations.dispatch(level, v);
+        });
+    helper.runAtTickTime(
+        250,
+        () -> {
+          var chassis = (ServerSubLevel) container.getSubLevel(vehicle[0].chassis);
+          double distance = Math.abs(chassis.logicalPose().position().z() - heldZ[0]);
+          helper.assertTrue(distance > 3, "Reloaded powered motor did not launch Arrow car");
+          helper.assertTrue(
+              energy[0].getEnergyStored() < supplied[0], "Reloaded motor spent no FE on launch");
+          helper.assertTrue(rider[0].isPassenger(), "Reloaded launch lost passenger");
+          setMode(controller[0], "STOP", 0);
+          System.out.println(
+              "FD_ENGINEERED_FE_RELOAD launched distance="
+                  + distance
+                  + " remaining="
+                  + energy[0].getEnergyStored());
+        });
+    helper.runAtTickTime(
+        370,
+        () -> {
+          var v = vehicle[0];
+          var chassis = (ServerSubLevel) container.getSubLevel(v.chassis);
+          double speed =
+              container
+                  .physicsSystem()
+                  .getPipeline()
+                  .getLinearVelocity(chassis, new Vector3d())
+                  .length();
+          helper.assertTrue(speed < .1, "Reloaded motor STOP failed");
+          VehicleOperations.capture(level, v);
+          helper.assertTrue(Boarding.ready(level, v), "Reloaded ride failed carrier recapture");
+          VehicleOperations.restraints(level, v, false);
+          rider[0].stopRiding();
+          helper.assertTrue(!rider[0].isPassenger(), "Reloaded ride could not unload");
+          rider[0].discard();
+          for (var c : v.carriers)
+            container.removeSubLevel(container.getSubLevel(c.body), SubLevelRemovalReason.REMOVED);
+          container.removeSubLevel(chassis, SubLevelRemovalReason.REMOVED);
+          FoundationData.get(level).vehicles.remove(v.chassis);
+          ((CoasterAnchorpointBlockEntity) level.getBlockEntity(from))
+              .removeAnchorPeerCurve(level, to);
+          FoundationData.get(level).rails.remove(rail);
+          for (var pos : List.of(from, to, controllerPos)) level.removeBlock(pos, false);
+          System.out.println("FD_ENGINEERED_FE_RELOAD stopped=true recaptured=true unloaded=true");
+          helper.succeed();
+        });
+  }
+
+  private static void reloadBlockEntity(GameTestHelper helper, BlockPos pos) {
+    var level = helper.getLevel();
+    var original = level.getBlockEntity(pos);
+    helper.assertTrue(original != null, "Reload target missing at " + pos);
+    var saved = original.saveWithFullMetadata(level.registryAccess());
+    var state = level.getBlockState(pos);
+    level.removeBlockEntity(pos);
+    var restored = BlockEntity.loadStatic(pos, state, saved, level.registryAccess());
+    helper.assertTrue(restored != null, "Native block entity failed reload at " + pos);
+    level.setBlockEntity(restored);
   }
 
   @GameTest(template = "empty", batch = BATCH, timeoutTicks = 650)
