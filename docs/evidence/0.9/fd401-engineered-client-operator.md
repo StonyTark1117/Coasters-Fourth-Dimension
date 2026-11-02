@@ -31,8 +31,12 @@ built from release commit `59f5507` and had SHA-256
 
 The clean release replay did not complete a ride. Both
 `fd validation board Dev` and `fd validation board_locked Dev` returned
-`No ready unoccupied fourth-dimension carrier seat was found` after car
-placement. A redstone pulse reached the controller (`PrevPowered=1`), while
+`No ready unoccupied fourth-dimension carrier seat was found` after the client
+placed the car at the start endpoint. The saved FoundationData record shows
+`boarding_ready=1`, `restraints=1`, `stopping=1`, and fault
+`End of compatible track; capture and inspect the route`. The endpoint guard
+closed the restraints, so the validation boarding command skipped the car.
+A redstone pulse reached the controller (`PrevPowered=1`), while
 `Driving=0` and anchor FE remained at 40,000. No FE cable or generator network
 was exercised. These observations establish client placement, controller
 configuration, and cold persistence; they do not establish motor-driven motion,

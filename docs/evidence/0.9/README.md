@@ -22,8 +22,9 @@ four-car train.
 
 [Engineered connected-client operator check](fd401-engineered-client-operator.md)
 records native motor-span placement, linked controller configuration, and cold
-persistence with the pinned Engineered addon. Its car did not reach boarding
-readiness, so motor-driven motion and FE consumption remain open.
+persistence with the pinned Engineered addon. Endpoint placement triggered the
+track-boundary stop and closed restraints; motor-driven motion and FE
+consumption remain open.
 
 [World upgrade and recovery procedure](../../MIGRATION.md) gives the supported
 backup, staged-upgrade and restore steps. It does not convert third-party
