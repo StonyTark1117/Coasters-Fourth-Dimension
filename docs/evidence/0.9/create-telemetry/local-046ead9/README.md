@@ -23,6 +23,14 @@ Complete original frame files and compressed traces are retained
 beside the reports. These are sampled native Pig/default-model bounds, not
 player-mesh, continuous swept-volume or rendered clearance certification.
 
+**Subsequent verifier finding:** this run used verifier `b7b704b5…`, which skips
+rider-to-rack checks when a rider has no nearby track triangle. Its successful
+exit and empty `uncertifiedPairs` therefore do not establish rack clearance for
+every sampled rider. Preserve these reports as the original limited results;
+complete rider-to-rack acceptance requires a corrected-verifier rerun on these
+exact retained traces. Native tests and the client telemetry observations below
+are independent of this audit coverage gap.
+
 ## Actual clients and controls
 
 Two packaged clients, `Dev` and `Observer`, joined a fresh localhost dedicated
