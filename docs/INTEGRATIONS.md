@@ -82,9 +82,14 @@ spans and a native coupled Arrow full-turn/STOP/powered-rollback fixture now hav
 the bounded results below. The packaged styled Arrow circuit covers real-player
 restraint actions and rear station input dispatch/capture. Native FE-enabled
 starvation/supply/braking/retention now passes in an isolated batch. The complete
-Engineered operator/FE-network workflow and broader rendering/vehicle clearance
-still need evidence; the native banked circuit now has packaged GUI evidence. Publish supported
-combinations only after the runtime matrix; inspection profiles alone are not
+Engineered operator/FE-network ride and broader rendering/vehicle clearance
+still need evidence. The [bounded connected-client operator
+check](evidence/0.9/fd401-engineered-client-operator.md) records short occupied
+FE-consuming motion and safe unloading at the endpoint guard. A separate
+[real FE-network check](evidence/0.9/fd401-engineered-fe-network.md) uses a
+validation-only Crafts & Additions generator and wire to fill the motor anchor
+across a server restart. The native banked circuit has packaged GUI evidence.
+Publish supported combinations only after the runtime matrix; inspection profiles alone are not
 advertised gameplay support.
 
 The [partial integration evidence](evidence/0.4/README.md) retains the earlier
