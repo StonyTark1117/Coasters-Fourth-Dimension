@@ -3,12 +3,16 @@ package dev.fourthdimension.client;
 import com.mojang.logging.LogUtils;
 import dev.fourthdimension.contract.Family;
 import dev.fourthdimension.runtime.EligibilityHooks;
+import dev.fourthdimension.track.TrackGeometry;
 import dev.ryanhcode.sable.api.sublevel.SubLevelContainer;
 import dev.ryanhcode.sable.sublevel.ClientSubLevel;
+import dev.silvergold.simulatedcoasters.track.cart.CoasterCartTrackSnap;
+import dev.silvergold.simulatedcoasters.track.graph.CoasterPathTrackFrame;
 import java.util.EnumMap;
 import java.util.EnumSet;
 import java.util.UUID;
 import net.minecraft.client.Minecraft;
+import net.minecraft.world.phys.Vec3;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
@@ -43,6 +47,7 @@ public final class CarrierTransformValidation {
   private static java.util.Set<UUID> compiledBodies = new java.util.HashSet<>();
   private static boolean supportLossSeen;
   private static boolean supportRepairSeen;
+  private static boolean supportRealignmentSeen;
   private static boolean completed;
   private static net.minecraft.world.level.Level lastLevel;
 
@@ -61,6 +66,7 @@ public final class CarrierTransformValidation {
       compiledBodies = new java.util.HashSet<>();
       supportLossSeen = false;
       supportRepairSeen = false;
+      supportRealignmentSeen = false;
       CarrierRenderMetrics.reset();
       completed = false;
       lastLevel = minecraft.level;
@@ -148,6 +154,8 @@ public final class CarrierTransformValidation {
     supportLossSeen |= supportLossObserved;
     boolean supportRepairObserved = supportRepairReady(minecraft);
     supportRepairSeen |= supportRepairObserved;
+    boolean supportRealignmentObserved = supportRealignmentReady(minecraft);
+    supportRealignmentSeen |= supportRealignmentObserved;
     boolean supportLossAfterMotion = supportLossAfterMotion(supportLossSeen);
     // The active-route fixture deliberately delays support loss until after the pre-dispatch
     // angle samples. Do not keep comparing free carriers against a static snapshot while their
@@ -158,11 +166,14 @@ public final class CarrierTransformValidation {
         supportLossRequired() && (!supportLossSeen || !supportLossAfterMotion);
     boolean supportRepairIncomplete =
         supportRepairRequired() && (!supportLossSeen || !supportRepairSeen);
+    boolean supportRealignmentIncomplete =
+        supportRealignmentRequired() && (!supportLossSeen || !supportRepairSeen || !supportRealignmentSeen);
     if (families.size() < requiredFamilies()
         || (staticPhase && carriers == 0)
         || (riderRequired() && !riderMounted)
         || (supportLossIncomplete && !mayAwaitMovingSupportLoss)
         || supportRepairIncomplete
+        || supportRealignmentIncomplete
         || (staticPhase && renderRequired() && compiledBodies.size() < nativeBodies)
         || (staticPhase
             && renderRequired()
@@ -188,6 +199,10 @@ public final class CarrierTransformValidation {
               + supportRepairRequired()
               + " supportRepairObserved="
               + supportRepairSeen
+              + " supportRealignmentRequired="
+              + supportRealignmentRequired()
+              + " supportRealignmentObserved="
+              + supportRealignmentSeen
               + " compiledBodies="
               + compiledBodies.size()
               + "/"
@@ -254,6 +269,7 @@ public final class CarrierTransformValidation {
                 + "compiledBodies={} sectionLayerCalls={} sectionLayerBodies={} renderRequired={} "
                 + "riderRequired={} riderMounted={} supportLossRequired={} supportLossObserved={} "
                 + "supportLossAfterMotion={} supportRepairRequired={} supportRepairObserved={} "
+                + "supportRealignmentRequired={} supportRealignmentObserved={} "
                 + "motionFamilies={} motionChassis={} motionDistances={}",
             completeSamples,
             requiredSamples(),
@@ -274,6 +290,8 @@ public final class CarrierTransformValidation {
             supportLossAfterMotion(supportLossSeen),
             supportRepairRequired(),
             supportRepairSeen,
+            supportRealignmentRequired(),
+            supportRealignmentSeen,
             movedFamilies,
             movedChassis,
             maxMotionDistances);
@@ -382,6 +400,49 @@ public final class CarrierTransformValidation {
   private static boolean supportRepairRequired() {
     return supportLossRequired()
         && Boolean.getBoolean("fourthdimension.carrierValidationSupportRepair");
+  }
+
+  /** Requires the replicated stopped chassis bearing to lie on the exact repaired support. */
+  private static boolean supportRealignmentReady(Minecraft minecraft) {
+    if (!supportRealignmentRequired() || minecraft.level == null) return !supportRealignmentRequired();
+    var player = minecraft.player;
+    if (player == null || !player.isPassenger() || player.getVehicle() == null) return false;
+    var binding =
+        dev.fourthdimension.vehicle.Boarding.at(minecraft.level, player.getVehicle().blockPosition());
+    if (binding == null
+        || binding.vehicle().family != supportLossFamily()
+        || !binding.vehicle().stopping
+        || !binding.vehicle().restraints
+        || !binding.vehicle().fault.isEmpty()
+        || binding.vehicle().alignmentRequired
+        || !binding.vehicle().boardingReady
+        || !binding.carrier().riderSeats.containsKey(player.getUUID())) return false;
+    var rail =
+        EligibilityHooks.CLIENT.get(minecraft.level).rails.stream()
+            .filter(
+                candidate ->
+                    candidate.matches(binding.vehicle().boundFrom, binding.vehicle().boundTo)
+                        && candidate.valid)
+            .findFirst()
+            .orElse(null);
+    if (rail == null) return false;
+    var container = SubLevelContainer.getContainer(minecraft.level);
+    var chassis = container == null ? null : container.getSubLevel(binding.vehicle().chassis);
+    if (chassis == null) return false;
+    var bearingPlot = CoasterCartTrackSnap.representativeBearingPlotPos(chassis);
+    var edge = TrackGeometry.resolve(minecraft.level, rail);
+    if (bearingPlot == null || edge == null) return false;
+    var bearing = chassis.logicalPose().transformPosition(Vec3.atCenterOf(bearingPlot));
+    var hit = CoasterPathTrackFrame.closestHitOnEdge(minecraft.level, edge, bearing);
+    if (hit == null) return false;
+    var expectedBearing =
+        hit.point().add(CoasterPathTrackFrame.trackBasisAtHit(minecraft.level, hit).up().normalize().scale(.3125));
+    return expectedBearing.distanceToSqr(bearing) < .04;
+  }
+
+  private static boolean supportRealignmentRequired() {
+    return supportRepairRequired()
+        && Boolean.getBoolean("fourthdimension.carrierValidationSupportRealignment");
   }
 
   private static boolean supportLossMotionRequired() {

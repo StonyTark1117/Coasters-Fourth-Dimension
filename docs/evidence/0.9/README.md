@@ -28,10 +28,11 @@ FD902 work.
 requires an explicit two-step recovery after support loss: **Repair matching
 track** accepts only the saved geometry fingerprint, then **Realign matching
 track** physically re-engages the original native bearing before dispatch. The
-server checkpoint covers all five occupied families, preserves rider mounts and
-carrier capture, and verifies normal dispatch for the circuit cars. Packaged
-client realignment, multi-client repair, and post-repair lifecycle coverage
-remain FD902 work.
+server checkpoint and [packaged occupied five-family client realignment](client-occupied-five-family-support-realignment.md)
+cover all five families with retained riders, moving support loss, exact repair,
+and client-side bearing placement. PAX covers its real four-chassis train with
+a full-consist emergency native-velocity reset before reattachment. Multi-client
+repair and post-repair lifecycle coverage remain FD902 work.
 
 [Repeated PAX shuttle station reload](repeated-shuttle-reload.md) saves and
 reinstalls the real winch at its first captured station return, then verifies

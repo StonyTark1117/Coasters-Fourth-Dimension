@@ -52,6 +52,7 @@ public final class CarrierValidationFixture {
   private static boolean riderFixtureBoarded;
   private static int supportLossDelay = -1;
   private static int supportLossDeadline;
+  private static int supportLossObservationDelay;
   private static boolean supportLossTriggered;
   private static boolean supportLossReported;
   private static Vector3d supportLossMotionStart;
@@ -59,6 +60,9 @@ public final class CarrierValidationFixture {
   private static int supportRepairDeadline;
   private static boolean supportRepairRebuilt;
   private static boolean supportRepairReported;
+  private static boolean supportRealignmentTriggered;
+  private static boolean supportRealignmentReported;
+  private static int supportRealignmentDeadline;
   private static BezierConnection supportLossCurve;
 
   private CarrierValidationFixture() {}
@@ -70,6 +74,13 @@ public final class CarrierValidationFixture {
       throw new IllegalStateException(
           "FD_CARRIER_FIXTURE requires a fresh empty world; remove the previous validation save");
     preload(level, new BlockPos(-160, 160, -64), new BlockPos(160, 220, 96));
+    // A new normal world can generate terrain through this reserved test corridor. The fixture is
+    // explicitly opt-in and already refuses any world with addon state, so clear only the authored
+    // example volumes before asking their builders for an empty area.
+    var circuitDesigns = riderFixtureOnly() ? selectedCircuitDesigns() : CIRCUIT_DESIGNS;
+    for (int i = 0; i < circuitDesigns.size(); i++) clearCircuitArea(level, CIRCUIT_ORIGINS.get(i));
+    if ((riderFixtureOnly() && riderFixtureFamily() == Family.PAX) || !riderFixtureOnly())
+      clearPaxArea(level);
     level.setBlockAndUpdate(SPAWN.below(), Blocks.SMOOTH_STONE.defaultBlockState());
     level.setDefaultSpawnPos(SPAWN, 0);
     var controlledMotionChassis = new ArrayList<UUID>();
@@ -83,6 +94,7 @@ public final class CarrierValidationFixture {
     riderFixtureBoarded = false;
     supportLossDelay = -1;
     supportLossDeadline = 0;
+    supportLossObservationDelay = 0;
     supportLossTriggered = false;
     supportLossReported = false;
     supportLossMotionStart = null;
@@ -90,8 +102,10 @@ public final class CarrierValidationFixture {
     supportRepairDeadline = 0;
     supportRepairRebuilt = false;
     supportRepairReported = false;
+    supportRealignmentTriggered = false;
+    supportRealignmentReported = false;
+    supportRealignmentDeadline = 0;
     supportLossCurve = null;
-    var circuitDesigns = riderFixtureOnly() ? selectedCircuitDesigns() : CIRCUIT_DESIGNS;
     for (int i = 0; i < circuitDesigns.size(); i++) {
       var vehicle = ExampleLayouts.create(level, CIRCUIT_ORIGINS.get(i), circuitDesigns.get(i));
       controlledMotionChassis.add(vehicle.chassis);
@@ -162,13 +176,22 @@ public final class CarrierValidationFixture {
     }
     if (supportLossRequired() && supportLossTriggered) {
       boolean repaired = supportRepairRequired() && supportRepairSettled(level);
+      boolean realigned = supportRealignmentRequired() && supportRealignmentSettled(level);
       if (!repaired && !supportLossSettled(event.getServer(), level)) {
         if (supportLossDeadline-- <= 0)
           throw new IllegalStateException("FD_CARRIER_FIXTURE support loss did not fail closed");
         return;
       }
       if (supportRepairRequired() && !repaired) {
+        // Keep the faulted occupied state visible long enough for the packaged client to
+        // receive it before restoring the exact curve. This is still the normal server
+        // failure state; the delay only makes the client acceptance probe deterministic.
+        if (supportLossObservationDelay-- > 0) return;
         progressSupportRepair(level);
+        return;
+      }
+      if (supportRealignmentRequired() && !realigned) {
+        progressSupportRealignment(level);
         return;
       }
     }
@@ -311,6 +334,41 @@ public final class CarrierValidationFixture {
         && Boolean.getBoolean("fourthdimension.carrierFixtureSupportRepair");
   }
 
+  /** Re-engages the same repaired native chassis only after the explicit repair has completed. */
+  private static void progressSupportRealignment(ServerLevel level) {
+    var vehicle = supportLossVehicle(level);
+    if (vehicle == null)
+      throw new IllegalStateException("FD_CARRIER_FIXTURE missing support-realignment vehicle");
+    if (!supportRealignmentTriggered) {
+      if (supportRealignmentDeadline <= 0) supportRealignmentDeadline = 400;
+      try {
+        VehicleOperations.realignMatchingSupport(level, vehicle);
+      } catch (IllegalArgumentException failure) {
+        if (supportRealignmentDeadline-- <= 0)
+          throw new IllegalStateException(
+              "FD_CARRIER_FIXTURE support realignment did not become physically safe", failure);
+        return;
+      }
+      supportRealignmentTriggered = true;
+      supportRealignmentDeadline = 400;
+      LogUtils.getLogger()
+          .info(
+              "FD_CARRIER_FIXTURE physically realigned {} support chassis={}",
+              vehicle.family,
+              vehicle.chassis);
+      return;
+    }
+    if (supportRealignmentSettled(level)) return;
+    if (supportRealignmentDeadline-- <= 0)
+      throw new IllegalStateException(
+          "FD_CARRIER_FIXTURE native carrier did not settle after physical realignment");
+  }
+
+  private static boolean supportRealignmentRequired() {
+    return supportRepairRequired()
+        && Boolean.getBoolean("fourthdimension.carrierFixtureSupportRealignment");
+  }
+
   private static boolean supportRepairSettled(ServerLevel level) {
     var vehicle = supportLossVehicle(level);
     if (vehicle == null) return false;
@@ -326,6 +384,34 @@ public final class CarrierValidationFixture {
             && vehicle.carriers.stream().allMatch(carrier -> carrier.capture)
             && rail != null
             && rail.valid);
+  }
+
+  private static boolean supportRealignmentSettled(ServerLevel level) {
+    var vehicle = supportLossVehicle(level);
+    if (vehicle == null) return false;
+    var rail =
+        FoundationData.get(level).rails.stream()
+            .filter(candidate -> candidate.matches(vehicle.boundFrom, vehicle.boundTo))
+            .findFirst()
+            .orElse(null);
+    boolean settled =
+        vehicle.stopping
+            && vehicle.restraints
+            && vehicle.fault.isEmpty()
+            && !vehicle.alignmentRequired
+            && vehicle.carriers.stream().allMatch(carrier -> carrier.capture)
+            && rail != null
+            && rail.valid
+            && Boarding.ready(level, vehicle);
+    if (settled && !supportRealignmentReported) {
+      supportRealignmentReported = true;
+      LogUtils.getLogger()
+          .info(
+              "FD_CARRIER_FIXTURE support realignment settled chassis={} ridersRetained={}",
+              vehicle.chassis,
+              vehicle.carriers.stream().mapToInt(carrier -> carrier.riderSeats.size()).sum());
+    }
+    return settled;
   }
 
   /**
@@ -363,6 +449,7 @@ public final class CarrierValidationFixture {
     if (curve == null)
       throw new IllegalStateException("FD_CARRIER_FIXTURE missing exact curve for support-loss checkpoint");
     supportLossCurve = curve.isPrimary() ? curve : curve.secondary();
+    supportLossObservationDelay = 20;
     anchor.removeAnchorPeerCurve(level, vehicle.boundTo);
     LogUtils.getLogger()
         .info(
@@ -436,5 +523,19 @@ public final class CarrierValidationFixture {
     for (int chunkX = min.getX() >> 4; chunkX <= max.getX() >> 4; chunkX++)
       for (int chunkZ = min.getZ() >> 4; chunkZ <= max.getZ() >> 4; chunkZ++)
         level.getChunk(chunkX, chunkZ);
+  }
+
+  private static void clearCircuitArea(ServerLevel level, BlockPos origin) {
+    clear(level, origin.offset(-7, -3, -8), origin.offset(39, 13, 60));
+  }
+
+  private static void clearPaxArea(ServerLevel level) {
+    // Keep this in lockstep with ShuttleExamples.create(..., false)'s occupancy contract.
+    clear(level, PAX_ORIGIN.offset(-8, -5, -58), PAX_ORIGIN.offset(8, 42, 90));
+  }
+
+  private static void clear(ServerLevel level, BlockPos min, BlockPos max) {
+    for (var pos : BlockPos.betweenClosed(min, max))
+      level.setBlock(pos, Blocks.AIR.defaultBlockState(), Block.UPDATE_CLIENTS);
   }
 }

@@ -21,18 +21,26 @@ public final class VehicleOperations {
    * Capture is intentional: an active-route loss must become serviceable after braking, rather
    * than leaving a rider in a stopped but permanently unalignable free carrier.
    */
-  public static void failForLostSupport(FoundationData.Vehicle vehicle) {
-    if (vehicle.stopping
-        && vehicle.restraints
-        && MATCHING_SUPPORT_LOST.equals(vehicle.fault)
-        && vehicle.alignmentRequired
-        && vehicle.carriers.stream().allMatch(carrier -> carrier.capture)) return;
-    vehicle.stopping = true;
-    vehicle.restraints = true;
-    vehicle.carriers.forEach(carrier -> carrier.capture = true);
-    vehicle.fault = MATCHING_SUPPORT_LOST;
-    vehicle.alignmentRequired = true;
-    vehicle.revision++;
+  public static void failForLostSupport(ServerLevel level, FoundationData.Vehicle vehicle) {
+    // A coupled PAX train is one safety unit: losing the matching support under any car must
+    // capture, restrain, and brake its whole compatible consist before recovery can begin.
+    var cars =
+        vehicle.family == dev.fourthdimension.contract.Family.PAX
+            ? consist(level, vehicle)
+            : List.of(vehicle);
+    for (var car : cars) {
+      if (car.stopping
+          && car.restraints
+          && MATCHING_SUPPORT_LOST.equals(car.fault)
+          && car.alignmentRequired
+          && car.carriers.stream().allMatch(carrier -> carrier.capture)) continue;
+      car.stopping = true;
+      car.restraints = true;
+      car.carriers.forEach(carrier -> carrier.capture = true);
+      car.fault = MATCHING_SUPPORT_LOST;
+      car.alignmentRequired = true;
+      car.revision++;
+    }
   }
 
   public static FoundationData.Vehicle accessible(ServerPlayer player, UUID id) {
@@ -232,6 +240,10 @@ public final class VehicleOperations {
         throw new IllegalArgumentException("Restore the original matching track section first");
       if (!(container.getSubLevel(v.chassis) instanceof ServerSubLevel chassis) || chassis.isRemoved())
         throw new IllegalArgumentException("Vehicle chassis is unavailable");
+      var velocity = container.physicsSystem().getPipeline().getLinearVelocity(chassis, new Vector3d());
+      if (velocity.lengthSquared() > .01)
+        throw new IllegalArgumentException(
+            "Wait for every linked chassis to stop physically before realignment");
       var bearingPlot = CoasterCartTrackSnap.representativeBearingPlotPos(chassis);
       if (bearingPlot == null) throw new IllegalArgumentException("Vehicle bearing is unavailable");
       var bearing =
@@ -316,19 +328,32 @@ public final class VehicleOperations {
   public static void brake(ServerLevel level, FoundationData.Vehicle vehicle, double dt) {
     var container = SubLevelContainer.getContainer(level);
     var pipeline = container.physicsSystem().getPipeline();
-    if (!(container.getSubLevel(vehicle.chassis) instanceof ServerSubLevel parent)) return;
-    var velocity = pipeline.getLinearVelocity(parent, new Vector3d());
-    double speed = velocity.length();
-    if (speed == 0) return;
-    var reduction = velocity.mul(-Math.min(1, 6 * dt / speed));
-    var ids = new ArrayList<UUID>();
-    ids.add(vehicle.chassis);
-    vehicle.carriers.forEach(c -> ids.add(c.body));
-    for (var id : ids)
-      if (container.getSubLevel(id) instanceof ServerSubLevel body) {
-        // Brake the common train translation once per body. Braking only the light
-        // chassis lets the loaded carrier joints feed momentum back into it.
-        pipeline.addLinearAndAngularVelocity(body, reduction, new Vector3d());
+    // A missing support is a hard emergency stop. For a coupled PAX train, braking only the
+    // detected lead leaves its linked chassis feeding momentum back through the couplers, so
+    // stop the entire compatible consist before any manual native reattachment can be safe.
+    var cars =
+        vehicle.family == dev.fourthdimension.contract.Family.PAX
+            && MATCHING_SUPPORT_LOST.equals(vehicle.fault)
+            ? consist(level, vehicle)
+            : List.of(vehicle);
+    var bodies = new LinkedHashSet<UUID>();
+    for (var car : cars) {
+      bodies.add(car.chassis);
+      car.carriers.forEach(carrier -> bodies.add(carrier.body));
+    }
+    for (var id : bodies) {
+      if (!(container.getSubLevel(id) instanceof ServerSubLevel body)) continue;
+      if (MATCHING_SUPPORT_LOST.equals(vehicle.fault)) {
+        // Sable exposes an atomic native reset; counter-impulses leave angular/coupler solver
+        // residue that can pull a stopped PAX consist apart during a later track snap.
+        pipeline.resetVelocity(body);
+        continue;
       }
+      var velocity = pipeline.getLinearVelocity(body, new Vector3d());
+      double speed = velocity.length();
+      if (speed == 0) continue;
+      pipeline.addLinearAndAngularVelocity(
+          body, velocity.mul(-Math.min(1, 6 * dt / speed)), new Vector3d());
+    }
   }
 }

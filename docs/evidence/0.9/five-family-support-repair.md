@@ -1,8 +1,9 @@
 # Five-family exact support repair and physical realignment — native checkpoint
 
 **Scope:** FD902 core recovery behavior on the current original functional
-tracks. This is a native server/GameTest checkpoint; it does not establish
-packaged-client repair, multi-client repair, or a full post-repair lifecycle.
+tracks. The native server/GameTest checkpoint is supplemented by the
+[packaged occupied five-family client realignment](client-occupied-five-family-support-realignment.md).
+Multi-client repair and a full post-repair lifecycle remain outside this scope.
 
 ## What is covered
 
@@ -45,13 +46,13 @@ The current run completed successfully on 2026-11-02:
 
 ```text
 FD_SUPPORT_REPAIR families=[ARROW, ZACSPIN, FREE_SPIN, ZACSPIN_REVISED, PAX] riders=5 exactGeometryOnly=true noAutoResume=true realignmentRequiredBeforeDispatch=true nativeReengagement=true normalDispatch=true
-========= 44 GAME TESTS COMPLETE IN 4.549 min ======================
+========= 44 GAME TESTS COMPLETE IN 4.141 min ======================
 All 44 required tests passed :)
 BUILD SUCCESSFUL
 ```
 
 ## Remaining work
 
-The checkpoint does not show a rendered client realignment, simultaneous repair
-by multiple clients, PAX lift dispatch after realignment, or unload/reload
-after repair. Those remain FD902 lifecycle and client acceptance work.
+The checkpoint now includes a mounted packaged client for every family, but it
+does not show simultaneous repair by multiple clients, PAX lift dispatch after
+realignment, or unload/reload after repair. Those remain FD902 lifecycle work.
