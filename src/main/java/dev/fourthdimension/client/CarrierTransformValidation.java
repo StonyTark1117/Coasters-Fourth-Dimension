@@ -39,6 +39,8 @@ public final class CarrierTransformValidation {
   private static java.util.Map<UUID, Vector3d> motionStarts = new java.util.HashMap<>();
   private static java.util.Map<UUID, Double> maxMotionDistances = new java.util.HashMap<>();
   private static java.util.Set<UUID> compiledBodies = new java.util.HashSet<>();
+  private static boolean supportLossSeen;
+  private static boolean supportRepairSeen;
   private static boolean completed;
   private static net.minecraft.world.level.Level lastLevel;
 
@@ -55,6 +57,8 @@ public final class CarrierTransformValidation {
       motionStarts = new java.util.HashMap<>();
       maxMotionDistances = new java.util.HashMap<>();
       compiledBodies = new java.util.HashSet<>();
+      supportLossSeen = false;
+      supportRepairSeen = false;
       CarrierRenderMetrics.reset();
       completed = false;
       lastLevel = minecraft.level;
@@ -128,18 +132,24 @@ public final class CarrierTransformValidation {
     }
     boolean riderMounted = localRiderReady(minecraft);
     boolean supportLossObserved = supportLossReady(minecraft);
-    boolean supportLossAfterMotion = supportLossAfterMotion(supportLossObserved);
+    supportLossSeen |= supportLossObserved;
+    boolean supportRepairObserved = supportRepairReady(minecraft);
+    supportRepairSeen |= supportRepairObserved;
+    boolean supportLossAfterMotion = supportLossAfterMotion(supportLossSeen);
     // The active-route fixture deliberately delays support loss until after the pre-dispatch
     // angle samples. Do not keep comparing free carriers against a static snapshot while their
     // chassis is in normal motion; require the exact fail-closed state once that phase begins.
     boolean mayAwaitMovingSupportLoss =
         staticPhase && supportLossMotionRequired() && !supportLossObserved;
     boolean supportLossIncomplete =
-        supportLossRequired() && (!supportLossObserved || !supportLossAfterMotion);
+        supportLossRequired() && (!supportLossSeen || !supportLossAfterMotion);
+    boolean supportRepairIncomplete =
+        supportRepairRequired() && (!supportLossSeen || !supportRepairSeen);
     if (families.size() < requiredFamilies()
         || (staticPhase && carriers == 0)
         || (riderRequired() && !riderMounted)
         || (supportLossIncomplete && !mayAwaitMovingSupportLoss)
+        || supportRepairIncomplete
         || (staticPhase && renderRequired() && compiledBodies.size() < nativeBodies)
         || (staticPhase
             && renderRequired()
@@ -158,9 +168,13 @@ public final class CarrierTransformValidation {
               + " supportLossRequired="
               + supportLossRequired()
               + " supportLossObserved="
-              + supportLossObserved
+              + supportLossSeen
               + " supportLossAfterMotion="
               + supportLossAfterMotion
+              + " supportRepairRequired="
+              + supportRepairRequired()
+              + " supportRepairObserved="
+              + supportRepairSeen
               + " compiledBodies="
               + compiledBodies.size()
               + "/"
@@ -226,7 +240,7 @@ public final class CarrierTransformValidation {
                 + "requiredFamilies={} carriers={} riderAssignments={} maxAngleError={} "
                 + "compiledBodies={} sectionLayerCalls={} sectionLayerBodies={} renderRequired={} "
                 + "riderRequired={} riderMounted={} supportLossRequired={} supportLossObserved={} "
-                + "supportLossAfterMotion={} "
+                + "supportLossAfterMotion={} supportRepairRequired={} supportRepairObserved={} "
                 + "motionFamilies={} motionChassis={} motionDistances={}",
             completeSamples,
             requiredSamples(),
@@ -243,8 +257,10 @@ public final class CarrierTransformValidation {
             riderRequired(),
             localRiderReady(minecraft),
             supportLossRequired(),
-            supportLossReady(minecraft),
-            supportLossAfterMotion(supportLossReady(minecraft)),
+            supportLossSeen,
+            supportLossAfterMotion(supportLossSeen),
+            supportRepairRequired(),
+            supportRepairSeen,
             movedFamilies,
             movedChassis,
             maxMotionDistances);
@@ -324,6 +340,30 @@ public final class CarrierTransformValidation {
 
   private static boolean supportLossRequired() {
     return Boolean.getBoolean("fourthdimension.carrierValidationSupportLoss");
+  }
+
+  /** The client must receive the explicit repaired state without an implicit restart or unseat. */
+  private static boolean supportRepairReady(Minecraft minecraft) {
+    if (!supportRepairRequired() || minecraft.level == null) return !supportRepairRequired();
+    var player = minecraft.player;
+    if (player == null || !player.isPassenger() || player.getVehicle() == null) return false;
+    var binding =
+        dev.fourthdimension.vehicle.Boarding.at(minecraft.level, player.getVehicle().blockPosition());
+    if (binding == null
+        || binding.vehicle().family != supportLossFamily()
+        || !binding.vehicle().stopping
+        || !binding.vehicle().restraints
+        || !binding.vehicle().fault.isEmpty()
+        || !binding.carrier().riderSeats.containsKey(player.getUUID())) return false;
+    return EligibilityHooks.CLIENT.get(minecraft.level).rails.stream()
+        .anyMatch(
+            rail ->
+                rail.matches(binding.vehicle().boundFrom, binding.vehicle().boundTo) && rail.valid);
+  }
+
+  private static boolean supportRepairRequired() {
+    return supportLossRequired()
+        && Boolean.getBoolean("fourthdimension.carrierValidationSupportRepair");
   }
 
   private static boolean supportLossMotionRequired() {

@@ -58,9 +58,11 @@ neoForge {
             systemProperty 'fourthdimension.carrierFixtureRiderFamily', project.findProperty('fdCarrierFixtureRiderFamily') ?: 'ARROW'
             systemProperty 'fourthdimension.carrierFixtureSupportLoss', project.hasProperty('fdCarrierFixtureSupportLoss').toString()
             systemProperty 'fourthdimension.carrierFixtureSupportLossMotion', project.hasProperty('fdCarrierFixtureSupportLossMotion').toString()
+            systemProperty 'fourthdimension.carrierFixtureSupportRepair', project.hasProperty('fdCarrierFixtureSupportRepair').toString()
             systemProperty 'fourthdimension.carrierValidationRider', project.hasProperty('fdCarrierValidationRider').toString()
             systemProperty 'fourthdimension.carrierValidationSupportLoss', project.hasProperty('fdCarrierValidationSupportLoss').toString()
             systemProperty 'fourthdimension.carrierValidationSupportLossMotion', project.hasProperty('fdCarrierValidationSupportLossMotion').toString()
+            systemProperty 'fourthdimension.carrierValidationSupportRepair', project.hasProperty('fdCarrierValidationSupportRepair').toString()
             systemProperty 'fourthdimension.carrierValidationSupportLossFamily', project.findProperty('fdCarrierValidationSupportLossFamily') ?: 'ARROW'
             systemProperty 'fourthdimension.ponderValidation', project.hasProperty('fdPonderValidation').toString()
             systemProperty 'fourthdimension.schedulerValidation', project.hasProperty('fdSchedulerValidation').toString()

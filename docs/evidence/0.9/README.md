@@ -116,6 +116,13 @@ matching curve. The client confirms movement occurred before the rider remains
 mounted in the replicated fail-closed state; PAX uses its real four-car train.
 Repair, multi-client loss, and complete post-stop lifecycle coverage remain open.
 
+[Packaged occupied Arrow support repair](client-occupied-arrow-support-repair.md)
+extends that moving client path through restoring the exact authored curve and
+the explicit repair operation. The client observes the retained rider and the
+repaired rail/fault state without an automatic restart. Four-family client
+repair, physical realignment, multi-client loss, and post-repair lifecycle
+coverage remain open.
+
 [Client track-render instrumentation](client-render-sampling.md) records an
 initial packaged real-client sample on the recovery scene, under llvmpipe and
 on the stated RX 7900 XTX host, plus a native-GPU dedicated-server observation

@@ -2,12 +2,15 @@ package dev.fourthdimension.runtime;
 
 import com.mojang.logging.LogUtils;
 import com.simibubi.create.content.contraptions.actors.seat.SeatBlock;
+import com.simibubi.create.content.trains.track.BezierConnection;
 import dev.fourthdimension.contract.Family;
 import dev.fourthdimension.shuttle.ShuttleExamples;
 import dev.fourthdimension.track.ExampleLayouts;
 import dev.fourthdimension.track.TrackDesign;
+import dev.fourthdimension.track.TrackGeometry;
 import dev.fourthdimension.vehicle.Boarding;
 import dev.fourthdimension.vehicle.CarrierSeatBlock;
+import dev.fourthdimension.vehicle.VehicleOperations;
 import dev.ryanhcode.sable.api.sublevel.SubLevelContainer;
 import dev.silvergold.simulatedcoasters.track.anchor.CoasterAnchorpointBlockEntity;
 import dev.silvergold.simulatedcoasters.track.cart.CoasterCartResolve;
@@ -16,8 +19,8 @@ import java.util.List;
 import java.util.UUID;
 import org.joml.Vector3d;
 import net.minecraft.core.BlockPos;
-import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.level.block.Blocks;
 import net.neoforged.neoforge.event.tick.ServerTickEvent;
 
@@ -52,6 +55,11 @@ public final class CarrierValidationFixture {
   private static boolean supportLossTriggered;
   private static boolean supportLossReported;
   private static Vector3d supportLossMotionStart;
+  private static int supportRepairDelay = -1;
+  private static int supportRepairDeadline;
+  private static boolean supportRepairRebuilt;
+  private static boolean supportRepairReported;
+  private static BezierConnection supportLossCurve;
 
   private CarrierValidationFixture() {}
 
@@ -78,6 +86,11 @@ public final class CarrierValidationFixture {
     supportLossTriggered = false;
     supportLossReported = false;
     supportLossMotionStart = null;
+    supportRepairDelay = -1;
+    supportRepairDeadline = 0;
+    supportRepairRebuilt = false;
+    supportRepairReported = false;
+    supportLossCurve = null;
     var circuitDesigns = riderFixtureOnly() ? selectedCircuitDesigns() : CIRCUIT_DESIGNS;
     for (int i = 0; i < circuitDesigns.size(); i++) {
       var vehicle = ExampleLayouts.create(level, CIRCUIT_ORIGINS.get(i), circuitDesigns.get(i));
@@ -148,9 +161,14 @@ public final class CarrierValidationFixture {
       }
     }
     if (supportLossRequired() && supportLossTriggered) {
-      if (!supportLossSettled(event.getServer(), level)) {
+      boolean repaired = supportRepairRequired() && supportRepairSettled(level);
+      if (!repaired && !supportLossSettled(event.getServer(), level)) {
         if (supportLossDeadline-- <= 0)
           throw new IllegalStateException("FD_CARRIER_FIXTURE support loss did not fail closed");
+        return;
+      }
+      if (supportRepairRequired() && !repaired) {
+        progressSupportRepair(level);
         return;
       }
     }
@@ -241,6 +259,75 @@ public final class CarrierValidationFixture {
         && Boolean.getBoolean("fourthdimension.carrierFixtureSupportLoss");
   }
 
+  /** Rebuilds only the exact interrupted section, then uses the production explicit repair action. */
+  private static void progressSupportRepair(ServerLevel level) {
+    var vehicle = supportLossVehicle(level);
+    if (vehicle == null) throw new IllegalStateException("FD_CARRIER_FIXTURE missing support-repair vehicle");
+    if (!supportRepairRebuilt) {
+      if (supportLossCurve == null
+          || !(level.getBlockEntity(vehicle.boundFrom) instanceof CoasterAnchorpointBlockEntity anchor))
+        throw new IllegalStateException("FD_CARRIER_FIXTURE lost the exact original curve");
+      // The generated circuit has authored tangents that ordinary straight placement cannot
+      // reproduce. Reinsert its original Coasters curve, which still passes the production
+      // occupied-support guard, before invoking the same explicit repair operation a player uses.
+      anchor.putAnchorPeerCurve(level, vehicle.boundTo, supportLossCurve);
+      TrackGeometry.invalidate(level);
+      supportRepairRebuilt = true;
+      // Coasters publishes its reinstated graph edge asynchronously. The native repair action must
+      // validate the edge actually visible through the normal resolver, never a fixture shortcut.
+      supportRepairDelay = 20;
+      supportRepairDeadline = 400;
+      LogUtils.getLogger()
+          .info(
+              "FD_CARRIER_FIXTURE rebuilt exact {} support chassis={} from={} to={}",
+              vehicle.family,
+              vehicle.chassis,
+              vehicle.boundFrom,
+              vehicle.boundTo);
+      return;
+    }
+    if (supportRepairDelay-- > 0) return;
+    try {
+      VehicleOperations.repairMatchingSupport(level, vehicle);
+    } catch (IllegalArgumentException failure) {
+      if (supportRepairDeadline-- <= 0)
+        throw new IllegalStateException("FD_CARRIER_FIXTURE support repair did not become valid", failure);
+      return;
+    }
+    if (!supportRepairSettled(level))
+      throw new IllegalStateException("FD_CARRIER_FIXTURE repair resumed or released the vehicle");
+    supportRepairReported = true;
+    LogUtils.getLogger()
+        .info(
+            "FD_CARRIER_FIXTURE support repair settled chassis={} stopped={} restraints={} ridersRetained={}",
+            vehicle.chassis,
+            vehicle.stopping,
+            vehicle.restraints,
+            vehicle.carriers.stream().mapToInt(carrier -> carrier.riderSeats.size()).sum());
+  }
+
+  private static boolean supportRepairRequired() {
+    return supportLossRequired()
+        && Boolean.getBoolean("fourthdimension.carrierFixtureSupportRepair");
+  }
+
+  private static boolean supportRepairSettled(ServerLevel level) {
+    var vehicle = supportLossVehicle(level);
+    if (vehicle == null) return false;
+    var rail =
+        FoundationData.get(level).rails.stream()
+            .filter(candidate -> candidate.matches(vehicle.boundFrom, vehicle.boundTo))
+            .findFirst()
+            .orElse(null);
+    return supportRepairReported
+        || (vehicle.stopping
+            && vehicle.restraints
+            && vehicle.fault.isEmpty()
+            && vehicle.carriers.stream().allMatch(carrier -> carrier.capture)
+            && rail != null
+            && rail.valid);
+  }
+
   /**
    * An active-route checkpoint must remove support only after the occupied chassis really moved.
    */
@@ -272,6 +359,10 @@ public final class CarrierValidationFixture {
         || !(level.getBlockEntity(vehicle.boundFrom) instanceof CoasterAnchorpointBlockEntity anchor))
       throw new IllegalStateException(
           "FD_CARRIER_FIXTURE missing " + riderFixtureFamily() + " support for support-loss checkpoint");
+    var curve = anchor.getAnchorPeerCurvesView().get(vehicle.boundTo);
+    if (curve == null)
+      throw new IllegalStateException("FD_CARRIER_FIXTURE missing exact curve for support-loss checkpoint");
+    supportLossCurve = curve.isPrimary() ? curve : curve.secondary();
     anchor.removeAnchorPeerCurve(level, vehicle.boundTo);
     LogUtils.getLogger()
         .info(
