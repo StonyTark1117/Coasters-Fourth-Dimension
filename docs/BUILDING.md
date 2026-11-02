@@ -56,10 +56,20 @@ If an original matching section disappears during a ride, the car brakes,
 captures its carriers and keeps restraints closed. Restore the exact original
 section, then use **Repair matching track** in the stopped car's Rotation Tool.
 That action validates the saved geometry without moving or unloading riders.
-Return the chassis to a captured, aligned state through the normal recovery
-workflow before a separate dispatch can succeed. If the restored curve changed
-shape, unload riders and explicitly rebind its profile from the track editor
-before operating.
+Next use the separate **Realign matching track** button. Keep every linked
+chassis physically stopped, every carrier captured and all restraints closed;
+realignment reattaches the original chassis to the repaired matching section.
+Wait for the carriers to settle and readiness to return before separately
+requesting dispatch. Repair and realignment do not automatically restart the ride.
+
+A bound PAX train continues through its winch controls. Both winch resume and
+recovery reject while matching-track realignment is still required. After
+realignment, restore winch power, inspect the route and sneak-use the faulted
+winch with an empty hand to recover the stopped, captured train to boarding.
+Wait for boarding readiness before starting another cycle. Ordinary use resumes
+an interrupted lift or capture only; it cannot resume an interrupted gravity run.
+If the restored curve changed shape, unload riders and explicitly rebind its
+profile from the track editor before operating.
 
 Create drive power or the native chain system moves the chassis on a circuit.
 The addon controls carrier rotation separately. Seats rotate around their hinge
