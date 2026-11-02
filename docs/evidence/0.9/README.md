@@ -25,7 +25,13 @@ records native motor-span placement, linked controller configuration, a bounded
 occupied ride consuming 2,999 FE, client-operated capture and unloading, and
 cold persistence with the pinned Engineered addon. The short fixture ended at
 the track-boundary safety stop; full-circuit operation, a graceful automatic
-station stop, and an external FE network remain open.
+station stop, and a network-powered full ride remain open.
+
+[Engineered real FE-network transfer](fd401-engineered-fe-network.md) adds a
+validation-only Crafts & Additions Creative Generator and client-linked wire.
+The empty motor anchor fills to 100,000 FE through that network and refills
+after a server cold restart. The network was not used for a complete ride, and
+this extra mod is not an advertised compatibility profile.
 
 [World upgrade and recovery procedure](../../MIGRATION.md) gives the supported
 backup, staged-upgrade and restore steps. It does not convert third-party

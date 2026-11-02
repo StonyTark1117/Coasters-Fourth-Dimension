@@ -133,10 +133,14 @@ neoForge {
 def fdIntegrationProfiles = (findProperty('fdIntegrations') ?: '').toString().split(',').findAll { !it.isBlank() }.toSet()
 def fdUnknownProfiles = fdIntegrationProfiles - ['styles', 'engineered']
 if (!fdUnknownProfiles.isEmpty()) throw new GradleException("Unknown fdIntegrations profiles: ${fdUnknownProfiles}")
+if (project.hasProperty('fdFeNetwork') && !fdIntegrationProfiles.contains('engineered'))
+    throw new GradleException('fdFeNetwork requires -PfdIntegrations=engineered')
 
 dependencies {
     if (fdIntegrationProfiles.contains('styles')) runtimeOnly 'curse.maven:coasters-simulated-track-styles-1642719:9020601'
     if (fdIntegrationProfiles.contains('engineered')) runtimeOnly 'curse.maven:coasters-engineered-1643631:8863559'
+    // Validation-only FE producer and wiring; no addon dependency is bundled or advertised.
+    if (project.hasProperty('fdFeNetwork')) runtimeOnly 'curse.maven:createaddition-439890:8188476'
     if (project.hasProperty('fdPackaged')) packagedRuntimeOnly files(layout.buildDirectory.file("libs/coasters-fourth-dimension-${mod_version}.jar"))
     implementation('com.simibubi.create:create-1.21.1:6.0.10-280:slim') { transitive = false }
     implementation 'net.createmod.ponder:ponder-neoforge:1.0.82+mc1.21.1'
