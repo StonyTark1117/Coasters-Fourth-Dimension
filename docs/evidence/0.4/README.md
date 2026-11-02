@@ -16,8 +16,11 @@ see the [push](ponder-ci-push.json) and [PR](ponder-ci-pr.json) records.
 
 The [dev.11 survival checkpoint](survival-acceptance.md) covers native result-slot
 crafting and world right-click placement for all five families, twenty wrong-family
-rejects and the ordinary station PAX binding regression. Complete real-client
-survival building/operating exercises and the full teaching gate remain unfinished.
+rejects and the ordinary station PAX binding regression. A separate [packaged
+Arrow survival-client checkpoint](survival-client-arrow.md) now covers actual
+client crafting, anchor/track/car placement, boarding, controls, dismount and
+normal save. Powered travel, the other families, and the full teaching gate
+remain unfinished.
 
 ## Resource reload investigation
 
