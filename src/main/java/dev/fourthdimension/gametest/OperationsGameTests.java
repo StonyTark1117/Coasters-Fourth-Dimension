@@ -491,11 +491,43 @@ public final class OperationsGameTests {
               rejected = true;
             }
             helper.assertTrue(rejected, "Support-loss vehicle dispatched before explicit repair");
+            var missingRail =
+                data.rails.stream()
+                    .filter(candidate -> candidate.matches(car.boundFrom, car.boundTo))
+                    .findFirst()
+                    .orElseThrow();
+            helper.assertTrue(
+                TrackGeometry.resolve(level, missingRail) == null,
+                "Missing-section guard tested with a live curve: " + car.variant);
+            EditorGameTests.rejects(
+                helper,
+                () -> VehicleOperations.repairMatchingSupport(level, car),
+                "Missing native section accepted for support repair: " + car.variant);
+            helper.assertTrue(
+                VehicleOperations.MATCHING_SUPPORT_LOST.equals(car.fault),
+                "Failed missing-section repair cleared the fault: " + car.variant);
           }
           for (var rail : rails) {
             player.setPos(rail.to.getX() + 2, rail.to.getY() + 1, rail.to.getZ());
             player.setItemInHand(
                 InteractionHand.MAIN_HAND, TrackItems.ARROW.get().getDefaultInstance());
+            var wrongDesign =
+                TrackDesign.values()[(TrackDesign.byVariant(rail.variant).ordinal() + 1)
+                    % TrackDesign.values().length];
+            EditorGameTests.rejects(
+                helper,
+                () ->
+                    TrackPlacement.connect(
+                        level,
+                        rail.from,
+                        rail.to,
+                        wrongDesign,
+                        player,
+                        player.getMainHandItem()),
+                "Wrong-family replacement accepted under an occupied car: " + rail.variant);
+            helper.assertTrue(
+                TrackGeometry.resolve(level, rail) == null,
+                "Wrong-family rejection rebuilt occupied support: " + rail.variant);
             TrackPlacement.connect(
                 level,
                 rail.from,
@@ -508,7 +540,42 @@ public final class OperationsGameTests {
     helper.runAtTickTime(
         135,
         () -> {
-          for (var car : cars) VehicleOperations.repairMatchingSupport(level, car);
+          for (var car : cars) {
+            var rail =
+                data.rails.stream()
+                    .filter(candidate -> candidate.matches(car.boundFrom, car.boundTo))
+                    .findFirst()
+                    .orElseThrow();
+            long savedHash = rail.geometryHash;
+            var restoredEdge = TrackGeometry.resolve(level, rail);
+            helper.assertTrue(
+                restoredEdge != null && TrackGeometry.fingerprint(level, restoredEdge) == savedHash,
+                "Fingerprint guard tested without the exact rebuilt curve: " + car.variant);
+            rail.geometryHash ^= 1L;
+            EditorGameTests.rejects(
+                helper,
+                () -> VehicleOperations.repairMatchingSupport(level, car),
+                "Changed geometry fingerprint accepted for support repair: " + car.variant);
+            helper.assertTrue(
+                !rail.valid && VehicleOperations.MATCHING_SUPPORT_LOST.equals(car.fault),
+                "Failed changed-geometry repair mutated retained state: " + car.variant);
+            rail.geometryHash = savedHash;
+            var carrier = car.carriers.getFirst();
+            carrier.capture = false;
+            EditorGameTests.rejects(
+                helper,
+                () -> VehicleOperations.repairMatchingSupport(level, car),
+                "Released carrier accepted for support repair: " + car.variant);
+            helper.assertTrue(
+                !rail.valid && VehicleOperations.MATCHING_SUPPORT_LOST.equals(car.fault),
+                "Failed uncaptured repair mutated retained state: " + car.variant);
+            carrier.capture = true;
+            VehicleOperations.repairMatchingSupport(level, car);
+            EditorGameTests.rejects(
+                helper,
+                () -> VehicleOperations.repairMatchingSupport(level, car),
+                "Repeated support repair accepted after the fault cleared: " + car.variant);
+          }
           for (var car : cars) {
             helper.assertTrue(
                 car.stopping
@@ -684,6 +751,8 @@ public final class OperationsGameTests {
                   + " riders="
                   + riders.size()
                   + " exactGeometryOnly=true noAutoResume=true realignmentRequiredBeforeDispatch=true"
+                  + " missingSectionRejected=true wrongFamilyRejected=true"
+                  + " changedFingerprintRejected=true uncapturedRejected=true repeatRejected=true"
                   + " nativeReengagement=true normalDispatch=true postRepairHoldingReload=true");
           helper.succeed();
         });
