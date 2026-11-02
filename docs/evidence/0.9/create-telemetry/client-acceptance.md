@@ -1,9 +1,11 @@
 # Create telemetry client acceptance protocol
 
-**Status: not executed.** The native checkpoint in [README.md](README.md) proves
-server sampling and source output formatting. It does not prove any client result
-below. Execute after explicit handoff of the shared runtime, using the actual
-integrated candidate JAR on the server and both clients.
+**Status: partially exercised in standalone.** The
+[046ead9 checkpoint](local-046ead9/README.md) records the specific completed client
+cases and remaining gaps. The earlier native checkpoint in [README.md](README.md)
+proves server sampling and source output formatting. Run remaining cases after
+explicit handoff of the shared runtime, using the actual integrated candidate
+JAR on the server and both clients.
 
 Record source revision, JAR/dependency hashes, profile, world copy, client roles,
 commands, timestamps and screenshots alongside server/client logs. Keep fixture

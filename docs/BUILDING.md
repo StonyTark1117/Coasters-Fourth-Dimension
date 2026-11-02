@@ -134,8 +134,9 @@ read PAX status from its bound winch.
 These displays report sampled state. Dispatch still rechecks the server's
 current restraints, alignment, track support and controller authority; a displayed
 ready state does not bypass those checks. Keep the existing station or winch
-controls for operating the ride. Live goggles and Display Link acceptance for
-the reconciled build remains pending; see [integration status](INTEGRATIONS.md#shared-telemetry-and-create-diagnostics).
+controls for operating the ride. A packaged standalone build has bounded live
+goggles and Display Link evidence; optional profiles and remaining lifecycle
+cases still need acceptance. See [integration status](INTEGRATIONS.md#shared-telemetry-and-create-diagnostics).
 
 ## Shipped example layouts
 

@@ -1,0 +1,298 @@
+{
+  "baseSha256": "f80b4c3cdf9fa6188804967147761b0373e150a6eadbdc53626e5ac9700b2049",
+  "minecraftSha256": "499f6897d1837516680f3114072d8106e11c9adcd933fe5cf051b551089b0c99",
+  "framesSha256": "c77cfed58a19145080b1a449d4ca57531493cfeac0cafa1d90db593c782fcc82",
+  "traceSha256": "393361cfc713016e1d77f6d2a586d82d601211081322e4c63df033c1c75751f9",
+  "verifierSha256": "b7b704b5d820f615fad163521b52e14edff98deff5323854142b29466340c8eb",
+  "sourceHashes": {
+    "src/main/java/dev/fourthdimension/client/OriginalTrackRenderer.java": "dc27216c67c5506aa472773ecaf5adb6406166fc5a09d5ab50d4832123262667",
+    "src/main/java/dev/fourthdimension/track/TrackDesign.java": "e3a88c3ca661d7b232ee0b9d3c853a6e66c1d0d1147ac4266b001616b1fe1ff1",
+    "src/main/java/dev/fourthdimension/gametest/RecoveryMeshTrace.java": "3b57c5812aec72ed36ee458d6bdd02a443207d32d1579ec80ba5752a6886913a",
+    "src/main/java/dev/fourthdimension/gametest/BankedRecoveryGameTests.java": "89324021f6c70ea8578036b4ae1c924320ef442a9ec3da239c972f89417be66a",
+    "src/main/java/dev/fourthdimension/gametest/BankedRecoveryTrainGameTests.java": "e35abf4b656410bf0bb74c65f1c1942802ee45121d0aeda2a5f5a8c7080e0b47",
+    "src/main/java/dev/fourthdimension/vehicle/BankedRecoveryExamples.java": "0d6597a484cf83cca90671ab6351c81cca42a4e9b96075b4843b136d81229439"
+  },
+  "resourceHashes": {
+    "assets/simulatedcoasters/models/block/coaster_cart_bottom.json": "620ed596269d8c6ec3190aecf9783c2245a7d8e6f8ad66b1aee4320b9457d58a",
+    "assets/simulatedcoasters/models/block/coaster_cart_wheel_axis.json": "4a8dc34d248c7e84d3aa6046b1f21186dc8fcff572781a27bc7ea9523c367511",
+    "assets/fourthdimension/blockstates/wing_strut.json": "0dd8ae19cbbc888ad6ae6c3d27dca6e04382c55576eb141fe0662a4497f45b64",
+    "assets/fourthdimension/models/block/wing_strut.json": "bf441e1d280411505c209acdf7906925b18ab24cfeac7c8461440cc400d59025",
+    "assets/simulatedcoasters/blockstates/coaster_cart.json": "14535bb6399df8fc0ffeb50918ed51463c9faec5c23c6dfcc2dc219a2c3c375f",
+    "assets/simulatedcoasters/models/block/coaster_cart.json": "fbeec04b7a448a193350090c022b3c04bb5e5924cf207fbd8b1c1b085cf03290",
+    "assets/fourthdimension/blockstates/arrow_controlled_controller.json": "4c168c2bca280737141ff54ae1efd30672dff9ef1a4900482920c37f760c34f9",
+    "assets/fourthdimension/models/block/arrow_controlled_controller.json": "76dff79bcacac6fe8e81fd279a6ffe92b2cbf7dd02885e7e3bf27ad7e9a93a3b",
+    "assets/fourthdimension/blockstates/arrow_seat.json": "c40dc92f7c3cc335d421ed3bc1b91afbfa4b7ec0c431c4229d165d7979a87381",
+    "assets/fourthdimension/models/block/arrow_seat_closed.json": "5fcef06c2a6abb6d67ce0d5aa6507ecc3fb55e868adc405aa9a80117001b5868",
+    "assets/fourthdimension/blockstates/carrier_axle.json": "420b54a2c9dfa491c51628c0051a874ce1f2f639357f7a8c132c60fa15e5e02b",
+    "assets/fourthdimension/models/block/carrier_axle.json": "d2a39c19a9fc7fdbe58b90208701188a4c76e3876e11d7560bbeaa7da0346a24",
+    "assets/fourthdimension/blockstates/zacspin_legacy_controller.json": "c64c687b0b71b2da011cf7fb3657f93ea4f384170cc6a626ff547ca48706c065",
+    "assets/fourthdimension/models/block/zacspin_legacy_controller.json": "38b7e4af90e7af06ce3a184ba35aa07ce03aa9da097655fc80f8e3a1a5ed63bf",
+    "assets/fourthdimension/blockstates/legacy_seat.json": "aa5d44d50fb1898da3dcbc1e933bfd7b496b2c34bcbe112ab7d4597bfa5b842f",
+    "assets/fourthdimension/models/block/legacy_seat_closed.json": "984a7437d716326f3ccc0ae2eddb23c79abd2c9b7e4ee6ea8c5e35bdbe38ce69",
+    "assets/fourthdimension/blockstates/sns_free_spin_controller.json": "8054703d9a16421eb7f9118a44b42f155f5dec2b4a16a68818ebec7413cc081f",
+    "assets/fourthdimension/models/block/sns_free_spin_controller.json": "7bd2ca365c502723cda18f439649b27eabe1fdf186a37ea68019bce03dcbdae8",
+    "assets/minecraft/models/block/cube_all.json": "be3205d629ffb9e03834c3d1d083f8a2c62e9f9ae80820755129408634e9144a",
+    "assets/minecraft/models/block/cube.json": "3e4aacd02e816aeba38f83076596e18ded4cf49c01e17c62d1fce79850ffb84e",
+    "assets/fourthdimension/blockstates/free_spin_seat.json": "9ef0f1ac000599aef9fc4b743964e9c4417dd4aa7832264440ff1b0aac4e96a0",
+    "assets/fourthdimension/models/block/free_spin_seat_closed.json": "f6d17a92fa07be3b28ade808a378a4cf297d3f4a82896b975d8977c591fbc713",
+    "assets/fourthdimension/blockstates/free_spin_axle.json": "e7e2b02c4d169467aeb601076bfde77be14bf5adae1ceb3e8cfeee1ed0ba0050",
+    "assets/fourthdimension/models/block/free_spin_axle.json": "332d2f3de98a1a0670dc05b42435fb3c614576f416fa3aec1a730e4b79705a97",
+    "assets/fourthdimension/blockstates/revised_strut.json": "3055d57006b9625b77dbf0c6005c6afed2edef05295525205332e6ef4071da69",
+    "assets/fourthdimension/models/block/revised_strut.json": "3ce68a62371cd8ad352ecf278d3f1b1c51fa3b81c82513a281542baa5f55d132",
+    "assets/fourthdimension/blockstates/zacspin_revised_controller.json": "719c13131b676e2a4a74bedb3dedb4d553b031d60f344eaaf855195a7b9b113a",
+    "assets/fourthdimension/models/block/zacspin_revised_controller.json": "7bd2ca365c502723cda18f439649b27eabe1fdf186a37ea68019bce03dcbdae8",
+    "assets/fourthdimension/blockstates/revised_seat.json": "c6008e743d3468127ddb2790000fa6d57de468d9a64cd1e481564ac82d1b0465",
+    "assets/fourthdimension/models/block/revised_seat_closed.json": "3cc55a03a9024b25203e3f90b53695c7a9bf475f167622e8be234133133d0ed1",
+    "assets/fourthdimension/blockstates/revised_axle.json": "faff10d7193ae75c3734d6f72bb7fcb23d392848f92a8563b6e75a2d9b567280",
+    "assets/fourthdimension/models/block/revised_axle.json": "332d2f3de98a1a0670dc05b42435fb3c614576f416fa3aec1a730e4b79705a97",
+    "assets/fourthdimension/blockstates/pax_shuttle_controller.json": "73ec8e44f74a31d75201087999ace4abca62724f5b975dd619e35c0ee7918fec",
+    "assets/fourthdimension/models/block/pax_shuttle_controller.json": "7bd2ca365c502723cda18f439649b27eabe1fdf186a37ea68019bce03dcbdae8",
+    "assets/fourthdimension/blockstates/pax_seat.json": "8664667673a9e97239a3f89f5e478c2cc1b1434a2001e3e048906c8b0be8a6da",
+    "assets/fourthdimension/models/block/pax_seat_closed.json": "69d3dc0151286b70988b798fc5972a68f4d08e9d619e83ddc09ac0eb099ab34a"
+  },
+  "sampleIntervalTicks": 1,
+  "scope": "one-tick sampled original default block-model, explicit chassis/carrier linkage blocks, native lower-bearing, full-spin wheel-envelope and mounted native-rider rendered-orientation volumes against original track tubes; running rails are excluded only for wheels as intended contact; no continuous physics-step sweep, player meshes, client renderer/cosmetics, unmodeled kinematic linkage, decorations or resource overrides",
+  "method": "2-block spatial bins; omitted pairs certify at least 4x margin; world AABB separation refined by OBB/triangle SAT lower distance bounds",
+  "routes": [
+    {
+      "family": "ARROW",
+      "cars": 1,
+      "samples": 5764,
+      "trackTriangles": 60608,
+      "minimumSeparatingBound": 0.04894615252931089,
+      "closest": {
+        "tick": 893,
+        "body": "7c4a3fad-ec60-4608-90f0-580d8a435912",
+        "role": "ordinary",
+        "modelElement": "nativeWheel:upstop:back:fullSpinEnvelope",
+        "trackComponent": "section1:outboardSupport1"
+      },
+      "requiredGap": 0.02,
+      "passes": true,
+      "wheelEnvelopeCount": 46112,
+      "wheelMinimumSeparatingBound": 0.04894615252931089,
+      "wheelClosest": {
+        "tick": 893,
+        "body": "7c4a3fad-ec60-4608-90f0-580d8a435912",
+        "role": "ordinary",
+        "modelElement": "nativeWheel:upstop:back:fullSpinEnvelope",
+        "trackComponent": "section1:outboardSupport1"
+      },
+      "linkageEnvelopeCount": 51876,
+      "linkageMinimumSeparatingBound": 0.08,
+      "linkageClosest": null,
+      "riderEnvelopeCount": 23056,
+      "riderMinimumSeparatingBound": 0.08,
+      "riderClosest": null,
+      "riderRackEnvelopeCount": 5244,
+      "riderRackMinimumSeparatingBound": 0.0625000298022087,
+      "riderRackClosest": {
+        "tick": 1171,
+        "body": "57d4b2f3-be24-4d0a-93e7-9045412968d4",
+        "modelElement": "nativeRider",
+        "rackComponent": "fourthdimension:carrier_axle@[0, 0, 0]:element0"
+      },
+      "neighborMinimumSeparatingBound": 2.174082507172782,
+      "neighborClosest": {
+        "tick": 2017,
+        "first": "nativeWheel:upstop:front:fullSpinEnvelope",
+        "second": "nativeWheel:upstop:back:fullSpinEnvelope"
+      },
+      "neighborPairs": 4761064,
+      "uncertifiedPairs": [],
+      "allCarsVisitedSections": 5
+    },
+    {
+      "family": "LEGACY",
+      "cars": 1,
+      "samples": 5846,
+      "trackTriangles": 36928,
+      "minimumSeparatingBound": 0.04394927450312025,
+      "closest": {
+        "tick": 784,
+        "body": "fa7d9561-fe78-4ce7-bd38-c59931b05759",
+        "role": "ordinary",
+        "modelElement": "nativeWheel:upstop:back:fullSpinEnvelope",
+        "trackComponent": "section1:outboardSupport1"
+      },
+      "requiredGap": 0.02,
+      "passes": true,
+      "wheelEnvelopeCount": 46768,
+      "wheelMinimumSeparatingBound": 0.04394927450312025,
+      "wheelClosest": {
+        "tick": 784,
+        "body": "fa7d9561-fe78-4ce7-bd38-c59931b05759",
+        "role": "ordinary",
+        "modelElement": "nativeWheel:upstop:back:fullSpinEnvelope",
+        "trackComponent": "section1:outboardSupport1"
+      },
+      "linkageEnvelopeCount": 52614,
+      "linkageMinimumSeparatingBound": 0.08,
+      "linkageClosest": null,
+      "riderEnvelopeCount": 46768,
+      "riderMinimumSeparatingBound": 0.08,
+      "riderClosest": null,
+      "riderRackEnvelopeCount": 10324,
+      "riderRackMinimumSeparatingBound": 0.0625000298022087,
+      "riderRackClosest": {
+        "tick": 1154,
+        "body": "b00ef7d0-1a68-450b-850f-c23ea23f8b9e",
+        "modelElement": "nativeRider",
+        "rackComponent": "fourthdimension:carrier_axle@[0, 0, 0]:element0"
+      },
+      "neighborMinimumSeparatingBound": 2.1741079789630366,
+      "neighborClosest": {
+        "tick": 2033,
+        "first": "nativeWheel:upstop:front:fullSpinEnvelope",
+        "second": "nativeWheel:upstop:back:fullSpinEnvelope"
+      },
+      "neighborPairs": 7447804,
+      "uncertifiedPairs": [],
+      "allCarsVisitedSections": 5
+    },
+    {
+      "family": "FREE_SPIN",
+      "cars": 1,
+      "samples": 5873,
+      "trackTriangles": 36928,
+      "minimumSeparatingBound": 0.044065846269745634,
+      "closest": {
+        "tick": 1413,
+        "body": "942584e9-5fad-4349-b06c-bfcc86ee5fc0",
+        "role": "chassis",
+        "modelElement": "nativeWheel:upstop:back:fullSpinEnvelope",
+        "trackComponent": "section1:outboardSupport1"
+      },
+      "requiredGap": 0.02,
+      "passes": true,
+      "wheelEnvelopeCount": 46984,
+      "wheelMinimumSeparatingBound": 0.044065846269745634,
+      "wheelClosest": {
+        "tick": 1413,
+        "body": "942584e9-5fad-4349-b06c-bfcc86ee5fc0",
+        "role": "chassis",
+        "modelElement": "nativeWheel:upstop:back:fullSpinEnvelope",
+        "trackComponent": "section1:outboardSupport1"
+      },
+      "linkageEnvelopeCount": 158571,
+      "linkageMinimumSeparatingBound": 0.08,
+      "linkageClosest": null,
+      "riderEnvelopeCount": 46984,
+      "riderMinimumSeparatingBound": 0.08,
+      "riderClosest": null,
+      "riderRackEnvelopeCount": 9488,
+      "riderRackMinimumSeparatingBound": 0.0625000298022087,
+      "riderRackClosest": {
+        "tick": 1186,
+        "body": "a876c979-602b-4f81-9681-e5e489d54c3c",
+        "modelElement": "nativeRider",
+        "rackComponent": "fourthdimension:free_spin_axle@[0, 0, 0]:element0"
+      },
+      "neighborMinimumSeparatingBound": 6.087191899878243,
+      "neighborClosest": {
+        "tick": 2093,
+        "first": "nativeRider",
+        "second": "nativeWheel:upstop:back:fullSpinEnvelope"
+      },
+      "neighborPairs": 8715532,
+      "uncertifiedPairs": [],
+      "allCarsVisitedSections": 5
+    },
+    {
+      "family": "REVISED",
+      "cars": 1,
+      "samples": 5866,
+      "trackTriangles": 36928,
+      "minimumSeparatingBound": 0.044153061822839845,
+      "closest": {
+        "tick": 778,
+        "body": "41b0ce0b-261e-49e5-86f3-3069fc769641",
+        "role": "ordinary",
+        "modelElement": "nativeWheel:upstop:back:fullSpinEnvelope",
+        "trackComponent": "section1:outboardSupport1"
+      },
+      "requiredGap": 0.02,
+      "passes": true,
+      "wheelEnvelopeCount": 46928,
+      "wheelMinimumSeparatingBound": 0.044153061822839845,
+      "wheelClosest": {
+        "tick": 778,
+        "body": "41b0ce0b-261e-49e5-86f3-3069fc769641",
+        "role": "ordinary",
+        "modelElement": "nativeWheel:upstop:back:fullSpinEnvelope",
+        "trackComponent": "section1:outboardSupport1"
+      },
+      "linkageEnvelopeCount": 170114,
+      "linkageMinimumSeparatingBound": 0.08,
+      "linkageClosest": null,
+      "riderEnvelopeCount": 46928,
+      "riderMinimumSeparatingBound": 0.08,
+      "riderClosest": null,
+      "riderRackEnvelopeCount": 9486,
+      "riderRackMinimumSeparatingBound": 0.06250002980209501,
+      "riderRackClosest": {
+        "tick": 2978,
+        "body": "a6e63c1a-a37c-42d6-9a62-41310907ff22",
+        "modelElement": "nativeRider",
+        "rackComponent": "fourthdimension:revised_axle@[1, 0, 0]:element0"
+      },
+      "neighborMinimumSeparatingBound": 7.94819274513307,
+      "neighborClosest": {
+        "tick": 1994,
+        "first": "nativeRider",
+        "second": "nativeWheel:upstop:back:fullSpinEnvelope"
+      },
+      "neighborPairs": 8869392,
+      "uncertifiedPairs": [],
+      "allCarsVisitedSections": 5
+    },
+    {
+      "family": "PAX",
+      "cars": 1,
+      "samples": 5768,
+      "trackTriangles": 36928,
+      "minimumSeparatingBound": 0.044088139024324846,
+      "closest": {
+        "tick": 1277,
+        "body": "9e21e00d-626d-4a8c-9466-be0d56cf0a62",
+        "role": "ordinary",
+        "modelElement": "nativeWheel:upstop:back:fullSpinEnvelope",
+        "trackComponent": "section1:outboardSupport1"
+      },
+      "requiredGap": 0.02,
+      "passes": true,
+      "wheelEnvelopeCount": 46144,
+      "wheelMinimumSeparatingBound": 0.044088139024324846,
+      "wheelClosest": {
+        "tick": 1277,
+        "body": "9e21e00d-626d-4a8c-9466-be0d56cf0a62",
+        "role": "ordinary",
+        "modelElement": "nativeWheel:upstop:back:fullSpinEnvelope",
+        "trackComponent": "section1:outboardSupport1"
+      },
+      "linkageEnvelopeCount": 51912,
+      "linkageMinimumSeparatingBound": 0.08,
+      "linkageClosest": null,
+      "riderEnvelopeCount": 23072,
+      "riderMinimumSeparatingBound": 0.08,
+      "riderClosest": null,
+      "riderRackEnvelopeCount": 5166,
+      "riderRackMinimumSeparatingBound": 0.0625000298022087,
+      "riderRackClosest": {
+        "tick": 1138,
+        "body": "93b8bbb6-ef2a-4d89-b5f3-c1957147e139",
+        "modelElement": "nativeRider",
+        "rackComponent": "fourthdimension:free_spin_axle@[0, 0, 0]:element0"
+      },
+      "neighborMinimumSeparatingBound": 2.174127431838365,
+      "neighborClosest": {
+        "tick": 2018,
+        "first": "nativeWheel:upstop:front:fullSpinEnvelope",
+        "second": "nativeWheel:upstop:back:fullSpinEnvelope"
+      },
+      "neighborPairs": 4522112,
+      "uncertifiedPairs": [],
+      "allCarsVisitedSections": 5
+    }
+  ]
+}

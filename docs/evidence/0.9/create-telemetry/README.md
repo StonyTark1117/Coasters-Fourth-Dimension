@@ -1,5 +1,10 @@
 # Create telemetry native checkpoint
 
+The later [packaged standalone two-client checkpoint](local-046ead9/README.md)
+records actual goggles, Display Link setup/output, late join, cold restart and
+occupied PAX phase observations on `046ead9`. Its results remain separate from
+the four-profile native evidence below.
+
 Source revision `177d4f652b1444652288db8a4073fc2f7ed3e6b0` restores shared ride
 telemetry, Create goggles and six Display Link sources while retaining the
 current support-repair and PAX guards. Schema 6 and protocol 7 are unchanged.

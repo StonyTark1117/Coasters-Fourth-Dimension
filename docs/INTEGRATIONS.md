@@ -112,9 +112,15 @@ serialized block updates. [Current four-profile CI evidence](evidence/0.9/create
 records all 47 required native tests passing on source revision `177d4f6`, including
 the telemetry assertions. Each job then hit its 25-minute limit during the dense
 clearance audit; this is not a complete CI pass. The earlier telemetry branch's
-native results are not substituted for this run. Live goggles, Display Link
-configuration/rendering, two-client synchronization, late joining, completed
-clearance audits and final integrated-artifact checks remain required.
+native results are not substituted for this run. A later
+[packaged standalone checkpoint](evidence/0.9/create-telemetry/local-046ead9/README.md)
+on `046ead9` adds five-family goggles, normal Arrow Display Link setup/output,
+two-client Arrow occupancy/readiness/retention, late join, resource reload and
+occupied cold-server restart. Two occupied PAX cycles expose every phase through
+the real kinetic goggles, followed by normal unloading and a winch phase display.
+Its own 47 native tests pass. Optional-profile client coverage, remaining physical
+repair/lifecycle cases, complete clearance and final integrated-artifact checks
+remain open; the checkpoint lists the exact bounds.
 
 ## Remaining FD401 acceptance
 

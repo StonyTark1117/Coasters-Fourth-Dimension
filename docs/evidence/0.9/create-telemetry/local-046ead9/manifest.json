@@ -1,0 +1,116 @@
+{
+  "sourceRevision": "046ead9b564a55cf08f3e28b24eb22aa4f06d3fd",
+  "jarSha256": "d271ea78298a2b421ea76ac0d5a348ecd6ab90beba00cc9abb5c79556f0741f2",
+  "profile": "standalone",
+  "minecraft": "1.21.1",
+  "neoforge": "21.1.248",
+  "schema": 6,
+  "protocol": 7,
+  "nativeRequiredTests": 47,
+  "nativeResult": "passed",
+  "unitTests": 26,
+  "unitResult": "passed",
+  "singleClearance": "passed",
+  "trainClearance": "passed",
+  "renderEnvironment": "Xvfb :121, 854x480, llvmpipe LLVM23.1.3 Mesa26.2.5; no hardware/FPS acceptance",
+  "clientNames": [
+    "Dev",
+    "Observer"
+  ],
+  "validationFlag": true,
+  "allClientAndServerExits": 0,
+  "dependencies": [
+    {
+      "file": "create-1.21.1-6.0.10-280.jar",
+      "path": "/home/braydon/.gradle/caches/modules-2/files-2.1/com.simibubi.create/create-1.21.1/6.0.10-280/62c085fd48fc84b62f88d7bc98b7c4206492c080/create-1.21.1-6.0.10-280.jar",
+      "sha256": "192c7b0be13f523dcec9a7a2393bbc2614c3c9bd3edb1f7720a97bcd4f0b87a7"
+    },
+    {
+      "file": "create-1.21.1-6.0.10-280-slim.jar",
+      "path": "/home/braydon/.gradle/caches/modules-2/files-2.1/com.simibubi.create/create-1.21.1/6.0.10-280/92471e8fc5ed4e3c2279001d77ebcec6fd38bcab/create-1.21.1-6.0.10-280-slim.jar",
+      "sha256": "f0652bee27460f2d26a748f537cb5d687981441378d3a526d17ffaab5a1072bb"
+    },
+    {
+      "file": "Registrate-MC1.21-1.3.0+67.jar",
+      "path": "/home/braydon/.gradle/caches/modules-2/files-2.1/com.tterrag.registrate/Registrate/MC1.21-1.3.0+67/66ddc4cd56472fea1ea1a24182901e6c92a51c0a/Registrate-MC1.21-1.3.0+67.jar",
+      "sha256": "510f4041c41739f1d8ea8850ab8364d3e3a5fada8529beed5d9f479e2523db52"
+    },
+    {
+      "file": "create-coasters-simulated-1601871-8655742.jar",
+      "path": "/home/braydon/.gradle/caches/modules-2/files-2.1/curse.maven/create-coasters-simulated-1601871/8655742/4d3381b781a1129f793358b8ae13e0abcd2e655b/create-coasters-simulated-1601871-8655742.jar",
+      "sha256": "f80b4c3cdf9fa6188804967147761b0373e150a6eadbdc53626e5ac9700b2049"
+    },
+    {
+      "file": "flywheel-neoforge-1.21.1-1.0.6.jar",
+      "path": "/home/braydon/.gradle/caches/modules-2/files-2.1/dev.engine-room.flywheel/flywheel-neoforge-1.21.1/1.0.6/a943872ad0bdd4458d818d8d7dc123fb250eb744/flywheel-neoforge-1.21.1-1.0.6.jar",
+      "sha256": "31dda15c205eb596d3b3449ef03f6af7363a6cd35b3da4bfe916b304f9e5337e"
+    },
+    {
+      "file": "sable-companion-common-1.21.1-1.6.0.jar",
+      "path": "/home/braydon/.gradle/caches/modules-2/files-2.1/dev.ryanhcode.sable-companion/sable-companion-common-1.21.1/1.6.0/370be7db705926176e05c0215ed676150c45daae/sable-companion-common-1.21.1-1.6.0.jar",
+      "sha256": "873633e35046e3761b277ff8a1ecad0d55d9a3014fa81a0b084c9aecba1f3bed"
+    },
+    {
+      "file": "sable-neoforge-1.21.1-2.0.3.jar",
+      "path": "/home/braydon/.gradle/caches/modules-2/files-2.1/dev.ryanhcode.sable/sable-neoforge-1.21.1/2.0.3/f3ba9a497122ba29d9e94ebe6f9a3a3aaa5fa756/sable-neoforge-1.21.1-2.0.3.jar",
+      "sha256": "da6c3b66238586603d1dcaa2afb012d36815fbce0a2d5938fbb2936701d42279"
+    },
+    {
+      "file": "sable-sable_rapier-1.21.1-2.0.3.jar",
+      "path": "/home/braydon/.gradle/caches/modules-2/files-2.1/dev.ryanhcode.sable/sable-sable_rapier-1.21.1/2.0.3/a88c0860320890144b6b44c332a2a2db3a61e189/sable-sable_rapier-1.21.1-2.0.3.jar",
+      "sha256": "aabd5ed08349821989cd1806122918cbec3c9dfafe4584e0ab012fa015b7749d"
+    },
+    {
+      "file": "veil-neoforge-1.21.1-4.1.4.jar",
+      "path": "/home/braydon/.gradle/caches/modules-2/files-2.1/foundry.veil/veil-neoforge-1.21.1/4.1.4/642ec0bd02213ee087d86eda553d6d79c6a04d2b/veil-neoforge-1.21.1-4.1.4.jar",
+      "sha256": "9c2899086a96339245b5abde82879011753871f25443df9581881f29596a7180"
+    },
+    {
+      "file": "ponder-neoforge-1.0.82+mc1.21.1.jar",
+      "path": "/home/braydon/.gradle/caches/modules-2/files-2.1/net.createmod.ponder/ponder-neoforge/1.0.82+mc1.21.1/b10a04f40b9d6d33c346fb38df33f10f7e51b713/ponder-neoforge-1.0.82+mc1.21.1.jar",
+      "sha256": "0cf4611ad853042b689ac386184c5bbe02950efcffddb49e5f604e82baddb0dc"
+    }
+  ],
+  "files": {
+    "README.md": "6bd33bd8565a51f5aa34b6b42f5810ea5048d3b5b456ed7e4fdfcb69a9df7ae4",
+    "after-cold-restart.png": "b06df795dba27ac7f20d93704a48ab72d299c9b27e8330bd679fbf40abfefef0",
+    "after-resource-reload.png": "faf29bf839854d987042f5e907d5a89023c30892e513506d257bd8e329163f3d",
+    "arrow-goggles.png": "87fa2a7b315cfbda7adc8cdccc6ae686b36aa6979f8abbc3caddd5ae03447b3e",
+    "client.log.gz": "701bf5c101160914037a90b5c0375bb082b1a35219ea1bf2ce5c29bb796e4e2f",
+    "free-spin-goggles.png": "d56c0d4fc91d034e0249f307d6e0ac5a21c06532cd4ff4f92d4d75dfc273fcd2",
+    "initial-server-observations.jsonl": "d0f38d7978c3ecbc1d378b7e3283e79c623dec041e3e71072d6135e656155a66",
+    "legacy-goggles.png": "87361c85fd66d58b104c15163ca8e5d252d1000d6033e195ab59d84d00b384f6",
+    "link-source.png": "d4ac0ca50e35cee16d53d1f28c8e26b045f448da2bf17fb2e0381bcd6958e980",
+    "observer-late-join-goggles.png": "789c3467feb1977934d12afe85d4b5b14b885b5841bae3fc1ff2d55c0801b227",
+    "observer-ready.png": "b55154ccebc561d8e452f7714f802ca0fc2556fc9f943ee54ed6327d18748e4c",
+    "observer-retained.png": "f47b02e41746e2cad7ebf74070f5ace0363d753d46e9b9be2eb0fe9205d12f6c",
+    "observer-sign-occupied.png": "3f069b9c2a5ec291433ba3fc7dfab1ea436a3c8c23e1e42eddca36e8af5f45c3",
+    "observer.log.gz": "e13d4e3ad858ffda4958e88ef0caaaea5d6f30f85288896dcda1efb3fde92817",
+    "pax-client-phase-boarding.png": "468c8dc72625b6488cbf135fdb7b9b82eeb735d293b14e9ddf6271e74ebffcee",
+    "pax-client-phase-capturing.png": "226fb2e69ff712bda81db995237eb29a9e3eb0243e57161b674dde68bab64834",
+    "pax-client-phase-lifting.png": "86d99483a8a3ab1730cc99f108ecffa7b5b703e296a6da4233b1099bcbe41675",
+    "pax-client-phase-observations.jsonl": "fc009b4e320ca025a79b86095ccbb52f1b46fb7534f7ee157107e4a1ff9e59b9",
+    "pax-client-phase-outbound.png": "8ebdd9306a4425b58b6cb18d39d84d28a7948d8f3830ea2e32fee6483a83f1ac",
+    "pax-client-phase-returning.png": "7fca1871e94fbcec274cb60af92eff7d586a7986733b5a951516bf5ca026a9fb",
+    "pax-goggles.png": "9043307e1ef6cbb65a0ec5280442cf78ed8f7ed191770621707dd2f5fa59698a",
+    "pax-occupied.png": "47fb5c386dc44caf62984ba4b5c5c9f0272d221e65acf6337d8b2b4634dbe564",
+    "pax-phase-sign.png": "9fc93e492884a5870bcc9f07dd8a74e568d72c6b37bd6d497d0493a8083cf09d",
+    "pax-unloaded.png": "8f0425e57d853ebf52fe9ea638c0a96c13d461194c44d8fb60e71f0252850db4",
+    "recovery-bank-mesh-trace.jsonl.gz": "83c3bb9d6f303033248c11fbdbac91c3cd92cb94949a44e40f1b227e43ef00d7",
+    "recovery-bank-native-frames.json": "c77cfed58a19145080b1a449d4ca57531493cfeac0cafa1d90db593c782fcc82",
+    "recovery-bank-train-mesh-trace.jsonl.gz": "6684f968acdda2bc63371f4039732055e218b95647c5a06998e3a724a7d79394",
+    "recovery-bank-train-native-frames.json": "0b627298843d1dba73b5039a1f1039ac185235d22c3f50d921a85f3b2561fd57",
+    "revised-goggles.png": "673c695adfb8e5dc4de925993168e72c0e9759b0c3fc36c6e045e14fa4b913a9",
+    "route-geometry.json": "5a438e9d439baf10fab64d5f3b9ad8e1cce56f9238deaf50fb0d9ba5ae654049",
+    "server-observations.jsonl": "55c7b3b62ca46628c64523772fe56bcbfefa732cdae777256fa2e205ac268e9a",
+    "server-restart.log.gz": "6d8a4083c648be1db276a00297931febe1374f550297cad77accb392a26d7bdc",
+    "server.log.gz": "2630721133a926ef8b0df7a1e7a64a4086fb8403b81590d034f291ef476aef12",
+    "sign-cleared.png": "cf6f53cfd16acee3d11261a6d427dc11fdb5952421bcbd8cd41f5d503e24eeef",
+    "sign-empty.png": "f6df070d317923251672ae77108a9a2a64db0877b2694338c1441c2e440f3f6f",
+    "sign-ready.png": "f6a3c3a9be946dae1f1adc99e61e472bc59ae98fda9e3fdea18205ec58344d0c",
+    "single-clearance.json": "053412a0a21915eaa492d2170b7a854cb6006ac5a233aa1e8681b729365242ea",
+    "standalone-native.log.gz": "9549aee9ca4ab99f862a218bf94db07a2c3ba2b8343f948517ff7113c43b4e1d",
+    "train-clearance.json": "cf503fd94cbbd606b0c6f507bb7ba6a0515f3df9ce033d44e011da4912152df1",
+    "train-route-geometry.json": "543b348edbcd1a2918645ed36835f4ad6ffbfa6ff2fc6d8ae2faa055cd4273fa"
+  }
+}
