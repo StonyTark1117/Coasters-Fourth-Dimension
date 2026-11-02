@@ -89,7 +89,7 @@ tested bounds, not general-world or unlimited-layout support.
 | Legacy ZacSpin | The eight-seat car has two free carriers with back-to-back seating. Tune damping and ballast on the car; section rotation keys do not drive its carriers. Rider distribution changes the free response. Capture both groups before unloading. |
 | S&S-inspired Free Spin | Four independent paired carriers use free dynamics. Install inducers or dampers on matching track and edit each span with the Rotation Tool. Compare spin before and after the zone. A damper slows rotation; the capture system supplies the boarding lock. |
 | Revised free rotor | Four independent paired carriers have lower hinges and a different chassis layout. Run it on Revised Free-Rotor Track and compare the groups' responses with different rider loading. This is an inspired variant, not a claim of exact manufacturer coupling. |
-| PAX-inspired shuttle | Assemble and couple four matching cars, six blocks apart, between two spikes. Bind a nearby winch, supply Create shaft rotation, board and close restraints. Start the winch and follow lift → outbound → returning → capturing → boarding. Open restraints only after final capture and readiness. |
+| PAX-inspired shuttle | Assemble four matching cars six blocks apart, then hold a Minecraft Chain and right-click each adjacent pair in order to create the three native links. Bind a nearby winch, supply Create shaft rotation, board and close restraints. Start the winch and follow lift → outbound → returning → capturing → boarding. Open restraints only after final capture and readiness. |
 
 The ordinary boarding station binds a nearby non-PAX car when used empty-handed.
 Power at its rear requests capture; releasing power requests dispatch. Its front
@@ -108,8 +108,14 @@ after it, measured along the route. You can operate one to four matching cars;
 the four-car walkthrough needs at least 38 blocks after the lead car. A flat
 straight section can hold a car but cannot bind as a working shuttle route.
 
-Place the winch within twelve blocks of a stopped train and sneak-use it
-to bind. An operator uses the winch to start the cycle. After an interrupted lift,
+With a Minecraft Chain in the main hand, right-click the first stopped car and
+then its neighbor to couple that pair. Repeat for the second/third and
+third/fourth cars. The game confirms each pair with **Carts coupled**; sneak
+right-click with the Chain to clear a mistaken pending selection. Do this while
+all four cars are captured and six blocks apart, before binding the winch.
+
+Place the winch within twelve blocks of the stopped train and sneak-use it to
+bind. An operator uses the winch to start the cycle. After an interrupted lift,
 restore power and inspect the route, then use the winch normally to resume.
 Restrained riders need an operator on the platform. Keep the winch, its supports
 and the complete route available during operation. See the more detailed

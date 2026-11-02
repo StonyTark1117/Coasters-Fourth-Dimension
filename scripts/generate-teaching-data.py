@@ -54,7 +54,7 @@ GUIDANCE = {
     "pax_car": [
         "Four seats; gravity drives rotation.",
         "Requires PAX-Inspired Shuttle Track.",
-        "Board only when the winch is ready.",
+        "Couple adjacent cars with a Minecraft Chain.",
     ],
     "rotation_tool": [
         "Use on an anchor or assembled 4D car.",

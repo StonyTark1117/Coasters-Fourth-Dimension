@@ -63,7 +63,7 @@ final class PonderLessons {
           "PAX uses the winch cycle instead. Its return capture must complete before boarding or unloading."))),
     Map.entry("pax", new Lesson("PAX catch, powered lift, release and return", List.of(
           "Build one connected PAX track route between two spikes. The compact route shown here is a diagram.",
-          "Couple four PAX cars six blocks apart with native links. One four-seat car is shown here.",
+          "Place four PAX cars six blocks apart. Hold a Minecraft Chain, right-click one car then its neighbor, and repeat for each adjacent pair.",
           "Place a winch within twelve blocks of the stopped train. Sneak-use it to bind, then supply Create rotation at 16 to 128 RPM.",
           "Wait for boarding readiness. Board, close restraints and have the platform operator use the winch to start.",
           "The mechanical catch lifts the train. The catch releases at the crest; the train then travels freely.",
