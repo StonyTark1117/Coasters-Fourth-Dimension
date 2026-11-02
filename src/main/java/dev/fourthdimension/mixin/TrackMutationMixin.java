@@ -56,7 +56,8 @@ public abstract class TrackMutationMixin {
     var data = FoundationData.get(level);
     for (var rail : data.rails)
       if (rail.original() && rail.matches(self.getBlockPos(), peer)) {
-        if (TrackPlacement.occupied(data, rail)) {
+        if (TrackPlacement.occupied(data, rail)
+            && !TrackPlacement.mayRestoreOccupiedSupport(data, rail)) {
           ci.cancel();
           return;
         }

@@ -10,7 +10,26 @@ import net.minecraft.server.level.*;
 import org.joml.Vector3d;
 
 public final class VehicleOperations {
+  public static final String MATCHING_SUPPORT_LOST = "Matching track support lost";
+
   private VehicleOperations() {}
+
+  /**
+   * Enter the retained, fail-closed state used when an original functional section disappears.
+   * Capture is intentional: an active-route loss must become serviceable after braking, rather
+   * than leaving a rider in a stopped but permanently unalignable free carrier.
+   */
+  public static void failForLostSupport(FoundationData.Vehicle vehicle) {
+    if (vehicle.stopping
+        && vehicle.restraints
+        && MATCHING_SUPPORT_LOST.equals(vehicle.fault)
+        && vehicle.carriers.stream().allMatch(carrier -> carrier.capture)) return;
+    vehicle.stopping = true;
+    vehicle.restraints = true;
+    vehicle.carriers.forEach(carrier -> carrier.capture = true);
+    vehicle.fault = MATCHING_SUPPORT_LOST;
+    vehicle.revision++;
+  }
 
   public static FoundationData.Vehicle accessible(ServerPlayer player, UUID id) {
     var v = FoundationData.get(player.serverLevel()).vehicles.get(id);
@@ -111,6 +130,9 @@ public final class VehicleOperations {
           || !rail.variant.equals(v.variant)
           || TrackGeometry.resolve(level, rail) == null)
         throw new IllegalArgumentException("Vehicle has lost its matching track support");
+      if (MATCHING_SUPPORT_LOST.equals(v.fault))
+        throw new IllegalArgumentException(
+            "Restore the original matching section, then use Repair matching track before dispatch");
     }
     for (var v : consist) {
       v.stopping = false;
@@ -118,6 +140,53 @@ public final class VehicleOperations {
       v.carriers.forEach(c -> c.capture = false);
       v.revision++;
     }
+    data.setDirty();
+  }
+
+  /**
+   * A deliberate repair step for a returned original section. It accepts only the same stored
+   * geometry; changed geometry still requires the normal unoccupied profile-rebind workflow.
+   * Repair never opens restraints or resumes the vehicle.
+   */
+  public static void repairMatchingSupport(ServerLevel level, FoundationData.Vehicle vehicle) {
+    var data = FoundationData.get(level);
+    var consist = consist(level, vehicle);
+    for (var v : consist) {
+      if (!MATCHING_SUPPORT_LOST.equals(v.fault))
+        throw new IllegalArgumentException("This vehicle is not stopped for matching track support loss");
+      // The lost section can leave the native chassis without a track constraint, so the normal
+      // station-ready velocity check is unavailable until after this exact section is restored.
+      // Captured carriers, stopped motion, and closed restraints are the repair interlock.
+      if (!v.stopping || !v.restraints || v.carriers.stream().anyMatch(carrier -> !carrier.capture))
+        throw new IllegalArgumentException(
+            "Keep restraints closed and capture every carrier before repair");
+      var rail =
+          data.rails.stream()
+              .filter(candidate -> candidate.matches(v.boundFrom, v.boundTo))
+              .findFirst()
+              .orElseThrow(
+                  () -> new IllegalArgumentException("Restore the original matching track section first"));
+      if (!rail.variant.equals(v.variant) || rail.family != v.family)
+        throw new IllegalArgumentException("Restored section does not match this 4D vehicle family");
+      var edge = TrackGeometry.resolve(level, rail);
+      if (edge == null)
+        throw new IllegalArgumentException("Restore the original matching track section first");
+      if (TrackGeometry.fingerprint(level, edge) != rail.geometryHash)
+        throw new IllegalArgumentException(
+            "Restored geometry changed; unload riders and explicitly rebind the profile before operating");
+    }
+    var repaired = new HashSet<FoundationData.Rail>();
+    for (var v : consist) {
+      var rail =
+          data.rails.stream().filter(candidate -> candidate.matches(v.boundFrom, v.boundTo)).findFirst().orElseThrow();
+      if (repaired.add(rail) && !rail.valid) {
+        rail.valid = true;
+        rail.revision++;
+      }
+      v.fault = "";
+      v.revision++;
+    }
+    TrackGeometry.invalidate(level);
     data.setDirty();
   }
 

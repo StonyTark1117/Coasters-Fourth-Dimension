@@ -3,6 +3,7 @@ package dev.fourthdimension.track;
 import com.simibubi.create.content.trains.track.BezierConnection;
 import dev.fourthdimension.physics.RotationProfile;
 import dev.fourthdimension.runtime.*;
+import dev.fourthdimension.vehicle.VehicleOperations;
 import dev.silvergold.simulatedcoasters.CoasterTrackMaterials;
 import dev.silvergold.simulatedcoasters.track.CoasterTrackPlacement;
 import dev.silvergold.simulatedcoasters.track.anchor.CoasterAnchorpointBlockEntity;
@@ -63,13 +64,21 @@ public final class TrackPlacement {
       throw new IllegalArgumentException("Track placement is out of reach");
     var data = FoundationData.get(level);
     data.checkProfileCapacity(2);
-    if (data.rails.size() >= 256) throw new IllegalStateException("Track capacity reached");
+    var restoring =
+        data.rails.stream()
+            .filter(rail -> rail.matches(from, to))
+            .filter(rail -> rail.variant.equals(design.variant) && rail.family == design.family)
+            .filter(rail -> mayRestoreOccupiedSupport(data, rail))
+            .findFirst()
+            .orElse(null);
+    if (data.rails.size() >= 256 && restoring == null)
+      throw new IllegalStateException("Track capacity reached");
     for (var rail : data.rails)
       if (rail.from.equals(from)
           || rail.to.equals(from)
           || rail.from.equals(to)
           || rail.to.equals(to)) {
-        if (occupied(data, rail))
+        if (occupied(data, rail) && !(rail.matches(from, to) && rail == restoring))
           throw new IllegalArgumentException(
               "Connected track is occupied; remove vehicles before editing geometry");
         if (rail.matches(from, to)) continue;
@@ -117,10 +126,23 @@ public final class TrackPlacement {
     data.rails.removeIf(old -> old.matches(from, to));
     data.rails.add(rail);
     // The base mod records native handle lengths and rebuilds its graph during insertion.
+    // The upstream graph propagator updates asynchronously when a removed connection is put back.
+    // The just-constructed curve is already a complete edge, so use it until that graph entry is
+    // visible rather than treating a valid restore as a null geometry.
     var storedEdge = TrackGeometry.resolve(level, rail);
+    if (storedEdge == null) storedEdge = edge;
     TrackGeometry.invalidate(level);
     rail.profile = rail.profile.scaledTo(TrackGeometry.table(level, storedEdge).length());
     rail.geometryHash = TrackGeometry.fingerprint(level, storedEdge);
+    if (restoring != null) {
+      // Rebuilding a missing occupied section is intentionally inert until the operator uses
+      // Repair matching track. Retain the old fingerprint so that action can prove this is the
+      // same geometry, rather than silently accepting a changed curve as a new binding.
+      rail.profile = restoring.profile;
+      rail.geometryHash = restoring.geometryHash;
+      rail.valid = false;
+      rail.revision = restoring.revision + 1;
+    }
     data.setDirty();
     if (!player.isCreative())
       for (var stack : player.getInventory().items)
@@ -136,6 +158,22 @@ public final class TrackPlacement {
 
   public static boolean occupied(FoundationData data, FoundationData.Rail rail) {
     return data.vehicles.values().stream().anyMatch(v -> rail.matches(v.boundFrom, v.boundTo));
+  }
+
+  public static boolean mayRestoreOccupiedSupport(
+      FoundationData data, FoundationData.Rail rail) {
+    var affected =
+        data.vehicles.values().stream()
+            .filter(vehicle -> rail.matches(vehicle.boundFrom, vehicle.boundTo))
+            .toList();
+    return !affected.isEmpty()
+        && affected.stream()
+            .allMatch(
+                vehicle ->
+                    vehicle.stopping
+                        && vehicle.restraints
+                        && VehicleOperations.MATCHING_SUPPORT_LOST.equals(vehicle.fault)
+                        && vehicle.carriers.stream().allMatch(carrier -> carrier.capture));
   }
 
   /**

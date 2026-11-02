@@ -372,4 +372,154 @@ public final class OperationsGameTests {
           helper.succeed();
         });
   }
+
+  @GameTest(template = "empty", timeoutTicks = 300)
+  public static void fiveFamilySupportRepairRequiresExactTrackAndExplicitResume(
+      GameTestHelper helper) {
+    var level = helper.getLevel();
+    // Native plots and their carrier bodies must remain in loaded chunks for the full recovery
+    // sequence. This corridor follows the already-proven support-loss fixture layout but remains
+    // clear of it and every concurrent fixture.
+    for (int x = -65; x <= -56; x++)
+      for (int z = -33; z <= -29; z++) level.setChunkForced(x, z, true);
+    var player = FakePlayerFactory.get(
+        level,
+        new com.mojang.authlib.GameProfile(
+            UUID.fromString("fdfdfdfd-0000-0000-0000-000000000909"), "FDSupportRepair"));
+    player.setGameMode(GameType.CREATIVE);
+    var data = FoundationData.get(level);
+    var container = SubLevelContainer.getContainer(level);
+    var rails = new ArrayList<FoundationData.Rail>();
+    var cars = new ArrayList<FoundationData.Vehicle>();
+    var riders = new ArrayList<net.minecraft.world.entity.animal.Pig>();
+    for (var design : TrackDesign.values()) {
+      // Use a separate chunk-loaded corridor; native carrier clearance extends beyond each car's
+      // center and cannot overlap concurrently running fixtures.
+      var from = new BlockPos(-1020 + design.ordinal() * 24, 120, -500);
+      var to = from.offset(0, 0, 32);
+      for (var anchor : List.of(from, to))
+        level.setBlockAndUpdate(
+            anchor, SimulatedCoastersBlocks.COASTER_ANCHORPOINT.get().defaultBlockState());
+      player.setPos(to.getX() + 2, to.getY() + 1, to.getZ());
+      player.setItemInHand(InteractionHand.MAIN_HAND, TrackItems.ARROW.get().getDefaultInstance());
+      rails.add(TrackPlacement.connect(level, from, to, design, player, player.getMainHandItem()));
+    }
+    helper.runAtTickTime(
+        20,
+        () -> {
+          for (var rail : rails) {
+            var edge = TrackGeometry.resolve(level, rail);
+            var hit =
+                new CoasterPathTrackFrame.GraphHit(
+                    CoasterPathGraphManager.sampleEdgePosition(level, edge, .5), edge, .5);
+            cars.add(VehicleFactory.create(level, TrackDesign.byVariant(rail.variant), hit));
+          }
+        });
+    helper.runAtTickTime(
+        85,
+        () -> {
+          for (var car : cars) {
+            helper.assertTrue(Boarding.ready(level, car), "Repair fixture did not reach boarding");
+            var carrier = (ServerSubLevel) container.getSubLevel(car.carriers.getFirst().body);
+            var rider = net.minecraft.world.entity.EntityType.PIG.create(level);
+            rider.setNoAi(true);
+            rider.setPos(
+                carrier.logicalPose().position().x,
+                carrier.logicalPose().position().y,
+                carrier.logicalPose().position().z);
+            level.addFreshEntity(rider);
+            com.simibubi.create.content.contraptions.actors.seat.SeatBlock.sitDown(
+                level,
+                carrier.getPlot().getCenterBlock().offset(car.carriers.getFirst().seats.getFirst()),
+                rider);
+            helper.assertTrue(rider.isPassenger(), "Repair fixture rider did not mount");
+            riders.add(rider);
+            VehicleOperations.restraints(level, car, true);
+            var rail =
+                data.rails.stream()
+                    .filter(candidate -> candidate.matches(car.boundFrom, car.boundTo))
+                    .findFirst()
+                    .orElseThrow();
+            ((CoasterAnchorpointBlockEntity) level.getBlockEntity(rail.from))
+                .removeAnchorPeerCurve(level, rail.to);
+          }
+        });
+    helper.runAtTickTime(
+        115,
+        () -> {
+          helper.assertTrue(
+              riders.stream().allMatch(net.minecraft.world.entity.Entity::isPassenger),
+              "Support loss displaced a rider before repair");
+          for (var car : cars) {
+            helper.assertTrue(
+                car.stopping
+                    && car.restraints
+                    && VehicleOperations.MATCHING_SUPPORT_LOST.equals(car.fault)
+                    && car.carriers.stream().allMatch(carrier -> carrier.capture),
+                "Support loss did not retain a serviceable captured car for " + car.variant);
+            boolean rejected = false;
+            try {
+              VehicleOperations.dispatch(level, car);
+            } catch (IllegalArgumentException expected) {
+              rejected = true;
+            }
+            helper.assertTrue(rejected, "Support-loss vehicle dispatched before explicit repair");
+          }
+          for (var rail : rails) {
+            player.setPos(rail.to.getX() + 2, rail.to.getY() + 1, rail.to.getZ());
+            player.setItemInHand(
+                InteractionHand.MAIN_HAND, TrackItems.ARROW.get().getDefaultInstance());
+            TrackPlacement.connect(
+                level,
+                rail.from,
+                rail.to,
+                TrackDesign.byVariant(rail.variant),
+                player,
+                player.getMainHandItem());
+          }
+        });
+    helper.runAtTickTime(
+        135,
+        () -> {
+          for (var car : cars) VehicleOperations.repairMatchingSupport(level, car);
+          for (var car : cars) {
+            helper.assertTrue(
+                car.stopping
+                    && car.restraints
+                    && car.fault.isEmpty()
+                    && car.carriers.stream().allMatch(carrier -> carrier.capture),
+                "Repair opened, resumed, or released a stopped car for " + car.variant);
+            var rail =
+                data.rails.stream()
+                    .filter(candidate -> candidate.matches(car.boundFrom, car.boundTo))
+                    .findFirst()
+                    .orElseThrow();
+            helper.assertTrue(
+                rail.valid && TrackGeometry.resolve(level, rail) != null,
+                "Exact matching support did not become valid again for " + car.variant);
+          }
+        });
+    helper.runAtTickTime(
+        235,
+        () -> {
+          for (var car : cars) {
+            helper.assertTrue(
+                car.stopping
+                    && car.restraints
+                    && car.fault.isEmpty()
+                    && car.carriers.stream().allMatch(c -> c.capture),
+                "Repair resumed or released a stopped car for " + car.variant);
+          }
+          helper.assertTrue(
+              riders.stream().allMatch(net.minecraft.world.entity.Entity::isPassenger),
+              "Repair duplicated or displaced a retained rider");
+          System.out.println(
+              "FD_SUPPORT_REPAIR families="
+                  + cars.stream().map(car -> car.family).toList()
+                  + " riders="
+                  + riders.size()
+                  + " exactGeometryOnly=true noAutoResume=true realignmentRequiredBeforeDispatch=true");
+          helper.succeed();
+        });
+  }
 }

@@ -24,6 +24,13 @@ or saved vehicle state. Live late-join is covered
 separately; occupied clients, disconnect and full lifecycle coverage remain
 FD902 work.
 
+[Five-family exact support repair](five-family-support-repair.md) adds the
+native recovery path after that fault: only a stopped, restrained, fully
+captured support-loss car may receive a rebuilt matching section, and Repair
+matching track accepts only its saved geometry fingerprint. It retains mounted
+riders and does not resume motion; physical realignment, packaged-client,
+multi-client, and full lifecycle coverage remain FD902 work.
+
 [Repeated PAX shuttle station reload](repeated-shuttle-reload.md) saves and
 reinstalls the real winch at its first captured station return, then verifies
 that its physical carriage and ordered native consist complete a second cycle.

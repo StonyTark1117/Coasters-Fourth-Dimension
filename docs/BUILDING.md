@@ -52,6 +52,15 @@ to obtain these items.
    restraints are open. Close restraints before dispatch. Capture and wait for
    readiness before opening restraints and dismounting onto a platform.
 
+If an original matching section disappears during a ride, the car brakes,
+captures its carriers and keeps restraints closed. Restore the exact original
+section, then use **Repair matching track** in the stopped car's Rotation Tool.
+That action validates the saved geometry without moving or unloading riders.
+Return the chassis to a captured, aligned state through the normal recovery
+workflow before a separate dispatch can succeed. If the restored curve changed
+shape, unload riders and explicitly rebind its profile from the track editor
+before operating.
+
 Create drive power or the native chain system moves the chassis on a circuit.
 The addon controls carrier rotation separately. Seats rotate around their hinge
 while following the chassis; changing a decorative style does not change that

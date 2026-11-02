@@ -127,11 +127,7 @@ public final class CarrierRuntime {
               && (rail == null
                   || !rail.valid
                   || dev.fourthdimension.track.TrackGeometry.resolve(level, rail) == null);
-      if (supportLost) {
-        vehicle.stopping = true;
-        vehicle.restraints = true;
-        vehicle.fault = "Matching track support lost";
-      }
+      if (supportLost) dev.fourthdimension.vehicle.VehicleOperations.failForLostSupport(vehicle);
       if (content && !supportLost)
         dev.fourthdimension.vehicle.BoundaryGuard.check(level, parent, vehicle, rail);
       if (content && (vehicle.stopping || vehicle.maintenance && vehicle.recoveryCart == null))

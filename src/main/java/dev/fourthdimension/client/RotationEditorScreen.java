@@ -76,6 +76,8 @@ public final class RotationEditorScreen extends Screen {
       addButton("Dispatch", left, top + 108, 13);
       addButton("Retain", left + 115, top + 108, 14);
       addButton("Release retention", left + 230, top + 108, 15);
+      if ("Matching track support lost".equals(v.fault))
+        addButton("Repair matching track", left, top + 160, 25);
       if (free) addButton("Apply tuning", left, top + 134, 16);
       if (v.recoveryCart == null) {
         addButton("Attach recovery", left, top + 212, 20);
@@ -229,7 +231,7 @@ public final class RotationEditorScreen extends Screen {
       button.active = false;
       button.setTooltip(
           Tooltip.create(Component.translatable("editor.fourthdimension.recovery.locked")));
-    } else if (action >= 20 && action <= 24) {
+    } else if (action >= 20 && action <= 25) {
       button.setTooltip(
           Tooltip.create(
               Component.translatable("editor.fourthdimension.recovery.action_" + action)));
