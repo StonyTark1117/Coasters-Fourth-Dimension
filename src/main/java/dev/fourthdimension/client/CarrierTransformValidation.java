@@ -150,11 +150,18 @@ public final class CarrierTransformValidation {
       return;
     }
     boolean riderMounted = localRiderReady(minecraft);
+    boolean hadSeenSupportLoss = supportLossSeen;
     boolean supportLossObserved = supportLossReady(minecraft);
     supportLossSeen |= supportLossObserved;
-    boolean supportRepairObserved = supportRepairReady(minecraft);
+    // A healthy, captured boarding car can already satisfy the repaired-state shape. Require
+    // the client to have observed the fault on an earlier tick before accepting repair.
+    boolean hadSeenSupportRepair = supportRepairSeen;
+    boolean supportRepairObserved = hadSeenSupportLoss && supportRepairReady(minecraft);
     supportRepairSeen |= supportRepairObserved;
-    boolean supportRealignmentObserved = supportRealignmentReady(minecraft);
+    // That same healthy car can also pass the native bearing check. Count realignment only
+    // after a repaired state was observed on an earlier tick.
+    boolean supportRealignmentObserved =
+        hadSeenSupportRepair && supportRealignmentReady(minecraft);
     supportRealignmentSeen |= supportRealignmentObserved;
     boolean supportLossAfterMotion = supportLossAfterMotion(supportLossSeen);
     // The active-route fixture deliberately delays support loss until after the pre-dispatch
