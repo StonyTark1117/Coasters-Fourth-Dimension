@@ -6,7 +6,9 @@ It also pins the recorded 0.3 schema-3 world extract as a current-loader,
 schema-6-reopen regression. A separate [complete schema-3 world replay](native-schema3-world-replay.md)
 upgrades a real historical packaged-server
 save with its native Sable sublevels and reopens all 3 chassis and 8 carriers.
-Provider conversion and broader historical-world acceptance remain open.
+A [connected-client Arrow ride](native-schema3-client-ride.md) then boards,
+dispatches, captures, and dismounts in that upgraded world. Provider
+conversion and broader historical-world acceptance remain open.
 
 [Appearance provider removal](appearance-provider-lifecycle.md) combines a
 recorded save/remove/reinstall cycle with a current-schema absent-provider
