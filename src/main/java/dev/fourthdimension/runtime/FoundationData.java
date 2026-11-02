@@ -114,7 +114,7 @@ public final class FoundationData extends SavedData {
     public final Family family;
     public String variant = VARIANT;
     public boolean restraints, boardingReady;
-    public boolean stopping, maintenance;
+    public boolean stopping, maintenance, alignmentRequired;
     public UUID recoveryCart;
     public boolean recoveryCartRemoved;
     public String fault = "";
@@ -190,6 +190,7 @@ public final class FoundationData extends SavedData {
       tag.putBoolean("restraints", vehicle.restraints);
       tag.putBoolean("stopping", vehicle.stopping);
       tag.putBoolean("maintenance", vehicle.maintenance);
+      tag.putBoolean("alignment_required", vehicle.alignmentRequired);
       if (vehicle.recoveryCart != null) {
         tag.putUUID("recovery_cart", vehicle.recoveryCart);
         tag.putBoolean("recovery_cart_removed", vehicle.recoveryCartRemoved);
@@ -301,6 +302,13 @@ public final class FoundationData extends SavedData {
       if (vehicle.recoveryCart == null && vehicle.recoveryCartRemoved)
         throw new IllegalArgumentException("Removed recovery partner has no identity");
       vehicle.fault = tag.getString("fault");
+      // Saves written before exact-support recovery had no separate alignment state. A still
+      // faulted support-loss car must remain conservative when that field is absent.
+      vehicle.alignmentRequired =
+          tag.contains("alignment_required")
+              ? tag.getBoolean("alignment_required")
+              : dev.fourthdimension.vehicle.VehicleOperations.MATCHING_SUPPORT_LOST.equals(
+                  vehicle.fault);
       vehicle.revision = tag.getLong("revision");
       vehicle.boardingReady = tag.getBoolean("boarding_ready");
       vehicle.damping = tag.contains("damping") ? tag.getDouble("damping") : 5;

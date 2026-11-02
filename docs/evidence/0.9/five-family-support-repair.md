@@ -1,13 +1,12 @@
-# Five-family exact support repair — native checkpoint
+# Five-family exact support repair and physical realignment — native checkpoint
 
 **Scope:** FD902 core recovery behavior on the current original functional
 tracks. This is a native server/GameTest checkpoint; it does not establish
-packaged-client repair, multi-client repair, or a full post-repair physical
-recovery ride.
+packaged-client repair, multi-client repair, or a full post-repair lifecycle.
 
 ## What is covered
 
-`fiveFamilySupportRepairRequiresExactTrackAndExplicitResume` creates one
+`fiveFamilySupportRepairRequiresExactTrackAndRealignment` creates one
 occupied native car for each original family: Arrow, legacy ZacSpin, Free Spin,
 revised ZacSpin, and PAX. It then:
 
@@ -21,11 +20,20 @@ revised ZacSpin, and PAX. It then:
    state;
 5. accepts **Repair matching track** only when the rebuilt curve matches the
    saved geometry fingerprint; and
-6. keeps every rider mounted and every car stopped, restrained, and captured.
+6. keeps every rider mounted and every car stopped, restrained, and captured;
+7. requires **Realign matching track** as a separate explicit action, which
+   runs Coasters Simulated's native physical snap against that exact repaired
+   edge and clears its disengaged-bearing marker only after an eligibility-
+   approved snap; and
+8. verifies the bearing's resulting physical position on the repaired rail,
+   retained mounted riders, and normal circuit-family dispatch. PAX passes the
+   same matching-track dispatch gates and then stops at its required powered
+   shuttle-winch gate, which this focused fixture does not construct.
 
-The repair action does not resume a car. A chassis whose original section
-vanished must be returned to the normal captured-and-aligned state through the
-existing recovery workflow before dispatch can pass its normal readiness gate.
+Neither action resumes a car. Repair clears the fault but marks the vehicle as
+requiring alignment; dispatch fails closed until the explicit physical
+realignment has returned the original native chassis to the repaired matching
+section and its captured carrier joints have settled.
 
 ## Reproduction
 
@@ -36,14 +44,14 @@ JAVA_HOME=/usr/lib/jvm/java-21-openjdk ./gradlew test runGameTestServer --no-dae
 The current run completed successfully on 2026-11-02:
 
 ```text
-FD_SUPPORT_REPAIR families=[ARROW, ZACSPIN, FREE_SPIN, ZACSPIN_REVISED, PAX] riders=5 exactGeometryOnly=true noAutoResume=true realignmentRequiredBeforeDispatch=true
-========= 44 GAME TESTS COMPLETE IN 4.254 min ======================
+FD_SUPPORT_REPAIR families=[ARROW, ZACSPIN, FREE_SPIN, ZACSPIN_REVISED, PAX] riders=5 exactGeometryOnly=true noAutoResume=true realignmentRequiredBeforeDispatch=true nativeReengagement=true normalDispatch=true
+========= 44 GAME TESTS COMPLETE IN 4.549 min ======================
 All 44 required tests passed :)
 BUILD SUCCESSFUL
 ```
 
 ## Remaining work
 
-The checkpoint does not show a rendered client repair, simultaneous repair by
-multiple clients, or end-to-end physical return of a fallen chassis to track.
-Those remain FD902 lifecycle and client acceptance work.
+The checkpoint does not show a rendered client realignment, simultaneous repair
+by multiple clients, PAX lift dispatch after realignment, or unload/reload
+after repair. Those remain FD902 lifecycle and client acceptance work.

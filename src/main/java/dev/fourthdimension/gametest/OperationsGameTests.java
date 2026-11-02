@@ -374,7 +374,7 @@ public final class OperationsGameTests {
   }
 
   @GameTest(template = "empty", timeoutTicks = 300)
-  public static void fiveFamilySupportRepairRequiresExactTrackAndExplicitResume(
+  public static void fiveFamilySupportRepairRequiresExactTrackAndRealignment(
       GameTestHelper helper) {
     var level = helper.getLevel();
     // Native plots and their carrier bodies must remain in loaded chunks for the full recovery
@@ -487,8 +487,9 @@ public final class OperationsGameTests {
                 car.stopping
                     && car.restraints
                     && car.fault.isEmpty()
+                    && car.alignmentRequired
                     && car.carriers.stream().allMatch(carrier -> carrier.capture),
-                "Repair opened, resumed, or released a stopped car for " + car.variant);
+                "Repair did not retain a stopped car pending realignment for " + car.variant);
             var rail =
                 data.rails.stream()
                     .filter(candidate -> candidate.matches(car.boundFrom, car.boundTo))
@@ -497,28 +498,91 @@ public final class OperationsGameTests {
             helper.assertTrue(
                 rail.valid && TrackGeometry.resolve(level, rail) != null,
                 "Exact matching support did not become valid again for " + car.variant);
+            boolean rejected = false;
+            try {
+              VehicleOperations.dispatch(level, car);
+            } catch (IllegalArgumentException expected) {
+              rejected = expected.getMessage().contains("Realign matching track");
+            }
+            helper.assertTrue(
+                rejected, "Repaired vehicle dispatched before native realignment for " + car.variant);
           }
+        });
+    helper.runAtTickTime(
+        155,
+        () -> {
+          for (var car : cars) {
+            VehicleOperations.realignMatchingSupport(level, car);
+            helper.assertTrue(
+                car.stopping
+                    && car.restraints
+                    && car.fault.isEmpty()
+                    && !car.alignmentRequired
+                    && car.carriers.stream().allMatch(c -> c.capture),
+                "Realignment changed retained safety state for " + car.variant);
+          }
+          helper.assertTrue(
+              riders.stream().allMatch(net.minecraft.world.entity.Entity::isPassenger),
+              "Realignment duplicated or displaced a retained rider");
         });
     helper.runAtTickTime(
         235,
         () -> {
           for (var car : cars) {
+            var chassis = (ServerSubLevel) container.getSubLevel(car.chassis);
+            var bearingPlot = CoasterCartTrackSnap.representativeBearingPlotPos(chassis);
+            helper.assertTrue(bearingPlot != null, "Realigned vehicle lost its native bearing");
+            var bearing =
+                chassis
+                    .logicalPose()
+                    .transformPosition(net.minecraft.world.phys.Vec3.atCenterOf(bearingPlot));
+            var rail =
+                data.rails.stream()
+                    .filter(candidate -> candidate.matches(car.boundFrom, car.boundTo))
+                    .findFirst()
+                    .orElseThrow();
+            var hit = CoasterPathTrackFrame.closestHitOnEdge(level, TrackGeometry.resolve(level, rail), bearing);
             helper.assertTrue(
-                car.stopping
-                    && car.restraints
-                    && car.fault.isEmpty()
-                    && car.carriers.stream().allMatch(c -> c.capture),
-                "Repair resumed or released a stopped car for " + car.variant);
+                hit != null,
+                "Native bearing has no matching-track point after realignment for " + car.variant);
+            if (hit == null) return;
+            var basis = CoasterPathTrackFrame.trackBasisAtHit(level, hit);
+            var expectedBearing = hit.point().add(basis.up().normalize().scale(.3125));
+            helper.assertTrue(
+                hit != null && expectedBearing.distanceToSqr(bearing) < .0025,
+                "Native bearing did not physically realign to matching track for " + car.variant);
+            helper.assertTrue(
+                Boarding.ready(level, car),
+                "Realignment did not leave a stopped ready vehicle for " + car.variant);
+            if (car.family == dev.fourthdimension.contract.Family.PAX) {
+              boolean reachedWinchGate = false;
+              try {
+                VehicleOperations.dispatch(level, car);
+              } catch (IllegalArgumentException expected) {
+                reachedWinchGate = expected.getMessage().contains("powered shuttle winch");
+              }
+              helper.assertTrue(
+                  reachedWinchGate,
+                  "Realigned PAX did not pass matching-track dispatch interlocks");
+            } else {
+              VehicleOperations.dispatch(level, car);
+              helper.assertTrue(
+                  !car.stopping
+                      && car.fault.isEmpty()
+                      && car.carriers.stream().noneMatch(c -> c.capture),
+                  "Realigned vehicle did not dispatch normally for " + car.variant);
+            }
           }
           helper.assertTrue(
               riders.stream().allMatch(net.minecraft.world.entity.Entity::isPassenger),
-              "Repair duplicated or displaced a retained rider");
+              "Realignment duplicated or displaced a retained rider");
           System.out.println(
               "FD_SUPPORT_REPAIR families="
                   + cars.stream().map(car -> car.family).toList()
                   + " riders="
                   + riders.size()
-                  + " exactGeometryOnly=true noAutoResume=true realignmentRequiredBeforeDispatch=true");
+                  + " exactGeometryOnly=true noAutoResume=true realignmentRequiredBeforeDispatch=true"
+                  + " nativeReengagement=true normalDispatch=true");
           helper.succeed();
         });
   }

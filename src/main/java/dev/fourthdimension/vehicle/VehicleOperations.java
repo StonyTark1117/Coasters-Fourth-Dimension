@@ -2,9 +2,11 @@ package dev.fourthdimension.vehicle;
 
 import dev.fourthdimension.runtime.*;
 import dev.fourthdimension.track.*;
+import dev.fourthdimension.mixin.ManualSnapAccess;
 import dev.ryanhcode.sable.api.sublevel.SubLevelContainer;
 import dev.ryanhcode.sable.sublevel.ServerSubLevel;
 import dev.silvergold.simulatedcoasters.track.cart.*;
+import dev.silvergold.simulatedcoasters.track.graph.CoasterPathTrackFrame;
 import java.util.*;
 import net.minecraft.server.level.*;
 import org.joml.Vector3d;
@@ -23,11 +25,13 @@ public final class VehicleOperations {
     if (vehicle.stopping
         && vehicle.restraints
         && MATCHING_SUPPORT_LOST.equals(vehicle.fault)
+        && vehicle.alignmentRequired
         && vehicle.carriers.stream().allMatch(carrier -> carrier.capture)) return;
     vehicle.stopping = true;
     vehicle.restraints = true;
     vehicle.carriers.forEach(carrier -> carrier.capture = true);
     vehicle.fault = MATCHING_SUPPORT_LOST;
+    vehicle.alignmentRequired = true;
     vehicle.revision++;
   }
 
@@ -105,16 +109,12 @@ public final class VehicleOperations {
   public static void dispatch(ServerLevel level, FoundationData.Vehicle vehicle) {
     if (vehicle.recoveryCart != null)
       throw new IllegalArgumentException("Disconnect recovery before ride dispatch");
-    if (vehicle.family == dev.fourthdimension.contract.Family.PAX) {
-      var winch = dev.fourthdimension.shuttle.ShuttleRuntime.owner(level, vehicle.chassis);
-      if (winch == null)
-        throw new IllegalArgumentException("Bind a powered shuttle winch before PAX dispatch");
-      winch.start();
-      return;
-    }
     var data = FoundationData.get(level);
     var consist = consist(level, vehicle);
     for (var v : consist) {
+      if (v.alignmentRequired)
+        throw new IllegalArgumentException(
+            "Use Realign matching track after repair before dispatch");
       if (!v.restraints || !Boarding.ready(level, v))
         throw new IllegalArgumentException(
             "All carriers must be captured and restraints closed before dispatch");
@@ -133,6 +133,13 @@ public final class VehicleOperations {
       if (MATCHING_SUPPORT_LOST.equals(v.fault))
         throw new IllegalArgumentException(
             "Restore the original matching section, then use Repair matching track before dispatch");
+    }
+    if (vehicle.family == dev.fourthdimension.contract.Family.PAX) {
+      var winch = dev.fourthdimension.shuttle.ShuttleRuntime.owner(level, vehicle.chassis);
+      if (winch == null)
+        throw new IllegalArgumentException("Bind a powered shuttle winch before PAX dispatch");
+      winch.start();
+      return;
     }
     for (var v : consist) {
       v.stopping = false;
@@ -187,6 +194,78 @@ public final class VehicleOperations {
       v.revision++;
     }
     TrackGeometry.invalidate(level);
+    data.setDirty();
+  }
+
+  /**
+   * Re-engages the original native chassis with its repaired support without releasing riders or
+   * restraints. The base coaster snap operation rebuilds the native running contact only against
+   * the exact repaired section already verified by the preceding repair action.
+   */
+  public static void realignMatchingSupport(ServerLevel level, FoundationData.Vehicle vehicle) {
+    var data = FoundationData.get(level);
+    var container = SubLevelContainer.getContainer(level);
+    if (container == null) throw new IllegalArgumentException("Native vehicle physics are unavailable");
+    record Candidate(
+        FoundationData.Vehicle vehicle,
+        ServerSubLevel chassis,
+        dev.silvergold.simulatedcoasters.track.graph.CoasterPathTrackFrame.GraphHit hit) {}
+    var candidates = new ArrayList<Candidate>();
+    for (var v : consist(level, vehicle)) {
+      if (!v.alignmentRequired)
+        throw new IllegalArgumentException("This vehicle does not require matching-track realignment");
+      if (!v.stopping || !v.restraints || v.carriers.stream().anyMatch(carrier -> !carrier.capture))
+        throw new IllegalArgumentException(
+            "Keep restraints closed and capture every carrier before realignment");
+      if (!v.fault.isEmpty())
+        throw new IllegalArgumentException("Repair matching track before realignment");
+      var rail =
+          data.rails.stream()
+              .filter(candidate -> candidate.matches(v.boundFrom, v.boundTo))
+              .findFirst()
+              .orElseThrow(
+                  () -> new IllegalArgumentException("Restore the original matching track section first"));
+      if (!rail.valid || !rail.variant.equals(v.variant) || rail.family != v.family)
+        throw new IllegalArgumentException("Restored section does not match this 4D vehicle family");
+      var edge = TrackGeometry.resolve(level, rail);
+      if (edge == null)
+        throw new IllegalArgumentException("Restore the original matching track section first");
+      if (!(container.getSubLevel(v.chassis) instanceof ServerSubLevel chassis) || chassis.isRemoved())
+        throw new IllegalArgumentException("Vehicle chassis is unavailable");
+      var bearingPlot = CoasterCartTrackSnap.representativeBearingPlotPos(chassis);
+      if (bearingPlot == null) throw new IllegalArgumentException("Vehicle bearing is unavailable");
+      var bearing =
+          chassis
+              .logicalPose()
+              .transformPosition(net.minecraft.world.phys.Vec3.atCenterOf(bearingPlot));
+      var hit = CoasterPathTrackFrame.closestHitOnEdge(level, edge, bearing);
+      if (hit == null) throw new IllegalArgumentException("Matching track has no usable snap point");
+      if (!EligibilityHooks.allows(chassis, level, hit))
+        throw new IllegalArgumentException("Vehicle and matching track cannot re-engage");
+      candidates.add(new Candidate(v, chassis, hit));
+    }
+    for (var candidate : candidates) {
+      var plotBearing = CoasterCartTrackSnap.representativeBearingPlotPos(candidate.chassis);
+      if (plotBearing == null) throw new IllegalArgumentException("Vehicle bearing is unavailable");
+      var localBearing = net.minecraft.world.phys.Vec3.atCenterOf(plotBearing);
+      var worldBearing = candidate.chassis.logicalPose().transformPosition(localBearing);
+      var negate =
+          ManualSnapAccess.fourthdimension$negatesEdgeTangent(
+              candidate.chassis, level, candidate.hit);
+      CoasterCartTrackSnap.applyInitialSnapAfterSpawn(candidate.chassis, level, candidate.hit);
+      ManualSnapAccess.fourthdimension$physicalSnap(
+          candidate.chassis,
+          level,
+          container.physicsSystem(),
+          candidate.hit,
+          worldBearing,
+          localBearing,
+          negate);
+    }
+    for (var candidate : candidates) {
+      candidate.vehicle.alignmentRequired = false;
+      candidate.vehicle.revision++;
+    }
     data.setDirty();
   }
 

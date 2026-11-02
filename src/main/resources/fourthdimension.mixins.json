@@ -6,6 +6,7 @@
   "mixins": [
     "RailEligibilityMixin",
     "InitialSnapMixin",
+    "ManualSnapAccess",
     "TrackMutationMixin",
     "ConsistLinkMixin",
     "RecoveryLinkAccess",
