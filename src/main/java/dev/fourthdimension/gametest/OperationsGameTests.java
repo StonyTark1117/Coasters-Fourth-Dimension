@@ -373,7 +373,7 @@ public final class OperationsGameTests {
         });
   }
 
-  @GameTest(template = "empty", timeoutTicks = 300)
+  @GameTest(template = "empty", timeoutTicks = 450)
   public static void fiveFamilySupportRepairRequiresExactTrackAndRealignment(
       GameTestHelper helper) {
     var level = helper.getLevel();
@@ -576,13 +576,82 @@ public final class OperationsGameTests {
           helper.assertTrue(
               riders.stream().allMatch(net.minecraft.world.entity.Entity::isPassenger),
               "Realignment duplicated or displaced a retained rider");
+          // The dispatch assertion above proves that physical realignment clears the native
+          // interlock. Recapture before the lifecycle boundary so holding-store reload checks
+          // the safe, stopped condition operators are expected to preserve during service.
+          for (var car : cars)
+            if (car.family != dev.fourthdimension.contract.Family.PAX)
+              VehicleOperations.capture(level, car);
+        });
+    helper.runAtTickTime(
+        300,
+        () -> {
+          for (var car : cars) {
+            helper.assertTrue(
+                Boarding.ready(level, car)
+                    && car.stopping
+                    && car.restraints
+                    && car.fault.isEmpty()
+                    && !car.alignmentRequired,
+                "Recaptured realigned vehicle was not ready for holding reload " + car.variant);
+            var saved =
+                FoundationData.load(
+                        data.save(new net.minecraft.nbt.CompoundTag(), level.registryAccess()),
+                        level.registryAccess())
+                    .vehicles
+                    .get(car.chassis);
+            helper.assertTrue(
+                saved != null
+                    && saved.stopping
+                    && saved.restraints
+                    && saved.fault.isEmpty()
+                    && !saved.alignmentRequired,
+                "Realigned support state did not survive save before holding reload " + car.variant);
+            var chassis = (ServerSubLevel) container.getSubLevel(car.chassis);
+            helper.assertTrue(chassis != null, "Realigned chassis missing before holding reload");
+            var members = new ArrayList<java.util.UUID>();
+            members.add(car.chassis);
+            car.carriers.forEach(carrier -> members.add(carrier.body));
+            container
+                .getHoldingChunkMap()
+                .moveToUnloaded(
+                    chassis,
+                    new net.minecraft.world.level.ChunkPos(
+                        net.minecraft.core.BlockPos.containing(chassis.logicalPose().position().x,
+                            chassis.logicalPose().position().y, chassis.logicalPose().position().z)));
+            helper.assertTrue(
+                members.stream()
+                    .allMatch(
+                        id ->
+                            container.getSubLevel(id) == null
+                                && container.getHoldingChunkMap().getHoldingSubLevel(id) != null),
+                "Realigned vehicle did not enter the native holding store " + car.variant);
+          }
+        });
+    helper.runAtTickTime(
+        370,
+        () -> {
+          for (var car : cars) {
+            helper.assertTrue(
+                container.getSubLevel(car.chassis) != null
+                    && car.carriers.stream().allMatch(carrier -> container.getSubLevel(carrier.body) != null)
+                    && Boarding.ready(level, car)
+                    && car.stopping
+                    && car.restraints
+                    && car.fault.isEmpty()
+                    && !car.alignmentRequired,
+                "Realigned vehicle did not restore its safe native state " + car.variant);
+          }
+          helper.assertTrue(
+              riders.stream().allMatch(net.minecraft.world.entity.Entity::isPassenger),
+              "Holding reload displaced a rider after physical realignment");
           System.out.println(
               "FD_SUPPORT_REPAIR families="
                   + cars.stream().map(car -> car.family).toList()
                   + " riders="
                   + riders.size()
                   + " exactGeometryOnly=true noAutoResume=true realignmentRequiredBeforeDispatch=true"
-                  + " nativeReengagement=true normalDispatch=true");
+                  + " nativeReengagement=true normalDispatch=true postRepairHoldingReload=true");
           helper.succeed();
         });
   }

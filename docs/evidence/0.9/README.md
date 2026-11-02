@@ -30,9 +30,11 @@ track** accepts only the saved geometry fingerprint, then **Realign matching
 track** physically re-engages the original native bearing before dispatch. The
 server checkpoint and [packaged occupied five-family client realignment](client-occupied-five-family-support-realignment.md)
 cover all five families with retained riders, moving support loss, exact repair,
-and client-side bearing placement. PAX covers its real four-chassis train with
-a full-consist emergency native-velocity reset before reattachment. Multi-client
-repair and post-repair lifecycle coverage remain FD902 work.
+and client-side bearing placement. The native test then moves each repaired
+vehicle's chassis and carriers through Sable's holding store and restores their
+captured rider state. PAX covers its real four-chassis train with a full-consist
+emergency native-velocity reset before reattachment. Multi-client repair and
+post-repair client reconnect or cold-restart coverage remain FD902 work.
 
 [Repeated PAX shuttle station reload](repeated-shuttle-reload.md) saves and
 reinstalls the real winch at its first captured station return, then verifies

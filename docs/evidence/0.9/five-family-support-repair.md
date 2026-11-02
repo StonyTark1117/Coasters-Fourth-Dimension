@@ -29,7 +29,11 @@ revised ZacSpin, and PAX. It then:
 8. verifies the bearing's resulting physical position on the repaired rail,
    retained mounted riders, and normal circuit-family dispatch. PAX passes the
    same matching-track dispatch gates and then stops at its required powered
-   shuttle-winch gate, which this focused fixture does not construct.
+   shuttle-winch gate, which this focused fixture does not construct; and
+9. recaptures the dispatch-proven circuit cars, serializes the repaired holding
+   state, moves every chassis and carrier into Sable's native holding store, and
+   verifies that every original body, mounted rider, restraint, capture,
+   repaired binding, and cleared alignment requirement restores intact.
 
 Neither action resumes a car. Repair clears the fault but marks the vehicle as
 requiring alignment; dispatch fails closed until the explicit physical
@@ -45,14 +49,16 @@ JAVA_HOME=/usr/lib/jvm/java-21-openjdk ./gradlew test runGameTestServer --no-dae
 The current run completed successfully on 2026-11-02:
 
 ```text
-FD_SUPPORT_REPAIR families=[ARROW, ZACSPIN, FREE_SPIN, ZACSPIN_REVISED, PAX] riders=5 exactGeometryOnly=true noAutoResume=true realignmentRequiredBeforeDispatch=true nativeReengagement=true normalDispatch=true
-========= 44 GAME TESTS COMPLETE IN 4.141 min ======================
+FD_SUPPORT_REPAIR families=[ARROW, ZACSPIN, FREE_SPIN, ZACSPIN_REVISED, PAX] riders=5 exactGeometryOnly=true noAutoResume=true realignmentRequiredBeforeDispatch=true nativeReengagement=true normalDispatch=true postRepairHoldingReload=true
+========= 44 GAME TESTS COMPLETE IN 4.116 min ======================
 All 44 required tests passed :)
 BUILD SUCCESSFUL
 ```
 
 ## Remaining work
 
-The checkpoint now includes a mounted packaged client for every family, but it
-does not show simultaneous repair by multiple clients, PAX lift dispatch after
-realignment, or unload/reload after repair. Those remain FD902 lifecycle work.
+The checkpoint now includes a mounted packaged client for every family and a
+server-native holding-store unload/reload after repair. It does not show
+simultaneous repair by multiple clients, PAX lift dispatch after realignment,
+or a post-repair client reconnect or cold server restart. Those remain FD902
+lifecycle work.
