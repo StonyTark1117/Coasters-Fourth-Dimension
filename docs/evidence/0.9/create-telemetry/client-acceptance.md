@@ -10,6 +10,14 @@ commands, timestamps and screenshots alongside server/client logs. Keep fixture
 creation distinct from player construction and operation. Do not use direct NBT
 edits or injected display text as evidence of normal controls or packet delivery.
 
+For packet-application evidence, start the packaged client with `-PfdValidation`
+and look at the station or winch. `FD_CLIENT_TELEMETRY` logs the actual client
+block entity's received snapshot when the targeted controller or snapshot changes
+(checked every ten client ticks). It neither queries server state nor changes the
+tooltip/display. Pair this log with the server observation and visible goggles;
+it cannot by itself prove rendering or visible Display Link target output. The
+trace is disabled without the existing validation flag and contains no rider IDs.
+
 ## Setup and observations
 
 Use separate copies for the standalone and combined Styles/Engineered profiles.
