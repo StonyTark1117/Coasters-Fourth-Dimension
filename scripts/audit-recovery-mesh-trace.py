@@ -317,27 +317,9 @@ def audit(route, entries, resources, margin):
                 low, high = world.min(axis=0), world.max(axis=0)
                 sample_boxes.append((world, axes, low, high, body["car"], "nativeRider"))
                 rider_cars.add(body["car"])
-                padding = margin * 4
-                cells = itertools.product(*(range(a, b + 1) for a, b in zip(np.floor((low - padding) / 2).astype(int), np.floor((high + padding) / 2).astype(int))))
-                indices = np.array(sorted({index for cell in cells for index in grid.get(cell, [])}), dtype=int)
-                rider_checks += 1
-                if not len(indices):
-                    rider_minimum = min(rider_minimum, padding)
-                    continue
-                gaps = np.linalg.norm(np.maximum(0, np.maximum(low - highs[indices], lows[indices] - high)), axis=1)
-                candidates = np.flatnonzero(gaps < padding)
-                if candidates.size:
-                    gaps[candidates] = separation(world, axes, triangles[indices[candidates]])
-                index = int(indices[int(np.argmin(gaps))])
-                gap = min(padding, float(gaps.min()))
-                if gap < rider_minimum:
-                    rider_minimum = gap
-                    rider_closest = {"tick": entry["tick"], "body": rider["body"], "modelElement": "nativeRider", "trackComponent": labels[index]}
-                if gap < margin and len(failures) < 20:
-                    failures.append({"gap": gap, "tick": entry["tick"], "body": rider["body"], "modelElement": "nativeRider", "trackComponent": labels[index]})
-                # A rider is mounted to a seat, so its seat volume is intentional contact.
-                # Every other block-model volume in that exact carrier is mechanical rack
-                # geometry and must retain the same clearance as the route/neighbor audit.
+                # A rider intentionally contacts its seat. Check every other rack block
+                # for every sampled rider, even when no track triangle is nearby.
+                rack_checks_before = rider_rack_checks
                 for rack_points, rack_label in body["boxes"]:
                     if rack_label.startswith("fourthdimension:") and "_seat@" in rack_label:
                         continue
@@ -356,6 +338,26 @@ def audit(route, entries, resources, margin):
                         failures.append({
                             "gap": rack_gap, "tick": entry["tick"], "body": rider["body"],
                             "modelElement": "nativeRider", "rackComponent": rack_label})
+                if rider_rack_checks == rack_checks_before:
+                    raise ValueError("Mounted rider has no auditable carrier rack geometry")
+                padding = margin * 4
+                cells = itertools.product(*(range(a, b + 1) for a, b in zip(np.floor((low - padding) / 2).astype(int), np.floor((high + padding) / 2).astype(int))))
+                indices = np.array(sorted({index for cell in cells for index in grid.get(cell, [])}), dtype=int)
+                rider_checks += 1
+                if not len(indices):
+                    rider_minimum = min(rider_minimum, padding)
+                    continue
+                gaps = np.linalg.norm(np.maximum(0, np.maximum(low - highs[indices], lows[indices] - high)), axis=1)
+                candidates = np.flatnonzero(gaps < padding)
+                if candidates.size:
+                    gaps[candidates] = separation(world, axes, triangles[indices[candidates]])
+                index = int(indices[int(np.argmin(gaps))])
+                gap = min(padding, float(gaps.min()))
+                if gap < rider_minimum:
+                    rider_minimum = gap
+                    rider_closest = {"tick": entry["tick"], "body": rider["body"], "modelElement": "nativeRider", "trackComponent": labels[index]}
+                if gap < margin and len(failures) < 20:
+                    failures.append({"gap": gap, "tick": entry["tick"], "body": rider["body"], "modelElement": "nativeRider", "trackComponent": labels[index]})
             if len(rider_cars) != route["carCount"]:
                 raise ValueError("Missing a mounted rider for an original car")
             for pose in entry["poses"]:
@@ -450,8 +452,8 @@ def audit(route, entries, resources, margin):
         raise ValueError("Native chassis/carrier linkage blocks were not audited")
     if rider_checks == 0 or not math.isfinite(rider_minimum):
         raise ValueError("Mounted rider envelopes were not audited")
-    if rider_rack_checks == 0 or not math.isfinite(rider_rack_minimum):
-        raise ValueError("Mounted rider envelopes were not audited against carrier rack geometry")
+    if rider_rack_checks < rider_checks or not math.isfinite(rider_rack_minimum):
+        raise ValueError("Not every mounted rider was audited against carrier rack geometry")
     return {"family": route["family"], "cars": route["carCount"], "samples": samples,
             "trackTriangles": len(triangles), "minimumSeparatingBound": minimum,
             "closest": closest, "requiredGap": margin, "passes": not failures,
