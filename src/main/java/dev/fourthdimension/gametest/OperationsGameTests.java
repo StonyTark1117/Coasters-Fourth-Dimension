@@ -373,7 +373,10 @@ public final class OperationsGameTests {
         });
   }
 
-  @GameTest(template = "empty", timeoutTicks = 450)
+  // This holds ten occupied rider seats across all five families. Keep it out of the default
+  // concurrent batch so its intentional global vehicle allocation cannot contend with optional
+  // integration fixtures while the 64-vehicle runtime limit is under test.
+  @GameTest(template = "empty", batch = "fd_support_repair", timeoutTicks = 450)
   public static void fiveFamilySupportRepairRequiresExactTrackAndRealignment(
       GameTestHelper helper) {
     var level = helper.getLevel();
