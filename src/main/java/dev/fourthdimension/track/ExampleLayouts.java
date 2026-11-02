@@ -102,8 +102,48 @@ public final class ExampleLayouts {
     return create(level, origin, TrackDesign.ARROW, true);
   }
 
+  /** A validation-only original circuit ready for client-installed optional propulsion. */
+  public static void createBareArrow(ServerLevel level, BlockPos origin) {
+    create(level, origin, TrackDesign.ARROW, false, false, false);
+  }
+
+  /** Adds the car after a connected client has fitted the optional motor to a bare circuit. */
+  public static FoundationData.Vehicle addBareArrowCar(ServerLevel level, BlockPos origin) {
+    var start = origin.offset(0, 0, 8);
+    var end = origin.offset(0, 0, 44);
+    var stationPos = origin.offset(-6, 0, 20);
+    if (!(level.getBlockEntity(stationPos) instanceof BoardingStationEntity station)
+        || station.vehicle != null)
+      throw new IllegalArgumentException("Find an empty bare Arrow loop station first");
+    var rail =
+        FoundationData.get(level).rails.stream()
+            .filter(candidate -> candidate.matches(start, end))
+            .findFirst()
+            .orElseThrow(() -> new IllegalArgumentException("Bare Arrow loop track is missing"));
+    var edge = TrackGeometry.resolve(level, rail);
+    if (edge == null) throw new IllegalArgumentException("Bare Arrow loop track is unresolved");
+    double t = TrackGeometry.table(level, edge).parameterAt(12);
+    var point = CoasterPathGraphManager.sampleEdgePosition(level, edge, t);
+    var vehicle =
+        VehicleFactory.create(
+            level, TrackDesign.ARROW, new CoasterPathTrackFrame.GraphHit(point, edge, t));
+    station.vehicle = vehicle.chassis;
+    station.setChanged();
+    return vehicle;
+  }
+
   private static FoundationData.Vehicle create(
       ServerLevel level, BlockPos origin, TrackDesign design, boolean banked) {
+    return create(level, origin, design, banked, true, true);
+  }
+
+  private static FoundationData.Vehicle create(
+      ServerLevel level,
+      BlockPos origin,
+      TrackDesign design,
+      boolean banked,
+      boolean nativeDrives,
+      boolean includeVehicle) {
     if (design == TrackDesign.PAX)
       throw new IllegalArgumentException(
           "Use /fd demo pax or pax_tall for a physical shuttle example");
@@ -192,37 +232,42 @@ public final class ExampleLayouts {
               0,
               true));
     }
-    for (int i = 0; i < 8; i++) {
-      var anchor = (CoasterAnchorpointBlockEntity) level.getBlockEntity(anchors.get(i));
-      var edge = edges.get(i);
-      var path =
-          new CoasterPathGraphSpans.SpanPath(
-              List.of(new CoasterPathGraphSpans.PathSegment(edge, 0, 1)),
-              TrackGeometry.table(level, edge).length());
-      var axis = Math.abs(tangents[i].z) > .5 ? Direction.Axis.X : Direction.Axis.Z;
-      anchor.commitChainLift(axis, ChainLiftEndRef.anchor(edge.to()), path);
-      // Keep the motor on the high side of the banked joint; a low-side full
-      // block intersects the tilted native bearing as it approaches the anchor.
-      var direction =
-          axis == Direction.Axis.X
-              ? Direction.EAST
-              : banked && (i == 2 || i == 3) ? Direction.NORTH : Direction.SOUTH;
-      var motorPos = anchors.get(i).relative(direction);
-      level.setBlockAndUpdate(
-          motorPos,
-          AllBlocks.CREATIVE_MOTOR
-              .getDefaultState()
-              .setValue(BlockStateProperties.FACING, direction.getOpposite()));
-      var motor = (CreativeMotorBlockEntity) level.getBlockEntity(motorPos);
-      // Native speed is 16 blocks/s at 256 RPM; choose a slow 2 blocks/s demo.
-      motor.generatedSpeed.setValue(
-          32 * anchor.getChainLiftTravelSign() * (direction == Direction.NORTH ? -1 : 1));
+    if (nativeDrives) {
+      for (int i = 0; i < 8; i++) {
+        var anchor = (CoasterAnchorpointBlockEntity) level.getBlockEntity(anchors.get(i));
+        var edge = edges.get(i);
+        var path =
+            new CoasterPathGraphSpans.SpanPath(
+                List.of(new CoasterPathGraphSpans.PathSegment(edge, 0, 1)),
+                TrackGeometry.table(level, edge).length());
+        var axis = Math.abs(tangents[i].z) > .5 ? Direction.Axis.X : Direction.Axis.Z;
+        anchor.commitChainLift(axis, ChainLiftEndRef.anchor(edge.to()), path);
+        // Keep the motor on the high side of the banked joint; a low-side full
+        // block intersects the tilted native bearing as it approaches the anchor.
+        var direction =
+            axis == Direction.Axis.X
+                ? Direction.EAST
+                : banked && (i == 2 || i == 3) ? Direction.NORTH : Direction.SOUTH;
+        var motorPos = anchors.get(i).relative(direction);
+        level.setBlockAndUpdate(
+            motorPos,
+            AllBlocks.CREATIVE_MOTOR
+                .getDefaultState()
+                .setValue(BlockStateProperties.FACING, direction.getOpposite()));
+        var motor = (CreativeMotorBlockEntity) level.getBlockEntity(motorPos);
+        // Native speed is 16 blocks/s at 256 RPM; choose a slow 2 blocks/s demo.
+        motor.generatedSpeed.setValue(
+            32 * anchor.getChainLiftTravelSign() * (direction == Direction.NORTH ? -1 : 1));
+      }
     }
-    var edge = edges.getFirst();
-    double t = TrackGeometry.table(level, edge).parameterAt(12);
-    var point = CoasterPathGraphManager.sampleEdgePosition(level, edge, t);
-    var vehicle =
-        VehicleFactory.create(level, design, new CoasterPathTrackFrame.GraphHit(point, edge, t));
+    FoundationData.Vehicle vehicle = null;
+    if (includeVehicle) {
+      var edge = edges.getFirst();
+      double t = TrackGeometry.table(level, edge).parameterAt(12);
+      var point = CoasterPathGraphManager.sampleEdgePosition(level, edge, t);
+      vehicle =
+          VehicleFactory.create(level, design, new CoasterPathTrackFrame.GraphHit(point, edge, t));
+    }
     // Finalize bindings after every native connection/handle and component orientation exists.
     TrackGeometry.invalidate(level);
     for (var rail : data.rails)
@@ -250,7 +295,7 @@ public final class ExampleLayouts {
     var stationPos = origin.offset(-6, 0, 20);
     level.setBlockAndUpdate(stationPos, StationContent.STATION.get().defaultBlockState());
     var station = (BoardingStationEntity) level.getBlockEntity(stationPos);
-    station.vehicle = vehicle.chassis;
+    if (vehicle != null) station.vehicle = vehicle.chassis;
     station.setChanged();
     for (int side : new int[] {-1, 1})
       for (var pos :

@@ -27,14 +27,21 @@ four-car train.
 records native motor-span placement, linked controller configuration, a bounded
 occupied ride consuming 2,999 FE, client-operated capture and unloading, and
 cold persistence with the pinned Engineered addon. The short fixture ended at
-the track-boundary safety stop; full-circuit operation, a graceful automatic
-station stop, and a network-powered full ride remain open.
+the track-boundary safety stop; that check did not cover a complete circuit or
+an external FE network.
 
 [Engineered real FE-network transfer](fd401-engineered-fe-network.md) adds a
 validation-only Crafts & Additions Creative Generator and client-linked wire.
 The empty motor anchor fills to 100,000 FE through that network and refills
-after a server cold restart. The network was not used for a complete ride, and
+after a server cold restart. That transfer check did not include a ride, and
 this extra mod is not an advertised compatibility profile.
+
+[Engineered network-powered Arrow loop](fd401-engineered-network-loop.md)
+records a connected-client occupied return around a complete original circuit
+without native chain drives. The linked generator network powered the motor;
+the client used the Rotation Tool editor to dispatch, capture and unload. The
+car was placed with a validation fixture after ordinary item clicks failed,
+and redstone station operation remains untested.
 
 [World upgrade and recovery procedure](../../MIGRATION.md) gives the supported
 backup, staged-upgrade and restore steps. It does not convert third-party
