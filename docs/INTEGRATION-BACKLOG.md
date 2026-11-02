@@ -2,9 +2,10 @@
 
 Verified on **2026-11-02** for **Minecraft 1.21.1 / NeoForge**. This catalog refresh
 implements the user's request to collect current artifacts and refine plans only.
-Further integration implementation remains paused pending user approval after core
-mod progress is reviewed. Completion of a core milestone does not automatically
-resume this backlog.
+New ecosystem integration implementation remains paused pending user approval
+after core mod progress is reviewed. Existing Create/Engineered/Track Styles
+release acceptance retains its authorized scope. Completion of a core milestone
+does not automatically resume the expansion backlog.
 
 The [machine-readable catalog](../research/integration-catalog-2026-11-02.json)
 records exact project/file IDs, download URLs, SHA-256 hashes, embedded mod versions,
@@ -105,14 +106,18 @@ FD902. FD402 rendered vehicle/rider/linkage clearance and occupied operator
 acceptance, FD403 real-client survival teaching, and FD401 complete render/operator
 coverage remain open before FD404. FD905 and 1.0 remain gated.
 
-The planning reconciliation is based on core revision `fcb142e` on 2026-11-02.
-Its persistence/network baseline remains schema 6 / protocol 7. The separate
-integration branch at `f8298a4` has a shared telemetry/Create checkpoint and
-uncommitted schema-7/protocol-8 provider work. Telemetry needs explicit reconciliation
-and artifact-specific acceptance before inclusion. The provider/schema changes
-are deferred, require a dedicated migration decision, and are not prerequisites
-for 0.9. Historical evidence stays attached to its actual artifact; neither a
-version string nor one passing checkpoint proves a complete release gate.
+The initial planning reconciliation used core revision `fcb142e` on 2026-11-02.
+Release revision `67c99ef` subsequently integrated the reconciled Create telemetry
+checkpoint, with bounded standalone client evidence from exact source `046ead9`.
+See the [telemetry evidence and limitations](evidence/0.9/create-telemetry/local-046ead9/README.md).
+This removes the pending telemetry merge task; it does not certify every optional
+profile or close FD401/FD902. Persistence/networking remain schema 6 / protocol 7.
+
+The separate integration branch at `f8298a4` also contains uncommitted schema-7/
+protocol-8 provider work. Those provider/schema changes remain deferred, require
+a dedicated migration decision, and are not prerequisites for 0.9. Historical
+evidence stays attached to its actual artifact; neither a version string nor one
+passing checkpoint proves a complete release gate.
 
 If a later approved expansion needs the provider registry, reconcile it against
 that release's core and preserve recovery/lifecycle fixes. Test supported upgrades,
@@ -227,10 +232,13 @@ results and limitations. New failures reopen the affected gate. Public status sh
 progress from **staged → inspected → adapter implemented → bounded tests → certified
 for a named profile**. Existing evidence stays bounded until the remaining gates pass.
 
-### Execution queue after approval
+### Execution sequence and approval boundary
+
+Steps 1–5 describe the existing release scope. Steps 6–7 are paused expansion
+work and require separate user approval; reaching 1.0 does not grant it.
 
 1. Review then-current core readiness and freeze the intended 0.4/1.0 scope.
-2. Review and reconcile the existing telemetry checkpoint onto that revision as agreed for the core scope. Keep the provider registry and schema/protocol migration deferred to a separate decision.
+2. Complete artifact-specific telemetry acceptance on the integrated candidate, including the advertised optional profiles. Preserve the bounded `046ead9` evidence and its limitations; keep the provider registry and schema/protocol migration deferred to a separate decision.
 3. Close FD402/FD403 gaps and finish the existing Create/Engineered/Styles acceptance.
 4. Close FD404, then complete FD901–FD904 and review FD905.
 5. Complete FD1001–FD1003 for the verified 1.0 scope; publishing remains a separate action.

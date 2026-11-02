@@ -5,7 +5,7 @@
     "loader": "NeoForge"
   },
   "scope": "Latest target-platform releases found on official CurseForge project/file pages; local JAR archive and metadata inspection only. No runtime or compatibility tests.",
-  "implementation_status": "paused; separate user authorization required to resume",
+  "implementation_status": "new ecosystem adapters paused; separate user authorization required to resume; existing Create/Engineered/Track Styles release acceptance retains its scope",
   "discovery_limit": "Screenshot, explicit links, official project/file pages, broad addon search and dependent listing. The dependent listing includes modpacks and was not exhaustively paginated; this is not a claim of all ecosystem addons.",
   "active_baseline_unchanged": {
     "create": "6.0.10-280:slim",
@@ -1991,5 +1991,5 @@
     "Create: Interiors >=0.6 required by Additions",
     "Optional graphics/shader stack and its version alignment"
   ],
-  "activation_policy": "No new runtime profiles or dependency changes; no launch performed. Revalidate versions, dependency closure and exact artifact identity after user authorizes integration work."
+  "activation_policy": "This dated catalog refresh activates no new runtime profiles or dependency changes and performed no launches. Revalidate candidate versions, dependency closure and exact artifact identity after user authorizes expansion work. Existing core-profile evidence is recorded separately in docs/INTEGRATIONS.md."
 }
