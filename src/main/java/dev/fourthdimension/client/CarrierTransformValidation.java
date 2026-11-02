@@ -150,9 +150,12 @@ public final class CarrierTransformValidation {
       return;
     }
     boolean riderMounted = localRiderReady(minecraft);
+    boolean hadSeenSupportLoss = supportLossSeen;
     boolean supportLossObserved = supportLossReady(minecraft);
     supportLossSeen |= supportLossObserved;
-    boolean supportRepairObserved = supportRepairReady(minecraft);
+    // A healthy, captured boarding car can already satisfy the repaired-state shape. Require
+    // the client to have observed the fault on an earlier tick before accepting repair.
+    boolean supportRepairObserved = hadSeenSupportLoss && supportRepairReady(minecraft);
     supportRepairSeen |= supportRepairObserved;
     boolean supportRealignmentObserved = supportRealignmentReady(minecraft);
     supportRealignmentSeen |= supportRealignmentObserved;
