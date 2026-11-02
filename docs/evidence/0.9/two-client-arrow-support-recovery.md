@@ -7,10 +7,10 @@ matching Coasters graph connection while it is moving, restores that authored
 curve, invokes the production repair action, and invokes the separate physical
 realignment action.
 
-Both clients independently report the replicated support-loss, post-motion
-support-loss, repaired, and physically realigned states while their local rider
-remains mounted. The server reports two retained rider assignments at the fault,
-repair, and realignment checkpoints.
+The server reports two retained rider assignments at the fault, repair, and
+realignment checkpoints. The captured client output is retained for replay, but
+the current client validator can mark a healthy initial state as realigned; it
+is not used as ordered post-repair client-observation proof.
 
 ## Reproduction
 
@@ -24,13 +24,12 @@ within the clients' view-distance ticket.
 
 ## Result
 
-The 2026-11-02 run passed. The server seated Dev and Observer on distinct seats
-of one Arrow carrier, retained both through moving support loss, exact repair,
-and physical realignment. Each client independently passed the replicated
-validation with `riderMounted=true`, all four recovery observations true, and
-more than two blocks of native chassis movement. The concise raw markers are in
-[two-client-arrow-support-recovery.txt](two-client-arrow-support-recovery.txt).
+The 2026-11-02 run passed the server-authoritative Arrow sequence: Dev and
+Observer occupied distinct seats on one carrier and were retained through
+moving support loss, exact repair, and physical realignment. The concise raw
+markers are in [two-client-arrow-support-recovery.txt](two-client-arrow-support-recovery.txt).
 
-This closes the Arrow portion of simultaneous real-client support recovery. It
-does not cover concurrent recovery for Legacy, Free Spin, Revised, or PAX; PAX
-lift dispatch after repair; or a post-repair reconnect/cold-server restart.
+The new [five-family server matrix](two-client-five-family-server-recovery.md)
+extends this native recovery result across every family. Ordered post-repair
+client observation, PAX lift dispatch after repair, and a post-repair
+reconnect/cold-server restart remain open.

@@ -1,0 +1,54 @@
+# Arrow
+[02Nov2026 12:39:41.007] [Server thread/INFO] [dev.fourthdimension.runtime.CarrierValidationFixture/]: FD_CARRIER_FIXTURE boarded rider=Dev family=ARROW carrier=b31316bd-5859-45e9-af8a-cca6c1665b84 seat=BlockPos{x=20481032, y=127, z=20483080}
+[02Nov2026 12:39:41.008] [Server thread/INFO] [dev.fourthdimension.runtime.CarrierValidationFixture/]: FD_CARRIER_FIXTURE boarded rider=Observer family=ARROW carrier=b31316bd-5859-45e9-af8a-cca6c1665b84 seat=BlockPos{x=20481031, y=127, z=20483080}
+[02Nov2026 12:40:05.997] [Server thread/INFO] [dev.fourthdimension.runtime.CarrierValidationFixture/]: FD_CARRIER_FIXTURE dispatched controlled motion chassis=[7956ae9d-d04b-44e5-9368-5a4ead7797af] families=[ARROW]
+[02Nov2026 12:40:07.098] [Server thread/INFO] [dev.fourthdimension.runtime.CarrierValidationFixture/]: FD_CARRIER_FIXTURE removed ARROW support chassis=7956ae9d-d04b-44e5-9368-5a4ead7797af from=BlockPos{x=-150, y=180, z=8} to=BlockPos{x=-150, y=180, z=44}
+[02Nov2026 12:40:07.149] [Server thread/INFO] [dev.fourthdimension.runtime.CarrierValidationFixture/]: FD_CARRIER_FIXTURE support-loss settled chassis=7956ae9d-d04b-44e5-9368-5a4ead7797af rider=[Dev, Observer] retained=true fault=Matching track support lost
+[02Nov2026 12:40:08.148] [Server thread/INFO] [dev.fourthdimension.runtime.CarrierValidationFixture/]: FD_CARRIER_FIXTURE rebuilt exact ARROW support chassis=7956ae9d-d04b-44e5-9368-5a4ead7797af from=BlockPos{x=-150, y=180, z=8} to=BlockPos{x=-150, y=180, z=44}
+[02Nov2026 12:40:09.197] [Server thread/INFO] [dev.fourthdimension.runtime.CarrierValidationFixture/]: FD_CARRIER_FIXTURE support repair settled chassis=7956ae9d-d04b-44e5-9368-5a4ead7797af stopped=true restraints=true ridersRetained=2
+[02Nov2026 12:40:09.248] [Server thread/INFO] [dev.fourthdimension.runtime.CarrierValidationFixture/]: FD_CARRIER_FIXTURE physically realigned ARROW support chassis=7956ae9d-d04b-44e5-9368-5a4ead7797af
+[02Nov2026 12:40:09.298] [Server thread/INFO] [dev.fourthdimension.runtime.CarrierValidationFixture/]: FD_CARRIER_FIXTURE support realignment settled chassis=7956ae9d-d04b-44e5-9368-5a4ead7797af ridersRetained=2
+
+# Legacy ZacSpin
+[02Nov2026 12:53:08.341] [Server thread/INFO] [dev.fourthdimension.runtime.CarrierValidationFixture/]: FD_CARRIER_FIXTURE boarded rider=Dev family=ZACSPIN carrier=1cf2d3a4-6821-415b-b3e1-027dacf39776 seat=BlockPos{x=20481032, y=127, z=20483079}
+[02Nov2026 12:53:08.341] [Server thread/INFO] [dev.fourthdimension.runtime.CarrierValidationFixture/]: FD_CARRIER_FIXTURE boarded rider=Observer family=ZACSPIN carrier=1cf2d3a4-6821-415b-b3e1-027dacf39776 seat=BlockPos{x=20481031, y=127, z=20483079}
+[02Nov2026 12:53:33.329] [Server thread/INFO] [dev.fourthdimension.runtime.CarrierValidationFixture/]: FD_CARRIER_FIXTURE dispatched controlled motion chassis=[8b477640-9314-481e-a2d5-45b83d9c65c5] families=[ZACSPIN]
+[02Nov2026 12:53:34.431] [Server thread/INFO] [dev.fourthdimension.runtime.CarrierValidationFixture/]: FD_CARRIER_FIXTURE removed ZACSPIN support chassis=8b477640-9314-481e-a2d5-45b83d9c65c5 from=BlockPos{x=-150, y=180, z=8} to=BlockPos{x=-150, y=180, z=44}
+[02Nov2026 12:53:34.483] [Server thread/INFO] [dev.fourthdimension.runtime.CarrierValidationFixture/]: FD_CARRIER_FIXTURE support-loss settled chassis=8b477640-9314-481e-a2d5-45b83d9c65c5 rider=[Dev, Observer] retained=true fault=Matching track support lost
+[02Nov2026 12:53:35.479] [Server thread/INFO] [dev.fourthdimension.runtime.CarrierValidationFixture/]: FD_CARRIER_FIXTURE rebuilt exact ZACSPIN support chassis=8b477640-9314-481e-a2d5-45b83d9c65c5 from=BlockPos{x=-150, y=180, z=8} to=BlockPos{x=-150, y=180, z=44}
+[02Nov2026 12:53:36.529] [Server thread/INFO] [dev.fourthdimension.runtime.CarrierValidationFixture/]: FD_CARRIER_FIXTURE support repair settled chassis=8b477640-9314-481e-a2d5-45b83d9c65c5 stopped=true restraints=true ridersRetained=2
+[02Nov2026 12:53:36.830] [Server thread/INFO] [dev.fourthdimension.runtime.CarrierValidationFixture/]: FD_CARRIER_FIXTURE physically realigned ZACSPIN support chassis=8b477640-9314-481e-a2d5-45b83d9c65c5
+[02Nov2026 12:53:36.928] [Server thread/INFO] [dev.fourthdimension.runtime.CarrierValidationFixture/]: FD_CARRIER_FIXTURE support realignment settled chassis=8b477640-9314-481e-a2d5-45b83d9c65c5 ridersRetained=2
+
+# Free Spin
+[02Nov2026 12:55:37.085] [Server thread/INFO] [dev.fourthdimension.runtime.CarrierValidationFixture/]: FD_CARRIER_FIXTURE boarded rider=Dev family=FREE_SPIN carrier=0e048ed2-b7de-4903-b4cb-728e7fa83ca8 seat=BlockPos{x=20481032, y=127, z=20483080}
+[02Nov2026 12:55:37.085] [Server thread/INFO] [dev.fourthdimension.runtime.CarrierValidationFixture/]: FD_CARRIER_FIXTURE boarded rider=Observer family=FREE_SPIN carrier=0e048ed2-b7de-4903-b4cb-728e7fa83ca8 seat=BlockPos{x=20481031, y=127, z=20483080}
+[02Nov2026 12:56:02.075] [Server thread/INFO] [dev.fourthdimension.runtime.CarrierValidationFixture/]: FD_CARRIER_FIXTURE dispatched controlled motion chassis=[087478c8-5b6a-4e0f-b48a-fc848d12c935] families=[FREE_SPIN]
+[02Nov2026 12:56:03.176] [Server thread/INFO] [dev.fourthdimension.runtime.CarrierValidationFixture/]: FD_CARRIER_FIXTURE removed FREE_SPIN support chassis=087478c8-5b6a-4e0f-b48a-fc848d12c935 from=BlockPos{x=-150, y=180, z=8} to=BlockPos{x=-150, y=180, z=44}
+[02Nov2026 12:56:03.227] [Server thread/INFO] [dev.fourthdimension.runtime.CarrierValidationFixture/]: FD_CARRIER_FIXTURE support-loss settled chassis=087478c8-5b6a-4e0f-b48a-fc848d12c935 rider=[Dev, Observer] retained=true fault=Matching track support lost
+[02Nov2026 12:56:04.225] [Server thread/INFO] [dev.fourthdimension.runtime.CarrierValidationFixture/]: FD_CARRIER_FIXTURE rebuilt exact FREE_SPIN support chassis=087478c8-5b6a-4e0f-b48a-fc848d12c935 from=BlockPos{x=-150, y=180, z=8} to=BlockPos{x=-150, y=180, z=44}
+[02Nov2026 12:56:05.273] [Server thread/INFO] [dev.fourthdimension.runtime.CarrierValidationFixture/]: FD_CARRIER_FIXTURE support repair settled chassis=087478c8-5b6a-4e0f-b48a-fc848d12c935 stopped=true restraints=true ridersRetained=2
+[02Nov2026 12:56:05.325] [Server thread/INFO] [dev.fourthdimension.runtime.CarrierValidationFixture/]: FD_CARRIER_FIXTURE physically realigned FREE_SPIN support chassis=087478c8-5b6a-4e0f-b48a-fc848d12c935
+[02Nov2026 12:56:05.375] [Server thread/INFO] [dev.fourthdimension.runtime.CarrierValidationFixture/]: FD_CARRIER_FIXTURE support realignment settled chassis=087478c8-5b6a-4e0f-b48a-fc848d12c935 ridersRetained=2
+
+# Revised ZacSpin
+[02Nov2026 12:57:52.942] [Server thread/INFO] [dev.fourthdimension.runtime.CarrierValidationFixture/]: FD_CARRIER_FIXTURE boarded rider=Dev family=ZACSPIN_REVISED carrier=7d7e5287-0c3d-4da2-a9c2-75c0d796bc35 seat=BlockPos{x=20481032, y=127, z=20483080}
+[02Nov2026 12:57:52.943] [Server thread/INFO] [dev.fourthdimension.runtime.CarrierValidationFixture/]: FD_CARRIER_FIXTURE boarded rider=Observer family=ZACSPIN_REVISED carrier=7d7e5287-0c3d-4da2-a9c2-75c0d796bc35 seat=BlockPos{x=20481031, y=127, z=20483080}
+[02Nov2026 12:58:17.929] [Server thread/INFO] [dev.fourthdimension.runtime.CarrierValidationFixture/]: FD_CARRIER_FIXTURE dispatched controlled motion chassis=[754c1a11-6b86-4fce-9b35-4edba0128012] families=[ZACSPIN_REVISED]
+[02Nov2026 12:58:19.030] [Server thread/INFO] [dev.fourthdimension.runtime.CarrierValidationFixture/]: FD_CARRIER_FIXTURE removed ZACSPIN_REVISED support chassis=754c1a11-6b86-4fce-9b35-4edba0128012 from=BlockPos{x=-150, y=180, z=8} to=BlockPos{x=-150, y=180, z=44}
+[02Nov2026 12:58:19.082] [Server thread/INFO] [dev.fourthdimension.runtime.CarrierValidationFixture/]: FD_CARRIER_FIXTURE support-loss settled chassis=754c1a11-6b86-4fce-9b35-4edba0128012 rider=[Dev, Observer] retained=true fault=Matching track support lost
+[02Nov2026 12:58:20.079] [Server thread/INFO] [dev.fourthdimension.runtime.CarrierValidationFixture/]: FD_CARRIER_FIXTURE rebuilt exact ZACSPIN_REVISED support chassis=754c1a11-6b86-4fce-9b35-4edba0128012 from=BlockPos{x=-150, y=180, z=8} to=BlockPos{x=-150, y=180, z=44}
+[02Nov2026 12:58:21.128] [Server thread/INFO] [dev.fourthdimension.runtime.CarrierValidationFixture/]: FD_CARRIER_FIXTURE support repair settled chassis=754c1a11-6b86-4fce-9b35-4edba0128012 stopped=true restraints=true ridersRetained=2
+[02Nov2026 12:58:21.178] [Server thread/INFO] [dev.fourthdimension.runtime.CarrierValidationFixture/]: FD_CARRIER_FIXTURE physically realigned ZACSPIN_REVISED support chassis=754c1a11-6b86-4fce-9b35-4edba0128012
+[02Nov2026 12:58:21.228] [Server thread/INFO] [dev.fourthdimension.runtime.CarrierValidationFixture/]: FD_CARRIER_FIXTURE support realignment settled chassis=754c1a11-6b86-4fce-9b35-4edba0128012 ridersRetained=2
+
+# PAX
+[02Nov2026 13:01:52.132] [Server thread/INFO] [dev.fourthdimension.runtime.CarrierValidationFixture/]: FD_CARRIER_FIXTURE boarded rider=Dev family=PAX carrier=baddfe15-df04-4d49-96ae-e384cf02ee52 seat=BlockPos{x=20481032, y=127, z=20483080}
+[02Nov2026 13:01:52.133] [Server thread/INFO] [dev.fourthdimension.runtime.CarrierValidationFixture/]: FD_CARRIER_FIXTURE boarded rider=Observer family=PAX carrier=baddfe15-df04-4d49-96ae-e384cf02ee52 seat=BlockPos{x=20481031, y=127, z=20483080}
+[02Nov2026 13:02:17.123] [Server thread/INFO] [dev.fourthdimension.runtime.CarrierValidationFixture/]: FD_CARRIER_FIXTURE dispatched controlled motion chassis=[699c5e3e-52bd-4409-894d-c21956014514, e3a2a6ed-9390-4a2e-934d-3682a4175d4b, 66f4e28d-1929-4e0f-a867-460ffbff1598, 5fa6cc10-a725-4d5f-aa33-a9ac558640da] families=[PAX]
+[02Nov2026 13:02:17.765] [Server thread/INFO] [dev.fourthdimension.runtime.CarrierValidationFixture/]: FD_CARRIER_FIXTURE removed PAX support chassis=699c5e3e-52bd-4409-894d-c21956014514 from=BlockPos{x=145, y=180, z=0} to=BlockPos{x=145, y=180, z=32}
+[02Nov2026 13:02:17.819] [Server thread/INFO] [dev.fourthdimension.runtime.CarrierValidationFixture/]: FD_CARRIER_FIXTURE support-loss settled chassis=699c5e3e-52bd-4409-894d-c21956014514 rider=[Dev, Observer] retained=true fault=Matching track support lost
+[02Nov2026 13:02:18.814] [Server thread/INFO] [dev.fourthdimension.runtime.CarrierValidationFixture/]: FD_CARRIER_FIXTURE rebuilt exact PAX support chassis=699c5e3e-52bd-4409-894d-c21956014514 from=BlockPos{x=145, y=180, z=0} to=BlockPos{x=145, y=180, z=32}
+[02Nov2026 13:02:19.863] [Server thread/INFO] [dev.fourthdimension.runtime.CarrierValidationFixture/]: FD_CARRIER_FIXTURE support repair settled chassis=699c5e3e-52bd-4409-894d-c21956014514 stopped=true restraints=true ridersRetained=2
+[02Nov2026 13:02:20.064] [Server thread/INFO] [dev.fourthdimension.runtime.CarrierValidationFixture/]: FD_CARRIER_FIXTURE physically realigned PAX support chassis=699c5e3e-52bd-4409-894d-c21956014514
+[02Nov2026 13:02:20.114] [Server thread/INFO] [dev.fourthdimension.runtime.CarrierValidationFixture/]: FD_CARRIER_FIXTURE support realignment settled chassis=699c5e3e-52bd-4409-894d-c21956014514 ridersRetained=2

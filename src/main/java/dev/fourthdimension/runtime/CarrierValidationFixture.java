@@ -371,9 +371,11 @@ public final class CarrierValidationFixture {
   /** Keeps the selected occupied fixture in the connecting players' view-distance ticket. */
   private static BlockPos fixtureSpawn() {
     if (!riderFixtureOnly()) return SPAWN;
-    return riderFixtureFamily() == Family.PAX
-        ? PAX_ORIGIN.offset(0, 0, -30)
-        : CIRCUIT_ORIGINS.getFirst().offset(0, 0, -30);
+    if (riderFixtureFamily() == Family.PAX)
+      // The PAX builder reserves a full x=-8..8 empty corridor; keep the spawn ticket near
+      // the shuttle while leaving its authored construction volume untouched.
+      return PAX_ORIGIN.offset(20, 0, -30);
+    return CIRCUIT_ORIGINS.getFirst().offset(0, 0, -30);
   }
 
   private static int riderFixtureCount() {
