@@ -87,7 +87,9 @@ families, and absent recovery state.
 ## Limits
 
 This proves one real schema-3 world with its native sublevels survives the
-schema-6 upgrade and a subsequent server restart. It does not prove a rider can
-board or complete a powered ride after upgrade, every historical world or
-schema, a real-client migration, or conversion of third-party functional
-blocks. Those remain separate FD903 and release gates.
+schema-6 upgrade and a subsequent server restart. A later
+[connected-client Arrow ride](native-schema3-client-ride.md) demonstrates
+boarding, powered travel, capture, and dismount in that upgraded world. The
+replays do not cover every historical world or schema, the other two historical
+cars as client rides, two-client migration, or conversion of third-party
+functional blocks. Those remain separate FD903 and release gates.

@@ -68,6 +68,8 @@ world with all three saved chassis and all eight carriers available, saves
 schema 6 with all 24 rail IDs and profile keys preserved, and reopens with the
 same 3/3 chassis and 8/8 carriers available. This removes the missing-sublevel
 limit of the earlier data-only replay for that one generated historical world.
+The [connected-client Arrow ride](native-schema3-client-ride.md) also verifies
+boarding, powered travel, capture, and dismount on one of its migrated cars.
 
 ## Unsupported provider conversion
 
@@ -98,6 +100,8 @@ otherwise rebind the historical controlled-track profiles.
 The data-only packaged replay establishes one recorded historical
 `FoundationData` file; the later native-world replay establishes one separate
 complete schema-3 world. Neither proves upgrades from every released historical
-world, provider removal or a supported external-block conversion, real-client
-migration, rider operation after upgrade, or the complete FD903 release matrix.
+world, provider removal or a supported external-block conversion, rider
+operation for the other migrated cars, two-client migration, or the complete
+FD903 release matrix. One connected-client Arrow ride after upgrade is recorded
+separately.
 Those remain required before the 0.9 candidate gate can close.
