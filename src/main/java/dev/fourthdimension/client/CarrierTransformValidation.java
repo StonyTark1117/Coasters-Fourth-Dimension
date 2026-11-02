@@ -23,6 +23,8 @@ import org.joml.Vector3d;
  * camera state. The required number of functional families is configurable because client worlds
  * can intentionally contain a single-family fixture. A passing sample establishes synchronized
  * carrier orientation before dispatch, then optionally observes family-level chassis displacement.
+ * Lifecycle-only fixtures can explicitly skip that static gate when a separate static matrix has
+ * already established it and the fixture must dispatch before its support-loss observation.
  * The dynamic phase intentionally does not compare a replicated carrier snapshot with a live body:
  * those sources can be one simulation tick apart while a car moves. An optional rider mode requires
  * the local player to remain assigned to and mounted in one carrier seat. An optional support-loss
@@ -76,7 +78,9 @@ public final class CarrierTransformValidation {
     int riderAssignments = 0;
     int nativeBodies = 0;
     double sampleMaxError = 0;
-    boolean staticPhase = !motionRequired() || completeSamples < requiredSamples();
+    String angleMismatch = null;
+    boolean staticPhase = !skipStaticSamples() && (!motionRequired() || completeSamples < requiredSamples());
+    vehicles:
     for (var vehicle : data.vehicles.values()) {
       var parent = container.getSubLevel(vehicle.chassis);
       if (parent == null) {
@@ -116,19 +120,28 @@ public final class CarrierTransformValidation {
                 Math.atan2(
                     Math.sin(nativeAngle - carrier.angle), Math.cos(nativeAngle - carrier.angle)));
         if (!Double.isFinite(error) || error > MAX_ANGLE_ERROR) {
-          throw new IllegalStateException(
-              "FD_CARRIER_VALIDATION angle mismatch body="
+          angleMismatch =
+              "angle mismatch body="
                   + carrier.body
                   + " snapshot="
                   + carrier.angle
                   + " native="
                   + nativeAngle
                   + " error="
-                  + error);
+                  + error;
+          break vehicles;
         }
         sampleMaxError = Math.max(sampleMaxError, error);
         carriers++;
       }
+    }
+    // Client Sable bodies can receive an initial movement packet after their snapshot. Treat the
+    // gate as the documented consecutive-sample check: reset startup jitter, but fail by timeout
+    // if the client never reaches a stable replicated orientation.
+    if (staticPhase && angleMismatch != null) {
+      completeSamples = 0;
+      incomplete(angleMismatch);
+      return;
     }
     boolean riderMounted = localRiderReady(minecraft);
     boolean supportLossObserved = supportLossReady(minecraft);
@@ -303,6 +316,11 @@ public final class CarrierTransformValidation {
     } catch (NumberFormatException ignored) {
       return 40;
     }
+  }
+
+  /** Lifecycle-only fixtures can rely on the dedicated static transform matrix instead. */
+  private static boolean skipStaticSamples() {
+    return Boolean.getBoolean("fourthdimension.carrierValidationSkipStatic");
   }
 
   private static boolean motionRequired() {

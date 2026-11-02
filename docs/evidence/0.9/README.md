@@ -116,13 +116,16 @@ matching curve. The client confirms movement occurred before the rider remains
 mounted in the replicated fail-closed state; PAX uses its real four-car train.
 Repair, multi-client loss, and complete post-stop lifecycle coverage remain open.
 
-[Packaged occupied Arrow and PAX support repair](client-occupied-arrow-support-repair.md)
-extends that moving client path through restoring the exact authored curve and
-the explicit repair operation. Both clients observe the retained rider and the
-repaired rail/fault state without an automatic restart; the [PAX record]
-(client-occupied-pax-support-repair.md) also requires movement from all four
-shuttle chassis. Legacy, Free Spin, and Revised client repair, physical
-realignment, multi-client loss, and post-repair lifecycle coverage remain open.
+[Packaged occupied five-family support repair](client-occupied-legacy-free-spin-revised-support-repair.md)
+now extends the moving client path through restoring the exact authored curve and
+the explicit repair operation for Arrow, Legacy, Free Spin, Revised, and PAX.
+Every client observes the retained rider and repaired rail/fault state without
+automatic restart; the [PAX record](client-occupied-pax-support-repair.md) also
+requires movement from all four shuttle chassis. The dedicated static-transform
+matrix continues to validate the 40-sample orientation gate; the lifecycle-only
+Legacy, Free Spin, and Revised runs skip that already-covered static gate while
+checking repair ordering. Physical realignment, multi-client loss, and
+post-repair lifecycle coverage remain open.
 
 [Client track-render instrumentation](client-render-sampling.md) records an
 initial packaged real-client sample on the recovery scene, under llvmpipe and
