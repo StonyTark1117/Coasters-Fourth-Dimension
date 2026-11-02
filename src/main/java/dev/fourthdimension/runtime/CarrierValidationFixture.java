@@ -48,7 +48,7 @@ public final class CarrierValidationFixture {
   private static int motionDelay = -1;
   private static int motionReadyDeadline;
   private static boolean motionStarted;
-  private static UUID riderFixturePlayer;
+  private static final List<UUID> riderFixturePlayers = new ArrayList<>();
   private static int riderFixtureDeadline;
   private static boolean riderFixtureBoarded;
   private static int supportLossDelay = -1;
@@ -82,15 +82,16 @@ public final class CarrierValidationFixture {
     for (int i = 0; i < circuitDesigns.size(); i++) clearCircuitArea(level, CIRCUIT_ORIGINS.get(i));
     if ((riderFixtureOnly() && riderFixtureFamily() == Family.PAX) || !riderFixtureOnly())
       clearPaxArea(level);
-    level.setBlockAndUpdate(SPAWN.below(), Blocks.SMOOTH_STONE.defaultBlockState());
-    level.setDefaultSpawnPos(SPAWN, 0);
+    var spawn = fixtureSpawn();
+    level.setBlockAndUpdate(spawn.below(), Blocks.SMOOTH_STONE.defaultBlockState());
+    level.setDefaultSpawnPos(spawn, 0);
     var controlledMotionChassis = new ArrayList<UUID>();
     motionDelay = -1;
     motionReadyDeadline = 0;
     motionStarted = false;
     motionPax = null;
     motionPaxAssembled = false;
-    riderFixturePlayer = null;
+    riderFixturePlayers.clear();
     riderFixtureDeadline = 0;
     riderFixtureBoarded = false;
     supportLossDelay = -1;
@@ -121,12 +122,13 @@ public final class CarrierValidationFixture {
     int carriers = data.vehicles.values().stream().mapToInt(v -> v.carriers.size()).sum();
     LogUtils.getLogger()
         .info(
-            "FD_CARRIER_FIXTURE created families={} vehicles={} carriers={} rails={} riderFamily={}",
+            "FD_CARRIER_FIXTURE created families={} vehicles={} carriers={} rails={} riderFamily={} riderCount={}",
             data.vehicles.values().stream().map(vehicle -> vehicle.family).distinct().count(),
             data.vehicles.size(),
             carriers,
             data.rails.size(),
-            riderFixtureRequired() ? riderFixtureFamily() : "none");
+            riderFixtureRequired() ? riderFixtureFamily() : "none",
+            riderFixtureRequired() ? riderFixtureCount() : 0);
   }
 
   public static void placePlayer(
@@ -134,10 +136,20 @@ public final class CarrierValidationFixture {
     if (!Boolean.getBoolean("fourthdimension.carrierFixture")
         || !(event.getEntity() instanceof ServerPlayer player)
         || player.serverLevel() != player.server.overworld()) return;
-    player.teleportTo(SPAWN.getX() + .5, SPAWN.getY(), SPAWN.getZ() + .5);
+    var spawn = fixtureSpawn();
+    player.teleportTo(spawn.getX() + .5, spawn.getY(), spawn.getZ() + .5);
     if (riderFixtureRequired()) {
-      riderFixturePlayer = player.getUUID();
-      riderFixtureDeadline = 2_000;
+      if (!riderFixturePlayers.contains(player.getUUID())
+          && riderFixturePlayers.size() < riderFixtureCount()) {
+        riderFixturePlayers.add(player.getUUID());
+        riderFixtureDeadline = 2_000;
+        LogUtils.getLogger()
+            .info(
+                "FD_CARRIER_FIXTURE admitted rider={} slot={}/{}",
+                player.getGameProfile().getName(),
+                riderFixturePlayers.size(),
+                riderFixtureCount());
+      }
     } else if (Boolean.getBoolean("fourthdimension.carrierFixtureMotion") && !motionStarted) {
       // Give the joining client time to receive and statically validate every body before dispatch.
       motionDelay = 500;
@@ -148,11 +160,20 @@ public final class CarrierValidationFixture {
   /** Dispatches the configured circuit cars and optional PAX shuttle for the opt-in motion checkpoint. */
   public static void tick(ServerTickEvent.Post event) {
     var level = event.getServer().overworld();
-    if (riderFixtureRequired() && riderFixturePlayer != null && !riderFixtureBoarded) {
-      if (!boardFixtureRider(event.getServer(), level)) {
+    if (riderFixtureRequired() && !riderFixtureBoarded) {
+      if (riderFixturePlayers.size() < riderFixtureCount()) {
+        if (riderFixtureDeadline > 0 && riderFixtureDeadline-- <= 0)
+          throw new IllegalStateException(
+              "FD_CARRIER_FIXTURE did not receive " + riderFixtureCount() + " rider clients");
+        return;
+      }
+      if (!boardFixtureRiders(event.getServer(), level)) {
         if (riderFixtureDeadline-- <= 0)
           throw new IllegalStateException(
-              "FD_CARRIER_FIXTURE rider never reached a " + riderFixtureFamily() + " carrier seat");
+              "FD_CARRIER_FIXTURE riders never reached "
+                  + riderFixtureFamily()
+                  + " carrier seats: "
+                  + riderBoardingState(level));
         return;
       }
       riderFixtureBoarded = true;
@@ -244,38 +265,122 @@ public final class CarrierValidationFixture {
             vehicles.stream().map(vehicle -> vehicle.family).distinct().toList());
   }
 
-  /** Boards the local packaged-client player only when explicit native carrier boarding is ready. */
-  private static boolean boardFixtureRider(net.minecraft.server.MinecraftServer server, ServerLevel level) {
-    var player = riderFixturePlayer == null ? null : server.getPlayerList().getPlayer(riderFixturePlayer);
-    if (player == null) return false;
+  /** Boards every required packaged-client rider into distinct seats of the same native carrier. */
+  private static boolean boardFixtureRiders(net.minecraft.server.MinecraftServer server, ServerLevel level) {
+    var players = riderFixturePlayers.stream().map(server.getPlayerList()::getPlayer).toList();
+    if (players.size() != riderFixtureCount() || players.stream().anyMatch(java.util.Objects::isNull))
+      return false;
     var vehicle = supportLossVehicle(level);
     var container = SubLevelContainer.getContainer(level);
     if (vehicle == null || vehicle.restraints || container == null || !Boarding.ready(level, vehicle)) return false;
-    for (var carrier : vehicle.carriers) {
-      var body = container.getSubLevel(carrier.body);
-      if (body == null) continue;
-      for (var offset : carrier.seats) {
-        var seat = body.getPlot().getCenterBlock().offset(offset);
-        if (!(level.getBlockState(seat).getBlock() instanceof CarrierSeatBlock)
-            || SeatBlock.isSeatOccupied(level, seat)
-            || carrier.riderSeats.containsValue(offset)) continue;
-        SeatBlock.sitDown(level, seat, player);
-        if (!player.isPassenger() || !carrier.riderSeats.containsKey(player.getUUID())) return false;
-        LogUtils.getLogger()
-            .info(
-                "FD_CARRIER_FIXTURE boarded rider={} family={} carrier={} seat={}",
-                player.getGameProfile().getName(),
-                vehicle.family,
-                carrier.body,
-                seat);
-        return true;
-      }
+    var carrier = vehicle.carriers.getFirst();
+    var body = container.getSubLevel(carrier.body);
+    if (body == null) return false;
+    for (var player : players) {
+      if (player.isPassenger() && carrier.riderSeats.containsKey(player.getUUID())) continue;
+      var offset =
+          carrier.seats.stream()
+              .filter(
+                  candidate -> {
+                    var seat = body.getPlot().getCenterBlock().offset(candidate);
+                    return level.getBlockState(seat).getBlock() instanceof CarrierSeatBlock
+                        && !SeatBlock.isSeatOccupied(level, seat)
+                        && !carrier.riderSeats.containsValue(candidate);
+                  })
+              .findFirst()
+              .orElse(null);
+      if (offset == null) return false;
+      var seat = body.getPlot().getCenterBlock().offset(offset);
+      SeatBlock.sitDown(level, seat, player);
+      if (!player.isPassenger() || !carrier.riderSeats.containsKey(player.getUUID())) return false;
+      LogUtils.getLogger()
+          .info(
+              "FD_CARRIER_FIXTURE boarded rider={} family={} carrier={} seat={}",
+              player.getGameProfile().getName(), vehicle.family, carrier.body, seat);
     }
-    return false;
+    return players.stream()
+        .allMatch(
+            player -> player.isPassenger() && carrier.riderSeats.containsKey(player.getUUID()));
+  }
+
+  /** Describes production boarding readiness when an opt-in rider fixture times out. */
+  private static String riderBoardingState(ServerLevel level) {
+    var vehicle = supportLossVehicle(level);
+    var container = SubLevelContainer.getContainer(level);
+    if (vehicle == null) return "missing selected vehicle";
+    if (container == null) return "missing native container";
+    var parent = container.getSubLevel(vehicle.chassis);
+    if (parent == null) return "missing native chassis=" + vehicle.chassis;
+    if (!(parent instanceof dev.ryanhcode.sable.sublevel.ServerSubLevel nativeChassis))
+      return "non-server native chassis=" + vehicle.chassis;
+    var velocity =
+        container
+            .physicsSystem()
+            .getPipeline()
+            .getLinearVelocity(nativeChassis, new Vector3d())
+            .length();
+    var carriers =
+        vehicle.carriers.stream()
+            .map(
+                carrier -> {
+                  var body = container.getSubLevel(carrier.body);
+                  int availableSeats =
+                      body == null
+                          ? 0
+                          : (int)
+                              carrier.seats.stream()
+                                  .filter(
+                                      offset -> {
+                                        var seat = body.getPlot().getCenterBlock().offset(offset);
+                                        return level.getBlockState(seat).getBlock()
+                                                instanceof CarrierSeatBlock
+                                            && !SeatBlock.isSeatOccupied(level, seat)
+                                            && !carrier.riderSeats.containsValue(offset);
+                                      })
+                                  .count();
+                  return "body="
+                      + carrier.body
+                      + ",capture="
+                      + carrier.capture
+                      + ",angle="
+                      + carrier.angle
+                      + ",omega="
+                      + carrier.omega
+                      + ",seats="
+                      + carrier.seats.size()
+                      + ",available="
+                      + availableSeats;
+                })
+            .toList();
+    return "stopping="
+        + vehicle.stopping
+        + ",restraints="
+        + vehicle.restraints
+        + ",velocity="
+        + velocity
+        + ",ready="
+        + Boarding.ready(level, vehicle)
+        + ",carriers="
+        + carriers;
   }
 
   private static boolean riderFixtureRequired() {
     return Boolean.getBoolean("fourthdimension.carrierFixtureRider");
+  }
+
+  /** Keeps the selected occupied fixture in the connecting players' view-distance ticket. */
+  private static BlockPos fixtureSpawn() {
+    if (!riderFixtureOnly()) return SPAWN;
+    return riderFixtureFamily() == Family.PAX
+        ? PAX_ORIGIN.offset(0, 0, -30)
+        : CIRCUIT_ORIGINS.getFirst().offset(0, 0, -30);
+  }
+
+  private static int riderFixtureCount() {
+    int count = Integer.getInteger("fourthdimension.carrierFixtureRiders", 1);
+    if (count < 1 || count > 2)
+      throw new IllegalStateException("FD_CARRIER_FIXTURE supports one or two rider clients");
+    return count;
   }
 
   private static boolean supportLossRequired() {
@@ -464,12 +569,18 @@ public final class CarrierValidationFixture {
   /** Confirms the running server's fail-closed state before the client is allowed to pass. */
   private static boolean supportLossSettled(
       net.minecraft.server.MinecraftServer server, ServerLevel level) {
-    var player = riderFixturePlayer == null ? null : server.getPlayerList().getPlayer(riderFixturePlayer);
+    var players = riderFixturePlayers.stream().map(server.getPlayerList()::getPlayer).toList();
     var vehicle = supportLossVehicle(level);
-    if (player == null || vehicle == null) return false;
+    if (players.size() != riderFixtureCount()
+        || players.stream().anyMatch(java.util.Objects::isNull)
+        || vehicle == null) return false;
     boolean riderRetained =
-        player.isPassenger()
-            && vehicle.carriers.stream().anyMatch(c -> c.riderSeats.containsKey(player.getUUID()));
+        players.stream()
+            .allMatch(
+                player ->
+                    player.isPassenger()
+                        && vehicle.carriers.stream()
+                            .anyMatch(carrier -> carrier.riderSeats.containsKey(player.getUUID())));
     boolean settled =
         riderRetained
             && vehicle.stopping
@@ -481,7 +592,7 @@ public final class CarrierValidationFixture {
           .info(
               "FD_CARRIER_FIXTURE support-loss settled chassis={} rider={} retained={} fault={}",
               vehicle.chassis,
-              player.getGameProfile().getName(),
+              players.stream().map(player -> player.getGameProfile().getName()).toList(),
               riderRetained,
               vehicle.fault);
     }

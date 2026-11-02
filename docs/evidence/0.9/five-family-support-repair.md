@@ -3,8 +3,9 @@
 **Scope:** FD902 core recovery behavior on the current original functional
 tracks. The native server/GameTest checkpoint is supplemented by the
 [packaged occupied five-family client realignment](client-occupied-five-family-support-realignment.md).
-The server now exercises two independent rider identities per family; live
-two-client replication of this interruption and a full post-repair lifecycle
+The server now exercises two independent rider identities per family. The
+separate [Arrow two-client recovery checkpoint](two-client-arrow-support-recovery.md)
+adds live replication of this interruption; wider family and lifecycle coverage
 remain outside this scope.
 
 ## What is covered
@@ -66,5 +67,6 @@ BUILD SUCCESSFUL
 The checkpoint now includes a mounted packaged client for every family,
 server-native two-rider recovery, and a server-native holding-store
 unload/reload after repair. It does not show simultaneous recovery replicated
-to two real clients, PAX lift dispatch after realignment, or a post-repair
-client reconnect or cold server restart. Those remain FD902 lifecycle work.
+for Legacy, Free Spin, Revised, or PAX, PAX lift dispatch after realignment,
+or a post-repair client reconnect or cold server restart. Those remain FD902
+lifecycle work.

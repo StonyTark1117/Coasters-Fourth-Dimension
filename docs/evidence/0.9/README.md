@@ -34,8 +34,11 @@ and client-side bearing placement. The native test retains two independent
 server-player seat assignments per family through support loss, exact repair,
 physical realignment, dispatch interlock, and Sable holding-store reload. PAX
 covers its real four-chassis train with a full-consist emergency native-velocity
-reset before reattachment. Simultaneous recovery replicated to two real clients
-and post-repair client reconnect or cold-restart coverage remain FD902 work.
+reset before reattachment. [Two-client Arrow support recovery](two-client-arrow-support-recovery.md)
+now carries Dev and Observer on distinct seats through moving support loss,
+exact repair, and physical realignment. Concurrent recovery for the other
+families and post-repair client reconnect or cold-restart coverage remain FD902
+work.
 
 [Repeated PAX shuttle station reload](repeated-shuttle-reload.md) saves and
 reinstalls the real winch at its first captured station return, then verifies
