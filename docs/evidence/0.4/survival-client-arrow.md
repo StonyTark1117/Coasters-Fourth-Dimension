@@ -56,6 +56,8 @@ ingredients, two captured empty carriers after dismount, and the final save.
 This is a real connected survival client using command-supplied ingredients
 and position changes. It does not prove gathering materials or an unassisted
 build. The short flat section had no propulsion: dispatch changed the operating
-state, but no powered ride or measured chassis travel is claimed. Legacy,
-Free Spin, Revised, PAX, full station/winch operation, and the complete
-five-family teaching gate remain FD403 work.
+state, but no powered ride or measured chassis travel is claimed. Subsequent
+[Legacy and Free Spin client evidence](survival-client-legacy-free-spin.md)
+covers those families on similarly short sections. Revised, PAX, full
+station/winch operation, and the complete five-family teaching gate remain
+FD403 work.
