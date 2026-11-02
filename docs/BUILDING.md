@@ -121,6 +121,39 @@ Restrained riders need an operator on the platform. Keep the winch, its supports
 and the complete route available during operation. See the more detailed
 [shuttle workflow](REVISED-SHUTTLE.md) and [magnetic editor conventions](MAGNETIC.md).
 
+## Create ride diagnostics
+
+Wear Engineer's Goggles and look at a bound Boarding Station or Shuttle Winch to
+inspect the ride's occupancy, restraints, boarding alignment, retention, dispatch
+readiness and phase. A displayed fault or dispatch denial explains what needs
+attention. Station data covers the linked consist, not only the selected car.
+
+For a remote display, select a supported display target with a Create Display
+Link item, then place that link attached to the bound station or winch. Open the
+link's configuration and choose a ride information source:
+
+| Source | Displayed information |
+| --- | --- |
+| Ride status | Fault, dispatch readiness or operating phase |
+| Ride occupancy | Occupied seats / capacity across the consist |
+| Ride restraints | Whether all cars have closed restraints |
+| Ride dispatch readiness | Ready to dispatch, or the current denial reason |
+| Ride phase | Boarding, running or the bound shuttle's phase |
+| Ride fault | Current ride fault, blank when none is reported |
+
+Select the target's output line using the normal Display Link controls. If no
+ride sources appear, check that the link's attached side touches the station or
+winch. If the ride is unavailable, check its binding and that the original cars
+and carriers are loaded. A nearby ordinary station cannot operate a PAX train;
+read PAX status from its bound winch.
+
+These displays report sampled state. Dispatch still rechecks the server's
+current restraints, alignment, track support and controller authority; a displayed
+ready state does not bypass those checks. Keep the existing station or winch
+controls for operating the ride. A packaged standalone build has bounded live
+goggles and Display Link evidence; optional profiles and remaining lifecycle
+cases still need acceptance. See [integration status](INTEGRATIONS.md#shared-telemetry-and-create-diagnostics).
+
 ## Shipped example layouts
 
 In a disposable creative world with commands enabled, stand in a large clear

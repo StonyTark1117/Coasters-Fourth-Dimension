@@ -15,12 +15,12 @@ Skin, rotating-seat follow-up, Immersion, and Waterparked/Create Coasters coexis
 These new ecosystem adapters remain paused pending user approval. Staging their
 JARs does not activate a runtime profile or certify compatibility.
 
-The release baseline remains schema 6 / protocol 7. Shared telemetry/Create
-work from the integration branch needs explicit reconciliation and acceptance
-before it is described as part of this baseline. Its separate pending schema-7/
-protocol-8 functional-provider registry is deferred, requires a dedicated migration
-decision, and is not a prerequisite for 0.9. FD801 remains independently gated.
-Existing acceptance records below keep their original artifact-specific scope.
+The release baseline remains schema 6 / protocol 7. The shared telemetry/Create
+checkpoint has been reconciled with the current support-repair and PAX guards;
+its acceptance limits are listed below. The separate pending schema-7/protocol-8
+functional-provider registry is deferred, requires a dedicated migration decision,
+and is not a prerequisite for 0.9. FD801 remains independently gated. Existing
+acceptance records below keep their original artifact-specific scope.
 
 ## Version and API boundaries
 
@@ -89,6 +89,38 @@ It labels the project MIT, while the inspected 1.2.0 JAR declares All Rights
 Reserved. The independent optional catalog does not redistribute that JAR, code
 or assets. No resolved license for copying or bundling its content is claimed.
 The audit retains both observations in `research/dependency-audit.json`.
+
+## Shared telemetry and Create diagnostics
+
+Stations and winches expose immutable whole-consist snapshots for occupancy,
+capacity, restraints, boarding alignment, retention, dispatch readiness, faults
+and operating phase. Create goggles show these fields; Display Links offer six
+sources: status, occupancy, restraints, dispatch readiness, phase and fault.
+Snapshots are informational. Every capture/dispatch request checks the current
+server state and controller binding; PAX dispatch continues through its bound
+winch state machine.
+
+This reconciliation uses the current dispatch validation, including each linked
+car's pending physical realignment and unrepaired support fault. Winch start,
+resume and recovery keep their realignment guards. Telemetry adds block-entity
+update data without changing FoundationData schema 6 or network protocol 7.
+
+Compilation and 26 existing unit tests pass. The native telemetry regression
+includes all five families, linked-car repair/realignment rejection, stale
+snapshots, controller range, PAX ownership, Display Link source output and
+serialized block updates. [Current four-profile CI evidence](evidence/0.9/create-telemetry/README.md)
+records all 47 required native tests passing on source revision `177d4f6`, including
+the telemetry assertions. Each job then hit its 25-minute limit during the dense
+clearance audit; this is not a complete CI pass. The earlier telemetry branch's
+native results are not substituted for this run. A later
+[packaged standalone checkpoint](evidence/0.9/create-telemetry/local-046ead9/README.md)
+on `046ead9` adds five-family goggles, normal Arrow Display Link setup/output,
+two-client Arrow occupancy/readiness/retention, late join, resource reload and
+occupied cold-server restart. Two occupied PAX cycles expose every phase through
+the real kinetic goggles, followed by normal unloading and a winch phase display.
+Its own 47 native tests pass. Optional-profile client coverage, remaining physical
+repair/lifecycle cases, complete clearance and final integrated-artifact checks
+remain open; the checkpoint lists the exact bounds.
 
 ## Remaining FD401 acceptance
 
