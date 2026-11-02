@@ -5,6 +5,23 @@ bundled, and no external functional track is certified yet. FD801 owns a future
 Track Styles Arrow 4D mechanical adapter; a decorative model or equal main-rail
 gauge cannot satisfy that gate.
 
+## Release scope and deferred candidates
+
+The [integration backlog](INTEGRATION-BACKLOG.md) owns the dated candidate inventory,
+release allocation and acceptance plans. The 0.4–1.0 scope covers Create guidance
+and diagnostics plus the existing Engineered/Track Styles profiles. Proposed 1.1
+adds Additions station operations, CTNB and Magnetized; proposed 1.2 adds Coaster
+Skin, rotating-seat follow-up, Immersion, and Waterparked/Create Coasters coexistence.
+These new ecosystem adapters remain paused pending user approval. Staging their
+JARs does not activate a runtime profile or certify compatibility.
+
+The release baseline remains schema 6 / protocol 7. Shared telemetry/Create
+work from the integration branch needs explicit reconciliation and acceptance
+before it is described as part of this baseline. Its separate pending schema-7/
+protocol-8 functional-provider registry is deferred, requires a dedicated migration
+decision, and is not a prerequisite for 0.9. FD801 remains independently gated.
+Existing acceptance records below keep their original artifact-specific scope.
+
 ## Version and API boundaries
 
 `/fd integrations` reports installed metadata without loading addon API classes.
