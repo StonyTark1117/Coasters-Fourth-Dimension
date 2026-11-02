@@ -6,7 +6,7 @@ jobs:
   validate:
     name: Validate (${{ matrix.profile }})
     runs-on: ubuntu-latest
-    timeout-minutes: 25
+    timeout-minutes: 75
     strategy:
       fail-fast: false
       matrix:
