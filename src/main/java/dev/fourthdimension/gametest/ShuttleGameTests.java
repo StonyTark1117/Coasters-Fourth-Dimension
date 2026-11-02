@@ -4,6 +4,7 @@ import com.mojang.logging.LogUtils;
 import com.simibubi.create.content.contraptions.actors.seat.SeatBlock;
 import com.simibubi.create.content.kinetics.motor.CreativeMotorBlockEntity;
 import dev.fourthdimension.runtime.CarrierRuntime;
+import dev.fourthdimension.runtime.FoundationData;
 import dev.fourthdimension.shuttle.*;
 import dev.fourthdimension.vehicle.*;
 import dev.ryanhcode.sable.api.sublevel.SubLevelContainer;
@@ -381,6 +382,54 @@ public final class ShuttleGameTests {
         () ->
             helper.fail(
                 "Chunk/reload recovery did not finish: " + winch[0].phase + " " + winch[0].fault));
+  }
+
+  @GameTest(template = "empty", timeoutTicks = 240)
+  public static void routeTopologyMutationStopsActiveWinch(GameTestHelper helper) {
+    var level = helper.getLevel();
+    for (int x = 57; x <= 60; x++) for (int z = 33; z <= 43; z++) level.setChunkForced(x, z, true);
+    var example = ShuttleExamples.create(level, new BlockPos(940, 180, 600), false);
+    var winch = example.winch();
+    helper.runAtTickTime(
+        80,
+        () -> {
+          ShuttleExamples.assemble(level, example);
+          VehicleOperations.restraints(level, example.cars().getFirst(), true);
+          VehicleOperations.dispatch(level, example.cars().getFirst());
+        });
+    helper.runAtTickTime(
+        100,
+        () -> {
+          var data = FoundationData.get(level);
+          var routeRail =
+              data.rails.stream()
+                  .filter(rail -> rail.from.equals(winch.routeStart) || rail.to.equals(winch.routeStart))
+                  .findFirst()
+                  .orElseThrow();
+          // The duplicate has no graph edge. The cache must still re-resolve and reject the new
+          // branch before a running car can use stale route topology.
+          data.rails.add(
+              new FoundationData.Rail(
+                  routeRail.from,
+                  routeRail.to,
+                  routeRail.family,
+                  routeRail.profile,
+                  UUID.randomUUID(),
+                  routeRail.variant,
+                  routeRail.geometryHash,
+                  routeRail.revision,
+                  true));
+        });
+    helper.runAtTickTime(
+        140,
+        () -> {
+          helper.assertTrue(
+              winch.phase == ShuttleWinchEntity.Phase.FAULT
+                  && example.cars().stream().allMatch(car -> car.restraints && !car.fault.isEmpty()),
+              "New route branch did not fault the active shuttle");
+          System.out.println("FD_SHUTTLE_TOPOLOGY branchFaulted=true retainedTrain=true");
+          helper.succeed();
+        });
   }
 
   @GameTest(template = "empty", batch = "performanceShuttle", timeoutTicks = 2600)

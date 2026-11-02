@@ -18,12 +18,13 @@ public final class BoundaryGuard {
       FoundationData.Vehicle vehicle,
       FoundationData.Rail rail) {
     if (rail == null || !rail.valid) return;
+    // The validated shuttle controller guards both spikes and captures the complete train. Avoid
+    // repeatedly walking the four-car native coupling graph while that controller owns motion.
+    if (dev.fourthdimension.shuttle.ShuttleRuntime.running(level, vehicle.chassis)) return;
     if (!ConsistRules.eligible(level, parent, vehicle)) {
       stop(vehicle, "Incompatible vehicle in linked consist");
       return;
     }
-    // The validated shuttle controller guards both spikes and captures the complete train.
-    if (dev.fourthdimension.shuttle.ShuttleRuntime.running(level, vehicle.chassis)) return;
     var center = CoasterCartResolve.cartCenterWorld(parent);
     if (center == null) {
       stop(vehicle, "Running gear unavailable");

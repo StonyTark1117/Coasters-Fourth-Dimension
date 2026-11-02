@@ -14,7 +14,17 @@ public final class NativeLoading {
   // Game-scale convention: one native mass unit represents 100 kg of declared load.
   public static final double MASS_PER_RIDER = .8;
 
-  private record Applied(MassTracker tracker, Map<BlockPos, Double> masses) {}
+  private static final class Applied {
+    final MassTracker tracker;
+    final Map<BlockPos, Double> masses = new HashMap<>();
+    long sampledTick = Long.MIN_VALUE;
+    double vehicleBallast = Double.NaN;
+    double carrierBallast = Double.NaN;
+
+    Applied(MassTracker tracker) {
+      this.tracker = tracker;
+    }
+  }
 
   private static final Map<ServerSubLevel, Applied> APPLIED = new WeakHashMap<>();
 
@@ -26,9 +36,15 @@ public final class NativeLoading {
     var tracker = child.getSelfMassTracker();
     var applied = APPLIED.get(child);
     if (applied == null || applied.tracker != tracker) {
-      applied = new Applied(tracker, new HashMap<>());
+      applied = new Applied(tracker);
       APPLIED.put(child, applied);
     }
+    // Entity mounts and ballast edits occur on the server tick. Physics may invoke this callback
+    // more than once within that tick, so repeat neither the seat entity queries nor mass rebuild.
+    long gameTick = level.getGameTime();
+    if (applied.sampledTick == gameTick
+        && Double.compare(applied.vehicleBallast, vehicle.ballast) == 0
+        && Double.compare(applied.carrierBallast, carrier.ballast) == 0) return;
     var occupants = new ArrayList<UUID>();
     var desired = new HashMap<BlockPos, Double>();
     for (var offset : carrier.seats) {
@@ -62,6 +78,9 @@ public final class NativeLoading {
     }
     applied.masses.clear();
     applied.masses.putAll(desired);
+    applied.sampledTick = gameTick;
+    applied.vehicleBallast = vehicle.ballast;
+    applied.carrierBallast = carrier.ballast;
     if (changed) child.updateMergedMassData(1);
     carrier.occupants = List.copyOf(occupants);
   }

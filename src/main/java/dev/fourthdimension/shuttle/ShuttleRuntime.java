@@ -23,12 +23,42 @@ public final class ShuttleRuntime {
   private static final Map<ServerLevel, Map<BlockPos, ShuttleWinchEntity>> WINCHES =
       new WeakHashMap<>();
   private static final Map<ShuttleWinchEntity, Handles> HANDLES = new WeakHashMap<>();
+  private static final Map<ShuttleWinchEntity, CachedRoute> ROUTES = new WeakHashMap<>();
 
   private static final class Handles {
     GenericConstraintHandle guide, catchJoint;
     Vector3d worldAnchor;
     Quaterniond worldOrientation;
     UUID body;
+  }
+
+  private record Chunk(int x, int z) {}
+
+  private record CachedRoute(
+      ShuttleRoute route,
+      Map<UUID, Long> revisions,
+      Set<Chunk> requiredChunks,
+      int railCount,
+      Map<BlockPos, Integer> nodeDegrees) {
+    boolean current(ServerLevel level, ShuttleWinchEntity winch) {
+      if (!route.start.equals(winch.routeStart) || !route.end.equals(winch.routeEnd)) return false;
+      var rails = FoundationData.get(level).rails;
+      if (rails.size() != railCount) return false;
+      for (var expected : nodeDegrees.entrySet()) {
+        int actual = 0;
+        for (var rail : rails)
+          if (rail.from().equals(expected.getKey()) || rail.to().equals(expected.getKey())) actual++;
+        if (actual != expected.getValue()) return false;
+      }
+      for (var segment : route.segments)
+        if (!segment.rail().valid
+            || revisions.getOrDefault(segment.rail().id, Long.MIN_VALUE) != segment.rail().revision)
+          return false;
+      for (var chunk : requiredChunks)
+        if (!dev.ryanhcode.sable.sublevel.system.ticket.PhysicsChunkTicketManager
+            .isChunkLoadedEnough(level, chunk.x, chunk.z)) return false;
+      return true;
+    }
   }
 
   public static void register(ServerLevel level, ShuttleWinchEntity winch) {
@@ -206,7 +236,7 @@ public final class ShuttleRuntime {
           }
           continue;
         }
-        var route = ShuttleRoute.resolve(level, winch.routeStart, winch.routeEnd);
+        var route = route(level, winch);
         if (winch.phase != ShuttleWinchEntity.Phase.BOARDING) {
           winch.validateTrain(false);
           if (Math.abs(winch.getSpeed()) < 16)
@@ -311,6 +341,49 @@ public final class ShuttleRuntime {
             || !winch.fault.equals(failure.getMessage())) winch.fail(failure.getMessage());
       }
     }
+  }
+
+  /**
+   * Route resolution fingerprints every segment. Rail mutations already increment the persisted
+   * revision, so retain that expensive verification while avoiding a complete rebuild for each
+   * physics substep of an unchanged shuttle.
+   */
+  private static ShuttleRoute route(ServerLevel level, ShuttleWinchEntity winch) {
+    var cached = ROUTES.get(winch);
+    if (cached != null && cached.current(level, winch)) return cached.route;
+    var route = ShuttleRoute.resolve(level, winch.routeStart, winch.routeEnd);
+    var revisions = new HashMap<UUID, Long>();
+    var requiredChunks = new HashSet<Chunk>();
+    var nodeDegrees = new HashMap<BlockPos, Integer>();
+    for (var segment : route.segments) {
+      revisions.put(segment.rail().id, segment.rail().revision);
+      nodeDegrees.compute(segment.rail().from(), (node, count) -> count == null ? 1 : count + 1);
+      nodeDegrees.compute(segment.rail().to(), (node, count) -> count == null ? 1 : count + 1);
+      requiredChunks.add(new Chunk(segment.rail().from().getX() >> 4, segment.rail().from().getZ() >> 4));
+      requiredChunks.add(new Chunk(segment.rail().to().getX() >> 4, segment.rail().to().getZ() >> 4));
+      for (double distance = 0; distance <= segment.length(); distance += 8) {
+        double t =
+            dev.fourthdimension.track.TrackGeometry
+                .table(level, segment.edge())
+                .parameterAt(distance);
+        var point =
+            dev.silvergold.simulatedcoasters.track.graph.CoasterPathGraphManager.sampleEdgePosition(
+                level, segment.edge(), t);
+        requiredChunks.add(
+            new Chunk(
+                net.minecraft.util.Mth.floor(point.x) >> 4,
+                net.minecraft.util.Mth.floor(point.z) >> 4));
+      }
+    }
+    ROUTES.put(
+        winch,
+        new CachedRoute(
+            route,
+            Map.copyOf(revisions),
+            Set.copyOf(requiredChunks),
+            FoundationData.get(level).rails.size(),
+            Map.copyOf(nodeDegrees)));
+    return route;
   }
 
   private static void ensureCarriage(

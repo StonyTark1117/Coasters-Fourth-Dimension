@@ -17,6 +17,9 @@ public final class FamilyControllers {
       DeferredRegister.createBlocks(FourthDimension.ID);
   public static final Map<Family, DeferredBlock<Controller>> CONTROLLERS =
       new EnumMap<>(Family.class);
+  private record Resolved(long gameTick, Set<Family> families) {}
+
+  private static final Map<SubLevel, Resolved> RESOLVED = new WeakHashMap<>();
 
   static {
     for (Family family : Family.values())
@@ -34,6 +37,16 @@ public final class FamilyControllers {
   }
 
   public static Set<Family> find(SubLevel sub) {
+    long gameTick = sub.getLevel().getGameTime();
+    var cached = RESOLVED.get(sub);
+    if (cached != null && cached.gameTick == gameTick) return cached.families;
+    var families = scan(sub);
+    RESOLVED.put(sub, new Resolved(gameTick, families));
+    return families;
+  }
+
+  /** Physics may call this more than once per server tick; block mutations are observed next tick. */
+  private static Set<Family> scan(SubLevel sub) {
     Set<Family> families = EnumSet.noneOf(Family.class);
     for (var holder : sub.getPlot().getLoadedChunks()) {
       // Block palette scan includes controllers carried by arbitrary assembly/splits.
@@ -46,6 +59,6 @@ public final class FamilyControllers {
                 if (section.getBlockState(x, y, z).getBlock() instanceof Controller controller)
                   families.add(controller.family);
     }
-    return families;
+    return Set.copyOf(families);
   }
 }

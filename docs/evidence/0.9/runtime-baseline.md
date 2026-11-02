@@ -78,6 +78,28 @@ minutes**.
 | PAX shuttle — 16 riders; lift, gravity return and capture | 6 | 4,674 | 103,889 ns | 12,464 | 31,012,598 ns | 2,488 ns | 0 |
 | Free Spin — 8 riders; magnetic circuit and capture | 6 | 14,220 | 94,000 ns | 18,960 | 56,498,829 ns | 2,979 ns | 0 |
 
+On 2026-11-02, the clean standalone gate first exposed a regression after the
+suite grew to 44 GameTests: the PAX scene reached 141,277 ns per invocation and
+the Free Spin scene reached 120,668 ns. The limits were not changed. Route
+resolution now retains an immutable, revision-, topology-, and chunk-validated
+route between physics substeps; rider loading and controller discovery are
+deduplicated only within a server tick. The revised standalone target-gated run
+then passed all **44 required GameTests** in **4.531 minutes**:
+
+| Workload | Run | Runtime invocations | Average / invocation | Carrier updates | Carrier total | Average / carrier | Rebuilds |
+| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| Controlled — Arrow and legacy ZacSpin circuit | 7 | 11,520 | 49,348 ns | 15,360 | 45,381,545 ns | 2,954 ns | 0 |
+| PAX shuttle — 16 riders; lift, gravity return and capture | 7 | 4,674 | 88,651 ns | 12,464 | 28,014,228 ns | 2,247 ns | 0 |
+| Free Spin — 8 riders; magnetic circuit and capture | 7 | 14,220 | 95,743 ns | 18,960 | 48,239,842 ns | 2,544 ns | 0 |
+
+Run eight repeated the standalone target-gated profile after the active-route topology mutation regression was added. All **45 required GameTests** passed in **5.403 minutes**:
+
+| Workload | Run | Runtime invocations | Average / invocation | Carrier updates | Carrier total | Average / carrier | Rebuilds |
+| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| Controlled — Arrow and legacy ZacSpin circuit | 8 | 11,520 | 56,794 ns | 15,360 | 54,727,932 ns | 3,563 ns | 0 |
+| PAX shuttle — 16 riders; lift, gravity return and capture | 8 | 4,674 | 110,917 ns | 12,464 | 37,296,938 ns | 2,992 ns | 0 |
+| Free Spin — 8 riders; magnetic circuit and capture | 8 | 14,220 | 115,118 ns | 18,960 | 58,550,064 ns | 3,088 ns | 0 |
+
 ## Target-host gate
 
 The declared target-host limits are at most **120,000 ns per runtime invocation**
@@ -85,13 +107,14 @@ and **6,000 ns per live-carrier update**. They are based on a rounded margin
 above the three-run observed maxima of 107,376 ns and 3,901 ns, respectively.
 They are only enabled by `-PfdPerformanceTargets`, which checks each named
 performance GameTest after its required sampling window. Run three meets both
-limits in all three scenes. Across all six recorded target-host samples, the
-highest values are 113,510 ns per invocation for the PAX shuttle and 3,901 ns
-per carrier update for the controlled scene.
+limits in all three scenes. The latest clean run also meets both limits after
+its detected regression was repaired. Across the eight recorded target-host
+samples, the highest passing values are 115,118 ns per invocation for the Free
+Spin scene and 3,901 ns per carrier update for the controlled scene.
 
 ## Limits and next work
 
-The values are five integrated GameTest runs on the stated host. The carrier
+The values are six integrated and two standalone target-gated GameTest runs on the stated host. The carrier
 figures normalize the direct carrier body but do not allocate shared runtime
 work among carriers. Their visible variation remains host-specific and does not
 generalize to other hardware. The gate deliberately omits whole-server time,
