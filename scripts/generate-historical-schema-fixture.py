@@ -2,6 +2,7 @@
 """Regenerate the historic schema-3 NBT fixture from read-only 0.3 evidence."""
 import base64
 import gzip
+import io
 import json
 import struct
 from pathlib import Path
@@ -123,5 +124,11 @@ payload = compound([
     ('vehicles', LIST, list_tag(COMPOUND, data['vehicles'], vehicle)),
 ])
 raw = bytes([COMPOUND]) + utf('') + named(COMPOUND, 'data', payload) + b'\0'
+# gzip.compress(..., mtime=0) delegates to zlib in some Python versions, which
+# writes the host OS byte (3 on Linux) instead of the stored fixture's 255.
+# GzipFile emits the portable header while keeping the compressed NBT identical.
+compressed = io.BytesIO()
+with gzip.GzipFile(filename='', mode='wb', fileobj=compressed, mtime=0) as gzip_file:
+    gzip_file.write(raw)
 with destination.open("w", encoding="ascii") as output_file:
-    output_file.write(base64.b64encode(gzip.compress(raw, mtime=0)).decode("ascii") + "\n")
+    output_file.write(base64.b64encode(compressed.getvalue()).decode("ascii") + "\n")
