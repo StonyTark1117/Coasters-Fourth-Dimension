@@ -6,7 +6,9 @@ jobs:
   validate:
     name: Validate (${{ matrix.profile }})
     runs-on: ubuntu-latest
-    timeout-minutes: 25
+    # The one-tick single-car + train audits took 16m52s on the target host;
+    # hosted build/GameTests alone take 9–12m. Keep every audit and budget for both.
+    timeout-minutes: 90
     strategy:
       fail-fast: false
       matrix:
@@ -48,8 +50,24 @@ jobs:
           python3 scripts/verify-caught-shuttle-checkpoint.py
           python3 scripts/verify-occupied-shuttle-checkpoint.py
       - run: ./gradlew clean build runGameTestServer --no-daemon "-PfdIntegrations=$FD_INTEGRATIONS"
+        timeout-minutes: 25
         env:
           FD_INTEGRATIONS: ${{ matrix.integrations }}
+      - name: Preserve native checkpoint before clearance audits
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: native-validation-evidence-${{ matrix.profile }}
+          path: |
+            build/libs/*.jar
+            build/reports/tests/**
+            build/test-results/**
+            build/runs/gametest/logs/**
+            build/runs/gametest/bank-native-frames.json
+            build/runs/gametest/recovery-bank-native-frames.json
+            build/runs/gametest/recovery-bank-train-native-frames.json
+            build/runs/gametest/recovery-bank-mesh-trace.jsonl
+            build/runs/gametest/recovery-bank-train-mesh-trace.jsonl
       - name: Verify native recovery route geometry
         run: |
           python3 scripts/verify-recovery-bank-frames.py build/runs/gametest/recovery-bank-native-frames.json > build/recovery-route-geometry.json
@@ -66,18 +84,23 @@ jobs:
           python3 scripts/audit-arrow-wheel-clearance.py "${FD_BASE_JARS[0]}" \
             "${FD_STYLE_JARS[0]}" > build/wheel-clearance.json
       - name: Audit dense native recovery bodies, linkage blocks, lower bearings, wheels, riders and carrier racks
+        timeout-minutes: 60
         run: |
           python3 -m pip install -r scripts/requirements-geometry.txt
           FD_BASE_JARS=("$HOME"/.gradle/caches/modules-2/files-2.1/curse.maven/create-coasters-simulated-1601871/8655742/*/*.jar)
           test "${#FD_BASE_JARS[@]}" -eq 1
           FD_MC_JAR="$HOME/.gradle/caches/neoformruntime/artifacts/minecraft_1.21.1_client.jar"
           test -f "$FD_MC_JAR"
-          python3 scripts/audit-recovery-mesh-trace.py "${FD_BASE_JARS[0]}" "$FD_MC_JAR" \
+          echo "::group::Single-car one-tick clearance audit"
+          time python3 scripts/audit-recovery-mesh-trace.py "${FD_BASE_JARS[0]}" "$FD_MC_JAR" \
             build/runs/gametest/recovery-bank-native-frames.json \
             build/runs/gametest/recovery-bank-mesh-trace.jsonl > build/recovery-model-clearance.json
-          python3 scripts/audit-recovery-mesh-trace.py "${FD_BASE_JARS[0]}" "$FD_MC_JAR" \
+          echo "::endgroup::"
+          echo "::group::Linked-train one-tick clearance audit"
+          time python3 scripts/audit-recovery-mesh-trace.py "${FD_BASE_JARS[0]}" "$FD_MC_JAR" \
             build/runs/gametest/recovery-bank-train-native-frames.json \
             build/runs/gametest/recovery-bank-train-mesh-trace.jsonl > build/recovery-train-model-clearance.json
+          echo "::endgroup::"
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         if: always()
         with:
