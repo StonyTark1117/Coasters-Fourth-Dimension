@@ -44,6 +44,10 @@ and reopen on a normally crafted route, cars and winch with a disclosed upstream
 motor fixture. The Arrow pass is a one-way route rather than a full circuit.
 The later [bounded powered Legacy pass](survival-client-legacy-powered/acceptance.md)
 records travel, capture, unloading and reopen but no meaningful free rotation.
+The [shaped Legacy demo pass](survival-client-legacy-powered/demo/acceptance.md)
+records independent free-rotor angles above 0.56 radians during a powered
+occupied circuit, then capture, unloading and cold reopen. Its route and car
+were command-authored; player-built shaped operation remains open.
 The later [bounded powered Free Spin pass](survival-client-free-spin-powered/acceptance.md)
 records installed inducer/damper spans, independent occupied carrier motion,
 capture, unloading and reopen; it does not isolate damper strength from capture.

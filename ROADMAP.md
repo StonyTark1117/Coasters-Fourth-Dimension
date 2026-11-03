@@ -418,8 +418,12 @@ family exercises remain open. A subsequent
 records survival result-slot crafting, player-connected 50-block original
 track, player-installed Chain, an occupied motor-powered 36-block traverse,
 pre-boundary capture, unloading and same-identity cold reopen. The flat route
-did not produce meaningful free rotation, so the Legacy family mechanics
-exercise remains open. A later
+did not produce meaningful free rotation. A later
+[Legacy powered demo pass](docs/evidence/0.4/survival-client-legacy-powered/demo/acceptance.md)
+records one occupied shaped-circuit lap with 0.56- and 0.64-radian independent
+carrier angles, capture, unloading and same-identity cold reopen. The demo
+route and car were command-authored; a player-built powered route and its
+teaching walkthrough remain open. A later
 [bounded powered Free Spin pass](docs/evidence/0.4/survival-client-free-spin-powered/acceptance.md)
 records survival crafting, player-installed magnetic spans on a 50-block
 original section, occupied powered travel with independent carrier response,
