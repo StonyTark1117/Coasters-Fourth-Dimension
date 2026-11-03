@@ -38,6 +38,10 @@ FD_FAMILY_MATRIX decisions=25 factoryRejects=20 lockedNativeInitialSnapRejects=2
 The 25 decisions are the complete five-cart by five-original-track table. The
 20 off-diagonal cases rejected in the factory, native initial-snap, and native
 train-coupling paths; the five diagonal matching cases attached successfully.
+For mixed couplings, this recorded run checked exact first-car binding
+preservation but only checked that the second car stayed bound. The strengthened
+test now checks both exact bindings and requires a native rerun before that
+stronger result can be claimed.
 
 The same run's native survival dispatcher fixture independently placed all five
 matching cars through their held-item interaction path and rejected all 20
