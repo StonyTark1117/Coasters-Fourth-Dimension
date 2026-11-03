@@ -1,0 +1,26 @@
+{
+  "recordedUtc": "2026-11-03T01:33:28.742167+00:00",
+  "server": {
+    "session": 97883,
+    "exitCode": 0,
+    "method": "RCON save-all flush then stop"
+  },
+  "dev": {
+    "session": 48596,
+    "exitCode": 0,
+    "method": "normal Quit Game"
+  },
+  "observer": {
+    "session": 48140,
+    "exitCode": 0,
+    "method": "normal Quit Game",
+    "disconnectPresentation": "Connection reset by peer during normal server shutdown"
+  },
+  "xvfb": {
+    "display": ":121",
+    "pid": 1528668,
+    "zeroChildWindowsBeforeStop": true,
+    "method": "SIGTERM after both clients exited"
+  },
+  "externalLoad": "Separate FD403 packaged client on DISPLAY=:99 concurrent; untouched. No timing/performance certification."
+}
