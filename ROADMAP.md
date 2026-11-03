@@ -369,6 +369,19 @@ runtime branch acceptance remains pending. Recovery runs without diagnostic
 flags, but the retained replay enabled tracing. Neither result closes styled
 occupied post-reload rides, repeated reliability, graphics modes or FD401.
 
+The frozen `ff7c831` [uniform Styles geometry reports](docs/evidence/0.9/fd401-prospective-styles-ff7c831/README.md)
+now pass both single- and double-spine configurations for single-car and two-car
+Arrow recovery routes. A fifth [whole-section transition report](docs/evidence/0.9/fd401-styles-transitions-ff7c831/README.md)
+passes Original → single → double → Original → single. Single-car cases cover
+5,768 poses; train cases cover 6,548, with all five sections visited and minimum
+bounds of 0.04891048 / 0.04878235 blocks against 0.02 required. All five reports
+have no uncertified body/track pairs and retain exact source/input/tool hashes.
+This resolves that bounded sampled default-model geometry work only. Player
+meshes, continuous swept clearance, decoration self-clearance, unmodeled linkage,
+visible rendering, within-curve UI styling, full-turn operator/FE workflows,
+dynamic telemetry and graphics/reload acceptance remain open. Neither these
+prospective results nor the later draw-fallback source correction closes FD401.
+
 Implement isolated optional adapters, support/version checks, component render ownership, appearance fallback and shared server-validated operations telemetry. The current 0.4–1.0 scope is Create guidance/diagnostics plus existing Track Styles 1.2.0 appearance and Engineered 1.1.1 operations. Keep the current schema 6/protocol 7 baseline; the paused schema-7/protocol-8 provider registry requires a separate migration decision and is not a 0.9 prerequisite. Newly staged Additions, CTNB, Magnetized, Skin, Immersion, Waterparked and Create Coasters adapters remain in the proposed post-1.0 expansion plan, not prerequisites for FD401.
 
 **Done when:** standalone behavior is unchanged by missing optional mods; supported integrations preserve functional family and profiles. Publish only tested combinations. Future Arrow 4D support remains FD801 and cannot block this package.

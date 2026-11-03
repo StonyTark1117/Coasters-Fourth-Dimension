@@ -146,6 +146,22 @@ evidence with the exact remaining operator, optional-client, rendering and
 clearance checks. It separates offline audits from scheduled runtime work and
 does not promote the paused expansion addons into the candidate scope.
 
+The frozen `ff7c831` exports now have five passing prospective sampled geometry
+analyses: [both Arrow styles on single cars and two-car trains](evidence/0.9/fd401-prospective-styles-ff7c831/README.md),
+plus [Original/single/double whole-section transitions](evidence/0.9/fd401-styles-transitions-ff7c831/README.md).
+Each single-car case checks 5,768 one-tick poses; each train case checks 6,548.
+Every car visits all five sections. Minimum separating bounds are 0.04891048
+and 0.04878235 blocks respectively, above the 0.02 requirement, with no
+uncertified body/track pairs. The reports include default wheel, chassis,
+carrier/linkage and native-fixture rider volumes, with explicit model limits.
+
+These are proposed appearance configurations on recorded native motion, not
+observed client rendering. They exclude player meshes, continuous swept motion,
+decoration self-clearance, unmodeled linkage and custom resources. Whole-section
+transitions do not prove UI edits inside a curve. The frozen-source results do
+not validate later draw-fallback behavior or close full-turn operator rides,
+telemetry, graphics modes, reload reliability, FD401 or the release gate.
+
 Complete style geometry and clearance checks and record supported styles/render
 modes and styled ride behavior. Resource reload and a real removal/reinstallation
 cycle now pass for one single-spine controlled Arrow section. Engineered operating
