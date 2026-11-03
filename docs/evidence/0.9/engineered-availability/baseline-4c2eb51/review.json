@@ -1,0 +1,50 @@
+{
+  "result": "availability guard fails open in five observed calls; six-case fixture incomplete",
+  "unavailable_probes": [
+    {
+      "source": 0,
+      "state": "unloaded-0",
+      "max_queued_delta": 0.9783822627202763
+    },
+    {
+      "source": 1,
+      "state": "unloaded-0",
+      "max_queued_delta": 1.0994608394633418
+    },
+    {
+      "source": 0,
+      "state": "unloaded-1",
+      "max_queued_delta": 0.9793497541533956
+    },
+    {
+      "source": 1,
+      "state": "unloaded-1",
+      "max_queued_delta": 1.1003561322190825
+    },
+    {
+      "source": 1,
+      "state": "unloaded-2",
+      "max_queued_delta": 1.1003557306188616
+    }
+  ],
+  "positive_control_count": 8,
+  "completed_unavailable_cases": [
+    0,
+    1,
+    2
+  ],
+  "incomplete_unavailable_cases": [
+    3,
+    4,
+    5
+  ],
+  "incomplete_reason": "Native partial chassis restore unlinked the two cars before case 3; no case-3 motor call ran",
+  "full_profile_isolated": false,
+  "overlap": "Shared-root Engineered PID 336912 began about 11:00:00 UTC before this run completed; direct availability calls were logged at 03:56:04 America/Phoenix (10:56:04 UTC), before that overlap",
+  "limits": [
+    "Five calls establish forbidden queued force/torque, not a complete six-case pass",
+    "Direct UNLOADED and serializer calls, not natural chunk cycling",
+    "No occupied player, GUI/operator or release-gate certification",
+    "No production fix in this baseline"
+  ]
+}

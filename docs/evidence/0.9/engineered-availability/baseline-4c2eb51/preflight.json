@@ -1,0 +1,63 @@
+{
+  "status": "corrected preflight only; native run not started",
+  "captured_at_utc": "2026-11-03T10:48:45.939270+00:00",
+  "source_revision": "4c2eb51dc010cb095b3cbb22ac4826683394cc87",
+  "source_status": [],
+  "workspace": "/home/braydon/.codex/worktrees/pax-active-restart/Coasters: Fourth Dimension",
+  "jar": {
+    "path": "/tmp/fourthdimension-2aa0362f/build/libs/coasters-fourth-dimension-0.9.0-dev.27.jar",
+    "sha256": "aa5cccc0e2e185a62ac9b4dd63723c09f898a0e1f1236d3fb946169d3bcae76f"
+  },
+  "class_parity": {
+    "dev/fourthdimension/integration/EngineeredInterlock.class": {
+      "jar_sha256": "a223e43263ffbd99cf98dbdf991a2692e9087522acc79e0530ada686975039bd",
+      "compiled_sha256": "a223e43263ffbd99cf98dbdf991a2692e9087522acc79e0530ada686975039bd"
+    },
+    "dev/fourthdimension/gametest/EngineeredAvailabilityGameTests.class": {
+      "jar_sha256": "a32f2e26274b8dd2cb8385fd449aa93f7da80684e6ed2f53502ee22273249449",
+      "compiled_sha256": "a32f2e26274b8dd2cb8385fd449aa93f7da80684e6ed2f53502ee22273249449"
+    }
+  },
+  "planned_command": [
+    "./gradlew",
+    "runGameTestServer",
+    "--offline",
+    "--no-daemon",
+    "-PfdIntegrations=engineered"
+  ],
+  "runtime_kind": "development loose classes, not packaged-JAR runtime",
+  "expected_scope": "51 required tests including the new availability batch; preserve all failures",
+  "new_scenario": "Two Arrow cars; six native UNLOADED/serializer restores; ten unavailable motor probes and fourteen healthy positive controls",
+  "limits": [
+    "No natural chunk-unload/reload timing or occupied passenger test",
+    "No GUI/operator/FE workflow certification",
+    "No production fix yet"
+  ],
+  "probe_isolation": "Controller COAST during three-tick restore delays, LAUNCH only for direct probes; logical vehicle flags unchanged",
+  "all_packaged_class_parity_count": 223,
+  "fixture": {
+    "from": [
+      -960,
+      120,
+      -960
+    ],
+    "to": [
+      -960,
+      120,
+      -912
+    ],
+    "controller": [
+      -966,
+      120,
+      -960
+    ],
+    "forced_chunk_x": [
+      -62,
+      -58
+    ],
+    "forced_chunk_z": [
+      -62,
+      -56
+    ]
+  }
+}

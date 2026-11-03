@@ -1,0 +1,20 @@
+{
+  "observed_utc": "2026-11-03T11:01:01.367311+00:00",
+  "source": "Linux /proc stat start ticks + btime; wall-clock estimate at about one-second precision",
+  "processes": [
+    {
+      "pid": 334139,
+      "exists": false
+    },
+    {
+      "pid": 336912,
+      "exists": true,
+      "cwd": "/home/braydon/Documents/Coasters: Fourth Dimension",
+      "tasks": [
+        "runGameTestServer"
+      ],
+      "process_start_utc": "2026-11-03T11:00:00.650000+00:00"
+    }
+  ],
+  "scope": "Both suites overlapped; do not describe the complete availability run as isolated."
+}
