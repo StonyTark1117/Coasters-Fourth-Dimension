@@ -111,6 +111,9 @@ complete curved/banked offsets and clearance, nonzero Arrow rack/profile scenes,
 broader coupler strength and propulsion/braking scenes, Engineered recovery/FE
 operation, and fresh-process recovery-mode lifecycle evidence remain open. These
 checks do not certify added ordinary-cart assemblies or a survival locomotive.
+The bounded installed-motor brake/start/brake callback check is recorded in the
+[Engineered motor-interlock checkpoint](engineered-motor-interlock/acceptance.md);
+it does not close the broader Engineered/FE acceptance item.
 The later [dev.17 occupied handover checkpoint](occupied-handover/acceptance.md)
 adds one native end-to-end handover/towing/braking/disconnection/unloading test
 with sixteen passengers in their original seats. Rendered occupied handover and

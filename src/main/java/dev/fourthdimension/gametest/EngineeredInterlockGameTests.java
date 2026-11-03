@@ -139,6 +139,165 @@ public final class EngineeredInterlockGameTests {
         });
   }
 
+  /**
+   * Recovery keeps the ordinary bearing under its own native coupling policy: an installed
+   * Engineered controller must not bypass a brake, but may supply force once the operator has
+   * explicitly started the retained consist.
+   */
+  @GameTest(template = "empty", batch = "fourthdimension_engineered_interlock", timeoutTicks = 220)
+  public static void engineeredMotorRespectsRecoveryBrakeAndExplicitTow(GameTestHelper helper) {
+    if (!OptionalIntegrations.installed(OptionalIntegrations.ENGINEERED).mayInspect()) {
+      System.out.println("FD_ENGINEERED_RECOVERY absent/uninspected: scenario not exercised");
+      helper.succeed();
+      return;
+    }
+    var level = helper.getLevel();
+    var container = SubLevelContainer.getContainer(level);
+    var origin = new BlockPos(-900, 120, -700);
+    for (int x = -58; x <= -55; x++)
+      for (int z = -45; z <= -40; z++) level.setChunkForced(x, z, true);
+    var player =
+        FakePlayerFactory.get(
+            level,
+            new com.mojang.authlib.GameProfile(
+                UUID.fromString("fdfdfdfd-0000-0000-0000-000000000416"), "FDRecoveryEngineered"));
+    player.setGameMode(GameType.CREATIVE);
+    var recovery = RecoveryExamples.create(level, origin, TrackDesign.ARROW);
+    Vector3d[] brakedStart = {null};
+    Vector3d[] towingStart = {null};
+    double[] brakedDistance = {0};
+    double[] brakedImpulse = {0};
+    double[] activeImpulse = {0};
+    var rail =
+        FoundationData.get(level).rails.stream()
+            .filter(candidate -> candidate.matches(recovery.car().boundFrom, recovery.car().boundTo))
+            .findFirst()
+            .orElseThrow();
+    var controllerPos = origin.west(6);
+    level.setBlockAndUpdate(
+        controllerPos,
+        BuiltInRegistries.BLOCK
+            .get(ResourceLocation.parse("coastersengineered:linear_motor_controller"))
+            .defaultBlockState());
+    helper.runAtTickTime(
+        100,
+        () -> {
+          helper.assertTrue(
+              Boarding.ready(level, recovery.car()), "Recovery fixture failed initial alignment");
+          VehicleOperations.restraints(level, recovery.car(), true);
+          VehicleOperations.retention(level, recovery.car(), true);
+          var cartCenter = CoasterCartResolve.cartCenterWorld(recovery.bearing());
+          var chassisCenter =
+              CoasterCartResolve.cartCenterWorld(
+                  (ServerSubLevel) container.getSubLevel(recovery.car().chassis));
+          double spacing = cartCenter.distance(chassisCenter);
+          helper.assertTrue(
+              Math.abs(spacing - TrackDesign.ARROW.axleSpacing()) < .25,
+              "Recovery fixture bearing spacing before Engineered configuration was " + spacing);
+          player.setPos(cartCenter.x, cartCenter.y, cartCenter.z);
+          RecoveryOperations.select(player, recovery.bearing());
+          RecoveryOperations.attach(player, recovery.car());
+          helper.assertTrue(
+              recovery.car().stopping
+                  && recovery.car().recoveryCart.equals(recovery.bearing().getUniqueId())
+                  && CoasterCartTrainLinkConstraint.areLinkedCarts(
+                      (ServerSubLevel) container.getSubLevel(recovery.car().chassis), recovery.bearing()),
+              "Recovery fixture did not form a retained native group");
+        });
+    helper.runAtTickTime(
+        130,
+        () -> {
+          // Do not energize a free ordinary cart: normal recovery coupling intentionally requires
+          // the bearing to be stationary at the certified axle spacing. Give the new native link
+          // time to settle before registering the installed controller.
+          configureMotor(helper, rail, controllerPos, 10, "FORWARD");
+          brakedStart[0] = new Vector3d(CoasterCartResolve.cartCenterWorld(recovery.bearing()));
+        });
+    helper.runAtTickTime(
+        150,
+        () -> {
+          brakedDistance[0] =
+              CoasterCartResolve.cartCenterWorld(recovery.bearing()).distance(brakedStart[0]);
+          helper.assertTrue(
+              brakedDistance[0] < .01,
+              "Installed Engineered controller moved the recovery bearing before Start tow: "
+                  + brakedDistance[0]);
+          brakedImpulse[0] = motorImpulse(level, recovery.bearing());
+          helper.assertTrue(
+              brakedImpulse[0] < 1e-9,
+              "Engineered motor bypassed the explicit recovery brake: " + brakedImpulse[0]);
+          RecoveryOperations.start(level, recovery.car());
+          activeImpulse[0] = motorImpulse(level, recovery.bearing());
+          helper.assertTrue(
+              activeImpulse[0] > .001,
+              "Engineered motor did not supply the explicitly started recovery bearing: "
+                  + activeImpulse[0]);
+          towingStart[0] = new Vector3d(CoasterCartResolve.cartCenterWorld(recovery.bearing()));
+        });
+    helper.runAtTickTime(
+        170,
+        () -> {
+          double towingDistance =
+              CoasterCartResolve.cartCenterWorld(recovery.bearing()).distance(towingStart[0]);
+          helper.assertTrue(
+              towingDistance > brakedDistance[0] + .01,
+              "Installed Engineered controller did not initiate recovery movement after Start tow: "
+                  + towingDistance
+                  + " (braked baseline "
+                  + brakedDistance[0]
+                  + ")");
+          RecoveryOperations.brake(level, recovery.car());
+          double rebrakedImpulse = motorImpulse(level, recovery.bearing());
+          helper.assertTrue(
+              rebrakedImpulse < 1e-9,
+              "Engineered motor bypassed recovery braking after towing: " + rebrakedImpulse);
+          System.out.println(
+              "FD_ENGINEERED_RECOVERY brakedImpulse="
+                  + brakedImpulse[0]
+                  + " activeImpulse="
+                  + activeImpulse[0]
+                  + " brakedDistance="
+                  + brakedDistance[0]
+                  + " towingDistance="
+                  + towingDistance
+                  + " rebrakedImpulse="
+                  + rebrakedImpulse
+                  + " ordinaryBearing=true explicitStart=true");
+          helper.succeed();
+        });
+  }
+
+  private static double motorImpulse(net.minecraft.server.level.ServerLevel level, ServerSubLevel body) {
+    var container = SubLevelContainer.getContainer(level);
+    var center = CoasterCartResolve.cartCenterWorld(body);
+    var hit =
+        CoasterPathTrackFrame.nearestGraphHit(
+            level,
+            CoasterPathGraphManager.get(level),
+            new net.minecraft.world.phys.Vec3(center.x, center.y, center.z),
+            2);
+    if (hit == null) throw new IllegalStateException("Recovery bearing lost matching track hit");
+    var total =
+        body.getOrCreateQueuedForceGroup(
+                dev.ryanhcode.sable.api.physics.force.ForceGroups.PROPULSION.get())
+            .getForceTotal();
+    var beforeForce = new Vector3d(total.getLocalForce());
+    var beforeTorque = new Vector3d(total.getLocalTorque());
+    invoke(
+        type("MotorDrive"),
+        "apply",
+        body,
+        level,
+        container.physicsSystem(),
+        hit,
+        CoasterPathTrackFrame.trackBasisAtHit(level, hit),
+        .05d);
+    double impulse = total.getLocalForce().distance(beforeForce);
+    total.getLocalForce().set(beforeForce);
+    total.getLocalTorque().set(beforeTorque);
+    return impulse;
+  }
+
   private static void probe(
       GameTestHelper helper,
       List<FoundationData.Vehicle> cars,
