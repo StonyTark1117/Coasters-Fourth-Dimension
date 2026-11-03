@@ -10,11 +10,11 @@ for these analyses. NumPy was 2.5.4.
 | Proposed configuration | Result | Samples | Minimum separating bound | Required gap |
 | --- | --- | --- | --- | --- |
 | Single-car Arrow, single spine | PASS | 5,768 | 0.04891048 blocks | 0.02 blocks |
-| Single-car Arrow, double spine | Pending | — | — | 0.02 blocks |
+| Single-car Arrow, double spine | PASS | 5,768 | 0.04891048 blocks | 0.02 blocks |
 | Two-car Arrow, single spine | Pending | — | — | 0.02 blocks |
 | Two-car Arrow, double spine | Pending | — | — | 0.02 blocks |
 
-The completed single-spine case reconstructs five styled sections, 327 spine
+Both completed single-car cases reconstruct five styled sections, 327 spine
 pieces, 86 ties, 88 crossbraces, 10 endpoint bridges and 176 lowered control
 mounts. All five sections are visited, with no uncertified body/track pairs.
 The limiting pair is a native recovery-cart upstop wheel envelope against an
@@ -32,4 +32,4 @@ not close FD401, FD402 or the 0.9 release gate.
 Completed report verification matched the report/tool/source hashes, process
 exit 0 and both input hashes to the committed isolated export manifest. It was
 a provenance/result review, not a second independent geometry implementation.
-The remaining analyses run sequentially; pending rows carry no implied pass.
+The two remaining train analyses run sequentially; pending rows carry no implied pass.
