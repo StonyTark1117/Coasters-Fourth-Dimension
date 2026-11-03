@@ -78,6 +78,14 @@ The addon controls carrier rotation separately. Seats rotate around their hinge
 while following the chassis; changing a decorative style does not change that
 motion.
 
+For a non-PAX circuit using native chain propulsion, hold a Minecraft Chain and
+select the start and end of a connected track span. Apply Create rotational
+power to the shaft at the span's starting end, then check the actual chain
+travel direction before boarding. Repeat for the driven sections the route
+needs. Coasters' own Chain Lift Ponder lesson shows this placement and how to
+remove a span with a sneak-right-click Wrench. This track-power use of Chain is
+separate from right-clicking adjacent PAX carts to couple their chassis.
+
 Current builds require horizontal coordinates within ±1024 and available physics
 chunks. The per-dimension limits are 256 track sections, 64 vehicles, 8192 profile
 keys and 512 magnetic spans, with at most eight spans on one section. These are
