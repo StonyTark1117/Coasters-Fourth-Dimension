@@ -1,0 +1,19 @@
+{
+  "scope": "Read-only bytecode/source inspection; no new runtime result or proven exact GUI restoration procedure",
+  "sourceRevision": "311078e8229e54514b1e3e0cbb4837bf87066ce5",
+  "upstreamJarSha256": "f80b4c3cdf9fa6188804967147761b0373e150a6eadbdc53626e5ac9700b2049",
+  "upstreamClassSha256": {
+    "track/CoasterTrackPlacement": "efb9abc25f9c6ed13427107ed22e8873ac7f62507f21aebf3533f05c62fdb9e6",
+    "track/CoasterAnchorBezierOptimizer": "b08ef36625afd41d41bc0155280bdab536a78ff80a64c2219e5b1424dee90faf",
+    "track/CoasterBezierHandleEdit": "0c3fc0ca8a7df882ec8a0b06616dd7352de5856149f58dec1748509f6a605c16",
+    "client/track/BezierHandleDragManager": "3b5701e8fb92523a837503b81de9a420f03c4de8f6fbb5090ab12640692b904c",
+    "track/BezierHandleEditPayload": "35457b03b3f297bfe3ff36eeea6751e88fc89c0c8b25873bc42120b84dafa11d"
+  },
+  "findings": [
+    "Fourth Dimension TrackPlacement.preview delegates native buildAnchorAnchorBezier with false; native CoasterTrackPlacement forwards to CoasterAnchorBezierOptimizer, which builds a new placement result and returns its primary curve.",
+    "Native BezierHandleDragManager.computeTangentGuideSnap passes a 0.3 guide tolerance and disables snapping while Create Alt fine control is held. The guide function projects the target onto chord guide axes; it does not restore a remembered historical handle length.",
+    "Native CoasterBezierHandleEdit.computePreview derives edited handle length from the supplied offset magnitude, capped by the edge maximum. It can also change the incident opposite curve. commit validates the preview and uses applyPreviewResult to write the batch.",
+    "Fourth Dimension TrackGeometry.fingerprint samples positions and basis.up at 17 parameter values, rounds their components at 1e6, then hashes them. Matching only endpoint positions or a visibly straight appearance is insufficient.",
+    "An exact normal GUI restoration remains a hypothesis. A retest must preserve handle lengths, normals and adjoining spike geometry as well as axes, then pass unchanged Repair validation. No packet injection, curve replacement command, profile rebind or relaxed fingerprint is an acceptable substitute for the requested normal-control case."
+  ]
+}
