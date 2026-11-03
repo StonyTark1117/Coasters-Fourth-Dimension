@@ -180,5 +180,20 @@ not close FD403's connected survival-client five-family teaching gate, nor
 does the upstream creative motor prove unassisted survival power production.
 The code-only integration commit `11657a2` applies identical
 `TrackPlacement.java` and `SurvivalBuildingGameTests.java` blobs onto release
-source `0f0e3fc`; this historical runtime result remains pinned to `488ef03`
-until the integrated candidate receives its own native rerun.
+source `0f0e3fc`; the attempt-9 result remains pinned to `488ef03`.
+
+## Release-based integration rerun
+
+The clean release-based branch `73e38d4` (tree
+`68b37aa5a486ed4d38117be82c8ccae29cbc73dc`) passed `compileJava` and
+`jar`, then ran the standalone base `runGameTestServer --offline --no-daemon
+--console=plain` under the shared runtime lock with `JAVA_TOOL_OPTIONS=-Xmx3G`.
+All **54 of 54 required GameTests** passed, followed by normal server shutdown
+and `BUILD SUCCESSFUL`. Its built JAR SHA-256 was
+`7a7657393c2fc1e049bbee27c33dba67012b273db393c33a1b12123a64715aad`.
+The Arrow loop again spent 43 track items, visited every section, reached
+`6.281755307414869` radians, and returned ready with no fault. Its full rider,
+restraint and station checks passed. The [raw integrated log](integration-base-73e38d4.log.zst)
+has SHA-256 `c9fdcd69e656150edee91080d338ce04512a3ad9f5e60ccd77dba5635b99ed08`.
+Release commit `92e0715` had the identical tree at this run's start; later
+release commits have separate source identities and are not certified by it.
