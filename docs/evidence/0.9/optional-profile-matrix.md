@@ -20,7 +20,9 @@ Fourth Dimension 0.9.0-dev.27.
 These commands were rerun after commit `0ff432f`, which adds the full directed
 mixed-family native-coupling matrix. Every profile reported
 `mixedConsistRejects=20`: all twenty off-diagonal attempts among the five 4D
-families were refused with no link or captured-vehicle binding change. The
+families were refused with no link. The recorded assertion preserved the first
+car's exact binding and checked that the second stayed bound; exact second-car
+binding preservation awaits rerunning the strengthened native test. The
 Engineered-only run exercised its motor/assembly cases. The Styles-only run
 exercised the native matrix with the decorative provider installed. The combined
 run is separately recorded in the [runtime baseline](runtime-baseline.md) and

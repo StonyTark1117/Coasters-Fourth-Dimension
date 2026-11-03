@@ -125,6 +125,8 @@ public final class FamilyEligibilityGameTests {
               if (i == j) continue;
               var second = vehicles.get(j);
               var secondBody = (ServerSubLevel) container.getSubLevel(second.chassis);
+              var secondFrom = second.boundFrom;
+              var secondTo = second.boundTo;
               helper.assertTrue(
                   !CoasterCartTrainLinkConstraint.linkCarts(level, firstBody, secondBody, 6),
                   "Mixed-family native coupling accepted " + first.family + " -> " + second.family);
@@ -133,7 +135,9 @@ public final class FamilyEligibilityGameTests {
                       && first.boundFrom.equals(firstFrom)
                       && first.boundTo.equals(firstTo)
                       && second.boundFrom != null
-                      && second.boundTo != null,
+                      && second.boundTo != null
+                      && second.boundFrom.equals(secondFrom)
+                      && second.boundTo.equals(secondTo),
                   "Rejected mixed coupling changed a vehicle state");
               mixedConsistRejects++;
             }

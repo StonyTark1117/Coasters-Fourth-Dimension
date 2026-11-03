@@ -415,8 +415,10 @@ native initial-snap paths: all five matching cases bind, while all 20
 wrong-family cases reject without stealing the existing binding; see the
 [family eligibility matrix](docs/evidence/0.9/family-eligibility-matrix.md).
 The same fixture requests all 20 directed mixed-family native six-block
-couplings after matching capture; every request rejects without a link or a
-binding change.
+couplings after matching capture; every recorded request rejects without a
+link. The recorded assertion preserved the first car's exact binding and
+checked that the second stayed bound. A strengthened assertion now checks both
+exact bindings, pending its native rerun.
 Its held-item survival dispatcher also accepts the five matching placements and
 rejects the 20 wrong-family placements without consumption or vehicle creation.
 It also verifies bare ordinary-bearing fit and deliberately widened-body
