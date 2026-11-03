@@ -446,6 +446,10 @@ and positive instantaneous speed reduction before capture. It then captures,
 unloads and cold reopens the same car. The command-authored example logged
 three transient Sable sub-level packet errors at creation, and the second
 client was terminated only after save and return to title to release memory.
+The [exact merged-source base GameTest](docs/evidence/0.4/survival-client-free-spin-powered/damper-native/acceptance.md)
+then passes all 50 required tests and records 483 native damper impulses with
+negative angular-energy change; its five recovery exports are preserved for
+separate FD402 analysis.
 The full player-built shaped route and family teaching walkthrough remain
 open. A later
 [Revised powered demo pass](docs/evidence/0.4/survival-client-revised/powered-demo/acceptance.md)

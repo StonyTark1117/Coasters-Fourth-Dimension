@@ -57,6 +57,9 @@ released, then capture, unload and cold reopen. This command-authored example
 logged three Sable sub-level packet errors at creation; its second client was
 terminated after saving and returning to title to release memory. A complete
 player-built shaped route and family walkthrough remain open.
+The [merged-source native damper regression](survival-client-free-spin-powered/damper-native/acceptance.md)
+passes all 50 required base GameTests and preserves its recovery exports; those
+exports require separate clearance audits before any FD402 claim.
 The [Revised powered demo pass](survival-client-revised/powered-demo/acceptance.md)
 records occupied circuit travel, independent lower-hinge response, capture,
 unloading and reopen on a command-authored shipped layout. A survival-built
