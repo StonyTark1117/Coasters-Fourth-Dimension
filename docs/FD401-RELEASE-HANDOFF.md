@@ -9,6 +9,16 @@ FD801 and the [expansion backlog](INTEGRATION-BACKLOG.md) remain separate.
 
 ## Evidence already available
 
+- [Historical occupied-reload fixture](evidence/0.9/fd401-occupied-reload-fixture-20261103/README.md)
+  preserves its earlier uncommitted-source client JAR and raw logs. The programmatic
+  reload completed before automatic fixture dispatch; the gate records 493 mounted
+  ticks, 890 global geometry stages and 1.082 blocks of chassis motion, with zero
+  Styles decoration pieces. Normal shutdown is recorded. These are not 493 ticks
+  of moving ride or evidence for the later `1a91416` through-reload identity gate.
+  [Independent review](evidence/0.9/occupied-reload-historical-review-2026-11-03.json)
+  verifies tracked payload hashes and preserves source/exit provenance limits.
+  Its separate combined-profile 50-test development run does not replace the
+  four-profile matrix or manual operator/render acceptance.
 - [Isolated native capture](evidence/0.9/fd402-isolated-base-ff7c831/README.md):
   base-profile source `ff7c831`, 50 required tests passed, normal server shutdown,
   exact same-route decoration transforms and matching one-tick body traces.
