@@ -20,10 +20,17 @@ granted. [The initial inventory](upstream-inventory.png) records this fixture.
 The connected recipe book listed **Controlled 4D Track** after searching its
 localized name. [The recipe screenshot](track-recipe.png) shows its 3×3
 ingredients and 16-item result. The player selected the recipe and took the
-track from the normal result slot. Further recipe/result clicks produced
-additional track stacks in [the resulting inventory](track-crafting-result.png).
-This record does not independently decode the final stack count, and it does
-not claim a crafted car, placed rails, an occupied ride, or save/reopen.
+track from the normal result slot five times. [The resulting inventory](track-crafting-result.png)
+shows the track stacks. Read-only inspection of the stopped `level.dat` confirms
+80 Controlled 4D Track items in two stacks (64 and 16), with 10 of the original
+40 iron ingots and two of the original 12 copper ingots left. All five red dyes
+were consumed. This record does not claim a crafted car, placed rails, an
+occupied ride, or save/reopen.
+
+The same stopped player save confirms survival `GameType=0`, location
+`(400.5, -60, 520.5)`, and discovered `arrow_track`, `arrow_car`,
+`rotation_tool`, and `boarding_station` recipe IDs. These are saved recipe-book
+entries; only the track was crafted in this attempt.
 
 The world was saved through **Save and Quit to Title**, followed by **Quit
 Game**. The [client log](client.log.zst) records all dimensions saved, normal
