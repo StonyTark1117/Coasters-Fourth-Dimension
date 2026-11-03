@@ -65,3 +65,17 @@ Raw output: [attempt4.log.zst](attempt4.log.zst), SHA-256
 `3f06ac02e84c75487a1f4de361f271a055bd0d0578ffcef2c8b1a59191f39292`.
 
 This is an unresolved fixture inventory failure, not circuit acceptance.
+
+## Attempt 5 — inventory loss is delayed
+
+The isolated base-profile run on `fdab174` passed 50 of 51 required GameTests.
+The crafted Arrow car remained in the synthetic survival inventory after all
+eight ordinary track connections and immediately after the Rotation Tool
+opened the loop editor. It was absent at the scheduled car-placement tick 10,
+before any car use action. All eight section charges again matched preview
+costs. The next diagnostic records the inventory, selected hand and menu when
+the count changes, so a fixture lifecycle error can be distinguished from an
+item-placement failure. Raw output: [attempt5.log.zst](attempt5.log.zst),
+SHA-256 `6d3876b9998a19c08a14854fad1c627f1af643eaaa94774c0c70cbe7c8b3106e`.
+
+This run does not establish car placement, powered travel or capture.

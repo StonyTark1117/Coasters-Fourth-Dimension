@@ -547,9 +547,31 @@ public final class SurvivalBuildingGameTests {
         click(player, anchors.getFirst()).consumesAction(), "Loop editor was inaccessible");
     helper.assertTrue(count(player, TrackItems.ARROW_CAR.get()) == 1,
         "Crafted Arrow car lost while opening the loop editor");
+    int[] lastCarCount = {1};
+    helper.onEachTick(() -> {
+      int currentCarCount = count(player, TrackItems.ARROW_CAR.get());
+      if (currentCarCount != lastCarCount[0])
+        LogUtils.getLogger().info(
+            "FD_SURVIVAL_ARROW_INVENTORY carCount={} selected={} hand={} menu={} carried={} slots={}",
+            currentCarCount,
+            player.getInventory().selected,
+            player.getMainHandItem(),
+            player.containerMenu.getClass().getSimpleName(),
+            player.containerMenu.getCarried(),
+            player.getInventory().items);
+      lastCarCount[0] = currentCarCount;
+    });
     helper.runAtTickTime(10, () -> {
       var foothold = origin.offset(0, -1, 20);
       level.setBlockAndUpdate(foothold, Blocks.STONE.defaultBlockState());
+      LogUtils.getLogger().info(
+          "FD_SURVIVAL_ARROW_PREPLACE carCount={} selected={} hand={} menu={} carried={} slots={}",
+          count(player, TrackItems.ARROW_CAR.get()),
+          player.getInventory().selected,
+          player.getMainHandItem(),
+          player.containerMenu.getClass().getSimpleName(),
+          player.containerMenu.getCarried(),
+          player.getInventory().items);
       helper.assertTrue(count(player, TrackItems.ARROW_CAR.get()) == 1,
           "Crafted Arrow car lost before delayed native placement");
       hold(helper, player, TrackItems.ARROW_CAR.get());
