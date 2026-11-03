@@ -1,0 +1,758 @@
+{
+  "data": {
+    "schema": 6,
+    "rails": [
+      {
+        "valid": 0,
+        "appearance": {
+          "tint": -1,
+          "id": "fourthdimension:original"
+        },
+        "provider": "fourthdimension:original",
+        "magnets": [],
+        "profile": [
+          {
+            "distance": 0.0,
+            "slope": 0.0,
+            "angle": 0.0
+          },
+          {
+            "distance": 54.67979295672926,
+            "slope": 0.0,
+            "angle": 0.0
+          }
+        ],
+        "variant": "pax_shuttle_v1",
+        "from": 140737488425069,
+        "to": 140737488621653,
+        "id": [
+          -233554405,
+          1803175174,
+          -1765074589,
+          713837529
+        ],
+        "geometry_hash": -69956831256835891,
+        "family": "pax_shuttle",
+        "revision": 1
+      },
+      {
+        "valid": 0,
+        "appearance": {
+          "tint": -1,
+          "id": "fourthdimension:original"
+        },
+        "provider": "fourthdimension:original",
+        "magnets": [],
+        "profile": [
+          {
+            "distance": 0.0,
+            "slope": 0.0,
+            "angle": 0.0
+          },
+          {
+            "distance": 59.00074272237141,
+            "slope": 0.0,
+            "angle": 0.0
+          }
+        ],
+        "variant": "pax_shuttle_v1",
+        "from": 140737488752725,
+        "to": 140737488949365,
+        "id": [
+          706325150,
+          119096219,
+          -1179518641,
+          1399238560
+        ],
+        "geometry_hash": -5789512057297563339,
+        "family": "pax_shuttle",
+        "revision": 1
+      },
+      {
+        "original_curve": {
+          "Starts": [
+            {
+              "V": [
+                0.5,
+                0.75,
+                0.5
+              ]
+            },
+            {
+              "V": [
+                0.5,
+                0.75,
+                36.5
+              ]
+            }
+          ],
+          "Girder": 0,
+          "Normals": [
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          ],
+          "Primary": 1,
+          "Positions": [
+            {
+              "Pos": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "Pos": [
+                0,
+                0,
+                36
+              ]
+            }
+          ],
+          "Axes": [
+            {
+              "V": [
+                0.0,
+                0.0,
+                1.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                0.0,
+                -1.0
+              ]
+            }
+          ],
+          "Material": "simulatedcoasters:coaster_track"
+        },
+        "magnets": [],
+        "profile": [
+          {
+            "distance": 0.0,
+            "slope": 0.0,
+            "angle": 0.0
+          },
+          {
+            "distance": 36.0,
+            "slope": 0.0,
+            "angle": 0.0
+          }
+        ],
+        "geometry_hash": -4949420322399403455,
+        "revision": 0,
+        "valid": 1,
+        "appearance": {
+          "tint": -1,
+          "id": "fourthdimension:original"
+        },
+        "provider": "fourthdimension:original",
+        "variant": "arrow_four_rail_v1",
+        "from": 82003,
+        "to": 229459,
+        "id": [
+          848380916,
+          1140477315,
+          -1400916407,
+          595406744
+        ],
+        "family": "arrow_controlled"
+      },
+      {
+        "valid": 0,
+        "appearance": {
+          "tint": -1,
+          "id": "fourthdimension:original"
+        },
+        "provider": "fourthdimension:original",
+        "magnets": [],
+        "profile": [
+          {
+            "distance": 0.0,
+            "slope": 0.0,
+            "angle": 0.0
+          },
+          {
+            "distance": 18.0,
+            "slope": 0.0,
+            "angle": 0.0
+          }
+        ],
+        "variant": "arrow_four_rail_v1",
+        "from": 8796093104211,
+        "to": 8796093177939,
+        "id": [
+          2146207232,
+          -1607054316,
+          -1129050087,
+          -2146200888
+        ],
+        "geometry_hash": 5662243409689179073,
+        "family": "arrow_controlled",
+        "revision": 4
+      },
+      {
+        "original_curve": {
+          "Starts": [
+            {
+              "V": [
+                0.5,
+                0.75,
+                0.5
+              ]
+            },
+            {
+              "V": [
+                0.5,
+                0.75,
+                18.5
+              ]
+            }
+          ],
+          "Girder": 0,
+          "Normals": [
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          ],
+          "Primary": 1,
+          "Positions": [
+            {
+              "Pos": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "Pos": [
+                0,
+                0,
+                18
+              ]
+            }
+          ],
+          "Axes": [
+            {
+              "V": [
+                0.0,
+                0.0,
+                1.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                0.0,
+                -1.0
+              ]
+            }
+          ],
+          "Material": "simulatedcoasters:coaster_track"
+        },
+        "magnets": [],
+        "profile": [
+          {
+            "distance": 0.0,
+            "slope": 0.0,
+            "angle": 0.0
+          },
+          {
+            "distance": 18.0,
+            "slope": 0.0,
+            "angle": 0.0
+          }
+        ],
+        "geometry_hash": 5124507322303516225,
+        "revision": 4,
+        "valid": 1,
+        "appearance": {
+          "tint": -1,
+          "id": "fourthdimension:original"
+        },
+        "provider": "fourthdimension:original",
+        "variant": "arrow_four_rail_v1",
+        "from": 8796093177939,
+        "to": 8796093251667,
+        "id": [
+          -954784699,
+          1344946647,
+          -1946381717,
+          -559752763
+        ],
+        "family": "arrow_controlled"
+      },
+      {
+        "valid": 0,
+        "appearance": {
+          "tint": -1,
+          "id": "fourthdimension:original"
+        },
+        "provider": "fourthdimension:original",
+        "magnets": [],
+        "profile": [
+          {
+            "distance": 0.0,
+            "slope": 0.0,
+            "angle": 0.0
+          },
+          {
+            "distance": 32.0,
+            "slope": 0.0,
+            "angle": 0.0
+          }
+        ],
+        "variant": "pax_shuttle_v1",
+        "from": 140737488621653,
+        "to": 140737488752725,
+        "id": [
+          -2044924031,
+          -147567610,
+          -1252307476,
+          -2122709466
+        ],
+        "geometry_hash": -5318209662748205439,
+        "family": "pax_shuttle",
+        "revision": 3
+      }
+    ],
+    "vehicles": [
+      {
+        "alignment_required": 1,
+        "fault": "Matching track support lost",
+        "boundTo": 140737488752725,
+        "carriers": [
+          {
+            "side": -3.0,
+            "rider_seats": [],
+            "pivot_height": 2.0,
+            "angle": -0.0005563176324413129,
+            "capture": 1,
+            "body": [
+              706560420,
+              523585792,
+              -1283715548,
+              -137046863
+            ],
+            "longitudinal": 0.0,
+            "child_pivot_offset": 0.0,
+            "seats": [
+              4095,
+              -274877902849
+            ],
+            "ballast": 0.0,
+            "omega": 0.0,
+            "occupants": []
+          },
+          {
+            "side": 3.0,
+            "rider_seats": [],
+            "pivot_height": 2.0,
+            "angle": -0.0005581771811958749,
+            "capture": 1,
+            "body": [
+              -1921818050,
+              -724415478,
+              -2033107649,
+              1663427042
+            ],
+            "longitudinal": 0.0,
+            "child_pivot_offset": 0.0,
+            "seats": [
+              4095,
+              274877911039
+            ],
+            "ballast": 0.0,
+            "omega": 0.0,
+            "occupants": []
+          }
+        ],
+        "chassis": [
+          624867468,
+          881542088,
+          -1292813854,
+          -1158910593
+        ],
+        "damping": 0.8,
+        "boundFrom": 140737488621653,
+        "ballast": 0.0,
+        "revision": 10,
+        "boarding_ready": 1,
+        "stopping": 1,
+        "variant": "pax_shuttle_v1",
+        "restraints": 1,
+        "family": "pax_shuttle",
+        "maintenance": 0
+      },
+      {
+        "alignment_required": 1,
+        "fault": "Matching track support lost",
+        "boundTo": 140737488752725,
+        "carriers": [
+          {
+            "side": -3.0,
+            "rider_seats": [],
+            "pivot_height": 2.0,
+            "angle": 2.493417843467912e-05,
+            "capture": 1,
+            "body": [
+              1194936872,
+              -1013035176,
+              -2042452158,
+              2098252594
+            ],
+            "longitudinal": 0.0,
+            "child_pivot_offset": 0.0,
+            "seats": [
+              4095,
+              -274877902849
+            ],
+            "ballast": 0.0,
+            "omega": 0.0,
+            "occupants": []
+          },
+          {
+            "side": 3.0,
+            "rider_seats": [],
+            "pivot_height": 2.0,
+            "angle": 6.653084211079921e-06,
+            "capture": 1,
+            "body": [
+              -1002742251,
+              790514249,
+              -2100165503,
+              -299609449
+            ],
+            "longitudinal": 0.0,
+            "child_pivot_offset": 0.0,
+            "seats": [
+              4095,
+              274877911039
+            ],
+            "ballast": 0.0,
+            "omega": 0.0,
+            "occupants": []
+          }
+        ],
+        "chassis": [
+          -1364726338,
+          648431765,
+          -1436184981,
+          706412655
+        ],
+        "damping": 0.8,
+        "boundFrom": 140737488621653,
+        "ballast": 0.0,
+        "revision": 10,
+        "boarding_ready": 1,
+        "stopping": 1,
+        "variant": "pax_shuttle_v1",
+        "restraints": 1,
+        "family": "pax_shuttle",
+        "maintenance": 0
+      },
+      {
+        "alignment_required": 1,
+        "fault": "Matching track support lost",
+        "boundTo": 140737488752725,
+        "carriers": [
+          {
+            "side": -3.0,
+            "rider_seats": [],
+            "pivot_height": 2.0,
+            "angle": 0.00011048417387358424,
+            "capture": 1,
+            "body": [
+              -821745871,
+              1440829314,
+              -1756370212,
+              1123280113
+            ],
+            "longitudinal": 0.0,
+            "child_pivot_offset": 0.0,
+            "seats": [
+              4095,
+              -274877902849
+            ],
+            "ballast": 0.0,
+            "omega": 0.0,
+            "occupants": []
+          },
+          {
+            "side": 3.0,
+            "rider_seats": [],
+            "pivot_height": 2.0,
+            "angle": 0.0001117169304581612,
+            "capture": 1,
+            "body": [
+              -2034181814,
+              1116684725,
+              -1534831537,
+              291201098
+            ],
+            "longitudinal": 0.0,
+            "child_pivot_offset": 0.0,
+            "seats": [
+              4095,
+              274877911039
+            ],
+            "ballast": 0.0,
+            "omega": 0.0,
+            "occupants": []
+          }
+        ],
+        "chassis": [
+          -1956085616,
+          1462649299,
+          -1891730865,
+          1313254588
+        ],
+        "damping": 0.8,
+        "boundFrom": 140737488621653,
+        "ballast": 0.0,
+        "revision": 10,
+        "boarding_ready": 1,
+        "stopping": 1,
+        "variant": "pax_shuttle_v1",
+        "restraints": 1,
+        "family": "pax_shuttle",
+        "maintenance": 0
+      },
+      {
+        "alignment_required": 1,
+        "fault": "Matching track support lost",
+        "boundTo": 140737488752725,
+        "carriers": [
+          {
+            "side": -3.0,
+            "rider_seats": [],
+            "pivot_height": 2.0,
+            "angle": 0.00011773831337202748,
+            "capture": 1,
+            "body": [
+              -1195312695,
+              -101957268,
+              -1873449568,
+              888100736
+            ],
+            "longitudinal": 0.0,
+            "child_pivot_offset": 0.0,
+            "seats": [
+              4095,
+              -274877902849
+            ],
+            "ballast": 0.0,
+            "omega": 0.0,
+            "occupants": []
+          },
+          {
+            "side": 3.0,
+            "rider_seats": [
+              {
+                "seat": 274877911039,
+                "player": [
+                  940439953,
+                  -167562164,
+                  -1601161573,
+                  -1389718966
+                ]
+              }
+            ],
+            "pivot_height": 2.0,
+            "angle": 0.00015780639989668377,
+            "capture": 1,
+            "body": [
+              -1150326884,
+              1816938073,
+              -1890302266,
+              455976573
+            ],
+            "longitudinal": 0.0,
+            "child_pivot_offset": 0.0,
+            "seats": [
+              4095,
+              274877911039
+            ],
+            "ballast": 0.0,
+            "omega": 0.0,
+            "occupants": []
+          }
+        ],
+        "chassis": [
+          859674760,
+          2032226056,
+          -1909381182,
+          299761874
+        ],
+        "damping": 0.8,
+        "boundFrom": 140737488621653,
+        "ballast": 0.0,
+        "revision": 10,
+        "boarding_ready": 1,
+        "stopping": 1,
+        "variant": "pax_shuttle_v1",
+        "restraints": 1,
+        "family": "pax_shuttle",
+        "maintenance": 0
+      },
+      {
+        "alignment_required": 0,
+        "fault": "End of compatible track; capture and inspect the route",
+        "boundTo": 229459,
+        "carriers": [
+          {
+            "side": -3.0,
+            "rider_seats": [],
+            "pivot_height": 2.0,
+            "angle": -0.0003607146084425592,
+            "capture": 1,
+            "body": [
+              -305907774,
+              1640320369,
+              -1116462366,
+              -234675845
+            ],
+            "longitudinal": 0.0,
+            "child_pivot_offset": 0.0,
+            "seats": [
+              4095,
+              -274877902849
+            ],
+            "ballast": 0.0,
+            "omega": 0.001601377934665412,
+            "occupants": []
+          },
+          {
+            "side": 3.0,
+            "rider_seats": [],
+            "pivot_height": 2.0,
+            "angle": -0.000406926715114353,
+            "capture": 1,
+            "body": [
+              -37844830,
+              -435074306,
+              -1965331733,
+              1535829739
+            ],
+            "longitudinal": 0.0,
+            "child_pivot_offset": 0.0,
+            "seats": [
+              4095,
+              274877911039
+            ],
+            "ballast": 0.0,
+            "omega": 0.0016539423136221107,
+            "occupants": []
+          }
+        ],
+        "chassis": [
+          -804963262,
+          904023756,
+          -1425635216,
+          -1651541480
+        ],
+        "damping": 5.0,
+        "boundFrom": 82003,
+        "ballast": 0.0,
+        "revision": 0,
+        "boarding_ready": 1,
+        "stopping": 1,
+        "variant": "arrow_four_rail_v1",
+        "restraints": 1,
+        "family": "arrow_controlled",
+        "maintenance": 0
+      },
+      {
+        "alignment_required": 0,
+        "fault": "End of compatible track; capture and inspect the route",
+        "boundTo": 8796093251667,
+        "carriers": [
+          {
+            "side": -3.0,
+            "rider_seats": [],
+            "pivot_height": 2.0,
+            "angle": -0.0004168893892578651,
+            "capture": 1,
+            "body": [
+              -27598355,
+              1600734704,
+              -1969085482,
+              -1603896950
+            ],
+            "longitudinal": 0.0,
+            "child_pivot_offset": 0.0,
+            "seats": [
+              4095,
+              -274877902849
+            ],
+            "ballast": 0.0,
+            "omega": 0.002626370939041337,
+            "occupants": []
+          },
+          {
+            "side": 3.0,
+            "rider_seats": [],
+            "pivot_height": 2.0,
+            "angle": -0.00045369144044835416,
+            "capture": 1,
+            "body": [
+              24911851,
+              19222397,
+              -1282343699,
+              -381322804
+            ],
+            "longitudinal": 0.0,
+            "child_pivot_offset": 0.0,
+            "seats": [
+              4095,
+              274877911039
+            ],
+            "ballast": 0.0,
+            "omega": 0.0024235466632238443,
+            "occupants": []
+          }
+        ],
+        "chassis": [
+          543374797,
+          -1922610306,
+          -1252424642,
+          897751176
+        ],
+        "damping": 5.0,
+        "boundFrom": 8796093177939,
+        "ballast": 0.0,
+        "revision": 7,
+        "boarding_ready": 1,
+        "stopping": 1,
+        "variant": "arrow_four_rail_v1",
+        "restraints": 0,
+        "family": "arrow_controlled",
+        "maintenance": 0
+      }
+    ]
+  },
+  "DataVersion": 3955
+}
