@@ -1,0 +1,100 @@
+{
+  "base": {
+    "status": "passed",
+    "required_test_summaries": [
+      "49"
+    ],
+    "complete_summaries": [
+      [
+        "49",
+        "5.243 min "
+      ]
+    ],
+    "performance": {
+      "CONTROLLED": {
+        "runtimeInvocations": 11520,
+        "runtimeNanos": 625907488,
+        "averageNanosPerInvocation": 54332,
+        "carrierUpdates": 15360,
+        "carrierNanos": 49422943,
+        "averageNanosPerCarrier": 3217,
+        "constraintsRebuilt": 0
+      },
+      "SHUTTLE": {
+        "riders": 16,
+        "runtimeInvocations": 4674,
+        "runtimeNanos": 432672360,
+        "averageNanosPerInvocation": 92570,
+        "carrierUpdates": 12464,
+        "carrierNanos": 33299738,
+        "averageNanosPerCarrier": 2671,
+        "constraintsRebuilt": 0
+      },
+      "FREE_SPIN": {
+        "riders": 8,
+        "runtimeInvocations": 14220,
+        "runtimeNanos": 1451424540,
+        "averageNanosPerInvocation": 102069,
+        "carrierUpdates": 18960,
+        "carrierNanos": 52163837,
+        "averageNanosPerCarrier": 2751,
+        "constraintsRebuilt": 0
+      }
+    },
+    "classpath_files": 67
+  },
+  "styles": {
+    "status": "passed",
+    "required_test_summaries": [
+      "49"
+    ],
+    "complete_summaries": [
+      [
+        "49",
+        "5.067 min "
+      ]
+    ],
+    "performance": {
+      "CONTROLLED": {
+        "runtimeInvocations": 11520,
+        "runtimeNanos": 616703104,
+        "averageNanosPerInvocation": 53533,
+        "carrierUpdates": 15360,
+        "carrierNanos": 48470440,
+        "averageNanosPerCarrier": 3155,
+        "constraintsRebuilt": 0
+      },
+      "SHUTTLE": {
+        "riders": 16,
+        "runtimeInvocations": 4638,
+        "runtimeNanos": 443253393,
+        "averageNanosPerInvocation": 95569,
+        "carrierUpdates": 12368,
+        "carrierNanos": 33730261,
+        "averageNanosPerCarrier": 2727,
+        "constraintsRebuilt": 0
+      },
+      "FREE_SPIN": {
+        "riders": 8,
+        "runtimeInvocations": 14220,
+        "runtimeNanos": 1422879009,
+        "averageNanosPerInvocation": 100061,
+        "carrierUpdates": 18960,
+        "carrierNanos": 50570968,
+        "averageNanosPerCarrier": 2667,
+        "constraintsRebuilt": 0
+      }
+    },
+    "classpath_files": 67
+  },
+  "engineered": {
+    "status": "failed; operator-terminated after first native failure",
+    "required_test_summaries": [],
+    "complete_summaries": [],
+    "performance": {},
+    "classpath_files": 67
+  },
+  "combined": {
+    "status": "not run; matrix stopped after Engineered failure"
+  }
+}
