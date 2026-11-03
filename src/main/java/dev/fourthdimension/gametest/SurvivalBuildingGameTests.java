@@ -2,19 +2,29 @@ package dev.fourthdimension.gametest;
 
 import com.mojang.authlib.GameProfile;
 import com.mojang.logging.LogUtils;
+import com.simibubi.create.AllBlocks;
+import com.simibubi.create.content.contraptions.actors.seat.SeatBlock;
+import com.simibubi.create.content.kinetics.motor.CreativeMotorBlockEntity;
+import dev.fourthdimension.editor.EditorNetwork;
 import dev.fourthdimension.runtime.FoundationData;
 import dev.fourthdimension.shuttle.ShuttleContent;
 import dev.fourthdimension.shuttle.ShuttleWinchEntity;
+import dev.fourthdimension.station.BoardingStation;
 import dev.fourthdimension.station.BoardingStationEntity;
 import dev.fourthdimension.station.StationContent;
 import dev.fourthdimension.track.TrackDesign;
+import dev.fourthdimension.track.TrackGeometry;
 import dev.fourthdimension.track.TrackItems;
 import dev.fourthdimension.vehicle.Boarding;
 import dev.ryanhcode.sable.api.sublevel.SubLevelContainer;
 import dev.ryanhcode.sable.sublevel.storage.SubLevelRemovalReason;
 import dev.silvergold.simulatedcoasters.SimulatedCoastersBlocks;
 import dev.silvergold.simulatedcoasters.track.anchor.CoasterAnchorpointBlockEntity;
+import dev.silvergold.simulatedcoasters.track.cart.CoasterCartResolve;
+import dev.silvergold.simulatedcoasters.track.chainlift.ChainLiftEndRef;
+import dev.silvergold.simulatedcoasters.track.graph.CoasterPathGraphSpans;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 import net.minecraft.core.BlockPos;
@@ -34,6 +44,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.GameType;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.phys.BlockHitResult;
 import net.neoforged.neoforge.common.util.FakePlayerFactory;
 import net.neoforged.neoforge.gametest.GameTestHolder;
@@ -426,5 +437,211 @@ public final class SurvivalBuildingGameTests {
           player.getAdvancements().stopListening();
           helper.succeed();
         });
+  }
+
+  @GameTest(template = "empty", batch = "fd_survival_circuit", timeoutTicks = 2100)
+  public static void craftedArrowLoopTraversesNativePoweredCircuit(GameTestHelper helper) {
+    var level = helper.getLevel();
+    for (int x = 18; x <= 21; x++)
+      for (int z = 30; z <= 35; z++) level.setChunkForced(x, z, true);
+    var origin = new BlockPos(300, 132, 500);
+    var profile = new GameProfile(UUID.randomUUID(), "FDArrowLoopBuilder");
+    var connection = FakePlayerFactory.get(level, profile).connection;
+    var player =
+        new ServerPlayer(level.getServer(), level, profile, ClientInformation.createDefault());
+    player.connection = connection;
+    player.setGameMode(GameType.SURVIVAL);
+    helper.assertTrue(!player.isCreative() && player.mayBuild(), "Loop builder is not in survival");
+    var table = origin.offset(-7, 0, -7);
+    level.setBlockAndUpdate(table, Blocks.CRAFTING_TABLE.defaultBlockState());
+    var materials = Map.ofEntries(Map.entry("minecraft:iron_ingot", 48),
+        Map.entry("minecraft:copper_ingot", 16), Map.entry("minecraft:red_dye", 5),
+        Map.entry("create:red_seat", 2), Map.entry("minecraft:iron_bars", 1),
+        Map.entry("simulatedcoasters:coaster_cart", 1), Map.entry("minecraft:compass", 1),
+        Map.entry("create:brass_ingot", 1), Map.entry("minecraft:stick", 1),
+        Map.entry("minecraft:redstone", 2), Map.entry("minecraft:comparator", 1),
+        Map.entry("minecraft:copper_block", 1),
+        Map.entry("simulatedcoasters:coaster_anchorpoint", 8));
+    materials.forEach(
+        (id, quantity)
+            -> helper.assertTrue(player.getInventory().add(new ItemStack(item(id), quantity)),
+                "Loop material did not fit: " + id));
+    var recipes = TeachingContentGameTests.crafts();
+    var arrowTrack =
+        recipes.stream().filter(r -> r.name().equals("arrow_track")).findFirst().orElseThrow();
+    for (int i = 0; i < 5; i++) craft(helper, player, table, arrowTrack);
+    for (var name : List.of("arrow_car", "rotation_tool", "boarding_station"))
+      craft(helper, player, table,
+          recipes.stream().filter(r -> r.name().equals(name)).findFirst().orElseThrow());
+    int[][] offsets = {{0, 8}, {0, 44}, {8, 52}, {24, 52}, {32, 44}, {32, 8}, {24, 0}, {8, 0}};
+    var anchors = new ArrayList<BlockPos>();
+    for (var offset : offsets) {
+      var pos = origin.offset(offset[0], 0, offset[1]);
+      place(helper, player, item("simulatedcoasters:coaster_anchorpoint"), pos);
+      anchors.add(pos);
+    }
+    var data = FoundationData.get(level);
+    var rails = new ArrayList<FoundationData.Rail>();
+    int trackBefore = count(player, TrackItems.ARROW.get());
+    int totalCost = 0;
+    for (int i = 0; i < anchors.size(); i++) {
+      var from = anchors.get(i);
+      var to = anchors.get((i + 1) % anchors.size());
+      hold(helper, player, TrackItems.ARROW.get());
+      helper.assertTrue(click(player, from).consumesAction() && click(player, to).consumesAction(),
+          "Crafted track did not connect Arrow loop section " + i);
+      var rail = data.rails.stream().filter(r -> r.matches(from, to)).findFirst().orElseThrow();
+      helper.assertTrue(rail.original() && rail.valid, "Loop section lost Original provenance");
+      totalCost += (int) Math.ceil(rail.profile.keys().getLast().distance() / 4);
+      rails.add(rail);
+    }
+    helper.assertTrue(count(player, TrackItems.ARROW.get()) == trackBefore - totalCost,
+        "Full loop did not consume its actual track length");
+    int trackCost = totalCost;
+    hold(helper, player, TrackItems.ROTATION_TOOL.get());
+    helper.assertTrue(
+        click(player, anchors.getFirst()).consumesAction(), "Loop editor was inaccessible");
+    helper.runAtTickTime(10, () -> {
+      var foothold = origin.offset(0, -1, 20);
+      level.setBlockAndUpdate(foothold, Blocks.STONE.defaultBlockState());
+      hold(helper, player, TrackItems.ARROW_CAR.get());
+      helper.assertTrue(
+          click(player, foothold).consumesAction(), "Crafted Arrow car was not placed");
+      level.removeBlock(foothold, false);
+      var vehicle = data.vehicles.values()
+                        .stream()
+                        .filter(v -> rails.getFirst().matches(v.boundFrom, v.boundTo))
+                        .findFirst()
+                        .orElseThrow();
+      helper.assertTrue(
+          count(player, TrackItems.ARROW_CAR.get()) == 0, "Car craft was not consumed");
+      var stationPos = origin.offset(-6, 0, 20);
+      place(helper, player, item("fourthdimension:boarding_station"), stationPos);
+      hold(helper, player, null);
+      helper.assertTrue(
+          click(player, stationPos).consumesAction(), "Player station binding failed");
+      helper.assertTrue(vehicle.chassis.equals(
+                            ((BoardingStationEntity) level.getBlockEntity(stationPos)).vehicle),
+          "Station bound another car");
+      var stationRear =
+          level.getBlockState(stationPos).getValue(BoardingStation.FACING).getOpposite();
+      var stationPower = stationPos.relative(stationRear);
+      var container = SubLevelContainer.getContainer(level);
+      double[] maxXZ = {0, 0}, maxAngle = {0};
+      var running = new java.util.concurrent.atomic.AtomicBoolean(false);
+      helper.onEachTick(() -> {
+        if (!running.get())
+          return;
+        var point = CoasterCartResolve.cartCenterWorld(container.getSubLevel(vehicle.chassis));
+        maxXZ[0] = Math.max(maxXZ[0], point.x - origin.getX());
+        maxXZ[1] = Math.max(maxXZ[1], point.z - origin.getZ());
+        maxAngle[0] = Math.max(maxAngle[0], vehicle.carriers.getFirst().angle);
+      });
+      // The upstream Chain and creative motor supply power only; the builder authored the
+      // functional rails, controlled profile, car and station through normal survival paths.
+      helper.runAtTickTime(40, () -> {
+        for (int i = 0; i < rails.size(); i++) {
+          var rail = rails.get(i);
+          var edge = TrackGeometry.resolve(level, rail);
+          helper.assertTrue(edge != null, "Player-connected rail has no native edge: " + i);
+          double length = TrackGeometry.table(level, edge).length();
+          if (i == 4) {
+            player.setPos(
+                anchors.get(i).getX() + 2.5, anchors.get(i).getY() + 1, anchors.get(i).getZ() + .5);
+            EditorNetwork.apply(player,
+                new EditorNetwork.Edit(
+                    rail.id, rail.revision, 0, "0:0;" + (length / 2) + ":360;" + length + ":0"));
+            helper.assertTrue(rail.profile.angleAt(length / 2) > 6,
+                "Survival builder did not author a controlled turn");
+          }
+          var anchor = (CoasterAnchorpointBlockEntity) level.getBlockEntity(anchors.get(i));
+          var axis = i == 0 || i == 1 || i == 4 || i == 5 ? Direction.Axis.X : Direction.Axis.Z;
+          anchor.commitChainLift(axis, ChainLiftEndRef.anchor(edge.to()),
+              new CoasterPathGraphSpans.SpanPath(
+                  List.of(new CoasterPathGraphSpans.PathSegment(edge, 0, 1)), length));
+          var direction = axis == Direction.Axis.X ? Direction.EAST : Direction.SOUTH;
+          var motorPos = anchors.get(i).relative(direction);
+          level.setBlockAndUpdate(motorPos,
+              AllBlocks.CREATIVE_MOTOR.getDefaultState().setValue(
+                  BlockStateProperties.FACING, direction.getOpposite()));
+          var motor = (CreativeMotorBlockEntity) level.getBlockEntity(motorPos);
+          motor.generatedSpeed.setValue(32 * anchor.getChainLiftTravelSign());
+        }
+        data.setDirty();
+      });
+      helper.runAtTickTime(100, () -> {
+        helper.assertTrue(Boarding.ready(level, vehicle), "Crafted car did not settle");
+        var carrier = vehicle.carriers.getFirst();
+        var body = container.getSubLevel(carrier.body);
+        var rider = net.minecraft.world.entity.EntityType.PIG.create(level);
+        rider.setNoAi(true);
+        rider.setPos(origin.getX(), origin.getY() + 5, origin.getZ() + 20);
+        level.addFreshEntity(rider);
+        SeatBlock.sitDown(
+            level, body.getPlot().getCenterBlock().offset(carrier.seats.getFirst()), rider);
+        helper.assertTrue(rider.isPassenger(), "Crafted car seat did not mount a rider");
+        var center = CoasterCartResolve.cartCenterWorld(container.getSubLevel(vehicle.chassis));
+        player.setPos(center.x + 2, center.y + 1, center.z);
+        EditorNetwork.apply(
+            player, new EditorNetwork.Edit(vehicle.chassis, vehicle.revision, 11, ""));
+        EditorNetwork.apply(
+            player, new EditorNetwork.Edit(vehicle.chassis, vehicle.revision, 13, ""));
+        running.set(true);
+        helper.runAtTickTime(2000, () -> {
+          running.set(false);
+          LogUtils.getLogger().info(
+              "FD_SURVIVAL_ARROW_LOOP rails={} cost={} maxXZ={},{} maxAngle={} ready={} fault={}",
+              rails.size(), trackCost, maxXZ[0], maxXZ[1], maxAngle[0],
+              Boarding.ready(level, vehicle), vehicle.fault);
+          helper.assertTrue(maxXZ[0] > 30 && maxXZ[1] > 50,
+              "Survival-connected Arrow loop did not complete a circuit");
+          helper.assertTrue(
+              maxAngle[0] > 6, "Survival-connected Arrow loop did not make its controlled turn");
+          helper.assertTrue(rider.isPassenger(), "Loop lost its native rider");
+          helper.assertTrue(
+              Boarding.ready(level, vehicle) && vehicle.stopping && vehicle.restraints,
+              "Survival-connected Arrow loop did not capture at station");
+          helper.assertTrue(
+              ((BoardingStationEntity) level.getBlockEntity(stationPos)).fault.isEmpty(),
+              "Station rejected returning survival-built car");
+          var returned = CoasterCartResolve.cartCenterWorld(container.getSubLevel(vehicle.chassis));
+          player.setPos(returned.x + 2, returned.y + 1, returned.z);
+          EditorNetwork.apply(
+              player, new EditorNetwork.Edit(vehicle.chassis, vehicle.revision, 12, ""));
+          rider.stopRiding();
+          rider.discard();
+          for (var carrierBody : vehicle.carriers)
+            container.removeSubLevel(
+                container.getSubLevel(carrierBody.body), SubLevelRemovalReason.REMOVED);
+          container.removeSubLevel(
+              container.getSubLevel(vehicle.chassis), SubLevelRemovalReason.REMOVED);
+          data.vehicles.remove(vehicle.chassis);
+          for (int i = 0; i < rails.size(); i++) {
+            var rail = rails.get(i);
+            ((CoasterAnchorpointBlockEntity) level.getBlockEntity(rail.from))
+                .removeAnchorPeerCurve(level, rail.to);
+            level.removeBlock(
+                anchors.get(i).relative(
+                    i == 0 || i == 1 || i == 4 || i == 5 ? Direction.EAST : Direction.SOUTH),
+                false);
+          }
+          for (var anchor : anchors) {
+            level.removeBlock(anchor, false);
+            level.removeBlock(anchor.below(), false);
+          }
+          data.rails.removeAll(rails);
+          level.removeBlock(stationPos, false);
+          level.removeBlock(stationPower, false);
+          level.removeBlock(stationPos.below(), false);
+          level.removeBlock(table, false);
+          for (int x = 18; x <= 21; x++)
+            for (int z = 30; z <= 35; z++) level.setChunkForced(x, z, false);
+          player.getAdvancements().stopListening();
+          helper.succeed();
+        });
+      });
+      helper.runAtTickTime(260,
+          () -> level.setBlockAndUpdate(stationPower, Blocks.REDSTONE_BLOCK.defaultBlockState()));
+    });
   }
 }
