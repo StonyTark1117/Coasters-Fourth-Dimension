@@ -103,7 +103,12 @@ float step rounding, vertical offset and the tie's separate model origin. Native
 `right` is retained for inspection; the model's right axis is derived from
 `up × forward`, as in the renderer. Each section also records its family,
 variant, full profile keys, appearance/tint, validity, revision and decimal-string
-geometry hash. Route chassis IDs allow pairing with the existing body/pose
+geometry hash. Saved rail and resolved edge endpoints plus `canonical` expose
+their direction. Historical `profile`/`profileAngle` fields keep their existing
+saved-profile-at-edge-distance meaning. New `renderProfile` keys and
+`renderProfileAngle` values apply the same conditional reversal as
+`OriginalTrackRenderer`; use those for control-rail/support reconstruction.
+A reversed profile reverses key order and negates slopes. Route chassis IDs allow pairing with the existing body/pose
 trace; dimension and export game time record the observation context.
 
 These are **potential renderer inputs**, exported even when the appearance is
@@ -124,7 +129,8 @@ Pair `recovery-bank-native-frames.json` with `recovery-bank-mesh-trace.jsonl`, a
 `recovery-bank-train-native-frames.json` with `recovery-bank-train-mesh-trace.jsonl`.
 The verifier checks complete placement grids, matching design/variant/persisted-family
 identity, recorded profile metadata, finite original and decoration frames,
-original-grid distances/profile values, expected piece scales and model transforms, with `2e-4` numerical
+original-grid distances/profile values, endpoint direction and renderer-profile
+reversal, expected piece scales and model transforms, with `2e-4` numerical
 matrix tolerance for float arithmetic. This tolerance is not a clearance margin.
 The optional trace check requires matching chassis definitions/poses and completion
 markers for each route. It does not assess collisions, rider meshes, trace timing,
@@ -144,10 +150,11 @@ Offline validation (no JVM):
 python3 -B -m unittest discover -s scripts/tests -p test_recovery_decoration_inputs.py -v
 ```
 
-Eleven synthetic tests cover a non-grid section length, a quarter-turn bank,
+Twelve synthetic tests cover a non-grid section length, a quarter-turn bank,
 endpoint tolerance/clamp, legacy rejection, missing/wrong sample distances,
 wrong tie origin/nonfinite matrices, corrupt profile/identity, duplicate rails,
 mismatched/incomplete traces, wrong persisted-family/design combinations, and
-nonfinite/corrupted original frames. They validate the verifier, not native sampling.
+nonfinite/corrupted original frames, and reversed-edge angle/slope/direction
+consistency. They validate the verifier, not native sampling.
 The Java export extension still needs the coordinator's build and native run;
 no new clearance or runtime acceptance is claimed by this tooling change.

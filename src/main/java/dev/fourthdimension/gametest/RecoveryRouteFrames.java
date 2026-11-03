@@ -2,6 +2,7 @@ package dev.fourthdimension.gametest;
 
 import dev.fourthdimension.physics.ArrowDecorationPlacement;
 import dev.fourthdimension.physics.ModelFrame;
+import dev.fourthdimension.physics.RotationProfile;
 import dev.fourthdimension.runtime.FoundationData;
 import dev.fourthdimension.track.*;
 import dev.fourthdimension.vehicle.BankedRecoveryExamples;
@@ -25,6 +26,8 @@ final class RecoveryRouteFrames {
       for (var rail : example.rails()) {
         var edge = TrackGeometry.resolve(level, rail);
         var table = TrackGeometry.table(level, edge);
+        boolean canonical = edge.from().equals(rail.from);
+        var renderProfile = canonical ? rail.profile : rail.profile.reversed();
         var frames = new ArrayList<Map<String, Object>>();
         int samples = Math.max(8, (int) Math.ceil(table.length() * 4));
         for (int i = 0; i <= samples; i++) {
@@ -47,7 +50,9 @@ final class RecoveryRouteFrames {
                   "forward",
                   vector(frame.forward()),
                   "profileAngle",
-                  rail.profile.angleAt(distance)));
+                  rail.profile.angleAt(distance),
+                  "renderProfileAngle",
+                  renderProfile.angleAt(distance)));
         }
         // Potential decoration placement inputs, not a claim that a provider/model rendered.
         // Keep these distances identical to TrackStylesRenderer.build; no grid interpolation.
@@ -57,11 +62,12 @@ final class RecoveryRouteFrames {
         double step = table.length() / segments;
         for (int i = 0; i < segments; i++) {
           double distance = (i + .5) * step;
-          spines.add(decoration(level, edge, rail, distance, table.parameterAt(distance), true, step));
+          spines.add(
+              decoration(level, edge, rail, renderProfile, distance, table.parameterAt(distance), true, step));
         }
         for (double distance = 0; distance <= table.length() + 1e-6; distance += 2) {
           double d = Math.min(distance, table.length());
-          ties.add(decoration(level, edge, rail, d, table.parameterAt(d), false, step));
+          ties.add(decoration(level, edge, rail, renderProfile, d, table.parameterAt(d), false, step));
         }
         var section = new LinkedHashMap<String, Object>();
         section.put("rail", rail.id.toString());
@@ -73,6 +79,12 @@ final class RecoveryRouteFrames {
         section.put("revision", rail.revision);
         section.put("valid", rail.valid);
         section.put("profile", rail.profile.keys());
+        section.put("renderProfile", renderProfile.keys());
+        section.put("canonical", canonical);
+        section.put("railFrom", position(rail.from));
+        section.put("railTo", position(rail.to));
+        section.put("edgeFrom", position(edge.from()));
+        section.put("edgeTo", position(edge.to()));
         section.put("appearance", Map.of("id", rail.appearance.id(), "tint", rail.appearance.tint()));
         section.put(
             "decorationInputs",
@@ -114,6 +126,7 @@ final class RecoveryRouteFrames {
       ServerLevel level,
       CoasterPathEdge edge,
       FoundationData.Rail rail,
+      RotationProfile renderProfile,
       double distance,
       double parameter,
       boolean spine,
@@ -142,6 +155,7 @@ final class RecoveryRouteFrames {
     input.put("up", vector(up));
     input.put("forward", vector(forward));
     input.put("profileAngle", rail.profile.angleAt(distance));
+    input.put("renderProfileAngle", renderProfile.angleAt(distance));
     input.put(
         "scale",
         spine
@@ -149,6 +163,10 @@ final class RecoveryRouteFrames {
             : new float[] {ArrowDecorationPlacement.TIE_SCALE_X, 1, 1});
     input.put("modelTransform", transform.get(new float[16]));
     return input;
+  }
+
+  private static int[] position(net.minecraft.core.BlockPos value) {
+    return new int[] {value.getX(), value.getY(), value.getZ()};
   }
 
   private static double[] vector(Vec3 value) {
