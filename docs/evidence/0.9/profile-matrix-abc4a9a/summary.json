@@ -1,0 +1,150 @@
+{
+  "base": {
+    "required_tests": 49,
+    "minutes": 5.339,
+    "performance": {
+      "CONTROLLED": {
+        "runtimeInvocations": 11520,
+        "runtimeNanos": 658269184,
+        "averageNanosPerInvocation": 57141,
+        "carrierUpdates": 15360,
+        "carrierNanos": 49251629,
+        "averageNanosPerCarrier": 3206,
+        "constraintsRebuilt": 0
+      },
+      "SHUTTLE": {
+        "riders": 16,
+        "runtimeInvocations": 4674,
+        "runtimeNanos": 500517216,
+        "averageNanosPerInvocation": 107085,
+        "carrierUpdates": 12464,
+        "carrierNanos": 36418370,
+        "averageNanosPerCarrier": 2921,
+        "constraintsRebuilt": 0
+      },
+      "FREE_SPIN": {
+        "riders": 8,
+        "runtimeInvocations": 14220,
+        "runtimeNanos": 1558251453,
+        "averageNanosPerInvocation": 109581,
+        "carrierUpdates": 18960,
+        "carrierNanos": 54017804,
+        "averageNanosPerCarrier": 2849,
+        "constraintsRebuilt": 0
+      }
+    },
+    "legacy_classpath_files": 67,
+    "resolved_runtime_files": 107
+  },
+  "styles": {
+    "required_tests": 49,
+    "minutes": 5.25,
+    "performance": {
+      "CONTROLLED": {
+        "runtimeInvocations": 11520,
+        "runtimeNanos": 591742792,
+        "averageNanosPerInvocation": 51366,
+        "carrierUpdates": 15360,
+        "carrierNanos": 51066607,
+        "averageNanosPerCarrier": 3324,
+        "constraintsRebuilt": 0
+      },
+      "SHUTTLE": {
+        "riders": 16,
+        "runtimeInvocations": 4632,
+        "runtimeNanos": 411289001,
+        "averageNanosPerInvocation": 88792,
+        "carrierUpdates": 12352,
+        "carrierNanos": 29532187,
+        "averageNanosPerCarrier": 2390,
+        "constraintsRebuilt": 0
+      },
+      "FREE_SPIN": {
+        "riders": 8,
+        "runtimeInvocations": 14220,
+        "runtimeNanos": 1314293605,
+        "averageNanosPerInvocation": 92425,
+        "carrierUpdates": 18960,
+        "carrierNanos": 42066069,
+        "averageNanosPerCarrier": 2218,
+        "constraintsRebuilt": 0
+      }
+    },
+    "legacy_classpath_files": 67,
+    "resolved_runtime_files": 108
+  },
+  "engineered": {
+    "required_tests": 49,
+    "minutes": 5.504,
+    "performance": {
+      "CONTROLLED": {
+        "runtimeInvocations": 11520,
+        "runtimeNanos": 653479907,
+        "averageNanosPerInvocation": 56725,
+        "carrierUpdates": 15360,
+        "carrierNanos": 52079076,
+        "averageNanosPerCarrier": 3390,
+        "constraintsRebuilt": 0
+      },
+      "SHUTTLE": {
+        "riders": 16,
+        "runtimeInvocations": 4674,
+        "runtimeNanos": 459408846,
+        "averageNanosPerInvocation": 98290,
+        "carrierUpdates": 12464,
+        "carrierNanos": 32114157,
+        "averageNanosPerCarrier": 2576,
+        "constraintsRebuilt": 0
+      },
+      "FREE_SPIN": {
+        "riders": 8,
+        "runtimeInvocations": 14220,
+        "runtimeNanos": 1498665743,
+        "averageNanosPerInvocation": 105391,
+        "carrierUpdates": 18960,
+        "carrierNanos": 52240808,
+        "averageNanosPerCarrier": 2755,
+        "constraintsRebuilt": 0
+      }
+    },
+    "legacy_classpath_files": 67,
+    "resolved_runtime_files": 108
+  },
+  "combined": {
+    "required_tests": 49,
+    "minutes": 5.585,
+    "performance": {
+      "CONTROLLED": {
+        "runtimeInvocations": 11520,
+        "runtimeNanos": 677364039,
+        "averageNanosPerInvocation": 58798,
+        "carrierUpdates": 15360,
+        "carrierNanos": 64638068,
+        "averageNanosPerCarrier": 4208,
+        "constraintsRebuilt": 0
+      },
+      "SHUTTLE": {
+        "riders": 16,
+        "runtimeInvocations": 4674,
+        "runtimeNanos": 482104651,
+        "averageNanosPerInvocation": 103146,
+        "carrierUpdates": 12464,
+        "carrierNanos": 36679542,
+        "averageNanosPerCarrier": 2942,
+        "constraintsRebuilt": 0
+      },
+      "FREE_SPIN": {
+        "riders": 8,
+        "runtimeInvocations": 14220,
+        "runtimeNanos": 1496105402,
+        "averageNanosPerInvocation": 105211,
+        "carrierUpdates": 18960,
+        "carrierNanos": 54604141,
+        "averageNanosPerCarrier": 2879,
+        "constraintsRebuilt": 0
+      }
+    },
+    "legacy_classpath_files": 67,
+    "resolved_runtime_files": 109
+  }
+}

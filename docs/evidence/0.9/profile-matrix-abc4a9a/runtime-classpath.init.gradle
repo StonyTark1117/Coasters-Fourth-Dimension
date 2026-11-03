@@ -1,0 +1,11 @@
+import groovy.json.JsonOutput
+allprojects {
+ tasks.register('fdRecordRuntimeClasspath') {
+  doLast {
+   def runTask = tasks.named('runGameTestServer').get()
+   def paths = sourceSets.main.runtimeClasspath.files.collect { it.absolutePath }.sort()
+   def out = new File(project.findProperty('fdClasspathRecord').toString())
+   out.text = JsonOutput.prettyPrint(JsonOutput.toJson([capture: 'Main runtime configuration resolved in the same Gradle invocation before GameTest startup; not live process introspection', files: paths]))
+  }
+ }
+}
