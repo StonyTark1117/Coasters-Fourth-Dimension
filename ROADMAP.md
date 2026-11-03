@@ -412,8 +412,15 @@ records survival result-slot crafting, player-connected 50-block original
 track, player-installed Chain, player-placed car, an occupied motor-powered
 full controlled turn, pre-boundary capture, unload and same-identity cold
 reopen. Its first short-route endpoint fault remains recorded as a negative
-case. A complete Arrow circuit and powered Legacy, Free Spin and Revised
-family exercises remain open. The
+case. A complete Arrow circuit and full Legacy, Free Spin and Revised
+family exercises remain open. A subsequent
+[bounded powered Legacy pass](docs/evidence/0.4/survival-client-legacy-powered/acceptance.md)
+records survival result-slot crafting, player-connected 50-block original
+track, player-installed Chain, an occupied motor-powered 36-block traverse,
+pre-boundary capture, unloading and same-identity cold reopen. The flat route
+did not produce meaningful free rotation, so the Legacy family mechanics
+exercise remains open alongside the powered Free Spin and Revised exercises.
+The
 [FD403 connected-client acceptance procedure](docs/FD403-ACCEPTANCE.md) lists
 the remaining family checks without treating the earlier samples as release
 acceptance.
