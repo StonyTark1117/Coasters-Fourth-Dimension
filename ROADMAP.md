@@ -11,6 +11,10 @@ plans the staged ecosystem against these gates. It retains Create and the existi
 Engineered/Track Styles scope for 0.4–1.0, and proposes separate optional operations
 and presentation expansions afterward. New integration implementation remains
 paused pending user approval; staged artifacts do not expand advertised support.
+Before an approved expansion begins, follow the backlog's
+[version refresh policy](docs/INTEGRATION-BACKLOG.md#version-refresh-before-expansion).
+Its November 2 catalog is a dated research snapshot; candidate stabilization
+continues with the existing pins and artifact-specific acceptance evidence.
 
 **Current stage: completing 0.4.** The five-family bounded 0.3 gate is complete.
 Integrations, crafting and tutorials are implemented with partial acceptance;

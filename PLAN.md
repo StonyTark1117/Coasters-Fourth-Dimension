@@ -30,7 +30,7 @@ These are mechanically distinct vehicle families, not merely alternate textures.
 
 Keep independent carrier groups in the architecture from the start. A controlled car can couple groups to one profile; free-spin vehicles can carry different angular states. Do not force every family into the original shared four-seat axle design.
 
-The release roadmap below commits to all five families, with the second-generation ZacSpin’s exact fidelity gated on further evidence. Adding new ordinary fixed-seat wing coaster or unrelated yaw-spinning coaster models is outside this scope. Existing ordinary carts may use our tracks under the compatibility rules below.
+The release roadmap through 1.0 commits to all five families, with the second-generation ZacSpin’s exact fidelity gated on further evidence. New ordinary fixed-seat wing coaster and unrelated spinning coaster models are outside that release scope. Later vehicle proposals remain separately paused in the [release map](ROADMAP.md#release-map); an integration adapter does not implement or approve those vehicles. Existing ordinary carts may use our tracks under the compatibility rules below.
 
 ## D02 Cart and track compatibility
 
@@ -122,6 +122,9 @@ artifact catalog records the other declared licenses. Our original track,
 rotation mechanisms and five-family scope remain independent of optional addons.
 Proposed 1.1/1.2 allocations are planning scopes, not dates or authorization to
 resume implementation. FD801 never blocks standalone 1.0.
+Before an approved expansion starts, refresh its dated artifact inventory and
+dependency closure using the [version refresh policy](docs/INTEGRATION-BACKLOG.md#version-refresh-before-expansion).
+New upstream files do not automatically replace the current release pins.
 
 ## D08 Player building experience
 

@@ -14,6 +14,9 @@ adds Additions station operations, CTNB and Magnetized; proposed 1.2 adds Coaste
 Skin, rotating-seat follow-up, Immersion, and Waterparked/Create Coasters coexistence.
 These new ecosystem adapters remain paused pending user approval. Staging their
 JARs does not activate a runtime profile or certify compatibility.
+Use the backlog's [version refresh policy](INTEGRATION-BACKLOG.md#version-refresh-before-expansion)
+before implementing an approved expansion. A newer download is a new candidate,
+not an automatic replacement for an inspected or certified artifact.
 
 The release baseline remains schema 6 / protocol 7. The shared telemetry/Create
 checkpoint has been reconciled with the current support-repair and PAX guards;

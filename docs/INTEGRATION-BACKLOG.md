@@ -30,6 +30,11 @@ from deferred schema-7 reconciliation. Historical changelog, audit and evidence
 records retain their original artifact-specific findings. New planning scope
 does not rewrite their results or mark an open gate complete.
 
+Consistency review on **2026-11-03** checked these seven documents plus the FD401
+release handoff and both FD403 acceptance/preparation documents. All twelve cached
+artifacts still match the catalog's SHA-256 hashes. This is a local consistency
+check; the upstream version-discovery date remains **2026-11-02**.
+
 ## Current artifact inventory
 
 “Latest” means the newest target-platform artifact found on the official project
@@ -96,6 +101,11 @@ This is a **proposed release allocation**, not authorization to resume implement
 or a promise of release dates. The existing 0.4 → 0.9 → 1.0 gates stay in order.
 The proposed 1.1 and 1.2 labels below describe optional expansion scope; they do
 not renumber existing FD packages or change their completion status.
+The [roadmap release map](../ROADMAP.md#release-map) also retains separate later
+vehicle proposals, including the fixed-seat wing coaster alongside proposed 1.1
+and the proposed 1.3–1.5 families. This backlog allocates integrations only;
+neither addon support nor shared release numbering approves those vehicle features
+or adds them to the five-family 1.0 gate.
 
 ### Current baseline and branch reconciliation
 
@@ -204,6 +214,23 @@ behavior; do not reuse the older plan's mandatory-Aeronautics claim for Immersio
 Optional addons remain separately installed. Reuse code/assets only after applicable
 terms are established; the staged archive cache is not redistributable release
 content. Keep unknown versions visibly unsupported with base functionality intact.
+
+### Version refresh before expansion
+
+Before implementing an approved expansion, recheck the official project/file
+pages for Minecraft 1.21.1 and NeoForge, including release/beta status and required
+dependencies. Record a new dated catalog with exact file IDs, hashes, embedded
+versions and dependency closure; retain the old catalog for existing evidence.
+Resolve Additions' published/runtime version discrepancy before enabling hooks.
+Do not call the November 2 inventory perpetually latest or silently substitute a
+new artifact under an existing supported-version claim.
+
+Stage refreshed candidates outside runtime folders first. Choose and validate
+any core dependency upgrade separately, then update the affected adapter guards,
+runtime profile and certification matrix within the approved scope. Every changed
+artifact needs an explicit evidence review and the applicable regressions before
+it can join an advertised profile. Reaching 1.0 does not authorize this work;
+the expansion pause remains in force until user approval.
 
 ### Certification and release evidence
 
