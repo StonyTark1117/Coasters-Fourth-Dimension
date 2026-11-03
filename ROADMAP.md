@@ -395,7 +395,12 @@ four-car cycle on that survival-built train remain open. A separate
 [shipped PAX demo checkpoint](docs/evidence/0.4/survival-client-pax/demo/acceptance.md)
 now records three original native links, normal mounted restraint/dispatch
 controls, one complete powered four-car cycle, final capture and unloading in
-the connected survival client. The
+the connected survival client. A separate
+[manual-link demo checkpoint](docs/evidence/0.4/survival-client-pax/manual-links/acceptance.md)
+records three player-made Chain links, empty-hand winch binding and boarding,
+mounted dispatch, a powered four-car recatch and normal dismount. Its route,
+cars and winch were command-authored; the survival-built train still needs its
+own linked powered exercise. The
 [FD403 connected-client acceptance procedure](docs/FD403-ACCEPTANCE.md) lists
 the remaining family and teaching checks without treating the earlier samples
 as release acceptance.

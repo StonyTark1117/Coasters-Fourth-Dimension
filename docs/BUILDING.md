@@ -168,6 +168,14 @@ winches and Create creative motors. The PAX example finishes its native coupling
 after four seconds. Place separate examples far enough apart that their swept
 corridors cannot intersect.
 
+`/fd demo pax_manual` builds the same compact PAX route but leaves its four cars
+unlinked and the winch unbound. Use Minecraft Chains to couple the stopped cars
+in order, then sneak-use the winch before boarding. This variant lets an
+operator practice the native coupling and binding steps on a level station.
+Add a temporary foothold beside a bearing or seat if the platform edge is too
+far to reach; remove it before dispatch. Keep the train at six-block spacing
+while making the three links.
+
 These commands create world content; they are examples rather than the survival
 acquisition path. They use the standalone dependencies. Follow the corresponding
 family exercise above to board, dispatch, capture and unload through normal
