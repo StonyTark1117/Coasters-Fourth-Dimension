@@ -47,8 +47,16 @@ client stop and `BUILD SUCCESSFUL` (exit 0). The stopped
 | `track-recipe.png` | `25f68d3e6666807d0bb3a0bbfcd5fe8c59df6c2563de1bff2ce62f91329028da` |
 | `track-crafting-result.png` | `2049f41a3f8598b5338e7ebd543acbbdb86a761952169ee93794ac1694304c45` |
 | `player-save.json` | `ef409ce0d55ba360b91d87e56735c453692c868092b5cad114766345b230f39f` |
+| `simulatedcoasters-common.toml` | `97fa738939cb6a7e0ab5bcd7833544b1bde56b41e314c8a1e37278154082a874` |
 
 The remaining connected Arrow exercise is the crafted car and station, native
 anchor placement, powered loop, full-turn carrier motion, capture, unloading,
 reopen, and teaching walkthrough described in
 [FD403 acceptance](../../../FD403-ACCEPTANCE.md).
+
+For that continuation, the earlier [native loop](../survival-client-arrow-loop-native/README.md)
+reports eight intended section lengths between 11.76 and 36.42 blocks. This
+client's [pinned Coasters config](simulatedcoasters-common.toml) sets
+`maxChainLiftSpanBlocks = 64.0`. Length alone does not bar those individual
+Chain spans. This source/config check does not prove normal client placement,
+nonoverlap, shaft power or a ride.
