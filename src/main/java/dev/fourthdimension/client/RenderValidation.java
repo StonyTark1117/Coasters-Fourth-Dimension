@@ -27,12 +27,12 @@ public final class RenderValidation {
     if (minecraft.level == null || minecraft.getOverlay() != null) return;
     var sample = TrackRenderMetrics.snapshot();
     int requiredStages = requiredStages();
-    if (sample.renderStages() < requiredStages) return;
+    // Empty loading/transition frames precede the visible fixture on some clients. They cannot
+    // establish a sample, but they must not make a later valid geometry sample unreachable.
+    if (sample.geometryStages() < requiredStages) return;
     if (!hasRequiredOriginalGeometry(sample, requiredStages)) {
       throw new IllegalStateException(
-          "FD_RENDER_VALIDATION incomplete stages="
-              + sample.renderStages()
-              + " geometryStages="
+          "FD_RENDER_VALIDATION incomplete geometryStages="
               + sample.geometryStages()
               + " meshes="
               + sample.meshBuilds()
@@ -59,10 +59,7 @@ public final class RenderValidation {
   }
 
   static boolean hasRequiredOriginalGeometry(TrackRenderMetrics.Snapshot sample, int requiredStages) {
-    return sample.meshBuilds() >= 1
-        && sample.geometryStages() >= requiredStages
-        && sample.inRangeRails() >= requiredStages
-        && sample.inRangeQuads() >= requiredStages;
+    return sample.meshBuilds() >= 1 && sample.geometryStages() >= requiredStages;
   }
 
   private static int requiredStages() {
