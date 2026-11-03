@@ -291,10 +291,15 @@ public final class FoundationData extends SavedData {
           dev.fourthdimension.magnetic.MagneticData.load(tag.getList("magnets", Tag.TAG_COMPOUND));
       dev.fourthdimension.magnetic.MagneticData.validate(loadedRail);
     }
+    Set<UUID> nativeBodyIds = new HashSet<>();
     for (Tag raw : vehicles) {
       CompoundTag tag = (CompoundTag) raw;
       var vehicle = new Vehicle(tag.getUUID("chassis"), Family.byId(tag.getString("family")));
       validateIdentity(tag);
+      if (data.vehicles.containsKey(vehicle.chassis))
+        throw new IllegalArgumentException("Duplicate vehicle identity");
+      if (!nativeBodyIds.add(vehicle.chassis))
+        throw new IllegalArgumentException("Vehicle chassis reuses a carrier identity");
       vehicle.restraints = tag.getBoolean("restraints");
       vehicle.stopping = tag.getBoolean("stopping");
       vehicle.maintenance = tag.getBoolean("maintenance");
@@ -337,6 +342,8 @@ public final class FoundationData extends SavedData {
       for (Tag group : groups) {
         var c = (CompoundTag) group;
         var carrier = new Carrier(c.getUUID("body"), c.getDouble("side"));
+        if (!nativeBodyIds.add(carrier.body))
+          throw new IllegalArgumentException("Duplicate native carrier identity");
         carrier.longitudinal = c.getDouble("longitudinal");
         carrier.childPivotOffset = c.getDouble("child_pivot_offset");
         carrier.ballast = c.getDouble("ballast");
@@ -405,7 +412,7 @@ public final class FoundationData extends SavedData {
     var recoveryVariants = new java.util.HashMap<UUID, String>();
     for (var vehicle : data.vehicles.values())
       if (vehicle.recoveryCart != null
-          && (VARIANT.equals(vehicle.variant) || data.vehicles.containsKey(vehicle.recoveryCart)))
+          && (VARIANT.equals(vehicle.variant) || nativeBodyIds.contains(vehicle.recoveryCart)))
         throw new IllegalArgumentException("Recovery partner must be an ordinary cart identity");
     for (var vehicle : data.vehicles.values())
       if (vehicle.recoveryCart != null) {

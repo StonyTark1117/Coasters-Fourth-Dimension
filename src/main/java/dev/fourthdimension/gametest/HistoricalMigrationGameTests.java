@@ -96,9 +96,47 @@ public final class HistoricalMigrationGameTests {
         helper,
         () -> FoundationData.load(duplicateRailId, helper.getLevel().registryAccess()),
         "Duplicate historic rail identity was accepted during migration");
+    var duplicateCarrier = source.copy();
+    var duplicateVehicles = duplicateCarrier.getList("vehicles", Tag.TAG_COMPOUND);
+    var firstCarriers = duplicateVehicles.getCompound(0).getList("carriers", Tag.TAG_COMPOUND);
+    var firstCarrierId = firstCarriers.getCompound(0).getUUID("body");
+    firstCarriers.getCompound(1).putUUID("body", firstCarrierId);
+    EditorGameTests.rejects(
+        helper,
+        () -> FoundationData.load(duplicateCarrier, helper.getLevel().registryAccess()),
+        "Duplicate carrier identity within one historic vehicle was accepted");
+    var crossVehicleCarrier = source.copy();
+    crossVehicleCarrier
+        .getList("vehicles", Tag.TAG_COMPOUND)
+        .getCompound(1)
+        .getList("carriers", Tag.TAG_COMPOUND)
+        .getCompound(0)
+        .putUUID("body", firstCarrierId);
+    EditorGameTests.rejects(
+        helper,
+        () -> FoundationData.load(crossVehicleCarrier, helper.getLevel().registryAccess()),
+        "Carrier identity shared by historic vehicles was accepted");
+    var carrierAsChassis = source.copy();
+    carrierAsChassis
+        .getList("vehicles", Tag.TAG_COMPOUND)
+        .getCompound(1)
+        .putUUID("chassis", firstCarrierId);
+    EditorGameTests.rejects(
+        helper,
+        () -> FoundationData.load(carrierAsChassis, helper.getLevel().registryAccess()),
+        "Historic chassis reused a carrier identity");
+    var carrierAsRecoveryCart = source.copy();
+    carrierAsRecoveryCart
+        .getList("vehicles", Tag.TAG_COMPOUND)
+        .getCompound(0)
+        .putUUID("recovery_cart", firstCarrierId);
+    EditorGameTests.rejects(
+        helper,
+        () -> FoundationData.load(carrierAsRecoveryCart, helper.getLevel().registryAccess()),
+        "Historic carrier identity was accepted as an ordinary recovery cart");
     System.out.println(
         "FD903_HISTORICAL schema3Rails=24 chassis=3 providerConversionRejected=true"
-            + " duplicateRailIdRejected=true");
+            + " duplicateRailIdRejected=true nativeBodyCollisionsRejected=4");
     helper.succeed();
   }
 
