@@ -62,7 +62,7 @@ public final class TrackContentGameTests {
     var wrongMaterialEdge = TrackGeometry.resolve(level, legacy);
     helper.assertTrue(
         wrongMaterialEdge != null
-            && TrackMaterial.ANDESITE.equals(wrongMaterialEdge.bezier().getMaterial()),
+            && TrackMaterial.ANDESITE.id.equals(wrongMaterialEdge.bezier().getMaterial().id),
         "Non-Coasters material control did not retain the substituted native curve");
     // Replacing the native curve can change the sampled basis. Model an older, still-valid rail
     // whose saved binding matches this foreign curve so material is the only backfill gate.
@@ -93,7 +93,7 @@ public final class TrackContentGameTests {
                   && legacy.originalCurve == null
                   && currentForeignEdge != null
                   && currentForeignEdge.bezier() != null
-                  && TrackMaterial.ANDESITE.equals(currentForeignEdge.bezier().getMaterial())
+                  && TrackMaterial.ANDESITE.id.equals(currentForeignEdge.bezier().getMaterial().id)
                   && TrackGeometry.fingerprint(level, currentForeignEdge) == foreignGeometry,
               "Geometry-matching non-Coasters material acquired restoration provenance");
           // A changed fingerprint and a missing native connection must never get provenance.

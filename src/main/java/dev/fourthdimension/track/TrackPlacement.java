@@ -232,7 +232,7 @@ public final class TrackPlacement {
           geometryChanged = true;
         } else if (rail.originalCurve == null
             && edge.bezier() != null
-            && CoasterTrackMaterials.COASTER.equals(edge.bezier().getMaterial())) {
+            && CoasterTrackMaterials.COASTER.id.equals(edge.bezier().getMaterial().id)) {
           // Older saves have no native-curve snapshot. Preserve only the still-present Coasters
           // curve whose sampled geometry matches their saved binding; never infer missing geometry.
           captureOriginalCurve(rail, edge.bezier());
