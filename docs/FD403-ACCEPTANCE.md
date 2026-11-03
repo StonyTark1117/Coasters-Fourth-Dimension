@@ -13,7 +13,7 @@ profile; optional Track Styles and Engineered behavior has separate gates.
 | Arrow | [Craft, place, board, control, unload, save](evidence/0.4/survival-client-arrow.md) on a short unpowered section | Powered original-route travel and full teaching exercise |
 | Legacy | [Craft, place, board, control, unload](evidence/0.4/survival-client-legacy-free-spin.md) on a short unpowered section | Longer powered route without the recorded endpoint fault; free-rotation exercise |
 | Free Spin | [Craft, place, board, control, unload](evidence/0.4/survival-client-legacy-free-spin.md) on a short unpowered section | Powered magnetic-span and independent-carrier exercise |
-| Revised | [Connected survival craft, place, and save](evidence/0.4/survival-client-revised/acceptance.md) on a short unpowered section | Seat boarding, occupied powered lower-hinge exercise, capture/unload, save/reopen, and teaching review |
+| Revised | [Connected survival craft, place, board, control, unload, and reopen](evidence/0.4/survival-client-revised/acceptance.md) on a short unpowered section | Occupied powered lower-hinge exercise and teaching review |
 | PAX | Native crafting/placement and packaged Ponder coverage only | Connected survival shuttle build, occupied winch cycle, teaching review |
 
 The [native survival checkpoint](evidence/0.4/survival-acceptance.md) already
