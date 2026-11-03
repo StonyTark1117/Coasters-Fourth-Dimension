@@ -167,6 +167,13 @@ tasks.named('test') { useJUnitPlatform() }
 tasks.named('jar') {
     from('LICENSE') { into 'META-INF'; rename { 'LICENSE-fourthdimension.txt' } }
 }
+if (project.hasProperty('fdPackaged')) {
+    // Packaged runs load the distributable JAR from packagedRuntimeOnly.
+    // A file dependency alone does not cause Gradle to rebuild that JAR.
+    tasks.matching { it.name in ['runClient', 'runObserver', 'runServer'] }.configureEach {
+        dependsOn tasks.named('jar')
+    }
+}
 tasks.named('runGameTestServer') {
     doFirst {
         delete layout.buildDirectory.dir('runs/gametest/world')
