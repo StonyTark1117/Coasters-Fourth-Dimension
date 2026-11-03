@@ -1,0 +1,178 @@
+{
+  "scope": "Read-only exact sampling availability check; no collision or clearance conclusion. Recovery frames are late-retained abc4a9a Styles inputs, not new runtime evidence.",
+  "inspection_commit": "6aa4e25f162fadae9ef8b6487bff02f4c42dbb83",
+  "tolerance": 1e-06,
+  "inputs": {
+    "recovery-bank-native-frames.json": {
+      "sha256": "c1a2e329b772032b09214b33e439b36570b5ca8ea3f0fa65d98e78d1e1a0f029",
+      "local_retained_path": "/tmp/fourthdimension-2aa0362f/build/runs/gametest/recovery-bank-native-frames.json",
+      "routes": [
+        {
+          "family": "ARROW",
+          "variant": "arrow_four_rail_v1",
+          "cars": 1,
+          "sections": [
+            {
+              "section": 0,
+              "rail": "45c536e4-ac93-4099-a690-4506bbf32d9f",
+              "length": 32.0,
+              "available_rail_frames": 129,
+              "spines": {
+                "required": 64,
+                "missing_exact_frames": 0
+              },
+              "ties": {
+                "required": 17,
+                "missing_exact_frames": 0
+              }
+            },
+            {
+              "section": 1,
+              "rail": "16a78b75-ecf6-473b-9a38-a713d9005e24",
+              "length": 50.52455626693254,
+              "available_rail_frames": 204,
+              "spines": {
+                "required": 102,
+                "missing_exact_frames": 102
+              },
+              "ties": {
+                "required": 26,
+                "missing_exact_frames": 25
+              }
+            },
+            {
+              "section": 2,
+              "rail": "48cf87b9-42e8-4b75-825d-5e5fa1e850f5",
+              "length": 32.0,
+              "available_rail_frames": 129,
+              "spines": {
+                "required": 64,
+                "missing_exact_frames": 0
+              },
+              "ties": {
+                "required": 17,
+                "missing_exact_frames": 0
+              }
+            },
+            {
+              "section": 3,
+              "rail": "c027fbab-29db-4d00-bddb-e80ee5358a35",
+              "length": 24.002047414469743,
+              "available_rail_frames": 98,
+              "spines": {
+                "required": 49,
+                "missing_exact_frames": 49
+              },
+              "ties": {
+                "required": 13,
+                "missing_exact_frames": 12
+              }
+            },
+            {
+              "section": 4,
+              "rail": "a199716e-b109-4aa0-bdb5-0268b6228142",
+              "length": 24.0,
+              "available_rail_frames": 97,
+              "spines": {
+                "required": 48,
+                "missing_exact_frames": 0
+              },
+              "ties": {
+                "required": 13,
+                "missing_exact_frames": 0
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "recovery-bank-train-native-frames.json": {
+      "sha256": "d4c6c55899f08db8e98bdae48febb0fefa9680ab8deca7d9de7d660bdc5e6b2b",
+      "local_retained_path": "/tmp/fourthdimension-2aa0362f/build/runs/gametest/recovery-bank-train-native-frames.json",
+      "routes": [
+        {
+          "family": "ARROW",
+          "variant": "arrow_four_rail_v1",
+          "cars": 2,
+          "sections": [
+            {
+              "section": 0,
+              "rail": "c0f8228d-193e-4af5-b924-d69840b8535c",
+              "length": 48.0,
+              "available_rail_frames": 193,
+              "spines": {
+                "required": 96,
+                "missing_exact_frames": 0
+              },
+              "ties": {
+                "required": 25,
+                "missing_exact_frames": 0
+              }
+            },
+            {
+              "section": 1,
+              "rail": "ea0bb76c-d213-4157-985b-e40f25426995",
+              "length": 50.52455626693254,
+              "available_rail_frames": 204,
+              "spines": {
+                "required": 102,
+                "missing_exact_frames": 102
+              },
+              "ties": {
+                "required": 26,
+                "missing_exact_frames": 25
+              }
+            },
+            {
+              "section": 2,
+              "rail": "752360fe-98a3-4186-9020-03bcfa6b8793",
+              "length": 32.0,
+              "available_rail_frames": 129,
+              "spines": {
+                "required": 64,
+                "missing_exact_frames": 0
+              },
+              "ties": {
+                "required": 17,
+                "missing_exact_frames": 0
+              }
+            },
+            {
+              "section": 3,
+              "rail": "1ce39e21-9f65-4420-ae99-2477216c28bc",
+              "length": 24.002047414469743,
+              "available_rail_frames": 98,
+              "spines": {
+                "required": 49,
+                "missing_exact_frames": 49
+              },
+              "ties": {
+                "required": 13,
+                "missing_exact_frames": 12
+              }
+            },
+            {
+              "section": 4,
+              "rail": "d1cf8901-4eb9-4063-a3f4-7daef08b9432",
+              "length": 48.0,
+              "available_rail_frames": 193,
+              "spines": {
+                "required": 96,
+                "missing_exact_frames": 0
+              },
+              "ties": {
+                "required": 25,
+                "missing_exact_frames": 0
+              }
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "source_hashes": {
+    "src/main/java/dev/fourthdimension/client/integration/TrackStylesRenderer.java": "477da35052e9ebfe277c7239ef28237aa5a9c920b4bc52819ec2ad715d512448",
+    "src/main/java/dev/fourthdimension/gametest/RecoveryRouteFrames.java": "f322bdc8c97bbc27d8def4ec081756ceb87b91cfe384bfe882a14f8fb443ca5a",
+    "src/main/java/dev/fourthdimension/gametest/RecoveryMeshTrace.java": "3b57c5812aec72ed36ee458d6bdd02a443207d32d1579ec80ba5752a6886913a"
+  }
+}
