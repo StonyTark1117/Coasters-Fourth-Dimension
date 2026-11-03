@@ -1,0 +1,251 @@
+{
+  "source": "11e1a934da0f8c6cdafde818d290eb0fd17a1ffb",
+  "count": 49,
+  "tests": [
+    {
+      "file": "src/main/java/dev/fourthdimension/gametest/AppearanceGameTests.java",
+      "test": "cosmeticStyleCannotChangeOriginalFamilyEligibility",
+      "annotation": "template = \"empty\", batch = \"fd_appearance_eligibility\", timeoutTicks = 120"
+    },
+    {
+      "file": "src/main/java/dev/fourthdimension/gametest/AppearanceGameTests.java",
+      "test": "cosmeticTransactionsMigrationAndMissingProviderPersistence",
+      "annotation": "template = \"empty\", timeoutTicks = 60"
+    },
+    {
+      "file": "src/main/java/dev/fourthdimension/gametest/BankedArrowGameTests.java",
+      "test": "nativeBankedFramesAndLoadedFullTurns",
+      "annotation": "template = \"empty\", timeoutTicks = 2400"
+    },
+    {
+      "file": "src/main/java/dev/fourthdimension/gametest/BankedRecoveryGameTests.java",
+      "test": "occupiedRecoveryTraversesQuarterBendBankAndLevelRunout",
+      "annotation": "template = \"empty\", batch = \"recoveryBank\", timeoutTicks = 9000"
+    },
+    {
+      "file": "src/main/java/dev/fourthdimension/gametest/BankedRecoveryTrainGameTests.java",
+      "test": "occupiedOriginalTrainsTraverseBendAndBankBeforeDisconnect",
+      "annotation": "template = \"empty\", batch = \"recoveryBankTrain\", timeoutTicks = 11000"
+    },
+    {
+      "file": "src/main/java/dev/fourthdimension/gametest/BoundaryGameTests.java",
+      "test": "wrongFamilyBoundariesBrakeInBothDirections",
+      "annotation": "template = \"empty\", timeoutTicks = 240"
+    },
+    {
+      "file": "src/main/java/dev/fourthdimension/gametest/ControlledTrainGameTests.java",
+      "test": "linkedCarsSampleTheirOwnAxlesAndRollback",
+      "annotation": "template = \"empty\", timeoutTicks = 850"
+    },
+    {
+      "file": "src/main/java/dev/fourthdimension/gametest/DemoRideGameTests.java",
+      "test": "occupiedExamplesCompleteNativePoweredCircuits",
+      "annotation": "template = \"empty\", batch = \"performanceControlled\", timeoutTicks = 2100"
+    },
+    {
+      "file": "src/main/java/dev/fourthdimension/gametest/EditorGameTests.java",
+      "test": "maximumFunctionalSnapshotFitsNetworkBudget",
+      "annotation": "template = \"empty\", timeoutTicks = 40"
+    },
+    {
+      "file": "src/main/java/dev/fourthdimension/gametest/EditorGameTests.java",
+      "test": "editsAreAtomicValidatedAndPersistent",
+      "annotation": "template = \"empty\", timeoutTicks = 60"
+    },
+    {
+      "file": "src/main/java/dev/fourthdimension/gametest/EngineeredEnergyGameTests.java",
+      "test": "nativeEnergyStarvationSupplyBrakeAndRetention",
+      "annotation": "template = \"empty\", batch = BATCH, timeoutTicks = 650"
+    },
+    {
+      "file": "src/main/java/dev/fourthdimension/gametest/EngineeredGameTests.java",
+      "test": "installedMotorsRespectCaptureAndDriveDispatchedFamilies",
+      "annotation": "template = \"empty\", timeoutTicks = 650"
+    },
+    {
+      "file": "src/main/java/dev/fourthdimension/gametest/EngineeredGameTests.java",
+      "test": "ordinaryBearingUsesMotorWithoutRotaryMembership",
+      "annotation": "template = \"empty\", timeoutTicks = 240"
+    },
+    {
+      "file": "src/main/java/dev/fourthdimension/gametest/EngineeredGameTests.java",
+      "test": "installedMotorDrivesLinkedControlledTurnsAndRollback",
+      "annotation": "template = \"empty\", batch = \"fd_engineered_controlled\", timeoutTicks = 1000"
+    },
+    {
+      "file": "src/main/java/dev/fourthdimension/gametest/EngineeredInterlockGameTests.java",
+      "test": "nativeMotorHonorsEveryLinkedCarInterlock",
+      "annotation": "template = \"empty\", batch = \"fourthdimension_engineered_interlock\", timeoutTicks = 160"
+    },
+    {
+      "file": "src/main/java/dev/fourthdimension/gametest/FamilyEligibilityGameTests.java",
+      "test": "fiveFamilyFactoryLockedSnapAndBindingMatrix",
+      "annotation": "template = \"empty\", timeoutTicks = 220"
+    },
+    {
+      "file": "src/main/java/dev/fourthdimension/gametest/FoundationGameTests.java",
+      "test": "nativeCarriersAndEligibility",
+      "annotation": "template = \"empty\", timeoutTicks = 400"
+    },
+    {
+      "file": "src/main/java/dev/fourthdimension/gametest/FoundationGameTests.java",
+      "test": "nativeFreeGroupsOrdinaryAccessAndSave",
+      "annotation": "template = \"empty\", timeoutTicks = 300"
+    },
+    {
+      "file": "src/main/java/dev/fourthdimension/gametest/HistoricalMigrationGameTests.java",
+      "test": "recordedSchema3IntegratedWorldLoadsAndUpgrades",
+      "annotation": "template = \"empty\", timeoutTicks = 80"
+    },
+    {
+      "file": "src/main/java/dev/fourthdimension/gametest/MagneticEditorGameTests.java",
+      "test": "actualEquipmentInventoryAtomicEditingAndEligibility",
+      "annotation": "template = \"empty\", timeoutTicks = 130"
+    },
+    {
+      "file": "src/main/java/dev/fourthdimension/gametest/MagneticGameTests.java",
+      "test": "eightRidersPassiveMagnetCircuitAndCapture",
+      "annotation": "template = \"empty\", batch = \"performanceFreeSpin\", timeoutTicks = 2600"
+    },
+    {
+      "file": "src/main/java/dev/fourthdimension/gametest/MagneticTraversalGameTests.java",
+      "test": "fastForwardReverseNarrowSpanNoReplayOrOtherTargets",
+      "annotation": "template = \"empty\", batch = \"fd_magnetic_traversal\", timeoutTicks = 330"
+    },
+    {
+      "file": "src/main/java/dev/fourthdimension/gametest/OperationsGameTests.java",
+      "test": "stationRetentionSupportLossAndBodyRecovery",
+      "annotation": "template = \"empty\", timeoutTicks = 280"
+    },
+    {
+      "file": "src/main/java/dev/fourthdimension/gametest/OperationsGameTests.java",
+      "test": "fiveFamilySupportLossFailsClosedWithoutRebindingOrDuplicatingRiders",
+      "annotation": "template = \"empty\", timeoutTicks = 250"
+    },
+    {
+      "file": "src/main/java/dev/fourthdimension/gametest/OperationsGameTests.java",
+      "test": "fiveFamilySupportRepairRequiresExactTrackAndRealignment",
+      "annotation": "template = \"empty\", batch = \"fd_support_repair\", timeoutTicks = 450"
+    },
+    {
+      "file": "src/main/java/dev/fourthdimension/gametest/OrdinaryCartGameTests.java",
+      "test": "bareBearingsFitAllTracksWithoutReceivingRotation",
+      "annotation": "template = \"empty\", timeoutTicks = 180"
+    },
+    {
+      "file": "src/main/java/dev/fourthdimension/gametest/PonderDiagramGameTests.java",
+      "test": "shippedDiagramsUseRegisteredBlocks",
+      "annotation": "template = \"empty\", timeoutTicks = 40"
+    },
+    {
+      "file": "src/main/java/dev/fourthdimension/gametest/RecoveryGameTests.java",
+      "test": "guardedRecoveryUsesNativeChainDriveAcrossFiveFamilies",
+      "annotation": "template = \"empty\", timeoutTicks = 700"
+    },
+    {
+      "file": "src/main/java/dev/fourthdimension/gametest/RecoveryGameTests.java",
+      "test": "paxRecoveryHandsOverTheActualStationaryCarriage",
+      "annotation": "template = \"empty\", timeoutTicks = 300"
+    },
+    {
+      "file": "src/main/java/dev/fourthdimension/gametest/RecoveryHandoverGameTests.java",
+      "test": "occupiedPaxHandsOverItsWinchThenTowsAndUnloads",
+      "annotation": "template = \"empty\", batch = \"paxRecoveryHandover\", timeoutTicks = 900"
+    },
+    {
+      "file": "src/main/java/dev/fourthdimension/gametest/RecoveryHandoverGameTests.java",
+      "test": "occupiedPaxBrakesOnPoweredNativeChainStall",
+      "annotation": "template = \"empty\", batch = \"paxRecoveryStall\", timeoutTicks = 2400"
+    },
+    {
+      "file": "src/main/java/dev/fourthdimension/gametest/RecoveryTrainGameTests.java",
+      "test": "occupiedOriginalTrainsPreserveLinksThroughRecovery",
+      "annotation": "template = \"empty\", batch = \"recoveryTrain\", timeoutTicks = 520"
+    },
+    {
+      "file": "src/main/java/dev/fourthdimension/gametest/RevisedCarrierGameTests.java",
+      "test": "revisedPivotEightRidersIndependentCircuitAndSave",
+      "annotation": "template = \"empty\", timeoutTicks = 2650"
+    },
+    {
+      "file": "src/main/java/dev/fourthdimension/gametest/RideTelemetryGameTests.java",
+      "test": "sharedTelemetryRespectsConsistRecoveryAndControllerAuthority",
+      "annotation": "template = \"empty\", batch = \"fourthdimension_telemetry\", timeoutTicks = 260"
+    },
+    {
+      "file": "src/main/java/dev/fourthdimension/gametest/ShuttleGameTests.java",
+      "test": "occupiedPaxTrackPlacementRestoresPersistedOriginalCurve",
+      "annotation": "template = \"empty\", batch = \"paxCurveRestore\", timeoutTicks = 260"
+    },
+    {
+      "file": "src/main/java/dev/fourthdimension/gametest/ShuttleGameTests.java",
+      "test": "idleWinchPreservesStateWhileNativeTrainRestores",
+      "annotation": "template = \"empty\", timeoutTicks = 240"
+    },
+    {
+      "file": "src/main/java/dev/fourthdimension/gametest/ShuttleGameTests.java",
+      "test": "caughtWinchPreservesStateWhileNativeTrainRestores",
+      "annotation": "template = \"empty\", timeoutTicks = 320"
+    },
+    {
+      "file": "src/main/java/dev/fourthdimension/gametest/ShuttleGameTests.java",
+      "test": "activeWinchReloadPersistsTrainRetention",
+      "annotation": "template = \"empty\", timeoutTicks = 240"
+    },
+    {
+      "file": "src/main/java/dev/fourthdimension/gametest/ShuttleGameTests.java",
+      "test": "routeChunkStopsTickingWinchReloadAndPhysicalRecovery",
+      "annotation": "template = \"empty\", timeoutTicks = 1800"
+    },
+    {
+      "file": "src/main/java/dev/fourthdimension/gametest/ShuttleGameTests.java",
+      "test": "paxSupportRepairRealignmentResumesPoweredWinch",
+      "annotation": "template = \"empty\", timeoutTicks = 1400"
+    },
+    {
+      "file": "src/main/java/dev/fourthdimension/gametest/ShuttleGameTests.java",
+      "test": "routeTopologyMutationStopsActiveWinch",
+      "annotation": "template = \"empty\", timeoutTicks = 240"
+    },
+    {
+      "file": "src/main/java/dev/fourthdimension/gametest/ShuttleGameTests.java",
+      "test": "sixteenRidersPhysicalCarriagePowerHoldGravityReturn",
+      "annotation": "template = \"empty\", batch = \"performanceShuttle\", timeoutTicks = 2600"
+    },
+    {
+      "file": "src/main/java/dev/fourthdimension/gametest/ShuttleGameTests.java",
+      "test": "tallerShuttleTwoCompleteCyclesAndStationLock",
+      "annotation": "template = \"empty\", timeoutTicks = 3000"
+    },
+    {
+      "file": "src/main/java/dev/fourthdimension/gametest/SurvivalBuildingGameTests.java",
+      "test": "nativeSurvivalCraftingAndWorldPlacement",
+      "annotation": "template = \"empty\", batch = \"fd_survival\", timeoutTicks = 150"
+    },
+    {
+      "file": "src/main/java/dev/fourthdimension/gametest/TeachingContentGameTests.java",
+      "test": "nativeCraftingAndRecipeDiscovery",
+      "annotation": "template = \"empty\", timeoutTicks = 80"
+    },
+    {
+      "file": "src/main/java/dev/fourthdimension/gametest/TrackContentGameTests.java",
+      "test": "originalTrackItemsAndPersistence",
+      "annotation": "template = \"empty\", timeoutTicks = 80"
+    },
+    {
+      "file": "src/main/java/dev/fourthdimension/gametest/VehicleContentGameTests.java",
+      "test": "incompleteNativeLinkEndpointsAreRejected",
+      "annotation": "template = \"empty\""
+    },
+    {
+      "file": "src/main/java/dev/fourthdimension/gametest/VehicleContentGameTests.java",
+      "test": "distinctPlayersRetainDistinctCarrierSeats",
+      "annotation": "template = \"empty\", timeoutTicks = 140"
+    },
+    {
+      "file": "src/main/java/dev/fourthdimension/gametest/VehicleContentGameTests.java",
+      "test": "originalVehiclesLoadingAndCapture",
+      "annotation": "template = \"empty\", timeoutTicks = 260"
+    }
+  ]
+}
