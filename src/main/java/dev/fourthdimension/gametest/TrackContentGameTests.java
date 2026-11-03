@@ -93,12 +93,6 @@ public final class TrackContentGameTests {
                   ? null
                   : currentForeignEdge.bezier().getMaterial();
           long currentForeignHash =
-              currentForeignEdge == null ? 0 : TrackGeometry.fingerprint(level, currentForeignEdge);
-          var currentForeignMaterial =
-              currentForeignEdge == null || currentForeignEdge.bezier() == null
-                  ? null
-                  : currentForeignEdge.bezier().getMaterial();
-          long currentForeignHash =
               currentForeignEdge == null ? Long.MIN_VALUE : TrackGeometry.fingerprint(level, currentForeignEdge);
           helper.assertTrue(
               legacy.valid
