@@ -27,13 +27,19 @@ public final class OriginalTrackRenderer {
       long geometry,
       long modelGeneration,
       List<Quad> quads,
-      dev.fourthdimension.client.integration.TrackStylesRenderer.Mesh decoration) {}
+      dev.fourthdimension.client.integration.TrackStylesRenderer.Mesh decoration,
+      List<Quad> originalFallback) {}
+
+  private record Decoration(UUID rail, Mesh mesh, float alpha) {}
+
+  private record DrawFailure(long generation, long revision) {}
 
   private static final Map<UUID, Mesh> MESHES = new HashMap<>();
   private static net.minecraft.world.level.Level lastLevel;
   private static String ghostKey = "";
   private static List<Quad> ghost = List.of();
   private static final Map<UUID, Long> SEEN = new HashMap<>();
+  private static final Map<UUID, DrawFailure> STYLE_DRAW_FAILURES = new HashMap<>();
 
   private OriginalTrackRenderer() {}
 
@@ -54,6 +60,7 @@ public final class OriginalTrackRenderer {
     if (level != lastLevel) {
       MESHES.clear();
       SEEN.clear();
+      STYLE_DRAW_FAILURES.clear();
       TrackRenderMetrics.reset();
       ghostKey = "";
       ghost = List.of();
@@ -77,6 +84,7 @@ public final class OriginalTrackRenderer {
       }
     MESHES.keySet().retainAll(live);
     SEEN.keySet().retainAll(live);
+    STYLE_DRAW_FAILURES.keySet().retainAll(live);
   }
 
   @SubscribeEvent
@@ -94,8 +102,7 @@ public final class OriginalTrackRenderer {
     int inRangeRails = 0;
     int inRangeQuads = 0;
     int inRangeDecorationPieces = 0;
-    var decorations =
-        new ArrayList<dev.fourthdimension.client.integration.TrackStylesRenderer.Mesh>();
+    var decorations = new ArrayList<Decoration>();
     var data = EligibilityHooks.data(mc.level);
     if (data != null)
       for (var rail : data.rails)
@@ -112,8 +119,13 @@ public final class OriginalTrackRenderer {
               || mesh.geometry != hash
               || mesh.modelGeneration != generation) {
             long buildStart = System.nanoTime();
+            var previousFailure = STYLE_DRAW_FAILURES.get(rail.id);
             var decoration =
-                dev.fourthdimension.client.integration.TrackStylesRenderer.build(edge, rail);
+                previousFailure != null
+                        && previousFailure.generation == generation
+                        && previousFailure.revision == rail.revision
+                    ? null
+                    : dev.fourthdimension.client.integration.TrackStylesRenderer.build(edge, rail);
             var ownership =
                 decoration == null
                     ? dev.fourthdimension.integration.TrackRenderOwnership.original()
@@ -137,7 +149,11 @@ public final class OriginalTrackRenderer {
                         edge.from().equals(rail.from),
                         ownership,
                         tint),
-                    decoration);
+                    decoration,
+                    decoration == null
+                        ? List.of()
+                        : buildSpineFallback(
+                            edge, TrackDesign.byVariant(rail.variant).color));
             MESHES.put(rail.id, mesh);
             TrackRenderMetrics.meshBuilt(System.nanoTime() - buildStart);
           }
@@ -145,7 +161,7 @@ public final class OriginalTrackRenderer {
           inRangeRails++;
           inRangeQuads += mesh.quads.size();
           if (mesh.decoration != null) {
-            decorations.add(mesh.decoration);
+            decorations.add(new Decoration(rail.id, mesh, rail.valid ? 1f : .4f));
             inRangeDecorationPieces += mesh.decoration.pieces().size();
           }
         }
@@ -187,10 +203,32 @@ public final class OriginalTrackRenderer {
         }
       }
     }
-    buffers.endBatch(RenderType.debugQuads());
+    var failedDecorations = new ArrayList<Decoration>();
     for (var decoration : decorations)
-      dev.fourthdimension.client.integration.TrackStylesRenderer.draw(decoration, pose, buffers);
+      if (!dev.fourthdimension.client.integration.TrackStylesRenderer.draw(
+          decoration.mesh.decoration, pose, buffers)) {
+        STYLE_DRAW_FAILURES.put(
+            decoration.rail, new DrawFailure(decoration.mesh.modelGeneration, decoration.mesh.revision));
+        MESHES.remove(decoration.rail);
+        inRangeDecorationPieces -= decoration.mesh.decoration.pieces().size();
+        failedDecorations.add(decoration);
+      }
     if (!decorations.isEmpty()) buffers.endBatch(RenderType.cutoutMipped());
+    if (!failedDecorations.isEmpty()) {
+      // Reacquire after the provider batch: a provider can fail after queuing a partial cutout.
+      // Its style is disabled for this generation, and the only suppressed Original component is
+      // restored immediately; the next frame contains the fully Original cached mesh.
+      var fallbackConsumer = buffers.getBuffer(RenderType.debugQuads());
+      for (var decoration : failedDecorations) {
+        draw(
+            fallbackConsumer,
+            pose.last().pose(),
+            decoration.mesh.originalFallback,
+            decoration.alpha);
+        inRangeQuads += decoration.mesh.originalFallback.size();
+      }
+    }
+    buffers.endBatch(RenderType.debugQuads());
     pose.popPose();
     TrackRenderMetrics.rendered(
         System.nanoTime() - renderStart,
@@ -397,6 +435,30 @@ public final class OriginalTrackRenderer {
         }
         last = points;
       }
+    }
+    return List.copyOf(result);
+  }
+
+  /** The Original spine is the only procedural component omitted for a styled decoration. */
+  private static List<Quad> buildSpineFallback(CoasterPathEdge edge, int color) {
+    var level = Minecraft.getInstance().level;
+    var table = TrackGeometry.table(level, edge);
+    int count = Math.max(8, (int) Math.ceil(table.length() * 4));
+    var result = new ArrayList<Quad>();
+    Vec3 previous = null, oldUp = null, oldRight = null;
+    for (int i = 0; i <= count; i++) {
+      double distance = table.length() * i / count;
+      Vec3 center = CoasterPathGraphManager.sampleEdgePosition(level, edge, table.parameterAt(distance));
+      var basis =
+          CoasterPathTrackFrame.trackBasisAtHit(
+              level, new CoasterPathTrackFrame.GraphHit(center, edge, table.parameterAt(distance)));
+      Vec3 right = basis.right(), up = basis.up();
+      Vec3 current = center.add(up.scale(TrackDesign.SPINE_HEIGHT));
+      if (previous != null)
+        tube(result, previous, current, oldRight, oldUp, right, up, .22, .22, color);
+      previous = current;
+      oldUp = up;
+      oldRight = right;
     }
     return List.copyOf(result);
   }
