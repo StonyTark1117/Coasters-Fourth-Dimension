@@ -85,6 +85,7 @@ def summarize(root, digest):
         "difficulty": int(data["Difficulty"]),
         "seed": int(data["WorldGenSettings"]["seed"]),
         "player_position": [float(value) for value in player["Pos"]],
+        "player_rotation": [float(value) for value in player["Rotation"]],
         "inventory": inventory,
         "known_recipe_count": len(recipes),
         "fourthdimension_recipes": sorted(
