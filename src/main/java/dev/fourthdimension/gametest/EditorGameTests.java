@@ -99,6 +99,41 @@ public final class EditorGameTests {
               && copy.vehicles.values().iterator().next().carriers.getFirst().riderSeats.size() == 2
               && copy.rails.stream().mapToInt(r -> r.magnets.size()).sum() == 512,
           "Network round-trip lost identities or rider assignments");
+      var duplicateCarrierAssignment = snapshot.tag().copy();
+      var carriers =
+          duplicateCarrierAssignment
+              .getList("vehicles", net.minecraft.nbt.Tag.TAG_COMPOUND)
+              .getCompound(0)
+              .getList("carriers", net.minecraft.nbt.Tag.TAG_COMPOUND);
+      var rider =
+          carriers
+              .getCompound(0)
+              .getList("rider_seats", net.minecraft.nbt.Tag.TAG_COMPOUND)
+              .getCompound(0)
+              .getUUID("player");
+      carriers
+          .getCompound(1)
+          .getList("rider_seats", net.minecraft.nbt.Tag.TAG_COMPOUND)
+          .getCompound(0)
+          .putUUID("player", rider);
+      rejects(
+          helper,
+          () -> FoundationData.load(duplicateCarrierAssignment, helper.getLevel().registryAccess()),
+          "One rider was assigned to two carriers in a saved snapshot");
+      var duplicateVehicleAssignment = snapshot.tag().copy();
+      duplicateVehicleAssignment
+          .getList("vehicles", net.minecraft.nbt.Tag.TAG_COMPOUND)
+          .getCompound(1)
+          .getList("carriers", net.minecraft.nbt.Tag.TAG_COMPOUND)
+          .getCompound(0)
+          .getList("rider_seats", net.minecraft.nbt.Tag.TAG_COMPOUND)
+          .getCompound(0)
+          .putUUID("player", rider);
+      rejects(
+          helper,
+          () -> FoundationData.load(duplicateVehicleAssignment, helper.getLevel().registryAccess()),
+          "One rider was assigned to two vehicles in a saved snapshot");
+      System.out.println("FD_RIDER_ASSIGNMENTS duplicateCarrierReject=true duplicateVehicleReject=true");
     } finally {
       buf.release();
     }

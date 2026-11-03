@@ -292,6 +292,7 @@ public final class FoundationData extends SavedData {
       dev.fourthdimension.magnetic.MagneticData.validate(loadedRail);
     }
     Set<UUID> nativeBodyIds = new HashSet<>();
+    Set<UUID> assignedRiders = new HashSet<>();
     for (Tag raw : vehicles) {
       CompoundTag tag = (CompoundTag) raw;
       var vehicle = new Vehicle(tag.getUUID("chassis"), Family.byId(tag.getString("family")));
@@ -380,9 +381,11 @@ public final class FoundationData extends SavedData {
         for (Tag rawAssignment : c.getList("rider_seats", Tag.TAG_COMPOUND)) {
           var assignment = (CompoundTag) rawAssignment;
           var seat = BlockPos.of(assignment.getLong("seat"));
+          var rider = assignment.getUUID("player");
           if (!carrier.seats.contains(seat)
               || carrier.riderSeats.containsValue(seat)
-              || carrier.riderSeats.put(assignment.getUUID("player"), seat) != null)
+              || !assignedRiders.add(rider)
+              || carrier.riderSeats.put(rider, seat) != null)
             throw new IllegalArgumentException("Invalid rider seat assignment");
         }
         vehicle.carriers.add(carrier);
