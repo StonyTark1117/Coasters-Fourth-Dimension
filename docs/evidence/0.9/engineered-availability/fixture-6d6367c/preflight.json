@@ -1,0 +1,37 @@
+{
+  "status": "preflight only; native run not started",
+  "captured_at_utc": "2026-11-03T10:38:49.961426+00:00",
+  "source_revision": "6d6367cfe41d73c1f7f56083665a65205d464875",
+  "source_status": [],
+  "workspace": "/home/braydon/.codex/worktrees/pax-active-restart/Coasters: Fourth Dimension",
+  "jar": {
+    "path": "/tmp/fourthdimension-2aa0362f/build/libs/coasters-fourth-dimension-0.9.0-dev.27.jar",
+    "sha256": "817b744af848ed4b08f5cab5d916606368f1fba164a92201f0e95bb47d46cc6d"
+  },
+  "class_parity": {
+    "dev/fourthdimension/integration/EngineeredInterlock.class": {
+      "jar_sha256": "a223e43263ffbd99cf98dbdf991a2692e9087522acc79e0530ada686975039bd",
+      "compiled_sha256": "a223e43263ffbd99cf98dbdf991a2692e9087522acc79e0530ada686975039bd"
+    },
+    "dev/fourthdimension/gametest/EngineeredAvailabilityGameTests.class": {
+      "jar_sha256": "9a767da1a3b0f9c83a8d1f1566d789d53c17736663a18274e0d766123eaa5045",
+      "compiled_sha256": "9a767da1a3b0f9c83a8d1f1566d789d53c17736663a18274e0d766123eaa5045"
+    }
+  },
+  "planned_command": [
+    "./gradlew",
+    "runGameTestServer",
+    "--offline",
+    "--no-daemon",
+    "-PfdIntegrations=engineered"
+  ],
+  "runtime_kind": "development loose classes, not packaged-JAR runtime",
+  "expected_scope": "51 required tests including the new availability batch; preserve all failures",
+  "new_scenario": "Two Arrow cars; six native UNLOADED/serializer restores; ten unavailable motor probes and fourteen healthy positive controls",
+  "limits": [
+    "No natural chunk-unload/reload timing or occupied passenger test",
+    "No GUI/operator/FE workflow certification",
+    "No production fix yet"
+  ],
+  "probe_isolation": "Controller COAST during three-tick restore delays, LAUNCH only for direct probes; logical vehicle flags unchanged"
+}

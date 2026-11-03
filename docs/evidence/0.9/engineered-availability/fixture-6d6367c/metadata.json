@@ -1,0 +1,53 @@
+{
+  "status": "completed; fixture setup failure, no motor availability probes executed",
+  "captured_at_utc": "2026-11-03T10:38:49.961426+00:00",
+  "source_revision": "6d6367cfe41d73c1f7f56083665a65205d464875",
+  "source_status": [],
+  "workspace": "/home/braydon/.codex/worktrees/pax-active-restart/Coasters: Fourth Dimension",
+  "jar": {
+    "path": "/tmp/fourthdimension-2aa0362f/build/libs/coasters-fourth-dimension-0.9.0-dev.27.jar",
+    "sha256": "817b744af848ed4b08f5cab5d916606368f1fba164a92201f0e95bb47d46cc6d"
+  },
+  "class_parity": {
+    "dev/fourthdimension/integration/EngineeredInterlock.class": {
+      "jar_sha256": "a223e43263ffbd99cf98dbdf991a2692e9087522acc79e0530ada686975039bd",
+      "compiled_sha256": "a223e43263ffbd99cf98dbdf991a2692e9087522acc79e0530ada686975039bd"
+    },
+    "dev/fourthdimension/gametest/EngineeredAvailabilityGameTests.class": {
+      "jar_sha256": "9a767da1a3b0f9c83a8d1f1566d789d53c17736663a18274e0d766123eaa5045",
+      "compiled_sha256": "9a767da1a3b0f9c83a8d1f1566d789d53c17736663a18274e0d766123eaa5045"
+    }
+  },
+  "planned_command": [
+    "./gradlew",
+    "runGameTestServer",
+    "--offline",
+    "--no-daemon",
+    "-PfdIntegrations=engineered"
+  ],
+  "runtime_kind": "development loose classes, not packaged-JAR runtime",
+  "expected_scope": "51 required tests including the new availability batch; preserve all failures",
+  "new_scenario": "Two Arrow cars; six native UNLOADED/serializer restores; ten unavailable motor probes and fourteen healthy positive controls",
+  "limits": [
+    "No natural chunk-unload/reload timing or occupied passenger test",
+    "No GUI/operator/FE workflow certification",
+    "No production fix yet"
+  ],
+  "probe_isolation": "Controller COAST during three-tick restore delays, LAUNCH only for direct probes; logical vehicle flags unchanged",
+  "source": "6d6367cfe41d73c1f7f56083665a65205d464875",
+  "profile": "engineered",
+  "start_utc": "2026-11-03T10:40:42.047856+00:00",
+  "end_utc": "2026-11-03T10:45:49.694454+00:00",
+  "exit_code": 1,
+  "start_timestamp_basis": "new log birth time at shell redirection immediately before Gradle invocation",
+  "source_status_after": [],
+  "result_lines": [
+    "[03:40:54] [Server thread/ERROR] [minecraft/LogTestReporter]: nativemotorrejectstransientlyunavailablebodies failed at -11428589, -60, 8650417! Native physics currently requires building within 1024 blocks of origin",
+    "[03:45:19] [Server thread/INFO] [minecraft/GameTestServer]: ========= 51 GAME TESTS COMPLETE IN 4.419 min ======================",
+    "[03:45:19] [Server thread/INFO] [minecraft/GameTestServer]: 1 required tests failed :(",
+    "[03:45:19] [Server thread/INFO] [minecraft/MinecraftServer]: Stopping server",
+    "[03:45:20] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage: All dimensions are saved"
+  ],
+  "new_scenario_executed": false,
+  "reason": "X=-1200 violates TrackPlacement.checkEndpoint absolute X/Z <=1024 invariant"
+}
