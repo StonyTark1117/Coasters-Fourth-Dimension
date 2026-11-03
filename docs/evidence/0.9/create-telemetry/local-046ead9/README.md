@@ -23,13 +23,25 @@ Complete original frame files and compressed traces are retained
 beside the reports. These are sampled native Pig/default-model bounds, not
 player-mesh, continuous swept-volume or rendered clearance certification.
 
-**Subsequent verifier finding:** this run used verifier `b7b704b5…`, which skips
-rider-to-rack checks when a rider has no nearby track triangle. Its successful
-exit and empty `uncertifiedPairs` therefore do not establish rack clearance for
-every sampled rider. Preserve these reports as the original limited results;
-complete rider-to-rack acceptance requires a corrected-verifier rerun on these
-exact retained traces. Native tests and the client telemetry observations below
-are independent of this audit coverage gap.
+**Corrected rider-to-rack audit:** the original verifier `b7b704b5…` skipped
+rider-to-rack checks when no track triangle was nearby. The original reports above
+remain unchanged and retain that coverage limitation. A separate rerun of these
+exact retained traces with release verifier `20e3b7d` (SHA-256 `6da0e684…`) now
+passes all five single-car routes and both linked-train routes with no uncertified
+pairs. Every sampled rider is checked against both non-seat carrier volumes;
+report counters match a separate enumeration of the retained traces and models.
+See [corrected single-car results](corrected-single-clearance.json),
+[corrected train results](corrected-train-clearance.json), and
+[exact provenance and coverage counts](corrected-audit-provenance.json).
+
+The corrected reports hash the committed gzip inputs; the original reports hash
+their uncompressed bytes. Both representations are verified in the provenance.
+All geometry source and model-resource hashes match the original reports, including
+30 Fourth Dimension resources checked against the tested JAR. This is an offline
+re-audit, not a runtime rerun or new candidate build. It closes this verifier's
+sampled rider/rack coverage gap only; player meshes, rendered clearance, continuous
+sweeps and complete FD402 acceptance remain outside the result. Native tests and
+the client telemetry observations below retain their original scope.
 
 ## Actual clients and controls
 
@@ -77,9 +89,12 @@ JAVA_HOME=/usr/lib/jvm/java-21-openjdk ./gradlew runGameTestServer -PfdPackaged
 
 Preserve frame/trace files before another GameTest run deletes them. Install
 `scripts/requirements-geometry.txt` in an isolated Python environment. Run the
-unchanged `verify-recovery-bank-frames.py` on each frame file (add `--trains` for
-the train file), then `audit-recovery-mesh-trace.py` with the pinned Coasters JAR,
-Minecraft client JAR, frame JSON and matching `.jsonl.gz` trace.
+`verify-recovery-bank-frames.py` on each frame file (add `--trains` for
+the train file). For the corrected clearance reports, use
+`audit-recovery-mesh-trace.py` from release verifier commit `20e3b7d` with the
+pinned Coasters JAR, Minecraft client JAR, frame JSON and matching `.jsonl.gz`
+trace. The verifier SHA-256 must match the corrected provenance; the older
+verifier at the runtime source revision retains the documented coverage gap.
 
 For GUI replay, launch `runServer`, `runClient` and `runObserver` with
 `-PfdPackaged -PfdValidation`, adding `-PfdConnect=127.0.0.1:25565` to clients.

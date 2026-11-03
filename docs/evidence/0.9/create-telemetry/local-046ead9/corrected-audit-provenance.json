@@ -1,0 +1,151 @@
+{
+  "runtimeSourceRevision": "046ead9b564a55cf08f3e28b24eb22aa4f06d3fd",
+  "jarSha256": "d271ea78298a2b421ea76ac0d5a348ecd6ab90beba00cc9abb5c79556f0741f2",
+  "verifierCommit": "20e3b7d6a83a168565e4c632d72e36f1fef66ee0",
+  "verifierSha256": "6da0e684f424875f394b3322e2e57d95ed0fb4de37dbe8f13ef3e7e87a40d87d",
+  "modelResourcesMatchedToRuntimeJar": 30,
+  "python": "Python 3.14.8",
+  "numpy": "2.5.3",
+  "result": "passed for both retained trace sets; sampled native/default-model scope only",
+  "inputCoverage": {
+    "single": {
+      "traceGzipSha256": "83c3bb9d6f303033248c11fbdbac91c3cd92cb94949a44e40f1b227e43ef00d7",
+      "traceUncompressedSha256": "393361cfc713016e1d77f6d2a586d82d601211081322e4c63df033c1c75751f9",
+      "routes": {
+        "arrow_four_rail_v1": {
+          "samples": 5764,
+          "riders": 23056,
+          "rackPairs": 46112,
+          "minRackPairsPerRider": 2,
+          "maxRackPairsPerRider": 2
+        },
+        "zacspin_legacy_v1": {
+          "samples": 5846,
+          "riders": 46768,
+          "rackPairs": 93536,
+          "minRackPairsPerRider": 2,
+          "maxRackPairsPerRider": 2
+        },
+        "sns_magnetic_v1": {
+          "samples": 5873,
+          "riders": 46984,
+          "rackPairs": 93968,
+          "minRackPairsPerRider": 2,
+          "maxRackPairsPerRider": 2
+        },
+        "zacspin_revised_v1": {
+          "samples": 5866,
+          "riders": 46928,
+          "rackPairs": 93856,
+          "minRackPairsPerRider": 2,
+          "maxRackPairsPerRider": 2
+        },
+        "pax_shuttle_v1": {
+          "samples": 5768,
+          "riders": 23072,
+          "rackPairs": 46144,
+          "minRackPairsPerRider": 2,
+          "maxRackPairsPerRider": 2
+        }
+      }
+    },
+    "train": {
+      "traceGzipSha256": "6684f968acdda2bc63371f4039732055e218b95647c5a06998e3a724a7d79394",
+      "traceUncompressedSha256": "deadf869ed27a71deb8bdc40cd08df282774182c42942fc0625fa2f9bfe3833b",
+      "routes": {
+        "arrow_four_rail_v1": {
+          "samples": 6548,
+          "riders": 52384,
+          "rackPairs": 104768,
+          "minRackPairsPerRider": 2,
+          "maxRackPairsPerRider": 2
+        },
+        "pax_shuttle_v1": {
+          "samples": 6973,
+          "riders": 111568,
+          "rackPairs": 223136,
+          "minRackPairsPerRider": 2,
+          "maxRackPairsPerRider": 2
+        }
+      }
+    }
+  },
+  "routes": {
+    "single": [
+      {
+        "family": "ARROW",
+        "cars": 1,
+        "samples": 5764,
+        "riderEnvelopeCount": 23056,
+        "riderRackEnvelopeCount": 46112,
+        "riderRackMinimumSeparatingBound": 0.06250002980209501,
+        "minimumSeparatingBound": 0.04894615252931089,
+        "passes": true
+      },
+      {
+        "family": "LEGACY",
+        "cars": 1,
+        "samples": 5846,
+        "riderEnvelopeCount": 46768,
+        "riderRackEnvelopeCount": 93536,
+        "riderRackMinimumSeparatingBound": 0.06250002980209501,
+        "minimumSeparatingBound": 0.04394927450312025,
+        "passes": true
+      },
+      {
+        "family": "FREE_SPIN",
+        "cars": 1,
+        "samples": 5873,
+        "riderEnvelopeCount": 46984,
+        "riderRackEnvelopeCount": 93968,
+        "riderRackMinimumSeparatingBound": 0.06250002980209501,
+        "minimumSeparatingBound": 0.044065846269745634,
+        "passes": true
+      },
+      {
+        "family": "REVISED",
+        "cars": 1,
+        "samples": 5866,
+        "riderEnvelopeCount": 46928,
+        "riderRackEnvelopeCount": 93856,
+        "riderRackMinimumSeparatingBound": 0.06250002980209501,
+        "minimumSeparatingBound": 0.044153061822839845,
+        "passes": true
+      },
+      {
+        "family": "PAX",
+        "cars": 1,
+        "samples": 5768,
+        "riderEnvelopeCount": 23072,
+        "riderRackEnvelopeCount": 46144,
+        "riderRackMinimumSeparatingBound": 0.06250002980209501,
+        "minimumSeparatingBound": 0.044088139024324846,
+        "passes": true
+      }
+    ],
+    "train": [
+      {
+        "family": "ARROW",
+        "cars": 2,
+        "samples": 6548,
+        "riderEnvelopeCount": 52384,
+        "riderRackEnvelopeCount": 104768,
+        "riderRackMinimumSeparatingBound": 0.06250002980209501,
+        "minimumSeparatingBound": 0.04878234623208755,
+        "passes": true
+      },
+      {
+        "family": "PAX",
+        "cars": 4,
+        "samples": 6973,
+        "riderEnvelopeCount": 111568,
+        "riderRackEnvelopeCount": 223136,
+        "riderRackMinimumSeparatingBound": 0.06250002980209501,
+        "minimumSeparatingBound": 0.0439834194503419,
+        "passes": true
+      }
+    ]
+  },
+  "traceHashConvention": "Original reports hashed uncompressed JSONL; corrected reports hash the supplied committed gzip files. Decompressed bytes match the original trace hashes.",
+  "reproduction": "Use scripts/audit-recovery-mesh-trace.py from verifierCommit with the recorded geometry/resources, pinned Coasters and Minecraft JARs, and each retained frames JSON plus matching jsonl.gz trace; Python 3.14.8 / NumPy 2.5.3. No runtime replay or artifact rebuild."
+}

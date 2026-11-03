@@ -10,8 +10,8 @@
   "nativeResult": "passed",
   "unitTests": 26,
   "unitResult": "passed",
-  "singleClearance": "original verifier passed; complete rider-to-rack coverage unproven",
-  "trainClearance": "original verifier passed; complete rider-to-rack coverage unproven",
+  "singleClearance": "corrected verifier passed all five retained single-car traces; sampled native/default-model scope",
+  "trainClearance": "corrected verifier passed both retained linked-train traces; sampled native/default-model scope",
   "renderEnvironment": "Xvfb :121, 854x480, llvmpipe LLVM23.1.3 Mesa26.2.5; no hardware/FPS acceptance",
   "clientNames": [
     "Dev",
@@ -72,11 +72,14 @@
     }
   ],
   "files": {
-    "README.md": "53de2092c14c4ded82518d16145fac770d3b6ea3ff73dd9eefd7fdb9b0db4da0",
+    "README.md": "e1908044a6096222b1ec3f86b73cdb83a1ff09e064f6e14243aee8fc8141e626",
     "after-cold-restart.png": "b06df795dba27ac7f20d93704a48ab72d299c9b27e8330bd679fbf40abfefef0",
     "after-resource-reload.png": "faf29bf839854d987042f5e907d5a89023c30892e513506d257bd8e329163f3d",
     "arrow-goggles.png": "87fa2a7b315cfbda7adc8cdccc6ae686b36aa6979f8abbc3caddd5ae03447b3e",
     "client.log.gz": "701bf5c101160914037a90b5c0375bb082b1a35219ea1bf2ce5c29bb796e4e2f",
+    "corrected-audit-provenance.json": "07930ab9f23465baf33266d042628d351337a3cc3953cc71ab516f52ae0683d9",
+    "corrected-single-clearance.json": "62973a18a1c15b1c5b8cfcae5f8e7fd2325d734cb7c0c5c6e52ec4ee9eeb63e0",
+    "corrected-train-clearance.json": "f0924cf387b1d886a7cc89f2041c896aa0ac5f1fed29404568bc2d3d5313a2c0",
     "free-spin-goggles.png": "d56c0d4fc91d034e0249f307d6e0ac5a21c06532cd4ff4f92d4d75dfc273fcd2",
     "initial-server-observations.jsonl": "d0f38d7978c3ecbc1d378b7e3283e79c623dec041e3e71072d6135e656155a66",
     "legacy-goggles.png": "87361c85fd66d58b104c15163ca8e5d252d1000d6033e195ab59d84d00b384f6",
@@ -113,5 +116,6 @@
     "train-clearance.json": "cf503fd94cbbd606b0c6f507bb7ba6a0515f3df9ce033d44e011da4912152df1",
     "train-route-geometry.json": "543b348edbcd1a2918645ed36835f4ad6ffbfa6ff2fc6d8ae2faa055cd4273fa"
   },
-  "clearanceLimitation": "Verifier b7b704b5 skips rider-to-rack checks when no nearby track triangle exists; corrected audit required on retained traces."
+  "clearanceLimitation": "Original verifier b7b704b5 reports retain incomplete rider-to-rack coverage. Separate corrected reports from 20e3b7d cover every sampled rider against both non-seat carrier volumes; no player-mesh, rendered or continuous-sweep certification.",
+  "correctedClearanceProvenance": "corrected-audit-provenance.json"
 }
