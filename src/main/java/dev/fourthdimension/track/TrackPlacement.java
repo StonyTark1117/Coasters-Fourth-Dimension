@@ -115,9 +115,10 @@ public final class TrackPlacement {
         CoasterPathEdge.curve(curve.bePositions.getFirst(), curve.bePositions.getSecond(), curve);
     double length = TrackGeometry.table(level, edge).length();
     int cost = (int) Math.ceil(length / 4);
+    var requiredItem = held.getItem();
     int available = 0;
     for (var stack : player.getInventory().items)
-      if (stack.is(held.getItem())) available += stack.getCount();
+      if (stack.is(requiredItem)) available += stack.getCount();
     if (!player.isCreative() && available < cost)
       throw new IllegalArgumentException("Requires " + cost + " matching track items");
     var rail =
@@ -158,7 +159,7 @@ public final class TrackPlacement {
     data.setDirty();
     if (!player.isCreative())
       for (var stack : player.getInventory().items)
-        if (stack.is(held.getItem())) {
+        if (stack.is(requiredItem)) {
           int take = Math.min(cost, stack.getCount());
           stack.shrink(take);
           cost -= take;
