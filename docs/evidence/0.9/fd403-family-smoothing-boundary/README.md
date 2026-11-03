@@ -55,14 +55,38 @@ five-argument builder: the value must reach an appropriate creation path. Do not
 drop normal validation or neighboring-curve bookkeeping to obtain a flatter
 curve; establish the chosen API's complete semantics first.
 
+## Follow-up: native client preference context
+
+[client-gating.json](client-gating.json) records a separate read-only inspection
+of `CoasterTrackPlacementNeighborSmoothSuppressClient` from the same pinned JAR.
+It contains exact method bytes and resolved call/branch/type-check operands.
+
+- `tracksPlacementContext(Minecraft)` accepts only a main-hand or offhand item
+  that is an instance of native `CoasterTrackItem` (type checks at offsets 12 and
+  32). Our `FamilyTrackItem` directly extends `Item`, so it does not satisfy that
+  condition.
+- `clientTick(Minecraft)` calls `syncSuppress(false)` when there is no player or
+  the placement context is false. Only the accepted native context reaches
+  `isSuppressNeighborSmoothing()`, which reads `AllKeys.altDown()`.
+- `syncSuppress(boolean)` compares the last sent value, then sends
+  `CoasterTrackPlacementNeighborSmoothSuppressPayload` on change. Thus holding
+  only our family item does not normally send the Alt preference through this
+  client path. The getter/server map alone cannot correct that missing input.
+
+A native coaster track in the other hand could satisfy the native client context,
+but does not alter our constant-false builder. It is neither a proven workaround
+nor an acceptable substitute for a normal family-item control. This follows the
+inspected type checks; no real keyboard, packet-delivery or reconnect test was
+performed. A correction needs to define family-item context and state clearing
+without competing client senders, then verify the resulting server geometry.
+
 ## Implementation-owner handoff
 
 Choose an explicit, server-validated construction behavior that allows a level
 station without sacrificing matching-family eligibility, source geometry,
 profiles, item cost, occupancy guards or exact support restoration. If using
-upstream suppression, first verify client preference delivery for our held item
-and the correct player-aware/six-argument construction API; this inspection does
-not establish that a payload is sent while holding a Fourth Dimension item.
+upstream suppression, address the excluded family-item client context above and
+verify actual preference delivery and the correct six-argument construction API.
 Preview and committed geometry must agree. Keep that decision with the main
 implementation owner.
 

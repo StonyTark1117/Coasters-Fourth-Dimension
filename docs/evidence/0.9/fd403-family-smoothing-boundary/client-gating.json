@@ -1,0 +1,265 @@
+{
+  "scope": "Pinned native client bytecode; no GUI/network test executed",
+  "jar_sha256": "f80b4c3cdf9fa6188804967147761b0373e150a6eadbdc53626e5ac9700b2049",
+  "class": "dev/silvergold/simulatedcoasters/client/track/CoasterTrackPlacementNeighborSmoothSuppressClient.class",
+  "class_sha256": "bd0d17a244d1b61f83f4af86cee6b00a12e6e047dc29abbf523994d847043545",
+  "methods": [
+    {
+      "name": "isSuppressNeighborSmoothing",
+      "descriptor": "()Z",
+      "access_flags": 9,
+      "code_hex": "b80007ac",
+      "code_sha256": "65d11931a66cfccf94c1214472a8b8be6e28aebea389bfd8e2f1dceb4397a43e",
+      "instructions": [
+        {
+          "offset": 0,
+          "opcode": "0xb8",
+          "symbol": "com/simibubi/create/AllKeys/altDown/()Z"
+        },
+        {
+          "offset": 3,
+          "opcode": "0xac"
+        }
+      ]
+    },
+    {
+      "name": "clientTick",
+      "descriptor": "(Lnet/minecraft/client/Minecraft;)V",
+      "access_flags": 9,
+      "code_hex": "2ab4000dc7000803b80013b12ab800199a000803b80013b1b8001db80013b1",
+      "code_sha256": "9f79c20816c09c9bd6b193db290b4f94af21d8c1cd365295ac436f0b6b06c8fb",
+      "instructions": [
+        {
+          "offset": 0,
+          "opcode": "0x2a"
+        },
+        {
+          "offset": 1,
+          "opcode": "0xb4",
+          "symbol": "net/minecraft/client/Minecraft/player/Lnet/minecraft/client/player/LocalPlayer;"
+        },
+        {
+          "offset": 4,
+          "opcode": "0xc7",
+          "branch_target": 12
+        },
+        {
+          "offset": 7,
+          "opcode": "0x3"
+        },
+        {
+          "offset": 8,
+          "opcode": "0xb8",
+          "symbol": "dev/silvergold/simulatedcoasters/client/track/CoasterTrackPlacementNeighborSmoothSuppressClient/syncSuppress/(Z)V"
+        },
+        {
+          "offset": 11,
+          "opcode": "0xb1"
+        },
+        {
+          "offset": 12,
+          "opcode": "0x2a"
+        },
+        {
+          "offset": 13,
+          "opcode": "0xb8",
+          "symbol": "dev/silvergold/simulatedcoasters/client/track/CoasterTrackPlacementNeighborSmoothSuppressClient/tracksPlacementContext/(Lnet/minecraft/client/Minecraft;)Z"
+        },
+        {
+          "offset": 16,
+          "opcode": "0x9a",
+          "branch_target": 24
+        },
+        {
+          "offset": 19,
+          "opcode": "0x3"
+        },
+        {
+          "offset": 20,
+          "opcode": "0xb8",
+          "symbol": "dev/silvergold/simulatedcoasters/client/track/CoasterTrackPlacementNeighborSmoothSuppressClient/syncSuppress/(Z)V"
+        },
+        {
+          "offset": 23,
+          "opcode": "0xb1"
+        },
+        {
+          "offset": 24,
+          "opcode": "0xb8",
+          "symbol": "dev/silvergold/simulatedcoasters/client/track/CoasterTrackPlacementNeighborSmoothSuppressClient/isSuppressNeighborSmoothing/()Z"
+        },
+        {
+          "offset": 27,
+          "opcode": "0xb8",
+          "symbol": "dev/silvergold/simulatedcoasters/client/track/CoasterTrackPlacementNeighborSmoothSuppressClient/syncSuppress/(Z)V"
+        },
+        {
+          "offset": 30,
+          "opcode": "0xb1"
+        }
+      ]
+    },
+    {
+      "name": "tracksPlacementContext",
+      "descriptor": "(Lnet/minecraft/client/Minecraft;)Z",
+      "access_flags": 10,
+      "code_hex": "2ab4000db600204c2bb60026c1002c99000504ac2ab4000db6002e4d2cb60026c1002cac",
+      "code_sha256": "c1da046069c21caa23b93938dc35bebeb749cfd205e7391da2caeb72f2d7d487",
+      "instructions": [
+        {
+          "offset": 0,
+          "opcode": "0x2a"
+        },
+        {
+          "offset": 1,
+          "opcode": "0xb4",
+          "symbol": "net/minecraft/client/Minecraft/player/Lnet/minecraft/client/player/LocalPlayer;"
+        },
+        {
+          "offset": 4,
+          "opcode": "0xb6",
+          "symbol": "net/minecraft/client/player/LocalPlayer/getMainHandItem/()Lnet/minecraft/world/item/ItemStack;"
+        },
+        {
+          "offset": 7,
+          "opcode": "0x4c"
+        },
+        {
+          "offset": 8,
+          "opcode": "0x2b"
+        },
+        {
+          "offset": 9,
+          "opcode": "0xb6",
+          "symbol": "net/minecraft/world/item/ItemStack/getItem/()Lnet/minecraft/world/item/Item;"
+        },
+        {
+          "offset": 12,
+          "opcode": "0xc1",
+          "symbol": "dev/silvergold/simulatedcoasters/track/CoasterTrackItem"
+        },
+        {
+          "offset": 15,
+          "opcode": "0x99",
+          "branch_target": 20
+        },
+        {
+          "offset": 18,
+          "opcode": "0x4"
+        },
+        {
+          "offset": 19,
+          "opcode": "0xac"
+        },
+        {
+          "offset": 20,
+          "opcode": "0x2a"
+        },
+        {
+          "offset": 21,
+          "opcode": "0xb4",
+          "symbol": "net/minecraft/client/Minecraft/player/Lnet/minecraft/client/player/LocalPlayer;"
+        },
+        {
+          "offset": 24,
+          "opcode": "0xb6",
+          "symbol": "net/minecraft/client/player/LocalPlayer/getOffhandItem/()Lnet/minecraft/world/item/ItemStack;"
+        },
+        {
+          "offset": 27,
+          "opcode": "0x4d"
+        },
+        {
+          "offset": 28,
+          "opcode": "0x2c"
+        },
+        {
+          "offset": 29,
+          "opcode": "0xb6",
+          "symbol": "net/minecraft/world/item/ItemStack/getItem/()Lnet/minecraft/world/item/Item;"
+        },
+        {
+          "offset": 32,
+          "opcode": "0xc1",
+          "symbol": "dev/silvergold/simulatedcoasters/track/CoasterTrackItem"
+        },
+        {
+          "offset": 35,
+          "opcode": "0xac"
+        }
+      ]
+    },
+    {
+      "name": "syncSuppress",
+      "descriptor": "(Z)V",
+      "access_flags": 10,
+      "code_hex": "1ab20031a00004b11ab30031bb0035591ab7003703bd0039b8003bb1",
+      "code_sha256": "0970b6bc19aa554181063d836e29b6dcfb2852e63e2cf64e4dd09e3c9451b6f8",
+      "instructions": [
+        {
+          "offset": 0,
+          "opcode": "0x1a"
+        },
+        {
+          "offset": 1,
+          "opcode": "0xb2",
+          "symbol": "dev/silvergold/simulatedcoasters/client/track/CoasterTrackPlacementNeighborSmoothSuppressClient/lastSentSuppress/Z"
+        },
+        {
+          "offset": 4,
+          "opcode": "0xa0",
+          "branch_target": 8
+        },
+        {
+          "offset": 7,
+          "opcode": "0xb1"
+        },
+        {
+          "offset": 8,
+          "opcode": "0x1a"
+        },
+        {
+          "offset": 9,
+          "opcode": "0xb3",
+          "symbol": "dev/silvergold/simulatedcoasters/client/track/CoasterTrackPlacementNeighborSmoothSuppressClient/lastSentSuppress/Z"
+        },
+        {
+          "offset": 12,
+          "opcode": "0xbb",
+          "symbol": "dev/silvergold/simulatedcoasters/track/CoasterTrackPlacementNeighborSmoothSuppressPayload"
+        },
+        {
+          "offset": 15,
+          "opcode": "0x59"
+        },
+        {
+          "offset": 16,
+          "opcode": "0x1a"
+        },
+        {
+          "offset": 17,
+          "opcode": "0xb7",
+          "symbol": "dev/silvergold/simulatedcoasters/track/CoasterTrackPlacementNeighborSmoothSuppressPayload/<init>/(Z)V"
+        },
+        {
+          "offset": 20,
+          "opcode": "0x3"
+        },
+        {
+          "offset": 21,
+          "opcode": "0xbd",
+          "symbol": "net/minecraft/network/protocol/common/custom/CustomPacketPayload"
+        },
+        {
+          "offset": 24,
+          "opcode": "0xb8",
+          "symbol": "net/neoforged/neoforge/network/PacketDistributor/sendToServer/(Lnet/minecraft/network/protocol/common/custom/CustomPacketPayload;[Lnet/minecraft/network/protocol/common/custom/CustomPacketPayload;)V"
+        },
+        {
+          "offset": 27,
+          "opcode": "0xb1"
+        }
+      ]
+    }
+  ]
+}
