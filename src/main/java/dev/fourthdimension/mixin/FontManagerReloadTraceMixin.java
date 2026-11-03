@@ -12,7 +12,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-/** Logs only opt-in FontManager apply boundaries; it does not modify cache or provider ownership. */
+/** Records FontManager apply boundaries and publishes the current set map for closed-set recovery. */
 @Mixin(FontManager.class)
 public abstract class FontManagerReloadTraceMixin {
   @Shadow @Final private Map<ResourceLocation, FontSet> fontSets;
@@ -24,6 +24,6 @@ public abstract class FontManagerReloadTraceMixin {
 
   @Inject(method = "apply", at = @At("RETURN"))
   private void fourthdimension$applyEnd(CallbackInfo ci) {
-    FontReloadTrace.applyEnd(fontSets.size());
+    FontReloadTrace.applyEnd(fontSets);
   }
 }

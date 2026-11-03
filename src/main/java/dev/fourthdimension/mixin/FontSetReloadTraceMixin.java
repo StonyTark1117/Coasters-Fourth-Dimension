@@ -13,7 +13,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-/** Marks an observed FontSet closed so an impossible subsequent glyph lookup is attributable. */
+/** Records closed sets and redirects any later glyph lookup to the current reloaded set. */
 @Mixin(FontSet.class)
 public abstract class FontSetReloadTraceMixin {
   @Shadow @Final private ResourceLocation name;
@@ -25,9 +25,17 @@ public abstract class FontSetReloadTraceMixin {
     FontReloadTrace.fontSetClosed(name, System.identityHashCode(this));
   }
 
+  @Inject(method = "getGlyph", at = @At("HEAD"), cancellable = true)
+  private void fourthdimension$redirectClosedSet(
+      int codepoint, CallbackInfoReturnable<BakedGlyph> cir) {
+    if (!fourthdimension$closed) return;
+    FontSet replacement = FontReloadTrace.replacementForClosedSet(name, (FontSet) (Object) this);
+    if (replacement != null) cir.setReturnValue(replacement.getGlyph(codepoint));
+  }
+
   @Inject(method = "computeBakedGlyph", at = @At("HEAD"))
   private void fourthdimension$glyphStart(int codepoint, CallbackInfoReturnable<BakedGlyph> ci) {
-    FontReloadTrace.glyphStart(name, codepoint, fourthdimension$closed);
+    FontReloadTrace.glyphStart(name, System.identityHashCode(this), codepoint, fourthdimension$closed);
   }
 
   @Inject(method = "computeBakedGlyph", at = @At("RETURN"))
