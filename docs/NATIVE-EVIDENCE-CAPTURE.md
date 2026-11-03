@@ -158,3 +158,75 @@ nonfinite/corrupted original frames, and reversed-edge angle/slope/direction
 consistency. They validate the verifier, not native sampling.
 The Java export extension still needs the coordinator's build and native run;
 no new clearance or runtime acceptance is claimed by this tooling change.
+
+
+## Prospective Styles recovery geometry audit
+
+After fresh native exports pass the checks above, use
+[audit-recovery-styles.py](../scripts/audit-recovery-styles.py) to evaluate a
+**proposed** default Styles configuration at those recorded Arrow recovery poses.
+This does not prove the client selected or rendered the configuration. Keep its
+report separate from observed appearance/operator acceptance.
+
+```sh
+python3 scripts/audit-recovery-styles.py \
+  "$fd_coasters_jar" "$fd_minecraft_resources_jar" "$fd_styles_jar" \
+  "$fd_frames" "$fd_mesh_trace" --style arrow_4d
+```
+
+Repeat for `--style arrow_4d_dbl_spine`, and for both single-car and train exports.
+Use uncompressed archived copies of the paired frame/trace files. For a proposed
+transition layout, replace `--style` with `--style-plan path/to/plan.json`; that
+JSON object must map every Arrow rail UUID to `original`, `arrow_4d` or
+`arrow_4d_dbl_spine`. At least one section must be styled. Unknown styles,
+non-Arrow geometry and styled profiles above the supported upper stroke are
+rejected; explicitly select Original where fallback is intended.
+
+The tool chains the exact-input verifier, trace identity check and existing
+five-section native-route verifier. Do not run with Python `-O`, because the
+route verifier uses assertions. It then reconstructs the proposed surface:
+
+- Preserve running/control rails and native running supports.
+- Remove the Original spine only on styled sections.
+- Move those sections' control-mount attachments to the renderer's lower spine
+  point, using `renderProfileAngle` for the control rail.
+- Include the renderer's extra crossbrace and both endpoint spine-step bridges.
+- Apply each recorded model-to-world matrix once to the pinned provider's raw
+  OBJ positions, without applying the tie origin or spine scale a second time.
+
+The existing recovery mesh audit accepts this explicit surface through an
+optional argument; its default Original path is unchanged. The same audit
+checks recorded chassis/carrier/linkage blocks, lower bearing, full-spin wheel
+envelopes and mounted native-rider volumes, including neighboring cars and the
+ordinary recovery body. Intended running-rail contact remains excluded only for
+wheels. The sample-count, continuous tick sequence, five-section travel,
+completion-marker, passenger and body-identity checks remain required. A zero
+separating bound remains uncertified; no thresholds are relaxed.
+
+Source and dependency hashes guard reconstruction. The new wrapper explicitly
+reviews the `8a7ffdb` fixture change: its only difference from the older mesh
+verifier's pinned `BankedRecoveryExamples` is the call that copies the native
+curve into `rail.originalCurve`. This adds recovery provenance without changing
+fixture geometry. The wrapper pins that newer source; the historical Original
+CLI and its old source pins remain unchanged. Any later source change requires
+reinspection, not merely replacing a hash to obtain a pass.
+
+Reports include the saved appearance separately from the proposed plan, component
+counts, model/body resource hashes, input/source/tool hashes and NumPy version.
+Only aggregate measurements and identities are written; third-party model data
+stays in memory. Use the project's geometry dependency environment; the offline
+unit checks here ran with NumPy 2.5.4 and do not constitute native acceptance.
+
+Six additional synthetic tests cover raw OBJ indexing, a once-applied tie origin,
+style ownership and lowered supports, Original/double-spine transitions, invalid
+plans/stroke/family rejection and contained-triangle rejection. Run both suites:
+
+```sh
+python3 -B -m unittest discover -s scripts/tests -p 'test_recovery_*.py' -v
+```
+
+This remains tick-sampled body-versus-track default-model analysis. It does not
+check track-to-decoration self-clearance or establish continuous physics-step clearance, player meshes/cosmetics, resource replacements, visible
+client rendering, installed model availability or occupied full-turn operation.
+Fresh exported inputs and an actual audit run are still pending; passing synthetic
+tests or parsing the four pinned OBJ resources is not a clearance pass.

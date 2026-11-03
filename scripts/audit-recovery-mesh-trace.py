@@ -245,8 +245,8 @@ def is_linkage(label):
     return any(label.startswith(block + "@") for block in LINKAGE_BLOCKS)
 
 
-def audit(route, entries, resources, margin):
-    triangles, labels = track_mesh(route)
+def audit(route, entries, resources, margin, *, surface=None):
+    triangles, labels = track_mesh(route) if surface is None else surface
     lows, highs = triangles.min(axis=1), triangles.max(axis=1)
     grid = {}
     for index, (low, high) in enumerate(zip(lows, highs)):
