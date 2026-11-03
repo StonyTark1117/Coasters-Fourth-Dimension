@@ -16,3 +16,13 @@ single-car and train exports, paired with their respective traces. They passed
 for 5 routes/25 sections and 2 routes/10 sections, respectively. These reports
 are numerical input checks only; they are not a Styles rendering or clearance
 result.
+
+`single-original-mesh-audit.json` is the matching offline audit of the captured
+single-car recovery trace. It passed all five Original-family routes at a
+one-tick cadence, with 5,767–5,873 samples per route, every car visiting each
+of the five route sections, and a lowest recorded separating bound of
+0.043944863558635916 blocks against its stated 0.02-block requirement. Its
+explicit scope remains original default block models, sampled body/linkage,
+wheel-envelope and native-rider volumes. It excludes client rendering,
+decorations, Styles geometry, player meshes, arbitrary resources and continuous
+physics-step clearance; the train report is separate and still pending.
