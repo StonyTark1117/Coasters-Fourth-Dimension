@@ -38,6 +38,20 @@ not the required four-car shuttle. No motor was placed, no rider boarded, and
 no powered cycle or final catch is claimed. The saved Chain stack retains a
 selection target; it can be replaced with a fresh upstream Chain before retry.
 
+Post-save inspection of the original Coasters path record found that the
+station curve between `(400,-43,250)` and `(400,-43,282)` has endpoint axis
+Y components `-0.215512` and `-0.163029`, although its anchors share Y=-43.
+Those are measured nonlevel station tangents, consistent with the observed
+unlinked cars rolling together. Coasters 0.1.5's own Ponder lesson says Left Alt
+disables neighbor smoothing during placement, and its placement code routes
+that key state into the smoothing guard (installed Coasters JAR SHA-256
+`f80b4c3cdf9fa6188804967147761b0373e150a6eadbdc53626e5ac9700b2049`).
+A retry should keep the station
+level while connecting the spike sections and verify six-block car spacing
+before Chain clicks. This is a route diagnosis, not a passing retry. The raw
+saved Coasters path record SHA-256 is
+`25fbd5c1b379522a4a5f7482430ba660b96c1a33671b326adf6dab644b0b8a7f`.
+
 All three client sessions exited through normal save and title controls, with
 `BUILD SUCCESSFUL` in their logs. Log SHA-256 values, in construction, rebind,
 and winch order, are

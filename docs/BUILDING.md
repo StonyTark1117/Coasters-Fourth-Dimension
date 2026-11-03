@@ -108,6 +108,13 @@ after it, measured along the route. You can operate one to four matching cars;
 the four-car walkthrough needs at least 38 blocks after the lead car. A flat
 straight section can hold a car but cannot bind as a working shuttle route.
 
+Connect the level station section before its rising spike sections. Hold
+**Left Alt** while placing a spike connection to disable Coasters' automatic
+neighbor smoothing, which can pull the existing station tangent downhill even
+when its two anchors have the same Y coordinate. Inspect the resulting station
+curve before placing cars; reshape a sloped station before trying to link a
+four-car consist.
+
 With a Minecraft Chain in the main hand, right-click the first stopped car and
 then its neighbor to couple that pair. Repeat for the second/third and
 third/fourth cars. The game confirms each pair with **Carts coupled**; sneak
