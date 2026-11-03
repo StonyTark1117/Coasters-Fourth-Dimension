@@ -1,0 +1,113 @@
+{
+  "sourceRevision": "effa1c63a668bf1856c567fc702105c01e9accd4",
+  "jarSha256": "9014f8f27724536e088e3a3e546c20930dae45c0fa0b7e363fdb8e62c772de88",
+  "profile": "standalone",
+  "validationFlag": true,
+  "buildResult": "passed; compilation and test outputs reused from Gradle cache; exact packaged JAR matches core artifact",
+  "world": "telemetry-effa1c6",
+  "createdUtc": "2026-11-03T01:11:10.903947+00:00",
+  "dependencies": [
+    {
+      "file": "create-1.21.1-6.0.10-280.jar",
+      "path": "/home/braydon/.gradle/caches/modules-2/files-2.1/com.simibubi.create/create-1.21.1/6.0.10-280/62c085fd48fc84b62f88d7bc98b7c4206492c080/create-1.21.1-6.0.10-280.jar",
+      "sha256": "192c7b0be13f523dcec9a7a2393bbc2614c3c9bd3edb1f7720a97bcd4f0b87a7"
+    },
+    {
+      "file": "create-1.21.1-6.0.10-280-slim.jar",
+      "path": "/home/braydon/.gradle/caches/modules-2/files-2.1/com.simibubi.create/create-1.21.1/6.0.10-280/92471e8fc5ed4e3c2279001d77ebcec6fd38bcab/create-1.21.1-6.0.10-280-slim.jar",
+      "sha256": "f0652bee27460f2d26a748f537cb5d687981441378d3a526d17ffaab5a1072bb"
+    },
+    {
+      "file": "Registrate-MC1.21-1.3.0+67.jar",
+      "path": "/home/braydon/.gradle/caches/modules-2/files-2.1/com.tterrag.registrate/Registrate/MC1.21-1.3.0+67/66ddc4cd56472fea1ea1a24182901e6c92a51c0a/Registrate-MC1.21-1.3.0+67.jar",
+      "sha256": "510f4041c41739f1d8ea8850ab8364d3e3a5fada8529beed5d9f479e2523db52"
+    },
+    {
+      "file": "create-coasters-simulated-1601871-8655742.jar",
+      "path": "/home/braydon/.gradle/caches/modules-2/files-2.1/curse.maven/create-coasters-simulated-1601871/8655742/4d3381b781a1129f793358b8ae13e0abcd2e655b/create-coasters-simulated-1601871-8655742.jar",
+      "sha256": "f80b4c3cdf9fa6188804967147761b0373e150a6eadbdc53626e5ac9700b2049"
+    },
+    {
+      "file": "flywheel-neoforge-1.21.1-1.0.6.jar",
+      "path": "/home/braydon/.gradle/caches/modules-2/files-2.1/dev.engine-room.flywheel/flywheel-neoforge-1.21.1/1.0.6/a943872ad0bdd4458d818d8d7dc123fb250eb744/flywheel-neoforge-1.21.1-1.0.6.jar",
+      "sha256": "31dda15c205eb596d3b3449ef03f6af7363a6cd35b3da4bfe916b304f9e5337e"
+    },
+    {
+      "file": "sable-companion-common-1.21.1-1.6.0.jar",
+      "path": "/home/braydon/.gradle/caches/modules-2/files-2.1/dev.ryanhcode.sable-companion/sable-companion-common-1.21.1/1.6.0/370be7db705926176e05c0215ed676150c45daae/sable-companion-common-1.21.1-1.6.0.jar",
+      "sha256": "873633e35046e3761b277ff8a1ecad0d55d9a3014fa81a0b084c9aecba1f3bed"
+    },
+    {
+      "file": "sable-neoforge-1.21.1-2.0.3.jar",
+      "path": "/home/braydon/.gradle/caches/modules-2/files-2.1/dev.ryanhcode.sable/sable-neoforge-1.21.1/2.0.3/f3ba9a497122ba29d9e94ebe6f9a3a3aaa5fa756/sable-neoforge-1.21.1-2.0.3.jar",
+      "sha256": "da6c3b66238586603d1dcaa2afb012d36815fbce0a2d5938fbb2936701d42279"
+    },
+    {
+      "file": "sable-sable_rapier-1.21.1-2.0.3.jar",
+      "path": "/home/braydon/.gradle/caches/modules-2/files-2.1/dev.ryanhcode.sable/sable-sable_rapier-1.21.1/2.0.3/a88c0860320890144b6b44c332a2a2db3a61e189/sable-sable_rapier-1.21.1-2.0.3.jar",
+      "sha256": "aabd5ed08349821989cd1806122918cbec3c9dfafe4584e0ab012fa015b7749d"
+    },
+    {
+      "file": "veil-neoforge-1.21.1-4.1.4.jar",
+      "path": "/home/braydon/.gradle/caches/modules-2/files-2.1/foundry.veil/veil-neoforge-1.21.1/4.1.4/642ec0bd02213ee087d86eda553d6d79c6a04d2b/veil-neoforge-1.21.1-4.1.4.jar",
+      "sha256": "9c2899086a96339245b5abde82879011753871f25443df9581881f29596a7180"
+    },
+    {
+      "file": "ponder-neoforge-1.0.82+mc1.21.1.jar",
+      "path": "/home/braydon/.gradle/caches/modules-2/files-2.1/net.createmod.ponder/ponder-neoforge/1.0.82+mc1.21.1/b10a04f40b9d6d33c346fb38df33f10f7e51b713/ponder-neoforge-1.0.82+mc1.21.1.jar",
+      "sha256": "0cf4611ad853042b689ac386184c5bbe02950efcffddb49e5f604e82baddb0dc"
+    }
+  ],
+  "status": "fresh standalone Arrow cycle passed bounded operator acceptance; historical replay remains blocked by physical-stop precondition",
+  "case": "historical and fresh support realignment hard-stop retest",
+  "worlds": [
+    "telemetry-effa1c6",
+    "telemetry-effa1c6-fresh"
+  ],
+  "shutdown": {
+    "historicalServerExit": 0,
+    "freshServerExit": 0,
+    "DevExit": 0,
+    "ObserverExit": 0,
+    "method": "Both servers RCON stop; clients Quit Game; empty owned Xvfb121 terminated"
+  },
+  "limits": [
+    "Historical saved-world normal realignment/unload remain unresolved.",
+    "Fresh case is stopped occupied Arrow on a manual straight, not a dispatched moving ride.",
+    "Standalone only; no optional profile, hardware performance, full-rendered-clearance or complete release-gate claim.",
+    "Fresh initial anchors/scaffolding/items were creative command fixtures; normal car/rail/station/link interactions and recovery actions were used.",
+    "The failed initial fresh boarding observation remains in raw records and is explicitly excluded from occupied acceptance."
+  ],
+  "files": {
+    "README.md": "c796fbfc62654ee778e7a057fa88756390f195027cb8ab4502fda6113330f250",
+    "build.log.gz": "44d1f688d2fb9771605921ee037729fe5fd7b02696c063c90e8b6f838d6a616c",
+    "client.log.gz": "9c7c625be89ff66dc55646878189408f9a47c3fda5f6b887a618777db33c8611",
+    "fresh-before-repair.png": "f89f63a33383cb3972e97fae8407a818956b979b0e5c7fe1203e8912276c92ba",
+    "fresh-loss-goggles.png": "03d3d2964445e839275b1bd3564756ecf86674afc37ab38c242822a3f0e101a7",
+    "fresh-ready-editor.png": "1967dcd9bc520689ce320d66211056646ffd6a1696ac44df779666ab3df49a6c",
+    "fresh-ready-goggles.png": "f275caabb38503493a4c9f17d47dfee7d75685b113239c4fcc4f6a6e723ae57a",
+    "fresh-realign-editor.png": "43577e2802dcd5b78c288263851b27890e6b73a90e7e723b389ae2e25cd3c5b1",
+    "fresh-realign-result.png": "6cdd0bb154a39cb75c0b260be190e19a72d24ccbbc67ce34f489d7ffaaf4e593",
+    "fresh-realigned-goggles.png": "0b19413b0a1c423a6e2ce5759141aebe7eb064e7c76325857b98c5d302af0d8d",
+    "fresh-realigned-sign.png": "9817ac1c962cf2912945218ddb557a7d78c9f2dba6f79194b6666feb4a752ef4",
+    "fresh-repaired-goggles.png": "fa6600f7f14c2ed0258a9d6ef0c24219837f20f1f757897899b59949308c134f",
+    "fresh-repaired-motion.jsonl": "7661ee95747e566ec029a669e5806440e9e64decc02ff6c4c43db989ee1efff5",
+    "fresh-repaired-sign.png": "2494a57216cacc5c84128ec9ac075867dc335ed5dbbbd1ffa85d5b57caf28a49",
+    "fresh-server-closed.png": "aa4cc97da16edd54b7b7bc2c6b7db9a3b8460c29baa508707a1e94c5c9492a19",
+    "fresh-server.log.gz": "6ff4ceebe41f85e9a64276d728907f42c2009c8ec152246726da12bf9e371b32",
+    "fresh-setup.txt": "3bd0813bf8905bfc30e99cd0f3fd2df7bbacf36bc52ac4f92260849329f94536",
+    "fresh-stopped-foundation.dat": "4ece5b9f9f73f9e2267ae7b33ea8c3a219805df07a761ae2d48fea7791e5538e",
+    "fresh-unloaded-dev.png": "f44ece32c4a0a938d7bb28ee9a089e1398de19b136ab23d6b95fffff404d9631",
+    "fresh-unloaded-goggles.png": "31267c30228b8b336dfd543facf07fe237583ae1db92c8447b96ad26491c5182",
+    "historical-dev-editor.png": "93bbe1c741ab764b1b4db8ee36189a036771c5da2bc4bf2c24333fb78f8a18b3",
+    "historical-motion.jsonl": "3b143844e0ef09bcd756f760042f3b9b762c37342d3e9f9180758af12d93ffd9",
+    "historical-realign-result.png": "d063c9b6b953ccb464b0855a244543e190b0b1b262392ffb80868f22c2a30079",
+    "historical-stopped-foundation.dat": "4ff4e2ae23d5e17210687071984dd1c827682fea7dbb2438389216b73ca41c4e",
+    "input-world.json": "2b72b3a0d2e77a649f7e80539ddf69fe2a043d5592b7c01040fe14f95c6df1e4",
+    "observations.jsonl": "5ab7125195de38030db308fd61611d64783f3cda9e6f9b29e06372a844140e49",
+    "observer.log.gz": "263800e91178a6b92c9ebe57a90e3c60e7e3a764842a61d782d88e9d2a7e790d",
+    "server.log.gz": "1090f48f14425d36c6f8922862aeb727b7bbfcf7a11cca1ca7adf173dcf7ef53",
+    "shutdown-state.json": "285409e8da7cbba4752602a167167baf7147e5b0de6e015bbb10d1a741f1b7dc",
+    "verify.py": "c76d068c3d21c609765c5256e8a2d09c7e00779ceba94a84f81b94ae15e077f9"
+  }
+}

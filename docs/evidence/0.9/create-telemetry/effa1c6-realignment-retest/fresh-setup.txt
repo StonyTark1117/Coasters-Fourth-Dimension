@@ -1,0 +1,79 @@
+gamemode creative @a
+
+
+gamerule doDaylightCycle false
+Gamerule doDaylightCycle is now set to: false
+
+
+time set 6000
+Set the time to 6000
+
+
+forceload add 16 16 48 64
+Marked 12 chunks in Overworld from [1, 1] to [3, 4] to be force loaded
+
+
+fill 24 82 15 28 82 62 minecraft:stone
+Successfully filled 240 block(s)
+
+
+setblock 32 82 20 minecraft:stone
+Changed the block at 32, 82, 20
+
+
+setblock 32 82 56 minecraft:stone
+Changed the block at 32, 82, 56
+
+
+setblock 34 79 38 minecraft:stone
+Changed the block at 34, 79, 38
+
+
+setblock 32 83 20 simulatedcoasters:coaster_anchorpoint
+Changed the block at 32, 83, 20
+
+
+setblock 32 83 38 simulatedcoasters:coaster_anchorpoint
+Changed the block at 32, 83, 38
+
+
+setblock 32 83 56 simulatedcoasters:coaster_anchorpoint
+Changed the block at 32, 83, 56
+
+
+item replace entity Observer hotbar.0 with create:display_link
+Replaced a slot on Observer with [Display Link]
+
+
+item replace entity Observer hotbar.2 with fourthdimension:boarding_station
+Replaced a slot on Observer with [4D Boarding Station]
+
+
+item replace entity Observer hotbar.3 with simulatedcoasters:coaster_anchorpoint
+Replaced a slot on Observer with [Track Anchorpoint]
+
+
+item replace entity Observer hotbar.4 with fourthdimension:arrow_track
+Replaced a slot on Observer with [Controlled 4D Track]
+
+
+item replace entity Observer hotbar.5 with fourthdimension:arrow_car
+Replaced a slot on Observer with [Controlled 4D Car (4 Seats)]
+
+
+item replace entity Observer armor.head with create:goggles
+Replaced a slot on Observer with [Engineer's Goggles]
+
+
+item replace entity Dev hotbar.0 with fourthdimension:rotation_tool
+Replaced a slot on Dev with [Rotation Tool]
+
+
+tp Dev 27.5 83 38.5 -90 5
+Teleported Dev to 27.500000, 83.000000, 38.500000
+
+
+tp Observer 28.5 83 20.5 -90 15
+Teleported Observer to 28.500000, 83.000000, 20.500000
+
+
