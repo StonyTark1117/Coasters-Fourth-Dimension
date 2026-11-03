@@ -1,0 +1,3 @@
+PASS negative control missing-rider : Recovery sample omits an occupied original seat
+PASS negative control swapped-carriers : Original rider identities or carrier mounts changed during recovery
+PASS negative control uneven-carrier : Recovery sample omits or duplicates an occupied carrier seat
