@@ -103,14 +103,18 @@ The separate eight-section `bank-native-frames.json` has decoration frames on a
 different circuit and cannot be paired with these five-section recovery poses.
 
 Before auditing installed decoration against those actual body/wheel/carrier
-poses, the implementation owner needs a read-only fixture export from the same
-route containing exact native center/up/forward at every spine/tie distance,
-per-piece scale, rail identity, profile and appearance, alongside the existing
-one-tick body trace. `RecoveryRouteFrames` is the existing export entry point;
-preserve its original rail frames and include input/source hashes. Recovery
+poses, obtain a fresh export from the same route containing exact native
+center/up/forward at every spine/tie distance, per-piece scale, rail identity,
+profile and appearance, alongside the existing one-tick body trace. The
+observation-only `RecoveryRouteFrames` extension and [offline input verifier](NATIVE-EVIDENCE-CAPTURE.md#same-route-decoration-inputs)
+are prepared for the implementation owner's build and scheduled native run.
+They preserve the original rail grid, add exact model transforms and expose
+chassis IDs for trace pairing. No new native output has been collected yet;
+preserve input/source hashes and do not treat synthetic verifier tests as
+closing this input gap. Recovery
 towing evidence still cannot substitute for a full-turn operating ride, player
-meshes or continuous swept clearance. This inventory changes no exporter or
-mechanics and claims no additional clearance pass.
+meshes or continuous swept clearance. The historical inventory remains unchanged; the new exporter only observes
+fixture state and claims no additional clearance pass.
 
 For each future run retain exact commands/configuration, normal item/GUI actions,
 server/client observations, failed attempts, screenshots, complete logs, actual
