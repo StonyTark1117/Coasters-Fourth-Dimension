@@ -98,7 +98,13 @@ original 4D rails in server persistence, excludes it from client snapshots, and
 reuses it only for a stopped, restrained, fully captured matching-support
 restore. The 49-test native suite verifies that fresh PAX path can repair the
 exact curve; malformed or mismatched provenance and changed geometry still fail
-closed. Packaged operator lifecycle evidence for that new path is separate work.
+closed. The [fresh packaged PAX restoration](create-telemetry/8a7ffdb-pax-normal-restoration/README.md)
+then records normal item restoration, Repair, Realign, a two-client cold restart,
+one normal powered cycle and ordinary unload while retaining the original four
+chassis, eight carriers and logical rider seat. It is one fresh stopped-support
+fixture; migration, missing-support restarts and broader lifecycle coverage stay
+open. The item confirmation now directs an intentionally invalid restored rail
+to Repair, then Realign instead of the generic edit/rebind guidance.
 
 [Dimension-scoped snapshot contract](dimension-snapshot-contract.md) prevents
 a queued old-dimension snapshot from replacing the newly active client level.
