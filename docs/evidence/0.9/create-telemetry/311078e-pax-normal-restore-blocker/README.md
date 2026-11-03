@@ -104,3 +104,13 @@ repair. Post-repair lifecycle, the 200-tick reconnect mount deadline, winch owne
 registration after restart, normal unload, moving support loss, other profiles,
 rendered clearance and the complete FD902/0.9 gates remain unverified here.
 Xvfb/llvmpipe observations provide functional GUI evidence, not hardware timing.
+
+## Read-only restoration follow-up
+
+[Static inspection](static-restoration-analysis.json) records pinned upstream class
+hashes and the placement/handle call paths. Placement runs a curve optimizer;
+normal tangent controls have guide snapping but derive length from the dragged
+offset and can modify adjoining curves. Our fingerprint checks 17 sampled
+positions/up vectors, so visually straight axes alone are insufficient. This is
+a reproducible investigation lead, not a proven GUI restoration recipe or an
+additional runtime result. No decompiled third-party implementation is bundled.
