@@ -31,3 +31,6 @@ comparison checked pair order and AABB distances on synthetic inputs.
 This is default-model and native pose evidence. It does not cover client player
 meshes, optional decorations, or continuous motion between ticks. FD402 remains
 in progress pending rendered operator acceptance and broader recovery coverage.
+The later [current-artifact audit](../current-tick-rider-clearance/acceptance.md)
+regenerates the one-tick traces on the current combined profile and preserves
+raw inputs for all five single-car and both linked-train routes.
