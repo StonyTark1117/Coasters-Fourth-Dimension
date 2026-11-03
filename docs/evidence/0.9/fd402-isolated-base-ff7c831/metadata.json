@@ -1,0 +1,17 @@
+{
+  "source": "ff7c831fc2e72c640958fa265486a100fd5720d6",
+  "profile": "base",
+  "command": [
+    "JAVA_HOME=/usr/lib/jvm/java-21-openjdk",
+    "./gradlew",
+    "runGameTestServer",
+    "--offline",
+    "--no-daemon",
+    "--console=plain"
+  ],
+  "start_utc": "2026-11-03T09:37:04.347000+00:00",
+  "end_utc": "2026-11-03T09:42:10.000000+00:00",
+  "exit_code": 0,
+  "runtime_kind": "isolated detached worktree Gradle development GameTest server; not fdPackaged",
+  "isolation": "Run directory /tmp/fdclean-ff7c831/build/runs/gametest was used exclusively for this process."
+}

@@ -1,0 +1,67 @@
+{
+  "source": "ff7c831fc2e72c640958fa265486a100fd5720d6",
+  "profile": "base",
+  "run_start_utc": "2026-11-03T09:37:04.347000+00:00",
+  "run_end_utc": "2026-11-03T09:42:10.000000+00:00",
+  "reported_process_exit_code": 0,
+  "metadata_path": "/home/braydon/Documents/Coasters: Fourth Dimension/docs/evidence/0.9/fd402-isolated-base-ff7c831/metadata.json",
+  "metadata_sha256": "1e52bf70ae79eab7a8eb3d7a3564059807d0800a04b8a4a73ccc9891e23e6703",
+  "capture_started_utc": "2026-11-03T09:42:43.461903+00:00",
+  "tool_sha256": "b85e867e8f69d0abcf8d713072824ae7716f2688fe8972ba544b22ce99a9eeef",
+  "scope": "Post-exit byte preservation only. Caller owns process-exit and source attribution; no test, clearance, or release acceptance inferred.",
+  "files": {
+    "bank-native-frames.json": {
+      "source_path": "/tmp/fdclean-ff7c831/build/runs/gametest/bank-native-frames.json",
+      "issues": [],
+      "source_bytes": 190729,
+      "source_mtime_ns": 1793698639433579500,
+      "payload": "bank-native-frames.json.gz",
+      "bytes": 190729,
+      "sha256": "95bddf5697fdee0b109e7ed04a9ab6fd9c298025f210dacefbe05b72f41ff7ff",
+      "gzip_sha256": "fe95eaad4343ea758caf69a737c2a1b37ba0243a847a1408882c4f7294a07eea"
+    },
+    "recovery-bank-native-frames.json": {
+      "source_path": "/tmp/fdclean-ff7c831/build/runs/gametest/recovery-bank-native-frames.json",
+      "issues": [],
+      "source_bytes": 1847750,
+      "source_mtime_ns": 1793698734894505793,
+      "payload": "recovery-bank-native-frames.json.gz",
+      "bytes": 1847750,
+      "sha256": "9266e5adf0a055d0bd3d6034e7862471d0d9d670103ab8bb983ea45a7640a311",
+      "gzip_sha256": "a7916de3219c5481fadd6f1c375689f3bfff524ae40f0a1a5dd4365dac4456ad"
+    },
+    "recovery-bank-train-native-frames.json": {
+      "source_path": "/tmp/fdclean-ff7c831/build/runs/gametest/recovery-bank-train-native-frames.json",
+      "issues": [],
+      "source_bytes": 861156,
+      "source_mtime_ns": 1793698826063508166,
+      "payload": "recovery-bank-train-native-frames.json.gz",
+      "bytes": 861156,
+      "sha256": "b830d52052740beb71486daf56a7b1fcb5342c1d53cdc91c1a4eaf4f75bb4eee",
+      "gzip_sha256": "d897d542eec87fc58c224d173419f5877fb58c43381379afb90b1101e6d4e74c"
+    },
+    "recovery-bank-mesh-trace.jsonl": {
+      "source_path": "/tmp/fdclean-ff7c831/build/runs/gametest/recovery-bank-mesh-trace.jsonl",
+      "issues": [],
+      "source_bytes": 91308082,
+      "source_mtime_ns": 1793698808719696083,
+      "payload": "recovery-bank-mesh-trace.jsonl.gz",
+      "bytes": 91308082,
+      "sha256": "d6f3d0314016c05f86d2a3c7b0487c8092b081611212d4cae144f429d97b06ac",
+      "gzip_sha256": "2181ff260f62f11bf3b61140935a73cfd15d03701c1a4386e94986993b630212"
+    },
+    "recovery-bank-train-mesh-trace.jsonl": {
+      "source_path": "/tmp/fdclean-ff7c831/build/runs/gametest/recovery-bank-train-mesh-trace.jsonl",
+      "issues": [],
+      "source_bytes": 83314662,
+      "source_mtime_ns": 1793698917982525269,
+      "payload": "recovery-bank-train-mesh-trace.jsonl.gz",
+      "bytes": 83314662,
+      "sha256": "758fc4b300445c7f37a99f187e79055f11319b6b6a68979add8304dd75aa78b8",
+      "gzip_sha256": "02ca9dbd7e79c8b99de2016fca411429842ae47c8e8616dfb77cf11bbbe7a46f"
+    }
+  },
+  "capture_complete": true,
+  "candidate_for_separate_acceptance_review": true,
+  "capture_ended_utc": "2026-11-03T09:42:47.741732+00:00"
+}
