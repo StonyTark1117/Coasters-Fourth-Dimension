@@ -41,11 +41,15 @@ The current integrated GameTest result is recorded in the
 For a real-client render sample, launch an existing functional-track world with
 `-PfdValidation -PfdRenderValidation`. Add `-PfdRenderValidationExit` to make the
 client stop normally after the configured `-PfdRenderValidationStages=N` original-track
-stages (default 500). This opt-in completion gate requires at least one mesh build and
-nonzero in-range rail and procedural-quad totals; it does not require decorations or a
-shader. Every 100 client ticks the log emits
-`FD_CLIENT_RENDER`, which includes cumulative render-stage and mesh-build
-counts, average nanoseconds for each, and cumulative in-range original-rail,
+stages (default 500). This opt-in completion gate requires at least one mesh
+build and at least N `geometryStages`, each with both an in-range original rail
+and a procedural quad. The cumulative rail and quad totals must also each reach
+N. Historical packaged render records predate the `geometryStages` counter and
+do not establish this stronger condition; it requires a fresh packaged-client
+run. The gate does not require decorations or a shader. Every 100 client ticks
+the log emits
+`FD_CLIENT_RENDER`, which includes cumulative render-stage, `geometryStages`
+and mesh-build counts, average nanoseconds for each, and cumulative in-range original-rail,
 procedural-quad and optional-decoration-piece counts within the renderer's
 160-block distance test. The counters reset when
 the client level changes. They time this addon's `AFTER_BLOCK_ENTITIES` track
