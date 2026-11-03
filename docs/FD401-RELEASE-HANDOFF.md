@@ -31,6 +31,11 @@ FD801 and the [expansion backlog](INTEGRATION-BACKLOG.md) remain separate.
   bound of 0.04878235 blocks against the same requirement. These
   default-model proposals are not observed Styles rendering, player meshes,
   track-to-decoration self-clearance, continuous sweeps or full-turn operation.
+- [Prospective whole-section appearance transitions](evidence/0.9/fd401-styles-transitions-ff7c831/README.md)
+  also pass 6,548 two-car Arrow poses with minimum bound 0.04878235 blocks against
+  0.02 required. The plan is Original → single → double → Original → single.
+  This adds sampled body clearance at those section transitions, not UI edits
+  within a curve, decoration self-clearance, player meshes or visible rendering.
 - Draw-fallback corrections `21bfd1a` / `d5132a3` catch provider draw failures,
   restore the suppressed Original spine, and quarantine that rail's styled mesh
   until rail/model revision. The failure frame may retain partial provider output;
