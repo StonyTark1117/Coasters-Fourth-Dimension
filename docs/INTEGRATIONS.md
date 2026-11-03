@@ -122,6 +122,23 @@ Its own 47 native tests pass. Optional-profile client coverage, remaining physic
 repair/lifecycle cases, complete clearance and final integrated-artifact checks
 remain open; the checkpoint lists the exact bounds.
 
+## Current font recovery checkpoint
+
+The [exact-source interactive replay](evidence/0.9/fd401-final-source-retest-1a91c94/README.md)
+records a targeted pass on `1a91c94`: three real F3+T reloads, one stale default
+FontSet redirected to its current replacement, rendered chat/inventory/pause
+menu and normal exit 0. This is stronger than the historical scheduler and
+controlled-reload evidence below, which did not establish a font fix.
+
+Source `05ad4a6` also publishes Minecraft's actual separate `missingFontSet`
+for a removed custom font ID. The map-only fallback in `159aa6c` was insufficient
+and is superseded. Current source activates recovery independently of
+`fdFontValidation`; the flag controls diagnostics. The retained runtime pass
+used tracing, and acceptance of the removed-ID stale-reference branch remains
+pending. Do not infer it from successful normal rendering of an absent font.
+Styled occupied post-reload operation, repeated reliability and graphics-mode
+coverage remain open; see the [current handoff](FD401-RELEASE-HANDOFF.md).
+
 ## Remaining FD401 acceptance
 
 The [release handoff checklist](FD401-RELEASE-HANDOFF.md) reconciles later telemetry
@@ -333,4 +350,4 @@ certify this revised adapter.
 
 ## Veil scheduler and revised styled replay (dev.12)
 
-The [scheduler checkpoint](evidence/0.4/scheduler-acceptance.md) records a client-only initialization fix for pinned Veil 4.1.4, 512 native schedule checks, 64 completed reload/chat/query cycles and a normal occupied revised double-spine level circuit with recapture, dismount and clean exit. It preserves profiles and saved mechanical identities. The original freed-bitmap crash remains unresolved; complete banked vehicle/rider clearance, render modes and the Engineered operator/FE-network workflow retain FD401.
+The [scheduler checkpoint](evidence/0.4/scheduler-acceptance.md) records a client-only initialization fix for pinned Veil 4.1.4, 512 native schedule checks, 64 completed reload/chat/query cycles and a normal occupied revised double-spine level circuit with recapture, dismount and clean exit. It preserves profiles and saved mechanical identities. The original freed-bitmap crash remained unresolved at that scheduler checkpoint; complete banked vehicle/rider clearance, render modes and the Engineered operator/FE-network workflow retain FD401.
