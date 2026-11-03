@@ -23,7 +23,7 @@ one-tick cadence, with 5,767–5,873 samples per route, every car visiting each
 of the five route sections, and a lowest recorded separating bound of
 0.043944863558635916 blocks against its stated 0.02-block requirement.
 
-`train-original-mesh-audit.json` is the matching two-car train audit. Its Arrow
+`train-original-mesh-audit.json` is the matching two-car Arrow and four-car PAX train audit. Its Arrow
 route passed 6,548 samples and its PAX route passed 6,974; every car visited all
 five sections, neither route reported an uncertified pair, and the lowest bound
 was 0.0439148282541737 blocks against the same 0.02-block requirement.
