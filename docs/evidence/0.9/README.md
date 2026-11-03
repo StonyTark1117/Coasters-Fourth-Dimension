@@ -81,17 +81,24 @@ coverage still open under FD902.
 
 The active-PAX reload regression in `a1aeb1a` converts a persisted active winch
 phase to the explicit faulted, stopped, restrained and captured state on the
-first runtime tick, including a second save/reload before that tick. It verifies
-all four cars and the durable-consumption marker; all 48 native GameTests pass.
-It does not measure moving stopping distance, a real server-process restart, or
-rider reconnect.
+first runtime tick, including a second save/reload before that tick. The
+[bounded active-LIFTING cold-restart record](create-telemetry/a1aeb1a-active-pax-restart/README.md)
+adds one real dedicated-server restart with two clients: the same four chassis,
+eight carriers, logical seat assignment, winch carriage and controller survive;
+the stopped fault holds for 636 ticks until explicit resume, then the train
+completes its cycle and ordinary unload. Native Create seat UUID continuity is
+not claimed. Other active phases, repeated restarts, every seat, interruption
+races and moving stopping distance remain open.
 
 The [PAX normal-restoration blocker](create-telemetry/311078e-pax-normal-restore-blocker/README.md)
-retains an occupied stopped train through normal track mining and restoration,
-but the normal placement optimizer produces different curve axes/normals from
-the authored sample. Repair correctly rejects that geometry. This is a bounded
-failure record, not a post-repair lifecycle result or a reason to weaken the
-profile-fingerprint guard.
+is retained as historical evidence: on the pre-provenance build, normal
+placement optimized different curve axes/normals and Repair correctly rejected
+the changed geometry. Current source stores the authored native curve for new
+original 4D rails in server persistence, excludes it from client snapshots, and
+reuses it only for a stopped, restrained, fully captured matching-support
+restore. The 49-test native suite verifies that fresh PAX path can repair the
+exact curve; malformed or mismatched provenance and changed geometry still fail
+closed. Packaged operator lifecycle evidence for that new path is separate work.
 
 [Dimension-scoped snapshot contract](dimension-snapshot-contract.md) prevents
 a queued old-dimension snapshot from replacing the newly active client level.
