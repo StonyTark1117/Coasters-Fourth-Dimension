@@ -86,6 +86,14 @@ recorded schema-3 fixture and assigns its first rail UUID to a second rail.
 This source-level guard compiled locally; it is not part of the recorded run
 below until the strengthened native GameTest is rerun.
 
+A separate loader guard now requires every native chassis and carrier UUID in
+the saved functional record to be unique, including across vehicles. Four
+negative mutations of the same historical fixture check duplicate carriers
+within one vehicle, a carrier shared across vehicles, and a later chassis that
+reuses an earlier carrier UUID. The fourth rejects a 4D carrier UUID used as an
+ordinary recovery partner. These cases are source-level additions pending
+the same native rerun; the valid historical fixture still needs to pass.
+
 ## Result
 
 ```sh
