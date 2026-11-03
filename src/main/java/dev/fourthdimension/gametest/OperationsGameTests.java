@@ -573,6 +573,21 @@ public final class OperationsGameTests {
             // The observed historical Arrow save can retain this boundary fault after a successful
             // repair. It must not strand that car while the other families still cover the fresh,
             // fault-free realignment path.
+            // The normal action must close the single-tick physics gap after a captured repair.
+            // Inject residual motion here, immediately before the action, so passing requires its
+            // atomic native stop rather than the preceding periodic brake callback.
+            var actionBodies = new LinkedHashSet<UUID>();
+            actionBodies.add(car.chassis);
+            car.carriers.forEach(carrier -> actionBodies.add(carrier.body));
+            var actionPipeline = container.physicsSystem().getPipeline();
+            for (var id : actionBodies) {
+              var body = (ServerSubLevel) container.getSubLevel(id);
+              actionPipeline.addLinearAndAngularVelocity(
+                  body,
+                  new org.joml.Vector3d(.8, 0, 0)
+                      .sub(actionPipeline.getLinearVelocity(body, new org.joml.Vector3d())),
+                  new org.joml.Vector3d());
+            }
             if (car.family == TrackDesign.ARROW.family)
               car.fault = BoundaryGuard.END_OF_COMPATIBLE_TRACK;
             VehicleOperations.realignMatchingSupport(level, car);

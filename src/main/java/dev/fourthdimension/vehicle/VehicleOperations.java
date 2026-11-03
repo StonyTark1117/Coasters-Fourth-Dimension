@@ -308,10 +308,6 @@ public final class VehicleOperations {
             "Restored geometry changed; unload riders and explicitly rebind the profile before operating");
       if (!(container.getSubLevel(v.chassis) instanceof ServerSubLevel chassis) || chassis.isRemoved())
         throw new IllegalArgumentException("Vehicle chassis is unavailable");
-      var velocity = container.physicsSystem().getPipeline().getLinearVelocity(chassis, new Vector3d());
-      if (velocity.lengthSquared() > .01)
-        throw new IllegalArgumentException(
-            "Wait for every linked chassis to stop physically before realignment");
       var bearingPlot = CoasterCartTrackSnap.representativeBearingPlotPos(chassis);
       if (bearingPlot == null) throw new IllegalArgumentException("Vehicle bearing is unavailable");
       var bearing =
@@ -323,6 +319,28 @@ public final class VehicleOperations {
       if (!EligibilityHooks.allows(chassis, level, hit))
         throw new IllegalArgumentException("Vehicle and matching track cannot re-engage");
       candidates.add(new Candidate(v, chassis, hit));
+    }
+    // A captured unsupported body can pick up gravity/solver residue between periodic brake
+    // callbacks. The normal explicit action closes that gap: after every candidate has passed the
+    // exact-rail, geometry, restraint and native-bearing checks, atomically stop the whole
+    // validated consist and verify the chassis before applying the native snap in this same tick.
+    var pendingBodies = new LinkedHashSet<UUID>();
+    for (var candidate : candidates) {
+      pendingBodies.add(candidate.vehicle.chassis);
+      candidate.vehicle.carriers.forEach(carrier -> pendingBodies.add(carrier.body));
+    }
+    var pipeline = container.physicsSystem().getPipeline();
+    var bodies = new ArrayList<ServerSubLevel>();
+    for (var id : pendingBodies) {
+      if (!(container.getSubLevel(id) instanceof ServerSubLevel body) || body.isRemoved())
+        throw new IllegalArgumentException("Vehicle carrier is unavailable for realignment");
+      bodies.add(body);
+    }
+    for (var body : bodies) pipeline.resetVelocity(body);
+    for (var candidate : candidates) {
+      if (pipeline.getLinearVelocity(candidate.chassis, new Vector3d()).lengthSquared() > 1.0e-8)
+        throw new IllegalArgumentException(
+            "Unable to stop every linked chassis before realignment");
     }
     for (var candidate : candidates) {
       var plotBearing = CoasterCartTrackSnap.representativeBearingPlotPos(candidate.chassis);
