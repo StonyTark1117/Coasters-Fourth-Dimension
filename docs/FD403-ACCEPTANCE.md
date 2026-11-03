@@ -70,6 +70,16 @@ replace connected-client building and operation.
 | Revised | Occupied independent lower-hinge carriers on Revised track | Distinction from Free Spin and the need for separate clearance |
 | PAX | Four matching cars linked with Minecraft Chains, bound to a powered winch; occupied lift, release, outbound/return and final catch | Shuttle route and spike requirements, platform operator, boarding readiness, and final capture |
 
+For the Free Spin damper comparison, sample the same carrier before and after
+its damper span while `capture=false` and the car remains dispatched. Record
+`damperImpulses`, `damperEnergy` and `damperSpeedReduction` from `/fd status`
+alongside position, angle and angular speed. The audit counts only actual
+damper impulses and resets with the live client; an increase before capture
+separates the damper action from the boarding lock. Capture only after the
+downstream sample, with enough remaining route to stop safely. A before/after
+angular-speed comparison alone can also include gravity and preceding inducers,
+so identify those spans and the time between samples.
+
 The current-artifact teaching review above completes the common tooltip and
 Ponder review. For each row, open that family's item guidance and Ponder lessons through normal
 inventory controls, then follow the corresponding
