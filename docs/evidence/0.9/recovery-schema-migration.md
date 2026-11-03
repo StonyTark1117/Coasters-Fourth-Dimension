@@ -99,9 +99,10 @@ otherwise rebind the historical controlled-track profiles.
 
 The data-only packaged replay establishes one recorded historical
 `FoundationData` file; the later native-world replay establishes one separate
-complete schema-3 world. Neither proves upgrades from every released historical
-world, provider removal or a supported external-block conversion, rider
-operation for the other migrated cars, two-client migration, or the complete
-FD903 release matrix. One connected-client Arrow ride after upgrade is recorded
-separately.
-Those remain required before the 0.9 candidate gate can close.
+complete schema-3 world. A later connected-client Arrow ride and bounded
+[Legacy/Free Spin operator cycles](native-schema3-legacy-free-spin-operator.md)
+show rider operation in that upgraded world, without sustained travel for the
+latter two cars. These checks do not prove upgrades from every released
+historical world, provider removal during the same upgrade, two-client
+migration, or the complete FD903 release matrix. External functional-block
+conversion remains unsupported and must be rejected rather than inferred.

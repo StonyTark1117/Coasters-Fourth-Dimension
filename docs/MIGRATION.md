@@ -67,9 +67,18 @@ proves that contract for the occupied five-family fixture; see the
 [FD903 migration evidence](evidence/0.9/recovery-schema-migration.md). A
 [complete schema-3 world replay](evidence/0.9/native-schema3-world-replay.md)
 also verifies that one historical world retains all three chassis and eight
-native carriers after upgrade and reopen.
+native carriers after upgrade and reopen. A connected client then completed an
+[Arrow ride](evidence/0.9/native-schema3-client-ride.md) on that upgraded world;
+separate [Legacy and Free Spin operator cycles](evidence/0.9/native-schema3-legacy-free-spin-operator.md)
+confirmed boarding, restraint actions, dispatch requests, capture and unloading
+without measuring sustained travel. A distinct
+[appearance-provider lifecycle](evidence/0.9/appearance-provider-lifecycle.md)
+preserved functional IDs and profiles through Track Styles removal and
+reinstallation in a different saved world.
 
-This is not proof of a packaged upgrade from every historical release, a
-real-client migration, provider removal, or a conversion between this addon's
-functional track and another mod's functional blocks. Those FD903 cases remain
-open. Restore the backup instead of attempting an unsupported conversion.
+These checks do not prove a packaged upgrade from every historical release,
+sustained Legacy or Free Spin travel after migration, two-client migration,
+provider removal during that same schema-3 upgrade, or conversion between this
+addon's functional track and another mod's functional blocks. Broader FD903
+acceptance remains open. Restore the backup instead of attempting an unsupported
+conversion.

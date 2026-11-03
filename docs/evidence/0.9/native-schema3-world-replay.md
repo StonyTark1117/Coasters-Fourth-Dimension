@@ -89,7 +89,10 @@ families, and absent recovery state.
 This proves one real schema-3 world with its native sublevels survives the
 schema-6 upgrade and a subsequent server restart. A later
 [connected-client Arrow ride](native-schema3-client-ride.md) demonstrates
-boarding, powered travel, capture, and dismount in that upgraded world. The
-replays do not cover every historical world or schema, the other two historical
-cars as client rides, two-client migration, or conversion of third-party
-functional blocks. Those remain separate FD903 and release gates.
+boarding, powered travel, capture, and dismount in that upgraded world. Later
+[Legacy and Free Spin client operator cycles](native-schema3-legacy-free-spin-operator.md)
+cover boarding, restraints, dispatch requests, capture and dismount for the
+other two historical cars without measuring sustained travel. These replays do
+not cover every historical world or schema, sustained travel for those two cars,
+or two-client migration. Third-party functional-block conversion remains
+unsupported; those broader migration cases leave FD903 and the release gate open.
