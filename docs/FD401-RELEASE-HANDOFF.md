@@ -116,6 +116,13 @@ towing evidence still cannot substitute for a full-turn operating ride, player
 meshes or continuous swept clearance. The historical inventory remains unchanged; the new exporter only observes
 fixture state and claims no additional clearance pass.
 
+The [prospective Styles mesh audit](NATIVE-EVIDENCE-CAPTURE.md#prospective-styles-recovery-geometry-audit)
+is prepared to consume those new inputs. It includes the altered procedural
+control mounts, crossbraces and endpoint bridges, not just external OBJ models.
+Its proposed style plan is distinct from observed client appearance. Run it only
+on matching fresh inputs and preserve both passing and uncertified results;
+synthetic tests do not complete this geometry gate.
+
 For each future run retain exact commands/configuration, normal item/GUI actions,
 server/client observations, failed attempts, screenshots, complete logs, actual
 process exit codes, and pre/post-restart whole-world copies/hashes. An RCON write,
