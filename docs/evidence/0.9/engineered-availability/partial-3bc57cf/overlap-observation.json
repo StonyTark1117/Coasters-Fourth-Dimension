@@ -1,0 +1,26 @@
+{
+  "observed_utc": "2026-11-03T11:15:33.539224+00:00",
+  "source": "Linux /proc stat start ticks + btime; approximately one-second wall-clock precision",
+  "processes": [
+    {
+      "pid": 351227,
+      "exists": true,
+      "cwd": "/home/braydon/Documents/Coasters: Fourth Dimension",
+      "tasks": [
+        "runGameTestServer",
+        "-PfdPerformanceTargets"
+      ],
+      "process_start_utc": "2026-11-03T11:13:37.270000+00:00"
+    },
+    {
+      "pid": 351842,
+      "exists": true,
+      "cwd": "/home/braydon/.codex/worktrees/pax-active-restart/Coasters: Fourth Dimension",
+      "tasks": [
+        "runGameTestServer"
+      ],
+      "process_start_utc": "2026-11-03T11:13:47.380000+00:00"
+    }
+  ],
+  "scope": "Overlapping shared-root and isolated-checkout GameTest runs. No isolation claim for any part of this run."
+}

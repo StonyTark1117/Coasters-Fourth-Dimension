@@ -1,0 +1,67 @@
+{
+  "status": "post-fix preflight only; native run not started",
+  "captured_at_utc": "2026-11-03T11:09:39.414667+00:00",
+  "source_revision": "3bc57cf391fbea8b4dc1e360e39ef46a9e938a87",
+  "source_status": [],
+  "workspace": "/home/braydon/.codex/worktrees/pax-active-restart/Coasters: Fourth Dimension",
+  "jar": {
+    "path": "/tmp/fourthdimension-2aa0362f/build/libs/coasters-fourth-dimension-0.9.0-dev.27.jar",
+    "sha256": "9e02ac8d18f79aeebb1462a917ba79481f0a45ee29c21fe16477fe8e60def919"
+  },
+  "class_parity": {
+    "dev/fourthdimension/integration/EngineeredInterlock.class": {
+      "jar_sha256": "e92d312a122d16473169992b63d9167172fd8e1ec1a11e385393dadfb4540eba",
+      "compiled_sha256": "e92d312a122d16473169992b63d9167172fd8e1ec1a11e385393dadfb4540eba"
+    },
+    "dev/fourthdimension/gametest/EngineeredAvailabilityGameTests.class": {
+      "jar_sha256": "91d6267455b3a4550fa56d3a5782b8097b025c81729f3efdd15d2e277f457bee",
+      "compiled_sha256": "91d6267455b3a4550fa56d3a5782b8097b025c81729f3efdd15d2e277f457bee"
+    }
+  },
+  "planned_command": [
+    "./gradlew",
+    "runGameTestServer",
+    "--offline",
+    "--no-daemon",
+    "-PfdIntegrations=engineered"
+  ],
+  "runtime_kind": "development loose classes, not packaged-JAR runtime",
+  "expected_scope": "51 required tests including the new availability batch; preserve all failures",
+  "new_scenario": "Six serial fresh two-car Arrow fixtures; actual counters require six native unloads, ten unavailable calls and twenty-four healthy positive controls; per-case surviving source counts enforced",
+  "limits": [
+    "No natural chunk cycle or automatic train-link restoration claim",
+    "No occupied passenger/GUI/FE workflow certification",
+    "Production guard compiled/reviewed; native validation pending"
+  ],
+  "probe_isolation": "Controller COAST during three-tick restore delays, LAUNCH only for direct probes; logical vehicle flags unchanged",
+  "all_packaged_class_parity_count": 224,
+  "fixture": {
+    "from": [
+      -960,
+      120,
+      -960
+    ],
+    "to": [
+      -960,
+      120,
+      -912
+    ],
+    "controller": [
+      -966,
+      120,
+      -960
+    ],
+    "forced_chunk_x": [
+      -62,
+      -58
+    ],
+    "forced_chunk_z": [
+      -62,
+      -56
+    ],
+    "native_timeout_ticks": 800,
+    "nominal_schedule_ticks": 561,
+    "post_cleanup_delay_ticks": 3,
+    "chassis_positive_control": "Partial serializer restore may unlink; log its state, explicitly rebuild native link if both cars are unlinked, then require original two-car membership and unchanged logical flags before positive probes"
+  }
+}

@@ -1,0 +1,100 @@
+{
+  "result": "five baseline-failing calls now blocked; fixture incomplete at chassis relink",
+  "unavailable_probes": [
+    {
+      "source": 0,
+      "state": "unloaded-0",
+      "max_queued_delta": 0.0
+    },
+    {
+      "source": 1,
+      "state": "unloaded-0",
+      "max_queued_delta": 0.0
+    },
+    {
+      "source": 0,
+      "state": "unloaded-1",
+      "max_queued_delta": 0.0
+    },
+    {
+      "source": 1,
+      "state": "unloaded-1",
+      "max_queued_delta": 0.0
+    },
+    {
+      "source": 1,
+      "state": "unloaded-2",
+      "max_queued_delta": 0.0
+    }
+  ],
+  "positive_controls": [
+    {
+      "source": 0,
+      "state": "healthy-before-0",
+      "max_queued_delta": 1.334157630982195
+    },
+    {
+      "source": 1,
+      "state": "healthy-before-0",
+      "max_queued_delta": 1.0994608394633418
+    },
+    {
+      "source": 0,
+      "state": "restored-0",
+      "max_queued_delta": 1.335476937481903
+    },
+    {
+      "source": 1,
+      "state": "restored-0",
+      "max_queued_delta": 1.1003561322190825
+    },
+    {
+      "source": 0,
+      "state": "healthy-before-1",
+      "max_queued_delta": 1.334157630982195
+    },
+    {
+      "source": 1,
+      "state": "healthy-before-1",
+      "max_queued_delta": 1.0994608394633418
+    },
+    {
+      "source": 0,
+      "state": "restored-1",
+      "max_queued_delta": 1.3354770064083914
+    },
+    {
+      "source": 1,
+      "state": "restored-1",
+      "max_queued_delta": 1.1003561268393662
+    },
+    {
+      "source": 0,
+      "state": "healthy-before-2",
+      "max_queued_delta": 1.334157630982195
+    },
+    {
+      "source": 1,
+      "state": "healthy-before-2",
+      "max_queued_delta": 1.0994608394633418
+    }
+  ],
+  "complete_carrier_cases": [
+    0,
+    1
+  ],
+  "chassis_case_2": "unavailable call blocked and body restored; native fixture relink failed before post-restore motor controls",
+  "unexecuted_cases": [
+    3,
+    4,
+    5
+  ],
+  "full_profile_isolated": false,
+  "fixture_relink_success_records": [],
+  "limits": [
+    "Not a six-case pass or release certification",
+    "Both runtime suites overlapped from the beginning",
+    "No natural chunk or train-link restoration evidence",
+    "Next fixture deliberately limits chassis restoration assertions to identity and availability"
+  ]
+}

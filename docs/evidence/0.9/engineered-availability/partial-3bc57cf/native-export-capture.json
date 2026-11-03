@@ -1,0 +1,67 @@
+{
+  "source": "3bc57cf391fbea8b4dc1e360e39ef46a9e938a87",
+  "profile": "engineered",
+  "run_start_utc": "2026-11-03T11:13:47.447462+00:00",
+  "run_end_utc": "2026-11-03T11:18:43.601369+00:00",
+  "reported_process_exit_code": 1,
+  "metadata_path": "/tmp/fd-engineered-availability-3bc57cf/metadata.json",
+  "metadata_sha256": "53666f27f86822cf7904709649db1afb8648bfa8b7c989f263e2b5892be26a73",
+  "capture_started_utc": "2026-11-03T11:18:43.635500+00:00",
+  "tool_sha256": "b85e867e8f69d0abcf8d713072824ae7716f2688fe8972ba544b22ce99a9eeef",
+  "scope": "Post-exit byte preservation only. Caller owns process-exit and source attribution; no test, clearance, or release acceptance inferred.",
+  "files": {
+    "bank-native-frames.json": {
+      "source_path": "/tmp/fourthdimension-2aa0362f/build/runs/gametest/bank-native-frames.json",
+      "issues": [],
+      "source_bytes": 190729,
+      "source_mtime_ns": 1793704452723158105,
+      "payload": "bank-native-frames.json.gz",
+      "bytes": 190729,
+      "sha256": "931207b0e11eae7684e6de4942a75e1e8c732cf949c604176a819ef7a2a3ffe9",
+      "gzip_sha256": "3efdfaa741ef70a5459738189e529c68813085fb100a58e07a9d3d36e8d7eadf"
+    },
+    "recovery-bank-native-frames.json": {
+      "source_path": "/tmp/fourthdimension-2aa0362f/build/runs/gametest/recovery-bank-native-frames.json",
+      "issues": [],
+      "source_bytes": 1847750,
+      "source_mtime_ns": 1793704554143486628,
+      "payload": "recovery-bank-native-frames.json.gz",
+      "bytes": 1847750,
+      "sha256": "bf5449d8dc062688ce4421bd5a233d94c2fe9c1f320fb88db6fe9f7f94652759",
+      "gzip_sha256": "c31ddc0bfc43510e9f7c2bf1c66b8ff2d1a2179fb8a75ed1aa3ad381d9e28464"
+    },
+    "recovery-bank-train-native-frames.json": {
+      "source_path": "/tmp/fourthdimension-2aa0362f/build/runs/gametest/recovery-bank-train-native-frames.json",
+      "issues": [],
+      "source_bytes": 861156,
+      "source_mtime_ns": 1793704641821315301,
+      "payload": "recovery-bank-train-native-frames.json.gz",
+      "bytes": 861156,
+      "sha256": "7f0c2aed892675d7aa3a3be8b464eb4ac87623ef4257fcbb07d538e2620b9b46",
+      "gzip_sha256": "5af7dbb6268e6ebedeeb10a31faa6f7917199ab611766e2aa61bc8cde852a35a"
+    },
+    "recovery-bank-mesh-trace.jsonl": {
+      "source_path": "/tmp/fourthdimension-2aa0362f/build/runs/gametest/recovery-bank-mesh-trace.jsonl",
+      "issues": [],
+      "source_bytes": 91340740,
+      "source_mtime_ns": 1793704624816727484,
+      "payload": "recovery-bank-mesh-trace.jsonl.gz",
+      "bytes": 91340740,
+      "sha256": "903b606dd2656433b1b3731b63f754cde022855afea823b68667664869db35bd",
+      "gzip_sha256": "d1371e555d60fd9f67bdd169e207ed1f1ffdf77870e4c582d8a6115d00ece5a7"
+    },
+    "recovery-bank-train-mesh-trace.jsonl": {
+      "source_path": "/tmp/fourthdimension-2aa0362f/build/runs/gametest/recovery-bank-train-mesh-trace.jsonl",
+      "issues": [],
+      "source_bytes": 83218841,
+      "source_mtime_ns": 1793704713334624270,
+      "payload": "recovery-bank-train-mesh-trace.jsonl.gz",
+      "bytes": 83218841,
+      "sha256": "f68be34a2d2b5d7dd2aa65fea359c953eae53a873e2ea03b6e3cc25bbe3e173e",
+      "gzip_sha256": "88b706d9158b048c1cc04c9f69d83af58c99f16606cb39e7d505aeb50af94a8e"
+    }
+  },
+  "capture_complete": true,
+  "candidate_for_separate_acceptance_review": false,
+  "capture_ended_utc": "2026-11-03T11:18:47.718291+00:00"
+}
