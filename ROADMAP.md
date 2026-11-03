@@ -435,7 +435,12 @@ player-connected sections at 43 track items, a crafted car and station complete
 an occupied powered circuit with a 6.2818-radian controlled turn, and the car
 returns captured with its original rider retained. Chain and creative motors
 are disclosed upstream fixtures. This does not replace a connected survival
-client walkthrough, save/reopen, or complete five-family teaching acceptance. The
+client walkthrough, save/reopen, or complete five-family teaching acceptance. A
+later [connected Arrow crafting checkpoint](docs/evidence/0.4/survival-client-arrow-loop-connected-attempt1/README.md)
+takes 80 Controlled 4D Track items from normal recipe result slots and saves
+cleanly, but has no new car, player-installed Chain span or powered ride. The
+Boarding Station tooltip now names its non-PAX binding limit, matching the
+station and Ponder guidance. The
 [FD403 connected-client acceptance procedure](docs/FD403-ACCEPTANCE.md) lists
 the remaining family and teaching checks without treating the earlier samples
 as release acceptance.
