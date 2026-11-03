@@ -287,7 +287,10 @@ public final class VehicleOperations {
       if (!v.stopping || !v.restraints || v.carriers.stream().anyMatch(carrier -> !carrier.capture))
         throw new IllegalArgumentException(
             "Keep restraints closed and capture every carrier before realignment");
-      if (!v.fault.isEmpty())
+      // Older saves can contain the boundary fault that used to overwrite a successful support
+      // repair while alignmentRequired remained true. The exact restored rail checks below still
+      // apply, so permit that one stranded state to complete its required native re-engagement.
+      if (!v.fault.isEmpty() && !BoundaryGuard.END_OF_COMPATIBLE_TRACK.equals(v.fault))
         throw new IllegalArgumentException("Repair matching track before realignment");
       var rail =
           data.rails.stream()
@@ -338,6 +341,8 @@ public final class VehicleOperations {
     }
     for (var candidate : candidates) {
       candidate.vehicle.alignmentRequired = false;
+      if (BoundaryGuard.END_OF_COMPATIBLE_TRACK.equals(candidate.vehicle.fault))
+        candidate.vehicle.fault = "";
       candidate.vehicle.revision++;
     }
     data.setDirty();

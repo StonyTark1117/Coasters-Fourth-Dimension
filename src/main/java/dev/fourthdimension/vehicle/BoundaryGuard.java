@@ -10,6 +10,9 @@ import net.minecraft.world.phys.Vec3;
 import org.joml.Vector3d;
 
 public final class BoundaryGuard {
+  public static final String END_OF_COMPATIBLE_TRACK =
+      "End of compatible track; capture and inspect the route";
+
   private BoundaryGuard() {}
 
   public static void check(
@@ -74,7 +77,7 @@ public final class BoundaryGuard {
                         && next.valid
                         && next.variant.equals(vehicle.variant)
                         && (next.from.equals(endpoint) || next.to.equals(endpoint)));
-    if (!supported) stop(vehicle, "End of compatible track; capture and inspect the route");
+    if (!supported) stop(vehicle, END_OF_COMPATIBLE_TRACK);
   }
 
   private static void stop(FoundationData.Vehicle vehicle, String reason) {
