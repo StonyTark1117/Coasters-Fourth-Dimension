@@ -191,6 +191,7 @@ public final class BankedRecoveryExamples {
               TrackGeometry.fingerprint(level, edge),
               0,
               true);
+      dev.fourthdimension.track.TrackPlacement.captureOriginalCurve(rail, curve);
       rails.add(rail);
       data.rails.add(rail);
     }

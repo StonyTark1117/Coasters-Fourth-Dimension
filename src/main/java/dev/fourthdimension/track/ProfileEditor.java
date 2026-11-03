@@ -80,6 +80,7 @@ public final class ProfileEditor {
       }
     rail.profile = proposed;
     rail.geometryHash = hash;
+    if (rebind) captureCurrentCurve(rail, edge);
     rail.valid = true;
     rail.revision++;
     FoundationData.get(level).setDirty();
@@ -107,10 +108,16 @@ public final class ProfileEditor {
       rail.profile = rail.profile.scaledTo(length);
       rail.magnets = magnets;
       rail.geometryHash = TrackGeometry.fingerprint(player.level(), edge);
+      captureCurrentCurve(rail, edge);
       rail.valid = true;
       rail.revision++;
       FoundationData.get(player.serverLevel()).setDirty();
       FoundationSync.broadcast(player.serverLevel());
     }
+  }
+
+  private static void captureCurrentCurve(FoundationData.Rail rail, dev.silvergold.simulatedcoasters.track.graph.CoasterPathEdge edge) {
+    if (edge.bezier() == null) rail.originalCurve = null;
+    else TrackPlacement.captureOriginalCurve(rail, edge.bezier());
   }
 }

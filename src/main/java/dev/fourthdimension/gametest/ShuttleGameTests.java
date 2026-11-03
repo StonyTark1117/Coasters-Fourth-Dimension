@@ -7,19 +7,148 @@ import com.simibubi.create.content.trains.track.BezierConnection;
 import dev.fourthdimension.runtime.CarrierRuntime;
 import dev.fourthdimension.runtime.FoundationData;
 import dev.fourthdimension.shuttle.*;
+import dev.fourthdimension.track.TrackGeometry;
+import dev.fourthdimension.track.TrackItems;
+import dev.fourthdimension.track.TrackPlacement;
 import dev.fourthdimension.vehicle.*;
 import dev.ryanhcode.sable.api.sublevel.SubLevelContainer;
+import dev.ryanhcode.sable.sublevel.storage.SubLevelRemovalReason;
 import dev.silvergold.simulatedcoasters.track.cart.*;
 import java.util.*;
 import net.minecraft.core.BlockPos;
 import net.minecraft.gametest.framework.*;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.animal.Pig;
+import net.minecraft.world.level.GameType;
+import net.neoforged.neoforge.common.util.FakePlayerFactory;
 import net.neoforged.neoforge.gametest.*;
 
 @GameTestHolder("fourthdimension")
 @PrefixGameTestTemplate(false)
 public final class ShuttleGameTests {
+  @GameTest(template = "empty", batch = "paxCurveRestore", timeoutTicks = 260)
+  public static void occupiedPaxTrackPlacementRestoresPersistedOriginalCurve(GameTestHelper helper) {
+    var level = helper.getLevel();
+    for (int x = 55; x <= 57; x++)
+      for (int z = -57; z <= -48; z++) level.setChunkForced(x, z, true);
+    var example = ShuttleExamples.create(level, new BlockPos(900, 180, -850), false);
+    var data = FoundationData.get(level);
+    var lead = example.cars().getFirst();
+    var original =
+        data.rails.stream().filter(rail -> rail.matches(lead.boundFrom, lead.boundTo)).findFirst().orElseThrow();
+    long originalGeometry = original.geometryHash;
+    var operator = FakePlayerFactory.getMinecraft(level);
+    operator.setGameMode(GameType.CREATIVE);
+    operator.setItemInHand(InteractionHand.MAIN_HAND, TrackItems.PAX.get().getDefaultInstance());
+    helper.runAtTickTime(
+        80,
+        () -> {
+          ShuttleExamples.assemble(level, example);
+          helper.assertTrue(original.originalCurve != null, "New PAX rail did not capture original curve");
+          var persisted = data.save(new CompoundTag(), level.registryAccess());
+          var reloaded =
+              FoundationData.load(persisted, level.registryAccess())
+                  .rails.stream()
+                  .filter(rail -> rail.id.equals(original.id))
+                  .findFirst()
+                  .orElseThrow();
+          helper.assertTrue(
+              reloaded.originalCurve != null,
+              "Original PAX curve snapshot did not survive FoundationData serialization");
+          var networkRail =
+              data.snapshot(new CompoundTag(), level.registryAccess())
+                  .getList("rails", net.minecraft.nbt.Tag.TAG_COMPOUND)
+                  .stream()
+                  .map(net.minecraft.nbt.CompoundTag.class::cast)
+                  .filter(rail -> rail.getUUID("id").equals(original.id))
+                  .findFirst()
+                  .orElseThrow();
+          helper.assertTrue(
+              !networkRail.contains("original_curve"),
+              "Server-only curve provenance was included in the client snapshot");
+          for (var car : example.cars()) {
+            car.stopping = true;
+            car.restraints = true;
+            car.fault = VehicleOperations.MATCHING_SUPPORT_LOST;
+            car.alignmentRequired = true;
+            car.carriers.forEach(carrier -> carrier.capture = true);
+          }
+          ((dev.silvergold.simulatedcoasters.track.anchor.CoasterAnchorpointBlockEntity)
+                  level.getBlockEntity(original.from))
+              .removeAnchorPeerCurve(level, original.to);
+        });
+    helper.runAtTickTime(
+        120,
+        () -> {
+          operator.setPos(original.to.getX() + .5, original.to.getY() + 1, original.to.getZ() + .5);
+          var restored =
+              TrackPlacement.connect(
+                  level,
+                  original.from,
+                  original.to,
+                  dev.fourthdimension.track.TrackDesign.PAX,
+                  operator,
+                  operator.getMainHandItem());
+          helper.assertTrue(
+              restored.originalCurve != null,
+              "Restored PAX rail did not retain curve provenance");
+        });
+    helper.runAtTickTime(
+        160,
+        () -> {
+          var restored =
+              data.rails.stream().filter(rail -> rail.matches(original.from, original.to)).findFirst().orElseThrow();
+          var edge = TrackGeometry.resolve(level, restored);
+          helper.assertTrue(
+              edge != null && TrackGeometry.fingerprint(level, edge) == originalGeometry,
+              "Occupied PAX item restoration did not restore the original native curve");
+          VehicleOperations.repairMatchingSupport(level, example.cars().getFirst());
+          helper.assertTrue(
+              restored.valid
+                  && example.cars().stream()
+                      .allMatch(car -> car.fault.isEmpty() && car.alignmentRequired),
+              "Exact PAX curve restoration did not enable the normal repair action");
+          System.out.println(
+              "FD_PAX_CURVE_RESTORE geometry="
+                  + originalGeometry
+                  + " repairedCars="
+                  + example.cars().size());
+          // GameTests share a level. Remove this isolated PAX fixture so its four chassis and
+          // eight carrier bodies cannot consume capacity in later batches.
+          var container = SubLevelContainer.getContainer(level);
+          for (var car : example.cars()) {
+            for (var carrier : car.carriers) {
+              var body = container.getSubLevel(carrier.body);
+              if (body != null) container.removeSubLevel(body, SubLevelRemovalReason.REMOVED);
+            }
+            var chassis = container.getSubLevel(car.chassis);
+            if (chassis != null) container.removeSubLevel(chassis, SubLevelRemovalReason.REMOVED);
+            data.vehicles.remove(car.chassis);
+          }
+          var anchors =
+              Set.of(
+                  new BlockPos(900, 204, -898),
+                  new BlockPos(900, 180, -850),
+                  new BlockPos(900, 180, -818),
+                  new BlockPos(900, 212, -770));
+          for (var rail : List.copyOf(data.rails))
+            if (anchors.contains(rail.from) && anchors.contains(rail.to)) {
+              if (level.getBlockEntity(rail.from)
+                  instanceof dev.silvergold.simulatedcoasters.track.anchor.CoasterAnchorpointBlockEntity anchor)
+                anchor.removeAnchorPeerCurve(level, rail.to);
+              data.rails.remove(rail);
+            }
+          for (var anchor : anchors) level.removeBlock(anchor, false);
+          level.removeBlock(new BlockPos(894, 180, -842), false);
+          level.removeBlock(new BlockPos(893, 180, -842), false);
+          TrackGeometry.invalidate(level);
+          data.setDirty();
+          helper.succeed();
+        });
+  }
+
   @GameTest(template = "empty", timeoutTicks = 240)
   public static void idleWinchPreservesStateWhileNativeTrainRestores(GameTestHelper helper) {
     var level = helper.getLevel();

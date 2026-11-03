@@ -312,13 +312,15 @@ public final class PrototypeFixture {
             CoasterTrackMaterials.COASTER);
     ((CoasterAnchorpointBlockEntity) level.getBlockEntity(from))
         .putAnchorPeerCurve(level, to, curve);
-    data.rails.add(
+    var rail =
         new FoundationData.Rail(
             from,
             to,
             family,
             new RotationProfile(
-                List.of(new RotationProfile.Key(0, 0), new RotationProfile.Key(40, 4 * Math.PI)))));
+                List.of(new RotationProfile.Key(0, 0), new RotationProfile.Key(40, 4 * Math.PI))));
+    dev.fourthdimension.track.TrackPlacement.captureOriginalCurve(rail, curve);
+    data.rails.add(rail);
     var chassis =
         CoasterCartSpawner.spawnMinimalContraption(
             level, a.add(0, .3125, 5), new Quaterniond(), null, false);

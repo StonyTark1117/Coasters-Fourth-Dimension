@@ -75,7 +75,7 @@ public final class FoundationSync {
         player,
         new Snapshot(
             level.dimension().location(),
-            FoundationData.get(level).save(new CompoundTag(), level.registryAccess())));
+            FoundationData.get(level).snapshot(new CompoundTag(), level.registryAccess())));
   }
 
   public static boolean accepts(net.minecraft.world.level.Level level, Snapshot snapshot) {

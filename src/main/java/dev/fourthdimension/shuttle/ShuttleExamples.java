@@ -162,6 +162,7 @@ public final class ShuttleExamples {
               TrackGeometry.fingerprint(level, edge),
               0,
               true);
+      TrackPlacement.captureOriginalCurve(rail, curve);
       data.rails.add(rail);
       rails.add(rail);
     }
