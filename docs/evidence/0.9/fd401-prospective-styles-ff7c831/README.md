@@ -11,7 +11,7 @@ for these analyses. NumPy was 2.5.4.
 | --- | --- | --- | --- | --- |
 | Single-car Arrow, single spine | PASS | 5,768 | 0.04891048 blocks | 0.02 blocks |
 | Single-car Arrow, double spine | PASS | 5,768 | 0.04891048 blocks | 0.02 blocks |
-| Two-car Arrow, single spine | Pending | — | — | 0.02 blocks |
+| Two-car Arrow, single spine | PASS | 6,548 | 0.04878235 blocks | 0.02 blocks |
 | Two-car Arrow, double spine | Pending | — | — | 0.02 blocks |
 
 Both completed single-car cases reconstruct five styled sections, 327 spine
@@ -29,7 +29,11 @@ player meshes, unmodeled linkage, custom resource models and full-turn ride
 acceptance. It does not test the later draw-failure fallback correction and does
 not close FD401, FD402 or the 0.9 release gate.
 
+The single-spine two-car train also visits all five sections with 6,548
+sampled poses and no uncertified body/track pairs. The report retains
+neighboring-body measurements for the coupled consist and recovery cart.
+
 Completed report verification matched the report/tool/source hashes, process
 exit 0 and both input hashes to the committed isolated export manifest. It was
 a provenance/result review, not a second independent geometry implementation.
-The two remaining train analyses run sequentially; pending rows carry no implied pass.
+The double-spine train analysis remains pending; no pass is implied.
