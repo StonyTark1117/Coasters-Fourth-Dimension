@@ -38,10 +38,10 @@ public final class EngineeredAvailabilityGameTests {
     }
     var level = helper.getLevel();
     var container = SubLevelContainer.getContainer(level);
-    var from = new BlockPos(-1200, 120, -800);
+    var from = new BlockPos(-960, 120, -960);
     var to = from.offset(0, 0, 48);
-    for (int x = -77; x <= -73; x++)
-      for (int z = -51; z <= -46; z++) level.setChunkForced(x, z, true);
+    for (int x = -62; x <= -58; x++)
+      for (int z = -62; z <= -56; z++) level.setChunkForced(x, z, true);
     var player =
         FakePlayerFactory.get(
             level,
@@ -114,8 +114,8 @@ public final class EngineeredAvailabilityGameTests {
             }
             FoundationData.get(level).rails.remove(rail);
             for (var pos : List.of(from, to, controllerPos)) level.removeBlock(pos, false);
-            for (int x = -77; x <= -73; x++)
-              for (int z = -51; z <= -46; z++) level.setChunkForced(x, z, false);
+            for (int x = -62; x <= -58; x++)
+              for (int z = -62; z <= -56; z++) level.setChunkForced(x, z, false);
             System.out.println("FD_ENGINEERED_AVAILABILITY complete nativeUnloads=" + ids.size()
                 + " failures=" + failures);
             helper.assertTrue(failures.isEmpty(), "Native unavailable-body motor impulses: " + failures);
