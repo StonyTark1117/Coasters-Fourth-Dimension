@@ -6,6 +6,7 @@ import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
 import net.minecraft.client.gui.font.FontSet;
+import net.minecraft.client.gui.font.glyphs.BakedGlyph;
 import net.minecraft.resources.ResourceLocation;
 
 /**
@@ -43,6 +44,11 @@ public final class FontReloadTrace {
   }
 
   public static void applyEnd(Map<ResourceLocation, FontSet> fontSets, FontSet missingFontSet) {
+    String probeName = System.getProperty("fourthdimension.staleRemovedFontProbe", "");
+    ResourceLocation probeFont = probeName.isBlank() ? null : ResourceLocation.tryParse(probeName);
+    if (!probeName.isBlank() && probeFont == null)
+      throw new IllegalArgumentException("Invalid stale removed-font probe ID: " + probeName);
+    FontSet staleProbe = probeFont == null ? null : LIVE_FONT_SETS.get(probeFont);
     LIVE_FONT_SETS.clear();
     LIVE_FONT_SETS.putAll(fontSets);
     // FontManager keeps this set outside fontSets and uses it for absent IDs. Do not substitute
@@ -56,6 +62,25 @@ public final class FontReloadTrace {
             GENERATION.get(),
             fontSets.size(),
             Thread.currentThread().getName());
+    if (staleProbe != null && !fontSets.containsKey(probeFont)) {
+      // This opt-in probe retains an actual set from the prior resource generation. It invokes
+      // the FontSet mixin after FontManager closed that set and removed its ID from the new map.
+      // A successful lookup must redirect through Minecraft's live missing-font set.
+      int identity = System.identityHashCode(staleProbe);
+      String redirectKey = GENERATION.get() + ":" + identity;
+      BakedGlyph glyph = staleProbe.getGlyph('A');
+      if (!REDIRECT_LOGS.contains(redirectKey) || glyph != missingFontSet.getGlyph('A'))
+        throw new IllegalStateException(
+            "FD_FONT_REMOVED_STALE_PROBE failed: closed-set lookup did not use live missing set");
+      LogUtils.getLogger()
+          .info(
+              "FD_FONT_REMOVED_STALE_PROBE passed generation={} font={} closedIdentity={} "
+                  + "missingIdentity={} codepoint=U+0041",
+              GENERATION.get(),
+              probeFont,
+              identity,
+              System.identityHashCode(missingFontSet));
+    }
   }
 
   /**
