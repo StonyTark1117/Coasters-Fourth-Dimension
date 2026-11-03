@@ -88,14 +88,34 @@ public final class TrackContentGameTests {
               backfilled.originalCurve != null && backfilled.geometryHash == rail.geometryHash,
               "Backfilled legacy curve was not persisted with its original binding");
           var currentForeignEdge = TrackGeometry.resolve(level, legacy);
+          var currentForeignMaterial =
+              currentForeignEdge == null || currentForeignEdge.bezier() == null
+                  ? null
+                  : currentForeignEdge.bezier().getMaterial();
+          long currentForeignHash =
+              currentForeignEdge == null ? 0 : TrackGeometry.fingerprint(level, currentForeignEdge);
+          var currentForeignMaterial =
+              currentForeignEdge == null || currentForeignEdge.bezier() == null
+                  ? null
+                  : currentForeignEdge.bezier().getMaterial();
+          long currentForeignHash =
+              currentForeignEdge == null ? Long.MIN_VALUE : TrackGeometry.fingerprint(level, currentForeignEdge);
           helper.assertTrue(
               legacy.valid
                   && legacy.originalCurve == null
-                  && currentForeignEdge != null
-                  && currentForeignEdge.bezier() != null
-                  && TrackMaterial.ANDESITE.id.equals(currentForeignEdge.bezier().getMaterial().id)
-                  && TrackGeometry.fingerprint(level, currentForeignEdge) == foreignGeometry,
-              "Geometry-matching non-Coasters material acquired restoration provenance");
+                  && currentForeignMaterial != null
+                  && TrackMaterial.ANDESITE.id.equals(currentForeignMaterial.id)
+                  && currentForeignHash == foreignGeometry,
+              "Foreign material rail changed after native graph synchronization: valid="
+                  + legacy.valid
+                  + ", snapshot="
+                  + (legacy.originalCurve != null)
+                  + ", material="
+                  + currentForeignMaterial
+                  + ", savedHash="
+                  + foreignGeometry
+                  + ", nativeHash="
+                  + currentForeignHash);
           // A changed fingerprint and a missing native connection must never get provenance.
           legacy.originalCurve = null;
           legacy.geometryHash++;
