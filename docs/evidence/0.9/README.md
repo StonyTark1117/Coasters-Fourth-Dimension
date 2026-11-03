@@ -106,6 +106,14 @@ fixture; migration, missing-support restarts and broader lifecycle coverage stay
 open. The item confirmation now directs an intentionally invalid restored rail
 to Repair, then Realign instead of the generic edit/rebind guidance.
 
+The [historical provenance backfill](create-telemetry/307ec35-legacy-provenance/README.md)
+uses two actual pre-provenance worlds. It records five intact valid rails gaining
+their exact saved native snapshots while a pre-invalid changed-support PAX route
+remains unadopted; rail identities, profiles, vehicle/carrier topology and the
+saved logical reservation persist. One absent legacy winch marker is written as
+its documented default `false`. This is migration persistence evidence only,
+not historical repair, rider remount, or full FD903 acceptance.
+
 [Dimension-scoped snapshot contract](dimension-snapshot-contract.md) prevents
 a queued old-dimension snapshot from replacing the newly active client level.
 It advances the snapshot lifecycle boundary. The separate live two-client
