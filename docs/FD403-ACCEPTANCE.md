@@ -12,7 +12,7 @@ profile; optional Track Styles and Engineered behavior has separate gates.
 | --- | --- | --- |
 | Arrow | [Craft, place, board, control, unload, save](evidence/0.4/survival-client-arrow.md) on a short unpowered section | Powered original-route travel and full teaching exercise |
 | Legacy | [Craft, place, board, control, unload](evidence/0.4/survival-client-legacy-free-spin.md) on a short unpowered section | Longer powered route without the recorded endpoint fault; free-rotation exercise |
-| Free Spin | [Craft, place, board, control, unload](evidence/0.4/survival-client-legacy-free-spin.md) on a short unpowered section | Powered magnetic-span and independent-carrier exercise |
+| Free Spin | [Craft, place, board, control, unload](evidence/0.4/survival-client-legacy-free-spin.md) on a short unpowered section; [exact-source native damper regression](evidence/0.4/survival-client-free-spin-powered/damper-native/acceptance.md) | Powered magnetic-span and independent-carrier exercise, player-built route and teaching walkthrough |
 | Revised | [Connected survival craft, place, board, control, unload, and reopen](evidence/0.4/survival-client-revised/acceptance.md) on a short unpowered section | Occupied powered lower-hinge exercise and teaching review |
 | PAX | [Connected survival craft, route and four-car placement](evidence/0.4/survival-client-pax/acceptance.md); [shipped-demo occupied cycle](evidence/0.4/survival-client-pax/demo/acceptance.md); [player Chain links, occupied cycle and catch on a command-authored sample](evidence/0.4/survival-client-pax/manual-links/acceptance.md) | Chain links and occupied powered cycle on the survival-built train; full teaching review |
 

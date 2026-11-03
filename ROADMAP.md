@@ -408,7 +408,10 @@ the connected survival client. A separate
 records three player-made Chain links, empty-hand winch binding and boarding,
 mounted dispatch, a powered four-car recatch and normal dismount. Its route,
 cars and winch were command-authored; the survival-built train still needs its
-own linked powered exercise. The
+own linked powered exercise. The [exact merged-source Free Spin damper regression](docs/evidence/0.4/survival-client-free-spin-powered/damper-native/acceptance.md)
+passes all 50 required base GameTests and records 483 damper impulses with
+negative angular-energy change; its native exports are retained for separate
+FD402 analysis and do not establish a player-built route or walkthrough. The
 [FD403 connected-client acceptance procedure](docs/FD403-ACCEPTANCE.md) lists
 the remaining family and teaching checks without treating the earlier samples
 as release acceptance.

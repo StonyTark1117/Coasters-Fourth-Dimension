@@ -29,9 +29,12 @@ captured cars and a single-car winch binding. The separate
 three native links, occupied powered travel, final catch and unloading. Player
 Chain coupling, occupied powered travel and unloading on a separately
 [command-authored manual demo](survival-client-pax/manual-links/acceptance.md)
-are also recorded. The survival-built train's own Chain coupling and cycle,
-the other families' powered client rides and the full teaching gate remain
-unfinished.
+are also recorded. The [exact merged-source Free Spin damper regression](survival-client-free-spin-powered/damper-native/acceptance.md)
+passes all 50 required base GameTests, records 483 native damper impulses and
+preserves its native exports for separate FD402 analysis. It does not establish
+a player-built route or teaching walkthrough. The survival-built train's own
+Chain coupling and cycle, the other families' powered client rides and the full
+teaching gate remain unfinished.
 
 ## Resource reload investigation
 
