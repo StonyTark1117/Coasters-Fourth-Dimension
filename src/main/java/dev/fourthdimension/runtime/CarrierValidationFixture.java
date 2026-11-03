@@ -9,6 +9,7 @@ import dev.fourthdimension.track.ExampleLayouts;
 import dev.fourthdimension.track.TrackDesign;
 import dev.fourthdimension.track.TrackGeometry;
 import dev.fourthdimension.vehicle.Boarding;
+import dev.fourthdimension.vehicle.BankedRecoveryExamples;
 import dev.fourthdimension.vehicle.CarrierSeatBlock;
 import dev.fourthdimension.vehicle.RecoveryExamples;
 import dev.fourthdimension.vehicle.RecoveryOperations;
@@ -69,6 +70,7 @@ public final class CarrierValidationFixture {
   private static int supportRealignmentDeadline;
   private static BezierConnection supportLossCurve;
   private static RecoveryExamples.Example recoveryExample;
+  private static BankedRecoveryExamples.Example bankedRecoveryExample;
   private static int recoverySpawnDelay = -1;
   private static int recoveryPreparationDelay = -1;
   private static boolean recoveryAttached;
@@ -90,7 +92,10 @@ public final class CarrierValidationFixture {
     // example volumes before asking their builders for an empty area.
     boolean recoveryFixture = recoveryFixture();
     var circuitDesigns = recoveryFixture ? List.<TrackDesign>of() : riderFixtureOnly() ? selectedCircuitDesigns() : CIRCUIT_DESIGNS;
-    if (recoveryFixture) clearRecoveryArea(level);
+    if (recoveryFixture) {
+      if (bankedRecoveryFixture()) clearBankedRecoveryArea(level);
+      else clearRecoveryArea(level);
+    }
     else {
       for (int i = 0; i < circuitDesigns.size(); i++) clearCircuitArea(level, CIRCUIT_ORIGINS.get(i));
       if ((riderFixtureOnly() && riderFixtureFamily() == Family.PAX) || !riderFixtureOnly())
@@ -123,6 +128,7 @@ public final class CarrierValidationFixture {
     supportRealignmentDeadline = 0;
     supportLossCurve = null;
     recoveryExample = null;
+    bankedRecoveryExample = null;
     recoverySpawnDelay = -1;
     recoveryPreparationDelay = -1;
     recoveryAttached = false;
@@ -192,7 +198,15 @@ public final class CarrierValidationFixture {
       // and a live container before allocation, then allow native axle alignment to settle.
       if (riderFixturePlayers.isEmpty()) return;
       if (recoverySpawnDelay-- > 0) return;
-      recoveryExample = RecoveryExamples.create(level, RECOVERY_ORIGIN, TrackDesign.ARROW);
+      if (bankedRecoveryFixture()) {
+        // Reassert the full route after the player's ticket has made every route chunk active.
+        // The initial level-load clear can precede integrated-server chunk activation.
+        prepareBankedRecoveryArea(level);
+        bankedRecoveryExample =
+            BankedRecoveryExamples.create(level, RECOVERY_ORIGIN, TrackDesign.ARROW);
+        BankedRecoveryExamples.queueAssembly(level, bankedRecoveryExample);
+        recoveryExample = bankedRecoveryExample.recovery();
+      } else recoveryExample = RecoveryExamples.create(level, RECOVERY_ORIGIN, TrackDesign.ARROW);
       motionChassis = List.of(recoveryExample.car().chassis);
       recoveryPreparationDelay = 100;
       logRecoveryBearingState(level, "created");
@@ -533,7 +547,12 @@ public final class CarrierValidationFixture {
   }
 
   private static boolean recoveryFixture() {
-    return Boolean.getBoolean("fourthdimension.carrierFixtureRecovery");
+    return Boolean.getBoolean("fourthdimension.carrierFixtureRecovery")
+        || bankedRecoveryFixture();
+  }
+
+  private static boolean bankedRecoveryFixture() {
+    return Boolean.getBoolean("fourthdimension.carrierFixtureRecoveryBank");
   }
 
   /** Keeps the selected occupied fixture in the connecting players' view-distance ticket. */
@@ -819,6 +838,17 @@ public final class CarrierValidationFixture {
 
   private static void clearRecoveryArea(ServerLevel level) {
     clear(level, RECOVERY_ORIGIN.offset(-8, -1, -4), RECOVERY_ORIGIN.offset(8, 12, 52));
+  }
+
+  private static void clearBankedRecoveryArea(ServerLevel level) {
+    prepareBankedRecoveryArea(level);
+  }
+
+  private static void prepareBankedRecoveryArea(ServerLevel level) {
+    var min = RECOVERY_ORIGIN.offset(-8, -1, -4);
+    var max = RECOVERY_ORIGIN.offset(144, 12, 80);
+    preload(level, min, max);
+    clear(level, min, max);
   }
 
   private static void clear(ServerLevel level, BlockPos min, BlockPos max) {

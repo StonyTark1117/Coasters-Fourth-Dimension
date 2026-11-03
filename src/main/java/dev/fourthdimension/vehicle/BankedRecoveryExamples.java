@@ -121,14 +121,22 @@ public final class BankedRecoveryExamples {
     if (data.vehicles.size() + carCount > 64 || data.rails.size() > 251)
       throw new IllegalArgumentException("Example capacity reached");
     data.checkProfileCapacity(design.family.driven() ? 11 : 10);
-    for (var p : BlockPos.betweenClosed(minimum, maximum))
-      if (!level.hasChunkAt(p) || !level.getBlockState(p).isAir())
+    for (var p : BlockPos.betweenClosed(minimum, maximum)) {
+      boolean loaded = level.hasChunkAt(p);
+      var state = loaded ? level.getBlockState(p) : null;
+      if (!loaded || !state.isAir())
         throw new IllegalArgumentException(
             "Load and clear a "
                 + (maximum.getX() - minimum.getX() + 1)
                 + " by 14 by "
                 + (maximum.getZ() - minimum.getZ() + 1)
-                + " recovery corridor");
+                + " recovery corridor; first obstruction="
+                + p
+                + " loaded="
+                + loaded
+                + " state="
+                + state);
+    }
     int[][] offsets = {
       {0, 0}, {0, approach}, {32, endZ}, {64, endZ}, {88, endZ}, {88 + runout, endZ}
     };

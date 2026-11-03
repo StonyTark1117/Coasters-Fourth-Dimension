@@ -43,6 +43,8 @@ public final class CarrierTransformValidation {
   private static int completeSamples;
   private static int waitedTicks;
   private static double maxAngleError;
+  private static double maxRecoveryChassisBankAngle;
+  private static double maxRecoveryBearingBankAngle;
   private static java.util.Map<UUID, Vector3d> motionStarts = new java.util.HashMap<>();
   private static java.util.Map<UUID, Double> maxMotionDistances = new java.util.HashMap<>();
   private static java.util.Set<UUID> compiledBodies = new java.util.HashSet<>();
@@ -62,6 +64,8 @@ public final class CarrierTransformValidation {
       completeSamples = 0;
       waitedTicks = 0;
       maxAngleError = 0;
+      maxRecoveryChassisBankAngle = 0;
+      maxRecoveryBearingBankAngle = 0;
       motionStarts = new java.util.HashMap<>();
       maxMotionDistances = new java.util.HashMap<>();
       compiledBodies = new java.util.HashSet<>();
@@ -104,6 +108,10 @@ public final class CarrierTransformValidation {
       recordCompiled(parent, vehicle.chassis);
       families.add(vehicle.family);
       if (motionRequired()) recordMotion(parent, vehicle.chassis);
+      if (recoveryBankRequired()
+          && maxMotionDistances.getOrDefault(vehicle.chassis, 0d) >= 1)
+        maxRecoveryChassisBankAngle =
+            Math.max(maxRecoveryChassisBankAngle, bankAngle(parent));
       if (recoveryRequired() && vehicle.recoveryCart != null) {
         var recovery = container.getSubLevel(vehicle.recoveryCart);
         if (recovery == null) {
@@ -119,6 +127,10 @@ public final class CarrierTransformValidation {
         requiredNativeCartBodies.add(vehicle.recoveryCart);
         recordCompiled(recovery, vehicle.recoveryCart);
         if (motionRequired()) recordMotion(recovery, vehicle.recoveryCart);
+        if (recoveryBankRequired()
+            && maxMotionDistances.getOrDefault(vehicle.recoveryCart, 0d) >= 1)
+          maxRecoveryBearingBankAngle =
+              Math.max(maxRecoveryBearingBankAngle, bankAngle(recovery));
         recoveryLinkObserved = true;
       }
       for (var carrier : vehicle.carriers) {
@@ -287,7 +299,9 @@ public final class CarrierTransformValidation {
     if (motionRequired()
         && (movedFamilies.size() < requiredMotionFamilies()
             || movedChassis.getOrDefault(Family.PAX, 0) < requiredMotionPaxChassis()
-            || (recoveryMotionRequired() && !recoveryMoved))) {
+            || (recoveryMotionRequired() && !recoveryMoved)
+            || (recoveryBankRequired()
+                && (maxRecoveryChassisBankAngle < .5 || maxRecoveryBearingBankAngle < .5)))) {
       incomplete(
           "controlled chassis motion below requirement families="
               + requiredMotionFamilies()
@@ -302,7 +316,13 @@ public final class CarrierTransformValidation {
               + " recoveryMotionRequired="
               + recoveryMotionRequired()
               + " recoveryMoved="
-              + recoveryMoved);
+              + recoveryMoved
+              + " recoveryBankRequired="
+              + recoveryBankRequired()
+              + " maxRecoveryChassisBankAngle="
+              + maxRecoveryChassisBankAngle
+              + " maxRecoveryBearingBankAngle="
+              + maxRecoveryBearingBankAngle);
       return;
     }
     finish(minecraft, families, carriers, riderAssignments, movedFamilies, movedChassis);
@@ -324,7 +344,7 @@ public final class CarrierTransformValidation {
                 + "riderRequired={} riderMounted={} supportLossRequired={} supportLossObserved={} "
                 + "supportLossAfterMotion={} supportRepairRequired={} supportRepairObserved={} "
                 + "supportRealignmentRequired={} supportRealignmentObserved={} "
-                + "recoveryRequired={} recoveryMotionRequired={} motionFamilies={} motionChassis={} motionDistances={}",
+                + "recoveryRequired={} recoveryMotionRequired={} recoveryBankRequired={} maxRecoveryChassisBankAngle={} maxRecoveryBearingBankAngle={} motionFamilies={} motionChassis={} motionDistances={}",
             completeSamples,
             requiredSamples(),
             waitedTicks,
@@ -349,6 +369,9 @@ public final class CarrierTransformValidation {
             supportRealignmentSeen,
             recoveryRequired(),
             recoveryMotionRequired(),
+            recoveryBankRequired(),
+            maxRecoveryChassisBankAngle,
+            maxRecoveryBearingBankAngle,
             movedFamilies,
             movedChassis,
             maxMotionDistances);
@@ -401,7 +424,8 @@ public final class CarrierTransformValidation {
   private static boolean motionRequired() {
     return Boolean.getBoolean("fourthdimension.carrierValidationMotion")
         || Boolean.getBoolean("fourthdimension.carrierValidationSupportLossMotion")
-        || recoveryMotionRequired();
+        || recoveryMotionRequired()
+        || recoveryBankRequired();
   }
 
   private static boolean recoveryRequired() {
@@ -412,6 +436,10 @@ public final class CarrierTransformValidation {
     return Boolean.getBoolean("fourthdimension.carrierValidationRecoveryMotion");
   }
 
+  private static boolean recoveryBankRequired() {
+    return Boolean.getBoolean("fourthdimension.carrierValidationRecoveryBank");
+  }
+
   private static void recordMotion(dev.ryanhcode.sable.sublevel.SubLevel body, UUID id) {
     var center = body.getPlot().getCenterBlock();
     var position =
@@ -420,6 +448,12 @@ public final class CarrierTransformValidation {
             .transformPosition(new Vector3d(center.getX() + .5, center.getY() + .5, center.getZ() + .5));
     var start = motionStarts.putIfAbsent(id, new Vector3d(position));
     if (start != null) maxMotionDistances.merge(id, position.distance(start), Math::max);
+  }
+
+  /** Measures physical roll from the native body's world-up vector, not controlled carrier spin. */
+  private static double bankAngle(dev.ryanhcode.sable.sublevel.SubLevel body) {
+    var up = new Vector3d(0, 1, 0).rotate(body.logicalPose().orientation());
+    return Math.acos(Math.clamp(up.y, -1, 1));
   }
 
   /** Verifies the local client has the replicated fourth-dimension seat binding it is riding. */
