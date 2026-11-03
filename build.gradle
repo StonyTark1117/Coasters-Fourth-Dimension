@@ -52,7 +52,10 @@ neoForge {
             systemProperty 'fourthdimension.carrierValidationMotionFamilies', project.findProperty('fdCarrierValidationMotionFamilies') ?: '1'
             systemProperty 'fourthdimension.carrierValidationMotionPaxChassis', project.findProperty('fdCarrierValidationMotionPaxChassis') ?: '0'
             systemProperty 'fourthdimension.carrierValidationRender', project.hasProperty('fdCarrierValidationRender').toString()
+            systemProperty 'fourthdimension.carrierValidationRecovery', project.hasProperty('fdCarrierValidationRecovery').toString()
+            systemProperty 'fourthdimension.carrierValidationRecoveryMotion', project.hasProperty('fdCarrierValidationRecoveryMotion').toString()
             systemProperty 'fourthdimension.carrierFixture', project.hasProperty('fdCarrierFixture').toString()
+            systemProperty 'fourthdimension.carrierFixtureRecovery', project.hasProperty('fdCarrierFixtureRecovery').toString()
             systemProperty 'fourthdimension.carrierFixtureMotion', project.hasProperty('fdCarrierFixtureMotion').toString()
             systemProperty 'fourthdimension.carrierFixtureRider', project.hasProperty('fdCarrierFixtureRider').toString()
             systemProperty 'fourthdimension.carrierFixtureRiderOnly', project.hasProperty('fdCarrierFixtureRiderOnly').toString()

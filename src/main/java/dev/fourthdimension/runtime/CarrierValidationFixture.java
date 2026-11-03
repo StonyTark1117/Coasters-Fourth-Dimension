@@ -10,6 +10,8 @@ import dev.fourthdimension.track.TrackDesign;
 import dev.fourthdimension.track.TrackGeometry;
 import dev.fourthdimension.vehicle.Boarding;
 import dev.fourthdimension.vehicle.CarrierSeatBlock;
+import dev.fourthdimension.vehicle.RecoveryExamples;
+import dev.fourthdimension.vehicle.RecoveryOperations;
 import dev.fourthdimension.vehicle.VehicleOperations;
 import dev.ryanhcode.sable.api.sublevel.SubLevelContainer;
 import dev.silvergold.simulatedcoasters.track.anchor.CoasterAnchorpointBlockEntity;
@@ -40,6 +42,7 @@ public final class CarrierValidationFixture {
           TrackDesign.FREE_SPIN,
           TrackDesign.REVISED);
   private static final BlockPos PAX_ORIGIN = new BlockPos(145, 180, 0);
+  private static final BlockPos RECOVERY_ORIGIN = new BlockPos(0, 180, 0);
   private static final BlockPos SPAWN = new BlockPos(0, 180, -30);
   private static List<UUID> motionChassis = List.of();
   private static int controlledCircuitCount;
@@ -65,6 +68,13 @@ public final class CarrierValidationFixture {
   private static boolean supportRealignmentReported;
   private static int supportRealignmentDeadline;
   private static BezierConnection supportLossCurve;
+  private static RecoveryExamples.Example recoveryExample;
+  private static int recoverySpawnDelay = -1;
+  private static int recoveryPreparationDelay = -1;
+  private static boolean recoveryAttached;
+  private static int recoveryTowDelay = -1;
+  private static int recoveryTowDeadline;
+  private static boolean recoveryTowStarted;
 
   private CarrierValidationFixture() {}
 
@@ -78,10 +88,14 @@ public final class CarrierValidationFixture {
     // A new normal world can generate terrain through this reserved test corridor. The fixture is
     // explicitly opt-in and already refuses any world with addon state, so clear only the authored
     // example volumes before asking their builders for an empty area.
-    var circuitDesigns = riderFixtureOnly() ? selectedCircuitDesigns() : CIRCUIT_DESIGNS;
-    for (int i = 0; i < circuitDesigns.size(); i++) clearCircuitArea(level, CIRCUIT_ORIGINS.get(i));
-    if ((riderFixtureOnly() && riderFixtureFamily() == Family.PAX) || !riderFixtureOnly())
-      clearPaxArea(level);
+    boolean recoveryFixture = recoveryFixture();
+    var circuitDesigns = recoveryFixture ? List.<TrackDesign>of() : riderFixtureOnly() ? selectedCircuitDesigns() : CIRCUIT_DESIGNS;
+    if (recoveryFixture) clearRecoveryArea(level);
+    else {
+      for (int i = 0; i < circuitDesigns.size(); i++) clearCircuitArea(level, CIRCUIT_ORIGINS.get(i));
+      if ((riderFixtureOnly() && riderFixtureFamily() == Family.PAX) || !riderFixtureOnly())
+        clearPaxArea(level);
+    }
     var spawn = fixtureSpawn();
     level.setBlockAndUpdate(spawn.below(), Blocks.SMOOTH_STONE.defaultBlockState());
     level.setDefaultSpawnPos(spawn, 0);
@@ -108,14 +122,26 @@ public final class CarrierValidationFixture {
     supportRealignmentReported = false;
     supportRealignmentDeadline = 0;
     supportLossCurve = null;
-    for (int i = 0; i < circuitDesigns.size(); i++) {
-      var vehicle = ExampleLayouts.create(level, CIRCUIT_ORIGINS.get(i), circuitDesigns.get(i));
-      controlledMotionChassis.add(vehicle.chassis);
-    }
-    if (riderFixtureOnly() && riderFixtureFamily() == Family.PAX) {
-      motionPax = ShuttleExamples.create(level, PAX_ORIGIN, false);
-    } else if (!riderFixtureOnly()) {
-      motionPax = ShuttleExamples.create(level, PAX_ORIGIN, false);
+    recoveryExample = null;
+    recoverySpawnDelay = -1;
+    recoveryPreparationDelay = -1;
+    recoveryAttached = false;
+    recoveryTowDelay = -1;
+    recoveryTowDeadline = 0;
+    recoveryTowStarted = false;
+    if (recoveryFixture) {
+      // RecoveryExamples allocates a native sublevel bearing. Defer it to an active server tick;
+      // level-load callbacks run before that bearing's plot can participate in the cart scan.
+    } else {
+      for (int i = 0; i < circuitDesigns.size(); i++) {
+        var vehicle = ExampleLayouts.create(level, CIRCUIT_ORIGINS.get(i), circuitDesigns.get(i));
+        controlledMotionChassis.add(vehicle.chassis);
+      }
+      if (riderFixtureOnly() && riderFixtureFamily() == Family.PAX) {
+        motionPax = ShuttleExamples.create(level, PAX_ORIGIN, false);
+      } else if (!riderFixtureOnly()) {
+        motionPax = ShuttleExamples.create(level, PAX_ORIGIN, false);
+      }
     }
     motionChassis = List.copyOf(controlledMotionChassis);
     controlledCircuitCount = circuitDesigns.size();
@@ -143,6 +169,7 @@ public final class CarrierValidationFixture {
           && riderFixturePlayers.size() < riderFixtureCount()) {
         riderFixturePlayers.add(player.getUUID());
         riderFixtureDeadline = 2_000;
+        if (recoveryFixture()) recoverySpawnDelay = 20;
         LogUtils.getLogger()
             .info(
                 "FD_CARRIER_FIXTURE admitted rider={} slot={}/{}",
@@ -160,6 +187,18 @@ public final class CarrierValidationFixture {
   /** Dispatches the configured circuit cars and optional PAX shuttle for the opt-in motion checkpoint. */
   public static void tick(ServerTickEvent.Post event) {
     var level = event.getServer().overworld();
+    if (recoveryFixture() && recoveryExample == null) {
+      // The native uncoupled bearing is reclaimed during startup. Wait for the real local player
+      // and a live container before allocation, then allow native axle alignment to settle.
+      if (riderFixturePlayers.isEmpty()) return;
+      if (recoverySpawnDelay-- > 0) return;
+      recoveryExample = RecoveryExamples.create(level, RECOVERY_ORIGIN, TrackDesign.ARROW);
+      motionChassis = List.of(recoveryExample.car().chassis);
+      recoveryPreparationDelay = 100;
+      logRecoveryBearingState(level, "created");
+      LogUtils.getLogger().info("FD_CARRIER_FIXTURE created active-tick recovery example");
+    }
+    if (recoveryFixture() && recoveryPreparationDelay-- > 0) return;
     if (riderFixtureRequired() && !riderFixtureBoarded) {
       if (riderFixturePlayers.size() < riderFixtureCount()) {
         if (riderFixtureDeadline > 0 && riderFixtureDeadline-- <= 0)
@@ -177,7 +216,11 @@ public final class CarrierValidationFixture {
         return;
       }
       riderFixtureBoarded = true;
-      if (supportLossRequired()) {
+      if (recoveryFixture()) {
+        logRecoveryBearingState(level, "boarded");
+        // The fixture performs the guarded production coupling after native axle alignment.
+        recoveryTowDeadline = 2_000;
+      } else if (supportLossRequired()) {
         // Let the client receive the real occupied carrier before withdrawing support.
         supportLossDelay = supportLossMotionRequired() ? -1 : 100;
         supportLossDeadline = 1_000;
@@ -190,6 +233,40 @@ public final class CarrierValidationFixture {
         motionReadyDeadline = 2_000;
       }
     }
+    if (recoveryFixture() && riderFixtureBoarded && !recoveryAttached) {
+      if (recoveryExample == null || recoveryExample.bearing().isRemoved()) {
+        if (recoveryTowDeadline-- <= 0) {
+          var bearing = recoveryExample == null ? null : recoveryExample.bearing();
+          var container = SubLevelContainer.getContainer(level);
+          var centerPlotState =
+              bearing == null
+                  ? null
+                  : bearing
+                      .getPlot()
+                      .getEmbeddedLevelAccessor()
+                      .getBlockState(BlockPos.ZERO);
+          LogUtils.getLogger()
+              .error(
+                  "FD_CARRIER_FIXTURE recovery bearing pose timeout id={} removed={} contained={} level={} centerPlotState={}",
+                  bearing == null ? null : bearing.getUniqueId(),
+                  bearing != null && bearing.isRemoved(),
+                  bearing != null && container != null && container.getSubLevel(bearing.getUniqueId()) == bearing,
+                  bearing == null ? null : bearing.getLevel(),
+                  centerPlotState);
+          throw new IllegalStateException(
+              "FD_CARRIER_FIXTURE ordinary recovery bearing was removed before coupling");
+        }
+        return;
+      }
+      attachRecoveryFixture(event.getServer(), level);
+      recoveryAttached = true;
+      // Wait for the client to receive the occupied, linked group and collect its static render
+      // samples before applying native chain power.
+      recoveryTowDelay = 200;
+      recoveryTowDeadline = 1_000;
+    }
+    if (recoveryFixture() && recoveryAttached && !recoveryTowStarted)
+      progressRecoveryTow(event.getServer(), level);
     if (supportLossRequired() && riderFixtureBoarded && !supportLossTriggered) {
       if (supportLossReadyToTrigger(level)) {
         triggerSupportLoss(level);
@@ -303,6 +380,93 @@ public final class CarrierValidationFixture {
             player -> player.isPassenger() && carrier.riderSeats.containsKey(player.getUUID()));
   }
 
+  /** Uses the same guarded production coupling path after a real client player is seated. */
+  private static void attachRecoveryFixture(
+      net.minecraft.server.MinecraftServer server, ServerLevel level) {
+    if (recoveryExample == null)
+      throw new IllegalStateException("FD_CARRIER_FIXTURE missing recovery example");
+    var car = recoveryExample.car();
+    var player = server.getPlayerList().getPlayer(riderFixturePlayers.getFirst());
+    if (player == null) throw new IllegalStateException("FD_CARRIER_FIXTURE missing recovery rider");
+    try {
+      VehicleOperations.restraints(level, car, true);
+      VehicleOperations.retention(level, car, true);
+      RecoveryOperations.select(player, recoveryExample.bearing());
+      RecoveryOperations.attach(player, car);
+    } catch (IllegalArgumentException failure) {
+      throw new IllegalStateException("FD_CARRIER_FIXTURE could not attach occupied recovery", failure);
+    }
+    if (!recoveryExample.bearing().getUniqueId().equals(car.recoveryCart)
+        || !RecoveryOperations.retained(car)
+        || !car.stopping)
+      throw new IllegalStateException("FD_CARRIER_FIXTURE did not form a retained recovery group");
+    LogUtils.getLogger()
+        .info(
+            "FD_CARRIER_FIXTURE attached occupied recovery chassis={} bearing={} riders={}",
+            car.chassis,
+            car.recoveryCart,
+            car.carriers.stream().mapToInt(carrier -> carrier.riderSeats.size()).sum());
+  }
+
+  private static void logRecoveryBearingState(ServerLevel level, String stage) {
+    var bearing = recoveryExample == null ? null : recoveryExample.bearing();
+    var container = SubLevelContainer.getContainer(level);
+    var centerPlotState =
+        bearing == null
+            ? null
+            : bearing.getPlot().getEmbeddedLevelAccessor().getBlockState(BlockPos.ZERO);
+    LogUtils.getLogger()
+        .info(
+            "FD_CARRIER_FIXTURE recovery bearing {} id={} removed={} massInvalid={} contained={} level={} plotCenter={} cartCenter={} centerPlotState={}",
+            stage,
+            bearing == null ? null : bearing.getUniqueId(),
+            bearing != null && bearing.isRemoved(),
+            bearing != null && bearing.getMassTracker().isInvalid(),
+            bearing != null && container != null && container.getSubLevel(bearing.getUniqueId()) == bearing,
+            bearing == null ? null : bearing.getLevel(),
+            bearing == null ? null : CoasterCartResolve.bearingPlotCenter(bearing),
+            bearing == null ? null : CoasterCartResolve.cartCenterWorld(bearing),
+            centerPlotState);
+  }
+
+  /** Starts the attached native chain only after the linked client-render checkpoint can settle. */
+  private static void progressRecoveryTow(
+      net.minecraft.server.MinecraftServer server, ServerLevel level) {
+    if (recoveryTowDelay-- > 0) return;
+    if (recoveryExample == null)
+      throw new IllegalStateException("FD_CARRIER_FIXTURE missing recovery tow example");
+    var car = recoveryExample.car();
+    try {
+      RecoveryOperations.start(level, car);
+      var player = server.getPlayerList().getPlayer(riderFixturePlayers.getFirst());
+      if (player == null) throw new IllegalStateException("FD_CARRIER_FIXTURE missing recovery rider");
+      var lever = recoveryExample.powerLever();
+      level
+          .getBlockState(lever)
+          .useWithoutItem(
+              level,
+              player,
+              new net.minecraft.world.phys.BlockHitResult(
+                  net.minecraft.world.phys.Vec3.atCenterOf(lever),
+                  net.minecraft.core.Direction.UP,
+                  lever,
+                  false));
+      var anchor =
+          (CoasterAnchorpointBlockEntity) level.getBlockEntity(recoveryExample.car().boundFrom);
+      recoveryExample.motor().generatedSpeed.setValue(8 * anchor.getChainLiftTravelSign());
+      recoveryTowStarted = true;
+      LogUtils.getLogger()
+          .info(
+              "FD_CARRIER_FIXTURE started occupied recovery chassis={} bearing={} nativeChain=true",
+              car.chassis,
+              car.recoveryCart);
+    } catch (IllegalArgumentException failure) {
+      if (recoveryTowDeadline-- <= 0)
+        throw new IllegalStateException("FD_CARRIER_FIXTURE recovery tow did not become safe to start", failure);
+      recoveryTowDelay = 20;
+    }
+  }
+
   /** Describes production boarding readiness when an opt-in rider fixture times out. */
   private static String riderBoardingState(ServerLevel level) {
     var vehicle = supportLossVehicle(level);
@@ -365,11 +529,16 @@ public final class CarrierValidationFixture {
   }
 
   private static boolean riderFixtureRequired() {
-    return Boolean.getBoolean("fourthdimension.carrierFixtureRider");
+    return Boolean.getBoolean("fourthdimension.carrierFixtureRider") || recoveryFixture();
+  }
+
+  private static boolean recoveryFixture() {
+    return Boolean.getBoolean("fourthdimension.carrierFixtureRecovery");
   }
 
   /** Keeps the selected occupied fixture in the connecting players' view-distance ticket. */
   private static BlockPos fixtureSpawn() {
+    if (recoveryFixture()) return RECOVERY_ORIGIN.offset(0, 0, -20);
     if (!riderFixtureOnly()) return SPAWN;
     if (riderFixtureFamily() == Family.PAX)
       // The PAX builder reserves a full x=-8..8 empty corridor; keep the spawn ticket near
@@ -646,6 +815,10 @@ public final class CarrierValidationFixture {
   private static void clearPaxArea(ServerLevel level) {
     // Keep this in lockstep with ShuttleExamples.create(..., false)'s occupancy contract.
     clear(level, PAX_ORIGIN.offset(-8, -5, -58), PAX_ORIGIN.offset(8, 42, 90));
+  }
+
+  private static void clearRecoveryArea(ServerLevel level) {
+    clear(level, RECOVERY_ORIGIN.offset(-8, -1, -4), RECOVERY_ORIGIN.offset(8, 12, 52));
   }
 
   private static void clear(ServerLevel level, BlockPos min, BlockPos max) {

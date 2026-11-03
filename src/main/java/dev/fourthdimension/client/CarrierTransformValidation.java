@@ -7,6 +7,7 @@ import dev.fourthdimension.track.TrackGeometry;
 import dev.ryanhcode.sable.api.sublevel.SubLevelContainer;
 import dev.ryanhcode.sable.sublevel.ClientSubLevel;
 import dev.silvergold.simulatedcoasters.track.cart.CoasterCartTrackSnap;
+import dev.silvergold.simulatedcoasters.track.cart.CoasterCartTrainLinkConstraint;
 import dev.silvergold.simulatedcoasters.track.graph.CoasterPathTrackFrame;
 import java.util.EnumMap;
 import java.util.EnumSet;
@@ -86,6 +87,10 @@ public final class CarrierTransformValidation {
     double sampleMaxError = 0;
     String angleMismatch = null;
     boolean staticPhase = !skipStaticSamples() && (!motionRequired() || completeSamples < requiredSamples());
+    boolean recoveryLinkObserved = false;
+    var requiredRenderBodies = new java.util.HashSet<UUID>();
+    var requiredSectionLayerBodies = new java.util.HashSet<UUID>();
+    var requiredNativeCartBodies = new java.util.HashSet<UUID>();
     vehicles:
     for (var vehicle : data.vehicles.values()) {
       var parent = container.getSubLevel(vehicle.chassis);
@@ -94,17 +99,27 @@ public final class CarrierTransformValidation {
         return;
       }
       nativeBodies++;
+      requiredRenderBodies.add(vehicle.chassis);
+      requiredSectionLayerBodies.add(vehicle.chassis);
       recordCompiled(parent, vehicle.chassis);
       families.add(vehicle.family);
-      if (motionRequired()) {
-        var center = parent.getPlot().getCenterBlock();
-        var position =
-            parent
-                .logicalPose()
-                .transformPosition(new Vector3d(center.getX() + .5, center.getY() + .5, center.getZ() + .5));
-        var start = motionStarts.putIfAbsent(vehicle.chassis, new Vector3d(position));
-        if (start != null)
-          maxMotionDistances.merge(vehicle.chassis, position.distance(start), Math::max);
+      if (motionRequired()) recordMotion(parent, vehicle.chassis);
+      if (recoveryRequired() && vehicle.recoveryCart != null) {
+        var recovery = container.getSubLevel(vehicle.recoveryCart);
+        if (recovery == null) {
+          incomplete("missing linked recovery bearing " + vehicle.recoveryCart);
+          return;
+        }
+        if (!CoasterCartTrainLinkConstraint.areLinkedCarts(parent, recovery)) {
+          incomplete("recovery bearing exists but its native link is not replicated");
+          return;
+        }
+        nativeBodies++;
+        requiredRenderBodies.add(vehicle.recoveryCart);
+        requiredNativeCartBodies.add(vehicle.recoveryCart);
+        recordCompiled(recovery, vehicle.recoveryCart);
+        if (motionRequired()) recordMotion(recovery, vehicle.recoveryCart);
+        recoveryLinkObserved = true;
       }
       for (var carrier : vehicle.carriers) {
         riderAssignments += carrier.riderSeats.size();
@@ -115,6 +130,8 @@ public final class CarrierTransformValidation {
           return;
         }
         nativeBodies++;
+        requiredRenderBodies.add(carrier.body);
+        requiredSectionLayerBodies.add(carrier.body);
         recordCompiled(child, carrier.body);
         var relative =
             new Quaterniond(parent.logicalPose().orientation())
@@ -177,14 +194,20 @@ public final class CarrierTransformValidation {
         supportRealignmentRequired() && (!supportLossSeen || !supportRepairSeen || !supportRealignmentSeen);
     if (families.size() < requiredFamilies()
         || (staticPhase && carriers == 0)
+        || (recoveryRequired() && !recoveryLinkObserved)
         || (riderRequired() && !riderMounted)
         || (supportLossIncomplete && !mayAwaitMovingSupportLoss)
         || supportRepairIncomplete
         || supportRealignmentIncomplete
-        || (staticPhase && renderRequired() && compiledBodies.size() < nativeBodies)
+        || (staticPhase && renderRequired() && !compiledBodies.containsAll(requiredRenderBodies))
         || (staticPhase
             && renderRequired()
-            && CarrierRenderMetrics.snapshot().sectionLayerBodies().size() < nativeBodies)) {
+            && !CarrierRenderMetrics.snapshot()
+                .sectionLayerBodies()
+                .containsAll(requiredSectionLayerBodies))
+        || (staticPhase
+            && renderRequired()
+            && !CarrierRenderMetrics.snapshot().coasterCartBodies().containsAll(requiredNativeCartBodies))) {
       incomplete(
           "required family matrix is not loaded required="
               + requiredFamilies()
@@ -192,6 +215,10 @@ public final class CarrierTransformValidation {
               + families
               + " carriers="
               + carriers
+              + " recoveryRequired="
+              + recoveryRequired()
+              + " recoveryLinkObserved="
+              + recoveryLinkObserved
               + " riderRequired="
               + riderRequired()
               + " riderMounted="
@@ -214,10 +241,20 @@ public final class CarrierTransformValidation {
               + compiledBodies.size()
               + "/"
               + nativeBodies
+              + " requiredRenderBodies="
+              + requiredRenderBodies.size()
               + " sectionLayerBodies="
               + CarrierRenderMetrics.snapshot().sectionLayerBodies().size()
               + "/"
-              + nativeBodies);
+              + nativeBodies
+              + " requiredRenderBodyIds="
+              + requiredRenderBodies
+              + " sectionLayerBodyIds="
+              + CarrierRenderMetrics.snapshot().sectionLayerBodies()
+              + " requiredNativeCartBodyIds="
+              + requiredNativeCartBodies
+              + " nativeCartBodyIds="
+              + CarrierRenderMetrics.snapshot().coasterCartBodies());
       return;
     }
     if (staticPhase) {
@@ -242,9 +279,15 @@ public final class CarrierTransformValidation {
       movedFamilies.add(vehicle.family);
       movedChassis.merge(vehicle.family, 1, Integer::sum);
     }
+    boolean recoveryMoved =
+        data.vehicles.values().stream()
+            .filter(vehicle -> vehicle.recoveryCart != null)
+            .anyMatch(
+                vehicle -> maxMotionDistances.getOrDefault(vehicle.recoveryCart, 0d) >= 1);
     if (motionRequired()
         && (movedFamilies.size() < requiredMotionFamilies()
-            || movedChassis.getOrDefault(Family.PAX, 0) < requiredMotionPaxChassis())) {
+            || movedChassis.getOrDefault(Family.PAX, 0) < requiredMotionPaxChassis()
+            || (recoveryMotionRequired() && !recoveryMoved))) {
       incomplete(
           "controlled chassis motion below requirement families="
               + requiredMotionFamilies()
@@ -255,7 +298,11 @@ public final class CarrierTransformValidation {
               + " movedChassis="
               + movedChassis
               + " observed="
-              + maxMotionDistances);
+              + maxMotionDistances
+              + " recoveryMotionRequired="
+              + recoveryMotionRequired()
+              + " recoveryMoved="
+              + recoveryMoved);
       return;
     }
     finish(minecraft, families, carriers, riderAssignments, movedFamilies, movedChassis);
@@ -273,11 +320,11 @@ public final class CarrierTransformValidation {
         .info(
             "FD_CARRIER_VALIDATION passed samples={} target={} waitedTicks={} families={} "
                 + "requiredFamilies={} carriers={} riderAssignments={} maxAngleError={} "
-                + "compiledBodies={} sectionLayerCalls={} sectionLayerBodies={} renderRequired={} "
+                + "compiledBodies={} sectionLayerCalls={} sectionLayerBodies={} nativeCartBodies={} renderRequired={} "
                 + "riderRequired={} riderMounted={} supportLossRequired={} supportLossObserved={} "
                 + "supportLossAfterMotion={} supportRepairRequired={} supportRepairObserved={} "
                 + "supportRealignmentRequired={} supportRealignmentObserved={} "
-                + "motionFamilies={} motionChassis={} motionDistances={}",
+                + "recoveryRequired={} recoveryMotionRequired={} motionFamilies={} motionChassis={} motionDistances={}",
             completeSamples,
             requiredSamples(),
             waitedTicks,
@@ -289,6 +336,7 @@ public final class CarrierTransformValidation {
             compiledBodies.size(),
             CarrierRenderMetrics.snapshot().sectionLayerCalls(),
             CarrierRenderMetrics.snapshot().sectionLayerBodies().size(),
+            CarrierRenderMetrics.snapshot().coasterCartBodies().size(),
             renderRequired(),
             riderRequired(),
             localRiderReady(minecraft),
@@ -299,6 +347,8 @@ public final class CarrierTransformValidation {
             supportRepairSeen,
             supportRealignmentRequired(),
             supportRealignmentSeen,
+            recoveryRequired(),
+            recoveryMotionRequired(),
             movedFamilies,
             movedChassis,
             maxMotionDistances);
@@ -350,7 +400,26 @@ public final class CarrierTransformValidation {
 
   private static boolean motionRequired() {
     return Boolean.getBoolean("fourthdimension.carrierValidationMotion")
-        || Boolean.getBoolean("fourthdimension.carrierValidationSupportLossMotion");
+        || Boolean.getBoolean("fourthdimension.carrierValidationSupportLossMotion")
+        || recoveryMotionRequired();
+  }
+
+  private static boolean recoveryRequired() {
+    return Boolean.getBoolean("fourthdimension.carrierValidationRecovery");
+  }
+
+  private static boolean recoveryMotionRequired() {
+    return Boolean.getBoolean("fourthdimension.carrierValidationRecoveryMotion");
+  }
+
+  private static void recordMotion(dev.ryanhcode.sable.sublevel.SubLevel body, UUID id) {
+    var center = body.getPlot().getCenterBlock();
+    var position =
+        body
+            .logicalPose()
+            .transformPosition(new Vector3d(center.getX() + .5, center.getY() + .5, center.getZ() + .5));
+    var start = motionStarts.putIfAbsent(id, new Vector3d(position));
+    if (start != null) maxMotionDistances.merge(id, position.distance(start), Math::max);
   }
 
   /** Verifies the local client has the replicated fourth-dimension seat binding it is riding. */

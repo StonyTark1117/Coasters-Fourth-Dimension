@@ -110,6 +110,13 @@ preserve identities, bindings, carrier configuration and all rail/profile fields
 All eight exact-head CI jobs on 5130179 also passed all 33 required native tests;
 see `operator-checkpoint-ci.json`. All-family rendered acceptance remains open.
 
+The later [occupied Arrow render/motion checkpoint](occupied-render-motion/acceptance.md)
+adds a fresh development-client run with a real mounted local rider, a replicated
+native ordinary-bearing link and native chain motion. It records exact client
+render-path observations for the fourth-dimension bodies and the separate
+Coasters ordinary-cart renderer. Its bounded Arrow-only scope does not replace
+the remaining rendered operator or lifecycle acceptance below.
+
 ## Remaining acceptance
 
 Rendered ordinary player selection/editor/propulsion/boarding,

@@ -193,10 +193,12 @@ passengers, interrupts its winch, retains it and hands over its physical carriag
 The same original train then tows under native chain power, brakes, cuts power
 with its eight-RPM motor retained, disconnects and opens restraints for unloading.
 Every passenger keeps its original seat mount until unloading; see the
-[occupied handover evidence](evidence/0.4/recovery/occupied-handover/acceptance.md). These headless checks do not establish rendered
-operator acceptance, complete vehicle/rider/rack mesh
-clearance, rendered occupied linked-train recovery, Engineered recovery propulsion/FE,
-coupler strength across those scenes,
+[occupied handover evidence](evidence/0.4/recovery/occupied-handover/acceptance.md). A separate
+[Arrow occupied render/motion checkpoint](evidence/0.4/recovery/occupied-render-motion/acceptance.md)
+now covers one linked, mounted local-player recovery group through the client draw
+paths and initial native movement. It does not establish rendered manual operator
+acceptance, complete vehicle/rider/rack mesh clearance, rendered occupied linked-train
+recovery, Engineered recovery propulsion/FE, coupler strength across those scenes,
 or the complete recovery lifecycle matrix. FD402 and the 0.4 gate remain open.
 
 ## Sampled native model clearance

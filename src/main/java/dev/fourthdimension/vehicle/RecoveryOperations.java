@@ -2,6 +2,7 @@ package dev.fourthdimension.vehicle;
 
 import dev.fourthdimension.runtime.*;
 import dev.fourthdimension.track.*;
+import com.mojang.logging.LogUtils;
 import dev.ryanhcode.sable.api.sublevel.SubLevelContainer;
 import dev.ryanhcode.sable.sublevel.ServerSubLevel;
 import dev.ryanhcode.sable.sublevel.SubLevel;
@@ -39,17 +40,48 @@ public final class RecoveryOperations {
 
   private static void requireOrdinary(ServerPlayer player, SubLevel body) {
     var center = body == null ? null : CoasterCartResolve.cartCenterWorld(body);
-    if (center == null
-        || center.distanceSquared(new Vector3d(player.getX(), player.getY(), player.getZ()))
-            > 16 * 16
-        || !player.mayBuild()
-        || !player
-            .serverLevel()
-            .mayInteract(
-                player, net.minecraft.core.BlockPos.containing(center.x, center.y, center.z))
-        || !ordinary(player.serverLevel(), body))
+    var operator = operatorWorldPosition(player);
+    var close = center != null && center.distanceSquared(operator) <= 16 * 16;
+    var canInteract =
+        center != null
+            && player
+                .serverLevel()
+                .mayInteract(
+                    player, net.minecraft.core.BlockPos.containing(center.x, center.y, center.z));
+    var certified = ordinary(player.serverLevel(), body);
+    if (!close || !player.mayBuild() || !canInteract || !certified) {
+      var vehicle = player.getVehicle();
+      LogUtils.getLogger()
+          .warn(
+              "Recovery ordinary selection rejected center={} operator={} close={} mayBuild={} mayInteract={} certified={} mounted={} seatBinding={}",
+              center,
+              operator,
+              close,
+              player.mayBuild(),
+              canInteract,
+              certified,
+              vehicle != null,
+              vehicle != null && Boarding.at(player.serverLevel(), vehicle.blockPosition()) != null);
       throw new IllegalArgumentException(
           "Select a nearby certified bare ordinary bearing with sneak-use of the Rotation Tool");
+    }
+  }
+
+  /**
+   * Seats live on the carrier's sublevel plot, so a mounted player's entity coordinates are not
+   * overworld coordinates. Recovery selection remains a world-space proximity check.
+   */
+  private static Vector3d operatorWorldPosition(ServerPlayer player) {
+    var vehicle = player.getVehicle();
+    var binding = vehicle == null ? null : Boarding.at(player.serverLevel(), vehicle.blockPosition());
+    var container = SubLevelContainer.getContainer(player.serverLevel());
+    var body = binding == null ? null : container.getSubLevel(binding.carrier().body);
+    if (body != null) {
+      var world =
+          body.logicalPose().transformPosition(new Vector3d(vehicle.getX(), vehicle.getY(), vehicle.getZ()));
+      if (Double.isFinite(world.x) && Double.isFinite(world.y) && Double.isFinite(world.z)) return world;
+    }
+    return new Vector3d(player.getX(), player.getY(), player.getZ());
   }
 
   public static boolean ordinary(net.minecraft.world.level.Level level, SubLevel body) {
