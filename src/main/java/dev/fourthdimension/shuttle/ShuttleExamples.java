@@ -65,6 +65,31 @@ public final class ShuttleExamples {
                       return 0;
                     }
                   }));
+    demo.then(
+        Commands.literal("pax_manual")
+            .executes(
+                ctx -> {
+                  try {
+                    var level = ctx.getSource().getLevel();
+                    create(
+                        level,
+                        BlockPos.containing(ctx.getSource().getPosition()).offset(0, 5, 65),
+                        false);
+                    ctx.getSource()
+                        .sendSuccess(
+                            () ->
+                                Component.literal(
+                                    "Unlinked PAX shuttle built. Use Chains to couple the four"
+                                        + " stationary cars in order, then sneak-use the winch"
+                                        + " to bind the train. Board, close restraints and"
+                                        + " dispatch with the powered winch or car editor."),
+                            false);
+                    return 1;
+                  } catch (IllegalArgumentException failure) {
+                    ctx.getSource().sendFailure(Component.literal(failure.getMessage()));
+                    return 0;
+                  }
+                }));
     event
         .getDispatcher()
         .register(Commands.literal("fd").requires(s -> s.hasPermission(2)).then(demo));

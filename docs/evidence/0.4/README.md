@@ -27,8 +27,11 @@ normal-range boarding and operator controls. The
 captured cars and a single-car winch binding. The separate
 [shipped PAX demo client cycle](survival-client-pax/demo/acceptance.md) covers
 three native links, occupied powered travel, final catch and unloading. Player
-Chain coupling of the survival-built train, the other families' powered client
-rides and the full teaching gate remain unfinished.
+Chain coupling, occupied powered travel and unloading on a separately
+[command-authored manual demo](survival-client-pax/manual-links/acceptance.md)
+are also recorded. The survival-built train's own Chain coupling and cycle,
+the other families' powered client rides and the full teaching gate remain
+unfinished.
 
 ## Resource reload investigation
 
