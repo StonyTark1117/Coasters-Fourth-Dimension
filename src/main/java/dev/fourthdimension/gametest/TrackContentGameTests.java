@@ -1,5 +1,6 @@
 package dev.fourthdimension.gametest;
 
+import com.simibubi.create.content.trains.track.TrackMaterial;
 import dev.fourthdimension.runtime.*;
 import dev.fourthdimension.track.*;
 import dev.silvergold.simulatedcoasters.SimulatedCoastersBlocks;
@@ -51,6 +52,20 @@ public final class TrackContentGameTests {
     long originalRevision = rail.revision;
     // Model an intact pre-provenance save without changing its functional binding.
     rail.originalCurve = null;
+    var legacy = data.rails.stream().filter(r -> r.matches(other, end)).findFirst().orElseThrow();
+    var wrongMaterialCurve = TrackGeometry.resolve(level, legacy).bezier().clone();
+    wrongMaterialCurve.setMaterial(TrackMaterial.ANDESITE);
+    var legacyAnchor = (CoasterAnchorpointBlockEntity) level.getBlockEntity(other);
+    legacyAnchor.removeAnchorPeerCurve(level, end);
+    legacyAnchor.putAnchorPeerCurve(level, end, wrongMaterialCurve);
+    TrackGeometry.invalidate(level);
+    var wrongMaterialEdge = TrackGeometry.resolve(level, legacy);
+    helper.assertTrue(
+        wrongMaterialEdge != null
+            && TrackMaterial.ANDESITE.equals(wrongMaterialEdge.bezier().getMaterial())
+            && TrackGeometry.fingerprint(level, wrongMaterialEdge) == legacy.geometryHash,
+        "Non-Coasters material control changed the saved geometry fingerprint");
+    legacy.originalCurve = null;
     helper.runAtTickTime(
         20,
         () -> {
@@ -69,9 +84,9 @@ public final class TrackContentGameTests {
           helper.assertTrue(
               backfilled.originalCurve != null && backfilled.geometryHash == rail.geometryHash,
               "Backfilled legacy curve was not persisted with its original binding");
-          var legacy =
-              data.rails.stream().filter(r -> r.matches(other, end)).findFirst().orElseThrow();
-          helper.assertTrue(legacy.valid, "Legacy track invalidated itself");
+          helper.assertTrue(
+              legacy.valid && legacy.originalCurve == null,
+              "Geometry-matching non-Coasters material acquired restoration provenance");
           // A changed fingerprint and a missing native connection must never get provenance.
           legacy.originalCurve = null;
           legacy.geometryHash++;
@@ -83,8 +98,6 @@ public final class TrackContentGameTests {
         40,
         () -> {
           helper.assertTrue(!rail.valid, "Removed geometry retained its active mechanical profile");
-          var legacy =
-              data.rails.stream().filter(r -> r.matches(other, end)).findFirst().orElseThrow();
           helper.assertTrue(
               rail.originalCurve == null && !legacy.valid && legacy.originalCurve == null,
               "Missing or changed legacy geometry acquired an exact-curve snapshot");

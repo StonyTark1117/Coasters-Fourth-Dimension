@@ -230,9 +230,11 @@ public final class TrackPlacement {
           rail.valid = false;
           rail.revision++;
           geometryChanged = true;
-        } else if (rail.originalCurve == null && edge.bezier() != null) {
-          // Older saves have no native-curve snapshot. Preserve only the still-present curve
-          // whose sampled geometry matches their saved binding; never infer missing geometry.
+        } else if (rail.originalCurve == null
+            && edge.bezier() != null
+            && CoasterTrackMaterials.COASTER.equals(edge.bezier().getMaterial())) {
+          // Older saves have no native-curve snapshot. Preserve only the still-present Coasters
+          // curve whose sampled geometry matches their saved binding; never infer missing geometry.
           captureOriginalCurve(rail, edge.bezier());
           provenanceChanged = true;
         }
