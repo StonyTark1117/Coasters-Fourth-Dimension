@@ -231,12 +231,27 @@ A direct motor-entry guard retains captured and maintenance-held vehicles, and
 preserves exclusive PAX winch/gravity-return ownership. Engineered STOP brakes
 translation; the operator must still request carrier capture and wait for ready
 alignment before releasing restraints. A longitudinal stop never automatically
-unloads or aligns rotating seats. Ordinary bearings bypass these 4D policies.
+unloads or aligns rotating seats. An ordinary bearing towing a Fourth Dimension
+group follows the recovery brake/fault policy; unrelated ordinary bearings retain
+their upstream behavior.
 
 The [consist interlock regression](evidence/integrations/2026-10-02/engineered-interlock/README.md)
 adds callback-time checks for open restraints, faults and held linked cars, and
 rejects missing peer registrations. It preserves the ordinary recovery-cart
 policy and verifies native queued impulses with valid-launch controls.
+
+The [shared availability guard replay](evidence/0.9/engineered-availability/passed-ec731db/README.md)
+also checks native bodies at callback time for Engineered motors and native chain
+drive. Every car in a 4D consist must have a live chassis and carriers. An ordinary
+recovery source must still be live and contained, with every attached car's native
+components available, its native coupling intact and no removed-partner marker.
+Healthy maintenance-retained towing remains permitted. The preserved
+[failing baseline](evidence/0.9/engineered-availability/native-chain-baseline-0fc8a76/README.md)
+and unchanged-test replay measure thirteen chain callbacks and three Engineered
+ordinary-bearing callbacks that now hold after component unload, while positive
+controls still propel. This is isolated-source direct-callback evidence, not
+natural chunk-lifecycle, automatic relink or merged-release acceptance; the
+removed-partner and detached-link negative cases were not separately injected.
 
 The [operating evidence](evidence/0.4/operating-acceptance.md) covers installed
 controllers on all five matching straight track families: four non-PAX cars
@@ -250,7 +265,7 @@ sequence, resource configuration, every powered layout or GUI ride,
 redstone operator workflow, unload/reload of motor spans or rendering mode.
 
 CI exercises standalone, Styles-only, Engineered-only and combined profiles.
-Without Engineered, its three dedicated operating tests explicitly report that they
+Without Engineered, its dedicated operating tests explicitly report that they
 were not exercised; passing availability checks are not motor-operation evidence.
 
 ## Decorative stroke limit and powered controlled-train checkpoint
