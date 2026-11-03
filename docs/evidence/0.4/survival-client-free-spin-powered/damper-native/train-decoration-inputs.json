@@ -1,0 +1,27 @@
+{
+  "result": "structural-and-transform-check-pass",
+  "scope": "No clearance, model visibility, native execution or release acceptance inferred.",
+  "input_sha256": "135ca1f6649495b2290f92b4dcfb1fb56025c70e3ae29ed80532ff551bb82aee",
+  "trace_pairing": {
+    "sha256": "4ad3d7daa5e2f25447bd228ff3e856870883370dcbd70f4b67abe3cafd2fc1dc",
+    "samples_by_variant": {
+      "arrow_four_rail_v1": 6548,
+      "pax_shuttle_v1": 6973
+    },
+    "scope": "Recorded chassis pairing only; completion marker is not test acceptance."
+  },
+  "inspected_local_source_sha256": {
+    "src/main/java/dev/fourthdimension/gametest/RecoveryRouteFrames.java": "ed3d7dbe58b6759b8a511f49796d1bb30bbdfb43ff4439d41f0fc6dc8a9896ce",
+    "src/main/java/dev/fourthdimension/client/integration/TrackStylesRenderer.java": "fa69593b5a8b9f93ece00f40ebd67f00692db9d8af8d18648563f42146edb217",
+    "src/main/java/dev/fourthdimension/physics/ArrowDecorationPlacement.java": "d13de25c3a03ce24343d92133457332a4887e0eabac54348a99f11ae37b193cd",
+    "src/main/java/dev/fourthdimension/physics/ModelFrame.java": "b2d95f95df0630e7780b84c6a901a517b3adb7e7de2680072bba0ac828ae37b6",
+    "src/main/java/dev/fourthdimension/contract/Family.java": "a441e66dfcbee53a83a52f5b475fab07d60e58e03d2ef789ebfbe1c0ab9d7c2c",
+    "src/main/java/dev/fourthdimension/track/TrackDesign.java": "e3a88c3ca661d7b232ee0b9d3c853a6e66c1d0d1147ac4266b001616b1fe1ff1",
+    "src/main/java/dev/fourthdimension/physics/RotationProfile.java": "041667e8a450b154e1bfe769f2879299a768ae5f7beeb3db1ec00499090f9b54",
+    "src/main/java/dev/fourthdimension/track/TrackGeometry.java": "a3e89095a217d3e978aa414704dea7212d36020bd1c0f9865387ac8a62643012"
+  },
+  "routes": 2,
+  "sections": 10,
+  "spines": 814,
+  "ties": 212
+}
