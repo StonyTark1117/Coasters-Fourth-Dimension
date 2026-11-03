@@ -1,0 +1,51 @@
+{
+  "status": "completed; result requires review",
+  "captured_at_utc": "2026-11-03T11:46:53.387590+00:00",
+  "source_revision": "270697b431d3b234bf083a5877574a1cb78d75ff",
+  "source_status": [],
+  "workspace": "/home/braydon/.codex/worktrees/pax-active-restart/Coasters: Fourth Dimension",
+  "jar": {
+    "path": "/tmp/fourthdimension-2aa0362f/build/libs/coasters-fourth-dimension-0.9.0-dev.27.jar",
+    "sha256": "18dcc13f1c7ff6bb6085b7e29f3a1baf3ca504fd34887a6297ac24272d0d8877"
+  },
+  "planned_command": [
+    "./gradlew",
+    "runGameTestServer",
+    "--offline",
+    "--no-daemon",
+    "-PfdIntegrations=engineered"
+  ],
+  "runtime_kind": "development loose classes, not packaged-JAR runtime",
+  "expected_scope": "52 required tests; preserve initial failures without production policy changes",
+  "new_scenario": "Ordinary recovery bearing with each Arrow carrier and chassis transiently unloaded; direct MotorDrive callbacks before and after RecoveryOperations.tick",
+  "expected_counts": {
+    "native_unloads": 3,
+    "braked_calls": 3,
+    "healthy_calls": 3,
+    "unavailable_before_tick_calls": 3,
+    "after_tick_calls": 3
+  },
+  "all_packaged_class_parity_count": 226,
+  "guard_unchanged_from": "b0bf7bc",
+  "limits": [
+    "Single Arrow car and bare ordinary recovery bearing",
+    "No natural chunk lifecycle or automatic train-link recovery",
+    "No GUI/FE-network/occupied workflow or full release certification"
+  ],
+  "runner_invocation": [
+    "flock",
+    "-n",
+    "/tmp/fd-gametest-runtime.lock",
+    "python3",
+    "/tmp/fd-engineered-recovery-availability-270697b/run.py"
+  ],
+  "required_runtime_lock": "/tmp/fd-gametest-runtime.lock",
+  "source": "270697b431d3b234bf083a5877574a1cb78d75ff",
+  "profile": "engineered",
+  "start_utc": "2026-11-03T11:48:35.365360+00:00",
+  "prelaunch_game_jvms": [],
+  "gradle_pid": 385346,
+  "end_utc": "2026-11-03T11:53:15.502235+00:00",
+  "exit_code": 1,
+  "source_status_after": []
+}

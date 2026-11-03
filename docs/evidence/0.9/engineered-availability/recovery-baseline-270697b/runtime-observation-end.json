@@ -1,0 +1,35 @@
+{
+  "captured_utc": "2026-11-03T11:54:11.406355+00:00",
+  "our_wrapper_live": false,
+  "our_game_live": false,
+  "processes": [
+    {
+      "pid": 217897,
+      "exe": "java",
+      "cwd": "/home/braydon/.gradle/daemon/9.2.1",
+      "gradle_daemon": true,
+      "runtime_lock": false
+    },
+    {
+      "pid": 389976,
+      "exe": "flock",
+      "cwd": "/home/braydon/.codex/worktrees/fd-0-4-roadmap/Coasters: Fourth Dimension",
+      "gradle_daemon": false,
+      "runtime_lock": true
+    },
+    {
+      "pid": 389986,
+      "exe": "java",
+      "cwd": "/home/braydon/.codex/worktrees/fd-0-4-roadmap/Coasters: Fourth Dimension",
+      "gradle_daemon": false,
+      "runtime_lock": false
+    },
+    {
+      "pid": 390035,
+      "exe": "java",
+      "cwd": "/home/braydon/.gradle/daemon/9.2.1",
+      "gradle_daemon": true,
+      "runtime_lock": false
+    }
+  ]
+}
