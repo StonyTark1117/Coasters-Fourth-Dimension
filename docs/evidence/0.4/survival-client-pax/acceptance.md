@@ -50,6 +50,9 @@ The complete [saved survival world](world.tar.zst) is a 1.1 MiB zstd archive
 for continuing the chain and winch check; its SHA-256 is
 `debe2a1136a94291017551c769bd33a78e847393ddb53857b79e22f928d7cc6a`.
 
-This is a connected survival construction checkpoint only. FD403 still needs
-the linked four-car PAX cycle, occupied powered exercises for all five families,
-and the complete teaching review before FD404 can close.
+This is a connected survival construction checkpoint only. The separate
+[shipped-demo client cycle](demo/acceptance.md) proves the original four-car
+sample can carry a rider through powered lift, return, catch and unloading.
+FD403 still needs player Chain coupling of the survival-crafted cars, occupied
+powered exercises for the other families, and the complete teaching review
+before FD404 can close.

@@ -24,7 +24,10 @@ extends that connected exercise to those two families. The
 [Revised client checkpoint](survival-client-revised/acceptance.md) adds
 normal-range boarding and operator controls. The
 [PAX construction checkpoint](survival-client-pax/acceptance.md) adds four
-captured cars and a single-car winch binding. Native PAX links, powered client
+captured cars and a single-car winch binding. The separate
+[shipped PAX demo client cycle](survival-client-pax/demo/acceptance.md) covers
+three native links, occupied powered travel, final catch and unloading. Player
+Chain coupling of the survival-built train, the other families' powered client
 rides and the full teaching gate remain unfinished.
 
 ## Resource reload investigation

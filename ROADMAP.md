@@ -391,7 +391,11 @@ save/reopen cycle; powered lower-hinge travel remains open. A later
 [PAX construction checkpoint](docs/evidence/0.4/survival-client-pax/acceptance.md)
 records survival crafting, three valid connected route rails, four captured
 cars, and a bound single-car winch. The native chain links and occupied powered
-four-car cycle remain open. The
+four-car cycle on that survival-built train remain open. A separate
+[shipped PAX demo checkpoint](docs/evidence/0.4/survival-client-pax/demo/acceptance.md)
+now records three original native links, normal mounted restraint/dispatch
+controls, one complete powered four-car cycle, final capture and unloading in
+the connected survival client. The
 [FD403 connected-client acceptance procedure](docs/FD403-ACCEPTANCE.md) lists
 the remaining family and teaching checks without treating the earlier samples
 as release acceptance.
