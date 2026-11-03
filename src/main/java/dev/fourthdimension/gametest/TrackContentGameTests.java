@@ -88,14 +88,27 @@ public final class TrackContentGameTests {
               backfilled.originalCurve != null && backfilled.geometryHash == rail.geometryHash,
               "Backfilled legacy curve was not persisted with its original binding");
           var currentForeignEdge = TrackGeometry.resolve(level, legacy);
+          var currentForeignMaterial =
+              currentForeignEdge == null || currentForeignEdge.bezier() == null
+                  ? null
+                  : currentForeignEdge.bezier().getMaterial();
+          long currentForeignHash =
+              currentForeignEdge == null ? 0 : TrackGeometry.fingerprint(level, currentForeignEdge);
           helper.assertTrue(
               legacy.valid
                   && legacy.originalCurve == null
-                  && currentForeignEdge != null
-                  && currentForeignEdge.bezier() != null
-                  && TrackMaterial.ANDESITE.equals(currentForeignEdge.bezier().getMaterial())
-                  && TrackGeometry.fingerprint(level, currentForeignEdge) == foreignGeometry,
-              "Geometry-matching non-Coasters material acquired restoration provenance");
+                  && TrackMaterial.ANDESITE.equals(currentForeignMaterial)
+                  && currentForeignHash == foreignGeometry,
+              "Foreign material rail changed after native graph synchronization: valid="
+                  + legacy.valid
+                  + ", snapshot="
+                  + (legacy.originalCurve != null)
+                  + ", material="
+                  + currentForeignMaterial
+                  + ", savedHash="
+                  + foreignGeometry
+                  + ", nativeHash="
+                  + currentForeignHash);
           // A changed fingerprint and a missing native connection must never get provenance.
           legacy.originalCurve = null;
           legacy.geometryHash++;
