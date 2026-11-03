@@ -1,10 +1,13 @@
 # FD403 family-track smoothing input boundary
 
-Read-only inspection on 2026-11-02. The inspected release's normal family-track
-placement does **not** pass the player's Left Alt smoothing preference into
-upstream curve creation. Do not describe Left Alt as a working fix for the
-family-track station curve until an implementation change and normal-client
-acceptance establish that behavior.
+Read-only inspection on 2026-11-02 of the family-placement source before
+`2b67648`. That implementation did **not** pass the player's Left Alt smoothing
+preference into upstream curve creation. Commit `2b67648` replaces the unsafe
+five-argument bridge with Coasters' public explicit no-neighbour-mutation mode;
+its focused GameTest checks that the preview uses that mode and leaves the
+adjoining curve unchanged. Left Alt remains unsupported for family items: do not
+describe it as a family-track station-curve control until normal-client
+acceptance establishes such behavior.
 
 This is a call-path finding, not a newly executed survival test or proof that
 smoothing is the only cause of the previously observed station sag. No game or
@@ -15,7 +18,7 @@ method's exact bytes. Our two placement source hashes are recorded separately.
 
 ## Observed call path
 
-1. `FamilyTrackItem.useOn` delegates the second normal anchor click to
+1. Before `2b67648`, `FamilyTrackItem.useOn` delegated the second normal anchor click to
    `TrackPlacement.connect`. That method calls
    `CoasterTrackPlacement.buildAnchorAnchorBezier(level, from, to, COASTER, false)`
    for new construction. It does not read player smoothing state. The distinct
@@ -34,8 +37,9 @@ method's exact bytes. Our two placement source hashes are recorded separately.
    described above bypasses that player-aware path.
 
 The upstream ordinary-track Ponder lesson about Left Alt can be correct for its
-own item while remaining inapplicable to our family-item path. The original
-`false` must not simply be replaced with a keyboard value: it is the girder flag.
+own item while remaining inapplicable to the historical family-item path. The
+original `false` could not simply be replaced with a keyboard value: it was the
+girder flag.
 
 ## Exact exposed APIs in the inspected JAR
 
@@ -50,8 +54,8 @@ record; these are observed signatures, not an upstream API stability promise.
 | `CoasterTrackPlacement` | `BezierConnection buildAnchorAnchorBezier(Level, BlockPos, BlockPos, TrackMaterial, boolean girder)` | Public static builder used by our item. Has no player, UUID or suppression argument; the downstream overload supplies false rather than reading the server preference map. |
 | `CoasterAnchorBezierOptimizer` | `AnchorAnchorBuildResult buildAnchorAnchorPlacement(Level, BlockPos, BlockPos, TrackMaterial, boolean girder, boolean suppressNeighborSmoothing)` | Public static six-argument alternative. Its behavioral/neighbor-write and validation requirements must be reviewed before adopting it. |
 
-Reading the public preference getter alone therefore does not fix the current
-five-argument builder: the value must reach an appropriate creation path. Do not
+Reading the public preference getter alone could not fix the historical
+five-argument builder: the value needed to reach an appropriate creation path. Do not
 drop normal validation or neighboring-curve bookkeeping to obtain a flatter
 curve; establish the chosen API's complete semantics first.
 
@@ -74,7 +78,7 @@ It contains exact method bytes and resolved call/branch/type-check operands.
   client path. The getter/server map alone cannot correct that missing input.
 
 A native coaster track in the other hand could satisfy the native client context,
-but does not alter our constant-false builder. It is neither a proven workaround
+but did not alter the historical constant-false builder. It is neither a proven workaround
 nor an acceptable substitute for a normal family-item control. This follows the
 inspected type checks; no real keyboard, packet-delivery or reconnect test was
 performed. A correction needs to define family-item context and state clearing
@@ -82,13 +86,11 @@ without competing client senders, then verify the resulting server geometry.
 
 ## Implementation-owner handoff
 
-Choose an explicit, server-validated construction behavior that allows a level
-station without sacrificing matching-family eligibility, source geometry,
-profiles, item cost, occupancy guards or exact support restoration. If using
-upstream suppression, address the excluded family-item client context above and
-verify actual preference delivery and the correct six-argument construction API.
-Preview and committed geometry must agree. Keep that decision with the main
-implementation owner.
+`2b67648` chooses the public server-validated no-neighbour-mutation mode so
+family placement never applies an uncommitted neighbour-write batch. Future
+Left-Alt support would still need to address the excluded family-item client
+context above and verify packet delivery. Preview and committed geometry must
+agree.
 
 Acceptance needs normal survival family-track construction, a genuinely level
 station, four normally placed PAX cars remaining correctly spaced during manual

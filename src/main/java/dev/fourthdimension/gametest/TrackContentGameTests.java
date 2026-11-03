@@ -57,11 +57,10 @@ public final class TrackContentGameTests {
             .write(from);
     helper.assertTrue(before.equals(after), "Family placement changed its adjoining native curve");
     var data = FoundationData.get(level);
-    for (var rail : List.copyOf(data.rails)) {
-      ((CoasterAnchorpointBlockEntity) level.getBlockEntity(rail.from))
-          .removeAnchorPeerCurve(level, rail.to);
-      data.rails.remove(rail);
-    }
+    for (var endpoints : List.of(List.of(from, hub), List.of(hub, outbound)))
+      ((CoasterAnchorpointBlockEntity) level.getBlockEntity(endpoints.getFirst()))
+          .removeAnchorPeerCurve(level, endpoints.getLast());
+    data.rails.removeIf(rail -> rail.matches(from, hub) || rail.matches(hub, outbound));
     for (var point : List.of(from, hub, outbound)) level.removeBlock(point, false);
     helper.succeed();
   }
