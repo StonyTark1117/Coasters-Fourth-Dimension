@@ -1,0 +1,62 @@
+{
+  "source_revision": "ec731dbdefe7b3adb6c4f21395993ce66a72872c",
+  "source_status": [],
+  "status": "completed; result requires review",
+  "expected_suite_tests": 54,
+  "recovery_counts": {
+    "unloads": 3,
+    "braked": 3,
+    "healthy": 3,
+    "before_tick": 3,
+    "after_tick": 3
+  },
+  "chassis_counts": {
+    "unloads": 6,
+    "held": 12,
+    "positive": 20,
+    "unavailable": 10
+  },
+  "normalization": "Exact original linear/angular velocity logged; direct callbacks use zero-velocity input then restore/readback; interlocks/power/membership unchanged",
+  "native_scheduler": "one onEachTick registration per test, private ordered future-stage queue",
+  "production_guard": "PropulsionInterlock adds shared availability and attached-recovery coupling/removal holds",
+  "limits": [
+    "Direct callback evidence only",
+    "Native pipeline velocity, not Engineered force",
+    "No natural scheduler or automatic relink claim"
+  ],
+  "captured_at_utc": "2026-11-03T12:51:10.188289+00:00",
+  "workspace": "/home/braydon/.codex/worktrees/pax-active-restart/Coasters: Fourth Dimension",
+  "jar": {
+    "path": "/tmp/fourthdimension-2aa0362f/build/libs/coasters-fourth-dimension-0.9.0-dev.27.jar",
+    "sha256": "fbf96bbe8704c7d9ce8246f5611eae73ede1c0342240991196bfdcd0e76304e9"
+  },
+  "planned_command": [
+    "./gradlew",
+    "runGameTestServer",
+    "--offline",
+    "--no-daemon",
+    "-PfdIntegrations=engineered"
+  ],
+  "runtime_kind": "development loose classes, not packaged-JAR runtime",
+  "all_packaged_class_parity_count": 233,
+  "runner_invocation": [
+    "flock",
+    "-n",
+    "/tmp/fd-gametest-runtime.lock",
+    "python3",
+    "/tmp/fd-native-chain-availability-ec731db/prepare-and-run.py"
+  ],
+  "expected_required_failures": 0,
+  "changed_classes_from_baseline": [
+    "dev/fourthdimension/integration/PropulsionInterlock.class"
+  ],
+  "baseline_source": "0fc8a76",
+  "source": "ec731dbdefe7b3adb6c4f21395993ce66a72872c",
+  "profile": "engineered",
+  "start_utc": "2026-11-03T12:51:10.225474+00:00",
+  "prelaunch_game_jvms": [],
+  "gradle_pid": 535667,
+  "end_utc": "2026-11-03T12:55:55.948384+00:00",
+  "exit_code": 0,
+  "source_status_after": []
+}
