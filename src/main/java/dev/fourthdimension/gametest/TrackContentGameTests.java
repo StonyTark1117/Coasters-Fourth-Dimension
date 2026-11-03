@@ -115,20 +115,34 @@ public final class TrackContentGameTests {
                   + foreignGeometry
                   + ", nativeHash="
                   + currentForeignHash);
-          // A changed fingerprint and a missing native connection must never get provenance.
+          // Changed fingerprints on valid Coasters and foreign curves must not gain provenance.
           legacy.originalCurve = null;
           legacy.geometryHash++;
           rail.originalCurve = null;
+          rail.geometryHash++;
+        });
+    helper.runAtTickTime(
+        30,
+        () -> {
+          helper.assertTrue(
+              !rail.valid && rail.originalCurve == null,
+              "Changed Coasters fingerprint acquired an exact-curve snapshot");
+          helper.assertTrue(
+              !legacy.valid && legacy.originalCurve == null,
+              "Changed foreign fingerprint acquired an exact-curve snapshot");
+          // A loaded historical rail can still name geometry that has been removed upstream.
+          rail.geometryHash--;
           ((CoasterAnchorpointBlockEntity) level.getBlockEntity(from))
               .removeAnchorPeerCurve(level, to);
+          rail.valid = true;
         });
     helper.runAtTickTime(
         40,
         () -> {
-          helper.assertTrue(!rail.valid, "Removed geometry retained its active mechanical profile");
+          helper.assertTrue(!rail.valid, "Missing native geometry retained its active mechanical profile");
           helper.assertTrue(
               rail.originalCurve == null && !legacy.valid && legacy.originalCurve == null,
-              "Missing or changed legacy geometry acquired an exact-curve snapshot");
+              "Missing native geometry acquired an exact-curve snapshot");
           for (var p : List.of(from, to, other, end)) level.removeBlock(p, false);
           data.rails.removeIf(r -> r.matches(from, to) || r.matches(other, end));
           helper.succeed();
