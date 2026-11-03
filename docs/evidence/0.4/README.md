@@ -47,7 +47,10 @@ records travel, capture, unloading and reopen but no meaningful free rotation.
 The later [bounded powered Free Spin pass](survival-client-free-spin-powered/acceptance.md)
 records installed inducer/damper spans, independent occupied carrier motion,
 capture, unloading and reopen; it does not isolate damper strength from capture.
-Revised powered lower-hinge travel remains open.
+The [Revised powered demo pass](survival-client-revised/powered-demo/acceptance.md)
+records occupied circuit travel, independent lower-hinge response, capture,
+unloading and reopen on a command-authored shipped layout. A survival-built
+powered Revised route remains open.
 
 ## Resource reload investigation
 

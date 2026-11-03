@@ -426,8 +426,12 @@ original section, occupied powered travel with independent carrier response,
 pre-boundary capture, unloading and same-identity cold reopen. It also fixes
 long-section editor reach and duplicate live rider-seat assignment found in
 negative retries. The split ride does not isolate damper strength from capture;
-full family teaching, a complete Arrow circuit and powered Revised lower-hinge
-exercise remain open.
+full family teaching and a complete Arrow circuit remain open. A later
+[Revised powered demo pass](docs/evidence/0.4/survival-client-revised/powered-demo/acceptance.md)
+records an occupied powered circuit, distinct lower-hinge carrier motion,
+capture, unloading and same-identity cold reopen on the command-authored shipped
+example. A survival-built powered Revised route and family teaching walkthrough
+remain open.
 The
 [FD403 connected-client acceptance procedure](docs/FD403-ACCEPTANCE.md) lists
 the remaining family checks without treating the earlier samples as release
