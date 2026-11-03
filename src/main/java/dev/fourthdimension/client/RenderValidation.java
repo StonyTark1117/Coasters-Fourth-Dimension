@@ -28,12 +28,12 @@ public final class RenderValidation {
     var sample = TrackRenderMetrics.snapshot();
     int requiredStages = requiredStages();
     if (sample.renderStages() < requiredStages) return;
-    if (sample.meshBuilds() < 1
-        || sample.inRangeRails() < requiredStages
-        || sample.inRangeQuads() < requiredStages) {
+    if (!hasRequiredOriginalGeometry(sample, requiredStages)) {
       throw new IllegalStateException(
           "FD_RENDER_VALIDATION incomplete stages="
               + sample.renderStages()
+              + " geometryStages="
+              + sample.geometryStages()
               + " meshes="
               + sample.meshBuilds()
               + " rails="
@@ -44,10 +44,11 @@ public final class RenderValidation {
     completed = true;
     LogUtils.getLogger()
         .info(
-            "FD_RENDER_VALIDATION passed stages={} target={} meshes={} avgMeshBuildNanos={} "
-                + "avgStageNanos={} rails={} quads={} decorationPieces={}",
+            "FD_RENDER_VALIDATION passed stages={} target={} geometryStages={} meshes={} "
+                + "avgMeshBuildNanos={} avgStageNanos={} rails={} quads={} decorationPieces={}",
             sample.renderStages(),
             requiredStages,
+            sample.geometryStages(),
             sample.meshBuilds(),
             sample.averageMeshBuildNanos(),
             sample.averageRenderStageNanos(),
@@ -55,6 +56,13 @@ public final class RenderValidation {
             sample.inRangeQuads(),
             sample.inRangeDecorationPieces());
     minecraft.stop();
+  }
+
+  static boolean hasRequiredOriginalGeometry(TrackRenderMetrics.Snapshot sample, int requiredStages) {
+    return sample.meshBuilds() >= 1
+        && sample.geometryStages() >= requiredStages
+        && sample.inRangeRails() >= requiredStages
+        && sample.inRangeQuads() >= requiredStages;
   }
 
   private static int requiredStages() {

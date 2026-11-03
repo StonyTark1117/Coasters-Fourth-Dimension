@@ -7,6 +7,7 @@ public final class TrackRenderMetrics {
       long meshBuildNanos,
       long renderStages,
       long renderNanos,
+      long geometryStages,
       long inRangeRails,
       long inRangeQuads,
       long inRangeDecorationPieces) {
@@ -23,6 +24,7 @@ public final class TrackRenderMetrics {
   private static long meshBuildNanos;
   private static long renderStages;
   private static long renderNanos;
+  private static long geometryStages;
   private static long inRangeRails;
   private static long inRangeQuads;
   private static long inRangeDecorationPieces;
@@ -34,6 +36,7 @@ public final class TrackRenderMetrics {
     meshBuildNanos = 0;
     renderStages = 0;
     renderNanos = 0;
+    geometryStages = 0;
     inRangeRails = 0;
     inRangeQuads = 0;
     inRangeDecorationPieces = 0;
@@ -47,6 +50,7 @@ public final class TrackRenderMetrics {
   public static void rendered(long nanos, int rails, int quads, int decorationPieces) {
     renderStages++;
     renderNanos += nanos;
+    if (rails > 0 && quads > 0) geometryStages++;
     inRangeRails += rails;
     inRangeQuads += quads;
     inRangeDecorationPieces += decorationPieces;
@@ -58,6 +62,7 @@ public final class TrackRenderMetrics {
         meshBuildNanos,
         renderStages,
         renderNanos,
+        geometryStages,
         inRangeRails,
         inRangeQuads,
         inRangeDecorationPieces);

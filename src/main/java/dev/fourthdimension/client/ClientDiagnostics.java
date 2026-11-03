@@ -27,9 +27,10 @@ public final class ClientDiagnostics {
       var render = TrackRenderMetrics.snapshot();
       LogUtils.getLogger()
           .info(
-              "FD_CLIENT_RENDER stages={} avgStageNanos={} meshBuilds={} avgMeshBuildNanos={}"
-                  + " inRangeRails={} inRangeQuads={} inRangeDecorationPieces={}",
+              "FD_CLIENT_RENDER stages={} geometryStages={} avgStageNanos={} meshBuilds={} "
+                  + "avgMeshBuildNanos={} inRangeRails={} inRangeQuads={} inRangeDecorationPieces={}",
               render.renderStages(),
+              render.geometryStages(),
               render.averageRenderStageNanos(),
               render.meshBuilds(),
               render.averageMeshBuildNanos(),
