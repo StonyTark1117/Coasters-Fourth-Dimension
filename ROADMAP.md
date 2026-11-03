@@ -385,9 +385,10 @@ Connected survival-client checkpoints additionally craft, place, board, control,
 unload and save Arrow, Legacy and Free Spin on short unpowered sections. They do
 not establish powered travel; the Legacy check records an endpoint fault.
 A later [Revised survival-client checkpoint](docs/evidence/0.4/survival-client-revised/acceptance.md)
-adds normal crafting and matching track/car placement, clearance rejection, and
-a saved four-carrier state; boarding and powered travel remain open. PAX still
-lacks a connected survival-client exercise. The
+adds normal crafting and matching track/car placement, clearance rejection,
+default-range boarding, operator dispatch/capture/unloading, and a clean
+save/reopen cycle; powered lower-hinge travel remains open. PAX still lacks a
+connected survival-client exercise. The
 [FD403 connected-client acceptance procedure](docs/FD403-ACCEPTANCE.md) lists
 the remaining family and teaching checks without treating the earlier samples
 as release acceptance.

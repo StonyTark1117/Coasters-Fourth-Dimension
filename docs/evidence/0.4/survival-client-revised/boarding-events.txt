@@ -1,0 +1,33 @@
+[18:57:33] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] Base value for attribute Block Interaction Range for entity Dev set to 10.0
+[18:57:33] [Render thread/INFO] [de.fo.ve.Boarding/]: FD_REVISED_INTERACT_DEBUG client=true pos=MutableBlockPos{x=20481032, y=127, z=20511752} block=Block{fourthdimension:revised_seat}
+FD_REVISED_BOARD_DEBUG client=true pos=MutableBlockPos{x=20481032, y=127, z=20511752} binding=Binding[vehicle=dev.fourthdimension.runtime.FoundationData$Vehicle@675f0fe2, carrier=dev.fourthdimension.runtime.FoundationData$Carrier@131111ff] allowed=true occupied=false
+[18:57:33] [Server thread/INFO] [de.fo.ve.Boarding/]: FD_REVISED_INTERACT_DEBUG client=false pos=BlockPos{x=20481032, y=127, z=20511752} block=Block{fourthdimension:revised_seat}
+FD_REVISED_BOARD_DEBUG client=false pos=BlockPos{x=20481032, y=127, z=20511752} binding=Binding[vehicle=dev.fourthdimension.runtime.FoundationData$Vehicle@33a18f17, carrier=dev.fourthdimension.runtime.FoundationData$Carrier@5f1d9781] allowed=true occupied=false
+[18:57:48] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] Base value for attribute Block Interaction Range for entity Dev set to 4.5
+[18:57:50] [Server thread/INFO] [minecraft/MinecraftServer]: [Dev: Changed the block at 259, -41, 254]
+[18:57:50] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] Changed the block at 259, -41, 254
+[18:57:52] [Server thread/INFO] [minecraft/MinecraftServer]: [Dev: Teleported Dev to 259.500000, -40.000000, 254.500000]
+[18:57:52] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] Teleported Dev to 259.500000, -40.000000, 254.500000
+[18:58:01] [Server thread/INFO] [minecraft/MinecraftServer]: [Dev: Teleported Dev to 259.500000, -40.000000, 254.500000]
+[18:58:01] [Render thread/INFO] [minecraft/ChatComponent]: [System] [CHAT] Teleported Dev to 259.500000, -40.000000, 254.500000
+[18:58:07] [Render thread/INFO] [de.fo.ve.Boarding/]: FD_REVISED_INTERACT_DEBUG client=true pos=MutableBlockPos{x=20481032, y=127, z=20511752} block=Block{fourthdimension:revised_seat}
+FD_REVISED_BOARD_DEBUG client=true pos=MutableBlockPos{x=20481032, y=127, z=20511752} binding=Binding[vehicle=dev.fourthdimension.runtime.FoundationData$Vehicle@52789b1c, carrier=dev.fourthdimension.runtime.FoundationData$Carrier@7139ecea] allowed=true occupied=false
+[18:58:07] [Server thread/INFO] [de.fo.ve.Boarding/]: FD_REVISED_INTERACT_DEBUG client=false pos=BlockPos{x=20481032, y=127, z=20511752} block=Block{fourthdimension:revised_seat}
+FD_REVISED_BOARD_DEBUG client=false pos=BlockPos{x=20481032, y=127, z=20511752} binding=Binding[vehicle=dev.fourthdimension.runtime.FoundationData$Vehicle@33a18f17, carrier=dev.fourthdimension.runtime.FoundationData$Carrier@5f1d9781] allowed=true occupied=false
+[18:59:43] [Server thread/INFO] [minecraft/IntegratedServer]: Saving and pausing game...
+[18:59:43] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[FD403SurvivalClient]'/minecraft:overworld
+[18:59:43] [Server thread/INFO] [de.ry.sa.Sable/]: Saving sub-levels for level 'ServerLevel[FD403SurvivalClient]'/minecraft:overworld
+[18:59:43] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[FD403SurvivalClient]'/minecraft:the_end
+[18:59:43] [Server thread/INFO] [de.ry.sa.Sable/]: Saving sub-levels for level 'ServerLevel[FD403SurvivalClient]'/minecraft:the_end
+[18:59:43] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[FD403SurvivalClient]'/minecraft:the_nether
+[18:59:43] [Server thread/INFO] [de.ry.sa.Sable/]: Saving sub-levels for level 'ServerLevel[FD403SurvivalClient]'/minecraft:the_nether
+[18:59:43] [Server thread/INFO] [minecraft/MinecraftServer]: Stopping server
+[18:59:43] [Server thread/INFO] [minecraft/MinecraftServer]: Saving players
+[18:59:43] [Server thread/INFO] [minecraft/MinecraftServer]: Saving worlds
+[18:59:43] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[FD403SurvivalClient]'/minecraft:overworld
+[18:59:43] [Server thread/INFO] [de.ry.sa.Sable/]: Saving sub-levels for level 'ServerLevel[FD403SurvivalClient]'/minecraft:overworld
+[18:59:43] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[FD403SurvivalClient]'/minecraft:the_end
+[18:59:43] [Server thread/INFO] [de.ry.sa.Sable/]: Saving sub-levels for level 'ServerLevel[FD403SurvivalClient]'/minecraft:the_end
+[18:59:43] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[FD403SurvivalClient]'/minecraft:the_nether
+[18:59:43] [Server thread/INFO] [de.ry.sa.Sable/]: Saving sub-levels for level 'ServerLevel[FD403SurvivalClient]'/minecraft:the_nether
+BUILD SUCCESSFUL in 4m 43s
