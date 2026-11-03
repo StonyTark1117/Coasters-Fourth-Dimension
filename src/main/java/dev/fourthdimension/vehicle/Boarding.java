@@ -127,7 +127,8 @@ public final class Boarding {
             binding.vehicle.restraints,
             player.isRemoved(),
             player.isAlive());
-      binding.carrier.riderSeats.remove(player.getUUID());
+      if (binding.carrier.riderSeats.remove(player.getUUID()) != null)
+        FoundationData.get(level).setDirty();
       var body = Sable.HELPER.getContaining(seat);
       if (body != null && player.isAlive()) {
         var world =
@@ -258,8 +259,9 @@ public final class Boarding {
     for (var player : level.players()) {
       var deadline = RESTORE.get(player.getUUID());
       if (deadline == null) continue;
+      var data = FoundationData.get(level);
       Binding found = null;
-      for (var v : FoundationData.get(level).vehicles.values())
+      for (var v : data.vehicles.values())
         for (var c : v.carriers)
           if (c.riderSeats.containsKey(player.getUUID())) found = new Binding(v, c);
       if (found == null) {
@@ -292,7 +294,7 @@ public final class Boarding {
         }
       }
       if (level.getGameTime() > deadline.deadline) {
-        binding.carrier.riderSeats.remove(player.getUUID());
+        if (binding.carrier.riderSeats.remove(player.getUUID()) != null) data.setDirty();
         finishRestore(player, "timed-out");
         var exit = findExit(level, player, player.position());
         if (exit == null) exit = level.getSharedSpawnPos().above().getCenter();
