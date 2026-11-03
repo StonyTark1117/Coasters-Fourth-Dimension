@@ -46,8 +46,8 @@ connected-client building and operation.
    carrier sweep.
 4. Build or extend a usable powered route with ordinary upstream components.
    For PAX, inspect the completed station curve after adding the spikes;
-   equal-height station anchors alone do not prove a level tangent. The
-   building guide describes Coasters' Left Alt smoothing control.
+   equal-height station anchors alone do not prove a level tangent. Correct
+   native handles and rebind the profile before placing cars if needed.
    Board an original seat through the connected client, close restraints,
    dispatch, observe measured chassis travel and the family's advertised
    carrier behavior, then capture, open restraints and dismount. A state change
