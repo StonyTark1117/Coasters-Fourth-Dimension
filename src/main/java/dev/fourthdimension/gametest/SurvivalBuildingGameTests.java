@@ -107,6 +107,7 @@ public final class SurvivalBuildingGameTests {
     helper.fail("Crafted item unavailable: " + item);
   }
 
+  /** Walk the synthetic player into ordinary reach before sending the normal server use action. */
   private static InteractionResult click(ServerPlayer player, BlockPos pos) {
     player.setPos(pos.getX() + 2.5, pos.getY() + 1, pos.getZ() + .5);
     return player.gameMode.useItemOn(
@@ -608,6 +609,7 @@ public final class SurvivalBuildingGameTests {
                 new org.joml.Vector3d(
                     stationPos.getX() + .5, stationPos.getY() + .5, stationPos.getZ() + .5)));
         LogUtils.getLogger().info("FD_SURVIVAL_ARROW_STATION distance={}", stationDistance);
+        helper.assertTrue(stationDistance < 12, "Crafted car settled outside station binding range");
         hold(helper, player, null);
         helper.assertTrue(
             click(player, stationPos).consumesAction(),
