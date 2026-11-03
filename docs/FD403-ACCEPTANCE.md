@@ -10,7 +10,7 @@ profile; optional Track Styles and Engineered behavior has separate gates.
 
 | Family | Connected survival-client evidence | Still needed for this gate |
 | --- | --- | --- |
-| Arrow | [Craft, place, board, control, unload, save](evidence/0.4/survival-client-arrow.md) on a short unpowered section | Powered original-route travel and full teaching exercise |
+| Arrow | [Craft, place, board, control, unload, save](evidence/0.4/survival-client-arrow.md) on a short unpowered section; [new connected-client track crafting](evidence/0.4/survival-client-arrow-loop-connected-attempt1/README.md) from upstream ingredients | Crafted-car/player-built powered circuit, save/reopen and full teaching exercise |
 | Legacy | [Craft, place, board, control, unload](evidence/0.4/survival-client-legacy-free-spin.md) on a short unpowered section | Longer powered route without the recorded endpoint fault; free-rotation exercise |
 | Free Spin | [Craft, place, board, control, unload](evidence/0.4/survival-client-legacy-free-spin.md) on a short unpowered section; [exact-source native damper regression](evidence/0.4/survival-client-free-spin-powered/damper-native/acceptance.md) | Powered magnetic-span and independent-carrier exercise, player-built route and teaching walkthrough |
 | Revised | [Connected survival craft, place, board, control, unload, and reopen](evidence/0.4/survival-client-revised/acceptance.md) on a short unpowered section | Occupied powered lower-hinge exercise and teaching review |
