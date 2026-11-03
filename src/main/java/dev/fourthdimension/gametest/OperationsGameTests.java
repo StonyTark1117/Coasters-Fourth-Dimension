@@ -545,10 +545,11 @@ public final class OperationsGameTests {
             helper.assertTrue(
                 car.fault.isEmpty() && car.alignmentRequired,
                 "Repair state changed before the pending-realignment recovery check for " + car.variant);
-            // Saves written by the prior boundary guard could retain this fault after a successful
-            // repair. It must not strand a car that still has exact restored support and an
-            // explicit realignment requirement.
-            car.fault = BoundaryGuard.END_OF_COMPATIBLE_TRACK;
+            // The observed historical Arrow save can retain this boundary fault after a successful
+            // repair. It must not strand that car while the other families still cover the fresh,
+            // fault-free realignment path.
+            if (car.family == TrackDesign.ARROW.family)
+              car.fault = BoundaryGuard.END_OF_COMPATIBLE_TRACK;
             VehicleOperations.realignMatchingSupport(level, car);
             helper.assertTrue(
                 car.stopping
