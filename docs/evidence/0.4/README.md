@@ -46,6 +46,12 @@ unfinished; the Arrow pass is a one-way route rather than a full circuit.
 
 ## Resource reload investigation
 
+The [current-artifact interactive reload checkpoint](font-interactive-current/acceptance.md)
+completed three in-world F3+T reloads in the packaged combined profile. A
+stale default FontSet lookup was redirected to the current set; chat,
+inventory and pause-menu text rendered, followed by normal save and exit.
+An occupied styled post-reload ride remains open.
+
 The [dev.12 scheduler checkpoint](scheduler-acceptance.md) fixes initialization
 ordering in the pinned Veil client scheduler and validates native completion,
 including empty schedules. This is separate from the original freed-bitmap
