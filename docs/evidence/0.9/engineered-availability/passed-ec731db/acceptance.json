@@ -1,0 +1,30 @@
+{
+  "source": "ec731dbdefe7b3adb6c4f21395993ce66a72872c",
+  "suite_tests": 54,
+  "suite_required_failures": 0,
+  "compile_exit_code": 0,
+  "gradle_exit_code": 0,
+  "chain_checks_all_pass": true,
+  "engineered_checks_all_pass": true,
+  "engineered_values_finite": true,
+  "jar_sha256": "fbf96bbe8704c7d9ce8246f5611eae73ede1c0342240991196bfdcd0e76304e9",
+  "engineered_measurements_by_state": {
+    "braked": [
+      0.0
+    ],
+    "healthy": [
+      0.08305553527832525
+    ],
+    "unloaded-before-tick": [
+      0.0
+    ],
+    "unloaded-after-tick": [
+      0.0
+    ]
+  },
+  "limits": [
+    "Direct callback evidence only",
+    "Native pipeline velocity, not Engineered force",
+    "No natural scheduler or automatic relink claim"
+  ]
+}

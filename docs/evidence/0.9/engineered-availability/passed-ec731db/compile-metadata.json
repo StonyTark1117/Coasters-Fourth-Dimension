@@ -1,0 +1,14 @@
+{
+  "source": "ec731dbdefe7b3adb6c4f21395993ce66a72872c",
+  "command": [
+    "./gradlew",
+    "compileJava",
+    "jar",
+    "--offline",
+    "--no-daemon",
+    "-PfdIntegrations=engineered"
+  ],
+  "start_utc": "2026-11-03T12:51:06.009732+00:00",
+  "exit_code": 0,
+  "end_utc": "2026-11-03T12:51:10.157116+00:00"
+}
