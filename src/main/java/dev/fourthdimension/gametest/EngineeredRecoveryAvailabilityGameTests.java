@@ -13,6 +13,7 @@ import dev.ryanhcode.sable.sublevel.storage.SubLevelRemovalReason;
 import dev.ryanhcode.sable.sublevel.storage.serialization.SubLevelSerializer;
 import dev.silvergold.simulatedcoasters.track.cart.*;
 import dev.silvergold.simulatedcoasters.track.graph.CoasterPathGraphManager;
+import dev.silvergold.simulatedcoasters.track.graph.CoasterPathTrackFrame;
 import java.util.*;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.BuiltInRegistries;
