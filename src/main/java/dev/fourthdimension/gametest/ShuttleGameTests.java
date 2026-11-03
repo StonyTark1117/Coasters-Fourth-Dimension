@@ -4,6 +4,7 @@ import com.mojang.logging.LogUtils;
 import com.simibubi.create.content.contraptions.actors.seat.SeatBlock;
 import com.simibubi.create.content.kinetics.motor.CreativeMotorBlockEntity;
 import com.simibubi.create.content.trains.track.BezierConnection;
+import com.simibubi.create.content.trains.track.TrackMaterial;
 import dev.fourthdimension.runtime.CarrierRuntime;
 import dev.fourthdimension.runtime.FoundationData;
 import dev.fourthdimension.shuttle.*;
@@ -83,6 +84,64 @@ public final class ShuttleGameTests {
         120,
         () -> {
           operator.setPos(original.to.getX() + .5, original.to.getY() + 1, original.to.getZ() + .5);
+          var intactCurve = original.originalCurve.copy();
+          var wrongEndpoint = intactCurve.copy();
+          var positions = wrongEndpoint.getList("Positions", net.minecraft.nbt.Tag.TAG_COMPOUND);
+          var endpoint = positions.getCompound(1).getIntArray("Pos");
+          helper.assertTrue(endpoint.length == 3, "Saved PAX endpoint is not a block position");
+          endpoint[2]++;
+          positions.getCompound(1).putIntArray("Pos", endpoint);
+          var wrongMaterial = intactCurve.copy();
+          wrongMaterial.putString("Material", TrackMaterial.ANDESITE.id.toString());
+          var rejectedSnapshots = new LinkedHashMap<String, CompoundTag>();
+          rejectedSnapshots.put("invalid", new CompoundTag());
+          rejectedSnapshots.put("different endpoints", wrongEndpoint);
+          rejectedSnapshots.put("incompatible material", wrongMaterial);
+          int originalRailCount = data.rails.size();
+          long originalRevision = original.revision;
+          boolean originalValidity = original.valid;
+          var originalProfile = original.profile;
+          var vehicleIds = List.copyOf(data.vehicles.keySet());
+          for (var entry : rejectedSnapshots.entrySet()) {
+            original.originalCurve = entry.getValue();
+            var rejectedCurveBefore = original.originalCurve.copy();
+            String rejection = null;
+            try {
+              TrackPlacement.connect(
+                  level,
+                  original.from,
+                  original.to,
+                  dev.fourthdimension.track.TrackDesign.PAX,
+                  operator,
+                  operator.getMainHandItem());
+            } catch (IllegalArgumentException expected) {
+              rejection = expected.getMessage();
+            }
+            helper.assertTrue(
+                rejection != null && rejection.contains(entry.getKey()),
+                "Occupied restoration accepted or misclassified bad " + entry.getKey() + " provenance: " + rejection);
+            helper.assertTrue(
+                data.rails.size() == originalRailCount
+                    && data.rails.contains(original)
+                    && original.revision == originalRevision
+                    && original.valid == originalValidity
+                    && original.geometryHash == originalGeometry
+                    && original.profile.equals(originalProfile)
+                    && original.originalCurve.equals(rejectedCurveBefore)
+                    && List.copyOf(data.vehicles.keySet()).equals(vehicleIds)
+                    && TrackGeometry.resolve(level, original) == null
+                    && example.cars().stream()
+                        .allMatch(
+                            car ->
+                                data.vehicles.get(car.chassis) == car
+                                    && car.stopping
+                                    && car.restraints
+                                    && car.alignmentRequired
+                                    && VehicleOperations.MATCHING_SUPPORT_LOST.equals(car.fault)
+                                    && car.carriers.stream().allMatch(carrier -> carrier.capture)),
+                "Rejected " + entry.getKey() + " provenance mutated the occupied train or rail");
+          }
+          original.originalCurve = intactCurve;
           var restored =
               TrackPlacement.connect(
                   level,
