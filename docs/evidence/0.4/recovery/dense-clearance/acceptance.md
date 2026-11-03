@@ -31,6 +31,12 @@ python3 scripts/audit-recovery-mesh-trace.py BASE_COASTERS_JAR MINECRAFT_CLIENT_
 python3 scripts/audit-recovery-mesh-trace.py BASE_COASTERS_JAR MINECRAFT_CLIENT_JAR   build/runs/gametest/recovery-bank-train-native-frames.json   build/runs/gametest/recovery-bank-train-mesh-trace.jsonl
 ~~~
 
+**Coverage correction:** this verifier skipped rider-to-rack checks whenever
+the rider had no nearby track triangle. The rider/rack column below therefore
+describes a subset of sampled riders. The
+[corrected archived-trace audit](rider-rack-coverage-correction.md) checks every
+sampled rider; an audit of the exact dev.29 inputs is still needed.
+
 | Route | Cars | Pose samples | Body/track lower bound | Rider/track lower bound | Rider/rack lower bound |
 | --- | ---: | ---: | ---: | ---: | ---: |
 | Arrow | 1 | 5,763 | 0.04879 | 0.08 | 0.06250 |

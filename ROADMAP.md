@@ -23,8 +23,10 @@ chassis, rider and non-seat carrier-rack poses every game tick, replacing the
 previous ten-tick cadence. The five single-car families and two occupied
 original train routes pass fresh one-tick audits with 5,763–6,974 samples per
 route, at least 0.04394 blocks of body/track clearance, 0.08 blocks of
-rider/track clearance and 0.0625 blocks of rider/rack clearance; see the
-[dense-clearance checkpoint](docs/evidence/0.4/recovery/dense-clearance/acceptance.md).
+rider/track clearance and a 0.0625-block rider/rack lower bound on a subset of
+sampled riders; see the
+[dense-clearance checkpoint](docs/evidence/0.4/recovery/dense-clearance/acceptance.md)
+and [coverage correction](docs/evidence/0.4/recovery/dense-clearance/rider-rack-coverage-correction.md).
 This is still sampled default-model/native-Pig evidence. Dev.29 separately
 audits the exported chassis wing-strut/carrier-axle linkage blocks across these
 same routes; unmodeled linkage, player meshes, client rendering and continuous
