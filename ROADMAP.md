@@ -416,9 +416,8 @@ wrong-family cases reject without stealing the existing binding; see the
 [family eligibility matrix](docs/evidence/0.9/family-eligibility-matrix.md).
 The same fixture requests all 20 directed mixed-family native six-block
 couplings after matching capture; every recorded request rejects without a
-link. The recorded assertion preserved the first car's exact binding and
-checked that the second stayed bound. A strengthened assertion now checks both
-exact bindings, pending its native rerun.
+link. The strengthened assertion preserves both cars' exact bindings, and the
+current 49-test native rerun covers all 20 directed requests.
 Its held-item survival dispatcher also accepts the five matching placements and
 rejects the 20 wrong-family placements without consumption or vehicle creation.
 It also verifies bare ordinary-bearing fit and deliberately widened-body
@@ -426,9 +425,8 @@ rejection across all five original tracks through both direct eligibility and
 the native snap filter. The same run confirms ordinary traversal has no vehicle
 record, carrier rotation or magnetic impulse, and rejects unassigned ordinary/4D
 train coupling without mutating the 4D car; see the [ordinary snap matrix](docs/evidence/0.9/ordinary-cart-snap-matrix.md).
-That recorded coupling uses the Arrow-first endpoint order. A reverse-order
-regression is now in source and needs a native rerun before both directions can
-be claimed.
+The loop includes both directions for every mismatched pair, rather than only
+the former Arrow-first endpoint order.
 Each inspected Track Styles appearance also retains Arrow-only functional
 eligibility in a direct regression. The prior optional-profile matrix records
 41 native GameTests under Track Styles-only,
