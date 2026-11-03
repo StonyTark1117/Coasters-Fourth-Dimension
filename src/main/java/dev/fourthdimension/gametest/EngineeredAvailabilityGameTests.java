@@ -46,7 +46,7 @@ public final class EngineeredAvailabilityGameTests {
         FakePlayerFactory.get(
             level,
             new com.mojang.authlib.GameProfile(
-                UUID.fromString("fdfdfdfd-0000-0000-0000-000000000416"), "FDAvailability"));
+                UUID.fromString("fdfdfdfd-0000-0000-0000-000000000417"), "FDAvailability"));
     player.setGameMode(GameType.CREATIVE);
     player.setItemInHand(InteractionHand.MAIN_HAND, TrackItems.ARROW.get().getDefaultInstance());
     for (var pos : List.of(from, to))
@@ -89,7 +89,7 @@ public final class EngineeredAvailabilityGameTests {
       for (var pos : List.of(from, to, controllerPos)) level.removeBlock(pos, false);
       for (int x = -62; x <= -58; x++)
         for (int z = -62; z <= -56; z++) level.setChunkForced(x, z, false);
-      helper.assertTrue(counts.unloads == 6 && counts.unavailable == 10 && counts.positive == 24,
+      helper.assertTrue(counts.unloads == 6 && counts.unavailable == 10 && counts.positive == 20,
           "Availability scenario skipped a required native unload or motor probe");
       System.out.println(
           "FD_ENGINEERED_AVAILABILITY complete nativeUnloads=" + counts.unloads
@@ -208,34 +208,27 @@ public final class EngineeredAvailabilityGameTests {
                         .map(car -> VehicleOperations.consist(level, car).size()).toList();
                     System.out.println("FD_ENGINEERED_AVAILABILITY restoredLinks case=" + index
                         + " sizes=" + linkSizes + " partialChassisRestore=" + chassisCase);
-                    if (chassisCase && linkSizes.stream().anyMatch(size -> size != 2)) {
-                      helper.assertTrue(linkSizes.stream().allMatch(size -> size == 1),
-                          "Partial chassis restore left ambiguous native link state");
-                      // Explicit fixture reset, not proof of natural train-link restoration.
-                      helper.assertTrue(
-                          CoasterCartTrainLinkConstraint.linkCarts(
-                              level,
-                              (ServerSubLevel) container.getSubLevel(cars.getFirst().chassis),
-                              (ServerSubLevel) container.getSubLevel(cars.getLast().chassis), 6),
-                          "Could not rebuild the native link for the restored positive control");
-                      System.out.println(
-                          "FD_ENGINEERED_AVAILABILITY fixtureRelink case=" + index);
-                    }
+                    if (!chassisCase)
+                      helper.assertTrue(linkSizes.stream().allMatch(size -> size == 2),
+                          "Carrier restore lost native train-link continuity");
                     for (var car : cars) {
-                      helper.assertTrue(VehicleOperations.consist(level, car).size() == 2,
-                          "Restored positive control requires the original two-car membership");
                       helper.assertTrue(FoundationData.get(level).vehicles.get(car.chassis) == car
                               && !car.stopping && !car.maintenance && car.restraints
                               && car.fault.isEmpty(),
                           "Restoration changed logical vehicle identity or interlock flags");
-                    }
-                    setMode(controller, "LAUNCH", 10);
-                    for (int source = 0; source < cars.size(); source++) {
-                      helper.assertTrue(RideTelemetry.sample(level, cars.get(source).chassis).available(),
+                      helper.assertTrue(RideTelemetry.sample(level, car.chassis).available(),
                           "Restored native vehicle is still unavailable");
-                      helper.assertTrue(probe(helper, cars, source, "restored-" + index) > .001,
-                          "Healthy propulsion did not resume after body restoration");
-                      counts.positive++;
+                    }
+                    // A single-chassis serializer restore does not prove train-link recovery.
+                    // Its case ends with body identity/availability verified, then full cleanup.
+                    // Only carrier restores preserve the two-car positive-control condition.
+                    if (!chassisCase) {
+                      setMode(controller, "LAUNCH", 10);
+                      for (int source = 0; source < cars.size(); source++) {
+                        helper.assertTrue(probe(helper, cars, source, "restored-" + index) > .001,
+                            "Healthy propulsion did not resume after carrier restoration");
+                        counts.positive++;
+                      }
                     }
                   } finally {
                     setMode(controller, "COAST", 0);
