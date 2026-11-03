@@ -72,7 +72,7 @@ GUIDANCE = {
         "Damping does not lock carriers for boarding.",
     ],
     "boarding_station": [
-        "Use empty-handed to bind a nearby 4D car.",
+        "Bind a nearby non-PAX car empty-handed.",
         "Rear power captures; release dispatches.",
         "Front: ready. Right: restraints closed.",
     ],
