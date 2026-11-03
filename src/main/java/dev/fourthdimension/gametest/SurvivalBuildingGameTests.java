@@ -15,6 +15,7 @@ import dev.fourthdimension.station.StationContent;
 import dev.fourthdimension.track.TrackDesign;
 import dev.fourthdimension.track.TrackGeometry;
 import dev.fourthdimension.track.TrackItems;
+import dev.fourthdimension.track.TrackPlacement;
 import dev.fourthdimension.vehicle.Boarding;
 import dev.ryanhcode.sable.api.sublevel.SubLevelContainer;
 import dev.ryanhcode.sable.sublevel.storage.SubLevelRemovalReason;
@@ -22,6 +23,7 @@ import dev.silvergold.simulatedcoasters.SimulatedCoastersBlocks;
 import dev.silvergold.simulatedcoasters.track.anchor.CoasterAnchorpointBlockEntity;
 import dev.silvergold.simulatedcoasters.track.cart.CoasterCartResolve;
 import dev.silvergold.simulatedcoasters.track.chainlift.ChainLiftEndRef;
+import dev.silvergold.simulatedcoasters.track.graph.CoasterPathEdge;
 import dev.silvergold.simulatedcoasters.track.graph.CoasterPathGraphSpans;
 import java.util.ArrayList;
 import java.util.List;
@@ -488,12 +490,25 @@ public final class SurvivalBuildingGameTests {
     for (int i = 0; i < anchors.size(); i++) {
       var from = anchors.get(i);
       var to = anchors.get((i + 1) % anchors.size());
+      var preview = TrackPlacement.preview(level, from, to);
+      var previewEdge =
+          CoasterPathEdge.curve(preview.bePositions.getFirst(), preview.bePositions.getSecond(), preview);
+      double previewLength = TrackGeometry.table(level, previewEdge).length();
+      int sectionCost = (int) Math.ceil(previewLength / 4);
+      int sectionBefore = count(player, TrackItems.ARROW.get());
       hold(helper, player, TrackItems.ARROW.get());
       helper.assertTrue(click(player, from).consumesAction() && click(player, to).consumesAction(),
           "Crafted track did not connect Arrow loop section " + i);
       var rail = data.rails.stream().filter(r -> r.matches(from, to)).findFirst().orElseThrow();
       helper.assertTrue(rail.original() && rail.valid, "Loop section lost Original provenance");
-      totalCost += (int) Math.ceil(rail.profile.keys().getLast().distance() / 4);
+      int sectionSpent = sectionBefore - count(player, TrackItems.ARROW.get());
+      LogUtils.getLogger().info(
+          "FD_SURVIVAL_ARROW_SECTION index={} previewLength={} storedLength={} expectedCost={} spent={}",
+          i, previewLength, rail.profile.keys().getLast().distance(), sectionCost, sectionSpent);
+      helper.assertTrue(
+          sectionSpent == sectionCost,
+          "Loop section " + i + " spent " + sectionSpent + " but preview required " + sectionCost);
+      totalCost += sectionCost;
       rails.add(rail);
     }
     helper.assertTrue(count(player, TrackItems.ARROW.get()) == trackBefore - totalCost,
