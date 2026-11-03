@@ -545,7 +545,7 @@ all three sampled scenes. Dev.28 removes transient stream allocations from the
 per-carrier rail and edge lookups while preserving first-match resolution; the
 target-gated combined profile passed all 41 GameTests with 103,889 ns per
 invocation and 2,488 ns per carrier in the 16-rider PAX shuttle scene. Packaged
-real-client runs validate the opt-in per-stage original-track instrumentation
+real-client runs validate the opt-in original-track stage instrumentation
 under llvmpipe and on the stated AMD
 RX 7900 XTX host; [the hardware observation](docs/evidence/0.9/client-render-sampling.md)
 measures 3.16 ms average original-stage work and separately observes 21,476
@@ -572,8 +572,11 @@ self-terminating original-track render gate: the full optional profile reaches 5
 live `FDRenderMatrix` stages with three mesh builds, 1,508 in-range rails and
 13,391,040 procedural quads before normal client/server shutdown; see the
 [reproducible matrix record](docs/evidence/0.9/client-render-sampling.md). This
-confirms original-track submission, not decoration, full model/rider, shader,
-clearance or target-FPS acceptance.
+confirms cumulative original-track submission, not a rail and quad on each
+required stage, decoration, full model/rider, shader, clearance or target-FPS
+acceptance. The strengthened `geometryStages` gate now requires at least the
+configured number of stages (500 by default) with both an original rail and a
+quad; its packaged-client replay remains pending.
 
 
 Dev.34 replays the same render gate in the fresh five-family carrier fixture.
@@ -581,8 +584,9 @@ The packaged llvmpipe client submits original-track geometry for 101 stages,
 with 34 mesh builds, 3,422 in-range rail observations and 9,939,376 procedural
 quads, then shuts down and saves normally. The fixture contains Arrow, Legacy,
 Free Spin, Revised and PAX examples, but its fixed camera averages more than 33
-of 35 rails in range per stage; this is sustained submission evidence rather
-than a full camera sweep or vehicle/rider/linkage visual-clearance result. See
+of 35 rails in range per stage; the cumulative counters do not establish
+nonempty submission on every stage, a full camera sweep, or a
+vehicle/rider/linkage visual-clearance result. See
 the [five-family fixture render checkpoint]
 (docs/evidence/0.9/client-render-five-family-fixture.md).
 

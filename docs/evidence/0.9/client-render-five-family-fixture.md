@@ -2,7 +2,7 @@
 
 This bounded FD904 checkpoint exercises the original-track render gate in the
 same fresh fixture used for five-family carrier-transform validation. It
-confirms sustained original-track submission from a client world containing all
+records cumulative original-track submission from a client world containing all
 current functional families. It does not inspect vehicle meshes or passengers.
 
 ## Method
@@ -22,9 +22,10 @@ xvfb-run -a env JAVA_HOME=/usr/lib/jvm/java-21-openjdk \
 
 The opt-in fixture rejects a non-empty world and creates Arrow, Legacy, Free
 Spin, Revised, and PAX examples: eight vehicles, 20 carrier bodies, and 35
-original rails. `RenderValidation` requires at least 100 live original-track
-render stages, a mesh build, and one in-range rail and procedural quad per
-required stage before requesting normal client shutdown.
+original rails. The version of `RenderValidation` used here required at least
+100 live original-track render stages, a mesh build, and cumulative in-range
+rail and procedural-quad totals of at least 100 each before requesting normal
+client shutdown.
 
 ## Result
 
@@ -41,7 +42,11 @@ make this an all-35-rails-per-stage assertion.
 
 ## Limits
 
-This is llvmpipe/Xvfb instrumentation of original-track geometry submission. It
+This is llvmpipe/Xvfb instrumentation of cumulative original-track geometry
+submission. The counters do not establish nonempty output on every stage. A
+later `geometryStages` counter and stronger gate require a fresh packaged-client
+replay for evidence of at least 100 stages with both an original rail and a
+procedural quad. This run does not establish that stronger condition. It
 does not prove a full camera sweep, visual quality, vehicle/rider/linkage
 meshes, rendered clearance, frame rate, shaders, decoration rendering, or a
 hardware target. Those remain FD402 and FD904 work.

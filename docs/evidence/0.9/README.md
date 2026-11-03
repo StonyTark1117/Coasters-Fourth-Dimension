@@ -175,10 +175,11 @@ coverage; those measurements remain FD904 work.
 
 [Five-family fixture render checkpoint](client-render-five-family-fixture.md)
 records 101 packaged llvmpipe client stages in the fresh Arrow, Legacy, Free
-Spin, Revised, and PAX fixture. It covers sustained original-track submission
+Spin, Revised, and PAX fixture. It records cumulative original-track submission
 with more than 33 in-range rails per stage on average; the fixed camera and
 metrics do not assert full rail, vehicle, rider, clearance, shader, or FPS
-coverage.
+coverage or nonempty output on every stage. A fresh packaged-client run is
+needed to exercise the later `geometryStages` gate.
 
 [Packaged rendered recovery capture](rendered-client-fd16.md) preserves a
 HUD-free framebuffer from the actual `FD16Recovery` client world after the

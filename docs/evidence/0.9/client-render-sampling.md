@@ -49,13 +49,18 @@ including a decorated Track Styles scene, remain FD904 work.
 
 ## Reproducible packaged matrix completion
 
-The prior Xvfb samples ended through an external timeout. The current artifact adds an
-opt-in completion gate that requires a loaded client world to submit a configurable
-number of original-track render stages and to observe at least one mesh build, one
-in-range rail, and one procedural quad per required stage. It does not require a
-decoration, shader, frame rate, or whole-frame metric.
+The prior Xvfb samples ended through an external timeout. The artifact sampled
+in this checkpoint added an opt-in completion gate that required a loaded client
+world to submit a configurable number of original-track render stages and to
+observe at least one mesh build,
+with cumulative in-range rail and procedural-quad totals each at least as large
+as the required stage count. The aggregate gate does not establish nonempty
+submission on every stage. A later `geometryStages` counter and stronger gate
+require a fresh packaged-client replay before claiming at least one original
+rail and quad on each of the required number of stages. The historical gate
+does not require a decoration, shader, frame rate, or whole-frame metric.
 
-The current packaged JAR has SHA-256
+The packaged JAR used for this run has SHA-256
 `a4a9c4ed6dca3420210b701385deb2f97fe45a9dcb7fd393de887b93b03340ab`.
 It passed the following full optional-profile Xvfb run on 2026-10-02:
 
