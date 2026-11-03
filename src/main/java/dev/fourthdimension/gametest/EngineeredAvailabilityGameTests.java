@@ -101,7 +101,7 @@ public final class EngineeredAvailabilityGameTests {
           for (int source = 0; source < 2; source++)
             helper.assertTrue(probe(helper, cars, source, "healthy-before") > .001,
                 "Positive motor control failed before native unload");
-          exerciseUnavailable(helper, cars, ids, 0, failures, () -> {
+          exerciseUnavailable(helper, cars, ids, 0, failures, level.getBlockEntity(controllerPos), () -> {
             for (var car : cars) {
               car.stopping = true;
               for (var carrier : car.carriers) {
@@ -126,7 +126,7 @@ public final class EngineeredAvailabilityGameTests {
 
   private static void exerciseUnavailable(
       GameTestHelper helper, List<FoundationData.Vehicle> cars, List<UUID> ids,
-      int index, List<String> failures, Runnable complete) {
+      int index, List<String> failures, Object controller, Runnable complete) {
     if (index == ids.size()) {
       complete.run();
       return;
@@ -169,15 +169,18 @@ public final class EngineeredAvailabilityGameTests {
           "Native serializer failed to restore the same body identity");
       System.out.println("FD_ENGINEERED_AVAILABILITY restored case=" + index + " body=" + id);
     }
-    // Let restored native chunks/physics initialize before the positive controls.
+    // Initialize restored chunks/physics without accelerating to the target between probes.
+    // Only the fixture controller changes mode; vehicle readiness flags remain untouched.
+    setMode(controller, "COAST", 0);
     helper.runAfterDelay(3, () -> {
+      setMode(controller, "LAUNCH", 10);
       for (int source = 0; source < cars.size(); source++) {
         helper.assertTrue(RideTelemetry.sample(level, cars.get(source).chassis).available(),
             "Restored native consist is still unavailable");
         helper.assertTrue(probe(helper, cars, source, "restored-" + index) > .001,
             "Healthy propulsion did not resume after restoration");
       }
-      exerciseUnavailable(helper, cars, ids, index + 1, failures, complete);
+      exerciseUnavailable(helper, cars, ids, index + 1, failures, controller, complete);
     });
   }
 
