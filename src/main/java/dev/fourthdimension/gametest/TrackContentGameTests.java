@@ -95,12 +95,12 @@ public final class TrackContentGameTests {
           long currentForeignHash =
               currentForeignEdge == null ? Long.MIN_VALUE : TrackGeometry.fingerprint(level, currentForeignEdge);
           helper.assertTrue(
-              legacy.valid
+              !legacy.valid
                   && legacy.originalCurve == null
                   && currentForeignMaterial != null
                   && TrackMaterial.ANDESITE.id.equals(currentForeignMaterial.id)
                   && currentForeignHash == foreignGeometry,
-              "Foreign material rail changed after native graph synchronization: valid="
+              "Foreign material rail was adopted despite native invalidation: valid="
                   + legacy.valid
                   + ", snapshot="
                   + (legacy.originalCurve != null)
