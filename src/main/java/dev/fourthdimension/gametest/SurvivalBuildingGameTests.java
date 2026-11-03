@@ -554,12 +554,6 @@ public final class SurvivalBuildingGameTests {
           count(player, TrackItems.ARROW_CAR.get()) == 0, "Car craft was not consumed");
       var stationPos = origin.offset(-6, 0, 20);
       place(helper, player, item("fourthdimension:boarding_station"), stationPos);
-      hold(helper, player, null);
-      helper.assertTrue(
-          click(player, stationPos).consumesAction(), "Player station binding failed");
-      helper.assertTrue(vehicle.chassis.equals(
-                            ((BoardingStationEntity) level.getBlockEntity(stationPos)).vehicle),
-          "Station bound another car");
       var stationRear =
           level.getBlockState(stationPos).getValue(BoardingStation.FACING).getOpposite();
       var stationPower = stationPos.relative(stationRear);
@@ -608,6 +602,19 @@ public final class SurvivalBuildingGameTests {
       });
       helper.runAtTickTime(100, () -> {
         helper.assertTrue(Boarding.ready(level, vehicle), "Crafted car did not settle");
+        var chassisCenter = CoasterCartResolve.cartCenterWorld(container.getSubLevel(vehicle.chassis));
+        double stationDistance =
+            Math.sqrt(chassisCenter.distanceSquared(
+                new org.joml.Vector3d(
+                    stationPos.getX() + .5, stationPos.getY() + .5, stationPos.getZ() + .5)));
+        LogUtils.getLogger().info("FD_SURVIVAL_ARROW_STATION distance={}", stationDistance);
+        hold(helper, player, null);
+        helper.assertTrue(
+            click(player, stationPos).consumesAction(),
+            "Player station binding failed at distance " + stationDistance);
+        helper.assertTrue(
+            vehicle.chassis.equals(((BoardingStationEntity) level.getBlockEntity(stationPos)).vehicle),
+            "Station bound another car");
         var carrier = vehicle.carriers.getFirst();
         var body = container.getSubLevel(carrier.body);
         var rider = net.minecraft.world.entity.EntityType.PIG.create(level);
@@ -617,8 +624,7 @@ public final class SurvivalBuildingGameTests {
         SeatBlock.sitDown(
             level, body.getPlot().getCenterBlock().offset(carrier.seats.getFirst()), rider);
         helper.assertTrue(rider.isPassenger(), "Crafted car seat did not mount a rider");
-        var center = CoasterCartResolve.cartCenterWorld(container.getSubLevel(vehicle.chassis));
-        player.setPos(center.x + 2, center.y + 1, center.z);
+        player.setPos(chassisCenter.x + 2, chassisCenter.y + 1, chassisCenter.z);
         EditorNetwork.apply(
             player, new EditorNetwork.Edit(vehicle.chassis, vehicle.revision, 11, ""));
         EditorNetwork.apply(

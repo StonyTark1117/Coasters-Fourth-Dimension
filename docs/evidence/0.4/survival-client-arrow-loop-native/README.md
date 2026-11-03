@@ -33,3 +33,20 @@ so this was not an isolated runtime. The raw console is
 
 Neither attempt proves powered travel, rider retention or station capture. A
 fresh run of the corrected test remains required.
+
+## Attempt 3 — station binding before native settlement
+
+On source `bb98598`, all eight player-clicked loop sections passed the revised
+inventory check, including a first section that consumed nine items across a
+two-item selected stack and reserve stacks. The logged per-section costs were
+`9, 4, 5, 3, 10, 3, 5, 4` (43 items total). The test then placed its crafted
+Arrow car and Boarding Station, but tried to bind the station in the same tick
+as car assembly. The normal station click rejected that attempt. The existing
+native survival test binds only after the car has settled, so the corrected
+test now waits until tick 100 before clicking the station and logs its distance
+to the original chassis. The suite again had 50 of 51 required tests pass. A
+separate client started during the final portion of this run, so it was not
+isolated. Raw output: [attempt3.log.zst](attempt3.log.zst), SHA-256
+`155d27f01b8489b8c7db0316ac46ef213ad50394599dec589a86b3a282ad464b`.
+
+Powered travel, rider retention and capture still require the next run.
