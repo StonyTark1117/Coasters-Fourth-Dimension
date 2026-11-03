@@ -20,6 +20,8 @@ import net.minecraft.world.*;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.GameType;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.phys.*;
 import net.neoforged.neoforge.common.util.FakePlayerFactory;
 import net.neoforged.neoforge.gametest.*;
@@ -424,6 +426,58 @@ public final class RecoveryGameTests {
                   + " wrongFamilyRecoverySnapsRejected=40 movingUnlinkRejected=true"
                   + " staleEditRejected=true saveRoundTrip=true brokenLinkRetained=true"
                   + " normalDetachAndUnload=true permanentBearingRemoval=true");
+          helper.succeed();
+        });
+  }
+
+  @GameTest(template = "empty", timeoutTicks = 100)
+  public static void recoveryDemoCommandBuildsTheOperatorFixture(GameTestHelper helper) {
+    var level = helper.getLevel();
+    var origin = new BlockPos(700, 160, 400);
+    var to = origin.offset(0, 0, 48);
+    for (int x = 42; x <= 44; x++)
+      for (int z = 24; z <= 29; z++) level.setChunkForced(x, z, true);
+    for (var pos : BlockPos.betweenClosed(origin.offset(-8, -1, -4), origin.offset(8, 12, 52)))
+      level.setBlockAndUpdate(pos, Blocks.AIR.defaultBlockState());
+    var data = FoundationData.get(level);
+    var source =
+        level
+            .getServer()
+            .createCommandSourceStack()
+            .withLevel(level)
+            .withPosition(new Vec3(700, 157, 388))
+            .withPermission(2);
+    level.getServer().getCommands().performPrefixedCommand(source, "fd demo recovery_arrow");
+    helper.runAtTickTime(
+        60,
+        () -> {
+          helper.assertTrue(
+              data.rails.stream().filter(rail -> rail.matches(origin, to)).count() == 1,
+              "Recovery demo command did not create its Arrow rail");
+          var car =
+              data.vehicles.values().stream()
+                  .filter(vehicle -> vehicle.boundFrom.equals(origin) && vehicle.boundTo.equals(to))
+                  .toList()
+                  .getFirst();
+          helper.assertTrue(
+              car.family == TrackDesign.ARROW.family
+                  && TrackDesign.ARROW.variant.equals(car.variant)
+                  && Boarding.ready(level, car),
+              "Recovery demo command did not create an operator-ready Arrow vehicle");
+          helper.assertTrue(
+              car.recoveryCart == null && car.stopping,
+              "Recovery demo command started with an unexpected recovery coupling or active tow");
+          helper.assertTrue(
+              level.getBlockState(origin.east()).getValue(BlockStateProperties.POWERED)
+                  && level.getBlockState(origin.east().above()).getValue(BlockStateProperties.POWERED),
+              "Recovery demo command did not leave its clutch and lever in the documented power-off state");
+          var motor = (CreativeMotorBlockEntity) level.getBlockEntity(origin.east(2));
+          helper.assertTrue(
+              motor != null && motor.generatedSpeed.getValue() == 0,
+              "Recovery demo command did not leave its native towing motor unpowered");
+          System.out.println(
+              "FD_RECOVERY_DEMO_COMMAND command=fd_demo_recovery_arrow operatorFixture=true"
+                  + " unpoweredNativeDrive=true ordinaryCouplingPending=true");
           helper.succeed();
         });
   }

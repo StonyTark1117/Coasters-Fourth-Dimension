@@ -65,6 +65,12 @@ this does not establish rendered GUI or network-client operation.
   bearing. All original train links and maintenance retention remain. Restraints
   open normally and all 24 passengers unload. This PAX towing fixture is an
   unassigned flat consist, separate from the handover fixture.
+- `recoveryDemoCommandBuildsTheOperatorFixture` invokes `/fd demo recovery_arrow`
+  through the registered server dispatcher with an operator-permitted command
+  source. It verifies that the exact command-origin rail and Arrow vehicle are
+  created, operator-ready and unlinked, and that the documented native motor,
+  clutch and lever start in the unpowered state. This is server command-path
+  coverage, not rendered player chat or GUI evidence.
 
 The first broken-link diagnostic exposed a production support bug: requiring
 recovery partner availability in structural eligibility made a disabled car lose
@@ -106,7 +112,7 @@ see `operator-checkpoint-ci.json`. All-family rendered acceptance remains open.
 
 ## Remaining acceptance
 
-Rendered ordinary player selection/editor/propulsion/boarding, command invocation,
+Rendered ordinary player selection/editor/propulsion/boarding,
 complete curved/banked offsets and clearance, nonzero Arrow rack/profile scenes,
 broader coupler strength and propulsion/braking scenes, Engineered recovery/FE
 operation, and fresh-process recovery-mode lifecycle evidence remain open. These
