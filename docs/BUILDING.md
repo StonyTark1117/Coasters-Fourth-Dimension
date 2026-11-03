@@ -172,9 +172,8 @@ corridors cannot intersect.
 unlinked and the winch unbound. Use Minecraft Chains to couple the stopped cars
 in order, then sneak-use the winch before boarding. This variant lets an
 operator practice the native coupling and binding steps on a level station.
-Add a temporary foothold beside a bearing or seat if the platform edge is too
-far to reach; remove it before dispatch. Keep the train at six-block spacing
-while making the three links.
+The example platforms extend to the outer seat edge. Keep the train at
+six-block spacing while making the three links.
 
 These commands create world content; they are examples rather than the survival
 acquisition path. They use the standalone dependencies. Follow the corresponding

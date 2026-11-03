@@ -74,7 +74,8 @@ public final class ShuttleExamples {
                     create(
                         level,
                         BlockPos.containing(ctx.getSource().getPosition()).offset(0, 5, 65),
-                        false);
+                        false,
+                        true);
                     ctx.getSource()
                         .sendSuccess(
                             () ->
@@ -126,6 +127,11 @@ public final class ShuttleExamples {
   }
 
   public static Example create(ServerLevel level, BlockPos origin, boolean tall) {
+    return create(level, origin, tall, false);
+  }
+
+  private static Example create(
+      ServerLevel level, BlockPos origin, boolean tall, boolean widePlatform) {
     int height = tall ? 36 : 24, spike = tall ? 64 : 48, station = tall ? 36 : 32;
     var data = FoundationData.get(level);
     if (Math.abs((long) origin.getX()) > 940
@@ -220,7 +226,9 @@ public final class ShuttleExamples {
     ((CreativeMotorBlockEntity) level.getBlockEntity(pos.west())).generatedSpeed.setValue(128);
     for (int side : new int[] {-1, 1})
       for (var floor :
-          BlockPos.betweenClosed(origin.offset(side * 6, -1, 4), origin.offset(side * 7, -1, 30)))
+          BlockPos.betweenClosed(
+              origin.offset(side * (widePlatform ? 4 : 6), -1, 4),
+              origin.offset(side * 7, -1, 30)))
         level.setBlockAndUpdate(floor, Blocks.SMOOTH_STONE.defaultBlockState());
     data.setDirty();
     FoundationSync.broadcast(level);
