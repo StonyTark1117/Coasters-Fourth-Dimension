@@ -4,6 +4,8 @@ import com.simibubi.create.content.trains.track.TrackMaterial;
 import dev.fourthdimension.runtime.*;
 import dev.fourthdimension.track.*;
 import dev.silvergold.simulatedcoasters.SimulatedCoastersBlocks;
+import dev.silvergold.simulatedcoasters.CoasterTrackMaterials;
+import dev.silvergold.simulatedcoasters.track.CoasterAnchorBezierOptimizer;
 import dev.silvergold.simulatedcoasters.track.anchor.CoasterAnchorpointBlockEntity;
 import java.util.List;
 import net.minecraft.core.*;
@@ -20,6 +22,50 @@ import net.neoforged.neoforge.gametest.*;
 @GameTestHolder("fourthdimension")
 @PrefixGameTestTemplate(false)
 public final class TrackContentGameTests {
+  @GameTest(template = "empty", timeoutTicks = 60)
+  public static void familyPlacementUsesNativeNoNeighborMutationMode(GameTestHelper helper) {
+    var level = helper.getLevel();
+    for (int x = -10; x <= -6; x++) for (int z = 10; z <= 14; z++) level.setChunkForced(x, z, true);
+    var player = FakePlayerFactory.getMinecraft(level);
+    player.setGameMode(GameType.CREATIVE);
+    var from = new BlockPos(-128, 90, 176);
+    var hub = from.offset(0, 0, 24);
+    var outbound = hub.offset(16, 0, 16);
+    for (var point : List.of(from, hub, outbound))
+      level.setBlockAndUpdate(
+          point, SimulatedCoastersBlocks.COASTER_ANCHORPOINT.get().defaultBlockState());
+    place(helper, player, TrackItems.ARROW.get(), from, hub);
+    var before =
+        ((CoasterAnchorpointBlockEntity) level.getBlockEntity(from))
+            .getAnchorPeerCurvesView()
+            .get(hub)
+            .write(from)
+            .copy();
+    var expected =
+        CoasterAnchorBezierOptimizer.buildAnchorAnchorPlacement(
+            level, hub, outbound, CoasterTrackMaterials.COASTER, false, true);
+    helper.assertTrue(expected != null, "No-neighbour native builder rejected a legal family span");
+    var preview = TrackPlacement.preview(level, hub, outbound);
+    helper.assertTrue(
+        preview.write(hub).equals(expected.primary().write(hub)),
+        "Family preview did not use Coasters' no-neighbour-mutation optimizer mode");
+    place(helper, player, TrackItems.ARROW.get(), hub, outbound);
+    var after =
+        ((CoasterAnchorpointBlockEntity) level.getBlockEntity(from))
+            .getAnchorPeerCurvesView()
+            .get(hub)
+            .write(from);
+    helper.assertTrue(before.equals(after), "Family placement changed its adjoining native curve");
+    var data = FoundationData.get(level);
+    for (var rail : List.copyOf(data.rails)) {
+      ((CoasterAnchorpointBlockEntity) level.getBlockEntity(rail.from))
+          .removeAnchorPeerCurve(level, rail.to);
+      data.rails.remove(rail);
+    }
+    for (var point : List.of(from, hub, outbound)) level.removeBlock(point, false);
+    helper.succeed();
+  }
+
   @GameTest(template = "empty", timeoutTicks = 80)
   public static void originalTrackItemsAndPersistence(GameTestHelper helper) {
     var level = helper.getLevel();

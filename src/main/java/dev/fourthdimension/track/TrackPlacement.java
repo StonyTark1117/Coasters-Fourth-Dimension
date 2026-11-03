@@ -5,7 +5,9 @@ import dev.fourthdimension.physics.RotationProfile;
 import dev.fourthdimension.runtime.*;
 import dev.fourthdimension.vehicle.VehicleOperations;
 import dev.silvergold.simulatedcoasters.CoasterTrackMaterials;
+import dev.silvergold.simulatedcoasters.track.CoasterAnchorBezierOptimizer;
 import dev.silvergold.simulatedcoasters.track.CoasterTrackPlacement;
+import dev.silvergold.simulatedcoasters.track.anchor.CoasterAnchorpointBlock;
 import dev.silvergold.simulatedcoasters.track.anchor.CoasterAnchorpointBlockEntity;
 import dev.silvergold.simulatedcoasters.track.graph.CoasterPathEdge;
 import java.util.*;
@@ -32,9 +34,7 @@ public final class TrackPlacement {
 
   public static BezierConnection preview(Level level, BlockPos from, BlockPos to) {
     checkConnectableEndpoints(level, from, to);
-    var curve =
-        CoasterTrackPlacement.buildAnchorAnchorBezier(
-            level, from, to, CoasterTrackMaterials.COASTER, false);
+    var curve = buildFamilyCurve(level, from, to);
     if (curve == null) throw new IllegalArgumentException("Cannot construct this curve");
     return curve;
   }
@@ -106,8 +106,7 @@ public final class TrackPlacement {
     var curve =
         restoring != null && restoring.originalCurve != null
             ? originalCurve(restoring)
-            : CoasterTrackPlacement.buildAnchorAnchorBezier(
-                level, from, to, CoasterTrackMaterials.COASTER, false);
+            : buildFamilyCurve(level, from, to);
     if (curve == null) throw new IllegalArgumentException("Cannot construct this curve");
     if (!CoasterTrackPlacement.validateCoasterCurveForPlacement(level, curve, null))
       throw new IllegalArgumentException(
@@ -172,6 +171,28 @@ public final class TrackPlacement {
   /** Captures the upstream curve's complete native representation for later exact restoration. */
   public static void captureOriginalCurve(FoundationData.Rail rail, BezierConnection curve) {
     rail.originalCurve = curve.write(rail.from).copy();
+  }
+
+  /**
+   * Builds a 4D family curve without changing an adjoining native curve.
+   *
+   * <p>Coasters' five-argument convenience builder always requests neighbour smoothing, but it
+   * returns only the new curve and drops the matching neighbour-write batch. Applying that curve
+   * directly would therefore leave a shared anchor with two frames selected by different
+   * optimizations. The native item path owns that batch and is intentionally not available to a
+   * family item. Use the optimizer's public suppressed mode instead: it is the same bounded
+   * no-neighbour-mutation mode Coasters uses for its explicit suppression gesture.
+   */
+  static BezierConnection buildFamilyCurve(Level level, BlockPos from, BlockPos to) {
+    var built =
+        CoasterAnchorBezierOptimizer.buildAnchorAnchorPlacement(
+            level, from, to, CoasterTrackMaterials.COASTER, false, true);
+    if (built == null
+        || !CoasterAnchorBezierOptimizer.isBuiltPlacementCurveValid(built.primary())
+        || !CoasterAnchorBezierOptimizer.meetsAltSuppressMinCurveRadius(built.primary())
+        || CoasterAnchorpointBlock.connectionBelowMinLegAngle(level, from, to, built.primary()))
+      return null;
+    return built.primary();
   }
 
   /**

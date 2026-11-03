@@ -35,7 +35,9 @@ to obtain these items.
 
 1. Place two native Coasters anchors in a clear area. Use the matching family
    track item on the first anchor and then the second. Sneak-click cancels the
-   first selection. Use the native Coasters tools to shape the connection.
+   first selection. A family placement preserves adjoining native curves rather
+   than applying Coasters' neighbour-smoothing pass, so edit each connection
+   deliberately with the native Coasters tools after placement.
    Survival placement consumes one matching track item for every four blocks
    of sampled curve length, rounded up for each connection: a 32-block straight
    costs eight items. Have the required items in your inventory before the second
