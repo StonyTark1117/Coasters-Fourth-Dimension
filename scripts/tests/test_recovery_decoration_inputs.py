@@ -29,11 +29,14 @@ def fixture(length=3.3):
     ties = [piece(min(d, length), False) for d in range(0, math.floor((length+1e-6)/2)*2+1, 2)]
     return [dict(family='ARROW', variant='arrow_four_rail_v1', carCount=1, chassis=['fixture-chassis'],
                  dimension='minecraft:overworld', gameTime=120, sections=[dict(
-        rail='fixture-rail', family='arrow', variant='arrow_four_rail_v1', length=length,
+        rail='fixture-rail', family='arrow_controlled', variant='arrow_four_rail_v1', length=length,
         geometryHash='9223372036854775807', revision=0, valid=True,
         appearance={'id':'fourthdimension:original', 'tint':-1},
         profile=[dict(distance=0, angle=0, slope=0), dict(distance=length, angle=0, slope=0)],
-        frames=[{} for _ in range(max(8, math.ceil(length*4))+1)],
+        frames=[dict(distance=length*i/max(8, math.ceil(length*4)),
+                     center=[0, 90, length*i/max(8, math.ceil(length*4))],
+                     right=[-1, 0, 0], up=[0, 1, 0], forward=[0, 0, 1], profileAngle=0)
+                for i in range(max(8, math.ceil(length*4))+1)],
         decorationInputs=dict(schema=1,
             scope='potential-renderer-inputs-only; no model availability or clearance claim',
             matrixLayout='column-major-model-to-world', spines=spines, ties=ties))])]
@@ -111,6 +114,33 @@ class ExportChecks(unittest.TestCase):
             path.write_text(''.join(json.dumps(row)+'\n' for row in rows))
             with self.assertRaises(ValueError):
                 audit.verify_trace(data, path)
+
+    def test_wrong_persisted_family_and_route_design_are_rejected(self):
+        for family in ('unrelated', 'pax_shuttle', 'ARROW'):
+            data = fixture()
+            data[0]['sections'][0]['family'] = family
+            with self.subTest(family=family), self.assertRaises(ValueError):
+                audit.verify(data)
+        data = fixture()
+        data[0]['family'] = 'PAX'
+        with self.assertRaises(ValueError):
+            audit.verify(data)
+
+    def test_original_frame_nonfinite_values_and_wrong_distance_are_rejected(self):
+        for field in ('center', 'right', 'up', 'forward', 'distance', 'profileAngle'):
+            for bad in (float('nan'), float('inf')):
+                data = fixture()
+                frame = data[0]['sections'][0]['frames'][0]
+                if isinstance(frame[field], list):
+                    frame[field][0] = bad
+                else:
+                    frame[field] = bad
+                with self.subTest(field=field, value=bad), self.assertRaises(ValueError):
+                    audit.verify(data)
+        data = fixture()
+        data[0]['sections'][0]['frames'][1]['distance'] = 0
+        with self.assertRaises(ValueError):
+            audit.verify(data)
 
     def test_duplicate_route_identity_is_rejected(self):
         data = fixture()

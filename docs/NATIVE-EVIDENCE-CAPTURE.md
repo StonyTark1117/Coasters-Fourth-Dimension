@@ -122,8 +122,9 @@ python3 scripts/verify-recovery-decoration-inputs.py "$fd_frames" \
 
 Pair `recovery-bank-native-frames.json` with `recovery-bank-mesh-trace.jsonl`, and
 `recovery-bank-train-native-frames.json` with `recovery-bank-train-mesh-trace.jsonl`.
-The verifier checks complete placement grids, recorded identity/profile metadata,
-finite frames, expected piece scales and model transforms, with `2e-4` numerical
+The verifier checks complete placement grids, matching design/variant/persisted-family
+identity, recorded profile metadata, finite original and decoration frames,
+original-grid distances/profile values, expected piece scales and model transforms, with `2e-4` numerical
 matrix tolerance for float arithmetic. This tolerance is not a clearance margin.
 The optional trace check requires matching chassis definitions/poses and completion
 markers for each route. It does not assess collisions, rider meshes, trace timing,
@@ -143,9 +144,10 @@ Offline validation (no JVM):
 python3 -B -m unittest discover -s scripts/tests -p test_recovery_decoration_inputs.py -v
 ```
 
-Nine synthetic tests cover a non-grid section length, a quarter-turn bank,
+Eleven synthetic tests cover a non-grid section length, a quarter-turn bank,
 endpoint tolerance/clamp, legacy rejection, missing/wrong sample distances,
 wrong tie origin/nonfinite matrices, corrupt profile/identity, duplicate rails,
-and mismatched/incomplete traces. They validate the verifier, not native sampling.
+mismatched/incomplete traces, wrong persisted-family/design combinations, and
+nonfinite/corrupted original frames. They validate the verifier, not native sampling.
 The Java export extension still needs the coordinator's build and native run;
 no new clearance or runtime acceptance is claimed by this tooling change.

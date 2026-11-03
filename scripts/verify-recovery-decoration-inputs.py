@@ -18,7 +18,19 @@ SOURCES = (
     "src/main/java/dev/fourthdimension/client/integration/TrackStylesRenderer.java",
     "src/main/java/dev/fourthdimension/physics/ArrowDecorationPlacement.java",
     "src/main/java/dev/fourthdimension/physics/ModelFrame.java",
+    "src/main/java/dev/fourthdimension/contract/Family.java",
+    "src/main/java/dev/fourthdimension/track/TrackDesign.java",
 )
+
+
+# Stable persisted Family IDs and TrackDesign names in the pinned five-family scope.
+DESIGNS = {
+    "ARROW": ("arrow_four_rail_v1", "arrow_controlled"),
+    "LEGACY": ("zacspin_legacy_v1", "zacspin_legacy"),
+    "FREE_SPIN": ("sns_magnetic_v1", "sns_free_spin"),
+    "REVISED": ("zacspin_revised_v1", "zacspin_revised"),
+    "PAX": ("pax_shuttle_v1", "pax_shuttle"),
+}
 
 
 def require(condition, message):
@@ -103,7 +115,10 @@ def verify(routes):
     counts = {"routes": len(routes), "sections": 0, "spines": 0, "ties": 0}
     ids = set()
     for route in routes:
-        require(route["carCount"] > 0 and route["family"] and route["variant"], "missing route identity")
+        require(type(route["carCount"]) is int and route["carCount"] > 0, "invalid car count")
+        require(route["family"] in DESIGNS, "unknown route design")
+        variant, family = DESIGNS[route["family"]]
+        require(route["variant"] == variant, "route design/variant mismatch")
         require(isinstance(route["chassis"], list) and len(route["chassis"]) == route["carCount"]
                 and len(set(route["chassis"])) == route["carCount"]
                 and all(isinstance(car, str) and car for car in route["chassis"]), "missing chassis identity")
@@ -116,7 +131,7 @@ def verify(routes):
             ids.add(rail)
             length = section["length"]
             require(number(length) and length > 0, "invalid section length")
-            require(section["family"] and section["variant"] == route["variant"], "rail identity mismatch")
+            require(section["family"] == family and section["variant"] == variant, "rail identity mismatch")
             require(re.fullmatch(r"-?[0-9]+", section["geometryHash"]) is not None, "missing geometry identity")
             require(type(section["revision"]) is int and type(section["valid"]) is bool, "invalid rail state")
             require(isinstance(section["appearance"]["id"], str) and section["appearance"]["id"], "missing appearance")
@@ -125,7 +140,14 @@ def verify(routes):
             require(isinstance(keys, list) and len(keys) >= 2, "missing profile")
             require(all(all(number(k[n]) for n in ("distance", "angle", "slope")) for k in keys), "invalid profile")
             require(all(a["distance"] < b["distance"] for a, b in zip(keys, keys[1:])), "unordered profile")
-            require(len(section["frames"]) == max(8, math.ceil(length*4)) + 1, "original frame grid changed")
+            original_samples = max(8, math.ceil(length*4))
+            require(len(section["frames"]) == original_samples + 1, "original frame grid changed")
+            for index, frame in enumerate(section["frames"]):
+                distance = length*index/original_samples
+                require(close(frame["distance"], distance, 1e-9), "original frame distance/grid mismatch")
+                for name in ("center", "right", "up", "forward"):
+                    require(vector(frame[name], 3), f"invalid original frame {name}")
+                require(close(frame["profileAngle"], angle_at(keys, distance)), "original profile angle mismatch")
             data = section["decorationInputs"]
             require(data["schema"] == 1 and data["matrixLayout"] == "column-major-model-to-world", "unknown decoration schema")
             require(data["scope"] == "potential-renderer-inputs-only; no model availability or clearance claim", "missing evidence scope")
