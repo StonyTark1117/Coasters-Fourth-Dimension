@@ -51,8 +51,8 @@ import net.neoforged.neoforge.gametest.GameTestHolder;
 import net.neoforged.neoforge.gametest.PrefixGameTestTemplate;
 
 /**
- * Supplies materials and supports, then uses native survival crafting/right-click paths. Powered
- * rides, physical rider interaction and the complete shuttle route have separate gates.
+ * Supplies materials and supports, then uses native survival crafting/right-click paths.
+ * Connected-client operation, a player rider and the complete shuttle route have separate gates.
  */
 @GameTestHolder("fourthdimension")
 @PrefixGameTestTemplate(false)
@@ -454,6 +454,7 @@ public final class SurvivalBuildingGameTests {
     helper.assertTrue(!player.isCreative() && player.mayBuild(), "Loop builder is not in survival");
     var table = origin.offset(-7, 0, -7);
     level.setBlockAndUpdate(table, Blocks.CRAFTING_TABLE.defaultBlockState());
+    player.setPos(table.getX() + 2, table.getY(), table.getZ());
     var materials = Map.ofEntries(Map.entry("minecraft:iron_ingot", 48),
         Map.entry("minecraft:copper_ingot", 16), Map.entry("minecraft:red_dye", 5),
         Map.entry("create:red_seat", 2), Map.entry("minecraft:iron_bars", 1),
