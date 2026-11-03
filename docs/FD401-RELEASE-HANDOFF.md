@@ -59,6 +59,10 @@ For packaged profiles use `-PfdPackaged -PfdValidation`, adding only the applica
 this checklist until the coordinator hands over the runtime. Existing native
 performance targets and geometry margins remain unchanged.
 
+For future native profile runs, use the [post-exit export capture helper](NATIVE-EVIDENCE-CAPTURE.md)
+before another run deletes the five generated frame/trace files. Capture failures
+remain evidence gaps; archiving cannot turn a failed runtime into a passing one.
+
 For each future run retain exact commands/configuration, normal item/GUI actions,
 server/client observations, failed attempts, screenshots, complete logs, actual
 process exit codes, and pre/post-restart whole-world copies/hashes. An RCON write,
