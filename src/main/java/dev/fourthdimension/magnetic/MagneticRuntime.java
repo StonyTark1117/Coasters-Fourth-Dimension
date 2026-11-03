@@ -31,6 +31,8 @@ public final class MagneticRuntime {
   public static final class Audit {
     public long impulses;
     public double weightedDistance, energyChange;
+    public long damperImpulses;
+    public double damperEnergyChange, damperAngularSpeedReduction;
   }
 
   private static final Map<ServerSubLevel, Audit> AUDIT = new WeakHashMap<>();
@@ -276,6 +278,13 @@ public final class MagneticRuntime {
     double before = kinetic(level, bodies);
     // Rapier stores velocities as floats. Avoid impulses below its energy-resolution floor.
     if (result.energyChange() >= -Math.max(1e-7, before * 5e-7)) return;
+    double relativeAngularBefore = 0;
+    if (span.mode() == MagneticSpan.Mode.DAMP)
+      relativeAngularBefore =
+          pipeline
+              .getAngularVelocity(child, new Vector3d())
+              .sub(pipeline.getAngularVelocity(bodies.getFirst(), new Vector3d()))
+              .dot(axis);
     for (var body : bodies)
       pipeline.addLinearAndAngularVelocity(
           body, new Vector3d(tangent).mul(result.translation()), new Vector3d());
@@ -286,6 +295,17 @@ public final class MagneticRuntime {
     double actual = kinetic(level, bodies) - before;
     audit(child).impulses++;
     audit(child).energyChange += actual;
+    if (span.mode() == MagneticSpan.Mode.DAMP) {
+      double relativeAngularAfter =
+          pipeline
+              .getAngularVelocity(child, new Vector3d())
+              .sub(pipeline.getAngularVelocity(bodies.getFirst(), new Vector3d()))
+              .dot(axis);
+      audit(child).damperImpulses++;
+      audit(child).damperEnergyChange += actual;
+      audit(child).damperAngularSpeedReduction +=
+          Math.abs(relativeAngularBefore) - Math.abs(relativeAngularAfter);
+    }
     maxEnergyIncrease = Math.max(maxEnergyIncrease, actual);
     dissipatedEnergy -= actual;
     largestSpinGain = Math.max(largestSpinGain, Math.abs(result.rotation()));

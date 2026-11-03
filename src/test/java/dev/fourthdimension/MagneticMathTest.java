@@ -57,6 +57,22 @@ class MagneticMathTest {
   }
 
   @Test
+  void damperRemovesFreeAngularSpeedWithoutCaptureOrDirectionInput() {
+    var forward = new MagneticSpan(2, 6, MagneticSpan.Mode.DAMP, 1, 20, .25, 1);
+    var reverse = new MagneticSpan(2, 6, MagneticSpan.Mode.DAMP, -1, 20, .25, 1);
+    double initialOmega = 3;
+    var damped = PassiveCoupler.impulse(20, 4, 0, 160, 4 * initialOmega, forward, .05);
+    assertEquals(0, damped.translation(), 1e-12);
+    assertTrue(damped.rotation() < 0);
+    assertTrue(Math.abs(initialOmega + damped.rotation()) < Math.abs(initialOmega));
+    assertTrue(damped.energyChange() < 0);
+    assertEquals(damped, PassiveCoupler.impulse(20, 4, 0, 160, 4 * initialOmega, reverse, .05));
+    assertEquals(
+        new PassiveCoupler.Result(0, 0, 0),
+        PassiveCoupler.impulse(20, 4, 0, 160, 0, forward, .05));
+  }
+
+  @Test
   void equipmentBracketsClearRunningGearAndWingEnvelope() {
     var rail = dev.fourthdimension.track.TrackDesign.FREE_SPIN;
     assertTrue(rail.MAGNET_HALF_GAUGE - rail.MAGNET_RADIUS > rail.TREAD_OUTER);
