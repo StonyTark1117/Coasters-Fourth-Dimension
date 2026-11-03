@@ -1,5 +1,8 @@
 package dev.fourthdimension.gametest;
 
+import dev.fourthdimension.physics.ArrowDecorationPlacement;
+import dev.fourthdimension.physics.ModelFrame;
+import dev.fourthdimension.runtime.FoundationData;
 import dev.fourthdimension.track.*;
 import dev.fourthdimension.vehicle.BankedRecoveryExamples;
 import dev.silvergold.simulatedcoasters.track.graph.*;
@@ -46,8 +49,40 @@ final class RecoveryRouteFrames {
                   "profileAngle",
                   rail.profile.angleAt(distance)));
         }
-        sections.add(
-            Map.of("rail", rail.id.toString(), "length", table.length(), "frames", frames));
+        // Potential decoration placement inputs, not a claim that a provider/model rendered.
+        // Keep these distances identical to TrackStylesRenderer.build; no grid interpolation.
+        var spines = new ArrayList<Map<String, Object>>();
+        var ties = new ArrayList<Map<String, Object>>();
+        int segments = Math.max(1, (int) Math.ceil(table.length() * 2));
+        double step = table.length() / segments;
+        for (int i = 0; i < segments; i++) {
+          double distance = (i + .5) * step;
+          spines.add(decoration(level, edge, rail, distance, table.parameterAt(distance), true, step));
+        }
+        for (double distance = 0; distance <= table.length() + 1e-6; distance += 2) {
+          double d = Math.min(distance, table.length());
+          ties.add(decoration(level, edge, rail, d, table.parameterAt(d), false, step));
+        }
+        var section = new LinkedHashMap<String, Object>();
+        section.put("rail", rail.id.toString());
+        section.put("length", table.length());
+        section.put("frames", frames);
+        section.put("family", rail.family.id());
+        section.put("variant", rail.variant);
+        section.put("geometryHash", Long.toString(rail.geometryHash));
+        section.put("revision", rail.revision);
+        section.put("valid", rail.valid);
+        section.put("profile", rail.profile.keys());
+        section.put("appearance", Map.of("id", rail.appearance.id(), "tint", rail.appearance.tint()));
+        section.put(
+            "decorationInputs",
+            Map.of(
+                "schema", 1,
+                "scope", "potential-renderer-inputs-only; no model availability or clearance claim",
+                "matrixLayout", "column-major-model-to-world",
+                "spines", spines,
+                "ties", ties));
+        sections.add(section);
       }
       geometry.add(
           Map.of(
@@ -58,7 +93,13 @@ final class RecoveryRouteFrames {
               "sections",
               sections,
               "carCount",
-              example.cars().size()));
+              example.cars().size(),
+              "chassis",
+              example.cars().stream().map(car -> car.chassis.toString()).toList(),
+              "dimension",
+              level.dimension().location().toString(),
+              "gameTime",
+              level.getGameTime()));
     }
     try {
       Files.writeString(
@@ -67,6 +108,47 @@ final class RecoveryRouteFrames {
     } catch (IOException failedExport) {
       throw new UncheckedIOException(failedExport);
     }
+  }
+
+  private static Map<String, Object> decoration(
+      ServerLevel level,
+      CoasterPathEdge edge,
+      FoundationData.Rail rail,
+      double distance,
+      double parameter,
+      boolean spine,
+      double step) {
+    var center = CoasterPathGraphManager.sampleEdgePosition(level, edge, parameter);
+    var basis =
+        CoasterPathTrackFrame.trackBasisAtHit(
+            level, new CoasterPathTrackFrame.GraphHit(center, edge, parameter));
+    var up = basis.up();
+    var forward = basis.forward();
+    var transform =
+        ModelFrame.at(
+            center.x,
+            center.y,
+            center.z,
+            new org.joml.Vector3d(forward.x, forward.y, forward.z),
+            new org.joml.Vector3d(up.x, up.y, up.z));
+    // Reuse the production model-origin/scale transforms, including float step rounding.
+    if (spine) ArrowDecorationPlacement.spine(transform, (float) step);
+    else ArrowDecorationPlacement.tie(transform);
+    var input = new LinkedHashMap<String, Object>();
+    input.put("distance", distance);
+    input.put("parameter", parameter);
+    input.put("center", vector(center));
+    input.put("right", vector(basis.right()));
+    input.put("up", vector(up));
+    input.put("forward", vector(forward));
+    input.put("profileAngle", rail.profile.angleAt(distance));
+    input.put(
+        "scale",
+        spine
+            ? new float[] {1, 1, (float) step}
+            : new float[] {ArrowDecorationPlacement.TIE_SCALE_X, 1, 1});
+    input.put("modelTransform", transform.get(new float[16]));
+    return input;
   }
 
   private static double[] vector(Vec3 value) {
