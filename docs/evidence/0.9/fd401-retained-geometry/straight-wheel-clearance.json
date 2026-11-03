@@ -1,0 +1,210 @@
+{
+  "baseSha256": "f80b4c3cdf9fa6188804967147761b0373e150a6eadbdc53626e5ac9700b2049",
+  "providerSha256": "42535a83307f6898b33c13ca201533bb9e337418fd7c73039c867fc80bfbcb38",
+  "placement": "wheel-clearance-v2",
+  "placementSourceSha256": "d13de25c3a03ce24343d92133457332a4887e0eabac54348a99f11ae37b193cd",
+  "nativeWheelResource": "assets/simulatedcoasters/models/block/coaster_cart_wheel_axis.json",
+  "wheelEnvelopes": 20,
+  "placementDerivation": "native path anchor +.3125Y, renderer +.1875Y and axis +.1Y; lower row -.55Y; centered model, no world mesh scale",
+  "method": "XY triangle distance to full-spin cuboid cylinder projection, extruded over continuous longitudinal travel",
+  "scope": "level straight, default pinned wheel and decoration meshes; excludes banking, chassis, carriers, riders, linked vehicles and resource overrides",
+  "trackDesignSourceSha256": "e3a88c3ca661d7b232ee0b9d3c853a6e66c1d0d1147ac4266b001616b1fe1ff1",
+  "nativeSupports": [
+    {
+      "component": "outboard support -1",
+      "minimumConservativeGap": 0.06000000000000005,
+      "requiredGap": 0.01,
+      "closestPair": {
+        "element": 0,
+        "row": "upstop",
+        "triangle": 0
+      },
+      "triangles": 2,
+      "passes": true
+    },
+    {
+      "component": "underbrace -1",
+      "minimumConservativeGap": 0.4856527159466022,
+      "requiredGap": 0.01,
+      "closestPair": {
+        "element": 8,
+        "row": "upstop",
+        "triangle": 1
+      },
+      "triangles": 2,
+      "passes": true
+    },
+    {
+      "component": "outboard support 1",
+      "minimumConservativeGap": 0.06000000000000005,
+      "requiredGap": 0.01,
+      "closestPair": {
+        "element": 1,
+        "row": "upstop",
+        "triangle": 1
+      },
+      "triangles": 2,
+      "passes": true
+    },
+    {
+      "component": "underbrace 1",
+      "minimumConservativeGap": 0.4856527159466022,
+      "requiredGap": 0.01,
+      "closestPair": {
+        "element": 4,
+        "row": "upstop",
+        "triangle": 1
+      },
+      "triangles": 2,
+      "passes": true
+    },
+    {
+      "component": "external spine crossbrace",
+      "minimumConservativeGap": 0.4856527159466022,
+      "requiredGap": 0.01,
+      "closestPair": {
+        "element": 4,
+        "row": "upstop",
+        "triangle": 1
+      },
+      "triangles": 2,
+      "passes": true
+    },
+    {
+      "component": "appearance end bracket",
+      "minimumConservativeGap": 0.6686609537007826,
+      "requiredGap": 0.01,
+      "closestPair": {
+        "element": 0,
+        "row": "upstop",
+        "triangle": 1
+      },
+      "triangles": 2,
+      "passes": true
+    },
+    {
+      "component": "control mount -1",
+      "minimumConservativeGap": 0.5498251741194407,
+      "requiredGap": 0.01,
+      "closestPair": {
+        "element": 6,
+        "row": "upstop",
+        "triangle": 1
+      },
+      "triangles": 3,
+      "passes": true
+    },
+    {
+      "component": "control mount 1",
+      "minimumConservativeGap": 0.5498251741194409,
+      "requiredGap": 0.01,
+      "closestPair": {
+        "element": 2,
+        "row": "upstop",
+        "triangle": 2
+      },
+      "triangles": 3,
+      "passes": true
+    }
+  ],
+  "legacyReferenceModels": [
+    {
+      "resource": "assets/coasterssimulatedextratypes/models/block/track/arrow_4d/arrow_4d_center_beam.obj",
+      "minimumConservativeGap": 0.5626685810492947,
+      "requiredGap": 0.01,
+      "closestPair": {
+        "element": 2,
+        "row": "upstop",
+        "triangle": 157
+      },
+      "triangles": 204,
+      "passes": true
+    },
+    {
+      "resource": "assets/coasterssimulatedextratypes/models/block/track/arrow_4d/arrow_4d_tie.obj",
+      "minimumConservativeGap": 0.0,
+      "requiredGap": 0.01,
+      "closestPair": {
+        "element": 0,
+        "row": "upstop",
+        "triangle": 88
+      },
+      "triangles": 208,
+      "passes": false
+    },
+    {
+      "resource": "assets/coasterssimulatedextratypes/models/block/track/arrow_4d_dbl_spine/arrow_4d_dbl_spine_center_beam.obj",
+      "minimumConservativeGap": 0.3147980306561092,
+      "requiredGap": 0.01,
+      "closestPair": {
+        "element": 2,
+        "row": "upstop",
+        "triangle": 121
+      },
+      "triangles": 408,
+      "passes": true
+    },
+    {
+      "resource": "assets/coasterssimulatedextratypes/models/block/track/arrow_4d_dbl_spine/arrow_4d_dbl_spine_tie.obj",
+      "minimumConservativeGap": 0.0,
+      "requiredGap": 0.01,
+      "closestPair": {
+        "element": 0,
+        "row": "upstop",
+        "triangle": 88
+      },
+      "triangles": 208,
+      "passes": false
+    }
+  ],
+  "models": [
+    {
+      "resource": "assets/coasterssimulatedextratypes/models/block/track/arrow_4d/arrow_4d_center_beam.obj",
+      "minimumConservativeGap": 1.0381616193597987,
+      "requiredGap": 0.01,
+      "closestPair": {
+        "element": 2,
+        "row": "upstop",
+        "triangle": 156
+      },
+      "triangles": 204,
+      "passes": true
+    },
+    {
+      "resource": "assets/coasterssimulatedextratypes/models/block/track/arrow_4d/arrow_4d_tie.obj",
+      "minimumConservativeGap": 0.1175277397884602,
+      "requiredGap": 0.01,
+      "closestPair": {
+        "element": 4,
+        "row": "upstop",
+        "triangle": 0
+      },
+      "triangles": 208,
+      "passes": true
+    },
+    {
+      "resource": "assets/coasterssimulatedextratypes/models/block/track/arrow_4d_dbl_spine/arrow_4d_dbl_spine_center_beam.obj",
+      "minimumConservativeGap": 0.8988522680392071,
+      "requiredGap": 0.01,
+      "closestPair": {
+        "element": 4,
+        "row": "upstop",
+        "triangle": 121
+      },
+      "triangles": 408,
+      "passes": true
+    },
+    {
+      "resource": "assets/coasterssimulatedextratypes/models/block/track/arrow_4d_dbl_spine/arrow_4d_dbl_spine_tie.obj",
+      "minimumConservativeGap": 0.1175277397884602,
+      "requiredGap": 0.01,
+      "closestPair": {
+        "element": 4,
+        "row": "upstop",
+        "triangle": 0
+      },
+      "triangles": 208,
+      "passes": true
+    }
+  ]
+}

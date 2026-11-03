@@ -1,0 +1,35 @@
+{
+  "runtime_source": "abc4a9a9dd2a1df4957ef5714a58eae6e150895b",
+  "runtime_profile": "styles",
+  "runtime_start_utc": "2026-11-03T03:46:50.196236+00:00",
+  "runtime_end_utc": "2026-11-03T03:52:21.662215+00:00",
+  "retained_frame_path": "/tmp/fourthdimension-2aa0362f/build/runs/gametest/bank-native-frames.json",
+  "retained_frame_mtime_ns": 1793677633988338351,
+  "retained_frame_sha256": "bf9ab83d5bbc8e2b09a527cef969118f34645254a7fb3cfe8e84bf3ad5c58573",
+  "provenance_limit": "Frame was copied after the last Styles run; its path matches FD_BANK log and mtime falls inside that run. No frame hash was captured by the original runner. This is an offline audit of retained bytes, not a new runtime or a cryptographic proof of their prior state.",
+  "inputs": {
+    "create-coasters-simulated": {
+      "path": "/home/braydon/Documents/Coasters: Fourth Dimension/build/integration-catalog/2026-11-02/create-coasters-simulated-1601871-8655742.jar",
+      "sha256": "f80b4c3cdf9fa6188804967147761b0373e150a6eadbdc53626e5ac9700b2049"
+    },
+    "coasters-simulated-track-styles": {
+      "path": "/home/braydon/Documents/Coasters: Fourth Dimension/build/integration-catalog/2026-11-02/coasters-simulated-track-styles-1642719-9020601.jar",
+      "sha256": "42535a83307f6898b33c13ca201533bb9e337418fd7c73039c867fc80bfbcb38"
+    }
+  },
+  "scripts": {
+    "audit-arrow-style-geometry.py": "7177daa6fb47189f0d5086e91cf1c2759bd209a7afe2e5bdef66ea1d4244adbd",
+    "audit-arrow-style-stroke.py": "f83006b11b17bf81b16f482b506f181219140be3417f61a456880684a60e7265",
+    "audit-arrow-wheel-clearance.py": "e0eb4848725deaea2a7db62a04acb8c315cbf86115a9bcc4b32342efa2666e54"
+  },
+  "audit_source": "494d89f",
+  "audited_production_sources": {
+    "src/main/java/dev/fourthdimension/physics/ArrowDecorationPlacement.java": "d13de25c3a03ce24343d92133457332a4887e0eabac54348a99f11ae37b193cd",
+    "src/main/java/dev/fourthdimension/track/TrackDesign.java": "e3a88c3ca661d7b232ee0b9d3c853a6e66c1d0d1147ac4266b001616b1fe1ff1"
+  },
+  "source_comparison": "git diff abc4a9a 494d89f -- audited production sources and auditor scripts: empty",
+  "runtime_console_sha256": "d660d6521ee1ebd10c3a4600f2104e4466c4cfa64bd8a5072b2d637eb1f3e77b",
+  "export_log_lines": [
+    "FD_BANK geometryPath=/tmp/fourthdimension-2aa0362f/build/runs/gametest/bank-native-frames.json"
+  ]
+}
