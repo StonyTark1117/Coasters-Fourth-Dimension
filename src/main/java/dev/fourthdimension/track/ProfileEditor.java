@@ -5,6 +5,7 @@ import dev.fourthdimension.runtime.*;
 import dev.silvergold.simulatedcoasters.track.graph.CoasterPathGraphManager;
 import java.util.*;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.phys.Vec3;
 
 /** All UI and command edits go through this server-side transaction. */
 public final class ProfileEditor {
@@ -21,9 +22,7 @@ public final class ProfileEditor {
         || !player.serverLevel().mayInteract(player, rail.from)
         || !player.serverLevel().mayInteract(player, rail.to))
       throw new IllegalArgumentException("No permission to edit this track");
-    if (Math.min(
-            player.distanceToSqr(rail.from.getCenter()), player.distanceToSqr(rail.to.getCenter()))
-        > 64)
+    if (!withinSectionReach(player, rail))
       throw new IllegalArgumentException("Stand within eight blocks of the selected section");
     if (rail.revision != revision)
       throw new IllegalArgumentException("Track changed; select it again");
@@ -36,6 +35,24 @@ public final class ProfileEditor {
         if (TrackPlacement.occupied(data, candidate))
           throw new IllegalArgumentException("Track or its approach is occupied");
     return rail;
+  }
+
+  private static boolean withinSectionReach(ServerPlayer player, FoundationData.Rail rail) {
+    if (Math.min(
+            player.distanceToSqr(rail.from.getCenter()), player.distanceToSqr(rail.to.getCenter()))
+        <= 64) return true;
+    var level = player.serverLevel();
+    var edge = TrackGeometry.resolve(level, rail);
+    if (edge == null) return false;
+    // The nearest anchor can be far away on a valid long section. Sample this specific
+    // curve, so a parallel neighboring section cannot grant edit reach to this one.
+    int samples = Math.clamp((int) Math.ceil(TrackGeometry.table(level, edge).length() * 4), 16, 1024);
+    Vec3 position = player.position();
+    for (int i = 0; i <= samples; i++)
+      if (position.distanceToSqr(
+              CoasterPathGraphManager.sampleEdgePositionPlotLocal(level, edge, (double) i / samples))
+          <= 64) return true;
+    return false;
   }
 
   public static void apply(
