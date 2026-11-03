@@ -477,6 +477,8 @@ public final class SurvivalBuildingGameTests {
     for (var name : List.of("arrow_car", "rotation_tool", "boarding_station"))
       craft(helper, player, table,
           recipes.stream().filter(r -> r.name().equals(name)).findFirst().orElseThrow());
+    helper.assertTrue(count(player, TrackItems.ARROW_CAR.get()) == 1,
+        "Crafted Arrow car missing immediately after result-slot insertion");
     // A player may split crafted track. This leaves fewer items in the selected stack
     // than the first connection costs, while keeping sufficient stock in other slots.
     var inventory = player.getInventory();
@@ -503,6 +505,8 @@ public final class SurvivalBuildingGameTests {
       place(helper, player, item("simulatedcoasters:coaster_anchorpoint"), pos);
       anchors.add(pos);
     }
+    helper.assertTrue(count(player, TrackItems.ARROW_CAR.get()) == 1,
+        "Crafted Arrow car lost while placing native anchors");
     var data = FoundationData.get(level);
     var rails = new ArrayList<FoundationData.Rail>();
     int trackBefore = count(player, TrackItems.ARROW.get());
@@ -530,6 +534,8 @@ public final class SurvivalBuildingGameTests {
       helper.assertTrue(
           sectionSpent == sectionCost,
           "Loop section " + i + " spent " + sectionSpent + " but preview required " + sectionCost);
+      helper.assertTrue(count(player, TrackItems.ARROW_CAR.get()) == 1,
+          "Crafted Arrow car lost while connecting loop section " + i);
       totalCost += sectionCost;
       rails.add(rail);
     }
@@ -539,9 +545,13 @@ public final class SurvivalBuildingGameTests {
     hold(helper, player, TrackItems.ROTATION_TOOL.get());
     helper.assertTrue(
         click(player, anchors.getFirst()).consumesAction(), "Loop editor was inaccessible");
+    helper.assertTrue(count(player, TrackItems.ARROW_CAR.get()) == 1,
+        "Crafted Arrow car lost while opening the loop editor");
     helper.runAtTickTime(10, () -> {
       var foothold = origin.offset(0, -1, 20);
       level.setBlockAndUpdate(foothold, Blocks.STONE.defaultBlockState());
+      helper.assertTrue(count(player, TrackItems.ARROW_CAR.get()) == 1,
+          "Crafted Arrow car lost before delayed native placement");
       hold(helper, player, TrackItems.ARROW_CAR.get());
       helper.assertTrue(
           click(player, foothold).consumesAction(), "Crafted Arrow car was not placed");

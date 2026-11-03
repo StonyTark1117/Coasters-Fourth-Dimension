@@ -50,3 +50,18 @@ isolated. Raw output: [attempt3.log.zst](attempt3.log.zst), SHA-256
 `155d27f01b8489b8c7db0316ac46ef213ad50394599dec589a86b3a282ad464b`.
 
 Powered travel, rider retention and capture still require the next run.
+
+## Attempt 4 — crafted car unavailable after loop construction
+
+The isolated base-profile run on `0fee34b` again passed 50 of 51 required
+GameTests. All eight player-clicked Arrow connections spent exactly their
+preview costs (`9, 4, 5, 3, 10, 3, 5, 4`), including the split-stack section.
+The normal result slot produced one Arrow car, but the test could not find it
+in the synthetic player's inventory at delayed placement tick 10. It stopped
+before placing a car or testing powered motion. The next source adds inventory
+checks after crafting, anchor placement, every connection, editor use, and at
+the delayed placement tick to locate where that crafted item disappears.
+Raw output: [attempt4.log.zst](attempt4.log.zst), SHA-256
+`3f06ac02e84c75487a1f4de361f271a055bd0d0578ffcef2c8b1a59191f39292`.
+
+This is an unresolved fixture inventory failure, not circuit acceptance.
