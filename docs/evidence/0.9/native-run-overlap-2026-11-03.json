@@ -1,0 +1,38 @@
+{
+  "recorded_at_utc": "2026-11-03T09:35:41.302837+00:00",
+  "scope": "Read-only process/file-descriptor provenance incident; no test or geometry result inferred.",
+  "observation_time_note": "The shared-inode observation was made in the preceding tool call in this same review turn; its exact wall-clock timestamp was not separately recorded.",
+  "run_directory": "/tmp/fourthdimension-7af457c2/build/runs/gametest",
+  "observed_processes": [
+    {
+      "pid": 219071,
+      "state": "S",
+      "latest_log_inode": 10121,
+      "debug_log_inode": 10122,
+      "world_session_lock_inode": 10135,
+      "world_session_lock_deleted": true
+    },
+    {
+      "pid": 226003,
+      "state": "S",
+      "latest_log_inode": 10121,
+      "debug_log_inode": 10122,
+      "world_session_lock_inode": 10857,
+      "world_session_lock_deleted": false
+    }
+  ],
+  "conclusion": "Both native game JVMs concurrently held the same log inodes. The old process held a deleted world session lock while the new process held its replacement. Shared outputs cannot establish isolated-run acceptance.",
+  "actions": "Coordinator notified with exact PIDs/inodes. This audit launched/stopped no JVM and did not copy or modify live world/log/export files. Fresh isolated execution and post-exit evidence capture are required.",
+  "follow_up_process_snapshot": [
+    {
+      "pid": 219071,
+      "state": "S",
+      "cwd": "/tmp/fourthdimension-7af457c2/build/runs/gametest"
+    },
+    {
+      "pid": 226003,
+      "state": "S",
+      "cwd": "/tmp/fourthdimension-7af457c2/build/runs/gametest"
+    }
+  ]
+}
