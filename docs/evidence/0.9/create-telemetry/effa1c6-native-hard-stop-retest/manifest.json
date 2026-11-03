@@ -1,0 +1,15 @@
+{
+  "sourceRevision": "effa1c63a668bf1856c567fc702105c01e9accd4",
+  "profile": "standalone-development",
+  "command": "JAVA_HOME=/usr/lib/jvm/java-21-openjdk ./gradlew runGameTestServer --offline --no-daemon --console=plain",
+  "artifactSha256": "9014f8f27724536e088e3a3e546c20930dae45c0fa0b7e363fdb8e62c772de88",
+  "result": "47 required GameTests passed in 4.622 min",
+  "limits": [
+    "No packaged client was run by this native suite.",
+    "Historical and fresh packaged support-recovery cases remain required."
+  ],
+  "files": {
+    "README.md": "6203a2ffd162988511fbd1b220dac4a3c7f323507008c530f50dae7bd17d4238",
+    "gametest.log": "1eea1b9d6a05f2cd0e8e9534376bfe51a09674953e9179930285763e99b0e8eb"
+  }
+}
