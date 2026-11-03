@@ -1,7 +1,7 @@
 # FD401 evidence handoff for the 0.9 candidate
 
-Initial read-only audit of release `783d4ba`, updated against `f47f342` on
-2026-11-02 for the final-source font retest. This checklist requests evidence
+Initial read-only audit of release `783d4ba`, updated through `ff7c831` on
+2026-11-03 for the corrected missing-font source and retest. This checklist requests evidence
 using existing behavior; it authorizes no runtime, production edit or new addon.
 The coordinator owns runtime scheduling and implementation. Keep base, Styles
 1.2.0, Engineered 1.1.1 and their combined profile as the declared candidate set.
@@ -37,6 +37,13 @@ FD801 and the [expansion backlog](INTEGRATION-BACKLOG.md) remain separate.
   1–4, one default-font redirect in generation 3 and the rendered generation-4
   pause menu. This replaces “no interactive final-source retest” with a targeted
   pass; it does not prove a post-reload occupied ride or other graphics modes.
+- The [removed-custom-font retest](evidence/0.9/fd401-missing-font-retest-05ad4a6/README.md)
+  runs the corrected source `05ad4a6` in the combined profile. The file-pack font
+  loaded, supplied a custom-styled chat message, and disappeared after F3+T when
+  its JSON was removed. Earlier styled chat rendered missing-glyph boxes; inventory,
+  pause, save and title completed with client exit 0. The run did not naturally
+  use the stale-removed-font `missingFallback=true` redirect, so that branch
+  remains untested by runtime evidence.
 
 ## Remaining evidence, in execution order
 
@@ -49,7 +56,7 @@ FD801 and the [expansion backlog](INTEGRATION-BACKLOG.md) remain separate.
 | 3. Dynamic Create output | On the chosen candidate, normally configure each of the six Display Link sources and observe meaningful changes; add trailing Arrow occupancy and Legacy/Free Spin/Revised occupancy/control transitions. | Pair server state, received `FD_CLIENT_TELEMETRY`, visible goggles and actual target text. Include source-preserving fault clear, repair-before-realignment denial, PAX authority and current phases. Existing trailing PAX/fault-clear cases are regression references. |
 | 3. Controller availability / optional clients | Keep a controller observable while its actual cars/carriers are unavailable, then restore; exercise late join, tracking re-entry, reload, reconnect and cold restart. Repeat relevant telemetry/operator/render checks in the optional profiles. | Show unavailable rather than stale-ready output on both goggles and target. The historical empty unload had a non-ticking blank sign and does not prove this presentation. Combined results do not automatically certify individual-profile clients. |
 | 4. Styles geometry and visible ownership | For both supported Arrow styles, verify current placement on level, curved/banked, inversion/full-turn and style-transition sections, with occupied single/coupled cars. | Running/control rails, ties and spine each have one owner. Include banked wheel, chassis, carriers, riders and linked-car sweep; existing control-rail and level-wheel audits exclude these broader volumes. Preserve profiles/family/eligibility through changes, unsupported stroke fallback, missing models, removal/reinstall and reopen. |
-| 4. Styles rendering / reload | Complete a fresh post-reload GUI ride on the revised placement; collect actual F3+T input/FontManager/catalog evidence, post-reload chat/editor, capture/unload and normal exit. Exercise declared graphics modes and a pinned shader setup. | Attribute each result to actual GPU/backend/pack. Flywheel falling back to `off` with a shader is not accelerated rendering. Credit the exact-source interactive font replay above; retain post-reload occupied rides, repeated reliability and graphics-mode acceptance. A tracing-enabled replay does not itself prove a tracing-disabled runtime. |
+| 4. Styles rendering / reload | Complete a fresh post-reload GUI ride on the revised placement; collect actual F3+T input/FontManager/catalog evidence, post-reload chat/editor, capture/unload and normal exit. Exercise declared graphics modes and a pinned shader setup. | Attribute each result to actual GPU/backend/pack. Flywheel falling back to `off` with a shader is not accelerated rendering. Credit the bounded interactive font replays above; retain post-reload occupied rides, repeated reliability and graphics-mode acceptance. A tracing-enabled replay does not itself prove a tracing-disabled runtime. |
 | 5. Release evidence review | Verify payload/world hashes, source/JAR correspondence and claims against raw records; update FD401 and support matrix only for proven combinations. | All advertised acceptance satisfied or an explicit coordinator/user scope decision, never silently waived criteria. Full FD402/FD403 and FD901–FD905 remain separate gates. |
 
 ### Font recovery source boundary
@@ -58,17 +65,16 @@ Read-only inspection at `f47f342` confirms that live-set publication in
 `FontReloadTrace.applyEnd` occurs before its diagnostic guard, and all four
 lookup redirects in `FontSetReloadTraceMixin` run without `fdFontValidation`.
 The flag controls tracing, not the recovery path. This is source evidence;
-the retained interactive replay enabled tracing.
+both retained interactive replays enabled tracing.
 
-A removed custom font remains a distinct untested branch: when its ID is absent
-from the new map, `replacementForClosedSet` returns null and the lookup continues
-on the closed set. The pinned Minecraft source instead uses `missingFontSet` for
-a fresh lookup of an absent ID. If a stale reference survives that removal, the
-current redirect does not provide this fallback. This is an uncovered source
-branch, not a reproduced crash. The implementation owner should resolve or bound
-this behavior before claiming general stale-font recovery; exercise a removed
-custom font and tracing-disabled operation in the relevant scheduled acceptance.
-Do not relabel the existing default-font pass as covering either case.
+Source `05ad4a6` changes `replacementForClosedSet` to return Minecraft's actual
+`missingFontSet` when a removed custom ID is absent from the new map. This fixes
+the source gap found at `f47f342`; it does not itself prove the branch at runtime.
+The new removed-font run shows normal fallback rendering after a resource-pack
+font disappears, but no stale custom `FontSet` lookup or `missingFallback=true`
+redirect occurred. Keep direct stale-reference and tracing-disabled acceptance
+open before claiming general recovery. Do not relabel the observed default-font
+redirect (`missingFallback=false`) as a test of the removed-font branch.
 
 ## Work that can be done while runtimes are occupied
 
@@ -115,6 +121,13 @@ closing this input gap. Recovery
 towing evidence still cannot substitute for a full-turn operating ride, player
 meshes or continuous swept clearance. The historical inventory remains unchanged; the new exporter only observes
 fixture state and claims no additional clearance pass.
+
+The [prospective Styles mesh audit](NATIVE-EVIDENCE-CAPTURE.md#prospective-styles-recovery-geometry-audit)
+is prepared to consume those new inputs. It includes the altered procedural
+control mounts, crossbraces and endpoint bridges, not just external OBJ models.
+Its proposed style plan is distinct from observed client appearance. Run it only
+on matching fresh inputs and preserve both passing and uncertified results;
+synthetic tests do not complete this geometry gate.
 
 For each future run retain exact commands/configuration, normal item/GUI actions,
 server/client observations, failed attempts, screenshots, complete logs, actual

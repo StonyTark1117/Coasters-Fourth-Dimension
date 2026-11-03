@@ -1,5 +1,6 @@
 package dev.fourthdimension.client.integration;
 
+import com.mojang.logging.LogUtils;
 import com.mojang.blaze3d.vertex.PoseStack;
 import dev.engine_room.flywheel.lib.model.baked.PartialModel;
 import dev.fourthdimension.integration.TrackAppearance;
@@ -99,18 +100,33 @@ public final class TrackStylesRenderer {
     return new Frame(center, transform);
   }
 
-  public static void draw(Mesh mesh, PoseStack pose, MultiBufferSource buffers) {
-    var level = Minecraft.getInstance().level;
-    var consumer = buffers.getBuffer(RenderType.cutoutMipped());
-    for (var piece : mesh.pieces) {
-      pose.pushPose();
-      pose.mulPose(piece.transform);
-      CachedBuffers.partial(piece.model, Blocks.IRON_BLOCK.defaultBlockState())
-          .reset()
-          .light(LevelRenderer.getLightColor(level, piece.lightAt))
-          .color(mesh.tint)
-          .renderInto(pose, consumer);
-      pose.popPose();
+  public static boolean draw(Mesh mesh, PoseStack pose, MultiBufferSource buffers) {
+    try {
+      var level = Minecraft.getInstance().level;
+      var consumer = buffers.getBuffer(RenderType.cutoutMipped());
+      for (var piece : mesh.pieces)
+        if (!drawPiece(
+            pose,
+            () -> {
+              pose.mulPose(piece.transform);
+              CachedBuffers.partial(piece.model, Blocks.IRON_BLOCK.defaultBlockState())
+                  .reset()
+                  .light(LevelRenderer.getLightColor(level, piece.lightAt))
+                  .color(mesh.tint)
+                  .renderInto(pose, consumer);
+            })) {
+          LogUtils.getLogger().warn("FD_TRACK_STYLES_DRAW_FALLBACK pieces={}", mesh.pieces.size());
+          return false;
+        }
+      return true;
+    } catch (RuntimeException | LinkageError unavailable) {
+      LogUtils.getLogger().warn("FD_TRACK_STYLES_DRAW_FALLBACK pieces={}", mesh.pieces.size(), unavailable);
+      return false;
     }
+  }
+
+  /** Runs one provider draw with a balanced pose even when a provider resource fails at draw time. */
+  static boolean drawPiece(PoseStack pose, Runnable draw) {
+    return TrackStylesDrawGuard.draw(pose::pushPose, draw, pose::popPose);
   }
 }

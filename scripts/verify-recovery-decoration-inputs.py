@@ -20,6 +20,8 @@ SOURCES = (
     "src/main/java/dev/fourthdimension/physics/ModelFrame.java",
     "src/main/java/dev/fourthdimension/contract/Family.java",
     "src/main/java/dev/fourthdimension/track/TrackDesign.java",
+    "src/main/java/dev/fourthdimension/physics/RotationProfile.java",
+    "src/main/java/dev/fourthdimension/track/TrackGeometry.java",
 )
 
 
@@ -85,7 +87,7 @@ def angle_at(keys, distance):
     return keys[-1]["angle"]
 
 
-def check_piece(piece, distance, scale, keys, vertical, spine):
+def check_piece(piece, distance, scale, keys, render_keys, vertical, spine):
     require(close(piece["distance"], distance, 1e-9), "decoration distance/grid mismatch")
     require(number(piece["parameter"]) and 0 <= piece["parameter"] <= 1, "invalid native parameter")
     for name in ("center", "right", "up", "forward", "scale"):
@@ -94,6 +96,7 @@ def check_piece(piece, distance, scale, keys, vertical, spine):
         require(close(sum(x*x for x in piece[name]), 1, 1e-5), f"non-unit {name}")
     require(all(close(a, b) for a, b in zip(piece["scale"], scale)), "wrong piece scale")
     require(close(piece["profileAngle"], angle_at(keys, distance)), "profile angle mismatch")
+    require(close(piece["renderProfileAngle"], angle_at(render_keys, distance)), "renderer profile angle mismatch")
     matrix = piece["modelTransform"]
     require(vector(matrix, 16), "invalid model transform")
     forward = unit(piece["forward"])
@@ -140,6 +143,19 @@ def verify(routes):
             require(isinstance(keys, list) and len(keys) >= 2, "missing profile")
             require(all(all(number(k[n]) for n in ("distance", "angle", "slope")) for k in keys), "invalid profile")
             require(all(a["distance"] < b["distance"] for a, b in zip(keys, keys[1:])), "unordered profile")
+            require(type(section["canonical"]) is bool, "missing native-edge direction")
+            for name in ("railFrom", "railTo", "edgeFrom", "edgeTo"):
+                require(vector(section[name], 3) and all(type(x) is int for x in section[name]), "invalid endpoint")
+            expected_endpoints = ([section["railFrom"], section["railTo"]] if section["canonical"]
+                                  else [section["railTo"], section["railFrom"]])
+            require([section["edgeFrom"], section["edgeTo"]] == expected_endpoints, "native-edge direction mismatch")
+            render_keys = section["renderProfile"]
+            expected_keys = keys if section["canonical"] else [
+                dict(distance=keys[-1]["distance"]-key["distance"], angle=key["angle"], slope=-key["slope"])
+                for key in reversed(keys)]
+            require(len(render_keys) == len(expected_keys) and all(
+                all(close(got[name], expected[name], 1e-9) for name in ("distance", "angle", "slope"))
+                for got, expected in zip(render_keys, expected_keys)), "renderer profile direction mismatch")
             original_samples = max(8, math.ceil(length*4))
             require(len(section["frames"]) == original_samples + 1, "original frame grid changed")
             for index, frame in enumerate(section["frames"]):
@@ -148,6 +164,7 @@ def verify(routes):
                 for name in ("center", "right", "up", "forward"):
                     require(vector(frame[name], 3), f"invalid original frame {name}")
                 require(close(frame["profileAngle"], angle_at(keys, distance)), "original profile angle mismatch")
+                require(close(frame["renderProfileAngle"], angle_at(render_keys, distance)), "original renderer profile angle mismatch")
             data = section["decorationInputs"]
             require(data["schema"] == 1 and data["matrixLayout"] == "column-major-model-to-world", "unknown decoration schema")
             require(data["scope"] == "potential-renderer-inputs-only; no model availability or clearance claim", "missing evidence scope")
@@ -165,7 +182,7 @@ def verify(routes):
             ):
                 require(len(data[name]) == len(required), f"missing/extra {name}")
                 for piece, distance in zip(data[name], required):
-                    check_piece(piece, distance, scale, keys, vertical, spine)
+                    check_piece(piece, distance, scale, keys, render_keys, vertical, spine)
                 counts[name] += len(required)
             counts["sections"] += 1
     return counts

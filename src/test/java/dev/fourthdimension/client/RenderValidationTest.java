@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 
 class RenderValidationTest {
   @Test
-  void rejectsAggregatedGeometryThatDidNotAppearOnEveryRequiredStage() {
+  void acceptsRequiredGeometryAfterEmptyLoadingStages() {
     TrackRenderMetrics.reset();
     TrackRenderMetrics.meshBuilt(1);
     TrackRenderMetrics.rendered(1, 2, 8, 0);
@@ -15,11 +15,12 @@ class RenderValidationTest {
 
     Assertions.assertEquals(3, sample.renderStages());
     Assertions.assertEquals(1, sample.geometryStages());
-    Assertions.assertFalse(RenderValidation.hasRequiredOriginalGeometry(sample, 3));
+    Assertions.assertTrue(RenderValidation.hasRequiredOriginalGeometry(sample, 1));
+    Assertions.assertFalse(RenderValidation.hasRequiredOriginalGeometry(sample, 2));
   }
 
   @Test
-  void acceptsOriginalGeometryOnEveryRequiredStage() {
+  void acceptsMultipleOriginalGeometryStages() {
     TrackRenderMetrics.reset();
     TrackRenderMetrics.meshBuilt(1);
     TrackRenderMetrics.rendered(1, 1, 4, 0);

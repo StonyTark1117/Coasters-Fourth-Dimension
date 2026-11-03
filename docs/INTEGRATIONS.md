@@ -47,7 +47,7 @@ family eligibility or carrier profiles. The Rotation Tool's section editor now
 opens **Track appearance**, with Original and the two inspected Arrow spine
 choices, plus an optional `#RRGGBB` spine/tie color. Selection uses the same
 permission, distance, revision, and occupied-section guards as profile editing.
-Only separately installed Track Styles 1.2.0 enables its choices, and both choices are permitted only on controlled Arrow functional track. The server rejects selection on all four other families; renderer fallback also enforces this boundary. A saved decorative choice is intent, not a renderer guarantee: if either separately installed baked spine/tie model is missing, cannot create a cached buffer, or fails during drawing, the original spine/tie renderer remains active for that rail. This addon neither copies nor substitutes the provider's assets.
+Only separately installed Track Styles 1.2.0 enables its choices, and both choices are permitted only on controlled Arrow functional track. The server rejects selection on all four other families; renderer fallback also enforces this boundary. A saved decorative choice is intent, not a renderer guarantee: if either separately installed baked spine/tie model is missing, cannot create a cached buffer, or fails during drawing, the original spine/tie renderer remains active for that rail. A provider failure after it has queued a partial cutout can affect that one frame; the renderer balances the pose, disables the style for the current model generation and rebuilds the full Original mesh on the next frame. This addon neither copies nor substitutes the provider's assets.
 
 Appearance intent is saved separately in the current schema 6. Earlier schema 1–4 rails
 default to Original; missing provider IDs and tint are retained while the original
@@ -121,6 +121,23 @@ the real kinetic goggles, followed by normal unloading and a winch phase display
 Its own 47 native tests pass. Optional-profile client coverage, remaining physical
 repair/lifecycle cases, complete clearance and final integrated-artifact checks
 remain open; the checkpoint lists the exact bounds.
+
+## Current font recovery checkpoint
+
+The [exact-source interactive replay](evidence/0.9/fd401-final-source-retest-1a91c94/README.md)
+records a targeted pass on `1a91c94`: three real F3+T reloads, one stale default
+FontSet redirected to its current replacement, rendered chat/inventory/pause
+menu and normal exit 0. This is stronger than the historical scheduler and
+controlled-reload evidence below, which did not establish a font fix.
+
+Source `05ad4a6` also publishes Minecraft's actual separate `missingFontSet`
+for a removed custom font ID. The map-only fallback in `159aa6c` was insufficient
+and is superseded. Current source activates recovery independently of
+`fdFontValidation`; the flag controls diagnostics. The retained runtime pass
+used tracing, and acceptance of the removed-ID stale-reference branch remains
+pending. Do not infer it from successful normal rendering of an absent font.
+Styled occupied post-reload operation, repeated reliability and graphics-mode
+coverage remain open; see the [current handoff](FD401-RELEASE-HANDOFF.md).
 
 ## Remaining FD401 acceptance
 
@@ -333,4 +350,4 @@ certify this revised adapter.
 
 ## Veil scheduler and revised styled replay (dev.12)
 
-The [scheduler checkpoint](evidence/0.4/scheduler-acceptance.md) records a client-only initialization fix for pinned Veil 4.1.4, 512 native schedule checks, 64 completed reload/chat/query cycles and a normal occupied revised double-spine level circuit with recapture, dismount and clean exit. It preserves profiles and saved mechanical identities. The original freed-bitmap crash remains unresolved; complete banked vehicle/rider clearance, render modes and the Engineered operator/FE-network workflow retain FD401.
+The [scheduler checkpoint](evidence/0.4/scheduler-acceptance.md) records a client-only initialization fix for pinned Veil 4.1.4, 512 native schedule checks, 64 completed reload/chat/query cycles and a normal occupied revised double-spine level circuit with recapture, dismount and clean exit. It preserves profiles and saved mechanical identities. The original freed-bitmap crash remained unresolved at that scheduler checkpoint; complete banked vehicle/rider clearance, render modes and the Engineered operator/FE-network workflow retain FD401.

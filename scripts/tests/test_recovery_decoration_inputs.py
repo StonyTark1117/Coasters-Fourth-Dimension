@@ -22,7 +22,7 @@ def fixture(length=3.3):
         x = 0 if spine else -.5*scale[0]
         z = d if spine else d-.25
         return dict(distance=d, parameter=d/length, center=[0, 90, d], right=[-1, 0, 0],
-                    up=[0, 1, 0], forward=[0, 0, 1], profileAngle=0, scale=scale,
+                    up=[0, 1, 0], forward=[0, 0, 1], profileAngle=0, renderProfileAngle=0, scale=scale,
                     modelTransform=[scale[0], 0, 0, 0, 0, 1, 0, 0, 0, 0, scale[2], 0,
                                     audit.f32(x), audit.f32(89.4), audit.f32(z), 1])
     spines = [piece((i+.5)*step, True) for i in range(n)]
@@ -33,9 +33,11 @@ def fixture(length=3.3):
         geometryHash='9223372036854775807', revision=0, valid=True,
         appearance={'id':'fourthdimension:original', 'tint':-1},
         profile=[dict(distance=0, angle=0, slope=0), dict(distance=length, angle=0, slope=0)],
+        renderProfile=[dict(distance=0, angle=0, slope=0), dict(distance=length, angle=0, slope=0)],
+        canonical=True, railFrom=[0, 90, 0], railTo=[0, 90, 4], edgeFrom=[0, 90, 0], edgeTo=[0, 90, 4],
         frames=[dict(distance=length*i/max(8, math.ceil(length*4)),
                      center=[0, 90, length*i/max(8, math.ceil(length*4))],
-                     right=[-1, 0, 0], up=[0, 1, 0], forward=[0, 0, 1], profileAngle=0)
+                     right=[-1, 0, 0], up=[0, 1, 0], forward=[0, 0, 1], profileAngle=0, renderProfileAngle=0)
                 for i in range(max(8, math.ceil(length*4))+1)],
         decorationInputs=dict(schema=1,
             scope='potential-renderer-inputs-only; no model availability or clearance claim',
@@ -127,7 +129,7 @@ class ExportChecks(unittest.TestCase):
             audit.verify(data)
 
     def test_original_frame_nonfinite_values_and_wrong_distance_are_rejected(self):
-        for field in ('center', 'right', 'up', 'forward', 'distance', 'profileAngle'):
+        for field in ('center', 'right', 'up', 'forward', 'distance', 'profileAngle', 'renderProfileAngle'):
             for bad in (float('nan'), float('inf')):
                 data = fixture()
                 frame = data[0]['sections'][0]['frames'][0]
@@ -141,6 +143,31 @@ class ExportChecks(unittest.TestCase):
         data[0]['sections'][0]['frames'][1]['distance'] = 0
         with self.assertRaises(ValueError):
             audit.verify(data)
+
+    def test_reversed_edge_retains_saved_profile_and_reverses_renderer_profile(self):
+        data = fixture()
+        section = data[0]['sections'][0]
+        section['canonical'] = False
+        section['edgeFrom'], section['edgeTo'] = section['railTo'], section['railFrom']
+        section['profile'] = [dict(distance=0, angle=0, slope=.2), dict(distance=3.3, angle=1, slope=.2)]
+        section['renderProfile'] = [dict(distance=0, angle=1, slope=-.2), dict(distance=3.3, angle=0, slope=-.2)]
+        for frame in section['frames'] + section['decorationInputs']['spines'] + section['decorationInputs']['ties']:
+            frame['profileAngle'] = audit.angle_at(section['profile'], frame['distance'])
+            frame['renderProfileAngle'] = audit.angle_at(section['renderProfile'], frame['distance'])
+        self.assertEqual(audit.verify(data)['sections'], 1)
+        self.assertEqual(section['frames'][0]['profileAngle'], 0)
+        self.assertEqual(section['frames'][0]['renderProfileAngle'], 1)
+        for mutation in ('direction', 'slope', 'angle'):
+            bad = copy.deepcopy(data)
+            s = bad[0]['sections'][0]
+            if mutation == 'direction':
+                s['canonical'] = True
+            elif mutation == 'slope':
+                s['renderProfile'][0]['slope'] = .2
+            else:
+                s['decorationInputs']['ties'][0]['renderProfileAngle'] = 0
+            with self.subTest(mutation=mutation), self.assertRaises(ValueError):
+                audit.verify(bad)
 
     def test_duplicate_route_identity_is_rejected(self):
         data = fixture()

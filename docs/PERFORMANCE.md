@@ -41,9 +41,9 @@ The current integrated GameTest result is recorded in the
 For a real-client render sample, launch an existing functional-track world with
 `-PfdValidation -PfdRenderValidation`. Add `-PfdRenderValidationExit` to make the
 client stop normally after the configured `-PfdRenderValidationStages=N` original-track
-stages (default 500). This opt-in completion gate requires at least one mesh
+`geometryStages` (default 500). This opt-in completion gate requires at least one mesh
 build and at least N `geometryStages`, each with both an in-range original rail
-and a procedural quad. The cumulative rail and quad totals must also each reach
+and a procedural quad. Empty loading or transition stages do not count toward
 N. Historical packaged render records predate the `geometryStages` counter and
 do not establish this stronger condition; it requires a fresh packaged-client
 run. The gate does not require decorations or a shader. Every 100 client ticks
