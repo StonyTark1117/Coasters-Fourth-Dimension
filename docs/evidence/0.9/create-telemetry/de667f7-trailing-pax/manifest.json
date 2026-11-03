@@ -1,0 +1,79 @@
+{
+  "sourceRevision": "de667f7bd7deef808d6229df9e2d386e87dd598a",
+  "jarSha256": "6231a0241bef082df3f3edff689e74ae2604465aa095c13656136f13e10de3c5",
+  "profile": "standalone",
+  "validationFlag": true,
+  "buildResult": "passed; compile/test outputs reused from Gradle cache",
+  "world": "telemetry-de667f7",
+  "createdUtc": "2026-11-03T00:09:05.000496+00:00",
+  "dependencies": [
+    {
+      "file": "create-1.21.1-6.0.10-280.jar",
+      "path": "/home/braydon/.gradle/caches/modules-2/files-2.1/com.simibubi.create/create-1.21.1/6.0.10-280/62c085fd48fc84b62f88d7bc98b7c4206492c080/create-1.21.1-6.0.10-280.jar",
+      "sha256": "192c7b0be13f523dcec9a7a2393bbc2614c3c9bd3edb1f7720a97bcd4f0b87a7"
+    },
+    {
+      "file": "create-1.21.1-6.0.10-280-slim.jar",
+      "path": "/home/braydon/.gradle/caches/modules-2/files-2.1/com.simibubi.create/create-1.21.1/6.0.10-280/92471e8fc5ed4e3c2279001d77ebcec6fd38bcab/create-1.21.1-6.0.10-280-slim.jar",
+      "sha256": "f0652bee27460f2d26a748f537cb5d687981441378d3a526d17ffaab5a1072bb"
+    },
+    {
+      "file": "Registrate-MC1.21-1.3.0+67.jar",
+      "path": "/home/braydon/.gradle/caches/modules-2/files-2.1/com.tterrag.registrate/Registrate/MC1.21-1.3.0+67/66ddc4cd56472fea1ea1a24182901e6c92a51c0a/Registrate-MC1.21-1.3.0+67.jar",
+      "sha256": "510f4041c41739f1d8ea8850ab8364d3e3a5fada8529beed5d9f479e2523db52"
+    },
+    {
+      "file": "create-coasters-simulated-1601871-8655742.jar",
+      "path": "/home/braydon/.gradle/caches/modules-2/files-2.1/curse.maven/create-coasters-simulated-1601871/8655742/4d3381b781a1129f793358b8ae13e0abcd2e655b/create-coasters-simulated-1601871-8655742.jar",
+      "sha256": "f80b4c3cdf9fa6188804967147761b0373e150a6eadbdc53626e5ac9700b2049"
+    },
+    {
+      "file": "flywheel-neoforge-1.21.1-1.0.6.jar",
+      "path": "/home/braydon/.gradle/caches/modules-2/files-2.1/dev.engine-room.flywheel/flywheel-neoforge-1.21.1/1.0.6/a943872ad0bdd4458d818d8d7dc123fb250eb744/flywheel-neoforge-1.21.1-1.0.6.jar",
+      "sha256": "31dda15c205eb596d3b3449ef03f6af7363a6cd35b3da4bfe916b304f9e5337e"
+    },
+    {
+      "file": "sable-companion-common-1.21.1-1.6.0.jar",
+      "path": "/home/braydon/.gradle/caches/modules-2/files-2.1/dev.ryanhcode.sable-companion/sable-companion-common-1.21.1/1.6.0/370be7db705926176e05c0215ed676150c45daae/sable-companion-common-1.21.1-1.6.0.jar",
+      "sha256": "873633e35046e3761b277ff8a1ecad0d55d9a3014fa81a0b084c9aecba1f3bed"
+    },
+    {
+      "file": "sable-neoforge-1.21.1-2.0.3.jar",
+      "path": "/home/braydon/.gradle/caches/modules-2/files-2.1/dev.ryanhcode.sable/sable-neoforge-1.21.1/2.0.3/f3ba9a497122ba29d9e94ebe6f9a3a3aaa5fa756/sable-neoforge-1.21.1-2.0.3.jar",
+      "sha256": "da6c3b66238586603d1dcaa2afb012d36815fbce0a2d5938fbb2936701d42279"
+    },
+    {
+      "file": "sable-sable_rapier-1.21.1-2.0.3.jar",
+      "path": "/home/braydon/.gradle/caches/modules-2/files-2.1/dev.ryanhcode.sable/sable-sable_rapier-1.21.1/2.0.3/a88c0860320890144b6b44c332a2a2db3a61e189/sable-sable_rapier-1.21.1-2.0.3.jar",
+      "sha256": "aabd5ed08349821989cd1806122918cbec3c9dfafe4584e0ab012fa015b7749d"
+    },
+    {
+      "file": "veil-neoforge-1.21.1-4.1.4.jar",
+      "path": "/home/braydon/.gradle/caches/modules-2/files-2.1/foundry.veil/veil-neoforge-1.21.1/4.1.4/642ec0bd02213ee087d86eda553d6d79c6a04d2b/veil-neoforge-1.21.1-4.1.4.jar",
+      "sha256": "9c2899086a96339245b5abde82879011753871f25443df9581881f29596a7180"
+    },
+    {
+      "file": "ponder-neoforge-1.0.82+mc1.21.1.jar",
+      "path": "/home/braydon/.gradle/caches/modules-2/files-2.1/net.createmod.ponder/ponder-neoforge/1.0.82+mc1.21.1/b10a04f40b9d6d33c346fb38df33f10f7e51b713/ponder-neoforge-1.0.82+mc1.21.1.jar",
+      "sha256": "0cf4611ad853042b689ac386184c5bbe02950efcffddb49e5f604e82baddb0dc"
+    }
+  ],
+  "status": "bounded trailing PAX occupancy case passed",
+  "capturedUtc": "2026-11-03T00:15:00.186771+00:00",
+  "logsArePrefixes": true,
+  "runtimeContinues": true,
+  "renderEnvironment": "Xvfb :121, 854x480, llvmpipe software rendering",
+  "files": {
+    "README.md": "8eda154bda37ba302fba8d9e88d4813520b9b1c27c24717d0f745e64777045f6",
+    "client-prefix.log.gz": "40945389ccef0b91f66051a67a512d69f7f8fe63a366de1a05dd11fae7a9f314",
+    "observer-prefix.log.gz": "05c78182cac954377f81a3f2e1bb07573715597cf016cfe9a342fa69622929ce",
+    "pax-trailing-empty.png": "fc29e28495424efb8dc0699800b0142f16fe0cf3c148b30d3055f154ac4e358d",
+    "pax-trailing-occupied.png": "83e7aadf07fdc0ac148948a506a23018fe2f83a04ac1271b433a03eefd2ae0b8",
+    "pax-trailing-rider.png": "455b36097a71d9322c62db99479851139401532206754e5f505d036e22e91b26",
+    "pax-trailing-sign-empty.png": "c44f052dcf8ffe6823b3ad2893acdf4ce3b00b4e38dbaf30196be86dd674085a",
+    "pax-trailing-sign.png": "6c6cc9bba29fe436de1199cdd116e7a21fdf7ca484834baf1500bfb29d7ae215",
+    "pax-trailing-unloaded-goggles.png": "ce9c675a6b1380b2740eab03407610091f5c7a6f949b919137f2173053a86e0d",
+    "server-observations.jsonl": "825e04f800a65e59d265d5f602e75d47423952e9b6991f0fe2be5c619cab87e3",
+    "server-prefix.log.gz": "81c7ba2a0962615b0b559c2cb31a53563dc84d316938283ef2599e4e194ccf7b"
+  }
+}
