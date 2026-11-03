@@ -1,0 +1,15 @@
+{
+  "sourceCommit": "1a91416aefc36abbcd74b46d00473e9d4a9861eb",
+  "jar": "coasters-fourth-dimension-0.9.0-dev.27.jar",
+  "jarSha256": "bb8fb57f8babaf090c52c460739ddd6367d5f8235a90e42fb5bfe01f9a833526",
+  "world": "FD401OccupiedReloadStrict1a91416",
+  "worldCreatedBeforeStrictRun": true,
+  "worldLevelDatSha256": "e10b486e04b383fa57d0443d2e0a7bb508c9799eb112bc483797c079566bb390",
+  "worldFileCountExcludingLock": 27,
+  "preWorldArchiveSha256": "47a724acdb89320d9592b7544f61bf87a7fbd8db7b09f52fc3635cdf3183e80b",
+  "setupLogSha256": "9ceef4a7d97f98e0269ef0b64215d09a83cee63a4211e2e5d816109f2440132d",
+  "setupBuildResult": "BUILD SUCCESSFUL; normal client exit",
+  "setupCommand": "./gradlew runClient --offline --no-daemon -PfdPackaged -PfdValidation -PfdIntegrations=styles,engineered -PfdWorld=FD401OccupiedReloadStrict1a91416 -PfdFontValidation -PfdFontValidationReload -PfdFontValidationChat -PfdFontValidationExit",
+  "scope": "Setup only: created empty world through Minecraft UI after quick-play reported missing world; no carrier fixture or occupied acceptance flags.",
+  "capturedUtc": "2026-11-03T10:13:30.351209+00:00"
+}

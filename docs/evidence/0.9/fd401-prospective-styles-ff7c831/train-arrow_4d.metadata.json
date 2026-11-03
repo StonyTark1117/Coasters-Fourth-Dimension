@@ -1,0 +1,28 @@
+{
+  "source": "ff7c831fc2e72c640958fa265486a100fd5720d6",
+  "scope": "Frozen-source prospective default Styles sampled geometry only; not rendered client, continuous sweep, player meshes, cosmetics or full FD401 acceptance.",
+  "command": [
+    "/usr/sbin/python",
+    "/tmp/fdclean-ff7c831/scripts/audit-recovery-styles.py",
+    "/home/braydon/.gradle/caches/modules-2/files-2.1/curse.maven/create-coasters-simulated-1601871/8655742/4d3381b781a1129f793358b8ae13e0abcd2e655b/create-coasters-simulated-1601871-8655742.jar",
+    "/home/braydon/.gradle/caches/neoformruntime/artifacts/minecraft_1.21.1_client.jar",
+    "/home/braydon/Documents/Coasters: Fourth Dimension/build/integration-catalog/2026-11-02/coasters-simulated-track-styles-1642719-9020601.jar",
+    "/tmp/fd402-isolated-base-ff7c831-audit/recovery-bank-train-native-frames.json",
+    "/tmp/fd402-isolated-base-ff7c831-audit/recovery-bank-train-mesh-trace.jsonl",
+    "--style",
+    "arrow_4d"
+  ],
+  "cwd": "/tmp/fdclean-ff7c831",
+  "started_utc": "2026-11-03T10:01:42.878417+00:00",
+  "input_hashes": {
+    "frames": "b830d52052740beb71486daf56a7b1fcb5342c1d53cdc91c1a4eaf4f75bb4eee",
+    "trace": "758fc4b300445c7f37a99f187e79055f11319b6b6a68979add8304dd75aa78b8"
+  },
+  "tool_sha256": "4526084c491a73216473bb013a07034909d0a3ce58222e6aa72ffda2615fc0fa",
+  "numpy": "2.5.4",
+  "pid": 271446,
+  "exit_code": 0,
+  "ended_utc": "2026-11-03T10:04:53.145513+00:00",
+  "report_sha256": "cf6be947e7c5cc31367ae94ed5fd915077ad13fd1f65f12f49ce47e1995f3028",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+}

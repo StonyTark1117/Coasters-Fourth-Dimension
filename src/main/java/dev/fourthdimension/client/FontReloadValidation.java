@@ -19,6 +19,7 @@ public final class FontReloadValidation {
   private static int chatTicks;
   private static boolean chatOpened;
   private static boolean exitRequested;
+  private static boolean exitDeferred;
 
   private FontReloadValidation() {}
 
@@ -39,9 +40,12 @@ public final class FontReloadValidation {
     if (requested >= target || requested > completed) return;
     if (FontReloadTrace.generation() < 1
         || minecraft.getOverlay() != null
-        || (chatRequested() && minecraft.level == null)) return;
+        || ((chatRequested() || OccupiedRideReloadValidation.ownsExit()) && minecraft.level == null)
+        || (OccupiedRideReloadValidation.ownsExit()
+            && !OccupiedRideReloadValidation.readyForReload())) return;
     int request = ++requested;
     int before = FontReloadTrace.generation();
+    OccupiedRideReloadValidation.reloadRequested();
     LogUtils.getLogger()
         .info("FD_FONT_RELOAD_REQUEST request={} target={} generation={}", request, target, before);
     minecraft
@@ -94,7 +98,23 @@ public final class FontReloadValidation {
     return Boolean.getBoolean("fourthdimension.fontValidationChat");
   }
 
+  /** Number of successfully completed validation reloads in this client session. */
+  static int completedReloads() {
+    return completed;
+  }
+
   private static void requestExit(Minecraft minecraft, String reason) {
+    if (OccupiedRideReloadValidation.ownsExit()) {
+      if (!exitDeferred) {
+        exitDeferred = true;
+        LogUtils.getLogger()
+            .info(
+                "FD_FONT_VALIDATION_EXIT_DEFERRED reason={} generation={}",
+                reason,
+                FontReloadTrace.generation());
+      }
+      return;
+    }
     if (!Boolean.getBoolean("fourthdimension.fontValidationExit") || exitRequested) return;
     exitRequested = true;
     LogUtils.getLogger()

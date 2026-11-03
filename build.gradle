@@ -73,6 +73,9 @@ neoForge {
             systemProperty 'fourthdimension.fontValidationReloads', project.hasProperty('fdFontValidationReload') ? '1' : (project.findProperty('fdFontValidationReloads') ?: '0')
             systemProperty 'fourthdimension.fontValidationChat', project.hasProperty('fdFontValidationChat').toString()
             systemProperty 'fourthdimension.fontValidationExit', project.hasProperty('fdFontValidationExit').toString()
+            systemProperty 'fourthdimension.occupiedReloadValidation', project.hasProperty('fdOccupiedReloadValidation').toString()
+            systemProperty 'fourthdimension.occupiedReloadValidationExit', project.hasProperty('fdOccupiedReloadValidationExit').toString()
+            systemProperty 'fourthdimension.occupiedReloadValidationStages', project.findProperty('fdOccupiedReloadValidationStages') ?: '100'
         }
         observer {
             client(); gameDirectory = layout.buildDirectory.dir(project.hasProperty('fdPackaged') ? 'runs/packaged-observer' : 'runs/observer').get().asFile
