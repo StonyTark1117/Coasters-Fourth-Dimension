@@ -80,6 +80,12 @@ record as an unregistered functional provider. It must never infer mechanical
 equivalence from the provider or the Arrow-like name, create a replacement rail,
 or silently convert it to the original family.
 
+The loader now also rejects duplicate rail UUIDs rather than allowing two
+functional sections to share one saved identity. A negative case copies the
+recorded schema-3 fixture and assigns its first rail UUID to a second rail.
+This source-level guard compiled locally; it is not part of the recorded run
+below until the strengthened native GameTest is rerun.
+
 ## Result
 
 ```sh

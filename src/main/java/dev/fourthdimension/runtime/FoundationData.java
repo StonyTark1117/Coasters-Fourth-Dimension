@@ -251,6 +251,7 @@ public final class FoundationData extends SavedData {
     var vehicles = root.getList("vehicles", Tag.TAG_COMPOUND);
     if (rails.size() > 256 || vehicles.size() > 64)
       throw new IllegalArgumentException("Foundation fixture capacity exceeded");
+    Set<UUID> railIds = new HashSet<>();
     for (Tag raw : rails) {
       CompoundTag tag = (CompoundTag) raw;
       List<RotationProfile.Key> keys = new ArrayList<>();
@@ -277,6 +278,8 @@ public final class FoundationData extends SavedData {
               tag.getLong("revision"),
               !tag.contains("valid") || tag.getBoolean("valid")));
       var loadedRail = data.rails.getLast();
+      if (!railIds.add(loadedRail.id))
+        throw new IllegalArgumentException("Duplicate rail identity");
       if (tag.contains("appearance", Tag.TAG_COMPOUND)) {
         var appearance = tag.getCompound("appearance");
         loadedRail.appearance =
