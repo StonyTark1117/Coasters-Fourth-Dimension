@@ -1,0 +1,35 @@
+{
+  "observed_at_utc": "2026-11-03T09:55:26.912625+00:00",
+  "scope": "Follow-up review of mutable working sources; implementation owner is still editing. No JVM/runtime test. Supersedes neither earlier finding record nor later final-source acceptance.",
+  "source_hashes": {
+    "src/main/java/dev/fourthdimension/client/OccupiedRideReloadValidation.java": "7971ba096cdede22a787ac35050e0b42d1de5f4c427b5e38fe54ca3ca5a164a3",
+    "src/main/java/dev/fourthdimension/client/FontReloadValidation.java": "c0222d8882d209bb37de75e31d1945308a5c05da6d11ada2db2522bf119e0275",
+    "src/main/java/dev/fourthdimension/client/OriginalTrackRenderer.java": "16a3c7e6bd544c06d2d1a5fdbfb8f2c02fc5c2a6ad1dcaea0e4aa22f272c5858",
+    "src/main/java/dev/fourthdimension/client/integration/TrackStylesRenderer.java": "c945c4fe1bb708851c5dd74c1cded8d6e2cd69420dd995e41a52fe38c6e15550",
+    "src/test/java/dev/fourthdimension/client/integration/TrackStylesRendererTest.java": "5c59afd3bd37961b13569e3bddfe6be7af140aa7710218600a3efef3b8327320"
+  },
+  "reload_improvements": [
+    "FD seat binding checked",
+    "Dismount clears occupancy counters",
+    "Level change resets gate state",
+    "At least one successful reload checked"
+  ],
+  "reload_remaining": [
+    "Player position is not a native chassis-motion measurement; use chassis logicalPose transform and stable chassis/carrier/mount identity.",
+    "Session-global successful reload count is not associated with the advanced generation/current observation; bind a fresh successful completion token.",
+    "Rendering between last unmounted tick and first qualifying mounted tick can enter occupiedGeometryStages; baseline on first valid occupied sample."
+  ],
+  "renderer_improvements": [
+    "Draw catches provider RuntimeException/LinkageError",
+    "Per-piece pose push now has finally cleanup",
+    "Failed mesh quarantined per rail/revision/model generation",
+    "Original fallback mesh retained"
+  ],
+  "renderer_remaining": [
+    "Full Original fallback is emitted after styled procedural quads were already emitted: shared running/control/support/magnetic geometry is duplicated on the failure frame.",
+    "Provider pieces emitted before a later piece failure remain in the destination; output is not transactional.",
+    "Fallback reuses a debugQuads consumer across render-type acquisition; verify buffer lifetime or reacquire it.",
+    "Pose matrix equality alone cannot prove stack-depth balance; an unmodified leaked push produces an equal top matrix. Add stack-depth/clear assertions."
+  ],
+  "coordination": "All follow-up findings sent to the respective owners. No production files edited by reviewer; gates remain open."
+}
