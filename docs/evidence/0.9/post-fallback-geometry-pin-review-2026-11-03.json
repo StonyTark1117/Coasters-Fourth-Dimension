@@ -1,0 +1,48 @@
+{
+  "reviewed_at_utc": "2026-11-03T09:59:33.336351+00:00",
+  "historical_source": "ff7c831fc2e72c640958fa265486a100fd5720d6",
+  "corrective_source_commits": [
+    "21bfd1a",
+    "d5132a3"
+  ],
+  "geometry_method_checks": [
+    {
+      "path": "src/main/java/dev/fourthdimension/client/OriginalTrackRenderer.java",
+      "method": "private static List<Quad> build(",
+      "byte_identical": true,
+      "sha256": "614a1bcb667e43c11d427177a1e033ae5760a7409b55481297f93f155b3e808e"
+    },
+    {
+      "path": "src/main/java/dev/fourthdimension/client/OriginalTrackRenderer.java",
+      "method": "private static void tube(",
+      "byte_identical": true,
+      "sha256": "62f84ddbd292f7342c9e86137c9170bcf7de090b670a97df838d4ff6b0169415"
+    },
+    {
+      "path": "src/main/java/dev/fourthdimension/client/integration/TrackStylesRenderer.java",
+      "method": "public static Mesh build(",
+      "byte_identical": true,
+      "sha256": "4054dec40c8bc30397cb1e3e3f086bb2bb2aac5486a65f44ea2cf075c9438cc0"
+    },
+    {
+      "path": "src/main/java/dev/fourthdimension/client/integration/TrackStylesRenderer.java",
+      "method": "private static Frame frame(",
+      "byte_identical": true,
+      "sha256": "0d81666bffac67960eda568dc45113878f072f76b4243fa66884ebfc2358a2e1"
+    }
+  ],
+  "fixture_provenance_review": "BankedRecoveryExamples pin updated from 0d6597... to 82a817... after reviewing its sole difference: TrackPlacement.captureOriginalCurve(rail, curve), which stores a curve copy without changing fixture geometry. This same change was previously reviewed in the Styles wrapper.",
+  "source_semantics": "Normal geometry constructors and tube tessellation are byte-identical. Call-site review preserves native-edge profile orientation, family, magnets, ownership and tint. Corrective code adds failure-only spine output and per-rail quarantine/retry; it does not change prospective normal Styles or Original geometry.",
+  "limitations": [
+    "This permits future source-checked offline analysis; it is not a new geometry pass.",
+    "Historical reports retain their original source/tool/input hashes and are not upgraded to post-fix runtime evidence.",
+    "Offline Styles reconstruction models successful provider geometry, not a partial failed draw frame or resource-generation transitions.",
+    "No player mesh, continuous sweep or rendered-client acceptance is established."
+  ],
+  "repinned_sources": {
+    "src/main/java/dev/fourthdimension/client/OriginalTrackRenderer.java": "d1323d09d93e738ff01140133aa0e7fb83e6bcc7ca99884e3b265dde1c2faba4",
+    "src/main/java/dev/fourthdimension/client/integration/TrackStylesRenderer.java": "fa69593b5a8b9f93ece00f40ebd67f00692db9d8af8d18648563f42146edb217",
+    "src/main/java/dev/fourthdimension/vehicle/BankedRecoveryExamples.java": "82a817c5da0cafdf4b4a55ca403a1e8fc760c815a68f0c8bac57c1f73f2cd540",
+    "scripts/audit-recovery-mesh-trace.py": "5b8ac0000dd7db3dc33979ef3e09acfb8627e3dfe7062a73d1eb3d0ebdcda020"
+  }
+}

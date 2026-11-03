@@ -207,9 +207,15 @@ Source and dependency hashes guard reconstruction. The new wrapper explicitly
 reviews the `8a7ffdb` fixture change: its only difference from the older mesh
 verifier's pinned `BankedRecoveryExamples` is the call that copies the native
 curve into `rail.originalCurve`. This adds recovery provenance without changing
-fixture geometry. The wrapper pins that newer source; the historical Original
-CLI and its old source pins remain unchanged. Any later source change requires
-reinspection, not merely replacing a hash to obtain a pass.
+fixture geometry. Both current auditors now pin that reviewed provenance source.
+The [post-fallback pin review](evidence/0.9/post-fallback-geometry-pin-review-2026-11-03.json)
+also reconciles renderer corrections `21bfd1a` / `d5132a3`: normal Original
+and Styles geometry-building methods remain byte-identical to `ff7c831`; new
+code handles failed provider draws and quarantine/retry. The offline Styles
+audit does not model the partial failure frame. Historical reports keep their
+original source/tool/input hashes and do not become post-fix runtime evidence.
+Any later source change requires reinspection, not merely replacing a hash to
+obtain a pass.
 
 Reports include the saved appearance separately from the proposed plan, component
 counts, model/body resource hashes, input/source/tool hashes and NumPy version.

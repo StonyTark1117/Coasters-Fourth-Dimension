@@ -38,7 +38,7 @@ SOURCE_PINS = {
     "scripts/verify-recovery-bank-frames.py": "80749110c47c7794d7a8bd6bc729bf51fa4f634b0138e7ed0d0412c312cfc2af",
     "src/main/java/dev/fourthdimension/vehicle/BankedRecoveryExamples.java": "82a817c5da0cafdf4b4a55ca403a1e8fc760c815a68f0c8bac57c1f73f2cd540",
     "src/main/java/dev/fourthdimension/gametest/RecoveryRouteFrames.java": "ed3d7dbe58b6759b8a511f49796d1bb30bbdfb43ff4439d41f0fc6dc8a9896ce",
-    "src/main/java/dev/fourthdimension/client/integration/TrackStylesRenderer.java": "477da35052e9ebfe277c7239ef28237aa5a9c920b4bc52819ec2ad715d512448",
+    "src/main/java/dev/fourthdimension/client/integration/TrackStylesRenderer.java": "fa69593b5a8b9f93ece00f40ebd67f00692db9d8af8d18648563f42146edb217",
     "src/main/java/dev/fourthdimension/client/integration/TrackStylesCatalog.java": "2b124893d6477a9b4be453a8a34f93a42b7b3f0b04fc926619d99c5d6ec16dbc",
     "src/main/java/dev/fourthdimension/physics/ArrowDecorationPlacement.java": "d13de25c3a03ce24343d92133457332a4887e0eabac54348a99f11ae37b193cd",
     "src/main/java/dev/fourthdimension/physics/ModelFrame.java": "b2d95f95df0630e7780b84c6a901a517b3adb7e7de2680072bba0ac828ae37b6",
@@ -47,7 +47,7 @@ SOURCE_PINS = {
     "src/main/java/dev/fourthdimension/contract/Family.java": "a441e66dfcbee53a83a52f5b475fab07d60e58e03d2ef789ebfbe1c0ab9d7c2c",
     "src/main/java/dev/fourthdimension/integration/TrackAppearance.java": "cf12254fb753172bc1c110dd8f5b1203de740b02658f81612427a86cd2695a3c",
     "src/main/java/dev/fourthdimension/integration/TrackRenderOwnership.java": "8d7b795ccf9e1a54b1c7ffe375cf8a94d6d9f10c72c344f9bce94480c4c9887e",
-    "scripts/audit-recovery-mesh-trace.py": "d5a1f3e3453cd51af6c998a15532abc325cc035254e428e15331b805ada18d7b",
+    "scripts/audit-recovery-mesh-trace.py": "5b8ac0000dd7db3dc33979ef3e09acfb8627e3dfe7062a73d1eb3d0ebdcda020",
     "scripts/verify-recovery-decoration-inputs.py": "c6c443d58a411d98881109633becb55595ea16cd21df2e2b853be2e08353d594"
 }
 
