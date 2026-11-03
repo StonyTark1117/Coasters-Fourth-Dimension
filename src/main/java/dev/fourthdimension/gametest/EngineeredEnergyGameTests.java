@@ -333,7 +333,7 @@ public final class EngineeredEnergyGameTests {
    * Exercises the installed FE capability against the ordinary bearing in a production recovery
    * group. The production brake must hold both motion and consumption until an explicit start.
    */
-  @GameTest(template = "empty", batch = BATCH, timeoutTicks = 480)
+  @GameTest(template = "empty", batch = BATCH, timeoutTicks = 520)
   public static void nativeEnergyRespectsRecoveryBrakeAndExplicitTow(GameTestHelper helper) {
     if (!OptionalIntegrations.installed(OptionalIntegrations.ENGINEERED).mayInspect()) {
       System.out.println("FD_ENGINEERED_RECOVERY_FE absent/uninspected: scenario not exercised");
@@ -371,8 +371,15 @@ public final class EngineeredEnergyGameTests {
     Vector3d[] towingStart = {null};
     int[] suppliedEnergy = {0};
     int[] brakeEnergy = {0};
+    int[] lowestBrakeEnergy = {Integer.MAX_VALUE};
     double[] brakedDistance = {0};
     double[] starvedTowDistance = {0};
+    boolean[] braking = {false};
+    helper.onEachTick(
+        () -> {
+          if (braking[0])
+            lowestBrakeEnergy[0] = Math.min(lowestBrakeEnergy[0], energy[0].getEnergyStored());
+        });
     helper.runAtTickTime(
         100,
         () -> {
@@ -410,7 +417,9 @@ public final class EngineeredEnergyGameTests {
     helper.runAtTickTime(
         130,
         () -> {
-          configureMotor(helper, rail, controllerPos, 10, "FORWARD");
+          // The installed controller's step value is deliberately below recovery's 0.75-block/s
+          // cap; this is a healthy-towing exercise, not an overspeed-fault observation.
+          configureMotor(helper, rail, controllerPos, 1, "FORWARD");
           energy[0] = level.getCapability(Capabilities.EnergyStorage.BLOCK, rail.from, Direction.UP);
           helper.assertTrue(energy[0] != null, "Recovery motor anchor exposes no native FE capability");
           helper.assertTrue(energy[0].getEnergyStored() == 0, "Recovery FE buffer was not empty");
@@ -461,17 +470,31 @@ public final class EngineeredEnergyGameTests {
           towingStart[0] = new Vector3d(CoasterCartResolve.cartCenterWorld(recovery.bearing()));
         });
     helper.runAtTickTime(
-        360,
+        400,
         () -> {
           double towingDistance =
               CoasterCartResolve.cartCenterWorld(recovery.bearing()).distance(towingStart[0]);
-          helper.assertTrue(towingDistance > .5, "Supplied FE did not tow the recovery group: " + towingDistance);
+          helper.assertTrue(towingDistance > .05, "Supplied FE did not tow the recovery group: " + towingDistance);
           helper.assertTrue(
               energy[0].getEnergyStored() < suppliedEnergy[0],
               "Explicit FE recovery tow did not consume native anchor energy");
           helper.assertTrue(rider[0].isPassenger(), "FE recovery tow lost the native rider mount");
+          helper.assertTrue(
+              !recovery.car().stopping && recovery.car().fault.isEmpty(),
+              "Recovery FE tow faulted instead of remaining actively healthy: " + recovery.car().fault);
+          double speed =
+              container
+                  .physicsSystem()
+                  .getPipeline()
+                  .getLinearVelocity(recovery.bearing(), new Vector3d())
+                  .length();
+          helper.assertTrue(
+              speed <= RecoveryOperations.MAX_SPEED + .05,
+              "Recovery FE tow exceeded the guarded speed cap: " + speed);
           RecoveryOperations.brake(level, recovery.car());
           brakeEnergy[0] = energy[0].getEnergyStored();
+          lowestBrakeEnergy[0] = brakeEnergy[0];
+          braking[0] = true;
           System.out.println(
               "FD_ENGINEERED_RECOVERY_FE towingDistance="
                   + towingDistance
@@ -486,17 +509,20 @@ public final class EngineeredEnergyGameTests {
                   + " riderMounted=true");
         });
     helper.runAtTickTime(
-        440,
+        480,
         () -> {
+          braking[0] = false;
           helper.assertTrue(recovery.car().stopping, "Recovery FE brake did not retain the stop state");
           helper.assertTrue(
-              energy[0].getEnergyStored() >= brakeEnergy[0],
-              "Braked recovery motor continued consuming FE after Brake tow");
+              lowestBrakeEnergy[0] >= brakeEnergy[0],
+              "Braked recovery motor depleted FE after Brake tow");
           helper.assertTrue(rider[0].isPassenger(), "FE recovery brake lost the native rider mount");
           System.out.println(
               "FD_ENGINEERED_RECOVERY_FE brakedEnergy="
                   + energy[0].getEnergyStored()
-                  + " noBrakeConsumption=true explicitStart=true");
+                  + " minimumBrakedEnergy="
+                  + lowestBrakeEnergy[0]
+                  + " noBrakeDepletion=true explicitStart=true");
           helper.succeed();
         });
   }
