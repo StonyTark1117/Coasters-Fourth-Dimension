@@ -111,8 +111,10 @@ uses two actual pre-provenance worlds. It records five intact valid rails gainin
 their exact saved native snapshots while a pre-invalid changed-support PAX route
 remains unadopted; rail identities, profiles, vehicle/carrier topology and the
 saved logical reservation persist. One absent legacy winch marker is written as
-its documented default `false`. This is migration persistence evidence only,
-not historical repair, rider remount, or full FD903 acceptance.
+its documented default `false`. Native regression guards also refuse provenance
+for a valid foreign-material rail, a changed native-curve fingerprint, and a
+missing curve. This is migration persistence evidence only, not historical
+repair, rider remount, or full FD903 acceptance.
 
 [Dimension-scoped snapshot contract](dimension-snapshot-contract.md) prevents
 a queued old-dimension snapshot from replacing the newly active client level.
