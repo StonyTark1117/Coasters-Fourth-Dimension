@@ -14,9 +14,9 @@ The server completed **47 required GameTests** in **4.622 minutes**, with all
 required tests passing. `OperationsGameTests` now injects native velocity after
 exact support repair, while `alignmentRequired` remains true, and requires the
 pre-realignment brake to clear every fixture chassis/carrier body using the
-native hard stop. It also retains fresh-path realignment for all five families
-and the historical boundary-fault state for Arrow. The separate PAX support
-recovery test covers its four-car train.
+native hard stop. It retains fresh-path realignment for Legacy, Free Spin,
+Revised, and PAX, while Arrow exercises the historical boundary-fault state.
+The separate PAX support recovery test covers its four-car train.
 
 The packaged artifact built from this source has SHA-256
 `9014f8f27724536e088e3a3e546c20930dae45c0fa0b7e363fdb8e62c772de88`.
