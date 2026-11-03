@@ -328,4 +328,158 @@ public final class EngineeredEnergyGameTests {
           helper.succeed();
         });
   }
+
+  /**
+   * Exercises the installed FE capability against the ordinary bearing in a production recovery
+   * group. The production brake must hold both motion and consumption until an explicit start.
+   */
+  @GameTest(template = "empty", batch = BATCH, timeoutTicks = 440)
+  public static void nativeEnergyRespectsRecoveryBrakeAndExplicitTow(GameTestHelper helper) {
+    if (!OptionalIntegrations.installed(OptionalIntegrations.ENGINEERED).mayInspect()) {
+      System.out.println("FD_ENGINEERED_RECOVERY_FE absent/uninspected: scenario not exercised");
+      helper.succeed();
+      return;
+    }
+    helper.assertTrue((boolean) invoke(type("TrackEnergy"), "required"), "FE requirement disabled");
+    var level = helper.getLevel();
+    var container = SubLevelContainer.getContainer(level);
+    var origin = new BlockPos(-850, 120, -700);
+    for (int x = -55; x <= -52; x++)
+      for (int z = -45; z <= -40; z++) level.setChunkForced(x, z, true);
+    var player =
+        FakePlayerFactory.get(
+            level,
+            new com.mojang.authlib.GameProfile(
+                UUID.fromString("fdfdfdfd-0000-0000-0000-000000000417"),
+                "FDRecoveryEngineeredEnergy"));
+    player.setGameMode(GameType.CREATIVE);
+    var recovery = RecoveryExamples.create(level, origin, TrackDesign.ARROW);
+    var rail =
+        FoundationData.get(level).rails.stream()
+            .filter(candidate -> candidate.matches(recovery.car().boundFrom, recovery.car().boundTo))
+            .findFirst()
+            .orElseThrow();
+    var controllerPos = origin.west(6);
+    level.setBlockAndUpdate(
+        controllerPos,
+        BuiltInRegistries.BLOCK
+            .get(ResourceLocation.parse("coastersengineered:linear_motor_controller"))
+            .defaultBlockState());
+    IEnergyStorage[] energy = {null};
+    Pig[] rider = {null};
+    Vector3d[] brakedStart = {null};
+    Vector3d[] towingStart = {null};
+    int[] suppliedEnergy = {0};
+    int[] brakeEnergy = {0};
+    double[] brakedDistance = {0};
+    helper.runAtTickTime(
+        100,
+        () -> {
+          var car = recovery.car();
+          helper.assertTrue(Boarding.ready(level, car), "Recovery FE fixture failed initial alignment");
+          VehicleOperations.restraints(level, car, true);
+          VehicleOperations.retention(level, car, true);
+          var chassis = (ServerSubLevel) container.getSubLevel(car.chassis);
+          var bearing = recovery.bearing();
+          helper.assertTrue(
+              Math.abs(CoasterCartResolve.cartCenterWorld(chassis).distance(CoasterCartResolve.cartCenterWorld(bearing))
+                      - TrackDesign.ARROW.axleSpacing())
+                  < .25,
+              "Recovery FE bearing was not at certified Arrow spacing");
+          var carrier = car.carriers.getFirst();
+          rider[0] = EntityType.PIG.create(level);
+          rider[0].setNoAi(true);
+          var center = CoasterCartResolve.cartCenterWorld(chassis);
+          rider[0].setPos(center.x, center.y, center.z);
+          level.addFreshEntity(rider[0]);
+          SeatBlock.sitDown(
+              level,
+              container.getSubLevel(carrier.body).getPlot().getCenterBlock().offset(carrier.seats.getFirst()),
+              rider[0]);
+          helper.assertTrue(rider[0].isPassenger(), "Recovery FE fixture failed native rider mount");
+          player.setPos(center.x, center.y, center.z);
+          RecoveryOperations.select(player, bearing);
+          RecoveryOperations.attach(player, car);
+          helper.assertTrue(
+              car.stopping
+                  && car.recoveryCart.equals(bearing.getUniqueId())
+                  && CoasterCartTrainLinkConstraint.areLinkedCarts(chassis, bearing),
+              "Recovery FE fixture did not form the braked native group");
+        });
+    helper.runAtTickTime(
+        130,
+        () -> {
+          configureMotor(helper, rail, controllerPos, 10, "FORWARD");
+          energy[0] = level.getCapability(Capabilities.EnergyStorage.BLOCK, rail.from, Direction.UP);
+          helper.assertTrue(energy[0] != null, "Recovery motor anchor exposes no native FE capability");
+          helper.assertTrue(energy[0].getEnergyStored() == 0, "Recovery FE buffer was not empty");
+          brakedStart[0] = new Vector3d(CoasterCartResolve.cartCenterWorld(recovery.bearing()));
+        });
+    helper.runAtTickTime(
+        160,
+        () -> {
+          brakedDistance[0] =
+              CoasterCartResolve.cartCenterWorld(recovery.bearing()).distance(brakedStart[0]);
+          helper.assertTrue(
+              brakedDistance[0] < .01,
+              "Empty FE recovery bearing moved while braked: " + brakedDistance[0]);
+          int received = energy[0].receiveEnergy(Integer.MAX_VALUE, false);
+          helper.assertTrue(
+              received == energy[0].getMaxEnergyStored() && received > 0,
+              "Recovery motor FE buffer did not fill through its native capability");
+          suppliedEnergy[0] = energy[0].getEnergyStored();
+          brakedStart[0] = new Vector3d(CoasterCartResolve.cartCenterWorld(recovery.bearing()));
+        });
+    helper.runAtTickTime(
+        200,
+        () -> {
+          double suppliedBrakedDistance =
+              CoasterCartResolve.cartCenterWorld(recovery.bearing()).distance(brakedStart[0]);
+          helper.assertTrue(
+              suppliedBrakedDistance < .01,
+              "Supplied FE bypassed the production recovery brake: " + suppliedBrakedDistance);
+          helper.assertTrue(
+              energy[0].getEnergyStored() == suppliedEnergy[0],
+              "Braked recovery motor consumed supplied FE before Start tow");
+          RecoveryOperations.start(level, recovery.car());
+          towingStart[0] = new Vector3d(CoasterCartResolve.cartCenterWorld(recovery.bearing()));
+        });
+    helper.runAtTickTime(
+        320,
+        () -> {
+          double towingDistance =
+              CoasterCartResolve.cartCenterWorld(recovery.bearing()).distance(towingStart[0]);
+          helper.assertTrue(towingDistance > .5, "Supplied FE did not tow the recovery group: " + towingDistance);
+          helper.assertTrue(
+              energy[0].getEnergyStored() < suppliedEnergy[0],
+              "Explicit FE recovery tow did not consume native anchor energy");
+          helper.assertTrue(rider[0].isPassenger(), "FE recovery tow lost the native rider mount");
+          RecoveryOperations.brake(level, recovery.car());
+          brakeEnergy[0] = energy[0].getEnergyStored();
+          System.out.println(
+              "FD_ENGINEERED_RECOVERY_FE towingDistance="
+                  + towingDistance
+                  + " brakedDistance="
+                  + brakedDistance[0]
+                  + " suppliedEnergy="
+                  + suppliedEnergy[0]
+                  + " activeEnergy="
+                  + brakeEnergy[0]
+                  + " riderMounted=true");
+        });
+    helper.runAtTickTime(
+        400,
+        () -> {
+          helper.assertTrue(recovery.car().stopping, "Recovery FE brake did not retain the stop state");
+          helper.assertTrue(
+              energy[0].getEnergyStored() >= brakeEnergy[0],
+              "Braked recovery motor continued consuming FE after Brake tow");
+          helper.assertTrue(rider[0].isPassenger(), "FE recovery brake lost the native rider mount");
+          System.out.println(
+              "FD_ENGINEERED_RECOVERY_FE brakedEnergy="
+                  + energy[0].getEnergyStored()
+                  + " noBrakeConsumption=true explicitStart=true");
+          helper.succeed();
+        });
+  }
 }

@@ -51,9 +51,9 @@ packaged or CI evidence.
 
 ## Scope and limits
 
-This proves one occupied Arrow recovery group reaches the client render paths
-and physically traverses the native bend/bank route under production recovery
-operations. It does not prove manual GUI/editor interaction, player/camera mesh
+This proves one occupied Arrow recovery group reaches the client render paths,
+travels through the native bend, and reaches the sustained bank under production
+recovery operations. It does not prove manual GUI/editor interaction, player/camera mesh
 clearance, rider/rack clearance, full braking/cut/detach/unload behavior,
 cold-process recovery lifecycle, other vehicle families, broad coupler strength,
 or Engineered/FE operation. Those FD402 items remain open.
