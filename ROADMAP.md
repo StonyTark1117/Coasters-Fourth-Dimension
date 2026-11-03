@@ -381,6 +381,14 @@ Test couplers, strength, offsets, braking, retained carriers, and loaded towing 
 
 **Status: in progress.** Dev.9 adds localized guidance for all fifteen craftable items, vanilla recipe discovery and a five-family building/operating guide. A native check exercises all fifteen crafting outputs, missing-ingredient rejects and inventory-triggered recipe rewards. Dev.10 adds nine original Ponder scenes with 53 registrations across all fifteen items, client-only registration, generated translations/schematics and native resource checks. Packaged standalone playback/replay and a completed resource reload cover every registration; the rendered review uses normal inventory shortcuts. Dev.11 adds survival crafting through the native result slot and world right-click dispatch for all five track/car families, twenty wrong-family rejects, magnetic equipment and invalid PAX setups. It fixes ordinary stations accepting PAX and clears old invalid bindings on use; standalone and combined native checks pass. Complete survival building/operating exercises through a real client and the full teaching gate remain pending. See [survival checkpoint](docs/evidence/0.4/survival-acceptance.md), [building guide](docs/BUILDING.md), [teaching checkpoint](docs/evidence/0.4/teaching-acceptance.md) and [Ponder checkpoint](docs/evidence/0.4/ponder-acceptance.md).
 
+Connected survival-client checkpoints additionally craft, place, board, control,
+unload and save Arrow, Legacy and Free Spin on short unpowered sections. They do
+not establish powered travel; the Legacy check records an endpoint fault.
+Revised and PAX lack connected survival-client exercises. The
+[FD403 connected-client acceptance procedure](docs/FD403-ACCEPTANCE.md) lists
+the remaining family and teaching checks without treating the earlier samples
+as release acceptance.
+
 **Depends on:** FD305. **Design:** D08.
 
 Complete recipes, item descriptions, Ponder scenes, family demonstrations, diagnostic messages, and consistent terminology. Teach family matching, ordinary-cart exceptions, controlled versus free motion, and shuttle boarding.
