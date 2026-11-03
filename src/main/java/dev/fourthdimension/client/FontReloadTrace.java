@@ -17,6 +17,7 @@ public final class FontReloadTrace {
   private record GlyphRequest(int generation, ResourceLocation font, int codepoint) {}
 
   private static final AtomicInteger GENERATION = new AtomicInteger();
+  private static final ResourceLocation MISSING_FONT = ResourceLocation.withDefaultNamespace("missing");
   private static final ThreadLocal<GlyphRequest> GLYPH = new ThreadLocal<>();
   private static final Map<ResourceLocation, FontSet> LIVE_FONT_SETS = new ConcurrentHashMap<>();
   private static final Set<String> REDIRECT_LOGS = ConcurrentHashMap.newKeySet();
@@ -60,17 +61,25 @@ public final class FontReloadTrace {
    */
   public static FontSet replacementForClosedSet(ResourceLocation font, FontSet closedSet) {
     FontSet replacement = LIVE_FONT_SETS.get(font);
+    boolean missingFallback = false;
+    if (replacement == null) {
+      // FontManager's normal absent-ID path returns the live missing set. A resource-pack reload
+      // can remove a custom font ID while a pre-reload screen still holds its closed FontSet.
+      replacement = LIVE_FONT_SETS.get(MISSING_FONT);
+      missingFallback = true;
+    }
     if (replacement == null || replacement == closedSet) return null;
     int generation = GENERATION.get();
     int closedIdentity = System.identityHashCode(closedSet);
     if (enabled() && REDIRECT_LOGS.add(generation + ":" + closedIdentity))
       LogUtils.getLogger()
           .warn(
-              "FD_FONT_STALE_SET_REDIRECT generation={} font={} closedIdentity={} liveIdentity={}",
+              "FD_FONT_STALE_SET_REDIRECT generation={} font={} closedIdentity={} liveIdentity={} missingFallback={}",
               generation,
               font,
               closedIdentity,
-              System.identityHashCode(replacement));
+              System.identityHashCode(replacement),
+              missingFallback);
     return replacement;
   }
 
