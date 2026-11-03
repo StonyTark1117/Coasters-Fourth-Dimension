@@ -9,6 +9,22 @@ FD801 and the [expansion backlog](INTEGRATION-BACKLOG.md) remain separate.
 
 ## Evidence already available
 
+- [Isolated native capture](evidence/0.9/fd402-isolated-base-ff7c831/README.md):
+  base-profile source `ff7c831`, 50 required tests passed, normal server shutdown,
+  exact same-route decoration transforms and matching one-tick body traces.
+  This run did not enable target-host performance limits and is not the optional
+  four-profile matrix or a rendered-client result.
+- [Prospective Styles recovery geometry](evidence/0.9/fd401-prospective-styles-ff7c831/README.md):
+  both single-car Arrow styles pass 5,768 sampled poses across five sections with
+  minimum separating bound 0.04891048 blocks against 0.02 required and no
+  uncertified body/track pairs. The two train analyses remain pending. These
+  default-model proposals are not observed Styles rendering, player meshes,
+  track-to-decoration self-clearance, continuous sweeps or full-turn operation.
+- Draw-fallback corrections `21bfd1a` / `d5132a3` catch provider draw failures,
+  restore the suppressed Original spine, and quarantine that rail's styled mesh
+  until rail/model revision. The failure frame may retain partial provider output;
+  the next frame uses full Original geometry. Source/helper tests do not prove a
+  rendered injected-failure/reload recovery, which remains acceptance work.
 - [Exact native matrix](evidence/0.9/profile-matrix-abc4a9a/README.md): 49 required
   tests pass in each profile, with exact dependency hashes and class/JAR parity.
   Engineered-dependent scenarios run only in Engineered/combined. This is native
@@ -95,39 +111,34 @@ For future native profile runs, use the [post-exit export capture helper](NATIVE
 before another run deletes the five generated frame/trace files. Capture failures
 remain evidence gaps; archiving cannot turn a failed runtime into a passing one.
 
-### Exact input gap for broader Styles clearance
+### Same-route decoration inputs and remaining Styles clearance
 
-The [offline sampling inventory](evidence/0.9/fd401-decoration-frame-gap.json)
-compares retained Arrow recovery route frames with `TrackStylesRenderer`'s actual
-placement distances. Both single-car and two-car routes lack **151 spine and
-37 tie frames**, concentrated in their bend and bank-transition sections. The
-recovery exporter samples original rails at `ceil(4 × length) + 1` points; the
-appearance renderer places spines at segment midpoints and ties every two blocks.
-Those sampling grids do not generally coincide. Actual native body/rider poses
-are present, but interpolating decoration frames supplies unmeasured geometry.
-The separate eight-section `bank-native-frames.json` has decoration frames on a
-different circuit and cannot be paired with these five-section recovery poses.
+The [historical offline sampling inventory](evidence/0.9/fd401-decoration-frame-gap.json)
+found **151 missing spine and 37 missing tie frames** on each retained Arrow
+recovery route. Those older records remain unchanged; interpolated frames still
+cannot stand in for measured native placement inputs.
 
-Before auditing installed decoration against those actual body/wheel/carrier
-poses, obtain a fresh export from the same route containing exact native
-center/up/forward at every spine/tie distance, per-piece scale, rail identity,
-profile and appearance, alongside the existing one-tick body trace. The
-observation-only `RecoveryRouteFrames` extension and [offline input verifier](NATIVE-EVIDENCE-CAPTURE.md#same-route-decoration-inputs)
-are prepared for the implementation owner's build and scheduled native run.
-They preserve the original rail grid, add exact model transforms and expose
-chassis IDs for trace pairing. No new native output has been collected yet;
-preserve input/source hashes and do not treat synthetic verifier tests as
-closing this input gap. Recovery
-towing evidence still cannot substitute for a full-turn operating ride, player
-meshes or continuous swept clearance. The historical inventory remains unchanged; the new exporter only observes
-fixture state and claims no additional clearance pass.
+The [isolated `ff7c831` capture](evidence/0.9/fd402-isolated-base-ff7c831/README.md)
+now supplies exact native spine/tie inputs on the same single-car and train routes
+as their one-tick body traces. Both archived input-verifier reports pass, retaining
+source/input hashes and chassis identity pairing. The observation-only exporter
+preserves the original rail grid and adds native frames, renderer-oriented profile
+values and exact model transforms. The export-input gap is therefore resolved for
+these frozen fixtures; it is not a general vehicle-clearance pass.
 
 The [prospective Styles mesh audit](NATIVE-EVIDENCE-CAPTURE.md#prospective-styles-recovery-geometry-audit)
-is prepared to consume those new inputs. It includes the altered procedural
-control mounts, crossbraces and endpoint bridges, not just external OBJ models.
-Its proposed style plan is distinct from observed client appearance. Run it only
-on matching fresh inputs and preserve both passing and uncertified results;
-synthetic tests do not complete this geometry gate.
+includes altered control mounts, crossbraces and endpoint bridges alongside the
+provider OBJ geometry. Both single-car configurations have
+[bounded passing reports](evidence/0.9/fd401-prospective-styles-ff7c831/README.md);
+the two train reports remain pending. Proposed appearance is explicitly separate
+from saved/observed appearance. Preserve each result, including any uncertified
+pairs. Recovery towing does not substitute for a full-turn operating ride, player
+meshes, continuous swept clearance, style transitions or visible render ownership.
+
+The [post-fallback source review](evidence/0.9/post-fallback-geometry-pin-review-2026-11-03.json)
+finds the normal geometry constructors unchanged by the draw-fallback correction.
+That permits reviewed future audit pins, not relabeling frozen-source calculations
+as post-fix runtime evidence. New source must still pass the applicable checks.
 
 For each future run retain exact commands/configuration, normal item/GUI actions,
 server/client observations, failed attempts, screenshots, complete logs, actual
