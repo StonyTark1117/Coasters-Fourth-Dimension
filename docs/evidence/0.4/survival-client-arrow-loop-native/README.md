@@ -140,3 +140,41 @@ Saved [FoundationData](attempt8-foundation.dat), SHA-256
 `89548f3e125dc382d728d3b7f1fa6571c0fa33f7a8628cd6e6955f4f81eeb041`.
 This is a fixture path correction awaiting a new native run; it does not yet
 prove the full loop.
+
+## Attempt 9 — full native player-crafted Arrow circuit passed
+
+The isolated base-profile `runGameTestServer --offline --no-daemon
+--console=plain` run on exact source `488ef031afac886c47a4f6da6b72758ca2cf7536`
+completed **51 of 51 required GameTests** with normal server shutdown and
+`BUILD SUCCESSFUL`. `compileJava` and `jar` had passed immediately before the
+server run. The local JAR SHA-256 was
+`2dd822a95d60a04fa09b33923b45225ea4bd0c519c930b7bb2fcfcff7392b378`.
+The runtime used `JAVA_TOOL_OPTIONS=-Xmx3G` and was the sole holder of the
+shared game-runtime lock.
+
+The synthetic survival ServerPlayer took five Arrow track batches, one Arrow
+car, a Rotation Tool and a Boarding Station from normal crafting result slots.
+Ordinary item use placed eight native anchors and connected all eight original
+sections. Their preview costs and actual inventory debits matched
+`9, 4, 5, 3, 10, 3, 5, 4`, or 43 track items total; the first connection
+consumed across a two-item selected stack and reserves. The player placed the
+crafted car and station, bound the settled chassis at 6.03 blocks, authored a
+nonzero controlled full-turn profile, seated an original native Pig rider,
+closed restraints and dispatched. Native Coasters chains and Create creative
+motors were disclosed upstream power fixtures, not player-crafted outputs.
+
+The run recorded each of the eight section interiors. The stored native edges
+on sections 4–7 were reversed relative to the player's connection order; the
+direction-aware Chain spans drove through them. The occupied carrier reached
+`6.281755307414869` radians. At tick 2000 all eight sections had been visited,
+the chassis was back near the original station, `Boarding.ready=true`, and
+the station fault was empty. The tick-6500 final assertions passed with all
+eight visits, maximum x/z offsets `34.8655/53.2339`, rider still mounted,
+restraints closed, stopping and ready state, and successful station capture.
+The test then opened restraints and removed its native fixture bodies and
+track. Raw output: [attempt9.log.zst](attempt9.log.zst), SHA-256
+`757f6ba76111104471fdbab999f1cee8850100f9041cc9cda54151ca9d0ec293`.
+
+This is native fixture evidence for a fully player-crafted Arrow loop. It does
+not close FD403's connected survival-client five-family teaching gate, nor
+does the upstream creative motor prove unassisted survival power production.

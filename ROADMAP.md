@@ -437,7 +437,7 @@ records survival result-slot crafting, player-connected 50-block original
 track, player-installed Chain, player-placed car, an occupied motor-powered
 full controlled turn, pre-boundary capture, unload and same-identity cold
 reopen. Its first short-route endpoint fault remains recorded as a negative
-case. A complete Arrow circuit and full Legacy, Free Spin and Revised
+case. A connected-client complete Arrow circuit and full Legacy, Free Spin and Revised
 family exercises remain open. A subsequent
 [bounded powered Legacy pass](docs/evidence/0.4/survival-client-legacy-powered/acceptance.md)
 records survival result-slot crafting, player-connected 50-block original
@@ -455,7 +455,7 @@ original section, occupied powered travel with independent carrier response,
 pre-boundary capture, unloading and same-identity cold reopen. It also fixes
 long-section editor reach and duplicate live rider-seat assignment found in
 negative retries. The split ride does not isolate damper strength from capture;
-full family teaching and a complete Arrow circuit remain open. A later
+full family teaching and a connected-client complete Arrow circuit remain open. A later
 [shipped Free Spin demo damper pass](docs/evidence/0.4/survival-client-free-spin-powered/damper-demo/acceptance.md)
 samples the same four released carriers before and after the DAMP span: the
 occupied carrier records 127 actual impulses, negative angular-energy change
@@ -474,6 +474,14 @@ records an occupied powered circuit, distinct lower-hinge carrier motion,
 capture, unloading and same-identity cold reopen on the command-authored shipped
 example. A survival-built powered Revised route and family teaching walkthrough
 remain open.
+The [exact-source native player-crafted Arrow loop](docs/evidence/0.4/survival-client-arrow-loop-native/README.md)
+now passes all 51 required base GameTests: five normal track crafts supply eight
+player-connected sections at 43 actual item cost, a crafted car and station
+complete an occupied powered circuit with a 6.2818-radian controlled turn, and
+the car returns captured with its original rider retained. The upstream Chain
+and creative motor are disclosed fixtures, and the synthetic ServerPlayer does
+not replace the connected-client family walkthrough, save/reopen or teaching
+acceptance.
 The
 [FD403 connected-client acceptance procedure](docs/FD403-ACCEPTANCE.md) lists
 the remaining family checks without treating the earlier samples as release

@@ -24,6 +24,11 @@ recipe discovery and all 53 scene registrations. The [current-artifact rendered
 review](evidence/0.4/teaching-current/acceptance.md) checks all fifteen tooltips
 and the captions and controls of all nine unique scenes. These checks do not
 replace connected-client building and operation.
+The [player-crafted Arrow loop native test](evidence/0.4/survival-client-arrow-loop-native/README.md)
+also passes a full eight-section powered circuit and station recapture with
+ordinary survival crafting and placement through a synthetic server player.
+Its upstream Chain/motor fixtures and absent connected client leave the Arrow
+row's connected-client walkthrough and save/reopen work open.
 
 ## Connected-client sequence
 
