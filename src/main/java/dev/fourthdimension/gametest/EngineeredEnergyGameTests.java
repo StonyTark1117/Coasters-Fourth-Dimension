@@ -333,7 +333,7 @@ public final class EngineeredEnergyGameTests {
    * Exercises the installed FE capability against the ordinary bearing in a production recovery
    * group. The production brake must hold both motion and consumption until an explicit start.
    */
-  @GameTest(template = "empty", batch = BATCH, timeoutTicks = 440)
+  @GameTest(template = "empty", batch = BATCH, timeoutTicks = 480)
   public static void nativeEnergyRespectsRecoveryBrakeAndExplicitTow(GameTestHelper helper) {
     if (!OptionalIntegrations.installed(OptionalIntegrations.ENGINEERED).mayInspect()) {
       System.out.println("FD_ENGINEERED_RECOVERY_FE absent/uninspected: scenario not exercised");
@@ -372,6 +372,7 @@ public final class EngineeredEnergyGameTests {
     int[] suppliedEnergy = {0};
     int[] brakeEnergy = {0};
     double[] brakedDistance = {0};
+    double[] starvedTowDistance = {0};
     helper.runAtTickTime(
         100,
         () -> {
@@ -423,6 +424,21 @@ public final class EngineeredEnergyGameTests {
           helper.assertTrue(
               brakedDistance[0] < .01,
               "Empty FE recovery bearing moved while braked: " + brakedDistance[0]);
+          RecoveryOperations.start(level, recovery.car());
+          towingStart[0] = new Vector3d(CoasterCartResolve.cartCenterWorld(recovery.bearing()));
+        });
+    helper.runAtTickTime(
+        200,
+        () -> {
+          starvedTowDistance[0] =
+              CoasterCartResolve.cartCenterWorld(recovery.bearing()).distance(towingStart[0]);
+          helper.assertTrue(
+              starvedTowDistance[0] < .01,
+              "Empty FE buffer bypassed recovery starvation after Start tow: " + starvedTowDistance[0]);
+          helper.assertTrue(
+              energy[0].getEnergyStored() == 0,
+              "Starved recovery motor created FE after Start tow");
+          RecoveryOperations.brake(level, recovery.car());
           int received = energy[0].receiveEnergy(Integer.MAX_VALUE, false);
           helper.assertTrue(
               received == energy[0].getMaxEnergyStored() && received > 0,
@@ -431,7 +447,7 @@ public final class EngineeredEnergyGameTests {
           brakedStart[0] = new Vector3d(CoasterCartResolve.cartCenterWorld(recovery.bearing()));
         });
     helper.runAtTickTime(
-        200,
+        240,
         () -> {
           double suppliedBrakedDistance =
               CoasterCartResolve.cartCenterWorld(recovery.bearing()).distance(brakedStart[0]);
@@ -445,7 +461,7 @@ public final class EngineeredEnergyGameTests {
           towingStart[0] = new Vector3d(CoasterCartResolve.cartCenterWorld(recovery.bearing()));
         });
     helper.runAtTickTime(
-        320,
+        360,
         () -> {
           double towingDistance =
               CoasterCartResolve.cartCenterWorld(recovery.bearing()).distance(towingStart[0]);
@@ -461,6 +477,8 @@ public final class EngineeredEnergyGameTests {
                   + towingDistance
                   + " brakedDistance="
                   + brakedDistance[0]
+                  + " starvedTowDistance="
+                  + starvedTowDistance[0]
                   + " suppliedEnergy="
                   + suppliedEnergy[0]
                   + " activeEnergy="
@@ -468,7 +486,7 @@ public final class EngineeredEnergyGameTests {
                   + " riderMounted=true");
         });
     helper.runAtTickTime(
-        400,
+        440,
         () -> {
           helper.assertTrue(recovery.car().stopping, "Recovery FE brake did not retain the stop state");
           helper.assertTrue(
