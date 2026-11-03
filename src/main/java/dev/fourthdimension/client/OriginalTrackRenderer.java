@@ -32,14 +32,13 @@ public final class OriginalTrackRenderer {
 
   private record Decoration(UUID rail, Mesh mesh, float alpha) {}
 
-  private record DrawFailure(long generation, long revision) {}
-
   private static final Map<UUID, Mesh> MESHES = new HashMap<>();
   private static net.minecraft.world.level.Level lastLevel;
   private static String ghostKey = "";
   private static List<Quad> ghost = List.of();
   private static final Map<UUID, Long> SEEN = new HashMap<>();
-  private static final Map<UUID, DrawFailure> STYLE_DRAW_FAILURES = new HashMap<>();
+  private static final dev.fourthdimension.client.integration.TrackStylesFallbackState
+      STYLE_DRAW_FAILURES = new dev.fourthdimension.client.integration.TrackStylesFallbackState();
 
   private OriginalTrackRenderer() {}
 
@@ -84,7 +83,7 @@ public final class OriginalTrackRenderer {
       }
     MESHES.keySet().retainAll(live);
     SEEN.keySet().retainAll(live);
-    STYLE_DRAW_FAILURES.keySet().retainAll(live);
+    STYLE_DRAW_FAILURES.retain(live);
   }
 
   @SubscribeEvent
@@ -119,11 +118,8 @@ public final class OriginalTrackRenderer {
               || mesh.geometry != hash
               || mesh.modelGeneration != generation) {
             long buildStart = System.nanoTime();
-            var previousFailure = STYLE_DRAW_FAILURES.get(rail.id);
             var decoration =
-                previousFailure != null
-                        && previousFailure.generation == generation
-                        && previousFailure.revision == rail.revision
+                STYLE_DRAW_FAILURES.quarantines(rail.id, generation, rail.revision)
                     ? null
                     : dev.fourthdimension.client.integration.TrackStylesRenderer.build(edge, rail);
             var ownership =
@@ -207,8 +203,8 @@ public final class OriginalTrackRenderer {
     for (var decoration : decorations)
       if (!dev.fourthdimension.client.integration.TrackStylesRenderer.draw(
           decoration.mesh.decoration, pose, buffers)) {
-        STYLE_DRAW_FAILURES.put(
-            decoration.rail, new DrawFailure(decoration.mesh.modelGeneration, decoration.mesh.revision));
+        STYLE_DRAW_FAILURES.quarantine(
+            decoration.rail, decoration.mesh.modelGeneration, decoration.mesh.revision);
         MESHES.remove(decoration.rail);
         inRangeDecorationPieces -= decoration.mesh.decoration.pieces().size();
         failedDecorations.add(decoration);
