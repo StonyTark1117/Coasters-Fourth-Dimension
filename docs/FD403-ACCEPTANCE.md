@@ -27,6 +27,11 @@ also passes eight player-connected powered sections, full-turn carrier motion
 and station recapture with a synthetic survival ServerPlayer. Its upstream
 Chain/motor fixtures and absent connected client leave the Arrow walkthrough
 and save/reopen evidence open.
+In pinned Coasters 0.1.5, normal Chain Lift selection is handled by the client
+interaction-key path (`ChainLiftAnchorOutlineClient.onUseItemKey`), which sends
+`ChainLiftCommitPayload` to the server. A synthetic server-player right click or
+direct `commitChainLift` call cannot certify this input path. Record actual
+connected-client Chain selection, the installed span and its powered direction.
 
 ## Connected-client sequence
 
