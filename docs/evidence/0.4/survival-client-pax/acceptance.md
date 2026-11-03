@@ -46,6 +46,9 @@ and winch order, are
 and `e2e56607c7b1d5a5cd271dab64f1206f7440b25a3c99bd4f7f350e8c5f00acd2`.
 The final foundation save SHA-256 is
 `43b94cfcb327326940f448d3200dffb0035432473e8ee83d2ed6cf35e4aee419`.
+The complete [saved survival world](world.tar.zst) is a 1.1 MiB zstd archive
+for continuing the chain and winch check; its SHA-256 is
+`debe2a1136a94291017551c769bd33a78e847393ddb53857b79e22f928d7cc6a`.
 
 This is a connected survival construction checkpoint only. FD403 still needs
 the linked four-car PAX cycle, occupied powered exercises for all five families,
