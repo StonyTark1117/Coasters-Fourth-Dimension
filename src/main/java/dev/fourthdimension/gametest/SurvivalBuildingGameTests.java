@@ -476,6 +476,25 @@ public final class SurvivalBuildingGameTests {
     for (var name : List.of("arrow_car", "rotation_tool", "boarding_station"))
       craft(helper, player, table,
           recipes.stream().filter(r -> r.name().equals(name)).findFirst().orElseThrow());
+    // A player may split crafted track. This leaves fewer items in the selected stack
+    // than the first connection costs, while keeping sufficient stock in other slots.
+    var inventory = player.getInventory();
+    int beforeSplit = count(player, TrackItems.ARROW.get());
+    var selectedTrack =
+        inventory.items.stream().filter(s -> s.is(TrackItems.ARROW.get())).findFirst().orElseThrow();
+    helper.assertTrue(selectedTrack.getCount() > 2, "Crafted track did not form a splittable stack");
+    var reserveTrack = selectedTrack.split(selectedTrack.getCount() - 2);
+    int reserveSlot = -1;
+    for (int i = 0; i < inventory.items.size(); i++)
+      if (inventory.items.get(i).isEmpty()) {
+        reserveSlot = i;
+        break;
+      }
+    helper.assertTrue(reserveSlot >= 0, "No slot for the split track stack");
+    inventory.items.set(reserveSlot, reserveTrack);
+    helper.assertTrue(
+        selectedTrack.getCount() == 2 && count(player, TrackItems.ARROW.get()) == beforeSplit,
+        "Splitting crafted track changed its item count");
     int[][] offsets = {{0, 8}, {0, 44}, {8, 52}, {24, 52}, {32, 44}, {32, 8}, {24, 0}, {8, 0}};
     var anchors = new ArrayList<BlockPos>();
     for (var offset : offsets) {
@@ -495,6 +514,8 @@ public final class SurvivalBuildingGameTests {
           CoasterPathEdge.curve(preview.bePositions.getFirst(), preview.bePositions.getSecond(), preview);
       double previewLength = TrackGeometry.table(level, previewEdge).length();
       int sectionCost = (int) Math.ceil(previewLength / 4);
+      if (i == 0)
+        helper.assertTrue(sectionCost > 2, "First loop connection did not cross split stacks");
       int sectionBefore = count(player, TrackItems.ARROW.get());
       hold(helper, player, TrackItems.ARROW.get());
       helper.assertTrue(click(player, from).consumesAction() && click(player, to).consumesAction(),
