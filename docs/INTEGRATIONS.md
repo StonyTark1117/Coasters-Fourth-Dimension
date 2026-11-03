@@ -124,6 +124,11 @@ remain open; the checkpoint lists the exact bounds.
 
 ## Remaining FD401 acceptance
 
+The [release handoff checklist](FD401-RELEASE-HANDOFF.md) reconciles later telemetry
+evidence with the exact remaining operator, optional-client, rendering and
+clearance checks. It separates offline audits from scheduled runtime work and
+does not promote the paused expansion addons into the candidate scope.
+
 Complete style geometry and clearance checks and record supported styles/render
 modes and styled ride behavior. Resource reload and a real removal/reinstallation
 cycle now pass for one single-spine controlled Arrow section. Engineered operating
