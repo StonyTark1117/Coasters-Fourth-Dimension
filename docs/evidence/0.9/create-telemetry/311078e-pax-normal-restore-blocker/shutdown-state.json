@@ -1,0 +1,27 @@
+{
+  "recordedUtc": "2026-11-03T01:42:42.982726+00:00",
+  "server": {
+    "session": 57503,
+    "exitCode": 0,
+    "method": "RCON save-all flush then stop"
+  },
+  "dev": {
+    "session": 97820,
+    "exitCode": 0,
+    "method": "normal Quit Game"
+  },
+  "observer": {
+    "session": 76359,
+    "exitCode": 0,
+    "method": "normal Quit Game"
+  },
+  "xvfb": {
+    "session": 91742,
+    "pid": 1544742,
+    "display": ":121",
+    "zeroChildWindowsBeforeStop": true,
+    "method": "SIGTERM after both clients exited"
+  },
+  "lifecycleAcceptance": "not reached; shutdown preserves occupied unrepaired failure state, not a post-repair restart result",
+  "externalDisplay99": "untouched"
+}
