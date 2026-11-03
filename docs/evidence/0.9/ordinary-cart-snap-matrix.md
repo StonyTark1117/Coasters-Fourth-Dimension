@@ -15,9 +15,11 @@ bearing envelope. Both paths must reject the widened assembly. After removing
 that block, the original bearing traverses natively. It must acquire neither a
 Fourth Dimension vehicle record nor carrier rotation or magnetic impulses.
 
-It also creates a captured Arrow car on its matching route and requests the
-native six-block train coupling with an unassigned bare bearing. That request
-must fail without adding a recovery-cart identity or a train link. Ordinary
+It also creates a captured Arrow car on its matching route and requests native
+six-block train coupling with an unassigned bare bearing. The recorded run
+tested the Arrow-first ordering. A strengthened test now requests both endpoint
+orders and checks that neither changes the original binding, adds a vehicle or
+recovery-cart identity, or creates a train link. Ordinary
 bearings can enter a 4D recovery consist only after the explicit recovery
 workflow has checked their certification, matching support, retained carriers,
 closed restraints and selected recovery identity.
@@ -37,9 +39,11 @@ FD_ORDINARY_MATRIX families=5 directFits=5 nativeFits=5 wideRejects=5 nativeWide
 
 ## Limits
 
-This covers the certified bare ordinary bearing on original tracks only. It does
+The recorded `mixedConsistRejects=1` covers only Arrow-first coupling; the
+ordinary-first regression requires a native rerun. This covers the certified
+bare ordinary bearing on original tracks only. It does
 not certify modified ordinary assemblies, recovery locomotives, external
 functional track providers, every placement/connection entry path, client
-operation, or the full optional-addon matrix. It proves the ordinary/4D
-mixed-consist admission boundary, not the full recovery lifecycle. Those remain
+operation, or the full optional-addon matrix. It proves one directed ordinary/4D
+mixed-consist admission rejection, not the full recovery lifecycle. Those remain
 FD901, FD902 and their FD404 prerequisite.

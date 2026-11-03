@@ -426,6 +426,9 @@ rejection across all five original tracks through both direct eligibility and
 the native snap filter. The same run confirms ordinary traversal has no vehicle
 record, carrier rotation or magnetic impulse, and rejects unassigned ordinary/4D
 train coupling without mutating the 4D car; see the [ordinary snap matrix](docs/evidence/0.9/ordinary-cart-snap-matrix.md).
+That recorded coupling uses the Arrow-first endpoint order. A reverse-order
+regression is now in source and needs a native rerun before both directions can
+be claimed.
 Each inspected Track Styles appearance also retains Arrow-only functional
 eligibility in a direct regression. The prior optional-profile matrix records
 41 native GameTests under Track Styles-only,
