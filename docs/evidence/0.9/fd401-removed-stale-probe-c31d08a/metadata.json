@@ -1,0 +1,25 @@
+{
+  "sourceCommit": "c31d08af384d69883770634f8d267410fc08d960",
+  "jar": "coasters-fourth-dimension-0.9.0-dev.27.jar",
+  "jarSha256": "d911e32e0a7c55c87a39ccbfa3c12b2d04137eaf87feec4a8b5f134add43e557",
+  "dependencies": {
+    "create-coasters-simulated-1601871-8655742.jar": "f80b4c3cdf9fa6188804967147761b0373e150a6eadbdc53626e5ac9700b2049",
+    "coasters-simulated-track-styles-1642719-9020601.jar": "42535a83307f6898b33c13ca201533bb9e337418fd7c73039c867fc80bfbcb38",
+    "coasters-engineered-1643631-8863559.jar": "eea19ed769ed573727b4e15184c229f66aff85f20667464650724e1b2d657f5d"
+  },
+  "worldSourceArchive": "/home/braydon/Documents/Coasters: Fourth Dimension/docs/evidence/0.9/fd401-strict-occupied-reload-1a91416/pre-world.tar.gz",
+  "worldSourceArchiveSha256": "47a724acdb89320d9592b7544f61bf87a7fbd8db7b09f52fc3635cdf3183e80b",
+  "postWorldLevelDatSha256": "f8677a65d9e7503054b169915411fa5faf2aad4650f9fc1691d1f440309e42d2",
+  "postWorldFileCountExcludingLock": 33,
+  "retryCommand": "env JAVA_HOME=/usr/lib/jvm/java-21-openjdk ./gradlew runClient --offline --no-daemon --console=plain -PfdPackaged -PfdValidation -PfdIntegrations=styles,engineered -PfdWorld=FD401OccupiedReloadStrict1a91416 -PfdFontValidation -PfdFontValidationReload -PfdFontValidationChat -PfdFontValidationExit -PfdStaleRemovedFontProbe=fd_font_probe:transient",
+  "watcherCommand": "python3 docs/evidence/0.9/fd401-removed-stale-probe-c31d08a/disable-stale-font-after-load.py build/runs/packaged-client/logs/latest.log build/runs/packaged-client/resourcepacks/fd-font-probe/assets/fd_font_probe/font/transient.json",
+  "retryExitCode": 0,
+  "retryBuildResult": "BUILD SUCCESSFUL in 20s",
+  "firstAttemptExitCode": 0,
+  "firstAttemptScope": "Custom pack loaded generation 1 but client stopped before reload; GameTest overlap; inconclusive.",
+  "captureUtc": "2026-11-03T10:40:08.894571+00:00",
+  "worldSourceArchiveRepoPath": "docs/evidence/0.9/fd401-strict-occupied-reload-1a91416/pre-world.tar.gz",
+  "retryClientLogSha256": "f3d66916870ae2c0af1d8150424bb30aa449292a150dbdc5d05fe2de15a34209",
+  "retryConsoleLogSha256": "c8a86e45748b930ca142283a0efbf3d399486cb937c2d23267bc34bd347bca32",
+  "watcherLogSha256": "12d8a4ac6496c039b833b0c0f1227e98840cd3404279b1c02db674aab60bef81"
+}
