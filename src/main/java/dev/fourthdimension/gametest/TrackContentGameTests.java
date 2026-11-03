@@ -64,11 +64,13 @@ public final class TrackContentGameTests {
         wrongMaterialEdge != null
             && TrackMaterial.ANDESITE.id.equals(wrongMaterialEdge.bezier().getMaterial().id),
         "Non-Coasters material control did not retain the substituted native curve");
-    // Replacing the native curve can change the sampled basis. Model an older, still-valid rail
-    // whose saved binding matches this foreign curve so material is the only backfill gate.
+    // Native edits invalidate the rail. Reestablish the state of an older loaded save whose
+    // binding still matches this foreign curve, so material is the only backfill gate.
     legacy.geometryHash = TrackGeometry.fingerprint(level, wrongMaterialEdge);
     long foreignGeometry = legacy.geometryHash;
     legacy.originalCurve = null;
+    legacy.valid = true;
+    long foreignRevision = legacy.revision;
     helper.runAtTickTime(
         20,
         () -> {
@@ -95,15 +97,18 @@ public final class TrackContentGameTests {
           long currentForeignHash =
               currentForeignEdge == null ? Long.MIN_VALUE : TrackGeometry.fingerprint(level, currentForeignEdge);
           helper.assertTrue(
-              !legacy.valid
+              legacy.valid
                   && legacy.originalCurve == null
+                  && legacy.revision == foreignRevision
                   && currentForeignMaterial != null
                   && TrackMaterial.ANDESITE.id.equals(currentForeignMaterial.id)
                   && currentForeignHash == foreignGeometry,
-              "Foreign material rail was adopted despite native invalidation: valid="
+              "Valid geometry-matching foreign material rail changed or acquired provenance: valid="
                   + legacy.valid
                   + ", snapshot="
                   + (legacy.originalCurve != null)
+                  + ", revision="
+                  + legacy.revision
                   + ", material="
                   + currentForeignMaterial
                   + ", savedHash="
