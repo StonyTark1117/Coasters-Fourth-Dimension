@@ -218,4 +218,6 @@ FD403. Complete survival building/operating exercises and the full 0.4 gate
 through a real client remain unfinished. Native survival crafting/placement has
 [separate bounded evidence](evidence/0.4/survival-acceptance.md). See the
 [Ponder checkpoint](evidence/0.4/ponder-acceptance.md)
-for the exact packaged-client and native-resource checks.
+for the exact packaged-client and native-resource checks. The
+[connected-client acceptance procedure](FD403-ACCEPTANCE.md) lists the remaining
+five-family exercise and evidence needed to close FD403.
