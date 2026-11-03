@@ -428,17 +428,22 @@ train coupling without mutating the 4D car; see the [ordinary snap matrix](docs/
 The loop includes both directions for every mismatched pair, rather than only
 the former Arrow-first endpoint order.
 Each inspected Track Styles appearance also retains Arrow-only functional
-eligibility in a direct regression. The prior optional-profile matrix records
-41 native GameTests under Track Styles-only,
-Engineered-only, and combined audited profiles; see the [optional-profile
-matrix](docs/evidence/0.9/optional-profile-matrix.md). This advances the
-regular-cart and audited optional-profile portions before FD404, but it does not
+eligibility in a direct regression. The refreshed exact-candidate native
+[optional-profile matrix](docs/evidence/0.9/optional-profile-matrix.md) passes
+49 required GameTests with target-host performance limits in each of base,
+Track Styles-only, Engineered-only, and combined audited profiles. Its
+[archived four-profile record](docs/evidence/0.9/profile-matrix-abc4a9a/README.md)
+preserves the identical source and JAR identity, profile-specific dependency
+hashes, full logs, and clean shutdown for every run. This advances the regular-cart
+and audited optional-profile portions before FD404, but it does not
 close the full compatibility matrix. The [advertised compatibility
 scope](docs/evidence/0.9/supported-compatibility-scope.md) records that no
 third-party functional track is currently supported: Track Styles remains a
 cosmetic Arrow appearance and Engineered remains an operating adapter. The
-current standalone target-gated core suite passes 45 GameTests; refresh the
-optional-profile matrix after the current Engineered work is merged.
+current standalone target-gated core suite passes 49 GameTests. The earlier
+Engineered capacity failure was traced to concurrent GameTest fixtures; the
+family matrix now runs in its own batch without changing the production
+64-vehicle limit.
 
 **Depends on:** FD404. **Design:** D02, D04, D17.
 
@@ -454,7 +459,7 @@ chunk/sublevel unload/reload, and full dedicated-server cold restart for each
 stationary original Arrow, Legacy, Free Spin, Revised and PAX family. Every
 case retains the one rider assignment, restores the original native carrier and
 returns the player to a `create:seat` before the 200-tick deadline. The
-combined audited integration profile now passes 41 GameTests, including a
+combined audited integration profile now passes 49 GameTests, including a
 server-side two-live-player regression that retains distinct seat entities and
 UUID-to-seat assignments across a native update. Fresh-world real two-client
 fixtures retain both riders in distinct seats of one carrier across all five
@@ -568,12 +573,15 @@ Track Styles decoration pieces without making an FPS claim. A native Iris/Solas
 shader-mode sample also records original-stage work, but Flywheel fell back to
 `off`; shader and full-render acceptance remain pending.
 
-The current clean standalone target-gated core suite passes all **45**
-GameTests in 5.403 minutes after a 2026-11-02 rerun exposed and repaired a PAX
-and Free Spin invocation-time regression without changing either declared
-limit. Its controlled, PAX, and Free Spin averages are 56,794 ns, 110,917 ns,
-and 115,118 ns per invocation, respectively; their carrier averages are 3,563
-ns, 2,992 ns, and 3,088 ns. The shuttle cache validates route revisions,
+The current exact-candidate base profile passes all **49** GameTests in 5.339
+minutes with both timing limits enabled. Its controlled, PAX, and Free Spin
+averages are 57,141 ns, 107,085 ns, and 109,581 ns per invocation,
+respectively; their carrier averages are 3,206 ns, 2,921 ns, and 2,849 ns.
+Track Styles, Engineered, and their combined profile also pass all 49 tests
+under the same target-host limits; see the [four-profile record](docs/evidence/0.9/profile-matrix-abc4a9a/README.md).
+The preceding 2026-11-02 rerun exposed and repaired a PAX and Free Spin
+invocation-time regression without changing either declared limit. The shuttle
+cache validates route revisions,
 topology, and every required physics chunk before reuse, retaining the existing
 missing-chunk and changed-route fail-closed behavior; a new active-route branch
 mutation regression verifies that the train faults and remains retained. See the
