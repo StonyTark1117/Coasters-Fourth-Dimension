@@ -93,6 +93,14 @@ tested bounds, not general-world or unlimited-layout support.
 | Revised free rotor | Four independent paired carriers have lower hinges and a different chassis layout. Run it on Revised Free-Rotor Track and compare the groups' responses with different rider loading. This is an inspired variant, not a claim of exact manufacturer coupling. |
 | PAX-inspired shuttle | Assemble four matching cars six blocks apart, then hold a Minecraft Chain and right-click each adjacent pair in order to create the three native links. Bind a nearby winch, supply Create shaft rotation, board and close restraints. Start the winch and follow lift → outbound → returning → capturing → boarding. Open restraints only after final capture and readiness. |
 
+On the powered `/fd demo free_spin` circuit, the descending right side has two
+inducer spans followed by a damper span. For a live comparison, keep the car
+dispatched through all three spans and read the same carrier's angle and angular
+speed before and after the damper. Request capture only after that sample; a
+capture between samples also slows the carrier and obscures the damper's effect.
+The example is command-built practice, so craft and place a separate matching
+route when following the survival acquisition path.
+
 The ordinary boarding station binds a nearby non-PAX car when used empty-handed.
 Power at its rear requests capture; releasing power requests dispatch. Its front
 indicates readiness and its right side indicates closed restraints. Binding the
