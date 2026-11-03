@@ -113,6 +113,10 @@ then its neighbor to couple that pair. Repeat for the second/third and
 third/fourth cars. The game confirms each pair with **Carts coupled**; sneak
 right-click with the Chain to clear a mistaken pending selection. Do this while
 all four cars are captured and six blocks apart, before binding the winch.
+The captured carriers do not brake an unlinked chassis along the rail. Shape
+the station as a level run and couple each pair while its bearing centers are
+still six blocks apart; a shallow station dip can let unlinked cars roll
+together before the Chain clicks.
 
 Place the winch within twelve blocks of the stopped train and sneak-use it to
 bind. An operator uses the winch to start the cycle. After an interrupted lift,
