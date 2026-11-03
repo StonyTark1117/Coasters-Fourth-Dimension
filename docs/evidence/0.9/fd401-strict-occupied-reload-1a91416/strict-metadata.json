@@ -1,0 +1,23 @@
+{
+  "sourceCommit": "1a91416aefc36abbcd74b46d00473e9d4a9861eb",
+  "checkout": "/tmp/fdoccupied-reload-1a91416",
+  "command": "./gradlew runClient --offline --no-daemon -PfdPackaged -PfdValidation -PfdIntegrations=styles,engineered -PfdWorld=FD401OccupiedReloadStrict1a91416 -PfdCarrierFixture -PfdCarrierFixtureRiderOnly -PfdCarrierFixtureRider -PfdCarrierFixtureMotion -PfdCarrierFixtureRiderFamily=ARROW -PfdFontValidation -PfdFontValidationReload -PfdOccupiedReloadValidation -PfdOccupiedReloadValidationExit -PfdOccupiedReloadValidationStages=100",
+  "profile": "packaged development client with optional Styles 1.2.0 and Engineered 1.1.1 runtime dependencies",
+  "dependencies": {
+    "create-coasters-simulated-1601871-8655742.jar": "f80b4c3cdf9fa6188804967147761b0373e150a6eadbdc53626e5ac9700b2049",
+    "coasters-simulated-track-styles-1642719-9020601.jar": "42535a83307f6898b33c13ca201533bb9e337418fd7c73039c867fc80bfbcb38",
+    "coasters-engineered-1643631-8863559.jar": "eea19ed769ed573727b4e15184c229f66aff85f20667464650724e1b2d657f5d"
+  },
+  "jar": "coasters-fourth-dimension-0.9.0-dev.27.jar",
+  "jarSha256": "bb8fb57f8babaf090c52c460739ddd6367d5f8235a90e42fb5bfe01f9a833526",
+  "preWorldLevelDatSha256": "e10b486e04b383fa57d0443d2e0a7bb508c9799eb112bc483797c079566bb390",
+  "preWorldArchiveSha256": "47a724acdb89320d9592b7544f61bf87a7fbd8db7b09f52fc3635cdf3183e80b",
+  "preWorldFileCountExcludingLock": 27,
+  "postWorldLevelDatSha256": "75043b6ca604942bfff384eff0063b40c48bd79235031c29aeadaa524f6ddab4",
+  "postWorldArchiveSha256": "d10449878e95d98e954b41ae29e3e923775c22cc3a28e18b6de7b1d1e63c565b",
+  "postWorldFileCountExcludingLock": 46,
+  "strictClientLogSha256": "941b3ff48be33d3d9c14757b80a28dfb6f863a70084700934b6137fb82ac0f47",
+  "buildResult": "BUILD SUCCESSFUL; Gradle exit 0; normal Minecraft shutdown",
+  "scope": "One fixture-created occupied Arrow Original route in the packaged combined optional profile. The strict client gate verifies same player/mount/chassis/carrier from pre-reload motion through completed reload and 20 post-reload occupied ticks with 109 global Original geometry stages and 1.846 blocks post-reload chassis displacement. It does not identify the rendered rail as the ridden route, show Styles decoration, prove operator workflow or full-turn acceptance.",
+  "capturedUtc": "2026-11-03T10:15:34.029661+00:00"
+}
