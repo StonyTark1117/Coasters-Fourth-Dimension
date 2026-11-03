@@ -9,6 +9,15 @@ FD801 and the [expansion backlog](INTEGRATION-BACKLOG.md) remain separate.
 
 ## Evidence already available
 
+- [Strict occupied-reload replay](evidence/0.9/fd401-strict-occupied-reload-1a91416/README.md)
+  runs exact source `1a91416` on an isolated precreated world. The same player,
+  mount, chassis and carrier remain identified from pre-reload motion through
+  completion, then 20 occupied ticks and 1.846 blocks of additional chassis
+  motion. It records 109 global geometry stages and zero Styles pieces, with
+  normal shutdown. [Independent verification](evidence/0.9/strict-occupied-reload-independent-review-2026-11-03.json)
+  checks tracked payloads, 73 pre/post world files, JAR identity and event order.
+  This is fixture/programmatic Original-track evidence, not route-specific
+  rendered geometry, normal operator actions, styled rides or full-turn acceptance.
 - [Historical occupied-reload fixture](evidence/0.9/fd401-occupied-reload-fixture-20261103/README.md)
   preserves its earlier uncommitted-source client JAR and raw logs. The programmatic
   reload completed before automatic fixture dispatch; the gate records 493 mounted
