@@ -60,4 +60,4 @@ The recorded lifecycle is schema 5 and the current schema-6 check is a native
 saved-data regression, not a packaged historic-world replay. This establishes
 the supported cosmetic-provider boundary only. It does not convert, retain or
 certify any third-party functional track blocks, and it does not replace the
-remaining FD903 historic-world and external-conversion acceptance work.
+remaining FD903 historical-world checks or the unsupported-conversion boundary.

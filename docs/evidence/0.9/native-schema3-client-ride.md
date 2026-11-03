@@ -71,9 +71,10 @@ captured carriers, and no saved rider seats.
 
 ## Scope
 
-This is one connected-client Arrow ride in one historical schema-3 world. It
-does not establish client rides for the migrated legacy ZacSpin or Free Spin
-cars, two-client migration, every historical save/schema, or third-party
-functional-provider conversion. The editor item, initial player placement, and
-safe landing were command-supplied. The vehicle operations themselves used the
-connected survival client.
+This is one connected-client Arrow ride in one historical schema-3 world. Later
+[Legacy and Free Spin operator cycles](native-schema3-legacy-free-spin-operator.md)
+cover their client controls and unloading without sustained route travel.
+Two-client migration, every historical save/schema, and third-party
+functional-provider conversion remain open. The editor item, initial player
+placement, and safe landing were command-supplied. The vehicle operations
+themselves used the connected survival client.
