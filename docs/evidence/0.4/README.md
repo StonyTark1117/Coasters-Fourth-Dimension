@@ -20,8 +20,12 @@ rejects and the ordinary station PAX binding regression. A separate [packaged
 Arrow survival-client checkpoint](survival-client-arrow.md) covers actual client
 crafting, anchor/track/car placement, boarding, controls, dismount and normal
 save. The [Legacy and Free Spin client checkpoint](survival-client-legacy-free-spin.md)
-extends that connected exercise to those two families. Powered travel,
-Revised, PAX and the full teaching gate remain unfinished.
+extends that connected exercise to those two families. The
+[Revised client checkpoint](survival-client-revised/acceptance.md) adds
+normal-range boarding and operator controls. The
+[PAX construction checkpoint](survival-client-pax/acceptance.md) adds four
+captured cars and a single-car winch binding. Native PAX links, powered client
+rides and the full teaching gate remain unfinished.
 
 ## Resource reload investigation
 
