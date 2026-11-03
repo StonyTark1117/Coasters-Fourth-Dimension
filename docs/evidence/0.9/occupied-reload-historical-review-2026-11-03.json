@@ -1,0 +1,44 @@
+{
+  "reviewed_at_utc": "2026-11-03T10:12:51.301940+00:00",
+  "evidence_commit": "d9a2936",
+  "artifact_directory": "docs/evidence/0.9/fd401-occupied-reload-fixture-20261103",
+  "checks": {
+    "versioned_payload_hashes": {
+      "client.txt": "e1dcdf9fb028b6be8afc3d1340faf08636ae0f1295a3837ab9984fd434c4e31f",
+      "gametest.txt": "24e147877522a21c44e0eb68d1bb04af31dec1bea68fe966342a195b03117cc1",
+      "coasters-fourth-dimension-0.9.0-dev.27.jar": "8144d069cdbcff3d821fd5c8d5de39c07bcae37a134bb98fb38ab9bf29f9d6f8"
+    },
+    "tracked_payloads": true,
+    "jar_crc_valid": true,
+    "historical_gate_class_sha256": "bd9a6f989d2ee8dbb2d30cb41f7ce84e89f50de0621d68b5a5e880a828a60ef8"
+  },
+  "observed_client": {
+    "reload_completed": "03Nov2026 03:01:37.614",
+    "fixture_dispatch": "03Nov2026 03:02:03.962",
+    "gate_pass": "03Nov2026 03:02:04.619",
+    "occupied_ticks": 493,
+    "geometry_stages": 890,
+    "chassis_displacement_blocks": 1.0819767162269842,
+    "decoration_pieces": 0,
+    "normal_stop_and_all_dimensions_saved": true
+  },
+  "observed_gametest": {
+    "required_tests_passed": 50,
+    "normal_server_stop": true,
+    "runtime_average_ns": {
+      "controlled": 50931,
+      "shuttle": 106060,
+      "free_spin": 115325
+    }
+  },
+  "limitations": [
+    "Source snapshot was not retained. The owner records an uncommitted historical tree; runtime evidence cannot be transferred to1a91416 or another current source.",
+    "The retained gate class contains its historical armed-generation/completedReloads message and lacks preReloadTicks/readyForReload. This supports historical identity, not a complete source-to-binary proof.",
+    "Client reload completed before fixture dispatch. Mounted ticks and global geometry stages include stopped time, not493ticks of moving ride. Only1.082blocks of measured chassis motion are established.",
+    "Zero decoration pieces means installed combined dependencies did not establish visible Styles geometry.",
+    "Programmatic reload, fixture-created/mounted/dispatched car and automatic exit are disclosed. No normal operator GUI/capture/unload or physical FE workflow is proven.",
+    "GameTests are a separate combined-profile development run. One50-test log is not the four-profile candidate matrix; its earlier runtime is not identified by the retained later packaged-client JAR.",
+    "Process exit0 and exact launch flags are owner-recorded; raw logs independently support normal shutdown but do not encode shell exit status."
+  ],
+  "disposition": "Retain as bounded historical evidence; do not closeFD401,FD402,FD904 or0.9."
+}
