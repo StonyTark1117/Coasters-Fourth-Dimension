@@ -14,6 +14,11 @@ for all fifteen items, native schematic validation, packaged playback/replay,
 resource reload and rendered review. All eight exact-head dev.10 CI jobs passed;
 see the [push](ponder-ci-push.json) and [PR](ponder-ci-pr.json) records.
 
+The [current-artifact teaching review](teaching-current/acceptance.md) records
+all fifteen rendered tooltips, all nine scenes and their caption sequences,
+53 packaged playback/replay registrations and normal client shutdown on the
+same JAR as the survival-built PAX cycle.
+
 The [dev.11 survival checkpoint](survival-acceptance.md) covers native result-slot
 crafting and world right-click placement for all five families, twenty wrong-family
 rejects and the ordinary station PAX binding regression. A separate [packaged
@@ -32,8 +37,7 @@ Chain coupling, occupied powered travel and unloading on a separately
 are also recorded. A later [survival-built PAX cycle](survival-client-pax/survival-cycle/acceptance.md)
 adds normal player Chain coupling, occupied powered travel, recatch, unloading
 and reopen on a normally crafted route, cars and winch with a disclosed upstream
-motor fixture. The other families' powered client rides and the full teaching
-gate remain unfinished.
+motor fixture. The other families' powered client rides remain unfinished.
 
 ## Resource reload investigation
 

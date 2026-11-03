@@ -14,14 +14,16 @@ profile; optional Track Styles and Engineered behavior has separate gates.
 | Legacy | [Craft, place, board, control, unload](evidence/0.4/survival-client-legacy-free-spin.md) on a short unpowered section | Longer powered route without the recorded endpoint fault; free-rotation exercise |
 | Free Spin | [Craft, place, board, control, unload](evidence/0.4/survival-client-legacy-free-spin.md) on a short unpowered section | Powered magnetic-span and independent-carrier exercise |
 | Revised | [Connected survival craft, place, board, control, unload, and reopen](evidence/0.4/survival-client-revised/acceptance.md) on a short unpowered section | Occupied powered lower-hinge exercise and teaching review |
-| PAX | [Connected survival craft, route and four-car placement](evidence/0.4/survival-client-pax/acceptance.md); [player-linked occupied cycle, unload and reopen on the survival-built train](evidence/0.4/survival-client-pax/survival-cycle/acceptance.md); [shipped-demo cycle](evidence/0.4/survival-client-pax/demo/acceptance.md) | Full teaching review; the powered run used a disclosed upstream motor fixture |
+| PAX | [Connected survival craft, route and four-car placement](evidence/0.4/survival-client-pax/acceptance.md); [player-linked occupied cycle, unload and reopen on the survival-built train](evidence/0.4/survival-client-pax/survival-cycle/acceptance.md); [shipped-demo cycle](evidence/0.4/survival-client-pax/demo/acceptance.md) | The powered run used a disclosed upstream motor fixture |
 
 The [native survival checkpoint](evidence/0.4/survival-acceptance.md) already
 checks all fifteen crafting outputs, five matching placements and twenty
 wrong-family rejects. The [teaching checkpoint](evidence/0.4/teaching-acceptance.md)
 and [Ponder checkpoint](evidence/0.4/ponder-acceptance.md) cover item guidance,
-recipe discovery and all 53 scene registrations. These checks do not replace
-connected-client building and operation.
+recipe discovery and all 53 scene registrations. The [current-artifact rendered
+review](evidence/0.4/teaching-current/acceptance.md) checks all fifteen tooltips
+and the captions and controls of all nine unique scenes. These checks do not
+replace connected-client building and operation.
 
 ## Connected-client sequence
 
@@ -68,7 +70,8 @@ connected-client building and operation.
 | Revised | Occupied independent lower-hinge carriers on Revised track | Distinction from Free Spin and the need for separate clearance |
 | PAX | Four matching cars linked with Minecraft Chains, bound to a powered winch; occupied lift, release, outbound/return and final catch | Shuttle route and spike requirements, platform operator, boarding readiness, and final capture |
 
-For each row, open that family's item guidance and Ponder lessons through normal
+The current-artifact teaching review above completes the common tooltip and
+Ponder review. For each row, open that family's item guidance and Ponder lessons through normal
 inventory controls, then follow the corresponding
 [family walkthrough](BUILDING.md#family-walkthroughs). Review all fifteen item
 tooltips and all nine unique scenes on the candidate artifact, checking readable

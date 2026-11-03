@@ -379,7 +379,7 @@ Test couplers, strength, offsets, braking, retained carriers, and loaded towing 
 
 ### FD403 Complete crafting and teaching content
 
-**Status: in progress.** Dev.9 adds localized guidance for all fifteen craftable items, vanilla recipe discovery and a five-family building/operating guide. A native check exercises all fifteen crafting outputs, missing-ingredient rejects and inventory-triggered recipe rewards. Dev.10 adds nine original Ponder scenes with 53 registrations across all fifteen items, client-only registration, generated translations/schematics and native resource checks. Packaged standalone playback/replay and a completed resource reload cover every registration; the rendered review uses normal inventory shortcuts. Dev.11 adds survival crafting through the native result slot and world right-click dispatch for all five track/car families, twenty wrong-family rejects, magnetic equipment and invalid PAX setups. It fixes ordinary stations accepting PAX and clears old invalid bindings on use; standalone and combined native checks pass. Complete survival building/operating exercises through a real client and the full teaching gate remain pending. See [survival checkpoint](docs/evidence/0.4/survival-acceptance.md), [building guide](docs/BUILDING.md), [teaching checkpoint](docs/evidence/0.4/teaching-acceptance.md) and [Ponder checkpoint](docs/evidence/0.4/ponder-acceptance.md).
+**Status: in progress.** Dev.9 adds localized guidance for all fifteen craftable items, vanilla recipe discovery and a five-family building/operating guide. A native check exercises all fifteen crafting outputs, missing-ingredient rejects and inventory-triggered recipe rewards. Dev.10 adds nine original Ponder scenes with 53 registrations across all fifteen items, client-only registration, generated translations/schematics and native resource checks. Packaged standalone playback/replay and a completed resource reload cover every registration; the rendered review uses normal inventory shortcuts. Dev.11 adds survival crafting through the native result slot and world right-click dispatch for all five track/car families, twenty wrong-family rejects, magnetic equipment and invalid PAX setups. It fixes ordinary stations accepting PAX and clears old invalid bindings on use; standalone and combined native checks pass. Complete survival building/operating exercises through a real client remain pending. See [survival checkpoint](docs/evidence/0.4/survival-acceptance.md), [building guide](docs/BUILDING.md), [teaching checkpoint](docs/evidence/0.4/teaching-acceptance.md) and [Ponder checkpoint](docs/evidence/0.4/ponder-acceptance.md).
 
 Connected survival-client checkpoints additionally craft, place, board, control,
 unload and save Arrow, Legacy and Free Spin on short unpowered sections. They do
@@ -390,8 +390,8 @@ default-range boarding, operator dispatch/capture/unloading, and a clean
 save/reopen cycle; powered lower-hinge travel remains open. A later
 [PAX construction checkpoint](docs/evidence/0.4/survival-client-pax/acceptance.md)
 records survival crafting, three valid connected route rails, four captured
-cars, and a bound single-car winch. The native chain links and occupied powered
-four-car cycle on that survival-built train remain open. A separate
+cars, and a bound single-car winch. At that checkpoint, the native chain links
+and occupied powered four-car cycle on the survival-built train were open. A separate
 [shipped PAX demo checkpoint](docs/evidence/0.4/survival-client-pax/demo/acceptance.md)
 now records three original native links, normal mounted restraint/dispatch
 controls, one complete powered four-car cycle, final capture and unloading in
@@ -404,11 +404,13 @@ cars and winch were command-authored. A later
 now records normal crafting, five player-connected rails, four player-placed
 cars, three native Chain links, winch binding, occupied powered travel,
 recatch, unloading and cold reopen with a disclosed upstream motor fixture.
-The other families' complete powered client exercises and the full teaching
-review remain open. The
+The [current-artifact teaching review](docs/evidence/0.4/teaching-current/acceptance.md)
+checks all fifteen rendered tooltips and all nine Ponder scenes and their
+captions; packaged playback/replay passes all 53 registrations. The other
+families' complete powered client exercises remain open. The
 [FD403 connected-client acceptance procedure](docs/FD403-ACCEPTANCE.md) lists
-the remaining family and teaching checks without treating the earlier samples
-as release acceptance.
+the remaining family checks without treating the earlier samples as release
+acceptance.
 
 **Depends on:** FD305. **Design:** D08.
 
