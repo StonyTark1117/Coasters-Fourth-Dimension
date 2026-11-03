@@ -79,6 +79,20 @@ that its physical carriage and ordered native consist complete a second cycle.
 It is a server-side persistence boundary, with wider client and lifecycle
 coverage still open under FD902.
 
+The active-PAX reload regression in `a1aeb1a` converts a persisted active winch
+phase to the explicit faulted, stopped, restrained and captured state on the
+first runtime tick, including a second save/reload before that tick. It verifies
+all four cars and the durable-consumption marker; all 48 native GameTests pass.
+It does not measure moving stopping distance, a real server-process restart, or
+rider reconnect.
+
+The [PAX normal-restoration blocker](create-telemetry/311078e-pax-normal-restore-blocker/README.md)
+retains an occupied stopped train through normal track mining and restoration,
+but the normal placement optimizer produces different curve axes/normals from
+the authored sample. Repair correctly rejects that geometry. This is a bounded
+failure record, not a post-repair lifecycle result or a reason to weaken the
+profile-fingerprint guard.
+
 [Dimension-scoped snapshot contract](dimension-snapshot-contract.md) prevents
 a queued old-dimension snapshot from replacing the newly active client level.
 It advances the snapshot lifecycle boundary. The separate live two-client
