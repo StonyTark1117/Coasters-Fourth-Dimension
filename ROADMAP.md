@@ -431,6 +431,15 @@ pre-boundary capture, unloading and same-identity cold reopen. It also fixes
 long-section editor reach and duplicate live rider-seat assignment found in
 negative retries. The split ride does not isolate damper strength from capture;
 full family teaching and a complete Arrow circuit remain open. A later
+[shipped Free Spin demo damper pass](docs/evidence/0.4/survival-client-free-spin-powered/damper-demo/acceptance.md)
+samples the same four released carriers before and after the DAMP span: the
+occupied carrier records 127 actual impulses, negative angular-energy change
+and positive instantaneous speed reduction before capture. It then captures,
+unloads and cold reopens the same car. The command-authored example logged
+three transient Sable sub-level packet errors at creation, and the second
+client was terminated only after save and return to title to release memory.
+The full player-built shaped route and family teaching walkthrough remain
+open. A later
 [Revised powered demo pass](docs/evidence/0.4/survival-client-revised/powered-demo/acceptance.md)
 records an occupied powered circuit, distinct lower-hinge carrier motion,
 capture, unloading and same-identity cold reopen on the command-authored shipped

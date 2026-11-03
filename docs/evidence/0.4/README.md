@@ -51,6 +51,12 @@ were command-authored; player-built shaped operation remains open.
 The later [bounded powered Free Spin pass](survival-client-free-spin-powered/acceptance.md)
 records installed inducer/damper spans, independent occupied carrier motion,
 capture, unloading and reopen; it does not isolate damper strength from capture.
+The [shipped Free Spin damper pass](survival-client-free-spin-powered/damper-demo/acceptance.md)
+records actual impulses and energy reduction while all four carriers remain
+released, then capture, unload and cold reopen. This command-authored example
+logged three Sable sub-level packet errors at creation; its second client was
+terminated after saving and returning to title to release memory. A complete
+player-built shaped route and family walkthrough remain open.
 The [Revised powered demo pass](survival-client-revised/powered-demo/acceptance.md)
 records occupied circuit travel, independent lower-hinge response, capture,
 unloading and reopen on a command-authored shipped layout. A survival-built

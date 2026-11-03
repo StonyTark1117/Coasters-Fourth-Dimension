@@ -1,0 +1,3877 @@
+{
+  "data": {
+    "schema": 6,
+    "rails": [
+      {
+        "original_curve": {
+          "Starts": [
+            {
+              "V": [
+                0.5,
+                0.75,
+                0.5
+              ]
+            },
+            {
+              "V": [
+                0.5,
+                0.75,
+                12.5
+              ]
+            }
+          ],
+          "Girder": 0,
+          "Normals": [
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          ],
+          "Primary": 1,
+          "Positions": [
+            {
+              "Pos": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "Pos": [
+                0,
+                0,
+                12
+              ]
+            }
+          ],
+          "Axes": [
+            {
+              "V": [
+                0.0,
+                0.0,
+                1.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                0.0,
+                -1.0
+              ]
+            }
+          ],
+          "Material": "simulatedcoasters:coaster_track"
+        },
+        "magnets": [],
+        "profile": [
+          {
+            "distance": 0.0,
+            "slope": 0.0,
+            "angle": 0.0
+          },
+          {
+            "distance": 12.0,
+            "slope": 0.0,
+            "angle": 0.0
+          }
+        ],
+        "geometry_hash": 406369649350347713,
+        "revision": 0,
+        "valid": 1,
+        "appearance": {
+          "tint": -1,
+          "id": "fourthdimension:original"
+        },
+        "provider": "fourthdimension:original",
+        "variant": "arrow_four_rail_v1",
+        "from": 7696581451716,
+        "to": 7696581500868,
+        "id": [
+          -1212307627,
+          -1870706825,
+          -1312257867,
+          1180983212
+        ],
+        "family": "arrow_controlled"
+      },
+      {
+        "original_curve": {
+          "Starts": [
+            {
+              "V": [
+                0.5,
+                0.75,
+                0.5
+              ]
+            },
+            {
+              "V": [
+                12.5,
+                0.75,
+                0.5
+              ]
+            }
+          ],
+          "Girder": 0,
+          "Normals": [
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          ],
+          "Primary": 1,
+          "Positions": [
+            {
+              "Pos": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "Pos": [
+                12,
+                0,
+                0
+              ]
+            }
+          ],
+          "Axes": [
+            {
+              "V": [
+                1.0,
+                0.0,
+                0.0
+              ]
+            },
+            {
+              "V": [
+                -1.0,
+                0.0,
+                0.0
+              ]
+            }
+          ],
+          "Material": "simulatedcoasters:coaster_track"
+        },
+        "magnets": [],
+        "profile": [
+          {
+            "distance": 0.0,
+            "slope": 0.0,
+            "angle": 0.0
+          },
+          {
+            "distance": 12.0,
+            "slope": 0.0,
+            "angle": 0.0
+          }
+        ],
+        "geometry_hash": -921662300352246911,
+        "revision": 0,
+        "valid": 1,
+        "appearance": {
+          "tint": -1,
+          "id": "fourthdimension:original"
+        },
+        "provider": "fourthdimension:original",
+        "variant": "zacspin_legacy_v1",
+        "from": 27487791116228,
+        "to": 30786325999556,
+        "id": [
+          590403442,
+          -1766309769,
+          -1155233181,
+          -900001608
+        ],
+        "family": "zacspin_legacy"
+      },
+      {
+        "original_curve": {
+          "Starts": [
+            {
+              "V": [
+                0.5,
+                0.5,
+                0.25
+              ]
+            },
+            {
+              "V": [
+                12.5,
+                0.5,
+                0.25
+              ]
+            }
+          ],
+          "Girder": 0,
+          "Normals": [
+            {
+              "V": [
+                0.0,
+                0.0,
+                -1.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                0.0,
+                -1.0
+              ]
+            }
+          ],
+          "Primary": 1,
+          "Positions": [
+            {
+              "Pos": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "Pos": [
+                12,
+                0,
+                0
+              ]
+            }
+          ],
+          "Axes": [
+            {
+              "V": [
+                1.0,
+                0.0,
+                0.0
+              ]
+            },
+            {
+              "V": [
+                -1.0,
+                0.0,
+                0.0
+              ]
+            }
+          ],
+          "Material": "simulatedcoasters:coaster_track"
+        },
+        "magnets": [],
+        "profile": [
+          {
+            "distance": 0.0,
+            "slope": 0.0,
+            "angle": 0.0
+          },
+          {
+            "distance": 12.0,
+            "slope": 0.0,
+            "angle": 0.0
+          }
+        ],
+        "geometry_hash": 2706239315387683985,
+        "revision": 0,
+        "valid": 1,
+        "appearance": {
+          "tint": -1,
+          "id": "fourthdimension:original"
+        },
+        "provider": "fourthdimension:original",
+        "variant": "sns_magnetic_v1",
+        "from": 35734128320452,
+        "to": 39032663203780,
+        "id": [
+          -254717429,
+          -442611817,
+          -2096933012,
+          -1601561340
+        ],
+        "family": "sns_free_spin"
+      },
+      {
+        "original_curve": {
+          "Starts": [
+            {
+              "V": [
+                0.5,
+                0.75,
+                0.5
+              ]
+            },
+            {
+              "V": [
+                12.5,
+                0.75,
+                0.5
+              ]
+            }
+          ],
+          "Girder": 0,
+          "Normals": [
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          ],
+          "Primary": 1,
+          "Positions": [
+            {
+              "Pos": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "Pos": [
+                12,
+                0,
+                0
+              ]
+            }
+          ],
+          "Axes": [
+            {
+              "V": [
+                1.0,
+                0.0,
+                0.0
+              ]
+            },
+            {
+              "V": [
+                -1.0,
+                0.0,
+                0.0
+              ]
+            }
+          ],
+          "Material": "simulatedcoasters:coaster_track"
+        },
+        "magnets": [],
+        "profile": [
+          {
+            "distance": 0.0,
+            "slope": 0.0,
+            "angle": 0.0
+          },
+          {
+            "distance": 12.0,
+            "slope": 0.0,
+            "angle": 0.0
+          }
+        ],
+        "geometry_hash": -8458786962298554815,
+        "revision": 0,
+        "valid": 1,
+        "appearance": {
+          "tint": -1,
+          "id": "fourthdimension:original"
+        },
+        "provider": "fourthdimension:original",
+        "variant": "sns_magnetic_v1",
+        "from": 43980465524683,
+        "to": 47279000408011,
+        "id": [
+          -652080249,
+          -1991360293,
+          -1388389058,
+          -1971053294
+        ],
+        "family": "sns_free_spin"
+      },
+      {
+        "original_curve": {
+          "Starts": [
+            {
+              "V": [
+                0.5,
+                0.75,
+                0.5
+              ]
+            },
+            {
+              "V": [
+                12.5,
+                0.75,
+                0.5
+              ]
+            }
+          ],
+          "Girder": 0,
+          "Normals": [
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          ],
+          "Primary": 1,
+          "Positions": [
+            {
+              "Pos": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "Pos": [
+                12,
+                0,
+                0
+              ]
+            }
+          ],
+          "Axes": [
+            {
+              "V": [
+                1.0,
+                0.0,
+                0.0
+              ]
+            },
+            {
+              "V": [
+                -1.0,
+                0.0,
+                0.0
+              ]
+            }
+          ],
+          "Material": "simulatedcoasters:coaster_track"
+        },
+        "magnets": [],
+        "profile": [
+          {
+            "distance": 0.0,
+            "slope": 0.0,
+            "angle": 0.0
+          },
+          {
+            "distance": 12.0,
+            "slope": 0.0,
+            "angle": 0.0
+          }
+        ],
+        "geometry_hash": -7621987407288633535,
+        "revision": 0,
+        "valid": 1,
+        "appearance": {
+          "tint": -1,
+          "id": "fourthdimension:original"
+        },
+        "provider": "fourthdimension:original",
+        "variant": "zacspin_revised_v1",
+        "from": 71468256833493,
+        "to": 74766791716821,
+        "id": [
+          -359402256,
+          -978761617,
+          -2090809823,
+          387269365
+        ],
+        "family": "zacspin_revised"
+      },
+      {
+        "original_curve": {
+          "Starts": [
+            {
+              "V": [
+                0.5,
+                0.75,
+                0.5
+              ]
+            },
+            {
+              "V": [
+                0.5,
+                -23.25,
+                48.5
+              ]
+            }
+          ],
+          "Girder": 0,
+          "Normals": [
+            {
+              "V": [
+                0.0,
+                0.894427190999916,
+                0.447213595499958
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                0.894427190999916,
+                0.447213595499958
+              ]
+            }
+          ],
+          "Primary": 1,
+          "Positions": [
+            {
+              "Pos": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "Pos": [
+                0,
+                -24,
+                48
+              ]
+            }
+          ],
+          "Axes": [
+            {
+              "V": [
+                0.0,
+                -0.447213595499958,
+                0.894427190999916
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                0.447213595499958,
+                -0.894427190999916
+              ]
+            }
+          ],
+          "Material": "simulatedcoasters:coaster_track"
+        },
+        "magnets": [],
+        "profile": [
+          {
+            "distance": 0.0,
+            "slope": 0.0,
+            "angle": 0.0
+          },
+          {
+            "distance": 53.665631459995176,
+            "slope": 0.0,
+            "angle": 0.0
+          }
+        ],
+        "geometry_hash": -8099645440177327391,
+        "revision": 0,
+        "valid": 1,
+        "appearance": {
+          "tint": -1,
+          "id": "fourthdimension:original"
+        },
+        "provider": "fourthdimension:original",
+        "variant": "pax_shuttle_v1",
+        "from": 109951163609069,
+        "to": 109951163805653,
+        "id": [
+          622582956,
+          -1274263817,
+          -1101726083,
+          1312280966
+        ],
+        "family": "pax_shuttle"
+      },
+      {
+        "original_curve": {
+          "Starts": [
+            {
+              "V": [
+                0.5,
+                0.6972135954999601,
+                0.7236067977499658
+              ]
+            },
+            {
+              "V": [
+                0.5,
+                0.75,
+                32.5
+              ]
+            }
+          ],
+          "Girder": 0,
+          "Normals": [
+            {
+              "V": [
+                0.0,
+                0.9765011843961087,
+                0.21551203417210166
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                0.9866213312135906,
+                -0.16302867476098312
+              ]
+            }
+          ],
+          "Primary": 1,
+          "Positions": [
+            {
+              "Pos": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "Pos": [
+                0,
+                0,
+                32
+              ]
+            }
+          ],
+          "Axes": [
+            {
+              "V": [
+                0.0,
+                -0.21551203417210169,
+                0.9765011843961087
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                -0.16302867476098312,
+                -0.9866213312135906
+              ]
+            }
+          ],
+          "Material": "simulatedcoasters:coaster_track"
+        },
+        "magnets": [],
+        "profile": [
+          {
+            "distance": 0.0,
+            "slope": 0.0,
+            "angle": 0.0
+          },
+          {
+            "distance": 31.945248839567483,
+            "slope": 0.0,
+            "angle": 0.0
+          }
+        ],
+        "geometry_hash": 8508563770035952888,
+        "revision": 2,
+        "valid": 1,
+        "appearance": {
+          "tint": -1,
+          "id": "fourthdimension:original"
+        },
+        "provider": "fourthdimension:original",
+        "variant": "pax_shuttle_v1",
+        "from": 109951163805653,
+        "to": 109951163936725,
+        "id": [
+          1056567608,
+          -1803269681,
+          -2026835046,
+          140651916
+        ],
+        "family": "pax_shuttle"
+      },
+      {
+        "original_curve": {
+          "Starts": [
+            {
+              "V": [
+                0.5,
+                0.743310665606792,
+                0.4184856626195028
+              ]
+            },
+            {
+              "V": [
+                0.5,
+                32.75,
+                48.5
+              ]
+            }
+          ],
+          "Girder": 0,
+          "Normals": [
+            {
+              "V": [
+                0.0,
+                0.9421313326345829,
+                -0.3352440186911391
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                0.716950715172996,
+                -0.6971238570103089
+              ]
+            }
+          ],
+          "Primary": 1,
+          "Positions": [
+            {
+              "Pos": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "Pos": [
+                0,
+                32,
+                48
+              ]
+            }
+          ],
+          "Axes": [
+            {
+              "V": [
+                0.0,
+                0.3352440186911391,
+                0.942131332634583
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                -0.6971238570103089,
+                -0.716950715172996
+              ]
+            }
+          ],
+          "Material": "simulatedcoasters:coaster_track"
+        },
+        "magnets": [],
+        "profile": [
+          {
+            "distance": 0.0,
+            "slope": 0.0,
+            "angle": 0.0
+          },
+          {
+            "distance": 58.176811314924585,
+            "slope": 0.0,
+            "angle": 0.0
+          }
+        ],
+        "geometry_hash": 2850447542342172659,
+        "revision": 0,
+        "valid": 1,
+        "appearance": {
+          "tint": -1,
+          "id": "fourthdimension:original"
+        },
+        "provider": "fourthdimension:original",
+        "variant": "pax_shuttle_v1",
+        "from": 109951163936725,
+        "to": 109951164133365,
+        "id": [
+          -72679546,
+          1386758817,
+          -1553088941,
+          634506063
+        ],
+        "family": "pax_shuttle"
+      },
+      {
+        "original_curve": {
+          "Starts": [
+            {
+              "V": [
+                0.5,
+                0.75,
+                0.5
+              ]
+            },
+            {
+              "V": [
+                0.5,
+                0.75,
+                50.5
+              ]
+            }
+          ],
+          "Girder": 0,
+          "Normals": [
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          ],
+          "Primary": 1,
+          "Positions": [
+            {
+              "Pos": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "Pos": [
+                0,
+                0,
+                50
+              ]
+            }
+          ],
+          "Axes": [
+            {
+              "V": [
+                0.0,
+                0.0,
+                1.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                0.0,
+                -1.0
+              ]
+            }
+          ],
+          "Material": "simulatedcoasters:coaster_track"
+        },
+        "magnets": [],
+        "profile": [
+          {
+            "distance": 0.0,
+            "slope": 0.0,
+            "angle": 0.0
+          },
+          {
+            "distance": 50.0,
+            "slope": 0.0,
+            "angle": 0.0
+          }
+        ],
+        "geometry_hash": -917429802444014975,
+        "revision": 0,
+        "valid": 1,
+        "appearance": {
+          "tint": -1,
+          "id": "fourthdimension:original"
+        },
+        "provider": "fourthdimension:original",
+        "variant": "pax_shuttle_v1",
+        "from": 233646221623241,
+        "to": 233646221828041,
+        "id": [
+          852340821,
+          -757972581,
+          -1717138711,
+          -259648074
+        ],
+        "family": "pax_shuttle"
+      },
+      {
+        "original_curve": {
+          "Starts": [
+            {
+              "V": [
+                0.5,
+                0.75,
+                0.5
+              ]
+            },
+            {
+              "V": [
+                0.5,
+                0.75,
+                25.5
+              ]
+            }
+          ],
+          "Girder": 0,
+          "Normals": [
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          ],
+          "Primary": 1,
+          "Positions": [
+            {
+              "Pos": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "Pos": [
+                0,
+                0,
+                25
+              ]
+            }
+          ],
+          "Axes": [
+            {
+              "V": [
+                0.0,
+                0.0,
+                1.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                0.0,
+                -1.0
+              ]
+            }
+          ],
+          "Material": "simulatedcoasters:coaster_track"
+        },
+        "magnets": [],
+        "profile": [
+          {
+            "distance": 0.0,
+            "slope": 0.0,
+            "angle": 0.0
+          },
+          {
+            "distance": 25.0,
+            "slope": 0.0,
+            "angle": 0.0
+          }
+        ],
+        "geometry_hash": -7698292417738486527,
+        "revision": 0,
+        "valid": 1,
+        "appearance": {
+          "tint": -1,
+          "id": "fourthdimension:original"
+        },
+        "provider": "fourthdimension:original",
+        "variant": "pax_shuttle_v1",
+        "from": 233646221520841,
+        "to": 233646221623241,
+        "id": [
+          1504158265,
+          -570930196,
+          -2057780474,
+          -818846663
+        ],
+        "family": "pax_shuttle"
+      },
+      {
+        "original_curve": {
+          "Starts": [
+            {
+              "V": [
+                0.5,
+                0.75,
+                0.5
+              ]
+            },
+            {
+              "V": [
+                0.5,
+                0.75,
+                25.5
+              ]
+            }
+          ],
+          "Girder": 0,
+          "Normals": [
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          ],
+          "Primary": 1,
+          "Positions": [
+            {
+              "Pos": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "Pos": [
+                0,
+                0,
+                25
+              ]
+            }
+          ],
+          "Axes": [
+            {
+              "V": [
+                0.0,
+                0.0,
+                1.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                0.0,
+                -1.0
+              ]
+            }
+          ],
+          "Material": "simulatedcoasters:coaster_track"
+        },
+        "magnets": [],
+        "profile": [
+          {
+            "distance": 0.0,
+            "slope": 0.0,
+            "angle": 0.0
+          },
+          {
+            "distance": 25.0,
+            "slope": 0.0,
+            "angle": 0.0
+          }
+        ],
+        "geometry_hash": 3368446319969653185,
+        "revision": 0,
+        "valid": 1,
+        "appearance": {
+          "tint": -1,
+          "id": "fourthdimension:original"
+        },
+        "provider": "fourthdimension:original",
+        "variant": "pax_shuttle_v1",
+        "from": 233646221828041,
+        "to": 233646221930441,
+        "id": [
+          1688622353,
+          333137926,
+          -1530161456,
+          1761139615
+        ],
+        "family": "pax_shuttle"
+      },
+      {
+        "original_curve": {
+          "Starts": [
+            {
+              "V": [
+                0.5,
+                0.75,
+                0.5
+              ]
+            },
+            {
+              "V": [
+                0.5,
+                -23.25,
+                50.5
+              ]
+            }
+          ],
+          "Girder": 0,
+          "Normals": [
+            {
+              "V": [
+                0.0,
+                0.7062045234288414,
+                0.708007889142941
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          ],
+          "Primary": 1,
+          "Positions": [
+            {
+              "Pos": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "Pos": [
+                0,
+                -24,
+                50
+              ]
+            }
+          ],
+          "Axes": [
+            {
+              "V": [
+                0.0,
+                -0.708007889142941,
+                0.7062045234288413
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                0.0,
+                -1.0
+              ]
+            }
+          ],
+          "Material": "simulatedcoasters:coaster_track"
+        },
+        "magnets": [],
+        "profile": [
+          {
+            "distance": 0.0,
+            "slope": 0.0,
+            "angle": 0.0
+          },
+          {
+            "distance": 56.79456212624388,
+            "slope": 0.0,
+            "angle": 0.0
+          }
+        ],
+        "geometry_hash": -4833927282130289132,
+        "revision": 0,
+        "valid": 1,
+        "appearance": {
+          "tint": -1,
+          "id": "fourthdimension:original"
+        },
+        "provider": "fourthdimension:original",
+        "variant": "pax_shuttle_v1",
+        "from": 233646221316065,
+        "to": 233646221520841,
+        "id": [
+          1680717490,
+          -1028634655,
+          -1598682443,
+          -2805007
+        ],
+        "family": "pax_shuttle"
+      },
+      {
+        "original_curve": {
+          "Starts": [
+            {
+              "V": [
+                0.5,
+                0.75,
+                0.5
+              ]
+            },
+            {
+              "V": [
+                0.5,
+                32.75,
+                50.5
+              ]
+            }
+          ],
+          "Girder": 0,
+          "Normals": [
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                0.5459087610360435,
+                -0.837844630360601
+              ]
+            }
+          ],
+          "Primary": 1,
+          "Positions": [
+            {
+              "Pos": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "Pos": [
+                0,
+                32,
+                50
+              ]
+            }
+          ],
+          "Axes": [
+            {
+              "V": [
+                0.0,
+                0.0,
+                1.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                -0.8378446303606009,
+                -0.5459087610360435
+              ]
+            }
+          ],
+          "Material": "simulatedcoasters:coaster_track"
+        },
+        "magnets": [],
+        "profile": [
+          {
+            "distance": 0.0,
+            "slope": 0.0,
+            "angle": 0.0
+          },
+          {
+            "distance": 61.6004058970324,
+            "slope": 0.0,
+            "angle": 0.0
+          }
+        ],
+        "geometry_hash": -5913080316174556096,
+        "revision": 0,
+        "valid": 1,
+        "appearance": {
+          "tint": -1,
+          "id": "fourthdimension:original"
+        },
+        "provider": "fourthdimension:original",
+        "variant": "pax_shuttle_v1",
+        "from": 233646221930441,
+        "to": 233646222135273,
+        "id": [
+          1701044570,
+          -693743698,
+          -1697286692,
+          -1588778645
+        ],
+        "family": "pax_shuttle"
+      },
+      {
+        "original_curve": {
+          "Starts": [
+            {
+              "V": [
+                0.5,
+                0.75,
+                0.5
+              ]
+            },
+            {
+              "V": [
+                0.5,
+                0.75,
+                50.5
+              ]
+            }
+          ],
+          "Girder": 0,
+          "Normals": [
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          ],
+          "Primary": 1,
+          "Positions": [
+            {
+              "Pos": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "Pos": [
+                0,
+                0,
+                50
+              ]
+            }
+          ],
+          "Axes": [
+            {
+              "V": [
+                0.0,
+                0.0,
+                1.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                0.0,
+                -1.0
+              ]
+            }
+          ],
+          "Material": "simulatedcoasters:coaster_track"
+        },
+        "magnets": [],
+        "profile": [
+          {
+            "distance": 0.0,
+            "slope": 0.0,
+            "angle": 0.0
+          },
+          {
+            "distance": 15.0,
+            "slope": 0.0,
+            "angle": 6.283185307179586
+          },
+          {
+            "distance": 50.0,
+            "slope": 0.0,
+            "angle": 6.283185307179586
+          }
+        ],
+        "geometry_hash": -5713000214731570431,
+        "revision": 1,
+        "valid": 1,
+        "appearance": {
+          "tint": -1,
+          "id": "fourthdimension:original"
+        },
+        "provider": "fourthdimension:original",
+        "variant": "arrow_four_rail_v1",
+        "from": 63221918683076,
+        "to": 63221918887876,
+        "id": [
+          904141918,
+          1560693000,
+          -1901855482,
+          809561851
+        ],
+        "family": "arrow_controlled"
+      },
+      {
+        "original_curve": {
+          "Starts": [
+            {
+              "V": [
+                0.5,
+                0.75,
+                0.5
+              ]
+            },
+            {
+              "V": [
+                0.5,
+                0.75,
+                50.5
+              ]
+            }
+          ],
+          "Girder": 0,
+          "Normals": [
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          ],
+          "Primary": 1,
+          "Positions": [
+            {
+              "Pos": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "Pos": [
+                0,
+                0,
+                50
+              ]
+            }
+          ],
+          "Axes": [
+            {
+              "V": [
+                0.0,
+                0.0,
+                1.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                0.0,
+                -1.0
+              ]
+            }
+          ],
+          "Material": "simulatedcoasters:coaster_track"
+        },
+        "magnets": [],
+        "profile": [
+          {
+            "distance": 0.0,
+            "slope": 0.0,
+            "angle": 0.0
+          },
+          {
+            "distance": 50.0,
+            "slope": 0.0,
+            "angle": 0.0
+          }
+        ],
+        "geometry_hash": 8000275131010043521,
+        "revision": 0,
+        "valid": 1,
+        "appearance": {
+          "tint": -1,
+          "id": "fourthdimension:original"
+        },
+        "provider": "fourthdimension:original",
+        "variant": "zacspin_legacy_v1",
+        "from": 71468255891396,
+        "to": 71468256096196,
+        "id": [
+          -1425558760,
+          613567674,
+          -1140324484,
+          -1216273815
+        ],
+        "family": "zacspin_legacy"
+      },
+      {
+        "original_curve": {
+          "Starts": [
+            {
+              "V": [
+                0.5,
+                0.75,
+                0.5
+              ]
+            },
+            {
+              "V": [
+                0.5,
+                0.75,
+                50.5
+              ]
+            }
+          ],
+          "Girder": 0,
+          "Normals": [
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          ],
+          "Primary": 1,
+          "Positions": [
+            {
+              "Pos": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "Pos": [
+                0,
+                0,
+                50
+              ]
+            }
+          ],
+          "Axes": [
+            {
+              "V": [
+                0.0,
+                0.0,
+                1.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                0.0,
+                -1.0
+              ]
+            }
+          ],
+          "Material": "simulatedcoasters:coaster_track"
+        },
+        "magnets": [
+          {
+            "mode": "INDUCE",
+            "falloff": 0.2,
+            "strength": 20.0,
+            "start": 28.0,
+            "end": 32.0,
+            "targets": 1,
+            "direction": 1
+          },
+          {
+            "mode": "DAMP",
+            "falloff": 0.2,
+            "strength": 20.0,
+            "start": 13.0,
+            "end": 17.0,
+            "targets": 1,
+            "direction": 1
+          }
+        ],
+        "profile": [
+          {
+            "distance": 0.0,
+            "slope": 0.0,
+            "angle": 0.0
+          },
+          {
+            "distance": 50.0,
+            "slope": 0.0,
+            "angle": 0.0
+          }
+        ],
+        "geometry_hash": -1211593858428356479,
+        "revision": 3,
+        "valid": 1,
+        "appearance": {
+          "tint": -1,
+          "id": "fourthdimension:original"
+        },
+        "provider": "fourthdimension:original",
+        "variant": "sns_magnetic_v1",
+        "from": 82463372169156,
+        "to": 82463372373956,
+        "id": [
+          -1624482524,
+          1156334910,
+          -1357699589,
+          1303318269
+        ],
+        "family": "sns_free_spin"
+      },
+      {
+        "original_curve": {
+          "Starts": [
+            {
+              "V": [
+                0.5,
+                0.75,
+                0.5
+              ]
+            },
+            {
+              "V": [
+                0.5,
+                0.75,
+                36.5
+              ]
+            }
+          ],
+          "Girder": 0,
+          "Normals": [
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          ],
+          "Primary": 1,
+          "Positions": [
+            {
+              "Pos": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "Pos": [
+                0,
+                0,
+                36
+              ]
+            }
+          ],
+          "Axes": [
+            {
+              "V": [
+                0.0,
+                0.0,
+                1.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                0.0,
+                -1.0
+              ]
+            }
+          ],
+          "Material": "simulatedcoasters:coaster_track"
+        },
+        "magnets": [],
+        "profile": [
+          {
+            "distance": 0.0,
+            "slope": 0.0,
+            "angle": 0.0
+          },
+          {
+            "distance": 36.0,
+            "slope": 0.0,
+            "angle": 0.0
+          }
+        ],
+        "geometry_hash": 3946926832238542913,
+        "revision": 0,
+        "valid": 1,
+        "appearance": {
+          "tint": -1,
+          "id": "fourthdimension:original"
+        },
+        "provider": "fourthdimension:original",
+        "variant": "sns_magnetic_v1",
+        "from": 164926745481159,
+        "to": 164926745628615,
+        "id": [
+          355356852,
+          2095664740,
+          -1654128722,
+          1355223340
+        ],
+        "family": "sns_free_spin"
+      },
+      {
+        "original_curve": {
+          "Starts": [
+            {
+              "V": [
+                0.5,
+                0.75,
+                0.5
+              ]
+            },
+            {
+              "V": [
+                8.5,
+                6.75,
+                8.5
+              ]
+            }
+          ],
+          "Girder": 0,
+          "Normals": [
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          ],
+          "Primary": 1,
+          "Positions": [
+            {
+              "Pos": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "Pos": [
+                8,
+                6,
+                8
+              ]
+            }
+          ],
+          "Axes": [
+            {
+              "V": [
+                0.0,
+                0.0,
+                1.0
+              ]
+            },
+            {
+              "V": [
+                -1.0,
+                0.0,
+                0.0
+              ]
+            }
+          ],
+          "Material": "simulatedcoasters:coaster_track"
+        },
+        "magnets": [],
+        "profile": [
+          {
+            "distance": 0.0,
+            "slope": 0.0,
+            "angle": 0.0
+          },
+          {
+            "distance": 14.165166866741968,
+            "slope": 0.0,
+            "angle": 0.0
+          }
+        ],
+        "geometry_hash": 6031874013324627901,
+        "revision": 0,
+        "valid": 1,
+        "appearance": {
+          "tint": -1,
+          "id": "fourthdimension:original"
+        },
+        "provider": "fourthdimension:original",
+        "variant": "sns_magnetic_v1",
+        "from": 164926745628615,
+        "to": 167125768916941,
+        "id": [
+          1646431417,
+          1613316751,
+          -1413348442,
+          -1255695404
+        ],
+        "family": "sns_free_spin"
+      },
+      {
+        "original_curve": {
+          "Starts": [
+            {
+              "V": [
+                0.5,
+                0.75,
+                0.5
+              ]
+            },
+            {
+              "V": [
+                16.5,
+                0.75,
+                0.5
+              ]
+            }
+          ],
+          "Girder": 0,
+          "Normals": [
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          ],
+          "Primary": 1,
+          "Positions": [
+            {
+              "Pos": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "Pos": [
+                16,
+                0,
+                0
+              ]
+            }
+          ],
+          "Axes": [
+            {
+              "V": [
+                1.0,
+                0.0,
+                0.0
+              ]
+            },
+            {
+              "V": [
+                -1.0,
+                0.0,
+                0.0
+              ]
+            }
+          ],
+          "Material": "simulatedcoasters:coaster_track"
+        },
+        "magnets": [],
+        "profile": [
+          {
+            "distance": 0.0,
+            "slope": 0.0,
+            "angle": 0.0
+          },
+          {
+            "distance": 16.0,
+            "slope": 0.0,
+            "angle": 0.0
+          }
+        ],
+        "geometry_hash": 8207185873515733825,
+        "revision": 0,
+        "valid": 1,
+        "appearance": {
+          "tint": -1,
+          "id": "fourthdimension:original"
+        },
+        "provider": "fourthdimension:original",
+        "variant": "sns_magnetic_v1",
+        "from": 167125768916941,
+        "to": 171523815428045,
+        "id": [
+          1785219525,
+          -1314240653,
+          -1980082708,
+          1011233533
+        ],
+        "family": "sns_free_spin"
+      },
+      {
+        "original_curve": {
+          "Starts": [
+            {
+              "V": [
+                0.5,
+                0.75,
+                0.5
+              ]
+            },
+            {
+              "V": [
+                8.5,
+                -5.25,
+                -7.5
+              ]
+            }
+          ],
+          "Girder": 0,
+          "Normals": [
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          ],
+          "Primary": 1,
+          "Positions": [
+            {
+              "Pos": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "Pos": [
+                8,
+                -6,
+                -8
+              ]
+            }
+          ],
+          "Axes": [
+            {
+              "V": [
+                1.0,
+                0.0,
+                0.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                0.0,
+                1.0
+              ]
+            }
+          ],
+          "Material": "simulatedcoasters:coaster_track"
+        },
+        "magnets": [],
+        "profile": [
+          {
+            "distance": 0.0,
+            "slope": 0.0,
+            "angle": 0.0
+          },
+          {
+            "distance": 14.165164910898149,
+            "slope": 0.0,
+            "angle": 0.0
+          }
+        ],
+        "geometry_hash": -4086074775281391933,
+        "revision": 0,
+        "valid": 1,
+        "appearance": {
+          "tint": -1,
+          "id": "fourthdimension:original"
+        },
+        "provider": "fourthdimension:original",
+        "variant": "sns_magnetic_v1",
+        "from": 171523815428045,
+        "to": 173722838650823,
+        "id": [
+          -812813563,
+          678842262,
+          -1816012070,
+          -1783029595
+        ],
+        "family": "sns_free_spin"
+      },
+      {
+        "original_curve": {
+          "Starts": [
+            {
+              "V": [
+                0.5,
+                0.75,
+                0.5
+              ]
+            },
+            {
+              "V": [
+                0.5,
+                0.75,
+                -35.5
+              ]
+            }
+          ],
+          "Girder": 0,
+          "Normals": [
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          ],
+          "Primary": 1,
+          "Positions": [
+            {
+              "Pos": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "Pos": [
+                0,
+                0,
+                -36
+              ]
+            }
+          ],
+          "Axes": [
+            {
+              "V": [
+                0.0,
+                0.0,
+                -1.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                0.0,
+                1.0
+              ]
+            }
+          ],
+          "Material": "simulatedcoasters:coaster_track"
+        },
+        "magnets": [
+          {
+            "mode": "INDUCE",
+            "falloff": 0.2,
+            "strength": 4.0,
+            "start": 3.0,
+            "end": 9.0,
+            "targets": 1,
+            "direction": 1
+          },
+          {
+            "mode": "INDUCE",
+            "falloff": 0.2,
+            "strength": 4.0,
+            "start": 12.0,
+            "end": 18.0,
+            "targets": 8,
+            "direction": -1
+          },
+          {
+            "mode": "DAMP",
+            "falloff": 0.2,
+            "strength": 5.0,
+            "start": 24.0,
+            "end": 32.0,
+            "targets": 15,
+            "direction": 1
+          }
+        ],
+        "profile": [
+          {
+            "distance": 0.0,
+            "slope": 0.0,
+            "angle": 0.0
+          },
+          {
+            "distance": 36.0,
+            "slope": 0.0,
+            "angle": 0.0
+          }
+        ],
+        "geometry_hash": -5207661008630646207,
+        "revision": 1,
+        "valid": 1,
+        "appearance": {
+          "tint": -1,
+          "id": "fourthdimension:original"
+        },
+        "provider": "fourthdimension:original",
+        "variant": "sns_magnetic_v1",
+        "from": 173722838650823,
+        "to": 173722838503367,
+        "id": [
+          -396703774,
+          2024228344,
+          -1992975045,
+          -1976709085
+        ],
+        "family": "sns_free_spin"
+      },
+      {
+        "original_curve": {
+          "Starts": [
+            {
+              "V": [
+                0.5,
+                0.75,
+                0.5
+              ]
+            },
+            {
+              "V": [
+                -7.5,
+                0.75,
+                -7.5
+              ]
+            }
+          ],
+          "Girder": 0,
+          "Normals": [
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          ],
+          "Primary": 1,
+          "Positions": [
+            {
+              "Pos": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "Pos": [
+                -8,
+                0,
+                -8
+              ]
+            }
+          ],
+          "Axes": [
+            {
+              "V": [
+                0.0,
+                0.0,
+                -1.0
+              ]
+            },
+            {
+              "V": [
+                1.0,
+                0.0,
+                0.0
+              ]
+            }
+          ],
+          "Material": "simulatedcoasters:coaster_track"
+        },
+        "magnets": [],
+        "profile": [
+          {
+            "distance": 0.0,
+            "slope": 0.0,
+            "angle": 0.0
+          },
+          {
+            "distance": 12.568132528583508,
+            "slope": 0.0,
+            "angle": 0.0
+          }
+        ],
+        "geometry_hash": 1195204376914448549,
+        "revision": 0,
+        "valid": 1,
+        "appearance": {
+          "tint": -1,
+          "id": "fourthdimension:original"
+        },
+        "provider": "fourthdimension:original",
+        "variant": "sns_magnetic_v1",
+        "from": 173722838503367,
+        "to": 171523815215047,
+        "id": [
+          907499689,
+          633949408,
+          -1173921684,
+          -467007464
+        ],
+        "family": "sns_free_spin"
+      },
+      {
+        "original_curve": {
+          "Starts": [
+            {
+              "V": [
+                0.5,
+                0.75,
+                0.5
+              ]
+            },
+            {
+              "V": [
+                -15.5,
+                0.75,
+                0.5
+              ]
+            }
+          ],
+          "Girder": 0,
+          "Normals": [
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          ],
+          "Primary": 1,
+          "Positions": [
+            {
+              "Pos": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "Pos": [
+                -16,
+                0,
+                0
+              ]
+            }
+          ],
+          "Axes": [
+            {
+              "V": [
+                -1.0,
+                0.0,
+                0.0
+              ]
+            },
+            {
+              "V": [
+                1.0,
+                0.0,
+                0.0
+              ]
+            }
+          ],
+          "Material": "simulatedcoasters:coaster_track"
+        },
+        "magnets": [],
+        "profile": [
+          {
+            "distance": 0.0,
+            "slope": 0.0,
+            "angle": 0.0
+          },
+          {
+            "distance": 16.0,
+            "slope": 0.0,
+            "angle": 0.0
+          }
+        ],
+        "geometry_hash": 2922645400302288321,
+        "revision": 0,
+        "valid": 1,
+        "appearance": {
+          "tint": -1,
+          "id": "fourthdimension:original"
+        },
+        "provider": "fourthdimension:original",
+        "variant": "sns_magnetic_v1",
+        "from": 171523815215047,
+        "to": 167125768703943,
+        "id": [
+          -1884171963,
+          314394695,
+          -2096929341,
+          1866232202
+        ],
+        "family": "sns_free_spin"
+      },
+      {
+        "original_curve": {
+          "Starts": [
+            {
+              "V": [
+                0.5,
+                0.75,
+                0.5
+              ]
+            },
+            {
+              "V": [
+                -7.5,
+                0.75,
+                8.5
+              ]
+            }
+          ],
+          "Girder": 0,
+          "Normals": [
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          ],
+          "Primary": 1,
+          "Positions": [
+            {
+              "Pos": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "Pos": [
+                -8,
+                0,
+                8
+              ]
+            }
+          ],
+          "Axes": [
+            {
+              "V": [
+                -1.0,
+                0.0,
+                0.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                0.0,
+                -1.0
+              ]
+            }
+          ],
+          "Material": "simulatedcoasters:coaster_track"
+        },
+        "magnets": [],
+        "profile": [
+          {
+            "distance": 0.0,
+            "slope": 0.0,
+            "angle": 0.0
+          },
+          {
+            "distance": 12.568132291385263,
+            "slope": 0.0,
+            "angle": 0.0
+          }
+        ],
+        "geometry_hash": -8690077907348594623,
+        "revision": 0,
+        "valid": 1,
+        "appearance": {
+          "tint": -1,
+          "id": "fourthdimension:original"
+        },
+        "provider": "fourthdimension:original",
+        "variant": "sns_magnetic_v1",
+        "from": 167125768703943,
+        "to": 164926745481159,
+        "id": [
+          -1890634565,
+          -1033878865,
+          -1248089826,
+          1635655110
+        ],
+        "family": "sns_free_spin"
+      }
+    ],
+    "vehicles": [
+      {
+        "alignment_required": 0,
+        "fault": "",
+        "boundTo": 7696581500868,
+        "carriers": [
+          {
+            "side": -3.0,
+            "rider_seats": [],
+            "pivot_height": 2.0,
+            "angle": -0.00037977747040137284,
+            "capture": 1,
+            "body": [
+              1758917933,
+              862734325,
+              -1785055471,
+              -642214221
+            ],
+            "longitudinal": 0.0,
+            "child_pivot_offset": 0.0,
+            "seats": [
+              4095,
+              -274877902849
+            ],
+            "ballast": 0.0,
+            "omega": 0.002067921221072679,
+            "occupants": []
+          },
+          {
+            "side": 3.0,
+            "rider_seats": [],
+            "pivot_height": 2.0,
+            "angle": -0.00042625436386972985,
+            "capture": 1,
+            "body": [
+              -822647109,
+              -781824133,
+              -1792499352,
+              -1934764373
+            ],
+            "longitudinal": 0.0,
+            "child_pivot_offset": 0.0,
+            "seats": [
+              4095,
+              274877911039
+            ],
+            "ballast": 0.0,
+            "omega": 0.002139462409638167,
+            "occupants": []
+          }
+        ],
+        "chassis": [
+          -330580447,
+          -724939718,
+          -1715811355,
+          -2041023700
+        ],
+        "damping": 5.0,
+        "boundFrom": 7696581451716,
+        "ballast": 0.0,
+        "revision": 4,
+        "boarding_ready": 1,
+        "stopping": 1,
+        "variant": "arrow_four_rail_v1",
+        "restraints": 0,
+        "family": "arrow_controlled",
+        "maintenance": 0
+      },
+      {
+        "alignment_required": 0,
+        "fault": "End of compatible track; capture and inspect the route",
+        "boundTo": 30786325999556,
+        "carriers": [
+          {
+            "side": -3.0,
+            "rider_seats": [],
+            "pivot_height": 2.0,
+            "angle": -0.00016534492781806082,
+            "capture": 1,
+            "body": [
+              175901277,
+              1417890328,
+              -1857824455,
+              -2093689507
+            ],
+            "longitudinal": 0.0,
+            "child_pivot_offset": 0.0,
+            "seats": [
+              274877906943,
+              -1,
+              8191,
+              -274877898753
+            ],
+            "ballast": 0.0,
+            "omega": 0.0001746892416085858,
+            "occupants": []
+          },
+          {
+            "side": 3.0,
+            "rider_seats": [],
+            "pivot_height": 2.0,
+            "angle": -0.00024045756509088263,
+            "capture": 1,
+            "body": [
+              2002154970,
+              1345015180,
+              -1657824379,
+              2117506781
+            ],
+            "longitudinal": 0.0,
+            "child_pivot_offset": 0.0,
+            "seats": [
+              274877906943,
+              549755813887,
+              8191,
+              274877915135
+            ],
+            "ballast": 0.0,
+            "omega": 0.0007489094240537069,
+            "occupants": []
+          }
+        ],
+        "chassis": [
+          -786471557,
+          -1130475905,
+          -1933081464,
+          -365460100
+        ],
+        "damping": 0.8,
+        "boundFrom": 27487791116228,
+        "ballast": 0.0,
+        "revision": 5,
+        "boarding_ready": 1,
+        "stopping": 1,
+        "variant": "zacspin_legacy_v1",
+        "restraints": 0,
+        "family": "zacspin_legacy",
+        "maintenance": 0
+      },
+      {
+        "alignment_required": 0,
+        "fault": "",
+        "boundTo": 47279000408011,
+        "carriers": [
+          {
+            "side": -3.0,
+            "rider_seats": [],
+            "pivot_height": 2.0,
+            "angle": 8.074241471150409e-05,
+            "capture": 1,
+            "body": [
+              531279717,
+              1865699327,
+              -2051339144,
+              551768585
+            ],
+            "longitudinal": -3.0,
+            "child_pivot_offset": 0.0,
+            "seats": [
+              4095,
+              -274877902849
+            ],
+            "ballast": 0.0,
+            "omega": -0.0012124570210846673,
+            "occupants": []
+          },
+          {
+            "side": -3.0,
+            "rider_seats": [],
+            "pivot_height": 2.0,
+            "angle": 3.462519098356832e-05,
+            "capture": 1,
+            "body": [
+              1707325671,
+              -1819783488,
+              -1612137026,
+              -735083783
+            ],
+            "longitudinal": 3.0,
+            "child_pivot_offset": 0.0,
+            "seats": [
+              4095,
+              -274877902849
+            ],
+            "ballast": 0.0,
+            "omega": -0.0013046006807676028,
+            "occupants": []
+          },
+          {
+            "side": 3.0,
+            "rider_seats": [],
+            "pivot_height": 2.0,
+            "angle": 0.00010483215737580317,
+            "capture": 1,
+            "body": [
+              1612026539,
+              -104513314,
+              -1460100821,
+              2045889612
+            ],
+            "longitudinal": -3.0,
+            "child_pivot_offset": 0.0,
+            "seats": [
+              4095,
+              274877911039
+            ],
+            "ballast": 0.0,
+            "omega": -0.0018400068528718848,
+            "occupants": []
+          },
+          {
+            "side": 3.0,
+            "rider_seats": [],
+            "pivot_height": 2.0,
+            "angle": 3.5332714514398765e-05,
+            "capture": 1,
+            "body": [
+              1636026936,
+              -1281405710,
+              -1257054646,
+              -2017268276
+            ],
+            "longitudinal": 3.0,
+            "child_pivot_offset": 0.0,
+            "seats": [
+              4095,
+              274877911039
+            ],
+            "ballast": 0.0,
+            "omega": -0.00144704751459717,
+            "occupants": []
+          }
+        ],
+        "chassis": [
+          -1377359941,
+          167398289,
+          -2044182780,
+          -2044196558
+        ],
+        "damping": 0.8,
+        "boundFrom": 43980465524683,
+        "ballast": 0.0,
+        "revision": 5,
+        "boarding_ready": 1,
+        "stopping": 1,
+        "variant": "sns_magnetic_v1",
+        "restraints": 0,
+        "family": "sns_free_spin",
+        "maintenance": 0
+      },
+      {
+        "alignment_required": 0,
+        "fault": "",
+        "boundTo": 74766791716821,
+        "carriers": [
+          {
+            "side": -3.0,
+            "rider_seats": [],
+            "pivot_height": 1.5,
+            "angle": -2.796315023786546e-05,
+            "capture": 1,
+            "body": [
+              -1419128311,
+              1375749757,
+              -1654362467,
+              2100907395
+            ],
+            "longitudinal": -3.0,
+            "child_pivot_offset": -0.5,
+            "seats": [
+              4095,
+              -274877902849
+            ],
+            "ballast": 0.0,
+            "omega": 0.0004163810175162764,
+            "occupants": []
+          },
+          {
+            "side": -3.0,
+            "rider_seats": [],
+            "pivot_height": 1.5,
+            "angle": -9.06959383436421e-05,
+            "capture": 1,
+            "body": [
+              -1842917718,
+              621105027,
+              -1269874526,
+              1870875878
+            ],
+            "longitudinal": 3.0,
+            "child_pivot_offset": -0.5,
+            "seats": [
+              4095,
+              -274877902849
+            ],
+            "ballast": 0.0,
+            "omega": 0.001362333945121499,
+            "occupants": []
+          },
+          {
+            "side": 3.0,
+            "rider_seats": [],
+            "pivot_height": 1.5,
+            "angle": -4.6817511786204415e-05,
+            "capture": 1,
+            "body": [
+              -1886540418,
+              2037728102,
+              -1488161444,
+              1731192346
+            ],
+            "longitudinal": -3.0,
+            "child_pivot_offset": -0.5,
+            "seats": [
+              4095,
+              274877911039
+            ],
+            "ballast": 0.0,
+            "omega": 0.0007730622860319718,
+            "occupants": []
+          },
+          {
+            "side": 3.0,
+            "rider_seats": [],
+            "pivot_height": 1.5,
+            "angle": -6.76936416546758e-05,
+            "capture": 1,
+            "body": [
+              671897621,
+              1616727469,
+              -1739426468,
+              1044495148
+            ],
+            "longitudinal": 3.0,
+            "child_pivot_offset": -0.5,
+            "seats": [
+              4095,
+              274877911039
+            ],
+            "ballast": 0.0,
+            "omega": 0.0009751393180912111,
+            "occupants": []
+          }
+        ],
+        "chassis": [
+          -1306110887,
+          -954709104,
+          -1390847881,
+          1689188010
+        ],
+        "damping": 0.8,
+        "boundFrom": 71468256833493,
+        "ballast": 0.0,
+        "revision": 4,
+        "boarding_ready": 1,
+        "stopping": 1,
+        "variant": "zacspin_revised_v1",
+        "restraints": 0,
+        "family": "zacspin_revised",
+        "maintenance": 0
+      },
+      {
+        "alignment_required": 0,
+        "fault": "",
+        "boundTo": 109951163936725,
+        "carriers": [
+          {
+            "side": -3.0,
+            "rider_seats": [],
+            "pivot_height": 2.0,
+            "angle": 1.0519138416358701e-05,
+            "capture": 1,
+            "body": [
+              771074639,
+              1286163525,
+              -1102599039,
+              -615940197
+            ],
+            "longitudinal": 0.0,
+            "child_pivot_offset": 0.0,
+            "seats": [
+              4095,
+              -274877902849
+            ],
+            "ballast": 0.0,
+            "omega": -0.00023241135253655225,
+            "occupants": []
+          },
+          {
+            "side": 3.0,
+            "rider_seats": [],
+            "pivot_height": 2.0,
+            "angle": 8.403570423788388e-06,
+            "capture": 1,
+            "body": [
+              1798697703,
+              24789021,
+              -1241860032,
+              1963808347
+            ],
+            "longitudinal": 0.0,
+            "child_pivot_offset": 0.0,
+            "seats": [
+              4095,
+              274877911039
+            ],
+            "ballast": 0.0,
+            "omega": -0.00018870585413904815,
+            "occupants": []
+          }
+        ],
+        "chassis": [
+          -1963610325,
+          1063863571,
+          -1708683206,
+          -789905932
+        ],
+        "damping": 0.8,
+        "boundFrom": 109951163805653,
+        "ballast": 0.0,
+        "revision": 0,
+        "boarding_ready": 1,
+        "stopping": 1,
+        "variant": "pax_shuttle_v1",
+        "restraints": 0,
+        "family": "pax_shuttle",
+        "maintenance": 0
+      },
+      {
+        "alignment_required": 0,
+        "fault": "",
+        "boundTo": 109951163936725,
+        "carriers": [
+          {
+            "side": -3.0,
+            "rider_seats": [],
+            "pivot_height": 2.0,
+            "angle": -0.0001554132774796042,
+            "capture": 1,
+            "body": [
+              912491831,
+              452805630,
+              -1585658664,
+              -2011985173
+            ],
+            "longitudinal": 0.0,
+            "child_pivot_offset": 0.0,
+            "seats": [
+              4095,
+              -274877902849
+            ],
+            "ballast": 0.0,
+            "omega": 0.003539394768828402,
+            "occupants": []
+          },
+          {
+            "side": 3.0,
+            "rider_seats": [],
+            "pivot_height": 2.0,
+            "angle": -0.0002122766100738048,
+            "capture": 1,
+            "body": [
+              950321321,
+              1609648842,
+              -1935807408,
+              1521661125
+            ],
+            "longitudinal": 0.0,
+            "child_pivot_offset": 0.0,
+            "seats": [
+              4095,
+              274877911039
+            ],
+            "ballast": 0.0,
+            "omega": 0.00469985176731444,
+            "occupants": []
+          }
+        ],
+        "chassis": [
+          1384226872,
+          -657964850,
+          -1617778414,
+          2077161456
+        ],
+        "damping": 0.8,
+        "boundFrom": 109951163805653,
+        "ballast": 0.0,
+        "revision": 0,
+        "boarding_ready": 1,
+        "stopping": 1,
+        "variant": "pax_shuttle_v1",
+        "restraints": 0,
+        "family": "pax_shuttle",
+        "maintenance": 0
+      },
+      {
+        "alignment_required": 0,
+        "fault": "",
+        "boundTo": 109951163936725,
+        "carriers": [
+          {
+            "side": -3.0,
+            "rider_seats": [],
+            "pivot_height": 2.0,
+            "angle": -3.3468217314529005e-06,
+            "capture": 1,
+            "body": [
+              2129740608,
+              -559002203,
+              -1297689358,
+              -1795071341
+            ],
+            "longitudinal": 0.0,
+            "child_pivot_offset": 0.0,
+            "seats": [
+              4095,
+              -274877902849
+            ],
+            "ballast": 0.0,
+            "omega": 0.00018848189619727937,
+            "occupants": []
+          },
+          {
+            "side": 3.0,
+            "rider_seats": [],
+            "pivot_height": 2.0,
+            "angle": -1.8084881552275063e-06,
+            "capture": 1,
+            "body": [
+              1034169660,
+              1172127891,
+              -1680662946,
+              -1060714459
+            ],
+            "longitudinal": 0.0,
+            "child_pivot_offset": 0.0,
+            "seats": [
+              4095,
+              274877911039
+            ],
+            "ballast": 0.0,
+            "omega": 0.00015125508004872184,
+            "occupants": []
+          }
+        ],
+        "chassis": [
+          -273963840,
+          524897594,
+          -1414884390,
+          1475442612
+        ],
+        "damping": 0.8,
+        "boundFrom": 109951163805653,
+        "ballast": 0.0,
+        "revision": 0,
+        "boarding_ready": 1,
+        "stopping": 1,
+        "variant": "pax_shuttle_v1",
+        "restraints": 0,
+        "family": "pax_shuttle",
+        "maintenance": 0
+      },
+      {
+        "alignment_required": 0,
+        "fault": "",
+        "boundTo": 109951163936725,
+        "carriers": [
+          {
+            "side": -3.0,
+            "rider_seats": [],
+            "pivot_height": 2.0,
+            "angle": -1.7121432111301328e-05,
+            "capture": 1,
+            "body": [
+              -853916266,
+              2140553265,
+              -1622052331,
+              -1601697765
+            ],
+            "longitudinal": 0.0,
+            "child_pivot_offset": 0.0,
+            "seats": [
+              4095,
+              -274877902849
+            ],
+            "ballast": 0.0,
+            "omega": 0.00027109217181788816,
+            "occupants": []
+          },
+          {
+            "side": 3.0,
+            "rider_seats": [],
+            "pivot_height": 2.0,
+            "angle": -1.5878575824348567e-05,
+            "capture": 1,
+            "body": [
+              -568700754,
+              -1895477630,
+              -1749591474,
+              -252893842
+            ],
+            "longitudinal": 0.0,
+            "child_pivot_offset": 0.0,
+            "seats": [
+              4095,
+              274877911039
+            ],
+            "ballast": 0.0,
+            "omega": 0.00023229772220014126,
+            "occupants": []
+          }
+        ],
+        "chassis": [
+          -340040406,
+          613565883,
+          -2143861600,
+          773107401
+        ],
+        "damping": 0.8,
+        "boundFrom": 109951163805653,
+        "ballast": 0.0,
+        "revision": 0,
+        "boarding_ready": 1,
+        "stopping": 1,
+        "variant": "pax_shuttle_v1",
+        "restraints": 0,
+        "family": "pax_shuttle",
+        "maintenance": 0
+      },
+      {
+        "alignment_required": 0,
+        "fault": "",
+        "boundTo": 233646221828041,
+        "carriers": [
+          {
+            "side": -3.0,
+            "rider_seats": [],
+            "pivot_height": 2.0,
+            "angle": 1.1974318174004897e-05,
+            "capture": 1,
+            "body": [
+              -1502633162,
+              1505380753,
+              -1178219193,
+              -330989556
+            ],
+            "longitudinal": 0.0,
+            "child_pivot_offset": 0.0,
+            "seats": [
+              4095,
+              -274877902849
+            ],
+            "ballast": 0.0,
+            "omega": -0.00014819358754479723,
+            "occupants": []
+          },
+          {
+            "side": 3.0,
+            "rider_seats": [],
+            "pivot_height": 2.0,
+            "angle": 5.2074607132348295e-06,
+            "capture": 1,
+            "body": [
+              -936931090,
+              -1984937590,
+              -1517893419,
+              -1918211720
+            ],
+            "longitudinal": 0.0,
+            "child_pivot_offset": 0.0,
+            "seats": [
+              4095,
+              274877911039
+            ],
+            "ballast": 0.0,
+            "omega": -9.653581357215952e-05,
+            "occupants": []
+          }
+        ],
+        "chassis": [
+          -1340847860,
+          1550274368,
+          -1904875295,
+          -2128774089
+        ],
+        "damping": 0.8,
+        "boundFrom": 233646221623241,
+        "ballast": 0.0,
+        "revision": 5,
+        "boarding_ready": 1,
+        "stopping": 1,
+        "variant": "pax_shuttle_v1",
+        "restraints": 0,
+        "family": "pax_shuttle",
+        "maintenance": 0
+      },
+      {
+        "alignment_required": 0,
+        "fault": "",
+        "boundTo": 233646221828041,
+        "carriers": [
+          {
+            "side": -3.0,
+            "rider_seats": [],
+            "pivot_height": 2.0,
+            "angle": 1.162575909491434e-05,
+            "capture": 1,
+            "body": [
+              -20266450,
+              -1721742494,
+              -1665577027,
+              -365308841
+            ],
+            "longitudinal": 0.0,
+            "child_pivot_offset": 0.0,
+            "seats": [
+              4095,
+              -274877902849
+            ],
+            "ballast": 0.0,
+            "omega": -0.0001355225946558642,
+            "occupants": []
+          },
+          {
+            "side": 3.0,
+            "rider_seats": [],
+            "pivot_height": 2.0,
+            "angle": 1.2019960432980273e-05,
+            "capture": 1,
+            "body": [
+              -1495493924,
+              -612152016,
+              -1373748224,
+              -1208926579
+            ],
+            "longitudinal": 0.0,
+            "child_pivot_offset": 0.0,
+            "seats": [
+              4095,
+              274877911039
+            ],
+            "ballast": 0.0,
+            "omega": -0.00015672525306196526,
+            "occupants": []
+          }
+        ],
+        "chassis": [
+          2124527322,
+          -1749201167,
+          -1553176514,
+          -1997931170
+        ],
+        "damping": 0.8,
+        "boundFrom": 233646221623241,
+        "ballast": 0.0,
+        "revision": 5,
+        "boarding_ready": 1,
+        "stopping": 1,
+        "variant": "pax_shuttle_v1",
+        "restraints": 0,
+        "family": "pax_shuttle",
+        "maintenance": 0
+      },
+      {
+        "alignment_required": 0,
+        "fault": "",
+        "boundTo": 233646221828041,
+        "carriers": [
+          {
+            "side": -3.0,
+            "rider_seats": [],
+            "pivot_height": 2.0,
+            "angle": 1.2203807074332327e-05,
+            "capture": 1,
+            "body": [
+              1425828717,
+              661275775,
+              -1789513755,
+              -131943187
+            ],
+            "longitudinal": 0.0,
+            "child_pivot_offset": 0.0,
+            "seats": [
+              4095,
+              -274877902849
+            ],
+            "ballast": 0.0,
+            "omega": -0.00021460943404004557,
+            "occupants": []
+          },
+          {
+            "side": 3.0,
+            "rider_seats": [],
+            "pivot_height": 2.0,
+            "angle": 1.2000989339332894e-05,
+            "capture": 1,
+            "body": [
+              497927752,
+              1023100173,
+              -1841487762,
+              -479262505
+            ],
+            "longitudinal": 0.0,
+            "child_pivot_offset": 0.0,
+            "seats": [
+              4095,
+              274877911039
+            ],
+            "ballast": 0.0,
+            "omega": -0.0001735569258743856,
+            "occupants": []
+          }
+        ],
+        "chassis": [
+          1125867172,
+          -1857927669,
+          -1821947371,
+          -1377566489
+        ],
+        "damping": 0.8,
+        "boundFrom": 233646221623241,
+        "ballast": 0.0,
+        "revision": 5,
+        "boarding_ready": 1,
+        "stopping": 1,
+        "variant": "pax_shuttle_v1",
+        "restraints": 0,
+        "family": "pax_shuttle",
+        "maintenance": 0
+      },
+      {
+        "alignment_required": 0,
+        "fault": "",
+        "boundTo": 233646221828041,
+        "carriers": [
+          {
+            "side": -3.0,
+            "rider_seats": [],
+            "pivot_height": 2.0,
+            "angle": 1.2145196872036988e-05,
+            "capture": 1,
+            "body": [
+              1486864676,
+              421414095,
+              -1314573489,
+              1036816111
+            ],
+            "longitudinal": 0.0,
+            "child_pivot_offset": 0.0,
+            "seats": [
+              4095,
+              -274877902849
+            ],
+            "ballast": 0.0,
+            "omega": -0.00018478567681464575,
+            "occupants": []
+          },
+          {
+            "side": 3.0,
+            "rider_seats": [],
+            "pivot_height": 2.0,
+            "angle": 1.188406631220285e-05,
+            "capture": 1,
+            "body": [
+              -964504206,
+              1058687268,
+              -1248485186,
+              -1273889885
+            ],
+            "longitudinal": 0.0,
+            "child_pivot_offset": 0.0,
+            "seats": [
+              4095,
+              274877911039
+            ],
+            "ballast": 0.0,
+            "omega": -0.00013599647468624478,
+            "occupants": []
+          }
+        ],
+        "chassis": [
+          -348721959,
+          -2034088702,
+          -1738317299,
+          715356721
+        ],
+        "damping": 0.8,
+        "boundFrom": 233646221623241,
+        "ballast": 0.0,
+        "revision": 5,
+        "boarding_ready": 1,
+        "stopping": 1,
+        "variant": "pax_shuttle_v1",
+        "restraints": 0,
+        "family": "pax_shuttle",
+        "maintenance": 0
+      },
+      {
+        "alignment_required": 0,
+        "fault": "",
+        "boundTo": 63221918887876,
+        "carriers": [
+          {
+            "side": -3.0,
+            "rider_seats": [],
+            "pivot_height": 2.0,
+            "angle": 6.282787141099879,
+            "capture": 1,
+            "body": [
+              -188256904,
+              -1782624886,
+              -1451136204,
+              925998140
+            ],
+            "longitudinal": 0.0,
+            "child_pivot_offset": 0.0,
+            "seats": [
+              4095,
+              -274877902849
+            ],
+            "ballast": 0.0,
+            "omega": 0.002491608387113287,
+            "occupants": []
+          },
+          {
+            "side": 3.0,
+            "rider_seats": [],
+            "pivot_height": 2.0,
+            "angle": 6.282768814332867,
+            "capture": 1,
+            "body": [
+              1668357450,
+              -922334884,
+              -1168334873,
+              -307496847
+            ],
+            "longitudinal": 0.0,
+            "child_pivot_offset": 0.0,
+            "seats": [
+              4095,
+              274877911039
+            ],
+            "ballast": 0.0,
+            "omega": 0.0019089817346166467,
+            "occupants": []
+          }
+        ],
+        "chassis": [
+          -49409526,
+          -229621394,
+          -1891041982,
+          580233598
+        ],
+        "damping": 5.0,
+        "boundFrom": 63221918683076,
+        "ballast": 0.0,
+        "revision": 4,
+        "boarding_ready": 1,
+        "stopping": 1,
+        "variant": "arrow_four_rail_v1",
+        "restraints": 0,
+        "family": "arrow_controlled",
+        "maintenance": 0
+      },
+      {
+        "alignment_required": 0,
+        "fault": "",
+        "boundTo": 71468256096196,
+        "carriers": [
+          {
+            "side": -3.0,
+            "rider_seats": [],
+            "pivot_height": 2.0,
+            "angle": -0.00020241798007063303,
+            "capture": 1,
+            "body": [
+              1806571942,
+              336741794,
+              -1787589427,
+              21183184
+            ],
+            "longitudinal": 0.0,
+            "child_pivot_offset": 0.0,
+            "seats": [
+              274877906943,
+              -1,
+              8191,
+              -274877898753
+            ],
+            "ballast": 0.0,
+            "omega": 0.000962712464234373,
+            "occupants": []
+          },
+          {
+            "side": 3.0,
+            "rider_seats": [],
+            "pivot_height": 2.0,
+            "angle": -0.00023185447920672287,
+            "capture": 1,
+            "body": [
+              -552436597,
+              1710574357,
+              -1450756779,
+              1824748346
+            ],
+            "longitudinal": 0.0,
+            "child_pivot_offset": 0.0,
+            "seats": [
+              274877906943,
+              549755813887,
+              8191,
+              274877915135
+            ],
+            "ballast": 0.0,
+            "omega": 0.0005675390203405506,
+            "occupants": []
+          }
+        ],
+        "chassis": [
+          -540087812,
+          -1014150219,
+          -1341101744,
+          900388551
+        ],
+        "damping": 0.8,
+        "boundFrom": 71468255891396,
+        "ballast": 0.0,
+        "revision": 4,
+        "boarding_ready": 1,
+        "stopping": 1,
+        "variant": "zacspin_legacy_v1",
+        "restraints": 0,
+        "family": "zacspin_legacy",
+        "maintenance": 0
+      },
+      {
+        "alignment_required": 0,
+        "fault": "End of compatible track; capture and inspect the route",
+        "boundTo": 82463372373956,
+        "carriers": [
+          {
+            "side": -3.0,
+            "rider_seats": [],
+            "pivot_height": 2.0,
+            "angle": -6.283187578803019,
+            "capture": 1,
+            "body": [
+              -1240544464,
+              -807974983,
+              -1148714864,
+              344403294
+            ],
+            "longitudinal": -3.0,
+            "child_pivot_offset": 0.0,
+            "seats": [
+              4095,
+              -274877902849
+            ],
+            "ballast": 0.0,
+            "omega": -4.548562828613098e-05,
+            "occupants": []
+          },
+          {
+            "side": -3.0,
+            "rider_seats": [],
+            "pivot_height": 2.0,
+            "angle": -6.448940370049115e-05,
+            "capture": 1,
+            "body": [
+              1976243206,
+              610944554,
+              -2037904080,
+              1101197168
+            ],
+            "longitudinal": 3.0,
+            "child_pivot_offset": 0.0,
+            "seats": [
+              4095,
+              -274877902849
+            ],
+            "ballast": 0.0,
+            "omega": 0.0005323224909515728,
+            "occupants": []
+          },
+          {
+            "side": 3.0,
+            "rider_seats": [],
+            "pivot_height": 2.0,
+            "angle": 3.6253456656872e-06,
+            "capture": 1,
+            "body": [
+              -1617488950,
+              942754188,
+              -2105163289,
+              -272291804
+            ],
+            "longitudinal": -3.0,
+            "child_pivot_offset": 0.0,
+            "seats": [
+              4095,
+              274877911039
+            ],
+            "ballast": 0.0,
+            "omega": 0.000385653695937387,
+            "occupants": []
+          },
+          {
+            "side": 3.0,
+            "rider_seats": [],
+            "pivot_height": 2.0,
+            "angle": -4.806382158658398e-05,
+            "capture": 1,
+            "body": [
+              648683587,
+              -1615377493,
+              -1995647522,
+              68355829
+            ],
+            "longitudinal": 3.0,
+            "child_pivot_offset": 0.0,
+            "seats": [
+              4095,
+              274877911039
+            ],
+            "ballast": 0.0,
+            "omega": 0.0007134446556038092,
+            "occupants": []
+          }
+        ],
+        "chassis": [
+          -1778246182,
+          -1127530254,
+          -2101248854,
+          -792536721
+        ],
+        "damping": 0.8,
+        "boundFrom": 82463372169156,
+        "ballast": 0.0,
+        "revision": 6,
+        "boarding_ready": 1,
+        "stopping": 1,
+        "variant": "sns_magnetic_v1",
+        "restraints": 0,
+        "family": "sns_free_spin",
+        "maintenance": 0
+      },
+      {
+        "alignment_required": 0,
+        "fault": "",
+        "boundTo": 82463372373956,
+        "carriers": [
+          {
+            "side": -3.0,
+            "rider_seats": [],
+            "pivot_height": 2.0,
+            "angle": -6.283199285932335,
+            "capture": 1,
+            "body": [
+              469420637,
+              -2129115342,
+              -1448797441,
+              858436262
+            ],
+            "longitudinal": -3.0,
+            "child_pivot_offset": 0.0,
+            "seats": [
+              4095,
+              -274877902849
+            ],
+            "ballast": 0.0,
+            "omega": 0.0005077127783270425,
+            "occupants": []
+          },
+          {
+            "side": -3.0,
+            "rider_seats": [],
+            "pivot_height": 2.0,
+            "angle": -5.9486705181222666e-05,
+            "capture": 1,
+            "body": [
+              -1226144725,
+              -808106588,
+              -1869418610,
+              129010441
+            ],
+            "longitudinal": 3.0,
+            "child_pivot_offset": 0.0,
+            "seats": [
+              4095,
+              -274877902849
+            ],
+            "ballast": 0.0,
+            "omega": 0.0005830032744189524,
+            "occupants": []
+          },
+          {
+            "side": 3.0,
+            "rider_seats": [],
+            "pivot_height": 2.0,
+            "angle": 7.993886155989464e-06,
+            "capture": 1,
+            "body": [
+              1785753085,
+              2090943127,
+              -1251485132,
+              98798101
+            ],
+            "longitudinal": -3.0,
+            "child_pivot_offset": 0.0,
+            "seats": [
+              4095,
+              274877911039
+            ],
+            "ballast": 0.0,
+            "omega": -0.00020120570102060315,
+            "occupants": []
+          },
+          {
+            "side": 3.0,
+            "rider_seats": [],
+            "pivot_height": 2.0,
+            "angle": -5.959850778179819e-05,
+            "capture": 1,
+            "body": [
+              -1347448640,
+              1281114126,
+              -1915434997,
+              -2068116906
+            ],
+            "longitudinal": 3.0,
+            "child_pivot_offset": 0.0,
+            "seats": [
+              4095,
+              274877911039
+            ],
+            "ballast": 0.0,
+            "omega": 0.0005798017972913814,
+            "occupants": []
+          }
+        ],
+        "chassis": [
+          1377766060,
+          -608415901,
+          -1167706261,
+          994672529
+        ],
+        "damping": 0.8,
+        "boundFrom": 82463372169156,
+        "ballast": 0.0,
+        "revision": 6,
+        "boarding_ready": 1,
+        "stopping": 1,
+        "variant": "sns_magnetic_v1",
+        "restraints": 0,
+        "family": "sns_free_spin",
+        "maintenance": 0
+      },
+      {
+        "alignment_required": 0,
+        "fault": "",
+        "boundTo": 164926745628615,
+        "carriers": [
+          {
+            "side": -3.0,
+            "rider_seats": [],
+            "pivot_height": 2.0,
+            "angle": 6.283205005423618,
+            "capture": 1,
+            "body": [
+              1894354878,
+              -2024519548,
+              -1460406222,
+              -303371188
+            ],
+            "longitudinal": -3.0,
+            "child_pivot_offset": 0.0,
+            "seats": [
+              4095,
+              -274877902849
+            ],
+            "ballast": 0.0,
+            "omega": -2.584428430589326e-05,
+            "occupants": []
+          },
+          {
+            "side": -3.0,
+            "rider_seats": [],
+            "pivot_height": 2.0,
+            "angle": -0.00019878402797148608,
+            "capture": 1,
+            "body": [
+              -344993038,
+              -337163133,
+              -1273695330,
+              1308522133
+            ],
+            "longitudinal": 3.0,
+            "child_pivot_offset": 0.0,
+            "seats": [
+              4095,
+              -274877902849
+            ],
+            "ballast": 0.0,
+            "omega": 0.002706694237555649,
+            "occupants": []
+          },
+          {
+            "side": 3.0,
+            "rider_seats": [],
+            "pivot_height": 2.0,
+            "angle": -0.00020406130995320883,
+            "capture": 1,
+            "body": [
+              1980670240,
+              -1404615682,
+              -1211655495,
+              805608884
+            ],
+            "longitudinal": -3.0,
+            "child_pivot_offset": 0.0,
+            "seats": [
+              4095,
+              274877911039
+            ],
+            "ballast": 0.0,
+            "omega": 0.0037408045076665346,
+            "occupants": []
+          },
+          {
+            "side": 3.0,
+            "rider_seats": [],
+            "pivot_height": 2.0,
+            "angle": -6.283460839900903,
+            "capture": 1,
+            "body": [
+              -1303249245,
+              1616530661,
+              -1218963114,
+              1323447038
+            ],
+            "longitudinal": 3.0,
+            "child_pivot_offset": 0.0,
+            "seats": [
+              4095,
+              274877911039
+            ],
+            "ballast": 0.0,
+            "omega": 0.005943199219160787,
+            "occupants": []
+          }
+        ],
+        "chassis": [
+          -377351205,
+          1014646915,
+          -1662658411,
+          1102650808
+        ],
+        "damping": 0.8,
+        "boundFrom": 164926745481159,
+        "ballast": 0.0,
+        "revision": 4,
+        "boarding_ready": 1,
+        "stopping": 1,
+        "variant": "sns_magnetic_v1",
+        "restraints": 0,
+        "family": "sns_free_spin",
+        "maintenance": 0
+      }
+    ]
+  },
+  "DataVersion": 3955
+}
