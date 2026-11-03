@@ -1,0 +1,58 @@
+{
+  "source_revision": "0fc8a76ba2b2d0226027f3e88bdf3b4a481bc94b",
+  "source_status": [],
+  "status": "completed; result requires review",
+  "expected_suite_tests": 54,
+  "recovery_counts": {
+    "unloads": 3,
+    "braked": 3,
+    "healthy": 3,
+    "before_tick": 3,
+    "after_tick": 3
+  },
+  "chassis_counts": {
+    "unloads": 6,
+    "held": 12,
+    "positive": 20,
+    "unavailable": 10
+  },
+  "normalization": "Exact original linear/angular velocity logged; direct callbacks use zero-velocity input then restore/readback; interlocks/power/membership unchanged",
+  "native_scheduler": "one onEachTick registration per test, private ordered future-stage queue",
+  "production_guard": "unchanged; Engineered recovery-bearing known failure remains expected",
+  "limits": [
+    "Direct callback evidence only",
+    "Native pipeline velocity, not Engineered force",
+    "No natural scheduler or automatic relink claim"
+  ],
+  "captured_at_utc": "2026-11-03T12:11:03.088228+00:00",
+  "workspace": "/home/braydon/.codex/worktrees/pax-active-restart/Coasters: Fourth Dimension",
+  "jar": {
+    "path": "/tmp/fourthdimension-2aa0362f/build/libs/coasters-fourth-dimension-0.9.0-dev.27.jar",
+    "sha256": "f9c302f8816c2d63bfb4026b61109c61f7d3d0dda977d98d97e858a33018bcfd"
+  },
+  "planned_command": [
+    "./gradlew",
+    "runGameTestServer",
+    "--offline",
+    "--no-daemon",
+    "-PfdIntegrations=engineered"
+  ],
+  "runtime_kind": "development loose classes, not packaged-JAR runtime",
+  "all_packaged_class_parity_count": 233,
+  "production_guards_byte_identical_to": "270697b",
+  "runner_invocation": [
+    "flock",
+    "-n",
+    "/tmp/fd-gametest-runtime.lock",
+    "python3",
+    "/tmp/fd-native-chain-availability-0fc8a76/run.py"
+  ],
+  "source": "0fc8a76ba2b2d0226027f3e88bdf3b4a481bc94b",
+  "profile": "engineered",
+  "start_utc": "2026-11-03T12:34:15.596184+00:00",
+  "prelaunch_game_jvms": [],
+  "gradle_pid": 520362,
+  "end_utc": "2026-11-03T12:39:01.821681+00:00",
+  "exit_code": 1,
+  "source_status_after": []
+}

@@ -1,0 +1,27 @@
+{
+  "source_revision": "0fc8a76ba2b2d0226027f3e88bdf3b4a481bc94b",
+  "source_status": [],
+  "status": "test-only source committed; compile and native run pending",
+  "expected_suite_tests": 54,
+  "recovery_counts": {
+    "unloads": 3,
+    "braked": 3,
+    "healthy": 3,
+    "before_tick": 3,
+    "after_tick": 3
+  },
+  "chassis_counts": {
+    "unloads": 6,
+    "held": 12,
+    "positive": 20,
+    "unavailable": 10
+  },
+  "normalization": "Exact original linear/angular velocity logged; direct callbacks use zero-velocity input then restore/readback; interlocks/power/membership unchanged",
+  "native_scheduler": "one onEachTick registration per test, private ordered future-stage queue",
+  "production_guard": "unchanged; Engineered recovery-bearing known failure remains expected",
+  "limits": [
+    "Direct callback evidence only",
+    "Native pipeline velocity, not Engineered force",
+    "No natural scheduler or automatic relink claim"
+  ]
+}
