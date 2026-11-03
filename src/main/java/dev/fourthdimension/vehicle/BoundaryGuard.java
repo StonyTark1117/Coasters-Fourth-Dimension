@@ -18,6 +18,11 @@ public final class BoundaryGuard {
       FoundationData.Vehicle vehicle,
       FoundationData.Rail rail) {
     if (rail == null || !rail.valid) return;
+    // Repair restores the stored functional section before the native snap is rebuilt. Until the
+    // explicit realignment action completes, a retained car may still have residual velocity near
+    // an endpoint. A route-boundary stop must not replace the pending-realignment state and make
+    // the required follow-up action unreachable.
+    if (vehicle.alignmentRequired) return;
     // The validated shuttle controller guards both spikes and captures the complete train. Avoid
     // repeatedly walking the four-car native coupling graph while that controller owns motion.
     if (dev.fourthdimension.shuttle.ShuttleRuntime.running(level, vehicle.chassis)) return;
