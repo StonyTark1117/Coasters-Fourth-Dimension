@@ -303,6 +303,9 @@ public final class VehicleOperations {
       var edge = TrackGeometry.resolve(level, rail);
       if (edge == null)
         throw new IllegalArgumentException("Restore the original matching track section first");
+      if (TrackGeometry.fingerprint(level, edge) != rail.geometryHash)
+        throw new IllegalArgumentException(
+            "Restored geometry changed; unload riders and explicitly rebind the profile before operating");
       if (!(container.getSubLevel(v.chassis) instanceof ServerSubLevel chassis) || chassis.isRemoved())
         throw new IllegalArgumentException("Vehicle chassis is unavailable");
       var velocity = container.physicsSystem().getPipeline().getLinearVelocity(chassis, new Vector3d());
