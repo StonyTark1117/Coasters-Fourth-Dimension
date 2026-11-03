@@ -267,6 +267,7 @@ def audit(route, entries, resources, margin):
     rider_rack_minimum, rider_rack_closest, rider_rack_checks = math.inf, None, 0
     neighbor_minimum, neighbor_closest = math.inf, None
     neighbor_pairs = 0
+    neighbor_pair_cache = {}
     for entry in entries:
         if entry["type"] == "trace":
             if sample_interval is not None or entry.get("sampleIntervalTicks") != 1:
@@ -446,18 +447,36 @@ def audit(route, entries, resources, margin):
             # Contacts within one car include intentional strut/hinge joints.
             # Different original cars and the ordinary recovery body cannot
             # share those joints, so every pair of recorded model volumes is checked.
-            for first, second in itertools.combinations(sample_boxes, 2):
-                if first[4] == second[4]:
-                    continue
-                neighbor_pairs += 1
-                gap = float(np.linalg.norm(np.maximum(0, np.maximum(first[2] - second[3], second[2] - first[3]))))
-                if gap < margin * 4:
-                    gap = boxes_separation(first[0], first[1], second[0], second[1])
-                if gap < neighbor_minimum:
-                    neighbor_minimum = gap
+            # Body order and car ownership are stable across native samples.
+            # Batch the conservative AABB lower bound; only close pairs need
+            # the more expensive oriented-box separation calculation.
+            owners = tuple(box[4] for box in sample_boxes)
+            pairs = neighbor_pair_cache.get(owners)
+            if pairs is None:
+                pairs = np.array([(i, j) for i in range(len(owners))
+                                  for j in range(i + 1, len(owners))
+                                  if owners[i] != owners[j]], dtype=int).reshape(-1, 2)
+                neighbor_pair_cache[owners] = pairs
+            neighbor_pairs += len(pairs)
+            if len(pairs):
+                lows_all = np.array([box[2] for box in sample_boxes])
+                highs_all = np.array([box[3] for box in sample_boxes])
+                first_indices, second_indices = pairs[:, 0], pairs[:, 1]
+                distances = np.maximum(0, np.maximum(
+                    lows_all[first_indices] - highs_all[second_indices],
+                    lows_all[second_indices] - highs_all[first_indices]))
+                gaps = np.linalg.norm(distances, axis=1)
+                for pair_index in np.flatnonzero(gaps < margin * 4):
+                    first, second = sample_boxes[first_indices[pair_index]], sample_boxes[second_indices[pair_index]]
+                    gaps[pair_index] = boxes_separation(first[0], first[1], second[0], second[1])
+                    if gaps[pair_index] < margin and len(failures) < 20:
+                        failures.append({"gap": float(gaps[pair_index]), "tick": entry["tick"],
+                                         "neighborPair": {"tick": entry["tick"], "first": first[5], "second": second[5]}})
+                best = int(np.argmin(gaps))
+                if gaps[best] < neighbor_minimum:
+                    first, second = sample_boxes[first_indices[best]], sample_boxes[second_indices[best]]
+                    neighbor_minimum = float(gaps[best])
                     neighbor_closest = {"tick": entry["tick"], "first": first[5], "second": second[5]}
-                if gap < margin and len(failures) < 20:
-                    failures.append({"gap": gap, "tick": entry["tick"], "neighborPair": neighbor_closest})
     if not completed or samples < 5000 or len(visited) != route["carCount"] or any(len(v) != 5 for v in visited.values()):
         raise ValueError("Mesh trace lacks full original-car route coverage and normal completion")
     if wheel_checks == 0 or not math.isfinite(wheel_minimum):
