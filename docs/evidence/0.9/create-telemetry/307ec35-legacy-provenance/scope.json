@@ -1,0 +1,22 @@
+{
+  "kind": "Dedicated-server-only copied-world migration inspection",
+  "sourceWorldsUnmodified": true,
+  "runtimeCommands": "Forceload historical anchor chunks, read diagnostics/block NBT/list/time, save-all flush, stop",
+  "excludedActions": [
+    "No clients or native GUI",
+    "No repair/rebind/dispatch",
+    "No geometry, profile, vehicle or rider state writes",
+    "No original_curve injection or deleting fields to synthesize an old save"
+  ],
+  "fullCopiedWorlds": {
+    "intact": {
+      "pristine-input": "/home/braydon/.codex/worktrees/pax-active-restart/Coasters: Fourth Dimension/build/pax-legacy-backfill/intact-pristine-input",
+      "after-clean-stop-world": "/home/braydon/.codex/worktrees/pax-active-restart/Coasters: Fourth Dimension/build/pax-legacy-backfill/intact-after-clean-stop-world"
+    },
+    "changed_support": {
+      "pristine-input": "/home/braydon/.codex/worktrees/pax-active-restart/Coasters: Fourth Dimension/build/pax-legacy-backfill/changed_support-pristine-input",
+      "after-clean-stop-world": "/home/braydon/.codex/worktrees/pax-active-restart/Coasters: Fourth Dimension/build/pax-legacy-backfill/changed_support-after-clean-stop-world"
+    }
+  },
+  "negativeCase": "pre-existing invalid tracks, physically changed/rebuilt station span; not a missing-support simulation"
+}

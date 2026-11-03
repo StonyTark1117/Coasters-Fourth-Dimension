@@ -5,7 +5,9 @@ import dev.fourthdimension.physics.RotationProfile;
 import dev.fourthdimension.runtime.*;
 import dev.fourthdimension.vehicle.VehicleOperations;
 import dev.silvergold.simulatedcoasters.CoasterTrackMaterials;
+import dev.silvergold.simulatedcoasters.track.CoasterAnchorBezierOptimizer;
 import dev.silvergold.simulatedcoasters.track.CoasterTrackPlacement;
+import dev.silvergold.simulatedcoasters.track.anchor.CoasterAnchorpointBlock;
 import dev.silvergold.simulatedcoasters.track.anchor.CoasterAnchorpointBlockEntity;
 import dev.silvergold.simulatedcoasters.track.graph.CoasterPathEdge;
 import java.util.*;
@@ -31,6 +33,13 @@ public final class TrackPlacement {
   }
 
   public static BezierConnection preview(Level level, BlockPos from, BlockPos to) {
+    checkConnectableEndpoints(level, from, to);
+    var curve = buildFamilyCurve(level, from, to);
+    if (curve == null) throw new IllegalArgumentException("Cannot construct this curve");
+    return curve;
+  }
+
+  private static void checkConnectableEndpoints(Level level, BlockPos from, BlockPos to) {
     if (from.equals(to) || from.distSqr(to) > 64 * 64)
       throw new IllegalArgumentException("Track spans must be distinct and at most 64 blocks");
     if (!level.hasChunkAt(from) || !level.hasChunkAt(to))
@@ -43,11 +52,6 @@ public final class TrackPlacement {
           "Remove the existing connection before placing another track");
     if (!a.canAcceptAnchorPeer(to) || !b.canAcceptAnchorPeer(from))
       throw new IllegalArgumentException("An anchor has no free connection");
-    var curve =
-        CoasterTrackPlacement.buildAnchorAnchorBezier(
-            level, from, to, CoasterTrackMaterials.COASTER, false);
-    if (curve == null) throw new IllegalArgumentException("Cannot construct this curve");
-    return curve;
   }
 
   public static FoundationData.Rail connect(
@@ -96,7 +100,14 @@ public final class TrackPlacement {
                       + " track");
           }
       }
-    var curve = preview(level, from, to);
+    // The exact-restore branch validates only endpoint availability before decoding the saved
+    // curve. Calling the upstream optimizer first could reject a known-good historical curve.
+    checkConnectableEndpoints(level, from, to);
+    var curve =
+        restoring != null && restoring.originalCurve != null
+            ? originalCurve(restoring)
+            : buildFamilyCurve(level, from, to);
+    if (curve == null) throw new IllegalArgumentException("Cannot construct this curve");
     if (!CoasterTrackPlacement.validateCoasterCurveForPlacement(level, curve, null))
       throw new IllegalArgumentException(
           "Track intersects an invalid area or has unsuitable geometry");
@@ -121,6 +132,7 @@ public final class TrackPlacement {
             TrackGeometry.fingerprint(level, edge),
             0,
             true);
+    captureOriginalCurve(rail, curve);
     ((CoasterAnchorpointBlockEntity) level.getBlockEntity(edge.from()))
         .putAnchorPeerCurve(level, edge.to(), curve);
     data.rails.removeIf(old -> old.matches(from, to));
@@ -156,6 +168,51 @@ public final class TrackPlacement {
     return rail;
   }
 
+  /** Captures the upstream curve's complete native representation for later exact restoration. */
+  public static void captureOriginalCurve(FoundationData.Rail rail, BezierConnection curve) {
+    rail.originalCurve = curve.write(rail.from).copy();
+  }
+
+  /**
+   * Builds a 4D family curve without changing an adjoining native curve.
+   *
+   * <p>Coasters' five-argument convenience builder always requests neighbour smoothing, but it
+   * returns only the new curve and drops the matching neighbour-write batch. Applying that curve
+   * directly would therefore leave a shared anchor with two frames selected by different
+   * optimizations. The native item path owns that batch and is intentionally not available to a
+   * family item. Use the optimizer's public suppressed mode instead: it is the same bounded
+   * no-neighbour-mutation mode Coasters uses for its explicit suppression gesture.
+   */
+  static BezierConnection buildFamilyCurve(Level level, BlockPos from, BlockPos to) {
+    var built =
+        CoasterAnchorBezierOptimizer.buildAnchorAnchorPlacement(
+            level, from, to, CoasterTrackMaterials.COASTER, false, true);
+    if (built == null
+        || !CoasterAnchorBezierOptimizer.isBuiltPlacementCurveValid(built.primary())
+        || !CoasterAnchorBezierOptimizer.meetsAltSuppressMinCurveRadius(built.primary())
+        || CoasterAnchorpointBlock.connectionBelowMinLegAngle(level, from, to, built.primary()))
+      return null;
+    return built.primary();
+  }
+
+  /**
+   * Decodes only a stored curve that still names this rail's endpoints and material. A malformed
+   * or incompatible snapshot fails closed instead of silently substituting optimized geometry.
+   */
+  private static BezierConnection originalCurve(FoundationData.Rail rail) {
+    BezierConnection curve;
+    try {
+      curve = new BezierConnection(rail.originalCurve.copy(), rail.from);
+    } catch (RuntimeException malformed) {
+      throw new IllegalArgumentException("Original matching curve snapshot is invalid", malformed);
+    }
+    if (!curve.bePositions.getFirst().equals(rail.from) || !curve.bePositions.getSecond().equals(rail.to))
+      throw new IllegalArgumentException("Original matching curve snapshot has different endpoints");
+    if (!CoasterTrackMaterials.COASTER.equals(curve.getMaterial()))
+      throw new IllegalArgumentException("Original matching curve snapshot has incompatible material");
+    return curve;
+  }
+
   public static boolean occupied(FoundationData data, FoundationData.Rail rail) {
     return data.vehicles.values().stream().anyMatch(v -> rail.matches(v.boundFrom, v.boundTo));
   }
@@ -182,7 +239,8 @@ public final class TrackPlacement {
   public static void tick(LevelTickEvent.Post event) {
     if (!(event.getLevel() instanceof ServerLevel level) || level.getGameTime() % 10 != 0) return;
     var data = FoundationData.get(level);
-    boolean changed = false;
+    boolean geometryChanged = false;
+    boolean provenanceChanged = false;
     for (var rail : data.rails)
       if (rail.original()
           && rail.valid
@@ -192,12 +250,19 @@ public final class TrackPlacement {
         if (edge == null || TrackGeometry.fingerprint(level, edge) != rail.geometryHash) {
           rail.valid = false;
           rail.revision++;
-          changed = true;
+          geometryChanged = true;
+        } else if (rail.originalCurve == null
+            && edge.bezier() != null
+            && CoasterTrackMaterials.COASTER.id.equals(edge.bezier().getMaterial().id)) {
+          // Older saves have no native-curve snapshot. Preserve only the still-present Coasters
+          // curve whose sampled geometry matches their saved binding; never infer missing geometry.
+          captureOriginalCurve(rail, edge.bezier());
+          provenanceChanged = true;
         }
       }
-    if (changed) {
+    if (geometryChanged || provenanceChanged) data.setDirty();
+    if (geometryChanged) {
       TrackGeometry.invalidate(level);
-      data.setDirty();
       FoundationSync.broadcast(level);
     }
   }

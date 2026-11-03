@@ -1,0 +1,5582 @@
+[
+  {
+    "case": "initial-before-boarding",
+    "winch": {
+      "Speed": 128.0,
+      "shuttle_carriage": [
+        1733633593,
+        1599556616,
+        -1407018867,
+        1867169052
+      ],
+      "shuttle_distance": 62.67979295672925,
+      "shuttle_maximum": 104.91313910896531,
+      "shuttle_start": 140737488425069,
+      "shuttle_station": 62.67979295672925,
+      "Source": [
+        505,
+        85,
+        73
+      ],
+      "shuttle_end": 140737488949365,
+      "shuttle_fault": "",
+      "shuttle_cars": [
+        [
+          624867468,
+          881542088,
+          -1292813854,
+          -1158910593
+        ],
+        [
+          -1364726338,
+          648431765,
+          -1436184981,
+          706412655
+        ],
+        [
+          -1956085616,
+          1462649299,
+          -1891730865,
+          1313254588
+        ],
+        [
+          859674760,
+          2032226056,
+          -1909381182,
+          299761874
+        ]
+      ],
+      "shuttle_interrupted": "LIFTING",
+      "shuttle_cycles": 1,
+      "Network": {
+        "Capacity": 2097152.0,
+        "Size": 2,
+        "AddedStress": 8.0,
+        "Id": 138813343305813,
+        "Stress": 1024.0
+      },
+      "shuttle_phase": "BOARDING",
+      "x": 506,
+      "shuttle_pending_retention": 0,
+      "y": 85,
+      "z": 73,
+      "id": "fourthdimension:shuttle_winch",
+      "shuttle_vehicle": [
+        624867468,
+        881542088,
+        -1292813854,
+        -1158910593
+      ]
+    },
+    "motor": {
+      "Speed": 128.0,
+      "HasAttachedComputer": 0,
+      "Network": {
+        "Capacity": 2097152.0,
+        "Size": 2,
+        "AddedCapacity": 16384.0,
+        "Id": 138813343305813,
+        "Stress": 1024.0
+      },
+      "x": 505,
+      "y": 85,
+      "ScrollValue": 128,
+      "z": 73,
+      "id": "create:motor"
+    },
+    "displayLink": {
+      "TargetOffset": [
+        0,
+        1,
+        7
+      ],
+      "Owner": [
+        301266199,
+        -2059649805,
+        -1608804992,
+        -1648951199
+      ],
+      "components": {
+        "create:click_to_link_data": {
+          "selected_dim": "minecraft:overworld",
+          "selected_pos": [
+            506,
+            86,
+            79
+          ]
+        }
+      },
+      "HasAttachedComputer": 0,
+      "x": 506,
+      "y": 85,
+      "TargetLine": 0,
+      "z": 72,
+      "id": "create:display_link",
+      "LinkedGauges": [],
+      "Source": {
+        "Label": "",
+        "Id": "fourthdimension:ride_fault"
+      }
+    },
+    "displaySign": {
+      "back_text": {
+        "has_glowing_text": 0,
+        "color": "black",
+        "messages": [
+          "\"\"",
+          "\"\"",
+          "\"\"",
+          "\"\""
+        ]
+      },
+      "is_waxed": 0,
+      "x": 506,
+      "y": 86,
+      "z": 79,
+      "id": "minecraft:sign",
+      "front_text": {
+        "has_glowing_text": 0,
+        "color": "black",
+        "messages": [
+          "\"\"",
+          "\"\"",
+          "\"\"",
+          "\"\""
+        ]
+      }
+    },
+    "paxAnchorA": {
+      "AnchorPeerCurves": [
+        {
+          "Peer": 140737488425069,
+          "Bezier": {
+            "Starts": [
+              {
+                "V": [
+                  0.5,
+                  0.75,
+                  0.5
+                ]
+              },
+              {
+                "V": [
+                  0.5,
+                  24.75,
+                  -47.5
+                ]
+              }
+            ],
+            "Girder": 0,
+            "Normals": [
+              {
+                "V": [
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              },
+              {
+                "V": [
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              }
+            ],
+            "Primary": 0,
+            "Positions": [
+              {
+                "Pos": [
+                  0,
+                  0,
+                  0
+                ]
+              },
+              {
+                "Pos": [
+                  0,
+                  24,
+                  -48
+                ]
+              }
+            ],
+            "Axes": [
+              {
+                "V": [
+                  0.0,
+                  0.0,
+                  -1.0
+                ]
+              },
+              {
+                "V": [
+                  0.0,
+                  -0.6246950475544243,
+                  0.7808688094430303
+                ]
+              }
+            ],
+            "Material": "simulatedcoasters:coaster_track"
+          },
+          "HHi": 17.88854381999832,
+          "HLo": 17.88854381999832
+        },
+        {
+          "Peer": 140737488752725,
+          "Bezier": {
+            "Starts": [
+              {
+                "V": [
+                  0.5,
+                  0.75,
+                  0.5
+                ]
+              },
+              {
+                "V": [
+                  0.5,
+                  0.75,
+                  32.5
+                ]
+              }
+            ],
+            "Girder": 0,
+            "Normals": [
+              {
+                "V": [
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              },
+              {
+                "V": [
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              }
+            ],
+            "Primary": 1,
+            "Positions": [
+              {
+                "Pos": [
+                  0,
+                  0,
+                  0
+                ]
+              },
+              {
+                "Pos": [
+                  0,
+                  0,
+                  32
+                ]
+              }
+            ],
+            "Axes": [
+              {
+                "V": [
+                  0.0,
+                  0.0,
+                  1.0
+                ]
+              },
+              {
+                "V": [
+                  0.0,
+                  0.0,
+                  -1.0
+                ]
+              }
+            ],
+            "Material": "simulatedcoasters:coaster_track"
+          },
+          "HHi": 10.666666666666666,
+          "HLo": 10.666666666666666
+        }
+      ],
+      "Speed": 0.0,
+      "JointBank": 0.0,
+      "x": 512,
+      "y": 85,
+      "z": 65,
+      "id": "simulatedcoasters:coaster_anchorpoint",
+      "AnchorPeerCurveTints": []
+    },
+    "paxAnchorB": {
+      "AnchorPeerCurves": [
+        {
+          "Peer": 140737488621653,
+          "Bezier": {
+            "Starts": [
+              {
+                "V": [
+                  0.5,
+                  0.75,
+                  0.5
+                ]
+              },
+              {
+                "V": [
+                  0.5,
+                  0.75,
+                  -31.5
+                ]
+              }
+            ],
+            "Girder": 0,
+            "Normals": [
+              {
+                "V": [
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              },
+              {
+                "V": [
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              }
+            ],
+            "Primary": 0,
+            "Positions": [
+              {
+                "Pos": [
+                  0,
+                  0,
+                  0
+                ]
+              },
+              {
+                "Pos": [
+                  0,
+                  0,
+                  -32
+                ]
+              }
+            ],
+            "Axes": [
+              {
+                "V": [
+                  0.0,
+                  0.0,
+                  -1.0
+                ]
+              },
+              {
+                "V": [
+                  0.0,
+                  0.0,
+                  1.0
+                ]
+              }
+            ],
+            "Material": "simulatedcoasters:coaster_track"
+          },
+          "HHi": 10.666666666666666,
+          "HLo": 10.666666666666666
+        },
+        {
+          "Peer": 140737488949365,
+          "Bezier": {
+            "Starts": [
+              {
+                "V": [
+                  0.5,
+                  0.75,
+                  0.5
+                ]
+              },
+              {
+                "V": [
+                  0.5,
+                  32.75,
+                  48.5
+                ]
+              }
+            ],
+            "Girder": 0,
+            "Normals": [
+              {
+                "V": [
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              },
+              {
+                "V": [
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              }
+            ],
+            "Primary": 1,
+            "Positions": [
+              {
+                "Pos": [
+                  0,
+                  0,
+                  0
+                ]
+              },
+              {
+                "Pos": [
+                  0,
+                  32,
+                  48
+                ]
+              }
+            ],
+            "Axes": [
+              {
+                "V": [
+                  0.0,
+                  0.0,
+                  1.0
+                ]
+              },
+              {
+                "V": [
+                  0.0,
+                  -0.6246950475544243,
+                  -0.7808688094430303
+                ]
+              }
+            ],
+            "Material": "simulatedcoasters:coaster_track"
+          },
+          "HHi": 19.22960680247461,
+          "HLo": 19.22960680247461
+        }
+      ],
+      "Speed": 0.0,
+      "JointBank": 0.0,
+      "x": 512,
+      "y": 85,
+      "z": 97,
+      "id": "simulatedcoasters:coaster_anchorpoint",
+      "AnchorPeerCurveTints": []
+    }
+  },
+  {
+    "case": "normal-board-attempt",
+    "winch": {
+      "Speed": 128.0,
+      "shuttle_carriage": [
+        1733633593,
+        1599556616,
+        -1407018867,
+        1867169052
+      ],
+      "shuttle_distance": 62.67979295672925,
+      "shuttle_maximum": 104.91313910896531,
+      "shuttle_start": 140737488425069,
+      "shuttle_station": 62.67979295672925,
+      "Source": [
+        505,
+        85,
+        73
+      ],
+      "shuttle_end": 140737488949365,
+      "shuttle_fault": "",
+      "shuttle_cars": [
+        [
+          624867468,
+          881542088,
+          -1292813854,
+          -1158910593
+        ],
+        [
+          -1364726338,
+          648431765,
+          -1436184981,
+          706412655
+        ],
+        [
+          -1956085616,
+          1462649299,
+          -1891730865,
+          1313254588
+        ],
+        [
+          859674760,
+          2032226056,
+          -1909381182,
+          299761874
+        ]
+      ],
+      "shuttle_interrupted": "LIFTING",
+      "shuttle_cycles": 1,
+      "Network": {
+        "Capacity": 2097152.0,
+        "Size": 2,
+        "AddedStress": 8.0,
+        "Id": 138813343305813,
+        "Stress": 1024.0
+      },
+      "shuttle_phase": "BOARDING",
+      "x": 506,
+      "shuttle_pending_retention": 0,
+      "y": 85,
+      "z": 73,
+      "id": "fourthdimension:shuttle_winch",
+      "shuttle_vehicle": [
+        624867468,
+        881542088,
+        -1292813854,
+        -1158910593
+      ]
+    },
+    "motor": {
+      "Speed": 128.0,
+      "HasAttachedComputer": 0,
+      "Network": {
+        "Capacity": 2097152.0,
+        "Size": 2,
+        "AddedCapacity": 16384.0,
+        "Id": 138813343305813,
+        "Stress": 1024.0
+      },
+      "x": 505,
+      "y": 85,
+      "ScrollValue": 128,
+      "z": 73,
+      "id": "create:motor"
+    },
+    "displayLink": {
+      "TargetOffset": [
+        0,
+        1,
+        7
+      ],
+      "Owner": [
+        301266199,
+        -2059649805,
+        -1608804992,
+        -1648951199
+      ],
+      "components": {
+        "create:click_to_link_data": {
+          "selected_dim": "minecraft:overworld",
+          "selected_pos": [
+            506,
+            86,
+            79
+          ]
+        }
+      },
+      "HasAttachedComputer": 0,
+      "x": 506,
+      "y": 85,
+      "TargetLine": 0,
+      "z": 72,
+      "id": "create:display_link",
+      "LinkedGauges": [],
+      "Source": {
+        "Label": "",
+        "Id": "fourthdimension:ride_fault"
+      }
+    },
+    "displaySign": {
+      "back_text": {
+        "has_glowing_text": 0,
+        "color": "black",
+        "messages": [
+          "\"\"",
+          "\"\"",
+          "\"\"",
+          "\"\""
+        ]
+      },
+      "is_waxed": 0,
+      "x": 506,
+      "y": 86,
+      "z": 79,
+      "id": "minecraft:sign",
+      "front_text": {
+        "has_glowing_text": 0,
+        "color": "black",
+        "messages": [
+          "\"\"",
+          "\"\"",
+          "\"\"",
+          "\"\""
+        ]
+      }
+    },
+    "paxAnchorA": {
+      "AnchorPeerCurves": [
+        {
+          "Peer": 140737488425069,
+          "Bezier": {
+            "Starts": [
+              {
+                "V": [
+                  0.5,
+                  0.75,
+                  0.5
+                ]
+              },
+              {
+                "V": [
+                  0.5,
+                  24.75,
+                  -47.5
+                ]
+              }
+            ],
+            "Girder": 0,
+            "Normals": [
+              {
+                "V": [
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              },
+              {
+                "V": [
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              }
+            ],
+            "Primary": 0,
+            "Positions": [
+              {
+                "Pos": [
+                  0,
+                  0,
+                  0
+                ]
+              },
+              {
+                "Pos": [
+                  0,
+                  24,
+                  -48
+                ]
+              }
+            ],
+            "Axes": [
+              {
+                "V": [
+                  0.0,
+                  0.0,
+                  -1.0
+                ]
+              },
+              {
+                "V": [
+                  0.0,
+                  -0.6246950475544243,
+                  0.7808688094430303
+                ]
+              }
+            ],
+            "Material": "simulatedcoasters:coaster_track"
+          },
+          "HHi": 17.88854381999832,
+          "HLo": 17.88854381999832
+        },
+        {
+          "Peer": 140737488752725,
+          "Bezier": {
+            "Starts": [
+              {
+                "V": [
+                  0.5,
+                  0.75,
+                  0.5
+                ]
+              },
+              {
+                "V": [
+                  0.5,
+                  0.75,
+                  32.5
+                ]
+              }
+            ],
+            "Girder": 0,
+            "Normals": [
+              {
+                "V": [
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              },
+              {
+                "V": [
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              }
+            ],
+            "Primary": 1,
+            "Positions": [
+              {
+                "Pos": [
+                  0,
+                  0,
+                  0
+                ]
+              },
+              {
+                "Pos": [
+                  0,
+                  0,
+                  32
+                ]
+              }
+            ],
+            "Axes": [
+              {
+                "V": [
+                  0.0,
+                  0.0,
+                  1.0
+                ]
+              },
+              {
+                "V": [
+                  0.0,
+                  0.0,
+                  -1.0
+                ]
+              }
+            ],
+            "Material": "simulatedcoasters:coaster_track"
+          },
+          "HHi": 10.666666666666666,
+          "HLo": 10.666666666666666
+        }
+      ],
+      "Speed": 0.0,
+      "JointBank": 0.0,
+      "x": 512,
+      "y": 85,
+      "z": 65,
+      "id": "simulatedcoasters:coaster_anchorpoint",
+      "AnchorPeerCurveTints": []
+    },
+    "paxAnchorB": {
+      "AnchorPeerCurves": [
+        {
+          "Peer": 140737488621653,
+          "Bezier": {
+            "Starts": [
+              {
+                "V": [
+                  0.5,
+                  0.75,
+                  0.5
+                ]
+              },
+              {
+                "V": [
+                  0.5,
+                  0.75,
+                  -31.5
+                ]
+              }
+            ],
+            "Girder": 0,
+            "Normals": [
+              {
+                "V": [
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              },
+              {
+                "V": [
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              }
+            ],
+            "Primary": 0,
+            "Positions": [
+              {
+                "Pos": [
+                  0,
+                  0,
+                  0
+                ]
+              },
+              {
+                "Pos": [
+                  0,
+                  0,
+                  -32
+                ]
+              }
+            ],
+            "Axes": [
+              {
+                "V": [
+                  0.0,
+                  0.0,
+                  -1.0
+                ]
+              },
+              {
+                "V": [
+                  0.0,
+                  0.0,
+                  1.0
+                ]
+              }
+            ],
+            "Material": "simulatedcoasters:coaster_track"
+          },
+          "HHi": 10.666666666666666,
+          "HLo": 10.666666666666666
+        },
+        {
+          "Peer": 140737488949365,
+          "Bezier": {
+            "Starts": [
+              {
+                "V": [
+                  0.5,
+                  0.75,
+                  0.5
+                ]
+              },
+              {
+                "V": [
+                  0.5,
+                  32.75,
+                  48.5
+                ]
+              }
+            ],
+            "Girder": 0,
+            "Normals": [
+              {
+                "V": [
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              },
+              {
+                "V": [
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              }
+            ],
+            "Primary": 1,
+            "Positions": [
+              {
+                "Pos": [
+                  0,
+                  0,
+                  0
+                ]
+              },
+              {
+                "Pos": [
+                  0,
+                  32,
+                  48
+                ]
+              }
+            ],
+            "Axes": [
+              {
+                "V": [
+                  0.0,
+                  0.0,
+                  1.0
+                ]
+              },
+              {
+                "V": [
+                  0.0,
+                  -0.6246950475544243,
+                  -0.7808688094430303
+                ]
+              }
+            ],
+            "Material": "simulatedcoasters:coaster_track"
+          },
+          "HHi": 19.22960680247461,
+          "HLo": 19.22960680247461
+        }
+      ],
+      "Speed": 0.0,
+      "JointBank": 0.0,
+      "x": 512,
+      "y": 85,
+      "z": 97,
+      "id": "simulatedcoasters:coaster_anchorpoint",
+      "AnchorPeerCurveTints": []
+    }
+  },
+  {
+    "case": "occupied-closed-powered-before-lift",
+    "winch": {
+      "Speed": 15.0,
+      "shuttle_carriage": [
+        1733633593,
+        1599556616,
+        -1407018867,
+        1867169052
+      ],
+      "shuttle_distance": 62.67979295672925,
+      "shuttle_maximum": 104.91313910896531,
+      "shuttle_start": 140737488425069,
+      "shuttle_station": 62.67979295672925,
+      "Source": [
+        505,
+        85,
+        73
+      ],
+      "shuttle_end": 140737488949365,
+      "shuttle_fault": "",
+      "shuttle_cars": [
+        [
+          624867468,
+          881542088,
+          -1292813854,
+          -1158910593
+        ],
+        [
+          -1364726338,
+          648431765,
+          -1436184981,
+          706412655
+        ],
+        [
+          -1956085616,
+          1462649299,
+          -1891730865,
+          1313254588
+        ],
+        [
+          859674760,
+          2032226056,
+          -1909381182,
+          299761874
+        ]
+      ],
+      "shuttle_interrupted": "LIFTING",
+      "shuttle_cycles": 1,
+      "Network": {
+        "Capacity": 245760.0,
+        "Size": 2,
+        "AddedStress": 8.0,
+        "Id": 138813343305813,
+        "Stress": 120.0
+      },
+      "shuttle_phase": "BOARDING",
+      "x": 506,
+      "shuttle_pending_retention": 0,
+      "y": 85,
+      "z": 73,
+      "id": "fourthdimension:shuttle_winch",
+      "shuttle_vehicle": [
+        624867468,
+        881542088,
+        -1292813854,
+        -1158910593
+      ]
+    },
+    "motor": {
+      "Speed": 15.0,
+      "HasAttachedComputer": 0,
+      "Network": {
+        "Capacity": 245760.0,
+        "Size": 2,
+        "AddedCapacity": 16384.0,
+        "Id": 138813343305813,
+        "Stress": 120.0
+      },
+      "x": 505,
+      "y": 85,
+      "ScrollValue": 15,
+      "z": 73,
+      "id": "create:motor"
+    },
+    "displayLink": {
+      "TargetOffset": [
+        0,
+        1,
+        7
+      ],
+      "Owner": [
+        301266199,
+        -2059649805,
+        -1608804992,
+        -1648951199
+      ],
+      "components": {
+        "create:click_to_link_data": {
+          "selected_dim": "minecraft:overworld",
+          "selected_pos": [
+            506,
+            86,
+            79
+          ]
+        }
+      },
+      "HasAttachedComputer": 0,
+      "x": 506,
+      "y": 85,
+      "TargetLine": 0,
+      "z": 72,
+      "id": "create:display_link",
+      "LinkedGauges": [],
+      "Source": {
+        "Label": "",
+        "Id": "fourthdimension:ride_fault"
+      }
+    },
+    "displaySign": {
+      "back_text": {
+        "has_glowing_text": 0,
+        "color": "black",
+        "messages": [
+          "\"\"",
+          "\"\"",
+          "\"\"",
+          "\"\""
+        ]
+      },
+      "is_waxed": 0,
+      "x": 506,
+      "y": 86,
+      "z": 79,
+      "id": "minecraft:sign",
+      "front_text": {
+        "has_glowing_text": 0,
+        "color": "black",
+        "messages": [
+          "\"\"",
+          "\"\"",
+          "\"\"",
+          "\"\""
+        ]
+      }
+    },
+    "paxAnchorA": {
+      "AnchorPeerCurves": [
+        {
+          "Peer": 140737488425069,
+          "Bezier": {
+            "Starts": [
+              {
+                "V": [
+                  0.5,
+                  0.75,
+                  0.5
+                ]
+              },
+              {
+                "V": [
+                  0.5,
+                  24.75,
+                  -47.5
+                ]
+              }
+            ],
+            "Girder": 0,
+            "Normals": [
+              {
+                "V": [
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              },
+              {
+                "V": [
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              }
+            ],
+            "Primary": 0,
+            "Positions": [
+              {
+                "Pos": [
+                  0,
+                  0,
+                  0
+                ]
+              },
+              {
+                "Pos": [
+                  0,
+                  24,
+                  -48
+                ]
+              }
+            ],
+            "Axes": [
+              {
+                "V": [
+                  0.0,
+                  0.0,
+                  -1.0
+                ]
+              },
+              {
+                "V": [
+                  0.0,
+                  -0.6246950475544243,
+                  0.7808688094430303
+                ]
+              }
+            ],
+            "Material": "simulatedcoasters:coaster_track"
+          },
+          "HHi": 17.88854381999832,
+          "HLo": 17.88854381999832
+        },
+        {
+          "Peer": 140737488752725,
+          "Bezier": {
+            "Starts": [
+              {
+                "V": [
+                  0.5,
+                  0.75,
+                  0.5
+                ]
+              },
+              {
+                "V": [
+                  0.5,
+                  0.75,
+                  32.5
+                ]
+              }
+            ],
+            "Girder": 0,
+            "Normals": [
+              {
+                "V": [
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              },
+              {
+                "V": [
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              }
+            ],
+            "Primary": 1,
+            "Positions": [
+              {
+                "Pos": [
+                  0,
+                  0,
+                  0
+                ]
+              },
+              {
+                "Pos": [
+                  0,
+                  0,
+                  32
+                ]
+              }
+            ],
+            "Axes": [
+              {
+                "V": [
+                  0.0,
+                  0.0,
+                  1.0
+                ]
+              },
+              {
+                "V": [
+                  0.0,
+                  0.0,
+                  -1.0
+                ]
+              }
+            ],
+            "Material": "simulatedcoasters:coaster_track"
+          },
+          "HHi": 10.666666666666666,
+          "HLo": 10.666666666666666
+        }
+      ],
+      "Speed": 0.0,
+      "JointBank": 0.0,
+      "x": 512,
+      "y": 85,
+      "z": 65,
+      "id": "simulatedcoasters:coaster_anchorpoint",
+      "AnchorPeerCurveTints": []
+    },
+    "paxAnchorB": {
+      "AnchorPeerCurves": [
+        {
+          "Peer": 140737488621653,
+          "Bezier": {
+            "Starts": [
+              {
+                "V": [
+                  0.5,
+                  0.75,
+                  0.5
+                ]
+              },
+              {
+                "V": [
+                  0.5,
+                  0.75,
+                  -31.5
+                ]
+              }
+            ],
+            "Girder": 0,
+            "Normals": [
+              {
+                "V": [
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              },
+              {
+                "V": [
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              }
+            ],
+            "Primary": 0,
+            "Positions": [
+              {
+                "Pos": [
+                  0,
+                  0,
+                  0
+                ]
+              },
+              {
+                "Pos": [
+                  0,
+                  0,
+                  -32
+                ]
+              }
+            ],
+            "Axes": [
+              {
+                "V": [
+                  0.0,
+                  0.0,
+                  -1.0
+                ]
+              },
+              {
+                "V": [
+                  0.0,
+                  0.0,
+                  1.0
+                ]
+              }
+            ],
+            "Material": "simulatedcoasters:coaster_track"
+          },
+          "HHi": 10.666666666666666,
+          "HLo": 10.666666666666666
+        },
+        {
+          "Peer": 140737488949365,
+          "Bezier": {
+            "Starts": [
+              {
+                "V": [
+                  0.5,
+                  0.75,
+                  0.5
+                ]
+              },
+              {
+                "V": [
+                  0.5,
+                  32.75,
+                  48.5
+                ]
+              }
+            ],
+            "Girder": 0,
+            "Normals": [
+              {
+                "V": [
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              },
+              {
+                "V": [
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              }
+            ],
+            "Primary": 1,
+            "Positions": [
+              {
+                "Pos": [
+                  0,
+                  0,
+                  0
+                ]
+              },
+              {
+                "Pos": [
+                  0,
+                  32,
+                  48
+                ]
+              }
+            ],
+            "Axes": [
+              {
+                "V": [
+                  0.0,
+                  0.0,
+                  1.0
+                ]
+              },
+              {
+                "V": [
+                  0.0,
+                  -0.6246950475544243,
+                  -0.7808688094430303
+                ]
+              }
+            ],
+            "Material": "simulatedcoasters:coaster_track"
+          },
+          "HHi": 19.22960680247461,
+          "HLo": 19.22960680247461
+        }
+      ],
+      "Speed": 0.0,
+      "JointBank": 0.0,
+      "x": 512,
+      "y": 85,
+      "z": 97,
+      "id": "simulatedcoasters:coaster_anchorpoint",
+      "AnchorPeerCurveTints": []
+    }
+  },
+  {
+    "case": "occupied-active-lifting-before-stop",
+    "winch": {
+      "Speed": 16.0,
+      "shuttle_carriage": [
+        1733633593,
+        1599556616,
+        -1407018867,
+        1867169052
+      ],
+      "shuttle_distance": 61.504792956728984,
+      "shuttle_maximum": 62.67979295672925,
+      "shuttle_start": 140737488425069,
+      "shuttle_station": 62.67979295672925,
+      "Source": [
+        505,
+        85,
+        73
+      ],
+      "shuttle_end": 140737488949365,
+      "shuttle_fault": "",
+      "shuttle_cars": [
+        [
+          624867468,
+          881542088,
+          -1292813854,
+          -1158910593
+        ],
+        [
+          -1364726338,
+          648431765,
+          -1436184981,
+          706412655
+        ],
+        [
+          -1956085616,
+          1462649299,
+          -1891730865,
+          1313254588
+        ],
+        [
+          859674760,
+          2032226056,
+          -1909381182,
+          299761874
+        ]
+      ],
+      "shuttle_interrupted": "LIFTING",
+      "shuttle_cycles": 1,
+      "Network": {
+        "Capacity": 262144.0,
+        "Size": 2,
+        "AddedStress": 8.0,
+        "Id": 138813343305813,
+        "Stress": 128.0
+      },
+      "shuttle_phase": "LIFTING",
+      "x": 506,
+      "shuttle_pending_retention": 0,
+      "y": 85,
+      "z": 73,
+      "id": "fourthdimension:shuttle_winch",
+      "shuttle_vehicle": [
+        624867468,
+        881542088,
+        -1292813854,
+        -1158910593
+      ]
+    },
+    "motor": {
+      "Speed": 16.0,
+      "HasAttachedComputer": 0,
+      "Network": {
+        "Capacity": 262144.0,
+        "Size": 2,
+        "AddedCapacity": 16384.0,
+        "Id": 138813343305813,
+        "Stress": 128.0
+      },
+      "x": 505,
+      "y": 85,
+      "ScrollValue": 16,
+      "z": 73,
+      "id": "create:motor"
+    },
+    "displayLink": {
+      "TargetOffset": [
+        0,
+        1,
+        7
+      ],
+      "Owner": [
+        301266199,
+        -2059649805,
+        -1608804992,
+        -1648951199
+      ],
+      "components": {
+        "create:click_to_link_data": {
+          "selected_dim": "minecraft:overworld",
+          "selected_pos": [
+            506,
+            86,
+            79
+          ]
+        }
+      },
+      "HasAttachedComputer": 0,
+      "x": 506,
+      "y": 85,
+      "TargetLine": 0,
+      "z": 72,
+      "id": "create:display_link",
+      "LinkedGauges": [],
+      "Source": {
+        "Label": "",
+        "Id": "fourthdimension:ride_fault"
+      }
+    },
+    "displaySign": {
+      "back_text": {
+        "has_glowing_text": 0,
+        "color": "black",
+        "messages": [
+          "\"\"",
+          "\"\"",
+          "\"\"",
+          "\"\""
+        ]
+      },
+      "is_waxed": 0,
+      "x": 506,
+      "y": 86,
+      "z": 79,
+      "id": "minecraft:sign",
+      "front_text": {
+        "has_glowing_text": 0,
+        "color": "black",
+        "messages": [
+          "\"\"",
+          "\"\"",
+          "\"\"",
+          "\"\""
+        ]
+      }
+    },
+    "paxAnchorA": {
+      "AnchorPeerCurves": [
+        {
+          "Peer": 140737488425069,
+          "Bezier": {
+            "Starts": [
+              {
+                "V": [
+                  0.5,
+                  0.75,
+                  0.5
+                ]
+              },
+              {
+                "V": [
+                  0.5,
+                  24.75,
+                  -47.5
+                ]
+              }
+            ],
+            "Girder": 0,
+            "Normals": [
+              {
+                "V": [
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              },
+              {
+                "V": [
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              }
+            ],
+            "Primary": 0,
+            "Positions": [
+              {
+                "Pos": [
+                  0,
+                  0,
+                  0
+                ]
+              },
+              {
+                "Pos": [
+                  0,
+                  24,
+                  -48
+                ]
+              }
+            ],
+            "Axes": [
+              {
+                "V": [
+                  0.0,
+                  0.0,
+                  -1.0
+                ]
+              },
+              {
+                "V": [
+                  0.0,
+                  -0.6246950475544243,
+                  0.7808688094430303
+                ]
+              }
+            ],
+            "Material": "simulatedcoasters:coaster_track"
+          },
+          "HHi": 17.88854381999832,
+          "HLo": 17.88854381999832
+        },
+        {
+          "Peer": 140737488752725,
+          "Bezier": {
+            "Starts": [
+              {
+                "V": [
+                  0.5,
+                  0.75,
+                  0.5
+                ]
+              },
+              {
+                "V": [
+                  0.5,
+                  0.75,
+                  32.5
+                ]
+              }
+            ],
+            "Girder": 0,
+            "Normals": [
+              {
+                "V": [
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              },
+              {
+                "V": [
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              }
+            ],
+            "Primary": 1,
+            "Positions": [
+              {
+                "Pos": [
+                  0,
+                  0,
+                  0
+                ]
+              },
+              {
+                "Pos": [
+                  0,
+                  0,
+                  32
+                ]
+              }
+            ],
+            "Axes": [
+              {
+                "V": [
+                  0.0,
+                  0.0,
+                  1.0
+                ]
+              },
+              {
+                "V": [
+                  0.0,
+                  0.0,
+                  -1.0
+                ]
+              }
+            ],
+            "Material": "simulatedcoasters:coaster_track"
+          },
+          "HHi": 10.666666666666666,
+          "HLo": 10.666666666666666
+        }
+      ],
+      "Speed": 0.0,
+      "JointBank": 0.0,
+      "x": 512,
+      "y": 85,
+      "z": 65,
+      "id": "simulatedcoasters:coaster_anchorpoint",
+      "AnchorPeerCurveTints": []
+    },
+    "paxAnchorB": {
+      "AnchorPeerCurves": [
+        {
+          "Peer": 140737488621653,
+          "Bezier": {
+            "Starts": [
+              {
+                "V": [
+                  0.5,
+                  0.75,
+                  0.5
+                ]
+              },
+              {
+                "V": [
+                  0.5,
+                  0.75,
+                  -31.5
+                ]
+              }
+            ],
+            "Girder": 0,
+            "Normals": [
+              {
+                "V": [
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              },
+              {
+                "V": [
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              }
+            ],
+            "Primary": 0,
+            "Positions": [
+              {
+                "Pos": [
+                  0,
+                  0,
+                  0
+                ]
+              },
+              {
+                "Pos": [
+                  0,
+                  0,
+                  -32
+                ]
+              }
+            ],
+            "Axes": [
+              {
+                "V": [
+                  0.0,
+                  0.0,
+                  -1.0
+                ]
+              },
+              {
+                "V": [
+                  0.0,
+                  0.0,
+                  1.0
+                ]
+              }
+            ],
+            "Material": "simulatedcoasters:coaster_track"
+          },
+          "HHi": 10.666666666666666,
+          "HLo": 10.666666666666666
+        },
+        {
+          "Peer": 140737488949365,
+          "Bezier": {
+            "Starts": [
+              {
+                "V": [
+                  0.5,
+                  0.75,
+                  0.5
+                ]
+              },
+              {
+                "V": [
+                  0.5,
+                  32.75,
+                  48.5
+                ]
+              }
+            ],
+            "Girder": 0,
+            "Normals": [
+              {
+                "V": [
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              },
+              {
+                "V": [
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              }
+            ],
+            "Primary": 1,
+            "Positions": [
+              {
+                "Pos": [
+                  0,
+                  0,
+                  0
+                ]
+              },
+              {
+                "Pos": [
+                  0,
+                  32,
+                  48
+                ]
+              }
+            ],
+            "Axes": [
+              {
+                "V": [
+                  0.0,
+                  0.0,
+                  1.0
+                ]
+              },
+              {
+                "V": [
+                  0.0,
+                  -0.6246950475544243,
+                  -0.7808688094430303
+                ]
+              }
+            ],
+            "Material": "simulatedcoasters:coaster_track"
+          },
+          "HHi": 19.22960680247461,
+          "HLo": 19.22960680247461
+        }
+      ],
+      "Speed": 0.0,
+      "JointBank": 0.0,
+      "x": 512,
+      "y": 85,
+      "z": 97,
+      "id": "simulatedcoasters:coaster_anchorpoint",
+      "AnchorPeerCurveTints": []
+    }
+  },
+  {
+    "case": "restart-observer-only",
+    "winch": {
+      "Speed": 16.0,
+      "shuttle_carriage": [
+        1733633593,
+        1599556616,
+        -1407018867,
+        1867169052
+      ],
+      "shuttle_distance": 61.07979295672889,
+      "shuttle_maximum": 62.67979295672925,
+      "shuttle_start": 140737488425069,
+      "shuttle_station": 62.67979295672925,
+      "Source": [
+        505,
+        85,
+        73
+      ],
+      "shuttle_end": 140737488949365,
+      "shuttle_fault": "Shuttle reloaded: inspect and explicitly resume or recover",
+      "shuttle_cars": [
+        [
+          624867468,
+          881542088,
+          -1292813854,
+          -1158910593
+        ],
+        [
+          -1364726338,
+          648431765,
+          -1436184981,
+          706412655
+        ],
+        [
+          -1956085616,
+          1462649299,
+          -1891730865,
+          1313254588
+        ],
+        [
+          859674760,
+          2032226056,
+          -1909381182,
+          299761874
+        ]
+      ],
+      "shuttle_interrupted": "LIFTING",
+      "shuttle_cycles": 1,
+      "Network": {
+        "Capacity": 262144.0,
+        "Size": 2,
+        "AddedStress": 8.0,
+        "Id": 138813343305813,
+        "Stress": 128.0
+      },
+      "shuttle_phase": "FAULT",
+      "x": 506,
+      "shuttle_pending_retention": 0,
+      "y": 85,
+      "z": 73,
+      "id": "fourthdimension:shuttle_winch",
+      "shuttle_vehicle": [
+        624867468,
+        881542088,
+        -1292813854,
+        -1158910593
+      ]
+    },
+    "motor": {
+      "Speed": 16.0,
+      "HasAttachedComputer": 0,
+      "Network": {
+        "Capacity": 262144.0,
+        "Size": 2,
+        "AddedCapacity": 16384.0,
+        "Id": 138813343305813,
+        "Stress": 128.0
+      },
+      "x": 505,
+      "y": 85,
+      "ScrollValue": 16,
+      "z": 73,
+      "id": "create:motor"
+    },
+    "displayLink": {
+      "TargetOffset": [
+        0,
+        1,
+        7
+      ],
+      "Owner": [
+        301266199,
+        -2059649805,
+        -1608804992,
+        -1648951199
+      ],
+      "components": {
+        "create:click_to_link_data": {
+          "selected_dim": "minecraft:overworld",
+          "selected_pos": [
+            506,
+            86,
+            79
+          ]
+        }
+      },
+      "HasAttachedComputer": 0,
+      "x": 506,
+      "y": 85,
+      "TargetLine": 0,
+      "z": 72,
+      "id": "create:display_link",
+      "LinkedGauges": [],
+      "Source": {
+        "Label": "",
+        "Id": "fourthdimension:ride_fault"
+      }
+    },
+    "displaySign": {
+      "back_text": {
+        "has_glowing_text": 0,
+        "color": "black",
+        "messages": [
+          "\"Shuttle reloaded: inspect and explicitly resume or recover\"",
+          "\"\"",
+          "\"\"",
+          "\"\""
+        ]
+      },
+      "is_waxed": 0,
+      "x": 506,
+      "y": 86,
+      "z": 79,
+      "id": "minecraft:sign",
+      "front_text": {
+        "has_glowing_text": 0,
+        "color": "black",
+        "messages": [
+          "\"Shuttle reloaded: inspect and explicitly resume or recover\"",
+          "\"\"",
+          "\"\"",
+          "\"\""
+        ]
+      }
+    },
+    "paxAnchorA": {
+      "AnchorPeerCurves": [
+        {
+          "Peer": 140737488425069,
+          "Bezier": {
+            "Starts": [
+              {
+                "V": [
+                  0.5,
+                  0.75,
+                  0.5
+                ]
+              },
+              {
+                "V": [
+                  0.5,
+                  24.75,
+                  -47.5
+                ]
+              }
+            ],
+            "Girder": 0,
+            "Normals": [
+              {
+                "V": [
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              },
+              {
+                "V": [
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              }
+            ],
+            "Primary": 0,
+            "Positions": [
+              {
+                "Pos": [
+                  0,
+                  0,
+                  0
+                ]
+              },
+              {
+                "Pos": [
+                  0,
+                  24,
+                  -48
+                ]
+              }
+            ],
+            "Axes": [
+              {
+                "V": [
+                  0.0,
+                  0.0,
+                  -1.0
+                ]
+              },
+              {
+                "V": [
+                  0.0,
+                  -0.6246950475544243,
+                  0.7808688094430303
+                ]
+              }
+            ],
+            "Material": "simulatedcoasters:coaster_track"
+          },
+          "HHi": 17.88854381999832,
+          "HLo": 17.88854381999832
+        },
+        {
+          "Peer": 140737488752725,
+          "Bezier": {
+            "Starts": [
+              {
+                "V": [
+                  0.5,
+                  0.75,
+                  0.5
+                ]
+              },
+              {
+                "V": [
+                  0.5,
+                  0.75,
+                  32.5
+                ]
+              }
+            ],
+            "Girder": 0,
+            "Normals": [
+              {
+                "V": [
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              },
+              {
+                "V": [
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              }
+            ],
+            "Primary": 1,
+            "Positions": [
+              {
+                "Pos": [
+                  0,
+                  0,
+                  0
+                ]
+              },
+              {
+                "Pos": [
+                  0,
+                  0,
+                  32
+                ]
+              }
+            ],
+            "Axes": [
+              {
+                "V": [
+                  0.0,
+                  0.0,
+                  1.0
+                ]
+              },
+              {
+                "V": [
+                  0.0,
+                  0.0,
+                  -1.0
+                ]
+              }
+            ],
+            "Material": "simulatedcoasters:coaster_track"
+          },
+          "HHi": 10.666666666666666,
+          "HLo": 10.666666666666666
+        }
+      ],
+      "Speed": 0.0,
+      "JointBank": 0.0,
+      "x": 512,
+      "y": 85,
+      "z": 65,
+      "id": "simulatedcoasters:coaster_anchorpoint",
+      "AnchorPeerCurveTints": []
+    },
+    "paxAnchorB": {
+      "AnchorPeerCurves": [
+        {
+          "Peer": 140737488621653,
+          "Bezier": {
+            "Starts": [
+              {
+                "V": [
+                  0.5,
+                  0.75,
+                  0.5
+                ]
+              },
+              {
+                "V": [
+                  0.5,
+                  0.75,
+                  -31.5
+                ]
+              }
+            ],
+            "Girder": 0,
+            "Normals": [
+              {
+                "V": [
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              },
+              {
+                "V": [
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              }
+            ],
+            "Primary": 0,
+            "Positions": [
+              {
+                "Pos": [
+                  0,
+                  0,
+                  0
+                ]
+              },
+              {
+                "Pos": [
+                  0,
+                  0,
+                  -32
+                ]
+              }
+            ],
+            "Axes": [
+              {
+                "V": [
+                  0.0,
+                  0.0,
+                  -1.0
+                ]
+              },
+              {
+                "V": [
+                  0.0,
+                  0.0,
+                  1.0
+                ]
+              }
+            ],
+            "Material": "simulatedcoasters:coaster_track"
+          },
+          "HHi": 10.666666666666666,
+          "HLo": 10.666666666666666
+        },
+        {
+          "Peer": 140737488949365,
+          "Bezier": {
+            "Starts": [
+              {
+                "V": [
+                  0.5,
+                  0.75,
+                  0.5
+                ]
+              },
+              {
+                "V": [
+                  0.5,
+                  32.75,
+                  48.5
+                ]
+              }
+            ],
+            "Girder": 0,
+            "Normals": [
+              {
+                "V": [
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              },
+              {
+                "V": [
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              }
+            ],
+            "Primary": 1,
+            "Positions": [
+              {
+                "Pos": [
+                  0,
+                  0,
+                  0
+                ]
+              },
+              {
+                "Pos": [
+                  0,
+                  32,
+                  48
+                ]
+              }
+            ],
+            "Axes": [
+              {
+                "V": [
+                  0.0,
+                  0.0,
+                  1.0
+                ]
+              },
+              {
+                "V": [
+                  0.0,
+                  -0.6246950475544243,
+                  -0.7808688094430303
+                ]
+              }
+            ],
+            "Material": "simulatedcoasters:coaster_track"
+          },
+          "HHi": 19.22960680247461,
+          "HLo": 19.22960680247461
+        }
+      ],
+      "Speed": 0.0,
+      "JointBank": 0.0,
+      "x": 512,
+      "y": 85,
+      "z": 97,
+      "id": "simulatedcoasters:coaster_anchorpoint",
+      "AnchorPeerCurveTints": []
+    }
+  },
+  {
+    "case": "restart-dev-reconnected-prompt",
+    "winch": {
+      "Speed": 16.0,
+      "shuttle_carriage": [
+        1733633593,
+        1599556616,
+        -1407018867,
+        1867169052
+      ],
+      "shuttle_distance": 61.07979295672889,
+      "shuttle_maximum": 62.67979295672925,
+      "shuttle_start": 140737488425069,
+      "shuttle_station": 62.67979295672925,
+      "Source": [
+        505,
+        85,
+        73
+      ],
+      "shuttle_end": 140737488949365,
+      "shuttle_fault": "Shuttle reloaded: inspect and explicitly resume or recover",
+      "shuttle_cars": [
+        [
+          624867468,
+          881542088,
+          -1292813854,
+          -1158910593
+        ],
+        [
+          -1364726338,
+          648431765,
+          -1436184981,
+          706412655
+        ],
+        [
+          -1956085616,
+          1462649299,
+          -1891730865,
+          1313254588
+        ],
+        [
+          859674760,
+          2032226056,
+          -1909381182,
+          299761874
+        ]
+      ],
+      "shuttle_interrupted": "LIFTING",
+      "shuttle_cycles": 1,
+      "Network": {
+        "Capacity": 262144.0,
+        "Size": 2,
+        "AddedStress": 8.0,
+        "Id": 138813343305813,
+        "Stress": 128.0
+      },
+      "shuttle_phase": "FAULT",
+      "x": 506,
+      "shuttle_pending_retention": 0,
+      "y": 85,
+      "z": 73,
+      "id": "fourthdimension:shuttle_winch",
+      "shuttle_vehicle": [
+        624867468,
+        881542088,
+        -1292813854,
+        -1158910593
+      ]
+    },
+    "motor": {
+      "Speed": 16.0,
+      "HasAttachedComputer": 0,
+      "Network": {
+        "Capacity": 262144.0,
+        "Size": 2,
+        "AddedCapacity": 16384.0,
+        "Id": 138813343305813,
+        "Stress": 128.0
+      },
+      "x": 505,
+      "y": 85,
+      "ScrollValue": 16,
+      "z": 73,
+      "id": "create:motor"
+    },
+    "displayLink": {
+      "TargetOffset": [
+        0,
+        1,
+        7
+      ],
+      "Owner": [
+        301266199,
+        -2059649805,
+        -1608804992,
+        -1648951199
+      ],
+      "components": {
+        "create:click_to_link_data": {
+          "selected_dim": "minecraft:overworld",
+          "selected_pos": [
+            506,
+            86,
+            79
+          ]
+        }
+      },
+      "HasAttachedComputer": 0,
+      "x": 506,
+      "y": 85,
+      "TargetLine": 0,
+      "z": 72,
+      "id": "create:display_link",
+      "LinkedGauges": [],
+      "Source": {
+        "Label": "",
+        "Id": "fourthdimension:ride_fault"
+      }
+    },
+    "displaySign": {
+      "back_text": {
+        "has_glowing_text": 0,
+        "color": "black",
+        "messages": [
+          "\"Shuttle reloaded: inspect and explicitly resume or recover\"",
+          "\"\"",
+          "\"\"",
+          "\"\""
+        ]
+      },
+      "is_waxed": 0,
+      "x": 506,
+      "y": 86,
+      "z": 79,
+      "id": "minecraft:sign",
+      "front_text": {
+        "has_glowing_text": 0,
+        "color": "black",
+        "messages": [
+          "\"Shuttle reloaded: inspect and explicitly resume or recover\"",
+          "\"\"",
+          "\"\"",
+          "\"\""
+        ]
+      }
+    },
+    "paxAnchorA": {
+      "AnchorPeerCurves": [
+        {
+          "Peer": 140737488425069,
+          "Bezier": {
+            "Starts": [
+              {
+                "V": [
+                  0.5,
+                  0.75,
+                  0.5
+                ]
+              },
+              {
+                "V": [
+                  0.5,
+                  24.75,
+                  -47.5
+                ]
+              }
+            ],
+            "Girder": 0,
+            "Normals": [
+              {
+                "V": [
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              },
+              {
+                "V": [
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              }
+            ],
+            "Primary": 0,
+            "Positions": [
+              {
+                "Pos": [
+                  0,
+                  0,
+                  0
+                ]
+              },
+              {
+                "Pos": [
+                  0,
+                  24,
+                  -48
+                ]
+              }
+            ],
+            "Axes": [
+              {
+                "V": [
+                  0.0,
+                  0.0,
+                  -1.0
+                ]
+              },
+              {
+                "V": [
+                  0.0,
+                  -0.6246950475544243,
+                  0.7808688094430303
+                ]
+              }
+            ],
+            "Material": "simulatedcoasters:coaster_track"
+          },
+          "HHi": 17.88854381999832,
+          "HLo": 17.88854381999832
+        },
+        {
+          "Peer": 140737488752725,
+          "Bezier": {
+            "Starts": [
+              {
+                "V": [
+                  0.5,
+                  0.75,
+                  0.5
+                ]
+              },
+              {
+                "V": [
+                  0.5,
+                  0.75,
+                  32.5
+                ]
+              }
+            ],
+            "Girder": 0,
+            "Normals": [
+              {
+                "V": [
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              },
+              {
+                "V": [
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              }
+            ],
+            "Primary": 1,
+            "Positions": [
+              {
+                "Pos": [
+                  0,
+                  0,
+                  0
+                ]
+              },
+              {
+                "Pos": [
+                  0,
+                  0,
+                  32
+                ]
+              }
+            ],
+            "Axes": [
+              {
+                "V": [
+                  0.0,
+                  0.0,
+                  1.0
+                ]
+              },
+              {
+                "V": [
+                  0.0,
+                  0.0,
+                  -1.0
+                ]
+              }
+            ],
+            "Material": "simulatedcoasters:coaster_track"
+          },
+          "HHi": 10.666666666666666,
+          "HLo": 10.666666666666666
+        }
+      ],
+      "Speed": 0.0,
+      "JointBank": 0.0,
+      "x": 512,
+      "y": 85,
+      "z": 65,
+      "id": "simulatedcoasters:coaster_anchorpoint",
+      "AnchorPeerCurveTints": []
+    },
+    "paxAnchorB": {
+      "AnchorPeerCurves": [
+        {
+          "Peer": 140737488621653,
+          "Bezier": {
+            "Starts": [
+              {
+                "V": [
+                  0.5,
+                  0.75,
+                  0.5
+                ]
+              },
+              {
+                "V": [
+                  0.5,
+                  0.75,
+                  -31.5
+                ]
+              }
+            ],
+            "Girder": 0,
+            "Normals": [
+              {
+                "V": [
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              },
+              {
+                "V": [
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              }
+            ],
+            "Primary": 0,
+            "Positions": [
+              {
+                "Pos": [
+                  0,
+                  0,
+                  0
+                ]
+              },
+              {
+                "Pos": [
+                  0,
+                  0,
+                  -32
+                ]
+              }
+            ],
+            "Axes": [
+              {
+                "V": [
+                  0.0,
+                  0.0,
+                  -1.0
+                ]
+              },
+              {
+                "V": [
+                  0.0,
+                  0.0,
+                  1.0
+                ]
+              }
+            ],
+            "Material": "simulatedcoasters:coaster_track"
+          },
+          "HHi": 10.666666666666666,
+          "HLo": 10.666666666666666
+        },
+        {
+          "Peer": 140737488949365,
+          "Bezier": {
+            "Starts": [
+              {
+                "V": [
+                  0.5,
+                  0.75,
+                  0.5
+                ]
+              },
+              {
+                "V": [
+                  0.5,
+                  32.75,
+                  48.5
+                ]
+              }
+            ],
+            "Girder": 0,
+            "Normals": [
+              {
+                "V": [
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              },
+              {
+                "V": [
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              }
+            ],
+            "Primary": 1,
+            "Positions": [
+              {
+                "Pos": [
+                  0,
+                  0,
+                  0
+                ]
+              },
+              {
+                "Pos": [
+                  0,
+                  32,
+                  48
+                ]
+              }
+            ],
+            "Axes": [
+              {
+                "V": [
+                  0.0,
+                  0.0,
+                  1.0
+                ]
+              },
+              {
+                "V": [
+                  0.0,
+                  -0.6246950475544243,
+                  -0.7808688094430303
+                ]
+              }
+            ],
+            "Material": "simulatedcoasters:coaster_track"
+          },
+          "HHi": 19.22960680247461,
+          "HLo": 19.22960680247461
+        }
+      ],
+      "Speed": 0.0,
+      "JointBank": 0.0,
+      "x": 512,
+      "y": 85,
+      "z": 97,
+      "id": "simulatedcoasters:coaster_anchorpoint",
+      "AnchorPeerCurveTints": []
+    }
+  },
+  {
+    "case": "powered-fault-stable-before-resume",
+    "winch": {
+      "Speed": 16.0,
+      "shuttle_carriage": [
+        1733633593,
+        1599556616,
+        -1407018867,
+        1867169052
+      ],
+      "shuttle_distance": 61.07979295672889,
+      "shuttle_maximum": 62.67979295672925,
+      "shuttle_start": 140737488425069,
+      "shuttle_station": 62.67979295672925,
+      "Source": [
+        505,
+        85,
+        73
+      ],
+      "shuttle_end": 140737488949365,
+      "shuttle_fault": "Shuttle reloaded: inspect and explicitly resume or recover",
+      "shuttle_cars": [
+        [
+          624867468,
+          881542088,
+          -1292813854,
+          -1158910593
+        ],
+        [
+          -1364726338,
+          648431765,
+          -1436184981,
+          706412655
+        ],
+        [
+          -1956085616,
+          1462649299,
+          -1891730865,
+          1313254588
+        ],
+        [
+          859674760,
+          2032226056,
+          -1909381182,
+          299761874
+        ]
+      ],
+      "shuttle_interrupted": "LIFTING",
+      "shuttle_cycles": 1,
+      "Network": {
+        "Capacity": 262144.0,
+        "Size": 2,
+        "AddedStress": 8.0,
+        "Id": 138813343305813,
+        "Stress": 128.0
+      },
+      "shuttle_phase": "FAULT",
+      "x": 506,
+      "shuttle_pending_retention": 0,
+      "y": 85,
+      "z": 73,
+      "id": "fourthdimension:shuttle_winch",
+      "shuttle_vehicle": [
+        624867468,
+        881542088,
+        -1292813854,
+        -1158910593
+      ]
+    },
+    "motor": {
+      "Speed": 16.0,
+      "HasAttachedComputer": 0,
+      "Network": {
+        "Capacity": 262144.0,
+        "Size": 2,
+        "AddedCapacity": 16384.0,
+        "Id": 138813343305813,
+        "Stress": 128.0
+      },
+      "x": 505,
+      "y": 85,
+      "ScrollValue": 16,
+      "z": 73,
+      "id": "create:motor"
+    },
+    "displayLink": {
+      "TargetOffset": [
+        0,
+        1,
+        7
+      ],
+      "Owner": [
+        301266199,
+        -2059649805,
+        -1608804992,
+        -1648951199
+      ],
+      "components": {
+        "create:click_to_link_data": {
+          "selected_dim": "minecraft:overworld",
+          "selected_pos": [
+            506,
+            86,
+            79
+          ]
+        }
+      },
+      "HasAttachedComputer": 0,
+      "x": 506,
+      "y": 85,
+      "TargetLine": 0,
+      "z": 72,
+      "id": "create:display_link",
+      "LinkedGauges": [],
+      "Source": {
+        "Label": "",
+        "Id": "fourthdimension:ride_fault"
+      }
+    },
+    "displaySign": {
+      "back_text": {
+        "has_glowing_text": 0,
+        "color": "black",
+        "messages": [
+          "\"Shuttle reloaded: inspect and explicitly resume or recover\"",
+          "\"\"",
+          "\"\"",
+          "\"\""
+        ]
+      },
+      "is_waxed": 0,
+      "x": 506,
+      "y": 86,
+      "z": 79,
+      "id": "minecraft:sign",
+      "front_text": {
+        "has_glowing_text": 0,
+        "color": "black",
+        "messages": [
+          "\"Shuttle reloaded: inspect and explicitly resume or recover\"",
+          "\"\"",
+          "\"\"",
+          "\"\""
+        ]
+      }
+    },
+    "paxAnchorA": {
+      "AnchorPeerCurves": [
+        {
+          "Peer": 140737488425069,
+          "Bezier": {
+            "Starts": [
+              {
+                "V": [
+                  0.5,
+                  0.75,
+                  0.5
+                ]
+              },
+              {
+                "V": [
+                  0.5,
+                  24.75,
+                  -47.5
+                ]
+              }
+            ],
+            "Girder": 0,
+            "Normals": [
+              {
+                "V": [
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              },
+              {
+                "V": [
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              }
+            ],
+            "Primary": 0,
+            "Positions": [
+              {
+                "Pos": [
+                  0,
+                  0,
+                  0
+                ]
+              },
+              {
+                "Pos": [
+                  0,
+                  24,
+                  -48
+                ]
+              }
+            ],
+            "Axes": [
+              {
+                "V": [
+                  0.0,
+                  0.0,
+                  -1.0
+                ]
+              },
+              {
+                "V": [
+                  0.0,
+                  -0.6246950475544243,
+                  0.7808688094430303
+                ]
+              }
+            ],
+            "Material": "simulatedcoasters:coaster_track"
+          },
+          "HHi": 17.88854381999832,
+          "HLo": 17.88854381999832
+        },
+        {
+          "Peer": 140737488752725,
+          "Bezier": {
+            "Starts": [
+              {
+                "V": [
+                  0.5,
+                  0.75,
+                  0.5
+                ]
+              },
+              {
+                "V": [
+                  0.5,
+                  0.75,
+                  32.5
+                ]
+              }
+            ],
+            "Girder": 0,
+            "Normals": [
+              {
+                "V": [
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              },
+              {
+                "V": [
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              }
+            ],
+            "Primary": 1,
+            "Positions": [
+              {
+                "Pos": [
+                  0,
+                  0,
+                  0
+                ]
+              },
+              {
+                "Pos": [
+                  0,
+                  0,
+                  32
+                ]
+              }
+            ],
+            "Axes": [
+              {
+                "V": [
+                  0.0,
+                  0.0,
+                  1.0
+                ]
+              },
+              {
+                "V": [
+                  0.0,
+                  0.0,
+                  -1.0
+                ]
+              }
+            ],
+            "Material": "simulatedcoasters:coaster_track"
+          },
+          "HHi": 10.666666666666666,
+          "HLo": 10.666666666666666
+        }
+      ],
+      "Speed": 0.0,
+      "JointBank": 0.0,
+      "x": 512,
+      "y": 85,
+      "z": 65,
+      "id": "simulatedcoasters:coaster_anchorpoint",
+      "AnchorPeerCurveTints": []
+    },
+    "paxAnchorB": {
+      "AnchorPeerCurves": [
+        {
+          "Peer": 140737488621653,
+          "Bezier": {
+            "Starts": [
+              {
+                "V": [
+                  0.5,
+                  0.75,
+                  0.5
+                ]
+              },
+              {
+                "V": [
+                  0.5,
+                  0.75,
+                  -31.5
+                ]
+              }
+            ],
+            "Girder": 0,
+            "Normals": [
+              {
+                "V": [
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              },
+              {
+                "V": [
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              }
+            ],
+            "Primary": 0,
+            "Positions": [
+              {
+                "Pos": [
+                  0,
+                  0,
+                  0
+                ]
+              },
+              {
+                "Pos": [
+                  0,
+                  0,
+                  -32
+                ]
+              }
+            ],
+            "Axes": [
+              {
+                "V": [
+                  0.0,
+                  0.0,
+                  -1.0
+                ]
+              },
+              {
+                "V": [
+                  0.0,
+                  0.0,
+                  1.0
+                ]
+              }
+            ],
+            "Material": "simulatedcoasters:coaster_track"
+          },
+          "HHi": 10.666666666666666,
+          "HLo": 10.666666666666666
+        },
+        {
+          "Peer": 140737488949365,
+          "Bezier": {
+            "Starts": [
+              {
+                "V": [
+                  0.5,
+                  0.75,
+                  0.5
+                ]
+              },
+              {
+                "V": [
+                  0.5,
+                  32.75,
+                  48.5
+                ]
+              }
+            ],
+            "Girder": 0,
+            "Normals": [
+              {
+                "V": [
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              },
+              {
+                "V": [
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              }
+            ],
+            "Primary": 1,
+            "Positions": [
+              {
+                "Pos": [
+                  0,
+                  0,
+                  0
+                ]
+              },
+              {
+                "Pos": [
+                  0,
+                  32,
+                  48
+                ]
+              }
+            ],
+            "Axes": [
+              {
+                "V": [
+                  0.0,
+                  0.0,
+                  1.0
+                ]
+              },
+              {
+                "V": [
+                  0.0,
+                  -0.6246950475544243,
+                  -0.7808688094430303
+                ]
+              }
+            ],
+            "Material": "simulatedcoasters:coaster_track"
+          },
+          "HHi": 19.22960680247461,
+          "HLo": 19.22960680247461
+        }
+      ],
+      "Speed": 0.0,
+      "JointBank": 0.0,
+      "x": 512,
+      "y": 85,
+      "z": 97,
+      "id": "simulatedcoasters:coaster_anchorpoint",
+      "AnchorPeerCurveTints": []
+    }
+  },
+  {
+    "case": "normal-winch-resume",
+    "winch": {
+      "Speed": 16.0,
+      "shuttle_carriage": [
+        1733633593,
+        1599556616,
+        -1407018867,
+        1867169052
+      ],
+      "shuttle_distance": 60.47979295672875,
+      "shuttle_maximum": 62.67979295672925,
+      "shuttle_start": 140737488425069,
+      "shuttle_station": 62.67979295672925,
+      "Source": [
+        505,
+        85,
+        73
+      ],
+      "shuttle_end": 140737488949365,
+      "shuttle_fault": "",
+      "shuttle_cars": [
+        [
+          624867468,
+          881542088,
+          -1292813854,
+          -1158910593
+        ],
+        [
+          -1364726338,
+          648431765,
+          -1436184981,
+          706412655
+        ],
+        [
+          -1956085616,
+          1462649299,
+          -1891730865,
+          1313254588
+        ],
+        [
+          859674760,
+          2032226056,
+          -1909381182,
+          299761874
+        ]
+      ],
+      "shuttle_interrupted": "LIFTING",
+      "shuttle_cycles": 1,
+      "Network": {
+        "Capacity": 262144.0,
+        "Size": 2,
+        "AddedStress": 8.0,
+        "Id": 138813343305813,
+        "Stress": 128.0
+      },
+      "shuttle_phase": "LIFTING",
+      "x": 506,
+      "shuttle_pending_retention": 0,
+      "y": 85,
+      "z": 73,
+      "id": "fourthdimension:shuttle_winch",
+      "shuttle_vehicle": [
+        624867468,
+        881542088,
+        -1292813854,
+        -1158910593
+      ]
+    },
+    "motor": {
+      "Speed": 16.0,
+      "HasAttachedComputer": 0,
+      "Network": {
+        "Capacity": 262144.0,
+        "Size": 2,
+        "AddedCapacity": 16384.0,
+        "Id": 138813343305813,
+        "Stress": 128.0
+      },
+      "x": 505,
+      "y": 85,
+      "ScrollValue": 16,
+      "z": 73,
+      "id": "create:motor"
+    },
+    "displayLink": {
+      "TargetOffset": [
+        0,
+        1,
+        7
+      ],
+      "Owner": [
+        301266199,
+        -2059649805,
+        -1608804992,
+        -1648951199
+      ],
+      "components": {
+        "create:click_to_link_data": {
+          "selected_dim": "minecraft:overworld",
+          "selected_pos": [
+            506,
+            86,
+            79
+          ]
+        }
+      },
+      "HasAttachedComputer": 0,
+      "x": 506,
+      "y": 85,
+      "TargetLine": 0,
+      "z": 72,
+      "id": "create:display_link",
+      "LinkedGauges": [],
+      "Source": {
+        "Label": "",
+        "Id": "fourthdimension:ride_fault"
+      }
+    },
+    "displaySign": {
+      "back_text": {
+        "has_glowing_text": 0,
+        "color": "black",
+        "messages": [
+          "\"\"",
+          "\"\"",
+          "\"\"",
+          "\"\""
+        ]
+      },
+      "is_waxed": 0,
+      "x": 506,
+      "y": 86,
+      "z": 79,
+      "id": "minecraft:sign",
+      "front_text": {
+        "has_glowing_text": 0,
+        "color": "black",
+        "messages": [
+          "\"\"",
+          "\"\"",
+          "\"\"",
+          "\"\""
+        ]
+      }
+    },
+    "paxAnchorA": {
+      "AnchorPeerCurves": [
+        {
+          "Peer": 140737488425069,
+          "Bezier": {
+            "Starts": [
+              {
+                "V": [
+                  0.5,
+                  0.75,
+                  0.5
+                ]
+              },
+              {
+                "V": [
+                  0.5,
+                  24.75,
+                  -47.5
+                ]
+              }
+            ],
+            "Girder": 0,
+            "Normals": [
+              {
+                "V": [
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              },
+              {
+                "V": [
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              }
+            ],
+            "Primary": 0,
+            "Positions": [
+              {
+                "Pos": [
+                  0,
+                  0,
+                  0
+                ]
+              },
+              {
+                "Pos": [
+                  0,
+                  24,
+                  -48
+                ]
+              }
+            ],
+            "Axes": [
+              {
+                "V": [
+                  0.0,
+                  0.0,
+                  -1.0
+                ]
+              },
+              {
+                "V": [
+                  0.0,
+                  -0.6246950475544243,
+                  0.7808688094430303
+                ]
+              }
+            ],
+            "Material": "simulatedcoasters:coaster_track"
+          },
+          "HHi": 17.88854381999832,
+          "HLo": 17.88854381999832
+        },
+        {
+          "Peer": 140737488752725,
+          "Bezier": {
+            "Starts": [
+              {
+                "V": [
+                  0.5,
+                  0.75,
+                  0.5
+                ]
+              },
+              {
+                "V": [
+                  0.5,
+                  0.75,
+                  32.5
+                ]
+              }
+            ],
+            "Girder": 0,
+            "Normals": [
+              {
+                "V": [
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              },
+              {
+                "V": [
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              }
+            ],
+            "Primary": 1,
+            "Positions": [
+              {
+                "Pos": [
+                  0,
+                  0,
+                  0
+                ]
+              },
+              {
+                "Pos": [
+                  0,
+                  0,
+                  32
+                ]
+              }
+            ],
+            "Axes": [
+              {
+                "V": [
+                  0.0,
+                  0.0,
+                  1.0
+                ]
+              },
+              {
+                "V": [
+                  0.0,
+                  0.0,
+                  -1.0
+                ]
+              }
+            ],
+            "Material": "simulatedcoasters:coaster_track"
+          },
+          "HHi": 10.666666666666666,
+          "HLo": 10.666666666666666
+        }
+      ],
+      "Speed": 0.0,
+      "JointBank": 0.0,
+      "x": 512,
+      "y": 85,
+      "z": 65,
+      "id": "simulatedcoasters:coaster_anchorpoint",
+      "AnchorPeerCurveTints": []
+    },
+    "paxAnchorB": {
+      "AnchorPeerCurves": [
+        {
+          "Peer": 140737488621653,
+          "Bezier": {
+            "Starts": [
+              {
+                "V": [
+                  0.5,
+                  0.75,
+                  0.5
+                ]
+              },
+              {
+                "V": [
+                  0.5,
+                  0.75,
+                  -31.5
+                ]
+              }
+            ],
+            "Girder": 0,
+            "Normals": [
+              {
+                "V": [
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              },
+              {
+                "V": [
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              }
+            ],
+            "Primary": 0,
+            "Positions": [
+              {
+                "Pos": [
+                  0,
+                  0,
+                  0
+                ]
+              },
+              {
+                "Pos": [
+                  0,
+                  0,
+                  -32
+                ]
+              }
+            ],
+            "Axes": [
+              {
+                "V": [
+                  0.0,
+                  0.0,
+                  -1.0
+                ]
+              },
+              {
+                "V": [
+                  0.0,
+                  0.0,
+                  1.0
+                ]
+              }
+            ],
+            "Material": "simulatedcoasters:coaster_track"
+          },
+          "HHi": 10.666666666666666,
+          "HLo": 10.666666666666666
+        },
+        {
+          "Peer": 140737488949365,
+          "Bezier": {
+            "Starts": [
+              {
+                "V": [
+                  0.5,
+                  0.75,
+                  0.5
+                ]
+              },
+              {
+                "V": [
+                  0.5,
+                  32.75,
+                  48.5
+                ]
+              }
+            ],
+            "Girder": 0,
+            "Normals": [
+              {
+                "V": [
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              },
+              {
+                "V": [
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              }
+            ],
+            "Primary": 1,
+            "Positions": [
+              {
+                "Pos": [
+                  0,
+                  0,
+                  0
+                ]
+              },
+              {
+                "Pos": [
+                  0,
+                  32,
+                  48
+                ]
+              }
+            ],
+            "Axes": [
+              {
+                "V": [
+                  0.0,
+                  0.0,
+                  1.0
+                ]
+              },
+              {
+                "V": [
+                  0.0,
+                  -0.6246950475544243,
+                  -0.7808688094430303
+                ]
+              }
+            ],
+            "Material": "simulatedcoasters:coaster_track"
+          },
+          "HHi": 19.22960680247461,
+          "HLo": 19.22960680247461
+        }
+      ],
+      "Speed": 0.0,
+      "JointBank": 0.0,
+      "x": 512,
+      "y": 85,
+      "z": 97,
+      "id": "simulatedcoasters:coaster_anchorpoint",
+      "AnchorPeerCurveTints": []
+    }
+  },
+  {
+    "case": "resumed-motor-control",
+    "winch": {
+      "Speed": 127.0,
+      "shuttle_carriage": [
+        1733633593,
+        1599556616,
+        -1407018867,
+        1867169052
+      ],
+      "shuttle_distance": 49.264167956727256,
+      "shuttle_maximum": 62.67979295672925,
+      "shuttle_start": 140737488425069,
+      "shuttle_station": 62.67979295672925,
+      "Source": [
+        505,
+        85,
+        73
+      ],
+      "shuttle_end": 140737488949365,
+      "shuttle_fault": "",
+      "shuttle_cars": [
+        [
+          624867468,
+          881542088,
+          -1292813854,
+          -1158910593
+        ],
+        [
+          -1364726338,
+          648431765,
+          -1436184981,
+          706412655
+        ],
+        [
+          -1956085616,
+          1462649299,
+          -1891730865,
+          1313254588
+        ],
+        [
+          859674760,
+          2032226056,
+          -1909381182,
+          299761874
+        ]
+      ],
+      "shuttle_interrupted": "LIFTING",
+      "shuttle_cycles": 1,
+      "Network": {
+        "Capacity": 2080768.0,
+        "Size": 2,
+        "AddedStress": 8.0,
+        "Id": 138813343305813,
+        "Stress": 1016.0
+      },
+      "shuttle_phase": "LIFTING",
+      "x": 506,
+      "shuttle_pending_retention": 0,
+      "y": 85,
+      "z": 73,
+      "id": "fourthdimension:shuttle_winch",
+      "shuttle_vehicle": [
+        624867468,
+        881542088,
+        -1292813854,
+        -1158910593
+      ]
+    },
+    "motor": {
+      "Speed": 127.0,
+      "HasAttachedComputer": 0,
+      "Network": {
+        "Capacity": 2080768.0,
+        "Size": 2,
+        "AddedCapacity": 16384.0,
+        "Id": 138813343305813,
+        "Stress": 1016.0
+      },
+      "x": 505,
+      "y": 85,
+      "ScrollValue": 127,
+      "z": 73,
+      "id": "create:motor"
+    },
+    "displayLink": {
+      "TargetOffset": [
+        0,
+        1,
+        7
+      ],
+      "Owner": [
+        301266199,
+        -2059649805,
+        -1608804992,
+        -1648951199
+      ],
+      "components": {
+        "create:click_to_link_data": {
+          "selected_dim": "minecraft:overworld",
+          "selected_pos": [
+            506,
+            86,
+            79
+          ]
+        }
+      },
+      "HasAttachedComputer": 0,
+      "x": 506,
+      "y": 85,
+      "TargetLine": 0,
+      "z": 72,
+      "id": "create:display_link",
+      "LinkedGauges": [],
+      "Source": {
+        "Label": "",
+        "Id": "fourthdimension:ride_fault"
+      }
+    },
+    "displaySign": {
+      "back_text": {
+        "has_glowing_text": 0,
+        "color": "black",
+        "messages": [
+          "\"\"",
+          "\"\"",
+          "\"\"",
+          "\"\""
+        ]
+      },
+      "is_waxed": 0,
+      "x": 506,
+      "y": 86,
+      "z": 79,
+      "id": "minecraft:sign",
+      "front_text": {
+        "has_glowing_text": 0,
+        "color": "black",
+        "messages": [
+          "\"\"",
+          "\"\"",
+          "\"\"",
+          "\"\""
+        ]
+      }
+    },
+    "paxAnchorA": {
+      "AnchorPeerCurves": [
+        {
+          "Peer": 140737488425069,
+          "Bezier": {
+            "Starts": [
+              {
+                "V": [
+                  0.5,
+                  0.75,
+                  0.5
+                ]
+              },
+              {
+                "V": [
+                  0.5,
+                  24.75,
+                  -47.5
+                ]
+              }
+            ],
+            "Girder": 0,
+            "Normals": [
+              {
+                "V": [
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              },
+              {
+                "V": [
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              }
+            ],
+            "Primary": 0,
+            "Positions": [
+              {
+                "Pos": [
+                  0,
+                  0,
+                  0
+                ]
+              },
+              {
+                "Pos": [
+                  0,
+                  24,
+                  -48
+                ]
+              }
+            ],
+            "Axes": [
+              {
+                "V": [
+                  0.0,
+                  0.0,
+                  -1.0
+                ]
+              },
+              {
+                "V": [
+                  0.0,
+                  -0.6246950475544243,
+                  0.7808688094430303
+                ]
+              }
+            ],
+            "Material": "simulatedcoasters:coaster_track"
+          },
+          "HHi": 17.88854381999832,
+          "HLo": 17.88854381999832
+        },
+        {
+          "Peer": 140737488752725,
+          "Bezier": {
+            "Starts": [
+              {
+                "V": [
+                  0.5,
+                  0.75,
+                  0.5
+                ]
+              },
+              {
+                "V": [
+                  0.5,
+                  0.75,
+                  32.5
+                ]
+              }
+            ],
+            "Girder": 0,
+            "Normals": [
+              {
+                "V": [
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              },
+              {
+                "V": [
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              }
+            ],
+            "Primary": 1,
+            "Positions": [
+              {
+                "Pos": [
+                  0,
+                  0,
+                  0
+                ]
+              },
+              {
+                "Pos": [
+                  0,
+                  0,
+                  32
+                ]
+              }
+            ],
+            "Axes": [
+              {
+                "V": [
+                  0.0,
+                  0.0,
+                  1.0
+                ]
+              },
+              {
+                "V": [
+                  0.0,
+                  0.0,
+                  -1.0
+                ]
+              }
+            ],
+            "Material": "simulatedcoasters:coaster_track"
+          },
+          "HHi": 10.666666666666666,
+          "HLo": 10.666666666666666
+        }
+      ],
+      "Speed": 0.0,
+      "JointBank": 0.0,
+      "x": 512,
+      "y": 85,
+      "z": 65,
+      "id": "simulatedcoasters:coaster_anchorpoint",
+      "AnchorPeerCurveTints": []
+    },
+    "paxAnchorB": {
+      "AnchorPeerCurves": [
+        {
+          "Peer": 140737488621653,
+          "Bezier": {
+            "Starts": [
+              {
+                "V": [
+                  0.5,
+                  0.75,
+                  0.5
+                ]
+              },
+              {
+                "V": [
+                  0.5,
+                  0.75,
+                  -31.5
+                ]
+              }
+            ],
+            "Girder": 0,
+            "Normals": [
+              {
+                "V": [
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              },
+              {
+                "V": [
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              }
+            ],
+            "Primary": 0,
+            "Positions": [
+              {
+                "Pos": [
+                  0,
+                  0,
+                  0
+                ]
+              },
+              {
+                "Pos": [
+                  0,
+                  0,
+                  -32
+                ]
+              }
+            ],
+            "Axes": [
+              {
+                "V": [
+                  0.0,
+                  0.0,
+                  -1.0
+                ]
+              },
+              {
+                "V": [
+                  0.0,
+                  0.0,
+                  1.0
+                ]
+              }
+            ],
+            "Material": "simulatedcoasters:coaster_track"
+          },
+          "HHi": 10.666666666666666,
+          "HLo": 10.666666666666666
+        },
+        {
+          "Peer": 140737488949365,
+          "Bezier": {
+            "Starts": [
+              {
+                "V": [
+                  0.5,
+                  0.75,
+                  0.5
+                ]
+              },
+              {
+                "V": [
+                  0.5,
+                  32.75,
+                  48.5
+                ]
+              }
+            ],
+            "Girder": 0,
+            "Normals": [
+              {
+                "V": [
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              },
+              {
+                "V": [
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              }
+            ],
+            "Primary": 1,
+            "Positions": [
+              {
+                "Pos": [
+                  0,
+                  0,
+                  0
+                ]
+              },
+              {
+                "Pos": [
+                  0,
+                  32,
+                  48
+                ]
+              }
+            ],
+            "Axes": [
+              {
+                "V": [
+                  0.0,
+                  0.0,
+                  1.0
+                ]
+              },
+              {
+                "V": [
+                  0.0,
+                  -0.6246950475544243,
+                  -0.7808688094430303
+                ]
+              }
+            ],
+            "Material": "simulatedcoasters:coaster_track"
+          },
+          "HHi": 19.22960680247461,
+          "HLo": 19.22960680247461
+        }
+      ],
+      "Speed": 0.0,
+      "JointBank": 0.0,
+      "x": 512,
+      "y": 85,
+      "z": 97,
+      "id": "simulatedcoasters:coaster_anchorpoint",
+      "AnchorPeerCurveTints": []
+    }
+  },
+  {
+    "case": "closed-restraint-unload-rejected",
+    "winch": {
+      "Speed": 127.0,
+      "shuttle_carriage": [
+        1733633593,
+        1599556616,
+        -1407018867,
+        1867169052
+      ],
+      "shuttle_distance": 22.250000000000185,
+      "shuttle_maximum": 105.30454415478717,
+      "shuttle_start": 140737488425069,
+      "shuttle_station": 62.67979295672925,
+      "Source": [
+        505,
+        85,
+        73
+      ],
+      "shuttle_end": 140737488949365,
+      "shuttle_fault": "",
+      "shuttle_cars": [
+        [
+          624867468,
+          881542088,
+          -1292813854,
+          -1158910593
+        ],
+        [
+          -1364726338,
+          648431765,
+          -1436184981,
+          706412655
+        ],
+        [
+          -1956085616,
+          1462649299,
+          -1891730865,
+          1313254588
+        ],
+        [
+          859674760,
+          2032226056,
+          -1909381182,
+          299761874
+        ]
+      ],
+      "shuttle_interrupted": "LIFTING",
+      "shuttle_cycles": 1,
+      "Network": {
+        "Capacity": 2080768.0,
+        "Size": 2,
+        "AddedStress": 8.0,
+        "Id": 138813343305813,
+        "Stress": 1016.0
+      },
+      "shuttle_phase": "RETURNING",
+      "x": 506,
+      "shuttle_pending_retention": 0,
+      "y": 85,
+      "z": 73,
+      "id": "fourthdimension:shuttle_winch",
+      "shuttle_vehicle": [
+        624867468,
+        881542088,
+        -1292813854,
+        -1158910593
+      ]
+    },
+    "motor": {
+      "Speed": 127.0,
+      "HasAttachedComputer": 0,
+      "Network": {
+        "Capacity": 2080768.0,
+        "Size": 2,
+        "AddedCapacity": 16384.0,
+        "Id": 138813343305813,
+        "Stress": 1016.0
+      },
+      "x": 505,
+      "y": 85,
+      "ScrollValue": 127,
+      "z": 73,
+      "id": "create:motor"
+    },
+    "displayLink": {
+      "TargetOffset": [
+        0,
+        1,
+        7
+      ],
+      "Owner": [
+        301266199,
+        -2059649805,
+        -1608804992,
+        -1648951199
+      ],
+      "components": {
+        "create:click_to_link_data": {
+          "selected_dim": "minecraft:overworld",
+          "selected_pos": [
+            506,
+            86,
+            79
+          ]
+        }
+      },
+      "HasAttachedComputer": 0,
+      "x": 506,
+      "y": 85,
+      "TargetLine": 0,
+      "z": 72,
+      "id": "create:display_link",
+      "LinkedGauges": [],
+      "Source": {
+        "Label": "",
+        "Id": "fourthdimension:ride_fault"
+      }
+    },
+    "displaySign": {
+      "back_text": {
+        "has_glowing_text": 0,
+        "color": "black",
+        "messages": [
+          "\"\"",
+          "\"\"",
+          "\"\"",
+          "\"\""
+        ]
+      },
+      "is_waxed": 0,
+      "x": 506,
+      "y": 86,
+      "z": 79,
+      "id": "minecraft:sign",
+      "front_text": {
+        "has_glowing_text": 0,
+        "color": "black",
+        "messages": [
+          "\"\"",
+          "\"\"",
+          "\"\"",
+          "\"\""
+        ]
+      }
+    },
+    "paxAnchorA": {
+      "AnchorPeerCurves": [
+        {
+          "Peer": 140737488425069,
+          "Bezier": {
+            "Starts": [
+              {
+                "V": [
+                  0.5,
+                  0.75,
+                  0.5
+                ]
+              },
+              {
+                "V": [
+                  0.5,
+                  24.75,
+                  -47.5
+                ]
+              }
+            ],
+            "Girder": 0,
+            "Normals": [
+              {
+                "V": [
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              },
+              {
+                "V": [
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              }
+            ],
+            "Primary": 0,
+            "Positions": [
+              {
+                "Pos": [
+                  0,
+                  0,
+                  0
+                ]
+              },
+              {
+                "Pos": [
+                  0,
+                  24,
+                  -48
+                ]
+              }
+            ],
+            "Axes": [
+              {
+                "V": [
+                  0.0,
+                  0.0,
+                  -1.0
+                ]
+              },
+              {
+                "V": [
+                  0.0,
+                  -0.6246950475544243,
+                  0.7808688094430303
+                ]
+              }
+            ],
+            "Material": "simulatedcoasters:coaster_track"
+          },
+          "HHi": 17.88854381999832,
+          "HLo": 17.88854381999832
+        },
+        {
+          "Peer": 140737488752725,
+          "Bezier": {
+            "Starts": [
+              {
+                "V": [
+                  0.5,
+                  0.75,
+                  0.5
+                ]
+              },
+              {
+                "V": [
+                  0.5,
+                  0.75,
+                  32.5
+                ]
+              }
+            ],
+            "Girder": 0,
+            "Normals": [
+              {
+                "V": [
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              },
+              {
+                "V": [
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              }
+            ],
+            "Primary": 1,
+            "Positions": [
+              {
+                "Pos": [
+                  0,
+                  0,
+                  0
+                ]
+              },
+              {
+                "Pos": [
+                  0,
+                  0,
+                  32
+                ]
+              }
+            ],
+            "Axes": [
+              {
+                "V": [
+                  0.0,
+                  0.0,
+                  1.0
+                ]
+              },
+              {
+                "V": [
+                  0.0,
+                  0.0,
+                  -1.0
+                ]
+              }
+            ],
+            "Material": "simulatedcoasters:coaster_track"
+          },
+          "HHi": 10.666666666666666,
+          "HLo": 10.666666666666666
+        }
+      ],
+      "Speed": 0.0,
+      "JointBank": 0.0,
+      "x": 512,
+      "y": 85,
+      "z": 65,
+      "id": "simulatedcoasters:coaster_anchorpoint",
+      "AnchorPeerCurveTints": []
+    },
+    "paxAnchorB": {
+      "AnchorPeerCurves": [
+        {
+          "Peer": 140737488621653,
+          "Bezier": {
+            "Starts": [
+              {
+                "V": [
+                  0.5,
+                  0.75,
+                  0.5
+                ]
+              },
+              {
+                "V": [
+                  0.5,
+                  0.75,
+                  -31.5
+                ]
+              }
+            ],
+            "Girder": 0,
+            "Normals": [
+              {
+                "V": [
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              },
+              {
+                "V": [
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              }
+            ],
+            "Primary": 0,
+            "Positions": [
+              {
+                "Pos": [
+                  0,
+                  0,
+                  0
+                ]
+              },
+              {
+                "Pos": [
+                  0,
+                  0,
+                  -32
+                ]
+              }
+            ],
+            "Axes": [
+              {
+                "V": [
+                  0.0,
+                  0.0,
+                  -1.0
+                ]
+              },
+              {
+                "V": [
+                  0.0,
+                  0.0,
+                  1.0
+                ]
+              }
+            ],
+            "Material": "simulatedcoasters:coaster_track"
+          },
+          "HHi": 10.666666666666666,
+          "HLo": 10.666666666666666
+        },
+        {
+          "Peer": 140737488949365,
+          "Bezier": {
+            "Starts": [
+              {
+                "V": [
+                  0.5,
+                  0.75,
+                  0.5
+                ]
+              },
+              {
+                "V": [
+                  0.5,
+                  32.75,
+                  48.5
+                ]
+              }
+            ],
+            "Girder": 0,
+            "Normals": [
+              {
+                "V": [
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              },
+              {
+                "V": [
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              }
+            ],
+            "Primary": 1,
+            "Positions": [
+              {
+                "Pos": [
+                  0,
+                  0,
+                  0
+                ]
+              },
+              {
+                "Pos": [
+                  0,
+                  32,
+                  48
+                ]
+              }
+            ],
+            "Axes": [
+              {
+                "V": [
+                  0.0,
+                  0.0,
+                  1.0
+                ]
+              },
+              {
+                "V": [
+                  0.0,
+                  -0.6246950475544243,
+                  -0.7808688094430303
+                ]
+              }
+            ],
+            "Material": "simulatedcoasters:coaster_track"
+          },
+          "HHi": 19.22960680247461,
+          "HLo": 19.22960680247461
+        }
+      ],
+      "Speed": 0.0,
+      "JointBank": 0.0,
+      "x": 512,
+      "y": 85,
+      "z": 97,
+      "id": "simulatedcoasters:coaster_anchorpoint",
+      "AnchorPeerCurveTints": []
+    }
+  },
+  {
+    "case": "resumed-cycle-boarding",
+    "winch": {
+      "Speed": 127.0,
+      "shuttle_carriage": [
+        1733633593,
+        1599556616,
+        -1407018867,
+        1867169052
+      ],
+      "shuttle_distance": 62.67979295672925,
+      "shuttle_maximum": 105.30454415478717,
+      "shuttle_start": 140737488425069,
+      "shuttle_station": 62.67979295672925,
+      "Source": [
+        505,
+        85,
+        73
+      ],
+      "shuttle_end": 140737488949365,
+      "shuttle_fault": "",
+      "shuttle_cars": [
+        [
+          624867468,
+          881542088,
+          -1292813854,
+          -1158910593
+        ],
+        [
+          -1364726338,
+          648431765,
+          -1436184981,
+          706412655
+        ],
+        [
+          -1956085616,
+          1462649299,
+          -1891730865,
+          1313254588
+        ],
+        [
+          859674760,
+          2032226056,
+          -1909381182,
+          299761874
+        ]
+      ],
+      "shuttle_interrupted": "LIFTING",
+      "shuttle_cycles": 2,
+      "Network": {
+        "Capacity": 2080768.0,
+        "Size": 2,
+        "AddedStress": 8.0,
+        "Id": 138813343305813,
+        "Stress": 1016.0
+      },
+      "shuttle_phase": "BOARDING",
+      "x": 506,
+      "shuttle_pending_retention": 0,
+      "y": 85,
+      "z": 73,
+      "id": "fourthdimension:shuttle_winch",
+      "shuttle_vehicle": [
+        624867468,
+        881542088,
+        -1292813854,
+        -1158910593
+      ]
+    },
+    "motor": {
+      "Speed": 127.0,
+      "HasAttachedComputer": 0,
+      "Network": {
+        "Capacity": 2080768.0,
+        "Size": 2,
+        "AddedCapacity": 16384.0,
+        "Id": 138813343305813,
+        "Stress": 1016.0
+      },
+      "x": 505,
+      "y": 85,
+      "ScrollValue": 127,
+      "z": 73,
+      "id": "create:motor"
+    },
+    "displayLink": {
+      "TargetOffset": [
+        0,
+        1,
+        7
+      ],
+      "Owner": [
+        301266199,
+        -2059649805,
+        -1608804992,
+        -1648951199
+      ],
+      "components": {
+        "create:click_to_link_data": {
+          "selected_dim": "minecraft:overworld",
+          "selected_pos": [
+            506,
+            86,
+            79
+          ]
+        }
+      },
+      "HasAttachedComputer": 0,
+      "x": 506,
+      "y": 85,
+      "TargetLine": 0,
+      "z": 72,
+      "id": "create:display_link",
+      "LinkedGauges": [],
+      "Source": {
+        "Label": "",
+        "Id": "fourthdimension:ride_fault"
+      }
+    },
+    "displaySign": {
+      "back_text": {
+        "has_glowing_text": 0,
+        "color": "black",
+        "messages": [
+          "\"\"",
+          "\"\"",
+          "\"\"",
+          "\"\""
+        ]
+      },
+      "is_waxed": 0,
+      "x": 506,
+      "y": 86,
+      "z": 79,
+      "id": "minecraft:sign",
+      "front_text": {
+        "has_glowing_text": 0,
+        "color": "black",
+        "messages": [
+          "\"\"",
+          "\"\"",
+          "\"\"",
+          "\"\""
+        ]
+      }
+    },
+    "paxAnchorA": {
+      "AnchorPeerCurves": [
+        {
+          "Peer": 140737488425069,
+          "Bezier": {
+            "Starts": [
+              {
+                "V": [
+                  0.5,
+                  0.75,
+                  0.5
+                ]
+              },
+              {
+                "V": [
+                  0.5,
+                  24.75,
+                  -47.5
+                ]
+              }
+            ],
+            "Girder": 0,
+            "Normals": [
+              {
+                "V": [
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              },
+              {
+                "V": [
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              }
+            ],
+            "Primary": 0,
+            "Positions": [
+              {
+                "Pos": [
+                  0,
+                  0,
+                  0
+                ]
+              },
+              {
+                "Pos": [
+                  0,
+                  24,
+                  -48
+                ]
+              }
+            ],
+            "Axes": [
+              {
+                "V": [
+                  0.0,
+                  0.0,
+                  -1.0
+                ]
+              },
+              {
+                "V": [
+                  0.0,
+                  -0.6246950475544243,
+                  0.7808688094430303
+                ]
+              }
+            ],
+            "Material": "simulatedcoasters:coaster_track"
+          },
+          "HHi": 17.88854381999832,
+          "HLo": 17.88854381999832
+        },
+        {
+          "Peer": 140737488752725,
+          "Bezier": {
+            "Starts": [
+              {
+                "V": [
+                  0.5,
+                  0.75,
+                  0.5
+                ]
+              },
+              {
+                "V": [
+                  0.5,
+                  0.75,
+                  32.5
+                ]
+              }
+            ],
+            "Girder": 0,
+            "Normals": [
+              {
+                "V": [
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              },
+              {
+                "V": [
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              }
+            ],
+            "Primary": 1,
+            "Positions": [
+              {
+                "Pos": [
+                  0,
+                  0,
+                  0
+                ]
+              },
+              {
+                "Pos": [
+                  0,
+                  0,
+                  32
+                ]
+              }
+            ],
+            "Axes": [
+              {
+                "V": [
+                  0.0,
+                  0.0,
+                  1.0
+                ]
+              },
+              {
+                "V": [
+                  0.0,
+                  0.0,
+                  -1.0
+                ]
+              }
+            ],
+            "Material": "simulatedcoasters:coaster_track"
+          },
+          "HHi": 10.666666666666666,
+          "HLo": 10.666666666666666
+        }
+      ],
+      "Speed": 0.0,
+      "JointBank": 0.0,
+      "x": 512,
+      "y": 85,
+      "z": 65,
+      "id": "simulatedcoasters:coaster_anchorpoint",
+      "AnchorPeerCurveTints": []
+    },
+    "paxAnchorB": {
+      "AnchorPeerCurves": [
+        {
+          "Peer": 140737488621653,
+          "Bezier": {
+            "Starts": [
+              {
+                "V": [
+                  0.5,
+                  0.75,
+                  0.5
+                ]
+              },
+              {
+                "V": [
+                  0.5,
+                  0.75,
+                  -31.5
+                ]
+              }
+            ],
+            "Girder": 0,
+            "Normals": [
+              {
+                "V": [
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              },
+              {
+                "V": [
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              }
+            ],
+            "Primary": 0,
+            "Positions": [
+              {
+                "Pos": [
+                  0,
+                  0,
+                  0
+                ]
+              },
+              {
+                "Pos": [
+                  0,
+                  0,
+                  -32
+                ]
+              }
+            ],
+            "Axes": [
+              {
+                "V": [
+                  0.0,
+                  0.0,
+                  -1.0
+                ]
+              },
+              {
+                "V": [
+                  0.0,
+                  0.0,
+                  1.0
+                ]
+              }
+            ],
+            "Material": "simulatedcoasters:coaster_track"
+          },
+          "HHi": 10.666666666666666,
+          "HLo": 10.666666666666666
+        },
+        {
+          "Peer": 140737488949365,
+          "Bezier": {
+            "Starts": [
+              {
+                "V": [
+                  0.5,
+                  0.75,
+                  0.5
+                ]
+              },
+              {
+                "V": [
+                  0.5,
+                  32.75,
+                  48.5
+                ]
+              }
+            ],
+            "Girder": 0,
+            "Normals": [
+              {
+                "V": [
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              },
+              {
+                "V": [
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              }
+            ],
+            "Primary": 1,
+            "Positions": [
+              {
+                "Pos": [
+                  0,
+                  0,
+                  0
+                ]
+              },
+              {
+                "Pos": [
+                  0,
+                  32,
+                  48
+                ]
+              }
+            ],
+            "Axes": [
+              {
+                "V": [
+                  0.0,
+                  0.0,
+                  1.0
+                ]
+              },
+              {
+                "V": [
+                  0.0,
+                  -0.6246950475544243,
+                  -0.7808688094430303
+                ]
+              }
+            ],
+            "Material": "simulatedcoasters:coaster_track"
+          },
+          "HHi": 19.22960680247461,
+          "HLo": 19.22960680247461
+        }
+      ],
+      "Speed": 0.0,
+      "JointBank": 0.0,
+      "x": 512,
+      "y": 85,
+      "z": 97,
+      "id": "simulatedcoasters:coaster_anchorpoint",
+      "AnchorPeerCurveTints": []
+    }
+  },
+  {
+    "case": "normal-restraints-open-unloaded",
+    "winch": {
+      "Speed": 127.0,
+      "shuttle_carriage": [
+        1733633593,
+        1599556616,
+        -1407018867,
+        1867169052
+      ],
+      "shuttle_distance": 62.67979295672925,
+      "shuttle_maximum": 105.30454415478717,
+      "shuttle_start": 140737488425069,
+      "shuttle_station": 62.67979295672925,
+      "Source": [
+        505,
+        85,
+        73
+      ],
+      "shuttle_end": 140737488949365,
+      "shuttle_fault": "",
+      "shuttle_cars": [
+        [
+          624867468,
+          881542088,
+          -1292813854,
+          -1158910593
+        ],
+        [
+          -1364726338,
+          648431765,
+          -1436184981,
+          706412655
+        ],
+        [
+          -1956085616,
+          1462649299,
+          -1891730865,
+          1313254588
+        ],
+        [
+          859674760,
+          2032226056,
+          -1909381182,
+          299761874
+        ]
+      ],
+      "shuttle_interrupted": "LIFTING",
+      "shuttle_cycles": 2,
+      "Network": {
+        "Capacity": 2080768.0,
+        "Size": 2,
+        "AddedStress": 8.0,
+        "Id": 138813343305813,
+        "Stress": 1016.0
+      },
+      "shuttle_phase": "BOARDING",
+      "x": 506,
+      "shuttle_pending_retention": 0,
+      "y": 85,
+      "z": 73,
+      "id": "fourthdimension:shuttle_winch",
+      "shuttle_vehicle": [
+        624867468,
+        881542088,
+        -1292813854,
+        -1158910593
+      ]
+    },
+    "motor": {
+      "Speed": 127.0,
+      "HasAttachedComputer": 0,
+      "Network": {
+        "Capacity": 2080768.0,
+        "Size": 2,
+        "AddedCapacity": 16384.0,
+        "Id": 138813343305813,
+        "Stress": 1016.0
+      },
+      "x": 505,
+      "y": 85,
+      "ScrollValue": 127,
+      "z": 73,
+      "id": "create:motor"
+    },
+    "displayLink": {
+      "TargetOffset": [
+        0,
+        1,
+        7
+      ],
+      "Owner": [
+        301266199,
+        -2059649805,
+        -1608804992,
+        -1648951199
+      ],
+      "components": {
+        "create:click_to_link_data": {
+          "selected_dim": "minecraft:overworld",
+          "selected_pos": [
+            506,
+            86,
+            79
+          ]
+        }
+      },
+      "HasAttachedComputer": 0,
+      "x": 506,
+      "y": 85,
+      "TargetLine": 0,
+      "z": 72,
+      "id": "create:display_link",
+      "LinkedGauges": [],
+      "Source": {
+        "Label": "",
+        "Id": "fourthdimension:ride_fault"
+      }
+    },
+    "displaySign": {
+      "back_text": {
+        "has_glowing_text": 0,
+        "color": "black",
+        "messages": [
+          "\"\"",
+          "\"\"",
+          "\"\"",
+          "\"\""
+        ]
+      },
+      "is_waxed": 0,
+      "x": 506,
+      "y": 86,
+      "z": 79,
+      "id": "minecraft:sign",
+      "front_text": {
+        "has_glowing_text": 0,
+        "color": "black",
+        "messages": [
+          "\"\"",
+          "\"\"",
+          "\"\"",
+          "\"\""
+        ]
+      }
+    },
+    "paxAnchorA": {
+      "AnchorPeerCurves": [
+        {
+          "Peer": 140737488425069,
+          "Bezier": {
+            "Starts": [
+              {
+                "V": [
+                  0.5,
+                  0.75,
+                  0.5
+                ]
+              },
+              {
+                "V": [
+                  0.5,
+                  24.75,
+                  -47.5
+                ]
+              }
+            ],
+            "Girder": 0,
+            "Normals": [
+              {
+                "V": [
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              },
+              {
+                "V": [
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              }
+            ],
+            "Primary": 0,
+            "Positions": [
+              {
+                "Pos": [
+                  0,
+                  0,
+                  0
+                ]
+              },
+              {
+                "Pos": [
+                  0,
+                  24,
+                  -48
+                ]
+              }
+            ],
+            "Axes": [
+              {
+                "V": [
+                  0.0,
+                  0.0,
+                  -1.0
+                ]
+              },
+              {
+                "V": [
+                  0.0,
+                  -0.6246950475544243,
+                  0.7808688094430303
+                ]
+              }
+            ],
+            "Material": "simulatedcoasters:coaster_track"
+          },
+          "HHi": 17.88854381999832,
+          "HLo": 17.88854381999832
+        },
+        {
+          "Peer": 140737488752725,
+          "Bezier": {
+            "Starts": [
+              {
+                "V": [
+                  0.5,
+                  0.75,
+                  0.5
+                ]
+              },
+              {
+                "V": [
+                  0.5,
+                  0.75,
+                  32.5
+                ]
+              }
+            ],
+            "Girder": 0,
+            "Normals": [
+              {
+                "V": [
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              },
+              {
+                "V": [
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              }
+            ],
+            "Primary": 1,
+            "Positions": [
+              {
+                "Pos": [
+                  0,
+                  0,
+                  0
+                ]
+              },
+              {
+                "Pos": [
+                  0,
+                  0,
+                  32
+                ]
+              }
+            ],
+            "Axes": [
+              {
+                "V": [
+                  0.0,
+                  0.0,
+                  1.0
+                ]
+              },
+              {
+                "V": [
+                  0.0,
+                  0.0,
+                  -1.0
+                ]
+              }
+            ],
+            "Material": "simulatedcoasters:coaster_track"
+          },
+          "HHi": 10.666666666666666,
+          "HLo": 10.666666666666666
+        }
+      ],
+      "Speed": 0.0,
+      "JointBank": 0.0,
+      "x": 512,
+      "y": 85,
+      "z": 65,
+      "id": "simulatedcoasters:coaster_anchorpoint",
+      "AnchorPeerCurveTints": []
+    },
+    "paxAnchorB": {
+      "AnchorPeerCurves": [
+        {
+          "Peer": 140737488621653,
+          "Bezier": {
+            "Starts": [
+              {
+                "V": [
+                  0.5,
+                  0.75,
+                  0.5
+                ]
+              },
+              {
+                "V": [
+                  0.5,
+                  0.75,
+                  -31.5
+                ]
+              }
+            ],
+            "Girder": 0,
+            "Normals": [
+              {
+                "V": [
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              },
+              {
+                "V": [
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              }
+            ],
+            "Primary": 0,
+            "Positions": [
+              {
+                "Pos": [
+                  0,
+                  0,
+                  0
+                ]
+              },
+              {
+                "Pos": [
+                  0,
+                  0,
+                  -32
+                ]
+              }
+            ],
+            "Axes": [
+              {
+                "V": [
+                  0.0,
+                  0.0,
+                  -1.0
+                ]
+              },
+              {
+                "V": [
+                  0.0,
+                  0.0,
+                  1.0
+                ]
+              }
+            ],
+            "Material": "simulatedcoasters:coaster_track"
+          },
+          "HHi": 10.666666666666666,
+          "HLo": 10.666666666666666
+        },
+        {
+          "Peer": 140737488949365,
+          "Bezier": {
+            "Starts": [
+              {
+                "V": [
+                  0.5,
+                  0.75,
+                  0.5
+                ]
+              },
+              {
+                "V": [
+                  0.5,
+                  32.75,
+                  48.5
+                ]
+              }
+            ],
+            "Girder": 0,
+            "Normals": [
+              {
+                "V": [
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              },
+              {
+                "V": [
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              }
+            ],
+            "Primary": 1,
+            "Positions": [
+              {
+                "Pos": [
+                  0,
+                  0,
+                  0
+                ]
+              },
+              {
+                "Pos": [
+                  0,
+                  32,
+                  48
+                ]
+              }
+            ],
+            "Axes": [
+              {
+                "V": [
+                  0.0,
+                  0.0,
+                  1.0
+                ]
+              },
+              {
+                "V": [
+                  0.0,
+                  -0.6246950475544243,
+                  -0.7808688094430303
+                ]
+              }
+            ],
+            "Material": "simulatedcoasters:coaster_track"
+          },
+          "HHi": 19.22960680247461,
+          "HLo": 19.22960680247461
+        }
+      ],
+      "Speed": 0.0,
+      "JointBank": 0.0,
+      "x": 512,
+      "y": 85,
+      "z": 97,
+      "id": "simulatedcoasters:coaster_anchorpoint",
+      "AnchorPeerCurveTints": []
+    }
+  }
+]

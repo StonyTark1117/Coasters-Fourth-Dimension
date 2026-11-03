@@ -220,7 +220,7 @@ public final class ExampleLayouts {
                       new RotationProfile.Key(length, 0)))
               : new RotationProfile(
                   List.of(new RotationProfile.Key(0, 0), new RotationProfile.Key(length, 0)));
-      data.rails.add(
+      var rail =
           new FoundationData.Rail(
               from,
               to,
@@ -230,7 +230,9 @@ public final class ExampleLayouts {
               design.variant,
               TrackGeometry.fingerprint(level, edge),
               0,
-              true));
+              true);
+      TrackPlacement.captureOriginalCurve(rail, curve);
+      data.rails.add(rail);
     }
     if (nativeDrives) {
       for (int i = 0; i < 8; i++) {

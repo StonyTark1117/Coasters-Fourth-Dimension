@@ -1,0 +1,278 @@
+{
+  "scope": "Read-only pinned-class method inspection; no runtime, geometry or player-keyboard test performed.",
+  "inspection_commit": "554b3135a56fcd3c9a4e71b6c8f12233a664621e",
+  "upstream_jar_sha256": "f80b4c3cdf9fa6188804967147761b0373e150a6eadbdc53626e5ac9700b2049",
+  "upstream_jar_local_path": "/home/braydon/.gradle/caches/modules-2/files-2.1/curse.maven/create-coasters-simulated-1601871/8655742/4d3381b781a1129f793358b8ae13e0abcd2e655b/create-coasters-simulated-1601871-8655742.jar",
+  "classes": {
+    "dev/silvergold/simulatedcoasters/track/CoasterTrackPlacement.class": {
+      "sha256": "efb9abc25f9c6ed13427107ed22e8873ac7f62507f21aebf3533f05c62fdb9e6",
+      "methods": [
+        {
+          "name": "suppressNeighborSmoothing",
+          "descriptor": "(Lnet/minecraft/world/level/Level;Lnet/minecraft/world/entity/player/Player;)Z",
+          "access_flags": 10,
+          "code_length": 33,
+          "code_sha256": "4e30a472050281c9b90b12c5fb25cd76638fe6f77a735ebbd44e2e8fa2eff8d5",
+          "code_hex": "2ab6009f990007b80117ac2bc100a89900102bc000a84d2cb6011cb80120ac03ac",
+          "entry_locals": [
+            {
+              "slot": 0,
+              "name": "level",
+              "descriptor": "Lnet/minecraft/world/level/Level;"
+            },
+            {
+              "slot": 1,
+              "name": "player",
+              "descriptor": "Lnet/minecraft/world/entity/player/Player;"
+            }
+          ]
+        },
+        {
+          "name": "buildAnchorAnchorBezier",
+          "descriptor": "(Lnet/minecraft/world/level/Level;Lnet/minecraft/core/BlockPos;Lnet/minecraft/core/BlockPos;Lcom/simibubi/create/content/trains/track/TrackMaterial;Z)Lcom/simibubi/create/content/trains/track/BezierConnection;",
+          "access_flags": 9,
+          "code_length": 10,
+          "code_sha256": "82ce95b00564c6e9e68da16ca25bcc9d61abae14907dc3597db13cbbf540b889",
+          "code_hex": "2a2b2c2d1504b802f8b0",
+          "entry_locals": [
+            {
+              "slot": 0,
+              "name": "level",
+              "descriptor": "Lnet/minecraft/world/level/Level;"
+            },
+            {
+              "slot": 1,
+              "name": "anchorA",
+              "descriptor": "Lnet/minecraft/core/BlockPos;"
+            },
+            {
+              "slot": 2,
+              "name": "anchorB",
+              "descriptor": "Lnet/minecraft/core/BlockPos;"
+            },
+            {
+              "slot": 3,
+              "name": "material",
+              "descriptor": "Lcom/simibubi/create/content/trains/track/TrackMaterial;"
+            },
+            {
+              "slot": 4,
+              "name": "girder",
+              "descriptor": "Z"
+            }
+          ]
+        }
+      ]
+    },
+    "dev/silvergold/simulatedcoasters/track/CoasterAnchorBezierOptimizer.class": {
+      "sha256": "b08ef36625afd41d41bc0155280bdab536a78ff80a64c2219e5b1424dee90faf",
+      "methods": [
+        {
+          "name": "buildAnchorAnchorPlacement",
+          "descriptor": "(Lnet/minecraft/world/level/Level;Lnet/minecraft/core/BlockPos;Lnet/minecraft/core/BlockPos;Lcom/simibubi/create/content/trains/track/TrackMaterial;Z)Ldev/silvergold/simulatedcoasters/track/CoasterAnchorBezierOptimizer$AnchorAnchorBuildResult;",
+          "access_flags": 9,
+          "code_length": 11,
+          "code_sha256": "399cf8acf455deb420abde43dc23b55ae6f9bf5df988067804e3992798ffbeae",
+          "code_hex": "2a2b2c2d150403b80007b0",
+          "forwarding_call": {
+            "offset": 7,
+            "constant_pool_index": 7,
+            "target": "dev/silvergold/simulatedcoasters/track/CoasterAnchorBezierOptimizer/buildAnchorAnchorPlacement/(Lnet/minecraft/world/level/Level;Lnet/minecraft/core/BlockPos;Lnet/minecraft/core/BlockPos;Lcom/simibubi/create/content/trains/track/TrackMaterial;ZZ)Ldev/silvergold/simulatedcoasters/track/CoasterAnchorBezierOptimizer$AnchorAnchorBuildResult;",
+            "suppression_argument": "iconst_0 at offset 6"
+          },
+          "entry_locals": [
+            {
+              "slot": 0,
+              "name": "level",
+              "descriptor": "Lnet/minecraft/world/level/Level;"
+            },
+            {
+              "slot": 1,
+              "name": "anchorA",
+              "descriptor": "Lnet/minecraft/core/BlockPos;"
+            },
+            {
+              "slot": 2,
+              "name": "anchorB",
+              "descriptor": "Lnet/minecraft/core/BlockPos;"
+            },
+            {
+              "slot": 3,
+              "name": "material",
+              "descriptor": "Lcom/simibubi/create/content/trains/track/TrackMaterial;"
+            },
+            {
+              "slot": 4,
+              "name": "girder",
+              "descriptor": "Z"
+            }
+          ]
+        },
+        {
+          "name": "buildAnchorAnchorPlacement",
+          "descriptor": "(Lnet/minecraft/world/level/Level;Lnet/minecraft/core/BlockPos;Lnet/minecraft/core/BlockPos;Lcom/simibubi/create/content/trains/track/TrackMaterial;ZZ)Ldev/silvergold/simulatedcoasters/track/CoasterAnchorBezierOptimizer$AnchorAnchorBuildResult;",
+          "access_flags": 9,
+          "code_length": 410,
+          "code_sha256": "fce26203b7b611c99e93a786abac21878e142cdf15104a3fe0d2f910affcf2d4",
+          "entry_locals": [
+            {
+              "slot": 0,
+              "name": "level",
+              "descriptor": "Lnet/minecraft/world/level/Level;"
+            },
+            {
+              "slot": 1,
+              "name": "anchorA",
+              "descriptor": "Lnet/minecraft/core/BlockPos;"
+            },
+            {
+              "slot": 2,
+              "name": "anchorB",
+              "descriptor": "Lnet/minecraft/core/BlockPos;"
+            },
+            {
+              "slot": 3,
+              "name": "material",
+              "descriptor": "Lcom/simibubi/create/content/trains/track/TrackMaterial;"
+            },
+            {
+              "slot": 4,
+              "name": "girder",
+              "descriptor": "Z"
+            },
+            {
+              "slot": 5,
+              "name": "suppressNeighborSmoothing",
+              "descriptor": "Z"
+            }
+          ]
+        },
+        {
+          "name": "buildAnchorAnchorBezier",
+          "descriptor": "(Lnet/minecraft/world/level/Level;Lnet/minecraft/core/BlockPos;Lnet/minecraft/core/BlockPos;Lcom/simibubi/create/content/trains/track/TrackMaterial;Z)Lcom/simibubi/create/content/trains/track/BezierConnection;",
+          "access_flags": 9,
+          "code_length": 26,
+          "code_sha256": "5ead9650a972f136e3cf360587f392ccbb04af518a349751ae9c936a647d5c46",
+          "code_hex": "2a2b2c2d1504b800953a051905c7000701a700081905b60098b0",
+          "entry_locals": [
+            {
+              "slot": 0,
+              "name": "level",
+              "descriptor": "Lnet/minecraft/world/level/Level;"
+            },
+            {
+              "slot": 1,
+              "name": "anchorA",
+              "descriptor": "Lnet/minecraft/core/BlockPos;"
+            },
+            {
+              "slot": 2,
+              "name": "anchorB",
+              "descriptor": "Lnet/minecraft/core/BlockPos;"
+            },
+            {
+              "slot": 3,
+              "name": "material",
+              "descriptor": "Lcom/simibubi/create/content/trains/track/TrackMaterial;"
+            },
+            {
+              "slot": 4,
+              "name": "girder",
+              "descriptor": "Z"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "own_source_hashes": {
+    "src/main/java/dev/fourthdimension/track/FamilyTrackItem.java": "aea2e78b23cd45b22d8378b64da1439ffd877fdb2c6315c1301df61a6466e438",
+    "src/main/java/dev/fourthdimension/track/TrackPlacement.java": "500824eea6200135d2ed7ee3093b26c1166663254aa81126b750e3c2d46fa394"
+  },
+  "api_access": {
+    "dev/silvergold/simulatedcoasters/track/CoasterTrackPlacement.class": {
+      "class_access_flags": 49,
+      "class_public": true,
+      "sha256": "efb9abc25f9c6ed13427107ed22e8873ac7f62507f21aebf3533f05c62fdb9e6",
+      "methods": [
+        {
+          "name": "suppressNeighborSmoothing",
+          "descriptor": "(Lnet/minecraft/world/level/Level;Lnet/minecraft/world/entity/player/Player;)Z",
+          "access_flags": 10,
+          "public": false,
+          "static": true
+        },
+        {
+          "name": "buildAnchorAnchorBezier",
+          "descriptor": "(Lnet/minecraft/world/level/Level;Lnet/minecraft/core/BlockPos;Lnet/minecraft/core/BlockPos;Lcom/simibubi/create/content/trains/track/TrackMaterial;Z)Lcom/simibubi/create/content/trains/track/BezierConnection;",
+          "access_flags": 9,
+          "public": true,
+          "static": true
+        }
+      ]
+    },
+    "dev/silvergold/simulatedcoasters/track/CoasterAnchorBezierOptimizer.class": {
+      "class_access_flags": 49,
+      "class_public": true,
+      "sha256": "b08ef36625afd41d41bc0155280bdab536a78ff80a64c2219e5b1424dee90faf",
+      "methods": [
+        {
+          "name": "buildAnchorAnchorPlacement",
+          "descriptor": "(Lnet/minecraft/world/level/Level;Lnet/minecraft/core/BlockPos;Lnet/minecraft/core/BlockPos;Lcom/simibubi/create/content/trains/track/TrackMaterial;Z)Ldev/silvergold/simulatedcoasters/track/CoasterAnchorBezierOptimizer$AnchorAnchorBuildResult;",
+          "access_flags": 9,
+          "public": true,
+          "static": true
+        },
+        {
+          "name": "buildAnchorAnchorPlacement",
+          "descriptor": "(Lnet/minecraft/world/level/Level;Lnet/minecraft/core/BlockPos;Lnet/minecraft/core/BlockPos;Lcom/simibubi/create/content/trains/track/TrackMaterial;ZZ)Ldev/silvergold/simulatedcoasters/track/CoasterAnchorBezierOptimizer$AnchorAnchorBuildResult;",
+          "access_flags": 9,
+          "public": true,
+          "static": true
+        },
+        {
+          "name": "buildAnchorAnchorBezier",
+          "descriptor": "(Lnet/minecraft/world/level/Level;Lnet/minecraft/core/BlockPos;Lnet/minecraft/core/BlockPos;Lcom/simibubi/create/content/trains/track/TrackMaterial;Z)Lcom/simibubi/create/content/trains/track/BezierConnection;",
+          "access_flags": 9,
+          "public": true,
+          "static": true
+        },
+        {
+          "name": "meetsAltSuppressMinCurveRadius",
+          "descriptor": "(Lcom/simibubi/create/content/trains/track/BezierConnection;)Z",
+          "access_flags": 9,
+          "public": true,
+          "static": true
+        },
+        {
+          "name": "meetsAltSuppressMinCurveRadiusExplicit",
+          "descriptor": "(Lcom/simibubi/create/content/trains/track/BezierConnection;DD)Z",
+          "access_flags": 10,
+          "public": false,
+          "static": true
+        }
+      ]
+    },
+    "dev/silvergold/simulatedcoasters/track/CoasterTrackPlacementNeighborSmoothSuppress.class": {
+      "class_access_flags": 49,
+      "class_public": true,
+      "sha256": "07521b1f421aa52907d0bb94266d0561c86c44ce9cb365430e3feb6fdfca5b77",
+      "methods": [
+        {
+          "name": "setServerSuppress",
+          "descriptor": "(Ljava/util/UUID;Z)V",
+          "access_flags": 9,
+          "public": true,
+          "static": true
+        },
+        {
+          "name": "isSuppress",
+          "descriptor": "(Ljava/util/UUID;)Z",
+          "access_flags": 9,
+          "public": true,
+          "static": true
+        }
+      ]
+    }
+  }
+}

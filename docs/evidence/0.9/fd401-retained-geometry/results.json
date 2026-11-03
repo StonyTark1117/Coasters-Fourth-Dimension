@@ -1,0 +1,24 @@
+[
+  {
+    "name": "bank-control-clearance",
+    "command": [
+      "python3",
+      "scripts/audit-arrow-style-geometry.py",
+      "/home/braydon/Documents/Coasters: Fourth Dimension/build/integration-catalog/2026-11-02/coasters-simulated-track-styles-1642719-9020601.jar",
+      "docs/evidence/0.9/fd401-retained-geometry/bank-native-frames.json"
+    ],
+    "exit_code": 0,
+    "seconds": 13.004
+  },
+  {
+    "name": "straight-wheel-clearance",
+    "command": [
+      "python3",
+      "scripts/audit-arrow-wheel-clearance.py",
+      "/home/braydon/Documents/Coasters: Fourth Dimension/build/integration-catalog/2026-11-02/create-coasters-simulated-1601871-8655742.jar",
+      "/home/braydon/Documents/Coasters: Fourth Dimension/build/integration-catalog/2026-11-02/coasters-simulated-track-styles-1642719-9020601.jar"
+    ],
+    "exit_code": 0,
+    "seconds": 1.875
+  }
+]

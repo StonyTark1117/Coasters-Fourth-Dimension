@@ -45,6 +45,12 @@ public final class FoundationData extends SavedData {
     public final String variant;
     public long geometryHash, revision;
     public boolean valid = true;
+    /**
+     * Serialized native curve at the time this rail was authored. It is optional for legacy
+     * saves; when present it lets an occupied support repair put back the exact former curve
+     * instead of asking upstream's placement optimizer to guess its handles.
+     */
+    public CompoundTag originalCurve;
     public List<dev.fourthdimension.physics.MagneticSpan> magnets = List.of();
     public dev.fourthdimension.integration.TrackAppearance appearance =
         dev.fourthdimension.integration.TrackAppearance.DEFAULT;
@@ -150,6 +156,16 @@ public final class FoundationData extends SavedData {
 
   @Override
   public CompoundTag save(CompoundTag root, HolderLookup.Provider registries) {
+    return write(root, registries, true);
+  }
+
+  /** Server-only functional state sent to clients without restoration provenance. */
+  public CompoundTag snapshot(CompoundTag root, HolderLookup.Provider registries) {
+    return write(root, registries, false);
+  }
+
+  private CompoundTag write(
+      CompoundTag root, HolderLookup.Provider registries, boolean includeOriginalCurves) {
     if (owner != null) CarrierRuntime.refreshForSave(this, owner);
     root.putInt("schema", SCHEMA);
     ListTag tracks = new ListTag();
@@ -164,6 +180,8 @@ public final class FoundationData extends SavedData {
       tag.putLong("geometry_hash", rail.geometryHash);
       tag.putLong("revision", rail.revision);
       tag.putBoolean("valid", rail.valid);
+      if (includeOriginalCurves && rail.originalCurve != null)
+        tag.put("original_curve", rail.originalCurve.copy());
       ListTag keys = new ListTag();
       for (var key : rail.profile.keys()) {
         CompoundTag k = new CompoundTag();
@@ -278,6 +296,8 @@ public final class FoundationData extends SavedData {
               tag.getLong("revision"),
               !tag.contains("valid") || tag.getBoolean("valid")));
       var loadedRail = data.rails.getLast();
+      if (tag.contains("original_curve", Tag.TAG_COMPOUND))
+        loadedRail.originalCurve = tag.getCompound("original_curve").copy();
       if (!railIds.add(loadedRail.id))
         throw new IllegalArgumentException("Duplicate rail identity");
       if (tag.contains("appearance", Tag.TAG_COMPOUND)) {

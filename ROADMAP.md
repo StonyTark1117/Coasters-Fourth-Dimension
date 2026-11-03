@@ -432,9 +432,8 @@ wrong-family cases reject without stealing the existing binding; see the
 [family eligibility matrix](docs/evidence/0.9/family-eligibility-matrix.md).
 The same fixture requests all 20 directed mixed-family native six-block
 couplings after matching capture; every recorded request rejects without a
-link. The recorded assertion preserved the first car's exact binding and
-checked that the second stayed bound. A strengthened assertion now checks both
-exact bindings, pending its native rerun.
+link. The strengthened assertion preserves both cars' exact bindings, and the
+current 49-test native rerun covers all 20 directed requests.
 Its held-item survival dispatcher also accepts the five matching placements and
 rejects the 20 wrong-family placements without consumption or vehicle creation.
 It also verifies bare ordinary-bearing fit and deliberately widened-body
@@ -442,21 +441,25 @@ rejection across all five original tracks through both direct eligibility and
 the native snap filter. The same run confirms ordinary traversal has no vehicle
 record, carrier rotation or magnetic impulse, and rejects unassigned ordinary/4D
 train coupling without mutating the 4D car; see the [ordinary snap matrix](docs/evidence/0.9/ordinary-cart-snap-matrix.md).
-That recorded coupling uses the Arrow-first endpoint order. A reverse-order
-regression is now in source and needs a native rerun before both directions can
-be claimed.
+The loop includes both directions for every mismatched pair, rather than only
+the former Arrow-first endpoint order.
 Each inspected Track Styles appearance also retains Arrow-only functional
-eligibility in a direct regression. The prior optional-profile matrix records
-41 native GameTests under Track Styles-only,
-Engineered-only, and combined audited profiles; see the [optional-profile
-matrix](docs/evidence/0.9/optional-profile-matrix.md). This advances the
-regular-cart and audited optional-profile portions before FD404, but it does not
+eligibility in a direct regression. The refreshed exact-candidate native
+[optional-profile matrix](docs/evidence/0.9/optional-profile-matrix.md) passes
+49 required GameTests with target-host performance limits in each of base,
+Track Styles-only, Engineered-only, and combined audited profiles. Its
+[archived four-profile record](docs/evidence/0.9/profile-matrix-abc4a9a/README.md)
+preserves the identical source and JAR identity, profile-specific dependency
+hashes, full logs, and clean shutdown for every run. This advances the regular-cart
+and audited optional-profile portions before FD404, but it does not
 close the full compatibility matrix. The [advertised compatibility
 scope](docs/evidence/0.9/supported-compatibility-scope.md) records that no
 third-party functional track is currently supported: Track Styles remains a
 cosmetic Arrow appearance and Engineered remains an operating adapter. The
-current standalone target-gated core suite passes 45 GameTests; refresh the
-optional-profile matrix after the current Engineered work is merged.
+current standalone target-gated core suite passes 49 GameTests. The earlier
+Engineered capacity failure was traced to concurrent GameTest fixtures; the
+family matrix now runs in its own batch without changing the production
+64-vehicle limit.
 
 **Depends on:** FD404. **Design:** D02, D04, D17.
 
@@ -472,7 +475,7 @@ chunk/sublevel unload/reload, and full dedicated-server cold restart for each
 stationary original Arrow, Legacy, Free Spin, Revised and PAX family. Every
 case retains the one rider assignment, restores the original native carrier and
 returns the player to a `create:seat` before the 200-tick deadline. The
-combined audited integration profile now passes 41 GameTests, including a
+combined audited integration profile now passes 49 GameTests, including a
 server-side two-live-player regression that retains distinct seat entities and
 UUID-to-seat assignments across a native update. Fresh-world real two-client
 fixtures retain both riders in distinct seats of one carrier across all five
@@ -542,6 +545,8 @@ The existing five-family stationary normal unload/cold-restart and current
 Arrow, Legacy, Free Spin and Revised moving-route checkpoints and the PAX active-lift checkpoint remain valid. Stationary concurrent
 interruption and current five-family moving concurrency coverage are complete. The packaged connected-client support-loss fixture now runs separately for Arrow, legacy ZacSpin, Free Spin, revised ZacSpin and PAX. After native boarding, each run removes its vehicle's real matching Coasters graph connection and requires the server and client to retain the mounted rider while the replicated vehicle becomes stopped, restrained and faulted with `Matching track support lost`. A further five-family packaged checkpoint collects its static client samples, dispatches the occupied vehicle, measures movement, then removes its currently bound curve; PAX first assembles its real four-car train. Every client records movement before the retained rider reaches the replicated fail-closed state; see the [moving support-loss checkpoint](docs/evidence/0.9/client-occupied-moving-support-loss.md). The native [physical support-recovery checkpoint](docs/evidence/0.9/five-family-support-repair.md) now permits rebuilding an occupied original section only for a stopped, restrained, fully captured `Matching track support lost` car. It retains the prior geometry fingerprint and requires two explicit Rotation Tool actions: repair, then physical realignment. The latter invokes the native Coasters snap on that exact rail, preserves the original rider/carrier state, and permits normal circuit-family dispatch only once captured carriers have settled; PAX reaches its separate powered-winch gate. Packaged occupied clients now observe exact authored-curve restoration and the explicit repair state for Arrow, Legacy, Free Spin, Revised, and PAX, with the rider retained and no automatic restart. The PAX checkpoint requires all four chassis to move before its lead loses support. Arrow and PAX retain their 40-sample pre-dispatch static gate; the separate lifecycle-only Legacy, Free Spin, and Revised runs use the existing all-family static-transform matrix and validate repair ordering without delaying dispatch for another static window. See the [Arrow](docs/evidence/0.9/client-occupied-arrow-support-repair.md), [PAX](docs/evidence/0.9/client-occupied-pax-support-repair.md), and [remaining circuit-family](docs/evidence/0.9/client-occupied-legacy-free-spin-revised-support-repair.md) support-repair checkpoints. The current packaged occupied [five-family realignment checkpoint](docs/evidence/0.9/client-occupied-five-family-support-realignment.md) now carries each rider through moving support loss, exact curve restoration, explicit repair, and native physical reattachment; PAX covers all four linked chassis and resets their native velocities as one captured safety unit before reattachment. The current server regression now retains two independent player-seat assignments in each family throughout loss, exact repair, physical realignment, dispatch gating, and holding-store reload. The dedicated-server [five-family two-client server matrix](docs/evidence/0.9/two-client-five-family-server-recovery.md) now carries Dev and Observer through the same moving support-loss, exact-repair, and physical-realignment sequence for every family, including all four PAX chassis. The corrected ordered client guard now confirms loss before repair before realignment for both riders across all five families; see the [ordered two-client recovery matrix](docs/evidence/0.9/two-client-five-family-ordered-recovery.md). The occupied PAX lift now also rejects both winch Resume and Recover until exact repair and native physical realignment complete, then recaptures and relaunches its original four-car train with all sixteen riders retained; see the [PAX support-recovery checkpoint](docs/evidence/0.9/pax-shuttle-support-recovery.md). Post-repair client reconnect or cold-server-restart coverage remains open. An exact standalone Arrow client sequence subsequently exposed a repair-to-realignment operator blocker: after normal repair, a route-boundary guard replaced the cleared support-loss fault while realignment remained required. Its [failed evidence](docs/evidence/0.9/create-telemetry/de667f7-arrow-repair-blocker/README.md) is retained; the release branch now preserves pending realignment against that boundary guard, recovers the historical boundary-fault state and atomically stops captured native bodies in the explicit realignment action. The exact standalone native retest passes all 47 required GameTests. Packaged fresh and preserved-historical Arrow replays both reach normal reattachment and unload; the incomplete historical route subsequently reports its genuine end-of-compatible-track warning, so neither establishes dispatch through that endpoint or broader end-to-end operator acceptance. See [occupied disconnect/reconnect evidence](docs/evidence/0.9/occupied-disconnect-reconnect.md).
 
+`a1aeb1a` adds a native regression that converts a persisted active PAX winch phase into a durable, retained fail-closed state at the first physics tick, including a second save/reload before consumption. The [bounded active-LIFTING cold-restart record](docs/evidence/0.9/create-telemetry/a1aeb1a-active-pax-restart/README.md) adds one real dedicated-server restart with two clients, one rider and an explicit normal resume/cycle/unload: all four chassis, eight carriers, the logical seat assignment, carriage and controller remain. It does not establish every active phase, repeated restarts, every seat, interruption races or a physical stopping-distance bound. The [PAX normal-restoration blocker](docs/evidence/0.9/create-telemetry/311078e-pax-normal-restore-blocker/README.md) remains accurate historical evidence for pre-provenance ordinary placement. Current source now persists the authored curve for fresh original 4D rails and restores it only for stopped, restrained, fully captured matching-support recovery. A fresh native regression verifies exact PAX repair without weakening the geometry guard, and the [fresh packaged PAX path](docs/evidence/0.9/create-telemetry/8a7ffdb-pax-normal-restoration/README.md) completes normal item restore, Repair, Realign, occupied cold restart, powered cycle and unload. That record is one fresh stopped-support case; historical migration and broader lifecycle coverage remain open. Its recovery-specific item confirmation now directs Repair followed by Realign.
+
 **Depends on:** FD404. **Design:** D14, D16, D17.
 
 Run two-client and late-join scenarios, disconnects, chunk unloads, server restart, support loss, cart disassembly, and repeated shuttle station passes across all families.
@@ -551,6 +556,8 @@ Run two-client and late-join scenarios, disconnects, chunk unloads, server resta
 ### FD903 Validate save migration and provider changes
 
 **Status: in progress.** Dev.27 expands the recovery loader regression from schema 5 to every supported legacy schema (1–5). It serializes the occupied five-family recovery fixture, removes the schema-6 recovery fields, loads each declared legacy schema and requires every chassis identity to survive with no invented recovery partner or removed-partner state. The existing invalid 4D-to-4D saved recovery reference remains rejected. A separate regression consumes the recorded 0.3 schema-3 world extract, writes schema 6, reopens it, and preserves all 24 original rail IDs, their complete distance/angle/slope rotation-profile keys, three original chassis IDs and their functional families. A packaged dedicated-server replay now seeds that exact schema-3 `FoundationData` record into a clean world, loads it, saves schema 6, reopens it, and verifies the identities, profile keys, families and absent recovery state from the on-disk result. The same historical fixture injects a third-party `arrow_4d` provider ID and requires the loader to reject it instead of inferring functional conversion from an appearance-like name. The existing real appearance lifecycle opens a saved world after Track Styles removal and again after reinstallation; the current schema-6 regression additionally preserves both known Track Styles appearance IDs and an unknown provider while the provider is absent. Cosmetic appearance loss therefore cannot change a functional rail's ID, family, variant or profile. The [world upgrade and recovery procedure](docs/MIGRATION.md) gives backup, staged-upgrade and restore steps, while explicitly declining third-party functional-block conversion. A complete schema-3 world generated by the historical 0.2.0 packaged server now upgrades and reopens with all three chassis and eight native carriers available; the original 24 rail IDs and profile keys survive the schema-6 rewrite. One connected survival client now boards, rides, captures, unloads, and saves the upgraded historical Arrow car. Separate connected-client Legacy and Free Spin operator cycles now prove their migrated native seats, restraint controls, dispatch requests, capture, and unload; the sampled cycles do not measure sustained historical travel. Sustained Legacy and Free Spin rides, two-client migration coverage, broader historical worlds, and provider conversion remain open; see the [native-world replay](docs/evidence/0.9/native-schema3-world-replay.md), [Legacy/Free Spin operator checkpoint](docs/evidence/0.9/native-schema3-legacy-free-spin-operator.md), the [recovery migration checkpoint](docs/evidence/0.9/recovery-schema-migration.md) and [appearance-provider boundary](docs/evidence/0.9/appearance-provider-lifecycle.md).
+
+The current provenance migration checkpoint additionally boots two untouched pre-provenance worlds on the packaged candidate. All five intact valid rails acquire byte-for-byte native curve snapshots with every other rail field unchanged; a physically changed, pre-invalid PAX support route remains invalid and without provenance. Original chassis/carrier/seat topology and the saved logical rider reservation persist. The only normalized legacy winch field is absent `shuttle_pending_retention`, which is saved as its documented default `false`; see the [historical backfill record](docs/evidence/0.9/create-telemetry/307ec35-legacy-provenance/README.md). Direct native guards additionally refuse provenance for a valid foreign-material rail, a changed native-curve fingerprint, and a missing curve. This proves bounded persistence and refusal behavior, not historical repair, rider remount, or full FD903 acceptance.
 
 **Depends on:** FD404. **Design:** D04, D09, D10, D16.
 
@@ -582,12 +589,15 @@ Track Styles decoration pieces without making an FPS claim. A native Iris/Solas
 shader-mode sample also records original-stage work, but Flywheel fell back to
 `off`; shader and full-render acceptance remain pending.
 
-The current clean standalone target-gated core suite passes all **45**
-GameTests in 5.403 minutes after a 2026-11-02 rerun exposed and repaired a PAX
-and Free Spin invocation-time regression without changing either declared
-limit. Its controlled, PAX, and Free Spin averages are 56,794 ns, 110,917 ns,
-and 115,118 ns per invocation, respectively; their carrier averages are 3,563
-ns, 2,992 ns, and 3,088 ns. The shuttle cache validates route revisions,
+The current exact-candidate base profile passes all **49** GameTests in 5.339
+minutes with both timing limits enabled. Its controlled, PAX, and Free Spin
+averages are 57,141 ns, 107,085 ns, and 109,581 ns per invocation,
+respectively; their carrier averages are 3,206 ns, 2,921 ns, and 2,849 ns.
+Track Styles, Engineered, and their combined profile also pass all 49 tests
+under the same target-host limits; see the [four-profile record](docs/evidence/0.9/profile-matrix-abc4a9a/README.md).
+The preceding 2026-11-02 rerun exposed and repaired a PAX and Free Spin
+invocation-time regression without changing either declared limit. The shuttle
+cache validates route revisions,
 topology, and every required physics chunk before reuse, retaining the existing
 missing-chunk and changed-route fail-closed behavior; a new active-route branch
 mutation regression verifies that the train faults and remains retained. See the

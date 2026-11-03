@@ -1,8 +1,11 @@
 package dev.fourthdimension.gametest;
 
+import com.simibubi.create.content.trains.track.TrackMaterial;
 import dev.fourthdimension.runtime.*;
 import dev.fourthdimension.track.*;
 import dev.silvergold.simulatedcoasters.SimulatedCoastersBlocks;
+import dev.silvergold.simulatedcoasters.CoasterTrackMaterials;
+import dev.silvergold.simulatedcoasters.track.CoasterAnchorBezierOptimizer;
 import dev.silvergold.simulatedcoasters.track.anchor.CoasterAnchorpointBlockEntity;
 import java.util.List;
 import net.minecraft.core.*;
@@ -19,6 +22,49 @@ import net.neoforged.neoforge.gametest.*;
 @GameTestHolder("fourthdimension")
 @PrefixGameTestTemplate(false)
 public final class TrackContentGameTests {
+  @GameTest(template = "empty", timeoutTicks = 60)
+  public static void familyPlacementUsesNativeNoNeighborMutationMode(GameTestHelper helper) {
+    var level = helper.getLevel();
+    for (int x = -10; x <= -6; x++) for (int z = 10; z <= 14; z++) level.setChunkForced(x, z, true);
+    var player = FakePlayerFactory.getMinecraft(level);
+    player.setGameMode(GameType.CREATIVE);
+    var from = new BlockPos(-128, 90, 176);
+    var hub = from.offset(0, 0, 24);
+    var outbound = hub.offset(16, 0, 16);
+    for (var point : List.of(from, hub, outbound))
+      level.setBlockAndUpdate(
+          point, SimulatedCoastersBlocks.COASTER_ANCHORPOINT.get().defaultBlockState());
+    place(helper, player, TrackItems.ARROW.get(), from, hub);
+    var before =
+        ((CoasterAnchorpointBlockEntity) level.getBlockEntity(from))
+            .getAnchorPeerCurvesView()
+            .get(hub)
+            .write(from)
+            .copy();
+    var expected =
+        CoasterAnchorBezierOptimizer.buildAnchorAnchorPlacement(
+            level, hub, outbound, CoasterTrackMaterials.COASTER, false, true);
+    helper.assertTrue(expected != null, "No-neighbour native builder rejected a legal family span");
+    var preview = TrackPlacement.preview(level, hub, outbound);
+    helper.assertTrue(
+        preview.write(hub).equals(expected.primary().write(hub)),
+        "Family preview did not use Coasters' no-neighbour-mutation optimizer mode");
+    place(helper, player, TrackItems.ARROW.get(), hub, outbound);
+    var after =
+        ((CoasterAnchorpointBlockEntity) level.getBlockEntity(from))
+            .getAnchorPeerCurvesView()
+            .get(hub)
+            .write(from);
+    helper.assertTrue(before.equals(after), "Family placement changed its adjoining native curve");
+    var data = FoundationData.get(level);
+    for (var endpoints : List.of(List.of(from, hub), List.of(hub, outbound)))
+      ((CoasterAnchorpointBlockEntity) level.getBlockEntity(endpoints.getFirst()))
+          .removeAnchorPeerCurve(level, endpoints.getLast());
+    data.rails.removeIf(rail -> rail.matches(from, hub) || rail.matches(hub, outbound));
+    for (var point : List.of(from, hub, outbound)) level.removeBlock(point, false);
+    helper.succeed();
+  }
+
   @GameTest(template = "empty", timeoutTicks = 80)
   public static void originalTrackItemsAndPersistence(GameTestHelper helper) {
     var level = helper.getLevel();
@@ -48,21 +94,100 @@ public final class TrackContentGameTests {
     helper.assertTrue(
         saved.variant.equals(rail.variant) && saved.geometryHash == rail.geometryHash,
         "Track identity did not survive serialization");
+    long originalRevision = rail.revision;
+    // Model an intact pre-provenance save without changing its functional binding.
+    rail.originalCurve = null;
+    var legacy = data.rails.stream().filter(r -> r.matches(other, end)).findFirst().orElseThrow();
+    var wrongMaterialCurve = TrackGeometry.resolve(level, legacy).bezier().clone();
+    wrongMaterialCurve.setMaterial(TrackMaterial.ANDESITE);
+    var legacyAnchor = (CoasterAnchorpointBlockEntity) level.getBlockEntity(other);
+    legacyAnchor.removeAnchorPeerCurve(level, end);
+    legacyAnchor.putAnchorPeerCurve(level, end, wrongMaterialCurve);
+    TrackGeometry.invalidate(level);
+    var wrongMaterialEdge = TrackGeometry.resolve(level, legacy);
+    helper.assertTrue(
+        wrongMaterialEdge != null
+            && TrackMaterial.ANDESITE.id.equals(wrongMaterialEdge.bezier().getMaterial().id),
+        "Non-Coasters material control did not retain the substituted native curve");
+    // Native edits invalidate the rail. Reestablish the state of an older loaded save whose
+    // binding still matches this foreign curve, so material is the only backfill gate.
+    legacy.geometryHash = TrackGeometry.fingerprint(level, wrongMaterialEdge);
+    long foreignGeometry = legacy.geometryHash;
+    legacy.originalCurve = null;
+    legacy.valid = true;
+    long foreignRevision = legacy.revision;
     helper.runAtTickTime(
         20,
         () -> {
           helper.assertTrue(
               rail.valid, "Unedited track invalidated itself after graph synchronization");
-          var legacy =
-              data.rails.stream().filter(r -> r.matches(other, end)).findFirst().orElseThrow();
-          helper.assertTrue(legacy.valid, "Legacy track invalidated itself");
+          helper.assertTrue(
+              rail.originalCurve != null && rail.revision == originalRevision,
+              "Intact legacy rail did not acquire its exact native curve without rebinding");
+          var backfilled =
+              FoundationData.load(
+                      data.save(new CompoundTag(), level.registryAccess()), level.registryAccess())
+                  .rails.stream()
+                  .filter(r -> r.id.equals(rail.id))
+                  .findFirst()
+                  .orElseThrow();
+          helper.assertTrue(
+              backfilled.originalCurve != null && backfilled.geometryHash == rail.geometryHash,
+              "Backfilled legacy curve was not persisted with its original binding");
+          var currentForeignEdge = TrackGeometry.resolve(level, legacy);
+          var currentForeignMaterial =
+              currentForeignEdge == null || currentForeignEdge.bezier() == null
+                  ? null
+                  : currentForeignEdge.bezier().getMaterial();
+          long currentForeignHash =
+              currentForeignEdge == null ? Long.MIN_VALUE : TrackGeometry.fingerprint(level, currentForeignEdge);
+          helper.assertTrue(
+              legacy.valid
+                  && legacy.originalCurve == null
+                  && legacy.revision == foreignRevision
+                  && currentForeignMaterial != null
+                  && TrackMaterial.ANDESITE.id.equals(currentForeignMaterial.id)
+                  && currentForeignHash == foreignGeometry,
+              "Valid geometry-matching foreign material rail changed or acquired provenance: valid="
+                  + legacy.valid
+                  + ", snapshot="
+                  + (legacy.originalCurve != null)
+                  + ", revision="
+                  + legacy.revision
+                  + ", material="
+                  + currentForeignMaterial
+                  + ", savedHash="
+                  + foreignGeometry
+                  + ", nativeHash="
+                  + currentForeignHash);
+          // Changed fingerprints on valid Coasters and foreign curves must not gain provenance.
+          legacy.originalCurve = null;
+          legacy.geometryHash++;
+          rail.originalCurve = null;
+          rail.geometryHash++;
+        });
+    helper.runAtTickTime(
+        30,
+        () -> {
+          helper.assertTrue(
+              !rail.valid && rail.originalCurve == null,
+              "Changed Coasters fingerprint acquired an exact-curve snapshot");
+          helper.assertTrue(
+              !legacy.valid && legacy.originalCurve == null,
+              "Changed foreign fingerprint acquired an exact-curve snapshot");
+          // A loaded historical rail can still name geometry that has been removed upstream.
+          rail.geometryHash--;
           ((CoasterAnchorpointBlockEntity) level.getBlockEntity(from))
               .removeAnchorPeerCurve(level, to);
+          rail.valid = true;
         });
     helper.runAtTickTime(
         40,
         () -> {
-          helper.assertTrue(!rail.valid, "Removed geometry retained its active mechanical profile");
+          helper.assertTrue(!rail.valid, "Missing native geometry retained its active mechanical profile");
+          helper.assertTrue(
+              rail.originalCurve == null && !legacy.valid && legacy.originalCurve == null,
+              "Missing native geometry acquired an exact-curve snapshot");
           for (var p : List.of(from, to, other, end)) level.removeBlock(p, false);
           data.rails.removeIf(r -> r.matches(from, to) || r.matches(other, end));
           helper.succeed();

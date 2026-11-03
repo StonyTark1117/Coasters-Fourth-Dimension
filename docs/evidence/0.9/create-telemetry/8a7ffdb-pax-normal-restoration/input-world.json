@@ -1,0 +1,25 @@
+{
+  "kind": "fresh generated flat world; never copied a historical world",
+  "worldFolder": "pax-curve-restore-8a7ffdb",
+  "levelType": "minecraft:flat",
+  "configuredSeed": "0",
+  "gameMode": "creative",
+  "profile": "standalone",
+  "setupCommands": [
+    "forceload add 496 0 527 159",
+    "time set day",
+    "weather clear",
+    "execute positioned 512 80 0 run fd demo pax",
+    "item replace entity Dev hotbar.0 with fourthdimension:rotation_tool",
+    "item replace entity Observer hotbar.0 with fourthdimension:pax_track 64",
+    "item replace entity Observer armor.head with create:goggles",
+    "setblock 509 84 80 minecraft:smooth_stone",
+    "setblock 511 84 65 minecraft:smooth_stone",
+    "setblock 511 84 97 minecraft:smooth_stone"
+  ],
+  "operatorPositioning": "Only unmounted Observer and pre-boarding Dev teleported; no mounted player teleports",
+  "fullWorldBackups": [
+    "/home/braydon/.codex/worktrees/pax-active-restart/Coasters: Fourth Dimension/build/pax-curve-restore/pre-cold-restart-world",
+    "/home/braydon/.codex/worktrees/pax-active-restart/Coasters: Fourth Dimension/build/pax-curve-restore/after-clean-stop-world"
+  ]
+}

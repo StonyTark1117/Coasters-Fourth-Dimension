@@ -1,0 +1,11 @@
+import groovy.json.JsonOutput
+allprojects {
+ tasks.register('fdRecordRuntimeClasspath') {
+  doLast {
+   def runTask = tasks.named('runGameTestServer').get()
+   def paths = sourceSets.main.runtimeClasspath.files.collect { it.absolutePath }.sort()
+   def out = new File(project.findProperty('fdClasspathRecord').toString())
+   out.text = JsonOutput.prettyPrint(JsonOutput.toJson([capture: 'Post-run offline resolution of unchanged main runtime configuration, not process introspection', files: paths]))
+  }
+ }
+}

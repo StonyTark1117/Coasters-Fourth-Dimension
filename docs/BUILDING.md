@@ -35,7 +35,9 @@ to obtain these items.
 
 1. Place two native Coasters anchors in a clear area. Use the matching family
    track item on the first anchor and then the second. Sneak-click cancels the
-   first selection. Use the native Coasters tools to shape the connection.
+   first selection. A family placement preserves adjoining native curves rather
+   than applying Coasters' neighbour-smoothing pass, so edit each connection
+   deliberately with the native Coasters tools after placement.
    Survival placement consumes one matching track item for every four blocks
    of sampled curve length, rounded up for each connection: a 32-block straight
    costs eight items. Have the required items in your inventory before the second
@@ -181,6 +183,8 @@ in order, then sneak-use the winch before boarding. This variant lets an
 operator practice the native coupling and binding steps on a level station.
 The example platforms extend to the outer seat edge. Keep the train at
 six-block spacing while making the three links.
+Add a temporary foothold beside a bearing or seat if it is still too far to
+reach; remove it before dispatch.
 
 These commands create world content; they are examples rather than the survival
 acquisition path. They use the standalone dependencies. Follow the corresponding

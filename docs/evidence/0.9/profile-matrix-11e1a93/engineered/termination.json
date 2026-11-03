@@ -1,0 +1,15 @@
+{
+  "reason": "Stop matrix after first native failure per coordinator instruction",
+  "signal": "SIGTERM",
+  "owned_jvm_pid": 1705853,
+  "jvm_exit": 143,
+  "gradle_wrapper_exit": 1,
+  "normal_shutdown": false,
+  "final_save_confirmed": false,
+  "world_copy": "stopped-world",
+  "world_copy_scope": "Interrupted world files only; data directory empty, not authoritative live vehicle counts",
+  "failure_test": "fivefamilyfactorylockedsnapandbindingmatrix",
+  "failure": "Vehicle capacity reached",
+  "combined_profile": "not launched",
+  "source_change": "none"
+}

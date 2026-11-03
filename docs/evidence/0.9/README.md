@@ -79,6 +79,43 @@ that its physical carriage and ordered native consist complete a second cycle.
 It is a server-side persistence boundary, with wider client and lifecycle
 coverage still open under FD902.
 
+The active-PAX reload regression in `a1aeb1a` converts a persisted active winch
+phase to the explicit faulted, stopped, restrained and captured state on the
+first runtime tick, including a second save/reload before that tick. The
+[bounded active-LIFTING cold-restart record](create-telemetry/a1aeb1a-active-pax-restart/README.md)
+adds one real dedicated-server restart with two clients: the same four chassis,
+eight carriers, logical seat assignment, winch carriage and controller survive;
+the stopped fault holds for 636 ticks until explicit resume, then the train
+completes its cycle and ordinary unload. Native Create seat UUID continuity is
+not claimed. Other active phases, repeated restarts, every seat, interruption
+races and moving stopping distance remain open.
+
+The [PAX normal-restoration blocker](create-telemetry/311078e-pax-normal-restore-blocker/README.md)
+is retained as historical evidence: on the pre-provenance build, normal
+placement optimized different curve axes/normals and Repair correctly rejected
+the changed geometry. Current source stores the authored native curve for new
+original 4D rails in server persistence, excludes it from client snapshots, and
+reuses it only for a stopped, restrained, fully captured matching-support
+restore. The 49-test native suite verifies that fresh PAX path can repair the
+exact curve; malformed or mismatched provenance and changed geometry still fail
+closed. The [fresh packaged PAX restoration](create-telemetry/8a7ffdb-pax-normal-restoration/README.md)
+then records normal item restoration, Repair, Realign, a two-client cold restart,
+one normal powered cycle and ordinary unload while retaining the original four
+chassis, eight carriers and logical rider seat. It is one fresh stopped-support
+fixture; migration, missing-support restarts and broader lifecycle coverage stay
+open. The item confirmation now directs an intentionally invalid restored rail
+to Repair, then Realign instead of the generic edit/rebind guidance.
+
+The [historical provenance backfill](create-telemetry/307ec35-legacy-provenance/README.md)
+uses two actual pre-provenance worlds. It records five intact valid rails gaining
+their exact saved native snapshots while a pre-invalid changed-support PAX route
+remains unadopted; rail identities, profiles, vehicle/carrier topology and the
+saved logical reservation persist. One absent legacy winch marker is written as
+its documented default `false`. Native regression guards also refuse provenance
+for a valid foreign-material rail, a changed native-curve fingerprint, and a
+missing curve. This is migration persistence evidence only, not historical
+repair, rider remount, or full FD903 acceptance.
+
 [Dimension-scoped snapshot contract](dimension-snapshot-contract.md) prevents
 a queued old-dimension snapshot from replacing the newly active client level.
 It advances the snapshot lifecycle boundary. The separate live two-client

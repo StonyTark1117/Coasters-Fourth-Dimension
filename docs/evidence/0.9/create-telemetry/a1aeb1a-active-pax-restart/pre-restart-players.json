@@ -1,0 +1,72 @@
+{
+  "380df991-f603-344c-a090-369bad2a924a": {
+    "UUID": [
+      940439953,
+      -167562164,
+      -1601161573,
+      -1389718966
+    ],
+    "Pos": [
+      508.5000067576261,
+      86.43746283185058,
+      89.9609521930001
+    ],
+    "RootVehicle": {
+      "Entity": {
+        "Motion": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "FallDistance": 0.0,
+        "neoforge:attachments": {
+          "create:minecart_controller": {
+            "Type": "EMPTY"
+          }
+        },
+        "Pos": [
+          20481033.5,
+          127.0,
+          20503560.5
+        ],
+        "Fire": -1,
+        "Invulnerable": 0,
+        "id": "create:seat",
+        "Air": 300,
+        "OnGround": 0,
+        "PortalCooldown": 0,
+        "UUID": [
+          -1726899371,
+          944983835,
+          -1576308787,
+          356107094
+        ],
+        "Rotation": [
+          0.0,
+          0.0
+        ]
+      },
+      "Attach": [
+        -1726899371,
+        944983835,
+        -1576308787,
+        356107094
+      ]
+    },
+    "Dimension": "minecraft:overworld"
+  },
+  "11f4f517-853c-3cf3-a01b-95809db70061": {
+    "UUID": [
+      301266199,
+      -2059649805,
+      -1608804992,
+      -1648951199
+    ],
+    "Pos": [
+      506.5,
+      86.0,
+      73.5
+    ],
+    "Dimension": "minecraft:overworld"
+  }
+}
