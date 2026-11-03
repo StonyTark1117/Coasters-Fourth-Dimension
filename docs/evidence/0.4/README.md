@@ -41,8 +41,13 @@ Chain coupling, occupied powered travel and unloading on a separately
 are also recorded. A later [survival-built PAX cycle](survival-client-pax/survival-cycle/acceptance.md)
 adds normal player Chain coupling, occupied powered travel, recatch, unloading
 and reopen on a normally crafted route, cars and winch with a disclosed upstream
-motor fixture. Legacy, Free Spin and Revised powered client rides remain
-unfinished; the Arrow pass is a one-way route rather than a full circuit.
+motor fixture. The Arrow pass is a one-way route rather than a full circuit.
+The later [bounded powered Legacy pass](survival-client-legacy-powered/acceptance.md)
+records travel, capture, unloading and reopen but no meaningful free rotation.
+The later [bounded powered Free Spin pass](survival-client-free-spin-powered/acceptance.md)
+records installed inducer/damper spans, independent occupied carrier motion,
+capture, unloading and reopen; it does not isolate damper strength from capture.
+Revised powered lower-hinge travel remains open.
 
 ## Resource reload investigation
 

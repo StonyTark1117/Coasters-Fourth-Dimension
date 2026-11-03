@@ -419,7 +419,15 @@ records survival result-slot crafting, player-connected 50-block original
 track, player-installed Chain, an occupied motor-powered 36-block traverse,
 pre-boundary capture, unloading and same-identity cold reopen. The flat route
 did not produce meaningful free rotation, so the Legacy family mechanics
-exercise remains open alongside the powered Free Spin and Revised exercises.
+exercise remains open. A later
+[bounded powered Free Spin pass](docs/evidence/0.4/survival-client-free-spin-powered/acceptance.md)
+records survival crafting, player-installed magnetic spans on a 50-block
+original section, occupied powered travel with independent carrier response,
+pre-boundary capture, unloading and same-identity cold reopen. It also fixes
+long-section editor reach and duplicate live rider-seat assignment found in
+negative retries. The split ride does not isolate damper strength from capture;
+full family teaching, a complete Arrow circuit and powered Revised lower-hinge
+exercise remain open.
 The
 [FD403 connected-client acceptance procedure](docs/FD403-ACCEPTANCE.md) lists
 the remaining family checks without treating the earlier samples as release
