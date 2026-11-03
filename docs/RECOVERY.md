@@ -216,8 +216,9 @@ Dev.26 records those actual native poses every ten ticks, requires at least 500
 samples per route, and pins both trace producers in the independent verifier.
 The fresh five single-car and two original-train audits pass with 577–697 samples
 per route and lower bounds of 0.04602 blocks for body/track, 0.08 for rider/track
-and 0.0625 for rider/rack clearance; see the
-[dense-clearance checkpoint](evidence/0.4/recovery/dense-clearance/acceptance.md).
+and 0.0625 for rider/rack clearance on the checked subset; see the
+[dense-clearance checkpoint](evidence/0.4/recovery/dense-clearance/acceptance.md)
+and its [coverage correction](evidence/0.4/recovery/dense-clearance/rider-rack-coverage-correction.md).
 Ten-tick samples still do not certify continuous swept clearance, rendered players,
 intentional seat contact, linkage or optional decoration. Full rendered/operator/lifecycle
 acceptance remains FD402.

@@ -1,5 +1,11 @@
 # FD402 sampled mounted-rider carrier-rack clearance
 
+**Historical coverage limit:** the verifier used here skipped rack checks for
+riders with no nearby track triangle. The sampled lower bound below covers the
+checked subset. See the later
+[one-tick coverage correction](../dense-clearance/rider-rack-coverage-correction.md)
+for the independent rack-check fix and a full-sample archived-trace audit.
+
 Dev.25 extends the sampled native-rider audit to the non-seat block-model
 volumes belonging to that rider's exact carrier. It found the Revised carrier
 axle intersecting the mounted rider envelope, then moves the axle's rendered
