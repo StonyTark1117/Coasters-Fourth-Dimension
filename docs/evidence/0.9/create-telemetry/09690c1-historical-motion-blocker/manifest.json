@@ -1,0 +1,93 @@
+{
+  "sourceRevision": "09690c1a45d09a088438fa40e1ba3af35c9731d4",
+  "jarSha256": "bc98cd6cc7b8e2ff6d8d647c8e6914f2b618aac1258fbeef8da070a82ee777e4",
+  "profile": "standalone",
+  "validationFlag": true,
+  "buildResult": "passed; test executed, compile may be cache-reused; see retained build log",
+  "world": "telemetry-09690c1",
+  "createdUtc": "2026-11-03T00:53:39.557954+00:00",
+  "dependencies": [
+    {
+      "file": "create-1.21.1-6.0.10-280.jar",
+      "path": "/home/braydon/.gradle/caches/modules-2/files-2.1/com.simibubi.create/create-1.21.1/6.0.10-280/62c085fd48fc84b62f88d7bc98b7c4206492c080/create-1.21.1-6.0.10-280.jar",
+      "sha256": "192c7b0be13f523dcec9a7a2393bbc2614c3c9bd3edb1f7720a97bcd4f0b87a7"
+    },
+    {
+      "file": "create-1.21.1-6.0.10-280-slim.jar",
+      "path": "/home/braydon/.gradle/caches/modules-2/files-2.1/com.simibubi.create/create-1.21.1/6.0.10-280/92471e8fc5ed4e3c2279001d77ebcec6fd38bcab/create-1.21.1-6.0.10-280-slim.jar",
+      "sha256": "f0652bee27460f2d26a748f537cb5d687981441378d3a526d17ffaab5a1072bb"
+    },
+    {
+      "file": "Registrate-MC1.21-1.3.0+67.jar",
+      "path": "/home/braydon/.gradle/caches/modules-2/files-2.1/com.tterrag.registrate/Registrate/MC1.21-1.3.0+67/66ddc4cd56472fea1ea1a24182901e6c92a51c0a/Registrate-MC1.21-1.3.0+67.jar",
+      "sha256": "510f4041c41739f1d8ea8850ab8364d3e3a5fada8529beed5d9f479e2523db52"
+    },
+    {
+      "file": "create-coasters-simulated-1601871-8655742.jar",
+      "path": "/home/braydon/.gradle/caches/modules-2/files-2.1/curse.maven/create-coasters-simulated-1601871/8655742/4d3381b781a1129f793358b8ae13e0abcd2e655b/create-coasters-simulated-1601871-8655742.jar",
+      "sha256": "f80b4c3cdf9fa6188804967147761b0373e150a6eadbdc53626e5ac9700b2049"
+    },
+    {
+      "file": "flywheel-neoforge-1.21.1-1.0.6.jar",
+      "path": "/home/braydon/.gradle/caches/modules-2/files-2.1/dev.engine-room.flywheel/flywheel-neoforge-1.21.1/1.0.6/a943872ad0bdd4458d818d8d7dc123fb250eb744/flywheel-neoforge-1.21.1-1.0.6.jar",
+      "sha256": "31dda15c205eb596d3b3449ef03f6af7363a6cd35b3da4bfe916b304f9e5337e"
+    },
+    {
+      "file": "sable-companion-common-1.21.1-1.6.0.jar",
+      "path": "/home/braydon/.gradle/caches/modules-2/files-2.1/dev.ryanhcode.sable-companion/sable-companion-common-1.21.1/1.6.0/370be7db705926176e05c0215ed676150c45daae/sable-companion-common-1.21.1-1.6.0.jar",
+      "sha256": "873633e35046e3761b277ff8a1ecad0d55d9a3014fa81a0b084c9aecba1f3bed"
+    },
+    {
+      "file": "sable-neoforge-1.21.1-2.0.3.jar",
+      "path": "/home/braydon/.gradle/caches/modules-2/files-2.1/dev.ryanhcode.sable/sable-neoforge-1.21.1/2.0.3/f3ba9a497122ba29d9e94ebe6f9a3a3aaa5fa756/sable-neoforge-1.21.1-2.0.3.jar",
+      "sha256": "da6c3b66238586603d1dcaa2afb012d36815fbce0a2d5938fbb2936701d42279"
+    },
+    {
+      "file": "sable-sable_rapier-1.21.1-2.0.3.jar",
+      "path": "/home/braydon/.gradle/caches/modules-2/files-2.1/dev.ryanhcode.sable/sable-sable_rapier-1.21.1/2.0.3/a88c0860320890144b6b44c332a2a2db3a61e189/sable-sable_rapier-1.21.1-2.0.3.jar",
+      "sha256": "aabd5ed08349821989cd1806122918cbec3c9dfafe4584e0ab012fa015b7749d"
+    },
+    {
+      "file": "veil-neoforge-1.21.1-4.1.4.jar",
+      "path": "/home/braydon/.gradle/caches/modules-2/files-2.1/foundry.veil/veil-neoforge-1.21.1/4.1.4/642ec0bd02213ee087d86eda553d6d79c6a04d2b/veil-neoforge-1.21.1-4.1.4.jar",
+      "sha256": "9c2899086a96339245b5abde82879011753871f25443df9581881f29596a7180"
+    },
+    {
+      "file": "ponder-neoforge-1.0.82+mc1.21.1.jar",
+      "path": "/home/braydon/.gradle/caches/modules-2/files-2.1/net.createmod.ponder/ponder-neoforge/1.0.82+mc1.21.1/b10a04f40b9d6d33c346fb38df33f10f7e51b713/ponder-neoforge-1.0.82+mc1.21.1.jar",
+      "sha256": "0cf4611ad853042b689ac386184c5bbe02950efcffddb49e5f604e82baddb0dc"
+    }
+  ],
+  "status": "historical replay blocked by physical-stop precondition; runtime later interrupted; fresh recurrence not run",
+  "case": "Arrow pending realignment prevention and historical-fault recovery",
+  "runtimeShutdown": {
+    "status": "interrupted; cause unproven",
+    "evidence": "RCON refused, server/client/Xvfb processes absent, exec handles missing; logs lack normal shutdown; no exit codes available"
+  },
+  "inputWorld": "Unmodified full backup from de667f7-arrow-repair-blocker; original retained separately",
+  "limits": [
+    "Standalone Arrow historical replay only.",
+    "No successful realignment, fault clear, readiness or unload.",
+    "Fresh support-loss recurrence was not started.",
+    "Software-rendered GUI; no hardware performance or broad lifecycle claim."
+  ],
+  "files": {
+    "README.md": "a540c11bc3a998d859b133cc5c9fff3f8eb96e6598a81931dc16d0f1dfe57f29",
+    "build.log": "7a8b63b53c141a1e4f33805a08264ccd3f545927ee7341d98b16a97002c3e1e0",
+    "client.log.gz": "c6323007a57388376dc98f9eb9a3c3d2edbad2b57dbae57a2c1ecb00129bafdd",
+    "historical-after-realign-goggles.png": "a38c13148ef365aa1d9ba29f9ca33632de0f74ec978bd6e70a662d47b0b7b4c9",
+    "historical-after-realign-sign.png": "50aa598ead6253ecf38c5deb38f70cad339ef7e01000ec56a4922d9c40bd2023",
+    "historical-dev-loaded.png": "2bc2f3740700063e3879c2e46933fee9da0d3b0e6d222481a4dfafb6cd31e157",
+    "historical-editor-before.png": "7d5c15d02bd9398041d0620e7841406b7342c25ce7908c76505291ca2ca4ce73",
+    "historical-later-retry.png": "c5ba12a9921be8eef733ad6bb80b691563a43ea318c8af1b006e1774a809c4b4",
+    "historical-motion.jsonl": "8938a34ee3be14df881c1a8c621b6833e83f72e8de1d9324aa8f8b5a4a42f351",
+    "historical-realign-result.png": "6bc828bb4c0384c25a15569eb8bc4ffc08531e2a5004a035ff81b690a61963a2",
+    "historical-realign-retry.png": "1013e2bf9725f27381870b458eb7179b75e8826d3b9eb6731a1083e8df4427f6",
+    "input-world.json": "125f080f2c4f7eb0ad0a2f5625b07e2ba3b7abeec0364193a3565f8d42ab8a3c",
+    "last-saved-foundation.dat": "de64283f7dd5dd5b9976f7ebfcbb550a480014d9429be0c4bf1128c45d4b75fa",
+    "observations.jsonl": "3183c9c4fe53c2c46b7cccdc8f9bc9c173a9aef3382d02d6566f6a3519a372ee",
+    "observer.log.gz": "fb4f6c3bf6ea7aaa9290143aa7a3ea9e5bd596c93ab7af7eb12b2a0e2b50b6cf",
+    "server.log.gz": "f69cce637fce1da805cfb8903a494928b6953feabe62531978e48013fc7f6078",
+    "verify.py": "9ea5ecfe3ee1b53f0e5a93cf121b15587b0e286f7846c1c98e001c5b18921663"
+  }
+}
