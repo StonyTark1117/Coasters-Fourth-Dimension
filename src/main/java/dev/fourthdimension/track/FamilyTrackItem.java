@@ -37,13 +37,15 @@ public final class FamilyTrackItem extends Item {
       } else {
         if (!first.dimension().equals(level.dimension()))
           throw new IllegalArgumentException("Select anchors in the same dimension");
-        TrackPlacement.connect(level, first.pos(), pos, design, player, stack);
+        var rail = TrackPlacement.connect(level, first.pos(), pos, design, player, stack);
         stack.remove(TrackItems.SELECTION.get());
         player.displayClientMessage(
             Component.literal(
-                "Placed "
-                    + design.variant
-                    + "; edit the curve with the Coasters handles, then rebind its profile"),
+                rail.valid
+                    ? "Placed "
+                        + design.variant
+                        + "; edit the curve with the Coasters handles, then rebind its profile"
+                    : "Support restored; use Rotation Tool: Repair matching track, then Realign matching track"),
             true);
       }
       return InteractionResult.SUCCESS;
