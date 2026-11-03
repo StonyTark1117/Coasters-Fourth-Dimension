@@ -387,8 +387,11 @@ not establish powered travel; the Legacy check records an endpoint fault.
 A later [Revised survival-client checkpoint](docs/evidence/0.4/survival-client-revised/acceptance.md)
 adds normal crafting and matching track/car placement, clearance rejection,
 default-range boarding, operator dispatch/capture/unloading, and a clean
-save/reopen cycle; powered lower-hinge travel remains open. PAX still lacks a
-connected survival-client exercise. The
+save/reopen cycle; powered lower-hinge travel remains open. A later
+[PAX construction checkpoint](docs/evidence/0.4/survival-client-pax/acceptance.md)
+records survival crafting, three valid connected route rails, four captured
+cars, and a bound single-car winch. The native chain links and occupied powered
+four-car cycle remain open. The
 [FD403 connected-client acceptance procedure](docs/FD403-ACCEPTANCE.md) lists
 the remaining family and teaching checks without treating the earlier samples
 as release acceptance.
