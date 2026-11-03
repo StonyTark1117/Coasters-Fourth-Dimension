@@ -217,6 +217,14 @@ original source/tool/input hashes and do not become post-fix runtime evidence.
 Any later source change requires reinspection, not merely replacing a hash to
 obtain a pass.
 
+Current auditors hash inputs, dependencies, source and tool before analysis, then
+require those hashes to match again before emitting a result. A changed or removed
+file refuses certification rather than relabeling completed calculations with its
+new bytes. Custom style-plan files are included. This boundary check is not a
+filesystem snapshot: still use immutable source and input copies to exclude a file
+being changed and restored between checks. Earlier reports retain their actual
+provenance limitations; this guard does not retroactively validate them.
+
 Reports include the saved appearance separately from the proposed plan, component
 counts, model/body resource hashes, input/source/tool hashes and NumPy version.
 Only aggregate measurements and identities are written; third-party model data

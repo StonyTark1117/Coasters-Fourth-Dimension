@@ -474,6 +474,20 @@ def audit(route, entries, resources, margin, *, surface=None):
             "uncertifiedPairs": failures, "allCarsVisitedSections": 5}
 
 
+
+def provenance_snapshot(paths):
+    """Hash inspected inputs before use; this is not a filesystem snapshot."""
+    return {name: digest(path) for name, path in paths.items()}
+
+
+def require_unchanged_provenance(paths, initial):
+    """Refuse certification if a source/input/tool differs at report emission."""
+    final = provenance_snapshot(paths)
+    changed = [name for name in initial if initial[name] != final[name]]
+    if changed:
+        raise ValueError("Audit provenance changed during analysis: " + ", ".join(changed))
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("base_jar", type=Path)
@@ -484,12 +498,17 @@ def main():
     args = parser.parse_args()
     if not math.isfinite(args.margin) or not 0 < args.margin <= .05:
         parser.error("Margin must be finite and in (0, .05]")
-    if digest(args.base_jar) != BASE_PIN:
+    provenance_paths = {name: getattr(args, name) for name in
+                        ("base_jar", "minecraft_jar", "frames", "trace")}
+    provenance_paths["tool"] = Path(__file__)
+    provenance_paths.update({"source:" + name: ROOT / name for name in SOURCE_PINS})
+    initial_hashes = provenance_snapshot(provenance_paths)
+    if initial_hashes["base_jar"] != BASE_PIN:
         parser.error("Requires inspected native Coasters 0.1.5 artifact")
-    if digest(args.minecraft_jar) != MINECRAFT_PIN:
+    if initial_hashes["minecraft_jar"] != MINECRAFT_PIN:
         parser.error("Requires inspected Minecraft 1.21.1 client resources")
     for name, pin in SOURCE_PINS.items():
-        if digest(ROOT / name) != pin:
+        if initial_hashes["source:" + name] != pin:
             parser.error("Reinspect geometry reconstruction after source change: " + name)
     # A contained triangle must be uncertified; a separated one needs a real gap.
     box = np.array(list(itertools.product((-1, 1), repeat=3)))
@@ -509,15 +528,16 @@ def main():
     with zipfile.ZipFile(args.base_jar) as base, zipfile.ZipFile(args.minecraft_jar) as minecraft:
         resources = Resources(base, minecraft)
         results = [audit(route, entries, resources, args.margin) for route in routes]
-    output = {"baseSha256": BASE_PIN, "minecraftSha256": digest(args.minecraft_jar), "framesSha256": digest(args.frames), "traceSha256": digest(args.trace),
-              "verifierSha256": digest(Path(__file__)),
-              "sourceHashes": {name: digest(ROOT / name) for name in
-                               ("src/main/java/dev/fourthdimension/client/OriginalTrackRenderer.java",
-                                "src/main/java/dev/fourthdimension/track/TrackDesign.java",
-                                "src/main/java/dev/fourthdimension/gametest/RecoveryMeshTrace.java",
-                                "src/main/java/dev/fourthdimension/gametest/BankedRecoveryGameTests.java",
-                                "src/main/java/dev/fourthdimension/gametest/BankedRecoveryTrainGameTests.java",
-                                "src/main/java/dev/fourthdimension/vehicle/BankedRecoveryExamples.java") },
+    try:
+        require_unchanged_provenance(provenance_paths, initial_hashes)
+    except (OSError, ValueError) as error:
+        parser.error(str(error))
+    output = {"baseSha256": initial_hashes["base_jar"],
+              "minecraftSha256": initial_hashes["minecraft_jar"],
+              "framesSha256": initial_hashes["frames"], "traceSha256": initial_hashes["trace"],
+              "verifierSha256": initial_hashes["tool"],
+              "sourceHashes": {name: initial_hashes["source:" + name] for name in SOURCE_PINS},
+              "provenanceCheck": "Input/source/tool hashes matched before analysis and before report emission; use immutable files to exclude intervening changes.",
               "resourceHashes": resources.hashes, "sampleIntervalTicks": 1,
               "scope": "one-tick sampled original default block-model, explicit chassis/carrier linkage blocks, native lower-bearing, full-spin wheel-envelope and mounted native-rider rendered-orientation volumes against original track tubes; running rails are excluded only for wheels as intended contact; no continuous physics-step sweep, player meshes, client renderer/cosmetics, unmodeled kinematic linkage, decorations or resource overrides",
               "method": "2-block spatial bins; omitted pairs certify at least 4x margin; world AABB separation refined by OBB/triangle SAT lower distance bounds",

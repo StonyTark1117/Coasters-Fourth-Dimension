@@ -47,7 +47,7 @@ SOURCE_PINS = {
     "src/main/java/dev/fourthdimension/contract/Family.java": "a441e66dfcbee53a83a52f5b475fab07d60e58e03d2ef789ebfbe1c0ab9d7c2c",
     "src/main/java/dev/fourthdimension/integration/TrackAppearance.java": "cf12254fb753172bc1c110dd8f5b1203de740b02658f81612427a86cd2695a3c",
     "src/main/java/dev/fourthdimension/integration/TrackRenderOwnership.java": "8d7b795ccf9e1a54b1c7ffe375cf8a94d6d9f10c72c344f9bce94480c4c9887e",
-    "scripts/audit-recovery-mesh-trace.py": "5b8ac0000dd7db3dc33979ef3e09acfb8627e3dfe7062a73d1eb3d0ebdcda020",
+    "scripts/audit-recovery-mesh-trace.py": "4ba9ab5f6895ce1e0623adbec9707f6f69bddb55ea40cced496cb0c8733bcaae",
     "scripts/verify-recovery-decoration-inputs.py": "c6c443d58a411d98881109633becb55595ea16cd21df2e2b853be2e08353d594"
 }
 
@@ -183,12 +183,20 @@ def main():
     parser.add_argument('--margin', type=float, default=.02)
     args = parser.parse_args()
     try:
+        source_pins = {**recovery.SOURCE_PINS, **SOURCE_PINS}
+        provenance_paths = {name: getattr(args, name) for name in
+                            ('base_jar', 'minecraft_jar', 'styles_jar', 'frames', 'trace')}
+        if args.style_plan is not None:
+            provenance_paths['style_plan'] = args.style_plan
+        provenance_paths['tool'] = Path(__file__)
+        provenance_paths.update({'source:' + name: ROOT/name for name in source_pins})
+        initial_hashes = recovery.provenance_snapshot(provenance_paths)
         require(math.isfinite(args.margin) and 0 < args.margin <= .05, 'invalid margin')
-        for path, pin in ((args.base_jar, recovery.BASE_PIN), (args.minecraft_jar, recovery.MINECRAFT_PIN),
-                          (args.styles_jar, STYLES_PIN)):
-            require(recovery.digest(path) == pin, f'wrong inspected dependency: {path.name}')
-        for name, pin in {**recovery.SOURCE_PINS, **SOURCE_PINS}.items():
-            require(recovery.digest(ROOT/name) == pin, 'reinspect source before auditing: '+name)
+        for name, pin in (('base_jar', recovery.BASE_PIN), ('minecraft_jar', recovery.MINECRAFT_PIN),
+                          ('styles_jar', STYLES_PIN)):
+            require(initial_hashes[name] == pin, f'wrong inspected dependency: {name}')
+        for name, pin in source_pins.items():
+            require(initial_hashes['source:' + name] == pin, 'reinspect source before auditing: '+name)
         require(sys.flags.optimize == 0, 'run without Python -O; route verifier uses assertions')
         require(args.frames.suffix != '.gz', 'use an uncompressed archived frames copy')
         routes = read_json(args.frames)
@@ -212,15 +220,18 @@ def main():
         with zipfile.ZipFile(args.base_jar) as base, zipfile.ZipFile(args.minecraft_jar) as minecraft:
             resources = recovery.Resources(base, minecraft)
             result = recovery.audit(route, entries, resources, args.margin, surface=track)
+        recovery.require_unchanged_provenance(provenance_paths, initial_hashes)
         output = {
             'scope': 'Prospective default-model Styles configuration at recorded recovery tick poses; not observed client rendering, track-to-decoration self-clearance, continuous sweep, player meshes, cosmetics, arbitrary resources or full-turn ride acceptance.',
             'savedAppearance': {section['rail']: section['appearance'] for section in route['sections']},
             'prospectiveStylePlan': plan, 'geometryCounts': counts, 'result': result,
             'tracePairing': pairing, 'nativeRouteGeometry': native_geometry, 'numpyVersion': np.__version__,
-            'inputHashes': {name: recovery.digest(getattr(args, name)) for name in
+            'inputHashes': {name: initial_hashes[name] for name in
                             ('base_jar', 'minecraft_jar', 'styles_jar', 'frames', 'trace')},
-            'sourceHashes': {name: recovery.digest(ROOT/name) for name in {**recovery.SOURCE_PINS, **SOURCE_PINS}},
-            'toolSha256': recovery.digest(Path(__file__)), 'providerResourceHashes': model_hashes,
+            'stylePlanSha256': initial_hashes.get('style_plan'),
+            'sourceHashes': {name: initial_hashes['source:' + name] for name in source_pins},
+            'provenanceCheck': 'Input/source/tool hashes matched before analysis and before report emission; use immutable files to exclude intervening changes.',
+            'toolSha256': initial_hashes['tool'], 'providerResourceHashes': model_hashes,
             'bodyResourceHashes': resources.hashes,
         }
         print(json.dumps(output, indent=2))
