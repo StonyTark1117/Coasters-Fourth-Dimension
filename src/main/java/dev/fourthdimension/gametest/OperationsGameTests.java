@@ -537,6 +537,31 @@ public final class OperationsGameTests {
             helper.assertTrue(
                 rejected, "Repaired vehicle dispatched before native realignment for " + car.variant);
           }
+          // Repair clears the support-loss text but deliberately leaves alignment required. It is
+          // still a hard-stop state: one native reset must clear injected chassis and carrier
+          // motion before any physical snap may be attempted. The separate shuttle recovery
+          // test covers the linked four-car PAX train.
+          var pendingBodies = new LinkedHashSet<UUID>();
+          for (var car : cars) {
+            pendingBodies.add(car.chassis);
+            car.carriers.forEach(carrier -> pendingBodies.add(carrier.body));
+          }
+          var pipeline = container.physicsSystem().getPipeline();
+          for (var id : pendingBodies) {
+            var body = (ServerSubLevel) container.getSubLevel(id);
+            pipeline.addLinearAndAngularVelocity(
+                body,
+                new org.joml.Vector3d(.8, 0, 0)
+                    .sub(pipeline.getLinearVelocity(body, new org.joml.Vector3d())),
+                new org.joml.Vector3d());
+          }
+          for (var car : cars) VehicleOperations.brake(level, car, 0);
+          for (var id : pendingBodies) {
+            var body = (ServerSubLevel) container.getSubLevel(id);
+            helper.assertTrue(
+                pipeline.getLinearVelocity(body, new org.joml.Vector3d()).lengthSquared() < 1.0e-8,
+                "Pending realignment did not hard-stop native body " + id);
+          }
         });
     helper.runAtTickTime(
         155,

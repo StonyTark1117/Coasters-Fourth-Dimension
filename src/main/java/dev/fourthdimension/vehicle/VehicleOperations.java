@@ -398,12 +398,12 @@ public final class VehicleOperations {
   public static void brake(ServerLevel level, FoundationData.Vehicle vehicle, double dt) {
     var container = SubLevelContainer.getContainer(level);
     var pipeline = container.physicsSystem().getPipeline();
-    // A missing support is a hard emergency stop. For a coupled PAX train, braking only the
-    // detected lead leaves its linked chassis feeding momentum back through the couplers, so
-    // stop the entire compatible consist before any manual native reattachment can be safe.
+    // Support loss and a repaired section awaiting explicit realignment are both hard emergency
+    // stops. For a coupled PAX train, braking only the detected lead leaves linked chassis feeding
+    // momentum back through couplers, so freeze the compatible consist until native reattachment.
+    boolean hardStop = MATCHING_SUPPORT_LOST.equals(vehicle.fault) || vehicle.alignmentRequired;
     var cars =
-        vehicle.family == dev.fourthdimension.contract.Family.PAX
-            && MATCHING_SUPPORT_LOST.equals(vehicle.fault)
+        vehicle.family == dev.fourthdimension.contract.Family.PAX && hardStop
             ? consist(level, vehicle)
             : List.of(vehicle);
     var bodies = new LinkedHashSet<UUID>();
@@ -413,7 +413,7 @@ public final class VehicleOperations {
     }
     for (var id : bodies) {
       if (!(container.getSubLevel(id) instanceof ServerSubLevel body)) continue;
-      if (MATCHING_SUPPORT_LOST.equals(vehicle.fault)) {
+      if (hardStop) {
         // Sable exposes an atomic native reset; counter-impulses leave angular/coupler solver
         // residue that can pull a stopped PAX consist apart during a later track snap.
         pipeline.resetVelocity(body);
