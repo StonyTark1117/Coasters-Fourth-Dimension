@@ -22,6 +22,11 @@ wrong-family rejects. The [teaching checkpoint](evidence/0.4/teaching-acceptance
 and [Ponder checkpoint](evidence/0.4/ponder-acceptance.md) cover item guidance,
 recipe discovery and all 53 scene registrations. These checks do not replace
 connected-client building and operation.
+The [native player-crafted Arrow loop](evidence/0.4/survival-client-arrow-loop-native/README.md)
+also passes eight player-connected powered sections, full-turn carrier motion
+and station recapture with a synthetic survival ServerPlayer. Its upstream
+Chain/motor fixtures and absent connected client leave the Arrow walkthrough
+and save/reopen evidence open.
 
 ## Connected-client sequence
 
