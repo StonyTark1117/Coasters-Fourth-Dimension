@@ -406,8 +406,14 @@ cars, three native Chain links, winch binding, occupied powered travel,
 recatch, unloading and cold reopen with a disclosed upstream motor fixture.
 The [current-artifact teaching review](docs/evidence/0.4/teaching-current/acceptance.md)
 checks all fifteen rendered tooltips and all nine Ponder scenes and their
-captions; packaged playback/replay passes all 53 registrations. The other
-families' complete powered client exercises remain open. The
+captions; packaged playback/replay passes all 53 registrations. A later
+[bounded powered Arrow pass](docs/evidence/0.4/survival-client-arrow-powered/acceptance.md)
+records survival result-slot crafting, player-connected 50-block original
+track, player-installed Chain, player-placed car, an occupied motor-powered
+full controlled turn, pre-boundary capture, unload and same-identity cold
+reopen. Its first short-route endpoint fault remains recorded as a negative
+case. A complete Arrow circuit and powered Legacy, Free Spin and Revised
+family exercises remain open. The
 [FD403 connected-client acceptance procedure](docs/FD403-ACCEPTANCE.md) lists
 the remaining family checks without treating the earlier samples as release
 acceptance.

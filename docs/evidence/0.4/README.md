@@ -24,7 +24,11 @@ crafting and world right-click placement for all five families, twenty wrong-fam
 rejects and the ordinary station PAX binding regression. A separate [packaged
 Arrow survival-client checkpoint](survival-client-arrow.md) covers actual client
 crafting, anchor/track/car placement, boarding, controls, dismount and normal
-save. The [Legacy and Free Spin client checkpoint](survival-client-legacy-free-spin.md)
+save. The [bounded powered Arrow pass](survival-client-arrow-powered/acceptance.md)
+adds a survival-crafted 50-block original route, occupied motor-driven full
+controlled turn, capture, unload and same-identity cold reopen. Its earlier
+35-block endpoint fault is retained as a negative case. The
+[Legacy and Free Spin client checkpoint](survival-client-legacy-free-spin.md)
 extends that connected exercise to those two families. The
 [Revised client checkpoint](survival-client-revised/acceptance.md) adds
 normal-range boarding and operator controls. The
@@ -37,7 +41,8 @@ Chain coupling, occupied powered travel and unloading on a separately
 are also recorded. A later [survival-built PAX cycle](survival-client-pax/survival-cycle/acceptance.md)
 adds normal player Chain coupling, occupied powered travel, recatch, unloading
 and reopen on a normally crafted route, cars and winch with a disclosed upstream
-motor fixture. The other families' powered client rides remain unfinished.
+motor fixture. Legacy, Free Spin and Revised powered client rides remain
+unfinished; the Arrow pass is a one-way route rather than a full circuit.
 
 ## Resource reload investigation
 
