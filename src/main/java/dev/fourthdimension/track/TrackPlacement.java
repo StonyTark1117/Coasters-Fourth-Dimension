@@ -218,7 +218,8 @@ public final class TrackPlacement {
   public static void tick(LevelTickEvent.Post event) {
     if (!(event.getLevel() instanceof ServerLevel level) || level.getGameTime() % 10 != 0) return;
     var data = FoundationData.get(level);
-    boolean changed = false;
+    boolean geometryChanged = false;
+    boolean provenanceChanged = false;
     for (var rail : data.rails)
       if (rail.original()
           && rail.valid
@@ -228,12 +229,17 @@ public final class TrackPlacement {
         if (edge == null || TrackGeometry.fingerprint(level, edge) != rail.geometryHash) {
           rail.valid = false;
           rail.revision++;
-          changed = true;
+          geometryChanged = true;
+        } else if (rail.originalCurve == null && edge.bezier() != null) {
+          // Older saves have no native-curve snapshot. Preserve only the still-present curve
+          // whose sampled geometry matches their saved binding; never infer missing geometry.
+          captureOriginalCurve(rail, edge.bezier());
+          provenanceChanged = true;
         }
       }
-    if (changed) {
+    if (geometryChanged || provenanceChanged) data.setDirty();
+    if (geometryChanged) {
       TrackGeometry.invalidate(level);
-      data.setDirty();
       FoundationSync.broadcast(level);
     }
   }

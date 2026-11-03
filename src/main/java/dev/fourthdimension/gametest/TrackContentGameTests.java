@@ -48,14 +48,34 @@ public final class TrackContentGameTests {
     helper.assertTrue(
         saved.variant.equals(rail.variant) && saved.geometryHash == rail.geometryHash,
         "Track identity did not survive serialization");
+    long originalRevision = rail.revision;
+    // Model an intact pre-provenance save without changing its functional binding.
+    rail.originalCurve = null;
     helper.runAtTickTime(
         20,
         () -> {
           helper.assertTrue(
               rail.valid, "Unedited track invalidated itself after graph synchronization");
+          helper.assertTrue(
+              rail.originalCurve != null && rail.revision == originalRevision,
+              "Intact legacy rail did not acquire its exact native curve without rebinding");
+          var backfilled =
+              FoundationData.load(
+                      data.save(new CompoundTag(), level.registryAccess()), level.registryAccess())
+                  .rails.stream()
+                  .filter(r -> r.id.equals(rail.id))
+                  .findFirst()
+                  .orElseThrow();
+          helper.assertTrue(
+              backfilled.originalCurve != null && backfilled.geometryHash == rail.geometryHash,
+              "Backfilled legacy curve was not persisted with its original binding");
           var legacy =
               data.rails.stream().filter(r -> r.matches(other, end)).findFirst().orElseThrow();
           helper.assertTrue(legacy.valid, "Legacy track invalidated itself");
+          // A changed fingerprint and a missing native connection must never get provenance.
+          legacy.originalCurve = null;
+          legacy.geometryHash++;
+          rail.originalCurve = null;
           ((CoasterAnchorpointBlockEntity) level.getBlockEntity(from))
               .removeAnchorPeerCurve(level, to);
         });
@@ -63,6 +83,11 @@ public final class TrackContentGameTests {
         40,
         () -> {
           helper.assertTrue(!rail.valid, "Removed geometry retained its active mechanical profile");
+          var legacy =
+              data.rails.stream().filter(r -> r.matches(other, end)).findFirst().orElseThrow();
+          helper.assertTrue(
+              rail.originalCurve == null && !legacy.valid && legacy.originalCurve == null,
+              "Missing or changed legacy geometry acquired an exact-curve snapshot");
           for (var p : List.of(from, to, other, end)) level.removeBlock(p, false);
           data.rails.removeIf(r -> r.matches(from, to) || r.matches(other, end));
           helper.succeed();
