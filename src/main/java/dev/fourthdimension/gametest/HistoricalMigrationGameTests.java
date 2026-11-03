@@ -89,8 +89,16 @@ public final class HistoricalMigrationGameTests {
         helper,
         () -> FoundationData.load(foreignProvider, helper.getLevel().registryAccess()),
         "Foreign functional provider was silently converted during migration");
+    var duplicateRailId = source.copy();
+    var duplicateRails = duplicateRailId.getList("rails", Tag.TAG_COMPOUND);
+    duplicateRails.getCompound(1).putUUID("id", duplicateRails.getCompound(0).getUUID("id"));
+    EditorGameTests.rejects(
+        helper,
+        () -> FoundationData.load(duplicateRailId, helper.getLevel().registryAccess()),
+        "Duplicate historic rail identity was accepted during migration");
     System.out.println(
-        "FD903_HISTORICAL schema3Rails=24 chassis=3 providerConversionRejected=true");
+        "FD903_HISTORICAL schema3Rails=24 chassis=3 providerConversionRejected=true"
+            + " duplicateRailIdRejected=true");
     helper.succeed();
   }
 
