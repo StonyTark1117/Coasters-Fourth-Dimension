@@ -62,9 +62,12 @@ public final class TrackContentGameTests {
     var wrongMaterialEdge = TrackGeometry.resolve(level, legacy);
     helper.assertTrue(
         wrongMaterialEdge != null
-            && TrackMaterial.ANDESITE.equals(wrongMaterialEdge.bezier().getMaterial())
-            && TrackGeometry.fingerprint(level, wrongMaterialEdge) == legacy.geometryHash,
-        "Non-Coasters material control changed the saved geometry fingerprint");
+            && TrackMaterial.ANDESITE.equals(wrongMaterialEdge.bezier().getMaterial()),
+        "Non-Coasters material control did not retain the substituted native curve");
+    // Replacing the native curve can change the sampled basis. Model an older, still-valid rail
+    // whose saved binding matches this foreign curve so material is the only backfill gate.
+    legacy.geometryHash = TrackGeometry.fingerprint(level, wrongMaterialEdge);
+    long foreignGeometry = legacy.geometryHash;
     legacy.originalCurve = null;
     helper.runAtTickTime(
         20,
@@ -84,8 +87,14 @@ public final class TrackContentGameTests {
           helper.assertTrue(
               backfilled.originalCurve != null && backfilled.geometryHash == rail.geometryHash,
               "Backfilled legacy curve was not persisted with its original binding");
+          var currentForeignEdge = TrackGeometry.resolve(level, legacy);
           helper.assertTrue(
-              legacy.valid && legacy.originalCurve == null,
+              legacy.valid
+                  && legacy.originalCurve == null
+                  && currentForeignEdge != null
+                  && currentForeignEdge.bezier() != null
+                  && TrackMaterial.ANDESITE.equals(currentForeignEdge.bezier().getMaterial())
+                  && TrackGeometry.fingerprint(level, currentForeignEdge) == foreignGeometry,
               "Geometry-matching non-Coasters material acquired restoration provenance");
           // A changed fingerprint and a missing native connection must never get provenance.
           legacy.originalCurve = null;
