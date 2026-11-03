@@ -117,6 +117,12 @@ render-path observations for the fourth-dimension bodies and the separate
 Coasters ordinary-cart renderer. Its bounded Arrow-only scope does not replace
 the remaining rendered operator or lifecycle acceptance below.
 
+The later [occupied banked Arrow render/motion checkpoint](occupied-banked-render-motion/acceptance.md)
+adds a fresh client run over the native quarter-bend and sustained 30-degree
+bank. It independently measures the moved chassis and ordinary bearing world-up
+vectors rather than treating Arrow controlled spin as bank traversal. It remains
+one bounded Arrow scene and does not replace the remaining acceptance below.
+
 ## Remaining acceptance
 
 Rendered ordinary player selection/editor/propulsion/boarding,
