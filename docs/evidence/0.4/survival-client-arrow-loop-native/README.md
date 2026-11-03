@@ -96,3 +96,21 @@ SHA-256 `fa14214d30a84206bd79c1610b00888a08a5c2f3ee1400315685b1313fdf03e6`.
 
 The first callback demonstrates crafted car and station placement, but this
 failed run does not establish powered travel or final capture.
+
+## Attempt 7 — checkpoint ended before the full circuit
+
+The isolated base-profile run on `8b9eb9d` passed 50 of 51 required GameTests.
+It completed the eight crafted track connections, normal crafted car and station
+placement, station binding at 6.03 blocks, native rider seating, restraint and
+dispatch controls, and powered travel across the far side of the route. The
+tick-2000 check observed maximum x/z offsets of 32.52/53.23 blocks, but the
+carrier's maximum angle was only 0.00559 radians and the car was not yet
+captured. The controlled 360-degree profile is on the right-hand return leg,
+so those maxima alone did not establish that the car had reached that leg or
+completed the loop. The corrected test samples and records every live section,
+keeps the full-turn and final-capture requirements, and waits until tick 6500
+before judging the complete circuit. Raw output: [attempt7.log.zst](attempt7.log.zst),
+SHA-256 `d4241cb4cbd4e4703d39b69322a51739105d8d0f7cf26fafd27248083a056995`.
+
+This is bounded native powered-travel evidence, not a completed circuit or
+connected-client acceptance.

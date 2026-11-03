@@ -24,7 +24,9 @@ import dev.silvergold.simulatedcoasters.track.anchor.CoasterAnchorpointBlockEnti
 import dev.silvergold.simulatedcoasters.track.cart.CoasterCartResolve;
 import dev.silvergold.simulatedcoasters.track.chainlift.ChainLiftEndRef;
 import dev.silvergold.simulatedcoasters.track.graph.CoasterPathEdge;
+import dev.silvergold.simulatedcoasters.track.graph.CoasterPathGraphManager;
 import dev.silvergold.simulatedcoasters.track.graph.CoasterPathGraphSpans;
+import dev.silvergold.simulatedcoasters.track.graph.CoasterPathTrackFrame;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -48,6 +50,7 @@ import net.minecraft.world.level.GameType;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.phys.BlockHitResult;
+import net.minecraft.world.phys.Vec3;
 import net.neoforged.neoforge.common.util.FakePlayerFactory;
 import net.neoforged.neoforge.gametest.GameTestHolder;
 import net.neoforged.neoforge.gametest.PrefixGameTestTemplate;
@@ -442,7 +445,7 @@ public final class SurvivalBuildingGameTests {
         });
   }
 
-  @GameTest(template = "empty", batch = "fd_survival_circuit", timeoutTicks = 2100)
+  @GameTest(template = "empty", batch = "fd_survival_circuit", timeoutTicks = 6600)
   public static void craftedArrowLoopTraversesNativePoweredCircuit(GameTestHelper helper) {
     var level = helper.getLevel();
     for (int x = 18; x <= 21; x++)
@@ -553,6 +556,8 @@ public final class SurvivalBuildingGameTests {
     var riderRef = new java.util.concurrent.atomic.AtomicReference<net.minecraft.world.entity.Entity>();
     var container = SubLevelContainer.getContainer(level);
     double[] maxXZ = {0, 0}, maxAngle = {0};
+    boolean[] visited = new boolean[rails.size()];
+    int[] sampledTicks = {0}, currentSection = {-1};
     var running = new java.util.concurrent.atomic.AtomicBoolean(false);
     helper.onEachTick(() -> {
       if (!running.get()) return;
@@ -561,6 +566,21 @@ public final class SurvivalBuildingGameTests {
       maxXZ[0] = Math.max(maxXZ[0], point.x - origin.getX());
       maxXZ[1] = Math.max(maxXZ[1], point.z - origin.getZ());
       maxAngle[0] = Math.max(maxAngle[0], vehicle.carriers.getFirst().angle);
+      if (++sampledTicks[0] % 5 != 0) return;
+      var hit = CoasterPathTrackFrame.nearestGraphHit(
+          level, CoasterPathGraphManager.get(level), new Vec3(point.x, point.y, point.z), 4);
+      if (hit == null) return;
+      for (int i = 0; i < rails.size(); i++)
+        if (rails.get(i).matches(hit.edge().from(), hit.edge().to())) {
+          currentSection[0] = i;
+          if (hit.t() > .15 && hit.t() < .85 && !visited[i]) {
+            visited[i] = true;
+            LogUtils.getLogger().info(
+                "FD_SURVIVAL_ARROW_VISIT section={} t={} center={},{},{} angle={}",
+                i, hit.t(), point.x, point.y, point.z, vehicle.carriers.getFirst().angle);
+          }
+          break;
+        }
     });
     // Register every timed action before GameTest begins iterating its action map.
     helper.runAtTickTime(10, () -> {
@@ -659,17 +679,27 @@ public final class SurvivalBuildingGameTests {
     });
     helper.runAtTickTime(2000, () -> {
       var vehicle = vehicleRef.get();
+      var center = CoasterCartResolve.cartCenterWorld(container.getSubLevel(vehicle.chassis));
+      LogUtils.getLogger().info(
+          "FD_SURVIVAL_ARROW_CHECKPOINT tick=2000 section={} center={},{},{} visited={} maxAngle={} ready={}",
+          currentSection[0], center.x, center.y, center.z,
+          java.util.Arrays.toString(visited), maxAngle[0], Boarding.ready(level, vehicle));
+    });
+    helper.runAtTickTime(6500, () -> {
+      var vehicle = vehicleRef.get();
       var rider = riderRef.get();
       var stationPower = stationPowerRef.get();
       helper.assertTrue(vehicle != null && rider != null && stationPower != null,
           "Survival loop setup was incomplete");
       running.set(false);
       LogUtils.getLogger().info(
-          "FD_SURVIVAL_ARROW_LOOP rails={} cost={} maxXZ={},{} maxAngle={} ready={} fault={}",
-          rails.size(), trackCost, maxXZ[0], maxXZ[1], maxAngle[0],
+          "FD_SURVIVAL_ARROW_LOOP rails={} cost={} maxXZ={},{} visited={} maxAngle={} ready={} fault={}",
+          rails.size(), trackCost, maxXZ[0], maxXZ[1], java.util.Arrays.toString(visited), maxAngle[0],
           Boarding.ready(level, vehicle), vehicle.fault);
       helper.assertTrue(maxXZ[0] > 30 && maxXZ[1] > 50,
           "Survival-connected Arrow loop did not complete a circuit");
+      for (int i = 0; i < visited.length; i++)
+        helper.assertTrue(visited[i], "Survival-connected Arrow loop missed section " + i);
       helper.assertTrue(
           maxAngle[0] > 6, "Survival-connected Arrow loop did not make its controlled turn");
       helper.assertTrue(rider.isPassenger(), "Loop lost its native rider");
