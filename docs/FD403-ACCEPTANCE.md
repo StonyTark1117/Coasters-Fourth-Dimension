@@ -14,7 +14,7 @@ profile; optional Track Styles and Engineered behavior has separate gates.
 | Legacy | [Craft, place, board, control, unload](evidence/0.4/survival-client-legacy-free-spin.md) on a short unpowered section | Longer powered route without the recorded endpoint fault; free-rotation exercise |
 | Free Spin | [Craft, place, board, control, unload](evidence/0.4/survival-client-legacy-free-spin.md) on a short unpowered section | Powered magnetic-span and independent-carrier exercise |
 | Revised | [Connected survival craft, place, board, control, unload, and reopen](evidence/0.4/survival-client-revised/acceptance.md) on a short unpowered section | Occupied powered lower-hinge exercise and teaching review |
-| PAX | [Connected survival craft, route and four-car placement](evidence/0.4/survival-client-pax/acceptance.md); [shipped-demo occupied cycle](evidence/0.4/survival-client-pax/demo/acceptance.md); [player Chain links, occupied cycle and catch on a command-authored sample](evidence/0.4/survival-client-pax/manual-links/acceptance.md) | Chain links and occupied powered cycle on the survival-built train; full teaching review |
+| PAX | [Connected survival craft, route and four-car placement](evidence/0.4/survival-client-pax/acceptance.md); [player-linked occupied cycle, unload and reopen on the survival-built train](evidence/0.4/survival-client-pax/survival-cycle/acceptance.md); [shipped-demo cycle](evidence/0.4/survival-client-pax/demo/acceptance.md) | Full teaching review; the powered run used a disclosed upstream motor fixture |
 
 The [native survival checkpoint](evidence/0.4/survival-acceptance.md) already
 checks all fifteen crafting outputs, five matching placements and twenty

@@ -29,9 +29,11 @@ captured cars and a single-car winch binding. The separate
 three native links, occupied powered travel, final catch and unloading. Player
 Chain coupling, occupied powered travel and unloading on a separately
 [command-authored manual demo](survival-client-pax/manual-links/acceptance.md)
-are also recorded. The survival-built train's own Chain coupling and cycle,
-the other families' powered client rides and the full teaching gate remain
-unfinished.
+are also recorded. A later [survival-built PAX cycle](survival-client-pax/survival-cycle/acceptance.md)
+adds normal player Chain coupling, occupied powered travel, recatch, unloading
+and reopen on a normally crafted route, cars and winch with a disclosed upstream
+motor fixture. The other families' powered client rides and the full teaching
+gate remain unfinished.
 
 ## Resource reload investigation
 

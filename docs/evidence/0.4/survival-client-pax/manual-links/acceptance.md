@@ -44,6 +44,7 @@ The log records both the linked-cart events and the final zero-occupant status.
 
 This proves player Chain coupling, winch binding, normal boarding, mounted
 operator dispatch, powered recatch and normal unloading on a **command-authored
-demo route**. The separately [survival-crafted construction](../acceptance.md)
-has not yet coupled and cycled its own four cars. The other families' complete
-powered teaching exercises and the FD403 gate remain open.
+demo route**. The separate [survival construction](../acceptance.md) now has a
+later [survival-built cycle](../survival-cycle/acceptance.md) that couples and
+cycles its own four cars. The other families' complete powered teaching
+exercises and the FD403 gate remain open.

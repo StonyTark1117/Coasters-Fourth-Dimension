@@ -66,6 +66,7 @@ for continuing the chain and winch check; its SHA-256 is
 This is a connected survival construction checkpoint only. The separate
 [shipped-demo client cycle](demo/acceptance.md) proves the original four-car
 sample can carry a rider through powered lift, return, catch and unloading.
-FD403 still needs player Chain coupling of the survival-crafted cars, occupied
-powered exercises for the other families, and the complete teaching review
-before FD404 can close.
+A later [survival-built cycle](survival-cycle/acceptance.md) closes this
+checkpoint's Chain, occupied cycle and unload gap on a newly constructed
+route. Powered exercises for the other families and the complete teaching
+review remain open before FD404 can close.

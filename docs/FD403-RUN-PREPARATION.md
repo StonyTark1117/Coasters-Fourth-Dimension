@@ -6,6 +6,11 @@ for this report. This supplements [FD403 acceptance](FD403-ACCEPTANCE.md), not a
 passing record. Obtain the coordinator's runtime handoff and exact candidate
 revision before executing it. Keep the new integration expansion paused.
 
+A later [survival-built PAX client cycle](evidence/0.4/survival-client-pax/survival-cycle/acceptance.md)
+records the PAX construction, normal Chain links, occupied powered recatch,
+unloading and reopen on source `a6e18c9` with a disclosed motor fixture. This
+preparation remains a historical plan for the broader FD403 gate.
+
 ## What can be driven and observed today
 
 | Operation | Available normal path and observation | Remaining proof |
