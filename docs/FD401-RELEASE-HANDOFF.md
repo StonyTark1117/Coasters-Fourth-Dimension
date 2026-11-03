@@ -17,7 +17,8 @@ FD801 and the [expansion backlog](INTEGRATION-BACKLOG.md) remain separate.
 - [Prospective Styles recovery geometry](evidence/0.9/fd401-prospective-styles-ff7c831/README.md):
   both single-car Arrow styles pass 5,768 sampled poses across five sections with
   minimum separating bound 0.04891048 blocks against 0.02 required and no
-  uncertified body/track pairs. The two train analyses remain pending. These
+  uncertified body/track pairs. Both two-car Arrow configurations also pass 6,548 poses with a minimum
+  bound of 0.04878235 blocks against the same requirement. These
   default-model proposals are not observed Styles rendering, player meshes,
   track-to-decoration self-clearance, continuous sweeps or full-turn operation.
 - Draw-fallback corrections `21bfd1a` / `d5132a3` catch provider draw failures,
@@ -124,7 +125,7 @@ The [prospective Styles mesh audit](NATIVE-EVIDENCE-CAPTURE.md#prospective-style
 includes altered control mounts, crossbraces and endpoint bridges alongside the
 provider OBJ geometry. Both single-car configurations have
 [bounded passing reports](evidence/0.9/fd401-prospective-styles-ff7c831/README.md);
-the two train reports remain pending. Proposed appearance is explicitly separate
+both two-car configurations now have bounded passing reports as well. Proposed appearance is explicitly separate
 from saved/observed appearance. Preserve each result, including any uncertified
 pairs. Recovery towing does not substitute for a full-turn operating ride, player
 meshes, continuous swept clearance, style transitions or visible render ownership.
