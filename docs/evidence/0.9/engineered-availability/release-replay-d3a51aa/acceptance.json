@@ -1,0 +1,41 @@
+{
+  "source": "d3a51aa4b822d73777c713b9c5ec2b1859d36bfa",
+  "profile": "engineered",
+  "expected_source_test_count": 58,
+  "actual_complete_test_counts": [
+    58
+  ],
+  "actual_passed_required_counts": [],
+  "actual_failed_required_counts": [
+    1
+  ],
+  "checks": {
+    "compile_exit_zero": true,
+    "native_export_capture_complete": true,
+    "single_complete_suite_count_matches_source": true,
+    "all_required_tests_passed": false,
+    "gradle_exit_zero": false,
+    "normal_server_stop": true,
+    "source_clean_after": true,
+    "jar_matches_preflight": true,
+    "chain_evidence_complete": true,
+    "chain_safety_passed": true,
+    "engineered_evidence_complete": true,
+    "engineered_safety_passed": true,
+    "engineered_deltas_finite": true
+  },
+  "bounded_regression_passed": false,
+  "failures": [
+    "[06:35:20] [Server thread/ERROR] [minecraft/LogTestReporter]: nativeenergyrespectsrecoverybrakeandexplicittow failed at -4986023, -60, 9894918! Supplied FE did not tow the recovery group: 0.0"
+  ],
+  "fe_recovery_markers": [
+    "FD_ENGINEERED_RECOVERY_FE cleanup vehiclePresent=false remainingVehicles=0"
+  ],
+  "jar_sha256": "5481a97004c7ea6db93e59d4410f3086764141a296de3f6bdc60178d0cd18ade",
+  "runtime_kind": "isolated current-release development loose classes, not packaged-JAR runtime",
+  "limits": [
+    "Direct callback availability evidence",
+    "Current release Engineered-only profile; not Styles+Engineered",
+    "No natural scheduler, automatic relink or packaged client acceptance claim"
+  ]
+}

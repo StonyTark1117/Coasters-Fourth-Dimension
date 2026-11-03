@@ -1,0 +1,539 @@
+{
+  "source": "d3a51aa4b822d73777c713b9c5ec2b1859d36bfa",
+  "exit_code": 1,
+  "evidence_checks": {
+    "recovery_exact_cases_sources_states": true,
+    "chassis_exact_cases_sources_states": true,
+    "original_velocities_logged_for_every_call": true,
+    "all_powered_finite_targets": true,
+    "recovery_three_unloads": true,
+    "chassis_six_unloads": true,
+    "recovery_three_restores": true,
+    "chassis_six_restores": true,
+    "recovery_actual_counters": true,
+    "chassis_actual_counters": true,
+    "source_clean_after": true,
+    "jar_matches_preflight": true
+  },
+  "safety_checks": {
+    "recovery_braked_zero": true,
+    "recovery_healthy_nonzero": true,
+    "recovery_before_tick_zero": true,
+    "recovery_after_tick_zero": true,
+    "chassis_held_zero": true,
+    "chassis_healthy_nonzero": true,
+    "chassis_unavailable_zero": true,
+    "chassis_restored_positive": true
+  },
+  "probes": [
+    {
+      "group": "recovery",
+      "case": 0,
+      "source": "ordinary-bearing",
+      "state": "braked",
+      "target_speed": -0.5,
+      "linear_delta": 0.0,
+      "angular_delta": 0.0
+    },
+    {
+      "group": "recovery",
+      "case": 0,
+      "source": "ordinary-bearing",
+      "state": "healthy",
+      "target_speed": -0.5,
+      "linear_delta": 0.5,
+      "angular_delta": 0.0
+    },
+    {
+      "group": "recovery",
+      "case": 0,
+      "source": "ordinary-bearing",
+      "state": "unloaded-before-tick",
+      "target_speed": -0.5,
+      "linear_delta": 0.0,
+      "angular_delta": 0.0
+    },
+    {
+      "group": "recovery",
+      "case": 0,
+      "source": "ordinary-bearing",
+      "state": "unloaded-after-tick",
+      "target_speed": -0.5,
+      "linear_delta": 0.0,
+      "angular_delta": 0.0
+    },
+    {
+      "group": "recovery",
+      "case": 1,
+      "source": "ordinary-bearing",
+      "state": "braked",
+      "target_speed": -0.5,
+      "linear_delta": 0.0,
+      "angular_delta": 0.0
+    },
+    {
+      "group": "recovery",
+      "case": 1,
+      "source": "ordinary-bearing",
+      "state": "healthy",
+      "target_speed": -0.5,
+      "linear_delta": 0.5,
+      "angular_delta": 0.0
+    },
+    {
+      "group": "recovery",
+      "case": 1,
+      "source": "ordinary-bearing",
+      "state": "unloaded-before-tick",
+      "target_speed": -0.5,
+      "linear_delta": 0.0,
+      "angular_delta": 0.0
+    },
+    {
+      "group": "recovery",
+      "case": 1,
+      "source": "ordinary-bearing",
+      "state": "unloaded-after-tick",
+      "target_speed": -0.5,
+      "linear_delta": 0.0,
+      "angular_delta": 0.0
+    },
+    {
+      "group": "recovery",
+      "case": 2,
+      "source": "ordinary-bearing",
+      "state": "braked",
+      "target_speed": -0.5,
+      "linear_delta": 0.0,
+      "angular_delta": 0.0
+    },
+    {
+      "group": "recovery",
+      "case": 2,
+      "source": "ordinary-bearing",
+      "state": "healthy",
+      "target_speed": -0.5,
+      "linear_delta": 0.5,
+      "angular_delta": 0.0
+    },
+    {
+      "group": "recovery",
+      "case": 2,
+      "source": "ordinary-bearing",
+      "state": "unloaded-before-tick",
+      "target_speed": -0.5,
+      "linear_delta": 0.0,
+      "angular_delta": 0.0
+    },
+    {
+      "group": "recovery",
+      "case": 2,
+      "source": "ordinary-bearing",
+      "state": "unloaded-after-tick",
+      "target_speed": -0.5,
+      "linear_delta": 0.0,
+      "angular_delta": 0.0
+    },
+    {
+      "group": "chassis",
+      "case": 0,
+      "source": "0",
+      "state": "held-before-0",
+      "target_speed": -0.5,
+      "linear_delta": 0.0,
+      "angular_delta": 0.0
+    },
+    {
+      "group": "chassis",
+      "case": 0,
+      "source": "1",
+      "state": "held-before-0",
+      "target_speed": -0.5,
+      "linear_delta": 0.0,
+      "angular_delta": 0.0
+    },
+    {
+      "group": "chassis",
+      "case": 0,
+      "source": "0",
+      "state": "healthy-before-0",
+      "target_speed": -0.5,
+      "linear_delta": 0.5,
+      "angular_delta": 0.0
+    },
+    {
+      "group": "chassis",
+      "case": 0,
+      "source": "1",
+      "state": "healthy-before-0",
+      "target_speed": -0.5,
+      "linear_delta": 0.5,
+      "angular_delta": 0.0
+    },
+    {
+      "group": "chassis",
+      "case": 0,
+      "source": "0",
+      "state": "unloaded-0",
+      "target_speed": -0.5,
+      "linear_delta": 0.0,
+      "angular_delta": 0.0
+    },
+    {
+      "group": "chassis",
+      "case": 0,
+      "source": "1",
+      "state": "unloaded-0",
+      "target_speed": -0.5,
+      "linear_delta": 0.0,
+      "angular_delta": 0.0
+    },
+    {
+      "group": "chassis",
+      "case": 0,
+      "source": "0",
+      "state": "restored-0",
+      "target_speed": -0.5,
+      "linear_delta": 0.5,
+      "angular_delta": 0.0
+    },
+    {
+      "group": "chassis",
+      "case": 0,
+      "source": "1",
+      "state": "restored-0",
+      "target_speed": -0.5,
+      "linear_delta": 0.5,
+      "angular_delta": 0.0
+    },
+    {
+      "group": "chassis",
+      "case": 1,
+      "source": "0",
+      "state": "held-before-1",
+      "target_speed": -0.5,
+      "linear_delta": 0.0,
+      "angular_delta": 0.0
+    },
+    {
+      "group": "chassis",
+      "case": 1,
+      "source": "1",
+      "state": "held-before-1",
+      "target_speed": -0.5,
+      "linear_delta": 0.0,
+      "angular_delta": 0.0
+    },
+    {
+      "group": "chassis",
+      "case": 1,
+      "source": "0",
+      "state": "healthy-before-1",
+      "target_speed": -0.5,
+      "linear_delta": 0.5,
+      "angular_delta": 0.0
+    },
+    {
+      "group": "chassis",
+      "case": 1,
+      "source": "1",
+      "state": "healthy-before-1",
+      "target_speed": -0.5,
+      "linear_delta": 0.5,
+      "angular_delta": 0.0
+    },
+    {
+      "group": "chassis",
+      "case": 1,
+      "source": "0",
+      "state": "unloaded-1",
+      "target_speed": -0.5,
+      "linear_delta": 0.0,
+      "angular_delta": 0.0
+    },
+    {
+      "group": "chassis",
+      "case": 1,
+      "source": "1",
+      "state": "unloaded-1",
+      "target_speed": -0.5,
+      "linear_delta": 0.0,
+      "angular_delta": 0.0
+    },
+    {
+      "group": "chassis",
+      "case": 1,
+      "source": "0",
+      "state": "restored-1",
+      "target_speed": -0.5,
+      "linear_delta": 0.5,
+      "angular_delta": 0.0
+    },
+    {
+      "group": "chassis",
+      "case": 1,
+      "source": "1",
+      "state": "restored-1",
+      "target_speed": -0.5,
+      "linear_delta": 0.5,
+      "angular_delta": 0.0
+    },
+    {
+      "group": "chassis",
+      "case": 2,
+      "source": "0",
+      "state": "held-before-2",
+      "target_speed": -0.5,
+      "linear_delta": 0.0,
+      "angular_delta": 0.0
+    },
+    {
+      "group": "chassis",
+      "case": 2,
+      "source": "1",
+      "state": "held-before-2",
+      "target_speed": -0.5,
+      "linear_delta": 0.0,
+      "angular_delta": 0.0
+    },
+    {
+      "group": "chassis",
+      "case": 2,
+      "source": "0",
+      "state": "healthy-before-2",
+      "target_speed": -0.5,
+      "linear_delta": 0.5,
+      "angular_delta": 0.0
+    },
+    {
+      "group": "chassis",
+      "case": 2,
+      "source": "1",
+      "state": "healthy-before-2",
+      "target_speed": -0.5,
+      "linear_delta": 0.5,
+      "angular_delta": 0.0
+    },
+    {
+      "group": "chassis",
+      "case": 2,
+      "source": "1",
+      "state": "unloaded-2",
+      "target_speed": -0.5,
+      "linear_delta": 0.0,
+      "angular_delta": 0.0
+    },
+    {
+      "group": "chassis",
+      "case": 3,
+      "source": "0",
+      "state": "held-before-3",
+      "target_speed": -0.5,
+      "linear_delta": 0.0,
+      "angular_delta": 0.0
+    },
+    {
+      "group": "chassis",
+      "case": 3,
+      "source": "1",
+      "state": "held-before-3",
+      "target_speed": -0.5,
+      "linear_delta": 0.0,
+      "angular_delta": 0.0
+    },
+    {
+      "group": "chassis",
+      "case": 3,
+      "source": "0",
+      "state": "healthy-before-3",
+      "target_speed": -0.5,
+      "linear_delta": 0.5,
+      "angular_delta": 0.0
+    },
+    {
+      "group": "chassis",
+      "case": 3,
+      "source": "1",
+      "state": "healthy-before-3",
+      "target_speed": -0.5,
+      "linear_delta": 0.5,
+      "angular_delta": 0.0
+    },
+    {
+      "group": "chassis",
+      "case": 3,
+      "source": "0",
+      "state": "unloaded-3",
+      "target_speed": -0.5,
+      "linear_delta": 0.0,
+      "angular_delta": 0.0
+    },
+    {
+      "group": "chassis",
+      "case": 3,
+      "source": "1",
+      "state": "unloaded-3",
+      "target_speed": -0.5,
+      "linear_delta": 0.0,
+      "angular_delta": 0.0
+    },
+    {
+      "group": "chassis",
+      "case": 3,
+      "source": "0",
+      "state": "restored-3",
+      "target_speed": -0.5,
+      "linear_delta": 0.5,
+      "angular_delta": 0.0
+    },
+    {
+      "group": "chassis",
+      "case": 3,
+      "source": "1",
+      "state": "restored-3",
+      "target_speed": -0.5,
+      "linear_delta": 0.5,
+      "angular_delta": 0.0
+    },
+    {
+      "group": "chassis",
+      "case": 4,
+      "source": "0",
+      "state": "held-before-4",
+      "target_speed": -0.5,
+      "linear_delta": 0.0,
+      "angular_delta": 0.0
+    },
+    {
+      "group": "chassis",
+      "case": 4,
+      "source": "1",
+      "state": "held-before-4",
+      "target_speed": -0.5,
+      "linear_delta": 0.0,
+      "angular_delta": 0.0
+    },
+    {
+      "group": "chassis",
+      "case": 4,
+      "source": "0",
+      "state": "healthy-before-4",
+      "target_speed": -0.5,
+      "linear_delta": 0.5,
+      "angular_delta": 0.0
+    },
+    {
+      "group": "chassis",
+      "case": 4,
+      "source": "1",
+      "state": "healthy-before-4",
+      "target_speed": -0.5,
+      "linear_delta": 0.5,
+      "angular_delta": 0.0
+    },
+    {
+      "group": "chassis",
+      "case": 4,
+      "source": "0",
+      "state": "unloaded-4",
+      "target_speed": -0.5,
+      "linear_delta": 0.0,
+      "angular_delta": 0.0
+    },
+    {
+      "group": "chassis",
+      "case": 4,
+      "source": "1",
+      "state": "unloaded-4",
+      "target_speed": -0.5,
+      "linear_delta": 0.0,
+      "angular_delta": 0.0
+    },
+    {
+      "group": "chassis",
+      "case": 4,
+      "source": "0",
+      "state": "restored-4",
+      "target_speed": -0.5,
+      "linear_delta": 0.5,
+      "angular_delta": 0.0
+    },
+    {
+      "group": "chassis",
+      "case": 4,
+      "source": "1",
+      "state": "restored-4",
+      "target_speed": -0.5,
+      "linear_delta": 0.5,
+      "angular_delta": 0.0
+    },
+    {
+      "group": "chassis",
+      "case": 5,
+      "source": "0",
+      "state": "held-before-5",
+      "target_speed": -0.5,
+      "linear_delta": 0.0,
+      "angular_delta": 0.0
+    },
+    {
+      "group": "chassis",
+      "case": 5,
+      "source": "1",
+      "state": "held-before-5",
+      "target_speed": -0.5,
+      "linear_delta": 0.0,
+      "angular_delta": 0.0
+    },
+    {
+      "group": "chassis",
+      "case": 5,
+      "source": "0",
+      "state": "healthy-before-5",
+      "target_speed": -0.5,
+      "linear_delta": 0.5,
+      "angular_delta": 0.0
+    },
+    {
+      "group": "chassis",
+      "case": 5,
+      "source": "1",
+      "state": "healthy-before-5",
+      "target_speed": -0.5,
+      "linear_delta": 0.5,
+      "angular_delta": 0.0
+    },
+    {
+      "group": "chassis",
+      "case": 5,
+      "source": "0",
+      "state": "unloaded-5",
+      "target_speed": -0.5,
+      "linear_delta": 0.0,
+      "angular_delta": 0.0
+    }
+  ],
+  "completion_markers": {
+    "recovery": [
+      "FD_CHAIN_RECOVERY_AVAILABILITY complete nativeUnloads=3 brakedCalls=3 healthyCalls=3 unavailableCalls=3 afterTickCalls=3 failures=[]"
+    ],
+    "chassis": [
+      "FD_CHAIN_CHASSIS_AVAILABILITY complete nativeUnloads=6 unavailableCalls=10 positiveCalls=20 heldCalls=12 failures=[]"
+    ]
+  },
+  "other_integration_markers": [
+    "FD_ENGINEERED_AVAILABILITY complete nativeUnloads=6 unavailableCalls=10 positiveCalls=20 failures=[]",
+    "FD_ENGINEERED_RECOVERY_AVAILABILITY complete nativeUnloads=3 brakedCalls=3 healthyCalls=3 unavailableCalls=3 afterTickCalls=3 failures=[]"
+  ],
+  "suite_markers": [
+    "[06:40:03] [Server thread/INFO] [minecraft/GameTestServer]: ========= 58 GAME TESTS COMPLETE IN 4.791 min ======================",
+    "[06:40:03] [Server thread/INFO] [minecraft/GameTestServer]: 1 required tests failed :(",
+    "[06:40:03] [Server thread/INFO] [minecraft/MinecraftServer]: Stopping server",
+    "BUILD FAILED in 5m"
+  ],
+  "limits": [
+    "Direct callback availability evidence",
+    "Current release Engineered-only profile; not Styles+Engineered",
+    "No natural scheduler, automatic relink or packaged client acceptance claim"
+  ]
+}

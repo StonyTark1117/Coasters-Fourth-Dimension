@@ -1,0 +1,29 @@
+{
+  "utc": "2026-11-03T13:35:25.333328+00:00",
+  "processes": [
+    {
+      "pid": 581453,
+      "exe": "/usr/bin/flock",
+      "cwd": "/home/braydon/.codex/worktrees/pax-active-restart/Coasters: Fourth Dimension",
+      "gradle_daemon": false
+    },
+    {
+      "pid": 581976,
+      "exe": "/usr/lib/jvm/java-27-openjdk/bin/java",
+      "cwd": "/home/braydon/.codex/worktrees/pax-active-restart/Coasters: Fourth Dimension",
+      "gradle_daemon": false
+    },
+    {
+      "pid": 582065,
+      "exe": "/usr/lib/jvm/java-27-openjdk/bin/java",
+      "cwd": "/home/braydon/.codex/worktrees/pax-active-restart/Coasters: Fourth Dimension",
+      "gradle_daemon": true
+    },
+    {
+      "pid": 582485,
+      "exe": "/usr/lib/jvm/java-21-openjdk/bin/java",
+      "cwd": "/tmp/fourthdimension-2aa0362f/build/runs/gametest",
+      "gradle_daemon": false
+    }
+  ]
+}
