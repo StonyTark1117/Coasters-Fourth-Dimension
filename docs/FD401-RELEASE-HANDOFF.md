@@ -63,6 +63,29 @@ For future native profile runs, use the [post-exit export capture helper](NATIVE
 before another run deletes the five generated frame/trace files. Capture failures
 remain evidence gaps; archiving cannot turn a failed runtime into a passing one.
 
+### Exact input gap for broader Styles clearance
+
+The [offline sampling inventory](evidence/0.9/fd401-decoration-frame-gap.json)
+compares retained Arrow recovery route frames with `TrackStylesRenderer`'s actual
+placement distances. Both single-car and two-car routes lack **151 spine and
+37 tie frames**, concentrated in their bend and bank-transition sections. The
+recovery exporter samples original rails at `ceil(4 × length) + 1` points; the
+appearance renderer places spines at segment midpoints and ties every two blocks.
+Those sampling grids do not generally coincide. Actual native body/rider poses
+are present, but interpolating decoration frames supplies unmeasured geometry.
+The separate eight-section `bank-native-frames.json` has decoration frames on a
+different circuit and cannot be paired with these five-section recovery poses.
+
+Before auditing installed decoration against those actual body/wheel/carrier
+poses, the implementation owner needs a read-only fixture export from the same
+route containing exact native center/up/forward at every spine/tie distance,
+per-piece scale, rail identity, profile and appearance, alongside the existing
+one-tick body trace. `RecoveryRouteFrames` is the existing export entry point;
+preserve its original rail frames and include input/source hashes. Recovery
+towing evidence still cannot substitute for a full-turn operating ride, player
+meshes or continuous swept clearance. This inventory changes no exporter or
+mechanics and claims no additional clearance pass.
+
 For each future run retain exact commands/configuration, normal item/GUI actions,
 server/client observations, failed attempts, screenshots, complete logs, actual
 process exit codes, and pre/post-restart whole-world copies/hashes. An RCON write,
