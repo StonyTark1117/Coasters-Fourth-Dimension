@@ -40,8 +40,14 @@ The log then records a normal integrated-server stop.
 The preserved full local log has SHA-256
 `b50679154b28e9664e9006e79bd66c5aeeda80f796d483e14d1ea2fd3d202731`.
 The run used committed source `ec980bc` (`test: validate banked recovery
-traversal [skip ci]`). This is local development-client evidence, not packaged
-or CI evidence.
+traversal [skip ci]`). Preserved compiled classes from that run hash to
+`4be781638570bc1e226a25fbfd3c9baa35eda42aca1b86d8d22155897312f3d1`
+(`CarrierTransformValidation`),
+`b5aa0f9097ab9169646ef885d9ba901572906a4ee1c897e18f0fef2d642de9cc`
+(`CarrierValidationFixture`), and
+`54dc2a8e87b57b3ff2fa1dc214311aeaf5c75b9a7620840cfc8d6c16cbfd8edc`
+(`BankedRecoveryExamples`). This is local development-client evidence, not
+packaged or CI evidence.
 
 ## Scope and limits
 
