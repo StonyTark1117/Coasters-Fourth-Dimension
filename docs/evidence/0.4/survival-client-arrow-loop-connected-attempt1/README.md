@@ -1,0 +1,44 @@
+# FD403 connected Arrow crafting attempt 1
+
+This is a bounded connected-client crafting checkpoint, not a completed Arrow
+powered-circuit or FD403 acceptance run. On 2026-11-03, packaged standalone
+source `454ee3d` opened a copied survival world in a hidden Xvfb client. The
+packaged JAR SHA-256 was
+`7a7657393c2fc1e049bbee27c33dba67012b273db393c33a1b12123a64715aad`.
+The client used Minecraft 1.21.1, NeoForge 21.1.248, and 10 loaded mods. The
+world was copied from the earlier accepted Arrow survival-client archive, then
+the player moved to a separate flat plot near (400, -60, 520). The copied
+world was command-enabled; it retained its internal `FD403SurvivalClient` name.
+
+The copied inventory was cleared. Commands supplied only upstream ingredients:
+iron and copper ingots, red dye, Create seats and brass, iron bars, a native
+Coasters cart and anchors, compass, stick, redstone, comparator, copper block,
+chains, a crafting table and Create creative motors. A crafting table was
+placed at (400, -60, 522) with `/setblock`. No Fourth Dimension output item was
+granted. [The initial inventory](upstream-inventory.png) records this fixture.
+
+The connected recipe book listed **Controlled 4D Track** after searching its
+localized name. [The recipe screenshot](track-recipe.png) shows its 3×3
+ingredients and 16-item result. The player selected the recipe and took the
+track from the normal result slot. Further recipe/result clicks produced
+additional track stacks in [the resulting inventory](track-crafting-result.png).
+This record does not independently decode the final stack count, and it does
+not claim a crafted car, placed rails, an occupied ride, or save/reopen.
+
+The world was saved through **Save and Quit to Title**, followed by **Quit
+Game**. The [client log](client.log.zst) records all dimensions saved, normal
+client stop and `BUILD SUCCESSFUL` (exit 0). The stopped
+[world archive](world.tar.zst) preserves the resulting inventory and plot.
+
+| Artifact | SHA-256 |
+| --- | --- |
+| `client.log.zst` | `84e644e4375e451ff87c20eb2758e1147cff1119509712d3a6287544aa98015f` |
+| `world.tar.zst` | `fdb22b0b10497cd32c438329ca627c1f4c6f536e917b082cfc40e6fa7cad5ffe` |
+| `upstream-inventory.png` | `86e21e0d15f4d68d43e6c41217aba8d5916fae8cb11c14cf5d4a913588672fb5` |
+| `track-recipe.png` | `25f68d3e6666807d0bb3a0bbfcd5fe8c59df6c2563de1bff2ce62f91329028da` |
+| `track-crafting-result.png` | `2049f41a3f8598b5338e7ebd543acbbdb86a761952169ee93794ac1694304c45` |
+
+The remaining connected Arrow exercise is the crafted car and station, native
+anchor placement, powered loop, full-turn carrier motion, capture, unloading,
+reopen, and teaching walkthrough described in
+[FD403 acceptance](../../../FD403-ACCEPTANCE.md).
