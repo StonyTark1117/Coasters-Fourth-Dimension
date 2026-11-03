@@ -16,6 +16,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(FontManager.class)
 public abstract class FontManagerReloadTraceMixin {
   @Shadow @Final private Map<ResourceLocation, FontSet> fontSets;
+  @Shadow @Final private FontSet missingFontSet;
 
   @Inject(method = "apply", at = @At("HEAD"))
   private void fourthdimension$applyStart(CallbackInfo ci) {
@@ -24,6 +25,6 @@ public abstract class FontManagerReloadTraceMixin {
 
   @Inject(method = "apply", at = @At("RETURN"))
   private void fourthdimension$applyEnd(CallbackInfo ci) {
-    FontReloadTrace.applyEnd(fontSets);
+    FontReloadTrace.applyEnd(fontSets, missingFontSet);
   }
 }

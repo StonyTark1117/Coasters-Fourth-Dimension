@@ -17,9 +17,9 @@ public final class FontReloadTrace {
   private record GlyphRequest(int generation, ResourceLocation font, int codepoint) {}
 
   private static final AtomicInteger GENERATION = new AtomicInteger();
-  private static final ResourceLocation MISSING_FONT = ResourceLocation.withDefaultNamespace("missing");
   private static final ThreadLocal<GlyphRequest> GLYPH = new ThreadLocal<>();
   private static final Map<ResourceLocation, FontSet> LIVE_FONT_SETS = new ConcurrentHashMap<>();
+  private static volatile FontSet liveMissingFontSet;
   private static final Set<String> REDIRECT_LOGS = ConcurrentHashMap.newKeySet();
 
   private FontReloadTrace() {}
@@ -42,9 +42,12 @@ public final class FontReloadTrace {
             Thread.currentThread().getName());
   }
 
-  public static void applyEnd(Map<ResourceLocation, FontSet> fontSets) {
+  public static void applyEnd(Map<ResourceLocation, FontSet> fontSets, FontSet missingFontSet) {
     LIVE_FONT_SETS.clear();
     LIVE_FONT_SETS.putAll(fontSets);
+    // FontManager keeps this set outside fontSets and uses it for absent IDs. Do not substitute
+    // a resource-pack-defined minecraft:missing entry: it is not Minecraft's missing-font set.
+    liveMissingFontSet = missingFontSet;
     REDIRECT_LOGS.clear();
     if (!enabled()) return;
     LogUtils.getLogger()
@@ -65,7 +68,7 @@ public final class FontReloadTrace {
     if (replacement == null) {
       // FontManager's normal absent-ID path returns the live missing set. A resource-pack reload
       // can remove a custom font ID while a pre-reload screen still holds its closed FontSet.
-      replacement = LIVE_FONT_SETS.get(MISSING_FONT);
+      replacement = liveMissingFontSet;
       missingFallback = true;
     }
     if (replacement == null || replacement == closedSet) return null;
