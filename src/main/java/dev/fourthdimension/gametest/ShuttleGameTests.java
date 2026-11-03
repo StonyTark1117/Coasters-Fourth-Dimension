@@ -288,6 +288,92 @@ public final class ShuttleGameTests {
         });
   }
 
+  @GameTest(template = "empty", timeoutTicks = 240)
+  public static void activeWinchReloadPersistsTrainRetention(GameTestHelper helper) {
+    var level = helper.getLevel();
+    for (int x = 55; x <= 57; x++)
+      for (int z = -10; z <= -1; z++) level.setChunkForced(x, z, true);
+    var example = ShuttleExamples.create(level, new BlockPos(900, 180, -100), false);
+    ShuttleWinchEntity[] winch = {example.winch()};
+    helper.runAtTickTime(
+        80,
+        () -> {
+          ShuttleExamples.assemble(level, example);
+          VehicleOperations.restraints(level, example.cars().getFirst(), true);
+          VehicleOperations.dispatch(level, example.cars().getFirst());
+        });
+    helper.runAtTickTime(
+        105,
+        () -> {
+          helper.assertTrue(
+              winch[0].phase != ShuttleWinchEntity.Phase.BOARDING
+                  && winch[0].phase != ShuttleWinchEntity.Phase.FAULT,
+              "Reload fixture did not reach an active shuttle phase");
+          helper.assertTrue(
+              example.cars().stream()
+                  .allMatch(
+                      car ->
+                          !car.stopping
+                              && car.restraints
+                              && car.fault.isEmpty()
+                              && car.carriers.stream().allMatch(carrier -> carrier.capture)),
+              "Reload fixture was already retained before the active save boundary");
+          var pos = winch[0].getBlockPos();
+          var state = level.getBlockState(pos);
+          var active = winch[0].saveWithFullMetadata(level.registryAccess());
+          level.removeBlockEntity(pos);
+          var firstLoad =
+              (ShuttleWinchEntity)
+                  net.minecraft.world.level.block.entity.BlockEntity.loadStatic(
+                      pos, state, active, level.registryAccess());
+          helper.assertTrue(
+              firstLoad != null && firstLoad.phase == ShuttleWinchEntity.Phase.FAULT,
+              "Active winch did not become an inspectable reload fault");
+          // Attach before the second save boundary to follow normal block-entity lifecycle, then
+          // reload once more before the runtime tick to prove the marker is durable.
+          level.setBlockEntity(firstLoad);
+          var pending = firstLoad.saveWithFullMetadata(level.registryAccess());
+          level.removeBlockEntity(pos);
+          var secondLoad =
+              (ShuttleWinchEntity)
+                  net.minecraft.world.level.block.entity.BlockEntity.loadStatic(
+                      pos, state, pending, level.registryAccess());
+          helper.assertTrue(
+              secondLoad != null && secondLoad.phase == ShuttleWinchEntity.Phase.FAULT,
+              "Reload fault did not persist across the second save boundary");
+          level.setBlockEntity(secondLoad);
+          ShuttleRuntime.register(level, secondLoad);
+          winch[0] = secondLoad;
+        });
+    helper.runAtTickTime(
+        145,
+        () -> {
+          var data = FoundationData.get(level);
+          helper.assertTrue(
+              winch[0].phase == ShuttleWinchEntity.Phase.FAULT
+                  && winch[0].fault.equals("Shuttle reloaded: inspect and explicitly resume or recover")
+                  && example.cars().stream()
+                      .allMatch(
+                          car ->
+                              car.stopping
+                                  && car.restraints
+                                  && car.fault.equals(winch[0].fault)
+                                  && car.carriers.stream().allMatch(carrier -> carrier.capture)),
+              "Reloaded active shuttle did not retain every car before inspection");
+          var persisted = winch[0].saveWithFullMetadata(level.registryAccess());
+          helper.assertTrue(
+              !persisted.getBoolean("shuttle_pending_retention"),
+              "Applied reload retention remained pending after the first server tick");
+          System.out.println(
+              "FD_SHUTTLE_ACTIVE_RELOAD cars="
+                  + example.cars().size()
+                  + " carriers="
+                  + example.cars().stream().mapToInt(car -> car.carriers.size()).sum()
+                  + " retained=true");
+          helper.succeed();
+        });
+  }
+
   @GameTest(template = "empty", timeoutTicks = 1800)
   public static void routeChunkStopsTickingWinchReloadAndPhysicalRecovery(GameTestHelper helper) {
     var level = helper.getLevel();

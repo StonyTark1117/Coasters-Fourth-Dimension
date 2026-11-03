@@ -34,6 +34,9 @@ public final class ShuttleWinchEntity extends KineticBlockEntity
 
   private dev.fourthdimension.integration.RideTelemetry telemetry =
       dev.fourthdimension.integration.RideTelemetry.unavailable("Waiting for winch state");
+  // Persisted until the first server physics tick retains an in-motion train that was loaded as
+  // FAULT. Persistence covers a second save/restart before that tick can run.
+  private boolean retainLoadedActiveTrain;
 
   @Override
   public dev.fourthdimension.integration.RideTelemetry telemetry() {
@@ -255,9 +258,10 @@ public final class ShuttleWinchEntity extends KineticBlockEntity
     if (phase != Phase.FAULT) interrupted = phase;
     phase = Phase.FAULT;
     fault = reason;
-    if (level instanceof ServerLevel server)
+    if (level instanceof ServerLevel server) {
+      var data = FoundationData.get(server);
       for (var id : cars) {
-        var v = FoundationData.get(server).vehicles.get(id);
+        var v = data.vehicles.get(id);
         if (v != null) {
           v.stopping = true;
           v.restraints = true;
@@ -265,6 +269,9 @@ public final class ShuttleWinchEntity extends KineticBlockEntity
           v.fault = reason;
         }
       }
+      // A reload can be saved before CarrierRuntime reaches its normal dirtying callback.
+      data.setDirty();
+    }
     changed();
   }
 
@@ -291,6 +298,7 @@ public final class ShuttleWinchEntity extends KineticBlockEntity
     tag.putString("shuttle_fault", fault);
     tag.putDouble("shuttle_maximum", maximumDistance);
     tag.putInt("shuttle_cycles", cycles);
+    tag.putBoolean("shuttle_pending_retention", retainLoadedActiveTrain);
   }
 
   @Override
@@ -310,6 +318,7 @@ public final class ShuttleWinchEntity extends KineticBlockEntity
     carriageDistance = tag.getDouble("shuttle_distance");
     maximumDistance = tag.getDouble("shuttle_maximum");
     cycles = tag.getInt("shuttle_cycles");
+    retainLoadedActiveTrain = tag.getBoolean("shuttle_pending_retention");
     phase =
         tag.contains("shuttle_phase")
             ? Phase.valueOf(tag.getString("shuttle_phase"))
@@ -328,6 +337,14 @@ public final class ShuttleWinchEntity extends KineticBlockEntity
       interrupted = phase;
       phase = Phase.FAULT;
       fault = "Shuttle reloaded: inspect and explicitly resume or recover";
+      retainLoadedActiveTrain = true;
     }
+  }
+
+  /** Consumed by the first server tick after an active winch was converted to a reload fault. */
+  public boolean consumeLoadedActiveTrainRetention() {
+    boolean retain = retainLoadedActiveTrain;
+    retainLoadedActiveTrain = false;
+    return retain;
   }
 }

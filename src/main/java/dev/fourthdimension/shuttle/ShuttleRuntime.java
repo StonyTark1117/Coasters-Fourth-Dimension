@@ -181,6 +181,9 @@ public final class ShuttleRuntime {
   public static void tick(ServerLevel level, double dt) {
     for (var winch : List.copyOf(winches(level))) {
       if (winch.vehicle == null) continue;
+      // read() turns an in-motion winch into FAULT, but loading happens before this runtime can
+      // access FoundationData. Retain all persisted cars now, before any FAULT inspection/catch.
+      if (winch.consumeLoadedActiveTrainRetention()) winch.fail(winch.fault);
       ShuttleDiagnostics.observe(level, winch);
       try {
         if (level.hasChunkAt(winch.getBlockPos())
