@@ -124,13 +124,29 @@ public final class OrdinaryCartGameTests {
           }
           var arrow = controlledArrow[0];
           var arrowBody = (ServerSubLevel) container.getSubLevel(arrow.chassis);
+          var ordinary = bodies.getFirst();
+          var arrowFrom = arrow.boundFrom;
+          var arrowTo = arrow.boundTo;
           helper.assertTrue(
-              !CoasterCartTrainLinkConstraint.linkCarts(level, arrowBody, bodies.getFirst(), 6),
-              "Unassigned ordinary bearing coupled into a 4D consist");
+              !CoasterCartTrainLinkConstraint.linkCarts(level, arrowBody, ordinary, 6),
+              "Unassigned ordinary bearing coupled into a 4D consist, 4D first");
           helper.assertTrue(
               arrow.recoveryCart == null
-                  && !CoasterCartTrainLinkConstraint.areLinkedCarts(arrowBody, bodies.getFirst()),
-              "Rejected mixed coupling changed the 4D car state");
+                  && arrow.boundFrom.equals(arrowFrom)
+                  && arrow.boundTo.equals(arrowTo)
+                  && !data.vehicles.containsKey(ordinary.getUniqueId())
+                  && !CoasterCartTrainLinkConstraint.areLinkedCarts(arrowBody, ordinary),
+              "Rejected 4D-first coupling changed vehicle or link state");
+          helper.assertTrue(
+              !CoasterCartTrainLinkConstraint.linkCarts(level, ordinary, arrowBody, 6),
+              "Unassigned ordinary bearing coupled into a 4D consist, ordinary first");
+          helper.assertTrue(
+              arrow.recoveryCart == null
+                  && arrow.boundFrom.equals(arrowFrom)
+                  && arrow.boundTo.equals(arrowTo)
+                  && !data.vehicles.containsKey(ordinary.getUniqueId())
+                  && !CoasterCartTrainLinkConstraint.areLinkedCarts(ordinary, arrowBody),
+              "Rejected ordinary-first coupling changed vehicle or link state");
           for (var carrier : arrow.carriers)
             container.removeSubLevel(
                 container.getSubLevel(carrier.body), SubLevelRemovalReason.REMOVED);
@@ -148,7 +164,7 @@ public final class OrdinaryCartGameTests {
               "FD_ORDINARY_MATRIX families="
                   + TrackDesign.values().length
                   + " directFits=5 nativeFits=5 wideRejects=5 nativeWideRejects=5"
-                  + " mixedConsistRejects=1 no4D=true");
+                  + " mixedConsistRejects=2 no4D=true");
           helper.succeed();
         });
   }
