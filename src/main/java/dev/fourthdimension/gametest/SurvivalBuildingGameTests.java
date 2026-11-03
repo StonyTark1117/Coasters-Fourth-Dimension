@@ -622,11 +622,25 @@ public final class SurvivalBuildingGameTests {
           helper.assertTrue(rail.profile.angleAt(length / 2) > 6,
               "Survival builder did not author a controlled turn");
         }
+        // Native graph insertion may store the edge opposite the order of the player's
+        // two clicks. A chain span must follow the intended loop direction in either case.
+        edge = TrackGeometry.resolve(level, rail);
+        helper.assertTrue(edge != null, "Edited rail lost its native edge: " + i);
+        length = TrackGeometry.table(level, edge).length();
+        var from = anchors.get(i);
+        var to = anchors.get((i + 1) % anchors.size());
+        boolean forward = edge.from().equals(from) && edge.to().equals(to);
+        boolean reverse = edge.from().equals(to) && edge.to().equals(from);
+        helper.assertTrue(forward || reverse, "Native edge endpoints differ from loop section " + i);
         var anchor = (CoasterAnchorpointBlockEntity) level.getBlockEntity(anchors.get(i));
         var axis = i == 0 || i == 1 || i == 4 || i == 5 ? Direction.Axis.X : Direction.Axis.Z;
-        anchor.commitChainLift(axis, ChainLiftEndRef.anchor(edge.to()),
+        anchor.commitChainLift(axis, ChainLiftEndRef.anchor(to),
             new CoasterPathGraphSpans.SpanPath(
-                List.of(new CoasterPathGraphSpans.PathSegment(edge, 0, 1)), length));
+                List.of(new CoasterPathGraphSpans.PathSegment(
+                    edge, forward ? 0 : 1, forward ? 1 : 0)), length));
+        LogUtils.getLogger().info(
+            "FD_SURVIVAL_ARROW_CHAIN section={} from={} to={} edgeFrom={} edgeTo={} reverse={} sign={} length={}",
+            i, from, to, edge.from(), edge.to(), reverse, anchor.getChainLiftTravelSign(), length);
         var direction = axis == Direction.Axis.X ? Direction.EAST : Direction.SOUTH;
         var motorPos = anchors.get(i).relative(direction);
         level.setBlockAndUpdate(motorPos,

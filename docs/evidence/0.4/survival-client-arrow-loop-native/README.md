@@ -114,3 +114,29 @@ SHA-256 `d4241cb4cbd4e4703d39b69322a51739105d8d0f7cf26fafd27248083a056995`.
 
 This is bounded native powered-travel evidence, not a completed circuit or
 connected-client acceptance.
+
+## Attempt 8 — reverse native edge orientation broke the return-chain span
+
+The isolated base-profile run on `f887c88` passed 50 of 51 required GameTests.
+The car visited the interiors of sections 0–3. At tick 2000 its center was
+`(332.493, 133.125, 544.520)`, at the start of section 4. At tick 6500 it
+still had not visited section 4's interior or any return section; maximum
+carrier angle remained 0.00559 radians, with no fault or final capture.
+The saved FoundationData for this run shows the live Arrow car still dispatched
+(`stopping=0`, `restraints=1`, both carrier captures false). It also reveals
+that the player-clicked return rails 4–7 were stored in reverse native edge
+orientation. In particular, section 4 was stored from `(332,132,508)` to
+`(332,132,544)`, while the intended circuit enters at the latter anchor.
+The fixture had committed its chain from that entry anchor toward `edge.to()`,
+which was the entry anchor itself, and used a `0→1` path in the wrong travel
+direction. The corrected fixture targets the actual next loop anchor and uses
+`1→0` when the stored native edge is reversed. It re-resolves the edge after
+profile editing and logs each committed direction/sign. All eight section
+visits, controlled turn, rider and return capture remain required.
+
+Raw output: [attempt8.log.zst](attempt8.log.zst), SHA-256
+`ce6801423615baaffdfcb4acd598c53238c2d96be91d81faf2c0d2a755492b7e`.
+Saved [FoundationData](attempt8-foundation.dat), SHA-256
+`89548f3e125dc382d728d3b7f1fa6571c0fa33f7a8628cd6e6955f4f81eeb041`.
+This is a fixture path correction awaiting a new native run; it does not yet
+prove the full loop.
