@@ -1,0 +1,33 @@
+{
+  "operatorActions": [
+    "Dev teleported while unmounted to existing fourth-car boarding position; normal empty-hand seat use",
+    "Normal Rotation Tool Close restraints",
+    "Observer used normal Create motor drag UI; transient 120 and 15 RPM settings, then exact16 before starting; no motion started at15",
+    "Normal empty-hand winch use started LIFTING",
+    "RCON read-only diagnostics and save-all flush, then normal stop; actual server process exit0",
+    "Copied full stopped world before starting fresh dedicated JVM on same JAR/world",
+    "Observer connected first; Dev reconnected through Direct Connection",
+    "No automatic resume; normal winch use resumed LIFTING",
+    "Normal motor drag set127RPM to finish cycle",
+    "Dev Shift while closed restraints rejected during RETURNING",
+    "Cycle returned to BOARDING; normal Rotation Tool Open restraints, then Shift unloaded",
+    "Normal server stop and client Quit Game; owned Xvfb terminated after zero windows"
+  ],
+  "setupOnlyCommands": [
+    "tp unmounted operators",
+    "item replace Dev hotbar.0 with rotation_tool"
+  ],
+  "mutationsExcluded": [
+    "No vehicle/phase/velocity NBT writes",
+    "No curve writes, support removal, repair or rebind",
+    "No source changes or optional-addon activation"
+  ],
+  "reconnectPriorGameTime": 61734,
+  "restoreGameTime": 61754,
+  "restoreDeadline": 61953,
+  "faultStationaryObservationTicks": 636,
+  "fullWorldBackupsLocal": [
+    "/home/braydon/.codex/worktrees/pax-active-restart/Coasters: Fourth Dimension/build/pax-active-restart/pre-cold-restart-world",
+    "/home/braydon/.codex/worktrees/pax-active-restart/Coasters: Fourth Dimension/build/pax-active-restart/after-clean-stop-world"
+  ]
+}
