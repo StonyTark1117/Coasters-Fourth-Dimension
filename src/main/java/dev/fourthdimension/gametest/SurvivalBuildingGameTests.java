@@ -547,31 +547,25 @@ public final class SurvivalBuildingGameTests {
         click(player, anchors.getFirst()).consumesAction(), "Loop editor was inaccessible");
     helper.assertTrue(count(player, TrackItems.ARROW_CAR.get()) == 1,
         "Crafted Arrow car lost while opening the loop editor");
-    int[] lastCarCount = {1};
+    var vehicleRef = new java.util.concurrent.atomic.AtomicReference<FoundationData.Vehicle>();
+    var stationPos = origin.offset(-6, 0, 20);
+    var stationPowerRef = new java.util.concurrent.atomic.AtomicReference<BlockPos>();
+    var riderRef = new java.util.concurrent.atomic.AtomicReference<net.minecraft.world.entity.Entity>();
+    var container = SubLevelContainer.getContainer(level);
+    double[] maxXZ = {0, 0}, maxAngle = {0};
+    var running = new java.util.concurrent.atomic.AtomicBoolean(false);
     helper.onEachTick(() -> {
-      int currentCarCount = count(player, TrackItems.ARROW_CAR.get());
-      if (currentCarCount != lastCarCount[0])
-        LogUtils.getLogger().info(
-            "FD_SURVIVAL_ARROW_INVENTORY carCount={} selected={} hand={} menu={} carried={} slots={}",
-            currentCarCount,
-            player.getInventory().selected,
-            player.getMainHandItem(),
-            player.containerMenu.getClass().getSimpleName(),
-            player.containerMenu.getCarried(),
-            player.getInventory().items);
-      lastCarCount[0] = currentCarCount;
+      if (!running.get()) return;
+      var vehicle = vehicleRef.get();
+      var point = CoasterCartResolve.cartCenterWorld(container.getSubLevel(vehicle.chassis));
+      maxXZ[0] = Math.max(maxXZ[0], point.x - origin.getX());
+      maxXZ[1] = Math.max(maxXZ[1], point.z - origin.getZ());
+      maxAngle[0] = Math.max(maxAngle[0], vehicle.carriers.getFirst().angle);
     });
+    // Register every timed action before GameTest begins iterating its action map.
     helper.runAtTickTime(10, () -> {
       var foothold = origin.offset(0, -1, 20);
       level.setBlockAndUpdate(foothold, Blocks.STONE.defaultBlockState());
-      LogUtils.getLogger().info(
-          "FD_SURVIVAL_ARROW_PREPLACE carCount={} selected={} hand={} menu={} carried={} slots={}",
-          count(player, TrackItems.ARROW_CAR.get()),
-          player.getInventory().selected,
-          player.getMainHandItem(),
-          player.containerMenu.getClass().getSimpleName(),
-          player.containerMenu.getCarried(),
-          player.getInventory().items);
       helper.assertTrue(count(player, TrackItems.ARROW_CAR.get()) == 1,
           "Crafted Arrow car lost before delayed native placement");
       hold(helper, player, TrackItems.ARROW_CAR.get());
@@ -583,142 +577,142 @@ public final class SurvivalBuildingGameTests {
                         .filter(v -> rails.getFirst().matches(v.boundFrom, v.boundTo))
                         .findFirst()
                         .orElseThrow();
+      vehicleRef.set(vehicle);
       helper.assertTrue(
           count(player, TrackItems.ARROW_CAR.get()) == 0, "Car craft was not consumed");
-      var stationPos = origin.offset(-6, 0, 20);
       place(helper, player, item("fourthdimension:boarding_station"), stationPos);
       var stationRear =
           level.getBlockState(stationPos).getValue(BoardingStation.FACING).getOpposite();
-      var stationPower = stationPos.relative(stationRear);
-      var container = SubLevelContainer.getContainer(level);
-      double[] maxXZ = {0, 0}, maxAngle = {0};
-      var running = new java.util.concurrent.atomic.AtomicBoolean(false);
-      helper.onEachTick(() -> {
-        if (!running.get())
-          return;
-        var point = CoasterCartResolve.cartCenterWorld(container.getSubLevel(vehicle.chassis));
-        maxXZ[0] = Math.max(maxXZ[0], point.x - origin.getX());
-        maxXZ[1] = Math.max(maxXZ[1], point.z - origin.getZ());
-        maxAngle[0] = Math.max(maxAngle[0], vehicle.carriers.getFirst().angle);
-      });
-      // The upstream Chain and creative motor supply power only; the builder authored the
-      // functional rails, controlled profile, car and station through normal survival paths.
-      helper.runAtTickTime(40, () -> {
-        for (int i = 0; i < rails.size(); i++) {
-          var rail = rails.get(i);
-          var edge = TrackGeometry.resolve(level, rail);
-          helper.assertTrue(edge != null, "Player-connected rail has no native edge: " + i);
-          double length = TrackGeometry.table(level, edge).length();
-          if (i == 4) {
-            player.setPos(
-                anchors.get(i).getX() + 2.5, anchors.get(i).getY() + 1, anchors.get(i).getZ() + .5);
-            EditorNetwork.apply(player,
-                new EditorNetwork.Edit(
-                    rail.id, rail.revision, 0, "0:0;" + (length / 2) + ":360;" + length + ":0"));
-            helper.assertTrue(rail.profile.angleAt(length / 2) > 6,
-                "Survival builder did not author a controlled turn");
-          }
-          var anchor = (CoasterAnchorpointBlockEntity) level.getBlockEntity(anchors.get(i));
-          var axis = i == 0 || i == 1 || i == 4 || i == 5 ? Direction.Axis.X : Direction.Axis.Z;
-          anchor.commitChainLift(axis, ChainLiftEndRef.anchor(edge.to()),
-              new CoasterPathGraphSpans.SpanPath(
-                  List.of(new CoasterPathGraphSpans.PathSegment(edge, 0, 1)), length));
-          var direction = axis == Direction.Axis.X ? Direction.EAST : Direction.SOUTH;
-          var motorPos = anchors.get(i).relative(direction);
-          level.setBlockAndUpdate(motorPos,
-              AllBlocks.CREATIVE_MOTOR.getDefaultState().setValue(
-                  BlockStateProperties.FACING, direction.getOpposite()));
-          var motor = (CreativeMotorBlockEntity) level.getBlockEntity(motorPos);
-          motor.generatedSpeed.setValue(32 * anchor.getChainLiftTravelSign());
+      stationPowerRef.set(stationPos.relative(stationRear));
+    });
+    // The upstream Chain and creative motor supply power only; the builder authored the
+    // functional rails, controlled profile, car and station through normal survival paths.
+    helper.runAtTickTime(40, () -> {
+      for (int i = 0; i < rails.size(); i++) {
+        var rail = rails.get(i);
+        var edge = TrackGeometry.resolve(level, rail);
+        helper.assertTrue(edge != null, "Player-connected rail has no native edge: " + i);
+        double length = TrackGeometry.table(level, edge).length();
+        if (i == 4) {
+          player.setPos(
+              anchors.get(i).getX() + 2.5, anchors.get(i).getY() + 1, anchors.get(i).getZ() + .5);
+          EditorNetwork.apply(player,
+              new EditorNetwork.Edit(
+                  rail.id, rail.revision, 0, "0:0;" + (length / 2) + ":360;" + length + ":0"));
+          helper.assertTrue(rail.profile.angleAt(length / 2) > 6,
+              "Survival builder did not author a controlled turn");
         }
-        data.setDirty();
-      });
-      helper.runAtTickTime(100, () -> {
-        helper.assertTrue(Boarding.ready(level, vehicle), "Crafted car did not settle");
-        var chassisCenter = CoasterCartResolve.cartCenterWorld(container.getSubLevel(vehicle.chassis));
-        double stationDistance =
-            Math.sqrt(chassisCenter.distanceSquared(
-                new org.joml.Vector3d(
-                    stationPos.getX() + .5, stationPos.getY() + .5, stationPos.getZ() + .5)));
-        LogUtils.getLogger().info("FD_SURVIVAL_ARROW_STATION distance={}", stationDistance);
-        helper.assertTrue(stationDistance < 12, "Crafted car settled outside station binding range");
-        hold(helper, player, null);
-        helper.assertTrue(
-            click(player, stationPos).consumesAction(),
-            "Player station binding failed at distance " + stationDistance);
-        helper.assertTrue(
-            vehicle.chassis.equals(((BoardingStationEntity) level.getBlockEntity(stationPos)).vehicle),
-            "Station bound another car");
-        var carrier = vehicle.carriers.getFirst();
-        var body = container.getSubLevel(carrier.body);
-        var rider = net.minecraft.world.entity.EntityType.PIG.create(level);
-        rider.setNoAi(true);
-        rider.setPos(origin.getX(), origin.getY() + 5, origin.getZ() + 20);
-        level.addFreshEntity(rider);
-        SeatBlock.sitDown(
-            level, body.getPlot().getCenterBlock().offset(carrier.seats.getFirst()), rider);
-        helper.assertTrue(rider.isPassenger(), "Crafted car seat did not mount a rider");
-        player.setPos(chassisCenter.x + 2, chassisCenter.y + 1, chassisCenter.z);
-        EditorNetwork.apply(
-            player, new EditorNetwork.Edit(vehicle.chassis, vehicle.revision, 11, ""));
-        EditorNetwork.apply(
-            player, new EditorNetwork.Edit(vehicle.chassis, vehicle.revision, 13, ""));
-        running.set(true);
-        helper.runAtTickTime(2000, () -> {
-          running.set(false);
-          LogUtils.getLogger().info(
-              "FD_SURVIVAL_ARROW_LOOP rails={} cost={} maxXZ={},{} maxAngle={} ready={} fault={}",
-              rails.size(), trackCost, maxXZ[0], maxXZ[1], maxAngle[0],
-              Boarding.ready(level, vehicle), vehicle.fault);
-          helper.assertTrue(maxXZ[0] > 30 && maxXZ[1] > 50,
-              "Survival-connected Arrow loop did not complete a circuit");
-          helper.assertTrue(
-              maxAngle[0] > 6, "Survival-connected Arrow loop did not make its controlled turn");
-          helper.assertTrue(rider.isPassenger(), "Loop lost its native rider");
-          helper.assertTrue(
-              Boarding.ready(level, vehicle) && vehicle.stopping && vehicle.restraints,
-              "Survival-connected Arrow loop did not capture at station");
-          helper.assertTrue(
-              ((BoardingStationEntity) level.getBlockEntity(stationPos)).fault.isEmpty(),
-              "Station rejected returning survival-built car");
-          var returned = CoasterCartResolve.cartCenterWorld(container.getSubLevel(vehicle.chassis));
-          player.setPos(returned.x + 2, returned.y + 1, returned.z);
-          EditorNetwork.apply(
-              player, new EditorNetwork.Edit(vehicle.chassis, vehicle.revision, 12, ""));
-          rider.stopRiding();
-          rider.discard();
-          for (var carrierBody : vehicle.carriers)
-            container.removeSubLevel(
-                container.getSubLevel(carrierBody.body), SubLevelRemovalReason.REMOVED);
-          container.removeSubLevel(
-              container.getSubLevel(vehicle.chassis), SubLevelRemovalReason.REMOVED);
-          data.vehicles.remove(vehicle.chassis);
-          for (int i = 0; i < rails.size(); i++) {
-            var rail = rails.get(i);
-            ((CoasterAnchorpointBlockEntity) level.getBlockEntity(rail.from))
-                .removeAnchorPeerCurve(level, rail.to);
-            level.removeBlock(
-                anchors.get(i).relative(
-                    i == 0 || i == 1 || i == 4 || i == 5 ? Direction.EAST : Direction.SOUTH),
-                false);
-          }
-          for (var anchor : anchors) {
-            level.removeBlock(anchor, false);
-            level.removeBlock(anchor.below(), false);
-          }
-          data.rails.removeAll(rails);
-          level.removeBlock(stationPos, false);
-          level.removeBlock(stationPower, false);
-          level.removeBlock(stationPos.below(), false);
-          level.removeBlock(table, false);
-          for (int x = 18; x <= 21; x++)
-            for (int z = 30; z <= 35; z++) level.setChunkForced(x, z, false);
-          player.getAdvancements().stopListening();
-          helper.succeed();
-        });
-      });
-      helper.runAtTickTime(260,
-          () -> level.setBlockAndUpdate(stationPower, Blocks.REDSTONE_BLOCK.defaultBlockState()));
+        var anchor = (CoasterAnchorpointBlockEntity) level.getBlockEntity(anchors.get(i));
+        var axis = i == 0 || i == 1 || i == 4 || i == 5 ? Direction.Axis.X : Direction.Axis.Z;
+        anchor.commitChainLift(axis, ChainLiftEndRef.anchor(edge.to()),
+            new CoasterPathGraphSpans.SpanPath(
+                List.of(new CoasterPathGraphSpans.PathSegment(edge, 0, 1)), length));
+        var direction = axis == Direction.Axis.X ? Direction.EAST : Direction.SOUTH;
+        var motorPos = anchors.get(i).relative(direction);
+        level.setBlockAndUpdate(motorPos,
+            AllBlocks.CREATIVE_MOTOR.getDefaultState().setValue(
+                BlockStateProperties.FACING, direction.getOpposite()));
+        var motor = (CreativeMotorBlockEntity) level.getBlockEntity(motorPos);
+        motor.generatedSpeed.setValue(32 * anchor.getChainLiftTravelSign());
+      }
+      data.setDirty();
+    });
+    helper.runAtTickTime(100, () -> {
+      var vehicle = vehicleRef.get();
+      helper.assertTrue(vehicle != null, "Crafted car assembly did not run");
+      helper.assertTrue(Boarding.ready(level, vehicle), "Crafted car did not settle");
+      var chassisCenter = CoasterCartResolve.cartCenterWorld(container.getSubLevel(vehicle.chassis));
+      double stationDistance =
+          Math.sqrt(chassisCenter.distanceSquared(
+              new org.joml.Vector3d(
+                  stationPos.getX() + .5, stationPos.getY() + .5, stationPos.getZ() + .5)));
+      LogUtils.getLogger().info("FD_SURVIVAL_ARROW_STATION distance={}", stationDistance);
+      helper.assertTrue(stationDistance < 12, "Crafted car settled outside station binding range");
+      hold(helper, player, null);
+      helper.assertTrue(
+          click(player, stationPos).consumesAction(),
+          "Player station binding failed at distance " + stationDistance);
+      helper.assertTrue(
+          vehicle.chassis.equals(((BoardingStationEntity) level.getBlockEntity(stationPos)).vehicle),
+          "Station bound another car");
+      var carrier = vehicle.carriers.getFirst();
+      var body = container.getSubLevel(carrier.body);
+      var rider = net.minecraft.world.entity.EntityType.PIG.create(level);
+      riderRef.set(rider);
+      rider.setNoAi(true);
+      rider.setPos(origin.getX(), origin.getY() + 5, origin.getZ() + 20);
+      level.addFreshEntity(rider);
+      SeatBlock.sitDown(
+          level, body.getPlot().getCenterBlock().offset(carrier.seats.getFirst()), rider);
+      helper.assertTrue(rider.isPassenger(), "Crafted car seat did not mount a rider");
+      player.setPos(chassisCenter.x + 2, chassisCenter.y + 1, chassisCenter.z);
+      EditorNetwork.apply(
+          player, new EditorNetwork.Edit(vehicle.chassis, vehicle.revision, 11, ""));
+      EditorNetwork.apply(
+          player, new EditorNetwork.Edit(vehicle.chassis, vehicle.revision, 13, ""));
+      running.set(true);
+    });
+    helper.runAtTickTime(260, () -> {
+      var stationPower = stationPowerRef.get();
+      helper.assertTrue(stationPower != null, "Crafted station placement did not run");
+      level.setBlockAndUpdate(stationPower, Blocks.REDSTONE_BLOCK.defaultBlockState());
+    });
+    helper.runAtTickTime(2000, () -> {
+      var vehicle = vehicleRef.get();
+      var rider = riderRef.get();
+      var stationPower = stationPowerRef.get();
+      helper.assertTrue(vehicle != null && rider != null && stationPower != null,
+          "Survival loop setup was incomplete");
+      running.set(false);
+      LogUtils.getLogger().info(
+          "FD_SURVIVAL_ARROW_LOOP rails={} cost={} maxXZ={},{} maxAngle={} ready={} fault={}",
+          rails.size(), trackCost, maxXZ[0], maxXZ[1], maxAngle[0],
+          Boarding.ready(level, vehicle), vehicle.fault);
+      helper.assertTrue(maxXZ[0] > 30 && maxXZ[1] > 50,
+          "Survival-connected Arrow loop did not complete a circuit");
+      helper.assertTrue(
+          maxAngle[0] > 6, "Survival-connected Arrow loop did not make its controlled turn");
+      helper.assertTrue(rider.isPassenger(), "Loop lost its native rider");
+      helper.assertTrue(
+          Boarding.ready(level, vehicle) && vehicle.stopping && vehicle.restraints,
+          "Survival-connected Arrow loop did not capture at station");
+      helper.assertTrue(
+          ((BoardingStationEntity) level.getBlockEntity(stationPos)).fault.isEmpty(),
+          "Station rejected returning survival-built car");
+      var returned = CoasterCartResolve.cartCenterWorld(container.getSubLevel(vehicle.chassis));
+      player.setPos(returned.x + 2, returned.y + 1, returned.z);
+      EditorNetwork.apply(
+          player, new EditorNetwork.Edit(vehicle.chassis, vehicle.revision, 12, ""));
+      rider.stopRiding();
+      rider.discard();
+      for (var carrierBody : vehicle.carriers)
+        container.removeSubLevel(
+            container.getSubLevel(carrierBody.body), SubLevelRemovalReason.REMOVED);
+      container.removeSubLevel(
+          container.getSubLevel(vehicle.chassis), SubLevelRemovalReason.REMOVED);
+      data.vehicles.remove(vehicle.chassis);
+      for (int i = 0; i < rails.size(); i++) {
+        var rail = rails.get(i);
+        ((CoasterAnchorpointBlockEntity) level.getBlockEntity(rail.from))
+            .removeAnchorPeerCurve(level, rail.to);
+        level.removeBlock(
+            anchors.get(i).relative(
+                i == 0 || i == 1 || i == 4 || i == 5 ? Direction.EAST : Direction.SOUTH),
+            false);
+      }
+      for (var anchor : anchors) {
+        level.removeBlock(anchor, false);
+        level.removeBlock(anchor.below(), false);
+      }
+      data.rails.removeAll(rails);
+      level.removeBlock(stationPos, false);
+      level.removeBlock(stationPower, false);
+      level.removeBlock(stationPos.below(), false);
+      level.removeBlock(table, false);
+      for (int x = 18; x <= 21; x++)
+        for (int z = 30; z <= 35; z++) level.setChunkForced(x, z, false);
+      player.getAdvancements().stopListening();
+      helper.succeed();
     });
   }
 }

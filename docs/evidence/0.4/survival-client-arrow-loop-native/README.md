@@ -79,3 +79,20 @@ item-placement failure. Raw output: [attempt5.log.zst](attempt5.log.zst),
 SHA-256 `6d3876b9998a19c08a14854fad1c627f1af643eaaa94774c0c70cbe7c8b3106e`.
 
 This run does not establish car placement, powered travel or capture.
+
+## Attempt 6 — scheduled action ran twice
+
+The isolated base-profile run on `29571ad` passed 50 of 51 required GameTests.
+At tick 10 the first placement callback found the crafted car and station in
+the inventory, consumed both through normal item use, and advanced beyond
+station placement. The same callback then ran a second time: its new inventory
+trace showed both consumed items gone, and the repeated preplacement assertion
+failed. The earlier claim that the car disappeared while waiting was therefore
+incorrect. The test had registered ticks 40, 100 and 260 inside its tick-10
+callback, while Minecraft's GameTest scheduler iterated its action map. The
+corrected test registers all timed actions before that iteration and shares
+assembled state through references. Raw output: [attempt6.log.zst](attempt6.log.zst),
+SHA-256 `fa14214d30a84206bd79c1610b00888a08a5c2f3ee1400315685b1313fdf03e6`.
+
+The first callback demonstrates crafted car and station placement, but this
+failed run does not establish powered travel or final capture.
