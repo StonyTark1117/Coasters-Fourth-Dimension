@@ -21,7 +21,9 @@ import net.neoforged.neoforge.gametest.*;
 @GameTestHolder("fourthdimension")
 @PrefixGameTestTemplate(false)
 public final class FamilyEligibilityGameTests {
-  @GameTest(template = "empty", timeoutTicks = 220)
+  // Default-batch integration fixtures allocate their own vehicles concurrently. Keep this
+  // five-car matrix after they have all completed their cleanup; production keeps its 64-car cap.
+  @GameTest(template = "empty", batch = "fourthdimension_family_eligibility", timeoutTicks = 220)
   public static void fiveFamilyFactoryLockedSnapAndBindingMatrix(GameTestHelper helper) {
     var level = helper.getLevel();
     for (int x = -51; x <= -43; x++)
