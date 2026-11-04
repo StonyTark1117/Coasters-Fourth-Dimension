@@ -1,0 +1,347 @@
+Compiled from "SubLevelSnapshotInterpolator.java"
+public class dev.ryanhcode.sable.network.client.SubLevelSnapshotInterpolator {
+  public final it.unimi.dsi.fastutil.objects.ObjectArrayList<dev.ryanhcode.sable.network.client.SubLevelSnapshotInterpolator$Snapshot> buffer;
+
+  private final dev.ryanhcode.sable.companion.math.Pose3d runningSnapshot;
+
+  private boolean stopped;
+
+  public dev.ryanhcode.sable.network.client.SubLevelSnapshotInterpolator(dev.ryanhcode.sable.companion.math.Pose3d);
+    Code:
+         0: aload_0
+         1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+         4: aload_0
+         5: new           #7                  // class it/unimi/dsi/fastutil/objects/ObjectArrayList
+         8: dup
+         9: invokespecial #9                  // Method it/unimi/dsi/fastutil/objects/ObjectArrayList."<init>":()V
+        12: putfield      #10                 // Field buffer:Lit/unimi/dsi/fastutil/objects/ObjectArrayList;
+        15: aload_0
+        16: new           #16                 // class dev/ryanhcode/sable/companion/math/Pose3d
+        19: dup
+        20: invokespecial #18                 // Method dev/ryanhcode/sable/companion/math/Pose3d."<init>":()V
+        23: putfield      #19                 // Field runningSnapshot:Ldev/ryanhcode/sable/companion/math/Pose3d;
+        26: aload_0
+        27: getfield      #19                 // Field runningSnapshot:Ldev/ryanhcode/sable/companion/math/Pose3d;
+        30: aload_1
+        31: invokevirtual #23                 // Method dev/ryanhcode/sable/companion/math/Pose3d.set:(Ldev/ryanhcode/sable/companion/math/Pose3dc;)Ldev/ryanhcode/sable/companion/math/Pose3d;
+        34: pop
+        35: return
+
+  public void getSampleAt(double, dev.ryanhcode.sable.companion.math.Pose3d);
+    Code:
+         0: iconst_m1
+         1: istore        4
+         3: aconst_null
+         4: astore        5
+         6: aconst_null
+         7: astore        6
+         9: iconst_0
+        10: istore        7
+        12: iload         7
+        14: aload_0
+        15: getfield      #10                 // Field buffer:Lit/unimi/dsi/fastutil/objects/ObjectArrayList;
+        18: invokevirtual #27                 // Method it/unimi/dsi/fastutil/objects/ObjectArrayList.size:()I
+        21: if_icmpge     106
+        24: aload_0
+        25: getfield      #10                 // Field buffer:Lit/unimi/dsi/fastutil/objects/ObjectArrayList;
+        28: iload         7
+        30: invokevirtual #31                 // Method it/unimi/dsi/fastutil/objects/ObjectArrayList.get:(I)Ljava/lang/Object;
+        33: checkcast     #35                 // class dev/ryanhcode/sable/network/client/SubLevelSnapshotInterpolator$Snapshot
+        36: astore        8
+        38: aload         8
+        40: getfield      #37                 // Field dev/ryanhcode/sable/network/client/SubLevelSnapshotInterpolator$Snapshot.gameTick:I
+        43: i2d
+        44: dload_1
+        45: dcmpl
+        46: ifne          60
+        49: aload_3
+        50: aload         8
+        52: getfield      #41                 // Field dev/ryanhcode/sable/network/client/SubLevelSnapshotInterpolator$Snapshot.pose:Ldev/ryanhcode/sable/companion/math/Pose3dc;
+        55: invokevirtual #23                 // Method dev/ryanhcode/sable/companion/math/Pose3d.set:(Ldev/ryanhcode/sable/companion/math/Pose3dc;)Ldev/ryanhcode/sable/companion/math/Pose3d;
+        58: pop
+        59: return
+        60: aload         8
+        62: getfield      #37                 // Field dev/ryanhcode/sable/network/client/SubLevelSnapshotInterpolator$Snapshot.gameTick:I
+        65: i2d
+        66: dload_1
+        67: dcmpg
+        68: ifge          82
+        71: iload         7
+        73: istore        4
+        75: aload         8
+        77: astore        5
+        79: goto          100
+        82: aload         8
+        84: getfield      #37                 // Field dev/ryanhcode/sable/network/client/SubLevelSnapshotInterpolator$Snapshot.gameTick:I
+        87: i2d
+        88: dload_1
+        89: dcmpl
+        90: ifle          100
+        93: aload         8
+        95: astore        6
+        97: goto          106
+       100: iinc          7, 1
+       103: goto          12
+       106: aload         5
+       108: ifnull        116
+       111: aload         6
+       113: ifnonnull     238
+       116: aload         5
+       118: ifnull        220
+       121: aload_3
+       122: aload         5
+       124: getfield      #41                 // Field dev/ryanhcode/sable/network/client/SubLevelSnapshotInterpolator$Snapshot.pose:Ldev/ryanhcode/sable/companion/math/Pose3dc;
+       127: invokevirtual #23                 // Method dev/ryanhcode/sable/companion/math/Pose3d.set:(Ldev/ryanhcode/sable/companion/math/Pose3dc;)Ldev/ryanhcode/sable/companion/math/Pose3d;
+       130: pop
+       131: iload         4
+       133: iconst_1
+       134: isub
+       135: istore        7
+       137: iload         7
+       139: iflt          217
+       142: aload_0
+       143: getfield      #45                 // Field stopped:Z
+       146: ifne          217
+       149: aload_0
+       150: getfield      #10                 // Field buffer:Lit/unimi/dsi/fastutil/objects/ObjectArrayList;
+       153: iload         7
+       155: invokevirtual #31                 // Method it/unimi/dsi/fastutil/objects/ObjectArrayList.get:(I)Ljava/lang/Object;
+       158: checkcast     #35                 // class dev/ryanhcode/sable/network/client/SubLevelSnapshotInterpolator$Snapshot
+       161: astore        8
+       163: dload_1
+       164: aload         5
+       166: getfield      #37                 // Field dev/ryanhcode/sable/network/client/SubLevelSnapshotInterpolator$Snapshot.gameTick:I
+       169: i2d
+       170: dsub
+       171: dconst_0
+       172: dconst_1
+       173: invokestatic  #49                 // Method net/minecraft/util/Mth.clamp:(DDD)D
+       176: dstore        9
+       178: dload         9
+       180: aload         5
+       182: getfield      #37                 // Field dev/ryanhcode/sable/network/client/SubLevelSnapshotInterpolator$Snapshot.gameTick:I
+       185: aload         8
+       187: getfield      #37                 // Field dev/ryanhcode/sable/network/client/SubLevelSnapshotInterpolator$Snapshot.gameTick:I
+       190: isub
+       191: i2d
+       192: ddiv
+       193: dstore        11
+       195: aload_3
+       196: aload         8
+       198: getfield      #41                 // Field dev/ryanhcode/sable/network/client/SubLevelSnapshotInterpolator$Snapshot.pose:Ldev/ryanhcode/sable/companion/math/Pose3dc;
+       201: invokevirtual #23                 // Method dev/ryanhcode/sable/companion/math/Pose3d.set:(Ldev/ryanhcode/sable/companion/math/Pose3dc;)Ldev/ryanhcode/sable/companion/math/Pose3d;
+       204: aload         5
+       206: getfield      #41                 // Field dev/ryanhcode/sable/network/client/SubLevelSnapshotInterpolator$Snapshot.pose:Ldev/ryanhcode/sable/companion/math/Pose3dc;
+       209: dconst_1
+       210: dload         11
+       212: dadd
+       213: invokevirtual #55                 // Method dev/ryanhcode/sable/companion/math/Pose3d.lerp:(Ldev/ryanhcode/sable/companion/math/Pose3dc;D)Ldev/ryanhcode/sable/companion/math/Pose3d;
+       216: pop
+       217: goto          280
+       220: aload         6
+       222: ifnull        280
+       225: aload_3
+       226: aload         6
+       228: getfield      #41                 // Field dev/ryanhcode/sable/network/client/SubLevelSnapshotInterpolator$Snapshot.pose:Ldev/ryanhcode/sable/companion/math/Pose3dc;
+       231: invokevirtual #23                 // Method dev/ryanhcode/sable/companion/math/Pose3d.set:(Ldev/ryanhcode/sable/companion/math/Pose3dc;)Ldev/ryanhcode/sable/companion/math/Pose3d;
+       234: pop
+       235: goto          280
+       238: dload_1
+       239: aload         5
+       241: getfield      #37                 // Field dev/ryanhcode/sable/network/client/SubLevelSnapshotInterpolator$Snapshot.gameTick:I
+       244: i2d
+       245: dsub
+       246: aload         6
+       248: getfield      #37                 // Field dev/ryanhcode/sable/network/client/SubLevelSnapshotInterpolator$Snapshot.gameTick:I
+       251: aload         5
+       253: getfield      #37                 // Field dev/ryanhcode/sable/network/client/SubLevelSnapshotInterpolator$Snapshot.gameTick:I
+       256: isub
+       257: i2d
+       258: ddiv
+       259: dstore        7
+       261: aload         5
+       263: getfield      #41                 // Field dev/ryanhcode/sable/network/client/SubLevelSnapshotInterpolator$Snapshot.pose:Ldev/ryanhcode/sable/companion/math/Pose3dc;
+       266: aload         6
+       268: getfield      #41                 // Field dev/ryanhcode/sable/network/client/SubLevelSnapshotInterpolator$Snapshot.pose:Ldev/ryanhcode/sable/companion/math/Pose3dc;
+       271: dload         7
+       273: aload_3
+       274: invokeinterface #59,  5           // InterfaceMethod dev/ryanhcode/sable/companion/math/Pose3dc.lerp:(Ldev/ryanhcode/sable/companion/math/Pose3dc;DLdev/ryanhcode/sable/companion/math/Pose3d;)Ldev/ryanhcode/sable/companion/math/Pose3d;
+       279: pop
+       280: return
+
+  public void receiveSnapshot(int, dev.ryanhcode.sable.companion.math.Pose3dc);
+    Code:
+         0: aload_0
+         1: getfield      #10                 // Field buffer:Lit/unimi/dsi/fastutil/objects/ObjectArrayList;
+         4: dup
+         5: astore_3
+         6: monitorenter
+         7: aload_0
+         8: getfield      #10                 // Field buffer:Lit/unimi/dsi/fastutil/objects/ObjectArrayList;
+        11: invokevirtual #64                 // Method it/unimi/dsi/fastutil/objects/ObjectArrayList.isEmpty:()Z
+        14: ifne          34
+        17: aload_0
+        18: getfield      #10                 // Field buffer:Lit/unimi/dsi/fastutil/objects/ObjectArrayList;
+        21: invokevirtual #68                 // Method it/unimi/dsi/fastutil/objects/ObjectArrayList.getLast:()Ljava/lang/Object;
+        24: checkcast     #35                 // class dev/ryanhcode/sable/network/client/SubLevelSnapshotInterpolator$Snapshot
+        27: getfield      #37                 // Field dev/ryanhcode/sable/network/client/SubLevelSnapshotInterpolator$Snapshot.gameTick:I
+        30: iload_1
+        31: if_icmpeq     51
+        34: aload_0
+        35: getfield      #10                 // Field buffer:Lit/unimi/dsi/fastutil/objects/ObjectArrayList;
+        38: new           #35                 // class dev/ryanhcode/sable/network/client/SubLevelSnapshotInterpolator$Snapshot
+        41: dup
+        42: iload_1
+        43: aload_2
+        44: invokespecial #72                 // Method dev/ryanhcode/sable/network/client/SubLevelSnapshotInterpolator$Snapshot."<init>":(ILdev/ryanhcode/sable/companion/math/Pose3dc;)V
+        47: invokevirtual #75                 // Method it/unimi/dsi/fastutil/objects/ObjectArrayList.add:(Ljava/lang/Object;)Z
+        50: pop
+        51: aload_3
+        52: monitorexit
+        53: goto          63
+        56: astore        4
+        58: aload_3
+        59: monitorexit
+        60: aload         4
+        62: athrow
+        63: aload_0
+        64: iconst_0
+        65: putfield      #45                 // Field stopped:Z
+        68: return
+      Exception table:
+         from    to  target type
+             7    53    56   any
+            56    60    56   any
+
+  public void setFirstPoses(dev.ryanhcode.sable.companion.math.Pose3dc, dev.ryanhcode.sable.companion.math.Pose3dc);
+    Code:
+         0: aload_0
+         1: getfield      #19                 // Field runningSnapshot:Ldev/ryanhcode/sable/companion/math/Pose3d;
+         4: invokevirtual #79                 // Method dev/ryanhcode/sable/companion/math/Pose3d.rotationPoint:()Lorg/joml/Vector3d;
+         7: aload_1
+         8: invokeinterface #83,  1           // InterfaceMethod dev/ryanhcode/sable/companion/math/Pose3dc.rotationPoint:()Lorg/joml/Vector3dc;
+        13: invokevirtual #86                 // Method org/joml/Vector3d.set:(Lorg/joml/Vector3dc;)Lorg/joml/Vector3d;
+        16: pop
+        17: aload_0
+        18: getfield      #19                 // Field runningSnapshot:Ldev/ryanhcode/sable/companion/math/Pose3d;
+        21: invokevirtual #91                 // Method dev/ryanhcode/sable/companion/math/Pose3d.position:()Lorg/joml/Vector3d;
+        24: aload_2
+        25: invokeinterface #94,  1           // InterfaceMethod dev/ryanhcode/sable/companion/math/Pose3dc.position:()Lorg/joml/Vector3dc;
+        30: invokevirtual #86                 // Method org/joml/Vector3d.set:(Lorg/joml/Vector3dc;)Lorg/joml/Vector3d;
+        33: pop
+        34: return
+
+  public dev.ryanhcode.sable.companion.math.Pose3dc getInterpolatedPose();
+    Code:
+         0: aload_0
+         1: getfield      #19                 // Field runningSnapshot:Ldev/ryanhcode/sable/companion/math/Pose3d;
+         4: areturn
+
+  public void receiveStop();
+    Code:
+         0: aload_0
+         1: iconst_1
+         2: putfield      #45                 // Field stopped:Z
+         5: return
+
+  public void splitFrom(dev.ryanhcode.sable.network.client.SubLevelSnapshotInterpolator, dev.ryanhcode.sable.companion.math.Pose3dc);
+    Code:
+         0: aload_1
+         1: getfield      #10                 // Field buffer:Lit/unimi/dsi/fastutil/objects/ObjectArrayList;
+         4: invokevirtual #96                 // Method it/unimi/dsi/fastutil/objects/ObjectArrayList.iterator:()Lit/unimi/dsi/fastutil/objects/ObjectListIterator;
+         7: astore_3
+         8: aload_3
+         9: invokeinterface #100,  1          // InterfaceMethod java/util/Iterator.hasNext:()Z
+        14: ifeq          123
+        17: aload_3
+        18: invokeinterface #105,  1          // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+        23: checkcast     #35                 // class dev/ryanhcode/sable/network/client/SubLevelSnapshotInterpolator$Snapshot
+        26: astore        4
+        28: aload         4
+        30: getfield      #37                 // Field dev/ryanhcode/sable/network/client/SubLevelSnapshotInterpolator$Snapshot.gameTick:I
+        33: aload_0
+        34: getfield      #10                 // Field buffer:Lit/unimi/dsi/fastutil/objects/ObjectArrayList;
+        37: invokevirtual #108                // Method it/unimi/dsi/fastutil/objects/ObjectArrayList.getFirst:()Ljava/lang/Object;
+        40: checkcast     #35                 // class dev/ryanhcode/sable/network/client/SubLevelSnapshotInterpolator$Snapshot
+        43: getfield      #37                 // Field dev/ryanhcode/sable/network/client/SubLevelSnapshotInterpolator$Snapshot.gameTick:I
+        46: if_icmplt     52
+        49: goto          8
+        52: aload         4
+        54: getfield      #41                 // Field dev/ryanhcode/sable/network/client/SubLevelSnapshotInterpolator$Snapshot.pose:Ldev/ryanhcode/sable/companion/math/Pose3dc;
+        57: astore        5
+        59: new           #16                 // class dev/ryanhcode/sable/companion/math/Pose3d
+        62: dup
+        63: aload_2
+        64: invokespecial #111                // Method dev/ryanhcode/sable/companion/math/Pose3d."<init>":(Ldev/ryanhcode/sable/companion/math/Pose3dc;)V
+        67: astore        6
+        69: aload         6
+        71: invokevirtual #114                // Method dev/ryanhcode/sable/companion/math/Pose3d.orientation:()Lorg/joml/Quaterniond;
+        74: aload         5
+        76: invokeinterface #118,  1          // InterfaceMethod dev/ryanhcode/sable/companion/math/Pose3dc.orientation:()Lorg/joml/Quaterniondc;
+        81: invokevirtual #121                // Method org/joml/Quaterniond.set:(Lorg/joml/Quaterniondc;)Lorg/joml/Quaterniond;
+        84: pop
+        85: aload         5
+        87: aload         6
+        89: invokevirtual #91                 // Method dev/ryanhcode/sable/companion/math/Pose3d.position:()Lorg/joml/Vector3d;
+        92: invokeinterface #126,  2          // InterfaceMethod dev/ryanhcode/sable/companion/math/Pose3dc.transformPosition:(Lorg/joml/Vector3d;)Lorg/joml/Vector3d;
+        97: pop
+        98: aload_0
+        99: getfield      #10                 // Field buffer:Lit/unimi/dsi/fastutil/objects/ObjectArrayList;
+       102: new           #35                 // class dev/ryanhcode/sable/network/client/SubLevelSnapshotInterpolator$Snapshot
+       105: dup
+       106: aload         4
+       108: getfield      #37                 // Field dev/ryanhcode/sable/network/client/SubLevelSnapshotInterpolator$Snapshot.gameTick:I
+       111: aload         6
+       113: invokespecial #72                 // Method dev/ryanhcode/sable/network/client/SubLevelSnapshotInterpolator$Snapshot."<init>":(ILdev/ryanhcode/sable/companion/math/Pose3dc;)V
+       116: invokevirtual #75                 // Method it/unimi/dsi/fastutil/objects/ObjectArrayList.add:(Ljava/lang/Object;)Z
+       119: pop
+       120: goto          8
+       123: aload_0
+       124: getfield      #10                 // Field buffer:Lit/unimi/dsi/fastutil/objects/ObjectArrayList;
+       127: invokedynamic #130,  0            // InvokeDynamic #0:applyAsDouble:()Ljava/util/function/ToDoubleFunction;
+       132: invokestatic  #134                // InterfaceMethod java/util/Comparator.comparingDouble:(Ljava/util/function/ToDoubleFunction;)Ljava/util/Comparator;
+       135: invokevirtual #140                // Method it/unimi/dsi/fastutil/objects/ObjectArrayList.sort:(Ljava/util/Comparator;)V
+       138: return
+
+  public void tick(double);
+    Code:
+         0: dload_1
+         1: ldc2_w        #144                // double 6.0d
+         4: dsub
+         5: d2i
+         6: istore_3
+         7: aload_0
+         8: getfield      #10                 // Field buffer:Lit/unimi/dsi/fastutil/objects/ObjectArrayList;
+        11: invokevirtual #64                 // Method it/unimi/dsi/fastutil/objects/ObjectArrayList.isEmpty:()Z
+        14: ifne          45
+        17: aload_0
+        18: getfield      #10                 // Field buffer:Lit/unimi/dsi/fastutil/objects/ObjectArrayList;
+        21: invokevirtual #108                // Method it/unimi/dsi/fastutil/objects/ObjectArrayList.getFirst:()Ljava/lang/Object;
+        24: checkcast     #35                 // class dev/ryanhcode/sable/network/client/SubLevelSnapshotInterpolator$Snapshot
+        27: getfield      #37                 // Field dev/ryanhcode/sable/network/client/SubLevelSnapshotInterpolator$Snapshot.gameTick:I
+        30: iload_3
+        31: if_icmpge     45
+        34: aload_0
+        35: getfield      #10                 // Field buffer:Lit/unimi/dsi/fastutil/objects/ObjectArrayList;
+        38: invokevirtual #146                // Method it/unimi/dsi/fastutil/objects/ObjectArrayList.removeFirst:()Ljava/lang/Object;
+        41: pop
+        42: goto          7
+        45: aload_0
+        46: getfield      #10                 // Field buffer:Lit/unimi/dsi/fastutil/objects/ObjectArrayList;
+        49: invokevirtual #64                 // Method it/unimi/dsi/fastutil/objects/ObjectArrayList.isEmpty:()Z
+        52: ifeq          56
+        55: return
+        56: aload_0
+        57: dload_1
+        58: aload_0
+        59: getfield      #19                 // Field runningSnapshot:Ldev/ryanhcode/sable/companion/math/Pose3d;
+        62: invokevirtual #149                // Method getSampleAt:(DLdev/ryanhcode/sable/companion/math/Pose3d;)V
+        65: return
+
+  private static double lambda$splitFrom$0(dev.ryanhcode.sable.network.client.SubLevelSnapshotInterpolator$Snapshot);
+    Code:
+         0: aload_0
+         1: getfield      #37                 // Field dev/ryanhcode/sable/network/client/SubLevelSnapshotInterpolator$Snapshot.gameTick:I
+         4: i2d
+         5: dreturn
+}

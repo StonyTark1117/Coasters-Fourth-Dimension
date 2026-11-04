@@ -1,0 +1,682 @@
+Compiled from "ClientSubLevel.java"
+public class dev.ryanhcode.sable.sublevel.ClientSubLevel extends dev.ryanhcode.sable.sublevel.SubLevel implements dev.ryanhcode.sable.companion.ClientSubLevelAccess {
+  private dev.ryanhcode.sable.sublevel.render.SubLevelRenderData renderData;
+
+  private final org.joml.Vector3d latestNetworkedVelocity;
+
+  private final org.joml.Vector3d latestNetworkedAngularVelocity;
+
+  private final dev.ryanhcode.sable.companion.math.Pose3d renderPose;
+
+  private final dev.ryanhcode.sable.network.client.SubLevelSnapshotInterpolator interpolator;
+
+  private final dev.ryanhcode.sable.companion.math.BoundingBox3d sweptBounds;
+
+  private final org.joml.Vector3d lastBoundsCenter;
+
+  private int latestSkyLightScale;
+
+  private float lastRenderPosePartialTick;
+
+  private int lightingSceneId;
+
+  private boolean finalized;
+
+  static final boolean $assertionsDisabled;
+
+  public dev.ryanhcode.sable.sublevel.ClientSubLevel(net.minecraft.world.level.Level, int, int, dev.ryanhcode.sable.companion.math.Pose3d);
+    Code:
+         0: aload_0
+         1: aload_1
+         2: iload_2
+         3: iload_3
+         4: aload         4
+         6: invokespecial #1                  // Method dev/ryanhcode/sable/sublevel/SubLevel."<init>":(Lnet/minecraft/world/level/Level;IILdev/ryanhcode/sable/companion/math/Pose3d;)V
+         9: aload_0
+        10: new           #7                  // class org/joml/Vector3d
+        13: dup
+        14: invokespecial #9                  // Method org/joml/Vector3d."<init>":()V
+        17: putfield      #12                 // Field latestNetworkedVelocity:Lorg/joml/Vector3d;
+        20: aload_0
+        21: new           #7                  // class org/joml/Vector3d
+        24: dup
+        25: invokespecial #9                  // Method org/joml/Vector3d."<init>":()V
+        28: putfield      #18                 // Field latestNetworkedAngularVelocity:Lorg/joml/Vector3d;
+        31: aload_0
+        32: new           #21                 // class dev/ryanhcode/sable/companion/math/Pose3d
+        35: dup
+        36: invokespecial #23                 // Method dev/ryanhcode/sable/companion/math/Pose3d."<init>":()V
+        39: putfield      #24                 // Field renderPose:Ldev/ryanhcode/sable/companion/math/Pose3d;
+        42: aload_0
+        43: new           #28                 // class dev/ryanhcode/sable/companion/math/BoundingBox3d
+        46: dup
+        47: invokespecial #30                 // Method dev/ryanhcode/sable/companion/math/BoundingBox3d."<init>":()V
+        50: putfield      #31                 // Field sweptBounds:Ldev/ryanhcode/sable/companion/math/BoundingBox3d;
+        53: aload_0
+        54: new           #7                  // class org/joml/Vector3d
+        57: dup
+        58: invokespecial #9                  // Method org/joml/Vector3d."<init>":()V
+        61: putfield      #35                 // Field lastBoundsCenter:Lorg/joml/Vector3d;
+        64: aload_0
+        65: iconst_m1
+        66: putfield      #38                 // Field latestSkyLightScale:I
+        69: aload_0
+        70: ldc           #42                 // float -1.0f
+        72: putfield      #43                 // Field lastRenderPosePartialTick:F
+        75: aload_0
+        76: iconst_m1
+        77: putfield      #47                 // Field lightingSceneId:I
+        80: aload_0
+        81: iconst_0
+        82: putfield      #50                 // Field finalized:Z
+        85: aload_0
+        86: invokevirtual #54                 // Method logicalPose:()Ldev/ryanhcode/sable/companion/math/Pose3d;
+        89: aload         4
+        91: invokevirtual #58                 // Method dev/ryanhcode/sable/companion/math/Pose3d.set:(Ldev/ryanhcode/sable/companion/math/Pose3dc;)Ldev/ryanhcode/sable/companion/math/Pose3d;
+        94: pop
+        95: aload_0
+        96: new           #62                 // class dev/ryanhcode/sable/network/client/SubLevelSnapshotInterpolator
+        99: dup
+       100: aload         4
+       102: invokespecial #64                 // Method dev/ryanhcode/sable/network/client/SubLevelSnapshotInterpolator."<init>":(Ldev/ryanhcode/sable/companion/math/Pose3d;)V
+       105: putfield      #67                 // Field interpolator:Ldev/ryanhcode/sable/network/client/SubLevelSnapshotInterpolator;
+       108: return
+
+  protected dev.ryanhcode.sable.sublevel.plot.LevelPlot createPlot(dev.ryanhcode.sable.api.sublevel.SubLevelContainer, int, int, int);
+    Code:
+         0: new           #71                 // class dev/ryanhcode/sable/sublevel/plot/ClientLevelPlot
+         3: dup
+         4: aload_1
+         5: iload_2
+         6: iload_3
+         7: aload_1
+         8: invokevirtual #73                 // Method dev/ryanhcode/sable/api/sublevel/SubLevelContainer.getLogPlotSize:()I
+        11: aload_0
+        12: invokespecial #79                 // Method dev/ryanhcode/sable/sublevel/plot/ClientLevelPlot."<init>":(Ldev/ryanhcode/sable/api/sublevel/SubLevelContainer;IIILdev/ryanhcode/sable/sublevel/ClientSubLevel;)V
+        15: areturn
+
+  public void tick();
+    Code:
+         0: aload_0
+         1: invokevirtual #82                 // Method updateLastPose:()V
+         4: aload_0
+         5: invokespecial #85                 // Method dev/ryanhcode/sable/sublevel/SubLevel.tick:()V
+         8: aload_0
+         9: ldc           #42                 // float -1.0f
+        11: putfield      #43                 // Field lastRenderPosePartialTick:F
+        14: aload_0
+        15: invokevirtual #54                 // Method logicalPose:()Ldev/ryanhcode/sable/companion/math/Pose3d;
+        18: astore_1
+        19: aload_0
+        20: invokevirtual #88                 // Method getLevel:()Lnet/minecraft/client/multiplayer/ClientLevel;
+        23: invokestatic  #92                 // Method dev/ryanhcode/sable/api/sublevel/ClientSubLevelContainer.getContainer:(Lnet/minecraft/client/multiplayer/ClientLevel;)Ldev/ryanhcode/sable/api/sublevel/ClientSubLevelContainer;
+        26: astore_2
+        27: getstatic     #98                 // Field $assertionsDisabled:Z
+        30: ifne          45
+        33: aload_2
+        34: ifnonnull     45
+        37: new           #101                // class java/lang/AssertionError
+        40: dup
+        41: invokespecial #103                // Method java/lang/AssertionError."<init>":()V
+        44: athrow
+        45: aload_0
+        46: getfield      #67                 // Field interpolator:Ldev/ryanhcode/sable/network/client/SubLevelSnapshotInterpolator;
+        49: aload_2
+        50: invokevirtual #104                // Method dev/ryanhcode/sable/api/sublevel/ClientSubLevelContainer.getInterpolation:()Ldev/ryanhcode/sable/network/client/ClientSableInterpolationState;
+        53: invokevirtual #108                // Method dev/ryanhcode/sable/network/client/ClientSableInterpolationState.getTickPointer:()D
+        56: invokevirtual #114                // Method dev/ryanhcode/sable/network/client/SubLevelSnapshotInterpolator.tick:(D)V
+        59: aload_0
+        60: getfield      #67                 // Field interpolator:Ldev/ryanhcode/sable/network/client/SubLevelSnapshotInterpolator;
+        63: invokevirtual #117                // Method dev/ryanhcode/sable/network/client/SubLevelSnapshotInterpolator.getInterpolatedPose:()Ldev/ryanhcode/sable/companion/math/Pose3dc;
+        66: astore_3
+        67: aload_1
+        68: aload_3
+        69: invokevirtual #58                 // Method dev/ryanhcode/sable/companion/math/Pose3d.set:(Ldev/ryanhcode/sable/companion/math/Pose3dc;)Ldev/ryanhcode/sable/companion/math/Pose3d;
+        72: pop
+        73: aload_0
+        74: invokevirtual #121                // Method updateBoundingBox:()V
+        77: aload_0
+        78: getfield      #124                // Field lastGlobalBounds:Ldev/ryanhcode/sable/companion/math/BoundingBox3d;
+        81: getfield      #127                // Field dev/ryanhcode/sable/companion/math/BoundingBox3d.minX:D
+        84: dconst_0
+        85: dcmpl
+        86: ifne          116
+        89: aload_0
+        90: getfield      #124                // Field lastGlobalBounds:Ldev/ryanhcode/sable/companion/math/BoundingBox3d;
+        93: getfield      #131                // Field dev/ryanhcode/sable/companion/math/BoundingBox3d.maxX:D
+        96: dconst_0
+        97: dcmpl
+        98: ifne          116
+       101: aload_0
+       102: getfield      #31                 // Field sweptBounds:Ldev/ryanhcode/sable/companion/math/BoundingBox3d;
+       105: aload_0
+       106: getfield      #134                // Field globalBounds:Ldev/ryanhcode/sable/companion/math/BoundingBox3d;
+       109: invokevirtual #137                // Method dev/ryanhcode/sable/companion/math/BoundingBox3d.set:(Ldev/ryanhcode/sable/companion/math/BoundingBox3dc;)Ldev/ryanhcode/sable/companion/math/BoundingBox3d;
+       112: pop
+       113: goto          139
+       116: aload_0
+       117: getfield      #31                 // Field sweptBounds:Ldev/ryanhcode/sable/companion/math/BoundingBox3d;
+       120: aload_0
+       121: getfield      #124                // Field lastGlobalBounds:Ldev/ryanhcode/sable/companion/math/BoundingBox3d;
+       124: invokevirtual #137                // Method dev/ryanhcode/sable/companion/math/BoundingBox3d.set:(Ldev/ryanhcode/sable/companion/math/BoundingBox3dc;)Ldev/ryanhcode/sable/companion/math/BoundingBox3d;
+       127: aload_0
+       128: getfield      #134                // Field globalBounds:Ldev/ryanhcode/sable/companion/math/BoundingBox3d;
+       131: aload_0
+       132: getfield      #31                 // Field sweptBounds:Ldev/ryanhcode/sable/companion/math/BoundingBox3d;
+       135: invokevirtual #140                // Method dev/ryanhcode/sable/companion/math/BoundingBox3d.expandTo:(Ldev/ryanhcode/sable/companion/math/BoundingBox3dc;Ldev/ryanhcode/sable/companion/math/BoundingBox3d;)Ldev/ryanhcode/sable/companion/math/BoundingBox3d;
+       138: pop
+       139: aload_0
+       140: aload_0
+       141: aload_0
+       142: invokevirtual #54                 // Method logicalPose:()Ldev/ryanhcode/sable/companion/math/Pose3d;
+       145: invokevirtual #144                // Method computeSubLevelSkyLight:(Ldev/ryanhcode/sable/companion/math/Pose3dc;)I
+       148: putfield      #38                 // Field latestSkyLightScale:I
+       151: return
+
+  public void forceUpdateBounds();
+    Code:
+         0: aload_0
+         1: invokevirtual #121                // Method updateBoundingBox:()V
+         4: aload_0
+         5: getfield      #124                // Field lastGlobalBounds:Ldev/ryanhcode/sable/companion/math/BoundingBox3d;
+         8: aload_0
+         9: getfield      #134                // Field globalBounds:Ldev/ryanhcode/sable/companion/math/BoundingBox3d;
+        12: invokevirtual #137                // Method dev/ryanhcode/sable/companion/math/BoundingBox3d.set:(Ldev/ryanhcode/sable/companion/math/BoundingBox3dc;)Ldev/ryanhcode/sable/companion/math/BoundingBox3d;
+        15: pop
+        16: aload_0
+        17: getfield      #31                 // Field sweptBounds:Ldev/ryanhcode/sable/companion/math/BoundingBox3d;
+        20: aload_0
+        21: getfield      #134                // Field globalBounds:Ldev/ryanhcode/sable/companion/math/BoundingBox3d;
+        24: invokevirtual #137                // Method dev/ryanhcode/sable/companion/math/BoundingBox3d.set:(Ldev/ryanhcode/sable/companion/math/BoundingBox3dc;)Ldev/ryanhcode/sable/companion/math/BoundingBox3d;
+        27: pop
+        28: return
+
+  public int scaleSkyLight(int);
+    Code:
+         0: iload_1
+         1: i2f
+         2: aload_0
+         3: invokevirtual #148                // Method getLatestSkyLightScale:()I
+         6: i2f
+         7: ldc           #151                // float 15.0f
+         9: fdiv
+        10: fmul
+        11: f2i
+        12: ireturn
+
+  public int scaleLightColor(int);
+    Code:
+         0: aload_0
+         1: invokevirtual #148                // Method getLatestSkyLightScale:()I
+         4: istore_2
+         5: iload_1
+         6: bipush        20
+         8: ishr
+         9: i2f
+        10: iload_2
+        11: i2f
+        12: ldc           #151                // float 15.0f
+        14: fdiv
+        15: fmul
+        16: f2i
+        17: istore_3
+        18: iload_1
+        19: ldc           #152                // int 1048575
+        21: iand
+        22: iload_3
+        23: bipush        20
+        25: ishl
+        26: ior
+        27: istore_1
+        28: iload_1
+        29: ireturn
+
+  public int getLatestSkyLightScale();
+    Code:
+         0: aload_0
+         1: getfield      #38                 // Field latestSkyLightScale:I
+         4: iconst_m1
+         5: if_icmpne     20
+         8: aload_0
+         9: aload_0
+        10: aload_0
+        11: invokevirtual #54                 // Method logicalPose:()Ldev/ryanhcode/sable/companion/math/Pose3d;
+        14: invokevirtual #144                // Method computeSubLevelSkyLight:(Ldev/ryanhcode/sable/companion/math/Pose3dc;)I
+        17: putfield      #38                 // Field latestSkyLightScale:I
+        20: aload_0
+        21: getfield      #38                 // Field latestSkyLightScale:I
+        24: ireturn
+
+  public int computeSubLevelSkyLight(dev.ryanhcode.sable.companion.math.Pose3dc);
+    Code:
+         0: aload_1
+         1: invokeinterface #153,  1          // InterfaceMethod dev/ryanhcode/sable/companion/math/Pose3dc.position:()Lorg/joml/Vector3dc;
+         6: astore_2
+         7: aload_0
+         8: invokevirtual #88                 // Method getLevel:()Lnet/minecraft/client/multiplayer/ClientLevel;
+        11: astore_3
+        12: aload_0
+        13: invokevirtual #159                // Method boundingBox:()Ldev/ryanhcode/sable/companion/math/BoundingBox3dc;
+        16: invokeinterface #163,  1          // InterfaceMethod dev/ryanhcode/sable/companion/math/BoundingBox3dc.volume:()D
+        21: ldc2_w        #168                // double 9.0d
+        24: dcmpg
+        25: ifge          135
+        28: aload_3
+        29: getstatic     #170                // Field net/minecraft/world/level/LightLayer.SKY:Lnet/minecraft/world/level/LightLayer;
+        32: aload_2
+        33: invokeinterface #176,  1          // InterfaceMethod org/joml/Vector3dc.x:()D
+        38: aload_2
+        39: invokeinterface #181,  1          // InterfaceMethod org/joml/Vector3dc.y:()D
+        44: aload_2
+        45: invokeinterface #184,  1          // InterfaceMethod org/joml/Vector3dc.z:()D
+        50: invokestatic  #187                // Method net/minecraft/core/BlockPos.containing:(DDD)Lnet/minecraft/core/BlockPos;
+        53: invokevirtual #193                // Method net/minecraft/client/multiplayer/ClientLevel.getBrightness:(Lnet/minecraft/world/level/LightLayer;Lnet/minecraft/core/BlockPos;)I
+        56: istore        4
+        58: iload         4
+        60: ifne          95
+        63: aload_3
+        64: getstatic     #170                // Field net/minecraft/world/level/LightLayer.SKY:Lnet/minecraft/world/level/LightLayer;
+        67: aload_2
+        68: invokeinterface #176,  1          // InterfaceMethod org/joml/Vector3dc.x:()D
+        73: aload_2
+        74: invokeinterface #181,  1          // InterfaceMethod org/joml/Vector3dc.y:()D
+        79: dconst_1
+        80: dadd
+        81: aload_2
+        82: invokeinterface #184,  1          // InterfaceMethod org/joml/Vector3dc.z:()D
+        87: invokestatic  #187                // Method net/minecraft/core/BlockPos.containing:(DDD)Lnet/minecraft/core/BlockPos;
+        90: invokevirtual #193                // Method net/minecraft/client/multiplayer/ClientLevel.getBrightness:(Lnet/minecraft/world/level/LightLayer;Lnet/minecraft/core/BlockPos;)I
+        93: istore        4
+        95: iload         4
+        97: ifne          132
+       100: aload_3
+       101: getstatic     #170                // Field net/minecraft/world/level/LightLayer.SKY:Lnet/minecraft/world/level/LightLayer;
+       104: aload_2
+       105: invokeinterface #176,  1          // InterfaceMethod org/joml/Vector3dc.x:()D
+       110: aload_2
+       111: invokeinterface #181,  1          // InterfaceMethod org/joml/Vector3dc.y:()D
+       116: dconst_1
+       117: dsub
+       118: aload_2
+       119: invokeinterface #184,  1          // InterfaceMethod org/joml/Vector3dc.z:()D
+       124: invokestatic  #187                // Method net/minecraft/core/BlockPos.containing:(DDD)Lnet/minecraft/core/BlockPos;
+       127: invokevirtual #193                // Method net/minecraft/client/multiplayer/ClientLevel.getBrightness:(Lnet/minecraft/world/level/LightLayer;Lnet/minecraft/core/BlockPos;)I
+       130: istore        4
+       132: iload         4
+       134: ireturn
+       135: aload_0
+       136: invokevirtual #159                // Method boundingBox:()Ldev/ryanhcode/sable/companion/math/BoundingBox3dc;
+       139: astore        4
+       141: aload         4
+       143: aload_0
+       144: getfield      #35                 // Field lastBoundsCenter:Lorg/joml/Vector3d;
+       147: invokeinterface #199,  2          // InterfaceMethod dev/ryanhcode/sable/companion/math/BoundingBox3dc.center:(Lorg/joml/Vector3d;)Lorg/joml/Vector3d;
+       152: astore        5
+       154: aload         4
+       156: invokeinterface #203,  1          // InterfaceMethod dev/ryanhcode/sable/companion/math/BoundingBox3dc.minX:()D
+       161: dstore        6
+       163: aload         4
+       165: invokeinterface #205,  1          // InterfaceMethod dev/ryanhcode/sable/companion/math/BoundingBox3dc.maxX:()D
+       170: dstore        8
+       172: aload         4
+       174: invokeinterface #207,  1          // InterfaceMethod dev/ryanhcode/sable/companion/math/BoundingBox3dc.minZ:()D
+       179: dstore        10
+       181: aload         4
+       183: invokeinterface #210,  1          // InterfaceMethod dev/ryanhcode/sable/companion/math/BoundingBox3dc.maxZ:()D
+       188: dstore        12
+       190: iconst_0
+       191: istore        14
+       193: aload         5
+       195: invokeinterface #181,  1          // InterfaceMethod org/joml/Vector3dc.y:()D
+       200: ldc2_w        #213                // double 0.1d
+       203: dadd
+       204: dstore        15
+       206: iload         14
+       208: aload_3
+       209: getstatic     #170                // Field net/minecraft/world/level/LightLayer.SKY:Lnet/minecraft/world/level/LightLayer;
+       212: aload         5
+       214: invokeinterface #176,  1          // InterfaceMethod org/joml/Vector3dc.x:()D
+       219: dload         15
+       221: aload         5
+       223: invokeinterface #184,  1          // InterfaceMethod org/joml/Vector3dc.z:()D
+       228: invokestatic  #187                // Method net/minecraft/core/BlockPos.containing:(DDD)Lnet/minecraft/core/BlockPos;
+       231: invokevirtual #193                // Method net/minecraft/client/multiplayer/ClientLevel.getBrightness:(Lnet/minecraft/world/level/LightLayer;Lnet/minecraft/core/BlockPos;)I
+       234: invokestatic  #215                // Method java/lang/Math.max:(II)I
+       237: istore        14
+       239: iload         14
+       241: aload_3
+       242: getstatic     #170                // Field net/minecraft/world/level/LightLayer.SKY:Lnet/minecraft/world/level/LightLayer;
+       245: dload         6
+       247: dload         15
+       249: dload         10
+       251: invokestatic  #187                // Method net/minecraft/core/BlockPos.containing:(DDD)Lnet/minecraft/core/BlockPos;
+       254: invokevirtual #193                // Method net/minecraft/client/multiplayer/ClientLevel.getBrightness:(Lnet/minecraft/world/level/LightLayer;Lnet/minecraft/core/BlockPos;)I
+       257: invokestatic  #215                // Method java/lang/Math.max:(II)I
+       260: istore        14
+       262: iload         14
+       264: aload_3
+       265: getstatic     #170                // Field net/minecraft/world/level/LightLayer.SKY:Lnet/minecraft/world/level/LightLayer;
+       268: dload         8
+       270: dload         15
+       272: dload         10
+       274: invokestatic  #187                // Method net/minecraft/core/BlockPos.containing:(DDD)Lnet/minecraft/core/BlockPos;
+       277: invokevirtual #193                // Method net/minecraft/client/multiplayer/ClientLevel.getBrightness:(Lnet/minecraft/world/level/LightLayer;Lnet/minecraft/core/BlockPos;)I
+       280: invokestatic  #215                // Method java/lang/Math.max:(II)I
+       283: istore        14
+       285: iload         14
+       287: aload_3
+       288: getstatic     #170                // Field net/minecraft/world/level/LightLayer.SKY:Lnet/minecraft/world/level/LightLayer;
+       291: dload         6
+       293: dload         15
+       295: dload         12
+       297: invokestatic  #187                // Method net/minecraft/core/BlockPos.containing:(DDD)Lnet/minecraft/core/BlockPos;
+       300: invokevirtual #193                // Method net/minecraft/client/multiplayer/ClientLevel.getBrightness:(Lnet/minecraft/world/level/LightLayer;Lnet/minecraft/core/BlockPos;)I
+       303: invokestatic  #215                // Method java/lang/Math.max:(II)I
+       306: istore        14
+       308: iload         14
+       310: aload_3
+       311: getstatic     #170                // Field net/minecraft/world/level/LightLayer.SKY:Lnet/minecraft/world/level/LightLayer;
+       314: dload         8
+       316: dload         15
+       318: dload         12
+       320: invokestatic  #187                // Method net/minecraft/core/BlockPos.containing:(DDD)Lnet/minecraft/core/BlockPos;
+       323: invokevirtual #193                // Method net/minecraft/client/multiplayer/ClientLevel.getBrightness:(Lnet/minecraft/world/level/LightLayer;Lnet/minecraft/core/BlockPos;)I
+       326: invokestatic  #215                // Method java/lang/Math.max:(II)I
+       329: istore        14
+       331: iload         14
+       333: ireturn
+
+  public dev.ryanhcode.sable.companion.math.BoundingBox3dc boundingBox();
+    Code:
+         0: aload_0
+         1: getfield      #31                 // Field sweptBounds:Ldev/ryanhcode/sable/companion/math/BoundingBox3d;
+         4: areturn
+
+  public void onPlotBoundsChanged();
+    Code:
+         0: aload_0
+         1: invokestatic  #221                // InterfaceMethod dev/ryanhcode/sable/sublevel/render/dispatcher/SubLevelRenderDispatcher.get:()Ldev/ryanhcode/sable/sublevel/render/dispatcher/SubLevelRenderDispatcher;
+         4: aload_0
+         5: aload_0
+         6: getfield      #227                // Field renderData:Ldev/ryanhcode/sable/sublevel/render/SubLevelRenderData;
+         9: invokeinterface #231,  3          // InterfaceMethod dev/ryanhcode/sable/sublevel/render/dispatcher/SubLevelRenderDispatcher.resize:(Ldev/ryanhcode/sable/sublevel/ClientSubLevel;Ldev/ryanhcode/sable/sublevel/render/SubLevelRenderData;)Ldev/ryanhcode/sable/sublevel/render/SubLevelRenderData;
+        14: putfield      #227                // Field renderData:Ldev/ryanhcode/sable/sublevel/render/SubLevelRenderData;
+        17: return
+
+  public void onRemove();
+    Code:
+         0: aload_0
+         1: getfield      #47                 // Field lightingSceneId:I
+         4: iconst_m1
+         5: if_icmpeq     27
+         8: aload_0
+         9: invokevirtual #88                 // Method getLevel:()Lnet/minecraft/client/multiplayer/ClientLevel;
+        12: invokestatic  #235                // Method dev/ryanhcode/sable/api/sublevel/SubLevelContainer.getContainer:(Lnet/minecraft/client/multiplayer/ClientLevel;)Ldev/ryanhcode/sable/api/sublevel/ClientSubLevelContainer;
+        15: aload_0
+        16: getfield      #47                 // Field lightingSceneId:I
+        19: invokevirtual #236                // Method dev/ryanhcode/sable/api/sublevel/ClientSubLevelContainer.freeLightingScene:(I)V
+        22: aload_0
+        23: iconst_m1
+        24: putfield      #47                 // Field lightingSceneId:I
+        27: aload_0
+        28: invokespecial #240                // Method dev/ryanhcode/sable/sublevel/SubLevel.onRemove:()V
+        31: aload_0
+        32: getfield      #227                // Field renderData:Ldev/ryanhcode/sable/sublevel/render/SubLevelRenderData;
+        35: invokeinterface #243,  1          // InterfaceMethod dev/ryanhcode/sable/sublevel/render/SubLevelRenderData.close:()V
+        40: return
+
+  public void updateRenderData();
+    Code:
+         0: aload_0
+         1: getfield      #227                // Field renderData:Ldev/ryanhcode/sable/sublevel/render/SubLevelRenderData;
+         4: ifnull        16
+         7: aload_0
+         8: getfield      #227                // Field renderData:Ldev/ryanhcode/sable/sublevel/render/SubLevelRenderData;
+        11: invokeinterface #243,  1          // InterfaceMethod dev/ryanhcode/sable/sublevel/render/SubLevelRenderData.close:()V
+        16: aload_0
+        17: invokestatic  #221                // InterfaceMethod dev/ryanhcode/sable/sublevel/render/dispatcher/SubLevelRenderDispatcher.get:()Ldev/ryanhcode/sable/sublevel/render/dispatcher/SubLevelRenderDispatcher;
+        20: aload_0
+        21: invokeinterface #248,  2          // InterfaceMethod dev/ryanhcode/sable/sublevel/render/dispatcher/SubLevelRenderDispatcher.createRenderData:(Ldev/ryanhcode/sable/sublevel/ClientSubLevel;)Ldev/ryanhcode/sable/sublevel/render/SubLevelRenderData;
+        26: putfield      #227                // Field renderData:Ldev/ryanhcode/sable/sublevel/render/SubLevelRenderData;
+        29: goto          70
+        32: astore_1
+        33: aload_1
+        34: ldc           #254                // String Updating render data
+        36: invokestatic  #256                // Method net/minecraft/CrashReport.forThrowable:(Ljava/lang/Throwable;Ljava/lang/String;)Lnet/minecraft/CrashReport;
+        39: astore_2
+        40: aload_2
+        41: ldc_w         #262                // String Render Dispatcher
+        44: invokevirtual #264                // Method net/minecraft/CrashReport.addCategory:(Ljava/lang/String;)Lnet/minecraft/CrashReportCategory;
+        47: astore_3
+        48: aload_3
+        49: ldc_w         #268                // String Class
+        52: invokedynamic #270,  0            // InvokeDynamic #0:call:()Lnet/minecraft/CrashReportDetail;
+        57: invokevirtual #274                // Method net/minecraft/CrashReportCategory.setDetail:(Ljava/lang/String;Lnet/minecraft/CrashReportDetail;)Lnet/minecraft/CrashReportCategory;
+        60: pop
+        61: new           #280                // class net/minecraft/ReportedException
+        64: dup
+        65: aload_2
+        66: invokespecial #282                // Method net/minecraft/ReportedException."<init>":(Lnet/minecraft/CrashReport;)V
+        69: athrow
+        70: return
+      Exception table:
+         from    to  target type
+             0    29    32   Class java/lang/Throwable
+
+  public dev.ryanhcode.sable.sublevel.render.SubLevelRenderData getRenderData();
+    Code:
+         0: aload_0
+         1: getfield      #227                // Field renderData:Ldev/ryanhcode/sable/sublevel/render/SubLevelRenderData;
+         4: areturn
+
+  public net.minecraft.client.multiplayer.ClientLevel getLevel();
+    Code:
+         0: aload_0
+         1: invokespecial #285                // Method dev/ryanhcode/sable/sublevel/SubLevel.getLevel:()Lnet/minecraft/world/level/Level;
+         4: checkcast     #194                // class net/minecraft/client/multiplayer/ClientLevel
+         7: areturn
+
+  public dev.ryanhcode.sable.sublevel.plot.ClientLevelPlot getPlot();
+    Code:
+         0: aload_0
+         1: invokespecial #288                // Method dev/ryanhcode/sable/sublevel/SubLevel.getPlot:()Ldev/ryanhcode/sable/sublevel/plot/LevelPlot;
+         4: checkcast     #71                 // class dev/ryanhcode/sable/sublevel/plot/ClientLevelPlot
+         7: areturn
+
+  public void setLightingSceneId(int);
+    Code:
+         0: aload_0
+         1: iload_1
+         2: putfield      #47                 // Field lightingSceneId:I
+         5: return
+
+  public int getLightingSceneId();
+    Code:
+         0: aload_0
+         1: getfield      #47                 // Field lightingSceneId:I
+         4: ireturn
+
+  public dev.ryanhcode.sable.companion.math.Pose3dc renderPose();
+    Code:
+         0: invokestatic  #292                // Method net/minecraft/client/Minecraft.getInstance:()Lnet/minecraft/client/Minecraft;
+         3: invokevirtual #298                // Method net/minecraft/client/Minecraft.getTimer:()Lnet/minecraft/client/DeltaTracker;
+         6: iconst_1
+         7: invokeinterface #302,  2          // InterfaceMethod net/minecraft/client/DeltaTracker.getGameTimeDeltaPartialTick:(Z)F
+        12: fstore_1
+        13: aload_0
+        14: getfield      #43                 // Field lastRenderPosePartialTick:F
+        17: fload_1
+        18: fcmpl
+        19: ifne          27
+        22: aload_0
+        23: getfield      #24                 // Field renderPose:Ldev/ryanhcode/sable/companion/math/Pose3d;
+        26: areturn
+        27: aload_0
+        28: fload_1
+        29: invokevirtual #308                // Method renderPose:(F)Ldev/ryanhcode/sable/companion/math/Pose3dc;
+        32: areturn
+
+  public dev.ryanhcode.sable.companion.math.Pose3dc renderPose(float);
+    Code:
+         0: aload_0
+         1: getfield      #43                 // Field lastRenderPosePartialTick:F
+         4: fload_1
+         5: fcmpl
+         6: ifne          14
+         9: aload_0
+        10: getfield      #24                 // Field renderPose:Ldev/ryanhcode/sable/companion/math/Pose3d;
+        13: areturn
+        14: aload_0
+        15: fload_1
+        16: putfield      #43                 // Field lastRenderPosePartialTick:F
+        19: aload_0
+        20: getfield      #24                 // Field renderPose:Ldev/ryanhcode/sable/companion/math/Pose3d;
+        23: aload_0
+        24: invokevirtual #311                // Method lastPose:()Ldev/ryanhcode/sable/companion/math/Pose3dc;
+        27: invokevirtual #58                 // Method dev/ryanhcode/sable/companion/math/Pose3d.set:(Ldev/ryanhcode/sable/companion/math/Pose3dc;)Ldev/ryanhcode/sable/companion/math/Pose3d;
+        30: astore_2
+        31: aload_0
+        32: invokevirtual #54                 // Method logicalPose:()Ldev/ryanhcode/sable/companion/math/Pose3d;
+        35: astore_3
+        36: aload_2
+        37: invokevirtual #314                // Method dev/ryanhcode/sable/companion/math/Pose3d.position:()Lorg/joml/Vector3d;
+        40: aload_3
+        41: invokevirtual #314                // Method dev/ryanhcode/sable/companion/math/Pose3d.position:()Lorg/joml/Vector3d;
+        44: fload_1
+        45: f2d
+        46: invokevirtual #317                // Method org/joml/Vector3d.lerp:(Lorg/joml/Vector3dc;D)Lorg/joml/Vector3d;
+        49: pop
+        50: aload_2
+        51: invokevirtual #321                // Method dev/ryanhcode/sable/companion/math/Pose3d.orientation:()Lorg/joml/Quaterniond;
+        54: aload_3
+        55: invokevirtual #321                // Method dev/ryanhcode/sable/companion/math/Pose3d.orientation:()Lorg/joml/Quaterniond;
+        58: fload_1
+        59: f2d
+        60: invokevirtual #325                // Method org/joml/Quaterniond.slerp:(Lorg/joml/Quaterniondc;D)Lorg/joml/Quaterniond;
+        63: pop
+        64: aload_2
+        65: invokevirtual #331                // Method dev/ryanhcode/sable/companion/math/Pose3d.rotationPoint:()Lorg/joml/Vector3d;
+        68: aload_3
+        69: invokevirtual #331                // Method dev/ryanhcode/sable/companion/math/Pose3d.rotationPoint:()Lorg/joml/Vector3d;
+        72: fload_1
+        73: f2d
+        74: invokevirtual #317                // Method org/joml/Vector3d.lerp:(Lorg/joml/Vector3dc;D)Lorg/joml/Vector3d;
+        77: pop
+        78: aload_2
+        79: invokevirtual #334                // Method dev/ryanhcode/sable/companion/math/Pose3d.scale:()Lorg/joml/Vector3d;
+        82: aload_3
+        83: invokevirtual #334                // Method dev/ryanhcode/sable/companion/math/Pose3d.scale:()Lorg/joml/Vector3d;
+        86: fload_1
+        87: f2d
+        88: invokevirtual #317                // Method org/joml/Vector3d.lerp:(Lorg/joml/Vector3dc;D)Lorg/joml/Vector3d;
+        91: pop
+        92: aload_2
+        93: areturn
+
+  public void receiveServerMovementStop();
+    Code:
+         0: aload_0
+         1: getfield      #12                 // Field latestNetworkedVelocity:Lorg/joml/Vector3d;
+         4: invokevirtual #337                // Method org/joml/Vector3d.zero:()Lorg/joml/Vector3d;
+         7: pop
+         8: aload_0
+         9: getfield      #18                 // Field latestNetworkedAngularVelocity:Lorg/joml/Vector3d;
+        12: invokevirtual #337                // Method org/joml/Vector3d.zero:()Lorg/joml/Vector3d;
+        15: pop
+        16: aload_0
+        17: getfield      #67                 // Field interpolator:Ldev/ryanhcode/sable/network/client/SubLevelSnapshotInterpolator;
+        20: invokevirtual #340                // Method dev/ryanhcode/sable/network/client/SubLevelSnapshotInterpolator.receiveStop:()V
+        23: return
+
+  public void wasSplitFrom(dev.ryanhcode.sable.network.client.ClientSableInterpolationState, dev.ryanhcode.sable.sublevel.ClientSubLevel, dev.ryanhcode.sable.companion.math.Pose3dc);
+    Code:
+         0: aload_2
+         1: invokevirtual #343                // Method getInterpolator:()Ldev/ryanhcode/sable/network/client/SubLevelSnapshotInterpolator;
+         4: astore        4
+         6: aload_0
+         7: getfield      #67                 // Field interpolator:Ldev/ryanhcode/sable/network/client/SubLevelSnapshotInterpolator;
+        10: aload         4
+        12: aload_3
+        13: invokevirtual #347                // Method dev/ryanhcode/sable/network/client/SubLevelSnapshotInterpolator.splitFrom:(Ldev/ryanhcode/sable/network/client/SubLevelSnapshotInterpolator;Ldev/ryanhcode/sable/companion/math/Pose3dc;)V
+        16: aload_0
+        17: aload_1
+        18: invokevirtual #351                // Method setInitialPosesFrom:(Ldev/ryanhcode/sable/network/client/ClientSableInterpolationState;)V
+        21: return
+
+  public void setInitialPosesFrom(dev.ryanhcode.sable.network.client.ClientSableInterpolationState);
+    Code:
+         0: aload_1
+         1: invokevirtual #355                // Method dev/ryanhcode/sable/network/client/ClientSableInterpolationState.isStopped:()Z
+         4: ifne          37
+         7: aload_0
+         8: getfield      #67                 // Field interpolator:Ldev/ryanhcode/sable/network/client/SubLevelSnapshotInterpolator;
+        11: aload_1
+        12: getfield      #359                // Field dev/ryanhcode/sable/network/client/ClientSableInterpolationState.mostRecentInterpolationTick:D
+        15: aload_0
+        16: invokevirtual #54                 // Method logicalPose:()Ldev/ryanhcode/sable/companion/math/Pose3d;
+        19: invokevirtual #362                // Method dev/ryanhcode/sable/network/client/SubLevelSnapshotInterpolator.getSampleAt:(DLdev/ryanhcode/sable/companion/math/Pose3d;)V
+        22: aload_0
+        23: getfield      #67                 // Field interpolator:Ldev/ryanhcode/sable/network/client/SubLevelSnapshotInterpolator;
+        26: aload_1
+        27: getfield      #366                // Field dev/ryanhcode/sable/network/client/ClientSableInterpolationState.lastInterpolationTick:D
+        30: aload_0
+        31: getfield      #369                // Field lastPose:Ldev/ryanhcode/sable/companion/math/Pose3d;
+        34: invokevirtual #362                // Method dev/ryanhcode/sable/network/client/SubLevelSnapshotInterpolator.getSampleAt:(DLdev/ryanhcode/sable/companion/math/Pose3d;)V
+        37: return
+
+  public dev.ryanhcode.sable.network.client.SubLevelSnapshotInterpolator getInterpolator();
+    Code:
+         0: aload_0
+         1: getfield      #67                 // Field interpolator:Ldev/ryanhcode/sable/network/client/SubLevelSnapshotInterpolator;
+         4: areturn
+
+  public java.lang.String toString();
+    Code:
+         0: aload_0
+         1: invokespecial #371                // Method dev/ryanhcode/sable/sublevel/SubLevel.toString:()Ljava/lang/String;
+         4: invokedynamic #375,  0            // InvokeDynamic #1:makeConcatWithConstants:(Ljava/lang/String;)Ljava/lang/String;
+         9: areturn
+
+  public void setFinalized();
+    Code:
+         0: aload_0
+         1: iconst_1
+         2: putfield      #50                 // Field finalized:Z
+         5: return
+
+  public boolean isFinalized();
+    Code:
+         0: aload_0
+         1: getfield      #50                 // Field finalized:Z
+         4: ireturn
+
+  public dev.ryanhcode.sable.sublevel.plot.LevelPlot getPlot();
+    Code:
+         0: aload_0
+         1: invokevirtual #379                // Method getPlot:()Ldev/ryanhcode/sable/sublevel/plot/ClientLevelPlot;
+         4: areturn
+
+  public net.minecraft.world.level.Level getLevel();
+    Code:
+         0: aload_0
+         1: invokevirtual #88                 // Method getLevel:()Lnet/minecraft/client/multiplayer/ClientLevel;
+         4: areturn
+
+  private static java.lang.String lambda$updateRenderData$0() throws java.lang.Exception;
+    Code:
+         0: invokestatic  #221                // InterfaceMethod dev/ryanhcode/sable/sublevel/render/dispatcher/SubLevelRenderDispatcher.get:()Ldev/ryanhcode/sable/sublevel/render/dispatcher/SubLevelRenderDispatcher;
+         3: invokeinterface #382,  1          // InterfaceMethod dev/ryanhcode/sable/sublevel/render/dispatcher/SubLevelRenderDispatcher.getClass:()Ljava/lang/Class;
+         8: invokevirtual #386                // Method java/lang/Class.getName:()Ljava/lang/String;
+        11: areturn
+
+  static {};
+    Code:
+         0: ldc           #13                 // class dev/ryanhcode/sable/sublevel/ClientSubLevel
+         2: invokevirtual #391                // Method java/lang/Class.desiredAssertionStatus:()Z
+         5: ifne          12
+         8: iconst_1
+         9: goto          13
+        12: iconst_0
+        13: putstatic     #98                 // Field $assertionsDisabled:Z
+        16: return
+}

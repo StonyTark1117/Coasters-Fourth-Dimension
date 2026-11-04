@@ -189,6 +189,11 @@ and [physics-substep](evidence/0.9/fd401-styles-physics-substeps-2c5d9a7/README.
 audits bound the intervening rendered interpolation and every recorded
 post-physics Arrow pose for the inspected default meshes and vanilla-player
 envelopes. They do not cover client extrapolation or equipped/cosmetic riders.
+The [pinned Sable client pointer review](evidence/0.9/fd401-styles-client-pointer-2c5d9a7/README.md)
+shows that the recorded default 1.5-tick delay caps the pointer at the latest
+information-packet tick. Pose snapshots arrive separately, so the visible
+record still needs a per-body packet-lag trace before its extrapolation path
+can be classified.
 
 The [exact-candidate render-mode gates](evidence/0.9/fd401-render-modes-exact-2c5d9a7/README.md)
 add separate strict FAST and FABULOUS passes at 500 geometry stages with nonzero

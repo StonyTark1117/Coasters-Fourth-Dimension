@@ -1,0 +1,207 @@
+Compiled from "SableClientConfig.java"
+public final class dev.ryanhcode.sable.SableClientConfig {
+  public static final net.neoforged.neoforge.common.ModConfigSpec SPEC;
+
+  public static final net.neoforged.neoforge.common.ModConfigSpec$BooleanValue ATTEMPT_UDP_NETWORKING;
+
+  public static final net.neoforged.neoforge.common.ModConfigSpec$BooleanValue SUB_LEVEL_DYNAMIC_SHADING;
+
+  public static final net.neoforged.neoforge.common.ModConfigSpec$BooleanValue SUB_LEVEL_WATER_OCCLUSION;
+
+  public static final net.neoforged.neoforge.common.ModConfigSpec$BooleanValue SUB_LEVEL_SKYLIGHT_SHADOWS;
+
+  public static final net.neoforged.neoforge.common.ModConfigSpec$BooleanValue DEBUG_DRAW_LOADED_CHUNKS;
+
+  public static final net.neoforged.neoforge.common.ModConfigSpec$DoubleValue INTERPOLATION_DELAY;
+
+  public static final net.neoforged.neoforge.common.ModConfigSpec$EnumValue<dev.ryanhcode.sable.sublevel.render.SubLevelRenderer$SelectedRenderer> SELECTED_RENDERER;
+
+  public static final net.neoforged.neoforge.common.ModConfigSpec$DoubleValue ZOOM_SENSITIVITY;
+
+  public dev.ryanhcode.sable.SableClientConfig();
+    Code:
+         0: aload_0
+         1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+         4: return
+
+  public static void onUpdate(boolean);
+    Code:
+         0: iconst_0
+         1: istore_1
+         2: iconst_0
+         3: istore_2
+         4: invokestatic  #7                  // Method dev/ryanhcode/sable/render/dynamic_shade/SableDynamicDirectionalShading.isEnabled:()Z
+         7: getstatic     #13                 // Field SUB_LEVEL_DYNAMIC_SHADING:Lnet/neoforged/neoforge/common/ModConfigSpec$BooleanValue;
+        10: invokevirtual #19                 // Method net/neoforged/neoforge/common/ModConfigSpec$BooleanValue.getAsBoolean:()Z
+        13: if_icmpeq     29
+        16: getstatic     #13                 // Field SUB_LEVEL_DYNAMIC_SHADING:Lnet/neoforged/neoforge/common/ModConfigSpec$BooleanValue;
+        19: invokevirtual #19                 // Method net/neoforged/neoforge/common/ModConfigSpec$BooleanValue.getAsBoolean:()Z
+        22: invokestatic  #24                 // Method dev/ryanhcode/sable/render/dynamic_shade/SableDynamicDirectionalShading.setIsEnabled:(Z)V
+        25: iconst_1
+        26: istore_1
+        27: iconst_1
+        28: istore_2
+        29: invokestatic  #28                 // Method dev/ryanhcode/sable/render/sky_light_shadow/SableSkyLightShadows.isEnabled:()Z
+        32: getstatic     #31                 // Field SUB_LEVEL_SKYLIGHT_SHADOWS:Lnet/neoforged/neoforge/common/ModConfigSpec$BooleanValue;
+        35: invokevirtual #19                 // Method net/neoforged/neoforge/common/ModConfigSpec$BooleanValue.getAsBoolean:()Z
+        38: if_icmpeq     52
+        41: getstatic     #31                 // Field SUB_LEVEL_SKYLIGHT_SHADOWS:Lnet/neoforged/neoforge/common/ModConfigSpec$BooleanValue;
+        44: invokevirtual #19                 // Method net/neoforged/neoforge/common/ModConfigSpec$BooleanValue.getAsBoolean:()Z
+        47: invokestatic  #34                 // Method dev/ryanhcode/sable/render/sky_light_shadow/SableSkyLightShadows.setIsEnabled:(Z)V
+        50: iconst_1
+        51: istore_1
+        52: invokestatic  #35                 // Method dev/ryanhcode/sable/render/water_occlusion/WaterOcclusionRenderer.isEnabled:()Z
+        55: getstatic     #38                 // Field SUB_LEVEL_WATER_OCCLUSION:Lnet/neoforged/neoforge/common/ModConfigSpec$BooleanValue;
+        58: invokevirtual #19                 // Method net/neoforged/neoforge/common/ModConfigSpec$BooleanValue.getAsBoolean:()Z
+        61: if_icmpeq     75
+        64: getstatic     #38                 // Field SUB_LEVEL_WATER_OCCLUSION:Lnet/neoforged/neoforge/common/ModConfigSpec$BooleanValue;
+        67: invokevirtual #19                 // Method net/neoforged/neoforge/common/ModConfigSpec$BooleanValue.getAsBoolean:()Z
+        70: invokestatic  #41                 // Method dev/ryanhcode/sable/render/water_occlusion/WaterOcclusionRenderer.setIsEnabled:(Z)V
+        73: iconst_1
+        74: istore_1
+        75: invokestatic  #42                 // Method net/minecraft/client/Minecraft.getInstance:()Lnet/minecraft/client/Minecraft;
+        78: invokedynamic #48,  0             // InvokeDynamic #0:run:()Ljava/lang/Runnable;
+        83: invokevirtual #52                 // Method net/minecraft/client/Minecraft.execute:(Ljava/lang/Runnable;)V
+        86: iload_0
+        87: ifeq          138
+        90: iload_1
+        91: ifeq          123
+        94: invokestatic  #56                 // Method foundry/veil/api/client/render/VeilRenderSystem.renderer:()Lfoundry/veil/api/client/render/VeilRenderer;
+        97: invokevirtual #62                 // Method foundry/veil/api/client/render/VeilRenderer.getVanillaShaderCompiler:()Lfoundry/veil/impl/client/render/dynamicbuffer/VanillaShaderCompiler;
+       100: invokestatic  #42                 // Method net/minecraft/client/Minecraft.getInstance:()Lnet/minecraft/client/Minecraft;
+       103: getfield      #68                 // Field net/minecraft/client/Minecraft.gameRenderer:Lnet/minecraft/client/renderer/GameRenderer;
+       106: checkcast     #72                 // class dev/ryanhcode/sable/mixin/config/GameRendererAccessor
+       109: invokeinterface #74,  1           // InterfaceMethod dev/ryanhcode/sable/mixin/config/GameRendererAccessor.getShaders:()Ljava/util/Map;
+       114: invokeinterface #78,  1           // InterfaceMethod java/util/Map.values:()Ljava/util/Collection;
+       119: invokevirtual #84                 // Method foundry/veil/impl/client/render/dynamicbuffer/VanillaShaderCompiler.reload:(Ljava/util/Collection;)Ljava/util/concurrent/CompletableFuture;
+       122: pop
+       123: iload_2
+       124: ifeq          138
+       127: invokestatic  #42                 // Method net/minecraft/client/Minecraft.getInstance:()Lnet/minecraft/client/Minecraft;
+       130: invokedynamic #90,  0             // InvokeDynamic #1:run:()Ljava/lang/Runnable;
+       135: invokevirtual #52                 // Method net/minecraft/client/Minecraft.execute:(Ljava/lang/Runnable;)V
+       138: return
+
+  private static void lambda$onUpdate$2();
+    Code:
+         0: invokestatic  #91                 // Method foundry/veil/api/client/render/VeilRenderSystem.rebuildChunks:()V
+         3: invokestatic  #42                 // Method net/minecraft/client/Minecraft.getInstance:()Lnet/minecraft/client/Minecraft;
+         6: getfield      #94                 // Field net/minecraft/client/Minecraft.level:Lnet/minecraft/client/multiplayer/ClientLevel;
+         9: astore_0
+        10: aload_0
+        11: ifnull        68
+        14: aload_0
+        15: checkcast     #98                 // class dev/ryanhcode/sable/mixinterface/plot/SubLevelContainerHolder
+        18: invokeinterface #100,  1          // InterfaceMethod dev/ryanhcode/sable/mixinterface/plot/SubLevelContainerHolder.sable$getPlotContainer:()Ldev/ryanhcode/sable/api/sublevel/SubLevelContainer;
+        23: astore_1
+        24: aload_1
+        25: invokevirtual #104                // Method dev/ryanhcode/sable/api/sublevel/SubLevelContainer.getAllSubLevels:()Ljava/util/List;
+        28: invokeinterface #110,  1          // InterfaceMethod java/util/List.iterator:()Ljava/util/Iterator;
+        33: astore_2
+        34: aload_2
+        35: invokeinterface #116,  1          // InterfaceMethod java/util/Iterator.hasNext:()Z
+        40: ifeq          68
+        43: aload_2
+        44: invokeinterface #121,  1          // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+        49: checkcast     #125                // class dev/ryanhcode/sable/sublevel/SubLevel
+        52: astore_3
+        53: aload_3
+        54: checkcast     #127                // class dev/ryanhcode/sable/sublevel/ClientSubLevel
+        57: invokevirtual #129                // Method dev/ryanhcode/sable/sublevel/ClientSubLevel.getRenderData:()Ldev/ryanhcode/sable/sublevel/render/SubLevelRenderData;
+        60: invokeinterface #133,  1          // InterfaceMethod dev/ryanhcode/sable/sublevel/render/SubLevelRenderData.rebuild:()V
+        65: goto          34
+        68: return
+
+  private static void lambda$onUpdate$1();
+    Code:
+         0: getstatic     #138                // Field SELECTED_RENDERER:Lnet/neoforged/neoforge/common/ModConfigSpec$EnumValue;
+         3: invokevirtual #142                // Method net/neoforged/neoforge/common/ModConfigSpec$EnumValue.get:()Ljava/lang/Object;
+         6: checkcast     #147                // class dev/ryanhcode/sable/sublevel/render/SubLevelRenderer$SelectedRenderer
+         9: invokestatic  #149                // Method dev/ryanhcode/sable/sublevel/render/SubLevelRenderer.setImpl:(Ldev/ryanhcode/sable/sublevel/render/SubLevelRenderer$SelectedRenderer;)V
+        12: return
+
+  private static dev.ryanhcode.sable.sublevel.render.SubLevelRenderer$SelectedRenderer[] lambda$static$0(int);
+    Code:
+         0: iload_0
+         1: anewarray     #147                // class dev/ryanhcode/sable/sublevel/render/SubLevelRenderer$SelectedRenderer
+         4: areturn
+
+  static {};
+    Code:
+         0: new           #155                // class net/neoforged/neoforge/common/ModConfigSpec$Builder
+         3: dup
+         4: invokespecial #157                // Method net/neoforged/neoforge/common/ModConfigSpec$Builder."<init>":()V
+         7: astore_0
+         8: aload_0
+         9: ldc           #158                // String Whether sub-levels should apply block shading dynamically
+        11: invokevirtual #160                // Method net/neoforged/neoforge/common/ModConfigSpec$Builder.comment:(Ljava/lang/String;)Lnet/neoforged/neoforge/common/ModConfigSpec$Builder;
+        14: ldc           #164                // String sub_level_dynamic_shading
+        16: iconst_1
+        17: invokevirtual #166                // Method net/neoforged/neoforge/common/ModConfigSpec$Builder.define:(Ljava/lang/String;Z)Lnet/neoforged/neoforge/common/ModConfigSpec$BooleanValue;
+        20: putstatic     #13                 // Field SUB_LEVEL_DYNAMIC_SHADING:Lnet/neoforged/neoforge/common/ModConfigSpec$BooleanValue;
+        23: aload_0
+        24: ldc           #170                // String Whether sub-levels can occlude the water surface
+        26: invokevirtual #160                // Method net/neoforged/neoforge/common/ModConfigSpec$Builder.comment:(Ljava/lang/String;)Lnet/neoforged/neoforge/common/ModConfigSpec$Builder;
+        29: ldc           #172                // String sub_level_water_occlusion
+        31: iconst_1
+        32: invokevirtual #166                // Method net/neoforged/neoforge/common/ModConfigSpec$Builder.define:(Ljava/lang/String;Z)Lnet/neoforged/neoforge/common/ModConfigSpec$BooleanValue;
+        35: putstatic     #38                 // Field SUB_LEVEL_WATER_OCCLUSION:Lnet/neoforged/neoforge/common/ModConfigSpec$BooleanValue;
+        38: aload_0
+        39: ldc           #174                // String Whether sub-levels should cast a shadow on the world
+        41: invokevirtual #160                // Method net/neoforged/neoforge/common/ModConfigSpec$Builder.comment:(Ljava/lang/String;)Lnet/neoforged/neoforge/common/ModConfigSpec$Builder;
+        44: ldc           #176                // String sub_level_skylight_shadows
+        46: iconst_0
+        47: invokevirtual #166                // Method net/neoforged/neoforge/common/ModConfigSpec$Builder.define:(Ljava/lang/String;Z)Lnet/neoforged/neoforge/common/ModConfigSpec$BooleanValue;
+        50: putstatic     #31                 // Field SUB_LEVEL_SKYLIGHT_SHADOWS:Lnet/neoforged/neoforge/common/ModConfigSpec$BooleanValue;
+        53: aload_0
+        54: ldc           #178                // String Whether to draw loaded chunks on the client in the chunk debug renderer
+        56: invokevirtual #160                // Method net/neoforged/neoforge/common/ModConfigSpec$Builder.comment:(Ljava/lang/String;)Lnet/neoforged/neoforge/common/ModConfigSpec$Builder;
+        59: ldc           #180                // String debug_draw_loaded_chunks
+        61: invokestatic  #182                // Method foundry/veil/Veil.platform:()Lfoundry/veil/platform/VeilPlatform;
+        64: invokeinterface #188,  1          // InterfaceMethod foundry/veil/platform/VeilPlatform.isDevelopmentEnvironment:()Z
+        69: invokevirtual #166                // Method net/neoforged/neoforge/common/ModConfigSpec$Builder.define:(Ljava/lang/String;Z)Lnet/neoforged/neoforge/common/ModConfigSpec$BooleanValue;
+        72: putstatic     #193                // Field DEBUG_DRAW_LOADED_CHUNKS:Lnet/neoforged/neoforge/common/ModConfigSpec$BooleanValue;
+        75: aload_0
+        76: ldc           #196                // String The distance back in game-ticks that the snapshot interpolation should operate
+        78: invokevirtual #160                // Method net/neoforged/neoforge/common/ModConfigSpec$Builder.comment:(Ljava/lang/String;)Lnet/neoforged/neoforge/common/ModConfigSpec$Builder;
+        81: ldc           #198                // String sub_level_snapshot_interpolation_delay_ticks
+        83: ldc2_w        #200                // double 1.5d
+        86: dconst_0
+        87: ldc2_w        #202                // double 100.0d
+        90: invokevirtual #204                // Method net/neoforged/neoforge/common/ModConfigSpec$Builder.defineInRange:(Ljava/lang/String;DDD)Lnet/neoforged/neoforge/common/ModConfigSpec$DoubleValue;
+        93: putstatic     #208                // Field INTERPOLATION_DELAY:Lnet/neoforged/neoforge/common/ModConfigSpec$DoubleValue;
+        96: aload_0
+        97: ldc           #212                // String The renderer to use for sub-levels
+        99: invokevirtual #160                // Method net/neoforged/neoforge/common/ModConfigSpec$Builder.comment:(Ljava/lang/String;)Lnet/neoforged/neoforge/common/ModConfigSpec$Builder;
+       102: ldc           #214                // String sub_level_renderer
+       104: getstatic     #216                // Field dev/ryanhcode/sable/sublevel/render/SubLevelRenderer.DEFAULT:Ldev/ryanhcode/sable/sublevel/render/SubLevelRenderer$SelectedRenderer;
+       107: invokestatic  #220                // Method dev/ryanhcode/sable/sublevel/render/SubLevelRenderer$SelectedRenderer.values:()[Ldev/ryanhcode/sable/sublevel/render/SubLevelRenderer$SelectedRenderer;
+       110: invokestatic  #223                // Method java/util/Arrays.stream:([Ljava/lang/Object;)Ljava/util/stream/Stream;
+       113: invokedynamic #229,  0            // InvokeDynamic #2:test:()Ljava/util/function/Predicate;
+       118: invokeinterface #233,  2          // InterfaceMethod java/util/stream/Stream.filter:(Ljava/util/function/Predicate;)Ljava/util/stream/Stream;
+       123: invokedynamic #239,  0            // InvokeDynamic #3:apply:()Ljava/util/function/IntFunction;
+       128: invokeinterface #243,  2          // InterfaceMethod java/util/stream/Stream.toArray:(Ljava/util/function/IntFunction;)[Ljava/lang/Object;
+       133: checkcast     #247                // class "[Ldev/ryanhcode/sable/sublevel/render/SubLevelRenderer$SelectedRenderer;"
+       136: invokevirtual #249                // Method net/neoforged/neoforge/common/ModConfigSpec$Builder.defineEnum:(Ljava/lang/String;Ljava/lang/Enum;[Ljava/lang/Enum;)Lnet/neoforged/neoforge/common/ModConfigSpec$EnumValue;
+       139: putstatic     #138                // Field SELECTED_RENDERER:Lnet/neoforged/neoforge/common/ModConfigSpec$EnumValue;
+       142: aload_0
+       143: ldc           #253                // String The zoom sensitivity for sub-level camera types
+       145: invokevirtual #160                // Method net/neoforged/neoforge/common/ModConfigSpec$Builder.comment:(Ljava/lang/String;)Lnet/neoforged/neoforge/common/ModConfigSpec$Builder;
+       148: ldc           #255                // String sub_level_zoom_sensitivity
+       150: ldc2_w        #257                // double 0.2d
+       153: dconst_0
+       154: ldc2_w        #202                // double 100.0d
+       157: invokevirtual #204                // Method net/neoforged/neoforge/common/ModConfigSpec$Builder.defineInRange:(Ljava/lang/String;DDD)Lnet/neoforged/neoforge/common/ModConfigSpec$DoubleValue;
+       160: putstatic     #259                // Field ZOOM_SENSITIVITY:Lnet/neoforged/neoforge/common/ModConfigSpec$DoubleValue;
+       163: aload_0
+       164: ldc_w         #262                // String If Sable should attempt to establish a UDP connection with the server, to receive sub-level movement data over a UDP channel
+       167: invokevirtual #160                // Method net/neoforged/neoforge/common/ModConfigSpec$Builder.comment:(Ljava/lang/String;)Lnet/neoforged/neoforge/common/ModConfigSpec$Builder;
+       170: ldc_w         #264                // String attempt_udp_networking
+       173: iconst_1
+       174: invokevirtual #166                // Method net/neoforged/neoforge/common/ModConfigSpec$Builder.define:(Ljava/lang/String;Z)Lnet/neoforged/neoforge/common/ModConfigSpec$BooleanValue;
+       177: putstatic     #266                // Field ATTEMPT_UDP_NETWORKING:Lnet/neoforged/neoforge/common/ModConfigSpec$BooleanValue;
+       180: aload_0
+       181: invokevirtual #269                // Method net/neoforged/neoforge/common/ModConfigSpec$Builder.build:()Lnet/neoforged/neoforge/common/ModConfigSpec;
+       184: putstatic     #273                // Field SPEC:Lnet/neoforged/neoforge/common/ModConfigSpec;
+       187: return
+}

@@ -1,0 +1,279 @@
+Compiled from "ClientboundSableSnapshotDualPacket.java"
+public final class dev.ryanhcode.sable.network.packets.ClientboundSableSnapshotDualPacket implements dev.ryanhcode.sable.network.udp.SableUDPPacket,dev.ryanhcode.sable.network.tcp.SableTCPPacket {
+  public static final net.minecraft.network.protocol.common.custom.CustomPacketPayload$Type<dev.ryanhcode.sable.network.packets.ClientboundSableSnapshotDualPacket> TYPE;
+
+  public static final net.minecraft.network.codec.StreamCodec<net.minecraft.network.RegistryFriendlyByteBuf, dev.ryanhcode.sable.network.packets.ClientboundSableSnapshotDualPacket> CODEC;
+
+  private final int interpolationTick;
+
+  private final java.util.List<dev.ryanhcode.sable.network.packets.ClientboundSableSnapshotDualPacket$Entry> entries;
+
+  public dev.ryanhcode.sable.network.packets.ClientboundSableSnapshotDualPacket(int, java.util.List<dev.ryanhcode.sable.network.packets.ClientboundSableSnapshotDualPacket$Entry>);
+    Code:
+         0: aload_0
+         1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+         4: aload_0
+         5: iload_1
+         6: putfield      #7                  // Field interpolationTick:I
+         9: aload_0
+        10: aload_2
+        11: putfield      #13                 // Field entries:Ljava/util/List;
+        14: return
+
+  public void handle(foundry.veil.api.network.handler.PacketContext);
+    Code:
+         0: aload_0
+         1: aload_1
+         2: invokeinterface #17,  1           // InterfaceMethod foundry/veil/api/network/handler/PacketContext.level:()Lnet/minecraft/world/level/Level;
+         7: getstatic     #23                 // Field dev/ryanhcode/sable/network/packets/PacketReceiveMode.TCP:Ldev/ryanhcode/sable/network/packets/PacketReceiveMode;
+        10: invokevirtual #29                 // Method handleClient:(Lnet/minecraft/world/level/Level;Ldev/ryanhcode/sable/network/packets/PacketReceiveMode;)V
+        13: return
+
+  public net.minecraft.network.protocol.common.custom.CustomPacketPayload$Type<? extends net.minecraft.network.protocol.common.custom.CustomPacketPayload> type();
+    Code:
+         0: getstatic     #33                 // Field TYPE:Lnet/minecraft/network/protocol/common/custom/CustomPacketPayload$Type;
+         3: areturn
+
+  public dev.ryanhcode.sable.network.packets.ClientboundSableSnapshotDualPacket(io.netty.buffer.ByteBuf);
+    Code:
+         0: aload_0
+         1: aload_1
+         2: invokevirtual #37                 // Method io/netty/buffer/ByteBuf.readInt:()I
+         5: aload_1
+         6: invokestatic  #43                 // Method readList:(Lio/netty/buffer/ByteBuf;)Ljava/util/List;
+         9: invokespecial #47                 // Method "<init>":(ILjava/util/List;)V
+        12: return
+
+  private static java.util.List<dev.ryanhcode.sable.network.packets.ClientboundSableSnapshotDualPacket$Entry> readList(io.netty.buffer.ByteBuf);
+    Code:
+         0: aload_0
+         1: checkcast     #50                 // class net/minecraft/network/FriendlyByteBuf
+         4: astore_1
+         5: new           #52                 // class it/unimi/dsi/fastutil/objects/ObjectArrayList
+         8: dup
+         9: invokespecial #54                 // Method it/unimi/dsi/fastutil/objects/ObjectArrayList."<init>":()V
+        12: astore_2
+        13: aload_1
+        14: invokevirtual #55                 // Method net/minecraft/network/FriendlyByteBuf.readVarInt:()I
+        17: istore_3
+        18: iconst_0
+        19: istore        4
+        21: iload         4
+        23: iload_3
+        24: if_icmpge     84
+        27: aload_2
+        28: new           #58                 // class dev/ryanhcode/sable/network/packets/ClientboundSableSnapshotDualPacket$Entry
+        31: dup
+        32: aload_1
+        33: invokevirtual #60                 // Method net/minecraft/network/FriendlyByteBuf.readLong:()J
+        36: aload_1
+        37: new           #64                 // class dev/ryanhcode/sable/companion/math/Pose3d
+        40: dup
+        41: invokespecial #66                 // Method dev/ryanhcode/sable/companion/math/Pose3d."<init>":()V
+        44: invokestatic  #67                 // Method dev/ryanhcode/sable/util/SableBufferUtils.read:(Lio/netty/buffer/ByteBuf;Ldev/ryanhcode/sable/companion/math/Pose3d;)Ldev/ryanhcode/sable/companion/math/Pose3d;
+        47: aload_1
+        48: new           #73                 // class org/joml/Vector3f
+        51: dup
+        52: invokespecial #75                 // Method org/joml/Vector3f."<init>":()V
+        55: invokestatic  #76                 // Method dev/ryanhcode/sable/util/SableBufferUtils.read:(Lio/netty/buffer/ByteBuf;Lorg/joml/Vector3f;)Lorg/joml/Vector3f;
+        58: aload_1
+        59: new           #73                 // class org/joml/Vector3f
+        62: dup
+        63: invokespecial #75                 // Method org/joml/Vector3f."<init>":()V
+        66: invokestatic  #76                 // Method dev/ryanhcode/sable/util/SableBufferUtils.read:(Lio/netty/buffer/ByteBuf;Lorg/joml/Vector3f;)Lorg/joml/Vector3f;
+        69: invokespecial #79                 // Method dev/ryanhcode/sable/network/packets/ClientboundSableSnapshotDualPacket$Entry."<init>":(JLdev/ryanhcode/sable/companion/math/Pose3d;Lorg/joml/Vector3fc;Lorg/joml/Vector3fc;)V
+        72: invokeinterface #82,  2           // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+        77: pop
+        78: iinc          4, 1
+        81: goto          21
+        84: aload_2
+        85: areturn
+
+  public void encode(io.netty.buffer.ByteBuf);
+    Code:
+         0: aload_1
+         1: checkcast     #50                 // class net/minecraft/network/FriendlyByteBuf
+         4: astore_2
+         5: aload_2
+         6: aload_0
+         7: getfield      #7                  // Field interpolationTick:I
+        10: invokevirtual #88                 // Method net/minecraft/network/FriendlyByteBuf.writeInt:(I)Lnet/minecraft/network/FriendlyByteBuf;
+        13: pop
+        14: aload_2
+        15: aload_0
+        16: getfield      #13                 // Field entries:Ljava/util/List;
+        19: invokeinterface #92,  1           // InterfaceMethod java/util/List.size:()I
+        24: invokevirtual #95                 // Method net/minecraft/network/FriendlyByteBuf.writeVarInt:(I)Lnet/minecraft/network/FriendlyByteBuf;
+        27: pop
+        28: aload_0
+        29: getfield      #13                 // Field entries:Ljava/util/List;
+        32: invokeinterface #98,  1           // InterfaceMethod java/util/List.iterator:()Ljava/util/Iterator;
+        37: astore_3
+        38: aload_3
+        39: invokeinterface #102,  1          // InterfaceMethod java/util/Iterator.hasNext:()Z
+        44: ifeq          98
+        47: aload_3
+        48: invokeinterface #108,  1          // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+        53: checkcast     #58                 // class dev/ryanhcode/sable/network/packets/ClientboundSableSnapshotDualPacket$Entry
+        56: astore        4
+        58: aload_2
+        59: aload         4
+        61: getfield      #112                // Field dev/ryanhcode/sable/network/packets/ClientboundSableSnapshotDualPacket$Entry.plotCoordinate:J
+        64: invokevirtual #116                // Method net/minecraft/network/FriendlyByteBuf.writeLong:(J)Lnet/minecraft/network/FriendlyByteBuf;
+        67: pop
+        68: aload_2
+        69: aload         4
+        71: getfield      #120                // Field dev/ryanhcode/sable/network/packets/ClientboundSableSnapshotDualPacket$Entry.pose:Ldev/ryanhcode/sable/companion/math/Pose3d;
+        74: invokestatic  #124                // Method dev/ryanhcode/sable/util/SableBufferUtils.write:(Lio/netty/buffer/ByteBuf;Ldev/ryanhcode/sable/companion/math/Pose3dc;)V
+        77: aload_2
+        78: aload         4
+        80: getfield      #128                // Field dev/ryanhcode/sable/network/packets/ClientboundSableSnapshotDualPacket$Entry.linearVelocity:Lorg/joml/Vector3fc;
+        83: invokestatic  #132                // Method dev/ryanhcode/sable/util/SableBufferUtils.write:(Lio/netty/buffer/ByteBuf;Lorg/joml/Vector3fc;)V
+        86: aload_2
+        87: aload         4
+        89: getfield      #135                // Field dev/ryanhcode/sable/network/packets/ClientboundSableSnapshotDualPacket$Entry.angularVelocity:Lorg/joml/Vector3fc;
+        92: invokestatic  #132                // Method dev/ryanhcode/sable/util/SableBufferUtils.write:(Lio/netty/buffer/ByteBuf;Lorg/joml/Vector3fc;)V
+        95: goto          38
+        98: return
+
+  public dev.ryanhcode.sable.network.udp.SableUDPPacketType getType();
+    Code:
+         0: getstatic     #138                // Field dev/ryanhcode/sable/network/udp/SableUDPPacketType.SNAPSHOT:Ldev/ryanhcode/sable/network/udp/SableUDPPacketType;
+         3: areturn
+
+  public void handleClient(net.minecraft.world.level.Level);
+    Code:
+         0: aload_0
+         1: aload_1
+         2: getstatic     #144                // Field dev/ryanhcode/sable/network/packets/PacketReceiveMode.UDP:Ldev/ryanhcode/sable/network/packets/PacketReceiveMode;
+         5: invokevirtual #29                 // Method handleClient:(Lnet/minecraft/world/level/Level;Ldev/ryanhcode/sable/network/packets/PacketReceiveMode;)V
+         8: return
+
+  private void handleClient(net.minecraft.world.level.Level, dev.ryanhcode.sable.network.packets.PacketReceiveMode);
+    Code:
+         0: aload_1
+         1: invokestatic  #147                // Method dev/ryanhcode/sable/api/sublevel/SubLevelContainer.getContainer:(Lnet/minecraft/world/level/Level;)Ldev/ryanhcode/sable/api/sublevel/SubLevelContainer;
+         4: astore_3
+         5: aload_3
+         6: ifnonnull     20
+         9: getstatic     #153                // Field dev/ryanhcode/sable/Sable.LOGGER:Lorg/slf4j/Logger;
+        12: ldc           #159                // String Received a sub-level movement packet for a level without a sub-level container
+        14: invokeinterface #161,  2          // InterfaceMethod org/slf4j/Logger.error:(Ljava/lang/String;)V
+        19: return
+        20: aload_0
+        21: getfield      #13                 // Field entries:Ljava/util/List;
+        24: invokeinterface #98,  1           // InterfaceMethod java/util/List.iterator:()Ljava/util/Iterator;
+        29: astore        4
+        31: aload         4
+        33: invokeinterface #102,  1          // InterfaceMethod java/util/Iterator.hasNext:()Z
+        38: ifeq          131
+        41: aload         4
+        43: invokeinterface #108,  1          // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+        48: checkcast     #58                 // class dev/ryanhcode/sable/network/packets/ClientboundSableSnapshotDualPacket$Entry
+        51: astore        5
+        53: aload_3
+        54: aload         5
+        56: getfield      #112                // Field dev/ryanhcode/sable/network/packets/ClientboundSableSnapshotDualPacket$Entry.plotCoordinate:J
+        59: invokestatic  #167                // Method net/minecraft/world/level/ChunkPos.getX:(J)I
+        62: aload         5
+        64: getfield      #112                // Field dev/ryanhcode/sable/network/packets/ClientboundSableSnapshotDualPacket$Entry.plotCoordinate:J
+        67: invokestatic  #173                // Method net/minecraft/world/level/ChunkPos.getZ:(J)I
+        70: invokevirtual #176                // Method dev/ryanhcode/sable/api/sublevel/SubLevelContainer.getSubLevel:(II)Ldev/ryanhcode/sable/sublevel/SubLevel;
+        73: astore        6
+        75: aload         6
+        77: instanceof    #180                // class dev/ryanhcode/sable/sublevel/ClientSubLevel
+        80: ifeq          93
+        83: aload         6
+        85: checkcast     #180                // class dev/ryanhcode/sable/sublevel/ClientSubLevel
+        88: astore        7
+        90: goto          106
+        93: getstatic     #153                // Field dev/ryanhcode/sable/Sable.LOGGER:Lorg/slf4j/Logger;
+        96: ldc           #182                // String Received a sub-level movement packet for a non-existent sub-level
+        98: invokeinterface #161,  2          // InterfaceMethod org/slf4j/Logger.error:(Ljava/lang/String;)V
+       103: goto          31
+       106: aload_3
+       107: checkcast     #184                // class dev/ryanhcode/sable/api/sublevel/ClientSubLevelContainer
+       110: invokevirtual #186                // Method dev/ryanhcode/sable/api/sublevel/ClientSubLevelContainer.getInterpolation:()Ldev/ryanhcode/sable/network/client/ClientSableInterpolationState;
+       113: aload         7
+       115: aload_0
+       116: getfield      #7                  // Field interpolationTick:I
+       119: aload         5
+       121: getfield      #120                // Field dev/ryanhcode/sable/network/packets/ClientboundSableSnapshotDualPacket$Entry.pose:Ldev/ryanhcode/sable/companion/math/Pose3d;
+       124: aload_2
+       125: invokevirtual #190                // Method dev/ryanhcode/sable/network/client/ClientSableInterpolationState.receiveSnapshot:(Ldev/ryanhcode/sable/sublevel/ClientSubLevel;ILdev/ryanhcode/sable/companion/math/Pose3dc;Ldev/ryanhcode/sable/network/packets/PacketReceiveMode;)V
+       128: goto          31
+       131: return
+
+  public java.util.List<dev.ryanhcode.sable.network.packets.ClientboundSableSnapshotDualPacket$Entry> entries();
+    Code:
+         0: aload_0
+         1: getfield      #13                 // Field entries:Ljava/util/List;
+         4: areturn
+
+  public boolean equals(java.lang.Object);
+    Code:
+         0: aload_1
+         1: aload_0
+         2: if_acmpne     7
+         5: iconst_1
+         6: ireturn
+         7: aload_1
+         8: ifnull        22
+        11: aload_1
+        12: invokevirtual #196                // Method java/lang/Object.getClass:()Ljava/lang/Class;
+        15: aload_0
+        16: invokevirtual #196                // Method java/lang/Object.getClass:()Ljava/lang/Class;
+        19: if_acmpeq     24
+        22: iconst_0
+        23: ireturn
+        24: aload_1
+        25: checkcast     #8                  // class dev/ryanhcode/sable/network/packets/ClientboundSableSnapshotDualPacket
+        28: astore_2
+        29: aload_0
+        30: getfield      #13                 // Field entries:Ljava/util/List;
+        33: aload_2
+        34: getfield      #13                 // Field entries:Ljava/util/List;
+        37: invokestatic  #200                // Method java/util/Objects.equals:(Ljava/lang/Object;Ljava/lang/Object;)Z
+        40: ireturn
+
+  public int hashCode();
+    Code:
+         0: iconst_1
+         1: anewarray     #2                  // class java/lang/Object
+         4: dup
+         5: iconst_0
+         6: aload_0
+         7: getfield      #13                 // Field entries:Ljava/util/List;
+        10: aastore
+        11: invokestatic  #206                // Method java/util/Objects.hash:([Ljava/lang/Object;)I
+        14: ireturn
+
+  public java.lang.String toString();
+    Code:
+         0: aload_0
+         1: getfield      #13                 // Field entries:Ljava/util/List;
+         4: invokestatic  #210                // Method java/lang/String.valueOf:(Ljava/lang/Object;)Ljava/lang/String;
+         7: invokedynamic #216,  0            // InvokeDynamic #0:makeConcatWithConstants:(Ljava/lang/String;)Ljava/lang/String;
+        12: areturn
+
+  private static void lambda$static$0(net.minecraft.network.RegistryFriendlyByteBuf, dev.ryanhcode.sable.network.packets.ClientboundSableSnapshotDualPacket);
+    Code:
+         0: aload_1
+         1: aload_0
+         2: invokevirtual #220                // Method encode:(Lio/netty/buffer/ByteBuf;)V
+         5: return
+
+  static {};
+    Code:
+         0: new           #224                // class net/minecraft/network/protocol/common/custom/CustomPacketPayload$Type
+         3: dup
+         4: ldc           #226                // String snapshot_packet
+         6: invokestatic  #228                // Method dev/ryanhcode/sable/Sable.sablePath:(Ljava/lang/String;)Lnet/minecraft/resources/ResourceLocation;
+         9: invokespecial #232                // Method net/minecraft/network/protocol/common/custom/CustomPacketPayload$Type."<init>":(Lnet/minecraft/resources/ResourceLocation;)V
+        12: putstatic     #33                 // Field TYPE:Lnet/minecraft/network/protocol/common/custom/CustomPacketPayload$Type;
+        15: invokedynamic #235,  0            // InvokeDynamic #1:encode:()Lnet/minecraft/network/codec/StreamEncoder;
+        20: invokedynamic #238,  0            // InvokeDynamic #2:decode:()Lnet/minecraft/network/codec/StreamDecoder;
+        25: invokestatic  #242                // InterfaceMethod net/minecraft/network/codec/StreamCodec.of:(Lnet/minecraft/network/codec/StreamEncoder;Lnet/minecraft/network/codec/StreamDecoder;)Lnet/minecraft/network/codec/StreamCodec;
+        28: putstatic     #248                // Field CODEC:Lnet/minecraft/network/codec/StreamCodec;
+        31: return
+}
