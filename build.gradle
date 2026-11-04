@@ -6,9 +6,12 @@ plugins {
 version = mod_version
 group = 'dev.fourthdimension'
 base { archivesName = 'coasters-fourth-dimension' }
-// Java classpaths use ':' as a separator on Unix. Keep compiled outputs outside a
-// colon-containing checkout (such as the project's human-readable title).
-if (projectDir.absolutePath.contains(':') && File.pathSeparator == ':') {
+// Candidate/evidence jobs can select an isolated output tree without disturbing a
+// live client or server using the default build. Java classpaths also use ':' as a
+// separator on Unix, so keep the default outside this colon-containing checkout.
+if (project.hasProperty('fdBuildDirectory')) {
+    layout.buildDirectory = file(project.property('fdBuildDirectory'))
+} else if (projectDir.absolutePath.contains(':') && File.pathSeparator == ':') {
     layout.buildDirectory = file("${System.getProperty('java.io.tmpdir')}/fourthdimension-${Integer.toHexString(projectDir.absolutePath.hashCode())}/build")
 }
 java.toolchain.languageVersion = JavaLanguageVersion.of(21)
