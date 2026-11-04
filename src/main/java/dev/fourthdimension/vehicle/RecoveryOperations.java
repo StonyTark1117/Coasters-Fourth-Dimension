@@ -27,6 +27,8 @@ public final class RecoveryOperations {
   private static final Map<ServerLevel, Map<UUID, ChainProgress>> CHAIN_PROGRESS =
       new WeakHashMap<>();
   public static final double MAX_SPEED = .75;
+  /** Largest original consist covered by the occupied native recovery strength envelope. */
+  public static final int MAX_RECOVERY_CARS = 4;
 
   private static void clearChainProgress(ServerLevel level, UUID cart) {
     var progress = CHAIN_PROGRESS.get(level);
@@ -170,6 +172,7 @@ public final class RecoveryOperations {
     var cars = group(level, v.recoveryCart);
     var linked = CoasterCartTrainLinkConstraint.getTrainLinkedCartIds(first == null ? b : a);
     return !cars.isEmpty()
+        && cars.size() <= MAX_RECOVERY_CARS
         && cars.stream()
             .allMatch(
                 c ->
@@ -198,6 +201,9 @@ public final class RecoveryOperations {
     requireOrdinary(player, raw);
     var cart = (ServerSubLevel) raw;
     var cars = VehicleOperations.consist(level, selected);
+    if (cars.size() > MAX_RECOVERY_CARS)
+      throw new IllegalArgumentException(
+          "Recovery towing is rated for at most " + MAX_RECOVERY_CARS + " original cars");
     if (cars.stream()
         .anyMatch(
             v ->
@@ -242,6 +248,9 @@ public final class RecoveryOperations {
   public static void start(ServerLevel level, FoundationData.Vehicle selected) {
     var cars = requireGroup(level, selected);
     var cart = SubLevelContainer.getContainer(level).getSubLevel(selected.recoveryCart);
+    if (cars.size() > MAX_RECOVERY_CARS)
+      throw new IllegalArgumentException(
+          "Recovery towing is rated for at most " + MAX_RECOVERY_CARS + " original cars");
     if (selected.recoveryCartRemoved
         || !ordinary(level, cart)
         || speed(level, cart) > .08
@@ -339,7 +348,12 @@ public final class RecoveryOperations {
       var cars = group(level, id);
       var cart = container.getSubLevel(id);
       String fault = "";
-      if (!ordinary(level, cart)
+      if (cars.size() > MAX_RECOVERY_CARS)
+        fault =
+            "Recovery consist exceeds the "
+                + MAX_RECOVERY_CARS
+                + "-car strength rating: brake and split the train before resuming";
+      else if (!ordinary(level, cart)
           || cars.stream()
               .anyMatch(
                   v ->

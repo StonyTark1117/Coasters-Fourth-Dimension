@@ -1,0 +1,36 @@
+{
+  "baseRevision": "2bb8fe874c8d0134f4386eb2ac1d8756509a1188",
+  "command": "JAVA_HOME=/usr/lib/jvm/java-21-openjdk ./gradlew --offline --no-daemon runGameTestServer -PfdGameTestNamespaces=fourthdimension_fd402 -PfdBuildDirectory=/tmp/fd402-strength-run --console=plain",
+  "java": "Arch Linux OpenJDK 64-Bit Server VM 21.0.13.0.3+1",
+  "namespace": "fourthdimension_fd402",
+  "requiredTests": 2,
+  "strengthTests": 1,
+  "engineeredAbsentSkipped": true,
+  "result": "pass",
+  "metrics": {
+    "ratedCars": 4,
+    "occupiedRiders": 16,
+    "travelBlocks": 4.636474609375,
+    "maximumSpacingErrorBlocks": 0.00012250264349145112,
+    "maximumRetainedAngleRadians": 0.0006118317093370435,
+    "maximumSpeedBlocksPerSecond": 0.4592373485287637,
+    "oversizedCars": 5,
+    "oversizedRejected": true,
+    "normalBrake": true,
+    "originalLinksAfterDetach": true
+  },
+  "requirements": {
+    "minimumTravelBlocks": 3.0,
+    "maximumSpacingErrorBlocks": 0.15,
+    "maximumRetainedAngleRadians": 0.04,
+    "maximumSpeedBlocksPerSecond": 0.77,
+    "maximumRecoveryCars": 4
+  },
+  "hashes": {
+    "uncompressedLog": "f5ffdca6bc173b66abd1a5b740b8b7d7238b7d0e0a5e743f655afe00d8359f1c",
+    "compressedLog": "103b30479136043eb379d9833b43f035528f4c3f69c213cc602729478ca41c29",
+    "src/main/java/dev/fourthdimension/vehicle/RecoveryOperations.java": "7cc29d01768091019976079700d4d4144ca13ef19e30a7c1b803c04307d81d33",
+    "src/main/java/dev/fourthdimension/gametest/RecoveryStrengthGameTests.java": "cf48d1d866b7347a81337cd5387b35b93a3b66f6eff8392b71a791f95965c0b3",
+    "src/main/resources/data/fourthdimension_fd402/structure/empty.nbt": "a9d03ca591293613d7784c736d6a9ae4926b6e88039ad8a98c9fd49cd94476d6"
+  }
+}

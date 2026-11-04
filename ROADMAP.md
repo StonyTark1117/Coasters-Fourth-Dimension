@@ -61,7 +61,7 @@ original native seat mounts, carriers and train links survive. Four-second queue
 native assembly supplies the new operator train demos. See the
 [banked train checkpoint](docs/evidence/0.4/recovery/banked-trains/acceptance.md).
 The next FD402 work is observed rendered operator/lifecycle acceptance,
-all-family physics-step clearance and broader propulsion/strength evidence. Dev.19 validates occupied single-car
+all-family physics-step clearance and remaining lifecycle evidence. Dev.19 validates occupied single-car
 native towing across all five families through a quarter bend, a 32-block
 sustained 30-degree bank, a bank-to-level transition and level runout. Original
 seat mounts and nonzero Arrow profiles survive normal braking, power cut,
@@ -427,7 +427,16 @@ extends the occupied Arrow train to all 13,095 Rapier half/full steps inside its
 clearance and 0.06532 blocks of carrier-local player/rack clearance.
 Equipped/cosmetic meshes, observed client rendering, unanchored startup/teardown
 steps, other-family substeps, the unexposed within-substep trajectory, broader
-strength/propulsion and recovery lifecycle evidence remain open.
+recovery lifecycle evidence remain open.
+
+The [occupied strength-rating checkpoint](docs/evidence/0.4/recovery/strength-rating/acceptance.md)
+now makes the propulsion boundary explicit: production recovery accepts at most
+four original cars. A five-car Arrow consist is rejected before partial state;
+four Arrow cars with all sixteen native seats occupied tow 4.636 blocks with
+0.000123-block maximum spacing error, then brake and detach without losing the
+original links. Added ordinary assemblies, more than four cars, arbitrary drive
+settings, steeper grades and the compact PAX spike remain unsupported rather
+than implied by rail fit.
 
 The [isolated Engineered recovery/FE checkpoint](docs/evidence/0.4/recovery/engineered-fe/acceptance.md)
 closes the bounded optional-provider power item for the certified ordinary

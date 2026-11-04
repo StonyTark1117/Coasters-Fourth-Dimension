@@ -7,6 +7,9 @@ recovery cart. It acquires no carriers, profile, magnetic assistance or 4D data.
 Added blocks or controllers invalidate that certification. While recovery remains
 attached, the ordinary bearing also stays on the consist’s functional family;
 disconnecting restores its independent ordinary-cart access.
+Recovery is rated for at most four original cars. A larger consist is rejected
+before coupling; a restored oversized group is braked and must be split before
+the operator can resume.
 
 The occupied banked recovery fixtures now check the mounted native rider against
 the carrier's non-seat mechanical rack at every recorded pose. The intentional
@@ -24,7 +27,8 @@ seat attachment is excluded; see the [rider-rack checkpoint](evidence/0.4/recove
 3. Sneak-use the Rotation Tool on the bare bearing to select it. Open the end
    car's tool editor and choose **Attach recovery**. Selection belongs to that
    operator and dimension. Missing equipment, stale edits, extra linked carts,
-   incomplete components, wrong track and unretained cars reject coupling.
+   incomplete components, wrong track, unretained cars and consists above the
+   four-car rating reject coupling.
 4. Supply slow ordinary longitudinal propulsion. **Start tow** releases the
    common translational hold while keeping carriers retained and restraints
    closed. The native chain demonstration uses eight RPM, targeting 0.5 blocks/s.
@@ -206,6 +210,14 @@ now covers the certified bare ordinary bearing with Engineered 1.1.1: braked and
 starved holds, supplied explicit towing/consumption, bounded speed, rebraking,
 rider retention and cleanup. Rendered manual provider controls, all-family
 Engineered recovery and stronger ordinary assemblies remain outside that result.
+
+The [occupied strength-rating checkpoint](evidence/0.4/recovery/strength-rating/acceptance.md)
+closes the unbounded-consist policy gap. Five Arrow cars are rejected before any
+recovery identity or bearing link is assigned. Four Arrow cars with all sixteen
+native seats occupied complete native-chain towing, normal braking and
+link-preserving detach inside the same four-car limit already applied to PAX.
+This is a bounded supported rating, not approval for added ordinary blocks,
+steeper grades, arbitrary motor settings or the compact PAX spike.
 
 ## Sampled native model clearance
 
