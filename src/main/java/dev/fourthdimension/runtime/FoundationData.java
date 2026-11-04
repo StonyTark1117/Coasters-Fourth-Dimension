@@ -121,6 +121,8 @@ public final class FoundationData extends SavedData {
     public String variant = VARIANT;
     public boolean restraints, boardingReady;
     public boolean stopping, maintenance, alignmentRequired;
+    /** Set only by explicit shuttle handover; survives unloading a remote stranded car. */
+    public boolean shuttleDetached;
     public UUID recoveryCart;
     public boolean recoveryCartRemoved;
     public String fault = "";
@@ -209,6 +211,7 @@ public final class FoundationData extends SavedData {
       tag.putBoolean("stopping", vehicle.stopping);
       tag.putBoolean("maintenance", vehicle.maintenance);
       tag.putBoolean("alignment_required", vehicle.alignmentRequired);
+      tag.putBoolean("shuttle_detached", vehicle.shuttleDetached);
       if (vehicle.recoveryCart != null) {
         tag.putUUID("recovery_cart", vehicle.recoveryCart);
         tag.putBoolean("recovery_cart_removed", vehicle.recoveryCartRemoved);
@@ -324,6 +327,7 @@ public final class FoundationData extends SavedData {
       vehicle.restraints = tag.getBoolean("restraints");
       vehicle.stopping = tag.getBoolean("stopping");
       vehicle.maintenance = tag.getBoolean("maintenance");
+      vehicle.shuttleDetached = tag.getBoolean("shuttle_detached");
       if (tag.contains("recovery_cart") && !tag.hasUUID("recovery_cart"))
         throw new IllegalArgumentException("Invalid recovery cart identity");
       vehicle.recoveryCart = tag.hasUUID("recovery_cart") ? tag.getUUID("recovery_cart") : null;

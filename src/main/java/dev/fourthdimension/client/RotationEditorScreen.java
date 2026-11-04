@@ -95,6 +95,27 @@ public final class RotationEditorScreen extends Screen {
         addButton("Balanced ballast", left + 115, top + 186, 18);
         addButton("Left-front load", left + 230, top + 186, 19);
       }
+      if (v.family == dev.fourthdimension.contract.Family.PAX && v.maintenance)
+        addRenderableWidget(
+            Button.builder(
+                    Component.literal("Retire empty car"),
+                    b ->
+                        minecraft.setScreen(
+                            new net.minecraft.client.gui.screens.ConfirmScreen(
+                                confirmed -> {
+                                  if (confirmed) {
+                                    PacketDistributor.sendToServer(
+                                        new EditorNetwork.Edit(target.id(), revision, 27, ""));
+                                    minecraft.setScreen(null);
+                                  } else minecraft.setScreen(this);
+                                },
+                                Component.literal("Retire this PAX car?"),
+                                Component.literal(
+                                    "Permanently remove this empty, detached car and its carriers."),
+                                Component.literal("Retire car"),
+                                Component.literal("Cancel"))))
+                .bounds(left + 115, top + 186, 110, 20)
+                .build());
     } else {
       var rail = data.rails.stream().filter(r -> r.id.equals(target.id())).findFirst().orElse(null);
       if (rail == null) {

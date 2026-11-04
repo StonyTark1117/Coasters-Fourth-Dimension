@@ -135,6 +135,8 @@ public final class ShuttleWinchEntity extends KineticBlockEntity
         throw new IllegalArgumentException("Train already belongs to another shuttle winch");
     vehicle = lead.chassis;
     cars = sorted.stream().map(v -> v.chassis).toList();
+    sorted.forEach(v -> v.shuttleDetached = false);
+    data.setDirty();
     routeStart = route.start;
     routeEnd = route.end;
     stationDistance = carriageDistance = station;

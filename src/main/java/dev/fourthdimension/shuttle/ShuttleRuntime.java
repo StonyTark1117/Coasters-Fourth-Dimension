@@ -137,6 +137,7 @@ public final class ShuttleRuntime {
     cars.forEach(
         v -> {
           v.stopping = true;
+          v.shuttleDetached = true;
           v.revision++;
         });
     winch.vehicle = null;

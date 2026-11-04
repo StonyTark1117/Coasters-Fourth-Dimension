@@ -160,6 +160,7 @@ public final class EditorNetwork {
         case 24 -> dev.fourthdimension.shuttle.ShuttleRuntime.detachForRecovery(player, vehicle);
         case 25 -> VehicleOperations.repairMatchingSupport(level, vehicle);
         case 26 -> VehicleOperations.realignMatchingSupport(level, vehicle);
+        case 27 -> VehicleOperations.retireDetachedPax(level, vehicle);
         case 17, 18, 19 -> VehicleOperations.loadingPreset(level, vehicle, request.action - 17);
         default -> throw new IllegalArgumentException("Unknown vehicle operation");
       }

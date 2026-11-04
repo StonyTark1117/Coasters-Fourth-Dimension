@@ -5,6 +5,7 @@ import dev.fourthdimension.track.*;
 import dev.fourthdimension.mixin.ManualSnapAccess;
 import dev.ryanhcode.sable.api.sublevel.SubLevelContainer;
 import dev.ryanhcode.sable.sublevel.ServerSubLevel;
+import dev.ryanhcode.sable.sublevel.storage.SubLevelRemovalReason;
 import dev.silvergold.simulatedcoasters.track.cart.*;
 import dev.silvergold.simulatedcoasters.track.graph.CoasterPathTrackFrame;
 import java.util.*;
@@ -435,6 +436,31 @@ public final class VehicleOperations {
       v.revision++;
     }
     FoundationData.get(level).setDirty();
+  }
+
+  /** Retire an evacuated, isolated PAX car after handing it off from the shuttle winch. */
+  public static void retireDetachedPax(ServerLevel level, FoundationData.Vehicle vehicle) {
+    if (vehicle.family != dev.fourthdimension.contract.Family.PAX
+        || FoundationData.VARIANT.equals(vehicle.variant))
+      throw new IllegalArgumentException("Select an original PAX car");
+    if (dev.fourthdimension.shuttle.ShuttleRuntime.owner(level, vehicle.chassis) != null)
+      throw new IllegalArgumentException("Detach the shuttle winch before retiring this car");
+    if (!vehicle.shuttleDetached)
+      throw new IllegalArgumentException("Hand this car over from its shuttle winch before retirement");
+    if (vehicle.recoveryCart != null)
+      throw new IllegalArgumentException("Disconnect recovery before retiring this car");
+    if (!vehicle.maintenance || !vehicle.stopping || !Boarding.ready(level, vehicle))
+      throw new IllegalArgumentException("Retain and capture the stopped car before retiring it");
+    if (vehicle.carriers.stream()
+        .anyMatch(c -> !c.occupants.isEmpty() || !c.riderSeats.isEmpty()))
+      throw new IllegalArgumentException("Unload every rider before retiring this car");
+    var container = SubLevelContainer.getContainer(level);
+    var chassis = container == null ? null : container.getSubLevel(vehicle.chassis);
+    if (chassis == null || chassis.isRemoved())
+      throw new IllegalArgumentException("Vehicle chassis is unavailable");
+    if (CoasterCartTrainLinkConstraint.getTrainLinkedCartIds(chassis).size() != 1)
+      throw new IllegalArgumentException("Unlink this car before retiring it");
+    container.removeSubLevel(chassis, SubLevelRemovalReason.REMOVED);
   }
 
   public static void loadingPreset(ServerLevel level, FoundationData.Vehicle vehicle, int preset) {

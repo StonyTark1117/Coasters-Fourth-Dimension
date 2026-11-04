@@ -174,6 +174,77 @@ public final class RecoveryHandoverGameTests {
         });
   }
 
+  @GameTest(template = "empty", timeoutTicks = 300)
+  public static void emptyDetachedPaxCarCanBeRetiredAfterHandover(GameTestHelper helper) {
+    var level = helper.getLevel();
+    var origin = new BlockPos(-840, 180, -400);
+    for (int x = (origin.getX() - 12) >> 4; x <= (origin.getX() + 12) >> 4; x++)
+      for (int z = -30; z <= -17; z++) level.setChunkForced(x, z, true);
+    var example = ShuttleExamples.create(level, origin, false);
+    var container = SubLevelContainer.getContainer(level);
+    var cars = example.cars();
+    var lead = cars.getFirst();
+    var retired = cars.getLast();
+    var bodies = new ArrayList<UUID>();
+    bodies.add(retired.chassis);
+    retired.carriers.forEach(carrier -> bodies.add(carrier.body));
+    var operator =
+        FakePlayerFactory.get(
+            level,
+            new com.mojang.authlib.GameProfile(
+                UUID.fromString("fdfdfdfd-0000-0000-0000-000000000410"), "FDPaxRetire"));
+    operator.setGameMode(GameType.CREATIVE);
+    helper.runAtTickTime(
+        80,
+        () -> {
+          ShuttleExamples.assemble(level, example);
+          at(operator, container.getSubLevel(lead.chassis));
+          edit(operator, lead, 11);
+          reject(
+              helper,
+              () -> VehicleOperations.retireDetachedPax(level, retired),
+              "Bound shuttle car retired without handover");
+          for (var car : cars)
+            CoasterCartTrainLinkConstraint.clearAllLinks(
+                level, (ServerSubLevel) container.getSubLevel(car.chassis));
+          for (var car : cars) {
+            at(operator, container.getSubLevel(car.chassis));
+            edit(operator, car, 14);
+          }
+        });
+    helper.runAtTickTime(
+        130,
+        () -> {
+          helper.assertTrue(
+              cars.stream().allMatch(car -> Boarding.ready(level, car)),
+              "Separated PAX cars did not settle before retirement");
+          reject(
+              helper,
+              () -> VehicleOperations.retireDetachedPax(level, retired),
+              "Retained car retired while the winch still owned it");
+          at(operator, container.getSubLevel(lead.chassis));
+          edit(operator, lead, 24);
+          helper.assertTrue(
+              example.winch().cars.isEmpty() && cars.stream().allMatch(car -> car.shuttleDetached),
+              "Retirement handover did not record per-car detach authority");
+          at(operator, container.getSubLevel(retired.chassis));
+          edit(operator, retired, 27);
+        });
+    helper.runAtTickTime(
+        135,
+        () -> {
+          helper.assertTrue(
+              !FoundationData.get(level).vehicles.containsKey(retired.chassis)
+                  && bodies.stream().allMatch(id -> container.getSubLevel(id) == null)
+                  && cars.stream()
+                      .limit(3)
+                      .allMatch(car -> FoundationData.get(level).vehicles.containsKey(car.chassis)),
+              "Retirement did not remove exactly the selected empty car and its carriers");
+          System.out.println("FD_PAX_RETIRE detached=true empty=true removed=true otherCarsIntact=true");
+          helper.succeed();
+        });
+  }
+
   private static void runRecovery(GameTestHelper helper, boolean stalled) {
     var level = helper.getLevel();
     var data = FoundationData.get(level);
