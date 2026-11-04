@@ -130,13 +130,16 @@ public final class Boarding {
       if (binding.carrier.riderSeats.remove(player.getUUID()) != null)
         FoundationData.get(level).setDirty();
       var body = Sable.HELPER.getContaining(seat);
-      if (body != null && player.isAlive()) {
-        var world =
-            body.logicalPose()
-                .transformPosition(new Vector3d(seat.getX(), seat.getY(), seat.getZ()));
-        var exit =
-            findExit(level, player, new net.minecraft.world.phys.Vec3(world.x, world.y, world.z));
-        if (exit != null) queueExit(level, player, exit);
+      if (player.isAlive()) {
+        net.minecraft.world.phys.Vec3 exit = null;
+        if (body != null) {
+          var world =
+              body.logicalPose()
+                  .transformPosition(new Vector3d(seat.getX(), seat.getY(), seat.getZ()));
+          exit = findExit(level, player, new net.minecraft.world.phys.Vec3(world.x, world.y, world.z));
+        }
+        if (exit == null) exit = level.getSharedSpawnPos().above().getCenter();
+        queueExit(level, player, exit);
       }
     }
   }
