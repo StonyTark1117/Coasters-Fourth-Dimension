@@ -24,3 +24,13 @@ saved failed `81ee2e6` world, physical repositioning of displaced cars,
 normal client recoupling/binding, or a packaged candidate replay. The older
 [read-only broken-world replay](../fd401-candidate-broken-consist-2e12e9d/README.md)
 remains the evidence for its unavailable telemetry and Display Link message.
+
+Follow-up source `94f6672` exercised the same handover with a real seated
+`ServerPlayer` as the lead-car operator and a separate fixture maintainer for
+per-car Retain actions. A copied saved-world Dev client showed its mounted
+entity coordinates in the carrier sublevel. The source now resolves that seat
+position into the overworld for both editor access and Detach shuttle proximity
+checks. The focused [mounted-operator run](mounted-operator-passed.log.gz) passed
+Detach, Release retention and occupied Dispatch while that operator remained
+mounted; its server exited 0. This is still a source GameTest, not a normal
+client completion of the saved broken world.
