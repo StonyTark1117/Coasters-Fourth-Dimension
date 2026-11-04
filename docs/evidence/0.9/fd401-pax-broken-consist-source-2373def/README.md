@@ -27,8 +27,12 @@ remains the evidence for its unavailable telemetry and Display Link message.
 
 Follow-up source `94f6672` exercised the same handover with a real seated
 `ServerPlayer` as the lead-car operator and a separate fixture maintainer for
-per-car Retain actions. A copied saved-world Dev client showed its mounted
-entity coordinates in the carrier sublevel. The source now resolves that seat
+per-car Retain actions. Before that fix, a combined packaged `0a4d3a1` JAR
+(SHA-256 `ff5cdab4b1ecce92ddec2a3f9ed8d231fed54f463e9f4379e387df4d7143c360`)
+opened a copy of the saved broken world. The Dev client's [F3 view](copied-world-mounted-f3.png)
+showed its mounted entity coordinates in the carrier sublevel; the
+[client](copied-world-client.log.gz) and [server](copied-world-server.log.gz)
+logs retain that bounded launch. The source now resolves that seat
 position into the overworld for both editor access and Detach shuttle proximity
 checks. The focused [mounted-operator run](mounted-operator-passed.log.gz) passed
 Detach, Release retention and occupied Dispatch while that operator remained
