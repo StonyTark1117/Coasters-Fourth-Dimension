@@ -121,6 +121,9 @@ public final class PrototypeFixture {
                 ctx -> {
                   var data = FoundationData.get(ctx.getSource().getLevel());
                   var performance = CarrierRuntime.performanceSnapshot();
+                  var container =
+                      dev.ryanhcode.sable.api.sublevel.SubLevelContainer.getContainer(
+                          ctx.getSource().getLevel());
                   for (var v : data.vehicles.values())
                     for (var c : v.carriers)
                       ctx.getSource()
@@ -137,7 +140,21 @@ public final class PrototypeFixture {
                                           + " capture="
                                           + c.capture
                                           + " occupants="
-                                          + c.occupants.size()),
+                                          + c.occupants.size()
+                                          + (v.family == dev.fourthdimension.contract.Family.FREE_SPIN
+                                                  && container != null
+                                                  && container.getSubLevel(c.body)
+                                                      instanceof dev.ryanhcode.sable.sublevel.ServerSubLevel child
+                                              ? " damperImpulses="
+                                                  + dev.fourthdimension.magnetic.MagneticRuntime.audit(child)
+                                                      .damperImpulses
+                                                  + " damperEnergy="
+                                                  + dev.fourthdimension.magnetic.MagneticRuntime.audit(child)
+                                                      .damperEnergyChange
+                                                  + " damperSpeedReduction="
+                                                  + dev.fourthdimension.magnetic.MagneticRuntime.audit(child)
+                                                      .damperAngularSpeedReduction
+                                              : "")),
                               false);
                   ctx.getSource()
                       .sendSuccess(

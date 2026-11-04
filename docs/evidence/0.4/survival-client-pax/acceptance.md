@@ -38,6 +38,19 @@ not the required four-car shuttle. No motor was placed, no rider boarded, and
 no powered cycle or final catch is claimed. The saved Chain stack retains a
 selection target; it can be replaced with a fresh upstream Chain before retry.
 
+Post-save inspection of the original Coasters path record found that the
+station curve between `(400,-43,250)` and `(400,-43,282)` has endpoint axis
+Y components `-0.215512` and `-0.163029`, although its anchors share Y=-43.
+Those are measured nonlevel station tangents, consistent with the observed
+unlinked cars rolling together. A source check found that the Fourth Dimension
+family track item calls its own placement path and does not read Coasters'
+Left Alt smoothing control. A retry should inspect and level the station
+with native curve handles, rebind its profile, and verify six-block car
+spacing before Chain clicks. This is a route diagnosis, not a passing retry.
+The raw
+saved Coasters path record SHA-256 is
+`25fbd5c1b379522a4a5f7482430ba660b96c1a33671b326adf6dab644b0b8a7f`.
+
 All three client sessions exited through normal save and title controls, with
 `BUILD SUCCESSFUL` in their logs. Log SHA-256 values, in construction, rebind,
 and winch order, are
@@ -53,6 +66,7 @@ for continuing the chain and winch check; its SHA-256 is
 This is a connected survival construction checkpoint only. The separate
 [shipped-demo client cycle](demo/acceptance.md) proves the original four-car
 sample can carry a rider through powered lift, return, catch and unloading.
-FD403 still needs player Chain coupling of the survival-crafted cars, occupied
-powered exercises for the other families, and the complete teaching review
-before FD404 can close.
+A later [survival-built cycle](survival-cycle/acceptance.md) closes this
+checkpoint's Chain, occupied cycle and unload gap on a newly constructed
+route. Powered exercises for the other families and the complete teaching
+review remain open before FD404 can close.

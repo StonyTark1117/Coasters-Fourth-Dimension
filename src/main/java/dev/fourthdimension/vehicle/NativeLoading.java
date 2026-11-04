@@ -51,12 +51,12 @@ public final class NativeLoading {
       var seat = child.getPlot().getCenterBlock().offset(offset);
       var passengers =
           level.getEntitiesOfClass(SeatEntity.class, new AABB(seat)).stream()
-              .flatMap(s -> s.getPassengers().stream())
+              .flatMap(s -> s.getPassengers().stream().filter(p -> p.getVehicle() == s))
               .toList();
       for (var passenger : passengers) {
         occupants.add(passenger.getUUID());
         if (passenger instanceof net.minecraft.server.level.ServerPlayer)
-          carrier.riderSeats.put(passenger.getUUID(), offset);
+          bindLiveRider(level, carrier, passenger.getUUID(), offset);
       }
       // Equal declared torso mass 1.5 blocks above the seat block origin; never inspect player
       // characteristics.
@@ -83,5 +83,19 @@ public final class NativeLoading {
     applied.carrierBallast = carrier.ballast;
     if (changed) child.updateMergedMassData(1);
     carrier.occupants = List.copyOf(occupants);
+  }
+
+  public static void bindLiveRider(
+      net.minecraft.server.level.ServerLevel level,
+      FoundationData.Carrier carrier,
+      UUID rider,
+      BlockPos offset) {
+    var data = FoundationData.get(level);
+    // A saved or previously occupied car can retain an old assignment while the rider is
+    // mounted in this seat. Keep the live native mount authoritative across all cars.
+    for (var vehicle : data.vehicles.values())
+      for (var other : vehicle.carriers)
+        if (other != carrier && other.riderSeats.remove(rider) != null) data.setDirty();
+    if (!offset.equals(carrier.riderSeats.put(rider, offset))) data.setDirty();
   }
 }

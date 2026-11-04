@@ -106,6 +106,16 @@ public final class VehicleContentGameTests {
                   && carrier.riderSeats.get(first.getUUID()).equals(carrier.seats.get(0))
                   && carrier.riderSeats.get(second.getUUID()).equals(carrier.seats.get(1)),
               "Distinct player-to-seat assignments were not retained");
+          // Reproduce an orphan assignment left on another carrier after a rider moves cars.
+          var stale = car.carriers.get(1);
+          stale.riderSeats.put(first.getUUID(), stale.seats.getFirst());
+          NativeLoading.bindLiveRider(level, carrier, first.getUUID(), carrier.seats.getFirst());
+          helper.assertTrue(
+              !stale.riderSeats.containsKey(first.getUUID()),
+              "Live seat binding did not remove an orphan assignment on another carrier");
+          FoundationData.load(
+              FoundationData.get(level).snapshot(new net.minecraft.nbt.CompoundTag(), level.registryAccess()),
+              level.registryAccess());
         });
     helper.runAtTickTime(
         100,
@@ -114,7 +124,8 @@ public final class VehicleContentGameTests {
           helper.assertTrue(
               first.isPassenger()
                   && second.isPassenger()
-                  && carrier.riderSeats.keySet().containsAll(List.of(first.getUUID(), second.getUUID())),
+                  && carrier.riderSeats.keySet().containsAll(List.of(first.getUUID(), second.getUUID()))
+                  && !vehicle[0].carriers.get(1).riderSeats.containsKey(first.getUUID()),
               "Separate player assignments did not survive a native update");
           first.stopRiding();
           second.stopRiding();

@@ -9,8 +9,9 @@ JAR and never copied. The native lower bearing model and full-spin wheel
 envelopes use the same recorded track-aligned anchor as the chassis. Wheels are
 checked against non-contact original track components and neighboring cars; the
 two running rails are excluded because they are the intended wheel contact.
-The sampled live native-seat passengers contribute their mounted oriented
-envelopes. This does not verify player meshes, a client renderer or arbitrary
+Every original occupied seat must contribute the same mounted rider and carrier
+assignment at every sample. Their oriented envelopes use the live native poses.
+This does not verify player meshes, a client renderer or arbitrary
 player cosmetics. Arrow's unmodeled mechanical linkage, decorations and resource
 overrides remain outside this audit. A zero separating bound is UNCERTIFIED, not
 a proven mesh collision.
@@ -257,6 +258,7 @@ def audit(route, entries, resources, margin, *, surface=None):
     native_wheel_boxes = resources.wheel_envelopes()
     specs, samples, completed, visited = {}, 0, False, {}
     sample_interval, previous_tick, original_body_ids = None, None, None
+    original_rider_mounts = None
     closest, failures = None, []
     minimum = math.inf
     wheel_minimum, wheel_closest, wheel_checks = math.inf, None, 0
@@ -265,6 +267,7 @@ def audit(route, entries, resources, margin, *, surface=None):
     rider_rack_minimum, rider_rack_closest, rider_rack_checks = math.inf, None, 0
     neighbor_minimum, neighbor_closest = math.inf, None
     neighbor_pairs = 0
+    neighbor_pair_cache = {}
     for entry in entries:
         if entry["type"] == "trace":
             if sample_interval is not None or entry.get("sampleIntervalTicks") != 1:
@@ -293,7 +296,7 @@ def audit(route, entries, resources, margin, *, surface=None):
                 raise ValueError("Incomplete original bodies in mesh sample")
             sample_boxes = []
             pose_by_id = {pose["id"]: pose for pose in entry["poses"]}
-            rider_cars, rider_ids = set(), set()
+            rider_cars, rider_ids, rider_mounts, riders_per_body = set(), set(), {}, {}
             for rider in entry.get("riders", []):
                 if rider["id"] in rider_ids:
                     raise ValueError("Duplicated mounted rider in recovery trace")
@@ -303,6 +306,8 @@ def audit(route, entries, resources, margin, *, surface=None):
                 body = specs[rider["body"]]
                 if body["role"] != "carrier":
                     raise ValueError("Mounted rider is not attached to a carrier")
+                rider_mounts[rider["id"]] = rider["body"]
+                riders_per_body[rider["body"]] = riders_per_body.get(rider["body"], 0) + 1
                 axes = np.array(pose_by_id[rider["body"]]["axes"])
                 origin = np.array(pose_by_id[rider["body"]]["origin"])
                 eye = np.array(rider["eye"])
@@ -358,8 +363,18 @@ def audit(route, entries, resources, margin, *, surface=None):
                     rider_closest = {"tick": entry["tick"], "body": rider["body"], "modelElement": "nativeRider", "trackComponent": labels[index]}
                 if gap < margin and len(failures) < 20:
                     failures.append({"gap": gap, "tick": entry["tick"], "body": rider["body"], "modelElement": "nativeRider", "trackComponent": labels[index]})
+            seats_per_car = 4 if route["family"] in ("ARROW", "PAX") else 8
+            seats_per_carrier = 4 if route["family"] == "LEGACY" else 2
+            if len(rider_mounts) != route["carCount"] * seats_per_car:
+                raise ValueError("Recovery sample omits an occupied original seat")
+            if any(riders_per_body.get(carrier["id"], 0) != seats_per_carrier for carrier in carriers):
+                raise ValueError("Recovery sample omits or duplicates an occupied carrier seat")
             if len(rider_cars) != route["carCount"]:
                 raise ValueError("Missing a mounted rider for an original car")
+            if original_rider_mounts is None:
+                original_rider_mounts = rider_mounts
+            elif rider_mounts != original_rider_mounts:
+                raise ValueError("Original rider identities or carrier mounts changed during recovery")
             for pose in entry["poses"]:
                 body = specs[pose["id"]]
                 axes, origin = np.array(pose["axes"]), np.array(pose["origin"])
@@ -432,18 +447,36 @@ def audit(route, entries, resources, margin, *, surface=None):
             # Contacts within one car include intentional strut/hinge joints.
             # Different original cars and the ordinary recovery body cannot
             # share those joints, so every pair of recorded model volumes is checked.
-            for first, second in itertools.combinations(sample_boxes, 2):
-                if first[4] == second[4]:
-                    continue
-                neighbor_pairs += 1
-                gap = float(np.linalg.norm(np.maximum(0, np.maximum(first[2] - second[3], second[2] - first[3]))))
-                if gap < margin * 4:
-                    gap = boxes_separation(first[0], first[1], second[0], second[1])
-                if gap < neighbor_minimum:
-                    neighbor_minimum = gap
+            # Body order and car ownership are stable across native samples.
+            # Batch the conservative AABB lower bound; only close pairs need
+            # the more expensive oriented-box separation calculation.
+            owners = tuple(box[4] for box in sample_boxes)
+            pairs = neighbor_pair_cache.get(owners)
+            if pairs is None:
+                pairs = np.array([(i, j) for i in range(len(owners))
+                                  for j in range(i + 1, len(owners))
+                                  if owners[i] != owners[j]], dtype=int).reshape(-1, 2)
+                neighbor_pair_cache[owners] = pairs
+            neighbor_pairs += len(pairs)
+            if len(pairs):
+                lows_all = np.array([box[2] for box in sample_boxes])
+                highs_all = np.array([box[3] for box in sample_boxes])
+                first_indices, second_indices = pairs[:, 0], pairs[:, 1]
+                distances = np.maximum(0, np.maximum(
+                    lows_all[first_indices] - highs_all[second_indices],
+                    lows_all[second_indices] - highs_all[first_indices]))
+                gaps = np.linalg.norm(distances, axis=1)
+                for pair_index in np.flatnonzero(gaps < margin * 4):
+                    first, second = sample_boxes[first_indices[pair_index]], sample_boxes[second_indices[pair_index]]
+                    gaps[pair_index] = boxes_separation(first[0], first[1], second[0], second[1])
+                    if gaps[pair_index] < margin and len(failures) < 20:
+                        failures.append({"gap": float(gaps[pair_index]), "tick": entry["tick"],
+                                         "neighborPair": {"tick": entry["tick"], "first": first[5], "second": second[5]}})
+                best = int(np.argmin(gaps))
+                if gaps[best] < neighbor_minimum:
+                    first, second = sample_boxes[first_indices[best]], sample_boxes[second_indices[best]]
+                    neighbor_minimum = float(gaps[best])
                     neighbor_closest = {"tick": entry["tick"], "first": first[5], "second": second[5]}
-                if gap < margin and len(failures) < 20:
-                    failures.append({"gap": gap, "tick": entry["tick"], "neighborPair": neighbor_closest})
     if not completed or samples < 5000 or len(visited) != route["carCount"] or any(len(v) != 5 for v in visited.values()):
         raise ValueError("Mesh trace lacks full original-car route coverage and normal completion")
     if wheel_checks == 0 or not math.isfinite(wheel_minimum):
@@ -455,6 +488,7 @@ def audit(route, entries, resources, margin, *, surface=None):
     if rider_rack_checks < rider_checks or not math.isfinite(rider_rack_minimum):
         raise ValueError("Not every mounted rider was audited against carrier rack geometry")
     return {"family": route["family"], "cars": route["carCount"], "samples": samples,
+            "occupiedSeatsPerSample": len(original_rider_mounts),
             "trackTriangles": len(triangles), "minimumSeparatingBound": minimum,
             "closest": closest, "requiredGap": margin, "passes": not failures,
             "wheelEnvelopeCount": wheel_checks,
@@ -539,7 +573,7 @@ def main():
               "sourceHashes": {name: initial_hashes["source:" + name] for name in SOURCE_PINS},
               "provenanceCheck": "Input/source/tool hashes matched before analysis and before report emission; use immutable files to exclude intervening changes.",
               "resourceHashes": resources.hashes, "sampleIntervalTicks": 1,
-              "scope": "one-tick sampled original default block-model, explicit chassis/carrier linkage blocks, native lower-bearing, full-spin wheel-envelope and mounted native-rider rendered-orientation volumes against original track tubes; running rails are excluded only for wheels as intended contact; no continuous physics-step sweep, player meshes, client renderer/cosmetics, unmodeled kinematic linkage, decorations or resource overrides",
+              "scope": "one-tick sampled original default block-model, explicit chassis/carrier linkage blocks, native lower-bearing, full-spin wheel-envelope and every original occupied native-rider rendered-orientation volume against original track tubes; rider identities and carrier mounts are stable across samples; running rails are excluded only for wheels as intended contact; no continuous physics-step sweep, player meshes, client renderer/cosmetics, unmodeled kinematic linkage, decorations or resource overrides",
               "method": "2-block spatial bins; omitted pairs certify at least 4x margin; world AABB separation refined by OBB/triangle SAT lower distance bounds",
               "routes": results}
     print(json.dumps(output, indent=2))

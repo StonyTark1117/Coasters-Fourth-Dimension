@@ -10,24 +10,26 @@ profile; optional Track Styles and Engineered behavior has separate gates.
 
 | Family | Connected survival-client evidence | Still needed for this gate |
 | --- | --- | --- |
-| Arrow | [Craft, place, board, control, unload, save](evidence/0.4/survival-client-arrow.md) on a short unpowered section; [new connected-client track crafting](evidence/0.4/survival-client-arrow-loop-connected-attempt1/README.md) from upstream ingredients | Crafted-car/player-built powered circuit, save/reopen and full teaching exercise |
-| Legacy | [Craft, place, board, control, unload](evidence/0.4/survival-client-legacy-free-spin.md) on a short unpowered section | Longer powered route without the recorded endpoint fault; free-rotation exercise |
-| Free Spin | [Craft, place, board, control, unload](evidence/0.4/survival-client-legacy-free-spin.md) on a short unpowered section; [exact-source native damper regression](evidence/0.4/survival-client-free-spin-powered/damper-native/acceptance.md) | Powered magnetic-span and independent-carrier exercise, player-built route and teaching walkthrough |
-| Revised | [Connected survival craft, place, board, control, unload, and reopen](evidence/0.4/survival-client-revised/acceptance.md) on a short unpowered section | Occupied powered lower-hinge exercise and teaching review |
-| PAX | [Connected survival craft, route and four-car placement](evidence/0.4/survival-client-pax/acceptance.md); [shipped-demo occupied cycle](evidence/0.4/survival-client-pax/demo/acceptance.md); [player Chain links, occupied cycle and catch on a command-authored sample](evidence/0.4/survival-client-pax/manual-links/acceptance.md) | Chain links and occupied powered cycle on the survival-built train; full teaching review |
+| Arrow | [Craft, place, board, control, unload, save](evidence/0.4/survival-client-arrow.md) on a short unpowered section; [connected track crafting](evidence/0.4/survival-client-arrow-loop-connected-attempt1/README.md) from upstream ingredients; [bounded occupied powered pass and cold reopen](evidence/0.4/survival-client-arrow-powered/acceptance.md) on a survival-built 50-block original route with a full controlled turn | Full connected Arrow circuit and family teaching walkthrough; the powered pass used a disclosed upstream motor fixture |
+| Legacy | [Craft, place, board, control, unload](evidence/0.4/survival-client-legacy-free-spin.md) on a short unpowered section; [bounded occupied powered pass and cold reopen](evidence/0.4/survival-client-legacy-powered/acceptance.md) on a survival-built 50-block original route; [visible free rotation on a shaped powered demo circuit](evidence/0.4/survival-client-legacy-powered/demo/acceptance.md) | Player-built shaped powered route and family teaching walkthrough; the visible-rotation demo was command-authored |
+| Free Spin | [Craft, place, board, control, unload](evidence/0.4/survival-client-legacy-free-spin.md) on a short unpowered section; [bounded occupied powered magnetic pass and cold reopen](evidence/0.4/survival-client-free-spin-powered/acceptance.md) on a survival-built 50-block original route; [released-carrier damper comparison](evidence/0.4/survival-client-free-spin-powered/damper-demo/acceptance.md) on the command-authored circuit; [exact-source native regression](evidence/0.4/survival-client-free-spin-powered/damper-native/acceptance.md) | Complete player-built shaped route and family teaching walkthrough; the survival-built powered pass used a disclosed upstream motor fixture |
+| Revised | [Connected survival craft, place, board, control, unload, and reopen](evidence/0.4/survival-client-revised/acceptance.md) on a short unpowered section; [occupied powered demo circuit and cold reopen](evidence/0.4/survival-client-revised/powered-demo/acceptance.md) with independent lower-hinge response | Player-built powered route and family teaching walkthrough; the powered demo was command-authored |
+| PAX | [Connected survival craft, route and four-car placement](evidence/0.4/survival-client-pax/acceptance.md); [player-linked occupied cycle, unload and reopen on the survival-built train](evidence/0.4/survival-client-pax/survival-cycle/acceptance.md); [shipped-demo cycle](evidence/0.4/survival-client-pax/demo/acceptance.md) | The powered run used a disclosed upstream motor fixture; full teaching review remains open |
 
 The [native survival checkpoint](evidence/0.4/survival-acceptance.md) already
 checks all fifteen crafting outputs, five matching placements and twenty
 wrong-family rejects. The [teaching checkpoint](evidence/0.4/teaching-acceptance.md)
 and [Ponder checkpoint](evidence/0.4/ponder-acceptance.md) cover item guidance,
-recipe discovery and all 53 scene registrations. These checks do not replace
-connected-client building and operation.
-The [native player-crafted Arrow loop](evidence/0.4/survival-client-arrow-loop-native/README.md)
-also passes eight player-connected powered sections, full-turn carrier motion
-and station recapture with a synthetic survival ServerPlayer. Its upstream
-Chain/motor fixtures and absent connected client leave the Arrow walkthrough
-and save/reopen evidence open.
-In pinned Coasters 0.1.5, normal Chain Lift selection is handled by the client
+recipe discovery and all 53 scene registrations. The [current-artifact rendered
+review](evidence/0.4/teaching-current/acceptance.md) checks all fifteen tooltips
+and the captions and controls of all nine unique scenes. These checks do not
+replace connected-client building and operation.
+The [player-crafted Arrow loop native test](evidence/0.4/survival-client-arrow-loop-native/README.md)
+also passes a full eight-section powered circuit and station recapture with
+ordinary survival crafting and placement through a synthetic server player.
+Its upstream Chain/motor fixtures and absent connected client leave the Arrow
+row's connected-client walkthrough and save/reopen work open.
+In pinned Coasters 0.1.5, normal Chain Lift selection uses the client
 interaction-key path (`ChainLiftAnchorOutlineClient.onUseItemKey`), which sends
 `ChainLiftCommitPayload` to the server. A synthetic server-player right click or
 direct `commitChainLift` call cannot certify this input path. Record actual
@@ -55,6 +57,9 @@ connected-client Chain selection, the installed span and its powered direction.
    consumption or a new vehicle. Keep enough clear space for the full rider and
    carrier sweep.
 4. Build or extend a usable powered route with ordinary upstream components.
+   For PAX, inspect the completed station curve after adding the spikes;
+   equal-height station anchors alone do not prove a level tangent. Correct
+   native handles and rebind the profile before placing cars if needed.
    Board an original seat through the connected client, close restraints,
    dispatch, observe measured chassis travel and the family's advertised
    carrier behavior, then capture, open restraints and dismount. A state change
@@ -75,7 +80,18 @@ connected-client Chain selection, the installed span and its powered direction.
 | Revised | Occupied independent lower-hinge carriers on Revised track | Distinction from Free Spin and the need for separate clearance |
 | PAX | Four matching cars linked with Minecraft Chains, bound to a powered winch; occupied lift, release, outbound/return and final catch | Shuttle route and spike requirements, platform operator, boarding readiness, and final capture |
 
-For each row, open that family's item guidance and Ponder lessons through normal
+For the Free Spin damper comparison, sample the same carrier before and after
+its damper span while `capture=false` and the car remains dispatched. Record
+`damperImpulses`, `damperEnergy` and `damperSpeedReduction` from `/fd status`
+alongside position, angle and angular speed. The audit counts only actual
+damper impulses and resets with the live client; an increase before capture
+separates the damper action from the boarding lock. Capture only after the
+downstream sample, with enough remaining route to stop safely. A before/after
+angular-speed comparison alone can also include gravity and preceding inducers,
+so identify those spans and the time between samples.
+
+The current-artifact teaching review above completes the common tooltip and
+Ponder review. For each row, open that family's item guidance and Ponder lessons through normal
 inventory controls, then follow the corresponding
 [family walkthrough](BUILDING.md#family-walkthroughs). Review all fifteen item
 tooltips and all nine unique scenes on the candidate artifact, checking readable

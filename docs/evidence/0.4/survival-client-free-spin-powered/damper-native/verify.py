@@ -44,6 +44,14 @@ for name, entry in manifest["files"].items():
     assert len(raw) == entry["bytes"] == entry["source_bytes"], name
     assert sha256(raw) == entry["sha256"], name
 
+for prefix, expected in (("single", (5, 25, 1635, 430)), ("train", (2, 10, 814, 212))):
+    report = json.loads((ROOT / f"{prefix}-decoration-inputs.json").read_text())
+    assert report["result"] == "structural-and-transform-check-pass"
+    assert tuple(report[key] for key in ("routes", "sections", "spines", "ties")) == expected
+    stem = "recovery-bank" + ("-train" if prefix == "train" else "")
+    assert report["input_sha256"] == manifest["files"][f"{stem}-native-frames.json"]["sha256"]
+    assert report["trace_pairing"]["sha256"] == manifest["files"][f"{stem}-mesh-trace.jsonl"]["sha256"]
+
 log = subprocess.check_output(["zstd", "-dc", str(ROOT / "gametest.log.zst")], text=True)
 match = re.search(
     r"FD02_DAMPER impulses=(\d+) energy=([-\d.]+) relativeAngularSpeedReduction=([-\d.]+)",

@@ -36,6 +36,9 @@ the rider had no nearby track triangle. The rider/rack column below therefore
 describes a subset of sampled riders. The
 [corrected archived-trace audit](rider-rack-coverage-correction.md) checks every
 sampled rider; an audit of the exact dev.29 inputs is still needed.
+The later [current-artifact one-tick audit](../current-tick-rider-clearance/acceptance.md)
+regenerates the routes and verifies every sampled rider/rack pair on the current
+source. The original dev.29 trace files remain historical inputs.
 
 | Route | Cars | Pose samples | Body/track lower bound | Rider/track lower bound | Rider/rack lower bound |
 | --- | ---: | ---: | ---: | ---: | ---: |

@@ -168,6 +168,26 @@ public final class MagneticGameTests {
           helper.assertTrue(
               MagneticRuntime.applications > baseline[0] + 10,
               "Magnetic zones never affected native bodies");
+          long damperImpulses = 0;
+          double damperEnergy = 0, damperSpeedReduction = 0;
+          for (var carrier : vehicle.carriers) {
+            var audit =
+                MagneticRuntime.audit(
+                    (ServerSubLevel) container.getSubLevel(carrier.body));
+            damperImpulses += audit.damperImpulses;
+            damperEnergy += audit.damperEnergyChange;
+            damperSpeedReduction += audit.damperAngularSpeedReduction;
+          }
+          System.out.println(
+              "FD02_DAMPER impulses="
+                  + damperImpulses
+                  + " energy="
+                  + damperEnergy
+                  + " relativeAngularSpeedReduction="
+                  + damperSpeedReduction);
+          helper.assertTrue(
+              damperImpulses > 0 && damperEnergy < 0,
+              "Released Free Spin carriers received no dissipative damper impulse");
           helper.assertTrue(
               MagneticRuntime.maxEnergyIncrease < 1e-5 && MagneticRuntime.dissipatedEnergy > 0,
               "Passive native interaction generated energy");

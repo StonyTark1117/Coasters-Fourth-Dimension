@@ -101,6 +101,14 @@ tested bounds, not general-world or unlimited-layout support.
 | Revised free rotor | Four independent paired carriers have lower hinges and a different chassis layout. Run it on Revised Free-Rotor Track and compare the groups' responses with different rider loading. This is an inspired variant, not a claim of exact manufacturer coupling. |
 | PAX-inspired shuttle | Assemble four matching cars six blocks apart, then hold a Minecraft Chain and right-click each adjacent pair in order to create the three native links. Bind a nearby winch, supply Create shaft rotation, board and close restraints. Start the winch and follow lift → outbound → returning → capturing → boarding. Open restraints only after final capture and readiness. |
 
+On the powered `/fd demo free_spin` circuit, the descending right side has two
+inducer spans followed by a damper span. For a live comparison, keep the car
+dispatched through all three spans and read the same carrier's angle and angular
+speed before and after the damper. Request capture only after that sample; a
+capture between samples also slows the carrier and obscures the damper's effect.
+The example is command-built practice, so craft and place a separate matching
+route when following the survival acquisition path.
+
 The ordinary boarding station binds a nearby non-PAX car when used empty-handed.
 Power at its rear requests capture; releasing power requests dispatch. Its front
 indicates readiness and its right side indicates closed restraints. Binding the
@@ -117,6 +125,13 @@ the station track. The station tangent must be nearly level. Leave at least
 after it, measured along the route. You can operate one to four matching cars;
 the four-car walkthrough needs at least 38 blocks after the lead car. A flat
 straight section can hold a car but cannot bind as a working shuttle route.
+
+Connect the level station section before its rising spike sections. Inspect
+its actual curve after adding the spikes: equal-height anchors can still have
+sloped native tangents. If necessary, level the station with Coasters' curve
+handles and rebind its original track profile with the Rotation Tool before
+placing cars. Check that the stopped cars remain six blocks apart before
+linking them.
 
 With a Minecraft Chain in the main hand, right-click the first stopped car and
 then its neighbor to couple that pair. Repeat for the second/third and
@@ -182,9 +197,10 @@ corridors cannot intersect.
 unlinked and the winch unbound. Use Minecraft Chains to couple the stopped cars
 in order, then sneak-use the winch before boarding. This variant lets an
 operator practice the native coupling and binding steps on a level station.
-Add a temporary foothold beside a bearing or seat if the platform edge is too
-far to reach; remove it before dispatch. Keep the train at six-block spacing
-while making the three links.
+The example platforms extend to the outer seat edge. Keep the train at
+six-block spacing while making the three links.
+Add a temporary foothold beside a bearing or seat if it is still too far to
+reach; remove it before dispatch.
 
 These commands create world content; they are examples rather than the survival
 acquisition path. They use the standalone dependencies. Follow the corresponding

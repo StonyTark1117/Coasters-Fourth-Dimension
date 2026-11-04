@@ -17,6 +17,12 @@ footing let the player reach the native cart bearings and lead seat. With an
 empty hand, the player sneak-used the winch; its [BOARDING message](winch-bound.png)
 confirmed binding.
 
+After this run, the manual command's platform was extended two blocks inward
+on each side to include the footing used to reach the outer seats. The
+previously shipped `/fd demo pax` platform geometry is unchanged. The platform
+edit passes a packaged JAR build; this client record remains tied to the JAR
+hash above and does not claim a second client replay of that edit.
+
 The player boarded an original PAX seat with an empty-hand click. The
 [mounted view](lead-seat-boarded.png) shows the normal passenger prompt. The
 Rotation Tool's [operator editor](ready-closed.png) then reported
@@ -38,6 +44,7 @@ The log records both the linked-cart events and the final zero-occupant status.
 
 This proves player Chain coupling, winch binding, normal boarding, mounted
 operator dispatch, powered recatch and normal unloading on a **command-authored
-demo route**. The separately [survival-crafted construction](../acceptance.md)
-has not yet coupled and cycled its own four cars. The other families' complete
-powered teaching exercises and the FD403 gate remain open.
+demo route**. The separate [survival construction](../acceptance.md) now has a
+later [survival-built cycle](../survival-cycle/acceptance.md) that couples and
+cycles its own four cars. The other families' complete powered teaching
+exercises and the FD403 gate remain open.

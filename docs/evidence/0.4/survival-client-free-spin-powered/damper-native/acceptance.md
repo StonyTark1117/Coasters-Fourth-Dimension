@@ -35,9 +35,17 @@ mechanic before capture from a player's seat.
   confirms byte-verified capture of all five frame/trace outputs before another
   game run. [SHA256SUMS](SHA256SUMS) and [verify.py](verify.py) check the log,
   damper measurements, metadata and compressed exports.
+- The [single-car](single-decoration-inputs.json) and
+  [linked-train](train-decoration-inputs.json) input checks pass on the exact
+  captured frame/trace pairs. They validate 5 routes/25 sections with 1,635
+  spine and 430 tie samples, and 2 routes/10 sections with 814 spine and 212
+  tie samples. Their source/input hashes and chassis pairing are recorded.
+  These checks establish matching-route renderer inputs, not mesh clearance or
+  proof of visible decoration in a client.
 
 This closes execution of the native damper regression on this merged source.
 It does not complete the player-built shaped Free Spin route or its family
 teaching walkthrough, nor does the base profile certify Track Styles or
-Engineered behavior. The captured recovery traces are inputs for separate
-FD402 clearance audits, not a clearance result by themselves.
+Engineered behavior. The captured recovery traces remain inputs for separate
+FD402 clearance audits; the structural checks above do not turn them into a
+clearance result.

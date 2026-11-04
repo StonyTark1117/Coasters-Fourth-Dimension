@@ -14,12 +14,21 @@ for all fifteen items, native schematic validation, packaged playback/replay,
 resource reload and rendered review. All eight exact-head dev.10 CI jobs passed;
 see the [push](ponder-ci-push.json) and [PR](ponder-ci-pr.json) records.
 
+The [current-artifact teaching review](teaching-current/acceptance.md) records
+all fifteen rendered tooltips, all nine scenes and their caption sequences,
+53 packaged playback/replay registrations and normal client shutdown on the
+same JAR as the survival-built PAX cycle.
+
 The [dev.11 survival checkpoint](survival-acceptance.md) covers native result-slot
 crafting and world right-click placement for all five families, twenty wrong-family
 rejects and the ordinary station PAX binding regression. A separate [packaged
 Arrow survival-client checkpoint](survival-client-arrow.md) covers actual client
 crafting, anchor/track/car placement, boarding, controls, dismount and normal
-save. The [Legacy and Free Spin client checkpoint](survival-client-legacy-free-spin.md)
+save. The [bounded powered Arrow pass](survival-client-arrow-powered/acceptance.md)
+adds a survival-crafted 50-block original route, occupied motor-driven full
+controlled turn, capture, unload and same-identity cold reopen. Its earlier
+35-block endpoint fault is retained as a negative case. The
+[Legacy and Free Spin client checkpoint](survival-client-legacy-free-spin.md)
 extends that connected exercise to those two families. The
 [Revised client checkpoint](survival-client-revised/acceptance.md) adds
 normal-range boarding and operator controls. The
@@ -29,14 +38,40 @@ captured cars and a single-car winch binding. The separate
 three native links, occupied powered travel, final catch and unloading. Player
 Chain coupling, occupied powered travel and unloading on a separately
 [command-authored manual demo](survival-client-pax/manual-links/acceptance.md)
-are also recorded. The [exact merged-source Free Spin damper regression](survival-client-free-spin-powered/damper-native/acceptance.md)
-passes all 50 required base GameTests, records 483 native damper impulses and
-preserves its native exports for separate FD402 analysis. It does not establish
-a player-built route or teaching walkthrough. The survival-built train's own
-Chain coupling and cycle, the other families' powered client rides and the full
-teaching gate remain unfinished.
+are also recorded. A later [survival-built PAX cycle](survival-client-pax/survival-cycle/acceptance.md)
+adds normal player Chain coupling, occupied powered travel, recatch, unloading
+and reopen on a normally crafted route, cars and winch with a disclosed upstream
+motor fixture. The Arrow pass is a one-way route rather than a full circuit.
+The later [bounded powered Legacy pass](survival-client-legacy-powered/acceptance.md)
+records travel, capture, unloading and reopen but no meaningful free rotation.
+The [shaped Legacy demo pass](survival-client-legacy-powered/demo/acceptance.md)
+records independent free-rotor angles above 0.56 radians during a powered
+occupied circuit, then capture, unloading and cold reopen. Its route and car
+were command-authored; player-built shaped operation remains open.
+The later [bounded powered Free Spin pass](survival-client-free-spin-powered/acceptance.md)
+records installed inducer/damper spans, independent occupied carrier motion,
+capture, unloading and reopen; it does not isolate damper strength from capture.
+The [shipped Free Spin damper pass](survival-client-free-spin-powered/damper-demo/acceptance.md)
+records actual impulses and energy reduction while all four carriers remain
+released, then capture, unload and cold reopen. This command-authored example
+logged three Sable sub-level packet errors at creation; its second client was
+terminated after saving and returning to title to release memory. A complete
+player-built shaped route and family walkthrough remain open.
+The [merged-source native damper regression](survival-client-free-spin-powered/damper-native/acceptance.md)
+passes all 50 required base GameTests and preserves its recovery exports; those
+exports require separate clearance audits before any FD402 claim.
+The [Revised powered demo pass](survival-client-revised/powered-demo/acceptance.md)
+records occupied circuit travel, independent lower-hinge response, capture,
+unloading and reopen on a command-authored shipped layout. A survival-built
+powered Revised route remains open.
 
 ## Resource reload investigation
+
+The [current-artifact interactive reload checkpoint](font-interactive-current/acceptance.md)
+completed three in-world F3+T reloads in the packaged combined profile. A
+stale default FontSet lookup was redirected to the current set; chat,
+inventory and pause-menu text rendered, followed by normal save and exit.
+An occupied styled post-reload ride remains open.
 
 The [dev.12 scheduler checkpoint](scheduler-acceptance.md) fixes initialization
 ordering in the pinned Veil client scheduler and validates native completion,
