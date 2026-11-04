@@ -3,6 +3,8 @@ package dev.fourthdimension.client;
 import com.mojang.logging.LogUtils;
 import dev.fourthdimension.runtime.EligibilityHooks;
 import dev.ryanhcode.sable.api.sublevel.SubLevelContainer;
+import dev.engine_room.flywheel.api.backend.Backend;
+import dev.engine_room.flywheel.api.backend.BackendManager;
 import net.minecraft.client.Minecraft;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -14,6 +16,7 @@ import org.joml.Quaterniond;
 @EventBusSubscriber(modid = "fourthdimension", value = Dist.CLIENT)
 public final class ClientDiagnostics {
   private static int ticks;
+  private static boolean renderEnvironmentLogged;
 
   @SubscribeEvent
   public static void tick(ClientTickEvent.Post event) {
@@ -24,6 +27,18 @@ public final class ClientDiagnostics {
     var container = SubLevelContainer.getContainer(mc.level);
     if (data == null || container == null) return;
     if (Boolean.getBoolean("fourthdimension.renderValidation")) {
+      if (!renderEnvironmentLogged) {
+        var backend = BackendManager.currentBackend();
+        LogUtils.getLogger()
+            .info(
+                "FD_CLIENT_RENDER_ENV graphicsMode={} flywheelBackend={} flywheelEnabled={} "
+                    + "renderDistance={}",
+                mc.options.graphicsMode().get(),
+                Backend.REGISTRY.getId(backend),
+                BackendManager.isBackendOn(),
+                mc.options.renderDistance().get());
+        renderEnvironmentLogged = true;
+      }
       var render = TrackRenderMetrics.snapshot();
       LogUtils.getLogger()
           .info(
