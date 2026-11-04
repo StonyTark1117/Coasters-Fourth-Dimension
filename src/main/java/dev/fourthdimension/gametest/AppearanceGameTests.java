@@ -172,9 +172,23 @@ public final class AppearanceGameTests {
         var edit = new EditorNetwork.Edit(candidate.id, before, 5, id + ";#001122");
         if (design == TrackDesign.ARROW
             && OptionalIntegrations.installed(OptionalIntegrations.TRACK_STYLES).mayInspect()) {
+          var edge = TrackGeometry.resolve(level, candidate);
+          var curveMiddle =
+              CoasterPathGraphManager.sampleEdgePositionPlotLocal(level, edge, .5);
+          player.setPos(curveMiddle.x + 12, curveMiddle.y + 1, curveMiddle.z);
+          EditorGameTests.rejects(
+              helper, () -> EditorNetwork.apply(player, edit),
+              "Parallel offset granted appearance edit reach: " + id);
+          helper.assertTrue(candidate.revision == before, "Out-of-reach edit changed revision");
+          player.setPos(curveMiddle.x + 2, curveMiddle.y + 1, curveMiddle.z);
+          helper.assertTrue(
+              player.distanceToSqr(start.getCenter()) > 64
+                  && player.distanceToSqr(finish.getCenter()) > 64,
+              "Within-curve appearance edit still relied on endpoint reach");
           EditorNetwork.apply(player, edit);
           helper.assertTrue(
               candidate.appearance.id().equals(id), "Installed Arrow style not selected");
+          player.setPos(finish.getX() + 2, finish.getY() + 1, finish.getZ());
           var selected = candidate.appearance;
           EditorNetwork.apply(
               player,
@@ -276,6 +290,10 @@ public final class AppearanceGameTests {
             + " oldSchemas=1..5 missingProviderAppearances="
             + (TrackAppearance.CANDIDATES.size() + 1)
             + " mechanicsUnchanged=true styleFamilyCases=10 strokeCases="
+            + (OptionalIntegrations.installed(OptionalIntegrations.TRACK_STYLES).mayInspect()
+                ? 2
+                : 0)
+            + " withinCurveStyles="
             + (OptionalIntegrations.installed(OptionalIntegrations.TRACK_STYLES).mayInspect()
                 ? 2
                 : 0));
