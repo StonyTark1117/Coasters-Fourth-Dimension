@@ -1,0 +1,61 @@
+{
+  "traceComplete": true,
+  "clearanceCertified": false,
+  "scope": "Client tick pointer versus latest native body-pose snapshot during one instrumented occupied Styles Arrow ride; no render-frame or pose-delta capture.",
+  "inputHashes": {
+    "trace": "c883643cce76ff957933a29019da005801775d94b14187230ed00b78e581e88a",
+    "clientLog": "320b03747651b8fdb0fbb6ac9867e5f472f5db6af9fc1f7531ce9cd9cb6c072b"
+  },
+  "mountedChassis": "4e207381-e5e7-4007-95ab-280620e85e7d",
+  "delay": 1.5,
+  "samples": 6398,
+  "backwardGameTimeSamples": 17,
+  "firstAllBodiesReadyIndex": 210,
+  "movingSamplesAbove0.001": 5984,
+  "perBody": {
+    "4e207381-e5e7-4007-95ab-280620e85e7d": {
+      "role": "chassis",
+      "readySamples": 6185,
+      "missingSamples": 213,
+      "staleSamples": 202,
+      "maximumPointerLead": 2.0
+    },
+    "e2045c37-b445-4f95-bb82-e71bbcb33169": {
+      "role": "carrier",
+      "readySamples": 6185,
+      "missingSamples": 213,
+      "staleSamples": 202,
+      "maximumPointerLead": 2.0
+    },
+    "309f0496-73a7-4c80-87ae-3e1263cd46c4": {
+      "role": "carrier",
+      "readySamples": 6185,
+      "missingSamples": 213,
+      "staleSamples": 202,
+      "maximumPointerLead": 2.0
+    }
+  },
+  "staleSampleCount": 202,
+  "firstStale": {
+    "index": 219,
+    "clientGameTime": 115977,
+    "informationTick": 586.0,
+    "pointer": 585.0,
+    "chassisStepDistance": 0.0,
+    "maximumLead": 1.0,
+    "bodies": 3
+  },
+  "lastStale": {
+    "index": 420,
+    "clientGameTime": 116178,
+    "informationTick": 586.0,
+    "pointer": 586.0,
+    "chassisStepDistance": 0.0,
+    "maximumLead": 2.0,
+    "bodies": 3
+  },
+  "movingStaleSamples": [],
+  "maximumMovingPointerLead": 0.0,
+  "fastStaleSamplesAbove0.05": [],
+  "maximumFastPointerLead": 0.0
+}

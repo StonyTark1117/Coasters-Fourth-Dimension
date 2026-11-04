@@ -1,0 +1,33 @@
+{
+  "traceComplete": true,
+  "clearanceCertified": false,
+  "scope": "Snapshot-pair transform displacement for recorded client pointer leads on one occupied styled Arrow ride; no lead occurred during observed chassis movement.",
+  "inputHashes": {
+    "trace": "c883643cce76ff957933a29019da005801775d94b14187230ed00b78e581e88a",
+    "lagReport": "be70a92717d2d5695923e280ee8ba07bb8bb78cf4191e2c50ab0c29d27bf45d2"
+  },
+  "mountedChassis": "4e207381-e5e7-4007-95ab-280620e85e7d",
+  "samples": 6398,
+  "movingSamples": 5984,
+  "staleSamples": 202,
+  "measuredBodyPosePairs": 606,
+  "movingMeasuredPairs": 0,
+  "maximumSnapshotCenterMotion": 0.003008529639662028,
+  "maximumSnapshotCenterMotionAt": {
+    "sample": 219,
+    "body": "e2045c37-b445-4f95-bb82-e71bbcb33169",
+    "role": "carrier"
+  },
+  "maximumSnapshotAngularChangeRadians": 2.3286276834252533e-05,
+  "maximumSnapshotAngularChangeAt": {
+    "sample": 219,
+    "body": "e2045c37-b445-4f95-bb82-e71bbcb33169",
+    "role": "carrier"
+  },
+  "maximumPointerLeadTicks": 2.0,
+  "maximumPointerLeadAt": {
+    "sample": 220,
+    "body": "4e207381-e5e7-4007-95ab-280620e85e7d",
+    "role": "chassis"
+  }
+}

@@ -197,6 +197,10 @@ records that relation on the copied exact-candidate styled world: one
 faster-moving sample had a 0.005483-tick pointer lead over all three mounted
 body poses. This confirms a bounded extrapolation event; the trace does not
 contain the poses needed to certify its geometry.
+A [corrected focused ride](evidence/0.9/fd401-styles-client-pose-lag-2c5d9a7/README.md)
+recorded the pose pairs at 202 pointer leads, all stationary at client tick
+boundaries; its 5,984 moving samples had no lead. That observation does not
+certify the first ride's moving extrapolation event or arbitrary packet delay.
 
 The [exact-candidate render-mode gates](evidence/0.9/fd401-render-modes-exact-2c5d9a7/README.md)
 add separate strict FAST and FABULOUS passes at 500 geometry stages with nonzero
