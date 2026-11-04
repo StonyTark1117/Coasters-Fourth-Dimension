@@ -179,6 +179,14 @@ runtime acceptance, FD401 or the release gate. The
 fix the review target without promoting these offline reports into runtime
 evidence.
 
+The [exact-candidate post-edit reload ride](evidence/0.9/fd401-styles-ui-reload-ride-2c5d9a7/README.md)
+adds the corresponding runtime boundary: the UI-selected banked appearance
+cold-reopened on the frozen JAR, survived a real F3+T catalog rebuild, carried
+an occupied car through visible banked and flat rotations, returned to station
+capture, and unloaded through the normal vehicle UI. It does not convert the
+sampled clearance reports into a continuous sweep or cover equipped/cosmetic
+riders.
+
 Complete style geometry and clearance checks and record supported styles/render
 modes and styled ride behavior. Resource reload and a real removal/reinstallation
 cycle now pass for one single-spine controlled Arrow section. Engineered operating
