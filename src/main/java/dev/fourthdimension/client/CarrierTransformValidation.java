@@ -56,6 +56,8 @@ public final class CarrierTransformValidation {
   private static boolean recoveryCycleSeen;
   private static boolean recoveryProfileSeen;
   private static boolean recoveryEditorSeen;
+  private static boolean recoveryEditorActionSeen;
+  private static boolean recoveryEditorActionApplied;
   private static boolean completed;
   private static net.minecraft.world.level.Level lastLevel;
 
@@ -82,6 +84,8 @@ public final class CarrierTransformValidation {
       recoveryCycleSeen = false;
       recoveryProfileSeen = false;
       recoveryEditorSeen = false;
+      recoveryEditorActionSeen = false;
+      recoveryEditorActionApplied = false;
       CarrierRenderMetrics.reset();
       completed = false;
       lastLevel = minecraft.level;
@@ -143,6 +147,8 @@ public final class CarrierTransformValidation {
               Math.max(maxRecoveryBearingBankAngle, bankAngle(recovery));
         recoveryLinkObserved = true;
         recoveryLinkSeen = true;
+        if (recoveryEditorActionRequired() && recoveryEditorActionSeen && !vehicle.stopping)
+          recoveryEditorActionApplied = true;
       }
       if (recoveryProfileRequired() && renderedNonzeroProfileRail(data, vehicle))
         recoveryProfileSeen = true;
@@ -222,6 +228,8 @@ public final class CarrierTransformValidation {
         || (staticPhase && carriers == 0)
         || (recoveryRequired() && !recoveryLinkObserved && !recoveryLinkSeen)
         || (recoveryEditorRequired() && !recoveryEditorSeen)
+        || (recoveryEditorActionRequired()
+            && (!recoveryEditorActionSeen || !recoveryEditorActionApplied))
         || (riderRequired() && !riderMounted && !(recoveryCycleRequired() && recoveryCycleSeen))
         || (supportLossIncomplete && !mayAwaitMovingSupportLoss)
         || supportRepairIncomplete
@@ -250,6 +258,12 @@ public final class CarrierTransformValidation {
               + recoveryEditorRequired()
               + " recoveryEditorSeen="
               + recoveryEditorSeen
+              + " recoveryEditorActionRequired="
+              + recoveryEditorActionRequired()
+              + " recoveryEditorActionSeen="
+              + recoveryEditorActionSeen
+              + " recoveryEditorActionApplied="
+              + recoveryEditorActionApplied
               + " riderRequired="
               + riderRequired()
               + " riderMounted="
@@ -383,7 +397,7 @@ public final class CarrierTransformValidation {
                 + "riderRequired={} riderMounted={} supportLossRequired={} supportLossObserved={} "
                 + "supportLossAfterMotion={} supportRepairRequired={} supportRepairObserved={} "
                 + "supportRealignmentRequired={} supportRealignmentObserved={} "
-                + "recoveryRequired={} recoveryMotionRequired={} recoveryBankRequired={} recoveryCycleRequired={} recoveryProfileRequired={} recoveryEditorRequired={} recoveryLinkSeen={} recoveryMotionSeen={} recoveryCycleSeen={} recoveryProfileSeen={} recoveryEditorSeen={} maxRecoveryChassisBankAngle={} maxRecoveryBearingBankAngle={} motionFamilies={} motionChassis={} motionDistances={}",
+                + "recoveryRequired={} recoveryMotionRequired={} recoveryBankRequired={} recoveryCycleRequired={} recoveryProfileRequired={} recoveryEditorRequired={} recoveryEditorActionRequired={} recoveryLinkSeen={} recoveryMotionSeen={} recoveryCycleSeen={} recoveryProfileSeen={} recoveryEditorSeen={} recoveryEditorActionSeen={} recoveryEditorActionApplied={} maxRecoveryChassisBankAngle={} maxRecoveryBearingBankAngle={} motionFamilies={} motionChassis={} motionDistances={}",
             completeSamples,
             requiredSamples(),
             waitedTicks,
@@ -412,11 +426,14 @@ public final class CarrierTransformValidation {
             recoveryCycleRequired(),
             recoveryProfileRequired(),
             recoveryEditorRequired(),
+            recoveryEditorActionRequired(),
             recoveryLinkSeen,
             recoveryMotionSeen,
             recoveryCycleSeen,
             recoveryProfileSeen,
             recoveryEditorSeen,
+            recoveryEditorActionSeen,
+            recoveryEditorActionApplied,
             maxRecoveryChassisBankAngle,
             maxRecoveryBearingBankAngle,
             movedFamilies,
@@ -501,9 +518,23 @@ public final class CarrierTransformValidation {
     return Boolean.getBoolean("fourthdimension.carrierValidationRecoveryEditor");
   }
 
+  private static boolean recoveryEditorActionRequired() {
+    return Boolean.getBoolean("fourthdimension.carrierValidationRecoveryEditorAction");
+  }
+
   /** Called by the actual recovery editor after it has rendered its linked-vehicle controls. */
   public static void recoveryEditorRendered() {
     recoveryEditorSeen = true;
+  }
+
+  /** Called only by the visible recovery editor's Start tow button callback. */
+  public static void recoveryEditorStartTowClicked() {
+    recoveryEditorActionSeen = true;
+  }
+
+  /** Lets the opt-in client fixture wait for native recovery replication before its screen click. */
+  public static boolean recoveryEditorActionReady() {
+    return recoveryLinkSeen;
   }
 
   private static boolean renderedNonzeroProfileRail(

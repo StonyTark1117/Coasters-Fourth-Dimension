@@ -321,8 +321,10 @@ public final class CarrierValidationFixture {
     if (recoveryFixture()
         && recoveryAttached
         && !recoveryTowStarted
-        && !recoveryPauseFixture())
-      progressRecoveryTow(event.getServer(), level);
+        && !recoveryPauseFixture()) {
+      if (recoveryEditorActionFixture()) progressRecoveryEditorActionTow(event.getServer(), level);
+      else progressRecoveryTow(event.getServer(), level);
+    }
     if (recoveryCycleFixture() && recoveryTowStarted && !recoveryCycleComplete)
       progressRecoveryCycle(event.getServer(), level);
     if (supportLossRequired() && riderFixtureBoarded && !supportLossTriggered) {
@@ -547,38 +549,64 @@ public final class CarrierValidationFixture {
     var car = recoveryExample.car();
     try {
       RecoveryOperations.start(level, car);
-      var player = server.getPlayerList().getPlayer(riderFixturePlayers.getFirst());
-      if (player == null) throw new IllegalStateException("FD_CARRIER_FIXTURE missing recovery rider");
-      var lever = recoveryExample.powerLever();
-      level
-          .getBlockState(lever)
-          .useWithoutItem(
-              level,
-              player,
-              new net.minecraft.world.phys.BlockHitResult(
-                  net.minecraft.world.phys.Vec3.atCenterOf(lever),
-                  net.minecraft.core.Direction.UP,
-                  lever,
-                  false));
-      var anchor =
-          (CoasterAnchorpointBlockEntity) level.getBlockEntity(recoveryExample.car().boundFrom);
-      recoveryExample.motor().generatedSpeed.setValue(8 * anchor.getChainLiftTravelSign());
-      recoveryTowStarted = true;
-      if (recoveryCycleFixture()) {
-        // Let the client observe a material native tow before the normal production stop path.
-        recoveryCycleDelay = 240;
-        recoveryCycleDeadline = 800;
-      }
-      LogUtils.getLogger()
-          .info(
-              "FD_CARRIER_FIXTURE started occupied recovery chassis={} bearing={} nativeChain=true",
-              car.chassis,
-              car.recoveryCart);
+      powerRecoveryTow(server, level, car, false);
     } catch (IllegalArgumentException failure) {
       if (recoveryTowDeadline-- <= 0)
         throw new IllegalStateException("FD_CARRIER_FIXTURE recovery tow did not become safe to start", failure);
       recoveryTowDelay = 20;
     }
+  }
+
+  /** Waits for the client editor's Start tow callback before powering the native recovery drive. */
+  private static void progressRecoveryEditorActionTow(
+      net.minecraft.server.MinecraftServer server, ServerLevel level) {
+    if (recoveryTowDelay-- > 0) return;
+    if (recoveryExample == null)
+      throw new IllegalStateException("FD_CARRIER_FIXTURE missing recovery editor action example");
+    var car = recoveryExample.car();
+    if (car.stopping) {
+      if (recoveryTowDeadline-- <= 0)
+        throw new IllegalStateException(
+            "FD_CARRIER_FIXTURE recovery editor Start tow did not reach the server");
+      return;
+    }
+    powerRecoveryTow(server, level, car, true);
+  }
+
+  /** Supplies the normal lever and motor only after the recovery start operation has succeeded. */
+  private static void powerRecoveryTow(
+      net.minecraft.server.MinecraftServer server,
+      ServerLevel level,
+      FoundationData.Vehicle car,
+      boolean editorStarted) {
+    var player = server.getPlayerList().getPlayer(riderFixturePlayers.getFirst());
+    if (player == null) throw new IllegalStateException("FD_CARRIER_FIXTURE missing recovery rider");
+    var lever = recoveryExample.powerLever();
+    level
+        .getBlockState(lever)
+        .useWithoutItem(
+            level,
+            player,
+            new net.minecraft.world.phys.BlockHitResult(
+                net.minecraft.world.phys.Vec3.atCenterOf(lever),
+                net.minecraft.core.Direction.UP,
+                lever,
+                false));
+    var anchor =
+        (CoasterAnchorpointBlockEntity) level.getBlockEntity(recoveryExample.car().boundFrom);
+    recoveryExample.motor().generatedSpeed.setValue(8 * anchor.getChainLiftTravelSign());
+    recoveryTowStarted = true;
+    if (recoveryCycleFixture()) {
+      // Let the client observe a material native tow before the normal production stop path.
+      recoveryCycleDelay = 240;
+      recoveryCycleDeadline = 800;
+    }
+    LogUtils.getLogger()
+        .info(
+            "FD_CARRIER_FIXTURE started occupied recovery chassis={} bearing={} nativeChain=true editorStartTow={}",
+            car.chassis,
+            car.recoveryCart,
+            editorStarted);
   }
 
   /** Completes normal recovery release only after the linked group has visibly towed. */
@@ -736,6 +764,10 @@ public final class CarrierValidationFixture {
 
   private static boolean recoveryEditorFixture() {
     return Boolean.getBoolean("fourthdimension.carrierFixtureRecoveryEditor");
+  }
+
+  private static boolean recoveryEditorActionFixture() {
+    return Boolean.getBoolean("fourthdimension.carrierFixtureRecoveryEditorAction");
   }
 
   /** Keeps the selected occupied fixture in the connecting players' view-distance ticket. */

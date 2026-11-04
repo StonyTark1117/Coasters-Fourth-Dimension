@@ -23,6 +23,8 @@ public final class RotationEditorScreen extends Screen {
   private boolean magnetic;
   private boolean recovery;
   private int previewLoading;
+  private Button recoveryStartTow;
+  private boolean recoveryStartTowFixtureClickQueued;
 
   public RotationEditorScreen(EditorNetwork.Target target) {
     super(Component.literal("Fourth Dimension"));
@@ -86,7 +88,7 @@ public final class RotationEditorScreen extends Screen {
         if (v.family == dev.fourthdimension.contract.Family.PAX)
           addButton("Detach shuttle", left + 115, top + 212, 24);
       } else {
-        addButton("Start tow", left, top + 212, 21);
+        recoveryStartTow = addButton("Start tow", left, top + 212, 21);
         addButton("Brake tow", left + 115, top + 212, 22);
         addButton("Detach recovery", left + 230, top + 212, 23);
       }
@@ -237,13 +239,39 @@ public final class RotationEditorScreen extends Screen {
         Button.builder(Component.literal("Done"), b -> onClose())
             .bounds(left + 230, top + 160, 110, 20)
             .build());
+    if (recovery
+        && recoveryStartTow != null
+        && Boolean.getBoolean("fourthdimension.carrierFixtureRecoveryEditorAction")) {
+      recoveryStartTowFixtureClickQueued = true;
+    }
   }
 
-  private void addButton(String label, int x, int y, int action) {
+  private void clickQueuedRecoveryStartTow() {
+    if (!recoveryStartTowFixtureClickQueued
+        || !CarrierTransformValidation.recoveryEditorActionReady()) return;
+    recoveryStartTowFixtureClickQueued = false;
+    minecraft.execute(
+        () -> {
+          if (minecraft.screen != this) return;
+          // Route this opt-in fixture through Screen's normal mouse dispatcher rather than
+          // sending an editor packet directly. The button's ordinary callback owns the packet.
+          mouseClicked(
+              recoveryStartTow.getX() + recoveryStartTow.getWidth() / 2.0,
+              recoveryStartTow.getY() + recoveryStartTow.getHeight() / 2.0,
+              0);
+        });
+  }
+
+  private Button addButton(String label, int x, int y, int action) {
     var button =
         Button.builder(
                 Component.literal(label),
                 b -> {
+                  if (recovery
+                      && action == 21
+                      && Boolean.getBoolean(
+                          "fourthdimension.carrierValidationRecoveryEditorAction"))
+                    CarrierTransformValidation.recoveryEditorStartTowClicked();
                   PacketDistributor.sendToServer(
                       new EditorNetwork.Edit(target.id(), revision, action, value.getValue()));
                   onClose();
@@ -260,6 +288,7 @@ public final class RotationEditorScreen extends Screen {
               Component.translatable("editor.fourthdimension.recovery.action_" + action)));
     }
     addRenderableWidget(button);
+    return button;
   }
 
   private void updateVehicleStatus(FoundationData.Vehicle vehicle) {
@@ -311,6 +340,7 @@ public final class RotationEditorScreen extends Screen {
                 : "distance:degrees:slope; ...  (angles remain unwrapped)");
     graphics.drawString(font, hint, left + 10, top + 42, 0xc2d2dd);
     super.render(graphics, mouseX, mouseY, partialTick);
+    clickQueuedRecoveryStartTow();
     if (mouseX >= left + 10 && mouseX < left + 350 && mouseY >= top + 26 && mouseY < top + 36)
       graphics.renderTooltip(
           font, font.split(Component.literal(status), Math.min(300, width - 24)), mouseX, mouseY);
