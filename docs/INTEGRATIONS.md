@@ -188,7 +188,7 @@ capture, and unloaded through the normal vehicle UI. Separate
 and [physics-substep](evidence/0.9/fd401-styles-physics-substeps-2c5d9a7/README.md)
 audits bound the intervening rendered interpolation and every recorded
 post-physics Arrow pose for the inspected default meshes and vanilla-player
-envelopes. They do not cover client extrapolation or equipped/cosmetic riders.
+envelopes.
 The [pinned Sable client pointer review](evidence/0.9/fd401-styles-client-pointer-2c5d9a7/README.md)
 shows that the recorded default 1.5-tick delay caps the pointer at the latest
 information-packet tick. Pose snapshots arrive separately, and the original
@@ -200,7 +200,14 @@ contain the poses needed to certify its geometry.
 A [corrected focused ride](evidence/0.9/fd401-styles-client-pose-lag-2c5d9a7/README.md)
 recorded the pose pairs at 202 pointer leads, all stationary at client tick
 boundaries; its 5,984 moving samples had no lead. That observation does not
-certify the first ride's moving extrapolation event or arbitrary packet delay.
+retroactively add the first trace's missing transforms. A later
+[full-pair private-display lap and audit](evidence/0.9/fd401-styles-client-extrapolation-clearance-2c5d9a7/README.md)
+recorded 1,626 consecutive snapshot intervals, completed normal capture and
+UI unload, and applied the observed 0.005483-tick lead directly to every
+retained coupled Arrow recovery pair. Both default styles and the saved
+transition plan keep at least 0.02000006 block of vehicle clearance and over
+0.0504 block for rider/player envelopes. Larger delays, equipped/cosmetic
+riders and arbitrary resource replacements remain outside that measured bound.
 
 The [exact-candidate render-mode gates](evidence/0.9/fd401-render-modes-exact-2c5d9a7/README.md)
 add separate strict FAST and FABULOUS passes at 500 geometry stages with nonzero
@@ -209,9 +216,9 @@ pinned Iris/Solas FANCY observation retains Flywheel's expected `off` fallback
 within its renderer-parity scope. All are llvmpipe observations; the two exact
 mode gates are stationary and do not add an occupied-per-mode or native-GPU claim.
 
-Complete style geometry and clearance checks and record supported styles/render
-modes and styled ride behavior. Resource reload and a real removal/reinstallation
-cycle now pass for one single-spine controlled Arrow section. Engineered operating
+Recorded coverage now includes style geometry and clearance, supported
+styles/render modes, and styled ride behavior. Resource reload and a real
+removal/reinstallation cycle pass for one single-spine controlled Arrow section. Engineered operating
 spans and a native coupled Arrow full-turn/STOP/powered-rollback fixture now have
 the bounded results below. The packaged styled Arrow circuit covers real-player
 restraint actions and rear station input dispatch/capture. Native FE-enabled

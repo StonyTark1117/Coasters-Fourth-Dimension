@@ -89,15 +89,19 @@ an exact-candidate run.
 | Exact-candidate coupled Arrow replay | **Exact whole JAR** (`4b23cf0e…`) | Exact-candidate evidence that the saved native link restored and the occupied two-car consist completed a non-starved programmed STOP, station capture, UI release and unload. Normal construction/linking remains predecessor evidence. |
 | Exact-candidate occupied PAX authority replay | **Exact whole JAR** (`4b23cf0e…`) | Exact-candidate evidence that a powered opposing Engineered controller retained pass zero and consumed no FE throughout a complete occupied four-car winch cycle, native capture and normal unload. Construction/linking and per-car callback tracing remain predecessor/separate evidence. |
 | Banked vehicle/player clearance and transition reports | Source/input-pin evidence, not runtime-JAR evidence. The 19 pinned geometry inputs remain unchanged in the candidate. | Reuse only for the reports' sampled geometry scope and stated exclusions. |
+| Observed client-extrapolation clearance | Instrumented development classpath on a copied exact-candidate styled world; the diagnostic class differs, while the audited production geometry inputs remain pinned to the candidate. | Reuse for the recorded 0.005483-tick client-lead bound across every retained coupled-Arrow recovery snapshot pair. Do not call it an exact whole-JAR run or extend it to larger packet delays. |
 | Occupied FANCY reload ride and FAST/FABULOUS/Solas mode runs | Older whole JAR; renderer classes have scoped parity, but later vehicle/telemetry classes differ. | Reuse graphics/reload observations within their recorded renderer scope. Do not call the combined reload+ride an exact-candidate replay. |
 | Exact-candidate FAST and FABULOUS render gates | **Exact whole JAR** (`4b23cf0e…`) | Exact-candidate strict-mode and nonzero styled-geometry evidence. The stationary llvmpipe runs do not replace the older visible Solas observation. |
 
 This mapping closes candidate selection and identity. Later exact-candidate
 records now cover the saved Arrow operator/FE replay, Free Spin and Revised
 occupied operator loops, the coupled two-car Arrow loop, the visible post-UI-edit
-ride, and the occupied PAX authority cycle. Tracing-disabled reliability,
-continuous/equipped-player clearance, and other acceptance items remain open
-where their evidence is not exact or their scope is narrower.
+ride, and the occupied PAX authority cycle. The supplemental instrumented lap
+also closes the observed default-delay client-lead geometry bound without
+claiming exact whole-JAR identity. Tracing-disabled reliability, larger packet
+delays, continuous solver-interior/equipped-player clearance, and other items
+remain explicit boundaries where their evidence is not exact or their scope is
+narrower.
 
 ## Verification
 

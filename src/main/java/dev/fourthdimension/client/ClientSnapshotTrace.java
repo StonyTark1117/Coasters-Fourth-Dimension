@@ -28,7 +28,7 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.client.event.ClientTickEvent;
 
-/** Opt-in diagnostic of Sable's per-body pose-buffer age during an occupied FD ride. */
+/** Opt-in diagnostic of Sable's pose-buffer age and every ready snapshot pair while occupied. */
 @EventBusSubscriber(modid = "fourthdimension", value = Dist.CLIENT)
 public final class ClientSnapshotTrace {
   private static final Gson GSON = new Gson();
@@ -107,11 +107,12 @@ public final class ClientSnapshotTrace {
     entry.put("previousTick", size > 1 ? buffer.get(size - 2).gameTick() : null);
     entry.put("latestTick", size > 0 ? buffer.get(size - 1).gameTick() : null);
     entry.put("bufferSize", size);
-    if (size >= 2 && pointer > buffer.get(size - 1).gameTick() + 1e-8) {
+    if (size >= 2) {
       entry.put("previousSnapshotPose", pose(buffer.get(size - 2).pose()));
       entry.put("latestSnapshotPose", pose(buffer.get(size - 1).pose()));
       entry.put("lastTickPose", pose(body.lastPose()));
       entry.put("currentTickPose", pose(body.logicalPose()));
+      entry.put("pointerLead", Math.max(0.0, pointer - buffer.get(size - 1).gameTick()));
       var center = body.getPlot().getCenterBlock();
       entry.put("plotCenter", new double[] {center.getX() + .5, center.getY() + .5,
           center.getZ() + .5});

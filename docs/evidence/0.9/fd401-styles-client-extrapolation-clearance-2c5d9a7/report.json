@@ -1,0 +1,142 @@
+{
+  "passes": true,
+  "clearanceCertified": true,
+  "requiredGap": 0.02,
+  "scope": "Retained coupled Arrow default-model Styles snapshot pairs extended by the maximum fast pointer lead observed in the occupied saved-world client ride. The independent full-pose client lap verifies complete client snapshot-pair capture and reports its own conservative motion bound; the clearance results use each retained recovery-route pair directly. Excludes larger packet delays, solver paths inside physics substeps, equipment/cosmetics and arbitrary resources.",
+  "observedFastPointerLeadTicks": 0.0054829494915793475,
+  "clientSnapshotTicks": 1628,
+  "clientConsecutiveIntervals": 1626,
+  "maximumClientExtrapolationMotion": {
+    "vehicle": {
+      "extraMotion": 0.0019640510540860387,
+      "ticks": [
+        2832,
+        2833
+      ],
+      "body": "309f0496-73a7-4c80-87ae-3e1263cd46c4"
+    },
+    "wheel": {
+      "extraMotion": 0.0006645069893370788,
+      "ticks": [
+        3827,
+        3828
+      ],
+      "body": "4e207381-e5e7-4007-95ab-280620e85e7d"
+    },
+    "rider": {
+      "extraMotion": 0.0017965810970739537,
+      "ticks": [
+        2832,
+        2833
+      ],
+      "body": "309f0496-73a7-4c80-87ae-3e1263cd46c4"
+    },
+    "player": {
+      "extraMotion": 0.0022042542809641522,
+      "ticks": [
+        2833,
+        2834
+      ],
+      "body": "309f0496-73a7-4c80-87ae-3e1263cd46c4"
+    }
+  },
+  "results": {
+    "arrow_4d": {
+      "maximumCombinedMotion": {
+        "vehicle": 0.029268453495469235,
+        "wheel": 0.02623848423059475,
+        "rider": 0.029060277375464037,
+        "player": 0.029566324318442163
+      },
+      "maximumNonexceptionVehicleMotion": 0.02878228650326548,
+      "locallyCheckedVehicleIntervals": {
+        "count": 533,
+        "minimumSweptLowerBound": 0.029999999999999995,
+        "maximumMotionBound": 0.029268453495469235,
+        "firstInterval": [
+          2177,
+          2178
+        ],
+        "lastInterval": [
+          2598,
+          2599
+        ]
+      },
+      "minimumSeparatingLowerBounds": {
+        "vehicle": 0.02000005972882207,
+        "wheel": 0.022543862001492797,
+        "rider": 0.050939722624535964,
+        "player": 0.050433675681557835
+      }
+    },
+    "arrow_4d_dbl_spine": {
+      "maximumCombinedMotion": {
+        "vehicle": 0.029268453495469235,
+        "wheel": 0.02623848423059475,
+        "rider": 0.029060277375464037,
+        "player": 0.029566324318442163
+      },
+      "maximumNonexceptionVehicleMotion": 0.02878228650326548,
+      "locallyCheckedVehicleIntervals": {
+        "count": 533,
+        "minimumSweptLowerBound": 0.029999999999999995,
+        "maximumMotionBound": 0.029268453495469235,
+        "firstInterval": [
+          2177,
+          2178
+        ],
+        "lastInterval": [
+          2598,
+          2599
+        ]
+      },
+      "minimumSeparatingLowerBounds": {
+        "vehicle": 0.02000005972882207,
+        "wheel": 0.022543862001492797,
+        "rider": 0.050939722624535964,
+        "player": 0.050433675681557835
+      }
+    },
+    "transition": {
+      "maximumCombinedMotion": {
+        "vehicle": 0.029268453495469235,
+        "wheel": 0.02623848423059475,
+        "rider": 0.029060277375464037,
+        "player": 0.029566324318442163
+      },
+      "maximumNonexceptionVehicleMotion": 0.02878228650326548,
+      "locallyCheckedVehicleIntervals": {
+        "count": 533,
+        "minimumSweptLowerBound": 0.029999999999999995,
+        "maximumMotionBound": 0.029268453495469235,
+        "firstInterval": [
+          2177,
+          2178
+        ],
+        "lastInterval": [
+          2598,
+          2599
+        ]
+      },
+      "minimumSeparatingLowerBounds": {
+        "vehicle": 0.02000005972882207,
+        "wheel": 0.022543862001492797,
+        "rider": 0.050939722624535964,
+        "player": 0.050433675681557835
+      }
+    }
+  },
+  "inputHashes": {
+    "trace": "4363621b3ab86a840a11b057d5f6e8bfe0d301fb4b2de72f0c33c6715ba265e5",
+    "clientLog": "96e68c47d520709216548ce4e00ceca4c8190eee6b0f85412569c90d89775d3a",
+    "lagReport": "191571d378dda7f1318a5ca0706a157bfbcb1709d4156a24e92ca30f84285c5e",
+    "bodyTrace": "2181ff260f62f11bf3b61140935a73cfd15d03701c1a4386e94986993b630212",
+    "trainTrace": "02ca9dbd7e79c8b99de2016fca411429842ae47c8e8616dfb77cf11bbbe7a46f",
+    "trainFrames": "d897d542eec87fc58c224d173419f5877fb58c43381379afb90b1101e6d4e74c",
+    "base": "f80b4c3cdf9fa6188804967147761b0373e150a6eadbdc53626e5ac9700b2049",
+    "minecraft": "499f6897d1837516680f3114072d8106e11c9adcd933fe5cf051b551089b0c99",
+    "styles": "42535a83307f6898b33c13ca201533bb9e337418fd7c73039c867fc80bfbcb38"
+  },
+  "diagnosticSourceHash": "8b910e17a3c4608588d1218c991951b20eb59e1fed4c821ea3554556fa1fc6b4",
+  "auditorHash": "2114a2cb91267b9d8613d5dd8d0994a9b13299bddbe966b10ab1e28d7231ead3"
+}
