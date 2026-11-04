@@ -24,7 +24,9 @@ public final class RotationEditorScreen extends Screen {
   private boolean recovery;
   private int previewLoading;
   private Button recoveryStartTow;
+  private Button recoveryAttach;
   private boolean recoveryStartTowFixtureClickQueued;
+  private boolean recoveryAttachFixtureClickQueued;
 
   public RotationEditorScreen(EditorNetwork.Target target) {
     super(Component.literal("Fourth Dimension"));
@@ -84,7 +86,7 @@ public final class RotationEditorScreen extends Screen {
         addButton("Realign matching track", left, top + 160, 26);
       if (free) addButton("Apply tuning", left, top + 134, 16);
       if (v.recoveryCart == null) {
-        addButton("Attach recovery", left, top + 212, 20);
+        recoveryAttach = addButton("Attach recovery", left, top + 212, 20);
         if (v.family == dev.fourthdimension.contract.Family.PAX)
           addButton("Detach shuttle", left + 115, top + 212, 24);
       } else {
@@ -244,6 +246,11 @@ public final class RotationEditorScreen extends Screen {
         && Boolean.getBoolean("fourthdimension.carrierFixtureRecoveryEditorAction")) {
       recoveryStartTowFixtureClickQueued = true;
     }
+    if (!recovery
+        && recoveryAttach != null
+        && Boolean.getBoolean("fourthdimension.carrierFixtureRecoveryEditorAttach")) {
+      recoveryAttachFixtureClickQueued = true;
+    }
   }
 
   private void clickQueuedRecoveryStartTow() {
@@ -262,11 +269,29 @@ public final class RotationEditorScreen extends Screen {
         });
   }
 
+  private void clickQueuedRecoveryAttach() {
+    if (!recoveryAttachFixtureClickQueued) return;
+    recoveryAttachFixtureClickQueued = false;
+    minecraft.execute(
+        () -> {
+          if (minecraft.screen != this) return;
+          mouseClicked(
+              recoveryAttach.getX() + recoveryAttach.getWidth() / 2.0,
+              recoveryAttach.getY() + recoveryAttach.getHeight() / 2.0,
+              0);
+        });
+  }
+
   private Button addButton(String label, int x, int y, int action) {
     var button =
         Button.builder(
                 Component.literal(label),
                 b -> {
+                  if (!recovery
+                      && action == 20
+                      && Boolean.getBoolean(
+                          "fourthdimension.carrierValidationRecoveryEditorAttach"))
+                    CarrierTransformValidation.recoveryEditorAttachClicked();
                   if (recovery
                       && action == 21
                       && Boolean.getBoolean(
@@ -323,6 +348,9 @@ public final class RotationEditorScreen extends Screen {
     if (recovery
         && Boolean.getBoolean("fourthdimension.carrierValidationRecoveryEditor"))
       CarrierTransformValidation.recoveryEditorRendered();
+    if (!recovery
+        && Boolean.getBoolean("fourthdimension.carrierValidationRecoveryEditorAttach"))
+      CarrierTransformValidation.recoveryEditorAttachRendered();
     String visibleStatus =
         font.width(status) <= 340 ? status : font.plainSubstrByWidth(status, 330) + "…";
     graphics.drawString(font, visibleStatus, left + 10, top + 26, 0xf3d179);
@@ -340,6 +368,7 @@ public final class RotationEditorScreen extends Screen {
                 : "distance:degrees:slope; ...  (angles remain unwrapped)");
     graphics.drawString(font, hint, left + 10, top + 42, 0xc2d2dd);
     super.render(graphics, mouseX, mouseY, partialTick);
+    clickQueuedRecoveryAttach();
     clickQueuedRecoveryStartTow();
     if (mouseX >= left + 10 && mouseX < left + 350 && mouseY >= top + 26 && mouseY < top + 36)
       graphics.renderTooltip(

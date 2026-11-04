@@ -76,6 +76,7 @@ public final class CarrierValidationFixture {
   private static int recoverySpawnDelay = -1;
   private static int recoveryPreparationDelay = -1;
   private static boolean recoveryAttached;
+  private static boolean recoveryEditorAttachOpened;
   private static int recoveryTowDelay = -1;
   private static int recoveryTowDeadline;
   private static boolean recoveryTowStarted;
@@ -183,6 +184,7 @@ public final class CarrierValidationFixture {
     recoverySpawnDelay = -1;
     recoveryPreparationDelay = -1;
     recoveryAttached = false;
+    recoveryEditorAttachOpened = false;
     recoveryTowDelay = -1;
     recoveryTowDeadline = 0;
     recoveryTowStarted = false;
@@ -316,7 +318,19 @@ public final class CarrierValidationFixture {
         }
         return;
       }
-      attachRecoveryFixture(event.getServer(), level);
+      if (recoveryEditorAttachFixture()) {
+        if (!recoveryEditorAttachOpened) {
+          openRecoveryAttachEditor(event.getServer(), level);
+          recoveryEditorAttachOpened = true;
+          return;
+        }
+        if (!recoveryAttachmentReady(level)) {
+          if (recoveryTowDeadline-- <= 0)
+            throw new IllegalStateException(
+                "FD_CARRIER_FIXTURE recovery editor Attach recovery did not reach the server");
+          return;
+        }
+      } else attachRecoveryFixture(event.getServer(), level);
       recoveryAttached = true;
       // Wait for the client to receive the occupied, linked group and collect its static render
       // samples before applying native chain power.
@@ -461,9 +475,7 @@ public final class CarrierValidationFixture {
     } catch (IllegalArgumentException failure) {
       throw new IllegalStateException("FD_CARRIER_FIXTURE could not attach occupied recovery", failure);
     }
-    if (!recoveryExample.bearing().getUniqueId().equals(car.recoveryCart)
-        || !RecoveryOperations.retained(car)
-        || !car.stopping)
+    if (!recoveryAttachmentReady(level))
       throw new IllegalStateException("FD_CARRIER_FIXTURE did not form a retained recovery group");
     if (recoveryTrainFixture()
         && (bankedRecoveryExample == null
@@ -493,6 +505,36 @@ public final class CarrierValidationFixture {
               "FD_CARRIER_FIXTURE opened recovery editor chassis={} action=Start tow",
               car.chassis);
     }
+  }
+
+  /** Opens the ordinary vehicle editor only after the production selection guard has accepted it. */
+  private static void openRecoveryAttachEditor(
+      net.minecraft.server.MinecraftServer server, ServerLevel level) {
+    if (recoveryExample == null)
+      throw new IllegalStateException("FD_CARRIER_FIXTURE missing recovery attach example");
+    var car = recoveryExample.car();
+    var player = server.getPlayerList().getPlayer(riderFixturePlayers.getFirst());
+    if (player == null) throw new IllegalStateException("FD_CARRIER_FIXTURE missing recovery rider");
+    try {
+      VehicleOperations.restraints(level, car, true);
+      VehicleOperations.retention(level, car, true);
+      RecoveryOperations.select(player, recoveryExample.bearing());
+      EditorNetwork.open(player, new EditorNetwork.Target(car.chassis, true));
+    } catch (IllegalArgumentException failure) {
+      throw new IllegalStateException("FD_CARRIER_FIXTURE could not prepare recovery editor attach", failure);
+    }
+    LogUtils.getLogger()
+        .info(
+            "FD_CARRIER_FIXTURE opened recovery editor chassis={} action=Attach recovery",
+            car.chassis);
+  }
+
+  private static boolean recoveryAttachmentReady(ServerLevel level) {
+    if (recoveryExample == null) return false;
+    var car = recoveryExample.car();
+    return recoveryExample.bearing().getUniqueId().equals(car.recoveryCart)
+        && RecoveryOperations.retained(car)
+        && car.stopping;
   }
 
   /** Reuses only the native IDs and linked recovery state saved by the pause-stage process. */
@@ -783,6 +825,10 @@ public final class CarrierValidationFixture {
 
   private static boolean recoveryEditorActionFixture() {
     return Boolean.getBoolean("fourthdimension.carrierFixtureRecoveryEditorAction");
+  }
+
+  private static boolean recoveryEditorAttachFixture() {
+    return Boolean.getBoolean("fourthdimension.carrierFixtureRecoveryEditorAttach");
   }
 
   private static boolean recoveryTrainFixture() {

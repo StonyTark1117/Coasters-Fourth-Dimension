@@ -59,6 +59,9 @@ public final class CarrierTransformValidation {
   private static boolean recoveryEditorSeen;
   private static boolean recoveryEditorActionSeen;
   private static boolean recoveryEditorActionApplied;
+  private static boolean recoveryEditorAttachRendered;
+  private static boolean recoveryEditorAttachSeen;
+  private static boolean recoveryEditorAttachApplied;
   private static boolean recoveryTrainSeen;
   private static boolean recoveryTrainMotionSeen;
   private static boolean completed;
@@ -89,6 +92,9 @@ public final class CarrierTransformValidation {
       recoveryEditorSeen = false;
       recoveryEditorActionSeen = false;
       recoveryEditorActionApplied = false;
+      recoveryEditorAttachRendered = false;
+      recoveryEditorAttachSeen = false;
+      recoveryEditorAttachApplied = false;
       recoveryTrainSeen = false;
       recoveryTrainMotionSeen = false;
       CarrierRenderMetrics.reset();
@@ -156,6 +162,8 @@ public final class CarrierTransformValidation {
         linkedRecoveryTrainBodies.add(parent);
         if (recoveryEditorActionRequired() && recoveryEditorActionSeen && !vehicle.stopping)
           recoveryEditorActionApplied = true;
+        if (recoveryEditorAttachRequired() && recoveryEditorAttachSeen)
+          recoveryEditorAttachApplied = true;
       }
       if (recoveryProfileRequired() && renderedNonzeroProfileRail(data, vehicle))
         recoveryProfileSeen = true;
@@ -252,6 +260,10 @@ public final class CarrierTransformValidation {
         || (recoveryEditorRequired() && !recoveryEditorSeen)
         || (recoveryEditorActionRequired()
             && (!recoveryEditorActionSeen || !recoveryEditorActionApplied))
+        || (recoveryEditorAttachRequired()
+            && (!recoveryEditorAttachRendered
+                || !recoveryEditorAttachSeen
+                || !recoveryEditorAttachApplied))
         || (recoveryTrainRequired() && !recoveryTrainSeen)
         || (riderRequired() && !riderMounted && !(recoveryCycleRequired() && recoveryCycleSeen))
         || (supportLossIncomplete && !mayAwaitMovingSupportLoss)
@@ -287,6 +299,14 @@ public final class CarrierTransformValidation {
               + recoveryEditorActionSeen
               + " recoveryEditorActionApplied="
               + recoveryEditorActionApplied
+              + " recoveryEditorAttachRequired="
+              + recoveryEditorAttachRequired()
+              + " recoveryEditorAttachRendered="
+              + recoveryEditorAttachRendered
+              + " recoveryEditorAttachSeen="
+              + recoveryEditorAttachSeen
+              + " recoveryEditorAttachApplied="
+              + recoveryEditorAttachApplied
               + " recoveryTrainRequired="
               + recoveryTrainRequired()
               + " recoveryTrainSeen="
@@ -433,7 +453,7 @@ public final class CarrierTransformValidation {
                 + "riderRequired={} riderMounted={} supportLossRequired={} supportLossObserved={} "
                 + "supportLossAfterMotion={} supportRepairRequired={} supportRepairObserved={} "
                 + "supportRealignmentRequired={} supportRealignmentObserved={} "
-                + "recoveryRequired={} recoveryMotionRequired={} recoveryBankRequired={} recoveryCycleRequired={} recoveryProfileRequired={} recoveryEditorRequired={} recoveryEditorActionRequired={} recoveryTrainRequired={} recoveryLinkSeen={} recoveryMotionSeen={} recoveryCycleSeen={} recoveryProfileSeen={} recoveryEditorSeen={} recoveryEditorActionSeen={} recoveryEditorActionApplied={} recoveryTrainSeen={} recoveryTrainMotionSeen={} maxRecoveryChassisBankAngle={} maxRecoveryBearingBankAngle={} motionFamilies={} motionChassis={} motionDistances={}",
+                + "recoveryRequired={} recoveryMotionRequired={} recoveryBankRequired={} recoveryCycleRequired={} recoveryProfileRequired={} recoveryEditorRequired={} recoveryEditorActionRequired={} recoveryEditorAttachRequired={} recoveryTrainRequired={} recoveryLinkSeen={} recoveryMotionSeen={} recoveryCycleSeen={} recoveryProfileSeen={} recoveryEditorSeen={} recoveryEditorActionSeen={} recoveryEditorActionApplied={} recoveryEditorAttachRendered={} recoveryEditorAttachSeen={} recoveryEditorAttachApplied={} recoveryTrainSeen={} recoveryTrainMotionSeen={} maxRecoveryChassisBankAngle={} maxRecoveryBearingBankAngle={} motionFamilies={} motionChassis={} motionDistances={}",
             completeSamples,
             requiredSamples(),
             waitedTicks,
@@ -463,6 +483,7 @@ public final class CarrierTransformValidation {
             recoveryProfileRequired(),
             recoveryEditorRequired(),
             recoveryEditorActionRequired(),
+            recoveryEditorAttachRequired(),
             recoveryTrainRequired(),
             recoveryLinkSeen,
             recoveryMotionSeen,
@@ -471,6 +492,9 @@ public final class CarrierTransformValidation {
             recoveryEditorSeen,
             recoveryEditorActionSeen,
             recoveryEditorActionApplied,
+            recoveryEditorAttachRendered,
+            recoveryEditorAttachSeen,
+            recoveryEditorAttachApplied,
             recoveryTrainSeen,
             recoveryTrainMotionSeen,
             maxRecoveryChassisBankAngle,
@@ -561,6 +585,10 @@ public final class CarrierTransformValidation {
     return Boolean.getBoolean("fourthdimension.carrierValidationRecoveryEditorAction");
   }
 
+  private static boolean recoveryEditorAttachRequired() {
+    return Boolean.getBoolean("fourthdimension.carrierValidationRecoveryEditorAttach");
+  }
+
   private static boolean recoveryTrainRequired() {
     return Boolean.getBoolean("fourthdimension.carrierValidationRecoveryTrain");
   }
@@ -585,6 +613,16 @@ public final class CarrierTransformValidation {
   /** Called only by the visible recovery editor's Start tow button callback. */
   public static void recoveryEditorStartTowClicked() {
     recoveryEditorActionSeen = true;
+  }
+
+  /** Called by the visible pre-attachment editor after the Attach recovery control is drawn. */
+  public static void recoveryEditorAttachRendered() {
+    recoveryEditorAttachRendered = true;
+  }
+
+  /** Called only by the visible pre-attachment editor's Attach recovery button callback. */
+  public static void recoveryEditorAttachClicked() {
+    recoveryEditorAttachSeen = true;
   }
 
   /** Lets the opt-in client fixture wait for native recovery replication before its screen click. */
