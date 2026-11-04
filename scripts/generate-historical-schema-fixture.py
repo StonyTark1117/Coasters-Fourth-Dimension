@@ -2,6 +2,7 @@
 """Regenerate the historic schema-3 NBT fixture from read-only 0.3 evidence."""
 import base64
 import gzip
+import io
 import json
 import struct
 from pathlib import Path
