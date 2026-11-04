@@ -77,6 +77,10 @@ public final class CarrierValidationFixture {
   private static int recoveryTowDelay = -1;
   private static int recoveryTowDeadline;
   private static boolean recoveryTowStarted;
+  private static int recoveryCycleDelay = -1;
+  private static int recoveryCycleDeadline;
+  private static boolean recoveryCycleBraked;
+  private static boolean recoveryCycleComplete;
 
   private CarrierValidationFixture() {}
 
@@ -135,6 +139,10 @@ public final class CarrierValidationFixture {
     recoveryTowDelay = -1;
     recoveryTowDeadline = 0;
     recoveryTowStarted = false;
+    recoveryCycleDelay = -1;
+    recoveryCycleDeadline = 0;
+    recoveryCycleBraked = false;
+    recoveryCycleComplete = false;
     if (recoveryFixture) {
       // RecoveryExamples allocates a native sublevel bearing. Defer it to an active server tick;
       // level-load callbacks run before that bearing's plot can participate in the cart scan.
@@ -281,6 +289,8 @@ public final class CarrierValidationFixture {
     }
     if (recoveryFixture() && recoveryAttached && !recoveryTowStarted)
       progressRecoveryTow(event.getServer(), level);
+    if (recoveryCycleFixture() && recoveryTowStarted && !recoveryCycleComplete)
+      progressRecoveryCycle(event.getServer(), level);
     if (supportLossRequired() && riderFixtureBoarded && !supportLossTriggered) {
       if (supportLossReadyToTrigger(level)) {
         triggerSupportLoss(level);
@@ -469,6 +479,11 @@ public final class CarrierValidationFixture {
           (CoasterAnchorpointBlockEntity) level.getBlockEntity(recoveryExample.car().boundFrom);
       recoveryExample.motor().generatedSpeed.setValue(8 * anchor.getChainLiftTravelSign());
       recoveryTowStarted = true;
+      if (recoveryCycleFixture()) {
+        // Let the client observe a material native tow before the normal production stop path.
+        recoveryCycleDelay = 240;
+        recoveryCycleDeadline = 800;
+      }
       LogUtils.getLogger()
           .info(
               "FD_CARRIER_FIXTURE started occupied recovery chassis={} bearing={} nativeChain=true",
@@ -479,6 +494,58 @@ public final class CarrierValidationFixture {
         throw new IllegalStateException("FD_CARRIER_FIXTURE recovery tow did not become safe to start", failure);
       recoveryTowDelay = 20;
     }
+  }
+
+  /** Completes normal recovery release only after the linked group has visibly towed. */
+  private static void progressRecoveryCycle(
+      net.minecraft.server.MinecraftServer server, ServerLevel level) {
+    if (recoveryExample == null)
+      throw new IllegalStateException("FD_CARRIER_FIXTURE missing recovery-cycle example");
+    var car = recoveryExample.car();
+    var rider = server.getPlayerList().getPlayer(riderFixturePlayers.getFirst());
+    if (rider == null) throw new IllegalStateException("FD_CARRIER_FIXTURE missing recovery-cycle rider");
+    if (!recoveryCycleBraked) {
+      if (recoveryCycleDelay-- > 0) return;
+      RecoveryOperations.brake(level, car);
+      var lever = recoveryExample.powerLever();
+      level
+          .getBlockState(lever)
+          .useWithoutItem(
+              level,
+              rider,
+              new net.minecraft.world.phys.BlockHitResult(
+                  net.minecraft.world.phys.Vec3.atCenterOf(lever),
+                  net.minecraft.core.Direction.UP,
+                  lever,
+                  false));
+      recoveryCycleBraked = true;
+      recoveryCycleDelay = 40;
+      LogUtils.getLogger()
+          .info(
+              "FD_CARRIER_FIXTURE braked occupied recovery chassis={} bearing={} powerCut=true",
+              car.chassis,
+              car.recoveryCart);
+      return;
+    }
+    if (recoveryCycleDelay-- > 0) return;
+    try {
+      RecoveryOperations.detach(level, car);
+      VehicleOperations.restraints(level, car, false);
+    } catch (IllegalArgumentException notSettled) {
+      if (recoveryCycleDeadline-- <= 0)
+        throw new IllegalStateException(
+            "FD_CARRIER_FIXTURE recovery group did not settle for normal detach", notSettled);
+      recoveryCycleDelay = 20;
+      return;
+    }
+    rider.stopRiding();
+    if (rider.isPassenger() || car.recoveryCart != null || car.restraints)
+      throw new IllegalStateException("FD_CARRIER_FIXTURE recovery cycle did not detach and unload");
+    recoveryCycleComplete = true;
+    LogUtils.getLogger()
+        .info(
+            "FD_CARRIER_FIXTURE completed occupied recovery cycle chassis={} detached=true restraintsOpen=true riderUnloaded=true",
+            car.chassis);
   }
 
   /** Describes production boarding readiness when an opt-in rider fixture times out. */
@@ -553,6 +620,11 @@ public final class CarrierValidationFixture {
 
   private static boolean bankedRecoveryFixture() {
     return Boolean.getBoolean("fourthdimension.carrierFixtureRecoveryBank");
+  }
+
+  private static boolean recoveryCycleFixture() {
+    return recoveryFixture()
+        && Boolean.getBoolean("fourthdimension.carrierFixtureRecoveryCycle");
   }
 
   /** Keeps the selected occupied fixture in the connecting players' view-distance ticket. */
