@@ -54,9 +54,9 @@ public final class VehicleOperations {
       throw new IllegalArgumentException("Select an original 4D vehicle");
     var parent = SubLevelContainer.getContainer(player.level()).getSubLevel(id);
     var center = parent == null ? null : CoasterCartResolve.cartCenterWorld(parent);
+    var operator = RecoveryOperations.operatorWorldPosition(player);
     if (center == null
-        || center.distanceSquared(new Vector3d(player.getX(), player.getY(), player.getZ()))
-            > 12 * 12
+        || center.distanceSquared(operator) > 12 * 12
         || !player
             .serverLevel()
             .mayInteract(

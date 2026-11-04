@@ -68,13 +68,25 @@ public final class RecoveryHandoverGameTests {
     var cars = example.cars();
     var lead = cars.getFirst();
     var winch = example.winch();
+    var operatorProfile =
+        new com.mojang.authlib.GameProfile(
+            UUID.fromString("fdfdfdfd-0000-0000-0000-000000000408"),
+            "FDBrokenConsist");
     var operator =
+        new ServerPlayer(
+            level.getServer(),
+            level,
+            operatorProfile,
+            net.minecraft.server.level.ClientInformation.createDefault());
+    operator.connection = FakePlayerFactory.get(level, operatorProfile).connection;
+    operator.setGameMode(GameType.CREATIVE);
+    var maintainer =
         FakePlayerFactory.get(
             level,
             new com.mojang.authlib.GameProfile(
-                UUID.fromString("fdfdfdfd-0000-0000-0000-000000000408"),
-                "FDBrokenConsist"));
-    operator.setGameMode(GameType.CREATIVE);
+                UUID.fromString("fdfdfdfd-0000-0000-0000-000000000409"),
+                "FDConsistMaintainer"));
+    maintainer.setGameMode(GameType.CREATIVE);
     Pig[] rider = {null};
     helper.runAtTickTime(
         80,
@@ -90,8 +102,14 @@ public final class RecoveryHandoverGameTests {
               container.getSubLevel(lastCarrier.body).getPlot().getCenterBlock().offset(lastCarrier.seats.getFirst()),
               rider[0]);
           helper.assertTrue(rider[0].isPassenger(), "Broken-consist rider did not board");
-          at(operator, container.getSubLevel(lead.chassis));
-          edit(operator, lead, 11);
+          var leadCarrier = lead.carriers.getFirst();
+          var leadSeat =
+              container.getSubLevel(leadCarrier.body).getPlot().getCenterBlock().offset(leadCarrier.seats.getFirst());
+          operator.setPos(leadSeat.getX(), leadSeat.getY(), leadSeat.getZ());
+          SeatBlock.sitDown(level, leadSeat, operator);
+          helper.assertTrue(operator.isPassenger(), "Broken-consist operator did not board");
+          at(maintainer, container.getSubLevel(lead.chassis));
+          edit(maintainer, lead, 11);
           winch.fail("Native consist separated; inspect before recovery");
           for (var car : cars)
             CoasterCartTrainLinkConstraint.clearAllLinks(
@@ -110,8 +128,8 @@ public final class RecoveryHandoverGameTests {
         110,
         () -> {
           for (var car : cars) {
-            at(operator, container.getSubLevel(car.chassis));
-            edit(operator, car, 14);
+            at(maintainer, container.getSubLevel(car.chassis));
+            edit(maintainer, car, 14);
           }
         });
     helper.runAtTickTime(
@@ -120,10 +138,13 @@ public final class RecoveryHandoverGameTests {
           helper.assertTrue(
               cars.stream().allMatch(car -> RecoveryOperations.retained(car) && Boarding.ready(level, car)),
               "Separated PAX cars did not settle for retained handover");
-          at(operator, container.getSubLevel(lead.chassis));
+          helper.assertTrue(operator.isPassenger(), "Broken-consist operator dismounted before handover");
           edit(operator, lead, 24);
           helper.assertTrue(
-              winch.vehicle == null && winch.cars.isEmpty() && rider[0].isPassenger(),
+              winch.vehicle == null
+                  && winch.cars.isEmpty()
+                  && operator.isPassenger()
+                  && rider[0].isPassenger(),
               "Broken-consist handover did not safely detach the winch");
           for (int i = 1; i < cars.size(); i++)
             helper.assertTrue(
@@ -139,13 +160,13 @@ public final class RecoveryHandoverGameTests {
                       .size()
                   == 4,
               "Recovered PAX consist did not contain all four cars");
-          at(operator, container.getSubLevel(lead.chassis));
           edit(operator, lead, 15);
           winch.bind(lead);
           edit(operator, lead, 13);
           helper.assertTrue(
               winch.cars.size() == 4
                   && winch.phase == ShuttleWinchEntity.Phase.LIFTING
+                  && operator.isPassenger()
                   && rider[0].isPassenger(),
               "Rebound PAX winch could not dispatch the occupied train");
           System.out.println("FD_PAX_BROKEN_CONSIST retained=true detached=true recoupled=true rebound=true dispatched=true occupied=true");

@@ -67,11 +67,8 @@ public final class RecoveryOperations {
     }
   }
 
-  /**
-   * Seats live on the carrier's sublevel plot, so a mounted player's entity coordinates are not
-   * overworld coordinates. Recovery selection remains a world-space proximity check.
-   */
-  private static Vector3d operatorWorldPosition(ServerPlayer player) {
+  /** Resolve a mounted operator's seat coordinates into the overworld for proximity checks. */
+  public static Vector3d operatorWorldPosition(ServerPlayer player) {
     var vehicle = player.getVehicle();
     var binding = vehicle == null ? null : Boarding.at(player.serverLevel(), vehicle.blockPosition());
     var container = SubLevelContainer.getContainer(player.serverLevel());

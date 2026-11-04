@@ -96,12 +96,14 @@ public final class ShuttleRuntime {
     var winch = owner(level, selected.chassis);
     if (winch == null)
       throw new IllegalArgumentException("This car has no shuttle winch assignment");
+    var operator = RecoveryOperations.operatorWorldPosition(player);
     if (!level.hasChunkAt(winch.getBlockPos())
         || level.getBlockEntity(winch.getBlockPos()) != winch
-        || player.distanceToSqr(
-                winch.getBlockPos().getX() + .5,
-                winch.getBlockPos().getY() + .5,
-                winch.getBlockPos().getZ() + .5)
+        || operator.distanceSquared(
+                new Vector3d(
+                    winch.getBlockPos().getX() + .5,
+                    winch.getBlockPos().getY() + .5,
+                    winch.getBlockPos().getZ() + .5))
             > 12 * 12
         || !level.mayInteract(player, winch.getBlockPos())
         || !player.mayBuild()
