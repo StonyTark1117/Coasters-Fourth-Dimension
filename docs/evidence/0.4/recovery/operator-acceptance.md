@@ -127,12 +127,18 @@ one bounded Arrow scene and does not replace the remaining acceptance below.
 
 Rendered ordinary player selection/editor/propulsion/boarding,
 complete curved/banked offsets and clearance, nonzero Arrow rack/profile scenes,
-broader coupler strength and propulsion/braking scenes, Engineered recovery/FE
-operation, and fresh-process recovery-mode lifecycle evidence remain open. These
+broader coupler strength and propulsion/braking scenes, and fresh-process
+recovery-mode lifecycle evidence remain open. These
 checks do not certify added ordinary-cart assemblies or a survival locomotive.
 The bounded installed-motor brake/start/brake callback check is recorded in the
 [Engineered motor-interlock checkpoint](engineered-motor-interlock/acceptance.md);
-it does not close the broader Engineered/FE acceptance item.
+at that earlier checkpoint it did not close the broader Engineered/FE item.
+The later [isolated Engineered recovery/FE checkpoint](engineered-fe/acceptance.md)
+closes that bounded item with the provider's native controller and FE capability:
+braked/starved holds, explicit occupied towing and consumption, the recovery
+speed cap, rebraking without depletion, rider retention and cleanup all pass.
+Rendered manual Engineered operation and all-family provider coverage remain
+outside that result.
 The later [dev.17 occupied handover checkpoint](occupied-handover/acceptance.md)
 adds one native end-to-end handover/towing/braking/disconnection/unloading test
 with sixteen passengers in their original seats. Rendered occupied handover and

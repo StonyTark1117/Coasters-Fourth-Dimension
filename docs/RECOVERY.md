@@ -198,8 +198,14 @@ Every passenger keeps its original seat mount until unloading; see the
 now covers one linked, mounted local-player recovery group through the client draw
 paths and initial native movement. It does not establish rendered manual operator
 acceptance, complete vehicle/rider/rack mesh clearance, rendered occupied linked-train
-recovery, Engineered recovery propulsion/FE, coupler strength across those scenes,
+recovery, coupler strength across those scenes,
 or the complete recovery lifecycle matrix. FD402 and the 0.4 gate remain open.
+
+The [isolated Engineered recovery/FE checkpoint](evidence/0.4/recovery/engineered-fe/acceptance.md)
+now covers the certified bare ordinary bearing with Engineered 1.1.1: braked and
+starved holds, supplied explicit towing/consumption, bounded speed, rebraking,
+rider retention and cleanup. Rendered manual provider controls, all-family
+Engineered recovery and stronger ordinary assemblies remain outside that result.
 
 ## Sampled native model clearance
 

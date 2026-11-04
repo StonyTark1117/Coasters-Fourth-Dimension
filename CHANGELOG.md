@@ -5,6 +5,7 @@
 - Give Arrow, Legacy, Free Spin/PAX and Revised their family-correct axle geometry, including an idempotent Legacy saved-vehicle conversion from the shared axle block.
 - Extend the source-pinned one-tick auditor with part-level vanilla seated-player envelopes and require player-to-track plus player-to-every-non-seat-rack separation.
 - Pass all five occupied single-car routes and the occupied Arrow/PAX train routes with at least 0.06532 blocks of player/rack clearance and 0.08 blocks of player/track clearance. Equipped/cosmetic meshes, observed client rendering, continuous physics-step sweep, broader propulsion/strength and the rendered operator lifecycle remain open.
+- Isolate the Engineered 1.1.1 recovery/FE GameTest from the full matrix and pass the certified ordinary bearing through braked/starved holds, supplied occupied towing with native FE consumption, the 0.75-block/s recovery cap, rebraking without depletion, rider retention and complete fixture cleanup.
 
 ## 0.9.0-dev.27 — recovery schema migration matrix
 

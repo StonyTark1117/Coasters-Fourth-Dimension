@@ -421,6 +421,13 @@ Equipped/cosmetic meshes, observed client rendering, continuous physics-step
 clearance, broader strength/propulsion and recovery lifecycle evidence remain
 open.
 
+The [isolated Engineered recovery/FE checkpoint](docs/evidence/0.4/recovery/engineered-fe/acceptance.md)
+closes the bounded optional-provider power item for the certified ordinary
+bearing: braked/starved holds, explicit occupied towing with FE consumption,
+the recovery speed cap, rebraking, rider retention and cleanup pass. Rendered
+manual Engineered controls, all-family provider coverage and stronger ordinary
+assemblies remain outside that result.
+
 The preceding mechanical checkpoint proved fifteen slow, flat native-coupler pulls across all five families: empty captured, fully occupied captured and fully occupied maintenance-retained, at family-specific 6/12/14-block spacing. It used an artificial actuator on the ordinary bearing and a temporary admission policy; both were removed before production recovery was implemented. It establishes feasibility, while the dev.15 operator tests use actual native chains and production guards. A policy rejection is not a demonstrated physical coupling limitation. See [mechanical evidence and reproduction](docs/evidence/0.4/recovery/mechanical-acceptance.md).
 
 **Depends on:** FD108, FD106, FD305. **Design:** D03.

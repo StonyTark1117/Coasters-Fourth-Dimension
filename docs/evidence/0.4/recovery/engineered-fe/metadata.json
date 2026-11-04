@@ -1,0 +1,30 @@
+{
+  "sourceRevision": "3d56da7c651fd31ad5c1e73d4620cb76f059eec5",
+  "profile": "engineered",
+  "gameTestNamespace": "fourthdimension_fd402",
+  "requiredTests": 1,
+  "engineeredVersion": "1.1.1",
+  "engineeredJarSha256": "eea19ed769ed573727b4e15184c229f66aff85f20667464650724e1b2d657f5d",
+  "uncompressedLogSha256": "40a4dae65f25d0fba7e6ccb19b24c048094f31be3fed08c9e47a7e0a238a9699",
+  "compressedLogSha256": "45eb0723d559da5df4122712c65a37e458afa3974468f89b1c6db3fe1f580585",
+  "sourceHashes": {
+    "build.gradle": "74dc6306c24ce65c91b659b124c240c9a8e5c815e68fd69a3bdc23ea31be0cc0",
+    "src/main/java/dev/fourthdimension/gametest/EngineeredEnergyGameTests.java": "6dec3b27896384300da63dea669373e93b863ca41e607ccda854a878341b127f",
+    "src/main/java/dev/fourthdimension/integration/EngineeredInterlock.java": "ace9dd1a0dd6ceeb12432f40d6c5c0719c1bb4bdc336f365dbc85a27f14ef629",
+    "src/main/java/dev/fourthdimension/mixin/EngineeredMotorGuardMixin.java": "fa3edaf6d62c3265c6f8522e4d3519fe3b3c1047ad373e203562187a446607c4",
+    "src/main/resources/data/fourthdimension_fd402/structure/empty.nbt": "a9d03ca591293613d7784c736d6a9ae4926b6e88039ad8a98c9fd49cd94476d6"
+  },
+  "metrics": {
+    "brakedDistance": 0.0,
+    "starvedTowDistance": 0.0,
+    "towingDistance": 0.34051513671875,
+    "suppliedEnergy": 100000,
+    "activeEnergy": 99680,
+    "activeSpeed": 0.04095841107613423,
+    "maximumSpeed": 0.75,
+    "brakedEnergy": 99680,
+    "minimumBrakedEnergy": 99680,
+    "riderMounted": true,
+    "cleanupVerified": true
+  }
+}

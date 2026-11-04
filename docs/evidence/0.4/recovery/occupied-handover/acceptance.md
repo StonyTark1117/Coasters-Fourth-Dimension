@@ -82,6 +82,9 @@ does not close FD402 or FD404. Short travel on the actual shuttle route does not
 prove that the whole four-car train negotiates the spike, nor complete curved or
 banked axle/vehicle/rider clearance. Rendered occupied handover and all-family
 operator acceptance, nonzero Arrow profiles, broader coupler strength/propulsion,
-Engineered recovery/FE operation and the full recovery lifecycle matrix remain.
+The later [isolated Engineered recovery/FE checkpoint](../engineered-fe/acceptance.md)
+closes the bounded provider-power item for one occupied Arrow recovery group.
+Rendered manual provider controls, all-family Engineered coverage and the full
+recovery lifecycle matrix remain.
 Prior movement-packet warnings and the freed bitmap-glyph client crash retain
 their FD902/FD904 investigations; no client fix is claimed by this test.

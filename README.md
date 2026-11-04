@@ -13,6 +13,9 @@ The current FD402 [sampled player/rack checkpoint](docs/evidence/0.4/recovery/pl
 adds family-correct axle geometry and part-level vanilla seated-player clearance
 to the five single-car and two linked-train banked routes. Equipped/cosmetic
 meshes, observed client rendering and continuous physics-step sweep remain open.
+The bounded [Engineered recovery/FE checkpoint](docs/evidence/0.4/recovery/engineered-fe/acceptance.md)
+also passes native braked/starved holds, supplied occupied towing, speed capping,
+rebraking, rider retention and cleanup on the certified ordinary bearing.
 
 Development build `0.9.0-dev.27` advances FD903 migration coverage: the occupied five-family recovery fixture now loads every supported legacy schema (1–5) after legacy records omit recovery fields. It preserves all chassis identities without inventing a recovery partner or removed-partner state. A separate [complete schema-3 native-world replay](docs/evidence/0.9/native-schema3-world-replay.md) now preserves all three original chassis and eight carriers across upgrade and reopen. Bounded connected-client [Legacy and Free Spin operator cycles](docs/evidence/0.9/native-schema3-legacy-free-spin-operator.md) now add historical seat/editor/restraint/unload coverage; sustained historical rides, broader worlds and provider conversion remain open. See the [recovery migration checkpoint](docs/evidence/0.9/recovery-schema-migration.md). Dev.26’s source-pinned FD402 trace still records native chassis, rider and carrier-rack poses every ten ticks; its seven routes pass with at least 577 poses each and body/track, rider/track and rider/rack bounds of 0.0460, 0.08 and 0.0625 blocks. See the [dense-clearance checkpoint](docs/evidence/0.4/recovery/dense-clearance/acceptance.md).
 
