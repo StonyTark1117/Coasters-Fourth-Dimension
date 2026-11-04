@@ -173,8 +173,11 @@ held items, capes/elytra/modded cosmetics, decoration self-clearance and custom
 resources. Whole-section transitions do not prove UI edits inside a curve. The historical transition
 report excludes player meshes; the current extension supplies that bounded
 player check without turning it into runtime editor evidence. The frozen-source results do
-not validate later draw-fallback behavior or close telemetry, exact-candidate
-review, FD401 or the release gate.
+not validate later draw-fallback behavior or close telemetry, candidate-exact
+runtime acceptance, FD401 or the release gate. The
+[selected `2c5d9a7` identity and artifact map](evidence/0.9/fd401-final-candidate-2c5d9a7/README.md)
+fix the review target without promoting these offline reports into runtime
+evidence.
 
 Complete style geometry and clearance checks and record supported styles/render
 modes and styled ride behavior. Resource reload and a real removal/reinstallation
@@ -226,8 +229,8 @@ generation. Original running/control rails and mechanical supports remain ours;
 external rail models are never rendered. The packaged flat quarter curve now has
 exterior alignment and occupied circuit evidence. The banked circuit has a
 separate packaged checkpoint plus bounded one-tick vehicle/player-skin clearance;
-between-tick sweep, equipped/cosmetic riders and exact-candidate review remain
-before broad style compatibility is advertised.
+between-tick sweep, equipped/cosmetic riders and candidate-exact runtime review
+remain before broad style compatibility is advertised.
 
 ## Engineered operating adapter checkpoint
 

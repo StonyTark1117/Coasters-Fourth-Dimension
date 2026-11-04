@@ -1,0 +1,68 @@
+{
+  "format": 1,
+  "candidate": {
+    "sourceCommit": "2c5d9a7663e7d0e04887d2ac1cbb40688eb73d96",
+    "sourceArchiveSha256": "a32ec9e986fcc3e57a555e9da42d303764c60e8e46cc3165267e4afced4572a2",
+    "sourceArchiveSize": 1029007360,
+    "artifact": "coasters-fourth-dimension-0.9.0-dev.27.jar",
+    "artifactSha256": "4b23cf0e1766617eb106a7ffcf293f73639d2bad119872c218b7cb2bb52b7781",
+    "artifactSize": 964121,
+    "modVersion": "0.9.0-dev.27",
+    "minecraftVersion": "1.21.1",
+    "saveSchema": 6,
+    "networkProtocol": "7"
+  },
+  "build": {
+    "date": "2026-11-04",
+    "sourceDirectory": "/tmp/fd401-candidate-2c5d9a7-V9tBRB",
+    "buildDirectory": "/tmp/fd401-candidate-2c5d9a7-V9tBRB/build-output",
+    "projectCacheDirectory": "/tmp/fd401-candidate-2c5d9a7-V9tBRB/project-cache",
+    "command": "env JAVA_HOME=/usr/lib/jvm/java-21-openjdk ./gradlew jar --offline --no-daemon --console=plain --project-cache-dir /tmp/fd401-candidate-2c5d9a7-V9tBRB/project-cache -PfdPackaged -PfdIntegrations=styles,engineered -PfdFeNetwork -PfdBuildDirectory=/tmp/fd401-candidate-2c5d9a7-V9tBRB/build-output",
+    "result": "BUILD SUCCESSFUL in 4s; 4 actionable tasks: 3 executed, 1 from cache",
+    "java": "OpenJDK 21.0.13.0.3+1",
+    "gradle": "9.2.1",
+    "offline": true,
+    "sharedBuildOutputUsed": false
+  },
+  "toolchain": {
+    "gradleDistribution": "https://services.gradle.org/distributions/gradle-9.2.1-bin.zip",
+    "gradleDistributionSha256": "72f44c9f8ebcb1af43838f45ee5c4aa9c5444898b3468ab3f4af7b6076c5bc3f",
+    "gradleWrapperJarSha256": "7d3a4ac4de1c32b59bc6a4eb8ecb8e612ccd0cf1ae1e99f66902da64df296172",
+    "gradleWrapperPropertiesSha256": "429cea49c10937146f8f9b7ba30aed2980d62ba6ac79072042e73e8916068b1c",
+    "gradlewSha256": "8323eec7613815c05da51cdd9f8791b13de5be2206ac2283b64579768deecb88"
+  },
+  "jarBuildParity": {
+    "verifiedAgainst": "/tmp/fd401-candidate-2c5d9a7-V9tBRB/build-output",
+    "classFiles": 234,
+    "resourceFiles": 107,
+    "generatedFiles": 2,
+    "totalFiles": 343,
+    "classEntrySetSha256": "34d2d2ee03a49719473a202f0dca5a4d542697b37db4431f82272b573b2e9f6a",
+    "resourceEntrySetSha256": "2c8f8e4d8f58a1b511b37f8a3c3c065b7141d1878bcd87a484d1a83e340f12bb",
+    "generatedEntrySetSha256": "54b2ca335a068d52ceb50bcd0838cc1b901937df575ff3077a1b248842a09ab9",
+    "allEntrySetSha256": "662abbfc013dba4f6f0864fddc115fa38431cb5cd478a67041103259a074dcc7",
+    "result": "Every non-directory JAR entry matched the isolated classes or resources output byte for byte; only the Gradle manifest and license entries were generated."
+  },
+  "classpath": {
+    "record": "runtime-classpath.json",
+    "recordSha256": "20c6c75c223ea658427e969a4a74a5cbc825bc38152ec8577c8c2471ab302372",
+    "entryCount": 111,
+    "profile": "packaged combined validation classpath with Styles, Engineered, and validation-only Crafts & Additions"
+  },
+  "profiles": [
+    "base",
+    "styles",
+    "engineered",
+    "styles+engineered"
+  ],
+  "scope": {
+    "advertisedOptionalIntegrations": [
+      "Coasters Simulated Track Styles 1.2.0",
+      "Coasters Engineered 1.1.1"
+    ],
+    "validationOnlyDependencies": [
+      "Create Crafts & Additions 1.6.0"
+    ],
+    "note": "The retained JAR is common to the four declared profiles. The resolved classpath record is the superset used to build and validate the combined profile; it does not advertise Crafts & Additions support."
+  }
+}

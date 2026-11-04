@@ -100,6 +100,13 @@ FD801 and the [expansion backlog](INTEGRATION-BACKLOG.md) remain separate.
   combined telemetry and Styles render-mode records, with 111 resolved packaged
   classpath file hashes. It is an audit baseline; shared-output runtime identity
   and later source changes still require release review.
+- [Final `2c5d9a7` candidate identity](evidence/0.9/fd401-final-candidate-2c5d9a7/README.md):
+  the committed source was exported and rebuilt offline outside every shared
+  output/game directory. Its retained JAR is byte-identical to the `a23ae2d`
+  coupled/UI artifact and its 111-file combined validation classpath is hashed.
+  The artifact map separates exact whole-JAR evidence, production/resource
+  parity, scoped renderer parity, non-equivalent predecessors and sessions whose
+  runtime JAR was never established.
 - [Standalone telemetry](evidence/0.9/create-telemetry/local-046ead9/README.md):
   five-family empty goggles, Arrow occupancy/readiness/retention, normal Display
   Link configuration, late join, reload and occupied restart; PAX phase views.
@@ -260,7 +267,6 @@ FD801 and the [expansion backlog](INTEGRATION-BACKLOG.md) remain separate.
 
 | Priority / handoff | Concrete observation still required | Pass condition and boundary |
 | --- | --- | --- |
-| 1. Freeze evidence identity | Review the [isolated `81ee2e6` source/JAR/classpath baseline](evidence/0.9/fd401-candidate-81ee2e6/README.md), select the final candidate after remaining work, and map each reused checkpoint to that exact artifact. | The isolated rebuild matches the shared-output telemetry/Styles JAR byte for byte, but does not attest the live JVM bytes or make earlier artifacts equivalent. Record later executable differences and rerun relevant native cases; documentation-only commits do not require native reruns. |
 | 2. Engineered normal operator loop | Review the completed STOP/capture/unload and cold repeat against the exact frozen candidate, including the [isolated longer-span pass](evidence/0.9/fd401-engineered-launch20-2e12e9d/README.md). | The normally placed car completed occupied circuits, a programmed STOP hold inside station range, station redstone capture, and unload in initial and cold runs. An unready station release was rejected before launch. The `2e12e9d` 28-block span run achieved the provider's `PassShort=0` at `PassReached=19.50049/20` and repeated normal capture/unload. Retuning required a disclosed span-NBT removal fixture before normal item replacement. Literal 20.0 speed attainment remains unproven. |
 | 2. Physical FE workflow | Freeze and review the wired evidence on the exact candidate. | With `requireEnergy=true`, the noncreative water-wheel alternator delivered through a normal copper-spool wire, stopped on source interruption, resumed on restoration, persisted through cold reopen, and powered another occupied STOP/capture/unload. Crafts & Additions remains a disclosed validation-only dependency (`-PfdFeNetwork`), not a new advertised integration. |
 | 2. Engineered family/authority coverage | Freeze/review the coupled Arrow and PAX authority evidence against an exact candidate. | Legacy, Free Spin and Revised have normal car-item placement, client-fitted motor, linked GUI controller, occupied full circuit/STOP, station redstone capture, and unload. A [normally item-placed, chain-linked two-car Arrow train](evidence/0.9/fd401-engineered-coupled-arrow/README.md) completed an occupied circuit, programmed STOP, station capture and unload. An [occupied PAX winch cycle](evidence/0.9/fd401-engineered-pax-authority/README.md) completed against a powered `Launch 20` Engineered controller, with pass zero, FE unchanged, native capture and unload. A separate [two-car occupied PAX callback fixture](evidence/0.9/fd401-engineered-pax-callback-663aa12/README.md) reached and cancelled the native motor callback on each chassis with zero queued impulse. The four-car cycle did not trace callbacks per car, and earlier shared-build JAR identity remains an evidence limit. |

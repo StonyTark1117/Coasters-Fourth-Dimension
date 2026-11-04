@@ -365,6 +365,12 @@ Ship both new families with instructions and examples, including compact and tal
 
 **Depends on:** FD005, FD305. **Design:** D04, D05, D07, D15.
 
+The [final `2c5d9a7` candidate identity](docs/evidence/0.9/fd401-final-candidate-2c5d9a7/README.md)
+now fixes the source, JAR and 111-file combined validation classpath. Its
+artifact map distinguishes exact whole-JAR checkpoints from scoped class parity
+and non-equivalent predecessors. References below to exact-candidate review now
+mean the remaining runtime/operator acceptance, not candidate selection.
+
 The later [exact-source interactive font replay](docs/evidence/0.9/fd401-final-source-retest-1a91c94/README.md)
 tests `1a91c94` with three real F3+T reloads, a stale-default-font redirect,
 post-reload chat/inventory/pause menu and exit 0. Source `05ad4a6` additionally
@@ -372,8 +378,9 @@ uses Minecraft's separate missing-font fallback for a removed custom ID; its
 runtime branch acceptance remains pending. Recovery runs without diagnostic
 flags, but the retained replay enabled tracing. The later isolated styled ride
 and mode records cover a bounded occupied post-reload circuit and declared graphics
-modes; exact-candidate review, tracing-disabled operation and repeated reliability
-remain open and FD401 is not closed by those bounded runs.
+modes. The selected candidate's artifact map retains those older runs only at
+their proven scope; candidate-exact runtime operation, tracing-disabled operation
+and repeated reliability remain open and FD401 is not closed by those bounded runs.
 
 The frozen `ff7c831` [uniform Styles geometry reports](docs/evidence/0.9/fd401-prospective-styles-ff7c831/README.md)
 now pass both single- and double-spine configurations for single-car and two-car
@@ -390,8 +397,8 @@ report applies the same 52,384 player checks to the retained whole-section
 Original/single/double transition plan. This resolves
 the bounded one-tick sampled default-model/player-skin geometry work only.
 Continuous between-tick clearance, equipped/cosmetic players, decoration
-self-clearance, visible transition ownership, within-curve UI styling, exact-candidate
-review and dynamic telemetry remain open. Neither these prospective results nor
+self-clearance, visible transition ownership, within-curve UI styling,
+candidate-exact runtime acceptance and dynamic telemetry remain open. Neither these prospective results nor
 the later draw-fallback source correction closes FD401.
 
 Implement isolated optional adapters, support/version checks, component render ownership, appearance fallback and shared server-validated operations telemetry. The current 0.4–1.0 scope is Create guidance/diagnostics plus existing Track Styles 1.2.0 appearance and Engineered 1.1.1 operations. Keep the current schema 6/protocol 7 baseline; the paused schema-7/protocol-8 provider registry requires a separate migration decision and is not a 0.9 prerequisite. Newly staged Additions, CTNB, Magnetized, Skin, Immersion, Waterparked and Create Coasters adapters remain in the proposed post-1.0 expansion plan, not prerequisites for FD401.
