@@ -47,7 +47,14 @@ public final class VehicleParts {
           () ->
               new MechanicalPartBlock(
                   BlockBehaviour.Properties.of().strength(4).noOcclusion(),
-                  Block.box(0, 6, 6, 16, 10, 10)));
+                  Block.box(0, 6, -7, 16, 10, -3)));
+  public static final DeferredBlock<Block> LEGACY_AXLE =
+      BLOCKS.register(
+          "legacy_axle",
+          () ->
+              new MechanicalPartBlock(
+                  BlockBehaviour.Properties.of().strength(4).noOcclusion(),
+                  Block.box(0, 6, 6.5, 16, 10, 9.5)));
   public static final DeferredBlock<Block> REVISED_STRUT =
       BLOCKS.register(
           "revised_strut",
@@ -67,7 +74,7 @@ public final class VehicleParts {
           () ->
               new MechanicalPartBlock(
                   BlockBehaviour.Properties.of().strength(4).noOcclusion(),
-                  Block.box(0, 6, 6, 16, 10, 10)));
+                  Block.box(0, 6, -7, 16, 10, -3)));
   public static final DeferredBlock<Block> STRUT =
       BLOCKS.register(
           "wing_strut",

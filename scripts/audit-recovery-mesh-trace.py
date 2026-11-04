@@ -12,8 +12,9 @@ two running rails are excluded because they are the intended wheel contact.
 Every original occupied seat must contribute the same mounted rider and carrier
 assignment at every sample. Their oriented envelopes use the live native poses.
 For the recovery fixture's pigs, the verifier also places a conservative vanilla
-player skin-and-outer-layer envelope at the same Create seat. The player envelope
-uses the inspected 1.21.1 seated model dimensions and Sable's carrier orientation;
+player skin-and-outer-layer envelope at the same Create seat and checks it against
+the same non-seat carrier rack. The player envelope uses the inspected 1.21.1
+seated model dimensions and Sable's carrier orientation;
 armor, held items and arbitrary cosmetics remain outside the audit. This does not
 verify a client renderer. Arrow's unmodeled mechanical linkage, decorations and resource
 overrides remain outside this audit. A zero separating bound is UNCERTIFIED, not
@@ -39,6 +40,7 @@ BOTTOM_MODEL = "simulatedcoasters:block/coaster_cart_bottom"
 WHEEL_MODEL = "simulatedcoasters:block/coaster_cart_wheel_axis"
 LINKAGE_BLOCKS = {
     "fourthdimension:wing_strut",
+    "fourthdimension:legacy_axle",
     "fourthdimension:revised_strut",
     "fourthdimension:carrier_axle",
     "fourthdimension:free_spin_axle",
@@ -53,12 +55,12 @@ PLAYER_RENDER_SCALE = 0.9375
 PLAYER_RENDER_TRANSLATION = 1.501
 PLAYER_EYE_HEIGHT = 1.62
 SOURCE_PINS = {
-    "src/main/java/dev/fourthdimension/client/OriginalTrackRenderer.java": "d1323d09d93e738ff01140133aa0e7fb83e6bcc7ca99884e3b265dde1c2faba4",
+    "src/main/java/dev/fourthdimension/client/OriginalTrackRenderer.java": "059f1e2dcf52425fd0f8f161c9d12424d59eb51ff1c45a2c4654224c4e70f67c",
     "src/main/java/dev/fourthdimension/track/TrackDesign.java": "e3a88c3ca661d7b232ee0b9d3c853a6e66c1d0d1147ac4266b001616b1fe1ff1",
-    "src/main/java/dev/fourthdimension/vehicle/BankedRecoveryExamples.java": "662dd6d3382fad445ced3fe12a24725c517fc8b907720890222b8ff02e968a41",
+    "src/main/java/dev/fourthdimension/vehicle/BankedRecoveryExamples.java": "8efe36d8648e7a61b082cd7e42cee5f8dd9a7f62d9a25c9f562679320d8db453",
     "src/main/java/dev/fourthdimension/gametest/RecoveryMeshTrace.java": "3b57c5812aec72ed36ee458d6bdd02a443207d32d1579ec80ba5752a6886913a",
     "src/main/java/dev/fourthdimension/gametest/BankedRecoveryGameTests.java": "89324021f6c70ea8578036b4ae1c924320ef442a9ec3da239c972f89417be66a",
-    "src/main/java/dev/fourthdimension/gametest/BankedRecoveryTrainGameTests.java": "e35abf4b656410bf0bb74c65f1c1942802ee45121d0aeda2a5f5a8c7080e0b47",
+    "src/main/java/dev/fourthdimension/gametest/BankedRecoveryTrainGameTests.java": "928eaa9ecc694656f73c6be6314ea55260f62834919d4db4e013ba051dbd3449",
 }
 
 
@@ -311,6 +313,66 @@ def vanilla_player_mesh_bounds():
     return np.array((-radius, low_y, -radius)), np.array((radius, high_y, radius))
 
 
+@lru_cache(maxsize=1)
+def vanilla_seated_player_parts():
+    """Conservative part-level empty-handed seated mesh, relative to the eye.
+
+    Torso and riding legs use their exact vanilla transforms. Each arm encloses
+    the complete vanilla idle-bob rotation range after the riding pose is
+    applied. The head uses a rotation-independent cube around the hat-layer
+    sphere, so camera look direction cannot hide a rack contact.
+    """
+    def corners(low, high):
+        return np.array(list(itertools.product(*zip(low, high))), dtype=float)
+
+    def rotation_zyx(z, y, x):
+        sx, cx = math.sin(x), math.cos(x)
+        sy, cy = math.sin(y), math.cos(y)
+        sz, cz = math.sin(z), math.cos(z)
+        rx = np.array(((1, 0, 0), (0, cx, -sx), (0, sx, cx)))
+        ry = np.array(((cy, 0, sy), (0, 1, 0), (-sy, 0, cy)))
+        rz = np.array(((cz, -sz, 0), (sz, cz, 0), (0, 0, 1)))
+        return rz @ ry @ rx
+
+    def world(points):
+        result = np.array(points, dtype=float)
+        result[:, 0] = PLAYER_RENDER_SCALE * result[:, 0] / 16
+        result[:, 1] = (PLAYER_RENDER_SCALE
+                        * (PLAYER_RENDER_TRANSLATION - result[:, 1] / 16)
+                        - PLAYER_EYE_HEIGHT)
+        result[:, 2] = PLAYER_RENDER_SCALE * result[:, 2] / 16
+        return result
+
+    parts = [("jacket", world(corners((-4.25, -.25, -2.25),
+                                       (4.25, 12.25, 2.25))))]
+    hat_low, hat_high = np.array((-4.5, -8.5, -4.5)), np.array((4.5, .5, 4.5))
+    hat_radius = float(np.linalg.norm(corners(hat_low, hat_high), axis=1).max())
+    parts.append(("headAndHatAllRotations", world(corners(
+        (-hat_radius, -hat_radius, -hat_radius),
+        (hat_radius, hat_radius, hat_radius)))))
+    leg = corners((-2.25, -.25, -2.25), (2.25, 12.25, 2.25))
+    for side in (-1, 1):
+        pivot = np.array((side * 1.9, 12.0, 0.0))
+        rotation = rotation_zyx(side * .07853982, side * -math.pi / 10, -1.4137167)
+        parts.append((("right" if side < 0 else "left") + "Pants",
+                      world(leg @ rotation.T + pivot)))
+    arm_boxes = {
+        -1: corners((-3.25, -2.25, -2.25), (1.25, 10.25, 2.25)),
+        1: corners((-1.25, -2.25, -2.25), (3.25, 10.25, 2.25)),
+    }
+    for side in (-1, 1):
+        pivot = np.array((side * 5.0, 2.0, 0.0))
+        poses = []
+        # Vanilla bob adds x in [-.05, .05] and opposite signed z in [0, .1].
+        for x_delta in np.linspace(-.05, .05, 9):
+            for z_amount in np.linspace(0, .1, 9):
+                rotation = rotation_zyx(side * z_amount, 0, -math.pi / 5 + side * x_delta)
+                poses.extend(arm_boxes[side] @ rotation.T + pivot)
+        parts.append((("right" if side < 0 else "left") + "SleeveIdleBobEnvelope",
+                      world(np.array(poses))))
+    return tuple(parts)
+
+
 def is_linkage(label):
     """Return whether an exported block-model element is a moving car linkage part.
 
@@ -333,7 +395,12 @@ def audit(route, entries, resources, margin, *, surface=None):
     centers = [np.array([frame["center"] for frame in section["frames"]]) for section in route["sections"]]
     native_bottom_boxes = resources.model_boxes(BOTTOM_MODEL, "nativeLowerBearing")
     native_wheel_boxes = resources.wheel_envelopes()
+    route_body_ids = {
+        pose["id"] for entry in entries
+        if entry.get("variant") == route["variant"] and entry.get("type") == "sample"
+        for pose in entry["poses"]}
     specs, samples, completed, visited = {}, 0, False, {}
+    prospective_substitutions = 0
     sample_interval, previous_tick, original_body_ids = None, None, None
     original_rider_mounts = None
     closest, failures = None, []
@@ -343,16 +410,29 @@ def audit(route, entries, resources, margin, *, surface=None):
     rider_minimum, rider_closest, rider_checks = math.inf, None, 0
     player_minimum, player_closest, player_checks = math.inf, None, 0
     rider_rack_minimum, rider_rack_closest, rider_rack_checks = math.inf, None, 0
+    player_rack_minimum, player_rack_closest, player_rack_checks = math.inf, None, 0
     neighbor_minimum, neighbor_closest = math.inf, None
     neighbor_pairs = 0
     neighbor_pair_cache = {}
+    player_rack_cache = {}
     for entry in entries:
         if entry["type"] == "trace":
             if sample_interval is not None or entry.get("sampleIntervalTicks") != 1:
                 raise ValueError("Recovery trace does not declare the required one-tick interval")
             sample_interval = entry["sampleIntervalTicks"]
         elif entry["type"] == "body":
-            specs[entry["id"]] = {**entry, "boxes": [box for block in entry["blocks"] for box in resources.boxes(block)]}
+            blocks = entry["blocks"]
+            if route["family"] == "LEGACY" and entry["id"] in route_body_ids:
+                replaced = []
+                for block in blocks:
+                    if block["block"] == "fourthdimension:carrier_axle":
+                        block = {**block, "block": "fourthdimension:legacy_axle"}
+                        prospective_substitutions += 1
+                    replaced.append(block)
+                blocks = replaced
+            specs[entry["id"]] = {
+                **entry,
+                "boxes": [box for block in blocks for box in resources.boxes(block)]}
         elif entry.get("variant") == route["variant"] and entry["type"] == "complete":
             if entry["cars"] != route["carCount"]:
                 raise ValueError("Incorrect completed car count")
@@ -442,6 +522,7 @@ def audit(route, entries, resources, margin, *, surface=None):
                 # A rider intentionally contacts its seat. Check every other rack block
                 # for every sampled rider, even when no track triangle is nearby.
                 rack_checks_before = rider_rack_checks
+                player_rack_checks_before = player_rack_checks
                 for rack_points, rack_label in body["boxes"]:
                     if rack_label.startswith("fourthdimension:") and "_seat@" in rack_label:
                         continue
@@ -460,8 +541,32 @@ def audit(route, entries, resources, margin, *, surface=None):
                         failures.append({
                             "gap": rack_gap, "tick": entry["tick"], "body": rider["body"],
                             "modelElement": "nativeRider", "rackComponent": rack_label})
+                    player_eye_local = (player_eye - origin) @ axes.T
+                    cache_key = (rider["body"], tuple(np.round(player_eye_local, 9)), rack_label)
+                    if cache_key not in player_rack_cache:
+                        player_rack_cache[cache_key] = [
+                            (part_label, boxes_separation(
+                                part_points + player_eye_local, np.eye(3),
+                                rack_points, np.eye(3)))
+                            for part_label, part_points in vanilla_seated_player_parts()]
+                    for part_label, player_rack_gap in player_rack_cache[cache_key]:
+                        player_rack_checks += 1
+                        if player_rack_gap < player_rack_minimum:
+                            player_rack_minimum = player_rack_gap
+                            player_rack_closest = {
+                                "tick": entry["tick"], "body": rider["body"],
+                                "modelElement": "vanillaPlayer:" + part_label,
+                                "rackComponent": rack_label}
+                        if player_rack_gap < margin and len(failures) < 20:
+                            failures.append({
+                                "gap": player_rack_gap, "tick": entry["tick"],
+                                "body": rider["body"],
+                                "modelElement": "vanillaPlayer:" + part_label,
+                                "rackComponent": rack_label})
                 if rider_rack_checks == rack_checks_before:
                     raise ValueError("Mounted rider has no auditable carrier rack geometry")
+                if player_rack_checks == player_rack_checks_before:
+                    raise ValueError("Player proxy has no auditable carrier rack geometry")
                 padding = margin * 4
                 cells = itertools.product(*(range(a, b + 1) for a, b in zip(np.floor((low - padding) / 2).astype(int), np.floor((high + padding) / 2).astype(int))))
                 indices = np.array(sorted({index for cell in cells for index in grid.get(cell, [])}), dtype=int)
@@ -606,6 +711,8 @@ def audit(route, entries, resources, margin, *, surface=None):
         raise ValueError("Not every mounted fixture seat received a vanilla player mesh audit")
     if rider_rack_checks < rider_checks or not math.isfinite(rider_rack_minimum):
         raise ValueError("Not every mounted rider was audited against carrier rack geometry")
+    if player_rack_checks < rider_rack_checks or not math.isfinite(player_rack_minimum):
+        raise ValueError("Not every player proxy was audited against carrier rack geometry")
     player_low, player_high = vanilla_player_mesh_bounds()
     return {"family": route["family"], "cars": route["carCount"], "samples": samples,
             "occupiedSeatsPerSample": len(original_rider_mounts),
@@ -629,8 +736,13 @@ def audit(route, entries, resources, margin, *, surface=None):
             "riderRackEnvelopeCount": rider_rack_checks,
             "riderRackMinimumSeparatingBound": rider_rack_minimum,
             "riderRackClosest": rider_rack_closest,
+            "playerRackEnvelopeCount": player_rack_checks,
+            "playerRackMinimumSeparatingBound": player_rack_minimum,
+            "playerRackClosest": player_rack_closest,
+            "playerRackScope": "part-level standard vanilla 1.21.1 empty-handed seated pose; exact jacket/riding legs, all head rotations enclosed, and complete idle-bob arm rotation ranges; excludes armor, held items, capes, elytra, slim-arm-specific geometry and modded cosmetics",
             "neighborMinimumSeparatingBound": neighbor_minimum,
             "neighborClosest": neighbor_closest, "neighborPairs": neighbor_pairs,
+            "prospectiveLegacyAxleSubstitutions": prospective_substitutions,
             "uncertifiedPairs": failures, "allCarsVisitedSections": 5}
 
 
@@ -699,7 +811,7 @@ def main():
               "sourceHashes": {name: initial_hashes["source:" + name] for name in SOURCE_PINS},
               "provenanceCheck": "Input/source/tool hashes matched before analysis and before report emission; use immutable files to exclude intervening changes.",
               "resourceHashes": resources.hashes, "sampleIntervalTicks": 1,
-              "scope": "one-tick sampled original default block-model, explicit chassis/carrier linkage blocks, native lower-bearing, full-spin wheel envelope, every original occupied native-rider volume and a conservative vanilla seated-player skin envelope at each fixture seat against original track tubes; rider identities and carrier mounts are stable across samples; running rails are excluded only for wheels as intended contact; no continuous physics-step sweep, client renderer, armor/held items/capes/elytra/modded cosmetics, unmodeled kinematic linkage, decorations or resource overrides",
+              "scope": "one-tick sampled original default block-model, explicit chassis/carrier linkage blocks, native lower-bearing, full-spin wheel envelope, every original occupied native-rider volume and a conservative vanilla seated-player skin envelope at each fixture seat against original track tubes and non-seat carrier racks; rider identities and carrier mounts are stable across samples; running rails are excluded only for wheels as intended contact; no continuous physics-step sweep, client renderer, armor/held items/capes/elytra/modded cosmetics, unmodeled kinematic linkage, decorations or resource overrides",
               "method": "2-block spatial bins; omitted pairs certify at least 4x margin; world AABB separation refined by OBB/triangle SAT lower distance bounds",
               "routes": results}
     print(json.dumps(output, indent=2))

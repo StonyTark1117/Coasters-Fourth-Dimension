@@ -224,3 +224,11 @@ and its [coverage correction](evidence/0.4/recovery/dense-clearance/rider-rack-c
 Ten-tick samples still do not certify continuous swept clearance, rendered players,
 intentional seat contact, linkage or optional decoration. Full rendered/operator/lifecycle
 acceptance remains FD402.
+
+The later [sampled vanilla-player checkpoint](evidence/0.4/recovery/player-rack-clearance/acceptance.md)
+replays the current one-tick traces with part-level vanilla seated-player
+envelopes. It corrects family-specific axle placement and passes all five
+single-car routes plus the Arrow and PAX train routes with at least 0.06532
+blocks of player/rack separation and 0.08 blocks of player/track separation.
+This does not certify equipped or cosmetic player layers, observed client
+rendering, continuous physics-step sweep, or the rendered operator lifecycle.

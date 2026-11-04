@@ -61,3 +61,7 @@ frames, and [GameTest log](gametest.log.zst) are preserved. `SHA256SUMS` and
 This is one-tick sampled native pose and default block-model evidence. It does
 not certify continuous physics-step sweep, real player meshes, cosmetic
 resource overrides, client rendering, or the rendered recovery operator path.
+
+The later [sampled vanilla-player extension](../player-rack-clearance/acceptance.md)
+adds part-level seated-player-to-rack checks and family-specific axle geometry.
+The native-rider scope and limits recorded here remain unchanged.

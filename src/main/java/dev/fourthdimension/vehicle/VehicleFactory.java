@@ -145,11 +145,12 @@ public final class VehicleFactory {
           plot.newEmptyChunk(plot.getCenterChunk());
           var blocks = plot.getEmbeddedLevelAccessor();
           var axle =
-              design == TrackDesign.REVISED
-                  ? VehicleParts.REVISED_AXLE.get()
-                  : design == TrackDesign.FREE_SPIN || design == TrackDesign.PAX
-                      ? VehicleParts.FREE_SPIN_AXLE.get()
-                      : VehicleParts.AXLE.get();
+              switch (design) {
+                case REVISED -> VehicleParts.REVISED_AXLE.get();
+                case LEGACY -> VehicleParts.LEGACY_AXLE.get();
+                case FREE_SPIN, PAX -> VehicleParts.FREE_SPIN_AXLE.get();
+                default -> VehicleParts.AXLE.get();
+              };
           blocks.setBlock(BlockPos.ZERO, axle.defaultBlockState(), 3);
           blocks.setBlock(new BlockPos(sign, 0, 0), axle.defaultBlockState(), 3);
           for (var seat : carrier.seats) {

@@ -1,5 +1,11 @@
 # Changelog
 
+## Unreleased — FD402 sampled player/rack clearance
+
+- Give Arrow, Legacy, Free Spin/PAX and Revised their family-correct axle geometry, including an idempotent Legacy saved-vehicle conversion from the shared axle block.
+- Extend the source-pinned one-tick auditor with part-level vanilla seated-player envelopes and require player-to-track plus player-to-every-non-seat-rack separation.
+- Pass all five occupied single-car routes and the occupied Arrow/PAX train routes with at least 0.06532 blocks of player/rack clearance and 0.08 blocks of player/track clearance. Equipped/cosmetic meshes, observed client rendering, continuous physics-step sweep, broader propulsion/strength and the rendered operator lifecycle remain open.
+
 ## 0.9.0-dev.27 — recovery schema migration matrix
 
 - Exercise every advertised legacy save schema (1–5) using the actual occupied five-family recovery fixture. Each synthetic legacy record omits the recovery-partner fields introduced by schema 6.
