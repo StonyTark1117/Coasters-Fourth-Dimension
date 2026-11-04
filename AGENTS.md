@@ -28,3 +28,27 @@ The former `codex/*` branch tips were reviewed and preserved in
 `docs/BRANCH-CONSOLIDATION.md`. That archive is historical evidence, not a
 starting point for a new task. Do not delete a branch or worktree with unique
 commits or uncommitted changes without preserving its state first.
+
+# Minecraft testing displays
+
+Run builds, GameTests, servers, and Minecraft clients from this project checkout
+on the development host. `runGameTestServer` and other command-line checks do not
+need a display. For any graphical client test, start an agent-owned private Xvfb
+display on this host and set `DISPLAY` explicitly for the client and every input
+or screenshot command. `xvfb-run -a` is suitable for a self-contained automated
+client run; interactive runs need a persistent, uniquely reserved Xvfb display.
+Confirm that the display belongs to this task before sending input, and never
+reuse another agent's display.
+
+Do not launch Minecraft on the user's desktop or control the user's mouse,
+keyboard, windows, or browser for project testing. Do not move this Minecraft
+workflow into ChatGPT's built-in Agent Workspace: it does not provide this
+project's Gradle, mod, and runtime setup. If a graphical test cannot start,
+inspect and repair the private Xvfb setup on the development host; report the
+specific blocker if it remains.
+
+Give concurrent clients distinct `-PfdClientGameDirectory=/absolute/path`
+values, and reserve separate server ports and worlds. Keep the owned display
+alive until its clients exit, then stop only the processes and display started
+for this task. Preserve requested logs, screenshots, and worlds before cleanup.
+See `docs/FD403-RUN-PREPARATION.md` for the packaged client and server procedure.
