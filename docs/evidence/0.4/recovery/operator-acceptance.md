@@ -137,3 +137,9 @@ The later [dev.17 occupied handover checkpoint](occupied-handover/acceptance.md)
 adds one native end-to-end handover/towing/braking/disconnection/unloading test
 with sixteen passengers in their original seats. Rendered occupied handover and
 complete curved/banked and lifecycle coverage remain open.
+
+The [fresh-process Arrow recovery checkpoint](fresh-process-recovery/acceptance.md)
+now preserves one occupied braked native recovery link across a client/server
+restart and completes its normal release in the second process. It is a bounded
+one-player Arrow scene; full multiplayer and all-family lifecycle acceptance
+remain open.
