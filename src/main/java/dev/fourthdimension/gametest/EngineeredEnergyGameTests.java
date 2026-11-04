@@ -584,7 +584,11 @@ public final class EngineeredEnergyGameTests {
    * Exercises the installed FE capability against the ordinary bearing in a production recovery
    * group. The production brake must hold both motion and consumption until an explicit start.
    */
-  @GameTest(template = "empty", batch = BATCH, timeoutTicks = 520)
+  @GameTest(
+      template = "empty",
+      templateNamespace = "fourthdimension_fd402",
+      batch = BATCH,
+      timeoutTicks = 520)
   public static void nativeEnergyRespectsRecoveryBrakeAndExplicitTow(GameTestHelper helper) {
     if (!OptionalIntegrations.installed(OptionalIntegrations.ENGINEERED).mayInspect()) {
       System.out.println("FD_ENGINEERED_RECOVERY_FE absent/uninspected: scenario not exercised");
