@@ -273,6 +273,11 @@ FD801 and the [expansion backlog](INTEGRATION-BACKLOG.md) remain separate.
   147 blocks below the lead pair; physical retrieval or rebuild, rebind and
   occupied Dispatch remain open. The floorless safe-spawn fallback is not
   runtime-proven by this run.
+- [Detached PAX retirement source gate](evidence/0.9/fd401-pax-retirement-34ba96c/README.md):
+  a confirmed editor action now removes an evacuated, retained, isolated PAX
+  car after explicit shuttle handover. A named source GameTest rejected a bound
+  car and removed one detached car with its carriers while preserving the other
+  three. Normal client use and the saved-world rebuild remain open.
 - [Engineered network loop](evidence/0.9/fd401-engineered-network-loop.md): normal
   seat boarding, editor dispatch/capture/unload, wired FE delivery and a bounded
   occupied circuit return/STOP. The car was fixture-created, the generator was
