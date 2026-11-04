@@ -75,6 +75,10 @@ and the second log preserve that contrary result. The session ended with the
 rider still assigned and therefore is not retained as a stopped/unloaded world.
 
 This replay closes candidate identity and the occupied STOP/capture/UI-unload
-loop for Free Spin and Revised only. The earlier family-operator checkpoint
-remains the evidence for normal item placement and controller construction.
-Legacy and the coupled two-car Arrow remain open exact-candidate observations.
+loop for Free Spin and Revised. The earlier family-operator checkpoint remains
+the evidence for normal item placement and controller construction. A
+[standalone exact-candidate replay](../fd401-engineered-legacy-exact-2c5d9a7/README.md)
+closes the retained Legacy boundary, and the
+[coupled two-car Arrow](../fd401-engineered-coupled-arrow-exact-2c5d9a7/README.md)
+loop; the failed cumulative-world Legacy attempt above remains part of this
+bundle's scope and is not relabeled as a pass.

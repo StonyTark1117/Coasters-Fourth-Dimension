@@ -1,0 +1,20 @@
+/fd validation availability
+/fd validation board_locked Dev
+/fd validation motion Dev
+/data get block 194 142 22
+/data get block 200 142 20 CoastersEngineeredEnergy
+/execute if block 194 142 30 minecraft:redstone_block run say rear_powered
+/data modify block 200 142 20 CoastersEngineeredEnergy set value 100000
+/data get block 200 142 20 CoastersEngineeredEnergy
+/setblock 194 142 30 minecraft:air
+/setblock 194 142 23 minecraft:redstone_block
+/setblock 194 142 23 minecraft:air
+/fd validation motion Dev
+/data get block 194 142 22
+/data get block 200 142 20 CoastersEngineeredEnergy
+/fd validation motion Dev
+/setblock 194 142 30 minecraft:redstone_block
+/fd validation motion Dev
+/data get block 194 142 22
+/data get block 200 142 20 CoastersEngineeredEnergy
+/fd validation availability
