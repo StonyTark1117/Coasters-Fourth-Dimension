@@ -261,8 +261,11 @@ FD801 and the [expansion backlog](INTEGRATION-BACKLOG.md) remain separate.
   a focused named GameTest separated all four native cars, retained each through
   editor requests, detached the winch, recoupled them with the native API,
   released retention, rebound the winch, and dispatched with a trailing rider
-  still mounted. It does not replace normal-client recovery of the saved broken
-  world or prove operator recoupling of displaced cars.
+  still mounted. Follow-up `94f6672` resolves mounted seat coordinates into
+  overworld proximity for editor and Detach actions; the same source sequence
+  passed with the lead operator mounted. It does not replace normal-client
+  recovery of the saved broken world or prove operator recoupling of displaced
+  cars.
 - [Engineered network loop](evidence/0.9/fd401-engineered-network-loop.md): normal
   seat boarding, editor dispatch/capture/unload, wired FE delivery and a bounded
   occupied circuit return/STOP. The car was fixture-created, the generator was
