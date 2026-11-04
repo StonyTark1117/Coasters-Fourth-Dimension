@@ -5,6 +5,7 @@ import dev.fourthdimension.runtime.EligibilityHooks;
 import dev.fourthdimension.vehicle.Boarding;
 import dev.ryanhcode.sable.api.sublevel.ClientSubLevelContainer;
 import dev.ryanhcode.sable.api.sublevel.SubLevelContainer;
+import dev.ryanhcode.sable.companion.math.Pose3dc;
 import dev.ryanhcode.sable.network.client.ClientSableInterpolationState;
 import dev.ryanhcode.sable.sublevel.ClientSubLevel;
 import java.io.BufferedWriter;
@@ -73,11 +74,11 @@ public final class ClientSnapshotTrace {
     }
     var bodies = new ArrayList<Map<String, Object>>();
     for (var vehicle : data.vehicles.values()) {
-      sampleBody(container, bodies, vehicle.chassis, "chassis", vehicle.chassis);
+      sampleBody(container, bodies, vehicle.chassis, "chassis", vehicle.chassis, pointer);
       for (var carrier : vehicle.carriers)
-        sampleBody(container, bodies, carrier.body, "carrier", vehicle.chassis);
+        sampleBody(container, bodies, carrier.body, "carrier", vehicle.chassis, pointer);
       if (vehicle.recoveryCart != null)
-        sampleBody(container, bodies, vehicle.recoveryCart, "recovery", vehicle.chassis);
+        sampleBody(container, bodies, vehicle.recoveryCart, "recovery", vehicle.chassis, pointer);
     }
     var entry = new LinkedHashMap<String, Object>();
     entry.put("type", "sample");
@@ -94,7 +95,7 @@ public final class ClientSnapshotTrace {
   }
 
   private static void sampleBody(ClientSubLevelContainer container, List<Map<String, Object>> entries,
-      UUID id, String role, UUID chassis) {
+      UUID id, String role, UUID chassis, double pointer) {
     var raw = container.getSubLevel(id);
     if (!(raw instanceof ClientSubLevel body)) return;
     var buffer = body.getInterpolator().buffer;
@@ -106,7 +107,28 @@ public final class ClientSnapshotTrace {
     entry.put("previousTick", size > 1 ? buffer.get(size - 2).gameTick() : null);
     entry.put("latestTick", size > 0 ? buffer.get(size - 1).gameTick() : null);
     entry.put("bufferSize", size);
+    if (size >= 2 && pointer > buffer.get(size - 1).gameTick() + 1e-8) {
+      entry.put("previousSnapshotPose", pose(buffer.get(size - 2).pose()));
+      entry.put("latestSnapshotPose", pose(buffer.get(size - 1).pose()));
+      entry.put("lastTickPose", pose(body.lastPose()));
+      entry.put("currentTickPose", pose(body.logicalPose()));
+      var center = body.getPlot().getCenterBlock();
+      entry.put("plotCenter", new double[] {center.getX() + .5, center.getY() + .5,
+          center.getZ() + .5});
+    }
     entries.add(entry);
+  }
+
+  private static Map<String, Object> pose(Pose3dc value) {
+    var position = value.position();
+    var orientation = value.orientation();
+    var rotationPoint = value.rotationPoint();
+    var scale = value.scale();
+    return Map.of(
+        "position", new double[] {position.x(), position.y(), position.z()},
+        "orientation", new double[] {orientation.x(), orientation.y(), orientation.z(), orientation.w()},
+        "rotationPoint", new double[] {rotationPoint.x(), rotationPoint.y(), rotationPoint.z()},
+        "scale", new double[] {scale.x(), scale.y(), scale.z()});
   }
 
   private static Field infoTickField() {

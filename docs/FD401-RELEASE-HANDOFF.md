@@ -119,7 +119,9 @@ FD801 and the [expansion backlog](INTEGRATION-BACKLOG.md) remain separate.
   Its 8,003 samples include 229 with the pointer ahead of a pose snapshot;
   two were moving, and the one above 0.05 block/tick led by 0.005483 tick.
   It confirms a narrow extrapolation event but lacks the two snapshot poses
-  needed to certify its geometry.
+  needed to certify its geometry. The opt-in recorder now captures both
+  snapshot transforms whenever this condition recurs; a targeted capture and
+  geometry bound remain open.
 - [Banked vehicle and vanilla-player clearance](evidence/0.9/fd401-banked-player-clearance-a5df9b8/README.md)
   extends both uniform Styles configurations with a conservative 1.21.1 seated
   player skin envelope at every occupied fixture seat. Single-car runs check

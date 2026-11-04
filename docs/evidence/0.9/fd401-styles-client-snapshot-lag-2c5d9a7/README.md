@@ -9,7 +9,9 @@ diagnostic added. This was **not** a rerun of the exact frozen whole JAR.
 The [capture-time diagnostic source](ClientSnapshotTrace-capture.java.txt) is
 retained byte-for-byte (SHA-256 `f5e753d5350eadfd2ac59a948f37d42188172e7a25ebba8db3ebb01096feecdf`).
 The committed version resolves its reflective Sable field lazily when tracing
-is enabled; that fixture-only change followed the run.
+is enabled and, after this capture, was extended to record the two snapshot
+transforms and tick render endpoints only when the pointer leads. Those
+fixture-only changes were compiled but are not part of this saved trace.
 
 The fixture boarded Dev into the edited car
 `4e207381-e5e7-4007-95ab-280620e85e7d`, closed restraints, dispatched it,
@@ -54,6 +56,12 @@ envelope at sample 3388 or under larger packet delays. The prior
 [native substep audit](../fd401-styles-physics-substeps-2c5d9a7/README.md)
 remains separate server-side evidence. The report explicitly sets
 `clearanceCertified=false`.
+
+The addon's `RotationServo.MAX_SPEED = 3` caps a target trajectory; the native
+Sable/Rapier solver owns actual body motion. That target cap cannot replace
+the missing snapshot-to-snapshot displacement. The opt-in recorder now
+captures those transforms at any future pointer lead, without changing normal
+client behavior.
 
 `SHA256SUMS` pins the archived trace, log, report, capture-time source and
 auditor. The uncompressed log SHA-256 is in the report's `inputHashes`.
