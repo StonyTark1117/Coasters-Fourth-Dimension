@@ -72,6 +72,19 @@ FD801 and the [expansion backlog](INTEGRATION-BACKLOG.md) remain separate.
   20 blocks/s, FE consumption, and a starved pulse after power interruption.
   The restored low-buffer pass did not complete STOP; the saved car is safely
   unloaded away from the station. There was no FE wire or cold repeat operation.
+- [Normal STOP and cold repeat](evidence/0.9/fd401-engineered-stop-cold/README.md):
+  the same item-placed car, normally fitted motor, linked controller, and original
+  station completed `Launch 20 → Stop at 12 → End`, held at STOP inside station
+  range, was captured by station redstone, and unloaded. A cold reopen preserved
+  the ride and repeated the operator cycle. Both passes remained just short of
+  the 20 blocks/s target. This run used adjacent noncreative water-wheel FE.
+- [Wired water-wheel FE and cold repeat](evidence/0.9/fd401-engineered-wired-waterwheel/README.md):
+  a separated three-water-wheel alternator supplied the motor through a copper
+  spool link made in the client. Reciprocal connector nodes and FE rise from zero
+  survived cold reopen. Source interruption stopped transfer; restoration and
+  recharge supported another occupied STOP, station capture, and unload. Exact
+  runtime-JAR identity still needs a controlled freeze because concurrent builds
+  shared the output directory.
 - Styles has historical selection/fallback/removal/reinstall and banked GUI
   evidence. Later geometry changes and the [font failure](evidence/0.4/wheel-placement-acceptance.md)
   limit reuse; automated clean reloads do not erase that failure.
@@ -95,8 +108,8 @@ FD801 and the [expansion backlog](INTEGRATION-BACKLOG.md) remain separate.
 | Priority / handoff | Concrete observation still required | Pass condition and boundary |
 | --- | --- | --- |
 | 1. Freeze evidence identity | Select exact candidate source/JAR and all dependency hashes; record any differences from each reused checkpoint. | One explicit evidence map. Never transfer a historical runtime result by version string alone. Native reruns are needed for relevant executable changes, not for every documentation commit. |
-| 2. Engineered normal operator loop | Complete STOP hold/release on the same normally placed car and original route, then station capture/open/dismount; observe unready interlock rejection and fresh-readiness success. | The normal launch, occupied circuit, station redstone capture, and unload are now recorded. The 20 blocks/s target reached 19.385 with `PassShort=1`; the later starved pass advanced to STOP but did not complete it. Do not call either full-speed attainment or a completed STOP cycle. |
-| 2. Physical FE workflow | Keep `requireEnergy=true`; wire the noncreative power path normally, run an occupied STOP loop after full recharge, and interrupt/restore supply. | Adjacent water-wheel alternator transfer, starvation, and restoration are recorded. Still establish wire transfer, explicit permitted restart after a full charge, and a cold reopen with bindings, spans, sequence, wire and identities intact followed by another operation. Crafts & Additions remains a disclosed validation-only dependency (`-PfdFeNetwork`), not a new advertised integration. |
+| 2. Engineered normal operator loop | Review the completed STOP/capture/unload and cold repeat against the exact frozen candidate. | The normally placed car completed occupied circuits, a programmed STOP hold inside station range, station redstone capture, and unload in initial and cold runs. An unready station release was rejected before launch. Launch 20 reached about 19.40 with `PassShort=1`; exact speed attainment remains unproven. |
+| 2. Physical FE workflow | Freeze and review the wired evidence on the exact candidate. | With `requireEnergy=true`, the noncreative water-wheel alternator delivered through a normal copper-spool wire, stopped on source interruption, resumed on restoration, persisted through cold reopen, and powered another occupied STOP/capture/unload. Crafts & Additions remains a disclosed validation-only dependency (`-PfdFeNetwork`), not a new advertised integration. |
 | 2. Engineered family/authority coverage | Real operator exercises for the remaining advertised circuit families and a coupled Arrow train; PAX winch owns lift/release/return/capture despite external motor commands. | Pair real controls and client observations with existing native four-family, train rollback, ordinary-cart STOP and PAX opposing-motor assertions. Readiness, carrier capture, family eligibility and catch ownership remain intact. Native coverage alone is not GUI/operator coverage. |
 | 3. Dynamic Create output | On the chosen candidate, normally configure each of the six Display Link sources and observe meaningful changes; add trailing Arrow occupancy and Legacy/Free Spin/Revised occupancy/control transitions. | Pair server state, received `FD_CLIENT_TELEMETRY`, visible goggles and actual target text. Include source-preserving fault clear, repair-before-realignment denial, PAX authority and current phases. Existing trailing PAX/fault-clear cases are regression references. |
 | 3. Controller availability / optional clients | Keep a controller observable while its actual cars/carriers are unavailable, then restore; exercise late join, tracking re-entry, reload, reconnect and cold restart. Repeat relevant telemetry/operator/render checks in the optional profiles. | Show unavailable rather than stale-ready output on both goggles and target. The historical empty unload had a non-ticking blank sign and does not prove this presentation. Combined results do not automatically certify individual-profile clients. |
