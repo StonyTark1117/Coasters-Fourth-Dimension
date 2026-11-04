@@ -15,6 +15,7 @@ import dev.fourthdimension.vehicle.*;
 import dev.ryanhcode.sable.api.sublevel.SubLevelContainer;
 import dev.ryanhcode.sable.sublevel.ServerSubLevel;
 import dev.ryanhcode.sable.sublevel.storage.SubLevelRemovalReason;
+import dev.ryanhcode.sable.sublevel.storage.serialization.SubLevelSerializer;
 import dev.silvergold.simulatedcoasters.SimulatedCoastersBlocks;
 import dev.silvergold.simulatedcoasters.track.cart.*;
 import dev.silvergold.simulatedcoasters.track.graph.*;
@@ -35,6 +36,132 @@ import net.neoforged.neoforge.gametest.*;
 @GameTestHolder("fourthdimension")
 @PrefixGameTestTemplate(false)
 public final class RideTelemetryGameTests {
+  @GameTest(template = "empty", batch = "fourthdimension_telemetry", timeoutTicks = 240)
+  public static void loadedControllerPublishesMissingNativeBodies(GameTestHelper helper) {
+    var level = helper.getLevel();
+    var container = SubLevelContainer.getContainer(level);
+    var from = new BlockPos(-750, 180, 600);
+    var to = from.offset(0, 0, 64);
+    for (int x = -48; x <= -46; x++)
+      for (int z = 37; z <= 42; z++) level.setChunkForced(x, z, true);
+    var player =
+        FakePlayerFactory.get(
+            level,
+            new com.mojang.authlib.GameProfile(
+                UUID.fromString("fdfdfdfd-0000-0000-0000-000000000419"), "FDMissingBody"));
+    player.setGameMode(GameType.CREATIVE);
+    player.setItemInHand(InteractionHand.MAIN_HAND, TrackItems.ARROW.get().getDefaultInstance());
+    for (var pos : List.of(from, to))
+      level.setBlockAndUpdate(
+          pos, SimulatedCoastersBlocks.COASTER_ANCHORPOINT.get().defaultBlockState());
+    player.setPos(to.getX() + 2, to.getY() + 1, to.getZ());
+    var rail =
+        TrackPlacement.connect(level, from, to, TrackDesign.ARROW, player, player.getMainHandItem());
+    var station = station(helper, from.offset(-6, 0, 12), null);
+    helper.runAtTickTime(
+        15,
+        () -> {
+          var edge = TrackGeometry.resolve(level, rail);
+          double t = edge.from().equals(from) ? 12d / 64 : 1 - 12d / 64;
+          var car =
+              VehicleFactory.create(
+                  level,
+                  TrackDesign.ARROW,
+                  new CoasterPathTrackFrame.GraphHit(
+                      CoasterPathGraphManager.sampleEdgePosition(level, edge, t), edge, t));
+          station.vehicle = car.chassis;
+          helper.runAtTickTime(
+              100,
+              () -> {
+                helper.assertTrue(Boarding.ready(level, car), "Availability fixture not ready");
+                helper.assertTrue(station.telemetry().available(), "Loaded station was not live");
+                outputs(helper, station, station.telemetry());
+                missingBody(helper, station, car, car.carriers.getFirst().body, "carrier", () ->
+                    missingBody(helper, station, car, car.chassis, "chassis", () -> {
+                      for (var carrier : car.carriers)
+                        container.removeSubLevel(
+                            container.getSubLevel(carrier.body), SubLevelRemovalReason.REMOVED);
+                      container.removeSubLevel(
+                          container.getSubLevel(car.chassis), SubLevelRemovalReason.REMOVED);
+                      FoundationData.get(level).vehicles.remove(car.chassis);
+                      FoundationData.get(level).rails.remove(rail);
+                      for (var pos : List.of(from, to, station.getBlockPos(), station.getBlockPos().above()))
+                        level.removeBlock(pos, false);
+                      for (int x = -48; x <= -46; x++)
+                        for (int z = 37; z <= 42; z++) level.setChunkForced(x, z, false);
+                      System.out.println("FD_TELEMETRY_CONTROLLER_AVAILABILITY complete missing=carrier,chassis restored=2 sources=6 goggles=2");
+                      helper.succeed();
+                    }));
+              });
+        });
+  }
+
+  private static void missingBody(
+      GameTestHelper helper,
+      BoardingStationEntity station,
+      FoundationData.Vehicle car,
+      UUID id,
+      String role,
+      Runnable restoredCase) {
+    var level = helper.getLevel();
+    var container = SubLevelContainer.getContainer(level);
+    var ids = new ArrayList<UUID>();
+    ids.add(car.chassis);
+    car.carriers.forEach(c -> ids.add(c.body));
+    var body = (ServerSubLevel) container.getSubLevel(id);
+    helper.assertTrue(body != null && !body.isRemoved(), "Missing native " + role + " before unload");
+    var saved = SubLevelSerializer.toData(body, ids);
+    container.removeSubLevel(body, SubLevelRemovalReason.UNLOADED);
+    helper.assertTrue(container.getSubLevel(id) == null, "Native " + role + " unload failed");
+    helper.runAfterDelay(
+        12,
+        () -> {
+          var unavailable = station.telemetry();
+          var reason = role.equals("chassis")
+              ? "Vehicle chassis is unavailable" : "Vehicle or carrier unavailable";
+          helper.assertTrue(
+              !unavailable.available() && unavailable.fault().equals(reason),
+              "Loaded controller advertised stale readiness after " + role + " unload: " + unavailable);
+          var context =
+              new DisplayLinkContext(
+                  level,
+                  (DisplayLinkBlockEntity) level.getBlockEntity(station.getBlockPos().above()));
+          for (var field : RideDisplaySource.Field.values()) {
+            var source =
+                (RideDisplaySource)
+                    DisplaySource.get(
+                        ResourceLocation.fromNamespaceAndPath(
+                            "fourthdimension", "ride_" + field.name().toLowerCase(Locale.ROOT)));
+            helper.assertTrue(
+                source.provideText(context, new DisplayTargetStats(1, 128, null))
+                    .getFirst().getString().equals(unavailable.fault()),
+                "Display Link retained stale " + field + " after " + role + " unload");
+          }
+          var tooltip = new ArrayList<Component>();
+          station.addToGoggleTooltip(tooltip, false);
+          helper.assertTrue(
+              tooltip.size() == 2 && tooltip.getLast().getString().contains(unavailable.fault()),
+              "Goggles retained stale readiness after " + role + " unload");
+          var packet = new BoardingStationEntity(station.getBlockPos(), station.getBlockState());
+          packet.handleUpdateTag(station.getUpdateTag(level.registryAccess()), level.registryAccess());
+          helper.assertTrue(packet.telemetry().equals(unavailable), "Unavailable packet was stale");
+          System.out.println("FD_TELEMETRY_CONTROLLER_AVAILABILITY missing=" + role
+              + " available=false message=" + unavailable.fault() + " sources=6 goggles=true packet=true");
+          var loaded = SubLevelSerializer.fullyLoad(level, saved);
+          helper.assertTrue(loaded != null && container.getSubLevel(id) == loaded,
+              "Native " + role + " restore failed");
+          helper.runAfterDelay(
+              12,
+              () -> {
+                helper.assertTrue(station.telemetry().available(),
+                    "Loaded controller did not recover after " + role + " restore");
+                System.out.println("FD_TELEMETRY_CONTROLLER_AVAILABILITY restored=" + role
+                    + " available=true");
+                restoredCase.run();
+              });
+        });
+  }
+
   @GameTest(template = "empty", batch = "fourthdimension_telemetry", timeoutTicks = 260)
   public static void sharedTelemetryRespectsConsistRecoveryAndControllerAuthority(
       GameTestHelper helper) {
