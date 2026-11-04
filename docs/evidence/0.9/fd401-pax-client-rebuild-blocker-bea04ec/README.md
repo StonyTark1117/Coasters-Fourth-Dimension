@@ -35,8 +35,13 @@ normally. In a cold reopen, the [diagnostic position query](position-query.txt)
 found the first three chassis at the station and linked; the rear `5a4b8a72`
 chassis was unavailable (`center=null`) although its vehicle record and winch
 assignment remained. Wider world-chunk force loading did not restore it. This
-is the current blocker for physical recovery, rebind and occupied dispatch;
-the gate remains open. The exact removal or unload cause has not been proven.
+was the blocker in this run. A later read-only decode of the stopped Sable
+storage found that rear chassis at `(900.5004,-58.6667,92.1993)` and both of
+its carrier bodies at Y≈−59.156, while the three leading chassis remained at
+Y≈87.7. The rear car physically fell below the station; the exact first
+constraint or snap failure that allowed the fall has not been proven. A
+[separate replay](../fd401-pax-station-hold-rebuild/README.md) subsequently
+reached a full occupied cycle with a station hold source change.
 
 The stopped [copied world](world.tar.gz) and compressed [client](client.log.gz)
 and [server](server.log.gz) logs are retained. World SHA-256:

@@ -215,7 +215,10 @@ public final class ShuttleRuntime {
         // Rebuild an existing catch only when both bodies are available; start()
         // still validates the complete train, carriage and route before moving.
         if (winch.phase == ShuttleWinchEntity.Phase.BOARDING) {
-          releaseSupportHolds(winch);
+          // A captured train still needs a physical station hold. A trailing native cart can
+          // otherwise lose its snap while the lead remains caught, then fall out of the loaded
+          // world before the operator starts the winch. The holds are released on the next
+          // non-BOARDING tick, before the powered lift advances.
           var container = SubLevelContainer.getContainer(level);
           if (winch.carriage != null
               && container.getSubLevel(winch.carriage) instanceof ServerSubLevel
@@ -224,6 +227,12 @@ public final class ShuttleRuntime {
             ensureCarriage(level, winch, null, held);
             catchTrain(level, lead, winch, held);
           }
+          var data = FoundationData.get(level);
+          if (winch.cars.stream()
+              .map(data.vehicles::get)
+              .allMatch(car -> car != null && Boarding.ready(level, car)))
+            holdUnsupportedTrain(level, winch);
+          else releaseSupportHolds(winch);
           continue;
         }
         if (!level.hasChunkAt(winch.getBlockPos())
