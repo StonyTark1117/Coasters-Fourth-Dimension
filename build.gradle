@@ -70,6 +70,8 @@ neoForge {
             systemProperty 'fourthdimension.carrierFixtureRecoveryBank', project.hasProperty('fdCarrierFixtureRecoveryBank').toString()
             systemProperty 'fourthdimension.carrierFixtureRecoveryCycle', project.hasProperty('fdCarrierFixtureRecoveryCycle').toString()
             systemProperty 'fourthdimension.carrierFixtureRecoveryProfile', project.hasProperty('fdCarrierFixtureRecoveryProfile').toString()
+            systemProperty 'fourthdimension.carrierFixtureRecoveryPause', project.hasProperty('fdCarrierFixtureRecoveryPause').toString()
+            systemProperty 'fourthdimension.carrierFixtureRecoveryResume', project.hasProperty('fdCarrierFixtureRecoveryResume').toString()
             systemProperty 'fourthdimension.carrierFixtureMotion', project.hasProperty('fdCarrierFixtureMotion').toString()
             systemProperty 'fourthdimension.carrierFixtureRider', project.hasProperty('fdCarrierFixtureRider').toString()
             systemProperty 'fourthdimension.carrierFixtureRiderOnly', project.hasProperty('fdCarrierFixtureRiderOnly').toString()
