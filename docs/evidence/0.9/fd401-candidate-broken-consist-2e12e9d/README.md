@@ -3,7 +3,7 @@
 On 2026-11-04, the stopped [failed PAX realignment
 world](../fd401-candidate-pax-realignment-blocker-81ee2e6/README.md) was
 reopened under the isolated combined packaged `2e12e9d` JAR, SHA-256
-`1afa7066607313898a11ff628b762be86369a82a62423c3fcce4ffd9008d62f`.
+`1afa7066607313898a11ff628b762be86369a82a62423c3fcfce4ffd9008d62f`.
 The artifact and build record are in the [successful short-hold
 retest](../fd401-candidate-pax-realignment-2e12e9d/README.md). Only the
 dedicated server and Observer client ran for this read-only replay; both

@@ -4,7 +4,7 @@ On 2026-11-04, the committed `2e12e9d` source was exported to an isolated
 directory and built offline with Java 21 for the combined packaged profile
 (`fdPackaged`, `fdValidation`, `fdIntegrations=styles,engineered`, `fdFeNetwork`).
 The [JAR](coasters-fourth-dimension-0.9.0-dev.27.jar) has SHA-256
-`1afa7066607313898a11ff628b762be86369a82a62423c3fcce4ffd9008d62f`.
+`1afa7066607313898a11ff628b762be86369a82a62423c3fcfce4ffd9008d62f`.
 The dedicated server, Dev client and Observer client all loaded this JAR and
 exited 0 after normal menu exits and server `stop`. The [compile log](compile.txt),
 [server log](server.log.gz), [Dev log](dev.log.gz), [Observer log](observer.log.gz),
