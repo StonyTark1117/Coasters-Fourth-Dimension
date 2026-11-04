@@ -291,6 +291,9 @@ public final class RotationEditorScreen extends Screen {
       var vehicle = snapshot == null ? null : snapshot.vehicles.get(target.id());
       if (vehicle != null) updateVehicleStatus(vehicle);
     }
+    if (recovery
+        && Boolean.getBoolean("fourthdimension.carrierValidationRecoveryEditor"))
+      CarrierTransformValidation.recoveryEditorRendered();
     String visibleStatus =
         font.width(status) <= 340 ? status : font.plainSubstrByWidth(status, 330) + "…";
     graphics.drawString(font, visibleStatus, left + 10, top + 26, 0xf3d179);

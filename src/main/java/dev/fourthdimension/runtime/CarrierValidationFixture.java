@@ -4,6 +4,7 @@ import com.mojang.logging.LogUtils;
 import com.simibubi.create.content.contraptions.actors.seat.SeatBlock;
 import com.simibubi.create.content.trains.track.BezierConnection;
 import dev.fourthdimension.contract.Family;
+import dev.fourthdimension.editor.EditorNetwork;
 import dev.fourthdimension.shuttle.ShuttleExamples;
 import dev.fourthdimension.track.ExampleLayouts;
 import dev.fourthdimension.track.TrackDesign;
@@ -469,6 +470,13 @@ public final class CarrierValidationFixture {
               "FD_CARRIER_FIXTURE paused occupied recovery for fresh-process resume chassis={} bearing={}",
               car.chassis,
               car.recoveryCart);
+    if (recoveryEditorFixture()) {
+      EditorNetwork.open(player, new EditorNetwork.Target(car.chassis, true));
+      LogUtils.getLogger()
+          .info(
+              "FD_CARRIER_FIXTURE opened recovery editor chassis={} action=Start tow",
+              car.chassis);
+    }
   }
 
   /** Reuses only the native IDs and linked recovery state saved by the pause-stage process. */
@@ -724,6 +732,10 @@ public final class CarrierValidationFixture {
 
   private static boolean recoveryResumeFixture() {
     return Boolean.getBoolean("fourthdimension.carrierFixtureRecoveryResume");
+  }
+
+  private static boolean recoveryEditorFixture() {
+    return Boolean.getBoolean("fourthdimension.carrierFixtureRecoveryEditor");
   }
 
   /** Keeps the selected occupied fixture in the connecting players' view-distance ticket. */

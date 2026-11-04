@@ -55,6 +55,7 @@ public final class CarrierTransformValidation {
   private static boolean recoveryMotionSeen;
   private static boolean recoveryCycleSeen;
   private static boolean recoveryProfileSeen;
+  private static boolean recoveryEditorSeen;
   private static boolean completed;
   private static net.minecraft.world.level.Level lastLevel;
 
@@ -80,6 +81,7 @@ public final class CarrierTransformValidation {
       recoveryMotionSeen = false;
       recoveryCycleSeen = false;
       recoveryProfileSeen = false;
+      recoveryEditorSeen = false;
       CarrierRenderMetrics.reset();
       completed = false;
       lastLevel = minecraft.level;
@@ -219,6 +221,7 @@ public final class CarrierTransformValidation {
     if (families.size() < requiredFamilies()
         || (staticPhase && carriers == 0)
         || (recoveryRequired() && !recoveryLinkObserved && !recoveryLinkSeen)
+        || (recoveryEditorRequired() && !recoveryEditorSeen)
         || (riderRequired() && !riderMounted && !(recoveryCycleRequired() && recoveryCycleSeen))
         || (supportLossIncomplete && !mayAwaitMovingSupportLoss)
         || supportRepairIncomplete
@@ -243,6 +246,10 @@ public final class CarrierTransformValidation {
               + recoveryRequired()
               + " recoveryLinkObserved="
               + recoveryLinkObserved
+              + " recoveryEditorRequired="
+              + recoveryEditorRequired()
+              + " recoveryEditorSeen="
+              + recoveryEditorSeen
               + " riderRequired="
               + riderRequired()
               + " riderMounted="
@@ -350,7 +357,11 @@ public final class CarrierTransformValidation {
               + " recoveryProfileRequired="
               + recoveryProfileRequired()
               + " recoveryProfileSeen="
-              + recoveryProfileSeen);
+              + recoveryProfileSeen
+              + " recoveryEditorRequired="
+              + recoveryEditorRequired()
+              + " recoveryEditorSeen="
+              + recoveryEditorSeen);
       return;
     }
     finish(minecraft, families, carriers, riderAssignments, movedFamilies, movedChassis);
@@ -372,7 +383,7 @@ public final class CarrierTransformValidation {
                 + "riderRequired={} riderMounted={} supportLossRequired={} supportLossObserved={} "
                 + "supportLossAfterMotion={} supportRepairRequired={} supportRepairObserved={} "
                 + "supportRealignmentRequired={} supportRealignmentObserved={} "
-                + "recoveryRequired={} recoveryMotionRequired={} recoveryBankRequired={} recoveryCycleRequired={} recoveryProfileRequired={} recoveryLinkSeen={} recoveryMotionSeen={} recoveryCycleSeen={} recoveryProfileSeen={} maxRecoveryChassisBankAngle={} maxRecoveryBearingBankAngle={} motionFamilies={} motionChassis={} motionDistances={}",
+                + "recoveryRequired={} recoveryMotionRequired={} recoveryBankRequired={} recoveryCycleRequired={} recoveryProfileRequired={} recoveryEditorRequired={} recoveryLinkSeen={} recoveryMotionSeen={} recoveryCycleSeen={} recoveryProfileSeen={} recoveryEditorSeen={} maxRecoveryChassisBankAngle={} maxRecoveryBearingBankAngle={} motionFamilies={} motionChassis={} motionDistances={}",
             completeSamples,
             requiredSamples(),
             waitedTicks,
@@ -400,10 +411,12 @@ public final class CarrierTransformValidation {
             recoveryBankRequired(),
             recoveryCycleRequired(),
             recoveryProfileRequired(),
+            recoveryEditorRequired(),
             recoveryLinkSeen,
             recoveryMotionSeen,
             recoveryCycleSeen,
             recoveryProfileSeen,
+            recoveryEditorSeen,
             maxRecoveryChassisBankAngle,
             maxRecoveryBearingBankAngle,
             movedFamilies,
@@ -482,6 +495,15 @@ public final class CarrierTransformValidation {
 
   private static boolean recoveryProfileRequired() {
     return Boolean.getBoolean("fourthdimension.carrierValidationRecoveryProfile");
+  }
+
+  private static boolean recoveryEditorRequired() {
+    return Boolean.getBoolean("fourthdimension.carrierValidationRecoveryEditor");
+  }
+
+  /** Called by the actual recovery editor after it has rendered its linked-vehicle controls. */
+  public static void recoveryEditorRendered() {
+    recoveryEditorSeen = true;
   }
 
   private static boolean renderedNonzeroProfileRail(
