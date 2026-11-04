@@ -10,6 +10,7 @@ import dev.silvergold.simulatedcoasters.track.cart.*;
 import dev.silvergold.simulatedcoasters.track.graph.*;
 import java.util.*;
 import net.minecraft.core.*;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.phys.*;
 import org.joml.Vector3d;
@@ -70,11 +71,19 @@ public final class VehicleFactory {
           1.5,
           design.rotorRadius(),
           design.rotorRadius() + (design.pairedRows() ? 3 : 0));
-      if (obstruction != null)
+      if (obstruction != null) {
+        if (!level.hasChunkAt(obstruction))
+          throw new IllegalArgumentException(
+              "Load the wing and rider rotation envelope chunk at "
+                  + obstruction.toShortString()
+                  + " before placing this car");
         throw new IllegalArgumentException(
             "Clear the full wing and rider rotation envelope at "
                 + obstruction.toShortString()
-                + " before placing this car");
+                + " ("
+                + BuiltInRegistries.BLOCK.getKey(level.getBlockState(obstruction).getBlock())
+                + ") before placing this car");
+      }
     }
     var origin = CoasterCartLinkPlacement.plotOriginForBearingCenter(bearing, orientation);
     var chassis =
