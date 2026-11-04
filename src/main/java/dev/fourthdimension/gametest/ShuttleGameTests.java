@@ -659,8 +659,10 @@ public final class ShuttleGameTests {
                 "Chunk/reload recovery did not finish: " + winch[0].phase + " " + winch[0].fault));
   }
 
-  @GameTest(template = "empty", timeoutTicks = 1400)
+  @GameTest(template = "empty", timeoutTicks = 7000)
   public static void paxSupportRepairRealignmentResumesPoweredWinch(GameTestHelper helper) {
+    int unsupportedTicks = Math.clamp(
+        Integer.getInteger("fourthdimension.paxLongHoldTicks", 27), 27, 5_000);
     var level = helper.getLevel();
     for (int x = 48; x <= 52; x++)
       for (int z = -43; z <= -33; z++) level.setChunkForced(x, z, true);
@@ -707,7 +709,7 @@ public final class ShuttleGameTests {
           anchor.removeAnchorPeerCurve(level, lead.boundTo);
         });
     helper.runAtTickTime(
-        115,
+        88 + unsupportedTicks,
         () -> {
           helper.assertTrue(
               winch.phase == ShuttleWinchEntity.Phase.FAULT
@@ -723,13 +725,20 @@ public final class ShuttleGameTests {
           helper.assertTrue(
               riders.stream().allMatch(Pig::isPassenger),
               "PAX support loss displaced a mounted rider");
+          for (var car : example.cars())
+            helper.assertTrue(
+                CoasterCartTrainLinkConstraint.getTrainLinkedCartIds(
+                            container.getSubLevel(car.chassis))
+                        .size()
+                    == 4,
+                "Prolonged unsupported PAX hold broke a native link");
           var lead = example.cars().getFirst();
           ((dev.silvergold.simulatedcoasters.track.anchor.CoasterAnchorpointBlockEntity)
                   level.getBlockEntity(lead.boundFrom))
               .putAnchorPeerCurve(level, lead.boundTo, restoredCurve[0]);
         });
     helper.runAtTickTime(
-        145,
+        118 + unsupportedTicks,
         () -> {
           VehicleOperations.repairMatchingSupport(level, example.cars().getFirst());
           var revisions = example.cars().stream().map(car -> car.revision).toList();
@@ -804,14 +813,23 @@ public final class ShuttleGameTests {
           helper.assertTrue(
               riders.stream().allMatch(Pig::isPassenger),
               "PAX powered relaunch displaced a mounted rider");
+          for (var car : example.cars())
+            helper.assertTrue(
+                CoasterCartTrainLinkConstraint.getTrainLinkedCartIds(
+                            container.getSubLevel(car.chassis))
+                        .size()
+                    == 4,
+                "PAX support realignment did not retain the four native links");
           System.out.println(
               "FD_PAX_SUPPORT_RECOVERY repaired=true realigned=true recovered=true relaunched=true"
                   + " riders="
-                  + riders.size());
+                  + riders.size()
+                  + " unsupportedTicks="
+                  + unsupportedTicks);
           helper.succeed();
         });
     helper.runAtTickTime(
-        1390,
+        1363 + unsupportedTicks,
         () ->
             helper.fail(
                 "PAX support recovery did not relaunch: "

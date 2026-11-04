@@ -282,13 +282,15 @@ public final class VehicleOperations {
         && !new HashSet<>(winch.cars).equals(
             consist.stream().map(car -> car.chassis).collect(java.util.stream.Collectors.toSet())))
       throw new IllegalArgumentException("Shuttle consist changed; recover and rebind before realignment");
-    // An idle shuttle is captured at known station slots. After a missing station curve has
-    // allowed gravity/solver residue to shift its chassis, snapping each car to its independent
-    // closest point can compress the six-block native couplers until they break. Re-engage the
-    // whole captured train at its bound station spacing instead.
+    // A station-adjacent shuttle is captured at known station slots, including when a lift
+    // faulted for missing support. Snapping each car to its independent closest point after an
+    // unsupported hold can compress the six-block native couplers until they break. Re-engage
+    // the whole captured train at its bound station spacing instead.
     var stationRoute =
         winch != null
-                && winch.phase == dev.fourthdimension.shuttle.ShuttleWinchEntity.Phase.BOARDING
+                && (winch.phase == dev.fourthdimension.shuttle.ShuttleWinchEntity.Phase.BOARDING
+                    || (winch.phase == dev.fourthdimension.shuttle.ShuttleWinchEntity.Phase.FAULT
+                        && MATCHING_SUPPORT_LOST.equals(winch.fault)))
                 && winch.routeStart != null
                 && winch.routeEnd != null
             ? dev.fourthdimension.shuttle.ShuttleRoute.resolve(
@@ -366,6 +368,7 @@ public final class VehicleOperations {
         throw new IllegalArgumentException("Vehicle carrier is unavailable for realignment");
       bodies.add(body);
     }
+    if (winch != null) dev.fourthdimension.shuttle.ShuttleRuntime.releaseSupportHolds(winch);
     for (var body : bodies) pipeline.resetVelocity(body);
     for (var candidate : candidates) {
       if (pipeline.getLinearVelocity(candidate.chassis, new Vector3d()).lengthSquared() > 1.0e-8)

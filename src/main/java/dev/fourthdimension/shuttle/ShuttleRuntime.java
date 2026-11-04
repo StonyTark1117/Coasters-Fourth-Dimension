@@ -27,6 +27,7 @@ public final class ShuttleRuntime {
 
   private static final class Handles {
     GenericConstraintHandle guide, catchJoint;
+    final Map<UUID, GenericConstraintHandle> supportHolds = new HashMap<>();
     Vector3d worldAnchor;
     Quaterniond worldOrientation;
     UUID body;
@@ -69,6 +70,7 @@ public final class ShuttleRuntime {
       if (handles != null) {
         remove(handles.guide);
         remove(handles.catchJoint);
+        removeSupportHolds(handles);
       }
     }
   }
@@ -78,6 +80,7 @@ public final class ShuttleRuntime {
   }
 
   public static ShuttleWinchEntity owner(ServerLevel level, UUID car) {
+    if (car == null) return null;
     return winches(level).stream().filter(w -> w.cars.contains(car)).findFirst().orElse(null);
   }
 
@@ -127,6 +130,7 @@ public final class ShuttleRuntime {
     if (handles != null) {
       remove(handles.catchJoint);
       remove(handles.guide);
+      removeSupportHolds(handles);
     }
     cars.forEach(
         v -> {
@@ -193,6 +197,7 @@ public final class ShuttleRuntime {
           if (handles != null) {
             remove(handles.guide);
             remove(handles.catchJoint);
+            removeSupportHolds(handles);
           }
           var container = SubLevelContainer.getContainer(level);
           var body = winch.carriage == null ? null : container.getSubLevel(winch.carriage);
@@ -207,6 +212,7 @@ public final class ShuttleRuntime {
         // Rebuild an existing catch only when both bodies are available; start()
         // still validates the complete train, carriage and route before moving.
         if (winch.phase == ShuttleWinchEntity.Phase.BOARDING) {
+          releaseSupportHolds(winch);
           var container = SubLevelContainer.getContainer(level);
           if (winch.carriage != null
               && container.getSubLevel(winch.carriage) instanceof ServerSubLevel
@@ -237,8 +243,12 @@ public final class ShuttleRuntime {
             ensureCarriage(level, winch, null, held);
             catchTrain(level, lead, winch, held);
           }
+          if (VehicleOperations.MATCHING_SUPPORT_LOST.equals(winch.fault))
+            holdUnsupportedTrain(level, winch);
+          else releaseSupportHolds(winch);
           continue;
         }
+        releaseSupportHolds(winch);
         var route = route(level, winch);
         if (winch.phase != ShuttleWinchEntity.Phase.BOARDING) {
           winch.validateTrain(false);
@@ -489,6 +499,44 @@ public final class ShuttleRuntime {
                         ConstraintJointAxis.LINEAR_Y,
                         ConstraintJointAxis.LINEAR_Z)));
     handles.catchJoint.setContactsEnabled(false);
+  }
+
+  /** Keep every coupled chassis at its fault position while its matching rail is absent. */
+  private static void holdUnsupportedTrain(ServerLevel level, ShuttleWinchEntity winch) {
+    var container = SubLevelContainer.getContainer(level);
+    if (container == null) return;
+    var handles = HANDLES.computeIfAbsent(winch, ignored -> new Handles());
+    var pipeline = container.physicsSystem().getPipeline();
+    for (var id : winch.cars) {
+      if (!(container.getSubLevel(id) instanceof ServerSubLevel body) || body.isRemoved())
+        throw new IllegalArgumentException("Shuttle car unavailable during support loss");
+      var hold = handles.supportHolds.get(id);
+      if (hold != null && hold.isValid()) continue;
+      remove(hold);
+      var center = body.getPlot().getCenterBlock();
+      hold =
+          pipeline.addConstraint(
+              null,
+              body,
+              new GenericConstraintConfiguration(
+                  new Vector3d(body.logicalPose().position()),
+                  new Vector3d(center.getX() + .5, center.getY() + .5, center.getZ() + .5),
+                  new Quaterniond(body.logicalPose().orientation()),
+                  new Quaterniond()));
+      for (var axis : ConstraintJointAxis.ALL)
+        hold.setMotor(axis, 0, 30000, 4000, true, 80000);
+      handles.supportHolds.put(id, hold);
+    }
+  }
+
+  public static void releaseSupportHolds(ShuttleWinchEntity winch) {
+    var handles = HANDLES.get(winch);
+    if (handles != null) removeSupportHolds(handles);
+  }
+
+  private static void removeSupportHolds(Handles handles) {
+    handles.supportHolds.values().forEach(ShuttleRuntime::remove);
+    handles.supportHolds.clear();
   }
 
   private static void remove(PhysicsConstraintHandle handle) {
