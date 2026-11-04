@@ -86,6 +86,7 @@ an exact-candidate run.
 | Exact-candidate Engineered operator and wired-FE replay | **Exact whole JAR** (`4b23cf0e…`) | Exact-candidate evidence for the saved Arrow STOP/capture/unload loop and persisted wire transfer, consumption and recharge. Normal construction and source interruption/restoration remain predecessor observations. |
 | Banked vehicle/player clearance and transition reports | Source/input-pin evidence, not runtime-JAR evidence. The 19 pinned geometry inputs remain unchanged in the candidate. | Reuse only for the reports' sampled geometry scope and stated exclusions. |
 | Occupied FANCY reload ride and FAST/FABULOUS/Solas mode runs | Older whole JAR; renderer classes have scoped parity, but later vehicle/telemetry classes differ. | Reuse graphics/reload observations within their recorded renderer scope. Do not call the combined reload+ride an exact-candidate replay. |
+| Exact-candidate FAST and FABULOUS render gates | **Exact whole JAR** (`4b23cf0e…`) | Exact-candidate strict-mode and nonzero styled-geometry evidence. The stationary llvmpipe runs do not replace the older visible Solas observation. |
 
 This mapping closes candidate selection and identity. Later exact-candidate
 records now cover the saved Arrow operator/FE replay and visible post-UI-edit

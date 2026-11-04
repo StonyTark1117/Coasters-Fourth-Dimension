@@ -187,6 +187,13 @@ capture, and unloaded through the normal vehicle UI. It does not convert the
 sampled clearance reports into a continuous sweep or cover equipped/cosmetic
 riders.
 
+The [exact-candidate render-mode gates](evidence/0.9/fd401-render-modes-exact-2c5d9a7/README.md)
+add separate strict FAST and FABULOUS passes at 500 geometry stages with nonzero
+styled decoration, Flywheel `indirect`, normal save and clean exit. The earlier
+pinned Iris/Solas FANCY observation retains Flywheel's expected `off` fallback
+within its renderer-parity scope. All are llvmpipe observations; the two exact
+mode gates are stationary and do not add an occupied-per-mode or native-GPU claim.
+
 Complete style geometry and clearance checks and record supported styles/render
 modes and styled ride behavior. Resource reload and a real removal/reinstallation
 cycle now pass for one single-spine controlled Arrow section. Engineered operating
@@ -429,4 +436,4 @@ certify this revised adapter.
 
 ## Veil scheduler and revised styled replay (dev.12)
 
-The [scheduler checkpoint](evidence/0.4/scheduler-acceptance.md) records a client-only initialization fix for pinned Veil 4.1.4, 512 native schedule checks, 64 completed reload/chat/query cycles and a normal occupied revised double-spine level circuit with recapture, dismount and clean exit. It preserves profiles and saved mechanical identities. The original freed-bitmap crash remained unresolved at that scheduler checkpoint; complete banked vehicle/rider clearance, render modes and the Engineered operator/FE-network workflow retain FD401.
+The [scheduler checkpoint](evidence/0.4/scheduler-acceptance.md) records a client-only initialization fix for pinned Veil 4.1.4, 512 native schedule checks, 64 completed reload/chat/query cycles and a normal occupied revised double-spine level circuit with recapture, dismount and clean exit. It preserves profiles and saved mechanical identities. The original freed-bitmap crash remained unresolved at that scheduler checkpoint. Later FD401 evidence now supplies bounded banked vehicle/vanilla-player interpolation, exact-candidate FAST/FABULOUS modes, a post-F3+T occupied styled ride, and the saved Arrow operator/wired-FE replay; their stated equipped-player, native-GPU, tracing/reliability and family/authority limits still apply.
