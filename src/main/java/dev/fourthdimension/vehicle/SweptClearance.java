@@ -16,6 +16,19 @@ public final class SweptClearance {
       double x,
       double y,
       double z) {
+    return firstObstruction(level, center, right, up, forward, x, y, z) != null;
+  }
+
+  /** Returns the first blocked or unavailable world position in the swept envelope. */
+  public static BlockPos firstObstruction(
+      net.minecraft.world.level.Level level,
+      Vec3 center,
+      Vec3 right,
+      Vec3 up,
+      Vec3 forward,
+      double x,
+      double y,
+      double z) {
     Vec3 extent =
         new Vec3(
             Math.abs(right.x) * x + Math.abs(up.x) * y + Math.abs(forward.x) * z,
@@ -25,7 +38,7 @@ public final class SweptClearance {
         BlockPos.betweenClosed(
             BlockPos.containing(center.subtract(extent)),
             BlockPos.containing(center.add(extent)))) {
-      if (!level.hasChunkAt(pos)) return true;
+      if (!level.hasChunkAt(pos)) return pos.immutable();
       var shape = level.getBlockState(pos).getCollisionShape(level, pos);
       if (shape.isEmpty()) continue;
       for (var local : shape.toAabbs()) {
@@ -52,9 +65,9 @@ public final class SweptClearance {
         // Conservative oriented-box overlap: false positives at corners are preferable to a missed
         // swept obstacle.
         if (min[0] < x && max[0] > -x && min[1] < y && max[1] > -y && min[2] < z && max[2] > -z)
-          return true;
+          return pos.immutable();
       }
     }
-    return false;
+    return null;
   }
 }

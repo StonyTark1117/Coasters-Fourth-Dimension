@@ -61,7 +61,7 @@ public final class VehicleFactory {
           hit.point()
               .add(basis.up().scale(2.3125 + design.childPivotOffset()))
               .add(basis.right().scale(side));
-      if (SweptClearance.obstructed(
+      var obstruction = SweptClearance.firstObstruction(
           level,
           center,
           basis.right(),
@@ -69,9 +69,12 @@ public final class VehicleFactory {
           basis.forward(),
           1.5,
           design.rotorRadius(),
-          design.rotorRadius() + (design.pairedRows() ? 3 : 0)))
+          design.rotorRadius() + (design.pairedRows() ? 3 : 0));
+      if (obstruction != null)
         throw new IllegalArgumentException(
-            "Clear the full wing and rider rotation envelope before placing this car");
+            "Clear the full wing and rider rotation envelope at "
+                + obstruction.toShortString()
+                + " before placing this car");
     }
     var origin = CoasterCartLinkPlacement.plotOriginForBearingCenter(bearing, orientation);
     var chassis =
