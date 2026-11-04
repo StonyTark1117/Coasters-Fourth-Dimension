@@ -125,11 +125,12 @@ one bounded Arrow scene and does not replace the remaining acceptance below.
 
 ## Remaining acceptance
 
-Rendered ordinary player selection/editor/propulsion/boarding,
-complete curved/banked offsets and clearance, nonzero Arrow rack/profile scenes,
-broader coupler strength and propulsion/braking scenes, and fresh-process
-recovery-mode lifecycle evidence remain open. These
-checks do not certify added ordinary-cart assemblies or a survival locomotive.
+Manual world-side ordinary-bearing selection, physical lever propulsion, and
+manual boarding remain open, along with all-family curved/banked rendering and
+complete mesh/rider/rack clearance. Broader coupler/propulsion/braking scenes
+and all-family or multiplayer recovery-mode lifecycle evidence also remain
+open. These checks do not certify added ordinary-cart assemblies or a survival
+locomotive.
 The bounded installed-motor brake/start/brake callback check is recorded in the
 [Engineered motor-interlock checkpoint](engineered-motor-interlock/acceptance.md);
 at that earlier checkpoint it did not close the broader Engineered/FE item.
@@ -152,5 +153,10 @@ remain open.
 
 The [rendered recovery-editor checkpoint](rendered-recovery-editor/acceptance.md)
 now opens and renders the actual linked-vehicle editor after production
-attachment. It does not replace manual ordinary player selection, button input,
-propulsion, or boarding acceptance.
+attachment. Subsequent Arrow-only client checkpoints exercise the visible
+[Attach recovery](rendered-recovery-editor-attach/acceptance.md) and
+[Start tow](rendered-recovery-editor-action/acceptance.md) callbacks through
+their normal screen mouse dispatcher, and render a linked original
+[two-car Arrow train](rendered-recovery-train/acceptance.md). These are
+fixture-assisted UI actions, not manual world selection, physical lever input,
+all-family rendering, or complete lifecycle acceptance.
