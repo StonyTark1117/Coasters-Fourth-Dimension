@@ -6,7 +6,7 @@ directory and built offline with Java 21 for the combined packaged profile
 The [JAR](coasters-fourth-dimension-0.9.0-dev.27.jar) has SHA-256
 `1afa7066607313898a11ff628b762be86369a82a62423c3fcce4ffd9008d62f`.
 The dedicated server, Dev client and Observer client all loaded this JAR and
-exited 0 after normal menu exits and server `stop`. The [compile log](fd401-realign-fix-compile.log),
+exited 0 after normal menu exits and server `stop`. The [compile log](compile.txt),
 [server log](server.log.gz), [Dev log](dev.log.gz), [Observer log](observer.log.gz),
 stopped [world](world.tar.gz), screenshots, and [SHA-256 inventory](SHA256SUMS)
 retain the run.
