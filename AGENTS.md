@@ -10,6 +10,10 @@ earlier phase of the same task. Do not create another branch merely to get a cle
 tree, change task names, or avoid reconciling existing work. Preserve and inspect
 uncommitted changes before integrating anything.
 
+The detached worktrees left from the 2026-11-04 archive are historical snapshots
+with ignored run data. Start new work in the primary `main` checkout; do not
+create a branch from a detached archive worktree.
+
 For work done directly in the primary checkout, use `main`. For genuinely parallel
 work that needs a separate worktree, create one stable task branch only if an existing
 task worktree cannot be reused. Record its branch and absolute worktree path in every
