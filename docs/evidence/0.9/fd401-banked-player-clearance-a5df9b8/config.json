@@ -20,5 +20,7 @@
   },
   "margin": 0.02,
   "styles": ["arrow_4d", "arrow_4d_dbl_spine"],
+  "transitionPlan": "style-plan.json",
+  "transitionPlanSha256": "9e01e56e5b430b741cf7dfbb15614df9cd96c294f7ffd58994de7bd182501e1a",
   "scope": "One-tick sampled banked default-model vehicle and conservative vanilla seated-player skin clearance for single and coupled Arrow cars; no client rendering, between-tick sweep, equipment/cosmetics, arbitrary resources, or full FD401 acceptance."
 }

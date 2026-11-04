@@ -385,7 +385,9 @@ have no uncertified body/track pairs and retain exact source/input/tool hashes.
 The later [banked player-clearance extension](docs/evidence/0.9/fd401-banked-player-clearance-a5df9b8/README.md)
 adds a conservative vanilla 1.21.1 seated skin envelope to every occupied fixture
 seat for both uniform styles: 23,072 player poses per single-car report and 52,384
-per coupled report remain at least 0.08 blocks from the styled track. This resolves
+per coupled report remain at least 0.08 blocks from the styled track. Its fifth
+report applies the same 52,384 player checks to the retained whole-section
+Original/single/double transition plan. This resolves
 the bounded one-tick sampled default-model/player-skin geometry work only.
 Continuous between-tick clearance, equipped/cosmetic players, decoration
 self-clearance, visible transition ownership, within-curve UI styling, exact-candidate

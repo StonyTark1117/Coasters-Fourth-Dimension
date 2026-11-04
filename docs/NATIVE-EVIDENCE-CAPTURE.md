@@ -250,7 +250,8 @@ python3 -B -m unittest discover -s scripts/tests -p 'test_recovery_*.py' -v
 This remains tick-sampled body-versus-track default-model analysis. The
 [banked player-clearance reports](evidence/0.9/fd401-banked-player-clearance-a5df9b8/README.md)
 run the current tools over the retained single/coupled native inputs for both
-uniform styles. They cover vanilla standard/slim skin and outer layers, but not
+uniform styles and the retained whole-section Original/single/double transition
+plan. They cover vanilla standard/slim skin and outer layers, but not
 armor, held items, capes, elytra or modded cosmetics. Track-to-decoration
 self-clearance, continuous physics-step clearance, resource replacements,
 visible client rendering and installed-model availability remain outside this

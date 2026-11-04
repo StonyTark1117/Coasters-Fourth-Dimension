@@ -163,13 +163,16 @@ adds a conservative vanilla 1.21.1 seated-player skin envelope at every fixture
 seat for both uniform styles. It checks 23,072 player poses in each single-car
 run and 52,384 in each coupled run; the player/track bound is at least 0.08
 blocks against 0.02 required. It retains the wheel, chassis, carrier, explicit
-linkage, native rider and neighboring-car checks.
+linkage, native rider and neighboring-car checks. A fifth current report applies
+the same player envelope to the retained Original → single → double → Original →
+single whole-section plan, with the same 6,548 coupled poses and lower bounds.
 
 These remain proposed appearance configurations on recorded native motion, not
 observed client rendering. They exclude continuous between-tick motion, armor,
 held items, capes/elytra/modded cosmetics, decoration self-clearance and custom
-resources. The transition report still excludes player meshes, and whole-section
-transitions do not prove UI edits inside a curve. The frozen-source results do
+resources. Whole-section transitions do not prove UI edits inside a curve. The historical transition
+report excludes player meshes; the current extension supplies that bounded
+player check without turning it into runtime editor evidence. The frozen-source results do
 not validate later draw-fallback behavior or close telemetry, exact-candidate
 review, FD401 or the release gate.
 
