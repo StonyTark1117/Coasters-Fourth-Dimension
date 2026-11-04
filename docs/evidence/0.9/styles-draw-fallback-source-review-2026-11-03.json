@@ -1,0 +1,32 @@
+{
+  "observed_at_utc": "2026-11-03T09:53:07.681632+00:00",
+  "base_commit": "0d29e7fd248dfc89a5a1d1841a684c916a7ee4bf",
+  "scope": "Read-only production-source and stated-contract review; no renderer/JVM run, no simulated draw exception executed.",
+  "sources": {
+    "src/main/java/dev/fourthdimension/client/integration/TrackStylesRenderer.java": "477da35052e9ebfe277c7239ef28237aa5a9c920b4bc52819ec2ad715d512448",
+    "src/main/java/dev/fourthdimension/client/OriginalTrackRenderer.java": "dc27216c67c5506aa472773ecaf5adb6406166fc5a09d5ab50d4832123262667",
+    "docs/INTEGRATIONS.md": "c243fd669cd319c40a677df35bf78e08aecc547ffe5ed9398aa47d0cfdb907a8"
+  },
+  "finding": {
+    "priority": 1,
+    "title": "Draw-time optional decoration failures do not fall back to Original",
+    "requirement": "INTEGRATIONS.md promises Original spine/tie fallback when a provider model fails during drawing.",
+    "observed_code": [
+      "TrackStylesRenderer.build catches RuntimeException and LinkageError during mesh/model construction only.",
+      "TrackStylesRenderer.draw calls CachedBuffers.partial, lighting and renderInto without an exception boundary. Per-piece pose.pushPose/popPose has no finally.",
+      "OriginalTrackRenderer caches procedural quads with external spine/tie ownership, queues decoration separately, then invokes TrackStylesRenderer.draw directly. It does not rebuild with Original ownership on a draw failure.",
+      "OriginalTrackRenderer outer pose.pushPose/popPose also has no finally around these calls."
+    ],
+    "consequence": "A provider draw failure propagates through the render event, leaves omitted Original decoration unrecovered, and may leave one or both pose pushes unbalanced. The documented failure fallback is not implemented for this path.",
+    "correction_requirements": [
+      "Balance pose state on every exit.",
+      "Retain rail identity through the draw queue so a failed provider draw can select that rail's Original decoration fallback.",
+      "Prevent partial provider output from producing duplicate or incompatible fallback geometry; define frame/retry behavior explicitly.",
+      "Invalidate or quarantine failed provider meshes for the relevant model generation to avoid retrying the same failure every frame; permit recovery after an appropriate reload.",
+      "Preserve family, profile, geometry and saved appearance intent.",
+      "Exercise a controlled draw-time failure after mesh creation, assert no propagated provider exception, balanced pose stack and Original component ownership; also cover reload recovery."
+    ],
+    "acceptance_boundary": "Source proves missing handling, not a reproduced crash on a particular graphics backend. Keep full rendered/reload acceptance open."
+  },
+  "coordination": "Sent to core coordinator for implementation ownership. This review changes no production code, dependencies, runtime scheduling or release gates."
+}

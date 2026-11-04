@@ -1,0 +1,74 @@
+{
+  "observed_at_utc": "2026-11-03T09:50:55.956770+00:00",
+  "review_type": "read-only source review; no runtime or JVM executed",
+  "base_commit": "be4758b0aacc58962be302bb5852398c20374469",
+  "working_tree_warning": "OccupiedRideReloadValidation and its test were untracked; FontReloadValidation was modified. Base commit alone does not identify reviewed sources; hashes below do.",
+  "sources": [
+    {
+      "path": "src/main/java/dev/fourthdimension/client/OccupiedRideReloadValidation.java",
+      "sha256": "e8ea71b9f46f44b59a7d5c7fd238f82f072ea279cd0a9801a99fd949af2c967d"
+    },
+    {
+      "path": "src/main/java/dev/fourthdimension/client/FontReloadValidation.java",
+      "sha256": "dad76aa4108dc0bdb0a535714f8b8baf92d79faecee66fe54468e4e9e7fea866"
+    },
+    {
+      "path": "src/main/java/dev/fourthdimension/client/FontReloadTrace.java",
+      "sha256": "02b64e4332763885801049b58250fe8076e86b951cb6318eec3ae6dce9a95de5"
+    },
+    {
+      "path": "src/main/java/dev/fourthdimension/client/TrackRenderMetrics.java",
+      "sha256": "bc5ad7fa3326d0bfe9a2f403eb6b2fd7093f2484500a2a028a632deec73a8e18"
+    },
+    {
+      "path": "src/test/java/dev/fourthdimension/client/OccupiedRideReloadValidationTest.java",
+      "sha256": "ad6a2e5f8c35fab60c7f496dc4f4ffb8475ceeffdd84ec63c34e4bd6cd6c1643"
+    }
+  ],
+  "requirement": "Prove occupied Fourth Dimension ride motion and relevant rendering after successful resource reload; retain broader FD401 acceptance boundaries.",
+  "findings": [
+    {
+      "id": "R1",
+      "priority": 1,
+      "problem": "Passenger predicate does not establish an FD rider binding or motion.",
+      "source": "OccupiedRideReloadValidation.tick: player.isPassenger() is the sole vehicle predicate.",
+      "counterexample": "With generation advanced and 100 global geometry stages, a stationary vanilla boat passenger accumulates 20 ticks and passes. This is a source-derived counterexample, not an executed Minecraft scenario.",
+      "required_evidence": "Resolve the local FD seat/carrier/chassis binding, require the expected family and stable identities, and measure native chassis displacement after reload."
+    },
+    {
+      "id": "R2",
+      "priority": 1,
+      "problem": "Occupancy and geometry evidence need not overlap or be continuous.",
+      "source": "postReloadGeometryStart is set before isPassenger; occupiedTicks never resets on dismount.",
+      "counterexample": "100 geometry stages before boarding followed by 20 stationary passenger ticks passes, even if no geometry renders during occupancy. Two ten-tick rides separated by a dismount also satisfy the tick threshold. Source-derived, not executed.",
+      "required_evidence": "Baseline geometry on qualifying occupancy and collect consecutive same-identity occupied samples; restart observation on dismount, world change or binding loss."
+    },
+    {
+      "id": "R3",
+      "priority": 1,
+      "problem": "Font generation does not prove successful completion of the requested resource reload.",
+      "source": "FontReloadTrace.applyStart increments generation; OccupiedRideReloadValidation never inspects reload future success or FontReloadValidation.completed.",
+      "counterexample": "Generation advancing is accepted independently of the overall reload future result. An absent overlay is not an explicit success assertion. No failed-reload runtime was performed.",
+      "required_evidence": "Use an explicit successful reload completion token for the requested generation, fail on error, and require observation after that completion."
+    },
+    {
+      "id": "R4",
+      "priority": 2,
+      "problem": "Static observation state is not reset when the client level changes.",
+      "source": "TrackRenderMetrics resets on level changes, while initialGeneration/postReloadGeometryStart/occupiedTicks remain static.",
+      "impact": "A second world can inherit prior occupancy and generation state, while reset render counters produce misleading differences or delay completion.",
+      "required_evidence": "Bind observation state to the level/session and reset or fail upon disconnect/world change."
+    }
+  ],
+  "test_scope": "Existing new unit test covers property bounds and malformed numeric input only; it does not exercise acceptance logic.",
+  "recommended_negative_cases": [
+    "non-FD stationary passenger",
+    "FD mounted but no motion",
+    "geometry only before qualifying occupancy",
+    "dismount between occupied samples",
+    "reload failure after generation increments",
+    "world change during observation"
+  ],
+  "claim_boundary": "No observed runtime success is invalidated solely by this review; the gate cannot by itself establish the stronger claim. Preserve raw run evidence as passenger/render smoke evidence unless additional identity/motion/reload evidence supports a narrower real ride.",
+  "coordination": "Findings sent to FD401 owner and core coordinator. Owner retains source edits and runtime scheduling. No integration expansion or gate closure authorized."
+}

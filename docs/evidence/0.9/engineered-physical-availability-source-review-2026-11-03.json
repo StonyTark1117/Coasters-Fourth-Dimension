@@ -1,0 +1,31 @@
+{
+  "reviewed_at_utc": "2026-11-03T10:18:52.106575+00:00",
+  "base_commit": "a47266f09bc7af08fa86adfc1519e8ac41588cb4",
+  "source_hashes": {
+    "src/main/java/dev/fourthdimension/integration/EngineeredInterlock.java": "b1e3fd437db958ecc3bfc5094ee3fb5e702eeb96b5369a71f2489da3f217e335",
+    "src/main/java/dev/fourthdimension/integration/PropulsionInterlock.java": "731242da0deb7e6d32be794c10abe0d23f65ca1bc9648d9338841605ad37b9fc",
+    "src/main/java/dev/fourthdimension/vehicle/VehicleOperations.java": "ea9b36f6ca4626224939828cbb79255bcb2457769f22446ad487470cfd3e0768",
+    "src/main/java/dev/fourthdimension/vehicle/VehicleLifecycle.java": "f9313e208aa89d832f6a785a1680d8a84e2a5748175216937dd5126bd61b0380",
+    "src/main/java/dev/fourthdimension/runtime/CarrierRuntime.java": "5904f1a51a04a52cd73a12de0a18cb8d8b3b3d54b47127eb107a6c3599d950f9",
+    "src/main/java/dev/fourthdimension/integration/RideTelemetry.java": "ee41a86e623b117687eb9a9e3cc95ce391e8c7b1b35a35f8e06a61e1b0cf068b",
+    "src/main/java/dev/fourthdimension/gametest/EngineeredInterlockGameTests.java": "f210915e99dbcfe363e1de6ebc0f2eacb971544aa5a0d4c5df5b3bd5118c51cc"
+  },
+  "scope": "Read-only source review; no physical unload or native motor call was executed.",
+  "finding": "Engineered motor hold policy lacks whole-consist physical body availability checks.",
+  "observations": [
+    "EngineeredInterlock checks logical stopping/maintenance/restraints/fault/PAX flags after consist resolution.",
+    "VehicleOperations.consist resolves selected chassis and logical peer variants but does not require every peer chassis and carrier body to exist.",
+    "RideTelemetry.sample separately denies availability when any chassis/carrier is absent.",
+    "VehicleLifecycle handles permanent REMOVED bodies by rider recovery, which opens restraints and therefore holds motors; other removal reasons return without changing logical ride flags.",
+    "CarrierRuntime skips absent child bodies without directly establishing a matching interlock in this path.",
+    "Existing direct MotorDrive.apply regression tests missing logical peer data, not physical peer chassis/carrier unavailability."
+  ],
+  "source_derived_counterexample": "A non-PAX running consist with closed restraints, no fault/maintenance/stopping flags, logical records intact and one missing carrier passes the Engineered flag predicate even though telemetry reports unavailable. Whether a particular native unloading sequence reaches this state requires runtime evidence.",
+  "requested_validation": [
+    "Directly invoke native MotorDrive.apply before subsequent controller/physics repair ticks while selected-car or trailing-car carrier body is unavailable; assert zero propulsion impulse.",
+    "Exercise a physically unavailable linked chassis with its logical record intact.",
+    "Restore availability and prove permitted healthy operation is not permanently blocked.",
+    "Keep ordinary recovery-cart and PAX ownership policies unchanged; assess target-host performance if adding per-callback scans."
+  ],
+  "coordination": "Sent to core coordinator for native regression and production ownership; no code changed by reviewer."
+}

@@ -1,0 +1,39 @@
+{
+  "reviewed_at_utc": "2026-11-03T10:18:52.106575+00:00",
+  "evidence_commit": "aa42398",
+  "source_commit": "1a91416aefc36abbcd74b46d00473e9d4a9861eb",
+  "indexed_payload_hashes": {
+    "README.md": "efdd08000e637bbb0e172c84cb28c53297cf15152cd18c22c7a107986f3b97bd",
+    "post-world.sha256": "8cece6bfd90463a1e109dfda573e14f0efd1e5c90036f451a16da974fa8bd509",
+    "post-world.tar.gz": "d10449878e95d98e954b41ae29e3e923775c22cc3a28e18b6de7b1d1e63c565b",
+    "pre-world.sha256": "b89b3af181dc34b39ba41b2a2f902ea64c3d8ef86ed0c9841eaa346b5d5c4f02",
+    "pre-world.tar.gz": "47a724acdb89320d9592b7544f61bf87a7fbd8db7b09f52fc3635cdf3183e80b",
+    "setup-client.log": "9ceef4a7d97f98e0269ef0b64215d09a83cee63a4211e2e5d816109f2440132d",
+    "setup-metadata.json": "253de3c4a2891b66bfdf7d63b1bcc2b37993a5b6c0970c2fb5ea1c692bf07035",
+    "strict-client.log": "941b3ff48be33d3d9c14757b80a28dfb6f863a70084700934b6137fb82ac0f47",
+    "strict-metadata.json": "19fb897d89052d324fe1dac89ed613f7349bed3a5e13b83da42ea253cd000d96"
+  },
+  "independent_checks": [
+    "Every indexed payload is tracked and matches its manifest hash.",
+    "All27 pre-world and46 post-world files were streamed from tar archives and matched their per-file hash indexes; no filesystem extraction.",
+    "Isolated checkout /tmp/fdoccupied-reload-1a91416 is clean and exactly1a91416.",
+    "Packaged JAR bb8fb57f8babaf090c52c460739ddd6367d5f8235a90e42fb5bfe01f9a833526 passes CRC; both validator class bytes match isolated compiled outputs.",
+    "Raw event ordering: fixture dispatch, identified moving ride armed, reload request, successful completion, reload observed, gate pass, normal client shutdown and all dimensions saved.",
+    "No targeted reload-failure, occupied-timeout, lost-identity or unallocated-image markers appear."
+  ],
+  "bounded_result": {
+    "pre_reload_displacement_blocks": 1.0831407271549816,
+    "post_reload_displacement_blocks": 1.8461647576448783,
+    "post_reload_occupied_ticks": 20,
+    "global_geometry_stages": 109,
+    "styles_decoration_pieces": 0
+  },
+  "limitations": [
+    "Fixture-created/mounted/dispatched Arrow on Original track; programmatic reload and automatic client exit.",
+    "The exact source gate enforces stable player/mount/chassis/carrier; these checks do not prove normal operator actions or full-turn operation.",
+    "Geometry stages are global and do not identify the ridden rail; zero Styles pieces establishes no visible provider geometry.",
+    "Gradle exit0 is owner-recorded; raw logs independently corroborate normal shutdown.",
+    "No independent rebuild, new runtime, manual UI input, player mesh clearance, full graphics matrix or general reload reliability was performed by this review."
+  ],
+  "disposition": "Accept bounded through-reload mounted-motion evidence; retain broader FD401 and0.9 gates."
+}
