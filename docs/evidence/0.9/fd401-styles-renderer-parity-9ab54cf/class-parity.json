@@ -1,0 +1,102 @@
+{
+  "priorArtifact": "docs/evidence/0.9/fd401-styles-render-modes/coasters-fourth-dimension-0.9.0-dev.27.jar",
+  "priorArtifactSha256": "de64a6833fd0a4e5f7bdbc36ad40b89ff396d48941c7e6ae0ae2e52ca6ca3a70",
+  "currentArtifact": "docs/evidence/0.9/fd401-styles-banked-fullturn-9ab54cf/coasters-fourth-dimension-0.9.0-dev.27.jar",
+  "currentArtifactSha256": "2d4ecc048875af48bb21a18e5ff1179d5a49f767ed45055a4477aa3b76260fb8",
+  "currentSourceCommit": "9ab54cf",
+  "scope": "Renderer, Styles catalog, ownership, and placement class bytes only; no full JAR equivalence or runtime replay",
+  "classCount": 18,
+  "allMatch": true,
+  "classes": [
+    {
+      "entry": "dev/fourthdimension/client/OriginalTrackRenderer$Decoration.class",
+      "oldSha256": "e847e662a7dad95a81f6783c7707fcc134e31acd85eb262a479e790ad1307f4f",
+      "currentSha256": "e847e662a7dad95a81f6783c7707fcc134e31acd85eb262a479e790ad1307f4f"
+    },
+    {
+      "entry": "dev/fourthdimension/client/OriginalTrackRenderer$Mesh.class",
+      "oldSha256": "1953b55ba8ffcb76291c2dbbae931110ffb602319231e470e1dc2a40bf17ecc2",
+      "currentSha256": "1953b55ba8ffcb76291c2dbbae931110ffb602319231e470e1dc2a40bf17ecc2"
+    },
+    {
+      "entry": "dev/fourthdimension/client/OriginalTrackRenderer$Quad.class",
+      "oldSha256": "f7e718b6c9f9e79b71617f7163f9a6fb7164ac91a5b8fc927b5c913971cb0188",
+      "currentSha256": "f7e718b6c9f9e79b71617f7163f9a6fb7164ac91a5b8fc927b5c913971cb0188"
+    },
+    {
+      "entry": "dev/fourthdimension/client/OriginalTrackRenderer.class",
+      "oldSha256": "ffda52f9b72bdc2d2386eb3a98e45c8ac689397ff37820eaee6a2a52fdf6c459",
+      "currentSha256": "ffda52f9b72bdc2d2386eb3a98e45c8ac689397ff37820eaee6a2a52fdf6c459"
+    },
+    {
+      "entry": "dev/fourthdimension/client/integration/TrackStylesCatalog$Decoration.class",
+      "oldSha256": "b59a9971b6d97da3bb991d45d3182a4dda7156064feab221b3a07ecd9dddfb63",
+      "currentSha256": "b59a9971b6d97da3bb991d45d3182a4dda7156064feab221b3a07ecd9dddfb63"
+    },
+    {
+      "entry": "dev/fourthdimension/client/integration/TrackStylesCatalog.class",
+      "oldSha256": "50970a056400c312c5986b41f0dbb156c27e51d7e3be4407f31ea88503e39f85",
+      "currentSha256": "50970a056400c312c5986b41f0dbb156c27e51d7e3be4407f31ea88503e39f85"
+    },
+    {
+      "entry": "dev/fourthdimension/client/integration/TrackStylesDrawGuard.class",
+      "oldSha256": "44a2605bff230156ac2df4ddeecc3f82f829633d14ba5565b5e41d4ed4e8dbbd",
+      "currentSha256": "44a2605bff230156ac2df4ddeecc3f82f829633d14ba5565b5e41d4ed4e8dbbd"
+    },
+    {
+      "entry": "dev/fourthdimension/client/integration/TrackStylesFallbackState$Failure.class",
+      "oldSha256": "5cafeb25db77f7a3d80314092c9c6156d82e092784384fe746f9f142c6582c6c",
+      "currentSha256": "5cafeb25db77f7a3d80314092c9c6156d82e092784384fe746f9f142c6582c6c"
+    },
+    {
+      "entry": "dev/fourthdimension/client/integration/TrackStylesFallbackState.class",
+      "oldSha256": "8c578f271c7dd7e511d354cdf25e945ac26698f58749351e9e8b44621734abe2",
+      "currentSha256": "8c578f271c7dd7e511d354cdf25e945ac26698f58749351e9e8b44621734abe2"
+    },
+    {
+      "entry": "dev/fourthdimension/client/integration/TrackStylesRenderer$Frame.class",
+      "oldSha256": "00711cd63bff5103902135e6c3bd5c8c43b27a9b8b2dda02848680d22f57d914",
+      "currentSha256": "00711cd63bff5103902135e6c3bd5c8c43b27a9b8b2dda02848680d22f57d914"
+    },
+    {
+      "entry": "dev/fourthdimension/client/integration/TrackStylesRenderer$Mesh.class",
+      "oldSha256": "1536176f014bc996a8a96b333ab16860b97db8fced899d84a1ca4d8ecbf262d0",
+      "currentSha256": "1536176f014bc996a8a96b333ab16860b97db8fced899d84a1ca4d8ecbf262d0"
+    },
+    {
+      "entry": "dev/fourthdimension/client/integration/TrackStylesRenderer$Piece.class",
+      "oldSha256": "8b4be379b9e241293c516e22b074767639b8e9c599e5dfe36f2dd4dc7d7ee636",
+      "currentSha256": "8b4be379b9e241293c516e22b074767639b8e9c599e5dfe36f2dd4dc7d7ee636"
+    },
+    {
+      "entry": "dev/fourthdimension/client/integration/TrackStylesRenderer.class",
+      "oldSha256": "c53a0c5e46938a0cb11931e470cb8c2ac13ccaa2b9cbd0931f8da9dd770ddd0b",
+      "currentSha256": "c53a0c5e46938a0cb11931e470cb8c2ac13ccaa2b9cbd0931f8da9dd770ddd0b"
+    },
+    {
+      "entry": "dev/fourthdimension/integration/TrackAppearance.class",
+      "oldSha256": "96a342c08251a7a48292ceaf4794ddef1a8862b812f80d095eb6303d78baef58",
+      "currentSha256": "96a342c08251a7a48292ceaf4794ddef1a8862b812f80d095eb6303d78baef58"
+    },
+    {
+      "entry": "dev/fourthdimension/integration/TrackRenderOwnership$Component.class",
+      "oldSha256": "42f3b82ada0a2fab038437449c369c46bc3cccdf3ed66e363a5ee1fb6a5d9135",
+      "currentSha256": "42f3b82ada0a2fab038437449c369c46bc3cccdf3ed66e363a5ee1fb6a5d9135"
+    },
+    {
+      "entry": "dev/fourthdimension/integration/TrackRenderOwnership.class",
+      "oldSha256": "5bfb0007ba7caff67aaba0365d89a324c4f3882828082ed7f2a33873e05cce62",
+      "currentSha256": "5bfb0007ba7caff67aaba0365d89a324c4f3882828082ed7f2a33873e05cce62"
+    },
+    {
+      "entry": "dev/fourthdimension/physics/ArrowDecorationPlacement.class",
+      "oldSha256": "3f9cf17d3900398f837c73fd2dfdcdc0003609f561f89b54b42c3b1d3f0a2059",
+      "currentSha256": "3f9cf17d3900398f837c73fd2dfdcdc0003609f561f89b54b42c3b1d3f0a2059"
+    },
+    {
+      "entry": "dev/fourthdimension/physics/ModelFrame.class",
+      "oldSha256": "ad6d16b08c358dacb69c269dd94bd7a639957cb47f494d51182063c95c8b1217",
+      "currentSha256": "ad6d16b08c358dacb69c269dd94bd7a639957cb47f494d51182063c95c8b1217"
+    }
+  ]
+}
