@@ -11,6 +11,7 @@ import dev.fourthdimension.track.*;
 import dev.fourthdimension.vehicle.*;
 import dev.ryanhcode.sable.api.sublevel.SubLevelContainer;
 import dev.ryanhcode.sable.sublevel.storage.SubLevelRemovalReason;
+import dev.silvergold.simulatedcoasters.track.cart.CoasterCartTrainLinkConstraint;
 import dev.silvergold.simulatedcoasters.track.graph.*;
 import java.io.IOException;
 import java.io.UncheckedIOException;
@@ -285,6 +286,186 @@ public final class BankedArrowGameTests {
                   + flatPeak[0]
                   + " captured=true unloaded=true styles="
                   + stylesInstalled);
+          helper.succeed();
+        });
+  }
+
+  @GameTest(template = "empty", timeoutTicks = 3000)
+  public static void styledCoupledCarsCompleteBankedAndFlatTurns(GameTestHelper helper) {
+    if (!OptionalIntegrations.installed(OptionalIntegrations.TRACK_STYLES).mayInspect()) {
+      helper.succeed();
+      return;
+    }
+    var level = helper.getLevel();
+    var origin = new BlockPos(-520, 210, -200);
+    for (int x = -34; x <= -30; x++)
+      for (int z = -14; z <= -8; z++) level.setChunkForced(x, z, true);
+    var data = FoundationData.get(level);
+    var lead = ExampleLayouts.createBankedArrow(level, origin);
+    var container = SubLevelContainer.getContainer(level);
+    var firstEdge =
+        TrackGeometry.resolve(
+            level,
+            data.rails.stream()
+                .filter(r -> r.matches(lead.boundFrom, lead.boundTo))
+                .findFirst()
+                .orElseThrow());
+    helper.assertTrue(firstEdge != null, "Coupled bank fixture lost its first native edge");
+    var table = TrackGeometry.table(level, firstEdge);
+    double t = table.parameterAt(12 + TrackDesign.ARROW.axleSpacing());
+    var second =
+        VehicleFactory.create(
+            level,
+            TrackDesign.ARROW,
+            new CoasterPathTrackFrame.GraphHit(
+                CoasterPathGraphManager.sampleEdgePosition(level, firstEdge, t), firstEdge, t));
+    var cars = List.of(lead, second);
+    var own =
+        data.rails.stream()
+            .filter(
+                r ->
+                    r.from.getY() == origin.getY()
+                        && r.from.getX() >= origin.getX()
+                        && r.from.getX() <= origin.getX() + 32
+                        && r.from.getZ() >= origin.getZ()
+                        && r.from.getZ() <= origin.getZ() + 52)
+            .toList();
+    helper.assertTrue(own.size() == 8, "Coupled bank fixture did not create eight sections");
+    var riders = new Pig[2];
+    var peaks = new double[2][2];
+    boolean[] dispatched = {false};
+    boolean[] powered = {false};
+    int[] ticks = {0};
+    helper.runAtTickTime(
+        80,
+        () -> {
+          helper.assertTrue(
+              CoasterCartTrainLinkConstraint.linkCarts(
+                  level,
+                  (dev.ryanhcode.sable.sublevel.ServerSubLevel)
+                      container.getSubLevel(lead.chassis),
+                  (dev.ryanhcode.sable.sublevel.ServerSubLevel)
+                      container.getSubLevel(second.chassis),
+                  TrackDesign.ARROW.axleSpacing()),
+              "Native Arrow cars did not couple");
+          int styled = 0;
+          for (var rail : own) {
+            boolean banked =
+                rail.from.getZ() == origin.getZ() + 52
+                    && rail.to.getZ() == origin.getZ() + 52;
+            boolean flat =
+                rail.from.getX() == origin.getX() + 32
+                    && rail.to.getX() == origin.getX() + 32;
+            if (!banked && !flat) continue;
+            rail.appearance =
+                new TrackAppearance(TrackAppearance.CANDIDATES.get(banked ? 0 : 1), -1);
+            helper.assertTrue(
+                rail.appearance.supportsProfile(rail.profile),
+                "Coupled full-turn style rejected its native rotation profile");
+            styled++;
+          }
+          helper.assertTrue(styled == 2, "Coupled fixture did not style both full turns");
+          data.setDirty();
+          FoundationSync.broadcast(level);
+          for (int i = 0; i < cars.size(); i++) {
+            var car = cars.get(i);
+            helper.assertTrue(Boarding.ready(level, car), "Coupled Arrow car is not ready");
+            var carrier = car.carriers.getFirst();
+            var body = container.getSubLevel(carrier.body);
+            var pig = EntityType.PIG.create(level);
+            pig.setNoAi(true);
+            level.addFreshEntity(pig);
+            SeatBlock.sitDown(
+                level, body.getPlot().getCenterBlock().offset(carrier.seats.getFirst()), pig);
+            helper.assertTrue(pig.isPassenger(), "Coupled Arrow rider did not board");
+            riders[i] = pig;
+          }
+          VehicleOperations.restraints(level, lead, true);
+          VehicleOperations.dispatch(level, lead);
+          dispatched[0] = true;
+          System.out.println(
+              "FD_BANK_COUPLED_STYLES banked="
+                  + TrackAppearance.CANDIDATES.get(0)
+                  + " flat="
+                  + TrackAppearance.CANDIDATES.get(1)
+                  + " cars=2 riders=2");
+        });
+    helper.onEachTick(
+        () -> {
+          ticks[0]++;
+          if (!dispatched[0]) return;
+          helper.assertTrue(
+              CoasterCartTrainLinkConstraint.areLinkedCarts(
+                  container.getSubLevel(lead.chassis), container.getSubLevel(second.chassis)),
+              "Styled Arrow train lost its native link");
+          for (int i = 0; i < cars.size(); i++) {
+            var car = cars.get(i);
+            helper.assertTrue(riders[i].isPassenger(), "Styled Arrow train lost a rider");
+            helper.assertTrue(
+                car.restraints && car.fault.isEmpty(), "Styled Arrow train fault/unload");
+            var bound =
+                own.stream()
+                    .filter(r -> r.matches(car.boundFrom, car.boundTo))
+                    .findFirst()
+                    .orElse(null);
+            helper.assertTrue(bound != null && bound.valid, "Styled train lost original support");
+            boolean banked =
+                bound.from.getZ() == origin.getZ() + 52
+                    && bound.to.getZ() == origin.getZ() + 52;
+            boolean flat =
+                bound.from.getX() == origin.getX() + 32
+                    && bound.to.getX() == origin.getX() + 32;
+            for (var carrier : car.carriers) {
+              if (banked) peaks[i][0] = Math.max(peaks[i][0], carrier.angle);
+              if (flat) peaks[i][1] = Math.max(peaks[i][1], carrier.angle);
+            }
+          }
+          if (ticks[0] == 260) {
+            level.setBlockAndUpdate(
+                origin.offset(-6, 0, 21), Blocks.REDSTONE_BLOCK.defaultBlockState());
+            powered[0] = true;
+          }
+          if (ticks[0] % 400 == 0)
+            System.out.println(
+                "FD_BANK_COUPLED_PROGRESS tick="
+                    + ticks[0]
+                    + " peaks="
+                    + Arrays.deepToString(peaks)
+                    + " ready="
+                    + cars.stream().map(c -> Boarding.ready(level, c)).toList());
+          if (!powered[0]
+              || cars.stream().anyMatch(c -> !c.stopping || !Boarding.ready(level, c))) return;
+          for (int i = 0; i < cars.size(); i++)
+            for (int turn = 0; turn < 2; turn++)
+              helper.assertTrue(
+                  Math.abs(peaks[i][turn] - 2 * Math.PI) < .08,
+                  "Styled coupled car " + i + " missed full turn " + turn + ": " + peaks[i][turn]);
+          var station = (BoardingStationEntity) level.getBlockEntity(origin.offset(-6, 0, 20));
+          helper.assertTrue(station.fault.isEmpty(), "Coupled bank station rejected capture");
+          VehicleOperations.restraints(level, lead, false);
+          for (var rider : riders) {
+            rider.stopRiding();
+            helper.assertTrue(!rider.isPassenger(), "Styled coupled rider failed unloading");
+            rider.discard();
+          }
+          System.out.println(
+              "FD_BANK_COUPLED_STYLES peaks="
+                  + Arrays.deepToString(peaks)
+                  + " captured=true unloaded=true linked=true");
+          for (var car : cars) {
+            for (var carrier : car.carriers)
+              container.removeSubLevel(
+                  container.getSubLevel(carrier.body), SubLevelRemovalReason.REMOVED);
+            container.removeSubLevel(
+                container.getSubLevel(car.chassis), SubLevelRemovalReason.REMOVED);
+            data.vehicles.remove(car.chassis);
+          }
+          data.rails.removeAll(own);
+          for (var pos :
+              BlockPos.betweenClosed(origin.offset(-7, -3, -8), origin.offset(39, 13, 60)))
+            if (!level.getBlockState(pos).isAir()) level.removeBlock(pos, false);
+          data.setDirty();
+          dispatched[0] = false;
           helper.succeed();
         });
   }
