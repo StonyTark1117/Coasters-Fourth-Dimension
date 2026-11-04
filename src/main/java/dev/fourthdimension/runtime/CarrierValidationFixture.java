@@ -240,13 +240,18 @@ public final class CarrierValidationFixture {
         // The initial level-load clear can precede integrated-server chunk activation.
         prepareBankedRecoveryArea(level);
         bankedRecoveryExample =
-            recoveryProfileFixture()
-                ? BankedRecoveryExamples.createProfileScene(level, RECOVERY_ORIGIN)
-                : BankedRecoveryExamples.create(level, RECOVERY_ORIGIN, TrackDesign.ARROW);
+            recoveryTrainFixture()
+                ? BankedRecoveryExamples.createTrain(level, RECOVERY_ORIGIN, TrackDesign.ARROW)
+                : recoveryProfileFixture()
+                    ? BankedRecoveryExamples.createProfileScene(level, RECOVERY_ORIGIN)
+                    : BankedRecoveryExamples.create(level, RECOVERY_ORIGIN, TrackDesign.ARROW);
         BankedRecoveryExamples.queueAssembly(level, bankedRecoveryExample);
         recoveryExample = bankedRecoveryExample.recovery();
       } else recoveryExample = RecoveryExamples.create(level, RECOVERY_ORIGIN, TrackDesign.ARROW);
-      motionChassis = List.of(recoveryExample.car().chassis);
+      motionChassis =
+          bankedRecoveryExample == null
+              ? List.of(recoveryExample.car().chassis)
+              : bankedRecoveryExample.cars().stream().map(car -> car.chassis).toList();
       recoveryPreparationDelay = 100;
       logRecoveryBearingState(level, "created");
       LogUtils.getLogger().info("FD_CARRIER_FIXTURE created active-tick recovery example");
@@ -315,7 +320,7 @@ public final class CarrierValidationFixture {
       recoveryAttached = true;
       // Wait for the client to receive the occupied, linked group and collect its static render
       // samples before applying native chain power.
-      recoveryTowDelay = 200;
+      recoveryTowDelay = recoveryTrainFixture() ? 600 : 200;
       recoveryTowDeadline = 1_000;
     }
     if (recoveryFixture()
@@ -460,6 +465,15 @@ public final class CarrierValidationFixture {
         || !RecoveryOperations.retained(car)
         || !car.stopping)
       throw new IllegalStateException("FD_CARRIER_FIXTURE did not form a retained recovery group");
+    if (recoveryTrainFixture()
+        && (bankedRecoveryExample == null
+            || bankedRecoveryExample.cars().stream()
+                .anyMatch(
+                    member ->
+                        !recoveryExample.bearing().getUniqueId().equals(member.recoveryCart)
+                            || !RecoveryOperations.retained(member))))
+      throw new IllegalStateException(
+          "FD_CARRIER_FIXTURE recovery attach did not retain every original train car");
     LogUtils.getLogger()
         .info(
             "FD_CARRIER_FIXTURE attached occupied recovery chassis={} bearing={} riders={}",
@@ -742,7 +756,8 @@ public final class CarrierValidationFixture {
 
   private static boolean bankedRecoveryFixture() {
     return Boolean.getBoolean("fourthdimension.carrierFixtureRecoveryBank")
-        || recoveryProfileFixture();
+        || recoveryProfileFixture()
+        || recoveryTrainFixture();
   }
 
   private static boolean recoveryCycleFixture() {
@@ -768,6 +783,10 @@ public final class CarrierValidationFixture {
 
   private static boolean recoveryEditorActionFixture() {
     return Boolean.getBoolean("fourthdimension.carrierFixtureRecoveryEditorAction");
+  }
+
+  private static boolean recoveryTrainFixture() {
+    return Boolean.getBoolean("fourthdimension.carrierFixtureRecoveryTrain");
   }
 
   /** Keeps the selected occupied fixture in the connecting players' view-distance ticket. */
@@ -1021,6 +1040,7 @@ public final class CarrierValidationFixture {
   }
 
   private static FoundationData.Vehicle supportLossVehicle(ServerLevel level) {
+    if (recoveryFixture() && recoveryExample != null) return recoveryExample.car();
     return FoundationData.get(level).vehicles.values().stream()
         .filter(vehicle -> vehicle.family == riderFixtureFamily())
         .findFirst()

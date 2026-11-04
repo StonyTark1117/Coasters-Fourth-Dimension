@@ -6,6 +6,7 @@ import dev.fourthdimension.runtime.EligibilityHooks;
 import dev.fourthdimension.track.TrackGeometry;
 import dev.ryanhcode.sable.api.sublevel.SubLevelContainer;
 import dev.ryanhcode.sable.sublevel.ClientSubLevel;
+import dev.ryanhcode.sable.sublevel.SubLevel;
 import dev.silvergold.simulatedcoasters.track.cart.CoasterCartTrackSnap;
 import dev.silvergold.simulatedcoasters.track.cart.CoasterCartTrainLinkConstraint;
 import dev.silvergold.simulatedcoasters.track.graph.CoasterPathTrackFrame;
@@ -58,6 +59,8 @@ public final class CarrierTransformValidation {
   private static boolean recoveryEditorSeen;
   private static boolean recoveryEditorActionSeen;
   private static boolean recoveryEditorActionApplied;
+  private static boolean recoveryTrainSeen;
+  private static boolean recoveryTrainMotionSeen;
   private static boolean completed;
   private static net.minecraft.world.level.Level lastLevel;
 
@@ -86,6 +89,8 @@ public final class CarrierTransformValidation {
       recoveryEditorSeen = false;
       recoveryEditorActionSeen = false;
       recoveryEditorActionApplied = false;
+      recoveryTrainSeen = false;
+      recoveryTrainMotionSeen = false;
       CarrierRenderMetrics.reset();
       completed = false;
       lastLevel = minecraft.level;
@@ -106,6 +111,7 @@ public final class CarrierTransformValidation {
     String angleMismatch = null;
     boolean staticPhase = !skipStaticSamples() && (!motionRequired() || completeSamples < requiredSamples());
     boolean recoveryLinkObserved = false;
+    var linkedRecoveryTrainBodies = new java.util.ArrayList<SubLevel>();
     var requiredRenderBodies = new java.util.HashSet<UUID>();
     var requiredSectionLayerBodies = new java.util.HashSet<UUID>();
     var requiredNativeCartBodies = new java.util.HashSet<UUID>();
@@ -132,7 +138,7 @@ public final class CarrierTransformValidation {
           incomplete("missing linked recovery bearing " + vehicle.recoveryCart);
           return;
         }
-        if (!CoasterCartTrainLinkConstraint.areLinkedCarts(parent, recovery)) {
+        if (!recoveryNativeLinkPresent(parent, recovery)) {
           incomplete("recovery bearing exists but its native link is not replicated");
           return;
         }
@@ -147,6 +153,7 @@ public final class CarrierTransformValidation {
               Math.max(maxRecoveryBearingBankAngle, bankAngle(recovery));
         recoveryLinkObserved = true;
         recoveryLinkSeen = true;
+        linkedRecoveryTrainBodies.add(parent);
         if (recoveryEditorActionRequired() && recoveryEditorActionSeen && !vehicle.stopping)
           recoveryEditorActionApplied = true;
       }
@@ -187,6 +194,21 @@ public final class CarrierTransformValidation {
         }
         sampleMaxError = Math.max(sampleMaxError, error);
         carriers++;
+      }
+    }
+    if (recoveryTrainRequired() && linkedRecoveryTrainBodies.size() >= 2) {
+      boolean originalTrainLinked =
+          java.util.stream.IntStream.range(1, linkedRecoveryTrainBodies.size())
+              .allMatch(
+                  index ->
+                      CoasterCartTrainLinkConstraint.areLinkedCarts(
+                          linkedRecoveryTrainBodies.get(index - 1),
+                          linkedRecoveryTrainBodies.get(index)));
+      if (originalTrainLinked) {
+        recoveryTrainSeen = true;
+        if (linkedRecoveryTrainBodies.stream()
+            .allMatch(body -> maxMotionDistances.getOrDefault(body.getUniqueId(), 0d) >= 1))
+          recoveryTrainMotionSeen = true;
       }
     }
     // Client Sable bodies can receive an initial movement packet after their snapshot. Treat the
@@ -230,6 +252,7 @@ public final class CarrierTransformValidation {
         || (recoveryEditorRequired() && !recoveryEditorSeen)
         || (recoveryEditorActionRequired()
             && (!recoveryEditorActionSeen || !recoveryEditorActionApplied))
+        || (recoveryTrainRequired() && !recoveryTrainSeen)
         || (riderRequired() && !riderMounted && !(recoveryCycleRequired() && recoveryCycleSeen))
         || (supportLossIncomplete && !mayAwaitMovingSupportLoss)
         || supportRepairIncomplete
@@ -264,6 +287,12 @@ public final class CarrierTransformValidation {
               + recoveryEditorActionSeen
               + " recoveryEditorActionApplied="
               + recoveryEditorActionApplied
+              + " recoveryTrainRequired="
+              + recoveryTrainRequired()
+              + " recoveryTrainSeen="
+              + recoveryTrainSeen
+              + " recoveryTrainMotionSeen="
+              + recoveryTrainMotionSeen
               + " riderRequired="
               + riderRequired()
               + " riderMounted="
@@ -338,7 +367,8 @@ public final class CarrierTransformValidation {
                 && (maxRecoveryChassisBankAngle < .5 || maxRecoveryBearingBankAngle < .5))
             || (recoveryCycleRequired()
                 && (!recoveryLinkSeen || !recoveryMotionSeen || !recoveryCycleSeen))
-            || (recoveryProfileRequired() && !recoveryProfileSeen))) {
+            || (recoveryProfileRequired() && !recoveryProfileSeen)
+            || (recoveryTrainRequired() && !recoveryTrainMotionSeen))) {
       incomplete(
           "controlled chassis motion below requirement families="
               + requiredMotionFamilies()
@@ -375,7 +405,13 @@ public final class CarrierTransformValidation {
               + " recoveryEditorRequired="
               + recoveryEditorRequired()
               + " recoveryEditorSeen="
-              + recoveryEditorSeen);
+              + recoveryEditorSeen
+              + " recoveryTrainRequired="
+              + recoveryTrainRequired()
+              + " recoveryTrainSeen="
+              + recoveryTrainSeen
+              + " recoveryTrainMotionSeen="
+              + recoveryTrainMotionSeen);
       return;
     }
     finish(minecraft, families, carriers, riderAssignments, movedFamilies, movedChassis);
@@ -397,7 +433,7 @@ public final class CarrierTransformValidation {
                 + "riderRequired={} riderMounted={} supportLossRequired={} supportLossObserved={} "
                 + "supportLossAfterMotion={} supportRepairRequired={} supportRepairObserved={} "
                 + "supportRealignmentRequired={} supportRealignmentObserved={} "
-                + "recoveryRequired={} recoveryMotionRequired={} recoveryBankRequired={} recoveryCycleRequired={} recoveryProfileRequired={} recoveryEditorRequired={} recoveryEditorActionRequired={} recoveryLinkSeen={} recoveryMotionSeen={} recoveryCycleSeen={} recoveryProfileSeen={} recoveryEditorSeen={} recoveryEditorActionSeen={} recoveryEditorActionApplied={} maxRecoveryChassisBankAngle={} maxRecoveryBearingBankAngle={} motionFamilies={} motionChassis={} motionDistances={}",
+                + "recoveryRequired={} recoveryMotionRequired={} recoveryBankRequired={} recoveryCycleRequired={} recoveryProfileRequired={} recoveryEditorRequired={} recoveryEditorActionRequired={} recoveryTrainRequired={} recoveryLinkSeen={} recoveryMotionSeen={} recoveryCycleSeen={} recoveryProfileSeen={} recoveryEditorSeen={} recoveryEditorActionSeen={} recoveryEditorActionApplied={} recoveryTrainSeen={} recoveryTrainMotionSeen={} maxRecoveryChassisBankAngle={} maxRecoveryBearingBankAngle={} motionFamilies={} motionChassis={} motionDistances={}",
             completeSamples,
             requiredSamples(),
             waitedTicks,
@@ -427,6 +463,7 @@ public final class CarrierTransformValidation {
             recoveryProfileRequired(),
             recoveryEditorRequired(),
             recoveryEditorActionRequired(),
+            recoveryTrainRequired(),
             recoveryLinkSeen,
             recoveryMotionSeen,
             recoveryCycleSeen,
@@ -434,6 +471,8 @@ public final class CarrierTransformValidation {
             recoveryEditorSeen,
             recoveryEditorActionSeen,
             recoveryEditorActionApplied,
+            recoveryTrainSeen,
+            recoveryTrainMotionSeen,
             maxRecoveryChassisBankAngle,
             maxRecoveryBearingBankAngle,
             movedFamilies,
@@ -520,6 +559,22 @@ public final class CarrierTransformValidation {
 
   private static boolean recoveryEditorActionRequired() {
     return Boolean.getBoolean("fourthdimension.carrierValidationRecoveryEditorAction");
+  }
+
+  private static boolean recoveryTrainRequired() {
+    return Boolean.getBoolean("fourthdimension.carrierValidationRecoveryTrain");
+  }
+
+  /**
+   * A single recovery car must directly link to its ordinary bearing. A native original train has
+   * one such direct edge at its end; its remaining cars prove recovery through membership in that
+   * same native train graph.
+   */
+  private static boolean recoveryNativeLinkPresent(SubLevel car, SubLevel recovery) {
+    return CoasterCartTrainLinkConstraint.areLinkedCarts(car, recovery)
+        || (recoveryTrainRequired()
+            && CoasterCartTrainLinkConstraint.getTrainLinkedCartIds(car)
+                .contains(recovery.getUniqueId()));
   }
 
   /** Called by the actual recovery editor after it has rendered its linked-vehicle controls. */
