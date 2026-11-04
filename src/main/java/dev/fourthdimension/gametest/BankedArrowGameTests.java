@@ -2,7 +2,10 @@ package dev.fourthdimension.gametest;
 
 import com.google.gson.Gson;
 import com.simibubi.create.content.contraptions.actors.seat.SeatBlock;
+import dev.fourthdimension.integration.OptionalIntegrations;
+import dev.fourthdimension.integration.TrackAppearance;
 import dev.fourthdimension.runtime.FoundationData;
+import dev.fourthdimension.runtime.FoundationSync;
 import dev.fourthdimension.station.BoardingStationEntity;
 import dev.fourthdimension.track.*;
 import dev.fourthdimension.vehicle.*;
@@ -70,6 +73,8 @@ public final class BankedArrowGameTests {
                         && r.from.getZ() <= origin.getZ() + 52)
             .toList();
     helper.assertTrue(own.size() == 8, "Bank fixture did not create exactly eight sections");
+    boolean stylesInstalled =
+        OptionalIntegrations.installed(OptionalIntegrations.TRACK_STYLES).mayInspect();
     Pig[] rider = {null};
     boolean[] dispatched = {false};
     boolean[] powered = {false};
@@ -153,6 +158,36 @@ public final class BankedArrowGameTests {
               maxBank > Math.toRadians(29) && maxBank < Math.toRadians(31),
               "Native frame did not retain the declared 30-degree bank: "
                   + Math.toDegrees(maxBank));
+          if (stylesInstalled) {
+            int styledTurns = 0;
+            for (var rail : own) {
+              boolean bankedTurn =
+                  rail.from.getZ() == origin.getZ() + 52
+                      && rail.to.getZ() == origin.getZ() + 52;
+              boolean flatTurn =
+                  rail.from.getX() == origin.getX() + 32
+                      && rail.to.getX() == origin.getX() + 32;
+              if (bankedTurn || flatTurn) {
+                rail.appearance =
+                    new TrackAppearance(
+                        TrackAppearance.CANDIDATES.get(bankedTurn ? 0 : 1), -1);
+                helper.assertTrue(
+                    rail.appearance.supportsProfile(rail.profile),
+                    "Full-turn section rejected its installed Styles appearance");
+                styledTurns++;
+              }
+            }
+            helper.assertTrue(styledTurns == 2, "Banked fixture did not style both full turns");
+            data.setDirty();
+            FoundationSync.broadcast(level);
+            System.out.println(
+                "FD_BANK_STYLES banked="
+                    + TrackAppearance.CANDIDATES.get(0)
+                    + " flat="
+                    + TrackAppearance.CANDIDATES.get(1)
+                    + " fullTurnSections="
+                    + styledTurns);
+          }
           helper.assertTrue(
               Boarding.ready(level, vehicle), "Level bank-demo station was not ready");
           var carrier = vehicle.carriers.getFirst();
@@ -210,9 +245,12 @@ public final class BankedArrowGameTests {
                             new org.joml.Vector3d()));
           boolean banked =
               bound.from.getZ() == origin.getZ() + 52 && bound.to.getZ() == origin.getZ() + 52;
+          boolean flatTurn =
+              bound.from.getX() == origin.getX() + 32
+                  && bound.to.getX() == origin.getX() + 32;
           for (var carrier : vehicle.carriers) {
             if (banked) bankedPeak[0] = Math.max(bankedPeak[0], carrier.angle);
-            else flatPeak[0] = Math.max(flatPeak[0], carrier.angle);
+            else if (flatTurn) flatPeak[0] = Math.max(flatPeak[0], carrier.angle);
           }
           if (ticks[0] == 260) {
             level.setBlockAndUpdate(
@@ -245,7 +283,8 @@ public final class BankedArrowGameTests {
                   + bankedPeak[0]
                   + ","
                   + flatPeak[0]
-                  + " captured=true unloaded=true");
+                  + " captured=true unloaded=true styles="
+                  + stylesInstalled);
           helper.succeed();
         });
   }
