@@ -143,3 +143,8 @@ now preserves one occupied braked native recovery link across a client/server
 restart and completes its normal release in the second process. It is a bounded
 one-player Arrow scene; full multiplayer and all-family lifecycle acceptance
 remain open.
+
+The [rendered recovery-editor checkpoint](rendered-recovery-editor/acceptance.md)
+now opens and renders the actual linked-vehicle editor after production
+attachment. It does not replace manual ordinary player selection, button input,
+propulsion, or boarding acceptance.
