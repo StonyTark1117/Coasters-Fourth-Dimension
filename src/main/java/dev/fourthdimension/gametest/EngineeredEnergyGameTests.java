@@ -785,7 +785,7 @@ public final class EngineeredEnergyGameTests {
                   .getLinearVelocity(recovery.bearing(), new Vector3d())
                   .length();
           helper.assertTrue(
-              speed <= RecoveryOperations.MAX_SPEED + .05,
+              speed <= RecoveryOperations.MAX_SPEED,
               "Recovery FE tow exceeded the guarded speed cap: " + speed);
           RecoveryOperations.brake(level, recovery.car());
           brakeEnergy[0] = energy[0].getEnergyStored();
@@ -802,6 +802,10 @@ public final class EngineeredEnergyGameTests {
                   + suppliedEnergy[0]
                   + " activeEnergy="
                   + brakeEnergy[0]
+                  + " speed="
+                  + speed
+                  + " maxSpeed="
+                  + RecoveryOperations.MAX_SPEED
                   + " riderMounted=true");
         });
     helper.runAtTickTime(
