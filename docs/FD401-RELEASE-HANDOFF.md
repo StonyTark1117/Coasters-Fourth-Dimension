@@ -83,6 +83,11 @@ FD801 and the [expansion backlog](INTEGRATION-BACKLOG.md) remain separate.
   lap's contraption-camera frame series shows the moving train and styled
   rails. Component-by-component ownership and equipped-player clearance are
   still separate checks.
+- [Styles component ownership review](evidence/0.9/fd401-styles-component-ownership-2c5d9a7/README.md):
+  maps each candidate draw path to the coupled inversion frames. It establishes
+  source-level exclusive ownership and visible combined running/control and
+  decorative geometry on Arrow, but the retained frames cannot pixel-isolate
+  every provider tie and native support. Arrow has no magnetic spans.
 - [Banked vehicle and vanilla-player clearance](evidence/0.9/fd401-banked-player-clearance-a5df9b8/README.md)
   extends both uniform Styles configurations with a conservative 1.21.1 seated
   player skin envelope at every occupied fixture seat. Single-car runs check
