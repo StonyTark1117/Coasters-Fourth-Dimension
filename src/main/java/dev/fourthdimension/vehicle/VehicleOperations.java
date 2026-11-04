@@ -276,12 +276,30 @@ public final class VehicleOperations {
     var data = FoundationData.get(level);
     var container = SubLevelContainer.getContainer(level);
     if (container == null) throw new IllegalArgumentException("Native vehicle physics are unavailable");
+    var consist = consist(level, vehicle);
+    var winch = dev.fourthdimension.shuttle.ShuttleRuntime.owner(level, vehicle.chassis);
+    if (winch != null
+        && !new HashSet<>(winch.cars).equals(
+            consist.stream().map(car -> car.chassis).collect(java.util.stream.Collectors.toSet())))
+      throw new IllegalArgumentException("Shuttle consist changed; recover and rebind before realignment");
+    // An idle shuttle is captured at known station slots. After a missing station curve has
+    // allowed gravity/solver residue to shift its chassis, snapping each car to its independent
+    // closest point can compress the six-block native couplers until they break. Re-engage the
+    // whole captured train at its bound station spacing instead.
+    var stationRoute =
+        winch != null
+                && winch.phase == dev.fourthdimension.shuttle.ShuttleWinchEntity.Phase.BOARDING
+                && winch.routeStart != null
+                && winch.routeEnd != null
+            ? dev.fourthdimension.shuttle.ShuttleRoute.resolve(
+                level, winch.routeStart, winch.routeEnd)
+            : null;
     record Candidate(
         FoundationData.Vehicle vehicle,
         ServerSubLevel chassis,
         dev.silvergold.simulatedcoasters.track.graph.CoasterPathTrackFrame.GraphHit hit) {}
     var candidates = new ArrayList<Candidate>();
-    for (var v : consist(level, vehicle)) {
+    for (var v : consist) {
       if (!v.alignmentRequired)
         throw new IllegalArgumentException("This vehicle does not require matching-track realignment");
       if (!v.stopping || !v.restraints || v.carriers.stream().anyMatch(carrier -> !carrier.capture))
@@ -316,6 +334,18 @@ public final class VehicleOperations {
               .transformPosition(net.minecraft.world.phys.Vec3.atCenterOf(bearingPlot));
       var hit = CoasterPathTrackFrame.closestHitOnEdge(level, edge, bearing);
       if (hit == null) throw new IllegalArgumentException("Matching track has no usable snap point");
+      if (stationRoute != null) {
+        int stationIndex = winch.cars.indexOf(v.chassis);
+        if (stationIndex < 0)
+          throw new IllegalArgumentException("Shuttle car is missing from its bound station");
+        var stationHit = stationRoute.sample(winch.stationDistance + 6 * stationIndex).hit();
+        if (!rail.matches(stationHit.edge().from(), stationHit.edge().to()))
+          throw new IllegalArgumentException("Shuttle station slot is outside the restored section");
+        if (bearing.distanceTo(stationHit.point()) > 8)
+          throw new IllegalArgumentException(
+              "Shuttle car is too far from its station slot for physical realignment");
+        hit = stationHit;
+      }
       if (!EligibilityHooks.allows(chassis, level, hit))
         throw new IllegalArgumentException("Vehicle and matching track cannot re-engage");
       candidates.add(new Candidate(v, chassis, hit));

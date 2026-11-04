@@ -89,6 +89,22 @@ public record RideTelemetry(
   /** Include the requesting block's authority, not just the vehicle's generic readiness. */
   public static RideTelemetry atController(
       ServerLevel level, net.minecraft.core.BlockPos controller, UUID id) {
+    var winch = ShuttleRuntime.owner(level, id);
+    if (winch != null && winch.getBlockPos().equals(controller) && !winch.cars.isEmpty()) {
+      var selected = FoundationData.get(level).vehicles.get(id);
+      if (selected == null) return unavailable("Shuttle lead car unavailable");
+      final Set<UUID> linked;
+      try {
+        linked =
+            VehicleOperations.consist(level, selected).stream()
+                .map(car -> car.chassis)
+                .collect(java.util.stream.Collectors.toSet());
+      } catch (IllegalArgumentException missing) {
+        return unavailable(missing.getMessage());
+      }
+      if (!linked.equals(new HashSet<>(winch.cars)))
+        return unavailable("Shuttle consist changed; recover and rebind before operating");
+    }
     var snapshot = sample(level, id);
     if (!snapshot.available()) return snapshot;
     try {
