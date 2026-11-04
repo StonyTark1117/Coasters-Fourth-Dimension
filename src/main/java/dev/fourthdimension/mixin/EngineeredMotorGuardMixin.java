@@ -10,6 +10,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Pseudo;
 import org.spongepowered.asm.mixin.injection.*;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+import org.spongepowered.asm.mixin.injection.invoke.arg.Args;
 
 /** Optional target; uses only base-stack types and independently authored hold policy. */
 @Pseudo
@@ -31,5 +32,37 @@ public abstract class EngineeredMotorGuardMixin {
       CallbackInfo callback) {
     if (OptionalIntegrations.installed(OptionalIntegrations.ENGINEERED).mayInspect()
         && EngineeredInterlock.holds(body, level)) callback.cancel();
+  }
+
+  @ModifyArgs(
+      method = "launch",
+      at =
+          @At(
+              value = "INVOKE",
+              target =
+                  "Ldev/jwaterfall/coastersengineered/MotorForce;accelerate(Ldev/jwaterfall/coastersengineered/span/TrackSpanBehaviour;Ldev/ryanhcode/sable/sublevel/ServerSubLevel;Ldev/ryanhcode/sable/sublevel/system/SubLevelPhysicsSystem;DLorg/joml/Vector3d;DDD)Ldev/jwaterfall/coastersengineered/MotorForce$Outcome;"),
+      require = 0)
+  private static void fourthdimension$boundRecoveryLaunchTarget(Args args) {
+    fourthdimension$boundRecoveryTarget(args);
+  }
+
+  @ModifyArgs(
+      method = "park",
+      at =
+          @At(
+              value = "INVOKE",
+              target =
+                  "Ldev/jwaterfall/coastersengineered/MotorForce;accelerate(Ldev/jwaterfall/coastersengineered/span/TrackSpanBehaviour;Ldev/ryanhcode/sable/sublevel/ServerSubLevel;Ldev/ryanhcode/sable/sublevel/system/SubLevelPhysicsSystem;DLorg/joml/Vector3d;DDD)Ldev/jwaterfall/coastersengineered/MotorForce$Outcome;"),
+      require = 0)
+  private static void fourthdimension$boundRecoveryParkTarget(Args args) {
+    fourthdimension$boundRecoveryTarget(args);
+  }
+
+  private static void fourthdimension$boundRecoveryTarget(Args args) {
+    if (!OptionalIntegrations.installed(OptionalIntegrations.ENGINEERED).mayInspect()
+        || !(args.get(1) instanceof ServerSubLevel body)
+        || !(body.getLevel() instanceof ServerLevel level)
+        || !(args.get(6) instanceof Double requested)) return;
+    args.set(6, EngineeredInterlock.boundedTarget(body, level, requested));
   }
 }

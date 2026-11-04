@@ -2,6 +2,7 @@ package dev.fourthdimension.integration;
 
 import dev.fourthdimension.contract.Family;
 import dev.fourthdimension.runtime.FoundationData;
+import dev.fourthdimension.vehicle.RecoveryOperations;
 import dev.fourthdimension.vehicle.VehicleOperations;
 import dev.ryanhcode.sable.api.sublevel.SubLevelContainer;
 import dev.ryanhcode.sable.sublevel.ServerSubLevel;
@@ -10,6 +11,9 @@ import net.minecraft.server.level.ServerLevel;
 
 /** Motor callbacks must respect interlocks on every car, even between controller ticks. */
 public final class EngineeredInterlock {
+  /** Leaves headroom below the recovery hard-stop while an optional motor callback is active. */
+  public static final double RECOVERY_TARGET_SPEED = .5;
+
   private EngineeredInterlock() {}
 
   public static boolean holds(ServerSubLevel body, ServerLevel level) {
@@ -33,6 +37,20 @@ public final class EngineeredInterlock {
     } catch (IllegalArgumentException unavailable) {
       return true;
     }
+  }
+
+  /**
+   * Bounds an attached ordinary recovery bearing before Engineered turns its target into force.
+   * Non-recovery carts retain the provider's requested target unchanged.
+   */
+  public static double boundedTarget(ServerSubLevel body, ServerLevel level, double requested) {
+    if (!Double.isFinite(requested)) return requested;
+    boolean recoveryBearing =
+        FoundationData.get(level).vehicles.values().stream()
+            .anyMatch(car -> body.getUniqueId().equals(car.recoveryCart));
+    if (!recoveryBearing) return requested;
+    return Math.clamp(
+        requested, -RECOVERY_TARGET_SPEED, Math.min(RECOVERY_TARGET_SPEED, RecoveryOperations.MAX_SPEED));
   }
 
   private static boolean unavailable(SubLevelContainer container, UUID id) {

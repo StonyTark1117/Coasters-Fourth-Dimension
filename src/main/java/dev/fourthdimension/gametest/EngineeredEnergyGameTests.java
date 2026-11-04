@@ -610,8 +610,8 @@ public final class EngineeredEnergyGameTests {
           var carrier = car.carriers.getFirst();
           rider[0] = EntityType.PIG.create(level);
           rider[0].setNoAi(true);
+          rider[0].setPos(rail.from.getX(), rail.from.getY(), rail.from.getZ());
           var center = CoasterCartResolve.cartCenterWorld(chassis);
-          rider[0].setPos(center.x, center.y, center.z);
           level.addFreshEntity(rider[0]);
           SeatBlock.sitDown(
               level,
@@ -632,9 +632,9 @@ public final class EngineeredEnergyGameTests {
     helper.runAtTickTime(
         130,
         () -> {
-          // LAUNCH has a minimum target of 1 block/s, above recovery's 0.75-block/s cap.
-          // Keep the healthy-towing assertions: a fault is a failed scenario, not a pass.
-          configureMotor(helper, rail, controllerPos, 1, "FORWARD");
+          // Keep the provider's normal launch acceleration profile. The interlock bounds
+          // its force target separately before it accelerates the attached recovery bearing.
+          configureMotor(helper, rail, controllerPos, 10, "FORWARD");
           energy[0] = level.getCapability(Capabilities.EnergyStorage.BLOCK, rail.from, Direction.UP);
           helper.assertTrue(energy[0] != null, "Recovery motor anchor exposes no native FE capability");
           helper.assertTrue(energy[0].getEnergyStored() == 0, "Recovery FE buffer was not empty");
@@ -689,6 +689,15 @@ public final class EngineeredEnergyGameTests {
         () -> {
           double towingDistance =
               CoasterCartResolve.cartCenterWorld(recovery.bearing()).distance(towingStart[0]);
+          System.out.println(
+              "FD_ENGINEERED_RECOVERY_FE activeDistance="
+                  + towingDistance
+                  + " activeEnergy="
+                  + energy[0].getEnergyStored()
+                  + " stopping="
+                  + recovery.car().stopping
+                  + " fault="
+                  + recovery.car().fault);
           helper.assertTrue(towingDistance > .05, "Supplied FE did not tow the recovery group: " + towingDistance);
           helper.assertTrue(
               energy[0].getEnergyStored() < suppliedEnergy[0],
