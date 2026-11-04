@@ -85,6 +85,7 @@ an exact-candidate run.
 | Wired FE, family operator, coupled Arrow and PAX authority sessions using shared build output | Runtime JAR identity was not established. | Their physical/operator observations remain evidence, but the freeze does not make them candidate-exact. |
 | Exact-candidate Engineered operator and wired-FE replay | **Exact whole JAR** (`4b23cf0e…`) | Exact-candidate evidence for the saved Arrow STOP/capture/unload loop and persisted wire transfer, consumption and recharge. Normal construction and source interruption/restoration remain predecessor observations. |
 | Exact-candidate Free Spin and Revised replay | **Exact whole JAR** (`4b23cf0e…`) | Exact-candidate evidence for occupied STOP, station capture, UI release and unload on those two saved families. Its Legacy attempt stalled away from station and is not a pass. Normal construction remains predecessor evidence. |
+| Exact-candidate coupled Arrow replay | **Exact whole JAR** (`4b23cf0e…`) | Exact-candidate evidence that the saved native link restored and the occupied two-car consist completed a non-starved programmed STOP, station capture, UI release and unload. Normal construction/linking remains predecessor evidence. |
 | Exact-candidate occupied PAX authority replay | **Exact whole JAR** (`4b23cf0e…`) | Exact-candidate evidence that a powered opposing Engineered controller retained pass zero and consumed no FE throughout a complete occupied four-car winch cycle, native capture and normal unload. Construction/linking and per-car callback tracing remain predecessor/separate evidence. |
 | Banked vehicle/player clearance and transition reports | Source/input-pin evidence, not runtime-JAR evidence. The 19 pinned geometry inputs remain unchanged in the candidate. | Reuse only for the reports' sampled geometry scope and stated exclusions. |
 | Occupied FANCY reload ride and FAST/FABULOUS/Solas mode runs | Older whole JAR; renderer classes have scoped parity, but later vehicle/telemetry classes differ. | Reuse graphics/reload observations within their recorded renderer scope. Do not call the combined reload+ride an exact-candidate replay. |
@@ -92,11 +93,11 @@ an exact-candidate run.
 
 This mapping closes candidate selection and identity. Later exact-candidate
 records now cover the saved Arrow operator/FE replay, Free Spin and Revised
-occupied operator loops, the visible post-UI-edit ride, and the occupied PAX
-authority cycle. Tracing-disabled reliability, continuous/equipped-player
-clearance, candidate-exact Legacy and coupled-Arrow operator coverage, and other
-acceptance items remain open where their evidence is not exact or their scope is
-narrower.
+occupied operator loops, the coupled two-car Arrow loop, the visible post-UI-edit
+ride, and the occupied PAX authority cycle. Tracing-disabled reliability,
+continuous/equipped-player clearance, candidate-exact Legacy operator coverage,
+and other acceptance items remain open where their evidence is not exact or
+their scope is narrower.
 
 ## Verification
 
