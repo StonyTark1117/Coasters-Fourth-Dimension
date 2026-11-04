@@ -54,6 +54,7 @@ public final class CarrierTransformValidation {
   private static boolean recoveryLinkSeen;
   private static boolean recoveryMotionSeen;
   private static boolean recoveryCycleSeen;
+  private static boolean recoveryProfileSeen;
   private static boolean completed;
   private static net.minecraft.world.level.Level lastLevel;
 
@@ -78,6 +79,7 @@ public final class CarrierTransformValidation {
       recoveryLinkSeen = false;
       recoveryMotionSeen = false;
       recoveryCycleSeen = false;
+      recoveryProfileSeen = false;
       CarrierRenderMetrics.reset();
       completed = false;
       lastLevel = minecraft.level;
@@ -140,6 +142,8 @@ public final class CarrierTransformValidation {
         recoveryLinkObserved = true;
         recoveryLinkSeen = true;
       }
+      if (recoveryProfileRequired() && renderedNonzeroProfileRail(data, vehicle))
+        recoveryProfileSeen = true;
       for (var carrier : vehicle.carriers) {
         riderAssignments += carrier.riderSeats.size();
         if (!staticPhase) continue;
@@ -312,7 +316,8 @@ public final class CarrierTransformValidation {
             || (recoveryBankRequired()
                 && (maxRecoveryChassisBankAngle < .5 || maxRecoveryBearingBankAngle < .5))
             || (recoveryCycleRequired()
-                && (!recoveryLinkSeen || !recoveryMotionSeen || !recoveryCycleSeen)))) {
+                && (!recoveryLinkSeen || !recoveryMotionSeen || !recoveryCycleSeen))
+            || (recoveryProfileRequired() && !recoveryProfileSeen))) {
       incomplete(
           "controlled chassis motion below requirement families="
               + requiredMotionFamilies()
@@ -341,7 +346,11 @@ public final class CarrierTransformValidation {
               + " recoveryMotionSeen="
               + recoveryMotionSeen
               + " recoveryCycleSeen="
-              + recoveryCycleSeen);
+              + recoveryCycleSeen
+              + " recoveryProfileRequired="
+              + recoveryProfileRequired()
+              + " recoveryProfileSeen="
+              + recoveryProfileSeen);
       return;
     }
     finish(minecraft, families, carriers, riderAssignments, movedFamilies, movedChassis);
@@ -363,7 +372,7 @@ public final class CarrierTransformValidation {
                 + "riderRequired={} riderMounted={} supportLossRequired={} supportLossObserved={} "
                 + "supportLossAfterMotion={} supportRepairRequired={} supportRepairObserved={} "
                 + "supportRealignmentRequired={} supportRealignmentObserved={} "
-                + "recoveryRequired={} recoveryMotionRequired={} recoveryBankRequired={} recoveryCycleRequired={} recoveryLinkSeen={} recoveryMotionSeen={} recoveryCycleSeen={} maxRecoveryChassisBankAngle={} maxRecoveryBearingBankAngle={} motionFamilies={} motionChassis={} motionDistances={}",
+                + "recoveryRequired={} recoveryMotionRequired={} recoveryBankRequired={} recoveryCycleRequired={} recoveryProfileRequired={} recoveryLinkSeen={} recoveryMotionSeen={} recoveryCycleSeen={} recoveryProfileSeen={} maxRecoveryChassisBankAngle={} maxRecoveryBearingBankAngle={} motionFamilies={} motionChassis={} motionDistances={}",
             completeSamples,
             requiredSamples(),
             waitedTicks,
@@ -390,9 +399,11 @@ public final class CarrierTransformValidation {
             recoveryMotionRequired(),
             recoveryBankRequired(),
             recoveryCycleRequired(),
+            recoveryProfileRequired(),
             recoveryLinkSeen,
             recoveryMotionSeen,
             recoveryCycleSeen,
+            recoveryProfileSeen,
             maxRecoveryChassisBankAngle,
             maxRecoveryBearingBankAngle,
             movedFamilies,
@@ -449,7 +460,8 @@ public final class CarrierTransformValidation {
         || Boolean.getBoolean("fourthdimension.carrierValidationSupportLossMotion")
         || recoveryMotionRequired()
         || recoveryBankRequired()
-        || recoveryCycleRequired();
+        || recoveryCycleRequired()
+        || recoveryProfileRequired();
   }
 
   private static boolean recoveryRequired() {
@@ -466,6 +478,25 @@ public final class CarrierTransformValidation {
 
   private static boolean recoveryCycleRequired() {
     return Boolean.getBoolean("fourthdimension.carrierValidationRecoveryCycle");
+  }
+
+  private static boolean recoveryProfileRequired() {
+    return Boolean.getBoolean("fourthdimension.carrierValidationRecoveryProfile");
+  }
+
+  private static boolean renderedNonzeroProfileRail(
+      dev.fourthdimension.runtime.FoundationData data,
+      dev.fourthdimension.runtime.FoundationData.Vehicle vehicle) {
+    if (vehicle.family != Family.ARROW) return false;
+    var rendered = TrackRenderMetrics.snapshot().nonzeroProfileRails();
+    return data.rails.stream()
+        .anyMatch(
+            rail ->
+                rendered.contains(rail.id)
+                    && rail.matches(vehicle.boundFrom, vehicle.boundTo)
+                    && rail.family == Family.ARROW
+                    && rail.profile.keys().stream()
+                        .anyMatch(key -> Math.abs(key.angle()) >= .25));
   }
 
   /** Requires normal recovery release only after the client observed the linked moving group. */

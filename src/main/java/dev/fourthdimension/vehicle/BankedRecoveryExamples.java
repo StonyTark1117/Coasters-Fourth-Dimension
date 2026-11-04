@@ -93,17 +93,22 @@ public final class BankedRecoveryExamples {
   }
 
   public static Example create(ServerLevel level, BlockPos origin, TrackDesign design) {
-    return create(level, origin, design, 1);
+    return create(level, origin, design, 1, false);
+  }
+
+  /** Builds the Arrow recovery scene with its nonzero rotation profile in the initial tow span. */
+  public static Example createProfileScene(ServerLevel level, BlockPos origin) {
+    return create(level, origin, TrackDesign.ARROW, 1, true);
   }
 
   public static Example createTrain(ServerLevel level, BlockPos origin, TrackDesign design) {
     if (design != TrackDesign.ARROW && design != TrackDesign.PAX)
       throw new IllegalArgumentException("Only Arrow and PAX support these linked train examples");
-    return create(level, origin, design, design == TrackDesign.ARROW ? 2 : 4);
+    return create(level, origin, design, design == TrackDesign.ARROW ? 2 : 4, false);
   }
 
   private static Example create(
-      ServerLevel level, BlockPos origin, TrackDesign design, int carCount) {
+      ServerLevel level, BlockPos origin, TrackDesign design, int carCount, boolean initialProfile) {
     int approach = carCount > 1 ? 48 : 32;
     int runout = carCount > 1 ? 48 : 24;
     int endZ = approach + 32;
@@ -182,7 +187,7 @@ public final class BankedRecoveryExamples {
       var edge = CoasterPathEdge.curve(from, to, curve);
       double length = TrackGeometry.table(level, edge).length();
       var keys =
-          i == 2 && design.family.driven()
+          (i == 2 || (initialProfile && i == 0)) && design.family.driven()
               ? List.of(
                   new RotationProfile.Key(0, 0),
                   new RotationProfile.Key(length / 2, 2 * Math.PI),

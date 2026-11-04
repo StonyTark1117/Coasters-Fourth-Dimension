@@ -211,7 +211,9 @@ public final class CarrierValidationFixture {
         // The initial level-load clear can precede integrated-server chunk activation.
         prepareBankedRecoveryArea(level);
         bankedRecoveryExample =
-            BankedRecoveryExamples.create(level, RECOVERY_ORIGIN, TrackDesign.ARROW);
+            recoveryProfileFixture()
+                ? BankedRecoveryExamples.createProfileScene(level, RECOVERY_ORIGIN)
+                : BankedRecoveryExamples.create(level, RECOVERY_ORIGIN, TrackDesign.ARROW);
         BankedRecoveryExamples.queueAssembly(level, bankedRecoveryExample);
         recoveryExample = bankedRecoveryExample.recovery();
       } else recoveryExample = RecoveryExamples.create(level, RECOVERY_ORIGIN, TrackDesign.ARROW);
@@ -619,12 +621,17 @@ public final class CarrierValidationFixture {
   }
 
   private static boolean bankedRecoveryFixture() {
-    return Boolean.getBoolean("fourthdimension.carrierFixtureRecoveryBank");
+    return Boolean.getBoolean("fourthdimension.carrierFixtureRecoveryBank")
+        || recoveryProfileFixture();
   }
 
   private static boolean recoveryCycleFixture() {
     return recoveryFixture()
         && Boolean.getBoolean("fourthdimension.carrierFixtureRecoveryCycle");
+  }
+
+  private static boolean recoveryProfileFixture() {
+    return Boolean.getBoolean("fourthdimension.carrierFixtureRecoveryProfile");
   }
 
   /** Keeps the selected occupied fixture in the connecting players' view-distance ticket. */

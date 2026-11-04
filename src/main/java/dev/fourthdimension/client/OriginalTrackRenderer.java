@@ -154,6 +154,8 @@ public final class OriginalTrackRenderer {
             TrackRenderMetrics.meshBuilt(System.nanoTime() - buildStart);
           }
           draw(consumer, pose.last().pose(), mesh.quads, rail.valid ? 1f : .4f);
+          if (rail.profile.keys().stream().anyMatch(key -> Math.abs(key.angle()) >= .25))
+            TrackRenderMetrics.renderedNonzeroProfile(rail.id);
           inRangeRails++;
           inRangeQuads += mesh.quads.size();
           if (mesh.decoration != null) {

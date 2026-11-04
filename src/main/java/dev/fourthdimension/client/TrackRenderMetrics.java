@@ -1,5 +1,9 @@
 package dev.fourthdimension.client;
 
+import java.util.HashSet;
+import java.util.Set;
+import java.util.UUID;
+
 /** Client-render sample counters. Values are observational and reset when the client level changes. */
 public final class TrackRenderMetrics {
   public record Snapshot(
@@ -10,7 +14,8 @@ public final class TrackRenderMetrics {
       long geometryStages,
       long inRangeRails,
       long inRangeQuads,
-      long inRangeDecorationPieces) {
+      long inRangeDecorationPieces,
+      Set<UUID> nonzeroProfileRails) {
     public long averageMeshBuildNanos() {
       return meshBuilds == 0 ? 0 : meshBuildNanos / meshBuilds;
     }
@@ -28,6 +33,7 @@ public final class TrackRenderMetrics {
   private static long inRangeRails;
   private static long inRangeQuads;
   private static long inRangeDecorationPieces;
+  private static Set<UUID> nonzeroProfileRails = new HashSet<>();
 
   private TrackRenderMetrics() {}
 
@@ -40,6 +46,7 @@ public final class TrackRenderMetrics {
     inRangeRails = 0;
     inRangeQuads = 0;
     inRangeDecorationPieces = 0;
+    nonzeroProfileRails = new HashSet<>();
   }
 
   public static void meshBuilt(long nanos) {
@@ -56,6 +63,11 @@ public final class TrackRenderMetrics {
     inRangeDecorationPieces += decorationPieces;
   }
 
+  /** Called after an in-range original mesh with a nonzero profile was submitted to the renderer. */
+  public static void renderedNonzeroProfile(UUID rail) {
+    nonzeroProfileRails.add(rail);
+  }
+
   public static Snapshot snapshot() {
     return new Snapshot(
         meshBuilds,
@@ -65,6 +77,7 @@ public final class TrackRenderMetrics {
         geometryStages,
         inRangeRails,
         inRangeQuads,
-        inRangeDecorationPieces);
+        inRangeDecorationPieces,
+        Set.copyOf(nonzeroProfileRails));
   }
 }
