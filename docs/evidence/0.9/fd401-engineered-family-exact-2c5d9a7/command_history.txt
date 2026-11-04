@@ -1,0 +1,50 @@
+/fd validation board_locked Dev
+/tp Dev 494.5 143 31.5 -117 20
+/tp Dev 494.5 143 31.5 -150 10
+/tp Dev 494.5 143 31.5 -165 -5
+/tp Dev 494.5 143 31.5 -165 10
+/fd validation availability
+/fd validation board_locked Dev
+/tp Dev 494.5 143 31.5 -170 5
+/tp Dev 494.5 143 31.5 -175 2
+/tp Dev 494.5 143 31.5 -158 2
+/fd validation board_locked Dev
+/setblock 344 142 33 minecraft:air
+/fd validation dispatch Dev
+/setblock 344 142 23 minecraft:redstone_block
+/setblock 344 142 23 minecraft:air
+/kill Dev
+/fd validation board_locked Dev
+/give Dev fourthdimension:rotation_tool
+/tp Dev 494.5 143 31.5 -90 30
+/fd validation availability
+/fd validation board_locked Dev
+/setblock 494 142 33 minecraft:air
+/setblock 494 142 23 minecraft:redstone_block
+/setblock 494 142 23 minecraft:air
+/fd validation motion Dev
+/data get block 494 142 22
+/fd validation motion Dev
+/setblock 494 142 33 minecraft:redstone_block
+/fd validation motion Dev
+/fd validation availability
+/fd validation board_locked Dev
+/setblock 494 142 33 minecraft:air
+/kill Dev
+/tp Dev 194.5 143 24.5 -90 30
+/fd validation availability
+/fd validation board_locked Dev
+/give Dev fourthdimension:rotation_tool
+/setblock 194 142 33 minecraft:air
+/setblock 194 142 23 minecraft:redstone_block
+/setblock 194 142 23 minecraft:air
+/fd validation motion Dev
+/data get block 194 142 22
+/setblock 194 142 30 minecraft:air
+/setblock 194 142 23 minecraft:redstone_block
+/setblock 194 142 23 minecraft:air
+/fd validation motion Dev
+/data get block 194 142 22
+/fd validation motion Dev
+/data get block 194 142 22
+/data get block 200 142 20 CoastersEngineeredEnergy
