@@ -83,13 +83,15 @@ an exact-candidate run.
 | `2e12e9d` PAX realignment, broken-consist replay and Launch 20 pass | **Not production-equivalent**: candidate changes `EngineeredInterlock` and `EngineeredMotorGuardMixin`, plus six test classes. | Retain as predecessor behavior. Do not call these exact-candidate operator runs. The later callback checkpoint covers the changed guard path only. |
 | `81ee2e6` artifact/family/PAX/telemetry records and the older render-mode JAR | **Not production-equivalent**: five production classes and six test classes differ. | Retain historical observations only. Renderer-specific reuse is limited to the separate 18-class parity report chained through production-identical `9ab54cf`; no whole-JAR equivalence. |
 | Wired FE, family operator, coupled Arrow and PAX authority sessions using shared build output | Runtime JAR identity was not established. | Their physical/operator observations remain evidence, but the freeze does not make them candidate-exact. |
+| Exact-candidate Engineered operator and wired-FE replay | **Exact whole JAR** (`4b23cf0e…`) | Exact-candidate evidence for the saved Arrow STOP/capture/unload loop and persisted wire transfer, consumption and recharge. Normal construction and source interruption/restoration remain predecessor observations. |
 | Banked vehicle/player clearance and transition reports | Source/input-pin evidence, not runtime-JAR evidence. The 19 pinned geometry inputs remain unchanged in the candidate. | Reuse only for the reports' sampled geometry scope and stated exclusions. |
 | Occupied FANCY reload ride and FAST/FABULOUS/Solas mode runs | Older whole JAR; renderer classes have scoped parity, but later vehicle/telemetry classes differ. | Reuse graphics/reload observations within their recorded renderer scope. Do not call the combined reload+ride an exact-candidate replay. |
 
-This mapping closes candidate selection and identity. It intentionally leaves
-candidate-exact operator/FE review, tracing-disabled reliability, visible
-post-UI-edit riding, continuous/equipped-player clearance, and other acceptance
-items open where their evidence is not exact or their scope is narrower.
+This mapping closes candidate selection and identity. Later exact-candidate
+records now cover the saved Arrow operator/FE replay and visible post-UI-edit
+ride. Tracing-disabled reliability, continuous/equipped-player clearance,
+candidate-exact family/authority coverage and other acceptance items remain open
+where their evidence is not exact or their scope is narrower.
 
 ## Verification
 

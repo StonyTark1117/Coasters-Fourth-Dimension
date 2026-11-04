@@ -198,10 +198,14 @@ starvation/supply/braking/retention now passes in an isolated batch. A
 adds a connected-client occupied full-circuit return, a live wired FE buffer
 dip, Engineered STOP at the station area, and editor-operated capture and
 unloading. A later [bare-loop item-placement check](evidence/0.9/fd401-bare-item-placement/README.md)
-now places an Arrow car by normal client air-use on open track and binds the
-station by empty-hand click. The full motor loop still needs to use a normally
-placed car; redstone station operation, noncreative generation, and broader
-rendering/vehicle clearance remain open. The [bounded connected-client operator
+places an Arrow car by normal client air-use on open track and binds the station
+by empty-hand click. Later normal operator records use that car, physical motor,
+controller and noncreative water-wheel supply. The [exact-candidate Engineered
+replay](evidence/0.9/fd401-engineered-exact-fe-2c5d9a7/README.md) cold-opens the
+persisted wired setup on `2c5d9a7`, consumes and replenishes FE through an
+occupied STOP/capture/unload cycle, and exits cleanly. It uses validation
+boarding and redstone commands; normal construction and source
+interruption/restoration remain predecessor observations. The [bounded connected-client operator
 check](evidence/0.9/fd401-engineered-client-operator.md) records short occupied
 FE-consuming motion and safe unloading at the endpoint guard. A separate
 [real FE-network check](evidence/0.9/fd401-engineered-fe-network.md) uses a
@@ -345,6 +349,14 @@ then verifies retained rider state, controller linkage and steps, post-reload
 powered dispatch, STOP, capture and unloading. It advances native serialization
 coverage; an actual cold server restart, complete chunk unload and external
 generator/cable network remain open.
+
+The later [exact-candidate wired replay](evidence/0.9/fd401-engineered-exact-fe-2c5d9a7/README.md)
+cold-opens the saved physical Crafts & Additions wire twice on the frozen
+`2c5d9a7` artifact. With Engineered energy required, transfer raises the anchor
+from 84,130 to 90,026 FE, occupied propulsion reduces it to 63,482, and the
+persisted wire replenishes it to 72,396 at STOP before capture and unload. This
+closes that saved Arrow candidate-replay boundary, not normal network construction,
+interruption/restoration, other vehicle families or a new advertised dependency.
 
 
 The dev.6 [native bank acceptance](evidence/0.4/bank-acceptance.md) adds a
