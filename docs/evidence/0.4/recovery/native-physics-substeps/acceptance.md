@@ -8,8 +8,10 @@ neighboring-car geometry by at least `0.02` blocks.
 
 It excludes 319 sequential startup/teardown trace steps that have no paired tick
 sample, does not claim a trajectory that Rapier does not expose inside one
-discrete `0.025 s` substep, and does not extend substep coverage to the other
-four vehicle families. Those boundaries remain open.
+discrete `0.025 s` substep, and originally did not extend substep coverage to
+the other four vehicle families. The later
+[occupied PAX checkpoint](../pax-native-physics-substeps/acceptance.md) adds the
+four-car PAX train; Legacy ZacSpin, Free Spin, and Revised ZacSpin remain open.
 
 ## Method
 

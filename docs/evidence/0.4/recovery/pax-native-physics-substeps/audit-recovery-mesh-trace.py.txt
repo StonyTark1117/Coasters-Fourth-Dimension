@@ -1,0 +1,823 @@
+#!/usr/bin/env python3
+"""Audit default block-model volumes at recorded native recovery poses.
+
+This is per-game-tick sampled clearance evidence, not continuous physics-step swept clearance. Original
+track tubes are reconstructed from the exact renderer sampling and source-pinned
+dimensions. Body transforms and block states come from the native test, not ideal
+track frames. External resources are read from the separately installed pinned
+JAR and never copied. The native lower bearing model and full-spin wheel
+envelopes use the same recorded track-aligned anchor as the chassis. Wheels are
+checked against non-contact original track components and neighboring cars; the
+two running rails are excluded because they are the intended wheel contact.
+Every original occupied seat must contribute the same mounted rider and carrier
+assignment at every sample. Their oriented envelopes use the live native poses.
+For the recovery fixture's pigs, the verifier also places a conservative vanilla
+player skin-and-outer-layer envelope at the same Create seat and checks it against
+the same non-seat carrier rack. The player envelope uses the inspected 1.21.1
+seated model dimensions and Sable's carrier orientation;
+armor, held items and arbitrary cosmetics remain outside the audit. This does not
+verify a client renderer. Arrow's unmodeled mechanical linkage, decorations and resource
+overrides remain outside this audit. A zero separating bound is UNCERTIFIED, not
+a proven mesh collision.
+"""
+import argparse
+import hashlib
+import gzip
+from functools import lru_cache
+import itertools
+import json
+import math
+from pathlib import Path
+import re
+import zipfile
+
+import numpy as np
+
+ROOT = Path(__file__).resolve().parents[1]
+BASE_PIN = "f80b4c3cdf9fa6188804967147761b0373e150a6eadbdc53626e5ac9700b2049"
+MINECRAFT_PIN = "499f6897d1837516680f3114072d8106e11c9adcd933fe5cf051b551089b0c99"
+BOTTOM_MODEL = "simulatedcoasters:block/coaster_cart_bottom"
+WHEEL_MODEL = "simulatedcoasters:block/coaster_cart_wheel_axis"
+LINKAGE_BLOCKS = {
+    "fourthdimension:wing_strut",
+    "fourthdimension:legacy_axle",
+    "fourthdimension:revised_strut",
+    "fourthdimension:carrier_axle",
+    "fourthdimension:free_spin_axle",
+    "fourthdimension:revised_axle",
+}
+# The fixture uses pigs because Create seats reject FakePlayer. Both entities have
+# zero Create custom seat offset. Their common seat attachment cancels, leaving
+# this exact eye-height delta: (player eye 1.62 - vehicle attachment .6) -
+# (pig eye .765 - vehicle attachment 0) = .255 blocks.
+PLAYER_EYE_FROM_FIXTURE_EYE = 0.255
+PLAYER_RENDER_SCALE = 0.9375
+PLAYER_RENDER_TRANSLATION = 1.501
+PLAYER_EYE_HEIGHT = 1.62
+SOURCE_PINS = {
+    "src/main/java/dev/fourthdimension/client/OriginalTrackRenderer.java": "059f1e2dcf52425fd0f8f161c9d12424d59eb51ff1c45a2c4654224c4e70f67c",
+    "src/main/java/dev/fourthdimension/track/TrackDesign.java": "e3a88c3ca661d7b232ee0b9d3c853a6e66c1d0d1147ac4266b001616b1fe1ff1",
+    "src/main/java/dev/fourthdimension/vehicle/BankedRecoveryExamples.java": "8efe36d8648e7a61b082cd7e42cee5f8dd9a7f62d9a25c9f562679320d8db453",
+    "src/main/java/dev/fourthdimension/gametest/RecoveryMeshTrace.java": "3b57c5812aec72ed36ee458d6bdd02a443207d32d1579ec80ba5752a6886913a",
+    "src/main/java/dev/fourthdimension/gametest/BankedRecoveryGameTests.java": "89324021f6c70ea8578036b4ae1c924320ef442a9ec3da239c972f89417be66a",
+    "src/main/java/dev/fourthdimension/gametest/BankedRecoveryTrainGameTests.java": "1192286e979801504acf758427aca5e0cbb9a739486f45d49124b6e1fcac795c",
+}
+
+
+def digest(path):
+    return hashlib.sha256(path.read_bytes()).hexdigest()
+
+
+@lru_cache(maxsize=None)
+def constant(name):
+    source = (ROOT / "src/main/java/dev/fourthdimension/track/TrackDesign.java").read_text()
+    match = re.search(r"\b" + name + r"\s*=\s*([\d.\-]+)\s*[,;]", source)
+    if match is None:
+        raise ValueError("Unrecognized renderer dimension: " + name)
+    return float(match[1])
+
+
+def tube(a, b, ar, au, br, bu, rx, ry):
+    angles = np.arange(8) * math.pi / 4
+    first = a + np.cos(angles)[:, None] * rx * ar + np.sin(angles)[:, None] * ry * au
+    last = b + np.cos(angles)[:, None] * rx * br + np.sin(angles)[:, None] * ry * bu
+    return [tri for i in range(8) for tri in
+            ((first[i], first[(i + 1) % 8], last[(i + 1) % 8]),
+             (first[i], last[(i + 1) % 8], last[i]))]
+
+
+def track_mesh(route):
+    triangles, labels = [], []
+    def put(label, *args):
+        result = tube(*args)
+        triangles.extend(result)
+        labels.extend([label] * len(result))
+    for section_index, section in enumerate(route["sections"]):
+        previous = None
+        frames = section["frames"]
+        count = max(8, math.ceil(section["length"] * 4))
+        if len(frames) != count + 1:
+            raise ValueError("Native frames differ from renderer panel count")
+        for i, frame in enumerate(frames):
+            c, r, u, f = (np.array(frame[key]) for key in ("center", "right", "up", "forward"))
+            control = constant("CONTROL_BASE_HEIGHT") + frame["profileAngle"] * .5 / (8 * math.pi)
+            points = [c + side * constant("HALF_GAUGE") * r + constant("MAIN_RAIL_HEIGHT") * u
+                      for side in (-1, 1)]
+            points += [c + side * constant("CONTROL_HALF_GAUGE") * r + control * u
+                       for side in (-1, 1)]
+            points += [c + constant("SPINE_HEIGHT") * u]
+            if previous is not None:
+                old_points, old_r, old_u = previous
+                for rail in range(5):
+                    if rail in (2, 3) and route["family"] != "ARROW":
+                        continue
+                    rx = constant("RAIL_HALF_WIDTH") if rail < 2 else .22 if rail == 4 else .09
+                    ry = constant("RAIL_HALF_HEIGHT") if rail < 2 else rx
+                    put(f"section{section_index}:rail{rail}", old_points[rail], points[rail],
+                        old_r, old_u, r, u, rx, ry)
+            if i % 8 == 0 or i == count:
+                radius = constant("RUNNING_CROSSBAR_RADIUS")
+                underbrace = c + constant("RUNNING_UNDERBRACE_HEIGHT") * u
+                for side in (-1, 1):
+                    outer_bottom = underbrace + side * constant("RUNNING_OUTBOARD_HALF_GAUGE") * r
+                    outer_top = c + side * constant("RUNNING_OUTBOARD_HALF_GAUGE") * r + constant("MAIN_RAIL_HEIGHT") * u
+                    put(f"section{section_index}:underbrace{side}", underbrace, outer_bottom, f, u, f, u, radius, radius)
+                    put(f"section{section_index}:outboardSupport{side}", outer_bottom, outer_top, f, r, f, r, radius, radius)
+                    if route["family"] == "ARROW":
+                        radius = constant("CONTROL_SUPPORT_RADIUS")
+                        put(f"section{section_index}:controlMount{side}", points[2 if side < 0 else 3],
+                            points[4], f, r, f, r, radius, radius)
+            previous = points, r, u
+    return np.array(triangles), labels
+
+
+class Resources:
+    def __init__(self, base, minecraft):
+        self.base = base
+        self.minecraft = minecraft
+        self.hashes = {}
+    def read(self, name):
+        path = ROOT / "src/main/resources" / name
+        data = path.read_bytes() if path.exists() else (self.minecraft if name.startswith("assets/minecraft/") else self.base).read(name)
+        self.hashes[name] = hashlib.sha256(data).hexdigest()
+        return json.loads(data)
+    def elements(self, model):
+        namespace, resource = model.split(":") if ":" in model else ("minecraft", model)
+        data = self.read(f"assets/{namespace}/models/{resource}.json")
+        if "elements" in data:
+            return data["elements"]
+        return self.elements(data["parent"])
+    def boxes(self, block):
+        namespace, name = block["block"].split(":")
+        state = self.read(f"assets/{namespace}/blockstates/{name}.json")
+        if "variants" not in state:
+            raise ValueError("Unsupported multipart model: " + block["block"])
+        matches = []
+        for key, entry in state["variants"].items():
+            if all(block["properties"].get(k) == v for k, v in
+                   (part.split("=") for part in key.split(",") if part)):
+                matches.append(entry)
+        if len(matches) != 1 or not isinstance(matches[0], dict):
+            raise ValueError("Ambiguous or weighted block model")
+        entry = matches[0]
+        if entry.get("x", 0) or entry.get("y", 0) % 90:
+            raise ValueError("Unsupported blockstate rotation")
+        angle = math.radians(-entry.get("y", 0))
+        rotation = np.array([[math.cos(angle), 0, math.sin(angle)], [0, 1, 0],
+                             [-math.sin(angle), 0, math.cos(angle)]])
+        result = []
+        for index, element in enumerate(self.elements(entry["model"])):
+            if element.get("rotation", {}).get("angle", 0):
+                raise ValueError("Unsupported model element rotation")
+            low, high = (np.array(element[key]) / 16 - .5 for key in ("from", "to"))
+            points = np.array(list(itertools.product(*zip(low, high)))) @ rotation.T + block["offset"]
+            result.append((points, f'{block["block"]}@{block["offset"]}:element{index}'))
+        return result
+
+    def model_boxes(self, model, label):
+        result = []
+        for index, element in enumerate(self.elements(model)):
+            if element.get("rotation", {}).get("angle", 0):
+                raise ValueError("Unsupported native lower-bearing element rotation")
+            low, high = (np.array(element[key]) / 16 - .5 for key in ("from", "to"))
+            result.append(
+                (np.array(list(itertools.product(*zip(low, high)))), f"{label}:element{index}"))
+        return result
+
+    def wheel_envelopes(self):
+        elements = self.elements(WHEEL_MODEL)
+        if len(elements) != 10:
+            raise ValueError("Unexpected native wheel model")
+        # Each element rotates about the same local X axis. Unioning all ten
+        # element sweeps into one conservative envelope for each row/axle
+        # retains the full rendered wheel volume while avoiding forty
+        # duplicate OBB/triangle checks at every recorded pose.
+        bounds = []
+        for element in elements:
+            rotation = element.get("rotation", {})
+            if rotation.get("angle", 0) != 0 and (
+                rotation.get("axis") != "x" or rotation.get("rescale", False)
+                or rotation.get("origin", [0, 0, 0])[1:] != [8, 8]
+            ):
+                raise ValueError("Wheel cuboid rotation does not preserve the spin axis")
+            low, high = (np.array(element[key]) / 16 - .5 for key in ("from", "to"))
+            radius = max(math.hypot(y, z) for y in (low[1], high[1]) for z in (low[2], high[2]))
+            bounds.append((low[0], high[0], radius))
+        min_x = min(low for low, _, _ in bounds)
+        max_x = max(high for _, high, _ in bounds)
+        radius = max(radius for _, _, radius in bounds)
+        result = []
+        for row, height in (("main", .6), ("upstop", .05)):
+            for axle, longitudinal in (("front", -.7), ("back", .7)):
+                envelope_low = np.array((min_x, height - radius, longitudinal - radius))
+                envelope_high = np.array((max_x, height + radius, longitudinal + radius))
+                result.append(
+                    (np.array(list(itertools.product(*zip(envelope_low, envelope_high)))),
+                     f"nativeWheel:{row}:{axle}:fullSpinEnvelope"))
+        return result
+
+
+def separation(box, axes, triangles):
+    """OBB/triangle SAT lower distance bounds, including contained triangles."""
+    edges = np.roll(triangles, -1, axis=1) - triangles
+    directions = [np.broadcast_to(axis, (len(triangles), 3)) for axis in axes]
+    directions += [np.cross(edges[:, 0], edges[:, 1])]
+    directions += [np.cross(axis, edges[:, edge]) for axis in axes for edge in range(3)]
+    best = np.zeros(len(triangles))
+    for direction in directions:
+        length = np.linalg.norm(direction, axis=1)
+        direction = direction / np.maximum(length, 1e-15)[:, None]
+        a = direction @ box.T
+        b = np.einsum("nik,nk->ni", triangles, direction)
+        best = np.maximum(best, np.maximum(a.min(axis=1) - b.max(axis=1), b.min(axis=1) - a.max(axis=1)))
+    return best
+
+
+def boxes_separation(first, axes, second, other_axes):
+    directions = list(axes) + list(other_axes)
+    directions += [np.cross(a, b) for a in axes for b in other_axes]
+    best = 0.0
+    for direction in directions:
+        length = np.linalg.norm(direction)
+        if length < 1e-12:
+            continue
+        direction = direction / length
+        a, b = first @ direction, second @ direction
+        best = max(best, float(a.min() - b.max()), float(b.min() - a.max()))
+    return best
+
+
+@lru_cache(maxsize=1)
+def vanilla_player_mesh_bounds():
+    """Conservative 1.21.1 seated player skin bounds relative to its eye.
+
+    HumanoidModel/PlayerModel cuboids are in pixels. Body and riding legs use
+    their actual empty-handed seated transforms. Head gaze and vanilla arm bob
+    are conservatively enclosed by rotation-independent spheres around their
+    model pivots. The standard sleeves enclose slim sleeves; skin outer layers
+    and the 0.5-pixel hat layer are included. Overall body/head yaw is enclosed
+    by the returned square horizontal radius.
+    """
+    def corners(low, high):
+        return np.array(list(itertools.product(*zip(low, high))), dtype=float)
+
+    def rotation_zyx(z, y, x):
+        sx, cx = math.sin(x), math.cos(x)
+        sy, cy = math.sin(y), math.cos(y)
+        sz, cz = math.sin(z), math.cos(z)
+        rx = np.array(((1, 0, 0), (0, cx, -sx), (0, sx, cx)))
+        ry = np.array(((cy, 0, sy), (0, 1, 0), (-sy, 0, cy)))
+        rz = np.array(((cz, -sz, 0), (sz, cz, 0), (0, 0, 1)))
+        return rz @ ry @ rx
+
+    model_points = []
+    # Jacket is the widest torso cuboid and includes the 0.25-pixel skin layer.
+    model_points.extend(corners((-4.25, -.25, -2.25), (4.25, 12.25, 2.25)))
+    # Pants copy the vanilla riding-leg transforms. Both handed rotations are
+    # retained because their z/y signs differ.
+    leg = corners((-2.25, -.25, -2.25), (2.25, 12.25, 2.25))
+    for side in (-1, 1):
+        pivot = np.array((side * 1.9, 12.0, 0.0))
+        rotation = rotation_zyx(side * .07853982, side * -math.pi / 10, -1.4137167)
+        model_points.extend(leg @ rotation.T + pivot)
+
+    points = np.array(model_points)
+    world_y = PLAYER_RENDER_SCALE * (PLAYER_RENDER_TRANSLATION - points[:, 1] / 16) - PLAYER_EYE_HEIGHT
+    radial = PLAYER_RENDER_SCALE * np.linalg.norm(points[:, (0, 2)], axis=1) / 16
+    low_y, high_y = float(world_y.min()), float(world_y.max())
+    radius = float(radial.max())
+
+    # The hat is the widest head cuboid. Spheres make the bound independent of
+    # head pitch/yaw and arm bob/pose while retaining their exact pivots.
+    sphere_specs = [
+        ((0.0, 0.0, 0.0), (-4.5, -8.5, -4.5), (4.5, .5, 4.5)),
+        ((-5.0, 2.0, 0.0), (-3.25, -2.25, -2.25), (1.25, 10.25, 2.25)),
+        ((5.0, 2.0, 0.0), (-1.25, -2.25, -2.25), (3.25, 10.25, 2.25)),
+        # Slim arms use a half-pixel lower pivot; the standard sleeve radius is
+        # deliberately retained, so this also encloses the slim sleeves.
+        ((-5.0, 2.5, 0.0), (-3.25, -2.25, -2.25), (1.25, 10.25, 2.25)),
+        ((5.0, 2.5, 0.0), (-1.25, -2.25, -2.25), (3.25, 10.25, 2.25)),
+    ]
+    for pivot, low, high in sphere_specs:
+        pivot = np.array(pivot)
+        local = corners(low, high)
+        sphere_radius = float(np.linalg.norm(local, axis=1).max())
+        scaled_radius = PLAYER_RENDER_SCALE * sphere_radius / 16
+        center_y = PLAYER_RENDER_SCALE * (PLAYER_RENDER_TRANSLATION - pivot[1] / 16) - PLAYER_EYE_HEIGHT
+        low_y = min(low_y, center_y - scaled_radius)
+        high_y = max(high_y, center_y + scaled_radius)
+        radius = max(radius, PLAYER_RENDER_SCALE * (math.hypot(pivot[0], pivot[2]) + sphere_radius) / 16)
+
+    if not (.9 < radius < 1.0 and -1.3 < low_y < -1.1 and .4 < high_y < .5):
+        raise ValueError(f"Unexpected vanilla player model enclosure: radius={radius}, y=[{low_y}, {high_y}]")
+    return np.array((-radius, low_y, -radius)), np.array((radius, high_y, radius))
+
+
+@lru_cache(maxsize=1)
+def vanilla_seated_player_parts():
+    """Conservative part-level empty-handed seated mesh, relative to the eye.
+
+    Torso and riding legs use their exact vanilla transforms. Each arm encloses
+    the complete vanilla idle-bob rotation range after the riding pose is
+    applied. The head uses a rotation-independent cube around the hat-layer
+    sphere, so camera look direction cannot hide a rack contact.
+    """
+    def corners(low, high):
+        return np.array(list(itertools.product(*zip(low, high))), dtype=float)
+
+    def rotation_zyx(z, y, x):
+        sx, cx = math.sin(x), math.cos(x)
+        sy, cy = math.sin(y), math.cos(y)
+        sz, cz = math.sin(z), math.cos(z)
+        rx = np.array(((1, 0, 0), (0, cx, -sx), (0, sx, cx)))
+        ry = np.array(((cy, 0, sy), (0, 1, 0), (-sy, 0, cy)))
+        rz = np.array(((cz, -sz, 0), (sz, cz, 0), (0, 0, 1)))
+        return rz @ ry @ rx
+
+    def world(points):
+        result = np.array(points, dtype=float)
+        result[:, 0] = PLAYER_RENDER_SCALE * result[:, 0] / 16
+        result[:, 1] = (PLAYER_RENDER_SCALE
+                        * (PLAYER_RENDER_TRANSLATION - result[:, 1] / 16)
+                        - PLAYER_EYE_HEIGHT)
+        result[:, 2] = PLAYER_RENDER_SCALE * result[:, 2] / 16
+        return result
+
+    parts = [("jacket", world(corners((-4.25, -.25, -2.25),
+                                       (4.25, 12.25, 2.25))))]
+    hat_low, hat_high = np.array((-4.5, -8.5, -4.5)), np.array((4.5, .5, 4.5))
+    hat_radius = float(np.linalg.norm(corners(hat_low, hat_high), axis=1).max())
+    parts.append(("headAndHatAllRotations", world(corners(
+        (-hat_radius, -hat_radius, -hat_radius),
+        (hat_radius, hat_radius, hat_radius)))))
+    leg = corners((-2.25, -.25, -2.25), (2.25, 12.25, 2.25))
+    for side in (-1, 1):
+        pivot = np.array((side * 1.9, 12.0, 0.0))
+        rotation = rotation_zyx(side * .07853982, side * -math.pi / 10, -1.4137167)
+        parts.append((("right" if side < 0 else "left") + "Pants",
+                      world(leg @ rotation.T + pivot)))
+    arm_boxes = {
+        -1: corners((-3.25, -2.25, -2.25), (1.25, 10.25, 2.25)),
+        1: corners((-1.25, -2.25, -2.25), (3.25, 10.25, 2.25)),
+    }
+    for side in (-1, 1):
+        pivot = np.array((side * 5.0, 2.0, 0.0))
+        poses = []
+        # Vanilla bob adds x in [-.05, .05] and opposite signed z in [0, .1].
+        for x_delta in np.linspace(-.05, .05, 9):
+            for z_amount in np.linspace(0, .1, 9):
+                rotation = rotation_zyx(side * z_amount, 0, -math.pi / 5 + side * x_delta)
+                poses.extend(arm_boxes[side] @ rotation.T + pivot)
+        parts.append((("right" if side < 0 else "left") + "SleeveIdleBobEnvelope",
+                      world(np.array(poses))))
+    return tuple(parts)
+
+
+def is_linkage(label):
+    """Return whether an exported block-model element is a moving car linkage part.
+
+    The chassis wing struts and each carrier's axle are real blocks in their
+    independently posed Sable bodies.  They are not decorative rail geometry,
+    so report them separately from the general default-model result.  Native
+    lower-bearing and wheel models deliberately remain outside this category:
+    those have their own contact/envelope checks.
+    """
+    return any(label.startswith(block + "@") for block in LINKAGE_BLOCKS)
+
+
+def audit(route, entries, resources, margin, *, surface=None):
+    triangles, labels = track_mesh(route) if surface is None else surface
+    lows, highs = triangles.min(axis=1), triangles.max(axis=1)
+    grid = {}
+    for index, (low, high) in enumerate(zip(lows, highs)):
+        for cell in itertools.product(*(range(a, b + 1) for a, b in zip(np.floor(low / 2).astype(int), np.floor(high / 2).astype(int)))):
+            grid.setdefault(cell, []).append(index)
+    centers = [np.array([frame["center"] for frame in section["frames"]]) for section in route["sections"]]
+    native_bottom_boxes = resources.model_boxes(BOTTOM_MODEL, "nativeLowerBearing")
+    native_wheel_boxes = resources.wheel_envelopes()
+    route_body_ids = {
+        pose["id"] for entry in entries
+        if entry.get("variant") == route["variant"] and entry.get("type") == "sample"
+        for pose in entry["poses"]}
+    specs, samples, completed, visited = {}, 0, False, {}
+    prospective_substitutions = 0
+    sample_interval, previous_tick, original_body_ids = None, None, None
+    original_rider_mounts = None
+    closest, failures = None, []
+    minimum = math.inf
+    wheel_minimum, wheel_closest, wheel_checks = math.inf, None, 0
+    linkage_minimum, linkage_closest, linkage_checks = math.inf, None, 0
+    rider_minimum, rider_closest, rider_checks = math.inf, None, 0
+    player_minimum, player_closest, player_checks = math.inf, None, 0
+    rider_rack_minimum, rider_rack_closest, rider_rack_checks = math.inf, None, 0
+    player_rack_minimum, player_rack_closest, player_rack_checks = math.inf, None, 0
+    neighbor_minimum, neighbor_closest = math.inf, None
+    neighbor_pairs = 0
+    neighbor_pair_cache = {}
+    player_rack_cache = {}
+    for entry in entries:
+        if entry["type"] == "trace":
+            if sample_interval is not None or entry.get("sampleIntervalTicks") != 1:
+                raise ValueError("Recovery trace does not declare the required one-tick interval")
+            sample_interval = entry["sampleIntervalTicks"]
+        elif entry["type"] == "body":
+            blocks = entry["blocks"]
+            if route["family"] == "LEGACY" and entry["id"] in route_body_ids:
+                replaced = []
+                for block in blocks:
+                    if block["block"] == "fourthdimension:carrier_axle":
+                        block = {**block, "block": "fourthdimension:legacy_axle"}
+                        prospective_substitutions += 1
+                    replaced.append(block)
+                blocks = replaced
+            specs[entry["id"]] = {
+                **entry,
+                "boxes": [box for block in blocks for box in resources.boxes(block)]}
+        elif entry.get("variant") == route["variant"] and entry["type"] == "complete":
+            if entry["cars"] != route["carCount"]:
+                raise ValueError("Incorrect completed car count")
+            completed = True
+        elif entry.get("variant") == route["variant"] and entry["type"] == "sample":
+            samples += 1
+            if sample_interval is None:
+                raise ValueError("Recovery trace omits its sampling interval")
+            if previous_tick is not None and entry["tick"] - previous_tick != sample_interval:
+                raise ValueError("Missing or out-of-order native pose samples")
+            previous_tick = entry["tick"]
+            ids = [pose["id"] for pose in entry["poses"]]
+            if len(ids) != len(set(ids)) or (original_body_ids is not None and set(ids) != original_body_ids):
+                raise ValueError("Duplicated or replaced original mesh bodies")
+            original_body_ids = set(ids)
+            cars = [specs[p["id"]] for p in entry["poses"] if specs[p["id"]]["role"] == "chassis"]
+            carriers = [specs[p["id"]] for p in entry["poses"] if specs[p["id"]]["role"] == "carrier"]
+            if len(cars) != route["carCount"] or len(carriers) != len(cars) * (4 if route["family"] in ("FREE_SPIN", "REVISED") else 2):
+                raise ValueError("Incomplete original bodies in mesh sample")
+            sample_boxes = []
+            pose_by_id = {pose["id"]: pose for pose in entry["poses"]}
+            rider_cars, rider_ids, rider_mounts, riders_per_body = set(), set(), {}, {}
+            for rider in entry.get("riders", []):
+                if rider["id"] in rider_ids:
+                    raise ValueError("Duplicated mounted rider in recovery trace")
+                rider_ids.add(rider["id"])
+                if rider["body"] not in pose_by_id or rider["body"] not in specs:
+                    raise ValueError("Mounted rider is not attached to a sampled carrier")
+                body = specs[rider["body"]]
+                if body["role"] != "carrier":
+                    raise ValueError("Mounted rider is not attached to a carrier")
+                rider_mounts[rider["id"]] = rider["body"]
+                riders_per_body[rider["body"]] = riders_per_body.get(rider["body"], 0) + 1
+                axes = np.array(pose_by_id[rider["body"]]["axes"])
+                origin = np.array(pose_by_id[rider["body"]]["origin"])
+                eye = np.array(rider["eye"])
+                width, height, eye_height = (float(rider[key]) for key in ("width", "height", "eyeHeight"))
+                if (not np.isfinite(eye).all() or not all(math.isfinite(value) for value in (width, height, eye_height))
+                        or not .5 <= width <= 1.1 or not .5 <= height <= 2.1 or not .3 <= eye_height <= 1.8):
+                    raise ValueError("Mounted rider has unexpected dimensions")
+                # Sable renders a passenger around its live eye point with the containing carrier's
+                # orientation. The native passenger dimensions define this mounted body envelope.
+                local_low, local_high = np.array((-width / 2, -eye_height, -width / 2)), np.array((width / 2, height - eye_height, width / 2))
+                world = np.array(list(itertools.product(*zip(local_low, local_high)))) @ axes + eye
+                low, high = world.min(axis=0), world.max(axis=0)
+                sample_boxes.append((world, axes, low, high, body["car"], "nativeRider"))
+                rider_cars.add(body["car"])
+                # The native fixture occupies every seat with a pig. Place the
+                # conservative vanilla player mesh at the same seat. Adding the
+                # eye delta along the live carrier up axis follows Sable's
+                # eye-pivoted rider orientation without inventing a track frame.
+                if not (abs(width - .9) < 1e-5 and abs(height - .9) < 1e-5
+                        and abs(eye_height - .765) < 1e-5):
+                    raise ValueError("Player proxy requires the inspected pig fixture dimensions")
+                player_low, player_high = vanilla_player_mesh_bounds()
+                player_eye = eye + PLAYER_EYE_FROM_FIXTURE_EYE * axes[1]
+                player_world = np.array(list(itertools.product(*zip(player_low, player_high)))) @ axes + player_eye
+                player_world_low, player_world_high = player_world.min(axis=0), player_world.max(axis=0)
+                sample_boxes.append((player_world, axes, player_world_low, player_world_high,
+                                     body["car"], "vanillaPlayerMeshEnvelope"))
+                padding = margin * 4
+                cells = itertools.product(*(range(a, b + 1) for a, b in zip(
+                    np.floor((player_world_low - padding) / 2).astype(int),
+                    np.floor((player_world_high + padding) / 2).astype(int))))
+                indices = np.array(sorted({index for cell in cells for index in grid.get(cell, [])}), dtype=int)
+                player_checks += 1
+                if not len(indices):
+                    player_minimum = min(player_minimum, padding)
+                else:
+                    gaps = np.linalg.norm(np.maximum(
+                        0, np.maximum(player_world_low - highs[indices], lows[indices] - player_world_high)), axis=1)
+                    candidates = np.flatnonzero(gaps < padding)
+                    if candidates.size:
+                        gaps[candidates] = separation(player_world, axes, triangles[indices[candidates]])
+                    best = int(np.argmin(gaps))
+                    index = int(indices[best])
+                    gap = min(padding, float(gaps[best]))
+                    if gap < player_minimum:
+                        player_minimum = gap
+                        player_closest = {"tick": entry["tick"], "body": rider["body"],
+                                          "modelElement": "vanillaPlayerMeshEnvelope",
+                                          "trackComponent": labels[index]}
+                    if gap < margin and len(failures) < 20:
+                        failures.append({"gap": gap, "tick": entry["tick"], "body": rider["body"],
+                                         "modelElement": "vanillaPlayerMeshEnvelope",
+                                         "trackComponent": labels[index]})
+                # A rider intentionally contacts its seat. Check every other rack block
+                # for every sampled rider, even when no track triangle is nearby.
+                rack_checks_before = rider_rack_checks
+                player_rack_checks_before = player_rack_checks
+                for rack_points, rack_label in body["boxes"]:
+                    if rack_label.startswith("fourthdimension:") and "_seat@" in rack_label:
+                        continue
+                    rack_world = rack_points @ axes + origin
+                    rack_low, rack_high = rack_world.min(axis=0), rack_world.max(axis=0)
+                    rack_gap = float(np.linalg.norm(np.maximum(0, np.maximum(low - rack_high, rack_low - high))))
+                    if rack_gap < margin * 4:
+                        rack_gap = boxes_separation(world, axes, rack_world, axes)
+                    rider_rack_checks += 1
+                    if rack_gap < rider_rack_minimum:
+                        rider_rack_minimum = rack_gap
+                        rider_rack_closest = {
+                            "tick": entry["tick"], "body": rider["body"],
+                            "modelElement": "nativeRider", "rackComponent": rack_label}
+                    if rack_gap < margin and len(failures) < 20:
+                        failures.append({
+                            "gap": rack_gap, "tick": entry["tick"], "body": rider["body"],
+                            "modelElement": "nativeRider", "rackComponent": rack_label})
+                    player_eye_local = (player_eye - origin) @ axes.T
+                    cache_key = (rider["body"], tuple(np.round(player_eye_local, 9)), rack_label)
+                    if cache_key not in player_rack_cache:
+                        player_rack_cache[cache_key] = [
+                            (part_label, boxes_separation(
+                                part_points + player_eye_local, np.eye(3),
+                                rack_points, np.eye(3)))
+                            for part_label, part_points in vanilla_seated_player_parts()]
+                    for part_label, player_rack_gap in player_rack_cache[cache_key]:
+                        player_rack_checks += 1
+                        if player_rack_gap < player_rack_minimum:
+                            player_rack_minimum = player_rack_gap
+                            player_rack_closest = {
+                                "tick": entry["tick"], "body": rider["body"],
+                                "modelElement": "vanillaPlayer:" + part_label,
+                                "rackComponent": rack_label}
+                        if player_rack_gap < margin and len(failures) < 20:
+                            failures.append({
+                                "gap": player_rack_gap, "tick": entry["tick"],
+                                "body": rider["body"],
+                                "modelElement": "vanillaPlayer:" + part_label,
+                                "rackComponent": rack_label})
+                if rider_rack_checks == rack_checks_before:
+                    raise ValueError("Mounted rider has no auditable carrier rack geometry")
+                if player_rack_checks == player_rack_checks_before:
+                    raise ValueError("Player proxy has no auditable carrier rack geometry")
+                padding = margin * 4
+                cells = itertools.product(*(range(a, b + 1) for a, b in zip(np.floor((low - padding) / 2).astype(int), np.floor((high + padding) / 2).astype(int))))
+                indices = np.array(sorted({index for cell in cells for index in grid.get(cell, [])}), dtype=int)
+                rider_checks += 1
+                if not len(indices):
+                    rider_minimum = min(rider_minimum, padding)
+                    continue
+                gaps = np.linalg.norm(np.maximum(0, np.maximum(low - highs[indices], lows[indices] - high)), axis=1)
+                candidates = np.flatnonzero(gaps < padding)
+                if candidates.size:
+                    gaps[candidates] = separation(world, axes, triangles[indices[candidates]])
+                index = int(indices[int(np.argmin(gaps))])
+                gap = min(padding, float(gaps.min()))
+                if gap < rider_minimum:
+                    rider_minimum = gap
+                    rider_closest = {"tick": entry["tick"], "body": rider["body"], "modelElement": "nativeRider", "trackComponent": labels[index]}
+                if gap < margin and len(failures) < 20:
+                    failures.append({"gap": gap, "tick": entry["tick"], "body": rider["body"], "modelElement": "nativeRider", "trackComponent": labels[index]})
+            seats_per_car = 4 if route["family"] in ("ARROW", "PAX") else 8
+            seats_per_carrier = 4 if route["family"] == "LEGACY" else 2
+            if len(rider_mounts) != route["carCount"] * seats_per_car:
+                raise ValueError("Recovery sample omits an occupied original seat")
+            if any(riders_per_body.get(carrier["id"], 0) != seats_per_carrier for carrier in carriers):
+                raise ValueError("Recovery sample omits or duplicates an occupied carrier seat")
+            if len(rider_cars) != route["carCount"]:
+                raise ValueError("Missing a mounted rider for an original car")
+            if original_rider_mounts is None:
+                original_rider_mounts = rider_mounts
+            elif rider_mounts != original_rider_mounts:
+                raise ValueError("Original rider identities or carrier mounts changed during recovery")
+            for pose in entry["poses"]:
+                body = specs[pose["id"]]
+                axes, origin = np.array(pose["axes"]), np.array(pose["origin"])
+                if not np.isfinite(axes).all() or not np.isfinite(origin).all() or not np.allclose(axes @ axes.T, np.eye(3), atol=1e-5):
+                    raise ValueError("Invalid native pose")
+                if body["role"] == "chassis":
+                    distances = [np.linalg.norm(section - origin, axis=1).min() for section in centers]
+                    if min(distances) > 2:
+                        raise ValueError("Original chassis left recorded route")
+                    nearest = int(np.argmin(distances))
+                    visited.setdefault(pose["id"], set()).add(nearest)
+                rendered_boxes = list(body["boxes"])
+                if body["role"] in ("chassis", "ordinary"):
+                    # Coasters draws this model at pathAnchorBottom, qPath and
+                    # translates -0.5 before model coordinates. The recorded
+                    # chassis origin/axes are bounded against that native frame
+                    # by the GameTest, so these centered model points use it.
+                    rendered_boxes.extend(native_bottom_boxes)
+                    # Coasters rotates the wheel model around local X. A box
+                    # enclosing its full spin is conservative at each sampled
+                    # qPath-equivalent frame. Running rails are intentionally
+                    # filtered below because both wheel rows contact them.
+                    rendered_boxes.extend(native_wheel_boxes)
+                for points, label in rendered_boxes:
+                    world = points @ axes + origin
+                    low, high = world.min(axis=0), world.max(axis=0)
+                    sample_boxes.append((world, axes, low, high, body["car"], label))
+                    padding = margin * 4
+                    cells = itertools.product(*(range(a, b + 1) for a, b in zip(np.floor((low - padding) / 2).astype(int), np.floor((high + padding) / 2).astype(int))))
+                    indices = np.array(sorted({index for cell in cells for index in grid.get(cell, [])}), dtype=int)
+                    wheel = label.startswith("nativeWheel:")
+                    linkage = is_linkage(label)
+                    if wheel:
+                        indices = np.array(
+                            [index for index in indices if not labels[index].endswith((":rail0", ":rail1"))],
+                            dtype=int)
+                        wheel_checks += 1
+                    if not len(indices):
+                        if wheel:
+                            wheel_minimum = min(wheel_minimum, padding)
+                        if linkage:
+                            linkage_checks += 1
+                            linkage_minimum = min(linkage_minimum, padding)
+                        minimum = min(minimum, padding)
+                        continue
+                    gaps = np.linalg.norm(np.maximum(0, np.maximum(low - highs[indices], lows[indices] - high)), axis=1)
+                    candidates = np.flatnonzero(gaps < padding)
+                    if candidates.size:
+                        gaps[candidates] = separation(world, axes, triangles[indices[candidates]])
+                    best = int(np.argmin(gaps))
+                    index = int(indices[best])
+                    gap = min(padding, float(gaps[best]))
+                    if gap < minimum:
+                        minimum = gap
+                        closest = {"tick": entry["tick"], "body": pose["id"], "role": body["role"],
+                                   "modelElement": label, "trackComponent": labels[index]}
+                    if wheel and gap < wheel_minimum:
+                        wheel_minimum = gap
+                        wheel_closest = {"tick": entry["tick"], "body": pose["id"], "role": body["role"],
+                                         "modelElement": label, "trackComponent": labels[index]}
+                    if linkage:
+                        linkage_checks += 1
+                        if gap < linkage_minimum:
+                            linkage_minimum = gap
+                            linkage_closest = {"tick": entry["tick"], "body": pose["id"], "role": body["role"],
+                                               "modelElement": label, "trackComponent": labels[index]}
+                    if gap < margin and len(failures) < 20:
+                        failures.append({"gap": gap, "tick": entry["tick"], "body": pose["id"],
+                                         "modelElement": label, "trackComponent": labels[index]})
+            # Contacts within one car include intentional strut/hinge joints.
+            # Different original cars and the ordinary recovery body cannot
+            # share those joints, so every pair of recorded model volumes is checked.
+            # Body order and car ownership are stable across native samples.
+            # Batch the conservative AABB lower bound; only close pairs need
+            # the more expensive oriented-box separation calculation.
+            owners = tuple(box[4] for box in sample_boxes)
+            pairs = neighbor_pair_cache.get(owners)
+            if pairs is None:
+                pairs = np.array([(i, j) for i in range(len(owners))
+                                  for j in range(i + 1, len(owners))
+                                  if owners[i] != owners[j]], dtype=int).reshape(-1, 2)
+                neighbor_pair_cache[owners] = pairs
+            neighbor_pairs += len(pairs)
+            if len(pairs):
+                lows_all = np.array([box[2] for box in sample_boxes])
+                highs_all = np.array([box[3] for box in sample_boxes])
+                first_indices, second_indices = pairs[:, 0], pairs[:, 1]
+                distances = np.maximum(0, np.maximum(
+                    lows_all[first_indices] - highs_all[second_indices],
+                    lows_all[second_indices] - highs_all[first_indices]))
+                gaps = np.linalg.norm(distances, axis=1)
+                for pair_index in np.flatnonzero(gaps < margin * 4):
+                    first, second = sample_boxes[first_indices[pair_index]], sample_boxes[second_indices[pair_index]]
+                    gaps[pair_index] = boxes_separation(first[0], first[1], second[0], second[1])
+                    if gaps[pair_index] < margin and len(failures) < 20:
+                        failures.append({"gap": float(gaps[pair_index]), "tick": entry["tick"],
+                                         "neighborPair": {"tick": entry["tick"], "first": first[5], "second": second[5]}})
+                best = int(np.argmin(gaps))
+                if gaps[best] < neighbor_minimum:
+                    first, second = sample_boxes[first_indices[best]], sample_boxes[second_indices[best]]
+                    neighbor_minimum = float(gaps[best])
+                    neighbor_closest = {"tick": entry["tick"], "first": first[5], "second": second[5]}
+    if not completed or samples < 5000 or len(visited) != route["carCount"] or any(len(v) != 5 for v in visited.values()):
+        raise ValueError("Mesh trace lacks full original-car route coverage and normal completion")
+    if wheel_checks == 0 or not math.isfinite(wheel_minimum):
+        raise ValueError("Native wheel envelopes were not audited")
+    if linkage_checks == 0 or not math.isfinite(linkage_minimum):
+        raise ValueError("Native chassis/carrier linkage blocks were not audited")
+    if rider_checks == 0 or not math.isfinite(rider_minimum):
+        raise ValueError("Mounted rider envelopes were not audited")
+    if player_checks != rider_checks or not math.isfinite(player_minimum):
+        raise ValueError("Not every mounted fixture seat received a vanilla player mesh audit")
+    if rider_rack_checks < rider_checks or not math.isfinite(rider_rack_minimum):
+        raise ValueError("Not every mounted rider was audited against carrier rack geometry")
+    if player_rack_checks < rider_rack_checks or not math.isfinite(player_rack_minimum):
+        raise ValueError("Not every player proxy was audited against carrier rack geometry")
+    player_low, player_high = vanilla_player_mesh_bounds()
+    return {"family": route["family"], "cars": route["carCount"], "samples": samples,
+            "occupiedSeatsPerSample": len(original_rider_mounts),
+            "trackTriangles": len(triangles), "minimumSeparatingBound": minimum,
+            "closest": closest, "requiredGap": margin, "passes": not failures,
+            "wheelEnvelopeCount": wheel_checks,
+            "wheelMinimumSeparatingBound": wheel_minimum,
+            "wheelClosest": wheel_closest,
+            "linkageEnvelopeCount": linkage_checks,
+            "linkageMinimumSeparatingBound": linkage_minimum,
+            "linkageClosest": linkage_closest,
+            "riderEnvelopeCount": rider_checks,
+            "riderMinimumSeparatingBound": rider_minimum,
+            "riderClosest": rider_closest,
+            "playerMeshEnvelopeCount": player_checks,
+            "playerMeshMinimumSeparatingBound": player_minimum,
+            "playerMeshClosest": player_closest,
+            "playerMeshScope": "conservative standard/slim vanilla 1.21.1 skin and outer layers in an empty-handed seated pose; all head/arm rotations enclosed; excludes armor, held items, capes, elytra and modded cosmetics",
+            "playerMeshLocalBoundsFromEye": {"minimum": player_low.tolist(), "maximum": player_high.tolist()},
+            "playerMeshEyeOffsetFromFixtureRider": PLAYER_EYE_FROM_FIXTURE_EYE,
+            "riderRackEnvelopeCount": rider_rack_checks,
+            "riderRackMinimumSeparatingBound": rider_rack_minimum,
+            "riderRackClosest": rider_rack_closest,
+            "playerRackEnvelopeCount": player_rack_checks,
+            "playerRackMinimumSeparatingBound": player_rack_minimum,
+            "playerRackClosest": player_rack_closest,
+            "playerRackScope": "part-level standard vanilla 1.21.1 empty-handed seated pose; exact jacket/riding legs, all head rotations enclosed, and complete idle-bob arm rotation ranges; excludes armor, held items, capes, elytra, slim-arm-specific geometry and modded cosmetics",
+            "neighborMinimumSeparatingBound": neighbor_minimum,
+            "neighborClosest": neighbor_closest, "neighborPairs": neighbor_pairs,
+            "prospectiveLegacyAxleSubstitutions": prospective_substitutions,
+            "uncertifiedPairs": failures, "allCarsVisitedSections": 5}
+
+
+
+def provenance_snapshot(paths):
+    """Hash inspected inputs before use; this is not a filesystem snapshot."""
+    return {name: digest(path) for name, path in paths.items()}
+
+
+def require_unchanged_provenance(paths, initial):
+    """Refuse certification if a source/input/tool differs at report emission."""
+    final = provenance_snapshot(paths)
+    changed = [name for name in initial if initial[name] != final[name]]
+    if changed:
+        raise ValueError("Audit provenance changed during analysis: " + ", ".join(changed))
+
+
+def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("base_jar", type=Path)
+    parser.add_argument("minecraft_jar", type=Path)
+    parser.add_argument("frames", type=Path)
+    parser.add_argument("trace", type=Path)
+    parser.add_argument("--margin", type=float, default=.02)
+    args = parser.parse_args()
+    if not math.isfinite(args.margin) or not 0 < args.margin <= .05:
+        parser.error("Margin must be finite and in (0, .05]")
+    provenance_paths = {name: getattr(args, name) for name in
+                        ("base_jar", "minecraft_jar", "frames", "trace")}
+    provenance_paths["tool"] = Path(__file__)
+    provenance_paths.update({"source:" + name: ROOT / name for name in SOURCE_PINS})
+    initial_hashes = provenance_snapshot(provenance_paths)
+    if initial_hashes["base_jar"] != BASE_PIN:
+        parser.error("Requires inspected native Coasters 0.1.5 artifact")
+    if initial_hashes["minecraft_jar"] != MINECRAFT_PIN:
+        parser.error("Requires inspected Minecraft 1.21.1 client resources")
+    for name, pin in SOURCE_PINS.items():
+        if initial_hashes["source:" + name] != pin:
+            parser.error("Reinspect geometry reconstruction after source change: " + name)
+    # A contained triangle must be uncertified; a separated one needs a real gap.
+    box = np.array(list(itertools.product((-1, 1), repeat=3)))
+    control = np.array([[(0, 0, 0), (.5, 0, 0), (0, .5, 0)],
+                        [(2, 0, 0), (2, .5, 0), (2, 0, .5)]])
+    assert np.allclose(separation(box, np.eye(3), control), [0, 1])
+    angle = math.pi / 6
+    rotation = np.array([[math.cos(angle), -math.sin(angle), 0], [math.sin(angle), math.cos(angle), 0], [0, 0, 1]])
+    assert np.allclose(separation(box @ rotation.T, np.eye(3) @ rotation.T, control @ rotation.T), [0, 1])
+    assert boxes_separation(box, np.eye(3), box, np.eye(3)) == 0
+    assert boxes_separation(box, np.eye(3), box + [3, 0, 0], np.eye(3)) == 1
+    def read_text(path):
+        return gzip.decompress(path.read_bytes()).decode() if path.suffix == ".gz" else path.read_text()
+    routes = json.loads(read_text(args.frames))
+    text = read_text(args.trace)
+    entries = [json.loads(line) for line in text.splitlines()]
+    with zipfile.ZipFile(args.base_jar) as base, zipfile.ZipFile(args.minecraft_jar) as minecraft:
+        resources = Resources(base, minecraft)
+        results = [audit(route, entries, resources, args.margin) for route in routes]
+    try:
+        require_unchanged_provenance(provenance_paths, initial_hashes)
+    except (OSError, ValueError) as error:
+        parser.error(str(error))
+    output = {"baseSha256": initial_hashes["base_jar"],
+              "minecraftSha256": initial_hashes["minecraft_jar"],
+              "framesSha256": initial_hashes["frames"], "traceSha256": initial_hashes["trace"],
+              "verifierSha256": initial_hashes["tool"],
+              "sourceHashes": {name: initial_hashes["source:" + name] for name in SOURCE_PINS},
+              "provenanceCheck": "Input/source/tool hashes matched before analysis and before report emission; use immutable files to exclude intervening changes.",
+              "resourceHashes": resources.hashes, "sampleIntervalTicks": 1,
+              "scope": "one-tick sampled original default block-model, explicit chassis/carrier linkage blocks, native lower-bearing, full-spin wheel envelope, every original occupied native-rider volume and a conservative vanilla seated-player skin envelope at each fixture seat against original track tubes and non-seat carrier racks; rider identities and carrier mounts are stable across samples; running rails are excluded only for wheels as intended contact; no continuous physics-step sweep, client renderer, armor/held items/capes/elytra/modded cosmetics, unmodeled kinematic linkage, decorations or resource overrides",
+              "method": "2-block spatial bins; omitted pairs certify at least 4x margin; world AABB separation refined by OBB/triangle SAT lower distance bounds",
+              "routes": results}
+    print(json.dumps(output, indent=2))
+    if not all(result["passes"] for result in results):
+        raise SystemExit("Sampled model clearance contains uncertified pairs")
+
+
+if __name__ == "__main__":
+    main()

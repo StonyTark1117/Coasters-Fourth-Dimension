@@ -9,6 +9,7 @@ import java.io.UncheckedIOException;
 import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import java.util.UUID;
 import java.util.zip.GZIPOutputStream;
@@ -19,20 +20,26 @@ import org.joml.Vector3d;
 /** Fixture-only native pose capture after each Sable Rapier physics substep. */
 final class RecoverySubstepTrace {
   private static boolean registered;
-  private static RecoverySubstepTrace active;
+  private static final List<RecoverySubstepTrace> ACTIVE = new ArrayList<>();
 
   private final ServerLevel level;
+  private final dev.fourthdimension.track.TrackDesign design;
   private final List<UUID> bodyIds;
   private final BufferedWriter writer;
   private long steps;
 
-  RecoverySubstepTrace(ServerLevel level, BankedRecoveryExamples.Example example) {
-    if (active != null) throw new IllegalStateException("A substep trace is already active");
+  RecoverySubstepTrace(
+      ServerLevel level,
+      dev.fourthdimension.track.TrackDesign design,
+      BankedRecoveryExamples.Example example) {
+    if (ACTIVE.stream().anyMatch(trace -> trace.design == design))
+      throw new IllegalStateException("A substep trace is already active for " + design);
     if (!registered) {
       NeoForge.EVENT_BUS.addListener(RecoverySubstepTrace::postPhysicsTick);
       registered = true;
     }
     this.level = level;
+    this.design = design;
     var ids = new ArrayList<UUID>();
     for (var car : example.cars()) {
       ids.add(car.chassis);
@@ -48,21 +55,33 @@ final class RecoverySubstepTrace {
                       Files.newOutputStream(
                           net.neoforged.fml.loading.FMLPaths.GAMEDIR
                               .get()
-                              .resolve("recovery-bank-train-arrow-substeps.jsonl.gz"))),
+                              .resolve(
+                                  "recovery-bank-train-"
+                                      + design.name().toLowerCase(Locale.ROOT)
+                                      + "-substeps.jsonl.gz"))),
                   java.nio.charset.StandardCharsets.UTF_8));
     } catch (IOException failure) {
       throw new UncheckedIOException(failure);
     }
-    write(Map.of("type", "trace", "family", "ARROW", "bodyIds", bodyIds));
-    active = this;
+    write(
+        Map.of(
+            "type", "trace",
+            "family", design.name(),
+            "variant", design.variant.toString(),
+            "cars", example.cars().size(),
+            "bodyIds", bodyIds));
+    ACTIVE.add(this);
   }
 
   private static void postPhysicsTick(ForgeSablePostPhysicsTickEvent event) {
-    var trace = active;
-    if (trace == null || event.getPhysicsSystem().getLevel() != trace.level) return;
-    var container = SubLevelContainer.getContainer(trace.level);
-    var poses = new ArrayList<Map<String, Object>>(trace.bodyIds.size());
-    for (var id : trace.bodyIds) {
+    for (var trace : List.copyOf(ACTIVE)) trace.capture(event);
+  }
+
+  private void capture(ForgeSablePostPhysicsTickEvent event) {
+    if (event.getPhysicsSystem().getLevel() != level) return;
+    var container = SubLevelContainer.getContainer(level);
+    var poses = new ArrayList<Map<String, Object>>(bodyIds.size());
+    for (var id : bodyIds) {
       var body = container.getSubLevel(id);
       if (body == null) throw new IllegalStateException("Substep trace lost a native body: " + id);
       var center = body.getPlot().getCenterBlock();
@@ -75,20 +94,19 @@ final class RecoverySubstepTrace {
         axes.add(vector(axis.rotate(pose.orientation())));
       poses.add(Map.of("id", id.toString(), "origin", vector(origin), "axes", axes));
     }
-    trace.write(
+    write(
         Map.of(
             "type", "substep",
-            "step", ++trace.steps,
-            "gameTime", trace.level.getGameTime(),
+            "step", ++steps,
+            "gameTime", level.getGameTime(),
             "partialPhysicsTick", event.getPhysicsSystem().getPartialPhysicsTick(),
             "timeStep", event.getTimeStep(),
             "poses", poses));
   }
 
   void complete() {
-    if (active != this) throw new IllegalStateException("Substep trace was replaced");
+    if (!ACTIVE.remove(this)) throw new IllegalStateException("Substep trace was not active");
     write(Map.of("type", "complete", "steps", steps));
-    active = null;
     try {
       writer.close();
     } catch (IOException failure) {

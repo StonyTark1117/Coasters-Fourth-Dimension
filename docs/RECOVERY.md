@@ -252,7 +252,11 @@ The later [native substep checkpoint](evidence/0.4/recovery/native-physics-subst
 pairs all 13,095 Rapier half/full steps inside the occupied two-car Arrow route's
 6,548-tick sampled interval. Conservative motion deduction leaves at least
 0.03598 blocks of body/wheel clearance, 0.06722 blocks of rider/player clearance
-and 0.06532 blocks of carrier-local player/rack clearance. This does not certify
+and 0.06532 blocks of carrier-local player/rack clearance.
+The [occupied PAX substep checkpoint](evidence/0.4/recovery/pax-native-physics-substeps/acceptance.md)
+adds all 13,901 paired half/full steps inside the four-car train's 6,951-tick
+interval, with at least 0.03152 blocks of body/wheel clearance and the same
+0.06532-block carrier-local player/rack bound. These checkpoints do not certify
 equipped or cosmetic player layers, observed client rendering, unanchored
-startup/teardown steps, other-family substeps, the unexposed trajectory inside
-one discrete substep, or the rendered operator lifecycle.
+startup/teardown steps, Legacy/Free Spin/Revised substeps, the unexposed
+trajectory inside one discrete substep, or the rendered operator lifecycle.

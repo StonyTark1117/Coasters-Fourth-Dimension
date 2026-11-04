@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Certify recorded Arrow recovery physics substeps against native geometry.
+"""Certify recorded recovery physics substeps against native geometry.
 
 The one-tick mesh report and Rapier half-step trace are independently preserved
 inputs.  This verifier proves that every recorded full physics step is identical
@@ -85,12 +85,18 @@ def main():
 
     input_hashes = {name: sha256(path) for name, path in vars(args).items()}
     report = json.loads(args.mesh_report.read_text())
+    with gzip.open(args.substep_trace, "rt") as stream:
+        trace_header = json.loads(next(stream))
+    require(trace_header["type"] == "trace", "Missing substep trace header")
+    family = trace_header["family"]
+    variant = trace_header["variant"]
+    cars = int(trace_header["cars"])
     require(input_hashes["base_jar"] == report["baseSha256"], "Base JAR differs from mesh audit")
     require(input_hashes["minecraft_jar"] == report["minecraftSha256"],
             "Minecraft JAR differs from mesh audit")
     routes = report["routes"]
-    matches = [route for route in routes if route["family"] == "ARROW" and route["cars"] == 2]
-    require(len(matches) == 1, "Expected one coupled Arrow route")
+    matches = [route for route in routes if route["family"] == family and route["cars"] == cars]
+    require(len(matches) == 1, f"Expected one coupled {family} route with {cars} cars")
     sampled = matches[0]
     require(sampled["passes"] and not sampled["uncertifiedPairs"], "Sampled clearance did not pass")
     required = float(sampled["requiredGap"])
@@ -101,11 +107,15 @@ def main():
     samples = {
         entry["tick"]: {item["id"]: pose(item) for item in entry["poses"]}
         for entry in tick_entries
-        if entry["type"] == "sample" and entry.get("variant") == "arrow_four_rail_v1"
+        if entry["type"] == "sample"
+        and entry.get("family") == family
+        and entry.get("variant") == variant
     }
-    arrow_entries = [
+    route_entries = [
         entry for entry in tick_entries
-        if entry["type"] == "sample" and entry.get("variant") == "arrow_four_rail_v1"
+        if entry["type"] == "sample"
+        and entry.get("family") == family
+        and entry.get("variant") == variant
     ]
     require(len(samples) == sampled["samples"] >= 5000, "Sample/report count differs")
     ids = set(samples[min(samples)])
@@ -134,7 +144,7 @@ def main():
     player_low = np.array(sampled["playerMeshLocalBoundsFromEye"]["minimum"])
     player_high = np.array(sampled["playerMeshLocalBoundsFromEye"]["maximum"])
     eye_delta = float(sampled["playerMeshEyeOffsetFromFixtureRider"])
-    for entry in arrow_entries:
+    for entry in route_entries:
         current = samples[entry["tick"]]
         for rider in entry["riders"]:
             uid = rider["body"]
@@ -158,7 +168,8 @@ def main():
     previous_step, previous_time, steps, audited_steps, complete = 0, None, 0, 0, False
     with gzip.open(args.substep_trace, "rt") as stream:
         header = json.loads(next(stream))
-        require(header["type"] == "trace" and set(header["bodyIds"]) == ids, "Substep body set differs")
+        require(header == trace_header and set(header["bodyIds"]) == ids,
+                "Substep trace header/body set differs")
         for line in stream:
             entry = json.loads(line)
             if entry["type"] == "complete":
@@ -228,7 +239,10 @@ def main():
 
     print(json.dumps({
         "passes": True,
-        "scope": "Every paired Rapier post-physics half/full step inside the sampled occupied coupled-Arrow recovery interval; unanchored startup/teardown steps and the unexposed continuous trajectory inside a discrete substep are excluded.",
+        "scope": f"Every paired Rapier post-physics half/full step inside the sampled occupied coupled-{family} recovery interval; unanchored startup/teardown steps and the unexposed continuous trajectory inside a discrete substep are excluded.",
+        "family": family,
+        "variant": variant,
+        "cars": cars,
         "inputHashes": input_hashes,
         "traceSteps": steps,
         "auditedSteps": audited_steps,

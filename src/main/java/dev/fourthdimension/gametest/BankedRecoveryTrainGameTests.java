@@ -57,7 +57,11 @@ public final class BankedRecoveryTrainGameTests {
     }
   }
 
-  @GameTest(template = "empty", batch = "recoveryBankTrain", timeoutTicks = 11000)
+  @GameTest(
+      template = "empty",
+      templateNamespace = "fourthdimension_fd402",
+      batch = "recoveryBankTrain",
+      timeoutTicks = 11000)
   public static void occupiedOriginalTrainsTraverseBendAndBankBeforeDisconnect(
       GameTestHelper helper) {
     var level = helper.getLevel();
@@ -82,7 +86,12 @@ public final class BankedRecoveryTrainGameTests {
                 TrackDesign.PAX,
                 BankedRecoveryExamples.createTrain(
                     level, new BlockPos(-650, 240, 660), TrackDesign.PAX)));
-    var substepTrace = new RecoverySubstepTrace(level, trains.getFirst().example);
+    var substepTraces =
+        trains.stream()
+            .collect(
+                java.util.stream.Collectors.toMap(
+                    train -> train.design,
+                    train -> new RecoverySubstepTrace(level, train.design, train.example)));
     for (var train : trains) BankedRecoveryExamples.queueAssembly(level, train.example);
     for (var train : trains)
       helper.assertTrue(
@@ -351,7 +360,7 @@ public final class BankedRecoveryTrainGameTests {
                   train.riders.stream().noneMatch(Pig::isPassenger),
                   "Banked original train failed native unloading");
               meshTrace.complete(train.example, helper.getTick());
-              if (train.design == TrackDesign.ARROW) substepTrace.complete();
+              substepTraces.get(train.design).complete();
               train.finished = true;
               System.out.println(
                   "FD_RECOVERY_BANK_TRAIN family="

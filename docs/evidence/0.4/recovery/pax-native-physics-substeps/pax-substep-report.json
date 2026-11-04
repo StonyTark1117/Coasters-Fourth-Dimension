@@ -1,0 +1,65 @@
+{
+  "passes": true,
+  "scope": "Every paired Rapier post-physics half/full step inside the sampled occupied coupled-PAX recovery interval; unanchored startup/teardown steps and the unexposed continuous trajectory inside a discrete substep are excluded.",
+  "family": "PAX",
+  "variant": "pax_shuttle_v1",
+  "cars": 4,
+  "inputHashes": {
+    "base_jar": "f80b4c3cdf9fa6188804967147761b0373e150a6eadbdc53626e5ac9700b2049",
+    "minecraft_jar": "499f6897d1837516680f3114072d8106e11c9adcd933fe5cf051b551089b0c99",
+    "mesh_report": "a3d6aee77d7d81f01ed30c9e2acb22b8fdbd5c2dd9198b16e9073406ec367c72",
+    "tick_trace": "7ba28cb075fc34667e3d0178b6e1aea799c3deecc7432eca30dc9bdda3ac7439",
+    "substep_trace": "026e8ce039c28078843111b41603df03c249c6edc70e7ed14b0daf10537f4be0"
+  },
+  "traceSteps": 14222,
+  "auditedSteps": 13901,
+  "substepsPerTick": 2,
+  "gameTimeOffset": 631,
+  "matchedTickSamples": 6951,
+  "maximumMotionFromNearestTick": {
+    "body": 0.01245386851709913,
+    "wheel": 0.012379300067091625,
+    "rider": 0.012437943257051644,
+    "player": 0.012476655330093284
+  },
+  "worstMotion": {
+    "body": {
+      "tick": 3265,
+      "step": 6529,
+      "body": "bd3efd91-a851-48c3-baea-f25488b32937"
+    },
+    "rider": {
+      "tick": 3265,
+      "step": 6529,
+      "body": "bd3efd91-a851-48c3-baea-f25488b32937"
+    },
+    "player": {
+      "tick": 3265,
+      "step": 6529,
+      "body": "bd3efd91-a851-48c3-baea-f25488b32937"
+    },
+    "wheel": {
+      "tick": 3274,
+      "step": 6547,
+      "body": "de2bdab5-c22c-4c90-bfcb-fd86b032b066"
+    }
+  },
+  "sampledSeparatingBounds": {
+    "body": 0.04397747878124392,
+    "wheel": 0.04397747878124392,
+    "rider": 0.08,
+    "player": 0.08
+  },
+  "substepSeparatingLowerBounds": {
+    "body": 0.03152361026414478,
+    "wheel": 0.03159817871415229,
+    "rider": 0.06756205674294835,
+    "player": 0.06752334466990671
+  },
+  "carrierLocalInvariantBounds": {
+    "riderRack": 0.08000857064985212,
+    "playerRack": 0.06532927983604653
+  },
+  "neighborSeparatingLowerBound": 1.2512465467693223,
+  "requiredGap": 0.02
+}

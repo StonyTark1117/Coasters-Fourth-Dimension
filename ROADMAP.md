@@ -61,7 +61,7 @@ original native seat mounts, carriers and train links survive. Four-second queue
 native assembly supplies the new operator train demos. See the
 [banked train checkpoint](docs/evidence/0.4/recovery/banked-trains/acceptance.md).
 The next FD402 work is observed rendered operator/lifecycle acceptance,
-all-family physics-step clearance and remaining lifecycle evidence. Dev.19 validates occupied single-car
+remaining Legacy/Free Spin/Revised physics-step clearance and lifecycle evidence. Dev.19 validates occupied single-car
 native towing across all five families through a quarter bend, a 32-block
 sustained 30-degree bank, a bank-to-level transition and level runout. Original
 seat mounts and nonzero Arrow profiles survive normal braking, power cut,
@@ -425,9 +425,13 @@ The [native substep checkpoint](docs/evidence/0.4/recovery/native-physics-subste
 extends the occupied Arrow train to all 13,095 Rapier half/full steps inside its
 6,548-tick sampled interval, retaining at least 0.03598 blocks of body/wheel
 clearance and 0.06532 blocks of carrier-local player/rack clearance.
+The later [occupied PAX substep checkpoint](docs/evidence/0.4/recovery/pax-native-physics-substeps/acceptance.md)
+adds all 13,901 paired half/full steps across 6,951 sampled ticks of the real
+four-car train, retaining at least 0.03152 blocks of body/wheel clearance and
+0.06532 blocks of carrier-local player/rack clearance through normal release.
 Equipped/cosmetic meshes, observed client rendering, unanchored startup/teardown
-steps, other-family substeps, the unexposed within-substep trajectory, broader
-recovery lifecycle evidence remain open.
+steps, Legacy/Free Spin/Revised substeps, the unexposed within-substep
+trajectory, and broader recovery lifecycle evidence remain open.
 
 The [occupied strength-rating checkpoint](docs/evidence/0.4/recovery/strength-rating/acceptance.md)
 now makes the propulsion boundary explicit: production recovery accepts at most

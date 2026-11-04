@@ -60,7 +60,7 @@ SOURCE_PINS = {
     "src/main/java/dev/fourthdimension/vehicle/BankedRecoveryExamples.java": "8efe36d8648e7a61b082cd7e42cee5f8dd9a7f62d9a25c9f562679320d8db453",
     "src/main/java/dev/fourthdimension/gametest/RecoveryMeshTrace.java": "3b57c5812aec72ed36ee458d6bdd02a443207d32d1579ec80ba5752a6886913a",
     "src/main/java/dev/fourthdimension/gametest/BankedRecoveryGameTests.java": "89324021f6c70ea8578036b4ae1c924320ef442a9ec3da239c972f89417be66a",
-    "src/main/java/dev/fourthdimension/gametest/BankedRecoveryTrainGameTests.java": "928eaa9ecc694656f73c6be6314ea55260f62834919d4db4e013ba051dbd3449",
+    "src/main/java/dev/fourthdimension/gametest/BankedRecoveryTrainGameTests.java": "1192286e979801504acf758427aca5e0cbb9a739486f45d49124b6e1fcac795c",
 }
 
 
