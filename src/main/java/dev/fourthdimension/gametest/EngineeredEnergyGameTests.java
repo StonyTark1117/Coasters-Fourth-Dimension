@@ -22,6 +22,7 @@ import net.minecraft.gametest.framework.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.animal.Pig;
 import net.minecraft.world.level.ChunkPos;
@@ -96,6 +97,77 @@ public final class EngineeredEnergyGameTests {
     boolean pax() {
       return vehicle != null && vehicle.family == Family.PAX;
     }
+  }
+
+  /** Reproduces ordinary item placement on the bare Engineered loop. */
+  @GameTest(template = "empty", batch = BATCH, timeoutTicks = 100)
+  public static void normalItemPlacesCarOnBareEngineeredLoop(GameTestHelper helper) {
+    var level = helper.getLevel();
+    var origin = new BlockPos(-600, 120, -700);
+    for (int x = -38; x <= -35; x++)
+      for (int z = -45; z <= -40; z++) level.setChunkForced(x, z, true);
+    ExampleLayouts.createBareArrow(level, origin);
+    var data = FoundationData.get(level);
+    var player =
+        FakePlayerFactory.get(
+            level,
+            new com.mojang.authlib.GameProfile(
+                UUID.fromString("fdfdfdfd-0000-0000-0000-000000000418"),
+                "FDBareEngineeredPlacement"));
+    player.setGameMode(GameType.SURVIVAL);
+    var item = TrackItems.ARROW_CAR.get().getDefaultInstance();
+    player.setItemInHand(InteractionHand.MAIN_HAND, item);
+    var placementRail =
+        data.rails.stream()
+            .filter(r -> r.matches(origin.offset(0, 0, 8), origin.offset(0, 0, 44)))
+            .findFirst()
+            .orElseThrow();
+    var edge = TrackGeometry.resolve(level, placementRail);
+    var point =
+        CoasterPathGraphManager.sampleEdgePosition(
+            level, edge, TrackGeometry.table(level, edge).parameterAt(12));
+    helper.runAtTickTime(
+        20,
+        () -> {
+          double eyeOffset = player.getEyePosition().y - player.position().y;
+          player.setPos(point.x + 4, point.y - eyeOffset, point.z);
+          player.setYRot(90);
+          player.setYHeadRot(90);
+          player.setYBodyRot(90);
+          player.setXRot(0);
+          int before = data.vehicles.size();
+          InteractionResult placed =
+              player.gameMode.useItem(player, level, item, InteractionHand.MAIN_HAND);
+          helper.assertTrue(
+              placed.consumesAction() && data.vehicles.size() == before + 1 && item.isEmpty(),
+              "Normal Arrow air-use failed on the bare Engineered loop: " + placed);
+          var car =
+              data.vehicles.values().stream()
+                  .filter(v -> v.boundFrom.equals(origin.offset(0, 0, 8)))
+                  .findFirst()
+                  .orElseThrow();
+          System.out.println(
+              "FD_ENGINEERED_BARE_PLACEMENT itemConsumed=true chassis=" + car.chassis);
+          var container = SubLevelContainer.getContainer(level);
+          for (var carrier : car.carriers)
+            container.removeSubLevel(
+                container.getSubLevel(carrier.body), SubLevelRemovalReason.REMOVED);
+          container.removeSubLevel(container.getSubLevel(car.chassis), SubLevelRemovalReason.REMOVED);
+          data.vehicles.remove(car.chassis);
+          for (var rail : new ArrayList<>(data.rails)) {
+            if (rail.from.getX() < origin.getX() || rail.from.getX() > origin.getX() + 32
+                || rail.from.getZ() < origin.getZ() || rail.from.getZ() > origin.getZ() + 52)
+              continue;
+            var anchor = level.getBlockEntity(rail.from);
+            if (anchor instanceof CoasterAnchorpointBlockEntity coasterAnchor)
+              coasterAnchor.removeAnchorPeerCurve(level, rail.to);
+            data.rails.remove(rail);
+          }
+          for (int x = -38; x <= -35; x++)
+            for (int z = -45; z <= -40; z++) level.setChunkForced(x, z, false);
+          data.setDirty();
+          helper.succeed();
+        });
   }
 
   @GameTest(template = "empty", batch = BATCH, timeoutTicks = 440)
