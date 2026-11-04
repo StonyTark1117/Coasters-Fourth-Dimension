@@ -5,6 +5,7 @@ import dev.fourthdimension.runtime.EligibilityHooks;
 import dev.ryanhcode.sable.api.sublevel.SubLevelContainer;
 import dev.engine_room.flywheel.api.backend.Backend;
 import dev.engine_room.flywheel.api.backend.BackendManager;
+import net.minecraft.client.GraphicsStatus;
 import net.minecraft.client.Minecraft;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -29,11 +30,32 @@ public final class ClientDiagnostics {
     if (Boolean.getBoolean("fourthdimension.renderValidation")) {
       if (!renderEnvironmentLogged) {
         var backend = BackendManager.currentBackend();
+        var graphicsMode = mc.options.graphicsMode().get();
+        var requestedGraphicsMode = System.getProperty("fourthdimension.renderValidationGraphicsMode", "");
+        if (!requestedGraphicsMode.isBlank()) {
+          GraphicsStatus expected;
+          try {
+            expected = GraphicsStatus.valueOf(requestedGraphicsMode.trim().toUpperCase(java.util.Locale.ROOT));
+          } catch (IllegalArgumentException invalid) {
+            throw new IllegalArgumentException(
+                "FD_RENDER_VALIDATION invalid graphics mode '"
+                    + requestedGraphicsMode
+                    + "'; expected FAST, FANCY, or FABULOUS",
+                invalid);
+          }
+          if (graphicsMode != expected)
+            throw new IllegalStateException(
+                "FD_RENDER_VALIDATION graphics mode mismatch expected="
+                    + expected
+                    + " actual="
+                    + graphicsMode);
+        }
         LogUtils.getLogger()
             .info(
-                "FD_CLIENT_RENDER_ENV graphicsMode={} flywheelBackend={} flywheelEnabled={} "
-                    + "renderDistance={}",
-                mc.options.graphicsMode().get(),
+                "FD_CLIENT_RENDER_ENV graphicsMode={} expectedGraphicsMode={} flywheelBackend={} "
+                    + "flywheelEnabled={} renderDistance={}",
+                graphicsMode,
+                requestedGraphicsMode.isBlank() ? "unspecified" : requestedGraphicsMode,
                 Backend.REGISTRY.getId(backend),
                 BackendManager.isBackendOn(),
                 mc.options.renderDistance().get());
