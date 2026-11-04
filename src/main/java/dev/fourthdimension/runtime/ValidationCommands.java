@@ -5,6 +5,7 @@ import dev.fourthdimension.contract.Family;
 import dev.fourthdimension.integration.AppearanceEditor;
 import dev.fourthdimension.integration.TrackAppearance;
 import dev.fourthdimension.track.ExampleLayouts;
+import dev.fourthdimension.track.TrackDesign;
 import dev.fourthdimension.track.TrackPlacement;
 import dev.fourthdimension.vehicle.Boarding;
 import dev.fourthdimension.vehicle.CarrierSeatBlock;
@@ -29,7 +30,22 @@ public final class ValidationCommands {
                     .executes(context -> availability(context.getSource())))
             .then(
                 Commands.literal("engineered_loop")
-                    .executes(context -> engineeredLoop(context.getSource())))
+                    .executes(context -> engineeredLoop(context.getSource(), TrackDesign.ARROW))
+                    .then(
+                        Commands.literal("legacy")
+                            .executes(
+                                context ->
+                                    engineeredLoop(context.getSource(), TrackDesign.LEGACY)))
+                    .then(
+                        Commands.literal("free_spin")
+                            .executes(
+                                context ->
+                                    engineeredLoop(context.getSource(), TrackDesign.FREE_SPIN)))
+                    .then(
+                        Commands.literal("revised")
+                            .executes(
+                                context ->
+                                    engineeredLoop(context.getSource(), TrackDesign.REVISED))))
             .then(
                 Commands.literal("engineered_car")
                     .executes(context -> engineeredCar(context.getSource())))
@@ -88,14 +104,17 @@ public final class ValidationCommands {
                 .then(validation));
   }
 
-  private static int engineeredLoop(net.minecraft.commands.CommandSourceStack source) {
+  private static int engineeredLoop(
+      net.minecraft.commands.CommandSourceStack source, TrackDesign design) {
     try {
-      ExampleLayouts.createBareArrow(
-          source.getLevel(), BlockPos.containing(source.getPosition()).offset(0, 3, 12));
+      ExampleLayouts.createBare(
+          source.getLevel(), BlockPos.containing(source.getPosition()).offset(0, 3, 12), design);
       source.sendSuccess(
           () ->
               Component.literal(
-                  "Bare original Arrow circuit built; install the optional motor and place a car before binding the station."),
+                  "Bare original "
+                      + design.name()
+                      + " circuit built; install the optional motor and place a car before binding the station."),
           false);
       return 1;
     } catch (IllegalArgumentException failure) {

@@ -107,6 +107,11 @@ public final class ExampleLayouts {
     create(level, origin, TrackDesign.ARROW, false, false, false);
   }
 
+  /** Validation-only original circuit with no drive or preallocated car. */
+  public static void createBare(ServerLevel level, BlockPos origin, TrackDesign design) {
+    create(level, origin, design, false, false, false);
+  }
+
   /** Adds the car after a connected client has fitted the optional motor to a bare circuit. */
   public static FoundationData.Vehicle addBareArrowCar(ServerLevel level, BlockPos origin) {
     var start = origin.offset(0, 0, 8);
