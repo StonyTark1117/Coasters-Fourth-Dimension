@@ -8,8 +8,9 @@ rider, vanilla-player, carrier-rack, neighboring-car, and ordinary-bearing
 geometry.
 
 It does not interpolate through the unexposed trajectory inside a `0.025 s`
-Rapier step, and it excludes unpaired startup/teardown steps. Legacy ZacSpin,
-Free Spin, and Revised ZacSpin substep coverage remains open.
+Rapier step, and it excludes unpaired startup/teardown steps. The later
+[remaining-family checkpoint](../remaining-family-native-physics-substeps/acceptance.md)
+closes the corresponding Legacy ZacSpin, Free Spin, and Revised ZacSpin gate.
 
 ## Production fixture change
 
@@ -71,5 +72,6 @@ physical-run completion, and every acceptance threshold without launching
 Minecraft.
 
 This remains native/default-model evidence. It does not certify equipped or
-cosmetic player layers, observed rendering, unanchored startup/teardown,
-continuous within-step motion, or the three remaining single-car families.
+cosmetic player layers, observed rendering, unanchored startup/teardown, or
+continuous within-step motion. The later remaining-family checkpoint covers the
+three single-car families that were still open when this PAX evidence landed.

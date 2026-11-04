@@ -40,8 +40,11 @@ same routes; unmodeled linkage, equipped/cosmetic player meshes and observed cli
 [native substep checkpoint](docs/evidence/0.4/recovery/native-physics-substeps/acceptance.md)
 pairs all 13,095 Rapier half/full steps inside the occupied two-car Arrow
 route's 6,548-tick sampled interval and retains at least 0.03598 blocks of
-body/wheel clearance. Unanchored startup/teardown steps, other families and the
-trajectory inside one discrete substep remain open. Dev.22 moves Original visual
+body/wheel clearance. The [PAX checkpoint](docs/evidence/0.4/recovery/pax-native-physics-substeps/acceptance.md)
+and [remaining-family checkpoint](docs/evidence/0.4/recovery/remaining-family-native-physics-substeps/acceptance.md)
+extend this paired-step gate to all five supported families. Unanchored
+startup/teardown steps and the trajectory inside one discrete substep remain
+open. Dev.22 moves Original visual
 supports out of the native lower-bearing channel and independently samples that
 native lower-bearing model against occupied banked recovery routes; see the
 [bearing-clearance checkpoint](docs/evidence/0.4/recovery/bearing-clearance/acceptance.md).
@@ -60,8 +63,8 @@ runout before normal braking, power cut, disconnection and unloading. All 24
 original native seat mounts, carriers and train links survive. Four-second queued
 native assembly supplies the new operator train demos. See the
 [banked train checkpoint](docs/evidence/0.4/recovery/banked-trains/acceptance.md).
-The next FD402 work is observed rendered operator/lifecycle acceptance,
-remaining Legacy/Free Spin/Revised physics-step clearance and lifecycle evidence. Dev.19 validates occupied single-car
+The next FD402 work is observed rendered operator/lifecycle acceptance and
+broader lifecycle evidence. Dev.19 validates occupied single-car
 native towing across all five families through a quarter bend, a 32-block
 sustained 30-degree bank, a bank-to-level transition and level runout. Original
 seat mounts and nonzero Arrow profiles survive normal braking, power cut,
@@ -429,8 +432,11 @@ The later [occupied PAX substep checkpoint](docs/evidence/0.4/recovery/pax-nativ
 adds all 13,901 paired half/full steps across 6,951 sampled ticks of the real
 four-car train, retaining at least 0.03152 blocks of body/wheel clearance and
 0.06532 blocks of carrier-local player/rack clearance through normal release.
-Equipped/cosmetic meshes, observed client rendering, unanchored startup/teardown
-steps, Legacy/Free Spin/Revised substeps, the unexposed within-substep
+The [remaining-family substep checkpoint](docs/evidence/0.4/recovery/remaining-family-native-physics-substeps/acceptance.md)
+adds 35,163 paired half/full steps across 17,583 sampled ticks for occupied
+Legacy ZacSpin, Free Spin, and Revised ZacSpin vehicles, completing paired-step
+coverage for all five supported families. Equipped/cosmetic meshes, observed
+client rendering, unanchored startup/teardown steps, the unexposed within-step
 trajectory, and broader recovery lifecycle evidence remain open.
 
 The [occupied strength-rating checkpoint](docs/evidence/0.4/recovery/strength-rating/acceptance.md)

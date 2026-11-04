@@ -1,0 +1,66 @@
+{
+  "passes": true,
+  "scope": "Every paired Rapier post-physics half/full step inside the sampled occupied coupled-LEGACY recovery interval; unanchored startup/teardown steps and the unexposed continuous trajectory inside a discrete substep are excluded.",
+  "family": "LEGACY",
+  "tickFamily": "ZACSPIN",
+  "variant": "zacspin_legacy_v1",
+  "cars": 1,
+  "inputHashes": {
+    "base_jar": "f80b4c3cdf9fa6188804967147761b0373e150a6eadbdc53626e5ac9700b2049",
+    "minecraft_jar": "499f6897d1837516680f3114072d8106e11c9adcd933fe5cf051b551089b0c99",
+    "mesh_report": "c7f9d7f09897ff0853169623994c447f0302df8736fbfb77c0d43f556a4975c9",
+    "tick_trace": "9d704ee91271f922068a3a8cbfa0bedb1e89650cdfc75fed937c9b2bd633f659",
+    "substep_trace": "0747559dbc501fbd1e4a69932f650399a419490cdf4c90a0164b0cb0d092c058"
+  },
+  "traceSteps": 11964,
+  "auditedSteps": 11683,
+  "substepsPerTick": 2,
+  "gameTimeOffset": 632,
+  "matchedTickSamples": 5842,
+  "maximumMotionFromNearestTick": {
+    "body": 0.012723557557749938,
+    "wheel": 0.012714953845563851,
+    "rider": 0.01267269947268496,
+    "player": 0.01276308208472625
+  },
+  "worstMotion": {
+    "body": {
+      "tick": 1838,
+      "step": 3675,
+      "body": "eab74460-fd6d-4ce8-ad41-6de879522d0e"
+    },
+    "wheel": {
+      "tick": 1838,
+      "step": 3675,
+      "body": "eab74460-fd6d-4ce8-ad41-6de879522d0e"
+    },
+    "rider": {
+      "tick": 1843,
+      "step": 3685,
+      "body": "bf64e02e-1a0d-488e-9658-92f19f8f524a"
+    },
+    "player": {
+      "tick": 1843,
+      "step": 3685,
+      "body": "bf64e02e-1a0d-488e-9658-92f19f8f524a"
+    }
+  },
+  "sampledSeparatingBounds": {
+    "body": 0.043951156426146554,
+    "wheel": 0.043951156426146554,
+    "rider": 0.08,
+    "player": 0.08
+  },
+  "substepSeparatingLowerBounds": {
+    "body": 0.031227598868396614,
+    "wheel": 0.031236202580582705,
+    "rider": 0.06732730052731505,
+    "player": 0.06723691791527375
+  },
+  "carrierLocalInvariantBounds": {
+    "riderRack": 0.08001900515158664,
+    "playerRack": 0.2840792798360001
+  },
+  "neighborSeparatingLowerBound": 1.7006470766927846,
+  "requiredGap": 0.02
+}

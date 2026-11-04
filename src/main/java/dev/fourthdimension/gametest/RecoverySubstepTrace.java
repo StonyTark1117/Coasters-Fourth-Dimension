@@ -32,6 +32,14 @@ final class RecoverySubstepTrace {
       ServerLevel level,
       dev.fourthdimension.track.TrackDesign design,
       BankedRecoveryExamples.Example example) {
+    this(level, design, example, "recovery-bank-train");
+  }
+
+  RecoverySubstepTrace(
+      ServerLevel level,
+      dev.fourthdimension.track.TrackDesign design,
+      BankedRecoveryExamples.Example example,
+      String outputPrefix) {
     if (ACTIVE.stream().anyMatch(trace -> trace.design == design))
       throw new IllegalStateException("A substep trace is already active for " + design);
     if (!registered) {
@@ -56,7 +64,8 @@ final class RecoverySubstepTrace {
                           net.neoforged.fml.loading.FMLPaths.GAMEDIR
                               .get()
                               .resolve(
-                                  "recovery-bank-train-"
+                                  outputPrefix
+                                      + "-"
                                       + design.name().toLowerCase(Locale.ROOT)
                                       + "-substeps.jsonl.gz"))),
                   java.nio.charset.StandardCharsets.UTF_8));

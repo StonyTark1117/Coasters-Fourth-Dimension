@@ -108,15 +108,16 @@ def main():
         entry["tick"]: {item["id"]: pose(item) for item in entry["poses"]}
         for entry in tick_entries
         if entry["type"] == "sample"
-        and entry.get("family") == family
         and entry.get("variant") == variant
     }
     route_entries = [
         entry for entry in tick_entries
         if entry["type"] == "sample"
-        and entry.get("family") == family
         and entry.get("variant") == variant
     ]
+    tick_families = {entry.get("family") for entry in route_entries}
+    require(len(tick_families) == 1, "Variant maps to multiple telemetry families")
+    tick_family = tick_families.pop()
     require(len(samples) == sampled["samples"] >= 5000, "Sample/report count differs")
     ids = set(samples[min(samples)])
     require(all(set(sample) == ids for sample in samples.values()), "Tick body set changed")
@@ -241,6 +242,7 @@ def main():
         "passes": True,
         "scope": f"Every paired Rapier post-physics half/full step inside the sampled occupied coupled-{family} recovery interval; unanchored startup/teardown steps and the unexposed continuous trajectory inside a discrete substep are excluded.",
         "family": family,
+        "tickFamily": tick_family,
         "variant": variant,
         "cars": cars,
         "inputHashes": input_hashes,

@@ -256,7 +256,10 @@ and 0.06532 blocks of carrier-local player/rack clearance.
 The [occupied PAX substep checkpoint](evidence/0.4/recovery/pax-native-physics-substeps/acceptance.md)
 adds all 13,901 paired half/full steps inside the four-car train's 6,951-tick
 interval, with at least 0.03152 blocks of body/wheel clearance and the same
-0.06532-block carrier-local player/rack bound. These checkpoints do not certify
-equipped or cosmetic player layers, observed client rendering, unanchored
-startup/teardown steps, Legacy/Free Spin/Revised substeps, the unexposed
-trajectory inside one discrete substep, or the rendered operator lifecycle.
+0.06532-block carrier-local player/rack bound. The
+[remaining-family substep checkpoint](evidence/0.4/recovery/remaining-family-native-physics-substeps/acceptance.md)
+adds 35,163 paired steps for Legacy ZacSpin, Free Spin, and Revised ZacSpin, so
+all five supported families now have paired-step coverage. These checkpoints do
+not certify equipped or cosmetic player layers, observed client rendering,
+unanchored startup/teardown steps, the unexposed trajectory inside one discrete
+substep, or the rendered operator lifecycle.
