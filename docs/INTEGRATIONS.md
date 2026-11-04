@@ -167,8 +167,8 @@ linkage, native rider and neighboring-car checks. A fifth current report applies
 the same player envelope to the retained Original → single → double → Original →
 single whole-section plan, with the same 6,548 coupled poses and lower bounds.
 
-These remain proposed appearance configurations on recorded native motion, not
-observed client rendering. They exclude continuous between-tick motion, armor,
+These sampled analyses remain proposed appearance configurations on recorded native motion, not
+observed client rendering. On their own they exclude between-tick motion, armor,
 held items, capes/elytra/modded cosmetics, decoration self-clearance and custom
 resources. Whole-section transitions do not prove UI edits inside a curve. The historical transition
 report excludes player meshes; the current extension supplies that bounded
@@ -183,9 +183,12 @@ The [exact-candidate post-edit reload ride](evidence/0.9/fd401-styles-ui-reload-
 adds the corresponding runtime boundary: the UI-selected banked appearance
 cold-reopened on the frozen JAR, survived a real F3+T catalog rebuild, carried
 an occupied car through visible banked and flat rotations, returned to station
-capture, and unloaded through the normal vehicle UI. It does not convert the
-sampled clearance reports into a continuous sweep or cover equipped/cosmetic
-riders.
+capture, and unloaded through the normal vehicle UI. Separate
+[interpolation](evidence/0.9/fd401-styles-interpolation-sweep-2c5d9a7/README.md)
+and [physics-substep](evidence/0.9/fd401-styles-physics-substeps-2c5d9a7/README.md)
+audits bound the intervening rendered interpolation and every recorded
+post-physics Arrow pose for the inspected default meshes and vanilla-player
+envelopes. They do not cover client extrapolation or equipped/cosmetic riders.
 
 The [exact-candidate render-mode gates](evidence/0.9/fd401-render-modes-exact-2c5d9a7/README.md)
 add separate strict FAST and FABULOUS passes at 500 geometry stages with nonzero

@@ -99,6 +99,8 @@ neoForge {
         server {
             server(); gameDirectory = layout.buildDirectory.dir(project.hasProperty('fdPackaged') ? 'runs/packaged-server' : 'runs/server').get().asFile; programArgument '--nogui'
             systemProperty 'fourthdimension.freezeOnStart', project.hasProperty('fdFrozen').toString()
+            if (project.hasProperty('fdNamedGameTestServer'))
+                systemProperty 'neoforge.enabledGameTestNamespaces', 'fourthdimension'
         }
         gameTestServer {
             type = 'gameTestServer'

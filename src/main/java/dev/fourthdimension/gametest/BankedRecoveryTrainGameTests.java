@@ -82,6 +82,7 @@ public final class BankedRecoveryTrainGameTests {
                 TrackDesign.PAX,
                 BankedRecoveryExamples.createTrain(
                     level, new BlockPos(-650, 240, 660), TrackDesign.PAX)));
+    var substepTrace = new RecoverySubstepTrace(level, trains.getFirst().example);
     for (var train : trains) BankedRecoveryExamples.queueAssembly(level, train.example);
     for (var train : trains)
       helper.assertTrue(
@@ -350,6 +351,7 @@ public final class BankedRecoveryTrainGameTests {
                   train.riders.stream().noneMatch(Pig::isPassenger),
                   "Banked original train failed native unloading");
               meshTrace.complete(train.example, helper.getTick());
+              if (train.design == TrackDesign.ARROW) substepTrace.complete();
               train.finished = true;
               System.out.println(
                   "FD_RECOVERY_BANK_TRAIN family="
