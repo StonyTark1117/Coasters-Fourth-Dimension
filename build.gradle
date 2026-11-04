@@ -35,7 +35,10 @@ neoForge {
     if (project.hasProperty('fdPackaged')) addModdingDependenciesTo sourceSets.packaged
     runs {
         client {
-            client(); gameDirectory = layout.buildDirectory.dir(project.hasProperty('fdPackaged') ? 'runs/packaged-client' : 'runs/client').get().asFile
+            client()
+            gameDirectory = project.hasProperty('fdClientGameDirectory')
+                ? file(project.property('fdClientGameDirectory'))
+                : layout.buildDirectory.dir(project.hasProperty('fdPackaged') ? 'runs/packaged-client' : 'runs/client').get().asFile
             if (project.hasProperty('fdConnect')) programArguments.addAll '--quickPlayMultiplayer', project.property('fdConnect')
             if (project.hasProperty('fdWorld')) programArguments.addAll '--quickPlaySingleplayer', project.property('fdWorld')
             systemProperty 'fourthdimension.validation', project.hasProperty('fdValidation').toString()
