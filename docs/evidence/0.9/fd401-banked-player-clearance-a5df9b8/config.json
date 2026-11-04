@@ -1,0 +1,24 @@
+{
+  "sourceBase": "88d31b7240fbb61770f37276a217ce5dd3c04abb",
+  "python": "/usr/sbin/python",
+  "numpy": "2.5.4",
+  "temporaryInputs": "/tmp/fd401-player-clearance-c1eda8f",
+  "retainedCompressedInputs": "../fd402-isolated-base-ff7c831/native-exports",
+  "jars": {
+    "base": "/home/braydon/.gradle/caches/modules-2/files-2.1/curse.maven/create-coasters-simulated-1601871/8655742/4d3381b781a1129f793358b8ae13e0abcd2e655b/create-coasters-simulated-1601871-8655742.jar",
+    "minecraft": "/home/braydon/.gradle/caches/neoformruntime/artifacts/minecraft_1.21.1_client.jar",
+    "styles": "/home/braydon/Documents/Coasters: Fourth Dimension/build/integration-catalog/2026-11-02/coasters-simulated-track-styles-1642719-9020601.jar"
+  },
+  "dependencyHashes": {
+    "base": "f80b4c3cdf9fa6188804967147761b0373e150a6eadbdc53626e5ac9700b2049",
+    "minecraft": "499f6897d1837516680f3114072d8106e11c9adcd933fe5cf051b551089b0c99",
+    "styles": "42535a83307f6898b33c13ca201533bb9e337418fd7c73039c867fc80bfbcb38"
+  },
+  "toolHashes": {
+    "audit-recovery-styles.py": "26beccb2960ef182180398f784dcbf951e36519dc163862315ed8a0b6634e184",
+    "audit-recovery-mesh-trace.py": "a5df9b8ad3c5cb87812b4044c4d216148cb7d5d1bce5830bb3d8a37fba88dc5a"
+  },
+  "margin": 0.02,
+  "styles": ["arrow_4d", "arrow_4d_dbl_spine"],
+  "scope": "One-tick sampled banked default-model vehicle and conservative vanilla seated-player skin clearance for single and coupled Arrow cars; no client rendering, between-tick sweep, equipment/cosmetics, arbitrary resources, or full FD401 acceptance."
+}

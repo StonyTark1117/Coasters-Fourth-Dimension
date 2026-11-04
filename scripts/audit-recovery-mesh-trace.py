@@ -11,8 +11,11 @@ checked against non-contact original track components and neighboring cars; the
 two running rails are excluded because they are the intended wheel contact.
 Every original occupied seat must contribute the same mounted rider and carrier
 assignment at every sample. Their oriented envelopes use the live native poses.
-This does not verify player meshes, a client renderer or arbitrary
-player cosmetics. Arrow's unmodeled mechanical linkage, decorations and resource
+For the recovery fixture's pigs, the verifier also places a conservative vanilla
+player skin-and-outer-layer envelope at the same Create seat. The player envelope
+uses the inspected 1.21.1 seated model dimensions and Sable's carrier orientation;
+armor, held items and arbitrary cosmetics remain outside the audit. This does not
+verify a client renderer. Arrow's unmodeled mechanical linkage, decorations and resource
 overrides remain outside this audit. A zero separating bound is UNCERTIFIED, not
 a proven mesh collision.
 """
@@ -41,10 +44,18 @@ LINKAGE_BLOCKS = {
     "fourthdimension:free_spin_axle",
     "fourthdimension:revised_axle",
 }
+# The fixture uses pigs because Create seats reject FakePlayer. Both entities have
+# zero Create custom seat offset. Their common seat attachment cancels, leaving
+# this exact eye-height delta: (player eye 1.62 - vehicle attachment .6) -
+# (pig eye .765 - vehicle attachment 0) = .255 blocks.
+PLAYER_EYE_FROM_FIXTURE_EYE = 0.255
+PLAYER_RENDER_SCALE = 0.9375
+PLAYER_RENDER_TRANSLATION = 1.501
+PLAYER_EYE_HEIGHT = 1.62
 SOURCE_PINS = {
     "src/main/java/dev/fourthdimension/client/OriginalTrackRenderer.java": "d1323d09d93e738ff01140133aa0e7fb83e6bcc7ca99884e3b265dde1c2faba4",
     "src/main/java/dev/fourthdimension/track/TrackDesign.java": "e3a88c3ca661d7b232ee0b9d3c853a6e66c1d0d1147ac4266b001616b1fe1ff1",
-    "src/main/java/dev/fourthdimension/vehicle/BankedRecoveryExamples.java": "82a817c5da0cafdf4b4a55ca403a1e8fc760c815a68f0c8bac57c1f73f2cd540",
+    "src/main/java/dev/fourthdimension/vehicle/BankedRecoveryExamples.java": "662dd6d3382fad445ced3fe12a24725c517fc8b907720890222b8ff02e968a41",
     "src/main/java/dev/fourthdimension/gametest/RecoveryMeshTrace.java": "3b57c5812aec72ed36ee458d6bdd02a443207d32d1579ec80ba5752a6886913a",
     "src/main/java/dev/fourthdimension/gametest/BankedRecoveryGameTests.java": "89324021f6c70ea8578036b4ae1c924320ef442a9ec3da239c972f89417be66a",
     "src/main/java/dev/fourthdimension/gametest/BankedRecoveryTrainGameTests.java": "e35abf4b656410bf0bb74c65f1c1942802ee45121d0aeda2a5f5a8c7080e0b47",
@@ -234,6 +245,72 @@ def boxes_separation(first, axes, second, other_axes):
     return best
 
 
+@lru_cache(maxsize=1)
+def vanilla_player_mesh_bounds():
+    """Conservative 1.21.1 seated player skin bounds relative to its eye.
+
+    HumanoidModel/PlayerModel cuboids are in pixels. Body and riding legs use
+    their actual empty-handed seated transforms. Head gaze and vanilla arm bob
+    are conservatively enclosed by rotation-independent spheres around their
+    model pivots. The standard sleeves enclose slim sleeves; skin outer layers
+    and the 0.5-pixel hat layer are included. Overall body/head yaw is enclosed
+    by the returned square horizontal radius.
+    """
+    def corners(low, high):
+        return np.array(list(itertools.product(*zip(low, high))), dtype=float)
+
+    def rotation_zyx(z, y, x):
+        sx, cx = math.sin(x), math.cos(x)
+        sy, cy = math.sin(y), math.cos(y)
+        sz, cz = math.sin(z), math.cos(z)
+        rx = np.array(((1, 0, 0), (0, cx, -sx), (0, sx, cx)))
+        ry = np.array(((cy, 0, sy), (0, 1, 0), (-sy, 0, cy)))
+        rz = np.array(((cz, -sz, 0), (sz, cz, 0), (0, 0, 1)))
+        return rz @ ry @ rx
+
+    model_points = []
+    # Jacket is the widest torso cuboid and includes the 0.25-pixel skin layer.
+    model_points.extend(corners((-4.25, -.25, -2.25), (4.25, 12.25, 2.25)))
+    # Pants copy the vanilla riding-leg transforms. Both handed rotations are
+    # retained because their z/y signs differ.
+    leg = corners((-2.25, -.25, -2.25), (2.25, 12.25, 2.25))
+    for side in (-1, 1):
+        pivot = np.array((side * 1.9, 12.0, 0.0))
+        rotation = rotation_zyx(side * .07853982, side * -math.pi / 10, -1.4137167)
+        model_points.extend(leg @ rotation.T + pivot)
+
+    points = np.array(model_points)
+    world_y = PLAYER_RENDER_SCALE * (PLAYER_RENDER_TRANSLATION - points[:, 1] / 16) - PLAYER_EYE_HEIGHT
+    radial = PLAYER_RENDER_SCALE * np.linalg.norm(points[:, (0, 2)], axis=1) / 16
+    low_y, high_y = float(world_y.min()), float(world_y.max())
+    radius = float(radial.max())
+
+    # The hat is the widest head cuboid. Spheres make the bound independent of
+    # head pitch/yaw and arm bob/pose while retaining their exact pivots.
+    sphere_specs = [
+        ((0.0, 0.0, 0.0), (-4.5, -8.5, -4.5), (4.5, .5, 4.5)),
+        ((-5.0, 2.0, 0.0), (-3.25, -2.25, -2.25), (1.25, 10.25, 2.25)),
+        ((5.0, 2.0, 0.0), (-1.25, -2.25, -2.25), (3.25, 10.25, 2.25)),
+        # Slim arms use a half-pixel lower pivot; the standard sleeve radius is
+        # deliberately retained, so this also encloses the slim sleeves.
+        ((-5.0, 2.5, 0.0), (-3.25, -2.25, -2.25), (1.25, 10.25, 2.25)),
+        ((5.0, 2.5, 0.0), (-1.25, -2.25, -2.25), (3.25, 10.25, 2.25)),
+    ]
+    for pivot, low, high in sphere_specs:
+        pivot = np.array(pivot)
+        local = corners(low, high)
+        sphere_radius = float(np.linalg.norm(local, axis=1).max())
+        scaled_radius = PLAYER_RENDER_SCALE * sphere_radius / 16
+        center_y = PLAYER_RENDER_SCALE * (PLAYER_RENDER_TRANSLATION - pivot[1] / 16) - PLAYER_EYE_HEIGHT
+        low_y = min(low_y, center_y - scaled_radius)
+        high_y = max(high_y, center_y + scaled_radius)
+        radius = max(radius, PLAYER_RENDER_SCALE * (math.hypot(pivot[0], pivot[2]) + sphere_radius) / 16)
+
+    if not (.9 < radius < 1.0 and -1.3 < low_y < -1.1 and .4 < high_y < .5):
+        raise ValueError(f"Unexpected vanilla player model enclosure: radius={radius}, y=[{low_y}, {high_y}]")
+    return np.array((-radius, low_y, -radius)), np.array((radius, high_y, radius))
+
+
 def is_linkage(label):
     """Return whether an exported block-model element is a moving car linkage part.
 
@@ -264,6 +341,7 @@ def audit(route, entries, resources, margin, *, surface=None):
     wheel_minimum, wheel_closest, wheel_checks = math.inf, None, 0
     linkage_minimum, linkage_closest, linkage_checks = math.inf, None, 0
     rider_minimum, rider_closest, rider_checks = math.inf, None, 0
+    player_minimum, player_closest, player_checks = math.inf, None, 0
     rider_rack_minimum, rider_rack_closest, rider_rack_checks = math.inf, None, 0
     neighbor_minimum, neighbor_closest = math.inf, None
     neighbor_pairs = 0
@@ -322,6 +400,45 @@ def audit(route, entries, resources, margin, *, surface=None):
                 low, high = world.min(axis=0), world.max(axis=0)
                 sample_boxes.append((world, axes, low, high, body["car"], "nativeRider"))
                 rider_cars.add(body["car"])
+                # The native fixture occupies every seat with a pig. Place the
+                # conservative vanilla player mesh at the same seat. Adding the
+                # eye delta along the live carrier up axis follows Sable's
+                # eye-pivoted rider orientation without inventing a track frame.
+                if not (abs(width - .9) < 1e-5 and abs(height - .9) < 1e-5
+                        and abs(eye_height - .765) < 1e-5):
+                    raise ValueError("Player proxy requires the inspected pig fixture dimensions")
+                player_low, player_high = vanilla_player_mesh_bounds()
+                player_eye = eye + PLAYER_EYE_FROM_FIXTURE_EYE * axes[1]
+                player_world = np.array(list(itertools.product(*zip(player_low, player_high)))) @ axes + player_eye
+                player_world_low, player_world_high = player_world.min(axis=0), player_world.max(axis=0)
+                sample_boxes.append((player_world, axes, player_world_low, player_world_high,
+                                     body["car"], "vanillaPlayerMeshEnvelope"))
+                padding = margin * 4
+                cells = itertools.product(*(range(a, b + 1) for a, b in zip(
+                    np.floor((player_world_low - padding) / 2).astype(int),
+                    np.floor((player_world_high + padding) / 2).astype(int))))
+                indices = np.array(sorted({index for cell in cells for index in grid.get(cell, [])}), dtype=int)
+                player_checks += 1
+                if not len(indices):
+                    player_minimum = min(player_minimum, padding)
+                else:
+                    gaps = np.linalg.norm(np.maximum(
+                        0, np.maximum(player_world_low - highs[indices], lows[indices] - player_world_high)), axis=1)
+                    candidates = np.flatnonzero(gaps < padding)
+                    if candidates.size:
+                        gaps[candidates] = separation(player_world, axes, triangles[indices[candidates]])
+                    best = int(np.argmin(gaps))
+                    index = int(indices[best])
+                    gap = min(padding, float(gaps[best]))
+                    if gap < player_minimum:
+                        player_minimum = gap
+                        player_closest = {"tick": entry["tick"], "body": rider["body"],
+                                          "modelElement": "vanillaPlayerMeshEnvelope",
+                                          "trackComponent": labels[index]}
+                    if gap < margin and len(failures) < 20:
+                        failures.append({"gap": gap, "tick": entry["tick"], "body": rider["body"],
+                                         "modelElement": "vanillaPlayerMeshEnvelope",
+                                         "trackComponent": labels[index]})
                 # A rider intentionally contacts its seat. Check every other rack block
                 # for every sampled rider, even when no track triangle is nearby.
                 rack_checks_before = rider_rack_checks
@@ -485,8 +602,11 @@ def audit(route, entries, resources, margin, *, surface=None):
         raise ValueError("Native chassis/carrier linkage blocks were not audited")
     if rider_checks == 0 or not math.isfinite(rider_minimum):
         raise ValueError("Mounted rider envelopes were not audited")
+    if player_checks != rider_checks or not math.isfinite(player_minimum):
+        raise ValueError("Not every mounted fixture seat received a vanilla player mesh audit")
     if rider_rack_checks < rider_checks or not math.isfinite(rider_rack_minimum):
         raise ValueError("Not every mounted rider was audited against carrier rack geometry")
+    player_low, player_high = vanilla_player_mesh_bounds()
     return {"family": route["family"], "cars": route["carCount"], "samples": samples,
             "occupiedSeatsPerSample": len(original_rider_mounts),
             "trackTriangles": len(triangles), "minimumSeparatingBound": minimum,
@@ -500,6 +620,12 @@ def audit(route, entries, resources, margin, *, surface=None):
             "riderEnvelopeCount": rider_checks,
             "riderMinimumSeparatingBound": rider_minimum,
             "riderClosest": rider_closest,
+            "playerMeshEnvelopeCount": player_checks,
+            "playerMeshMinimumSeparatingBound": player_minimum,
+            "playerMeshClosest": player_closest,
+            "playerMeshScope": "conservative standard/slim vanilla 1.21.1 skin and outer layers in an empty-handed seated pose; all head/arm rotations enclosed; excludes armor, held items, capes, elytra and modded cosmetics",
+            "playerMeshLocalBoundsFromEye": {"minimum": player_low.tolist(), "maximum": player_high.tolist()},
+            "playerMeshEyeOffsetFromFixtureRider": PLAYER_EYE_FROM_FIXTURE_EYE,
             "riderRackEnvelopeCount": rider_rack_checks,
             "riderRackMinimumSeparatingBound": rider_rack_minimum,
             "riderRackClosest": rider_rack_closest,
@@ -573,7 +699,7 @@ def main():
               "sourceHashes": {name: initial_hashes["source:" + name] for name in SOURCE_PINS},
               "provenanceCheck": "Input/source/tool hashes matched before analysis and before report emission; use immutable files to exclude intervening changes.",
               "resourceHashes": resources.hashes, "sampleIntervalTicks": 1,
-              "scope": "one-tick sampled original default block-model, explicit chassis/carrier linkage blocks, native lower-bearing, full-spin wheel-envelope and every original occupied native-rider rendered-orientation volume against original track tubes; rider identities and carrier mounts are stable across samples; running rails are excluded only for wheels as intended contact; no continuous physics-step sweep, player meshes, client renderer/cosmetics, unmodeled kinematic linkage, decorations or resource overrides",
+              "scope": "one-tick sampled original default block-model, explicit chassis/carrier linkage blocks, native lower-bearing, full-spin wheel envelope, every original occupied native-rider volume and a conservative vanilla seated-player skin envelope at each fixture seat against original track tubes; rider identities and carrier mounts are stable across samples; running rails are excluded only for wheels as intended contact; no continuous physics-step sweep, client renderer, armor/held items/capes/elytra/modded cosmetics, unmodeled kinematic linkage, decorations or resource overrides",
               "method": "2-block spatial bins; omitted pairs certify at least 4x margin; world AABB separation refined by OBB/triangle SAT lower distance bounds",
               "routes": results}
     print(json.dumps(output, indent=2))

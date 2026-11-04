@@ -217,6 +217,13 @@ original source/tool/input hashes and do not become post-fix runtime evidence.
 Any later source change requires reinspection, not merely replacing a hash to
 obtain a pass.
 
+The later `ec980bc` change only expands the recovery-corridor obstruction error;
+it does not change route or vehicle geometry. The current auditors pin its
+reviewed source hash. The player-clearance extension also reconstructs a
+conservative vanilla 1.21.1 seated skin envelope at the same Create seat as each
+native pig fixture, using the inspected player/pig vehicle-attachment eye delta
+and the live Sable carrier axes.
+
 Current auditors hash inputs, dependencies, source and tool before analysis, then
 require those hashes to match again before emitting a result. A changed or removed
 file refuses certification rather than relabeling completed calculations with its
@@ -231,16 +238,21 @@ Only aggregate measurements and identities are written; third-party model data
 stays in memory. Use the project's geometry dependency environment; the offline
 unit checks here ran with NumPy 2.5.4 and do not constitute native acceptance.
 
-Six additional synthetic tests cover raw OBJ indexing, a once-applied tie origin,
+Seven additional synthetic tests cover raw OBJ indexing, a once-applied tie origin,
 style ownership and lowered supports, Original/double-spine transitions, invalid
-plans/stroke/family rejection and contained-triangle rejection. Run both suites:
+plans/stroke/family rejection, contained-triangle rejection and oriented player
+envelope preservation. Run both suites:
 
 ```sh
 python3 -B -m unittest discover -s scripts/tests -p 'test_recovery_*.py' -v
 ```
 
-This remains tick-sampled body-versus-track default-model analysis. It does not
-check track-to-decoration self-clearance or establish continuous physics-step clearance, player meshes/cosmetics, resource replacements, visible
-client rendering, installed model availability or occupied full-turn operation.
-Fresh exported inputs and an actual audit run are still pending; passing synthetic
-tests or parsing the four pinned OBJ resources is not a clearance pass.
+This remains tick-sampled body-versus-track default-model analysis. The
+[banked player-clearance reports](evidence/0.9/fd401-banked-player-clearance-a5df9b8/README.md)
+run the current tools over the retained single/coupled native inputs for both
+uniform styles. They cover vanilla standard/slim skin and outer layers, but not
+armor, held items, capes, elytra or modded cosmetics. Track-to-decoration
+self-clearance, continuous physics-step clearance, resource replacements,
+visible client rendering and installed-model availability remain outside this
+audit. Passing synthetic tests or parsing the four pinned OBJ resources alone is
+not a clearance pass.

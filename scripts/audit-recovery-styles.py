@@ -36,7 +36,7 @@ STYLES = ('arrow_4d', 'arrow_4d_dbl_spine')
 # Filled from the inspected implementation; refuse silent renderer/export changes.
 SOURCE_PINS = {
     "scripts/verify-recovery-bank-frames.py": "80749110c47c7794d7a8bd6bc729bf51fa4f634b0138e7ed0d0412c312cfc2af",
-    "src/main/java/dev/fourthdimension/vehicle/BankedRecoveryExamples.java": "82a817c5da0cafdf4b4a55ca403a1e8fc760c815a68f0c8bac57c1f73f2cd540",
+    "src/main/java/dev/fourthdimension/vehicle/BankedRecoveryExamples.java": "662dd6d3382fad445ced3fe12a24725c517fc8b907720890222b8ff02e968a41",
     "src/main/java/dev/fourthdimension/gametest/RecoveryRouteFrames.java": "ed3d7dbe58b6759b8a511f49796d1bb30bbdfb43ff4439d41f0fc6dc8a9896ce",
     "src/main/java/dev/fourthdimension/client/integration/TrackStylesRenderer.java": "fa69593b5a8b9f93ece00f40ebd67f00692db9d8af8d18648563f42146edb217",
     "src/main/java/dev/fourthdimension/client/integration/TrackStylesCatalog.java": "2b124893d6477a9b4be453a8a34f93a42b7b3f0b04fc926619d99c5d6ec16dbc",
@@ -47,7 +47,7 @@ SOURCE_PINS = {
     "src/main/java/dev/fourthdimension/contract/Family.java": "a441e66dfcbee53a83a52f5b475fab07d60e58e03d2ef789ebfbe1c0ab9d7c2c",
     "src/main/java/dev/fourthdimension/integration/TrackAppearance.java": "cf12254fb753172bc1c110dd8f5b1203de740b02658f81612427a86cd2695a3c",
     "src/main/java/dev/fourthdimension/integration/TrackRenderOwnership.java": "8d7b795ccf9e1a54b1c7ffe375cf8a94d6d9f10c72c344f9bce94480c4c9887e",
-    "scripts/audit-recovery-mesh-trace.py": "4ba9ab5f6895ce1e0623adbec9707f6f69bddb55ea40cced496cb0c8733bcaae",
+    "scripts/audit-recovery-mesh-trace.py": "a5df9b8ad3c5cb87812b4044c4d216148cb7d5d1bce5830bb3d8a37fba88dc5a",
     "scripts/verify-recovery-decoration-inputs.py": "c6c443d58a411d98881109633becb55595ea16cd21df2e2b853be2e08353d594"
 }
 
@@ -222,7 +222,7 @@ def main():
             result = recovery.audit(route, entries, resources, args.margin, surface=track)
         recovery.require_unchanged_provenance(provenance_paths, initial_hashes)
         output = {
-            'scope': 'Prospective default-model Styles configuration at recorded recovery tick poses; not observed client rendering, track-to-decoration self-clearance, continuous sweep, player meshes, cosmetics, arbitrary resources or full-turn ride acceptance.',
+            'scope': 'Prospective default-model Styles configuration at recorded recovery tick poses, including a conservative vanilla seated-player skin envelope at every fixture seat; not observed client rendering, track-to-decoration self-clearance, continuous sweep, armor/held items/capes/elytra/modded cosmetics, arbitrary resources or full-turn ride acceptance.',
             'savedAppearance': {section['rail']: section['appearance'] for section in route['sections']},
             'prospectiveStylePlan': plan, 'geometryCounts': counts, 'result': result,
             'tracePairing': pairing, 'nativeRouteGeometry': native_geometry, 'numpyVersion': np.__version__,

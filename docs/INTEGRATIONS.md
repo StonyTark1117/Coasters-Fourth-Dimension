@@ -158,12 +158,20 @@ and 0.04878235 blocks respectively, above the 0.02 requirement, with no
 uncertified body/track pairs. The reports include default wheel, chassis,
 carrier/linkage and native-fixture rider volumes, with explicit model limits.
 
-These are proposed appearance configurations on recorded native motion, not
-observed client rendering. They exclude player meshes, continuous swept motion,
-decoration self-clearance, unmodeled linkage and custom resources. Whole-section
+A [banked clearance extension](evidence/0.9/fd401-banked-player-clearance-a5df9b8/README.md)
+adds a conservative vanilla 1.21.1 seated-player skin envelope at every fixture
+seat for both uniform styles. It checks 23,072 player poses in each single-car
+run and 52,384 in each coupled run; the player/track bound is at least 0.08
+blocks against 0.02 required. It retains the wheel, chassis, carrier, explicit
+linkage, native rider and neighboring-car checks.
+
+These remain proposed appearance configurations on recorded native motion, not
+observed client rendering. They exclude continuous between-tick motion, armor,
+held items, capes/elytra/modded cosmetics, decoration self-clearance and custom
+resources. The transition report still excludes player meshes, and whole-section
 transitions do not prove UI edits inside a curve. The frozen-source results do
-not validate later draw-fallback behavior or close full-turn operator rides,
-telemetry, graphics modes, reload reliability, FD401 or the release gate.
+not validate later draw-fallback behavior or close telemetry, exact-candidate
+review, FD401 or the release gate.
 
 Complete style geometry and clearance checks and record supported styles/render
 modes and styled ride behavior. Resource reload and a real removal/reinstallation
@@ -213,8 +221,10 @@ model frame preserves textured-model winding even though the native travel basis
 has different handedness. Resource baking invalidates meshes by catalog
 generation. Original running/control rails and mechanical supports remain ours;
 external rail models are never rendered. The packaged flat quarter curve now has
-exterior alignment and occupied circuit evidence. The banked circuit now has a separate packaged checkpoint; complete clearance
-still needs evidence before broad style compatibility is advertised.
+exterior alignment and occupied circuit evidence. The banked circuit has a
+separate packaged checkpoint plus bounded one-tick vehicle/player-skin clearance;
+between-tick sweep, equipped/cosmetic riders and exact-candidate review remain
+before broad style compatibility is advertised.
 
 ## Engineered operating adapter checkpoint
 

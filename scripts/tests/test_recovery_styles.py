@@ -89,6 +89,22 @@ class StyledGeometry(unittest.TestCase):
                              [(2, 0, 0), (2, .5, 0), (2, 0, .5)]])
         np.testing.assert_allclose(styles.recovery.separation(box, np.eye(3), surfaces), [0, 1])
 
+    def test_vanilla_player_mesh_envelope_is_conservative_and_orientable(self):
+        low, high = styles.recovery.vanilla_player_mesh_bounds()
+        self.assertTrue(np.all(low < high))
+        self.assertGreater(-low[0], .9)
+        self.assertLess(low[1], -1.1)
+        self.assertGreater(high[1], .4)
+        # The carrier transform must preserve the local envelope dimensions.
+        angle = np.pi / 3
+        axes = np.array(((1, 0, 0), (0, np.cos(angle), np.sin(angle)),
+                         (0, -np.sin(angle), np.cos(angle))))
+        eye = np.array((4.0, 8.0, 12.0))
+        world = np.array(list(__import__('itertools').product(*zip(low, high)))) @ axes + eye
+        local = (world - eye) @ axes.T
+        np.testing.assert_allclose(local.min(axis=0), low)
+        np.testing.assert_allclose(local.max(axis=0), high)
+
 
 if __name__ == '__main__':
     unittest.main()
