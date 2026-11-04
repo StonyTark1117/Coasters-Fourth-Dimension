@@ -19,6 +19,8 @@ same worktree after compaction. When the task is ready, integrate its commits in
 branches as newer than `main` based on branch name or commit date alone; compare their
 merge base, commits, and working tree first.
 
-Do not delete a branch or worktree with unique commits or uncommitted changes. Old
-branches are historical references until their remaining work is reviewed; they are
-not starting points for a new task.
+The former `codex/*` branch tips were reviewed and preserved in
+`archive/branch-consolidation-2026-11-04`; see
+`docs/BRANCH-CONSOLIDATION.md`. That archive is historical evidence, not a
+starting point for a new task. Do not delete a branch or worktree with unique
+commits or uncommitted changes without preserving its state first.
