@@ -313,6 +313,13 @@ This does not certify a generator/cable integration, controller GUI sequence,
 FE-network reload or every powered layout. The earlier operating and GUI
 checkpoints retain their distinct artifacts and bounded scopes.
 
+The later [Engineered block-entity reload checkpoint](evidence/0.4/engineered-fe-reload.md)
+round-trips one installed motor anchor and controller with a supplied FE buffer,
+then verifies retained rider state, controller linkage and steps, post-reload
+powered dispatch, STOP, capture and unloading. It advances native serialization
+coverage; an actual cold server restart, complete chunk unload and external
+generator/cable network remain open.
+
 
 The dev.6 [native bank acceptance](evidence/0.4/bank-acceptance.md) adds a
 continuous eight-section circuit with native 30° banking, actual loaded turns

@@ -112,6 +112,10 @@ capabilities with energy required: empty-buffer starvation, supplied launch,
 sampled regenerative braking, PAX ownership, normal unloading and powered
 maintenance holds without FE loss. The isolated batch restores its original
 configuration. Real-player controller/FE-network workflows remain separate.
+The later [motor span and FE reload checkpoint](engineered-fe-reload.md) round-trips
+the installed anchor and controller block entities, then checks stored FE,
+linkage, occupied retention, powered launch, STOP, recapture, and unloading.
+Cold server restart and external FE-network behavior remain open.
 
 ## Packaged styled ride checkpoint
 
