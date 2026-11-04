@@ -24,6 +24,7 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.animal.Pig;
+import net.minecraft.world.level.ChunkPos;
 import net.minecraft.world.level.GameType;
 import net.neoforged.neoforge.capabilities.Capabilities;
 import net.neoforged.neoforge.common.ModConfigSpec;
@@ -39,6 +40,7 @@ public final class EngineeredEnergyGameTests {
   private static final String BATCH = "fourthdimension_engineered_energy";
   private static ModConfigSpec.BooleanValue requirement;
   private static Boolean previous;
+  private static Runnable recoveryCleanup;
 
   @BeforeBatch(batch = BATCH)
   public static void enableEnergy(ServerLevel level) {
@@ -59,11 +61,18 @@ public final class EngineeredEnergyGameTests {
 
   @AfterBatch(batch = BATCH)
   public static void restoreEnergy(ServerLevel level) {
-    if (previous == null) return;
-    requirement.set(previous);
-    System.out.println("FD_ENGINEERED_FE restored requireEnergy=" + previous);
-    previous = null;
-    requirement = null;
+    try {
+      // Batch teardown also runs when the recovery test fails or times out.
+      if (recoveryCleanup != null) recoveryCleanup.run();
+    } finally {
+      recoveryCleanup = null;
+      if (previous != null) {
+        requirement.set(previous);
+        System.out.println("FD_ENGINEERED_FE restored requireEnergy=" + previous);
+        previous = null;
+        requirement = null;
+      }
+    }
   }
 
   private static final class Fixture {
@@ -344,8 +353,15 @@ public final class EngineeredEnergyGameTests {
     var level = helper.getLevel();
     var container = SubLevelContainer.getContainer(level);
     var origin = new BlockPos(-850, 120, -700);
+    var forcedChunks = new ArrayList<ChunkPos>();
     for (int x = -55; x <= -52; x++)
-      for (int z = -45; z <= -40; z++) level.setChunkForced(x, z, true);
+      for (int z = -45; z <= -40; z++) {
+        var chunk = new ChunkPos(x, z);
+        if (!level.getForcedChunks().contains(chunk.toLong())) {
+          level.setChunkForced(x, z, true);
+          forcedChunks.add(chunk);
+        }
+      }
     var player =
         FakePlayerFactory.get(
             level,
@@ -367,6 +383,35 @@ public final class EngineeredEnergyGameTests {
             .defaultBlockState());
     IEnergyStorage[] energy = {null};
     Pig[] rider = {null};
+    var nativeIds = new ArrayList<UUID>();
+    for (var carrier : recovery.car().carriers) nativeIds.add(carrier.body);
+    nativeIds.add(recovery.car().chassis);
+    nativeIds.add(recovery.bearing().getUniqueId());
+    recoveryCleanup =
+        () -> {
+          recovery.car().stopping = true;
+          if (rider[0] != null) rider[0].discard();
+          for (var id : nativeIds) {
+            var body = container.getSubLevel(id);
+            if (body != null && !body.isRemoved())
+              container.removeSubLevel(body, SubLevelRemovalReason.REMOVED);
+          }
+          var data = FoundationData.get(level);
+          data.vehicles.remove(recovery.car().chassis);
+          var anchor = level.getBlockEntity(rail.from);
+          if (anchor instanceof CoasterAnchorpointBlockEntity coasterAnchor)
+            coasterAnchor.removeAnchorPeerCurve(level, rail.to);
+          data.rails.remove(rail);
+          for (var pos : BlockPos.betweenClosed(origin.offset(-8, -1, -4), origin.offset(8, 12, 52)))
+            if (!level.getBlockState(pos).isAir()) level.removeBlock(pos, false);
+          for (var chunk : forcedChunks) level.setChunkForced(chunk.x, chunk.z, false);
+          data.setDirty();
+          System.out.println(
+              "FD_ENGINEERED_RECOVERY_FE cleanup vehiclePresent="
+                  + data.vehicles.containsKey(recovery.car().chassis)
+                  + " remainingVehicles="
+                  + data.vehicles.size());
+        };
     Vector3d[] brakedStart = {null};
     Vector3d[] towingStart = {null};
     int[] suppliedEnergy = {0};
@@ -385,8 +430,6 @@ public final class EngineeredEnergyGameTests {
         () -> {
           var car = recovery.car();
           helper.assertTrue(Boarding.ready(level, car), "Recovery FE fixture failed initial alignment");
-          VehicleOperations.restraints(level, car, true);
-          VehicleOperations.retention(level, car, true);
           var chassis = (ServerSubLevel) container.getSubLevel(car.chassis);
           var bearing = recovery.bearing();
           helper.assertTrue(
@@ -405,6 +448,8 @@ public final class EngineeredEnergyGameTests {
               container.getSubLevel(carrier.body).getPlot().getCenterBlock().offset(carrier.seats.getFirst()),
               rider[0]);
           helper.assertTrue(rider[0].isPassenger(), "Recovery FE fixture failed native rider mount");
+          VehicleOperations.restraints(level, car, true);
+          VehicleOperations.retention(level, car, true);
           player.setPos(center.x, center.y, center.z);
           RecoveryOperations.select(player, bearing);
           RecoveryOperations.attach(player, car);
@@ -417,8 +462,8 @@ public final class EngineeredEnergyGameTests {
     helper.runAtTickTime(
         130,
         () -> {
-          // The installed controller's step value is deliberately below recovery's 0.75-block/s
-          // cap; this is a healthy-towing exercise, not an overspeed-fault observation.
+          // LAUNCH has a minimum target of 1 block/s, above recovery's 0.75-block/s cap.
+          // Keep the healthy-towing assertions: a fault is a failed scenario, not a pass.
           configureMotor(helper, rail, controllerPos, 1, "FORWARD");
           energy[0] = level.getCapability(Capabilities.EnergyStorage.BLOCK, rail.from, Direction.UP);
           helper.assertTrue(energy[0] != null, "Recovery motor anchor exposes no native FE capability");
@@ -523,6 +568,22 @@ public final class EngineeredEnergyGameTests {
                   + " minimumBrakedEnergy="
                   + lowestBrakeEnergy[0]
                   + " noBrakeDepletion=true explicitStart=true");
+          recoveryCleanup.run();
+          recoveryCleanup = null;
+        });
+    helper.runAtTickTime(
+        483,
+        () -> {
+          helper.assertTrue(
+              !FoundationData.get(level).vehicles.containsKey(recovery.car().chassis),
+              "Recovery FE fixture leaked its vehicle slot");
+          helper.assertTrue(
+              !FoundationData.get(level).rails.contains(rail), "Recovery FE fixture leaked its rail");
+          for (var id : nativeIds)
+            helper.assertTrue(
+                container.getSubLevel(id) == null, "Recovery FE fixture leaked a native body");
+          helper.assertTrue(rider[0].isRemoved(), "Recovery FE fixture leaked its rider");
+          System.out.println("FD_ENGINEERED_RECOVERY_FE cleanupVerified=true");
           helper.succeed();
         });
   }

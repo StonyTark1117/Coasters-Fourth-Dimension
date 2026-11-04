@@ -1,0 +1,46 @@
+{
+  "source": "d3a51aa4b822d73777c713b9c5ec2b1859d36bfa",
+  "status": [],
+  "class_count": 234,
+  "all_packaged_classes_match_runtime": true,
+  "focused_classes_identical_to_isolated": [
+    "dev/fourthdimension/gametest/ChainAvailabilityProbe$Steps$Step.class",
+    "dev/fourthdimension/gametest/ChainAvailabilityProbe$Steps.class",
+    "dev/fourthdimension/gametest/ChainAvailabilityProbe.class",
+    "dev/fourthdimension/gametest/ChainChassisAvailabilityGameTests$ProbeCounts.class",
+    "dev/fourthdimension/gametest/ChainChassisAvailabilityGameTests.class",
+    "dev/fourthdimension/gametest/ChainRecoveryAvailabilityGameTests$Counts.class",
+    "dev/fourthdimension/gametest/ChainRecoveryAvailabilityGameTests.class",
+    "dev/fourthdimension/gametest/EngineeredAvailabilityGameTests$ProbeCounts.class",
+    "dev/fourthdimension/gametest/EngineeredAvailabilityGameTests.class",
+    "dev/fourthdimension/gametest/EngineeredRecoveryAvailabilityGameTests$Counts.class",
+    "dev/fourthdimension/gametest/EngineeredRecoveryAvailabilityGameTests.class",
+    "dev/fourthdimension/integration/EngineeredInterlock.class",
+    "dev/fourthdimension/integration/PropulsionInterlock.class"
+  ],
+  "changed_classes_from_isolated": [
+    "dev/fourthdimension/client/CarrierRenderMetrics$Snapshot.class",
+    "dev/fourthdimension/client/CarrierRenderMetrics.class",
+    "dev/fourthdimension/client/CarrierTransformValidation.class",
+    "dev/fourthdimension/client/FontReloadTrace$GlyphRequest.class",
+    "dev/fourthdimension/client/FontReloadTrace.class",
+    "dev/fourthdimension/gametest/EngineeredEnergyGameTests$Fixture.class",
+    "dev/fourthdimension/gametest/EngineeredEnergyGameTests.class",
+    "dev/fourthdimension/gametest/EngineeredInterlockGameTests.class",
+    "dev/fourthdimension/gametest/RecoveryGameTests$Case.class",
+    "dev/fourthdimension/gametest/RecoveryGameTests.class",
+    "dev/fourthdimension/gametest/SurvivalBuildingGameTests$1.class",
+    "dev/fourthdimension/gametest/SurvivalBuildingGameTests.class",
+    "dev/fourthdimension/runtime/CarrierValidationFixture$1.class",
+    "dev/fourthdimension/runtime/CarrierValidationFixture.class",
+    "dev/fourthdimension/track/TrackPlacement.class",
+    "dev/fourthdimension/vehicle/BankedRecoveryExamples.class",
+    "dev/fourthdimension/vehicle/RecoveryOperations$ChainProgress.class",
+    "dev/fourthdimension/vehicle/RecoveryOperations$Selection.class",
+    "dev/fourthdimension/vehicle/RecoveryOperations.class"
+  ],
+  "added_classes_from_isolated": [
+    "dev/fourthdimension/mixin/CoasterCartRenderMixin.class"
+  ],
+  "source_GameTest_annotation_count": 58
+}

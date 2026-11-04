@@ -1,0 +1,107 @@
+{
+  "source_revision": "d3a51aa4b822d73777c713b9c5ec2b1859d36bfa",
+  "source_status": [],
+  "status": "completed; result requires review",
+  "expected_suite_tests": 58,
+  "recovery_counts": {
+    "unloads": 3,
+    "braked": 3,
+    "healthy": 3,
+    "before_tick": 3,
+    "after_tick": 3
+  },
+  "chassis_counts": {
+    "unloads": 6,
+    "held": 12,
+    "positive": 20,
+    "unavailable": 10
+  },
+  "normalization": "Exact original linear/angular velocity logged; direct callbacks use zero-velocity input then restore/readback; interlocks/power/membership unchanged",
+  "native_scheduler": "one onEachTick registration per test, private ordered future-stage queue",
+  "production_guard": "PropulsionInterlock adds shared availability and attached-recovery coupling/removal holds",
+  "limits": [
+    "Direct callback availability evidence",
+    "Current release Engineered-only profile; not Styles+Engineered",
+    "No natural scheduler, automatic relink or packaged client acceptance claim"
+  ],
+  "captured_at_utc": "2026-11-03T13:35:04.077488+00:00",
+  "workspace": "/home/braydon/.codex/worktrees/pax-active-restart/Coasters: Fourth Dimension",
+  "jar": {
+    "path": "/tmp/fourthdimension-2aa0362f/build/libs/coasters-fourth-dimension-0.9.0-dev.27.jar",
+    "sha256": "5481a97004c7ea6db93e59d4410f3086764141a296de3f6bdc60178d0cd18ade"
+  },
+  "planned_command": [
+    "./gradlew",
+    "runGameTestServer",
+    "--offline",
+    "--no-daemon",
+    "-PfdIntegrations=engineered"
+  ],
+  "runtime_kind": "isolated current-release development loose classes, not packaged-JAR runtime",
+  "all_packaged_class_parity_count": 234,
+  "runner_invocation": [
+    "flock",
+    "-n",
+    "/tmp/fd-gametest-runtime.lock",
+    "python3",
+    "/tmp/fd-isolated-release-availability-d3a51aa/prepare-and-run.py",
+    "/tmp/fd-isolated-release-availability-d3a51aa",
+    "d3a51aa4b822d73777c713b9c5ec2b1859d36bfa"
+  ],
+  "expected_required_failures": 0,
+  "baseline_source": "0fc8a76",
+  "isolated_reference_source": "ec731db",
+  "focused_classes_identical_to_isolated": [
+    "dev/fourthdimension/gametest/ChainAvailabilityProbe$Steps$Step.class",
+    "dev/fourthdimension/gametest/ChainAvailabilityProbe$Steps.class",
+    "dev/fourthdimension/gametest/ChainAvailabilityProbe.class",
+    "dev/fourthdimension/gametest/ChainChassisAvailabilityGameTests$ProbeCounts.class",
+    "dev/fourthdimension/gametest/ChainChassisAvailabilityGameTests.class",
+    "dev/fourthdimension/gametest/ChainRecoveryAvailabilityGameTests$Counts.class",
+    "dev/fourthdimension/gametest/ChainRecoveryAvailabilityGameTests.class",
+    "dev/fourthdimension/gametest/EngineeredAvailabilityGameTests$ProbeCounts.class",
+    "dev/fourthdimension/gametest/EngineeredAvailabilityGameTests.class",
+    "dev/fourthdimension/gametest/EngineeredRecoveryAvailabilityGameTests$Counts.class",
+    "dev/fourthdimension/gametest/EngineeredRecoveryAvailabilityGameTests.class",
+    "dev/fourthdimension/integration/EngineeredInterlock.class",
+    "dev/fourthdimension/integration/PropulsionInterlock.class"
+  ],
+  "changed_classes_from_isolated": [
+    "dev/fourthdimension/client/CarrierRenderMetrics$Snapshot.class",
+    "dev/fourthdimension/client/CarrierRenderMetrics.class",
+    "dev/fourthdimension/client/CarrierTransformValidation.class",
+    "dev/fourthdimension/client/FontReloadTrace$GlyphRequest.class",
+    "dev/fourthdimension/client/FontReloadTrace.class",
+    "dev/fourthdimension/gametest/EngineeredEnergyGameTests$Fixture.class",
+    "dev/fourthdimension/gametest/EngineeredEnergyGameTests.class",
+    "dev/fourthdimension/gametest/EngineeredInterlockGameTests.class",
+    "dev/fourthdimension/gametest/RecoveryGameTests$Case.class",
+    "dev/fourthdimension/gametest/RecoveryGameTests.class",
+    "dev/fourthdimension/gametest/SurvivalBuildingGameTests$1.class",
+    "dev/fourthdimension/gametest/SurvivalBuildingGameTests.class",
+    "dev/fourthdimension/runtime/CarrierValidationFixture$1.class",
+    "dev/fourthdimension/runtime/CarrierValidationFixture.class",
+    "dev/fourthdimension/track/TrackPlacement.class",
+    "dev/fourthdimension/vehicle/BankedRecoveryExamples.class",
+    "dev/fourthdimension/vehicle/RecoveryOperations$ChainProgress.class",
+    "dev/fourthdimension/vehicle/RecoveryOperations$Selection.class",
+    "dev/fourthdimension/vehicle/RecoveryOperations.class"
+  ],
+  "added_classes_from_isolated": [
+    "dev/fourthdimension/mixin/CoasterCartRenderMixin.class"
+  ],
+  "healthy_control_source": {
+    "path": "src/main/java/dev/fourthdimension/gametest/EngineeredInterlockGameTests.java",
+    "identical_to_source": "e8c05ae",
+    "sha256": "c181bee9502a43744a50dd2ee0c6add267a9657721cd133e5fa9b82055c0b9d1",
+    "reason": "Current release adds positive explicit-start recovery control absent from isolated ec731db reference"
+  },
+  "source": "d3a51aa4b822d73777c713b9c5ec2b1859d36bfa",
+  "profile": "engineered",
+  "start_utc": "2026-11-03T13:35:04.116639+00:00",
+  "prelaunch_game_jvms": [],
+  "gradle_pid": 581976,
+  "end_utc": "2026-11-03T13:40:04.425829+00:00",
+  "exit_code": 1,
+  "source_status_after": []
+}
