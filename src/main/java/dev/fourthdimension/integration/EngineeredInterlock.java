@@ -13,6 +13,7 @@ import net.minecraft.server.level.ServerLevel;
 public final class EngineeredInterlock {
   /** Leaves headroom below the recovery hard-stop while an optional motor callback is active. */
   public static final double RECOVERY_TARGET_SPEED = .5;
+  private static final ThreadLocal<UUID> VALIDATION_PAX_MOTOR_HOLD = new ThreadLocal<>();
 
   private EngineeredInterlock() {}
 
@@ -37,6 +38,20 @@ public final class EngineeredInterlock {
     } catch (IllegalArgumentException unavailable) {
       return true;
     }
+  }
+
+  /** Validation trace of the actual optional motor callback cancellation, on the server thread. */
+  public static void notePaxMotorHold(ServerSubLevel body, ServerLevel level) {
+    if (!Boolean.getBoolean("fourthdimension.validation")) return;
+    var vehicle = FoundationData.get(level).vehicles.get(body.getUniqueId());
+    if (vehicle != null && vehicle.family == Family.PAX)
+      VALIDATION_PAX_MOTOR_HOLD.set(body.getUniqueId());
+  }
+
+  public static boolean consumePaxMotorHold(UUID chassis) {
+    var held = VALIDATION_PAX_MOTOR_HOLD.get();
+    VALIDATION_PAX_MOTOR_HOLD.remove();
+    return chassis.equals(held);
   }
 
   /**

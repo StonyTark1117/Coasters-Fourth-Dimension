@@ -31,7 +31,10 @@ public abstract class EngineeredMotorGuardMixin {
       double dt,
       CallbackInfo callback) {
     if (OptionalIntegrations.installed(OptionalIntegrations.ENGINEERED).mayInspect()
-        && EngineeredInterlock.holds(body, level)) callback.cancel();
+        && EngineeredInterlock.holds(body, level)) {
+      EngineeredInterlock.notePaxMotorHold(body, level);
+      callback.cancel();
+    }
   }
 
   @ModifyArgs(

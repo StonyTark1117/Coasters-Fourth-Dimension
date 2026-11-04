@@ -2,6 +2,8 @@ package dev.fourthdimension.gametest;
 
 import static dev.fourthdimension.gametest.EngineeredGameTests.*;
 
+import com.simibubi.create.content.contraptions.actors.seat.SeatBlock;
+import dev.fourthdimension.integration.EngineeredInterlock;
 import dev.fourthdimension.integration.OptionalIntegrations;
 import dev.fourthdimension.runtime.FoundationData;
 import dev.fourthdimension.track.*;
@@ -135,6 +137,111 @@ public final class EngineeredInterlockGameTests {
             for (int z = -51; z <= -46; z++) level.setChunkForced(x, z, false);
           System.out.println(
               "FD_ENGINEERED_INTERLOCK complete blocked=18 positive=4 nativeCalls=22");
+          helper.succeed();
+        });
+  }
+
+  /** Probe both native PAX chassis callbacks while a real carrier seat is occupied. */
+  @GameTest(template = "empty", batch = "fourthdimension_engineered_interlock", timeoutTicks = 160)
+  public static void nativeMotorRejectsEachOccupiedPaxCar(GameTestHelper helper) {
+    if (!OptionalIntegrations.installed(OptionalIntegrations.ENGINEERED).mayInspect()) {
+      System.out.println("FD_ENGINEERED_PAX_INTERLOCK absent/uninspected: scenario not exercised");
+      helper.succeed();
+      return;
+    }
+    var level = helper.getLevel();
+    var container = SubLevelContainer.getContainer(level);
+    var from = new BlockPos(-760, 120, -560);
+    var to = from.offset(0, 0, 48);
+    for (int x = -49; x <= -46; x++)
+      for (int z = -36; z <= -31; z++) level.setChunkForced(x, z, true);
+    var player =
+        FakePlayerFactory.get(
+            level,
+            new com.mojang.authlib.GameProfile(
+                UUID.fromString("fdfdfdfd-0000-0000-0000-000000000416"), "FDPaxInterlock"));
+    player.setGameMode(GameType.CREATIVE);
+    player.setItemInHand(InteractionHand.MAIN_HAND, TrackItems.PAX.get().getDefaultInstance());
+    for (var pos : List.of(from, to))
+      level.setBlockAndUpdate(
+          pos, SimulatedCoastersBlocks.COASTER_ANCHORPOINT.get().defaultBlockState());
+    player.setPos(to.getX() + 2, to.getY() + 1, to.getZ());
+    var rail =
+        TrackPlacement.connect(level, from, to, TrackDesign.PAX, player, player.getMainHandItem());
+    var controllerPos = from.offset(-6, 0, 0);
+    level.setBlockAndUpdate(
+        controllerPos,
+        BuiltInRegistries.BLOCK
+            .get(ResourceLocation.parse("coastersengineered:linear_motor_controller"))
+            .defaultBlockState());
+    var cars = new ArrayList<FoundationData.Vehicle>();
+    helper.runAtTickTime(
+        15,
+        () -> {
+          configureMotor(helper, rail, controllerPos, 10, "FORWARD");
+          var edge = TrackGeometry.resolve(level, rail);
+          for (double distance : new double[] {20, 14}) {
+            double t = edge.from().equals(from) ? distance / 48 : 1 - distance / 48;
+            cars.add(
+                VehicleFactory.create(
+                    level,
+                    TrackDesign.PAX,
+                    new CoasterPathTrackFrame.GraphHit(
+                        CoasterPathGraphManager.sampleEdgePosition(level, edge, t), edge, t)));
+          }
+        });
+    helper.runAtTickTime(
+        100,
+        () -> {
+          for (var car : cars)
+            helper.assertTrue(Boarding.ready(level, car), "PAX interlock fixture not ready");
+          helper.assertTrue(
+              CoasterCartTrainLinkConstraint.linkCarts(
+                  level,
+                  (ServerSubLevel) container.getSubLevel(cars.getFirst().chassis),
+                  (ServerSubLevel) container.getSubLevel(cars.getLast().chassis),
+                  6),
+              "PAX interlock native coupling failed");
+          var carrier = cars.getLast().carriers.getFirst();
+          var body = container.getSubLevel(carrier.body);
+          var pig = net.minecraft.world.entity.EntityType.PIG.create(level);
+          pig.setNoAi(true);
+          var position = container.getSubLevel(cars.getLast().chassis).logicalPose().position();
+          pig.setPos(position.x(), position.y(), position.z());
+          level.addFreshEntity(pig);
+          SeatBlock.sitDown(
+              level, body.getPlot().getCenterBlock().offset(carrier.seats.getFirst()), pig);
+          helper.assertTrue(pig.isPassenger(), "PAX interlock seat was not occupied");
+          for (var car : cars) {
+            car.stopping = false;
+            car.maintenance = false;
+            car.restraints = true;
+            car.fault = "";
+          }
+          for (int source = 0; source < cars.size(); source++) {
+            var selected = cars.get(source);
+            EngineeredInterlock.consumePaxMotorHold(selected.chassis);
+            probe(helper, cars, source, "occupied-pax-car", true);
+            helper.assertTrue(
+                EngineeredInterlock.consumePaxMotorHold(selected.chassis),
+                "PAX car did not reach the native motor guard callback");
+          }
+          helper.assertTrue(pig.isPassenger(), "Native motor probe dropped the PAX rider");
+          pig.discard();
+          for (var car : cars) {
+            car.stopping = true;
+            for (var c : car.carriers)
+              container.removeSubLevel(
+                  container.getSubLevel(c.body), SubLevelRemovalReason.REMOVED);
+            container.removeSubLevel(
+                container.getSubLevel(car.chassis), SubLevelRemovalReason.REMOVED);
+            FoundationData.get(level).vehicles.remove(car.chassis);
+          }
+          FoundationData.get(level).rails.remove(rail);
+          for (var pos : List.of(from, to, controllerPos)) level.removeBlock(pos, false);
+          for (int x = -49; x <= -46; x++)
+            for (int z = -36; z <= -31; z++) level.setChunkForced(x, z, false);
+          System.out.println("FD_ENGINEERED_PAX_INTERLOCK complete blocked=2 traced=2 nativeCalls=2");
           helper.succeed();
         });
   }
