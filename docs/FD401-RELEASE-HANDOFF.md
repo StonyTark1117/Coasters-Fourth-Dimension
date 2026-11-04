@@ -55,6 +55,11 @@ FD801 and the [expansion backlog](INTEGRATION-BACKLOG.md) remain separate.
   tests pass in each profile, with exact dependency hashes and class/JAR parity.
   Engineered-dependent scenarios run only in Engineered/combined. This is native
   development evidence, not four packaged-client certifications.
+- [Isolated `81ee2e6` artifact](evidence/0.9/fd401-candidate-81ee2e6/README.md):
+  a committed source snapshot rebuilt offline to a byte-identical JAR as the
+  combined telemetry and Styles render-mode records, with 111 resolved packaged
+  classpath file hashes. It is an audit baseline; shared-output runtime identity
+  and later source changes still require release review.
 - [Standalone telemetry](evidence/0.9/create-telemetry/local-046ead9/README.md):
   five-family empty goggles, Arrow occupancy/readiness/retention, normal Display
   Link configuration, late join, reload and occupied restart; PAX phase views.
@@ -138,7 +143,7 @@ FD801 and the [expansion backlog](INTEGRATION-BACKLOG.md) remain separate.
 
 | Priority / handoff | Concrete observation still required | Pass condition and boundary |
 | --- | --- | --- |
-| 1. Freeze evidence identity | Select exact candidate source/JAR and all dependency hashes; record any differences from each reused checkpoint. | One explicit evidence map. Never transfer a historical runtime result by version string alone. Native reruns are needed for relevant executable changes, not for every documentation commit. |
+| 1. Freeze evidence identity | Review the [isolated `81ee2e6` source/JAR/classpath baseline](evidence/0.9/fd401-candidate-81ee2e6/README.md), select the final candidate after remaining work, and map each reused checkpoint to that exact artifact. | The isolated rebuild matches the shared-output telemetry/Styles JAR byte for byte, but does not attest the live JVM bytes or make earlier artifacts equivalent. Record later executable differences and rerun relevant native cases; documentation-only commits do not require native reruns. |
 | 2. Engineered normal operator loop | Review the completed STOP/capture/unload and cold repeat against the exact frozen candidate. | The normally placed car completed occupied circuits, a programmed STOP hold inside station range, station redstone capture, and unload in initial and cold runs. An unready station release was rejected before launch. Launch 20 reached about 19.40 with `PassShort=1`; exact speed attainment remains unproven. |
 | 2. Physical FE workflow | Freeze and review the wired evidence on the exact candidate. | With `requireEnergy=true`, the noncreative water-wheel alternator delivered through a normal copper-spool wire, stopped on source interruption, resumed on restoration, persisted through cold reopen, and powered another occupied STOP/capture/unload. Crafts & Additions remains a disclosed validation-only dependency (`-PfdFeNetwork`), not a new advertised integration. |
 | 2. Engineered family/authority coverage | Freeze/review the coupled Arrow and PAX authority evidence against an exact candidate. | Legacy, Free Spin and Revised have normal car-item placement, client-fitted motor, linked GUI controller, occupied full circuit/STOP, station redstone capture, and unload. A [normally item-placed, chain-linked two-car Arrow train](evidence/0.9/fd401-engineered-coupled-arrow/README.md) completed an occupied circuit, programmed STOP, station capture and unload. An [occupied PAX winch cycle](evidence/0.9/fd401-engineered-pax-authority/README.md) completed against a powered `Launch 20` Engineered controller, with pass zero, FE unchanged, native capture and unload. Shared-build JAR identity and PAX per-car rejected callback remain evidence limits; pair with existing native assertions. |

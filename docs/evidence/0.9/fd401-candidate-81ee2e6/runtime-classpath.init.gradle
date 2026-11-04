@@ -1,0 +1,21 @@
+import groovy.json.JsonOutput
+import java.security.MessageDigest
+
+allprojects {
+    tasks.register('fdRecordPackagedRuntimeClasspath') {
+        doLast {
+            def files = sourceSets.packaged.runtimeClasspath.files.findAll { it.isFile() }.sort { it.name }
+            def entries = files.collect { file ->
+                def digest = MessageDigest.getInstance('SHA-256')
+                file.withInputStream { stream ->
+                    byte[] buffer = new byte[65536]
+                    int count
+                    while ((count = stream.read(buffer)) != -1) digest.update(buffer, 0, count)
+                }
+                [name: file.name, size: file.length(), sha256: digest.digest().encodeHex().toString()]
+            }
+            new File(project.property('fdClasspathRecord').toString()).text =
+                JsonOutput.prettyPrint(JsonOutput.toJson(entries)) + '\n'
+        }
+    }
+}
