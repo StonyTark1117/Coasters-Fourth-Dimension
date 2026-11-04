@@ -365,6 +365,15 @@ persisted wire replenishes it to 72,396 at STOP before capture and unload. This
 closes that saved Arrow candidate-replay boundary, not normal network construction,
 interruption/restoration, other vehicle families or a new advertised dependency.
 
+The [exact-candidate occupied PAX replay](evidence/0.9/fd401-engineered-pax-authority-2c5d9a7/README.md)
+cold-opens the saved four-car winch and linked `Launch 20` controller on the same
+frozen artifact. With the opposing controller powered throughout the occupied
+outbound/return cycle, controller pass remains zero, anchor energy remains
+100,000 FE, the winch returns to BOARDING with its cycle count advanced, and
+normal restraint release/dismount leaves zero seat assignments. This closes the
+candidate-exact PAX authority-cycle boundary, not normal construction or a
+per-car callback trace.
+
 
 The dev.6 [native bank acceptance](evidence/0.4/bank-acceptance.md) adds a
 continuous eight-section circuit with native 30° banking, actual loaded turns
@@ -436,4 +445,4 @@ certify this revised adapter.
 
 ## Veil scheduler and revised styled replay (dev.12)
 
-The [scheduler checkpoint](evidence/0.4/scheduler-acceptance.md) records a client-only initialization fix for pinned Veil 4.1.4, 512 native schedule checks, 64 completed reload/chat/query cycles and a normal occupied revised double-spine level circuit with recapture, dismount and clean exit. It preserves profiles and saved mechanical identities. The original freed-bitmap crash remained unresolved at that scheduler checkpoint. Later FD401 evidence now supplies bounded banked vehicle/vanilla-player interpolation, exact-candidate FAST/FABULOUS modes, a post-F3+T occupied styled ride, and the saved Arrow operator/wired-FE replay; their stated equipped-player, native-GPU, tracing/reliability and family/authority limits still apply.
+The [scheduler checkpoint](evidence/0.4/scheduler-acceptance.md) records a client-only initialization fix for pinned Veil 4.1.4, 512 native schedule checks, 64 completed reload/chat/query cycles and a normal occupied revised double-spine level circuit with recapture, dismount and clean exit. It preserves profiles and saved mechanical identities. The original freed-bitmap crash remained unresolved at that scheduler checkpoint. Later FD401 evidence now supplies bounded banked vehicle/vanilla-player interpolation, exact-candidate FAST/FABULOUS modes, a post-F3+T occupied styled ride, the saved Arrow operator/wired-FE replay, and an occupied exact-candidate PAX authority cycle; their stated equipped-player, native-GPU, tracing/reliability, non-PAX family/coupled-train and per-car-callback limits still apply.
