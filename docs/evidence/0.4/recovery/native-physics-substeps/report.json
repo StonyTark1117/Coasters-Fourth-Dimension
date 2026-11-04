@@ -1,0 +1,62 @@
+{
+  "passes": true,
+  "scope": "Every paired Rapier post-physics half/full step inside the sampled occupied coupled-Arrow recovery interval; unanchored startup/teardown steps and the unexposed continuous trajectory inside a discrete substep are excluded.",
+  "inputHashes": {
+    "base_jar": "f80b4c3cdf9fa6188804967147761b0373e150a6eadbdc53626e5ac9700b2049",
+    "minecraft_jar": "499f6897d1837516680f3114072d8106e11c9adcd933fe5cf051b551089b0c99",
+    "mesh_report": "3a593d504077d4074f45e0a410e70672486dae5e2387c73b33b2068c9fb3c628",
+    "tick_trace": "db6226397e1caf8bb300dd57f1befdd886e29ab13ff9168f2e28015b9a439753",
+    "substep_trace": "4719fa1d07eb88f0739bea8055a88ef1f007d159ebe89c9f33cd4bf0a34ebb1d"
+  },
+  "traceSteps": 13414,
+  "auditedSteps": 13095,
+  "substepsPerTick": 2,
+  "gameTimeOffset": 2482,
+  "matchedTickSamples": 6548,
+  "maximumMotionFromNearestTick": {
+    "body": 0.012798669153665372,
+    "wheel": 0.012798725265009464,
+    "rider": 0.012740636063396754,
+    "player": 0.012770376665314638
+  },
+  "worstMotion": {
+    "body": {
+      "tick": 2278,
+      "step": 4555,
+      "body": "d52c5e56-8e9f-45f0-8bd5-4d8056d9c5e2"
+    },
+    "wheel": {
+      "tick": 2278,
+      "step": 4555,
+      "body": "d52c5e56-8e9f-45f0-8bd5-4d8056d9c5e2"
+    },
+    "rider": {
+      "tick": 2279,
+      "step": 4557,
+      "body": "e9a3b8e5-a122-49b8-9727-0ffae9ebf3c0"
+    },
+    "player": {
+      "tick": 2279,
+      "step": 4557,
+      "body": "e9a3b8e5-a122-49b8-9727-0ffae9ebf3c0"
+    }
+  },
+  "sampledSeparatingBounds": {
+    "body": 0.04878234623208755,
+    "wheel": 0.04878234623208755,
+    "rider": 0.08,
+    "player": 0.08
+  },
+  "substepSeparatingLowerBounds": {
+    "body": 0.03598367707842218,
+    "wheel": 0.035983620967078085,
+    "rider": 0.06725936393660324,
+    "player": 0.06722962333468536
+  },
+  "carrierLocalInvariantBounds": {
+    "riderRack": 0.08000325327709314,
+    "playerRack": 0.06532927983607839
+  },
+  "neighborSeparatingLowerBound": 1.2508191056885245,
+  "requiredGap": 0.02
+}

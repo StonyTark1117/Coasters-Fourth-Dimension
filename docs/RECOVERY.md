@@ -236,5 +236,11 @@ replays the current one-tick traces with part-level vanilla seated-player
 envelopes. It corrects family-specific axle placement and passes all five
 single-car routes plus the Arrow and PAX train routes with at least 0.06532
 blocks of player/rack separation and 0.08 blocks of player/track separation.
-This does not certify equipped or cosmetic player layers, observed client
-rendering, continuous physics-step sweep, or the rendered operator lifecycle.
+The later [native substep checkpoint](evidence/0.4/recovery/native-physics-substeps/acceptance.md)
+pairs all 13,095 Rapier half/full steps inside the occupied two-car Arrow route's
+6,548-tick sampled interval. Conservative motion deduction leaves at least
+0.03598 blocks of body/wheel clearance, 0.06722 blocks of rider/player clearance
+and 0.06532 blocks of carrier-local player/rack clearance. This does not certify
+equipped or cosmetic player layers, observed client rendering, unanchored
+startup/teardown steps, other-family substeps, the unexposed trajectory inside
+one discrete substep, or the rendered operator lifecycle.

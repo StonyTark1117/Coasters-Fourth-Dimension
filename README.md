@@ -11,8 +11,11 @@ implementation remains paused; staging does not activate or certify an addon.
 
 The current FD402 [sampled player/rack checkpoint](docs/evidence/0.4/recovery/player-rack-clearance/acceptance.md)
 adds family-correct axle geometry and part-level vanilla seated-player clearance
-to the five single-car and two linked-train banked routes. Equipped/cosmetic
-meshes, observed client rendering and continuous physics-step sweep remain open.
+to the five single-car and two linked-train banked routes. A bounded
+[native substep checkpoint](docs/evidence/0.4/recovery/native-physics-substeps/acceptance.md)
+also clears every recorded Rapier post-physics step of the occupied two-car
+Arrow route. Equipped/cosmetic meshes, observed client rendering, the other
+families' substeps and the unexposed within-substep trajectory remain open.
 The bounded [Engineered recovery/FE checkpoint](docs/evidence/0.4/recovery/engineered-fe/acceptance.md)
 also passes native braked/starved holds, supplied occupied towing, speed capping,
 rebraking, rider retention and cleanup on the certified ordinary bearing.

@@ -36,8 +36,12 @@ adds a part-level vanilla seated-player envelope, corrects family-specific axle
 placement and passes the same seven routes with at least 0.06532 blocks of
 player/rack separation. This is still sampled default-model evidence. Dev.29 separately
 audits the exported chassis wing-strut/carrier-axle linkage blocks across these
-same routes; unmodeled linkage, equipped/cosmetic player meshes, observed client rendering and continuous
-physics-step swept clearance remain open. See the [linkage-clearance checkpoint](docs/evidence/0.4/recovery/linkage-clearance/acceptance.md). Dev.22 moves Original visual
+same routes; unmodeled linkage, equipped/cosmetic player meshes and observed client rendering remain open. See the [linkage-clearance checkpoint](docs/evidence/0.4/recovery/linkage-clearance/acceptance.md). A bounded
+[native substep checkpoint](docs/evidence/0.4/recovery/native-physics-substeps/acceptance.md)
+pairs all 13,095 Rapier half/full steps inside the occupied two-car Arrow
+route's 6,548-tick sampled interval and retains at least 0.03598 blocks of
+body/wheel clearance. Unanchored startup/teardown steps, other families and the
+trajectory inside one discrete substep remain open. Dev.22 moves Original visual
 supports out of the native lower-bearing channel and independently samples that
 native lower-bearing model against occupied banked recovery routes; see the
 [bearing-clearance checkpoint](docs/evidence/0.4/recovery/bearing-clearance/acceptance.md).
@@ -57,7 +61,7 @@ original native seat mounts, carriers and train links survive. Four-second queue
 native assembly supplies the new operator train demos. See the
 [banked train checkpoint](docs/evidence/0.4/recovery/banked-trains/acceptance.md).
 The next FD402 work is observed rendered operator/lifecycle acceptance,
-continuous physics-step clearance and broader propulsion/strength evidence. Dev.19 validates occupied single-car
+all-family physics-step clearance and broader propulsion/strength evidence. Dev.19 validates occupied single-car
 native towing across all five families through a quarter bend, a 32-block
 sustained 30-degree bank, a bank-to-level transition and level runout. Original
 seat mounts and nonzero Arrow profiles survive normal braking, power cut,
@@ -417,9 +421,13 @@ supersedes only the earlier player-to-native-rack gap: it corrects
 family-specific axle geometry and checks part-level seated-player envelopes at
 the same one-tick poses. All seven routes retain at least 0.06532 blocks of
 player/rack clearance and at least 0.08 blocks of player/track clearance.
-Equipped/cosmetic meshes, observed client rendering, continuous physics-step
-clearance, broader strength/propulsion and recovery lifecycle evidence remain
-open.
+The [native substep checkpoint](docs/evidence/0.4/recovery/native-physics-substeps/acceptance.md)
+extends the occupied Arrow train to all 13,095 Rapier half/full steps inside its
+6,548-tick sampled interval, retaining at least 0.03598 blocks of body/wheel
+clearance and 0.06532 blocks of carrier-local player/rack clearance.
+Equipped/cosmetic meshes, observed client rendering, unanchored startup/teardown
+steps, other-family substeps, the unexposed within-substep trajectory, broader
+strength/propulsion and recovery lifecycle evidence remain open.
 
 The [isolated Engineered recovery/FE checkpoint](docs/evidence/0.4/recovery/engineered-fe/acceptance.md)
 closes the bounded optional-provider power item for the certified ordinary
