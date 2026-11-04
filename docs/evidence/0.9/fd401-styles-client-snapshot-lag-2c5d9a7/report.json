@@ -1,0 +1,90 @@
+{
+  "traceComplete": true,
+  "clearanceCertified": false,
+  "scope": "Client tick pointer versus latest native body-pose snapshot during one instrumented occupied Styles Arrow ride; no render-frame or pose-delta capture.",
+  "inputHashes": {
+    "trace": "b7c7fbe2a1708716322ecc7c2558843556c40c5a8071fef660ee69bcad007783",
+    "clientLog": "4205da5fa7236b2f9ea653c9e0250633744a424fd3e827dd1bf67c7820e3c1c6"
+  },
+  "mountedChassis": "4e207381-e5e7-4007-95ab-280620e85e7d",
+  "delay": 1.5,
+  "samples": 8003,
+  "backwardGameTimeSamples": 29,
+  "firstAllBodiesReadyIndex": 2239,
+  "movingSamplesAbove0.001": 5537,
+  "perBody": {
+    "4e207381-e5e7-4007-95ab-280620e85e7d": {
+      "role": "chassis",
+      "readySamples": 5764,
+      "missingSamples": 2239,
+      "staleSamples": 229,
+      "maximumPointerLead": 2.0
+    },
+    "e2045c37-b445-4f95-bb82-e71bbcb33169": {
+      "role": "carrier",
+      "readySamples": 5764,
+      "missingSamples": 2239,
+      "staleSamples": 229,
+      "maximumPointerLead": 2.0
+    },
+    "309f0496-73a7-4c80-87ae-3e1263cd46c4": {
+      "role": "carrier",
+      "readySamples": 5764,
+      "missingSamples": 2239,
+      "staleSamples": 229,
+      "maximumPointerLead": 2.0
+    }
+  },
+  "staleSampleCount": 229,
+  "firstStale": {
+    "index": 2249,
+    "clientGameTime": 118189,
+    "informationTick": 2796.0,
+    "pointer": 2794.5,
+    "chassisStepDistance": 0.00603485107421875,
+    "maximumLead": 0.5,
+    "bodies": 3
+  },
+  "lastStale": {
+    "index": 3388,
+    "clientGameTime": 119327,
+    "informationTick": 3935.0,
+    "pointer": 3934.0054829494916,
+    "chassisStepDistance": 0.10014018571979477,
+    "maximumLead": 0.0054829494915793475,
+    "bodies": 3
+  },
+  "movingStaleSamples": [
+    {
+      "index": 2249,
+      "clientGameTime": 118189,
+      "informationTick": 2796.0,
+      "pointer": 2794.5,
+      "chassisStepDistance": 0.00603485107421875,
+      "maximumLead": 0.5,
+      "bodies": 3
+    },
+    {
+      "index": 3388,
+      "clientGameTime": 119327,
+      "informationTick": 3935.0,
+      "pointer": 3934.0054829494916,
+      "chassisStepDistance": 0.10014018571979477,
+      "maximumLead": 0.0054829494915793475,
+      "bodies": 3
+    }
+  ],
+  "maximumMovingPointerLead": 0.5,
+  "fastStaleSamplesAbove0.05": [
+    {
+      "index": 3388,
+      "clientGameTime": 119327,
+      "informationTick": 3935.0,
+      "pointer": 3934.0054829494916,
+      "chassisStepDistance": 0.10014018571979477,
+      "maximumLead": 0.0054829494915793475,
+      "bodies": 3
+    }
+  ],
+  "maximumFastPointerLead": 0.0054829494915793475
+}

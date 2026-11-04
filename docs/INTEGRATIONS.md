@@ -191,9 +191,12 @@ post-physics Arrow pose for the inspected default meshes and vanilla-player
 envelopes. They do not cover client extrapolation or equipped/cosmetic riders.
 The [pinned Sable client pointer review](evidence/0.9/fd401-styles-client-pointer-2c5d9a7/README.md)
 shows that the recorded default 1.5-tick delay caps the pointer at the latest
-information-packet tick. Pose snapshots arrive separately, so the visible
-record still needs a per-body packet-lag trace before its extrapolation path
-can be classified.
+information-packet tick. Pose snapshots arrive separately, and the original
+visible record did not log their age. A later [instrumented client ride](evidence/0.9/fd401-styles-client-snapshot-lag-2c5d9a7/README.md)
+records that relation on the copied exact-candidate styled world: one
+faster-moving sample had a 0.005483-tick pointer lead over all three mounted
+body poses. This confirms a bounded extrapolation event; the trace does not
+contain the poses needed to certify its geometry.
 
 The [exact-candidate render-mode gates](evidence/0.9/fd401-render-modes-exact-2c5d9a7/README.md)
 add separate strict FAST and FABULOUS passes at 500 geometry stages with nonzero
