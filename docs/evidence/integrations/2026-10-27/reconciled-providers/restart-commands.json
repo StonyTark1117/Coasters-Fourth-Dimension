@@ -1,0 +1,53 @@
+[
+  {
+    "phase": "prepare",
+    "profiles": "styles,engineered",
+    "command": [
+      "./gradlew",
+      "-Dorg.gradle.jvmargs=-Xmx1G",
+      "--max-workers=2",
+      "-PfdPackaged",
+      "-PfdIntegrations=styles,engineered",
+      "-PfdEngineeredRestart=prepare",
+      "-PfdRestartDirectory=/tmp/fd-engineered-restart-de7x_v3e",
+      "runEngineeredRestartServer"
+    ],
+    "exit": 0,
+    "success": true,
+    "seconds": 22.88008495399845
+  },
+  {
+    "phase": "restore",
+    "profiles": "styles,engineered",
+    "command": [
+      "./gradlew",
+      "-Dorg.gradle.jvmargs=-Xmx1G",
+      "--max-workers=2",
+      "-PfdPackaged",
+      "-PfdIntegrations=styles,engineered",
+      "-PfdEngineeredRestart=restore",
+      "-PfdRestartDirectory=/tmp/fd-engineered-restart-de7x_v3e",
+      "runEngineeredRestartServer"
+    ],
+    "exit": 0,
+    "success": true,
+    "seconds": 41.60832617500273
+  },
+  {
+    "phase": "restoreAbsent",
+    "profiles": "styles",
+    "command": [
+      "./gradlew",
+      "-Dorg.gradle.jvmargs=-Xmx1G",
+      "--max-workers=2",
+      "-PfdPackaged",
+      "-PfdIntegrations=styles",
+      "-PfdEngineeredRestart=restoreAbsent",
+      "-PfdRestartDirectory=/tmp/fd-engineered-restart-de7x_v3e",
+      "runEngineeredRestartServer"
+    ],
+    "exit": 0,
+    "success": true,
+    "seconds": 21.57658037299916
+  }
+]

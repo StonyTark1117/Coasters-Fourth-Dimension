@@ -1,0 +1,62 @@
+{
+  "parent": "f8298a426a9d08fee0ef252e60abbb9163f4d6ae",
+  "artifact": {
+    "name": "coasters-fourth-dimension-0.9.0-dev.27.jar",
+    "sha256": "c504f6256977d523a03d24e717a0f5d636f850cf382bb0540ceff30b77fd215c"
+  },
+  "schema": 7,
+  "protocol": 8,
+  "unitTests": {
+    "tests": 26,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "processExits": {
+    "build": 0,
+    "base": 0,
+    "combined": 0,
+    "restart": 0
+  },
+  "sourceHashes": {
+    "build.gradle": "7262fb6439e1d40f2c18075f6fd94906bfadd8fe186611b752a5007ff43b9c31",
+    "src/main/java/dev/fourthdimension/FourthDimension.java": "a5ba95c5b48409f3a94112457bd49ea68925a509923596729f59a82ab7ece4dc",
+    "src/main/java/dev/fourthdimension/client/OriginalTrackRenderer.java": "dc27216c67c5506aa472773ecaf5adb6406166fc5a09d5ab50d4832123262667",
+    "src/main/java/dev/fourthdimension/editor/EditorNetwork.java": "3f573696899c2bb04b7369d7e61750b40deecf2c52fbe7e82e53bd09ebac9327",
+    "src/main/java/dev/fourthdimension/gametest/HistoricalMigrationGameTests.java": "d6d62d430fd25ace6f7d29300f377f4cfce587ad871386b02001172ac02547dd",
+    "src/main/java/dev/fourthdimension/gametest/ProviderFixtures.java": "e2e56e0bc5a3f6490894c708b9afe367d922328c6877be03fea1ef1c0b7bd42d",
+    "src/main/java/dev/fourthdimension/gametest/ProviderGameTests.java": "0417254b982823033debb02f6fec3c29137a8157f4954169b3884cdbfbb1c636",
+    "src/main/java/dev/fourthdimension/integration/TrackAppearance.java": "cf12254fb753172bc1c110dd8f5b1203de740b02658f81612427a86cd2695a3c",
+    "src/main/java/dev/fourthdimension/integration/TrackProviders.java": "d9af58cceb7187c07d5e0f1c6b032a768fc7e3e3450b475b71ceb97f47e19c36",
+    "src/main/java/dev/fourthdimension/integration/TrackRenderOwnership.java": "8d7b795ccf9e1a54b1c7ffe375cf8a94d6d9f10c72c344f9bce94480c4c9887e",
+    "src/main/java/dev/fourthdimension/runtime/CarrierRuntime.java": "b2e2b71f6c13064fd39bc5236ebb97313f01599f82dc8463d478bc4cb1919b14",
+    "src/main/java/dev/fourthdimension/runtime/EligibilityHooks.java": "5615a1e634dbf1e308c1bcc659ba7cc7744dd5c8c76d92bcd56f8da4df32a960",
+    "src/main/java/dev/fourthdimension/runtime/FoundationData.java": "27fd331742d4f961e2b1470cc67a74e6fd9ec600ba326caf70ed6a844dea1103",
+    "src/main/java/dev/fourthdimension/runtime/FoundationSync.java": "4b1ab16d0363a0e1aa5e36a365d19b69ce4d602250804d67caa842bd0f232594",
+    "src/main/java/dev/fourthdimension/track/ProfileEditor.java": "008725988fb428d99c554f77abf5e03bcc0ece08747ea70088b8d457c22b7b1e",
+    "src/main/java/dev/fourthdimension/track/TrackGeometry.java": "bb9a9bb805c6256ed7accba6fac1e10c02bbbb9d4935b6ce9b80014dda8c8771",
+    "src/main/java/dev/fourthdimension/vehicle/BoundaryGuard.java": "44c11d376ea05dd22d05448d33c6806a6ffff7e585ac4aa203bd6f85dab7c997",
+    "src/main/java/dev/fourthdimension/vehicle/ConsistRules.java": "505d537e1bd90fcc1808e6847bac59173bb8463671928d49ce780cef3a3a6f98",
+    "src/main/java/dev/fourthdimension/vehicle/RecoveryOperations.java": "508b5fda4f06a5a24bda2e277b3d0ef1f330f607c44db4870759ecc798282ae5",
+    "src/main/java/dev/fourthdimension/vehicle/VehicleFactory.java": "3a4dd1bff81f6ccb81392095c336e6b0d072cfd62ce54d52b8ab8a12b377d15b"
+  },
+  "files": {
+    "base-gametest.log.gz": "5198b1a164e245dc896957b8254aff8afc84fb65940e8fab035403b722eb0ac5",
+    "base-command.json": "01556d5bec9654a434550ae1bc83c4c3949d82a2b644010f2ffb19fe72797878",
+    "combined-gametest.log.gz": "582db74331e80af9c6562c68e5a2d6840da1d3e96971b92c2901ff7250bebc78",
+    "combined-command.json": "1e4aa6e9ea5e821600d804953f3a7a4418309d04d22fe998f4829e3c3afd5002",
+    "build.log.gz": "6d0f3649e85706cf21c7796b8ef5099b3a1ba9eccdb565e111b7f7bb2ffac7aa",
+    "restart-prepare.log.gz": "305275b5e841f83a12ff8f51e00909b0cd27a219a6a786f24f28ec3104616da6",
+    "restart-restore.log.gz": "f008aa718d193462ac9f410ad35b8391818e0614a244e2ca407d02c9ac91498a",
+    "restart-restoreAbsent.log.gz": "75ff1383dfcd2b506bd93ea5b26ffb8cf2e3cd05160b3b1aad7e59d2a6b63302",
+    "restart-commands.json": "fa8998729eb76eba85add1314511a230c5df09b3d93383cc18ee9f84022f930d",
+    "restart-fixture.json": "566585fe50a7fa46a0e4b23228c57494282790c42bb310243a5bf68d1cca3093",
+    "TEST-dev.fourthdimension.FoundationMathTest.xml.gz": "4971709f47239292f3c596f4530e8a3382c5b22fa344e3eaf716e35ef84a4f52",
+    "TEST-dev.fourthdimension.MagneticMathTest.xml.gz": "bea7feb207448302e34e35de3f22dfd2dcd32e20c10779b7cb5565108a82f109",
+    "TEST-dev.fourthdimension.ModelFrameTest.xml.gz": "1d41148675a056e1e12b8297045b7b1bd4aedc73ff6f1dba94a6884cd1439c5f",
+    "TEST-dev.fourthdimension.OptionalIntegrationTest.xml.gz": "b41e11e12f596880d3e3f220923c5c9e4d695c333b5c678ddb2e8c4e1ca46d7b",
+    "TEST-dev.fourthdimension.TrackAppearanceTest.xml.gz": "89b6be56191c0c05a307f37b2dd107022da9539feeef3d75c1790edafebaea6b",
+    "TEST-dev.fourthdimension.TrackMathTest.xml.gz": "379615b7a3f87b076bc3a0418c11bfea57572c2565a6cbc9ca76338486f5d417",
+    "TEST-dev.fourthdimension.TrackRenderMetricsTest.xml.gz": "1d97bf01ac722bb7a77252cd0032c2b75481d4833200578642845ef382f56474"
+  }
+}

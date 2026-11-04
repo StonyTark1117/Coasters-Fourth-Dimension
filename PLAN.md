@@ -1,6 +1,12 @@
 # Coasters: Fourth Dimension addon plan
 
-Implementation update (2026-10-01): foundation and the bounded 0.1, 0.2, and five-family 0.3 gates have acceptance evidence. Optional integration and teaching work are in progress at FD401 and FD403 toward the active 0.9.0 goal; see [new-family acceptance and limits](docs/REVISED-SHUTTLE.md), [integration progress](docs/INTEGRATIONS.md), and [package statuses](ROADMAP.md). FD403 now includes original Ponder lessons for all fifteen craftable items and native survival crafting/placement checks for every family; complete survival operating exercises remain open. The design below remains the target for unfinished release work.
+The [2026-11-02 integration backlog and release allocation](docs/INTEGRATION-BACKLOG.md)
+supersedes older dependency/version observations below for the staged candidates,
+including Immersion 1.1.0 client-only/optional-Aeronautics metadata. It records
+proposed optional expansion scope without resuming implementation or changing the
+standalone 1.0 gate. Historical inspections remain evidence for their own artifacts.
+
+Planning update (2026-11-02): foundation and the bounded 0.1, 0.2, and five-family 0.3 gates have acceptance evidence. FD401–FD403 remain open toward FD404 and the subsequent 0.9/1.0 gates. Further integration implementation is paused pending user approval; see [new-family acceptance and limits](docs/REVISED-SHUTTLE.md), [integration progress](docs/INTEGRATIONS.md), and [package statuses](ROADMAP.md). FD403 now includes original Ponder lessons for all fifteen craftable items and native survival crafting/placement checks for every family; complete survival operating exercises remain open. The design below remains the target for unfinished release work.
 
 The initial design was researched September 30, 2026, using project pages, released JARs, and selected upstream source files. Research observations below describe that planning baseline; later inspection and runtime evidence are recorded in the implementation documents and roadmap. The addon has since been implemented and tested through the bounded gates listed above.
 
@@ -86,26 +92,36 @@ Prefer a documented extension interface where available. The earlier JAR inspect
 
 Target Minecraft 1.21.1, NeoForge, and Java 21. Start against Coasters Simulated 0.1.5. Its released metadata requires Create 6.0.10 or later, Sable 2.0.0 or later, NeoForge 21.1.228 or later, and Flywheel 1.0.6 or later on the client. These are declared minimums, not a tested compatibility matrix. Pin exact development artifacts and widen supported ranges only after testing. [Base release](https://www.curseforge.com/minecraft/mc-mods/create-coasters-simulated/files/8655742), [NeoForge setup](https://docs.neoforged.net/docs/1.21.1/gettingstarted/)
 
-Sable 2.0.3 and NeoForge 21.1.248 are reasonable initial candidates because Waterparked’s inspected development configuration uses them with Coasters 0.1.5 and Create 6.0.10-280. Revalidate that combination in FD001; it is not a compatibility guarantee. Aeronautics is not required by the base Coasters JAR. Add it only if a later implementation actually needs it. [Waterparked configuration](https://github.com/omorisunn/create-waterparked/blob/fa2c888/gradle.properties)
+The active development baseline pins Sable 2.0.3 and NeoForge 21.1.248 with Coasters 0.1.5 and Create 6.0.10-280. FD001 has bounded acceptance; current release gates still require their own evidence. Sable 2.0.6 is staged for a future expansion baseline. Coaster Skin requires Sable exactly 2.0.6 and NeoForge >=21.1.256, so activating it needs a separately validated dependency update. Aeronautics is not required by base Coasters or the staged Immersion 1.1.0 metadata; Additions lists Aeronautics and Interiors and requires their dependency closure before activation.
 
-The accompanying `research/dependency-audit.json` records release coordinates, hashes, metadata, and inspected class signatures. `research/ride-variants.json` records the expanded family references and evidence gaps. Development should resolve dependencies through their distribution channels rather than commit third-party binaries into this repository.
+The historical `research/dependency-audit.json` records the September inspection. The current [2026-11-02 artifact catalog](research/integration-catalog-2026-11-02.json) records staged release coordinates, hashes, runtime versions and dependencies; staging is not activation or certification. `research/ride-variants.json` records the expanded family references and evidence gaps. Development should resolve dependencies through their distribution channels rather than commit third-party binaries into this repository.
 
 ## D07 What existing addons can provide
 
-The following recommendations distinguish documented features from what was verified in code. All six addons in the supplied screenshot were reviewed.
+The November 2 catalog covers all seven pictured addons, CTNB, the base mod,
+Create, Sable and the adjacent Create Coasters utility. The [integration backlog](docs/INTEGRATION-BACKLOG.md)
+is authoritative for exact artifacts, dependency caveats, acceptance and proposed
+release allocation. Historical code inspection remains attached to its original release.
 
-| Addon | Relevant findings | Proposed use |
+| Integration | Current candidate and intended capability | Release allocation |
 | --- | --- | --- |
-| [Coasters Simulated: Track Styles](https://www.curseforge.com/minecraft/mc-mods/coasters-simulated-track-styles) | Arrow 4D remains a promised feature in the reviewed page. Its inspected style components do not establish support for variable control-rail offsets. | Optional appearance/track adapter alongside our complete original tracks, with explicit component ownership. |
-| [Coasters: Engineered](https://www.curseforge.com/minecraft/mc-mods/coasters-engineered) | Linear motors, controller sequences, stop/hold behavior, and cart observers. The 1.1.1 JAR has reusable-looking span geometry and distance-along-track helpers. | Best optional companion for braking and dispatch. Study span placement and persistence. Avoid adding a mandatory dependency merely to use a small geometry helper. |
-| [Create: Coasters Simulated Additions](https://www.curseforge.com/minecraft/mc-mods/create-coasters-simulated-additions) | Stations, colored seats, selectable restraints, and Redstone Link integration. Its project lists All Rights Reserved. Rotating-wing support is unverified. | Evaluate its seats on a rotating sublevel as a possible adapter. Keep custom 4D seat assemblies as the baseline. Do not plan to copy its assets or code. |
-| [Coasters: Immersion](https://www.curseforge.com/minecraft/mc-mods/coasters-immersion) | Camera effects and a seat aligner are present in 0.2.3. Despite the page advertising motorized bearings/spin drives, inspection found no corresponding bearing/motor classes or assets, or nested JAR containing them. The release also requires Aeronautics. | Optional camera integration after core rider transforms work. Do not base the rotation mechanism on the advertised bearing without further evidence. |
-| [Coasters: Magnetized](https://www.curseforge.com/minecraft/mc-mods/coasters-magnetized) | Accelerating and braking track plus wooden decoration. Reviewed at the project-page level. | Alternative optional operating equipment. No identified need to depend on it for controlled rotation. |
-| [Create: Waterparked](https://www.curseforge.com/minecraft/mc-mods/create-waterparked) | Public source demonstrates custom track materials and mixins that admit those materials into the Coasters graph. Its page explicitly warns of version coupling. | Strong reference for track integration. No runtime dependency: water-slide systems add no essential 4D feature. |
+| Create / Coasters / Sable | Required foundation; Ponder, goggles, Display Links and shared station/winch telemetry. Keep the active baseline until a separately validated upgrade. | Existing 0.4–1.0 scope |
+| Track Styles | 1.2.0 Arrow spine/tie appearance with original mechanical geometry and fallback. Released static Arrow models do not prove functional control-rail support. | Existing 0.4–1.0 appearance scope; functional support stays FD801 |
+| Engineered | 1.1.1 motors, braking, controllers and observers; complete operator/FE evidence while retaining our readiness and PAX authority. | Existing 0.4–1.0 optional operations scope |
+| Simulated Additions | Published 0.2.5 beta embeds `coasterfins` 0.2.2. Station signals and validated automatic dispatch first; resolve Aeronautics/Interiors dependencies and artifact identity. | Proposed 1.1; rotating seats separately in proposed 1.2 |
+| Tracks and Balloons / CTNB | 1.2, formerly Create Coasters Extras. Functional tracks, station/control behavior and cosmetic materials require distinct capability checks. | Proposed 1.1 |
+| Magnetized | 1.1.0 longitudinal acceleration/braking; preserve separate magnetic seat-axis mechanics and explicit propulsion ownership. | Proposed 1.1 |
+| Coaster Skin | 1.0.0 changes seating and cart behavior as well as appearance; review chassis eligibility and exact dependency requirements. | Proposed 1.2 |
+| Immersion | 1.1.0 client-only release with optional Aeronautics metadata. Compose camera/body effects once with authoritative carrier pose; review interpolation mixins. | Proposed 1.2 |
+| Waterparked | 0.2.8-beta-hotfix1 for Coasters 0.1.5; shared graph/mixin/render coexistence first. No assumption that our cars can use slides. | Proposed 1.2 coexistence |
+| Create Coasters | 2.0 separate Create train/contraption utility; check seat locks and camera overlap. No assumed Sable control bridge. | Proposed 1.2 coexistence |
 
-Track Styles has a concrete metadata mismatch: its project page says MIT, while the inspected release’s `neoforge.mods.toml` says All Rights Reserved. Resolve this before copying code or assets; separately installed compatibility remains a distinct design choice. Waterparked lists CC BY-NC 3.0, so use it primarily as an architectural reference. Engineered’s inspected metadata says MIT. Retain applicable notices for any code eventually reused.
-
-Recommendation: require Coasters Simulated and its underlying libraries; use Track Styles for optional appearance and Engineered for optional train operations. Engineered and Magnetized propel or brake carts along the track; neither reviewed feature set establishes magnetic torque control of the seat axle. The addon must supply that behavior itself. No reviewed release establishes the complete multi-family system proposed here.
+Optional addons stay separately installed. The Track Styles page/JAR license
+mismatch remains unresolved; no asset reuse is authorized by this plan. The
+artifact catalog records the other declared licenses. Our original track,
+rotation mechanisms and five-family scope remain independent of optional addons.
+Proposed 1.1/1.2 allocations are planning scopes, not dates or authorization to
+resume implementation. FD801 never blocks standalone 1.0.
 
 ## D08 Player building experience
 
@@ -214,7 +230,7 @@ Use a long, smooth approach to the station’s boarding pose. Free carriers firs
 
 ## Addressable roadmap
 
-The implementation source of truth is [ROADMAP.md](ROADMAP.md). Each work package has a permanent ID, prerequisites, design references, and a completion criterion. Start with FD001; foundation package FD008 gates the selected architecture before release content is considered ready.
+The implementation source of truth is [ROADMAP.md](ROADMAP.md). Each work package has a permanent ID, prerequisites, design references, and a completion criterion. Foundation through bounded FD305 are complete. Continue from the open FD401–FD404 gates; the integration work remains paused until authorized.
 
 | Stage | Work packages | Release scope |
 | --- | --- | --- |
@@ -222,14 +238,16 @@ The implementation source of truth is [ROADMAP.md](ROADMAP.md). Each work packag
 | 0.1 | FD101–FD109 | Controlled Arrow/S&S and legacy ZacSpin, matching original tracks, editing, boarding, and ordinary-cart rail access. |
 | 0.2 | FD201–FD204 | S&S Free Spin vehicle/track and magnetic spin equipment. |
 | 0.3 | FD301–FD305 | Revised ZacSpin and PAX shuttle with actual lift/release and return capture. |
-| 0.4 | FD401–FD404 | Optional adapter infrastructure, recovery towing evaluation, complete crafting, tutorials, and examples. |
-| 0.9 release candidate | FD901–FD905 | Full eligibility/integration matrix, lifecycle, migration, performance, and defect resolution. |
+| 0.4 | FD401–FD404 | Adapter/telemetry foundation, Create guidance, existing Engineered and Track Styles acceptance, recovery and teaching. |
+| 0.9 release candidate | FD901–FD905 | Certify frozen base/Styles/Engineered/combined profiles, lifecycle, migration and rendering/performance; resolve defects. |
 | 1.0 | FD1001–FD1003 | Accurate release documentation, reproducible artifacts, and final acceptance gate. |
 | Independent integration | FD801 | Future Track Styles Arrow 4D adapter once an inspectable release and applicable terms exist. |
 
 The original controlled coaster stays in the first playable release alongside a free-spin vehicle. Each release builds on the preceding gates. Version labels express scope ordering, not dates; estimates follow the physics, magnetic, and shuttle proofs. Each gate requires recorded evidence, and no task is marked complete merely because its code was written.
 
 FD801 must preserve functional family/fit checks, profiles, and control-rail ownership, and reject cosmetic-only ordinary track. An unavailable external feature cannot block the five-family standalone 1.0. Requirements for ordinary recovery-cart access remain distinct from unproven towing capability.
+
+Proposed post-1.0 work is allocated in the [integration release table](docs/INTEGRATION-BACKLOG.md#release-allocation): 1.1 operations (Additions/CTNB/Magnetized), then 1.2 seats/presentation and coexistence (Skin/Immersion/Waterparked/Create Coasters and rotating-seat follow-up). These expansions retain the current gates and require separate implementation approval.
 
 ## D17 Validation and release scope
 
@@ -239,7 +257,7 @@ Add a compatibility matrix covering every 4D family against matching, ordinary, 
 
 Use a small repeatable controlled layout with a straight flip, vertical track, banked turn, inversion, rollback, close track crossing, and boarding zone. Add a compact free-spin layout with balanced/unbalanced occupancy and magnetic zones, plus a shuttle with two spikes and repeated station passes. Exercise linked and individual vehicles, two clients, late joining, disconnects, chunk unloads, server restart, track deletion, and cart disassembly. Verify full swept seat clearance, not just the chassis envelope. Debug displays should distinguish track inversions from carrier rotation.
 
-Test the base stack first, then Track Styles, Engineered, Additions, Immersion, and Magnetized individually where relevant, followed by the intended combined pack. Include Flywheel modes and the chosen shader compatibility stack. Test our seats on both our matching track and each verified equivalent external representation, including rail alignment, crossings, and same-family mixed-provider joins. Test switching/removing an appearance-only provider without losing functional family or mechanical profiles; test explicit migration separately for external blocks. Reject incompatible family, running gear, or geometry clearly. Engineered and Magnetized must not both control propulsion on the same section without a defined ownership policy. Seat-axis magnetic assistance remains a separate subsystem.
+For 0.9/1.0, test the base stack, Track Styles 1.2.0, Engineered 1.1.1, and their combined profile. Newly staged addons belong to the proposed expansion releases unless FD404 scope is explicitly revised before the candidate freeze. Each expansion repeats individual, conflict-pair and named combined-pack certification, including client-only asymmetry. The [integration acceptance matrix](docs/INTEGRATION-BACKLOG.md#certification-and-release-evidence) defines the full cases. Any external functional provider must prove family/geometry equivalence and same-family joins. Appearance removal preserves mechanical data; external block conversions require explicit migration. Engineered, CTNB, Additions and Magnetized require one propulsion/control owner per section and phase; seat-axis magnetic assistance remains separate.
 
 Budget runtime work per active carrier and constraint as well as per car: cache arc-length tables and rail meshes; invalidate on edits; avoid whole-network searches every frame. Measure a declared benchmark, such as two occupied seven-car controlled trains, several eight-seat free-spin vehicles, and a linked shuttle, against equivalent baseline scenes. Record hardware, carrier count, and frame/tick costs before setting performance guarantees.
 
@@ -250,7 +268,7 @@ The planned releases support fixed-world tracks, with ride families introduced a
 1. Can the pinned Sable release support driven, free, and independently rotating carriers accurately while preserving passenger and camera behavior?
 2. Can the actual Coasters engagement result be exposed without replacing its existing rail solver?
 3. Can a Track Styles adapter cleanly separate provider geometry from variable control rails and magnetic attachments, and is its licensing metadata clarified if copying is desired?
-4. Can Additions seats and restraint signals work unchanged on the chosen carrier? If so, offer an adapter without making all users install its station system.
+4. Can Additions station signals use shared telemetry and validated requests (proposed 1.1), and can its seats separately preserve carrier/restraint authority (proposed 1.2)? Coaster Skin and Immersion require their own seat/pose checks; no adapter becomes mandatory.
 5. What family-specific pivot positions, carrier groupings, inertia, gear ratios, clearances, and operating limits produce convincing and stable motion?
 6. Can primary material establish second-generation ZacSpin details and the exact carrier couplings for each free-spin vehicle before finalizing models?
 7. Can the existing lift and cart endpoint behavior support a captured shuttle, or must the catch/release adapter supply those functions?

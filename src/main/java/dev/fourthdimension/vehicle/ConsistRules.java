@@ -66,7 +66,10 @@ public final class ConsistRules {
               .filter(r -> r.matches(other.boundFrom, other.boundTo))
               .findFirst()
               .orElse(null);
-      if (support == null || !support.valid || !support.variant.equals(other.variant)) return false;
+      if (support == null
+          || !support.valid
+          || !support.variant.equals(other.variant)
+          || dev.fourthdimension.track.TrackGeometry.resolve(level, support) == null) return false;
     }
     return true;
   }

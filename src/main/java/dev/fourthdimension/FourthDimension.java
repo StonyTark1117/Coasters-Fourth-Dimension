@@ -12,6 +12,11 @@ public final class FourthDimension {
 
   public FourthDimension(IEventBus bus) {
     dev.fourthdimension.integration.create.CreateIntegration.register(bus);
+    bus.addListener(
+        (net.neoforged.fml.event.lifecycle.FMLLoadCompleteEvent event) ->
+            event.enqueueWork(dev.fourthdimension.integration.TrackProviders::freeze));
+    if (Boolean.getBoolean("fourthdimension.providerFixtures"))
+      dev.fourthdimension.gametest.ProviderFixtures.register();
     dev.fourthdimension.shuttle.ShuttleContent.registerItem();
     dev.fourthdimension.station.StationContent.registerItem();
     dev.fourthdimension.station.StationContent.BLOCKS.register(bus);

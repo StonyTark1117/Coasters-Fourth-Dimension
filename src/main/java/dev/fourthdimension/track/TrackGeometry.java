@@ -31,6 +31,11 @@ public final class TrackGeometry {
   }
 
   public static CoasterPathEdge resolve(Level level, FoundationData.Rail rail) {
+    return dev.fourthdimension.integration.TrackProviders.resolve(level, rail);
+  }
+
+  /** Native anchor lookup for explicitly registered providers; not an eligibility bypass. */
+  public static CoasterPathEdge resolveNative(Level level, FoundationData.Rail rail) {
     if (!level.hasChunkAt(rail.from) || !level.hasChunkAt(rail.to)) return null;
     if (!(level.getBlockEntity(rail.from) instanceof CoasterAnchorpointBlockEntity anchor))
       return null;

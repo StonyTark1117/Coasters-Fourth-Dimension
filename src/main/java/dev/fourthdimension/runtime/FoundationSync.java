@@ -17,7 +17,8 @@ public final class FoundationSync {
   private FoundationSync() {}
 
   /** A full dimension-scoped state replacement; stale snapshots are ignored client-side. */
-  public record Snapshot(ResourceLocation dimension, CompoundTag tag) implements CustomPacketPayload {
+  public record Snapshot(ResourceLocation dimension, CompoundTag tag)
+      implements CustomPacketPayload {
     public static final Type<Snapshot> TYPE =
         new Type<>(ResourceLocation.fromNamespaceAndPath(FourthDimension.ID, "foundation"));
     public static final StreamCodec<RegistryFriendlyByteBuf, Snapshot> CODEC =
@@ -43,7 +44,7 @@ public final class FoundationSync {
 
   public static void register(RegisterPayloadHandlersEvent event) {
     event
-        .registrar("7")
+        .registrar("8")
         .playToClient(
             Snapshot.TYPE,
             Snapshot.CODEC,

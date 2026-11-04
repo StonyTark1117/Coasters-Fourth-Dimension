@@ -105,7 +105,11 @@ public final class RecoveryOperations {
       return snapshot != null
           && snapshot.rails.stream()
               .anyMatch(
-                  r -> r.valid && r.variant.equals(v.variant) && r.matches(v.boundFrom, v.boundTo));
+                  r ->
+                      r.valid
+                          && r.variant.equals(v.variant)
+                          && r.matches(v.boundFrom, v.boundTo)
+                          && TrackGeometry.resolve(level, r) != null);
     }
     var hit =
         CoasterPathTrackFrame.nearestGraphHit(
@@ -118,7 +122,8 @@ public final class RecoveryOperations {
                 r ->
                     r.valid
                         && r.variant.equals(v.variant)
-                        && r.matches(hit.edge().from(), hit.edge().to()));
+                        && r.matches(hit.edge().from(), hit.edge().to())
+                        && TrackGeometry.resolve(level, r) != null);
   }
 
   public static boolean canCouple(ServerLevel level, SubLevel a, SubLevel b, double distance) {

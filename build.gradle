@@ -70,6 +70,7 @@ neoForge {
         }
         gameTestServer {
             type = 'gameTestServer'
+            systemProperty 'fourthdimension.providerFixtures', 'true'
             gameDirectory = layout.buildDirectory.dir('runs/gametest').get().asFile
             systemProperty 'neoforge.enabledGameTestNamespaces', 'fourthdimension'
         }

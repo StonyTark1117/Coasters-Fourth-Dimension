@@ -30,6 +30,9 @@ public final class VehicleFactory {
                 () ->
                     new IllegalArgumentException(
                         "A 4D car requires its matching functional track"));
+    if (!dev.fourthdimension.integration.TrackProviders.available(rail)
+        || TrackGeometry.resolve(level, rail) == null)
+      throw new IllegalArgumentException("Functional track provider unavailable");
     if (!rail.valid || !rail.variant.equals(design.variant))
       throw new IllegalArgumentException("Vehicle and track families do not match");
     if (CoasterPathGraphManager.edgeHostedOnSubLevel(level, hit.edge()))

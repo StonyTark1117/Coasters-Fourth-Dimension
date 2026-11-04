@@ -6,7 +6,6 @@ import dev.fourthdimension.runtime.FoundationData;
 import java.io.IOException;
 import java.util.Base64;
 import java.util.Set;
-import java.util.UUID;
 import java.util.stream.Collectors;
 import net.minecraft.gametest.framework.GameTest;
 import net.minecraft.gametest.framework.GameTestHelper;
@@ -34,9 +33,13 @@ public final class HistoricalMigrationGameTests {
         sourceRails.size() == 24 && sourceVehicles.size() == 3,
         "Historical fixture no longer has its recorded 24 rails and 3 chassis");
     var sourceChassis =
-        sourceVehicles.stream().map(tag -> ((CompoundTag) tag).getUUID("chassis")).collect(Collectors.toSet());
+        sourceVehicles.stream()
+            .map(tag -> ((CompoundTag) tag).getUUID("chassis"))
+            .collect(Collectors.toSet());
     var sourceRailIds =
-        sourceRails.stream().map(tag -> ((CompoundTag) tag).getUUID("id")).collect(Collectors.toSet());
+        sourceRails.stream()
+            .map(tag -> ((CompoundTag) tag).getUUID("id"))
+            .collect(Collectors.toSet());
     var sourceProfiles =
         sourceRails.stream()
             .collect(
@@ -47,7 +50,10 @@ public final class HistoricalMigrationGameTests {
     var migrated = FoundationData.load(source, helper.getLevel().registryAccess());
     helper.assertTrue(
         migrated.vehicles.keySet().equals(sourceChassis)
-            && migrated.rails.stream().map(rail -> rail.id).collect(Collectors.toSet()).equals(sourceRailIds),
+            && migrated.rails.stream()
+                .map(rail -> rail.id)
+                .collect(Collectors.toSet())
+                .equals(sourceRailIds),
         "Schema-3 migration changed historic chassis or rail identities");
     helper.assertTrue(
         migrated.rails.stream()
@@ -59,7 +65,9 @@ public final class HistoricalMigrationGameTests {
             .allMatch(vehicle -> vehicle.recoveryCart == null && !vehicle.recoveryCartRemoved),
         "Schema-3 migration invented recovery state");
     helper.assertTrue(
-        migrated.vehicles.values().stream().map(vehicle -> vehicle.family).collect(Collectors.toSet())
+        migrated.vehicles.values().stream()
+            .map(vehicle -> vehicle.family)
+            .collect(Collectors.toSet())
             .equals(Set.of(Family.ARROW, Family.ZACSPIN, Family.FREE_SPIN)),
         "Schema-3 migration changed historic functional families");
 
@@ -70,7 +78,10 @@ public final class HistoricalMigrationGameTests {
     var reopened = FoundationData.load(upgraded, helper.getLevel().registryAccess());
     helper.assertTrue(
         reopened.vehicles.keySet().equals(sourceChassis)
-            && reopened.rails.stream().map(rail -> rail.id).collect(Collectors.toSet()).equals(sourceRailIds)
+            && reopened.rails.stream()
+                .map(rail -> rail.id)
+                .collect(Collectors.toSet())
+                .equals(sourceRailIds)
             && reopened.rails.stream()
                 .collect(Collectors.toMap(rail -> rail.id, rail -> rail.profile))
                 .equals(sourceProfiles)
@@ -85,12 +96,26 @@ public final class HistoricalMigrationGameTests {
         .getList("rails", Tag.TAG_COMPOUND)
         .getCompound(0)
         .putString("provider", "coasterssimulatedextratypes:arrow_4d");
-    EditorGameTests.rejects(
-        helper,
-        () -> FoundationData.load(foreignProvider, helper.getLevel().registryAccess()),
-        "Foreign functional provider was silently converted during migration");
+    var foreign = FoundationData.load(foreignProvider, helper.getLevel().registryAccess());
+    var unknown = foreign.rails.getFirst();
+    helper.assertTrue(
+        unknown.provider.equals("coasterssimulatedextratypes:arrow_4d")
+            && !unknown.original()
+            && !dev.fourthdimension.integration.TrackProviders.available(unknown)
+            && dev.fourthdimension.track.TrackGeometry.resolve(helper.getLevel(), unknown) == null,
+        "Foreign functional provider was silently converted or acquired mechanics during"
+            + " migration");
+    helper.assertTrue(
+        foreign
+            .save(new CompoundTag(), helper.getLevel().registryAccess())
+            .getList("rails", Tag.TAG_COMPOUND)
+            .getCompound(0)
+            .getString("provider")
+            .equals(unknown.provider),
+        "Unavailable provider identity was lost on resave");
     System.out.println(
-        "FD903_HISTORICAL schema3Rails=24 chassis=3 providerConversionRejected=true");
+        "FD903_HISTORICAL schema3Rails=24 chassis=3 providerConversionRejected=true"
+            + " unavailableIdentityPreserved=true");
     helper.succeed();
   }
 
@@ -108,7 +133,8 @@ public final class HistoricalMigrationGameTests {
 
   private static CompoundTag readHistoricalFixture() {
     try (var encoded = HistoricalMigrationGameTests.class.getResourceAsStream(SCHEMA3_FIXTURE)) {
-      if (encoded == null) throw new IllegalStateException("Missing schema-3 historical fixture resource");
+      if (encoded == null)
+        throw new IllegalStateException("Missing schema-3 historical fixture resource");
       try (var decoded = Base64.getMimeDecoder().wrap(encoded)) {
         return NbtIo.readCompressed(decoded, NbtAccounter.create(1_048_576)).getCompound("data");
       }

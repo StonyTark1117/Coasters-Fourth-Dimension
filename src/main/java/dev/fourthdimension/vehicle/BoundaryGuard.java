@@ -66,6 +66,8 @@ public final class BoundaryGuard {
                 next ->
                     next != rail
                         && next.valid
+                        && dev.fourthdimension.integration.TrackProviders.available(next)
+                        && dev.fourthdimension.track.TrackGeometry.resolve(level, next) != null
                         && next.variant.equals(vehicle.variant)
                         && (next.from.equals(endpoint) || next.to.equals(endpoint)));
     if (!supported) stop(vehicle, "End of compatible track; capture and inspect the route");

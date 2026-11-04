@@ -1,10 +1,16 @@
-# Coasters: Fourth Dimension implementation roadmap to 1.0
+# Coasters: Fourth Dimension roadmap to 1.0 and proposed integrations
 
 This is the addressable execution plan for the design in [PLAN.md](PLAN.md). Foundation packages FD001–FD008 are **done for the bounded prototype**; their implementation, runtime evidence, and limits are recorded in [foundation acceptance](docs/FOUNDATION.md). FD101–FD109 and FD201–FD204 are **done for their bounded builds**; see [0.1 acceptance](docs/PLAYABLE.md) and [0.2 acceptance](docs/MAGNETIC.md). Version 0.3 is done for its bounded five-family gate toward the active 0.9.0 goal; later gates remain planned. Version numbers define scope and order, not dates.
 
 Refer to a package by its permanent ID, for example “implement FD104” or “review FD303.” Keep IDs stable when adding work; split a package using a suffix such as FD104A rather than renumbering existing packages. Record its status, implementation references, and validation evidence under its heading as work proceeds. Statuses are planned, in progress, blocked, and done. A package is done only when its acceptance criteria have evidence, not merely when code exists.
 
 ## Release map
+
+The [integration release allocation](docs/INTEGRATION-BACKLOG.md#fit-within-the-current-release-plan)
+plans the staged ecosystem against these gates. It retains Create and the existing
+Engineered/Track Styles scope for 0.4–1.0, and proposes separate optional operations
+and presentation expansions afterward. New integration implementation remains
+paused pending user approval; staged artifacts do not expand advertised support.
 
 **Current stage: completing 0.4.** The five-family bounded 0.3 gate is complete.
 Integrations, crafting and tutorials are implemented with partial acceptance;
@@ -68,7 +74,9 @@ the subsequent candidate gate is FD905 (0.9).
 | 0.4 | FD401–FD404 | In progress | Optional integration infrastructure, recovery evaluation, crafting, tutorials, and family examples. |
 | 0.9 release candidate | FD901–FD905 | In progress; release gate open | Complete compatibility, lifecycle, migration, and performance evidence. |
 | 1.0 | FD1001–FD1003 | Planned | Verified five-family release with documentation and reproducible artifacts. |
-| External compatibility | FD801 | Planned | Future Track Styles Arrow 4D integration when an inspectable release exists; does not block standalone releases. |
+| Proposed 1.1 | Expansion scope in integration backlog | Planned; implementation paused | Additions station operations, CTNB functional/control adapters, Magnetized; separate dependency and combined-pack certification. |
+| Proposed 1.2 | Expansion scope in integration backlog | Planned; implementation paused | Coaster Skin, rotating-seat follow-up, Immersion, Waterparked and Create Coasters coexistence. |
+| External compatibility | FD801 | Planned | Future Track Styles Arrow 4D integration when a qualifying functional representation is inspectable; does not block standalone releases. |
 
 The dependency chain between release gates is foundation → 0.1 → 0.2 → 0.3 → 0.4 → 0.9 → 1.0. Preparation for later packages may start once their stated prerequisites are done; a release still requires all earlier release gates. Track Styles, a maintainer response, or a future external release is never a prerequisite for our original tracks.
 
@@ -212,7 +220,7 @@ Provide profile editing, free-spin tuning, copy/mirror behavior, ghost seats, an
 
 **Depends on:** FD104, FD007. **Design:** D03, D09, D16.
 
-Implement approach alignment, angular damping/capture, restraints, ready/locked signals, and supported maintenance retention. Restore normal rider state on recovery/dismount paths. ready/locked signals, retention, etc can be handled by https://www.curseforge.com/minecraft/mc-mods/coasters-engineered, explore using it as dependency instead of reinventing stop/go cycling and launches
+Implement approach alignment, angular damping/capture, restraints, ready/locked signals, and supported maintenance retention. Restore normal rider state on recovery/dismount paths. Engineered may optionally supply longitudinal stop/go and launch operations through FD401, while Fourth Dimension retains carrier capture, restraints, readiness and retention authority; it is not a mandatory dependency.
 
 **Done when:** boarding requires stopped translation, aligned carriers, and low angular speed; restraints cannot release prematurely. Retention never changes a vehicle’s required track family.
 
@@ -348,7 +356,7 @@ Ship both new families with instructions and examples, including compact and tal
 
 **Depends on:** FD005, FD305. **Design:** D04, D05, D07, D15.
 
-Implement isolated optional adapters, support/version checks, component render ownership, and appearance fallback. Evaluate available Track Styles styling and operating-addon interfaces against their actual releases and terms.
+Implement isolated optional adapters, support/version checks, component render ownership, appearance fallback and shared server-validated operations telemetry. The current 0.4–1.0 scope is Create guidance/diagnostics plus existing Track Styles 1.2.0 appearance and Engineered 1.1.1 operations. Reconcile the paused provider/schema work against the current core before certification. Newly staged Additions, CTNB, Magnetized, Skin, Immersion, Waterparked and Create Coasters adapters remain in the proposed post-1.0 expansion plan, not prerequisites for FD401.
 
 **Done when:** standalone behavior is unchanged by missing optional mods; supported integrations preserve functional family and profiles. Publish only tested combinations. Future Arrow 4D support remains FD801 and cannot block this package.
 
@@ -380,7 +388,7 @@ Complete recipes, item descriptions, Ponder scenes, family demonstrations, diagn
 
 **Depends on:** FD401–FD403.
 
-Produce the feature-complete candidate scope and list tested optional combinations, known limits, and deferred external support.
+Produce the feature-complete candidate scope and list tested optional combinations, known limits, and deferred external support. Freeze base, Track Styles, Engineered and their combined profile for 0.9/1.0. Adding an expansion candidate before 1.0 requires an explicit scope revision and its full acceptance evidence; staging alone does not expand this gate.
 
 **Done when:** the five-family standalone feature set and teaching content are complete, all advertised integrations have evidence, and remaining work is stabilization rather than missing core mechanics.
 
@@ -416,7 +424,7 @@ cosmetic Arrow appearance and Engineered remains an operating adapter.
 
 **Depends on:** FD404. **Design:** D02, D04, D17.
 
-Exercise every family against matching, ordinary, wrong-family, cosmetic-only, and supported external tracks; test regular-cart fit/non-fit, mixed consists, and every entry path. Test optional addons individually and in the supported combined pack.
+Exercise every family against matching, ordinary, wrong-family, cosmetic-only, and supported external tracks; test regular-cart fit/non-fit, mixed consists, and every entry path. For the current candidate, test Styles-only, Engineered-only and Styles+Engineered in addition to base. Later expansions repeat these gates for their own named profiles; they do not silently expand the 0.9 matrix.
 
 **Done when:** each advertised combination has recorded results. Wrong-family 4D carts are rejected everywhere, and ordinary carts receive no 4D benefit.
 

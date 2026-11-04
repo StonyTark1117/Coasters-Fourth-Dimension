@@ -1,9 +1,21 @@
 # Optional integration development
 
-FD401 is in progress. The addon remains standalone: no optional JAR is required or
+FD401 is in progress; further integration implementation is paused pending user approval. The addon remains standalone: no optional JAR is required or
 bundled, and no external functional track is certified yet. FD801 owns a future
 Track Styles Arrow 4D mechanical adapter; a decorative model or equal main-rail
 gauge cannot satisfy that gate.
+
+## Release scope and deferred candidates
+
+The [integration backlog](INTEGRATION-BACKLOG.md) owns current candidate versions,
+release allocation and acceptance plans. The 0.4–1.0 scope includes Create
+guidance/telemetry and the existing Engineered/Track Styles profiles. Proposed
+1.1 adds Additions station operations, CTNB and Magnetized; proposed 1.2 adds
+Coaster Skin, rotating-seat follow-up, Immersion, and Waterparked/Create Coasters
+coexistence. These are deferred plans, not supported runtime profiles. FD801
+remains independent. This document records the existing implementation checkpoint;
+its pending schema-7/protocol-8 provider work still needs reconciliation with the
+current core and final-artifact certification.
 
 ## Version and API boundaries
 
@@ -32,10 +44,10 @@ choices, plus an optional `#RRGGBB` spine/tie color. Selection uses the same
 permission, distance, revision, and occupied-section guards as profile editing.
 Only separately installed Track Styles 1.2.0 enables its choices, and both choices are permitted only on controlled Arrow functional track. The server rejects selection on all four other families; renderer fallback also enforces this boundary. A saved decorative choice is intent, not a renderer guarantee: if either separately installed baked spine/tie model is missing, cannot create a cached buffer, or fails during drawing, the original spine/tie renderer remains active for that rail. This addon neither copies nor substitutes the provider's assets.
 
-Appearance intent is saved separately in the current schema 6. Earlier schema 1–4 rails
+Appearance intent is saved separately in the current schema 7. Earlier schema 1–4 rails
 default to Original; missing provider IDs and tint are retained while the original
 family geometry is shown. Reinstalling the same provider restores the selection.
-Network protocol 7 requires matching client and server builds. This checkpoint
+Network protocol 8 requires matching client and server builds. This checkpoint
 does not certify all exposed development choices: single-spine provider removal
 and reinstallation, double-spine fallback/resource reload, a flat single-spine
 quarter curve and a real styled Arrow circuit now have bounded evidence. A separate
@@ -73,6 +85,51 @@ Reserved. The independent optional catalog does not redistribute that JAR, code
 or assets. No resolved license for copying or bundling its content is claimed.
 The audit retains both observations in `research/dependency-audit.json`.
 
+## Functional provider boundary
+
+`TrackProviders.Provider` supplies a `TrackContract` for a supported functional
+variant and resolves the native Coasters edge for a saved rail. Register on both
+physical sides during construction/common setup. Registration freezes in queued
+load-complete work, after the earlier lifecycle phases described by
+[NeoForge's lifecycle documentation](https://docs.neoforged.net/docs/1.21.1/concepts/events/#the-mod-lifecycle).
+Duplicate IDs, the reserved prototype ID and late registration are rejected.
+
+Optional adapters use `registerOptional(providerId, modId, exactVersion, factory)`.
+The factory runs only when the installed metadata matches that exact release.
+Missing/different releases and failed adapter initialization leave the provider
+unavailable. Provider contract/resolver failures deny mechanics and log once per
+provider. A successful registration is an API capability, not a runtime
+compatibility certificate.
+
+The registry verifies functional provider, family, variant, contact dimensions,
+required mechanisms and clearance. Resolution must return an edge with the saved
+endpoints. Placement, native snapping, linked-car support, recovery support,
+dispatch and boundary lookahead use this boundary. An Arrow-looking appearance
+cannot satisfy any of these checks. FD801 still owns a future real Track Styles
+Arrow 4D functional adapter; none is registered here.
+
+Schema 7 saves the functional provider explicitly and preserves an unavailable
+provider's identity, profile, magnets, geometry revision and appearance intent.
+Schemas 1–6 still load; missing identity fields default to the historical native
+or prototype provider. Unknown IDs are retained but acquire no mechanics.
+Malformed IDs and mismatched prototype identities are rejected. Vehicle recovery
+fields from schema 6 remain intact. A provider becoming unavailable does not by
+itself invalidate or rewrite saved geometry, so reinstating the matching provider
+can resolve it again. This does not guarantee safe operation of an occupied ride
+after removing its functional track addon.
+
+Only the original functional provider is owned by our track renderer and profile
+editor. Other functional providers retain responsibility for their own rendering
+and editing adapters. On our original tracks, the existing component ownership
+contract still gives appearance providers only spine/ties, with original fallback
+when decoration is unavailable; running/control rails and magnetic equipment
+remain ours. The current appearance format and renderer have not been replaced
+with the older branch's design.
+
+The [provider reconciliation evidence](evidence/integrations/2026-10-27/reconciled-providers/README.md)
+records synthetic provider tests and their limits. No external functional track
+combination is advertised from these tests.
+
 ## Remaining FD401 acceptance
 
 The [reconciled telemetry checkpoint](evidence/integrations/2026-10-27/reconciled-telemetry/README.md)
@@ -81,8 +138,10 @@ Create goggles fields and six Display Link sources to the current release
 baseline. Recovery dispatch guards and PAX winch ownership are preserved.
 Native source output and packet data have bounded headless coverage; live-client
 overlays, display configuration and synchronization remain separate acceptance
-items. The older integration branch's general provider registry and remaining
-addon adapters have not yet been reconciled onto this baseline.
+items. The functional provider registry is now reconciled as described above;
+the pending provider work needs final core reconciliation and artifact-specific validation.
+The newly staged addon adapters belong to the proposed expansion releases and do
+not need to be implemented to close the current FD401 scope.
 
 Complete style geometry and clearance checks and record supported styles/render
 modes and styled ride behavior. Resource reload and a real removal/reinstallation

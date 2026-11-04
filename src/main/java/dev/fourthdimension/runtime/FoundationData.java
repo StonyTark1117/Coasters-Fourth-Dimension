@@ -11,7 +11,7 @@ import net.minecraft.world.level.saveddata.SavedData;
 
 /** World-owned authoritative bindings. Native Sable bodies persist poses and velocities. */
 public final class FoundationData extends SavedData {
-  public static final int SCHEMA = 6;
+  public static final int SCHEMA = 7;
   // Keep full functional snapshots below Minecraft's one-megabyte custom-payload limit.
   public static final int MAX_PROFILE_KEYS = 8192;
   public static final String VARIANT = "foundation_v1";
@@ -43,6 +43,7 @@ public final class FoundationData extends SavedData {
     public RotationProfile profile;
     public final UUID id;
     public final String variant;
+    public final String provider;
     public long geometryHash, revision;
     public boolean valid = true;
     public List<dev.fourthdimension.physics.MagneticSpan> magnets = List.of();
@@ -63,6 +64,35 @@ public final class FoundationData extends SavedData {
         long geometryHash,
         long revision,
         boolean valid) {
+      this(
+          from,
+          to,
+          family,
+          profile,
+          id,
+          variant,
+          geometryHash,
+          revision,
+          valid,
+          VARIANT.equals(variant)
+              ? PROVIDER
+              : dev.fourthdimension.integration.TrackProviders.ORIGINAL);
+    }
+
+    public Rail(
+        BlockPos from,
+        BlockPos to,
+        Family family,
+        RotationProfile profile,
+        UUID id,
+        String variant,
+        long geometryHash,
+        long revision,
+        boolean valid,
+        String provider) {
+      this.provider = dev.fourthdimension.integration.TrackProviders.identity(provider);
+      if (VARIANT.equals(variant) != PROVIDER.equals(provider))
+        throw new IllegalArgumentException("Prototype provider and variant must remain paired");
       this.from = from.immutable();
       this.to = to.immutable();
       this.family = family;
@@ -94,7 +124,7 @@ public final class FoundationData extends SavedData {
     }
 
     public boolean original() {
-      return !VARIANT.equals(variant);
+      return dev.fourthdimension.integration.TrackProviders.ORIGINAL.equals(provider);
     }
 
     public boolean matches(BlockPos a, BlockPos b) {
@@ -159,7 +189,7 @@ public final class FoundationData extends SavedData {
       tag.putLong("to", rail.to.asLong());
       tag.putString("family", rail.family.id());
       tag.putString("variant", rail.variant);
-      tag.putString("provider", rail.original() ? "fourthdimension:original" : PROVIDER);
+      tag.putString("provider", rail.provider);
       tag.putUUID("id", rail.id);
       tag.putLong("geometry_hash", rail.geometryHash);
       tag.putLong("revision", rail.revision);
@@ -239,6 +269,7 @@ public final class FoundationData extends SavedData {
 
   public static FoundationData load(CompoundTag root, HolderLookup.Provider registries) {
     if (root.getInt("schema") != SCHEMA
+        && root.getInt("schema") != 6
         && root.getInt("schema") != 5
         && root.getInt("schema") != 4
         && root.getInt("schema") != 3
@@ -274,7 +305,12 @@ public final class FoundationData extends SavedData {
               tag.contains("variant") ? tag.getString("variant") : VARIANT,
               tag.getLong("geometry_hash"),
               tag.getLong("revision"),
-              !tag.contains("valid") || tag.getBoolean("valid")));
+              !tag.contains("valid") || tag.getBoolean("valid"),
+              tag.contains("provider")
+                  ? tag.getString("provider")
+                  : (!tag.contains("variant") || VARIANT.equals(tag.getString("variant")))
+                      ? PROVIDER
+                      : dev.fourthdimension.integration.TrackProviders.ORIGINAL));
       var loadedRail = data.rails.getLast();
       if (tag.contains("appearance", Tag.TAG_COMPOUND)) {
         var appearance = tag.getCompound("appearance");
@@ -291,6 +327,11 @@ public final class FoundationData extends SavedData {
       CompoundTag tag = (CompoundTag) raw;
       var vehicle = new Vehicle(tag.getUUID("chassis"), Family.byId(tag.getString("family")));
       validateIdentity(tag);
+      if (tag.contains("provider")
+          && !PROVIDER.equals(tag.getString("provider"))
+          && !dev.fourthdimension.integration.TrackProviders.ORIGINAL.equals(
+              tag.getString("provider")))
+        throw new IllegalArgumentException("External vehicle providers are not supported");
       vehicle.restraints = tag.getBoolean("restraints");
       vehicle.stopping = tag.getBoolean("stopping");
       vehicle.maintenance = tag.getBoolean("maintenance");
@@ -412,10 +453,9 @@ public final class FoundationData extends SavedData {
     // The first local schema-1 prototype omitted these fixed identifiers.
     if (tag.contains("variant") && !VARIANT.equals(tag.getString("variant")))
       dev.fourthdimension.track.TrackDesign.byVariant(tag.getString("variant"));
-    if (tag.contains("provider")
-        && !PROVIDER.equals(tag.getString("provider"))
-        && !"fourthdimension:original".equals(tag.getString("provider")))
-      throw new IllegalArgumentException("Unregistered functional provider");
+    // A missing provider is preserved as intent; availability is checked at every mechanical gate.
+    if (tag.contains("provider"))
+      dev.fourthdimension.integration.TrackProviders.identity(tag.getString("provider"));
     if (tag.contains("contact_certificate")
         && !"simulatedcoasters:unmodified_0.1.5".equals(tag.getString("contact_certificate")))
       throw new IllegalArgumentException("Unknown running gear certificate");

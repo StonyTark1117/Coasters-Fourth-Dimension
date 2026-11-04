@@ -17,8 +17,11 @@ import org.joml.Quaterniond;
 import org.joml.Vector3d;
 
 public final class CarrierRuntime {
-  /** Target-host FD904 limits; they cover this addon's timing only, never full server ticks or FPS. */
+  /**
+   * Target-host FD904 limits; they cover this addon's timing only, never full server ticks or FPS.
+   */
   public static final long TARGET_AVERAGE_INVOCATION_NANOS = 120_000;
+
   public static final long TARGET_AVERAGE_CARRIER_NANOS = 6_000;
 
   private CarrierRuntime() {}
@@ -28,7 +31,9 @@ public final class CarrierRuntime {
       new WeakHashMap<>();
   public static long nanos, steps, vehicleUpdates, carrierUpdates, carrierNanos, constraintsRebuilt;
 
-  /** Server-side cost of this addon runtime only; it intentionally excludes Sable and renderer time. */
+  /**
+   * Server-side cost of this addon runtime only; it intentionally excludes Sable and renderer time.
+   */
   /**
    * Server-side callback accounting. Carrier time is the work inside one live carrier body's
    * update; invocation time also includes shared shuttle, recovery, vehicle and magnetic work.
@@ -137,7 +142,7 @@ public final class CarrierRuntime {
       if (content && (vehicle.stopping || vehicle.maintenance && vehicle.recoveryCart == null))
         dev.fourthdimension.vehicle.VehicleOperations.brake(level, vehicle, event.getTimeStep());
       double target = Double.NaN;
-      if (rail != null && rail.valid && vehicle.family.driven()) {
+      if (rail != null && rail.valid && !supportLost && vehicle.family.driven()) {
         var edge = matchingEdge(graph, rail);
         if (edge != null && CoasterCartResolve.cartCenterWorld(parent) != null) {
           var center = CoasterCartResolve.cartCenterWorld(parent);
@@ -243,13 +248,11 @@ public final class CarrierRuntime {
 
   private static FoundationData.Rail matchingRail(
       FoundationData data, FoundationData.Vehicle vehicle) {
-    for (var rail : data.rails)
-      if (rail.matches(vehicle.boundFrom, vehicle.boundTo)) return rail;
+    for (var rail : data.rails) if (rail.matches(vehicle.boundFrom, vehicle.boundTo)) return rail;
     return null;
   }
 
-  private static CoasterPathEdge matchingEdge(
-      CoasterPathGraph graph, FoundationData.Rail rail) {
+  private static CoasterPathEdge matchingEdge(CoasterPathGraph graph, FoundationData.Rail rail) {
     for (var edge : graph.edges()) if (rail.matches(edge.from(), edge.to())) return edge;
     return null;
   }

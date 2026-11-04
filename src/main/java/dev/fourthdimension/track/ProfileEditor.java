@@ -28,7 +28,7 @@ public final class ProfileEditor {
     if (rail.revision != revision)
       throw new IllegalArgumentException("Track changed; select it again");
     if (!rail.original())
-      throw new IllegalArgumentException("Foundation fixtures are not editable content");
+      throw new IllegalArgumentException("Only original Fourth Dimension tracks are editable");
     // A connected occupied axle can straddle this section even while its binding is on its
     // neighbor.
     for (var candidate : data.rails)

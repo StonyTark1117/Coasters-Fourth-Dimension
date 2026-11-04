@@ -2,8 +2,10 @@
 
 This procedure applies to a world that contains Coasters: Fourth Dimension
 vehicles, functional track, or an attached ordinary-bearing recovery group. It
-is the supported operational procedure for upgrading to the current schema-6
-build. It does not convert third-party functional blocks, replace a removed
+describes the documented schema-6 core checkpoint. The integration worktree
+contains pending schema-7/protocol-8 provider changes; their reconciliation and
+upgrade acceptance remain planned in the [integration backlog](INTEGRATION-BACKLOG.md#current-baseline-and-branch-reconciliation).
+This procedure does not certify that pending migration or activate newly staged addons. It does not convert third-party functional blocks, replace a removed
 provider, or make a downgrade safe.
 
 ## Before the upgrade
@@ -24,7 +26,7 @@ provider, or make a downgrade safe.
 
 ## Upgrade on a copy first
 
-1. Install matching current Fourth Dimension JARs on both the server and every
+1. Install matching Fourth Dimension JARs for the selected schema-6 checkpoint on both the server and every
    client that will join it. Do not mix schema-6 clients with an older server,
    or schema-6 server data with an older client build.
 2. Keep the same required base dependencies. Keep any optional appearance

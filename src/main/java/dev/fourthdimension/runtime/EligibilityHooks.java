@@ -33,6 +33,8 @@ public final class EligibilityHooks {
             .filter(r -> r.matches(hit.edge().from(), hit.edge().to()))
             .findFirst()
             .orElse(null);
+    if (rail != null && dev.fourthdimension.track.TrackGeometry.resolve(level, rail) == null)
+      return false;
     if (vehicle == null) {
       var recovery =
           data.vehicles.values().stream()
