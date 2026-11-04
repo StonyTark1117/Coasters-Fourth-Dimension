@@ -1,0 +1,10 @@
+Cold reopened copied world, `fd validation pax_positions` from the isolated diagnostic build:
+
+cd90df9d center=( 9.005E+2  8.612E+1  7.420E+1) linked=[910c6fbd, cd90df9d, 7b7f0154]
+910c6fbd center=( 9.005E+2  8.613E+1  8.020E+1) linked=[910c6fbd, cd90df9d, 7b7f0154]
+7b7f0154 center=( 9.005E+2  8.612E+1  8.620E+1) linked=[910c6fbd, cd90df9d, 7b7f0154]
+5a4b8a72 center=null linked=[5a4b8a72]
+
+World chunk [56,5] is force loaded; extending force loading through [57,10]
+did not make the last body available. The vehicle record and winch assignment
+remain in the saved data.
