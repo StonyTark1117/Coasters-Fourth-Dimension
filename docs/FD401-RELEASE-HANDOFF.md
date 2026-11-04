@@ -59,6 +59,12 @@ FD801 and the [expansion backlog](INTEGRATION-BACKLOG.md) remain separate.
   seat boarding, editor dispatch/capture/unload, wired FE delivery and a bounded
   occupied circuit return/STOP. The car was fixture-created, the generator was
   creative, the speed target was not attained, and final cold reopen was absent.
+- [Bare-loop ordinary car placement](evidence/0.9/fd401-bare-item-placement/README.md):
+  packaged client on `61a9884` aimed the Arrow car item at the open interior
+  rail, placed it by normal right click, then bound the station by empty-hand
+  click. A focused native survival item-use case consumed one car item. This
+  new world had no motor, FE network or occupied ride; it does not convert the
+  earlier fixture-created circuit into an ordinary-placement ride.
 - Styles has historical selection/fallback/removal/reinstall and banked GUI
   evidence. Later geometry changes and the [font failure](evidence/0.4/wheel-placement-acceptance.md)
   limit reuse; automated clean reloads do not erase that failure.
@@ -82,7 +88,7 @@ FD801 and the [expansion backlog](INTEGRATION-BACKLOG.md) remain separate.
 | Priority / handoff | Concrete observation still required | Pass condition and boundary |
 | --- | --- | --- |
 | 1. Freeze evidence identity | Select exact candidate source/JAR and all dependency hashes; record any differences from each reused checkpoint. | One explicit evidence map. Never transfer a historical runtime result by version string alone. Native reruns are needed for relevant executable changes, not for every documentation commit. |
-| 2. Engineered normal operator loop | On an original closed route with no native chain on motor start anchors, place the car normally; bind/configure motor/controller normally; use station redstone capture/dispatch; complete occupied launch, STOP, capture, open and dismount. | Successful ordinary car placement replaces the earlier failed clicks/fixture spawn. Observe interlock rejection while unready and success only after fresh readiness. Preserve actual target/reached speed; do not call the previous short pass full-speed attainment. |
+| 2. Engineered normal operator loop | On one original closed route with no native chain on motor start anchors, use the normally placed car through motor/controller binding, station redstone capture/dispatch, occupied launch, STOP, capture, open and dismount. | The separate bare-loop item placement above resolves its click path only; the full loop must use that normal path. Observe interlock rejection while unready and success only after fresh readiness. Preserve actual target/reached speed; do not call the previous short pass full-speed attainment. |
 | 2. Physical FE workflow | Keep `requireEnergy=true`; use a real noncreative power path, wire it normally, run the occupied loop and interrupt/restore supply. | Producer/network/anchor observations establish transfer, starvation/retention and explicit permitted restart; no direct buffer fill. Cold-reopen the completed loop with bindings, spans, controller sequence, wire and identities intact, then operate again. Crafts & Additions remains a disclosed validation-only dependency (`-PfdFeNetwork`), not a new advertised integration. |
 | 2. Engineered family/authority coverage | Real operator exercises for the remaining advertised circuit families and a coupled Arrow train; PAX winch owns lift/release/return/capture despite external motor commands. | Pair real controls and client observations with existing native four-family, train rollback, ordinary-cart STOP and PAX opposing-motor assertions. Readiness, carrier capture, family eligibility and catch ownership remain intact. Native coverage alone is not GUI/operator coverage. |
 | 3. Dynamic Create output | On the chosen candidate, normally configure each of the six Display Link sources and observe meaningful changes; add trailing Arrow occupancy and Legacy/Free Spin/Revised occupancy/control transitions. | Pair server state, received `FD_CLIENT_TELEMETRY`, visible goggles and actual target text. Include source-preserving fault clear, repair-before-realignment denial, PAX authority and current phases. Existing trailing PAX/fault-clear cases are regression references. |

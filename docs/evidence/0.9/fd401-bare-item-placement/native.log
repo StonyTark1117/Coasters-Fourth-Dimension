@@ -1,0 +1,528 @@
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+> Task :createMinecraftArtifacts UP-TO-DATE
+> Task :compileJava
+> Task :processResources UP-TO-DATE
+> Task :classes
+> Task :downloadAssets UP-TO-DATE
+> Task :writeGameTestServerLegacyClasspath UP-TO-DATE
+> Task :prepareGameTestServerRun UP-TO-DATE
+
+> Task :runGameTestServer
+WARN StatusConsoleListener Advanced terminal features are not available in this environment
+[02:53:07] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forgeserverdev, --gameDir, ., --fml.fmlVersion, 4.0.43, --fml.mcVersion, 1.21.1, --fml.neoForgeVersion, 21.1.248, --fml.neoFormVersion, 20240808.144430]
+[02:53:07] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: JVM identified as Arch Linux OpenJDK 64-Bit Server VM 21.0.13.0.3+1
+[02:53:07] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: ModLauncher 11.0.5+main.901c6ea8 starting: java version 21.0.13.0.3 by Arch Linux; OS Linux arch amd64 version 7.2.11-zen1-1-zen
+[02:53:07] [main/INFO] [ne.ne.fm.lo.ImmediateWindowHandler/]: ImmediateWindowProvider not loading because launch target is forgeserverdev
+[02:53:07] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.7 Source=union:/home/braydon/.gradle/caches/modules-2/files-2.1/net.fabricmc/sponge-mixin/0.15.2+mixin.0.8.7/2af2f021d8e02a0220dc27a7a72b4666d66d44ca/sponge-mixin-0.15.2+mixin.0.8.7.jar%2394!/ Service=ModLauncher Env=SERVER
+[02:53:08] [main/WARN] [ne.ne.ja.se.JarSelector/]: Attempted to select a dependency jar for JarJar which was passed in as source: veil. Using Mod File: /home/braydon/.gradle/caches/modules-2/files-2.1/foundry.veil/veil-neoforge-1.21.1/4.1.4/642ec0bd02213ee087d86eda553d6d79c6a04d2b/veil-neoforge-1.21.1-4.1.4.jar
+[02:53:08] [main/WARN] [ne.ne.ja.se.JarSelector/]: Attempted to select a dependency jar for JarJar which was passed in as source: sablecompanion. Using Mod File: /home/braydon/.gradle/caches/modules-2/files-2.1/dev.ryanhcode.sable-companion/sable-companion-common-1.21.1/1.6.0/370be7db705926176e05c0215ed676150c45daae/sable-companion-common-1.21.1-1.6.0.jar
+[02:53:08] [main/WARN] [ne.ne.ja.se.JarSelector/]: Attempted to select a dependency jar for JarJar which was passed in as source: library:sable_rapier. Using Mod File: /home/braydon/.gradle/caches/modules-2/files-2.1/dev.ryanhcode.sable/sable-sable_rapier-1.21.1/2.0.3/a88c0860320890144b6b44c332a2a2db3a61e189/sable-sable_rapier-1.21.1-2.0.3.jar
+[02:53:08] [main/INFO] [ne.ne.fm.lo.mo.lo.JarInJarDependencyLocator/]: Found 4 dependencies adding them to mods collection
+[02:53:08] [main/INFO] [ne.ne.fm.lo.mo.ModDiscoverer/]: 
+     Mod List:
+		Name Version (Mod Id)
+
+		Coasters: Engineered 1.1.1 (coastersengineered)
+		Coasters: Fourth Dimension 0.9.0-dev.27 (fourthdimension)
+		Create 6.0.10 (create)
+		Create: Coasters Simulated 0.1.5 (simulatedcoasters)
+		Flywheel 1.0.6 (flywheel)
+		Minecraft 1.21.1 (minecraft)
+		NeoForge 21.1.248 (neoforge)
+		Ponder 1.0.82+mc1.21.1 (ponder)
+		Sable 2.0.3 (sable)
+		Sable Companion 1.6.0 (sablecompanion)
+		Veil 4.1.4 (veil)
+[02:53:08] [main/INFO] [mixin/]: Compatibility level set to JAVA_21
+[02:53:08] [main/INFO] [cp.mo.mo.LaunchServiceHandler/MODLAUNCHER]: Launching target 'forgeserverdev' with arguments [--gameDir, .]
+[02:53:08] [main/WARN] [mixin/]: Reference map 'ponder.refmap.json' for ponder-common.mixins.json could not be read. If this is a development environment you can ignore this message
+[02:53:08] [main/INFO] [de.ry.sa.mi.AbstractSableMixinPlugin/]: Using Vanilla renderer mixins
+[02:53:08] [main/INFO] [de.ry.sa.mi.AbstractSableMixinPlugin/]: Using Vanilla renderer mixins
+[02:53:08] [main/WARN] [mixin/]: Error loading class: dev/simulated_team/simulated/content/blocks/merging_glue/MergingGlueBlockEntity (java.lang.ClassNotFoundException: dev.simulated_team.simulated.content.blocks.merging_glue.MergingGlueBlockEntity)
+[02:53:08] [main/WARN] [mixin/]: @Mixin target dev.simulated_team.simulated.content.blocks.merging_glue.MergingGlueBlockEntity was not found simulatedcoasters.mixins.json:compat.MergingGlueBlockEntityRivetMixin from mod simulatedcoasters
+[02:53:08] [main/ERROR] [ne.ne.fm.co.as.RuntimeDistCleaner/DISTXFORM]: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER
+[02:53:08] [main/WARN] [mixin/]: Error loading class: net/minecraft/client/multiplayer/ClientLevel (java.lang.RuntimeException: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER)
+[02:53:08] [main/ERROR] [ne.ne.fm.co.as.RuntimeDistCleaner/DISTXFORM]: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER
+[02:53:08] [main/WARN] [mixin/]: Error loading class: net/minecraft/client/multiplayer/ClientLevel (java.lang.RuntimeException: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER)
+[02:53:08] [main/ERROR] [ne.ne.fm.co.as.RuntimeDistCleaner/DISTXFORM]: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER
+[02:53:08] [main/WARN] [mixin/]: Error loading class: net/minecraft/client/multiplayer/ClientLevel (java.lang.RuntimeException: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER)
+[02:53:08] [main/WARN] [mixin/]: Error loading class: org/jetbrains/annotations/ApiStatus$ScheduledForRemoval (java.lang.ClassNotFoundException: org.jetbrains.annotations.ApiStatus$ScheduledForRemoval)
+[02:53:08] [main/ERROR] [ne.ne.fm.co.as.RuntimeDistCleaner/DISTXFORM]: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER
+[02:53:08] [main/WARN] [mixin/]: Error loading class: net/minecraft/client/multiplayer/ClientLevel (java.lang.RuntimeException: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER)
+[02:53:08] [main/ERROR] [ne.ne.fm.co.as.RuntimeDistCleaner/DISTXFORM]: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER
+[02:53:08] [main/WARN] [mixin/]: Error loading class: net/minecraft/client/multiplayer/ClientLevel (java.lang.RuntimeException: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER)
+[02:53:08] [main/ERROR] [ne.ne.fm.co.as.RuntimeDistCleaner/DISTXFORM]: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER
+[02:53:08] [main/WARN] [mixin/]: Error loading class: net/minecraft/client/multiplayer/ClientLevel (java.lang.RuntimeException: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER)
+[02:53:08] [main/ERROR] [ne.ne.fm.co.as.RuntimeDistCleaner/DISTXFORM]: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER
+[02:53:08] [main/WARN] [mixin/]: Error loading class: net/minecraft/client/multiplayer/ClientLevel (java.lang.RuntimeException: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER)
+[02:53:08] [main/ERROR] [ne.ne.fm.co.as.RuntimeDistCleaner/DISTXFORM]: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER
+[02:53:08] [main/WARN] [mixin/]: Error loading class: net/minecraft/client/multiplayer/ClientLevel (java.lang.RuntimeException: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER)
+[02:53:08] [main/ERROR] [ne.ne.fm.co.as.RuntimeDistCleaner/DISTXFORM]: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER
+[02:53:08] [main/WARN] [mixin/]: Error loading class: net/minecraft/client/multiplayer/ClientLevel (java.lang.RuntimeException: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER)
+[02:53:08] [main/INFO] [MixinExtras|Service/]: Initializing MixinExtras via com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.5.3).
+[02:53:09] [main/ERROR] [ne.ne.fm.co.as.RuntimeDistCleaner/DISTXFORM]: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER
+[02:53:09] [main/WARN] [mixin/]: Error loading class: net/minecraft/client/multiplayer/ClientLevel (java.lang.RuntimeException: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER)
+[02:53:09] [main/ERROR] [ne.ne.fm.co.as.RuntimeDistCleaner/DISTXFORM]: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER
+[02:53:09] [main/WARN] [mixin/]: Error loading class: net/minecraft/client/multiplayer/ClientLevel (java.lang.RuntimeException: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER)
+[02:53:09] [main/ERROR] [ne.ne.fm.co.as.RuntimeDistCleaner/DISTXFORM]: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER
+[02:53:09] [main/WARN] [mixin/]: Error loading class: net/minecraft/client/multiplayer/ClientLevel (java.lang.RuntimeException: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER)
+[02:53:11] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, location] and [teleport, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+[02:53:11] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, location] and [teleport, targets] with inputs: [0.1 -0.5 .9, 0 0 0]
+[02:53:11] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, destination] and [teleport, targets] with inputs: [Player, 0123, @e, dd12be42-52a9-4a91-a8a1-11c01849e498]
+[02:53:11] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, targets] and [teleport, destination] with inputs: [Player, 0123, dd12be42-52a9-4a91-a8a1-11c01849e498]
+[02:53:11] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, targets, location] and [teleport, targets, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+[02:53:11] [modloading-worker-0/INFO] [Veil/]: Veil is initializing.
+[02:53:11] [modloading-worker-0/INFO] [ne.ne.ne.co.NeoForgeMod/NEOFORGE-MOD]: NeoForge mod loading, version 21.1.248, for MC 1.21.1
+[02:53:11] [modloading-worker-0/INFO] [co.si.cr.Create/]: Create 6.0.10 initializing! Commit hash: ac0c444d9828da3453ae8cc65338e8de063286fb
+[02:53:12] [modloading-worker-0/INFO] [de.jw.co.CoastersEngineered/]: Coasters: Engineered loaded
+[02:53:12] [modloading-worker-0/INFO] [de.ry.sa.Sable/]: Sable loaded!
+[02:53:12] [modloading-worker-0/INFO] [de.fo.FourthDimension/]: Coasters: Fourth Dimension loaded from union:/tmp/fourthdimension-7af457c2/build/classes/java/main/%23127!/
+[02:53:13] [main/INFO] [mojang/YggdrasilAuthenticationService]: Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, name=PROD]
+[02:53:13] [NeoForge Version Check/INFO] [ne.ne.fm.VersionChecker/]: [create] Starting version check at https://api.modrinth.com/updates/create/forge_updates.json?neoforge=only
+[02:53:13] [main/WARN] [minecraft/VanillaPackResourcesBuilder]: Assets URL 'union:/tmp/fourthdimension-7af457c2/build/moddev/artifacts/neoforge-21.1.248.jar%23125!/assets/.mcassetsroot' uses unexpected schema
+[02:53:13] [main/WARN] [minecraft/VanillaPackResourcesBuilder]: Assets URL 'union:/tmp/fourthdimension-7af457c2/build/moddev/artifacts/neoforge-21.1.248.jar%23125!/data/.mcassetsroot' uses unexpected schema
+[02:53:13] [main/INFO] [co.si.cr.Create/]: Created 157 recipes which will be injected into the game
+[02:53:13] [main/INFO] [co.si.cr.Create/]: Created 0 tags which will be injected into the game
+[02:53:13] [main/INFO] [ne.ne.ne.ga.GameTestHooks/]: Enabled Gametest Namespaces: [fourthdimension]
+[02:53:13] [NeoForge Version Check/INFO] [ne.ne.fm.VersionChecker/]: [create] Found status: OUTDATED Current: 6.0.10 Target: 6.0.10+mc1.21.1
+[02:53:13] [main/INFO] [minecraft/RecipeManager]: Loaded 2842 recipes
+[02:53:14] [main/INFO] [minecraft/AdvancementTree]: Loaded 2522 advancements
+[02:53:14] [Server thread/INFO] [de.ry.sa.Sable/]: Creating physics pipeline for ResourceKey[minecraft:dimension / minecraft:overworld] using RapierPhysicsPipelineProvider
+[2026-11-04T09:53:14.700903580Z] [[32mINFO[0m] (sable_rapier) Rapier scene initialized
+[02:53:14] [Server thread/INFO] [de.ry.sa.Sable/]: Creating physics pipeline for ResourceKey[minecraft:dimension / minecraft:the_nether] using RapierPhysicsPipelineProvider
+[2026-11-04T09:53:14.913158669Z] [[32mINFO[0m] (sable_rapier) Rapier scene initialized
+[02:53:14] [Server thread/INFO] [de.ry.sa.Sable/]: Creating physics pipeline for ResourceKey[minecraft:dimension / minecraft:the_end] using RapierPhysicsPipelineProvider
+[2026-11-04T09:53:14.927064559Z] [[32mINFO[0m] (sable_rapier) Rapier scene initialized
+[02:53:14] [Server thread/INFO] [minecraft/MinecraftServer]: Preparing start region for dimension minecraft:overworld
+[02:53:14] [worldgen/INFO] [minecraft/LoggerChunkProgressListener]: Preparing spawn area: 2%
+[02:53:15] [Server thread/INFO] [minecraft/LoggerChunkProgressListener]: Time elapsed: 91 ms
+[02:53:15] [Server thread/INFO] [minecraft/GameTestServer]: Started game test server
+[02:53:15] [Server thread/INFO] [ne.ne.ne.se.pe.PermissionAPI/]: Successfully initialized permission handler neoforge:default_handler
+[02:53:15] [Server thread/INFO] [minecraft/GameTestServer]: 60 tests are now running at position -2883118, -59, -6809291!
+[02:53:15] [Server thread/INFO] [minecraft/GameTestRunner]: Running test batch 'fourthdimension_engineered_availability:0' (1 tests)...
+[02:53:15] [Server thread/INFO] [minecraft/GameTestServer]: [                                                            ]
+[02:53:15] [Server thread/INFO] [minecraft/GameTestServer]: [                                                            ]
+[02:53:15] [Server thread/INFO] [minecraft/GameTestServer]: [_                                                           ]
+[02:53:15] [Server thread/INFO] [minecraft/GameTestServer]: [_                                                           ]
+[02:53:15] [Server thread/INFO] [minecraft/GameTestServer]: [_                                                           ]
+[02:53:15] [Server thread/INFO] [minecraft/GameTestServer]: [_                                                           ]
+[02:53:15] [Server thread/INFO] [minecraft/GameTestServer]: [_                                                           ]
+[02:53:15] [Server thread/INFO] [de.si.si.SimulatedCoasters/]: [cart-link] linked carts 50e85c1e-e383-455a-9c5e-8ebe2c54e42c <-> 7ceb9ab2-8da7-44b2-acea-39c5edab5cf0 at distance 6.000
+FD_ENGINEERED_AVAILABILITY source=0 state=healthy-before-0 maxQueuedDelta=1.334157630982195
+FD_ENGINEERED_AVAILABILITY source=1 state=healthy-before-0 maxQueuedDelta=1.0994608394633418
+FD_ENGINEERED_AVAILABILITY unload case=0 body=c9790fa2-f435-4058-b689-cf9181f73652 role=carrier reason=UNLOADED
+FD_ENGINEERED_AVAILABILITY source=0 state=unloaded-0 maxQueuedDelta=0.0
+FD_ENGINEERED_AVAILABILITY source=1 state=unloaded-0 maxQueuedDelta=0.0
+FD_ENGINEERED_AVAILABILITY restored case=0 body=c9790fa2-f435-4058-b689-cf9181f73652
+FD_ENGINEERED_AVAILABILITY restoredLinks case=0 sizes=[2, 2] partialChassisRestore=false
+FD_ENGINEERED_AVAILABILITY source=0 state=restored-0 maxQueuedDelta=1.335476937481903
+FD_ENGINEERED_AVAILABILITY source=1 state=restored-0 maxQueuedDelta=1.1003561322190825
+[02:53:15] [Server thread/INFO] [de.si.si.SimulatedCoasters/]: [cart-link] unlinked 50e85c1e-e383-455a-9c5e-8ebe2c54e42c <-> 7ceb9ab2-8da7-44b2-acea-39c5edab5cf0
+[02:53:15] [Server thread/INFO] [minecraft/GameTestServer]: [_                                                           ]
+[02:53:15] [Server thread/INFO] [minecraft/GameTestServer]: [_                                                           ]
+[02:53:16] [Server thread/INFO] [minecraft/GameTestServer]: [_                                                           ]
+[02:53:16] [Server thread/INFO] [minecraft/GameTestServer]: [_                                                           ]
+[02:53:16] [Server thread/INFO] [de.si.si.SimulatedCoasters/]: [cart-link] linked carts 4d5857b3-6056-487a-8cc1-154a9ee776ed <-> 23e9ba0f-598e-4201-8394-7a0d18cba781 at distance 6.000
+FD_ENGINEERED_AVAILABILITY source=0 state=healthy-before-1 maxQueuedDelta=1.334157630982195
+FD_ENGINEERED_AVAILABILITY source=1 state=healthy-before-1 maxQueuedDelta=1.0994608394633418
+FD_ENGINEERED_AVAILABILITY unload case=1 body=007b9024-c38c-4740-bd31-b151c256bc5d role=carrier reason=UNLOADED
+FD_ENGINEERED_AVAILABILITY source=0 state=unloaded-1 maxQueuedDelta=0.0
+FD_ENGINEERED_AVAILABILITY source=1 state=unloaded-1 maxQueuedDelta=0.0
+FD_ENGINEERED_AVAILABILITY restored case=1 body=007b9024-c38c-4740-bd31-b151c256bc5d
+[02:53:16] [Server thread/INFO] [minecraft/GameTestServer]: [_                                                           ]
+FD_ENGINEERED_AVAILABILITY restoredLinks case=1 sizes=[2, 2] partialChassisRestore=false
+FD_ENGINEERED_AVAILABILITY source=0 state=restored-1 maxQueuedDelta=1.3354770064083914
+FD_ENGINEERED_AVAILABILITY source=1 state=restored-1 maxQueuedDelta=1.1003561268393662
+[02:53:16] [Server thread/INFO] [de.si.si.SimulatedCoasters/]: [cart-link] unlinked 4d5857b3-6056-487a-8cc1-154a9ee776ed <-> 23e9ba0f-598e-4201-8394-7a0d18cba781
+[02:53:16] [Server thread/INFO] [minecraft/GameTestServer]: [_                                                           ]
+[02:53:16] [Server thread/INFO] [minecraft/GameTestServer]: [_                                                           ]
+[02:53:16] [Server thread/INFO] [minecraft/GameTestServer]: [_                                                           ]
+[02:53:16] [Server thread/INFO] [minecraft/GameTestServer]: [_                                                           ]
+[02:53:16] [Server thread/INFO] [de.si.si.SimulatedCoasters/]: [cart-link] linked carts 25b9b83d-17bf-425d-8ec1-72f636c56ba9 <-> 1c955ef9-fbf8-400f-bfaa-f1803dc2c244 at distance 6.000
+FD_ENGINEERED_AVAILABILITY source=0 state=healthy-before-2 maxQueuedDelta=1.334157630982195
+FD_ENGINEERED_AVAILABILITY source=1 state=healthy-before-2 maxQueuedDelta=1.0994608394633418
+FD_ENGINEERED_AVAILABILITY unload case=2 body=25b9b83d-17bf-425d-8ec1-72f636c56ba9 role=chassis reason=UNLOADED
+FD_ENGINEERED_AVAILABILITY source=1 state=unloaded-2 maxQueuedDelta=0.0
+FD_ENGINEERED_AVAILABILITY restored case=2 body=25b9b83d-17bf-425d-8ec1-72f636c56ba9
+[02:53:16] [Server thread/INFO] [de.si.si.SimulatedCoasters/]: [cart-link] unlinked 25b9b83d-17bf-425d-8ec1-72f636c56ba9 <-> 1c955ef9-fbf8-400f-bfaa-f1803dc2c244
+FD_ENGINEERED_AVAILABILITY restoredLinks case=2 sizes=[1, 1] partialChassisRestore=true
+[02:53:16] [Server thread/INFO] [minecraft/GameTestServer]: [_                                                           ]
+[02:53:16] [Server thread/INFO] [minecraft/GameTestServer]: [_                                                           ]
+[02:53:16] [Server thread/INFO] [minecraft/GameTestServer]: [_                                                           ]
+[02:53:16] [Server thread/INFO] [minecraft/GameTestServer]: [_                                                           ]
+[02:53:16] [Server thread/INFO] [de.si.si.SimulatedCoasters/]: [cart-link] linked carts 51317009-aac3-4768-ab01-e73d7cae882f <-> 3180e61c-6dd9-4a6b-a3df-6b32001c5ee2 at distance 6.000
+FD_ENGINEERED_AVAILABILITY source=0 state=healthy-before-3 maxQueuedDelta=1.334157630982195
+FD_ENGINEERED_AVAILABILITY source=1 state=healthy-before-3 maxQueuedDelta=1.0994608394633418
+FD_ENGINEERED_AVAILABILITY unload case=3 body=296746eb-e18c-49e8-bcd8-b0188ba44e4f role=carrier reason=UNLOADED
+FD_ENGINEERED_AVAILABILITY source=0 state=unloaded-3 maxQueuedDelta=0.0
+FD_ENGINEERED_AVAILABILITY source=1 state=unloaded-3 maxQueuedDelta=0.0
+FD_ENGINEERED_AVAILABILITY restored case=3 body=296746eb-e18c-49e8-bcd8-b0188ba44e4f
+[02:53:16] [Server thread/INFO] [minecraft/GameTestServer]: [_                                                           ]
+FD_ENGINEERED_AVAILABILITY restoredLinks case=3 sizes=[2, 2] partialChassisRestore=false
+FD_ENGINEERED_AVAILABILITY source=0 state=restored-3 maxQueuedDelta=1.3354702209823823
+FD_ENGINEERED_AVAILABILITY source=1 state=restored-3 maxQueuedDelta=1.100352792706178
+[02:53:16] [Server thread/INFO] [de.si.si.SimulatedCoasters/]: [cart-link] unlinked 51317009-aac3-4768-ab01-e73d7cae882f <-> 3180e61c-6dd9-4a6b-a3df-6b32001c5ee2
+[02:53:16] [Server thread/INFO] [minecraft/GameTestServer]: [_                                                           ]
+[02:53:16] [Server thread/INFO] [minecraft/GameTestServer]: [_                                                           ]
+[02:53:16] [Server thread/INFO] [minecraft/GameTestServer]: [_                                                           ]
+[02:53:16] [Server thread/INFO] [minecraft/GameTestServer]: [_                                                           ]
+[02:53:16] [Server thread/INFO] [de.si.si.SimulatedCoasters/]: [cart-link] linked carts a0d72309-138f-4a66-be79-da92d6363db2 <-> 9736db64-1c47-4ca7-8a14-ff20c9091e64 at distance 6.000
+FD_ENGINEERED_AVAILABILITY source=0 state=healthy-before-4 maxQueuedDelta=1.334157630982195
+FD_ENGINEERED_AVAILABILITY source=1 state=healthy-before-4 maxQueuedDelta=1.0994608394633418
+FD_ENGINEERED_AVAILABILITY unload case=4 body=6dbbe635-4036-4419-990d-6f8d714d8bb5 role=carrier reason=UNLOADED
+FD_ENGINEERED_AVAILABILITY source=0 state=unloaded-4 maxQueuedDelta=0.0
+FD_ENGINEERED_AVAILABILITY source=1 state=unloaded-4 maxQueuedDelta=0.0
+FD_ENGINEERED_AVAILABILITY restored case=4 body=6dbbe635-4036-4419-990d-6f8d714d8bb5
+FD_ENGINEERED_AVAILABILITY restoredLinks case=4 sizes=[2, 2] partialChassisRestore=false
+FD_ENGINEERED_AVAILABILITY source=0 state=restored-4 maxQueuedDelta=1.3354701969790672
+FD_ENGINEERED_AVAILABILITY source=1 state=restored-4 maxQueuedDelta=1.100354824957696
+[02:53:16] [Server thread/INFO] [de.si.si.SimulatedCoasters/]: [cart-link] unlinked a0d72309-138f-4a66-be79-da92d6363db2 <-> 9736db64-1c47-4ca7-8a14-ff20c9091e64
+[02:53:16] [Server thread/INFO] [minecraft/GameTestServer]: [_                                                           ]
+[02:53:16] [Server thread/INFO] [minecraft/GameTestServer]: [_                                                           ]
+[02:53:16] [Server thread/INFO] [minecraft/GameTestServer]: [_                                                           ]
+[02:53:16] [Server thread/INFO] [minecraft/GameTestServer]: [_                                                           ]
+[02:53:16] [Server thread/INFO] [minecraft/GameTestServer]: [_                                                           ]
+[02:53:16] [Server thread/INFO] [de.si.si.SimulatedCoasters/]: [cart-link] linked carts 696ce660-22b5-4785-ac03-de2c9d145ad8 <-> 0d990367-50f2-49fe-9042-120da18d7d3b at distance 6.000
+FD_ENGINEERED_AVAILABILITY source=0 state=healthy-before-5 maxQueuedDelta=1.334157630982195
+FD_ENGINEERED_AVAILABILITY source=1 state=healthy-before-5 maxQueuedDelta=1.0994608394633418
+FD_ENGINEERED_AVAILABILITY unload case=5 body=0d990367-50f2-49fe-9042-120da18d7d3b role=chassis reason=UNLOADED
+FD_ENGINEERED_AVAILABILITY source=0 state=unloaded-5 maxQueuedDelta=0.0
+FD_ENGINEERED_AVAILABILITY restored case=5 body=0d990367-50f2-49fe-9042-120da18d7d3b
+[02:53:16] [Server thread/INFO] [de.si.si.SimulatedCoasters/]: [cart-link] unlinked 0d990367-50f2-49fe-9042-120da18d7d3b <-> 696ce660-22b5-4785-ac03-de2c9d145ad8
+FD_ENGINEERED_AVAILABILITY restoredLinks case=5 sizes=[1, 1] partialChassisRestore=true
+FD_ENGINEERED_AVAILABILITY complete nativeUnloads=6 unavailableCalls=10 positiveCalls=20 failures=[]
+[02:53:17] [Server thread/INFO] [minecraft/GameTestRunner]: Running test batch 'fourthdimension_engineered_energy:0' (4 tests)...
+FD_ENGINEERED_FE isolatedBatch requireEnergy=true previous=false
+[02:53:17] [Server thread/INFO] [minecraft/GameTestServer]: [+                                                           ]
+[02:53:17] [Server thread/INFO] [minecraft/GameTestServer]: [+___                                                        ]
+FD_ENGINEERED_BARE_PLACEMENT itemConsumed=true chassis=6c244b2b-05bd-43ca-94c4-0b818a2f98a3
+[02:53:17] [Server thread/INFO] [minecraft/GameTestServer]: [++___                                                       ]
+[02:53:17] [Server thread/INFO] [minecraft/GameTestServer]: [++___                                                       ]
+[02:53:18] [Server thread/INFO] [minecraft/GameTestServer]: [++___                                                       ]
+FD_ENGINEERED mass ARROW assembly=15.0 expected=15.0 bodies=3
+FD_ENGINEERED mass ZACSPIN assembly=19.0 expected=19.0 bodies=3
+FD_ENGINEERED mass FREE_SPIN assembly=37.0 expected=37.0 bodies=5
+FD_ENGINEERED mass ZACSPIN_REVISED assembly=39.0 expected=39.0 bodies=5
+FD_ENGINEERED mass PAX assembly=15.0 expected=15.0 bodies=3
+[02:53:18] [Server thread/INFO] [minecraft/GameTestServer]: [++___                                                       ]
+[02:53:18] [Server thread/INFO] [de.si.si.SimulatedCoasters/]: [cart-link] linked carts 76c7ed7b-5738-4671-b0e3-f340884c272d <-> 486c853f-2bb3-4fcd-85cd-1cd329ea709e at distance 6.000
+[02:53:18] [Server thread/INFO] [minecraft/GameTestServer]: [++___                                                       ]
+[02:53:18] [Server thread/INFO] [minecraft/GameTestServer]: [++___                                                       ]
+[02:53:18] [Server thread/INFO] [minecraft/GameTestServer]: [++___                                                       ]
+FD_ENGINEERED mass ARROW assembly=15.8 expected=15.8 bodies=3
+FD_ENGINEERED_FE_RELOAD linked=true stored=40000 retained=true rider=true
+[02:53:19] [Server thread/INFO] [minecraft/GameTestServer]: [++___                                                       ]
+FD_ENGINEERED_FE starved arrow_controlled drift=3.0517578125E-5 supplied=100000
+FD_ENGINEERED_FE starved zacspin_legacy drift=0.090728759765625 supplied=100000
+FD_ENGINEERED_FE starved sns_free_spin drift=0.0 supplied=100000
+FD_ENGINEERED_FE starved zacspin_revised drift=0.0 supplied=100000
+FD_ENGINEERED_FE starved pax_shuttle drift=0.0 supplied=100000
+FD_ENGINEERED_FE starved ordinary drift=0.0 supplied=100000
+[02:53:19] [Server thread/INFO] [minecraft/GameTestServer]: [++___                                                       ]
+[02:53:19] [Server thread/INFO] [minecraft/GameTestServer]: [++___                                                       ]
+[02:53:19] [Server thread/INFO] [minecraft/GameTestServer]: [++___                                                       ]
+[02:53:19] [Server thread/INFO] [minecraft/GameTestServer]: [++___                                                       ]
+FD_ENGINEERED_FE_RELOAD launched distance=19.48138427734375 remaining=35449
+[02:53:19] [Server thread/INFO] [minecraft/GameTestServer]: [++___                                                       ]
+FD_ENGINEERED mass ARROW assembly=15.8 expected=15.8 bodies=3
+FD_ENGINEERED_FE supplied arrow_controlled distance=16.18304443359375 speed=6.260602499249753 remaining=96260
+FD_ENGINEERED mass ZACSPIN assembly=19.8 expected=19.8 bodies=3
+FD_ENGINEERED_FE supplied zacspin_legacy distance=16.296661376953125 speed=6.180727044621305 remaining=95270
+FD_ENGINEERED mass FREE_SPIN assembly=37.8 expected=37.8 bodies=5
+FD_ENGINEERED_FE supplied sns_free_spin distance=16.538604736328125 speed=6.431425586890238 remaining=91024
+FD_ENGINEERED mass ZACSPIN_REVISED assembly=39.8 expected=39.8 bodies=5
+FD_ENGINEERED_FE supplied zacspin_revised distance=16.527801513671875 speed=6.4350242756201785 remaining=90570
+FD_ENGINEERED mass PAX assembly=15.8 expected=15.8 bodies=3
+FD_ENGINEERED_FE supplied pax_shuttle distance=0.0 speed=5.600588629028143E-4 remaining=100000
+FD_ENGINEERED_FE supplied ordinary distance=17.45452880859375 speed=6.934738163618766 remaining=99649
+[02:53:20] [Server thread/INFO] [minecraft/GameTestServer]: [++___                                                       ]
+[02:53:20] [Server thread/INFO] [minecraft/GameTestServer]: [++___                                                       ]
+[02:53:20] [Server thread/INFO] [minecraft/GameTestServer]: [++___                                                       ]
+[02:53:20] [Server thread/INFO] [minecraft/GameTestServer]: [++___                                                       ]
+[02:53:20] [Server thread/INFO] [minecraft/GameTestServer]: [++___                                                       ]
+FD_ENGINEERED_FE_RELOAD stopped=true recaptured=true unloaded=true
+[02:53:20] [Server thread/INFO] [minecraft/GameTestServer]: [++__+                                                       ]
+FD_ENGINEERED_RECOVERY_FE activeDistance=0.3404541015625 activeEnergy=99680 stopping=false fault=
+FD_ENGINEERED_RECOVERY_FE towingDistance=0.3404541015625 brakedDistance=0.0 starvedTowDistance=0.0 suppliedEnergy=100000 activeEnergy=99680 riderMounted=true
+[02:53:20] [Server thread/INFO] [minecraft/GameTestServer]: [++__+                                                       ]
+FD_ENGINEERED_FE stopped arrow_controlled speed=6.724313490575553E-4 recovered=701 peakRecovered=892
+FD_ENGINEERED_FE stopped zacspin_legacy speed=0.017774063336836482 recovered=683 peakRecovered=926
+FD_ENGINEERED_FE stopped sns_free_spin speed=0.007043136873512723 recovered=1569 peakRecovered=2007
+FD_ENGINEERED_FE stopped zacspin_revised speed=4.8127274251631594E-4 recovered=1611 peakRecovered=2335
+FD_ENGINEERED_FE stopped pax_shuttle speed=5.600586300721706E-4 recovered=0 peakRecovered=0
+FD_ENGINEERED_FE stopped ordinary speed=0.005498953170326976 recovered=-68 peakRecovered=68
+[02:53:21] [Server thread/INFO] [minecraft/GameTestServer]: [++__+                                                       ]
+[02:53:21] [Server thread/INFO] [minecraft/GameTestServer]: [++__+                                                       ]
+[02:53:21] [Server thread/INFO] [minecraft/GameTestServer]: [++__+                                                       ]
+FD_ENGINEERED_RECOVERY_FE brakedEnergy=99680 minimumBrakedEnergy=99680 noBrakeDepletion=true explicitStart=true
+[02:53:21] [Server thread/INFO] [de.si.si.SimulatedCoasters/]: [cart-link] unlinked 76c7ed7b-5738-4671-b0e3-f340884c272d <-> 486c853f-2bb3-4fcd-85cd-1cd329ea709e
+FD_ENGINEERED_RECOVERY_FE cleanup vehiclePresent=false remainingVehicles=5
+FD_ENGINEERED_RECOVERY_FE cleanupVerified=true
+[02:53:21] [Server thread/INFO] [minecraft/GameTestServer]: [+++_+                                                       ]
+[02:53:21] [Server thread/INFO] [minecraft/GameTestServer]: [+++_+                                                       ]
+[02:53:21] [Server thread/INFO] [minecraft/GameTestServer]: [+++_+                                                       ]
+[02:53:21] [Server thread/INFO] [minecraft/GameTestServer]: [+++_+                                                       ]
+[02:53:22] [Server thread/INFO] [minecraft/GameTestServer]: [+++_+                                                       ]
+[02:53:22] [Server thread/INFO] [minecraft/GameTestServer]: [+++_+                                                       ]
+[02:53:22] [Server thread/INFO] [minecraft/GameTestServer]: [+++_+                                                       ]
+FD_ENGINEERED_FE retained arrow_controlled drift=0.0 energy=100000
+FD_ENGINEERED_FE retained zacspin_legacy drift=0.0 energy=100000
+FD_ENGINEERED_FE retained sns_free_spin drift=0.0 energy=100000
+FD_ENGINEERED_FE retained zacspin_revised drift=0.0 energy=100000
+FD_ENGINEERED_FE retained pax_shuttle drift=0.0 energy=100000
+FD_ENGINEERED_FE installed=1.1.1 nativeCapability=true unloaded=true
+FD_ENGINEERED_FE restored requireEnergy=false
+[02:53:22] [Server thread/INFO] [minecraft/GameTestRunner]: Running test batch 'fourthdimension_engineered_recovery_availability:0' (1 tests)...
+[02:53:22] [Server thread/INFO] [minecraft/GameTestServer]: [+++++                                                       ]
+[02:53:22] [Server thread/INFO] [minecraft/GameTestServer]: [+++++                                                       ]
+[02:53:22] [Server thread/INFO] [minecraft/GameTestServer]: [+++++_                                                      ]
+[02:53:22] [Server thread/INFO] [minecraft/GameTestServer]: [+++++_                                                      ]
+[02:53:22] [Server thread/INFO] [minecraft/GameTestServer]: [+++++_                                                      ]
+[02:53:22] [Server thread/INFO] [minecraft/GameTestServer]: [+++++_                                                      ]
+[02:53:22] [Server thread/INFO] [minecraft/GameTestServer]: [+++++_                                                      ]
+[02:53:22] [Server thread/INFO] [de.si.si.SimulatedCoasters/]: [cart-link] linked carts b960e30b-8e9d-4eee-a0d1-d4b902e28661 <-> c2394f52-4d58-4771-bbe0-9e3c5d3f0a0f at distance 6.000
+[02:53:22] [Server thread/INFO] [minecraft/GameTestServer]: [+++++_                                                      ]
+[02:53:22] [Server thread/INFO] [minecraft/GameTestServer]: [+++++_                                                      ]
+FD_ENGINEERED_RECOVERY_AVAILABILITY case=0 state=braked source=ordinary-bearing maxQueuedDelta=0.0
+FD_ENGINEERED_RECOVERY_AVAILABILITY case=0 state=healthy source=ordinary-bearing maxQueuedDelta=0.08305553527832525
+FD_ENGINEERED_RECOVERY_AVAILABILITY unload case=0 body=07a613d1-8a72-4161-832e-533d087c0b4d role=carrier bearing=c2394f52-4d58-4771-bbe0-9e3c5d3f0a0f reason=UNLOADED
+FD_ENGINEERED_RECOVERY_AVAILABILITY case=0 state=unloaded-before-tick source=ordinary-bearing maxQueuedDelta=0.0
+FD_ENGINEERED_RECOVERY_AVAILABILITY case=0 state=unloaded-after-tick source=ordinary-bearing maxQueuedDelta=0.0
+FD_ENGINEERED_RECOVERY_AVAILABILITY fault case=0 stopping=true fault=Recovery equipment, coupling or matching track unavailable: brake and inspect before resume
+FD_ENGINEERED_RECOVERY_AVAILABILITY restored case=0 body=07a613d1-8a72-4161-832e-533d087c0b4d linkRecoveryClaim=false
+[02:53:22] [Server thread/INFO] [de.si.si.SimulatedCoasters/]: [cart-link] unlinked c2394f52-4d58-4771-bbe0-9e3c5d3f0a0f <-> b960e30b-8e9d-4eee-a0d1-d4b902e28661
+[02:53:23] [Server thread/INFO] [minecraft/GameTestServer]: [+++++_                                                      ]
+[02:53:23] [Server thread/INFO] [minecraft/GameTestServer]: [+++++_                                                      ]
+[02:53:23] [Server thread/INFO] [minecraft/GameTestServer]: [+++++_                                                      ]
+[02:53:23] [Server thread/INFO] [minecraft/GameTestServer]: [+++++_                                                      ]
+[02:53:23] [Server thread/INFO] [minecraft/GameTestServer]: [+++++_                                                      ]
+[02:53:23] [Server thread/INFO] [de.si.si.SimulatedCoasters/]: [cart-link] linked carts 6e413470-05e8-4bef-b15d-46bc773f9331 <-> eec61b70-3a70-44a5-a678-6fad90c250e3 at distance 6.000
+[02:53:23] [Server thread/INFO] [minecraft/GameTestServer]: [+++++_                                                      ]
+[02:53:23] [Server thread/INFO] [minecraft/GameTestServer]: [+++++_                                                      ]
+FD_ENGINEERED_RECOVERY_AVAILABILITY case=1 state=braked source=ordinary-bearing maxQueuedDelta=0.0
+FD_ENGINEERED_RECOVERY_AVAILABILITY case=1 state=healthy source=ordinary-bearing maxQueuedDelta=0.08305553527832525
+FD_ENGINEERED_RECOVERY_AVAILABILITY unload case=1 body=f2850df1-e3ac-46c1-98c0-29e2e5251771 role=carrier bearing=eec61b70-3a70-44a5-a678-6fad90c250e3 reason=UNLOADED
+FD_ENGINEERED_RECOVERY_AVAILABILITY case=1 state=unloaded-before-tick source=ordinary-bearing maxQueuedDelta=0.0
+FD_ENGINEERED_RECOVERY_AVAILABILITY case=1 state=unloaded-after-tick source=ordinary-bearing maxQueuedDelta=0.0
+FD_ENGINEERED_RECOVERY_AVAILABILITY fault case=1 stopping=true fault=Recovery equipment, coupling or matching track unavailable: brake and inspect before resume
+FD_ENGINEERED_RECOVERY_AVAILABILITY restored case=1 body=f2850df1-e3ac-46c1-98c0-29e2e5251771 linkRecoveryClaim=false
+[02:53:23] [Server thread/INFO] [de.si.si.SimulatedCoasters/]: [cart-link] unlinked eec61b70-3a70-44a5-a678-6fad90c250e3 <-> 6e413470-05e8-4bef-b15d-46bc773f9331
+[02:53:23] [Server thread/INFO] [minecraft/GameTestServer]: [+++++_                                                      ]
+[02:53:23] [Server thread/INFO] [minecraft/GameTestServer]: [+++++_                                                      ]
+[02:53:23] [Server thread/INFO] [minecraft/GameTestServer]: [+++++_                                                      ]
+[02:53:23] [Server thread/INFO] [minecraft/GameTestServer]: [+++++_                                                      ]
+[02:53:23] [Server thread/INFO] [minecraft/GameTestServer]: [+++++_                                                      ]
+[02:53:23] [Server thread/INFO] [de.si.si.SimulatedCoasters/]: [cart-link] linked carts 34cbdc56-4a3f-4487-86a4-c8200e4d2d5e <-> d03f5048-a72e-4521-a757-20427dce98ed at distance 6.000
+[02:53:23] [Server thread/INFO] [minecraft/GameTestServer]: [+++++_                                                      ]
+FD_ENGINEERED_RECOVERY_AVAILABILITY case=2 state=braked source=ordinary-bearing maxQueuedDelta=0.0
+FD_ENGINEERED_RECOVERY_AVAILABILITY case=2 state=healthy source=ordinary-bearing maxQueuedDelta=0.08305553527832525
+FD_ENGINEERED_RECOVERY_AVAILABILITY unload case=2 body=34cbdc56-4a3f-4487-86a4-c8200e4d2d5e role=chassis bearing=d03f5048-a72e-4521-a757-20427dce98ed reason=UNLOADED
+FD_ENGINEERED_RECOVERY_AVAILABILITY case=2 state=unloaded-before-tick source=ordinary-bearing maxQueuedDelta=0.0
+FD_ENGINEERED_RECOVERY_AVAILABILITY case=2 state=unloaded-after-tick source=ordinary-bearing maxQueuedDelta=0.0
+FD_ENGINEERED_RECOVERY_AVAILABILITY fault case=2 stopping=true fault=Recovery equipment, coupling or matching track unavailable: brake and inspect before resume
+FD_ENGINEERED_RECOVERY_AVAILABILITY restored case=2 body=34cbdc56-4a3f-4487-86a4-c8200e4d2d5e linkRecoveryClaim=false
+[02:53:23] [Server thread/INFO] [de.si.si.SimulatedCoasters/]: [cart-link] unlinked d03f5048-a72e-4521-a757-20427dce98ed <-> 34cbdc56-4a3f-4487-86a4-c8200e4d2d5e
+FD_ENGINEERED_RECOVERY_AVAILABILITY complete nativeUnloads=3 brakedCalls=3 healthyCalls=3 unavailableCalls=3 afterTickCalls=3 failures=[]
+[02:53:24] [Server thread/INFO] [minecraft/GameTestRunner]: Running test batch 'defaultBatch:0' (33 tests)...
+[02:53:24] [Server thread/INFO] [minecraft/GameTestServer]: [++++++                                                      ]
+FD_SNAPSHOT_MAX bytes=683072
+FD_RIDER_ASSIGNMENTS duplicateCarrierReject=true duplicateVehicleReject=true
+[02:53:25] [Server thread/INFO] [de.fo.ga.TeachingContentGameTests/]: FD_TEACHING nativeCrafts=15 missingIngredientRejections=15 inventoryDiscoveries=15
+FD903_HISTORICAL schema3Rails=24 chassis=3 providerConversionRejected=true duplicateRailIdRejected=true nativeBodyCollisionsRejected=4
+[02:53:25] [Server thread/INFO] [minecraft/MinecraftServer]: Recovery example built with an unpowered native chain drive. Board, close restraints and retain the car. Sneak-use the Rotation Tool on the bare bearing; select Attach recovery on the end car, then Start tow. Set the creative motor to 8 RPM in the bearing's direction. The lever above the clutch starts ON (power OFF). Turn it OFF to supply towing power. Brake tow, turn the lever ON to stop power, then Detach recovery; carriers remain retained. Maximum recovery speed: 0.75 blocks/s.
+FD_APPEARANCE schema=6 oldSchemas=1..5 missingProviderAppearances=3 mechanicsUnchanged=true styleFamilyCases=10 strokeCases=0
+[02:53:26] [Server thread/INFO] [de.fo.ga.PonderDiagramGameTests/]: FD_PONDER_RESOURCES diagrams=9 decodedBlocks=1968
+[02:53:26] [Server thread/INFO] [minecraft/GameTestServer]: [++++++_+__+_++________________+++___                        ]
+[02:53:27] [Server thread/INFO] [minecraft/GameTestServer]: [++++++_+__+_++________________+++_____+                     ]
+[02:53:28] [Server thread/INFO] [minecraft/GameTestServer]: [++++++_++_+_++________________+++_____+                     ]
+FD_FREE angles=[-1.7668556728130111, -1.8112586723550972] maximum separation=0.7237819017546765
+FD_RECOVERY_DEMO_COMMAND command=fd_demo_recovery_arrow operatorFixture=true unpoweredNativeDrive=true ordinaryCouplingPending=true
+FD_ENGINEERED initialSettle ARROW displacement=( 2.035E-5  5.450E-6 -1.076E-1)
+FD_ENGINEERED initialSettle ZACSPIN displacement=( 2.035E-5 -2.180E-6 -8.490E-2)
+FD_ENGINEERED initialSettle FREE_SPIN displacement=( 2.441E-5 -1.744E-6 -1.489E-3)
+FD_ENGINEERED initialSettle ZACSPIN_REVISED displacement=( 0.000E+0 -8.233E-6 -5.993E-4)
+FD_ENGINEERED initialSettle PAX displacement=(-1.017E-5  5.450E-6  0.000E+0)
+[02:53:29] [Server thread/INFO] [minecraft/GameTestServer]: [++++++_++_+_++__+_____________+++_____+                     ]
+[02:53:30] [Server thread/INFO] [de.si.si.SimulatedCoasters/]: [cart-link] linked carts 12154b6d-0e26-4387-a657-c4704fe26887 <-> 45ecf7fc-32ee-4ec7-98a2-0158f3f4861c at distance 6.000
+[02:53:30] [Server thread/INFO] [de.si.si.SimulatedCoasters/]: [cart-link] linked carts 45ecf7fc-32ee-4ec7-98a2-0158f3f4861c <-> c7f41953-a80a-41b5-bfa7-25187432465b at distance 6.000
+[02:53:30] [Server thread/INFO] [de.si.si.SimulatedCoasters/]: [cart-link] linked carts c7f41953-a80a-41b5-bfa7-25187432465b <-> 0df0f9c7-5ed3-46d7-8570-d302bba7b097 at distance 6.000
+[02:53:30] [Server thread/INFO] [de.si.si.SimulatedCoasters/]: [cart-link] linked carts 7f7dc802-6be0-423b-8c11-3623d399ec71 <-> ce5816d0-f147-4c6a-9f68-b8511980bc4a at distance 6.000
+[02:53:30] [Server thread/INFO] [de.si.si.SimulatedCoasters/]: [cart-link] linked carts ce5816d0-f147-4c6a-9f68-b8511980bc4a <-> b494ecbd-f2d9-438c-9f1d-dcc5c3ba7831 at distance 6.000
+[02:53:30] [Server thread/INFO] [de.si.si.SimulatedCoasters/]: [cart-link] linked carts b494ecbd-f2d9-438c-9f1d-dcc5c3ba7831 <-> 994eebd9-7001-4f13-9e5e-07a3f337c4b4 at distance 6.000
+FD_ENGINEERED PAX opposingSpans=3 directMotorCalls=true
+[02:53:30] [Server thread/INFO] [de.si.si.SimulatedCoasters/]: [cart-link] linked carts ee1263e2-c184-4070-80d0-2fef32a3e601 <-> 1da6319d-4a99-4bd1-a2ab-4fc006fb6bfe at distance 6.000
+[02:53:30] [Server thread/INFO] [de.si.si.SimulatedCoasters/]: [cart-link] linked carts 1da6319d-4a99-4bd1-a2ab-4fc006fb6bfe <-> 9bb52f41-3eec-482d-b1f1-00787a1aa244 at distance 6.000
+[02:53:30] [Server thread/INFO] [de.si.si.SimulatedCoasters/]: [cart-link] linked carts 9bb52f41-3eec-482d-b1f1-00787a1aa244 <-> b83c6b36-8d3f-4da8-bc55-813520a3561b at distance 6.000
+[02:53:30] [Server thread/INFO] [de.fo.ve.Boarding/]: FD_BOARDING_EVENT player=FDSeatFirst action=mount seat=BlockPos{x=20483080, y=127, z=20503560} restraints=false restoring=false
+[02:53:30] [Server thread/INFO] [de.fo.ve.Boarding/]: FD_BOARDING_ASSIGN player=FDSeatFirst seat=BlockPos{x=20483080, y=127, z=20503560} offset=BlockPos{x=0, y=-1, z=0} knownSeats=[BlockPos{x=0, y=-1, z=0}, BlockPos{x=-1, y=-1, z=0}] accepted=true
+[02:53:30] [Server thread/INFO] [de.fo.ve.Boarding/]: FD_BOARDING_EVENT player=FDSeatSecond action=mount seat=BlockPos{x=20483079, y=127, z=20503560} restraints=false restoring=false
+[02:53:30] [Server thread/INFO] [de.fo.ve.Boarding/]: FD_BOARDING_ASSIGN player=FDSeatSecond seat=BlockPos{x=20483079, y=127, z=20503560} offset=BlockPos{x=-1, y=-1, z=0} knownSeats=[BlockPos{x=0, y=-1, z=0}, BlockPos{x=-1, y=-1, z=0}] accepted=true
+FD_REVISED_MASS mass=4.0 firstMoment=0.625 inertia=2.486979166666667
+FD_REVISED_MASS mass=4.0 firstMoment=0.625 inertia=2.486979166666667
+FD_REVISED_MASS mass=4.0 firstMoment=0.625 inertia=2.486979166666667
+FD_REVISED_MASS mass=4.0 firstMoment=0.625 inertia=2.486979166666667
+[02:53:30] [Server thread/INFO] [de.si.si.SimulatedCoasters/]: [cart-link] linked carts 2970884a-e934-4acd-83ce-c8a9df104508 <-> 359cf35f-a4f5-4da5-9586-9d4d0585ff6e at distance 6.000
+[02:53:30] [Server thread/INFO] [de.si.si.SimulatedCoasters/]: [cart-link] linked carts ef06ccf9-b269-49d3-8ba8-34a11d6d71f1 <-> 89aebbda-671d-4e31-8818-7cb29779d3d0 at distance 6.000
+[02:53:30] [Server thread/INFO] [de.si.si.SimulatedCoasters/]: [cart-link] linked carts 89aebbda-671d-4e31-8818-7cb29779d3d0 <-> 10c38ad3-c4b1-45d8-af09-0f8233d3d070 at distance 6.000
+[02:53:30] [Server thread/INFO] [de.si.si.SimulatedCoasters/]: [cart-link] linked carts 10c38ad3-c4b1-45d8-af09-0f8233d3d070 <-> 8d00d9f4-5a67-4c70-b430-e11993961e69 at distance 6.000
+FD_BANK geometryPath=/tmp/fourthdimension-7af457c2/build/runs/gametest/bank-native-frames.json
+FD_BANK jointErrors center=0.0 tangent=1.7347193836045446E-4 up=8.409694009568193E-5
+FD_BANK maxBankDegrees=30.00000083482606
+[02:53:30] [Server thread/INFO] [de.si.si.SimulatedCoasters/]: [cart-link] linked carts 1ddcbf8f-c344-48ee-b84b-6b4dc11cba76 <-> 1baac2a9-cfa6-48f9-b5d2-26a2a545a89a at distance 6.000
+[02:53:30] [Server thread/INFO] [de.si.si.SimulatedCoasters/]: [cart-link] linked carts 1baac2a9-cfa6-48f9-b5d2-26a2a545a89a <-> 22df0525-04f7-4663-8318-8802b0d43347 at distance 6.000
+[02:53:30] [Server thread/INFO] [de.si.si.SimulatedCoasters/]: [cart-link] linked carts 22df0525-04f7-4663-8318-8802b0d43347 <-> 43c092aa-3305-469d-9a9d-2675eb89f8d8 at distance 6.000
+[02:53:30] [Server thread/INFO] [de.si.si.SimulatedCoasters/]: [cart-link] linked carts 9ffaa860-8a71-4c77-96a3-c907a55d3395 <-> e585ad1c-cc4a-49b0-8342-f4e0a19111be at distance 6.000
+[02:53:30] [Server thread/INFO] [de.si.si.SimulatedCoasters/]: [cart-link] linked carts e585ad1c-cc4a-49b0-8342-f4e0a19111be <-> a205b6f2-77d5-41c5-8263-ffa3bcd7738f at distance 6.000
+[02:53:30] [Server thread/INFO] [de.si.si.SimulatedCoasters/]: [cart-link] linked carts a205b6f2-77d5-41c5-8263-ffa3bcd7738f <-> 25cead09-7a32-4471-a383-b4008d5142f0 at distance 6.000
+[02:53:30] [Server thread/INFO] [de.si.si.SimulatedCoasters/]: [cart-link] linked carts a0fa2353-6efa-4872-b5d0-0953bb1d1d4d <-> 8d3a16bc-0d87-4055-9e4a-ba087ab46185 at distance 6.000
+[02:53:30] [Server thread/INFO] [de.si.si.SimulatedCoasters/]: [cart-link] linked carts 46721fad-26e6-4e9d-bb09-80742f35fddb <-> a5345663-4f93-487d-b036-d06ca28a0371 at distance 6.000
+[02:53:30] [Server thread/INFO] [de.si.si.SimulatedCoasters/]: [cart-link] linked carts 96a77aad-8f47-463f-9c7c-672e1078f863 <-> 0d1f0df0-b3d2-4741-842e-1a4d2537b2d6 at distance 12.000
+[02:53:30] [Server thread/INFO] [de.si.si.SimulatedCoasters/]: [cart-link] linked carts 6fc406b5-07b9-4515-9688-4d83334e27d3 <-> 85d55d12-b819-45cd-8f45-3f637b5543ee at distance 14.000
+[02:53:30] [Server thread/INFO] [de.si.si.SimulatedCoasters/]: [cart-link] linked carts df37aa53-c5ef-4a33-bce3-877b21f48fad <-> 0a2e3c7c-9800-444d-917a-46ad550d5913 at distance 6.000
+[02:53:30] [Server thread/INFO] [de.si.si.SimulatedCoasters/]: [cart-link] linked carts 7d5f1fb8-eb72-4cfc-a50f-081a7d66d2a2 <-> c03266e6-f887-4fb3-a2a1-e7204799b5cf at distance 6.000
+[02:53:30] [Server thread/INFO] [de.si.si.SimulatedCoasters/]: [cart-link] linked carts c03266e6-f887-4fb3-a2a1-e7204799b5cf <-> 53b3cf74-36ed-46b6-baf4-0faf2db0c978 at distance 6.000
+[02:53:30] [Server thread/INFO] [de.si.si.SimulatedCoasters/]: [cart-link] linked carts 53b3cf74-36ed-46b6-baf4-0faf2db0c978 <-> c90c62ca-a7dc-442c-9ccc-f6b5448aecd6 at distance 6.000
+[02:53:30] [Server thread/INFO] [minecraft/GameTestServer]: [++++++_++_+_++__+_____________+++_____+                     ]
+[02:53:31] [Server thread/INFO] [de.si.si.SimulatedCoasters/]: [cart-link] linked carts 4769f7cd-cadf-4ce4-a255-150c3c6dd35c <-> e7ed30bd-4313-41af-945f-134fcfa02d90 at distance 6.000
+[02:53:31] [Server thread/INFO] [de.si.si.SimulatedCoasters/]: [cart-link] linked carts e7ed30bd-4313-41af-945f-134fcfa02d90 <-> b8bcbad1-1efe-4d0a-a3c7-a66455f6f252 at distance 6.000
+[02:53:31] [Server thread/INFO] [de.si.si.SimulatedCoasters/]: [cart-link] linked carts b8bcbad1-1efe-4d0a-a3c7-a66455f6f252 <-> b7a6a81f-d386-4df4-a502-64e8914a4bae at distance 6.000
+[02:53:31] [Server thread/INFO] [de.fo.ve.Boarding/]: FD_BOARDING_DISMOUNT_CANCEL player=Pig assignedSeats=0
+FD_ORDINARY_MATRIX families=5 directFits=5 nativeFits=5 wideRejects=5 nativeWideRejects=5 mixedConsistRejects=2 no4D=true
+[02:53:32] [Server thread/INFO] [de.fo.ve.Boarding/]: FD_BOARDING_EVENT player=FDSeatFirst action=dismount seat=BlockPos{x=20483080, y=127, z=20503560} restraints=false restoring=false
+[02:53:32] [Server thread/INFO] [de.fo.ve.Boarding/]: FD_BOARDING_EVENT player=FDSeatSecond action=dismount seat=BlockPos{x=20483079, y=127, z=20503560} restraints=false restoring=false
+FD_ENGINEERED held ARROW longitudinalDrift=0.0 settle=( 0.000E+0  0.000E+0  0.000E+0)
+FD_ENGINEERED mass ARROW assembly=15.0 expected=15.0 bodies=3
+FD_ENGINEERED held ZACSPIN longitudinalDrift=0.0 settle=( 0.000E+0  0.000E+0  0.000E+0)
+FD_ENGINEERED mass ZACSPIN assembly=19.0 expected=19.0 bodies=3
+FD_ENGINEERED held FREE_SPIN longitudinalDrift=0.0 settle=( 0.000E+0  0.000E+0  0.000E+0)
+FD_ENGINEERED mass FREE_SPIN assembly=37.0 expected=37.0 bodies=5
+FD_ENGINEERED held ZACSPIN_REVISED longitudinalDrift=0.0 settle=( 0.000E+0  0.000E+0  0.000E+0)
+FD_ENGINEERED mass ZACSPIN_REVISED assembly=39.0 expected=39.0 bodies=5
+FD_ENGINEERED held PAX longitudinalDrift=0.0 settle=( 0.000E+0  0.000E+0  0.000E+0)
+FD_ENGINEERED mass PAX assembly=15.0 expected=15.0 bodies=3
+FD_SHUTTLE_IDLE observedPhase=BOARDING fault= leadLoaded=false leadHeld=true restraints=[false, false, false, false]
+FD_SHUTTLE_IDLE gapPreserved=true missingLeadDispatchRejected=true lead=ef06ccf9-b269-49d3-8ba8-34a11d6d71f1
+[02:53:32] [Server thread/INFO] [minecraft/GameTestServer]: [++++++_++_+_++__+_+_+______+__+++_____+                     ]
+[02:53:32] [Server thread/INFO] [de.si.si.SimulatedCoasters/]: [cart-link] restored link ef06ccf9-b269-49d3-8ba8-34a11d6d71f1 <-> 89aebbda-671d-4e31-8818-7cb29779d3d0 (distance 6.0)
+[02:53:32] [Server thread/INFO] [de.si.si.SimulatedCoasters/]: [cart-link] restored link 89aebbda-671d-4e31-8818-7cb29779d3d0 <-> 10c38ad3-c4b1-45d8-af09-0f8233d3d070 (distance 6.0)
+[02:53:32] [Server thread/INFO] [de.si.si.SimulatedCoasters/]: [cart-link] restored link 8d00d9f4-5a67-4c70-b430-e11993961e69 <-> 10c38ad3-c4b1-45d8-af09-0f8233d3d070 (distance 6.0)
+FD_ENGINEERED ordinary distance=10.564453125 bodies=1 mass=1.0 no4D=true
+[02:53:33] [Server thread/INFO] [minecraft/GameTestServer]: [++++++_++_+_++__+_+_+______+__+++_____+                     ]
+FD_SUPPORT_LOSS families=[ARROW, ZACSPIN, FREE_SPIN, ZACSPIN_REVISED, PAX] riders=5 bindingsPreserved=true savedStatePreserved=true failClosed=true
+FD_CONTENT_FREE excursions=[0.21413067079734896, 0.13781279694787446] angle=-0.19340625643420842 omega=0.012769905706288779 mass=6.0
+FD_SHUTTLE_TOPOLOGY branchFaulted=true retainedTrain=true
+[02:53:34] [Server thread/INFO] [minecraft/GameTestServer]: [++++++_++_+_++__+_+_+______+__+++__+__+                     ]
+FD_SHUTTLE_ACTIVE_RELOAD cars=4 carriers=8 retained=true
+[02:53:35] [Server thread/INFO] [de.fo.ve.Boarding/]: FD_BOARDING_DISMOUNT_CANCEL player=Pig assignedSeats=0
+[02:53:35] [Server thread/INFO] [de.fo.ve.Boarding/]: FD_BOARDING_DISMOUNT_CANCEL player=Pig assignedSeats=0
+[02:53:35] [Server thread/INFO] [de.fo.ve.Boarding/]: FD_BOARDING_DISMOUNT_CANCEL player=Pig assignedSeats=0
+[02:53:35] [Server thread/INFO] [de.fo.ve.Boarding/]: FD_BOARDING_DISMOUNT_CANCEL player=Pig assignedSeats=0
+[02:53:35] [Server thread/INFO] [de.fo.ve.Boarding/]: FD_BOARDING_DISMOUNT_CANCEL player=Pig assignedSeats=0
+FD_SHUTTLE_CAUGHT observedPhase=BOARDING fault= leadLoaded=false carriageLoaded=false leadHeld=true carriageHeld=true restraints=[false, false, false, false]
+FD_SHUTTLE_IDLE restoredCars=4 restoredCarriers=8 links=4 missingSupportDispatchRejected=true
+[02:53:35] [Server thread/INFO] [minecraft/GameTestServer]: [++++++_++_+_++__+_+_+___+__+__+++__+_++                     ]
+[02:53:35] [Server thread/INFO] [de.si.si.SimulatedCoasters/]: [cart-link] restored link 1da6319d-4a99-4bd1-a2ab-4fc006fb6bfe <-> ee1263e2-c184-4070-80d0-2fef32a3e601 (distance 6.0)
+[02:53:35] [Server thread/INFO] [de.si.si.SimulatedCoasters/]: [cart-link] restored link 1da6319d-4a99-4bd1-a2ab-4fc006fb6bfe <-> 9bb52f41-3eec-482d-b1f1-00787a1aa244 (distance 6.0)
+[02:53:35] [Server thread/INFO] [de.si.si.SimulatedCoasters/]: [cart-link] restored link b83c6b36-8d3f-4da8-bc55-813520a3561b <-> 9bb52f41-3eec-482d-b1f1-00787a1aa244 (distance 6.0)
+[02:53:36] [Server thread/INFO] [minecraft/GameTestServer]: [++++++_++_+_++__+_+_+___+__+__+++__+_++                     ]
+FD_PERMANENT_DISASSEMBLY families=[ARROW, ZACSPIN, FREE_SPIN, ZACSPIN_REVISED, PAX] ridersRecovered=5 bodiesRemoved=true savedStateRemoved=true
+FD_ENGINEERED launch ARROW distance=16.1734619140625 speed=6.254773164901113
+FD_ENGINEERED mass ARROW assembly=15.8 expected=15.8 bodies=3
+FD_ENGINEERED launch ZACSPIN distance=16.23779296875 speed=6.163819352523267
+FD_ENGINEERED mass ZACSPIN assembly=19.8 expected=19.8 bodies=3
+FD_ENGINEERED launch FREE_SPIN distance=16.5335693359375 speed=6.430680767108007
+FD_ENGINEERED mass FREE_SPIN assembly=37.8 expected=37.8 bodies=5
+FD_ENGINEERED launch ZACSPIN_REVISED distance=16.52142333984375 speed=6.4341545248254945
+FD_ENGINEERED mass ZACSPIN_REVISED assembly=39.8 expected=39.8 bodies=5
+FD_ENGINEERED launch PAX distance=0.0 speed=5.600583972410452E-4
+FD_ENGINEERED mass PAX assembly=15.8 expected=15.8 bodies=3
+FD_PAX_SUPPORT_RECOVERY repaired=true realigned=true recovered=true relaunched=true riders=16
+[02:53:37] [Server thread/INFO] [minecraft/GameTestServer]: [++++++_++_+_++__+_+_+___+__+_++++__+_++                     ]
+FD_BOUNDARY direction=0 position=(-3.995E+2  1.011E+2  3.380E+2) fault=End of compatible track; capture and inspect the route
+FD_BOUNDARY direction=1 position=(-3.755E+2  1.011E+2  3.030E+2) fault=End of compatible track; capture and inspect the route
+FD_ENGINEERED ordinary STOP speed=2.4812837364152074E-4
+FD_SHUTTLE_CAUGHT restoredCars=4 restoredCarriers=8 links=4 sameCarriage=true missingLeadDispatchRejected=true missingSupportDispatchRejected=true
+[02:53:38] [Server thread/INFO] [minecraft/GameTestServer]: [+++++++++++_++__+_+_+___+__+_++++__++++                     ]
+[02:53:38] [Server thread/INFO] [de.fo.ve.Boarding/]: FD_BOARDING_DISMOUNT_CANCEL player=Pig assignedSeats=0
+FD_NATIVE at230 position=( 1.650E+1  8.162E+1  5.261E+1) from=BlockPos{x=16, y=80, z=16} angles=[12.154606085009732, 12.153236068647086] velocity=( 0.000E+0  0.000E+0  3.000E+0) disengaged=false
+[02:53:39] [Server thread/INFO] [minecraft/GameTestServer]: [+++++++++++_++__+_+_+___++_+_++++__++++                     ]
+FD_RECOVERY_PAX physicalCarriageHandover=true activeHandoverRejected=true originalCarsAndCarriersPreserved=true originalCouplings=4 replacementCarriage=false
+FD_SHUTTLE_CAUGHT permanentCarriageRemovalFaulted=true destroyedCarriageRecoveryRejected=true replacementAllocated=false
+[02:53:40] [Server thread/INFO] [minecraft/GameTestServer]: [+++++++++++_++__+++++___++++_+++++_++++                     ]
+[02:53:40] [Server thread/INFO] [minecraft/GameTestServer]: [+++++++++++_++__+++++___++++_+++++_++++                     ]
+[02:53:41] [Server thread/INFO] [minecraft/GameTestServer]: [+++++++++++_++__+++++___++++_+++++_++++                     ]
+[02:53:42] [Server thread/INFO] [minecraft/GameTestServer]: [+++++++++++_++__+++++___++++_+++++_++++                     ]
+FD_ENGINEERED stop ARROW speed=5.625389790969128E-4
+FD_ENGINEERED stop ZACSPIN speed=0.02244938697093473
+FD_ENGINEERED stop FREE_SPIN speed=0.005034451197676024
+FD_ENGINEERED stop ZACSPIN_REVISED speed=4.482080526735638E-4
+FD_ENGINEERED stop PAX speed=5.600586300723554E-4
+[02:53:43] [Server thread/INFO] [minecraft/GameTestServer]: [+++++++++++_++__+++++___++++_+++++_++++                     ]
+[02:53:44] [Server thread/INFO] [minecraft/GameTestServer]: [++++++++++++++__+++++___++++_+++++_++++                     ]
+FD_RECOVERY_NATIVE family=ARROW travel=5.577819616796148 riders=4 maxSpacing=6.095121283333782E-5 maxAngle=5.027331656605354E-4 fault=
+FD_RECOVERY_NATIVE family=LEGACY travel=5.488280814673146 riders=8 maxSpacing=3.068353031476789E-5 maxAngle=2.766110127816196E-4 fault=
+FD_RECOVERY_NATIVE family=FREE_SPIN travel=5.255432118312399 riders=8 maxSpacing=3.047828321633972E-5 maxAngle=1.1310307911837933E-4 fault=
+FD_RECOVERY_NATIVE family=REVISED travel=5.2274780165764705 riders=8 maxSpacing=3.0450032244999647E-5 maxAngle=8.263777645929529E-5 fault=
+FD_RECOVERY_NATIVE family=PAX travel=5.57476806651033 riders=4 maxSpacing=2.7665914430485827E-5 maxAngle=4.1582353595976015E-5 fault=
+[02:53:44] [Server thread/INFO] [minecraft/GameTestServer]: [++++++++++++++__+++++___++++_+++++_++++                     ]
+FD_BANK progress tick=400 section=1 stopping=false ready=false peaks=0.0,0.005707316126960844 center=(-3.470E+2  2.111E+2 -1.493E+2) nativeVelocity=( 1.432E+0 -1.665E-2  1.382E+0)
+[02:53:45] [Server thread/INFO] [minecraft/GameTestServer]: [++++++++++++++__+++++___++++_+++++_++++                     ]
+[02:53:46] [Server thread/INFO] [minecraft/GameTestServer]: [++++++++++++++__+++++___++++_+++++_++++                     ]
+FD_RECOVERY_POWER fiveFamilies=true initialPowerCut=true normalLeverStart=true normalLeverStop=true motorRetainedAt8RPM=true anchorStopped=true
+FD_RECOVERY_HOLD fiveFamilies=true allComponentsHeld=true missingResumeRejected=true dormantDisconnectRejected=true permanentRemoval=false
+[02:53:46] [Server thread/INFO] [de.si.si.SimulatedCoasters/]: [cart-link] restored link 96a77aad-8f47-463f-9c7c-672e1078f863 <-> 0d1f0df0-b3d2-4741-842e-1a4d2537b2d6 (distance 12.0)
+[02:53:46] [Server thread/INFO] [de.si.si.SimulatedCoasters/]: [cart-link] restored link 46721fad-26e6-4e9d-bb09-80742f35fddb <-> a5345663-4f93-487d-b036-d06ca28a0371 (distance 6.0)
+[02:53:46] [Server thread/INFO] [de.si.si.SimulatedCoasters/]: [cart-link] restored link 6fc406b5-07b9-4515-9688-4d83334e27d3 <-> 85d55d12-b819-45cd-8f45-3f637b5543ee (distance 14.0)
+[02:53:46] [Server thread/INFO] [de.si.si.SimulatedCoasters/]: [cart-link] restored link df37aa53-c5ef-4a33-bce3-877b21f48fad <-> 0a2e3c7c-9800-444d-917a-46ad550d5913 (distance 6.0)
+[02:53:46] [Server thread/INFO] [de.si.si.SimulatedCoasters/]: [cart-link] restored link a0fa2353-6efa-4872-b5d0-0953bb1d1d4d <-> 8d3a16bc-0d87-4055-9e4a-ba087ab46185 (distance 6.0)
+FD_TRAIN maxTurn=6.281167489379336 maxAxleDifference=3.0235724090554843
+FD_TRAIN positions=[(-1.995E+2  1.131E+2  1.461E+2) bound=BlockPos{x=-200, y=112, z=136}->BlockPos{x=-200, y=112, z=172} fault=, (-1.995E+2  1.131E+2  1.401E+2) bound=BlockPos{x=-200, y=112, z=136}->BlockPos{x=-200, y=112, z=172} fault=]
+[02:53:47] [Server thread/INFO] [minecraft/GameTestServer]: [++++++++++++++__+++++___++++_+++++_++++                     ]
+[02:53:48] [Server thread/INFO] [minecraft/GameTestServer]: [++++++++++++++__+++++___++++_+++++_++++                     ]
+[02:53:48] [Server thread/INFO] [minecraft/GameTestServer]: [++++++++++++++__+++++___++++_+++++_++++                     ]
+[02:53:49] [Server thread/INFO] [de.si.si.SimulatedCoasters/]: [cart-link] unlinked 8d3a16bc-0d87-4055-9e4a-ba087ab46185 <-> a0fa2353-6efa-4872-b5d0-0953bb1d1d4d
+[02:53:49] [Server thread/INFO] [de.si.si.SimulatedCoasters/]: [cart-link] unlinked a5345663-4f93-487d-b036-d06ca28a0371 <-> 46721fad-26e6-4e9d-bb09-80742f35fddb
+[02:53:49] [Server thread/INFO] [de.si.si.SimulatedCoasters/]: [cart-link] unlinked 0d1f0df0-b3d2-4741-842e-1a4d2537b2d6 <-> 96a77aad-8f47-463f-9c7c-672e1078f863
+[02:53:49] [Server thread/INFO] [de.si.si.SimulatedCoasters/]: [cart-link] unlinked 85d55d12-b819-45cd-8f45-3f637b5543ee <-> 6fc406b5-07b9-4515-9688-4d83334e27d3
+[02:53:49] [Server thread/INFO] [de.si.si.SimulatedCoasters/]: [cart-link] unlinked 0a2e3c7c-9800-444d-917a-46ad550d5913 <-> df37aa53-c5ef-4a33-bce3-877b21f48fad
+FD_RECOVERY_HOLD fiveFamiliesRestored=true ridersRestored=32 nativeCouplingsPreserved=true autoResume=false explicitResume=true
+[02:53:49] [Server thread/INFO] [minecraft/GameTestServer]: [++++++++++++++__+++++___++++_+++++_++++                     ]
+[02:53:50] [Server thread/INFO] [minecraft/GameTestServer]: [++++++++++++++__+++++___++++_+++++_++++                     ]
+[02:53:51] [Server thread/INFO] [minecraft/GameTestServer]: [++++++++++++++__+++++___++++_+++++_++++                     ]
+[02:53:51] [Server thread/INFO] [de.si.si.SimulatedCoasters/]: [cart-link] unlinked a0fa2353-6efa-4872-b5d0-0953bb1d1d4d <-> 8d3a16bc-0d87-4055-9e4a-ba087ab46185
+[02:53:51] [Server thread/INFO] [de.si.si.SimulatedCoasters/]: [cart-link] unlinked 46721fad-26e6-4e9d-bb09-80742f35fddb <-> a5345663-4f93-487d-b036-d06ca28a0371
+[02:53:51] [Server thread/INFO] [de.si.si.SimulatedCoasters/]: [cart-link] unlinked 96a77aad-8f47-463f-9c7c-672e1078f863 <-> 0d1f0df0-b3d2-4741-842e-1a4d2537b2d6
+[02:53:51] [Server thread/INFO] [de.si.si.SimulatedCoasters/]: [cart-link] unlinked 6fc406b5-07b9-4515-9688-4d83334e27d3 <-> 85d55d12-b819-45cd-8f45-3f637b5543ee
+[02:53:51] [Server thread/INFO] [de.si.si.SimulatedCoasters/]: [cart-link] unlinked df37aa53-c5ef-4a33-bce3-877b21f48fad <-> 0a2e3c7c-9800-444d-917a-46ad550d5913
+FD_RECOVERY_NATIVE fiveFamilies=true actualChainDrive=true wrongFamilyRecoverySnapsRejected=40 movingUnlinkRejected=true staleEditRejected=true saveRoundTrip=true brokenLinkRetained=true normalDetachAndUnload=true permanentBearingRemoval=true
+[02:53:52] [Server thread/INFO] [minecraft/GameTestServer]: [++++++++++++++__+++++___++++_++++++++++                     ]
+[02:53:52] [Server thread/INFO] [minecraft/GameTestServer]: [++++++++++++++__+++++___++++_++++++++++                     ]
+FD_ENGINEERED retained ARROW drift=0.0
+FD_ENGINEERED retained ZACSPIN drift=0.0
+FD_ENGINEERED retained FREE_SPIN drift=0.0
+FD_ENGINEERED retained ZACSPIN_REVISED drift=0.0
+FD_ENGINEERED retained PAX drift=0.0
+FD_ENGINEERED installed=1.1.1 fourFamilies=launch/stop/capture/retention PAX=held
+[02:53:53] [Server thread/INFO] [minecraft/GameTestServer]: [++++++++++++++__++++++__++++_++++++++++                     ]
+[02:53:54] [Server thread/INFO] [minecraft/GameTestServer]: [++++++++++++++__++++++__++++_++++++++++                     ]
+[02:53:54] [Server thread/INFO] [minecraft/GameTestServer]: [++++++++++++++__++++++__++++_++++++++++                     ]
+FD_SHUTTLE_CHUNK_RELOAD recovered=true carriage=054dac81-3fea-4e79-bb45-7a58ac363e33
+[02:53:55] [Server thread/INFO] [minecraft/GameTestServer]: [+++++++++++++++_++++++__++++_++++++++++                     ]
+
+> Task :runGameTestServer FAILED
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':runGameTestServer'.
+> Process 'command '/usr/lib/jvm/java-21-openjdk/bin/java'' finished with non-zero exit value 130
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to generate a Build Scan (powered by Develocity).
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 53s
+7 actionable tasks: 2 executed, 5 up-to-date

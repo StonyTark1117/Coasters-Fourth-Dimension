@@ -175,9 +175,11 @@ starvation/supply/braking/retention now passes in an isolated batch. A
 [network-powered Arrow loop](evidence/0.9/fd401-engineered-network-loop.md)
 adds a connected-client occupied full-circuit return, a live wired FE buffer
 dip, Engineered STOP at the station area, and editor-operated capture and
-unloading. Ordinary item placement on that fixture, redstone station operation,
-noncreative generation, and broader rendering/vehicle clearance still need
-evidence. The [bounded connected-client operator
+unloading. A later [bare-loop item-placement check](evidence/0.9/fd401-bare-item-placement/README.md)
+now places an Arrow car by normal client air-use on open track and binds the
+station by empty-hand click. The full motor loop still needs to use a normally
+placed car; redstone station operation, noncreative generation, and broader
+rendering/vehicle clearance remain open. The [bounded connected-client operator
 check](evidence/0.9/fd401-engineered-client-operator.md) records short occupied
 FE-consuming motion and safe unloading at the endpoint guard. A separate
 [real FE-network check](evidence/0.9/fd401-engineered-fe-network.md) uses a
