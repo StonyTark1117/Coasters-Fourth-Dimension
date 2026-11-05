@@ -1,0 +1,48 @@
+Date: 2026-11-05 America/Phoenix
+Checkout: /home/braydon/Documents/Coasters: Fourth Dimension
+Branch at run: main
+Selected source: ec2fcda3082f5d9ce729641a6394fdc5c5d67a36
+Selected JAR SHA-256: 656725bcbacc8f491de274c6c058027d0aaa67cfc6f893ba6d7e4a9eb24abbc7
+Focused overlay SHA-256: 0e31b09efb485b57a28586d71e96662c490cf3fe0fdd2215a30f56e97837538c
+Focused source: src/main/java/dev/fourthdimension/runtime/CarrierValidationFixture.java
+Changed JAR entries: CarrierValidationFixture.class, CarrierValidationFixture$1.class
+Java: OpenJDK 21.0.13
+Gradle: 9.2.1
+
+Focused compile:
+  JAVA_HOME=/usr/lib/jvm/java-21-openjdk
+  ./gradlew --offline --no-daemon \
+    -PfdBuildDirectory=/tmp/fd402d-train-build.5eQ1Bv compileJava
+  Result: BUILD SUCCESSFUL
+
+Direct client command shape:
+  /usr/lib/jvm/java-21-openjdk/bin/java -Xmx1536M \
+    @clientRunClasspath.txt @clientRunVmArgs.txt \
+    -Dfml.modFolders= net.neoforged.devlaunch.Main \
+    @clientRunProgramArgs.txt
+
+Client containment:
+  Owned transient systemd unit/cgroup, MemoryMax=6G (6442450944 bytes)
+  Gradle preparation outside the client cgroup
+  ALSOFT_DRIVERS=null
+
+Arrow:
+  World: FD402DArrowTrain
+  Private display: :238
+  Game directory: /tmp/fd402d-arrow-train.qoJOrS/game
+  Separate pause and resume JVMs
+  Highest sampled cgroup usage: 2644135936 bytes
+  Both processes: exit 0
+
+PAX:
+  World: FD402DPaxTrain
+  Private display: :239
+  Game directory: /tmp/fd402d-pax-train.QVvATE/game
+  Separate pause and resume JVMs
+  Pause MemoryPeak: 1984565248 bytes
+  Highest sampled resume cgroup usage: 3145932800 bytes
+  Both processes: exit 0
+
+The retained VM and program argument files are authoritative for phase flags and
+world names. The retained classpaths identify the exact focused overlay and all
+runtime dependencies. Both owned Xvfb displays were stopped after client exit.

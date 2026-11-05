@@ -4,7 +4,9 @@ This checkpoint records a normal occupied recovery group surviving a client/serv
 process shutdown and completing its normal release in a second process. The
 initial Arrow observation was extended to all five single-car families below.
 These are bounded historical development-client observations; exact-artifact
-qualification and multiplayer acceptance remain open.
+identity is missing from those runs. A later selected-production linked-train
+extension resolves the remaining FD402D uncertainty; multiplayer acceptance
+remains separate under FD402E.
 
 The opt-in pause fixture creates the normal recovery example, boards the local
 player, closes restraints, retains the car, and uses the production select and
@@ -32,7 +34,8 @@ The original fixture arguments below describe the two stages. Before a new run,
 follow [AGENTS.md](../../../../../AGENTS.md): select and verify Java 21, check
 memory, reserve an owned private Xvfb, give both stages the same isolated game
 directory, use `-PfdClientMaxHeap=1536M`, and cap each entire client launch at
-3 GiB. These argument excerpts are not standalone uncapped launch instructions.
+the current 6 GiB default. These argument excerpts are not standalone uncapped
+launch instructions.
 Use an empty validation world first, then reopen that same world:
 
 ```sh
@@ -75,7 +78,25 @@ packet arriving before its larger carrier snapshot cleared `recoveryCart`; the
 client validator now recognizes that observed unlink plus rider dismount as the
 same completed production release. This completes the observed bounded all-family
 one-player lifecycle matrix. Artifact provenance, packaged qualification and
-multiplayer evidence remain separate requirements.
+multiplayer evidence remain separate requirements for these historical rows.
+
+## Selected-production linked-train extension (2026-11-05)
+
+The [current selected-production checkpoint](../linked-train-fresh-process-656725bc-20261105/README.md)
+adds the original linked two-car Arrow and four-car PAX cases without replaying
+the historical five-family matrix. Each occupied train was saved braked and
+linked to one ordinary bearing, exited its first JVM, restored the exact native
+graph in a second JVM without automatic motion, then explicitly towed, braked,
+detached, opened restraints and unloaded normally. The retained final saves have
+neither recovery links nor player `RootVehicle` assignments.
+
+The clients used the selected clean JAR's production entries plus a focused
+validation-only `CarrierValidationFixture` overlay. Its archive has the same 394
+entries as selected SHA `656725bc…`; exactly the fixture class and javac's
+synthetic switch helper differ. All production persistence, recovery, boarding,
+vehicle, native-link and rendering entries are byte-identical. Together with the
+retained five-family observations, this closes FD402D under the cumulative
+validation policy. FD402E still owns two-client interruption coverage.
 
 ## Retained observations and artifact boundary
 
@@ -98,8 +119,10 @@ Source commit and runtime-JAR digest are therefore explicitly unknown in the
 observation index; a JAR built later would not recover that missing evidence.
 The logs establish observed completion, not equivalence to the
 [current qualification artifact](../../../../CURRENT-QUALIFICATION.md).
-FD402D requires packaged replays tied to that artifact, including linked trains;
-FD402E separately requires two-client dedicated-server interruptions. Neither
-the fixture-operated one-player result nor a render-path counter proves those
-broader claims. Final transient replicated rider-assignment counts are retained
-in the raw results and are not relabeled as a full cleanup audit.
+The selected-production linked-train extension above supplies the scoped current
+check that the roadmap required, so missing provenance in these historical rows
+does not reopen FD402D. FD402E separately requires two-client dedicated-server
+interruptions. Neither the fixture-operated one-player result nor a render-path
+counter proves that broader claim. Final transient replicated rider-assignment
+counts are retained in the raw results and are not relabeled as cleanup proof;
+the linked-train record audits the retained pause and final saves separately.

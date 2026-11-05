@@ -544,34 +544,73 @@ public final class CarrierValidationFixture {
   private static boolean restoreRecoveryFixture(ServerLevel level) {
     var data = FoundationData.get(level);
     var recovered = data.vehicles.values().stream().filter(car -> car.recoveryCart != null).toList();
-    if (recovered.size() != 1)
-      throw new IllegalStateException(
-          "FD_CARRIER_FIXTURE recovery resume expected one saved linked car but found "
-              + recovered.size());
-    var car = recovered.getFirst();
-    if (car.family != recoveryFixtureDesign().family)
+    var design = recoveryFixtureDesign();
+    int expectedCars =
+        recoveryTrainFixture()
+            ? switch (design) {
+              case ARROW -> 2;
+              case PAX -> 4;
+              default ->
+                  throw new IllegalStateException(
+                      "FD_CARRIER_FIXTURE linked recovery resume supports only ARROW or PAX");
+            }
+            : 1;
+    if (recovered.size() != expectedCars)
       throw new IllegalStateException(
           "FD_CARRIER_FIXTURE recovery resume expected "
-              + recoveryFixtureDesign().family
+              + expectedCars
+              + " saved linked cars but found "
+              + recovered.size());
+    if (recovered.stream().anyMatch(car -> car.family != design.family))
+      throw new IllegalStateException(
+          "FD_CARRIER_FIXTURE recovery resume expected "
+              + design.family
               + " but saved "
-              + car.family);
-    if (!RecoveryOperations.retained(car) || !car.stopping)
+              + recovered.stream().map(car -> car.family).distinct().toList());
+    var bearingId = recovered.getFirst().recoveryCart;
+    if (bearingId == null
+        || recovered.stream().anyMatch(car -> !bearingId.equals(car.recoveryCart)))
+      throw new IllegalStateException(
+          "FD_CARRIER_FIXTURE saved recovery train did not share one ordinary bearing");
+    if (recovered.stream().anyMatch(car -> !RecoveryOperations.retained(car) || !car.stopping))
       throw new IllegalStateException(
           "FD_CARRIER_FIXTURE saved recovery group was not retained and braked");
     var container = SubLevelContainer.getContainer(level);
     if (container == null
-        || !(container.getSubLevel(car.recoveryCart)
-            instanceof dev.ryanhcode.sable.sublevel.ServerSubLevel bearing)
-        || !(container.getSubLevel(car.chassis)
-            instanceof dev.ryanhcode.sable.sublevel.ServerSubLevel chassis)
-        || !CoasterCartTrainLinkConstraint.areLinkedCarts(chassis, bearing)) return false;
+        || !(container.getSubLevel(bearingId)
+            instanceof dev.ryanhcode.sable.sublevel.ServerSubLevel bearing)) return false;
+    var restoredBodies = new java.util.LinkedHashMap<UUID, dev.ryanhcode.sable.sublevel.ServerSubLevel>();
+    for (var member : recovered) {
+      if (!(container.getSubLevel(member.chassis)
+          instanceof dev.ryanhcode.sable.sublevel.ServerSubLevel body)) return false;
+      restoredBodies.put(member.chassis, body);
+    }
+    var directlyAttached =
+        recovered.stream()
+            .filter(
+                member ->
+                    CoasterCartTrainLinkConstraint.areLinkedCarts(
+                        restoredBodies.get(member.chassis), bearing))
+            .toList();
+    if (directlyAttached.size() != 1) return false;
+    var car = directlyAttached.getFirst();
+    if (recoveryTrainFixture()) {
+      var expectedIds = new java.util.HashSet<>(restoredBodies.keySet());
+      expectedIds.add(bearingId);
+      var linked = CoasterCartTrainLinkConstraint.getTrainLinkedCartIds(restoredBodies.get(car.chassis));
+      if (!linked.equals(expectedIds)) return false;
+    }
     if (!(level.getBlockEntity(RECOVERY_ORIGIN.east(2))
             instanceof com.simibubi.create.content.kinetics.motor.CreativeMotorBlockEntity motor)
         || !level.getBlockState(RECOVERY_ORIGIN.east().above()).is(Blocks.LEVER))
       throw new IllegalStateException(
           "FD_CARRIER_FIXTURE saved recovery drive is missing its original native controls");
     recoveryExample = new RecoveryExamples.Example(car, bearing, motor, RECOVERY_ORIGIN.east().above());
-    motionChassis = List.of(car.chassis);
+    if (recoveryTrainFixture())
+      bankedRecoveryExample =
+          new BankedRecoveryExamples.Example(
+              recoveryExample, List.of(), List.of(), List.copyOf(recovered));
+    motionChassis = recovered.stream().map(member -> member.chassis).toList();
     recoveryAttached = true;
     riderFixtureBoarded = true;
     recoveryPreparationDelay = 100;
@@ -583,9 +622,10 @@ public final class CarrierValidationFixture {
     recoveryTowDeadline = 1_000;
     LogUtils.getLogger()
         .info(
-            "FD_CARRIER_FIXTURE resumed persisted occupied recovery chassis={} bearing={} linked=true retained=true braked=true",
+            "FD_CARRIER_FIXTURE resumed persisted occupied recovery chassis={} cars={} bearing={} linked=true retained=true braked=true",
             car.chassis,
-            car.recoveryCart);
+            motionChassis,
+            bearingId);
     return true;
   }
 

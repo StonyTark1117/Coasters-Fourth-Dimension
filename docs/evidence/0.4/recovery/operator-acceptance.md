@@ -156,7 +156,8 @@ retains the same chassis and bearing through the braked reopen, then confirms th
 recovery link and rider assignment are absent after cleanup. Together with the
 existing linked-train mechanics and occupied stationary PAX handover, this closes
 FD402C under the current cumulative validation policy; it does not close FD402B
-or FD402D–F.
+or FD402E–F. FD402D is closed separately by the linked-train fresh-process
+checkpoint below.
 
 ## Remaining acceptance
 
@@ -193,9 +194,14 @@ The [fresh-process recovery checkpoint](fresh-process-recovery/acceptance.md)
 now records occupied braked-link restoration and normal second-process release
 for all five single-car families. The retained pause/resume logs establish bounded
 one-player observations. Their historical development classpaths lack exact
-source/JAR manifests, so FD402D still needs packaged artifact-matched acceptance
-and linked-train cases. FD402E separately covers multiplayer; do not schedule
-the old “no all-family one-player observation” gap again.
+source/JAR manifests. The later
+[selected-production linked-train checkpoint](linked-train-fresh-process-656725bc-20261105/README.md)
+adds fresh-process two-car Arrow and four-car PAX persistence with exact native
+graph restoration, explicit resume and normal release. Its focused overlay
+changes only validation fixture entries over selected SHA `656725bc…`; all
+production entries remain byte-identical. Those records cumulatively close
+FD402D. FD402E separately covers multiplayer; do not schedule the old “no
+all-family one-player observation” gap again.
 
 The [rendered recovery-editor checkpoint](rendered-recovery-editor/acceptance.md)
 now opens and renders the actual linked-vehicle editor after production

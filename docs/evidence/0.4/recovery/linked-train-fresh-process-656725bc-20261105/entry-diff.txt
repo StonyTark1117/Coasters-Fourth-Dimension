@@ -1,0 +1,21 @@
+Selected JAR:
+  ../../../qualification/2026-11-05-ec2fcda/qualification.jar
+  SHA-256 656725bcbacc8f491de274c6c058027d0aaa67cfc6f893ba6d7e4a9eb24abbc7
+
+Focused validation overlay:
+  focused-fixture-overlay.jar
+  SHA-256 0e31b09efb485b57a28586d71e96662c490cf3fe0fdd2215a30f56e97837538c
+
+Both archives contain the same 394 ZIP entries. Recursive content comparison
+reports exactly these two changed entries and no additions or removals:
+
+dev/fourthdimension/runtime/CarrierValidationFixture.class
+  selected e0b3cb337be7dd65ac3af071407feea7c7cdf8d03eb0cffd0728a26b5eb1ab70
+  overlay  862f1cfc411a6b34b503f926d944ff3ae992d894284aa13d63f057e0443a4d1c
+
+dev/fourthdimension/runtime/CarrierValidationFixture$1.class
+  selected 474aa466de6ca2a7dcf9f8ba5711a833affc75b42902238dbc4a4f33819ddf58
+  overlay  193dd552211066c26a7722331de66277c1e2b1b467f8d3d671456373e0dafca0
+
+The second entry is javac's synthetic enum-switch helper for the focused fixture.
+No production entry differs.
