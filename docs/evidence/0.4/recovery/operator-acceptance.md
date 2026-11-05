@@ -132,10 +132,19 @@ closes restraints through its normal button. The client saves and exits cleanly
 inside a task-owned 3 GiB scope. This closes only the manual-boarding item, not
 ordinary-bearing selection, physical lever operation or the recovery lifecycle.
 
+The later [manual ordinary-bearing checkpoint](manual-bearing-selection/acceptance.md)
+uses the same fixture-free production command and a real platform operator. The
+operator physically targets the bare bearing, sneak-uses the Rotation Tool,
+receives the normal selection message, closes/retains the end car and invokes
+Attach recovery in its production editor. The native six-block link, linked
+editor state and stopped schema-6 save agree on both body IDs. This closes the
+manual world-selection/attachment item, not physical lever propulsion or a
+manual towing lifecycle.
+
 ## Remaining acceptance
 
-Manual world-side ordinary-bearing selection and physical lever propulsion
-remain open, along with observed client mesh/rider/rack clearance. Broader
+Physical lever propulsion remains open, along with observed client
+mesh/rider/rack clearance. Broader
 coupler/propulsion/braking
 scenes and multiplayer recovery-mode lifecycle evidence also remain open.
 These checks do not certify added ordinary-cart assemblies or a

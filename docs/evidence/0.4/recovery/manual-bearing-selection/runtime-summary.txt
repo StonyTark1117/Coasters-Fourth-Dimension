@@ -1,0 +1,33 @@
+FD402 manual ordinary-bearing selection run, 2026-11-04 America/Phoenix
+
+Artifact
+  JAR: coasters-fourth-dimension-0.9.0-dev.27.jar
+  SHA-256: 2da14200d2e33b806dc6bb454a65fb92912ae9d87ece345adff85c8bf1e277b0
+  fourthdimension validation/fixture booleans: all false
+
+Isolation
+  owned Xvfb display: :211
+  game directory: /tmp/fd402-bearing-operator.1jZgoe/game
+  world save: FD402BearingOperator
+  Java heap: -Xmx1536M
+  systemd scope: fd402-bearing-operator-direct.scope
+  MemoryMax: 3221225472
+  highest live-observed MemoryPeak: 2632626176
+  final process result: normal client exit after Save and Quit / Quit Game
+
+Accepted interaction sequence
+  production Arrow recovery example command after destination chunks loaded
+  real Rotation Tool held by the local player
+  physical aim at the bare ordinary cart block
+  held-sneak normal use action
+  visible Recovery bearing selected message
+  normal car editor Close restraints, Retain and Attach recovery buttons
+  reopened editor reports Recovery braked / carriers retained
+  native link log records the two body UUIDs at distance 6.000
+  stopped save records matching chassis and recovery_cart UUIDs
+
+Excluded
+  no physical lever input
+  no Start tow, powered travel, Brake tow, Detach recovery or unload
+  no automatic selection, coupling or editor fixture
+  no other agent display, process, directory or input stream used or stopped

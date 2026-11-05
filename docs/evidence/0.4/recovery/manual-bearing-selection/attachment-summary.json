@@ -1,0 +1,47 @@
+{
+  "schema": 6,
+  "attached_vehicle": {
+    "family": "arrow_controlled",
+    "variant": "arrow_four_rail_v1",
+    "chassis": [
+      620843449,
+      -368556697,
+      -1636351761,
+      723198153
+    ],
+    "recovery_cart": [
+      74761446,
+      -1601878980,
+      -1442774092,
+      -939906990
+    ],
+    "stopping": 1,
+    "restraints": 1,
+    "maintenance": 1,
+    "fault": "",
+    "carriers": [
+      {
+        "body": [
+          -399179602,
+          -1030995020,
+          -1170151413,
+          -434335327
+        ],
+        "capture": 1,
+        "occupants": [],
+        "rider_seats": []
+      },
+      {
+        "body": [
+          -917805060,
+          -1664135635,
+          -1567400109,
+          1122179264
+        ],
+        "capture": 1,
+        "occupants": [],
+        "rider_seats": []
+      }
+    ]
+  }
+}
