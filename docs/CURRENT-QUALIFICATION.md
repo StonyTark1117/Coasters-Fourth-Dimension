@@ -1,6 +1,6 @@
 # Current qualification record
 
-Updated 2026-11-04. This is the single artifact index for the active roadmap.
+Updated 2026-11-05 UTC. This is the single artifact index for the active roadmap.
 The selected build is a **qualification baseline, not an accepted release candidate**.
 FD404 and FD905 remain open. A later source change does not inherit this identity.
 
@@ -8,34 +8,25 @@ FD404 and FD905 remain open. A later source change does not inherit this identit
 
 | Field | Recorded value |
 | --- | --- |
-| Committed source | `dd0a85167f98fe944fe6ab41a3c65d77864db767` on `main` |
-| Packaged artifact | [qualification.jar](evidence/qualification/2026-11-04-dd0a851/qualification.jar) |
-| SHA-256 | `811090454924d86c234b4d72efa19c568bbea108b55b84fb3b82e697586288aa` |
+| Committed source | `8f370d09015a7e782f0bd0a050cc311ea1bd0929` on `main` |
+| Packaged artifact | [qualification.jar](evidence/qualification/2026-11-05-8f370d0/qualification.jar) |
+| SHA-256 | `cf4fed9acf41873f0ba7bd3b28f49fe4507db2ae2442cfcae9bddf8cb7a77cb5` |
 | Version label | `0.9.0-dev.27`; this label alone never identifies an artifact |
 | Persistence / networking | Schema 6 / protocol 7 |
 | Toolchain | Java `21.0.13.0.3+1`, Gradle `9.2.1` |
 | Intended profiles | Base; Track Styles 1.2.0; Engineered 1.1.1; Styles + Engineered |
 | Core pins | Minecraft 1.21.1, NeoForge 21.1.248, Create 6.0.10-280, Coasters 0.1.5, Sable 2.0.3 |
-| Acceptance on this exact JAR | Build and packaged-entry correspondence only; no runtime profile has been qualified by this record |
+| Acceptance on this exact JAR | Clean committed-source build and entry comparison; no full runtime profile has been qualified by this record |
 
-The [machine-readable manifest](evidence/qualification/2026-11-04-dd0a851/artifact.json)
-records every exported source input, every JAR entry, changes since `2c5d9a7`,
-and the excluded working changes. The build used a committed-source export on
-the development host and isolated output, invoked from the primary checkout.
-It includes the committed two-client fixture and packaged-launch preparation
-changes through `dd0a851`; ongoing uncommitted edits remain outside this identity.
-`compileJava` used Gradle's build cache;
-all packaged classes/resources were compared with the isolated outputs.
-The [build log](evidence/qualification/2026-11-04-dd0a851/build.log.gz) records
-successful packaging; no client or server was launched for this record.
-
-**Later committed inputs reviewed through `d8dc673`:** `b4ad576` changes
-`CarrierValidationFixture` to select the requested recovery-train family;
-`d8dc673` adds an opt-in framebuffer capture to `CarrierTransformValidation`
-and its launch properties. Neither is in the `dd0a851` JAR above. Before the
-next linked-PAX or new render-capture qualification, refresh FD401A with these
-committed changes and a new JAR identity, then retest affected FD402B/D/E rows. This record deliberately separates the immutable build
-already verified here from a newer working source; it does not call them equal.
+The [machine-readable manifest](evidence/qualification/2026-11-05-8f370d0/artifact.json)
+hashes all 287 exported build/source inputs and all 356 JAR entries, and lists
+the changed inputs and classes since the [previous baseline](evidence/qualification/2026-11-04-dd0a851/artifact.json).
+The JAR was built with Java 21 from a `git archive` of `8f370d0`, outside the
+shared checkout, into isolated output. The [build log](evidence/qualification/2026-11-05-8f370d0/build.log.gz)
+records successful packaging. The untracked `ShuttleBoardingHoldGameTests.java`
+present in the shared checkout is excluded. Documentation-only commits after
+`8f370d0` do not change the packaged inputs; future source/resource edits need
+a new identity review.
 
 Before each runtime qualification, retain the actual launch command, dependency
 hashes, flags, hardware, world hash, client/server roles and exit status. The
@@ -48,8 +39,8 @@ The deferred schema-7/protocol-8 registry and new integrations remain excluded.
 | Evidence | What remains established | Required for this artifact / owning task |
 | --- | --- | --- |
 | [Frozen `2c5d9a7` map](evidence/0.9/fd401-final-candidate-2c5d9a7/README.md) and [later-source review](evidence/0.9/fd401-release-review-54495a5/README.md) | Historical operator, FE, font, Styles and geometry results at their recorded identities | FD401A reviews affected source/resource inputs; FD401B–D and FD904A replay changed paths. No blanket whole-JAR equivalence. |
-| [PAX source observation](evidence/0.9/fd401-pax-longhold-source-229e586/acceptance.md) and [packaged named gate](evidence/0.9/fd401-pax-packaged-longhold-229e586/README.md) | Both record repair, realignment, recovery and relaunch with sixteen riders after 4,800 unsupported ticks; the packaged gate has exact JAR identity `94c17e50…` | FD902C retains this named-test pass. The selected JAR differs in only three validation/fixture class entries, listed below. Normal-client operation, historical OUTBOUND regression and interrupted occupied cold restarts remain open; a stationary BOARDING restart does not close them. FD401D shares the operator/telemetry run. |
-| [PAX two-client recovery on `8f370d0`](evidence/0.9/fd401-pax-two-client-recovery-8f370d0/README.md) | Exact JAR `253e6d92…`: two one-rider curve-only LIFTING holds over 4,800 ticks, normal repair/realign, explicit Recover on the second hold, occupied relaunch, BOARDING reopen and normal unload | FD902C gains a bounded normal-client recovery row; FD401D gains PAX phase/fault observation. This newer source/JAR does not update the selected `dd0a851` baseline or close all FD401A–D profiles. Active-phase cold restarts, OUTBOUND link loss, sixteen-rider client operation and the remaining telemetry matrix stay open. |
+| [PAX source observation](evidence/0.9/fd401-pax-longhold-source-229e586/acceptance.md) and [packaged named gate](evidence/0.9/fd401-pax-packaged-longhold-229e586/README.md) | Both record repair, realignment, recovery and relaunch with sixteen riders after 4,800 unsupported ticks; the packaged gate has exact JAR identity `94c17e50…` | FD902C retains this historical named-test pass. `ShuttleRuntime` and `Boarding` now differ in the selected JAR, so the old pass is not a current-artifact runtime pass. Normal-client operation, OUTBOUND regression and active-phase cold restarts remain separate. |
+| [PAX two-client recovery](evidence/0.9/fd401-pax-two-client-recovery-8f370d0/README.md) | Tested JAR `253e6d92…`: two one-rider curve-only LIFTING holds over 4,800 ticks, normal repair/realign, explicit Recover on the second hold, occupied relaunch, BOARDING reopen and normal unload | The tested JAR has one extra uncommitted GameTest class; all 356 entries shared with the selected clean JAR are byte-identical. FD902C gains a bounded normal-client recovery observation on that exact tested JAR and unchanged production entries. This does not qualify a full profile or all FD401D telemetry sources. Active-phase cold restarts, OUTBOUND link loss and sixteen-rider client operation remain open. |
 | [Five-family fresh-process recovery](evidence/0.4/recovery/fresh-process-recovery/acceptance.md) | Historical development-client pause/resume/release observed in all five families; raw logs now retained | FD402D: attach artifact identity to a packaged replay. Historical source/JAR provenance was not retained and cannot be reconstructed from a version string. FD402E separately covers multiplayer. |
 | [Two-client Arrow recovery](evidence/0.4/recovery/two-client-recovery-lifecycle/acceptance.md) | Dedicated server and two rendered clients complete fixture-operated attach/tow/brake/detach/unload; retained final save has no rider assignments or recovery link | FD402E retains this bounded observation. It is not a manual input, reconnect, interrupted restart or all-family result; attach full launch identity to remaining packaged matrix rows. |
 | [Manual boarding](evidence/0.4/recovery/manual-boarding/acceptance.md), [bearing attachment](evidence/0.4/recovery/manual-bearing-selection/acceptance.md), [lever operation](evidence/0.4/recovery/manual-lever-propulsion/acceptance.md) | Real operator actions on JAR `2da14200…`; the later lever repeat stopped at the boundary, not by a timely moving brake | FD402C completes the occupied operator matrix with original IDs and normal pre-boundary braking on the qualification artifact. Preserve earlier successes without broadening their scope. |
@@ -64,14 +55,13 @@ it cannot prove a changed ride/lifecycle interaction. A failure reopens its owni
 task. One evidence bundle may close multiple named rows when it actually exercises
 each row; do not repeat a run solely because two packages reference it.
 
-The manifest's `pax_229e586_comparison` compares every entry against the retained
-packaged PAX JAR. Only `CarrierTransformValidation.class`,
-`CarrierValidationFixture.class` and its `$1` class differ. The named
-`ShuttleGameTests` fixture, shuttle/vehicle mechanics and every resource are
-byte-identical. The changed client validation and opt-in recovery-cycle fixture
-are not exercised by the named PAX server test. This supports scoped reuse of
-that packaged test result, not whole-JAR equivalence, a complete profile pass,
-or reuse of the changed client/multiplayer validation paths without review.
+The manifest's `tested_pax_jar_comparison` compares every JAR entry against the
+retained two-client runtime JAR. That runtime JAR contains exactly one extra
+uncommitted GameTest class; all common entries match byte for byte. This
+supports scoped transfer of the observed production behavior, not a claim that
+the tested JAR itself came solely from committed source. The older `229e586`
+named PAX test remains attached to its own JAR because the current
+`ShuttleRuntime` and `Boarding` classes changed.
 
 ## Updating the record
 
@@ -84,5 +74,5 @@ Documentation-only commits do not require a new JAR when all packaged inputs mat
 Verify the retained payloads from the repository root:
 
 ```sh
-(cd docs/evidence/qualification/2026-11-04-dd0a851 && sha256sum -c SHA256SUMS)
+(cd docs/evidence/qualification/2026-11-05-8f370d0 && sha256sum -c SHA256SUMS)
 ```

@@ -1,11 +1,18 @@
 # FD401 PAX two-client recovery replay
 
-2026-11-04, primary `main` source `8f370d09015a7e782f0bd0a050cc311ea1bd0929`.
+2026-11-04, production source at primary `main` commit
+`8f370d09015a7e782f0bd0a050cc311ea1bd0929`.
 The retained [candidate.jar](candidate.jar) is `0.9.0-dev.27`, SHA-256
 `253e6d92387807c1ff5e7768bd8cd5d9b71a0dd05e0097979f19b48539c2a73a`.
-It was built with Java 21 from committed source into an isolated Gradle output.
-This is a separate runtime identity from the `dd0a851` qualification baseline;
-it does not promote that baseline or qualify every optional profile.
+It was built with Java 21 from the shared checkout into an isolated Gradle
+output. The JAR includes one uncommitted, unused
+`ShuttleBoardingHoldGameTests.class` from the shared checkout. A separate
+[clean committed-source build](../../qualification/2026-11-05-8f370d0/artifact.json)
+has SHA-256 `cf4fed9acf41873f0ba7bd3b28f49fe4507db2ae2442cfcae9bddf8cb7a77cb5`;
+all 356 common JAR entries are byte-identical, and the GameTest class is the
+only difference. The runtime result is attached to the exact tested JAR above,
+with scoped production-entry parity to the clean baseline. It does not qualify
+every optional profile.
 
 ## Runtime and result
 
@@ -42,7 +49,7 @@ active-phase cold-restart pass.
 
 An intervening inspection startup used a formatting-only JAR. Its world state
 was discarded. The pre-inspection saved world was restored, and the exact
-committed `253e6d92…` JAR above was rebuilt and used for the final reopen.
+tested `253e6d92…` JAR above was rebuilt and used for the final reopen.
 Dev rejoined mounted with closed restraints and all three native car links
 restored. Dev opened restraints in the editor and dismounted normally. Server
 queries then showed zero assignments, absent `RootVehicle`, `BOARDING` and

@@ -18,13 +18,14 @@ continues with the existing pins and artifact-specific acceptance evidence.
 
 **Current stage: completing 0.4; no release candidate is accepted.** The bounded
 five-family 0.3 gate remains complete. FD401–FD403 are open; FD901–FD904 may
-prepare evidence, but cannot bypass FD404. Updated **2026-11-04**.
+prepare evidence, but cannot bypass FD404. Updated **2026-11-05 UTC**.
 
-**Artifact being qualified:** committed source `dd0a851`, JAR SHA-256
-`811090454924d86c234b4d72efa19c568bbea108b55b84fb3b82e697586288aa`.
+**Artifact being qualified:** committed source `8f370d0`, clean JAR SHA-256
+`cf4fed9acf41873f0ba7bd3b28f49fe4507db2ae2442cfcae9bddf8cb7a77cb5`.
 The [current qualification record](docs/CURRENT-QUALIFICATION.md) owns identity,
-profiles, evidence reuse and required retests. This build excludes ongoing
-uncommitted runtime edits; later changes require a new recorded identity.
+profiles, evidence reuse and required retests. This build excludes the untracked
+GameTest class present in a separate tested PAX JAR; all common entries match.
+Later source/resource changes require a new recorded identity.
 `2c5d9a7` is a historical frozen checkpoint, not the current candidate.
 
 **Execution order:**
@@ -37,11 +38,13 @@ uncommitted runtime edits; later changes require a new recorded identity.
 
 A [4,800-tick PAX source recovery](docs/evidence/0.9/fd401-pax-longhold-source-229e586/acceptance.md),
 its [packaged named test](docs/evidence/0.9/fd401-pax-packaged-longhold-229e586/README.md),
+[the bounded two-client PAX recovery replay](docs/evidence/0.9/fd401-pax-two-client-recovery-8f370d0/README.md),
 [all-five-family one-player recovery restarts](docs/evidence/0.4/recovery/fresh-process-recovery/acceptance.md)
 and [two-client Arrow recovery cycle](docs/evidence/0.4/recovery/two-client-recovery-lifecycle/acceptance.md)
 have observed passes. Their records distinguish exact artifact identity from
-historical development-classpath limits. Normal-client PAX operation, interrupted
-occupied restarts and the full multiplayer matrix stay open. Manual Arrow
+historical development-classpath limits. The current PAX replay covers one
+occupied seat and a long LIFTING support fault; active-phase cold restarts,
+OUTBOUND link loss and the full multiplayer matrix stay open. Manual Arrow
 boarding, bearing selection/attachment and physical lever operation also have
 bounded evidence. The
 [archived checkpoint history](docs/ROADMAP-CHECKPOINT-HISTORY-2026-11-04.md)
@@ -357,7 +360,7 @@ schema-7/protocol-8 registry remain paused; FD801 is independent.
 
 | Task / status | Required scenario and configuration | Pass condition | Evidence / next action |
 | --- | --- | --- | --- |
-| **FD401A Artifact identity — done for `dd0a851`; refresh on input changes** | One immutable JAR, committed source, intended base/Styles/Engineered/combined profiles | Source/JAR/dependency identities and every reused claim have a bounded mapping; runtime profile hashes attach when launched | [Current record](docs/CURRENT-QUALIFICATION.md). Build identity is established; qualification is not. Update affected rows when ongoing source work lands. |
+| **FD401A Artifact identity — done for `8f370d0`; refresh on input changes** | One immutable JAR, committed source, intended base/Styles/Engineered/combined profiles | Source/JAR/dependency identities and every reused claim have a bounded mapping; runtime profile hashes attach when launched | [Current record](docs/CURRENT-QUALIFICATION.md) and [clean source/JAR manifest](docs/evidence/qualification/2026-11-05-8f370d0/README.md). Build identity is established; four-profile qualification is not. The two-client PAX JAR has one extra uncommitted GameTest class and otherwise identical entries. |
 | **FD401B Styles — in progress** | Both Arrow styles, single and coupled banked/full-turn rides; whole-section Original/single/double transitions; FANCY/FAST/FABULOUS and the pinned Iris/Solas setup | Normal UI changes preserve family/profile; one render owner per component; fallback, provider removal/reinstall, reopen and reload preserve mechanics; occupied ride/capture/unload and geometry checks pass | [Handoff](docs/FD401-RELEASE-HANDOFF.md#fd401-evidence-review-and-disclosed-boundaries). The direct stale removed-font branch now has a bounded worktree-JAR pass ([evidence](docs/evidence/0.9/fd401-removed-stale-probe-worktree-20261105/README.md)); it does not qualify the selected artifact. Review geometry-input parity, then replay changed runtime paths on the selected JAR. Tracing-disabled reload/ride and three reload/ride repetitions per supported nonshader mode remain open. |
 | **FD401C Engineered — in progress** | Engineered-only and combined profiles: all five families; single/coupled Arrow; loaded PAX opposing-motor authority; wired FE | Normal construction/controller operation, launch/STOP/capture/unload, starvation, power restore and cold reopen preserve riders and interlocks; all PAX chassis reject competing drive | [Operator and FE records](docs/CURRENT-QUALIFICATION.md#evidence-reuse-and-required-retests). Retest changed motor/availability/lifecycle paths and retain exact launch dependencies. FE fixture dependency remains disclosed, not advertised. |
 | **FD401D Create telemetry — in progress** | All six display sources; each family, trailing-car occupancy, controller unavailable/re-entry and PAX phase/fault recovery; base and optional profiles | Goggles, signs and client snapshots agree with current whole-consist server state; unavailable equipment cannot advertise ready or authorize motion | [Telemetry handoff](docs/FD401-RELEASE-HANDOFF.md) and [bounded two-client PAX recovery](docs/evidence/0.9/fd401-pax-two-client-recovery-8f370d0/README.md). The PAX run observes phase/fault/recovery with one rider; complete the six-source and profile matrix. |

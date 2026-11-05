@@ -1,7 +1,7 @@
 # FD401 evidence handoff for the 0.9 candidate
 
-Current planning pointer (2026-11-04): [CURRENT-QUALIFICATION.md](CURRENT-QUALIFICATION.md)
-selects committed source `dd0a851` and its hashed JAR as the qualification baseline.
+Current planning pointer (2026-11-05 UTC): [CURRENT-QUALIFICATION.md](CURRENT-QUALIFICATION.md)
+selects committed source `8f370d0` and its clean hashed JAR as the qualification baseline.
 The frozen `2c5d9a7` records below remain historical evidence. Use FD401A–D in
 [ROADMAP.md](../ROADMAP.md#fd401-deliver-optional-provider-infrastructure) for
 the active work queue and affected-artifact retests; this chronological handoff
@@ -14,8 +14,12 @@ That is a bounded source observation with disclosed runtime-provenance limits.
 The [packaged named test](evidence/0.9/fd401-pax-packaged-longhold-229e586/README.md)
 also passes on its retained JAR; its client join and stationary restart are
 separately bounded observations, not the occupied operator recovery sequence.
-The packaged normal-client LIFTING case, historical OUTBOUND regression and
-phase-specific cold restarts remain FD902C, shared with FD401D telemetry.
+The [bounded two-client LIFTING replay](evidence/0.9/fd401-pax-two-client-recovery-8f370d0/README.md)
+now observes one occupied rider through support loss, repair, realignment,
+explicit Recover, relaunch and unload. Its tested JAR has one extra uncommitted
+GameTest class; all entries common to the clean `8f370d0` JAR are byte-identical.
+The historical OUTBOUND regression and phase-specific cold restarts remain
+FD902C, shared with FD401D telemetry.
 
 The [2026-11-05 direct stale-font probe](evidence/0.9/fd401-removed-stale-probe-worktree-20261105/README.md)
 also passes on its retained packaged worktree JAR: a custom font was removed
@@ -27,9 +31,11 @@ does not inherit the selected qualification artifact identity or close the
 tracing-disabled reload/ride and repetition requirements.
 The [JAR entry comparison](evidence/0.9/fd401-removed-stale-probe-worktree-20261105/class-entry-parity.json)
 shows that the three addon classes on the tested stale-font path are byte-identical
-in the worktree JAR, the PAX candidate and the selected qualification JAR; it does
-not prove a matching external dependency set or replace a client replay on those
-other JARs.
+in the worktree JAR, the PAX candidate and the former `dd0a851` qualification
+JAR. Direct entry-hash comparison also finds these three classes identical in
+the new clean `8f370d0` JAR. The retained comparison JSON still names its old
+`dd0a851` input `selectedQualification`; it does not prove a matching external
+dependency set or replace a client replay on the other JARs.
 
 Initial read-only audit of release `783d4ba`, updated through `ff7c831` on
 2026-11-03 for the corrected missing-font source and retest. This checklist requests evidence
