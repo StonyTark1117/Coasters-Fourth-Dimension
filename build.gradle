@@ -231,9 +231,14 @@ if (serverMaxHeap != null) {
     }
 }
 if (project.hasProperty('fdPackaged')) {
-    // Packaged runs load the distributable JAR from packagedRuntimeOnly.
-    // A file dependency alone does not cause Gradle to rebuild that JAR.
-    tasks.matching { it.name in ['runClient', 'runObserver', 'runServer'] }.configureEach {
+    // Packaged runs and generated launch scripts load the distributable JAR from
+    // packagedRuntimeOnly. A file dependency alone does not give Gradle the task edge.
+    tasks.matching {
+        it.name in [
+            'runClient', 'runObserver', 'runServer',
+            'createClientLaunchScript', 'createObserverLaunchScript', 'createServerLaunchScript'
+        ]
+    }.configureEach {
         dependsOn tasks.named('jar')
     }
 }
