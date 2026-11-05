@@ -243,7 +243,8 @@ public final class CarrierValidationFixture {
         prepareBankedRecoveryArea(level);
         bankedRecoveryExample =
             recoveryTrainFixture()
-                ? BankedRecoveryExamples.createTrain(level, RECOVERY_ORIGIN, TrackDesign.ARROW)
+                ? BankedRecoveryExamples.createTrain(
+                    level, RECOVERY_ORIGIN, recoveryFixtureDesign())
                 : recoveryProfileFixture()
                     ? BankedRecoveryExamples.createProfileScene(level, RECOVERY_ORIGIN)
                     : BankedRecoveryExamples.create(level, RECOVERY_ORIGIN, recoveryFixtureDesign());
