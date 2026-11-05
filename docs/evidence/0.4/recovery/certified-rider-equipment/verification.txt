@@ -1,0 +1,26 @@
+2026-11-04 America/Phoenix
+
+PASS unit policy
+./gradlew --offline --no-daemon --console=plain \
+  -PfdBuildDirectory=/tmp/fd402-rider-clearance-build \
+  -Dorg.gradle.jvmargs=-Xmx512m -Dorg.gradle.workers.max=1 \
+  test --tests dev.fourthdimension.vehicle.RecoveryRiderClearanceTest
+BUILD SUCCESSFUL in 7s
+
+PASS compileJava
+./gradlew --offline --no-daemon --console=plain --rerun-tasks \
+  -PfdBuildDirectory=/tmp/fd402-rider-clearance-build \
+  -Dorg.gradle.jvmargs=-Xmx512m -Dorg.gradle.workers.max=1 compileJava
+BUILD SUCCESSFUL in 7s
+
+PASS targeted runtime observation
+JAVA_TOOL_OPTIONS=-Xmx1536m ./gradlew --offline --no-daemon --console=plain \
+  -PfdBuildDirectory=/tmp/fd402-rider-clearance-build \
+  -PfdGameTestNamespaces=fourthdimension_fd402 \
+  -Dorg.gradle.jvmargs=-Xmx512m -Dorg.gradle.workers.max=1 runGameTestServer
+
+The shared namespace reported five tests. After the two preceding tests completed,
+riderequipmentinterlocksrecoverymotion completed without LogTestReporter failure
+and the progress bar changed from [++_] to [+++]. The owned process was then
+interrupted during the unrelated recoveryFamilySubsteps batch to release RAM.
+This is targeted-test evidence, not a successful full-namespace Gradle result.

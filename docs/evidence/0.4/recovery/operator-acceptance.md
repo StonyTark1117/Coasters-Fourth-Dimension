@@ -127,10 +127,10 @@ one bounded Arrow scene and does not replace the remaining acceptance below.
 
 Manual world-side ordinary-bearing selection, physical lever propulsion, and
 manual boarding remain open, along with all-family curved/banked rendering and
-complete mesh/rider/rack clearance. Broader coupler/propulsion/braking scenes
-and all-family or multiplayer recovery-mode lifecycle evidence also remain
-open. These checks do not certify added ordinary-cart assemblies or a survival
-locomotive.
+observed client mesh/rider/rack clearance. Broader coupler/propulsion/braking
+scenes and all-family or multiplayer recovery-mode lifecycle evidence also
+remain open. These checks do not certify added ordinary-cart assemblies or a
+survival locomotive.
 The bounded installed-motor brake/start/brake callback check is recorded in the
 [Engineered motor-interlock checkpoint](engineered-motor-interlock/acceptance.md);
 at that earlier checkpoint it did not close the broader Engineered/FE item.
@@ -168,3 +168,11 @@ Its corrected axle geometry passes wearable/rack and rack/track bounds, but this
 is offline one-tick geometry rather than observed client rendering. Held items,
 item-use poses, non-armor head-slot renderers, modded cosmetics and resource
 overrides remain open.
+
+The later [certified rider-equipment interlock](certified-rider-equipment/acceptance.md)
+closes moving recovery for held items and non-armor head items by refusing to
+start, or by retaining and braking if equipment changes after start. It admits
+only the empty slots, built-in vanilla armor and elytra covered by the measured
+wearable envelope, and never resumes without an explicit Start tow. This is a
+server-authoritative safety boundary, not observed rendering of arbitrary
+cosmetics or resource overrides.

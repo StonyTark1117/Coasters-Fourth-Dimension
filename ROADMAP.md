@@ -448,6 +448,15 @@ bounded vanilla wearable layer item; held items and item-use poses, non-armor
 head-slot renderers, modded cosmetic layers, resource overrides and observed
 client rendering remain open.
 
+The [certified rider-equipment interlock](docs/evidence/0.4/recovery/certified-rider-equipment/acceptance.md)
+now keeps moving recovery scenes inside that measured envelope. Start rejects a
+mounted player with either hand occupied or equipment outside empty slots,
+built-in vanilla armor and elytra. An unsafe equipment change during towing
+retains and brakes the consist with a persistent clearance fault; correction
+requires an explicit Start tow. This closes held and non-armor head items by
+fail-closed production policy rather than claiming their geometry. Modded render
+layers, resource overrides and observed client rendering remain open.
+
 The [occupied strength-rating checkpoint](docs/evidence/0.4/recovery/strength-rating/acceptance.md)
 now makes the propulsion boundary explicit: production recovery accepts at most
 four original cars. A five-car Arrow consist is rejected before partial state;

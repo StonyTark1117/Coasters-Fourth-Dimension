@@ -97,7 +97,9 @@ identities, route counters and all three clearance bounds.
 ## Remaining scope
 
 Held items and their item-use arm poses, non-armor head-slot renderers, arbitrary
-modded render layers and resource overrides remain outside this result. So do
-observed client rendering, unanchored startup/teardown, the unexposed trajectory
-inside one Rapier substep and broader recovery lifecycle/operator acceptance.
-FD402 remains in progress.
+modded render layers and resource overrides remain outside this geometry result.
+Production recovery now refuses motion for the held and non-armor equipment cases;
+see the [certified rider-equipment interlock](../certified-rider-equipment/acceptance.md).
+Observed client rendering, unanchored startup/teardown, the unexposed trajectory
+inside one Rapier substep and broader recovery lifecycle/operator acceptance also
+remain open. FD402 remains in progress.

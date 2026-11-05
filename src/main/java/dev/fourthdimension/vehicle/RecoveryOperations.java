@@ -9,7 +9,12 @@ import dev.ryanhcode.sable.sublevel.SubLevel;
 import dev.silvergold.simulatedcoasters.track.cart.*;
 import dev.silvergold.simulatedcoasters.track.graph.*;
 import java.util.*;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.server.level.*;
+import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.item.ArmorItem;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.phys.Vec3;
 import org.joml.Vector3d;
 
@@ -29,6 +34,9 @@ public final class RecoveryOperations {
   public static final double MAX_SPEED = .75;
   /** Largest original consist covered by the occupied native recovery strength envelope. */
   public static final int MAX_RECOVERY_CARS = 4;
+  public static final String RIDER_CLEARANCE_FAULT =
+      "Rider equipment exceeds certified recovery clearance: stow held items and use only vanilla"
+          + " armor or elytra before resuming";
 
   private static void clearChainProgress(ServerLevel level, UUID cart) {
     var progress = CHAIN_PROGRESS.get(level);
@@ -274,6 +282,8 @@ public final class RecoveryOperations {
       throw new IllegalArgumentException(
           "Restore the complete matching recovery consist, stop and align every carrier before"
               + " towing");
+    if (!ridersWithinCertifiedClearance(level, cars))
+      throw new IllegalArgumentException(RIDER_CLEARANCE_FAULT);
     for (var v : cars) {
       v.stopping = false;
       v.fault = "";
@@ -371,6 +381,7 @@ public final class RecoveryOperations {
         fault =
             "Recovery equipment, coupling or matching track unavailable: brake and inspect before"
                 + " resume";
+      else if (!ridersWithinCertifiedClearance(level, cars)) fault = RIDER_CLEARANCE_FAULT;
       else if (speed(level, cart) > MAX_SPEED
           || cars.stream()
               .anyMatch(v -> speed(level, container.getSubLevel(v.chassis)) > MAX_SPEED))
@@ -442,5 +453,60 @@ public final class RecoveryOperations {
         }
       }
     }
+  }
+
+  /**
+   * Keep moving recovery scenes inside the player meshes certified by the FD402 clearance audit.
+   * Riders may change equipment after the operator starts towing, so both {@link #start} and
+   * {@link #tick} apply this policy. Non-player passengers retain their existing behavior; the
+   * advertised clearance claim is specifically for mounted vanilla players.
+   */
+  private static boolean ridersWithinCertifiedClearance(
+      ServerLevel level, List<FoundationData.Vehicle> cars) {
+    return cars.stream()
+        .flatMap(v -> v.carriers.stream())
+        // riderSeats is updated by the mount event before the next physics callback;
+        // occupants also covers live native riders after the mass/seat sample.
+        .flatMap(
+            c ->
+                java.util.stream.Stream.concat(
+                    c.riderSeats.keySet().stream(), c.occupants.stream()))
+        .distinct()
+        .map(level::getEntity)
+        .filter(ServerPlayer.class::isInstance)
+        .map(ServerPlayer.class::cast)
+        .allMatch(
+            player ->
+                certifiedPlayerEquipment(
+                    player.getMainHandItem(),
+                    player.getOffhandItem(),
+                    player.getItemBySlot(EquipmentSlot.HEAD),
+                    player.getItemBySlot(EquipmentSlot.CHEST),
+                    player.getItemBySlot(EquipmentSlot.LEGS),
+                    player.getItemBySlot(EquipmentSlot.FEET)));
+  }
+
+  static boolean certifiedPlayerEquipment(
+      ItemStack main,
+      ItemStack off,
+      ItemStack head,
+      ItemStack chest,
+      ItemStack legs,
+      ItemStack feet) {
+    return RecoveryClearancePolicy.certifiedEquipment(
+        main.isEmpty(),
+        off.isEmpty(),
+        head.isEmpty() || vanillaArmorFor(head, EquipmentSlot.HEAD),
+        chest.isEmpty()
+            || chest.is(Items.ELYTRA)
+            || vanillaArmorFor(chest, EquipmentSlot.CHEST),
+        legs.isEmpty() || vanillaArmorFor(legs, EquipmentSlot.LEGS),
+        feet.isEmpty() || vanillaArmorFor(feet, EquipmentSlot.FEET));
+  }
+
+  private static boolean vanillaArmorFor(ItemStack stack, EquipmentSlot slot) {
+    if (!(stack.getItem() instanceof ArmorItem armor) || armor.getEquipmentSlot() != slot)
+      return false;
+    return BuiltInRegistries.ITEM.getKey(stack.getItem()).getNamespace().equals("minecraft");
   }
 }

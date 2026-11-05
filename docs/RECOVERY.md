@@ -20,6 +20,9 @@ seat attachment is excluded; see the [rider-rack checkpoint](evidence/0.4/recove
 1. Stop and inspect the complete 4D consist on matching track. Let riders board
    while restraints are open, then use the Rotation Tool to **Capture**, **Close
    restraints**, and **Retain** every car. Recovery does not release carrier locks.
+   Before towing, mounted players must stow both held items. Empty equipment slots,
+   built-in vanilla armor and elytra are inside the certified rider envelope;
+   non-armor head items and other equipment must be removed for recovery motion.
 2. Put the ordinary bearing on the same functional family route, stopped at
    the end car. Axle spacing is six blocks for Arrow, legacy ZacSpin and PAX,
    twelve for Free Spin, and fourteen for revised ZacSpin. Placement must be
@@ -36,6 +39,10 @@ seat attachment is excluded; see the [rider-rack checkpoint](evidence/0.4/recove
    disconnected), then turn the lever OFF to supply chain power.
    The recovery speed limit is 0.75 blocks/s. Ride dispatch and releasing
    restraints or retention are prohibited while recovery remains attached.
+   **Start tow** rejects a mounted player's uncertified equipment. If a mounted
+   player equips it after starting, recovery retains the consist and brakes with
+   a rider-clearance fault; correcting equipment never resumes motion until the
+   operator explicitly chooses **Start tow** again.
 5. Choose **Brake tow**, then stop the propulsion input. Wait for the ordinary
    bearing to stop and every carrier to align, then choose **Detach recovery**. Only the recovery links are removed;
    original Arrow/PAX links and maintenance retention remain. Open restraints
