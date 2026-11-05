@@ -21,7 +21,13 @@ runtime acceptance or a final FD401 sign-off.
 - At review time, `main` was `73a792d`. Since `54495a5`, three production
   source files (`RecoveryClearancePolicy`, `RecoveryExamples`,
   `RecoveryOperations`) and two fixture files changed. The `54495a5` JAR
-  does not represent those later committed changes.
+  does not represent those later committed changes. Source inspection scopes
+  them to FD402 recovery towing and its rider-equipment interlock:
+  `RecoveryOperations.tick` iterates only vehicles with a non-null
+  `recoveryCart`. `ShuttleRuntime`, `CarrierRuntime`, `VehicleOperations`,
+  and main resources have no diff from `54495a5` to `73a792d`. This supports
+  reuse of the earlier package for a focused PAX winch hold attempt, but is
+  not whole-JAR parity for a later release artifact.
 
 ## PAX blocker cross-check
 
