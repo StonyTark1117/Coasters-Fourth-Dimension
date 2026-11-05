@@ -2,6 +2,7 @@ package dev.fourthdimension.vehicle;
 
 import com.mojang.logging.LogUtils;
 import dev.fourthdimension.runtime.*;
+import dev.fourthdimension.shuttle.ShuttleRuntime;
 import dev.ryanhcode.sable.Sable;
 import dev.ryanhcode.sable.api.sublevel.SubLevelContainer;
 import dev.ryanhcode.sable.sublevel.ServerSubLevel;
@@ -46,7 +47,8 @@ public final class Boarding {
     if (container == null
         || !(container.getSubLevel(vehicle.chassis) instanceof ServerSubLevel parent)) return false;
     if (container.physicsSystem().getPipeline().getLinearVelocity(parent, new Vector3d()).length()
-        > .08) return false;
+            > .08
+        && !ShuttleRuntime.stationHeld(level, vehicle)) return false;
     for (var carrier : vehicle.carriers) {
       if (!carrier.capture
           || Math.abs(carrier.omega) > .08

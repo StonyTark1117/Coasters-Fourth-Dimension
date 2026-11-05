@@ -28,6 +28,7 @@ public final class ShuttleRuntime {
   private static final class Handles {
     GenericConstraintHandle guide, catchJoint;
     final Map<UUID, GenericConstraintHandle> supportHolds = new HashMap<>();
+    boolean stationRestorePending;
     Vector3d worldAnchor;
     Quaterniond worldOrientation;
     UUID body;
@@ -73,6 +74,14 @@ public final class ShuttleRuntime {
         removeSupportHolds(handles);
       }
     }
+    HANDLES.computeIfAbsent(
+        winch,
+        ignored -> {
+          var handles = new Handles();
+          handles.stationRestorePending =
+              winch.phase == ShuttleWinchEntity.Phase.BOARDING && !winch.cars.isEmpty();
+          return handles;
+        });
   }
 
   public static Collection<ShuttleWinchEntity> winches(ServerLevel level) {
@@ -82,6 +91,24 @@ public final class ShuttleRuntime {
   public static ShuttleWinchEntity owner(ServerLevel level, UUID car) {
     if (car == null) return null;
     return winches(level).stream().filter(w -> w.cars.contains(car)).findFirst().orElse(null);
+  }
+
+  public static boolean stationHeld(ServerLevel level, FoundationData.Vehicle car) {
+    var winch = owner(level, car.chassis);
+    if (winch == null
+        || winch.phase != ShuttleWinchEntity.Phase.BOARDING
+        || !level.hasChunkAt(winch.getBlockPos())
+        || level.getBlockEntity(winch.getBlockPos()) != winch) return false;
+    var handles = HANDLES.get(winch);
+    if (handles == null) return false;
+    var ids = new ArrayList<UUID>();
+    ids.add(car.chassis);
+    car.carriers.forEach(carrier -> ids.add(carrier.body));
+    return ids.stream()
+        .allMatch(id -> {
+          var hold = handles.supportHolds.get(id);
+          return hold != null && hold.isValid();
+        });
   }
 
   public static boolean running(ServerLevel level, UUID car) {
@@ -230,8 +257,36 @@ public final class ShuttleRuntime {
           var data = FoundationData.get(level);
           if (winch.cars.stream()
               .map(data.vehicles::get)
-              .allMatch(car -> car != null && Boarding.ready(level, car)))
-            holdUnsupportedTrain(level, winch);
+              .allMatch(
+                  car ->
+                      car != null
+                          && !car.alignmentRequired
+                          && car.fault.isEmpty()
+                          && container.getSubLevel(car.chassis) instanceof ServerSubLevel
+                          && car.carriers.stream()
+                              .allMatch(
+                                  carrier ->
+                                      container.getSubLevel(carrier.body)
+                                          instanceof ServerSubLevel)))
+          {
+            restoreStationCapture(level, winch);
+            holdUnsupportedTrain(
+                level,
+                winch,
+                winch.cars.stream()
+                    .map(data.vehicles::get)
+                    .flatMap(car -> car.carriers.stream())
+                    .allMatch(
+                        carrier ->
+                            carrier.capture
+                                && Math.abs(
+                                        Math.atan2(
+                                            Math.sin(carrier.angle), Math.cos(carrier.angle)))
+                                    <= .04)
+                    || winch.cars.stream()
+                        .map(data.vehicles::get)
+                        .allMatch(car -> stationHeld(level, car)));
+          }
           else releaseSupportHolds(winch);
           continue;
         }
@@ -264,7 +319,7 @@ public final class ShuttleRuntime {
                   .map(data.vehicles::get)
                   .allMatch(car -> car != null && !car.alignmentRequired && car.fault.isEmpty());
           if (VehicleOperations.MATCHING_SUPPORT_LOST.equals(winch.fault) && !realigned)
-            holdUnsupportedTrain(level, winch);
+            holdUnsupportedTrain(level, winch, true);
           else releaseSupportHolds(winch);
           continue;
         }
@@ -359,6 +414,7 @@ public final class ShuttleRuntime {
                 .allMatch(
                     id -> Boarding.ready(level, FoundationData.get(level).vehicles.get(id)))) {
               winch.phase = ShuttleWinchEntity.Phase.BOARDING;
+              handles.stationRestorePending = true;
               winch.cycles++;
               winch.changed();
             }
@@ -521,8 +577,47 @@ public final class ShuttleRuntime {
     handles.catchJoint.setContactsEnabled(false);
   }
 
+  /** Recreate the saved neutral carrier posture before native station holds are installed. */
+  private static void restoreStationCapture(ServerLevel level, ShuttleWinchEntity winch) {
+    var handles = HANDLES.get(winch);
+    if (handles == null || !handles.stationRestorePending) return;
+    var container = SubLevelContainer.getContainer(level);
+    var physics = container.physicsSystem();
+    var pipeline = physics.getPipeline();
+    var data = FoundationData.get(level);
+    if (winch.cars.stream()
+        .map(data.vehicles::get)
+        .flatMap(car -> car.carriers.stream())
+        .anyMatch(carrier -> !carrier.capture)) return;
+    for (var id : winch.cars) {
+      var car = data.vehicles.get(id);
+      var parent = (ServerSubLevel) container.getSubLevel(id);
+      physics.updatePose(parent);
+      var center = parent.getPlot().getCenterBlock();
+      for (var carrier : car.carriers) {
+        var child = (ServerSubLevel) container.getSubLevel(carrier.body);
+        var pivot =
+            parent.logicalPose().transformPosition(
+                new Vector3d(
+                    center.getX() + .5 + carrier.side,
+                    center.getY() + .5 + carrier.pivotHeight,
+                    center.getZ() + .5 + carrier.longitudinal));
+        child.logicalPose().position().set(pivot);
+        child.logicalPose().orientation().set(parent.logicalPose().orientation());
+        child.updateLastPose();
+        pipeline.teleport(child, child.logicalPose().position(), child.logicalPose().orientation());
+        pipeline.resetVelocity(child);
+        carrier.angle = 0;
+        carrier.omega = 0;
+      }
+    }
+    handles.stationRestorePending = false;
+    data.setDirty();
+  }
+
   /** Hold every body in the coupled train at its captured station or fault position. */
-  private static void holdUnsupportedTrain(ServerLevel level, ShuttleWinchEntity winch) {
+  private static void holdUnsupportedTrain(
+      ServerLevel level, ShuttleWinchEntity winch, boolean includeCarriers) {
     var container = SubLevelContainer.getContainer(level);
     if (container == null) return;
     var handles = HANDLES.computeIfAbsent(winch, ignored -> new Handles());
@@ -533,7 +628,7 @@ public final class ShuttleRuntime {
       var car = data.vehicles.get(id);
       if (car == null) throw new IllegalArgumentException("Shuttle car unavailable during hold");
       ids.add(id);
-      car.carriers.forEach(carrier -> ids.add(carrier.body));
+      if (includeCarriers) car.carriers.forEach(carrier -> ids.add(carrier.body));
     }
     var bodies = new LinkedHashMap<UUID, ServerSubLevel>();
     for (var id : ids) {
@@ -541,19 +636,15 @@ public final class ShuttleRuntime {
         throw new IllegalArgumentException("Shuttle body unavailable during hold");
       bodies.put(id, body);
     }
+    handles.supportHolds.entrySet().removeIf(
+        entry -> {
+          if (ids.contains(entry.getKey())) return false;
+          remove(entry.getValue());
+          return true;
+        });
     // Stop the whole validated train in one callback. Holding only chassis leaves heavy
     // carrier bodies free to drop and pull a coupled car out of station spacing.
-    boolean needsHold = false;
-    for (var id : ids) {
-      var hold = handles.supportHolds.get(id);
-      if (hold == null || !hold.isValid()) {
-        needsHold = true;
-        break;
-      }
-    }
-    if (needsHold) {
-      for (var body : bodies.values()) pipeline.resetVelocity(body);
-    }
+    for (var body : bodies.values()) pipeline.resetVelocity(body);
     for (var entry : bodies.entrySet()) {
       var id = entry.getKey();
       var body = entry.getValue();
