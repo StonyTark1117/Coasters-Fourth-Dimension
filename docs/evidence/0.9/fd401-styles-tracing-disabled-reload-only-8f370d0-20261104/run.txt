@@ -1,0 +1,13 @@
+Selected runtime artifact: docs/evidence/qualification/2026-11-05-8f370d0/qualification.jar
+Selected source: 8f370d09015a7e782f0bd0a050cc311ea1bd0929
+Selected JAR SHA-256: cf4fed9acf41873f0ba7bd3b28f49fe4507db2ae2442cfcae9bddf8cb7a77cb5
+Track Styles JAR SHA-256: 42535a83307f6898b33c13ca201533bb9e337418fd7c73039c867fc80bfbcb38
+Profile: packaged client, Styles only; graphicsMode=FANCY; renderDistance=12; simulationDistance=12
+Reload: normal F3+T, 22:40:46 local; Styles catalog rebuilt at 22:40:48
+Tracing: fdValidation=false; fdRenderValidation=false; snapshotTrace=false
+Client heap: 1536M; owned client-only scope MemoryMax=6442450944; MemoryPeak=3543228416
+Display: private Xvfb :229; isolated game directory under /tmp/fd401-b-tracing-disabled-8f370d0/game-full-ride
+JVM: /usr/lib/jvm/java-21-openjdk/bin/java, OpenJDK 21.0.13.0.3
+Shutdown: normal title-screen exit, Minecraft logged Stopping!; client scope inactive
+Observed world-name difference: quick-play target FD401StopCycle; server level name FD401BarePlacement
+Outcome: reload/catalog pass only; no occupied ride verified
