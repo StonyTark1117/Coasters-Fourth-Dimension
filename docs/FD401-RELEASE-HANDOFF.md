@@ -274,9 +274,10 @@ FD801 and the [expansion backlog](INTEGRATION-BACKLOG.md) remain separate.
 - [PAX support-loss preflight follow-up](evidence/0.9/fd401-pax-preflight-342da82/README.md):
   committed `342da82` faults active assigned cars before the shuttle guide
   advances in the same physics callback. An isolated `compileJava` passed.
-  The named 4,800-tick source test on the preceding all-body candidate was
-  stopped for host RAM pressure before a result; neither candidate has a
-  completed prolonged-hold replay.
+  The first named 4,800-tick source attempt was stopped for host RAM pressure,
+  the second hit a stale-world fixture corridor before the hold, and a
+  fresh-world server was stopped when available RAM fell to 5.5 GiB before
+  the test started. Neither candidate has a completed prolonged-hold replay.
 - [Broken PAX consist source handover](evidence/0.9/fd401-pax-broken-consist-source-2373def/README.md):
   a focused named GameTest separated all four native cars, retained each through
   editor requests, detached the winch, recoupled them with the native API,
