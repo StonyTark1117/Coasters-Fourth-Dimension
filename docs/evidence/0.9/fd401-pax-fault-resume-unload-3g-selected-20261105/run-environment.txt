@@ -1,0 +1,19 @@
+Runtime
+  Java: OpenJDK 21.0.13
+  Minecraft: 1.21.1
+  NeoForge: 21.1.248
+  Selected JAR SHA-256: 656725bcbacc8f491de274c6c058027d0aaa67cfc6f893ba6d7e4a9eb24abbc7
+  Input fault-world SHA-256: 9593c007d87a8a476540165a1386c02dcf500b235a6475d13b60b3da4357ecfc
+
+Memory and display policy
+  Server: -Xmx1536M; systemd scope MemoryMax=3G
+  RecoveryOperator client: -Xmx1536M; systemd service MemoryMax=3G; DISPLAY=:293
+  Dev client: -Xmx1536M; systemd service MemoryMax=3G; DISPLAY=:300
+  Xvfb :293 and :300: separate task-owned services, each MemoryMax=512M
+  Both clients reached the server concurrently. Scope status was checked while active.
+  The client scopes and both private Xvfb services were stopped after clean client exits.
+
+Server
+  Port: 25653
+  World: FD401FamilyBare, extracted from input-fault-world.tar.gz
+  online-mode=false; loopback-only server-ip=127.0.0.1

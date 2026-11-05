@@ -1,0 +1,14 @@
+# FD401C selected-JAR PAX fault resume and unload under the 3 GiB client cap
+
+2026-11-05. This repeat reruns the selected-JAR PAX power-fault recovery slice with each client limited to a 1.5 GiB heap and 3 GiB total memory scope. It uses the same preserved four-car fault world as the earlier 6 GiB run, so the result closes the memory-policy repeat only; it is not fresh construction evidence.
+
+The selected JAR SHA-256 is `656725bcbacc8f491de274c6c058027d0aaa67cfc6f893ba6d7e4a9eb24abbc7`. The input fault-world archive SHA-256 is `9593c007d87a8a476540165a1386c02dcf500b235a6475d13b60b3da4357ecfc`. The server loaded the combined profile: Track Styles 1.2.0, Engineered 1.1.1, Create 6.0.10, Create Crafts & Additions 1.6.0, Simulated Coasters 0.1.5, Flywheel 1.0.6, NeoForge 21.1.248 and Minecraft 1.21.1, with the selected FD JAR. Launch arguments, classpaths, logs, the input and final worlds, and screenshots are retained here.
+
+1. A Java 21 dedicated server loaded the input world on port 25653. Dev rejoined and the server restored the saved passenger assignment (`FD_BOARDING_RESTORE mounted`, `FD_BOARDING_ASSIGN ... accepted=true`). The run used an isolated server scope capped at 3 GiB.
+2. RecoveryOperator used the F3-verified `fourthdimension:shuttle_winch` at `(-856,144,83)` with an empty hand. An ordinary right-click, without Shift, resumed the saved faulted train. Client telemetry changed from occupied `FAULT` / `Winch power lost` to occupied `LIFTING` with an empty fault; the winch reported the supported 16–128 RPM range. Both the operator and Dev clients had `-Xmx1536M` and separate 3 GiB scopes on private Xvfb displays `:293` and `:300`.
+3. Client telemetry then recorded `OUTBOUND`, `RETURNING`, `CAPTURING`, and `BOARDING` in order with `occupied=1`. The normal Rotation Tool displayed `pax_shuttle | Ready | Restraints closed` at return.
+4. Dev opened restraints in that UI, verified `Ready | Restraints open`, then used Shift to dismount. The server recorded `FD_BOARDING_DISMOUNT_CLEAR player=Dev restraints=false removed=false alive=true`. Dev disconnected normally. RecoveryOperator issued `save-all flush`; the server then stopped and logged that all dimensions were saved. `final-world.tar.gz` is that saved state.
+
+## Boundary
+
+This proves one policy-conforming selected-JAR PAX active-phase resume, full circuit, capture, and rider unload on an inherited route. Operator positioning was arranged with admin commands; the recovery action itself was the ordinary empty-hand winch click. It does not close the Engineered-only/combined family matrix, fresh power/support construction, competing-drive rejection on every PAX chassis, coupled-Arrow tracing, full wired-FE post-restore circuit, or profile-matched cold-reopen matrix. The previous 6 GiB run remains historical evidence; this run replaces its memory-policy caveat for this single PAX recovery slice.
