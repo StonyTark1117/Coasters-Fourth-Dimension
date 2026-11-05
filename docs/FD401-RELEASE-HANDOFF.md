@@ -282,6 +282,17 @@ FD801 and the [expansion backlog](INTEGRATION-BACKLOG.md) remain separate.
   committed source `54495a5` built a hashed combined-profile JAR with capped
   Gradle memory. It is ready for the normal-client hold gate when host RAM
   permits; packaging alone establishes no runtime pass.
+- [PAX 4,800-tick source recovery fix](evidence/0.9/fd401-pax-longhold-source-229e586/README.md):
+  source `54495a5` failed after the unsupported hold because recovery retained
+  world holds even after all cars were realigned. Fix `229e586` released those
+  holds when assigned cars were physically ready; the named source test passed
+  Repair, Realign, Recover and powered relaunch with 16 mounted fixture riders.
+- [Packaged PAX 4,800-tick runtime gate](evidence/0.9/fd401-pax-packaged-longhold-229e586/README.md):
+  the combined-profile distributable JAR from `229e586` passed the same named
+  test with four native-linked cars and 16 retained fixture riders. A normal
+  Dev client joined and rendered the saved station world, and that world
+  reopened in Boarding with four assigned cars. The client did not perform
+  mounted support removal or operator recovery; that replay is still open.
 - [Broken PAX consist source handover](evidence/0.9/fd401-pax-broken-consist-source-2373def/README.md):
   a focused named GameTest separated all four native cars, retained each through
   editor requests, detached the winch, recoupled them with the native API,

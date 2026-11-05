@@ -1,0 +1,3 @@
+# FD401 source recovery blocker before `229e586`
+
+The named 4,800-tick PAX GameTest on source `54495a5` reached the unsupported hold, then failed recovery with `Stop and capture every carrier before shuttle recovery`. The [server log](server.log.gz) and [stopped failed world](world.tar.gz) preserve the reproduction. Inspection showed that the FAULT tick recreated all-body support holds while `Matching support lost` remained on the winch even after car realignment cleared. Fix `229e586` releases those holds once all assigned cars are present and cleared for recovery. Both the source retest and packaged named gate passed afterward.
