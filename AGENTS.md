@@ -29,6 +29,29 @@ The former `codex/*` branch tips were reviewed and preserved in
 starting point for a new task. Do not delete a branch or worktree with unique
 commits or uncommitted changes without preserving its state first.
 
+# Java runtime
+
+Use **Java 21** for every Gradle command, build, GameTest, server, and client run
+in this project. On this development host, set
+`JAVA_HOME=/usr/lib/jvm/java-21-openjdk` and put `$JAVA_HOME/bin` first in `PATH`
+before invoking `./gradlew` or `java`. Check `"$JAVA_HOME/bin/java" -version`
+and `./gradlew --version` when starting a run or troubleshooting a launch; both
+must report Java 21. The Java toolchain in `build.gradle` does not by itself
+select the JVM that starts Gradle.
+
+```sh
+export JAVA_HOME=/usr/lib/jvm/java-21-openjdk
+export PATH="$JAVA_HOME/bin:$PATH"
+"$JAVA_HOME/bin/java" -version
+./gradlew --version
+```
+
+Do not use the shell's default `java` without checking it: it may resolve to
+Java 27 on this host and crash the Minecraft tooling. If Java 21 is missing or
+Gradle still starts on another JVM, fix `JAVA_HOME` and `PATH` before retrying
+the project command. Carry this Java selection into private Xvfb runs,
+`systemd-run` scopes, scripts, and every child process that launches Java.
+
 # Minecraft testing displays
 
 Run builds, GameTests, servers, and Minecraft clients from this project checkout
