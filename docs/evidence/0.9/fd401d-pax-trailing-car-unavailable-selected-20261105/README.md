@@ -1,0 +1,17 @@
+# FD401D PAX winch rejects an unavailable trailing carrier
+
+## Result
+
+The named headless GameTest `RideTelemetryGameTests.paxWinchRejectsUnavailableTrailingCarrier` ran in the combined Styles + Engineered validation profile against selected production classes. It builds and binds a four-car PAX example, closes restraints, observes a healthy cached BOARDING snapshot, then removes the first carrier body of the trailing car using Sable `UNLOADED`. After 12 ticks the bound winch reports `available=false`, `dispatchReady=false`, and the unavailable-carrier fault. Both `RideOperations.request(..., DISPATCH)` and direct `winch.start()` reject. Serialized `FoundationData` and winch NBT remain equal across each synchronous rejected request, and the phase remains BOARDING. After `SubLevelSerializer.fullyLoad` restores the native carrier, telemetry returns to `available=true`, `BOARDING`, with the fault cleared.
+
+The final server log records all three markers: the healthy baseline was `dispatchReady=true`; the unavailable snapshot was not ready and both operations rejected without state change; the restored snapshot was available in BOARDING with its fault cleared. The restored snapshot reported `dispatchReady=false` with `All carriers must be captured and restraints closed before dispatch`, despite the pre-unload baseline being ready; this run does not claim dispatch readiness recovered. The GameTest completed its cleanup without a reported failure; RCON stopped the server normally and Gradle returned `BUILD SUCCESSFUL`.
+
+This closes only PAX trailing-carrier unavailability, fail-closed dispatch/start, stable serialized state and telemetry re-entry in one combined optional server profile. It does not test PAX resume or motion, signs, goggles, client snapshots, other missing-body variants, other profiles, or the full FD401D matrix.
+
+## Artifact and profile identity
+
+Selected clean artifact: `0.9.0-dev.27`, [qualification JAR](../../qualification/2026-11-05-ec2fcda/qualification.jar), SHA-256 `656725bcbacc8f491de274c6c058027d0aaa67cfc6f893ba6d7e4a9eb24abbc7`. The runtime overlay SHA-256 is `553171d2188ebd97a7d80424fe287cfc2e85bcdc5f2ef1d88d932e32ab86c022`. It contains 394 entries, with `dev/fourthdimension/gametest/RideTelemetryGameTests.class` as its sole changed entry; all production classes and resources are byte-identical to the selected JAR. The server loaded this overlay from the isolated build's `libs/` path.
+
+Runtime: Minecraft 1.21.1, NeoForge 21.1.248, Java 21.0.13.0.3, Gradle 9.2.1. The combined validation profile included Track Styles 1.2.0 (CurseForge file `9020601`, SHA-256 `42535a83307f6898b33c13ca201533bb9e337418fd7c73039c867fc80bfbcb38`), Engineered 1.1.1 (file `8863559`, SHA-256 `eea19ed769ed573727b4e15184c229f66aff85f20667464650724e1b2d657f5d`), and validation-only Create Addition FE network 1.6.0 (file `8188476`, SHA-256 `41876c3780b70365a1848994d146a73423cc19fbe86485885795d9e7d855e7e9`). The add-on JAR itself did not bundle these optional runtime dependencies.
+
+The exact commands and memory/process preflight are retained in [run.txt](run.txt) and [preflight.txt](preflight.txt). Full final Gradle output, Minecraft log, RCON request/stop responses, compile output, selected JAR, test overlay and entry parity report are included. Earlier runs failed only on overly strict test expectations for restoration readiness; their logs remain separately labeled for audit and are not the final result.

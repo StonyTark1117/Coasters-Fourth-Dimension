@@ -96,6 +96,155 @@ public final class RideTelemetryGameTests {
         });
   }
 
+  @GameTest(template = "empty", batch = "fourthdimension_telemetry", timeoutTicks = 320)
+  public static void paxWinchRejectsUnavailableTrailingCarrier(GameTestHelper helper) {
+    var level = helper.getLevel();
+    var container = SubLevelContainer.getContainer(level);
+    var origin = new BlockPos(-600, 180, 650);
+    for (int x = -39; x <= -36; x++)
+      for (int z = 36; z <= 47; z++) {
+        level.getChunk(x, z);
+        level.setChunkForced(x, z, true);
+      }
+    var example = new ShuttleExamples.Example[1];
+    helper.runAtTickTime(
+        15,
+        () -> example[0] = ShuttleExamples.create(level, origin, false));
+    helper.runAtTickTime(
+        80,
+        () -> ShuttleExamples.assemble(level, example[0]));
+    helper.runAtTickTime(
+        100,
+        () -> {
+          var pax = example[0];
+          var winch = pax.winch();
+          var data = FoundationData.get(level);
+          var lead = pax.cars().getFirst();
+          VehicleOperations.restraints(level, lead, true);
+          helper.runAfterDelay(
+              12,
+              () -> {
+                var healthy = winch.telemetry();
+                helper.assertTrue(
+                    healthy.available() && healthy.phase().equals("BOARDING"),
+                    "PAX winch fixture was not available before carrier unload: " + healthy);
+                System.out.println(
+                    "FD_TELEMETRY_PAX_WINCH healthyBaseline available=true dispatchReady="
+                        + healthy.dispatchReady()
+                        + " denial="
+                        + healthy.dispatchDenial());
+
+          var trailing = pax.cars().getLast();
+          var carrier = trailing.carriers.getFirst();
+          var body = (ServerSubLevel) container.getSubLevel(carrier.body);
+          helper.assertTrue(body != null && !body.isRemoved(), "Trailing carrier body not loaded");
+          var ids = new ArrayList<UUID>();
+          pax.cars().forEach(
+              car -> {
+                ids.add(car.chassis);
+                car.carriers.forEach(c -> ids.add(c.body));
+              });
+          var savedCarrier = SubLevelSerializer.toData(body, ids);
+          container.removeSubLevel(body, SubLevelRemovalReason.UNLOADED);
+          helper.assertTrue(
+              container.getSubLevel(carrier.body) == null,
+              "Trailing carrier unload did not remove native body");
+          helper.runAfterDelay(
+              12,
+              () -> {
+                var unavailable = winch.telemetry();
+                helper.assertTrue(
+                    !unavailable.available()
+                        && !unavailable.dispatchReady()
+                        && unavailable.fault().equals("Vehicle or carrier unavailable")
+                        && unavailable.phase().equals(""),
+                    "PAX winch advertised stale readiness after trailing carrier unload: "
+                        + unavailable);
+                var beforeData = data.save(new CompoundTag(), level.registryAccess());
+                var beforeWinch = winch.saveWithoutMetadata(level.registryAccess());
+                boolean dispatchRejected = false;
+                try {
+                  RideOperations.request(
+                      level, winch.getBlockPos(), winch.vehicle, RideOperations.Request.DISPATCH);
+                } catch (IllegalArgumentException expected) {
+                  dispatchRejected = true;
+                }
+                helper.assertTrue(dispatchRejected, "PAX winch authorized dispatch without carrier");
+                helper.assertTrue(
+                    beforeData.equals(data.save(new CompoundTag(), level.registryAccess()))
+                        && beforeWinch.equals(winch.saveWithoutMetadata(level.registryAccess())),
+                    "Rejected PAX dispatch changed serialized ride or winch state");
+                boolean startRejected = false;
+                try {
+                  winch.start();
+                } catch (IllegalArgumentException expected) {
+                  startRejected = true;
+                }
+                helper.assertTrue(startRejected, "PAX winch started without trailing carrier");
+                helper.assertTrue(
+                    beforeData.equals(data.save(new CompoundTag(), level.registryAccess()))
+                        && beforeWinch.equals(winch.saveWithoutMetadata(level.registryAccess()))
+                        && winch.phase == ShuttleWinchEntity.Phase.BOARDING,
+                    "Rejected PAX start changed serialized ride or winch state");
+                System.out.println(
+                    "FD_TELEMETRY_PAX_WINCH unavailable=trailing-carrier available=false"
+                        + " dispatchReady=false dispatchRejected=true startRejected=true"
+                        + " stateStable=true");
+
+                var restored = SubLevelSerializer.fullyLoad(level, savedCarrier);
+                helper.assertTrue(
+                    restored != null && container.getSubLevel(carrier.body) == restored,
+                    "Trailing carrier restore failed");
+                helper.runAfterDelay(
+                    12,
+                    () -> {
+                      var recovered = winch.telemetry();
+                      helper.assertTrue(
+                          recovered.available()
+                              && recovered.phase().equals("BOARDING")
+                              && recovered.fault().isEmpty(),
+                          "PAX winch did not recover after trailing carrier restore: " + recovered);
+                      System.out.println(
+                          "FD_TELEMETRY_PAX_WINCH restored=trailing-carrier available=true"
+                              + " dispatchReady=" + recovered.dispatchReady()
+                              + " phase=BOARDING fault=cleared");
+                      for (var car : pax.cars()) {
+                        for (var c : car.carriers) {
+                          var nativeBody = container.getSubLevel(c.body);
+                          if (nativeBody != null)
+                            container.removeSubLevel(nativeBody, SubLevelRemovalReason.REMOVED);
+                        }
+                        var chassis = container.getSubLevel(car.chassis);
+                        if (chassis != null)
+                          container.removeSubLevel(chassis, SubLevelRemovalReason.REMOVED);
+                        data.vehicles.remove(car.chassis);
+                      }
+                      var anchors =
+                          Set.of(
+                              origin.offset(0, 24, -48),
+                              origin,
+                              origin.offset(0, 0, 32),
+                              origin.offset(0, 32, 80));
+                      var ownedRails =
+                          data.rails.stream()
+                              .filter(r -> anchors.contains(r.from) && anchors.contains(r.to))
+                              .toList();
+                      for (var rail : ownedRails) {
+                        data.rails.remove(rail);
+                        level.removeBlock(rail.from, false);
+                        level.removeBlock(rail.to, false);
+                      }
+                      level.removeBlock(winch.getBlockPos(), false);
+                      level.removeBlock(winch.getBlockPos().west(), false);
+                      for (int x = -39; x <= -36; x++)
+                        for (int z = 36; z <= 47; z++) level.setChunkForced(x, z, false);
+                      helper.succeed();
+                    });
+              });
+              });
+        });
+  }
+
   private static void missingBody(
       GameTestHelper helper,
       BoardingStationEntity station,

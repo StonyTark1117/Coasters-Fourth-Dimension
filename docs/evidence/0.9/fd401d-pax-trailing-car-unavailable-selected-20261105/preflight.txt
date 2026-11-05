@@ -1,0 +1,32 @@
+UTC: 2026-11-05 14:43:26
+## main...origin/main [ahead 125]
+ M ROADMAP.md
+ M docs/evidence/0.9/fd401-pax-fault-resume-unload-selected-656725bc-20261105/README.md
+ M src/main/java/dev/fourthdimension/gametest/RideTelemetryGameTests.java
+?? docs/evidence/0.9/fd401-pax-fault-resume-unload-3g-selected-20261105/
+?? docs/evidence/0.9/fd401d-pax-trailing-car-unavailable-selected-20261105/
+               total        used        free      shared  buff/cache   available
+Mem:            61Gi        36Gi        16Gi        15Gi        24Gi        24Gi
+Swap:             0B          0B          0B
+  42939   42937 2687388 /usr/lib/jvm/java-21-openjdk/bin/java @/tmp/fd402-operator-final-build.gMpF0Q/moddev/clientRunClasspath.txt @/tmp/fd402-operator-final-build.gMpF0Q/moddev/clientRunVmArgs.txt -Dfml.modFolders= net.neoforged.devlaunch.Main @/tmp/fd402-operator-final-build.gMpF0Q/moddev/clientRunProgramArgs.txt
+ 671134  671119  6068 rg devlaunch.Main|GradleDaemon|gradle|runServer
+ 671115   10172  5956 /bin/bash -c mkdir -p docs/evidence/0.9/fd401d-pax-trailing-car-unavailable-selected-20261105/second-attempt && python3 - <<'PY' from pathlib import Path p=Path('docs/evidence/0.9/fd401d-pax-trailing-car-unavailable-selected-20261105/rcon.py') s=p.read_text().replace('25713','25723') p.write_text(s) game=Path('/tmp/fd401d-pax-unavailable-trailing-car-selected-20261105/game-final') game.mkdir(parents=True,exist_ok=True) (game/'eula.txt').write_text('eula=true\n') (game/'server.properties').write_text('''enable-rcon=true\nrcon.password=fd401d-pax-trailing-car-local\nrcon.port=25723\nserver-port=25724\nserver-ip=127.0.0.1\nonline-mode=false\nlevel-name=world\nlevel-type=minecraft:flat\ngenerate-structures=false\nmotd=FD401D named GameTest final\nmax-players=2\n''') PY { printf 'UTC: '; date -u '+%Y-%m-%d %H:%M:%S'; git status --short --branch; free -h; ps -eo pid,ppid,rss,args --sort=-rss | rg 'devlaunch.Main|GradleDaemon|gradle|runServer' | head -12; printf 'memory.max='; cat /sys/fs/cgroup/memory.max 2>/dev/null; printf 'memory.current='; cat /sys/fs/cgroup/memory.current 2>/dev/null; export JAVA_HOME=/usr/lib/jvm/java-21-openjdk; export PATH="$JAVA_HOME/bin:$PATH"; "$JAVA_HOME/bin/java" -version; ./gradlew --version; } 2>&1 | tee docs/evidence/0.9/fd401d-pax-trailing-car-unavailable-selected-20261105/preflight.txt; git diff --check; export JAVA_HOME=/usr/lib/jvm/java-21-openjdk; export PATH="$JAVA_HOME/bin:$PATH"; ./gradlew compileJava -PfdBuildDirectory=/tmp/fd401d-pax-unavailable-trailing-car-selected-20261105/build --no-daemon --offline --console=plain -Dorg.gradle.jvmargs=-Xmx2G 2>&1 | tee docs/evidence/0.9/fd401d-pax-trailing-car-unavailable-selected-20261105/compile-final.txt
+ 671119  671115  2108 /bin/bash -c mkdir -p docs/evidence/0.9/fd401d-pax-trailing-car-unavailable-selected-20261105/second-attempt && python3 - <<'PY' from pathlib import Path p=Path('docs/evidence/0.9/fd401d-pax-trailing-car-unavailable-selected-20261105/rcon.py') s=p.read_text().replace('25713','25723') p.write_text(s) game=Path('/tmp/fd401d-pax-unavailable-trailing-car-selected-20261105/game-final') game.mkdir(parents=True,exist_ok=True) (game/'eula.txt').write_text('eula=true\n') (game/'server.properties').write_text('''enable-rcon=true\nrcon.password=fd401d-pax-trailing-car-local\nrcon.port=25723\nserver-port=25724\nserver-ip=127.0.0.1\nonline-mode=false\nlevel-name=world\nlevel-type=minecraft:flat\ngenerate-structures=false\nmotd=FD401D named GameTest final\nmax-players=2\n''') PY { printf 'UTC: '; date -u '+%Y-%m-%d %H:%M:%S'; git status --short --branch; free -h; ps -eo pid,ppid,rss,args --sort=-rss | rg 'devlaunch.Main|GradleDaemon|gradle|runServer' | head -12; printf 'memory.max='; cat /sys/fs/cgroup/memory.max 2>/dev/null; printf 'memory.current='; cat /sys/fs/cgroup/memory.current 2>/dev/null; export JAVA_HOME=/usr/lib/jvm/java-21-openjdk; export PATH="$JAVA_HOME/bin:$PATH"; "$JAVA_HOME/bin/java" -version; ./gradlew --version; } 2>&1 | tee docs/evidence/0.9/fd401d-pax-trailing-car-unavailable-selected-20261105/preflight.txt; git diff --check; export JAVA_HOME=/usr/lib/jvm/java-21-openjdk; export PATH="$JAVA_HOME/bin:$PATH"; ./gradlew compileJava -PfdBuildDirectory=/tmp/fd401d-pax-unavailable-trailing-car-selected-20261105/build --no-daemon --offline --console=plain -Dorg.gradle.jvmargs=-Xmx2G 2>&1 | tee docs/evidence/0.9/fd401d-pax-trailing-car-unavailable-selected-20261105/compile-final.txt
+memory.max=memory.current=openjdk version "21.0.13.0.3" 2026-10-24
+OpenJDK Runtime Environment (build 21.0.13.0.3+1)
+OpenJDK 64-Bit Server VM (build 21.0.13.0.3+1, mixed mode, sharing)
+
+------------------------------------------------------------
+Gradle 9.2.1
+------------------------------------------------------------
+
+Build time:    2025-11-17 13:40:48 UTC
+Revision:      30ecdc708db275e8f8769ea0620f6dd919a58f76
+
+Kotlin:        2.2.20
+Groovy:        4.0.28
+Ant:           Apache Ant(TM) version 1.10.15 compiled on August 25 2024
+Launcher JVM:  21.0.13.0.3 (Arch Linux 21.0.13.0.3+1)
+Daemon JVM:    /usr/lib/jvm/java-21-openjdk (no JDK specified, using current Java home)
+OS:            Linux 7.2.14-zen1-1-zen amd64
+

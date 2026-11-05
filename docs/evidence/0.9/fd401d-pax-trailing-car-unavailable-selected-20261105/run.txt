@@ -1,0 +1,21 @@
+Checkout: /home/braydon/Documents/Coasters: Fourth Dimension
+Branch: main (no new branch/worktree)
+Changed source: src/main/java/dev/fourthdimension/gametest/RideTelemetryGameTests.java
+Selected production JAR: docs/evidence/qualification/2026-11-05-ec2fcda/qualification.jar
+Selected SHA-256: 656725bcbacc8f491de274c6c058027d0aaa67cfc6f893ba6d7e4a9eb24abbc7
+Test overlay SHA-256: 553171d2188ebd97a7d80424fe287cfc2e85bcdc5f2ef1d88d932e32ab86c022
+Java: OpenJDK 21.0.13.0.3
+Gradle: 9.2.1
+Minecraft: 1.21.1; NeoForge 21.1.248
+
+Compile command (project checkout; isolated build output):
+JAVA_HOME=/usr/lib/jvm/java-21-openjdk PATH=/usr/lib/jvm/java-21-openjdk/bin:$PATH ./gradlew compileJava -PfdBuildDirectory=/tmp/fd401d-pax-unavailable-trailing-car-selected-20261105/build --no-daemon --offline --console=plain -Dorg.gradle.jvmargs=-Xmx2G
+
+Named headless GameTest command (project checkout; isolated build and game directories):
+JAVA_HOME=/usr/lib/jvm/java-21-openjdk PATH=/usr/lib/jvm/java-21-openjdk/bin:$PATH ./gradlew runServer -PfdBuildDirectory=/tmp/fd401d-pax-unavailable-trailing-car-selected-20261105/build -PfdPackaged -PfdIntegrations=styles,engineered -PfdFeNetwork -PfdValidation -PfdNamedGameTestServer -PfdServerGameDirectory=/tmp/fd401d-pax-unavailable-trailing-car-selected-20261105/game-final -PfdServerMaxHeap=1536M -x jar --no-daemon --offline --console=plain -Dorg.gradle.jvmargs=-Xmx2G
+
+RCON invoked exactly:
+python3 docs/evidence/0.9/fd401d-pax-trailing-car-unavailable-selected-20261105/rcon.py test run paxwinchrejectsunavailabletrailingcarrier
+python3 docs/evidence/0.9/fd401d-pax-trailing-car-unavailable-selected-20261105/rcon.py stop
+
+Server properties used game port 25724 and RCON port 25723. RCON was bound to 127.0.0.1. No GUI client was launched. Gradle was outside any client memory scope. The server JVM used -Xmx1536M. The final run completed with the expected telemetry/rejection/restoration markers and no GameTest failure; RCON stopped the server normally and Gradle returned BUILD SUCCESSFUL. Earlier assertion-only attempts are retained under first-attempt/ and second-attempt/.
