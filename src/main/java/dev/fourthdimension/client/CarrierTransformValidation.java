@@ -658,15 +658,28 @@ public final class CarrierTransformValidation {
   private static boolean recoveryCycleReady(
       Minecraft minecraft, dev.fourthdimension.runtime.FoundationData data) {
     if (!recoveryCycleRequired() || minecraft.player == null || minecraft.player.isPassenger()) return false;
-    return recoveryLinkSeen
-        && recoveryMotionSeen
-        && data.vehicles.values().stream()
-            .anyMatch(
-                vehicle ->
-                    vehicle.family == recoveryFixtureFamily()
-                        && vehicle.recoveryCart == null
-                        && vehicle.stopping
-                        && !vehicle.restraints);
+    if (!recoveryLinkSeen || !recoveryMotionSeen) return false;
+    if (data.vehicles.values().stream()
+        .anyMatch(
+            vehicle ->
+                vehicle.family == recoveryFixtureFamily()
+                    && vehicle.recoveryCart == null
+                    && vehicle.stopping
+                    && !vehicle.restraints)) return true;
+    // Native unlink and the rider's dismount can arrive one client tick before the larger
+    // Free Spin carrier snapshot clears recoveryCart. That crossed state is an observed release,
+    // not a missing link: the production detach has already removed the native constraint.
+    var container = SubLevelContainer.getContainer(minecraft.level);
+    return data.vehicles.values().stream()
+        .filter(vehicle -> vehicle.family == recoveryFixtureFamily() && vehicle.recoveryCart != null)
+        .anyMatch(
+            vehicle -> {
+              var parent = container.getSubLevel(vehicle.chassis);
+              var recovery = container.getSubLevel(vehicle.recoveryCart);
+              return parent != null
+                  && recovery != null
+                  && !CoasterCartTrainLinkConstraint.areLinkedCarts(parent, recovery);
+            });
   }
 
   /** Matches the flat recovery fixture selected for this client invocation. */

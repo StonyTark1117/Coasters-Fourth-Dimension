@@ -51,7 +51,7 @@ This remains a fixture-operated one-player Arrow scene. It does not establish
 ordinary player tools/UI, Engineered/FE operation, all recovery families,
 full multiplayer behavior, or broad rendered clearance.
 
-## PAX extension (2026-11-04)
+## Family extensions (2026-11-04)
 
 The same two-process checkpoint was also run for the flat `PAX` fixture in
 `/tmp/fd402-pax-lifecycle.4576DY`, with each game JVM capped by
@@ -62,5 +62,10 @@ observed 5.742 blocks of motion for both bodies, and passed after production
 brake, detach, restraint opening, and rider unload. No out-of-memory event
 occurred.
 
-This extends the bounded one-player evidence to Arrow and PAX only; it still
-does not certify all-family or multiplayer recovery behavior.
+The same capped two-process check also passed for Legacy
+(`FD402LegacyLifecycle`, 5.667 blocks) and Free Spin
+(`FD402FreeSpinCycle`, 5.384 blocks). Free Spin exposed a normal native-unlink
+packet arriving before its larger carrier snapshot cleared `recoveryCart`; the
+client validator now recognizes that observed unlink plus rider dismount as the
+same completed production release. Revised and multiplayer evidence remain
+open, so this does not yet certify the full all-family lifecycle matrix.
