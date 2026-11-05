@@ -1,0 +1,58 @@
+{
+  "source": "input foundation-final.json from fd401-pax-selected-source-phase-telemetry-20261105",
+  "shuttleCarOrder": "ordered shuttle_cars in input winch block NBT",
+  "vehicles": [
+    {
+      "order": 1,
+      "foundationIndex": 2,
+      "chassis": "5efaf096-8468-4b8a-9fe7-b6911b2ae980",
+      "carrierBodies": [
+        "2196fc5e-b704-41a4-a8f1-c40c2ffd94ab",
+        "944c4762-7392-4cf3-b881-c8c00421d1a1"
+      ],
+      "seatOffsets": [
+        4095,
+        -274877902849
+      ]
+    },
+    {
+      "order": 2,
+      "foundationIndex": 3,
+      "chassis": "00cc55a9-7777-41d8-8830-cb09dd42e8ce",
+      "carrierBodies": [
+        "6e476534-af5c-43ed-ae44-a943901c2627",
+        "f35f1eba-eab1-4992-a4ee-87b43323991f"
+      ],
+      "seatOffsets": [
+        4095,
+        -274877902849
+      ]
+    },
+    {
+      "order": 3,
+      "foundationIndex": 4,
+      "chassis": "03eaec0a-e8f3-4c72-b515-8c68336a0ac7",
+      "carrierBodies": [
+        "941c9514-e90d-46b4-a534-8fe687fe6343",
+        "526ed368-03af-4cac-beae-1559c19c2784"
+      ],
+      "seatOffsets": [
+        4095,
+        -274877902849
+      ]
+    },
+    {
+      "order": 4,
+      "foundationIndex": 5,
+      "chassis": "ad3c38bd-f3a9-4f15-9dfb-d27f1e104913",
+      "carrierBodies": [
+        "f72f3436-4967-4de6-9281-d4ecfd949dd6",
+        "ae6c6e5e-f2b4-4b14-aa18-17d2d218f940"
+      ],
+      "seatOffsets": [
+        4095,
+        -274877902849
+      ]
+    }
+  ]
+}
