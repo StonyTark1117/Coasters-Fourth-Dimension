@@ -148,6 +148,11 @@ The [release handoff checklist](FD401-RELEASE-HANDOFF.md) reconciles later telem
 evidence with the exact remaining operator, optional-client, rendering and
 clearance checks. It separates offline audits from scheduled runtime work and
 does not promote the paused expansion addons into the candidate scope.
+The [later-artifact review](evidence/0.9/fd401-release-review-54495a5/README.md)
+confirms that the frozen `2c5d9a7` evidence remains artifact-specific: the
+subsequent PAX package changes production classes and resources, and `main`
+has changed again. Those earlier exact-JAR passes do not certify the later
+package or current source.
 
 The frozen `ff7c831` exports now have five passing prospective sampled geometry
 analyses: [both Arrow styles on single cars and two-car trains](evidence/0.9/fd401-prospective-styles-ff7c831/README.md),
