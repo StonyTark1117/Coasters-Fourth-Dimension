@@ -1,0 +1,50 @@
+/data get block -507 142 -634
+/data get block -506 142 -629
+/fd validation motion Dev
+/fd validation availability
+/setblock -507 142 -635 minecraft:air
+/setblock -507 142 -636 minecraft:air
+/data remove block -500 142 -630 CoastersEngineeredEnergy
+/data get block -507 142 -634
+/data get block -500 142 -630 CoastersEngineeredEnergy
+/data get block -506 142 -629
+/tp Dev -496.5 146 -617.5 0 90
+/tp Dev -504 144 -627 135 47
+/tp Dev -504 144 -627 facing -505.5 142.5 -628.5
+/tp Dev -504 144 -627 facing -506.5 140.9 -629.5
+/tp Dev -504 144 -627 facing -505.5 140.9 -628.5
+/tp Dev -496.5 146 -617.5 0 90
+/data get entity Dev SelectedItem
+/setblock -506 142 -617 minecraft:air
+/setblock -506 142 -628 minecraft:redstone_block
+/setblock -506 142 -628 minecraft:air
+/data get block -506 142 -629
+/data get block -500 142 -630 CoastersEngineeredEnergy
+/fd validation availability
+/setblock -506 142 -617 minecraft:redstone_block
+/setblock -507 142 -635 create:water_wheel[facing=north]
+/setblock -507 142 -636 create:water_wheel[facing=north]
+/data get block -507 142 -634
+/data get block -506 142 -629
+/data get block -500 142 -630 CoastersEngineeredEnergy
+/data get block -506 142 -629
+/setblock -506 142 -617 minecraft:air
+/setblock -506 142 -628 minecraft:redstone_block
+/setblock -506 142 -628 minecraft:air
+/data get block -500 142 -630 CoastersEngineeredEnergy
+/data get block -506 142 -629
+/fd validation motion Dev
+/data get block -506 142 -629
+/setblock -506 142 -617 minecraft:redstone_block
+/fd validation motion Dev
+/data get block -506 142 -629
+/data get entity Dev RootVehicle
+/fd validation availability
+/fd validation motion Dev
+/fd validation availability
+/data get entity Dev RootVehicle
+/fd validation availability
+/data get entity Dev RootVehicle
+/data get block -500 142 -630 CoastersEngineeredEnergy
+/data get block -507 142 -634
+/data get block -506 142 -629

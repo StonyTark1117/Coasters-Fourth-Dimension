@@ -1,0 +1,51 @@
+{
+  "artifactSha256": "656725bcbacc8f491de274c6c058027d0aaa67cfc6f893ba6d7e4a9eb24abbc7",
+  "profile": [
+    "Track Styles 1.2.0",
+    "Engineered 1.1.1"
+  ],
+  "engineeredRequireEnergy": true,
+  "wiredSource": {
+    "initialSpeedRpm": 8.0,
+    "initialCapacityStressUnits": 768.0,
+    "initialStress": 512.0,
+    "startFe": 100000,
+    "endFeAfterPoweredCircuit": 94355
+  },
+  "poweredCircuit": {
+    "startPosition": [
+      -467.5,
+      143.1,
+      -629.0
+    ],
+    "returnPosition": [
+      -499.5,
+      143.1,
+      -617.5
+    ],
+    "returnedAndCaptured": true,
+    "returnedSpeedBlocksPerSecond": 0.0009,
+    "controllerPassReached": 19.40687370300293,
+    "controllerPassTarget": 20,
+    "controllerPassShort": true
+  },
+  "normalBoardingAndUnload": {
+    "normalRightClickBoarding": true,
+    "restraintsClosedThroughUi": true,
+    "restraintsOpenedThroughUi": true,
+    "shiftDismountClearLogged": true,
+    "finalAssignments": 0,
+    "rootVehicleAbsent": true
+  },
+  "starvationRecoveryAttempt": {
+    "complete": false,
+    "reason": "Second pulse remained at station; controller did not enter Starving. A second water wheel at -507,142,-635 had remained connected during the first source removal. Both water wheels were restored; the alternator remained installed and returned to 8 RPM / capacity 768. No post-restore circuit is claimed."
+  },
+  "client": {
+    "java": "21.0.13",
+    "privateXvfb": ":277",
+    "heapLimit": "1536M",
+    "scopeMemoryMax": "3G",
+    "scopeResult": "success"
+  }
+}

@@ -1,0 +1,56 @@
+# Baseline, one fresh client from input-world.tar.gz
+/data get block -500 142 -630 CoastersEngineeredEnergy
+/data get block -507 142 -634
+/data get block -506 142 -629
+/fd validation availability
+
+# Isolate wired source and clear retained FE
+/setblock -507 142 -635 minecraft:air
+/setblock -507 142 -636 minecraft:air
+/data remove block -500 142 -630 CoastersEngineeredEnergy
+/data get block -507 142 -634
+/data get block -500 142 -630 CoastersEngineeredEnergy
+
+# Seat was verified in F3 as fourthdimension:arrow_seat at (-497,146,-618).
+# Empty hand; ordinary right-click accepted the rider. Rotation Tool UI closed restraints.
+/tp Dev -496.5 146 -617.5 0 90
+
+# Create a real FE interruption while the occupied vehicle is held at the station
+/setblock -506 142 -617 minecraft:air
+/setblock -506 142 -628 minecraft:redstone_block
+/setblock -506 142 -628 minecraft:air
+/data get block -506 142 -629
+/data get block -500 142 -630 CoastersEngineeredEnergy
+/fd validation availability
+
+# Re-arm station hold before restoring power, then recharge the existing wired source
+/setblock -506 142 -617 minecraft:redstone_block
+/setblock -507 142 -635 create:water_wheel[facing=north]
+/setblock -507 142 -636 create:water_wheel[facing=north]
+/data get block -507 142 -634
+/data get block -506 142 -629
+/data get block -500 142 -630 CoastersEngineeredEnergy
+# Wait for the anchor buffer to reach 25,102 FE while the station hold remains active.
+
+# Release station and pulse once after recharge
+/setblock -506 142 -617 minecraft:air
+/setblock -506 142 -628 minecraft:redstone_block
+/setblock -506 142 -628 minecraft:air
+/data get block -500 142 -630 CoastersEngineeredEnergy
+/data get block -506 142 -629
+/fd validation motion Dev
+# Motion samples: (-493.9,143.1,-637.2), then (-499.5,143.1,-617.5), capture=false.
+
+# Capture at station, then unload safely through the normal UI
+/setblock -506 142 -617 minecraft:redstone_block
+/fd validation motion Dev
+/data get block -506 142 -629
+# Rotation Tool UI showed Ready | Restraints closed at capture; opened restraints normally.
+# Left Shift dismounted; no command changed the rider, vehicle, or controller NBT.
+/fd validation availability
+/data get entity Dev RootVehicle
+/data get block -500 142 -630 CoastersEngineeredEnergy
+/data get block -507 142 -634
+/data get block -506 142 -629
+
+# Manual UI action: Save and Quit to Title; then Quit Game. World saved and client exited.
