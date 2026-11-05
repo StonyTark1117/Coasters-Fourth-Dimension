@@ -63,9 +63,10 @@ brake, detach, restraint opening, and rider unload. No out-of-memory event
 occurred.
 
 The same capped two-process check also passed for Legacy
-(`FD402LegacyLifecycle`, 5.667 blocks) and Free Spin
-(`FD402FreeSpinCycle`, 5.384 blocks). Free Spin exposed a normal native-unlink
+(`FD402LegacyLifecycle`, 5.667 blocks), Free Spin
+(`FD402FreeSpinCycle`, 5.384 blocks), and Revised
+(`FD402RevisedLifecycle`, 5.355 blocks). Free Spin exposed a normal native-unlink
 packet arriving before its larger carrier snapshot cleared `recoveryCart`; the
 client validator now recognizes that observed unlink plus rider dismount as the
-same completed production release. Revised and multiplayer evidence remain
-open, so this does not yet certify the full all-family lifecycle matrix.
+same completed production release. This closes the bounded all-family
+one-player lifecycle matrix; multiplayer evidence remains open.

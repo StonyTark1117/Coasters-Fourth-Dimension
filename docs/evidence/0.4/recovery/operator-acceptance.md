@@ -137,8 +137,8 @@ ordinary-bearing selection, physical lever operation or the recovery lifecycle.
 Manual world-side ordinary-bearing selection and physical lever propulsion
 remain open, along with observed client mesh/rider/rack clearance. Broader
 coupler/propulsion/braking
-scenes and all-family or multiplayer recovery-mode lifecycle evidence also
-remain open. These checks do not certify added ordinary-cart assemblies or a
+scenes and multiplayer recovery-mode lifecycle evidence also remain open.
+These checks do not certify added ordinary-cart assemblies or a
 survival locomotive.
 The bounded installed-motor brake/start/brake callback check is recorded in the
 [Engineered motor-interlock checkpoint](engineered-motor-interlock/acceptance.md);
