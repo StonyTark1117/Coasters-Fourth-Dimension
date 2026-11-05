@@ -1,0 +1,19 @@
+Live systemd property snapshot taken while all three scopes were active:
+
+fd402-two-client-server2.scope
+ActiveState=active
+SubState=running
+MemoryCurrent=2013286400
+MemoryPeak=2017898496
+MemoryMax=2684354560
+
+fd402-two-client-dev.scope
+MemoryMax=3221225472
+
+fd402-two-client-observer.scope
+MemoryMax=3221225472
+
+The client scopes completed before their final status query. Their terminal
+journal records in memory.txt report 2.4G and 2.5G peaks respectively. The
+server terminal journal reports a 1.8G peak. Transient scopes report
+MemoryMax=infinity after removal; the values above are the live observations.

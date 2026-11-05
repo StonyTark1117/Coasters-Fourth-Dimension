@@ -158,9 +158,12 @@ to supply and then cut clutch power, observed towing, braked before the route
 end, detached recovery and reopened restraints. That evidence is limited to
 the documented manual empty-Arrow scene.
 
-Observed client mesh/rider/rack clearance, broader
-coupler/propulsion/braking scenes and multiplayer recovery-mode lifecycle
-evidence remain open.
+Observed client mesh/rider/rack clearance and broader
+coupler/propulsion/braking scenes remain open. The later
+[two-client Arrow lifecycle checkpoint](two-client-recovery-lifecycle/acceptance.md)
+closes occupied multiplayer attach/tow/brake/disconnect/unload for one supported
+Arrow scene with both rendered clients observing normal release; all-family
+multiplayer coverage remains open.
 These checks do not certify added ordinary-cart assemblies or a
 survival locomotive.
 The bounded installed-motor brake/start/brake callback check is recorded in the

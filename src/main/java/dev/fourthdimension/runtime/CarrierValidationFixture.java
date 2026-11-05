@@ -727,15 +727,31 @@ public final class CarrierValidationFixture {
       recoveryCycleDelay = 20;
       return;
     }
-    rider.stopRiding();
-    if (rider.isPassenger() || car.recoveryCart != null || car.restraints)
-      throw new IllegalStateException("FD_CARRIER_FIXTURE recovery cycle did not detach and unload");
+    var riders = riderFixturePlayers.stream().map(server.getPlayerList()::getPlayer).toList();
+    if (riders.size() != riderFixtureCount() || riders.stream().anyMatch(java.util.Objects::isNull))
+      throw new IllegalStateException(
+          "FD_CARRIER_FIXTURE recovery cycle lost a connected rider before unload");
+    riders.forEach(ServerPlayer::stopRiding);
+    boolean assignmentsCleared =
+        car.carriers.stream()
+            .noneMatch(
+                carrier ->
+                    riders.stream()
+                        .anyMatch(player -> carrier.riderSeats.containsKey(player.getUUID())));
+    if (riders.stream().anyMatch(ServerPlayer::isPassenger)
+        || !assignmentsCleared
+        || car.recoveryCart != null
+        || car.restraints)
+      throw new IllegalStateException(
+          "FD_CARRIER_FIXTURE recovery cycle did not detach and unload every rider");
     recoveryCycleComplete = true;
     LogUtils.getLogger()
         .info(
-            "FD_CARRIER_FIXTURE completed{} occupied recovery cycle chassis={} detached=true restraintsOpen=true riderUnloaded=true",
+            "FD_CARRIER_FIXTURE completed{} occupied recovery cycle chassis={} detached=true restraintsOpen=true ridersUnloaded={} riders={}",
             recoveryResumeFixture() ? " fresh-process resumed" : "",
-            car.chassis);
+            car.chassis,
+            riders.size(),
+            riders.stream().map(player -> player.getGameProfile().getName()).toList());
   }
 
   /** Describes production boarding readiness when an opt-in rider fixture times out. */

@@ -1,0 +1,23 @@
+Id=fd402-two-client-server2.scope
+ActiveState=inactive
+SubState=dead
+Result=success
+MemoryMax=infinity
+Nov 04 19:01:17 Hades systemd[2906]: Started [systemd-run] /usr/sbin/env JAVA_HOME=/usr/lib/jvm/java-21-openjdk ./gradlew --offline --no-daemon --console=plain -Dorg.gradle.jvmargs=-Xmx512m runServer -PfdServerGameDirectory=/tmp/fd402-two-client-cycle.WSi1kB/server -PfdServerMaxHeap=1024M -PfdCarrierFixture -PfdCarrierFixtureRecovery -PfdCarrierFixtureRecoveryCycle -PfdCarrierFixtureRecoveryDesign=ARROW -PfdCarrierFixtureRiders=2.
+Nov 04 19:04:13 Hades systemd[2906]: Stopping [systemd-run] /usr/sbin/env JAVA_HOME=/usr/lib/jvm/java-21-openjdk ./gradlew --offline --no-daemon --console=plain -Dorg.gradle.jvmargs=-Xmx512m runServer -PfdServerGameDirectory=/tmp/fd402-two-client-cycle.WSi1kB/server -PfdServerMaxHeap=1024M -PfdCarrierFixture -PfdCarrierFixtureRecovery -PfdCarrierFixtureRecoveryCycle -PfdCarrierFixtureRecoveryDesign=ARROW -PfdCarrierFixtureRiders=2...
+Nov 04 19:04:14 Hades systemd[2906]: Stopped [systemd-run] /usr/sbin/env JAVA_HOME=/usr/lib/jvm/java-21-openjdk ./gradlew --offline --no-daemon --console=plain -Dorg.gradle.jvmargs=-Xmx512m runServer -PfdServerGameDirectory=/tmp/fd402-two-client-cycle.WSi1kB/server -PfdServerMaxHeap=1024M -PfdCarrierFixture -PfdCarrierFixtureRecovery -PfdCarrierFixtureRecoveryCycle -PfdCarrierFixtureRecoveryDesign=ARROW -PfdCarrierFixtureRiders=2.
+Nov 04 19:04:14 Hades systemd[2906]: fd402-two-client-server2.scope: Consumed 2min 19.423s CPU time over 2min 56.339s wall clock time, 1.8G memory peak.
+Id=fd402-two-client-dev.scope
+ActiveState=inactive
+SubState=dead
+Result=success
+MemoryMax=infinity
+Nov 04 19:02:14 Hades systemd[2906]: Started [systemd-run] /usr/sbin/env DISPLAY=:223 ALSOFT_DRIVERS=null JAVA_HOME=/usr/lib/jvm/java-21-openjdk ./gradlew --offline --no-daemon --console=plain -Dorg.gradle.jvmargs=-Xmx512m runClient -PfdClientGameDirectory=/tmp/fd402-two-client-cycle.WSi1kB/dev -PfdClientMaxHeap=1024M -PfdConnect=127.0.0.1:25591 -PfdCarrierValidation -PfdCarrierValidationExit -PfdCarrierValidationRecovery -PfdCarrierValidationRecoveryMotion -PfdCarrierValidationRecoveryCycle -PfdCarrierValidationRider -PfdCarrierValidationRender -PfdCarrierFixtureRecoveryDesign=ARROW -PfdCarrierValidationSamples=20 -PfdCarrierValidationTimeout=2400.
+Nov 04 19:03:04 Hades systemd[2906]: fd402-two-client-dev.scope: Consumed 2min 13.193s CPU time over 50.275s wall clock time, 2.4G memory peak.
+Id=fd402-two-client-observer.scope
+ActiveState=inactive
+SubState=dead
+Result=success
+MemoryMax=infinity
+Nov 04 19:02:14 Hades systemd[2906]: Started [systemd-run] /usr/sbin/env DISPLAY=:224 ALSOFT_DRIVERS=null JAVA_HOME=/usr/lib/jvm/java-21-openjdk ./gradlew --offline --no-daemon --console=plain -Dorg.gradle.jvmargs=-Xmx512m runObserver -PfdObserverGameDirectory=/tmp/fd402-two-client-cycle.WSi1kB/observer -PfdClientMaxHeap=1024M -PfdConnect=127.0.0.1:25591 -PfdCarrierValidation -PfdCarrierValidationExit -PfdCarrierValidationRecovery -PfdCarrierValidationRecoveryMotion -PfdCarrierValidationRecoveryCycle -PfdCarrierValidationRider -PfdCarrierValidationRender -PfdCarrierFixtureRecoveryDesign=ARROW -PfdCarrierValidationSamples=20 -PfdCarrierValidationTimeout=2400.
+Nov 04 19:03:04 Hades systemd[2906]: fd402-two-client-observer.scope: Consumed 2min 16.765s CPU time over 50.280s wall clock time, 2.5G memory peak.

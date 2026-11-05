@@ -62,27 +62,7 @@ neoForge {
             systemProperty 'fourthdimension.carrierValidationRender', project.hasProperty('fdCarrierValidationRender').toString()
             systemProperty 'fourthdimension.carrierValidationPlayerRender', project.hasProperty('fdCarrierValidationPlayerRender').toString()
             systemProperty 'fourthdimension.carrierValidationPlayerRenderAutoCamera', project.hasProperty('fdCarrierValidationPlayerRenderAutoCamera').toString()
-            systemProperty 'fourthdimension.carrierValidationRecovery', project.hasProperty('fdCarrierValidationRecovery').toString()
-            systemProperty 'fourthdimension.carrierValidationRecoveryMotion', project.hasProperty('fdCarrierValidationRecoveryMotion').toString()
-            systemProperty 'fourthdimension.carrierValidationRecoveryBank', project.hasProperty('fdCarrierValidationRecoveryBank').toString()
-            systemProperty 'fourthdimension.carrierValidationRecoveryCycle', project.hasProperty('fdCarrierValidationRecoveryCycle').toString()
-            systemProperty 'fourthdimension.carrierValidationRecoveryProfile', project.hasProperty('fdCarrierValidationRecoveryProfile').toString()
-            systemProperty 'fourthdimension.carrierValidationRecoveryEditor', project.hasProperty('fdCarrierValidationRecoveryEditor').toString()
-            systemProperty 'fourthdimension.carrierValidationRecoveryEditorAction', project.hasProperty('fdCarrierValidationRecoveryEditorAction').toString()
-            systemProperty 'fourthdimension.carrierValidationRecoveryEditorAttach', project.hasProperty('fdCarrierValidationRecoveryEditorAttach').toString()
-            systemProperty 'fourthdimension.carrierValidationRecoveryTrain', project.hasProperty('fdCarrierValidationRecoveryTrain').toString()
             systemProperty 'fourthdimension.carrierFixture', project.hasProperty('fdCarrierFixture').toString()
-            systemProperty 'fourthdimension.carrierFixtureRecovery', project.hasProperty('fdCarrierFixtureRecovery').toString()
-            systemProperty 'fourthdimension.carrierFixtureRecoveryDesign', project.findProperty('fdCarrierFixtureRecoveryDesign') ?: 'ARROW'
-            systemProperty 'fourthdimension.carrierFixtureRecoveryBank', project.hasProperty('fdCarrierFixtureRecoveryBank').toString()
-            systemProperty 'fourthdimension.carrierFixtureRecoveryCycle', project.hasProperty('fdCarrierFixtureRecoveryCycle').toString()
-            systemProperty 'fourthdimension.carrierFixtureRecoveryProfile', project.hasProperty('fdCarrierFixtureRecoveryProfile').toString()
-            systemProperty 'fourthdimension.carrierFixtureRecoveryPause', project.hasProperty('fdCarrierFixtureRecoveryPause').toString()
-            systemProperty 'fourthdimension.carrierFixtureRecoveryResume', project.hasProperty('fdCarrierFixtureRecoveryResume').toString()
-            systemProperty 'fourthdimension.carrierFixtureRecoveryEditor', project.hasProperty('fdCarrierFixtureRecoveryEditor').toString()
-            systemProperty 'fourthdimension.carrierFixtureRecoveryEditorAction', project.hasProperty('fdCarrierFixtureRecoveryEditorAction').toString()
-            systemProperty 'fourthdimension.carrierFixtureRecoveryEditorAttach', project.hasProperty('fdCarrierFixtureRecoveryEditorAttach').toString()
-            systemProperty 'fourthdimension.carrierFixtureRecoveryTrain', project.hasProperty('fdCarrierFixtureRecoveryTrain').toString()
             systemProperty 'fourthdimension.carrierFixtureMotion', project.hasProperty('fdCarrierFixtureMotion').toString()
             systemProperty 'fourthdimension.carrierFixtureRider', project.hasProperty('fdCarrierFixtureRider').toString()
             systemProperty 'fourthdimension.carrierFixtureRiderOnly', project.hasProperty('fdCarrierFixtureRiderOnly').toString()
@@ -109,13 +89,20 @@ neoForge {
             systemProperty 'fourthdimension.occupiedReloadValidationStages', project.findProperty('fdOccupiedReloadValidationStages') ?: '100'
         }
         observer {
-            client(); gameDirectory = layout.buildDirectory.dir(project.hasProperty('fdPackaged') ? 'runs/packaged-observer' : 'runs/observer').get().asFile
+            client()
+            gameDirectory = project.hasProperty('fdObserverGameDirectory')
+                ? file(project.property('fdObserverGameDirectory'))
+                : layout.buildDirectory.dir(project.hasProperty('fdPackaged') ? 'runs/packaged-observer' : 'runs/observer').get().asFile
             programArguments.addAll '--username', 'Observer'
             if (project.hasProperty('fdConnect')) programArguments.addAll '--quickPlayMultiplayer', project.property('fdConnect')
             systemProperty 'fourthdimension.validation', project.hasProperty('fdValidation').toString()
         }
         server {
-            server(); gameDirectory = layout.buildDirectory.dir(project.hasProperty('fdPackaged') ? 'runs/packaged-server' : 'runs/server').get().asFile; programArgument '--nogui'
+            server()
+            gameDirectory = project.hasProperty('fdServerGameDirectory')
+                ? file(project.property('fdServerGameDirectory'))
+                : layout.buildDirectory.dir(project.hasProperty('fdPackaged') ? 'runs/packaged-server' : 'runs/server').get().asFile
+            programArgument '--nogui'
             systemProperty 'fourthdimension.freezeOnStart', project.hasProperty('fdFrozen').toString()
             if (project.hasProperty('fdNamedGameTestServer'))
                 systemProperty 'neoforge.enabledGameTestNamespaces', 'fourthdimension'
@@ -138,6 +125,17 @@ neoForge {
             systemProperty 'fourthdimension.carrierFixtureRiderOnly', project.hasProperty('fdCarrierFixtureRiderOnly').toString()
             systemProperty 'fourthdimension.carrierFixtureRiderFamily', project.findProperty('fdCarrierFixtureRiderFamily') ?: 'ARROW'
             systemProperty 'fourthdimension.carrierFixtureRiders', project.findProperty('fdCarrierFixtureRiders') ?: '1'
+            systemProperty 'fourthdimension.carrierFixtureRecovery', project.hasProperty('fdCarrierFixtureRecovery').toString()
+            systemProperty 'fourthdimension.carrierFixtureRecoveryDesign', project.findProperty('fdCarrierFixtureRecoveryDesign') ?: 'ARROW'
+            systemProperty 'fourthdimension.carrierFixtureRecoveryBank', project.hasProperty('fdCarrierFixtureRecoveryBank').toString()
+            systemProperty 'fourthdimension.carrierFixtureRecoveryCycle', project.hasProperty('fdCarrierFixtureRecoveryCycle').toString()
+            systemProperty 'fourthdimension.carrierFixtureRecoveryProfile', project.hasProperty('fdCarrierFixtureRecoveryProfile').toString()
+            systemProperty 'fourthdimension.carrierFixtureRecoveryPause', project.hasProperty('fdCarrierFixtureRecoveryPause').toString()
+            systemProperty 'fourthdimension.carrierFixtureRecoveryResume', project.hasProperty('fdCarrierFixtureRecoveryResume').toString()
+            systemProperty 'fourthdimension.carrierFixtureRecoveryEditor', project.hasProperty('fdCarrierFixtureRecoveryEditor').toString()
+            systemProperty 'fourthdimension.carrierFixtureRecoveryEditorAction', project.hasProperty('fdCarrierFixtureRecoveryEditorAction').toString()
+            systemProperty 'fourthdimension.carrierFixtureRecoveryEditorAttach', project.hasProperty('fdCarrierFixtureRecoveryEditorAttach').toString()
+            systemProperty 'fourthdimension.carrierFixtureRecoveryTrain', project.hasProperty('fdCarrierFixtureRecoveryTrain').toString()
             systemProperty 'fourthdimension.carrierFixtureSupportLoss', project.hasProperty('fdCarrierFixtureSupportLoss').toString()
             systemProperty 'fourthdimension.carrierFixtureSupportLossMotion', project.hasProperty('fdCarrierFixtureSupportLossMotion').toString()
             systemProperty 'fourthdimension.carrierFixtureSupportRepair', project.hasProperty('fdCarrierFixtureSupportRepair').toString()
@@ -154,6 +152,15 @@ neoForge {
             systemProperty 'fourthdimension.carrierValidationRender', project.hasProperty('fdCarrierValidationRender').toString()
             systemProperty 'fourthdimension.carrierValidationPlayerRender', project.hasProperty('fdCarrierValidationPlayerRender').toString()
             systemProperty 'fourthdimension.carrierValidationPlayerRenderAutoCamera', project.hasProperty('fdCarrierValidationPlayerRenderAutoCamera').toString()
+            systemProperty 'fourthdimension.carrierValidationRecovery', project.hasProperty('fdCarrierValidationRecovery').toString()
+            systemProperty 'fourthdimension.carrierValidationRecoveryMotion', project.hasProperty('fdCarrierValidationRecoveryMotion').toString()
+            systemProperty 'fourthdimension.carrierValidationRecoveryBank', project.hasProperty('fdCarrierValidationRecoveryBank').toString()
+            systemProperty 'fourthdimension.carrierValidationRecoveryCycle', project.hasProperty('fdCarrierValidationRecoveryCycle').toString()
+            systemProperty 'fourthdimension.carrierValidationRecoveryProfile', project.hasProperty('fdCarrierValidationRecoveryProfile').toString()
+            systemProperty 'fourthdimension.carrierValidationRecoveryEditor', project.hasProperty('fdCarrierValidationRecoveryEditor').toString()
+            systemProperty 'fourthdimension.carrierValidationRecoveryEditorAction', project.hasProperty('fdCarrierValidationRecoveryEditorAction').toString()
+            systemProperty 'fourthdimension.carrierValidationRecoveryEditorAttach', project.hasProperty('fdCarrierValidationRecoveryEditorAttach').toString()
+            systemProperty 'fourthdimension.carrierValidationRecoveryTrain', project.hasProperty('fdCarrierValidationRecoveryTrain').toString()
             systemProperty 'fourthdimension.carrierValidationRider', project.hasProperty('fdCarrierValidationRider').toString()
             systemProperty 'fourthdimension.carrierValidationSupportLoss', project.hasProperty('fdCarrierValidationSupportLoss').toString()
             systemProperty 'fourthdimension.carrierValidationSupportLossMotion', project.hasProperty('fdCarrierValidationSupportLossMotion').toString()
@@ -213,6 +220,14 @@ if (clientMaxHeap != null) {
         throw new GradleException('fdClientMaxHeap must be a positive heap size such as 2G or 1536M')
     tasks.matching { it.name in ['runClient', 'runObserver'] }.configureEach {
         jvmArgs "-Xmx${clientMaxHeap}"
+    }
+}
+def serverMaxHeap = providers.gradleProperty('fdServerMaxHeap').orNull
+if (serverMaxHeap != null) {
+    if (!(serverMaxHeap ==~ /[1-9][0-9]*[mMgG]/))
+        throw new GradleException('fdServerMaxHeap must be a positive heap size such as 1G or 1024M')
+    tasks.named('runServer').configure {
+        jvmArgs "-Xmx${serverMaxHeap}"
     }
 }
 if (project.hasProperty('fdPackaged')) {
