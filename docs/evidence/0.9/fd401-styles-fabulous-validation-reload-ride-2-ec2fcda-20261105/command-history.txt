@@ -1,0 +1,18 @@
+F3+T (resource reload)
+/fd validation board_locked Dev
+Rotation Tool UI: Capture
+Rotation Tool UI: Dispatch while original station signal remained powered (UI returned to Ready)
+Rotation Tool UI: Open restraints
+/execute if block -356 210 -179 minecraft:redstone_block run say verified station signal block
+/setblock -356 210 -179 air
+/data get block -356 210 -180
+Rotation Tool UI: Close restraints
+Rotation Tool UI: reopen UI and Dispatch after signal falling edge
+/fd validation motion Dev (samples at 02:20:25, 02:21:02, 02:21:19, 02:21:38, 02:21:54)
+/setblock -356 210 -179 minecraft:redstone_block
+/data get block -356 210 -180
+/fd validation motion Dev (capture=true at 02:21:54)
+Rotation Tool UI: Open restraints
+Shift held for about 1.2 seconds (normal dismount)
+/data get entity Dev RootVehicle
+Save and Quit to Title; Quit Game

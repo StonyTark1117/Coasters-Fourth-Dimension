@@ -1,0 +1,16 @@
+Repeat: 2 of 2 requested additional FABULOUS repeats
+Date: 2026-11-05 America/Phoenix
+Source build: ec2fcda
+Java: OpenJDK 21.0.13 (/usr/lib/jvm/java-21-openjdk/bin/java)
+Gradle: 9.2.1, launcher JVM 21.0.13
+Selected JAR: coasters-fourth-dimension-0.9.0-dev.27.jar; SHA-256 656725bcbacc8f491de274c6c058027d0aaa67cfc6f893ba6d7e4a9eb24abbc7
+Display: :254; owned Xvfb unit fd401b-fabulous-repeat2-xvfb-254.service
+Client scope: run-p421333-i444759.scope; MemoryMax=3GiB; observed peak 2,953,125,888 bytes; exit status 0
+Heap: -Xmx1536M
+Game directory: /tmp/fd401b-fabulous-repeat2-20261105/game
+Graphics: Fabulous (graphicsMode:2); render/simulation distance 4
+Validation: true (board_locked helper; periodic FD_CLIENT diagnostics active)
+Snapshot tracing: false; render validation: false
+F3+T: resource reload 02:18:07; Styles inspected 55 entries 02:18:09
+Preflight: free -h showed ~25 GiB available; user service cgroup had no memory.max (unlimited), current ~60.3 GB; several other clients were active and included in the host budget.
+End state: all dimensions saved, client logged Stopping!, scope inactive; owned Xvfb stopped.
