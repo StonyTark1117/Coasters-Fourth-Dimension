@@ -1,0 +1,11 @@
+Checkout branch: main
+Base HEAD: 1d5c5a316fbd6c1d52e216753c7d77f625a7e5de
+Production source changes: ShuttleRuntime.java, ShuttleWinchEntity.java (working-tree edits)
+Untracked GameTest included in build: src/main/java/dev/fourthdimension/gametest/ShuttleBoardingHoldGameTests.java
+Untracked GameTest SHA-256: 268a819bfef02bcc8f3300da6b8a212c9dc38bf88c5d4686d3d222d62ace051e
+JAR SHA-256: ae6a699e818c5de54a138e57f1683d51be59aef08540a76e52f206efddf5a884
+JVM: OpenJDK 21.0.13.0.3; Gradle 9.2.1
+Profiles: -PfdIntegrations=styles,engineered -PfdFeNetwork
+Server: -PfdPackaged -PfdValidation -PfdNamedGameTestServer; heap cap 1536M, process scope cap 4G
+Named test: test run sharedtelemetryrespectsconsistrecoveryandcontrollerauthority
+Result: FD_TELEMETRY COMPLETE; graceful RCON stop; Gradle BUILD SUCCESSFUL (exit 0)

@@ -84,6 +84,15 @@ public final class ShuttleRuntime {
         });
   }
 
+  /** Request one neutral carrier restore after a newly bound train enters BOARDING. */
+  public static void requestStationRestore(ServerLevel level, ShuttleWinchEntity winch) {
+    register(level, winch);
+    var handles = HANDLES.get(winch);
+    if (handles != null
+        && winch.phase == ShuttleWinchEntity.Phase.BOARDING
+        && !winch.cars.isEmpty()) handles.stationRestorePending = true;
+  }
+
   public static Collection<ShuttleWinchEntity> winches(ServerLevel level) {
     return WINCHES.getOrDefault(level, Map.of()).values();
   }

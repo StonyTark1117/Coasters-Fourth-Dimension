@@ -141,7 +141,7 @@ public final class ShuttleWinchEntity extends KineticBlockEntity
     routeEnd = route.end;
     stationDistance = carriageDistance = station;
     fault = "";
-    ShuttleRuntime.register(server, this);
+    ShuttleRuntime.requestStationRestore(server, this);
     changed();
   }
 
