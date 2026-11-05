@@ -1,0 +1,22 @@
+Checkout: /home/braydon/Documents/Coasters: Fourth Dimension
+Branch: main
+Source commit during run: 1b95c62c
+Changed source: src/main/java/dev/fourthdimension/gametest/RideTelemetryGameTests.java
+Changed source SHA-256: 08348a77dc2f3716ef77ec71af5b4dc5fa1d980d7884923f4617d995b292f464
+Selected clean JAR: docs/evidence/qualification/2026-11-05-ec2fcda/qualification.jar
+Selected clean JAR SHA-256: 656725bcbacc8f491de274c6c058027d0aaa67cfc6f893ba6d7e4a9eb24abbc7
+Test overlay JAR SHA-256: c1120ae8ef43c67d3e41745aca70d1a8c5e4e3e5485b35d1b5e8ee8dddaacfa9
+Java: OpenJDK 21.0.13.0.3
+Gradle: 9.2.1
+
+Compile command:
+JAVA_HOME=/usr/lib/jvm/java-21-openjdk PATH=/usr/lib/jvm/java-21-openjdk/bin:$PATH ./gradlew jar -PfdBuildDirectory=/tmp/fd401d-controller-unavailable-dispatch-20261105/build --no-daemon --console=plain
+
+Dedicated server command:
+JAVA_HOME=/usr/lib/jvm/java-21-openjdk PATH=/usr/lib/jvm/java-21-openjdk/bin:$PATH ./gradlew runServer -PfdBuildDirectory=/tmp/fd401d-controller-unavailable-dispatch-20261105/build -PfdPackaged -PfdIntegrations=styles,engineered -PfdFeNetwork -PfdValidation -PfdNamedGameTestServer -PfdServerGameDirectory=/tmp/fd401d-controller-unavailable-dispatch-20261105/game-rerun -PfdServerMaxHeap=1536M -x jar --no-daemon --offline --console=plain -Dorg.gradle.jvmargs=-Xmx2G
+
+The server game directory used RCON port 25693 and game port 25694. RCON ran only:
+python3 rcon.py test run loadedcontrollerpublishesmissingnativebodies
+python3 rcon.py stop
+
+Result: one named test passed; graceful server stop; Gradle BUILD SUCCESSFUL, exit 0. No GUI client was started.

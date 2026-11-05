@@ -120,8 +120,26 @@ public final class RideTelemetryGameTests {
           var reason = role.equals("chassis")
               ? "Vehicle chassis is unavailable" : "Vehicle or carrier unavailable";
           helper.assertTrue(
-              !unavailable.available() && unavailable.fault().equals(reason),
+              !unavailable.available()
+                  && !unavailable.dispatchReady()
+                  && unavailable.fault().equals(reason),
               "Loaded controller advertised stale readiness after " + role + " unload: " + unavailable);
+          var foundation = FoundationData.get(level);
+          var beforeDispatch = foundation.save(new CompoundTag(), level.registryAccess());
+          boolean dispatchRejected = false;
+          try {
+            RideOperations.request(
+                level, station.getBlockPos(), car.chassis, RideOperations.Request.DISPATCH);
+          } catch (IllegalArgumentException expected) {
+            dispatchRejected = true;
+          }
+          helper.assertTrue(dispatchRejected,
+              "Bound station accepted dispatch with native " + role + " unavailable");
+          helper.assertTrue(
+              foundation.save(new CompoundTag(), level.registryAccess()).equals(beforeDispatch),
+              "Rejected dispatch changed FoundationData while " + role + " was unavailable");
+          helper.assertTrue(station.telemetry().equals(unavailable),
+              "Rejected dispatch changed unavailable telemetry for " + role);
           var context =
               new DisplayLinkContext(
                   level,
@@ -146,7 +164,8 @@ public final class RideTelemetryGameTests {
           packet.handleUpdateTag(station.getUpdateTag(level.registryAccess()), level.registryAccess());
           helper.assertTrue(packet.telemetry().equals(unavailable), "Unavailable packet was stale");
           System.out.println("FD_TELEMETRY_CONTROLLER_AVAILABILITY missing=" + role
-              + " available=false message=" + unavailable.fault() + " sources=6 goggles=true packet=true");
+              + " available=false dispatchReady=false dispatchRejected=true foundationStable=true"
+              + " message=" + unavailable.fault() + " sources=6 goggles=true packet=true");
           var loaded = SubLevelSerializer.fullyLoad(level, saved);
           helper.assertTrue(loaded != null && container.getSubLevel(id) == loaded,
               "Native " + role + " restore failed");

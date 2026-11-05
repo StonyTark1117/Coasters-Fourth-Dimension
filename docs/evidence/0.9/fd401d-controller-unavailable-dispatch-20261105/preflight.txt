@@ -1,0 +1,8 @@
+Pre-run resource check (2026-11-05):
+Mem: 61 GiB total, 42 GiB used, 11 GiB free, 23 GiB buff/cache, 19 GiB available; swap 0.
+No readable memory.max or memory.current value was returned from /sys/fs/cgroup.
+Other observed Java workloads were FD402 client (~2.66 GB RSS), FD401C operator and host clients (~2.63 GB and ~2.60 GB RSS), and FD401C server (~1.65 GB RSS). No client from this task was running.
+Java: OpenJDK 21.0.13.0.3.
+Gradle: 9.2.1; launcher and daemon JVM both Java 21.0.13.0.3.
+
+During the named test, host available memory was 16 GiB; dedicated test server process RSS sample was 1,532,056 KiB with -Xmx1536M. After graceful server shutdown, host available memory was 18 GiB. The task's Gradle daemon and server JVM exited; only the other tasks' game JVMs remained.
