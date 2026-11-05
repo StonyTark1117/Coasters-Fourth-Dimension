@@ -1,0 +1,12 @@
+Captured named-test output:
+Running 1 tests...
+Starting batch: fourthdimension_telemetry:0
+FD_TELEMETRY family=ARROW cars=2 occupied=2 capacity=8 stationDispatch=true sources=6 packet=true
+FD_TELEMETRY family=ZACSPIN cars=1 occupied=1 capacity=8 stationDispatch=true sources=6 packet=true
+FD_TELEMETRY family=FREE_SPIN cars=1 occupied=1 capacity=8 stationDispatch=true sources=6 packet=true
+FD_TELEMETRY family=ZACSPIN_REVISED cars=1 occupied=1 capacity=8 stationDispatch=true sources=6 packet=true
+FD_TELEMETRY family=PAX cars=4 occupied=4 capacity=16 stationDispatch=false sources=6 packet=true
+FD_TELEMETRY supportRepairGuards=5 linkedPeer=true paxStartGuard=true
+FD_TELEMETRY guards=7 readOnly=true recoveryPreserved=true staleSnapshotRejected=true
+FD_TELEMETRY paxPhases=BOARDING,LIFTING,FAULT winchAuthority=true faultVisible=true
+FD_TELEMETRY COMPLETE
