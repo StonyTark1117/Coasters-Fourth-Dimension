@@ -1,0 +1,44 @@
+/data get block -500 142 -630 CoastersEngineeredEnergy
+/data get block -507 142 -634
+/fd validation availability
+/execute if block -507 142 -636 create:water_wheel[axis=x] run say WHEEL_X
+/execute if block -507 142 -636 create:water_wheel[axis=y] run say WHEEL_Y
+/execute if block -507 142 -636 create:water_wheel[axis=z] run say WHEEL_Z
+/setblock -507 142 -636 create:water_wheel[facing=north]
+/data get block -507 142 -634
+/data get block -500 142 -630 CoastersEngineeredEnergy
+/setblock -507 142 -636 minecraft:air
+/setblock -507 142 -636 create:water_wheel[facing=north]
+/data get block -507 142 -634
+/data get block -500 142 -630 CoastersEngineeredEnergy
+/setblock -507 142 -636 minecraft:air
+/data remove block -500 142 -630 CoastersEngineeredEnergy
+/data get block -500 142 -630 CoastersEngineeredEnergy
+/data get block -507 142 -634
+/tp Dev -495.5 146 -617.5 0 90
+/tp Dev -493.5 146 -617.5 0 90
+/tp Dev -497.5 146 -617.5 0 90
+/tp Dev -496.5 146 -617.5 0 90
+/data get block -500 142 -630 CoastersEngineeredEnergy
+/setblock -506 142 -617 minecraft:air
+/setblock -506 142 -628 minecraft:redstone_block
+/setblock -506 142 -628 minecraft:air
+/data get block -506 142 -629 CoastersEngineeredStarving
+/fd validation motion Dev
+/setblock -507 142 -636 create:water_wheel[facing=north]
+/data get block -500 142 -630 CoastersEngineeredEnergy
+/data get block -506 142 -629
+/fd validation motion Dev
+/data get block -500 142 -630 CoastersEngineeredEnergy
+/data get block -506 142 -629
+/fd validation motion Dev
+/fd validation motion Dev
+/fd validation availability
+/data get entity Dev RootVehicle
+/tp Dev -467.5 146 -607.5 0 90
+/fd validation availability
+/fd validation motion Dev
+/setblock -506 142 -617 minecraft:redstone_block
+/data get block -507 142 -634
+/data get block -500 142 -630 CoastersEngineeredEnergy
+/tp Dev -493.5 142 -617.5 0 90
