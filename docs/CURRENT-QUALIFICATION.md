@@ -16,7 +16,7 @@ FD404 and FD905 remain open. A later source change does not inherit this identit
 | Toolchain | Java `21.0.13.0.3+1`, Gradle `9.2.1` |
 | Intended profiles | Base; Track Styles 1.2.0; Engineered 1.1.1; Styles + Engineered |
 | Core pins | Minecraft 1.21.1, NeoForge 21.1.248, Create 6.0.10-280, Coasters 0.1.5, Sable 2.0.3 |
-| Acceptance on this exact JAR | Clean committed-source build and entry comparison only; the related `ae6a699e…` telemetry runtime JAR has one extra GameTest entry and 356 byte-identical common entries. No full runtime profile qualified. |
+| Acceptance on this exact JAR | FD401A artifact identity is complete: the clean committed-source build and entry comparison are retained, and all four declared profiles have exact-JAR client launch records and dependency hashes. FD401B–D scenario acceptance remains in progress; no full FD401 runtime matrix is qualified. The related `ae6a699e…` telemetry JAR has one extra GameTest entry and 356 byte-identical common entries. |
 
 The [machine-readable manifest](evidence/qualification/2026-11-05-ec2fcda/artifact.json)
 hashes all 287 exported build/source inputs and all 356 JAR entries. The clean
@@ -32,9 +32,21 @@ entry; all 356 common entries match this clean JAR byte for byte.
 
 Before each runtime qualification, retain the actual launch command, dependency
 hashes, flags, hardware, world hash, client/server roles and exit status. The
-intended profile list above is not a claim that those runtimes were exercised.
+profile launches below establish runtime identity at their recorded scopes;
+they do not qualify every scenario in those profiles.
 Crafts & Additions remains an explicitly disclosed FE validation fixture only.
 The deferred schema-7/protocol-8 registry and new integrations remain excluded.
+
+FD401A's selected-artifact profile identity is mapped to four client records:
+
+| Profile | Exact-JAR runtime identity record | Observation boundary |
+| --- | --- | --- |
+| Base | [Base client load](evidence/0.9/fd401-a-base-profile-ec2fcda-20261105/README.md) | Title screen and mod list only; no world join. |
+| Styles 1.2.0 | [Tracing-disabled reload and occupied ride](evidence/0.9/fd401-styles-tracing-disabled-reload-ride-ec2fcda-20261105/README.md) | One FANCY saved-world run; FD401B's repetition and graphics matrix remain open. |
+| Engineered 1.1.1 | [Engineered-only client load](evidence/0.9/fd401-a-engineered-profile-ec2fcda-20261105/README.md) | Title screen and mod list only; no world join. |
+| Styles + Engineered | [Combined client reopen](evidence/0.9/fd401-current-clean-combined-client-reopen-20261105/README.md) | One saved occupied-world reopen; FD401C–D scenarios remain open. |
+
+Each linked record retains the selected JAR hash, runtime classpath, dependency hashes, Java 21 launch arguments, and exit evidence. This closes **FD401A identity**, not the family, graphics, FE, or telemetry acceptance owned by FD401B–D.
 
 ## Evidence reuse and required retests
 
