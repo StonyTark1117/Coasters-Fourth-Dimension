@@ -1,0 +1,697 @@
+{
+  "data": {
+    "schema": 6,
+    "rails": [
+      {
+        "original_curve": {
+          "Starts": [
+            {
+              "V": [
+                0.5,
+                0.75,
+                0.5
+              ]
+            },
+            {
+              "V": [
+                0.5,
+                0.75,
+                48.5
+              ]
+            }
+          ],
+          "Girder": 0,
+          "Normals": [
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          ],
+          "Primary": 1,
+          "Positions": [
+            {
+              "Pos": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "Pos": [
+                0,
+                0,
+                48
+              ]
+            }
+          ],
+          "Axes": [
+            {
+              "V": [
+                0.0,
+                0.0,
+                1.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                0.0,
+                -1.0
+              ]
+            }
+          ],
+          "Material": "simulatedcoasters:coaster_track"
+        },
+        "magnets": [],
+        "profile": [
+          {
+            "distance": 0.0,
+            "slope": 0.0,
+            "angle": 0.0
+          },
+          {
+            "distance": 48.0,
+            "slope": 0.0,
+            "angle": 0.0
+          }
+        ],
+        "geometry_hash": 4439505743753526401,
+        "revision": 0,
+        "valid": 1,
+        "appearance": {
+          "tint": -1,
+          "id": "fourthdimension:original"
+        },
+        "provider": "fourthdimension:original",
+        "variant": "arrow_four_rail_v1",
+        "from": 98384,
+        "to": 294992,
+        "id": [
+          983443573,
+          2129808690,
+          -1097671415,
+          1140869217
+        ],
+        "family": "arrow_controlled"
+      },
+      {
+        "original_curve": {
+          "Starts": [
+            {
+              "V": [
+                0.5,
+                0.75,
+                0.5
+              ]
+            },
+            {
+              "V": [
+                0.5,
+                0.75,
+                48.5
+              ]
+            }
+          ],
+          "Girder": 0,
+          "Normals": [
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          ],
+          "Primary": 1,
+          "Positions": [
+            {
+              "Pos": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "Pos": [
+                0,
+                0,
+                48
+              ]
+            }
+          ],
+          "Axes": [
+            {
+              "V": [
+                0.0,
+                0.0,
+                1.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                0.0,
+                -1.0
+              ]
+            }
+          ],
+          "Material": "simulatedcoasters:coaster_track"
+        },
+        "magnets": [],
+        "profile": [
+          {
+            "distance": 0.0,
+            "slope": 0.0,
+            "angle": 0.0
+          },
+          {
+            "distance": 48.0,
+            "slope": 0.0,
+            "angle": 0.0
+          }
+        ],
+        "geometry_hash": -6803314956705513343,
+        "revision": 0,
+        "valid": 1,
+        "appearance": {
+          "tint": -1,
+          "id": "fourthdimension:original"
+        },
+        "provider": "fourthdimension:original",
+        "variant": "arrow_four_rail_v1",
+        "from": 21990232653904,
+        "to": 21990232850512,
+        "id": [
+          1813318311,
+          -6340330,
+          -1679005076,
+          1062121562
+        ],
+        "family": "arrow_controlled"
+      },
+      {
+        "original_curve": {
+          "Starts": [
+            {
+              "V": [
+                0.5,
+                0.75,
+                0.5
+              ]
+            },
+            {
+              "V": [
+                0.5,
+                0.75,
+                48.5
+              ]
+            }
+          ],
+          "Girder": 0,
+          "Normals": [
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          ],
+          "Primary": 1,
+          "Positions": [
+            {
+              "Pos": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "Pos": [
+                0,
+                0,
+                48
+              ]
+            }
+          ],
+          "Axes": [
+            {
+              "V": [
+                0.0,
+                0.0,
+                1.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                0.0,
+                -1.0
+              ]
+            }
+          ],
+          "Material": "simulatedcoasters:coaster_track"
+        },
+        "magnets": [],
+        "profile": [
+          {
+            "distance": 0.0,
+            "slope": 0.0,
+            "angle": 0.0
+          },
+          {
+            "distance": 48.0,
+            "slope": 0.0,
+            "angle": 0.0
+          }
+        ],
+        "geometry_hash": 5264002150891807873,
+        "revision": 0,
+        "valid": 1,
+        "appearance": {
+          "tint": -1,
+          "id": "fourthdimension:original"
+        },
+        "provider": "fourthdimension:original",
+        "variant": "arrow_four_rail_v1",
+        "from": 43980465209424,
+        "to": 43980465406032,
+        "id": [
+          1125614098,
+          1821589811,
+          -2103949289,
+          1350419889
+        ],
+        "family": "arrow_controlled"
+      },
+      {
+        "original_curve": {
+          "Starts": [
+            {
+              "V": [
+                0.5,
+                0.75,
+                0.5
+              ]
+            },
+            {
+              "V": [
+                0.5,
+                0.75,
+                48.5
+              ]
+            }
+          ],
+          "Girder": 0,
+          "Normals": [
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          ],
+          "Primary": 1,
+          "Positions": [
+            {
+              "Pos": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "Pos": [
+                0,
+                0,
+                48
+              ]
+            }
+          ],
+          "Axes": [
+            {
+              "V": [
+                0.0,
+                0.0,
+                1.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                0.0,
+                -1.0
+              ]
+            }
+          ],
+          "Material": "simulatedcoasters:coaster_track"
+        },
+        "magnets": [],
+        "profile": [
+          {
+            "distance": 0.0,
+            "slope": 0.0,
+            "angle": 0.0
+          },
+          {
+            "distance": 48.0,
+            "slope": 0.0,
+            "angle": 0.0
+          }
+        ],
+        "geometry_hash": -1428728690482884287,
+        "revision": 0,
+        "valid": 1,
+        "appearance": {
+          "tint": -1,
+          "id": "fourthdimension:original"
+        },
+        "provider": "fourthdimension:original",
+        "variant": "arrow_four_rail_v1",
+        "from": -219902323404859,
+        "to": -219902323208251,
+        "id": [
+          -715751356,
+          -1283637168,
+          -1918654453,
+          193338601
+        ],
+        "family": "arrow_controlled"
+      }
+    ],
+    "vehicles": [
+      {
+        "alignment_required": 0,
+        "fault": "End of compatible track; capture and inspect the route",
+        "boundTo": 294992,
+        "carriers": [
+          {
+            "side": -3.0,
+            "rider_seats": [],
+            "pivot_height": 2.0,
+            "angle": -0.0005672808818796653,
+            "capture": 1,
+            "body": [
+              2064809610,
+              -275823563,
+              -1453056763,
+              451351218
+            ],
+            "longitudinal": 0.0,
+            "child_pivot_offset": 0.0,
+            "seats": [
+              4095,
+              -274877902849
+            ],
+            "ballast": 0.0,
+            "omega": 0.0033530224904024263,
+            "occupants": []
+          },
+          {
+            "side": 3.0,
+            "rider_seats": [],
+            "pivot_height": 2.0,
+            "angle": -0.000686168837346634,
+            "capture": 1,
+            "body": [
+              -330317624,
+              170936895,
+              -1204817553,
+              -556011864
+            ],
+            "longitudinal": 0.0,
+            "child_pivot_offset": 0.0,
+            "seats": [
+              4095,
+              274877911039
+            ],
+            "ballast": 0.0,
+            "omega": 0.004497509674256686,
+            "occupants": []
+          }
+        ],
+        "chassis": [
+          -626329251,
+          -230145125,
+          -1410282345,
+          -1249708909
+        ],
+        "damping": 5.0,
+        "boundFrom": 98384,
+        "ballast": 0.0,
+        "revision": 9,
+        "boarding_ready": 1,
+        "stopping": 1,
+        "variant": "arrow_four_rail_v1",
+        "restraints": 0,
+        "shuttle_detached": 0,
+        "family": "arrow_controlled",
+        "maintenance": 1
+      },
+      {
+        "alignment_required": 0,
+        "fault": "Recovery equipment, coupling or matching track unavailable: brake and inspect before resume",
+        "boundTo": 21990232850512,
+        "carriers": [
+          {
+            "side": -3.0,
+            "rider_seats": [],
+            "pivot_height": 2.0,
+            "angle": -0.0005671100083010654,
+            "capture": 1,
+            "body": [
+              -1716175009,
+              -1860550491,
+              -1461196285,
+              679744160
+            ],
+            "longitudinal": 0.0,
+            "child_pivot_offset": 0.0,
+            "seats": [
+              4095,
+              -274877902849
+            ],
+            "ballast": 0.0,
+            "omega": 0.0033446756341008336,
+            "occupants": []
+          },
+          {
+            "side": 3.0,
+            "rider_seats": [],
+            "pivot_height": 2.0,
+            "angle": -0.000686522763222478,
+            "capture": 1,
+            "body": [
+              1146819804,
+              1335968923,
+              -1590806793,
+              1922408581
+            ],
+            "longitudinal": 0.0,
+            "child_pivot_offset": 0.0,
+            "seats": [
+              4095,
+              274877911039
+            ],
+            "ballast": 0.0,
+            "omega": 0.0045098751940821245,
+            "occupants": []
+          }
+        ],
+        "chassis": [
+          -1603344462,
+          -1987425075,
+          -1431532604,
+          -1229347134
+        ],
+        "damping": 5.0,
+        "boundFrom": 21990232653904,
+        "ballast": 0.0,
+        "revision": 15,
+        "boarding_ready": 1,
+        "stopping": 1,
+        "variant": "arrow_four_rail_v1",
+        "restraints": 0,
+        "shuttle_detached": 0,
+        "family": "arrow_controlled",
+        "maintenance": 1
+      },
+      {
+        "alignment_required": 0,
+        "fault": "",
+        "boundTo": 43980465406032,
+        "carriers": [
+          {
+            "side": -3.0,
+            "rider_seats": [],
+            "pivot_height": 2.0,
+            "angle": -0.0005814037835514503,
+            "capture": 1,
+            "body": [
+              -1881710848,
+              -795654957,
+              -1896974641,
+              -1490477691
+            ],
+            "longitudinal": 0.0,
+            "child_pivot_offset": 0.0,
+            "seats": [
+              4095,
+              -274877902849
+            ],
+            "ballast": 0.0,
+            "omega": 0.0036847024660846966,
+            "occupants": []
+          },
+          {
+            "side": 3.0,
+            "rider_seats": [],
+            "pivot_height": 2.0,
+            "angle": -0.0006654201113620128,
+            "capture": 1,
+            "body": [
+              -1258727576,
+              -851228777,
+              -1871959448,
+              1831906643
+            ],
+            "longitudinal": 0.0,
+            "child_pivot_offset": 0.0,
+            "seats": [
+              4095,
+              274877911039
+            ],
+            "ballast": 0.0,
+            "omega": 0.003975625515541472,
+            "occupants": []
+          }
+        ],
+        "chassis": [
+          1478208642,
+          -1809956670,
+          -2054989979,
+          -1253140362
+        ],
+        "damping": 5.0,
+        "boundFrom": 43980465209424,
+        "ballast": 0.0,
+        "revision": 11,
+        "boarding_ready": 1,
+        "stopping": 1,
+        "variant": "arrow_four_rail_v1",
+        "restraints": 0,
+        "shuttle_detached": 0,
+        "family": "arrow_controlled",
+        "maintenance": 1
+      },
+      {
+        "alignment_required": 0,
+        "fault": "End of compatible track; capture and inspect the route",
+        "boundTo": -219902323208251,
+        "carriers": [
+          {
+            "side": -3.0,
+            "rider_seats": [],
+            "pivot_height": 2.0,
+            "angle": -0.0005429890984488821,
+            "capture": 1,
+            "body": [
+              -399179602,
+              -1030995020,
+              -1170151413,
+              -434335327
+            ],
+            "longitudinal": 0.0,
+            "child_pivot_offset": 0.0,
+            "seats": [
+              4095,
+              -274877902849
+            ],
+            "ballast": 0.0,
+            "omega": 0.002999825945078248,
+            "occupants": []
+          },
+          {
+            "side": 3.0,
+            "rider_seats": [],
+            "pivot_height": 2.0,
+            "angle": -0.000602101243059927,
+            "capture": 1,
+            "body": [
+              -917805060,
+              -1664135635,
+              -1567400109,
+              1122179264
+            ],
+            "longitudinal": 0.0,
+            "child_pivot_offset": 0.0,
+            "seats": [
+              4095,
+              274877911039
+            ],
+            "ballast": 0.0,
+            "omega": 0.0026849597642772966,
+            "occupants": []
+          }
+        ],
+        "chassis": [
+          620843449,
+          -368556697,
+          -1636351761,
+          723198153
+        ],
+        "damping": 5.0,
+        "boundFrom": -219902323404859,
+        "recovery_cart": [
+          74761446,
+          -1601878980,
+          -1442774092,
+          -939906990
+        ],
+        "ballast": 0.0,
+        "revision": 9,
+        "boarding_ready": 1,
+        "stopping": 1,
+        "variant": "arrow_four_rail_v1",
+        "restraints": 1,
+        "shuttle_detached": 0,
+        "recovery_cart_removed": 0,
+        "family": "arrow_controlled",
+        "maintenance": 1
+      }
+    ]
+  },
+  "DataVersion": 3955
+}

@@ -141,6 +141,14 @@ editor state and stopped schema-6 save agree on both body IDs. This closes the
 manual world-selection/attachment item, not physical lever propulsion or a
 manual towing lifecycle.
 
+The later [manual no-fixture lever-propulsion checkpoint](manual-lever-propulsion/acceptance.md)
+continues that saved world. A real operator uses Create's normal value screen to
+set eight RPM, physically toggles the vanilla lever, starts the attached recovery
+group and observes native motion, then physically restores the final power-cut
+state. Its route-end guard fired before the operator reopened the moving editor,
+so it corroborates lever propulsion without claiming a second timely
+moving-brake measurement.
+
 ## Remaining acceptance
 
 The bounded empty-Arrow physical-lever sequence is closed by the
