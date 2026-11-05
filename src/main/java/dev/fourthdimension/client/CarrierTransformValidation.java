@@ -16,6 +16,7 @@ import java.util.EnumSet;
 import java.util.UUID;
 import net.minecraft.client.CameraType;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.Screenshot;
 import net.minecraft.world.phys.Vec3;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -68,6 +69,9 @@ public final class CarrierTransformValidation {
   private static boolean recoveryTrainMotionSeen;
   private static boolean localRiderRenderObservationArmed;
   private static CameraType playerRenderCameraBefore;
+  private static java.io.File validationScreenshot;
+  private static boolean validationScreenshotRequested;
+  private static volatile boolean validationScreenshotWritten;
   private static boolean completed;
   private static net.minecraft.world.level.Level lastLevel;
 
@@ -104,6 +108,9 @@ public final class CarrierTransformValidation {
       recoveryTrainMotionSeen = false;
       localRiderRenderObservationArmed = false;
       playerRenderCameraBefore = null;
+      validationScreenshot = null;
+      validationScreenshotRequested = false;
+      validationScreenshotWritten = false;
       CarrierRenderMetrics.reset();
       completed = false;
       lastLevel = minecraft.level;
@@ -474,6 +481,7 @@ public final class CarrierTransformValidation {
       int riderAssignments,
       EnumSet<Family> movedFamilies,
       EnumMap<Family, Integer> movedChassis) {
+    if (!captureValidationScreenshot(minecraft)) return;
     completed = true;
     restorePlayerRenderCamera(minecraft);
     LogUtils.getLogger()
@@ -773,6 +781,27 @@ public final class CarrierTransformValidation {
     if (playerRenderCameraBefore == null) return;
     minecraft.options.setCameraType(playerRenderCameraBefore);
     playerRenderCameraBefore = null;
+  }
+
+  /** Saves the completed opt-in render probe from Minecraft's own framebuffer before exit. */
+  private static boolean captureValidationScreenshot(Minecraft minecraft) {
+    if (!Boolean.getBoolean("fourthdimension.carrierValidationScreenshot")) return true;
+    if (validationScreenshot == null)
+      validationScreenshot = new java.io.File(minecraft.gameDirectory, "screenshots/fd402-carrier-validation.png");
+    if (!validationScreenshotRequested) {
+      validationScreenshotRequested = true;
+      Screenshot.grab(
+          minecraft.gameDirectory,
+          validationScreenshot.getName(),
+          minecraft.getMainRenderTarget(),
+          message -> validationScreenshotWritten = true);
+      return false;
+    }
+    if (!validationScreenshotWritten) return false;
+    if (!validationScreenshot.isFile() || validationScreenshot.length() == 0)
+      throw new IllegalStateException(
+          "FD_CARRIER_VALIDATION could not write " + validationScreenshot.getAbsolutePath());
+    return true;
   }
 
   /** The client must receive the exact fail-closed state while its local rider remains assigned. */
