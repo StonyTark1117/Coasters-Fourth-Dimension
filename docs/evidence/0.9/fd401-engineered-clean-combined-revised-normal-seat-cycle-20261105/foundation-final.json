@@ -1,0 +1,3671 @@
+{
+  "data": {
+    "schema": 6,
+    "rails": [
+      {
+        "original_curve": {
+          "Starts": [
+            {
+              "V": [
+                0.5,
+                0.75,
+                0.5
+              ]
+            },
+            {
+              "V": [
+                0.5,
+                0.75,
+                36.5
+              ]
+            }
+          ],
+          "Girder": 0,
+          "Normals": [
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          ],
+          "Primary": 1,
+          "Positions": [
+            {
+              "Pos": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "Pos": [
+                0,
+                0,
+                36
+              ]
+            }
+          ],
+          "Axes": [
+            {
+              "V": [
+                0.0,
+                0.0,
+                1.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                0.0,
+                -1.0
+              ]
+            }
+          ],
+          "Material": "simulatedcoasters:coaster_track"
+        },
+        "magnets": [],
+        "profile": [
+          {
+            "distance": 0.0,
+            "slope": 0.0,
+            "angle": 0.0
+          },
+          {
+            "distance": 36.0,
+            "slope": 0.0,
+            "angle": 0.0
+          }
+        ],
+        "geometry_hash": 6887056192038846721,
+        "revision": 0,
+        "valid": 1,
+        "appearance": {
+          "tint": -1,
+          "id": "fourthdimension:original"
+        },
+        "provider": "fourthdimension:original",
+        "variant": "arrow_four_rail_v1",
+        "from": -137164078145394,
+        "to": -137164077997938,
+        "id": [
+          1463009244,
+          574308366,
+          -1511970410,
+          551472227
+        ],
+        "family": "arrow_controlled"
+      },
+      {
+        "original_curve": {
+          "Starts": [
+            {
+              "V": [
+                0.5,
+                0.75,
+                0.5
+              ]
+            },
+            {
+              "V": [
+                8.5,
+                0.75,
+                8.5
+              ]
+            }
+          ],
+          "Girder": 0,
+          "Normals": [
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          ],
+          "Primary": 1,
+          "Positions": [
+            {
+              "Pos": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "Pos": [
+                8,
+                0,
+                8
+              ]
+            }
+          ],
+          "Axes": [
+            {
+              "V": [
+                0.0,
+                0.0,
+                1.0
+              ]
+            },
+            {
+              "V": [
+                -1.0,
+                0.0,
+                0.0
+              ]
+            }
+          ],
+          "Material": "simulatedcoasters:coaster_track"
+        },
+        "magnets": [],
+        "profile": [
+          {
+            "distance": 0.0,
+            "slope": 0.0,
+            "angle": 0.0
+          },
+          {
+            "distance": 12.568132291385263,
+            "slope": 0.0,
+            "angle": 0.0
+          }
+        ],
+        "geometry_hash": 5703337975649182357,
+        "revision": 0,
+        "valid": 1,
+        "appearance": {
+          "tint": -1,
+          "id": "fourthdimension:original"
+        },
+        "provider": "fourthdimension:original",
+        "variant": "arrow_four_rail_v1",
+        "from": -137164077997938,
+        "to": -134965054709618,
+        "id": [
+          -1136474834,
+          -1931590655,
+          -1802161927,
+          672254642
+        ],
+        "family": "arrow_controlled"
+      },
+      {
+        "original_curve": {
+          "Starts": [
+            {
+              "V": [
+                0.5,
+                0.75,
+                0.5
+              ]
+            },
+            {
+              "V": [
+                16.5,
+                0.75,
+                0.5
+              ]
+            }
+          ],
+          "Girder": 0,
+          "Normals": [
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          ],
+          "Primary": 1,
+          "Positions": [
+            {
+              "Pos": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "Pos": [
+                16,
+                0,
+                0
+              ]
+            }
+          ],
+          "Axes": [
+            {
+              "V": [
+                1.0,
+                0.0,
+                0.0
+              ]
+            },
+            {
+              "V": [
+                -1.0,
+                0.0,
+                0.0
+              ]
+            }
+          ],
+          "Material": "simulatedcoasters:coaster_track"
+        },
+        "magnets": [],
+        "profile": [
+          {
+            "distance": 0.0,
+            "slope": 0.0,
+            "angle": 0.0
+          },
+          {
+            "distance": 16.0,
+            "slope": 0.0,
+            "angle": 0.0
+          }
+        ],
+        "geometry_hash": 395831261944619649,
+        "revision": 0,
+        "valid": 1,
+        "appearance": {
+          "tint": -1,
+          "id": "fourthdimension:original"
+        },
+        "provider": "fourthdimension:original",
+        "variant": "arrow_four_rail_v1",
+        "from": -134965054709618,
+        "to": -130567008198514,
+        "id": [
+          572943822,
+          254823184,
+          -1647200980,
+          1859513437
+        ],
+        "family": "arrow_controlled"
+      },
+      {
+        "original_curve": {
+          "Starts": [
+            {
+              "V": [
+                0.5,
+                0.75,
+                0.5
+              ]
+            },
+            {
+              "V": [
+                8.5,
+                0.75,
+                -7.5
+              ]
+            }
+          ],
+          "Girder": 0,
+          "Normals": [
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          ],
+          "Primary": 1,
+          "Positions": [
+            {
+              "Pos": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "Pos": [
+                8,
+                0,
+                -8
+              ]
+            }
+          ],
+          "Axes": [
+            {
+              "V": [
+                1.0,
+                0.0,
+                0.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                0.0,
+                1.0
+              ]
+            }
+          ],
+          "Material": "simulatedcoasters:coaster_track"
+        },
+        "magnets": [],
+        "profile": [
+          {
+            "distance": 0.0,
+            "slope": 0.0,
+            "angle": 0.0
+          },
+          {
+            "distance": 12.568132291385234,
+            "slope": 0.0,
+            "angle": 0.0
+          }
+        ],
+        "geometry_hash": 7924810228859396673,
+        "revision": 0,
+        "valid": 1,
+        "appearance": {
+          "tint": -1,
+          "id": "fourthdimension:original"
+        },
+        "provider": "fourthdimension:original",
+        "variant": "arrow_four_rail_v1",
+        "from": -130567008198514,
+        "to": -128367984975730,
+        "id": [
+          -1259856184,
+          883837065,
+          -1504140781,
+          1689329485
+        ],
+        "family": "arrow_controlled"
+      },
+      {
+        "original_curve": {
+          "Starts": [
+            {
+              "V": [
+                0.5,
+                0.75,
+                0.5
+              ]
+            },
+            {
+              "V": [
+                0.5,
+                0.75,
+                -35.5
+              ]
+            }
+          ],
+          "Girder": 0,
+          "Normals": [
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          ],
+          "Primary": 1,
+          "Positions": [
+            {
+              "Pos": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "Pos": [
+                0,
+                0,
+                -36
+              ]
+            }
+          ],
+          "Axes": [
+            {
+              "V": [
+                0.0,
+                0.0,
+                -1.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                0.0,
+                1.0
+              ]
+            }
+          ],
+          "Material": "simulatedcoasters:coaster_track"
+        },
+        "magnets": [],
+        "profile": [
+          {
+            "distance": 0.0,
+            "slope": 0.0,
+            "angle": 0.0
+          },
+          {
+            "distance": 18.0,
+            "slope": 0.0,
+            "angle": 6.283185307179586
+          },
+          {
+            "distance": 36.0,
+            "slope": 0.0,
+            "angle": 0.0
+          }
+        ],
+        "geometry_hash": 2837009983340871937,
+        "revision": 0,
+        "valid": 1,
+        "appearance": {
+          "tint": -1,
+          "id": "fourthdimension:original"
+        },
+        "provider": "fourthdimension:original",
+        "variant": "arrow_four_rail_v1",
+        "from": -128367984975730,
+        "to": -128367985123186,
+        "id": [
+          275483547,
+          531516809,
+          -1669261306,
+          1048001326
+        ],
+        "family": "arrow_controlled"
+      },
+      {
+        "original_curve": {
+          "Starts": [
+            {
+              "V": [
+                0.5,
+                0.75,
+                0.5
+              ]
+            },
+            {
+              "V": [
+                -7.5,
+                0.75,
+                -7.5
+              ]
+            }
+          ],
+          "Girder": 0,
+          "Normals": [
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          ],
+          "Primary": 1,
+          "Positions": [
+            {
+              "Pos": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "Pos": [
+                -8,
+                0,
+                -8
+              ]
+            }
+          ],
+          "Axes": [
+            {
+              "V": [
+                0.0,
+                0.0,
+                -1.0
+              ]
+            },
+            {
+              "V": [
+                1.0,
+                0.0,
+                0.0
+              ]
+            }
+          ],
+          "Material": "simulatedcoasters:coaster_track"
+        },
+        "magnets": [],
+        "profile": [
+          {
+            "distance": 0.0,
+            "slope": 0.0,
+            "angle": 0.0
+          },
+          {
+            "distance": 12.568132528583508,
+            "slope": 0.0,
+            "angle": 0.0
+          }
+        ],
+        "geometry_hash": -7248465976856443931,
+        "revision": 0,
+        "valid": 1,
+        "appearance": {
+          "tint": -1,
+          "id": "fourthdimension:original"
+        },
+        "provider": "fourthdimension:original",
+        "variant": "arrow_four_rail_v1",
+        "from": -128367985123186,
+        "to": -130567008411506,
+        "id": [
+          1703410724,
+          -1259847477,
+          -1199874316,
+          446440209
+        ],
+        "family": "arrow_controlled"
+      },
+      {
+        "original_curve": {
+          "Starts": [
+            {
+              "V": [
+                0.5,
+                0.75,
+                0.5
+              ]
+            },
+            {
+              "V": [
+                -15.5,
+                0.75,
+                0.5
+              ]
+            }
+          ],
+          "Girder": 0,
+          "Normals": [
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          ],
+          "Primary": 1,
+          "Positions": [
+            {
+              "Pos": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "Pos": [
+                -16,
+                0,
+                0
+              ]
+            }
+          ],
+          "Axes": [
+            {
+              "V": [
+                -1.0,
+                0.0,
+                0.0
+              ]
+            },
+            {
+              "V": [
+                1.0,
+                0.0,
+                0.0
+              ]
+            }
+          ],
+          "Material": "simulatedcoasters:coaster_track"
+        },
+        "magnets": [],
+        "profile": [
+          {
+            "distance": 0.0,
+            "slope": 0.0,
+            "angle": 0.0
+          },
+          {
+            "distance": 16.0,
+            "slope": 0.0,
+            "angle": 0.0
+          }
+        ],
+        "geometry_hash": 7279615930922146689,
+        "revision": 0,
+        "valid": 1,
+        "appearance": {
+          "tint": -1,
+          "id": "fourthdimension:original"
+        },
+        "provider": "fourthdimension:original",
+        "variant": "arrow_four_rail_v1",
+        "from": -130567008411506,
+        "to": -134965054922610,
+        "id": [
+          2038406301,
+          -172998371,
+          -1282404917,
+          1952902355
+        ],
+        "family": "arrow_controlled"
+      },
+      {
+        "original_curve": {
+          "Starts": [
+            {
+              "V": [
+                0.5,
+                0.75,
+                0.5
+              ]
+            },
+            {
+              "V": [
+                -7.5,
+                0.75,
+                8.5
+              ]
+            }
+          ],
+          "Girder": 0,
+          "Normals": [
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          ],
+          "Primary": 1,
+          "Positions": [
+            {
+              "Pos": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "Pos": [
+                -8,
+                0,
+                8
+              ]
+            }
+          ],
+          "Axes": [
+            {
+              "V": [
+                -1.0,
+                0.0,
+                0.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                0.0,
+                -1.0
+              ]
+            }
+          ],
+          "Material": "simulatedcoasters:coaster_track"
+        },
+        "magnets": [],
+        "profile": [
+          {
+            "distance": 0.0,
+            "slope": 0.0,
+            "angle": 0.0
+          },
+          {
+            "distance": 12.568132291385234,
+            "slope": 0.0,
+            "angle": 0.0
+          }
+        ],
+        "geometry_hash": 7808604912583791745,
+        "revision": 0,
+        "valid": 1,
+        "appearance": {
+          "tint": -1,
+          "id": "fourthdimension:original"
+        },
+        "provider": "fourthdimension:original",
+        "variant": "arrow_four_rail_v1",
+        "from": -134965054922610,
+        "to": -137164078145394,
+        "id": [
+          -1718420327,
+          1794919714,
+          -1877778920,
+          489943121
+        ],
+        "family": "arrow_controlled"
+      },
+      {
+        "original_curve": {
+          "Starts": [
+            {
+              "V": [
+                0.5,
+                0.75,
+                0.5
+              ]
+            },
+            {
+              "V": [
+                0.5,
+                0.75,
+                36.5
+              ]
+            }
+          ],
+          "Girder": 0,
+          "Normals": [
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          ],
+          "Primary": 1,
+          "Positions": [
+            {
+              "Pos": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "Pos": [
+                0,
+                0,
+                36
+              ]
+            }
+          ],
+          "Axes": [
+            {
+              "V": [
+                0.0,
+                0.0,
+                1.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                0.0,
+                -1.0
+              ]
+            }
+          ],
+          "Material": "simulatedcoasters:coaster_track"
+        },
+        "magnets": [],
+        "profile": [
+          {
+            "distance": 0.0,
+            "slope": 0.0,
+            "angle": 0.0
+          },
+          {
+            "distance": 36.0,
+            "slope": 0.0,
+            "angle": 0.0
+          }
+        ],
+        "geometry_hash": 4410817438415966849,
+        "revision": 0,
+        "valid": 1,
+        "appearance": {
+          "tint": -1,
+          "id": "fourthdimension:original"
+        },
+        "provider": "fourthdimension:original",
+        "variant": "zacspin_legacy_v1",
+        "from": 54975581470862,
+        "to": 54975581618318,
+        "id": [
+          1826852344,
+          -1915139681,
+          -1809993225,
+          -97086231
+        ],
+        "family": "zacspin_legacy"
+      },
+      {
+        "original_curve": {
+          "Starts": [
+            {
+              "V": [
+                0.5,
+                0.75,
+                0.5
+              ]
+            },
+            {
+              "V": [
+                8.5,
+                6.75,
+                8.5
+              ]
+            }
+          ],
+          "Girder": 0,
+          "Normals": [
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          ],
+          "Primary": 1,
+          "Positions": [
+            {
+              "Pos": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "Pos": [
+                8,
+                6,
+                8
+              ]
+            }
+          ],
+          "Axes": [
+            {
+              "V": [
+                0.0,
+                0.0,
+                1.0
+              ]
+            },
+            {
+              "V": [
+                -1.0,
+                0.0,
+                0.0
+              ]
+            }
+          ],
+          "Material": "simulatedcoasters:coaster_track"
+        },
+        "magnets": [],
+        "profile": [
+          {
+            "distance": 0.0,
+            "slope": 0.0,
+            "angle": 0.0
+          },
+          {
+            "distance": 14.165166866741968,
+            "slope": 0.0,
+            "angle": 0.0
+          }
+        ],
+        "geometry_hash": -5375693681161569155,
+        "revision": 0,
+        "valid": 1,
+        "appearance": {
+          "tint": -1,
+          "id": "fourthdimension:original"
+        },
+        "provider": "fourthdimension:original",
+        "variant": "zacspin_legacy_v1",
+        "from": 54975581618318,
+        "to": 57174604906644,
+        "id": [
+          2146555096,
+          800539259,
+          -2128193285,
+          -823866100
+        ],
+        "family": "zacspin_legacy"
+      },
+      {
+        "original_curve": {
+          "Starts": [
+            {
+              "V": [
+                0.5,
+                0.75,
+                0.5
+              ]
+            },
+            {
+              "V": [
+                16.5,
+                0.75,
+                0.5
+              ]
+            }
+          ],
+          "Girder": 0,
+          "Normals": [
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          ],
+          "Primary": 1,
+          "Positions": [
+            {
+              "Pos": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "Pos": [
+                16,
+                0,
+                0
+              ]
+            }
+          ],
+          "Axes": [
+            {
+              "V": [
+                1.0,
+                0.0,
+                0.0
+              ]
+            },
+            {
+              "V": [
+                -1.0,
+                0.0,
+                0.0
+              ]
+            }
+          ],
+          "Material": "simulatedcoasters:coaster_track"
+        },
+        "magnets": [],
+        "profile": [
+          {
+            "distance": 0.0,
+            "slope": 0.0,
+            "angle": 0.0
+          },
+          {
+            "distance": 16.0,
+            "slope": 0.0,
+            "angle": 0.0
+          }
+        ],
+        "geometry_hash": 1339316328116339585,
+        "revision": 0,
+        "valid": 1,
+        "appearance": {
+          "tint": -1,
+          "id": "fourthdimension:original"
+        },
+        "provider": "fourthdimension:original",
+        "variant": "zacspin_legacy_v1",
+        "from": 57174604906644,
+        "to": 61572651417748,
+        "id": [
+          -1189653772,
+          1497058418,
+          -1392830584,
+          1469339397
+        ],
+        "family": "zacspin_legacy"
+      },
+      {
+        "original_curve": {
+          "Starts": [
+            {
+              "V": [
+                0.5,
+                0.75,
+                0.5
+              ]
+            },
+            {
+              "V": [
+                8.5,
+                -5.25,
+                -7.5
+              ]
+            }
+          ],
+          "Girder": 0,
+          "Normals": [
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          ],
+          "Primary": 1,
+          "Positions": [
+            {
+              "Pos": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "Pos": [
+                8,
+                -6,
+                -8
+              ]
+            }
+          ],
+          "Axes": [
+            {
+              "V": [
+                1.0,
+                0.0,
+                0.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                0.0,
+                1.0
+              ]
+            }
+          ],
+          "Material": "simulatedcoasters:coaster_track"
+        },
+        "magnets": [],
+        "profile": [
+          {
+            "distance": 0.0,
+            "slope": 0.0,
+            "angle": 0.0
+          },
+          {
+            "distance": 14.165164910898136,
+            "slope": 0.0,
+            "angle": 0.0
+          }
+        ],
+        "geometry_hash": -6289585918641385085,
+        "revision": 0,
+        "valid": 1,
+        "appearance": {
+          "tint": -1,
+          "id": "fourthdimension:original"
+        },
+        "provider": "fourthdimension:original",
+        "variant": "zacspin_legacy_v1",
+        "from": 61572651417748,
+        "to": 63771674640526,
+        "id": [
+          1976670970,
+          1313623743,
+          -1592793375,
+          -199089269
+        ],
+        "family": "zacspin_legacy"
+      },
+      {
+        "original_curve": {
+          "Starts": [
+            {
+              "V": [
+                0.5,
+                0.75,
+                0.5
+              ]
+            },
+            {
+              "V": [
+                0.5,
+                0.75,
+                -35.5
+              ]
+            }
+          ],
+          "Girder": 0,
+          "Normals": [
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          ],
+          "Primary": 1,
+          "Positions": [
+            {
+              "Pos": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "Pos": [
+                0,
+                0,
+                -36
+              ]
+            }
+          ],
+          "Axes": [
+            {
+              "V": [
+                0.0,
+                0.0,
+                -1.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                0.0,
+                1.0
+              ]
+            }
+          ],
+          "Material": "simulatedcoasters:coaster_track"
+        },
+        "magnets": [],
+        "profile": [
+          {
+            "distance": 0.0,
+            "slope": 0.0,
+            "angle": 0.0
+          },
+          {
+            "distance": 36.0,
+            "slope": 0.0,
+            "angle": 0.0
+          }
+        ],
+        "geometry_hash": 2978594053085549697,
+        "revision": 0,
+        "valid": 1,
+        "appearance": {
+          "tint": -1,
+          "id": "fourthdimension:original"
+        },
+        "provider": "fourthdimension:original",
+        "variant": "zacspin_legacy_v1",
+        "from": 63771674640526,
+        "to": 63771674493070,
+        "id": [
+          -986721517,
+          1545752293,
+          -1255381450,
+          -847119215
+        ],
+        "family": "zacspin_legacy"
+      },
+      {
+        "original_curve": {
+          "Starts": [
+            {
+              "V": [
+                0.5,
+                0.75,
+                0.5
+              ]
+            },
+            {
+              "V": [
+                -7.5,
+                0.75,
+                -7.5
+              ]
+            }
+          ],
+          "Girder": 0,
+          "Normals": [
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          ],
+          "Primary": 1,
+          "Positions": [
+            {
+              "Pos": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "Pos": [
+                -8,
+                0,
+                -8
+              ]
+            }
+          ],
+          "Axes": [
+            {
+              "V": [
+                0.0,
+                0.0,
+                -1.0
+              ]
+            },
+            {
+              "V": [
+                1.0,
+                0.0,
+                0.0
+              ]
+            }
+          ],
+          "Material": "simulatedcoasters:coaster_track"
+        },
+        "magnets": [],
+        "profile": [
+          {
+            "distance": 0.0,
+            "slope": 0.0,
+            "angle": 0.0
+          },
+          {
+            "distance": 12.568132528583485,
+            "slope": 0.0,
+            "angle": 0.0
+          }
+        ],
+        "geometry_hash": 8141998742347188837,
+        "revision": 0,
+        "valid": 1,
+        "appearance": {
+          "tint": -1,
+          "id": "fourthdimension:original"
+        },
+        "provider": "fourthdimension:original",
+        "variant": "zacspin_legacy_v1",
+        "from": 63771674493070,
+        "to": 61572651204750,
+        "id": [
+          631309094,
+          -174961494,
+          -1129998587,
+          846505712
+        ],
+        "family": "zacspin_legacy"
+      },
+      {
+        "original_curve": {
+          "Starts": [
+            {
+              "V": [
+                0.5,
+                0.75,
+                0.5
+              ]
+            },
+            {
+              "V": [
+                -15.5,
+                0.75,
+                0.5
+              ]
+            }
+          ],
+          "Girder": 0,
+          "Normals": [
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          ],
+          "Primary": 1,
+          "Positions": [
+            {
+              "Pos": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "Pos": [
+                -16,
+                0,
+                0
+              ]
+            }
+          ],
+          "Axes": [
+            {
+              "V": [
+                -1.0,
+                0.0,
+                0.0
+              ]
+            },
+            {
+              "V": [
+                1.0,
+                0.0,
+                0.0
+              ]
+            }
+          ],
+          "Material": "simulatedcoasters:coaster_track"
+        },
+        "magnets": [],
+        "profile": [
+          {
+            "distance": 0.0,
+            "slope": 0.0,
+            "angle": 0.0
+          },
+          {
+            "distance": 16.0,
+            "slope": 0.0,
+            "angle": 0.0
+          }
+        ],
+        "geometry_hash": -1106969956306110463,
+        "revision": 0,
+        "valid": 1,
+        "appearance": {
+          "tint": -1,
+          "id": "fourthdimension:original"
+        },
+        "provider": "fourthdimension:original",
+        "variant": "zacspin_legacy_v1",
+        "from": 61572651204750,
+        "to": 57174604693646,
+        "id": [
+          959258302,
+          -757314919,
+          -1137437395,
+          -397954579
+        ],
+        "family": "zacspin_legacy"
+      },
+      {
+        "original_curve": {
+          "Starts": [
+            {
+              "V": [
+                0.5,
+                0.75,
+                0.5
+              ]
+            },
+            {
+              "V": [
+                -7.5,
+                0.75,
+                8.5
+              ]
+            }
+          ],
+          "Girder": 0,
+          "Normals": [
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          ],
+          "Primary": 1,
+          "Positions": [
+            {
+              "Pos": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "Pos": [
+                -8,
+                0,
+                8
+              ]
+            }
+          ],
+          "Axes": [
+            {
+              "V": [
+                -1.0,
+                0.0,
+                0.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                0.0,
+                -1.0
+              ]
+            }
+          ],
+          "Material": "simulatedcoasters:coaster_track"
+        },
+        "magnets": [],
+        "profile": [
+          {
+            "distance": 0.0,
+            "slope": 0.0,
+            "angle": 0.0
+          },
+          {
+            "distance": 12.568132291385226,
+            "slope": 0.0,
+            "angle": 0.0
+          }
+        ],
+        "geometry_hash": -1329850705584298751,
+        "revision": 0,
+        "valid": 1,
+        "appearance": {
+          "tint": -1,
+          "id": "fourthdimension:original"
+        },
+        "provider": "fourthdimension:original",
+        "variant": "zacspin_legacy_v1",
+        "from": 57174604693646,
+        "to": 54975581470862,
+        "id": [
+          -1934200843,
+          1001734402,
+          -2057260872,
+          1446985601
+        ],
+        "family": "zacspin_legacy"
+      },
+      {
+        "original_curve": {
+          "Starts": [
+            {
+              "V": [
+                0.5,
+                0.75,
+                0.5
+              ]
+            },
+            {
+              "V": [
+                0.5,
+                0.75,
+                36.5
+              ]
+            }
+          ],
+          "Girder": 0,
+          "Normals": [
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          ],
+          "Primary": 1,
+          "Positions": [
+            {
+              "Pos": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "Pos": [
+                0,
+                0,
+                36
+              ]
+            }
+          ],
+          "Axes": [
+            {
+              "V": [
+                0.0,
+                0.0,
+                1.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                0.0,
+                -1.0
+              ]
+            }
+          ],
+          "Material": "simulatedcoasters:coaster_track"
+        },
+        "magnets": [],
+        "profile": [
+          {
+            "distance": 0.0,
+            "slope": 0.0,
+            "angle": 0.0
+          },
+          {
+            "distance": 36.0,
+            "slope": 0.0,
+            "angle": 0.0
+          }
+        ],
+        "geometry_hash": 6527916312577579521,
+        "revision": 0,
+        "valid": 1,
+        "appearance": {
+          "tint": -1,
+          "id": "fourthdimension:original"
+        },
+        "provider": "fourthdimension:original",
+        "variant": "sns_magnetic_v1",
+        "from": 96207267512462,
+        "to": 96207267659918,
+        "id": [
+          769228903,
+          -814985304,
+          -1955281950,
+          940718490
+        ],
+        "family": "sns_free_spin"
+      },
+      {
+        "original_curve": {
+          "Starts": [
+            {
+              "V": [
+                0.5,
+                0.75,
+                0.5
+              ]
+            },
+            {
+              "V": [
+                8.5,
+                6.75,
+                8.5
+              ]
+            }
+          ],
+          "Girder": 0,
+          "Normals": [
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          ],
+          "Primary": 1,
+          "Positions": [
+            {
+              "Pos": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "Pos": [
+                8,
+                6,
+                8
+              ]
+            }
+          ],
+          "Axes": [
+            {
+              "V": [
+                0.0,
+                0.0,
+                1.0
+              ]
+            },
+            {
+              "V": [
+                -1.0,
+                0.0,
+                0.0
+              ]
+            }
+          ],
+          "Material": "simulatedcoasters:coaster_track"
+        },
+        "magnets": [],
+        "profile": [
+          {
+            "distance": 0.0,
+            "slope": 0.0,
+            "angle": 0.0
+          },
+          {
+            "distance": 14.165166866741977,
+            "slope": 0.0,
+            "angle": 0.0
+          }
+        ],
+        "geometry_hash": -355360722070465027,
+        "revision": 0,
+        "valid": 1,
+        "appearance": {
+          "tint": -1,
+          "id": "fourthdimension:original"
+        },
+        "provider": "fourthdimension:original",
+        "variant": "sns_magnetic_v1",
+        "from": 96207267659918,
+        "to": 98406290948244,
+        "id": [
+          820100669,
+          895370420,
+          -2131038280,
+          1179841556
+        ],
+        "family": "sns_free_spin"
+      },
+      {
+        "original_curve": {
+          "Starts": [
+            {
+              "V": [
+                0.5,
+                0.75,
+                0.5
+              ]
+            },
+            {
+              "V": [
+                16.5,
+                0.75,
+                0.5
+              ]
+            }
+          ],
+          "Girder": 0,
+          "Normals": [
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          ],
+          "Primary": 1,
+          "Positions": [
+            {
+              "Pos": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "Pos": [
+                16,
+                0,
+                0
+              ]
+            }
+          ],
+          "Axes": [
+            {
+              "V": [
+                1.0,
+                0.0,
+                0.0
+              ]
+            },
+            {
+              "V": [
+                -1.0,
+                0.0,
+                0.0
+              ]
+            }
+          ],
+          "Material": "simulatedcoasters:coaster_track"
+        },
+        "magnets": [],
+        "profile": [
+          {
+            "distance": 0.0,
+            "slope": 0.0,
+            "angle": 0.0
+          },
+          {
+            "distance": 16.0,
+            "slope": 0.0,
+            "angle": 0.0
+          }
+        ],
+        "geometry_hash": 1520865080104547841,
+        "revision": 0,
+        "valid": 1,
+        "appearance": {
+          "tint": -1,
+          "id": "fourthdimension:original"
+        },
+        "provider": "fourthdimension:original",
+        "variant": "sns_magnetic_v1",
+        "from": 98406290948244,
+        "to": 102804337459348,
+        "id": [
+          -1027827863,
+          -1688581969,
+          -1333902485,
+          -2025508738
+        ],
+        "family": "sns_free_spin"
+      },
+      {
+        "original_curve": {
+          "Starts": [
+            {
+              "V": [
+                0.5,
+                0.75,
+                0.5
+              ]
+            },
+            {
+              "V": [
+                8.5,
+                -5.25,
+                -7.5
+              ]
+            }
+          ],
+          "Girder": 0,
+          "Normals": [
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          ],
+          "Primary": 1,
+          "Positions": [
+            {
+              "Pos": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "Pos": [
+                8,
+                -6,
+                -8
+              ]
+            }
+          ],
+          "Axes": [
+            {
+              "V": [
+                1.0,
+                0.0,
+                0.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                0.0,
+                1.0
+              ]
+            }
+          ],
+          "Material": "simulatedcoasters:coaster_track"
+        },
+        "magnets": [],
+        "profile": [
+          {
+            "distance": 0.0,
+            "slope": 0.0,
+            "angle": 0.0
+          },
+          {
+            "distance": 14.165164910898131,
+            "slope": 0.0,
+            "angle": 0.0
+          }
+        ],
+        "geometry_hash": -301021730997370365,
+        "revision": 0,
+        "valid": 1,
+        "appearance": {
+          "tint": -1,
+          "id": "fourthdimension:original"
+        },
+        "provider": "fourthdimension:original",
+        "variant": "sns_magnetic_v1",
+        "from": 102804337459348,
+        "to": 105003360682126,
+        "id": [
+          1522566427,
+          1607157344,
+          -1702007075,
+          1312792409
+        ],
+        "family": "sns_free_spin"
+      },
+      {
+        "original_curve": {
+          "Starts": [
+            {
+              "V": [
+                0.5,
+                0.75,
+                0.5
+              ]
+            },
+            {
+              "V": [
+                0.5,
+                0.75,
+                -35.5
+              ]
+            }
+          ],
+          "Girder": 0,
+          "Normals": [
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          ],
+          "Primary": 1,
+          "Positions": [
+            {
+              "Pos": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "Pos": [
+                0,
+                0,
+                -36
+              ]
+            }
+          ],
+          "Axes": [
+            {
+              "V": [
+                0.0,
+                0.0,
+                -1.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                0.0,
+                1.0
+              ]
+            }
+          ],
+          "Material": "simulatedcoasters:coaster_track"
+        },
+        "magnets": [
+          {
+            "mode": "INDUCE",
+            "falloff": 0.2,
+            "strength": 4.0,
+            "start": 3.0,
+            "end": 9.0,
+            "targets": 1,
+            "direction": 1
+          },
+          {
+            "mode": "INDUCE",
+            "falloff": 0.2,
+            "strength": 4.0,
+            "start": 12.0,
+            "end": 18.0,
+            "targets": 8,
+            "direction": -1
+          },
+          {
+            "mode": "DAMP",
+            "falloff": 0.2,
+            "strength": 5.0,
+            "start": 24.0,
+            "end": 32.0,
+            "targets": 15,
+            "direction": 1
+          }
+        ],
+        "profile": [
+          {
+            "distance": 0.0,
+            "slope": 0.0,
+            "angle": 0.0
+          },
+          {
+            "distance": 36.0,
+            "slope": 0.0,
+            "angle": 0.0
+          }
+        ],
+        "geometry_hash": -7743889488110318591,
+        "revision": 1,
+        "valid": 1,
+        "appearance": {
+          "tint": -1,
+          "id": "fourthdimension:original"
+        },
+        "provider": "fourthdimension:original",
+        "variant": "sns_magnetic_v1",
+        "from": 105003360682126,
+        "to": 105003360534670,
+        "id": [
+          272679199,
+          -1802679143,
+          -2026623435,
+          -31991822
+        ],
+        "family": "sns_free_spin"
+      },
+      {
+        "original_curve": {
+          "Starts": [
+            {
+              "V": [
+                0.5,
+                0.75,
+                0.5
+              ]
+            },
+            {
+              "V": [
+                -7.5,
+                0.75,
+                -7.5
+              ]
+            }
+          ],
+          "Girder": 0,
+          "Normals": [
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          ],
+          "Primary": 1,
+          "Positions": [
+            {
+              "Pos": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "Pos": [
+                -8,
+                0,
+                -8
+              ]
+            }
+          ],
+          "Axes": [
+            {
+              "V": [
+                0.0,
+                0.0,
+                -1.0
+              ]
+            },
+            {
+              "V": [
+                1.0,
+                0.0,
+                0.0
+              ]
+            }
+          ],
+          "Material": "simulatedcoasters:coaster_track"
+        },
+        "magnets": [],
+        "profile": [
+          {
+            "distance": 0.0,
+            "slope": 0.0,
+            "angle": 0.0
+          },
+          {
+            "distance": 12.568132528583495,
+            "slope": 0.0,
+            "angle": 0.0
+          }
+        ],
+        "geometry_hash": 4026688194103269605,
+        "revision": 0,
+        "valid": 1,
+        "appearance": {
+          "tint": -1,
+          "id": "fourthdimension:original"
+        },
+        "provider": "fourthdimension:original",
+        "variant": "sns_magnetic_v1",
+        "from": 105003360534670,
+        "to": 102804337246350,
+        "id": [
+          -1475763318,
+          -2037758311,
+          -1444693688,
+          947915518
+        ],
+        "family": "sns_free_spin"
+      },
+      {
+        "original_curve": {
+          "Starts": [
+            {
+              "V": [
+                0.5,
+                0.75,
+                0.5
+              ]
+            },
+            {
+              "V": [
+                -15.5,
+                0.75,
+                0.5
+              ]
+            }
+          ],
+          "Girder": 0,
+          "Normals": [
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          ],
+          "Primary": 1,
+          "Positions": [
+            {
+              "Pos": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "Pos": [
+                -16,
+                0,
+                0
+              ]
+            }
+          ],
+          "Axes": [
+            {
+              "V": [
+                -1.0,
+                0.0,
+                0.0
+              ]
+            },
+            {
+              "V": [
+                1.0,
+                0.0,
+                0.0
+              ]
+            }
+          ],
+          "Material": "simulatedcoasters:coaster_track"
+        },
+        "magnets": [],
+        "profile": [
+          {
+            "distance": 0.0,
+            "slope": 0.0,
+            "angle": 0.0
+          },
+          {
+            "distance": 16.0,
+            "slope": 0.0,
+            "angle": 0.0
+          }
+        ],
+        "geometry_hash": -4525112328786027647,
+        "revision": 0,
+        "valid": 1,
+        "appearance": {
+          "tint": -1,
+          "id": "fourthdimension:original"
+        },
+        "provider": "fourthdimension:original",
+        "variant": "sns_magnetic_v1",
+        "from": 102804337246350,
+        "to": 98406290735246,
+        "id": [
+          -1478050478,
+          -173783323,
+          -1754943543,
+          -1869601095
+        ],
+        "family": "sns_free_spin"
+      },
+      {
+        "original_curve": {
+          "Starts": [
+            {
+              "V": [
+                0.5,
+                0.75,
+                0.5
+              ]
+            },
+            {
+              "V": [
+                -7.5,
+                0.75,
+                8.5
+              ]
+            }
+          ],
+          "Girder": 0,
+          "Normals": [
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          ],
+          "Primary": 1,
+          "Positions": [
+            {
+              "Pos": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "Pos": [
+                -8,
+                0,
+                8
+              ]
+            }
+          ],
+          "Axes": [
+            {
+              "V": [
+                -1.0,
+                0.0,
+                0.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                0.0,
+                -1.0
+              ]
+            }
+          ],
+          "Material": "simulatedcoasters:coaster_track"
+        },
+        "magnets": [],
+        "profile": [
+          {
+            "distance": 0.0,
+            "slope": 0.0,
+            "angle": 0.0
+          },
+          {
+            "distance": 12.568132291385234,
+            "slope": 0.0,
+            "angle": 0.0
+          }
+        ],
+        "geometry_hash": 7530480683817366401,
+        "revision": 0,
+        "valid": 1,
+        "appearance": {
+          "tint": -1,
+          "id": "fourthdimension:original"
+        },
+        "provider": "fourthdimension:original",
+        "variant": "sns_magnetic_v1",
+        "from": 98406290735246,
+        "to": 96207267512462,
+        "id": [
+          -1854260307,
+          345588009,
+          -2111711614,
+          -239133082
+        ],
+        "family": "sns_free_spin"
+      },
+      {
+        "original_curve": {
+          "Starts": [
+            {
+              "V": [
+                0.5,
+                0.75,
+                0.5
+              ]
+            },
+            {
+              "V": [
+                0.5,
+                0.75,
+                36.5
+              ]
+            }
+          ],
+          "Girder": 0,
+          "Normals": [
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          ],
+          "Primary": 1,
+          "Positions": [
+            {
+              "Pos": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "Pos": [
+                0,
+                0,
+                36
+              ]
+            }
+          ],
+          "Axes": [
+            {
+              "V": [
+                0.0,
+                0.0,
+                1.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                0.0,
+                -1.0
+              ]
+            }
+          ],
+          "Material": "simulatedcoasters:coaster_track"
+        },
+        "magnets": [],
+        "profile": [
+          {
+            "distance": 0.0,
+            "slope": 0.0,
+            "angle": 0.0
+          },
+          {
+            "distance": 36.0,
+            "slope": 0.0,
+            "angle": 0.0
+          }
+        ],
+        "geometry_hash": -2243479540163130495,
+        "revision": 0,
+        "valid": 1,
+        "appearance": {
+          "tint": -1,
+          "id": "fourthdimension:original"
+        },
+        "provider": "fourthdimension:original",
+        "variant": "zacspin_revised_v1",
+        "from": 137438953554062,
+        "to": 137438953701518,
+        "id": [
+          1899561166,
+          1509376395,
+          -1415143425,
+          -1043200960
+        ],
+        "family": "zacspin_revised"
+      },
+      {
+        "original_curve": {
+          "Starts": [
+            {
+              "V": [
+                0.5,
+                0.75,
+                0.5
+              ]
+            },
+            {
+              "V": [
+                8.5,
+                6.75,
+                8.5
+              ]
+            }
+          ],
+          "Girder": 0,
+          "Normals": [
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          ],
+          "Primary": 1,
+          "Positions": [
+            {
+              "Pos": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "Pos": [
+                8,
+                6,
+                8
+              ]
+            }
+          ],
+          "Axes": [
+            {
+              "V": [
+                0.0,
+                0.0,
+                1.0
+              ]
+            },
+            {
+              "V": [
+                -1.0,
+                0.0,
+                0.0
+              ]
+            }
+          ],
+          "Material": "simulatedcoasters:coaster_track"
+        },
+        "magnets": [],
+        "profile": [
+          {
+            "distance": 0.0,
+            "slope": 0.0,
+            "angle": 0.0
+          },
+          {
+            "distance": 14.165166866741975,
+            "slope": 0.0,
+            "angle": 0.0
+          }
+        ],
+        "geometry_hash": 3442593136208310653,
+        "revision": 0,
+        "valid": 1,
+        "appearance": {
+          "tint": -1,
+          "id": "fourthdimension:original"
+        },
+        "provider": "fourthdimension:original",
+        "variant": "zacspin_revised_v1",
+        "from": 137438953701518,
+        "to": 139637976989844,
+        "id": [
+          -751466170,
+          -502707155,
+          -1795390174,
+          1601494408
+        ],
+        "family": "zacspin_revised"
+      },
+      {
+        "original_curve": {
+          "Starts": [
+            {
+              "V": [
+                0.5,
+                0.75,
+                0.5
+              ]
+            },
+            {
+              "V": [
+                16.5,
+                0.75,
+                0.5
+              ]
+            }
+          ],
+          "Girder": 0,
+          "Normals": [
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          ],
+          "Primary": 1,
+          "Positions": [
+            {
+              "Pos": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "Pos": [
+                16,
+                0,
+                0
+              ]
+            }
+          ],
+          "Axes": [
+            {
+              "V": [
+                1.0,
+                0.0,
+                0.0
+              ]
+            },
+            {
+              "V": [
+                -1.0,
+                0.0,
+                0.0
+              ]
+            }
+          ],
+          "Material": "simulatedcoasters:coaster_track"
+        },
+        "magnets": [],
+        "profile": [
+          {
+            "distance": 0.0,
+            "slope": 0.0,
+            "angle": 0.0
+          },
+          {
+            "distance": 16.0,
+            "slope": 0.0,
+            "angle": 0.0
+          }
+        ],
+        "geometry_hash": -4261890628754538367,
+        "revision": 0,
+        "valid": 1,
+        "appearance": {
+          "tint": -1,
+          "id": "fourthdimension:original"
+        },
+        "provider": "fourthdimension:original",
+        "variant": "zacspin_revised_v1",
+        "from": 139637976989844,
+        "to": 144036023500948,
+        "id": [
+          -669655978,
+          -1874376930,
+          -1754104113,
+          722749842
+        ],
+        "family": "zacspin_revised"
+      },
+      {
+        "original_curve": {
+          "Starts": [
+            {
+              "V": [
+                0.5,
+                0.75,
+                0.5
+              ]
+            },
+            {
+              "V": [
+                8.5,
+                -5.25,
+                -7.5
+              ]
+            }
+          ],
+          "Girder": 0,
+          "Normals": [
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          ],
+          "Primary": 1,
+          "Positions": [
+            {
+              "Pos": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "Pos": [
+                8,
+                -6,
+                -8
+              ]
+            }
+          ],
+          "Axes": [
+            {
+              "V": [
+                1.0,
+                0.0,
+                0.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                0.0,
+                1.0
+              ]
+            }
+          ],
+          "Material": "simulatedcoasters:coaster_track"
+        },
+        "magnets": [],
+        "profile": [
+          {
+            "distance": 0.0,
+            "slope": 0.0,
+            "angle": 0.0
+          },
+          {
+            "distance": 14.165164910898165,
+            "slope": 0.0,
+            "angle": 0.0
+          }
+        ],
+        "geometry_hash": -4027140399959300989,
+        "revision": 0,
+        "valid": 1,
+        "appearance": {
+          "tint": -1,
+          "id": "fourthdimension:original"
+        },
+        "provider": "fourthdimension:original",
+        "variant": "zacspin_revised_v1",
+        "from": 144036023500948,
+        "to": 146235046723726,
+        "id": [
+          204020261,
+          -1541191279,
+          -1379566782,
+          2097607321
+        ],
+        "family": "zacspin_revised"
+      },
+      {
+        "original_curve": {
+          "Starts": [
+            {
+              "V": [
+                0.5,
+                0.75,
+                0.5
+              ]
+            },
+            {
+              "V": [
+                0.5,
+                0.75,
+                -35.5
+              ]
+            }
+          ],
+          "Girder": 0,
+          "Normals": [
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          ],
+          "Primary": 1,
+          "Positions": [
+            {
+              "Pos": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "Pos": [
+                0,
+                0,
+                -36
+              ]
+            }
+          ],
+          "Axes": [
+            {
+              "V": [
+                0.0,
+                0.0,
+                -1.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                0.0,
+                1.0
+              ]
+            }
+          ],
+          "Material": "simulatedcoasters:coaster_track"
+        },
+        "magnets": [],
+        "profile": [
+          {
+            "distance": 0.0,
+            "slope": 0.0,
+            "angle": 0.0
+          },
+          {
+            "distance": 36.0,
+            "slope": 0.0,
+            "angle": 0.0
+          }
+        ],
+        "geometry_hash": -6670873670182525567,
+        "revision": 0,
+        "valid": 1,
+        "appearance": {
+          "tint": -1,
+          "id": "fourthdimension:original"
+        },
+        "provider": "fourthdimension:original",
+        "variant": "zacspin_revised_v1",
+        "from": 146235046723726,
+        "to": 146235046576270,
+        "id": [
+          1172181726,
+          -1258992196,
+          -1388487410,
+          1022737380
+        ],
+        "family": "zacspin_revised"
+      },
+      {
+        "original_curve": {
+          "Starts": [
+            {
+              "V": [
+                0.5,
+                0.75,
+                0.5
+              ]
+            },
+            {
+              "V": [
+                -7.5,
+                0.75,
+                -7.5
+              ]
+            }
+          ],
+          "Girder": 0,
+          "Normals": [
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          ],
+          "Primary": 1,
+          "Positions": [
+            {
+              "Pos": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "Pos": [
+                -8,
+                0,
+                -8
+              ]
+            }
+          ],
+          "Axes": [
+            {
+              "V": [
+                0.0,
+                0.0,
+                -1.0
+              ]
+            },
+            {
+              "V": [
+                1.0,
+                0.0,
+                0.0
+              ]
+            }
+          ],
+          "Material": "simulatedcoasters:coaster_track"
+        },
+        "magnets": [],
+        "profile": [
+          {
+            "distance": 0.0,
+            "slope": 0.0,
+            "angle": 0.0
+          },
+          {
+            "distance": 12.568132528583517,
+            "slope": 0.0,
+            "angle": 0.0
+          }
+        ],
+        "geometry_hash": -8721809072410871963,
+        "revision": 0,
+        "valid": 1,
+        "appearance": {
+          "tint": -1,
+          "id": "fourthdimension:original"
+        },
+        "provider": "fourthdimension:original",
+        "variant": "zacspin_revised_v1",
+        "from": 146235046576270,
+        "to": 144036023287950,
+        "id": [
+          1575384253,
+          -1954068005,
+          -1215744951,
+          -2068891215
+        ],
+        "family": "zacspin_revised"
+      },
+      {
+        "original_curve": {
+          "Starts": [
+            {
+              "V": [
+                0.5,
+                0.75,
+                0.5
+              ]
+            },
+            {
+              "V": [
+                -15.5,
+                0.75,
+                0.5
+              ]
+            }
+          ],
+          "Girder": 0,
+          "Normals": [
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          ],
+          "Primary": 1,
+          "Positions": [
+            {
+              "Pos": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "Pos": [
+                -16,
+                0,
+                0
+              ]
+            }
+          ],
+          "Axes": [
+            {
+              "V": [
+                -1.0,
+                0.0,
+                0.0
+              ]
+            },
+            {
+              "V": [
+                1.0,
+                0.0,
+                0.0
+              ]
+            }
+          ],
+          "Material": "simulatedcoasters:coaster_track"
+        },
+        "magnets": [],
+        "profile": [
+          {
+            "distance": 0.0,
+            "slope": 0.0,
+            "angle": 0.0
+          },
+          {
+            "distance": 16.0,
+            "slope": 0.0,
+            "angle": 0.0
+          }
+        ],
+        "geometry_hash": -4742500008230178559,
+        "revision": 0,
+        "valid": 1,
+        "appearance": {
+          "tint": -1,
+          "id": "fourthdimension:original"
+        },
+        "provider": "fourthdimension:original",
+        "variant": "zacspin_revised_v1",
+        "from": 144036023287950,
+        "to": 139637976776846,
+        "id": [
+          -1840635083,
+          421152852,
+          -1478725357,
+          -908079087
+        ],
+        "family": "zacspin_revised"
+      },
+      {
+        "original_curve": {
+          "Starts": [
+            {
+              "V": [
+                0.5,
+                0.75,
+                0.5
+              ]
+            },
+            {
+              "V": [
+                -7.5,
+                0.75,
+                8.5
+              ]
+            }
+          ],
+          "Girder": 0,
+          "Normals": [
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          ],
+          "Primary": 1,
+          "Positions": [
+            {
+              "Pos": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "Pos": [
+                -8,
+                0,
+                8
+              ]
+            }
+          ],
+          "Axes": [
+            {
+              "V": [
+                -1.0,
+                0.0,
+                0.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                0.0,
+                -1.0
+              ]
+            }
+          ],
+          "Material": "simulatedcoasters:coaster_track"
+        },
+        "magnets": [],
+        "profile": [
+          {
+            "distance": 0.0,
+            "slope": 0.0,
+            "angle": 0.0
+          },
+          {
+            "distance": 12.568132291385234,
+            "slope": 0.0,
+            "angle": 0.0
+          }
+        ],
+        "geometry_hash": -7205296003731452927,
+        "revision": 0,
+        "valid": 1,
+        "appearance": {
+          "tint": -1,
+          "id": "fourthdimension:original"
+        },
+        "provider": "fourthdimension:original",
+        "variant": "zacspin_revised_v1",
+        "from": 139637976776846,
+        "to": 137438953554062,
+        "id": [
+          2106130635,
+          2120041250,
+          -1894175618,
+          284101923
+        ],
+        "family": "zacspin_revised"
+      }
+    ],
+    "vehicles": [
+      {
+        "alignment_required": 0,
+        "fault": "",
+        "boundTo": -137164077997938,
+        "carriers": [
+          {
+            "side": -3.0,
+            "rider_seats": [],
+            "pivot_height": 2.0,
+            "angle": -0.0003785655511786159,
+            "capture": 1,
+            "body": [
+              -1428905069,
+              -1998174724,
+              -2073804585,
+              276486391
+            ],
+            "longitudinal": 0.0,
+            "child_pivot_offset": 0.0,
+            "seats": [
+              4095,
+              -274877902849
+            ],
+            "ballast": 0.0,
+            "omega": 0.0020863919587188386,
+            "occupants": []
+          },
+          {
+            "side": 3.0,
+            "rider_seats": [],
+            "pivot_height": 2.0,
+            "angle": -0.0004248851094117736,
+            "capture": 1,
+            "body": [
+              -1034504147,
+              1921074390,
+              -2028552810,
+              1666604885
+            ],
+            "longitudinal": 0.0,
+            "child_pivot_offset": 0.0,
+            "seats": [
+              4095,
+              274877911039
+            ],
+            "ballast": 0.0,
+            "omega": 0.002036580909149058,
+            "occupants": []
+          }
+        ],
+        "chassis": [
+          583472045,
+          -308655521,
+          -1679161382,
+          1845501068
+        ],
+        "damping": 5.0,
+        "boundFrom": -137164078145394,
+        "ballast": 0.0,
+        "revision": 12,
+        "boarding_ready": 1,
+        "stopping": 1,
+        "variant": "arrow_four_rail_v1",
+        "restraints": 0,
+        "shuttle_detached": 0,
+        "family": "arrow_controlled",
+        "maintenance": 0
+      },
+      {
+        "alignment_required": 0,
+        "fault": "",
+        "boundTo": 54975581618318,
+        "carriers": [
+          {
+            "side": -3.0,
+            "rider_seats": [],
+            "pivot_height": 2.0,
+            "angle": -0.0002038223153137724,
+            "capture": 1,
+            "body": [
+              172843563,
+              -521779963,
+              -1220801828,
+              1403738934
+            ],
+            "longitudinal": 0.0,
+            "child_pivot_offset": 0.0,
+            "seats": [
+              274877906943,
+              -1,
+              8191,
+              -274877898753
+            ],
+            "ballast": 0.0,
+            "omega": 0.0009906946628369863,
+            "occupants": []
+          },
+          {
+            "side": 3.0,
+            "rider_seats": [],
+            "pivot_height": 2.0,
+            "angle": -0.00023757485420082487,
+            "capture": 1,
+            "body": [
+              775556044,
+              822036408,
+              -1643854588,
+              929550494
+            ],
+            "longitudinal": 0.0,
+            "child_pivot_offset": 0.0,
+            "seats": [
+              274877906943,
+              549755813887,
+              8191,
+              274877915135
+            ],
+            "ballast": 0.0,
+            "omega": 0.0007096207227224515,
+            "occupants": []
+          }
+        ],
+        "chassis": [
+          -1175833038,
+          -1319615076,
+          -2008204151,
+          1525645676
+        ],
+        "damping": 0.8,
+        "boundFrom": 54975581470862,
+        "ballast": 0.0,
+        "revision": 6,
+        "boarding_ready": 1,
+        "stopping": 1,
+        "variant": "zacspin_legacy_v1",
+        "restraints": 0,
+        "shuttle_detached": 0,
+        "family": "zacspin_legacy",
+        "maintenance": 0
+      },
+      {
+        "alignment_required": 0,
+        "fault": "",
+        "boundTo": 96207267659918,
+        "carriers": [
+          {
+            "side": -3.0,
+            "rider_seats": [],
+            "pivot_height": 2.0,
+            "angle": -0.00040456231111637265,
+            "capture": 1,
+            "body": [
+              67098039,
+              -1150858683,
+              -1335019701,
+              -1826438907
+            ],
+            "longitudinal": -3.0,
+            "child_pivot_offset": 0.0,
+            "seats": [
+              4095,
+              -274877902849
+            ],
+            "ballast": 0.0,
+            "omega": 0.002905763723170224,
+            "occupants": []
+          },
+          {
+            "side": -3.0,
+            "rider_seats": [],
+            "pivot_height": 2.0,
+            "angle": -0.0004860673518168573,
+            "capture": 1,
+            "body": [
+              322771762,
+              217206450,
+              -1422242431,
+              2140005844
+            ],
+            "longitudinal": 3.0,
+            "child_pivot_offset": 0.0,
+            "seats": [
+              4095,
+              -274877902849
+            ],
+            "ballast": 0.0,
+            "omega": 0.0039038544666880133,
+            "occupants": []
+          },
+          {
+            "side": 3.0,
+            "rider_seats": [],
+            "pivot_height": 2.0,
+            "angle": -0.000450812224566115,
+            "capture": 1,
+            "body": [
+              -1387677818,
+              835865430,
+              -1672722315,
+              1044141823
+            ],
+            "longitudinal": -3.0,
+            "child_pivot_offset": 0.0,
+            "seats": [
+              4095,
+              274877911039
+            ],
+            "ballast": 0.0,
+            "omega": 0.0031105634596036167,
+            "occupants": []
+          },
+          {
+            "side": 3.0,
+            "rider_seats": [],
+            "pivot_height": 2.0,
+            "angle": -0.0005169852794604163,
+            "capture": 1,
+            "body": [
+              1147992624,
+              21644211,
+              -1800740485,
+              -1207623705
+            ],
+            "longitudinal": 3.0,
+            "child_pivot_offset": 0.0,
+            "seats": [
+              4095,
+              274877911039
+            ],
+            "ballast": 0.0,
+            "omega": 0.003956485135073543,
+            "occupants": []
+          }
+        ],
+        "chassis": [
+          1326601704,
+          1198409237,
+          -2069009974,
+          264824719
+        ],
+        "damping": 0.8,
+        "boundFrom": 96207267512462,
+        "ballast": 0.0,
+        "revision": 6,
+        "boarding_ready": 1,
+        "stopping": 1,
+        "variant": "sns_magnetic_v1",
+        "restraints": 0,
+        "shuttle_detached": 0,
+        "family": "sns_free_spin",
+        "maintenance": 0
+      },
+      {
+        "alignment_required": 0,
+        "fault": "",
+        "boundTo": 137438953701518,
+        "carriers": [
+          {
+            "side": -3.0,
+            "rider_seats": [],
+            "pivot_height": 1.5,
+            "angle": 18.84910454400198,
+            "capture": 1,
+            "body": [
+              -1946891210,
+              -276674879,
+              -1982361801,
+              891399858
+            ],
+            "longitudinal": -3.0,
+            "child_pivot_offset": -0.5,
+            "seats": [
+              4095,
+              -274877902849
+            ],
+            "ballast": 0.0,
+            "omega": 0.003666347418325605,
+            "occupants": []
+          },
+          {
+            "side": -3.0,
+            "rider_seats": [],
+            "pivot_height": 1.5,
+            "angle": -0.0005209739013478084,
+            "capture": 1,
+            "body": [
+              885986577,
+              633620365,
+              -1268030141,
+              -487453380
+            ],
+            "longitudinal": 3.0,
+            "child_pivot_offset": -0.5,
+            "seats": [
+              4095,
+              -274877902849
+            ],
+            "ballast": 0.0,
+            "omega": 0.004817364369099755,
+            "occupants": []
+          },
+          {
+            "side": 3.0,
+            "rider_seats": [],
+            "pivot_height": 1.5,
+            "angle": -0.000500736029561717,
+            "capture": 1,
+            "body": [
+              -828465619,
+              360073053,
+              -1610420538,
+              -1366650269
+            ],
+            "longitudinal": -3.0,
+            "child_pivot_offset": -0.5,
+            "seats": [
+              4095,
+              274877911039
+            ],
+            "ballast": 0.0,
+            "omega": 0.0042689503827096,
+            "occupants": []
+          },
+          {
+            "side": 3.0,
+            "rider_seats": [],
+            "pivot_height": 1.5,
+            "angle": -0.0005543397512039218,
+            "capture": 1,
+            "body": [
+              -737138254,
+              116410474,
+              -1718162679,
+              1576313006
+            ],
+            "longitudinal": 3.0,
+            "child_pivot_offset": -0.5,
+            "seats": [
+              4095,
+              274877911039
+            ],
+            "ballast": 0.0,
+            "omega": 0.005215735205009311,
+            "occupants": []
+          }
+        ],
+        "chassis": [
+          -656089679,
+          -1060223254,
+          -2096102268,
+          1486674161
+        ],
+        "damping": 0.8,
+        "boundFrom": 137438953554062,
+        "ballast": 0.0,
+        "revision": 18,
+        "boarding_ready": 1,
+        "stopping": 1,
+        "variant": "zacspin_revised_v1",
+        "restraints": 0,
+        "shuttle_detached": 0,
+        "family": "zacspin_revised",
+        "maintenance": 0
+      }
+    ]
+  },
+  "DataVersion": 3955
+}

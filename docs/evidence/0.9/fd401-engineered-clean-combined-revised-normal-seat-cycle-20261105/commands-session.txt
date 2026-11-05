@@ -1,0 +1,38 @@
+/data get entity Dev Pos
+/fd validation availability
+/tp Dev 497.5 145 31.5 0 40
+/execute as @e[type=create:seat] run data get entity @s Pos
+/tp Dev 497.5 145 31.5 180 40
+/tp Dev 497.5 145 31.5 -140 20
+/data get entity Dev RootVehicle
+/tp Dev 497.5 145 31.5 -110 15
+/tp Dev 497.5 145 31.5 -110 35
+/tp Dev 497.5 145 31.5 -110 35
+/tp Dev 497.5 145 31.5 -110 70
+/data get entity Dev RootVehicle
+/fd validation board_locked Dev
+/data get entity Dev RootVehicle
+/tp Dev 500.5 145 31.5 -90 42
+/data get entity Dev Inventory
+/data get entity Dev RootVehicle
+/data get entity Dev Pos
+/tp Dev 500.5 145 31.5 -90 42
+/tp Dev 500.5 145 31.5 -90 42
+/fd validation motion Dev
+/fd validation availability
+/data get block 494 142 22 CoastersEngineeredSequence
+/data get block 500 142 20 CoastersEngineeredEnergy
+/data get block 494 142 22
+/data get block 500 142 20
+/execute if block 494 142 33 minecraft:redstone_block run say rear_powered
+/setblock 494 142 33 minecraft:air
+/setblock 494 142 23 minecraft:redstone_block
+/setblock 494 142 23 minecraft:air
+/fd validation motion Dev
+/fd validation motion Dev
+/data get block 494 142 22
+/setblock 494 142 33 minecraft:redstone_block
+/fd validation motion Dev
+/fd validation availability
+/data get entity Dev RootVehicle
+/fd validation availability
