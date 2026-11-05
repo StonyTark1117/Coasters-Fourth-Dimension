@@ -1,0 +1,9 @@
+Run: 2026-11-05 10:51 local (America/Phoenix), after normal Display Link source selection
+Artifact SHA-256: 656725bcbacc8f491de274c6c058027d0aaa67cfc6f893ba6d7e4a9eb24abbc7
+Profile: combined (Track Styles + Engineered installed)
+Server: PAX winch (-856,144,83), BOARDING, 4 cars, speed 16.0; no fault
+Dev RootVehicle: create:seat (mounted)
+Display Link (-856,144,82): create:display_link, Source.Id=fourthdimension:ride_occupancy, target sign (-852,146,84)
+Sign (-852,146,84): front_text and back_text both "1 / 16"
+Observer received packet at 2026-11-05 10:46:38.439 local: available=1, occupied=1, capacity=16, cars=4, phase=BOARDING, restraints=1, dispatch=1, fault empty.
+The server remained BOARDING and Dev remained mounted through source configuration and final save.
