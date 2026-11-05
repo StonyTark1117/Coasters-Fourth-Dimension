@@ -141,7 +141,7 @@ public final class EngineeredInterlockGameTests {
         });
   }
 
-  /** Probe both native PAX chassis callbacks while a real carrier seat is occupied. */
+  /** Probe every chassis in a four-car PAX consist while a rear carrier seat is occupied. */
   @GameTest(template = "empty", batch = "fourthdimension_engineered_interlock", timeoutTicks = 160)
   public static void nativeMotorRejectsEachOccupiedPaxCar(GameTestHelper helper) {
     if (!OptionalIntegrations.installed(OptionalIntegrations.ENGINEERED).mayInspect()) {
@@ -180,7 +180,7 @@ public final class EngineeredInterlockGameTests {
         () -> {
           configureMotor(helper, rail, controllerPos, 10, "FORWARD");
           var edge = TrackGeometry.resolve(level, rail);
-          for (double distance : new double[] {20, 14}) {
+          for (double distance : new double[] {32, 26, 20, 14}) {
             double t = edge.from().equals(from) ? distance / 48 : 1 - distance / 48;
             cars.add(
                 VehicleFactory.create(
@@ -195,13 +195,17 @@ public final class EngineeredInterlockGameTests {
         () -> {
           for (var car : cars)
             helper.assertTrue(Boarding.ready(level, car), "PAX interlock fixture not ready");
+          for (int i = 1; i < cars.size(); i++)
+            helper.assertTrue(
+                CoasterCartTrainLinkConstraint.linkCarts(
+                    level,
+                    (ServerSubLevel) container.getSubLevel(cars.get(i - 1).chassis),
+                    (ServerSubLevel) container.getSubLevel(cars.get(i).chassis),
+                    6),
+                "PAX interlock native coupling failed at pair " + (i - 1) + "/" + i);
           helper.assertTrue(
-              CoasterCartTrainLinkConstraint.linkCarts(
-                  level,
-                  (ServerSubLevel) container.getSubLevel(cars.getFirst().chassis),
-                  (ServerSubLevel) container.getSubLevel(cars.getLast().chassis),
-                  6),
-              "PAX interlock native coupling failed");
+              VehicleOperations.consist(level, cars.getFirst()).size() == 4,
+              "PAX interlock fixture did not form a four-car consist");
           var carrier = cars.getLast().carriers.getFirst();
           var body = container.getSubLevel(carrier.body);
           var pig = net.minecraft.world.entity.EntityType.PIG.create(level);
@@ -241,7 +245,7 @@ public final class EngineeredInterlockGameTests {
           for (var pos : List.of(from, to, controllerPos)) level.removeBlock(pos, false);
           for (int x = -49; x <= -46; x++)
             for (int z = -36; z <= -31; z++) level.setChunkForced(x, z, false);
-          System.out.println("FD_ENGINEERED_PAX_INTERLOCK complete blocked=2 traced=2 nativeCalls=2");
+          System.out.println("FD_ENGINEERED_PAX_INTERLOCK complete cars=4 blocked=4 traced=4 nativeCalls=4");
           helper.succeed();
         });
   }
