@@ -1,0 +1,148 @@
+{
+  "rail_count": 16,
+  "rail_records_exactly_equal": true,
+  "styled_full_turns": [
+    {
+      "from": [
+        -512,
+        210,
+        -148
+      ],
+      "to": [
+        -496,
+        210,
+        -148
+      ],
+      "appearance": {
+        "tint": -1,
+        "id": "coasterssimulatedextratypes:arrow_4d"
+      },
+      "peak_profile_angle_radians": 6.283185307179586
+    },
+    {
+      "from": [
+        -488,
+        210,
+        -156
+      ],
+      "to": [
+        -488,
+        210,
+        -192
+      ],
+      "appearance": {
+        "tint": -1,
+        "id": "coasterssimulatedextratypes:arrow_4d_dbl_spine"
+      },
+      "peak_profile_angle_radians": 6.283185307179586
+    }
+  ],
+  "sampled_bodies": {
+    "0db6be0a-284e-4faa-9bd5-994c829b7205": {
+      "samples": 24,
+      "max_abs_snapshot_angle": 6.264973283655807,
+      "max_abs_native_angle": 6.235034281944869,
+      "occupied_sample": false
+    },
+    "3bc96087-caad-4a52-948e-b00d2966fdd7": {
+      "samples": 24,
+      "max_abs_snapshot_angle": 6.2647743251761625,
+      "max_abs_native_angle": 6.234812620567807,
+      "occupied_sample": true
+    },
+    "d9d572c4-03b2-4f57-a172-b726b0d7dc7c": {
+      "samples": 24,
+      "max_abs_snapshot_angle": 5.14855630007761,
+      "max_abs_native_angle": 5.771617133201648,
+      "occupied_sample": false
+    },
+    "6e4a0f71-44f1-4b95-b7c8-c4b9191f5963": {
+      "samples": 24,
+      "max_abs_snapshot_angle": 5.148715003137663,
+      "max_abs_native_angle": 5.771671308694094,
+      "occupied_sample": false
+    }
+  },
+  "render_samples": 24,
+  "min_render_decoration_pieces": 1411608,
+  "max_render_geometry_stages": 15468,
+  "motion_queries": [
+    "chassis=9233de8c-193e-4f3e-8789-ca75778afe25 position=(-5.195E+2  2.111E+2 -1.815E+2) velocity=( 1.002E-7 -5.247E-4  1.995E+0) capture=false",
+    "chassis=9233de8c-193e-4f3e-8789-ca75778afe25 position=(-4.875E+2  2.111E+2 -1.687E+2) velocity=(-7.516E-7 -6.145E-4 -2.000E+0) capture=false",
+    "chassis=9233de8c-193e-4f3e-8789-ca75778afe25 position=(-5.195E+2  2.111E+2 -1.842E+2) velocity=(-3.648E-8 -5.246E-4 -4.320E-4) capture=true"
+  ],
+  "terminal_vehicles": [
+    {
+      "boundFrom": [
+        -500,
+        142,
+        -630
+      ],
+      "boundTo": [
+        -500,
+        142,
+        -594
+      ],
+      "restraints": 0,
+      "boarding_ready": 1,
+      "carriers": [
+        {
+          "capture": 1,
+          "occupants": 0
+        },
+        {
+          "capture": 1,
+          "occupants": 0
+        }
+      ]
+    },
+    {
+      "boundFrom": [
+        -520,
+        210,
+        -192
+      ],
+      "boundTo": [
+        -520,
+        210,
+        -156
+      ],
+      "restraints": 0,
+      "boarding_ready": 1,
+      "carriers": [
+        {
+          "capture": 1,
+          "occupants": 0
+        },
+        {
+          "capture": 1,
+          "occupants": 0
+        }
+      ]
+    },
+    {
+      "boundFrom": [
+        -520,
+        210,
+        -192
+      ],
+      "boundTo": [
+        -520,
+        210,
+        -156
+      ],
+      "restraints": 0,
+      "boarding_ready": 1,
+      "carriers": [
+        {
+          "capture": 1,
+          "occupants": 0
+        },
+        {
+          "capture": 1,
+          "occupants": 0
+        }
+      ]
+    }
+  ]
+}
