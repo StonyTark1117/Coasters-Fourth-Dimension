@@ -1,0 +1,9 @@
+# FD401C combined-profile FE depletion diagnostic — no starvation pass
+
+This is a negative, bounded diagnostic on the selected clean JAR (`656725bcbacc8f491de274c6c058027d0aaa67cfc6f893ba6d7e4a9eb24abbc7`) with Track Styles and Engineered installed. It is **not** evidence that the FD401C wired FE interruption/restore acceptance passes.
+
+The client used the saved combined Arrow route in an isolated copy of the world. The Java 21 client ran with a 1 GiB heap inside `run-p483310-i497241.scope` (`MemoryMax=3G`) on task-owned Xvfb `:271`. Both scope and display exited successfully. The complete working world, launch arguments, console log and additional screenshots remain under `/tmp/fd401c-combined-fe-interruption-20261105` on this host. The command trace and selected screenshots are retained here.
+
+The setup removed the Create water wheel at `(-507,142,-636)`, lowering the alternator's kinetic capacity from 768 to 256 against stress 512, and removed the `CoastersEngineeredEnergy` block-data key at the motor anchor. After normal empty-hand Arrow seat boarding and UI restraint closure, two controller pulses each moved the occupied car through the programmed LAUNCH/STOP sequence. The controller reported `CoastersEngineeredStarving=0b` and `CoastersEngineeredPassStarved=0b` after both pulses. Therefore wheel removal and anchor key clearing did **not** create a verified starvation condition in this combined saved network; residual or separately stored power is possible but unproven.
+
+The wheel and station redstone were restored. The car returned to capture, restraints were opened in the normal UI, Shift dismount cleared the rider (`RootVehicle` absent, assignments 0), and the client saved and exited cleanly. A later attempt must identify and deplete the actual FE store before claiming interruption/restore; simply repeating this fixture would add no acceptance evidence.
