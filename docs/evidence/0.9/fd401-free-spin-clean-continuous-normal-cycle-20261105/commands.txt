@@ -1,0 +1,23 @@
+/fd validation availability
+/data get entity Dev Pos
+/tp Dev 355.5 146 31.5 0 90
+/tp Dev 358.5 145 31.5 0 90
+/tp Dev 356.5 146 31.5 0 90
+/tp Dev 353.5 146 31.5 0 90
+/data get block 350 142 20 CoastersEngineeredEnergy
+/data get block 344 142 22 CoastersEngineeredSequence
+/setblock 344 142 33 minecraft:air
+/setblock 344 142 23 minecraft:redstone_block
+/setblock 344 142 23 minecraft:air
+/fd validation motion Dev
+/data get block 344 142 22 CoastersEngineeredStep
+/data get block 344 142 22 PassStarved
+/data get block 350 142 20 CoastersEngineeredEnergy
+/fd validation motion Dev
+/setblock 344 142 33 minecraft:redstone_block
+/fd validation motion Dev
+/fd validation availability
+/data get entity Dev RootVehicle
+/fd validation availability
+/data get block 344 142 22
+/data get block 350 142 20 CoastersEngineeredEnergy
