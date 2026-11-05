@@ -11,13 +11,15 @@ whose native links restored on server start at exactly six blocks.
 Dev normally boarded the second linked car and closed restraints in the
 [mounted editor](fd401-longhold-dev-dispatch-editor.png). Observer was supplied
 a pickaxe as an inventory fixture and positioned by admin teleport. Dev selected
-Dispatch; a live winch query returned `LIFTING`. Observer then normally mined
+Dispatch; a live winch query returned `LIFTING`. Observer later normally mined
 the original station curve at `(900,85,65)` through the client. The anchor's
 `AnchorPeerCurves` became empty, the winch entered `FAULT`, and its fault field
-read `Matching track support lost`. A live game-time query just after removal
-returned **189028**. No car or winch NBT was edited.
+read `Matching track support lost`. The stopped winch NBT records
+`shuttle_interrupted=OUTBOUND`, so the train had advanced out of LIFTING before
+the support was removed. A live game-time query just after removal returned
+**189028**. No car or winch NBT was edited.
 
-This run **failed** the long-hold gate. The [server log](server.log.gz) records
+This run **did not pass** the long-hold gate. The [server log](server.log.gz) records
 both native links involving middle car `ebd70587` unlinking at 17:03:33, about
 13 seconds after the post-removal query. The stopped [world](world.tar.gz) has
 game time **191424**, only 2,396 ticks after that query, short of the required
@@ -31,6 +33,7 @@ The two clients together exhausted the available host RAM during the hold.
 The server performed `save-all flush` and `stop`, and the clients were stopped
 to release memory. The compressed [Dev](dev.log.gz) and
 [Observer](observer.log.gz) logs and [post-mining view](fd401-longhold-observer-mined.png)
-are retained. This checkpoint is deliberately **not** a release pass. The
-source needs a focused fix for the physical hold before another long-hold
-operator replay; the earlier fixture GameTest did not cover this failure.
+are retained. This checkpoint is deliberately **not** a release pass. It
+exposes an outbound support-loss limitation that the earlier lift-only fixture
+GameTest did not cover. The intended LIFTING long-hold acceptance still needs
+a precisely timed operator replay after memory pressure eases.
