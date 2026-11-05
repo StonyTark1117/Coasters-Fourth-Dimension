@@ -1,0 +1,11 @@
+2026-11-05 ~09:22 MST pre-client check:
+- free -h: 19 GiB available, swap 0.
+- /sys/fs/cgroup/user.slice/memory.current: 51482460160 bytes.
+- /sys/fs/cgroup/user.slice/memory.max: max.
+- Other Minecraft: FD402 Java client PID 42939, RSS approximately 2.66 GiB.
+- Selected-JAR server: PID 754542, separate 4 GiB systemd scope.
+- Owned display :345, PID 754544.
+- Dev direct Java command: Java 21 executable, -Xmx1536M, dedicated game directory
+  /tmp/fd401d-family-seat-target-20261105/dev/game, systemd scope configured
+  MemoryMax=6G. RD=6, SD=5 from dev-options.txt.
+- No Observer client launched.

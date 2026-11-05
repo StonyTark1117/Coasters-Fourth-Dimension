@@ -1,0 +1,8 @@
+Post-probe RCON: `data get entity Dev RootVehicle`
+Response: `Found no elements matching RootVehicle`
+
+Server log search: `rg 'FD_BOARDING_EVENT.*action=mount' server-latest.log`
+Response: no matching mount event.
+
+No right-click was sent because F3 never reported the requested
+`20481032 127 20489225 fourthdimension:legacy_seat` target.
