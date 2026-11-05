@@ -1,0 +1,148 @@
+--- clean/FourthDimension.java
++++ diagnostic/FourthDimension.java
+@@ -20,6 +20,9 @@
+     ContentTabs.TABS.register(bus);
+     dev.fourthdimension.vehicle.VehicleParts.BLOCKS.register(bus);
+     NeoForge.EVENT_BUS.addListener(dev.fourthdimension.vehicle.Boarding::mount);
++    NeoForge.EVENT_BUS.addListener(dev.fourthdimension.vehicle.CarrierSeatBlock::diagnoseRightClick);
++    NeoForge.EVENT_BUS.addListener(dev.fourthdimension.vehicle.CarrierSeatBlock::diagnoseTarget);
++    NeoForge.EVENT_BUS.addListener(dev.fourthdimension.vehicle.CarrierSeatBlock::diagnoseClient);
+     NeoForge.EVENT_BUS.addListener(dev.fourthdimension.vehicle.Boarding::exits);
+     NeoForge.EVENT_BUS.addListener(dev.fourthdimension.vehicle.Boarding::login);
+     NeoForge.EVENT_BUS.addListener(dev.fourthdimension.vehicle.Boarding::logout);
+--- clean/CarrierSeatBlock.java
++++ diagnostic/CarrierSeatBlock.java
+@@ -11,6 +11,9 @@
+ import net.minecraft.world.level.block.state.*;
+ import net.minecraft.world.level.block.state.properties.*;
+ import net.minecraft.world.phys.BlockHitResult;
++import net.neoforged.neoforge.event.entity.player.PlayerInteractEvent;
++import net.neoforged.neoforge.event.tick.ServerTickEvent;
++import net.neoforged.neoforge.client.event.ClientTickEvent;
+ 
+ /**
+  * Own seat/restraint geometry, with Create's passenger entity and Sable's native rider transform.
+@@ -18,6 +21,10 @@
+ public final class CarrierSeatBlock extends SeatBlock {
+   public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
+   public static final BooleanProperty RESTRAINED = BooleanProperty.create("restrained");
++  private static boolean targetReported;
++  private static int targetTicks;
++  private static boolean clientReported;
++  private static int clientTicks;
+ 
+   public CarrierSeatBlock(Properties properties, DyeColor color) {
+     super(properties, color);
+@@ -34,6 +41,7 @@
+   @Override
+   protected InteractionResult useWithoutItem(
+       BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hit) {
++    diagnoseUse("without_item", level, pos);
+     return board(level, pos, player) ? InteractionResult.SUCCESS : InteractionResult.FAIL;
+   }
+ 
+@@ -46,6 +54,7 @@
+       Player player,
+       InteractionHand hand,
+       BlockHitResult hit) {
++    diagnoseUse("item_on", level, pos);
+     if (stack.getItem() instanceof dev.fourthdimension.editor.RotationTool)
+       return ItemInteractionResult.SKIP_DEFAULT_BLOCK_INTERACTION;
+     return board(level, pos, player) ? ItemInteractionResult.SUCCESS : ItemInteractionResult.FAIL;
+@@ -63,6 +72,96 @@
+     return true;
+   }
+ 
++  public static void diagnoseRightClick(PlayerInteractEvent.RightClickBlock event) {
++    if (!Boolean.getBoolean("fourthdimension.validation")) return;
++    var pos = event.getPos();
++    try {
++      var level = event.getLevel();
++      var binding = Boarding.at(level, pos);
++      System.out.println("FD_SEAT_EVENT side=" + (level.isClientSide ? "client" : "server")
++          + " pos=" + pos + " block=" + level.getBlockState(pos).getBlock()
++          + " binding=" + (binding != null)
++          + " ready=" + (binding != null && (level instanceof net.minecraft.server.level.ServerLevel server
++              ? Boarding.ready(server, binding.vehicle()) : binding.vehicle().boardingReady))
++          + " restraints=" + (binding != null && binding.vehicle().restraints)
++          + " occupied=" + SeatBlock.isSeatOccupied(level, pos)
++          + " reach=" + event.getEntity().canInteractWithBlock(pos, 0.0));
++    } catch (RuntimeException ex) {
++      System.out.println("FD_SEAT_EVENT_EXCEPTION side=" + (event.getLevel().isClientSide ? "client" : "server")
++          + " pos=" + pos + " error=" + ex);
++    }
++  }
++
++  public static void diagnoseTarget(ServerTickEvent.Post event) {
++    if (targetReported || !Boolean.getBoolean("fourthdimension.validation")) return;
++    var level = event.getServer().overworld();
++    var player = event.getServer().getPlayerList().getPlayerByName("Dev");
++    if (player == null || Math.abs(player.getX() - 197.5) > 1.0
++        || Math.abs(player.getZ() - 32.5) > 1.0) return;
++    if (targetTicks++ < 100) return;
++    var target = new BlockPos(20481032, 127, 20491273);
++    var helper = new BlockPos(20481032, 127, 20489223);
++    try {
++      for (var pos : new BlockPos[] {target, helper}) {
++        var body = dev.ryanhcode.sable.Sable.HELPER.getContaining(level, pos);
++        var binding = Boarding.at(level, pos);
++        var offset = body == null ? null : pos.subtract(body.getPlot().getCenterBlock());
++        System.out.println("FD_SEAT_TARGET_STATE pos=" + pos
++            + " block=" + level.getBlockState(pos).getBlock()
++            + " body=" + (body == null ? "null" : body.getUniqueId())
++            + " binding=" + (binding != null)
++            + " family=" + (binding == null ? "null" : binding.vehicle().family)
++            + " ready=" + (binding != null && Boarding.ready(level, binding.vehicle()))
++            + " restraints=" + (binding != null && binding.vehicle().restraints)
++            + " canBoard=" + Boarding.canBoard(level, pos)
++            + " occupied=" + SeatBlock.isSeatOccupied(level, pos)
++            + " offset=" + offset
++            + " known=" + (binding != null && binding.carrier().seats.contains(offset))
++            + " reach=" + player.canInteractWithBlock(pos, 0.0));
++      }
++      targetReported = true;
++    } catch (RuntimeException ex) {
++      System.out.println("FD_SEAT_TARGET_EXCEPTION " + ex);
++      targetReported = true;
++    }
++  }
++
++  public static void diagnoseClient(ClientTickEvent.Post event) {
++    if (clientReported || !Boolean.getBoolean("fourthdimension.validation")) return;
++    var mc = net.minecraft.client.Minecraft.getInstance();
++    var player = mc.player;
++    if (player == null || mc.level == null || Math.abs(player.getX() - 197.5) > 1.0
++        || Math.abs(player.getZ() - 32.5) > 1.0) return;
++    if (clientTicks++ < 100) return;
++    var target = new BlockPos(20481032, 127, 20491273);
++    try {
++      var body = dev.ryanhcode.sable.Sable.HELPER.getContaining(mc.level, target);
++      var binding = Boarding.at(mc.level, target);
++      var hit = mc.hitResult;
++      var hitPos = hit instanceof BlockHitResult blockHit ? blockHit.getBlockPos() : null;
++      System.out.println("FD_SEAT_CLIENT_STATE target=" + target
++          + " block=" + mc.level.getBlockState(target).getBlock()
++          + " body=" + (body == null ? "null" : body.getUniqueId())
++          + " binding=" + (binding != null)
++          + " boardingReady=" + (binding != null && binding.vehicle().boardingReady)
++          + " canBoard=" + Boarding.canBoard(mc.level, target)
++          + " occupied=" + SeatBlock.isSeatOccupied(mc.level, target)
++          + " reach=" + player.canInteractWithBlock(target, 0.0)
++          + " hitType=" + (hit == null ? "null" : hit.getType())
++          + " hitPos=" + hitPos);
++      clientReported = true;
++    } catch (RuntimeException ex) {
++      System.out.println("FD_SEAT_CLIENT_EXCEPTION " + ex);
++      clientReported = true;
++    }
++  }
++
++  private static void diagnoseUse(String route, Level level, BlockPos pos) {
++    if (Boolean.getBoolean("fourthdimension.validation"))
++      System.out.println("FD_SEAT_USE route=" + route + " side="
++          + (level.isClientSide ? "client" : "server") + " pos=" + pos);
++  }
++
+   @Override
+   public void updateEntityAfterFallOn(BlockGetter level, Entity entity) {
+     /* Boarding is explicit. */
