@@ -3,6 +3,7 @@ package dev.fourthdimension.client;
 import com.mojang.logging.LogUtils;
 import dev.fourthdimension.contract.Family;
 import dev.fourthdimension.runtime.EligibilityHooks;
+import dev.fourthdimension.track.TrackDesign;
 import dev.fourthdimension.track.TrackGeometry;
 import dev.ryanhcode.sable.api.sublevel.SubLevelContainer;
 import dev.ryanhcode.sable.sublevel.ClientSubLevel;
@@ -144,7 +145,10 @@ public final class CarrierTransformValidation {
           incomplete("missing linked recovery bearing " + vehicle.recoveryCart);
           return;
         }
-        if (!recoveryNativeLinkPresent(parent, recovery)) {
+        // Foundation snapshots and native cart-link payloads can legitimately cross while the
+        // server completes the requested detach. Before the first observation this is a real
+        // replication failure; after it, retain the successful linked-group observation.
+        if (!recoveryLinkSeen && !recoveryNativeLinkPresent(parent, recovery)) {
           incomplete("recovery bearing exists but its native link is not replicated");
           return;
         }
@@ -654,10 +658,24 @@ public final class CarrierTransformValidation {
         && data.vehicles.values().stream()
             .anyMatch(
                 vehicle ->
-                    vehicle.family == Family.ARROW
+                    vehicle.family == recoveryFixtureFamily()
                         && vehicle.recoveryCart == null
                         && vehicle.stopping
                         && !vehicle.restraints);
+  }
+
+  /** Matches the flat recovery fixture selected for this client invocation. */
+  private static Family recoveryFixtureFamily() {
+    var requested =
+        System.getProperty(
+            "fourthdimension.carrierFixtureRecoveryDesign", TrackDesign.ARROW.name());
+    try {
+      return TrackDesign.valueOf(requested.trim().toUpperCase(java.util.Locale.ROOT)).family;
+    } catch (IllegalArgumentException failure) {
+      throw new IllegalStateException(
+          "FD_CARRIER_VALIDATION recovery design must name a supported TrackDesign: " + requested,
+          failure);
+    }
   }
 
   private static void recordMotion(dev.ryanhcode.sable.sublevel.SubLevel body, UUID id) {

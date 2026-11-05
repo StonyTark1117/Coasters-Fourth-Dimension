@@ -1,6 +1,9 @@
 package dev.fourthdimension.runtime;
 
 import dev.fourthdimension.FourthDimension;
+import dev.silvergold.simulatedcoasters.track.cart.CoasterCartTrainLinkSync;
+import java.util.HashMap;
+import java.util.UUID;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.network.codec.StreamCodec;
@@ -14,6 +17,8 @@ import net.neoforged.neoforge.network.PacketDistributor;
 import net.neoforged.neoforge.network.event.RegisterPayloadHandlersEvent;
 
 public final class FoundationSync {
+  private static final HashMap<UUID, Long> PENDING_NATIVE_LINK_RESYNCS = new HashMap<>();
+
   private FoundationSync() {}
 
   /** A full dimension-scoped state replacement; stale snapshots are ignored client-side. */
@@ -58,11 +63,21 @@ public final class FoundationSync {
   }
 
   public static void login(PlayerEvent.PlayerLoggedInEvent event) {
-    if (event.getEntity() instanceof ServerPlayer player) send(player);
+    if (event.getEntity() instanceof ServerPlayer player) {
+      send(player);
+      queueNativeLinkResync(player);
+    }
   }
 
   public static void dimension(PlayerEvent.PlayerChangedDimensionEvent event) {
-    if (event.getEntity() instanceof ServerPlayer player) send(player);
+    if (event.getEntity() instanceof ServerPlayer player) {
+      send(player);
+      queueNativeLinkResync(player);
+    }
+  }
+
+  public static void logout(PlayerEvent.PlayerLoggedOutEvent event) {
+    PENDING_NATIVE_LINK_RESYNCS.remove(event.getEntity().getUUID());
   }
 
   public static void broadcast(ServerLevel level) {
@@ -84,7 +99,21 @@ public final class FoundationSync {
 
   public static void tick(LevelTickEvent.Post event) {
     if (event.getLevel() instanceof ServerLevel level
-        && level.getGameTime() % 20 == 0
-        && !level.players().isEmpty()) for (var player : level.players()) send(player);
+        && !level.players().isEmpty()) {
+      for (var player : level.players()) {
+        if (level.getGameTime() % 20 == 0) send(player);
+        var resyncAt = PENDING_NATIVE_LINK_RESYNCS.get(player.getUUID());
+        if (resyncAt != null && level.getGameTime() >= resyncAt) {
+          // The dependency's login sync can precede restoration of persisted cart links. Replay
+          // it one second later so a joining client receives the link data that now exists.
+          CoasterCartTrainLinkSync.sendFullSyncTo(player);
+          PENDING_NATIVE_LINK_RESYNCS.remove(player.getUUID());
+        }
+      }
+    }
+  }
+
+  private static void queueNativeLinkResync(ServerPlayer player) {
+    PENDING_NATIVE_LINK_RESYNCS.put(player.getUUID(), player.serverLevel().getGameTime() + 20);
   }
 }

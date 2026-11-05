@@ -574,6 +574,11 @@ public final class CarrierValidationFixture {
     recoveryAttached = true;
     riderFixtureBoarded = true;
     recoveryPreparationDelay = 100;
+    // Leave the persisted link braked long enough for the client to render the state before the
+    // normal tow/cycle path changes it. FoundationSync supplies a delayed native-link resync for
+    // joining clients after persisted constraints have been restored.
+    FoundationSync.broadcast(level);
+    recoveryTowDelay = 200;
     recoveryTowDeadline = 1_000;
     LogUtils.getLogger()
         .info(

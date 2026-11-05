@@ -203,6 +203,14 @@ tasks.named('test') { useJUnitPlatform() }
 tasks.named('jar') {
     from('LICENSE') { into 'META-INF'; rename { 'LICENSE-fourthdimension.txt' } }
 }
+def clientMaxHeap = providers.gradleProperty('fdClientMaxHeap').orNull
+if (clientMaxHeap != null) {
+    if (!(clientMaxHeap ==~ /[1-9][0-9]*[mMgG]/))
+        throw new GradleException('fdClientMaxHeap must be a positive heap size such as 2G or 1536M')
+    tasks.matching { it.name in ['runClient', 'runObserver'] }.configureEach {
+        jvmArgs "-Xmx${clientMaxHeap}"
+    }
+}
 if (project.hasProperty('fdPackaged')) {
     // Packaged runs load the distributable JAR from packagedRuntimeOnly.
     // A file dependency alone does not cause Gradle to rebuild that JAR.
