@@ -255,7 +255,15 @@ public final class ShuttleRuntime {
             ensureCarriage(level, winch, null, held);
             catchTrain(level, lead, winch, held);
           }
-          if (VehicleOperations.MATCHING_SUPPORT_LOST.equals(winch.fault))
+          // The winch keeps its support-loss fault until Recover. After every car has
+          // been repaired and realigned, release the temporary world holds so the
+          // captured carrier servos can settle to boarding-ready angles.
+          var data = FoundationData.get(level);
+          boolean realigned =
+              winch.cars.stream()
+                  .map(data.vehicles::get)
+                  .allMatch(car -> car != null && !car.alignmentRequired && car.fault.isEmpty());
+          if (VehicleOperations.MATCHING_SUPPORT_LOST.equals(winch.fault) && !realigned)
             holdUnsupportedTrain(level, winch);
           else releaseSupportHolds(winch);
           continue;
