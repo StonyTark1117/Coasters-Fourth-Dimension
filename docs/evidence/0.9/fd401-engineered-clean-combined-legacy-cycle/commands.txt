@@ -1,0 +1,23 @@
+/fd validation availability
+/data get block 200 142 20 CoastersEngineeredEnergy
+/fd validation board_locked Dev
+/data get entity Dev Pos
+/data get block 194 142 22 CoastersEngineeredSequence
+/execute if block 194 142 30 minecraft:redstone_block run say rear_powered
+/setblock 194 142 30 minecraft:air
+/setblock 194 142 23 minecraft:redstone_block
+/setblock 194 142 23 minecraft:air
+/fd validation motion Dev
+/fd validation motion Dev
+/data get block 194 142 22
+/data get block 200 142 20 CoastersEngineeredEnergy
+/fd validation motion Dev
+/data get block 194 142 22 CoastersEngineeredPassReached
+/setblock 194 142 30 minecraft:redstone_block
+/fd validation motion Dev
+/fd validation availability
+/data get entity Dev SelectedItem
+/fd validation availability
+/data get entity Dev RootVehicle
+/data get entity Dev RootVehicle
+/fd validation availability
