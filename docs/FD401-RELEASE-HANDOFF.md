@@ -1,8 +1,11 @@
 # FD401 evidence handoff for the 0.9 candidate
 
 Current planning pointer (2026-11-05 UTC): [CURRENT-QUALIFICATION.md](CURRENT-QUALIFICATION.md)
-selects committed source `8f370d0` and its clean hashed JAR as the qualification baseline.
-The frozen `2c5d9a7` records below remain historical evidence. Use FD401A–D in
+selects committed source `ec2fcda` and its clean hashed JAR as the qualification
+baseline after the PAX bind-restore fix. The frozen `8f370d0` and `2c5d9a7` records
+below remain historical evidence; the new clean identity and changed-class review
+are recorded in the [ec2fcda artifact manifest](evidence/qualification/2026-11-05-ec2fcda/README.md).
+Use FD401A–D in
 [ROADMAP.md](../ROADMAP.md#fd401-deliver-optional-provider-infrastructure) for
 the active work queue and affected-artifact retests; this chronological handoff
 does not make a later `main` build equivalent to an older checkpoint.
