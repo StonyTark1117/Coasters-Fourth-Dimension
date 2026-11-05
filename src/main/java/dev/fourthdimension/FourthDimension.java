@@ -42,6 +42,7 @@ public final class FourthDimension {
     NeoForge.EVENT_BUS.addListener(FoundationSync::login);
     NeoForge.EVENT_BUS.addListener(CarrierValidationFixture::placePlayer);
     NeoForge.EVENT_BUS.addListener(CarrierValidationFixture::tick);
+    NeoForge.EVENT_BUS.addListener(ArrowTraceValidation::tick);
     NeoForge.EVENT_BUS.addListener(FoundationSync::dimension);
     NeoForge.EVENT_BUS.addListener(FoundationSync::logout);
     NeoForge.EVENT_BUS.addListener(FoundationSync::tick);

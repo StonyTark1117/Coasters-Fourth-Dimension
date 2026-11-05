@@ -1,0 +1,1 @@
+Compared selected clean base JAR to runtime-instrumented JAR using ZIP entry names and SHA-256 for every entry. Base entries: 394. Runtime entries: 395. Added: dev/fourthdimension/runtime/ArrowTraceValidation.class. Changed: dev/fourthdimension/FourthDimension.class and dev/fourthdimension/runtime/ValidationCommands.class. Remaining 392 shared entries are byte-identical.

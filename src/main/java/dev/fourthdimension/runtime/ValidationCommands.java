@@ -70,6 +70,15 @@ public final class ValidationCommands {
                                         EntityArgument.getPlayer(context, "player"),
                                         true))))
             .then(
+                Commands.literal("board_arrow_locked")
+                    .then(
+                        Commands.argument("player", EntityArgument.player())
+                            .executes(
+                                context ->
+                                    boardArrowLocked(
+                                        context.getSource(),
+                                        EntityArgument.getPlayer(context, "player")))))
+            .then(
                 Commands.literal("dispatch")
                     .then(
                         Commands.argument("player", EntityArgument.player())
@@ -85,6 +94,15 @@ public final class ValidationCommands {
                             .executes(
                                 context ->
                                     motion(
+                                        context.getSource(),
+                                        EntityArgument.getPlayer(context, "player")))))
+            .then(
+                Commands.literal("arrow_trace")
+                    .then(
+                        Commands.argument("player", EntityArgument.player())
+                            .executes(
+                                context ->
+                                    ArrowTraceValidation.start(
                                         context.getSource(),
                                         EntityArgument.getPlayer(context, "player")))))
             .then(
@@ -209,6 +227,50 @@ public final class ValidationCommands {
       }
     }
     return failure(source, "No ready unoccupied fourth-dimension carrier seat was found");
+  }
+
+  private static int boardArrowLocked(
+      net.minecraft.commands.CommandSourceStack source, ServerPlayer player) {
+    var level = player.serverLevel();
+    var data = FoundationData.get(level);
+    var container = SubLevelContainer.getContainer(level);
+    if (container == null) return failure(source, "No native sublevel container is available");
+    for (var vehicle : data.vehicles.values()) {
+      if (vehicle.family != Family.ARROW || vehicle.restraints || !Boarding.ready(level, vehicle)) continue;
+      var chassis = container.getSubLevel(vehicle.chassis);
+      if (chassis == null) continue;
+      var linked = dev.silvergold.simulatedcoasters.track.cart.CoasterCartTrainLinkConstraint
+          .getTrainLinkedCartIds(chassis);
+      if (linked.size() != 2
+          || linked.stream().anyMatch(
+              id -> {
+                var member = data.vehicles.get(id);
+                return member == null || member.family != Family.ARROW;
+              })) continue;
+      for (var carrier : vehicle.carriers) {
+        var body = container.getSubLevel(carrier.body);
+        if (body == null) continue;
+        for (var offset : carrier.seats) {
+          var seat = body.getPlot().getCenterBlock().offset(offset);
+          if (!(level.getBlockState(seat).getBlock() instanceof CarrierSeatBlock)
+              || SeatBlock.isSeatOccupied(level, seat)
+              || carrier.riderSeats.containsValue(offset)) continue;
+          SeatBlock.sitDown(level, seat, player);
+          if (!player.isPassenger()) return failure(source, "Arrow seat rejected the validation mount");
+          try {
+            dev.fourthdimension.vehicle.VehicleOperations.restraints(level, vehicle, true);
+          } catch (IllegalArgumentException exception) {
+            player.stopRiding();
+            return failure(source, exception.getMessage());
+          }
+          source.sendSuccess(
+              () -> Component.literal("Validation boarded and closed restraints on linked Arrow chassis " + vehicle.chassis),
+              false);
+          return 1;
+        }
+      }
+    }
+    return failure(source, "No ready two-chassis native-linked Arrow seat was found");
   }
 
   private static int style(net.minecraft.commands.CommandSourceStack source, ServerPlayer player) {
