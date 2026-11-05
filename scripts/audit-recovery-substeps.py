@@ -31,9 +31,9 @@ route_geometry = module('route_geometry', 'verify-recovery-bank-frames.py')
 
 FIXTURE_PINS = {
     'src/main/java/dev/fourthdimension/gametest/BankedRecoveryTrainGameTests.java':
-        '928eaa9ecc694656f73c6be6314ea55260f62834919d4db4e013ba051dbd3449',
+        '1192286e979801504acf758427aca5e0cbb9a739486f45d49124b6e1fcac795c',
     'src/main/java/dev/fourthdimension/gametest/RecoverySubstepTrace.java':
-        '83c254049bae73edd53fef63e18ae0872be89ab04b3a083d276d7ec7251eacd7',
+        '4ecafb76570698431823479dcde77b35f5accd409f6c1058e4643a1f7b0c0370',
 }
 RAPIER_PIN = 'aabd5ed08349821989cd1806122918cbec3c9dfafe4584e0ab012fa015b7749d'
 

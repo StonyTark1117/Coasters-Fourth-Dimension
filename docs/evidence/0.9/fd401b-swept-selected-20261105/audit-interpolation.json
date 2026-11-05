@@ -1,0 +1,122 @@
+{
+  "passes": true,
+  "scope": "Selected-JAR coupled Arrow native tick poses, default Styles models, and conservative Sable between-snapshot interpolation; excludes client extrapolation, equipment/cosmetics, arbitrary models and observed rendering.",
+  "selectedJarSha256": "656725bcbacc8f491de274c6c058027d0aaa67cfc6f893ba6d7e4a9eb24abbc7",
+  "inputHashes": {
+    "base": "f80b4c3cdf9fa6188804967147761b0373e150a6eadbdc53626e5ac9700b2049",
+    "minecraft": "499f6897d1837516680f3114072d8106e11c9adcd933fe5cf051b551089b0c99",
+    "styles": "42535a83307f6898b33c13ca201533bb9e337418fd7c73039c867fc80bfbcb38",
+    "rapier": "aabd5ed08349821989cd1806122918cbec3c9dfafe4584e0ab012fa015b7749d",
+    "frames": "a2378db9a0500dfaaa86db805696c2e97b5cd2adf3dd209f6e3b69aa6450d0e9",
+    "tick_trace": "59d96f0568d3a39d174ad0249c7ded46cecf622aa3beef849e98fee0000e0ad5",
+    "substep_trace": "72b86f106dc1e594a9aadc6c2bcc151a8946d5bfa08d8910004ea581ccdab364"
+  },
+  "substepsReportSha256": "6033a478f0b76a7e54a904533ad0d70aedf1ca0427a58b3c2ea459b3834dcdd7",
+  "sableSha256": "da6c3b66238586603d1dcaa2afb012d36815fbce0a2d5938fbb2936701d42279",
+  "sableCompanionSha256": "873633e35046e3761b277ff8a1ecad0d55d9a3014fa81a0b084c9aecba1f3bed",
+  "sweptImplementationSha256": "c07b584b9fc1137596cc67e99d05dfd154ab4ede9d5009dd82679455184ed6d4",
+  "results": {
+    "arrow_4d": {
+      "samples": 6544,
+      "globalSampledGap": 0.0488577125493066,
+      "maximumMotion": {
+        "body": 0.029155022634656587,
+        "wheel": 0.02615942516140537,
+        "rider": 0.02894778530299072,
+        "player": 0.029451550183217372
+      },
+      "worst": {
+        "body": [
+          2268,
+          "d455b0fc-323f-4fbd-8b84-f18592bf22c0"
+        ],
+        "wheel": [
+          2271,
+          "2ce52ab1-80bc-4a97-9095-76b342cfa43f"
+        ]
+      },
+      "localEyeDrift": 2.677721807532485e-13,
+      "localChecks": {
+        "count": 263,
+        "minimumSweptLowerBound": 0.03,
+        "maximumMotionBound": 0.029155022634656587,
+        "firstInterval": [
+          2224,
+          2225
+        ],
+        "lastInterval": [
+          2539,
+          2540
+        ]
+      }
+    },
+    "arrow_4d_dbl_spine": {
+      "samples": 6544,
+      "globalSampledGap": 0.0488577125493066,
+      "maximumMotion": {
+        "body": 0.029155022634656587,
+        "wheel": 0.02615942516140537,
+        "rider": 0.02894778530299072,
+        "player": 0.029451550183217372
+      },
+      "worst": {
+        "body": [
+          2268,
+          "d455b0fc-323f-4fbd-8b84-f18592bf22c0"
+        ],
+        "wheel": [
+          2271,
+          "2ce52ab1-80bc-4a97-9095-76b342cfa43f"
+        ]
+      },
+      "localEyeDrift": 2.677721807532485e-13,
+      "localChecks": {
+        "count": 263,
+        "minimumSweptLowerBound": 0.03,
+        "maximumMotionBound": 0.029155022634656587,
+        "firstInterval": [
+          2224,
+          2225
+        ],
+        "lastInterval": [
+          2539,
+          2540
+        ]
+      }
+    },
+    "transition": {
+      "samples": 6544,
+      "globalSampledGap": 0.0488577125493066,
+      "maximumMotion": {
+        "body": 0.029155022634656587,
+        "wheel": 0.02615942516140537,
+        "rider": 0.02894778530299072,
+        "player": 0.029451550183217372
+      },
+      "worst": {
+        "body": [
+          2268,
+          "d455b0fc-323f-4fbd-8b84-f18592bf22c0"
+        ],
+        "wheel": [
+          2271,
+          "2ce52ab1-80bc-4a97-9095-76b342cfa43f"
+        ]
+      },
+      "localEyeDrift": 2.677721807532485e-13,
+      "localChecks": {
+        "count": 263,
+        "minimumSweptLowerBound": 0.03,
+        "maximumMotionBound": 0.029155022634656587,
+        "firstInterval": [
+          2224,
+          2225
+        ],
+        "lastInterval": [
+          2539,
+          2540
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,436 @@
+{
+  "passes": true,
+  "scope": "Every recorded Rapier post-physics substep on the coupled occupied Arrow recovery route, checked against prospective default Styles surfaces and vanilla player envelopes. The native solver does not expose a continuous trajectory inside a discrete substep.",
+  "inputHashes": {
+    "base": "f80b4c3cdf9fa6188804967147761b0373e150a6eadbdc53626e5ac9700b2049",
+    "minecraft": "499f6897d1837516680f3114072d8106e11c9adcd933fe5cf051b551089b0c99",
+    "styles": "42535a83307f6898b33c13ca201533bb9e337418fd7c73039c867fc80bfbcb38",
+    "rapier": "aabd5ed08349821989cd1806122918cbec3c9dfafe4584e0ab012fa015b7749d",
+    "frames": "a2378db9a0500dfaaa86db805696c2e97b5cd2adf3dd209f6e3b69aa6450d0e9",
+    "tick_trace": "59d96f0568d3a39d174ad0249c7ded46cecf622aa3beef849e98fee0000e0ad5",
+    "substep_trace": "72b86f106dc1e594a9aadc6c2bcc151a8946d5bfa08d8910004ea581ccdab364"
+  },
+  "sourceHashes": {
+    "src/main/java/dev/fourthdimension/client/OriginalTrackRenderer.java": "059f1e2dcf52425fd0f8f161c9d12424d59eb51ff1c45a2c4654224c4e70f67c",
+    "src/main/java/dev/fourthdimension/track/TrackDesign.java": "e3a88c3ca661d7b232ee0b9d3c853a6e66c1d0d1147ac4266b001616b1fe1ff1",
+    "src/main/java/dev/fourthdimension/vehicle/BankedRecoveryExamples.java": "8efe36d8648e7a61b082cd7e42cee5f8dd9a7f62d9a25c9f562679320d8db453",
+    "src/main/java/dev/fourthdimension/gametest/RecoveryMeshTrace.java": "3b57c5812aec72ed36ee458d6bdd02a443207d32d1579ec80ba5752a6886913a",
+    "src/main/java/dev/fourthdimension/gametest/BankedRecoveryGameTests.java": "89324021f6c70ea8578036b4ae1c924320ef442a9ec3da239c972f89417be66a",
+    "src/main/java/dev/fourthdimension/gametest/BankedRecoveryTrainGameTests.java": "1192286e979801504acf758427aca5e0cbb9a739486f45d49124b6e1fcac795c",
+    "scripts/verify-recovery-bank-frames.py": "80749110c47c7794d7a8bd6bc729bf51fa4f634b0138e7ed0d0412c312cfc2af",
+    "src/main/java/dev/fourthdimension/gametest/RecoveryRouteFrames.java": "ed3d7dbe58b6759b8a511f49796d1bb30bbdfb43ff4439d41f0fc6dc8a9896ce",
+    "src/main/java/dev/fourthdimension/client/integration/TrackStylesRenderer.java": "fa69593b5a8b9f93ece00f40ebd67f00692db9d8af8d18648563f42146edb217",
+    "src/main/java/dev/fourthdimension/client/integration/TrackStylesCatalog.java": "2b124893d6477a9b4be453a8a34f93a42b7b3f0b04fc926619d99c5d6ec16dbc",
+    "src/main/java/dev/fourthdimension/physics/ArrowDecorationPlacement.java": "d13de25c3a03ce24343d92133457332a4887e0eabac54348a99f11ae37b193cd",
+    "src/main/java/dev/fourthdimension/physics/ModelFrame.java": "b2d95f95df0630e7780b84c6a901a517b3adb7e7de2680072bba0ac828ae37b6",
+    "src/main/java/dev/fourthdimension/physics/RotationProfile.java": "041667e8a450b154e1bfe769f2879299a768ae5f7beeb3db1ec00499090f9b54",
+    "src/main/java/dev/fourthdimension/track/TrackGeometry.java": "a3e89095a217d3e978aa414704dea7212d36020bd1c0f9865387ac8a62643012",
+    "src/main/java/dev/fourthdimension/contract/Family.java": "a441e66dfcbee53a83a52f5b475fab07d60e58e03d2ef789ebfbe1c0ab9d7c2c",
+    "src/main/java/dev/fourthdimension/integration/TrackAppearance.java": "cf12254fb753172bc1c110dd8f5b1203de740b02658f81612427a86cd2695a3c",
+    "src/main/java/dev/fourthdimension/integration/TrackRenderOwnership.java": "8d7b795ccf9e1a54b1c7ffe375cf8a94d6d9f10c72c344f9bce94480c4c9887e",
+    "scripts/audit-recovery-mesh-trace.py": "a6f250951496551652c4c2fbe8996ba358a9e82dc4410e9b74d9b63323ee2dab",
+    "scripts/verify-recovery-decoration-inputs.py": "c6c443d58a411d98881109633becb55595ea16cd21df2e2b853be2e08353d594",
+    "src/main/java/dev/fourthdimension/gametest/RecoverySubstepTrace.java": "4ecafb76570698431823479dcde77b35f5accd409f6c1058e4643a1f7b0c0370"
+  },
+  "providerResourceHashes": {
+    "assets/coasterssimulatedextratypes/models/block/track/arrow_4d/arrow_4d_center_beam.json": "4529ec7ebc365abc44e278d3b1b7943f5b733a3680d03a16727600ed5aacffae",
+    "assets/coasterssimulatedextratypes/models/block/track/arrow_4d/arrow_4d_center_beam.obj": "21a6df3627b0a31b72f51c5019b17827948702a38f5663a42b225c6e2591de2b",
+    "assets/coasterssimulatedextratypes/models/block/track/arrow_4d/arrow_4d_tie.json": "8621a82384909ba6694fca47c57a56ca99ac2885b5377f5847e179b52ffe75df",
+    "assets/coasterssimulatedextratypes/models/block/track/arrow_4d/arrow_4d_tie.obj": "50904a4f3101f7b2615ab55c6b542a7cc7797590620b73ba409e7b3296c837e3",
+    "assets/coasterssimulatedextratypes/models/block/track/arrow_4d_dbl_spine/arrow_4d_dbl_spine_center_beam.json": "a6c5987e38dfdf73492c14f4089db352c68e681391c1f05b74a134af8897a624",
+    "assets/coasterssimulatedextratypes/models/block/track/arrow_4d_dbl_spine/arrow_4d_dbl_spine_center_beam.obj": "66d8cdc8fd7e9feb9b3f79de333cd7d6e24a6294c0e8e9f2069af79b39b04bba",
+    "assets/coasterssimulatedextratypes/models/block/track/arrow_4d_dbl_spine/arrow_4d_dbl_spine_tie.json": "77620bd9e3ecdf75f424729765fd60b9102a397c11cd0d56afc4f97fda2482c9",
+    "assets/coasterssimulatedextratypes/models/block/track/arrow_4d_dbl_spine/arrow_4d_dbl_spine_tie.obj": "2ce05bdc0f83de71dcbc1d100a280124949076a7efc8b7a5d3e1f6d6404bfa98"
+  },
+  "tracePairing": {
+    "sha256": "59d96f0568d3a39d174ad0249c7ded46cecf622aa3beef849e98fee0000e0ad5",
+    "samples_by_variant": {
+      "arrow_four_rail_v1": 6544,
+      "pax_shuttle_v1": 6947
+    },
+    "scope": "Recorded chassis pairing only; completion marker is not test acceptance."
+  },
+  "results": {
+    "arrow_4d": {
+      "sampled": {
+        "family": "ARROW",
+        "cars": 2,
+        "samples": 6544,
+        "occupiedSeatsPerSample": 8,
+        "trackTriangles": 169300,
+        "minimumSeparatingBound": 0.0488577125493066,
+        "closest": {
+          "tick": 1543,
+          "body": "17746c1f-68d4-41fe-80d8-44b3b1738aa8",
+          "role": "ordinary",
+          "modelElement": "nativeWheel:upstop:back:fullSpinEnvelope",
+          "trackComponent": "section1:outboardSupport1"
+        },
+        "requiredGap": 0.02,
+        "passes": true,
+        "wheelEnvelopeCount": 78528,
+        "wheelMinimumSeparatingBound": 0.0488577125493066,
+        "wheelClosest": {
+          "tick": 1543,
+          "body": "17746c1f-68d4-41fe-80d8-44b3b1738aa8",
+          "role": "ordinary",
+          "modelElement": "nativeWheel:upstop:back:fullSpinEnvelope",
+          "trackComponent": "section1:outboardSupport1"
+        },
+        "linkageEnvelopeCount": 117792,
+        "linkageMinimumSeparatingBound": 0.08,
+        "linkageClosest": null,
+        "riderEnvelopeCount": 52352,
+        "riderMinimumSeparatingBound": 0.08,
+        "riderClosest": null,
+        "playerMeshEnvelopeCount": 52352,
+        "playerMeshMinimumSeparatingBound": 0.08,
+        "playerMeshClosest": null,
+        "playerMeshScope": "conservative standard/slim vanilla 1.21.1 skin and outer layers in an empty-handed seated pose; all head/arm rotations enclosed; excludes armor, held items, capes, elytra and modded cosmetics",
+        "playerMeshLocalBoundsFromEye": {
+          "minimum": [
+            -0.936667164337495,
+            -1.1842130278657599,
+            -0.936667164337495
+          ],
+          "maximum": [
+            0.936667164337495,
+            0.40935822016392454,
+            0.936667164337495
+          ]
+        },
+        "playerMeshEyeOffsetFromFixtureRider": 0.255,
+        "riderRackEnvelopeCount": 104704,
+        "riderRackMinimumSeparatingBound": 0.08002488960630402,
+        "riderRackClosest": {
+          "tick": 2718,
+          "body": "d455b0fc-323f-4fbd-8b84-f18592bf22c0",
+          "modelElement": "nativeRider",
+          "rackComponent": "fourthdimension:carrier_axle@[0, 0, 0]:element0"
+        },
+        "playerRackEnvelopeCount": 628224,
+        "playerRackMinimumSeparatingBound": 0.12782927983602577,
+        "playerRackClosest": {
+          "tick": 161,
+          "body": "8926be3f-0c33-452e-9ae3-61ed32187b45",
+          "modelElement": "vanillaPlayer:headAndHatAllRotations",
+          "rackComponent": "fourthdimension:carrier_axle@[-1, 0, 0]:element0"
+        },
+        "playerRackScope": "part-level standard vanilla 1.21.1 empty-handed seated pose; exact jacket/riding legs, all head rotations enclosed, and complete idle-bob arm rotation ranges; excludes armor, held items, capes, elytra, slim-arm-specific geometry and modded cosmetics",
+        "neighborMinimumSeparatingBound": 1.2764046502124777,
+        "neighborClosest": {
+          "tick": 2773,
+          "first": "vanillaPlayerMeshEnvelope",
+          "second": "vanillaPlayerMeshEnvelope"
+        },
+        "neighborPairs": 37516752,
+        "prospectiveLegacyAxleSubstitutions": 0,
+        "uncertifiedPairs": [],
+        "allCarsVisitedSections": 5
+      },
+      "substeps": {
+        "steps": 13408,
+        "substepsPerTick": 2,
+        "gameTimeOffset": 161,
+        "matchedTickSamples": 6544,
+        "maximumMotionFromNearestTick": {
+          "body": 0.012749042475326674,
+          "wheel": 0.012731482643107972,
+          "rider": 0.01273408825175558,
+          "player": 0.012770439871348542
+        },
+        "worstMotion": {
+          "body": {
+            "tick": 2278,
+            "step": 4555,
+            "body": "d455b0fc-323f-4fbd-8b84-f18592bf22c0"
+          },
+          "rider": {
+            "tick": 2278,
+            "step": 4555,
+            "body": "d455b0fc-323f-4fbd-8b84-f18592bf22c0"
+          },
+          "player": {
+            "tick": 2278,
+            "step": 4555,
+            "body": "d455b0fc-323f-4fbd-8b84-f18592bf22c0"
+          },
+          "wheel": {
+            "tick": 2278,
+            "step": 4555,
+            "body": "5af392bd-17ce-478d-8e81-2fd8e4d59346"
+          }
+        },
+        "substepSeparatingLowerBounds": {
+          "body": 0.03610867007397992,
+          "wheel": 0.036126229906198626,
+          "rider": 0.06726591174824442,
+          "player": 0.06722956012865146
+        }
+      },
+      "geometryCounts": {
+        "originalSections": 0,
+        "styledSections": 5,
+        "spines": 407,
+        "ties": 106,
+        "crossbraces": 108,
+        "endpointBridges": 10,
+        "loweredControlMounts": 216
+      }
+    },
+    "arrow_4d_dbl_spine": {
+      "sampled": {
+        "family": "ARROW",
+        "cars": 2,
+        "samples": 6544,
+        "occupiedSeatsPerSample": 8,
+        "trackTriangles": 252328,
+        "minimumSeparatingBound": 0.0488577125493066,
+        "closest": {
+          "tick": 1543,
+          "body": "17746c1f-68d4-41fe-80d8-44b3b1738aa8",
+          "role": "ordinary",
+          "modelElement": "nativeWheel:upstop:back:fullSpinEnvelope",
+          "trackComponent": "section1:outboardSupport1"
+        },
+        "requiredGap": 0.02,
+        "passes": true,
+        "wheelEnvelopeCount": 78528,
+        "wheelMinimumSeparatingBound": 0.0488577125493066,
+        "wheelClosest": {
+          "tick": 1543,
+          "body": "17746c1f-68d4-41fe-80d8-44b3b1738aa8",
+          "role": "ordinary",
+          "modelElement": "nativeWheel:upstop:back:fullSpinEnvelope",
+          "trackComponent": "section1:outboardSupport1"
+        },
+        "linkageEnvelopeCount": 117792,
+        "linkageMinimumSeparatingBound": 0.08,
+        "linkageClosest": null,
+        "riderEnvelopeCount": 52352,
+        "riderMinimumSeparatingBound": 0.08,
+        "riderClosest": null,
+        "playerMeshEnvelopeCount": 52352,
+        "playerMeshMinimumSeparatingBound": 0.08,
+        "playerMeshClosest": null,
+        "playerMeshScope": "conservative standard/slim vanilla 1.21.1 skin and outer layers in an empty-handed seated pose; all head/arm rotations enclosed; excludes armor, held items, capes, elytra and modded cosmetics",
+        "playerMeshLocalBoundsFromEye": {
+          "minimum": [
+            -0.936667164337495,
+            -1.1842130278657599,
+            -0.936667164337495
+          ],
+          "maximum": [
+            0.936667164337495,
+            0.40935822016392454,
+            0.936667164337495
+          ]
+        },
+        "playerMeshEyeOffsetFromFixtureRider": 0.255,
+        "riderRackEnvelopeCount": 104704,
+        "riderRackMinimumSeparatingBound": 0.08002488960630402,
+        "riderRackClosest": {
+          "tick": 2718,
+          "body": "d455b0fc-323f-4fbd-8b84-f18592bf22c0",
+          "modelElement": "nativeRider",
+          "rackComponent": "fourthdimension:carrier_axle@[0, 0, 0]:element0"
+        },
+        "playerRackEnvelopeCount": 628224,
+        "playerRackMinimumSeparatingBound": 0.12782927983602577,
+        "playerRackClosest": {
+          "tick": 161,
+          "body": "8926be3f-0c33-452e-9ae3-61ed32187b45",
+          "modelElement": "vanillaPlayer:headAndHatAllRotations",
+          "rackComponent": "fourthdimension:carrier_axle@[-1, 0, 0]:element0"
+        },
+        "playerRackScope": "part-level standard vanilla 1.21.1 empty-handed seated pose; exact jacket/riding legs, all head rotations enclosed, and complete idle-bob arm rotation ranges; excludes armor, held items, capes, elytra, slim-arm-specific geometry and modded cosmetics",
+        "neighborMinimumSeparatingBound": 1.2764046502124777,
+        "neighborClosest": {
+          "tick": 2773,
+          "first": "vanillaPlayerMeshEnvelope",
+          "second": "vanillaPlayerMeshEnvelope"
+        },
+        "neighborPairs": 37516752,
+        "prospectiveLegacyAxleSubstitutions": 0,
+        "uncertifiedPairs": [],
+        "allCarsVisitedSections": 5
+      },
+      "substeps": {
+        "steps": 13408,
+        "substepsPerTick": 2,
+        "gameTimeOffset": 161,
+        "matchedTickSamples": 6544,
+        "maximumMotionFromNearestTick": {
+          "body": 0.012749042475326674,
+          "wheel": 0.012731482643107972,
+          "rider": 0.01273408825175558,
+          "player": 0.012770439871348542
+        },
+        "worstMotion": {
+          "body": {
+            "tick": 2278,
+            "step": 4555,
+            "body": "d455b0fc-323f-4fbd-8b84-f18592bf22c0"
+          },
+          "rider": {
+            "tick": 2278,
+            "step": 4555,
+            "body": "d455b0fc-323f-4fbd-8b84-f18592bf22c0"
+          },
+          "player": {
+            "tick": 2278,
+            "step": 4555,
+            "body": "d455b0fc-323f-4fbd-8b84-f18592bf22c0"
+          },
+          "wheel": {
+            "tick": 2278,
+            "step": 4555,
+            "body": "5af392bd-17ce-478d-8e81-2fd8e4d59346"
+          }
+        },
+        "substepSeparatingLowerBounds": {
+          "body": 0.03610867007397992,
+          "wheel": 0.036126229906198626,
+          "rider": 0.06726591174824442,
+          "player": 0.06722956012865146
+        }
+      },
+      "geometryCounts": {
+        "originalSections": 0,
+        "styledSections": 5,
+        "spines": 407,
+        "ties": 106,
+        "crossbraces": 108,
+        "endpointBridges": 10,
+        "loweredControlMounts": 216
+      }
+    },
+    "transition": {
+      "sampled": {
+        "family": "ARROW",
+        "cars": 2,
+        "samples": 6544,
+        "occupiedSeatsPerSample": 8,
+        "trackTriangles": 148808,
+        "minimumSeparatingBound": 0.0488577125493066,
+        "closest": {
+          "tick": 1543,
+          "body": "17746c1f-68d4-41fe-80d8-44b3b1738aa8",
+          "role": "ordinary",
+          "modelElement": "nativeWheel:upstop:back:fullSpinEnvelope",
+          "trackComponent": "section1:outboardSupport1"
+        },
+        "requiredGap": 0.02,
+        "passes": true,
+        "wheelEnvelopeCount": 78528,
+        "wheelMinimumSeparatingBound": 0.0488577125493066,
+        "wheelClosest": {
+          "tick": 1543,
+          "body": "17746c1f-68d4-41fe-80d8-44b3b1738aa8",
+          "role": "ordinary",
+          "modelElement": "nativeWheel:upstop:back:fullSpinEnvelope",
+          "trackComponent": "section1:outboardSupport1"
+        },
+        "linkageEnvelopeCount": 117792,
+        "linkageMinimumSeparatingBound": 0.08,
+        "linkageClosest": null,
+        "riderEnvelopeCount": 52352,
+        "riderMinimumSeparatingBound": 0.08,
+        "riderClosest": null,
+        "playerMeshEnvelopeCount": 52352,
+        "playerMeshMinimumSeparatingBound": 0.08,
+        "playerMeshClosest": null,
+        "playerMeshScope": "conservative standard/slim vanilla 1.21.1 skin and outer layers in an empty-handed seated pose; all head/arm rotations enclosed; excludes armor, held items, capes, elytra and modded cosmetics",
+        "playerMeshLocalBoundsFromEye": {
+          "minimum": [
+            -0.936667164337495,
+            -1.1842130278657599,
+            -0.936667164337495
+          ],
+          "maximum": [
+            0.936667164337495,
+            0.40935822016392454,
+            0.936667164337495
+          ]
+        },
+        "playerMeshEyeOffsetFromFixtureRider": 0.255,
+        "riderRackEnvelopeCount": 104704,
+        "riderRackMinimumSeparatingBound": 0.08002488960630402,
+        "riderRackClosest": {
+          "tick": 2718,
+          "body": "d455b0fc-323f-4fbd-8b84-f18592bf22c0",
+          "modelElement": "nativeRider",
+          "rackComponent": "fourthdimension:carrier_axle@[0, 0, 0]:element0"
+        },
+        "playerRackEnvelopeCount": 628224,
+        "playerRackMinimumSeparatingBound": 0.12782927983602577,
+        "playerRackClosest": {
+          "tick": 161,
+          "body": "8926be3f-0c33-452e-9ae3-61ed32187b45",
+          "modelElement": "vanillaPlayer:headAndHatAllRotations",
+          "rackComponent": "fourthdimension:carrier_axle@[-1, 0, 0]:element0"
+        },
+        "playerRackScope": "part-level standard vanilla 1.21.1 empty-handed seated pose; exact jacket/riding legs, all head rotations enclosed, and complete idle-bob arm rotation ranges; excludes armor, held items, capes, elytra, slim-arm-specific geometry and modded cosmetics",
+        "neighborMinimumSeparatingBound": 1.2764046502124777,
+        "neighborClosest": {
+          "tick": 2773,
+          "first": "vanillaPlayerMeshEnvelope",
+          "second": "vanillaPlayerMeshEnvelope"
+        },
+        "neighborPairs": 37516752,
+        "prospectiveLegacyAxleSubstitutions": 0,
+        "uncertifiedPairs": [],
+        "allCarsVisitedSections": 5
+      },
+      "substeps": {
+        "steps": 13408,
+        "substepsPerTick": 2,
+        "gameTimeOffset": 161,
+        "matchedTickSamples": 6544,
+        "maximumMotionFromNearestTick": {
+          "body": 0.012749042475326674,
+          "wheel": 0.012731482643107972,
+          "rider": 0.01273408825175558,
+          "player": 0.012770439871348542
+        },
+        "worstMotion": {
+          "body": {
+            "tick": 2278,
+            "step": 4555,
+            "body": "d455b0fc-323f-4fbd-8b84-f18592bf22c0"
+          },
+          "rider": {
+            "tick": 2278,
+            "step": 4555,
+            "body": "d455b0fc-323f-4fbd-8b84-f18592bf22c0"
+          },
+          "player": {
+            "tick": 2278,
+            "step": 4555,
+            "body": "d455b0fc-323f-4fbd-8b84-f18592bf22c0"
+          },
+          "wheel": {
+            "tick": 2278,
+            "step": 4555,
+            "body": "5af392bd-17ce-478d-8e81-2fd8e4d59346"
+          }
+        },
+        "substepSeparatingLowerBounds": {
+          "body": 0.03610867007397992,
+          "wheel": 0.036126229906198626,
+          "rider": 0.06726591174824442,
+          "player": 0.06722956012865146
+        }
+      },
+      "geometryCounts": {
+        "originalSections": 2,
+        "styledSections": 3,
+        "spines": 262,
+        "ties": 68,
+        "crossbraces": 69,
+        "endpointBridges": 6,
+        "loweredControlMounts": 138
+      }
+    }
+  }
+}
