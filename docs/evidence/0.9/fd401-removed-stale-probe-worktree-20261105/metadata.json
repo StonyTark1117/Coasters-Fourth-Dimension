@@ -1,0 +1,37 @@
+{
+  "sourceHead": "8f370d09015a7e782f0bd0a050cc311ea1bd0929",
+  "worktreeChangedFiles": [
+    "src/main/java/dev/fourthdimension/shuttle/ShuttleRuntime.java",
+    "src/main/java/dev/fourthdimension/vehicle/Boarding.java"
+  ],
+  "worktreeUntrackedFiles": {
+    "src/main/java/dev/fourthdimension/gametest/ShuttleBoardingHoldGameTests.java": "268a819bfef02bcc8f3300da6b8a212c9dc38bf88c5d4686d3d222d62ace051e"
+  },
+  "jar": "coasters-fourth-dimension-0.9.0-dev.27.jar",
+  "jarSha256": "49e21c7d98e442f74edba621f579c9352b31baaf237cfc52fb13d149bfe709b1",
+  "fontReloadTraceSourceSha256": "b43e5e0297abc12d3cdac6a85bc5c9f35e334e8d91330fa0e27fad071fc0de73",
+  "worldSource": "../fd401-strict-occupied-reload-1a91416/pre-world.tar.gz",
+  "worldSourceSha256": "47a724acdb89320d9592b7544f61bf87a7fbd8db7b09f52fc3635cdf3183e80b",
+  "postWorldArchiveSha256": "aa1e5ee29b82f258d9978501105da69a8ae19ebe37f0ebd56b26f19f90c4e2a9",
+  "profile": "Track Styles 1.2.0 + Engineered 1.1.1; local integrated server; custom file font removed after generation 1",
+  "command": "JAVA_HOME=/usr/lib/jvm/java-21-openjdk xvfb-run -a ./gradlew runClient --offline --no-daemon --console=plain -PfdBuildDirectory=/tmp/fd401-stale-font-current/build -PfdClientGameDirectory=/tmp/fd401-stale-font-current/game -PfdClientMaxHeap=1536M -PfdPackaged -PfdValidation -PfdIntegrations=styles,engineered -PfdWorld=FD401OccupiedReloadStrict1a91416 -PfdFontValidation -PfdFontValidationReload -PfdFontValidationChat -PfdFontValidationExit -PfdStaleRemovedFontProbe=fd_font_probe:transient",
+  "processGroupMemoryMax": "4G",
+  "gameHeap": "1536M",
+  "systemdPeak": "3.8G",
+  "exitStatus": "client_exit=0 watcher_exit=0",
+  "successfulScope": "run-p126134-i168351.scope",
+  "successfulScopeJournal": "Consumed 3min 10.853s CPU time over 37.807s wall clock time, 3.8G memory peak.",
+  "failed3GAttempt": "run-p123009-i132392.scope was OOM-killed at 3G before custom-font removal; watcher path in that attempt was misquoted. It is not acceptance evidence.",
+  "runtimeJarManifest": "runtime-jars.sha256",
+  "captureUtc": "2026-11-05T04:26:07Z",
+  "sourceHeadAtEvidenceCollation": "8f370d09015a7e782f0bd0a050cc311ea1bd0929",
+  "sourceParent": "4fabae165bb6ed6e975d853ee9330be3e6247273",
+  "sourceTrackedChangeSetSha256": "0486478db36bd7cd4d140a19091c834a656a3937c6178f7755b2e5067f47a50c",
+  "sourceInputFileSha256": {
+    "src/main/java/dev/fourthdimension/shuttle/ShuttleRuntime.java": "d13c6942d5c2a9ce8be7faa95d5c4acc58af9ecc48d1bec10f1d033422ec0163",
+    "src/main/java/dev/fourthdimension/vehicle/Boarding.java": "273e13fe4882ff9772f405e1a982a1704d5cb0d9b84479900c6c17f509a47fa6",
+    "src/main/java/dev/fourthdimension/gametest/ShuttleBoardingHoldGameTests.java": "268a819bfef02bcc8f3300da6b8a212c9dc38bf88c5d4686d3d222d62ace051e",
+    "src/main/java/dev/fourthdimension/client/FontReloadTrace.java": "b43e5e0297abc12d3cdac6a85bc5c9f35e334e8d91330fa0e27fad071fc0de73"
+  },
+  "buildTiming": "The client log timestamps end at 2026-11-05T04:26:07Z. The captured source commit 8f370d0 was created at 04:27:06Z after the run started; the tracked PAX edits and untracked test were the live source inputs then, and their exact file hashes are listed above. FontReloadTrace was unchanged in the tracked commit diff."
+}

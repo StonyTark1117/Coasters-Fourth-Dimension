@@ -17,6 +17,15 @@ separately bounded observations, not the occupied operator recovery sequence.
 The packaged normal-client LIFTING case, historical OUTBOUND regression and
 phase-specific cold restarts remain FD902C, shared with FD401D telemetry.
 
+The [2026-11-05 direct stale-font probe](evidence/0.9/fd401-removed-stale-probe-worktree-20261105/README.md)
+also passes on its retained packaged worktree JAR: a custom font was removed
+between resource generations, and a lookup through the closed old set redirected
+to the live missing-font set. The run used PAX worktree inputs that were committed
+as `8f370d0` just after the client finished; its exact JAR, source-file hashes,
+runtime hashes, raw logs and verifier are retained. It is scoped to that JAR and
+does not inherit the selected qualification artifact identity or close the
+tracing-disabled reload/ride and repetition requirements.
+
 Initial read-only audit of release `783d4ba`, updated through `ff7c831` on
 2026-11-03 for the corrected missing-font source and retest. This checklist requests evidence
 using existing behavior; it authorizes no runtime, production edit or new addon.
