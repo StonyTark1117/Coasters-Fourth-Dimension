@@ -28,8 +28,12 @@ Dev joined and was teleported to the historical successful approach coordinates
 `(131.5,87,31.5)`. The older accepted log records this position at 05:30:52 and a
 normal Legacy mount 22 seconds later, at seat
 `BlockPos{x=20481032,y=127,z=20489225}`. The old record does not provide a view
-rotation. For this replay, the player was oriented toward the visible Legacy
-platform and the target was read from F3 before any interaction:
+rotation at the successful click. The copied input world's `playerdata` entry
+for Dev (UUID mapping in `server-usercache.json`) records a saved pre-run
+rotation of yaw `0.4547°`, pitch `89.9843°`; this does not establish whether the
+earlier operator changed view after teleport. For this replay, the player was
+oriented toward the visible Legacy platform and the target was read from F3
+before any interaction:
 
 - At yaw 87°, pitch 24°, F3 reported `Targeted Block: 120 83 32 minecraft:stone`;
   `RootVehicle` was absent.
