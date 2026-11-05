@@ -8,34 +8,27 @@ FD404 and FD905 remain open. A later source change does not inherit this identit
 
 | Field | Recorded value |
 | --- | --- |
-| Committed source | `8f370d09015a7e782f0bd0a050cc311ea1bd0929` on `main` |
-| Packaged artifact | [qualification.jar](evidence/qualification/2026-11-05-8f370d0/qualification.jar) |
-| SHA-256 | `cf4fed9acf41873f0ba7bd3b28f49fe4507db2ae2442cfcae9bddf8cb7a77cb5` |
+| Committed source | `ec2fcda3082f5d9ce729641a6394fdc5c5d67a36` on `main` |
+| Packaged artifact | [qualification.jar](evidence/qualification/2026-11-05-ec2fcda/qualification.jar) |
+| SHA-256 | `656725bcbacc8f491de274c6c058027d0aaa67cfc6f893ba6d7e4a9eb24abbc7` |
 | Version label | `0.9.0-dev.27`; this label alone never identifies an artifact |
 | Persistence / networking | Schema 6 / protocol 7 |
 | Toolchain | Java `21.0.13.0.3+1`, Gradle `9.2.1` |
 | Intended profiles | Base; Track Styles 1.2.0; Engineered 1.1.1; Styles + Engineered |
 | Core pins | Minecraft 1.21.1, NeoForge 21.1.248, Create 6.0.10-280, Coasters 0.1.5, Sable 2.0.3 |
-| Acceptance on this exact JAR | Clean committed-source build and entry comparison; bounded Engineered-only occupied operator results for Arrow, Legacy, Free Spin, Revised, coupled Arrow and four-car PAX, plus Arrow wired-FE interruption and cold reopen; no full runtime profile qualified |
+| Acceptance on this exact JAR | Clean committed-source build and entry comparison only; the related `ae6a699e…` telemetry runtime JAR has one extra GameTest entry and 356 byte-identical common entries. No full runtime profile qualified. |
 
-The [machine-readable manifest](evidence/qualification/2026-11-05-8f370d0/artifact.json)
-hashes all 287 exported build/source inputs and all 356 JAR entries, and lists
-the changed inputs and classes since the [previous baseline](evidence/qualification/2026-11-04-dd0a851/artifact.json).
-The JAR was built with Java 21 from a `git archive` of `8f370d0`, outside the
-shared checkout, into isolated output. The [build log](evidence/qualification/2026-11-05-8f370d0/build.log.gz)
-records successful packaging. The untracked `ShuttleBoardingHoldGameTests.java`
-present in the shared checkout is excluded. Documentation-only commits after
-`8f370d0` do not change the packaged inputs; future source/resource edits need
-a new identity review.
-
-**Post-baseline input review through `f4a5a6b`:** the only changed tracked
-build/source input is `EngineeredInterlockGameTests.java`, expanded to a four-car
-validation fixture. The [Engineered callback run](evidence/0.9/fd401-engineered-fourcar-motor-guard/README.md)
-used that later development classpath and is attached to its own source/log
-identity. The selected clean JAR above still contains the two-car version of
-the fixture; no production, resource or build-script input changed. A packaged
-run of the four-car fixture needs a newly built JAR identity. The untracked
-`ShuttleBoardingHoldGameTests.java` remains excluded from this clean baseline.
+The [machine-readable manifest](evidence/qualification/2026-11-05-ec2fcda/artifact.json)
+hashes all 287 exported build/source inputs and all 356 JAR entries. The clean
+Java 21 build came from a `git archive` of `ec2fcda`, excluding the untracked
+`ShuttleBoardingHoldGameTests.java`; the [build log](evidence/qualification/2026-11-05-ec2fcda/build.log.gz)
+records successful packaging. Against the [previous clean baseline](evidence/qualification/2026-11-05-8f370d0/artifact.json),
+the only changed JAR entries are `EngineeredInterlockGameTests`, `ShuttleRuntime`
+and `ShuttleWinchEntity`. The latter two change PAX initial station restoration;
+old PAX runtime results do not transfer automatically. All other 353 entries
+are byte-identical, supporting scoped reuse of unchanged non-PAX paths. The
+fixed-source telemetry candidate has exactly one extra untracked GameTest
+entry; all 356 common entries match this clean JAR byte for byte.
 
 Before each runtime qualification, retain the actual launch command, dependency
 hashes, flags, hardware, world hash, client/server roles and exit status. The
@@ -45,23 +38,27 @@ The deferred schema-7/protocol-8 registry and new integrations remain excluded.
 
 ## Evidence reuse and required retests
 
+Rows naming `cf4fed9a…` are exact observations on the previous clean JAR. Their
+non-PAX packaged classes remain byte-identical in the selected JAR, but the
+changed PAX classes require the separate review and runtime evidence below.
+
 | Evidence | What remains established | Required for this artifact / owning task |
 | --- | --- | --- |
 | [Frozen `2c5d9a7` map](evidence/0.9/fd401-final-candidate-2c5d9a7/README.md) and [later-source review](evidence/0.9/fd401-release-review-54495a5/README.md) | Historical operator, FE, font, Styles and geometry results at their recorded identities | FD401A reviews affected source/resource inputs; FD401B–D and FD904A replay changed paths. No blanket whole-JAR equivalence. |
 | [PAX source observation](evidence/0.9/fd401-pax-longhold-source-229e586/acceptance.md) and [packaged named gate](evidence/0.9/fd401-pax-packaged-longhold-229e586/README.md) | Both record repair, realignment, recovery and relaunch with sixteen riders after 4,800 unsupported ticks; the packaged gate has exact JAR identity `94c17e50…` | FD902C retains this historical named-test pass. `ShuttleRuntime` and `Boarding` now differ in the selected JAR, so the old pass is not a current-artifact runtime pass. Normal-client operation, OUTBOUND regression and active-phase cold restarts remain separate. |
-| [PAX two-client recovery](evidence/0.9/fd401-pax-two-client-recovery-8f370d0/README.md) | Tested JAR `253e6d92…`: two one-rider curve-only LIFTING holds over 4,800 ticks, normal repair/realign, explicit Recover on the second hold, occupied relaunch, BOARDING reopen and normal unload | The tested JAR has one extra uncommitted GameTest class; all 356 entries shared with the selected clean JAR are byte-identical. FD902C gains a bounded normal-client recovery observation on that exact tested JAR and unchanged production entries. This does not qualify a full profile or all FD401D telemetry sources. Active-phase cold restarts, OUTBOUND link loss and sixteen-rider client operation remain open. |
-| [Current-JAR Engineered Arrow/FE reopen](evidence/0.9/fd401-engineered-current-arrow-fe-reopen/README.md) | Exact selected clean JAR `cf4fed9a…`: one occupied Arrow launched under wired FE, completed STOP and station capture, unloaded normally, then survived an occupied cold reopen without automatic launch and unloaded again | FD401C gains a bounded Engineered-only Arrow result. Combined profile and current-JAR normal construction remain open. Crafts & Additions was a disclosed FE fixture. |
-| [Current-JAR wired FE interruption](evidence/0.9/fd401-engineered-current-fe-interruption/README.md) | Exact selected clean JAR `cf4fed9a…`: occupied Arrow held near station with depleted FE and `Starving=1`; restored water-wheel supply caused a short automatic pass with rider retained, followed by manual capture and normal unload | FD401C gains a bounded power-loss/restore result. The short pass did not complete a circuit or reach station capture; no second operator pulse was required by Engineered on restore. |
-| [Current-JAR Legacy required-energy loop](evidence/0.9/fd401-engineered-current-legacy-fe/README.md) | Exact selected clean JAR `cf4fed9a…`: occupied Legacy reached STOP without starvation under `requireEnergy=true`, consumed FE, returned to station capture and unloaded normally | FD401C gains one bounded Legacy result on the saved normally built route. The 8.0 blocks/s target was short. The preliminary default-config run is disclosed separately and supports no FE claim. |
-| [Current-JAR Free Spin required-energy loop](evidence/0.9/fd401-engineered-current-free-spin-fe/README.md) | Exact selected clean JAR `cf4fed9a…`: occupied Free Spin reached programmed STOP without starvation under `requireEnergy=true`, consumed FE, returned to station capture and unloaded normally | FD401C gains one bounded Free Spin result on the saved normally built route. The FE buffer was initialized by a disclosed fixture command. |
-| [Current-JAR Revised required-energy loop](evidence/0.9/fd401-engineered-current-revised-fe/README.md) | Exact selected clean JAR `cf4fed9a…`: occupied Revised reached programmed STOP without starvation under `requireEnergy=true`, consumed FE, returned to station capture and unloaded normally | FD401C gains one bounded Revised result on the saved normally built route. The FE buffer was initialized by a disclosed fixture command. |
-| [Current-JAR coupled Arrow required-energy loop](evidence/0.9/fd401-engineered-current-coupled-arrow-fe/README.md) | Exact selected clean JAR `cf4fed9a…`: occupied trailing Arrow reached STOP under `requireEnergy=true`, returned to station capture and unloaded normally with two chassis loaded | FD401C gains one bounded two-car operator result on a saved normally linked consist. The later capture query found no anchor energy key despite `PassStarved=0`; both native cart positions/link were not independently traced. |
-| [Current-JAR four-car PAX authority](evidence/0.9/fd401-engineered-current-pax-authority/README.md) | Exact selected clean JAR `cf4fed9a…`: an occupied, route-loaded PAX winch cycle returned to BOARDING while the opposing powered Engineered controller stayed at pass zero and 100,000 FE; normal unload followed | FD401C gains a bounded Engineered-only PAX operator result. The first low-render-distance attempt faulted on an unloaded route chunk and is retained separately. Per-car callback cancellation is established by a later-source fixture, not this client run. |
-| [Current-JAR combined-profile Arrow](evidence/0.9/fd401-engineered-current-combined-arrow/README.md) | Exact selected clean JAR `cf4fed9a…`: a Styles + Engineered client loaded the saved wired Arrow route, drew FE without starvation, advanced the programmed controller, captured at station and unloaded the connected rider through the UI | FD401C gains one bounded combined-profile Arrow operator result. The first default-video attempt hit the enforced 3 GiB scope and is retained as an OOM failure; FAST/render-distance-4 succeeded under that same cap. Fresh construction and combined-profile all-family coverage remain open. |
-| [Current-JAR fresh Arrow construction](evidence/0.9/fd401-engineered-current-fresh-arrow/README.md) | Exact selected clean JAR `cf4fed9a…`: normal item actions fitted the motor, placed the Arrow car, bound the station, linked and placed the controller, and programmed Launch 20 → Stop 12 → End; an occupied pass reached STOP without starvation, captured and unloaded | FD401C gains one bounded Engineered-only construction and operator result. The new track was fixture-built, FE was directly filled, and validation boarding was used after two normal seat clicks did not mount. Other-family construction and combined-profile construction remain open. |
-| [Current-JAR combined five-family motor fixture](evidence/0.9/fd401-engineered-current-combined-five-family/README.md) | Exact selected clean JAR `cf4fed9a…`: Styles 1.2.0 + Engineered 1.1.1 loaded together; one named server test asserted held boarding, occupied launch/STOP/capture/retention for four driven families, and PAX rejecting motor drive while retaining its rider | FD401C gains bounded combined-profile family interaction. The test directly constructed its tracks, controllers, and pig riders; normal UI construction, physical FE, coupled Arrow motion, PAX winch operation, and five-family client operator cycles remain open. |
-| [Current-JAR combined four-family construction](evidence/0.9/fd401-engineered-current-combined-construction/README.md) | Exact selected clean JAR `cf4fed9a…`: one Styles + Engineered client used normal items to fit motors, place Arrow/Legacy/Free Spin/Revised cars, bind each station, place linked controllers, and GUI-program `Launch 20 → Stop 12 → End` on four fresh fixture-built tracks | FD401C gains bounded combined-profile normal construction for the driven families. This run did not board or cycle the new cars, supply physical FE, or construct a PAX train. |
-| [Fixed-source PAX bind restore candidate](evidence/0.9/fd401-pax-bind-restore-fix-candidate/README.md) | Candidate JAR `ae6a699e…` passed the combined-profile server telemetry test across Arrow (two-car consist), Legacy, Free Spin, Revised, and four-car PAX; all six source fields, goggle formatter/update-tag snapshots, recovery guards, and PAX BOARDING/LIFTING/FAULT passed after fixing initial bind restore | Provisional FD401D server evidence only. This candidate included the untracked `ShuttleBoardingHoldGameTests.java` at build time and is not the selected clean artifact; clean committed rebuild and all profile/client source-output checks remain required. |
+| [PAX two-client recovery](evidence/0.9/fd401-pax-two-client-recovery-8f370d0/README.md) | Tested JAR `253e6d92…`: two one-rider curve-only LIFTING holds over 4,800 ticks, normal repair/realign, explicit Recover on the second hold, occupied relaunch, BOARDING reopen and normal unload | The tested JAR has one extra uncommitted GameTest class; its 356 common entries match the previous `cf4fed9a…` clean JAR. The new selected JAR changes `ShuttleRuntime` and `ShuttleWinchEntity`, so this PAX observation remains attached to its original tested JAR. Active-phase cold restarts, OUTBOUND link loss and sixteen-rider client operation remain open. |
+| [8f370d0 JAR Engineered Arrow/FE reopen](evidence/0.9/fd401-engineered-current-arrow-fe-reopen/README.md) | Exact previous clean JAR `cf4fed9a…`: one occupied Arrow launched under wired FE, completed STOP and station capture, unloaded normally, then survived an occupied cold reopen without automatic launch and unloaded again | FD401C gains a bounded Engineered-only Arrow result. Combined profile and current-JAR normal construction remain open. Crafts & Additions was a disclosed FE fixture. |
+| [8f370d0 JAR wired FE interruption](evidence/0.9/fd401-engineered-current-fe-interruption/README.md) | Exact previous clean JAR `cf4fed9a…`: occupied Arrow held near station with depleted FE and `Starving=1`; restored water-wheel supply caused a short automatic pass with rider retained, followed by manual capture and normal unload | FD401C gains a bounded power-loss/restore result. The short pass did not complete a circuit or reach station capture; no second operator pulse was required by Engineered on restore. |
+| [8f370d0 JAR Legacy required-energy loop](evidence/0.9/fd401-engineered-current-legacy-fe/README.md) | Exact previous clean JAR `cf4fed9a…`: occupied Legacy reached STOP without starvation under `requireEnergy=true`, consumed FE, returned to station capture and unloaded normally | FD401C gains one bounded Legacy result on the saved normally built route. The 8.0 blocks/s target was short. The preliminary default-config run is disclosed separately and supports no FE claim. |
+| [8f370d0 JAR Free Spin required-energy loop](evidence/0.9/fd401-engineered-current-free-spin-fe/README.md) | Exact previous clean JAR `cf4fed9a…`: occupied Free Spin reached programmed STOP without starvation under `requireEnergy=true`, consumed FE, returned to station capture and unloaded normally | FD401C gains one bounded Free Spin result on the saved normally built route. The FE buffer was initialized by a disclosed fixture command. |
+| [8f370d0 JAR Revised required-energy loop](evidence/0.9/fd401-engineered-current-revised-fe/README.md) | Exact previous clean JAR `cf4fed9a…`: occupied Revised reached programmed STOP without starvation under `requireEnergy=true`, consumed FE, returned to station capture and unloaded normally | FD401C gains one bounded Revised result on the saved normally built route. The FE buffer was initialized by a disclosed fixture command. |
+| [8f370d0 JAR coupled Arrow required-energy loop](evidence/0.9/fd401-engineered-current-coupled-arrow-fe/README.md) | Exact previous clean JAR `cf4fed9a…`: occupied trailing Arrow reached STOP under `requireEnergy=true`, returned to station capture and unloaded normally with two chassis loaded | FD401C gains one bounded two-car operator result on a saved normally linked consist. The later capture query found no anchor energy key despite `PassStarved=0`; both native cart positions/link were not independently traced. |
+| [8f370d0 JAR four-car PAX authority](evidence/0.9/fd401-engineered-current-pax-authority/README.md) | Exact previous clean JAR `cf4fed9a…`: an occupied, route-loaded PAX winch cycle returned to BOARDING while the opposing powered Engineered controller stayed at pass zero and 100,000 FE; normal unload followed | FD401C gains a bounded Engineered-only PAX operator result. The first low-render-distance attempt faulted on an unloaded route chunk and is retained separately. Per-car callback cancellation is established by a later-source fixture, not this client run. |
+| [8f370d0 JAR combined-profile Arrow](evidence/0.9/fd401-engineered-current-combined-arrow/README.md) | Exact previous clean JAR `cf4fed9a…`: a Styles + Engineered client loaded the saved wired Arrow route, drew FE without starvation, advanced the programmed controller, captured at station and unloaded the connected rider through the UI | FD401C gains one bounded combined-profile Arrow operator result. The first default-video attempt hit the enforced 3 GiB scope and is retained as an OOM failure; FAST/render-distance-4 succeeded under that same cap. Fresh construction and combined-profile all-family coverage remain open. |
+| [8f370d0 JAR fresh Arrow construction](evidence/0.9/fd401-engineered-current-fresh-arrow/README.md) | Exact previous clean JAR `cf4fed9a…`: normal item actions fitted the motor, placed the Arrow car, bound the station, linked and placed the controller, and programmed Launch 20 → Stop 12 → End; an occupied pass reached STOP without starvation, captured and unloaded | FD401C gains one bounded Engineered-only construction and operator result. The new track was fixture-built, FE was directly filled, and validation boarding was used after two normal seat clicks did not mount. Other-family construction and combined-profile construction remain open. |
+| [8f370d0 JAR combined five-family motor fixture](evidence/0.9/fd401-engineered-current-combined-five-family/README.md) | Exact previous clean JAR `cf4fed9a…`: Styles 1.2.0 + Engineered 1.1.1 loaded together; one named server test asserted held boarding, occupied launch/STOP/capture/retention for four driven families, and PAX rejecting motor drive while retaining its rider | FD401C gains bounded combined-profile family interaction. The test directly constructed its tracks, controllers, and pig riders; normal UI construction, physical FE, coupled Arrow motion, PAX winch operation, and five-family client operator cycles remain open. |
+| [8f370d0 JAR combined four-family construction](evidence/0.9/fd401-engineered-current-combined-construction/README.md) | Exact previous clean JAR `cf4fed9a…`: one Styles + Engineered client used normal items to fit motors, place Arrow/Legacy/Free Spin/Revised cars, bind each station, place linked controllers, and GUI-program `Launch 20 → Stop 12 → End` on four fresh fixture-built tracks | FD401C gains bounded combined-profile normal construction for the driven families. This run did not board or cycle the new cars, supply physical FE, or construct a PAX train. |
+| [Fixed-source PAX bind restore candidate](evidence/0.9/fd401-pax-bind-restore-fix-candidate/README.md) | Candidate JAR `ae6a699e…` passed the combined-profile server telemetry test across Arrow (two-car consist), Legacy, Free Spin, Revised, and four-car PAX; all six source fields, goggle formatter/update-tag snapshots, recovery guards, and PAX BOARDING/LIFTING/FAULT passed after fixing initial bind restore | Bounded FD401D server evidence on a JAR with one extra untracked GameTest class; all 356 entries shared with the new clean `656725bc…` JAR are byte-identical. Exact clean-JAR client source GUI, rendered goggles/signs, and full profile checks remain open. |
 | [Five-family fresh-process recovery](evidence/0.4/recovery/fresh-process-recovery/acceptance.md) | Historical development-client pause/resume/release observed in all five families; raw logs now retained | FD402D: attach artifact identity to a packaged replay. Historical source/JAR provenance was not retained and cannot be reconstructed from a version string. FD402E separately covers multiplayer. |
 | [Two-client Arrow recovery](evidence/0.4/recovery/two-client-recovery-lifecycle/acceptance.md) | Dedicated server and two rendered clients complete fixture-operated attach/tow/brake/detach/unload; retained final save has no rider assignments or recovery link | FD402E retains this bounded observation. It is not a manual input, reconnect, interrupted restart or all-family result; attach full launch identity to remaining packaged matrix rows. |
 | [Manual boarding](evidence/0.4/recovery/manual-boarding/acceptance.md), [bearing attachment](evidence/0.4/recovery/manual-bearing-selection/acceptance.md), [lever operation](evidence/0.4/recovery/manual-lever-propulsion/acceptance.md) | Real operator actions on JAR `2da14200…`; the later lever repeat stopped at the boundary, not by a timely moving brake | FD402C completes the occupied operator matrix with original IDs and normal pre-boundary braking on the qualification artifact. Preserve earlier successes without broadening their scope. |
@@ -76,13 +73,13 @@ it cannot prove a changed ride/lifecycle interaction. A failure reopens its owni
 task. One evidence bundle may close multiple named rows when it actually exercises
 each row; do not repeat a run solely because two packages reference it.
 
-The manifest's `tested_pax_jar_comparison` compares every JAR entry against the
-retained two-client runtime JAR. That runtime JAR contains exactly one extra
-uncommitted GameTest class; all common entries match byte for byte. This
-supports scoped transfer of the observed production behavior, not a claim that
-the tested JAR itself came solely from committed source. The older `229e586`
-named PAX test remains attached to its own JAR because the current
-`ShuttleRuntime` and `Boarding` classes changed.
+The new manifest compares every entry in the clean JAR and the fixed-source
+telemetry candidate. The candidate contains exactly one extra untracked GameTest
+class and all 356 common entries match byte for byte. This supports scoped
+transfer of that server observation to identical packaged production entries,
+not a claim that the candidate itself came solely from committed source. The
+older `229e586` and `8f370d0` PAX results remain attached to their own JARs
+because the selected `ShuttleRuntime` and `ShuttleWinchEntity` classes changed.
 
 ## Updating the record
 
@@ -95,5 +92,5 @@ Documentation-only commits do not require a new JAR when all packaged inputs mat
 Verify the retained payloads from the repository root:
 
 ```sh
-(cd docs/evidence/qualification/2026-11-05-8f370d0 && sha256sum -c SHA256SUMS)
+(cd docs/evidence/qualification/2026-11-05-ec2fcda && sha256sum -c SHA256SUMS)
 ```
