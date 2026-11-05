@@ -1,0 +1,28 @@
+> fd validation availability
+Validation availability chassis=1/8 carriers=2/20 assignments=0
+
+> fd status
+arrow_controlled a464e3ce-274f-454a-8472-415aa74bd997 angle=-5.464416810596526E-4 omega=0.002840149452666381 capture=true occupants=0
+arrow_controlled fd2cee75-2f31-4f1b-a62b-3fb3a099e105 angle=-6.169978561929185E-4 omega=0.0029061801481762295 capture=true occupants=0
+zacspin_legacy 3b0725a6-9834-407d-99a3-bd4db876bd99 angle=-1.8282620243459678E-4 omega=5.275575612523907E-4 capture=true occupants=0
+zacspin_legacy cbeec2ef-b440-4ac2-8e5b-8eb2402848bb angle=-2.2068719823362728E-4 omega=3.3920864552274254E-4 capture=true occupants=0
+sns_free_spin 0d66f6f4-8d7c-444a-9e18-2765fa164f88 angle=0.0 omega=0.0 capture=true occupants=0
+sns_free_spin 5c00ef67-8e87-45cf-8ce8-75acd0397fed angle=0.0 omega=0.0 capture=true occupants=0
+sns_free_spin ba11561d-2b71-4d3f-a4e2-a92ee956380f angle=0.0 omega=0.0 capture=true occupants=0
+sns_free_spin cd3cf5cb-0c24-4142-afcc-33bb8e54d867 angle=0.0 omega=0.0 capture=true occupants=0
+zacspin_revised 14f11040-c3fd-4165-a88e-b6c73d6c04ae angle=0.0 omega=0.0 capture=true occupants=0
+zacspin_revised 8a3383b6-2e3b-4713-b20e-180b70953028 angle=0.0 omega=0.0 capture=true occupants=0
+zacspin_revised a9a03530-4bc9-448a-9570-7fe4ba7d461a angle=0.0 omega=0.0 capture=true occupants=0
+zacspin_revised f1dcf0a5-4776-4106-80ce-95ac0041e32b angle=0.0 omega=0.0 capture=true occupants=0
+pax_shuttle 82cd1f35-95e2-4e48-9d34-874e3d527d26 angle=-8.618462422616917E-13 omega=5.671647633884463E-15 capture=true occupants=0
+pax_shuttle cec96d00-7326-4620-92c2-3213eee9579d angle=4.672776276786518E-12 omega=2.1986913409202038E-13 capture=true occupants=0
+pax_shuttle 1e5acd99-058f-42c6-abca-45d9b14d62f1 angle=-8.618462422616917E-13 omega=5.671647633884463E-15 capture=true occupants=0
+pax_shuttle 6d2a5685-a879-4c58-8fce-3fd5071a3526 angle=4.672776276786518E-12 omega=2.1986913409202038E-13 capture=true occupants=0
+pax_shuttle b72f3456-28c8-44ea-93f4-204e0cd0da78 angle=-8.618462422616917E-13 omega=5.671647633884463E-15 capture=true occupants=0
+pax_shuttle 032f03f9-64fb-414c-b4fc-309ef2119c24 angle=4.672776276786518E-12 omega=2.1986913409202038E-13 capture=true occupants=0
+pax_shuttle 0fffcbcc-1988-4e98-bb86-760ef45b0c3a angle=-3.213100327453715E-10 omega=-4.181976205585074E-11 capture=true occupants=0
+pax_shuttle 0cb40332-b775-4fa7-81db-d0f0d34ec40f angle=-4.5334706429644897E-10 omega=-1.9698314297299682E-11 capture=true occupants=0
+Carrier update average: 9458 ns across 60176 updates
+
+> forceload query
+5 force loaded chunks were found in Overworld at: [0, 0], [0, 1], [0, 2], [-1, 2], [0, 3]

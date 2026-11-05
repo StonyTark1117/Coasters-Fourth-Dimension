@@ -1,0 +1,17 @@
+> tp Observer 1000.5 149 1003.5 180 24
+Teleported Observer to 1000.500000, 149.000000, 1003.500000
+
+> tp Dev 1000.5 149 1003.5 180 24
+Teleported Dev to 1000.500000, 149.000000, 1003.500000
+
+> give Observer create:goggles 1
+Gave 1 [Engineer's Goggles] to Observer
+
+> item replace entity Observer armor.head with create:goggles
+Replaced a slot on Observer with [Engineer's Goggles]
+
+> fd validation availability
+Validation availability chassis=0/8 carriers=0/20 assignments=0
+
+> data get entity Observer Inventory
+Observer has the following entity data: [{count: 4, Slot: 0b, id: "create:display_board"}, {count: 1, Slot: 1b, id: "create:display_link"}, {count: 1, Slot: 2b, id: "create:wrench"}, {count: 1, Slot: 3b, id: "create:goggles"}, {count: 1, Slot: 103b, id: "create:goggles"}]

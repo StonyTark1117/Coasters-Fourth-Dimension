@@ -1,0 +1,11 @@
+> setworldspawn 1000 149 1000
+Set the world spawn point to 1000, 149, 1000 [0.0]
+
+> fd validation availability
+Validation availability chassis=1/8 carriers=2/20 assignments=0
+
+> forceload query -6 32
+Chunk at [-1, 2] in Overworld is not marked for force loading
+
+> fd validation availability
+Validation availability chassis=0/8 carriers=0/20 assignments=0

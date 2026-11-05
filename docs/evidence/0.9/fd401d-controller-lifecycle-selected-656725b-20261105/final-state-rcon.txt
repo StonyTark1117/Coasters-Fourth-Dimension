@@ -1,0 +1,11 @@
+> data get block 1000 150 1000
+1000, 150, 1000 has the following block data: {TargetOffset: [I; 0, 0, 0], HasAttachedComputer: 0b, x: 1000, y: 150, TargetLine: 0, z: 1000, id: "create:display_link", LinkedGauges: []}
+
+> data get block 1000 151 1007
+1000, 151, 1007 has the following block data: {back_text: {has_glowing_text: 0b, color: "black", messages: ['""', '""', '""', '""']}, is_waxed: 0b, x: 1000, y: 151, z: 1007, id: "minecraft:sign", front_text: {has_glowing_text: 0b, color: "black", messages: ['""', '""', '""', '""']}}
+
+> forceload query
+No force loaded chunks were found in Overworld
+
+> fd validation availability
+Validation availability chassis=0/8 carriers=0/20 assignments=0

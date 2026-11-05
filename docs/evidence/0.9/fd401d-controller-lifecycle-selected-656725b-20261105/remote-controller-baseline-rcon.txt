@@ -1,0 +1,17 @@
+> fd validation availability
+Validation availability chassis=1/8 carriers=2/20 assignments=0
+
+> data get block 1000 149 1000
+1000, 149, 1000 has the following block data: {powered: 0b, x: 1000, y: 149, z: 1000, id: "fourthdimension:boarding_station", vehicle: [I; -273215630, 1606567097, -1891023273, -1236525362]}
+
+> data get block 1000 150 1000
+1000, 150, 1000 has the following block data: {TargetOffset: [I; 0, 0, 0], HasAttachedComputer: 0b, x: 1000, y: 150, TargetLine: 0, z: 1000, id: "create:display_link", LinkedGauges: []}
+
+> data get block 1000 151 1007
+1000, 151, 1007 has the following block data: {back_text: {has_glowing_text: 0b, color: "black", messages: ['""', '""', '""', '""']}, is_waxed: 0b, x: 1000, y: 151, z: 1007, id: "minecraft:sign", front_text: {has_glowing_text: 0b, color: "black", messages: ['""', '""', '""', '""']}}
+
+> give Dev create:goggles 1
+Gave 1 [Engineer's Goggles] to Dev
+
+> fd validation availability
+Validation availability chassis=1/8 carriers=2/20 assignments=0

@@ -1,0 +1,14 @@
+> forceload add 0 12 0 56
+Marked 4 chunks in Overworld from [0, 0] to [0, 3] to be force loaded
+
+> forceload query 0 32
+Chunk at [0, 2] in Overworld is marked for force loading
+
+> fd validation availability
+Validation availability chassis=0/8 carriers=0/20 assignments=0
+
+> fd validation availability
+Validation availability chassis=1/8 carriers=2/20 assignments=0
+
+> forceload query 0 32
+Chunk at [0, 2] in Overworld is marked for force loading

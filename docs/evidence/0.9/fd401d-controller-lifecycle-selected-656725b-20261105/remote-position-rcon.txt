@@ -1,0 +1,20 @@
+> forceload query -6 32
+Chunk at [-1, 2] in Overworld is not marked for force loading
+
+> forceload query 1000 1000
+Chunk at [62, 62] in Overworld is not marked for force loading
+
+> tp Dev 1000.5 152 1000.5 180 0
+Teleported Dev to 1000.500000, 152.000000, 1000.500000
+
+> tp Observer 1000.5 152 1000.5 180 0
+Teleported Observer to 1000.500000, 152.000000, 1000.500000
+
+> setblock 998 148 998 minecraft:stone
+Changed the block at 998, 148, 998
+
+> fill 998 148 998 1002 148 1008 minecraft:stone
+Successfully filled 54 block(s)
+
+> fd validation availability
+Validation availability chassis=1/8 carriers=2/20 assignments=0

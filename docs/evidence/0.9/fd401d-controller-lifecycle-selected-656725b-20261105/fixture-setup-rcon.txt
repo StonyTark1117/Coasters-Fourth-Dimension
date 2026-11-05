@@ -1,0 +1,43 @@
+> op Observer
+Made Observer a server operator
+
+> gamemode creative Dev
+
+> gamemode creative Observer
+
+> tp Dev 1000 152 1000
+Teleported Dev to 1000.500000, 152.000000, 1000.500000
+
+> tp Observer 1000 152 1000
+Teleported Observer to 1000.500000, 152.000000, 1000.500000
+
+> setblock 1000 149 1000 fourthdimension:boarding_station
+Changed the block at 1000, 149, 1000
+
+> data merge block 1000 149 1000 {vehicle:[I;-273215630,1606567097,-1891023273,-1236525362]}
+Modified block data of 1000, 149, 1000
+
+> setblock 1000 150 1000 create:display_link
+Changed the block at 1000, 150, 1000
+
+> setblock 1000 150 1007 minecraft:stone
+Changed the block at 1000, 150, 1007
+
+> setblock 1000 151 1007 minecraft:oak_sign[rotation=8]
+Changed the block at 1000, 151, 1007
+
+> give Dev create:display_link 1
+Gave 1 [Display Link] to Dev
+
+> give Dev fourthdimension:engineers_goggles 1
+Unknown item 'fourthdimension:engineers_goggles'
+give Dev fourthdimension:engineers_goggles 1<--[HERE]
+
+> fd validation availability
+Validation availability chassis=1/8 carriers=2/20 assignments=0
+
+> data get block 1000 149 1000
+1000, 149, 1000 has the following block data: {powered: 0b, x: 1000, y: 149, z: 1000, id: "fourthdimension:boarding_station", vehicle: [I; -273215630, 1606567097, -1891023273, -1236525362]}
+
+> data get block -6 83 32
+-6, 83, 32 has the following block data: {powered: 1b, x: -6, y: 83, z: 32, id: "fourthdimension:boarding_station", vehicle: [I; -273215630, 1606567097, -1891023273, -1236525362]}

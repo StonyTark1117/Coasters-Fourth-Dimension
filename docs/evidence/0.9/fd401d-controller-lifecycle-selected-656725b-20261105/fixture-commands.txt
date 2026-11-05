@@ -1,0 +1,21 @@
+# Run only after the isolated world starts and Dev/Observer join. These are
+# fixture setup and observation commands; they do not inject RideTelemetry.
+# Confirm the original BE and telemetry before setup:
+/data get block -6 83 32
+/fd validation availability
+# Remote controller and sign fixture. UUID is from the original selected-JAR
+# saved station BE at (-6,83,32), verified in PREPARATION.md.
+/setblock 0 149 0 fourthdimension:boarding_station
+/data merge block 0 149 0 {vehicle:[I;-273215630,1606567097,-1891023273,-1236525362]}
+/setblock 0 150 7 minecraft:stone
+/setblock 0 151 7 minecraft:oak_sign[rotation=8]
+# Place Display Link at 0,150,0 if not already, then use Create UI to link sign
+# and station; select Ride status by normal scroll selection and apply.
+# At operator station, observe native-body counts and output after settled tick.
+/fd validation availability
+# Re-entry: force only the saved route chunk (block coords -16..-1, 16..31).
+/forceload add -16 16
+/fd validation availability
+# Remove ticket, wait for the remote station tick/unload, and confirm return.
+/forceload remove -16 16
+/fd validation availability
