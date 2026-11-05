@@ -1,0 +1,24 @@
+--- ec2fcda/CarrierSeatBlock.java
++++ diagnostic/CarrierSeatBlock.java
+@@ -52,7 +52,20 @@
+   }
+ 
+   private boolean board(Level level, BlockPos pos, Player player) {
+-    if (!Boarding.canBoard(level, pos) || SeatBlock.isSeatOccupied(level, pos)) return false;
++    boolean available = Boarding.canBoard(level, pos);
++    boolean occupied = SeatBlock.isSeatOccupied(level, pos);
++    if (Boolean.getBoolean("fourthdimension.validation")) {
++      var binding = Boarding.at(level, pos);
++      boolean ready = binding != null && level instanceof net.minecraft.server.level.ServerLevel server
++          ? Boarding.ready(server, binding.vehicle()) : binding != null && binding.vehicle().boardingReady;
++      System.out.println("FD_SEAT_CLICK side=" + (level.isClientSide ? "client" : "server")
++          + " pos=" + pos + " body=" + dev.ryanhcode.sable.Sable.HELPER.getContaining(level, pos)
++          + " binding=" + (binding != null) + " ready=" + ready
++          + " restraints=" + (binding != null && binding.vehicle().restraints)
++          + " available=" + available + " occupied=" + occupied
++          + " hand=" + player.getMainHandItem().getItem());
++    }
++    if (!available || occupied) return false;
+     var binding = Boarding.at(level, pos);
+     var body = dev.ryanhcode.sable.Sable.HELPER.getContaining(level, pos);
+     var offset = pos.subtract(body.getPlot().getCenterBlock());
