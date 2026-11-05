@@ -1,0 +1,17 @@
+/fd validation board_locked Dev
+/data get entity Dev Pos
+/ride Dev dismount
+/attribute Dev minecraft:generic.gravity base set 0
+/tp Dev 300.5 185.3 126.5 0 35
+/fd validation availability
+/data get entity Dev Pos
+/fd validation availability
+/forceload add 300 120 300 160
+/fd validation availability
+/data get entity Dev RootVehicle
+/fd validation board_locked Dev
+/data get entity Dev Pos
+/fd validation availability
+/data merge block 300 183 120 {CoastersEngineeredEnergy:100000}
+/data get block 300 183 120 CoastersEngineeredEnergy
+/data get block 290 183 121 CoastersEngineeredSequence
