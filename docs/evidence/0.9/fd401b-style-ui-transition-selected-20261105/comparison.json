@@ -1,0 +1,35 @@
+{
+  "rail_count": 24,
+  "changed_rail": {
+    "from": [
+      -342,
+      210,
+      -148
+    ],
+    "to": [
+      -326,
+      210,
+      -148
+    ],
+    "revision_before": 1,
+    "revision_after": 5,
+    "appearance_before": {
+      "tint": 4886754,
+      "id": "coasterssimulatedextratypes:arrow_4d_dbl_spine"
+    },
+    "appearance_after": {
+      "tint": 4886754,
+      "id": "coasterssimulatedextratypes:arrow_4d"
+    }
+  },
+  "unchanged_fields_on_target": [
+    "from",
+    "to",
+    "family",
+    "variant",
+    "id",
+    "geometry_hash",
+    "profile"
+  ],
+  "other_rails_exactly_unchanged": 23
+}
