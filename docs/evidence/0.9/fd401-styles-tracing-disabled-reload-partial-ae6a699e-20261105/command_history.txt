@@ -1,0 +1,15 @@
+/tp @s -354.04 210 -179.147 112 40.5
+/tp @s -354.04 210 -179.147 112 60
+/tp @s -354.04 210 -179.147 112 50
+/tp @s -352.5 214 -179.5 112 40.5
+/tp @s -352.5 214 -179.5 112 70
+/tp @s -352.5 214 -179.5 112 55
+/data get entity @e[type=create:seat,limit=1,sort=nearest] Pos
+/tp @s -352.5 214 -179.5 112 28
+/tp @s -352.5 214 -179.5 112 43
+/tp @s -356.5 214 -181.5 112 60
+/tp @s -356.5 214 -181.5 112 90
+/execute if block -356 212 -181 fourthdimension:arrow_seat run say SEATFOUND -356 212 -181
+/execute if block -357 212 -182 fourthdimension:arrow_seat run say SEATFOUND -357 212 -182
+/execute if block -356 213 -181 fourthdimension:arrow_seat run say SEATFOUND -356 213 -181
+/tp @s -355.5 214 -180.5 112 90
