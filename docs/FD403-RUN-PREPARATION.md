@@ -118,17 +118,21 @@ mod list. A Gradle dependency report alone is not live-process evidence.
 Use a fresh named world and reserved port in that build directory's
 `runs/packaged-server`. Preserve any prior world first; never overwrite it.
 Record the nonsecret world settings, seed and survival mode, and document every
-setup command. Keep credentials out of evidence. Start the server, then the two
-clients in separate owned sessions after it reports ready:
+setup command. Keep credentials out of evidence. Start the server, then prepare
+the two client launch scripts outside their 3 GiB scopes after it reports ready:
 
 ```sh
 JAVA_HOME=/usr/lib/jvm/java-21-openjdk ./gradlew runServer -PfdPackaged -PfdValidation --no-daemon --console=plain
-# In each client session, DISPLAY must identify the reserved owned display.
-ALSOFT_DRIVERS=null JAVA_HOME=/usr/lib/jvm/java-21-openjdk ./gradlew runClient -PfdPackaged -PfdValidation -PfdConnect=127.0.0.1:<reserved-port> --no-daemon --console=plain
-ALSOFT_DRIVERS=null JAVA_HOME=/usr/lib/jvm/java-21-openjdk ./gradlew runObserver -PfdPackaged -PfdValidation -PfdConnect=127.0.0.1:<reserved-port> --no-daemon --console=plain
+JAVA_HOME=/usr/lib/jvm/java-21-openjdk ./gradlew createClientLaunchScript -PfdPackaged -PfdValidation -PfdConnect=127.0.0.1:<reserved-port> -PfdClientMaxHeap=1536M -PfdClientGameDirectory=/absolute/client-directory --no-daemon --console=plain
+JAVA_HOME=/usr/lib/jvm/java-21-openjdk ./gradlew createObserverLaunchScript -PfdPackaged -PfdValidation -PfdConnect=127.0.0.1:<reserved-port> -PfdClientMaxHeap=1536M -PfdObserverGameDirectory=/absolute/observer-directory --no-daemon --console=plain
 ```
 
-Replace the port placeholder before execution. Confirm the logs load the
+Use the generated direct Java scripts in separate agent-owned Xvfb sessions,
+each with its own 3 GiB Minecraft-only scope as required by `AGENTS.md`.
+Verify their Java 21 executable, 1536M maximum heap, game directory, and
+classpath before launch. Keep the Gradle launcher and daemon outside those
+scopes, and check host/cgroup headroom for both preparation and clients.
+Replace the port and directory placeholders before execution. Confirm the logs load the
 packaged addon archive. Do not enable automatic carrier fixtures or frozen-start
 flags. Validation availability/motion queries are observational; validation
 board/dispatch/style commands, `/fd demo`, direct vehicle creation, curve/NBT

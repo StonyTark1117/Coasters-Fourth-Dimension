@@ -85,19 +85,33 @@ server, and the user's work. If the available headroom is insufficient, wait or
 reduce concurrency rather than starting another client.
 
 Cap each `runClient` and `runObserver` game JVM heap at **1.5 GiB** with
-`-PfdClientMaxHeap=1536M`. Also put the entire client launch, including its
-Gradle launcher and child processes, in an owned cgroup or systemd scope with a
-**3 GiB total memory cap**. For example, after reserving display `:N` and an
-isolated game directory, launch from the project checkout with:
+`-PfdClientMaxHeap=1536M`. Put the **Minecraft client process and its children**
+in an owned cgroup or systemd scope with a **3 GiB total memory cap**. Do not
+put the Gradle launcher or daemon in that scope: a bounded launch was killed at
+3 GiB before the fixture command ran because Gradle and Minecraft shared the
+cap. Run the Java 21 Gradle preparation outside the client scope, using
+`createClientLaunchScript` or `createObserverLaunchScript` with
+`-PfdClientMaxHeap=1536M` and the intended game directory property
+(`-PfdClientGameDirectory=/absolute/path` for the client or
+`-PfdObserverGameDirectory=/absolute/path` for the observer), then run the generated direct Java
+launch script inside the scope. Confirm that the script uses the current build,
+the intended game directory, and a Java 21 executable.
+After reserving display `:N` and an isolated game directory, the scoped client
+step has this form:
 
 ```sh
 systemd-run --user --scope -p MemoryMax=3G -- \
   env DISPLAY=:N ALSOFT_DRIVERS=null JAVA_HOME=/usr/lib/jvm/java-21-openjdk \
-  ./gradlew --no-daemon runClient -PfdClientMaxHeap=1536M \
-  -PfdClientGameDirectory=/absolute/path
+  PATH=/usr/lib/jvm/java-21-openjdk/bin:$PATH \
+  /absolute/path/to/generated-direct-client-launch.sh
 ```
 
-Replace the display and path placeholders, and use `runObserver` where needed.
+Replace the display and script placeholders, and use the corresponding observer
+script where needed. The generated Java command must have a 1536M maximum heap;
+verify its JVM arguments before launch. Budget and monitor the separate Gradle
+preparation against current host/cgroup headroom too. For a memory-sensitive
+world replay, lower render and simulation distance before entering the copied
+test world, and record those settings with the run evidence.
 A per-process heap flag or `ulimit` alone does not enforce the process-group cap.
 Verify that the scope is active before relying on it; if no equivalent cap can
 be established, do not run the graphical client unbounded.
