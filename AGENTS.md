@@ -76,7 +76,16 @@ alive until its clients exit, then stop only the processes and display started
 for this task. Preserve requested logs, screenshots, and worlds before cleanup.
 See `docs/FD403-RUN-PREPARATION.md` for the packaged client and server procedure.
 
-# Client memory limits
+# Current client memory policy
+
+**The 3 GiB client process cap is retired.** For new runs, use a **6 GiB
+Minecraft-only scope by default**. Older chat instructions, compaction notes,
+launch scripts, and evidence describing a 3 GiB cap are historical run records;
+they do not set the current limit. Do not rerun a fixture at 3 GiB merely to
+make it "policy-conforming." If a task's measured client memory requires more
+than 6 GiB, raise the scope to the measured need with reasonable headroom after
+checking available host and cgroup memory. Agents may make that adjustment
+without waiting for separate approval; record the chosen limit and measurement.
 
 Before each client run, check current host memory (`free -h`), the active cgroup
 limit and usage (`memory.max` and `memory.current` when present), and other
@@ -84,21 +93,19 @@ Minecraft, Gradle, and agent processes. Budget for every simultaneous client,
 server, and the user's work. If the available headroom is insufficient, wait or
 reduce concurrency rather than starting another client.
 
-Cap each `runClient` and `runObserver` game JVM heap at **1.5 GiB** with
-`-PfdClientMaxHeap=1536M`. Put the **Minecraft client process and its children**
-in an owned cgroup or systemd scope with a **6 GiB total memory cap**. Do not
-put the Gradle launcher or daemon in that scope: a bounded launch was killed at
-3 GiB before the fixture command ran because Gradle and Minecraft shared the
+Use **1.5 GiB as the default game JVM heap** for `runClient` and `runObserver`
+with `-PfdClientMaxHeap=1536M`. Put the **Minecraft client process and its
+children** in an owned cgroup or systemd scope with the 6 GiB default limit.
+Do not put the Gradle launcher or daemon in that scope: a bounded launch was
+killed at 3 GiB before the fixture command ran because Gradle and Minecraft shared the
 cap. A later live client exceeded 3 GiB RSS while its 4 GiB scope approached
-the ceiling, so 3–4 GiB is too tight for this workload. Run the Java 21 Gradle
-preparation outside the client scope, using
+the ceiling. Run the Java 21 Gradle preparation outside the client scope, using
 `createClientLaunchScript` or `createObserverLaunchScript` with
 `-PfdClientMaxHeap=1536M` and the intended game directory property
 (`-PfdClientGameDirectory=/absolute/path` for the client or
 `-PfdObserverGameDirectory=/absolute/path` for the observer), then run the
 generated direct Java launch script inside the scope. Confirm that the script
-uses the current build,
-the intended game directory, and a Java 21 executable.
+uses the current build, the intended game directory, and a Java 21 executable.
 After reserving display `:N` and an isolated game directory, the scoped client
 step has this form:
 
@@ -110,8 +117,9 @@ systemd-run --user --scope -p MemoryMax=6G -- \
 ```
 
 Replace the display and script placeholders, and use the corresponding observer
-script where needed. The generated Java command must have a 1536M maximum heap;
-verify its JVM arguments before launch. Budget and monitor the separate Gradle
+script where needed. The generated Java command must use the selected heap
+limit (1536M by default); verify its JVM arguments before launch. Budget and
+monitor the separate Gradle
 preparation against current host/cgroup headroom too. For a memory-sensitive
 world replay, lower render and simulation distance before entering the copied
 test world, and record those settings with the run evidence.
@@ -119,7 +127,10 @@ A per-process heap flag or `ulimit` alone does not enforce the process-group cap
 Verify that the scope is active before relying on it; if no equivalent cap can
 be established, do not run the graphical client unbounded.
 
-Exceed either cap only when the specific test cannot run within it. Record the
-failure, the minimum higher limit needed, and a fresh host/cgroup memory check
-before retrying. Reduce other concurrent runs first and leave headroom for the
-user's desktop. Restore the default limits for later runs.
+Increase the game heap if Java heap pressure or an out-of-memory error shows
+that 1.5 GiB is insufficient; increasing the process scope alone does not fix
+Java heap exhaustion. Likewise, increase the process scope when measured RSS or
+cgroup usage approaches its limit, without waiting for an OOM kill. Check
+host/cgroup headroom, reduce concurrent runs first, and leave memory for the
+user's desktop. Record the reason, chosen limits, and observed peak, then use
+the defaults again for unrelated runs.

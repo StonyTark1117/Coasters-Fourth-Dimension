@@ -129,6 +129,9 @@ JAVA_HOME=/usr/lib/jvm/java-21-openjdk ./gradlew createObserverLaunchScript -Pfd
 
 Use the generated direct Java scripts in separate agent-owned Xvfb sessions,
 each with its own 6 GiB Minecraft-only scope as required by `AGENTS.md`.
+The former 3 GiB limit in older evidence and scripts is retired; use the
+current `AGENTS.md` policy and increase the scope further when measured client
+usage requires it and host/cgroup headroom permits.
 Verify their Java 21 executable, 1536M maximum heap, game directory, and
 classpath before launch. Keep the Gradle launcher and daemon outside those
 scopes, and check host/cgroup headroom for both preparation and clients.
