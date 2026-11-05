@@ -1,0 +1,24 @@
+/data get block -356 210 -180
+/tp @s -356 211 -181 0 35
+/data get entity @e[distance=..12,sort=nearest,limit=1]
+/data get entity @e[type=!minecraft:player,distance=..12,sort=nearest,limit=1]
+/tp @s -355.5 210 -179.5 0 0
+/tp @s -355.5 211 -179.5 -90 20
+/tp @s -355.5 211 -179.5 180 20
+/tp @s -355.5 211 -179.5 135 20
+/tp @s -355.5 211 -179.5 -135 20
+/tp @s -355.5 211 -179.5 -137 15
+/tp @s -355.5 211 -179.5 -130 10
+/fd validation board Dev
+/save-all flush
+/data get block -356 210 -180
+/fd validation board_locked Dev
+/execute if block -356 210 -179 minecraft:redstone_block run say verified station signal block at -356 210 -179
+/setblock -356 210 -179 air
+/data get block -356 210 -180
+/time set day
+/setblock -356 210 -179 minecraft:redstone_block
+/data get block -356 210 -180
+/fd validation motion Dev
+/fd validation
+/data get entity Dev RootVehicle

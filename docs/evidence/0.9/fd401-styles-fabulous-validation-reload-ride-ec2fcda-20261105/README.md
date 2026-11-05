@@ -1,0 +1,27 @@
+# FD401B FABULOUS Styles reload and occupied ride repeat
+
+This evidence bundle records a clean isolated-client repeat on Java 21 using the selected packaged mod from source build `ec2fcda`. The included JAR, `coasters-fourth-dimension-0.9.0-dev.27.jar`, has SHA-256 `656725bcbacc8f491de274c6c058027d0aaa67cfc6f893ba6d7e4a9eb24abbc7`. All 109 paths in `dependencies.sha256` were checked successfully against the launch classpath; the list includes NeoForge, Create, Sable, Track Styles, and the runtime libraries. `input-world.tar.gz` is the supplied final-world fixture (SHA-256 `d709e132519b394f25243095bc761df2163c6526c668f74fa3488826e700baa2`). `saved-world.tar.gz` is the resulting scratch world after unload and clean save/quit. The saved `level.dat` hash was `342219bf99eed3e86d635b4866a2481fa5cd2b63f4dae7b0ddbd401d7f8ee94f`.
+
+The client used isolated game directory `/tmp/fd401b-fabulous-20261105/game`, private task-owned Xvfb display `:253` (`fd401b-fabulous-xvfb-253.service`), and direct Java launch script `run-client.sh`. It ran under `run-p394756-i430352.scope` with `MemoryMax=3GiB`; the Java heap was `-Xmx1536M`. Scope usage peaked near 2.9 GiB without exceeding the cap. Host and active cgroup memory were checked before launch. The client exited cleanly and the Xvfb service was stopped afterward.
+
+`options.txt` records Fabulous graphics (`graphicsMode:2`) with render and simulation distances of 4. The log also contains Create's warning that some visual features are unavailable in Fabulous mode. The log records a resource reload at 01:48:31 and the Track Styles catalog inspecting 55 decorative model entries at 01:48:33, which followed the in-game F3+T input.
+
+The generated VM args had `fourthdimension.validation=true`, `snapshotTrace=false`, and `renderValidation=false`; the direct launch script also explicitly appended `-Dfourthdimension.validation=true`. Validation mode was needed because `/fd validation board_locked Dev` is only registered in that mode. It enabled periodic `FD_CLIENT` diagnostics and the validation helper. Snapshot tracing remained disabled during F3+T; this run is therefore not an all-diagnostics-disabled run.
+
+## Ride sequence and limits
+
+Normal seat targeting did not board the player: the targeting attempt reported `minecraft:smooth_stone`. Following the FD401 owner’s direction, the run used `/fd validation board_locked Dev`, which logged a successful mount with restraints closed. This is helper boarding evidence, not evidence of normal seat boarding. The Rotation Tool UI Capture action completed and the UI reported `Ready | Restraints closed`.
+
+Clicking UI Dispatch while the saved station signal remained powered immediately returned the UI to `Ready | Restraints closed`; this did not produce a sustained lap. For a separate fixture-assisted attempt, the run verified that redstone at `-356 210 -179` powered the station at `-356 210 -180`, removed that redstone block in the scratch world, then closed restraints and clicked UI Dispatch after the signal falling edge. The car moved with the player aboard. `/time set day` was used in the scratch world to make the occupied movement visible in the screenshot. After the lap, redstone was restored at the same coordinate; the station block reported `powered:1b`. `/fd validation motion Dev` then reported the carrier at approximately `(-349.5, 211.1, -184.2)`, near-zero velocity, and `capture=true`.
+
+At station capture, the Rotation Tool showed `arrow_controlled | Ready | Restraints closed`. The run opened restraints through the UI, closed the UI, and held Shift to dismount. `/data get entity Dev RootVehicle` returned `Found no elements matching RootVehicle`, and the log recorded `riding=false`. The world was saved through the game menu and the client exited cleanly.
+
+This repeat supports a FABULOUS-mode F3+T Styles reload, helper-boarded occupied movement, station capture after a scratch-world falling-edge dispatch, and UI restraint opening/unload. It does **not** demonstrate normal seat boarding or a sustained dispatch from the original powered state. Removing and restoring the redstone block and setting daytime were explicit scratch-fixture actions. It is one repeat and does not close the broader FD401 qualification or render-mode matrix.
+
+## Files
+
+- `console.log.gz` and `client.log.gz` are the full console and game logs from the validation/helper run. Plain copies are also included for convenient inspection. `baseline-console.log` and `baseline-client.log.gz` preserve the initial validation-disabled launch attempt.
+- `run-client.sh`, `clientRunClasspath.txt`, `clientRunVmArgs.txt`, and `clientRunProgramArgs.txt` preserve the direct Java launch and generated argument files. They refer to the original host build paths under `/tmp/fd401b-ec2fcda-build` and `/home/braydon/.gradle`; the full dependency JAR set is hashed, not copied into this bundle.
+- `command-history.txt` preserves commands entered in the scratch game. UI button actions are described above and shown in the selected screenshots where useful.
+- `screenshots/` contains selected startup/reload, helper boarding, UI, visible occupied motion, capture, restraint, unload, and saved-title evidence. The logs provide the command and diagnostic record for dispatch and capture.
+- `SHA256SUMS` covers every file in this bundle except the checksum list itself. `bundle-artifacts.sha256` records the packaged mod JAR, input archive, saved `level.dat`, launch script, console log, and representative screenshots.
