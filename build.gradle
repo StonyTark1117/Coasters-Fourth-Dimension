@@ -61,6 +61,7 @@ neoForge {
             systemProperty 'fourthdimension.carrierValidationMotionPaxChassis', project.findProperty('fdCarrierValidationMotionPaxChassis') ?: '0'
             systemProperty 'fourthdimension.carrierValidationRender', project.hasProperty('fdCarrierValidationRender').toString()
             systemProperty 'fourthdimension.carrierValidationPlayerRender', project.hasProperty('fdCarrierValidationPlayerRender').toString()
+            systemProperty 'fourthdimension.carrierValidationPlayerRenderAutoCamera', project.hasProperty('fdCarrierValidationPlayerRenderAutoCamera').toString()
             systemProperty 'fourthdimension.carrierValidationRecovery', project.hasProperty('fdCarrierValidationRecovery').toString()
             systemProperty 'fourthdimension.carrierValidationRecoveryMotion', project.hasProperty('fdCarrierValidationRecoveryMotion').toString()
             systemProperty 'fourthdimension.carrierValidationRecoveryBank', project.hasProperty('fdCarrierValidationRecoveryBank').toString()
@@ -152,6 +153,7 @@ neoForge {
             systemProperty 'fourthdimension.carrierValidationMotionPaxChassis', project.findProperty('fdCarrierValidationMotionPaxChassis') ?: '0'
             systemProperty 'fourthdimension.carrierValidationRender', project.hasProperty('fdCarrierValidationRender').toString()
             systemProperty 'fourthdimension.carrierValidationPlayerRender', project.hasProperty('fdCarrierValidationPlayerRender').toString()
+            systemProperty 'fourthdimension.carrierValidationPlayerRenderAutoCamera', project.hasProperty('fdCarrierValidationPlayerRenderAutoCamera').toString()
             systemProperty 'fourthdimension.carrierValidationRider', project.hasProperty('fdCarrierValidationRider').toString()
             systemProperty 'fourthdimension.carrierValidationSupportLoss', project.hasProperty('fdCarrierValidationSupportLoss').toString()
             systemProperty 'fourthdimension.carrierValidationSupportLossMotion', project.hasProperty('fdCarrierValidationSupportLossMotion').toString()

@@ -14,6 +14,7 @@ import dev.silvergold.simulatedcoasters.track.graph.CoasterPathTrackFrame;
 import java.util.EnumMap;
 import java.util.EnumSet;
 import java.util.UUID;
+import net.minecraft.client.CameraType;
 import net.minecraft.client.Minecraft;
 import net.minecraft.world.phys.Vec3;
 import net.neoforged.api.distmarker.Dist;
@@ -66,6 +67,7 @@ public final class CarrierTransformValidation {
   private static boolean recoveryTrainSeen;
   private static boolean recoveryTrainMotionSeen;
   private static boolean localRiderRenderObservationArmed;
+  private static CameraType playerRenderCameraBefore;
   private static boolean completed;
   private static net.minecraft.world.level.Level lastLevel;
 
@@ -76,6 +78,7 @@ public final class CarrierTransformValidation {
     if (!Boolean.getBoolean("fourthdimension.carrierValidation")) return;
     var minecraft = Minecraft.getInstance();
     if (minecraft.level != lastLevel) {
+      restorePlayerRenderCamera(minecraft);
       completeSamples = 0;
       waitedTicks = 0;
       maxAngleError = 0;
@@ -100,6 +103,7 @@ public final class CarrierTransformValidation {
       recoveryTrainSeen = false;
       recoveryTrainMotionSeen = false;
       localRiderRenderObservationArmed = false;
+      playerRenderCameraBefore = null;
       CarrierRenderMetrics.reset();
       completed = false;
       lastLevel = minecraft.level;
@@ -239,6 +243,7 @@ public final class CarrierTransformValidation {
       // carrier seat. The renderer observation below is therefore tied to a live binding.
       CarrierRenderMetrics.beginLocalRiderObservation();
       localRiderRenderObservationArmed = true;
+      enablePlayerRenderCamera(minecraft);
     }
     recoveryCycleSeen |= recoveryCycleReady(minecraft, data);
     boolean hadSeenSupportLoss = supportLossSeen;
@@ -470,6 +475,7 @@ public final class CarrierTransformValidation {
       EnumSet<Family> movedFamilies,
       EnumMap<Family, Integer> movedChassis) {
     completed = true;
+    restorePlayerRenderCamera(minecraft);
     LogUtils.getLogger()
         .info(
             "FD_CARRIER_VALIDATION passed samples={} target={} waitedTicks={} families={} "
@@ -747,6 +753,26 @@ public final class CarrierTransformValidation {
   /** Requires a real third-person local-player entity draw after the rider joins its carrier. */
   private static boolean playerRenderRequired() {
     return Boolean.getBoolean("fourthdimension.carrierValidationPlayerRender");
+  }
+
+  /**
+   * In the opt-in client probe, make vanilla submit the mounted local-player entity without
+   * requiring a synthetic key press. This is deliberately separate from the assertion itself so
+   * ordinary validation and production clients retain their selected camera.
+   */
+  private static void enablePlayerRenderCamera(Minecraft minecraft) {
+    if (!Boolean.getBoolean("fourthdimension.carrierValidationPlayerRenderAutoCamera")
+        || playerRenderCameraBefore != null)
+      return;
+    playerRenderCameraBefore = minecraft.options.getCameraType();
+    if (playerRenderCameraBefore == CameraType.FIRST_PERSON)
+      minecraft.options.setCameraType(CameraType.THIRD_PERSON_BACK);
+  }
+
+  private static void restorePlayerRenderCamera(Minecraft minecraft) {
+    if (playerRenderCameraBefore == null) return;
+    minecraft.options.setCameraType(playerRenderCameraBefore);
+    playerRenderCameraBefore = null;
   }
 
   /** The client must receive the exact fail-closed state while its local rider remains assigned. */
