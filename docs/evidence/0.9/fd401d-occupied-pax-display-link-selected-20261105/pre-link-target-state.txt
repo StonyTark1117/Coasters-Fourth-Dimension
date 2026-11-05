@@ -1,0 +1,9 @@
+$ tp Observer -854.5 145 83.5 90 48 
+ Teleported Observer to -854.500000, 145.000000, 83.500000
+
+$ data get entity Observer Pos 
+ Observer has the following entity data: [-854.5d, 145.0d, 83.5d]
+
+$ data get entity Dev RootVehicle 
+ Dev has the following entity data: {Entity: {Motion: [0.0d, 0.0d, 0.0d], FallDistance: 0.0f, "neoforge:attachments": {"create:minecart_controller": {Type: "EMPTY"}}, Pos: [2.04810335E7d, 127.0d, 2.04974165E7d], Fire: -1s, Invulnerable: 0b, id: "create:seat", Air: 300s, OnGround: 0b, PortalCooldown: 0, UUID: [I; 95582949, -1833023819, -1478314737, 1040085223], Rotation: [0.0f, 0.0f]}, Attach: [I; 95582949, -1833023819, -1478314737, 1040085223]}
+

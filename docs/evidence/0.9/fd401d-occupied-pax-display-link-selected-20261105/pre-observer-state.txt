@@ -1,0 +1,12 @@
+$ list 
+ There are 0 of a max of 6 players online: 
+
+$ data get block -856 144 83 
+ -856, 144, 83 has the following block data: {Speed: 16.0f, shuttle_carriage: [I; -511754035, 543902972, -1455308899, -1567015993], shuttle_distance: 89.62811111745779d, shuttle_maximum: 170.85272059183373d, shuttle_start: -233646220902232L, shuttle_station: 89.62811111745779d, Source: [I; -856, 143, 83], shuttle_end: -233646220083024L, shuttle_fault: "", shuttle_cars: [[I; 1593503894, -2073539702, -1612204399, 455797120], [I; 13391273, 2004304344, -2010068215, -582817586], [I; 65727498, -386708366, -1256879000, 862587591], [I; -1388562243, -207007979, -1644440961, 504383763]], shuttle_interrupted: "BOARDING", shuttle_cycles: 2, Network: {Capacity: 262144.0f, Size: 2, AddedStress: 8.0f, Id: -235295488003953L, Stress: 128.0f}, shuttle_phase: "BOARDING", x: -856, shuttle_pending_retention: 0b, y: 144, z: 83, id: "fourthdimension:shuttle_winch", shuttle_vehicle: [I; 1593503894, -2073539702, -1612204399, 455797120]}
+
+$ data get block -856 145 83 
+ -856, 145, 83 has the following block data: {TargetOffset: [I; 0, 1, 1], Owner: [I; 940439953, -167562164, -1601161573, -1389718966], components: {"create:click_to_link_data": {selected_dim: "minecraft:overworld", selected_pos: [I; -856, 146, 84]}}, HasAttachedComputer: 0b, x: -856, y: 145, TargetLine: 0, z: 83, id: "create:display_link", LinkedGauges: [], Source: {Label: "", Id: "fourthdimension:ride_fault"}}
+
+$ data get block -856 146 84 
+ -856, 146, 84 has the following block data: {back_text: {has_glowing_text: 0b, color: "black", messages: ['""', '""', '""', '""']}, is_waxed: 0b, x: -856, y: 146, z: 84, id: "minecraft:sign", front_text: {has_glowing_text: 0b, color: "black", messages: ['""', '""', '""', '""']}}
+

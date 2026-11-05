@@ -1,0 +1,12 @@
+$ attribute Observer minecraft:generic.gravity base set 0 
+ Base value for attribute Gravity for entity Observer set to 0.0
+
+$ tp Observer -854.5 142.4 83.5 90 0 
+ Teleported Observer to -854.500000, 142.400000, 83.500000
+
+$ data get entity Observer Pos 
+ Observer has the following entity data: [-854.5d, 142.4d, 83.5d]
+
+$ data get entity Observer attributes 
+ Observer has the following entity data: [{id: "minecraft:player.block_interaction_range", base: 4.5d}, {id: "minecraft:player.entity_interaction_range", base: 3.0d}, {id: "minecraft:generic.movement_speed", base: 0.10000000149011612d}, {id: "minecraft:generic.oxygen_bonus", base: 0.0d}, {id: "minecraft:generic.gravity", base: 0.0d}]
+

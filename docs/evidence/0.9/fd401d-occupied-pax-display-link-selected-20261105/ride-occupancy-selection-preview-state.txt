@@ -1,0 +1,6 @@
+$ data get block -856 145 83 
+ -856, 145, 83 has the following block data: {TargetOffset: [I; 0, 1, 1], Owner: [I; 940439953, -167562164, -1601161573, -1389718966], components: {"create:click_to_link_data": {selected_dim: "minecraft:overworld", selected_pos: [I; -856, 146, 84]}}, HasAttachedComputer: 0b, x: -856, y: 145, TargetLine: 0, z: 83, id: "create:display_link", LinkedGauges: [], Source: {Label: "", Id: "fourthdimension:ride_fault"}}
+
+$ data get block -856 146 84 
+ -856, 146, 84 has the following block data: {back_text: {has_glowing_text: 0b, color: "black", messages: ['""', '""', '""', '""']}, is_waxed: 0b, x: -856, y: 146, z: 84, id: "minecraft:sign", front_text: {has_glowing_text: 0b, color: "black", messages: ['""', '""', '""', '""']}}
+

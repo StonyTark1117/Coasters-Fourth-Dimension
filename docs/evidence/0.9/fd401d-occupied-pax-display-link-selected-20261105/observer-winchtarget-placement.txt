@@ -1,0 +1,8 @@
+$ gamemode creative Observer 
+ 
+$ tp Observer -854.5 144.5 83.5 90 0 
+ Teleported Observer to -854.500000, 144.500000, 83.500000
+
+$ data get entity Observer abilities 
+ Observer has the following entity data: {invulnerable: 1b, mayfly: 1b, instabuild: 1b, walkSpeed: 0.1f, mayBuild: 1b, flying: 0b, flySpeed: 0.05f}
+
