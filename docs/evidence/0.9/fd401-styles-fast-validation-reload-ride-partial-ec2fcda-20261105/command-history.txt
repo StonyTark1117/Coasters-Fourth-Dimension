@@ -1,0 +1,17 @@
+/tp @s -355.5 211 -179.5
+/tp @s -355.5 211 -179.5 180 0
+/tp @s -355.5 211 -179.5 -90 0
+/tp @s -355.5 211 -179.5 90 0
+/execute as @e[type=create:seat,distance=..10] run data get entity @s Pos
+/tp @s -355.5 211 -179.5 180 15
+/tp @s -355.5 211 -179.5 270 15
+/tp @s -355.5 211 -179.5 250 15
+/tp @s -355.5 211 -179.5 230 15
+/data get block 20481032 128 20487176
+/tp @s -355.5 211 -179.5 230 9
+/fd validation board Dev
+/fd validation board_locked Dev
+/execute if block -356 210 -179 minecraft:redstone_block run say FD401B VERIFIED station redstone block at -356 210 -179
+/setblock -356 210 -179 air
+/fd validation motion Dev
+/ validation motion Dev
