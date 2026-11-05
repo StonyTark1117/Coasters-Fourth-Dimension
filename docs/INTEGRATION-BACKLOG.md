@@ -242,7 +242,12 @@ the expansion pause remains in force until user approval.
 ### Certification and release evidence
 
 Use the existing FD901–FD904 categories for 0.9 and equivalent regression gates for
-each later expansion. A successful load is only the first check.
+each later expansion. Apply [VALIDATION-POLICY.md](VALIDATION-POLICY.md): carry
+accepted behavior forward, test changed integration paths, and do not expand
+these categories into every family × profile × interruption combination. The
+future-addon profile plan below applies only after that expansion is approved;
+it does not add runs to current stabilization. A successful load alone does not
+qualify mechanics or rider synchronization.
 
 | Gate | Required evidence for each advertised integration |
 | --- | --- |

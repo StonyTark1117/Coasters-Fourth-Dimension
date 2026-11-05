@@ -6,6 +6,13 @@ and the [FD403 roadmap entry](../ROADMAP.md#fd403-complete-crafting-and-teaching
 for the release criterion. Keep this acceptance on the standalone dependency
 profile; optional Track Styles and Engineered behavior has separate gates.
 
+Apply [VALIDATION-POLICY.md](VALIDATION-POLICY.md): the sequence below describes
+the required player capabilities, not a command to redo every step. Reuse already
+accepted crafting, input, mechanics, teaching and save/reopen records after a
+relevant-change review. Extend saved player-built routes when only the shaped or
+powered portion is missing. A fresh world and one uninterrupted all-steps session
+are not requirements; preserve enough provenance to connect the observations.
+
 ## Evidence already recorded
 
 | Family | Connected survival-client evidence | Still needed for this gate |
@@ -37,9 +44,9 @@ connected-client Chain selection, the installed span and its powered direction.
 
 ## Connected-client sequence
 
-1. Record the exact source commit, packaged JAR digest, Minecraft/mod versions,
+1. For a missing or affected case, record the source commit, packaged JAR digest, Minecraft/mod versions,
    installed mod list, world seed, game mode and any fixture commands. Use a
-   fresh survival world or separate non-overlapping plots. Supply upstream
+   retained survival world, a fresh world, or separate non-overlapping plots. Supply upstream
    materials through a documented fixture if needed, but supply no Fourth
    Dimension output items. Such a fixture proves crafting from ingredients;
    it does not prove unassisted material gathering.
@@ -90,13 +97,13 @@ downstream sample, with enough remaining route to stop safely. A before/after
 angular-speed comparison alone can also include gravity and preceding inducers,
 so identify those spans and the time between samples.
 
-The current-artifact teaching review above completes the common tooltip and
-Ponder review. For each row, open that family's item guidance and Ponder lessons through normal
-inventory controls, then follow the corresponding
-[family walkthrough](BUILDING.md#family-walkthroughs). Review all fifteen item
-tooltips and all nine unique scenes on the candidate artifact, checking readable
-captions and controls, family matching, the certified ordinary
-cart exception, controlled versus free motion, and the PAX boarding sequence.
+The recorded teaching review above completes the common tooltip and Ponder
+review. Carry it forward if the relevant resources and input paths are unchanged;
+do not reopen all fifteen tooltips or all nine scenes for a new JAR hash. For
+missing family walkthrough steps, use normal inventory controls and the
+[family walkthrough](BUILDING.md#family-walkthroughs). Review changed captions,
+controls or instructions for family matching, the ordinary cart exception,
+controlled versus free motion, and PAX boarding as applicable.
 The nine Ponder diagrams are illustrations; their playback alone does not prove
 physical operation. Record any misleading instruction or clipped UI, correct
 it, and repeat the affected review.

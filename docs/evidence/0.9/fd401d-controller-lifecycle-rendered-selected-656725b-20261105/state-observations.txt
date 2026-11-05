@@ -1,0 +1,27 @@
+FD401D selected-JAR controller lifecycle rendered-output run
+Date: 2026-11-05 (America/Phoenix)
+Observer: combined Track Styles 1.2.0 + Engineered 1.1.1, wearing Create goggles
+Station: (1000,149,1000), bound to the saved one-car Arrow chassis
+Display Link: (1001,149,1000), source fourthdimension:ride_fault, target sign (1000,151,1007), output Line 1
+
+Loaded baseline (after /forceload add 0 12 0 56; settled):
+  fd validation availability: chassis=1/8 carriers=2/20 assignments=0
+  Client snapshot: available=1, family=arrow_controlled, cars=1, capacity=4, occupied=0, phase=BOARDING, captured=1, restraints=0, fault="End of compatible track; capture and inspect the route", denial="Vehicle is outside station range"
+  Sign front/back: "End of compatible track; capture and inspect the route"
+
+Unavailable (after /forceload remove 0 12 0 56; settled):
+  fd validation availability: chassis=0/8 carriers=0/20 assignments=0
+  Client snapshot: available=0, family="", cars=0, capacity=0, occupied=0, phase="", fault/denial="Vehicle chassis is unavailable"
+  Sign front/back: "Vehicle chassis is unavailable"
+
+Re-entry (after /forceload add 0 12 0 56; settled):
+  fd validation availability: chassis=1/8 carriers=2/20 assignments=0
+  Client snapshot and sign return to the loaded baseline values above.
+
+Returned unavailable (after /forceload remove 0 12 0 56; settled):
+  fd validation availability: chassis=0/8 carriers=0/20 assignments=0
+  Client snapshot and sign return to the unavailable values above.
+  forceload query: No force loaded chunks were found in Overworld.
+
+At all four points: no rider assignments, no dispatch, no movement, no restraint transition.
+Server save-all flush completed; server logs report all dimensions saved. Observer disconnected and exited with Stopping!. Both client and server systemd runs reported Result=success.

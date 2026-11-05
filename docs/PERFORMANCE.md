@@ -47,8 +47,9 @@ and a procedural quad. Empty loading or transition stages do not count toward
 N. Early packaged render records predate the `geometryStages` counter and
 do not establish this stronger condition. Later exact `2c5d9a7`
 [FAST/FABULOUS records](evidence/0.9/fd401-render-modes-exact-2c5d9a7/README.md)
-pass it; the [current artifact](CURRENT-QUALIFICATION.md) still needs applicable
-render qualification. The gate does not require decorations or a shader. Every 100 client ticks
+pass it. Carry those results forward when the relevant rendering inputs are
+unchanged; [current qualification](CURRENT-QUALIFICATION.md) records later Styles
+acceptance. A different artifact hash alone does not require another 500 stages. The gate does not require decorations or a shader. Every 100 client ticks
 the log emits
 `FD_CLIENT_RENDER`, which includes cumulative render-stage, `geometryStages`
 and mesh-build counts, average nanoseconds for each, and cumulative in-range original-rail,
@@ -73,8 +74,11 @@ but it prevents an accelerated-Flywheel claim for shader-mode sampling.
 ## Representative park acceptance (FD904B)
 
 **Status: planned; no whole-frame/tick or memory baseline is claimed.** This
-protocol extends the existing subsystem checks. The 120,000 ns/invocation and
-6,000 ns/carrier limits above remain unchanged in all four native profiles.
+protocol extends the existing subsystem checks under
+[VALIDATION-POLICY.md](VALIDATION-POLICY.md). The 120,000 ns/invocation and
+6,000 ns/carrier limits above remain unchanged. Reuse accepted native profile
+checks unless a performance-relevant change affects them; they are not a
+four-profile prerequisite to every park measurement.
 
 ### Fixed workload and hardware
 
@@ -103,10 +107,14 @@ Use the same settings for baseline and candidate. Record the selected Flywheel
 backend. Supported shader runs remain separately labeled FD904A measurements.
 
 Follow [AGENTS.md](../AGENTS.md): project on the development host, Java 21,
-task-owned private Xvfb and explicit `DISPLAY`, 1536M client heap, an enforced
-3 GiB total client-launch cap, and memory/process preflight. Run one graphical
-client at a time for this benchmark; give the dedicated server its own world,
-port and recorded heap/process budget. Never move the test onto the user's desktop.
+task-owned private Xvfb and explicit `DISPLAY`, default 1536M client heap, and
+an enforced 6 GiB Minecraft-only scope with memory/process preflight. Prepare the
+direct Java 21 launch script outside that scope; Gradle must not share its cap.
+Raise heap/scope only as measured need and host headroom require, recording the
+choice. Run one graphical client at a time; give the dedicated server its own
+world, port and recorded budget. Historical successful runs at other limits
+retain their behavior evidence. Compare memory results only under comparable
+settings. Never move the test onto the user's desktop.
 If that private display exposes llvmpipe, record a separate software-renderer
 baseline; it cannot close the native-GPU target. An unavailable GPU context is a
 specific open FD904B item, not permission to use another agent's display.
@@ -118,50 +126,59 @@ specific open FD904B item, not permission to use another agent's display.
    usage/peak and GC pause data. Preserve raw timestamps and identify whether a
    collector measures CPU frame submission or actual presentation; record both
    when available. Existing `FD_CLIENT_RENDER` stage timings cannot substitute.
-2. Select the baseline JAR before testing the candidate. Warm the fully loaded
-   world for five minutes, then take three independent five-minute samples of
-   the fixed view/ride sequence for each profile. Publish median, p95, p99,
-   maximum, and sample count for frame and tick times; report frames over
-   50/100 ms and ticks over 50 ms separately. Preserve all samples, including
-   stalls, without deleting outliers. Isolate startup/loading in its own record.
-3. Freeze `park-baseline.json` with artifact/world/settings/hardware hashes and
-   measured budgets before the candidate comparison. For each profile, the
-   proposed regression ceilings are **110% of the median across the three
-   baseline runs' p95 and p99 values**, calculated separately for frame and tick
-   times. Freeze absolute numbers in milliseconds. These relative ceilings do
-   not make an already unplayable baseline acceptable: baseline review also
-   requires sustained 20-TPS operation (p95 tick work <=50 ms), and records the
-   observed frame-rate tier without promising a universal FPS target.
-4. Repeat the three samples on the candidate under identical conditions, then
-   run the normal mixed-family dispatch/capture workload continuously for
-   **30 minutes per profile** after warmup. Require all three comparison samples
-   and the sustained window to meet the frozen p95/p99 ceilings and tick budget.
-   Preserve the per-family view segments so a fast empty view cannot hide a bad
-   ride. A noisy or failed run remains evidence; diagnose it before a retry.
-5. For memory, freeze a plateau budget from the baseline's last two minutes of
-   each sample: candidate median post-GC live heap and RSS must be <=110% of
-   their baseline medians, remain inside declared process/cgroup caps, and show
-   no continuing increase across the sustained run's final three five-minute
-   windows. Record those window values and GC p95/p99/max. If no natural GC
-   provides comparable live-heap samples, use a declared identical endpoint
-   measurement protocol for both artifacts, outside timing windows; do not
-   infer a live-heap value from allocated heap or force GC only on one build.
-6. End with capture, unload, normal save/shutdown and a cold reopen. Retain the
-   same identities and one successful normal dispatch/capture after reopening.
-   No OOM, lost rider, save failure, accumulating orphan bodies or sustained
-   tick backlog is acceptable. Verify the launch scope stayed active for the run.
+2. Select one baseline artifact and reuse the fixed world/settings. Warm the
+   fully loaded world for five minutes, then take **one five-minute sample per
+   base/combined profile** of the view/ride sequence. Publish median, p95, p99,
+   maximum and sample count for frame and tick times; report frames over
+   50/100 ms and ticks over 50 ms separately. Preserve stalls and outliers;
+   isolate startup/loading in its own record. Repetitions are for a diagnosed
+   measurement issue, not a mandatory three-run ritual.
+3. Record `park-baseline.json` with identities, settings and hardware. Initial
+   acceptance requires sustained 20-TPS operation (p95 tick work <=50 ms), the
+   sustained/memory checks below, and publication of the observed frame-rate
+   tier and its limits. It does not claim a universal FPS target. Freeze later
+   regression ceilings at **110% of the baseline p95 and p99** for frame/tick
+   times, expressed in milliseconds. Do not raise a threshold to pass a regression.
+4. Run the mixed-family dispatch/capture workload for **one 30-minute combined
+   profile window** after warmup. Preserve per-family view segments so an empty
+   view cannot hide a bad ride. Base gets its five-minute sample; add a base
+   sustained window only if its code path differs in a performance-relevant way
+   or a measured problem requires it. Reuse an accepted sustained window on
+   later builds without relevant runtime/allocation/render/dependency changes.
+5. Record post-GC live heap, RSS, cgroup usage/peak and GC p95/p99/max. Stay
+   inside the declared budgets and show no continuing memory increase across
+   the sustained window's final three five-minute periods. Freeze the baseline
+   plateau values. For a later changed artifact, median post-GC heap and RSS
+   must be <=110% of comparable baseline medians. If natural GC is insufficient,
+   use the same declared endpoint measurement protocol on both artifacts,
+   outside timing windows; do not confuse allocated heap with live heap.
+6. End with capture, unload and normal save/shutdown. Reuse applicable cold-reopen
+   acceptance from FD902/FD903; add a reopen only for an uncovered or changed
+   persistence path. No OOM, lost rider, save failure, accumulating orphan bodies
+   or sustained tick backlog is acceptable. Verify the launch scope stayed active.
 
-The first full baseline establishes numbers; it does not itself close a regression
-comparison. Repeat the identical baseline artifact independently if it is also
-the first candidate, then compare later builds against the frozen record.
-Budget changes require a documented workload/hardware reason and a new baseline;
-never raise a threshold solely to turn a failing candidate green.
+**The initial baseline can also be the first accepted candidate.** Its one set
+of measurements closes initial measured acceptance when the criteria above pass;
+do not rerun the identical artifact to manufacture a baseline/candidate pair.
+A comparative improvement/regression claim requires an actual comparable second
+measurement, but that claim is not an extra prerequisite for initial acceptance.
+
+For later performance-relevant changes, take one comparable five-minute sample
+in each affected profile and compare to the frozen ceilings. Repeat the sustained
+window only for an affected sustained-load or memory path. A noisy or failed result
+remains evidence: diagnose before retrying, choose a bounded trial count, and
+report unresolved variance rather than launching indefinitely. Workload, collector,
+or hardware changes may need a new baseline; document the reason and keep the
+old one. Unrelated fixes and documentation/test-only commits do not restart this
+protocol. Existing subsystem checks remain separate from whole-frame measurements.
 
 ### Evidence and completion
 
-Retain `park-baseline.json`, candidate results, raw frame/tick/memory/GC samples,
-collector versions/source hashes, world/profile manifests, launch commands,
-screenshots identifying each view, exit codes and a machine-checkable budget
-comparison. Until those artifacts exist, FD904B stays planned/in progress.
+Retain `park-baseline.json`, raw frame/tick/memory/GC samples, collector versions,
+world/profile manifests, launch commands, view references and exit codes.
+For a later distinct candidate comparison, also retain its results and a
+machine-checkable budget comparison. Initial acceptance needs the baseline and
+sustained results only; a duplicate same-artifact comparison is not required.
+Until the applicable measurements exist, FD904B stays planned/in progress.
 This nine-chassis benchmark does not certify maximum-capacity parks: 64 vehicles
 and other admission limits are separate correctness boundaries, tested by FD901.

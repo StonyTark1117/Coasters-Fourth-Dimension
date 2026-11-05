@@ -1,0 +1,16 @@
+Run date: 2026-11-05, America/Phoenix
+Artifact path: docs/evidence/qualification/2026-11-05-ec2fcda/qualification.jar
+Artifact SHA-256: 656725bcbacc8f491de274c6c058027d0aaa67cfc6f893ba6d7e4a9eb24abbc7
+Loaded build copy: /tmp/fd401d-family-selected-20261105/build/libs/coasters-fourth-dimension-0.9.0-dev.27.jar (same SHA-256 as selected artifact)
+Profile: combined, Track Styles 1.2.0 + Engineered 1.1.1
+Minecraft 1.21.1; NeoForge 21.1.248; Create 6.0.10
+Java: /usr/lib/jvm/java-21-openjdk/bin/java, OpenJDK 21.0.13.0.3
+Observer JVM: -Xmx1536M, owned cgroup MemoryMax=3G, private Xvfb :596
+Server JVM: -Xmx1536M, separate owned service scope MemoryMax=4G
+Observer game directory: /tmp/fd401d-controller-visuals-selected-20261105/observer/game
+Server game directory: /tmp/fd401d-controller-visuals-selected-20261105/server/game
+Input: final-world.tar.gz from docs/evidence/0.9/fd401d-controller-lifecycle-selected-656725b-20261105; SHA-256 2dfaf65d8ef40f240d0e02c18f10bfa05fd5997c2ff0e8ba126d137a6657a11e
+Runtime classpath resolves to /tmp/fd401d-family-selected-20261105/build/libs/coasters-fourth-dimension-0.9.0-dev.27.jar, whose SHA-256 was verified equal to selected qualification.jar. Server log lists both optional mods and all mod versions.
+Server port 25701; RCON port 25702. Local-only properties and credentials were kept in /tmp and are not retained in this bundle.
+The operator first marked route chunks [0,0]–[0,3] loaded. Observer targeted the sign with a normal Display Link item, placed it adjacent to the remote station, opened its normal GUI, and selected Ride fault → Line 1. The observer wore Engineer's Goggles. Availability transitions used only forceload add/remove commands; no rider or dispatch fixture was introduced.
+Both systemd client/server runs reported Result=success. The observer disconnected and logged Stopping!. Server shutdown saved all dimensions and chunks. No Gradle build ran during the client session.

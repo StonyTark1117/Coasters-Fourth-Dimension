@@ -29,6 +29,23 @@ The former `codex/*` branch tips were reviewed and preserved in
 starting point for a new task. Do not delete a branch or worktree with unique
 commits or uncommitted changes without preserving its state first.
 
+# Test scope and stopping
+
+Follow [docs/VALIDATION-POLICY.md](docs/VALIDATION-POLICY.md) before scheduling
+tests. Reuse accepted evidence unless a relevant change or failure invalidates
+it; a new JAR hash, documentation edit, or test-only fixture does not reset the
+roadmap. Run the smallest affected check once, then stop when it passes. Full
+profile sweeps belong to release qualification, not every task. Do not turn
+historical evidence limitations into new acceptance requirements. After two
+inconclusive attempts with the same approach, diagnose before another launch.
+
+Closed roadmap cases stay closed across builds. Reopen only the specific case
+whose accepted behavior a named code/input change or new defect invalidates;
+do not reset its siblings or parent gate. A passing targeted fix closes that
+case again without restarting qualification. Combine compatible evidence to
+finish whole tasks; do not keep them open merely because individual records
+describe bounded “slices.”
+
 # Java runtime
 
 Use **Java 21** for every Gradle command, build, GameTest, server, and client run

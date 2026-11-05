@@ -1,5 +1,10 @@
 # Revised and PAX survival-client run preparation
 
+Before preparing a client, apply [VALIDATION-POLICY.md](VALIDATION-POLICY.md).
+This document explains how to run a needed check; it does not require replay of
+accepted cases or a fresh world for each task. Use current [AGENTS.md](../AGENTS.md)
+for Java, private display and client memory limits.
+
 Preparation only, inspected 2026-11-02 against release source `a18e87d` and the
 equivalent mechanics in evidence worktree `c5a713c`. No game process was launched
 for this report. This supplements [FD403 acceptance](FD403-ACCEPTANCE.md), not a

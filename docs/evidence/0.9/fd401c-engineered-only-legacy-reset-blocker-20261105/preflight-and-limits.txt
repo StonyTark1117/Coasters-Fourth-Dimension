@@ -1,0 +1,34 @@
+Java21:
+openjdk version "21.0.13.0.3" 2026-10-24
+OpenJDK Runtime Environment (build 21.0.13.0.3+1)
+OpenJDK 64-Bit Server VM (build 21.0.13.0.3+1, mixed mode, sharing)
+Gradle:
+
+------------------------------------------------------------
+Gradle 9.2.1
+------------------------------------------------------------
+
+Build time:    2025-11-17 13:40:48 UTC
+Revision:      30ecdc708db275e8f8769ea0620f6dd919a58f76
+
+Kotlin:        2.2.20
+Groovy:        4.0.28
+Host memory before second launch:
+               total        used        free      shared  buff/cache   available
+Mem:            61Gi        45Gi       5.3Gi        20Gi        32Gi        16Gi
+Swap:             0B          0B          0B
+Second-run client scope at launch: MemoryMax=3221225472 bytes (3 GiB; this was the retired policy and was used in error). The post-exit query below saw the inactive scope and default values:
+Client cgroup after exit:
+ActiveState=inactive
+MemoryCurrent=[not set]
+MemoryMax=infinity
+Xvfb at post-run check:
+ActiveState=active
+MainPID=900677
+The owned display was stopped after the evidence bundle was captured.
+Options:
+25:renderDistance:4
+26:simulationDistance:5
+JAR and source hashes:
+656725bcbacc8f491de274c6c058027d0aaa67cfc6f893ba6d7e4a9eb24abbc7  /home/braydon/Documents/Coasters: Fourth Dimension/docs/evidence/qualification/2026-11-05-ec2fcda/qualification.jar
+70de9c7aafa86233acaeb42c4e1d3cbbb902ad3d903fc37b8287ef6b80de4ab8  source-world.tar.gz

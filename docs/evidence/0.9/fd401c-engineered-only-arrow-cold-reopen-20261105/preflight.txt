@@ -1,0 +1,5 @@
+Open 1: 2026-11-05 11:22 local. `free -h` reported 17 GiB available; user@1000.service had no MemoryMax; active other Minecraft client was about 2.68 GB RSS. No competing FD401C client was active. Display :352 was unused and checked private with xdpyinfo. Java 21.0.13.0.3; Gradle 9.2.1 launcher/daemon both Java 21. Client systemd scope MemoryMax=3221225472; observed MemoryPeak=2684395520; Result=success.
+
+Open 2: 2026-11-05 11:27 local. `free -h` reported 19 GiB available; user@1000.service had no MemoryMax; active other Minecraft client was about 2.68 GB RSS. No competing FD401C client was active. Display :353 was unused and checked private with xdpyinfo. Java 21.0.13.0.3; Gradle 9.2.1 launcher/daemon both Java 21. Client systemd scope MemoryMax=3221225472; observed MemoryPeak=2707988480; Result=success.
+
+Both clients ran from the same isolated Engineered-only build/game directory and exact selected JAR. Xvfb services remained active through client exit and were stopped afterward. WAYLAND_DISPLAY was unset. The full client (not merely the game JVM) was within its 3 GiB scope; the Gradle launcher/daemon ran outside that scope.

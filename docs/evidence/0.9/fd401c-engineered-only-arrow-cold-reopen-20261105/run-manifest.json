@@ -1,0 +1,53 @@
+{
+  "objective": "Selected-JAR Engineered-only occupied Arrow cold reopen with braked station recovery",
+  "result": "PASS for cold reopen/restoration slice; no launch, FE interruption, or full circuit was attempted",
+  "date": "2026-11-05",
+  "source": {
+    "prior_evidence": "docs/evidence/0.9/fd401c-selected-engineered-only-arrow-cycle-20261105",
+    "world_archive_sha256": "49e92d7c84376736efe2eba133fc0319471f1eb6edeb6c253ca8c42a9fe59cba",
+    "selected_jar_sha256": "656725bcbacc8f491de274c6c058027d0aaa67cfc6f893ba6d7e4a9eb24abbc7",
+    "profile": "-PfdPackaged -PfdIntegrations=engineered -PfdFeNetwork -PfdValidation; Track Styles absent from runtime classpath",
+    "fixture_disclosure": "Inherited wired-FE Arrow route from the selected Engineered-only bundle; controller carried Pass=1, Step=1, PassReached=19.396587/20, PassShort=1. This was not fresh route construction or a fresh pass."
+  },
+  "runtime": {
+    "java": "OpenJDK 21.0.13.0.3",
+    "gradle": "9.2.1, Launcher JVM and Daemon JVM 21.0.13.0.3",
+    "minecraft": "1.21.1",
+    "neoforge": "21.1.248",
+    "engineered": "1.1.1",
+    "heap": "-Xmx1536M",
+    "scope_memory_max_bytes": 3221225472,
+    "open1_scope_memory_peak_bytes": 2684395520,
+    "open2_scope_memory_peak_bytes": 2707988480,
+    "open1_display": ":352, task-owned systemd Xvfb, verified with xdpyinfo",
+    "open2_display": ":353, task-owned systemd Xvfb, verified with xdpyinfo",
+    "game_directory": "/tmp/fd401c-engineered-only-cold-reopen-20261105/game",
+    "build_directory": "/tmp/fd401c-engineered-only-cold-reopen-20261105/build",
+    "launch": "Generated createClientLaunchScript from copied selected Engineered-only build; local wrapper adds -Xmx1536M. Both client runs were direct Java 21 invocations inside owned 3 GiB scopes. WAYLAND_DISPLAY was unset."
+  },
+  "open1": {
+    "initial_controller": "Pass=1, Step=1, Driving=0, PassShort=1; linked anchor had 100000 FE",
+    "seat": "F3 target at (-497,146,-618), fourthdimension:arrow_seat facing north",
+    "boarding": "Normal empty-hand click; FD_BOARDING_ASSIGN accepted=true",
+    "restraints": "Rotation Tool UI closed restraints; UI then reported arrow_controlled | Ready | Restraints closed",
+    "station_hold": "Validation motion at (-499.5,143.1,-617.5), capture=true; idle sample 27 seconds later had the same position and capture=true",
+    "shutdown": "Normal Save and Quit to Title, then Quit Game; logs show server stop and all world dimensions saved; process scope Result=success"
+  },
+  "checkpoint_before_cold_reopen": {
+    "archive": "checkpoint-assigned-restraints-closed.tar.gz",
+    "sha256": "8a0596576da56c6eeaacd23e300f7a10a54cd189c8ec0922d5afc25899a0f264",
+    "playerdata": "RootVehicle retained a create:seat record attached to the 4D seat at [20481032.5,127.0,20483080.5]"
+  },
+  "open2": {
+    "restoration": "FD_BOARDING_RESTORE queued assignments=1, followed by mount restraints=true restoring=true accepted=true and FD_BOARDING_RESTORE mounted",
+    "client": "FD_CLIENT diagnostics report riding=true and the expected carrier occupant",
+    "ui": "Rotation Tool UI after cold start reported arrow_controlled | Ready | Restraints closed",
+    "station_hold": "Validation motion immediately after reopen and after an additional 15-second idle interval both reported (-499.5,143.1,-617.5), capture=true; measured velocities were below 0.007 blocks/s. No dispatch or other movement command was issued.",
+    "normal_exit": "Opened restraints in the Rotation Tool UI, Shift-dismounted, then validation returned assignments=0. Playerdata after save has no RootVehicle. Normal Save and Quit to Title and Quit Game; all dimensions saved; process scope Result=success."
+  },
+  "final_world_archive": {
+    "file": "world-after-reopen-and-dismount.tar.gz",
+    "sha256": "f914bde0d7c98418095e0f56c697351c12ba5b9c9580720ae86d04bb4a791abe",
+    "tree_hashes": "world-after-reopen.sha256, 59 files"
+  }
+}

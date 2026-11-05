@@ -1,0 +1,36 @@
+Selected JAR: 656725bcbacc8f491de274c6c058027d0aaa67cfc6f893ba6d7e4a9eb24abbc7
+Profile: combined (Track Styles 1.2.0 + Engineered 1.1.1)
+World: copied input-world.tar.gz from fd401d-selected-family-telemetry-656725bc-20261105
+
+Read-only observations at the live dedicated server:
+
+Display Link BE (794,84,32):
+  id=create:display_link
+  Source={Label:"", Id:"fourthdimension:ride_occupancy"}
+  TargetOffset=[0,0,6]
+  selected sign=(794,84,38)
+
+Boarding station BE (794,83,32):
+  id=fourthdimension:boarding_station
+  vehicle UUID corresponds to the trailing two-car Arrow used in this record
+
+Occupied restored interval, after Dev rejoined:
+  /fd status: trailing Arrow UUID a6ea22d8-cd8d-41a2-8e86-9f0d9d4d0201, occupants=1
+  /data get block 794 84 38: front_text="1 / 8"; back_text="1 / 8"
+  screenshot: screenshots/occupied-sign-1-of-8.png
+
+After normal Shift dismount:
+  /fd status: same Arrow UUID, occupants=0
+  /data get entity Dev RootVehicle: no RootVehicle element
+  /data get block 794 84 38: front_text="0 / 8"; back_text="0 / 8"
+  screenshot: screenshots/unloaded-sign-0-of-8.png
+
+The first interval's exact Observer packet was recorded at `(794,83,32)`:
+  {available:1b,boarding:1b,capacity:8,captured:1b,cars:2,
+   denial:"All carriers must be captured and restraints closed before dispatch",
+   dispatch:0b,family:"arrow_controlled",fault:"",occupied:1,
+   phase:"BOARDING",restraints:0b,retained:0b}
+
+No state-changing RCON commands were used. Teleports were used only to position
+Observer for output capture. The ride's normal mount and Shift dismount were
+performed through the Dev client.

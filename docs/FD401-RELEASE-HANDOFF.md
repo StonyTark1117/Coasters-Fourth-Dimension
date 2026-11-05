@@ -1,5 +1,10 @@
 # FD401 evidence handoff for the 0.9 candidate
 
+**Historical observations, not a replay queue.** Follow
+[VALIDATION-POLICY.md](VALIDATION-POLICY.md) and the current roadmap next actions.
+Old “remaining,” exact-artifact, or repeat instructions below do not reopen
+accepted cases or require another full matrix. Preserve each run's actual limits.
+
 Current planning pointer (2026-11-05 UTC): [CURRENT-QUALIFICATION.md](CURRENT-QUALIFICATION.md)
 selects committed source `ec2fcda` and its clean hashed JAR as the qualification
 baseline after the PAX bind-restore fix. The frozen `8f370d0` and `2c5d9a7` records

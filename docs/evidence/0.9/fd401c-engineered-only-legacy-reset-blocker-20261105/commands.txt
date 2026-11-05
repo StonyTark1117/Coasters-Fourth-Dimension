@@ -1,0 +1,17 @@
+# Final reset-fixture retry: normal UI Dispatch produced Pass=1, Step=1,
+# PassReached=1.5614579916, PassShort=1, Driving=0; one disclosed prior-fixture pulse follows.
+/setblock 194 142 30 minecraft:air
+/setblock 194 142 23 minecraft:redstone_block
+# Allow one second for redstone sampling, then remove the pulse.
+/setblock 194 142 23 minecraft:air
+# Second launch with renderDistance=4/simulationDistance=5; world loaded and reset state verified:
+/data get block 194 142 22
+/tp Dev 197.5 145 31.5 180 40
+# Empty hotbar slot selected; F3 confirmed fourthdimension:legacy_seat at (197,145,31), facing south.
+# One normal empty-hand right-click; accepted=true and rider telemetry confirmed.
+# Rotation Tool hotbar slot 4; clicked Close restraints and reopened to verify closed.
+# Clicked normal UI Dispatch; Pass incremented 0->1, but PassShort=1, Driving=0, PassReached=1.5614579916.
+/data get block 194 142 22
+# One disclosed pulse as described above. Afterward, read-only snapshots:
+/data get block 194 142 22
+/data get entity Dev Pos

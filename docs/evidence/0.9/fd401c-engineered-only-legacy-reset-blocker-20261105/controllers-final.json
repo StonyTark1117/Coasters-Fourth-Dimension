@@ -1,0 +1,255 @@
+{
+  "region": "/tmp/fd401c-engineered-only-legacy-reset-retry-20261105/game/saves/FD401FamilyBare/region/r.0.0.mca",
+  "index": 44,
+  "chunk_local": [
+    12,
+    1
+  ],
+  "chunk": [
+    12,
+    1
+  ],
+  "be": "/block_entities[1]",
+  "x": [
+    3,
+    194
+  ],
+  "y": [
+    3,
+    142
+  ],
+  "z": [
+    3,
+    22
+  ],
+  "fields": {
+    "CoastersEngineeredDriving": {
+      "type": 1,
+      "value": 1
+    },
+    "CoastersEngineeredPrevPowered": {
+      "type": 1,
+      "value": 0
+    },
+    "CoastersEngineeredPassShort": {
+      "type": 1,
+      "value": 1
+    },
+    "CoastersEngineeredLastCart": {
+      "type": 10,
+      "value": {
+        "Speed": [
+          5,
+          0.00020378816407173872
+        ],
+        "Ticks": [
+          3,
+          200
+        ]
+      }
+    },
+    "CoastersEngineeredPassStarved": {
+      "type": 1,
+      "value": 0
+    },
+    "CoastersEngineeredStarving": {
+      "type": 1,
+      "value": 0
+    },
+    "CoastersEngineeredReturning": {
+      "type": 1,
+      "value": 0
+    },
+    "CoastersEngineeredStep": {
+      "type": 3,
+      "value": 1
+    },
+    "CoastersEngineeredAnchor": {
+      "type": 4,
+      "value": 54975581470862
+    },
+    "CoastersEngineeredPassReached": {
+      "type": 6,
+      "value": 7.475520133972168
+    },
+    "CoastersEngineeredPass": {
+      "type": 3,
+      "value": 1
+    },
+    "CoastersEngineeredSequence": {
+      "type": 9,
+      "value": [
+        10,
+        [
+          {
+            "Heading": [
+              8,
+              "ROLLING"
+            ],
+            "Kind": [
+              8,
+              "LAUNCH"
+            ],
+            "Value": [
+              3,
+              8
+            ]
+          },
+          {
+            "Heading": [
+              8,
+              "ROLLING"
+            ],
+            "Kind": [
+              8,
+              "STOP"
+            ],
+            "Value": [
+              3,
+              8
+            ]
+          },
+          {
+            "Heading": [
+              8,
+              "ROLLING"
+            ],
+            "Kind": [
+              8,
+              "END"
+            ],
+            "Value": [
+              3,
+              0
+            ]
+          }
+        ]
+      ]
+    },
+    "CoastersEngineeredPassTarget": {
+      "type": 3,
+      "value": 8
+    }
+  }
+}
+{
+  "region": "/tmp/fd401c-engineered-only-legacy-reset-retry-20261105/game/saves/FD401FamilyBare/region/r.-1.-2.mca",
+  "index": 768,
+  "chunk_local": [
+    0,
+    24
+  ],
+  "chunk": [
+    -32,
+    -40
+  ],
+  "be": "/block_entities[1]",
+  "x": [
+    3,
+    -506
+  ],
+  "y": [
+    3,
+    142
+  ],
+  "z": [
+    3,
+    -629
+  ],
+  "fields": {
+    "CoastersEngineeredDriving": {
+      "type": 1,
+      "value": 0
+    },
+    "CoastersEngineeredPrevPowered": {
+      "type": 1,
+      "value": 0
+    },
+    "CoastersEngineeredPassShort": {
+      "type": 1,
+      "value": 1
+    },
+    "CoastersEngineeredPassStarved": {
+      "type": 1,
+      "value": 0
+    },
+    "CoastersEngineeredStarving": {
+      "type": 1,
+      "value": 0
+    },
+    "CoastersEngineeredReturning": {
+      "type": 1,
+      "value": 0
+    },
+    "CoastersEngineeredStep": {
+      "type": 3,
+      "value": 1
+    },
+    "CoastersEngineeredAnchor": {
+      "type": 4,
+      "value": -137164078145394
+    },
+    "CoastersEngineeredPassReached": {
+      "type": 6,
+      "value": 19.39794921875
+    },
+    "CoastersEngineeredPass": {
+      "type": 3,
+      "value": 1
+    },
+    "CoastersEngineeredSequence": {
+      "type": 9,
+      "value": [
+        10,
+        [
+          {
+            "Heading": [
+              8,
+              "ROLLING"
+            ],
+            "Kind": [
+              8,
+              "LAUNCH"
+            ],
+            "Value": [
+              3,
+              20
+            ]
+          },
+          {
+            "Heading": [
+              8,
+              "ROLLING"
+            ],
+            "Kind": [
+              8,
+              "STOP"
+            ],
+            "Value": [
+              3,
+              12
+            ]
+          },
+          {
+            "Heading": [
+              8,
+              "ROLLING"
+            ],
+            "Kind": [
+              8,
+              "END"
+            ],
+            "Value": [
+              3,
+              0
+            ]
+          }
+        ]
+      ]
+    },
+    "CoastersEngineeredPassTarget": {
+      "type": 3,
+      "value": 20
+    }
+  }
+}

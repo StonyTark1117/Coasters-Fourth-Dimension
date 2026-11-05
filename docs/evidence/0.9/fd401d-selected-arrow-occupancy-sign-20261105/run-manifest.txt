@@ -1,0 +1,18 @@
+Run date: 2026-11-05
+Artifact/source: selected clean JAR from source commit ec2fcda3082f5d9ce729641a6394fdc5c5d67a36
+Qualification JAR SHA-256: 656725bcbacc8f491de274c6c058027d0aaa67cfc6f893ba6d7e4a9eb24abbc7
+Launched build JAR SHA-256: 656725bcbacc8f491de274c6c058027d0aaa67cfc6f893ba6d7e4a9eb24abbc7
+Profile: combined; Track Styles 1.2.0 and Engineered 1.1.1
+Input world archive: docs/evidence/0.9/fd401d-selected-family-telemetry-656725bc-20261105/input-world.tar.gz
+Input world SHA-256: 7d5b707ab3a83f440efe0ba3ba70516b7f72efa970709fac578aca430154442a
+Java: OpenJDK 21.0.13.0.3
+Gradle: 9.2.1; launcher and daemon JVM 21.0.13.0.3
+Server: loopback port 25697; RCON 25698; 4 GiB systemd service cap
+Dev client: -Xmx1536M; 3 GiB systemd scope cap; private Xvfb :594
+Observer client: -Xmx1536M; 3 GiB systemd scope cap; private Xvfb :593
+Dev game directory: /tmp/fd401d-arrow-occupancy-selected-20261105/dev/game
+Observer game directory: /tmp/fd401d-arrow-occupancy-selected-20261105/observer/game
+Server game directory: /tmp/fd401d-arrow-occupancy-selected-20261105/server/game
+Server first interval: normal Dev mount; Observer packet and goggles at occupied=1; server stopped/saved.
+Server reconnect interval: Dev assignment restored on reconnect; sign showed 1/8; normal Shift dismount; sign/status returned to zero; clients exited through UI; RCON stop saved all world dimensions.
+RCON use: read-only data/status queries and player teleports for capture positioning. No block edits or fixture changes.

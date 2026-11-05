@@ -1,0 +1,147 @@
+{
+  "world": "/home/braydon/.local/share/codex/tmp-archives/2026-11-05/fd401c/fd401c-engineered-only-legacy-reset-retry-20261105/game/saves/FD401FamilyBare",
+  "region": "/home/braydon/.local/share/codex/tmp-archives/2026-11-05/fd401c/fd401c-engineered-only-legacy-reset-retry-20261105/game/saves/FD401FamilyBare/region/r.0.0.mca",
+  "backup": "/home/braydon/.local/share/codex/tmp-archives/2026-11-05/fd401c/fd401c-engineered-only-legacy-reset-retry-20261105/game/saves/FD401FamilyBare/region/r.0.0.mca.before-reset",
+  "target": {
+    "id": "coastersengineered:linear_motor_controller",
+    "x": 194,
+    "y": 142,
+    "z": 22,
+    "chunk": [
+      12,
+      1
+    ],
+    "index": 44
+  },
+  "region_sha256_before": "75e0ee796fa023c918b347776e52938cd6cdb4a70aa28f1f4144fd886e2d720e",
+  "region_sha256_after": "87c7a9b399e95319d90cab6666788fb5ca19859ed3d7233793329edb9639dc4d",
+  "raw_chunk_sha256_before": "333c90bd8b9a6bd4816a4f5159f376b4f82811531163718a1e2e188182f44268",
+  "raw_chunk_sha256_after": "6e61c272024882104d1a9fa2737315c545a4e713ee22207524dbc8c745584338",
+  "raw_chunk_bytes_before": 48307,
+  "raw_chunk_bytes_after": 48307,
+  "roundtrip_byte_identical": true,
+  "before": {
+    "CoastersEngineeredPass": {
+      "type": 3,
+      "value": 1
+    },
+    "CoastersEngineeredStep": {
+      "type": 3,
+      "value": 1
+    },
+    "CoastersEngineeredPassReached": {
+      "type": 6,
+      "value": 7.6153998374938965
+    },
+    "CoastersEngineeredPassShort": {
+      "type": 1,
+      "value": 0
+    },
+    "CoastersEngineeredPassStarved": {
+      "type": 1,
+      "value": 0
+    },
+    "CoastersEngineeredDriving": {
+      "type": 1,
+      "value": 1
+    },
+    "CoastersEngineeredStarving": {
+      "type": 1,
+      "value": 0
+    },
+    "CoastersEngineeredReturning": {
+      "type": 1,
+      "value": 0
+    },
+    "CoastersEngineeredPrevPowered": {
+      "type": 1,
+      "value": 0
+    }
+  },
+  "after": {
+    "CoastersEngineeredPass": {
+      "type": 3,
+      "value": 0
+    },
+    "CoastersEngineeredStep": {
+      "type": 3,
+      "value": 0
+    },
+    "CoastersEngineeredPassReached": {
+      "type": 6,
+      "value": 0.0
+    },
+    "CoastersEngineeredPassShort": {
+      "type": 1,
+      "value": 0
+    },
+    "CoastersEngineeredPassStarved": {
+      "type": 1,
+      "value": 0
+    },
+    "CoastersEngineeredDriving": {
+      "type": 1,
+      "value": 0
+    },
+    "CoastersEngineeredStarving": {
+      "type": 1,
+      "value": 0
+    },
+    "CoastersEngineeredReturning": {
+      "type": 1,
+      "value": 0
+    },
+    "CoastersEngineeredPrevPowered": {
+      "type": 1,
+      "value": 0
+    }
+  },
+  "preserved_sequence": [
+    {
+      "Heading": [
+        8,
+        "ROLLING"
+      ],
+      "Kind": [
+        8,
+        "LAUNCH"
+      ],
+      "Value": [
+        3,
+        8
+      ]
+    },
+    {
+      "Heading": [
+        8,
+        "ROLLING"
+      ],
+      "Kind": [
+        8,
+        "STOP"
+      ],
+      "Value": [
+        3,
+        8
+      ]
+    },
+    {
+      "Heading": [
+        8,
+        "ROLLING"
+      ],
+      "Kind": [
+        8,
+        "END"
+      ],
+      "Value": [
+        3,
+        0
+      ]
+    }
+  ],
+  "preserved_anchor": 54975581470862,
+  "world_at_run": "/tmp/fd401c-engineered-only-legacy-reset-retry-20261105/game/saves/FD401FamilyBare",
+  "region_at_run": "/tmp/fd401c-engineered-only-legacy-reset-retry-20261105/game/saves/FD401FamilyBare/region/r.0.0.mca",
+  "backup_at_run": "/tmp/fd401c-engineered-only-legacy-reset-retry-20261105/game/saves/FD401FamilyBare/region/r.0.0.mca.before-reset"
+}

@@ -1,0 +1,65 @@
+# Run preparation
+
+# Source artifacts copied into a new workspace-owned game directory:
+#   docs/evidence/0.9/fd401c-selected-engineered-only-arrow-cycle-20261105/final-world.tar.gz
+#   docs/evidence/0.9/fd401c-selected-engineered-only-arrow-cycle-20261105/selected.jar
+# Source SHA256SUMS verified with sha256sum -c before use.
+
+# Build/output tree was copied to /tmp/fd401c-engineered-only-cold-reopen-20261105/build;
+# exact selected.jar was placed at build/libs/coasters-fourth-dimension-0.9.0-dev.27.jar.
+export JAVA_HOME=/usr/lib/jvm/java-21-openjdk
+export PATH="$JAVA_HOME/bin:$PATH"
+./gradlew createClientLaunchScript \
+  -PfdBuildDirectory=/tmp/fd401c-engineered-only-cold-reopen-20261105/build \
+  -PfdPackaged -PfdIntegrations=engineered -PfdFeNetwork -PfdValidation \
+  -PfdWorld=FD401Stop12 -PfdClientMaxHeap=1536M \
+  -PfdClientGameDirectory=/tmp/fd401c-engineered-only-cold-reopen-20261105/game \
+  -x jar -x compileJava --no-daemon --offline --console=plain \
+  -Dorg.gradle.jvmargs=-Xmx1G
+
+# The generated direct client script did not encode an Xmx itself, so the task-owned
+# wrapper adds exactly -Xmx1536M to its Java 21 invocation. See run-client-1536M.sh.
+
+# Open 1: private X server stayed alive through complete client exit.
+systemd-run --user --unit=fd401c-engineered-cold-xvfb352.service \
+  --property=Restart=no /usr/bin/Xvfb :352 -screen 0 1280x720x24 -nolisten tcp
+systemd-run --user --scope --unit=fd401c-engineered-cold-client.scope \
+  -p MemoryMax=3221225472 -- env -u WAYLAND_DISPLAY DISPLAY=:352 \
+  XDG_SESSION_TYPE=x11 ALSOFT_DRIVERS=null JAVA_HOME=/usr/lib/jvm/java-21-openjdk \
+  PATH=/usr/lib/jvm/java-21-openjdk/bin:$PATH \
+  /tmp/fd401c-engineered-only-cold-reopen-20261105/run-client-1536M.sh
+
+# In-game open-1 operations (all on the copied inherited world):
+# 1. Read-only: /data get block -506 142 -629
+# 2. Read-only: /data get block -500 142 -630 CoastersEngineeredEnergy
+# 3. Teleport to documented operator boarding pose:
+#      /tp Dev -496.5 146 -617.5 0 90
+#    F3 target at Block -497 146 -618 identified fourthdimension:arrow_seat facing north.
+# 4. Select an empty hotbar slot and right-click once; log accepted=true.
+# 5. Hold Rotation Tool; right-click to open Fourth Dimension UI; click Close restraints;
+#    reopen UI to verify “arrow_controlled | Ready | Restraints closed”.
+# 6. /fd validation motion Dev; wait 27 seconds without operator input; query again.
+#    Both returned the same station position (-499.5,143.1,-617.5), capture=true.
+# 7. Escape > Save and Quit to Title > Quit Game; verify server saved all dimensions
+#    and client scope exited before checkpoint copy.
+
+# Open 2: same isolated game directory, exact JAR, Engineered-only arguments, fresh Xvfb.
+systemd-run --user --unit=fd401c-engineered-cold-xvfb353.service \
+  --property=Restart=no /usr/bin/Xvfb :353 -screen 0 1280x720x24 -nolisten tcp
+systemd-run --user --scope --unit=fd401c-engineered-cold-reopen-client.scope \
+  -p MemoryMax=3221225472 -- env -u WAYLAND_DISPLAY DISPLAY=:353 \
+  XDG_SESSION_TYPE=x11 ALSOFT_DRIVERS=null JAVA_HOME=/usr/lib/jvm/java-21-openjdk \
+  PATH=/usr/lib/jvm/java-21-openjdk/bin:$PATH \
+  /tmp/fd401c-engineered-only-cold-reopen-20261105/run-client-1536M.sh
+
+# In-game open-2 observations/operations:
+# 1. No mount or movement command at login. Log: FD_BOARDING_RESTORE queued assignments=1,
+#    restraints=true restoring=true accepted=true, then restore mounted. Client diagnostics
+#    show riding=true; Rotation Tool UI shows Ready | Restraints closed.
+# 2. Read-only /fd validation motion Dev; wait 15 seconds without operator input; query again.
+#    Both position samples remained (-499.5,143.1,-617.5), capture=true.
+# 3. Open restraints via the UI; Shift-dismount; read-only /fd validation availability
+#    returned assignments=0.
+# 4. Escape > Save and Quit to Title > Quit Game; verify complete save/process exit.
+
+# Both displays and whole-client scopes were task-owned and stopped after their clients.
