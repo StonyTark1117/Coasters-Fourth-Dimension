@@ -1,0 +1,5 @@
+Command: ./gradlew runGameTestServer -PfdIntegrations=styles,engineered --console=plain
+Java: /usr/lib/jvm/java-21-openjdk/bin/java, OpenJDK 21.0.13
+Gradle: 9.2.1, launcher and daemon both Java 21
+Build output: /tmp/fourthdimension-7af457c2/build
+Test log: gametest-latest.log.gz
