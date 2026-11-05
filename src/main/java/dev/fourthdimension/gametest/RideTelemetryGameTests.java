@@ -40,6 +40,21 @@ public final class RideTelemetryGameTests {
   public static void loadedControllerPublishesMissingNativeBodies(GameTestHelper helper) {
     var level = helper.getLevel();
     var container = SubLevelContainer.getContainer(level);
+    // Dispatch authorizes a level Arrow ride; apply test-controlled velocity to exercise motion.
+    var moving = new java.util.concurrent.atomic.AtomicBoolean(false);
+    var chassisId = new UUID[1];
+    helper.onEachTick(
+        () -> {
+          if (!moving.get()) return;
+          var body = (ServerSubLevel) container.getSubLevel(chassisId[0]);
+          if (body == null) return;
+          var pipeline = container.physicsSystem().getPipeline();
+          pipeline.addLinearAndAngularVelocity(
+              body,
+              new org.joml.Vector3d(0, 0, 2)
+                  .sub(pipeline.getLinearVelocity(body, new org.joml.Vector3d())),
+              new org.joml.Vector3d());
+        });
     var from = new BlockPos(-750, 180, 600);
     var to = from.offset(0, 0, 64);
     for (int x = -48; x <= -46; x++)
@@ -68,7 +83,8 @@ public final class RideTelemetryGameTests {
                   level,
                   TrackDesign.ARROW,
                   new CoasterPathTrackFrame.GraphHit(
-                      CoasterPathGraphManager.sampleEdgePosition(level, edge, t), edge, t));
+                  CoasterPathGraphManager.sampleEdgePosition(level, edge, t), edge, t));
+          chassisId[0] = car.chassis;
           station.vehicle = car.chassis;
           helper.runAtTickTime(
               100,
@@ -76,22 +92,107 @@ public final class RideTelemetryGameTests {
                 helper.assertTrue(Boarding.ready(level, car), "Availability fixture not ready");
                 helper.assertTrue(station.telemetry().available(), "Loaded station was not live");
                 outputs(helper, station, station.telemetry());
-                missingBody(helper, station, car, car.carriers.getFirst().body, "carrier", () ->
-                    missingBody(helper, station, car, car.chassis, "chassis", () -> {
-                      for (var carrier : car.carriers)
-                        container.removeSubLevel(
-                            container.getSubLevel(carrier.body), SubLevelRemovalReason.REMOVED);
-                      container.removeSubLevel(
-                          container.getSubLevel(car.chassis), SubLevelRemovalReason.REMOVED);
-                      FoundationData.get(level).vehicles.remove(car.chassis);
-                      FoundationData.get(level).rails.remove(rail);
-                      for (var pos : List.of(from, to, station.getBlockPos(), station.getBlockPos().above()))
-                        level.removeBlock(pos, false);
-                      for (int x = -48; x <= -46; x++)
-                        for (int z = 37; z <= 42; z++) level.setChunkForced(x, z, false);
-                      System.out.println("FD_TELEMETRY_CONTROLLER_AVAILABILITY complete missing=carrier,chassis restored=2 sources=6 goggles=2");
-                      helper.succeed();
-                    }));
+                missingBody(
+                    helper,
+                    station,
+                    car,
+                    car.carriers.getFirst().body,
+                    "carrier",
+                    () ->
+                        missingBody(
+                            helper,
+                            station,
+                            car,
+                            car.chassis,
+                            "chassis",
+                            () -> {
+                              helper.assertTrue(
+                                  station.telemetry().available(),
+                                  "Telemetry did not recover before dispatch");
+                              var mappedBeforeRestraints =
+                                  FoundationData.get(level).vehicles.get(car.chassis);
+                              VehicleOperations.restraints(level, car, true);
+                              System.out.println(
+                                  "FD_TELEMETRY_REENTRY restraints-set"
+                                      + " sameInstance=" + (mappedBeforeRestraints == car)
+                                      + " car=" + car.restraints
+                                      + " mapped=" + mappedBeforeRestraints.restraints);
+                              helper.runAfterDelay(
+                                  5,
+                                  () -> {
+                                    var mappedAtRefresh =
+                                        FoundationData.get(level).vehicles.get(car.chassis);
+                                    var ready = station.telemetry();
+                                    System.out.println(
+                                        "FD_TELEMETRY_REENTRY before-dispatch"
+                                            + " sameInstance=" + (mappedAtRefresh == car)
+                                            + " car=" + car.restraints
+                                            + " mapped=" + mappedAtRefresh.restraints
+                                            + " telemetry=" + ready);
+                                    helper.assertTrue(
+                                        ready.available() && ready.dispatchReady(),
+                                        "Restored Arrow station did not regain dispatch authority: "
+                                            + ready);
+                                    outputs(helper, station, ready);
+                                    var start =
+                                        new org.joml.Vector3d(
+                                            CoasterCartResolve.cartCenterWorld(
+                                                container.getSubLevel(car.chassis)));
+                                    RideOperations.request(
+                                        level,
+                                        station.getBlockPos(),
+                                        car.chassis,
+                                        RideOperations.Request.DISPATCH);
+                                    helper.assertTrue(
+                                        !car.stopping
+                                            && car.carriers.stream().noneMatch(c -> c.capture),
+                                        "Restored dispatch did not release the stopped carrier");
+                                    moving.set(true);
+                                    var startAtDispatch = start;
+                                    helper.runAfterDelay(
+                                        20,
+                                        () -> {
+                                          moving.set(false);
+                                          var restoredBody = container.getSubLevel(car.chassis);
+                                          helper.assertTrue(
+                                              restoredBody != null,
+                                              "Restored chassis disappeared after dispatch");
+                                          double travel =
+                                              CoasterCartResolve.cartCenterWorld(restoredBody)
+                                                  .distance(startAtDispatch);
+                                          helper.assertTrue(
+                                              travel > 0.05,
+                                              "Restored Arrow did not move after accepted dispatch: "
+                                                  + travel);
+                                          for (var carrier : car.carriers) {
+                                            var body = container.getSubLevel(carrier.body);
+                                            if (body != null)
+                                              container.removeSubLevel(
+                                                  body, SubLevelRemovalReason.REMOVED);
+                                          }
+                                          container.removeSubLevel(
+                                              restoredBody, SubLevelRemovalReason.REMOVED);
+                                          FoundationData.get(level).vehicles.remove(car.chassis);
+                                          FoundationData.get(level).rails.remove(rail);
+                                          for (var pos :
+                                              List.of(
+                                                  from,
+                                                  to,
+                                                  station.getBlockPos(),
+                                                  station.getBlockPos().above()))
+                                            level.removeBlock(pos, false);
+                                          for (int x = -48; x <= -46; x++)
+                                            for (int z = 37; z <= 42; z++)
+                                              level.setChunkForced(x, z, false);
+                                          System.out.println(
+                                              "FD_TELEMETRY_CONTROLLER_AVAILABILITY complete"
+                                                  + " missing=carrier,chassis restored=2"
+                                                  + " sources=6 goggles=2 recoveredDispatch=true"
+                                                  + " moved=" + travel);
+                                          helper.succeed();
+                                        });
+                                  });
+                            }));
               });
         });
   }

@@ -1,0 +1,10 @@
+Captured named-test output:
+Running 1 tests...
+Starting batch: fourthdimension_telemetry:0
+FD_TELEMETRY_CONTROLLER_AVAILABILITY missing=carrier available=false dispatchReady=false dispatchRejected=true foundationStable=true message=Vehicle or carrier unavailable sources=6 goggles=true packet=true
+FD_TELEMETRY_CONTROLLER_AVAILABILITY restored=carrier available=true
+FD_TELEMETRY_CONTROLLER_AVAILABILITY missing=chassis available=false dispatchReady=false dispatchRejected=true foundationStable=true message=Vehicle chassis is unavailable sources=6 goggles=true packet=true
+FD_TELEMETRY_CONTROLLER_AVAILABILITY restored=chassis available=true
+FD_TELEMETRY_REENTRY restraints-set sameInstance=true car=true mapped=true
+FD_TELEMETRY_REENTRY before-dispatch sameInstance=true car=true mapped=true telemetry=RideTelemetry[available=true, family=arrow_controlled, cars=1, occupied=0, capacity=4, captured=true, boardingReady=true, restraintsClosed=true, retained=false, dispatchReady=true, dispatchDenial=, fault=, phase=BOARDING]
+FD_TELEMETRY_CONTROLLER_AVAILABILITY complete missing=carrier,chassis restored=2 sources=6 goggles=2 recoveredDispatch=true moved=1.776061443337087

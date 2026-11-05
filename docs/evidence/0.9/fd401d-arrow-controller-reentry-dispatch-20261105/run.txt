@@ -1,0 +1,27 @@
+Checkout: /home/braydon/Documents/Coasters: Fourth Dimension
+Branch: main
+Selected clean JAR: docs/evidence/qualification/2026-11-05-ec2fcda/qualification.jar
+Selected clean JAR SHA-256: 656725bcbacc8f491de274c6c058027d0aaa67cfc6f893ba6d7e4a9eb24abbc7
+Focused overlay: /tmp/fd401d-reentry-dispatch-20261105/focused-test-overlay-movement.jar
+Focused overlay SHA-256: b959b57014f4ed51b86821693c7045c604a4f54a49f76b692145d08074b663e3
+Overlay entry comparison: 394 entries; only dev/fourthdimension/gametest/RideTelemetryGameTests.class differs from the selected JAR.
+Java: OpenJDK 21.0.13.0.3
+Gradle: 9.2.1
+Profiles: Track Styles 1.2.0, Engineered 1.1.1, Create Addition FE network; validation enabled.
+Dedicated server JVM heap: 1536M. Gradle/server scope MemoryMax: 4G.
+Game directory: /tmp/fd401d-reentry-dispatch-20261105/movement-server/game
+Game port: 25700. RCON port: 25699.
+
+Compile command:
+JAVA_HOME=/usr/lib/jvm/java-21-openjdk PATH=/usr/lib/jvm/java-21-openjdk/bin:$PATH ./gradlew jar -PfdBuildDirectory=/tmp/fd401d-reentry-dispatch-20261105/compilebuild --no-daemon --offline --console=plain
+
+Dedicated server command:
+JAVA_HOME=/usr/lib/jvm/java-21-openjdk PATH=/usr/lib/jvm/java-21-openjdk/bin:$PATH ./gradlew runServer -PfdBuildDirectory=/tmp/fd401d-reentry-dispatch-20261105/compilebuild -PfdPackaged -PfdIntegrations=styles,engineered -PfdFeNetwork -PfdValidation -PfdNamedGameTestServer -PfdServerGameDirectory=/tmp/fd401d-reentry-dispatch-20261105/movement-server/game -PfdServerMaxHeap=1536M -x jar --no-daemon --offline --console=plain -Dorg.gradle.jvmargs=-Xmx2G
+
+RCON commands:
+RCON `test run loadedcontrollerpublishesmissingnativebodies`
+RCON `stop`
+
+Result from the server console: exactly one named test ran. The test passed after checking carrier unavailable → restored, chassis unavailable → restored, and then the restored Arrow's map-backed vehicle instance (`sameInstance=true`, restraints true) and station telemetry (`available=true`, `dispatchReady=true`). Accepted dispatch cleared `stopping` and carrier capture. The test then applied controlled +Z physics velocity for 20 ticks and measured 1.776061443337087 blocks of physical travel. The level track has no propulsion of its own, so this controlled physics input tests motion after accepted dispatch; it does not claim dispatch provides propulsion or that this was a player-operated ride. The dedicated server stopped cleanly; Gradle reported BUILD SUCCESSFUL.
+
+The earlier diagnostic run without velocity input failed only at the movement assertion (2.14e-8 blocks), after the re-entry readiness and dispatch assertions passed. It is retained in the temporary run directory, not as qualification evidence.
