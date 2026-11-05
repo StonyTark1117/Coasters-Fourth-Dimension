@@ -29,6 +29,13 @@ chassis are at Y≈89.26. The saved rider assignment remains on `7b7f0154`.
 The client action, absent curve and fault occurred; native consist integrity
 did not survive even this shorter interval.
 
+Source inspection after shutdown found a timing gap to investigate:
+`CarrierRuntime.tick` calls `ShuttleRuntime.tick` before it detects missing
+matching support and calls `VehicleOperations.failForLostSupport`. The winch
+can therefore receive one pre-physics callback after support removal before
+the matching-support fault is applied. The saved world does not establish
+that this gap alone caused the later unlink.
+
 The two clients together exhausted the available host RAM during the hold.
 The server performed `save-all flush` and `stop`, and the clients were stopped
 to release memory. The compressed [Dev](dev.log.gz) and
