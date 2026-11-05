@@ -16,7 +16,7 @@ FD404 and FD905 remain open. A later source change does not inherit this identit
 | Toolchain | Java `21.0.13.0.3+1`, Gradle `9.2.1` |
 | Intended profiles | Base; Track Styles 1.2.0; Engineered 1.1.1; Styles + Engineered |
 | Core pins | Minecraft 1.21.1, NeoForge 21.1.248, Create 6.0.10-280, Coasters 0.1.5, Sable 2.0.3 |
-| Acceptance on this exact JAR | Clean committed-source build and entry comparison; one bounded Engineered-only Arrow/FE occupied-reopen pass; no full runtime profile qualified |
+| Acceptance on this exact JAR | Clean committed-source build and entry comparison; bounded Engineered-only occupied operator results for Arrow, Legacy, Free Spin, Revised, coupled Arrow and four-car PAX, plus Arrow wired-FE interruption and cold reopen; no full runtime profile qualified |
 
 The [machine-readable manifest](evidence/qualification/2026-11-05-8f370d0/artifact.json)
 hashes all 287 exported build/source inputs and all 356 JAR entries, and lists
