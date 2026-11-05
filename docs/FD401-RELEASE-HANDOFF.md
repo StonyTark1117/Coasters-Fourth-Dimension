@@ -25,6 +25,11 @@ as `8f370d0` just after the client finished; its exact JAR, source-file hashes,
 runtime hashes, raw logs and verifier are retained. It is scoped to that JAR and
 does not inherit the selected qualification artifact identity or close the
 tracing-disabled reload/ride and repetition requirements.
+The [JAR entry comparison](evidence/0.9/fd401-removed-stale-probe-worktree-20261105/class-entry-parity.json)
+shows that the three addon classes on the tested stale-font path are byte-identical
+in the worktree JAR, the PAX candidate and the selected qualification JAR; it does
+not prove a matching external dependency set or replace a client replay on those
+other JARs.
 
 Initial read-only audit of release `783d4ba`, updated through `ff7c831` on
 2026-11-03 for the corrected missing-font source and retest. This checklist requests evidence

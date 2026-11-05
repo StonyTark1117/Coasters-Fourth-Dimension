@@ -10,9 +10,12 @@ set identities in `verification.json`.
 The client used the then-uncommitted PAX source changes that were subsequently
 committed as `8f370d0`, plus the untracked boarding GameTest. The run and source
 timing, source-file hashes, and exact packaged JAR hash are recorded in
-`metadata.json`. `FontReloadTrace.java` was unchanged in that commit. This evidence
-is tied to that exact worktree JAR; it does not match the selected qualification
-JAR or close FD401B. The historical source-world archive and its hash are
+`metadata.json`. `FontReloadTrace.java` was unchanged in that commit. The [class-entry comparison](class-entry-parity.json) confirms that the probe
+implementation classes are byte-identical in this JAR, the owner’s PAX candidate
+JAR, and the selected qualification JAR. The PAX candidate differs from the
+probe JAR in `ShuttleRuntime.class` only. This transfers the direct probe result
+for those addon classes, but does not establish an identical external dependency
+set or a full client replay on either other JAR, and does not close FD401B. The historical source-world archive and its hash are
 referenced in metadata; `post-world.tar.gz` retains the client save after the
 successful run. The runtime dependency manifest lists the JARs observed in the
 launch log.

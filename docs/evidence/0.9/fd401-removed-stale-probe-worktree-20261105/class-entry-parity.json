@@ -1,0 +1,50 @@
+{
+  "method": "SHA-256 each uncompressed JAR entry from zipfiles; exact archive SHA-256 recorded below.",
+  "jarSha256": {
+    "fontProbe": "49e21c7d98e442f74edba621f579c9352b31baaf237cfc52fb13d149bfe709b1",
+    "ownerPaxCandidate": "253e6d92387807c1ff5e7768bd8cd5d9b71a0dd05e0097979f19b48539c2a73a",
+    "selectedQualification": "811090454924d86c234b4d72efa19c568bbea108b55b84fb3b82e697586288aa"
+  },
+  "entryCounts": {
+    "fontProbe": 395,
+    "ownerPaxCandidate": 395,
+    "selectedQualification": 394
+  },
+  "fontRedirectEntries": {
+    "dev/fourthdimension/client/FontReloadTrace.class": {
+      "fontProbe": "f60e83df9ed34b3cee4812fd1ac96912f928002b5d1b553d25ceaa9b44af3b99",
+      "ownerPaxCandidate": "f60e83df9ed34b3cee4812fd1ac96912f928002b5d1b553d25ceaa9b44af3b99",
+      "selectedQualification": "f60e83df9ed34b3cee4812fd1ac96912f928002b5d1b553d25ceaa9b44af3b99"
+    },
+    "dev/fourthdimension/client/FontReloadTrace$GlyphRequest.class": {
+      "fontProbe": "e82ffd553594ee3b023453036bff68c3b8d19c0aa60eb2919ba41dbeb14737cc",
+      "ownerPaxCandidate": "e82ffd553594ee3b023453036bff68c3b8d19c0aa60eb2919ba41dbeb14737cc",
+      "selectedQualification": "e82ffd553594ee3b023453036bff68c3b8d19c0aa60eb2919ba41dbeb14737cc"
+    },
+    "dev/fourthdimension/mixin/FontSetReloadTraceMixin.class": {
+      "fontProbe": "8ec33d59792c2e8125f9ab3f52ec2a6947572bbfeca9ebca39adb442b4ad810f",
+      "ownerPaxCandidate": "8ec33d59792c2e8125f9ab3f52ec2a6947572bbfeca9ebca39adb442b4ad810f",
+      "selectedQualification": "8ec33d59792c2e8125f9ab3f52ec2a6947572bbfeca9ebca39adb442b4ad810f"
+    }
+  },
+  "differentEntriesComparedToProbeJar": {
+    "ownerPaxCandidate": [
+      "dev/fourthdimension/shuttle/ShuttleRuntime.class"
+    ],
+    "selectedQualification": [
+      "dev/fourthdimension/client/CarrierTransformValidation.class",
+      "dev/fourthdimension/gametest/ShuttleBoardingHoldGameTests.class",
+      "dev/fourthdimension/runtime/CarrierValidationFixture$1.class",
+      "dev/fourthdimension/runtime/CarrierValidationFixture.class",
+      "dev/fourthdimension/shuttle/ShuttleRuntime$CachedRoute.class",
+      "dev/fourthdimension/shuttle/ShuttleRuntime$Chunk.class",
+      "dev/fourthdimension/shuttle/ShuttleRuntime$Handles.class",
+      "dev/fourthdimension/shuttle/ShuttleRuntime.class",
+      "dev/fourthdimension/vehicle/Boarding$Binding.class",
+      "dev/fourthdimension/vehicle/Boarding$Exit.class",
+      "dev/fourthdimension/vehicle/Boarding$Restore.class",
+      "dev/fourthdimension/vehicle/Boarding.class"
+    ]
+  },
+  "result": "All three font redirect implementation class entries are byte-identical in the tested probe JAR, the owner PAX candidate JAR, and the selected qualification JAR. The PAX candidate differs from the probe JAR only at ShuttleRuntime.class. This proves addon bytecode parity for the direct probe path, not an identical runtime dependency set or a full candidate-JAR client replay."
+}
