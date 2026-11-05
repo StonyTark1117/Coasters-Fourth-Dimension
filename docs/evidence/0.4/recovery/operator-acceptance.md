@@ -124,11 +124,19 @@ chassis and ordinary bearing world-up vectors rather than treating controlled
 spin as bank traversal. It closes the bounded all-family curved/banked rendering
 item, but does not replace the remaining acceptance below.
 
+The later [bounded manual-boarding checkpoint](manual-boarding/acceptance.md)
+uses the production Arrow recovery command with every validation/fixture flag
+false. A real local player targets an addon seat with an empty hand, appears
+mounted in the rendered carrier, opens the production editor while mounted and
+closes restraints through its normal button. The client saves and exits cleanly
+inside a task-owned 3 GiB scope. This closes only the manual-boarding item, not
+ordinary-bearing selection, physical lever operation or the recovery lifecycle.
+
 ## Remaining acceptance
 
-Manual world-side ordinary-bearing selection, physical lever propulsion, and
-manual boarding remain open, along with observed client mesh/rider/rack
-clearance. Broader coupler/propulsion/braking
+Manual world-side ordinary-bearing selection and physical lever propulsion
+remain open, along with observed client mesh/rider/rack clearance. Broader
+coupler/propulsion/braking
 scenes and all-family or multiplayer recovery-mode lifecycle evidence also
 remain open. These checks do not certify added ordinary-cart assemblies or a
 survival locomotive.

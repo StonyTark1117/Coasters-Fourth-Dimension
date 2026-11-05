@@ -1,0 +1,45 @@
+FD402 bounded manual boarding run, 2026-11-04 America/Phoenix
+
+Source/JAR
+  source checkpoint used for the isolated build: 73a792d
+  later commits through c502a5d changed documentation only
+  JAR: coasters-fourth-dimension-0.9.0-dev.27.jar
+  SHA-256: 2da14200d2e33b806dc6bb454a65fb92912ae9d87ece345adff85c8bf1e277b0
+
+Isolation
+  display: private task-owned Xvfb :210
+  build directory: /tmp/fd402-manual-operator.JHeue4/build
+  accepted game directory: /tmp/fd402-manual-operator.JHeue4/game-direct
+  world save directory: FD402ManualOperator
+  Java heap: -Xmx1536M
+  systemd scope cap: MemoryMax=3221225472
+  all fourthdimension validation and fixture booleans: false
+
+Bounded RAM result
+  Gradle-wrapped scope fd402-manual-operator.scope:
+    Result=oom-kill
+    MemoryPeak=3221225472
+    MemoryMax=3221225472
+  This launch loaded the world but was stopped by the hard cap before operator work.
+  It was not retried.
+
+  Direct-Java scope fd402-manual-operator-direct3.scope:
+    highest live-observed MemoryPeak=3097587712
+    MemoryMax=3221225472
+    completed normal Save and Quit to Title / Quit Game
+
+Accepted interaction sequence
+  /execute positioned -700 -62 512 run fd demo recovery_arrow
+  /give @s fourthdimension:rotation_tool
+  operator-only teleports for camera/reach positioning
+  empty-hand use on the rendered addon seat
+  third-person confirmation of the real player mounted in that seat
+  mounted Rotation Tool use to open the production editor
+  normal Close restraints button
+  mounted Rotation Tool use to reopen the editor and read Restraints closed
+  normal Save and Quit to Title, then Quit Game
+
+Excluded from this checkpoint
+  No successful manual ordinary-bearing selection was recorded.
+  No physical lever input or recovery attach/start/brake/detach was recorded.
+  No other agent display, process, game directory or input stream was used or stopped.
