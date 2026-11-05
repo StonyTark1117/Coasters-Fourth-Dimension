@@ -367,6 +367,8 @@ schema-7/protocol-8 registry remain paused; FD801 is independent.
 
 The clean-JAR combined [Free Spin](docs/evidence/0.9/fd401-engineered-clean-combined-free-spin-cycle/README.md) and [Revised](docs/evidence/0.9/fd401-engineered-clean-combined-revised-cycle/README.md) cycles add two FD401C client operator results with STOP, FE draw, station capture and normal UI unload. Both use saved normally built routes and helper boarding, so the remaining FD401C requirements above still apply.
 
+The clean-JAR [combined four-car PAX authority cycle](docs/evidence/0.9/fd401-engineered-clean-combined-pax-authority/README.md) adds normal seat boarding, UI dispatch, an occupied winch cycle, return capture and normal unload on the changed PAX runtime classes. The powered opposing Engineered controller stayed at pass zero with no FE draw; the saved train and route were not newly constructed, and per-car callback cancellation was not directly traced.
+
 **Done when:** FD401A–D have artifact-matched acceptance for the advertised
 profiles. Within-curve style segmentation, arbitrary cosmetic/resource-pack
 meshes, accelerated Flywheel under the recorded shader fallback, and larger

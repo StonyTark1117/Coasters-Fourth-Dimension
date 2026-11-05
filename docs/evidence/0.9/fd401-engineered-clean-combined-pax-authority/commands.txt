@@ -1,0 +1,33 @@
+/fd validation availability
+/data get block 644 144 73
+/data get block 644 144 67
+/data get block 650 144 65 CoastersEngineeredEnergy
+/forceload query 650 17
+/forceload query 650 145
+/tp Dev 646.5 145 73.5 -90 15
+/tp Dev 646.5 145 73.5 -90 30
+/item replace entity Dev hotbar.8 with minecraft:air
+/data get entity Dev SelectedItem
+/tp Dev 646.5 145 73.5 -90 0
+/tp Dev 646.5 145 73.5 -90 8
+/tp Dev 647.5 145 77.5 180 10
+/data get entity Dev RootVehicle
+/setblock 644 144 68 minecraft:redstone_block
+/data get block 644 144 67 CoastersEngineeredPass
+/data get block 650 144 65 CoastersEngineeredEnergy
+/data get block 644 144 73 shuttle_phase
+/data get block 644 144 67 CoastersEngineeredPass
+/data get block 650 144 65 CoastersEngineeredEnergy
+/data get block 644 144 73 shuttle_phase
+/data get block 644 144 73 shuttle_cycles
+/fd validation availability
+/data get block 644 144 73 shuttle_phase
+/data get block 644 144 73 shuttle_cycles
+/data get block 644 144 67 CoastersEngineeredPass
+/data get block 650 144 65 CoastersEngineeredEnergy
+/fd validation motion Dev
+/fd validation availability
+/data get block 644 144 73 shuttle_fault
+/setblock 644 144 68 minecraft:air
+/data get entity Dev RootVehicle
+/fd validation availability
