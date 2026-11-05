@@ -34,6 +34,17 @@ angle. Maximum observed chassis bank was `0.5000804782268888` radians (28.65°)
 and maximum ordinary-bearing bank was `0.5235987367764136` radians (30.00°).
 The log then records a normal integrated-server stop.
 
+## PAX extension (2026-11-04)
+
+The banked fixture now honors `-PfdCarrierFixtureRecoveryDesign=PAX` for
+single-car routes. A separate capped client run in
+`/tmp/fd402-pax-banked.VrZAI0` used `-PfdClientMaxHeap=1536M` and passed at
+`waitedTicks=3343`. It rendered the occupied linked PAX chassis and ordinary
+bearing, observed `60.28855714648392` and `58.649254037450035` blocks of
+motion respectively, and measured chassis/bearing bank angles of
+`0.5000193529126009` and `0.5235987367764136` radians. No out-of-memory event
+occurred.
+
 ## Provenance
 
 [`bank2-events.txt`](bank2-events.txt) retains the relevant client-log excerpt.
@@ -55,5 +66,5 @@ This proves one occupied Arrow recovery group reaches the client render paths,
 travels through the native bend, and reaches the sustained bank under production
 recovery operations. It does not prove manual GUI/editor interaction, player/camera mesh
 clearance, rider/rack clearance, full braking/cut/detach/unload behavior,
-cold-process recovery lifecycle, other vehicle families, broad coupler strength,
+cold-process recovery lifecycle, the remaining Legacy/Free Spin/Revised families, broad coupler strength,
 or Engineered/FE operation. Those FD402 items remain open.
