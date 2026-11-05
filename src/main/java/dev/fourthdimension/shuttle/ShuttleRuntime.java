@@ -513,15 +513,42 @@ public final class ShuttleRuntime {
     handles.catchJoint.setContactsEnabled(false);
   }
 
-  /** Keep every coupled chassis at its fault position while its matching rail is absent. */
+  /** Hold every body in the coupled train at its captured station or fault position. */
   private static void holdUnsupportedTrain(ServerLevel level, ShuttleWinchEntity winch) {
     var container = SubLevelContainer.getContainer(level);
     if (container == null) return;
     var handles = HANDLES.computeIfAbsent(winch, ignored -> new Handles());
     var pipeline = container.physicsSystem().getPipeline();
+    var data = FoundationData.get(level);
+    var ids = new LinkedHashSet<UUID>();
     for (var id : winch.cars) {
+      var car = data.vehicles.get(id);
+      if (car == null) throw new IllegalArgumentException("Shuttle car unavailable during hold");
+      ids.add(id);
+      car.carriers.forEach(carrier -> ids.add(carrier.body));
+    }
+    var bodies = new LinkedHashMap<UUID, ServerSubLevel>();
+    for (var id : ids) {
       if (!(container.getSubLevel(id) instanceof ServerSubLevel body) || body.isRemoved())
-        throw new IllegalArgumentException("Shuttle car unavailable during support loss");
+        throw new IllegalArgumentException("Shuttle body unavailable during hold");
+      bodies.put(id, body);
+    }
+    // Stop the whole validated train in one callback. Holding only chassis leaves heavy
+    // carrier bodies free to drop and pull a coupled car out of station spacing.
+    boolean needsHold = false;
+    for (var id : ids) {
+      var hold = handles.supportHolds.get(id);
+      if (hold == null || !hold.isValid()) {
+        needsHold = true;
+        break;
+      }
+    }
+    if (needsHold) {
+      for (var body : bodies.values()) pipeline.resetVelocity(body);
+    }
+    for (var entry : bodies.entrySet()) {
+      var id = entry.getKey();
+      var body = entry.getValue();
       var hold = handles.supportHolds.get(id);
       if (hold != null && hold.isValid()) continue;
       remove(hold);
