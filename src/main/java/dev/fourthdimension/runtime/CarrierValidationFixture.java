@@ -249,7 +249,9 @@ public final class CarrierValidationFixture {
                     : BankedRecoveryExamples.create(level, RECOVERY_ORIGIN, TrackDesign.ARROW);
         BankedRecoveryExamples.queueAssembly(level, bankedRecoveryExample);
         recoveryExample = bankedRecoveryExample.recovery();
-      } else recoveryExample = RecoveryExamples.create(level, RECOVERY_ORIGIN, TrackDesign.ARROW);
+      } else
+        recoveryExample =
+            RecoveryExamples.create(level, RECOVERY_ORIGIN, recoveryFixtureDesign());
       motionChassis =
           bankedRecoveryExample == null
               ? List.of(recoveryExample.car().chassis)
@@ -546,6 +548,12 @@ public final class CarrierValidationFixture {
           "FD_CARRIER_FIXTURE recovery resume expected one saved linked car but found "
               + recovered.size());
     var car = recovered.getFirst();
+    if (car.family != recoveryFixtureDesign().family)
+      throw new IllegalStateException(
+          "FD_CARRIER_FIXTURE recovery resume expected "
+              + recoveryFixtureDesign().family
+              + " but saved "
+              + car.family);
     if (!RecoveryOperations.retained(car) || !car.stopping)
       throw new IllegalStateException(
           "FD_CARRIER_FIXTURE saved recovery group was not retained and braked");
@@ -794,6 +802,21 @@ public final class CarrierValidationFixture {
     return Boolean.getBoolean("fourthdimension.carrierFixtureRecovery")
         || recoveryResumeFixture()
         || bankedRecoveryFixture();
+  }
+
+  /** Selects the one flat family exercised by an isolated fresh-process recovery fixture. */
+  private static TrackDesign recoveryFixtureDesign() {
+    var requested =
+        System.getProperty(
+            "fourthdimension.carrierFixtureRecoveryDesign", TrackDesign.ARROW.name());
+    try {
+      return TrackDesign.valueOf(requested.trim().toUpperCase(java.util.Locale.ROOT));
+    } catch (IllegalArgumentException failure) {
+      throw new IllegalStateException(
+          "FD_CARRIER_FIXTURE recovery design must be ARROW, LEGACY, FREE_SPIN, REVISED, or PAX: "
+              + requested,
+          failure);
+    }
   }
 
   private static boolean bankedRecoveryFixture() {
