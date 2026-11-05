@@ -1,0 +1,109 @@
+/forceload add -880 -16 -820 224
+/tp Dev -850.5 145 -10.5 180 0
+/execute if block -850 168 0 minecraft:air run say first-anchor-clear
+/execute if block -850 144 75 minecraft:air run say station-clear
+/execute if block -850 176 200 minecraft:air run say last-anchor-clear
+/setblock -850 167 0 minecraft:smooth_stone
+/setblock -850 168 0 simulatedcoasters:coaster_anchorpoint
+/setblock -850 143 50 minecraft:smooth_stone
+/setblock -850 144 50 simulatedcoasters:coaster_anchorpoint
+/setblock -850 143 75 minecraft:smooth_stone
+/setblock -850 144 75 simulatedcoasters:coaster_anchorpoint
+/setblock -850 143 125 minecraft:smooth_stone
+/setblock -850 144 125 simulatedcoasters:coaster_anchorpoint
+/setblock -850 143 150 minecraft:smooth_stone
+/setblock -850 144 150 simulatedcoasters:coaster_anchorpoint
+/setblock -850 175 200 minecraft:smooth_stone
+/setblock -850 176 200 simulatedcoasters:coaster_anchorpoint
+/give Dev fourthdimension:pax_track 64
+/give Dev fourthdimension:pax_car 4
+/give Dev fourthdimension:shuttle_winch 1
+/give Dev minecraft:chain 3
+/item replace entity Dev hotbar.6 with fourthdimension:pax_track 64
+/item replace entity Dev hotbar.7 with fourthdimension:pax_car 4
+/item replace entity Dev hotbar.8 with fourthdimension:shuttle_winch 1
+/tp Dev -850.5 146 78.5 180 40
+/tp Dev -849.5 146 78.5 180 50
+/tp Dev -849.5 146 128.5 180 50
+/tp Dev -849.5 146 53.5 180 50
+/tp Dev -849.5 146 78.5 180 50
+/tp Dev -849.5 146 53.5 180 50
+/data get entity Dev SelectedItem
+/tp Dev -846.5 146 75.5 90 50
+/data get entity Dev SelectedItem
+/tp Dev -846.5 146 125.5 90 50
+/tp Dev -846.5 146 150.5 90 50
+/data get entity Dev SelectedItem
+/tp Dev -846.5 170 0.5 90 50
+/tp Dev -846.5 146 50.5 90 50
+/data get entity Dev SelectedItem
+/tp Dev -846.5 146 150.5 90 50
+/tp Dev -846.5 178 200.5 90 50
+/data get entity Dev SelectedItem
+/save-all flush
+/save-all flush
+/data get entity Dev SelectedItem
+/tp Dev -846.5 146 83.5 90 45
+/tp Dev -846.5 146 89.5 90 45
+/tp Dev -846.5 146 95.5 90 45
+/tp Dev -846.5 146 101.5 90 45
+/fd validation availability
+/item replace entity Dev hotbar.6 with minecraft:chain
+/tp Dev -846.5 146 83.5 90 45
+/tp Dev -846.5 146 83.5 85 47
+/tp Dev -846.5 146 83.5 80 46
+/tp Dev -849.5 146 79.5 0 50
+/tp Dev -849.5 146 79.5 0 35
+/data get entity Dev SelectedItem
+/tp Dev -849.5 146 80.5 0 40
+/tp Dev -849.5 146 80.5 0 50
+/tp Dev -849.5 146 81.5 0 60
+/tp Dev -849.5 146 87.5 0 60
+/tp Dev -849.5 146 87.5 0 60
+/tp Dev -849.5 146 93.5 0 60
+/tp Dev -849.5 146 93.5 0 60
+/tp Dev -849.5 146 99.5 0 60
+/setblock -856 143 83 minecraft:smooth_stone
+/tp Dev -855.5 146 86.5 180 55
+/tp Dev -855.5 148 85.5 180 70
+/data get block -856 144 83
+/tp Dev -855.5 146 84.5 180 70
+/data get block -856 144 83
+/item replace entity Dev hotbar.5 with minecraft:air
+/data get block -856 144 83 shuttle_cars
+/execute if block -856 144 83 fourthdimension:shuttle_winch[axis=y] run say winch_axis_y
+/setblock -856 143 83 create:creative_motor[facing=up] replace
+/data get block -856 144 83 Speed
+/tp Dev -849.5 146 81.5 0 45
+/tp Dev -846.5 146 83.5 90 30
+/tp Dev -850.5 149 83.5 0 90
+/tp Dev -843.5 146 83.5 90 15
+/tp Dev -857.5 146 83.5 270 15
+/tp Dev -853.5 149 83.5 0 90
+/gamemode creative Dev
+/tp Dev -853.5 149 83.5 0 90
+/tp Dev -853.5 147 83.5 0 90
+/item replace entity Dev hotbar.5 with fourthdimension:rotation_tool
+/data get block -856 144 83 shuttle_phase
+/data get block -856 144 83 shuttle_cycles
+/data get block -856 144 83 shuttle_fault
+/data get block -856 144 83 shuttle_distance
+/data get block -856 144 83 shuttle_phase
+/data get block -856 144 83 shuttle_distance
+/data get block -856 144 83 shuttle_phase
+/data get block -856 144 83 shuttle_cycles
+/data get block -856 144 83 shuttle_distance
+/data get block -856 144 83 shuttle_phase
+/data get block -856 144 83 shuttle_distance
+/data get block -856 144 83 shuttle_cycles
+/data get block -856 144 83 shuttle_phase
+/data get block -856 144 83 shuttle_distance
+/data get block -856 144 83 shuttle_cycles
+/data get block -856 144 83 shuttle_phase
+/data get block -856 144 83 shuttle_distance
+/data get block -856 144 83 shuttle_cycles
+/data get block -856 144 83 shuttle_fault
+/data get entity Dev RootVehicle
+/data get entity Dev RootVehicle
+/data get entity Dev RootVehicle
+/data get block -856 144 83
