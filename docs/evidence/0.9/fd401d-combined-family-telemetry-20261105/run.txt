@@ -1,0 +1,22 @@
+Checkout: /home/braydon/Documents/Coasters: Fourth Dimension
+Branch: main
+Source commit: e61e367e (the only source difference from the tested file is a comment explaining test-controlled velocity in the separate Arrow recovery case)
+Selected clean JAR: docs/evidence/qualification/2026-11-05-ec2fcda/qualification.jar
+Selected clean JAR SHA-256: 656725bcbacc8f491de274c6c058027d0aaa67cfc6f893ba6d7e4a9eb24abbc7
+Focused overlay SHA-256: b959b57014f4ed51b86821693c7045c604a4f54a49f76b692145d08074b663e3
+Overlay parity: 394 entries; only dev/fourthdimension/gametest/RideTelemetryGameTests.class differs from the selected JAR.
+Java: OpenJDK 21.0.13.0.3. Gradle 9.2.1.
+Profile: combined (Track Styles 1.2.0 + Engineered 1.1.1; no Create Addition FE network); server mod list is retained in server-latest.log.
+Server heap: 1536M. Gradle/server systemd scope: MemoryMax=4G.
+Game port: 25708. RCON port: 25707. Fresh named-test world: world.tar.gz.
+
+Dedicated server command:
+JAVA_HOME=/usr/lib/jvm/java-21-openjdk PATH=/usr/lib/jvm/java-21-openjdk/bin:$PATH ./gradlew runServer -PfdBuildDirectory=/tmp/fd401d-reentry-dispatch-20261105/compilebuild -PfdPackaged -PfdIntegrations=styles,engineered -PfdValidation -PfdNamedGameTestServer -PfdServerGameDirectory=/tmp/fd401d-combined-profile-telemetry-20261105/server/game -PfdServerMaxHeap=1536M -x jar --no-daemon --offline --console=plain -Dorg.gradle.jvmargs=-Xmx2G
+
+RCON commands:
+/test run sharedtelemetryrespectsconsistrecoveryandcontrollerauthority
+/stop
+
+One named test passed in `fourthdimension_telemetry:0`. Occupied consist snapshots covered Arrow (2 cars), Legacy (`ZACSPIN`), Free Spin, Revised (`ZACSPIN_REVISED`), and four-car PAX. Each exercised six native Create Display Link formatters, goggles formatting, snapshot serialization and update-tag packet round-trip. It also passed station dispatch authority, recovery/immutability guards, and PAX BOARDING/LIFTING/FAULT authority/output. `test-result.txt` preserves the captured completion markers; `server-latest.log` records the one-test batch, exact mod list, server identity and graceful shutdown. Gradle reported BUILD SUCCESSFUL.
+
+Scope: bounded combined-profile server-side family formatter/goggle/update-tag evidence on the selected production entries. No rendered signs, remote-client packet application, or normal player-operated output is claimed; this is not the full combined-profile client matrix.
