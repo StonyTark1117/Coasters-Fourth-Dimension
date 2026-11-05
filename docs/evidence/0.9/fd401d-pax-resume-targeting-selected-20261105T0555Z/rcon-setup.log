@@ -1,0 +1,36 @@
+AUTH 0
+$ /op Observer
+Made Observer a server operator
+
+$ /gamemode creative Observer
+
+$ /tp Observer -856.5 146 81.5 facing -856 144 83
+Teleported Observer to -856.500000, 146.000000, 81.500000
+
+$ /data get block -856 144 83 shuttle_phase
+-856, 144, 83 has the following block data: "FAULT"
+
+$ /data get block -856 144 83 shuttle_fault
+-856, 144, 83 has the following block data: "Winch power lost: retain the train; inspect and resume or recover"
+
+$ /data get block -856 143 83
+-856, 143, 83 has the following block data: {Speed: 16.0f, HasAttachedComputer: 0b, Network: {Capacity: 262144.0f, Size: 2, AddedCapacity: 16384.0f, Id: -235295488003953L, Stress: 128.0f}, x: -856, y: 143, ScrollValue: 16, z: 83, id: "create:motor"}
+
+$ /fd validation availability Dev
+Incorrect argument for command
+...ilability Dev<--[HERE]
+
+AUTH (0, '')
+$ /tp Observer -856.5 146 81.5 0 60 
+ Teleported Observer to -856.500000, 146.000000, 81.500000
+
+AUTH (0, '')
+$ /tp Observer -856.5 145.5 83.5 -90 56.3 
+ Teleported Observer to -856.500000, 145.500000, 83.500000
+
+$ /data get entity Observer Pos 
+ Observer has the following entity data: [-856.5d, 145.5d, 83.5d]
+
+$ /data get entity Observer Rotation 
+ Observer has the following entity data: [-90.0f, 56.3f]
+

@@ -1,0 +1,16 @@
+auth (0, '')
+$ /data get entity Observer Pos 
+ Observer has the following entity data: [-856.5d, 86.0d, 81.5d]
+
+$ /data get entity Observer Rotation 
+ Observer has the following entity data: [0.0f, 60.0f]
+
+$ /data get entity Observer Dimension 
+ Observer has the following entity data: "minecraft:overworld"
+
+$ /data get entity Observer RootVehicle 
+ Found no elements matching RootVehicle
+
+$ /data get block -856 85 83 
+ The target block is not a block entity
+
