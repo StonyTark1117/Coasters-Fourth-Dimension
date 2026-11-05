@@ -1,0 +1,9 @@
+# FD401C Legacy seat keyboard-use control
+
+On 2026-11-05, the exact selected clean JAR `656725bcbacc8f491de274c6c058027d0aaa67cfc6f893ba6d7e4a9eb24abbc7` loaded a copy of the stopped, normally built Legacy world in the combined Styles 1.2.0 + Engineered 1.1.1 profile. Java 21 ran the client in a private Xvfb `:251` with a 1 GiB game heap and an active 3 GiB systemd scope. The scope exited with `Result=success`; the log ends with normal server and client shutdown. The display was stopped.
+
+The isolated [options file](options.txt) bound `key_key.use` to `key.keyboard.v` instead of the right mouse button. From `(197.5,145,32.5)` facing north at pitch 25, [F3 targeted](target.png) the same visible unrestrained `fourthdimension:legacy_seat` as the prior [closer mouse attempt](../fd401-legacy-clean-normal-seat-retry/README.md). Pressing V did not mount Dev. `/data get entity Dev RootVehicle` returned [no elements](rootvehicle-absent.png).
+
+To verify the changed input path, a stone support and wall lever were temporarily placed in the scratch world at `(197,145,30)` and `(197,145,31)`. F3 targeted the lever; pressing V changed its `powered` state to [true](lever-after-use.png). Both temporary blocks were removed before the normal save and exit. The [stopped world](final-world.tar.gz), [client log](client.log.gz), and [title screen](title.png) are retained.
+
+The [classpath](clientRunClasspath.txt), [VM arguments](clientRunVmArgs.txt), [program arguments](clientRunProgramArgs.txt), [launch script](run-client.sh), and [dependency hashes](dependencies.sha256) identify the exact launch. This controlled check rules out a mouse-only input failure for this seat. It does **not** show whether the targeted seat was boardable or whether its block-use method ran. Normal Legacy boarding remains open; no additional ride cycle was repeated.

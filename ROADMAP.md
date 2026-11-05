@@ -369,7 +369,7 @@ The clean-JAR combined [Free Spin](docs/evidence/0.9/fd401-engineered-clean-comb
 
 The clean-JAR [combined four-car PAX authority cycle](docs/evidence/0.9/fd401-engineered-clean-combined-pax-authority/README.md) adds normal seat boarding, UI dispatch, an occupied winch cycle, return capture and normal unload on the changed PAX runtime classes. The powered opposing Engineered controller stayed at pass zero with no FE draw; the saved train and route were not newly constructed, and per-car callback cancellation was not directly traced.
 
-The [clean-JAR Legacy normal-seat retry](docs/evidence/0.9/fd401-legacy-clean-normal-seat-retry/README.md) still did not mount through the targeted unrestrained seat, although the helper mounted a different ready seat on the same vehicle. Diagnose the targeted seat's binding/occupancy and block-use delivery; do not repeat its completed motion cycle as a substitute for normal boarding.
+The [clean-JAR Legacy normal-seat retry](docs/evidence/0.9/fd401-legacy-clean-normal-seat-retry/README.md) still did not mount through the targeted unrestrained seat, although the helper mounted a different ready seat on the same vehicle. A [keyboard-bound Use control](docs/evidence/0.9/fd401-legacy-keyboard-use-control-20261105/README.md) toggled a lever but also failed to board that seat, ruling out a mouse-only input failure. Diagnose the targeted seat's binding/occupancy and block-use delivery; do not repeat its completed motion cycle as a substitute for normal boarding.
 
 **Done when:** FD401A–D have artifact-matched acceptance for the advertised
 profiles. Within-curve style segmentation, arbitrary cosmetic/resource-pack
