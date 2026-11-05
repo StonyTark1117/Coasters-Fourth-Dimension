@@ -52,3 +52,34 @@ values, and reserve separate server ports and worlds. Keep the owned display
 alive until its clients exit, then stop only the processes and display started
 for this task. Preserve requested logs, screenshots, and worlds before cleanup.
 See `docs/FD403-RUN-PREPARATION.md` for the packaged client and server procedure.
+
+# Client memory limits
+
+Before each client run, check current host memory (`free -h`), the active cgroup
+limit and usage (`memory.max` and `memory.current` when present), and other
+Minecraft, Gradle, and agent processes. Budget for every simultaneous client,
+server, and the user's work. If the available headroom is insufficient, wait or
+reduce concurrency rather than starting another client.
+
+Cap each `runClient` and `runObserver` game JVM heap at **1.5 GiB** with
+`-PfdClientMaxHeap=1536M`. Also put the entire client launch, including its
+Gradle launcher and child processes, in an owned cgroup or systemd scope with a
+**3 GiB total memory cap**. For example, after reserving display `:N` and an
+isolated game directory, launch from the project checkout with:
+
+```sh
+systemd-run --user --scope -p MemoryMax=3G -- \
+  env DISPLAY=:N ALSOFT_DRIVERS=null JAVA_HOME=/usr/lib/jvm/java-21-openjdk \
+  ./gradlew --no-daemon runClient -PfdClientMaxHeap=1536M \
+  -PfdClientGameDirectory=/absolute/path
+```
+
+Replace the display and path placeholders, and use `runObserver` where needed.
+A per-process heap flag or `ulimit` alone does not enforce the process-group cap.
+Verify that the scope is active before relying on it; if no equivalent cap can
+be established, do not run the graphical client unbounded.
+
+Exceed either cap only when the specific test cannot run within it. Record the
+failure, the minimum higher limit needed, and a fresh host/cgroup memory check
+before retrying. Reduce other concurrent runs first and leave headroom for the
+user's desktop. Restore the default limits for later runs.
