@@ -119,7 +119,7 @@ Use a fresh named world and reserved port in that build directory's
 `runs/packaged-server`. Preserve any prior world first; never overwrite it.
 Record the nonsecret world settings, seed and survival mode, and document every
 setup command. Keep credentials out of evidence. Start the server, then prepare
-the two client launch scripts outside their 3 GiB scopes after it reports ready:
+the two client launch scripts outside their 6 GiB scopes after it reports ready:
 
 ```sh
 JAVA_HOME=/usr/lib/jvm/java-21-openjdk ./gradlew runServer -PfdPackaged -PfdValidation --no-daemon --console=plain
@@ -128,7 +128,7 @@ JAVA_HOME=/usr/lib/jvm/java-21-openjdk ./gradlew createObserverLaunchScript -Pfd
 ```
 
 Use the generated direct Java scripts in separate agent-owned Xvfb sessions,
-each with its own 3 GiB Minecraft-only scope as required by `AGENTS.md`.
+each with its own 6 GiB Minecraft-only scope as required by `AGENTS.md`.
 Verify their Java 21 executable, 1536M maximum heap, game directory, and
 classpath before launch. Keep the Gradle launcher and daemon outside those
 scopes, and check host/cgroup headroom for both preparation and clients.

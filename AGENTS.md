@@ -86,21 +86,24 @@ reduce concurrency rather than starting another client.
 
 Cap each `runClient` and `runObserver` game JVM heap at **1.5 GiB** with
 `-PfdClientMaxHeap=1536M`. Put the **Minecraft client process and its children**
-in an owned cgroup or systemd scope with a **3 GiB total memory cap**. Do not
+in an owned cgroup or systemd scope with a **6 GiB total memory cap**. Do not
 put the Gradle launcher or daemon in that scope: a bounded launch was killed at
 3 GiB before the fixture command ran because Gradle and Minecraft shared the
-cap. Run the Java 21 Gradle preparation outside the client scope, using
+cap. A later live client exceeded 3 GiB RSS while its 4 GiB scope approached
+the ceiling, so 3–4 GiB is too tight for this workload. Run the Java 21 Gradle
+preparation outside the client scope, using
 `createClientLaunchScript` or `createObserverLaunchScript` with
 `-PfdClientMaxHeap=1536M` and the intended game directory property
 (`-PfdClientGameDirectory=/absolute/path` for the client or
-`-PfdObserverGameDirectory=/absolute/path` for the observer), then run the generated direct Java
-launch script inside the scope. Confirm that the script uses the current build,
+`-PfdObserverGameDirectory=/absolute/path` for the observer), then run the
+generated direct Java launch script inside the scope. Confirm that the script
+uses the current build,
 the intended game directory, and a Java 21 executable.
 After reserving display `:N` and an isolated game directory, the scoped client
 step has this form:
 
 ```sh
-systemd-run --user --scope -p MemoryMax=3G -- \
+systemd-run --user --scope -p MemoryMax=6G -- \
   env DISPLAY=:N ALSOFT_DRIVERS=null JAVA_HOME=/usr/lib/jvm/java-21-openjdk \
   PATH=/usr/lib/jvm/java-21-openjdk/bin:$PATH \
   /absolute/path/to/generated-direct-client-launch.sh
