@@ -50,3 +50,17 @@ same game directory and world for the second:
 This remains a fixture-operated one-player Arrow scene. It does not establish
 ordinary player tools/UI, Engineered/FE operation, all recovery families,
 full multiplayer behavior, or broad rendered clearance.
+
+## PAX extension (2026-11-04)
+
+The same two-process checkpoint was also run for the flat `PAX` fixture in
+`/tmp/fd402-pax-lifecycle.4576DY`, with each game JVM capped by
+`-PfdClientMaxHeap=1536M`. The pause stage observed the rendered native link
+for chassis `055e186a-6dbe-433f-a821-8be61434bcf8` and ordinary bearing
+`8aed87a5-bf2d-440a-8467-3bc86ed5389a`. The resume stage restored that link,
+observed 5.742 blocks of motion for both bodies, and passed after production
+brake, detach, restraint opening, and rider unload. No out-of-memory event
+occurred.
+
+This extends the bounded one-player evidence to Arrow and PAX only; it still
+does not certify all-family or multiplayer recovery behavior.

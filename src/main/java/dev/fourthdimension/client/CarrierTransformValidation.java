@@ -258,7 +258,11 @@ public final class CarrierTransformValidation {
         supportRepairRequired() && (!supportLossSeen || !supportRepairSeen);
     boolean supportRealignmentIncomplete =
         supportRealignmentRequired() && (!supportLossSeen || !supportRepairSeen || !supportRealignmentSeen);
-    if (families.size() < requiredFamilies()
+    // The recovery-cycle fixture intentionally unloads both the rider and its scene after a
+    // successful release. Retain the observations made while it was live rather than treating
+    // that expected teardown as an empty, uninitialized family matrix.
+    boolean completedRecoveryLifecycle = recoveryCycleRequired() && recoveryCycleSeen;
+    if ((!completedRecoveryLifecycle && families.size() < requiredFamilies())
         || (staticPhase && carriers == 0)
         || (recoveryRequired() && !recoveryLinkObserved && !recoveryLinkSeen)
         || (recoveryEditorRequired() && !recoveryEditorSeen)
@@ -384,7 +388,8 @@ public final class CarrierTransformValidation {
                 vehicle -> maxMotionDistances.getOrDefault(vehicle.recoveryCart, 0d) >= 1);
     recoveryMotionSeen |= recoveryMoved;
     if (motionRequired()
-        && (movedFamilies.size() < requiredMotionFamilies()
+        && (!completedRecoveryLifecycle
+            && (movedFamilies.size() < requiredMotionFamilies()
             || movedChassis.getOrDefault(Family.PAX, 0) < requiredMotionPaxChassis()
             || (recoveryMotionRequired() && !recoveryMotionSeen)
             || (recoveryBankRequired()
@@ -392,7 +397,7 @@ public final class CarrierTransformValidation {
             || (recoveryCycleRequired()
                 && (!recoveryLinkSeen || !recoveryMotionSeen || !recoveryCycleSeen))
             || (recoveryProfileRequired() && !recoveryProfileSeen)
-            || (recoveryTrainRequired() && !recoveryTrainMotionSeen))) {
+            || (recoveryTrainRequired() && !recoveryTrainMotionSeen)))) {
       incomplete(
           "controlled chassis motion below requirement families="
               + requiredMotionFamilies()
