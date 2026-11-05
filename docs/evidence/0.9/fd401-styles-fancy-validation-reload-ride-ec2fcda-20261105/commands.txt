@@ -1,0 +1,12 @@
+# Scratch copy of saved FD401StopCycle world, selected clean JAR
+# Initial client had validation=false; F3+T then reloaded 55 Styles models.
+# After clean save/exit, relaunch same JAR/world with validation=true.
+/fd validation board_locked Dev
+# F3+T while Dev is helper-boarded and restraints are closed
+/setblock -356 210 -179 minecraft:air
+/fd validation motion Dev
+/setblock -356 210 -179 minecraft:redstone_block
+/fd validation motion Dev
+# Rotation Tool UI showed arrow_controlled | Ready | Restraints closed
+# Open restraints in UI; Shift dismount; verify with:
+/data get entity Dev RootVehicle
