@@ -65,6 +65,7 @@ public final class CarrierTransformValidation {
   private static boolean recoveryEditorAttachApplied;
   private static boolean recoveryTrainSeen;
   private static boolean recoveryTrainMotionSeen;
+  private static boolean localRiderRenderObservationArmed;
   private static boolean completed;
   private static net.minecraft.world.level.Level lastLevel;
 
@@ -98,6 +99,7 @@ public final class CarrierTransformValidation {
       recoveryEditorAttachApplied = false;
       recoveryTrainSeen = false;
       recoveryTrainMotionSeen = false;
+      localRiderRenderObservationArmed = false;
       CarrierRenderMetrics.reset();
       completed = false;
       lastLevel = minecraft.level;
@@ -232,6 +234,12 @@ public final class CarrierTransformValidation {
       return;
     }
     boolean riderMounted = localRiderReady(minecraft);
+    if (playerRenderRequired() && riderMounted && !localRiderRenderObservationArmed) {
+      // Ignore any third-person player draw that happened before the rider reached this exact
+      // carrier seat. The renderer observation below is therefore tied to a live binding.
+      CarrierRenderMetrics.beginLocalRiderObservation();
+      localRiderRenderObservationArmed = true;
+    }
     recoveryCycleSeen |= recoveryCycleReady(minecraft, data);
     boolean hadSeenSupportLoss = supportLossSeen;
     boolean supportLossObserved = supportLossReady(minecraft);
@@ -274,6 +282,10 @@ public final class CarrierTransformValidation {
                 || !recoveryEditorAttachApplied))
         || (recoveryTrainRequired() && !recoveryTrainSeen)
         || (riderRequired() && !riderMounted && !(recoveryCycleRequired() && recoveryCycleSeen))
+        || (staticPhase
+            && playerRenderRequired()
+            && (!localRiderRenderObservationArmed
+                || CarrierRenderMetrics.snapshot().localRiderRenderCalls() == 0))
         || (supportLossIncomplete && !mayAwaitMovingSupportLoss)
         || supportRepairIncomplete
         || supportRealignmentIncomplete
@@ -325,6 +337,10 @@ public final class CarrierTransformValidation {
               + riderRequired()
               + " riderMounted="
               + riderMounted
+              + " playerRenderRequired="
+              + playerRenderRequired()
+              + " localRiderRenderCalls="
+              + CarrierRenderMetrics.snapshot().localRiderRenderCalls()
               + " supportLossRequired="
               + supportLossRequired()
               + " supportLossObserved="
@@ -460,6 +476,7 @@ public final class CarrierTransformValidation {
                 + "requiredFamilies={} carriers={} riderAssignments={} maxAngleError={} "
                 + "compiledBodies={} sectionLayerCalls={} sectionLayerBodies={} nativeCartBodies={} renderRequired={} "
                 + "riderRequired={} riderMounted={} supportLossRequired={} supportLossObserved={} "
+                + "playerRenderRequired={} localRiderRenderCalls={} "
                 + "supportLossAfterMotion={} supportRepairRequired={} supportRepairObserved={} "
                 + "supportRealignmentRequired={} supportRealignmentObserved={} "
                 + "recoveryRequired={} recoveryMotionRequired={} recoveryBankRequired={} recoveryCycleRequired={} recoveryProfileRequired={} recoveryEditorRequired={} recoveryEditorActionRequired={} recoveryEditorAttachRequired={} recoveryTrainRequired={} recoveryLinkSeen={} recoveryMotionSeen={} recoveryCycleSeen={} recoveryProfileSeen={} recoveryEditorSeen={} recoveryEditorActionSeen={} recoveryEditorActionApplied={} recoveryEditorAttachRendered={} recoveryEditorAttachSeen={} recoveryEditorAttachApplied={} recoveryTrainSeen={} recoveryTrainMotionSeen={} maxRecoveryChassisBankAngle={} maxRecoveryBearingBankAngle={} motionFamilies={} motionChassis={} motionDistances={}",
@@ -478,6 +495,8 @@ public final class CarrierTransformValidation {
             renderRequired(),
             riderRequired(),
             localRiderReady(minecraft),
+            playerRenderRequired(),
+            CarrierRenderMetrics.snapshot().localRiderRenderCalls(),
             supportLossRequired(),
             supportLossSeen,
             supportLossAfterMotion(supportLossSeen),
@@ -723,6 +742,11 @@ public final class CarrierTransformValidation {
 
   private static boolean riderRequired() {
     return Boolean.getBoolean("fourthdimension.carrierValidationRider");
+  }
+
+  /** Requires a real third-person local-player entity draw after the rider joins its carrier. */
+  private static boolean playerRenderRequired() {
+    return Boolean.getBoolean("fourthdimension.carrierValidationPlayerRender");
   }
 
   /** The client must receive the exact fail-closed state while its local rider remains assigned. */
