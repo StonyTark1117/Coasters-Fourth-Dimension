@@ -1,0 +1,7 @@
+# FD401A selected-JAR Engineered-only client load
+
+On 2026-11-05, the selected clean `ec2fcda` JAR (`656725bcbacc8f491de274c6c058027d0aaa67cfc6f893ba6d7e4a9eb24abbc7`) loaded in the Engineered-only profile on Java 21. The client reached the Minecraft title screen. Its normal Mods screen listed **Coasters: Engineered 1.1.1** and **Coasters: Fourth Dimension 0.9.0-dev.27**; the startup [log](client.log.gz) listed eleven mods, without Track Styles. The [title screen](menu-ready.png), [Engineered entry](mod-engineered.png), and [Fourth Dimension entry](mod-fourth-dimension.png) are retained.
+
+The [classpath](clientRunClasspath.txt), [VM arguments](clientRunVmArgs.txt), [program arguments](clientRunProgramArgs.txt), [launch script](run-client.sh), and [dependency hashes](dependencies.sha256) identify the inputs. The isolated game directory was `/tmp/fd401a-engineered-20261105/game`; private Xvfb `:250` and an active `MemoryMax=3G` scope contained the client. The game JVM used `-Xmx1024M`. The scope exited with `Result=success`, the client log ended `Stopping!`, and the task-owned display was stopped. The selected JAR hash matched before and after the run.
+
+This proves a bounded **Engineered-only client startup and mod load** on the selected artifact. It does not prove an in-world Engineered operator or telemetry scenario. The [base-profile load](../fd401-a-base-profile-ec2fcda-20261105/README.md) and [combined-profile client reopen](../fd401-current-clean-combined-client-reopen-20261105/README.md) are separate rows; Styles-only remains to be reconciled.
