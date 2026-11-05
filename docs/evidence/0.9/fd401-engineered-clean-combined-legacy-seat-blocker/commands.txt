@@ -1,0 +1,10 @@
+/attribute Dev minecraft:generic.gravity base set 0
+/tp Dev 300.5 184.8 122.5 0 35
+/data merge block 300 183 120 {CoastersEngineeredEnergy:100000}
+/data get block 300 183 120 CoastersEngineeredEnergy
+/tp Dev 300.5 185.3 126.5 0 35
+/tp Dev 300.5 185.3 126.5 -45 30
+/tp Dev 300.5 185.3 126.5 -50 20
+/tp Dev 300.5 185.3 126.5 -42 20
+/data get entity Dev RootVehicle
+/fd validation availability
