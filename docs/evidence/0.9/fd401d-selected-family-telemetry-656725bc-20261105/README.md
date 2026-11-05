@@ -35,6 +35,14 @@ did not reach that seat. Free Spin, Revised, Legacy occupied telemetry,
 goggles/snapshot transitions, and trailing Arrow occupancy were therefore not
 run.
 
+For a future bounded retry, the historical replay log
+`fd401-candidate-family-telemetry-81ee2e6/family-server.log.gz` records Dev
+teleported to `(131.5,87,31.5)` at 05:30:52, followed by a successful normal
+Legacy seat mount at 05:31:14. This is a concrete starting point from the older
+`de64a683…` artifact, not proof that the selected-JAR copy has identical current
+interaction geometry. The selected-JAR attempt in this bundle did not reproduce
+the mount and should not be counted as a pass.
+
 The clients were stopped, then the server received `stop`; the final server log
 records all dimensions saved and the RCON listener stopped. The cleanly saved
 final world is `final-saved-world.tar.gz`. Full logs and selected screenshots
