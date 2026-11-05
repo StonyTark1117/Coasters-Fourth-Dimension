@@ -1,0 +1,9 @@
+Date: 2026-11-05 (America/Phoenix)
+Selected build source: ec2fcda
+Selected packaged JAR SHA-256: 656725bcbacc8f491de274c6c058027d0aaa67cfc6f893ba6d7e4a9eb24abbc7
+Runtime: OpenJDK 21.0.13.0.3; Gradle 9.2.1 prepared/run with Java 21.
+Client scope: run-p438922-i450275.scope; DISPLAY=:265; -Xmx1536M; MemoryMax=3G. The scope was inactive and private Xvfb stopped after save/quit.
+Host memory preflight: 61 GiB RAM, about 30 GiB available; user.slice memory.max=max, memory.current about 60.2 GB. Sampled client scope usage remained near 2.9 GiB, below its 3 GiB cap.
+Graphics mode FAST (graphicsMode:0); renderDistance=5; simulationDistance=5.
+Sequence: F3+T reload; Track Styles inspected 55 decorative model entries; helper boarding; Rotation Tool Capture, open/close restraints, UI Dispatch; verified redstone at -356,210,-179; cleared for falling-edge dispatch; occupied movement; restored station signal once near return; capture=true; UI open restraints; Shift dismount; RootVehicle absent; save/quit.
+Normal UI Dispatch immediately returned to Ready while the saved station signal was high. The helper board and scratch-world signal changes are disclosed in README and logs.
