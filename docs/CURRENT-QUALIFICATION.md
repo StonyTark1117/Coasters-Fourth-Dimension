@@ -29,11 +29,12 @@ all packaged classes/resources were compared with the isolated outputs.
 The [build log](evidence/qualification/2026-11-04-dd0a851/build.log.gz) records
 successful packaging; no client or server was launched for this record.
 
-**Later committed input observed during reconciliation:** `b4ad576` changes
-`CarrierValidationFixture` to select the requested recovery-train family. It is
-not in the `dd0a851` JAR above. Before the next linked-PAX fixture qualification,
-refresh FD401A with that committed fix and a new JAR identity, then retest the
-affected FD402B/D/E rows. This record deliberately separates the immutable build
+**Later committed inputs reviewed through `d8dc673`:** `b4ad576` changes
+`CarrierValidationFixture` to select the requested recovery-train family;
+`d8dc673` adds an opt-in framebuffer capture to `CarrierTransformValidation`
+and its launch properties. Neither is in the `dd0a851` JAR above. Before the
+next linked-PAX or new render-capture qualification, refresh FD401A with these
+committed changes and a new JAR identity, then retest affected FD402B/D/E rows. This record deliberately separates the immutable build
 already verified here from a newer working source; it does not call them equal.
 
 Before each runtime qualification, retain the actual launch command, dependency

@@ -745,6 +745,16 @@
       "path": "src/main/java/dev/fourthdimension/runtime/CarrierValidationFixture.java",
       "effect": "Select requested recovery-train family",
       "required_action": "Refresh artifact identity before linked-PAX FD402B/D/E qualification; do not treat this later source as the retained JAR."
+    },
+    {
+      "source_commit": "d8dc673",
+      "paths": [
+        "build.gradle",
+        "src/main/java/dev/fourthdimension/client/CarrierTransformValidation.java"
+      ],
+      "effect": "Opt-in validated recovery framebuffer capture",
+      "required_action": "Refresh artifact identity before using the new render-capture path for FD402B; preserve the existing JAR as the recorded baseline."
     }
-  ]
+  ],
+  "post_baseline_review_through": "d8dc673647a3f024150ffe9d9a2efe40bab3ba24"
 }
