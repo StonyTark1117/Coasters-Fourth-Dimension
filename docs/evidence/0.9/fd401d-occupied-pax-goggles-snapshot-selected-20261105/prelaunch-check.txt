@@ -1,0 +1,92 @@
+2026-11-05T13:22:27Z
+               total        used        free      shared  buff/cache   available
+Mem:            61Gi        44Gi       6.4Gi        14Gi        26Gi        17Gi
+Swap:             0B          0B          0B
+MemoryCurrent=[not set]
+MemoryMax=infinity
+ 588411  588407       16:52 3377672 /usr/lib/jvm/java-21-openjdk/bin/java -Xmx1536M @/tmp/fd401b-styles-absent-occupied-20261105/classpath.txt @/tmp/fd401b-styles-absent-occupied-20261105/vmargs.txt -Dfml.modFolders= net.neoforged.devlaunch.Main @/tmp/fd401b-styles-absent-occupied-20261105/program.txt
+ 596357   10172       06:36 2676836 /usr/lib/jvm/java-21-openjdk/bin/java -Xmx1536M @/tmp/fd401c-pax-recovery-dedicated-20261105/guest/evidence/classpath.txt @/tmp/fd401c-pax-recovery-dedicated-20261105/guest/evidence/vmargs.txt -Dfml.modFolders= net.neoforged.devlaunch.Main @/tmp/fd401c-pax-recovery-dedicated-20261105/guest/evidence/program.txt
+  42939   42937    10:10:41 2665280 /usr/lib/jvm/java-21-openjdk/bin/java @/tmp/fd402-operator-final-build.gMpF0Q/moddev/clientRunClasspath.txt @/tmp/fd402-operator-final-build.gMpF0Q/moddev/clientRunVmArgs.txt -Dfml.modFolders= net.neoforged.devlaunch.Main @/tmp/fd402-operator-final-build.gMpF0Q/moddev/clientRunProgramArgs.txt
+ 592481   10172       11:25 2611524 /usr/lib/jvm/java-21-openjdk/bin/java -Xmx1536M @/tmp/fd401c-pax-recovery-dedicated-20261105/host/evidence/classpath.txt @/tmp/fd401c-pax-recovery-dedicated-20261105/host/evidence/vmargs.txt -Dfml.modFolders= net.neoforged.devlaunch.Main @/tmp/fd401c-pax-recovery-dedicated-20261105/host/evidence/program.txt
+ 594311   10172       09:25 1626576 /usr/lib/jvm/java-21-openjdk/bin/java -Xmx1536M @/tmp/fd401c-pax-recovery-dedicated-20261105/evidence/serverRunClasspath.txt @/tmp/fd401c-pax-recovery-dedicated-20261105/evidence/serverRunVmArgs.txt -Dfml.modFolders= net.neoforged.devlaunch.Main @/tmp/fd401c-pax-recovery-dedicated-20261105/evidence/serverRunProgramArgs.txt
+  37279    2913    10:13:22 120120 /usr/sbin/Xvfb :226 -screen 0 1280x720x24 -nolisten tcp
+ 419420    2913    04:07:21 120068 /usr/bin/Xvfb :252 -screen 0 1280x720x24 -nolisten tcp
+ 588289    2913       17:04 119948 /usr/bin/Xvfb :285 -screen 0 1280x720x24 -nolisten tcp
+ 592240    2913       11:48 119796 /usr/bin/Xvfb :288 -screen 0 1280x720x24 -nolisten tcp
+ 592238    2913       11:48 118812 /usr/bin/Xvfb :287 -screen 0 1280x720x24 -nolisten tcp
+ 601545  601539       00:00  6156 rg java|gradle|Xvfb|minecraft
+ 588407   10172       16:52  5948 /bin/bash -c systemctl --user is-active fd401b-absent-xvfb-285.service; DISPLAY=:285 xdpyinfo | head -n 2; systemd-run --user --scope -p MemoryMax=6G -- env DISPLAY=:285 ALSOFT_DRIVERS=null JAVA_HOME=/usr/lib/jvm/java-21-openjdk PATH=/usr/lib/jvm/java-21-openjdk/bin:/usr/local/bin:/usr/bin:/bin /tmp/fd401b-styles-absent-occupied-20261105/run-client.sh > /tmp/fd401b-styles-absent-occupied-20261105/console.log 2>&1
+ 601538   10172       00:00  5908 /bin/bash -c RUN=/tmp/fd401d-occupied-telemetry-selected-20261105T0617Z; { date -u +'%FT%TZ'; free -h; systemctl --user show user.slice -p MemoryMax -p MemoryCurrent --no-pager; ps -eo pid,ppid,etime,rss,args --sort=-rss | rg 'java|gradle|Xvfb|minecraft' | head -35; systemctl --user show fd401d-occupied-prep.scope -p ActiveState -p MemoryCurrent -p MemoryMax --no-pager; ss -ltn | rg ':(25655|25656)\b' || true; test ! -e /tmp/.X289-lock && test ! -e /tmp/.X290-lock && echo 'Xvfb :289/:290 unreserved'; } | tee "$RUN/evidence/prelaunch-check.txt";
+ 601539  601538       00:00  1800 /bin/bash -c RUN=/tmp/fd401d-occupied-telemetry-selected-20261105T0617Z; { date -u +'%FT%TZ'; free -h; systemctl --user show user.slice -p MemoryMax -p MemoryCurrent --no-pager; ps -eo pid,ppid,etime,rss,args --sort=-rss | rg 'java|gradle|Xvfb|minecraft' | head -35; systemctl --user show fd401d-occupied-prep.scope -p ActiveState -p MemoryCurrent -p MemoryMax --no-pager; ss -ltn | rg ':(25655|25656)\b' || true; test ! -e /tmp/.X289-lock && test ! -e /tmp/.X290-lock && echo 'Xvfb :289/:290 unreserved'; } | tee "$RUN/evidence/prelaunch-check.txt";
+ActiveState=inactive
+MemoryCurrent=[not set]
+MemoryMax=infinity
+Xvfb :289/:290 unreserved
+2026-11-05T13:23:49Z
+               total        used        free      shared  buff/cache   available
+Mem:            61Gi        46Gi       5.0Gi        14Gi        26Gi        15Gi
+Swap:             0B          0B          0B
+MemoryCurrent=[not set]
+MemoryMax=infinity
+
+MemoryCurrent=1427947520
+MemoryMax=3221225472
+ 588411  588407       18:14 3378308 /usr/lib/jvm/java-21-openjdk/bin/java -Xmx1536M @/tmp/fd401b-styles-absent-occupied-20261105/classpath.txt @/tmp/fd401b-styles-absent-occupied-20261105/vmargs.txt -Dfml.modFolders= net.neoforged.devlaunch.Main @/tmp/fd401b-styles-absent-occupied-20261105/program.txt
+ 596357   10172       07:58 2688656 /usr/lib/jvm/java-21-openjdk/bin/java -Xmx1536M @/tmp/fd401c-pax-recovery-dedicated-20261105/guest/evidence/classpath.txt @/tmp/fd401c-pax-recovery-dedicated-20261105/guest/evidence/vmargs.txt -Dfml.modFolders= net.neoforged.devlaunch.Main @/tmp/fd401c-pax-recovery-dedicated-20261105/guest/evidence/program.txt
+  42939   42937    10:12:03 2665212 /usr/lib/jvm/java-21-openjdk/bin/java @/tmp/fd402-operator-final-build.gMpF0Q/moddev/clientRunClasspath.txt @/tmp/fd402-operator-final-build.gMpF0Q/moddev/clientRunVmArgs.txt -Dfml.modFolders= net.neoforged.devlaunch.Main @/tmp/fd402-operator-final-build.gMpF0Q/moddev/clientRunProgramArgs.txt
+ 592481   10172       12:47 2625924 /usr/lib/jvm/java-21-openjdk/bin/java -Xmx1536M @/tmp/fd401c-pax-recovery-dedicated-20261105/host/evidence/classpath.txt @/tmp/fd401c-pax-recovery-dedicated-20261105/host/evidence/vmargs.txt -Dfml.modFolders= net.neoforged.devlaunch.Main @/tmp/fd401c-pax-recovery-dedicated-20261105/host/evidence/program.txt
+ 594311   10172       10:47 1616724 /usr/lib/jvm/java-21-openjdk/bin/java -Xmx1536M @/tmp/fd401c-pax-recovery-dedicated-20261105/evidence/serverRunClasspath.txt @/tmp/fd401c-pax-recovery-dedicated-20261105/evidence/serverRunVmArgs.txt -Dfml.modFolders= net.neoforged.devlaunch.Main @/tmp/fd401c-pax-recovery-dedicated-20261105/evidence/serverRunProgramArgs.txt
+ 601773  601772       01:02 1425048 /usr/lib/jvm/java-21-openjdk/bin/java -Xmx1536M @/tmp/fd401d-occupied-telemetry-selected-20261105T0617Z/build/moddev/serverRunClasspath.txt @/tmp/fd401d-occupied-telemetry-selected-20261105T0617Z/build/moddev/serverRunVmArgs.txt -Dfml.modFolders= net.neoforged.devlaunch.Main @/tmp/fd401d-occupied-telemetry-selected-20261105T0617Z/build/moddev/serverRunProgramArgs.txt
+  37279    2913    10:14:44 120120 /usr/sbin/Xvfb :226 -screen 0 1280x720x24 -nolisten tcp
+ 419420    2913    04:08:44 120068 /usr/bin/Xvfb :252 -screen 0 1280x720x24 -nolisten tcp
+ 588289    2913       18:26 119948 /usr/bin/Xvfb :285 -screen 0 1280x720x24 -nolisten tcp
+ 592240    2913       13:10 119796 /usr/bin/Xvfb :288 -screen 0 1280x720x24 -nolisten tcp
+ 592238    2913       13:10 118812 /usr/bin/Xvfb :287 -screen 0 1280x720x24 -nolisten tcp
+ 601617    2913       01:14 116152 /usr/bin/Xvfb :290 -screen 0 1280x720x24 -nolisten tcp
+ 601616    2913       01:14 116048 /usr/bin/Xvfb :289 -screen 0 1280x720x24 -nolisten tcp
+ 602668   10172       00:00  6052 /bin/bash -c RUN=/tmp/fd401d-occupied-telemetry-selected-20261105T0617Z; for g in "$RUN/dev/game" "$RUN/observer/game"; do mkdir -p "$g"; if test ! -f "$g/options.txt"; then printf 'renderDistance:6\nsimulationDistance:6\nmaxFps:60\nrawMouseInput:false\n' > "$g/options.txt"; else rg -q '^renderDistance:' "$g/options.txt" && sed -i 's/^renderDistance:.*/renderDistance:6/' "$g/options.txt" || printf '\nrenderDistance:6\n' >> "$g/options.txt"; rg -q '^simulationDistance:' "$g/options.txt" && sed -i 's/^simulationDistance:.*/simulationDistance:6/' "$g/options.txt" || printf '\nsimulationDistance:6\n' >> "$g/options.txt"; fi; done; { date -u +'%FT%TZ'; free -h; systemctl --user show user.slice fd401d-occupied-server.scope -p MemoryMax -p MemoryCurrent --no-pager; ps -eo pid,ppid,etime,rss,args --sort=-rss | rg 'java|gradle|Xvfb|minecraft' | head -35; systemctl --user is-active fd401d-occupied-xvfb-289.service; DISPLAY=:289 xdpyinfo | head -n 2; systemctl --user show fd401d-occupied-server.scope -p ActiveState -p MemoryCurrent -p MemoryMax --no-pager; } | tee -a "$RUN/evidence/prelaunch-check.txt"; test -x "$RUN/evidence/launch-dev.sh" && rg -q -- '-Xmx1536M' "$RUN/evidence/launch-dev.sh" && rg -q 'clientRunClasspath.txt' "$RUN/evidence/launch-dev.sh" && echo 'Dev launch command verified';
+ 602677  602671       00:00  6028 rg java|gradle|Xvfb|minecraft
+ 588407   10172       18:14  5948 /bin/bash -c systemctl --user is-active fd401b-absent-xvfb-285.service; DISPLAY=:285 xdpyinfo | head -n 2; systemd-run --user --scope -p MemoryMax=6G -- env DISPLAY=:285 ALSOFT_DRIVERS=null JAVA_HOME=/usr/lib/jvm/java-21-openjdk PATH=/usr/lib/jvm/java-21-openjdk/bin:/usr/local/bin:/usr/bin:/bin /tmp/fd401b-styles-absent-occupied-20261105/run-client.sh > /tmp/fd401b-styles-absent-occupied-20261105/console.log 2>&1
+ 601772   10172       01:02  5892 /bin/bash -c RUN=/tmp/fd401d-occupied-telemetry-selected-20261105T0617Z; systemd-run --user --scope --unit=fd401d-occupied-server.scope -p MemoryMax=3G -- env ALSOFT_DRIVERS=null JAVA_HOME=/usr/lib/jvm/java-21-openjdk PATH=/usr/lib/jvm/java-21-openjdk/bin:/usr/local/bin:/usr/bin:/bin "$RUN/evidence/launch-server.sh" > "$RUN/evidence/server-console.log" 2>&1
+ 602671  602668       00:00  1920 /bin/bash -c RUN=/tmp/fd401d-occupied-telemetry-selected-20261105T0617Z; for g in "$RUN/dev/game" "$RUN/observer/game"; do mkdir -p "$g"; if test ! -f "$g/options.txt"; then printf 'renderDistance:6\nsimulationDistance:6\nmaxFps:60\nrawMouseInput:false\n' > "$g/options.txt"; else rg -q '^renderDistance:' "$g/options.txt" && sed -i 's/^renderDistance:.*/renderDistance:6/' "$g/options.txt" || printf '\nrenderDistance:6\n' >> "$g/options.txt"; rg -q '^simulationDistance:' "$g/options.txt" && sed -i 's/^simulationDistance:.*/simulationDistance:6/' "$g/options.txt" || printf '\nsimulationDistance:6\n' >> "$g/options.txt"; fi; done; { date -u +'%FT%TZ'; free -h; systemctl --user show user.slice fd401d-occupied-server.scope -p MemoryMax -p MemoryCurrent --no-pager; ps -eo pid,ppid,etime,rss,args --sort=-rss | rg 'java|gradle|Xvfb|minecraft' | head -35; systemctl --user is-active fd401d-occupied-xvfb-289.service; DISPLAY=:289 xdpyinfo | head -n 2; systemctl --user show fd401d-occupied-server.scope -p ActiveState -p MemoryCurrent -p MemoryMax --no-pager; } | tee -a "$RUN/evidence/prelaunch-check.txt"; test -x "$RUN/evidence/launch-dev.sh" && rg -q -- '-Xmx1536M' "$RUN/evidence/launch-dev.sh" && rg -q 'clientRunClasspath.txt' "$RUN/evidence/launch-dev.sh" && echo 'Dev launch command verified';
+active
+name of display:    :289
+version number:    11.0
+ActiveState=active
+MemoryCurrent=1427947520
+MemoryMax=3221225472
+2026-11-05T13:24:42Z
+               total        used        free      shared  buff/cache   available
+Mem:            61Gi        48Gi       2.6Gi        14Gi        26Gi        13Gi
+Swap:             0B          0B          0B
+MemoryCurrent=[not set]
+MemoryMax=infinity
+
+MemoryCurrent=1475076096
+MemoryMax=3221225472
+
+MemoryCurrent=2523906048
+MemoryMax=3221225472
+ 588411  588407       19:07 3421452 /usr/lib/jvm/java-21-openjdk/bin/java -Xmx1536M @/tmp/fd401b-styles-absent-occupied-20261105/classpath.txt @/tmp/fd401b-styles-absent-occupied-20261105/vmargs.txt -Dfml.modFolders= net.neoforged.devlaunch.Main @/tmp/fd401b-styles-absent-occupied-20261105/program.txt
+ 596357   10172       08:51 2721724 /usr/lib/jvm/java-21-openjdk/bin/java -Xmx1536M @/tmp/fd401c-pax-recovery-dedicated-20261105/guest/evidence/classpath.txt @/tmp/fd401c-pax-recovery-dedicated-20261105/guest/evidence/vmargs.txt -Dfml.modFolders= net.neoforged.devlaunch.Main @/tmp/fd401c-pax-recovery-dedicated-20261105/guest/evidence/program.txt
+  42939   42937    10:12:56 2665076 /usr/lib/jvm/java-21-openjdk/bin/java @/tmp/fd402-operator-final-build.gMpF0Q/moddev/clientRunClasspath.txt @/tmp/fd402-operator-final-build.gMpF0Q/moddev/clientRunVmArgs.txt -Dfml.modFolders= net.neoforged.devlaunch.Main @/tmp/fd402-operator-final-build.gMpF0Q/moddev/clientRunProgramArgs.txt
+ 602745  602744       00:47 2640724 /usr/lib/jvm/java-21-openjdk/bin/java -Xmx1536M @/tmp/fd401d-occupied-telemetry-selected-20261105T0617Z/build/moddev/clientRunClasspath.txt @/tmp/fd401d-occupied-telemetry-selected-20261105T0617Z/build/moddev/clientRunVmArgs.txt -Dfml.modFolders= net.neoforged.devlaunch.Main @/tmp/fd401d-occupied-telemetry-selected-20261105T0617Z/build/moddev/clientRunProgramArgs.txt
+ 592481   10172       13:40 2631460 /usr/lib/jvm/java-21-openjdk/bin/java -Xmx1536M @/tmp/fd401c-pax-recovery-dedicated-20261105/host/evidence/classpath.txt @/tmp/fd401c-pax-recovery-dedicated-20261105/host/evidence/vmargs.txt -Dfml.modFolders= net.neoforged.devlaunch.Main @/tmp/fd401c-pax-recovery-dedicated-20261105/host/evidence/program.txt
+ 594311   10172       11:40 1620000 /usr/lib/jvm/java-21-openjdk/bin/java -Xmx1536M @/tmp/fd401c-pax-recovery-dedicated-20261105/evidence/serverRunClasspath.txt @/tmp/fd401c-pax-recovery-dedicated-20261105/evidence/serverRunVmArgs.txt -Dfml.modFolders= net.neoforged.devlaunch.Main @/tmp/fd401c-pax-recovery-dedicated-20261105/evidence/serverRunProgramArgs.txt
+ 601773  601772       01:54 1468688 /usr/lib/jvm/java-21-openjdk/bin/java -Xmx1536M @/tmp/fd401d-occupied-telemetry-selected-20261105T0617Z/build/moddev/serverRunClasspath.txt @/tmp/fd401d-occupied-telemetry-selected-20261105T0617Z/build/moddev/serverRunVmArgs.txt -Dfml.modFolders= net.neoforged.devlaunch.Main @/tmp/fd401d-occupied-telemetry-selected-20261105T0617Z/build/moddev/serverRunProgramArgs.txt
+  37279    2913    10:15:37 120120 /usr/sbin/Xvfb :226 -screen 0 1280x720x24 -nolisten tcp
+ 419420    2913    04:09:36 120068 /usr/bin/Xvfb :252 -screen 0 1280x720x24 -nolisten tcp
+ 588289    2913       19:19 119948 /usr/bin/Xvfb :285 -screen 0 1280x720x24 -nolisten tcp
+ 592240    2913       14:03 119796 /usr/bin/Xvfb :288 -screen 0 1280x720x24 -nolisten tcp
+ 601616    2913       02:07 118860 /usr/bin/Xvfb :289 -screen 0 1280x720x24 -nolisten tcp
+ 592238    2913       14:03 118812 /usr/bin/Xvfb :287 -screen 0 1280x720x24 -nolisten tcp
+ 601617    2913       02:07 116152 /usr/bin/Xvfb :290 -screen 0 1280x720x24 -nolisten tcp
+ 603509  603503       00:00  6064 rg java|gradle|Xvfb|minecraft
+ 588407   10172       19:07  5948 /bin/bash -c systemctl --user is-active fd401b-absent-xvfb-285.service; DISPLAY=:285 xdpyinfo | head -n 2; systemd-run --user --scope -p MemoryMax=6G -- env DISPLAY=:285 ALSOFT_DRIVERS=null JAVA_HOME=/usr/lib/jvm/java-21-openjdk PATH=/usr/lib/jvm/java-21-openjdk/bin:/usr/local/bin:/usr/bin:/bin /tmp/fd401b-styles-absent-occupied-20261105/run-client.sh > /tmp/fd401b-styles-absent-occupied-20261105/console.log 2>&1
+ 601772   10172       01:54  5892 /bin/bash -c RUN=/tmp/fd401d-occupied-telemetry-selected-20261105T0617Z; systemd-run --user --scope --unit=fd401d-occupied-server.scope -p MemoryMax=3G -- env ALSOFT_DRIVERS=null JAVA_HOME=/usr/lib/jvm/java-21-openjdk PATH=/usr/lib/jvm/java-21-openjdk/bin:/usr/local/bin:/usr/bin:/bin "$RUN/evidence/launch-server.sh" > "$RUN/evidence/server-console.log" 2>&1
+ 603502   10172       00:00  5872 /bin/bash -c RUN=/tmp/fd401d-occupied-telemetry-selected-20261105T0617Z; { date -u +'%FT%TZ'; free -h; systemctl --user show user.slice fd401d-occupied-server.scope fd401d-occupied-dev.scope -p MemoryMax -p MemoryCurrent --no-pager; ps -eo pid,ppid,etime,rss,args --sort=-rss | rg 'java|gradle|Xvfb|minecraft' | head -38; systemctl --user is-active fd401d-occupied-xvfb-290.service; DISPLAY=:290 xdpyinfo | head -n 2; } | tee -a "$RUN/evidence/prelaunch-check.txt"; test -x "$RUN/evidence/launch-observer.sh" && rg -q -- '-Xmx1536M' "$RUN/evidence/launch-observer.sh" && rg -q 'observerRunClasspath.txt' "$RUN/evidence/launch-observer.sh" && echo 'Observer launch command verified';
+ 602744   10172       00:47  5864 /bin/bash -c RUN=/tmp/fd401d-occupied-telemetry-selected-20261105T0617Z; systemd-run --user --scope --unit=fd401d-occupied-dev.scope -p MemoryMax=3G -- env DISPLAY=:289 ALSOFT_DRIVERS=null JAVA_HOME=/usr/lib/jvm/java-21-openjdk PATH=/usr/lib/jvm/java-21-openjdk/bin:/usr/local/bin:/usr/bin:/bin "$RUN/evidence/launch-dev.sh" > "$RUN/evidence/dev-console.log" 2>&1
+ 603503  603502       00:00  1988 /bin/bash -c RUN=/tmp/fd401d-occupied-telemetry-selected-20261105T0617Z; { date -u +'%FT%TZ'; free -h; systemctl --user show user.slice fd401d-occupied-server.scope fd401d-occupied-dev.scope -p MemoryMax -p MemoryCurrent --no-pager; ps -eo pid,ppid,etime,rss,args --sort=-rss | rg 'java|gradle|Xvfb|minecraft' | head -38; systemctl --user is-active fd401d-occupied-xvfb-290.service; DISPLAY=:290 xdpyinfo | head -n 2; } | tee -a "$RUN/evidence/prelaunch-check.txt"; test -x "$RUN/evidence/launch-observer.sh" && rg -q -- '-Xmx1536M' "$RUN/evidence/launch-observer.sh" && rg -q 'observerRunClasspath.txt' "$RUN/evidence/launch-observer.sh" && echo 'Observer launch command verified';
+active
+name of display:    :290
+version number:    11.0

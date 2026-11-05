@@ -1,0 +1,8 @@
+Run directory: /tmp/fd401d-occupied-telemetry-selected-20261105T0617Z
+Run date: 2026-11-05
+Artifact: selected clean JAR, SHA-256 656725bcbacc8f491de274c6c058027d0aaa67cfc6f893ba6d7e4a9eb24abbc7
+Input: copied PAX world, SHA-256 f4557f2a4fac5a865a3bb8eb7f41fc49cbc9978a062143dc0daedb9bc582c78a
+Profile: combined (Create + Track Styles + Engineered)
+Runtime: Java 21.0.13.0.3; game JVM heap 1536M; separate 3 GiB server/client systemd scopes; private Xvfb :289/:290; server port 25655; RCON 25656; render/simulation distance 6.
+Result: normal Dev mount; Observer received occupied PAX BOARDING snapshot; goggles displayed matching values eight seconds after one packet and within the repeated stable interval; sign source UI could not be reached and the sign remained blank.
+Shutdown: clients disconnected; server saved all dimensions and stopped the RCON listener cleanly.
