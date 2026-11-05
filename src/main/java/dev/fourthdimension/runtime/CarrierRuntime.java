@@ -113,6 +113,24 @@ public final class CarrierRuntime {
     // shuttle has four cars, so avoid allocating two stream pipelines for each
     // one; the direct searches preserve the previous first-match behavior.
     var graph = CoasterPathGraphManager.get(level);
+    // A missing active PAX support must fault the winch before its guide advances in this
+    // callback. The ordinary per-vehicle check below still covers every other vehicle.
+    for (var winch : dev.fourthdimension.shuttle.ShuttleRuntime.winches(level)) {
+      if (winch.phase == dev.fourthdimension.shuttle.ShuttleWinchEntity.Phase.BOARDING
+          || winch.phase == dev.fourthdimension.shuttle.ShuttleWinchEntity.Phase.FAULT)
+        continue;
+      for (var id : winch.cars) {
+        var car = data.vehicles.get(id);
+        if (car == null || !(container.getSubLevel(id) instanceof ServerSubLevel parent)
+            || parent.isRemoved()) continue;
+        var rail = matchingRail(data, car);
+        if (rail == null || !rail.valid
+            || dev.fourthdimension.track.TrackGeometry.resolve(level, rail) == null) {
+          dev.fourthdimension.vehicle.VehicleOperations.failForLostSupport(level, car);
+          break;
+        }
+      }
+    }
     dev.fourthdimension.shuttle.ShuttleRuntime.tick(level, event.getTimeStep());
     dev.fourthdimension.vehicle.RecoveryOperations.tick(level, event.getTimeStep());
     for (var vehicle : data.vehicles.values()) {
