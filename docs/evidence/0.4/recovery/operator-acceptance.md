@@ -143,10 +143,16 @@ manual towing lifecycle.
 
 ## Remaining acceptance
 
-Physical lever propulsion remains open, along with observed client
-mesh/rider/rack clearance. Broader
-coupler/propulsion/braking
-scenes and multiplayer recovery-mode lifecycle evidence also remain open.
+The bounded empty-Arrow physical-lever sequence is closed by the
+[switchable recovery power checkpoint](power-control/acceptance.md): a real
+operator set the installed motor to eight RPM, used the normal vanilla lever
+to supply and then cut clutch power, observed towing, braked before the route
+end, detached recovery and reopened restraints. That evidence is limited to
+the documented manual empty-Arrow scene.
+
+Observed client mesh/rider/rack clearance, broader
+coupler/propulsion/braking scenes and multiplayer recovery-mode lifecycle
+evidence remain open.
 These checks do not certify added ordinary-cart assemblies or a
 survival locomotive.
 The bounded installed-motor brake/start/brake callback check is recorded in the
