@@ -28,6 +28,15 @@ present in the shared checkout is excluded. Documentation-only commits after
 `8f370d0` do not change the packaged inputs; future source/resource edits need
 a new identity review.
 
+**Post-baseline input review through `f4a5a6b`:** the only changed tracked
+build/source input is `EngineeredInterlockGameTests.java`, expanded to a four-car
+validation fixture. The [Engineered callback run](evidence/0.9/fd401-engineered-fourcar-motor-guard/README.md)
+used that later development classpath and is attached to its own source/log
+identity. The selected clean JAR above still contains the two-car version of
+the fixture; no production, resource or build-script input changed. A packaged
+run of the four-car fixture needs a newly built JAR identity. The untracked
+`ShuttleBoardingHoldGameTests.java` remains excluded from this clean baseline.
+
 Before each runtime qualification, retain the actual launch command, dependency
 hashes, flags, hardware, world hash, client/server roles and exit status. The
 intended profile list above is not a claim that those runtimes were exercised.
