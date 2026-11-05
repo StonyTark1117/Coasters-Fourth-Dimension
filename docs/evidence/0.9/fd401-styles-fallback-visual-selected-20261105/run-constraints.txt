@@ -1,0 +1,8 @@
+Java: /usr/lib/jvm/java-21-openjdk/bin/java, OpenJDK 21.0.13
+Profile: selected-JAR base profile; no Track Styles or Engineered classpath entry
+JVM heap: -Xmx1536M
+Client scope: run-p521337-i464987.scope, MemoryMax=6442450944, Result=success
+Observed scope MemoryCurrent before shutdown: 3266785280 bytes
+Private display: Xvfb :276, stopped after client exit
+Host memory before launch: 61 GiB total, 25 GiB available
+Host user.slice cgroup: memory.max=max, memory.current=57764249600 bytes
