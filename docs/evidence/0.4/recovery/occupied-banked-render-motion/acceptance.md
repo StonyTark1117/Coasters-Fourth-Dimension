@@ -1,8 +1,9 @@
 # FD402 occupied banked recovery render/motion checkpoint
 
-This is a bounded development-client checkpoint for one occupied Arrow recovery
-car. It adds physical curved/banked traversal to the earlier flat Arrow client
-checkpoint; it does not close FD402 or the broader 0.4 acceptance gate.
+This is a bounded development-client checkpoint for occupied single-car recovery
+routes in all five supported families. It adds physical curved/banked traversal
+to the earlier flat Arrow client checkpoint; it does not close FD402 or the
+broader 0.4 acceptance gate.
 
 ## Run
 
@@ -34,16 +35,19 @@ angle. Maximum observed chassis bank was `0.5000804782268888` radians (28.65°)
 and maximum ordinary-bearing bank was `0.5235987367764136` radians (30.00°).
 The log then records a normal integrated-server stop.
 
-## PAX extension (2026-11-04)
+## All-family extensions (2026-11-04)
 
-The banked fixture now honors `-PfdCarrierFixtureRecoveryDesign=PAX` for
-single-car routes. A separate capped client run in
-`/tmp/fd402-pax-banked.VrZAI0` used `-PfdClientMaxHeap=1536M` and passed at
-`waitedTicks=3343`. It rendered the occupied linked PAX chassis and ordinary
-bearing, observed `60.28855714648392` and `58.649254037450035` blocks of
-motion respectively, and measured chassis/bearing bank angles of
-`0.5000193529126009` and `0.5235987367764136` radians. No out-of-memory event
-occurred.
+The banked fixture now honors `-PfdCarrierFixtureRecoveryDesign` for single-car
+routes. Each new fresh client used `-PfdClientMaxHeap=1536M`; all rendered the
+occupied linked chassis and ordinary bearing, crossed the bend and sustained
+bank, and exited through the validation gate without an out-of-memory event.
+
+| Family | Client world | Ticks | Chassis / bearing motion | Chassis / bearing bank |
+| --- | --- | ---: | --- | --- |
+| PAX | `FD402PaxBanked` | 3343 | 60.289 / 58.649 blocks | 0.500019 / 0.523599 rad |
+| Legacy | `FD402LegacyBanked` | 3367 | 60.109 / 58.499 blocks | 0.500203 / 0.523599 rad |
+| Free Spin | `FD402FreeSpinBanked` | 3376 | 60.268 / 58.122 blocks | 0.500027 / 0.523599 rad |
+| Revised | `FD402RevisedBanked` | 3375 | 60.262 / 58.231 blocks | 0.500149 / 0.523599 rad |
 
 ## Provenance
 
@@ -62,9 +66,9 @@ packaged or CI evidence.
 
 ## Scope and limits
 
-This proves one occupied Arrow recovery group reaches the client render paths,
-travels through the native bend, and reaches the sustained bank under production
-recovery operations. It does not prove manual GUI/editor interaction, player/camera mesh
-clearance, rider/rack clearance, full braking/cut/detach/unload behavior,
-cold-process recovery lifecycle, the remaining Legacy/Free Spin/Revised families, broad coupler strength,
-or Engineered/FE operation. Those FD402 items remain open.
+This proves one occupied recovery group per supported family reaches the client
+render paths, travels through the native bend, and reaches the sustained bank
+under production recovery operations. It does not prove manual GUI/editor
+interaction, player/camera mesh clearance, rider/rack clearance, full
+braking/cut/detach/unload behavior, cold-process recovery lifecycle, broad
+coupler strength, or Engineered/FE operation. Those FD402 items remain open.

@@ -117,17 +117,18 @@ render-path observations for the fourth-dimension bodies and the separate
 Coasters ordinary-cart renderer. Its bounded Arrow-only scope does not replace
 the remaining rendered operator or lifecycle acceptance below.
 
-The later [occupied banked Arrow render/motion checkpoint](occupied-banked-render-motion/acceptance.md)
-adds a fresh client run over the native quarter-bend and sustained 30-degree
-bank. It independently measures the moved chassis and ordinary bearing world-up
-vectors rather than treating Arrow controlled spin as bank traversal. It remains
-one bounded Arrow scene and does not replace the remaining acceptance below.
+The later [occupied banked recovery render/motion checkpoint](occupied-banked-render-motion/acceptance.md)
+now records one fresh client run for every supported family over the native
+quarter-bend and sustained 30-degree bank. It independently measures the moved
+chassis and ordinary bearing world-up vectors rather than treating controlled
+spin as bank traversal. It closes the bounded all-family curved/banked rendering
+item, but does not replace the remaining acceptance below.
 
 ## Remaining acceptance
 
 Manual world-side ordinary-bearing selection, physical lever propulsion, and
-manual boarding remain open, along with all-family curved/banked rendering and
-observed client mesh/rider/rack clearance. Broader coupler/propulsion/braking
+manual boarding remain open, along with observed client mesh/rider/rack
+clearance. Broader coupler/propulsion/braking
 scenes and all-family or multiplayer recovery-mode lifecycle evidence also
 remain open. These checks do not certify added ordinary-cart assemblies or a
 survival locomotive.
