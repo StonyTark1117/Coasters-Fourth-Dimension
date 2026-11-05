@@ -481,8 +481,8 @@ public final class CarrierTransformValidation {
             "FD_CARRIER_VALIDATION passed samples={} target={} waitedTicks={} families={} "
                 + "requiredFamilies={} carriers={} riderAssignments={} maxAngleError={} "
                 + "compiledBodies={} sectionLayerCalls={} sectionLayerBodies={} nativeCartBodies={} renderRequired={} "
-                + "riderRequired={} riderMounted={} supportLossRequired={} supportLossObserved={} "
-                + "playerRenderRequired={} localRiderRenderCalls={} "
+                + "riderRequired={} riderMounted={} playerRenderRequired={} localRiderRenderCalls={} "
+                + "supportLossRequired={} supportLossObserved={} "
                 + "supportLossAfterMotion={} supportRepairRequired={} supportRepairObserved={} "
                 + "supportRealignmentRequired={} supportRealignmentObserved={} "
                 + "recoveryRequired={} recoveryMotionRequired={} recoveryBankRequired={} recoveryCycleRequired={} recoveryProfileRequired={} recoveryEditorRequired={} recoveryEditorActionRequired={} recoveryEditorAttachRequired={} recoveryTrainRequired={} recoveryLinkSeen={} recoveryMotionSeen={} recoveryCycleSeen={} recoveryProfileSeen={} recoveryEditorSeen={} recoveryEditorActionSeen={} recoveryEditorActionApplied={} recoveryEditorAttachRendered={} recoveryEditorAttachSeen={} recoveryEditorAttachApplied={} recoveryTrainSeen={} recoveryTrainMotionSeen={} maxRecoveryChassisBankAngle={} maxRecoveryBearingBankAngle={} motionFamilies={} motionChassis={} motionDistances={}",
