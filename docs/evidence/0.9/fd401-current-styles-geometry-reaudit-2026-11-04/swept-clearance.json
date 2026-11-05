@@ -1,0 +1,202 @@
+{
+  "passes": true,
+  "scope": "Continuous Sable between-snapshot interpolation of retained default-model Arrow recovery poses and conservative vanilla seated-player envelope; excludes physics substeps, client extrapolation, equipment/cosmetics, arbitrary models and observed rendering.",
+  "dependencyHashes": {
+    "base": "f80b4c3cdf9fa6188804967147761b0373e150a6eadbdc53626e5ac9700b2049",
+    "minecraft": "499f6897d1837516680f3114072d8106e11c9adcd933fe5cf051b551089b0c99",
+    "styles": "42535a83307f6898b33c13ca201533bb9e337418fd7c73039c867fc80bfbcb38"
+  },
+  "interpolationJarHashes": {
+    "sable": "da6c3b66238586603d1dcaa2afb012d36815fbce0a2d5938fbb2936701d42279",
+    "companion": "873633e35046e3761b277ff8a1ecad0d55d9a3014fa81a0b084c9aecba1f3bed"
+  },
+  "sampledEvidence": "docs/evidence/0.9/fd401-current-styles-geometry-reaudit-2026-11-04",
+  "nativeInputs": "docs/evidence/0.9/fd402-isolated-base-ff7c831/native-exports",
+  "inputHashes": {
+    "single": {
+      "traceArchive": "2181ff260f62f11bf3b61140935a73cfd15d03701c1a4386e94986993b630212",
+      "framesArchive": "a7916de3219c5481fadd6f1c375689f3bfff524ae40f0a1a5dd4365dac4456ad",
+      "tracePayload": "d6f3d0314016c05f86d2a3c7b0487c8092b081611212d4cae144f429d97b06ac",
+      "framesPayload": "9266e5adf0a055d0bd3d6034e7862471d0d9d670103ab8bb983ea45a7640a311"
+    },
+    "train": {
+      "traceArchive": "02ca9dbd7e79c8b99de2016fca411429842ae47c8e8616dfb77cf11bbbe7a46f",
+      "framesArchive": "d897d542eec87fc58c224d173419f5877fb58c43381379afb90b1101e6d4e74c",
+      "tracePayload": "758fc4b300445c7f37a99f187e79055f11319b6b6a68979add8304dd75aa78b8",
+      "framesPayload": "b830d52052740beb71486daf56a7b1fcb5342c1d53cdc91c1a4eaf4f75bb4eee"
+    }
+  },
+  "wheelLocalRadius": 1.5699740646070668,
+  "results": {
+    "single-arrow_4d": {
+      "samples": 5768,
+      "globalSampledGap": 0.048910481274333506,
+      "maximumMotion": {
+        "body": 0.02955066085050883,
+        "wheel": 0.026412975609691143,
+        "rider": 0.029340396942534378,
+        "player": 0.029851519005172793
+      },
+      "worst": {
+        "body": [
+          1831,
+          "a8c0a330-4288-47b5-a1d7-5c9285bed95f"
+        ],
+        "wheel": [
+          1812,
+          "489955b4-c7d7-4637-b9c3-a362e82c14cd"
+        ]
+      },
+      "localEyeDrift": 2.6099874803175517e-13,
+      "locallyCheckedIntervals": {
+        "count": 160,
+        "minimumSweptLowerBound": 0.03,
+        "maximumMotionBound": 0.02955066085050883,
+        "firstInterval": [
+          1752,
+          1753
+        ],
+        "lastInterval": [
+          2027,
+          2028
+        ]
+      }
+    },
+    "single-arrow_4d_dbl_spine": {
+      "samples": 5768,
+      "globalSampledGap": 0.048910481274333506,
+      "maximumMotion": {
+        "body": 0.02955066085050883,
+        "wheel": 0.026412975609691143,
+        "rider": 0.029340396942534378,
+        "player": 0.029851519005172793
+      },
+      "worst": {
+        "body": [
+          1831,
+          "a8c0a330-4288-47b5-a1d7-5c9285bed95f"
+        ],
+        "wheel": [
+          1812,
+          "489955b4-c7d7-4637-b9c3-a362e82c14cd"
+        ]
+      },
+      "localEyeDrift": 2.6099874803175517e-13,
+      "locallyCheckedIntervals": {
+        "count": 160,
+        "minimumSweptLowerBound": 0.03,
+        "maximumMotionBound": 0.02955066085050883,
+        "firstInterval": [
+          1752,
+          1753
+        ],
+        "lastInterval": [
+          2027,
+          2028
+        ]
+      }
+    },
+    "train-arrow_4d": {
+      "samples": 6548,
+      "globalSampledGap": 0.04878234623208755,
+      "maximumMotion": {
+        "body": 0.029108851134942704,
+        "wheel": 0.026095404446057846,
+        "rider": 0.028901810209871846,
+        "player": 0.029405097653219598
+      },
+      "worst": {
+        "body": [
+          2278,
+          "6a850a01-e930-433e-bd1f-b19310415e4a"
+        ],
+        "wheel": [
+          2278,
+          "3c5d867c-ec9f-471f-8c9d-70152d93883c"
+        ]
+      },
+      "localEyeDrift": 2.5568460465108917e-13,
+      "locallyCheckedIntervals": {
+        "count": 307,
+        "minimumSweptLowerBound": 0.03,
+        "maximumMotionBound": 0.029108851134942704,
+        "firstInterval": [
+          2201,
+          2202
+        ],
+        "lastInterval": [
+          2540,
+          2541
+        ]
+      }
+    },
+    "train-arrow_4d_dbl_spine": {
+      "samples": 6548,
+      "globalSampledGap": 0.04878234623208755,
+      "maximumMotion": {
+        "body": 0.029108851134942704,
+        "wheel": 0.026095404446057846,
+        "rider": 0.028901810209871846,
+        "player": 0.029405097653219598
+      },
+      "worst": {
+        "body": [
+          2278,
+          "6a850a01-e930-433e-bd1f-b19310415e4a"
+        ],
+        "wheel": [
+          2278,
+          "3c5d867c-ec9f-471f-8c9d-70152d93883c"
+        ]
+      },
+      "localEyeDrift": 2.5568460465108917e-13,
+      "locallyCheckedIntervals": {
+        "count": 307,
+        "minimumSweptLowerBound": 0.03,
+        "maximumMotionBound": 0.029108851134942704,
+        "firstInterval": [
+          2201,
+          2202
+        ],
+        "lastInterval": [
+          2540,
+          2541
+        ]
+      }
+    },
+    "train-transition": {
+      "samples": 6548,
+      "globalSampledGap": 0.04878234623208755,
+      "maximumMotion": {
+        "body": 0.029108851134942704,
+        "wheel": 0.026095404446057846,
+        "rider": 0.028901810209871846,
+        "player": 0.029405097653219598
+      },
+      "worst": {
+        "body": [
+          2278,
+          "6a850a01-e930-433e-bd1f-b19310415e4a"
+        ],
+        "wheel": [
+          2278,
+          "3c5d867c-ec9f-471f-8c9d-70152d93883c"
+        ]
+      },
+      "localEyeDrift": 2.5568460465108917e-13,
+      "locallyCheckedIntervals": {
+        "count": 307,
+        "minimumSweptLowerBound": 0.03,
+        "maximumMotionBound": 0.029108851134942704,
+        "firstInterval": [
+          2201,
+          2202
+        ],
+        "lastInterval": [
+          2540,
+          2541
+        ]
+      }
+    }
+  }
+}

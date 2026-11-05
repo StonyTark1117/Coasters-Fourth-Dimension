@@ -1,0 +1,211 @@
+{
+  "scope": "Prospective default-model Styles configuration at recorded recovery tick poses, including a conservative vanilla seated-player skin envelope at every fixture seat; not observed client rendering, track-to-decoration self-clearance, continuous sweep, armor/held items/capes/elytra/modded cosmetics, arbitrary resources or full-turn ride acceptance.",
+  "savedAppearance": {
+    "60add290-d9f3-4700-b0ee-e57e14a42b85": {
+      "id": "fourthdimension:original",
+      "tint": -1
+    },
+    "6e0c0118-8130-47f2-a0eb-f9f8faab65a6": {
+      "id": "fourthdimension:original",
+      "tint": -1
+    },
+    "a6aa791c-740a-4100-891e-f127fd3919fd": {
+      "id": "fourthdimension:original",
+      "tint": -1
+    },
+    "f52b843d-f883-4e1d-ba7f-d2f211682ead": {
+      "id": "fourthdimension:original",
+      "tint": -1
+    },
+    "a31f5e30-5bbc-4184-ae2c-42eb5117aa5e": {
+      "id": "fourthdimension:original",
+      "tint": -1
+    }
+  },
+  "prospectiveStylePlan": {
+    "60add290-d9f3-4700-b0ee-e57e14a42b85": "arrow_4d_dbl_spine",
+    "6e0c0118-8130-47f2-a0eb-f9f8faab65a6": "arrow_4d_dbl_spine",
+    "a6aa791c-740a-4100-891e-f127fd3919fd": "arrow_4d_dbl_spine",
+    "f52b843d-f883-4e1d-ba7f-d2f211682ead": "arrow_4d_dbl_spine",
+    "a31f5e30-5bbc-4184-ae2c-42eb5117aa5e": "arrow_4d_dbl_spine"
+  },
+  "geometryCounts": {
+    "originalSections": 0,
+    "styledSections": 5,
+    "spines": 407,
+    "ties": 106,
+    "crossbraces": 108,
+    "endpointBridges": 10,
+    "loweredControlMounts": 216
+  },
+  "result": {
+    "family": "ARROW",
+    "cars": 2,
+    "samples": 6548,
+    "occupiedSeatsPerSample": 8,
+    "trackTriangles": 252328,
+    "minimumSeparatingBound": 0.04878234623208755,
+    "closest": {
+      "tick": 1441,
+      "body": "fc122135-fb38-43c8-b7ab-c0a9ba91274b",
+      "role": "ordinary",
+      "modelElement": "nativeWheel:upstop:back:fullSpinEnvelope",
+      "trackComponent": "section1:outboardSupport1"
+    },
+    "requiredGap": 0.02,
+    "passes": true,
+    "wheelEnvelopeCount": 78576,
+    "wheelMinimumSeparatingBound": 0.04878234623208755,
+    "wheelClosest": {
+      "tick": 1441,
+      "body": "fc122135-fb38-43c8-b7ab-c0a9ba91274b",
+      "role": "ordinary",
+      "modelElement": "nativeWheel:upstop:back:fullSpinEnvelope",
+      "trackComponent": "section1:outboardSupport1"
+    },
+    "linkageEnvelopeCount": 117864,
+    "linkageMinimumSeparatingBound": 0.08,
+    "linkageClosest": null,
+    "riderEnvelopeCount": 52384,
+    "riderMinimumSeparatingBound": 0.08,
+    "riderClosest": null,
+    "playerMeshEnvelopeCount": 52384,
+    "playerMeshMinimumSeparatingBound": 0.08,
+    "playerMeshClosest": null,
+    "playerMeshScope": "conservative standard/slim vanilla 1.21.1 skin and outer layers in an empty-handed seated pose; all head/arm rotations enclosed; excludes armor, held items, capes, elytra and modded cosmetics",
+    "playerMeshLocalBoundsFromEye": {
+      "minimum": [
+        -0.936667164337495,
+        -1.1842130278657599,
+        -0.936667164337495
+      ],
+      "maximum": [
+        0.936667164337495,
+        0.40935822016392454,
+        0.936667164337495
+      ]
+    },
+    "playerMeshEyeOffsetFromFixtureRider": 0.255,
+    "riderRackEnvelopeCount": 104768,
+    "riderRackMinimumSeparatingBound": 0.08000658905057559,
+    "riderRackClosest": {
+      "tick": 2974,
+      "body": "ffd79426-b5f4-4b71-91ef-fea0f3c9c74c",
+      "modelElement": "nativeRider",
+      "rackComponent": "fourthdimension:carrier_axle@[-1, 0, 0]:element0"
+    },
+    "playerRackEnvelopeCount": 628608,
+    "playerRackMinimumSeparatingBound": 0.1278292798359828,
+    "playerRackClosest": {
+      "tick": 160,
+      "body": "ffd79426-b5f4-4b71-91ef-fea0f3c9c74c",
+      "modelElement": "vanillaPlayer:headAndHatAllRotations",
+      "rackComponent": "fourthdimension:carrier_axle@[-1, 0, 0]:element0"
+    },
+    "playerRackScope": "part-level standard vanilla 1.21.1 empty-handed seated pose; exact jacket/riding legs, all head rotations enclosed, and complete idle-bob arm rotation ranges; excludes armor, held items, capes, elytra, slim-arm-specific geometry and modded cosmetics",
+    "neighborMinimumSeparatingBound": 1.276467665810942,
+    "neighborClosest": {
+      "tick": 2777,
+      "first": "vanillaPlayerMeshEnvelope",
+      "second": "vanillaPlayerMeshEnvelope"
+    },
+    "neighborPairs": 37539684,
+    "prospectiveLegacyAxleSubstitutions": 0,
+    "uncertifiedPairs": [],
+    "allCarsVisitedSections": 5
+  },
+  "tracePairing": {
+    "sha256": "758fc4b300445c7f37a99f187e79055f11319b6b6a68979add8304dd75aa78b8",
+    "samples_by_variant": {
+      "arrow_four_rail_v1": 6548,
+      "pax_shuttle_v1": 6974
+    },
+    "scope": "Recorded chassis pairing only; completion marker is not test acceptance."
+  },
+  "nativeRouteGeometry": {
+    "nativeRouteGeometryPassed": true,
+    "routes": [
+      {
+        "family": "ARROW",
+        "length": 202.5266036814023,
+        "maxJointGap": 0,
+        "maxFrameGap": 0.00016211068059941513,
+        "maxBankDegrees": 30.00000083482606,
+        "maxAbsTangentY": 0.004185835494041764,
+        "sustainedBankLength": 32.0,
+        "profilePeak": 6.283185307179586
+      },
+      {
+        "family": "PAX",
+        "length": 202.5266036814023,
+        "maxJointGap": 0,
+        "maxFrameGap": 0.00016211068059941513,
+        "maxBankDegrees": 30.00000083482606,
+        "maxAbsTangentY": 0.004185835494041764,
+        "sustainedBankLength": 32.0,
+        "profilePeak": 0.0
+      }
+    ],
+    "scope": "Native centerline/frame/profile geometry only; no mesh, rider, collision or rendered clearance claim."
+  },
+  "numpyVersion": "2.5.4",
+  "inputHashes": {
+    "base_jar": "f80b4c3cdf9fa6188804967147761b0373e150a6eadbdc53626e5ac9700b2049",
+    "minecraft_jar": "499f6897d1837516680f3114072d8106e11c9adcd933fe5cf051b551089b0c99",
+    "styles_jar": "42535a83307f6898b33c13ca201533bb9e337418fd7c73039c867fc80bfbcb38",
+    "frames": "b830d52052740beb71486daf56a7b1fcb5342c1d53cdc91c1a4eaf4f75bb4eee",
+    "trace": "758fc4b300445c7f37a99f187e79055f11319b6b6a68979add8304dd75aa78b8"
+  },
+  "stylePlanSha256": null,
+  "sourceHashes": {
+    "src/main/java/dev/fourthdimension/client/OriginalTrackRenderer.java": "059f1e2dcf52425fd0f8f161c9d12424d59eb51ff1c45a2c4654224c4e70f67c",
+    "src/main/java/dev/fourthdimension/track/TrackDesign.java": "e3a88c3ca661d7b232ee0b9d3c853a6e66c1d0d1147ac4266b001616b1fe1ff1",
+    "src/main/java/dev/fourthdimension/vehicle/BankedRecoveryExamples.java": "8efe36d8648e7a61b082cd7e42cee5f8dd9a7f62d9a25c9f562679320d8db453",
+    "src/main/java/dev/fourthdimension/gametest/RecoveryMeshTrace.java": "3b57c5812aec72ed36ee458d6bdd02a443207d32d1579ec80ba5752a6886913a",
+    "src/main/java/dev/fourthdimension/gametest/BankedRecoveryGameTests.java": "89324021f6c70ea8578036b4ae1c924320ef442a9ec3da239c972f89417be66a",
+    "src/main/java/dev/fourthdimension/gametest/BankedRecoveryTrainGameTests.java": "1192286e979801504acf758427aca5e0cbb9a739486f45d49124b6e1fcac795c",
+    "scripts/verify-recovery-bank-frames.py": "80749110c47c7794d7a8bd6bc729bf51fa4f634b0138e7ed0d0412c312cfc2af",
+    "src/main/java/dev/fourthdimension/gametest/RecoveryRouteFrames.java": "ed3d7dbe58b6759b8a511f49796d1bb30bbdfb43ff4439d41f0fc6dc8a9896ce",
+    "src/main/java/dev/fourthdimension/client/integration/TrackStylesRenderer.java": "fa69593b5a8b9f93ece00f40ebd67f00692db9d8af8d18648563f42146edb217",
+    "src/main/java/dev/fourthdimension/client/integration/TrackStylesCatalog.java": "2b124893d6477a9b4be453a8a34f93a42b7b3f0b04fc926619d99c5d6ec16dbc",
+    "src/main/java/dev/fourthdimension/physics/ArrowDecorationPlacement.java": "d13de25c3a03ce24343d92133457332a4887e0eabac54348a99f11ae37b193cd",
+    "src/main/java/dev/fourthdimension/physics/ModelFrame.java": "b2d95f95df0630e7780b84c6a901a517b3adb7e7de2680072bba0ac828ae37b6",
+    "src/main/java/dev/fourthdimension/physics/RotationProfile.java": "041667e8a450b154e1bfe769f2879299a768ae5f7beeb3db1ec00499090f9b54",
+    "src/main/java/dev/fourthdimension/track/TrackGeometry.java": "a3e89095a217d3e978aa414704dea7212d36020bd1c0f9865387ac8a62643012",
+    "src/main/java/dev/fourthdimension/contract/Family.java": "a441e66dfcbee53a83a52f5b475fab07d60e58e03d2ef789ebfbe1c0ab9d7c2c",
+    "src/main/java/dev/fourthdimension/integration/TrackAppearance.java": "cf12254fb753172bc1c110dd8f5b1203de740b02658f81612427a86cd2695a3c",
+    "src/main/java/dev/fourthdimension/integration/TrackRenderOwnership.java": "8d7b795ccf9e1a54b1c7ffe375cf8a94d6d9f10c72c344f9bce94480c4c9887e",
+    "scripts/audit-recovery-mesh-trace.py": "a6f250951496551652c4c2fbe8996ba358a9e82dc4410e9b74d9b63323ee2dab",
+    "scripts/verify-recovery-decoration-inputs.py": "c6c443d58a411d98881109633becb55595ea16cd21df2e2b853be2e08353d594"
+  },
+  "provenanceCheck": "Input/source/tool hashes matched before analysis and before report emission; use immutable files to exclude intervening changes.",
+  "toolSha256": "26beccb2960ef182180398f784dcbf951e36519dc163862315ed8a0b6634e184",
+  "providerResourceHashes": {
+    "assets/coasterssimulatedextratypes/models/block/track/arrow_4d_dbl_spine/arrow_4d_dbl_spine_center_beam.json": "a6c5987e38dfdf73492c14f4089db352c68e681391c1f05b74a134af8897a624",
+    "assets/coasterssimulatedextratypes/models/block/track/arrow_4d_dbl_spine/arrow_4d_dbl_spine_center_beam.obj": "66d8cdc8fd7e9feb9b3f79de333cd7d6e24a6294c0e8e9f2069af79b39b04bba",
+    "assets/coasterssimulatedextratypes/models/block/track/arrow_4d_dbl_spine/arrow_4d_dbl_spine_tie.json": "77620bd9e3ecdf75f424729765fd60b9102a397c11cd0d56afc4f97fda2482c9",
+    "assets/coasterssimulatedextratypes/models/block/track/arrow_4d_dbl_spine/arrow_4d_dbl_spine_tie.obj": "2ce05bdc0f83de71dcbc1d100a280124949076a7efc8b7a5d3e1f6d6404bfa98"
+  },
+  "bodyResourceHashes": {
+    "assets/simulatedcoasters/models/block/coaster_cart_bottom.json": "620ed596269d8c6ec3190aecf9783c2245a7d8e6f8ad66b1aee4320b9457d58a",
+    "assets/simulatedcoasters/models/block/coaster_cart_wheel_axis.json": "4a8dc34d248c7e84d3aa6046b1f21186dc8fcff572781a27bc7ea9523c367511",
+    "assets/fourthdimension/blockstates/wing_strut.json": "0dd8ae19cbbc888ad6ae6c3d27dca6e04382c55576eb141fe0662a4497f45b64",
+    "assets/fourthdimension/models/block/wing_strut.json": "bf441e1d280411505c209acdf7906925b18ab24cfeac7c8461440cc400d59025",
+    "assets/simulatedcoasters/blockstates/coaster_cart.json": "14535bb6399df8fc0ffeb50918ed51463c9faec5c23c6dfcc2dc219a2c3c375f",
+    "assets/simulatedcoasters/models/block/coaster_cart.json": "fbeec04b7a448a193350090c022b3c04bb5e5924cf207fbd8b1c1b085cf03290",
+    "assets/fourthdimension/blockstates/arrow_controlled_controller.json": "4c168c2bca280737141ff54ae1efd30672dff9ef1a4900482920c37f760c34f9",
+    "assets/fourthdimension/models/block/arrow_controlled_controller.json": "76dff79bcacac6fe8e81fd279a6ffe92b2cbf7dd02885e7e3bf27ad7e9a93a3b",
+    "assets/fourthdimension/blockstates/arrow_seat.json": "c40dc92f7c3cc335d421ed3bc1b91afbfa4b7ec0c431c4229d165d7979a87381",
+    "assets/fourthdimension/models/block/arrow_seat_closed.json": "5fcef06c2a6abb6d67ce0d5aa6507ecc3fb55e868adc405aa9a80117001b5868",
+    "assets/fourthdimension/blockstates/carrier_axle.json": "420b54a2c9dfa491c51628c0051a874ce1f2f639357f7a8c132c60fa15e5e02b",
+    "assets/fourthdimension/models/block/carrier_axle.json": "dc5f35bb4867797ff2eb08d2f37375d3621f7cd9102a064c601a90512c6ac374",
+    "assets/fourthdimension/blockstates/pax_shuttle_controller.json": "73ec8e44f74a31d75201087999ace4abca62724f5b975dd619e35c0ee7918fec",
+    "assets/fourthdimension/models/block/pax_shuttle_controller.json": "7bd2ca365c502723cda18f439649b27eabe1fdf186a37ea68019bce03dcbdae8",
+    "assets/minecraft/models/block/cube_all.json": "be3205d629ffb9e03834c3d1d083f8a2c62e9f9ae80820755129408634e9144a",
+    "assets/minecraft/models/block/cube.json": "3e4aacd02e816aeba38f83076596e18ded4cf49c01e17c62d1fce79850ffb84e",
+    "assets/fourthdimension/blockstates/pax_seat.json": "8664667673a9e97239a3f89f5e478c2cc1b1434a2001e3e048906c8b0be8a6da",
+    "assets/fourthdimension/models/block/pax_seat_closed.json": "69d3dc0151286b70988b798fc5972a68f4d08e9d619e83ddc09ac0eb099ab34a",
+    "assets/fourthdimension/blockstates/free_spin_axle.json": "e7e2b02c4d169467aeb601076bfde77be14bf5adae1ceb3e8cfeee1ed0ba0050",
+    "assets/fourthdimension/models/block/free_spin_axle.json": "62e8b36f6c8174fa909107d77a0df6b15da357e8331b9ec4fee0e1ae3cc4dc86"
+  }
+}
