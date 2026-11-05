@@ -1,0 +1,14 @@
+{
+  "source_commit": "229e586b7e3f0f7140621da0bd5b219543c6e758",
+  "observed_log_sha256": "dc0f590f0786e29b82e143a75e2cf14a6a16413293bdf9c45715c7f04f47bdae",
+  "compressed_log_sha256": "5c02dc8cf21b1d1a4343bdf9cc8b5565a9664e9751ebd65bac19c75bfc6ff49e",
+  "source_correspondence_jar_sha256": "94c17e5040f13dfab9adebfe5b57b1687db875d8501bfd88a2eb0b31dcfb0828",
+  "runtime_kind": "development source server; exact launch-time binary manifest not retained",
+  "jar_relationship": "retained later packaged build from matching src/main and build inputs; not proof of which bytecode ran in the source test",
+  "observation": "FD_PAX_SUPPORT_RECOVERY repaired=true realigned=true recovered=true relaunched=true riders=16 unsupportedTicks=4800",
+  "normal_shutdown": true,
+  "build_success": true,
+  "candidate_qualification": "pending packaged replay on current qualification artifact",
+  "source_correspondence_jar": "../fd401-pax-packaged-longhold-229e586/candidate.jar",
+  "packaged_named_gate": "../fd401-pax-packaged-longhold-229e586/README.md"
+}

@@ -1,5 +1,10 @@
 # Coasters: Fourth Dimension
 
+Current development qualification and remaining release gates are indexed in
+[the artifact record](docs/CURRENT-QUALIFICATION.md) and [ROADMAP.md](ROADMAP.md).
+The checkpoint history below retains its bounded results; a development version
+label does not establish current-artifact acceptance.
+
 A Create: Coasters Simulated addon developing five original 4D families: controlled Arrow/S&S cars, legacy ZacSpin, magnetic S&S Free Spin, revised ZacSpin, and a PAX-style catch/lift/release shuttle. Every family has matching functional track. Arrow and PAX cars support family-specific native coupling; the other families operate individually.
 
 **Integration release plan:** finish the existing Create guidance/telemetry,
@@ -47,6 +52,12 @@ Install the addon and its dependencies on both client and server:
 Use the dependencies supplied by those mods, including Flywheel 1.0.6, Sable Companion 1.6.0 and Veil 4.1.4. Exact development artifact pins are in [build.gradle](build.gradle). No optional coaster addon is required or bundled.
 
 Build and ride within **±1024 blocks of horizontal world origin**. The foundation exposed a native physics precision issue at large coordinates; this restriction remains in the current development build. A dimension supports up to 256 sections, 64 vehicles and 8192 total rotation-profile keys, and 512 magnetic spans (eight per section). Back up valuable worlds before trying a development build.
+
+The [1.0 plan](ROADMAP.md#supported-envelope-and-explicit-10-dispositions) retains
+these as explicit supported limits. They are admission/storage ceilings, not a
+performance guarantee for a fully populated park. Boundary qualification and the
+representative-park benchmark remain release work; optional stabilized camera
+delivery is tracked separately in FD904C.
 
 ## Build a ride
 

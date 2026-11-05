@@ -12,6 +12,15 @@ The initial design was researched September 30, 2026, using project pages, relea
 
 Use [ROADMAP.md](ROADMAP.md) for addressable work packages, dependencies, acceptance criteria, and release gates through 1.0. IDs such as FD107 identify implementation tasks; D01–D18 below identify design sections. Keep these IDs stable so later requests can name a precise scope. Completion and evidence belong to the individual package statuses; a development version number is not proof that a release gate has passed.
 
+Planning reconciliation (2026-11-04): the [current qualification record](docs/CURRENT-QUALIFICATION.md)
+owns source/JAR identity and evidence reuse. FD401A–D, FD402A–F and FD403A–F define
+finite remaining 0.4 acceptance. FD904B adds the representative-park benchmark;
+FD904C retains D16's optional stabilized camera as required pre-1.0 work. The
+[1.0 supported envelope](ROADMAP.md#supported-envelope-and-explicit-10-dispositions)
+explicitly retains the existing coordinate/capacity limits. Proposed Wing,
+Suspended, Axis, Pipeline, Spinning and Roller Ball discovery has permanent IDs
+FD1101, FD1301, FD1302, FD1401, FD1501 and FD1502; implementation remains paused.
+
 Build an addon for Create: Coasters Simulated covering controlled, freely rotating, magnet-assisted, and shuttle 4D coasters. Ship original functional tracks, working vehicles, rotating seat carriers, spin-control equipment, and rider integration across several ride families. Reuse the base mod’s track graph, cart physics, linking, and lift system where suitable. Track Styles remains an optional integration; its release schedule must not block ours.
 
 Retain the original X2, Eejanaika, and Dinoconda goal, and expand the roadmap to Intamin ZacSpin generations, S&S 4D Free Spin, and PAX Bumerang. The user’s [fourth-dimension coaster reference](https://en.wikipedia.org/wiki/Fourth-dimension_roller_coaster) supplies the initial family list; manufacturer evidence and proposed game behavior are distinguished below. No additional JAR or runtime compatibility testing was performed for this scope expansion.
@@ -224,6 +233,11 @@ Implement the rotation math independently of Minecraft; keep Coasters integratio
 ## D16 Riders and synchronization
 
 The seat carrier, rider body, and camera must agree on one transform. Preserve normal mouse look relative to the rider’s seat. Test upside-down views, first-person arms, third-person rendering, and camera restoration after dismount. Offer an optional comfort view that stabilizes the camera without altering the server’s seat motion.
+
+FD904C owns delivery and five-family acceptance of that client option before
+1.0. Existing Sable passenger transforms do not by themselves establish a
+selectable comfort mode. A scope deferral would require an explicit revision
+to this requirement and the release gate.
 
 The server owns profiles, tuning, binding, restraints, shuttle state, and actual mechanical state. Synchronize each carrier’s angle, angular velocity, lock/mode, and occupancy revision with timestamps and stable identities. Include complete initial state for late joiners. Reuse Sable transforms where appropriate and avoid applying the carrier rotation twice. Preserve turn count when reconnecting or interpolating through full turns. Save free-spin angular state and pause unloaded assemblies consistently; do not simulate an arbitrary offline catch-up on reload.
 

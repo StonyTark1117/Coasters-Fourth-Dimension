@@ -19,6 +19,11 @@ metadata were checked; no mod was launched and no new compatibility is claimed.
 
 ## Planning document ownership
 
+The [current qualification record](CURRENT-QUALIFICATION.md) owns the selected
+source/JAR identity, intended profiles, reusable evidence and required retests.
+The roadmap's 2026-11-04 reconciliation replaces chronological checkpoint prose
+with finite acceptance tasks; historical catalog dates below remain unchanged.
+
 This backlog owns the dated integration inventory, proposed release allocation,
 dependency decisions and certification plan. [PLAN.md](../PLAN.md) defines design
 boundaries; [ROADMAP.md](../ROADMAP.md) owns permanent FD packages and gate status;
@@ -123,9 +128,11 @@ See the [telemetry evidence and limitations](evidence/0.9/create-telemetry/local
 This removes the pending telemetry merge task; it does not certify every optional
 profile or close FD401/FD902. Persistence/networking remain schema 6 / protocol 7.
 
-The separate integration branch at `f8298a4` also contains uncommitted schema-7/
-protocol-8 provider work. Those provider/schema changes remain deferred, require
-a dedicated migration decision, and are not prerequisites for 0.9. Historical
+The former integration work was preserved by the
+[2026-11-04 branch consolidation](BRANCH-CONSOLIDATION.md), including archived
+snapshot `f3303c7` of the unfinished schema-7/protocol-8 provider work. Those
+provider/schema changes remain deferred, require a dedicated migration decision,
+and are not prerequisites for 0.9. `main` is the active integration branch. Historical
 evidence stays attached to its actual artifact; neither a version string nor one
 passing checkpoint proves a complete release gate.
 
@@ -160,7 +167,7 @@ disable the affected feature before release; do not silently waive the criterion
 | Create 6.0.10 | Learn each family through Ponder, inspect stations/winches with goggles, display ride status | Finish existing teaching work; prove whole-consist occupancy/readiness/fault/phase displays agree with current server state; no optional addon needed for core tutorials |
 | Coasters Simulated 0.1.5 + Sable | Reliable native track, chassis, passenger mounts and moving structures | Retain required foundation; dependency updates are separate changes with five-family, recovery, persistence and client-render regressions |
 | Engineered 1.1.1 | Powered dispatch, launch, trim, STOP, rollback, observers and FE workflows | Complete an operator-built Arrow demo, then remaining families; keep restraint/carrier guards; prove PAX catch/lift/release/return authority and power-starvation behavior |
-| Track Styles 1.2.0 | Optional Arrow spine/tie appearance while original mechanics continue | One renderer per component; retain running/control rails and magnetic hardware; test limits, banked clearance, mid-curve transitions, resource reload and removal fallback; FD801 stays separate |
+| Track Styles 1.2.0 | Optional Arrow spine/tie appearance while original mechanics continue | One renderer per component; retain running/control rails and magnetic hardware; test limits, banked clearance, whole-section transitions, middle-of-section editor reach, resource reload and removal fallback; FD801 stays separate |
 | Additions 0.2.5 beta | Station occupancy/restraint signals and controlled automatic dispatch | Stage 1 reads shared telemetry and submits validated requests; no direct mechanical-state writes. Stage 2 separately proves rotating-seat mounts, restraint links and passenger restoration. Resolve its embedded 0.2.2 label and Aeronautics/Interiors dependency closure first |
 | CTNB 1.2 | Use selected equivalent tracks, station sensors and operating controls with family-correct cars | Inventory actual materials/behaviors, initially deny unverified variants; cosmetic material changes preserve profiles and family. Explicitly test station hold/release, reverse, launch, crossings and provider joins; exclude any behavior that cannot respect interlocks |
 | Magnetized 1.1.0 | Alternative longitudinal launch/brake equipment | Prove directional force, rollback, braking, power transitions and controller ownership. Its track propulsion does not replace Fourth Dimension's magnetic seat-axis torque system |

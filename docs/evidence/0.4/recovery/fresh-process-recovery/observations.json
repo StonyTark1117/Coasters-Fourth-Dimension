@@ -1,0 +1,152 @@
+{
+  "record_date": "2026-11-04",
+  "qualification_record": "../../../../CURRENT-QUALIFICATION.md",
+  "source_provenance": "Historical dev-classpath logs do not retain source/JAR identity. No equivalence to the current artifact is claimed.",
+  "families": [
+    {
+      "family": "arrow",
+      "origin_game_directory": "/tmp/fd402-recovery-resume-XV1QFZ",
+      "runtime_kind": "development client",
+      "source_commit": null,
+      "runtime_jar_sha256": null,
+      "candidate_qualification": "unverified; historical runtime identity not retained",
+      "logs": {
+        "pause": {
+          "file": "arrow-pause.log.gz",
+          "sha256": "cb8e69e7221b27aecd855397f3d1d80a1e18f083a81f6e1a5871ebda00d65bf2",
+          "uncompressed_sha256": "2f51d0aab8b91f602c9d4fb7c10d1676a709fd36bb61df471f4d00d111f9d347",
+          "observations": [
+            "[04Nov2026 15:25:32.098] [Server thread/INFO] [dev.fourthdimension.runtime.CarrierValidationFixture/]: FD_CARRIER_FIXTURE paused occupied recovery for fresh-process resume chassis=af475614-e2a8-4295-b8e9-b3d7b382bfea bearing=00133676-a77d-413f-849c-d7d2815edc45",
+            "[04Nov2026 15:25:34.561] [Render thread/INFO] [dev.fourthdimension.client.CarrierTransformValidation/]: FD_CARRIER_VALIDATION passed samples=40 target=40 waitedTicks=169 families=1 requiredFamilies=1 carriers=2 riderAssignments=1 maxAngleError=1.5676862430960092E-4 compiledBodies=4 sectionLayerCalls=1850 sectionLayerBodies=3 nativeCartBodies=2 renderRequired=true riderRequired=true riderMounted=true supportLossRequired=false supportLossObserved=true supportLossAfterMotion=true supportRepairRequired=false supportRepairObserved=true supportRealignmentRequired=false supportRealignmentObserved=true recoveryRequired=true recoveryMotionRequired=false recoveryBankRequired=false recoveryCycleRequired=false recoveryProfileRequired=false recoveryLinkSeen=true recoveryMotionSeen=false recoveryCycleSeen=false recoveryProfileSeen=false maxRecoveryChassisBankAngle=0.0 maxRecoveryBearingBankAngle=0.0 motionFamilies=[] motionChassis={} motionDistances={}"
+          ]
+        },
+        "resume": {
+          "file": "arrow-resume.log.gz",
+          "sha256": "4f8f1407b645650528a8be9b3b01e3db20aee2d69926499aafbde647155b638d",
+          "uncompressed_sha256": "af37e1f4a89c62a1aef2fee9ecd557a96ca29be4252c87c65b13f41d178612e6",
+          "observations": [
+            "[04Nov2026 15:26:25.209] [Server thread/INFO] [dev.fourthdimension.runtime.CarrierValidationFixture/]: FD_CARRIER_FIXTURE completed fresh-process resumed occupied recovery cycle chassis=af475614-e2a8-4295-b8e9-b3d7b382bfea detached=true restraintsOpen=true riderUnloaded=true",
+            "[04Nov2026 15:26:25.518] [Render thread/INFO] [dev.fourthdimension.client.CarrierTransformValidation/]: FD_CARRIER_VALIDATION passed samples=40 target=40 waitedTicks=402 families=1 requiredFamilies=1 carriers=0 riderAssignments=0 maxAngleError=6.545886703215607E-4 compiledBodies=4 sectionLayerCalls=3400 sectionLayerBodies=3 nativeCartBodies=2 renderRequired=true riderRequired=true riderMounted=false supportLossRequired=false supportLossObserved=true supportLossAfterMotion=true supportRepairRequired=false supportRepairObserved=true supportRealignmentRequired=false supportRealignmentObserved=true recoveryRequired=true recoveryMotionRequired=true recoveryBankRequired=false recoveryCycleRequired=true recoveryProfileRequired=false recoveryLinkSeen=true recoveryMotionSeen=true recoveryCycleSeen=true recoveryProfileSeen=false maxRecoveryChassisBankAngle=0.0 maxRecoveryBearingBankAngle=0.0 motionFamilies=[ARROW] motionChassis={ARROW=1} motionDistances={00133676-a77d-413f-849c-d7d2815edc45=5.740938186645509, af475614-e2a8-4295-b8e9-b3d7b382bfea=5.740938248678288}"
+          ]
+        }
+      }
+    },
+    {
+      "family": "pax",
+      "origin_game_directory": "/tmp/fd402-pax-lifecycle.4576DY",
+      "runtime_kind": "development client",
+      "source_commit": null,
+      "runtime_jar_sha256": null,
+      "candidate_qualification": "unverified; historical runtime identity not retained",
+      "logs": {
+        "pause": {
+          "file": "pax-pause.log.gz",
+          "sha256": "525bd07b2d00e1c799a8736d763fdd019668c342993acac043f7a16781292609",
+          "uncompressed_sha256": "48dd6ec370284654db82979daefbddbb265df2e257f8d3d411d807f380a5ee77",
+          "observations": [
+            "[04Nov2026 17:39:43.504] [Server thread/INFO] [dev.fourthdimension.runtime.CarrierValidationFixture/]: FD_CARRIER_FIXTURE paused occupied recovery for fresh-process resume chassis=055e186a-6dbe-433f-a821-8be61434bcf8 bearing=8aed87a5-bf2d-440a-8467-3bc86ed5389a",
+            "[04Nov2026 17:39:45.801] [Render thread/INFO] [dev.fourthdimension.client.CarrierTransformValidation/]: FD_CARRIER_VALIDATION passed samples=40 target=40 waitedTicks=162 families=1 requiredFamilies=1 carriers=2 riderAssignments=1 maxAngleError=9.931099460040716E-5 compiledBodies=4 sectionLayerCalls=1475 sectionLayerBodies=3 nativeCartBodies=2 renderRequired=true riderRequired=true riderMounted=true supportLossRequired=false supportLossObserved=true supportLossAfterMotion=true supportRepairRequired=false supportRepairObserved=true supportRealignmentRequired=false supportRealignmentObserved=true recoveryRequired=true recoveryMotionRequired=false recoveryBankRequired=false recoveryCycleRequired=false recoveryProfileRequired=false recoveryEditorRequired=false recoveryEditorActionRequired=false recoveryEditorAttachRequired=false recoveryTrainRequired=false recoveryLinkSeen=true recoveryMotionSeen=false recoveryCycleSeen=false recoveryProfileSeen=false recoveryEditorSeen=false recoveryEditorActionSeen=false recoveryEditorActionApplied=false recoveryEditorAttachRendered=false recoveryEditorAttachSeen=false recoveryEditorAttachApplied=false recoveryTrainSeen=false recoveryTrainMotionSeen=false maxRecoveryChassisBankAngle=0.0 maxRecoveryBearingBankAngle=0.0 motionFamilies=[] motionChassis={} motionDistances={}"
+          ]
+        },
+        "resume": {
+          "file": "pax-resume.log.gz",
+          "sha256": "fdaa08f4cc35d696d0ffd0684ad859cb394a57f2ad7f8e737b465d9b1f6cb967",
+          "uncompressed_sha256": "410950b0e0a5f1da78c01da86b462cf3263c15a3ed18d51387d7df15ecad0485",
+          "observations": [
+            "[04Nov2026 17:41:01.463] [Server thread/INFO] [dev.fourthdimension.runtime.CarrierValidationFixture/]: FD_CARRIER_FIXTURE completed fresh-process resumed occupied recovery cycle chassis=055e186a-6dbe-433f-a821-8be61434bcf8 detached=true restraintsOpen=true riderUnloaded=true",
+            "[04Nov2026 17:41:01.648] [Render thread/INFO] [dev.fourthdimension.client.CarrierTransformValidation/]: FD_CARRIER_VALIDATION passed samples=40 target=40 waitedTicks=595 families=1 requiredFamilies=1 carriers=0 riderAssignments=0 maxAngleError=6.579773777454406E-4 compiledBodies=4 sectionLayerCalls=6415 sectionLayerBodies=3 nativeCartBodies=2 renderRequired=true riderRequired=true riderMounted=false supportLossRequired=false supportLossObserved=true supportLossAfterMotion=true supportRepairRequired=false supportRepairObserved=true supportRealignmentRequired=false supportRealignmentObserved=true recoveryRequired=true recoveryMotionRequired=true recoveryBankRequired=false recoveryCycleRequired=true recoveryProfileRequired=false recoveryEditorRequired=false recoveryEditorActionRequired=false recoveryEditorAttachRequired=false recoveryTrainRequired=false recoveryLinkSeen=true recoveryMotionSeen=true recoveryCycleSeen=true recoveryProfileSeen=false recoveryEditorSeen=false recoveryEditorActionSeen=false recoveryEditorActionApplied=false recoveryEditorAttachRendered=false recoveryEditorAttachSeen=false recoveryEditorAttachApplied=false recoveryTrainSeen=false recoveryTrainMotionSeen=false maxRecoveryChassisBankAngle=0.0 maxRecoveryBearingBankAngle=0.0 motionFamilies=[PAX] motionChassis={PAX=1} motionDistances={055e186a-6dbe-433f-a821-8be61434bcf8=5.742405172151729, 8aed87a5-bf2d-440a-8467-3bc86ed5389a=5.742406845092773}"
+          ]
+        }
+      }
+    },
+    {
+      "family": "legacy",
+      "origin_game_directory": "/tmp/fd402-legacy-lifecycle.wKdT1R",
+      "runtime_kind": "development client",
+      "source_commit": null,
+      "runtime_jar_sha256": null,
+      "candidate_qualification": "unverified; historical runtime identity not retained",
+      "logs": {
+        "pause": {
+          "file": "legacy-pause.log.gz",
+          "sha256": "0f9b6c793db93e4be530ad7799cbc73823de5b48fb151fcdd28adbeeba1b3d38",
+          "uncompressed_sha256": "9f9e06e9e3b6c7fb7e5fcdc10139edf8556fc0cd7f3e1f06344db2f7ee8d2a02",
+          "observations": [
+            "[04Nov2026 18:03:04.032] [Server thread/INFO] [dev.fourthdimension.runtime.CarrierValidationFixture/]: FD_CARRIER_FIXTURE paused occupied recovery for fresh-process resume chassis=134279f0-0fad-4979-a618-641061927c9e bearing=eeba8b3e-9649-47d5-8c73-e36ed3d40ca2",
+            "[04Nov2026 18:03:06.171] [Render thread/INFO] [dev.fourthdimension.client.CarrierTransformValidation/]: FD_CARRIER_VALIDATION passed samples=40 target=40 waitedTicks=158 families=1 requiredFamilies=1 carriers=2 riderAssignments=1 maxAngleError=3.963133252097129E-4 compiledBodies=4 sectionLayerCalls=1420 sectionLayerBodies=3 nativeCartBodies=2 renderRequired=true riderRequired=true riderMounted=true supportLossRequired=false supportLossObserved=true supportLossAfterMotion=true supportRepairRequired=false supportRepairObserved=true supportRealignmentRequired=false supportRealignmentObserved=true recoveryRequired=true recoveryMotionRequired=false recoveryBankRequired=false recoveryCycleRequired=false recoveryProfileRequired=false recoveryEditorRequired=false recoveryEditorActionRequired=false recoveryEditorAttachRequired=false recoveryTrainRequired=false recoveryLinkSeen=true recoveryMotionSeen=false recoveryCycleSeen=false recoveryProfileSeen=false recoveryEditorSeen=false recoveryEditorActionSeen=false recoveryEditorActionApplied=false recoveryEditorAttachRendered=false recoveryEditorAttachSeen=false recoveryEditorAttachApplied=false recoveryTrainSeen=false recoveryTrainMotionSeen=false maxRecoveryChassisBankAngle=0.0 maxRecoveryBearingBankAngle=0.0 motionFamilies=[] motionChassis={} motionDistances={}"
+          ]
+        },
+        "resume": {
+          "file": "legacy-resume.log.gz",
+          "sha256": "40c59418737ded912db451e63b149763540d40e6bc5c7e8494f9e7260f3403bf",
+          "uncompressed_sha256": "d5beac0a169ba82c79e8325e5a41114970d6e906f61f4c2d71c9143bb8cf4b98",
+          "observations": [
+            "[04Nov2026 18:04:16.651] [Server thread/INFO] [dev.fourthdimension.runtime.CarrierValidationFixture/]: FD_CARRIER_FIXTURE completed fresh-process resumed occupied recovery cycle chassis=134279f0-0fad-4979-a618-641061927c9e detached=true restraintsOpen=true riderUnloaded=true",
+            "[04Nov2026 18:04:17.050] [Render thread/INFO] [dev.fourthdimension.client.CarrierTransformValidation/]: FD_CARRIER_VALIDATION passed samples=40 target=40 waitedTicks=601 families=1 requiredFamilies=1 carriers=0 riderAssignments=0 maxAngleError=1.6759109906376585E-4 compiledBodies=4 sectionLayerCalls=5310 sectionLayerBodies=3 nativeCartBodies=2 renderRequired=true riderRequired=true riderMounted=false supportLossRequired=false supportLossObserved=true supportLossAfterMotion=true supportRepairRequired=false supportRepairObserved=true supportRealignmentRequired=false supportRealignmentObserved=true recoveryRequired=true recoveryMotionRequired=true recoveryBankRequired=false recoveryCycleRequired=true recoveryProfileRequired=false recoveryEditorRequired=false recoveryEditorActionRequired=false recoveryEditorAttachRequired=false recoveryTrainRequired=false recoveryLinkSeen=true recoveryMotionSeen=true recoveryCycleSeen=true recoveryProfileSeen=false recoveryEditorSeen=false recoveryEditorActionSeen=false recoveryEditorActionApplied=false recoveryEditorAttachRendered=false recoveryEditorAttachSeen=false recoveryEditorAttachApplied=false recoveryTrainSeen=false recoveryTrainMotionSeen=false maxRecoveryChassisBankAngle=0.0 maxRecoveryBearingBankAngle=0.0 motionFamilies=[ZACSPIN] motionChassis={ZACSPIN=1} motionDistances={134279f0-0fad-4979-a618-641061927c9e=5.667285971783977, eeba8b3e-9649-47d5-8c73-e36ed3d40ca2=5.667286718664002}"
+          ]
+        }
+      }
+    },
+    {
+      "family": "free-spin",
+      "origin_game_directory": "/tmp/fd402-freespin-cycle.udv6Oc",
+      "runtime_kind": "development client",
+      "source_commit": null,
+      "runtime_jar_sha256": null,
+      "candidate_qualification": "unverified; historical runtime identity not retained",
+      "logs": {
+        "pause": {
+          "file": "free-spin-pause.log.gz",
+          "sha256": "6eef67246d45065fd1ed8ce0592366da3016748892d0fd08d4e93ec4d22bde4b",
+          "uncompressed_sha256": "927c58a63bce3865ceb3319aba623ab5a807ee0bcd691314a0d8c0c365858ad7",
+          "observations": [
+            "[04Nov2026 18:09:09.071] [Server thread/INFO] [dev.fourthdimension.runtime.CarrierValidationFixture/]: FD_CARRIER_FIXTURE paused occupied recovery for fresh-process resume chassis=3f31d42e-6559-4b5f-81be-73b630aeb4c8 bearing=c0954294-ed33-4609-9eaf-3f427df83f27",
+            "[04Nov2026 18:09:11.408] [Render thread/INFO] [dev.fourthdimension.client.CarrierTransformValidation/]: FD_CARRIER_VALIDATION passed samples=40 target=40 waitedTicks=166 families=1 requiredFamilies=1 carriers=4 riderAssignments=1 maxAngleError=2.0983108099787483E-4 compiledBodies=6 sectionLayerCalls=2080 sectionLayerBodies=5 nativeCartBodies=2 renderRequired=true riderRequired=true riderMounted=true supportLossRequired=false supportLossObserved=true supportLossAfterMotion=true supportRepairRequired=false supportRepairObserved=true supportRealignmentRequired=false supportRealignmentObserved=true recoveryRequired=true recoveryMotionRequired=false recoveryBankRequired=false recoveryCycleRequired=false recoveryProfileRequired=false recoveryEditorRequired=false recoveryEditorActionRequired=false recoveryEditorAttachRequired=false recoveryTrainRequired=false recoveryLinkSeen=true recoveryMotionSeen=false recoveryCycleSeen=false recoveryProfileSeen=false recoveryEditorSeen=false recoveryEditorActionSeen=false recoveryEditorActionApplied=false recoveryEditorAttachRendered=false recoveryEditorAttachSeen=false recoveryEditorAttachApplied=false recoveryTrainSeen=false recoveryTrainMotionSeen=false maxRecoveryChassisBankAngle=0.0 maxRecoveryBearingBankAngle=0.0 motionFamilies=[] motionChassis={} motionDistances={}"
+          ]
+        },
+        "resume": {
+          "file": "free-spin-resume.log.gz",
+          "sha256": "d4be90a017754e4f434ffb3e51f6780e134af4d8a8655f5747d4ae84f43025c0",
+          "uncompressed_sha256": "d2e2d75e92b511f6d8e8cf5184fd5766e78f1b50e6eef5b4509f98379bae3f4c",
+          "observations": [
+            "[04Nov2026 18:10:23.371] [Server thread/INFO] [dev.fourthdimension.runtime.CarrierValidationFixture/]: FD_CARRIER_FIXTURE completed fresh-process resumed occupied recovery cycle chassis=3f31d42e-6559-4b5f-81be-73b630aeb4c8 detached=true restraintsOpen=true riderUnloaded=true",
+            "[04Nov2026 18:10:23.454] [Render thread/INFO] [dev.fourthdimension.client.CarrierTransformValidation/]: FD_CARRIER_VALIDATION passed samples=40 target=40 waitedTicks=598 families=1 requiredFamilies=1 carriers=0 riderAssignments=1 maxAngleError=3.549528703637478E-4 compiledBodies=6 sectionLayerCalls=5245 sectionLayerBodies=5 nativeCartBodies=2 renderRequired=true riderRequired=true riderMounted=false supportLossRequired=false supportLossObserved=true supportLossAfterMotion=true supportRepairRequired=false supportRepairObserved=true supportRealignmentRequired=false supportRealignmentObserved=true recoveryRequired=true recoveryMotionRequired=true recoveryBankRequired=false recoveryCycleRequired=true recoveryProfileRequired=false recoveryEditorRequired=false recoveryEditorActionRequired=false recoveryEditorAttachRequired=false recoveryTrainRequired=false recoveryLinkSeen=true recoveryMotionSeen=true recoveryCycleSeen=true recoveryProfileSeen=false recoveryEditorSeen=false recoveryEditorActionSeen=false recoveryEditorActionApplied=false recoveryEditorAttachRendered=false recoveryEditorAttachSeen=false recoveryEditorAttachApplied=false recoveryTrainSeen=false recoveryTrainMotionSeen=false maxRecoveryChassisBankAngle=0.0 maxRecoveryBearingBankAngle=0.0 motionFamilies=[FREE_SPIN] motionChassis={FREE_SPIN=1} motionDistances={3f31d42e-6559-4b5f-81be-73b630aeb4c8=5.383567865311336, c0954294-ed33-4609-9eaf-3f427df83f27=5.383569717407227}"
+          ]
+        }
+      }
+    },
+    {
+      "family": "revised",
+      "origin_game_directory": "/tmp/fd402-revised-lifecycle.Flg3tw",
+      "runtime_kind": "development client",
+      "source_commit": null,
+      "runtime_jar_sha256": null,
+      "candidate_qualification": "unverified; historical runtime identity not retained",
+      "logs": {
+        "pause": {
+          "file": "revised-pause.log.gz",
+          "sha256": "d085361467f7e3a1d392acf06b6b4cac35eb7808afad9cba74b682d6a7d0f833",
+          "uncompressed_sha256": "4715088373c3c44619e46be87e4a72ccb6607dc8c73d8e9d228ea65b01eb402e",
+          "observations": [
+            "[04Nov2026 18:12:08.150] [Server thread/INFO] [dev.fourthdimension.runtime.CarrierValidationFixture/]: FD_CARRIER_FIXTURE paused occupied recovery for fresh-process resume chassis=6c36d174-e128-4fb2-9c69-71af92546576 bearing=7fd0e640-f815-4547-8a5a-7209b10a7403",
+            "[04Nov2026 18:12:10.374] [Render thread/INFO] [dev.fourthdimension.client.CarrierTransformValidation/]: FD_CARRIER_VALIDATION passed samples=40 target=40 waitedTicks=160 families=1 requiredFamilies=1 carriers=4 riderAssignments=1 maxAngleError=2.5445491634327165E-4 compiledBodies=6 sectionLayerCalls=1125 sectionLayerBodies=5 nativeCartBodies=2 renderRequired=true riderRequired=true riderMounted=true supportLossRequired=false supportLossObserved=true supportLossAfterMotion=true supportRepairRequired=false supportRepairObserved=true supportRealignmentRequired=false supportRealignmentObserved=true recoveryRequired=true recoveryMotionRequired=false recoveryBankRequired=false recoveryCycleRequired=false recoveryProfileRequired=false recoveryEditorRequired=false recoveryEditorActionRequired=false recoveryEditorAttachRequired=false recoveryTrainRequired=false recoveryLinkSeen=true recoveryMotionSeen=false recoveryCycleSeen=false recoveryProfileSeen=false recoveryEditorSeen=false recoveryEditorActionSeen=false recoveryEditorActionApplied=false recoveryEditorAttachRendered=false recoveryEditorAttachSeen=false recoveryEditorAttachApplied=false recoveryTrainSeen=false recoveryTrainMotionSeen=false maxRecoveryChassisBankAngle=0.0 maxRecoveryBearingBankAngle=0.0 motionFamilies=[] motionChassis={} motionDistances={}"
+          ]
+        },
+        "resume": {
+          "file": "revised-resume.log.gz",
+          "sha256": "5a697c1494443aabeb0f8d40a3e6fc22ab2566fefdd396adb8b22a928bd2125e",
+          "uncompressed_sha256": "a8d1b16baf000f1bf6496f3dcde42395d366316b11f1ee621ad459b6e12fa5be",
+          "observations": [
+            "[04Nov2026 18:13:17.902] [Server thread/INFO] [dev.fourthdimension.runtime.CarrierValidationFixture/]: FD_CARRIER_FIXTURE completed fresh-process resumed occupied recovery cycle chassis=6c36d174-e128-4fb2-9c69-71af92546576 detached=true restraintsOpen=true riderUnloaded=true",
+            "[04Nov2026 18:13:17.955] [Render thread/INFO] [dev.fourthdimension.client.CarrierTransformValidation/]: FD_CARRIER_VALIDATION passed samples=40 target=40 waitedTicks=597 families=1 requiredFamilies=1 carriers=0 riderAssignments=1 maxAngleError=8.958548881399415E-4 compiledBodies=6 sectionLayerCalls=3840 sectionLayerBodies=5 nativeCartBodies=2 renderRequired=true riderRequired=true riderMounted=false supportLossRequired=false supportLossObserved=true supportLossAfterMotion=true supportRepairRequired=false supportRepairObserved=true supportRealignmentRequired=false supportRealignmentObserved=true recoveryRequired=true recoveryMotionRequired=true recoveryBankRequired=false recoveryCycleRequired=true recoveryProfileRequired=false recoveryEditorRequired=false recoveryEditorActionRequired=false recoveryEditorAttachRequired=false recoveryTrainRequired=false recoveryLinkSeen=true recoveryMotionSeen=true recoveryCycleSeen=true recoveryProfileSeen=false recoveryEditorSeen=false recoveryEditorActionSeen=false recoveryEditorActionApplied=false recoveryEditorAttachRendered=false recoveryEditorAttachSeen=false recoveryEditorAttachApplied=false recoveryTrainSeen=false recoveryTrainMotionSeen=false maxRecoveryChassisBankAngle=0.0 maxRecoveryBearingBankAngle=0.0 motionFamilies=[ZACSPIN_REVISED] motionChassis={ZACSPIN_REVISED=1} motionDistances={7fd0e640-f815-4547-8a5a-7209b10a7403=5.3545989990234375, 6c36d174-e128-4fb2-9c69-71af92546576=5.3545980910927735}"
+          ]
+        }
+      }
+    }
+  ],
+  "qualification_target": {
+    "source_commit": "dd0a85167f98fe944fe6ab41a3c65d77864db767",
+    "jar_sha256": "811090454924d86c234b4d72efa19c568bbea108b55b84fb3b82e697586288aa",
+    "relationship": "Target of later qualification, not the historical runtime artifact; historical source/JAR identities remain unknown."
+  }
+}

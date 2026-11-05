@@ -1,9 +1,10 @@
 # FD402 fresh-process recovery lifecycle checkpoint
 
-This bounded checkpoint proves that a normal occupied Arrow recovery group can
-survive an actual client/server process shutdown and complete its normal
-release in a second process. It does not certify the full multiplayer or
-all-family lifecycle matrix.
+This checkpoint records a normal occupied recovery group surviving a client/server
+process shutdown and completing its normal release in a second process. The
+initial Arrow observation was extended to all five single-car families below.
+These are bounded historical development-client observations; exact-artifact
+qualification and multiplayer acceptance remain open.
 
 The opt-in pause fixture creates the normal recovery example, boards the local
 player, closes restraints, retains the car, and uses the production select and
@@ -27,8 +28,12 @@ The development-client check was run in two separate JVMs against one world:
    normal brake/detach/restraints-open/unload lifecycle. The process exited
    successfully.
 
-Reproduce with an empty validation world for the first process, then use the
-same game directory and world for the second:
+The original fixture arguments below describe the two stages. Before a new run,
+follow [AGENTS.md](../../../../../AGENTS.md): select and verify Java 21, check
+memory, reserve an owned private Xvfb, give both stages the same isolated game
+directory, use `-PfdClientMaxHeap=1536M`, and cap each entire client launch at
+3 GiB. These argument excerpts are not standalone uncapped launch instructions.
+Use an empty validation world first, then reopen that same world:
 
 ```sh
 ./gradlew --offline --no-daemon runClient \
@@ -47,9 +52,9 @@ same game directory and world for the second:
   -PfdCarrierValidationRender
 ```
 
-This remains a fixture-operated one-player Arrow scene. It does not establish
-ordinary player tools/UI, Engineered/FE operation, all recovery families,
-full multiplayer behavior, or broad rendered clearance.
+The initial Arrow result is fixture-operated and one-player. It does not establish
+ordinary player tools/UI, Engineered/FE operation, full multiplayer behavior,
+or broad rendered clearance. The later rows extend family coverage only.
 
 ## Family extensions (2026-11-04)
 
@@ -68,5 +73,33 @@ The same capped two-process check also passed for Legacy
 (`FD402RevisedLifecycle`, 5.355 blocks). Free Spin exposed a normal native-unlink
 packet arriving before its larger carrier snapshot cleared `recoveryCart`; the
 client validator now recognizes that observed unlink plus rider dismount as the
-same completed production release. This closes the bounded all-family
-one-player lifecycle matrix; multiplayer evidence remains open.
+same completed production release. This completes the observed bounded all-family
+one-player lifecycle matrix. Artifact provenance, packaged qualification and
+multiplayer evidence remain separate requirements.
+
+## Retained observations and artifact boundary
+
+On 2026-11-04 the original pause and resume logs were recovered from all five
+game directories and archived here, before relying on temporary local paths.
+[observations.json](observations.json) records their full hashes, source locations,
+same-chassis pause/release messages and client validation results;
+[SHA256SUMS](SHA256SUMS) protects the retained payloads.
+
+| Family | Pause record | Resume record | Recorded displacement |
+| --- | --- | --- | --- |
+| Arrow | [Log](arrow-pause.log.gz) | [Log](arrow-resume.log.gz) | 5.741 blocks |
+| PAX | [Log](pax-pause.log.gz) | [Log](pax-resume.log.gz) | 5.742 blocks |
+| Legacy | [Log](legacy-pause.log.gz) | [Log](legacy-resume.log.gz) | 5.667 blocks |
+| Free Spin | [Log](free-spin-pause.log.gz) | [Log](free-spin-resume.log.gz) | 5.384 blocks |
+| Revised | [Log](revised-pause.log.gz) | [Log](revised-resume.log.gz) | 5.355 blocks |
+
+These development clients did not retain a launch-time source/binary manifest.
+Source commit and runtime-JAR digest are therefore explicitly unknown in the
+observation index; a JAR built later would not recover that missing evidence.
+The logs establish observed completion, not equivalence to the
+[current qualification artifact](../../../../CURRENT-QUALIFICATION.md).
+FD402D requires packaged replays tied to that artifact, including linked trains;
+FD402E separately requires two-client dedicated-server interruptions. Neither
+the fixture-operated one-player result nor a render-path counter proves those
+broader claims. Final transient replicated rider-assignment counts are retained
+in the raw results and are not relabeled as a full cleanup audit.

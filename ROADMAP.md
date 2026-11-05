@@ -16,70 +16,41 @@ Before an approved expansion begins, follow the backlog's
 Its November 2 catalog is a dated research snapshot; candidate stabilization
 continues with the existing pins and artifact-specific acceptance evidence.
 
-**Current stage: completing 0.4.** The five-family bounded 0.3 gate is complete.
-Integrations, crafting and tutorials are implemented with partial acceptance;
-complete clearance/render coverage, physical recovery and real-client survival
-construction/operation remain 0.4 work. Lifecycle investigation has also begun
-under FD902 toward 0.9.0; this does not close the earlier 0.4 gate.
+**Current stage: completing 0.4; no release candidate is accepted.** The bounded
+five-family 0.3 gate remains complete. FD401–FD403 are open; FD901–FD904 may
+prepare evidence, but cannot bypass FD404. Updated **2026-11-04**.
 
-**Current work packages: FD401–FD403, with FD902–FD904 evidence advancing in parallel.** FD402 recovery towing remains the earliest substantial 0.4 acceptance gap. Dev.29 records actual native
-chassis, rider and non-seat carrier-rack poses every game tick, replacing the
-previous ten-tick cadence. The five single-car families and two occupied
-original train routes pass fresh one-tick audits with 5,763–6,974 samples per
-route, at least 0.04394 blocks of body/track clearance, 0.08 blocks of
-rider/track clearance and a 0.0625-block rider/rack lower bound on a subset of
-sampled riders; see the
-[dense-clearance checkpoint](docs/evidence/0.4/recovery/dense-clearance/acceptance.md)
-and [coverage correction](docs/evidence/0.4/recovery/dense-clearance/rider-rack-coverage-correction.md).
-The later [sampled player/rack checkpoint](docs/evidence/0.4/recovery/player-rack-clearance/acceptance.md)
-adds a part-level vanilla seated-player envelope, corrects family-specific axle
-placement and passes the same seven routes with at least 0.06532 blocks of
-player/rack separation. This is still sampled default-model evidence. Dev.29 separately
-audits the exported chassis wing-strut/carrier-axle linkage blocks across these
-same routes; unmodeled linkage, equipped/cosmetic player meshes and observed client rendering remain open. See the [linkage-clearance checkpoint](docs/evidence/0.4/recovery/linkage-clearance/acceptance.md). A bounded
-[native substep checkpoint](docs/evidence/0.4/recovery/native-physics-substeps/acceptance.md)
-pairs all 13,095 Rapier half/full steps inside the occupied two-car Arrow
-route's 6,548-tick sampled interval and retains at least 0.03598 blocks of
-body/wheel clearance. The [PAX checkpoint](docs/evidence/0.4/recovery/pax-native-physics-substeps/acceptance.md)
-and [remaining-family checkpoint](docs/evidence/0.4/recovery/remaining-family-native-physics-substeps/acceptance.md)
-extend this paired-step gate to all five supported families. Unanchored
-startup/teardown steps and the trajectory inside one discrete substep remain
-open. Dev.22 moves Original visual
-supports out of the native lower-bearing channel and independently samples that
-native lower-bearing model against occupied banked recovery routes; see the
-[bearing-clearance checkpoint](docs/evidence/0.4/recovery/bearing-clearance/acceptance.md).
-Dev.24 adds sampled mounted native-rider envelopes at those frames; see the
-[rider-clearance checkpoint](docs/evidence/0.4/recovery/rider-clearance/acceptance.md).
-This bounded Pig-passenger check does not certify player meshes, intentional
-seat contact or client rendering. Dev.23 adds sampled full-spin native-wheel envelopes at those banked frames,
-excluding only intended running-rail contact; see the
-[wheel-clearance checkpoint](docs/evidence/0.4/recovery/wheel-clearance/acceptance.md).
-Dev.21 records actual native body poses and block states for
-independent sampled default model/track/neighbor clearance; see the
-[model clearance checkpoint](docs/evidence/0.4/recovery/model-clearance/acceptance.md).
-Dev.20 validates original occupied
-two-car Arrow and four-car PAX trains across the complete bend, bank and level
-runout before normal braking, power cut, disconnection and unloading. All 24
-original native seat mounts, carriers and train links survive. Four-second queued
-native assembly supplies the new operator train demos. See the
-[banked train checkpoint](docs/evidence/0.4/recovery/banked-trains/acceptance.md).
-The next FD402 work is observed rendered operator/lifecycle acceptance and
-broader lifecycle evidence. Dev.19 validates occupied single-car
-native towing across all five families through a quarter bend, a 32-block
-sustained 30-degree bank, a bank-to-level transition and level runout. Original
-seat mounts and nonzero Arrow profiles survive normal braking, power cut,
-disconnection and unloading; native body anchor/frame offsets are measured.
-See the [banked recovery checkpoint](docs/evidence/0.4/recovery/banked-tow/acceptance.md).
-Observed linked-train rendering remains open. Dev.18 records a failed whole-train
-compact PAX spike pull: the powered bare bearing stalls while an unlinked control
-ascends. A new production guard brakes a driven stall and retains the original
-occupied train; [evidence and limits](docs/evidence/0.4/recovery/chain-stall/acceptance.md)
-keep whole-spike towing unverified. Dev.17 connects occupied physical
-PAX winch handover to native-chain towing, braking, stationary disconnection and
-unloading in one test, preserving the original sixteen seat mounts and four-car
-train. See the [checkpoint evidence](docs/evidence/0.4/recovery/occupied-handover/acceptance.md).
-FD401 and FD403 also remain in progress. The next release gate is FD404 (0.4);
-the subsequent candidate gate is FD905 (0.9).
+**Artifact being qualified:** committed source `dd0a851`, JAR SHA-256
+`811090454924d86c234b4d72efa19c568bbea108b55b84fb3b82e697586288aa`.
+The [current qualification record](docs/CURRENT-QUALIFICATION.md) owns identity,
+profiles, evidence reuse and required retests. This build excludes ongoing
+uncommitted runtime edits; later changes require a new recorded identity.
+`2c5d9a7` is a historical frozen checkpoint, not the current candidate.
+
+**Execution order:**
+
+1. Maintain the artifact/evidence map in FD401A; reconcile new observations before scheduling retests.
+2. Finish the finite FD401B–D and FD402A–F matrices below, including the packaged PAX recovery case shared with FD902C.
+3. Complete FD403’s five connected-client build/ride/save walkthroughs and teaching review.
+4. Close FD404 and freeze the feature-complete JAR and four intended profiles.
+5. Qualify that identity through FD901–FD904, including migration, the park benchmark and camera comfort; review FD905, then FD1001–FD1003.
+
+A [4,800-tick PAX source recovery](docs/evidence/0.9/fd401-pax-longhold-source-229e586/acceptance.md),
+its [packaged named test](docs/evidence/0.9/fd401-pax-packaged-longhold-229e586/README.md),
+[all-five-family one-player recovery restarts](docs/evidence/0.4/recovery/fresh-process-recovery/acceptance.md)
+and [two-client Arrow recovery cycle](docs/evidence/0.4/recovery/two-client-recovery-lifecycle/acceptance.md)
+have observed passes. Their records distinguish exact artifact identity from
+historical development-classpath limits. Normal-client PAX operation, interrupted
+occupied restarts and the full multiplayer matrix stay open. Manual Arrow
+boarding, bearing selection/attachment and physical lever operation also have
+bounded evidence. The
+[archived checkpoint history](docs/ROADMAP-CHECKPOINT-HISTORY-2026-11-04.md)
+retains prior development milestones without making them the work queue.
+
+Each active task records its scenario, configuration, pass condition, evidence
+and next action. Parent FD IDs stay stable; suffix tasks refine their acceptance.
+“Observed” means a bounded historical result exists; only an artifact-matched
+acceptance or justified input-parity review closes a current qualification row.
 
 | Stage | Packages | Status | Required result |
 | --- | --- | --- | --- |
@@ -90,11 +61,11 @@ the subsequent candidate gate is FD905 (0.9).
 | 0.4 | FD401–FD404 | In progress | Optional integration infrastructure, recovery evaluation, crafting, tutorials, and family examples. |
 | 0.9 release candidate | FD901–FD905 | In progress; release gate open | Complete compatibility, lifecycle, migration, and performance evidence. |
 | 1.0 | FD1001–FD1003 | Planned | Verified five-family release with documentation and reproducible artifacts. |
-| Proposed 1.1 | Expansion scope in integration backlog, along with user proposed wing coaster. S&S/Arrow 4D coaster is a wing style, so this is a similar train with no 4D element that uses normal Coasters: Simulated track https://coasterpedia.net/wiki/Winged_roller_coaster | Planned; implementation paused | Additions station operations, CTNB functional/control adapters, Magnetized; separate dependency and combined-pack certification. |
-| Proposed 1.2 | Expansion scope in integration backlog | Planned; implementation paused | Coaster Skin, rotating-seat follow-up, Immersion, Waterparked and Create Coasters coexistence. |
-| Proposed 1.3 | Arrow Suspended style coaster (can swing side to side with lift tracks that prevent swing), S&S Axis coaster  https://coasterpedia.net/wiki/Suspended_Coaster_(Arrow_Dynamics_product) https://coasterpedia.net/wiki/Axis_Coaster_(S%26S_Worldwide_product)| Planned; implementation paused| Suspended coaster in the Arrow design style that swings freely with player weight/momentum horizontally. S&S style axis coaster with controlled horizontal rotation. Full skins and functionality|
-| Proposed 1.4 | Pipeline coaster https://coasterpedia.net/wiki/Pipeline_roller_coaster | Proposed, paused | Custom skin, model, track and train
-| Proposed 1.5 | Spinning coaster variants https://coasterpedia.net/wiki/Spinning_roller_coaster | Proposed, paused | Custom skin, model, train, possibly track if appropriate
+| Proposed 1.1 | Integration backlog; FD1101 fixed-seat Wing discovery | Planned; implementation paused | Separate operations adapters from a mechanically specified fixed-seat wing vehicle. |
+| Proposed 1.2 | Integration backlog presentation/seat expansion | Planned; implementation paused | Coaster Skin, rotating-seat follow-up, Immersion, Waterparked and Create Coasters coexistence. |
+| Proposed 1.3 | FD1301 Suspended; FD1302 Axis discovery | Planned; implementation paused | Independently specified swing/rotation, locks, seating, tracks and full models. |
+| Proposed 1.4 | FD1401 Pipeline discovery | Planned; implementation paused | Resolve the intended pipeline design, then specify vehicle, seating and track. |
+| Proposed 1.5 | FD1501 Spinning; FD1502 Roller Ball discovery | Planned; implementation paused | Separate mechanisms, prototypes and acceptance for each family/variant. |
 | External compatibility | FD801 | Planned | Future Track Styles Arrow 4D integration when a qualifying functional representation is inspectable; does not block standalone releases. |
 
 The dependency chain between release gates is foundation → 0.1 → 0.2 → 0.3 → 0.4 → 0.9 → 1.0. Preparation for later packages may start once their stated prerequisites are done; a release still requires all earlier release gates. Track Styles, a maintainer response, or a future external release is never a prerequisite for our original tracks.
@@ -371,454 +342,195 @@ Ship both new families with instructions and examples, including compact and tal
 
 ### FD401 Deliver optional provider infrastructure
 
-**Status: in progress.** Exact-version discovery, client-only catalog access, component ownership, and guarded appearance editing/persistence/rendering are implemented. The single-spine Arrow appearance has resource-reload and real provider-removal/reinstallation evidence without changing its controlled profile. Both inspected Arrow styles are restricted to controlled Arrow track. Exact-version Engineered adapters now have native evidence for four-family straight launch/STOP/capture/retention, ordinary-bearing operation, a loaded coupled Arrow full turn/STOP/rollback, and full PAX cycles with opposing motors. A measured upper-stroke tie conflict has guarded selection and Original fallback without profile changes. Packaged dev.4 now has double-spine GUI fallback/cold-reopen/restoration/reload evidence, a flat single-spine quarter curve, and an occupied styled circuit with station dispatch/capture and verified final dismount. An isolated dev.5 native FE batch now covers empty-buffer starvation, supplied launch, sampled braking regeneration, PAX ownership and supplied retention without FE consumption. A native banked circuit now checks joint continuity, loaded full turns, capture and unloading; an independent default-mesh audit covers its decoration/control-rail gap over the full supported stroke. Packaged dev.6 banked GUI/reload/reopen/occupied-circuit/unloading now has recorded evidence. The dev.7 PAX regression uses current readiness after cycle completion and verifies post-capture native-motion rejection/recovery. Dev.8 revises installed decoration placement after a native lower-wheel envelope conflict, retains native running-rail supports and adds an independent continuous-spin/longitudinal-travel wheel/support check on level straight track. The new packaged geometry rendered, but opening chat after F3+T exposed a freed bitmap-glyph image crash; that checkpoint did not diagnose its cause. Dev.12 records 64 completed resource/chat/query cycles, then a normal occupied revised double-spine level circuit, recapture, unloading and clean save/exit; this bounded replay does not establish a font fix or complete rendering coverage. Dev.12 fixes startup ordering and empty-schedule completion in the pinned Veil client scheduler, with an unmodified binary control and packaged native-scheduler validation. The original freed-bitmap crash remained unresolved at that checkpoint; scheduler completion was not a font fix. Dev.30 adds fresh packaged combined-profile Xvfb runs with 64 sequential opt-in reloads and normal client shutdown, including a world-loaded command-chat screen held for twenty ticks: all 65 FontManager apply starts/ends and 55-entry Track Styles catalog bakes complete without a closed-set lookup, unallocated-image trace or target bitmap error; see the [64-cycle record](docs/evidence/0.4/font-reload-64-clean.txt) and [world-chat record](docs/evidence/0.4/font-reload-64-world-chat-clean.txt). This is controlled lifecycle evidence. A later [current-artifact interactive replay](docs/evidence/0.4/font-interactive-current/acceptance.md) completes three separate F3+T reloads, exercises chat, inventory and pause-menu rendering after each, records a stale default FontSet redirect, then saves and exits normally. A new [isolated FANCY ride](docs/evidence/0.9/fd401-fancy-styles-reload-ride/README.md) performs F3+T before a normally boarded styled circuit, capture and unload; [separate mode runs](docs/evidence/0.9/fd401-styles-render-modes/README.md) add guarded FAST, FABULOUS and Iris/Solas rendering with clean exits. A [banked clearance extension](docs/evidence/0.9/fd401-banked-player-clearance-a5df9b8/README.md) now covers both uniform Styles configurations at every recorded game tick with single/coupled wheels, chassis, carriers, linkage, neighboring cars and conservative vanilla player skins. Exact-candidate review, tracing-disabled/repeated reliability claims, between-tick swept/equipped-player clearance, visible transition ownership and dynamic telemetry remain pending. See [integration scope and evidence](docs/INTEGRATIONS.md).
+**Status: in progress.** Infrastructure and substantial historical operator/render
+acceptance exist. Qualification now follows the [artifact record](docs/CURRENT-QUALIFICATION.md),
+not the old `2c5d9a7` label. The detailed [handoff](docs/FD401-RELEASE-HANDOFF.md)
+and [historical milestones](docs/ROADMAP-CHECKPOINT-HISTORY-2026-11-04.md#fd401-deliver-optional-provider-infrastructure)
+retain their original evidence boundaries.
 
 **Depends on:** FD005, FD305. **Design:** D04, D05, D07, D15.
 
-The [final `2c5d9a7` candidate identity](docs/evidence/0.9/fd401-final-candidate-2c5d9a7/README.md)
-now fixes the source, JAR and 111-file combined validation classpath. Its
-artifact map distinguishes exact whole-JAR checkpoints from scoped class parity
-and non-equivalent predecessors. References below to exact-candidate review now
-mean the remaining runtime/operator acceptance, not candidate selection.
+Current scope is Create guidance/diagnostics, Track Styles 1.2.0 Arrow appearance
+and Engineered 1.1.1 operations, on schema 6/protocol 7. Missing or unsupported
+optional mods must leave standalone behavior intact. New adapters and the
+schema-7/protocol-8 registry remain paused; FD801 is independent.
 
-The later [exact-source interactive font replay](docs/evidence/0.9/fd401-final-source-retest-1a91c94/README.md)
-tests `1a91c94` with three real F3+T reloads, a stale-default-font redirect,
-post-reload chat/inventory/pause menu and exit 0. Source `05ad4a6` additionally
-uses Minecraft's separate missing-font fallback for a removed custom ID; its
-runtime branch acceptance remains pending. Recovery runs without diagnostic
-flags, but the retained replay enabled tracing. The later isolated styled ride
-and mode records cover a bounded occupied post-reload circuit and declared graphics
-modes. The selected candidate's artifact map retains those older runs only at
-their proven scope; candidate-exact runtime operation, tracing-disabled operation
-and repeated reliability remain open and FD401 is not closed by those bounded runs.
+| Task / status | Required scenario and configuration | Pass condition | Evidence / next action |
+| --- | --- | --- | --- |
+| **FD401A Artifact identity — done for `dd0a851`; refresh on input changes** | One immutable JAR, committed source, intended base/Styles/Engineered/combined profiles | Source/JAR/dependency identities and every reused claim have a bounded mapping; runtime profile hashes attach when launched | [Current record](docs/CURRENT-QUALIFICATION.md). Build identity is established; qualification is not. Update affected rows when ongoing source work lands. |
+| **FD401B Styles — in progress** | Both Arrow styles, single and coupled banked/full-turn rides; whole-section Original/single/double transitions; FANCY/FAST/FABULOUS and the pinned Iris/Solas setup | Normal UI changes preserve family/profile; one render owner per component; fallback, provider removal/reinstall, reopen and reload preserve mechanics; occupied ride/capture/unload and geometry checks pass | [Handoff](docs/FD401-RELEASE-HANDOFF.md#fd401-evidence-review-and-disclosed-boundaries). Review geometry-input parity, then replay changed runtime paths on the selected JAR. Include tracing-disabled reload/ride and a direct stale removed-font fallback case. Three reload/ride repetitions per supported nonshader mode establish bounded repeatability only. |
+| **FD401C Engineered — in progress** | Engineered-only and combined profiles: all five families; single/coupled Arrow; loaded PAX opposing-motor authority; wired FE | Normal construction/controller operation, launch/STOP/capture/unload, starvation, power restore and cold reopen preserve riders and interlocks; all PAX chassis reject competing drive | [Operator and FE records](docs/CURRENT-QUALIFICATION.md#evidence-reuse-and-required-retests). Retest changed motor/availability/lifecycle paths and retain exact launch dependencies. FE fixture dependency remains disclosed, not advertised. |
+| **FD401D Create telemetry — in progress** | All six display sources; each family, trailing-car occupancy, controller unavailable/re-entry and PAX phase/fault recovery; base and optional profiles | Goggles, signs and client snapshots agree with current whole-consist server state; unavailable equipment cannot advertise ready or authorize motion | [Telemetry handoff](docs/FD401-RELEASE-HANDOFF.md). Reuse the FD902C packaged PAX recovery run for its phase/fault assertions; preserve the successful source hold as a separate observation. |
 
-The frozen `ff7c831` [uniform Styles geometry reports](docs/evidence/0.9/fd401-prospective-styles-ff7c831/README.md)
-now pass both single- and double-spine configurations for single-car and two-car
-Arrow recovery routes. A fifth [whole-section transition report](docs/evidence/0.9/fd401-styles-transitions-ff7c831/README.md)
-passes Original → single → double → Original → single. Single-car cases cover
-5,768 poses; train cases cover 6,548, with all five sections visited and minimum
-bounds of 0.04891048 / 0.04878235 blocks against 0.02 required. All five reports
-have no uncertified body/track pairs and retain exact source/input/tool hashes.
-The later [banked player-clearance extension](docs/evidence/0.9/fd401-banked-player-clearance-a5df9b8/README.md)
-adds a conservative vanilla 1.21.1 seated skin envelope to every occupied fixture
-seat for both uniform styles: 23,072 player poses per single-car report and 52,384
-per coupled report remain at least 0.08 blocks from the styled track. Its fifth
-report applies the same 52,384 player checks to the retained whole-section
-Original/single/double transition plan. This resolves
-the bounded one-tick sampled default-model/player-skin geometry work only.
-Continuous between-tick clearance, equipped/cosmetic players, decoration
-self-clearance, visible transition ownership, within-curve UI styling,
-candidate-exact runtime acceptance and dynamic telemetry remain open. Neither these prospective results nor
-the later draw-fallback source correction closes FD401.
-
-Implement isolated optional adapters, support/version checks, component render ownership, appearance fallback and shared server-validated operations telemetry. The current 0.4–1.0 scope is Create guidance/diagnostics plus existing Track Styles 1.2.0 appearance and Engineered 1.1.1 operations. Keep the current schema 6/protocol 7 baseline; the paused schema-7/protocol-8 provider registry requires a separate migration decision and is not a 0.9 prerequisite. Newly staged Additions, CTNB, Magnetized, Skin, Immersion, Waterparked and Create Coasters adapters remain in the proposed post-1.0 expansion plan, not prerequisites for FD401.
-
-**Done when:** standalone behavior is unchanged by missing optional mods; supported integrations preserve functional family and profiles. Publish only tested combinations. Future Arrow 4D support remains FD801 and cannot block this package.
+**Done when:** FD401A–D have artifact-matched acceptance for the advertised
+profiles. Within-curve style segmentation, arbitrary cosmetic/resource-pack
+meshes, accelerated Flywheel under the recorded shader fallback, and larger
+unmeasured packet-delay envelopes are not certified by existing evidence.
+A failed advertised feature must be fixed or explicitly disabled/withdrawn with
+updated support documentation; a historical pass cannot waive it.
 
 ### FD402 Evaluate and document recovery towing
 
-**Status: in progress.** Dev.15 implements guarded production selection/coupling/start/brake/disconnect and stationary PAX winch handover. Native tests tow fully occupied cars from all five actual flat examples using Coasters chains/Create motors; forty actual wrong-family initial snaps are rejected. They preserve matching rail support after broken links, handle permanent bearing destruction, persist recovery identity and load schema-5 state. Actual native holding restores all five recovery groups and 32 passengers with unchanged component IDs/couplings; towing stays braked until explicit resume. A separate check hands over a stopped physical PAX carriage while preserving its four-car train. Fully occupied two-car Arrow and four-car PAX trains also tow, brake and disconnect while preserving original links and retention. A packaged empty Arrow check also completes real tool selection/coupling/motor controls, same-ID braked fresh-JVM restoration, explicit start, guarded route-end stop, brake/power stop, disconnect and restraint opening. Both clients exit normally with validation flags false; its saved identities/bindings/profiles persist. The brake action follows the automatic route stop. Dev.16 adds recovery-specific action guidance, live fault status with wrapped hover text, disabled incompatible ride controls and a lever-controlled native Create clutch for demo power. Standalone and combined checks validate native lever start/stop for all five occupied examples with motors retained at eight RPM. The final packaged Arrow example has independent manual braking before the boundary, normal lever power stop, fresh-JVM same-ID coupling restoration, inspection/resume, disconnect and restraint opening; [dev.16 evidence](docs/evidence/0.4/recovery/power-control/acceptance.md) records the surviving startup movement warnings and bounded scope; see [bounded client evidence](docs/evidence/0.4/recovery/gui/arrow-gui-acceptance.md). Dev.17 adds an occupied end-to-end physical handover/recovery test: all sixteen native passengers retain their original seat mounts through towing and braking; chain power is cut with the motor retained at eight RPM, then the original four-car links survive disconnection and normal unloading. See the [occupied handover checkpoint](docs/evidence/0.4/recovery/occupied-handover/acceptance.md) for native metrics and scope. Dev.18 attempts to extend the same fully occupied train onto the compact curved spike. The powered bare bearing stalls before whole-train entry while an unlinked control ascends; this is a measured propulsion limit, not a passing whole-spike case. Production now diagnoses insufficient displacement under active native chain input, brakes all original cars and retains the inspection fault. A separate regression rejects false stalls while power is cut and preserves sixteen original seat mounts through driven-stall braking, power cut, disconnection and unloading; see the [stall checkpoint](docs/evidence/0.4/recovery/chain-stall/acceptance.md). Dev.19 adds a native quarter-bend/30-degree-bank/level-runout recovery example per family, with all 32 original native seat mounts preserved until unloading. Each car traverses all five sections under actual bare-bearing chain power, stays retained while Arrow track keeps its full-turn profile, then manually brakes, cuts power with the motor retained at eight RPM, disconnects and unloads. Both native bodies are measured against track anchor positions and orientations; independent exported-frame checks verify route continuity, sustained banking and the nonzero profile. See the [banked recovery checkpoint](docs/evidence/0.4/recovery/banked-tow/acceptance.md). Dev.20 extends the native bend/bank test to original occupied two-car Arrow and four-car PAX trains. Every car crosses all five route sections and samples the sustained bank before the whole train reaches the level runout for normal braking, power cut, stationary recovery disconnection and native unloading. Original carriers, all 24 original native seat mounts and original train links are preserved. Both extended routes have independent exported-frame checks, and the test exercises the four-second queued native assembly used by the new operator demos; see the [banked train checkpoint](docs/evidence/0.4/recovery/banked-trains/acceptance.md). Dev.21 adds read-only native pose/block-state traces and independent sampled default-model clearance against original track triangles and neighboring cars. Dev.29 strengthens this to every game tick and adds conservative full-spin wheel unions, live rider/rack bodies and exported linkage blocks across all five single-car examples and both original train examples; see the [one-tick clearance evidence](docs/evidence/0.4/recovery/dense-clearance/acceptance.md). A follow-up verifier requires stable rider identities and original carrier mounts on every sampled occupied single-car and linked-train pose, with missing-seat and swapped-mount negative controls; see the [occupied rider checkpoint](docs/evidence/0.4/recovery/occupied-rider-coverage/acceptance.md). A [current-artifact one-tick audit](docs/evidence/0.4/recovery/current-tick-rider-clearance/acceptance.md) now passes all 50 required combined-profile GameTests and independently verifies every rider/rack pair on five single-car and two linked-train banked routes, with the generated raw traces preserved. This remains native/default-model evidence and excludes client meshes, decorations and continuous physics-step sweep. Schema/protocol 6 protects the new state; older schemas 1–5 remain readable. Complete rendered operator acceptance and client mesh/rider/rack clearance, broader strength/propulsion and recovery lifecycle evidence remain open. See [operator workflow](docs/RECOVERY.md) and [operator acceptance evidence](docs/evidence/0.4/recovery/operator-acceptance.md).
-
-The later [sampled vanilla-player checkpoint](docs/evidence/0.4/recovery/player-rack-clearance/acceptance.md)
-supersedes only the earlier player-to-native-rack gap: it corrects
-family-specific axle geometry and checks part-level seated-player envelopes at
-the same one-tick poses. All seven routes retain at least 0.06532 blocks of
-player/rack clearance and at least 0.08 blocks of player/track clearance.
-The [native substep checkpoint](docs/evidence/0.4/recovery/native-physics-substeps/acceptance.md)
-extends the occupied Arrow train to all 13,095 Rapier half/full steps inside its
-6,548-tick sampled interval, retaining at least 0.03598 blocks of body/wheel
-clearance and 0.06532 blocks of carrier-local player/rack clearance.
-The later [occupied PAX substep checkpoint](docs/evidence/0.4/recovery/pax-native-physics-substeps/acceptance.md)
-adds all 13,901 paired half/full steps across 6,951 sampled ticks of the real
-four-car train, retaining at least 0.03152 blocks of body/wheel clearance and
-0.06532 blocks of carrier-local player/rack clearance through normal release.
-The [remaining-family substep checkpoint](docs/evidence/0.4/recovery/remaining-family-native-physics-substeps/acceptance.md)
-adds 35,163 paired half/full steps across 17,583 sampled ticks for occupied
-Legacy ZacSpin, Free Spin, and Revised ZacSpin vehicles, completing paired-step
-coverage for all five supported families. Equipped/cosmetic meshes, observed
-client rendering, unanchored startup/teardown steps, the unexposed within-step
-trajectory, and broader recovery lifecycle evidence remain open.
-
-The [sampled vanilla wearable checkpoint](docs/evidence/0.4/recovery/vanilla-wearable-clearance/acceptance.md)
-adds exact Minecraft 1.21.1 armor, clamped cape and seated elytra alternatives
-at every occupied one-tick pose on those same five single-car and two linked-train
-routes. Corrected carrier axles retain at least 0.04811 blocks of wearable/rack
-clearance and at least 0.08 blocks of rack/track clearance. This closes only the
-bounded vanilla wearable layer item; held items and item-use poses, non-armor
-head-slot renderers, modded cosmetic layers, resource overrides and observed
-client rendering remain open.
-
-The [certified rider-equipment interlock](docs/evidence/0.4/recovery/certified-rider-equipment/acceptance.md)
-now keeps moving recovery scenes inside that measured envelope. Start rejects a
-mounted player with either hand occupied or equipment outside empty slots,
-built-in vanilla armor and elytra. An unsafe equipment change during towing
-retains and brakes the consist with a persistent clearance fault; correction
-requires an explicit Start tow. This closes held and non-armor head items by
-fail-closed production policy rather than claiming their geometry. Modded render
-layers, resource overrides and observed client rendering remain open.
-
-The [occupied strength-rating checkpoint](docs/evidence/0.4/recovery/strength-rating/acceptance.md)
-now makes the propulsion boundary explicit: production recovery accepts at most
-four original cars. A five-car Arrow consist is rejected before partial state;
-four Arrow cars with all sixteen native seats occupied tow 4.636 blocks with
-0.000123-block maximum spacing error, then brake and detach without losing the
-original links. Added ordinary assemblies, more than four cars, arbitrary drive
-settings, steeper grades and the compact PAX spike remain unsupported rather
-than implied by rail fit.
-
-The [isolated Engineered recovery/FE checkpoint](docs/evidence/0.4/recovery/engineered-fe/acceptance.md)
-closes the bounded optional-provider power item for the certified ordinary
-bearing: braked/starved holds, explicit occupied towing with FE consumption,
-the recovery speed cap, rebraking, rider retention and cleanup pass. Rendered
-manual Engineered controls, all-family provider coverage and stronger ordinary
-assemblies remain outside that result.
-
-The preceding mechanical checkpoint proved fifteen slow, flat native-coupler pulls across all five families: empty captured, fully occupied captured and fully occupied maintenance-retained, at family-specific 6/12/14-block spacing. It used an artificial actuator on the ordinary bearing and a temporary admission policy; both were removed before production recovery was implemented. It establishes feasibility, while the dev.15 operator tests use actual native chains and production guards. A policy rejection is not a demonstrated physical coupling limitation. See [mechanical evidence and reproduction](docs/evidence/0.4/recovery/mechanical-acceptance.md).
+**Status: in progress.** Native towing, bounded geometry and strength, manual
+Arrow operator actions, and all-family historical one-player restarts are
+observed. Rendered occupied operation, artifact-matched lifecycle and multiplayer
+acceptance remain finite tasks below. See [operator evidence](docs/evidence/0.4/recovery/operator-acceptance.md)
+and [historical milestones](docs/ROADMAP-CHECKPOINT-HISTORY-2026-11-04.md#fd402-evaluate-and-document-recovery-towing).
 
 **Depends on:** FD108, FD106, FD305. **Design:** D03.
 
-Test couplers, strength, offsets, braking, retained carriers, and loaded towing with fitting ordinary carts. Validate every vehicle separately and keep disabled 4D units on matching track.
+**Recovery scope for 0.4–1.0:** pinned unmodified bare Coasters bearing, original
+matching tracks, all five original single-car families, the original two-car
+Arrow and four-car PAX banked examples, and the separately measured four-car
+Arrow flat strength case. Four cars is a maximum rating, not certification of
+every four-car route. Use the demonstrated native-chain eight-RPM drive and
+0.75 blocks/s production ceiling. Keep captured/retained carriers and the
+server-enforced vanilla equipment envelope. Include the stopped PAX winch
+handover and the bounded Engineered ordinary-bearing FE case.
 
-**Done when:** publish a proven recovery example if feasible, or document the demonstrated coupling limitation and supported rail-access-only workflow. Do not claim towing support merely because wheels fit. A purpose-built recovery vehicle is a separate scope decision if existing couplers cannot work.
+Added ordinary assemblies/survival locomotives, more than four cars, arbitrary
+drive settings, steeper/unmeasured routes, compact PAX whole-spike towing and
+modded cosmetic/resource overrides remain unsupported. Preserve rejection,
+stall, overspeed and equipment-change guards. Extending this set requires an
+explicit scope revision with its own acceptance; it is not hidden remaining work.
+
+| Task / status | Required scenario and configuration | Pass condition | Evidence / next action |
+| --- | --- | --- | --- |
+| **FD402A Mechanics and clearance — in progress; bounded native results observed** | Five single-car + two linked banked routes; four-car Arrow flat strength; original native parts and certified equipment | Preserve all IDs, riders, couplings and Arrow profiles through tow/brake/power-cut/detach/unload; reproduce pinned minimum-clearance thresholds without relaxing them; five-car, wrong-family, bad-equipment, stall and overspeed cases fail closed | [One-tick](docs/evidence/0.4/recovery/current-tick-rider-clearance/acceptance.md), [substeps](docs/evidence/0.4/recovery/remaining-family-native-physics-substeps/acceptance.md), [wearables](docs/evidence/0.4/recovery/vanilla-wearable-clearance/acceptance.md), [strength](docs/evidence/0.4/recovery/strength-rating/acceptance.md). Compare complete input hashes with the qualification build and rerun changed inputs; retain sampled/discrete-solver limits. |
+| **FD402B Rendered recovery — in progress** | The same seven banked routes in a connected client; real mounted vanilla player, rack, linkage and both linked trains | Observe moving player/body/rack/track relationships through bend, sustained bank, runout and release, with identity/mount retention; render observations and native-frame clearance evidence agree | [Rendered train](docs/evidence/0.4/recovery/rendered-recovery-train/acceptance.md). The render-probe code is instrumentation, not a pass. Capture the missing occupied moving views on the selected JAR, including certified vanilla wearable alternatives. |
+| **FD402C Operator workflow — in progress; bounded manual Arrow actions observed** | One normal occupied flat workflow per family, linked Arrow/PAX, and stationary PAX handover; standalone | Real bearing selection, Attach/Start/Brake controls and physical lever power; brake before boundary; stationary detach, restraint opening and normal unload; no fixture dispatch substitutes for input | [Manual attachment](docs/evidence/0.4/recovery/manual-bearing-selection/acceptance.md), [lever](docs/evidence/0.4/recovery/manual-lever-propulsion/acceptance.md), [earlier moving brake](docs/evidence/0.4/recovery/power-control/acceptance.md). Join the established actions into occupied end-to-end rows on the selected JAR. |
+| **FD402D One-player persistence — in progress; historical five-family observation complete** | Each single-car family plus original linked Arrow/PAX: save braked recovery, exit JVM, reopen same world, explicitly resume and normally release | Same chassis/bearing/carriers/native links/rider return; no automatic tow; final detach/unload clears assignment; both processes exit normally | [Retained five-family logs](docs/evidence/0.4/recovery/fresh-process-recovery/acceptance.md#retained-observations-and-artifact-boundary). Missing historical launch identity prevents exact-artifact promotion. Run packaged identity-backed cases, preserving rather than repeating the historical claim. |
+| **FD402E Multiplayer interruptions — in progress; one Arrow cycle observed** | Two real clients in distinct seats across five families, plus linked Arrow/PAX; dedicated base and combined profiles | Disconnect/rejoin one rider while the other stays; cold restart braked recovery; chunk unload/reload; coupling/bearing loss and restore/removal all retain or safely release original identities with no duplication or automatic resume | [Two-client Arrow cycle](docs/evidence/0.4/recovery/two-client-recovery-lifecycle/acceptance.md) closes its bounded fixture-operated tow/release observation. Add artifact manifests and remaining family/interruption rows. FD902B consumes this same matrix; keep permanent removal distinct from temporary unavailability. |
+| **FD402F Optional power — in progress; bounded native FE result observed** | Certified ordinary bearing, occupied Arrow recovery, Engineered-only and combined; declared FE producer/wire fixture | Manual controller and supply actions demonstrate braked/starved holds, explicit towing/consumption, capped speed, restored power without automatic motion, rebraking and cleanup | [FE checkpoint](docs/evidence/0.4/recovery/engineered-fe/acceptance.md). Record the missing rendered manual case. All-family Engineered recovery and stronger ordinary assemblies are excluded from the current claim. |
+
+**Done when:** FD402A–F pass for this explicit scope, unsupported cases remain
+rejected or clearly documented, and [RECOVERY.md](docs/RECOVERY.md) matches the
+qualified artifact. This replaces the ambiguous “broader lifecycle/propulsion”
+queue. It does not reduce any advertised original family or discard prior failures.
 
 ### FD403 Complete crafting and teaching content
 
-**Status: in progress.** Dev.9 adds localized guidance for all fifteen craftable items, vanilla recipe discovery and a five-family building/operating guide. A native check exercises all fifteen crafting outputs, missing-ingredient rejects and inventory-triggered recipe rewards. Dev.10 adds nine original Ponder scenes with 53 registrations across all fifteen items, client-only registration, generated translations/schematics and native resource checks. Packaged standalone playback/replay and a completed resource reload cover every registration; the rendered review uses normal inventory shortcuts. Dev.11 adds survival crafting through the native result slot and world right-click dispatch for all five track/car families, twenty wrong-family rejects, magnetic equipment and invalid PAX setups. It fixes ordinary stations accepting PAX and clears old invalid bindings on use; standalone and combined native checks pass. Complete survival building/operating exercises through a real client remain pending. See [survival checkpoint](docs/evidence/0.4/survival-acceptance.md), [building guide](docs/BUILDING.md), [teaching checkpoint](docs/evidence/0.4/teaching-acceptance.md) and [Ponder checkpoint](docs/evidence/0.4/ponder-acceptance.md).
-
-Connected survival-client checkpoints additionally craft, place, board, control,
-unload and save Arrow, Legacy and Free Spin on short unpowered sections. They do
-not establish powered travel; the Legacy check records an endpoint fault.
-A later [Revised survival-client checkpoint](docs/evidence/0.4/survival-client-revised/acceptance.md)
-adds normal crafting and matching track/car placement, clearance rejection,
-default-range boarding, operator dispatch/capture/unloading, and a clean
-save/reopen cycle; powered lower-hinge travel remains open. A later
-[PAX construction checkpoint](docs/evidence/0.4/survival-client-pax/acceptance.md)
-records survival crafting, three valid connected route rails, four captured
-cars, and a bound single-car winch. At that checkpoint, the native chain links
-and occupied powered four-car cycle on the survival-built train were open. A separate
-[shipped PAX demo checkpoint](docs/evidence/0.4/survival-client-pax/demo/acceptance.md)
-now records three original native links, normal mounted restraint/dispatch
-controls, one complete powered four-car cycle, final capture and unloading in
-the connected survival client. A separate
-[manual-link demo checkpoint](docs/evidence/0.4/survival-client-pax/manual-links/acceptance.md)
-records three player-made Chain links, empty-hand winch binding and boarding,
-mounted dispatch, a powered four-car recatch and normal dismount. Its route,
-cars and winch were command-authored. A later
-[survival-built PAX cycle](docs/evidence/0.4/survival-client-pax/survival-cycle/acceptance.md)
-now records normal crafting, five player-connected rails, four player-placed
-cars, three native Chain links, winch binding, occupied powered travel,
-recatch, unloading and cold reopen with a disclosed upstream motor fixture.
-The [current-artifact teaching review](docs/evidence/0.4/teaching-current/acceptance.md)
-checks all fifteen rendered tooltips and all nine Ponder scenes and their
-captions; packaged playback/replay passes all 53 registrations. A later
-[bounded powered Arrow pass](docs/evidence/0.4/survival-client-arrow-powered/acceptance.md)
-records survival result-slot crafting, player-connected 50-block original
-track, player-installed Chain, player-placed car, an occupied motor-powered
-full controlled turn, pre-boundary capture, unload and same-identity cold
-reopen. Its first short-route endpoint fault remains recorded as a negative
-case. A connected-client complete Arrow circuit and full Legacy, Free Spin and Revised
-family exercises remain open. A subsequent
-[bounded powered Legacy pass](docs/evidence/0.4/survival-client-legacy-powered/acceptance.md)
-records survival result-slot crafting, player-connected 50-block original
-track, player-installed Chain, an occupied motor-powered 36-block traverse,
-pre-boundary capture, unloading and same-identity cold reopen. The flat route
-did not produce meaningful free rotation. A later
-[Legacy powered demo pass](docs/evidence/0.4/survival-client-legacy-powered/demo/acceptance.md)
-records one occupied shaped-circuit lap with 0.56- and 0.64-radian independent
-carrier angles, capture, unloading and same-identity cold reopen. The demo
-route and car were command-authored; a player-built powered route and its
-teaching walkthrough remain open. A later
-[bounded powered Free Spin pass](docs/evidence/0.4/survival-client-free-spin-powered/acceptance.md)
-records survival crafting, player-installed magnetic spans on a 50-block
-original section, occupied powered travel with independent carrier response,
-pre-boundary capture, unloading and same-identity cold reopen. It also fixes
-long-section editor reach and duplicate live rider-seat assignment found in
-negative retries. The split ride does not isolate damper strength from capture;
-full family teaching and a connected-client complete Arrow circuit remain open. A later
-[shipped Free Spin demo damper pass](docs/evidence/0.4/survival-client-free-spin-powered/damper-demo/acceptance.md)
-samples the same four released carriers before and after the DAMP span: the
-occupied carrier records 127 actual impulses, negative angular-energy change
-and positive instantaneous speed reduction before capture. It then captures,
-unloads and cold reopens the same car. The command-authored example logged
-three transient Sable sub-level packet errors at creation, and the second
-client was terminated only after save and return to title to release memory.
-The [exact merged-source base GameTest](docs/evidence/0.4/survival-client-free-spin-powered/damper-native/acceptance.md)
-then passes all 50 required tests and records 483 native damper impulses with
-negative angular-energy change; its five recovery exports are preserved for
-separate FD402 analysis.
-The full player-built shaped route and family teaching walkthrough remain
-open. A later
-[Revised powered demo pass](docs/evidence/0.4/survival-client-revised/powered-demo/acceptance.md)
-records an occupied powered circuit, distinct lower-hinge carrier motion,
-capture, unloading and same-identity cold reopen on the command-authored shipped
-example. A survival-built powered Revised route and family teaching walkthrough
-remain open.
-The [exact-source native player-crafted Arrow loop](docs/evidence/0.4/survival-client-arrow-loop-native/README.md)
-now passes all 51 required base GameTests: five normal track crafts supply eight
-player-connected sections at 43 actual item cost, a crafted car and station
-complete an occupied powered circuit with a 6.2818-radian controlled turn, and
-the car returns captured with its original rider retained. The upstream Chain
-and creative motor are disclosed fixtures, and the synthetic ServerPlayer does
-not replace the connected-client family walkthrough, save/reopen or teaching
-acceptance.
-A later [connected Arrow crafting checkpoint](docs/evidence/0.4/survival-client-arrow-loop-connected-attempt1/README.md)
-takes 80 Controlled 4D Track items from normal recipe result slots and saves
-cleanly, but has no new car, player-installed Chain span or powered ride. The
-Boarding Station tooltip now names its non-PAX binding limit, matching the
-station and Ponder guidance. The
-[FD403 connected-client acceptance procedure](docs/FD403-ACCEPTANCE.md) lists
-the remaining family checks without treating the earlier samples as release
-acceptance.
+**Status: in progress.** Crafting, placement, Ponder/tooltips and bounded rides
+have evidence. The remaining gate is the
+[connected-client acceptance matrix](docs/FD403-ACCEPTANCE.md), not another
+synthetic-player or command-authored substitute.
 
 **Depends on:** FD305. **Design:** D08.
 
-Complete recipes, item descriptions, Ponder scenes, family demonstrations, diagnostic messages, and consistent terminology. Teach family matching, ordinary-cart exceptions, controlled versus free motion, and shuttle boarding.
+| Task / status | Remaining standalone connected-client exercise | Evidence / pass condition / next action |
+| --- | --- | --- |
+| **FD403A Arrow — in progress** | Full player-built powered circuit with controlled full turn | Follow the Arrow row in the [matrix](docs/FD403-ACCEPTANCE.md#evidence-already-recorded): normal recipes, paid connections, client Chain input, boarding, full circuit, capture/unload and cold reopen. The earlier 50-block pass remains bounded. |
+| **FD403B Legacy — in progress** | Player-built shaped powered route with visible free response | Follow the Legacy row; preserve independent occupied motion and normal capture/unload/reopen. A flat powered traverse or command-authored demo is not this gate. |
+| **FD403C Free Spin — in progress** | Player-built shaped route with installed inducer and damper spans | Follow the Free Spin row; measure released-carrier damper impulses before capture, complete the normal ride and reopen. Retain existing demo/native damper evidence. |
+| **FD403D Revised — in progress** | Player-built powered route with independent lower-hinge behavior | Follow the Revised row; complete normal construction/operation/reopen and the family walkthrough. The existing powered demo is historical support. |
+| **FD403E PAX — in progress** | Complete the survival-built four-car tutorial, including ordinary client linking and winch setup | Existing survival-built cycle is observed; verify the walkthrough on the selected JAR, disclose upstream motor/material fixtures, and retain all original identities through recatch/unload/reopen. |
+| **FD403F Teaching — in progress** | All fifteen item descriptions, nine unique Ponder lessons and 53 registrations on the selected artifact | Every family walkthrough is usable through normal inventory controls, distinguishes mechanics and exclusions, and has readable captions/UI. Reuse unchanged resource evidence only after parity review; fix and repeat misleading steps. |
 
-**Done when:** each family has a usable acquisition/build path and tutorial; shipped sample layouts exercise the advertised mechanics without optional mods unless clearly marked.
+**Done when:** FD403A–F meet the existing [recording procedure](docs/FD403-ACCEPTANCE.md#acceptance-record).
+Each family has an acquisition/build path and tutorial that actually completes
+its advertised mechanics without optional mods. Disclosed fixture ingredients
+are not unassisted resource-gathering evidence.
 
 ### FD404 Version 0.4 gate
 
 **Status: planned; awaiting FD401–FD403 acceptance.**
 
-**Depends on:** FD401–FD403.
+**Depends on:** FD401A–D, FD402A–F, FD403A–F.
 
-Produce the feature-complete candidate scope and list tested optional combinations, known limits, and deferred external support. Freeze base, Track Styles, Engineered and their combined profile for 0.9/1.0. Adding an expansion candidate before 1.0 requires an explicit scope revision and its full acceptance evidence; staging alone does not expand this gate.
+Freeze the feature-complete source/JAR, profile dependency hashes and support
+scope in [CURRENT-QUALIFICATION.md](docs/CURRENT-QUALIFICATION.md). Keep base,
+Styles, Engineered and combined as the intended 0.9/1.0 set. A new integration
+or recovery scenario requires an explicit scope revision and funded acceptance.
 
-**Done when:** the five-family standalone feature set and teaching content are complete, all advertised integrations have evidence, and remaining work is stabilization rather than missing core mechanics.
+**Done when:** all named 0.4 tasks pass, five-family teaching is complete, advertised
+integrations have evidence, and remaining work is stabilization and the explicitly
+assigned 0.9 gates. Completed 0.3 evidence stays bounded to its own build.
 
 ## Version 0.9 release candidate
 
 ### FD901 Run the full compatibility matrix
 
-**Status: in progress, bounded pre-FD404 checkpoint.** Dev.27 verifies the
-five-by-five original-family matrix through factory, locked eligibility and
-native initial-snap paths: all five matching cases bind, while all 20
-wrong-family cases reject without stealing the existing binding; see the
-[family eligibility matrix](docs/evidence/0.9/family-eligibility-matrix.md).
-The same fixture requests all 20 directed mixed-family native six-block
-couplings after matching capture; every recorded request rejects without a
-link. The strengthened assertion preserves both cars' exact bindings, and the
-current 49-test native rerun covers all 20 directed requests.
-Its held-item survival dispatcher also accepts the five matching placements and
-rejects the 20 wrong-family placements without consumption or vehicle creation.
-It also verifies bare ordinary-bearing fit and deliberately widened-body
-rejection across all five original tracks through both direct eligibility and
-the native snap filter. The same run confirms ordinary traversal has no vehicle
-record, carrier rotation or magnetic impulse, and rejects unassigned ordinary/4D
-train coupling without mutating the 4D car; see the [ordinary snap matrix](docs/evidence/0.9/ordinary-cart-snap-matrix.md).
-The loop includes both directions for every mismatched pair, rather than only
-the former Arrow-first endpoint order.
-Each inspected Track Styles appearance also retains Arrow-only functional
-eligibility in a direct regression. The refreshed exact-candidate native
-[optional-profile matrix](docs/evidence/0.9/optional-profile-matrix.md) passes
-49 required GameTests with target-host performance limits in each of base,
-Track Styles-only, Engineered-only, and combined audited profiles. Its
-[archived four-profile record](docs/evidence/0.9/profile-matrix-abc4a9a/README.md)
-preserves the identical source and JAR identity, profile-specific dependency
-hashes, full logs, and clean shutdown for every run. This advances the regular-cart
-and audited optional-profile portions before FD404, but it does not
-close the full compatibility matrix. The [advertised compatibility
-scope](docs/evidence/0.9/supported-compatibility-scope.md) records that no
-third-party functional track is currently supported: Track Styles remains a
-cosmetic Arrow appearance and Engineered remains an operating adapter. The
-current standalone target-gated core suite passes 49 GameTests. The earlier
-Engineered capacity failure was traced to concurrent GameTest fixtures; the
-family matrix now runs in its own batch without changing the production
-64-vehicle limit.
+**Status: in progress; historical pre-FD404 matrix observed.**
 
 **Depends on:** FD404. **Design:** D02, D04, D17.
 
-Exercise every family against matching, ordinary, wrong-family, cosmetic-only, and supported external tracks; test regular-cart fit/non-fit, mixed consists, and every entry path. For the current candidate, test Styles-only, Engineered-only and Styles+Engineered in addition to base. Later expansions repeat these gates for their own named profiles; they do not silently expand the 0.9 matrix.
+Run base, Styles-only, Engineered-only and combined on the frozen artifact.
+Exercise five matching and twenty directed wrong-family cases through placement,
+assembly, initial snap, re-engagement, dispatch, transition and save/load; locked
+carriers cannot bypass family matching. Cover both directions of mixed-consist
+coupling, ordinary bare-bearing fit/non-fit, cosmetic-only tracks and occupied
+boundary braking. No third-party functional track is advertised.
 
-**Done when:** each advertised combination has recorded results. Wrong-family 4D carts are rejected everywhere, and ordinary carts receive no 4D benefit.
+**Evidence / next action:** the [historical profile matrix](docs/evidence/0.9/profile-matrix-abc4a9a/README.md)
+passed its 49-test inventory. Inventory current tests and map every required
+entry path before replaying four profiles; record actual test counts, logs,
+worlds and hashes rather than retaining “49” as a current-suite claim.
+
+**Done when:** every advertised combination and rejection path has results for
+the selected identity; ordinary carts acquire no 4D effects and a rejected
+operation does not steal a binding or partially mutate the consist.
 
 ### FD902 Validate multiplayer and lifecycle recovery
 
-**Status: in progress.** The current packaged dedicated-server checkpoint covers
-occupied client disconnect/fresh-client restoration, normal no-player
-chunk/sublevel unload/reload, and full dedicated-server cold restart for each
-stationary original Arrow, Legacy, Free Spin, Revised and PAX family. Every
-case retains the one rider assignment, restores the original native carrier and
-returns the player to a `create:seat` before the 200-tick deadline. The
-combined audited integration profile now passes 49 GameTests, including a
-server-side two-live-player regression that retains distinct seat entities and
-UUID-to-seat assignments across a native update. Fresh-world real two-client
-fixtures retain both riders in distinct seats of one carrier across all five
-current families; Arrow, Legacy, Free Spin, Revised and PAX also restore one rider
-after a fresh-client reconnect while the other remains mounted. The earlier
-second-rider removal was a stale Sable tracking point in a removed sublevel.
-Native support-loss now also permanently removes one carrier from each of the
-five families and verifies rider recovery with no retained native or saved
-vehicle state. Late-join, shuttle availability-gap behavior and occupied Arrow,
-Legacy, Free Spin and Revised moving-route restarts, plus PAX active-lift
-recovery, also have bounded evidence. Stationary concurrent
-interruption coverage is complete. See
-[occupied disconnect/reconnect evidence](docs/evidence/0.9/occupied-disconnect-reconnect.md),
-[support-loss evidence](docs/evidence/0.9/five-family-support-loss.md),
-[two-client late-join evidence](docs/evidence/0.9/two-client-snapshot.md),
-[caught shuttle acceptance and limits](docs/evidence/0.9/caught-shuttle-acceptance.md)
-and [occupied boarding acceptance](docs/evidence/0.9/occupied-shuttle-acceptance.md).
-
-The tall native PAX shuttle now also serializes and reinstalls its real winch
-at the first captured station return, retains its physical carriage and ordered
-four-car consist, and completes a second cycle with outbound restraints locked;
-see the [repeated station reload evidence](docs/evidence/0.9/repeated-shuttle-reload.md).
-
-Dev.32 adds an opt-in packaged-client carrier transform gate. In the existing
-Arrow-only `FDRenderMatrix` fixture, all six client-native carrier bodies stayed
-within 0.02 radians of their synchronized snapshot angles for 40 consecutive
-samples (observed maximum `7.88e-7` radians) before normal shutdown. The same
-gate accepts a required family count from one through five for future all-family
-worlds; this bounded one-family static result does not claim riders, motion,
-clearance or a complete client matrix. See the [client transform checkpoint]
-(docs/evidence/0.9/client-carrier-transform-sampling.md).
-
-Dev.33 adds an opt-in empty-world packaged-client fixture for the five original
-functional families. It creates eight vehicles, 20 carrier bodies and 35 rails,
-then requires all 20 native carrier angles to match their snapshots for 40
-consecutive samples. The fixture passed after 55 client ticks with a maximum
-error of `0.005636176411582603` radians and normal shutdown. Sable emitted three
-early "movement packet for a non-existent sub-level" errors before convergence;
-this proves eventual static agreement, not clean startup ordering, riders,
-motion, cameras or a complete lifecycle. See the [five-family transform
-checkpoint](docs/evidence/0.9/client-carrier-transform-five-family.md).
-
-Dev.35 added an opt-in motion mode to the fixture and recorded one Arrow
-controlled-car path. Dev.36 expanded it to the four circuit families. Dev.37
-assembles the PAX train with its real shuttle winch and validates client-native
-motion for every family. Dev.38 further requires all four PAX chassis, not just
-one representative, to cross the one-block threshold. The packaged client first
-completed 40 pre-dispatch static samples for all 20 carrier bodies, with a
-maximum angle error of `0.008198643866018637` radians. Production restraint
-closing and dispatch then moved every circuit chassis by at least 1.0288093276302406
-blocks and all four PAX chassis by at least 1.709099938887872 blocks. The dynamic
-phase deliberately measures chassis translation only because a live Sable body
-and replicated carrier snapshot can be one simulation tick apart while moving.
-This is rider-free controlled-car validation, not camera, interpolation,
-multiplayer or rendered-clearance acceptance; see the [five-family motion
-checkpoint](docs/evidence/0.9/client-carrier-transform-five-family-motion.md).
-
-**Latest FD902 checkpoint: two live riders across all five families.** Clean
-dedicated-server worlds admitted Dev and Observer to distinct native seats in
-the same carrier for Arrow, Legacy, Free Spin, Revised, and the four-chassis
-PAX shuttle. Each retained two assignments and two live `create:seat` mounts
-for fifteen seconds. Arrow, Legacy, Free Spin, Revised and PAX additionally retained
-Observer's assignment during disconnect and restored a fresh Observer client to
-its original seat before the deadline while Dev stayed mounted. This closes the
-prior stale-tracking-point failure and the bounded initial concurrency matrix.
-The existing five-family stationary normal unload/cold-restart and current
-Arrow, Legacy, Free Spin and Revised moving-route checkpoints and the PAX active-lift checkpoint remain valid. Stationary concurrent
-interruption and current five-family moving concurrency coverage are complete. The packaged connected-client support-loss fixture now runs separately for Arrow, legacy ZacSpin, Free Spin, revised ZacSpin and PAX. After native boarding, each run removes its vehicle's real matching Coasters graph connection and requires the server and client to retain the mounted rider while the replicated vehicle becomes stopped, restrained and faulted with `Matching track support lost`. A further five-family packaged checkpoint collects its static client samples, dispatches the occupied vehicle, measures movement, then removes its currently bound curve; PAX first assembles its real four-car train. Every client records movement before the retained rider reaches the replicated fail-closed state; see the [moving support-loss checkpoint](docs/evidence/0.9/client-occupied-moving-support-loss.md). The native [physical support-recovery checkpoint](docs/evidence/0.9/five-family-support-repair.md) now permits rebuilding an occupied original section only for a stopped, restrained, fully captured `Matching track support lost` car. It retains the prior geometry fingerprint and requires two explicit Rotation Tool actions: repair, then physical realignment. The latter invokes the native Coasters snap on that exact rail, preserves the original rider/carrier state, and permits normal circuit-family dispatch only once captured carriers have settled; PAX reaches its separate powered-winch gate. Packaged occupied clients now observe exact authored-curve restoration and the explicit repair state for Arrow, Legacy, Free Spin, Revised, and PAX, with the rider retained and no automatic restart. The PAX checkpoint requires all four chassis to move before its lead loses support. Arrow and PAX retain their 40-sample pre-dispatch static gate; the separate lifecycle-only Legacy, Free Spin, and Revised runs use the existing all-family static-transform matrix and validate repair ordering without delaying dispatch for another static window. See the [Arrow](docs/evidence/0.9/client-occupied-arrow-support-repair.md), [PAX](docs/evidence/0.9/client-occupied-pax-support-repair.md), and [remaining circuit-family](docs/evidence/0.9/client-occupied-legacy-free-spin-revised-support-repair.md) support-repair checkpoints. The current packaged occupied [five-family realignment checkpoint](docs/evidence/0.9/client-occupied-five-family-support-realignment.md) now carries each rider through moving support loss, exact curve restoration, explicit repair, and native physical reattachment; PAX covers all four linked chassis and resets their native velocities as one captured safety unit before reattachment. The current server regression now retains two independent player-seat assignments in each family throughout loss, exact repair, physical realignment, dispatch gating, and holding-store reload. The dedicated-server [five-family two-client server matrix](docs/evidence/0.9/two-client-five-family-server-recovery.md) now carries Dev and Observer through the same moving support-loss, exact-repair, and physical-realignment sequence for every family, including all four PAX chassis. The corrected ordered client guard now confirms loss before repair before realignment for both riders across all five families; see the [ordered two-client recovery matrix](docs/evidence/0.9/two-client-five-family-ordered-recovery.md). The occupied PAX lift now also rejects both winch Resume and Recover until exact repair and native physical realignment complete, then recaptures and relaunches its original four-car train with all sixteen riders retained; see the [PAX support-recovery checkpoint](docs/evidence/0.9/pax-shuttle-support-recovery.md). Post-repair client reconnect or cold-server-restart coverage remains open. An exact standalone Arrow client sequence subsequently exposed a repair-to-realignment operator blocker: after normal repair, a route-boundary guard replaced the cleared support-loss fault while realignment remained required. Its [failed evidence](docs/evidence/0.9/create-telemetry/de667f7-arrow-repair-blocker/README.md) is retained; the release branch now preserves pending realignment against that boundary guard, recovers the historical boundary-fault state and atomically stops captured native bodies in the explicit realignment action. The exact standalone native retest passes all 47 required GameTests. Packaged fresh and preserved-historical Arrow replays both reach normal reattachment and unload; the incomplete historical route subsequently reports its genuine end-of-compatible-track warning, so neither establishes dispatch through that endpoint or broader end-to-end operator acceptance. See [occupied disconnect/reconnect evidence](docs/evidence/0.9/occupied-disconnect-reconnect.md).
-
-`a1aeb1a` adds a native regression that converts a persisted active PAX winch phase into a durable, retained fail-closed state at the first physics tick, including a second save/reload before consumption. The [bounded active-LIFTING cold-restart record](docs/evidence/0.9/create-telemetry/a1aeb1a-active-pax-restart/README.md) adds one real dedicated-server restart with two clients, one rider and an explicit normal resume/cycle/unload: all four chassis, eight carriers, the logical seat assignment, carriage and controller remain. It does not establish every active phase, repeated restarts, every seat, interruption races or a physical stopping-distance bound. The [PAX normal-restoration blocker](docs/evidence/0.9/create-telemetry/311078e-pax-normal-restore-blocker/README.md) remains accurate historical evidence for pre-provenance ordinary placement. Current source now persists the authored curve for fresh original 4D rails and restores it only for stopped, restrained, fully captured matching-support recovery. A fresh native regression verifies exact PAX repair without weakening the geometry guard, and the [fresh packaged PAX path](docs/evidence/0.9/create-telemetry/8a7ffdb-pax-normal-restoration/README.md) completes normal item restore, Repair, Realign, occupied cold restart, powered cycle and unload. That record is one fresh stopped-support case; historical migration and broader lifecycle coverage remain open. Its recovery-specific item confirmation now directs Repair followed by Realign.
+**Status: in progress.** Historical stationary, moving, support-repair and
+active-restart checkpoints exist; their [history](docs/ROADMAP-CHECKPOINT-HISTORY-2026-11-04.md#fd902-validate-multiplayer-and-lifecycle-recovery)
+is not a full current-artifact pass.
 
 **Depends on:** FD404. **Design:** D14, D16, D17.
 
-Run two-client and late-join scenarios, disconnects, chunk unloads, server restart, support loss, cart disassembly, and repeated shuttle station passes across all families.
+| Task / status | Required matrix and pass condition | Evidence / next action |
+| --- | --- | --- |
+| **FD902A Normal ride lifecycle — in progress** | Five families, two real clients in distinct seats, base and combined: late join, stationary/moving reconnect, chunk interruption, cold restart, disassembly/support loss, exact repair and realignment; retain correct identities, locks and family; no automatic restart or duplicate/lost riders | [Occupied lifecycle](docs/evidence/0.9/occupied-disconnect-reconnect.md), [ordered repair](docs/evidence/0.9/two-client-five-family-ordered-recovery.md). Map historical rows to current inputs, then close post-repair reconnect/restart and affected moving paths. |
+| **FD902B Recovery lifecycle — in progress; bounded observations retained** | FD402D–E matrix, including original linked trains and permanent versus temporary missing components | Consume those same evidence bundles; the five-family one-player restart and two-client Arrow cycle are observed. Do not treat a normal ride restart as a recovery-mode restart or rerun an identical accepted case just to change its package label. |
+| **FD902C PAX phase interruptions — in progress** | LIFTING support loss for 4,800 ticks; separate OUTBOUND link-loss regression; Repair → Realign → Recover → occupied full cycle/unload. Cold restart during each active phase LIFTING/OUTBOUND/RETURNING/CAPTURING; preserve all four cars, eight carriers, links, controller/carriage and riders, and require explicit recovery | [Source success](docs/evidence/0.9/fd401-pax-longhold-source-229e586/acceptance.md), [packaged named-test pass](docs/evidence/0.9/fd401-pax-packaged-longhold-229e586/README.md), [historical OUTBOUND failure](docs/evidence/0.9/fd401-pax-longhold-client-blocker-1f13a0e/README.md), [bounded active restart](docs/evidence/0.9/create-telemetry/a1aeb1a-active-pax-restart/README.md). Build artifact-linked packaged normal-client and two-client records; include two consecutive restart/recovery cycles per phase. FD401D observes telemetry in this same run. |
 
-**Done when:** no passenger duplication, stale restraints, lost carrier state, or incorrect track rebinding remains in supported cases. Document supported recovery actions for interruptions.
+**Done when:** these supported-case matrices have no unresolved rider-state,
+restraint, identity, rebinding or unintended-resume failures. Document supported
+operator recovery for each interruption. Do not claim every timing race from a
+single successful restart.
 
 ### FD903 Validate save migration and provider changes
 
-**Status: in progress.** Dev.27 expands the recovery loader regression from schema 5 to every supported legacy schema (1–5). It serializes the occupied five-family recovery fixture, removes the schema-6 recovery fields, loads each declared legacy schema and requires every chassis identity to survive with no invented recovery partner or removed-partner state. The existing invalid 4D-to-4D saved recovery reference remains rejected. A separate regression consumes the recorded 0.3 schema-3 world extract, writes schema 6, reopens it, and preserves all 24 original rail IDs, their complete distance/angle/slope rotation-profile keys, three original chassis IDs and their functional families. A packaged dedicated-server replay now seeds that exact schema-3 `FoundationData` record into a clean world, loads it, saves schema 6, reopens it, and verifies the identities, profile keys, families and absent recovery state from the on-disk result. The same historical fixture injects a third-party `arrow_4d` provider ID and requires the loader to reject it instead of inferring functional conversion from an appearance-like name. The existing real appearance lifecycle opens a saved world after Track Styles removal and again after reinstallation; the current schema-6 regression additionally preserves both known Track Styles appearance IDs and an unknown provider while the provider is absent. Cosmetic appearance loss therefore cannot change a functional rail's ID, family, variant or profile. The [world upgrade and recovery procedure](docs/MIGRATION.md) gives backup, staged-upgrade and restore steps, while explicitly declining third-party functional-block conversion. A complete schema-3 world generated by the historical 0.2.0 packaged server now upgrades and reopens with all three chassis and eight native carriers available; the original 24 rail IDs and profile keys survive the schema-6 rewrite. One connected survival client now boards, rides, captures, unloads, and saves the upgraded historical Arrow car. Separate connected-client Legacy and Free Spin operator cycles now prove their migrated native seats, restraint controls, dispatch requests, capture, and unload; the sampled cycles do not measure sustained historical travel. Sustained Legacy and Free Spin rides, two-client migration coverage, broader historical worlds, and provider conversion remain open; see the [native-world replay](docs/evidence/0.9/native-schema3-world-replay.md), [Legacy/Free Spin operator checkpoint](docs/evidence/0.9/native-schema3-legacy-free-spin-operator.md), the [recovery migration checkpoint](docs/evidence/0.9/recovery-schema-migration.md) and [appearance-provider boundary](docs/evidence/0.9/appearance-provider-lifecycle.md).
-
-The current provenance migration checkpoint additionally boots two untouched pre-provenance worlds on the packaged candidate. All five intact valid rails acquire byte-for-byte native curve snapshots with every other rail field unchanged; a physically changed, pre-invalid PAX support route remains invalid and without provenance. Original chassis/carrier/seat topology and the saved logical rider reservation persist. The only normalized legacy winch field is absent `shuttle_pending_retention`, which is saved as its documented default `false`; see the [historical backfill record](docs/evidence/0.9/create-telemetry/307ec35-legacy-provenance/README.md). Direct native guards additionally refuse provenance for a valid foreign-material rail, a changed native-curve fingerprint, and a missing curve. This proves bounded persistence and refusal behavior, not historical repair, rider remount, or full FD903 acceptance.
+**Status: in progress.** Schema-1–5 loader regressions, a real historical schema-3
+world, appearance removal/reinstall and bounded provenance backfill have evidence.
 
 **Depends on:** FD404. **Design:** D04, D09, D10, D16.
 
-Test upgrades from released save formats, stable IDs, profile rebinding, appearance-provider removal, and explicit conversions involving external blocks.
+On the selected JAR, retain the loader matrix and real historical schema-3 upgrade,
+sustained Arrow/Legacy/Free Spin rides, two-client seat restoration, save/reopen,
+backup restoration and appearance-provider removal/reinstall. Preserve all saved
+rail/profile/chassis/carrier IDs. Intact legacy rails may gain exact provenance;
+changed/foreign/missing rails must not acquire invented geometry. Missing functional
+providers and unsupported conversions reject clearly; schema-7 registry migration
+is outside this release.
 
-**Done when:** supported upgrades preserve functional families and profiles; unsupported conversions are rejected clearly. Backups and recovery instructions accompany any destructive migration.
+**Evidence / next action:** [migration procedure](docs/MIGRATION.md),
+[historical world](docs/evidence/0.9/native-schema3-world-replay.md),
+[provenance backfill](docs/evidence/0.9/create-telemetry/307ec35-legacy-provenance/README.md).
+Complete sustained historical Legacy/Free Spin rides and two-client records;
+record the exact backup and restored save hashes. Synthetic schema labels do not
+stand in for a world produced by an older release.
+
+**Done when:** declared supported upgrades preserve families/profiles and riders,
+unsupported conversions refuse safely, and the documented backup recovery works.
 
 ### FD904 Meet measured performance and rendering targets
 
-**Status: in progress, target-host runtime gate available.** Dev.27
-adds the resettable `/fd performance` runtime snapshot, which reports this
-addon's server-side carrier-runtime invocation totals alongside live-carrier
-update totals, per-carrier timing and constraint rebuild counts. Its scope and
-repeatable sampling procedure are documented in [performance
-sampling](docs/PERFORMANCE.md). Automated sampling windows cover
-controlled-train, free-spin and shuttle scenes, and two [integrated host
-baselines](docs/evidence/0.9/runtime-baseline.md) are recorded. The current
-checkpoint adds a third combined run and host-scoped limits of 120,000 ns per invocation and
-6,000 ns per live carrier update; `-PfdPerformanceTargets` verifies them in
-all three sampled scenes. Dev.28 removes transient stream allocations from the
-per-carrier rail and edge lookups while preserving first-match resolution; the
-target-gated combined profile passed all 41 GameTests with 103,889 ns per
-invocation and 2,488 ns per carrier in the 16-rider PAX shuttle scene. Packaged
-real-client runs validate the opt-in original-track stage instrumentation
-under llvmpipe and on the stated AMD
-RX 7900 XTX host; [the hardware observation](docs/evidence/0.9/client-render-sampling.md)
-measures 3.16 ms average original-stage work and separately observes 21,476
-Track Styles decoration pieces without making an FPS claim. A native Iris/Solas
-shader-mode sample also records original-stage work, but Flywheel fell back to
-`off`; shader and full-render acceptance remain pending.
+**Status: in progress.** Host-scoped addon timing limits exist; whole-frame/tick,
+memory and sustained-park acceptance have not yet been measured.
 
-The current exact-candidate base profile passes all **49** GameTests in 5.339
-minutes with both timing limits enabled. Its controlled, PAX, and Free Spin
-averages are 57,141 ns, 107,085 ns, and 109,581 ns per invocation,
-respectively; their carrier averages are 3,206 ns, 2,921 ns, and 2,849 ns.
-Track Styles, Engineered, and their combined profile also pass all 49 tests
-under the same target-host limits; see the [four-profile record](docs/evidence/0.9/profile-matrix-abc4a9a/README.md).
-The preceding 2026-11-02 rerun exposed and repaired a PAX and Free Spin
-invocation-time regression without changing either declared limit. The shuttle
-cache validates route revisions,
-topology, and every required physics chunk before reuse, retaining the existing
-missing-chunk and changed-route fail-closed behavior; a new active-route branch
-mutation regression verifies that the train faults and remains retained. See the
-[runtime baseline](docs/evidence/0.9/runtime-baseline.md).
+**Depends on:** FD404, FD006. **Design:** D16, D17.
 
-A packaged Xvfb replay now also preserves a HUD-free framebuffer of the actual
-`FD16Recovery` world after turning toward its recovery vehicle, native chassis
-and original rail/support geometry; see the [rendered recovery
-capture](docs/evidence/0.9/rendered-client-fd16.md). Dev.31 adds an opt-in
-self-terminating original-track render gate: the full optional profile reaches 503
-live `FDRenderMatrix` stages with three mesh builds, 1,508 in-range rails and
-13,391,040 procedural quads before normal client/server shutdown; see the
-[reproducible matrix record](docs/evidence/0.9/client-render-sampling.md). This
-confirms cumulative original-track submission, not a rail and quad on each
-required stage, decoration, full model/rider, shader, clearance or target-FPS
-acceptance. The strengthened `geometryStages` gate now requires at least the
-configured number of stages (500 by default) with both an original rail and a
-quad; its packaged-client replay remains pending.
+| Task / status | Required scenario and pass condition | Evidence / next action |
+| --- | --- | --- |
+| **FD904A Rendering — in progress** | Five-family moving rider/body/camera checks and FD401B’s advertised graphics profiles; nonempty `geometryStages` >=500, correct ownership and visible geometry, clean reload and shutdown; solver/frame/rider evidence retains its measured bounds | [Historical render evidence](docs/evidence/0.9/client-render-sampling.md) and [artifact reuse map](docs/CURRENT-QUALIFICATION.md). Exact `2c5d9a7` FAST/FABULOUS gates already exist; replay changed paths, not an obsolete “no geometry-stage replay ever” claim. FD402B supplies recovery views. |
+| **FD904B Representative park — planned** | The fixed mixed-family scene, declared hardware/settings, frame/tick percentiles, heap/RSS/cgroup and GC measurements, baseline-derived budgets and 30-minute sustained run defined in [PERFORMANCE.md](docs/PERFORMANCE.md#representative-park-acceptance-fd904b) | Implement/validate whole-frame and whole-server collectors; freeze the baseline before judging the candidate. Keep 120,000 ns/runtime invocation and 6,000 ns/carrier limits in all four native profiles. No existing average or llvmpipe capture proves GPU smoothness. |
+| **FD904C Rider camera and comfort — planned; required for 1.0** | Deliver D16’s optional stabilized camera without changing server seat motion; all five families, upright/banked/inverted poses, free mouse look, first-person arms, third-person/remote body, reconnect and dismount restoration | [D16](PLAN.md#d16-riders-and-synchronization). Inventory existing Sable support, implement the missing client option if necessary, and capture normal/comfort comparisons on the same ride state. Record both modes and restore the prior camera on exit. |
 
-
-Dev.34 replays the same render gate in the fresh five-family carrier fixture.
-The packaged llvmpipe client submits original-track geometry for 101 stages,
-with 34 mesh builds, 3,422 in-range rail observations and 9,939,376 procedural
-quads, then shuts down and saves normally. The fixture contains Arrow, Legacy,
-Free Spin, Revised and PAX examples, but its fixed camera averages more than 33
-of 35 rails in range per stage; the cumulative counters do not establish
-nonempty submission on every stage, a full camera sweep, or a
-vehicle/rider/linkage visual-clearance result. See
-the [five-family fixture render checkpoint]
-(docs/evidence/0.9/client-render-five-family-fixture.md).
-
-Dev.39 adds an opt-in packaged-client vehicle section-render check to the same
-five-family fixture. Before dispatch, all eight native chassis and all 20
-carrier bodies have client Sable sections compiled and all 28 pass through the
-vanilla chunked section-layer renderer while their synchronized carrier angles
-still meet the 40-sample gate; the subsequent movement gate again observes all
-four PAX chassis. This proves entry into Sable's vanilla vehicle section-render
-path, not camera visibility or player/linkage mesh clearance. See the [vehicle
-section-render checkpoint](docs/evidence/0.9/client-carrier-render-compile.md).
-
-Dev.40 adds a separate opt-in occupied single-Arrow packaged-client fixture so
-that the whole five-family render matrix need not carry an actual rider. It
-waits for a native carrier seat, boards the connected player through Create's
-seat API, and requires the client to retain both the mounted player and the
-replicated carrier-seat assignment through 40 static samples and normal
-production dispatch. The Arrow chassis moved `1.0790031301446994` blocks; its
-chassis and both carrier sections compiled and entered the section-layer path.
-This is a one-rider Arrow checkpoint, not camera, mesh-clearance, multiplayer,
-or whole-lifecycle acceptance. See the [occupied Arrow carrier checkpoint]
-(docs/evidence/0.9/client-occupied-arrow-carrier.md).
-
-**Depends on:** FD404, FD006. **Design:** D17.
-
-Benchmark the declared controlled-train, free-spin, and shuttle scenes against recorded baselines. Profile per-carrier/constraint costs, caches, Flywheel modes, and the supported shader stack.
-
-**Done when:** quantitative targets chosen from the baseline are documented and met on stated hardware; required render modes work; no unresolved performance regression prevents the advertised scene sizes. Record limitations rather than inventing universal FPS guarantees.
+**Done when:** FD904A–C pass on stated configurations, the performance budget is
+recorded before candidate comparison, and no unresolved regression prevents the
+declared benchmark scene. Capacity ceilings are storage/admission limits, not a
+promise that every maximum-sized world meets the benchmark timings.
 
 ### FD905 Release candidate gate
 
@@ -826,13 +538,20 @@ Benchmark the declared controlled-train, free-spin, and shuttle scenes against r
 
 **Depends on:** FD901–FD904.
 
-Publish a candidate artifact for testing with a defect list, exact versions, reproducible scenarios, and explicit supported scope.
+Prepare the candidate artifact, exact profile matrix, reproducible scenarios,
+defect list and support limits for review. Publication remains a separate action.
 
-**Done when:** all core acceptance criteria pass and release-blocking crashes, save corruption, rider-state failures, and eligibility bypasses are resolved. Retest affected cases after fixes; regressions reopen the relevant package.
+**Done when:** all named gates pass; crashes, save corruption, rider-state failures
+and eligibility bypasses affecting supported cases are resolved; affected cases
+are retested after fixes. Every accepted claim points to the frozen artifact or
+an explicit complete input-parity review. No stale “current” narrative substitutes
+for that record.
 
 ## Version 1.0
 
 ### FD1001 Finalize the release documentation
+
+**Status: planned.**
 
 **Depends on:** FD905.
 
@@ -842,6 +561,8 @@ Finalize installation instructions, version/dependency matrix, five-family guide
 
 ### FD1002 Reproduce and verify release artifacts
 
+**Status: planned.**
+
 **Depends on:** FD905, FD1001.
 
 Build from the intended release revision, record checksums, verify packaged metadata/assets, and smoke-test clean client and dedicated-server installs using the documented dependencies.
@@ -849,6 +570,8 @@ Build from the intended release revision, record checksums, verify packaged meta
 **Done when:** the artifact is reproducible, contains only intended distributable content, and clean installs complete one full ride for every supported family with correct track restrictions.
 
 ### FD1003 Version 1.0 release gate
+
+**Status: planned.**
 
 **Depends on:** FD1001, FD1002 and all required earlier gates.
 
@@ -858,12 +581,159 @@ Review the finished release against the definition below. Publishing is a future
 
 Version 1.0 requires all five functional vehicle families with original matching tracks, both controlled and free dynamics, magnetic assistance, shuttle operation, strict asymmetric cart compatibility, correct riders/camera, persistent multiplayer state, usable tutorials/recipes, tested migrations, and measured performance. Ordinary-cart rail access is verified; towing is claimed only where proven. Standalone completion does not require unreleased external features.
 
+### Supported envelope and explicit 1.0 dispositions
+
+These are release-planning decisions, not new runtime acceptance. FD1001 must
+publish them consistently; FD1002 must verify the boundaries on the release JAR.
+
+| Requirement | 1.0 disposition | Acceptance owner |
+| --- | --- | --- |
+| Horizontal world coordinates | Accept the existing ±1024-block x/z supported region for 1.0; arbitrary-distance operation is deferred, not silently promised | FD901 verifies placement/operation boundaries and safe refusal outside; FD1001 documents them. Raising the limit requires a separate native precision proof. |
+| Dimension capacities | Retain 256 sections, 64 vehicles, 8192 total profile keys and 512 magnetic spans, at most eight spans per section | FD901 verifies exact-limit/one-over-limit admission and reload behavior; FD903 verifies no partial mutation or silent save truncation. FD904B separately bounds tested workload performance. |
+| Recovery envelope | Accept only the FD402 declared bearing, family/consist/route, drive, equipment and provider set | FD402A–F certify it; unmeasured grades, assemblies, compact-spike pulls and cosmetic overrides stay unsupported. |
+| Stabilized comfort camera | Deliver before 1.0 as already specified in D16; not implicitly deferred | FD904C implements/verifies the option. If it cannot pass, 1.0 stays open unless the design requirement is explicitly revised. |
+| Five families, original tracks, supported upgrades and four intended profiles | Preserve existing release scope and evidence gates | FD404/FD905; future families and integrations remain separately paused. |
+
 ## External compatibility work
 
 ### FD801 Integrate a released Track Styles Arrow 4D
+
+**Status: planned; awaiting a qualifying inspectable external release.**
 
 **Depends on:** FD401 and an inspectable external release with applicable terms established. **Design:** D02, D04, D05.
 
 Inspect the actual representation and implement an independently authored optional adapter. A cosmetic-only style must decorate matching functional track or undergo an explicit functional conversion; it cannot make ordinary track eligible by appearance alone.
 
 **Done when:** our Arrow vehicles correctly use the verified equivalent functional track, ordinary fitting carts receive no 4D effects, control rails have one render owner, profiles persist, and same-family provider transitions pass multiplayer/lifecycle tests. Record supported versions. If the external release is unavailable, keep this package pending without blocking 1.0.
+
+## Proposed vehicle discovery after 1.0
+
+These packages scope the user's proposals; **implementation and prototype runs
+remain paused pending explicit approval**. Their release labels are proposed
+allocations, not dates or authorization. Completing 1.0 does not lift the pause.
+The [integration backlog](docs/INTEGRATION-BACKLOG.md) owns addon adapters, while
+the vehicle packages below own mechanics and assets. Neither substitutes for the
+other. A discovery package completes with a reviewed specification and test plan,
+not a claim that its vehicle is implemented.
+
+For every package, retain references and distinguish confirmed mechanisms from
+game approximations. Record dimensions, running/guide/upstop contacts, seats and
+restraints, pivot axes, mass/loading, coupling, persistence, render/camera ownership,
+ordinary-cart fit and family eligibility. Any external track needs its own verified
+adapter. A proposed prototype must include occupied motion, capture, wrong-track
+rejection, obstruction/clearance, save/reopen and two-client observations before
+its implementation can later be called complete.
+
+### FD1101 Fixed-seat Wing coaster discovery
+
+**Status: planned; implementation paused.** **Proposed release:** 1.1.
+**Depends on:** separate expansion approval; existing controlled-car geometry and FD1003 for release.
+
+- **Motion/seating:** develop the requested wing arrangement with fixed seats;
+  document seat count, restraint group and train links. Chassis banking applies,
+  but there is no 4D carrier rotation or inherited Arrow rotation profile.
+- **Track/capture:** target normal Coasters: Simulated track as requested; measure
+  the full wing/rider envelope and running gear before allowing it. Specify ordinary
+  station stop, restraints and safe exit without a rotary boarding lock.
+- **Models and risks:** original chassis, wings, seats, restraints, wheels and
+  configurable liveries; determine what existing controlled-car art can be reused
+  without retaining functional 4D parts. Wide clearance and coupling are the main
+  prototype questions.
+- **Done when / next action:** produce a dimensioned nonrotating vehicle contract,
+  normal-track fit/rejection matrix and occupied banking/station/coupling prototype
+  plan. Reference the user's [Wing proposal](https://coasterpedia.net/wiki/Winged_roller_coaster)
+  during approved discovery; no claim of universal normal-track fit is made now.
+
+### FD1301 Arrow-style Suspended coaster discovery
+
+**Status: planned; implementation paused.** **Proposed release:** 1.3.
+**Depends on:** separate expansion approval and swing/track prototype; FD1003 for release.
+
+- **Motion/seating:** specify lateral free swing driven by chassis motion and
+  declared rider loading, including pivot position, limits, damping and seat layout.
+  Keep this state distinct from the existing full-turn 4D carriers.
+- **Track/capture:** specify an overhead running-gear contract and the requested
+  lift-track swing prevention. Define how locks engage only within safe angular
+  speed/alignment limits, release after the lift, and recapture at the station.
+- **Models and risks:** original suspended bogie, hanger, cabin/train, wheels,
+  restraints, lift locks and matching track. Prototype loading asymmetry, hanger
+  clearance, banked curves, coupling and interrupted lock transitions.
+- **Done when / next action:** resolve the [Suspended reference](https://coasterpedia.net/wiki/Suspended_Coaster_(Arrow_Dynamics_product))
+  into a dimensioned swing/lock state machine and track/seat contract, with explicit
+  limit and failure tests. Do not implement an animated cabin in place of dynamics.
+
+### FD1302 S&S-style Axis coaster discovery
+
+**Status: planned; implementation paused.** **Proposed release:** 1.3.
+**Depends on:** separate expansion approval and independent rotation proof; FD1003 for release.
+
+- **Motion/seating:** investigate the requested horizontal-rotation concept;
+  settle the exact axis relative to chassis, seat grouping, rotation range and
+  free-versus-driven modes before treating the proposal as a physical specification.
+  Record which behavior is reference-supported and which is a game design choice.
+- **Track/capture:** define running gear, functional track eligibility, propulsion
+  ownership and any rotation-control interfaces. Specify upright capture, restraint
+  release, power loss and rollback semantics independently of FD1301's swing locks.
+- **Models and risks:** original rotating assembly, frame, train, seats and track;
+  prototype off-axis inertia, multiple-car clearance, continuous rotation, camera
+  composition and safe transition between rotation and capture.
+- **Done when / next action:** review the [Axis reference](https://coasterpedia.net/wiki/Axis_Coaster_(S%26S_Worldwide_product))
+  and produce an unambiguous axis/mode/seat/track contract with a falsifiable physics
+  prototype plan. Shared release numbering does not imply shared Suspended mechanics.
+
+### FD1401 Pipeline coaster discovery
+
+**Status: planned; implementation paused.** **Proposed release:** 1.4.
+**Depends on:** separate expansion approval and reference-selection decision; FD1003 for release.
+
+- **Motion/seating:** first select the intended design from the user's
+  [Pipeline reference](https://coasterpedia.net/wiki/Pipeline_roller_coaster).
+  Specify seated/standing posture, restraint motion, axle placement and any seat
+  compliance explicitly; the name alone does not settle these choices.
+- **Track/capture:** define the pipeline rail arrangement, contact geometry,
+  chassis position, functional family and station alignment. Identify lift/brake
+  interfaces and whether any moving seat component needs a capture lock.
+- **Models and risks:** original track, wheels, vehicle, restraints and train;
+  resolve rider/track occlusion, clearance, coupling and posture/camera constraints
+  before final asset work.
+- **Done when / next action:** deliver the chosen reference/design rationale,
+  dimensioned vehicle/track/seat contract and occupied clearance/station prototype
+  plan. Other pipeline interpretations become separate suffix packages if requested.
+
+### FD1501 Spinning coaster variants discovery
+
+**Status: planned; implementation paused.** **Proposed release:** 1.5.
+**Depends on:** separate expansion approval and per-variant motion proof; FD1003 for release.
+
+- **Motion/seating:** enumerate intended variants from the
+  [Spinning reference](https://coasterpedia.net/wiki/Spinning_roller_coaster);
+  specify each spin axis, passenger layout, loading response, range, damping and
+  free/driven mode. Assign suffix IDs to mechanically different variants.
+- **Track/capture:** decide ordinary-track fit versus a dedicated family by measured
+  contacts and swept clearance. Define orientation-independent stopping versus
+  controlled station capture, restraint interlocks and lift/launch interaction.
+- **Models and risks:** original spinning chassis/carrier, seats, bearings, restraints,
+  skins and track only where required. Prototype asymmetric loading, uncontrolled
+  spin limits, coupling and safe capture through rollback/power loss.
+- **Done when / next action:** publish a variant matrix, per-variant physics and
+  seating contracts, asset list and independent acceptance plan. A shared cosmetic
+  body must not hide different dynamics or expand compatibility without proof.
+
+### FD1502 Roller Ball coaster discovery
+
+**Status: planned; implementation paused.** **Proposed release:** 1.5.
+**Depends on:** separate expansion approval and dedicated route/vehicle prototype; FD1003 for release.
+
+- **Motion/seating:** inspect the separate [Roller Ball reference](https://coasterpedia.net/wiki/Roller_Ball_(RES_Rides_product))
+  to resolve pivot axis, seat count, free/controlled behavior and loading response.
+  Do not inherit FD1501's spin axis or dynamics from the shared release label.
+- **Track/capture:** specify the intended route geometry, running-gear contacts,
+  functional family, lift/return transitions and station capture/locking. Identify
+  whether existing graph and native couplers can represent the route and vehicle.
+- **Models and risks:** original frame, rotating passenger unit, seats, restraints,
+  wheels, supports and matching track where required. Prototype tight-transition
+  clearance, acceleration, retention and restart behavior before detailed skins.
+- **Done when / next action:** deliver a dimensioned reference-backed contract and
+  a distinct occupied motion/route/capture prototype plan, including wrong-family
+  rejection and persistence. Record unresolved mechanics rather than calling it a
+  cosmetic spinning-coaster variant.

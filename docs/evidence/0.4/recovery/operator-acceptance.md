@@ -180,11 +180,13 @@ adds one native end-to-end handover/towing/braking/disconnection/unloading test
 with sixteen passengers in their original seats. Rendered occupied handover and
 complete curved/banked and lifecycle coverage remain open.
 
-The [fresh-process Arrow recovery checkpoint](fresh-process-recovery/acceptance.md)
-now preserves one occupied braked native recovery link across a client/server
-restart and completes its normal release in the second process. It is a bounded
-one-player Arrow scene; full multiplayer and all-family lifecycle acceptance
-remain open.
+The [fresh-process recovery checkpoint](fresh-process-recovery/acceptance.md)
+now records occupied braked-link restoration and normal second-process release
+for all five single-car families. The retained pause/resume logs establish bounded
+one-player observations. Their historical development classpaths lack exact
+source/JAR manifests, so FD402D still needs packaged artifact-matched acceptance
+and linked-train cases. FD402E separately covers multiplayer; do not schedule
+the old “no all-family one-player observation” gap again.
 
 The [rendered recovery-editor checkpoint](rendered-recovery-editor/acceptance.md)
 now opens and renders the actual linked-vehicle editor after production

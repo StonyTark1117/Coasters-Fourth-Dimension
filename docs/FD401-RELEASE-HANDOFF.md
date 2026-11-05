@@ -1,5 +1,22 @@
 # FD401 evidence handoff for the 0.9 candidate
 
+Current planning pointer (2026-11-04): [CURRENT-QUALIFICATION.md](CURRENT-QUALIFICATION.md)
+selects committed source `dd0a851` and its hashed JAR as the qualification baseline.
+The frozen `2c5d9a7` records below remain historical evidence. Use FD401A–D in
+[ROADMAP.md](../ROADMAP.md#fd401-deliver-optional-provider-infrastructure) for
+the active work queue and affected-artifact retests; this chronological handoff
+does not make a later `main` build equivalent to an older checkpoint.
+
+The [later `229e586` source log](evidence/0.9/fd401-pax-longhold-source-229e586/acceptance.md)
+records a successful 4,800-tick unsupported interval with sixteen riders,
+repair, realignment, recovery and relaunch, followed by normal shutdown.
+That is a bounded source observation with disclosed runtime-provenance limits.
+The [packaged named test](evidence/0.9/fd401-pax-packaged-longhold-229e586/README.md)
+also passes on its retained JAR; its client join and stationary restart are
+separately bounded observations, not the occupied operator recovery sequence.
+The packaged normal-client LIFTING case, historical OUTBOUND regression and
+phase-specific cold restarts remain FD902C, shared with FD401D telemetry.
+
 Initial read-only audit of release `783d4ba`, updated through `ff7c831` on
 2026-11-03 for the corrected missing-font source and retest. This checklist requests evidence
 using existing behavior; it authorizes no runtime, production edit or new addon.
