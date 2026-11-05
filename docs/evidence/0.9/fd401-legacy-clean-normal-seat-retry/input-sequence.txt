@@ -1,0 +1,9 @@
+DISPLAY=:248 private task Xvfb; Minecraft window 2097160; all input was sent only to that display.
+Selected empty hotbar slot 9; /data get entity Dev SelectedItem returned no element.
+/tp Dev 197.5 145 33.5 180 25
+F3 showed fourthdimension:legacy_seat at (20481032,127,20491273), restrained=false.
+F3 off; xdotool mousemove 640 360 click 3; no RootVehicle and assignments=0.
+/fd validation board Dev; helper mounted a different native Legacy seat; Shift dismount cleared RootVehicle.
+/tp Dev 197.5 145 33.5 180 25
+xdotool mousemove 640 360 mousedown 3; hold 0.2 seconds; mouseup 3; no RootVehicle.
+Escape; Save and Quit to Title; Quit Game; scope Result=success; stopped owned Xvfb.

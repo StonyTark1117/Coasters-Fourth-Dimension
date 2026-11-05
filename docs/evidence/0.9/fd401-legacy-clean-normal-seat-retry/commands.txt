@@ -1,0 +1,11 @@
+/fd validation availability
+/tp Dev 197.5 145 33.5 180 10
+/data get entity Dev SelectedItem
+/tp Dev 197.5 145 33.5 180 25
+/data get entity Dev RootVehicle
+/fd validation availability
+/fd validation board Dev
+/data get entity Dev RootVehicle
+/data get entity Dev RootVehicle
+/tp Dev 197.5 145 33.5 180 25
+/data get entity Dev RootVehicle
