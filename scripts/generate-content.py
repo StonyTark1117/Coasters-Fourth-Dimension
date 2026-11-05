@@ -24,7 +24,7 @@ for family,color in [('arrow','red_concrete'),('legacy','yellow_concrete'),('fre
         for closed in (False,True):
             variants[f'facing={direction},restrained={str(closed).lower()}']={'model':f'fourthdimension:block/{family}_seat_{"closed" if closed else "open"}','y':angle}
     write(f'assets/fourthdimension/blockstates/{family}_seat.json',{'variants':variants})
-for name,a,b in [('carrier_axle',[0,6,0],[16,10,3]),('free_spin_axle',[0,6,6],[16,10,10]),('wing_strut',[0,4,4],[16,12,12]),('revised_axle',[0,-2,6],[16,2,10]),('revised_strut',[0,12,4],[16,20,12])]:
+for name,a,b in [('carrier_axle',[0,6,-7],[16,10,-4]),('free_spin_axle',[0,6,-8],[16,10,-4]),('legacy_axle',[0,6,11],[16,10,12.5]),('wing_strut',[0,4,4],[16,12,12]),('revised_axle',[0,6,-8],[16,10,-4]),('revised_strut',[0,12,4],[16,20,12])]:
     write(f'assets/fourthdimension/models/block/{name}.json',{'parent':'minecraft:block/block','textures':{'metal':'minecraft:block/iron_block','particle':'minecraft:block/iron_block'},'elements':[box(a,b,'#metal')]})
     write(f'assets/fourthdimension/blockstates/{name}.json',{'variants':{'':{'model':f'fourthdimension:block/{name}'}}})
 for name,family in [('arrow_car','arrow'),('legacy_zacspin_car','legacy'),('free_spin_car','free_spin'),('revised_zacspin_car','revised'),('pax_car','pax')]:

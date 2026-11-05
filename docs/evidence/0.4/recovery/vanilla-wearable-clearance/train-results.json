@@ -1,0 +1,158 @@
+{
+  "baseSha256": "f80b4c3cdf9fa6188804967147761b0373e150a6eadbdc53626e5ac9700b2049",
+  "minecraftSha256": "499f6897d1837516680f3114072d8106e11c9adcd933fe5cf051b551089b0c99",
+  "framesSha256": "f5a150ef3e2b2255123267300723597cffc03560fdd201236d98ce3eedaeb29e",
+  "traceRawSha256": "a08d6f564f482524cfe2b4b02b919e4a49aa520417f3b6cc9bb2564776dea871",
+  "traceArchiveSha256": "0cd92783111c22773490b582e9beddc492e79170f5dc6acd313cadb54153b757",
+  "baselineReportSha256": "55610fe588f21bebd136613de8b59e65fd801305db69ec9592a6525b8796864b",
+  "meshVerifierSha256": "88e41844efa94c99e987d47fa8257356332fb75849e8423e4772a4b4dc180673",
+  "wearableVerifierSha256": "4cc2780bcf7923c761b86412d15f683f9d897e7e8ac8ad152d7f17e6477100d8",
+  "scope": "one-tick sampled vanilla 1.21.1 armor, cape and non-fall-flying elytra alternatives at every baseline recovery rider pose against original track and non-seat carrier rack geometry; excludes held items, non-armor head-slot renderers, arbitrary modded render layers, resource overrides, client observation and continuous trajectory",
+  "modelBasis": "Minecraft 1.21.1 client LayerDefinitions, HumanoidArmorModel, CapeLayer and ElytraModel formulas reconstructed under the pinned minecraftSha256; Sable seated player scale/orientation reused from the passing baseline verifier",
+  "wearableParts": [
+    "armor:outerHelmetAllRotations",
+    "armor:outerChestBody",
+    "armor:outerChestRightArmIdleBobEnvelope",
+    "armor:outerChestLeftArmIdleBobEnvelope",
+    "armor:outerBootRightLeg",
+    "armor:innerLeggingRightLeg",
+    "armor:outerBootLeftLeg",
+    "armor:innerLeggingLeftLeg",
+    "elytra:rightWingFoldedToCrouched",
+    "elytra:leftWingFoldedToCrouched",
+    "cape:allClampedRecoveryPoses"
+  ],
+  "resourceHashes": {
+    "assets/fourthdimension/blockstates/arrow_seat.json": "c40dc92f7c3cc335d421ed3bc1b91afbfa4b7ec0c431c4229d165d7979a87381",
+    "assets/fourthdimension/models/block/arrow_seat_closed.json": "5fcef06c2a6abb6d67ce0d5aa6507ecc3fb55e868adc405aa9a80117001b5868",
+    "assets/fourthdimension/blockstates/carrier_axle.json": "420b54a2c9dfa491c51628c0051a874ce1f2f639357f7a8c132c60fa15e5e02b",
+    "assets/fourthdimension/models/block/carrier_axle.json": "dc5f35bb4867797ff2eb08d2f37375d3621f7cd9102a064c601a90512c6ac374",
+    "assets/fourthdimension/blockstates/pax_seat.json": "8664667673a9e97239a3f89f5e478c2cc1b1434a2001e3e048906c8b0be8a6da",
+    "assets/fourthdimension/models/block/pax_seat_closed.json": "69d3dc0151286b70988b798fc5972a68f4d08e9d619e83ddc09ac0eb099ab34a",
+    "assets/fourthdimension/blockstates/free_spin_axle.json": "e7e2b02c4d169467aeb601076bfde77be14bf5adae1ceb3e8cfeee1ed0ba0050",
+    "assets/fourthdimension/models/block/free_spin_axle.json": "62e8b36f6c8174fa909107d77a0df6b15da357e8331b9ec4fee0e1ae3cc4dc86"
+  },
+  "provenanceCheck": "All compressed inputs, reports and verifier files matched before and after analysis; decompressed trace hash matches the passing baseline report.",
+  "routes": [
+    {
+      "family": "ARROW",
+      "cars": 2,
+      "samples": 6548,
+      "occupiedSeatsPerSample": 8,
+      "wearablePartCount": 11,
+      "wearableTrackChecks": 576224,
+      "wearableRackChecks": 1152448,
+      "wearableTrackMinimumSeparatingBound": 0.08,
+      "wearableTrackClosest": {
+        "tick": 160,
+        "body": "e3c6aabd-1249-43c3-b845-a4c2efb36477",
+        "wearable": "armor:outerHelmetAllRotations",
+        "trackComponent": null
+      },
+      "wearableRackMinimumSeparatingBound": 0.0793638783831343,
+      "wearableRackClosest": {
+        "tick": 160,
+        "body": "e3c6aabd-1249-43c3-b845-a4c2efb36477",
+        "wearable": "armor:outerHelmetAllRotations",
+        "rackComponent": "fourthdimension:carrier_axle@[-1, 0, 0]:element0"
+      },
+      "rackTrackChecks": 52384,
+      "rackTrackMinimumSeparatingBound": 0.08,
+      "rackTrackClosest": {
+        "tick": 160,
+        "body": "55008ba1-d90e-4f82-a60d-24320dc624e8",
+        "rackComponent": "fourthdimension:carrier_axle@[0, 0, 0]:element0",
+        "trackComponent": null
+      },
+      "partTrackMinimumSeparatingBounds": {
+        "armor:outerHelmetAllRotations": 0.08,
+        "armor:outerChestBody": 0.08,
+        "armor:outerChestRightArmIdleBobEnvelope": 0.08,
+        "armor:outerChestLeftArmIdleBobEnvelope": 0.08,
+        "armor:outerBootRightLeg": 0.08,
+        "armor:innerLeggingRightLeg": 0.08,
+        "armor:outerBootLeftLeg": 0.08,
+        "armor:innerLeggingLeftLeg": 0.08,
+        "elytra:rightWingFoldedToCrouched": 0.08,
+        "elytra:leftWingFoldedToCrouched": 0.08,
+        "cape:allClampedRecoveryPoses": 0.08
+      },
+      "partRackMinimumSeparatingBounds": {
+        "armor:outerHelmetAllRotations": 0.0793638783831343,
+        "armor:outerChestBody": 0.5742187499999076,
+        "armor:outerChestRightArmIdleBobEnvelope": 0.20869815659170232,
+        "armor:outerChestLeftArmIdleBobEnvelope": 0.20869815659170232,
+        "armor:outerBootRightLeg": 0.6696032418707196,
+        "armor:innerLeggingRightLeg": 0.7057956872390765,
+        "armor:outerBootLeftLeg": 0.6696032418707196,
+        "armor:innerLeggingLeftLeg": 0.7057956872390765,
+        "elytra:rightWingFoldedToCrouched": 0.7798460880318866,
+        "elytra:leftWingFoldedToCrouched": 0.7798460880318866,
+        "cape:allClampedRecoveryPoses": 0.3613417984103367
+      },
+      "requiredGap": 0.02,
+      "passes": true,
+      "uncertifiedPairs": []
+    },
+    {
+      "family": "PAX",
+      "cars": 4,
+      "samples": 6977,
+      "occupiedSeatsPerSample": 16,
+      "wearablePartCount": 11,
+      "wearableTrackChecks": 1227952,
+      "wearableRackChecks": 2455904,
+      "wearableTrackMinimumSeparatingBound": 0.08,
+      "wearableTrackClosest": {
+        "tick": 160,
+        "body": "6d5f51a0-6794-4a75-8a06-6c32bc89874b",
+        "wearable": "armor:outerHelmetAllRotations",
+        "trackComponent": null
+      },
+      "wearableRackMinimumSeparatingBound": 0.0793638783831353,
+      "wearableRackClosest": {
+        "tick": 160,
+        "body": "6d5f51a0-6794-4a75-8a06-6c32bc89874b",
+        "wearable": "armor:outerHelmetAllRotations",
+        "rackComponent": "fourthdimension:free_spin_axle@[-1, 0, 0]:element0"
+      },
+      "rackTrackChecks": 111632,
+      "rackTrackMinimumSeparatingBound": 0.08,
+      "rackTrackClosest": {
+        "tick": 160,
+        "body": "55a3de87-fbb9-4e9c-9ac4-55e7797d7ead",
+        "rackComponent": "fourthdimension:free_spin_axle@[-1, 0, 0]:element0",
+        "trackComponent": null
+      },
+      "partTrackMinimumSeparatingBounds": {
+        "armor:outerHelmetAllRotations": 0.08,
+        "armor:outerChestBody": 0.08,
+        "armor:outerChestRightArmIdleBobEnvelope": 0.08,
+        "armor:outerChestLeftArmIdleBobEnvelope": 0.08,
+        "armor:outerBootRightLeg": 0.08,
+        "armor:innerLeggingRightLeg": 0.08,
+        "armor:outerBootLeftLeg": 0.08,
+        "armor:innerLeggingLeftLeg": 0.08,
+        "elytra:rightWingFoldedToCrouched": 0.08,
+        "elytra:leftWingFoldedToCrouched": 0.08,
+        "cape:allClampedRecoveryPoses": 0.08
+      },
+      "partRackMinimumSeparatingBounds": {
+        "armor:outerHelmetAllRotations": 0.0793638783831353,
+        "armor:outerChestBody": 0.5742187499999085,
+        "armor:outerChestRightArmIdleBobEnvelope": 0.20869815659170332,
+        "armor:outerChestLeftArmIdleBobEnvelope": 0.20869815659170332,
+        "armor:outerBootRightLeg": 0.6696032418707322,
+        "armor:innerLeggingRightLeg": 0.705795687239089,
+        "armor:outerBootLeftLeg": 0.6696032418707322,
+        "armor:innerLeggingLeftLeg": 0.705795687239089,
+        "elytra:rightWingFoldedToCrouched": 0.7798460880318876,
+        "elytra:leftWingFoldedToCrouched": 0.7798460880318876,
+        "cape:allClampedRecoveryPoses": 0.3613417984103377
+      },
+      "requiredGap": 0.02,
+      "passes": true,
+      "uncertifiedPairs": []
+    }
+  ]
+}

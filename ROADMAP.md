@@ -439,6 +439,15 @@ coverage for all five supported families. Equipped/cosmetic meshes, observed
 client rendering, unanchored startup/teardown steps, the unexposed within-step
 trajectory, and broader recovery lifecycle evidence remain open.
 
+The [sampled vanilla wearable checkpoint](docs/evidence/0.4/recovery/vanilla-wearable-clearance/acceptance.md)
+adds exact Minecraft 1.21.1 armor, clamped cape and seated elytra alternatives
+at every occupied one-tick pose on those same five single-car and two linked-train
+routes. Corrected carrier axles retain at least 0.04811 blocks of wearable/rack
+clearance and at least 0.08 blocks of rack/track clearance. This closes only the
+bounded vanilla wearable layer item; held items and item-use poses, non-armor
+head-slot renderers, modded cosmetic layers, resource overrides and observed
+client rendering remain open.
+
 The [occupied strength-rating checkpoint](docs/evidence/0.4/recovery/strength-rating/acceptance.md)
 now makes the propulsion boundary explicit: production recovery accepts at most
 four original cars. A five-car Arrow consist is rejected before partial state;

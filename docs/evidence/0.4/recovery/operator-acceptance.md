@@ -160,3 +160,11 @@ their normal screen mouse dispatcher, and render a linked original
 [two-car Arrow train](rendered-recovery-train/acceptance.md). These are
 fixture-assisted UI actions, not manual world selection, physical lever input,
 all-family rendering, or complete lifecycle acceptance.
+
+The later [sampled vanilla wearable checkpoint](vanilla-wearable-clearance/acceptance.md)
+checks armor, cape and non-fall-flying elytra alternatives at every preserved
+occupied banked pose for all five families and the original Arrow/PAX trains.
+Its corrected axle geometry passes wearable/rack and rack/track bounds, but this
+is offline one-tick geometry rather than observed client rendering. Held items,
+item-use poses, non-armor head-slot renderers, modded cosmetics and resource
+overrides remain open.
