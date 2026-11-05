@@ -1,0 +1,32 @@
+World folder: FD402OperatorFinal
+Level name: FD403SurvivalClient
+Player: Dev (survival)
+
+Input occupied recovery state
+  chassis: 3fe570d5-8669-4931-b104-2bc59599e2dd
+  recovery bearing: 8caae637-b310-4b4b-b857-ec8bf24389d3
+  family: arrow_controlled
+  revision: 36
+  maintenance retained: true
+  restraints closed: true
+  stopping/braked: true
+  player in original carrier occupant and rider-seat records: true
+  player RootVehicle present: true
+
+Final released state
+  chassis: 3fe570d5-8669-4931-b104-2bc59599e2dd
+  family: arrow_controlled
+  revision: 40
+  maintenance retained: true
+  restraints closed: false
+  stopping/braked: true
+  recovery_cart field: absent
+  carrier occupants: empty
+  carrier rider-seat records: empty
+  player RootVehicle: absent
+  player block interaction range: 5.0
+
+The final vehicle still stores the last rider-equipment warning text because the
+operator had to reselect the Rotation Tool to invoke Detach/Open. It has no
+recovery link or rider assignment, and the ordinary editor reported Ready after
+detachment; the retained diagnostic did not prevent restraint opening or unload.

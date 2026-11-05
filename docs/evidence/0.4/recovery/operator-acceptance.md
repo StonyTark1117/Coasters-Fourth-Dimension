@@ -149,6 +149,15 @@ state. Its route-end guard fired before the operator reopened the moving editor,
 so it corroborates lever propulsion without claiming a second timely
 moving-brake measurement.
 
+The later [occupied Arrow operator continuation](manual-occupied-arrow-operator-20261105/README.md)
+combines those accepted normal inputs with a real mounted Start/Brake before the
+boundary and a fresh selected-JAR Detach/Open/Shift-unload. Its saved-state audit
+retains the same chassis and bearing through the braked reopen, then confirms the
+recovery link and rider assignment are absent after cleanup. Together with the
+existing linked-train mechanics and occupied stationary PAX handover, this closes
+FD402C under the current cumulative validation policy; it does not close FD402B
+or FD402D–F.
+
 ## Remaining acceptance
 
 The bounded empty-Arrow physical-lever sequence is closed by the
