@@ -1,0 +1,6 @@
+Artifact SHA-256: cf4fed9acf41873f0ba7bd3b28f49fe4507db2ae2442cfcae9bddf8cb7a77cb5
+Profiles: -PfdIntegrations=styles,engineered -PfdFeNetwork
+Test: /test run loadedcontrollerpublishesmissingnativebodies
+JVM: OpenJDK 21.0.13.0.3
+Server scope: MemoryMax=4G; server heap cap 1536M
+Dedicated server exit: Gradle BUILD SUCCESSFUL after graceful RCON stop
