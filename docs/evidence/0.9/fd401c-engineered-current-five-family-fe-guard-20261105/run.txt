@@ -1,0 +1,6 @@
+Command: ./gradlew runServer -PfdBuildDirectory=/tmp/fd401c-current-pax-interlock/build -PfdValidation -PfdNamedGameTestServer -PfdIntegrations=engineered -PfdServerGameDirectory=/tmp/fd401c-energy-accept/server -PfdServerMaxHeap=1536M --no-daemon --offline --console=plain -Dorg.gradle.jvmargs=-Xmx1024M
+Wrapper: systemd-run --user --scope --quiet -p MemoryMax=4G
+Runtime: Java 21, development source runtime, Engineered-only; NeoForge 21.1.248 / Minecraft 1.21.1
+Network: loopback server 127.0.0.1:25675, RCON 127.0.0.1:25676
+Test: RCON `test run nativeenergystarvationsupplybrakeandretention`
+Build result: BUILD SUCCESSFUL after normal RCON stop.

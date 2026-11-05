@@ -1,0 +1,11 @@
+Date: 2026-11-05
+Selected production artifact: docs/evidence/qualification/2026-11-05-ec2fcda/qualification.jar (SHA-256 656725bcbacc8f491de274c6c058027d0aaa67cfc6f893ba6d7e4a9eb24abbc7)
+Runtime: Java 21.0.13, Gradle 9.2.1, Minecraft 1.21.1, NeoForge 21.1.248, Create 6.0.10, Engineered 1.1.1, Track Styles 1.2.0, Create Addition 1.6.0.
+Profile: Styles + Engineered, with -PfdFeNetwork -PfdValidation. Named GameTest server, isolated server directory, loopback server/RCON, Java heap 1536M, task-owned 4G systemd scope. No graphical client.
+
+The packaged JAR was overlaid with exactly one entry, dev/fourthdimension/gametest/EngineeredEnergyGameTests.class, compiled from the current working-tree test source. All production classes/resources remained byte-identical to the selected JAR. The overlay JAR is retained and jar-parity.txt confirms one changed entry among 394. This is a test-class overlay run, not byte-for-byte execution of the unmodified selected JAR.
+
+Gradle command:
+./gradlew runServer -PfdBuildDirectory=/tmp/fd401c-selected-combined-fe-guard-20261105/build -PfdPackaged -PfdIntegrations=styles,engineered -PfdFeNetwork -PfdValidation -PfdNamedGameTestServer -PfdServerGameDirectory=/tmp/fd401c-selected-combined-fe-guard-20261105/server-game -PfdServerMaxHeap=1536M -x jar -x compileJava --no-daemon --offline --console=plain -Dorg.gradle.jvmargs=-Xmx1024M
+RCON command: test run nativeenergystarvationsupplybrakeandretention
+RCON result and orderly stop are retained in rcon-test.txt and rcon-stop.txt; complete Gradle/server log is server-gradle.log.

@@ -1,0 +1,9 @@
+# FD401C selected-JAR combined five-family FE and retention guard
+
+This named server GameTest ran in the selected Styles + Engineered profile on 2026-11-05. The clean production JAR is `656725bc…`; its full hash and the overlay hash are in [jar-sha256.txt](jar-sha256.txt). The test overlay replaces exactly one of the JAR's 394 entries: `EngineeredEnergyGameTests.class`, compiled from the current source test. [Parity evidence](jar-parity.txt) confirms all production entries remained byte-identical. The overlay JAR is included for reproducibility. This is not byte-for-byte execution of the unmodified selected JAR.
+
+The test `nativeenergystarvationsupplybrakeandretention` passed under Engineered 1.1.1, Track Styles 1.2.0, Create 6.0.10 and Create Addition 1.6.0, with Java 21, a 1536 MiB heap, isolated server world and task-owned 4 GiB scope. The [run record](run.txt), test outcome, server stop, JAR hashes and full [server/Gradle log](server-gradle.log) are retained.
+
+With `requireEnergy=true`, the test covered empty-buffer hold, native FE-buffer fill, powered movement, STOP braking, energy recovery and rider retention for Arrow, Legacy, Free Spin, Revised and PAX plus an ordinary-cart control. PAX remained stationary with 100,000 FE against the competing Engineered controller; the four powered coaster fixtures exceeded 6 blocks/s and traveled over 16 blocks. The test reported zero drift during its retained-rider phase and restored `requireEnergy=false` before success.
+
+This closes one **combined-profile, selected-production-classes GameTest fixture slice**. The fixture directly creates tracks, controllers, riders and FE; it does not establish normal UI construction, physical power generation, coupled Arrow tracing, all-family client operator cycles, recovery/cold-reopen acceptance, or the full FD401C matrix. The Engineered-only source run is separately recorded [here](../fd401c-engineered-current-five-family-fe-guard-20261105/README.md).

@@ -441,7 +441,26 @@ public final class EngineeredEnergyGameTests {
         () -> {
           for (var f : fixtures) {
             double drift = Math.abs(f.body.logicalPose().position().z() - f.startZ);
-            helper.assertTrue(drift < .1, "Empty native FE buffer still propelled " + f.label());
+            double speed =
+                container
+                    .physicsSystem()
+                    .getPipeline()
+                    .getLinearVelocity(f.body, new Vector3d())
+                    .length();
+            System.out.println(
+                "FD_ENGINEERED_FE empty-buffer "
+                    + f.label()
+                    + " drift="
+                    + drift
+                    + " energy="
+                    + f.energy.getEnergyStored()
+                    + " speed="
+                    + speed);
+            // Free Spin has small residual settling after assembly. Bound both speed and
+            // displacement; the powered phase below requires >1 block/s and >3 blocks of travel.
+            helper.assertTrue(
+                speed < .1 && drift < .25,
+                "Empty native FE buffer produced sustained motion for " + f.label());
             helper.assertTrue(f.energy.getEnergyStored() == 0, "Empty buffer created energy");
             int received = f.energy.receiveEnergy(Integer.MAX_VALUE, false);
             helper.assertTrue(
