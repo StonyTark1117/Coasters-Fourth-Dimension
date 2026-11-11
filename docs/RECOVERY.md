@@ -215,8 +215,11 @@ or the complete recovery lifecycle matrix. FD402 and the 0.4 gate remain open.
 The [isolated Engineered recovery/FE checkpoint](evidence/0.4/recovery/engineered-fe/acceptance.md)
 now covers the certified bare ordinary bearing with Engineered 1.1.1: braked and
 starved holds, supplied explicit towing/consumption, bounded speed, rebraking,
-rider retention and cleanup. Rendered manual provider controls, all-family
-Engineered recovery and stronger ordinary assemblies remain outside that result.
+rider retention and cleanup. The [rendered Engineered-only manual record](evidence/0.4/recovery/engineered-fe-manual-20261111/README.md)
+adds normal provider controls, wire supply/starvation, occupied recovery input,
+fresh-process reopen and measured capped towing/FE draw. The combined
+Styles + Engineered profile, all-family Engineered recovery and stronger ordinary
+assemblies remain outside that result.
 
 The [occupied strength-rating checkpoint](evidence/0.4/recovery/strength-rating/acceptance.md)
 closes the unbounded-consist policy gap. Five Arrow cars are rejected before any

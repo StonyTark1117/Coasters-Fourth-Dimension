@@ -26,10 +26,12 @@ per-class hashes. The cleanup continuation loaded that exact selected JAR.
 Every Fourth Dimension validation and fixture flag was false. The continuation
 used Java 21, a 1536 MiB game heap and a Minecraft-only systemd scope with
 `MemoryMax=6G`. The highest sampled `MemoryCurrent` was 2,644,135,936 bytes.
-It ran on task-owned Xvfb display `:237`; the only other live Xvfb was another
-agent's `:252`, which was neither addressed nor stopped. The selected client and
-owned display both ended with systemd result `success`; the client exit status
-was zero.
+It ran on task-owned Xvfb display `:237`. A later ownership audit found the
+concurrently visible `:252` was an abandoned `fd401b-fast-xvfb-252.service`
+with no client or child processes, not another live agent's session. That exact
+stale service was stopped on 2026-11-05 and its socket disappearance was
+verified. The selected client and owned `:237` display both ended with systemd
+result `success`; the client exit status was zero.
 
 The exact selected launch material is retained as [classpath](client-classpath.txt),
 [VM arguments](client-vm-args.txt) and [program arguments](client-program-args.txt).

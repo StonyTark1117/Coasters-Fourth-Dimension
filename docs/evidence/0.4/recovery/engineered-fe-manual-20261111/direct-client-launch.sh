@@ -1,0 +1,1 @@
+(cd '/tmp/fd402f-manual-20261111/game'; exec '/usr/lib/jvm/java-21-openjdk/bin/java' '-Xmx1536M' '@/tmp/fd402f-manual-20261111/build/moddev/clientRunClasspath.txt' '@/tmp/fd402f-manual-20261111/build/moddev/clientRunVmArgs.txt' '-Dfml.modFolders=' 'net.neoforged.devlaunch.Main' '@/tmp/fd402f-manual-20261111/build/moddev/clientRunProgramArgs.txt')

@@ -1,6 +1,6 @@
 # FD402 Engineered recovery/FE checkpoint
 
-This checkpoint closes the bounded Engineered 1.1.1 recovery-power item. It
+This checkpoint closes the bounded native Engineered 1.1.1 recovery-power item. It
 uses the installed provider's native linear-motor controller and block FE
 capability on the certified bare ordinary bearing in a production Arrow
 recovery group. It is server-side integration evidence, not a rendered manual
@@ -48,3 +48,12 @@ input, provider power on all five recovery families, a stronger locomotive,
 general grade/coupler ratings, or the remaining rendered/lifecycle matrix. The
 separate FD401 Engineered evidence owns normal ride-controller and physical-wire
 operation; this checkpoint is specifically the guarded recovery bearing.
+
+## Rendered/manual Engineered-only closure
+
+The [2026-11-11 connected-client record](../engineered-fe-manual-20261111/README.md)
+combines this native result with rendered manual provider construction, physical
+wire supply/starvation, occupied bearing selection and recovery controls, fresh
+process reopen, explicit capped towing with measured FE draw, normal Brake tow,
+detach, restraint opening and dismount. It closes FD402F1. The combined Track
+Styles + Engineered profile remains the distinct open FD402F2 case.
