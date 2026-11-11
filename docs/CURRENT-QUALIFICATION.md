@@ -60,7 +60,10 @@ FD403A–F ownership claimed 2026-11-11 by **Complete FD403 crafting and teachin
 The assigned worktree is `/home/braydon/.codex/worktrees/b81d/Coasters: Fourth Dimension`,
 branch `codex/fd403-player-workflows`, starting at `81403a6b` with a clean tree.
 PAX teaching reconciliation precedes the remaining A–D player workflows; shared F
-claims reuse those records. No FD403 graphical runtime is reserved yet.
+claims reuse those records. FD403 reserves one standalone client on private display `:283`, server port
+25483 (RCON 25583), and persistent run root
+`/home/braydon/.local/state/fourthdimension-runs/fd403-workflows-20261111`.
+It leaves recovery displays/ports/worlds with their owners.
 
 The FD402B1–B7 matrix is now closed cumulatively on 2026-11-11. The seven
 [current banked render slices](evidence/0.4/recovery/occupied-banked-render-motion/current-matrix-20261111.md)
