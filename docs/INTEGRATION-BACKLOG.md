@@ -28,6 +28,11 @@ metadata were checked; no mod was launched and no new compatibility is claimed.
 
 ## Planning document ownership
 
+The [milestone execution guides](roadmap/README.md) provide ordered package
+procedures and link prerequisite handoffs to their consumers. This backlog keeps
+dependency/capability decisions, the roadmap keeps status and acceptance, and the
+current qualification queue keeps assignments; guide steps add no new gates.
+
 The [current qualification record](CURRENT-QUALIFICATION.md) owns the selected
 source/JAR identity, intended profiles, reusable evidence and required retests.
 The roadmap's 2026-11-04 reconciliation replaces chronological checkpoint prose

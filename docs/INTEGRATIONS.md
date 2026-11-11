@@ -39,6 +39,9 @@ adoption nor a new milestone certifies that code.
 Existing checkpoint records below keep their actual identities and bounded scope.
 Use the [current queue](CURRENT-QUALIFICATION.md#current-work-queue) for active
 cases and the validation policy to distinguish required fixes from optional polish.
+Use the [milestone execution guides](roadmap/README.md) for ordered adapter and
+dependency steps; they reuse this implementation evidence and do not replace
+the roadmap's scope/status or the queue's assignments.
 
 ## Version and API boundaries
 

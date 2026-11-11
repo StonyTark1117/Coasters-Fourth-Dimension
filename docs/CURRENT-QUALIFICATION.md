@@ -13,6 +13,11 @@ will carry unaffected acceptance forward; no new JAR or run is required here.
 
 ## Current work queue
 
+Use the [milestone execution guides](roadmap/README.md) for package procedures
+and handoffs. This queue retains active ownership and next actions; the guides
+do not create another tracker or reopen cases. A next action may reference a
+package step without adding every future step to this queue.
+
 **Active milestone: 0.4.** Execution guidance updated 2026-11-11. This is the
 remaining acceptance queue, placed before artifact history. It refines the existing FD402B/E/F
 and FD403A–F criteria; it does not add scope or change any acceptance result.

@@ -334,7 +334,10 @@ Use a long, smooth approach to the station’s boarding pose. Free carriers firs
 ## Addressable roadmap
 
 [ROADMAP.md](ROADMAP.md) owns package status, prerequisites and finite completion
-criteria. IDs stay stable when allocation changes. The adopted sequence is:
+criteria. The [milestone execution guides](docs/roadmap/README.md) break each open
+package into ordered procedures and handoffs without changing these contracts or
+adding acceptance gates. IDs stay stable when allocation changes. The adopted
+sequence is:
 
 | Milestone | Work packages | Delivery |
 | --- | --- | --- |

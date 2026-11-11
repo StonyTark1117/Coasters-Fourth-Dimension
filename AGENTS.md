@@ -54,6 +54,12 @@ finding as a gate blocker; nonblocking polish stays outside acceptance. New
 shared-contract mechanics include the roadmap's early occupied-client proof,
 which later feature acceptance reuses rather than repeats.
 
+Use the package's linked [milestone execution guide](docs/roadmap/README.md)
+for ordered steps, inputs and handoffs. `ROADMAP.md` remains authoritative for
+scope, prerequisites, status and acceptance; the current queue owns assignments.
+Guide steps are procedures within a complete outcome, not new acceptance gates,
+mandatory runs or a reason to stop after an arbitrary slice.
+
 # Java runtime
 
 Use **Java 21** for every Gradle command, build, GameTest, server, and client run
