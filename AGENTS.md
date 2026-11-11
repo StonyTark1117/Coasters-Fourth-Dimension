@@ -101,6 +101,30 @@ alive until its clients exit, then stop only the processes and display started
 for this task. Preserve requested logs, screenshots, and worlds before cleanup.
 See `docs/FD403-RUN-PREPARATION.md` for the packaged client and server procedure.
 
+For interactive input on a private Xvfb display, identify the Minecraft window
+on that exact `DISPLAY` and check its current geometry after every process
+restart, resource reload, or resize. Recalibrate screen and window-relative
+click coordinates from a fresh screenshot before clicking a control. These
+displays may have no window manager: `xdotool windowactivate` can fail with
+`_NET_ACTIVE_WINDOW` unsupported. Use the owned window ID with `windowfocus`
+and window-targeted key/type events instead. Confirm focus and the resulting
+screen or log after a command before chaining more input. On this setup, an
+unqualified `T` has opened Social Interactions instead of chat; the window-
+targeted `/` command key avoids that mapping. Do not infer display ownership
+from an old display number or service name; verify its live PID and cgroup
+before treating it as another agent's active client or stopping it.
+
+Set server-side mod configuration before launching the client/server process;
+changing it in a running integrated server may require a clean process restart
+to take effect. In singleplayer, the integrated server can pause while an
+editor is open, delaying scheduled fixture commands until the screen closes.
+For a timed GUI check, use a dedicated server or a private LAN-published world
+and confirm server ticks advance while the editor remains open. For the FD402
+manual Engineered recovery fixture, a stationary motor needs a fixed `FORWARD`
+LAUNCH heading; a `ROLLING` heading has no initial motion direction. Check the
+saved controller sequence and actual FE draw before attributing a zero-motion
+result to recovery logic.
+
 # Current client memory policy
 
 **The 3 GiB client process cap is retired.** For new runs, use a **6 GiB
