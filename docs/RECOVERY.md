@@ -213,8 +213,7 @@ close FD402A–D cumulatively. The [two-client Arrow interruptions](evidence/0.4
 add braked cold restart, reconnect, native chunk/bearing return and temporary
 coupling loss/restore while preserving original riders and requiring explicit
 recovery. The [combined PAX coupling-removal record](evidence/0.4/recovery/permanent-pax-interruptions-20261111/README.md)
-closes E6 with native cleanup evidence. Only E7 permanent bearing removal remains in the
-[recovery queue](CURRENT-QUALIFICATION.md#fd402-recovery-cases). The bounded
+closes E6 and E7 with native cleanup evidence. The FD402 recovery interruption queue is now closed. The bounded
 route, solver and equipment limits above still apply.
 
 The [isolated Engineered recovery/FE checkpoint](evidence/0.4/recovery/engineered-fe/acceptance.md)
