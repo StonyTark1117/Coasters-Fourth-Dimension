@@ -14,16 +14,18 @@ close FD402F2 and does not establish the requested manual recovery cycle.
   braked recovery consist.
 - A temporary validation-only command selected the certified ordinary bearing
   and staged it through the native teleport/reset-velocity pipeline. The client
-  reported `spacing=6.0`; `06-native-pipeline-staged-spacing.png` records that
-  diagnostic state.
+  reported `spacing=6.0`;
+  `screenshots/06-native-pipeline-staged-spacing.png` records that diagnostic
+  state.
 - The normal operator editor was then used. Restraints were closed and the
   production **Attach recovery** control was selected without bypassing the
   production recovery guard.
 - Production rejected the attach at 07:15:35 with `Place the recovery bearing
   6.0 blocks from the end car axle`. After a second exact restage at 07:16:12,
   the same normal control was rejected again at 07:16:13. The log and
-  `07-own-editor-before-attach.png` through
-  `09-own-attach-rejected-after-restage.png` preserve those observations.
+  `screenshots/07-own-editor-before-attach.png` through
+  `screenshots/09-own-attach-rejected-after-restage.png` preserve those
+  observations.
 
 The loose bearing's existing running-contact constraint resumed control on a
 live tick, so a one-frame position mutation did not produce a stable native
@@ -66,5 +68,6 @@ acceptance scope.
   both production guard rejections, save completion, and non-clean X loss.
 - `direct-client-attempt1.sh` through `direct-client-attempt5.sh`: preserved
   direct Java 21 launch commands.
-- `00-combined-world-loaded.png` through `09-own-attach-rejected-after-restage.png`:
-  diagnostic screenshots. None is an FD402F2 acceptance capture.
+- `screenshots/00-combined-world-loaded.png` through
+  `screenshots/09-own-attach-rejected-after-restage.png`: diagnostic
+  screenshots. None is an FD402F2 acceptance capture.
