@@ -1,10 +1,12 @@
-# Integration backlog — adopted expanded 1.0 allocation
+# Integration backlog — expanded 1.0 and post-1.0 allocation
 
 **Roadmap adopted 2026-11-11 (America/Phoenix).** Operations capabilities are
 allocated to 0.8; presentation, optional seats and coexistence to 0.9; final
 qualification follows the 1.0 alpha feature freeze. The former blanket expansion
 pause is superseded by explicit package prerequisites in [ROADMAP.md](../ROADMAP.md).
-All agreed capabilities remain in the stable 1.0 target. Planning adoption is not
+All former-through-1.5 agreed capabilities remain in the stable 1.0 target.
+New FD1601–FD2007 packages belong to the separate post-1.0 allocation below;
+they do not delay the expanded 1.0 gate. Planning adoption is not
 runtime activation, compatibility certification, a dependency upgrade or publication.
 
 **Artifact inventory verified 2026-11-02** for Minecraft 1.21.1 / NeoForge.
@@ -113,6 +115,9 @@ this backlog owns addon capabilities and dependency decisions. Existing FD IDs
 and acceptance are preserved. FD404 is the original five-family checkpoint;
 FD1000 freezes the expanded scope at 1.0 alpha, followed by FD901–FD905 and
 FD1001–FD1003. No family or integration depends on first releasing FD1003.
+New post-1.0 integration consumers follow their own integrated interfaces and
+dependency decisions. The old artifact catalog does not certify later Flying,
+scenery-facing yaw, powered inverted or moving-track support.
 
 ### Current baseline and branch reconciliation
 
@@ -157,6 +162,11 @@ migration run. A blocked optional adapter does not block a sufficient core basel
 | 1.0 alpha / FD1000 | Freeze all agreed capabilities and supported profiles | All former-through-1.5 scope implemented with cumulative acceptance; no silent scope reduction. |
 | 1.0 beta / RC / FD901–FD905 | Integrated qualification | Reuse accepted cases, test outstanding interactions and final workload, fix affected defects without resetting earlier gates. |
 | 1.0 stable / FD1001–FD1003 | Accurate support docs and reproducible artifacts | Clean install/package checks; publication remains separate. |
+| 1.1 / FD1601–FD1605 | Fixed Inverted compatibility, shareable presets, colors/liveries and operator panel | Consume integrated seat, appearance, editing and control contracts. Skin is optional; panel commands preserve server authority and original choices work standalone. |
+| 1.2 / FD1701–FD1703 | Ride-local block/dispatch authority and Dive hold/release | Audit existing selected upstream capabilities first. Declare one owner, one circuit and finite train/profile limits; no park-wide or arbitrary-junction control. |
+| 1.3 / FD1801–FD1803 | Conventional and New-generation Flying; shared scenery-facing yaw in the latter | FD1802A proves yaw plus seated/prone transforms through a concrete vehicle. Optional seats/effects compose once and may not take over restraints or camera ownership. |
+| 1.4 / FD1901–FD1902 | Upright-seated Powered Inverted Yaw, powered pacing and finite scene events | Consume integrated FD1802A targeting and FD1701A authority, not the whole 1.3 gate. Provide a working standalone drive path; lighting/audio adapters are optional. |
+| Post-1.0 moving-track program / FD2001–FD2007 | Transfer, turntable, drop, tilt and finite additional styles; provider graph/retention adapters | Inspect native connection hooks and prove occupied moving-segment lifecycle first. Release numbers follow feasibility; no dependency from any 1.0 or fixed-track 1.1–1.4 gate. |
 | Independent FD801 | Inspectable functional Track Styles Arrow 4D adapter | Measured mechanism/geometry equivalence and applicable terms; unavailable upstream release never blocks standalone 1.0. |
 
 FD501B supplies common Additions prerequisites to FD810/FD911; seat-only changes
@@ -171,9 +181,20 @@ quality across the standalone mod as well as affected supported integrations.
 Review the available core assets independently of addon readiness; reuse per-family
 content reviews and close only missing or changed visual cases. Adapter acceptance
 and the final rendering gate consume these results without a second art-review pass.
+Post-1.0 content uses FD916's checklist for new assets without reopening its
+accepted 1.0 baseline. Preset/library and livery customization are distinct 1.1
+features; they are not retroactive conditions on the existing editor or art gate.
 
-New integrations remain optional installations, but their agreed capabilities
-are planned 1.0 deliverables. A staged JAR does not establish a capability. If a
+For Spinning S2, the 0.5 specification names a working standalone launch path
+and supported configuration. FD812 adds an optional Magnetized alternative;
+an unavailable provider is not a substitute for the committed vehicle. Later
+consumers refresh only their required version/capability decisions when work
+starts; do not upgrade every optional addon or replay old profiles merely because
+the release number changes. Required migrations get a bounded owning package.
+
+The 0.8/0.9 integrations remain optional installations, but their agreed capabilities
+are planned 1.0 deliverables; later consumers are allocated above. A staged JAR
+does not establish a capability. If a
 required dependency or capability cannot be delivered, record a named blocker
 and seek an explicit scope decision; do not silently omit it or wait indefinitely
 on repeated identical launch attempts. Discovery, inspection and completed

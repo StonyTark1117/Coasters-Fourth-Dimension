@@ -1,8 +1,9 @@
 # Validation, evidence reuse, and stopping rules
 
-Effective 2026-11-05; release scheduling aligned 2026-11-11. This policy governs test scheduling for the current
-0.4–1.0 roadmap. It supersedes blanket replay instructions, fixed repetition
-counts, and stale “remaining/open” notes in older handoffs and evidence tables.
+Effective 2026-11-05; release scheduling aligned 2026-11-11. This policy governs
+test scheduling for the current 0.4–1.0 roadmap and adopted post-1.0 packages.
+It supersedes blanket replay instructions, fixed repetition counts, and stale
+“remaining/open” notes in older handoffs and evidence tables.
 It does not declare an untested feature complete or waive a known defect.
 
 **Closed cases stay closed across builds.** A build is an output, not a new
@@ -122,6 +123,36 @@ product failure, and a passing unrelated test cannot waive either uncertainty.
 Raw evidence remains immutable. Current task status takes precedence over old
 per-run “still open” prose. Update one current status/next-action entry rather
 than appending another expanding checklist to every successful run.
+
+## Post-1.0 scope and evidence reuse
+
+FD1601–FD2007 are future work, not new prerequisites for FD1000, FD905 or FD1003.
+Each later release freezes its own finite package/profile list and reconciles
+existing evidence before scheduling outstanding qualification. A release label,
+new vehicle or moving-track prototype never resets earlier accepted cases.
+Keep future requirements out of the active 0.4 queue until they are actually
+assigned within their own packages; preserve the frozen 1.0 candidate while
+later implementation uses integrated main contracts.
+
+Conventional Flying may close independently while New-generation Flying proceeds;
+1.3 requires both. FD1802A owns physical scenery-facing yaw and combined posture
+proof in seated and prone states. FD1901 reuses that handoff and adds distinct
+upright vehicle, powered travel and show-stop cases, without replaying Flying.
+Validate combined yaw/posture sweeps where they introduce new behavior; passing
+independent axis checks does not prove a new combined motion path.
+
+FD2001 proves moving graph/retention contracts once. Each later moving-track
+mechanism supplies its distinct route, motion, content and recovery evidence;
+translation, yaw, drop and tilt do not automatically prove compound trajectories.
+Only affected fixed-track behavior needs rechecking when graph code changes.
+Do not multiply every vehicle by every mechanism/provider without a named
+implementation difference. A mechanism's discovery is not player acceptance,
+and each completed mechanism stays closed while another style is developed.
+
+Later content applies FD916's existing visual checklist to new/affected assets,
+without reopening FD916 or creating a second review of unchanged art. Saved preset
+libraries, selectable liveries and new operator panels do not invalidate accepted
+editing, texture quality or telemetry merely by extending their functionality.
 
 ## Shared-contract client handoff
 

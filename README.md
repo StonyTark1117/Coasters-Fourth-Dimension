@@ -14,11 +14,24 @@ in 0.7; Pipeline, remaining variants and operations integrations in 0.8; then
 presentation, optional seats, coexistence and the model/texture review in 0.9.
 FD916 reviews and improves original and added family assets before FD1000 freezes
 features at 1.0 alpha; beta/RC qualification and final packaging precede stable release.
+Spinning's finite 1.0 scope is conventional free-spinning (0.6) and a launched/
+inverting free-spinning configuration with magnetic influence (0.8).
 [Detailed stages and completion criteria](ROADMAP.md#release-map) and
 [integration capabilities](docs/INTEGRATION-BACKLOG.md#release-allocation).
 These additions are planned, not features of the current JAR. Existing accepted
 cases stay closed; new builds do not restart qualification. Optional addons stay
 optional for standalone rides, and publication requires separate authorization.
+
+**Adopted post-1.0 roadmap:** 1.1 adds Fixed Inverted, shareable setting presets,
+colors/original liveries and a unified operator panel; 1.2 adds ride-local
+multi-train operations and Dive; 1.3 includes both Conventional Flying and
+New-generation Flying with scenery-facing yaw in seated and prone postures;
+1.4 adds an upright-seated Powered Inverted Yaw Coaster using the same targeting
+controls with powered pacing and show stops. A separate post-1.0 moving-track
+program covers transfer platforms, turntables, drop tables, tilt tracks, elevator,
+teeter-totter, side-drop and compound motion tables, with release numbers assigned
+after a working native prototype. These are future features and never block 1.0.
+[Packages, scope and completion criteria](ROADMAP.md#post-10-delivery-and-scope).
 
 The build notes below retain their historical observations and limitations.
 Current acceptance belongs to [ROADMAP.md](ROADMAP.md): FD401A–D and FD402A/C/D

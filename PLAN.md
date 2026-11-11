@@ -3,7 +3,9 @@
 The expanded roadmap was adopted **2026-11-11 (America/Phoenix)**. Stable 1.0
 now includes all vehicle and integration scope formerly proposed through 1.5.
 [ROADMAP.md](ROADMAP.md) owns permanent FD IDs, prerequisites, status and acceptance;
-D01–D18 below retain their stable design references. A planning milestone or a
+D01–D18 retain their stable design references; D19–D20 define the adopted
+post-1.0 additions. New 1.1–1.4 vehicles/tools and the separate moving-track
+program do not expand the 1.0 release gate. A planning milestone or a
 new artifact hash is not proof of implementation or a reason to reopen acceptance.
 
 Foundation through bounded 0.3, FD401A–D and FD402A/C/D retain their accepted
@@ -60,7 +62,7 @@ axes, seats, dimensions and track contracts; release labels do not settle them.
 | Added family package | Delivery milestone | Required behavior / specification boundary |
 | --- | --- | --- |
 | Fixed-seat Wing / FD1101A–C | 0.5 | Fixed passenger seats, measured ordinary-track fit, restraints, coupling and station workflow; no inherited 4D rotation. |
-| Spinning / FD1501A–C, D–F | 0.6 first variant; 0.8 remaining variants | A finite agreed variant list with separate axis/loading/damping/capture contracts where mechanics differ. |
+| Spinning / FD1501A–C, D–F | 0.6 S1; 0.8 S2 | S1 conventional free-spinning; S2 launched/inverting free-spinning with magnetic influence. Each has one specified configuration and distinct loading/damping/capture contracts where required. |
 | Suspended / FD1301A–C | 0.6 | Overhead running gear, lateral swing, declared limits/damping and safe lift/station locks. |
 | Axis / FD1302A–C | 0.7 | Explicit rotation-axis/mode, capture, propulsion and clearance behavior distinct from Suspended. |
 | Roller Ball / FD1502A–C | 0.7 | Its own vehicle/route, passenger mechanism, lift/return transitions and retention/capture. |
@@ -69,6 +71,12 @@ axes, seats, dimensions and track contracts; release labels do not settle them.
 An integration adapter does not implement a vehicle family. Ordinary carts retain
 the compatibility rules below. New requested features cannot be silently dropped
 to accelerate release; unresolved scope decisions belong to their 0.5 specifications.
+For S2, 0.5 must identify a working standalone propulsion path and its declared
+configuration; FD812 is an optional alternative. Scenery-directed yaw is a
+separate post-1.0 mechanism. Later families are Fixed Inverted (1.1), Dive (1.2),
+Conventional and New-generation Flying (both 1.3), and Powered Inverted Yaw (1.4).
+The New-generation Flying sub-variant includes scenery-facing yaw in seated and
+prone postures; the 1.4 family keeps upright seating. See D19 for their boundaries.
 
 ## D02 Cart and track compatibility
 
@@ -164,9 +172,10 @@ Optional addons stay separately installed. The Track Styles page/JAR license
 mismatch remains unresolved; no asset reuse is authorized by this plan. The
 artifact catalog records the other declared licenses. Our original track,
 rotation mechanisms and five-family scope remain independent of optional addons.
-0.8 operations/1.2 allocations are planning scopes, not dates or authorization to
-resume implementation. FD801 never blocks standalone 1.0.
-Before an approved expansion starts, refresh its dated artifact inventory and
+Release allocations are planning scopes, not dates or publication authorization.
+Implementation follows the roadmap's integrated prerequisites; no blanket
+expansion pause applies. FD801 never blocks standalone 1.0.
+Before an expansion activates dependencies, refresh its dated artifact inventory and
 dependency closure using the [version refresh policy](docs/INTEGRATION-BACKLOG.md#version-refresh-before-expansion).
 New upstream files do not automatically replace the current release pins.
 
@@ -187,13 +196,20 @@ Build the following shared parts progressively through the release milestones:
 
 Proposed workflow: choose a vehicle family, build its matching functional track using existing anchors where supported, choose a compatible appearance, add that family’s mechanical equipment, and place the vehicles. Placement previews report track-family and running-gear mismatches. Author angles for controlled cars or tune carrier balance, damping, and magnetic sections for free-spin cars. Preview empty and occupied behavior before configuring boarding. Use familiar Coasters/Create interactions and family-specific Ponder scenes, including ordinary recovery-cart compatibility.
 
+Every 1.0 family/variant receives applicable existing editing/copy/mirror tools,
+loading/tuning settings, clearance previews and readable readiness reasons, with
+intentional mechanical differences documented. Its content package supplies a
+buildable example and compatible settings, including gentle/intense presets
+where supported. The later saved/shareable preset library, selectable original
+colors/liveries and unified operator panel are 1.1 features, not extra 1.0 gates.
+
 Start with original generic models for each mechanical family rather than park-branded replicas. X2, Eejanaika, and Dinoconda liveries can share the controlled chassis later. Arbitrary player-built wing structures, general park traffic management, and exact engineering replicas remain follow-up scope. Free-spinning behavior and independent carrier groups are now core planned features.
 
 ### Model and texture quality
 
 [FD916](ROADMAP.md#fd916-review-and-improve-models-and-textures) owns the required
 0.9 visual review and improvements for the original five families and every added
-family/variant, including their tracks, equipment and item representations. Review
+1.0 family/variant, including their tracks, equipment and item representations. Review
 silhouettes/proportions, assembly alignment, texture completeness and UV seams,
 consistent material/detail treatment, and inventory, placed and occupied views.
 Use a recorded visual reference and finite correction list; unintended placeholders
@@ -204,6 +220,8 @@ They can close without waiting for the final FD916 reconciliation. Reuse accepte
 visual and mechanical evidence; texture-only edits do not reset physics acceptance,
 while geometry/seat/pivot changes require only affected checks. Once the checklist
 passes, further taste-based refinements remain nonblocking follow-up work.
+Post-1.0 content packages use this same checklist for their new assets and affected
+combinations. They do not reopen FD916 or require another review of unchanged art.
 
 ## D09 Shared carrier model
 
@@ -320,13 +338,18 @@ criteria. IDs stay stable when allocation changes. The adopted sequence is:
 | Foundation–0.3 | FD001–FD305, existing bounded gates | Preserve accepted architecture and original five families. |
 | 0.4 | FD401–FD404 | Complete remaining recovery and player workflows; core checkpoint only. |
 | 0.5 | FD501–FD503; six discovery IDs; FD1101A–C; FD904C1 | Resolve designs/dependencies, Wing-backed contracts, comfort and reusable tools. |
-| 0.6 | FD1501A–C, FD1301A–C, FD601 | First Spinning variant, then Suspended. |
+| 0.6 | FD1501A–C, FD1301A–C, FD601 | S1 conventional free-spinning, then Suspended. |
 | 0.7 | FD1302A–C, FD1502A–C, FD701 | Axis, then Roller Ball. |
-| 0.8 | FD1401A–C, FD1501D–F, FD810–FD813 | Pipeline, remaining variants and operations adapters. |
+| 0.8 | FD1401A–C, FD1501D–F, FD810–FD813 | Pipeline, S2 launched/inverting free-spinning and operations adapters. |
 | 0.9 | FD910–FD916 | Presentation, optional seats, coexistence and the complete model/texture review. |
 | 1.0 alpha | FD1000 | Complete former-through-1.5 scope and freeze features/profiles. |
 | 1.0 beta / RC | FD901–FD905 | Integrated stabilization and outstanding final qualification. |
 | 1.0 stable | FD1001–FD1003 | Documentation, packaging and separately authorized publication. |
+| 1.1 | FD1601A–C, FD1602–FD1605 | Fixed Inverted, shareable presets, colors/liveries and unified operator panel. |
+| 1.2 | FD1701A–C, FD1702A–C, FD1703 | Ride-local multi-train operation and Dive. |
+| 1.3 | FD1801A–C, FD1802A–C, FD1803 | Conventional Flying and New-generation Flying with shared scenery-facing yaw. |
+| 1.4 | FD1901A–C, FD1902 | Upright-seated Powered Inverted Yaw with powered travel and show stops. |
+| Post-1.0; versions after feasibility | FD2001–FD2007 | Transfer platforms, turntables, drop tables, tilt tracks and the finite additional moving-track styles. |
 | Independent | FD801 | Inspectable functional Track Styles adapter; unavailable upstream work does not block release. |
 
 Milestone gates aggregate completion, not start permissions for unrelated tasks.
@@ -343,6 +366,11 @@ for assignments and next actions; preserve historical evidence separately.
 FD1003 is the final consumer of the expanded scope, never a prerequisite for its
 families. The [integration allocation](docs/INTEGRATION-BACKLOG.md#release-allocation)
 uses the same milestones. No new capability is advertised until its package passes.
+FD1601–FD2007 never feed FD1000/FD905/FD1003. Later implementation uses actual
+integrated contracts, not publication of an earlier release. In particular,
+Flying can start after Fixed Inverted's mechanics handoff without waiting for
+unrelated 1.2 operations; 1.4 consumes FD1802A without waiting for Flying content
+or its release gate. Future work must not disturb the frozen 1.0 candidate.
 
 ## D17 Validation and release scope
 
@@ -366,14 +394,21 @@ apply the [classification policy](docs/VALIDATION-POLICY.md#gate-blockers-and-fo
 
 Budget runtime work per active carrier and constraint as well as per car: cache arc-length tables and rail meshes; invalidate on edits; avoid whole-network searches every frame. Measure a declared benchmark, such as two occupied seven-car controlled trains, several eight-seat free-spin vehicles, and a linked shuttle, against equivalent baseline scenes. Record hardware, carrier count, and frame/tick costs before setting performance guarantees.
 
-The planned releases support fixed-world tracks, with ride families introduced at the release gates in ROADMAP.md. Track mounted on moving contraptions, arbitrary user-built wings, exact linkage replicas, and park-scale traffic control remain follow-up work. Preserve host coordinate information now so later extensions remain possible. Free-spin mechanisms, distinct carrier groupings, and shuttle operation are committed roadmap scope rather than unspecified stretch features.
+The 1.0 and 1.1–1.4 vehicle releases support fixed-world tracks. Purpose-built
+moving-track assemblies are separately committed post-1.0 through FD2001–FD2007
+and D20; their release versions follow native feasibility. Arbitrary track on
+player-built moving contraptions, arbitrary user-built wings, exact linkage
+replicas and park-scale traffic control remain outside that bounded program.
+Preserve host coordinate information for the defined extensions. Free-spin
+mechanisms, distinct carrier groupings and shuttle operation remain committed
+1.0 scope, not unspecified stretch features.
 
 ## D18 Remaining decisions to resolve through prototypes
 
 The questions below retain the original design concerns; accepted original-family
 answers stay accepted. During 0.5, all six discovery IDs resolve the added families'
-axis/mode, seating, track and reference choices, especially Pipeline, the finite
-Spinning variant list and Roller Ball native feasibility. Use a prototype only
+axis/mode, seating, track and reference choices, especially Pipeline, the adopted
+S1/S2 Spinning specifications and Roller Ball native feasibility. Use a prototype only
 for an unresolved constraint, then retain it for implementation. FD501 separately
 resolves dependency and migration choices; do not reopen historical questions
 merely because their wording remains here.
@@ -389,3 +424,96 @@ merely because their wording remains here.
 9. Which existing couplers and ordinary carts can recover a disabled 4D unit while every vehicle stays on compatible track and its carriers remain secured?
 
 These questions do not block the plan. They are the explicit acceptance gates for implementation rather than assumptions hidden inside the design.
+
+## D19 Post-1.0 vehicles, tools and scenery-facing yaw
+
+The [post-1.0 roadmap](ROADMAP.md#post-10-delivery-and-scope) owns statuses,
+implementation steps and finite acceptance. Preserve all 1.0 commitments and
+accepted evidence while extending contracts through concrete features.
+
+| Release | Product scope | Design boundary |
+| --- | --- | --- |
+| 1.1 / FD1601–FD1605 | Fixed Inverted; setting presets; colors/original liveries; unified operator panel | One fixed below-track vehicle configuration with measured running gear. Presets validate compatibility/version/permissions and explicitly rebind world references. Appearance preserves mechanics; panel commands use existing authority. No arbitrary texture uploads, scripting or park-wide controller. |
+| 1.2 / FD1701–FD1703 | Ride-local multi-train operations; one Dive configuration | One fixed circuit, finite train limit and declared homogeneous consists. Whole-consist occupancy/reservations and fail-closed dispatch; Dive approach/hold/release uses the same authority. No shared-track network, arbitrary junction routing or automatic depot management. |
+| 1.3 / FD1801 | Conventional Flying | Seated boarding, station-based changeover to prone flight, locked riding orientation and return to seated unloading. Own restraints, clearance, camera and interrupted-transition recovery. |
+| 1.3 / FD1802 | New-generation Flying sub-variant | Seated/sideways presentation, defined route-based transition to/from prone flight, independent controlled yaw and scenery targeting in both seated and prone postures. Both Flying variants are required before FD1803 closes. |
+| 1.4 / FD1901–FD1902 | Powered Inverted Yaw Coaster | Upright-seated passengers below the track, one independently controlled full-turn yaw carrier per car, powered speed/direction/dwell and scenery-facing show sections. This is the MACK-style concept, distinct from Flying and Arrow-style free lateral swing. |
+
+References: [B&M Inverted](https://www.bolliger-mabillard.com/inverted-coaster),
+[B&M Dive](https://www.bolliger-mabillard.com/dive-coaster),
+[Vekoma Flying](https://www.vekoma.com/flying-coasters) and
+[MACK Inverted Powered](https://www.mack-rides.com/products/inverted-powered-coaster).
+Use original assets and measured game contracts. Vekoma supplies the seated/
+sideways-to-flying inspiration; scenery-facing yaw in both postures is our explicit
+required game capability, not an assertion of exact real-world actuator design.
+
+### Shared yaw and posture ownership
+
+FD1802A delivers yaw through the New-generation Flying implementation; FD1901A
+reuses the integrated handoff. Define each physical yaw pivot and coordinate frame,
+the posture-change axis and transform order, and the swept envelope of simultaneous
+motion. Test targeting in both seated and prone postures on the declared track
+envelope; copying upright yaw math or moving only the camera cannot establish this.
+
+Support authored unwrapped angle profiles and route sections bound to scenery
+markers. Project the target into the mechanism's permitted yaw plane and enforce
+range, winding, angular-speed and acceleration bounds. Preserve canonical path
+direction and retrace authored profiles on reversal. Scenery sections compute
+targets from the current pose. Define smooth entry/exit and deterministic handling
+of missing/unloaded targets, unreachable angles and degenerate projections.
+
+Designated show stops may request bounded yaw changes while travel is held.
+These explicit requests do not advance distance-based profiles or bypass propulsion,
+restraint or capture authority. The original D10 stopped/rollback behavior remains
+unchanged. Specify the authored route/transition state machine that permits these
+mode transitions; unrestricted player edits on moving occupied vehicles remain
+prohibited under D09. Server authority validates edits, bindings and commands.
+
+Synchronize physical carrier, passenger and camera transforms once. Preserve player
+look and comfort settings; target-facing is physical orientation rather than forced
+view direction. Persist target identity, binding, turn count, mode and transition
+state and restore consistent late-join/restart behavior. Fault fallback retains
+valid pose with bounded movement and blocks transitions requiring unavailable
+alignment; it never snaps occupied seats or releases restraints implicitly.
+
+Powered Inverted supplies a working standalone powered-drive path, explicit
+propulsion ownership, editable speed sections, stops/dwell and forward/reverse
+operation. Its finite scene-event interface can drive existing optional lighting/
+audio integrations; no general animation or scripting engine is implied. Its
+example demonstrates moving scenery tracking, a yaw-changing show stop, reverse
+travel and normal station capture/unload. Shared yaw acceptance carries forward;
+new upright pose, drive and failure behavior receives its distinct checks.
+
+## D20 Post-1.0 moving-track mechanisms
+
+FD2001–FD2007 deliver a separate moving-track program after 1.0. Turntables, drop
+tables and tilt tracks are explicitly included. The finite additional set is
+transfer platforms, elevator tracks, teeter-totter tracks, side-drop tracks and
+one yaw-plus-pitch compound motion-table style. References include
+[Intamin's Multi Dimension elements](https://www.intamin.com/product/multi-dimension-coaster/).
+Additional arbitrary styles or axes require an explicit scope addition.
+
+FD2001 first proves a retained track segment moving between two fixed endpoints.
+Disconnect traversable graph edges before motion, retain and capture the vehicle,
+reserve the destination, and reconnect only after measured alignment and locking.
+Specify moving-segment versus chassis/carrier coordinate ownership, declared
+vehicle/consist envelope, provider hooks, braking/retention and fault states.
+Persist enough state to reconcile occupancy, endpoint reservations and motion
+after unload/restart. Endpoint removal, power loss or incomplete alignment must
+leave the vehicle retained and the route unavailable, not attached to a stale edge.
+
+Build translation, yaw rotation, vertical drop and pitch tilt as separate concrete
+mechanisms. Elevator and teeter-totter extend the relevant axis behavior; side-drop
+and compound tables need their own combined-motion clearance and recovery proof.
+Each supplies original content, player controls, an example and completed player
+acceptance. A visual animation with unchanged graph/retention is insufficient.
+
+Assign release numbers and finite shipping increments after the native prototype.
+Accepted mechanisms may ship without waiting for the entire catalog; outstanding
+named styles remain roadmap work. Each increment receives its own permanent
+FD2007 suffix gate, closed once; the parent aggregates the adopted program.
+No moving-track package blocks 1.0 or fixed-track
+1.1–1.4, and no arbitrary moving-contraption support is implied. Reuse prototypes,
+shared graph/retention evidence and per-axis checks; test additional combined
+motion only where behavior actually differs. Do not reopen accepted fixed-track
+families because moving-track research produces a new artifact.

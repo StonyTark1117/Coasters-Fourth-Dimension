@@ -8,14 +8,24 @@ gauge cannot satisfy that gate.
 ## Release scope and planned capabilities
 
 The [integration backlog](INTEGRATION-BACKLOG.md) owns the dated inventory and
-adopted expanded 1.0 allocation. Accepted Create/Engineered/Track Styles behavior
-remains in the core. FD810–FD813 add operations capabilities in 0.8; FD910–FD916
+adopted expanded 1.0 and post-1.0 allocation. Accepted Create/Engineered/Track Styles
+behavior remains in the core. FD810–FD813 add operations capabilities in 0.8; FD910–FD916
 add presentation, optional seats, coexistence and the model/texture review in 0.9.
 FD916 covers original and added assets, including affected supported skin/seat
 configurations; its visual evidence is reused by final rendering qualification.
 Shared prerequisites permit earlier independent work. FD1000 freezes the complete scope at 1.0 alpha;
 FD901–FD905 then finish final qualification. Staging is not runtime activation
 or compatibility certification, and no new addon is required for standalone rides.
+
+Post-1.0 consumers are Fixed Inverted and builder/operator tools (1.1), ride-local
+operations and Dive (1.2), both Flying variants including New-generation scenery-
+facing yaw in seated/prone postures (1.3), and upright-seated Powered Inverted Yaw
+with powered pacing (1.4). FD1802A owns the shared targeting handoff consumed by
+FD1901A. The separate FD2001–FD2007 program adds purpose-built transfer platforms,
+turntables, drop tables, tilt tracks and the finite additional styles after native
+route/retention feasibility. These packages never feed the 1.0 gate; existing
+implementation evidence does not certify their new capabilities. See the
+[post-1.0 packages](../ROADMAP.md#post-10-delivery-and-scope) for finite scope.
 
 Use [FD501's dependency refresh procedure](INTEGRATION-BACKLOG.md#version-refresh-before-expansion)
 before activating new dependencies. The recorded qualification baseline remains
