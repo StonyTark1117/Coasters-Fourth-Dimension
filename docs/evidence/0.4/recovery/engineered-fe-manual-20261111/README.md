@@ -51,6 +51,16 @@ diagnostic input, so subsequent off-track samples are excluded from acceptance.
 before that diagnostic overrun. The client and owned Xvfb service were then
 stopped; no other display or client was addressed.
 
+Restore preparation checked on 2026-11-11: the archive's saved Arrow is
+**detached with restraints open** (`recovery_cart` absent, `restraints=0`,
+`stopping=1`, `maintenance=1`). Its saved fault also requires stowing rider
+equipment. The retained archive supplies the built route and provider setup;
+before using it for F2, restore certified rider equipment, position/select a
+stopped ordinary bearing at the correct axle spacing, and establish the occupied
+retained recovery link. A stationary restored car alone does not establish an
+attached, braked recovery hold. These saved-state observations do not change
+the F1 acceptance above.
+
 The validation-only `/fd validation board_locked Dev` command mounted the real
 native seat and closed restraints. All provider construction, bearing placement
 and selection, recovery Attach/Start/Brake/Detach controls, power wiring, world
