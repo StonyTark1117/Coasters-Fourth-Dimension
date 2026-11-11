@@ -19,7 +19,7 @@ do not create another tracker or reopen cases. A next action may reference a
 package step without adding every future step to this queue.
 
 **Active milestone: 0.4.** Execution guidance updated 2026-11-11. This is the
-remaining acceptance queue, placed before artifact history. It refines the existing FD402B/E/F
+remaining acceptance queue, placed before artifact history. It refines the existing FD402E/F
 and FD403A–F criteria; it does not add scope or change any acceptance result.
 FD401A–D and FD402A/C/D stay closed and are intentionally absent.
 
@@ -38,8 +38,7 @@ The accepted ordinary two-client Arrow tow/release is not a new case.
 
 FD402 coordination updated 2026-11-11: **Improve FD402 workflow efficiency**
 (chat `01a1caa7-1e6e-7d83-8890-6178f04957c3`) owns the remaining E1–E7 queue. **Audit remaining 0.4.0 work**
-(`01a1ca54-e940-76d0-ad14-297ea8d18d8b`) owns B1–B7 execution and evidence
-reconciliation. Coordinate runtime reservations directly; these assignments do
+(`01a1ca54-e940-76d0-ad14-297ea8d18d8b`) owns the completed B1–B7 evidence reconciliation. Coordinate runtime reservations directly; these assignments do
 not impose a single-client limit or add acceptance requirements.
 
 FD402F2 is now closed by the [combined rendered control record](evidence/0.4/recovery/engineered-fe-combined-pass-20261111/README.md),
@@ -51,19 +50,27 @@ The prior **Complete FD402 integration coverage** chat
 (`01a1a0bd-9ec4-7b63-a613-b82679660855`) is no longer an execution owner.
 The inactive **Complete FD402** chat's old low-memory blocker is historical.
 Verify live PID/cgroup ownership before display reuse and measure current
-resource headroom when scheduling E; no E runtime is reserved yet.
+resource headroom when scheduling E. The coordinator now reserves E1/E2 at
+`/home/braydon/.local/state/fourthdimension-runs/fd402e-arrow-20261111`,
+private displays `:279`/`:280`, loopback port 25479. Two-rider fixture setup
+precedes a cold restart with fixture automation disabled (E2), then one-rider
+reconnect while the other stays mounted (E1). E3–E7 have no runtime reserved.
+
+The FD402B1–B7 matrix is now closed cumulatively on 2026-11-11. The seven
+[current banked render slices](evidence/0.4/recovery/occupied-banked-render-motion/current-matrix-20261111.md)
+cover each occupied family/train through the bend and sustained bank with
+mounted riders, rendered chassis/carrier/rack/track bodies and native cart
+motion. Existing [banked-train release evidence](evidence/0.4/recovery/banked-trains/acceptance.md),
+[family substep release evidence](evidence/0.4/recovery/remaining-family-native-physics-substeps/acceptance.md),
+[sampled model clearance](evidence/0.4/recovery/model-clearance/acceptance.md), and
+[two-client rendered lifecycle evidence](evidence/0.4/recovery/two-client-recovery-lifecycle/acceptance.md)
+supply the cumulative runout, brake/power-cut, detach/unload, identity and
+native-frame agreement required by the roadmap. No B row remains open.
 
 | Open case | Exact remaining gap | Owner | Existing evidence | Next action |
 | --- | --- | --- | --- | --- |
-| **FD402B1** | Arrow single car: missing occupied moving rider/body/rack/track views across the declared banked route. | Audit remaining 0.4.0 work (`01a1ca54-e940-76d0-ad14-297ea8d18d8b`) — active | [Occupied Arrow single](evidence/0.4/recovery/occupied-render-motion/acceptance.md); [Rendered train](evidence/0.4/recovery/rendered-recovery-train/acceptance.md); [accepted native clearance](evidence/0.4/recovery/current-input-review-95301062/README.md) | Carry the accepted single-car link/render/motion observations forward. Use the retained banked route to capture the missing bend, sustained bank, runout, release and mount-retention views; do not repeat accepted physics or ordinary operator input. |
-| **FD402B2** | Legacy single car: missing occupied moving rider/body/rack/track views across the declared banked route. | FD402 coordinator — queued | [Rendered train](evidence/0.4/recovery/rendered-recovery-train/acceptance.md); [accepted native clearance](evidence/0.4/recovery/current-input-review-95301062/README.md) | Reuse the retained route and capture uncovered views and mount retention; do not repeat accepted physics or ordinary operator input. |
-| **FD402B3** | Free Spin single car: missing occupied moving rider/body/rack/track views across the declared banked route. | FD402 coordinator — queued | [Rendered train](evidence/0.4/recovery/rendered-recovery-train/acceptance.md); [accepted native clearance](evidence/0.4/recovery/current-input-review-95301062/README.md) | Reuse the retained route and capture uncovered views and mount retention; do not repeat accepted physics or ordinary operator input. |
-| **FD402B4** | Revised single car: missing occupied moving rider/body/rack/track views across the declared banked route. | FD402 coordinator — queued | [Rendered train](evidence/0.4/recovery/rendered-recovery-train/acceptance.md); [accepted native clearance](evidence/0.4/recovery/current-input-review-95301062/README.md) | Reuse the retained route and capture uncovered views and mount retention; do not repeat accepted physics or ordinary operator input. |
-| **FD402B5** | PAX single car: missing occupied moving rider/body/rack/track views across the declared banked route. | FD402 coordinator — queued | [Rendered train](evidence/0.4/recovery/rendered-recovery-train/acceptance.md); [accepted native clearance](evidence/0.4/recovery/current-input-review-95301062/README.md) | Reuse the retained route and capture uncovered views and mount retention; do not repeat accepted physics or ordinary operator input. |
-| **FD402B6** | two-car Arrow train: missing occupied moving rider/body/rack/track views across the declared banked route. | FD402 coordinator — queued | [Rendered train](evidence/0.4/recovery/rendered-recovery-train/acceptance.md); [accepted native clearance](evidence/0.4/recovery/current-input-review-95301062/README.md) | Reuse the retained route and capture uncovered views and mount retention; do not repeat accepted physics or ordinary operator input. |
-| **FD402B7** | four-car PAX train: missing occupied moving rider/body/rack/track views across the declared banked route. | FD402 coordinator — queued | [Rendered train](evidence/0.4/recovery/rendered-recovery-train/acceptance.md); [accepted native clearance](evidence/0.4/recovery/current-input-review-95301062/README.md) | Reuse the retained route and capture uncovered views and mount retention; do not repeat accepted physics or ordinary operator input. |
-| **FD402E1** | Rider disconnect/rejoin while a second rider remains in recovery. | FD402 coordinator — queued | [Two-client Arrow baseline](evidence/0.4/recovery/two-client-recovery-lifecycle/acceptance.md); [General occupied reconnect](evidence/0.9/occupied-disconnect-reconnect.md#concurrent-rider-arrow-checkpoint); [accepted one-player persistence](evidence/0.4/recovery/linked-train-fresh-process-656725bc-20261105/README.md) | Check the missing rider-return path with attached ordinary-bearing recovery and retained seat/vehicle identities; both clients observe the result. General occupied reconnect evidence does not by itself establish the recovery-link interaction. |
-| **FD402E2** | Cold server restart of braked recovery with two riders. | FD402 coordinator — queued | [Two-client Arrow baseline](evidence/0.4/recovery/two-client-recovery-lifecycle/acceptance.md); [accepted one-player persistence](evidence/0.4/recovery/linked-train-fresh-process-656725bc-20261105/README.md) | Check two-client restoration, braked hold and explicit resume; reuse accepted one-player save mechanics. |
+| **FD402E1** | Rider disconnect/rejoin while a second rider remains in recovery. | Improve FD402 workflow efficiency — reserved after E2 | [Two-client Arrow baseline](evidence/0.4/recovery/two-client-recovery-lifecycle/acceptance.md); [General occupied reconnect](evidence/0.9/occupied-disconnect-reconnect.md#concurrent-rider-arrow-checkpoint); [accepted one-player persistence](evidence/0.4/recovery/linked-train-fresh-process-656725bc-20261105/README.md) | Check the missing rider-return path with attached ordinary-bearing recovery and retained seat/vehicle identities; both clients observe the result. General occupied reconnect evidence does not by itself establish the recovery-link interaction. |
+| **FD402E2** | Cold server restart of braked recovery with two riders. | Improve FD402 workflow efficiency — preparing two-client Arrow job | [Two-client Arrow baseline](evidence/0.4/recovery/two-client-recovery-lifecycle/acceptance.md); [accepted one-player persistence](evidence/0.4/recovery/linked-train-fresh-process-656725bc-20261105/README.md) | Check two-client restoration, braked hold and explicit resume; reuse accepted one-player save mechanics. |
 | **FD402E3** | Chunk unload/reload during recovery retains or safely releases the original group. | FD402 coordinator — queued | [Two-client Arrow baseline](evidence/0.4/recovery/two-client-recovery-lifecycle/acceptance.md); [accepted one-player persistence](evidence/0.4/recovery/linked-train-fresh-process-656725bc-20261105/README.md) | Check the uncovered recovery chunk-return path and reject duplication or automatic resume. |
 | **FD402E4** | Temporary coupling unavailability and restoration during recovery. | FD402 coordinator — queued | [Two-client Arrow baseline](evidence/0.4/recovery/two-client-recovery-lifecycle/acceptance.md); [accepted one-player persistence](evidence/0.4/recovery/linked-train-fresh-process-656725bc-20261105/README.md) | Check the distinct linked-consist interruption/restore path, retained identities and explicit recovery. |
 | **FD402E5** | Temporary bearing unavailability and restoration during recovery. | FD402 coordinator — queued | [Two-client Arrow baseline](evidence/0.4/recovery/two-client-recovery-lifecycle/acceptance.md); [accepted one-player persistence](evidence/0.4/recovery/linked-train-fresh-process-656725bc-20261105/README.md) | Check the bearing interruption/restore path with retained identities and no automatic resume. |
