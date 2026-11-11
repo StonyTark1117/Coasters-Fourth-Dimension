@@ -12,6 +12,11 @@ accepted crafting, input, mechanics, teaching and save/reopen records after a
 relevant-change review. Extend saved player-built routes when only the shaped or
 powered portion is missing. A fresh world and one uninterrupted all-steps session
 are not requirements; preserve enough provenance to connect the observations.
+Use the [current 0.4 queue](CURRENT-QUALIFICATION.md#current-work-queue) for
+case ownership and next actions. The matrix below records the gaps at queue
+adoption; later case closures supersede its “still needed” wording. A family
+walkthrough record may close both its family case and the matching FD403F teaching
+claim without a second exercise.
 
 ## Evidence already recorded
 
@@ -106,7 +111,9 @@ controls or instructions for family matching, the ordinary cart exception,
 controlled versus free motion, and PAX boarding as applicable.
 The nine Ponder diagrams are illustrations; their playback alone does not prove
 physical operation. Record any misleading instruction or clipped UI, correct
-it, and repeat the affected review.
+it if it violates a required teaching/legibility criterion, and repeat only the
+affected review. Optional presentation refinements go to follow-up notes; apply
+the [blocker classification](VALIDATION-POLICY.md#gate-blockers-and-follow-up-work).
 
 ## Acceptance record
 

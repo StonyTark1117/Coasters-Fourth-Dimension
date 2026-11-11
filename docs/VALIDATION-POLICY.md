@@ -17,12 +17,15 @@ record carry-forward and continue implementation without another runtime run.
 
 ## Before a run
 
-Read the current task status and [qualification record](CURRENT-QUALIFICATION.md).
+Read the current task status and [remaining-case queue](CURRENT-QUALIFICATION.md#current-work-queue)
+before the qualification record's historical evidence. Claim or confirm the case's
+owner and check for a run already covering it. An unrecorded owner is not proof
+that no other agent is running the case.
 Name the unresolved behavior or relevant change, the smallest check that answers
 it, and the pass/stop condition. A sentence in the task update is enough; no new
 manifest or audit document is required just to decide whether to test.
 If existing evidence already answers it and the relevant inputs are unchanged,
-link that evidence and stop. Check for a run already covering the same case.
+link that evidence, close the case and stop.
 
 Acceptance is cumulative by behavior and supported configuration. Construction,
 normal input, motion, rendering, and persistence may have separate records; they
@@ -119,3 +122,38 @@ product failure, and a passing unrelated test cannot waive either uncertainty.
 Raw evidence remains immutable. Current task status takes precedence over old
 per-run “still open” prose. Update one current status/next-action entry rather
 than appending another expanding checklist to every successful run.
+
+## Shared-contract client handoff
+
+New mechanics tasks that supply shared seat, carrier, restraint or pose interfaces
+include a representative connected-client occupied cycle before dependent mechanics
+consume them. Follow the [roadmap handoff](../ROADMAP.md#shared-contract-handoff):
+native checks still cover invariants, while normal client input proves mount,
+motion, capture/unload and camera restoration. Use a second real client for a new
+or changed synchronization path; reuse accepted representative coverage otherwise.
+
+This is an early use of the feature's required player evidence, not an extra run
+at each handoff. Functional geometry and seats must be real; decorative polish
+can follow. Later player acceptance cites the same proof and checks only remaining
+claims. Do not apply this new scheduling rule retrospectively to closed packages.
+
+## Gate blockers and follow-up work
+
+Before holding a milestone or release open, record the affected case, the named
+required criterion or supported invariant it violates, and the gate that consumes
+it. Use the existing case entry; no separate audit document is required. The task
+owner may close a covered case directly with evidence and update its package;
+routine closure does not require another reviewer or permission round.
+
+| Finding | Disposition |
+| --- | --- |
+| Missing promised functionality or failure of a required criterion: incorrect mechanics/eligibility, unsafe restraint or capture behavior, lost/duplicated riders, save corruption, broken supported installation, unreadable required guidance, or a failed declared performance budget | Block the consuming feature/gate and eventual release until resolved. A newly discovered supported-case failure still blocks even if the case must first be added under an existing requirement. Preserve other completed cases and milestones. |
+| Fixture, input targeting or collector failure leaves a required claim unproven | Keep that specific claim open; diagnose after two inconclusive attempts. Distinguish an evidence/setup blocker from a product defect and continue independent work. |
+| Cosmetic refinement, extra diagnostics or another observation that does not address an unmet required criterion | Record as nonblocking follow-up in the owning package, outside its required checklist. Do not reopen acceptance, rebuild a candidate or add a runtime campaign solely for this work. |
+
+Severity labels alone do not change scope. A small visual defect that violates
+required clearance, pose ownership or legibility is still a blocker; a preference
+for another livery is not. No promised family, variant, capability or criterion
+may be silently reclassified as optional polish. Resolve ambiguous requirements
+explicitly instead of inventing a stricter criterion after a pass or waiving a
+supported failure. Fixes reopen and recheck only the affected cases.

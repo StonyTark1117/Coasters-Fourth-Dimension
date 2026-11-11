@@ -46,6 +46,14 @@ case again without restarting qualification. Combine compatible evidence to
 finish whole tasks; do not keep them open merely because individual records
 describe bounded “slices.”
 
+Start from the current remaining-case queue in
+[docs/CURRENT-QUALIFICATION.md](docs/CURRENT-QUALIFICATION.md#current-work-queue),
+confirm ownership, and update it as cases close. Historical “still open” notes
+are not assignments. Name the violated required criterion before treating a
+finding as a gate blocker; nonblocking polish stays outside acceptance. New
+shared-contract mechanics include the roadmap's early occupied-client proof,
+which later feature acceptance reuses rather than repeats.
+
 # Java runtime
 
 Use **Java 21** for every Gradle command, build, GameTest, server, and client run

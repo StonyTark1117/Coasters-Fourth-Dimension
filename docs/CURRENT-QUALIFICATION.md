@@ -11,6 +11,68 @@ checkpoint; FD1000 owns the expanded 1.0 alpha freeze. The identities and runtim
 observations below are unchanged by roadmap adoption. New implementation records
 will carry unaffected acceptance forward; no new JAR or run is required here.
 
+## Current work queue
+
+**Active milestone: 0.4.** Execution guidance updated 2026-11-11. This is the
+remaining acceptance queue, placed before artifact history. It refines the existing FD402B/E/F
+and FD403A–F criteria; it does not add scope or change any acceptance result.
+FD401A–D and FD402A/C/D stay closed and are intentionally absent.
+
+Case IDs below are stable children of their owning roadmap task. All listed cases
+are open; **unrecorded** means this document does not establish a current owner,
+not that no other agent is working. Confirm/claim ownership before a run. The gap
+column states the required outcome; the next action starts from retained evidence.
+A case may close by evidence reconciliation without launching Minecraft.
+
+For FD402B, capture only missing occupied bend/bank/runout/release views, including
+certified wearable alternatives where they change the render claim. Retain native
+clearance acceptance. For FD402E, cover representative Arrow and four-car PAX
+paths and the base/combined adapter interaction across the case set. Reuse shared
+paths; these rows do not multiply into every family × profile × interruption.
+The accepted ordinary two-client Arrow tow/release is not a new case.
+
+| Open case | Exact remaining gap | Owner | Existing evidence | Next action |
+| --- | --- | --- | --- | --- |
+| **FD402B1** | Arrow single car: missing occupied moving rider/body/rack/track views across the declared banked route. | Unrecorded | [Rendered train](evidence/0.4/recovery/rendered-recovery-train/acceptance.md); [accepted native clearance](evidence/0.4/recovery/current-input-review-95301062/README.md) | Reuse the retained route and capture uncovered views and mount retention; do not repeat accepted physics or ordinary operator input. |
+| **FD402B2** | Legacy single car: missing occupied moving rider/body/rack/track views across the declared banked route. | Unrecorded | [Rendered train](evidence/0.4/recovery/rendered-recovery-train/acceptance.md); [accepted native clearance](evidence/0.4/recovery/current-input-review-95301062/README.md) | Reuse the retained route and capture uncovered views and mount retention; do not repeat accepted physics or ordinary operator input. |
+| **FD402B3** | Free Spin single car: missing occupied moving rider/body/rack/track views across the declared banked route. | Unrecorded | [Rendered train](evidence/0.4/recovery/rendered-recovery-train/acceptance.md); [accepted native clearance](evidence/0.4/recovery/current-input-review-95301062/README.md) | Reuse the retained route and capture uncovered views and mount retention; do not repeat accepted physics or ordinary operator input. |
+| **FD402B4** | Revised single car: missing occupied moving rider/body/rack/track views across the declared banked route. | Unrecorded | [Rendered train](evidence/0.4/recovery/rendered-recovery-train/acceptance.md); [accepted native clearance](evidence/0.4/recovery/current-input-review-95301062/README.md) | Reuse the retained route and capture uncovered views and mount retention; do not repeat accepted physics or ordinary operator input. |
+| **FD402B5** | PAX single car: missing occupied moving rider/body/rack/track views across the declared banked route. | Unrecorded | [Rendered train](evidence/0.4/recovery/rendered-recovery-train/acceptance.md); [accepted native clearance](evidence/0.4/recovery/current-input-review-95301062/README.md) | Reuse the retained route and capture uncovered views and mount retention; do not repeat accepted physics or ordinary operator input. |
+| **FD402B6** | two-car Arrow train: missing occupied moving rider/body/rack/track views across the declared banked route. | Unrecorded | [Rendered train](evidence/0.4/recovery/rendered-recovery-train/acceptance.md); [accepted native clearance](evidence/0.4/recovery/current-input-review-95301062/README.md) | Reuse the retained route and capture uncovered views and mount retention; do not repeat accepted physics or ordinary operator input. |
+| **FD402B7** | four-car PAX train: missing occupied moving rider/body/rack/track views across the declared banked route. | Unrecorded | [Rendered train](evidence/0.4/recovery/rendered-recovery-train/acceptance.md); [accepted native clearance](evidence/0.4/recovery/current-input-review-95301062/README.md) | Reuse the retained route and capture uncovered views and mount retention; do not repeat accepted physics or ordinary operator input. |
+| **FD402E1** | Rider disconnect/rejoin while a second rider remains in recovery. | Unrecorded | [Two-client Arrow baseline](evidence/0.4/recovery/two-client-recovery-lifecycle/acceptance.md); [accepted one-player persistence](evidence/0.4/recovery/linked-train-fresh-process-656725bc-20261105/README.md) | Check the missing rider-return path and retained seat/vehicle identities; both clients observe the result. |
+| **FD402E2** | Cold server restart of braked recovery with two riders. | Unrecorded | [Two-client Arrow baseline](evidence/0.4/recovery/two-client-recovery-lifecycle/acceptance.md); [accepted one-player persistence](evidence/0.4/recovery/linked-train-fresh-process-656725bc-20261105/README.md) | Check two-client restoration, braked hold and explicit resume; reuse accepted one-player save mechanics. |
+| **FD402E3** | Chunk unload/reload during recovery retains or safely releases the original group. | Unrecorded | [Two-client Arrow baseline](evidence/0.4/recovery/two-client-recovery-lifecycle/acceptance.md); [accepted one-player persistence](evidence/0.4/recovery/linked-train-fresh-process-656725bc-20261105/README.md) | Check the uncovered recovery chunk-return path and reject duplication or automatic resume. |
+| **FD402E4** | Temporary coupling unavailability and restoration during recovery. | Unrecorded | [Two-client Arrow baseline](evidence/0.4/recovery/two-client-recovery-lifecycle/acceptance.md); [accepted one-player persistence](evidence/0.4/recovery/linked-train-fresh-process-656725bc-20261105/README.md) | Check the distinct linked-consist interruption/restore path, retained identities and explicit recovery. |
+| **FD402E5** | Temporary bearing unavailability and restoration during recovery. | Unrecorded | [Two-client Arrow baseline](evidence/0.4/recovery/two-client-recovery-lifecycle/acceptance.md); [accepted one-player persistence](evidence/0.4/recovery/linked-train-fresh-process-656725bc-20261105/README.md) | Check the bearing interruption/restore path with retained identities and no automatic resume. |
+| **FD402E6** | Permanent coupling removal during recovery. | Unrecorded | [Two-client Arrow baseline](evidence/0.4/recovery/two-client-recovery-lifecycle/acceptance.md); [accepted one-player persistence](evidence/0.4/recovery/linked-train-fresh-process-656725bc-20261105/README.md) | Check safe retained/released rider and consist state; temporary loss evidence does not establish permanent removal. |
+| **FD402E7** | Permanent bearing removal during recovery. | Unrecorded | [Two-client Arrow baseline](evidence/0.4/recovery/two-client-recovery-lifecycle/acceptance.md); [accepted one-player persistence](evidence/0.4/recovery/linked-train-fresh-process-656725bc-20261105/README.md) | Check safe rider/vehicle state and cleanup of invalid recovery links; reuse unaffected detach mechanics. |
+| **FD402F1** | Engineered-only: rendered manual Arrow recovery FE hold, explicit tow, starvation/restore without automatic motion, rebrake and cleanup. | Unrecorded | [Native recovery FE](evidence/0.4/recovery/engineered-fe/acceptance.md); [accepted operator workflow](evidence/0.4/recovery/manual-occupied-arrow-operator-20261105/README.md) | Use the certified bearing and declared producer/wire setup. Carry shared controls/native FE evidence forward; observe only the missing manual/profile behavior. |
+| **FD402F2** | combined: rendered manual Arrow recovery FE hold, explicit tow, starvation/restore without automatic motion, rebrake and cleanup. | Unrecorded | [Native recovery FE](evidence/0.4/recovery/engineered-fe/acceptance.md); [accepted operator workflow](evidence/0.4/recovery/manual-occupied-arrow-operator-20261105/README.md) | Use the certified bearing and declared producer/wire setup. Carry shared controls/native FE evidence forward; observe only the missing manual/profile behavior. |
+| **FD403A** | Arrow: complete the player-built powered circuit, full controlled turn and family walkthrough. | Unrecorded | [Powered route/reopen](evidence/0.4/survival-client-arrow-powered/acceptance.md); [crafting](evidence/0.4/survival-client-arrow-loop-connected-attempt1/README.md) | Extend the saved route through normal client Chain input; record missing circuit/capture/unload/reopen behavior and walkthrough steps. |
+| **FD403B** | Legacy: player-built shaped powered route, occupied free response and family walkthrough. | Unrecorded | [Powered route/reopen](evidence/0.4/survival-client-legacy-powered/acceptance.md); [shaped demo](evidence/0.4/survival-client-legacy-powered/demo/acceptance.md) | Extend the player-built route; combine accepted crafting/capture/persistence with the missing shaped-route and teaching evidence. |
+| **FD403C** | Free Spin: player-built shaped route with inducer/damper spans and family walkthrough. | Unrecorded | [Powered route/reopen](evidence/0.4/survival-client-free-spin-powered/acceptance.md); [damper evidence](evidence/0.4/survival-client-free-spin-powered/damper-demo/acceptance.md) | Complete the normal route/ride; capture missing released-carrier damper observations and teaching steps, reusing accepted native checks. |
+| **FD403D** | Revised: player-built powered route, independent lower hinges and family walkthrough. | Unrecorded | [Construction/reopen](evidence/0.4/survival-client-revised/acceptance.md); [powered demo](evidence/0.4/survival-client-revised/powered-demo/acceptance.md) | Extend the existing player-built route, record the missing normal powered cycle and reconcile its save/teaching coverage. |
+| **FD403E** | PAX: remaining four-car tutorial steps and disclosed upstream setup boundaries. | Unrecorded | [Survival-built cycle/reopen](evidence/0.4/survival-client-pax/survival-cycle/acceptance.md) | Review the walkthrough against accepted linking/winch/cycle evidence; observe only uncovered steps. Do not rerun the completed cycle merely for teaching closure. |
+| **FD403F** | Family walkthrough instructions agree with the completed player paths; only changed or misleading teaching steps remain. | Unrecorded | [Accepted tooltips/Ponder](evidence/0.4/teaching-current/acceptance.md); [procedure](FD403-ACCEPTANCE.md#family-mechanics-and-teaching-review) | Use the same A–E walkthrough records to close teaching coverage. Retain all fifteen tooltip, nine scene and 53 registration results; fix/recheck only affected instructions. |
+
+
+When a case passes or existing evidence closes it, record the closure under its
+owning roadmap row (case ID, evidence and date), then remove it from this active
+queue in the same update. A partially covered case lists only its remaining gap;
+completed subclaims stay accepted. One run may close several rows, including a
+family walkthrough and its FD403F teaching claim. Do not require another run for
+the second label or a new JAR. Close each parent when its required cases are covered;
+FD404 then reconciles those closed parents without a fresh sweep.
+
+Only add a case for an existing unresolved criterion, a named supported regression
+or an explicitly adopted scope change. Use the [blocker classification](VALIDATION-POLICY.md#gate-blockers-and-follow-up-work).
+Nonblocking refinements belong in the owning package's follow-up notes, outside
+this acceptance queue. Later milestones add their unresolved cases when activated;
+there is no retrospective cataloging task for every historical run. Roadmap rows
+own criteria/package status; this queue owns case assignment and next action;
+the records below preserve artifact provenance and observations.
+
 ## Artifact and scope
 
 | Field | Recorded value |
@@ -59,7 +121,7 @@ Each linked record retains the selected JAR hash, runtime classpath, dependency 
 
 ## Evidence reuse and required retests
 
-**Read current task status before scheduling a run.** FD401A–D are complete
+**Read the [current queue](#current-work-queue) and task status before scheduling a run.** FD401A–D are complete
 within their declared scope. All four five-family server telemetry profile rows
 below have passes. [FD401 current status](../ROADMAP.md#fd401-deliver-optional-provider-infrastructure)
 supersedes old per-run FE/client-output gaps that later evidence closed. Accepted construction, normal-seat
@@ -172,6 +234,10 @@ before carrying their PAX claims forward; class-name changes alone do not order
 a replay of every PAX path.
 
 ## Updating the record
+
+Update the active queue and owning roadmap row as cases close; preserve the
+observation history below its recorded boundaries. Do not derive a fresh work
+queue from older per-run limitations.
 
 Keep this qualification baseline stable while collecting evidence. For a relevant
 production fix, record the fix artifact and the affected cases; carry unaffected

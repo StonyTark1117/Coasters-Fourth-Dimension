@@ -21,7 +21,9 @@ optional for standalone rides, and publication requires separate authorization.
 
 The build notes below retain their historical observations and limitations.
 Current acceptance belongs to [ROADMAP.md](ROADMAP.md): FD401A–D and FD402A/C/D
-are complete; older “remaining/open” notes do not reopen them.
+are complete; older “remaining/open” notes do not reopen them. The
+[current work queue](docs/CURRENT-QUALIFICATION.md#current-work-queue) lists
+only unresolved 0.4 cases, their owners, evidence and next actions.
 
 The FD402 [sampled player/rack checkpoint](docs/evidence/0.4/recovery/player-rack-clearance/acceptance.md)
 adds family-correct axle geometry and part-level vanilla seated-player clearance
@@ -66,7 +68,8 @@ The [1.0 plan](ROADMAP.md#supported-envelope-and-explicit-10-dispositions) retai
 these as explicit supported limits. They are admission/storage ceilings, not a
 performance guarantee for a fully populated park. Boundary qualification and the
 representative-park benchmark remain release work; optional stabilized camera
-delivery is tracked separately in FD904C.
+baseline delivery is tracked in FD904C1; FD904C2 reconciles later family/effects
+coverage without reopening that baseline.
 
 ## Build a ride
 

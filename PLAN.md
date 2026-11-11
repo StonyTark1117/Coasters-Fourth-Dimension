@@ -18,7 +18,8 @@ inventory and adopted allocation. Its November 2 catalog and the initial
 September 30 research remain historical inspections, not claims about latest
 releases. Review dependencies through FD501 before activating expansion profiles.
 The archived schema-7/protocol-8 registry is not automatically part of the build;
-FD501/FD501A own the decision and any necessary migration.
+FD501 records core and per-adapter decisions. FD501A owns core-required changes;
+FD501B–H own adapter-specific prerequisites without blocking unrelated families.
 
 The [qualification record](docs/CURRENT-QUALIFICATION.md) retains actual run
 identities. [VALIDATION-POLICY.md](docs/VALIDATION-POLICY.md) governs cumulative
@@ -195,9 +196,12 @@ proves fixed seats; the first Spinning variant proves configurable carrier axis
 and pivot behavior; Suspended adds bounded swing and locking. Axis and Roller Ball
 reuse only mechanics that actually match. Declare seat/restraint, camera and
 propulsion ownership explicitly, and preserve existing persisted identifiers.
-Use FD501A for any necessary format migration rather than treating a new vehicle
-or artifact hash as an automatic schema change. One owner integrates shared
-runtime changes before dependent feature work uses them.
+Use FD501A for core-required format changes and the consuming FD501B–H package
+for adapter-specific migration; a new vehicle or artifact hash does not itself
+require a schema change. One owner integrates shared runtime changes and the
+[representative occupied client proof](ROADMAP.md#shared-contract-handoff) before
+dependent mechanics use them. Decorative art can follow; later player acceptance
+reuses that proof instead of ordering another cycle.
 
 Each vehicle definition describes its role, required functional track family/variant, running-gear profile, seat positions, pivot transforms, carrier groups, permitted couplings, mass/inertia preset, attachment compatibility, and boarding pose. Each carrier persists its unwrapped angle, angular velocity, mode, and lock state. Modes are controlled, free, magnet-assisted, and boarding capture/locked. Ordinary carts have no 4D carrier state. Shuttle operation is a separate train state machine, not another way to compute seat angle.
 
@@ -277,12 +281,12 @@ Implement the rotation math independently of Minecraft; keep Coasters integratio
 
 The seat carrier, rider body, and camera must agree on one transform. Preserve normal mouse look relative to the rider’s seat. Test upside-down views, first-person arms, third-person rendering, and camera restoration after dismount. Offer an optional comfort view that stabilizes the camera without altering the server’s seat motion.
 
-FD904C owns baseline delivery during 0.5 with the original families and Wing,
-using its early prerequisites rather than waiting for final release qualification.
-Later family acceptance adds distinct pose cases while preserving the baseline;
-FD912 composes optional effects during 0.9. Existing Sable transforms alone do
-not establish a selectable comfort option. The final gate consumes this cumulative
-evidence instead of ordering a new camera implementation or full replay.
+FD904C1 owns the independently closable 0.5 baseline for the original families
+and Wing. FD503 and FD912 depend on C1, not the whole FD904C parent. Later family
+acceptance adds distinct pose/comfort cases while C1 stays closed; FD912 supplies
+optional effects during 0.9. FD904C2 reconciles those records after FD1000 without
+a second implementation or full replay. Existing Sable transforms alone do not
+establish a selectable comfort option.
 
 The server owns profiles, tuning, binding, restraints, shuttle state, and actual mechanical state. Synchronize each carrier’s angle, angular velocity, lock/mode, and occupancy revision with timestamps and stable identities. Include complete initial state for late joiners. Reuse Sable transforms where appropriate and avoid applying the carrier rotation twice. Preserve turn count when reconnecting or interpolating through full turns. Save free-spin angular state and pause unloaded assemblies consistently; do not simulate an arbitrary offline catch-up on reload.
 
@@ -299,7 +303,7 @@ criteria. IDs stay stable when allocation changes. The adopted sequence is:
 | --- | --- | --- |
 | Foundation–0.3 | FD001–FD305, existing bounded gates | Preserve accepted architecture and original five families. |
 | 0.4 | FD401–FD404 | Complete remaining recovery and player workflows; core checkpoint only. |
-| 0.5 | FD501–FD503; six discovery IDs; FD1101A–C; early FD904C | Resolve designs/dependencies, Wing-backed contracts, comfort and reusable tools. |
+| 0.5 | FD501–FD503; six discovery IDs; FD1101A–C; FD904C1 | Resolve designs/dependencies, Wing-backed contracts, comfort and reusable tools. |
 | 0.6 | FD1501A–C, FD1301A–C, FD601 | First Spinning variant, then Suspended. |
 | 0.7 | FD1302A–C, FD1502A–C, FD701 | Axis, then Roller Ball. |
 | 0.8 | FD1401A–C, FD1501D–F, FD810–FD813 | Pipeline, remaining variants and operations adapters. |
@@ -311,10 +315,14 @@ criteria. IDs stay stable when allocation changes. The adopted sequence is:
 
 Milestone gates aggregate completion, not start permissions for unrelated tasks.
 Read-only discovery and concepts can advance during 0.4. Operations adapters start
-after their control/provider prerequisites; Pipeline does not wait for Axis.
+after their own FD501B–H and control/provider prerequisites; Pipeline does not
+wait for Axis. FD501A depends only on the core decision, so optional-addon blockers
+do not delay unrelated vehicle mechanics.
 Recipes, guides and examples accompany each feature. Shared runtime changes have
 one owner and integrate into `main` before dependent work starts. Feature assignments
 own complete outcomes, not perpetually open collections of evidence “slices.”
+Use the [current case queue](docs/CURRENT-QUALIFICATION.md#current-work-queue)
+for assignments and next actions; preserve historical evidence separately.
 
 FD1003 is the final consumer of the expanded scope, never a prerequisite for its
 families. The [integration allocation](docs/INTEGRATION-BACKLOG.md#release-allocation)
@@ -335,7 +343,10 @@ blocked fixtures and measurement collectors early in FD502, reuse worlds, and
 diagnose after two inconclusive attempts with the same approach. Schedule client
 runs as coordinated host work. Use native tests for mechanism invariants and
 connected clients for real interaction, rendering and rider synchronization;
-separate valid records may close a complete feature.
+separate valid records may close a complete feature. A required criterion or
+supported invariant must identify each gate blocker. Nonblocking cosmetic or
+diagnostic refinements stay in follow-up notes, never as new acceptance work;
+apply the [classification policy](docs/VALIDATION-POLICY.md#gate-blockers-and-follow-up-work).
 
 Budget runtime work per active carrier and constraint as well as per car: cache arc-length tables and rail meshes; invalidate on edits; avoid whole-network searches every frame. Measure a declared benchmark, such as two occupied seven-car controlled trains, several eight-seat free-spin vehicles, and a linked shuttle, against equivalent baseline scenes. Record hardware, carrier count, and frame/tick costs before setting performance guarantees.
 

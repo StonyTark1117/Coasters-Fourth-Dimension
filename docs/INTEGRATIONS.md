@@ -18,9 +18,14 @@ or compatibility certification, and no new addon is required for standalone ride
 Use [FD501's dependency refresh procedure](INTEGRATION-BACKLOG.md#version-refresh-before-expansion)
 before activating new dependencies. The recorded qualification baseline remains
 schema 6 / protocol 7. FD501 decides whether the archived schema-7/protocol-8
-registry is needed; FD501A implements and verifies any selected change against
-current `main`. Neither planning adoption nor a new milestone certifies that code.
+registry is needed for core mechanics or a specific adapter. FD501A implements
+core-required changes; FD501B–H supply only their consuming adapters. Each decision
+can proceed independently; do not block vehicle work on an unrelated addon. Shared
+changes integrate once into current `main` with affected checks. Neither planning
+adoption nor a new milestone certifies that code.
 Existing checkpoint records below keep their actual identities and bounded scope.
+Use the [current queue](CURRENT-QUALIFICATION.md#current-work-queue) for active
+cases and the validation policy to distinguish required fixes from optional polish.
 
 ## Version and API boundaries
 

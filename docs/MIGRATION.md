@@ -8,7 +8,9 @@ provider, or make a downgrade safe.
 
 The [expanded integration plan](INTEGRATION-BACKLOG.md#current-baseline-and-branch-reconciliation)
 retains schema 6 / protocol 7 for the recorded qualification baseline. FD501
-owns the expansion migration decision; FD501A implements any necessary change.
+records core and per-adapter migration decisions. FD501A implements core-required
+changes; the consuming FD501B–H package owns adapter-specific migrations. A later
+adapter migration does not reopen a completed core prerequisite or unrelated acceptance.
 Archived schema-7/protocol-8 provider work is not certified by this procedure.
 The final expanded release uses FD903 to reconcile supported migration evidence. Staged addons and their newer dependencies
 must not be added as an incidental part of this upgrade.

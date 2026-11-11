@@ -132,30 +132,39 @@ The former integration work was preserved by the
 [2026-11-04 branch consolidation](BRANCH-CONSOLIDATION.md), including archived
 snapshot `f3303c7` of the unfinished schema-7/protocol-8 provider work. Those
 provider/schema changes require the FD501 decision and, only if needed, a
-bounded FD501A implementation. Archived code is not automatically the new baseline.
+bounded implementation in FD501A for core mechanics or the consuming FD501B–H
+package for an adapter. Archived code is not automatically the new baseline.
 `main` is the active integration branch. Historical
 evidence stays attached to its actual artifact; neither a version string nor one
 passing checkpoint proves a complete release gate.
 
 If the selected expansion needs a provider registry, reconcile necessary pieces
-against current `main`, preserving recovery/lifecycle fixes. FD501A owns actual
-migration implementation and its affected checks, including missing providers,
-matching multiplayer builds and backup restoration. Retain stable saved IDs;
-do not assume unknown provider data can be discarded for downgrade. A no-change
-FD501 decision requires no migration run.
+against current `main`, preserving recovery/lifecycle fixes. FD501A owns only
+core-required migration; FD501B–H own the changes their adapters consume. Reuse
+shared changes and checks, including missing providers, matching multiplayer
+builds and backup restoration where affected. Retain stable saved IDs; do not
+discard unknown provider data for downgrade. A no-change decision requires no
+migration run. A blocked optional adapter does not block a sufficient core baseline.
 
 ### Release allocation
 
 | Milestone / gate | Integration deliverable | Prerequisite and acceptance |
 | --- | --- | --- |
 | 0.4 / FD401–FD404 | Preserve accepted Create/Engineered/Styles scope and finish remaining core recovery/player work | FD401 stays closed; FD404 records the bounded core, not final release readiness. |
-| 0.5 / FD501, FD501A | Select dependencies and decide necessary provider/schema work | Refresh the dated catalog, settle identity/dependency closure, preserve saved IDs and validate only affected changes. |
-| 0.8 / FD810–FD813 | Additions station telemetry/interlocks, selected CTNB tracks/controls, Magnetized equipment and actual authority conflicts | Can start after their integrated control/provider prerequisites, independently of Axis/Roller Ball. Add an operator example per capability and qualify the named operations profile. |
-| 0.9 / FD910–FD915 | Coaster Skin, rotating-seat follow-up, Immersion, Waterparked and Create Coasters coexistence | Stable representative fixed/free/constrained seat/pose interfaces; normal input, rider state, fallback and combined-profile behavior. |
+| 0.5 / FD501, FD501A | Record core and per-adapter decisions; implement only core-required prerequisites | Resolve each consumer separately. A sufficient current core can close FD501A while an optional-adapter issue remains open. |
+| 0.8 / FD501B–D, FD810–FD813 | Additions station telemetry/interlocks, selected CTNB tracks/controls, Magnetized equipment and actual authority conflicts | Can start after their integrated control/provider prerequisites, independently of Axis/Roller Ball. Add an operator example per capability and qualify the named operations profile. |
+| 0.9 / FD501E–H, FD910–FD915; reuse FD501B | Coaster Skin, rotating-seat follow-up, Immersion, Waterparked and Create Coasters coexistence | Stable representative fixed/free/constrained seat/pose interfaces; normal input, rider state, fallback and combined-profile behavior. |
 | 1.0 alpha / FD1000 | Freeze all agreed capabilities and supported profiles | All former-through-1.5 scope implemented with cumulative acceptance; no silent scope reduction. |
 | 1.0 beta / RC / FD901–FD905 | Integrated qualification | Reuse accepted cases, test outstanding interactions and final workload, fix affected defects without resetting earlier gates. |
 | 1.0 stable / FD1001–FD1003 | Accurate support docs and reproducible artifacts | Clean install/package checks; publication remains separate. |
 | Independent FD801 | Inspectable functional Track Styles Arrow 4D adapter | Measured mechanism/geometry equivalence and applicable terms; unavailable upstream release never blocks standalone 1.0. |
+
+FD501B supplies common Additions prerequisites to FD810/FD911; seat-only changes
+belong to FD911. FD501C supplies CTNB (FD811), D Magnetized (FD812), E Skin (FD910),
+F Immersion (FD912), G Waterparked (FD913) and H Create Coasters (FD914). Each uses
+its own recorded FD501 decision, not completion of every other dependency package.
+Record a shared prerequisite only when actually consumed, integrate it once into
+`main`, and reuse its evidence. Final combined-profile compatibility remains required.
 
 New integrations remain optional installations, but their agreed capabilities
 are planned 1.0 deliverables. A staged JAR does not establish a capability. If a
@@ -214,7 +223,8 @@ track becomes compatible with every Fourth Dimension family.
 ### Dependency and distribution decisions
 
 Keep the current required core stack while closing unchanged core cases. FD501
-selects any necessary expansion upgrade as a separate bounded change. Sable 2.0.6 and
+records the core and adapter-specific upgrade decisions separately. FD501A and
+FD501B–H implement only what their actual consumers need. Sable 2.0.6 and
 NeoForge >=21.1.256 are candidates for a separately validated expansion baseline,
 not incidental upgrades to make Coaster Skin load. Skin pins Sable 2.0.6, Create
 6.0.10 and Coasters 0.1.5 exactly. Check the entire selected graphics stack against
@@ -239,7 +249,8 @@ new artifact under an existing supported-version claim.
 
 Stage refreshed candidates outside runtime folders first. Choose and validate
 any core dependency upgrade separately, then update the affected adapter guards,
-runtime profile and certification matrix within the approved scope. Every changed
+runtime profile and certification matrix within the approved scope. Do not make
+Wing or another unrelated family wait for an optional-adapter-only upgrade. Every changed
 dependency needs a scoped impact review and applicable regressions before it can
 join an advertised profile. Pin the resulting baseline; later refreshes require
 a named blocker or planned change. A different addon/JAR hash alone does not
@@ -274,7 +285,9 @@ pack. Record exclusions explicitly rather than claiming all possible subsets.
 
 Every evidence bundle records source revision, built-JAR hash, all mod hashes,
 configuration, world/fixture and reproduction steps, server/client roles, hardware,
-results and limitations. New failures reopen only the affected case; the release
+results and limitations. Classify findings against a named required criterion
+using [VALIDATION-POLICY.md](VALIDATION-POLICY.md#gate-blockers-and-follow-up-work);
+nonblocking polish goes to follow-up notes. New failures reopen only the affected case; the release
 may be blocked by that case while other acceptance stays closed. Public status should
 progress from **staged → inspected → adapter implemented → bounded tests → certified
 for a named profile**. Existing evidence stays bounded until the remaining gates pass.
@@ -282,10 +295,10 @@ for a named profile**. Existing evidence stays bounded until the remaining gates
 ### Execution sequence and delivery boundary
 
 1. Preserve accepted FD401 and FD402A/C/D results; finish only the open 0.4 recovery/player cases.
-2. In 0.5, resolve new-family specifications and FD501 dependency choices. Wing proves contract changes; FD501A handles necessary upgrades/migration; FD904C delivers baseline comfort.
-3. Advance operations adapters after their integrated control/provider prerequisites. They need not wait for the complex-family milestones; finish them and actual conflict-pair coverage in 0.8.
+2. In 0.5, resolve new-family specifications and independent FD501 dependency decisions. Wing proves contract changes with an occupied client handoff; FD501A handles core-required upgrades/migration and FD904C1 closes baseline comfort. Adapter-specific prerequisites follow their consumers through FD501B–H.
+3. Advance operations adapters after their own dependency and integrated control/provider prerequisites. They need not wait for the complex-family milestones; finish them and actual conflict-pair coverage in 0.8.
 4. Inspect coexistence early. Complete presentation/seat adapters in 0.9 against representative stable mechanisms, with player guidance supplied by each feature owner.
-5. Freeze the full scope at FD1000, reuse accumulated evidence through FD901–FD905, and complete final documentation/packaging through FD1001–FD1003.
+5. Freeze the full scope at FD1000, reuse accumulated evidence through FD901–FD905 (including FD904C2 camera reconciliation), and complete final documentation/packaging through FD1001–FD1003.
 6. Publish only when separately authorized. FD801 stays independently conditional on inspectable upstream functionality.
 
 No integration coding, dependency activation, compatibility testing, version bump,
