@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 import java.util.UUID;
+import java.util.HashMap;
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.Commands;
 import net.minecraft.commands.arguments.EntityArgument;
@@ -26,6 +27,8 @@ import org.joml.Vector3d;
 /** Validation-only permanent interruption controls for the retained recovery fixture. */
 @EventBusSubscriber(modid = "fourthdimension")
 public final class RecoveryInterruptionValidation {
+  private static final HashMap<UUID, UUID> DIRECT_PAIRS = new HashMap<>();
+
   private RecoveryInterruptionValidation() {}
 
   @SubscribeEvent
@@ -62,16 +65,9 @@ public final class RecoveryInterruptionValidation {
       if (group.isEmpty())
         throw new IllegalArgumentException("No occupied recovery group is attached");
       var container = SubLevelContainer.getContainer(level);
-      var lead = group.getFirst();
-      var bearingId = lead.recoveryCart;
+      var bearingId = group.getFirst().recoveryCart;
       var bearing = container.getSubLevel(bearingId);
-      lead =
-          group.stream()
-              .filter(
-                  vehicle ->
-                      linkedIds(container, level, vehicle.chassis).contains(bearingId))
-              .findFirst()
-              .orElse(lead);
+      var lead = directVehicle(group, bearing, bearingId, container);
       var chassis = container.getSubLevel(lead.chassis);
       if (!action.equals("status") && !(chassis instanceof ServerSubLevel))
         throw new IllegalArgumentException("Recovery chassis is unavailable");
@@ -139,6 +135,34 @@ public final class RecoveryInterruptionValidation {
     if (!(body instanceof ServerSubLevel server) || body.isRemoved())
       throw new IllegalArgumentException("Recovery chassis is unavailable");
     return server;
+  }
+
+  private static FoundationData.Vehicle directVehicle(
+      List<FoundationData.Vehicle> group,
+      dev.ryanhcode.sable.sublevel.SubLevel bearing,
+      UUID bearingId,
+      SubLevelContainer container) {
+    var remembered = DIRECT_PAIRS.get(bearingId);
+    if (remembered != null) {
+      var match = group.stream().filter(vehicle -> vehicle.chassis.equals(remembered)).findFirst();
+      if (match.isPresent()) return match.get();
+    }
+    var bearingCenter = bearing == null ? null : CoasterCartResolve.cartCenterWorld(bearing);
+    var candidate =
+        group.stream()
+            .filter(vehicle -> container.getSubLevel(vehicle.chassis) != null)
+            .filter(
+                vehicle -> {
+                  var center = CoasterCartResolve.cartCenterWorld(container.getSubLevel(vehicle.chassis));
+                  if (center == null || bearingCenter == null) return false;
+                  var spacing = TrackDesign.byVariant(vehicle.variant).axleSpacing();
+                  return Math.abs(center.distance(bearingCenter) - spacing) <= .5;
+                })
+            .findFirst()
+            .orElseThrow(
+                () -> new IllegalArgumentException("Could not identify the recovery bearing's direct end car"));
+    DIRECT_PAIRS.put(bearingId, candidate.chassis);
+    return candidate;
   }
 
   private static void log(
