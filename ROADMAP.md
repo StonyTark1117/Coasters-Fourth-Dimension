@@ -1,24 +1,25 @@
-# Coasters: Fourth Dimension roadmap to 1.0 and proposed integrations
+# Coasters: Fourth Dimension — expanded roadmap to 1.0
 
-This is the addressable execution plan for the design in [PLAN.md](PLAN.md). Foundation packages FD001–FD008 are **done for the bounded prototype**; their implementation, runtime evidence, and limits are recorded in [foundation acceptance](docs/FOUNDATION.md). FD101–FD109 and FD201–FD204 are **done for their bounded builds**; see [0.1 acceptance](docs/PLAYABLE.md) and [0.2 acceptance](docs/MAGNETIC.md). Version 0.3 is done for its bounded five-family gate toward the active 0.9.0 goal; later gates remain planned. Version numbers define scope and order, not dates.
+This is the addressable execution plan for the design in [PLAN.md](PLAN.md). Foundation packages FD001–FD008 are **done for the bounded prototype**; their implementation, runtime evidence, and limits are recorded in [foundation acceptance](docs/FOUNDATION.md). FD101–FD109 and FD201–FD204 are **done for their bounded builds**; see [0.1 acceptance](docs/PLAYABLE.md) and [0.2 acceptance](docs/MAGNETIC.md). Version 0.3 is done for its bounded five-family gate toward the expanded stable 1.0 target. Version numbers define scope and order, not dates.
 
 Refer to a package by its permanent ID, for example “implement FD104” or “review FD303.” Keep IDs stable when adding work; split a package using a suffix such as FD104A rather than renumbering existing packages. Record its status, implementation references, and validation evidence under its heading as work proceeds. Statuses are planned, in progress, blocked, and done. A package is done only when its acceptance criteria have evidence, not merely when code exists.
 
 ## Release map
 
-The [integration release allocation](docs/INTEGRATION-BACKLOG.md#fit-within-the-current-release-plan)
-plans the staged ecosystem against these gates. It retains Create and the existing
-Engineered/Track Styles scope for 0.4–1.0, and proposes separate optional operations
-and presentation expansions afterward. New integration implementation remains
-paused pending user approval; staged artifacts do not expand advertised support.
-Before an approved expansion begins, follow the backlog's
-[version refresh policy](docs/INTEGRATION-BACKLOG.md#version-refresh-before-expansion).
-Its November 2 catalog is a dated research snapshot; candidate stabilization
-continues with the existing pins and artifact-specific acceptance evidence.
+The expanded release sequence was adopted **2026-11-11 (America/Phoenix)**.
+All vehicle and integration scope formerly proposed through 1.5 now belongs to
+stable 1.0. Development milestones follow shared mechanics; the first stable
+release follows feature completion, integrated stabilization and qualification.
+The [integration allocation](docs/INTEGRATION-BACKLOG.md#release-allocation)
+uses the same sequence. This adopts the work plan; it does not certify new
+capabilities, activate dependencies, change artifact versions or authorize publication.
 
-**Current stage: completing 0.4; no release candidate is accepted.** The bounded
-five-family 0.3 gate remains complete. FD401 is complete; FD402–FD403 remain open; FD901–FD904 may
-prepare evidence, but cannot bypass FD404. Updated **2026-11-05 UTC**.
+**Current stage: completing 0.4; no release candidate is accepted.** Foundation
+through the bounded five-family 0.3 gate, FD401A–D and FD402A/C/D retain their
+accepted status. FD402B/E/F, FD403 and FD404 remain open. Early design research
+and asset concepts may proceed independently; implementation follows the explicit
+package prerequisites below. The old blanket expansion pause is superseded by
+this adopted sequence. FD801 remains an independent upstream-dependent package.
 
 **Artifact being qualified:** use the source/JAR and profile identities in the
 [current qualification record](docs/CURRENT-QUALIFICATION.md#artifact-and-scope).
@@ -41,11 +42,12 @@ a requirement to leave a fully covered task open or schedule another run.
 
 **Execution order:**
 
-1. Maintain the artifact/evidence map in FD401A; reconcile new observations before scheduling retests.
-2. Keep completed FD401A–B closed. Reconcile FD401C–D and FD402A–F evidence first, then test only missing or affected cases; share PAX recovery evidence with FD902C.
-3. Complete the missing portions of FD403’s five connected-client walkthroughs; reuse accepted crafting, teaching and save/reopen evidence.
-4. Close FD404 and freeze the feature-complete JAR and four intended profiles.
-5. Reconcile carried-forward evidence and remaining FD901–FD904 checks against the freeze, including migration, the park benchmark and camera comfort; review FD905, then FD1001–FD1003. Freezing does not restart completed gates.
+1. Finish only the open 0.4 recovery and player-workflow cases; close FD404 as the five-family development checkpoint.
+2. Resolve all new-family specifications and expansion dependencies during 0.5. Prove the necessary contract extensions through a complete fixed-seat Wing, establish seat/camera ownership and deliver the comfort option.
+3. Build the first agreed Spinning variant, then Suspended (0.6); build Axis, then Roller Ball (0.7). Reuse accepted mechanism work and prototypes.
+4. Complete Pipeline, remaining agreed Spinning variants and operations integrations (0.8). Pipeline and adapters may start earlier once their own prerequisites are integrated; they do not wait for unrelated families.
+5. Complete presentation, optional seats and coexistence (0.9) against stable representative vehicle interfaces. Recipes, guides and examples accompany each feature.
+6. Close FD1000 at 1.0 alpha to freeze the expanded feature scope. During beta/RC reconcile accumulated acceptance and finish FD901–FD905; FD1001–FD1003 own documentation, packaging and stable release.
 
 A [4,800-tick PAX source recovery](docs/evidence/0.9/fd401-pax-longhold-source-229e586/acceptance.md),
 its [packaged named test](docs/evidence/0.9/fd401-pax-packaged-longhold-229e586/README.md),
@@ -73,17 +75,32 @@ whole-JAR equality is not required. Keep the original run identity and limits.
 | 0.1 | FD101–FD109 | Done for bounded build | Playable controlled Arrow/S&S and first-generation ZacSpin families, original matching tracks, and ordinary-cart access where physically valid. |
 | 0.2 | FD201–FD204 | Done for bounded build | S&S Free Spin vehicle and track with magnetic seat-rotation equipment. |
 | 0.3 | FD301–FD305 | Done for bounded five-family gate | Revised ZacSpin variant and functional PAX-style shuttle system. |
-| 0.4 | FD401–FD404 | In progress | Optional integration infrastructure, recovery evaluation, crafting, tutorials, and family examples. |
-| 0.9 release candidate | FD901–FD905 | In progress; release gate open | Complete compatibility, lifecycle, migration, and performance evidence. |
-| 1.0 | FD1001–FD1003 | Planned | Verified five-family release with documentation and reproducible artifacts. |
-| Proposed 1.1 | Integration backlog; FD1101 fixed-seat Wing discovery | Planned; implementation paused | Separate operations adapters from a mechanically specified fixed-seat wing vehicle. |
-| Proposed 1.2 | Integration backlog presentation/seat expansion | Planned; implementation paused | Coaster Skin, rotating-seat follow-up, Immersion, Waterparked and Create Coasters coexistence. |
-| Proposed 1.3 | FD1301 Suspended; FD1302 Axis discovery | Planned; implementation paused | Independently specified swing/rotation, locks, seating, tracks and full models. |
-| Proposed 1.4 | FD1401 Pipeline discovery | Planned; implementation paused | Resolve the intended pipeline design, then specify vehicle, seating and track. |
-| Proposed 1.5 | FD1501 Spinning; FD1502 Roller Ball discovery | Planned; implementation paused | Separate mechanisms, prototypes and acceptance for each family/variant. |
-| External compatibility | FD801 | Planned | Future Track Styles Arrow 4D integration when a qualifying functional representation is inspectable; does not block standalone releases. |
+| 0.4 | FD401–FD404 | In progress | Finish the five-family core, recovery and player workflows; preserve completed cases. |
+| 0.5 | FD501–FD503; six discovery IDs; FD1101A–C; early FD904C | Planned | Resolve designs/dependencies, prove extension contracts through fixed-seat Wing, establish comfort and reusable validation tools. |
+| 0.6 | FD1501A–C, FD1301A–C, FD601 | Planned | First agreed Spinning variant, then Suspended: carrier axes, loading, damping, swing limits and locks. |
+| 0.7 | FD1302A–C, FD1502A–C, FD701 | Planned | Axis, then Roller Ball, with distinct complex motion, capture and route behavior. |
+| 0.8 | FD1401A–C, FD1501D–F, FD810–FD813 | Planned | Pipeline, remaining agreed Spinning variants, Additions operations, selected CTNB and Magnetized capabilities. |
+| 0.9 | FD910–FD915 | Planned | Skin, rotating-seat integration, Immersion and Waterparked/Create Coasters coexistence. |
+| 1.0 alpha | FD1000 | Planned | All former proposed-through-1.5 content complete; freeze feature scope and supported profiles. |
+| 1.0 beta / RC | FD901–FD905 | Evidence in progress; final gates open | Integrated stabilization, compatibility, lifecycle, migration, rendering and performance; carry accepted cases forward. |
+| 1.0 stable | FD1001–FD1003 | Planned | Final documentation, reproducible packaging and separately authorized publication. |
+| Independent compatibility | FD801 | Planned | Inspectable functional Track Styles Arrow 4D adapter; upstream availability never blocks standalone release. |
 
-The dependency chain between release gates is foundation → 0.1 → 0.2 → 0.3 → 0.4 → 0.9 → 1.0. Preparation for later packages may start once their stated prerequisites are done; a release still requires all earlier release gates. Track Styles, a maintainer response, or a future external release is never a prerequisite for our original tracks.
+Milestone labels are delivery targets, not dates, JAR version changes or universal
+start barriers. A milestone gate aggregates its named deliverables; individual
+packages can start once their own prerequisites are met. All required milestone
+gates feed FD1000 and final release, but unrelated unfinished work need not idle
+an agent. Permanent FD numbers do not change when their release allocation moves.
+
+## Agent execution and acceptance
+
+- Assign one owner at a time to shared runtime, persistence, eligibility or seat/camera contract changes. Dependent work uses the prerequisite after integration into `main`, not another agent's unfinished checkout. Follow [AGENTS.md](AGENTS.md) for any genuinely parallel worktree.
+- Assign complete outcomes with named prerequisites, implementation steps, pass conditions, reusable evidence and actual remaining gaps. Combine compatible observations to close the outcome; a bounded record does not impose a permanent “slice” ceiling.
+- Read-only discovery and asset concepts can proceed while 0.4 finishes. Final geometry/assets follow the relevant dimensioned specification and motion proof. Operations adapters can start after their control/provider prerequisites; Pipeline has no Axis dependency.
+- Define fixed seats, carrier axis/pivot/motion, restraints, camera and propulsion ownership through concrete families. Do not build a speculative framework or reactivate archived schema/provider code wholesale.
+- Reuse worlds, prototypes and measurements. Schedule graphical validation as shared host work, avoiding competing launches by default; a two-client case is one coordinated job within current Java/display/memory rules.
+- Each new feature supplies its recipes, guide and example during implementation. Native tests cover dynamics, eligibility and failure injection; connected clients cover real input, rendering and rider synchronization. Add only distinct lifecycle cases.
+- [VALIDATION-POLICY.md](docs/VALIDATION-POLICY.md) governs all stages. A targeted passing fix closes its case without resetting siblings or earlier gates. Full release qualification belongs after FD1000; foundational fixes and useful tests may happen earlier.
 
 ## Foundation
 
@@ -368,8 +385,9 @@ retain their original evidence boundaries.
 
 Current scope is Create guidance/diagnostics, Track Styles 1.2.0 Arrow appearance
 and Engineered 1.1.1 operations, on schema 6/protocol 7. Missing or unsupported
-optional mods must leave standalone behavior intact. New adapters and the
-schema-7/protocol-8 registry remain paused; FD801 is independent.
+optional mods must leave standalone behavior intact. New adapters belong to
+FD810–FD915; necessary schema/provider changes belong to FD501/FD501A.
+Neither reopens FD401. FD801 is independent.
 
 **Current next actions (take precedence over per-run notes below):**
 
@@ -405,10 +423,10 @@ updated support documentation; a historical pass cannot waive it.
 
 ### FD402 Evaluate and document recovery towing
 
-**Status: in progress.** FD402A mechanics/clearance and FD402C operator workflow
-are complete. All-family historical one-player restarts are observed. Rendered
-occupied operation, artifact-matched lifecycle, multiplayer and optional-power
-acceptance remain finite tasks below. See [operator evidence](docs/evidence/0.4/recovery/operator-acceptance.md)
+**Status: in progress.** FD402A mechanics/clearance, FD402C operator workflow and
+FD402D one-player persistence are complete. Rendered occupied operation, distinct
+multiplayer interruptions and optional-power acceptance remain finite tasks below.
+Reuse accepted observations across these tasks. See [operator evidence](docs/evidence/0.4/recovery/operator-acceptance.md)
 and [historical milestones](docs/ROADMAP-CHECKPOINT-HISTORY-2026-11-04.md#fd402-evaluate-and-document-recovery-towing).
 
 **Depends on:** FD108, FD106, FD305. **Design:** D03.
@@ -471,32 +489,180 @@ are not unassisted resource-gathering evidence.
 
 **Depends on:** FD401A–D, FD402A–F, FD403A–F.
 
-Freeze the feature-complete source/JAR, profile dependency hashes and support
-scope in [CURRENT-QUALIFICATION.md](docs/CURRENT-QUALIFICATION.md). Keep base,
-Styles, Engineered and combined as the intended 0.9/1.0 set. A new integration
-or recovery scenario requires an explicit scope revision and funded acceptance.
+Record the accepted five-family source/JAR, dependency identities and bounded
+support scope in [CURRENT-QUALIFICATION.md](docs/CURRENT-QUALIFICATION.md).
+This is the core development checkpoint, not the final expanded feature freeze.
+New families/adapters follow their own packages; FD1000 owns the 1.0 alpha freeze.
 
-**Done when:** all named 0.4 tasks pass, five-family teaching is complete, advertised
-integrations have evidence, and remaining work is stabilization and the explicitly
-assigned 0.9 gates. Completed 0.3 evidence stays bounded to its own build.
+**Done when:** FD401–FD403 meet their finite criteria and the five-family core is
+usable and documented. Reuse accepted results. Closing FD404 neither launches
+final release qualification nor requires new JARs for documentation changes.
 
-## Version 0.9 release candidate
+## Milestone 0.5 — designs, extension contracts and Wing
+
+All six original discovery IDs below are planned for 0.5. Resolve the intended
+Pipeline design, the exact Spinning variant list and first variant, Axis modes,
+and Roller Ball route/mechanics before detailed implementation. A specification
+must identify confirmed references versus inspired design choices. Retain any
+necessary feasibility prototype rather than requiring a new one in a later stage.
+
+### FD501 Select the expansion dependency and migration baseline
+
+**Status: planned.** **Depends on:** current core dependency inventory; read-only
+review can begin before FD404. **Design:** D04, D06, D07, D09.
+
+1. Refresh the dated addon catalog through the backlog procedure; resolve actual mod IDs, Additions dependency closure and the graphics/seat stack's version constraints.
+2. Choose one compatible baseline, supported capability list and named profile plan for FD810–FD914. Keep the existing pins unless an included capability requires a deliberate upgrade.
+3. Decide whether the archived provider registry or a new schema/protocol is necessary. Record the required change and preservation/missing-provider behavior; do not assume archived schema 7/protocol 8 is ready.
+4. Pin the selected baseline for implementation. Later updates require a named blocker or planned change, not a routine “latest version” refresh.
+
+**Done when:** the dependency/capability decision is explicit and the need for
+FD501A is recorded. An unavailable required capability remains a named blocker;
+no agreed 1.0 feature is silently dropped.
+
+### FD501A Apply necessary dependency or persistence changes
+
+**Status: planned; conditional on FD501.** **Depends on:** FD404, FD501.
+
+Implement only the selected upgrade/provider changes and their migration, if
+needed. Preserve stable family/provider/vehicle identities and existing recovery
+fixes. Use current `main` and selectively review archived work. Verify affected
+loads, supported upgrades, unknown/missing providers and backup restoration.
+
+**Done when:** the selected baseline is usable with affected regressions passed,
+or FD501 records that no production/dependency/migration change is necessary.
+A no-change disposition requires no runtime replay. This is the dependency-ready
+prerequisite used below; it does not require every family discovery to finish.
+
+### FD502 Make required validation tools reusable
+
+**Status: planned.** **Depends on:** FD006; changes require a named current blocker.
+
+Repair only fixture, targeting, diagnostic or measurement gaps that prevent
+reliable work. Retain reusable worlds, named scenarios and run identities. Add
+or verify frame/tick/memory collectors needed by FD904B and take useful early
+measurements when warranted. Do not rebuild a harness merely for this milestone.
+
+**Done when:** needed scenarios can be reproduced without reconstructing a park
+for every task, and required collectors report interpretable measurements. Existing
+tools may close this task by review; final park acceptance remains after FD1000.
+
+### FD503 Milestone 0.5 gate
+
+**Status: planned.** **Depends on:** FD404, FD501/FD501A, FD502;
+FD1101, FD1301, FD1302, FD1401, FD1501, FD1502 specifications;
+FD1101A–C and the 0.5 baseline delivery of FD904C.
+
+**Done when:** all new-family designs are explicit, fixed-seat Wing proves the
+necessary extension contracts through normal construction/ride/unload, and seat,
+restraint, pose/camera ownership and comfort are established. This is an aggregate
+checkpoint; other work starts from its specific prerequisites rather than waiting
+for unrelated specifications or examples.
+
+## Milestone 0.6 — reusable motion mechanisms
+
+Implement the first agreed Spinning variant (FD1501A–C), then Suspended
+(FD1301A–C). Use these concrete vehicles to establish configurable carrier axes,
+loading/damping, bounded swing and lift/station locks. Preserve the accepted
+original mechanisms; changes to shared axis/capture paths need affected tests,
+not new Styles or whole-release qualification.
+
+### FD601 Milestone 0.6 gate
+
+**Status: planned.** **Depends on:** FD503, FD1501A–C, FD1301A–C.
+
+**Done when:** both new mechanisms have usable vehicles, content and accepted
+player workflows. Their distinct interruption/persistence cases are covered;
+accepted shared behavior is reused. Remaining Spinning variants belong to 0.8.
+
+## Milestone 0.7 — complex motion and route behavior
+
+Implement Axis (FD1302A–C), then Roller Ball (FD1502A–C). Reuse established carrier
+infrastructure without equating their axes, dynamics or routes. Resolve off-axis
+clearance, capture and route transitions in these packages before presentation
+integrations depend on their behavior.
+
+### FD701 Milestone 0.7 gate
+
+**Status: planned.** **Depends on:** FD601, FD1302A–C, FD1502A–C.
+
+**Done when:** Axis and Roller Ball each complete their specified occupied
+operating cycle, player workflow and distinct interruption/recovery cases.
+
+## Milestone 0.8 — remaining vehicles and operations
+
+Complete Pipeline (FD1401A–C), the remaining variants selected by FD1501
+(FD1501D–F), and the operations packages below. Pipeline may start after its own
+geometry/mechanism prerequisites; there is no artificial Axis dependency.
+Adapters may start after their control/provider prerequisites reach `main`.
+The [integration backlog](docs/INTEGRATION-BACKLOG.md#what-each-integration-means)
+defines the capability boundaries, optional installation and dependency caveats.
+
+| Package / status | Prerequisites | Implementation steps and completion condition |
+| --- | --- | --- |
+| **FD810 Additions station operations — planned** | FD401, FD501A; integrated control/telemetry contracts | Resolve runtime identity, read whole-consist telemetry, submit validated station requests and reject stale/unsafe dispatch. Supply an operator example. Complete when the agreed station capabilities preserve restraints, faults and mechanics authority; rotating seats remain FD911. |
+| **FD811 CTNB tracks and controls — planned** | FD501A; reviewed functional provider/control contracts | Enumerate included materials/behaviors, implement measured eligibility and provider joins, preserve profiles and add the selected station/launch/reverse controls. Complete when agreed capabilities and unsafe/unknown rejections pass, with a usable example. |
+| **FD812 Magnetized propulsion — planned** | FD401, FD501A; integrated propulsion ownership contract | Implement directional propulsion/braking, rollback and power transitions. Keep longitudinal propulsion distinct from carrier-axis magnetic torque. Complete when the operator example and affected authority/interlock cases pass. |
+| **FD813 Milestone 0.8 gate — planned** | FD701, FD1401A–C, FD1501D–F, FD810–FD812 | Reconcile individual evidence and check actual control-conflict pairs plus the named combined operations profile. Complete when all agreed vehicles/variants and operations capabilities are usable and documented. A staged JAR or startup alone is not acceptance. |
+
+Shared control/ownership changes use one owner and integrate before dependent
+adapters. One adapter's dependency issue need not idle independent vehicle work.
+
+## Milestone 0.9 — presentation, optional seats and coexistence
+
+Presentation and seat integrations follow stable representative fixed, freely
+rotating and constrained-motion vehicles. Read-only inspection and asset concepts
+may happen earlier. Final adapters consume the established interfaces rather than
+redefining mechanics or forcing every family to repeat acceptance.
+
+| Package / status | Prerequisites | Implementation steps and completion condition |
+| --- | --- | --- |
+| **FD910 Coaster Skin — planned** | FD501A; accepted representative fixed/free/constrained seat and body interfaces | Select agreed chassis/skin options, preserve identity and restraint ownership, reject unsupported modifications, implement fallback/persistence and document choices. Complete when those capabilities work on the named profiles. |
+| **FD911 Rotating-seat integration — planned** | FD501A; stable carrier/seat/restraint interfaces demonstrated by family packages | Integrate the agreed Additions seat capabilities separately from station telemetry; preserve mount ownership, rider count, restraints, restoration and unload. Complete with actual rider synchronization and the distinct lifecycle cases. |
+| **FD912 Immersion — planned** | FD501A, baseline FD904C; stable representative pose/camera interfaces | Compose effects once, respect relative mouse look and comfort, handle first/third person and remote bodies, restore the camera on exit and verify supported client-only installation. Complete without altering authoritative seat motion. |
+| **FD913 Waterparked coexistence — planned** | FD501A; representative accepted core rides | Inspect early, then check shared graph/mixin/render behavior in the named profile. Complete with independent ride coexistence and refusal of slide eligibility for our cars; no amphibious or transfer feature is implied. |
+| **FD914 Create Coasters coexistence — planned** | FD501A; representative accepted core rides | Inspect utility, seat-lock and camera overlap; implement only agreed demonstrated bridges and otherwise coexistence. Complete when utilities and our rides operate together without granting Create-train authority over Sable rides. |
+| **FD915 Milestone 0.9 gate — planned** | FD813, FD910–FD914 | Resolve actual seat/pose/render/control conflicts in the declared combined profile, include client-only asymmetry, and finish player configuration guidance. Complete when all agreed presentation/seat/coexistence capabilities preserve mechanics and rider state. |
+
+## Version 1.0 alpha — expanded feature freeze
+
+### FD1000 Freeze the complete expanded feature set
+
+**Status: planned.** **Depends on:** FD404, FD503, FD601, FD701, FD813, FD915.
+
+1. Reconcile all family/variant and integration acceptance, reusing existing results under the validation policy.
+2. Finish missing original assets, recipes, guides, examples and usability work in their owning packages; do not rerun complete walkthroughs just to consolidate records.
+3. Freeze the included capability list, named profiles/dependency identities, deliverable source/JAR and support limits in the qualification record. Preserve the original core baseline and all prior run identities.
+4. Declare feature complete and move to stabilization. Additional scope needs an explicit revision; no agreed feature is silently deferred to make the gate pass.
+
+**Done when:** all scope formerly proposed through 1.5 is implemented and accepted
+within the agreed specifications. Discovery, a prototype or a staged addon alone
+cannot close this gate. FD801 availability remains outside the mandatory gate.
+
+## Version 1.0 beta and release candidate
+
+FD901–FD905 qualify the expanded deliverable after FD1000. Their infrastructure,
+measurements, focused tests and foundational fixes may proceed during development;
+this scheduling does not defer known defects. Earlier accepted cases stay closed.
 
 ### FD901 Run the full compatibility matrix
 
 **Status: in progress; historical pre-FD404 matrix observed.**
 
-**Depends on:** FD404. **Design:** D02, D04, D17.
+**Depends on:** FD1000 for final qualification. **Design:** D02, D04, D17.
 
-Perform one release-level native sweep in base, Styles-only, Engineered-only and
-combined profiles, crediting an equivalent completed sweep after scoped review.
+Perform one release-level native sweep of the frozen supported profiles, retaining
+base, Styles-only, Engineered-only and combined coverage and adding the agreed
+expansion profiles. Credit an equivalent completed sweep after scoped review.
 After fixes, rerun affected tests/profiles; repeat the full sweep only for a
 justified cross-cutting change. Do not require this sweep for every task.
-Exercise five matching and twenty directed wrong-family cases through placement,
+Retain the original five matching and twenty directed wrong-family cases; extend
+native eligibility to each new vehicle/variant and verified provider through placement,
 assembly, initial snap, re-engagement, dispatch, transition and save/load; locked
 carriers cannot bypass family matching. Cover both directions of mixed-consist
 coupling, ordinary bare-bearing fit/non-fit, cosmetic-only tracks and occupied
-boundary braking. No third-party functional track is advertised.
+boundary braking. External functional tracks qualify only for the specifically
+accepted FD811/FD801 capabilities; staging or cosmetic appearance grants nothing.
 
 **Evidence / next action:** the [historical profile matrix](docs/evidence/0.9/profile-matrix-abc4a9a/README.md)
 passed its 49-test inventory. Map accepted results and current tests to the
@@ -513,7 +679,7 @@ operation does not steal a binding or partially mutate the consist.
 active-restart checkpoints exist; their [history](docs/ROADMAP-CHECKPOINT-HISTORY-2026-11-04.md#fd902-validate-multiplayer-and-lifecycle-recovery)
 is not a full current-artifact pass.
 
-**Depends on:** FD404. **Design:** D14, D16, D17.
+**Depends on:** FD1000 for final qualification; affected lifecycle work starts earlier. **Design:** D14, D16, D17.
 
 | Task / status | Required matrix and pass condition | Evidence / next action |
 | --- | --- | --- |
@@ -524,22 +690,25 @@ is not a full current-artifact pass.
 **Done when:** these supported-case matrices have no unresolved rider-state,
 restraint, identity, rebinding or unintended-resume failures. Document supported
 operator recovery for each interruption. Do not claim every timing race from a
-single successful restart.
+single successful restart. New families consume shared lifecycle evidence and add
+only distinct motion, capture, coupling or route interruption cases from their
+implementation packages; no new family × profile × interruption cross product.
 
 ### FD903 Validate save migration and provider changes
 
 **Status: in progress.** Schema-1–5 loader regressions, a real historical schema-3
 world, appearance removal/reinstall and bounded provenance backfill have evidence.
 
-**Depends on:** FD404. **Design:** D04, D09, D10, D16.
+**Depends on:** FD1000 for final qualification; FD501A owns any earlier migration implementation. **Design:** D04, D09, D10, D16.
 
 On the selected JAR, retain the loader matrix and real historical schema-3 upgrade,
 sustained Arrow/Legacy/Free Spin rides, two-client seat restoration, save/reopen,
 backup restoration and appearance-provider removal/reinstall. Preserve all saved
 rail/profile/chassis/carrier IDs. Intact legacy rails may gain exact provenance;
 changed/foreign/missing rails must not acquire invented geometry. Missing functional
-providers and unsupported conversions reject clearly; schema-7 registry migration
-is outside this release.
+providers and unsupported conversions reject clearly. Include any schema/provider
+migration deliberately selected and implemented in FD501A; archived schema-7 work
+is not presumed implemented or certified. Carry the accepted schema-6 results forward.
 
 **Evidence / next action:** [migration procedure](docs/MIGRATION.md),
 [historical world](docs/evidence/0.9/native-schema3-world-replay.md),
@@ -556,13 +725,13 @@ unsupported conversions refuse safely, and the documented backup recovery works.
 **Status: in progress.** Host-scoped addon timing limits exist; whole-frame/tick,
 memory and sustained-park acceptance have not yet been measured.
 
-**Depends on:** FD404, FD006. **Design:** D16, D17.
+**Depends on:** FD1000 for final qualification, FD006. FD904C has the early prerequisites below. **Design:** D16, D17.
 
 | Task / status | Required scenario and pass condition | Evidence / next action |
 | --- | --- | --- |
-| **FD904A Rendering — in progress** | Five-family moving rider/body/camera checks and FD401B’s advertised graphics profiles; nonempty `geometryStages` >=500, correct ownership and visible geometry, clean reload and shutdown; solver/frame/rider evidence retains its measured bounds | [Historical render evidence](docs/evidence/0.9/client-render-sampling.md) and [artifact reuse map](docs/CURRENT-QUALIFICATION.md). Accepted FAST/FABULOUS gates and FD401B visuals carry forward when their render inputs are unchanged; run only missing/changed paths. FD402B supplies recovery views. |
+| **FD904A Rendering — in progress** | Accepted original-family checks plus new mechanism-specific rider/body/camera coverage and the frozen advertised graphics profiles; nonempty `geometryStages` >=500, correct ownership and visible geometry, clean reload and shutdown; solver/frame/rider evidence retains its measured bounds | [Historical render evidence](docs/evidence/0.9/client-render-sampling.md) and [artifact reuse map](docs/CURRENT-QUALIFICATION.md). Accepted FAST/FABULOUS gates and FD401B visuals carry forward when their render inputs are unchanged; run only missing/changed paths. FD402B supplies recovery views. |
 | **FD904B Representative park — planned** | The fixed mixed-family scene, declared hardware/settings, frame/tick percentiles, heap/RSS/cgroup and GC measurements, frozen budgets and one combined-profile 30-minute sustained run defined in [PERFORMANCE.md](docs/PERFORMANCE.md#representative-park-acceptance-fd904b) | Implement/validate whole-frame and whole-server collectors; an initial baseline can close initial measured acceptance without a duplicate same-artifact run. Freeze budgets for later comparisons. Keep 120,000 ns/runtime invocation and 6,000 ns/carrier limits in all four native profiles. No existing average or llvmpipe capture proves GPU smoothness. |
-| **FD904C Rider camera and comfort — planned; required for 1.0** | Deliver D16’s optional stabilized camera without changing server seat motion; all five families, upright/banked/inverted poses, free mouse look, first-person arms, third-person/remote body, reconnect and dismount restoration | [D16](PLAN.md#d16-riders-and-synchronization). Inventory existing Sable support, implement the missing client option if necessary, and capture normal/comfort comparisons on the same ride state. Record both modes and restore the prior camera on exit. |
+| **FD904C Rider camera and comfort — planned; baseline delivery in 0.5** | Early prerequisites: FD404 and integrated FD1101A seat/pose contracts, not FD1000. Deliver D16's comfort option without changing server seat motion; cover the original families and Wing's fixed seats, upright/banked/inverted views, mouse look, arms/bodies, reconnect and dismount restoration | [D16](PLAN.md#d16-riders-and-synchronization). Reuse Sable support where suitable, prove normal/comfort ownership, and close that baseline for FD503. Later family acceptance adds distinct poses without reopening unchanged baseline cases; FD912 adds optional effects. Final FD904 consumes the cumulative results. |
 
 **Done when:** FD904A–C pass on stated configurations, the performance budget is
 recorded before candidate comparison, and no unresolved regression prevents the
@@ -573,7 +742,7 @@ promise that every maximum-sized world meets the benchmark timings.
 
 **Status: planned; awaiting FD901–FD904 and all earlier release gates.**
 
-**Depends on:** FD901–FD904.
+**Depends on:** FD1000, FD901–FD904.
 
 Prepare the candidate artifact, exact profile matrix, reproducible scenarios,
 defect list and support limits for review. Publication remains a separate action.
@@ -584,7 +753,7 @@ are retested after fixes. Every accepted claim points to direct evidence or a
 brief scoped carry-forward review against the frozen artifact. Do not demand a
 complete input-hash inventory for unaffected claims or relabel historical runs.
 
-## Version 1.0
+## Version 1.0 stable
 
 ### FD1001 Finalize the release documentation
 
@@ -592,7 +761,7 @@ complete input-hash inventory for unaffected claims or relabel historical runs.
 
 **Depends on:** FD905.
 
-Finalize installation instructions, version/dependency matrix, five-family guides, recovery limits, attribution, integration terms, known issues, and changelog. Label inspired approximations honestly.
+Finalize installation instructions, version/dependency matrix, all included family/variant guides, recovery limits, attribution, integration terms, known issues, and changelog. Label inspired approximations honestly.
 
 **Done when:** the documentation matches the release artifact and does not advertise unverified towing, historical fidelity, or future Track Styles support.
 
@@ -604,7 +773,7 @@ Finalize installation instructions, version/dependency matrix, five-family guide
 
 Build from the intended release revision, record checksums, verify packaged metadata/assets, and smoke-test clean client and dedicated-server installs using the documented dependencies.
 
-**Done when:** the artifact is reproducible, contains only intended distributable content, and clean client/server installs work with the documented dependencies. Reuse the accepted five-family rides and restrictions when relevant packaged inputs and install context match; use a representative clean-install ride to check packaging, expanding only for a family-specific packaging risk. Do not repeat survival construction or the full qualification matrix here.
+**Done when:** the artifact is reproducible, contains only intended distributable content, and clean client/server installs work with the documented dependencies. Reuse the accepted family/variant rides and restrictions when relevant packaged inputs and install context match; use a representative clean-install ride to check packaging, expanding only for a family-specific packaging risk. Do not repeat survival construction or the full qualification matrix here.
 
 ### FD1003 Version 1.0 release gate
 
@@ -616,7 +785,14 @@ Review the finished release against the definition below. Publishing is a future
 
 **Done when:** the release checklist and evidence are complete; when publication is separately requested, the published artifacts and release notes match the verified build.
 
-Version 1.0 requires all five functional vehicle families with original matching tracks, both controlled and free dynamics, magnetic assistance, shuttle operation, strict asymmetric cart compatibility, correct riders/camera, persistent multiplayer state, usable tutorials/recipes, tested migrations, and measured performance. Ordinary-cart rail access is verified; towing is claimed only where proven. Standalone completion does not require unreleased external features.
+Stable 1.0 includes the original five families plus fixed-seat Wing, agreed
+Spinning variants, Suspended, Axis, Pipeline and Roller Ball, with their original
+vehicles and required track contracts. It includes the agreed operations,
+presentation, optional-seat and coexistence capabilities through FD915. Strict
+eligibility, correct riders/camera, persistent multiplayer state, usable content,
+supported migrations and measured performance remain release requirements.
+Optional addons stay optional for standalone rides. Ordinary-cart access and
+towing retain their separately proven bounds; FD801 availability does not block release.
 
 ### Supported envelope and explicit 1.0 dispositions
 
@@ -629,7 +805,7 @@ publish them consistently; FD1002 must verify the boundaries on the release JAR.
 | Dimension capacities | Retain 256 sections, 64 vehicles, 8192 total profile keys and 512 magnetic spans, at most eight spans per section | FD901 verifies exact-limit/one-over-limit admission and reload behavior; FD903 verifies no partial mutation or silent save truncation. FD904B separately bounds tested workload performance. |
 | Recovery envelope | Accept only the FD402 declared bearing, family/consist/route, drive, equipment and provider set | FD402A–F certify it; unmeasured grades, assemblies, compact-spike pulls and cosmetic overrides stay unsupported. |
 | Stabilized comfort camera | Deliver before 1.0 as already specified in D16; not implicitly deferred | FD904C implements/verifies the option. If it cannot pass, 1.0 stays open unless the design requirement is explicitly revised. |
-| Five families, original tracks, supported upgrades and four intended profiles | Preserve existing release scope and evidence gates | FD404/FD905; future families and integrations remain separately paused. |
+| Expanded families/variants, required tracks, supported upgrades and named profiles | Preserve original five-family acceptance and add the agreed former-through-1.5 scope | FD503/FD601/FD701/FD813/FD915 feed FD1000, then FD905; optional addons remain optional for standalone use. |
 
 ## External compatibility work
 
@@ -643,28 +819,34 @@ Inspect the actual representation and implement an independently authored option
 
 **Done when:** our Arrow vehicles correctly use the verified equivalent functional track, ordinary fitting carts receive no 4D effects, control rails have one render owner, profiles persist, and same-family provider transitions pass multiplayer/lifecycle tests. Record supported versions. If the external release is unavailable, keep this package pending without blocking 1.0.
 
-## Proposed vehicle discovery after 1.0
+## New-family discovery and delivery packages
 
-These packages scope the user's proposals; **implementation and prototype runs
-remain paused pending explicit approval**. Their release labels are proposed
-allocations, not dates or authorization. Completing 1.0 does not lift the pause.
-The [integration backlog](docs/INTEGRATION-BACKLOG.md) owns addon adapters, while
-the vehicle packages below own mechanics and assets. Neither substitutes for the
-other. A discovery package completes with a reviewed specification and test plan,
-not a claim that its vehicle is implemented.
+All six discovery IDs are retained and scheduled during 0.5 under the adopted
+plan. Reference inspection and asset concepts can start while 0.4 finishes.
+The original discovery ID closes with a dimensioned specification, explicit
+mechanics/seat/track contract, chosen scope and finite acceptance plan. It does
+not claim an implemented vehicle. The suffix packages below own implementation,
+original content and cumulative acceptance; all are **planned** initially.
 
-For every package, retain references and distinguish confirmed mechanisms from
-game approximations. Record dimensions, running/guide/upstop contacts, seats and
-restraints, pivot axes, mass/loading, coupling, persistence, render/camera ownership,
-ordinary-cart fit and family eligibility. Any external track needs its own verified
-adapter. A proposed prototype must include occupied motion, capture, wrong-track
-rejection, obstruction/clearance, save/reopen and two-client observations before
-its implementation can later be called complete.
+Retain confirmed references versus inspired game choices, running/guide/upstop
+contacts, dimensions, seats/restraints, pivots, mass/loading, coupling, persistence,
+pose/render/camera ownership and eligibility. Preserve stable existing identities.
+Any external track needs its own verified adapter. Native checks cover mechanics,
+clearance and failure injection; client checks cover real input, visible motion,
+riders and the player example. Use shared lifecycle evidence plus distinct cases,
+not a mandatory new full matrix for each family. The source references below are
+discovery inputs, not newly verified engineering claims.
+
+For each A–C implementation chain, A owns mechanics and necessary shared changes,
+B owns original assets plus recipes/guide/example, and C closes the complete player
+workflow by combining valid evidence. B may begin after specification/dimensions
+are stable; C waits for A and B. Partial results stay accepted within their scope.
 
 ### FD1101 Fixed-seat Wing coaster discovery
 
-**Status: planned; implementation paused.** **Proposed release:** 1.1.
-**Depends on:** separate expansion approval; existing controlled-car geometry and FD1003 for release.
+**Status: planned.** **Discovery:** 0.5. **Delivery:** 0.5.
+**Discovery inputs / decisions:** existing controlled-car geometry; normal-track fit and fixed-seat specification.
+**Depends on:** no release gate for reference/design work. Native feasibility checks use the integrated core and declared run prerequisites.
 
 - **Motion/seating:** develop the requested wing arrangement with fixed seats;
   document seat count, restraint group and train links. Chassis banking applies,
@@ -679,12 +861,49 @@ its implementation can later be called complete.
 - **Done when / next action:** produce a dimensioned nonrotating vehicle contract,
   normal-track fit/rejection matrix and occupied banking/station/coupling prototype
   plan. Reference the user's [Wing proposal](https://coasterpedia.net/wiki/Winged_roller_coaster)
-  during approved discovery; no claim of universal normal-track fit is made now.
+  during discovery; no claim of universal normal-track fit is made now.
+
+| Delivery task / status | Prerequisites | Steps and completion condition |
+| --- | --- | --- |
+| **FD1101A Mechanics — planned** | FD404, FD501A, FD1101 | Extend fixed-seat eligibility and pose/seat contracts through the actual Wing vehicle; implement normal-track fit, restraints, coupling, placement and ordinary station handling. No rotary mechanism or Arrow profile is inherited. Complete when its specified mechanism and affected native invariants pass. |
+| **FD1101B Original content — planned** | FD1101 specification and stable A dimensions | Finish original vehicle/required track assets, restraints, item/recipe content, guide and a playable example. Complete when content represents the implemented behavior and normal player controls. |
+| **FD1101C Player acceptance — planned** | FD1101A, FD1101B | Complete normal construction/boarding/operation/capture/unload for the declared example; combine accepted mechanics, eligibility, clearance, persistence and rider-synchronization evidence. Add only distinct interruption or camera cases. Complete when the whole feature is usable and documented; do not restart acceptance for an unrelated build. |
+
+### FD1501 Spinning coaster variants discovery
+
+**Status: planned.** **Discovery:** 0.5. **Delivery:** 0.6 first variant; 0.8 remaining agreed variants.
+**Discovery inputs / decisions:** finite variant list, first-variant choice and per-variant motion/track specifications.
+**Depends on:** no release gate for reference/design work. Native feasibility checks use the integrated core and declared run prerequisites.
+
+- **Motion/seating:** enumerate intended variants from the
+  [Spinning reference](https://coasterpedia.net/wiki/Spinning_roller_coaster);
+  specify each spin axis, passenger layout, loading response, range, damping and
+  free/driven mode. Name each mechanically different variant in the specification;
+  FD1501A–C deliver the first, and FD1501D–F deliver the remaining agreed variants.
+- **Track/capture:** decide ordinary-track fit versus a dedicated family by measured
+  contacts and swept clearance. Define orientation-independent stopping versus
+  controlled station capture, restraint interlocks and lift/launch interaction.
+- **Models and risks:** original spinning chassis/carrier, seats, bearings, restraints,
+  skins and track only where required. Prototype asymmetric loading, uncontrolled
+  spin limits, coupling and safe capture through rollback/power loss.
+- **Done when / next action:** publish a variant matrix, per-variant physics and
+  seating contracts, asset list and independent acceptance plan. A shared cosmetic
+  body must not hide different dynamics or expand compatibility without proof.
+
+| Delivery task / status | Prerequisites | Steps and completion condition |
+| --- | --- | --- |
+| **FD1501A Mechanics — planned** | FD501A, FD1101A, FD1501 | Implement the first agreed Spinning variant and the carrier-axis/loading/damping/capture support it actually needs. Preserve existing carrier behavior; prove new-axis motion through native occupied cases. Complete when its specified mechanism and affected native invariants pass. |
+| **FD1501B Original content — planned** | FD1501 specification and stable A dimensions | Finish original vehicle/required track assets, restraints, item/recipe content, guide and a playable example. Complete when content represents the implemented behavior and normal player controls. |
+| **FD1501C Player acceptance — planned** | FD1501A, FD1501B | Complete normal construction/boarding/operation/capture/unload for the declared example; combine accepted mechanics, eligibility, clearance, persistence and rider-synchronization evidence. Add only distinct interruption or camera cases. Complete when the whole feature is usable and documented; do not restart acceptance for an unrelated build. |
+| **FD1501D Remaining variant mechanics — planned** | FD501A, FD1501, FD1501A | Implement each additional agreed variant with shared code only where mechanics match. Complete when each distinct motion/capture contract passes its affected native checks; the first variant stays accepted. |
+| **FD1501E Remaining variant content — planned** | FD1501 specification and stable D dimensions | Finish per-variant original assets, recipes, guides and examples. Complete when each agreed variant is usable through its intended controls. |
+| **FD1501F Remaining variant acceptance — planned** | FD1501D, FD1501E | Close each additional variant's player workflow and distinct lifecycle/pose cases using cumulative evidence. Complete when the finite variant list is covered; do not add variants after each pass. |
 
 ### FD1301 Arrow-style Suspended coaster discovery
 
-**Status: planned; implementation paused.** **Proposed release:** 1.3.
-**Depends on:** separate expansion approval and swing/track prototype; FD1003 for release.
+**Status: planned.** **Discovery:** 0.5. **Delivery:** 0.6.
+**Discovery inputs / decisions:** overhead-track and dimensioned swing/lock specification.
+**Depends on:** no release gate for reference/design work. Native feasibility checks use the integrated core and declared run prerequisites.
 
 - **Motion/seating:** specify lateral free swing driven by chassis motion and
   declared rider loading, including pivot position, limits, damping and seat layout.
@@ -699,10 +918,17 @@ its implementation can later be called complete.
   into a dimensioned swing/lock state machine and track/seat contract, with explicit
   limit and failure tests. Do not implement an animated cabin in place of dynamics.
 
+| Delivery task / status | Prerequisites | Steps and completion condition |
+| --- | --- | --- |
+| **FD1301A Mechanics — planned** | FD501A, FD1501A, FD1301 | Implement the overhead bogie/hanger, bounded lateral swing, loading/damping and safe lift/station locks. Reuse integrated carrier infrastructure; do not substitute a cabin animation for dynamics. Complete when its specified mechanism and affected native invariants pass. |
+| **FD1301B Original content — planned** | FD1301 specification and stable A dimensions | Finish original vehicle/required track assets, restraints, item/recipe content, guide and a playable example. Complete when content represents the implemented behavior and normal player controls. |
+| **FD1301C Player acceptance — planned** | FD1301A, FD1301B | Complete normal construction/boarding/operation/capture/unload for the declared example; combine accepted mechanics, eligibility, clearance, persistence and rider-synchronization evidence. Add only distinct interruption or camera cases. Complete when the whole feature is usable and documented; do not restart acceptance for an unrelated build. |
+
 ### FD1302 S&S-style Axis coaster discovery
 
-**Status: planned; implementation paused.** **Proposed release:** 1.3.
-**Depends on:** separate expansion approval and independent rotation proof; FD1003 for release.
+**Status: planned.** **Discovery:** 0.5. **Delivery:** 0.7.
+**Discovery inputs / decisions:** unambiguous rotation-axis/mode and track/seat specification.
+**Depends on:** no release gate for reference/design work. Native feasibility checks use the integrated core and declared run prerequisites.
 
 - **Motion/seating:** investigate the requested horizontal-rotation concept;
   settle the exact axis relative to chassis, seat grouping, rotation range and
@@ -718,10 +944,43 @@ its implementation can later be called complete.
   and produce an unambiguous axis/mode/seat/track contract with a falsifiable physics
   prototype plan. Shared release numbering does not imply shared Suspended mechanics.
 
+| Delivery task / status | Prerequisites | Steps and completion condition |
+| --- | --- | --- |
+| **FD1302A Mechanics — planned** | FD501A, FD1501A, FD1301A, FD1302 | Implement the selected Axis rotation/modes, off-axis inertia, propulsion ownership, capture and clearance, using the established motion infrastructure without equating Axis with Suspended. Complete when its specified mechanism and affected native invariants pass. |
+| **FD1302B Original content — planned** | FD1302 specification and stable A dimensions | Finish original vehicle/required track assets, restraints, item/recipe content, guide and a playable example. Complete when content represents the implemented behavior and normal player controls. |
+| **FD1302C Player acceptance — planned** | FD1302A, FD1302B | Complete normal construction/boarding/operation/capture/unload for the declared example; combine accepted mechanics, eligibility, clearance, persistence and rider-synchronization evidence. Add only distinct interruption or camera cases. Complete when the whole feature is usable and documented; do not restart acceptance for an unrelated build. |
+
+### FD1502 Roller Ball coaster discovery
+
+**Status: planned.** **Discovery:** 0.5. **Delivery:** 0.7.
+**Discovery inputs / decisions:** distinct route/vehicle/capture specification and native feasibility review.
+**Depends on:** no release gate for reference/design work. Native feasibility checks use the integrated core and declared run prerequisites.
+
+- **Motion/seating:** inspect the separate [Roller Ball reference](https://coasterpedia.net/wiki/Roller_Ball_(RES_Rides_product))
+  to resolve pivot axis, seat count, free/controlled behavior and loading response.
+  Do not inherit FD1501's spin axis or dynamics from the shared release label.
+- **Track/capture:** specify the intended route geometry, running-gear contacts,
+  functional family, lift/return transitions and station capture/locking. Identify
+  whether existing graph and native couplers can represent the route and vehicle.
+- **Models and risks:** original frame, rotating passenger unit, seats, restraints,
+  wheels, supports and matching track where required. Prototype tight-transition
+  clearance, acceleration, retention and restart behavior before detailed skins.
+- **Done when / next action:** deliver a dimensioned reference-backed contract and
+  a distinct occupied motion/route/capture prototype plan, including wrong-family
+  rejection and persistence. Record unresolved mechanics rather than calling it a
+  cosmetic spinning-coaster variant.
+
+| Delivery task / status | Prerequisites | Steps and completion condition |
+| --- | --- | --- |
+| **FD1502A Mechanics — planned** | FD501A, FD1302A, FD1502 | Implement the distinct Roller Ball route/vehicle, passenger mechanism, lift/return transitions, retention and capture. Preserve its own dynamics and route model; use integrated shared changes from Axis first. Complete when its specified mechanism and affected native invariants pass. |
+| **FD1502B Original content — planned** | FD1502 specification and stable A dimensions | Finish original vehicle/required track assets, restraints, item/recipe content, guide and a playable example. Complete when content represents the implemented behavior and normal player controls. |
+| **FD1502C Player acceptance — planned** | FD1502A, FD1502B | Complete normal construction/boarding/operation/capture/unload for the declared example; combine accepted mechanics, eligibility, clearance, persistence and rider-synchronization evidence. Add only distinct interruption or camera cases. Complete when the whole feature is usable and documented; do not restart acceptance for an unrelated build. |
+
 ### FD1401 Pipeline coaster discovery
 
-**Status: planned; implementation paused.** **Proposed release:** 1.4.
-**Depends on:** separate expansion approval and reference-selection decision; FD1003 for release.
+**Status: planned.** **Discovery:** 0.5. **Delivery:** 0.8.
+**Discovery inputs / decisions:** explicit Pipeline reference selection and track/seat specification.
+**Depends on:** no release gate for reference/design work. Native feasibility checks use the integrated core and declared run prerequisites.
 
 - **Motion/seating:** first select the intended design from the user's
   [Pipeline reference](https://coasterpedia.net/wiki/Pipeline_roller_coaster).
@@ -737,40 +996,8 @@ its implementation can later be called complete.
   dimensioned vehicle/track/seat contract and occupied clearance/station prototype
   plan. Other pipeline interpretations become separate suffix packages if requested.
 
-### FD1501 Spinning coaster variants discovery
-
-**Status: planned; implementation paused.** **Proposed release:** 1.5.
-**Depends on:** separate expansion approval and per-variant motion proof; FD1003 for release.
-
-- **Motion/seating:** enumerate intended variants from the
-  [Spinning reference](https://coasterpedia.net/wiki/Spinning_roller_coaster);
-  specify each spin axis, passenger layout, loading response, range, damping and
-  free/driven mode. Assign suffix IDs to mechanically different variants.
-- **Track/capture:** decide ordinary-track fit versus a dedicated family by measured
-  contacts and swept clearance. Define orientation-independent stopping versus
-  controlled station capture, restraint interlocks and lift/launch interaction.
-- **Models and risks:** original spinning chassis/carrier, seats, bearings, restraints,
-  skins and track only where required. Prototype asymmetric loading, uncontrolled
-  spin limits, coupling and safe capture through rollback/power loss.
-- **Done when / next action:** publish a variant matrix, per-variant physics and
-  seating contracts, asset list and independent acceptance plan. A shared cosmetic
-  body must not hide different dynamics or expand compatibility without proof.
-
-### FD1502 Roller Ball coaster discovery
-
-**Status: planned; implementation paused.** **Proposed release:** 1.5.
-**Depends on:** separate expansion approval and dedicated route/vehicle prototype; FD1003 for release.
-
-- **Motion/seating:** inspect the separate [Roller Ball reference](https://coasterpedia.net/wiki/Roller_Ball_(RES_Rides_product))
-  to resolve pivot axis, seat count, free/controlled behavior and loading response.
-  Do not inherit FD1501's spin axis or dynamics from the shared release label.
-- **Track/capture:** specify the intended route geometry, running-gear contacts,
-  functional family, lift/return transitions and station capture/locking. Identify
-  whether existing graph and native couplers can represent the route and vehicle.
-- **Models and risks:** original frame, rotating passenger unit, seats, restraints,
-  wheels, supports and matching track where required. Prototype tight-transition
-  clearance, acceleration, retention and restart behavior before detailed skins.
-- **Done when / next action:** deliver a dimensioned reference-backed contract and
-  a distinct occupied motion/route/capture prototype plan, including wrong-family
-  rejection and persistence. Record unresolved mechanics rather than calling it a
-  cosmetic spinning-coaster variant.
+| Delivery task / status | Prerequisites | Steps and completion condition |
+| --- | --- | --- |
+| **FD1401A Mechanics — planned** | FD404, FD501A, FD1101A, FD1401 | Implement the selected Pipeline contact/track geometry, chassis, seating or posture, restraints, propulsion/braking and coupling. Only its own mechanism prerequisites apply; no Axis dependency. Complete when its specified mechanism and affected native invariants pass. |
+| **FD1401B Original content — planned** | FD1401 specification and stable A dimensions | Finish original vehicle/required track assets, restraints, item/recipe content, guide and a playable example. Complete when content represents the implemented behavior and normal player controls. |
+| **FD1401C Player acceptance — planned** | FD1401A, FD1401B | Complete normal construction/boarding/operation/capture/unload for the declared example; combine accepted mechanics, eligibility, clearance, persistence and rider-synchronization evidence. Add only distinct interruption or camera cases. Complete when the whole feature is usable and documented; do not restart acceptance for an unrelated build. |

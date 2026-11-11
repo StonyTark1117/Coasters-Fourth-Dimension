@@ -6,6 +6,11 @@ FD404 and FD905 remain open. A later source change has its own identity, but
 unaffected acceptance carries forward under [VALIDATION-POLICY.md](VALIDATION-POLICY.md).
 Do not reselect the baseline or repeat a run just because the commit/JAR changed.
 
+Planning allocation updated 2026-11-11: FD404 is the five-family development
+checkpoint; FD1000 owns the expanded 1.0 alpha freeze. The identities and runtime
+observations below are unchanged by roadmap adoption. New implementation records
+will carry unaffected acceptance forward; no new JAR or run is required here.
+
 ## Artifact and scope
 
 | Field | Recorded value |
@@ -54,10 +59,10 @@ Each linked record retains the selected JAR hash, runtime classpath, dependency 
 
 ## Evidence reuse and required retests
 
-**Read current task status before scheduling a run.** FD401A and FD401B are
-complete. All four five-family server telemetry profile rows below have passes.
-[FD401 current next actions](../ROADMAP.md#fd401-deliver-optional-provider-infrastructure)
-own the remaining FE and client-output work. Accepted construction, normal-seat
+**Read current task status before scheduling a run.** FD401A–D are complete
+within their declared scope. All four five-family server telemetry profile rows
+below have passes. [FD401 current status](../ROADMAP.md#fd401-deliver-optional-provider-infrastructure)
+supersedes old per-run FE/client-output gaps that later evidence closed. Accepted construction, normal-seat
 cycles, rendering, and persistence may be combined across records when their
 relevant paths match; a missing observation in one record does not erase another.
 
@@ -172,8 +177,9 @@ Keep this qualification baseline stable while collecting evidence. For a relevan
 production fix, record the fix artifact and the affected cases; carry unaffected
 acceptance forward with a brief change review. Test-only fixtures and documentation
 edits do not require baseline reselection or a new qualification JAR. When the
-release artifact is frozen at FD404, reconcile existing evidence and run only the
-outstanding release checks in FD901–FD905. Keep earlier bundles immutable and
+expanded release artifact is frozen at FD1000, reconcile existing evidence and
+run only outstanding final checks in FD901–FD905. FD404 records the accepted
+original core and does not trigger final release qualification. Keep earlier bundles immutable and
 retain their true identities. A freeze is not an instruction to start over.
 
 Verify the retained payloads from the repository root:

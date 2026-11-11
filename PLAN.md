@@ -1,29 +1,40 @@
 # Coasters: Fourth Dimension addon plan
 
-The [2026-11-02 integration backlog and release allocation](docs/INTEGRATION-BACKLOG.md)
-supersedes older dependency/version observations below for the staged candidates,
-including Immersion 1.1.0 client-only/optional-Aeronautics metadata. It records
-proposed optional expansion scope without resuming implementation or changing the
-standalone 1.0 gate. Historical inspections remain evidence for their own artifacts.
+The expanded roadmap was adopted **2026-11-11 (America/Phoenix)**. Stable 1.0
+now includes all vehicle and integration scope formerly proposed through 1.5.
+[ROADMAP.md](ROADMAP.md) owns permanent FD IDs, prerequisites, status and acceptance;
+D01–D18 below retain their stable design references. A planning milestone or a
+new artifact hash is not proof of implementation or a reason to reopen acceptance.
 
-Planning update (2026-11-02): foundation and the bounded 0.1, 0.2, and five-family 0.3 gates have acceptance evidence. FD401–FD403 remain open toward FD404 and the subsequent 0.9/1.0 gates. New ecosystem integration implementation is paused pending user approval; see [new-family acceptance and limits](docs/REVISED-SHUTTLE.md), [integration progress](docs/INTEGRATIONS.md), and [package statuses](ROADMAP.md). FD403 now includes original Ponder lessons for all fifteen craftable items and native survival crafting/placement checks for every family; complete survival operating exercises remain open. The design below remains the target for unfinished release work.
+Foundation through bounded 0.3, FD401A–D and FD402A/C/D retain their accepted
+results. Finish the open 0.4 cases, then prove extensions through Wing, Spinning
+and Suspended before Axis/Roller Ball and the remaining content. Operations
+adapters can advance after their interfaces; presentation/seat integrations follow
+stable mechanisms. FD404 is the five-family development checkpoint; FD1000 is
+the expanded 1.0 alpha freeze, followed by FD901–FD905 and FD1001–FD1003.
 
-The initial design was researched September 30, 2026, using project pages, released JARs, and selected upstream source files. Research observations below describe that planning baseline; later inspection and runtime evidence are recorded in the implementation documents and roadmap. The addon has since been implemented and tested through the bounded gates listed above.
+The [integration backlog](docs/INTEGRATION-BACKLOG.md) owns the dated artifact
+inventory and adopted allocation. Its November 2 catalog and the initial
+September 30 research remain historical inspections, not claims about latest
+releases. Review dependencies through FD501 before activating expansion profiles.
+The archived schema-7/protocol-8 registry is not automatically part of the build;
+FD501/FD501A own the decision and any necessary migration.
 
-Use [ROADMAP.md](ROADMAP.md) for addressable work packages, dependencies, acceptance criteria, and release gates through 1.0. IDs such as FD107 identify implementation tasks; D01–D18 below identify design sections. Keep these IDs stable so later requests can name a precise scope. Completion and evidence belong to the individual package statuses; a development version number is not proof that a release gate has passed.
-
-Planning reconciliation (2026-11-04): the [current qualification record](docs/CURRENT-QUALIFICATION.md)
-owns source/JAR identity and evidence reuse. FD401A–D, FD402A–F and FD403A–F define
-finite remaining 0.4 acceptance. FD904B adds the representative-park benchmark;
-FD904C retains D16's optional stabilized camera as required pre-1.0 work. The
+The [qualification record](docs/CURRENT-QUALIFICATION.md) retains actual run
+identities. [VALIDATION-POLICY.md](docs/VALIDATION-POLICY.md) governs cumulative
+acceptance and targeted retesting. New designs need specifications and working
+vehicles; discovery alone does not complete a family. The
 [1.0 supported envelope](ROADMAP.md#supported-envelope-and-explicit-10-dispositions)
-explicitly retains the existing coordinate/capacity limits. Proposed Wing,
-Suspended, Axis, Pipeline, Spinning and Roller Ball discovery has permanent IDs
-FD1101, FD1301, FD1302, FD1401, FD1501 and FD1502; implementation remains paused.
+retains current coordinate/capacity limits unless separately revised with evidence.
+This planning adoption changes no runtime artifact, supported-version claim or
+publication authorization.
 
-Build an addon for Create: Coasters Simulated covering controlled, freely rotating, magnet-assisted, and shuttle 4D coasters. Ship original functional tracks, working vehicles, rotating seat carriers, spin-control equipment, and rider integration across several ride families. Reuse the base mod’s track graph, cart physics, linking, and lift system where suitable. Track Styles remains an optional integration; its release schedule must not block ours.
-
-Retain the original X2, Eejanaika, and Dinoconda goal, and expand the roadmap to Intamin ZacSpin generations, S&S 4D Free Spin, and PAX Bumerang. The user’s [fourth-dimension coaster reference](https://en.wikipedia.org/wiki/Fourth-dimension_roller_coaster) supplies the initial family list; manufacturer evidence and proposed game behavior are distinguished below. No additional JAR or runtime compatibility testing was performed for this scope expansion.
+Build on Create: Coasters Simulated's graph, physics and linking where suitable.
+Ship original functional vehicles and required tracks, with distinct controlled,
+free, magnet-assisted, fixed-seat, swing and shuttle behavior. Preserve the
+original Arrow/S&S, ZacSpin, S&S Free Spin and PAX goals while implementing the
+agreed new families below. Optional addons remain optional for standalone rides;
+Track Styles' future functional-track availability must not block release.
 
 ## D01 Ride families and product scope
 
@@ -39,7 +50,24 @@ These are mechanically distinct vehicle families, not merely alternate textures.
 
 Keep independent carrier groups in the architecture from the start. A controlled car can couple groups to one profile; free-spin vehicles can carry different angular states. Do not force every family into the original shared four-seat axle design.
 
-The release roadmap through 1.0 commits to all five families, with the second-generation ZacSpin’s exact fidelity gated on further evidence. New ordinary fixed-seat wing coaster and unrelated spinning coaster models are outside that release scope. Later vehicle proposals remain separately paused in the [release map](ROADMAP.md#release-map); an integration adapter does not implement or approve those vehicles. Existing ordinary carts may use our tracks under the compatibility rules below.
+These original five families retain their accepted bounded implementations;
+unverified historical fidelity is not claimed. Stable 1.0 also includes the
+following adopted family packages. Discovery for all six occurs in 0.5, with
+implementation ordered by shared mechanics. The specification chooses actual
+axes, seats, dimensions and track contracts; release labels do not settle them.
+
+| Added family package | Delivery milestone | Required behavior / specification boundary |
+| --- | --- | --- |
+| Fixed-seat Wing / FD1101A–C | 0.5 | Fixed passenger seats, measured ordinary-track fit, restraints, coupling and station workflow; no inherited 4D rotation. |
+| Spinning / FD1501A–C, D–F | 0.6 first variant; 0.8 remaining variants | A finite agreed variant list with separate axis/loading/damping/capture contracts where mechanics differ. |
+| Suspended / FD1301A–C | 0.6 | Overhead running gear, lateral swing, declared limits/damping and safe lift/station locks. |
+| Axis / FD1302A–C | 0.7 | Explicit rotation-axis/mode, capture, propulsion and clearance behavior distinct from Suspended. |
+| Roller Ball / FD1502A–C | 0.7 | Its own vehicle/route, passenger mechanism, lift/return transitions and retention/capture. |
+| Pipeline / FD1401A–C | 0.8 | Chosen Pipeline interpretation, contact geometry, vehicle/posture/restraints and station workflow. |
+
+An integration adapter does not implement a vehicle family. Ordinary carts retain
+the compatibility rules below. New requested features cannot be silently dropped
+to accelerate release; unresolved scope decisions belong to their 0.5 specifications.
 
 ## D02 Cart and track compatibility
 
@@ -59,11 +87,17 @@ Compatibility is asymmetric. An ordinary non-4D cart may use a 4D track if its e
 
 Separate three decisions: whether the main running gear fits, whether the vehicle is permitted on that track family, and which mechanisms may interact with it. A normal recovery cart can pass the first two without having any 4D capabilities. A 4D cart cannot pass family eligibility merely because its main wheels fit.
 
-Track definitions must expose a functional family/variant, main-rail contact geometry, supported running-gear profiles, required mechanical interfaces, and attachment/clearance envelopes. Vehicle definitions must expose their role (ordinary or family-specific 4D), actual running-gear profile, required track family, and supported mechanisms. Include running, side-guide, and upstop wheel contacts where applicable; gauge alone is insufficient. Fit tolerances and supported adapter dimensions must be measured and tested, not inferred from a style label. Unknown external combinations remain unsupported until registered and verified.
+Track definitions must expose a functional family/variant, main-rail contact geometry, supported running-gear profiles, required mechanical interfaces, and attachment/clearance envelopes. Vehicle definitions must expose their role (ordinary access, fixed-seat vehicle or mechanism-bearing family), actual running-gear profile, required track contract, and supported mechanisms. Include running, side-guide, and upstop wheel contacts where applicable; gauge alone is insufficient. Fit tolerances and supported adapter dimensions must be measured and tested, not inferred from a style label. Unknown external combinations remain unsupported until registered and verified.
 
 Gate placement, assembly, snapping/re-engagement, dispatch, route transitions, and save/load rebinding on the server. Check every vehicle in a linked consist independently. Reject an incompatible placement or planned connection with an actionable reason such as “Arrow 4D cart requires Arrow 4D track” or “Cart running gear does not clear the control rails.” Prevent planned operation across an incompatible boundary; detect upcoming transitions with enough braking distance rather than discovering a mismatch only after crossing it. Track edits while occupied remain prohibited. Unexpected support loss enters recovery behavior, never automatic conversion, teleportation, or snapping onto an unrelated nearby track.
 
 Track geometry may share the existing Coasters graph internally, but eligibility must be enforced before its generic cart snapper can accept a mismatched vehicle. Prototype these hooks early. If metadata on the base material cannot enforce the rule reliably, use distinct functional materials or track types while retaining graph reuse.
+
+Fixed-seat Wing extends the role/seat contract through a concrete working vehicle.
+It must not be forced to declare rotary clearance or an Arrow profile merely
+because the current implementation distinguishes ordinary and rotating roles.
+The existing 4D family restrictions remain intact; each new family's ordinary-track
+fit versus dedicated-family requirement follows its explicit specification.
 
 ## D03 Recovery cart use
 
@@ -109,27 +143,27 @@ The historical `research/dependency-audit.json` records the September inspection
 
 The November 2 catalog covers all seven pictured addons, CTNB, the base mod,
 Create, Sable and the adjacent Create Coasters utility. The [integration backlog](docs/INTEGRATION-BACKLOG.md)
-is authoritative for exact artifacts, dependency caveats, acceptance and proposed
+is authoritative for exact artifacts, dependency caveats, acceptance and adopted
 release allocation. Historical code inspection remains attached to its original release.
 
 | Integration | Current candidate and intended capability | Release allocation |
 | --- | --- | --- |
 | Create / Coasters / Sable | Required foundation; Ponder, goggles, Display Links and shared station/winch telemetry. Keep the active baseline until a separately validated upgrade. | Existing 0.4–1.0 scope |
 | Track Styles | 1.2.0 Arrow spine/tie appearance with original mechanical geometry and fallback. Released static Arrow models do not prove functional control-rail support. | Existing 0.4–1.0 appearance scope; functional support stays FD801 |
-| Engineered | 1.1.1 motors, braking, controllers and observers; complete operator/FE evidence while retaining our readiness and PAX authority. | Existing 0.4–1.0 optional operations scope |
-| Simulated Additions | Published 0.2.5 beta embeds `coasterfins` 0.2.2. Station signals and validated automatic dispatch first; resolve Aeronautics/Interiors dependencies and artifact identity. | Proposed 1.1; rotating seats separately in proposed 1.2 |
-| Tracks and Balloons / CTNB | 1.2, formerly Create Coasters Extras. Functional tracks, station/control behavior and cosmetic materials require distinct capability checks. | Proposed 1.1 |
-| Magnetized | 1.1.0 longitudinal acceleration/braking; preserve separate magnetic seat-axis mechanics and explicit propulsion ownership. | Proposed 1.1 |
-| Coaster Skin | 1.0.0 changes seating and cart behavior as well as appearance; review chassis eligibility and exact dependency requirements. | Proposed 1.2 |
-| Immersion | 1.1.0 client-only release with optional Aeronautics metadata. Compose camera/body effects once with authoritative carrier pose; review interpolation mixins. | Proposed 1.2 |
-| Waterparked | 0.2.8-beta-hotfix1 for Coasters 0.1.5; shared graph/mixin/render coexistence first. No assumption that our cars can use slides. | Proposed 1.2 coexistence |
-| Create Coasters | 2.0 separate Create train/contraption utility; check seat locks and camera overlap. No assumed Sable control bridge. | Proposed 1.2 coexistence |
+| Engineered | 1.1.1 motors, braking, controllers and observers; retain accepted FD401 operator evidence and finish only the declared recovery FE gaps, preserving our readiness and PAX authority. | Existing 0.4–1.0 optional operations scope |
+| Simulated Additions | Published 0.2.5 beta embeds `coasterfins` 0.2.2. Station signals and validated automatic dispatch first; resolve Aeronautics/Interiors dependencies and artifact identity. | 0.8 / FD810; rotating seats separately in 0.9 / FD911 |
+| Tracks and Balloons / CTNB | 1.2, formerly Create Coasters Extras. Functional tracks, station/control behavior and cosmetic materials require distinct capability checks. | 0.8 operations |
+| Magnetized | 1.1.0 longitudinal acceleration/braking; preserve separate magnetic seat-axis mechanics and explicit propulsion ownership. | 0.8 operations |
+| Coaster Skin | 1.0.0 changes seating and cart behavior as well as appearance; review chassis eligibility and exact dependency requirements. | 0.9 presentation/seats |
+| Immersion | 1.1.0 client-only release with optional Aeronautics metadata. Compose camera/body effects once with authoritative carrier pose; review interpolation mixins. | 0.9 presentation/seats |
+| Waterparked | 0.2.8-beta-hotfix1 for Coasters 0.1.5; shared graph/mixin/render coexistence first. No assumption that our cars can use slides. | 0.9 coexistence |
+| Create Coasters | 2.0 separate Create train/contraption utility; check seat locks and camera overlap. No assumed Sable control bridge. | 0.9 coexistence |
 
 Optional addons stay separately installed. The Track Styles page/JAR license
 mismatch remains unresolved; no asset reuse is authorized by this plan. The
 artifact catalog records the other declared licenses. Our original track,
 rotation mechanisms and five-family scope remain independent of optional addons.
-Proposed 1.1/1.2 allocations are planning scopes, not dates or authorization to
+0.8 operations/1.2 allocations are planning scopes, not dates or authorization to
 resume implementation. FD801 never blocks standalone 1.0.
 Before an approved expansion starts, refresh its dated artifact inventory and
 dependency closure using the [version refresh policy](docs/INTEGRATION-BACKLOG.md#version-refresh-before-expansion).
@@ -155,6 +189,15 @@ Proposed workflow: choose a vehicle family, build its matching functional track 
 Start with original generic models for each mechanical family rather than park-branded replicas. X2, Eejanaika, and Dinoconda liveries can share the controlled chassis later. Arbitrary player-built wing structures, general park traffic management, and exact engineering replicas remain follow-up scope. Free-spinning behavior and independent carrier groups are now core planned features.
 
 ## D09 Shared carrier model
+
+Expansion extends these contracts incrementally through working families. Wing
+proves fixed seats; the first Spinning variant proves configurable carrier axis
+and pivot behavior; Suspended adds bounded swing and locking. Axis and Roller Ball
+reuse only mechanics that actually match. Declare seat/restraint, camera and
+propulsion ownership explicitly, and preserve existing persisted identifiers.
+Use FD501A for any necessary format migration rather than treating a new vehicle
+or artifact hash as an automatic schema change. One owner integrates shared
+runtime changes before dependent feature work uses them.
 
 Each vehicle definition describes its role, required functional track family/variant, running-gear profile, seat positions, pivot transforms, carrier groups, permitted couplings, mass/inertia preset, attachment compatibility, and boarding pose. Each carrier persists its unwrapped angle, angular velocity, mode, and lock state. Modes are controlled, free, magnet-assisted, and boarding capture/locked. Ordinary carts have no 4D carrier state. Shuttle operation is a separate train state machine, not another way to compute seat angle.
 
@@ -234,10 +277,12 @@ Implement the rotation math independently of Minecraft; keep Coasters integratio
 
 The seat carrier, rider body, and camera must agree on one transform. Preserve normal mouse look relative to the rider’s seat. Test upside-down views, first-person arms, third-person rendering, and camera restoration after dismount. Offer an optional comfort view that stabilizes the camera without altering the server’s seat motion.
 
-FD904C owns delivery and five-family acceptance of that client option before
-1.0. Existing Sable passenger transforms do not by themselves establish a
-selectable comfort mode. A scope deferral would require an explicit revision
-to this requirement and the release gate.
+FD904C owns baseline delivery during 0.5 with the original families and Wing,
+using its early prerequisites rather than waiting for final release qualification.
+Later family acceptance adds distinct pose cases while preserving the baseline;
+FD912 composes optional effects during 0.9. Existing Sable transforms alone do
+not establish a selectable comfort option. The final gate consumes this cumulative
+evidence instead of ordering a new camera implementation or full replay.
 
 The server owns profiles, tuning, binding, restraints, shuttle state, and actual mechanical state. Synchronize each carrier’s angle, angular velocity, lock/mode, and occupancy revision with timestamps and stable identities. Include complete initial state for late joiners. Reuse Sable transforms where appropriate and avoid applying the carrier rotation twice. Preserve turn count when reconnecting or interpolating through full turns. Save free-spin angular state and pause unloaded assemblies consistently; do not simulate an arbitrary offline catch-up on reload.
 
@@ -247,24 +292,33 @@ Use a long, smooth approach to the station’s boarding pose. Free carriers firs
 
 ## Addressable roadmap
 
-The implementation source of truth is [ROADMAP.md](ROADMAP.md). Each work package has a permanent ID, prerequisites, design references, and a completion criterion. Foundation through bounded FD305 are complete. Continue from the open FD401–FD404 gates; new ecosystem adapters remain paused until authorized; existing release acceptance work retains its current scope.
+[ROADMAP.md](ROADMAP.md) owns package status, prerequisites and finite completion
+criteria. IDs stay stable when allocation changes. The adopted sequence is:
 
-| Stage | Work packages | Release scope |
+| Milestone | Work packages | Delivery |
 | --- | --- | --- |
-| Foundation | FD001–FD008 | Stack, compatibility hooks, carrier/rider proof, data contracts, tests, and persistence. |
-| 0.1 | FD101–FD109 | Controlled Arrow/S&S and legacy ZacSpin, matching original tracks, editing, boarding, and ordinary-cart rail access. |
-| 0.2 | FD201–FD204 | S&S Free Spin vehicle/track and magnetic spin equipment. |
-| 0.3 | FD301–FD305 | Revised ZacSpin and PAX shuttle with actual lift/release and return capture. |
-| 0.4 | FD401–FD404 | Adapter/telemetry foundation, Create guidance, existing Engineered and Track Styles acceptance, recovery and teaching. |
-| 0.9 release candidate | FD901–FD905 | Certify frozen base/Styles/Engineered/combined profiles, lifecycle, migration and rendering/performance; resolve defects. |
-| 1.0 | FD1001–FD1003 | Accurate release documentation, reproducible artifacts, and final acceptance gate. |
-| Independent integration | FD801 | Future Track Styles Arrow 4D adapter once an inspectable release and applicable terms exist. |
+| Foundation–0.3 | FD001–FD305, existing bounded gates | Preserve accepted architecture and original five families. |
+| 0.4 | FD401–FD404 | Complete remaining recovery and player workflows; core checkpoint only. |
+| 0.5 | FD501–FD503; six discovery IDs; FD1101A–C; early FD904C | Resolve designs/dependencies, Wing-backed contracts, comfort and reusable tools. |
+| 0.6 | FD1501A–C, FD1301A–C, FD601 | First Spinning variant, then Suspended. |
+| 0.7 | FD1302A–C, FD1502A–C, FD701 | Axis, then Roller Ball. |
+| 0.8 | FD1401A–C, FD1501D–F, FD810–FD813 | Pipeline, remaining variants and operations adapters. |
+| 0.9 | FD910–FD915 | Presentation, optional seats and coexistence. |
+| 1.0 alpha | FD1000 | Complete former-through-1.5 scope and freeze features/profiles. |
+| 1.0 beta / RC | FD901–FD905 | Integrated stabilization and outstanding final qualification. |
+| 1.0 stable | FD1001–FD1003 | Documentation, packaging and separately authorized publication. |
+| Independent | FD801 | Inspectable functional Track Styles adapter; unavailable upstream work does not block release. |
 
-The original controlled coaster stays in the first playable release alongside a free-spin vehicle. Each release builds on the preceding gates. Version labels express scope ordering, not dates; estimates follow the physics, magnetic, and shuttle proofs. Each gate requires recorded evidence, and no task is marked complete merely because its code was written.
+Milestone gates aggregate completion, not start permissions for unrelated tasks.
+Read-only discovery and concepts can advance during 0.4. Operations adapters start
+after their control/provider prerequisites; Pipeline does not wait for Axis.
+Recipes, guides and examples accompany each feature. Shared runtime changes have
+one owner and integrate into `main` before dependent work starts. Feature assignments
+own complete outcomes, not perpetually open collections of evidence “slices.”
 
-FD801 must preserve functional family/fit checks, profiles, and control-rail ownership, and reject cosmetic-only ordinary track. An unavailable external feature cannot block the five-family standalone 1.0. Requirements for ordinary recovery-cart access remain distinct from unproven towing capability.
-
-Proposed post-1.0 work is allocated in the [integration release table](docs/INTEGRATION-BACKLOG.md#release-allocation): 1.1 operations (Additions/CTNB/Magnetized), then 1.2 seats/presentation and coexistence (Skin/Immersion/Waterparked/Create Coasters and rotating-seat follow-up). These expansions retain the current gates and require separate implementation approval.
+FD1003 is the final consumer of the expanded scope, never a prerequisite for its
+families. The [integration allocation](docs/INTEGRATION-BACKLOG.md#release-allocation)
+uses the same milestones. No new capability is advertised until its package passes.
 
 ## D17 Validation and release scope
 
@@ -274,7 +328,14 @@ Add a compatibility matrix covering every 4D family against matching, ordinary, 
 
 Use a small repeatable controlled layout with a straight flip, vertical track, banked turn, inversion, rollback, close track crossing, and boarding zone. Add a compact free-spin layout with balanced/unbalanced occupancy and magnetic zones, plus a shuttle with two spikes and repeated station passes. Exercise linked and individual vehicles, two clients, late joining, disconnects, chunk unloads, server restart, track deletion, and cart disassembly. Verify full swept seat clearance, not just the chassis envelope. Debug displays should distinguish track inversions from carrier rotation.
 
-For 0.9/1.0, test the base stack, Track Styles 1.2.0, Engineered 1.1.1, and their combined profile. Newly staged addons belong to the proposed expansion releases unless FD404 scope is explicitly revised before the candidate freeze. Each expansion repeats individual, conflict-pair and named combined-pack certification, including client-only asymmetry. The [integration acceptance matrix](docs/INTEGRATION-BACKLOG.md#certification-and-release-evidence) defines the full cases. Any external functional provider must prove family/geometry equivalence and same-family joins. Appearance removal preserves mechanical data; external block conversions require explicit migration. Engineered, CTNB, Additions and Magnetized require one propulsion/control owner per section and phase; seat-axis magnetic assistance remains separate.
+Preserve the accepted base, Styles, Engineered and combined-profile cases. Add affected checks for each implemented expansion capability and actual conflict pair, including client-only asymmetry. FD1000 freezes the full supported profile list; FD901–FD905 consume accumulated results and perform only outstanding final qualification. FD404 does not trigger a release sweep. A new JAR never resets acceptance. The [integration acceptance matrix](docs/INTEGRATION-BACKLOG.md#certification-and-release-evidence) defines the full cases. Any external functional provider must prove family/geometry equivalence and same-family joins. Appearance removal preserves mechanical data; external block conversions require explicit migration. Engineered, CTNB, Additions and Magnetized require one propulsion/control owner per section and phase; seat-axis magnetic assistance remains separate.
+
+Follow [VALIDATION-POLICY.md](docs/VALIDATION-POLICY.md) for all checks. Improve
+blocked fixtures and measurement collectors early in FD502, reuse worlds, and
+diagnose after two inconclusive attempts with the same approach. Schedule client
+runs as coordinated host work. Use native tests for mechanism invariants and
+connected clients for real interaction, rendering and rider synchronization;
+separate valid records may close a complete feature.
 
 Budget runtime work per active carrier and constraint as well as per car: cache arc-length tables and rail meshes; invalidate on edits; avoid whole-network searches every frame. Measure a declared benchmark, such as two occupied seven-car controlled trains, several eight-seat free-spin vehicles, and a linked shuttle, against equivalent baseline scenes. Record hardware, carrier count, and frame/tick costs before setting performance guarantees.
 
@@ -282,10 +343,18 @@ The planned releases support fixed-world tracks, with ride families introduced a
 
 ## D18 Remaining decisions to resolve through prototypes
 
+The questions below retain the original design concerns; accepted original-family
+answers stay accepted. During 0.5, all six discovery IDs resolve the added families'
+axis/mode, seating, track and reference choices, especially Pipeline, the finite
+Spinning variant list and Roller Ball native feasibility. Use a prototype only
+for an unresolved constraint, then retain it for implementation. FD501 separately
+resolves dependency and migration choices; do not reopen historical questions
+merely because their wording remains here.
+
 1. Can the pinned Sable release support driven, free, and independently rotating carriers accurately while preserving passenger and camera behavior?
 2. Can the actual Coasters engagement result be exposed without replacing its existing rail solver?
 3. Can a Track Styles adapter cleanly separate provider geometry from variable control rails and magnetic attachments, and is its licensing metadata clarified if copying is desired?
-4. Can Additions station signals use shared telemetry and validated requests (proposed 1.1), and can its seats separately preserve carrier/restraint authority (proposed 1.2)? Coaster Skin and Immersion require their own seat/pose checks; no adapter becomes mandatory.
+4. Can Additions station signals use shared telemetry and validated requests (0.8 / FD810), and can its seats separately preserve carrier/restraint authority (0.9 / FD911)? Coaster Skin and Immersion require their own seat/pose checks; no adapter becomes mandatory.
 5. What family-specific pivot positions, carrier groupings, inertia, gear ratios, clearances, and operating limits produce convincing and stable motion?
 6. Can primary material establish second-generation ZacSpin details and the exact carrier couplings for each free-spin vehicle before finalizing models?
 7. Can the existing lift and cart endpoint behavior support a captured shuttle, or must the catch/release adapter supply those functions?

@@ -1,6 +1,6 @@
 # Validation, evidence reuse, and stopping rules
 
-Effective 2026-11-05. This policy governs test scheduling for the current
+Effective 2026-11-05; release scheduling aligned 2026-11-11. This policy governs test scheduling for the current
 0.4–1.0 roadmap. It supersedes blanket replay instructions, fixed repetition
 counts, and stale “remaining/open” notes in older handoffs and evidence tables.
 It does not declare an untested feature complete or waive a known defect.
@@ -87,10 +87,19 @@ requirement. A successful case is finished; another package may cite it directly
 Keep the selected qualification baseline stable while collecting evidence.
 Record a fix's artifact when needed; carry unaffected results forward. Do not
 reselect and rebuild a baseline after every documentation or fixture commit.
-At FD404, freeze the deliverable and reconcile the evidence. FD901's four-profile
-native suite is one release-level sweep, not a prerequisite for each task. An
+FD404 records the original five-family development checkpoint. Freeze the
+expanded feature set and deliverable at FD1000 (1.0 alpha), then reconcile the
+evidence for FD901–FD905. FD901's frozen-profile native suite is one release-level
+sweep, not a prerequisite for each task or development milestone. Retain the
+original four-profile coverage and add only the agreed expansion profiles. An
 already completed equivalent sweep counts; after a fix, rerun affected cases
 and profiles. Repeat the full sweep only for a justified cross-cutting change.
+FD502 improves blocked fixtures and measurement tools early; family tasks use
+native checks for mechanics and connected clients for real interaction/rider/render
+behavior. Schedule graphical runs as coordinated host work; a two-client scenario
+is one job within current AGENTS resource rules. Final performance acceptance
+follows the complete mechanism set, while useful measurements and foundational
+fixes can happen earlier. Assets or documentation do not reset accepted physics.
 FD1002 adds clean-install/package checks and reuses accepted rides when their
 installation context and relevant inputs match.
 

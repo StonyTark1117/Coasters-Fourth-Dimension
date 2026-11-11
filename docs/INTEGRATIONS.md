@@ -1,29 +1,26 @@
 # Optional integration development
 
-FD401 is in progress. The addon remains standalone: no optional JAR is required or
+FD401 is complete for its declared bounded scope under the cumulative validation policy. The addon remains standalone: no optional JAR is required or
 bundled, and no external functional track is certified yet. FD801 owns a future
 Track Styles Arrow 4D mechanical adapter; a decorative model or equal main-rail
 gauge cannot satisfy that gate.
 
-## Release scope and deferred candidates
+## Release scope and planned capabilities
 
-The [integration backlog](INTEGRATION-BACKLOG.md) owns the dated candidate inventory,
-release allocation and acceptance plans. The 0.4–1.0 scope covers Create guidance
-and diagnostics plus the existing Engineered/Track Styles profiles. Proposed 1.1
-adds Additions station operations, CTNB and Magnetized; proposed 1.2 adds Coaster
-Skin, rotating-seat follow-up, Immersion, and Waterparked/Create Coasters coexistence.
-These new ecosystem adapters remain paused pending user approval. Staging their
-JARs does not activate a runtime profile or certify compatibility.
-Use the backlog's [version refresh policy](INTEGRATION-BACKLOG.md#version-refresh-before-expansion)
-before implementing an approved expansion. A newer download is a new candidate,
-not an automatic replacement for an inspected or certified artifact.
+The [integration backlog](INTEGRATION-BACKLOG.md) owns the dated inventory and
+adopted expanded 1.0 allocation. Accepted Create/Engineered/Track Styles behavior
+remains in the core. FD810–FD813 add operations capabilities in 0.8; FD910–FD915
+add presentation, optional seats and coexistence in 0.9. Shared prerequisites
+permit earlier independent work. FD1000 freezes the complete scope at 1.0 alpha;
+FD901–FD905 then finish final qualification. Staging is not runtime activation
+or compatibility certification, and no new addon is required for standalone rides.
 
-The release baseline remains schema 6 / protocol 7. The shared telemetry/Create
-checkpoint has been reconciled with the current support-repair and PAX guards;
-its acceptance limits are listed below. The separate pending schema-7/protocol-8
-functional-provider registry is deferred, requires a dedicated migration decision,
-and is not a prerequisite for 0.9. FD801 remains independently gated. Existing
-acceptance records below keep their original artifact-specific scope.
+Use [FD501's dependency refresh procedure](INTEGRATION-BACKLOG.md#version-refresh-before-expansion)
+before activating new dependencies. The recorded qualification baseline remains
+schema 6 / protocol 7. FD501 decides whether the archived schema-7/protocol-8
+registry is needed; FD501A implements and verifies any selected change against
+current `main`. Neither planning adoption nor a new milestone certifies that code.
+Existing checkpoint records below keep their actual identities and bounded scope.
 
 ## Version and API boundaries
 
@@ -144,10 +141,12 @@ coverage remain open; see the [current handoff](FD401-RELEASE-HANDOFF.md).
 
 ## Remaining FD401 acceptance
 
-The [release handoff checklist](FD401-RELEASE-HANDOFF.md) reconciles later telemetry
-evidence with the exact remaining operator, optional-client, rendering and
-clearance checks. It separates offline audits from scheduled runtime work and
-does not promote the paused expansion addons into the candidate scope.
+This heading and the checkpoint chronology below are retained for existing links.
+FD401 is now closed within its declared scope; current status in
+[ROADMAP.md](../ROADMAP.md#fd401-deliver-optional-provider-infrastructure) and
+[CURRENT-QUALIFICATION.md](CURRENT-QUALIFICATION.md) supersedes historical
+“remaining” notes. The [handoff](FD401-RELEASE-HANDOFF.md) preserves observations,
+not a replay queue. New capabilities use FD810–FD915 without reopening FD401.
 The [later-artifact review](evidence/0.9/fd401-release-review-54495a5/README.md)
 confirms that the frozen `2c5d9a7` evidence remains artifact-specific: the
 subsequent PAX package changes production classes and resources, and `main`

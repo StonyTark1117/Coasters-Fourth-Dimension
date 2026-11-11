@@ -80,9 +80,14 @@ protocol extends the existing subsystem checks under
 checks unless a performance-relevant change affects them; they are not a
 four-profile prerequisite to every park measurement.
 
+FD502 owns early collector readiness and useful development measurements. Final
+expanded-park acceptance is scheduled after FD1000; earlier valid subsystem and
+unchanged workload results remain reusable. Do not run a full park benchmark at
+every family milestone or compare different workloads as though only the JAR changed.
+
 ### Fixed workload and hardware
 
-Prepare and hash one reusable park world within the supported ±1024 x/z region:
+The original core workload is a reusable park within the supported ±1024 x/z region:
 an original two-car Arrow circuit, one Legacy, one Free Spin with inducer and
 damper spans, one Revised, and a four-car PAX shuttle. This is nine chassis;
 record actual carrier, rail, span, rider and loaded-chunk counts in the manifest.
@@ -92,11 +97,21 @@ one with the connected player. Include both a repeatable park camera route and
 an occupied ride view for every family; pin their order and duration. Fixtures
 establish a benchmark workload, not FD403 survival construction acceptance.
 
-Run **base and combined** profiles on the same world, using Original appearance
+At FD1000, extend that workload to include each added motion mechanism and the
+agreed distinct variants: fixed Wing, Spinning, Suspended, Axis, Pipeline and
+Roller Ball. Use their retained example layouts where possible; record actual
+chassis/carrier/rider/chunk counts for the chosen designs instead of retaining
+“nine chassis” as a claim about the expanded scene. Freeze its route, view sequence
+and settings once. A changed workload gets its own baseline; old measurements
+remain attached to the scene they measured. No per-family rebuild is required.
+
+Run **base and the frozen combined** profiles on the same world, using Original appearance
 for base and a saved single/double Arrow style plan plus declared Engineered
 controls for combined. Keep the world/profile variants separately hashed.
-Styles-only and Engineered-only retain native target checks and their rendering
-acceptance; extend this park matrix if they show a regression absent in combined.
+Individual optional profiles retain their accepted applicable native/render
+checks; add a separate park profile only for a performance-relevant path absent
+in the combined scene or an observed regression. Avoid benchmarking every addon
+subset or every family/profile combination.
 
 The intended hardware tier is the recorded AMD Ryzen 9 7900X3D / Radeon RX 7900 XTX
 development host. Record actual CPU, RAM, GPU/OpenGL renderer, driver, kernel,
@@ -180,5 +195,6 @@ For a later distinct candidate comparison, also retain its results and a
 machine-checkable budget comparison. Initial acceptance needs the baseline and
 sustained results only; a duplicate same-artifact comparison is not required.
 Until the applicable measurements exist, FD904B stays planned/in progress.
-This nine-chassis benchmark does not certify maximum-capacity parks: 64 vehicles
-and other admission limits are separate correctness boundaries, tested by FD901.
+Neither the original nine-chassis scene nor the expanded frozen workload certifies
+maximum-capacity parks: 64 vehicles and other admission limits remain separate
+correctness boundaries covered by FD901.

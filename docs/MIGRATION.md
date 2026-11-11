@@ -7,9 +7,10 @@ build. It does not convert third-party functional blocks, replace a removed
 provider, or make a downgrade safe.
 
 The [expanded integration plan](INTEGRATION-BACKLOG.md#current-baseline-and-branch-reconciliation)
-retains schema 6 / protocol 7 for the current release candidate. Pending schema-7/
-protocol-8 provider work is deferred and requires a separate migration decision;
-this procedure does not certify it. Staged addons and their newer dependencies
+retains schema 6 / protocol 7 for the recorded qualification baseline. FD501
+owns the expansion migration decision; FD501A implements any necessary change.
+Archived schema-7/protocol-8 provider work is not certified by this procedure.
+The final expanded release uses FD903 to reconcile supported migration evidence. Staged addons and their newer dependencies
 must not be added as an incidental part of this upgrade.
 
 ## Before the upgrade
