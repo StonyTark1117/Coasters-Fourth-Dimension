@@ -21,11 +21,12 @@ package step without adding every future step to this queue.
 **Active milestone: 0.4.** Execution guidance updated 2026-11-11. This is the
 remaining acceptance queue, placed before artifact history. Recovery and
 construction/teaching cases have separate lists below; this adds no scope or
-acceptance requirements. FD401A–D and FD402A–D/F stay closed and are absent.
+acceptance requirements. FD401A–D and FD402A–F stay closed and are absent.
 
-Case IDs below are stable children of their owning roadmap task. All listed cases
-are open; **unrecorded** means this document does not establish a current owner,
-not that no other agent is working. Confirm/claim ownership before a run. The gap
+Case IDs below are stable children of their owning roadmap task. Open rows identify
+remaining acceptance work; completed rows are retained as closure records. **Unrecorded**
+means this document does not establish a current owner, not that no other agent is
+working. Confirm/claim ownership before a run. The gap
 column states the required outcome; the next action starts from retained evidence.
 A case may close by evidence reconciliation without launching Minecraft.
 
@@ -43,7 +44,7 @@ accepted ordinary two-client Arrow tow/release are inputs, not new cases.
 
 FD402 coordination updated 2026-11-11: **Improve FD402 workflow efficiency**
 (chat `01a1caa7-1e6e-7d83-8890-6178f04957c3`) owns E1–E5 and parent coordination. **Audit remaining 0.4.0 work**
-(`01a1ca54-e940-76d0-ad14-297ea8d18d8b`) owns the completed B1–B7 evidence reconciliation and the remaining E7 case. Coordinate runtime reservations directly; these assignments do
+(`01a1ca54-e940-76d0-ad14-297ea8d18d8b`) owns the completed B1–B7 evidence reconciliation and E6/E7 closure. FD402 is now complete; coordinate runtime reservations directly only for any unrelated queued work. These assignments do
 not impose a single-client limit or add acceptance requirements.
 
 FD402F2 is now closed by the [combined rendered control record](evidence/0.4/recovery/engineered-fe-combined-pass-20261111/README.md),
