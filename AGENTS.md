@@ -144,6 +144,17 @@ available disk space with `df -h /absolute/path`; also account for existing
 Preserve any still-needed data from old `/tmp` runs before reboot or cleanup;
 never delete another agent's run directory.
 
+If disk space is low, inspect the project-owned build and run directories with
+`df -h` and `du -x -h --max-depth=2` before starting another large build or
+client. Reclaim space from completed runs you own: first preserve requested
+evidence and any world needed for continuation, confirm no process still uses
+the directory, then remove disposable game copies, logs, extracted artifacts,
+and generated build outputs. `./gradlew clean` is appropriate only when the
+selected build directory is idle and its default run worlds are no longer
+needed. Recheck free space afterward and record what was removed. Do not delete
+tracked source/evidence, uncommitted work, unique Git history, shared Gradle
+caches, archival worktrees, or another agent's data merely to free space.
+
 # Current client memory policy
 
 **The 3 GiB client process cap is retired.** For new runs, use a **6 GiB
