@@ -84,13 +84,11 @@ scenes and 53 registrations remain accepted. FD403A–D and their F claims conti
 
 ### FD402 recovery cases
 
-Work only these remaining recovery claims for an FD402 assignment. Reuse the
-accepted A–D/F records; closing this list and reconciling FD402 does not require
-FD403 or the FD404 checkpoint.
+The FD402 recovery interruption queue is now closed. Reuse the accepted A–D/F records; reconciling FD402 does not require FD403 or the FD404 checkpoint.
 
-| Open case | Exact remaining gap | Owner | Existing evidence | Next action |
+| Case | Result | Owner | Evidence | Disposition |
 | --- | --- | --- | --- | --- |
-| **FD402E7** | Permanent bearing removal during recovery. | Audit remaining 0.4.0 work — preparing four-car PAX combined path | [Two-client Arrow baseline](evidence/0.4/recovery/two-client-recovery-lifecycle/acceptance.md); [accepted one-player persistence](evidence/0.4/recovery/linked-train-fresh-process-656725bc-20261105/README.md) | Check safe rider/vehicle state and cleanup of invalid recovery links; reuse unaffected detach mechanics. |
+| **FD402E7 — complete (2026-11-11)** | Permanent bearing removal retained the braked four-car PAX group, eight carriers and both rider seats; the bearing was removed, the production safety fault was reported, and no automatic resume occurred. | Audit remaining 0.4.0 work — preparing four-car PAX combined path | [Permanent PAX interruption evidence](evidence/0.4/recovery/permanent-pax-interruptions-20261111/README.md) | Closed cumulatively with accepted native cleanup mechanics. |
 
 ### FD403 construction and teaching cases
 
@@ -108,7 +106,7 @@ Setup logs, crash diagnostics and the copied world remain at
 `/home/braydon/.local/state/fourthdimension-runs/fd403-workflows-20261111`.
 No A–D construction or ride was completed before cancellation.
 
-| Open case | Exact remaining gap | Owner | Existing evidence | Next action |
+| Case | Result | Owner | Evidence | Disposition |
 | --- | --- | --- | --- | --- |
 | **FD403A** | Arrow: complete the player-built powered circuit, full controlled turn and family walkthrough. | Unassigned — prior assignment withdrawn | [Powered route/reopen](evidence/0.4/survival-client-arrow-powered/acceptance.md); [crafting](evidence/0.4/survival-client-arrow-loop-connected-attempt1/README.md) | Extend the saved route through normal client Chain input; record missing circuit/capture/unload/reopen behavior and walkthrough steps. |
 | **FD403B** | Legacy: player-built shaped powered route, occupied free response and family walkthrough. | Unassigned — prior assignment withdrawn | [Powered route/reopen](evidence/0.4/survival-client-legacy-powered/acceptance.md); [shaped demo](evidence/0.4/survival-client-legacy-powered/demo/acceptance.md) | Extend the player-built route; combine accepted crafting/capture/persistence with the missing shaped-route and teaching evidence. |
