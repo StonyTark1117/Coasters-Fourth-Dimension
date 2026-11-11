@@ -43,7 +43,7 @@ accepted ordinary two-client Arrow tow/release are inputs, not new cases.
 
 FD402 coordination updated 2026-11-11: **Improve FD402 workflow efficiency**
 (chat `01a1caa7-1e6e-7d83-8890-6178f04957c3`) owns E1–E5 and parent coordination. **Audit remaining 0.4.0 work**
-(`01a1ca54-e940-76d0-ad14-297ea8d18d8b`) owns the completed B1–B7 evidence reconciliation and the remaining E6/E7 cases. Coordinate runtime reservations directly; these assignments do
+(`01a1ca54-e940-76d0-ad14-297ea8d18d8b`) owns the completed B1–B7 evidence reconciliation and the remaining E7 case. Coordinate runtime reservations directly; these assignments do
 not impose a single-client limit or add acceptance requirements.
 
 FD402F2 is now closed by the [combined rendered control record](evidence/0.4/recovery/engineered-fe-combined-pass-20261111/README.md),
@@ -61,8 +61,9 @@ coupling loss/restore retained both original seats and the native group with
 explicit recovery. The Arrow server, clients and private displays :279/:280 are
 stopped. Persistent worlds remain at
 `/home/braydon/.local/state/fourthdimension-runs/fd402e-arrow-20261111`.
-Audit owns the final PAX combined E6/E7 run and has been released to launch its
-prepared pair; those two permanent-removal cases are the only FD402 gaps.
+The [PAX combined coupling-removal observation](evidence/0.4/recovery/permanent-pax-interruptions-20261111/README.md)
+closes E6 with retained native cleanup evidence. Audit owns the final E7 permanent
+bearing-removal case; it is the only FD402 gap.
 
 The FD402B1–B7 matrix is now closed cumulatively on 2026-11-11. The seven
 [current banked render slices](evidence/0.4/recovery/occupied-banked-render-motion/current-matrix-20261111.md)
@@ -89,7 +90,6 @@ FD403 or the FD404 checkpoint.
 
 | Open case | Exact remaining gap | Owner | Existing evidence | Next action |
 | --- | --- | --- | --- | --- |
-| **FD402E6** | Permanent coupling removal during recovery. | Audit remaining 0.4.0 work — preparing four-car PAX combined path | [Two-client Arrow baseline](evidence/0.4/recovery/two-client-recovery-lifecycle/acceptance.md); [accepted one-player persistence](evidence/0.4/recovery/linked-train-fresh-process-656725bc-20261105/README.md) | Check safe retained/released rider and consist state; temporary loss evidence does not establish permanent removal. |
 | **FD402E7** | Permanent bearing removal during recovery. | Audit remaining 0.4.0 work — preparing four-car PAX combined path | [Two-client Arrow baseline](evidence/0.4/recovery/two-client-recovery-lifecycle/acceptance.md); [accepted one-player persistence](evidence/0.4/recovery/linked-train-fresh-process-656725bc-20261105/README.md) | Check safe rider/vehicle state and cleanup of invalid recovery links; reuse unaffected detach mechanics. |
 
 ### FD403 construction and teaching cases

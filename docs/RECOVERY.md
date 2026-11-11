@@ -204,13 +204,18 @@ passengers, interrupts its winch, retains it and hands over its physical carriag
 The same original train then tows under native chain power, brakes, cuts power
 with its eight-RPM motor retained, disconnects and opens restraints for unloading.
 Every passenger keeps its original seat mount until unloading; see the
-[occupied handover evidence](evidence/0.4/recovery/occupied-handover/acceptance.md). A separate
-[Arrow occupied render/motion checkpoint](evidence/0.4/recovery/occupied-render-motion/acceptance.md)
-now covers one linked, mounted local-player recovery group through the client draw
-paths and initial native movement. It does not establish rendered manual operator
-acceptance, complete vehicle/rider/rack mesh clearance, rendered occupied linked-train
-recovery, coupler strength across those scenes,
-or the complete recovery lifecycle matrix. FD402 and the 0.4 gate remain open.
+[occupied handover evidence](evidence/0.4/recovery/occupied-handover/acceptance.md).
+The [current seven-route rendered matrix](evidence/0.4/recovery/occupied-banked-render-motion/current-matrix-20261111.md)
+combines occupied client movement with accepted native clearance, strength and
+release evidence. The [normal occupied operator workflow](evidence/0.4/recovery/manual-occupied-arrow-operator-20261105/README.md)
+and [one-player persistence matrix](evidence/0.4/recovery/linked-train-fresh-process-656725bc-20261105/README.md)
+close FD402A–D cumulatively. The [two-client Arrow interruptions](evidence/0.4/recovery/two-client-interruptions-20261111/README.md)
+add braked cold restart, reconnect, native chunk/bearing return and temporary
+coupling loss/restore while preserving original riders and requiring explicit
+recovery. The [combined PAX coupling-removal record](evidence/0.4/recovery/permanent-pax-interruptions-20261111/README.md)
+closes E6 with native cleanup evidence. Only E7 permanent bearing removal remains in the
+[recovery queue](CURRENT-QUALIFICATION.md#fd402-recovery-cases). The bounded
+route, solver and equipment limits above still apply.
 
 The [isolated Engineered recovery/FE checkpoint](evidence/0.4/recovery/engineered-fe/acceptance.md)
 now covers the certified bare ordinary bearing with Engineered 1.1.1: braked and
