@@ -13,6 +13,7 @@ import dev.silvergold.simulatedcoasters.track.cart.CoasterCartTrainLinkConstrain
 import dev.silvergold.simulatedcoasters.track.graph.CoasterPathTrackFrame;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import java.util.UUID;
 import net.minecraft.commands.CommandSourceStack;
@@ -37,7 +38,7 @@ public final class RecoveryFixtureValidation {
   public static void register(RegisterCommandsEvent event) {
     if (!Boolean.getBoolean("fourthdimension.validation")) return;
     var fixture = Commands.literal("recovery_fixture");
-    for (var action : List.of("prepare", "select", "status")) {
+    for (var action : List.of("prepare", "select", "editor", "clear_spares", "status")) {
       fixture.then(
           Commands.literal(action)
               .then(
@@ -106,24 +107,53 @@ public final class RecoveryFixtureValidation {
 
       var bearingId = car.recoveryCart != null ? car.recoveryCart : PREPARED.get(car.chassis);
       var bearing = bearingId == null ? null : container.getSubLevel(bearingId);
+      if (action.equals("clear_spares")) {
+        if (car.recoveryCart == null || !car.stopping)
+          throw new IllegalArgumentException("Attach and brake the retained fixture before clearing spares");
+        for (var spare : List.copyOf(container.getAllSubLevels())) {
+          if (spare.getUniqueId().equals(bearingId) || !RecoveryOperations.ordinary(level, spare))
+            continue;
+          var spareCenter = CoasterCartResolve.cartCenterWorld(spare);
+          if (spareCenter == null || spareCenter.distance(center) > 64
+              || CoasterCartTrainLinkConstraint.getTrainLinkedCartIds(spare).size() > 1)
+            continue;
+          com.mojang.logging.LogUtils.getLogger().info(
+              "FD402_FIXTURE removed unlinked spare bearing={} center={}", spare.getUniqueId(), vector(spareCenter));
+          container.removeSubLevel(
+              spare, dev.ryanhcode.sable.sublevel.storage.SubLevelRemovalReason.REMOVED);
+        }
+      }
       if (action.equals("select")) RecoveryOperations.select(player, bearing);
+      if (action.equals("editor"))
+        dev.fourthdimension.editor.EditorNetwork.open(
+            player, new dev.fourthdimension.editor.EditorNetwork.Target(car.chassis, true));
       var bearingCenter = bearing == null ? null : CoasterCartResolve.cartCenterWorld(bearing);
       var velocity = container.physicsSystem().getPipeline()
           .getLinearVelocity(chassis, new Vector3d());
+      var bearingVelocity = bearing instanceof ServerSubLevel nativeBearing
+          ? container.physicsSystem().getPipeline().getLinearVelocity(nativeBearing, new Vector3d())
+          : null;
       var riders = car.carriers.stream().mapToInt(carrier -> carrier.riderSeats.size()).sum();
       String report = "FD402_FIXTURE tick=" + level.getGameTime()
-          + " chassis=" + car.chassis + " center=" + center + " velocity=" + velocity
-          + " bearing=" + bearingId + " bearingCenter=" + bearingCenter
+          + " chassis=" + car.chassis + " center=" + vector(center) + " velocity=" + vector(velocity)
+          + " bearing=" + bearingId + " bearingCenter=" + vector(bearingCenter)
+          + " bearingVelocity=" + vector(bearingVelocity)
           + " spacing=" + (bearingCenter == null ? "unavailable" : center.distance(bearingCenter))
           + " attached=" + car.recoveryCart + " stopping=" + car.stopping
           + " maintenance=" + car.maintenance + " restraints=" + car.restraints
           + " riders=" + riders + " mounted=" + player.isPassenger()
           + " nativeLinks=" + CoasterCartTrainLinkConstraint.getTrainLinkedCartIds(chassis);
+      com.mojang.logging.LogUtils.getLogger().info(report);
       source.sendSuccess(() -> Component.literal(report), false);
       return 1;
     } catch (IllegalArgumentException failure) {
       source.sendFailure(Component.literal(failure.getMessage()));
       return 0;
     }
+  }
+
+  private static String vector(Vector3d value) {
+    return value == null ? "unavailable"
+        : String.format(Locale.ROOT, "(%.6f,%.6f,%.6f)", value.x, value.y, value.z);
   }
 }
