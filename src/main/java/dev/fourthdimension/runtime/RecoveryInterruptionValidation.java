@@ -2,6 +2,7 @@ package dev.fourthdimension.runtime;
 
 import dev.fourthdimension.mixin.RecoveryLinkAccess;
 import dev.fourthdimension.vehicle.RecoveryOperations;
+import dev.fourthdimension.track.TrackDesign;
 import dev.ryanhcode.sable.api.sublevel.SubLevelContainer;
 import dev.ryanhcode.sable.sublevel.ServerSubLevel;
 import dev.silvergold.simulatedcoasters.track.cart.CoasterCartResolve;
@@ -31,7 +32,8 @@ public final class RecoveryInterruptionValidation {
   public static void register(RegisterCommandsEvent event) {
     if (!Boolean.getBoolean("fourthdimension.validation")) return;
     var fixture = Commands.literal("recovery_interruption");
-    for (var action : List.of("status", "hold", "remove_coupling", "remove_bearing")) {
+    for (var action :
+        List.of("status", "hold", "remove_coupling", "restore_coupling", "remove_bearing")) {
       fixture.then(
           Commands.literal(action)
               .then(
@@ -59,11 +61,20 @@ public final class RecoveryInterruptionValidation {
               .toList();
       if (group.isEmpty())
         throw new IllegalArgumentException("No occupied recovery group is attached");
-      var lead = group.getFirst();
       var container = SubLevelContainer.getContainer(level);
-      var chassis = requireBody(container, lead.chassis);
+      var lead = group.getFirst();
       var bearingId = lead.recoveryCart;
       var bearing = container.getSubLevel(bearingId);
+      lead =
+          group.stream()
+              .filter(
+                  vehicle ->
+                      linkedIds(container, level, vehicle.chassis).contains(bearingId))
+              .findFirst()
+              .orElse(lead);
+      var chassis = container.getSubLevel(lead.chassis);
+      if (!action.equals("status") && !(chassis instanceof ServerSubLevel))
+        throw new IllegalArgumentException("Recovery chassis is unavailable");
       var ids = new ArrayList<UUID>();
       group.forEach(
           vehicle -> {
@@ -77,13 +88,11 @@ public final class RecoveryInterruptionValidation {
         var center = CoasterCartResolve.cartCenterWorld(chassis);
         if (center == null) throw new IllegalArgumentException("Recovery chassis is unavailable");
         var held = new ChunkPos((int) Math.floor(center.x) >> 4, (int) Math.floor(center.z) >> 4);
-        if (bearing instanceof ServerSubLevel serverBearing)
-          container.getHoldingChunkMap().moveToUnloaded(serverBearing, held);
-        for (var id : ids) {
-          var body = container.getSubLevel(id);
-          if (body instanceof ServerSubLevel serverBody)
-            container.getHoldingChunkMap().moveToUnloaded(serverBody, held);
-        }
+        if (!(bearing instanceof ServerSubLevel serverBearing))
+          throw new IllegalArgumentException("Recovery bearing is unavailable");
+        container.getHoldingChunkMap().moveToUnloaded(serverBearing, held);
+        if (ids.stream().anyMatch(id -> container.getHoldingChunkMap().getHoldingSubLevel(id) == null))
+          throw new IllegalArgumentException("Native holding dependency group did not retain every component");
         log(
             "held native recovery dependency group",
             group,
@@ -103,6 +112,17 @@ public final class RecoveryInterruptionValidation {
         container.removeSubLevel(
             bearing, dev.ryanhcode.sable.sublevel.storage.SubLevelRemovalReason.REMOVED);
         log("permanently removed recovery bearing", group, bearingId, container, level);
+      }
+      if (action.equals("restore_coupling")) {
+        if (!lead.stopping || bearing == null)
+          throw new IllegalArgumentException("Load and brake recovery before restoring its coupling");
+        var spacing = TrackDesign.byVariant(lead.variant).axleSpacing();
+        if (!(chassis instanceof ServerSubLevel serverChassis)
+            || !(bearing instanceof ServerSubLevel serverBearing)
+            || !CoasterCartTrainLinkConstraint.linkCarts(
+                level, serverChassis, serverBearing, spacing))
+          throw new IllegalArgumentException("Native recovery coupling restoration was rejected");
+        log("restored recovery coupling", group, bearingId, container, level);
       }
       var report = report(group, bearingId, container, level, player);
       com.mojang.logging.LogUtils.getLogger().info(report);
@@ -167,8 +187,48 @@ public final class RecoveryInterruptionValidation {
         + group.stream().anyMatch(vehicle -> vehicle.recoveryCartRemoved)
         + " faults="
         + group.stream().map(vehicle -> vehicle.fault).filter(fault -> !fault.isEmpty()).toList()
+        + " riderSeats="
+        + riderSeats(group)
+        + " loadedIds="
+        + loadedIds(group, bearingId, container)
+        + " heldIds="
+        + heldIds(group, bearingId, level)
         + " nativeLinks="
         + linkedIds(container, level, lead.chassis);
+  }
+
+  private static List<String> riderSeats(List<FoundationData.Vehicle> group) {
+    return group.stream()
+        .flatMap(vehicle -> vehicle.carriers.stream())
+        .flatMap(
+            carrier ->
+                carrier.riderSeats.entrySet().stream()
+                    .map(entry -> carrier.body + ":" + entry.getKey() + "@" + entry.getValue()))
+        .toList();
+  }
+
+  private static List<UUID> loadedIds(
+      List<FoundationData.Vehicle> group, UUID bearingId, SubLevelContainer container) {
+    var ids = ids(group, bearingId);
+    return ids.stream().filter(id -> container.getSubLevel(id) != null).toList();
+  }
+
+  private static List<UUID> heldIds(
+      List<FoundationData.Vehicle> group, UUID bearingId, ServerLevel level) {
+    var ids = ids(group, bearingId);
+    var container = SubLevelContainer.getContainer(level);
+    return ids.stream().filter(id -> container.getHoldingChunkMap().getHoldingSubLevel(id) != null).toList();
+  }
+
+  private static List<UUID> ids(List<FoundationData.Vehicle> group, UUID bearingId) {
+    var ids = new ArrayList<UUID>();
+    group.forEach(
+        vehicle -> {
+          ids.add(vehicle.chassis);
+          vehicle.carriers.forEach(carrier -> ids.add(carrier.body));
+        });
+    ids.add(bearingId);
+    return ids;
   }
 
   private static List<UUID> linkedIds(SubLevelContainer container, ServerLevel level, UUID chassis) {
