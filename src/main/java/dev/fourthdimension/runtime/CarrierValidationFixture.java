@@ -250,9 +250,12 @@ public final class CarrierValidationFixture {
                     : BankedRecoveryExamples.create(level, RECOVERY_ORIGIN, recoveryFixtureDesign());
         BankedRecoveryExamples.queueAssembly(level, bankedRecoveryExample);
         recoveryExample = bankedRecoveryExample.recovery();
-      } else
+      } else {
+        // Match the banked fixture: refresh its chunks at the active-tick allocation boundary.
+        clearRecoveryArea(level);
         recoveryExample =
             RecoveryExamples.create(level, RECOVERY_ORIGIN, recoveryFixtureDesign());
+      }
       motionChassis =
           bankedRecoveryExample == null
               ? List.of(recoveryExample.car().chassis)
@@ -1203,7 +1206,10 @@ public final class CarrierValidationFixture {
   }
 
   private static void clearRecoveryArea(ServerLevel level) {
-    clear(level, RECOVERY_ORIGIN.offset(-8, -1, -4), RECOVERY_ORIGIN.offset(8, 12, 52));
+    var min = RECOVERY_ORIGIN.offset(-8, -1, -4);
+    var max = RECOVERY_ORIGIN.offset(8, 12, 52);
+    preload(level, min, max);
+    clear(level, min, max);
   }
 
   private static void clearBankedRecoveryArea(ServerLevel level) {
