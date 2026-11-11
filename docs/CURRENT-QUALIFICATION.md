@@ -55,13 +55,14 @@ The prior **Complete FD402 integration coverage** chat
 (`01a1a0bd-9ec4-7b63-a613-b82679660855`) is no longer an execution owner.
 The inactive **Complete FD402** chat's old low-memory blocker is historical.
 Verify live PID/cgroup ownership before display reuse and measure current
-resource headroom when scheduling E. The coordinator now reserves E1/E2 at
-`/home/braydon/.local/state/fourthdimension-runs/fd402e-arrow-20261111`,
-private displays `:279`/`:280`, loopback port 25479. [E1/E2 passed](evidence/0.4/recovery/two-client-interruptions-20261111/README.md):
-normal cold server restart and one-rider reconnect retained both original seats
-and the braked native group; rendered Start/Brake provided explicit recovery.
-The same runtime is now reserved for E3–E5. Audit owns the separate PAX combined
-E6/E7 preparation; its clients wait until this Arrow pair is released.
+resource headroom when scheduling E. [E1–E5 passed](evidence/0.4/recovery/two-client-interruptions-20261111/README.md):
+cold server restart, one-rider reconnect, native chunk/bearing return and temporary
+coupling loss/restore retained both original seats and the native group with
+explicit recovery. The Arrow server, clients and private displays :279/:280 are
+stopped. Persistent worlds remain at
+`/home/braydon/.local/state/fourthdimension-runs/fd402e-arrow-20261111`.
+Audit owns the final PAX combined E6/E7 run and has been released to launch its
+prepared pair; those two permanent-removal cases are the only FD402 gaps.
 
 The FD402B1–B7 matrix is now closed cumulatively on 2026-11-11. The seven
 [current banked render slices](evidence/0.4/recovery/occupied-banked-render-motion/current-matrix-20261111.md)
@@ -88,9 +89,6 @@ FD403 or the FD404 checkpoint.
 
 | Open case | Exact remaining gap | Owner | Existing evidence | Next action |
 | --- | --- | --- | --- | --- |
-| **FD402E3** | Chunk unload/reload during recovery retains or safely releases the original group. | FD402 coordinator — queued | [Two-client Arrow baseline](evidence/0.4/recovery/two-client-recovery-lifecycle/acceptance.md); [accepted one-player persistence](evidence/0.4/recovery/linked-train-fresh-process-656725bc-20261105/README.md) | Check the uncovered recovery chunk-return path and reject duplication or automatic resume. |
-| **FD402E4** | Temporary coupling unavailability and restoration during recovery. | FD402 coordinator — queued | [Two-client Arrow baseline](evidence/0.4/recovery/two-client-recovery-lifecycle/acceptance.md); [accepted one-player persistence](evidence/0.4/recovery/linked-train-fresh-process-656725bc-20261105/README.md) | Check the distinct linked-consist interruption/restore path, retained identities and explicit recovery. |
-| **FD402E5** | Temporary bearing unavailability and restoration during recovery. | FD402 coordinator — queued | [Two-client Arrow baseline](evidence/0.4/recovery/two-client-recovery-lifecycle/acceptance.md); [accepted one-player persistence](evidence/0.4/recovery/linked-train-fresh-process-656725bc-20261105/README.md) | Check the bearing interruption/restore path with retained identities and no automatic resume. |
 | **FD402E6** | Permanent coupling removal during recovery. | Audit remaining 0.4.0 work — preparing four-car PAX combined path | [Two-client Arrow baseline](evidence/0.4/recovery/two-client-recovery-lifecycle/acceptance.md); [accepted one-player persistence](evidence/0.4/recovery/linked-train-fresh-process-656725bc-20261105/README.md) | Check safe retained/released rider and consist state; temporary loss evidence does not establish permanent removal. |
 | **FD402E7** | Permanent bearing removal during recovery. | Audit remaining 0.4.0 work — preparing four-car PAX combined path | [Two-client Arrow baseline](evidence/0.4/recovery/two-client-recovery-lifecycle/acceptance.md); [accepted one-player persistence](evidence/0.4/recovery/linked-train-fresh-process-656725bc-20261105/README.md) | Check safe rider/vehicle state and cleanup of invalid recovery links; reuse unaffected detach mechanics. |
 
