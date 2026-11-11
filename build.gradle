@@ -9,10 +9,11 @@ base { archivesName = 'coasters-fourth-dimension' }
 // Candidate/evidence jobs can select an isolated output tree without disturbing a
 // live client or server using the default build. Java classpaths also use ':' as a
 // separator on Unix, so keep the default outside this colon-containing checkout.
+// This host mounts /tmp as tmpfs; build outputs and run data must be persistent.
 if (project.hasProperty('fdBuildDirectory')) {
     layout.buildDirectory = file(project.property('fdBuildDirectory'))
 } else if (projectDir.absolutePath.contains(':') && File.pathSeparator == ':') {
-    layout.buildDirectory = file("${System.getProperty('java.io.tmpdir')}/fourthdimension-${Integer.toHexString(projectDir.absolutePath.hashCode())}/build")
+    layout.buildDirectory = file("${System.getProperty('user.home')}/.local/state/fourthdimension-${Integer.toHexString(projectDir.absolutePath.hashCode())}/build")
 }
 java.toolchain.languageVersion = JavaLanguageVersion.of(21)
 if (project.hasProperty('fdPackaged')) {

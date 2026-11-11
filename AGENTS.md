@@ -125,6 +125,25 @@ LAUNCH heading; a `ROLLING` heading has no initial motion direction. Check the
 saved controller sequence and actual FE draw before attributing a zero-motion
 result to recovery logic.
 
+# Build and run storage
+
+On this host `/tmp` is `tmpfs`: files there consume RAM and can disappear after
+a reboot. Do not put Gradle builds, Minecraft game directories/worlds, long run
+logs, screenshots, extracted runtime JARs, or evidence that must survive the
+task in `/tmp`. The default build for this colon-containing checkout is a
+persistent, colon-free path under
+`/home/braydon/.local/state/fourthdimension-<path-hash>/build`; read the actual
+`buildDir` from Gradle rather than guessing the hash. For isolated runs, pass
+`-PfdBuildDirectory`, `-PfdClientGameDirectory`,
+`-PfdObserverGameDirectory`, and `-PfdServerGameDirectory` with distinct
+absolute paths on persistent storage. Keep valuable worlds outside build
+directories because `clean` removes build outputs and default run directories.
+Before large runs, check the target mount with `findmnt -T /absolute/path` and
+available disk space with `df -h /absolute/path`; also account for existing
+`/tmp` use in host memory checks. Tiny disposable scratch files may use `/tmp`.
+Preserve any still-needed data from old `/tmp` runs before reboot or cleanup;
+never delete another agent's run directory.
+
 # Current client memory policy
 
 **The 3 GiB client process cap is retired.** For new runs, use a **6 GiB

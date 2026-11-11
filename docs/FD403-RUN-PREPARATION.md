@@ -115,7 +115,8 @@ JAVA_HOME=/usr/lib/jvm/java-21-openjdk ./gradlew properties --no-daemon --consol
 ```
 
 Read `buildDir` from the properties output; colon-containing checkout names use
-a relocated `/tmp/fourthdimension-…/build`, not the checkout's `build/`. Hash and
+a persistent relocated `~/.local/state/fourthdimension-…/build`, not the
+checkout's `build/` or memory-backed `/tmp`. Hash and
 copy the resulting `libs/coasters-fourth-dimension-<version>.jar` before launch.
 Record resolved dependency files/hashes and corroborate them with the runtime
 mod list. A Gradle dependency report alone is not live-process evidence.
