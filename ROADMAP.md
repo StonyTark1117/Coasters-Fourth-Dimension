@@ -24,8 +24,9 @@ uses the same sequence. This adopts the work plan; it does not certify new
 capabilities, activate dependencies, change artifact versions or authorize publication.
 
 **Current stage: completing 0.4; no release candidate is accepted.** Foundation
-through the bounded five-family 0.3 gate, FD401A–D and FD402A–D/F retain their
-accepted status. FD403 and FD404 remain open; FD402E is complete for its declared scope. Early design research
+through the bounded five-family 0.3 gate, FD401A–D and FD402A–F retain their
+accepted status. FD402 is complete for its declared recovery scope; FD403 and
+FD404 remain open. Early design research
 and asset concepts may proceed independently; implementation follows the explicit
 package prerequisites below. The old blanket expansion pause is superseded by
 this adopted sequence. FD801 remains an independent upstream-dependent package.
@@ -452,9 +453,10 @@ updated support documentation; a historical pass cannot waive it.
 
 **Execution steps:** [FD402](docs/roadmap/0.4-core.md#fd402).
 
-**Status: complete for the declared 0.4 scope.** FD402A mechanics/clearance, FD402B rendered recovery,
-FD402C operator workflow, FD402D one-player persistence, FD402E multiplayer interruptions, and FD402F optional power
-are complete. Reuse accepted observations across these tasks. See [operator evidence](docs/evidence/0.4/recovery/operator-acceptance.md)
+**Status: complete (2026-11-11) for the declared recovery scope.** FD402A
+mechanics/clearance, FD402B rendered recovery, FD402C operator workflow, FD402D
+one-player persistence, FD402E multiplayer interruptions and FD402F optional
+power are complete. Reuse accepted observations across these tasks. See [operator evidence](docs/evidence/0.4/recovery/operator-acceptance.md)
 and [historical milestones](docs/ROADMAP-CHECKPOINT-HISTORY-2026-11-04.md#fd402-evaluate-and-document-recovery-towing).
 
 **Depends on:** FD108, FD106, FD305. **Design:** D03.
@@ -860,7 +862,7 @@ is not a full current-artifact pass.
 | Task / status | Required matrix and pass condition | Evidence / next action |
 | --- | --- | --- |
 | <a id="fd902a"></a> **FD902A Normal ride lifecycle — in progress** [Steps](docs/roadmap/1.0-release.md#fd902a) | Native lifecycle coverage for five families; two real clients in distinct seats on representative Arrow and PAX paths, with base/combined interaction coverage. Cover late join, stationary/moving reconnect, chunk interruption, cold restart, support loss, repair and realignment once per distinct path, not the full cross product; retain identities/locks and reject automatic restart or duplicate/lost riders | [Occupied lifecycle](docs/evidence/0.9/occupied-disconnect-reconnect.md), [ordered repair](docs/evidence/0.9/two-client-five-family-ordered-recovery.md). Map historical rows to current inputs, then close post-repair reconnect/restart and affected moving paths. |
-| <a id="fd902b"></a> **FD902B Recovery lifecycle — in progress; bounded observations retained** [Steps](docs/roadmap/1.0-release.md#fd902b) | FD402D–E matrix, including original linked trains and permanent versus temporary missing components | Consume those same evidence bundles; the five-family one-player restart and two-client Arrow cycle are observed. Do not treat a normal ride restart as a recovery-mode restart or rerun an identical accepted case just to change its package label. |
+| <a id="fd902b"></a> **FD902B Recovery lifecycle — original matrix complete; final freeze reconciliation pending** [Steps](docs/roadmap/1.0-release.md#fd902b) | FD402D–E matrix, including original linked trains and permanent versus temporary missing components | Consume the completed FD402D–E evidence: [one-player/linked-train persistence](docs/evidence/0.4/recovery/linked-train-fresh-process-656725bc-20261105/README.md), [two-client Arrow interruptions](docs/evidence/0.4/recovery/two-client-interruptions-20261111/README.md), and [combined four-car PAX permanent removals](docs/evidence/0.4/recovery/permanent-pax-interruptions-20261111/README.md), with accepted native family and cleanup coverage. FD1000 final qualification reconciles these same records against relevant changes; this handoff creates no new runtime case or replay. |
 | <a id="fd902c"></a> **FD902C PAX phase interruptions — in progress** [Steps](docs/roadmap/1.0-release.md#fd902c) | LIFTING support loss for 4,800 ticks; separate OUTBOUND link-loss regression; Repair → Realign → Recover → occupied full cycle/unload. Cold restart during each active phase LIFTING/OUTBOUND/RETURNING/CAPTURING; preserve all four cars, eight carriers, links, controller/carriage and riders, and require explicit recovery | [Source success](docs/evidence/0.9/fd401-pax-longhold-source-229e586/acceptance.md), [packaged named-test pass](docs/evidence/0.9/fd401-pax-packaged-longhold-229e586/README.md), [historical OUTBOUND failure](docs/evidence/0.9/fd401-pax-longhold-client-blocker-1f13a0e/README.md), [bounded active restart](docs/evidence/0.9/create-telemetry/a1aeb1a-active-pax-restart/README.md). Reuse existing long-hold and recovery evidence after relevant-change review. Cover each distinct active-phase restart once; share native state/identity assertions with representative normal-client and two-client input/synchronization checks. No two-consecutive-cycle requirement. FD401D consumes telemetry from these same runs. |
 
 **Done when:** these supported-case matrices have no unresolved rider-state,

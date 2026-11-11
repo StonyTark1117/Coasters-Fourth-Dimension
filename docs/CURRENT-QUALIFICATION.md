@@ -1,6 +1,6 @@
 # Current qualification record
 
-Updated 2026-11-05 UTC. This is the single artifact index for the active roadmap.
+Updated 2026-11-11 UTC. This is the single artifact index for the active roadmap.
 The selected build is a **qualification baseline, not an accepted release candidate**.
 FD404 and FD905 remain open. A later source change has its own identity, but
 unaffected acceptance carries forward under [VALIDATION-POLICY.md](VALIDATION-POLICY.md).
@@ -37,15 +37,12 @@ and an FD402 assignment does not authorize starting FD403 or creating its agent.
 FD404 aggregates both. Use the [scope boundary](roadmap/0.4-core.md#choose-the-assigned-package)
 to classify shared capture, persistence or PAX terminology.
 
-For FD402E, cover representative Arrow and four-car PAX paths and the base/combined
-adapter interaction across the case set. Reuse shared paths; these rows do not
-multiply into every family × profile × interruption. Closed B/F work and the
-accepted ordinary two-client Arrow tow/release are inputs, not new cases.
-
-FD402 coordination updated 2026-11-11: **Improve FD402 workflow efficiency**
-(chat `01a1caa7-1e6e-7d83-8890-6178f04957c3`) owns E1–E5 and parent coordination. **Audit remaining 0.4.0 work**
-(`01a1ca54-e940-76d0-ad14-297ea8d18d8b`) owns the completed B1–B7 evidence reconciliation and E6/E7 closure. FD402 is now complete; coordinate runtime reservations directly only for any unrelated queued work. These assignments do
-not impose a single-client limit or add acceptance requirements.
+FD402 completed 2026-11-11. Its cumulative evidence covers representative Arrow
+and four-car PAX paths across base and combined profiles, with shared native
+family coverage. **Improve FD402 workflow efficiency**
+(chat `01a1caa7-1e6e-7d83-8890-6178f04957c3`) reconciled E1–E5 and the parent;
+**Audit remaining 0.4.0 work** (`01a1ca54-e940-76d0-ad14-297ea8d18d8b`)
+completed B1–B7 and E6/E7. Neither assignment has remaining FD402 execution work.
 
 FD402F2 is now closed by the [combined rendered control record](evidence/0.4/recovery/engineered-fe-combined-pass-20261111/README.md),
 which carries accepted F1 construction/wiring and native mechanics forward.
@@ -55,16 +52,19 @@ worlds and raw run data remain in
 The prior **Complete FD402 integration coverage** chat
 (`01a1a0bd-9ec4-7b63-a613-b82679660855`) is no longer an execution owner.
 The inactive **Complete FD402** chat's old low-memory blocker is historical.
-Verify live PID/cgroup ownership before display reuse and measure current
-resource headroom when scheduling E. [E1–E5 passed](evidence/0.4/recovery/two-client-interruptions-20261111/README.md):
+Future runtime assignments must verify live PID/cgroup ownership before display
+reuse and measure current resource headroom. [E1–E5 passed](evidence/0.4/recovery/two-client-interruptions-20261111/README.md):
 cold server restart, one-rider reconnect, native chunk/bearing return and temporary
 coupling loss/restore retained both original seats and the native group with
 explicit recovery. The Arrow server, clients and private displays :279/:280 are
 stopped. Persistent worlds remain at
 `/home/braydon/.local/state/fourthdimension-runs/fd402e-arrow-20261111`.
-The [PAX combined coupling-removal observation](evidence/0.4/recovery/permanent-pax-interruptions-20261111/README.md)
-closes E6 with retained native cleanup evidence. Audit owns the final E7 permanent
-bearing-removal case; it is the only FD402 gap.
+The [PAX combined permanent-removal record](evidence/0.4/recovery/permanent-pax-interruptions-20261111/README.md)
+closes E6/E7 with retained native cleanup evidence. Its server, two clients and
+private displays :281/:282 are stopped. The final braked world, destroyed-bearing
+record and original rider assignments remain at
+`/home/braydon/.local/state/fourthdimension-runs/fd402e-pax-e6e7-20261111`.
+FD902B consumes the same completed D/E matrix at final freeze reconciliation.
 
 The FD402B1–B7 matrix is now closed cumulatively on 2026-11-11. The seven
 [current banked render slices](evidence/0.4/recovery/occupied-banked-render-motion/current-matrix-20261111.md)
@@ -85,11 +85,12 @@ scenes and 53 registrations remain accepted. FD403A–D and their F claims conti
 
 ### FD402 recovery cases
 
-The FD402 recovery interruption queue is now closed. Reuse the accepted A–D/F records; reconciling FD402 does not require FD403 or the FD404 checkpoint.
-
-| Case | Result | Owner | Evidence | Disposition |
-| --- | --- | --- | --- | --- |
-| **FD402E7 — complete (2026-11-11)** | Permanent bearing removal retained the braked four-car PAX group, eight carriers and both rider seats; the bearing was removed, the production safety fault was reported, and no automatic resume occurred. | Audit remaining 0.4.0 work — preparing four-car PAX combined path | [Permanent PAX interruption evidence](evidence/0.4/recovery/permanent-pax-interruptions-20261111/README.md) | Closed cumulatively with accepted native cleanup mechanics. |
+**No open FD402 cases.** A–F are complete for the declared recovery scope.
+The [Arrow E1–E5](evidence/0.4/recovery/two-client-interruptions-20261111/README.md)
+and [PAX E6/E7](evidence/0.4/recovery/permanent-pax-interruptions-20261111/README.md)
+records close the remaining interruptions cumulatively with accepted mechanics,
+operator and cleanup evidence. Only a named relevant change or defect reopens an
+affected case; FD403 and FD404 remain separate assignments.
 
 ### FD403 construction and teaching cases
 
@@ -268,10 +269,10 @@ only a changed or unresolved behavior requires further runtime evidence.
 | [Engineered-only family telemetry](evidence/0.9/fd401d-engineered-only-family-telemetry-20261105/README.md) | Selected production entries with Engineered 1.1.1: all five families, occupied consist snapshots, six Display Link formatters, goggles and update-tag packets; PAX phases and fail-closed guards passed | Closes one bounded Engineered-only server-side formatter/output row. Rendered signs, remote client application, normal player operation and broader profile acceptance remain open. |
 | [Styles-only family telemetry](evidence/0.9/fd401d-styles-only-family-telemetry-20261105/README.md) | Selected production entries with Styles 1.2.0: all five families, occupied consist snapshots, six Display Link formatters, goggles and update-tag packets; PAX phases and fail-closed guards passed | Closes one bounded Styles-only server-side formatter/output row. Rendered signs, remote client application, normal player operation and broader profile acceptance remain open. |
 | [Base-profile family telemetry](evidence/0.9/fd401d-base-profile-family-telemetry-20261105/README.md) | Selected production entries in base profile: all five families with occupied consist snapshots, six Display Link formatters, goggles formatting and update-tag packets; PAX BOARDING/LIFTING/FAULT and fail-closed guards passed | Closes one bounded base-profile server-side formatter/output row. Actual sign rendering, remote client packet application, and current-artifact Styles-only/Engineered-only/combined profile rows remain open. |
-| [Five-family fresh-process recovery](evidence/0.4/recovery/fresh-process-recovery/acceptance.md) and [selected-production linked trains](evidence/0.4/recovery/linked-train-fresh-process-656725bc-20261105/README.md) | Historical single-car pause/resume/release is retained for all five families; current selected-production entries plus a two-class validation overlay restore and release the exact two-car Arrow and four-car PAX graphs across fresh JVMs without automatic tow | FD402D is complete under cumulative validation. The overlay changes only `CarrierValidationFixture` and its synthetic switch helper over selected SHA `656725bc…`; all production entries are byte-identical. FD402E separately covers multiplayer interruptions. |
-| [Two-client Arrow recovery](evidence/0.4/recovery/two-client-recovery-lifecycle/acceptance.md) | Dedicated server and two rendered clients complete fixture-operated attach/tow/brake/detach/unload; retained final save has no rider assignments or recovery link | FD402E retains this bounded observation. It is not a manual input, reconnect, interrupted restart or all-family result; attach full launch identity to remaining packaged matrix rows. |
+| [Five-family fresh-process recovery](evidence/0.4/recovery/fresh-process-recovery/acceptance.md) and [selected-production linked trains](evidence/0.4/recovery/linked-train-fresh-process-656725bc-20261105/README.md) | Historical single-car pause/resume/release is retained for all five families; current selected-production entries plus a two-class validation overlay restore and release the exact two-car Arrow and four-car PAX graphs across fresh JVMs without automatic tow | FD402D is complete under cumulative validation. The overlay changes only `CarrierValidationFixture` and its synthetic switch helper over selected SHA `656725bc…`; all production entries are byte-identical. The completed FD402E matrix adds multiplayer interruptions in its Arrow and PAX records above. |
+| [Two-client Arrow recovery](evidence/0.4/recovery/two-client-recovery-lifecycle/acceptance.md) | Dedicated server and two rendered clients complete fixture-operated attach/tow/brake/detach/unload; retained final save has no rider assignments or recovery link | FD402E reuses this cycle with the completed Arrow interruption and combined PAX removal records above. This individual observation is not relabeled as manual input, reconnect, interrupted restart or all-family evidence. |
 | [Manual boarding](evidence/0.4/recovery/manual-boarding/acceptance.md), [bearing attachment](evidence/0.4/recovery/manual-bearing-selection/acceptance.md), [lever operation](evidence/0.4/recovery/manual-lever-propulsion/acceptance.md), and [occupied Arrow continuation](evidence/0.4/recovery/manual-occupied-arrow-operator-20261105/README.md) | Real operator actions cumulatively cover the normal bearing, Attach/Start/Brake, physical lever, occupied braked restore, selected-JAR detach/restraint-open/Shift-unload and cleared assignment; the production editor/recovery/state classes in the first process are byte-identical to the selected JAR | FD402C is complete together with the accepted linked-train mechanics and distinct occupied PAX handover. The temporary interaction-range and power-access diagnostics in the occupied run are disclosed and are not substituted for the separate normal-input passes. |
-| [FD402A current-input review](evidence/0.4/recovery/current-input-review-95301062/README.md), [sampled wearables](evidence/0.4/recovery/vanilla-wearable-clearance/acceptance.md), [substeps](evidence/0.4/recovery/remaining-family-native-physics-substeps/acceptance.md), [strength](evidence/0.4/recovery/strength-rating/acceptance.md) | Bounded geometry, solver-pose, load and fail-closed policy results carry forward on current inputs; FD402A is complete | FD402B still adds observed rendered rider/rack checks. Arbitrary cosmetics and continuous solver-interior trajectories remain outside the qualified scope. |
+| [FD402A current-input review](evidence/0.4/recovery/current-input-review-95301062/README.md), [sampled wearables](evidence/0.4/recovery/vanilla-wearable-clearance/acceptance.md), [substeps](evidence/0.4/recovery/remaining-family-native-physics-substeps/acceptance.md), [strength](evidence/0.4/recovery/strength-rating/acceptance.md) | Bounded geometry, solver-pose, load and fail-closed policy results carry forward on current inputs; FD402A is complete | The completed FD402B matrix above adds the observed rendered rider/rack checks. Arbitrary cosmetics and continuous solver-interior trajectories remain outside the qualified scope. |
 | [FD403 matrix](FD403-ACCEPTANCE.md) | Existing crafting, partial powered routes and demo observations | Complete each listed connected-client family walkthrough and its save/reopen record; fixture-created layouts cannot substitute for player-built routes. |
 | [Four-profile native matrix](evidence/0.9/profile-matrix-abc4a9a/README.md) | Historical 49-test result and its target-host limits | FD901 and FD904: reuse applicable results and perform the outstanding release-level sweep once. Subsequent changes require affected tests/profiles only unless a cross-cutting risk justifies more; record the actual suite count. |
 | [Historical migration](evidence/0.9/native-schema3-world-replay.md) | The bounded saved-world upgrade at its original artifact | FD903: current-artifact historical rides, backup restoration and provider lifecycle, with unchanged IDs/profiles. |

@@ -212,9 +212,12 @@ and [one-player persistence matrix](evidence/0.4/recovery/linked-train-fresh-pro
 close FD402A–D cumulatively. The [two-client Arrow interruptions](evidence/0.4/recovery/two-client-interruptions-20261111/README.md)
 add braked cold restart, reconnect, native chunk/bearing return and temporary
 coupling loss/restore while preserving original riders and requiring explicit
-recovery. The [combined PAX coupling-removal record](evidence/0.4/recovery/permanent-pax-interruptions-20261111/README.md)
-closes E6 and E7 with native cleanup evidence. The FD402 recovery interruption queue is now closed. The bounded
-route, solver and equipment limits above still apply.
+recovery. The [combined PAX permanent-removal record](evidence/0.4/recovery/permanent-pax-interruptions-20261111/README.md)
+closes E6/E7 with accepted native cleanup evidence. **FD402A–F are complete as of
+2026-11-11** for the declared recovery scope; the [recovery queue](CURRENT-QUALIFICATION.md#fd402-recovery-cases)
+has no open cases. The bounded route, solver and equipment limits above still
+apply. FD403 construction/teaching and the FD404 development checkpoint remain
+separate open packages.
 
 The [isolated Engineered recovery/FE checkpoint](evidence/0.4/recovery/engineered-fe/acceptance.md)
 now covers the certified bare ordinary bearing with Engineered 1.1.1: braked and
