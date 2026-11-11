@@ -19,6 +19,9 @@ moving-track mechanisms remain after 1.0. Completed packages were not rewritten.
 4. Own the complete assigned outcome and continue through compatible steps. Cite
    a step as “FD1802A, step 3” in the existing next-action entry when useful. Steps
    are procedural references, not new FD IDs, work assignments, approvals or runs.
+   Stay within the assigned package and its required children; an aggregate gate's
+   other inputs do not become part of a child assignment. For 0.4, use the
+   [FD402/FD403 boundary](0.4-core.md#choose-the-assigned-package).
 5. Reuse accepted work, close covered criteria and hand off the integrated result.
    Stop when the existing package criterion is satisfied. Leave only the precise
    blocker/remaining claim in the queue when continuation really is blocked.

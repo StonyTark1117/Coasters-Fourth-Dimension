@@ -24,7 +24,7 @@ uses the same sequence. This adopts the work plan; it does not certify new
 capabilities, activate dependencies, change artifact versions or authorize publication.
 
 **Current stage: completing 0.4; no release candidate is accepted.** Foundation
-through the bounded five-family 0.3 gate, FD401A–D and FD402A/C/D retain their
+through the bounded five-family 0.3 gate, FD401A–D and FD402A–D/F retain their
 accepted status. FD402E, FD403 and FD404 remain open. Early design research
 and asset concepts may proceed independently; implementation follows the explicit
 package prerequisites below. The old blanket expansion pause is superseded by
@@ -452,14 +452,21 @@ updated support documentation; a historical pass cannot waive it.
 
 **Execution steps:** [FD402](docs/roadmap/0.4-core.md#fd402).
 
-**Status: in progress.** FD402A mechanics/clearance, FD402C operator workflow and
-FD402D one-player persistence are complete. Rendered occupied operation, distinct
-multiplayer interruptions and optional-power acceptance remain finite tasks below.
+**Status: in progress.** FD402A mechanics/clearance, FD402B rendered recovery,
+FD402C operator workflow, FD402D one-player persistence and FD402F optional power
+are complete. Only FD402E's distinct multiplayer recovery interruptions remain.
 Their [current case queue](docs/CURRENT-QUALIFICATION.md#current-work-queue) owns
 assignments and next actions. Reuse accepted observations across these tasks. See [operator evidence](docs/evidence/0.4/recovery/operator-acceptance.md)
 and [historical milestones](docs/ROADMAP-CHECKPOINT-HISTORY-2026-11-04.md#fd402-evaluate-and-document-recovery-towing).
 
 **Depends on:** FD108, FD106, FD305. **Design:** D03.
+
+**Assignment boundary:** FD402 owns ordinary-bearing recovery attachment,
+towing and its retained-state interruptions. It does not own player crafting,
+normal ride construction or family teaching; those are FD403. Reuse accepted
+setup/operator evidence and work only the open recovery cases. Close FD402 when
+its own A–F criteria are covered, even while FD403 remains open. See the
+[0.4 package boundary](docs/roadmap/0.4-core.md#choose-the-assigned-package).
 
 **Recovery scope for 0.4–1.0:** pinned unmodified bare Coasters bearing, original
 matching tracks, all five original single-car families, the original two-car
@@ -503,6 +510,12 @@ assignments; family and teaching cases share the same walkthrough evidence.
 
 **Depends on:** FD305. **Design:** D08.
 
+**Assignment boundary:** FD403 owns standalone player construction, normal
+powered ride operation, save/reopen and usable family teaching. It does not
+require FD402 closure, ordinary-bearing towing or FD402E's interruption matrix.
+Existing compatible evidence can be shared without inheriting the other package's
+unfinished work. FD404 later consumes both packages independently.
+
 | Task / status | Remaining standalone connected-client exercise | Evidence / pass condition / next action |
 | --- | --- | --- |
 | <a id="fd403a"></a> **FD403A Arrow — in progress** [Steps](docs/roadmap/0.4-core.md#fd403a) | Full player-built powered circuit with controlled full turn | Follow the Arrow row in the [matrix](docs/FD403-ACCEPTANCE.md#evidence-already-recorded): normal recipes, paid connections, client Chain input, boarding, full circuit, capture/unload and cold reopen. The earlier 50-block pass remains bounded. |
@@ -524,6 +537,9 @@ are not unassisted resource-gathering evidence.
 **Status: planned; awaiting FD401–FD403 acceptance.**
 
 **Depends on:** FD401A–D, FD402A–F, FD403A–F.
+
+FD402 and FD403 are sibling inputs to this gate, not steps inside one another.
+An assignment to close FD402 does not include closing FD403 or FD404.
 
 Record the accepted five-family source/JAR, dependency identities and bounded
 support scope in [CURRENT-QUALIFICATION.md](docs/CURRENT-QUALIFICATION.md).

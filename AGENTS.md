@@ -60,6 +60,12 @@ scope, prerequisites, status and acceptance; the current queue owns assignments.
 Guide steps are procedures within a complete outcome, not new acceptance gates,
 mandatory runs or a reason to stop after an arbitrary slice.
 
+Keep a named-package assignment within that package and its required children.
+In particular, completing FD402 means ordinary-bearing recovery; FD403 owns
+player construction and teaching, and FD404 aggregates both. Neither sibling
+is a prerequisite for the other. Use the [0.4 scope boundary](docs/roadmap/0.4-core.md#choose-the-assigned-package)
+before claiming work; a busy owner or blocked test does not expand the assignment.
+
 # Java runtime
 
 Use **Java 21** for every Gradle command, build, GameTest, server, and client run

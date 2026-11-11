@@ -6,6 +6,14 @@ and the [FD403 roadmap entry](../ROADMAP.md#fd403-complete-crafting-and-teaching
 for the release criterion. Keep this acceptance on the standalone dependency
 profile; optional Track Styles and Engineered behavior has separate gates.
 
+**FD403 is independent of FD402.** This gate checks normal player construction,
+powered riding, capture/unload, save/reopen and teaching. Ordinary-bearing
+attachment/towing and its multiplayer interruption matrix belong to FD402;
+neither their implementation nor their closure is a prerequisite here. A normal
+ride's station capture, PAX winch or supplied propulsion fixture does not turn
+this walkthrough into a recovery-towing test. See the
+[package boundary and evidence-sharing examples](roadmap/0.4-core.md#choose-the-assigned-package).
+
 Apply [VALIDATION-POLICY.md](VALIDATION-POLICY.md): the sequence below describes
 the required player capabilities, not a command to redo every step. Reuse already
 accepted crafting, input, mechanics, teaching and save/reopen records after a
@@ -48,6 +56,11 @@ direct `commitChainLift` call cannot certify this input path. Record actual
 connected-client Chain selection, the installed span and its powered direction.
 
 ## Connected-client sequence
+
+Execute only the parts needed for an open family claim. The sequence is a map of
+required capabilities, not an instruction to recraft, rebuild, reride or reopen
+already accepted steps. Record a shared observation once and cite it wherever
+it proves the same behavior; keep normal-ride and attached-recovery claims distinct.
 
 1. For a missing or affected case, record the source commit, packaged JAR digest, Minecraft/mod versions,
    installed mod list, world seed, game mode and any fixture commands. Use a

@@ -19,9 +19,9 @@ do not create another tracker or reopen cases. A next action may reference a
 package step without adding every future step to this queue.
 
 **Active milestone: 0.4.** Execution guidance updated 2026-11-11. This is the
-remaining acceptance queue, placed before artifact history. It refines the existing FD402E/F
-and FD403A–F criteria; it does not add scope or change any acceptance result.
-FD401A–D and FD402A/C/D stay closed and are intentionally absent.
+remaining acceptance queue, placed before artifact history. Recovery and
+construction/teaching cases have separate lists below; this adds no scope or
+acceptance requirements. FD401A–D and FD402A–D/F stay closed and are absent.
 
 Case IDs below are stable children of their owning roadmap task. All listed cases
 are open; **unrecorded** means this document does not establish a current owner,
@@ -29,12 +29,17 @@ not that no other agent is working. Confirm/claim ownership before a run. The ga
 column states the required outcome; the next action starts from retained evidence.
 A case may close by evidence reconciliation without launching Minecraft.
 
-For FD402B, capture only missing occupied bend/bank/runout/release views, including
-certified wearable alternatives where they change the render claim. Retain native
-clearance acceptance. For FD402E, cover representative Arrow and four-car PAX
-paths and the base/combined adapter interaction across the case set. Reuse shared
-paths; these rows do not multiply into every family × profile × interruption.
-The accepted ordinary two-client Arrow tow/release is not a new case.
+**Choose the assigned package:** [FD402 recovery cases](#fd402-recovery-cases)
+cover ordinary-bearing towing interruptions; [FD403 construction and teaching](#fd403-construction-and-teaching-cases)
+cover normal player-built rides and walkthroughs. FD403 does not depend on FD402,
+and an FD402 assignment does not authorize starting FD403 or creating its agent.
+FD404 aggregates both. Use the [scope boundary](roadmap/0.4-core.md#choose-the-assigned-package)
+to classify shared capture, persistence or PAX terminology.
+
+For FD402E, cover representative Arrow and four-car PAX paths and the base/combined
+adapter interaction across the case set. Reuse shared paths; these rows do not
+multiply into every family × profile × interruption. Closed B/F work and the
+accepted ordinary two-client Arrow tow/release are inputs, not new cases.
 
 FD402 coordination updated 2026-11-11: **Improve FD402 workflow efficiency**
 (chat `01a1caa7-1e6e-7d83-8890-6178f04957c3`) owns E1–E5 and parent coordination. **Audit remaining 0.4.0 work**
@@ -58,15 +63,6 @@ and the braked native group; rendered Start/Brake provided explicit recovery.
 The same runtime is now reserved for E3–E5. Audit owns the separate PAX combined
 E6/E7 preparation; its clients wait until this Arrow pair is released.
 
-FD403A–F ownership claimed 2026-11-11 by **Complete FD403 crafting and teaching**.
-The assigned worktree is `/home/braydon/.codex/worktrees/b81d/Coasters: Fourth Dimension`,
-branch `codex/fd403-player-workflows`, starting at `81403a6b` with a clean tree.
-PAX teaching reconciliation precedes the remaining A–D player workflows; shared F
-claims reuse those records. FD403 reserves one standalone client on private display `:283`, server port
-25483 (RCON 25583), and persistent run root
-`/home/braydon/.local/state/fourthdimension-runs/fd403-workflows-20261111`.
-It leaves recovery displays/ports/worlds with their owners.
-
 The FD402B1–B7 matrix is now closed cumulatively on 2026-11-11. The seven
 [current banked render slices](evidence/0.4/recovery/occupied-banked-render-motion/current-matrix-20261111.md)
 cover each occupied family/train through the bend and sustained bank with
@@ -84,6 +80,12 @@ Normal linking/winch setup, the survival-built occupied cycle and reopen were
 already recorded; no new client run was required. The fifteen tooltips, nine
 scenes and 53 registrations remain accepted. FD403A–D and their F claims continue.
 
+### FD402 recovery cases
+
+Work only these remaining recovery claims for an FD402 assignment. Reuse the
+accepted A–D/F records; closing this list and reconciling FD402 does not require
+FD403 or the FD404 checkpoint.
+
 | Open case | Exact remaining gap | Owner | Existing evidence | Next action |
 | --- | --- | --- | --- | --- |
 | **FD402E3** | Chunk unload/reload during recovery retains or safely releases the original group. | FD402 coordinator — queued | [Two-client Arrow baseline](evidence/0.4/recovery/two-client-recovery-lifecycle/acceptance.md); [accepted one-player persistence](evidence/0.4/recovery/linked-train-fresh-process-656725bc-20261105/README.md) | Check the uncovered recovery chunk-return path and reject duplication or automatic resume. |
@@ -91,12 +93,32 @@ scenes and 53 registrations remain accepted. FD403A–D and their F claims conti
 | **FD402E5** | Temporary bearing unavailability and restoration during recovery. | FD402 coordinator — queued | [Two-client Arrow baseline](evidence/0.4/recovery/two-client-recovery-lifecycle/acceptance.md); [accepted one-player persistence](evidence/0.4/recovery/linked-train-fresh-process-656725bc-20261105/README.md) | Check the bearing interruption/restore path with retained identities and no automatic resume. |
 | **FD402E6** | Permanent coupling removal during recovery. | Audit remaining 0.4.0 work — preparing four-car PAX combined path | [Two-client Arrow baseline](evidence/0.4/recovery/two-client-recovery-lifecycle/acceptance.md); [accepted one-player persistence](evidence/0.4/recovery/linked-train-fresh-process-656725bc-20261105/README.md) | Check safe retained/released rider and consist state; temporary loss evidence does not establish permanent removal. |
 | **FD402E7** | Permanent bearing removal during recovery. | Audit remaining 0.4.0 work — preparing four-car PAX combined path | [Two-client Arrow baseline](evidence/0.4/recovery/two-client-recovery-lifecycle/acceptance.md); [accepted one-player persistence](evidence/0.4/recovery/linked-train-fresh-process-656725bc-20261105/README.md) | Check safe rider/vehicle state and cleanup of invalid recovery links; reuse unaffected detach mechanics. |
+
+### FD403 construction and teaching cases
+
+These are separate assignments. Work can start after FD305 and close independently
+of FD402. Normal ride construction/operation evidence does not require the
+ordinary-bearing recovery interruption matrix.
+
+FD403A–F ownership claimed 2026-11-11 by **Complete FD403 crafting and teaching**.
+The assigned worktree is `/home/braydon/.codex/worktrees/b81d/Coasters: Fourth Dimension`,
+branch `codex/fd403-player-workflows`, starting at `81403a6b` with a clean tree.
+PAX teaching reconciliation precedes the remaining A–D player workflows; shared F
+claims reuse those records. FD403 reserves one standalone client on private display `:283`, server port
+25483 (RCON 25583), and persistent run root
+`/home/braydon/.local/state/fourthdimension-runs/fd403-workflows-20261111`.
+It leaves recovery displays/ports/worlds with their owners.
+
+| Open case | Exact remaining gap | Owner | Existing evidence | Next action |
+| --- | --- | --- | --- | --- |
 | **FD403A** | Arrow: complete the player-built powered circuit, full controlled turn and family walkthrough. | Complete FD403 crafting and teaching — `codex/fd403-player-workflows` | [Powered route/reopen](evidence/0.4/survival-client-arrow-powered/acceptance.md); [crafting](evidence/0.4/survival-client-arrow-loop-connected-attempt1/README.md) | Extend the saved route through normal client Chain input; record missing circuit/capture/unload/reopen behavior and walkthrough steps. |
 | **FD403B** | Legacy: player-built shaped powered route, occupied free response and family walkthrough. | Complete FD403 crafting and teaching — `codex/fd403-player-workflows` | [Powered route/reopen](evidence/0.4/survival-client-legacy-powered/acceptance.md); [shaped demo](evidence/0.4/survival-client-legacy-powered/demo/acceptance.md) | Extend the player-built route; combine accepted crafting/capture/persistence with the missing shaped-route and teaching evidence. |
 | **FD403C** | Free Spin: player-built shaped route with inducer/damper spans and family walkthrough. | Complete FD403 crafting and teaching — `codex/fd403-player-workflows` | [Powered route/reopen](evidence/0.4/survival-client-free-spin-powered/acceptance.md); [damper evidence](evidence/0.4/survival-client-free-spin-powered/damper-demo/acceptance.md) | Complete the normal route/ride; capture missing released-carrier damper observations and teaching steps, reusing accepted native checks. |
 | **FD403D** | Revised: player-built powered route, independent lower hinges and family walkthrough. | Complete FD403 crafting and teaching — `codex/fd403-player-workflows` | [Construction/reopen](evidence/0.4/survival-client-revised/acceptance.md); [powered demo](evidence/0.4/survival-client-revised/powered-demo/acceptance.md) | Extend the existing player-built route, record the missing normal powered cycle and reconcile its save/teaching coverage. |
 | **FD403F** | A–D family walkthroughs agree with the completed player paths; PAX and common tooltips/Ponder are accepted. | Complete FD403 crafting and teaching — `codex/fd403-player-workflows` | [Accepted tooltips/Ponder](evidence/0.4/teaching-current/acceptance.md); [procedure](FD403-ACCEPTANCE.md#family-mechanics-and-teaching-review) | Use the same A–E walkthrough records to close teaching coverage. Retain all fifteen tooltip, nine scene and 53 registration results; fix/recheck only affected instructions. |
 
+
+### Closing cases in either package
 
 When a case passes or existing evidence closes it, record the closure under its
 owning roadmap row (case ID, evidence and date), then remove it from this active

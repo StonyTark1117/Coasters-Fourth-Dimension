@@ -8,8 +8,11 @@ for Java, private display and client memory limits.
 Preparation only, inspected 2026-11-02 against release source `a18e87d` and the
 equivalent mechanics in evidence worktree `c5a713c`. No game process was launched
 for this report. This supplements [FD403 acceptance](FD403-ACCEPTANCE.md), not a
-passing record. Obtain the coordinator's runtime handoff and exact candidate
-revision before executing it. Keep the new integration expansion paused.
+passing record. Use the current FD403 case assignment and record the actual run
+revision. Obtain an ownership handoff only when reusing another task's runtime;
+FD402 closure is not a prerequisite for preparing or completing FD403. The old
+expansion pause is superseded by the current roadmap. This historical preparation
+does not add work to either package beyond its current remaining-case queue.
 
 A later [survival-built PAX client cycle](evidence/0.4/survival-client-pax/survival-cycle/acceptance.md)
 records the PAX construction, normal Chain links, occupied powered recatch,
