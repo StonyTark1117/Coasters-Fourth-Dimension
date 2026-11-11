@@ -100,22 +100,23 @@ These are separate assignments. Work can start after FD305 and close independent
 of FD402. Normal ride construction/operation evidence does not require the
 ordinary-bearing recovery interruption matrix.
 
-FD403A–F ownership claimed 2026-11-11 by **Complete FD403 crafting and teaching**.
-The assigned worktree is `/home/braydon/.codex/worktrees/b81d/Coasters: Fourth Dimension`,
-branch `codex/fd403-player-workflows`, starting at `81403a6b` with a clean tree.
-PAX teaching reconciliation precedes the remaining A–D player workflows; shared F
-claims reuse those records. FD403 reserves one standalone client on private display `:283`, server port
-25483 (RCON 25583), and persistent run root
+FD403 execution was withdrawn on 2026-11-11 after the user clarified that the
+assignment covers FD402 only. The already-integrated PAX acceptance remains.
+FD403A–D/F have no active owner from this chat; no further work is scheduled.
+The task's client/server/private display `:283` are stopped, and ports 25483/25583
+are released. The branch `codex/fd403-player-workflows` and worktree
+`/home/braydon/.codex/worktrees/b81d/Coasters: Fourth Dimension` are retained.
+Setup logs, crash diagnostics and the copied world remain at
 `/home/braydon/.local/state/fourthdimension-runs/fd403-workflows-20261111`.
-It leaves recovery displays/ports/worlds with their owners.
+No A–D construction or ride was completed before cancellation.
 
 | Open case | Exact remaining gap | Owner | Existing evidence | Next action |
 | --- | --- | --- | --- | --- |
-| **FD403A** | Arrow: complete the player-built powered circuit, full controlled turn and family walkthrough. | Complete FD403 crafting and teaching — `codex/fd403-player-workflows` | [Powered route/reopen](evidence/0.4/survival-client-arrow-powered/acceptance.md); [crafting](evidence/0.4/survival-client-arrow-loop-connected-attempt1/README.md) | Extend the saved route through normal client Chain input; record missing circuit/capture/unload/reopen behavior and walkthrough steps. |
-| **FD403B** | Legacy: player-built shaped powered route, occupied free response and family walkthrough. | Complete FD403 crafting and teaching — `codex/fd403-player-workflows` | [Powered route/reopen](evidence/0.4/survival-client-legacy-powered/acceptance.md); [shaped demo](evidence/0.4/survival-client-legacy-powered/demo/acceptance.md) | Extend the player-built route; combine accepted crafting/capture/persistence with the missing shaped-route and teaching evidence. |
-| **FD403C** | Free Spin: player-built shaped route with inducer/damper spans and family walkthrough. | Complete FD403 crafting and teaching — `codex/fd403-player-workflows` | [Powered route/reopen](evidence/0.4/survival-client-free-spin-powered/acceptance.md); [damper evidence](evidence/0.4/survival-client-free-spin-powered/damper-demo/acceptance.md) | Complete the normal route/ride; capture missing released-carrier damper observations and teaching steps, reusing accepted native checks. |
-| **FD403D** | Revised: player-built powered route, independent lower hinges and family walkthrough. | Complete FD403 crafting and teaching — `codex/fd403-player-workflows` | [Construction/reopen](evidence/0.4/survival-client-revised/acceptance.md); [powered demo](evidence/0.4/survival-client-revised/powered-demo/acceptance.md) | Extend the existing player-built route, record the missing normal powered cycle and reconcile its save/teaching coverage. |
-| **FD403F** | A–D family walkthroughs agree with the completed player paths; PAX and common tooltips/Ponder are accepted. | Complete FD403 crafting and teaching — `codex/fd403-player-workflows` | [Accepted tooltips/Ponder](evidence/0.4/teaching-current/acceptance.md); [procedure](FD403-ACCEPTANCE.md#family-mechanics-and-teaching-review) | Use the same A–E walkthrough records to close teaching coverage. Retain all fifteen tooltip, nine scene and 53 registration results; fix/recheck only affected instructions. |
+| **FD403A** | Arrow: complete the player-built powered circuit, full controlled turn and family walkthrough. | Unassigned — prior assignment withdrawn | [Powered route/reopen](evidence/0.4/survival-client-arrow-powered/acceptance.md); [crafting](evidence/0.4/survival-client-arrow-loop-connected-attempt1/README.md) | Extend the saved route through normal client Chain input; record missing circuit/capture/unload/reopen behavior and walkthrough steps. |
+| **FD403B** | Legacy: player-built shaped powered route, occupied free response and family walkthrough. | Unassigned — prior assignment withdrawn | [Powered route/reopen](evidence/0.4/survival-client-legacy-powered/acceptance.md); [shaped demo](evidence/0.4/survival-client-legacy-powered/demo/acceptance.md) | Extend the player-built route; combine accepted crafting/capture/persistence with the missing shaped-route and teaching evidence. |
+| **FD403C** | Free Spin: player-built shaped route with inducer/damper spans and family walkthrough. | Unassigned — prior assignment withdrawn | [Powered route/reopen](evidence/0.4/survival-client-free-spin-powered/acceptance.md); [damper evidence](evidence/0.4/survival-client-free-spin-powered/damper-demo/acceptance.md) | Complete the normal route/ride; capture missing released-carrier damper observations and teaching steps, reusing accepted native checks. |
+| **FD403D** | Revised: player-built powered route, independent lower hinges and family walkthrough. | Unassigned — prior assignment withdrawn | [Construction/reopen](evidence/0.4/survival-client-revised/acceptance.md); [powered demo](evidence/0.4/survival-client-revised/powered-demo/acceptance.md) | Extend the existing player-built route, record the missing normal powered cycle and reconcile its save/teaching coverage. |
+| **FD403F** | A–D family walkthroughs agree with the completed player paths; PAX and common tooltips/Ponder are accepted. | Unassigned — prior assignment withdrawn | [Accepted tooltips/Ponder](evidence/0.4/teaching-current/acceptance.md); [procedure](FD403-ACCEPTANCE.md#family-mechanics-and-teaching-review) | Use the same A–E walkthrough records to close teaching coverage. Retain all fifteen tooltip, nine scene and 53 registration results; fix/recheck only affected instructions. |
 
 
 ### Closing cases in either package

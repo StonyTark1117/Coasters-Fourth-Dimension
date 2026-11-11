@@ -47,3 +47,25 @@ hashes. No client launch or new JAR was needed for these documentation changes.
 **FD403E closes on 2026-11-11**, including ordinary linking/winch setup and its
 FD403F PAX walkthrough. The common accepted tooltip/Ponder review is retained.
 FD403F still awaits the A–D player workflows; E is not held open by those siblings.
+
+## Assignment withdrawn and runtimes stopped
+
+The coordinator relayed the user's scope correction on 2026-11-11: work was
+requested for FD402 only. FD403 execution stopped immediately; the integrated
+PAX documentation and acceptance remain. A–D/F are not assigned to this chat.
+
+The isolated setup used Java 21, a 1536 MiB client heap in a 6 GiB scope, and a
+1536 MiB server heap in a 4 GiB scope. The copied Arrow world joined one real
+client and received upstream ingredient grants, but no A–D construction or ride
+was completed. Slow synchronous region writes stalled a new-plot chunk load;
+the server watchdog terminated that setup. Thread dumps and the crash report
+are retained. A proposed buffered-write configuration was saved but never
+launched after the scope correction; no fix or passing runtime is claimed.
+The earlier initial server exited normally, the failed replacement has no live
+process, and the client exited through Quit Game before its private Xvfb was
+stopped. Display `:283` and ports 25483/25583 are released.
+
+Worlds, complete logs, launch copies, command ledger and diagnostic files remain
+at `/home/braydon/.local/state/fourthdimension-runs/fd403-workflows-20261111`.
+The assigned worktree and branch are retained. No runtime cleanup or decision
+needs user input; these preserved files should not be mistaken for active work.
