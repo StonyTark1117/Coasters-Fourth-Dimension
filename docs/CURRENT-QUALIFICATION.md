@@ -52,9 +52,11 @@ The inactive **Complete FD402** chat's old low-memory blocker is historical.
 Verify live PID/cgroup ownership before display reuse and measure current
 resource headroom when scheduling E. The coordinator now reserves E1/E2 at
 `/home/braydon/.local/state/fourthdimension-runs/fd402e-arrow-20261111`,
-private displays `:279`/`:280`, loopback port 25479. Two-rider fixture setup
-precedes a cold restart with fixture automation disabled (E2), then one-rider
-reconnect while the other stays mounted (E1). E3–E7 have no runtime reserved.
+private displays `:279`/`:280`, loopback port 25479. [E1/E2 passed](evidence/0.4/recovery/two-client-interruptions-20261111/README.md):
+normal cold server restart and one-rider reconnect retained both original seats
+and the braked native group; rendered Start/Brake provided explicit recovery.
+The same runtime is now reserved for E3–E5. Audit owns the separate PAX combined
+E6/E7 preparation; its clients wait until this Arrow pair is released.
 
 FD403A–F ownership claimed 2026-11-11 by **Complete FD403 crafting and teaching**.
 The assigned worktree is `/home/braydon/.codex/worktrees/b81d/Coasters: Fourth Dimension`,
@@ -84,8 +86,6 @@ scenes and 53 registrations remain accepted. FD403A–D and their F claims conti
 
 | Open case | Exact remaining gap | Owner | Existing evidence | Next action |
 | --- | --- | --- | --- | --- |
-| **FD402E1** | Rider disconnect/rejoin while a second rider remains in recovery. | Improve FD402 workflow efficiency — reserved after E2 | [Two-client Arrow baseline](evidence/0.4/recovery/two-client-recovery-lifecycle/acceptance.md); [General occupied reconnect](evidence/0.9/occupied-disconnect-reconnect.md#concurrent-rider-arrow-checkpoint); [accepted one-player persistence](evidence/0.4/recovery/linked-train-fresh-process-656725bc-20261105/README.md) | Check the missing rider-return path with attached ordinary-bearing recovery and retained seat/vehicle identities; both clients observe the result. General occupied reconnect evidence does not by itself establish the recovery-link interaction. |
-| **FD402E2** | Cold server restart of braked recovery with two riders. | Improve FD402 workflow efficiency — preparing two-client Arrow job | [Two-client Arrow baseline](evidence/0.4/recovery/two-client-recovery-lifecycle/acceptance.md); [accepted one-player persistence](evidence/0.4/recovery/linked-train-fresh-process-656725bc-20261105/README.md) | Check two-client restoration, braked hold and explicit resume; reuse accepted one-player save mechanics. |
 | **FD402E3** | Chunk unload/reload during recovery retains or safely releases the original group. | FD402 coordinator — queued | [Two-client Arrow baseline](evidence/0.4/recovery/two-client-recovery-lifecycle/acceptance.md); [accepted one-player persistence](evidence/0.4/recovery/linked-train-fresh-process-656725bc-20261105/README.md) | Check the uncovered recovery chunk-return path and reject duplication or automatic resume. |
 | **FD402E4** | Temporary coupling unavailability and restoration during recovery. | FD402 coordinator — queued | [Two-client Arrow baseline](evidence/0.4/recovery/two-client-recovery-lifecycle/acceptance.md); [accepted one-player persistence](evidence/0.4/recovery/linked-train-fresh-process-656725bc-20261105/README.md) | Check the distinct linked-consist interruption/restore path, retained identities and explicit recovery. |
 | **FD402E5** | Temporary bearing unavailability and restoration during recovery. | FD402 coordinator — queued | [Two-client Arrow baseline](evidence/0.4/recovery/two-client-recovery-lifecycle/acceptance.md); [accepted one-player persistence](evidence/0.4/recovery/linked-train-fresh-process-656725bc-20261105/README.md) | Check the bearing interruption/restore path with retained identities and no automatic resume. |
