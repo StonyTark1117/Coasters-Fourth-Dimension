@@ -143,12 +143,54 @@ the station as a level run and couple each pair while its bearing centers are
 still six blocks apart; a shallow station dip can let unlinked cars roll
 together before the Chain clicks.
 
-Place the winch within twelve blocks of the stopped train and sneak-use it to
-bind. An operator uses the winch to start the cycle. After an interrupted lift,
+Place the winch within twelve blocks of the stopped train and sneak-use it with
+an empty hand to bind. Connect its shaft to Create rotational power at **16–128
+RPM**; verify the actual winch speed with Engineer's Goggles before boarding.
+An unpowered winch can bind but cannot lift. The normal car editor can start a
+ready bound shuttle: board, use the Rotation Tool while seated, close restraints,
+then request dispatch. Alternatively, a platform operator uses the bound winch
+with an empty hand after the riders close restraints. After an interrupted lift,
 restore power and inspect the route, then use the winch normally to resume.
-Restrained riders need an operator on the platform. Keep the winch, its supports
+Restrained riders need an operator on the platform for winch-side recovery.
+Keep the winch, its supports
 and the complete route available during operation. See the more detailed
 [shuttle workflow](REVISED-SHUTTLE.md) and [magnetic editor conventions](MAGNETIC.md).
+
+### Four-car PAX walkthrough
+
+1. Craft matching track, four PAX cars, one Shuttle Winch and a Rotation Tool.
+   Keep three Minecraft Chains for the three car links. Build the level station
+   and its approaches first, then the two spikes; check the actual station
+   tangents and the route margins above before placing cars.
+2. Place the cars at six-block intervals on the level station. Remove temporary
+   placement supports from the carrier sweep. Wait for capture and boarding
+   readiness, and confirm that the unlinked cars have not rolled together.
+3. Hold the Chains and click cars 1→2, 2→3 and 3→4, waiting for **Carts coupled**
+   after each pair. This couples the train; it does not install a track Chain
+   Lift. PAX uses the winch for propulsion and does not use native Chain Lifts.
+4. Place and empty-hand sneak-use the winch, then supply 16–128 RPM through its
+   shaft. Check that it reports **BOARDING** without a fault. A starting power
+   source set to 16 RPM is sufficient for the accepted compact example.
+5. Board an original seat empty-handed. Use the mounted Rotation Tool to close
+   restraints for the train and dispatch, or ask the platform operator to start
+   the winch. Leave the route and winch in ticking range during the cycle.
+6. The catch lifts the train with captured carriers, releases it into free
+   travel, then catches the returning train. Wait for **BOARDING** and **Ready**,
+   open restraints with the tool, and dismount normally onto the platform.
+   Passing the station during the ride is not permission to unload.
+7. Save normally. On reopening, inspect the original four cars, three links and
+   bound winch before boarding; a normally completed train remains captured and
+   ready. An interrupted active cycle instead needs the explicit inspection and
+   recovery/resume procedure above.
+
+The [accepted survival walkthrough](evidence/0.4/survival-client-pax/survival-cycle/acceptance.md)
+uses normally crafted Fourth Dimension items and normal placement, Chain and
+editor controls. Its upstream ingredients, supports and Create creative motor
+were supplied as test fixtures. It proves crafting and operation from those
+inputs, not unassisted material gathering or survival acquisition of a creative
+motor. In a survival build, connect the winch to an available Create rotational
+source through shafts/gearing and verify the required RPM; a creative motor is
+only an example-world power supply. No optional mod is required.
 
 ## Create ride diagnostics
 
