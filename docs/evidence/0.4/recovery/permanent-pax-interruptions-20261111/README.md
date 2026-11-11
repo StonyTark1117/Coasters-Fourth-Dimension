@@ -10,8 +10,10 @@ The native unlink deletes the constraint; this is actual coupling removal, rathe
 
 E6 closes cumulatively from this two-client combined-profile retained state and the accepted [native broken-link rejection, detach and unload](../operator-acceptance.md#native-validation), with [normal linked-train detach](../linked-train-fresh-process-656725bc-20261105/README.md) supplying unchanged cleanup mechanics. No new cleanup implementation or rider path was introduced by the validation helper. The explicit relink after the measured removed-link hold is disclosed; this record does not claim that the bearing remained uncoupled for the remainder of the fixture session.
 
-## E7 status
+## E7 permanent bearing removal
 
-The permanent-bearing action was not accepted in this run because the helper correctly requires an occupied, attached, braked recovery group and the restored fixture had auto-resumed. The raw log preserves the rejection context. A follow-up paused fixture run is required before claiming E7 closure.
+A fresh paused fixture run used the same combined build and two rendered clients. At tick 883, `remove_bearing` permanently removed bearing `0a7b8957-62ca-42c9-9eee-1492e0d56372` from the attached, braked four-car group. The helper reported `recoveryCartRemoved=true`; all four chassis, eight carrier bodies, and both rider seat assignments remained present and mounted. Native links retained the original four-car train and omitted the removed bearing. Each car reported `Recovery bearing permanently removed: brake and disconnect recovery`, with `stopping=true` and no automatic resume. The raw action and status are preserved in [e7-server-latest.log.gz](e7-server-latest.log.gz).
+
+The prior rejection after the temporary relink remains a negative control and is not used as E7 evidence.
 
 The E6 raw server output is [e6-server.log.gz](e6-server.log.gz), with both real clients' logs adjacent. The originally copied `server-latest.log.gz` is the later malformed-pause setup attempt: it contains a different group and no successful removal. It is preserved as excluded setup evidence and must not be cited for E6.
