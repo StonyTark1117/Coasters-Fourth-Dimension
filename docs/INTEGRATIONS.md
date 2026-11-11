@@ -17,15 +17,16 @@ Shared prerequisites permit earlier independent work. FD1000 freezes the complet
 FD901–FD905 then finish final qualification. Staging is not runtime activation
 or compatibility certification, and no new addon is required for standalone rides.
 
-Post-1.0 consumers are Fixed Inverted and builder/operator tools (1.1), ride-local
-operations and Dive (1.2), both Flying variants including New-generation scenery-
-facing yaw in seated/prone postures (1.3), and upright-seated Powered Inverted Yaw
-with powered pacing (1.4). FD1802A owns the shared targeting handoff consumed by
-FD1901A. The separate FD2001–FD2007 program adds purpose-built transfer platforms,
+All vehicle consumers deliver before 1.0: Fixed Inverted in 0.6, both Flying
+variants including New-generation scenery-facing yaw in seated/prone postures
+in 0.7, and Dive plus upright-seated Powered Inverted Yaw in 0.8. FD1802A owns
+the shared targeting handoff consumed by FD1901A; FD1701A provides required
+hold/dispatch authority in 0.8. Independent builder tools retain 1.1 and full
+multi-train management retains 1.2. The separate FD2001–FD2007 program adds transfer platforms,
 turntables, drop tables, tilt tracks and the finite additional styles after native
-route/retention feasibility. These packages never feed the 1.0 gate; existing
-implementation evidence does not certify their new capabilities. See the
-[post-1.0 packages](../ROADMAP.md#post-10-delivery-and-scope) for finite scope.
+route/retention feasibility after 1.0. Moving-track packages never feed the 1.0
+gate; the added vehicle outcomes do. Existing evidence does not certify new
+capabilities. See the [package allocation](../ROADMAP.md#additional-vehicle-and-supporting-feature-packages) for finite scope.
 
 Use [FD501's dependency refresh procedure](INTEGRATION-BACKLOG.md#version-refresh-before-expansion)
 before activating new dependencies. The recorded qualification baseline remains

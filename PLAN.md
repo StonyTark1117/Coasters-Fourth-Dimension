@@ -3,9 +3,11 @@
 The expanded roadmap was adopted **2026-11-11 (America/Phoenix)**. Stable 1.0
 now includes all vehicle and integration scope formerly proposed through 1.5.
 [ROADMAP.md](ROADMAP.md) owns permanent FD IDs, prerequisites, status and acceptance;
-D01–D18 retain their stable design references; D19–D20 define the adopted
-post-1.0 additions. New 1.1–1.4 vehicles/tools and the separate moving-track
-program do not expand the 1.0 release gate. A planning milestone or a
+D01–D18 retain their stable design references; D19 defines the additional vehicle
+styles and supporting tools, and D20 the post-1.0 moving-track program.
+All adopted vehicle/cart and seat-motion styles deliver before 1.0. Moving-track
+mechanisms deliver after 1.0; builder tools and multi-train management retain
+their independent later allocations. A planning milestone or a
 new artifact hash is not proof of implementation or a reason to reopen acceptance.
 
 Foundation through bounded 0.3, FD401A–D and FD402A/C/D retain their accepted
@@ -73,10 +75,11 @@ the compatibility rules below. New requested features cannot be silently dropped
 to accelerate release; unresolved scope decisions belong to their 0.5 specifications.
 For S2, 0.5 must identify a working standalone propulsion path and its declared
 configuration; FD812 is an optional alternative. Scenery-directed yaw is a
-separate post-1.0 mechanism. Later families are Fixed Inverted (1.1), Dive (1.2),
-Conventional and New-generation Flying (both 1.3), and Powered Inverted Yaw (1.4).
+required 1.0 mechanism. Additional families are Fixed Inverted (0.6), Conventional
+and New-generation Flying (both 0.7), Dive and Powered Inverted Yaw (both 0.8).
 The New-generation Flying sub-variant includes scenery-facing yaw in seated and
-prone postures; the 1.4 family keeps upright seating. See D19 for their boundaries.
+prone postures; Powered Inverted Yaw keeps upright seating. Their specification
+packages FD1601S/FD1702S/FD1801S/FD1802S/FD1901S close during 0.5; D19 sets the boundaries.
 
 ## D02 Cart and track compatibility
 
@@ -337,18 +340,16 @@ criteria. IDs stay stable when allocation changes. The adopted sequence is:
 | --- | --- | --- |
 | Foundation–0.3 | FD001–FD305, existing bounded gates | Preserve accepted architecture and original five families. |
 | 0.4 | FD401–FD404 | Complete remaining recovery and player workflows; core checkpoint only. |
-| 0.5 | FD501–FD503; six discovery IDs; FD1101A–C; FD904C1 | Resolve designs/dependencies, Wing-backed contracts, comfort and reusable tools. |
-| 0.6 | FD1501A–C, FD1301A–C, FD601 | S1 conventional free-spinning, then Suspended. |
-| 0.7 | FD1302A–C, FD1502A–C, FD701 | Axis, then Roller Ball. |
-| 0.8 | FD1401A–C, FD1501D–F, FD810–FD813 | Pipeline, S2 launched/inverting free-spinning and operations adapters. |
+| 0.5 | FD501–FD503; six original discovery IDs; FD1601S, FD1702S, FD1801S, FD1802S, FD1901S; FD1101A–C; FD904C1 | Specify all 1.0 vehicles/dependencies; prove Wing-backed contracts, comfort and reusable tools. |
+| 0.6 | FD1501A–C, FD1301A–C, FD1601A–C, FD601 | S1 conventional free-spinning, Suspended and Fixed Inverted. |
+| 0.7 | FD1302A–C, FD1502A–C, FD1801A–C, FD1802A–C, FD1803, FD701 | Axis/Roller Ball and Conventional/New-generation Flying, including scenery-facing yaw. |
+| 0.8 | FD1401A–C, FD1501D–F, FD1701A, FD1702A–C, FD1901A–C, FD1902, FD810–FD813 | Pipeline, S2, Dive, Powered Inverted Yaw, required authority and operations adapters. |
 | 0.9 | FD910–FD916 | Presentation, optional seats, coexistence and the complete model/texture review. |
-| 1.0 alpha | FD1000 | Complete former-through-1.5 scope and freeze features/profiles. |
+| 1.0 alpha | FD1000 | Complete all adopted vehicles/variants and 1.0 integrations; freeze features/profiles. |
 | 1.0 beta / RC | FD901–FD905 | Integrated stabilization and outstanding final qualification. |
 | 1.0 stable | FD1001–FD1003 | Documentation, packaging and separately authorized publication. |
-| 1.1 | FD1601A–C, FD1602–FD1605 | Fixed Inverted, shareable presets, colors/liveries and unified operator panel. |
-| 1.2 | FD1701A–C, FD1702A–C, FD1703 | Ride-local multi-train operation and Dive. |
-| 1.3 | FD1801A–C, FD1802A–C, FD1803 | Conventional Flying and New-generation Flying with shared scenery-facing yaw. |
-| 1.4 | FD1901A–C, FD1902 | Upright-seated Powered Inverted Yaw with powered travel and show stops. |
+| 1.1 | FD1602–FD1605 | Shareable presets, colors/liveries and unified operator panel. |
+| 1.2 | FD1701B–C, FD1703 | Ride-local multi-train operation, consuming the earlier FD1701A authority. |
 | Post-1.0; versions after feasibility | FD2001–FD2007 | Transfer platforms, turntables, drop tables, tilt tracks and the finite additional moving-track styles. |
 | Independent | FD801 | Inspectable functional Track Styles adapter; unavailable upstream work does not block release. |
 
@@ -366,11 +367,13 @@ for assignments and next actions; preserve historical evidence separately.
 FD1003 is the final consumer of the expanded scope, never a prerequisite for its
 families. The [integration allocation](docs/INTEGRATION-BACKLOG.md#release-allocation)
 uses the same milestones. No new capability is advertised until its package passes.
-FD1601–FD2007 never feed FD1000/FD905/FD1003. Later implementation uses actual
-integrated contracts, not publication of an earlier release. In particular,
-Flying can start after Fixed Inverted's mechanics handoff without waiting for
-unrelated 1.2 operations; 1.4 consumes FD1802A without waiting for Flying content
-or its release gate. Future work must not disturb the frozen 1.0 candidate.
+FD1601, FD1702, FD1801/FD1802 and FD1901 vehicle outcomes feed the 0.6–0.8
+gates and FD1000/FD905/FD1003. Their content also feeds FD916. FD1602–FD1605
+tools, FD1701B/C/FD1703 multi-train management and FD2001–FD2007 moving tracks
+remain outside 1.0. Flying starts after Fixed Inverted's mechanics handoff without
+waiting for unrelated 1.2 operations; Powered Inverted consumes FD1802A without
+waiting for Flying content or its aggregate gate. Keep the final qualification
+baseline stable while later work uses integrated contracts.
 
 ## D17 Validation and release scope
 
@@ -394,7 +397,7 @@ apply the [classification policy](docs/VALIDATION-POLICY.md#gate-blockers-and-fo
 
 Budget runtime work per active carrier and constraint as well as per car: cache arc-length tables and rail meshes; invalidate on edits; avoid whole-network searches every frame. Measure a declared benchmark, such as two occupied seven-car controlled trains, several eight-seat free-spin vehicles, and a linked shuttle, against equivalent baseline scenes. Record hardware, carrier count, and frame/tick costs before setting performance guarantees.
 
-The 1.0 and 1.1–1.4 vehicle releases support fixed-world tracks. Purpose-built
+The expanded 1.0 vehicle set supports fixed-world tracks. Purpose-built
 moving-track assemblies are separately committed post-1.0 through FD2001–FD2007
 and D20; their release versions follow native feasibility. Arbitrary track on
 player-built moving contraptions, arbitrary user-built wings, exact linkage
@@ -406,7 +409,8 @@ mechanisms, distinct carrier groupings and shuttle operation remain committed
 ## D18 Remaining decisions to resolve through prototypes
 
 The questions below retain the original design concerns; accepted original-family
-answers stay accepted. During 0.5, all six discovery IDs resolve the added families'
+answers stay accepted. During 0.5, the six original discovery IDs and five added
+vehicle specification packages resolve all 1.0 families'
 axis/mode, seating, track and reference choices, especially Pipeline, the adopted
 S1/S2 Spinning specifications and Roller Ball native feasibility. Use a prototype only
 for an unresolved constraint, then retain it for implementation. FD501 separately
@@ -425,19 +429,21 @@ merely because their wording remains here.
 
 These questions do not block the plan. They are the explicit acceptance gates for implementation rather than assumptions hidden inside the design.
 
-## D19 Post-1.0 vehicles, tools and scenery-facing yaw
+## D19 Vehicle variants, tools and scenery-facing yaw
 
-The [post-1.0 roadmap](ROADMAP.md#post-10-delivery-and-scope) owns statuses,
+The [additional package allocation](ROADMAP.md#additional-vehicle-and-supporting-feature-packages) owns statuses,
 implementation steps and finite acceptance. Preserve all 1.0 commitments and
 accepted evidence while extending contracts through concrete features.
 
 | Release | Product scope | Design boundary |
 | --- | --- | --- |
-| 1.1 / FD1601–FD1605 | Fixed Inverted; setting presets; colors/original liveries; unified operator panel | One fixed below-track vehicle configuration with measured running gear. Presets validate compatibility/version/permissions and explicitly rebind world references. Appearance preserves mechanics; panel commands use existing authority. No arbitrary texture uploads, scripting or park-wide controller. |
-| 1.2 / FD1701–FD1703 | Ride-local multi-train operations; one Dive configuration | One fixed circuit, finite train limit and declared homogeneous consists. Whole-consist occupancy/reservations and fail-closed dispatch; Dive approach/hold/release uses the same authority. No shared-track network, arbitrary junction routing or automatic depot management. |
-| 1.3 / FD1801 | Conventional Flying | Seated boarding, station-based changeover to prone flight, locked riding orientation and return to seated unloading. Own restraints, clearance, camera and interrupted-transition recovery. |
-| 1.3 / FD1802 | New-generation Flying sub-variant | Seated/sideways presentation, defined route-based transition to/from prone flight, independent controlled yaw and scenery targeting in both seated and prone postures. Both Flying variants are required before FD1803 closes. |
-| 1.4 / FD1901–FD1902 | Powered Inverted Yaw Coaster | Upright-seated passengers below the track, one independently controlled full-turn yaw carrier per car, powered speed/direction/dwell and scenery-facing show sections. This is the MACK-style concept, distinct from Flying and Arrow-style free lateral swing. |
+| 0.6 / FD1601 | Fixed Inverted | One fixed below-track vehicle configuration with measured running gear, restraints and clearance. Required for 1.0. |
+| 0.8 / FD1701A, FD1702 | Hold/dispatch authority and Dive | One fixed-seat Dive configuration; approach/hold/release consumes validated authority. Multi-train management is not a vehicle prerequisite. |
+| 0.7 / FD1801 | Conventional Flying | Seated boarding, station-based changeover to prone flight, locked riding orientation and return to seated unloading. Own restraints, clearance, camera and interrupted-transition recovery. |
+| 0.7 / FD1802 | New-generation Flying sub-variant | Seated/sideways presentation, defined route-based transition to/from prone flight, independent controlled yaw and scenery targeting in both seated and prone postures. Both Flying variants are required before FD1803/FD701/1.0 close. |
+| 0.8 / FD1901–FD1902 | Powered Inverted Yaw Coaster | Upright-seated passengers below the track, one independently controlled full-turn yaw carrier per car, powered speed/direction/dwell and scenery-facing show sections. This is the MACK-style concept, distinct from Flying and Arrow-style free lateral swing. |
+| 1.1 / FD1602–FD1605 | Setting presets; colors/original liveries; unified operator panel | Presets validate compatibility/version/permissions and explicitly rebind world references. Appearance preserves mechanics; panel commands use existing authority. No arbitrary texture uploads, scripting or park-wide controller. |
+| 1.2 / FD1701B–C, FD1703 | Ride-local multi-train management | One fixed circuit, finite train limit and declared homogeneous consists; whole-consist occupancy/reservations and fail-closed dispatch. No shared-track network, arbitrary junction routing or automatic depot management. |
 
 References: [B&M Inverted](https://www.bolliger-mabillard.com/inverted-coaster),
 [B&M Dive](https://www.bolliger-mabillard.com/dive-coaster),
@@ -446,6 +452,8 @@ References: [B&M Inverted](https://www.bolliger-mabillard.com/inverted-coaster),
 Use original assets and measured game contracts. Vekoma supplies the seated/
 sideways-to-flying inspiration; scenery-facing yaw in both postures is our explicit
 required game capability, not an assertion of exact real-world actuator design.
+All 1.0 posture/yaw transitions use fixed track geometry and vehicle joints;
+New-generation Flying's route-based changeover has no moving-track prerequisite.
 
 ### Shared yaw and posture ownership
 
@@ -512,8 +520,8 @@ Assign release numbers and finite shipping increments after the native prototype
 Accepted mechanisms may ship without waiting for the entire catalog; outstanding
 named styles remain roadmap work. Each increment receives its own permanent
 FD2007 suffix gate, closed once; the parent aggregates the adopted program.
-No moving-track package blocks 1.0 or fixed-track
-1.1–1.4, and no arbitrary moving-contraption support is implied. Reuse prototypes,
+No moving-track package blocks 1.0 or the fixed-track vehicle outcomes,
+and no arbitrary moving-contraption support is implied. Reuse prototypes,
 shared graph/retention evidence and per-axis checks; test additional combined
 motion only where behavior actually differs. Do not reopen accepted fixed-track
 families because moving-track research produces a new artifact.

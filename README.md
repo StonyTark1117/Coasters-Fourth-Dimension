@@ -9,8 +9,9 @@ A Create: Coasters Simulated addon developing five original 4D families: control
 
 **Adopted roadmap (2026-11-11):** stable 1.0 includes the scope formerly proposed
 through 1.5. Finish the five-family core in 0.4; resolve designs and deliver Wing,
-shared contracts and comfort in 0.5; Spinning/Suspended in 0.6; Axis/Roller Ball
-in 0.7; Pipeline, remaining variants and operations integrations in 0.8; then
+shared contracts and comfort in 0.5; Spinning/Suspended/Fixed Inverted in 0.6;
+Axis/Roller Ball and both Flying variants in 0.7; Pipeline, remaining Spinning,
+Dive, Powered Inverted Yaw and operations integrations in 0.8; then
 presentation, optional seats, coexistence and the model/texture review in 0.9.
 FD916 reviews and improves original and added family assets before FD1000 freezes
 features at 1.0 alpha; beta/RC qualification and final packaging precede stable release.
@@ -22,16 +23,16 @@ These additions are planned, not features of the current JAR. Existing accepted
 cases stay closed; new builds do not restart qualification. Optional addons stay
 optional for standalone rides, and publication requires separate authorization.
 
-**Adopted post-1.0 roadmap:** 1.1 adds Fixed Inverted, shareable setting presets,
-colors/original liveries and a unified operator panel; 1.2 adds ride-local
-multi-train operations and Dive; 1.3 includes both Conventional Flying and
-New-generation Flying with scenery-facing yaw in seated and prone postures;
-1.4 adds an upright-seated Powered Inverted Yaw Coaster using the same targeting
-controls with powered pacing and show stops. A separate post-1.0 moving-track
+**Scope clarification:** all adopted vehicle/cart and seat-motion styles are
+required before stable 1.0, including Conventional Flying, New-generation Flying
+with scenery-facing yaw in seated/prone postures, and the separate upright-seated
+Powered Inverted Yaw Coaster. Their former proposed 1.1–1.4 allocations are superseded.
+Standalone shareable presets, colors/liveries and a unified operator panel retain
+1.1; ride-local multi-train management retains 1.2. A separate post-1.0 moving-track
 program covers transfer platforms, turntables, drop tables, tilt tracks, elevator,
 teeter-totter, side-drop and compound motion tables, with release numbers assigned
-after a working native prototype. These are future features and never block 1.0.
-[Packages, scope and completion criteria](ROADMAP.md#post-10-delivery-and-scope).
+after a working native prototype. Moving-track mechanisms never block 1.0.
+[Packages, scope and completion criteria](ROADMAP.md#additional-vehicle-and-supporting-feature-packages).
 
 The build notes below retain their historical observations and limitations.
 Current acceptance belongs to [ROADMAP.md](ROADMAP.md): FD401A–D and FD402A/C/D

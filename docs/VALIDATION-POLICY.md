@@ -124,18 +124,20 @@ Raw evidence remains immutable. Current task status takes precedence over old
 per-run “still open” prose. Update one current status/next-action entry rather
 than appending another expanding checklist to every successful run.
 
-## Post-1.0 scope and evidence reuse
+## Vehicle and moving-track scope; evidence reuse
 
-FD1601–FD2007 are future work, not new prerequisites for FD1000, FD905 or FD1003.
-Each later release freezes its own finite package/profile list and reconciles
-existing evidence before scheduling outstanding qualification. A release label,
-new vehicle or moving-track prototype never resets earlier accepted cases.
-Keep future requirements out of the active 0.4 queue until they are actually
-assigned within their own packages; preserve the frozen 1.0 candidate while
-later implementation uses integrated main contracts.
+All adopted vehicle/cart styles are 1.0 requirements: FD1601 feeds FD601;
+FD1801/FD1802 through FD1803 feed FD701; FD1702 and FD1901/FD1902 feed FD813.
+Their content feeds FD916 before FD1000. The five S specification packages close
+in 0.5; discovery alone cannot close the vehicle outcomes. These additions do not
+reopen accepted original-family cases or require a new 0.4 qualification campaign.
+FD1602–FD1605 standalone tools, FD1701B/C/FD1703 multi-train management and
+FD2001–FD2007 moving-track mechanisms remain post-1.0 and cannot block its gates.
+FD1701A's shared authority is required earlier by the 1.0 vehicles; it does not
+inherit the whole multi-train package as a prerequisite.
 
 Conventional Flying may close independently while New-generation Flying proceeds;
-1.3 requires both. FD1802A owns physical scenery-facing yaw and combined posture
+0.7 and stable 1.0 require both. FD1802A owns physical scenery-facing yaw and combined posture
 proof in seated and prone states. FD1901 reuses that handoff and adds distinct
 upright vehicle, powered travel and show-stop cases, without replaying Flying.
 Validate combined yaw/posture sweeps where they introduce new behavior; passing
@@ -149,10 +151,14 @@ Do not multiply every vehicle by every mechanism/provider without a named
 implementation difference. A mechanism's discovery is not player acceptance,
 and each completed mechanism stays closed while another style is developed.
 
-Later content applies FD916's existing visual checklist to new/affected assets,
-without reopening FD916 or creating a second review of unchanged art. Saved preset
+The 1.0 vehicle content applies FD916's checklist and contributes accepted views
+to its 0.9 reconciliation. Post-1.0 content reuses that checklist without reopening
+the accepted baseline or creating a second review of unchanged art. Saved preset
 libraries, selectable liveries and new operator panels do not invalidate accepted
 editing, texture quality or telemetry merely by extending their functionality.
+Each later release freezes its own finite package/profile list and reuses evidence
+before scheduling outstanding qualification. Preserve the frozen 1.0 candidate;
+new vehicle builds or moving-track prototypes never reset earlier accepted cases.
 
 ## Shared-contract client handoff
 

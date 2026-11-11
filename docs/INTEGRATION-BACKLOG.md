@@ -5,8 +5,10 @@ allocated to 0.8; presentation, optional seats and coexistence to 0.9; final
 qualification follows the 1.0 alpha feature freeze. The former blanket expansion
 pause is superseded by explicit package prerequisites in [ROADMAP.md](../ROADMAP.md).
 All former-through-1.5 agreed capabilities remain in the stable 1.0 target.
-New FD1601–FD2007 packages belong to the separate post-1.0 allocation below;
-they do not delay the expanded 1.0 gate. Planning adoption is not
+All adopted vehicle/cart styles, including Fixed Inverted, Dive, both Flying
+variants and Powered Inverted Yaw, also deliver before 1.0. FD2001–FD2007 moving
+tracks remain post-1.0; independent tools and multi-train management keep their
+later allocations below. Planning adoption is not
 runtime activation, compatibility certification, a dependency upgrade or publication.
 
 **Artifact inventory verified 2026-11-02** for Minecraft 1.21.1 / NeoForge.
@@ -115,7 +117,7 @@ this backlog owns addon capabilities and dependency decisions. Existing FD IDs
 and acceptance are preserved. FD404 is the original five-family checkpoint;
 FD1000 freezes the expanded scope at 1.0 alpha, followed by FD901–FD905 and
 FD1001–FD1003. No family or integration depends on first releasing FD1003.
-New post-1.0 integration consumers follow their own integrated interfaces and
+New integration consumers follow their own integrated interfaces and
 dependency decisions. The old artifact catalog does not certify later Flying,
 scenery-facing yaw, powered inverted or moving-track support.
 
@@ -157,16 +159,17 @@ migration run. A blocked optional adapter does not block a sufficient core basel
 | --- | --- | --- |
 | 0.4 / FD401–FD404 | Preserve accepted Create/Engineered/Styles scope and finish remaining core recovery/player work | FD401 stays closed; FD404 records the bounded core, not final release readiness. |
 | 0.5 / FD501, FD501A | Record core and per-adapter decisions; implement only core-required prerequisites | Resolve each consumer separately. A sufficient current core can close FD501A while an optional-adapter issue remains open. |
+| 0.6 / FD1601 | Fixed Inverted compatibility | Consume integrated Wing/Suspended contracts; provide measured fixed overhead seating and track fit before 1.0. |
+| 0.7 / FD1801–FD1803 | Conventional and New-generation Flying; scenery-facing yaw in the latter | FD1802A proves physical yaw plus seated/prone transforms. Optional seats/effects compose once and preserve restraints/camera ownership. Both variants feed FD701/1.0. |
 | 0.8 / FD501B–D, FD810–FD813 | Additions station telemetry/interlocks, selected CTNB tracks/controls, Magnetized equipment and actual authority conflicts | Can start after their integrated control/provider prerequisites, independently of Axis/Roller Ball. Add an operator example per capability and qualify the named operations profile. |
+| 0.8 / FD1701A, FD1702, FD1901–FD1902 | Required authority, Dive and upright-seated Powered Inverted Yaw | Consume integrated FD1802A targeting and validated hold/dispatch authority. Provide standalone vehicle/drive paths and optional scene-event adapters. Full multi-train management is not a prerequisite. |
 | 0.9 / FD501E–H, FD910–FD916; reuse FD501B | Coaster Skin, rotating-seat follow-up, Immersion, Waterparked and Create Coasters coexistence; shared model/texture review | Stable representative fixed/free/constrained seat/pose interfaces; normal input, rider state, fallback and combined-profile behavior. FD916 checks the complete original/new asset set and affected appearance/seat combinations before FD915 closes. |
-| 1.0 alpha / FD1000 | Freeze all agreed capabilities and supported profiles | All former-through-1.5 scope implemented with cumulative acceptance; no silent scope reduction. |
+| 1.0 alpha / FD1000 | Freeze all agreed 1.0 capabilities and supported profiles | All adopted vehicles, variants and 1.0 integrations implemented with cumulative acceptance; no silent scope reduction. |
 | 1.0 beta / RC / FD901–FD905 | Integrated qualification | Reuse accepted cases, test outstanding interactions and final workload, fix affected defects without resetting earlier gates. |
 | 1.0 stable / FD1001–FD1003 | Accurate support docs and reproducible artifacts | Clean install/package checks; publication remains separate. |
-| 1.1 / FD1601–FD1605 | Fixed Inverted compatibility, shareable presets, colors/liveries and operator panel | Consume integrated seat, appearance, editing and control contracts. Skin is optional; panel commands preserve server authority and original choices work standalone. |
-| 1.2 / FD1701–FD1703 | Ride-local block/dispatch authority and Dive hold/release | Audit existing selected upstream capabilities first. Declare one owner, one circuit and finite train/profile limits; no park-wide or arbitrary-junction control. |
-| 1.3 / FD1801–FD1803 | Conventional and New-generation Flying; shared scenery-facing yaw in the latter | FD1802A proves yaw plus seated/prone transforms through a concrete vehicle. Optional seats/effects compose once and may not take over restraints or camera ownership. |
-| 1.4 / FD1901–FD1902 | Upright-seated Powered Inverted Yaw, powered pacing and finite scene events | Consume integrated FD1802A targeting and FD1701A authority, not the whole 1.3 gate. Provide a working standalone drive path; lighting/audio adapters are optional. |
-| Post-1.0 moving-track program / FD2001–FD2007 | Transfer, turntable, drop, tilt and finite additional styles; provider graph/retention adapters | Inspect native connection hooks and prove occupied moving-segment lifecycle first. Release numbers follow feasibility; no dependency from any 1.0 or fixed-track 1.1–1.4 gate. |
+| 1.1 / FD1602–FD1605 | Shareable presets, colors/liveries and operator panel | Consume integrated appearance, editing and control contracts. Skin is optional; panel commands preserve server authority and original choices work standalone. |
+| 1.2 / FD1701B–C, FD1703 | Ride-local multi-train block/dispatch management | Consume FD1701A authority from 0.8. Declare one owner, one circuit and finite train/profile limits; no park-wide or arbitrary-junction control. |
+| Post-1.0 moving-track program / FD2001–FD2007 | Transfer, turntable, drop, tilt and finite additional styles; provider graph/retention adapters | Inspect native connection hooks and prove occupied moving-segment lifecycle first. Release numbers follow feasibility; no dependency from 1.0 or fixed-track vehicle gates. |
 | Independent FD801 | Inspectable functional Track Styles Arrow 4D adapter | Measured mechanism/geometry equivalence and applicable terms; unavailable upstream release never blocks standalone 1.0. |
 
 FD501B supplies common Additions prerequisites to FD810/FD911; seat-only changes
@@ -184,6 +187,8 @@ and the final rendering gate consume these results without a second art-review p
 Post-1.0 content uses FD916's checklist for new assets without reopening its
 accepted 1.0 baseline. Preset/library and livery customization are distinct 1.1
 features; they are not retroactive conditions on the existing editor or art gate.
+The additional 1.0 vehicle assets themselves feed FD916 in 0.9; their earlier
+content checks count toward that review rather than triggering another art pass.
 
 For Spinning S2, the 0.5 specification names a working standalone launch path
 and supported configuration. FD812 adds an optional Magnetized alternative;
