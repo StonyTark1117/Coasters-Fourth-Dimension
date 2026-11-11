@@ -153,7 +153,7 @@ migration run. A blocked optional adapter does not block a sufficient core basel
 | 0.4 / FD401–FD404 | Preserve accepted Create/Engineered/Styles scope and finish remaining core recovery/player work | FD401 stays closed; FD404 records the bounded core, not final release readiness. |
 | 0.5 / FD501, FD501A | Record core and per-adapter decisions; implement only core-required prerequisites | Resolve each consumer separately. A sufficient current core can close FD501A while an optional-adapter issue remains open. |
 | 0.8 / FD501B–D, FD810–FD813 | Additions station telemetry/interlocks, selected CTNB tracks/controls, Magnetized equipment and actual authority conflicts | Can start after their integrated control/provider prerequisites, independently of Axis/Roller Ball. Add an operator example per capability and qualify the named operations profile. |
-| 0.9 / FD501E–H, FD910–FD915; reuse FD501B | Coaster Skin, rotating-seat follow-up, Immersion, Waterparked and Create Coasters coexistence | Stable representative fixed/free/constrained seat/pose interfaces; normal input, rider state, fallback and combined-profile behavior. |
+| 0.9 / FD501E–H, FD910–FD916; reuse FD501B | Coaster Skin, rotating-seat follow-up, Immersion, Waterparked and Create Coasters coexistence; shared model/texture review | Stable representative fixed/free/constrained seat/pose interfaces; normal input, rider state, fallback and combined-profile behavior. FD916 checks the complete original/new asset set and affected appearance/seat combinations before FD915 closes. |
 | 1.0 alpha / FD1000 | Freeze all agreed capabilities and supported profiles | All former-through-1.5 scope implemented with cumulative acceptance; no silent scope reduction. |
 | 1.0 beta / RC / FD901–FD905 | Integrated qualification | Reuse accepted cases, test outstanding interactions and final workload, fix affected defects without resetting earlier gates. |
 | 1.0 stable / FD1001–FD1003 | Accurate support docs and reproducible artifacts | Clean install/package checks; publication remains separate. |
@@ -165,6 +165,12 @@ F Immersion (FD912), G Waterparked (FD913) and H Create Coasters (FD914). Each u
 its own recorded FD501 decision, not completion of every other dependency package.
 Record a shared prerequisite only when actually consumed, integrate it once into
 `main`, and reuse its evidence. Final combined-profile compatibility remains required.
+
+[FD916](../ROADMAP.md#fd916-review-and-improve-models-and-textures) owns visual
+quality across the standalone mod as well as affected supported integrations.
+Review the available core assets independently of addon readiness; reuse per-family
+content reviews and close only missing or changed visual cases. Adapter acceptance
+and the final rendering gate consume these results without a second art-review pass.
 
 New integrations remain optional installations, but their agreed capabilities
 are planned 1.0 deliverables. A staged JAR does not establish a capability. If a

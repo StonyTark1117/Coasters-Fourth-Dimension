@@ -157,3 +157,13 @@ for another livery is not. No promised family, variant, capability or criterion
 may be silently reclassified as optional polish. Resolve ambiguous requirements
 explicitly instead of inventing a stricter criterion after a pass or waiving a
 supported failure. Fixes reopen and recheck only the affected cases.
+
+[FD916's model/texture checklist](../ROADMAP.md#fd916-review-and-improve-models-and-textures)
+defines required visual-finish criteria for 0.9. Missing assets, unintended
+placeholders and failures of that finite checklist block FD916/FD915 and the alpha
+freeze; they cannot be dismissed as optional polish. Additional aesthetic preferences
+outside those criteria remain follow-up work. Reuse earlier content reviews and
+adequate captures. Texture-only edits need their affected visual checks, not a
+mechanics replay; changed geometry, seats or pivots need only the affected
+clearance, rider/render and mechanical checks. FD904A consumes the accepted visual
+baseline without restarting the art review or broader qualification.

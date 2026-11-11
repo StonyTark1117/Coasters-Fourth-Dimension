@@ -11,8 +11,9 @@ A Create: Coasters Simulated addon developing five original 4D families: control
 through 1.5. Finish the five-family core in 0.4; resolve designs and deliver Wing,
 shared contracts and comfort in 0.5; Spinning/Suspended in 0.6; Axis/Roller Ball
 in 0.7; Pipeline, remaining variants and operations integrations in 0.8; then
-presentation, optional seats and coexistence in 0.9. FD1000 freezes features at
-1.0 alpha; beta/RC qualification and final packaging precede stable release.
+presentation, optional seats, coexistence and the model/texture review in 0.9.
+FD916 reviews and improves original and added family assets before FD1000 freezes
+features at 1.0 alpha; beta/RC qualification and final packaging precede stable release.
 [Detailed stages and completion criteria](ROADMAP.md#release-map) and
 [integration capabilities](docs/INTEGRATION-BACKLOG.md#release-allocation).
 These additions are planned, not features of the current JAR. Existing accepted

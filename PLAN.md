@@ -189,6 +189,22 @@ Proposed workflow: choose a vehicle family, build its matching functional track 
 
 Start with original generic models for each mechanical family rather than park-branded replicas. X2, Eejanaika, and Dinoconda liveries can share the controlled chassis later. Arbitrary player-built wing structures, general park traffic management, and exact engineering replicas remain follow-up scope. Free-spinning behavior and independent carrier groups are now core planned features.
 
+### Model and texture quality
+
+[FD916](ROADMAP.md#fd916-review-and-improve-models-and-textures) owns the required
+0.9 visual review and improvements for the original five families and every added
+family/variant, including their tracks, equipment and item representations. Review
+silhouettes/proportions, assembly alignment, texture completeness and UV seams,
+consistent material/detail treatment, and inventory, placed and occupied views.
+Use a recorded visual reference and finite correction list; unintended placeholders
+and failures of that checklist must be resolved before FD915 and 1.0 alpha.
+
+Family content tasks apply the checklist earlier and retain comparison captures.
+They can close without waiting for the final FD916 reconciliation. Reuse accepted
+visual and mechanical evidence; texture-only edits do not reset physics acceptance,
+while geometry/seat/pivot changes require only affected checks. Once the checklist
+passes, further taste-based refinements remain nonblocking follow-up work.
+
 ## D09 Shared carrier model
 
 Expansion extends these contracts incrementally through working families. Wing
@@ -307,7 +323,7 @@ criteria. IDs stay stable when allocation changes. The adopted sequence is:
 | 0.6 | FD1501A–C, FD1301A–C, FD601 | First Spinning variant, then Suspended. |
 | 0.7 | FD1302A–C, FD1502A–C, FD701 | Axis, then Roller Ball. |
 | 0.8 | FD1401A–C, FD1501D–F, FD810–FD813 | Pipeline, remaining variants and operations adapters. |
-| 0.9 | FD910–FD915 | Presentation, optional seats and coexistence. |
+| 0.9 | FD910–FD916 | Presentation, optional seats, coexistence and the complete model/texture review. |
 | 1.0 alpha | FD1000 | Complete former-through-1.5 scope and freeze features/profiles. |
 | 1.0 beta / RC | FD901–FD905 | Integrated stabilization and outstanding final qualification. |
 | 1.0 stable | FD1001–FD1003 | Documentation, packaging and separately authorized publication. |

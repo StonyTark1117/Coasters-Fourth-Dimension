@@ -47,7 +47,7 @@ a requirement to leave a fully covered task open or schedule another run.
 2. Resolve all new-family specifications and expansion dependencies during 0.5. Prove the necessary contract extensions through a complete fixed-seat Wing, establish seat/camera ownership and deliver the comfort option.
 3. Build the first agreed Spinning variant, then Suspended (0.6); build Axis, then Roller Ball (0.7). Reuse accepted mechanism work and prototypes.
 4. Complete Pipeline, remaining agreed Spinning variants and operations integrations (0.8). Pipeline and adapters may start earlier once their own prerequisites are integrated; they do not wait for unrelated families.
-5. Complete presentation, optional seats and coexistence (0.9) against stable representative vehicle interfaces. Recipes, guides and examples accompany each feature.
+5. Complete presentation, optional seats, coexistence and the model-and-texture review (0.9) against stable representative vehicle interfaces. Review all original and added families; recipes, guides, examples and asset improvements accompany each feature.
 6. Close FD1000 at 1.0 alpha to freeze the expanded feature scope. During beta/RC reconcile accumulated acceptance and finish FD901–FD905; FD1001–FD1003 own documentation, packaging and stable release.
 
 A [4,800-tick PAX source recovery](docs/evidence/0.9/fd401-pax-longhold-source-229e586/acceptance.md),
@@ -81,7 +81,7 @@ whole-JAR equality is not required. Keep the original run identity and limits.
 | 0.6 | FD1501A–C, FD1301A–C, FD601 | Planned | First agreed Spinning variant, then Suspended: carrier axes, loading, damping, swing limits and locks. |
 | 0.7 | FD1302A–C, FD1502A–C, FD701 | Planned | Axis, then Roller Ball, with distinct complex motion, capture and route behavior. |
 | 0.8 | FD1401A–C, FD1501D–F, FD810–FD813 | Planned | Pipeline, remaining agreed Spinning variants, Additions operations, selected CTNB and Magnetized capabilities. |
-| 0.9 | FD910–FD915 | Planned | Skin, rotating-seat integration, Immersion and Waterparked/Create Coasters coexistence. |
+| 0.9 | FD910–FD916 | Planned | Skin, rotating-seat integration, Immersion, Waterparked/Create Coasters coexistence, and model/texture quality across original and added families. |
 | 1.0 alpha | FD1000 | Planned | All former proposed-through-1.5 content complete; freeze feature scope and supported profiles. |
 | 1.0 beta / RC | FD901–FD905 | Evidence in progress; final gates open | Integrated stabilization, compatibility, lifecycle, migration, rendering and performance; carry accepted cases forward. |
 | 1.0 stable | FD1001–FD1003 | Planned | Final documentation, reproducible packaging and separately authorized publication. |
@@ -650,12 +650,15 @@ defines the capability boundaries, optional installation and dependency caveats.
 Shared control/ownership changes use one owner and integrate before dependent
 adapters. One adapter's dependency issue need not idle independent vehicle work.
 
-## Milestone 0.9 — presentation, optional seats and coexistence
+## Milestone 0.9 — presentation, optional seats, coexistence and visual quality
 
 Presentation and seat integrations follow stable representative fixed, freely
 rotating and constrained-motion vehicles. Read-only inspection and asset concepts
 may happen earlier. Final adapters consume the established interfaces rather than
 redefining mechanics or forcing every family to repeat acceptance.
+FD916 reviews and improves the complete model/texture set, including the original
+five families. Family content tasks use its checklist earlier; final review closes
+before the 1.0 alpha freeze without reopening accepted mechanics.
 
 | Package / status | Prerequisites | Implementation steps and completion condition |
 | --- | --- | --- |
@@ -664,7 +667,64 @@ redefining mechanics or forcing every family to repeat acceptance.
 | **FD912 Immersion — planned** | FD501F, FD904C1; stable representative pose/camera interfaces | Compose effects once, respect relative mouse look and comfort, handle first/third person and remote bodies, restore the camera on exit and verify supported client-only installation. Complete without altering authoritative seat motion. |
 | **FD913 Waterparked coexistence — planned** | FD501G; representative accepted core rides | Inspect early, then check shared graph/mixin/render behavior in the named profile. Complete with independent ride coexistence and refusal of slide eligibility for our cars; no amphibious or transfer feature is implied. |
 | **FD914 Create Coasters coexistence — planned** | FD501H; representative accepted core rides | Inspect utility, seat-lock and camera overlap; implement only agreed demonstrated bridges and otherwise coexistence. Complete when utilities and our rides operate together without granting Create-train authority over Sable rides. |
-| **FD915 Milestone 0.9 gate — planned** | FD813, FD910–FD914 | Resolve actual seat/pose/render/control conflicts in the declared combined profile, include client-only asymmetry, and finish player configuration guidance. Complete when all agreed presentation/seat/coexistence capabilities preserve mechanics and rider state. |
+| **FD915 Milestone 0.9 gate — planned** | FD813, FD910–FD914, FD916 | Resolve actual seat/pose/render/control conflicts in the declared combined profile, include client-only asymmetry, and finish player configuration guidance. Complete when the agreed presentation/seat/coexistence capabilities preserve mechanics and rider state and FD916's model/texture criteria pass. |
+
+### FD916 Review and improve models and textures
+
+**Status: planned.** **Delivery:** 0.9. **Design:** D08, D16, D17.
+**Depends on:** FD404; FD1101B, FD1501B, FD1501E, FD1301B, FD1302B, FD1502B and FD1401B;
+FD910/FD911 for affected optional appearance and seat configurations.
+
+Review the original five families plus Wing, all agreed Spinning variants,
+Suspended, Axis, Roller Ball and Pipeline. Include their vehicle bodies, seats,
+restraints, wheels, pivots, required tracks, ride equipment and associated item
+models/textures. This is required visual-finish work, not a claim that every
+existing asset needs replacement or that exact manufacturer replicas are required.
+Third-party resources remain external; this task improves our authored assets
+and adapter presentation rather than redesigning another mod's artwork.
+
+1. Inventory the declared assets and choose representative comparison views,
+   lighting, scale and a consistent visual reference sheet from the agreed designs.
+   Use stable specifications and existing original assets to establish the finish
+   standard; do not introduce new liveries, families or redesign goals during review.
+2. Review each family's assets against the checklist below. Reuse adequate existing
+   captures and family-content reviews. Record one finite correction list with the
+   affected asset, failed criterion and intended correction.
+3. Improve the listed models/textures in their owning content package or FD916 for
+   original-family assets. Preserve functional dimensions, seat/pivot definitions,
+   identities and mechanics unless the specific correction requires a change.
+4. Retain before/after screenshots for changed assets and representative inventory,
+   placed-world and occupied-motion views. Use existing player/renderer evidence
+   when it shows the required asset state; capture only missing or affected views.
+5. Close corrected cases once their criterion passes, reconcile coverage across the
+   declared set, and pass the result to FD915 and FD1000. Remaining preferences that
+   do not violate a criterion become nonblocking follow-up work.
+
+| Required criterion | Completion condition |
+| --- | --- |
+| Silhouette, proportions and style | Each family reads as its specified design, with proportions consistent with its functional dimensions and the recorded visual reference. Intentional game approximations remain documented. |
+| Assembly and motion alignment | Seats, restraints, wheels, pivots and track/equipment components line up in the relevant stationary and operating poses; no unintended gaps, intersections or visible separation obscure their function. Reuse accepted clearance and pose evidence where applicable. |
+| Texture finish | Declared surfaces have intentional textures; no missing-texture fallback, unintended placeholder, obvious UV stretching or unintended seam remains in the chosen views. Material treatment and detail density follow the recorded visual reference. |
+| Player-facing appearance | Inventory/held representations where applicable, placed assets and occupied motion remain recognizable and readable at normal gameplay scale. Required state cues and rider/restraint relationships remain visible. |
+| Supported appearance variants | Agreed variants and affected optional skin/seat configurations retain the intended finish and functional cues. Shared unchanged assets may share evidence; do not require every family × livery × graphics-profile combination. |
+
+Per-family review and corrections may proceed once that family's dimensions and
+assets are stable; they do not wait for every dependency above. Final closure
+reconciles the complete set and affected optional configurations. The earlier B
+content tasks use this checklist, not completion of FD916, as their standard.
+
+Texture-only changes require only their affected visual checks and retain accepted
+physics/persistence. Geometry, seat, pivot or clearance changes receive only the
+affected rendering, rider/clearance and mechanical checks identified by the diff.
+An asset edit or new JAR hash never resets a family or release campaign. FD904A
+consumes this review alongside its technical rendering evidence; it does not order
+another aesthetic review. Follow [VALIDATION-POLICY.md](docs/VALIDATION-POLICY.md).
+
+**Done when:** every declared asset group has checklist coverage and all recorded
+criterion failures are corrected with evidence. No unintended placeholder or
+missing asset remains in release scope. Freeze the accepted visual baseline and
+stop; further taste-based refinements are follow-up work. Existing mechanics and
+earlier milestone acceptance remain closed unless an actual affected case fails.
 
 ## Version 1.0 alpha — expanded feature freeze
 
@@ -673,7 +733,7 @@ redefining mechanics or forcing every family to repeat acceptance.
 **Status: planned.** **Depends on:** FD404, FD503, FD601, FD701, FD813, FD915.
 
 1. Reconcile all family/variant and integration acceptance, reusing existing results under the validation policy.
-2. Finish missing original assets, recipes, guides, examples and usability work in their owning packages; do not rerun complete walkthroughs just to consolidate records.
+2. Finish missing original assets, recipes, guides, examples and usability work in their owning packages, including FD916's accepted visual baseline through FD915; do not rerun complete walkthroughs just to consolidate records.
 3. Freeze the included capability list, named profiles/dependency identities, deliverable source/JAR and support limits in the qualification record. Preserve the original core baseline and all prior run identities.
 4. Declare feature complete and move to stabilization. Additional scope needs an explicit revision; no agreed feature is silently deferred to make the gate pass.
 
@@ -771,7 +831,7 @@ memory and sustained-park acceptance have not yet been measured.
 
 | Task / status | Required scenario and pass condition | Evidence / next action |
 | --- | --- | --- |
-| **FD904A Rendering — in progress** | Accepted original-family checks plus new mechanism-specific rider/body/camera coverage and the frozen advertised graphics profiles; nonempty `geometryStages` >=500, correct ownership and visible geometry, clean reload and shutdown; solver/frame/rider evidence retains its measured bounds | [Historical render evidence](docs/evidence/0.9/client-render-sampling.md) and [artifact reuse map](docs/CURRENT-QUALIFICATION.md). Accepted FAST/FABULOUS gates and FD401B visuals carry forward when their render inputs are unchanged; run only missing/changed paths. FD402B supplies recovery views. |
+| **FD904A Rendering — in progress** | Accepted original-family checks plus new mechanism-specific rider/body/camera coverage and the frozen advertised graphics profiles; nonempty `geometryStages` >=500, correct ownership and visible geometry, clean reload and shutdown; solver/frame/rider evidence retains its measured bounds | [Historical render evidence](docs/evidence/0.9/client-render-sampling.md) and [artifact reuse map](docs/CURRENT-QUALIFICATION.md). Accepted FAST/FABULOUS gates and FD401B visuals carry forward when their render inputs are unchanged; run only missing/changed paths. FD402B supplies recovery views; FD916 supplies the accepted model/texture finish without a second art review. |
 | **FD904B Representative park — planned** | The fixed mixed-family scene, declared hardware/settings, frame/tick percentiles, heap/RSS/cgroup and GC measurements, frozen budgets and one combined-profile 30-minute sustained run defined in [PERFORMANCE.md](docs/PERFORMANCE.md#representative-park-acceptance-fd904b) | Implement/validate whole-frame and whole-server collectors; an initial baseline can close initial measured acceptance without a duplicate same-artifact run. Freeze budgets for later comparisons. Keep 120,000 ns/runtime invocation and 6,000 ns/carrier limits in all four native profiles. No existing average or llvmpipe capture proves GPU smoothness. |
 | **FD904C Rider camera and comfort — planned; cumulative parent** | FD904C1 owns the independently closable 0.5 baseline; FD904C2 reconciles later family/effects coverage for final qualification | [D16](PLAN.md#d16-riders-and-synchronization). FD503 and FD912 depend only on FD904C1. Later cases do not reopen a completed baseline or require a second camera implementation. |
 
@@ -863,7 +923,8 @@ Review the finished release against the definition below. Publishing is a future
 Stable 1.0 includes the original five families plus fixed-seat Wing, agreed
 Spinning variants, Suspended, Axis, Pipeline and Roller Ball, with their original
 vehicles and required track contracts. It includes the agreed operations,
-presentation, optional-seat and coexistence capabilities through FD915. Strict
+presentation, optional-seat and coexistence capabilities through FD915, including
+FD916's complete model-and-texture review. Strict
 eligibility, correct riders/camera, persistent multiplayer state, usable content,
 supported migrations and measured performance remain release requirements.
 Optional addons stay optional for standalone rides. Ordinary-cart access and
@@ -917,6 +978,9 @@ including the occupied client proof below. B owns original assets plus recipes/g
 example, and C closes the complete player workflow by combining valid evidence.
 B may begin after specification/dimensions are stable; C waits for A and B.
 Partial results stay accepted within their scope.
+Apply [FD916's visual checklist](#fd916-review-and-improve-models-and-textures)
+during B content work and retain useful captures. B can close independently;
+FD916 later reconciles the complete original/new asset set and remaining fixes.
 
 ### Shared-contract handoff
 
