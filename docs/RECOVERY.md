@@ -217,9 +217,12 @@ now covers the certified bare ordinary bearing with Engineered 1.1.1: braked and
 starved holds, supplied explicit towing/consumption, bounded speed, rebraking,
 rider retention and cleanup. The [rendered Engineered-only manual record](evidence/0.4/recovery/engineered-fe-manual-20261111/README.md)
 adds normal provider controls, wire supply/starvation, occupied recovery input,
-fresh-process reopen and measured capped towing/FE draw. The combined
-Styles + Engineered profile, all-family Engineered recovery and stronger ordinary
-assemblies remain outside that result.
+fresh-process reopen and measured capped towing/FE draw. The [combined Styles +
+Engineered record](evidence/0.4/recovery/engineered-fe-combined-pass-20261111/README.md)
+adds retained zero-FE hold, restored power without automatic motion, rendered
+Start/Brake with measured FE and speed, and normal detach/open/unload. Together
+these close FD402F. All-family Engineered recovery and stronger ordinary
+assemblies remain outside the certified scope.
 
 The [occupied strength-rating checkpoint](evidence/0.4/recovery/strength-rating/acceptance.md)
 closes the unbounded-consist policy gap. Five Arrow cars are rejected before any

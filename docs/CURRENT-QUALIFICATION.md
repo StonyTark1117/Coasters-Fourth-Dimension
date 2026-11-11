@@ -37,21 +37,18 @@ paths; these rows do not multiply into every family × profile × interruption.
 The accepted ordinary two-client Arrow tow/release is not a new case.
 
 FD402 coordination updated 2026-11-11: **Improve FD402 workflow efficiency**
-(chat `01a1caa7-1e6e-7d83-8890-6178f04957c3`) owns F2 execution and the
-remaining E1–E7 queue. **Audit remaining 0.4.0 work**
+(chat `01a1caa7-1e6e-7d83-8890-6178f04957c3`) owns the remaining E1–E7 queue. **Audit remaining 0.4.0 work**
 (`01a1ca54-e940-76d0-ad14-297ea8d18d8b`) owns B1–B7 execution and evidence
 reconciliation. Coordinate runtime reservations directly; these assignments do
 not impose a single-client limit or add acceptance requirements.
 
-F2 reuses the [completed F1 setup and evidence](evidence/0.4/recovery/engineered-fe-manual-20261111/README.md).
+FD402F2 is now closed by the [combined rendered control record](evidence/0.4/recovery/engineered-fe-combined-pass-20261111/README.md),
+which carries accepted F1 construction/wiring and native mechanics forward.
+FD402F is complete. Its client and private Xvfb `:278` are stopped; retained
+worlds and raw run data remain in
+`/home/braydon/.local/state/fourthdimension-runs/fd402f2-finish-20261111`.
 The prior **Complete FD402 integration coverage** chat
-(`01a1a0bd-9ec4-7b63-a613-b82679660855`) handed off its stopped setup run;
-its runtime is no longer active. The current F2 run owns private Xvfb `:278`
-and `/home/braydon/.local/state/fourthdimension-runs/fd402f2-finish-20261111`.
-A native bearing now attaches through the normal UI after temporarily disabling
-the controller during placement; zero FE alone did not hold an unattached
-bearing. Rendered Start at zero FE retained the attached occupied group without
-motion. Powered Start/Brake observations remain in progress. F1 stays closed.
+(`01a1a0bd-9ec4-7b63-a613-b82679660855`) is no longer an execution owner.
 The inactive **Complete FD402** chat's old low-memory blocker is historical.
 Verify live PID/cgroup ownership before display reuse and measure current
 resource headroom when scheduling E; no E runtime is reserved yet.
@@ -72,7 +69,6 @@ resource headroom when scheduling E; no E runtime is reserved yet.
 | **FD402E5** | Temporary bearing unavailability and restoration during recovery. | FD402 coordinator — queued | [Two-client Arrow baseline](evidence/0.4/recovery/two-client-recovery-lifecycle/acceptance.md); [accepted one-player persistence](evidence/0.4/recovery/linked-train-fresh-process-656725bc-20261105/README.md) | Check the bearing interruption/restore path with retained identities and no automatic resume. |
 | **FD402E6** | Permanent coupling removal during recovery. | FD402 coordinator — queued | [Two-client Arrow baseline](evidence/0.4/recovery/two-client-recovery-lifecycle/acceptance.md); [accepted one-player persistence](evidence/0.4/recovery/linked-train-fresh-process-656725bc-20261105/README.md) | Check safe retained/released rider and consist state; temporary loss evidence does not establish permanent removal. |
 | **FD402E7** | Permanent bearing removal during recovery. | FD402 coordinator — queued | [Two-client Arrow baseline](evidence/0.4/recovery/two-client-recovery-lifecycle/acceptance.md); [accepted one-player persistence](evidence/0.4/recovery/linked-train-fresh-process-656725bc-20261105/README.md) | Check safe rider/vehicle state and cleanup of invalid recovery links; reuse unaffected detach mechanics. |
-| **FD402F2** | combined: rendered manual Arrow recovery FE hold, explicit tow, starvation/restore without automatic motion, rebrake and cleanup. | Improve FD402 workflow efficiency (`01a1caa7-1e6e-7d83-8890-6178f04957c3`) — attached; completing powered Start/Brake | [Native recovery FE](evidence/0.4/recovery/engineered-fe/acceptance.md); [accepted operator workflow](evidence/0.4/recovery/manual-occupied-arrow-operator-20261105/README.md); [combined setup blocker](evidence/0.4/recovery/engineered-fe-combined-manual-20261111/README.md) | Fresh native placement and normal Attach succeeded; a zero-FE rendered Start held the occupied group. Complete measured powered Start and rendered Brake using the existing editor without a rider-held tool, then preserve evidence and close F2. |
 | **FD403A** | Arrow: complete the player-built powered circuit, full controlled turn and family walkthrough. | Unrecorded | [Powered route/reopen](evidence/0.4/survival-client-arrow-powered/acceptance.md); [crafting](evidence/0.4/survival-client-arrow-loop-connected-attempt1/README.md) | Extend the saved route through normal client Chain input; record missing circuit/capture/unload/reopen behavior and walkthrough steps. |
 | **FD403B** | Legacy: player-built shaped powered route, occupied free response and family walkthrough. | Unrecorded | [Powered route/reopen](evidence/0.4/survival-client-legacy-powered/acceptance.md); [shaped demo](evidence/0.4/survival-client-legacy-powered/demo/acceptance.md) | Extend the player-built route; combine accepted crafting/capture/persistence with the missing shaped-route and teaching evidence. |
 | **FD403C** | Free Spin: player-built shaped route with inducer/damper spans and family walkthrough. | Unrecorded | [Powered route/reopen](evidence/0.4/survival-client-free-spin-powered/acceptance.md); [damper evidence](evidence/0.4/survival-client-free-spin-powered/damper-demo/acceptance.md) | Complete the normal route/ride; capture missing released-carrier damper observations and teaching steps, reusing accepted native checks. |

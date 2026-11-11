@@ -1,0 +1,150 @@
+{
+  "starved": {
+    "samples": 6,
+    "first": {
+      "tick": 109952,
+      "center": [
+        0.499999,
+        132.125,
+        50.181464
+      ],
+      "speed": 0.0008690414259400987,
+      "attached": "576e024e-6a2e-4342-a4d4-32df84aaed8e",
+      "stopping": false,
+      "restraints": true,
+      "riders": 1,
+      "mounted": true,
+      "FE": 0
+    },
+    "last": {
+      "tick": 110052,
+      "center": [
+        0.499999,
+        132.125,
+        50.181464
+      ],
+      "speed": 0.0010248063231655044,
+      "attached": "576e024e-6a2e-4342-a4d4-32df84aaed8e",
+      "stopping": false,
+      "restraints": true,
+      "riders": 1,
+      "mounted": true,
+      "FE": 0
+    },
+    "max_speed": 0.0010248063231655044,
+    "max_displacement_from_first": 0.0,
+    "FE_min": 0,
+    "FE_max": 0
+  },
+  "powered_hold": {
+    "samples": 16,
+    "first": {
+      "tick": 112284,
+      "center": [
+        0.499999,
+        132.125,
+        50.901061
+      ],
+      "speed": 0.00067468511173732,
+      "attached": "576e024e-6a2e-4342-a4d4-32df84aaed8e",
+      "stopping": true,
+      "restraints": true,
+      "riders": 1,
+      "mounted": true,
+      "FE": 100000
+    },
+    "last": {
+      "tick": 112584,
+      "center": [
+        0.499999,
+        132.125,
+        50.901061
+      ],
+      "speed": 0.0006721815231022049,
+      "attached": "576e024e-6a2e-4342-a4d4-32df84aaed8e",
+      "stopping": true,
+      "restraints": true,
+      "riders": 1,
+      "mounted": true,
+      "FE": 100000
+    },
+    "max_speed": 0.00067468511173732,
+    "max_displacement_from_first": 0.0,
+    "FE_min": 100000,
+    "FE_max": 100000
+  },
+  "powered_motion": {
+    "samples": 9,
+    "first": {
+      "tick": 112604,
+      "center": [
+        0.499999,
+        132.125,
+        51.016044
+      ],
+      "speed": 0.36219052043917443,
+      "attached": "576e024e-6a2e-4342-a4d4-32df84aaed8e",
+      "stopping": false,
+      "restraints": true,
+      "riders": 1,
+      "mounted": true,
+      "FE": 99970
+    },
+    "last": {
+      "tick": 112744,
+      "center": [
+        0.499999,
+        132.125,
+        54.428321
+      ],
+      "speed": 0.4920753805759845,
+      "attached": "576e024e-6a2e-4342-a4d4-32df84aaed8e",
+      "stopping": false,
+      "restraints": true,
+      "riders": 1,
+      "mounted": true,
+      "FE": 99690
+    },
+    "max_speed": 0.4920873805667038,
+    "max_displacement_from_first": 3.412276999999996,
+    "FE_min": 99690,
+    "FE_max": 99970
+  },
+  "rebraked_hold": {
+    "samples": 84,
+    "first": {
+      "tick": 112924,
+      "center": [
+        0.585859,
+        132.125,
+        57.67622
+      ],
+      "speed": 0.0008261392134501303,
+      "attached": "576e024e-6a2e-4342-a4d4-32df84aaed8e",
+      "stopping": true,
+      "restraints": true,
+      "riders": 1,
+      "mounted": true,
+      "FE": 99684
+    },
+    "last": {
+      "tick": 114564,
+      "center": [
+        0.585859,
+        132.125,
+        57.67622
+      ],
+      "speed": 0.0008254750147642265,
+      "attached": "576e024e-6a2e-4342-a4d4-32df84aaed8e",
+      "stopping": true,
+      "restraints": true,
+      "riders": 1,
+      "mounted": true,
+      "FE": 99684
+    },
+    "max_speed": 0.0008302367132330394,
+    "max_displacement_from_first": 0.0,
+    "FE_min": 99684,
+    "FE_max": 99684
+  }
+}
