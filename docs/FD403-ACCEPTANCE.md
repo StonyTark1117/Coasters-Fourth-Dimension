@@ -52,8 +52,11 @@ row's connected-client walkthrough and save/reopen work open.
 In pinned Coasters 0.1.5, normal Chain Lift selection uses the client
 interaction-key path (`ChainLiftAnchorOutlineClient.onUseItemKey`), which sends
 `ChainLiftCommitPayload` to the server. A synthetic server-player right click or
-direct `commitChainLift` call cannot certify this input path. Record actual
+direct `commitChainLift` call cannot certify this input path. For a new or changed span, record actual
 connected-client Chain selection, the installed span and its powered direction.
+The accepted Arrow 50 m record already proves normal Chain installation; its
+input claim is not reopened merely because the full circuit remains unfinished.
+Use the [FD403A claim/circuit handoff](FD403A-CIRCUIT.md) to distinguish those gaps.
 
 ## Connected-client sequence
 

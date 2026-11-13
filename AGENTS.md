@@ -126,6 +126,13 @@ targeted `/` command key avoids that mapping. Do not infer display ownership
 from an old display number or service name; verify its live PID and cgroup
 before treating it as another agent's active client or stopping it.
 
+The current executable procedure is [scripts/fd-private-client.py](scripts/fd-private-client.py),
+verified in the [FD502 handoff](docs/evidence/0.4/fd502-execution-repair-20261113/README.md).
+Its `turn` uses relative XTest **device** motion on the owned display's discovered
+XTEST pointer; its `move` is menu-pointer positioning. Keep those calls distinct
+from older shorthand descriptions of “absolute pointer” input. Reuse the proven
+procedure and check the actual target/state; do not repeat generic input discovery.
+
 Set server-side mod configuration before launching the client/server process;
 changing it in a running integrated server may require a clean process restart
 to take effect. In singleplayer, the integrated server can pause while an

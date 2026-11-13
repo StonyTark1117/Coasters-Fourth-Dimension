@@ -627,7 +627,13 @@ still feed FD813/FD915 and FD1000 through their consuming packages.
 
 **Execution steps:** [FD502](docs/roadmap/0.5-contracts.md#fd502).
 
-**Status: planned.** **Depends on:** FD006; changes require a named current blocker.
+**Status: in progress — FD403 input/fixture repair complete 2026-11-13; later collector needs remain.** **Depends on:** FD006; changes require a named current blocker.
+
+The current narrow assignment and owner are in the [active queue](docs/CURRENT-QUALIFICATION.md#fd403-construction-and-teaching-cases).
+It may run during 0.4: FD404 is not a prerequisite. The executable private
+client procedure and usable retained Arrow circuit are recorded in the [handoff](docs/evidence/0.4/fd502-execution-repair-20261113/README.md).
+This repairs the testing path; it does not close FD403A or activate unrelated
+FD904 collectors. Later named tooling needs retain their existing scope.
 
 Repair only fixture, targeting, diagnostic or measurement gaps that prevent
 reliable work. Retain reusable worlds, named scenarios and run identities. Add

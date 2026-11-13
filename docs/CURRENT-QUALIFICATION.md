@@ -98,23 +98,26 @@ These are separate assignments. Work can start after FD305 and close independent
 of FD402. Normal ride construction/operation evidence does not require the
 ordinary-bearing recovery interruption matrix.
 
-FD403 execution was withdrawn on 2026-11-11 after the user clarified that the
-assignment covers FD402 only. The already-integrated PAX acceptance remains.
-FD403A–D/F have no active owner from this chat; no further work is scheduled.
-The task's client/server/private display `:283` are stopped, and ports 25483/25583
-are released. The branch `codex/fd403-player-workflows` and worktree
-`/home/braydon/.codex/worktrees/b81d/Coasters: Fourth Dimension` are retained.
-Setup logs, crash diagnostics and the copied world remain at
-`/home/braydon/.local/state/fourthdimension-runs/fd403-workflows-20261111`.
-No A–D construction or ride was completed before cancellation.
+Ownership is explicit below; “this task” is not an owner identifier. The existing
+FD403 assignments remain in place. The FD502 assignment is a separate tooling
+repair authorized in **Audit and improve roadmap**, not an expansion of FD403.
 
-| Case | Result | Owner | Evidence | Disposition |
-| --- | --- | --- | --- | --- |
-| **FD403A** | Arrow: complete the player-built powered circuit, full controlled turn and family walkthrough. | Unassigned — prior assignment withdrawn | [Powered route/reopen](evidence/0.4/survival-client-arrow-powered/acceptance.md); [crafting](evidence/0.4/survival-client-arrow-loop-connected-attempt1/README.md) | Extend the saved route through normal client Chain input; record missing circuit/capture/unload/reopen behavior and walkthrough steps. |
-| **FD403B** | Legacy: player-built shaped powered route, occupied free response and family walkthrough. | Unassigned — prior assignment withdrawn | [Powered route/reopen](evidence/0.4/survival-client-legacy-powered/acceptance.md); [shaped demo](evidence/0.4/survival-client-legacy-powered/demo/acceptance.md) | Extend the player-built route; combine accepted crafting/capture/persistence with the missing shaped-route and teaching evidence. |
-| **FD403C** | Free Spin: player-built shaped route with inducer/damper spans and family walkthrough. | Unassigned — prior assignment withdrawn | [Powered route/reopen](evidence/0.4/survival-client-free-spin-powered/acceptance.md); [damper evidence](evidence/0.4/survival-client-free-spin-powered/damper-demo/acceptance.md) | Complete the normal route/ride; capture missing released-carrier damper observations and teaching steps, reusing accepted native checks. |
-| **FD403D** | Revised: player-built powered route, independent lower hinges and family walkthrough. | Unassigned — prior assignment withdrawn | [Construction/reopen](evidence/0.4/survival-client-revised/acceptance.md); [powered demo](evidence/0.4/survival-client-revised/powered-demo/acceptance.md) | Extend the existing player-built route, record the missing normal powered cycle and reconcile its save/teaching coverage. |
-| **FD403F** | A–D family walkthroughs agree with the completed player paths; PAX and common tooltips/Ponder are accepted. | Unassigned — prior assignment withdrawn | [Accepted tooltips/Ponder](evidence/0.4/teaching-current/acceptance.md); [procedure](FD403-ACCEPTANCE.md#family-mechanics-and-teaching-review) | Use the same A–E walkthrough records to close teaching coverage. Retain all fifteen tooltip, nine scene and 53 registration results; fix/recheck only affected instructions. |
+| Assignment | Named owner / thread | Owned runtime | Verified state, blocker and next action |
+| --- | --- | --- | --- |
+| **FD502 — current FD403 input/fixture blocker only** | **Audit and improve roadmap**, `01a1a961-64bb-7701-9a19-2acee5ff23a3` | `fd502-execution-repair-20261113`, private `:252`, ports `25602/25603`; [run record](/home/braydon/.local/state/fourthdimension-runs/fd502-execution-repair-20261113/run.json) | Repair complete 2026-11-13; all three services stopped cleanly. Executable input, owned launch/connection checks and route-leg traversal verified. World saved with intended car captured/open/unloaded and player at a reachable seat. Consume the [tooling/circuit handoff](evidence/0.4/fd502-execution-repair-20261113/README.md) by explicit handoff or owned stopped-save copy. No remaining work in this narrow assignment; FD502’s later collector needs remain separate. Preparation does not close FD403A. |
+| **FD403A — Arrow acceptance** | **Complete 0.4.0 roadmap tasks**, `01a19ed5-0739-74b0-80d9-e8eb888e6fe0`; explicitly assigned concurrent contributor `01a1d49d-7763-76b2-8b0c-6f5b337f0ea2` | Existing separate runs `:250` / port `25596` and reserved `:248` / port `25587`; verify each run's live owner before input. Neither is assigned to FD502. | Full occupied acceptance circuit remains unproven. Consume the verified [claim reconciliation and circuit handoff](FD403A-CIRCUIT.md): normal C–D span input if using the command-adjusted copy, completed circuit/return state, relevant reopen and teaching reconciliation. Accepted craft, normal Chain input, 50 m turn and reopen remain reusable. Do not repeat FD502 input experiments or rebuild unaffected route connections. |
+
+| Case | Remaining outcome | Owner | Reusable evidence / next action |
+| --- | --- | --- | --- |
+| **FD403B** | Player-built shaped powered Legacy route. | `01a19ed5-0739-74b0-80d9-e8eb888e6fe0` | [Powered route/reopen](evidence/0.4/survival-client-legacy-powered/acceptance.md), [shaped demo](evidence/0.4/survival-client-legacy-powered/demo/acceptance.md), [reconciled teaching](evidence/0.4/fd403b-legacy-teaching-reconciliation-20261112.md). Extend the retained player-built route; reuse crafting/capture/persistence and teaching. |
+| **FD403C** | Player-built shaped Free Spin route with inducer/damper response before capture. | `01a19ed5-0739-74b0-80d9-e8eb888e6fe0` | [Powered route/reopen](evidence/0.4/survival-client-free-spin-powered/acceptance.md), [damper proof](evidence/0.4/survival-client-free-spin-powered/damper-demo/acceptance.md). Collect only missing normal route/ride and released-carrier observations. |
+| **FD403D** | Player-built powered Revised route and lower-hinge workflow. | `01a19ed5-0739-74b0-80d9-e8eb888e6fe0` | [Construction/reopen](evidence/0.4/survival-client-revised/acceptance.md), [powered demo](evidence/0.4/survival-client-revised/powered-demo/acceptance.md). Extend the existing player-built route and reconcile its operating cycle. |
+| **FD403F** | Remaining A–D walkthrough claims. | Same family owner above | [Accepted common teaching](evidence/0.4/teaching-current/acceptance.md); reuse each family's operating record. PAX/common teaching stay closed; Arrow's changed captions already have a scoped rendered review. |
+
+The earlier `:283` preparation is historical and stopped. The pre-reconciliation
+queue and detailed November 12–13 diagnostics are linked from the FD502 handoff;
+they do not create assignments. Runtime listings are observations, not permission
+to take control. After a runtime changes owner or stops, update its row once.
 
 
 ### Closing cases in either package
