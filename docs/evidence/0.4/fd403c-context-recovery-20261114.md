@@ -1,5 +1,13 @@
 # FD403C context recovery — 2026-11-14 UTC
 
+**Current goal verified at 2026-11-14 15:53 UTC:** `get_goal` reported the
+active objective “Complete FD403C Free Spin player-built workflow and its
+FD403F teaching contribution” for thread
+`01a1d49d-7763-76b2-8b0c-6f5b337f0ea2`. The earlier `/goal Complete FD403A`
+prompt is superseded history; FD403A remains closed. Do not recreate that goal
+or repeat Arrow acceptance. Continue the open FD403C outcome and its Free Spin
+teaching contribution.
+
 This read-only review reconciles retained inputs after a context reset briefly
 returned the family owner to its completed FD403A assignment. Active ownership
 and remaining work stay in [the current queue](../../CURRENT-QUALIFICATION.md#current-work-queue).
