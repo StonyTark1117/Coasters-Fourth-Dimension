@@ -128,7 +128,15 @@ selection with `--menu`. Input records name the resolved button and binding.
 Neither command repositions the pointer. Inspect the returned before/after
 screenshots and the stated state/log result before another action. `key` sends
 window-targeted 180 ms key presses; `--modifier Shift_L` holds Shift for one
-action and releases it afterward. `type` types into an already open field. For chat, send
+action and releases it afterward. For world actions, verify the target in the
+same pose as the action: Shift changes eye height, so a standing target can be
+lost before a Shift+Wrench click. The helper's `before` image precedes modifier
+press; its `after` image is captured while the modifier is still held. For a
+diagnosed miss, inspect the held-modifier pose without clicking and correct its
+actual geometry/reach once. A visible rail or F3 block label does not establish
+the native curve/span hit used by the Wrench. See the
+[FD403C Wrench targeting diagnosis](evidence/0.4/fd403c-chain-diagnosis-20261114.md#wrench-targeting-diagnosis--2026-11-14).
+`type` types into an already open field. For chat, send
 `key slash`, inspect the opened field, then type the command **without another
 leading slash** and press Return. `--menu` is only for an explicitly identified
 menu/connection action; it does not certify in-world interaction.

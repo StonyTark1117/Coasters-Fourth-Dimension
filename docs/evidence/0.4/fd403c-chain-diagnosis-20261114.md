@@ -124,3 +124,60 @@ diagnostic copy
 `b7d9153b6dfc2cce7181b6be0acc8d2de8db07473ef2b307626764821b3228db`.
 The only added ZIP entry is `dev/fourthdimension/client/ChainLiftDiagnostics.class`.
 The server and existing client gameplay entries remain unchanged.
+
+## Wrench targeting diagnosis — 2026-11-14
+
+C owns the live runtime and the added read-only hover diagnostic. Root inspected
+the pinned dependency and saved inputs without controlling that runtime.
+
+The 16:28:36 UTC Shift+Wrench input left i6 unchanged. Its standing
+[before image](/home/braydon/.local/state/fourthdimension-runs/fd403c-free-spin-20261113/evidence/20261114T162836.223852Z-before.png)
+and held-Shift
+[after image](/home/braydon/.local/state/fourthdimension-runs/fd403c-free-spin-20261113/evidence/20261114T162836.223852Z-after.png)
+show the track move upward relative to the reticle as the camera crouches.
+The helper takes the first image before pressing the modifier and the second
+before releasing it. Standing aim therefore does not verify the clicked pose.
+This observation alone does not identify the handler's failed guard.
+
+The owner's fresh 16:37:04 UTC snapshot, after adopting the hover diagnostic,
+reports `hitType=MISS`, `trackOutlineSelection="null"`,
+`wrenchGraphHit="null"` and `wrenchSpanHit=null` even while standing. The
+earlier visual inference of a curve hover was not a confirmed native target.
+The owner's held-Shift, no-click snapshot at 16:38:00 UTC reports the same
+missing selections; it is recorded in the run's
+`evidence/crouch-hover-diagnostic.jsonl` with its screenshot and key release.
+The traced `CoasterWrenchCurveAnchorOutlineClient.onUseItemKey` path requires
+curve hover and a graph hit before `tryRemoveChainLiftFromCurveInteract` can
+find a span and send its removal packet. It also excludes active cart editing
+and hovered/dragged Bezier handles. A missing graph hit is not proof of a
+missing input event or broken removal code.
+
+Saved i5/i4 geometry explains a separate reach problem. Their endpoint x
+coordinates are both 392.5, but the 12 m handles point outward. The cubic
+midpoint calculated from their saved Starts/Axes/HLo/HHi is approximately
+`(397.2113,-59.25,146.8767)`. From the recorded player feet
+`(390.5,-60,146.5)`, this is 6.72 m away horizontally. Pinned
+`AnchorPeerCurvePick` uses the player's `BLOCK_INTERACTION_RANGE` when making
+its trace (bounded by that range plus one); the long server packet allowance
+does not make a distant visible curve selectable. The normal survival range
+does not reach this midpoint. The endpoint chord is not the rendered curve.
+This calculation follows the pinned Create 6.0.10-280
+`BezierConnection$Runtime` constructor: both control points **add** their
+respective normalized axis times handle length to their endpoint. Coasters'
+`BezierConnectionIndependentHandleRuntimeMixin` replaces the lengths with
+HLo/HHi without negating the second axis. Subtracting the second saved axis
+produces a different curve and an incorrect approach coordinate.
+
+The next corrective action is one closer approach calculated from the actual
+curve, followed by a fresh native graph/span readback while crouched. Click only
+after that readback identifies the intended i6 span; then inspect its server
+state once. If targeting passes but removal still fails, trace the remaining
+event/packet guards rather than repeating aim or generic mouse setup. C retains
+the existing world, motor state, family outcome and accepted evidence.
+
+The new diagnostic had already compiled successfully with `compileJava` into
+`build/classes/java/main`. The optional `packaged` source set is a runtime
+wrapper, not the source location for this class. Reuse that compiled class in
+the existing one-class diagnostic overlay; no additional build campaign follows
+from the overlay hash. The current hover results narrow this failure; they do
+not yet establish successful span removal.
