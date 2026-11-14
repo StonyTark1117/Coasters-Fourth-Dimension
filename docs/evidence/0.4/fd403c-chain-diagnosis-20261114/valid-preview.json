@@ -1,0 +1,182 @@
+{
+  "at": "2026-11-14T12:36:15.273015332Z",
+  "gameTime": 1135042,
+  "selectedAnchor": [
+    360,
+    -60,
+    164
+  ],
+  "cachedKey": "SpanPreviewCacheKey[graphEpoch\u003d1, start\u003dBlockPos{x\u003d360, y\u003d-60, z\u003d164}, endAnchor\u003dnull, curveFrom\u003dBlockPos{x\u003d360, y\u003d-60, z\u003d128}, curveTo\u003dBlockPos{x\u003d368, y\u003d-60, z\u003d120}, curveT\u003d0.9545455273318729]",
+  "cachedStatus": "VALID",
+  "cachedPath": {
+    "segments": [
+      {
+        "tStart": 1.0,
+        "tEnd": 0.0,
+        "from": [
+          360,
+          -60,
+          128
+        ],
+        "to": [
+          360,
+          -60,
+          164
+        ]
+      },
+      {
+        "tStart": 0.0,
+        "tEnd": 0.9545455273318729,
+        "from": [
+          360,
+          -60,
+          128
+        ],
+        "to": [
+          368,
+          -60,
+          120
+        ]
+      }
+    ],
+    "length": 49.91507266609761
+  },
+  "heldItem": "1 minecraft:chain",
+  "hit": "net.minecraft.world.phys.BlockHitResult@7da83e03",
+  "hitBlock": [
+    0,
+    0,
+    0
+  ],
+  "hitState": "Block{minecraft:void_air}",
+  "hitBlockEntity": null,
+  "indexedAnchors": [
+    {
+      "anchor": [
+        368,
+        -60,
+        120
+      ],
+      "currentBlockEntity": true,
+      "hasShaft": true,
+      "hasSpan": true,
+      "speed": -16.0,
+      "committedSegments": "[ChainLiftCommittedSegment[edgeFrom\u003dBlockPos{x\u003d368, y\u003d-60, z\u003d120}, edgeTo\u003dBlockPos{x\u003d384, y\u003d-60, z\u003d120}, tStart\u003d0.0, tEnd\u003d1.0], ChainLiftCommittedSegment[edgeFrom\u003dBlockPos{x\u003d384, y\u003d-60, z\u003d120}, edgeTo\u003dBlockPos{x\u003d392, y\u003d-60, z\u003d128}, tStart\u003d0.0, tEnd\u003d0.0]]",
+      "resolvedPath": {
+        "segments": [
+          {
+            "tStart": 0.0,
+            "tEnd": 1.0,
+            "from": [
+              368,
+              -60,
+              120
+            ],
+            "to": [
+              384,
+              -60,
+              120
+            ]
+          },
+          {
+            "tStart": 0.0,
+            "tEnd": 0.0,
+            "from": [
+              384,
+              -60,
+              120
+            ],
+            "to": [
+              392,
+              -60,
+              128
+            ]
+          }
+        ],
+        "length": 17.0598114957573
+      },
+      "overlapsCached": false,
+      "overlapsProbe": false
+    },
+    {
+      "anchor": [
+        300,
+        -60,
+        70
+      ],
+      "currentBlockEntity": true,
+      "hasShaft": true,
+      "hasSpan": true,
+      "speed": -16.0,
+      "committedSegments": "[ChainLiftCommittedSegment[edgeFrom\u003dBlockPos{x\u003d300, y\u003d-60, z\u003d20}, edgeTo\u003dBlockPos{x\u003d300, y\u003d-60, z\u003d70}, tStart\u003d1.0, tEnd\u003d0.0]]",
+      "resolvedPath": {
+        "segments": [
+          {
+            "tStart": 1.0,
+            "tEnd": 0.0,
+            "from": [
+              300,
+              -60,
+              20
+            ],
+            "to": [
+              300,
+              -60,
+              70
+            ]
+          }
+        ],
+        "length": 50.0
+      },
+      "overlapsCached": false,
+      "overlapsProbe": false
+    },
+    {
+      "anchor": [
+        384,
+        -60,
+        172
+      ],
+      "currentBlockEntity": true,
+      "hasShaft": true,
+      "hasSpan": true,
+      "speed": -16.0,
+      "committedSegments": "[ChainLiftCommittedSegment[edgeFrom\u003dBlockPos{x\u003d368, y\u003d-60, z\u003d172}, edgeTo\u003dBlockPos{x\u003d384, y\u003d-60, z\u003d172}, tStart\u003d1.0, tEnd\u003d0.0], ChainLiftCommittedSegment[edgeFrom\u003dBlockPos{x\u003d360, y\u003d-60, z\u003d164}, edgeTo\u003dBlockPos{x\u003d368, y\u003d-60, z\u003d172}, tStart\u003d1.0, tEnd\u003d1.0]]",
+      "resolvedPath": {
+        "segments": [
+          {
+            "tStart": 1.0,
+            "tEnd": 0.0,
+            "from": [
+              368,
+              -60,
+              172
+            ],
+            "to": [
+              384,
+              -60,
+              172
+            ]
+          },
+          {
+            "tStart": 1.0,
+            "tEnd": 1.0,
+            "from": [
+              360,
+              -60,
+              164
+            ],
+            "to": [
+              368,
+              -60,
+              172
+            ]
+          }
+        ],
+        "length": 17.092002442089132
+      },
+      "overlapsCached": false,
+      "overlapsProbe": false
+    }
+  ]
+}
