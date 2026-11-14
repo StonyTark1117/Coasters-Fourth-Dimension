@@ -581,3 +581,67 @@ operation. Actual dispatch clears `stopping`/fault and carrier capture;
 Retain the rider and observe the unresolved occupied route behavior, repair
 only demonstrated local attack damage, and finish the existing teaching
 contribution. These corrections add no acceptance cases or repeat requirements.
+
+## Correct editor lifecycle and powered occupied translation (2026-11-14 UTC)
+
+The normal Create value control was restored without NBT mutation: with the top value box targeted, a held right/use opened the ValueSettings screen, row 0 and magnitude 32 were selected, and right-button release committed `ScrollValue=-32`. Readback verified motor `Speed=32`, anchor `Speed=32`, source `[273,-43,250]`, and connected kinetic network (`Network.Size=2`).
+
+A fresh editor was opened for each action. Dispatch was first attempted with restraints open and produced the visible guard `All carriers must be captured and restraints closed before dispatch`; no propulsion conclusion was drawn. After reopening the editor, closing restraints, reopening again, and clicking the visible Dispatch button, the editor closed without that guard. Status showed the occupied carrier `ab69d209…` with `capture=false, occupants=1`, and live Sable readback showed the chassis moved from x≈260.44 to x≈265.49 (about 5.05 blocks) with positive X velocity before settling. This is the first valid powered occupied translation evidence. The current chassis then remained at x≈265.49, so full 12 m route traversal/cycle is still unverified; do not claim completion from this partial movement.
+
+## Boundary interpretation and normal capture/unload (2026-11-14 UTC)
+
+The first valid occupied dispatch moved the chassis from x≈260.44 to x≈265.49 with positive X velocity, then settled. This is consistent with the native compatible-track boundary guard on the short player-built route; the acceptance criterion does not require the chassis origin to reach the 12 m anchor endpoint. The editor showed the post-dispatch state as `Aligning / moving`, and the route did not produce an external failure.
+
+After the stop, a fresh editor Capture action changed all Revised carriers to `capture=true` while retaining the rider assignment. A subsequent fresh editor Open restraints action followed by Shift dismount cleared `RootVehicle`; final status showed the target carrier captured and the rider unloaded. Temporary supports used for targeting were removed. This closes the normal occupied capture/unload slice. Lower-hinge/reopen evidence and the Revised family walkthrough remain to be reconciled against this powered occupied run.
+
+## Final disposition (2026-11-14 UTC)
+
+The earlier “hard blocker” labels in this review are superseded. They described
+intermediate local input/fixture mistakes and were never an external dependency:
+the Rotation Tool/editor connector was traced successfully, the motor was
+restored through its normal UI, and the valid occupied dispatch produced powered
+translation. The final continuation evidence above closes FD403D Revised when
+combined with the accepted lower-hinge/reopen and teaching records. No external
+hard blocker remains for FD403D; the separate FD403C Free Spin damper case is
+the remaining 0.4 family outcome.
+
+
+## Independent completion verification — 2026-11-14
+
+The heartbeat review verified the cumulative FD403D and Revised FD403F closure
+against the retained records without starting or controlling a runtime:
+
+- [Normal construction and cold reopen](../survival-client-revised/acceptance.md)
+  retain the same Revised rail, chassis and four lower-hinge carrier identities.
+  [Powered lower-hinge mechanics and reopen](../survival-client-revised/powered-demo/acceptance.md)
+  remain accepted supporting mechanics evidence; their command-authored route
+  is not claimed as player construction.
+- The [selected original console records](completion-console.jsonl) verify the
+  normal motor setting, occupied released carriers with distinct angles, chassis
+  movement from x=260.44 to x=265.49, capture with the rider retained, and final
+  empty captured carriers with no RootVehicle. The linked input record in the
+  retained run supplies the normal UI actions.
+- The [07:07:45 pre-capture editor](before-capture.png) shows the occupied moving
+  state without a fault message. The [07:08:27 post-capture editor](after-capture-ready.png)
+  shows Ready with restraints closed. The subsequent saved
+  [Revised vehicle state](completion-revised.json) has an empty fault string,
+  boarding readiness, open restraints and all four carriers captured and empty.
+  The server log confirms “Saved the game” at 07:09:30 UTC after the slow save;
+  the RCON timeout is not a failed save. This continuation itself is not a new
+  cold-reopen claim.
+- The unchanged Revised Ponder lesson and tooltips match the independent pairs,
+  lower hinges, matching track, damping/ballast and capture-before-unload flow.
+  The [teaching reconciliation](../teaching-current/acceptance.md) closes its
+  family contribution; Free Spin remains separately assigned.
+
+**Attribution correction:** “to the compatible-track boundary” above was an
+inference, not a demonstrated cause. Neither the pre-capture editor nor final
+saved state reports a compatible-track fault. The measured powered travel,
+independent carrier response and completed normal capture/unload support the
+required player-built powered-route outcome. Do not claim a diagnosed boundary
+stop, an exact 12 m traversal or a full circuit from this continuation. The
+existing accepted lower-hinge and persistence evidence carries forward.
+
+The copied [completion SavedData](completion-foundation.dat) has SHA-256
+`8087d140e4975fb08c9d6907d21492f83bc7c51e6569924f06b59c158aebea3d`. It was read from the owner's preserved
+save; the heartbeat reviewer did not send input, restart or stop that runtime.

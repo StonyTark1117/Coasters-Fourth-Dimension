@@ -1,0 +1,112 @@
+{
+  "alignment_required": 0,
+  "fault": "",
+  "boundTo": 74766791716821,
+  "carriers": [
+    {
+      "side": -3.0,
+      "rider_seats": [],
+      "pivot_height": 1.5,
+      "angle": -0.0006742652574254947,
+      "capture": 1,
+      "body": [
+        -1419128311,
+        1375749757,
+        -1654362467,
+        2100907395
+      ],
+      "longitudinal": -3.0,
+      "child_pivot_offset": -0.5,
+      "seats": [
+        4095,
+        -274877902849
+      ],
+      "ballast": 0.0,
+      "omega": 0.004486795302037442,
+      "occupants": []
+    },
+    {
+      "side": -3.0,
+      "rider_seats": [],
+      "pivot_height": 1.5,
+      "angle": -0.0005068932183137034,
+      "capture": 1,
+      "body": [
+        -1842917718,
+        621105027,
+        -1269874526,
+        1870875878
+      ],
+      "longitudinal": 3.0,
+      "child_pivot_offset": -0.5,
+      "seats": [
+        4095,
+        -274877902849
+      ],
+      "ballast": 0.0,
+      "omega": 0.004094459836633086,
+      "occupants": []
+    },
+    {
+      "side": 3.0,
+      "rider_seats": [],
+      "pivot_height": 1.5,
+      "angle": -0.00014371039823344589,
+      "capture": 1,
+      "body": [
+        -1886540418,
+        2037728102,
+        -1488161444,
+        1731192346
+      ],
+      "longitudinal": -3.0,
+      "child_pivot_offset": -0.5,
+      "seats": [
+        4095,
+        274877911039
+      ],
+      "ballast": 0.0,
+      "omega": -0.0018167923935661883,
+      "occupants": []
+    },
+    {
+      "side": 3.0,
+      "rider_seats": [],
+      "pivot_height": 1.5,
+      "angle": -0.0007639328733523902,
+      "capture": 1,
+      "body": [
+        671897621,
+        1616727469,
+        -1739426468,
+        1044495148
+      ],
+      "longitudinal": 3.0,
+      "child_pivot_offset": -0.5,
+      "seats": [
+        4095,
+        274877911039
+      ],
+      "ballast": 0.0,
+      "omega": 0.00529024961843917,
+      "occupants": []
+    }
+  ],
+  "chassis": [
+    -1306110887,
+    -954709104,
+    -1390847881,
+    1689188010
+  ],
+  "damping": 0.8,
+  "boundFrom": 71468256833493,
+  "ballast": 0.0,
+  "revision": 19,
+  "boarding_ready": 1,
+  "stopping": 1,
+  "variant": "zacspin_revised_v1",
+  "restraints": 0,
+  "shuttle_detached": 0,
+  "family": "zacspin_revised",
+  "maintenance": 0
+}

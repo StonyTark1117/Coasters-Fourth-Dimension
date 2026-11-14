@@ -43,8 +43,11 @@ Gradle reported `BUILD SUCCESSFUL in 8m 51s`. Run `python3 verify.py` here to
 check the log, screenshots and digests.
 
 This closes the current-artifact rendered teaching review in the
-[FD403 procedure](../../../FD403-ACCEPTANCE.md). It does not close FD403: Arrow,
-Legacy, Free Spin and Revised still need their full occupied powered
-survival-built client exercises. Ponder's diagram playback is teaching evidence,
-not physical motion or clearance evidence. This run did not repeat the older
-resource-reload exercise or test optional integrations.
+[FD403 procedure](../../../FD403-ACCEPTANCE.md). It does not close FD403 as a
+whole; the current queue tracks its remaining family work. The Revised lesson
+matches the exercised flow: independent seat pairs/lower hinges, matching track
+and clearance, rider-loading comparison, and stop/capture/alignment before
+opening restraints. No misleading Revised control or caption was found. Ponder's
+diagram playback is teaching evidence, not physical motion or clearance
+evidence. This run did not repeat the older resource-reload exercise or test
+optional integrations.
