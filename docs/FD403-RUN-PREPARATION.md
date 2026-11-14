@@ -127,6 +127,24 @@ action and releases it afterward. `type` types into an already open field. For c
 leading slash** and press Return. `--menu` is only for an explicitly identified
 menu/connection action; it does not certify in-world interaction.
 
+The vehicle editor closes after each operation, including **Close restraints**.
+Reopen it with the Rotation Tool before selecting the next operation, and verify
+the current screenshot actually contains that button. Do not click a saved
+Dispatch/Done coordinate after the editor has closed: that becomes an in-world
+attack. `--menu` and `--expect` describe intent; neither detects an open screen.
+The diagnostic `FD_EDITOR_DISPATCH` in `EditorNetwork.open` records sending the
+editor-opening packet, **not** ride Dispatch (edit action 13). Verify the actual
+operation result and vehicle state before attributing no motion to propulsion.
+
+Change a Create Creative Motor's speed through its normal value control. Live
+`data merge` of `Speed` or `ScrollValue` does not execute the normal speed-change
+callback and can leave the kinetic network inconsistent. Read back both the
+motor and driven anchor after a change; a stored UI value alone is insufficient.
+Determine direction through the complete pinned drive path, including the cart
+velocity calculation, rather than from the motor's facing or chain animation
+alone. The [Revised diagnosis](evidence/0.4/fd403d-revised-blocker-20261114/review.md#motor-and-editor-lifecycle-diagnosis--2026-11-14)
+records the retained route's specific sign calculation and corrected next action.
+
 Read-only server queries use `console 'data get ...'` or another named query;
 setup mutations through console must be disclosed. Input/console records are
 appended to `evidence/input.jsonl` and `console.jsonl`. No screenshot alone

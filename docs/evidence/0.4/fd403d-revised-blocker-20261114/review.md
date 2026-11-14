@@ -533,3 +533,51 @@ Editor close-restraints and Dispatch were then issued. The occupied snapshot tra
 The attempted `data merge block 273 -43 250 {Speed:-16.0f,ScrollValue:16}` was not a valid reverse-drive test. The anchor remained at `Speed=16`, then the motor reset to `Speed=0` and lost its network. The earlier connected-motor statement must be withdrawn. No further sign/facing/NBT mutation is justified until native sign semantics are traced.
 
 The dispatch interval also did not isolate powered travel: the valid mount occurred at 23:48:49 with `occupants=1`; editor dispatch was logged at 23:49:04; the first subsequent authoritative guard was repeated `FD_BOARDING_EVENT action=dismount restraints=true` / `FD_BOARDING_DISMOUNT_CANCEL`. Thus the later `capture=true occupants=0` state cannot be used as a motor-direction result. Preserve the current world and diagnose the dispatch/result path before restoring any motor state.
+
+
+## Motor and editor lifecycle diagnosis — 2026-11-14
+
+The 06:49 operation sequence did not send the intended ride dispatch. The
+`20261114T064913.614867Z-after.png` screenshot shows gameplay and “4D settings
+updated” immediately after Close restraints. Both the 06:49:19 Dispatch-intent
+and 06:49:27 Done-intent inputs occurred in gameplay. Those left-clicks could
+attack geometry; their menu labels in `input.jsonl` are intent, not screen
+verification. `RotationEditorScreen.addButton` sends one edit and calls
+`onClose()`. Reopen and inspect the editor before each subsequent operation.
+The diagnostic `FD_EDITOR_DISPATCH` at 23:49:04 local time records
+`EditorNetwork.open` sending an editor Target packet; it is not ride Dispatch
+(edit action 13). The earlier wording calling this an occupied dispatch result
+is superseded. Later dismount cancellation is an observation, not attribution
+of the first failed ride-dispatch guard.
+
+The original motor readback at 06:50:07 was connected (+16 RPM, UI -16).
+The 06:50:28 live NBT merge did not perform a normal reversal: the anchor first
+remained +16 and the motor dropped to zero without a network. At 06:56 both
+motor and anchor read zero. Create 6.0.10-280, pinned by this run's classpath,
+loads `ScrollValue` directly in `ScrollValueBehaviour.read`; changing it through
+`setValue` instead invokes the motor's `updateGeneratedRotation` callback.
+Restore the existing motor through that normal control, not another NBT merge.
+
+The complete sign trace for this retained route is:
+
+- Motor `(273,-43,250)` faces west; Create's `convertToDirection` negates its UI
+  value. Keep that facing and the committed axis unchanged.
+- Anchor `(272,-43,250)` has `ChainLiftTravelSign=+1`; the committed segment runs
+  T=1 to T=0, from x=272 toward x=260. Native `signedChainBlocksPerSecond` is
+  `anchor.Speed / 16 * travelSign` for the 256 RPM / 16 blocks-per-second scale.
+- `ChainLiftSpanQuery.chainWorldVelocityAtHit` multiplies that signed speed by
+  the segment direction. Crucially, `CoasterCartChainLiftDrive.applySpeedMatch`
+  then **negates** its projection before applying physical cart velocity.
+  Thus UI **-32** gives motor/anchor **+32** and a cart target of **+2 m/s in x**,
+  toward the route interior from x≈260. The original -16/+16 used the same
+  correct direction. Root initially omitted the final inversion in a thread
+  message and corrected it before a motor-control mutation; that preliminary
+  +32 UI instruction is superseded by this complete calculation.
+
+Next action: use the normal speed control, verify matching +32 motor/anchor
+speed and restored source/network, then use a freshly opened editor for each
+operation. Actual dispatch clears `stopping`/fault and carrier capture;
+`PropulsionInterlock` intentionally holds propulsion while stopping is true.
+Retain the rider and observe the unresolved occupied route behavior, repair
+only demonstrated local attack damage, and finish the existing teaching
+contribution. These corrections add no acceptance cases or repeat requirements.
