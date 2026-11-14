@@ -1,0 +1,28 @@
+{
+  "at": "20261114T141057.419811Z",
+  "action": "turn",
+  "values": [
+    "-247",
+    "-122"
+  ],
+  "expected": "Aim toward i3 motor (384,-60,173) from Dev at (359.9655,-60,161.4624): target yaw -63.9, pitch about 0; verify fresh client/server rotation before walking",
+  "connection": "There are 1 of a max of 4 players online: Dev\n",
+  "window": "2097160",
+  "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+  "before": "/home/braydon/.local/state/fourthdimension-runs/fd403c-free-spin-20261113/evidence/20261114T141057.419811Z-before.png",
+  "modifier": null,
+  "state": "sent; inspect readback",
+  "motion_steps": [
+    [
+      1,
+      0
+    ],
+    [
+      -248,
+      -122
+    ]
+  ],
+  "fresh_capture_tolerance_pixels": 1,
+  "device": 4,
+  "after": "/home/braydon/.local/state/fourthdimension-runs/fd403c-free-spin-20261113/evidence/20261114T141057.419811Z-after.png"
+}

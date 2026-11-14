@@ -31,6 +31,24 @@ class FragmentedSocket:
 
 
 class PrivateClientTests(unittest.TestCase):
+    def test_turn_survives_discarded_first_callback_without_losing_direction(self):
+        for delta in [(50, 0), (-78, 136), (0, -20), (1, 0), (0, 1), (-1, -1)]:
+            with self.subTest(delta=delta):
+                motion = client.turn_motion([str(v) for v in delta])
+                normal = tuple(sum(step[i] for step in motion) for i in range(2))
+                fresh = motion[1]  # MouseHandler deliberately consumes callback zero.
+                self.assertEqual(normal, delta)
+                self.assertEqual(sum(abs(fresh[i] - delta[i]) for i in range(2)), 1)
+                self.assertGreater(sum(fresh[i] * delta[i] for i in range(2)), 0)
+
+    def test_invalid_turn_refuses_before_runtime_access(self):
+        p = object.__new__(client.PrivateRun)
+        for values in [[], ['20'], ['a', '0'], ['0', '0'], ['1', '2', '3']]:
+            with self.subTest(values=values), patch.object(p, 'window') as window:
+                with self.assertRaisesRegex(RuntimeError, 'turn requires'):
+                    p.action(argparse.Namespace(action='turn', values=values))
+                window.assert_not_called()
+
     def test_multipart_rcon_survives_fragmented_tcp_and_auth_preamble(self):
         sock = FragmentedSocket(packet(1, 0, '') + packet(1, 2, '') +
                                 packet(2, 0, 'first ') + packet(2, 0, 'second') + packet(3, 0, ''))

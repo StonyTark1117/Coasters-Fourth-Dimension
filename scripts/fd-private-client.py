@@ -50,6 +50,29 @@ def mouse_button(action, values):
     return None
 
 
+def turn_motion(values):
+    """One gesture with a one-pixel lead-in, then the requested net motion.
+
+    Minecraft discards its first cursor callback after grabbing the mouse. A
+    single-event turn can therefore disappear entirely. Use a tiny opposing
+    lead-in so both fresh and already-active capture produce a usable turn.
+    Fresh capture may add one pixel along the requested direction; inspect aim.
+    """
+    if len(values) != 2:
+        raise RuntimeError("turn requires two integer pixel deltas")
+    try:
+        dx, dy = map(int, values)
+    except ValueError as error:
+        raise RuntimeError("turn requires two integer pixel deltas") from error
+    if dx == 0 and dy == 0:
+        raise RuntimeError("turn requires nonzero motion")
+    if abs(dx) >= abs(dy):
+        lead = (-1 if dx > 0 else 1, 0)
+    else:
+        lead = (0, -1 if dy > 0 else 1)
+    return [lead, (dx - lead[0], dy - lead[1])]
+
+
 def properties(path):
     return dict(line.split("=", 1) for line in path.read_text().splitlines()
                 if "=" in line and not line.startswith("#"))
@@ -215,6 +238,8 @@ class PrivateRun:
 
     def action(self, args):
         button = mouse_button(args.action, args.values)
+        if args.action == "turn":
+            turn_motion(args.values)  # Reject malformed motion before runtime access.
         window = self.window()
         self.options()
         connection = "menu action; no gameplay claim" if args.menu else self.connected()
@@ -294,11 +319,17 @@ class PrivateRun:
                     if not device:
                         raise RuntimeError("Cannot open private XTEST pointer")
                     try:
-                        dx, dy = map(int, args.values)
-                        axes = (ctypes.c_int * 2)(dx, dy)
                         t.XTestFakeDeviceMotionEvent.argtypes = [ctypes.c_void_p, ctypes.c_void_p,
                             ctypes.c_int, ctypes.c_int, ctypes.POINTER(ctypes.c_int), ctypes.c_int, ctypes.c_ulong]
-                        t.XTestFakeDeviceMotionEvent(d, device, 1, 0, axes, 2, 0)
+                        motion = turn_motion(args.values)
+                        record["motion_steps"] = motion
+                        record["fresh_capture_tolerance_pixels"] = 1
+                        for index, delta in enumerate(motion):
+                            axes = (ctypes.c_int * 2)(*delta)
+                            t.XTestFakeDeviceMotionEvent(d, device, 1, 0, axes, 2, 0)
+                            x.XSync(d, 0)
+                            if index == 0:
+                                time.sleep(.04)
                         record["device"] = ids[0]
                     finally:
                         xi.XCloseDevice(d, device)

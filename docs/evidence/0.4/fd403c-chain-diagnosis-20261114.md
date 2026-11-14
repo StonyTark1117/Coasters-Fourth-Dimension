@@ -105,17 +105,18 @@ length: all of i1→i0 and almost all of i0→i7. The earlier generic overlap is
 not reproduced by this confirmed selection. No production overlap fix or
 further span removal is justified by this record.
 
-Direction is a separate setup correction. The new i1 span has travel sign
-`+1`, anchor speed `-16` and motor UI ScrollValue `+16`. Pinned
-`ChainLiftDriveDirection.signedTargetSpeed` multiplies speed magnitude by
-`sign(anchor speed) * travel sign`; this currently drives back toward i1.
-The owner was directed to use the normal motor UI to obtain actual anchor
-speed `+16`, then read it back. The retained i7→i6 span also last had sign
-`+1` and anchor speed `-16`, so its required forward direction needs the same
-check. A motor's UI value alone does not establish delivered anchor speed.
-These are fixture corrections within the existing family outcome, not new
-acceptance cases. Account for removed i6 only when its downstream coverage
-is needed.
+**Direction correction, superseding root's 12:38 advice:** the signed chain
+speed is not the final cart direction. Pinned `CoasterCartChainLiftDrive`
+negates its tangent projection when matching cart speed. Root's earlier
+recommendation to change i1/i7 to `+16` missed that inversion. C traced the
+full path and observed the resulting reverse travel; see the
+[direction correction and live evidence](fd403c-context-recovery-20261114.md#chain-direction-correction--2026-11-14-utc).
+For the recorded ordered spans, the intended cart direction requires i1/i7
+anchor speed `-16` with travel sign `+1`, and i6/i3 anchor speed `+16` with
+travel sign `-1`. Check delivered anchor speeds after normal motor edits and
+confirm actual chassis travel. UI values or signed belt speed alone do not
+establish cart direction. i6 has since been restored by C; use the current
+queue and latest context record for live state.
 
 Client overlay provenance: base JAR SHA-256
 `e5f65c76289a018b64c56c1d8f845fe3b09e920bac93909d783a4b8373fb3972`;

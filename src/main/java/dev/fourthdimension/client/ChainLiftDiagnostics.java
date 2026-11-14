@@ -19,6 +19,7 @@ import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.client.event.ClientTickEvent;
+import org.lwjgl.glfw.GLFW;
 
 /** On-demand client inspection; never places track, sends input or changes selection. */
 @EventBusSubscriber(modid = "fourthdimension", value = Dist.CLIENT)
@@ -40,6 +41,7 @@ public final class ChainLiftDiagnostics {
     try {
       String probe = Files.readString(request).trim();
       Files.delete(request);
+      result.put("input", inputState(mc));
       var selected = (BlockPos) read("selectedAnchor");
       var cached = (SpanPath) read("spanPreviewCachedPath");
       result.put("selectedAnchor", position(selected));
@@ -109,6 +111,33 @@ public final class ChainLiftDiagnostics {
     var field = ChainLiftAnchorOutlineClient.class.getDeclaredField(name);
     field.setAccessible(true);
     return field.get(null);
+  }
+
+  private static Object inputState(Minecraft mc) {
+    var state = new LinkedHashMap<String, Object>();
+    long window = mc.getWindow().getWindow();
+    state.put("screen", mc.screen == null ? null : mc.screen.getClass().getName());
+    state.put("windowActive", mc.isWindowActive());
+    state.put("glfwFocused", GLFW.glfwGetWindowAttrib(window, GLFW.GLFW_FOCUSED));
+    state.put("glfwCursorMode", GLFW.glfwGetInputMode(window, GLFW.GLFW_CURSOR));
+    state.put("glfwRawMouseMotion", GLFW.glfwGetInputMode(window, GLFW.GLFW_RAW_MOUSE_MOTION));
+    state.put("rawMouseOption", mc.options.rawMouseInput().get());
+    state.put("mouseGrabbed", mc.mouseHandler.isMouseGrabbed());
+    state.put("mouseX", mc.mouseHandler.xpos());
+    state.put("mouseY", mc.mouseHandler.ypos());
+    state.put("deltaX", mc.mouseHandler.getXVelocity());
+    state.put("deltaY", mc.mouseHandler.getYVelocity());
+    state.put("playerYaw", mc.player.getYRot());
+    state.put("playerPitch", mc.player.getXRot());
+    state.put("passenger", mc.player.isPassenger());
+    try {
+      var field = net.minecraft.client.MouseHandler.class.getDeclaredField("ignoreFirstMove");
+      field.setAccessible(true);
+      state.put("ignoreFirstMove", field.get(mc.mouseHandler));
+    } catch (ReflectiveOperationException failure) {
+      state.put("ignoreFirstMoveError", failure.toString());
+    }
+    return state;
   }
 
   private static Object position(BlockPos pos) {

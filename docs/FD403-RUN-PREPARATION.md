@@ -104,8 +104,14 @@ python3 scripts/fd-private-client.py "$FD_RUN/run.json" --owner "$FD_OWNER" \
 ```
 
 `turn` uses **relative XTest device motion** on the owned display's discovered
-XTEST pointer. Its exact successful call is retained in the handoff. `move X Y`
-is absolute pointer positioning for menus; it is not the proven camera method.
+XTEST pointer. It sends a one-pixel opposing lead-in and the compensating motion
+as one gesture, because Minecraft discards its first movement callback after
+recapturing the mouse. Without this lead-in the entire first turn could vanish;
+opening and closing a menu would rearm that discard. The input record contains
+both motion steps. Fresh capture can add one pixel in the requested direction
+(about 0.15° at sensitivity 0.5); use the actual F3/server rotation for subsequent
+aim calculations. [Diagnosis and repair](evidence/0.4/fd403c-input-helper-repair-20261114.md).
+`move X Y` is absolute pointer positioning for menus, not camera turning.
 Before a world click, verify current target, reach, unobstructed face, held item
 and required vehicle state. The helper cannot infer those from a live process.
 
