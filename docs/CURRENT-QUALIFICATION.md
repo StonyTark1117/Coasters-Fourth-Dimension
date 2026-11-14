@@ -127,10 +127,23 @@ setup experiments. Reuse `scripts/fd-private-client.py` and the retained evidenc
 human-authorized assignment before acting. Carry the assigned FD ID, thread ID,
 branch/worktree/HEAD, uncommitted work, owned runtime, last verified state and next
 action into the handoff. Old titles, completed goals and earlier status questions
-do not replace this reassignment. A finished chat turn is not package acceptance;
+do not replace this reassignment. If a historical `/goal` message conflicts with
+the current assignment, read the actual goal with `get_goal` once; the historical
+message is not a newly issued instruction. Preserve a matching active goal and
+continue the assigned package without recreating or re-auditing its completed
+predecessor. Carry the verified goal objective/status at the top of the owner's
+context handoff. A finished chat turn is not package acceptance;
 report the assigned package's evidence or its precise remaining blocker. FD403A
 remains closed. Do not activate 0.5 work while the requested 0.4 completion
 condition remains unmet.
+
+**Verified FD403C goal — 2026-11-14:** The goal tool at 15:53 UTC returned
+`active` with objective “Complete FD403C Free Spin player-built workflow and its
+FD403F teaching contribution” for `01a1d49d-7763-76b2-8b0c-6f5b337f0ea2`.
+Its original `/goal Complete FD403A` prompt and preview are superseded history.
+That text does not require another Arrow review, a new goal, or a turn ending
+with an FD403A completion report. Continue the open C row; only the completed
+Free Spin outcome can satisfy its current goal.
 
 **FD403F / FD403 / FD404 aggregate owner:** **Complete 0.4.0 roadmap tasks**,
 `01a19ed5-0739-74b0-80d9-e8eb888e6fe0`. Start evidence reconciliation now; close
