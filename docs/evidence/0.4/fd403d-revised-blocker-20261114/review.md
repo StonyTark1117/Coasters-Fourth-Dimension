@@ -498,3 +498,38 @@ is resolved for this intact seat. Continue the normal editor/capture/open/board
 flow and remaining occupied route observation. Retain damaged-seat repair and
 cleanup as local follow-up; neither a normal mount nor route travel is claimed
 from this screenshot alone.
+
+### Heartbeat verification — 06:49–06:50 UTC
+
+Normal boarding now succeeded on the intact northern carrier. The dedicated
+server recorded `FD_BOARDING_EVENT action=mount` at 06:48:49.484 UTC and
+`FD_BOARDING_ASSIGN accepted=true` for local seat `(20481031,127,20505608)`,
+offset `(-1,-1,0)`. At 06:48:56, the owner queried a `create:seat` RootVehicle
+and `occupants=1` on `ab69d209-5200-467d-9d64-6e9d7d394d83`. This resolves the
+current targeting/normal reboarding interruption, not the remaining route claim.
+
+The subsequent close/dispatch attempt did not prove travel: a 743-sample client
+trace ranged only x=260.44135–260.57773, z=250.5–250.59091. The 06:49:35
+status reported `capture=true`, `occupants=0`; the following RootVehicle
+readback retained an attachment with an empty entity compound. Repeated
+dismount-cancellation records also began at 06:49:27. These are observations
+requiring attribution, not proof of an external dependency or a particular
+product defect. The owner is actively comparing the client trace, live chassis
+pose and motor/anchor readback. The motor and anchor still read `Speed=16`,
+network size 2. No redundant continuation was sent and no runtime was controlled
+by the heartbeat reviewer. Occupied powered traversal, local fixture cleanup
+and Revised teaching reconciliation remain open.
+
+## Input/fixture correction and intact-seat boarding (2026-11-14 UTC)
+
+The previous “hard blocker” wording was incorrect. There is no external blocker. The retained input record shows the failed boarding attempts at 06:28–06:37 used X11 button 1 (attack) while expecting boarding; Creative attack can remove a targeted seat. The affected carrier later reported Sable mass 3.0, consistent with local fixture damage. A subsequent repair attempt mistakenly used `out_sub_level ... setblock`, which created two static outer-world seats; those blocks were removed immediately after the body-null Rotation Tool trace identified them. Temporary supports were also removed.
+
+Using the intact registered Revised carrier `ab69d209-5200-467d-9d64-6e9d7d394d83` (Sable mass 4.0), `centered_in_sub_level` placed Dev at a live F3-confirmed `fourthdimension:revised_seat`. With captured/ready state, restraints opened, empty main hand, and the proven right/use binding, `input use` sent X11 button 3 and `fd status` recorded `occupants=1`; `Dev` had a Create seat RootVehicle. This closes the input/connector/boarding diagnosis.
+
+Editor close-restraints and Dispatch were then issued. The occupied snapshot trace records the rider/chassis identity, but chassis translation was only x=260.5777..260.4413 and z=250.5..250.5909 (743 samples), so powered route traversal remains unverified. Motor/network readback remains connected (`Network.Size=2`, source [273,-43,250], committed chain length 12). The remaining work is local route-direction/start-state reconciliation and the Revised family walkthrough; it is not an external hard blocker.
+
+## Correction: latest motor mutation invalidated connection (2026-11-14 UTC)
+
+The attempted `data merge block 273 -43 250 {Speed:-16.0f,ScrollValue:16}` was not a valid reverse-drive test. The anchor remained at `Speed=16`, then the motor reset to `Speed=0` and lost its network. The earlier connected-motor statement must be withdrawn. No further sign/facing/NBT mutation is justified until native sign semantics are traced.
+
+The dispatch interval also did not isolate powered travel: the valid mount occurred at 23:48:49 with `occupants=1`; editor dispatch was logged at 23:49:04; the first subsequent authoritative guard was repeated `FD_BOARDING_EVENT action=dismount restraints=true` / `FD_BOARDING_DISMOUNT_CANCEL`. Thus the later `capture=true occupants=0` state cannot be used as a motor-direction result. Preserve the current world and diagnose the dispatch/result path before restoring any motor state.
