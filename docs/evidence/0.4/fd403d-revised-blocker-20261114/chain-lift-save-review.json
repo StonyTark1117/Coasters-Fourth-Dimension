@@ -1,0 +1,212 @@
+{
+  "world-demo-162739": {
+    "source": "/home/braydon/.local/state/fourthdimension-runs/fd403d-revised-20261113/server-new/world-demo-162739/region/r.0.0.mca",
+    "source_region_sha256": "d5afc380690f9af8d98c3241f9995149a9c456d0c8b4fe79a66f2967f719be64",
+    "chunk": [
+      17,
+      15
+    ],
+    "anchor": {
+      "AnchorPeerCurves": [
+        {
+          "Peer": 71468256833493,
+          "Bezier": {
+            "Starts": [
+              {
+                "V": [
+                  0.5,
+                  0.75,
+                  0.5
+                ]
+              },
+              {
+                "V": [
+                  -11.5,
+                  0.75,
+                  0.5
+                ]
+              }
+            ],
+            "Girder": 0,
+            "Normals": [
+              {
+                "V": [
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              },
+              {
+                "V": [
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              }
+            ],
+            "Primary": 0,
+            "Positions": [
+              {
+                "Pos": [
+                  0,
+                  0,
+                  0
+                ]
+              },
+              {
+                "Pos": [
+                  -12,
+                  0,
+                  0
+                ]
+              }
+            ],
+            "Axes": [
+              {
+                "V": [
+                  -1.0,
+                  0.0,
+                  0.0
+                ]
+              },
+              {
+                "V": [
+                  1.0,
+                  0.0,
+                  0.0
+                ]
+              }
+            ],
+            "Material": "simulatedcoasters:coaster_track"
+          },
+          "HHi": 4.0,
+          "HLo": 4.0
+        }
+      ],
+      "Speed": 0.0,
+      "NeedsSpeedUpdate": 1,
+      "JointBank": 0.0,
+      "keepPacked": 0,
+      "x": 272,
+      "y": -43,
+      "z": 250,
+      "id": "simulatedcoasters:coaster_anchorpoint",
+      "AnchorPeerCurveTints": []
+    }
+  },
+  "world": {
+    "source": "/home/braydon/.local/state/fourthdimension-runs/fd403d-revised-20261113/server-new/world/region/r.0.0.mca",
+    "source_region_sha256": "7af30779a04cbc74af8c34025a107e5d68a773dd396b1a9247cc57b9398b3bc8",
+    "chunk": [
+      17,
+      15
+    ],
+    "anchor": {
+      "AnchorPeerCurves": [
+        {
+          "Peer": 71468256833493,
+          "Bezier": {
+            "Starts": [
+              {
+                "V": [
+                  0.5,
+                  0.75,
+                  0.5
+                ]
+              },
+              {
+                "V": [
+                  -11.5,
+                  0.75,
+                  0.5
+                ]
+              }
+            ],
+            "Girder": 0,
+            "Normals": [
+              {
+                "V": [
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              },
+              {
+                "V": [
+                  0.0,
+                  1.0,
+                  0.0
+                ]
+              }
+            ],
+            "Primary": 0,
+            "Positions": [
+              {
+                "Pos": [
+                  0,
+                  0,
+                  0
+                ]
+              },
+              {
+                "Pos": [
+                  -12,
+                  0,
+                  0
+                ]
+              }
+            ],
+            "Axes": [
+              {
+                "V": [
+                  -1.0,
+                  0.0,
+                  0.0
+                ]
+              },
+              {
+                "V": [
+                  1.0,
+                  0.0,
+                  0.0
+                ]
+              }
+            ],
+            "Material": "simulatedcoasters:coaster_track"
+          },
+          "HHi": 4.0,
+          "HLo": 4.0
+        }
+      ],
+      "Speed": 0.0,
+      "ChainLiftFirstHop": 71468256833493,
+      "ChainLiftCommittedSegments": [
+        {
+          "TStart": 1.0,
+          "TEnd": 0.0,
+          "EdgeFrom": 71468256833493,
+          "EdgeTo": 74766791716821
+        }
+      ],
+      "ChainLiftTravelSign": 1,
+      "AnchorPeerCurveTints": [],
+      "ChainLiftShaftAxis": "x",
+      "ChainLiftCommittedLength": 12.0,
+      "ChainLiftSpan": {
+        "EdgeFrom": 0,
+        "Kind": "ANCHOR",
+        "EdgeTo": 0,
+        "EndT": 0.0,
+        "EndAnchor": 71468256833493
+      },
+      "JointBank": 0.0,
+      "keepPacked": 0,
+      "x": 272,
+      "y": -43,
+      "z": 250,
+      "id": "simulatedcoasters:coaster_anchorpoint"
+    },
+    "preserved_compressed_chunk": "reviewed-chain-anchor-chunk.nbt.zlib",
+    "compressed_chunk_sha256": "7895b6d438fb6f5643baf06a8dfda479bc9f6057e0431d6698dc38cce7d83d0c"
+  }
+}

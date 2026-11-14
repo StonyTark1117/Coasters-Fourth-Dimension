@@ -34,6 +34,18 @@ def owns_group(actual, expected):
     return any(g == expected or g.startswith(expected + "/") for g in groups)
 
 
+def mouse_button(action, values):
+    if action in ("use", "attack"):
+        if values:
+            raise RuntimeError(f"{action} takes no button number")
+        return 3 if action == "use" else 1
+    if action == "click":
+        if len(values) != 1 or values[0] not in ("1", "3"):
+            raise RuntimeError("Use 'input use' for right-click or 'input attack' for left-click; click accepts 1 or 3")
+        return int(values[0])
+    return None
+
+
 def properties(path):
     return dict(line.split("=", 1) for line in path.read_text().splitlines()
                 if "=" in line and not line.startswith("#"))
@@ -198,6 +210,7 @@ class PrivateRun:
         return {"started": unit, "memory_limit": limit}
 
     def action(self, args):
+        button = mouse_button(args.action, args.values)
         window = self.window()
         self.options()
         connection = "menu action; no gameplay claim" if args.menu else self.connected()
@@ -207,6 +220,9 @@ class PrivateRun:
                   "geometry": run("xdotool", "getwindowgeometry", "--shell", window, env=self.env),
                   "before": self.snapshot(stamp + "-before")}
         record["modifier"] = args.modifier
+        if button is not None:
+            record["mouse_button"] = button
+            record["mouse_binding"] = "use/right" if button == 3 else "attack/left"
         record["state"] = "sending"
         self.log_input(record)
         try:
@@ -236,7 +252,7 @@ class PrivateRun:
 
     def _input(self, window, args, record):
         subprocess.run(["xdotool", "windowfocus", "--sync", window], check=True, env=self.env)
-        if args.action in ("move", "turn", "click"):
+        if args.action in ("move", "turn", "click", "use", "attack"):
             x = ctypes.CDLL(ctypes.util.find_library("X11"))
             t = ctypes.CDLL(ctypes.util.find_library("Xtst"))
             x.XOpenDisplay.argtypes = [ctypes.c_char_p]
@@ -287,9 +303,7 @@ class PrivateRun:
                     t.XTestFakeMotionEvent.argtypes = [ctypes.c_void_p, ctypes.c_int, ctypes.c_int, ctypes.c_int, ctypes.c_ulong]
                     t.XTestFakeMotionEvent(d, -1, px, py, 0)
                 else:
-                    button, = map(int, args.values)
-                    if button not in (1, 3):
-                        raise RuntimeError("Use left (1) or right (3) button")
+                    button = mouse_button(args.action, args.values)
                     # Do not warp the pointer before clicking: that changes game aim.
                     t.XTestFakeButtonEvent.argtypes = [ctypes.c_void_p, ctypes.c_uint, ctypes.c_int, ctypes.c_ulong]
                     t.XTestFakeButtonEvent(d, button, 1, 0)
@@ -324,12 +338,20 @@ def main():
     console = sub.add_parser("console", help="Owned server command; setup mutations earn no player acceptance")
     console.add_argument("text")
     action = sub.add_parser("input")
-    action.add_argument("action", choices=("move", "turn", "click", "key", "type"))
-    action.add_argument("values", nargs="+")
+    action.add_argument("action", choices=("move", "turn", "use", "attack", "click", "key", "type"),
+                        help="use=right-click (board/place/tool), attack=left-click (break); click uses X11 button 1 or 3")
+    action.add_argument("values", nargs="*", help="No values for use/attack; other actions require values")
     action.add_argument("--modifier", choices=("Shift_L", "Control_L"), help="Hold this key during one action; always release afterward")
     action.add_argument("--expect", required=True, help="Expected visible or authoritative result; inspect it before next action")
     action.add_argument("--menu", action="store_true", help="Explicit menu/connection action, not an in-world interaction")
     args = parser.parse_args()
+    if args.command == "input":
+        if args.action not in ("use", "attack") and not args.values:
+            parser.error(f"{args.action} requires values")
+        try:
+            mouse_button(args.action, args.values)
+        except RuntimeError as error:
+            parser.error(str(error))
     private = PrivateRun(args.run, args.owner)
     if args.command == "start":
         result = private.start(args.part)

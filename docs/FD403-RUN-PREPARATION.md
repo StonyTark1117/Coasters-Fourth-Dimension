@@ -111,10 +111,15 @@ and required vehicle state. The helper cannot infer those from a live process.
 
 ```sh
 python3 scripts/fd-private-client.py "$FD_RUN/run.json" --owner "$FD_OWNER" \
-  input click 3 --expect 'The specific visible message or state change for this target'
+  input use --expect 'The specific visible message or state change for this target'
 ```
 
-`click` does not reposition the pointer. Inspect the returned before/after
+`use` sends right-click (X11 button **3**) for boarding, placement and tool use.
+`attack` sends left-click (button **1**) for deliberate breaking/attacking; it can
+instantly remove the target in Creative. Both take no value. The older
+`click 3` / `click 1` syntax remains available, including left-click menu
+selection with `--menu`. Input records name the resolved button and binding.
+Neither command repositions the pointer. Inspect the returned before/after
 screenshots and the stated state/log result before another action. `key` sends
 window-targeted 180 ms key presses; `--modifier Shift_L` holds Shift for one
 action and releases it afterward. `type` types into an already open field. For chat, send
@@ -128,6 +133,52 @@ appended to `evidence/input.jsonl` and `console.jsonl`. No screenshot alone
 proves a mutation reached its handler. After two inconclusive attempts, diagnose
 the named failed condition; do not relaunch or experiment with bindings again.
 A verified correction permits a targeted retry, not a fresh campaign.
+
+## Recover a moving-body target without angle guessing
+
+Use this when a retained vehicle has moved since its last successful interaction.
+These are setup/diagnostic procedures, not extra acceptance gates. Keep accepted
+boarding and camera-control evidence; a disclosed setup teleport earns neither.
+
+1. Identify the intended chassis/carrier UUID from the current case. Query the
+   live world from the player context, for example
+   `execute as Dev at @s run sable info @e[distance=0..40,limit=20,sort=nearest]`.
+   Match the UUID, not merely the nearest body or a similar-looking assembly.
+   Console-origin `@n` and `tp Dev ~ ~ ~` do not use Dev's position. Old saved
+   poses and screenshots are historical after movement; a Sable body position
+   is not necessarily the seat's selectable point.
+2. Recover the seat's **sublevel-local block coordinate** from its existing
+   boarding record or current block data. The inherited seat selection shape
+   occupies the lower half-block, despite its taller visible back. For a seat
+   at `(LX, LY, LZ)`, use `(LX+0.5, LY+0.25, LZ+0.5)` as a candidate point.
+   Verify its body with `execute positioned <local point> run sable info @i`.
+   Stop a mismatched UUID here; do not try another arbitrary camera angle.
+   If recent diagnostic inputs may have broken a block, verify the seat itself
+   still exists as well: containing-body identity does not establish that.
+3. Choose a clear, supported world standing position within normal reach of
+   that seat, accounting for eye height. If the assigned scope permits a setup
+   teleport, the pinned Sable 2.0.3 command path can aim at the **live** target:
+   `execute positioned <local point> out_sub_level @i anchored eyes run tp Dev <world feet X Y Z> facing ~ ~ ~`.
+   `out_sub_level` applies the containing body's current `logicalPose` to the
+   local point. No manually copied quaternion or old world target is needed.
+   This command moves only the player; do not substitute `sable tp`, which
+   moves a body. Select/record any allowed temporary support before teleporting;
+   falling or levitation changes the eye position and invalidates the aim.
+4. Read the resulting F3 hit, actual player position and reach before one
+   normal input. An accepted teleport response alone does not prove a seat
+   hit, clear ray or valid reach. If it misses, inspect the named blocking
+   geometry, pose synchronization or standing position and correct that cause.
+   Keep the proven mouse settings. After the expected interaction succeeds,
+   proceed directly to the unresolved route/action observation.
+
+The transform command is established by the pinned dependency's
+`SubLevelArgumentType`, `SubLevelSelector` and `ExecuteCommandMixin`; each run
+still records its actual target/readback. Save the successful local target,
+body UUID, supported approach and timestamp in that run's existing handoff so
+compaction does not restart targeting discovery. A helper-mounted ride or
+injected operation does not replace a still-open normal-input claim.
+The [Free Spin recovery record](evidence/0.4/fd403c-context-recovery-20261114.md#target-recovered-and-normal-boarding-verified--0642-utc)
+records a live F3 seat hit and successful normal mount using this transform path.
 
 ## Finish and hand off
 

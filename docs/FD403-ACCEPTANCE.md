@@ -30,8 +30,8 @@ claim without a second exercise.
 
 | Family | Connected survival-client evidence | Still needed for this gate |
 | --- | --- | --- |
-| Arrow | [Craft, place, board, control, unload, save](evidence/0.4/survival-client-arrow.md) on a short unpowered section; [connected track crafting](evidence/0.4/survival-client-arrow-loop-connected-attempt1/README.md) from upstream ingredients; [bounded occupied powered pass and cold reopen](evidence/0.4/survival-client-arrow-powered/acceptance.md) on a survival-built 50-block original route with a full controlled turn | Full connected Arrow circuit and family teaching walkthrough; the powered pass used a disclosed upstream motor fixture |
-| Legacy | [Craft, place, board, control, unload](evidence/0.4/survival-client-legacy-free-spin.md) on a short unpowered section; [bounded occupied powered pass and cold reopen](evidence/0.4/survival-client-legacy-powered/acceptance.md) on a survival-built 50-block original route; [visible free rotation on a shaped powered demo circuit](evidence/0.4/survival-client-legacy-powered/demo/acceptance.md) | Player-built shaped powered route and family teaching walkthrough; the visible-rotation demo was command-authored |
+| Arrow | [Craft, place, board, control, unload, save](evidence/0.4/survival-client-arrow.md) on a short unpowered section; [connected track crafting](evidence/0.4/survival-client-arrow-loop-connected-attempt1/README.md) from upstream ingredients; [bounded occupied powered pass and cold reopen](evidence/0.4/survival-client-arrow-powered/acceptance.md) on a survival-built 50-block original route with a full controlled turn; [reconciled circuit, normal C–D placement, capture/unload and cold reopen](evidence/0.4/fd403a-circuit-reconciliation-20261113/README.md) | **Accepted 2026-11-13:** combined compatible connected-client records close the occupied circuit, normal C–D Chain installation, final capture/unload/reopen, and Arrow teaching reconciliation. |
+| Legacy | [Craft, place, board, control, unload](evidence/0.4/survival-client-legacy-free-spin.md) on a short unpowered section; [bounded occupied powered pass and cold reopen](evidence/0.4/survival-client-legacy-powered/acceptance.md); [player-built shaped powered route and safe occupied operation](evidence/0.4/fd403b-legacy-shaped-powered-20261114/README.md); [Legacy teaching reconciliation](evidence/0.4/fd403b-legacy-teaching-reconciliation-20261112.md) | **Accepted 2026-11-14:** cumulative records close Legacy construction, shaped powered travel/free response, capture/unload/reopen, and its FD403F walkthrough claim. The command-authored demo is supporting evidence only. |
 | Free Spin | [Craft, place, board, control, unload](evidence/0.4/survival-client-legacy-free-spin.md) on a short unpowered section; [bounded occupied powered magnetic pass and cold reopen](evidence/0.4/survival-client-free-spin-powered/acceptance.md) on a survival-built 50-block original route; [released-carrier damper comparison](evidence/0.4/survival-client-free-spin-powered/damper-demo/acceptance.md) on the command-authored circuit; [exact-source native regression](evidence/0.4/survival-client-free-spin-powered/damper-native/acceptance.md) | Complete player-built shaped route and family teaching walkthrough; the survival-built powered pass used a disclosed upstream motor fixture |
 | Revised | [Connected survival craft, place, board, control, unload, and reopen](evidence/0.4/survival-client-revised/acceptance.md) on a short unpowered section; [occupied powered demo circuit and cold reopen](evidence/0.4/survival-client-revised/powered-demo/acceptance.md) with independent lower-hinge response | Player-built powered route and family teaching walkthrough; the powered demo was command-authored |
 | PAX | [Connected survival craft, route and four-car placement](evidence/0.4/survival-client-pax/acceptance.md); [player-linked occupied cycle, unload and reopen on the survival-built train](evidence/0.4/survival-client-pax/survival-cycle/acceptance.md); [shipped-demo cycle](evidence/0.4/survival-client-pax/demo/acceptance.md) | **Accepted 2026-11-11:** [PAX walkthrough reconciliation](evidence/0.4/fd403-workflows-20261111/README.md#pax--fd403e-and-its-fd403f-walkthrough-accepted) closes E and its F claim; upstream materials/supports and creative motor are disclosed fixtures. |
@@ -47,15 +47,19 @@ replace connected-client building and operation.
 The [player-crafted Arrow loop native test](evidence/0.4/survival-client-arrow-loop-native/README.md)
 also passes a full eight-section powered circuit and station recapture with
 ordinary survival crafting and placement through a synthetic server player.
-Its upstream Chain/motor fixtures and absent connected client leave the Arrow
-row's connected-client walkthrough and save/reopen work open.
+Its upstream Chain/motor fixtures and absent connected client mean that native
+test alone does not close the Arrow row. The later
+[FD403A reconciliation](evidence/0.4/fd403a-circuit-reconciliation-20261113/README.md)
+combines connected-client construction/traversal with the completed occupied
+circuit, capture/unload and cold-reopen evidence.
 In pinned Coasters 0.1.5, normal Chain Lift selection uses the client
 interaction-key path (`ChainLiftAnchorOutlineClient.onUseItemKey`), which sends
 `ChainLiftCommitPayload` to the server. A synthetic server-player right click or
 direct `commitChainLift` call cannot certify this input path. For a new or changed span, record actual
 connected-client Chain selection, the installed span and its powered direction.
-The accepted Arrow 50 m record already proves normal Chain installation; its
-input claim is not reopened merely because the full circuit remains unfinished.
+The accepted Arrow 50 m record proves normal Chain installation on that route;
+the circuit reconciliation separately records the new normal C–D installation.
+Neither input claim is reopened by unrelated runs or item-use diagnostics.
 Use the [FD403A claim/circuit handoff](FD403A-CIRCUIT.md) to distinguish those gaps.
 
 ## Connected-client sequence

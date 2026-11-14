@@ -6,7 +6,7 @@ from pathlib import Path
 import struct
 import tempfile
 import unittest
-from unittest.mock import patch
+from unittest.mock import MagicMock, call, patch
 
 SPEC = importlib.util.spec_from_file_location('private_client', Path(__file__).parents[1] / 'fd-private-client.py')
 client = importlib.util.module_from_spec(SPEC)
@@ -58,12 +58,35 @@ class PrivateClientTests(unittest.TestCase):
     def test_disconnected_player_prevents_input_and_screenshots(self):
         p = object.__new__(client.PrivateRun)
         p.c = {'player':'Dev'}
-        args = argparse.Namespace(menu=False)
+        args = argparse.Namespace(menu=False, action='use', values=[])
         with patch.object(p, 'window', return_value='42'), patch.object(p, 'options'), patch.object(p, 'state'), patch.object(client, 'rcon', return_value='There are 0 of a max of 20 players online: '), patch.object(p, 'snapshot') as snapshot, patch.object(p, '_input') as inject:
             with self.assertRaisesRegex(RuntimeError, 'not connected'):
                 p.action(args)
             snapshot.assert_not_called()
             inject.assert_not_called()
+
+    def test_named_use_sends_right_button_and_attack_sends_left_on_private_display(self):
+        p = object.__new__(client.PrivateRun)
+        p.display = ':252'
+        p.env = {'DISPLAY': ':252'}
+        for action, values, button in [('use', [], 3), ('attack', [], 1),
+                                       ('click', ['3'], 3), ('click', ['1'], 1)]:
+            with self.subTest(action=action, values=values):
+                x, xtest = MagicMock(), MagicMock()
+                x.XOpenDisplay.return_value = 99
+                with patch.object(client.ctypes, 'CDLL', side_effect=[x, xtest]), patch.object(client.ctypes.util, 'find_library', return_value='mock'), patch.object(client.subprocess, 'run'), patch.object(client.time, 'sleep'):
+                    p._input('42', argparse.Namespace(action=action, values=values), {})
+                x.XOpenDisplay.assert_called_once_with(b':252')
+                self.assertEqual(xtest.XTestFakeButtonEvent.call_args_list,
+                                 [call(99, button, 1, 0), call(99, button, 0, 0)])
+                x.XCloseDisplay.assert_called_once_with(99)
+
+    def test_named_use_refuses_conflicting_button_before_runtime_access(self):
+        p = object.__new__(client.PrivateRun)
+        with patch.object(p, 'window') as window:
+            with self.assertRaisesRegex(RuntimeError, 'takes no button number'):
+                p.action(argparse.Namespace(action='use', values=['1']))
+            window.assert_not_called()
 
     def test_failed_input_records_uncertainty_and_releases_modifier(self):
         with tempfile.TemporaryDirectory() as root:
@@ -77,6 +100,7 @@ class PrivateClientTests(unittest.TestCase):
             records = [json.loads(line) for line in (p.evidence/'input.jsonl').read_text().splitlines()]
             self.assertEqual([r['state'] for r in records], ['sending', 'uncertain'])
             self.assertEqual(records[-1]['error'], 'input failed')
+            self.assertEqual(records[-1]['mouse_binding'], 'use/right')
             self.assertEqual(command.call_args.args[0], ['xdotool','keyup','--window','42','Shift_L'])
 
 
