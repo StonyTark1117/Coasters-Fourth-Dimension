@@ -84,7 +84,7 @@ public final class FoundationSync {
     for (var player : level.players()) send(player);
   }
 
-  private static void send(ServerPlayer player) {
+  public static void send(ServerPlayer player) {
     var level = player.serverLevel();
     PacketDistributor.sendToPlayer(
         player,

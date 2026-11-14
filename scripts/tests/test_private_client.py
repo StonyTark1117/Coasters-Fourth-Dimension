@@ -88,6 +88,52 @@ class PrivateClientTests(unittest.TestCase):
                 p.action(argparse.Namespace(action='use', values=['1']))
             window.assert_not_called()
 
+    def test_hold_use_inspection_cancels_before_releasing_right_button(self):
+        p = object.__new__(client.PrivateRun)
+        p.display = ':252'
+        p.env = {'DISPLAY': ':252'}
+        x, xtest, events = MagicMock(), MagicMock(), []
+        x.XOpenDisplay.return_value = 99
+        xtest.XTestFakeButtonEvent.side_effect = lambda d, b, state, delay: events.append(('button', b, state))
+        record = {'at': 'inspection'}
+        with patch.object(client.ctypes, 'CDLL', side_effect=[x, xtest]), patch.object(client.ctypes.util, 'find_library', return_value='mock'), patch.object(client.subprocess, 'run', side_effect=lambda args, **kw: events.append(('command', args[-1]))), patch.object(client.time, 'sleep'), patch.object(p, 'snapshot', return_value='held.png'):
+            p._input('42', argparse.Namespace(action='hold-use', values=[]), record)
+        self.assertLess(events.index(('button', 3, 1)), events.index(('command', 'Escape')))
+        self.assertLess(events.index(('command', 'Escape')), events.index(('button', 3, 0)))
+        self.assertEqual(record['during'], 'held.png')
+        self.assertIn('canceled', record['hold_result'])
+
+    def test_hold_use_selection_moves_only_while_right_is_held(self):
+        p = object.__new__(client.PrivateRun)
+        p.display, p.env = ':252', {'DISPLAY': ':252'}
+        x, xtest, events = MagicMock(), MagicMock(), []
+        x.XOpenDisplay.return_value = 99
+        xtest.XTestFakeButtonEvent.side_effect = lambda d, b, state, delay: events.append(('button', b, state))
+        xtest.XTestFakeMotionEvent.side_effect = lambda d, screen, x, y, delay: events.append(('move', x, y))
+        record = {'at': 'selection'}
+        with patch.object(client.ctypes, 'CDLL', side_effect=[x, xtest]), patch.object(client.ctypes.util, 'find_library', return_value='mock'), patch.object(client.subprocess, 'run') as command, patch.object(client.time, 'sleep'), patch.object(p, 'snapshot', side_effect=['held.png', 'selected.png']):
+            p._input('42', argparse.Namespace(action='hold-use', values=['200', '150']), record)
+        self.assertEqual(events, [('button', 3, 1), ('move', 200, 150), ('button', 3, 0)])
+        self.assertFalse(any('Escape' in c.args[0] for c in command.call_args_list))
+        self.assertEqual(record['selection'], 'selected.png')
+
+    def test_hold_use_screenshot_failure_cancels_and_releases(self):
+        p = object.__new__(client.PrivateRun)
+        p.display, p.env = ':252', {'DISPLAY': ':252'}
+        x, xtest = MagicMock(), MagicMock()
+        x.XOpenDisplay.return_value = 99
+        with patch.object(client.ctypes, 'CDLL', side_effect=[x, xtest]), patch.object(client.ctypes.util, 'find_library', return_value='mock'), patch.object(client.subprocess, 'run') as command, patch.object(client.time, 'sleep'), patch.object(p, 'snapshot', side_effect=RuntimeError('capture failed')):
+            with self.assertRaisesRegex(RuntimeError, 'capture failed'):
+                p._input('42', argparse.Namespace(action='hold-use', values=['200', '150']), {'at': 'failure'})
+        self.assertEqual(xtest.XTestFakeButtonEvent.call_args_list, [call(99, 3, 1, 0), call(99, 3, 0, 0)])
+        self.assertTrue(any('Escape' in c.args[0] for c in command.call_args_list))
+        x.XCloseDisplay.assert_called_once_with(99)
+
+    def test_hold_use_rejects_partial_or_negative_selection(self):
+        for values in [['100'], ['100', '-1'], ['one', 'two'], ['1', '2', '3']]:
+            with self.subTest(values=values), self.assertRaisesRegex(RuntimeError, 'hold-use'):
+                client.mouse_button('hold-use', values)
+
     def test_failed_input_records_uncertainty_and_releases_modifier(self):
         with tempfile.TemporaryDirectory() as root:
             p = object.__new__(client.PrivateRun)

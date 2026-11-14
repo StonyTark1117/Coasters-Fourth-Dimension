@@ -127,14 +127,17 @@ action and releases it afterward. `type` types into an already open field. For c
 leading slash** and press Return. `--menu` is only for an explicitly identified
 menu/connection action; it does not certify in-world interaction.
 
-The vehicle editor closes after each operation, including **Close restraints**.
-Reopen it with the Rotation Tool before selecting the next operation, and verify
-the current screenshot actually contains that button. Do not click a saved
-Dispatch/Done coordinate after the editor has closed: that becomes an in-world
-attack. `--menu` and `--expect` describe intent; neither detects an open screen.
-The diagnostic `FD_EDITOR_DISPATCH` in `EditorNetwork.open` records sending the
-editor-opening packet, **not** ride Dispatch (edit action 13). Verify the actual
-operation result and vehicle state before attributing no motion to propulsion.
+The vehicle editor now waits for a server result before allowing another edit.
+Routine operations (including Close restraints) refresh the same screen; accepted
+Dispatch returns to gameplay. Rejected actions keep the editor open with the
+reason and refreshed state. Inspect that result before the next operation.
+Older retained JARs close the screen after every operation: reopen on those
+artifacts, without mistaking their behavior for the updated editor.
+
+`--menu` and `--expect` describe intent; neither detects an open screen. Never
+click a saved menu coordinate after returning to gameplay. The old diagnostic
+`FD_EDITOR_DISPATCH` meant **editor opening**, not ride Dispatch. Updated builds
+use `FD_EDITOR_OPEN` and `FD_EDITOR_RESULT` (ride Dispatch is edit action 13).
 
 Change a Create Creative Motor's speed through its normal value control. Live
 `data merge` of `Speed` or `ScrollValue` does not execute the normal speed-change
@@ -144,6 +147,25 @@ Determine direction through the complete pinned drive path, including the cart
 velocity calculation, rather than from the motor's facing or chain animation
 alone. The [Revised diagnosis](evidence/0.4/fd403d-revised-blocker-20261114/review.md#motor-and-editor-lifecycle-diagnosis--2026-11-14)
 records the retained route's specific sign calculation and corrected next action.
+
+Create's “Click and hold to edit” requires **right/Use held**, not Attack or a
+short Use tap. With the reachable value control confirmed, inspect it safely:
+
+```sh
+python3 scripts/fd-private-client.py "$FD_RUN/run.json" --owner "$FD_OWNER" \
+  input hold-use --expect 'Create value screen, then canceled without changing the setting'
+```
+
+This holds right for 750 ms, saves `during` (the open value screen), sends Escape
+and releases in cleanup. Inspect `during` and the current window geometry. To
+select, repeat `input hold-use X Y --expect 'Named setting and driven state'`,
+using the menu coordinates established by that inspection. It records the held
+screen and selection, then releases right to submit. It does not infer a valid
+control from `--expect`; verify the authoritative motor/anchor readback. The
+helper cancels and releases if a capture fails; it never uses Attack for this
+flow. Create's kinetic value board uses its first row for negative values and
+second row for positive values. The motor's displayed sign may differ from its
+world-axis speed depending on facing.
 
 Read-only server queries use `console 'data get ...'` or another named query;
 setup mutations through console must be disclosed. Input/console records are

@@ -35,6 +35,10 @@ def owns_group(actual, expected):
 
 
 def mouse_button(action, values):
+    if action == "hold-use":
+        if len(values) not in (0, 2) or any(not str(v).isdigit() for v in values):
+            raise RuntimeError("hold-use takes no values to inspect/cancel, or two nonnegative menu coordinates to select")
+        return 3
     if action in ("use", "attack"):
         if values:
             raise RuntimeError(f"{action} takes no button number")
@@ -252,7 +256,7 @@ class PrivateRun:
 
     def _input(self, window, args, record):
         subprocess.run(["xdotool", "windowfocus", "--sync", window], check=True, env=self.env)
-        if args.action in ("move", "turn", "click", "use", "attack"):
+        if args.action in ("move", "turn", "click", "use", "attack", "hold-use"):
             x = ctypes.CDLL(ctypes.util.find_library("X11"))
             t = ctypes.CDLL(ctypes.util.find_library("Xtst"))
             x.XOpenDisplay.argtypes = [ctypes.c_char_p]
@@ -307,9 +311,31 @@ class PrivateRun:
                     # Do not warp the pointer before clicking: that changes game aim.
                     t.XTestFakeButtonEvent.argtypes = [ctypes.c_void_p, ctypes.c_uint, ctypes.c_int, ctypes.c_ulong]
                     t.XTestFakeButtonEvent(d, button, 1, 0)
-                    x.XSync(d, 0)
-                    time.sleep(.08)
-                    t.XTestFakeButtonEvent(d, button, 0, 0)
+                    try:
+                        x.XSync(d, 0)
+                        time.sleep(.75 if args.action == "hold-use" else .08)
+                        if args.action == "hold-use":
+                            record["during"] = self.snapshot(record["at"] + "-held")
+                            if args.values:
+                                px, py = map(int, args.values)
+                                t.XTestFakeMotionEvent.argtypes = [ctypes.c_void_p, ctypes.c_int, ctypes.c_int, ctypes.c_int, ctypes.c_ulong]
+                                t.XTestFakeMotionEvent(d, -1, px, py, 0)
+                                x.XSync(d, 0)
+                                time.sleep(.18)
+                                record["selection"] = self.snapshot(record["at"] + "-selection")
+                                record["hold_result"] = "selection submitted on release; verify server state"
+                            else:
+                                record["hold_result"] = "inspection only; canceled before release"
+                    finally:
+                        try:
+                            # Create commits on Use release. Escape first for inspection or an
+                            # interrupted selection, so cleanup cannot submit a guessed value.
+                            if args.action == "hold-use" and "selection" not in record:
+                                subprocess.run(["xdotool", "key", "--window", window, "Escape"],
+                                               env=self.env, check=True)
+                        finally:
+                            t.XTestFakeButtonEvent(d, button, 0, 0)
+                            x.XSync(d, 0)
                 x.XSync(d, 0)
             finally:
                 x.XCloseDisplay(d)
@@ -338,15 +364,15 @@ def main():
     console = sub.add_parser("console", help="Owned server command; setup mutations earn no player acceptance")
     console.add_argument("text")
     action = sub.add_parser("input")
-    action.add_argument("action", choices=("move", "turn", "use", "attack", "click", "key", "type"),
-                        help="use=right-click (board/place/tool), attack=left-click (break); click uses X11 button 1 or 3")
-    action.add_argument("values", nargs="*", help="No values for use/attack; other actions require values")
+    action.add_argument("action", choices=("move", "turn", "use", "hold-use", "attack", "click", "key", "type"),
+                        help="use=right-click; hold-use=Create value screen inspect/cancel or select X Y; attack=left-click (break)")
+    action.add_argument("values", nargs="*", help="No values for use/attack; hold-use takes zero or two menu coordinates")
     action.add_argument("--modifier", choices=("Shift_L", "Control_L"), help="Hold this key during one action; always release afterward")
     action.add_argument("--expect", required=True, help="Expected visible or authoritative result; inspect it before next action")
     action.add_argument("--menu", action="store_true", help="Explicit menu/connection action, not an in-world interaction")
     args = parser.parse_args()
     if args.command == "input":
-        if args.action not in ("use", "attack") and not args.values:
+        if args.action not in ("use", "attack", "hold-use") and not args.values:
             parser.error(f"{args.action} requires values")
         try:
             mouse_button(args.action, args.values)

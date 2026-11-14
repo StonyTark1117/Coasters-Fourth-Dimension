@@ -1,0 +1,22 @@
+{"at": 1794640124.9210188, "command": "item replace entity Dev weapon.mainhand with fourthdimension:rotation_tool", "state": "sending"}
+{"at": 1794640124.9210188, "command": "item replace entity Dev weapon.mainhand with fourthdimension:rotation_tool", "state": "responded", "result": "Replaced a slot on Dev with [Rotation Tool]\n"}
+{"at": 1794640157.2248743, "command": "fd capture", "state": "sending"}
+{"at": 1794640157.2248743, "command": "fd capture", "state": "responded", "result": ""}
+{"at": 1794640184.3583803, "command": "gamemode creative Dev", "state": "sending"}
+{"at": 1794640184.3583803, "command": "gamemode creative Dev", "state": "responded", "result": "Set Dev's game mode to Creative Mode\n"}
+{"at": 1794640184.4313717, "command": "setblock 282 -60 30 create:creative_motor[facing=west]", "state": "sending"}
+{"at": 1794640184.4313717, "command": "setblock 282 -60 30 create:creative_motor[facing=west]", "state": "responded", "result": "Changed the block at 282, -60, 30\n"}
+{"at": 1794640184.521612, "command": "item replace entity Dev weapon.mainhand with create:wrench", "state": "sending"}
+{"at": 1794640184.521612, "command": "item replace entity Dev weapon.mainhand with create:wrench", "state": "responded", "result": "Replaced a slot on Dev with [Wrench]\n"}
+{"at": 1794640184.593157, "command": "execute as Dev at @s anchored eyes run tp @s 285.5 -60 30.5 facing 282.5625 -59.21875 30.5", "state": "sending"}
+{"at": 1794640184.593157, "command": "execute as Dev at @s anchored eyes run tp @s 285.5 -60 30.5 facing 282.5625 -59.21875 30.5", "state": "responded", "result": "Teleported Dev to 285.500000, -60.000000, 30.500000\n"}
+{"at": 1794640203.219567, "command": "data get block 282 -60 30", "state": "sending"}
+{"at": 1794640203.219567, "command": "data get block 282 -60 30", "state": "responded", "result": "282, -60, 30 has the following block data: {Speed: -16.0f, HasAttachedComputer: 0b, Network: {Capacity: 262144.0f, Size: 1, AddedCapacity: 16384.0f, Id: 77515569885124L, Stress: 0.0f}, x: 282, y: -60, ScrollValue: 16, z: 30, id: \"create:motor\"}\n"}
+{"at": 1794640218.5011055, "command": "data get block 282 -60 30", "state": "sending"}
+{"at": 1794640218.5011055, "command": "data get block 282 -60 30", "state": "responded", "result": "282, -60, 30 has the following block data: {Speed: 31.0f, HasAttachedComputer: 0b, Network: {Capacity: 507904.0f, Size: 1, AddedCapacity: 16384.0f, Id: 77515569885124L, Stress: 0.0f}, x: 282, y: -60, ScrollValue: -31, z: 30, id: \"create:motor\"}\n"}
+{"at": 1794640254.8081493, "command": "data get block 282 -60 30", "state": "sending"}
+{"at": 1794640254.8081493, "command": "data get block 282 -60 30", "state": "responded", "result": "282, -60, 30 has the following block data: {Speed: 32.0f, HasAttachedComputer: 0b, Network: {Capacity: 524288.0f, Size: 1, AddedCapacity: 16384.0f, Id: 77515569885124L, Stress: 0.0f}, x: 282, y: -60, ScrollValue: -32, z: 30, id: \"create:motor\"}\n"}
+{"at": 1794640295.9254746, "command": "save-all", "state": "sending"}
+{"at": 1794640295.9254746, "command": "save-all", "state": "uncertain", "error": "timed out"}
+{"at": 1794640326.0526664, "command": "stop", "state": "sending"}
+{"at": 1794640326.0526664, "command": "stop", "state": "responded", "result": "Stopping the server\nUnknown or incomplete command, see below for error\n<--[HERE]\n"}

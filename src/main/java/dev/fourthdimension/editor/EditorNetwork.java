@@ -15,11 +15,17 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
 import net.neoforged.neoforge.network.PacketDistributor;
 import net.neoforged.neoforge.network.event.RegisterPayloadHandlersEvent;
+import com.mojang.logging.LogUtils;
+import org.slf4j.Logger;
 
 public final class EditorNetwork {
   private EditorNetwork() {}
 
+  private static final boolean VALIDATION = Boolean.getBoolean("fourthdimension.validation");
+  private static final Logger LOGGER = LogUtils.getLogger();
+
   public static Consumer<Target> openClient = target -> {};
+  public static Consumer<Result> resultClient = result -> {};
 
   public record Target(UUID id, boolean vehicle) implements CustomPacketPayload {
     public static final Type<Target> TYPE =
@@ -58,10 +64,34 @@ public final class EditorNetwork {
     }
   }
 
+  /** Acknowledges one edit after the authoritative snapshot has been sent. */
+  public record Result(UUID id, long requestedRevision, int action, boolean success, String message)
+      implements CustomPacketPayload {
+    public static final Type<Result> TYPE =
+        new Type<>(ResourceLocation.fromNamespaceAndPath(FourthDimension.ID, "editor_result"));
+    public static final StreamCodec<RegistryFriendlyByteBuf, Result> CODEC =
+        StreamCodec.of(
+            (b, p) -> {
+              b.writeUUID(p.id);
+              b.writeLong(p.requestedRevision);
+              b.writeVarInt(p.action);
+              b.writeBoolean(p.success);
+              b.writeUtf(p.message, 4096);
+            },
+            b -> new Result(b.readUUID(), b.readLong(), b.readVarInt(), b.readBoolean(), b.readUtf(4096)));
+
+    @Override
+    public Type<Result> type() {
+      return TYPE;
+    }
+  }
+
   public static void register(RegisterPayloadHandlersEvent event) {
-    var registrar = event.registrar("7");
+    var registrar = event.registrar("8");
     registrar.playToClient(
         Target.TYPE, Target.CODEC, (p, c) -> c.enqueueWork(() -> openClient.accept(p)));
+    registrar.playToClient(
+        Result.TYPE, Result.CODEC, (p, c) -> c.enqueueWork(() -> resultClient.accept(p)));
     registrar.playToServer(
         Edit.TYPE,
         Edit.CODEC,
@@ -69,12 +99,26 @@ public final class EditorNetwork {
             c.enqueueWork(
                 () -> {
                   if (!(c.player() instanceof ServerPlayer player)) return;
+                  boolean success = false;
+                  String message;
                   try {
                     apply(player, p);
-                    player.displayClientMessage(Component.literal("4D settings updated"), true);
+                    success = true;
+                    message = "4D settings updated";
                   } catch (IllegalArgumentException | IllegalStateException failure) {
-                    player.displayClientMessage(Component.literal(failure.getMessage()), false);
+                    message = Objects.requireNonNullElse(failure.getMessage(), "Unable to apply settings");
                   }
+                  // Also refresh on rejection, including a stale revision. Never retry an edit
+                  // automatically: the operator must review the current state first.
+                  FoundationSync.send(player);
+                  if (message.length() > 4096) message = message.substring(0, 4096);
+                  PacketDistributor.sendToPlayer(
+                      player, new Result(p.id, p.revision, p.action, success, message));
+                  player.displayClientMessage(Component.literal(message), success);
+                  if (VALIDATION)
+                    LOGGER.info(
+                        "FD_EDITOR_RESULT player={} target={} action={} success={} message={}",
+                        player.getGameProfile().getName(), p.id, p.action, success, message);
                 }));
   }
 
@@ -134,7 +178,7 @@ public final class EditorNetwork {
     } else {
       var vehicle = VehicleOperations.accessible(player, request.id);
       if (vehicle.revision != request.revision)
-        throw new IllegalArgumentException("Vehicle settings changed; reopen the editor");
+        throw new IllegalArgumentException("Vehicle settings changed; review the refreshed state and try again");
       var level = player.serverLevel();
       switch (request.action) {
         case 10 -> VehicleOperations.capture(level, vehicle);
@@ -170,6 +214,12 @@ public final class EditorNetwork {
   }
 
   public static void open(ServerPlayer player, Target target) {
+    if (VALIDATION)
+      LOGGER.info(
+          "FD_EDITOR_OPEN player={} target={} vehicle={}",
+          player.getGameProfile().getName(),
+          target.id(),
+          target.vehicle());
     FoundationSync.broadcast(player.serverLevel());
     PacketDistributor.sendToPlayer(player, target);
   }

@@ -27,6 +27,10 @@ public final class RotationEditorScreen extends Screen {
   private Button recoveryAttach;
   private boolean recoveryStartTowFixtureClickQueued;
   private boolean recoveryAttachFixtureClickQueued;
+  private EditorNetwork.Edit pendingEdit;
+  private String feedback = "";
+  private boolean feedbackError;
+  private boolean initialized;
 
   public RotationEditorScreen(EditorNetwork.Target target) {
     super(Component.literal("Fourth Dimension"));
@@ -241,16 +245,18 @@ public final class RotationEditorScreen extends Screen {
         Button.builder(Component.literal("Done"), b -> onClose())
             .bounds(left + 230, top + 160, 110, 20)
             .build());
-    if (recovery
+    if (!initialized && recovery
         && recoveryStartTow != null
         && Boolean.getBoolean("fourthdimension.carrierFixtureRecoveryEditorAction")) {
       recoveryStartTowFixtureClickQueued = true;
     }
-    if (!recovery
+    if (!initialized && !recovery
         && recoveryAttach != null
         && Boolean.getBoolean("fourthdimension.carrierFixtureRecoveryEditorAttach")) {
       recoveryAttachFixtureClickQueued = true;
     }
+    initialized = true;
+    if (pendingEdit != null) setEditingEnabled(false);
   }
 
   private void clickQueuedRecoveryStartTow() {
@@ -297,9 +303,7 @@ public final class RotationEditorScreen extends Screen {
                       && Boolean.getBoolean(
                           "fourthdimension.carrierValidationRecoveryEditorAction"))
                     CarrierTransformValidation.recoveryEditorStartTowClicked();
-                  PacketDistributor.sendToServer(
-                      new EditorNetwork.Edit(target.id(), revision, action, value.getValue()));
-                  onClose();
+                  submit(action);
                 })
             .bounds(x, y, 110, 20)
             .build();
@@ -314,6 +318,39 @@ public final class RotationEditorScreen extends Screen {
     }
     addRenderableWidget(button);
     return button;
+  }
+
+  private void submit(int action) {
+    if (pendingEdit != null) return;
+    pendingEdit = new EditorNetwork.Edit(target.id(), revision, action, value.getValue());
+    feedback = "Waiting for server…";
+    feedbackError = false;
+    setEditingEnabled(false);
+    PacketDistributor.sendToServer(pendingEdit);
+  }
+
+  private void setEditingEnabled(boolean enabled) {
+    for (var child : children())
+      if (child instanceof AbstractWidget widget) widget.active = enabled;
+  }
+
+  private void receiveResult(EditorNetwork.Result result) {
+    if (pendingEdit == null
+        || !pendingEdit.id().equals(result.id())
+        || pendingEdit.revision() != result.requestedRevision()
+        || pendingEdit.action() != result.action()) return;
+    var draft = value.getValue();
+    pendingEdit = null;
+    feedback = result.message();
+    feedbackError = !result.success();
+    if (result.success() && result.action() == 13) {
+      onClose();
+      return;
+    }
+    // The result follows the current snapshot on the same connection. Rebuilding updates
+    // the revision and conditional controls, without reopening or losing an invalid draft.
+    rebuildWidgets();
+    if (!result.success()) value.setValue(draft);
   }
 
   private void updateVehicleStatus(FoundationData.Vehicle vehicle) {
@@ -366,13 +403,21 @@ public final class RotationEditorScreen extends Screen {
                     ? "start:end:induce/damp:direction:strength:falloff:mask"
                     : "Free-spin motion is tuned on the car"
                 : "distance:degrees:slope; ...  (angles remain unwrapped)");
-    graphics.drawString(font, hint, left + 10, top + 42, 0xc2d2dd);
+    String instruction = feedback.isEmpty() ? hint : feedback;
+    graphics.drawString(
+        font, font.plainSubstrByWidth(instruction, 340), left + 10, top + 42,
+        feedbackError ? 0xff8888 : 0xc2d2dd);
     super.render(graphics, mouseX, mouseY, partialTick);
     clickQueuedRecoveryAttach();
     clickQueuedRecoveryStartTow();
     if (mouseX >= left + 10 && mouseX < left + 350 && mouseY >= top + 26 && mouseY < top + 36)
       graphics.renderTooltip(
           font, font.split(Component.literal(status), Math.min(300, width - 24)), mouseX, mouseY);
+    if (!feedback.isEmpty()
+        && mouseX >= left + 10 && mouseX < left + 350
+        && mouseY >= top + 42 && mouseY < top + 52)
+      graphics.renderTooltip(
+          font, font.split(Component.literal(feedback), Math.min(300, width - 24)), mouseX, mouseY);
   }
 
   @EventBusSubscriber(modid = "fourthdimension", value = Dist.CLIENT)
@@ -380,11 +425,16 @@ public final class RotationEditorScreen extends Screen {
     @SubscribeEvent
     public static void setup(FMLClientSetupEvent event) {
       event.enqueueWork(
-          () ->
+          () -> {
               EditorNetwork.openClient =
                   target ->
                       net.minecraft.client.Minecraft.getInstance()
-                          .setScreen(new RotationEditorScreen(target)));
+                          .setScreen(new RotationEditorScreen(target));
+              EditorNetwork.resultClient = result -> {
+                var screen = net.minecraft.client.Minecraft.getInstance().screen;
+                if (screen instanceof RotationEditorScreen editor) editor.receiveResult(result);
+              };
+          });
     }
   }
 }
