@@ -78,3 +78,10 @@ its retained artifact; those observations remain valid. Adopt matching updated
 client/server JARs at the next coordinated change, without replaying closed
 construction, lower-hinge or persistence evidence. Follow the current queue
 for the remaining family/teaching work.
+
+## Runtime cleanup
+
+Cleanup completed after the checks: the client exited through **Quit Game** at
+07:14:19 UTC; the server exited with status 0 after saving all dimensions; then
+the owned Xvfb stopped. The server, client and Xvfb services for private display
+`:252` are all inactive. The copied world and evidence remain preserved.
