@@ -26,6 +26,34 @@ No JARs are bundled into our release. No source, build pins, runtime profiles or
 existing acceptance evidence were changed by this refresh. Archive integrity and
 metadata were checked; no mod was launched and no new compatibility is claimed.
 
+## FD501 selected decisions — 2026-11-14
+
+The [completed dependency decision inventory](evidence/0.5/dependencies-tooling/dependency-decisions.md)
+and [14-artifact catalog](evidence/0.5/dependencies-tooling/catalog-20261114.json)
+supersede the November 2 catalog **for future implementation choices**. The old
+catalog and bounded acceptance remain unchanged. Core stays on NeoForge 21.1.248,
+Create 6.0.10, Coasters 0.1.5 and Sable 2.0.3; Wing needs no dependency or archived
+provider migration. Current persistence is schema 6; the live editor registrar
+is already protocol 8 from the editor workflow change, independently of archived
+schema-7/provider work. FD501A's no-change disposition belongs to the lead.
+
+| Consumer | Selected decision |
+| --- | --- |
+| FD501B / FD810 / FD911 | Additions file 9243346 remains runtime `coasterfins` 0.2.2 despite its 0.2.5 label. Exact supported class fingerprints are recorded. Aeronautics bundle 1.3.2 file 8763471 supplies `simulated`/`aeronautics`/`offroad`; Interiors 0.6.1 v3 file 8974633 closes the other required dependency. No core upgrade required. Station and seat acceptance remain separate. |
+| FD501C / FD811 | CTNB 1.2 file 8718286, actual ID `coasters_extras`; existing core fits. Selected functional-provider/geometry implementation owns any necessary migration. |
+| FD501D / FD812 | Magnetized 1.1.0 file 8668703, actual ID `coastersmagnetized`; existing core fits. Longitudinal propulsion authority remains adapter work. |
+| FD501E / FD910 | Skin **1.1.0 file 9409938**, actual ID `create_coaster_skins`; choose future NeoForge **21.1.256**, Sable **2.0.6** and bundled Veil **4.3.2**. Current exact guards/scheduler hook require scoped review, so do not activate this in Wing. Select no optional Sodium/shader loader for the initial dependency profile. |
+| FD501F / FD912 | Immersion **1.1.1 file 9542588**, actual ID `coasters_immersion`; existing core fits, client-only installation selected, Aeronautics optional. Camera/body ownership remains adapter work. |
+| FD501G / FD913 | Waterparked 0.2.8-beta-hotfix1 file 9058331, actual ID `create_waterparked`; existing core fits; coexistence and explicit slide rejection only. |
+| FD501H / FD914 | Create Coasters 2.0 file 8110328, actual ID `createcoasters`; existing core fits; Create-train utilities do not gain Sable ride authority. |
+
+The linked record defines exact transitive graphics constraints, a compatible
+proposed final combined baseline, individual and conflict-pair profiles, and
+unavailable FD adapter capabilities. All selected required artifacts are available;
+FD501B–H implementations and their native acceptance remain later work. No
+optional capability is silently dropped or claimed ready. Current base, Styles,
+Engineered and combined acceptance survives this read-only metadata refresh.
+
 ## Planning document ownership
 
 The [milestone execution guides](roadmap/README.md) provide ordered package

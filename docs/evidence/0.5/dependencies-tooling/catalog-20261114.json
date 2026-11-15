@@ -1,0 +1,2302 @@
+{
+  "researched_on": "2026-11-14",
+  "timezone": "America/Phoenix",
+  "scope": "Official project main files and exact release pages, cache SHA-256 revalidation and recursive embedded metadata inspection. Selected candidates only, not runtime certification or all ecosystem releases.",
+  "baseline_decision": "Keep current core pins; no FD501A upgrade required.",
+  "artifacts": [
+    {
+      "project": "Create",
+      "slug": "create",
+      "project_id": 328085,
+      "file_id": 7963363,
+      "release_label": "6.0.10",
+      "published": "2026-04-21",
+      "channel": "release",
+      "project_url": "https://www.curseforge.com/minecraft/mc-mods/create",
+      "release_url": "https://www.curseforge.com/minecraft/mc-mods/create/files/7963363",
+      "download_url": "https://cursemaven.com/curse/maven/create-328085/7963363/create-328085-7963363.jar",
+      "local_path": "/home/braydon/Documents/Coasters: Fourth Dimension/build/integration-catalog/2026-11-02/create-328085-7963363.jar",
+      "bytes": 19123767,
+      "sha256": "ef87fe5709f1ba1f5b8bb20a2925b5afb4669e178fd6d8bf10c167759eefe37a",
+      "embedded": [
+        {
+          "path": "create-328085-7963363.jar",
+          "sha256": "ef87fe5709f1ba1f5b8bb20a2925b5afb4669e178fd6d8bf10c167759eefe37a",
+          "mods": [
+            {
+              "modId": "create",
+              "version": "6.0.10",
+              "displayName": "Create"
+            }
+          ],
+          "dependencies": {
+            "create": [
+              {
+                "modId": "neoforge",
+                "type": "required",
+                "versionRange": "[21.1.219,)",
+                "ordering": "NONE",
+                "side": "BOTH"
+              },
+              {
+                "modId": "minecraft",
+                "type": "required",
+                "versionRange": "[1.21.1]",
+                "ordering": "NONE",
+                "side": "BOTH"
+              },
+              {
+                "modId": "flywheel",
+                "type": "required",
+                "versionRange": "[1.0.0,2.0)",
+                "ordering": "AFTER",
+                "side": "CLIENT"
+              },
+              {
+                "modId": "ponder",
+                "type": "required",
+                "versionRange": "[1.0.82,)",
+                "ordering": "AFTER",
+                "side": "BOTH"
+              },
+              {
+                "modId": "sodium",
+                "type": "optional",
+                "reason": "Versions before 0.6.9 do not include the neccesary APIs Create needs to work properly with Sodium.",
+                "versionRange": "[0.6.9,)",
+                "ordering": "NONE",
+                "side": "CLIENT"
+              },
+              {
+                "modId": "lithium",
+                "type": "optional",
+                "reason": "Versions before 0.14.7 crash when paired with Create, Update Lithium.",
+                "versionRange": "[0.14.7,)",
+                "ordering": "NONE",
+                "side": "BOTH"
+              },
+              {
+                "modId": "journeymap",
+                "type": "optional",
+                "reason": "Versions before 1.21.1-6.0.0-beta.46 do not contain the APIs Create requires to work with JourneyMap.",
+                "versionRange": "[1.21.1-6.0.0-beta.46,)",
+                "ordering": "NONE",
+                "side": "CLIENT"
+              },
+              {
+                "modId": "xaeroworldmap",
+                "type": "optional",
+                "reason": "Versions before 1.40.2 do not contain the classes Create requires to work with Xaero's World Map.",
+                "versionRange": "[1.40.2,)",
+                "ordering": "NONE",
+                "side": "CLIENT"
+              },
+              {
+                "modId": "radium",
+                "type": "incompatible",
+                "reason": "Radium is a unofficial port of Lithium, Lithium is now natively available for NeoForge and does not suffer from the same issues radium does, use Lithium instead.",
+                "ordering": "NONE",
+                "side": "BOTH"
+              },
+              {
+                "modId": "palladium",
+                "type": "incompatible",
+                "reason": "Palladium does not improve memory usage by anything meaningful, and results in broken visuals for Create's blocks with connected textures.",
+                "ordering": "NONE",
+                "side": "BOTH"
+              }
+            ]
+          },
+          "license": "Read attached LICENSE.md",
+          "loaderVersion": "[0,)"
+        },
+        {
+          "path": "create-328085-7963363.jar!/META-INF/jarjar/flywheel-neoforge-1.21.1-1.0.6.jar",
+          "sha256": "31dda15c205eb596d3b3449ef03f6af7363a6cd35b3da4bfe916b304f9e5337e",
+          "mods": [
+            {
+              "modId": "flywheel",
+              "version": "1.0.6",
+              "displayName": "Flywheel",
+              "displayTest": "IGNORE_ALL_VERSION"
+            }
+          ],
+          "dependencies": {
+            "flywheel": [
+              {
+                "modId": "minecraft",
+                "type": "required",
+                "versionRange": "[1.21.1,1.21.2)",
+                "side": "CLIENT"
+              },
+              {
+                "modId": "neoforge",
+                "type": "required",
+                "versionRange": "[21.1.66,)",
+                "side": "CLIENT"
+              },
+              {
+                "modId": "embeddium",
+                "type": "optional",
+                "versionRange": "[0.3.25,)",
+                "side": "CLIENT"
+              },
+              {
+                "modId": "sodium",
+                "type": "optional",
+                "versionRange": "[0.6.0-beta.2,)",
+                "side": "CLIENT"
+              }
+            ]
+          },
+          "license": "MIT",
+          "loaderVersion": "[0,)"
+        },
+        {
+          "path": "create-328085-7963363.jar!/META-INF/jarjar/ponder-neoforge-1.0.82+mc1.21.1.jar",
+          "sha256": "0cf4611ad853042b689ac386184c5bbe02950efcffddb49e5f604e82baddb0dc",
+          "mods": [
+            {
+              "modId": "ponder",
+              "version": "1.0.82+mc1.21.1",
+              "displayName": "Ponder"
+            }
+          ],
+          "dependencies": {
+            "ponder": [
+              {
+                "modId": "neoforge",
+                "type": "required",
+                "versionRange": "[21.1.206,)",
+                "ordering": "NONE",
+                "side": "BOTH"
+              },
+              {
+                "modId": "minecraft",
+                "type": "required",
+                "versionRange": "[1.21.1]",
+                "ordering": "NONE",
+                "side": "BOTH"
+              },
+              {
+                "modId": "flywheel",
+                "type": "required",
+                "versionRange": "[1.0.0,2.0)",
+                "ordering": "AFTER",
+                "side": "CLIENT"
+              }
+            ]
+          },
+          "license": "MIT",
+          "loaderVersion": "[0,)"
+        }
+      ],
+      "mixins": {
+        "create.mixins.json": {
+          "required": true,
+          "minVersion": "0.8",
+          "priority": 1000,
+          "package": "com.simibubi.create.foundation.mixin",
+          "plugin": "com.simibubi.create.foundation.mixin.CreateMixinPlugin",
+          "compatibilityLevel": "JAVA_21",
+          "mixins": [
+            "ArmorTrimMixin",
+            "BeehiveBlockMixin",
+            "BlockItemMixin",
+            "BlockMixin",
+            "BuiltInRegistriesMixin",
+            "CustomItemUseEffectsMixin",
+            "EnchantedCountIncreaseFunctionMixin",
+            "EntityMixin",
+            "ItemStackMixin",
+            "LavaSwimmingMixin",
+            "MapItemSavedDataMixin",
+            "MobMixin",
+            "PlayerMixin",
+            "ProjectileUtilMixin",
+            "SmithingMenuMixin",
+            "WaterWheelFluidSpreadMixin",
+            "accessor.BlockBehaviourAccessor",
+            "accessor.BlockLootSubProviderAccessor",
+            "accessor.ConcretePowderBlockAccessor",
+            "accessor.CropBlockAccessor",
+            "accessor.DispenserBlockAccessor",
+            "accessor.FallingBlockEntityAccessor",
+            "accessor.FlowingFluidAccessor",
+            "accessor.FluidInteractionRegistryAccessor",
+            "accessor.GameTestHelperAccessor",
+            "accessor.ItemFrameAccessor",
+            "accessor.ItemModelGeneratorsAccessor",
+            "accessor.ItemStackHandlerAccessor",
+            "accessor.LivingEntityAccessor",
+            "accessor.MappedRegistryAccessor",
+            "accessor.MinecartFurnaceAccessor",
+            "accessor.MobEffectInstanceAccessor",
+            "accessor.NbtAccounterAccessor",
+            "accessor.PotionBrewingAccessor",
+            "accessor.ProjectileDispenseBehaviorAccessor",
+            "accessor.ServerLevelAccessor",
+            "accessor.ShapedRecipeAccessor",
+            "accessor.StateHolderAccessor",
+            "accessor.SystemReportAccessor",
+            "accessor.UseOnContextAccessor",
+            "datafixer.BlockPosFormatAndRenamesFixMixin",
+            "datafixer.ItemStackComponentizationFixMixin",
+            "datafixer.V1460Mixin"
+          ],
+          "client": [
+            "accessor.AgeableListModelAccessor",
+            "accessor.EntityRenderDispatcherAccessor",
+            "accessor.FontAccessor",
+            "accessor.GuiAccessor",
+            "accessor.HumanoidArmorLayerAccessor",
+            "accessor.LevelRendererAccessor",
+            "accessor.MinecraftAccessor",
+            "accessor.MouseHandlerAccessor",
+            "accessor.TimerAccessor",
+            "client.BlockDestructionProgressMixin",
+            "client.CameraMixin",
+            "client.EntityContraptionInteractionMixin",
+            "client.GameRendererMixin",
+            "client.HeavyBootsOnPlayerMixin",
+            "client.HumanoidArmorLayerMixin",
+            "client.HumanoidModelMixin",
+            "client.LevelRendererMixin",
+            "client.PlayerRendererMixin",
+            "compat.xaeros.XaeroFullscreenMapAccessor",
+            "compat.xaeros.XaeroFullscreenMapMixin",
+            "compat.xaeros.XaeroPauseScreenOverrideMixin"
+          ],
+          "injectors": {
+            "defaultRequire": 1
+          }
+        }
+      }
+    },
+    {
+      "project": "Create: Coasters Simulated",
+      "slug": "create-coasters-simulated",
+      "project_id": 1601871,
+      "file_id": 8655742,
+      "release_label": "0.1.5",
+      "published": "2026-08-15",
+      "channel": "release",
+      "project_url": "https://www.curseforge.com/minecraft/mc-mods/create-coasters-simulated",
+      "release_url": "https://www.curseforge.com/minecraft/mc-mods/create-coasters-simulated/files/8655742",
+      "download_url": "https://cursemaven.com/curse/maven/create-coasters-simulated-1601871/8655742/create-coasters-simulated-1601871-8655742.jar",
+      "local_path": "/home/braydon/Documents/Coasters: Fourth Dimension/build/integration-catalog/2026-11-02/create-coasters-simulated-1601871-8655742.jar",
+      "bytes": 1892119,
+      "sha256": "f80b4c3cdf9fa6188804967147761b0373e150a6eadbdc53626e5ac9700b2049",
+      "embedded": [
+        {
+          "path": "create-coasters-simulated-1601871-8655742.jar",
+          "sha256": "f80b4c3cdf9fa6188804967147761b0373e150a6eadbdc53626e5ac9700b2049",
+          "mods": [
+            {
+              "modId": "simulatedcoasters",
+              "version": "0.1.5",
+              "displayName": "Create: Coasters Simulated"
+            }
+          ],
+          "dependencies": {
+            "simulatedcoasters": [
+              {
+                "modId": "neoforge",
+                "type": "required",
+                "versionRange": "[21.1.228,)",
+                "ordering": "NONE",
+                "side": "BOTH"
+              },
+              {
+                "modId": "minecraft",
+                "type": "required",
+                "versionRange": "[1.21.1]",
+                "ordering": "NONE",
+                "side": "BOTH"
+              },
+              {
+                "modId": "create",
+                "type": "required",
+                "versionRange": "[6.0.10,)",
+                "ordering": "NONE",
+                "side": "BOTH"
+              },
+              {
+                "modId": "flywheel",
+                "type": "required",
+                "versionRange": "[1.0.6,)",
+                "ordering": "NONE",
+                "side": "CLIENT"
+              },
+              {
+                "modId": "sable",
+                "type": "required",
+                "versionRange": "[2.0.0,)",
+                "ordering": "NONE",
+                "side": "BOTH"
+              }
+            ]
+          },
+          "license": "MIT",
+          "loaderVersion": "[4,)"
+        }
+      ],
+      "mixins": {
+        "simulatedcoasters.mixins.json": {
+          "required": true,
+          "minVersion": "0.8",
+          "package": "dev.silvergold.simulatedcoasters.mixin",
+          "compatibilityLevel": "JAVA_21",
+          "mixins": [
+            "BlockPlaceContextRivetCollisionMixin",
+            "BlockItemRivetCollisionMixin",
+            "TrackPlacementTryConnectCoasterMixin",
+            "TrackPlacementInfoCoasterAccessor",
+            "BezierConnectionGetBoundsCoasterMixin",
+            "BezierConnectionRailGaugeBakeMixin",
+            "BezierConnectionSegmentAnglesCoasterMixin",
+            "BezierConnectionGetNormalDegenerateMixin",
+            "BezierConnectionBezieratorDegenerateMixin",
+            "BezierConnectionBezieratorIndependentHandlesMixin",
+            "BezierConnectionResolveCoasterMixin",
+            "BezierConnectionIndependentHandleRuntimeMixin",
+            "BezierConnectionGetHandleLengthCoasterMixin",
+            "BezierConnectionRasteriseCoasterMixin",
+            "BezierConnectionRuntimeMinSegmentsMixin",
+            "BezierConnectionBankSmoothMixin",
+            "BezierConnectionBezieratorBankSmoothMixin",
+            "BezierConnectionFaceNormalSlerpCoasterMixin",
+            "BezierConnectionBezieratorFaceNormalSlerpCoasterMixin",
+            "SubLevelAssemblyHelperCoasterMixin",
+            "LevelChunkRivetHostMixin",
+            "LevelChunkBalloonHostMixin",
+            "BlockRivetDropMixin",
+            "BlockBalloonDropMixin",
+            "ServerPlayerGameModeBalloonBuildMixin",
+            "SubLevelHelperCartLinkMixin",
+            "SubLevelTrackingSystemCartLinkMixin",
+            "SubLevelEntityCollisionCartLinkMixin",
+            "SubLevelEntityCollisionRivetBlockMixin",
+            "EntitySubLevelCollisionCartPostMixin",
+            "LivingEntitySeatedCartCollisionMixin",
+            "AssemblyTransformAccessor",
+            "GirderBlockCoasterAnchorMixin",
+            "RadialWrenchMenuSubmitAnchorMixin",
+            "RotationPropagatorChainLiftMixin",
+            "compat.MergingGlueBlockEntityRivetMixin"
+          ],
+          "client": [
+            "ponder.PonderLevelCoasterAccessor",
+            "ponder.SchematicLevelCoasterAccessor",
+            "ponder.PonderLevelCoasterInvoker",
+            "ponder.PonderSceneRegistryCoasterMixin",
+            "MinecraftPickBlockAnchorMixin",
+            "MinecraftPickBlockFakeTrackMixin",
+            "BigOutlinesCoasterMixin",
+            "ParticleEngineCoasterMixin",
+            "TrackBlockOutlineCoasterMixin",
+            "TrackPlacementClientTickCoasterMixin",
+            "MultiPlayerGameModeCoasterMixin",
+            "MultiPlayerGameModeFakeTrackUseMixin",
+            "MultiPlayerGameModeBalloonBuildMixin",
+            "BezierConnectionGetBoundsClientCoasterMixin",
+            "MinecraftCoasterCurvePickMixin",
+            "BlockRenderDispatcherCoasterMixin",
+            "CoasterAnchorpointBlockEntityClientMixin",
+            "SingleBlockSubLevelWrapperCoasterMixin",
+            "VanillaSingleSubLevelRenderDataCoasterMixin",
+            "MouseHandlerRivetFineRotationMixin"
+          ],
+          "server": []
+        }
+      }
+    },
+    {
+      "project": "Sable",
+      "slug": "sable",
+      "project_id": 1312371,
+      "file_id": 9043865,
+      "release_label": "2.0.6",
+      "published": "2026-10-03",
+      "channel": "release",
+      "project_url": "https://www.curseforge.com/minecraft/mc-mods/sable",
+      "release_url": "https://www.curseforge.com/minecraft/mc-mods/sable/files/9043865",
+      "download_url": "https://cursemaven.com/curse/maven/sable-1312371/9043865/sable-1312371-9043865.jar",
+      "local_path": "/home/braydon/Documents/Coasters: Fourth Dimension/build/integration-catalog/2026-11-02/sable-1312371-9043865.jar",
+      "bytes": 12986135,
+      "sha256": "9c199157843bf953a47dff625fc5bb41c01a90538d35ad18e6996bbcb8a617c2",
+      "embedded": [
+        {
+          "path": "sable-1312371-9043865.jar",
+          "sha256": "9c199157843bf953a47dff625fc5bb41c01a90538d35ad18e6996bbcb8a617c2",
+          "mods": [
+            {
+              "modId": "sable",
+              "version": "2.0.6",
+              "displayName": "Sable"
+            }
+          ],
+          "dependencies": {
+            "sable": [
+              {
+                "modId": "neoforge",
+                "type": "required",
+                "versionRange": "[21.1.228,)",
+                "ordering": "NONE",
+                "side": "BOTH"
+              },
+              {
+                "modId": "minecraft",
+                "type": "required",
+                "versionRange": "[1.21.1]",
+                "ordering": "NONE",
+                "side": "BOTH"
+              },
+              {
+                "modId": "flywheel",
+                "type": "optional",
+                "versionRange": "[1.0.6,)",
+                "ordering": "AFTER",
+                "side": "CLIENT"
+              },
+              {
+                "modId": "create",
+                "type": "optional",
+                "versionRange": "[6.0.10,6.1.0)",
+                "ordering": "AFTER",
+                "side": "CLIENT"
+              },
+              {
+                "modId": "sablecompanion",
+                "type": "incompatible",
+                "versionRange": "(1.6.0,)",
+                "reason": "Sable is out of date"
+              },
+              {
+                "modId": "sodium",
+                "type": "incompatible",
+                "versionRange": "(,0.8.12-alpha.2+mc1.21.1)",
+                "reason": "Sable supports Sodium 0.8.12-alpha.2+mc1.21.1 and above"
+              },
+              {
+                "modId": "scalablelux",
+                "type": "incompatible"
+              }
+            ]
+          },
+          "license": "PolyForm Shield License 1.0.0",
+          "loaderVersion": "[4,)"
+        },
+        {
+          "path": "sable-1312371-9043865.jar!/META-INF/jarjar/sable-companion-common-1.21.1-1.6.0.jar",
+          "sha256": "873633e35046e3761b277ff8a1ecad0d55d9a3014fa81a0b084c9aecba1f3bed",
+          "mods": [
+            {
+              "modId": "sablecompanion",
+              "version": "1.6.0",
+              "displayName": "Sable Companion"
+            }
+          ],
+          "dependencies": {
+            "sablecompanion": [
+              {
+                "modId": "neoforge",
+                "type": "required",
+                "versionRange": "[21.1.80,)",
+                "ordering": "NONE",
+                "side": "BOTH"
+              },
+              {
+                "modId": "minecraft",
+                "type": "required",
+                "versionRange": "[1.21.1,)",
+                "ordering": "NONE",
+                "side": "BOTH"
+              }
+            ]
+          },
+          "license": "MIT",
+          "loaderVersion": "[4,)"
+        },
+        {
+          "path": "sable-1312371-9043865.jar!/META-INF/jarjar/veil-neoforge-1.21.1-4.3.2.jar",
+          "sha256": "774b83887d882dc47cd4d29d140cef0c8677747a6fe7799649f490926a4e0265",
+          "mods": [
+            {
+              "modId": "veil",
+              "version": "4.3.2",
+              "displayName": "Veil"
+            }
+          ],
+          "dependencies": {
+            "veil": [
+              {
+                "modId": "neoforge",
+                "versionRange": "[21.1.1,)"
+              },
+              {
+                "modId": "minecraft",
+                "versionRange": "[1.21.1,1.21.3]"
+              },
+              {
+                "modId": "rubidium",
+                "type": "incompatible",
+                "reason": "Veil supports Sodium 0.8.12-alpha.2+mc1.21.1 and above"
+              },
+              {
+                "modId": "embeddium",
+                "type": "incompatible",
+                "reason": "Veil supports Sodium 0.8.12-alpha.2+mc1.21.1 and above"
+              },
+              {
+                "modId": "celeritas",
+                "type": "incompatible",
+                "reason": "Veil supports Sodium 0.8.12-alpha.2+mc1.21.1 and above"
+              },
+              {
+                "modId": "sodium",
+                "type": "optional",
+                "versionRange": "[0.8.12-alpha.2+mc1.21.1,)",
+                "reason": "Veil supports Sodium 0.8.12-alpha.2+mc1.21.1 and above"
+              },
+              {
+                "modId": "imguimc",
+                "type": "optional",
+                "versionRange": "[1.1.0,2.0.0)",
+                "reason": "Veil supports imguimc 1.1.0 to 2.0.0"
+              }
+            ]
+          },
+          "license": "LGPLv3",
+          "loaderVersion": "[4,)"
+        }
+      ],
+      "mixins": {
+        "sable-neoforge.mixins.json": {
+          "required": true,
+          "package": "dev.ryanhcode.sable.neoforge.mixin",
+          "compatibilityLevel": "JAVA_21",
+          "minVersion": "0.8",
+          "mixinextras": {
+            "minVersion": "0.5.0"
+          },
+          "plugin": "dev.ryanhcode.sable.plugin.SableMixinPlugin",
+          "client": [
+            "block_entity_visible.LevelRendererMixin",
+            "block_outline_render.LevelRendererMixin",
+            "camera_rotation.CameraMixin",
+            "compatibility.create.behaviour_compatibility.harvester_block_entity.HarvesterRendererMixin",
+            "compatibility.create.belt.BeltRendererMixin",
+            "compatibility.create.big_outlines_interaction.BigOutlinesMixin",
+            "compatibility.create.blaze_burner.BlazeBurnerBlockEntityMixin",
+            "compatibility.create.contraptions.ContraptionControlsRendererMixin",
+            "compatibility.create.contraptions.ContraptionHandlerClientMixin",
+            "compatibility.create.contraptions.ContraptionVisualMixin",
+            "compatibility.create.contraptions.VisualizationEventHandlerMixin",
+            "compatibility.create.depot.DepotRendererMixin",
+            "compatibility.create.fluid_handling.PipeConnectionMixin",
+            "compatibility.create.frogports.ChainConveyorInteractionHandlerMixin",
+            "compatibility.create.frogports.ChainConveyorRidingHandlerMixin",
+            "compatibility.create.frogports.FrogportRendererMixin",
+            "compatibility.create.frogports.FrogportVisualMixin",
+            "compatibility.create.frogports.SmartBlockEntityRendererMixin",
+            "compatibility.create.particles.AirFlowParticleMixin",
+            "compatibility.create.particles.AirParticleMixin",
+            "compatibility.create.render_fixes.AABBOutlineMixin",
+            "compatibility.create.render_fixes.BeltRendererMixin",
+            "compatibility.create.render_fixes.BlockClusterOutlineMixin",
+            "compatibility.create.render_fixes.ChainConveyorRendererMixin",
+            "compatibility.create.render_fixes.ChasingAABBOutlineMixin",
+            "compatibility.create.render_fixes.ChasingAABBOutlinerMixin",
+            "compatibility.create.render_fixes.FilteringRendererMixin",
+            "compatibility.create.render_fixes.GhostBlockValueBoxMixin",
+            "compatibility.create.render_fixes.LineOutlineMixin",
+            "compatibility.create.render_fixes.LinkRendererMixin",
+            "compatibility.create.render_fixes.OutlineMixin",
+            "compatibility.create.render_fixes.PlacementClientMixin",
+            "compatibility.create.render_fixes.SafeBlockEntityRendererMixin",
+            "compatibility.create.render_fixes.ValueBoxMixin",
+            "compatibility.create.schematics.SchematicHandlerMixin",
+            "compatibility.create.schematics.SchematicRendererMixin",
+            "compatibility.create.schematics.SchematicTransformMixin",
+            "compatibility.create.stock_ticker.EntityHatsMixin",
+            "compatibility.create.tracks.TrackBlockOutlineMixin",
+            "compatibility.create.tracks.TrackTargetingClientMixin",
+            "compatibility.create.trains.CarriageContraptionVisualMixin",
+            "compatibility.create.wand_of_symmetry.SymmetryHandlerMixin",
+            "compatibility.flywheel.AbstractBlockEntityVisualMixin",
+            "compatibility.flywheel.BlockEntityStorageMixin",
+            "compatibility.flywheel.EmbeddedEnvironmentMixin",
+            "compatibility.flywheel.EngineImplMixin",
+            "compatibility.flywheel.EnvironmentStorageMixin",
+            "compatibility.flywheel.LightStorageAccessor",
+            "compatibility.flywheel.MatrixBufferMixin",
+            "compatibility.flywheel.RenderDispatcherImplMixin",
+            "compatibility.flywheel.ShaderSourcesMixin",
+            "compatibility.flywheel.VisualManagerImplMixin",
+            "compatibility.pmweather.RadarRendererMixin",
+            "compatibility.sodiumextras.EmbyToolsMixin",
+            "dynamic_directional_shading.SectionCompilerMixin",
+            "sound.MovingSoundInstanceDelegateMixin"
+          ],
+          "mixins": [
+            "compatibility.backpacks.BackpackPickupEventsMixin",
+            "compatibility.create.airflow.AirCurrentMixin",
+            "compatibility.create.airflow.FanProcessingTypeMixin",
+            "compatibility.create.basin_interactions.BasinBlockEntityMixin",
+            "compatibility.create.basin_interactions.BasinOperatingBlockEntityMixin",
+            "compatibility.create.behaviour_compatibility.BlockEntityBehaviourMixin",
+            "compatibility.create.behaviour_compatibility.block_breaking_behaviour.BlockBreakingMovementBehaviourMixin",
+            "compatibility.create.behaviour_compatibility.block_breaking_behaviour.SawMovementBehaviourMixin",
+            "compatibility.create.behaviour_compatibility.harvester_behaviour.HarvesterMovementBehaviourMixin",
+            "compatibility.create.behaviour_compatibility.harvester_block_entity.HarvesterBlockEntityMixin",
+            "compatibility.create.behaviour_compatibility.harvester_block_entity.HarvesterBlockEntityUsageMixin",
+            "compatibility.create.behaviour_compatibility.harvester_block_entity.HarvesterBlockMixin",
+            "compatibility.create.belt.BeltBlockEntityMixin",
+            "compatibility.create.belt.BeltBlockMixin",
+            "compatibility.create.belt.BeltMovementHandlerMixin",
+            "compatibility.create.big_outlines_interaction.BigOutlinesMixin",
+            "compatibility.create.block_breakers.BlockBreakingKineticBlockEntityDamageMixin",
+            "compatibility.create.block_breakers.BlockBreakingKineticBlockEntityMixin",
+            "compatibility.create.blueprint.BlueprintEntityMixin",
+            "compatibility.create.chain_conveyor.ChainConveyorBlockEntityMixin",
+            "compatibility.create.chain_conveyor.ChainConveyorBlockMixin",
+            "compatibility.create.contraptions.AbstractContraptionEntityMixin",
+            "compatibility.create.contraptions.ContraptionColliderMixin",
+            "compatibility.create.contraptions.Matrix3dAccessor",
+            "compatibility.create.crushing_wheel.CrushingWheelBlockMixin",
+            "compatibility.create.crushing_wheel_entity_processing.CrushingWheelControllerBlockEntityMixin",
+            "compatibility.create.deployer.DeployerBlockEntityMixin",
+            "compatibility.create.display_link.ClickToLinkBlockItemMixin",
+            "compatibility.create.display_link.DisplayLinkBlockEntityMixin",
+            "compatibility.create.display_link.DisplayLinkBlockMixin",
+            "compatibility.create.ejector.EjectorBlockEntityMixin",
+            "compatibility.create.ejector.EjectorBlockMixin",
+            "compatibility.create.elevator_controls.ElevatorControlsHandlerMixin",
+            "compatibility.create.entity_falls_on_block.BasinBlockMixin",
+            "compatibility.create.entity_falls_on_block.BeltMillstoneBlocksMixin",
+            "compatibility.create.entity_falls_on_block.SawBlockMixin",
+            "compatibility.create.entity_falls_on_block.SeatBlockMixin",
+            "compatibility.create.factory_panel.FactoryPanelConnectionHandlerMixin",
+            "compatibility.create.fans_provide_force.EncasedFanBlockEntityMixin",
+            "compatibility.create.fluid_handling.OpenEndedPipeMixin",
+            "compatibility.create.fluid_tank_heating.BoilerDataMixin",
+            "compatibility.create.flywheel.FlywheelBlockEntityMixin",
+            "compatibility.create.frogports.ChainConveyorBlockEntityMixin",
+            "compatibility.create.frogports.ChainConveyorShapeAccessor",
+            "compatibility.create.frogports.ChainPackageInteractionHandlerMixin",
+            "compatibility.create.frogports.ChainPackageInteractionPacketMixin",
+            "compatibility.create.frogports.FrogportBlockEntityMixin",
+            "compatibility.create.frogports.FrogportBlockMixin",
+            "compatibility.create.frogports.PackagePortPlacementPacketMixin",
+            "compatibility.create.frogports.PackagePortTargetMixin",
+            "compatibility.create.frogports.PackagePortTargetSelectionHandlerMixin",
+            "compatibility.create.funnels.FunnelBlockMixin",
+            "compatibility.create.hose_pulley.HosePulleyBlockEntityMixin",
+            "compatibility.create.hose_pulley.HosePulleyFluidHandlerMixin",
+            "compatibility.create.impact.AbstractBellBlockAccessor",
+            "compatibility.create.impact.AbstractBellBlockMixin",
+            "compatibility.create.inventory_manipulation.CapManipulationBehaviourBaseMixin",
+            "compatibility.create.inventory_manipulation.ChuteBlockEntityMixin",
+            "compatibility.create.lectern_controller.LecternControllerBlockEntityMixin",
+            "compatibility.create.lectern_controller.LecternControllerBlockMixin",
+            "compatibility.create.mechnical_arm.MechanicalArmBlockEntity",
+            "compatibility.create.mechnical_arm.MechanicalArmSublevelFailure",
+            "compatibility.create.nozzle.NozzleBlockEntityAccessor",
+            "compatibility.create.nozzle.block_entity.NozzleBEFixesMixin",
+            "compatibility.create.nozzle.block_entity.NozzleHoveringMixin",
+            "compatibility.create.nozzle.block_entity.ValidNozzledirectionMixin",
+            "compatibility.create.raycast.RaycastHelperMixin",
+            "compatibility.create.redstone_contacts.AllBlockEntityTypesMixin",
+            "compatibility.create.redstone_contacts.RedstoneContactBlockMixin",
+            "compatibility.create.redstone_links.RedstoneLinkNetworkHandlerMixin",
+            "compatibility.create.sails_providing_lift.SailBlockMixin",
+            "compatibility.create.saw.SawBlockEntityMixin",
+            "compatibility.create.schematics.DeployToolMixin",
+            "compatibility.create.schematics.SchematicAndQuillHandlerMixin",
+            "compatibility.create.schematics.SchematicExportMixin",
+            "compatibility.create.schematics.SchematicLevelMixin",
+            "compatibility.create.schematics.SchematicPlacePacketMixin",
+            "compatibility.create.schematics.SchematicPrinterMixin",
+            "compatibility.create.schematics.SchematicToolBaseMixin",
+            "compatibility.create.schematics.StructureTemplateMixin",
+            "compatibility.create.sticker.ContraptionMixin",
+            "compatibility.create.sticker.StickerBlockEntityMixin",
+            "compatibility.create.sticker.StickerBlockMixin",
+            "compatibility.create.stock_ticker.StockTickerInteractionHandlerMixin",
+            "compatibility.create.super_glue.LevelAccessor",
+            "compatibility.create.super_glue.SuperGlueEntityMixin",
+            "compatibility.create.super_glue.SuperGlueRemovalPacketMixin",
+            "compatibility.create.super_glue.SuperGlueSelectionHandlerMixin",
+            "compatibility.create.toolbox.ToolBoxClientHandlerMixin",
+            "compatibility.create.toolbox.ToolboxHandlerMixin",
+            "compatibility.create.tracks.CurvedTrackDestroyPacketMixin",
+            "compatibility.create.tracks.TrackBlockItemMixin",
+            "compatibility.create.tracks.TrackBlockMixin",
+            "compatibility.create.tracks.TrackGraphVisualizerMixin",
+            "compatibility.create.tracks.TrackPlacementMixin",
+            "compatibility.create.turntable.TurntableBlockMixin",
+            "compatibility.create.vertical_gearbox.VerticalGearboxItemMixin",
+            "compatibility.create.zapper.ZapperItemMixin",
+            "compatibility.pmweather.AnemometerBlockEntityMixin",
+            "compatibility.pmweather.AnemometerBlockMixin",
+            "compatibility.pmweather.PMWeatherMixin",
+            "entities_stick_sublevels.effects.LivingEntityMixin",
+            "entity.entity_swimming.EntityMixin"
+          ],
+          "injectors": {
+            "defaultRequire": 1
+          }
+        },
+        "sable.mixins.json": {
+          "required": true,
+          "package": "dev.ryanhcode.sable.mixin",
+          "compatibilityLevel": "JAVA_21",
+          "minVersion": "0.8",
+          "plugin": "dev.ryanhcode.sable.plugin.SableMixinPlugin",
+          "client": [
+            "block_decal_render.LevelRendererMixin",
+            "camera.camera_rotation.CompassItemPropertyFunctionMixin",
+            "camera.camera_rotation.EntityMixin",
+            "camera.camera_rotation.GuiMixin",
+            "camera.camera_zoom.CameraMixin",
+            "camera.camera_zoom.MouseHandlerMixin",
+            "camera.new_camera_types.CameraTypeMixin",
+            "camera.new_camera_types.GameRendererMixin",
+            "camera.new_camera_types.MinecraftMixin",
+            "clip_overwrite.ClientLevelMixin",
+            "clip_overwrite.GameRendererMixin",
+            "command.ClientSuggestionProviderMixin",
+            "compatibility.iris.ExtendedShaderMixin",
+            "compatibility.shouldersurfing.ObjectPickerMixin",
+            "conduit.ConduitRendererMixin",
+            "config.GameRendererAccessor",
+            "debug_render.DebugRendererMixin",
+            "debug_render.DebugScreenOverlayMixin",
+            "debug_render.LevelRendererMixin",
+            "dynamic_directional_shading.AmbientOcclusionFaceMixin",
+            "dynamic_directional_shading.ModelBlockRendererCacheMixin",
+            "dynamic_directional_shading.ModelBlockRendererMixin",
+            "entity.entities_stick_sublevels.ClientPacketListenerMixin",
+            "entity.entities_stick_sublevels.EntityRenderDispatcherMixin",
+            "entity.entities_stick_sublevels.effects.LocalPlayerMixin",
+            "entity.entities_stick_sublevels.player.LocalPlayerMixin",
+            "entity.entities_stick_sublevels.player.RemotePlayerMixin",
+            "entity.entities_turn_with_sub_levels.GameRendererMixin",
+            "entity.entity_aabb_lookup.ClientLevelMixin",
+            "entity.entity_leashing.EntityRendererMixin",
+            "entity.entity_rendering.EntityRendererMixin",
+            "entity.entity_rendering.LevelRendererMixin",
+            "entity.entity_rendering.shadows.EntityRenderDispatcherMixin",
+            "entity.entity_rotations_and_riding.ClientPacketListenerMixin",
+            "entity.entity_rotations_and_riding.EntityRenderDispatcherMixin",
+            "entity.entity_rotations_and_riding.EntityRendererMixin",
+            "entity.entity_rotations_and_riding.LocalPlayerMixin",
+            "entity.entity_sublevel_collision.CameraMixin",
+            "entity.entity_swimming.CameraMixin",
+            "entity.parrot.ParrotMixin",
+            "loaded_chunk_debug.BlockUpdatePacketMixin",
+            "loaded_chunk_debug.ChunkBorderRendererMixin",
+            "loaded_chunk_debug.ClientChunkCacheStorageAccessor",
+            "loaded_chunk_debug.LevelChunkMixin",
+            "options.OptionsScreenMixin",
+            "particle.BlockMarkerMixin",
+            "particle.ClientLevelMixin",
+            "particle.FlameParticleMixin",
+            "particle.LevelRendererMixin",
+            "particle.ParticleEngineMixin",
+            "particle.ParticleMixin",
+            "particle.SuspendedParticleMixin",
+            "particle.TerrainParticleMixin",
+            "player_freezing.LocalPlayerMixin",
+            "player_standup.PlayerMixin",
+            "plot.ClientChunkCacheMixin",
+            "plot.MinecraftMixin",
+            "plot.container.ClientLevelMixin",
+            "plot.lighting.ClientPacketListenerMixin",
+            "plot.lighting.RenderChunkRegionMixin",
+            "punching.MinecraftMixin",
+            "punching.MultiPlayerGameModeMixin",
+            "respawn_point.sleeping.LivingEntityRendererMixin",
+            "sky_light_shadow.LevelRendererMixin",
+            "stop_rain.LevelRenderMixin",
+            "sublevel_render.BlockEntityRenderDispatcherMixin",
+            "sublevel_render.LevelRendererMixin",
+            "sublevel_render.RenderSectionAccessor",
+            "sublevel_render.RenderSectionMixin",
+            "sublevel_render.block_entity_render.LevelRendererMixin",
+            "sublevel_render.fancy.ProgramMixin",
+            "sublevel_render.impl.sodium.LevelRendererMixin",
+            "sublevel_render.impl.sodium.SodiumWorldRendererMixin",
+            "sublevel_render.impl.vanilla.LevelRendererMixin",
+            "sublevel_render.impl.vanilla.ViewAreaMixin",
+            "sublevel_render.impl.vanilla.water_occlusion.LevelRendererMixin",
+            "sublevel_sounds.AbstractSoundInstanceMixin",
+            "sublevel_sounds.ChannelAccessor",
+            "sublevel_sounds.ClientLevelMixin",
+            "sublevel_sounds.SoundEngineMixin",
+            "toast.IntegratedServerMixin",
+            "water_occlusion.CameraMixin",
+            "water_occlusion.ClientLevelMixin",
+            "water_occlusion.FogRendererMixin",
+            "water_occlusion.GameRendererMixin"
+          ],
+          "mixins": [
+            "assembly.AbstractFurnaceBlockEntityMixin",
+            "block_decal_render.ServerLevelMixin",
+            "block_placement.BlockPlaceContextMixin",
+            "block_placement.EntityGetterMixin",
+            "block_placement.UseOnContextMixin",
+            "block_properties.BlockStateMixin",
+            "chunk_container_replacement.LevelChunkSectionMixin",
+            "climbing_sub_levels.LivingEntityMixin",
+            "clip_overwrite.BlockGetterMixin",
+            "clip_overwrite.ClipContextMixin",
+            "clip_overwrite.EntityMixin",
+            "clip_overwrite.HitResultMixin",
+            "command.ArgumentTypeInfosMixin",
+            "command.DataCommandsMixin",
+            "command.ExecuteCommandMixin",
+            "compatibility.computercraft.WirelessNetworkMixin",
+            "compatibility.etched.StopListeningSoundMixin",
+            "compatibility.exposure.CameraPosesMixin",
+            "compatibility.exposure.CameraStandEntityMixin",
+            "compatibility.jade.BlockAccessorImplMixin",
+            "compatibility.jade.RayTracingMixin",
+            "compatibility.jadeaddons.CreatePluginMixin",
+            "compatibility.shouldersurfing.EntityHelperMixin",
+            "compatibility.shouldersurfing.PerspectiveMixin",
+            "compatibility.shouldersurfing.ShoulderSurfingCameraMixin",
+            "compatibility.shouldersurfing.ShoulderSurfingImplMixin",
+            "compatibility.vista.LODMixin",
+            "compatibility.vista.ViewFinderAccessMixin",
+            "compatibility.vista.ViewFinderControllerMixin",
+            "conduit.ConduitBlockEntityMixin",
+            "death_message.CombatTrackerMixin",
+            "death_message.EntityMixin",
+            "enchanting_table.EnchantingTableBlockEntityMixin",
+            "entity.arrows_hit_blocks.AbstractArrowMixin",
+            "entity.entities_in_blocks.EntityMixin",
+            "entity.entities_stick_sublevels.EntityMixin",
+            "entity.entities_stick_sublevels.LivingEntityMixin",
+            "entity.entities_stick_sublevels.ServerEntityMixin",
+            "entity.entities_stick_sublevels.effects.EntityMixin",
+            "entity.entities_stick_sublevels.effects.LivingEntityMixin",
+            "entity.entities_stick_sublevels.packet_mixin.ClientboundMoveEntityPacketPosMixin",
+            "entity.entities_stick_sublevels.packet_mixin.ClientboundMoveEntityPacketPosRotMixin",
+            "entity.entities_stick_sublevels.packet_mixin.ClientboundTeleportEntityPacketMixin",
+            "entity.entities_stick_sublevels.player.ServerboundMovePlayerPacketMixin",
+            "entity.entities_stick_sublevels.player.ServerGamePacketListenerImplMixin",
+            "entity.entities_stick_sublevels.player.ServerPlayerMixin",
+            "entity.entity_aabb_lookup.ServerLevelMixin",
+            "entity.entity_ai.EatBlockGoalMixin",
+            "entity.entity_collision.CollisionContextMixin",
+            "entity.entity_collision.EntityMixin",
+            "entity.entity_interaction.ProjectileUtilMixin",
+            "entity.entity_kicking.BlockMixin",
+            "entity.entity_kicking.ServerLevelMixin",
+            "entity.entity_leashing.LeashableMixin",
+            "entity.entity_pathfinding.FlyNodeEvaluatorMixin",
+            "entity.entity_pathfinding.GroundPathNavigationMixin",
+            "entity.entity_pathfinding.PathfindingContextMixin",
+            "entity.entity_pathfinding.PathMixin",
+            "entity.entity_pathfinding.PathNavigationMixin",
+            "entity.entity_pathfinding.RandomPosMixin",
+            "entity.entity_pathfinding.WalkNodeEvaluatorMixin",
+            "entity.entity_rotations_and_riding.BlockMixin",
+            "entity.entity_rotations_and_riding.EntityMixin",
+            "entity.entity_rotations_and_riding.EntityTypeMixin",
+            "entity.entity_rotations_and_riding.LivingEntityMixin",
+            "entity.entity_rotations_and_riding.PlayerMixin",
+            "entity.entity_rotations_and_riding.ServerEntityMixin",
+            "entity.entity_rotations_and_riding.ServerPlayerMixin",
+            "entity.entity_sublevel_collision.AbstractMinecartMixin",
+            "entity.entity_sublevel_collision.EntityMixin",
+            "entity.entity_sublevel_collision.ItemEntityMixin",
+            "entity.entity_sublevel_collision.LevelMixin",
+            "entity.entity_sublevel_collision.LivingEntityMixin",
+            "entity.entity_sublevel_collision.PlayerMixin",
+            "entity.entity_sublevel_collision.ServerGamePacketListenerImplMixin",
+            "entity.entity_tracking.TrackedEntityMixin",
+            "entity.entity_unloading.PersistentEntitySectionManagerMixin",
+            "entity.falling_block.FallingBlockEntityMixin",
+            "entity.projectile.ProjectileMixin",
+            "entity.server_entities_tick.ChunkMapMixin",
+            "entity.server_entities_tick.ServerLevelMixin",
+            "entity.sublevels_block_sky.SubLevelsBlockSkyMixin",
+            "entity.tamed_teleport.TamableAnimalMixin",
+            "entity.teleport_players.ServerPlayerMixin",
+            "entity.tnt_jumps.PrimedTntMixin",
+            "entity.trident.ThrownTridentMixin",
+            "explosion.ExplosionMixin",
+            "explosion.ServerLevelMixin",
+            "extension.EntityMixin",
+            "fluids_on_sub_levels.FlowingFluidMixin",
+            "game_test.GameTestInfoMixin",
+            "game_test.StructureUtilsMixin",
+            "game_test.TestCommandMixin",
+            "impact.BeehiveBlockMixin",
+            "impact.BellBlockMixin",
+            "impact.TntBlockMixin",
+            "interaction_distance.EntityMixin",
+            "interaction_distance.PlayerMixin",
+            "level_accelerator.ServerChunkCacheAccessor",
+            "particle.ServerLevelMixin",
+            "physics.ServerLevelMixin",
+            "player_freezing.PlayerListMixin",
+            "player_freezing.PlayerMixin",
+            "player_freezing.ServerPlayerMixin",
+            "plot.ChunkMapMixin",
+            "plot.LevelChunkMixin",
+            "plot.PlayerListMixin",
+            "plot.ServerChunkCacheMixin",
+            "plot.ServerLevelMixin",
+            "plot.container.ServerLevelMixin",
+            "plot.lighting.BlockAndTintGetterMixin",
+            "plot.lighting.LevelChunkMixin",
+            "plot.serialization.ChunkMapMixin",
+            "plot.serialization.LevelChunkTicksMixin",
+            "portal.EntityMixin",
+            "portal.NetherPortalBlockMixin",
+            "prevent_freezing.BiomeMixin",
+            "prevent_overgrowth.VineBlockMixin",
+            "punching.ItemInvoker",
+            "recoil.ProjectileDispenseBehaviorMixin",
+            "respawn_point.ServerPlayerMixin",
+            "respawn_point.sleeping.LivingEntityMixin",
+            "respawn_point.sleeping.ServerPlayerMixin",
+            "sculk_vibrations.EuclideanGameEventListenerRegistryMixin",
+            "sculk_vibrations.GameEventDispatcherMixin",
+            "sculk_vibrations.VibrationSystemListenerMixin",
+            "sculk_vibrations.VibrationSystemTickerMixin",
+            "sign_interaction.SignBlockEntityMixin",
+            "stop_lightning.ServerLevelMixin",
+            "tracking_points.EntityMixin",
+            "tracking_points.ServerPlayerMixin",
+            "udp.ConnectionMixin",
+            "udp.MinecraftServerMixin",
+            "udp.PlayerListMixin",
+            "udp.ServerConnectionListenerMixin",
+            "voxel_shape_iteration.BitSetDiscreteVoxelShapeAccessor",
+            "voxel_shape_iteration.DiscreteVoxelShapeAccessor",
+            "voxel_shape_iteration.VoxelShapeMixin",
+            "water_occlusion.EntityMixin",
+            "water_occlusion.ServerLevelMixin",
+            "water_occlusion.WaterFluidMixin",
+            "world_border.LevelMixin",
+            "world_border.WorldBorderMixin"
+          ],
+          "injectors": {
+            "defaultRequire": 1
+          }
+        }
+      }
+    },
+    {
+      "project": "Coasters: Engineered",
+      "slug": "coasters-engineered",
+      "project_id": 1643631,
+      "file_id": 8863559,
+      "release_label": "1.1.1",
+      "published": "2026-09-12",
+      "channel": "release",
+      "project_url": "https://www.curseforge.com/minecraft/mc-mods/coasters-engineered",
+      "release_url": "https://www.curseforge.com/minecraft/mc-mods/coasters-engineered/files/8863559",
+      "download_url": "https://cursemaven.com/curse/maven/coasters-engineered-1643631/8863559/coasters-engineered-1643631-8863559.jar",
+      "local_path": "/home/braydon/Documents/Coasters: Fourth Dimension/build/integration-catalog/2026-11-02/coasters-engineered-1643631-8863559.jar",
+      "bytes": 539658,
+      "sha256": "eea19ed769ed573727b4e15184c229f66aff85f20667464650724e1b2d657f5d",
+      "embedded": [
+        {
+          "path": "coasters-engineered-1643631-8863559.jar",
+          "sha256": "eea19ed769ed573727b4e15184c229f66aff85f20667464650724e1b2d657f5d",
+          "mods": [
+            {
+              "modId": "coastersengineered",
+              "version": "1.1.1",
+              "displayName": "Coasters: Engineered"
+            }
+          ],
+          "dependencies": {
+            "coastersengineered": [
+              {
+                "modId": "neoforge",
+                "type": "required",
+                "versionRange": "[21.1.228,)",
+                "ordering": "NONE",
+                "side": "BOTH"
+              },
+              {
+                "modId": "minecraft",
+                "type": "required",
+                "versionRange": "[1.21.1]",
+                "ordering": "NONE",
+                "side": "BOTH"
+              },
+              {
+                "modId": "create",
+                "type": "required",
+                "versionRange": "[6.0.10,)",
+                "ordering": "AFTER",
+                "side": "BOTH"
+              },
+              {
+                "modId": "simulatedcoasters",
+                "type": "required",
+                "versionRange": "[0.1.4,)",
+                "ordering": "AFTER",
+                "side": "BOTH"
+              }
+            ]
+          },
+          "license": "MIT",
+          "loaderVersion": "[4,)"
+        }
+      ],
+      "mixins": {
+        "coastersengineered.mixins.json": {
+          "required": true,
+          "minVersion": "0.8",
+          "package": "dev.jwaterfall.coastersengineered.mixin",
+          "compatibilityLevel": "JAVA_21",
+          "mixins": [
+            "CoasterAnchorpointBlockEntityMixin",
+            "CoasterCartChainLiftDriveMixin",
+            "ChainLiftSpanOverlapMixin",
+            "ChainLiftCommitPayloadMixin"
+          ],
+          "client": [
+            "client.AnchorPeerTrackCurveVisualAccessor",
+            "client.AbstractVisualInvoker",
+            "client.HoveredCoasterCurveMixin",
+            "client.BezierHandleEditModeMixin",
+            "client.ChainLiftAnchorOutlineClientMixin"
+          ],
+          "server": []
+        }
+      }
+    },
+    {
+      "project": "Coasters Simulated: Track Styles",
+      "slug": "coasters-simulated-track-styles",
+      "project_id": 1642719,
+      "file_id": 9020601,
+      "release_label": "1.2.0",
+      "published": "2026-09-30",
+      "channel": "release",
+      "project_url": "https://www.curseforge.com/minecraft/mc-mods/coasters-simulated-track-styles",
+      "release_url": "https://www.curseforge.com/minecraft/mc-mods/coasters-simulated-track-styles/files/9020601",
+      "download_url": "https://cursemaven.com/curse/maven/coasters-simulated-track-styles-1642719/9020601/coasters-simulated-track-styles-1642719-9020601.jar",
+      "local_path": "/home/braydon/Documents/Coasters: Fourth Dimension/build/integration-catalog/2026-11-02/coasters-simulated-track-styles-1642719-9020601.jar",
+      "bytes": 1056916,
+      "sha256": "42535a83307f6898b33c13ca201533bb9e337418fd7c73039c867fc80bfbcb38",
+      "embedded": [
+        {
+          "path": "coasters-simulated-track-styles-1642719-9020601.jar",
+          "sha256": "42535a83307f6898b33c13ca201533bb9e337418fd7c73039c867fc80bfbcb38",
+          "mods": [
+            {
+              "modId": "coasterssimulatedextratypes",
+              "version": "1.2.0",
+              "displayName": "Coasters Simulated: Track Styles"
+            }
+          ],
+          "dependencies": {
+            "coasterssimulatedextratypes": [
+              {
+                "modId": "neoforge",
+                "type": "required",
+                "versionRange": "[21.1.234,)",
+                "ordering": "NONE",
+                "side": "BOTH"
+              },
+              {
+                "modId": "minecraft",
+                "type": "required",
+                "versionRange": "[1.21.1]",
+                "ordering": "NONE",
+                "side": "BOTH"
+              }
+            ]
+          },
+          "license": "All Rights Reserved",
+          "loaderVersion": "[1,)"
+        }
+      ],
+      "mixins": {
+        "coasterssimulatedextratypes.mixins.json": {
+          "required": true,
+          "minVersion": "0.8",
+          "package": "top.claebcode.coasterssimulatedextratypes.mixin",
+          "compatibilityLevel": "JAVA_21",
+          "mixins": [
+            "AnchorPeerTrackCurveVisualMixin",
+            "CoasterAnchorPointBlockEntityMixin",
+            "BlockEntityLoadMixin",
+            "CoasterTrackAnchorGirderModelMixin",
+            "CoasterAnchorpointModelDataMixin",
+            "CoasterAnchorpointMixin"
+          ],
+          "client": [],
+          "injectors": {
+            "defaultRequire": 1
+          }
+        }
+      }
+    },
+    {
+      "project": "Create: Coasters Simulated Additions",
+      "slug": "create-coasters-simulated-additions",
+      "project_id": 1661497,
+      "file_id": 9243346,
+      "release_label": "0.2.5",
+      "published": "2026-10-18",
+      "channel": "beta",
+      "project_url": "https://www.curseforge.com/minecraft/mc-mods/create-coasters-simulated-additions",
+      "release_url": "https://www.curseforge.com/minecraft/mc-mods/create-coasters-simulated-additions/files/9243346",
+      "download_url": "https://cursemaven.com/curse/maven/create-coasters-simulated-additions-1661497/9243346/create-coasters-simulated-additions-1661497-9243346.jar",
+      "local_path": "/home/braydon/Documents/Coasters: Fourth Dimension/build/integration-catalog/2026-11-02/create-coasters-simulated-additions-1661497-9243346.jar",
+      "bytes": 1942991,
+      "sha256": "f73473e2347823d45f2c524f059ac4b624864ebdb4dce90e29021e5b42af9d5c",
+      "embedded": [
+        {
+          "path": "create-coasters-simulated-additions-1661497-9243346.jar",
+          "sha256": "f73473e2347823d45f2c524f059ac4b624864ebdb4dce90e29021e5b42af9d5c",
+          "mods": [
+            {
+              "modId": "coasterfins",
+              "version": "0.2.2",
+              "displayName": "Create: Coasters Simulated Additions"
+            }
+          ],
+          "dependencies": {
+            "coasterfins": [
+              {
+                "modId": "neoforge",
+                "type": "required",
+                "versionRange": "[21.1.0,)",
+                "ordering": "NONE",
+                "side": "BOTH"
+              },
+              {
+                "modId": "minecraft",
+                "type": "required",
+                "versionRange": "[1.21.1,1.22)",
+                "ordering": "NONE",
+                "side": "BOTH"
+              },
+              {
+                "modId": "create",
+                "type": "required",
+                "versionRange": "[6.0.10,)",
+                "ordering": "AFTER",
+                "side": "BOTH"
+              },
+              {
+                "modId": "simulated",
+                "type": "required",
+                "versionRange": "[1.3.0,)",
+                "ordering": "AFTER",
+                "side": "BOTH"
+              },
+              {
+                "modId": "sable",
+                "type": "required",
+                "versionRange": "[2.0.0,)",
+                "ordering": "AFTER",
+                "side": "BOTH"
+              },
+              {
+                "modId": "simulatedcoasters",
+                "type": "required",
+                "versionRange": "[0.1.3,)",
+                "ordering": "AFTER",
+                "side": "BOTH"
+              },
+              {
+                "modId": "interiors",
+                "type": "required",
+                "versionRange": "[0.6,)",
+                "ordering": "AFTER",
+                "side": "BOTH"
+              }
+            ]
+          },
+          "license": "All Rights Reserved",
+          "loaderVersion": "[4,)"
+        }
+      ],
+      "mixins": {
+        "coasterfins.mixins.json": {
+          "required": true,
+          "minVersion": "0.8",
+          "package": "dev.plushivr.coasterfins.mixin",
+          "compatibilityLevel": "JAVA_21",
+          "mixins": [
+            "CoasterAnchorBezierOptimizerMixin",
+            "CoasterAnchorpointBlockEntityMixin",
+            "CoasterAnchorpointBlockMixin",
+            "CoasterAnchorSpanMixin",
+            "CoasterBezierHandleEditMixin",
+            "CoasterCartChainLiftDriveMixin",
+            "CoasterCartTrackSnapMixin",
+            "CoasterPeerCurveHandleLengthsMixin",
+            "CoasterTrackGaugeMixin",
+            "CoasterTrackPlacementMixin",
+            "CreativeModeTabMixin",
+            "PlayerDismountMixin",
+            "RivetAssemblyMixin",
+            "RivetBlockEntityMixin",
+            "RivetBlockMixin",
+            "RivetDropMixin",
+            "RivetHostIndexMixin",
+            "RivetLoadReconcilerMixin",
+            "RivetPlacementMixin",
+            "RivetPlacePayloadMixin",
+            "RivetRemovalMixin",
+            "SeatEntityMixin"
+          ],
+          "client": [
+            "AbstractContainerScreenAccessor",
+            "ChainLiftDriveDirectionMixin",
+            "ChainLiftSpanRendererMixin",
+            "CreativeModeInventoryScreenMixin",
+            "RivetPlacementOutlineClientMixin",
+            "VanillaSingleSubLevelRenderDataMixin"
+          ],
+          "injectors": {
+            "defaultRequire": 1
+          }
+        }
+      },
+      "runtime_fingerprint": {
+        "dev/plushivr/coasterfins/event/StationHandler.class": "93a3d998db292b5deff1c4f1121602bb75e23bc5a44dda2fa2054b8df8f0ea1a",
+        "dev/plushivr/coasterfins/block/StationBlockEntity.class": "a5ea07845cc14c9621b754fa1ba213625f1732431927217ba2417f32d2c4281d",
+        "dev/plushivr/coasterfins/block/CoasterSeatBlock.class": "0ce0450e1d48242e52a5ebc6bb555bd1a70b720a4268fa2800c5875b2bce0bfd",
+        "dev/plushivr/coasterfins/event/SeatLockTicker.class": "93b8b128f5e8528c0268bf735ef09937d854fff74d90e2046dbab2ca2b66bb7b"
+      }
+    },
+    {
+      "project": "Coasters: Magnetized",
+      "slug": "coasters-magnetized",
+      "project_id": 1642979,
+      "file_id": 8668703,
+      "release_label": "1.1.0",
+      "published": "2026-08-17",
+      "channel": "release",
+      "project_url": "https://www.curseforge.com/minecraft/mc-mods/coasters-magnetized",
+      "release_url": "https://www.curseforge.com/minecraft/mc-mods/coasters-magnetized/files/8668703",
+      "download_url": "https://cursemaven.com/curse/maven/coasters-magnetized-1642979/8668703/coasters-magnetized-1642979-8668703.jar",
+      "local_path": "/home/braydon/Documents/Coasters: Fourth Dimension/build/integration-catalog/2026-11-02/coasters-magnetized-1642979-8668703.jar",
+      "bytes": 242057,
+      "sha256": "52314bdace976a41d7d0948d4505ef96561719616d50dfffddce33f8f014e32a",
+      "embedded": [
+        {
+          "path": "coasters-magnetized-1642979-8668703.jar",
+          "sha256": "52314bdace976a41d7d0948d4505ef96561719616d50dfffddce33f8f014e32a",
+          "mods": [
+            {
+              "modId": "coastersmagnetized",
+              "version": "1.1.0",
+              "displayName": "Coasters: Magnetized"
+            }
+          ],
+          "dependencies": {
+            "coastersmagnetized": [
+              {
+                "modId": "neoforge",
+                "type": "required",
+                "versionRange": "[21.1.231,)",
+                "ordering": "NONE",
+                "side": "BOTH"
+              },
+              {
+                "modId": "minecraft",
+                "type": "required",
+                "versionRange": "[1.21.1]",
+                "ordering": "NONE",
+                "side": "BOTH"
+              },
+              {
+                "modId": "simulatedcoasters",
+                "type": "required",
+                "versionRange": "[0.1.2,)",
+                "ordering": "AFTER",
+                "side": "BOTH"
+              },
+              {
+                "modId": "create",
+                "type": "required",
+                "versionRange": "[6.0.10,)",
+                "ordering": "AFTER",
+                "side": "BOTH"
+              },
+              {
+                "modId": "sable",
+                "type": "required",
+                "versionRange": "[2.0.0,)",
+                "ordering": "AFTER",
+                "side": "BOTH"
+              },
+              {
+                "modId": "flywheel",
+                "type": "required",
+                "versionRange": "[1.0.6,)",
+                "ordering": "AFTER",
+                "side": "CLIENT"
+              }
+            ]
+          },
+          "license": "MIT License",
+          "loaderVersion": "[1,)"
+        }
+      ],
+      "mixins": {
+        "coastersmagnetized.mixins.json": {
+          "required": true,
+          "minVersion": "0.8",
+          "package": "net.antopfr.coastersmagnetized.mixin",
+          "compatibilityLevel": "JAVA_21",
+          "mixins": [
+            "CoasterAnchorpointBehavioursMixin",
+            "CoasterAnchorpointRemovalMixin",
+            "CoasterCartMagnetDriveMixin"
+          ],
+          "client": [
+            "client.AnchorPeerTrackCurveVisualAccessor",
+            "client.BezierTrackVisualMixin",
+            "client.BlockRenderDispatcherMixin",
+            "client.CoasterTrackAnchorGirderModelMixin",
+            "client.CoasterTrackAnchorJunctionPlateMixin",
+            "client.CurveBerMaterialsMixin"
+          ],
+          "server": [],
+          "injectors": {
+            "defaultRequire": 1
+          }
+        }
+      }
+    },
+    {
+      "project": "Coasters: Immersion",
+      "slug": "coasters-immersion",
+      "project_id": 1672383,
+      "file_id": 9542588,
+      "release_label": "1.1.1",
+      "published": "2026-11-10",
+      "channel": "release",
+      "project_url": "https://www.curseforge.com/minecraft/mc-mods/coasters-immersion",
+      "release_url": "https://www.curseforge.com/minecraft/mc-mods/coasters-immersion/files/9542588",
+      "download_url": "https://cursemaven.com/curse/maven/coasters-immersion-1672383/9542588/coasters-immersion-1672383-9542588.jar",
+      "local_path": "/home/braydon/.local/state/fourthdimension-fd501-catalog-20261114/coasters-immersion-1672383-9542588.jar",
+      "bytes": 766580,
+      "sha256": "df3332b03763bee3f32206b6716ff3d6963869d944171bc743ad3c40c3353c8b",
+      "embedded": [
+        {
+          "path": "coasters-immersion-1672383-9542588.jar",
+          "sha256": "df3332b03763bee3f32206b6716ff3d6963869d944171bc743ad3c40c3353c8b",
+          "mods": [
+            {
+              "modId": "coasters_immersion",
+              "displayTest": "IGNORE_SERVER_VERSION",
+              "version": "1.1.1",
+              "displayName": "Coasters: Immersion"
+            }
+          ],
+          "dependencies": {
+            "coasters_immersion": [
+              {
+                "modId": "neoforge",
+                "type": "required",
+                "versionRange": "[21.1,)",
+                "ordering": "NONE",
+                "side": "BOTH"
+              },
+              {
+                "modId": "minecraft",
+                "type": "required",
+                "versionRange": "[1.21.1,1.22)",
+                "ordering": "NONE",
+                "side": "BOTH"
+              },
+              {
+                "modId": "create",
+                "type": "required",
+                "versionRange": "[6.0,)",
+                "ordering": "AFTER",
+                "side": "CLIENT"
+              },
+              {
+                "modId": "simulatedcoasters",
+                "type": "required",
+                "versionRange": "[0.1,)",
+                "ordering": "AFTER",
+                "side": "CLIENT"
+              },
+              {
+                "modId": "sable",
+                "type": "required",
+                "versionRange": "[2.0,)",
+                "ordering": "AFTER",
+                "side": "CLIENT"
+              },
+              {
+                "modId": "aeronautics",
+                "type": "optional",
+                "versionRange": "[1.3,)",
+                "ordering": "AFTER",
+                "side": "CLIENT"
+              },
+              {
+                "modId": "sodium",
+                "type": "optional",
+                "versionRange": "[0.8,)",
+                "ordering": "AFTER",
+                "side": "CLIENT"
+              }
+            ]
+          },
+          "license": "MIT",
+          "loaderVersion": "[4,)"
+        }
+      ],
+      "mixins": {
+        "coasters_immersion.irisflw.mixins.json": {
+          "required": false,
+          "minVersion": "0.8",
+          "package": "dev.mito.coastersimmersion.mixin.irisflw",
+          "compatibilityLevel": "JAVA_21",
+          "mixins": [],
+          "client": [
+            "IrisProgramLinkerMixin"
+          ],
+          "server": [],
+          "injectors": {
+            "defaultRequire": 0
+          }
+        },
+        "coasters_immersion.mixins.json": {
+          "required": true,
+          "minVersion": "0.8",
+          "package": "dev.mito.coastersimmersion.mixin",
+          "compatibilityLevel": "JAVA_21",
+          "mixins": [],
+          "client": [
+            "HumanoidModelMixin",
+            "ItemInHandRendererMixin",
+            "OptionsSubScreenAccessor",
+            "VideoSettingsScreenMixin",
+            "GameRendererMixin",
+            "CameraTravelMixin"
+          ],
+          "server": [],
+          "injectors": {
+            "defaultRequire": 1
+          }
+        },
+        "coasters_immersion.sable.mixins.json": {
+          "required": false,
+          "minVersion": "0.8",
+          "package": "dev.mito.coastersimmersion.mixin.sable",
+          "compatibilityLevel": "JAVA_21",
+          "mixins": [],
+          "client": [
+            "ClientSableInterpolationStateMixin",
+            "ClientSubLevelRenderPoseMixin",
+            "EntitySubLevelRotationHelperMixin",
+            "SubLevelSnapshotInterpolatorMixin",
+            "SubLevelRenderDistanceMixin"
+          ],
+          "server": [],
+          "injectors": {
+            "defaultRequire": 0
+          }
+        },
+        "coasters_immersion.simulatedcoasters.mixins.json": {
+          "required": false,
+          "minVersion": "0.8",
+          "package": "dev.mito.coastersimmersion.mixin.simulatedcoasters",
+          "compatibilityLevel": "JAVA_21",
+          "mixins": [
+            "BoundsCacheMixin",
+            "ParallelFrameCacheMixin"
+          ],
+          "injectors": {
+            "defaultRequire": 0
+          }
+        }
+      }
+    },
+    {
+      "project": "Create: Coaster Skin",
+      "slug": "create-coaster-skin",
+      "project_id": 1741580,
+      "file_id": 9409938,
+      "release_label": "1.1.0",
+      "published": "2026-11-02",
+      "channel": "release",
+      "project_url": "https://www.curseforge.com/minecraft/mc-mods/create-coaster-skin",
+      "release_url": "https://www.curseforge.com/minecraft/mc-mods/create-coaster-skin/files/9409938",
+      "download_url": "https://cursemaven.com/curse/maven/create-coaster-skin-1741580/9409938/create-coaster-skin-1741580-9409938.jar",
+      "local_path": "/home/braydon/.local/state/fourthdimension-fd501-catalog-20261114/create-coaster-skin-1741580-9409938.jar",
+      "bytes": 2063235,
+      "sha256": "13bea13f8ef894dd341c2b86e584d27120f0f0483385358cd772b8a158e698ea",
+      "embedded": [
+        {
+          "path": "create-coaster-skin-1741580-9409938.jar",
+          "sha256": "13bea13f8ef894dd341c2b86e584d27120f0f0483385358cd772b8a158e698ea",
+          "mods": [
+            {
+              "modId": "create_coaster_skins",
+              "version": "1.1.0",
+              "displayName": "Create: Coaster Skins"
+            }
+          ],
+          "dependencies": {
+            "create_coaster_skins": [
+              {
+                "modId": "neoforge",
+                "type": "required",
+                "versionRange": "[21.1.256,)",
+                "ordering": "NONE",
+                "side": "BOTH"
+              },
+              {
+                "modId": "minecraft",
+                "type": "required",
+                "versionRange": "[1.21.1]",
+                "ordering": "NONE",
+                "side": "BOTH"
+              },
+              {
+                "modId": "sable",
+                "type": "required",
+                "versionRange": "[2.0.6]",
+                "ordering": "NONE",
+                "side": "BOTH"
+              },
+              {
+                "modId": "simulatedcoasters",
+                "type": "required",
+                "versionRange": "[0.1.5]",
+                "ordering": "NONE",
+                "side": "BOTH"
+              },
+              {
+                "modId": "create",
+                "type": "required",
+                "versionRange": "[6.0.10]",
+                "ordering": "NONE",
+                "side": "BOTH"
+              }
+            ]
+          },
+          "license": "All Rights Reserved",
+          "loaderVersion": "[1,)"
+        }
+      ],
+      "mixins": {
+        "create_coaster_skins.integration.mixins.json": {
+          "required": true,
+          "minVersion": "0.8",
+          "package": "medev.coaster.skins.integration",
+          "compatibilityLevel": "JAVA_21",
+          "mixins": [
+            "LinkedCartSkinMixin",
+            "AlignmentRailGuideMixin"
+          ],
+          "injectors": {
+            "defaultRequire": 1
+          }
+        },
+        "create_coaster_skins.mixins.json": {
+          "required": true,
+          "minVersion": "0.8",
+          "package": "medev.coaster.skins.client.mixin",
+          "compatibilityLevel": "JAVA_21",
+          "client": [
+            "MinimalCartTopMixin",
+            "MinimalCartBottomMixin",
+            "MinimalCartWheelsMixin",
+            "LogAxeGlueMixin",
+            "SelectorBlurMixin",
+            "CartBearingMeshMixin",
+            "CartBearingTopologyMixin",
+            "WildSpinEyeMixin",
+            "WildSpinCameraMixin",
+            "AlignmentWrenchMixin",
+            "AlignmentShaftBodyMixin",
+            "WildSpinLocalPlayerViewMixin",
+            "ClassicSeatPassengersMixin",
+            "ClassicSeatBodyRenderMixin",
+            "SkyGlideArmsMixin",
+            "SkyGlideHandsMixin",
+            "SkyGlideHeldItemsMixin",
+            "SkyGlideShoulderPartMixin",
+            "SkyGlideShoulderCubeMixin"
+          ],
+          "injectors": {
+            "defaultRequire": 1
+          }
+        },
+        "create_coaster_skins.seat.mixins.json": {
+          "required": true,
+          "minVersion": "0.8",
+          "package": "medev.coaster.skins.seat.mixin",
+          "compatibilityLevel": "JAVA_21",
+          "mixins": [
+            "CreateSeatEntityMixin",
+            "ClassicSeatOrientationMixin",
+            "WildSpinPlayerViewMixin",
+            "ClassicSeatMountOrderMixin",
+            "ClassicSeatMountPacketMixin",
+            "ClassicSeatBodyMixin"
+          ],
+          "injectors": {
+            "defaultRequire": 1
+          }
+        },
+        "create_coaster_skins.ski.mixins.json": {
+          "required": true,
+          "minVersion": "0.8",
+          "package": "medev.coaster.skins.ski.mixin",
+          "compatibilityLevel": "JAVA_21",
+          "mixins": [
+            "SkiBearingMixin",
+            "SkiMaterialMixin",
+            "SkimmerWaterTickMixin"
+          ],
+          "injectors": {
+            "defaultRequire": 1
+          }
+        }
+      }
+    },
+    {
+      "project": "Create: Waterparked",
+      "slug": "create-waterparked",
+      "project_id": 1648876,
+      "file_id": 9058331,
+      "release_label": "0.2.8-beta-hotfix1-coaster0.1.5",
+      "published": "2026-10-04",
+      "channel": "beta",
+      "project_url": "https://www.curseforge.com/minecraft/mc-mods/create-waterparked",
+      "release_url": "https://www.curseforge.com/minecraft/mc-mods/create-waterparked/files/9058331",
+      "download_url": "https://cursemaven.com/curse/maven/create-waterparked-1648876/9058331/create-waterparked-1648876-9058331.jar",
+      "local_path": "/home/braydon/Documents/Coasters: Fourth Dimension/build/integration-catalog/2026-11-02/create-waterparked-1648876-9058331.jar",
+      "bytes": 3091403,
+      "sha256": "c83ef412419ee68e12e9305fd7b5c4a624ffe9ac00d9352cc095e76887778e9c",
+      "embedded": [
+        {
+          "path": "create-waterparked-1648876-9058331.jar",
+          "sha256": "c83ef412419ee68e12e9305fd7b5c4a624ffe9ac00d9352cc095e76887778e9c",
+          "mods": [
+            {
+              "modId": "create_waterparked",
+              "version": "0.2.8-beta-hotfix1",
+              "displayName": "Create Waterparked"
+            }
+          ],
+          "dependencies": {
+            "create_waterparked": [
+              {
+                "modId": "neoforge",
+                "type": "required",
+                "versionRange": "[21,)",
+                "ordering": "NONE",
+                "side": "BOTH"
+              },
+              {
+                "modId": "minecraft",
+                "type": "required",
+                "versionRange": "[1.21.1]",
+                "ordering": "NONE",
+                "side": "BOTH"
+              },
+              {
+                "modId": "create",
+                "type": "required",
+                "versionRange": "[6.0.10,)",
+                "ordering": "NONE",
+                "side": "BOTH"
+              },
+              {
+                "modId": "sable",
+                "type": "required",
+                "versionRange": "[2.0.0,)",
+                "ordering": "NONE",
+                "side": "BOTH"
+              },
+              {
+                "modId": "simulatedcoasters",
+                "type": "required",
+                "versionRange": "[0.1.4,)",
+                "ordering": "NONE",
+                "side": "BOTH"
+              }
+            ]
+          },
+          "license": "CC BY-NC",
+          "loaderVersion": "[5.3,)"
+        }
+      ],
+      "mixins": {
+        "create_waterparked.mixins.json": {
+          "required": true,
+          "minVersion": "0.8",
+          "package": "net.omori_sunny.create_waterparked.mixin",
+          "plugin": "net.omori_sunny.create_waterparked.mixin.config.WaterparkedMixinPlugin",
+          "compatibilityLevel": "JAVA_21",
+          "mixins": [
+            "AnchorPeerFakeTracksMixin",
+            "AnchorPeerCurveClientIndexMixin",
+            "BeltBlockBoatRideMixin",
+            "BezierBankBlendMixin",
+            "CoasterAnchorBezierOptimizerMixin",
+            "CoasterAnchorpointBlockAngleMixin",
+            "CoasterAnchorpointBlockEntityLiftMixin",
+            "CoasterAnchorpointBlockEntityRemoveCurveMixin",
+            "CoasterAnchorpointBlockEntityContraptionAccessorMixin",
+            "CoasterAnchorpointBlockEntityTypeMixin",
+            "CoasterBezierHandleEditMixin",
+            "CoasterBezierRailFramesMixin",
+            "CoasterOpenEndExtensionMixin",
+            "CoasterPathGraphManagerMixin",
+            "CoasterPeerCurveHandleLengthsMixin",
+            "CoasterTrackPlacementMixin",
+            "CreativeModeTabWaterparkedLayoutMixin",
+            "EntityRollerDeckFrictionMixin",
+            "ItemHelperBoatMixin",
+            "PackageEntityCenterBoatMixin",
+            "RivetDisassemblyExemptMixin",
+            "RivetPlacePayloadTubeMixin",
+            "ServerSubLevelContainerRollerMixin",
+            "ServerSubLevelRivetHoldMixin",
+            "SubLevelBoundsAccessor",
+            "TransportedItemStackBoatMixin",
+            "TransportedItemStackRollerSpeedMixin"
+          ],
+          "client": [
+            "client.AbstractContainerScreenAccessor",
+            "client.AnchorPeerCurvePickMixin",
+            "client.AnchorPeerCurveOutlineSupportMixin",
+            "client.BezierHandleDragManagerMixin",
+            "client.BezierHandleEditModeMixin",
+            "client.BezierHandleOverlayMixin",
+            "client.BeltRendererBoatAngleMixin",
+            "client.ChainLiftAnchorShaftRendererMixin",
+            "client.ClipboardScreenAccessor",
+            "client.ClipboardScreenMixin",
+            "client.CoasterCurveSelectionOutlineRendererMixin",
+            "client.CoasterCurveDyeOutlineClientMixin",
+            "client.CoasterTrackPlacementPreviewMixin",
+            "client.CreativeModeInventoryScreenWaterparkedBannerMixin",
+            "client.CreativeModeInventoryScreenWaterparkedTooltipMixin",
+            "client.DepotBehaviourAccessor",
+            "client.DepotRendererBoatAngleMixin",
+            "client.EntityRenderDispatcherSlideMixin",
+            "client.HumanoidModelGrabBarMixin",
+            "client.RivetPlacementOutlineAccessor",
+            "client.RivetPlacementTubeMixin",
+            "client.VanillaSingleBlockSubLevelRenderDataRivetAnimMixin",
+            "client.LevelRendererAccessor",
+            "client.MinecraftGhostAttackMixin",
+            "client.iris.IrisWaterPassMixin",
+            "client.iris.GlShaderSourceProbeMixin",
+            "client.colorwheel.ColorwheelWaterEntityMixin",
+            "client.SableEntityOrientationMixin",
+            "ponder.WaterslidePonderLevelAccessor",
+            "ponder.WaterslidePonderLevelInvoker",
+            "ponder.WaterslideSchematicLevelAccessor",
+            "ponder.WaterslidePonderSceneRegistryMixin",
+            "client.CoasterWrenchCurveAnchorOutlineClientMixin"
+          ],
+          "injectors": {
+            "defaultRequire": 1
+          },
+          "overwrites": {
+            "requireAnnotations": true
+          }
+        }
+      }
+    },
+    {
+      "project": "Coasters: Tracks and Balloons",
+      "slug": "ctnb",
+      "project_id": 1649197,
+      "file_id": 8718286,
+      "release_label": "1.2",
+      "published": "2026-08-23",
+      "channel": "release",
+      "project_url": "https://www.curseforge.com/minecraft/mc-mods/ctnb",
+      "release_url": "https://www.curseforge.com/minecraft/mc-mods/ctnb/files/8718286",
+      "download_url": "https://cursemaven.com/curse/maven/ctnb-1649197/8718286/ctnb-1649197-8718286.jar",
+      "local_path": "/home/braydon/Documents/Coasters: Fourth Dimension/build/integration-catalog/2026-11-02/ctnb-1649197-8718286.jar",
+      "bytes": 7733880,
+      "sha256": "e989c33e305779e37d4cd61bd4a7a13700faa45a604bd4aa92eacad738145115",
+      "embedded": [
+        {
+          "path": "ctnb-1649197-8718286.jar",
+          "sha256": "e989c33e305779e37d4cd61bd4a7a13700faa45a604bd4aa92eacad738145115",
+          "mods": [
+            {
+              "modId": "coasters_extras",
+              "version": "1.2",
+              "displayName": "Create: Coasters Extras"
+            }
+          ],
+          "dependencies": {
+            "coasters_extras": [
+              {
+                "modId": "neoforge",
+                "type": "required",
+                "versionRange": "[21.1.0,)",
+                "ordering": "NONE",
+                "side": "BOTH"
+              },
+              {
+                "modId": "minecraft",
+                "type": "required",
+                "versionRange": "[1.21.1,1.21.2)",
+                "ordering": "NONE",
+                "side": "BOTH"
+              },
+              {
+                "modId": "create",
+                "type": "required",
+                "versionRange": "[6.0.0,7.0.0)",
+                "ordering": "AFTER",
+                "side": "BOTH"
+              },
+              {
+                "modId": "simulatedcoasters",
+                "type": "required",
+                "versionRange": "[0.1.2,0.2.0)",
+                "ordering": "AFTER",
+                "side": "BOTH"
+              }
+            ]
+          },
+          "license": "Read attached LICENSE.md",
+          "loaderVersion": "[4,)"
+        }
+      ],
+      "mixins": {
+        "coasters_extras.mixins.json": {
+          "required": true,
+          "minVersion": "0.8.5",
+          "package": "dev.notzyvex.coasters_extras.mixin",
+          "compatibilityLevel": "JAVA_21",
+          "mixins": [
+            "BlockEntityTypeAccessor",
+            "LivingEntityJumpAccessor",
+            "BalloonResolveMixin",
+            "BalloonAttachInteractionMixin",
+            "BalloonSpawnerMixin",
+            "CoasterTrackPlacementMixin",
+            "CoasterPathGraphManagerMixin",
+            "CoasterCurveRailInstancingMixin",
+            "ResourceLocationCoasterAliasMixin",
+            "CoasterCartDriveMixin",
+            "AnchorpointSpeedControlMixin",
+            "AnchorpointPasteRepairMixin",
+            "CoasterGuideBobsledMixin"
+          ],
+          "injectors": {
+            "defaultRequire": 1
+          },
+          "client": [
+            "PickBlockOurTrackMixin",
+            "CreativeTabContentsMixin",
+            "CreativeTabBannerMixin",
+            "CreativeTabScrollMixin",
+            "CenterBeamMixin",
+            "RainbowTrackTintMixin",
+            "StationGoggleMixin",
+            "CurveBerMaterialsMixin",
+            "CurveVisualAnchorHardwareMixin",
+            "BrakingWheelTintMixin"
+          ]
+        }
+      }
+    },
+    {
+      "project": "Create Coasters",
+      "slug": "create-coasters",
+      "project_id": 1298151,
+      "file_id": 8110328,
+      "release_label": "2.0",
+      "published": "2026-05-18",
+      "channel": "release",
+      "project_url": "https://www.curseforge.com/minecraft/mc-mods/create-coasters",
+      "release_url": "https://www.curseforge.com/minecraft/mc-mods/create-coasters/files/8110328",
+      "download_url": "https://cursemaven.com/curse/maven/create-coasters-1298151/8110328/create-coasters-1298151-8110328.jar",
+      "local_path": "/home/braydon/Documents/Coasters: Fourth Dimension/build/integration-catalog/2026-11-02/create-coasters-1298151-8110328.jar",
+      "bytes": 7262287,
+      "sha256": "6bd2f93154450cfc6a1a7028e77ed69b6e8656fe41ed98afa9ba789ce947de86",
+      "embedded": [
+        {
+          "path": "create-coasters-1298151-8110328.jar",
+          "sha256": "6bd2f93154450cfc6a1a7028e77ed69b6e8656fe41ed98afa9ba789ce947de86",
+          "mods": [
+            {
+              "modId": "createcoasters",
+              "version": "2.0",
+              "displayName": "Create Coasters"
+            }
+          ],
+          "dependencies": {
+            "createcoasters": [
+              {
+                "modId": "neoforge",
+                "type": "required",
+                "versionRange": "[21,)",
+                "ordering": "NONE",
+                "side": "BOTH"
+              },
+              {
+                "modId": "minecraft",
+                "type": "required",
+                "versionRange": "[1.21.1,1.22)",
+                "ordering": "NONE",
+                "side": "BOTH"
+              },
+              {
+                "modId": "create",
+                "type": "required",
+                "versionRange": "*",
+                "ordering": "AFTER",
+                "side": "BOTH"
+              }
+            ]
+          },
+          "license": "MIT",
+          "loaderVersion": "[4,)"
+        }
+      ],
+      "mixins": {
+        "createcoasters.mixins.json": {
+          "required": true,
+          "minVersion": "0.8",
+          "package": "com.blockninja.createcoasters.mixin",
+          "compatibilityLevel": "JAVA_21",
+          "mixins": [
+            "EntityMixin",
+            "MixinAbstractContraptionEntity",
+            "MixinCarriageContraptionEntity",
+            "MixinCarriageSounds"
+          ],
+          "client": [
+            "HumanoidModelMixin",
+            "MixinAbstractClientPlayer"
+          ],
+          "injectors": {
+            "defaultRequire": 1
+          },
+          "overwrites": {
+            "requireAnnotations": true
+          }
+        }
+      }
+    },
+    {
+      "slug": "create-aeronautics",
+      "project_id": 676721,
+      "file_id": 8763471,
+      "download_url": "https://cursemaven.com/curse/maven/create-aeronautics-676721/8763471/create-aeronautics-676721-8763471.jar",
+      "local_path": "/home/braydon/.local/state/fourthdimension-fd501-catalog-20261114/create-aeronautics-676721-8763471.jar",
+      "sha256": "a3f330d4757640f8715d991a43eedb826e4d0e51558d859c843ae6693bd35f1e",
+      "bytes": 33123131,
+      "mixin_paths": [],
+      "project": "create-aeronautics",
+      "project_url": "https://www.curseforge.com/minecraft/mc-mods/create-aeronautics",
+      "release_url": "https://www.curseforge.com/minecraft/mc-mods/create-aeronautics/files/8763471",
+      "release_label": "1.3.2",
+      "published": "2026-08-29",
+      "channel": "release",
+      "embedded": [
+        {
+          "path": "create-aeronautics-676721-8763471.jar",
+          "sha256": "a3f330d4757640f8715d991a43eedb826e4d0e51558d859c843ae6693bd35f1e",
+          "mods": [
+            {
+              "modId": "aeronautics_bundled",
+              "version": "1.3.2",
+              "displayName": "Create Aeronautics"
+            }
+          ],
+          "dependencies": {
+            "aeronautics_bundled": [
+              {
+                "modId": "neoforge",
+                "type": "required",
+                "versionRange": "[21.1.228,)",
+                "ordering": "NONE",
+                "side": "BOTH"
+              },
+              {
+                "modId": "minecraft",
+                "type": "required",
+                "versionRange": "[1.21.1]",
+                "ordering": "NONE",
+                "side": "BOTH"
+              }
+            ]
+          },
+          "license": "Read attached LICENSE.md",
+          "loaderVersion": "[4,)"
+        },
+        {
+          "path": "create-aeronautics-676721-8763471.jar!/META-INF/jarjar/dev.eriksonn.aeronautics.aeronautics-neoforge-1.21.1-1.3.2.jar",
+          "sha256": "97fbf1e27f38674145b8521b140613dc8258bea7efca456dc2686e22bd683933",
+          "mods": [
+            {
+              "modId": "aeronautics",
+              "version": "1.3.2",
+              "displayName": "Create Aeronautics"
+            }
+          ],
+          "dependencies": {
+            "aeronautics": [
+              {
+                "modId": "neoforge",
+                "type": "required",
+                "versionRange": "[21.1.228,)",
+                "ordering": "NONE",
+                "side": "BOTH"
+              },
+              {
+                "modId": "minecraft",
+                "type": "required",
+                "versionRange": "[1.21.1]",
+                "ordering": "NONE",
+                "side": "BOTH"
+              },
+              {
+                "modId": "create",
+                "type": "required",
+                "versionRange": "[6.0.10,)",
+                "ordering": "NONE",
+                "side": "BOTH"
+              },
+              {
+                "modId": "sable",
+                "type": "required",
+                "versionRange": "[2.0.0,3.0.0)",
+                "ordering": "NONE",
+                "side": "BOTH"
+              },
+              {
+                "modId": "simulated",
+                "type": "required",
+                "versionRange": "[1.3.2,)",
+                "ordering": "NONE",
+                "side": "BOTH"
+              },
+              {
+                "modId": "jei",
+                "type": "optional",
+                "versionRange": "[19.21.0.247,)",
+                "ordering": "NONE",
+                "side": "CLIENT"
+              }
+            ]
+          },
+          "license": "Read attached LICENSE.md",
+          "loaderVersion": "[4,)"
+        },
+        {
+          "path": "create-aeronautics-676721-8763471.jar!/META-INF/jarjar/dev.ryanhcode.offroad.offroad-neoforge-1.21.1-1.3.2.jar",
+          "sha256": "8513726bc5a8383e11f4691f4dbe62d7d03bfc5f2835ec1ca1fbeffefe743f77",
+          "mods": [
+            {
+              "modId": "offroad",
+              "version": "1.3.2",
+              "displayName": "Create Offroad"
+            }
+          ],
+          "dependencies": {
+            "offroad": [
+              {
+                "modId": "neoforge",
+                "type": "required",
+                "versionRange": "[21.1.228,)",
+                "ordering": "NONE",
+                "side": "BOTH"
+              },
+              {
+                "modId": "minecraft",
+                "type": "required",
+                "versionRange": "[1.21.1]",
+                "ordering": "NONE",
+                "side": "BOTH"
+              },
+              {
+                "modId": "create",
+                "type": "required",
+                "versionRange": "[6.0.10,)",
+                "ordering": "NONE",
+                "side": "BOTH"
+              },
+              {
+                "modId": "sable",
+                "type": "required",
+                "versionRange": "[2.0.0,3.0.0)",
+                "ordering": "NONE",
+                "side": "BOTH"
+              },
+              {
+                "modId": "simulated",
+                "type": "required",
+                "versionRange": "[1.3.2,)",
+                "ordering": "NONE",
+                "side": "BOTH"
+              }
+            ]
+          },
+          "license": "Read attached LICENSE.md",
+          "loaderVersion": "[4,)"
+        },
+        {
+          "path": "create-aeronautics-676721-8763471.jar!/META-INF/jarjar/dev.simulated_team.simulated.simulated-neoforge-1.21.1-1.3.2.jar",
+          "sha256": "fdf9d250996a084b52fced3a5b0089e879a5cac05dc7bcf295ac1f4ebe5e2bff",
+          "mods": [
+            {
+              "modId": "simulated",
+              "version": "1.3.2",
+              "displayName": "Create Simulated"
+            }
+          ],
+          "dependencies": {
+            "simulated": [
+              {
+                "modId": "neoforge",
+                "type": "required",
+                "versionRange": "[21.1.228,)",
+                "ordering": "NONE",
+                "side": "BOTH"
+              },
+              {
+                "modId": "minecraft",
+                "type": "required",
+                "versionRange": "[1.21.1]",
+                "ordering": "NONE",
+                "side": "BOTH"
+              },
+              {
+                "modId": "create",
+                "type": "required",
+                "versionRange": "[6.0.10,)",
+                "ordering": "NONE",
+                "side": "BOTH"
+              },
+              {
+                "modId": "flywheel",
+                "type": "required",
+                "versionRange": "[1.0.6,)",
+                "ordering": "NONE",
+                "side": "CLIENT"
+              },
+              {
+                "modId": "sable",
+                "type": "required",
+                "versionRange": "[2.0.0,3.0.0)",
+                "ordering": "NONE",
+                "side": "BOTH"
+              },
+              {
+                "modId": "jei",
+                "type": "optional",
+                "versionRange": "[19.21.0.247,)",
+                "ordering": "NONE",
+                "side": "CLIENT"
+              }
+            ]
+          },
+          "license": "Read attached LICENSE.md",
+          "loaderVersion": "[4,)"
+        }
+      ],
+      "mixins": {}
+    },
+    {
+      "slug": "interiors",
+      "project_id": 906239,
+      "file_id": 8974633,
+      "download_url": "https://cursemaven.com/curse/maven/interiors-906239/8974633/interiors-906239-8974633.jar",
+      "local_path": "/home/braydon/.local/state/fourthdimension-fd501-catalog-20261114/interiors-906239-8974633.jar",
+      "sha256": "d230a2960dcb0c3d5753bc1d4adb71c8c18c9491b8e3cfd4a6b56533dae7a2c6",
+      "bytes": 471085,
+      "mixin_paths": [
+        "interiors.mixins.json"
+      ],
+      "project": "interiors",
+      "project_url": "https://www.curseforge.com/minecraft/mc-mods/interiors",
+      "release_url": "https://www.curseforge.com/minecraft/mc-mods/interiors/files/8974633",
+      "release_label": "0.6.1 v3",
+      "published": "2026-09-25",
+      "channel": "release",
+      "embedded": [
+        {
+          "path": "interiors-906239-8974633.jar",
+          "sha256": "d230a2960dcb0c3d5753bc1d4adb71c8c18c9491b8e3cfd4a6b56533dae7a2c6",
+          "mods": [
+            {
+              "modId": "interiors",
+              "version": "0.6.1",
+              "displayName": "Create: Interiors"
+            }
+          ],
+          "dependencies": {
+            "interiors": [
+              {
+                "modId": "create",
+                "type": "required",
+                "versionRange": "[6,)",
+                "ordering": "AFTER",
+                "side": "BOTH"
+              },
+              {
+                "modId": "neoforge",
+                "type": "required",
+                "versionRange": "[21.1.0,)",
+                "ordering": "NONE",
+                "side": "BOTH"
+              },
+              {
+                "modId": "minecraft",
+                "type": "required",
+                "versionRange": "[1.21.1]",
+                "ordering": "NONE",
+                "side": "BOTH"
+              }
+            ]
+          },
+          "license": "MIT",
+          "loaderVersion": "[1,)"
+        }
+      ],
+      "mixins": {
+        "interiors.mixins.json": {
+          "required": true,
+          "minVersion": "0.8",
+          "package": "com.aesefficio.interiors.foundation.mixin",
+          "compatibilityLevel": "JAVA_21",
+          "mixins": [
+            "AbstractContraptionEntityMixin",
+            "SeatBlockMixin"
+          ],
+          "injectors": {
+            "defaultRequire": 1
+          }
+        }
+      }
+    }
+  ],
+  "proposed_loader": {
+    "version": "21.1.256",
+    "source": "https://maven.neoforged.net/releases/net/neoforged/neoforge/21.1.256/neoforge-21.1.256.pom",
+    "pom_sha256": "5db4973b7e7287af664ee745c106dd1b5720ee5fdb82ae23f2ec230a417fdcb3",
+    "status": "available; not activated"
+  }
+}

@@ -89,7 +89,7 @@ whole-JAR equality is not required. Keep the original run identity and limits.
 | 0.2 | FD201–FD204 | Done for bounded build | S&S Free Spin vehicle and track with magnetic seat-rotation equipment. |
 | 0.3 | FD301–FD305 | Done for bounded five-family gate | Revised ZacSpin variant and functional PAX-style shuttle system. |
 | 0.4 | FD401–FD404 | Complete 2026-11-15 | Five-family core, recovery and player workflows reconciled at the FD404 development checkpoint; expanded 1.0 qualification remains FD1000. |
-| 0.5 | FD501–FD503; six original discovery IDs; FD1601S, FD1702S, FD1801S, FD1802S, FD1901S; FD1101A–C; FD904C1 | Planned | Specify every 1.0 vehicle, prove Wing-backed extension contracts, establish comfort and reusable tools. Adapter-specific upgrades follow their consumers. |
+| 0.5 | FD501–FD503; six original discovery IDs; FD1601S, FD1702S, FD1801S, FD1802S, FD1901S; FD1101A–C; FD904C1 | In progress | Specify every 1.0 vehicle, prove Wing-backed extension contracts, establish comfort and reusable tools. Adapter-specific upgrades follow their consumers. |
 | 0.6 | FD1501A–C, FD1301A–C, FD1601A–C, FD601 | Planned | S1 conventional free-spinning, Suspended and Fixed Inverted: axes, loading, capture, swing locks and fixed overhead seating. |
 | 0.7 | FD1302A–C, FD1502A–C, FD1801A–C, FD1802A–C, FD1803, FD701 | Planned | Axis/Roller Ball and both Flying variants; New-generation Flying proves scenery-facing yaw in seated and prone postures. |
 | 0.8 | FD1401A–C, FD1501D–F, FD1701A, FD1702A–C, FD1901A–C, FD1902, FD810–FD813 | Planned | Pipeline, S2, Dive, Powered Inverted Yaw, required operating authority and agreed Additions/CTNB/Magnetized capabilities. |
@@ -551,8 +551,8 @@ FD1000 retains the expanded 1.0 feature freeze and final release qualification.
 
 ## Milestone 0.5 — designs, extension contracts and Wing
 
-All six original discovery IDs and FD1601S/FD1702S/FD1801S/FD1802S/FD1901S are
-planned for 0.5. Resolve Pipeline, S1/S2, Axis, Roller Ball, Fixed Inverted,
+All six original discovery IDs and FD1601S/FD1702S/FD1801S/FD1802S/FD1901S
+belong to the active 0.5 work; completed specifications are linked below. Resolve Pipeline, S1/S2, Axis, Roller Ball, Fixed Inverted,
 Dive, both Flying variants and Powered Inverted Yaw before detailed implementation. A specification
 must identify confirmed references versus inspired design choices. Retain any
 necessary feasibility prototype rather than requiring a new one in a later stage.
@@ -561,7 +561,7 @@ necessary feasibility prototype rather than requiring a new one in a later stage
 
 **Execution steps:** [FD501](docs/roadmap/0.5-contracts.md#fd501).
 
-**Status: planned.** **Depends on:** current core dependency inventory; read-only
+**Status: complete (2026-11-14 America/Phoenix).** [Decisions and pinned catalog](docs/evidence/0.5/dependencies-tooling/dependency-decisions.md). **Depends on:** current core dependency inventory; read-only
 review can begin before FD404. **Design:** D04, D06, D07, D09.
 
 1. Refresh the dated addon catalog through the backlog procedure; resolve actual mod IDs, Additions dependency closure and the graphics/seat stack's version constraints.
@@ -578,7 +578,8 @@ not certify it or drop it from 1.0; its consuming package remains blocked.
 
 **Execution steps:** [FD501A](docs/roadmap/0.5-contracts.md#fd501a).
 
-**Status: planned; conditional on the core decision in FD501.**
+**Status: complete — no core dependency/provider/schema change required (2026-11-14 America/Phoenix).**
+[Reviewed disposition](docs/evidence/0.5/wing/core-baseline.md).
 **Depends on:** FD404 and the recorded core decision within FD501.
 
 Completion of the optional-addon inventory or FD501B–H is not required.
@@ -1116,7 +1117,7 @@ packages need no retrospective handoff replay.
 
 **Execution steps:** [FD1101](docs/roadmap/0.5-contracts.md#fd1101).
 
-**Status: planned.** **Discovery:** 0.5. **Delivery:** 0.5.
+**Status: specification complete (2026-11-14 America/Phoenix).** [Dimensioned contract and fit matrix](docs/design/0.5/FD1101-wing.md). **Discovery:** 0.5. **Delivery:** 0.5.
 **Discovery inputs / decisions:** existing controlled-car geometry; normal-track fit and fixed-seat specification.
 **Depends on:** no release gate for reference/design work. Native feasibility checks use the integrated core and declared run prerequisites.
 
@@ -1137,15 +1138,15 @@ packages need no retrospective handoff replay.
 
 | Delivery task / status | Prerequisites | Steps and completion condition |
 | --- | --- | --- |
-| <a id="fd1101a"></a> **FD1101A Mechanics — planned** [Steps](docs/roadmap/0.5-contracts.md#fd1101a) | FD404, FD501A, FD1101 | Extend fixed-seat eligibility and pose/seat contracts through the actual Wing vehicle; implement normal-track fit, restraints, coupling, placement and ordinary station handling. No rotary mechanism or Arrow profile is inherited. Complete when its specified mechanism, affected native invariants and the shared-contract client handoff pass. |
-| <a id="fd1101b"></a> **FD1101B Original content — planned** [Steps](docs/roadmap/0.5-contracts.md#fd1101b) | FD1101 specification and stable A dimensions | Finish original vehicle/required track assets, restraints, item/recipe content, guide and a playable example. Complete when content represents the implemented behavior and normal player controls. |
+| <a id="fd1101a"></a> **FD1101A Mechanics — in progress** [Steps](docs/roadmap/0.5-contracts.md#fd1101a) | FD404, FD501A, FD1101 | Extend fixed-seat eligibility and pose/seat contracts through the actual Wing vehicle; implement normal-track fit, restraints, coupling, placement and ordinary station handling. No rotary mechanism or Arrow profile is inherited. Complete when its specified mechanism, affected native invariants and the shared-contract client handoff pass. |
+| <a id="fd1101b"></a> **FD1101B Original content — in progress** [Steps](docs/roadmap/0.5-contracts.md#fd1101b) | FD1101 specification and stable A dimensions | Finish original vehicle/required track assets, restraints, item/recipe content, guide and a playable example. Complete when content represents the implemented behavior and normal player controls. |
 | <a id="fd1101c"></a> **FD1101C Player acceptance — planned** [Steps](docs/roadmap/0.5-contracts.md#fd1101c) | FD1101A, FD1101B | Complete normal construction/boarding/operation/capture/unload for the declared example; combine accepted mechanics, eligibility, clearance, persistence and rider-synchronization evidence. Add only distinct interruption or camera cases. Complete when the whole feature is usable and documented; do not restart acceptance for an unrelated build. |
 
 ### FD1501 Spinning coaster variants discovery
 
 **Execution steps:** [FD1501](docs/roadmap/0.5-contracts.md#fd1501).
 
-**Status: planned.** **Discovery:** 0.5. **Delivery:** 0.6 S1; 0.8 S2.
+**Status: specification complete (2026-11-14 America/Phoenix).** [Specification and prototype plan](docs/design/0.5/FD1501-spinning.md). **Discovery:** 0.5. **Delivery:** 0.6 S1; 0.8 S2.
 **Discovery inputs / decisions:** dimensioned S1/S2 motion, seating, track and propulsion specifications; the two-variant list and order below are adopted.
 **Depends on:** no release gate for reference/design work. Native feasibility checks use the integrated core and declared run prerequisites.
 
@@ -1188,7 +1189,7 @@ free-spinning variant. Do not silently promote it into the 1.0 gate.
 
 **Execution steps:** [FD1301](docs/roadmap/0.5-contracts.md#fd1301).
 
-**Status: planned.** **Discovery:** 0.5. **Delivery:** 0.6.
+**Status: specification complete (2026-11-14 America/Phoenix).** [Specification and prototype plan](docs/design/0.5/FD1301-suspended.md). **Discovery:** 0.5. **Delivery:** 0.6.
 **Discovery inputs / decisions:** overhead-track and dimensioned swing/lock specification.
 **Depends on:** no release gate for reference/design work. Native feasibility checks use the integrated core and declared run prerequisites.
 
@@ -1215,7 +1216,7 @@ free-spinning variant. Do not silently promote it into the 1.0 gate.
 
 **Execution steps:** [FD1302](docs/roadmap/0.5-contracts.md#fd1302).
 
-**Status: planned.** **Discovery:** 0.5. **Delivery:** 0.7.
+**Status: specification complete (2026-11-14 America/Phoenix).** [Specification and prototype plan](docs/design/0.5/FD1302-axis.md). **Discovery:** 0.5. **Delivery:** 0.7.
 **Discovery inputs / decisions:** unambiguous rotation-axis/mode and track/seat specification.
 **Depends on:** no release gate for reference/design work. Native feasibility checks use the integrated core and declared run prerequisites.
 
@@ -1243,7 +1244,7 @@ free-spinning variant. Do not silently promote it into the 1.0 gate.
 
 **Execution steps:** [FD1502](docs/roadmap/0.5-contracts.md#fd1502).
 
-**Status: planned.** **Discovery:** 0.5. **Delivery:** 0.7.
+**Status: specification complete (2026-11-14 America/Phoenix).** [Specification and prototype plan](docs/design/0.5/FD1502-roller-ball.md). **Discovery:** 0.5. **Delivery:** 0.7.
 **Discovery inputs / decisions:** distinct route/vehicle/capture specification and native feasibility review.
 **Depends on:** no release gate for reference/design work. Native feasibility checks use the integrated core and declared run prerequisites.
 
@@ -1271,7 +1272,7 @@ free-spinning variant. Do not silently promote it into the 1.0 gate.
 
 **Execution steps:** [FD1401](docs/roadmap/0.5-contracts.md#fd1401).
 
-**Status: planned.** **Discovery:** 0.5. **Delivery:** 0.8.
+**Status: specification complete (2026-11-14 America/Phoenix).** [Specification and prototype plan](docs/design/0.5/FD1401-pipeline.md). **Discovery:** 0.5. **Delivery:** 0.8.
 **Discovery inputs / decisions:** explicit Pipeline reference selection and track/seat specification.
 **Depends on:** no release gate for reference/design work. Native feasibility checks use the integrated core and declared run prerequisites.
 
@@ -1312,8 +1313,8 @@ vehicle completion, and FD503 does not wait for the later A–C implementations.
 
 | Package / status | Prerequisites | Completion condition |
 | --- | --- | --- |
-| <a id="fd1601s"></a> **FD1601S Fixed Inverted specification — planned** [Steps](docs/roadmap/0.5-contracts.md#fd1601s) | No release gate for reference/design work | Define one measured overhead fixed-seat configuration, running gear, restraints, track fit, coupling, clearance and finite acceptance. |
-| <a id="fd1702s"></a> **FD1702S Dive specification — planned** [Steps](docs/roadmap/0.5-contracts.md#fd1702s) | No release gate for reference/design work | Define one fixed-seat configuration, approach/hold/release and interruption states, control/propulsion ownership, track fit and finite acceptance. |
+| <a id="fd1601s"></a> **FD1601S Fixed Inverted specification — complete** [Specification](docs/design/0.5/FD1601S-fixed-inverted.md) [Steps](docs/roadmap/0.5-contracts.md#fd1601s) | No release gate for reference/design work | Define one measured overhead fixed-seat configuration, running gear, restraints, track fit, coupling, clearance and finite acceptance. |
+| <a id="fd1702s"></a> **FD1702S Dive specification — complete** [Specification](docs/design/0.5/FD1702S-dive.md) [Steps](docs/roadmap/0.5-contracts.md#fd1702s) | No release gate for reference/design work | Define one fixed-seat configuration, approach/hold/release and interruption states, control/propulsion ownership, track fit and finite acceptance. |
 | <a id="fd1801s"></a> **FD1801S Conventional Flying specification — planned** [Steps](docs/roadmap/0.5-contracts.md#fd1801s) | No release gate for reference/design work | Define seated boarding, station-based prone changeover, locks, posture/clearance transforms, recovery and finite acceptance. |
 | <a id="fd1802s"></a> **FD1802S New-generation Flying specification — planned** [Steps](docs/roadmap/0.5-contracts.md#fd1802s) | No release gate for reference/design work | Define seated/sideways and prone sections, route-based transitions, physical yaw frame/pivot, target-facing in both postures, shared contract and finite acceptance. |
 | <a id="fd1901s"></a> **FD1901S Powered Inverted Yaw specification — planned** [Steps](docs/roadmap/0.5-contracts.md#fd1901s) | No release gate for reference/design work | Define one upright overhead configuration, per-car yaw, powered travel/dwell/reverse, standalone provider path, scene events and finite acceptance. |

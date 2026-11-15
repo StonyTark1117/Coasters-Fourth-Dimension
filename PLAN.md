@@ -11,7 +11,7 @@ their independent later allocations. A planning milestone or a
 new artifact hash is not proof of implementation or a reason to reopen acceptance.
 
 Foundation through bounded 0.3, FD401A–D and FD402A/C/D retain their accepted
-results. Finish the open 0.4 cases, then prove extensions through Wing, Spinning
+results. The 0.4 cases are closed; prove extensions through Wing, Spinning
 and Suspended before Axis/Roller Ball and the remaining content. Operations
 adapters can advance after their interfaces; presentation/seat integrations follow
 stable mechanisms. FD404 is the five-family development checkpoint; FD1000 is
