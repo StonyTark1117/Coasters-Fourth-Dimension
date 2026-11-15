@@ -1,0 +1,59 @@
+{
+  "pipeline_track": {
+    "sha256": "beaaf20e59f74982c3886d1821fe7a6e15e81a372e6960e74f637dc2e685dc6e",
+    "jarSourceExact": true,
+    "recipe": {
+      "type": "minecraft:crafting_shaped",
+      "pattern": [
+        "ICI",
+        "IDI",
+        "ICI"
+      ],
+      "key": {
+        "I": {
+          "tag": "c:ingots/iron"
+        },
+        "C": {
+          "item": "minecraft:copper_ingot"
+        },
+        "D": {
+          "item": "minecraft:blue_dye"
+        }
+      },
+      "result": {
+        "id": "fourthdimension:pipeline_track",
+        "count": 16
+      }
+    }
+  },
+  "pipeline_car": {
+    "sha256": "d64d8590200517008f82cdd1b7c9feec41f8736026016d59fe49e7d726553052",
+    "jarSourceExact": true,
+    "recipe": {
+      "type": "minecraft:crafting_shaped",
+      "pattern": [
+        "SIS",
+        "SCS",
+        "ITI"
+      ],
+      "key": {
+        "S": {
+          "item": "create:red_seat"
+        },
+        "I": {
+          "tag": "c:ingots/iron"
+        },
+        "T": {
+          "item": "fourthdimension:pipeline_track"
+        },
+        "C": {
+          "item": "simulatedcoasters:coaster_cart"
+        }
+      },
+      "result": {
+        "id": "fourthdimension:pipeline_car",
+        "count": 1
+      }
+    }
+  }
+}

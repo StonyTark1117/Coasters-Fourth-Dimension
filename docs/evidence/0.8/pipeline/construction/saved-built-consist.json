@@ -1,0 +1,276 @@
+{
+  "schema": 8,
+  "cars": [
+    {
+      "alignment_required": 0,
+      "contact_layout": "pipeline_p_contacts_v1",
+      "mount_frame": "between_side_rails_v1",
+      "fixed_dock_from": 60473139576912,
+      "variant": "seated_side_rail_v1",
+      "restraints": 0,
+      "dock": 59373628006477,
+      "fixed_dock_geometry": -3148962017876880767,
+      "fault": "",
+      "boundTo": 60473139773520,
+      "carriers": [
+        {
+          "side": 0.0,
+          "rider_seats": [],
+          "lift_pending": 0,
+          "capture": 1,
+          "body": [
+            -1980547820,
+            -914210127,
+            -1481771885,
+            2085523200
+          ],
+          "seats": [
+            -2,
+            549755813886,
+            -274877898754,
+            274877915134
+          ],
+          "ballast": 0.0,
+          "lift_geometry": 0,
+          "lift_entered": 0,
+          "pivot_height": 0.0,
+          "capture_target": 0.0,
+          "lift_held": 0,
+          "latched": 0,
+          "longitudinal": 0.0,
+          "child_pivot_offset": 0.0,
+          "child_pivot_x": 0.0,
+          "child_pivot_z": 0.0,
+          "occupants": []
+        }
+      ],
+      "chassis": [
+        -1980547820,
+        -914210127,
+        -1481771885,
+        2085523200
+      ],
+      "damping": 0.0,
+      "boundFrom": 60473139576912,
+      "fixed_consist": [],
+      "ballast": 0.0,
+      "revision": 2,
+      "pipeline": {
+        "directions": [],
+        "version": 1
+      },
+      "fixed_dock_to": 60473139773520,
+      "boarding_ready": 1,
+      "stopping": 1,
+      "authority": {},
+      "shuttle_detached": 0,
+      "family": "pipeline",
+      "suspended_consist": [],
+      "maintenance": 0,
+      "chassis_uuid": "89f33d14-c982-42b1-a7ad-f4937c4e8f00",
+      "dock_xyz": [
+        216,
+        77,
+        26
+      ],
+      "from_xyz": [
+        220,
+        80,
+        12
+      ],
+      "to_xyz": [
+        220,
+        80,
+        60
+      ]
+    },
+    {
+      "alignment_required": 0,
+      "contact_layout": "pipeline_p_contacts_v1",
+      "mount_frame": "between_side_rails_v1",
+      "fixed_dock_from": 60473139576912,
+      "variant": "seated_side_rail_v1",
+      "restraints": 0,
+      "dock": 59373628006477,
+      "fixed_dock_geometry": -3148962017876880767,
+      "fault": "",
+      "boundTo": 60473139773520,
+      "carriers": [
+        {
+          "side": 0.0,
+          "rider_seats": [],
+          "lift_pending": 0,
+          "capture": 1,
+          "body": [
+            -1605398261,
+            80102832,
+            -1239961042,
+            1924806026
+          ],
+          "seats": [
+            -2,
+            549755813886,
+            -274877898754,
+            274877915134
+          ],
+          "ballast": 0.0,
+          "lift_geometry": 0,
+          "lift_entered": 0,
+          "pivot_height": 0.0,
+          "capture_target": 0.0,
+          "lift_held": 0,
+          "latched": 0,
+          "longitudinal": 0.0,
+          "child_pivot_offset": 0.0,
+          "child_pivot_x": 0.0,
+          "child_pivot_z": 0.0,
+          "occupants": []
+        }
+      ],
+      "chassis": [
+        -1605398261,
+        80102832,
+        -1239961042,
+        1924806026
+      ],
+      "damping": 0.0,
+      "boundFrom": 60473139576912,
+      "fixed_consist": [],
+      "ballast": 0.0,
+      "revision": 2,
+      "pipeline": {
+        "directions": [],
+        "version": 1
+      },
+      "fixed_dock_to": 60473139773520,
+      "boarding_ready": 1,
+      "stopping": 1,
+      "authority": {},
+      "shuttle_detached": 0,
+      "family": "pipeline",
+      "suspended_consist": [],
+      "maintenance": 0,
+      "chassis_uuid": "a04f910b-04c6-45b0-b617-b22e72ba358a",
+      "dock_xyz": [
+        216,
+        77,
+        26
+      ],
+      "from_xyz": [
+        220,
+        80,
+        12
+      ],
+      "to_xyz": [
+        220,
+        80,
+        60
+      ]
+    }
+  ],
+  "rails": [
+    {
+      "original_curve": {
+        "Starts": [
+          {
+            "V": [
+              0.5,
+              0.75,
+              0.5
+            ]
+          },
+          {
+            "V": [
+              0.5,
+              0.75,
+              48.5
+            ]
+          }
+        ],
+        "Girder": 0,
+        "Normals": [
+          {
+            "V": [
+              0.0,
+              1.0,
+              0.0
+            ]
+          },
+          {
+            "V": [
+              0.0,
+              1.0,
+              0.0
+            ]
+          }
+        ],
+        "Primary": 1,
+        "Positions": [
+          {
+            "Pos": [
+              0,
+              0,
+              0
+            ]
+          },
+          {
+            "Pos": [
+              0,
+              0,
+              48
+            ]
+          }
+        ],
+        "Axes": [
+          {
+            "V": [
+              0.0,
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "V": [
+              0.0,
+              0.0,
+              -1.0
+            ]
+          }
+        ],
+        "Material": "simulatedcoasters:coaster_track"
+      },
+      "magnets": [],
+      "profile": [
+        {
+          "distance": 0.0,
+          "slope": 0.0,
+          "angle": 0.0
+        },
+        {
+          "distance": 48.0,
+          "slope": 0.0,
+          "angle": 0.0
+        }
+      ],
+      "lift_lock": 0,
+      "geometry_hash": -3148962017876880767,
+      "revision": 0,
+      "valid": 1,
+      "appearance": {
+        "tint": -1,
+        "id": "fourthdimension:original"
+      },
+      "provider": "fourthdimension:original",
+      "variant": "seated_side_rail_v1",
+      "from": 60473139576912,
+      "to": 60473139773520,
+      "id": [
+        149466720,
+        678773017,
+        -1501613518,
+        90645438
+      ],
+      "family": "pipeline"
+    }
+  ]
+}

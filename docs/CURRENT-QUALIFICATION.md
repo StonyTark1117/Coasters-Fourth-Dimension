@@ -46,8 +46,8 @@ publication is activated.
 | FD812 | Lead | Magnetized propulsion adapter and real authority conflicts after its own baseline. |
 | FD1701A | Lead | Qualified: targeted native 1/1 plus normal occupied Claim/dispatch/held transfer/receiving dispatch/unload passed. [Evidence](evidence/0.8/authority/README.md). World saved; client/server/display316 inactive. Complete; integrated with the coherent shared implementation checkpoint. |
 | FD1401A | Pipeline / Dive | Complete: [qualified native and occupied handoff](evidence/0.8/pipeline/README.md), including full forward/reverse circuits, inclined stop/save/reload/resume, dock/open/unload. Same two IDs; all317 units inactive. B/C reuse this evidence. |
-| FD1401B | Pipeline / Dive | Prepare original Pipeline assets/content against stable dimensions. |
-| FD1401C | Pipeline / Dive | Combine A occupied proof with remaining normal construction/content and distinct cases. |
+| FD1401B | Pipeline / Dive | Complete: [normal crafted content and finite visual review](evidence/0.8/pipeline/construction/README.md); P-only rail support saddle inspected with no mechanics replay. |
+| FD1401C | Pipeline / Dive | Complete: crafted track/cars, paid span, native Chain coupling and whole-consist dock binding combine with accepted A occupied forward/reverse/recovery/unload. All317 units inactive; owner continues Dive. |
 | FD1501D | S2 / Powered Inverted | Complete: [native governor, four-car inversion/rollback/loss and occupied handoff](evidence/0.8/spinning-s2/README.md#occupied-mechanics-handoff--fd1501d). Launch/roll/return/Capture/Open/unload passed; all318 units inactive. E/F reuse accepted mechanics. |
 | FD1501E | S2 / Powered Inverted | Prepare original S2 content against stable dimensions. |
 | FD1501F | S2 / Powered Inverted | Combine D occupied proof with remaining normal construction/content and distinct cases. |

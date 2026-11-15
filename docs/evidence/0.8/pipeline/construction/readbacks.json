@@ -1,0 +1,343 @@
+[
+  {
+    "at": 1794745366.3223178,
+    "command": "data get entity Dev Inventory",
+    "state": "sending"
+  },
+  {
+    "at": 1794745366.3223178,
+    "command": "data get entity Dev Inventory",
+    "state": "responded",
+    "result": "Dev has the following entity data: [{count: 6, Slot: 0b, id: \"minecraft:iron_ingot\"}, {count: 1, Slot: 4b, id: \"fourthdimension:pipeline_car\"}, {count: 16, Slot: 5b, id: \"minecraft:chain\"}, {count: 1, Slot: 6b, id: \"fourthdimension:rotation_tool\"}, {count: 1, Slot: 7b, id: \"fourthdimension:pipeline_car\"}, {count: 30, Slot: 8b, id: \"fourthdimension:pipeline_track\"}]\n"
+  },
+  {
+    "at": 1794745366.3828719,
+    "command": "tp Dev 220.5 80 8.5 0 15.6",
+    "state": "sending"
+  },
+  {
+    "at": 1794745366.3828719,
+    "command": "tp Dev 220.5 80 8.5 0 15.6",
+    "state": "responded",
+    "result": "Teleported Dev to 220.500000, 80.000000, 8.500000\n"
+  },
+  {
+    "at": 1794745373.4061494,
+    "command": "data get entity Dev SelectedItem",
+    "state": "sending"
+  },
+  {
+    "at": 1794745373.4061494,
+    "command": "data get entity Dev SelectedItem",
+    "state": "responded",
+    "result": "Dev has the following entity data: {components: {\"fourthdimension:track_selection\": {pos: [I; 220, 80, 12], dimension: \"minecraft:overworld\"}}, count: 30, id: \"fourthdimension:pipeline_track\"}\n"
+  },
+  {
+    "at": 1794745379.278774,
+    "command": "tp Dev 220.5 80 64.5 180 15.6",
+    "state": "sending"
+  },
+  {
+    "at": 1794745379.278774,
+    "command": "tp Dev 220.5 80 64.5 180 15.6",
+    "state": "responded",
+    "result": "Teleported Dev to 220.500000, 80.000000, 64.500000\n"
+  },
+  {
+    "at": 1794745386.4258687,
+    "command": "data get entity Dev SelectedItem",
+    "state": "sending"
+  },
+  {
+    "at": 1794745386.4258687,
+    "command": "data get entity Dev SelectedItem",
+    "state": "responded",
+    "result": "Dev has the following entity data: {count: 18, id: \"fourthdimension:pipeline_track\"}\n"
+  },
+  {
+    "at": 1794745393.411929,
+    "command": "tp Dev 216.5 77 26.5 -90 -28.72",
+    "state": "sending"
+  },
+  {
+    "at": 1794745393.411929,
+    "command": "tp Dev 216.5 77 26.5 -90 -28.72",
+    "state": "responded",
+    "result": "Teleported Dev to 216.500000, 77.000000, 26.500000\n"
+  },
+  {
+    "at": 1794745406.4654584,
+    "command": "tp Dev 216.5 77 27.5 -71.565 -27.99",
+    "state": "sending"
+  },
+  {
+    "at": 1794745406.4654584,
+    "command": "tp Dev 216.5 77 27.5 -71.565 -27.99",
+    "state": "responded",
+    "result": "Teleported Dev to 216.500000, 77.000000, 27.500000\n"
+  },
+  {
+    "at": 1794745418.0244527,
+    "command": "execute as Dev at @s anchored eyes run tp @s 215.5 77 26.5 facing 220.5 80.8125 26.5",
+    "state": "sending"
+  },
+  {
+    "at": 1794745418.0244527,
+    "command": "execute as Dev at @s anchored eyes run tp @s 215.5 77 26.5 facing 220.5 80.8125 26.5",
+    "state": "responded",
+    "result": "Teleported Dev to 215.500000, 77.000000, 26.500000\n"
+  },
+  {
+    "at": 1794745427.175526,
+    "command": "data get entity Dev Inventory",
+    "state": "sending"
+  },
+  {
+    "at": 1794745427.175526,
+    "command": "data get entity Dev Inventory",
+    "state": "responded",
+    "result": "Dev has the following entity data: [{count: 6, Slot: 0b, id: \"minecraft:iron_ingot\"}, {count: 16, Slot: 5b, id: \"minecraft:chain\"}, {count: 1, Slot: 6b, id: \"fourthdimension:rotation_tool\"}, {count: 1, Slot: 7b, id: \"fourthdimension:pipeline_car\"}, {count: 18, Slot: 8b, id: \"fourthdimension:pipeline_track\"}]\n"
+  },
+  {
+    "at": 1794745437.1976984,
+    "command": "execute as Dev at @s anchored eyes run tp @s 215.5 77 34.5 facing 220.5 80.8125 34.5",
+    "state": "sending"
+  },
+  {
+    "at": 1794745437.1976984,
+    "command": "execute as Dev at @s anchored eyes run tp @s 215.5 77 34.5 facing 220.5 80.8125 34.5",
+    "state": "responded",
+    "result": "Teleported Dev to 215.500000, 77.000000, 34.500000\n"
+  },
+  {
+    "at": 1794745438.681472,
+    "command": "data get entity Dev Inventory",
+    "state": "sending"
+  },
+  {
+    "at": 1794745438.681472,
+    "command": "data get entity Dev Inventory",
+    "state": "responded",
+    "result": "Dev has the following entity data: [{count: 6, Slot: 0b, id: \"minecraft:iron_ingot\"}, {count: 16, Slot: 5b, id: \"minecraft:chain\"}, {count: 1, Slot: 6b, id: \"fourthdimension:rotation_tool\"}, {count: 18, Slot: 8b, id: \"fourthdimension:pipeline_track\"}]\n"
+  },
+  {
+    "at": 1794745447.2892935,
+    "command": "tp Dev 214.5 77 26.5 -90 29",
+    "state": "sending"
+  },
+  {
+    "at": 1794745447.2892935,
+    "command": "tp Dev 214.5 77 26.5 -90 29",
+    "state": "responded",
+    "result": "Teleported Dev to 214.500000, 77.000000, 26.500000\n"
+  },
+  {
+    "at": 1794745455.150283,
+    "command": "data get block 216 77 26",
+    "state": "sending"
+  },
+  {
+    "at": 1794745455.150283,
+    "command": "data get block 216 77 26",
+    "state": "responded",
+    "result": "216, 77, 26 has the following block data: {powered: 0b, x: 216, y: 77, z: 26, id: \"fourthdimension:boarding_station\", authority_id: [I; 1262508761, -1013690905, -2082893685, -1885550853], vehicle: [I; -1980547820, -914210127, -1481771885, 2085523200]}\n"
+  },
+  {
+    "at": 1794745466.2105355,
+    "command": "tp Dev 214.5 77 34.5 -90 29",
+    "state": "sending"
+  },
+  {
+    "at": 1794745466.2105355,
+    "command": "tp Dev 214.5 77 34.5 -90 29",
+    "state": "responded",
+    "result": "Teleported Dev to 214.500000, 77.000000, 34.500000\n"
+  },
+  {
+    "at": 1794745477.6533206,
+    "command": "data get block 216 77 34",
+    "state": "sending"
+  },
+  {
+    "at": 1794745477.6533206,
+    "command": "data get block 216 77 34",
+    "state": "responded",
+    "result": "216, 77, 34 has the following block data: {powered: 0b, x: 216, y: 77, z: 34, id: \"fourthdimension:boarding_station\", authority_id: [I; -1523762553, 629882982, -1456154613, -1896255400]}\n"
+  },
+  {
+    "at": 1794745477.708516,
+    "command": "setblock 216 79 26 minecraft:smooth_stone",
+    "state": "sending"
+  },
+  {
+    "at": 1794745477.708516,
+    "command": "setblock 216 79 26 minecraft:smooth_stone",
+    "state": "responded",
+    "result": "Changed the block at 216, 79, 26\n"
+  },
+  {
+    "at": 1794745477.7653103,
+    "command": "tp Dev 216.5 80 26.5 -90 7.1",
+    "state": "sending"
+  },
+  {
+    "at": 1794745477.7653103,
+    "command": "tp Dev 216.5 80 26.5 -90 7.1",
+    "state": "responded",
+    "result": "Teleported Dev to 216.500000, 80.000000, 26.500000\n"
+  },
+  {
+    "at": 1794745486.6582482,
+    "command": "data get block 216 77 34",
+    "state": "sending"
+  },
+  {
+    "at": 1794745486.6582482,
+    "command": "data get block 216 77 34",
+    "state": "responded",
+    "result": "216, 77, 34 has the following block data: {powered: 0b, x: 216, y: 77, z: 34, id: \"fourthdimension:boarding_station\", authority_id: [I; -1523762553, 629882982, -1456154613, -1896255400]}\n"
+  },
+  {
+    "at": 1794745501.2608657,
+    "command": "tp Dev 214.5 77 34.5 -90 29",
+    "state": "sending"
+  },
+  {
+    "at": 1794745501.2608657,
+    "command": "tp Dev 214.5 77 34.5 -90 29",
+    "state": "responded",
+    "result": "Teleported Dev to 214.500000, 77.000000, 34.500000\n"
+  },
+  {
+    "at": 1794745509.063703,
+    "command": "data get block 216 77 34",
+    "state": "sending"
+  },
+  {
+    "at": 1794745509.063703,
+    "command": "data get block 216 77 34",
+    "state": "responded",
+    "result": "216, 77, 34 has the following block data: {powered: 0b, x: 216, y: 77, z: 34, id: \"fourthdimension:boarding_station\", authority_id: [I; -1523762553, 629882982, -1456154613, -1896255400], vehicle: [I; -1605398261, 80102832, -1239961042, 1924806026]}\n"
+  },
+  {
+    "at": 1794745518.715593,
+    "command": "tp Dev 216.5 80 26.5 -90 7.1",
+    "state": "sending"
+  },
+  {
+    "at": 1794745518.715593,
+    "command": "tp Dev 216.5 80 26.5 -90 7.1",
+    "state": "responded",
+    "result": "Teleported Dev to 216.500000, 80.000000, 26.500000\n"
+  },
+  {
+    "at": 1794745527.6896026,
+    "command": "data get entity Dev SelectedItem",
+    "state": "sending"
+  },
+  {
+    "at": 1794745527.6896026,
+    "command": "data get entity Dev SelectedItem",
+    "state": "responded",
+    "result": "Dev has the following entity data: {components: {\"minecraft:custom_data\": {SimulatedCoastersCartLinkTarget: [I; -1980547820, -914210127, -1481771885, 2085523200]}}, count: 16, id: \"minecraft:chain\"}\n"
+  },
+  {
+    "at": 1794745535.962222,
+    "command": "setblock 216 79 34 minecraft:smooth_stone",
+    "state": "sending"
+  },
+  {
+    "at": 1794745535.962222,
+    "command": "setblock 216 79 34 minecraft:smooth_stone",
+    "state": "responded",
+    "result": "Changed the block at 216, 79, 34\n"
+  },
+  {
+    "at": 1794745536.0221615,
+    "command": "tp Dev 216.5 80 34.5 -90 7.1",
+    "state": "sending"
+  },
+  {
+    "at": 1794745536.0221615,
+    "command": "tp Dev 216.5 80 34.5 -90 7.1",
+    "state": "responded",
+    "result": "Teleported Dev to 216.500000, 80.000000, 34.500000\n"
+  },
+  {
+    "at": 1794745550.0725665,
+    "command": "tp Dev 214.5 77 26.5 -90 29",
+    "state": "sending"
+  },
+  {
+    "at": 1794745550.0725665,
+    "command": "tp Dev 214.5 77 26.5 -90 29",
+    "state": "responded",
+    "result": "Teleported Dev to 214.500000, 77.000000, 26.500000\n"
+  },
+  {
+    "at": 1794745566.3425028,
+    "command": "save-all flush",
+    "state": "sending"
+  },
+  {
+    "at": 1794745566.3425028,
+    "command": "save-all flush",
+    "state": "responded",
+    "result": "Saving the game (this may take a moment!)\nSaved the game\n"
+  },
+  {
+    "at": 1794745595.686309,
+    "command": "setblock 216 79 26 minecraft:air",
+    "state": "sending"
+  },
+  {
+    "at": 1794745595.686309,
+    "command": "setblock 216 79 26 minecraft:air",
+    "state": "responded",
+    "result": "Changed the block at 216, 79, 26\n"
+  },
+  {
+    "at": 1794745595.7549186,
+    "command": "setblock 216 79 34 minecraft:air",
+    "state": "sending"
+  },
+  {
+    "at": 1794745595.7549186,
+    "command": "setblock 216 79 34 minecraft:air",
+    "state": "responded",
+    "result": "Changed the block at 216, 79, 34\n"
+  },
+  {
+    "at": 1794745595.8175967,
+    "command": "tp Dev 214.5 77 19.5 -40 -10",
+    "state": "sending"
+  },
+  {
+    "at": 1794745595.8175967,
+    "command": "tp Dev 214.5 77 19.5 -40 -10",
+    "state": "responded",
+    "result": "Teleported Dev to 214.500000, 77.000000, 19.500000\n"
+  },
+  {
+    "at": 1794745708.8222942,
+    "command": "save-all flush",
+    "state": "sending"
+  },
+  {
+    "at": 1794745708.8222942,
+    "command": "save-all flush",
+    "state": "responded",
+    "result": "Saving the game (this may take a moment!)\nSaved the game\n"
+  },
+  {
+    "at": 1794745709.3876913,
+    "command": "stop",
+    "state": "sending"
+  },
+  {
+    "at": 1794745709.3876913,
+    "command": "stop",
+    "state": "responded",
+    "result": "Stopping the server\n"
+  }
+]

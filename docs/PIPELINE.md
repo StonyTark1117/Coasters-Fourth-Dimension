@@ -30,6 +30,9 @@ controls, then explicitly Resume. Resume validates the complete loaded route and
 accepts its new drive direction. Changing direction while travelling, losing power,
 losing a controller or breaking the retained consist stops the train and keeps
 restraints closed. Repair the reported condition and explicitly Resume to the dock.
+After repairing a power fault, use Stop to acknowledge it; reopening still requires
+the complete train at its dock. The passive brake decelerates before a native
+stationary hold carries gravity, so a stopped incline does not slowly roll back.
 A restart also keeps the actual car pose and seat assignments while travel is held;
 it never automatically dispatches or teleports a car back to its station.
 

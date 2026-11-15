@@ -314,6 +314,14 @@ public final class OriginalTrackRenderer {
                 up,
                 TrackDesign.RUNNING_CROSSBAR_RADIUS,
                 decorationColor);
+            if (design == TrackDesign.PIPELINE) {
+              // P rail saddle clears the running, side and upstop wheel envelopes.
+              var saddle = center.add(right.scale(side * 1.62)).add(up.scale(.18));
+              tube(result, saddle, center.add(right.scale(side * 2.40)).add(up.scale(.18)),
+                  basis.forward(), up, basis.forward(), up, .04, .02, decorationColor);
+              tube(result, saddle, center.add(right.scale(side * 1.62)).add(up.scale(.26)),
+                  basis.forward(), right, basis.forward(), right, .04, .005, decorationColor);
+            }
             tube(
                 result,
                 outerBottom,
