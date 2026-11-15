@@ -1,0 +1,27 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "fourthdimension:block/s2_spinning_governor"
+    },
+    "facing=south": {
+      "model": "fourthdimension:block/s2_spinning_governor",
+      "y": 180
+    },
+    "facing=east": {
+      "model": "fourthdimension:block/s2_spinning_governor",
+      "y": 90
+    },
+    "facing=west": {
+      "model": "fourthdimension:block/s2_spinning_governor",
+      "y": 270
+    },
+    "facing=up": {
+      "model": "fourthdimension:block/s2_spinning_governor",
+      "x": 270
+    },
+    "facing=down": {
+      "model": "fourthdimension:block/s2_spinning_governor",
+      "x": 90
+    }
+  }
+}

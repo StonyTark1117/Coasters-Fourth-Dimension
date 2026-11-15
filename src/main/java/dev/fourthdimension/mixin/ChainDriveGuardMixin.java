@@ -21,6 +21,7 @@ public abstract class ChainDriveGuardMixin {
       CoasterPathTrackFrame.TrackBasis basis,
       double dt,
       CallbackInfo ci) {
-    if (PropulsionInterlock.holds(sub, level)) ci.cancel();
+    var v = dev.fourthdimension.runtime.FoundationData.get(level).vehicles.get(sub.getUniqueId());
+    if (PropulsionInterlock.holds(sub, level) || v != null && dev.fourthdimension.integration.RideAuthority.deniesProvider(level,v,dev.fourthdimension.integration.RideAuthority.NATIVE_CHAIN)) ci.cancel();
   }
 }

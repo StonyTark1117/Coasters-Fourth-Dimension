@@ -18,7 +18,8 @@
     "LoadingDependencyMixin",
     "FlyingSeatRiderMixin",
     "AxisSeatRiderMixin",
-    "RollerBallSeatRiderMixin"
+    "RollerBallSeatRiderMixin",
+    "PipelineSeatRiderMixin"
   ],
   "injectors": {
     "defaultRequire": 1
@@ -36,6 +37,8 @@
     "NativeImageUploadTraceMixin",
     "RiderComfortMixin",
     "FlyingPlayerModelMixin",
-    "FlyingBodyFrameMixin"
+    "FlyingBodyFrameMixin",
+    "PipelineWheelMixin",
+    "PipelineCartSliceMixin"
   ]
 }

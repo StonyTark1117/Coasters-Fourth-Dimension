@@ -38,6 +38,7 @@ public final class PropulsionInterlock {
                           .contains(body.getUniqueId()));
     }
     if (FoundationData.VARIANT.equals(vehicle.variant)) return false;
+    if (RideAuthority.holds(level, vehicle)) return true;
     if (vehicle.stopping || vehicle.maintenance || vehicle.family == Family.PAX) return true;
     var container = SubLevelContainer.getContainer(level);
     if (!liveSource(container, body)) return true;

@@ -1,0 +1,80 @@
+{
+  "parent": "minecraft:block/block",
+  "textures": {
+    "seat": "fourthdimension:block/s2_spinning_seat",
+    "metal": "fourthdimension:block/s2_spinning_metal",
+    "harness": "fourthdimension:block/s2_spinning_harness",
+    "signal": "fourthdimension:block/s2_spinning_signal",
+    "particle": "fourthdimension:block/s2_spinning_seat"
+  },
+  "elements": [
+    {
+      "from": [
+        0,
+        -8,
+        0
+      ],
+      "to": [
+        16,
+        -6,
+        16
+      ],
+      "faces": {
+        "north": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ]
+        },
+        "south": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ]
+        },
+        "east": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ]
+        },
+        "west": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ]
+        },
+        "up": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ]
+        },
+        "down": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ]
+        }
+      }
+    }
+  ]
+}

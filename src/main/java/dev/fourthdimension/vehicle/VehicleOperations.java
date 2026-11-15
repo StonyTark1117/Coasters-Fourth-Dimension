@@ -98,6 +98,9 @@ public final class VehicleOperations {
       winch.fail("Operator emergency capture: inspect the shuttle before recovery");
       return;
     }
+    if (vehicle.authority.owner != null) dev.fourthdimension.integration.RideAuthority.emergencyHold(level,vehicle);
+    if (S2SpinningVehicle.is(vehicle)) { S2SpinningRuntime.capture(level,vehicle); return; }
+    if (PipelineVehicle.is(vehicle)) PipelineRuntime.acknowledge(level,vehicle);
     if (RollerBallVehicle.is(vehicle)) { RollerBallRuntime.capture(level,vehicle); return; }
     if (NewGenerationFlyingVehicle.is(vehicle)) { NewGenerationFlyingRuntime.capture(level,vehicle); return; }
     if (FlyingVehicle.is(vehicle)) { FlyingRuntime.capture(level,vehicle); return; }
@@ -203,6 +206,9 @@ public final class VehicleOperations {
   }
 
   public static void dispatch(ServerLevel level, FoundationData.Vehicle vehicle) {
+    if (S2SpinningVehicle.is(vehicle)) { validateDispatch(level,vehicle); S2SpinningRuntime.start(level,vehicle); }
+    if (vehicle.authority.owner != null && dev.fourthdimension.integration.RideAuthority.holds(level,vehicle))
+      throw new IllegalArgumentException("Release through the bound ride authority before dispatch");
     if (NewGenerationFlyingVehicle.is(vehicle)) { NewGenerationFlyingRuntime.dispatch(level,vehicle); return; }
     if (FlyingVehicle.is(vehicle)) { FlyingRuntime.dispatch(level,vehicle); return; }
     validateDispatch(level, vehicle);
@@ -216,6 +222,8 @@ public final class VehicleOperations {
       if(RollerBallVehicle.is(v))v.roller.routeHash=RollerBallTrack.validateRoute(level,v);
       if (AxisVehicle.is(v)) AxisRuntime.rememberConsist(level,v);
       if (FixedInvertedVehicle.is(v)) FixedInvertedRuntime.rememberConsist(level, v);
+      if (PipelineVehicle.is(v)) PipelineRuntime.rememberConsist(level,v);
+      if (S2SpinningVehicle.is(v)) S2SpinningRuntime.dispatched(level,v);
       if(SuspendedVehicle.is(v)) {
         var parent=SubLevelContainer.getContainer(level).getSubLevel(v.chassis);
         v.suspendedConsist=List.copyOf(CoasterCartTrainLinkConstraint.getTrainLinkedCartIds(parent));

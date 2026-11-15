@@ -52,9 +52,12 @@ public final class MagneticData {
   }
 
   public static void validate(FoundationData.Rail rail, List<MagneticSpan> spans) {
-    if (spans.size() > 8 || (!spans.isEmpty() && rail.family != Family.FREE_SPIN))
+    boolean s2 = rail.family == Family.SPINNING && rail.variant.equals(dev.fourthdimension.vehicle.S2SpinningVehicle.VARIANT);
+    if (spans.size() > 8 || (!spans.isEmpty() && rail.family != Family.FREE_SPIN && !s2))
       throw new IllegalArgumentException(
-          "Only Free Spin track supports up to eight magnetic spans");
+          "Free Spin and S2 track support up to eight magnetic spans");
+    if (s2 && spans.stream().anyMatch(span -> span.targets() != 1))
+      throw new IllegalArgumentException("S2 magnets target its one local-Y carrier (mask 1)");
     double length = rail.profile.keys().getLast().distance();
     for (var span : spans)
       if (span.end() > length + 1e-6)

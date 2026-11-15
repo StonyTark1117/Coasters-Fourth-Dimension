@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "SBS",
+    "SCS",
+    "ITI"
+  ],
+  "key": {
+    "S": {
+      "item": "create:red_seat"
+    },
+    "B": {
+      "item": "create:mechanical_bearing"
+    },
+    "C": {
+      "item": "simulatedcoasters:coaster_cart"
+    },
+    "I": {
+      "tag": "c:ingots/iron"
+    },
+    "T": {
+      "item": "fourthdimension:s2_spinning_track"
+    }
+  },
+  "result": {
+    "id": "fourthdimension:s2_spinning_car",
+    "count": 1
+  }
+}

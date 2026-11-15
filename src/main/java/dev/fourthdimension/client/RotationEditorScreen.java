@@ -104,12 +104,19 @@ public final class RotationEditorScreen extends Screen {
       addButton("Dispatch", left, top + 108, 13);
       addButton("Retain", left + 115, top + 108, 14);
       addButton("Release retention", left + 230, top + 108, 15);
+      if(dev.fourthdimension.vehicle.S2SpinningVehicle.is(v)) {
+        addButton("Set forward",left+115,top+186,63);
+        addButton("Set reverse",left+230,top+186,64);
+      } else if(v.family != dev.fourthdimension.contract.Family.PAX) {
+        addButton(v.authority.owner==null?"Claim station":"Resume owner",left+115,top+160,v.authority.owner==null?60:61);
+        if(v.authority.owner!=null && !"Matching track support lost".equals(v.fault) && !v.alignmentRequired)addButton("Transfer owner",left,top+160,62);
+      }
       if ("Matching track support lost".equals(v.fault))
         addButton("Repair matching track", left, top + 160, 25);
       else if (v.alignmentRequired)
         addButton("Realign matching track", left, top + 160, 26);
       if (free) addButton("Apply tuning", left, top + 134, 16);
-      if (dev.fourthdimension.vehicle.RollerBallVehicle.is(v) || dev.fourthdimension.vehicle.AxisVehicle.is(v) || dev.fourthdimension.vehicle.FlyingVehicle.is(v) || dev.fourthdimension.vehicle.FixedInvertedVehicle.is(v) || dev.fourthdimension.vehicle.SpinningVehicle.is(v) || dev.fourthdimension.vehicle.SuspendedVehicle.is(v))
+      if (dev.fourthdimension.vehicle.PipelineVehicle.is(v) || dev.fourthdimension.vehicle.S2SpinningVehicle.is(v) || dev.fourthdimension.vehicle.RollerBallVehicle.is(v) || dev.fourthdimension.vehicle.AxisVehicle.is(v) || dev.fourthdimension.vehicle.FlyingVehicle.is(v) || dev.fourthdimension.vehicle.FixedInvertedVehicle.is(v) || dev.fourthdimension.vehicle.SpinningVehicle.is(v) || dev.fourthdimension.vehicle.SuspendedVehicle.is(v))
         addButton("Resume to dock", left, top + 134, 28);
       if (v.recoveryCart == null && v.family.foundationFixture()) {
         recoveryAttach = addButton("Attach recovery", left, top + 212, 20);
@@ -154,7 +161,7 @@ public final class RotationEditorScreen extends Screen {
       }
       revision = rail.revision;
       free = !rail.family.driven();
-      magnetic = rail.family == dev.fourthdimension.contract.Family.FREE_SPIN;
+      magnetic = rail.family == dev.fourthdimension.contract.Family.FREE_SPIN || rail.variant.equals(dev.fourthdimension.vehicle.S2SpinningVehicle.VARIANT);
       status =
           rail.variant
               + " | revision "
@@ -185,7 +192,7 @@ public final class RotationEditorScreen extends Screen {
       value.setEditable(!free || magnetic);
       if (magnetic) addButton("Apply magnets", left, top + 82, 4);
       if (rail.family == dev.fourthdimension.contract.Family.SPINNING || rail.family == dev.fourthdimension.contract.Family.SUSPENDED)
-        addButton(rail.liftLock ? "Lift lock: on" : "Lift lock: off", left, top + 82, 6);
+        addButton(rail.liftLock ? "Lift lock: on" : "Lift lock: off", left + (magnetic ? 115 : 0), top + 82, 6);
       if (rail.family == dev.fourthdimension.contract.Family.AXIS) {
         addButton("Roll: "+rail.axisMode,left,top+134,7);
         addButton(rail.liftLock?"Lift lock: on":"Lift lock: off",left+230,top+134,6);
@@ -407,6 +414,7 @@ public final class RotationEditorScreen extends Screen {
       status="Roller Ball | "+vehicle.roller.phase+" | "+mechanism
           +" | restraints "+(vehicle.restraints?"closed":"open");
     }
+    if(vehicle.authority.owner!=null) status += " | " + (vehicle.authority.suspended?"Owner paused":vehicle.authority.held?"Owner hold":"Owner active");
     if (!vehicle.fault.isEmpty()) status += " | " + vehicle.fault;
   }
 

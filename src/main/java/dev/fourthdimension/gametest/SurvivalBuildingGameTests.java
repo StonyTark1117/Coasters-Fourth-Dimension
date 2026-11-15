@@ -73,6 +73,8 @@ public final class SurvivalBuildingGameTests {
       case FREE_SPIN -> TrackItems.FREE_SPIN.get();
       case REVISED -> TrackItems.REVISED.get();
       case PAX -> TrackItems.PAX.get();
+      case PIPELINE -> TrackItems.PIPELINE.get();
+      case S2_SPINNING -> dev.fourthdimension.vehicle.S2SpinningContent.TRACK.get();
       case SPINNING -> TrackItems.SPINNING.get();
       case SUSPENDED -> TrackItems.SUSPENDED.get();
       case FIXED_INVERTED -> TrackItems.FIXED_INVERTED.get();
@@ -90,6 +92,8 @@ public final class SurvivalBuildingGameTests {
       case FREE_SPIN -> TrackItems.FREE_SPIN_CAR.get();
       case REVISED -> TrackItems.REVISED_CAR.get();
       case PAX -> TrackItems.PAX_CAR.get();
+      case PIPELINE -> TrackItems.PIPELINE_CAR.get();
+      case S2_SPINNING -> dev.fourthdimension.vehicle.S2SpinningContent.CAR.get();
       case SPINNING -> TrackItems.SPINNING_CAR.get();
       case SUSPENDED -> TrackItems.SUSPENDED_CAR.get();
       case FIXED_INVERTED -> TrackItems.FIXED_INVERTED_CAR.get();

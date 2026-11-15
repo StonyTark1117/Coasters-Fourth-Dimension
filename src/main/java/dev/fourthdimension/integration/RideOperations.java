@@ -61,7 +61,11 @@ public final class RideOperations {
       if (v.family == Family.PAX)
         throw new IllegalArgumentException("Operate PAX through its bound shuttle winch");
     } else throw new IllegalArgumentException("Controller is not bound to this vehicle");
-    if (request == Request.DISPATCH) VehicleOperations.validateDispatch(level, v);
+    if (request == Request.DISPATCH) {
+      if(v.authority.owner!=null && !controller.equals(v.authority.controller)) throw new IllegalArgumentException("Another controller owns this ride");
+      if(v.authority.suspended)throw new IllegalArgumentException(v.authority.reason);
+      VehicleOperations.validateDispatch(level,v);
+    }
   }
 
   public static void request(ServerLevel level, BlockPos controller, UUID id, Request request) {
@@ -69,7 +73,10 @@ public final class RideOperations {
     var v = FoundationData.get(level).vehicles.get(id);
     switch (request) {
       case CAPTURE -> VehicleOperations.capture(level, v);
-      case DISPATCH -> VehicleOperations.dispatch(level, v);
+      case DISPATCH -> {
+        if(v.authority.owner==null)VehicleOperations.dispatch(level,v);
+        else RideAuthority.dispatch(level,controller,id,RideAuthority.token(v));
+      }
     }
   }
 }

@@ -59,8 +59,10 @@ public final class Boarding {
     if (AxisVehicle.is(vehicle)) return AxisRuntime.ready(level,parent,vehicle);
     if (NewGenerationFlyingVehicle.is(vehicle)) return NewGenerationFlyingRuntime.ready(level,parent,vehicle);
     if (FlyingVehicle.is(vehicle)) return FlyingRuntime.ready(level,parent,vehicle);
+    if (PipelineVehicle.is(vehicle)) return PipelineRuntime.ready(level,parent,vehicle);
     if (FixedInvertedVehicle.is(vehicle)) return FixedInvertedRuntime.ready(level, parent, vehicle);
     if (SuspendedVehicle.is(vehicle)) return SuspendedRuntime.ready(level, parent, vehicle);
+    if (S2SpinningVehicle.is(vehicle)) return S2SpinningRuntime.ready(level,parent,vehicle);
     if (SpinningVehicle.is(vehicle)) return SpinningRuntime.ready(level, parent, vehicle);
     for (var carrier : vehicle.carriers) {
       if (!carrier.capture
@@ -73,7 +75,7 @@ public final class Boarding {
 
   public static boolean seatOccupied(Level level, BlockPos pos) {
     var binding=at(level,pos);
-    if(binding==null||!FixedInvertedVehicle.is(binding.vehicle))
+    if(binding==null||!(PipelineVehicle.is(binding.vehicle)||FixedInvertedVehicle.is(binding.vehicle)))
       return com.simibubi.create.content.contraptions.actors.seat.SeatBlock.isSeatOccupied(level,pos);
     return level.getEntitiesOfClass(com.simibubi.create.content.contraptions.actors.seat.SeatEntity.class,
         new net.minecraft.world.phys.AABB(pos)).stream().anyMatch(s->s.blockPosition().equals(pos)&&s.isVehicle());
@@ -110,6 +112,14 @@ public final class Boarding {
       if (FixedInvertedVehicle.is(binding.vehicle)) {
         var pos = seat.blockPosition();
         seat.setPos(pos.getX(), pos.getY()+.4375, pos.getZ()+.5);
+      }
+      if (S2SpinningVehicle.is(binding.vehicle)) {
+        var pos = seat.blockPosition();
+        var state = level.getBlockState(pos);
+        if (state.getBlock() instanceof S2SpinningSeatBlock block) {
+          var center = block.getCenterOfMass(level, state);
+          seat.setPos(pos.getX()+center.x(), pos.getY()+.75, pos.getZ()+center.z());
+        }
       }
       if (SpinningVehicle.is(binding.vehicle)) {
         var pos = seat.blockPosition();

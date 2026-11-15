@@ -21,12 +21,14 @@ public final class VehicleFactory {
 
   public static FoundationData.Vehicle create(
       ServerLevel level, TrackDesign design, CoasterPathTrackFrame.GraphHit hit) {
+    if (design == TrackDesign.PIPELINE) return PipelineVehicle.create(level, hit);
     if (design == TrackDesign.NEW_GENERATION_FLYING) return NewGenerationFlyingVehicle.create(level, hit);
     if (design == TrackDesign.ROLLER_BALL) return RollerBallVehicle.create(level, hit);
     if (design == TrackDesign.AXIS) return AxisVehicle.create(level, hit);
     if (design == TrackDesign.FLYING) return FlyingVehicle.create(level, hit);
     if (design == TrackDesign.FIXED_INVERTED) return FixedInvertedVehicle.create(level, hit);
     if (design == TrackDesign.SUSPENDED) return SuspendedVehicle.create(level, hit);
+    if (design == TrackDesign.S2_SPINNING) return S2SpinningVehicle.create(level,hit);
     if (design == TrackDesign.SPINNING) return SpinningVehicle.create(level, hit);
     var data = FoundationData.get(level);
     if (data.vehicles.size() >= 64) throw new IllegalArgumentException("Vehicle capacity reached");
@@ -177,6 +179,7 @@ public final class VehicleFactory {
                   case PAX -> VehicleParts.PAX_SEAT.get();
                   case AXIS -> VehicleParts.AXIS_SEAT.get();
                   case FLYING -> VehicleParts.FLYING_SEAT.get();
+                  case PIPELINE, S2_SPINNING -> throw new IllegalStateException("Vehicle uses its dedicated factory");
                   case ROLLER_BALL -> throw new IllegalStateException("Roller Ball uses its own factory");
                   case NEW_GENERATION_FLYING -> throw new IllegalStateException("Compound Flying uses its own factory");
                   case SPINNING -> VehicleParts.SPINNING_SEAT.get();

@@ -259,14 +259,14 @@ public final class OriginalTrackRenderer {
       double control = design.controlHeight(profile.angleAt(distance));
       Vec3[] points = {
         center
-            .add(right.scale(-TrackDesign.HALF_GAUGE))
+            .add(right.scale(-(design == TrackDesign.PIPELINE ? 1.5 : TrackDesign.HALF_GAUGE)))
             .add(up.scale(TrackDesign.MAIN_RAIL_HEIGHT)),
-        center.add(right.scale(TrackDesign.HALF_GAUGE)).add(up.scale(TrackDesign.MAIN_RAIL_HEIGHT)),
+        center.add(right.scale(design == TrackDesign.PIPELINE ? 1.5 : TrackDesign.HALF_GAUGE)).add(up.scale(TrackDesign.MAIN_RAIL_HEIGHT)),
         center.add(right.scale(-TrackDesign.CONTROL_HALF_GAUGE)).add(up.scale(control)),
         center.add(right.scale(TrackDesign.CONTROL_HALF_GAUGE)).add(up.scale(control)),
         center.add(
             up.scale(
-                (design.overhead() ? .90 : TrackDesign.SPINE_HEIGHT)
+                (design == TrackDesign.PIPELINE ? -3.0 : design.overhead() ? .90 : TrackDesign.SPINE_HEIGHT)
                     + (ownership.originalOwns(
                             dev.fourthdimension.integration.TrackRenderOwnership.Component.SPINE)
                         ? 0
@@ -296,13 +296,13 @@ public final class OriginalTrackRenderer {
         // truss therefore stays outboard of its wheel envelope and joins below the spine.
         if (ownership.originalOwns(
             dev.fourthdimension.integration.TrackRenderOwnership.Component.RUNNING_SUPPORTS)) {
-          var underbrace = center.add(up.scale(design.overhead() ? .95 : TrackDesign.RUNNING_UNDERBRACE_HEIGHT));
+          var underbrace = center.add(up.scale(design == TrackDesign.PIPELINE ? -3.0 : design.overhead() ? .95 : TrackDesign.RUNNING_UNDERBRACE_HEIGHT));
           for (int side : new int[] {-1, 1}) {
             var outerBottom =
-                underbrace.add(right.scale(side * TrackDesign.RUNNING_OUTBOARD_HALF_GAUGE));
+                underbrace.add(right.scale(side * (design == TrackDesign.PIPELINE ? 2.40 : TrackDesign.RUNNING_OUTBOARD_HALF_GAUGE)));
             var outerTop =
                 center
-                    .add(right.scale(side * TrackDesign.RUNNING_OUTBOARD_HALF_GAUGE))
+                    .add(right.scale(side * (design == TrackDesign.PIPELINE ? 2.40 : TrackDesign.RUNNING_OUTBOARD_HALF_GAUGE)))
                     .add(up.scale(TrackDesign.MAIN_RAIL_HEIGHT));
             tube(
                 result,

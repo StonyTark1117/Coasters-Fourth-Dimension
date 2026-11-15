@@ -150,6 +150,11 @@ public final class CarrierRuntime {
       if (!(parentRaw instanceof ServerSubLevel parent) || parent.isRemoved()) continue;
       vehicleUpdates++;
       physics.updatePose(parent);
+      dev.fourthdimension.integration.RideAuthority.tick(level, vehicle, event.getTimeStep());
+      if (dev.fourthdimension.vehicle.PipelineVehicle.is(vehicle)) {
+        dev.fourthdimension.vehicle.PipelineRuntime.tick(level,parent,vehicle,event.getTimeStep());
+        continue;
+      }
       if (dev.fourthdimension.vehicle.NewGenerationFlyingVehicle.is(vehicle)) {
         dev.fourthdimension.vehicle.NewGenerationFlyingRuntime.tick(level, parent, vehicle, event.getTimeStep());
         continue;
@@ -204,6 +209,8 @@ public final class CarrierRuntime {
             dev.fourthdimension.vehicle.SuspendedRuntime.fault(level,vehicle,"Suspended cabin body unavailable");
           if (dev.fourthdimension.vehicle.SpinningVehicle.is(vehicle))
             dev.fourthdimension.vehicle.SpinningRuntime.fault(vehicle, "S1 carrier body unavailable");
+          if (dev.fourthdimension.vehicle.S2SpinningVehicle.is(vehicle))
+            dev.fourthdimension.vehicle.S2SpinningRuntime.fault(level,vehicle,"S2 carrier body unavailable");
           continue;
         }
         long carrierStart = System.nanoTime();
@@ -278,6 +285,12 @@ public final class CarrierRuntime {
           dev.fourthdimension.vehicle.NativeLoading.update(child,vehicle,carrier);
           dev.fourthdimension.vehicle.FlyingRuntime.update(level,parent,child,vehicle,carrier,rail,(GenericConstraintHandle)handle,event.getTimeStep());
           carrierNanos += System.nanoTime()-carrierStart; continue;
+        }
+        if (dev.fourthdimension.vehicle.S2SpinningVehicle.is(vehicle)) {
+          dev.fourthdimension.vehicle.NativeLoading.update(child, vehicle, carrier);
+          dev.fourthdimension.vehicle.S2SpinningRuntime.update(level,parent,child,vehicle,carrier,rail,(RotaryConstraintHandle) handle,event.getTimeStep());
+          carrierNanos += System.nanoTime()-carrierStart;
+          continue;
         }
         if (dev.fourthdimension.vehicle.SpinningVehicle.is(vehicle)) {
           dev.fourthdimension.vehicle.NativeLoading.update(child, vehicle, carrier);

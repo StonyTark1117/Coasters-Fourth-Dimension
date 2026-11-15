@@ -181,7 +181,7 @@ neoForge {
 
 // Optional addons are development profiles only; the distributed addon never bundles them.
 def fdIntegrationProfiles = (findProperty('fdIntegrations') ?: '').toString().split(',').findAll { !it.isBlank() }.toSet()
-def fdUnknownProfiles = fdIntegrationProfiles - ['styles', 'engineered']
+def fdUnknownProfiles = fdIntegrationProfiles - ['styles', 'engineered', 'additions', 'ctnb', 'magnetized']
 if (!fdUnknownProfiles.isEmpty()) throw new GradleException("Unknown fdIntegrations profiles: ${fdUnknownProfiles}")
 if (project.hasProperty('fdFeNetwork') && !fdIntegrationProfiles.contains('engineered'))
     throw new GradleException('fdFeNetwork requires -PfdIntegrations=engineered')
@@ -189,6 +189,13 @@ if (project.hasProperty('fdFeNetwork') && !fdIntegrationProfiles.contains('engin
 dependencies {
     if (fdIntegrationProfiles.contains('styles')) runtimeOnly 'curse.maven:coasters-simulated-track-styles-1642719:9020601'
     if (fdIntegrationProfiles.contains('engineered')) runtimeOnly 'curse.maven:coasters-engineered-1643631:8863559'
+    if (fdIntegrationProfiles.contains('ctnb')) runtimeOnly 'curse.maven:ctnb-1649197:8718286'
+    if (fdIntegrationProfiles.contains('magnetized')) runtimeOnly 'curse.maven:coasters-magnetized-1642979:8668703'
+    if (fdIntegrationProfiles.contains('additions')) {
+        runtimeOnly 'curse.maven:create-coasters-simulated-additions-1661497:9243346'
+        runtimeOnly 'curse.maven:create-aeronautics-676721:8763471'
+        runtimeOnly 'curse.maven:interiors-906239:8974633'
+    }
     // Validation-only FE producer and wiring; no addon dependency is bundled or advertised.
     if (project.hasProperty('fdFeNetwork')) runtimeOnly 'curse.maven:createaddition-439890:8188476'
     if (project.hasProperty('fdPackaged')) packagedRuntimeOnly files(layout.buildDirectory.file("libs/coasters-fourth-dimension-${mod_version}.jar"))

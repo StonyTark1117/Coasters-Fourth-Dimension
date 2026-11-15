@@ -1,0 +1,100 @@
+{
+  "variants": {
+    "facing=north,restrained=false,right=false,rear=false": {
+      "model": "fourthdimension:block/pipeline_seat_0_0_open"
+    },
+    "facing=north,restrained=false,right=false,rear=true": {
+      "model": "fourthdimension:block/pipeline_seat_0_1_open"
+    },
+    "facing=north,restrained=false,right=true,rear=false": {
+      "model": "fourthdimension:block/pipeline_seat_1_0_open"
+    },
+    "facing=north,restrained=false,right=true,rear=true": {
+      "model": "fourthdimension:block/pipeline_seat_1_1_open"
+    },
+    "facing=north,restrained=true,right=false,rear=false": {
+      "model": "fourthdimension:block/pipeline_seat_0_0_closed"
+    },
+    "facing=north,restrained=true,right=false,rear=true": {
+      "model": "fourthdimension:block/pipeline_seat_0_1_closed"
+    },
+    "facing=north,restrained=true,right=true,rear=false": {
+      "model": "fourthdimension:block/pipeline_seat_1_0_closed"
+    },
+    "facing=north,restrained=true,right=true,rear=true": {
+      "model": "fourthdimension:block/pipeline_seat_1_1_closed"
+    },
+    "facing=south,restrained=false,right=false,rear=false": {
+      "model": "fourthdimension:block/pipeline_seat_0_0_open"
+    },
+    "facing=south,restrained=false,right=false,rear=true": {
+      "model": "fourthdimension:block/pipeline_seat_0_1_open"
+    },
+    "facing=south,restrained=false,right=true,rear=false": {
+      "model": "fourthdimension:block/pipeline_seat_1_0_open"
+    },
+    "facing=south,restrained=false,right=true,rear=true": {
+      "model": "fourthdimension:block/pipeline_seat_1_1_open"
+    },
+    "facing=south,restrained=true,right=false,rear=false": {
+      "model": "fourthdimension:block/pipeline_seat_0_0_closed"
+    },
+    "facing=south,restrained=true,right=false,rear=true": {
+      "model": "fourthdimension:block/pipeline_seat_0_1_closed"
+    },
+    "facing=south,restrained=true,right=true,rear=false": {
+      "model": "fourthdimension:block/pipeline_seat_1_0_closed"
+    },
+    "facing=south,restrained=true,right=true,rear=true": {
+      "model": "fourthdimension:block/pipeline_seat_1_1_closed"
+    },
+    "facing=east,restrained=false,right=false,rear=false": {
+      "model": "fourthdimension:block/pipeline_seat_0_0_open"
+    },
+    "facing=east,restrained=false,right=false,rear=true": {
+      "model": "fourthdimension:block/pipeline_seat_0_1_open"
+    },
+    "facing=east,restrained=false,right=true,rear=false": {
+      "model": "fourthdimension:block/pipeline_seat_1_0_open"
+    },
+    "facing=east,restrained=false,right=true,rear=true": {
+      "model": "fourthdimension:block/pipeline_seat_1_1_open"
+    },
+    "facing=east,restrained=true,right=false,rear=false": {
+      "model": "fourthdimension:block/pipeline_seat_0_0_closed"
+    },
+    "facing=east,restrained=true,right=false,rear=true": {
+      "model": "fourthdimension:block/pipeline_seat_0_1_closed"
+    },
+    "facing=east,restrained=true,right=true,rear=false": {
+      "model": "fourthdimension:block/pipeline_seat_1_0_closed"
+    },
+    "facing=east,restrained=true,right=true,rear=true": {
+      "model": "fourthdimension:block/pipeline_seat_1_1_closed"
+    },
+    "facing=west,restrained=false,right=false,rear=false": {
+      "model": "fourthdimension:block/pipeline_seat_0_0_open"
+    },
+    "facing=west,restrained=false,right=false,rear=true": {
+      "model": "fourthdimension:block/pipeline_seat_0_1_open"
+    },
+    "facing=west,restrained=false,right=true,rear=false": {
+      "model": "fourthdimension:block/pipeline_seat_1_0_open"
+    },
+    "facing=west,restrained=false,right=true,rear=true": {
+      "model": "fourthdimension:block/pipeline_seat_1_1_open"
+    },
+    "facing=west,restrained=true,right=false,rear=false": {
+      "model": "fourthdimension:block/pipeline_seat_0_0_closed"
+    },
+    "facing=west,restrained=true,right=false,rear=true": {
+      "model": "fourthdimension:block/pipeline_seat_0_1_closed"
+    },
+    "facing=west,restrained=true,right=true,rear=false": {
+      "model": "fourthdimension:block/pipeline_seat_1_0_closed"
+    },
+    "facing=west,restrained=true,right=true,rear=true": {
+      "model": "fourthdimension:block/pipeline_seat_1_1_closed"
+    }
+  }
+}

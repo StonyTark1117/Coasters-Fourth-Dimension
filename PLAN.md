@@ -25,6 +25,13 @@ The archived schema-7/protocol-8 registry is not automatically part of the build
 FD501 records core and per-adapter decisions. FD501A owns core-required changes;
 FD501B–H own adapter-specific prerequisites without blocking unrelated families.
 
+The active 0.8 implementation has qualified ride-local authority (FD1701A):
+[shared handoff](docs/evidence/0.8/authority/README.md). Schema 8 retains controller
+identity and requires explicit restoration; schemas 1–7 remain readable. Pipeline
+and S2 are integrated implementation checkpoints with their remaining acceptance
+owned in the current queue. Dive, Powered Inverted and optional operations adapters
+continue under that queue; this does not close the whole milestone.
+
 The [qualification record](docs/CURRENT-QUALIFICATION.md) retains actual run
 identities. [VALIDATION-POLICY.md](docs/VALIDATION-POLICY.md) governs cumulative
 acceptance and targeted retesting. New designs need specifications and working

@@ -8,6 +8,7 @@ public enum Family {
   ZACSPIN_REVISED("zacspin_revised", false),
   PAX("pax_shuttle", false),
   WING("wing_fixed", false),
+  PIPELINE("pipeline", false),
   SPINNING("spinning", false),
   SUSPENDED("suspended", false),
   FIXED_INVERTED("fixed_inverted", false),
@@ -32,7 +33,7 @@ public enum Family {
   }
 
   public boolean rotary() {
-    return this != WING && this != FIXED_INVERTED;
+    return this != WING && this != FIXED_INVERTED && this != PIPELINE;
   }
 
   public dev.fourthdimension.physics.CarrierAxis axis() {
@@ -41,7 +42,7 @@ public enum Family {
   }
 
   /** The original prototype fixture remains the original five-family acceptance input. */
-  public boolean foundationFixture() { return this != WING && this != SPINNING && this != SUSPENDED && this != FIXED_INVERTED && this != AXIS && this != FLYING && this != ROLLER_BALL; }
+  public boolean foundationFixture() { return this != PIPELINE && this != WING && this != SPINNING && this != SUSPENDED && this != FIXED_INVERTED && this != AXIS && this != FLYING && this != ROLLER_BALL; }
 
   public static Family byId(String id) {
     for (Family family : values()) if (family.id.equals(id)) return family;

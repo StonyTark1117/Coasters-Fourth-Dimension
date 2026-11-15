@@ -22,6 +22,7 @@ public final class EngineeredInterlock {
     if (PropulsionInterlock.holds(body, level)) return true;
     var vehicle = FoundationData.get(level).vehicles.get(body.getUniqueId());
     if (vehicle == null || FoundationData.VARIANT.equals(vehicle.variant)) return false;
+    if (RideAuthority.deniesProvider(level,vehicle,RideAuthority.ENGINEERED)) return true;
     var container = SubLevelContainer.getContainer(level);
     if (container == null || body.isRemoved()) return true;
     try {

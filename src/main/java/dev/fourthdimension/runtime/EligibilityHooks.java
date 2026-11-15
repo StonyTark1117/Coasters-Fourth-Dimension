@@ -33,6 +33,7 @@ public final class EligibilityHooks {
             .filter(r -> r.matches(hit.edge().from(), hit.edge().to()))
             .findFirst()
             .orElse(null);
+    if (vehicle == null && rail != null && rail.family == dev.fourthdimension.contract.Family.PIPELINE) return false;
     if (vehicle == null) {
       var recovery =
           data.vehicles.values().stream()
@@ -49,6 +50,7 @@ public final class EligibilityHooks {
     if (!dev.fourthdimension.vehicle.ConsistRules.eligible(level, chassis, vehicle)) return false;
     if (dev.fourthdimension.vehicle.WingVehicle.is(vehicle))
       return dev.fourthdimension.vehicle.WingTrack.rejection(level, hit.edge()) == null;
+    if (dev.fourthdimension.vehicle.PipelineVehicle.is(vehicle) && dev.fourthdimension.vehicle.PipelineTrack.rejection(level,hit.edge()) != null) return false;
     if (dev.fourthdimension.vehicle.RollerBallVehicle.is(vehicle) && dev.fourthdimension.vehicle.RollerBallTrack.rejection(level,hit.edge()) != null) return false;
     if (dev.fourthdimension.vehicle.AxisVehicle.is(vehicle) && dev.fourthdimension.vehicle.AxisTrack.rejection(level,hit.edge()) != null) return false;
     if (dev.fourthdimension.vehicle.FlyingVehicle.is(vehicle) && dev.fourthdimension.vehicle.FlyingTrack.rejection(level,hit.edge()) != null) return false;
@@ -57,6 +59,8 @@ public final class EligibilityHooks {
         && dev.fourthdimension.vehicle.FixedInvertedTrack.rejection(level, hit.edge()) != null) return false;
     if (dev.fourthdimension.vehicle.SuspendedVehicle.is(vehicle)
         && dev.fourthdimension.vehicle.SuspendedTrack.rejection(level, hit.edge()) != null) return false;
+    if (dev.fourthdimension.vehicle.S2SpinningVehicle.is(vehicle)
+        && dev.fourthdimension.vehicle.S2SpinningTrack.rejection(level,hit.edge()) != null) return false;
     if (dev.fourthdimension.vehicle.SpinningVehicle.is(vehicle)
         && dev.fourthdimension.vehicle.SpinningTrack.rejection(level, hit.edge()) != null) return false;
     if (rail == null

@@ -13,7 +13,21 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 
 public final class BoardingStationEntity extends BlockEntity
-    implements IHaveGoggleInformation, RideInformation.Source {
+    implements IHaveGoggleInformation, RideInformation.Source, RideAuthority.Controller {
+  private UUID authorityId = UUID.randomUUID();
+  public UUID authorityId() { return authorityId; }
+  public boolean authorizesRide(UUID chassis) {
+    if (!(level instanceof ServerLevel server) || vehicle == null) return false;
+    var lead = FoundationData.get(server).vehicles.get(vehicle);
+    if (lead == null) return false;
+    try { return dev.fourthdimension.vehicle.VehicleOperations.consist(server,lead).stream().anyMatch(v -> v.chassis.equals(chassis)); }
+    catch (IllegalArgumentException unavailable) { return false; }
+  }
+  public boolean authorityAvailable(UUID chassis) { return !isRemoved() && authorizesRide(chassis); }
+  public void validateRelease(ServerLevel server, FoundationData.Vehicle v) {
+    if (!RideOperations.nearby(server,worldPosition,v.chassis)) throw new IllegalArgumentException("Return to the bound station before station release");
+    dev.fourthdimension.vehicle.VehicleOperations.validateDispatch(server,v);
+  }
   public UUID vehicle;
   public String fault = "";
   private boolean powered;
@@ -59,6 +73,7 @@ public final class BoardingStationEntity extends BlockEntity
     super.saveAdditional(tag, provider);
     if (vehicle != null) tag.putUUID("vehicle", vehicle);
     tag.putBoolean("powered", powered);
+    tag.putUUID("authority_id",authorityId);
   }
 
   @Override
@@ -66,6 +81,7 @@ public final class BoardingStationEntity extends BlockEntity
     super.loadAdditional(tag, provider);
     vehicle = tag.hasUUID("vehicle") ? tag.getUUID("vehicle") : null;
     powered = tag.getBoolean("powered");
+    if(tag.hasUUID("authority_id")) authorityId=tag.getUUID("authority_id");
     if (tag.contains("ride_telemetry"))
       telemetry = RideTelemetry.load(tag.getCompound("ride_telemetry"));
   }
@@ -81,6 +97,9 @@ public final class BoardingStationEntity extends BlockEntity
     if (v != null
         && v.family != dev.fourthdimension.contract.Family.PAX
         && ((signal && nearby && !v.stopping) || (!signal && station.powered && nearby
+            && v.authority.owner == null
+            && !dev.fourthdimension.vehicle.PipelineVehicle.is(v)
+            && !dev.fourthdimension.vehicle.S2SpinningVehicle.is(v)
             && !dev.fourthdimension.vehicle.SpinningVehicle.is(v)
             && !dev.fourthdimension.vehicle.SuspendedVehicle.is(v)
             && !dev.fourthdimension.vehicle.RollerBallVehicle.is(v)

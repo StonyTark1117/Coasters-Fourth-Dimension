@@ -123,7 +123,13 @@ public final class BoardingStation extends BaseEntityBlock {
         return InteractionResult.FAIL;
       }
     }
-    if (rebinding && dev.fourthdimension.vehicle.RollerBallVehicle.is(v)) {
+    if (rebinding && dev.fourthdimension.vehicle.PipelineVehicle.is(v)) {
+      try { dev.fourthdimension.vehicle.PipelineRuntime.rebindDock(server.serverLevel(),v,pos); }
+      catch (IllegalArgumentException rejected) { player.displayClientMessage(Component.literal(rejected.getMessage()),true); return InteractionResult.FAIL; }
+    } else if (rebinding && dev.fourthdimension.vehicle.S2SpinningVehicle.is(v)) {
+      try { dev.fourthdimension.vehicle.S2SpinningRuntime.rebindDock(server.serverLevel(),v,pos); }
+      catch (IllegalArgumentException rejected) { player.displayClientMessage(Component.literal(rejected.getMessage()),true); return InteractionResult.FAIL; }
+    } else if (rebinding && dev.fourthdimension.vehicle.RollerBallVehicle.is(v)) {
       try { dev.fourthdimension.vehicle.RollerBallRuntime.rebindDock(server.serverLevel(),v,pos); }
       catch (IllegalArgumentException rejected) { player.displayClientMessage(Component.literal(rejected.getMessage()),true); return InteractionResult.FAIL; }
     } else if (rebinding && dev.fourthdimension.vehicle.AxisVehicle.is(v)) {

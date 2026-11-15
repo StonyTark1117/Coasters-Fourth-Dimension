@@ -204,7 +204,16 @@ public final class EditorNetwork {
         case 10 -> VehicleOperations.capture(level, vehicle);
         case 11 -> VehicleOperations.restraints(level, vehicle, true);
         case 12 -> VehicleOperations.restraints(level, vehicle, false);
-        case 13 -> VehicleOperations.dispatch(level, vehicle);
+        case 13 -> {
+          if(dev.fourthdimension.vehicle.S2SpinningVehicle.is(vehicle)) { VehicleOperations.dispatch(level,vehicle); break; }
+          if(vehicle.authority.owner==null) VehicleOperations.dispatch(level,vehicle);
+          else dev.fourthdimension.integration.RideAuthority.dispatch(level,vehicle.authority.controller,vehicle.chassis,dev.fourthdimension.integration.RideAuthority.token(vehicle));
+        }
+        case 63,64 -> {
+          if(!dev.fourthdimension.vehicle.S2SpinningVehicle.is(vehicle))throw new IllegalArgumentException("S2 direction controls require S2");
+          dev.fourthdimension.vehicle.S2SpinningRuntime.direction(level,vehicle,request.action==63?1:-1);
+        }
+        case 60,61,62 -> dev.fourthdimension.integration.RideAuthority.operate(player,vehicle,request.action);
         case 14 -> VehicleOperations.retention(level, vehicle, true);
         case 15 -> VehicleOperations.retention(level, vehicle, false);
         case 16 -> {
@@ -226,6 +235,8 @@ public final class EditorNetwork {
         case 26 -> VehicleOperations.realignMatchingSupport(level, vehicle);
         case 27 -> VehicleOperations.retireDetachedPax(level, vehicle);
         case 28 -> {
+          if(dev.fourthdimension.vehicle.PipelineVehicle.is(vehicle)) { dev.fourthdimension.vehicle.PipelineRuntime.resumeToDock(level,vehicle); break; }
+          if(dev.fourthdimension.vehicle.S2SpinningVehicle.is(vehicle)) { dev.fourthdimension.vehicle.S2SpinningRuntime.resume(level,vehicle); break; }
           if(dev.fourthdimension.vehicle.RollerBallVehicle.is(vehicle)) { dev.fourthdimension.vehicle.RollerBallRuntime.resume(level,vehicle); break; }
           if(dev.fourthdimension.vehicle.AxisVehicle.is(vehicle)) { dev.fourthdimension.vehicle.AxisRuntime.resumeToDock(level,vehicle); break; }
           if(dev.fourthdimension.vehicle.FlyingVehicle.is(vehicle)) { dev.fourthdimension.vehicle.FlyingRuntime.resumeToDock(level,vehicle); break; }

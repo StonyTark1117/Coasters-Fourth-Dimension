@@ -11,7 +11,7 @@ import net.minecraft.world.level.saveddata.SavedData;
 
 /** World-owned authoritative bindings. Native Sable bodies persist poses and velocities. */
 public final class FoundationData extends SavedData {
-  public static final int SCHEMA = 7;
+  public static final int SCHEMA = 8;
   // Keep full functional snapshots below Minecraft's one-megabyte custom-payload limit.
   public static final int MAX_PROFILE_KEYS = 8192;
   public static final String VARIANT = "foundation_v1";
@@ -131,6 +131,9 @@ public final class FoundationData extends SavedData {
     public boolean recoveryCartRemoved;
     public String fault = "";
     public long revision;
+    public dev.fourthdimension.integration.RideAuthorityState authority = new dev.fourthdimension.integration.RideAuthorityState();
+    public dev.fourthdimension.vehicle.PipelineState pipeline = new dev.fourthdimension.vehicle.PipelineState();
+    public dev.fourthdimension.vehicle.S2SpinningState s2 = new dev.fourthdimension.vehicle.S2SpinningState();
     public List<UUID> suspendedConsist = List.of();
     public List<UUID> fixedConsist = List.of();
     public BlockPos fixedDockFrom, fixedDockTo;
@@ -230,10 +233,13 @@ public final class FoundationData extends SavedData {
       tag.putUUID("chassis", vehicle.chassis);
       tag.putString("family", vehicle.family.id());
       tag.putString("variant", vehicle.variant);
+      tag.put("authority", vehicle.authority.save());
+      if (dev.fourthdimension.vehicle.PipelineVehicle.is(vehicle)) tag.put("pipeline",vehicle.pipeline.save());
+      if (dev.fourthdimension.vehicle.S2SpinningVehicle.is(vehicle)) tag.put("s2",vehicle.s2.save());
       ListTag consistIds=new ListTag();
       for(var id:vehicle.suspendedConsist)consistIds.add(NbtUtils.createUUID(id));
       tag.put("suspended_consist",consistIds);
-      if (dev.fourthdimension.vehicle.FixedInvertedVehicle.is(vehicle)) {
+      if (dev.fourthdimension.vehicle.FixedInvertedVehicle.is(vehicle) || dev.fourthdimension.vehicle.PipelineVehicle.is(vehicle)) {
         var fixedIds=new ListTag();for(var id:vehicle.fixedConsist)fixedIds.add(NbtUtils.createUUID(id));
         tag.put("fixed_consist",fixedIds);
         if(vehicle.fixedDockFrom!=null){tag.putLong("fixed_dock_from",vehicle.fixedDockFrom.asLong());tag.putLong("fixed_dock_to",vehicle.fixedDockTo.asLong());tag.putLong("fixed_dock_geometry",vehicle.fixedDockGeometry);}
@@ -243,13 +249,17 @@ public final class FoundationData extends SavedData {
       if (vehicle.family == Family.FLYING) tag.put("flying", vehicle.flying.save());
       if (dev.fourthdimension.vehicle.NewGenerationFlyingVehicle.is(vehicle)) tag.put("yaw", vehicle.yaw.save());
       if (vehicle.dock != null) tag.putLong("dock", vehicle.dock.asLong());
-      if ((dev.fourthdimension.vehicle.SpinningVehicle.is(vehicle) || dev.fourthdimension.vehicle.AxisVehicle.is(vehicle) || dev.fourthdimension.vehicle.RollerBallVehicle.is(vehicle))) {
+      if ((dev.fourthdimension.vehicle.SpinningVehicle.is(vehicle) || dev.fourthdimension.vehicle.S2SpinningVehicle.is(vehicle) || dev.fourthdimension.vehicle.AxisVehicle.is(vehicle) || dev.fourthdimension.vehicle.RollerBallVehicle.is(vehicle))) {
         tag.putString("contact_layout", dev.fourthdimension.contract.NativeTrackFit.N_CONTACTS);
         tag.putString("mount_frame", dev.fourthdimension.contract.NativeTrackFit.ABOVE);
       }
       if (dev.fourthdimension.vehicle.SuspendedVehicle.is(vehicle) || dev.fourthdimension.vehicle.FixedInvertedVehicle.is(vehicle) || dev.fourthdimension.vehicle.FlyingVehicle.is(vehicle) || dev.fourthdimension.vehicle.NewGenerationFlyingVehicle.is(vehicle)) {
         tag.putString("contact_layout", dev.fourthdimension.contract.NativeTrackFit.N_CONTACTS);
         tag.putString("mount_frame", dev.fourthdimension.contract.NativeTrackFit.OVERHEAD);
+      }
+      if (dev.fourthdimension.vehicle.PipelineVehicle.is(vehicle)) {
+        tag.putString("contact_layout", "pipeline_p_contacts_v1");
+        tag.putString("mount_frame", "between_side_rails_v1");
       }
       tag.putBoolean("restraints", vehicle.restraints);
       tag.putBoolean("stopping", vehicle.stopping);
@@ -276,7 +286,7 @@ public final class FoundationData extends SavedData {
         c.putDouble("side", carrier.side);
         c.putDouble("longitudinal", carrier.longitudinal);
         c.putDouble("ballast", carrier.ballast);
-        if (!dev.fourthdimension.vehicle.FixedInvertedVehicle.is(vehicle)) { c.putDouble("angle", carrier.angle); c.putDouble("omega", carrier.omega); }
+        if (!(dev.fourthdimension.vehicle.FixedInvertedVehicle.is(vehicle) || dev.fourthdimension.vehicle.PipelineVehicle.is(vehicle))) { c.putDouble("angle", carrier.angle); c.putDouble("omega", carrier.omega); }
         c.putBoolean("capture", carrier.capture);
         c.putDouble("pivot_height", carrier.pivotHeight);
         c.putBoolean("lift_pending",carrier.liftPending);
@@ -285,7 +295,7 @@ public final class FoundationData extends SavedData {
         c.putDouble("child_pivot_offset", carrier.childPivotOffset);
         c.putDouble("child_pivot_x", carrier.childPivotX);
         c.putDouble("child_pivot_z", carrier.childPivotZ);
-        if (!dev.fourthdimension.vehicle.FixedInvertedVehicle.is(vehicle)) c.putString("axis", vehicle.family.axis().name());
+        if (!(dev.fourthdimension.vehicle.FixedInvertedVehicle.is(vehicle) || dev.fourthdimension.vehicle.PipelineVehicle.is(vehicle))) c.putString("axis", vehicle.family.axis().name());
         c.putBoolean("latched", carrier.latched);
         c.putBoolean("lift_held", carrier.liftHeld);
         c.putDouble("capture_target", carrier.captureTarget);
@@ -317,6 +327,7 @@ public final class FoundationData extends SavedData {
 
   public static FoundationData load(CompoundTag root, HolderLookup.Provider registries) {
     if (root.getInt("schema") != SCHEMA
+        && root.getInt("schema") != 7
         && root.getInt("schema") != 6
         && root.getInt("schema") != 5
         && root.getInt("schema") != 4
@@ -404,6 +415,7 @@ public final class FoundationData extends SavedData {
               : dev.fourthdimension.vehicle.VehicleOperations.MATCHING_SUPPORT_LOST.equals(
                   vehicle.fault);
       vehicle.revision = tag.getLong("revision");
+      vehicle.authority = dev.fourthdimension.integration.RideAuthorityState.read(tag.getCompound("authority"));
       vehicle.boardingReady = tag.getBoolean("boarding_ready");
       vehicle.damping = tag.contains("damping") ? tag.getDouble("damping") : 5;
       vehicle.ballast = tag.getDouble("ballast");
@@ -427,8 +439,10 @@ public final class FoundationData extends SavedData {
       if (vehicle.family == Family.FLYING) vehicle.flying = dev.fourthdimension.vehicle.FlyingState.read(tag.getCompound("flying"));
       vehicle.variant = tag.contains("variant") ? tag.getString("variant") : VARIANT;
       if (dev.fourthdimension.vehicle.NewGenerationFlyingVehicle.is(vehicle)) vehicle.yaw = dev.fourthdimension.vehicle.YawState.read(tag.getCompound("yaw"));
+      if (dev.fourthdimension.vehicle.PipelineVehicle.is(vehicle)) vehicle.pipeline = dev.fourthdimension.vehicle.PipelineState.load(tag.getCompound("pipeline"));
+      if (dev.fourthdimension.vehicle.S2SpinningVehicle.is(vehicle)) vehicle.s2 = dev.fourthdimension.vehicle.S2SpinningState.read(tag.getCompound("s2"));
       if (tag.contains("dock")) vehicle.dock = BlockPos.of(tag.getLong("dock"));
-      if ((dev.fourthdimension.vehicle.SpinningVehicle.is(vehicle) || dev.fourthdimension.vehicle.AxisVehicle.is(vehicle) || dev.fourthdimension.vehicle.RollerBallVehicle.is(vehicle))
+      if ((dev.fourthdimension.vehicle.SpinningVehicle.is(vehicle) || dev.fourthdimension.vehicle.S2SpinningVehicle.is(vehicle) || dev.fourthdimension.vehicle.AxisVehicle.is(vehicle) || dev.fourthdimension.vehicle.RollerBallVehicle.is(vehicle))
           && (!dev.fourthdimension.contract.NativeTrackFit.N_CONTACTS.equals(tag.getString("contact_layout"))
               || !dev.fourthdimension.contract.NativeTrackFit.ABOVE.equals(tag.getString("mount_frame"))))
         throw new IllegalArgumentException("Unknown S1 contact/mount definition");
@@ -436,6 +450,9 @@ public final class FoundationData extends SavedData {
           && (!dev.fourthdimension.contract.NativeTrackFit.N_CONTACTS.equals(tag.getString("contact_layout"))
               || !dev.fourthdimension.contract.NativeTrackFit.OVERHEAD.equals(tag.getString("mount_frame"))))
         throw new IllegalArgumentException("Unknown Suspended contact/mount definition");
+      if (dev.fourthdimension.vehicle.PipelineVehicle.is(vehicle)
+          && (!"pipeline_p_contacts_v1".equals(tag.getString("contact_layout")) || !"between_side_rails_v1".equals(tag.getString("mount_frame"))))
+        throw new IllegalArgumentException("Unknown Pipeline contact/mount definition");
       if (!VARIANT.equals(vehicle.variant)
           && !dev.fourthdimension.vehicle.WingVehicle.is(vehicle)
           && dev.fourthdimension.track.TrackDesign.byVariant(vehicle.variant).family
@@ -532,6 +549,10 @@ public final class FoundationData extends SavedData {
         dev.fourthdimension.vehicle.NewGenerationFlyingVehicle.validate(vehicle);
       } else if (dev.fourthdimension.vehicle.FlyingVehicle.is(vehicle)) {
         dev.fourthdimension.vehicle.FlyingVehicle.validate(vehicle);
+      } else if (dev.fourthdimension.vehicle.PipelineVehicle.is(vehicle)) {
+        dev.fourthdimension.vehicle.PipelineVehicle.validate(vehicle);
+      } else if (dev.fourthdimension.vehicle.S2SpinningVehicle.is(vehicle)) {
+        dev.fourthdimension.vehicle.S2SpinningVehicle.validate(vehicle);
       } else if (dev.fourthdimension.vehicle.SpinningVehicle.is(vehicle)) {
         dev.fourthdimension.vehicle.SpinningVehicle.validate(vehicle);
       } else if (dev.fourthdimension.vehicle.FixedInvertedVehicle.is(vehicle)) {

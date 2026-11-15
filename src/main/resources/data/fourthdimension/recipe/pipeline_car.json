@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "SIS",
+    "SCS",
+    "ITI"
+  ],
+  "key": {
+    "S": {
+      "item": "create:red_seat"
+    },
+    "I": {
+      "tag": "c:ingots/iron"
+    },
+    "T": {
+      "item": "fourthdimension:pipeline_track"
+    },
+    "C": {
+      "item": "simulatedcoasters:coaster_cart"
+    }
+  },
+  "result": {
+    "id": "fourthdimension:pipeline_car",
+    "count": 1
+  }
+}

@@ -13,6 +13,7 @@ public record TrackContract(
     Clearance clearance) {
   public enum Mechanism {
     CONTROL_RAILS,
+    LONGITUDINAL_DRIVE,
     ROTATION_DRIVE,
     POSTURE_LOCK,
     YAW,

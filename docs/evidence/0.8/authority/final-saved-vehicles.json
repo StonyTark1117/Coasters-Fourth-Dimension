@@ -1,0 +1,86 @@
+{
+  "sha256": "72718fd5edbeb12027685e140932a12a98cf1faa7a6653838a4fbc1c88ec45ce",
+  "vehicles": [
+    {
+      "alignment_required": 0,
+      "fault": "",
+      "boundTo": 2473901330375,
+      "carriers": [
+        {
+          "side": 0.0,
+          "rider_seats": [],
+          "lift_pending": 0,
+          "capture": 1,
+          "body": [
+            -1681525337,
+            1376865788,
+            -1558483097,
+            -1400806989
+          ],
+          "axis": "X",
+          "seats": [
+            -1099511627775,
+            -824633720831,
+            824633720833,
+            1099511627777
+          ],
+          "ballast": 0.0,
+          "omega": 0.0,
+          "lift_geometry": 0,
+          "lift_entered": 0,
+          "pivot_height": 0.0,
+          "angle": 0.0,
+          "capture_target": 0.0,
+          "lift_held": 0,
+          "latched": 0,
+          "longitudinal": 0.0,
+          "child_pivot_offset": 0.0,
+          "child_pivot_x": 0.0,
+          "child_pivot_z": 0.0,
+          "occupants": []
+        }
+      ],
+      "chassis": [
+        -1681525337,
+        1376865788,
+        -1558483097,
+        -1400806989
+      ],
+      "damping": 0.0,
+      "boundFrom": 9070970998727,
+      "ballast": 0.0,
+      "revision": 12,
+      "boarding_ready": 1,
+      "stopping": 1,
+      "authority": {
+        "owner": [
+          1397972046,
+          -306429487,
+          -1122092285,
+          1581426833
+        ],
+        "sequence": 2,
+        "reason": "",
+        "cars": [
+          [
+            -1681525337,
+            1376865788,
+            -1558483097,
+            -1400806989
+          ]
+        ],
+        "controller": 30511447920583,
+        "provider": "native_chain",
+        "held": 1,
+        "epoch": 2,
+        "suspended": 0
+      },
+      "variant": "wing_fixed_v1",
+      "restraints": 0,
+      "shuttle_detached": 0,
+      "family": "wing_fixed",
+      "suspended_consist": [],
+      "maintenance": 0
+    }
+  ]
+}

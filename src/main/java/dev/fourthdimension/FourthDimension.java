@@ -14,6 +14,7 @@ public final class FourthDimension {
     container.registerConfig(net.neoforged.fml.config.ModConfig.Type.CLIENT, RiderComfortSettings.SPEC);
     RuntimePerformanceRecorder.register();
     dev.fourthdimension.vehicle.YawMarkers.register(bus);
+    dev.fourthdimension.vehicle.S2SpinningContent.register(bus);
     dev.fourthdimension.integration.create.CreateIntegration.register(bus);
     dev.fourthdimension.shuttle.ShuttleContent.registerItem();
     dev.fourthdimension.station.StationContent.registerItem();
@@ -39,6 +40,8 @@ public final class FourthDimension {
     NeoForge.EVENT_BUS.addListener(dev.fourthdimension.runtime.ValidationCommands::register);
     NeoForge.EVENT_BUS.addListener(dev.fourthdimension.track.ExampleLayouts::register);
     NeoForge.EVENT_BUS.addListener(dev.fourthdimension.vehicle.WingExamples::register);
+    NeoForge.EVENT_BUS.addListener(dev.fourthdimension.vehicle.PipelineExamples::register);
+    NeoForge.EVENT_BUS.addListener(dev.fourthdimension.vehicle.PipelineExamples::tick);
     NeoForge.EVENT_BUS.addListener(dev.fourthdimension.vehicle.SpinningExamples::register);
     NeoForge.EVENT_BUS.addListener(dev.fourthdimension.vehicle.AxisExamples::register);
     NeoForge.EVENT_BUS.addListener(dev.fourthdimension.vehicle.RollerBallExamples::register);

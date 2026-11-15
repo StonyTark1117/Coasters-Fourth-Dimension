@@ -22,6 +22,8 @@ public final class TrackItems {
                   .persistent(GlobalPos.CODEC)
                   .networkSynchronized(GlobalPos.STREAM_CODEC)
                   .build());
+  public static final DeferredItem<FamilyTrackItem> PIPELINE = ITEMS.register("pipeline_track", () -> new FamilyTrackItem(new Item.Properties(), TrackDesign.PIPELINE));
+  public static final DeferredItem<dev.fourthdimension.vehicle.VehicleItem> PIPELINE_CAR = ITEMS.register("pipeline_car", () -> new dev.fourthdimension.vehicle.VehicleItem(new Item.Properties().stacksTo(1), TrackDesign.PIPELINE));
   public static final DeferredItem<FamilyTrackItem> ROLLER_BALL = ITEMS.register("roller_ball_track", () -> new FamilyTrackItem(new Item.Properties(), TrackDesign.ROLLER_BALL));
   public static final DeferredItem<dev.fourthdimension.vehicle.VehicleItem> ROLLER_BALL_CAR = ITEMS.register("roller_ball_car", () -> new dev.fourthdimension.vehicle.VehicleItem(new Item.Properties().stacksTo(1), TrackDesign.ROLLER_BALL));
   public static final DeferredItem<dev.fourthdimension.vehicle.RollerBallLiftControl> ROLLER_BALL_LIFT_CONTROL = ITEMS.register("roller_ball_lift_control", () -> new dev.fourthdimension.vehicle.RollerBallLiftControl(new Item.Properties().stacksTo(1)));

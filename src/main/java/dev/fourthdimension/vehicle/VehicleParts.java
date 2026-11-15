@@ -11,6 +11,8 @@ public final class VehicleParts {
 
   public static final DeferredRegister.Blocks BLOCKS =
       DeferredRegister.createBlocks(FourthDimension.ID);
+  public static final DeferredBlock<PipelineSeatBlock> PIPELINE_SEAT = BLOCKS.register("pipeline_seat", () -> new PipelineSeatBlock(BlockBehaviour.Properties.of().strength(3).noOcclusion()));
+  public static final DeferredBlock<PipelineFrameBlock> PIPELINE_FRAME = BLOCKS.register("pipeline_frame", () -> new PipelineFrameBlock(BlockBehaviour.Properties.of().strength(4).noOcclusion().noCollission()));
   public static final DeferredBlock<RollerBallSeatBlock> ROLLER_BALL_SEAT = BLOCKS.register("roller_ball_seat", () -> new RollerBallSeatBlock(BlockBehaviour.Properties.of().strength(3).noOcclusion()));
   public static final DeferredBlock<Block> ROLLER_BALL_AXLE = BLOCKS.register("roller_ball_axle", () -> new RollerBallAxleBlock(BlockBehaviour.Properties.of().strength(4).noOcclusion()));
   public static final DeferredBlock<RollerBallFrameBlock> ROLLER_BALL_FRAME = BLOCKS.register("roller_ball_frame", () -> new RollerBallFrameBlock(BlockBehaviour.Properties.of().strength(4).noOcclusion()));

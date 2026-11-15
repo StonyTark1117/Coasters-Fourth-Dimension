@@ -24,6 +24,107 @@ FD403A–F and the FD404 aggregate are now reconciled. There is no remaining 0.4
 acceptance queue. The sections below retain case closure records and artifact
 history; they do not assign new work or add acceptance requirements.
 
+### Active 0.8 assignments — 2026-11-15
+
+The human's **Continue .8** instruction in coordinator chat
+`01a1a961-64bb-7701-9a19-2acee5ff23a3` authorizes all 23
+[0.8 execution cards](roadmap/0.8-operations.md), normal selective commit/push,
+existing-owner coordination and final runtime cleanup. It supersedes historical
+no-0.8 directions in completed 0.7 records. Baseline `main`
+`cb46ea072d2c731948e4cac07e4d5350e269dbc5` is verified on origin/main, with
+only pre-existing untracked `logs/`; all 0.7 runtimes are stopped.
+Closed 0.4–0.7 cases remain closed. No 0.9, 1.2, moving-track implementation or
+publication is activated.
+
+| Card | Owner | Current action / dependency |
+| --- | --- | --- |
+| FD501B | Lead | Inspect selected Additions metadata and agreed capabilities; integrate only necessary baseline changes or justified no-change disposition. |
+| FD501C | Lead | Complete: selected artifact rehashed; current core sufficient, no baseline upgrade/migration. [Disposition](evidence/0.8/dependencies/README.md#fd501c--complete-no-core-change). FD811 retains capability qualification. |
+| FD501D | Lead | Complete: selected artifact rehashed; current core sufficient, no baseline upgrade/migration. [Disposition](evidence/0.8/dependencies/README.md#fd501d--complete-no-core-change). FD812 retains capability qualification. |
+| FD810 | Lead | Additions station requests, whole-consist guards and normal operator input after its own baseline. |
+| FD811 | Lead | Selected CTNB functional tracks/controls and measured eligibility after its own baseline. |
+| FD812 | Lead | Magnetized propulsion adapter and real authority conflicts after its own baseline. |
+| FD1701A | Lead | Qualified: targeted native 1/1 plus normal occupied Claim/dispatch/held transfer/receiving dispatch/unload passed. [Evidence](evidence/0.8/authority/README.md). World saved; client/server/display316 inactive. Complete; integrated with the coherent shared implementation checkpoint. |
+| FD1401A | Pipeline / Dive | Targeted `fourthdimension_fd1401` 1/1 native contract passed; raw `fd1401-pipeline-20261115/evidence/native-01.log` under persistent run root. Packaged occupied prototype now on owned317. |
+| FD1401B | Pipeline / Dive | Prepare original Pipeline assets/content against stable dimensions. |
+| FD1401C | Pipeline / Dive | Combine A occupied proof with remaining normal construction/content and distinct cases. |
+| FD1501D | S2 / Powered Inverted | Real kinetic governor implemented; Java21 compile + two pure contract checks passed. Targeted native governor now passed (`native-governor-03.log` in `fd1501d-s2-20261115`): actual11.8694bps, ramp3.000011bps², off-center rider, torque, power-loss hold/no-auto-restore. Inversion/four-car/rollback and occupied proof remain. |
+| FD1501E | S2 / Powered Inverted | Prepare original S2 content against stable dimensions. |
+| FD1501F | S2 / Powered Inverted | Combine D occupied proof with remaining normal construction/content and distinct cases. |
+| FD1702A | Pipeline / Dive | Consume qualified FD1701A native/occupied handoff for Dive mechanics. |
+| FD1702B | Pipeline / Dive | Prepare fixed-seat Dive content and hold/release example. |
+| FD1702C | Pipeline / Dive | Complete normal hold/drop/return/unload workflow cumulatively. |
+| FD1702 | Pipeline / Dive | Reconcile full Dive A–C outcome. |
+| FD1901A | S2 / Powered Inverted | Consume qualified FD1701A and accepted FD1802A/Fixed Inverted contracts for upright powered yaw. |
+| FD1901B | S2 / Powered Inverted | Prepare powered drive/yaw content and scene-event controls. |
+| FD1901C | S2 / Powered Inverted | Complete travelling/stop/reverse/unload workflow cumulatively. |
+| FD1901 | S2 / Powered Inverted | Reconcile full Powered Inverted Yaw A–C outcome. |
+| FD1902 | S2 / Powered Inverted | Reconcile Powered Inverted outcome gate. |
+| FD813 | Lead | Integrate all 23 cards, actual combined-control conflicts, exact remote HEAD and all-runtime cleanup. |
+
+**Owners:** lead `01a1dd1d-1468-7f81-8f31-5532ad7a178d`;
+Pipeline/Dive `01a1dd1d-6e99-70d2-aef3-6dcebac10d72`;
+S2/Powered Inverted `01a1dd1d-c6a6-7be0-9cb5-2b033ac550da`.
+Use these existing chats only; no new chats/subagents. Lead alone edits central
+ROADMAP/PLAN/queue and stages, commits and pushes. Stay in primary `main` and
+preserve `logs/` and other owners' work; no archive worktree is a task baseline.
+
+**Initial file ownership reset:** lead owns ALL existing production/runtime/
+source/editor/registration/build/generator files, including former 0.7 transfers
+(FoundationSync, EditorNetwork, RotationEditorScreen, LocalRiderRenderMixin,
+Flying* and RiderComfortMixin). Existing-file changes require an exact transfer
+recorded here and acknowledged before editing. Lead responds to shared-hook
+requests promptly; one writer per file. Other owners may create package-specific
+new classes/resources/tests/generators/guides/evidence: Pipeline*/Dive* and
+`pipeline_*`/`dive_*`, `fourthdimension_fd1401*`/`fourthdimension_fd1702*`,
+`generate-pipeline.py`/`generate-dive.py`, their guides and evidence directories
+belong to Pipeline/Dive; S2Spinning*/PoweredInvertedYaw* and
+`s2_spinning_*`/`powered_inverted_yaw_*`, `fourthdimension_fd1501_s2*`/
+`fourthdimension_fd1901*`, their new generators/guides/evidence belong to
+S2/Powered Inverted. No prior existing-file ownership silently carries forward.
+
+**Explicit 0.8 transfers (acknowledged 2026-11-15):** Pipeline/Dive owns
+`src/main/java/dev/fourthdimension/client/OriginalTrackRenderer.java` solely for
+Pipeline P gauge/support placement until it hands that file back. Lead retains
+`CoasterCartRenderMixin` and all other existing files. S2/Powered owns new
+`S2SpinningGovernorBlock`, `S2SpinningGovernorEntity` and
+`S2SpinningGovernorContent` in its package: the stress-supplied kinetic Chain
+source speed/ramp/clutch consumer. Lead owns the shared validated authority
+seam (owner, hold/release/dispatch and stale-request rejection); the governor
+consumes it without replacing native Chain force with direct velocity writes.
+
+
+**Additional Pipeline integration transfer — 2026-11-15:** acknowledged by the owner, Pipeline owns these existing files for Pipeline hooks only:
+`contract/Family.java`, `track/TrackDesign.java`, `vehicle/VehicleFactory.java`,
+`vehicle/VehicleParts.java`, `vehicle/ConsistRules.java`,
+`runtime/EligibilityHooks.java`, `vehicle/Boarding.java`,
+`vehicle/NativeLoading.java`, `FourthDimension.java` (all under
+`src/main/java/dev/fourthdimension/`) and
+`src/main/resources/fourthdimension.mixins.json`. Pipeline handed all these files back on 2026-11-15; lead now owns them and
+adds S2 hooks. OriginalTrackRenderer remains with Pipeline. Lead retains FoundationData,
+CarrierRuntime, VehicleOperations, BoardingStation/Entity, EditorNetwork,
+RotationEditorScreen and FoundationSync.
+
+**Runs and handoffs:** lead reserves persistent root
+`/mnt/NVME4/fourthdimension-runs/fd08-operations-20261115`, display316,
+ports25650/25651, prefix `fd08-operations-20261115` after checking live ownership.
+Pipeline/Dive may reserve display317 and ports25652/25653; S2/Powered Inverted
+may reserve318 and25654/25655. Each records its exact world/game/build paths and
+units before launch. Java21, persistent storage, measured host/cgroup headroom,
+1536M game heap and6GiB Minecraft-only scope apply. Native tests need no display.
+Normal input must reach actual game handlers; verify connection/window/native hit,
+use the proven private helper and diagnose two inconclusive attempts before retry.
+A/D occupied proof feeds C/F; changed synchronization alone may need two clients.
+The qualified authority A handoff is integrated and relayed immediately without
+waiting for adapter/content polish. Dependent owners may prepare content earlier.
+
+**Completion:** integrate qualified handoffs, then full outcomes through FD813;
+reuse accepted native/player/content/persistence evidence by behavior. Do not
+waive missing required adapter capabilities or invent full1.2 block management
+as a prerequisite. Save/stop every owned client/server/Xvfb and preserve evidence;
+only exact accepted continuing-owner handoffs permit a live runtime. Verify
+selective commits/push, exact remote HEAD and cleanup before closing 0.8.
+
 ### Milestone 0.7 — complete 2026-11-15
 
 The human explicitly requested **Continue 0.7** in the coordinator chat. This
@@ -731,3 +832,5 @@ Verify the retained payloads from the repository root:
 ```sh
 (cd docs/evidence/qualification/2026-11-05-ec2fcda && sha256sum -c SHA256SUMS)
 ```
+
+**2026-11-15 authority closure:** lead occupied run on display316 saved/stopped; all three units inactive. Pipeline owner returned `client/OriginalTrackRenderer.java` to lead. S2 missing-carrier fault hook and non-overlapping magnetic/lift-lock editor controls applied by lead; S2 owner owns their targeted checks.

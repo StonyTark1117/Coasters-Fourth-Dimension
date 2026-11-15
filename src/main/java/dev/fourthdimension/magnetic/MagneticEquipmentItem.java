@@ -31,18 +31,18 @@ public final class MagneticEquipmentItem extends Item {
       var hit =
           CoasterPathTrackFrame.nearestGraphHit(
               level, CoasterPathGraphManager.get(level), context.getClickLocation(), 4);
-      if (hit == null) throw new IllegalArgumentException("Use on a Free Spin track section");
+      if (hit == null) throw new IllegalArgumentException("Use on a Free Spin or S2 track section");
       var rail =
           FoundationData.get(level).rails.stream()
               .filter(r -> r.matches(hit.edge().from(), hit.edge().to()))
               .findFirst()
               .orElseThrow(
-                  () -> new IllegalArgumentException("Requires functional Free Spin track"));
+                  () -> new IllegalArgumentException("Requires functional Free Spin or S2 track"));
       double length = rail.profile.keys().getLast().distance();
       double d = TrackGeometry.distance(level, hit.edge(), rail, hit.t());
       double start = Math.max(0, Math.min(length - 4, d - 2)), end = Math.min(length, start + 4);
       var proposed = new ArrayList<>(rail.magnets);
-      proposed.add(new MagneticSpan(start, end, mode, 1, 4, .2, 15));
+      proposed.add(new MagneticSpan(start, end, mode, 1, 4, .2, rail.variant.equals(dev.fourthdimension.vehicle.S2SpinningVehicle.VARIANT) ? 1 : 15));
       MagneticData.apply(player, rail.id, rail.revision, proposed);
       EditorNetwork.open(player, new EditorNetwork.Target(rail.id, false));
       return InteractionResult.SUCCESS;
