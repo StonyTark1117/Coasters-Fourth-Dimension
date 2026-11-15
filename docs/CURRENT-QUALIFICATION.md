@@ -1,9 +1,10 @@
 # Current qualification record
 
-Updated 2026-11-11 UTC. This is the single artifact index for the active roadmap.
+Updated 2026-11-15 UTC. This is the single artifact index for the active roadmap.
 The selected build is a **qualification baseline, not an accepted release candidate**.
-FD404 and FD905 remain open. A later source change has its own identity, but
-unaffected acceptance carries forward under [VALIDATION-POLICY.md](VALIDATION-POLICY.md).
+FD404 is complete as the 0.4 five-family development checkpoint; FD905 remains
+open for 1.0 release qualification. A later source change has its own identity,
+but unaffected acceptance carries forward under [VALIDATION-POLICY.md](VALIDATION-POLICY.md).
 Do not reselect the baseline or repeat a run just because the commit/JAR changed.
 
 Planning allocation updated 2026-11-11: FD404 is the five-family development
@@ -18,10 +19,10 @@ and handoffs. This queue retains active ownership and next actions; the guides
 do not create another tracker or reopen cases. A next action may reference a
 package step without adding every future step to this queue.
 
-**Active milestone: 0.4.** Execution guidance updated 2026-11-11. This is the
-remaining acceptance queue, placed before artifact history. Recovery and
-construction/teaching cases have separate lists below; this adds no scope or
-acceptance requirements. FD401A–D and FD402A–F stay closed and are absent.
+**Milestone 0.4: complete 2026-11-15.** FD401A–D and FD402A–F remain closed;
+FD403A–F and the FD404 aggregate are now reconciled. There is no remaining 0.4
+acceptance queue. The sections below retain case closure records and artifact
+history; they do not assign new work or add acceptance requirements.
 
 Case IDs below are stable children of their owning roadmap task. Open rows identify
 remaining acceptance work; completed rows are retained as closure records. **Unrecorded**
@@ -82,7 +83,15 @@ FD403E and its shared FD403F PAX walkthrough closed 2026-11-11 by
 Normal linking/winch setup, the survival-built occupied cycle and reopen were
 already recorded; no new client run was required. The fifteen tooltips, nine
 scenes and 53 registrations remain accepted. FD403A and its Arrow walkthrough
-closed 2026-11-13. FD403B and the Legacy walkthrough closed 2026-11-14; FD403C–D and their walkthrough claims continue.
+closed 2026-11-13. FD403B and the Legacy walkthrough closed 2026-11-14.
+FD403C and its Free Spin walkthrough closed 2026-11-15. FD403D and its Revised
+walkthrough closed 2026-11-14.
+The [FD403C family record](evidence/0.4/fd403c-shaped-occupied-20261115/README.md)
+closes its occupied player-built route, pre-capture DAMP response, final
+capture/unload/reopen and Free Spin walkthrough contribution. The current
+rendered teaching review retains all fifteen tooltips, nine Ponder scenes and
+53 registrations; all five family walkthrough claims are reconciled. FD403 and
+FD403F are complete, and FD404 has recorded the aggregate checkpoint below.
 
 ### FD402 recovery cases
 
@@ -99,86 +108,51 @@ These are separate assignments. Work can start after FD305 and close independent
 of FD402. Normal ride construction/operation evidence does not require the
 ordinary-bearing recovery interruption matrix.
 
-Ownership is explicit below; “this task” is not an owner identifier. The existing
-FD403 assignments remain in place. The FD502 assignment is a separate tooling
-repair authorized in **Audit and improve roadmap**, not an expansion of FD403.
+The records below preserve the 0.4 assignment and runtime history. They are
+closed records, not active ownership or next actions. The FD502 tooling repair
+was separately authorized in **Audit and improve roadmap** and did not expand
+FD403 acceptance.
 
-| Assignment | Named owner / thread | Owned runtime | Verified state, blocker and next action |
+| Historical assignment | Owner / thread | Run record | Closure / evidence notes |
 | --- | --- | --- | --- |
 | **FD502 — current FD403 input/fixture blocker only** | **Audit and improve roadmap**, `01a1a961-64bb-7701-9a19-2acee5ff23a3` | `fd502-execution-repair-20261113`, private `:252`, ports `25602/25603`; [run record](/home/braydon/.local/state/fourthdimension-runs/fd502-execution-repair-20261113/run.json) | Repair complete 2026-11-13; all three services stopped cleanly. Executable input, owned launch/connection checks and route-leg traversal verified. Its handoff was consumed for FD403A; the later [cumulative Arrow record](evidence/0.4/fd403a-circuit-reconciliation-20261113/README.md) closes that separate acceptance. FD502’s later collector needs remain separate. The human-requested [editor and held-use repair](evidence/0.4/editor-workflow-repair-20261114/README.md) also passed a focused connected-client check on 2026-11-14; updated builds keep routine actions open, report server results, and close on accepted Dispatch. This does not reopen family acceptance. |
-| **FD403A — Arrow acceptance — complete 2026-11-13; current editor path rechecked 2026-11-14** | **Complete 0.4.0 roadmap tasks**, `01a19ed5-0739-74b0-80d9-e8eb888e6fe0`; explicitly assigned concurrent contributor `01a1d49d-7763-76b2-8b0c-6f5b337f0ea2` | Owned `:254` and `:256` runs are stopped; records and persistent run roots are linked from the [cumulative reconciliation](evidence/0.4/fd403a-circuit-reconciliation-20261113/README.md). | Closed by compatible evidence: normal C–D Chain placement/traversal on `:256`; two occupied circuit returns, capture/open/dismount and cold reopen on `:254`; accepted normal crafting, paid connection, 50 m controlled turn and rendered Arrow teaching reused. The `:256` server-lag timeout before capture is explicitly excluded from final-state claims. The current shared editor response path was then checked on an isolated Arrow world: normal Close restraints refreshed the open editor and normal Dispatch succeeded then closed it. [Recheck record](evidence/0.4/fd403a-editor-ack-recheck-20261114/README.md) carries the changed editor path forward. No generic item-use issue regressed. |
+| **FD403A — Arrow acceptance — complete 2026-11-13; current editor path rechecked 2026-11-14** | **Complete 0.4.0 roadmap tasks**, `01a19ed5-0739-74b0-80d9-e8eb888e6fe0`; explicitly assigned concurrent contributor `01a1d49d-7763-76b2-8b0c-6f5b337f0ea2` | Owned `:254` and `:256` runs are stopped; records and persistent run roots are linked from the [cumulative reconciliation](evidence/0.4/fd403a-circuit-reconciliation-20261113/README.md). | Closed by compatible evidence: normal C–D Chain placement/traversal on `:256`; two occupied circuit returns, capture/open/dismount and cold reopen on `:254`; accepted normal crafting, paid connection, 50 m controlled turn and rendered Arrow teaching reused. The `:256` server-lag timeout before capture is explicitly excluded from final-state claims. The current shared editor response path was then checked on an isolated Arrow world: normal Close restraints refreshed the open editor and normal Dispatch succeeded then closed it. [Recheck record](evidence/0.4/fd403a-editor-ack-recheck-20261114/README.md) carries the changed editor path forward. |
 
-| Case | Remaining outcome | Owner | Reusable evidence / next action |
+| Closed case | Accepted outcome | Owner | Closure evidence |
 | --- | --- | --- | --- |
 | **FD403B — complete 2026-11-14** | Player-built shaped powered Legacy route, occupied free response, capture/unload, and Legacy walkthrough. | **Legacy lead**, `01a19ed5-0739-74b0-80d9-e8eb888e6fe0` | [Connected-client shaped powered route and final-state record](evidence/0.4/fd403b-legacy-shaped-powered-20261114/README.md) closes the former route gap using normal recipe-book crafting, normal car placement, normal Chain clicks, occupied powered travel and distinct released-carrier response. Normal capture/open/dismount and save completed; the accepted earlier Legacy cold-reopen evidence carries forward. The apparent reboarding miss was an F3-confirmed cart hit; one click on the confirmed Legacy seat boarded normally. [Teaching reconciliation](evidence/0.4/fd403b-legacy-teaching-reconciliation-20261112.md) closes the Legacy FD403F claim because its reviewed instructions/resources are unchanged. |
-| **FD403C** | Player-built shaped Free Spin route with inducer/damper response before capture, plus its walkthrough. | **Complete FD403C Free Spin**, `01a1d49d-7763-76b2-8b0c-6f5b337f0ea2` | Reuse [powered route/reopen](evidence/0.4/survival-client-free-spin-powered/acceptance.md), [damper proof](evidence/0.4/survival-client-free-spin-powered/damper-demo/acceptance.md), and the [current resume checkpoint](evidence/0.4/fd403c-context-recovery-20261114.md#current-resume-checkpoint--2026-11-15-0007-utc). Keep owned `:260`, endpoint `127.0.0.1:25612`, chassis `49305388-c9f5-4125-aaa1-12dbfc7c17a5`, and carrier `a79f9650-1b2c-433c-8428-b94eb0ed765f`. **Latest verified at 00:07 UTC, 2026-11-15:** the i2 motor direction is corrected: motor `(368,-60,173)` has `ScrollValue=-16`, motor/anchor deliver `Speed=+16`, and the 10.799449 m i2 span with `TravelSign=-1` remains installed. Normal reboarding, restraint closure and Dispatch at 00:06:10 moved the chassis away from i2 toward i1, from `(368.43,-57.018,172.43)` to approximately `(364.298,-57.018,168.298)`. Subsequent 00:06:37 and 00:07:21 samples remain near that position; a79 is uncaptured/occupied and its DAMP counter remains zero. C is diagnosing this new stop using current route and runtime state. Do not repeat the completed motor-direction repair, generic input discovery, or old i7 instructions solely from the historical handoff. Identify the current stopping cause before another affected attempt; retain the corrected span and accepted evidence. Finish the occupied released-carrier DAMP observation, normal Capture/open/unload, outstanding local cleanup and Free Spin teaching reconciliation, reusing unchanged persistence evidence. Do not use `save-all flush`. FD403A stays closed across context resets. |
-| **FD403D — complete 2026-11-14** | Player-built powered Revised route, independent lower-hinge behavior, occupied operation, capture/unload, and Revised walkthrough. | **Complete FD403D Revised**, `01a1ca54-e940-76d0-ad14-297ea8d18d8b` | [Continuation review](evidence/0.4/fd403d-revised-blocker-20261114/review.md) combines normal construction, normal right/use boarding, restored normal motor UI (`ScrollValue=-32`, motor/anchor `Speed=32`), actual editor Dispatch after closing restraints, occupied powered travel, fresh Capture, open restraints, Shift unload, and final captured/empty status. Existing powered lower-hinge/reopen evidence and unchanged Revised Ponder/tooltip text are reconciled; no misleading Revised instruction was found. Historic fixture-damage notes remain diagnostic cleanup only. Free Spin FD403C remains separately open. |
-| **FD403F** | Remaining Free Spin walkthrough claim; Arrow, PAX, Legacy and Revised claims are closed. | Each family owner supplies its teaching evidence; **Complete 0.4.0 roadmap tasks**, `01a19ed5-0739-74b0-80d9-e8eb888e6fe0`, owns aggregate reconciliation. | [Accepted common teaching](evidence/0.4/teaching-current/acceptance.md); reuse each family's operating record. PAX/common teaching and Arrow's circuit walkthrough are closed; Arrow's changed captions have a scoped rendered review and its occupied circuit reconciliation confirms the instructions. Legacy is closed by the [shaped powered route](evidence/0.4/fd403b-legacy-shaped-powered-20261114/README.md) and unchanged-instructions reconciliation. Free Spin remains with its family owner; Revised is reconciled and closed with FD403D. |
+| **FD403C — complete 2026-11-15** | Player-built shaped Free Spin route, occupied Inducer/Damper response before Capture, normal unload, cold reopen and its walkthrough. | **Complete FD403C Free Spin**, `01a1d49d-7763-76b2-8b0c-6f5b337f0ea2` | [Shaped occupied-route acceptance](evidence/0.4/fd403c-shaped-occupied-20261115/README.md) closes the route and Free Spin teaching contribution. It discloses the upstream motor fixture and temporary support removal; neither earns construction credit. The occupied DAMP pass precedes normal Capture; final reopened state has all four assigned carriers captured/empty and no `RootVehicle`. |
+| **FD403D — complete 2026-11-14** | Player-built powered Revised route, independent lower-hinge behavior, occupied operation, capture/unload, and Revised walkthrough. | **Complete FD403D Revised**, `01a1ca54-e940-76d0-ad14-297ea8d18d8b` | [Continuation review](evidence/0.4/fd403d-revised-blocker-20261114/review.md) combines normal construction, normal right/use boarding, restored normal motor UI (`ScrollValue=-32`, motor/anchor `Speed=32`), actual editor Dispatch after closing restraints, occupied powered travel, fresh Capture, open restraints, Shift unload, and final captured/empty status. Existing powered lower-hinge/reopen evidence and unchanged Revised Ponder/tooltip text are reconciled; no misleading Revised instruction was found. Historic fixture-damage notes remain diagnostic cleanup only. |
+| **FD403F — complete 2026-11-15** | All fifteen item descriptions, nine Ponder lessons, 53 registrations and five family walkthrough claims. | **Complete 0.4.0 roadmap tasks**, `01a19ed5-0739-74b0-80d9-e8eb888e6fe0` | [Accepted common teaching](evidence/0.4/teaching-current/acceptance.md) retains the fifteen tooltips, nine scenes and 53 registrations. PAX/common, Arrow, Legacy, Revised, and Free Spin walkthrough claims are reconciled; [Free Spin's operating and teaching handoff](evidence/0.4/fd403c-shaped-occupied-20261115/README.md) closes its family contribution. |
 
-**Reassignment — 2026-11-13:** The user reassigned the open 0.4.0 tasks to the
-three owners above. Each owns its complete family outcome and its FD403F teaching
-contribution. All three retained client/server/display service sets were observed
-active during dispatch; this does not establish a live player connection. Each
-owner must verify its current processes, connection, world, ports and resource
-headroom before resuming. Do not launch duplicate runtimes or restart accepted
-setup experiments. Reuse `scripts/fd-private-client.py` and the retained evidence.
+**Historical reassignment — 2026-11-13:** The user reassigned the then-open 0.4.0 tasks to the
+three owners above. Those family and teaching assignments have since closed;
+their retained run evidence is linked in the closure rows.
 
-**Assignment continuity:** After compaction, read the named queue row and latest
-human-authorized assignment before acting. Carry the assigned FD ID, thread ID,
-branch/worktree/HEAD, uncommitted work, owned runtime, last verified state and next
-action into the handoff. Old titles, completed goals and earlier status questions
-do not replace this reassignment. If a historical `/goal` message conflicts with
-the current assignment, read the actual goal with `get_goal` once; the historical
-message is not a newly issued instruction. Preserve a matching active goal and
-continue the assigned package without recreating or re-auditing its completed
-predecessor. Carry the verified goal objective/status at the top of the owner's
-context handoff. A finished chat turn is not package acceptance;
-report the assigned package's evidence or its precise remaining blocker. FD403A
-remains closed. Do not activate 0.5 work while the requested 0.4 completion
-condition remains unmet.
-
-**Verified FD403C goal — 2026-11-14:** The goal tool at 15:53 UTC returned
+**Historical FD403C goal — completed 2026-11-15:** The goal tool at 15:53 UTC returned
 `active` with objective “Complete FD403C Free Spin player-built workflow and its
 FD403F teaching contribution” for `01a1d49d-7763-76b2-8b0c-6f5b337f0ea2`.
 Its original `/goal Complete FD403A` prompt and preview are superseded history.
-That text does not require another Arrow review, a new goal, or a turn ending
-with an FD403A completion report. Continue the open C row; only the completed
-Free Spin outcome can satisfy its current goal.
+That text did not require another Arrow review or another goal. The completed
+Free Spin outcome is recorded in the closed C row above.
 
 **FD403F / FD403 / FD404 aggregate owner:** **Complete 0.4.0 roadmap tasks**,
-`01a19ed5-0739-74b0-80d9-e8eb888e6fe0`. Start evidence reconciliation now; close
-the aggregates only after B–D and their remaining teaching claims are covered.
-FD401, FD402, FD403A/E and their accepted teaching remain closed. FD404 is an
-evidence reconciliation, not a new runtime sweep or publication authorization.
-**Scoped repair ownership — 2026-11-14:** FD403D owner
-`01a1ca54-e940-76d0-ad14-297ea8d18d8b` owns the seat/Rotation Tool interaction
-diagnosis and repair (`CarrierSeatBlock`, `Boarding`, `RotationTool`, related
-editor dispatch only if demonstrated, and focused diagnostics/tests). The lead
-has been notified to avoid concurrent edits in those paths. D owns diagnosis,
-implementation, targeted verification and continuation of its family outcome;
-a demonstrated defect within this repair scope does not require another user
-approval. Do not guess a fix from silent clicks or stop after naming a cause.
-Record the event/guard evidence and fix handoff here. Keep existing safety checks
-and accepted evidence; use a separate run artifact for any diagnostic overlay.
-
-The lead owns other shared teaching/runtime edits, canonical aggregate updates
-and Git integration, including staging, committing and pushing. Family agents write their own evidence and update only their own
-queue row, identifying any required shared correction for the lead. They do not
-duplicate each other's family runs. Continue through compatible steps to the
-complete outcome; two inconclusive attempts require diagnosis, not another
-unchanged launch. The current Java 21, private-display and measured-memory
-rules apply independently to every run.
-
-The earlier `:283` preparation is historical and stopped. The pre-reconciliation
-queue and detailed November 12–13 diagnostics are linked from the FD502 handoff;
-they do not create assignments. Runtime listings are observations, not permission
-to take control. After a runtime changes owner or stops, update its row once.
+`01a19ed5-0739-74b0-80d9-e8eb888e6fe0`. Reconciliation completed 2026-11-15:
+FD403A–F are closed, and FD404 records the five-family development checkpoint
+against the existing artifact identity, dependency pins and bounded support
+scope below. FD401A–D and FD402A–F remain closed. FD404 is not a new runtime
+sweep or publication authorization.
+**Historical scoped repair ownership — 2026-11-14, closed with FD403D:**
+`01a1ca54-e940-76d0-ad14-297ea8d18d8b` owned the seat/editor interaction
+diagnosis and targeted repair. Its result is recorded in the closed FD403D row.
+The earlier `:283` preparation is stopped; prior diagnostic notes and runtime
+listings are historical evidence, not active assignments.
 
 
-### Closing cases in either package
+### Case closure policy
 
 When a case passes or existing evidence closes it, record the closure under its
-owning roadmap row (case ID, evidence and date), then remove it from this active
+owning roadmap row (case ID, evidence and date), then remove it from the active
 queue in the same update. A partially covered case lists only its remaining gap;
 completed subclaims stay accepted. One run may close several rows, including a
 family walkthrough and its FD403F teaching claim. Do not require another run for
@@ -238,6 +212,20 @@ FD401A's selected-artifact profile identity is mapped to four client records:
 | Styles + Engineered | [Combined client reopen](evidence/0.9/fd401-current-clean-combined-client-reopen-20261105/README.md) | One saved occupied-world reopen. FD401C's occupied Engineered-only Arrow cold-reopen and combined-profile recovery/cycle records are linked below; FD401D is closed by the consolidated selected-JAR telemetry evidence. |
 
 Each linked record retains the selected JAR hash, runtime classpath, dependency hashes, Java 21 launch arguments, and exit evidence. This closes **FD401A identity**. FD401B Styles, FD401C Engineered, and FD401D telemetry acceptance are recorded in the bounded scenario rows below.
+
+<a id="fd404-reconciliation"></a>
+### FD404 reconciliation — complete 2026-11-15
+
+| Required input | Accepted record |
+| --- | --- |
+| Five-family source and JAR identity | Source `ec2fcda3082f5d9ce729641a6394fdc5c5d67a36`; packaged `qualification.jar`, SHA-256 `656725bcbacc8f491de274c6c058027d0aaa67cfc6f893ba6d7e4a9eb24abbc7`; manifest covers 287 exported inputs and all 356 JAR entries. |
+| Dependency identities | Minecraft 1.21.1, NeoForge 21.1.248, Create 6.0.10-280, Coasters 0.1.5, Sable 2.0.3; optional profiles are Track Styles 1.2.0 and Engineered 1.1.1, individually and combined. Exact profile launches and hashes are linked above and in the scenario records. |
+| Bounded support scope | The five original families and recorded base/Styles/Engineered/combined profiles; FD402 recovery remains limited to the declared original tracks, families, Arrow/PAX examples, drive and equipment envelope. New families/adapters, schema-7/protocol-8 registry, unsupported assemblies/routes and cosmetic/resource overrides are excluded. FD403 fixtures are disclosed in their accepted family records. |
+| Parent deliverables | FD401A–D complete for the scope stated above; FD402A–F complete for its declared recovery envelope; FD403A–F complete, with connected-client family acceptance and all five walkthrough claims reconciled. Evidence links are in their canonical sections above. |
+
+This closes FD404 as the five-family development checkpoint. It does not close
+FD1000/FD905, qualify a release candidate, authorize publication, or require a
+new build or runtime sweep.
 
 ## Evidence reuse and required retests
 

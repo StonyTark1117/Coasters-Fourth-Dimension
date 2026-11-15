@@ -23,10 +23,10 @@ The [integration allocation](docs/INTEGRATION-BACKLOG.md#release-allocation)
 uses the same sequence. This adopts the work plan; it does not certify new
 capabilities, activate dependencies, change artifact versions or authorize publication.
 
-**Current stage: completing 0.4; no release candidate is accepted.** Foundation
-through the bounded five-family 0.3 gate, FD401A–D and FD402A–F retain their
-accepted status. FD402 is complete for its declared recovery scope; FD403 and
-FD404 remain open. Early design research
+**Current stage: 0.4 complete; no release candidate is accepted.** Foundation
+through the bounded five-family 0.3 gate, FD401A–D, FD402A–F, FD403A–F and FD404
+retain their accepted status. FD402 is complete for its declared recovery scope.
+Early design research
 and asset concepts may proceed independently; implementation follows the explicit
 package prerequisites below. The old blanket expansion pause is superseded by
 this adopted sequence. FD801 remains an independent upstream-dependent package.
@@ -88,7 +88,7 @@ whole-JAR equality is not required. Keep the original run identity and limits.
 | 0.1 | FD101–FD109 | Done for bounded build | Playable controlled Arrow/S&S and first-generation ZacSpin families, original matching tracks, and ordinary-cart access where physically valid. |
 | 0.2 | FD201–FD204 | Done for bounded build | S&S Free Spin vehicle and track with magnetic seat-rotation equipment. |
 | 0.3 | FD301–FD305 | Done for bounded five-family gate | Revised ZacSpin variant and functional PAX-style shuttle system. |
-| 0.4 | FD401–FD404 | In progress | Finish the five-family core, recovery and player workflows; preserve completed cases. |
+| 0.4 | FD401–FD404 | Complete 2026-11-15 | Five-family core, recovery and player workflows reconciled at the FD404 development checkpoint; expanded 1.0 qualification remains FD1000. |
 | 0.5 | FD501–FD503; six original discovery IDs; FD1601S, FD1702S, FD1801S, FD1802S, FD1901S; FD1101A–C; FD904C1 | Planned | Specify every 1.0 vehicle, prove Wing-backed extension contracts, establish comfort and reusable tools. Adapter-specific upgrades follow their consumers. |
 | 0.6 | FD1501A–C, FD1301A–C, FD1601A–C, FD601 | Planned | S1 conventional free-spinning, Suspended and Fixed Inverted: axes, loading, capture, swing locks and fixed overhead seating. |
 | 0.7 | FD1302A–C, FD1502A–C, FD1801A–C, FD1802A–C, FD1803, FD701 | Planned | Axis/Roller Ball and both Flying variants; New-generation Flying proves scenery-facing yaw in seated and prone postures. |
@@ -501,12 +501,9 @@ queue. It does not reduce any advertised original family or discard prior failur
 
 **Execution steps:** [FD403](docs/roadmap/0.4-core.md#fd403).
 
-**Status: in progress.** Crafting, placement, Ponder/tooltips and bounded rides
-have evidence. The remaining gate is the
-[connected-client acceptance matrix](docs/FD403-ACCEPTANCE.md), not another
-synthetic-player or command-authored substitute. Use the
-[current case queue](docs/CURRENT-QUALIFICATION.md#current-work-queue) for
-assignments; family and teaching cases share the same walkthrough evidence.
+**Status: complete 2026-11-15.** FD403A–F meet the existing
+[connected-client acceptance matrix](docs/FD403-ACCEPTANCE.md), with family and
+teaching claims closed from compatible cumulative evidence.
 
 **Depends on:** FD305. **Design:** D08.
 
@@ -516,25 +513,22 @@ require FD402 closure, ordinary-bearing towing or FD402E's interruption matrix.
 Existing compatible evidence can be shared without inheriting the other package's
 unfinished work. FD404 later consumes both packages independently.
 
-| Task / status | Remaining standalone connected-client exercise | Evidence / pass condition / next action |
+| Task / status | Acceptance outcome | Evidence / closure record |
 | --- | --- | --- |
 | <a id="fd403a"></a> **FD403A Arrow — complete 2026-11-13** [Steps](docs/roadmap/0.4-core.md#fd403a) | Full player-built powered circuit with controlled full turn | [Cumulative Arrow acceptance](docs/evidence/0.4/fd403a-circuit-reconciliation-20261113/README.md) combines accepted normal crafting/paid connections and controlled 50 m full turn with connected-client C–D Chain placement/traversal, two occupied circuit returns, normal capture/open/unload, cold reopen and Arrow teaching reconciliation. The separate `:256` timeout is retained as an incomplete attempt and contributes no final-state claim. The current editor response path carries forward under the [2026-11-14 action acknowledgement recheck](docs/evidence/0.4/fd403a-editor-ack-recheck-20261114/README.md). |
 | <a id="fd403b"></a> **FD403B Legacy — complete 2026-11-14** [Steps](docs/roadmap/0.4-core.md#fd403b) | Player-built shaped powered route with visible free response | [Connected-client shaped powered route](docs/evidence/0.4/fd403b-legacy-shaped-powered-20261114/README.md) closes normal construction, connected drive, occupied travel/free response, safe capture/open/unload and save; accepted cold-reopen evidence carries forward. [Legacy teaching reconciliation](docs/evidence/0.4/fd403b-legacy-teaching-reconciliation-20261112.md) closes its FD403F walkthrough claim. |
-| <a id="fd403c"></a> **FD403C Free Spin — in progress** [Steps](docs/roadmap/0.4-core.md#fd403c) | Player-built shaped route with installed inducer and damper spans | Follow the Free Spin row; measure released-carrier damper impulses before capture, complete the normal ride and reopen. Retain existing demo/native damper evidence. |
+| <a id="fd403c"></a> **FD403C Free Spin — complete 2026-11-15** [Steps](docs/roadmap/0.4-core.md#fd403c) | Player-built shaped route with installed inducer and damper spans | [Shaped occupied-route acceptance](docs/evidence/0.4/fd403c-shaped-occupied-20261115/README.md) combines retained normal crafting/construction with the occupied released-carrier DAMP pass before normal capture/open/unload and cold reopen. The disclosed upstream power fixture and temporary support removal do not receive construction credit. Free Spin's family contribution to FD403F is reconciled in the same record. |
 | <a id="fd403d"></a> **FD403D Revised — complete 2026-11-14** [Steps](docs/roadmap/0.4-core.md#fd403d) | Player-built powered route with independent lower-hinge behavior | [Revised continuation review](docs/evidence/0.4/fd403d-revised-blocker-20261114/review.md) combines normal construction, occupied powered travel followed by normal capture/unload, independent lower-hinge response, capture/open/unload and the unchanged Revised walkthrough. The command-authored powered demo remains supporting evidence. |
 | <a id="fd403e"></a> **FD403E PAX — complete 2026-11-11** [Steps](docs/roadmap/0.4-core.md#fd403e) | Survival-built four-car tutorial, ordinary client linking and winch setup | [Cumulative acceptance and corrected walkthrough](docs/evidence/0.4/fd403-workflows-20261111/README.md#pax--fd403e-and-its-fd403f-walkthrough-accepted) combine accepted crafting, paid construction, three normal Chain links, winch binding, occupied cycle and cold reopen with the unchanged rendered teaching. Upstream materials/supports and creative motor remain disclosed fixtures. |
-| <a id="fd403f"></a> **FD403F Teaching — in progress** [Steps](docs/roadmap/0.4-core.md#fd403f) | All fifteen item descriptions, nine unique Ponder lessons and 53 registrations, using accepted unchanged resource evidence | PAX walkthrough accepted 2026-11-11 with FD403E; Arrow walkthrough reconciled with FD403A on 2026-11-13; Legacy walkthrough reconciled with FD403B on 2026-11-14; Revised walkthrough reconciled with FD403D on 2026-11-14. Free Spin remains. Every walkthrough uses normal inventory controls, distinguishes mechanics and exclusions, and has readable captions/UI. Retain accepted lessons and check only changed or misleading steps. |
+| <a id="fd403f"></a> **FD403F Teaching — complete 2026-11-15** [Steps](docs/roadmap/0.4-core.md#fd403f) | All fifteen item descriptions, nine unique Ponder lessons and 53 registrations, using accepted unchanged resource evidence | [Current-artifact rendered review](docs/evidence/0.4/teaching-current/acceptance.md) retains the accepted descriptions, lessons and registrations. PAX, Arrow, Legacy, Revised and Free Spin walkthrough claims are reconciled in their family records; the Free Spin contribution is in the [FD403C acceptance](docs/evidence/0.4/fd403c-shaped-occupied-20261115/README.md). No further lesson replay is required. |
 
-**Done when:** FD403A–F meet the existing [recording procedure](docs/FD403-ACCEPTANCE.md#acceptance-record).
-Each family has an acquisition/build path and tutorial that actually completes
-its advertised mechanics without optional mods. Disclosed fixture ingredients
-are not unassisted resource-gathering evidence.
+**Completion:** FD403A–F meet the existing [recording procedure](docs/FD403-ACCEPTANCE.md#acceptance-record), and each family has an accepted acquisition/build path and walkthrough that completes its advertised mechanics without optional mods. Disclosed fixture ingredients are not unassisted resource-gathering evidence.
 
 ### FD404 Version 0.4 gate
 
 **Execution steps:** [FD404](docs/roadmap/0.4-core.md#fd404).
 
-**Status: planned; awaiting FD401–FD403 acceptance.**
+**Status: complete 2026-11-15; five-family development checkpoint.**
 
 **Depends on:** FD401A–D, FD402A–F, FD403A–F.
 
@@ -549,6 +543,11 @@ New families/adapters follow their own packages; FD1000 owns the 1.0 alpha freez
 **Done when:** FD401–FD403 meet their finite criteria and the five-family core is
 usable and documented. Reuse accepted results. Closing FD404 neither launches
 final release qualification nor requires new JARs for documentation changes.
+
+The accepted source/JAR, pinned dependencies and bounded support scope are
+recorded in [CURRENT-QUALIFICATION.md](docs/CURRENT-QUALIFICATION.md#artifact-and-scope).
+FD401A–D, FD402A–F and FD403A–F are closed against their existing criteria;
+FD1000 retains the expanded 1.0 feature freeze and final release qualification.
 
 ## Milestone 0.5 — designs, extension contracts and Wing
 

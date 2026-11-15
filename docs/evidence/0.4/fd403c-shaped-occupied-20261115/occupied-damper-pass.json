@@ -1,0 +1,19 @@
+{
+  "purpose": "FD403C occupied Free Spin DAMP pass readback",
+  "world": "FD403FreeSpinRiderRepair20261114",
+  "chassis": "49305388-c9f5-4125-aaa1-12dbfc7c17a5",
+  "carrier": "a79f9650-1b2c-433c-8428-b94eb0ed765f",
+  "baseline": {
+    "at_epoch": 1794706099.5415063,
+    "line": "sns_free_spin a79f9650-1b2c-433c-8428-b94eb0ed765f angle=-0.442916609056784 omega=-0.04919265199709293 capture=false occupants=1 damperImpulses=0 damperEnergy=0.0 damperSpeedReduction=0.0"
+  },
+  "damper_pass": {
+    "at_epoch": 1794706131.4594152,
+    "line": "sns_free_spin a79f9650-1b2c-433c-8428-b94eb0ed765f angle=-0.4345323922094396 omega=-0.14500026255778276 capture=false occupants=1 damperImpulses=78 damperEnergy=-0.17315709154037506 damperSpeedReduction=0.47375498768252844"
+  },
+  "chassis_motion": {
+    "at_epoch": 1794706126.2970133,
+    "result": "Validation motion chassis=49305388-c9f5-4125-aaa1-12dbfc7c17a5 position=( 3.972E+2 -5.887E+1  1.487E+2) velocity=(-2.540E-2 -4.478E-4  1.934E+0) capture=false\n"
+  },
+  "source_log": "/home/braydon/.local/state/fourthdimension-runs/fd403c-free-spin-20261113/evidence/console.jsonl"
+}

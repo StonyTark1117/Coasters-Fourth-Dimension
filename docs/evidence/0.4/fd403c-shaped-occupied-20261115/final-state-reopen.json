@@ -1,0 +1,18 @@
+{
+  "purpose": "FD403C final state after clean world save and cold dedicated-server/client reopen",
+  "world": "FD403FreeSpinRiderRepair20261114",
+  "world_path": "/home/braydon/.local/state/fourthdimension-runs/fd403c-free-spin-20261113/server/FD403FreeSpinRiderRepair20261114",
+  "clean_save_log": "[18:45:13] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage: All dimensions are saved",
+  "reopen_join_log": "[18:46:37] [Server thread/INFO] [minecraft/MinecraftServer]: Dev joined the game",
+  "reopened_status_at_epoch": 1794707221.3608909,
+  "assigned_carriers": {
+    "cd2c8d97-af9f-4d13-acfd-32153171a41f": "sns_free_spin cd2c8d97-af9f-4d13-acfd-32153171a41f angle=-5.677008728332261E-4 omega=0.0051444918403086935 capture=true occupants=0 damperImpulses=0 damperEnergy=0.0 damperSpeedReduction=0.0",
+    "248eee39-97f3-4ff1-aa98-8ef744e1a46d": "sns_free_spin 248eee39-97f3-4ff1-aa98-8ef744e1a46d angle=-6.393030372710494E-4 omega=0.006777959968089759 capture=true occupants=0 damperImpulses=0 damperEnergy=0.0 damperSpeedReduction=0.0",
+    "f1d8669c-2827-4c50-9cf8-475316f8a98e": "sns_free_spin f1d8669c-2827-4c50-9cf8-475316f8a98e angle=-6.45031005521927E-4 omega=0.007148597104486309 capture=true occupants=0 damperImpulses=0 damperEnergy=0.0 damperSpeedReduction=0.0",
+    "a79f9650-1b2c-433c-8428-b94eb0ed765f": "sns_free_spin a79f9650-1b2c-433c-8428-b94eb0ed765f angle=-6.540204455732606E-4 omega=0.006975970745361305 capture=true occupants=0 damperImpulses=0 damperEnergy=0.0 damperSpeedReduction=0.0"
+  },
+  "root_vehicle": "Found no elements matching RootVehicle\n",
+  "screen": "evidence/20261115T014643.697143Z-state.png",
+  "damper_pass": "evidence/20261115-fd403c-occupied-damper-pass.json",
+  "source_log": "evidence/console.jsonl"
+}
