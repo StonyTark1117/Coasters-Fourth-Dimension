@@ -59,10 +59,15 @@ public final class ArrowMechanismRenderer {
           ||!(container.getSubLevel(vehicle.chassis) instanceof ClientSubLevel parent))continue;
       var parentPose=parent.renderPose(); var p=parent.getPlot().getCenterBlock();
       var expected=parentPose.transformPosition(new Vector3d(p.getX()+.5,p.getY()+.1875,p.getZ()+.5));
+      var bodyForward=new Vector3d(0,0,1).rotate(parentPose.orientation());
+      var old=TRAVEL.get(parent);
+      double travel=old!=null&&old.origin.distanceSquared(expected)<4
+          ?old.distance+new Vector3d(expected).sub(old.origin).dot(bodyForward):0;
+      TRAVEL.put(parent,new Travel(new Vector3d(expected),travel));
       if(expected.distanceSquared(camera.x,camera.y,camera.z)>128*128
           || !event.getFrustum().isVisible(new net.minecraft.world.phys.AABB(
               expected.x-6,expected.y-6,expected.z-6,expected.x+6,expected.y+6,expected.z+6))) {
-        TRAVEL.remove(parent);continue;
+        continue;
       }
       // Same center station and canonical profile as the server; a single narrow roller contact
       // avoids pretending a rigid fore/aft truck can sample two different control heights.
@@ -77,10 +82,6 @@ public final class ArrowMechanismRenderer {
       if(right.dot(bodyRight)<0)right.negate();
       var forward=new Vector3d(right).cross(up).normalize();
       var frame=new Frame(vec(hit.point()),right,up,forward);
-      var old=TRAVEL.get(parent);
-      double travel=old!=null&&old.origin.distanceSquared(frame.origin)<4
-          ?old.distance+new Vector3d(frame.origin).sub(old.origin).dot(forward):0;
-      TRAVEL.put(parent,new Travel(new Vector3d(frame.origin),travel));
       double input=rail.profile.angleAt(TrackGeometry.distance(mc.level,edge,rail,hit.t()));
       double h=TrackDesign.ARROW.controlHeight(input);
       int light=LevelRenderer.getLightColor(mc.level,BlockPos.containing(hit.point()));

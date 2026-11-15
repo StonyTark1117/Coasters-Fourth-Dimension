@@ -147,3 +147,22 @@ retained. Do not call the whole connected assembly final before this view.
 Mechanisms explicitly marked ProductionMesh.java stable for the lead's selective
 commit. Other owner files stay unstaged. Art display317 and Mechanisms display319
 remain independently owned and active for their remaining FD917 outcomes.
+
+
+## Source freeze for Art's final connection view
+
+Lead commits through `7703a58dfbffc219e6acf4c7df570146ee84112d` are pushed on
+primary `main`. The final support addition ties the rail-following guide/gearbox
+to actual parent wing-strut points; Art will inspect it together with the child
+crank at neutral and nonzero rotation. A final culling correction updates roller
+travel from actual parent displacement before skipping offscreen geometry, rather
+than resetting phase on re-entry. `compile-culling-phase.log` passed Java21.
+No further renderer edits are planned until that named view returns.
+
+A lead observer is prepared, not launched, at
+`/mnt/NVME4/fourthdimension-runs/fd917-lead-observer-20261115` (display318,
+unit prefix `fd917-lead-observer-20261115`, Observer, client1536M/6GiB). Mechanisms
+requested waiting for candidate03 and its authored PAX state. It retains server
+ownership at25656; the lead will control only its Observer/display and record
+new PAX late-join plus a remote occupied restraint transition. No new server or
+world is owned by this observer. The prepared candidate02 copy is not acceptance.

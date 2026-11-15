@@ -149,6 +149,25 @@ See [lead evidence and cleanup](evidence/fd917/lead/README.md). Mechanisms also 
 new `client/fd917/MechanismRenderMetrics.java` and `gametest/Fd917MechanismFixture.java`.
 It approved stable `ProductionMesh.java` for the lead's selective shared commit.
 
+**Finite remaining work at the current handoff:**
+
+- Lead/Art: final actual-parent stay and actual-child axle-crank fit at neutral
+  and nonzero pose. Full-stroke contact, occupied lifecycle, lighting, reload,
+  preview and comparable shared-track cost are already retained.
+- Art: remaining distinct A/B family/appearance views, final PAX Ponder state
+  transition and current Track Styles boundary. Its accepted Wing, Fixed
+  Inverted, Suspended, Arrow lifecycle and item/static-Ponder views stay closed.
+- Mechanisms: remaining Pipeline contact/route observations; PAX drive/catch and
+  green shell coexistence; Axis, Roller Ball, New-generation Flying, S2 and
+  Powered Inverted changed pose/fit views; equipment cues and item/provider
+  contribution. Conventional Flying posture and S1 lap transition have passed.
+- Lead with Mechanisms: one bounded PAX late-join and remote occupied restraint
+  observation after its candidate03 snapshot-bound correction. Lead observer is
+  prepared only; no runtime is active on318. Mechanisms retains the server/world.
+- Lead: reconcile final source/export/evidence and exact selective integration,
+  then verify each owner's saved-world/runtime cleanup. These are the existing
+  FD917 criteria; no additional all-family or release qualification sweep.
+
 **Execution/stop boundary:** all 17 production briefs and section 6 criteria are
 required; the prior UV pass is not proof of the new production target. Preserve
 native/provider art boundaries, stable identities and saved programs. Resolve
