@@ -51,6 +51,7 @@ public final class NativeLoading {
       var seat = child.getPlot().getCenterBlock().offset(offset);
       var passengers =
           level.getEntitiesOfClass(SeatEntity.class, new AABB(seat)).stream()
+              .filter(s -> !FixedInvertedVehicle.is(vehicle) || s.blockPosition().equals(seat))
               .flatMap(s -> s.getPassengers().stream().filter(p -> p.getVehicle() == s))
               .toList();
       for (var passenger : passengers) {
@@ -74,7 +75,8 @@ public final class NativeLoading {
       if (Math.abs(delta) > 1e-9) {
         tracker.addBlockMass(
             level, SuspendedVehicle.is(vehicle) && pos.equals(child.getPlot().getCenterBlock().offset(0,-2,0))
-                ? VehicleParts.SUSPENDED_KEEL.get().defaultBlockState() : SpinningVehicle.is(vehicle)
+                ? VehicleParts.SUSPENDED_KEEL.get().defaultBlockState() : FixedInvertedVehicle.is(vehicle)
+                ? VehicleParts.FIXED_INVERTED_SEAT.get().defaultBlockState() : SpinningVehicle.is(vehicle)
                 ? SpinningSeatBlock.state(pos.below().subtract(child.getPlot().getCenterBlock()))
                 : Blocks.IRON_BLOCK.defaultBlockState(), pos, delta, new Vec3(.12, .06, .12));
         changed = true;

@@ -123,7 +123,10 @@ public final class BoardingStation extends BaseEntityBlock {
         return InteractionResult.FAIL;
       }
     }
-    if (rebinding && dev.fourthdimension.vehicle.SuspendedVehicle.is(v)) {
+    if (rebinding && dev.fourthdimension.vehicle.FixedInvertedVehicle.is(v)) {
+      try { dev.fourthdimension.vehicle.FixedInvertedRuntime.rebindDock(server.serverLevel(), v, pos); }
+      catch (IllegalArgumentException rejected) { player.displayClientMessage(Component.literal(rejected.getMessage()), true); return InteractionResult.FAIL; }
+    } else if (rebinding && dev.fourthdimension.vehicle.SuspendedVehicle.is(v)) {
       try {
         dev.fourthdimension.vehicle.SuspendedRuntime.rebindDock(server.serverLevel(), v, pos);
       } catch (IllegalArgumentException rejected) {
@@ -140,7 +143,7 @@ public final class BoardingStation extends BaseEntityBlock {
     }
     player.displayClientMessage(
         Component.literal(
-            ((dev.fourthdimension.vehicle.SpinningVehicle.is(v) || dev.fourthdimension.vehicle.SuspendedVehicle.is(v))
+            ((dev.fourthdimension.vehicle.SpinningVehicle.is(v) || dev.fourthdimension.vehicle.SuspendedVehicle.is(v) || dev.fourthdimension.vehicle.FixedInvertedVehicle.is(v))
                 ? "Bound dock: power requests capture; use Dispatch explicitly. Front: ready. Right side:"
                 : "Rear redstone input: capture on power; dispatch on release. Front: ready. Right side:")
                 + " restraints closed. "

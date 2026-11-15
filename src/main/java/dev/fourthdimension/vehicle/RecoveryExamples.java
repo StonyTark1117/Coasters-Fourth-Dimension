@@ -170,7 +170,7 @@ public final class RecoveryExamples {
               case FREE_SPIN -> TrackItems.FREE_SPIN;
               case REVISED -> TrackItems.REVISED;
               case PAX -> TrackItems.PAX;
-              case SUSPENDED, SPINNING -> throw new IllegalArgumentException("S1 has no ordinary recovery adapter");
+              case FIXED_INVERTED, SUSPENDED, SPINNING -> throw new IllegalArgumentException("S1 has no ordinary recovery adapter");
             })
             .get()
             .getDefaultInstance());

@@ -11,6 +11,8 @@ public final class VehicleParts {
 
   public static final DeferredRegister.Blocks BLOCKS =
       DeferredRegister.createBlocks(FourthDimension.ID);
+  public static final DeferredBlock<FixedInvertedSeatBlock> FIXED_INVERTED_SEAT = BLOCKS.register("fixed_inverted_seat", () -> new FixedInvertedSeatBlock(BlockBehaviour.Properties.of().strength(3).noOcclusion()));
+  public static final DeferredBlock<FixedInvertedFrameBlock> FIXED_INVERTED_FRAME = BLOCKS.register("fixed_inverted_frame", () -> new FixedInvertedFrameBlock(BlockBehaviour.Properties.of().strength(4).noOcclusion().noCollission()));
   public static final DeferredBlock<CarrierSeatBlock> SUSPENDED_SEAT = BLOCKS.register("suspended_seat", () -> new CarrierSeatBlock(BlockBehaviour.Properties.of().strength(3).noOcclusion(),DyeColor.ORANGE));
   public static final DeferredBlock<Block> SUSPENDED_CABIN = BLOCKS.register("suspended_cabin", () -> new SuspendedCabinBlock(BlockBehaviour.Properties.of().strength(4).noOcclusion()));
   public static final DeferredBlock<SuspendedLockBlock> SUSPENDED_LOCK = BLOCKS.register("suspended_lock", () -> new SuspendedLockBlock(BlockBehaviour.Properties.of().strength(4).noOcclusion()));

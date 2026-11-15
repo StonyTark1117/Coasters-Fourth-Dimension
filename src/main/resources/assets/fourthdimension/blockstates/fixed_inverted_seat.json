@@ -1,0 +1,52 @@
+{
+  "variants": {
+    "facing=north,restrained=false,outer=false": {
+      "model": "fourthdimension:block/fixed_inverted_seat_open"
+    },
+    "facing=north,restrained=false,outer=true": {
+      "model": "fourthdimension:block/fixed_inverted_seat_open_outer"
+    },
+    "facing=north,restrained=true,outer=false": {
+      "model": "fourthdimension:block/fixed_inverted_seat_closed"
+    },
+    "facing=north,restrained=true,outer=true": {
+      "model": "fourthdimension:block/fixed_inverted_seat_closed_outer"
+    },
+    "facing=south,restrained=false,outer=false": {
+      "model": "fourthdimension:block/fixed_inverted_seat_open"
+    },
+    "facing=south,restrained=false,outer=true": {
+      "model": "fourthdimension:block/fixed_inverted_seat_open_outer"
+    },
+    "facing=south,restrained=true,outer=false": {
+      "model": "fourthdimension:block/fixed_inverted_seat_closed"
+    },
+    "facing=south,restrained=true,outer=true": {
+      "model": "fourthdimension:block/fixed_inverted_seat_closed_outer"
+    },
+    "facing=east,restrained=false,outer=false": {
+      "model": "fourthdimension:block/fixed_inverted_seat_open"
+    },
+    "facing=east,restrained=false,outer=true": {
+      "model": "fourthdimension:block/fixed_inverted_seat_open_outer"
+    },
+    "facing=east,restrained=true,outer=false": {
+      "model": "fourthdimension:block/fixed_inverted_seat_closed"
+    },
+    "facing=east,restrained=true,outer=true": {
+      "model": "fourthdimension:block/fixed_inverted_seat_closed_outer"
+    },
+    "facing=west,restrained=false,outer=false": {
+      "model": "fourthdimension:block/fixed_inverted_seat_open"
+    },
+    "facing=west,restrained=false,outer=true": {
+      "model": "fourthdimension:block/fixed_inverted_seat_open_outer"
+    },
+    "facing=west,restrained=true,outer=false": {
+      "model": "fourthdimension:block/fixed_inverted_seat_closed"
+    },
+    "facing=west,restrained=true,outer=true": {
+      "model": "fourthdimension:block/fixed_inverted_seat_closed_outer"
+    }
+  }
+}

@@ -42,7 +42,7 @@ pre-existing untracked `logs/`. No new worktree.
 | --- | --- | --- | --- |
 | **FD1501A–C; FD601** | **0.6 lead — Spinning and integration**, `01a1dd1d-1468-7f81-8f31-5532ad7a178d` | S1 A–C complete. Integrate remaining qualified family changes and reconcile FD601 from cumulative evidence; preserve all closed cases. | `docs/evidence/0.6/spinning/`; lead owns central ROADMAP/PLAN/queue and all Git integration/commit/push. FD601 aggregates the three accepted families without another campaign. |
 | **FD1301A–C** | **0.6 Suspended**, `01a1dd1d-6e99-70d2-aef3-6dcebac10d72` | A–C complete. A integrated at ec27e982; B/C construction/content and runtime cleanup accepted below. No remaining Suspended run or source work. | `docs/evidence/0.6/suspended/`; qualified overhead and occupied A handoff consumed by Fixed Inverted; B/C reuses it. |
-| **FD1601A–C; FD1601** | **0.6 Fixed Inverted**, `01a1dd1d-c6a6-7be0-9cb5-2b033ac550da` | Active implementation from Wing and integrated FD1301A at ec27e982 under the shared-file transfer below. Finish A–C and FD1601; fixed seating must not inherit a swing joint. | `docs/evidence/0.6/fixed-inverted/`; FD1601 reconciles its accepted A–C outcome, then feeds FD601. |
+| **FD1601A–C; FD1601** | **0.6 Fixed Inverted**, `01a1dd1d-c6a6-7be0-9cb5-2b033ac550da` | A complete with qualified fixed-seat four-car occupied handoff. Finish B/C normal crafting, construction and content, then save/stop the owned runtime and reconcile FD1601. | `docs/evidence/0.6/fixed-inverted/`; FD1601 reconciles its accepted A–C outcome, then feeds FD601. |
 
 **Shared-file ownership:** initially the lead owns all shared production source,
 registration, asset generators and common resources. Other owners may write their
@@ -56,6 +56,17 @@ unrelated decorative polish or C reconciliation. The lead alone stages/commits/
 pushes and edits central status documents; family owners supply ready evidence.
 The user authorizes specific coordination/continuation messages among these three
 owners and from the coordinator, including resuming a ready dependent owner.
+
+**FD1601A complete — 2026-11-15.**
+[Mechanics and occupied handoff](evidence/0.6/fixed-inverted/A-handoff.md)
+close the fixed-seat native contract, four-car full inversion, banked save/reopen,
+explicit recovery, dock unload and camera restoration. Fixed Inverted's owner
+continues B/C on the same world `server/FixedInvertedWorkshop`, display314,
+ports25646/25647 and `fd1601-fixed-inverted-20261115-{client,server,xvfb}.service`;
+the root is `/home/braydon/.local/state/fourthdimension-runs/fd1601-fixed-inverted-20261115`.
+This is an active same-owner continuation, not an idle completed runtime.
+Accepted native and occupied cases carry forward; no 0.7 consumer is activated.
+Shared source ownership remains with Fixed Inverted for any coordinated correction.
 
 **FD1301A–C complete — 2026-11-15 06:24 UTC.**
 [Content, normal construction and cumulative acceptance](evidence/0.6/suspended/BC-acceptance.md)

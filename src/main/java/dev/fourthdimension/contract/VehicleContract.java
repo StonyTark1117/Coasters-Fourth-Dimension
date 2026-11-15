@@ -37,14 +37,16 @@ public record VehicleContract(
       return Eligibility.WRONG_FAMILY;
     if (!runningGear.fits(track.mainRails())) return Eligibility.CONTACT_MISMATCH;
     if (!track.clearance().contains(sweptEnvelope)) return Eligibility.CLEARANCE_MISMATCH;
-    if (!ordinary() && !track.mechanisms().contains(Mechanism.ROTARY_CLEARANCE))
+    if (!ordinary() && family.rotary() && !track.mechanisms().contains(Mechanism.ROTARY_CLEARANCE))
       return Eligibility.MISSING_MECHANISM;
     if (family == Family.ARROW && !track.mechanisms().contains(Mechanism.CONTROL_RAILS))
       return Eligibility.MISSING_MECHANISM;
-    if ((family == Family.SPINNING || family == Family.SUSPENDED) && !track.mechanisms().contains(Mechanism.STATION_CAPTURE))
+    if ((family == Family.SPINNING || family == Family.SUSPENDED || family == Family.FIXED_INVERTED) && !track.mechanisms().contains(Mechanism.STATION_CAPTURE))
+      return Eligibility.MISSING_MECHANISM;
+    if (family == Family.FIXED_INVERTED && !track.mechanisms().contains(Mechanism.OVERHEAD_MOUNT))
       return Eligibility.MISSING_MECHANISM;
     if (!track.mechanisms().containsAll(requiredMechanisms)) return Eligibility.MISSING_MECHANISM;
-    return ordinary() ? Eligibility.ORDINARY_RAIL_ACCESS : Eligibility.FOUR_D;
+    return ordinary() ? Eligibility.ORDINARY_RAIL_ACCESS : !family.rotary() ? Eligibility.FIXED_SEAT : Eligibility.FOUR_D;
   }
 
   public enum Eligibility {

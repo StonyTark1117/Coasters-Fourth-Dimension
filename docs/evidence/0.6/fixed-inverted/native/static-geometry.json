@@ -1,0 +1,65 @@
+{
+  "status": "static authored mesh only; native sweep remains separate",
+  "graph_envelope": [
+    2.25,
+    1.1,
+    4.5,
+    1.75
+  ],
+  "seat_centers_graph": [
+    [
+      1.5,
+      -3.25,
+      0
+    ],
+    [
+      0.5,
+      -3.25,
+      0
+    ],
+    [
+      -0.5,
+      -3.25,
+      0
+    ],
+    [
+      -1.5,
+      -3.25,
+      0
+    ]
+  ],
+  "states": {
+    "open": {
+      "boxes": 55,
+      "native_x_graph_y_native_z_bounds": [
+        [
+          -2.25,
+          -4.125,
+          -0.875
+        ],
+        [
+          2.25,
+          0.0,
+          1.5
+        ]
+      ],
+      "bounded_uv": true
+    },
+    "closed": {
+      "boxes": 63,
+      "native_x_graph_y_native_z_bounds": [
+        [
+          -2.25,
+          -4.125,
+          -0.875
+        ],
+        [
+          2.25,
+          0.0,
+          1.5
+        ]
+      ],
+      "bounded_uv": true
+    }
+  }
+}

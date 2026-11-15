@@ -1,0 +1,35 @@
+{
+  "cars": {
+    "1f890217-ddbe-4328-8cef-973459a8e49a": {
+      "minUpY": -0.9999776601929626,
+      "maxSeatSpacingError": 5.684341886080802e-14,
+      "samples": 10981
+    },
+    "2805d60c-d2f5-4180-a5a7-2e1f41f9e4aa": {
+      "minUpY": -0.9999841154798925,
+      "maxSeatSpacingError": 5.517808432387028e-14,
+      "samples": 4867
+    },
+    "0996199f-9602-4fa1-8630-9d1f1169c902": {
+      "minUpY": -0.9999894760779459,
+      "maxSeatSpacingError": 5.3290705182007514e-14,
+      "samples": 4867
+    },
+    "3eec2d1d-9e2e-40d1-9f4f-ea5b19bbabc6": {
+      "minUpY": -0.9999937371177114,
+      "maxSeatSpacingError": 5.3290705182007514e-14,
+      "samples": 4867
+    }
+  },
+  "sameNativeSeatOwnerEverySample": true,
+  "fourCarSamples": 4867,
+  "minimumEnvelopeSeparatingAxisGap": 3.5447000918614355,
+  "minimumRecord": {
+    "tick": 9119,
+    "ids": [
+      "0996199f-9602-4fa1-8630-9d1f1169c902",
+      "3eec2d1d-9e2e-40d1-9f4f-ea5b19bbabc6"
+    ]
+  },
+  "method": "15-axis OBB SAT from actual native logical quaternion and bearing center. Full reserved envelope x\u00b12.25, graph y[-4.5,1.1], z\u00b11.75; its center is bearing minus2.0125 nativeUp. Temporal samples20Hz while moving, not a swept continuous-time proof. Native velocity/curvature limits and live forward obstruction checks complement samples."
+}

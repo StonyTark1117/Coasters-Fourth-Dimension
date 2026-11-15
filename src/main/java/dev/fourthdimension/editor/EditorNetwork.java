@@ -213,6 +213,9 @@ public final class EditorNetwork {
         case 26 -> VehicleOperations.realignMatchingSupport(level, vehicle);
         case 27 -> VehicleOperations.retireDetachedPax(level, vehicle);
         case 28 -> {
+          if(dev.fourthdimension.vehicle.FixedInvertedVehicle.is(vehicle)) {
+            dev.fourthdimension.vehicle.FixedInvertedRuntime.resumeToDock(level,vehicle);break;
+          }
           if(dev.fourthdimension.vehicle.SuspendedVehicle.is(vehicle)) {
             dev.fourthdimension.vehicle.SuspendedRuntime.resumeToDock(level,vehicle);break;
           }

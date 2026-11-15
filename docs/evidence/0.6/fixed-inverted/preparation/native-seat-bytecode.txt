@@ -1,0 +1,431 @@
+Compiled from "SeatBlock.java"
+public class com.simibubi.create.content.contraptions.actors.seat.SeatBlock extends net.minecraft.world.level.block.Block implements com.simibubi.create.foundation.block.ProperWaterloggedBlock {
+  protected final net.minecraft.world.item.DyeColor color;
+
+  public com.simibubi.create.content.contraptions.actors.seat.SeatBlock(net.minecraft.world.level.block.state.BlockBehaviour$Properties, net.minecraft.world.item.DyeColor);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: invokespecial #1                  // Method net/minecraft/world/level/block/Block."<init>":(Lnet/minecraft/world/level/block/state/BlockBehaviour$Properties;)V
+       5: aload_0
+       6: aload_2
+       7: putfield      #7                  // Field color:Lnet/minecraft/world/item/DyeColor;
+      10: aload_0
+      11: aload_0
+      12: invokevirtual #13                 // Method defaultBlockState:()Lnet/minecraft/world/level/block/state/BlockState;
+      15: getstatic     #17                 // Field WATERLOGGED:Lnet/minecraft/world/level/block/state/properties/BooleanProperty;
+      18: iconst_0
+      19: invokestatic  #21                 // Method java/lang/Boolean.valueOf:(Z)Ljava/lang/Boolean;
+      22: invokevirtual #27                 // Method net/minecraft/world/level/block/state/BlockState.setValue:(Lnet/minecraft/world/level/block/state/properties/Property;Ljava/lang/Comparable;)Ljava/lang/Object;
+      25: checkcast     #28                 // class net/minecraft/world/level/block/state/BlockState
+      28: invokevirtual #33                 // Method registerDefaultState:(Lnet/minecraft/world/level/block/state/BlockState;)V
+      31: return
+
+  protected void createBlockStateDefinition(net.minecraft.world.level.block.state.StateDefinition$Builder<net.minecraft.world.level.block.Block, net.minecraft.world.level.block.state.BlockState>);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: iconst_1
+       3: anewarray     #37                 // class net/minecraft/world/level/block/state/properties/Property
+       6: dup
+       7: iconst_0
+       8: getstatic     #17                 // Field WATERLOGGED:Lnet/minecraft/world/level/block/state/properties/BooleanProperty;
+      11: aastore
+      12: invokevirtual #39                 // Method net/minecraft/world/level/block/state/StateDefinition$Builder.add:([Lnet/minecraft/world/level/block/state/properties/Property;)Lnet/minecraft/world/level/block/state/StateDefinition$Builder;
+      15: invokespecial #45                 // Method net/minecraft/world/level/block/Block.createBlockStateDefinition:(Lnet/minecraft/world/level/block/state/StateDefinition$Builder;)V
+      18: return
+
+  public net.minecraft.world.level.block.state.BlockState getStateForPlacement(net.minecraft.world.item.context.BlockPlaceContext);
+    Code:
+       0: aload_0
+       1: aload_0
+       2: aload_1
+       3: invokespecial #49                 // Method net/minecraft/world/level/block/Block.getStateForPlacement:(Lnet/minecraft/world/item/context/BlockPlaceContext;)Lnet/minecraft/world/level/block/state/BlockState;
+       6: aload_1
+       7: invokevirtual #53                 // Method withWater:(Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/world/item/context/BlockPlaceContext;)Lnet/minecraft/world/level/block/state/BlockState;
+      10: areturn
+
+  public net.minecraft.world.level.block.state.BlockState updateShape(net.minecraft.world.level.block.state.BlockState, net.minecraft.core.Direction, net.minecraft.world.level.block.state.BlockState, net.minecraft.world.level.LevelAccessor, net.minecraft.core.BlockPos, net.minecraft.core.BlockPos);
+    Code:
+       0: aload_0
+       1: aload         4
+       3: aload_1
+       4: aload         5
+       6: invokevirtual #57                 // Method updateWater:(Lnet/minecraft/world/level/LevelAccessor;Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/core/BlockPos;)V
+       9: aload_1
+      10: areturn
+
+  public net.minecraft.world.level.material.FluidState getFluidState(net.minecraft.world.level.block.state.BlockState);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: invokevirtual #61                 // Method fluidState:(Lnet/minecraft/world/level/block/state/BlockState;)Lnet/minecraft/world/level/material/FluidState;
+       5: areturn
+
+  public void fallOn(net.minecraft.world.level.Level, net.minecraft.world.level.block.state.BlockState, net.minecraft.core.BlockPos, net.minecraft.world.entity.Entity, float);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: aload_2
+       3: aload_3
+       4: aload         4
+       6: fload         5
+       8: ldc           #65                 // float 0.5f
+      10: fmul
+      11: invokespecial #66                 // Method net/minecraft/world/level/block/Block.fallOn:(Lnet/minecraft/world/level/Level;Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/entity/Entity;F)V
+      14: return
+
+  public void updateEntityAfterFallOn(net.minecraft.world.level.BlockGetter, net.minecraft.world.entity.Entity);
+    Code:
+       0: aload_2
+       1: invokevirtual #70                 // Method net/minecraft/world/entity/Entity.blockPosition:()Lnet/minecraft/core/BlockPos;
+       4: astore_3
+       5: aload_2
+       6: instanceof    #76                 // class net/minecraft/world/entity/player/Player
+       9: ifne          37
+      12: aload_2
+      13: instanceof    #78                 // class net/minecraft/world/entity/LivingEntity
+      16: ifeq          37
+      19: aload_2
+      20: invokestatic  #80                 // Method canBePickedUp:(Lnet/minecraft/world/entity/Entity;)Z
+      23: ifeq          37
+      26: aload_2
+      27: invokevirtual #84                 // Method net/minecraft/world/entity/Entity.level:()Lnet/minecraft/world/level/Level;
+      30: aload_3
+      31: invokestatic  #88                 // Method isSeatOccupied:(Lnet/minecraft/world/level/Level;Lnet/minecraft/core/BlockPos;)Z
+      34: ifeq          111
+      37: aload_2
+      38: invokevirtual #92                 // Method net/minecraft/world/entity/Entity.isSuppressingBounce:()Z
+      41: ifeq          51
+      44: aload_0
+      45: aload_1
+      46: aload_2
+      47: invokespecial #96                 // Method net/minecraft/world/level/block/Block.updateEntityAfterFallOn:(Lnet/minecraft/world/level/BlockGetter;Lnet/minecraft/world/entity/Entity;)V
+      50: return
+      51: aload_2
+      52: invokevirtual #100                // Method net/minecraft/world/entity/Entity.getDeltaMovement:()Lnet/minecraft/world/phys/Vec3;
+      55: astore        4
+      57: aload         4
+      59: getfield      #104                // Field net/minecraft/world/phys/Vec3.y:D
+      62: dconst_0
+      63: dcmpg
+      64: ifge          110
+      67: aload_2
+      68: instanceof    #78                 // class net/minecraft/world/entity/LivingEntity
+      71: ifeq          78
+      74: dconst_1
+      75: goto          81
+      78: ldc2_w        #110                // double 0.8d
+      81: dstore        5
+      83: aload_2
+      84: aload         4
+      86: getfield      #112                // Field net/minecraft/world/phys/Vec3.x:D
+      89: aload         4
+      91: getfield      #104                // Field net/minecraft/world/phys/Vec3.y:D
+      94: dneg
+      95: ldc2_w        #115                // double 0.6600000262260437d
+      98: dmul
+      99: dload         5
+     101: dmul
+     102: aload         4
+     104: getfield      #117                // Field net/minecraft/world/phys/Vec3.z:D
+     107: invokevirtual #120                // Method net/minecraft/world/entity/Entity.setDeltaMovement:(DDD)V
+     110: return
+     111: aload_1
+     112: aload_3
+     113: invokeinterface #124,  2          // InterfaceMethod net/minecraft/world/level/BlockGetter.getBlockState:(Lnet/minecraft/core/BlockPos;)Lnet/minecraft/world/level/block/state/BlockState;
+     118: invokevirtual #130                // Method net/minecraft/world/level/block/state/BlockState.getBlock:()Lnet/minecraft/world/level/block/Block;
+     121: aload_0
+     122: if_acmpeq     126
+     125: return
+     126: aload_2
+     127: invokevirtual #84                 // Method net/minecraft/world/entity/Entity.level:()Lnet/minecraft/world/level/Level;
+     130: aload_3
+     131: aload_2
+     132: invokestatic  #134                // Method sitDown:(Lnet/minecraft/world/level/Level;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/entity/Entity;)V
+     135: return
+
+  public net.minecraft.world.level.pathfinder.PathType getBlockPathType(net.minecraft.world.level.block.state.BlockState, net.minecraft.world.level.BlockGetter, net.minecraft.core.BlockPos, net.minecraft.world.entity.Mob);
+    Code:
+       0: getstatic     #138                // Field net/minecraft/world/level/pathfinder/PathType.RAIL:Lnet/minecraft/world/level/pathfinder/PathType;
+       3: areturn
+
+  public net.minecraft.world.phys.shapes.VoxelShape getShape(net.minecraft.world.level.block.state.BlockState, net.minecraft.world.level.BlockGetter, net.minecraft.core.BlockPos, net.minecraft.world.phys.shapes.CollisionContext);
+    Code:
+       0: getstatic     #144                // Field com/simibubi/create/AllShapes.SEAT:Lnet/minecraft/world/phys/shapes/VoxelShape;
+       3: areturn
+
+  public net.minecraft.world.phys.shapes.VoxelShape getCollisionShape(net.minecraft.world.level.block.state.BlockState, net.minecraft.world.level.BlockGetter, net.minecraft.core.BlockPos, net.minecraft.world.phys.shapes.CollisionContext);
+    Code:
+       0: aload         4
+       2: instanceof    #150                // class net/minecraft/world/phys/shapes/EntityCollisionContext
+       5: ifeq          41
+       8: aload         4
+      10: checkcast     #150                // class net/minecraft/world/phys/shapes/EntityCollisionContext
+      13: astore        5
+      15: aload         5
+      17: invokevirtual #152                // Method net/minecraft/world/phys/shapes/EntityCollisionContext.getEntity:()Lnet/minecraft/world/entity/Entity;
+      20: astore        7
+      22: aload         7
+      24: instanceof    #76                 // class net/minecraft/world/entity/player/Player
+      27: ifeq          41
+      30: aload         7
+      32: checkcast     #76                 // class net/minecraft/world/entity/player/Player
+      35: astore        6
+      37: getstatic     #156                // Field com/simibubi/create/AllShapes.SEAT_COLLISION_PLAYERS:Lnet/minecraft/world/phys/shapes/VoxelShape;
+      40: areturn
+      41: getstatic     #159                // Field com/simibubi/create/AllShapes.SEAT_COLLISION:Lnet/minecraft/world/phys/shapes/VoxelShape;
+      44: areturn
+
+  protected net.minecraft.world.ItemInteractionResult useItemOn(net.minecraft.world.item.ItemStack, net.minecraft.world.level.block.state.BlockState, net.minecraft.world.level.Level, net.minecraft.core.BlockPos, net.minecraft.world.entity.player.Player, net.minecraft.world.InteractionHand, net.minecraft.world.phys.BlockHitResult);
+    Code:
+       0: aload         5
+       2: invokevirtual #162                // Method net/minecraft/world/entity/player/Player.isShiftKeyDown:()Z
+       5: ifne          16
+       8: aload         5
+      10: instanceof    #165                // class net/neoforged/neoforge/common/util/FakePlayer
+      13: ifeq          20
+      16: getstatic     #167                // Field net/minecraft/world/ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION:Lnet/minecraft/world/ItemInteractionResult;
+      19: areturn
+      20: aload_1
+      21: invokestatic  #173                // Method net/minecraft/world/item/DyeColor.getColor:(Lnet/minecraft/world/item/ItemStack;)Lnet/minecraft/world/item/DyeColor;
+      24: astore        8
+      26: aload         8
+      28: ifnull        81
+      31: aload         8
+      33: aload_0
+      34: getfield      #7                  // Field color:Lnet/minecraft/world/item/DyeColor;
+      37: if_acmpeq     81
+      40: aload_3
+      41: getfield      #179                // Field net/minecraft/world/level/Level.isClientSide:Z
+      44: ifeq          51
+      47: getstatic     #185                // Field net/minecraft/world/ItemInteractionResult.SUCCESS:Lnet/minecraft/world/ItemInteractionResult;
+      50: areturn
+      51: aload_2
+      52: getstatic     #188                // Field com/simibubi/create/AllBlocks.SEATS:Lcom/simibubi/create/foundation/block/DyedBlockList;
+      55: aload         8
+      57: invokevirtual #194                // Method com/simibubi/create/foundation/block/DyedBlockList.get:(Lnet/minecraft/world/item/DyeColor;)Lcom/tterrag/registrate/util/entry/BlockEntry;
+      60: invokevirtual #200                // Method com/tterrag/registrate/util/entry/BlockEntry.getDefaultState:()Lnet/minecraft/world/level/block/state/BlockState;
+      63: invokestatic  #205                // Method com/simibubi/create/foundation/utility/BlockHelper.copyProperties:(Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/world/level/block/state/BlockState;)Lnet/minecraft/world/level/block/state/BlockState;
+      66: astore        9
+      68: aload_3
+      69: aload         4
+      71: aload         9
+      73: invokevirtual #211                // Method net/minecraft/world/level/Level.setBlockAndUpdate:(Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/block/state/BlockState;)Z
+      76: pop
+      77: getstatic     #185                // Field net/minecraft/world/ItemInteractionResult.SUCCESS:Lnet/minecraft/world/ItemInteractionResult;
+      80: areturn
+      81: aload_3
+      82: ldc           #215                // class com/simibubi/create/content/contraptions/actors/seat/SeatEntity
+      84: new           #217                // class net/minecraft/world/phys/AABB
+      87: dup
+      88: aload         4
+      90: invokespecial #219                // Method net/minecraft/world/phys/AABB."<init>":(Lnet/minecraft/core/BlockPos;)V
+      93: invokevirtual #222                // Method net/minecraft/world/level/Level.getEntitiesOfClass:(Ljava/lang/Class;Lnet/minecraft/world/phys/AABB;)Ljava/util/List;
+      96: astore        9
+      98: aload         9
+     100: invokeinterface #226,  1          // InterfaceMethod java/util/List.isEmpty:()Z
+     105: ifne          180
+     108: aload         9
+     110: iconst_0
+     111: invokeinterface #231,  2          // InterfaceMethod java/util/List.get:(I)Ljava/lang/Object;
+     116: checkcast     #215                // class com/simibubi/create/content/contraptions/actors/seat/SeatEntity
+     119: astore        10
+     121: aload         10
+     123: invokevirtual #234                // Method com/simibubi/create/content/contraptions/actors/seat/SeatEntity.getPassengers:()Ljava/util/List;
+     126: astore        11
+     128: aload         11
+     130: invokeinterface #226,  1          // InterfaceMethod java/util/List.isEmpty:()Z
+     135: ifne          156
+     138: aload         11
+     140: iconst_0
+     141: invokeinterface #231,  2          // InterfaceMethod java/util/List.get:(I)Ljava/lang/Object;
+     146: instanceof    #76                 // class net/minecraft/world/entity/player/Player
+     149: ifeq          156
+     152: getstatic     #167                // Field net/minecraft/world/ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION:Lnet/minecraft/world/ItemInteractionResult;
+     155: areturn
+     156: aload_3
+     157: getfield      #179                // Field net/minecraft/world/level/Level.isClientSide:Z
+     160: ifne          176
+     163: aload         10
+     165: invokevirtual #238                // Method com/simibubi/create/content/contraptions/actors/seat/SeatEntity.ejectPassengers:()V
+     168: aload         5
+     170: aload         10
+     172: invokevirtual #242                // Method net/minecraft/world/entity/player/Player.startRiding:(Lnet/minecraft/world/entity/Entity;)Z
+     175: pop
+     176: getstatic     #185                // Field net/minecraft/world/ItemInteractionResult.SUCCESS:Lnet/minecraft/world/ItemInteractionResult;
+     179: areturn
+     180: aload_3
+     181: getfield      #179                // Field net/minecraft/world/level/Level.isClientSide:Z
+     184: ifeq          191
+     187: getstatic     #185                // Field net/minecraft/world/ItemInteractionResult.SUCCESS:Lnet/minecraft/world/ItemInteractionResult;
+     190: areturn
+     191: aload_3
+     192: aload         4
+     194: aload_3
+     195: aload         5
+     197: invokestatic  #245                // Method getLeashed:(Lnet/minecraft/world/level/Level;Lnet/minecraft/world/entity/player/Player;)Lcom/google/common/base/Optional;
+     200: aload         5
+     202: invokevirtual #249                // Method com/google/common/base/Optional.or:(Ljava/lang/Object;)Ljava/lang/Object;
+     205: checkcast     #71                 // class net/minecraft/world/entity/Entity
+     208: invokestatic  #134                // Method sitDown:(Lnet/minecraft/world/level/Level;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/entity/Entity;)V
+     211: getstatic     #185                // Field net/minecraft/world/ItemInteractionResult.SUCCESS:Lnet/minecraft/world/ItemInteractionResult;
+     214: areturn
+
+  public static boolean isSeatOccupied(net.minecraft.world.level.Level, net.minecraft.core.BlockPos);
+    Code:
+       0: aload_0
+       1: ldc           #215                // class com/simibubi/create/content/contraptions/actors/seat/SeatEntity
+       3: new           #217                // class net/minecraft/world/phys/AABB
+       6: dup
+       7: aload_1
+       8: invokespecial #219                // Method net/minecraft/world/phys/AABB."<init>":(Lnet/minecraft/core/BlockPos;)V
+      11: invokevirtual #222                // Method net/minecraft/world/level/Level.getEntitiesOfClass:(Ljava/lang/Class;Lnet/minecraft/world/phys/AABB;)Ljava/util/List;
+      14: invokeinterface #226,  1          // InterfaceMethod java/util/List.isEmpty:()Z
+      19: ifne          26
+      22: iconst_1
+      23: goto          27
+      26: iconst_0
+      27: ireturn
+
+  public static com.google.common.base.Optional<net.minecraft.world.entity.Entity> getLeashed(net.minecraft.world.level.Level, net.minecraft.world.entity.player.Player);
+    Code:
+       0: aload_1
+       1: invokevirtual #255                // Method net/minecraft/world/entity/player/Player.level:()Lnet/minecraft/world/level/Level;
+       4: aconst_null
+       5: checkcast     #71                 // class net/minecraft/world/entity/Entity
+       8: aload_1
+       9: invokevirtual #256                // Method net/minecraft/world/entity/player/Player.getBoundingBox:()Lnet/minecraft/world/phys/AABB;
+      12: ldc2_w        #260                // double 10.0d
+      15: invokevirtual #262                // Method net/minecraft/world/phys/AABB.inflate:(D)Lnet/minecraft/world/phys/AABB;
+      18: invokedynamic #266,  0            // InvokeDynamic #0:test:()Ljava/util/function/Predicate;
+      23: invokevirtual #270                // Method net/minecraft/world/level/Level.getEntities:(Lnet/minecraft/world/entity/Entity;Lnet/minecraft/world/phys/AABB;Ljava/util/function/Predicate;)Ljava/util/List;
+      26: astore_2
+      27: aload_2
+      28: invokeinterface #274,  1          // InterfaceMethod java/util/List.iterator:()Ljava/util/Iterator;
+      33: astore_3
+      34: aload_3
+      35: invokeinterface #278,  1          // InterfaceMethod java/util/Iterator.hasNext:()Z
+      40: ifeq          95
+      43: aload_3
+      44: invokeinterface #283,  1          // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+      49: checkcast     #71                 // class net/minecraft/world/entity/Entity
+      52: astore        4
+      54: aload         4
+      56: instanceof    #287                // class net/minecraft/world/entity/Mob
+      59: ifeq          92
+      62: aload         4
+      64: checkcast     #287                // class net/minecraft/world/entity/Mob
+      67: astore        5
+      69: aload         5
+      71: invokevirtual #289                // Method net/minecraft/world/entity/Mob.getLeashHolder:()Lnet/minecraft/world/entity/Entity;
+      74: aload_1
+      75: if_acmpne     92
+      78: aload         4
+      80: invokestatic  #80                 // Method canBePickedUp:(Lnet/minecraft/world/entity/Entity;)Z
+      83: ifeq          92
+      86: aload         5
+      88: invokestatic  #292                // Method com/google/common/base/Optional.of:(Ljava/lang/Object;)Lcom/google/common/base/Optional;
+      91: areturn
+      92: goto          34
+      95: invokestatic  #296                // Method com/google/common/base/Optional.absent:()Lcom/google/common/base/Optional;
+      98: areturn
+
+  public static boolean canBePickedUp(net.minecraft.world.entity.Entity);
+    Code:
+       0: aload_0
+       1: instanceof    #300                // class net/minecraft/world/entity/monster/Shulker
+       4: ifeq          9
+       7: iconst_0
+       8: ireturn
+       9: aload_0
+      10: instanceof    #76                 // class net/minecraft/world/entity/player/Player
+      13: ifeq          18
+      16: iconst_0
+      17: ireturn
+      18: getstatic     #302                // Field com/simibubi/create/AllTags$AllEntityTags.IGNORE_SEAT:Lcom/simibubi/create/AllTags$AllEntityTags;
+      21: aload_0
+      22: invokevirtual #308                // Method com/simibubi/create/AllTags$AllEntityTags.matches:(Lnet/minecraft/world/entity/Entity;)Z
+      25: ifeq          30
+      28: iconst_0
+      29: ireturn
+      30: invokestatic  #311                // Method com/simibubi/create/infrastructure/config/AllConfigs.server:()Lcom/simibubi/create/infrastructure/config/CServer;
+      33: getfield      #317                // Field com/simibubi/create/infrastructure/config/CServer.logistics:Lcom/simibubi/create/infrastructure/config/CLogistics;
+      36: getfield      #323                // Field com/simibubi/create/infrastructure/config/CLogistics.seatHostileMobs:Lnet/createmod/catnip/config/ConfigBase$ConfigBool;
+      39: invokevirtual #329                // Method net/createmod/catnip/config/ConfigBase$ConfigBool.get:()Ljava/lang/Object;
+      42: checkcast     #22                 // class java/lang/Boolean
+      45: invokevirtual #333                // Method java/lang/Boolean.booleanValue:()Z
+      48: ifne          66
+      51: aload_0
+      52: invokevirtual #336                // Method net/minecraft/world/entity/Entity.getType:()Lnet/minecraft/world/entity/EntityType;
+      55: invokevirtual #340                // Method net/minecraft/world/entity/EntityType.getCategory:()Lnet/minecraft/world/entity/MobCategory;
+      58: invokevirtual #346                // Method net/minecraft/world/entity/MobCategory.isFriendly:()Z
+      61: ifne          66
+      64: iconst_0
+      65: ireturn
+      66: aload_0
+      67: instanceof    #78                 // class net/minecraft/world/entity/LivingEntity
+      70: ireturn
+
+  public static void sitDown(net.minecraft.world.level.Level, net.minecraft.core.BlockPos, net.minecraft.world.entity.Entity);
+    Code:
+       0: aload_0
+       1: getfield      #179                // Field net/minecraft/world/level/Level.isClientSide:Z
+       4: ifeq          8
+       7: return
+       8: new           #215                // class com/simibubi/create/content/contraptions/actors/seat/SeatEntity
+      11: dup
+      12: aload_0
+      13: invokespecial #351                // Method com/simibubi/create/content/contraptions/actors/seat/SeatEntity."<init>":(Lnet/minecraft/world/level/Level;)V
+      16: astore_3
+      17: aload_3
+      18: aload_1
+      19: invokevirtual #354                // Method net/minecraft/core/BlockPos.getX:()I
+      22: i2d
+      23: ldc2_w        #360                // double 0.5d
+      26: dadd
+      27: aload_1
+      28: invokevirtual #362                // Method net/minecraft/core/BlockPos.getY:()I
+      31: i2d
+      32: aload_1
+      33: invokevirtual #365                // Method net/minecraft/core/BlockPos.getZ:()I
+      36: i2d
+      37: ldc2_w        #360                // double 0.5d
+      40: dadd
+      41: invokevirtual #368                // Method com/simibubi/create/content/contraptions/actors/seat/SeatEntity.setPos:(DDD)V
+      44: aload_0
+      45: aload_3
+      46: invokevirtual #371                // Method net/minecraft/world/level/Level.addFreshEntity:(Lnet/minecraft/world/entity/Entity;)Z
+      49: pop
+      50: aload_2
+      51: aload_3
+      52: iconst_1
+      53: invokevirtual #374                // Method net/minecraft/world/entity/Entity.startRiding:(Lnet/minecraft/world/entity/Entity;Z)Z
+      56: pop
+      57: aload_2
+      58: instanceof    #377                // class net/minecraft/world/entity/TamableAnimal
+      61: ifeq          76
+      64: aload_2
+      65: checkcast     #377                // class net/minecraft/world/entity/TamableAnimal
+      68: astore        4
+      70: aload         4
+      72: iconst_1
+      73: invokevirtual #379                // Method net/minecraft/world/entity/TamableAnimal.setInSittingPose:(Z)V
+      76: return
+
+  public net.minecraft.world.item.DyeColor getColor();
+    Code:
+       0: aload_0
+       1: getfield      #7                  // Field color:Lnet/minecraft/world/item/DyeColor;
+       4: areturn
+
+  protected boolean isPathfindable(net.minecraft.world.level.block.state.BlockState, net.minecraft.world.level.pathfinder.PathComputationType);
+    Code:
+       0: iconst_0
+       1: ireturn
+
+  private static boolean lambda$getLeashed$0(net.minecraft.world.entity.Entity);
+    Code:
+       0: iconst_1
+       1: ireturn
+}

@@ -61,7 +61,7 @@ public class CarrierSeatBlock extends SeatBlock {
   }
 
   private boolean board(Level level, BlockPos pos, Player player) {
-    if (!Boarding.canBoard(level, pos) || SeatBlock.isSeatOccupied(level, pos)) return false;
+    if (!Boarding.canBoard(level, pos) || Boarding.seatOccupied(level, pos)) return false;
     var binding = Boarding.at(level, pos);
     var body = dev.ryanhcode.sable.Sable.HELPER.getContaining(level, pos);
     var offset = pos.subtract(body.getPlot().getCenterBlock());

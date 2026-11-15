@@ -11,9 +11,10 @@ This record combines family evidence and does not require another test campaign.
 | FD503 | [Accepted 0.5 baseline](../0.5/acceptance.md), integrated at `d73d43b820b725fc9648c6a2daa9348dead16b22`; remains closed |
 | FD1501A | [S1 mechanics and occupied handoff](spinning/README.md), integrated at `d5565a09ac0d6230b66c9dd332c7b35fb3840f2a`; complete |
 | FD1501B/C | [S1 content, construction and interrupted ride](spinning/player/README.md), integrated at `0d7f6edad3c7bb51ee36e46fbb3ae0f175ac756d`; complete |
-| FD1301A | [Suspended native and four-car occupied handoff](suspended/A-handoff.md); complete, integrated with this record |
-| FD1301B/C | [Suspended content, construction and cumulative workflow](suspended/BC-acceptance.md); complete |
-| FD1601A–C / FD1601 | [Fixed Inverted preparation](fixed-inverted/README.md); consumes the integrated Suspended handoff and transferred shared paths |
+| FD1301A | [Suspended native and four-car occupied handoff](suspended/A-handoff.md); complete, integrated at `ec27e982ece3e906bf144b25cbb5982b8d230d63` |
+| FD1301B/C | [Suspended content, construction and cumulative workflow](suspended/BC-acceptance.md); complete, integrated at `bfb676d4063e903e7649203b4a20143d39af9866` |
+| FD1601A | [Fixed Inverted mechanics and four-car occupied handoff](fixed-inverted/A-handoff.md); complete, integrated with this update |
+| FD1601B/C / FD1601 | [Fixed Inverted current checkpoint](fixed-inverted/README.md); normal crafting/construction and content acceptance in progress |
 
 ## Evidence carried forward
 
@@ -43,6 +44,20 @@ mass from 4 to 5 while preserving pivot and envelope. Its targeted native check
 passed rider loading, both loaded swing bounds and capture/save; corrected visual
 evidence is retained. Four-car lift and occupied controls carry forward. Reassess
 later relevant changes without reopening unaffected cases for a new JAR.
+
+Fixed Inverted's focused native case passed four-car eight-block linking, exact
+four-rider loading (+3.2), dispatch, dock-only unloading, saved identity/consist
+and frame-loss whole-train hold. Its runtime selects a fixed chassis before the
+rotary carrier path; fractional-seat ownership and loading checks are specific to
+this family. Corrected hanger selection geometry passed normal cushion boarding.
+The example's banked-anchor motor obstructed the required envelope; a continuous
+128-block Chain from the upright approach corrected the example without weakening
+clearance. Normal Close/Dispatch, four-car full inversion, banked Stop/save/reopen,
+explicit Resume, dock Ready/Open and Shift unload passed. Native pose analysis
+preserved one-block seat spacing and positive car-envelope separation; the record
+states its temporal sampling limits. Rider assignment cleared and the camera
+returned upright on unload. B/C reuse this occupied proof while finishing normal
+construction and content; original/Wing/S1/Suspended cases remain closed.
 
 ## Runtime disposition
 

@@ -55,6 +55,7 @@ public final class Boarding {
       var up = new Vector3d(0, 1, 0).rotate(parent.logicalPose().orientation());
       return up.y > .98;
     }
+    if (FixedInvertedVehicle.is(vehicle)) return FixedInvertedRuntime.ready(level, parent, vehicle);
     if (SuspendedVehicle.is(vehicle)) return SuspendedRuntime.ready(level, parent, vehicle);
     if (SpinningVehicle.is(vehicle)) return SpinningRuntime.ready(level, parent, vehicle);
     for (var carrier : vehicle.carriers) {
@@ -64,6 +65,14 @@ public final class Boarding {
           || container.getSubLevel(carrier.body) == null) return false;
     }
     return true;
+  }
+
+  public static boolean seatOccupied(Level level, BlockPos pos) {
+    var binding=at(level,pos);
+    if(binding==null||!FixedInvertedVehicle.is(binding.vehicle))
+      return com.simibubi.create.content.contraptions.actors.seat.SeatBlock.isSeatOccupied(level,pos);
+    return level.getEntitiesOfClass(com.simibubi.create.content.contraptions.actors.seat.SeatEntity.class,
+        new net.minecraft.world.phys.AABB(pos)).stream().anyMatch(s->s.blockPosition().equals(pos)&&s.isVehicle());
   }
 
   public static boolean canBoard(Level level, BlockPos pos) {
@@ -93,6 +102,10 @@ public final class Boarding {
           && !canBoard(level, seat.blockPosition())) {
         event.setCanceled(true);
         return;
+      }
+      if (FixedInvertedVehicle.is(binding.vehicle)) {
+        var pos = seat.blockPosition();
+        seat.setPos(pos.getX(), pos.getY()+.4375, pos.getZ()+.5);
       }
       if (SpinningVehicle.is(binding.vehicle)) {
         var pos = seat.blockPosition();
@@ -299,8 +312,7 @@ public final class Boarding {
           continue;
         }
         if (level.getBlockState(seat).getBlock() instanceof CarrierSeatBlock
-            && !com.simibubi.create.content.contraptions.actors.seat.SeatBlock.isSeatOccupied(
-                level, seat)) {
+            && !seatOccupied(level, seat)) {
           RESTORING.add(player.getUUID());
           try {
             com.simibubi.create.content.contraptions.actors.seat.SeatBlock.sitDown(

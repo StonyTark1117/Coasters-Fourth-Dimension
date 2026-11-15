@@ -146,6 +146,10 @@ public final class CarrierRuntime {
       if (!(parentRaw instanceof ServerSubLevel parent) || parent.isRemoved()) continue;
       vehicleUpdates++;
       physics.updatePose(parent);
+      if (dev.fourthdimension.vehicle.FixedInvertedVehicle.is(vehicle)) {
+        dev.fourthdimension.vehicle.FixedInvertedRuntime.tick(level, parent, vehicle, event.getTimeStep());
+        continue;
+      }
       if (dev.fourthdimension.vehicle.WingVehicle.is(vehicle)) {
         dev.fourthdimension.vehicle.WingRuntime.tick(level, parent, vehicle, event.getTimeStep());
         continue;

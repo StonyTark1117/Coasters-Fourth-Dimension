@@ -1,0 +1,46 @@
+{
+  "status": "PREPARATION_ONLY",
+  "mesh_bounds": {
+    "closed": [
+      [
+        -2.25,
+        -4.125,
+        -1.5
+      ],
+      [
+        2.25,
+        1,
+        0.875
+      ]
+    ],
+    "open": [
+      [
+        -2.25,
+        -4.125,
+        -1.5
+      ],
+      [
+        2.25,
+        1,
+        0.875
+      ]
+    ]
+  },
+  "mesh_within_envelope": true,
+  "rear_post_occupied_static_gap": 0.25,
+  "specified_underbrace_head_static_gap": 0.8,
+  "four_car_longitudinal_extent": 27.5,
+  "dock_36_unused_length": 8.5,
+  "linear_roll_degrees_per_block": 2.8125,
+  "smoothstep_peak_roll_degrees_per_block": 4.21875,
+  "native_claims_proven": [],
+  "pending": [
+    "native seat plot/mount origin",
+    "integrated N bogie/provider mesh",
+    "actual native interpolated radius/roll",
+    "four-car continuous clearance",
+    "native mass and loaded COM",
+    "occupied inversion",
+    "dock and nonupright persistence"
+  ]
+}

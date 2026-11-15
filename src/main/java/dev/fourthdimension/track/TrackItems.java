@@ -22,6 +22,8 @@ public final class TrackItems {
                   .persistent(GlobalPos.CODEC)
                   .networkSynchronized(GlobalPos.STREAM_CODEC)
                   .build());
+  public static final DeferredItem<FamilyTrackItem> FIXED_INVERTED = ITEMS.register("fixed_inverted_track", () -> new FamilyTrackItem(new Item.Properties(), TrackDesign.FIXED_INVERTED));
+  public static final DeferredItem<dev.fourthdimension.vehicle.VehicleItem> FIXED_INVERTED_CAR = ITEMS.register("fixed_inverted_car", () -> new dev.fourthdimension.vehicle.VehicleItem(new Item.Properties().stacksTo(1), TrackDesign.FIXED_INVERTED));
   public static final DeferredItem<Item> SUSPENDED_LATCH = ITEMS.register("suspended_latch", () -> new Item(new Item.Properties()));
   public static final DeferredItem<FamilyTrackItem> SUSPENDED =
       ITEMS.register("suspended_track", () -> new FamilyTrackItem(new Item.Properties(), TrackDesign.SUSPENDED));

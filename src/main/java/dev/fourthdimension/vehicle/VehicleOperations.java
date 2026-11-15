@@ -26,7 +26,7 @@ public final class VehicleOperations {
     // A coupled PAX train is one safety unit: losing the matching support under any car must
     // capture, restrain, and brake its whole compatible consist before recovery can begin.
     var cars =
-        (vehicle.family == dev.fourthdimension.contract.Family.PAX || SuspendedVehicle.is(vehicle))
+        (vehicle.family == dev.fourthdimension.contract.Family.PAX || SuspendedVehicle.is(vehicle) || FixedInvertedVehicle.is(vehicle))
             ? consist(level, vehicle)
             : List.of(vehicle);
     for (var car : cars) {
@@ -94,6 +94,7 @@ public final class VehicleOperations {
       winch.fail("Operator emergency capture: inspect the shuttle before recovery");
       return;
     }
+    if (FixedInvertedVehicle.is(vehicle)) FixedInvertedRuntime.acknowledge(level, vehicle);
     if (SuspendedVehicle.is(vehicle)) {
       var container=SubLevelContainer.getContainer(level);
       for(var car:consist(level,vehicle)) {
@@ -198,6 +199,7 @@ public final class VehicleOperations {
     var data = FoundationData.get(level);
     var consist = consist(level, vehicle);
     for (var v : consist) {
+      if (FixedInvertedVehicle.is(v)) FixedInvertedRuntime.rememberConsist(level, v);
       if(SuspendedVehicle.is(v)) {
         var parent=SubLevelContainer.getContainer(level).getSubLevel(v.chassis);
         v.suspendedConsist=List.copyOf(CoasterCartTrainLinkConstraint.getTrainLinkedCartIds(parent));

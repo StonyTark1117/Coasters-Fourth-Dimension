@@ -129,6 +129,9 @@ public final class FoundationData extends SavedData {
     public String fault = "";
     public long revision;
     public List<UUID> suspendedConsist = List.of();
+    public List<UUID> fixedConsist = List.of();
+    public BlockPos fixedDockFrom, fixedDockTo;
+    public long fixedDockGeometry;
     public double damping = 5, ballast;
     public final List<Carrier> carriers = new ArrayList<>();
     public BlockPos boundFrom, boundTo;
@@ -220,12 +223,17 @@ public final class FoundationData extends SavedData {
       ListTag consistIds=new ListTag();
       for(var id:vehicle.suspendedConsist)consistIds.add(NbtUtils.createUUID(id));
       tag.put("suspended_consist",consistIds);
+      if (dev.fourthdimension.vehicle.FixedInvertedVehicle.is(vehicle)) {
+        var fixedIds=new ListTag();for(var id:vehicle.fixedConsist)fixedIds.add(NbtUtils.createUUID(id));
+        tag.put("fixed_consist",fixedIds);
+        if(vehicle.fixedDockFrom!=null){tag.putLong("fixed_dock_from",vehicle.fixedDockFrom.asLong());tag.putLong("fixed_dock_to",vehicle.fixedDockTo.asLong());tag.putLong("fixed_dock_geometry",vehicle.fixedDockGeometry);}
+      }
       if (vehicle.dock != null) tag.putLong("dock", vehicle.dock.asLong());
       if (dev.fourthdimension.vehicle.SpinningVehicle.is(vehicle)) {
         tag.putString("contact_layout", dev.fourthdimension.contract.NativeTrackFit.N_CONTACTS);
         tag.putString("mount_frame", dev.fourthdimension.contract.NativeTrackFit.ABOVE);
       }
-      if (dev.fourthdimension.vehicle.SuspendedVehicle.is(vehicle)) {
+      if (dev.fourthdimension.vehicle.SuspendedVehicle.is(vehicle) || dev.fourthdimension.vehicle.FixedInvertedVehicle.is(vehicle)) {
         tag.putString("contact_layout", dev.fourthdimension.contract.NativeTrackFit.N_CONTACTS);
         tag.putString("mount_frame", dev.fourthdimension.contract.NativeTrackFit.OVERHEAD);
       }
@@ -254,8 +262,7 @@ public final class FoundationData extends SavedData {
         c.putDouble("side", carrier.side);
         c.putDouble("longitudinal", carrier.longitudinal);
         c.putDouble("ballast", carrier.ballast);
-        c.putDouble("angle", carrier.angle);
-        c.putDouble("omega", carrier.omega);
+        if (!dev.fourthdimension.vehicle.FixedInvertedVehicle.is(vehicle)) { c.putDouble("angle", carrier.angle); c.putDouble("omega", carrier.omega); }
         c.putBoolean("capture", carrier.capture);
         c.putDouble("pivot_height", carrier.pivotHeight);
         c.putBoolean("lift_pending",carrier.liftPending);
@@ -264,7 +271,7 @@ public final class FoundationData extends SavedData {
         c.putDouble("child_pivot_offset", carrier.childPivotOffset);
         c.putDouble("child_pivot_x", carrier.childPivotX);
         c.putDouble("child_pivot_z", carrier.childPivotZ);
-        c.putString("axis", vehicle.family.axis().name());
+        if (!dev.fourthdimension.vehicle.FixedInvertedVehicle.is(vehicle)) c.putString("axis", vehicle.family.axis().name());
         c.putBoolean("latched", carrier.latched);
         c.putBoolean("lift_held", carrier.liftHeld);
         c.putDouble("capture_target", carrier.captureTarget);
@@ -394,13 +401,17 @@ public final class FoundationData extends SavedData {
       for(Tag id:tag.getList("suspended_consist",Tag.TAG_INT_ARRAY))consistIds.add(NbtUtils.loadUUID(id));
       if(consistIds.size()>4 || new HashSet<>(consistIds).size()!=consistIds.size())throw new IllegalArgumentException("Invalid Suspended consist");
       vehicle.suspendedConsist=List.copyOf(consistIds);
+      var fixedIds=new ArrayList<UUID>();for(Tag id:tag.getList("fixed_consist",Tag.TAG_INT_ARRAY))fixedIds.add(NbtUtils.loadUUID(id));
+      if(fixedIds.size()>4||new HashSet<>(fixedIds).size()!=fixedIds.size())throw new IllegalArgumentException("Invalid Fixed Inverted consist");
+      vehicle.fixedConsist=List.copyOf(fixedIds);
+      if(tag.contains("fixed_dock_from")){vehicle.fixedDockFrom=BlockPos.of(tag.getLong("fixed_dock_from"));vehicle.fixedDockTo=BlockPos.of(tag.getLong("fixed_dock_to"));vehicle.fixedDockGeometry=tag.getLong("fixed_dock_geometry");}
       vehicle.variant = tag.contains("variant") ? tag.getString("variant") : VARIANT;
       if (tag.contains("dock")) vehicle.dock = BlockPos.of(tag.getLong("dock"));
       if (dev.fourthdimension.vehicle.SpinningVehicle.is(vehicle)
           && (!dev.fourthdimension.contract.NativeTrackFit.N_CONTACTS.equals(tag.getString("contact_layout"))
               || !dev.fourthdimension.contract.NativeTrackFit.ABOVE.equals(tag.getString("mount_frame"))))
         throw new IllegalArgumentException("Unknown S1 contact/mount definition");
-      if (dev.fourthdimension.vehicle.SuspendedVehicle.is(vehicle)
+      if ((dev.fourthdimension.vehicle.SuspendedVehicle.is(vehicle) || dev.fourthdimension.vehicle.FixedInvertedVehicle.is(vehicle))
           && (!dev.fourthdimension.contract.NativeTrackFit.N_CONTACTS.equals(tag.getString("contact_layout"))
               || !dev.fourthdimension.contract.NativeTrackFit.OVERHEAD.equals(tag.getString("mount_frame"))))
         throw new IllegalArgumentException("Unknown Suspended contact/mount definition");
@@ -418,7 +429,7 @@ public final class FoundationData extends SavedData {
       for (Tag group : groups) {
         var c = (CompoundTag) group;
         var carrier = new Carrier(c.getUUID("body"), c.getDouble("side"));
-        if (!(dev.fourthdimension.vehicle.WingVehicle.is(vehicle) && carrier.body.equals(vehicle.chassis))
+        if (!(!vehicle.family.rotary() && carrier.body.equals(vehicle.chassis))
             && !nativeBodyIds.add(carrier.body))
           throw new IllegalArgumentException("Duplicate native carrier identity");
         carrier.longitudinal = c.getDouble("longitudinal");
@@ -461,7 +472,7 @@ public final class FoundationData extends SavedData {
             || carrier.seats.isEmpty()
             || carrier.seats.size() > 4
             || new HashSet<>(carrier.seats).size() != carrier.seats.size()
-            || (!dev.fourthdimension.vehicle.WingVehicle.is(vehicle)
+            || (vehicle.family.rotary()
                 && carrier.seats.stream().anyMatch(p -> p.distSqr(BlockPos.ZERO) > 16)))
           throw new IllegalArgumentException("Invalid carrier seating geometry");
         if (!Double.isFinite(carrier.angle)
@@ -494,6 +505,8 @@ public final class FoundationData extends SavedData {
           throw new IllegalArgumentException("Invalid fixed Wing topology");
       } else if (dev.fourthdimension.vehicle.SpinningVehicle.is(vehicle)) {
         dev.fourthdimension.vehicle.SpinningVehicle.validate(vehicle);
+      } else if (dev.fourthdimension.vehicle.FixedInvertedVehicle.is(vehicle)) {
+        dev.fourthdimension.vehicle.FixedInvertedVehicle.validate(vehicle);
       } else if (dev.fourthdimension.vehicle.SuspendedVehicle.is(vehicle)) {
         dev.fourthdimension.vehicle.SuspendedVehicle.validate(vehicle);
       } else if (!VARIANT.equals(vehicle.variant)) {
