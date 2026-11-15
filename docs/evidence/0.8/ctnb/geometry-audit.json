@@ -1,0 +1,483 @@
+{
+  "selected_artifact": "e989c33e305779e37d4cd61bd4a7a13700faa45a604bd4aa92eacad738145115",
+  "method": "Exact ordered OBJ vertex comparison against pinned native N-track; shared CurveBer renderer placement. No gameplay qualification implied.",
+  "fingerprint": "b042191997cfb47be87a4df167e9512a2a41ad749dbc7e91c6be6dc6bb41b7ce",
+  "rows": [
+    {
+      "material": "boost_track",
+      "part": "segment_left",
+      "vertices": 24,
+      "min": [
+        -0.13124999999999998,
+        0.0,
+        0.0
+      ],
+      "max": [
+        0.13124999999999998,
+        0.2835759362668886,
+        0.5
+      ],
+      "exact_native_vertex_match": true,
+      "sha256": "3bd29f4d02da6e32e0b74a792ec805928b06b7455346913fe5baa34ab5ebaa29"
+    },
+    {
+      "material": "boost_track",
+      "part": "segment_right",
+      "vertices": 24,
+      "min": [
+        -0.13124999999999998,
+        0.0,
+        0.0
+      ],
+      "max": [
+        0.13124999999999998,
+        0.2835759362668886,
+        0.5
+      ],
+      "exact_native_vertex_match": true,
+      "sha256": "b6e8de48a9a0b1fafeca6e93e92400acd80d61d461f086d8627cd8da19b0dcb0"
+    },
+    {
+      "material": "boost_track",
+      "part": "segment_center_beam",
+      "vertices": 8,
+      "min": [
+        -0.3125,
+        0.0,
+        0.0
+      ],
+      "max": [
+        0.3125,
+        0.3125,
+        0.5
+      ],
+      "exact_native_vertex_match": true,
+      "sha256": "ef4dd101c2a377e35d25ffcc642c9e88cd21f8f9a5776e1c6af3ef5b1475eeba"
+    },
+    {
+      "material": "boost_track",
+      "part": "tie",
+      "vertices": 16,
+      "min": [
+        -0.2821785405562801,
+        -0.41880955973253453,
+        0.125
+      ],
+      "max": [
+        1.2821785405562802,
+        0.15571469998153534,
+        0.375
+      ],
+      "exact_native_vertex_match": true,
+      "sha256": "588617929a66e7df955ccd4c560eb33be2409f9963e1a0a9cb5691f757d2a687"
+    },
+    {
+      "material": "powered_boost_track",
+      "part": "segment_left",
+      "vertices": 24,
+      "min": [
+        -0.13124999999999998,
+        0.0,
+        0.0
+      ],
+      "max": [
+        0.13124999999999998,
+        0.2835759362668886,
+        0.5
+      ],
+      "exact_native_vertex_match": true,
+      "sha256": "3198849ee246ba38bdfce3074541332db292130c5e2f9021d97ef66bfd308c96"
+    },
+    {
+      "material": "powered_boost_track",
+      "part": "segment_right",
+      "vertices": 24,
+      "min": [
+        -0.13124999999999998,
+        0.0,
+        0.0
+      ],
+      "max": [
+        0.13124999999999998,
+        0.2835759362668886,
+        0.5
+      ],
+      "exact_native_vertex_match": true,
+      "sha256": "0ff9b5bf4a8a25e80ade3275093165b443c25442b6a1f4244283a8e3b90e18e4"
+    },
+    {
+      "material": "powered_boost_track",
+      "part": "segment_center_beam",
+      "vertices": 8,
+      "min": [
+        -0.3125,
+        0.0,
+        0.0
+      ],
+      "max": [
+        0.3125,
+        0.3125,
+        0.5
+      ],
+      "exact_native_vertex_match": true,
+      "sha256": "3279fd8baf66eade14658a4d3949551e19eb1d5f0d079da4be306055bb2306f9"
+    },
+    {
+      "material": "powered_boost_track",
+      "part": "tie",
+      "vertices": 16,
+      "min": [
+        -0.2821785405562801,
+        -0.41880955973253453,
+        0.125
+      ],
+      "max": [
+        1.2821785405562802,
+        0.15571469998153534,
+        0.375
+      ],
+      "exact_native_vertex_match": true,
+      "sha256": "588617929a66e7df955ccd4c560eb33be2409f9963e1a0a9cb5691f757d2a687"
+    },
+    {
+      "material": "station_track",
+      "part": "segment_left",
+      "vertices": 24,
+      "min": [
+        -0.13124999999999998,
+        0.0,
+        0.0
+      ],
+      "max": [
+        0.13124999999999998,
+        0.2835759362668886,
+        0.5
+      ],
+      "exact_native_vertex_match": true,
+      "sha256": "3bd29f4d02da6e32e0b74a792ec805928b06b7455346913fe5baa34ab5ebaa29"
+    },
+    {
+      "material": "station_track",
+      "part": "segment_right",
+      "vertices": 24,
+      "min": [
+        -0.13124999999999998,
+        0.0,
+        0.0
+      ],
+      "max": [
+        0.13124999999999998,
+        0.2835759362668886,
+        0.5
+      ],
+      "exact_native_vertex_match": true,
+      "sha256": "b6e8de48a9a0b1fafeca6e93e92400acd80d61d461f086d8627cd8da19b0dcb0"
+    },
+    {
+      "material": "station_track",
+      "part": "segment_center_beam",
+      "vertices": 8,
+      "min": [
+        -0.3125,
+        0.0,
+        0.0
+      ],
+      "max": [
+        0.3125,
+        0.3125,
+        0.5
+      ],
+      "exact_native_vertex_match": true,
+      "sha256": "ef4dd101c2a377e35d25ffcc642c9e88cd21f8f9a5776e1c6af3ef5b1475eeba"
+    },
+    {
+      "material": "station_track",
+      "part": "tie",
+      "vertices": 16,
+      "min": [
+        -0.2821785405562801,
+        -0.41880955973253453,
+        0.125
+      ],
+      "max": [
+        1.2821785405562802,
+        0.15571469998153534,
+        0.375
+      ],
+      "exact_native_vertex_match": true,
+      "sha256": "588617929a66e7df955ccd4c560eb33be2409f9963e1a0a9cb5691f757d2a687"
+    },
+    {
+      "material": "launch_track",
+      "part": "segment_left",
+      "vertices": 24,
+      "min": [
+        -0.13124999999999998,
+        0.0,
+        0.0
+      ],
+      "max": [
+        0.13124999999999998,
+        0.2835759362668886,
+        0.5
+      ],
+      "exact_native_vertex_match": true,
+      "sha256": "3198849ee246ba38bdfce3074541332db292130c5e2f9021d97ef66bfd308c96"
+    },
+    {
+      "material": "launch_track",
+      "part": "segment_right",
+      "vertices": 24,
+      "min": [
+        -0.13124999999999998,
+        0.0,
+        0.0
+      ],
+      "max": [
+        0.13124999999999998,
+        0.2835759362668886,
+        0.5
+      ],
+      "exact_native_vertex_match": true,
+      "sha256": "0ff9b5bf4a8a25e80ade3275093165b443c25442b6a1f4244283a8e3b90e18e4"
+    },
+    {
+      "material": "launch_track",
+      "part": "segment_center_beam",
+      "vertices": 8,
+      "min": [
+        -0.3125,
+        0.0,
+        0.0
+      ],
+      "max": [
+        0.3125,
+        0.3125,
+        0.5
+      ],
+      "exact_native_vertex_match": true,
+      "sha256": "3279fd8baf66eade14658a4d3949551e19eb1d5f0d079da4be306055bb2306f9"
+    },
+    {
+      "material": "launch_track",
+      "part": "tie",
+      "vertices": 16,
+      "min": [
+        -0.2821785405562801,
+        -0.41880955973253453,
+        0.125
+      ],
+      "max": [
+        1.2821785405562802,
+        0.15571469998153534,
+        0.375
+      ],
+      "exact_native_vertex_match": true,
+      "sha256": "588617929a66e7df955ccd4c560eb33be2409f9963e1a0a9cb5691f757d2a687"
+    },
+    {
+      "material": "reverse_track",
+      "part": "segment_left",
+      "vertices": 24,
+      "min": [
+        -0.13124999999999998,
+        0.0,
+        0.0
+      ],
+      "max": [
+        0.13124999999999998,
+        0.2835759362668886,
+        0.5
+      ],
+      "exact_native_vertex_match": true,
+      "sha256": "3198849ee246ba38bdfce3074541332db292130c5e2f9021d97ef66bfd308c96"
+    },
+    {
+      "material": "reverse_track",
+      "part": "segment_right",
+      "vertices": 24,
+      "min": [
+        -0.13124999999999998,
+        0.0,
+        0.0
+      ],
+      "max": [
+        0.13124999999999998,
+        0.2835759362668886,
+        0.5
+      ],
+      "exact_native_vertex_match": true,
+      "sha256": "0ff9b5bf4a8a25e80ade3275093165b443c25442b6a1f4244283a8e3b90e18e4"
+    },
+    {
+      "material": "reverse_track",
+      "part": "segment_center_beam",
+      "vertices": 8,
+      "min": [
+        -0.3125,
+        0.0,
+        0.0
+      ],
+      "max": [
+        0.3125,
+        0.3125,
+        0.5
+      ],
+      "exact_native_vertex_match": true,
+      "sha256": "3279fd8baf66eade14658a4d3949551e19eb1d5f0d079da4be306055bb2306f9"
+    },
+    {
+      "material": "reverse_track",
+      "part": "tie",
+      "vertices": 16,
+      "min": [
+        -0.2821785405562801,
+        -0.41880955973253453,
+        0.125
+      ],
+      "max": [
+        1.2821785405562802,
+        0.15571469998153534,
+        0.375
+      ],
+      "exact_native_vertex_match": true,
+      "sha256": "588617929a66e7df955ccd4c560eb33be2409f9963e1a0a9cb5691f757d2a687"
+    },
+    {
+      "material": "brake_track",
+      "part": "segment_left",
+      "vertices": 24,
+      "min": [
+        -0.13124999999999998,
+        0.0,
+        0.0
+      ],
+      "max": [
+        0.13124999999999998,
+        0.2835759362668886,
+        0.5
+      ],
+      "exact_native_vertex_match": true,
+      "sha256": "3bd29f4d02da6e32e0b74a792ec805928b06b7455346913fe5baa34ab5ebaa29"
+    },
+    {
+      "material": "brake_track",
+      "part": "segment_right",
+      "vertices": 24,
+      "min": [
+        -0.13124999999999998,
+        0.0,
+        0.0
+      ],
+      "max": [
+        0.13124999999999998,
+        0.2835759362668886,
+        0.5
+      ],
+      "exact_native_vertex_match": true,
+      "sha256": "b6e8de48a9a0b1fafeca6e93e92400acd80d61d461f086d8627cd8da19b0dcb0"
+    },
+    {
+      "material": "brake_track",
+      "part": "segment_center_beam",
+      "vertices": 8,
+      "min": [
+        -0.3125,
+        0.0,
+        0.0
+      ],
+      "max": [
+        0.3125,
+        0.3125,
+        0.5
+      ],
+      "exact_native_vertex_match": true,
+      "sha256": "ef4dd101c2a377e35d25ffcc642c9e88cd21f8f9a5776e1c6af3ef5b1475eeba"
+    },
+    {
+      "material": "brake_track",
+      "part": "tie",
+      "vertices": 16,
+      "min": [
+        -0.2821785405562801,
+        -0.41880955973253453,
+        0.125
+      ],
+      "max": [
+        1.2821785405562802,
+        0.15571469998153534,
+        0.375
+      ],
+      "exact_native_vertex_match": true,
+      "sha256": "588617929a66e7df955ccd4c560eb33be2409f9963e1a0a9cb5691f757d2a687"
+    },
+    {
+      "material": "sensor_track",
+      "part": "segment_left",
+      "vertices": 24,
+      "min": [
+        -0.13124999999999998,
+        0.0,
+        0.0
+      ],
+      "max": [
+        0.13124999999999998,
+        0.2835759362668886,
+        0.5
+      ],
+      "exact_native_vertex_match": true,
+      "sha256": "3bd29f4d02da6e32e0b74a792ec805928b06b7455346913fe5baa34ab5ebaa29"
+    },
+    {
+      "material": "sensor_track",
+      "part": "segment_right",
+      "vertices": 24,
+      "min": [
+        -0.13124999999999998,
+        0.0,
+        0.0
+      ],
+      "max": [
+        0.13124999999999998,
+        0.2835759362668886,
+        0.5
+      ],
+      "exact_native_vertex_match": true,
+      "sha256": "b6e8de48a9a0b1fafeca6e93e92400acd80d61d461f086d8627cd8da19b0dcb0"
+    },
+    {
+      "material": "sensor_track",
+      "part": "segment_center_beam",
+      "vertices": 8,
+      "min": [
+        -0.3125,
+        0.0,
+        0.0
+      ],
+      "max": [
+        0.3125,
+        0.3125,
+        0.5
+      ],
+      "exact_native_vertex_match": true,
+      "sha256": "ef4dd101c2a377e35d25ffcc642c9e88cd21f8f9a5776e1c6af3ef5b1475eeba"
+    },
+    {
+      "material": "sensor_track",
+      "part": "tie",
+      "vertices": 16,
+      "min": [
+        -0.2821785405562801,
+        -0.41880955973253453,
+        0.125
+      ],
+      "max": [
+        1.2821785405562802,
+        0.15571469998153534,
+        0.375
+      ],
+      "exact_native_vertex_match": true,
+      "sha256": "588617929a66e7df955ccd4c560eb33be2409f9963e1a0a9cb5691f757d2a687"
+    }
+  ]
+}

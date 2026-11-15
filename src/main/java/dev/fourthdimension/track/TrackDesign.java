@@ -7,6 +7,7 @@ import java.util.Set;
 
 /** Original game-scale interfaces, measured in blocks relative to the main-rail centerline. */
 public enum TrackDesign {
+  POWERED_INVERTED_YAW(Family.POWERED_INVERTED, "upright_yaw_v1", 0x2d94ae),
   DIVE(Family.DIVE, "six_abreast_v1", 0xd8ab31),
   PIPELINE(Family.PIPELINE, "seated_side_rail_v1", 0x327fa8),
   ARROW(Family.ARROW, "arrow_four_rail_v1", 0xb43b48),
@@ -52,9 +53,10 @@ public enum TrackDesign {
     this.color = color;
   }
 
-  public boolean overhead() { return this == SUSPENDED || this == FIXED_INVERTED || this == FLYING || this == NEW_GENERATION_FLYING; }
+  public boolean overhead() { return this == POWERED_INVERTED_YAW || this == SUSPENDED || this == FIXED_INVERTED || this == FLYING || this == NEW_GENERATION_FLYING; }
 
   public NativeTrackFit nativeFit() {
+    if (this == POWERED_INVERTED_YAW) return dev.fourthdimension.vehicle.PoweredInvertedYawVehicle.FIT;
     if (this == DIVE) return dev.fourthdimension.vehicle.DiveVehicle.FIT;
     if (this == PIPELINE) return dev.fourthdimension.vehicle.PipelineVehicle.FIT;
     if (this == S2_SPINNING) return dev.fourthdimension.vehicle.S2SpinningVehicle.FIT;
@@ -77,7 +79,7 @@ public enum TrackDesign {
         family,
         variant,
         new Gear(this == PIPELINE ? 3 : 2 * HALF_GAUGE, WHEEL_RADIUS, this == PIPELINE ? 1.75625 : TREAD_OUTER, WHEEL_ROW_SPACING),
-        (this == DIVE || this == PIPELINE) ? Set.of(Mechanism.STATION_CAPTURE) : this == S2_SPINNING ? Set.of(Mechanism.ROTARY_CLEARANCE,Mechanism.STATION_CAPTURE,Mechanism.MAGNET_INTERFACE,Mechanism.LONGITUDINAL_DRIVE)
+        this == POWERED_INVERTED_YAW ? Set.of(Mechanism.ROTARY_CLEARANCE,Mechanism.STATION_CAPTURE,Mechanism.OVERHEAD_MOUNT,Mechanism.YAW,Mechanism.LONGITUDINAL_DRIVE) : (this == DIVE || this == PIPELINE) ? Set.of(Mechanism.STATION_CAPTURE) : this == S2_SPINNING ? Set.of(Mechanism.ROTARY_CLEARANCE,Mechanism.STATION_CAPTURE,Mechanism.MAGNET_INTERFACE,Mechanism.LONGITUDINAL_DRIVE)
             : this == ROLLER_BALL ? Set.of(Mechanism.ROTARY_CLEARANCE, Mechanism.STATION_CAPTURE, Mechanism.LIFT_LOCK)
             : this == NEW_GENERATION_FLYING ? Set.of(Mechanism.ROTARY_CLEARANCE, Mechanism.STATION_CAPTURE, Mechanism.OVERHEAD_MOUNT, Mechanism.POSTURE_LOCK, Mechanism.YAW)
             : this == AXIS ? Set.of(Mechanism.ROTARY_CLEARANCE, Mechanism.STATION_CAPTURE, Mechanism.ROTATION_DRIVE, Mechanism.LIFT_LOCK)
@@ -90,7 +92,7 @@ public enum TrackDesign {
             : family == Family.FREE_SPIN
                 ? Set.of(Mechanism.ROTARY_CLEARANCE, Mechanism.MAGNET_INTERFACE)
                 : Set.of(Mechanism.ROTARY_CLEARANCE),
-        this == DIVE ? new Clearance(3.25,3.65,.95) : this == PIPELINE ? new Clearance(2.05,1,2.5) : this == ROLLER_BALL ? new Clearance(4.5,4.75,.75) : this == NEW_GENERATION_FLYING ? new Clearance(2.75,1.10,5.25) : this == AXIS ? new Clearance(6.5,4,1) : this == FLYING ? new Clearance(2.25,1.10,4.50) : this == FIXED_INVERTED ? new Clearance(2.25, 1.10, 4.50) : overhead() ? new Clearance(3, 1.10, 4.70) : (this == SPINNING || this == S2_SPINNING) ? new Clearance(2.25, 3.65, .95)
+        this == POWERED_INVERTED_YAW ? new Clearance(1.5,1.1,4.5) : this == DIVE ? new Clearance(3.25,3.65,.95) : this == PIPELINE ? new Clearance(2.05,1,2.5) : this == ROLLER_BALL ? new Clearance(4.5,4.75,.75) : this == NEW_GENERATION_FLYING ? new Clearance(2.75,1.10,5.25) : this == AXIS ? new Clearance(6.5,4,1) : this == FLYING ? new Clearance(2.25,1.10,4.50) : this == FIXED_INVERTED ? new Clearance(2.25, 1.10, 4.50) : overhead() ? new Clearance(3, 1.10, 4.70) : (this == SPINNING || this == S2_SPINNING) ? new Clearance(2.25, 3.65, .95)
             : new Clearance(5, rotorRadius() + 2.3125, rotorRadius() + (pairedRows() ? 3 : 0)));
   }
 
@@ -111,6 +113,7 @@ public enum TrackDesign {
   }
 
   public double axleSpacing() {
+    if(this == POWERED_INVERTED_YAW)return 6;
     return (this == DIVE || this == S2_SPINNING || this == PIPELINE || overhead() || this == AXIS) ? 8 : this == REVISED ? 14 : this == FREE_SPIN ? 12 : 6;
   }
 

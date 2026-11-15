@@ -23,7 +23,11 @@ public final class DiveGameTests {
       if(tick%100==0)System.out.println("FD_DIVE_NATIVE phase="+v.dive.phase+" step="+step[0]+" cars="+train.size()+" fault="+v.fault+" center="+dev.silvergold.simulatedcoasters.track.cart.CoasterCartResolve.cartCenterWorld(container.getSubLevel(v.chassis)));
       if(step[0]==0&&train.size()==3&&train.stream().allMatch(c->c.boardingReady)){
         for(var car:train){DiveVehicle.validate(car);h.assertTrue(car.carriers.getFirst().seats.size()==6,"Six seats required");}
-        VehicleOperations.restraints(l,v,true);VehicleOperations.dispatch(l,v);step[0]=1;
+        VehicleOperations.restraints(l,v,true);time[0]=tick;step[0]=-1;
+      }else if(step[0]==-1&&tick-time[0]>=15){
+        VehicleOperations.dispatch(l,v);
+        var controller=(DiveHoldEntity)l.getBlockEntity(new BlockPos(-5,152,280));
+        reject(h,controller::changeDwell,"moving connected route dwell edit");step[0]=1;
       }else if(step[0]==1&&v.dive.phase==DiveState.Phase.HELD&&v.dive.remaining<=45){
         var c=(DiveHoldEntity)l.getBlockEntity(v.dive.controller);c.validateRelease(l,v);
         v.restraints=false;reject(h,()->c.validateRelease(l,v),"open restraints");v.restraints=true;

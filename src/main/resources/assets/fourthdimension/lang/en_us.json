@@ -195,10 +195,10 @@
   "block.fourthdimension.suspended_cabin": "Suspended Cabin",
   "block.fourthdimension.suspended_lock": "Suspended Swing Lock",
   "fourthdimension.suspended.instructions": "Build matching overhead track; bind a level dock and the lift section. Close restraints before dispatch. The cabin stays locked on the lift, then swings through the curves. Return to the dock to stop, align, open and unload.",
-  "fourthdimension.suspended.lock_pending": "Aligning for swing lock — travel held",
+  "fourthdimension.suspended.lock_pending": "Aligning for swing lock \u2014 travel held",
   "fourthdimension.suspended.locked": "Swing locked",
   "fourthdimension.suspended.free": "Free swing",
-  "fourthdimension.suspended.limit": "Swing limit — damping and travel stop",
+  "fourthdimension.suspended.limit": "Swing limit \u2014 damping and travel stop",
   "fourthdimension.suspended.not_docked": "Stop at the bound level dock before opening restraints",
   "item.fourthdimension.suspended_latch": "Suspended Swing Latch",
   "block.fourthdimension.suspended_hanger": "Suspended Fork",
@@ -250,5 +250,13 @@
   "block.fourthdimension.dive_hold": "Dive Hold Controller",
   "block.fourthdimension.dive_seat": "Dive Seat",
   "block.fourthdimension.dive_frame": "Dive Frame",
-  "block.fourthdimension.dive_controller": "Dive Controller"
+  "block.fourthdimension.dive_controller": "Dive Controller",
+  "item.fourthdimension.powered_inverted_yaw_track": "Powered Inverted Yaw Track",
+  "item.fourthdimension.powered_inverted_yaw_car": "Powered Inverted Yaw Car",
+  "item.fourthdimension.powered_inverted_yaw_governor": "Powered Inverted Yaw Governor",
+  "block.fourthdimension.powered_inverted_yaw_seat": "Powered Inverted Seat",
+  "block.fourthdimension.powered_inverted_yaw_bearing": "Powered Inverted Yaw Bearing",
+  "block.fourthdimension.powered_inverted_yaw_spindle": "Powered Inverted Spindle",
+  "block.fourthdimension.powered_inverted_yaw_governor": "Powered Inverted Governor",
+  "block.fourthdimension.powered_inverted_controller": "Powered Inverted Chassis"
 }

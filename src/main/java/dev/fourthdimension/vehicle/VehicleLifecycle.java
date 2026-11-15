@@ -41,6 +41,10 @@ public final class VehicleLifecycle {
                       || NewGenerationFlyingVehicle.is(vehicle) && body.getUniqueId().equals(vehicle.yaw.deck)
                       || vehicle.carriers.stream()
                           .anyMatch(c -> c.body.equals(body.getUniqueId()))) {
+                    if(PoweredInvertedYawVehicle.is(vehicle)){
+                      PoweredInvertedYawRuntime.fault(level,vehicle,"Powered Inverted Yaw native body removed; surviving train retained");
+                      FoundationData.get(level).setDirty();continue;
+                    }
                     if(RollerBallVehicle.is(vehicle)) {
                       RollerBallRuntime.fault(level,vehicle,"Roller Ball body removed; retain surviving state");
                       FoundationData.get(level).setDirty();continue;

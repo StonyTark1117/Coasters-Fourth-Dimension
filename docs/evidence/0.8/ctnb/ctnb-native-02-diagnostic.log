@@ -1,0 +1,226 @@
+Picked up JAVA_TOOL_OPTIONS: -Dmixin.debug.export=true
+> Task :createMinecraftArtifacts UP-TO-DATE
+
+> Task :compileJava
+/home/braydon/Documents/Coasters: Fourth Dimension/src/main/java/dev/fourthdimension/client/RiderComfort.java:28: warning: [removal] bus() in EventBusSubscriber has been deprecated and marked for removal
+      bus = EventBusSubscriber.Bus.MOD)
+      ^
+/home/braydon/Documents/Coasters: Fourth Dimension/src/main/java/dev/fourthdimension/client/RiderComfort.java:28: warning: [removal] Bus in EventBusSubscriber has been deprecated and marked for removal
+      bus = EventBusSubscriber.Bus.MOD)
+                              ^
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+2 warnings
+
+> Task :processResources UP-TO-DATE
+> Task :classes
+
+> Task :downloadAssets
+Picked up JAVA_TOOL_OPTIONS: -Dmixin.debug.export=true
+Loaded 131 artifacts from /mnt/NVME4/fourthdimension-runs/fd08-operations-20261115/ctnb-build/tmp/downloadAssets/nfrt_artifact_manifest.properties
+Downloading asset index 17
+Using Minecraft asset root: /home/braydon/.gradle/caches/neoformruntime/assets
+  ↓ https://piston-meta.mojang.com/v1/packages/de573f83da62843433ec9951c66feec7ed0a60a1/17.json
+
+> Task :writeGameTestServerLegacyClasspath
+> Task :prepareGameTestServerRun
+
+> Task :runGameTestServer
+Picked up JAVA_TOOL_OPTIONS: -Dmixin.debug.export=true
+WARN StatusConsoleListener Advanced terminal features are not available in this environment
+[06:38:12] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forgeserverdev, --gameDir, ., --fml.fmlVersion, 4.0.43, --fml.mcVersion, 1.21.1, --fml.neoForgeVersion, 21.1.248, --fml.neoFormVersion, 20240808.144430]
+[06:38:12] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: JVM identified as Arch Linux OpenJDK 64-Bit Server VM 21.0.13.0.3+1
+[06:38:12] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: ModLauncher 11.0.5+main.901c6ea8 starting: java version 21.0.13.0.3 by Arch Linux; OS Linux arch amd64 version 7.2.14-zen1-1-zen
+[06:38:12] [main/INFO] [ne.ne.fm.lo.ImmediateWindowHandler/]: ImmediateWindowProvider not loading because launch target is forgeserverdev
+[06:38:12] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.7 Source=union:/home/braydon/.gradle/caches/modules-2/files-2.1/net.fabricmc/sponge-mixin/0.15.2+mixin.0.8.7/2af2f021d8e02a0220dc27a7a72b4666d66d44ca/sponge-mixin-0.15.2+mixin.0.8.7.jar%2394!/ Service=ModLauncher Env=SERVER
+/*************************************************************************************************************************************************************************************************************************************************/
+/*                                                                                                              SpongePowered MIXIN                                                                                                              */
+/*************************************************************************************************************************************************************************************************************************************************/
+/*                                         Code source : union:/home/braydon/.gradle/caches/modules-2/files-2.1/net.fabricmc/sponge-mixin/0.15.2+mixin.0.8.7/2af2f021d8e02a0220dc27a7a72b4666d66d44ca/sponge-mixin-0.15.2+mixin.0.8.7.jar%2394!/ */
+/*                                    Internal Version : 0.8.7                                                                                                                                                                                   */
+/*                                        Java Version : 21.0 (supports compatibility 6-21)                                                                                                                                                      */
+/*                         Default Compatibility Level : JAVA_16                                                                                                                                                                                 */
+/*                   Max Effective Compatibility Level : JAVA_13                                                                                                                                                                                 */
+/*                                Detected ASM Version : ASM 9.10.1 (ASM10_EXPERIMENTAL)                                                                                                                                                         */
+/*                          Detected ASM Supports Java : Up to Java 27 (class file version 71.0)                                                                                                                                                 */
+/*************************************************************************************************************************************************************************************************************************************************/
+/*                                        Service Name : ModLauncher                                                                                                                                                                             */
+/*                                 Mixin Service Class : org.spongepowered.asm.service.modlauncher.MixinServiceModLauncher                                                                                                                       */
+/*                       Global Property Service Class : org.spongepowered.asm.service.modlauncher.Blackboard                                                                                                                                    */
+/*                                 Logger Adapter Type : Log4j2 (via ModLauncher)                                                                                                                                                                */
+/*************************************************************************************************************************************************************************************************************************************************/
+/*                                         mixin.debug : <false>                                                                                                                                                                                 */
+/*                                  mixin.debug.export : - <true>                                                                                                                                                                                */
+/*                           mixin.debug.export.filter : - - <null>                                                                                                                                                                              */
+/*                        mixin.debug.export.decompile : - - <true>                                                                                                                                                                              */
+/*                  mixin.debug.export.decompile.async : - - - <true>                                                                                                                                                                            */
+/* mixin.debug.export.decompile.mergeGenericSignatures : - - - <true>                                                                                                                                                                            */
+/*                                  mixin.debug.verify : - <false>                                                                                                                                                                               */
+/*                                 mixin.debug.verbose : - <false>                                                                                                                                                                               */
+/*                         mixin.debug.countInjections : - <false>                                                                                                                                                                               */
+/*                                  mixin.debug.strict : - <false>                                                                                                                                                                               */
+/*                           mixin.debug.strict.unique : - - <false>                                                                                                                                                                             */
+/*                          mixin.debug.strict.targets : - - <false>                                                                                                                                                                             */
+/*                                mixin.debug.profiler : - <false>                                                                                                                                                                               */
+/*                           mixin.dumpTargetOnFailure : <false>                                                                                                                                                                                 */
+/*                                        mixin.checks : <false>                                                                                                                                                                                 */
+/*                             mixin.checks.interfaces : - <false>                                                                                                                                                                               */
+/*                      mixin.checks.interfaces.strict : - - <false>                                                                                                                                                                             */
+/*                             mixin.ignoreConstraints : <false>                                                                                                                                                                                 */
+/*                                       mixin.hotSwap : <false>                                                                                                                                                                                 */
+/*                                       mixin.env.obf : - <false>                                                                                                                                                                               */
+/*                             mixin.env.disableRefMap : - <false>                                                                                                                                                                               */
+/*                               mixin.env.remapRefMap : - <false>                                                                                                                                                                               */
+/*                       mixin.env.refMapRemappingFile : - <>                                                                                                                                                                                    */
+/*                        mixin.env.refMapRemappingEnv : - <searge>                                                                                                                                                                              */
+/*                      mixin.env.allowPermissiveMatch : - <false>                                                                                                                                                                               */
+/*                            mixin.env.ignoreRequired : - <false>                                                                                                                                                                               */
+/*                               mixin.env.compatLevel : - <false>                                                                                                                                                                               */
+/*                          mixin.env.shiftByViolation : - <warn>                                                                                                                                                                                */
+/*                      mixin.initialiserInjectionMode : <default>                                                                                                                                                                               */
+/*               mixin.tunable.classReaderExpandFrames : - <false>                                                                                                                                                                               */
+/*************************************************************************************************************************************************************************************************************************************************/
+/*                                    UNSAFE_INJECTION : available=<true> enabled=<true>                                                                                                                                                         */
+/*                       INJECTORS_IN_INTERFACE_MIXINS : available=<true> enabled=<true>                                                                                                                                                         */
+/*************************************************************************************************************************************************************************************************************************************************/
+/*                                       Detected Side : SERVER                                                                                                                                                                                  */
+/*************************************************************************************************************************************************************************************************************************************************/
+[06:38:12] [main/WARN] [ne.ne.ja.se.JarSelector/]: Attempted to select a dependency jar for JarJar which was passed in as source: veil. Using Mod File: /home/braydon/.gradle/caches/modules-2/files-2.1/foundry.veil/veil-neoforge-1.21.1/4.1.4/642ec0bd02213ee087d86eda553d6d79c6a04d2b/veil-neoforge-1.21.1-4.1.4.jar
+[06:38:12] [main/WARN] [ne.ne.ja.se.JarSelector/]: Attempted to select a dependency jar for JarJar which was passed in as source: sablecompanion. Using Mod File: /home/braydon/.gradle/caches/modules-2/files-2.1/dev.ryanhcode.sable-companion/sable-companion-common-1.21.1/1.6.0/370be7db705926176e05c0215ed676150c45daae/sable-companion-common-1.21.1-1.6.0.jar
+[06:38:12] [main/WARN] [ne.ne.ja.se.JarSelector/]: Attempted to select a dependency jar for JarJar which was passed in as source: library:sable_rapier. Using Mod File: /home/braydon/.gradle/caches/modules-2/files-2.1/dev.ryanhcode.sable/sable-sable_rapier-1.21.1/2.0.3/a88c0860320890144b6b44c332a2a2db3a61e189/sable-sable_rapier-1.21.1-2.0.3.jar
+[06:38:12] [main/INFO] [ne.ne.fm.lo.mo.lo.JarInJarDependencyLocator/]: Found 4 dependencies adding them to mods collection
+[06:38:12] [main/INFO] [ne.ne.fm.lo.mo.ModDiscoverer/]: 
+     Mod List:
+		Name Version (Mod Id)
+
+		Coasters: Fourth Dimension 0.9.0-dev.27 (fourthdimension)
+		Create 6.0.10 (create)
+		Create: Coasters Extras 1.2 (coasters_extras)
+		Create: Coasters Simulated 0.1.5 (simulatedcoasters)
+		Flywheel 1.0.6 (flywheel)
+		Minecraft 1.21.1 (minecraft)
+		NeoForge 21.1.248 (neoforge)
+		Ponder 1.0.82+mc1.21.1 (ponder)
+		Sable 2.0.3 (sable)
+		Sable Companion 1.6.0 (sablecompanion)
+		Veil 4.1.4 (veil)
+[06:38:13] [main/INFO] [mixin/]: Compatibility level set to JAVA_21
+[06:38:13] [main/INFO] [cp.mo.mo.LaunchServiceHandler/MODLAUNCHER]: Launching target 'forgeserverdev' with arguments [--gameDir, .]
+[06:38:13] [main/INFO] [mixin/]: Attempting to load Fernflower decompiler (Threaded mode)
+[06:38:13] [main/INFO] [mixin/]: Fernflower could not be loaded, exported classes will not be decompiled. NoClassDefFoundError: org/jetbrains/java/decompiler/main/extern/IResultSaver
+[06:38:13] [main/WARN] [mixin/]: Reference map 'ponder.refmap.json' for ponder-common.mixins.json could not be read. If this is a development environment you can ignore this message
+[06:38:13] [main/INFO] [de.ry.sa.mi.AbstractSableMixinPlugin/]: Using Vanilla renderer mixins
+[06:38:13] [main/INFO] [de.ry.sa.mi.AbstractSableMixinPlugin/]: Using Vanilla renderer mixins
+[06:38:13] [main/WARN] [mixin/]: Error loading class: dev/simulated_team/simulated/content/blocks/merging_glue/MergingGlueBlockEntity (java.lang.ClassNotFoundException: dev.simulated_team.simulated.content.blocks.merging_glue.MergingGlueBlockEntity)
+[06:38:13] [main/WARN] [mixin/]: @Mixin target dev.simulated_team.simulated.content.blocks.merging_glue.MergingGlueBlockEntity was not found simulatedcoasters.mixins.json:compat.MergingGlueBlockEntityRivetMixin from mod simulatedcoasters
+[06:38:13] [main/ERROR] [ne.ne.fm.co.as.RuntimeDistCleaner/DISTXFORM]: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER
+[06:38:13] [main/WARN] [mixin/]: Error loading class: net/minecraft/client/multiplayer/ClientLevel (java.lang.RuntimeException: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER)
+[06:38:13] [main/ERROR] [ne.ne.fm.co.as.RuntimeDistCleaner/DISTXFORM]: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER
+[06:38:13] [main/WARN] [mixin/]: Error loading class: net/minecraft/client/multiplayer/ClientLevel (java.lang.RuntimeException: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER)
+[06:38:13] [main/ERROR] [ne.ne.fm.co.as.RuntimeDistCleaner/DISTXFORM]: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER
+[06:38:13] [main/WARN] [mixin/]: Error loading class: net/minecraft/client/multiplayer/ClientLevel (java.lang.RuntimeException: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER)
+[06:38:13] [main/WARN] [mixin/]: Error loading class: dev/jwaterfall/coastersengineered/MotorDrive (java.lang.ClassNotFoundException: dev.jwaterfall.coastersengineered.MotorDrive)
+[06:38:13] [main/WARN] [mixin/]: Error loading class: dev/jwaterfall/coastersengineered/CartAssembly (java.lang.ClassNotFoundException: dev.jwaterfall.coastersengineered.CartAssembly)
+[06:38:13] [main/WARN] [mixin/]: Error loading class: dev/plushivr/coasterfins/block/StationBlockEntity (java.lang.ClassNotFoundException: dev.plushivr.coasterfins.block.StationBlockEntity)
+[06:38:13] [main/WARN] [mixin/]: Error loading class: org/jetbrains/annotations/ApiStatus$ScheduledForRemoval (java.lang.ClassNotFoundException: org.jetbrains.annotations.ApiStatus$ScheduledForRemoval)
+[06:38:13] [main/ERROR] [ne.ne.fm.co.as.RuntimeDistCleaner/DISTXFORM]: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER
+[06:38:13] [main/WARN] [mixin/]: Error loading class: net/minecraft/client/multiplayer/ClientLevel (java.lang.RuntimeException: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER)
+[06:38:13] [main/ERROR] [ne.ne.fm.co.as.RuntimeDistCleaner/DISTXFORM]: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER
+[06:38:13] [main/WARN] [mixin/]: Error loading class: net/minecraft/client/multiplayer/ClientLevel (java.lang.RuntimeException: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER)
+[06:38:13] [main/ERROR] [ne.ne.fm.co.as.RuntimeDistCleaner/DISTXFORM]: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER
+[06:38:13] [main/WARN] [mixin/]: Error loading class: net/minecraft/client/multiplayer/ClientLevel (java.lang.RuntimeException: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER)
+[06:38:13] [main/ERROR] [ne.ne.fm.co.as.RuntimeDistCleaner/DISTXFORM]: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER
+[06:38:13] [main/WARN] [mixin/]: Error loading class: net/minecraft/client/multiplayer/ClientLevel (java.lang.RuntimeException: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER)
+[06:38:13] [main/ERROR] [ne.ne.fm.co.as.RuntimeDistCleaner/DISTXFORM]: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER
+[06:38:13] [main/WARN] [mixin/]: Error loading class: net/minecraft/client/multiplayer/ClientLevel (java.lang.RuntimeException: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER)
+[06:38:13] [main/ERROR] [ne.ne.fm.co.as.RuntimeDistCleaner/DISTXFORM]: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER
+[06:38:13] [main/WARN] [mixin/]: Error loading class: net/minecraft/client/multiplayer/ClientLevel (java.lang.RuntimeException: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER)
+[06:38:13] [main/INFO] [MixinExtras|Service/]: Initializing MixinExtras via com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.5.3).
+[06:38:14] [main/ERROR] [ne.ne.fm.co.as.RuntimeDistCleaner/DISTXFORM]: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER
+[06:38:14] [main/WARN] [mixin/]: Error loading class: net/minecraft/client/multiplayer/ClientLevel (java.lang.RuntimeException: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER)
+[06:38:14] [main/ERROR] [ne.ne.fm.co.as.RuntimeDistCleaner/DISTXFORM]: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER
+[06:38:14] [main/WARN] [mixin/]: Error loading class: net/minecraft/client/multiplayer/ClientLevel (java.lang.RuntimeException: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER)
+[06:38:14] [main/ERROR] [ne.ne.fm.co.as.RuntimeDistCleaner/DISTXFORM]: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER
+[06:38:14] [main/WARN] [mixin/]: Error loading class: net/minecraft/client/multiplayer/ClientLevel (java.lang.RuntimeException: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER)
+[06:38:17] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, location] and [teleport, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+[06:38:17] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, location] and [teleport, targets] with inputs: [0.1 -0.5 .9, 0 0 0]
+[06:38:17] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, destination] and [teleport, targets] with inputs: [Player, 0123, @e, dd12be42-52a9-4a91-a8a1-11c01849e498]
+[06:38:17] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, targets] and [teleport, destination] with inputs: [Player, 0123, dd12be42-52a9-4a91-a8a1-11c01849e498]
+[06:38:17] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, targets, location] and [teleport, targets, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+[06:38:17] [modloading-worker-0/INFO] [Veil/]: Veil is initializing.
+[06:38:17] [modloading-worker-0/INFO] [ne.ne.ne.co.NeoForgeMod/NEOFORGE-MOD]: NeoForge mod loading, version 21.1.248, for MC 1.21.1
+[06:38:17] [modloading-worker-0/INFO] [co.si.cr.Create/]: Create 6.0.10 initializing! Commit hash: ac0c444d9828da3453ae8cc65338e8de063286fb
+Fourth Dimension fenced optional ctnb force callback in dev.silvergold.simulatedcoasters.track.cart.CoasterCartTrackSnap
+[06:38:17] [modloading-worker-0/INFO] [de.ry.sa.Sable/]: Sable loaded!
+[06:38:17] [modloading-worker-0/INFO] [de.fo.FourthDimension/]: Coasters: Fourth Dimension loaded from union:/mnt/NVME4/fourthdimension-runs/fd08-operations-20261115/ctnb-build/classes/java/main/%23127!/
+[06:38:19] [modloading-sync-worker/INFO] [Create: Coasters Extras/]: Registered 16 balloons with the Simulated Coasters balloon block entity.
+[06:38:19] [modloading-sync-worker/INFO] [Create: Coasters Extras/]: [display] attached 5 readouts to sensor
+[06:38:19] [modloading-sync-worker/INFO] [Create: Coasters Extras/]: [display] attached 5 readouts to anchorpoint (simulatedcoasters:coaster_anchorpoint)
+[06:38:19] [main/INFO] [mojang/YggdrasilAuthenticationService]: Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, name=PROD]
+[06:38:19] [NeoForge Version Check/INFO] [ne.ne.fm.VersionChecker/]: [create] Starting version check at https://api.modrinth.com/updates/create/forge_updates.json?neoforge=only
+[06:38:19] [main/WARN] [minecraft/VanillaPackResourcesBuilder]: Assets URL 'union:/mnt/NVME4/fourthdimension-runs/fd08-operations-20261115/ctnb-build/moddev/artifacts/neoforge-21.1.248.jar%23125!/assets/.mcassetsroot' uses unexpected schema
+[06:38:19] [main/WARN] [minecraft/VanillaPackResourcesBuilder]: Assets URL 'union:/mnt/NVME4/fourthdimension-runs/fd08-operations-20261115/ctnb-build/moddev/artifacts/neoforge-21.1.248.jar%23125!/data/.mcassetsroot' uses unexpected schema
+[06:38:19] [main/INFO] [co.si.cr.Create/]: Created 157 recipes which will be injected into the game
+[06:38:19] [main/INFO] [co.si.cr.Create/]: Created 0 tags which will be injected into the game
+[06:38:19] [main/INFO] [ne.ne.ne.ga.GameTestHooks/]: Enabled Gametest Namespaces: [fourthdimension_fd811]
+[06:38:19] [NeoForge Version Check/INFO] [ne.ne.fm.VersionChecker/]: [create] Found status: OUTDATED Current: 6.0.10 Target: 6.0.10+mc1.21.1
+[06:38:19] [main/INFO] [minecraft/RecipeManager]: Loaded 2945 recipes
+[06:38:19] [main/INFO] [minecraft/AdvancementTree]: Loaded 2522 advancements
+[06:38:20] [Server thread/INFO] [de.ry.sa.Sable/]: Creating physics pipeline for ResourceKey[minecraft:dimension / minecraft:overworld] using RapierPhysicsPipelineProvider
+[2026-11-15T13:38:20.738067626Z] [[32mINFO[0m] (sable_rapier) Rapier scene initialized
+[06:38:20] [Server thread/INFO] [de.ry.sa.Sable/]: Creating physics pipeline for ResourceKey[minecraft:dimension / minecraft:the_end] using RapierPhysicsPipelineProvider
+[2026-11-15T13:38:20.972531823Z] [[32mINFO[0m] (sable_rapier) Rapier scene initialized
+[06:38:20] [Server thread/INFO] [de.ry.sa.Sable/]: Creating physics pipeline for ResourceKey[minecraft:dimension / minecraft:the_nether] using RapierPhysicsPipelineProvider
+[2026-11-15T13:38:20.996160990Z] [[32mINFO[0m] (sable_rapier) Rapier scene initialized
+[06:38:21] [Server thread/INFO] [minecraft/MinecraftServer]: Preparing start region for dimension minecraft:overworld
+[06:38:21] [worldgen/INFO] [minecraft/LoggerChunkProgressListener]: Preparing spawn area: 2%
+[06:38:21] [Server thread/INFO] [minecraft/LoggerChunkProgressListener]: Time elapsed: 98 ms
+[06:38:21] [Server thread/INFO] [minecraft/GameTestServer]: Started game test server
+[06:38:21] [Server thread/INFO] [ne.ne.ne.se.pe.PermissionAPI/]: Successfully initialized permission handler neoforge:default_handler
+[06:38:21] [Server thread/INFO] [minecraft/GameTestServer]: 1 tests are now running at position 14765392, -59, 1267991!
+[06:38:21] [Server thread/INFO] [minecraft/GameTestRunner]: Running test batch 'defaultBatch:0' (1 tests)...
+[06:38:21] [Server thread/INFO] [minecraft/GameTestServer]: [ ]
+[06:38:21] [Server thread/INFO] [minecraft/GameTestServer]: [ ]
+[06:38:21] [Server thread/INFO] [minecraft/GameTestServer]: [ ]
+[06:38:21] [Server thread/INFO] [minecraft/GameTestServer]: [ ]
+FD811_REPAINT directGuard=true rails=1 revision=1 material=coasters_extras:bobsled_track
+FD811_REPAINT methods=[private static java.util.Map dev.notzyvex.coasters_extras.track.TrackRepaint.curves(net.minecraft.world.level.block.entity.BlockEntity), public static boolean dev.notzyvex.coasters_extras.track.TrackRepaint.repaint(net.minecraft.server.level.ServerLevel,net.minecraft.core.BlockPos,net.minecraft.core.BlockPos,com.simibubi.create.content.trains.track.TrackMaterial), private static void dev.notzyvex.coasters_extras.track.TrackRepaint.handler$zop000$fourthdimension$guard(net.minecraft.server.level.ServerLevel,net.minecraft.core.BlockPos,net.minecraft.core.BlockPos,com.simibubi.create.content.trains.track.TrackMaterial,org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable), private static boolean dev.notzyvex.coasters_extras.track.TrackRepaint.repaintOneEnd(net.minecraft.server.level.ServerLevel,net.minecraft.core.BlockPos,net.minecraft.core.BlockPos,com.simibubi.create.content.trains.track.TrackMaterial), private static void dev.notzyvex.coasters_extras.track.TrackRepaint.handler$zop000$fourthdimension$changed(net.minecraft.server.level.ServerLevel,net.minecraft.core.BlockPos,net.minecraft.core.BlockPos,com.simibubi.create.content.trains.track.TrackMaterial,org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable)]
+[06:38:21] [Server thread/ERROR] [minecraft/LogTestReporter]: selectednativecontrolsandmaterials failed at 14765392, -60, 1267991! Unknown geometry/force provider rejected on original sections
+[06:38:21] [Server thread/INFO] [minecraft/GameTestServer]: [X]
+[06:38:21] [Server thread/INFO] [minecraft/GameTestServer]: ========= 1 GAME TESTS COMPLETE IN 477.0 ms ======================
+[06:38:21] [Server thread/INFO] [minecraft/GameTestServer]: 1 required tests failed :(
+[06:38:21] [Server thread/INFO] [minecraft/GameTestServer]:    - selectednativecontrolsandmaterials
+[06:38:21] [Server thread/INFO] [minecraft/GameTestServer]: ====================================================
+[06:38:21] [Server thread/INFO] [minecraft/MinecraftServer]: Stopping server
+[06:38:21] [Server thread/INFO] [minecraft/MinecraftServer]: Saving players
+[06:38:21] [Server thread/INFO] [minecraft/MinecraftServer]: Saving worlds
+[06:38:22] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[Test Level]'/minecraft:overworld
+[06:38:22] [Server thread/INFO] [de.ry.sa.Sable/]: Saving sub-levels for level 'ServerLevel[Test Level]'/minecraft:overworld
+[06:38:24] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[Test Level]'/minecraft:the_end
+[06:38:24] [Server thread/INFO] [de.ry.sa.Sable/]: Saving sub-levels for level 'ServerLevel[Test Level]'/minecraft:the_end
+[06:38:24] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[Test Level]'/minecraft:the_nether
+[06:38:24] [Server thread/INFO] [de.ry.sa.Sable/]: Saving sub-levels for level 'ServerLevel[Test Level]'/minecraft:the_nether
+[06:38:24] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (world): All chunks are saved
+[06:38:24] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (DIM1): All chunks are saved
+[06:38:24] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
+[06:38:24] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage: All dimensions are saved
+[06:38:24] [Server thread/INFO] [minecraft/GameTestServer]: Game test server shutting down
+
+> Task :runGameTestServer FAILED
+
+[Incubating] Problems report is available at: file:///mnt/NVME4/fourthdimension-runs/fd08-operations-20261115/ctnb-build/reports/problems/problems-report.html
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':runGameTestServer'.
+> Process 'command '/usr/lib/jvm/java-21-openjdk/bin/java'' finished with non-zero exit value 1
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to generate a Build Scan (powered by Develocity).
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 15s
+7 actionable tasks: 5 executed, 2 up-to-date

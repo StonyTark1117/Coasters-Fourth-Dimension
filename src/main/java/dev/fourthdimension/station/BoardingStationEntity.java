@@ -25,7 +25,7 @@ public final class BoardingStationEntity extends BlockEntity
   }
   public boolean authorityAvailable(UUID chassis) { return !isRemoved() && authorizesRide(chassis); }
   public void validateRelease(ServerLevel server, FoundationData.Vehicle v) {
-    if (!RideOperations.nearby(server,worldPosition,v.chassis)) throw new IllegalArgumentException("Return to the bound station before station release");
+    if (!RideOperations.nearby(server,worldPosition,v.chassis) && !(RideAuthority.CTNB.equals(v.authority.provider) && dev.fourthdimension.integration.CtnbDrive.operatingStop(server,v))) throw new IllegalArgumentException("Return to the bound station before station release");
     dev.fourthdimension.vehicle.VehicleOperations.validateDispatch(server,v);
   }
   public UUID vehicle;
@@ -98,6 +98,7 @@ public final class BoardingStationEntity extends BlockEntity
         && v.family != dev.fourthdimension.contract.Family.PAX
         && ((signal && nearby && !v.stopping) || (!signal && station.powered && nearby
             && v.authority.owner == null
+            && !dev.fourthdimension.vehicle.PoweredInvertedYawVehicle.is(v)
             && !dev.fourthdimension.vehicle.DiveVehicle.is(v)
             && !dev.fourthdimension.vehicle.PipelineVehicle.is(v)
             && !dev.fourthdimension.vehicle.S2SpinningVehicle.is(v)

@@ -24,6 +24,8 @@ public abstract class ChainDriveGuardMixin {
     var v = dev.fourthdimension.runtime.FoundationData.get(level).vehicles.get(sub.getUniqueId());
     if(v!=null && dev.fourthdimension.integration.RideAuthority.MAGNETIZED.equals(v.authority.provider))
       dev.fourthdimension.integration.OptionalDrive.magnetized(sub,level,physics,hit,basis,dt);
+    if(v!=null && dev.fourthdimension.integration.RideAuthority.CTNB.equals(v.authority.provider))
+      dev.fourthdimension.integration.CtnbDrive.apply(sub,level,physics,hit,basis,dt);
     if (v != null && dev.fourthdimension.vehicle.DiveVehicle.is(v) && dev.fourthdimension.vehicle.DiveRuntime.blocksChain(level,v) || PropulsionInterlock.holds(sub, level) || v != null && dev.fourthdimension.integration.RideAuthority.deniesProvider(level,v,dev.fourthdimension.integration.RideAuthority.NATIVE_CHAIN)) ci.cancel();
   }
 }

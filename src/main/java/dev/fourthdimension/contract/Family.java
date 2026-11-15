@@ -10,6 +10,7 @@ public enum Family {
   WING("wing_fixed", false),
   PIPELINE("pipeline", false),
   DIVE("dive", false),
+  POWERED_INVERTED("powered_inverted", false),
   SPINNING("spinning", false),
   SUSPENDED("suspended", false),
   FIXED_INVERTED("fixed_inverted", false),
@@ -38,12 +39,12 @@ public enum Family {
   }
 
   public dev.fourthdimension.physics.CarrierAxis axis() {
-    return this == AXIS ? dev.fourthdimension.physics.CarrierAxis.NEGATIVE_Z : this == SUSPENDED ? dev.fourthdimension.physics.CarrierAxis.Z : this == SPINNING ? dev.fourthdimension.physics.CarrierAxis.Y
+    return this == AXIS ? dev.fourthdimension.physics.CarrierAxis.NEGATIVE_Z : this == SUSPENDED ? dev.fourthdimension.physics.CarrierAxis.Z : (this == SPINNING || this == POWERED_INVERTED) ? dev.fourthdimension.physics.CarrierAxis.Y
         : dev.fourthdimension.physics.CarrierAxis.X;
   }
 
   /** The original prototype fixture remains the original five-family acceptance input. */
-  public boolean foundationFixture() { return this != DIVE && this != PIPELINE && this != WING && this != SPINNING && this != SUSPENDED && this != FIXED_INVERTED && this != AXIS && this != FLYING && this != ROLLER_BALL; }
+  public boolean foundationFixture() { return this != POWERED_INVERTED && this != DIVE && this != PIPELINE && this != WING && this != SPINNING && this != SUSPENDED && this != FIXED_INVERTED && this != AXIS && this != FLYING && this != ROLLER_BALL; }
 
   public static Family byId(String id) {
     for (Family family : values()) if (family.id.equals(id)) return family;

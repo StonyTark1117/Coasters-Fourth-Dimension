@@ -47,6 +47,7 @@ public final class FoundationData extends SavedData {
     public boolean valid = true;
     public boolean liftLock;
     public dev.fourthdimension.vehicle.RollerBallState.Section rollerSection = dev.fourthdimension.vehicle.RollerBallState.Section.FREE;
+    public dev.fourthdimension.vehicle.PoweredInvertedYawSection poweredYaw = new dev.fourthdimension.vehicle.PoweredInvertedYawSection();
     public dev.fourthdimension.vehicle.YawSection yaw = new dev.fourthdimension.vehicle.YawSection();
     public dev.fourthdimension.vehicle.AxisState.Mode axisMode = dev.fourthdimension.vehicle.AxisState.Mode.FREE;
     /**
@@ -142,6 +143,8 @@ public final class FoundationData extends SavedData {
     public dev.fourthdimension.vehicle.AxisState axis = new dev.fourthdimension.vehicle.AxisState();
     public dev.fourthdimension.vehicle.FlyingState flying = new dev.fourthdimension.vehicle.FlyingState();
     public dev.fourthdimension.vehicle.RollerBallState roller = new dev.fourthdimension.vehicle.RollerBallState();
+    public dev.fourthdimension.integration.CtnbState ctnb = new dev.fourthdimension.integration.CtnbState();
+    public dev.fourthdimension.vehicle.PoweredInvertedYawState poweredYaw = new dev.fourthdimension.vehicle.PoweredInvertedYawState();
     public dev.fourthdimension.vehicle.YawState yaw = new dev.fourthdimension.vehicle.YawState();
     public double damping = 5, ballast;
     public final List<Carrier> carriers = new ArrayList<>();
@@ -206,6 +209,7 @@ public final class FoundationData extends SavedData {
       tag.putLong("revision", rail.revision);
       tag.putBoolean("valid", rail.valid);
       tag.putBoolean("lift_lock", rail.liftLock);
+      if (rail.variant.equals(dev.fourthdimension.vehicle.PoweredInvertedYawVehicle.VARIANT)) tag.put("powered_yaw",rail.poweredYaw.save());
       if (rail.variant.equals(dev.fourthdimension.vehicle.NewGenerationFlyingVehicle.VARIANT)) tag.put("yaw", rail.yaw.save());
       if (rail.family == Family.ROLLER_BALL) tag.putString("roller_section",rail.rollerSection.name());
       if (rail.family == Family.AXIS) tag.putString("axis_mode", rail.axisMode.name());
@@ -235,6 +239,7 @@ public final class FoundationData extends SavedData {
       tag.putString("family", vehicle.family.id());
       tag.putString("variant", vehicle.variant);
       tag.put("authority", vehicle.authority.save());
+      tag.put("ctnb", vehicle.ctnb.save());
       if (dev.fourthdimension.vehicle.DiveVehicle.is(vehicle)) tag.put("dive",vehicle.dive.save());
       if (dev.fourthdimension.vehicle.PipelineVehicle.is(vehicle)) tag.put("pipeline",vehicle.pipeline.save());
       if (dev.fourthdimension.vehicle.S2SpinningVehicle.is(vehicle)) tag.put("s2",vehicle.s2.save());
@@ -249,13 +254,14 @@ public final class FoundationData extends SavedData {
       if (vehicle.family == Family.ROLLER_BALL) tag.put("roller",vehicle.roller.save());
       if (vehicle.family == Family.AXIS) tag.put("axis", vehicle.axis.save());
       if (vehicle.family == Family.FLYING) tag.put("flying", vehicle.flying.save());
+      if (dev.fourthdimension.vehicle.PoweredInvertedYawVehicle.is(vehicle)) tag.put("powered_yaw",vehicle.poweredYaw.save());
       if (dev.fourthdimension.vehicle.NewGenerationFlyingVehicle.is(vehicle)) tag.put("yaw", vehicle.yaw.save());
       if (vehicle.dock != null) tag.putLong("dock", vehicle.dock.asLong());
       if ((dev.fourthdimension.vehicle.SpinningVehicle.is(vehicle) || dev.fourthdimension.vehicle.S2SpinningVehicle.is(vehicle) || dev.fourthdimension.vehicle.AxisVehicle.is(vehicle) || dev.fourthdimension.vehicle.RollerBallVehicle.is(vehicle))) {
         tag.putString("contact_layout", dev.fourthdimension.contract.NativeTrackFit.N_CONTACTS);
         tag.putString("mount_frame", dev.fourthdimension.contract.NativeTrackFit.ABOVE);
       }
-      if (dev.fourthdimension.vehicle.SuspendedVehicle.is(vehicle) || dev.fourthdimension.vehicle.FixedInvertedVehicle.is(vehicle) || dev.fourthdimension.vehicle.FlyingVehicle.is(vehicle) || dev.fourthdimension.vehicle.NewGenerationFlyingVehicle.is(vehicle)) {
+      if (dev.fourthdimension.vehicle.PoweredInvertedYawVehicle.is(vehicle) || dev.fourthdimension.vehicle.SuspendedVehicle.is(vehicle) || dev.fourthdimension.vehicle.FixedInvertedVehicle.is(vehicle) || dev.fourthdimension.vehicle.FlyingVehicle.is(vehicle) || dev.fourthdimension.vehicle.NewGenerationFlyingVehicle.is(vehicle)) {
         tag.putString("contact_layout", dev.fourthdimension.contract.NativeTrackFit.N_CONTACTS);
         tag.putString("mount_frame", dev.fourthdimension.contract.NativeTrackFit.OVERHEAD);
       }
@@ -375,6 +381,7 @@ public final class FoundationData extends SavedData {
       var loadedRail = data.rails.getLast();
       loadedRail.liftLock = tag.getBoolean("lift_lock");
       if (tag.contains("roller_section")) loadedRail.rollerSection = dev.fourthdimension.vehicle.RollerBallState.Section.valueOf(tag.getString("roller_section"));
+      if (loadedRail.variant.equals(dev.fourthdimension.vehicle.PoweredInvertedYawVehicle.VARIANT)) loadedRail.poweredYaw=dev.fourthdimension.vehicle.PoweredInvertedYawSection.read(tag.getCompound("powered_yaw"));
       if (loadedRail.variant.equals(dev.fourthdimension.vehicle.NewGenerationFlyingVehicle.VARIANT)) loadedRail.yaw = dev.fourthdimension.vehicle.YawSection.read(tag.getCompound("yaw"));
       if (tag.contains("axis_mode")) loadedRail.axisMode = dev.fourthdimension.vehicle.AxisState.Mode.valueOf(tag.getString("axis_mode"));
       if (tag.contains("original_curve", Tag.TAG_COMPOUND))
@@ -422,6 +429,7 @@ public final class FoundationData extends SavedData {
                   vehicle.fault);
       vehicle.revision = tag.getLong("revision");
       vehicle.authority = dev.fourthdimension.integration.RideAuthorityState.read(tag.getCompound("authority"));
+      vehicle.ctnb = dev.fourthdimension.integration.CtnbState.read(tag.getCompound("ctnb"));
       vehicle.boardingReady = tag.getBoolean("boarding_ready");
       vehicle.damping = tag.contains("damping") ? tag.getDouble("damping") : 5;
       vehicle.ballast = tag.getDouble("ballast");
@@ -444,6 +452,7 @@ public final class FoundationData extends SavedData {
       if (vehicle.family == Family.AXIS) vehicle.axis = dev.fourthdimension.vehicle.AxisState.read(tag.getCompound("axis"));
       if (vehicle.family == Family.FLYING) vehicle.flying = dev.fourthdimension.vehicle.FlyingState.read(tag.getCompound("flying"));
       vehicle.variant = tag.contains("variant") ? tag.getString("variant") : VARIANT;
+      if (dev.fourthdimension.vehicle.PoweredInvertedYawVehicle.is(vehicle)) vehicle.poweredYaw=dev.fourthdimension.vehicle.PoweredInvertedYawState.read(tag.getCompound("powered_yaw"));
       if (dev.fourthdimension.vehicle.NewGenerationFlyingVehicle.is(vehicle)) vehicle.yaw = dev.fourthdimension.vehicle.YawState.read(tag.getCompound("yaw"));
       if (dev.fourthdimension.vehicle.DiveVehicle.is(vehicle)) vehicle.dive = dev.fourthdimension.vehicle.DiveState.load(tag.getCompound("dive"));
       if (dev.fourthdimension.vehicle.PipelineVehicle.is(vehicle)) vehicle.pipeline = dev.fourthdimension.vehicle.PipelineState.load(tag.getCompound("pipeline"));
@@ -453,7 +462,7 @@ public final class FoundationData extends SavedData {
           && (!dev.fourthdimension.contract.NativeTrackFit.N_CONTACTS.equals(tag.getString("contact_layout"))
               || !dev.fourthdimension.contract.NativeTrackFit.ABOVE.equals(tag.getString("mount_frame"))))
         throw new IllegalArgumentException("Unknown S1 contact/mount definition");
-      if ((dev.fourthdimension.vehicle.SuspendedVehicle.is(vehicle) || dev.fourthdimension.vehicle.FixedInvertedVehicle.is(vehicle) || dev.fourthdimension.vehicle.FlyingVehicle.is(vehicle) || dev.fourthdimension.vehicle.NewGenerationFlyingVehicle.is(vehicle))
+      if ((dev.fourthdimension.vehicle.PoweredInvertedYawVehicle.is(vehicle) || dev.fourthdimension.vehicle.SuspendedVehicle.is(vehicle) || dev.fourthdimension.vehicle.FixedInvertedVehicle.is(vehicle) || dev.fourthdimension.vehicle.FlyingVehicle.is(vehicle) || dev.fourthdimension.vehicle.NewGenerationFlyingVehicle.is(vehicle))
           && (!dev.fourthdimension.contract.NativeTrackFit.N_CONTACTS.equals(tag.getString("contact_layout"))
               || !dev.fourthdimension.contract.NativeTrackFit.OVERHEAD.equals(tag.getString("mount_frame"))))
         throw new IllegalArgumentException("Unknown Suspended contact/mount definition");
@@ -514,7 +523,7 @@ public final class FoundationData extends SavedData {
             || carrier.childPivotOffset < -.5
             || carrier.childPivotOffset > (vehicle.family == Family.ROLLER_BALL ? 1 : vehicle.family == Family.AXIS ? .4 : 0)
             || !Double.isFinite(carrier.pivotHeight)
-            || carrier.pivotHeight < (vehicle.family == Family.FLYING ? -3 : dev.fourthdimension.vehicle.SuspendedVehicle.is(vehicle) ? -2 : 0)
+            || carrier.pivotHeight < (vehicle.family == Family.POWERED_INVERTED ? -3.3125 : vehicle.family == Family.FLYING ? -3 : dev.fourthdimension.vehicle.SuspendedVehicle.is(vehicle) ? -2 : 0)
             || carrier.pivotHeight > 4
             || carrier.seats.isEmpty()
             || carrier.seats.size() > (dev.fourthdimension.vehicle.DiveVehicle.is(vehicle) ? 6 : 4)
@@ -562,6 +571,8 @@ public final class FoundationData extends SavedData {
         dev.fourthdimension.vehicle.DiveVehicle.validate(vehicle);
       } else if (dev.fourthdimension.vehicle.PipelineVehicle.is(vehicle)) {
         dev.fourthdimension.vehicle.PipelineVehicle.validate(vehicle);
+      } else if (dev.fourthdimension.vehicle.PoweredInvertedYawVehicle.is(vehicle)) {
+        dev.fourthdimension.vehicle.PoweredInvertedYawVehicle.validate(vehicle);
       } else if (dev.fourthdimension.vehicle.S2SpinningVehicle.is(vehicle)) {
         dev.fourthdimension.vehicle.S2SpinningVehicle.validate(vehicle);
       } else if (dev.fourthdimension.vehicle.SpinningVehicle.is(vehicle)) {

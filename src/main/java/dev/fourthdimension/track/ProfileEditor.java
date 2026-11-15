@@ -28,6 +28,19 @@ public final class ProfileEditor {
       throw new IllegalArgumentException("Track changed; select it again");
     if (!rail.original())
       throw new IllegalArgumentException("Foundation fixtures are not editable content");
+    if (rail.variant.equals(dev.fourthdimension.vehicle.PoweredInvertedYawVehicle.VARIANT)) {
+      var owner = rail.poweredYaw.yaw.owner;
+      if (owner != null && !player.hasPermissions(2) && !owner.equals(player.getUUID()))
+        throw new IllegalArgumentException("Only the route owner/operator may edit it");
+      for (var vehicle : data.vehicles.values())
+        if (dev.fourthdimension.vehicle.PoweredInvertedYawVehicle.is(vehicle)
+            && (Objects.equals(owner, vehicle.poweredYaw.owner)
+                || Objects.equals(vehicle.boundFrom, rail.from)
+                || Objects.equals(vehicle.boundTo, rail.to)))
+          if (!vehicle.stopping || vehicle.carriers.stream()
+              .anyMatch(c -> !c.occupants.isEmpty() || !c.riderSeats.isEmpty()))
+            throw new IllegalArgumentException("Empty and stop this ride before editing");
+    }
     // A connected occupied axle can straddle this section even while its binding is on its
     // neighbor.
     for (var candidate : data.rails)
@@ -124,11 +137,22 @@ public final class ProfileEditor {
           true);
     else {
       double length = TrackGeometry.table(player.level(), edge).length();
+      if (rail.variant.equals(dev.fourthdimension.vehicle.PoweredInvertedYawVehicle.VARIANT)) {
+        rail.poweredYaw.validate();
+        if (rail.poweredYaw.yaw.intervals.stream().anyMatch(i -> i.end() > length + .001)
+            || rail.poweredYaw.speeds.stream().anyMatch(i -> i.end() > length + .001)
+            || rail.poweredYaw.stops.stream().anyMatch(i -> i.distance() > length + .001))
+          throw new IllegalArgumentException("Restore enough track length for the retained yaw/travel program before rebinding");
+      }
       double factor = length / rail.profile.keys().getLast().distance();
       var magnets = rail.magnets.stream().map(span -> span.scaled(factor)).toList();
       rail.profile = rail.profile.scaledTo(length);
       rail.magnets = magnets;
       rail.geometryHash = TrackGeometry.fingerprint(player.level(), edge);
+      if (rail.variant.equals(dev.fourthdimension.vehicle.PoweredInvertedYawVehicle.VARIANT)) {
+        rail.poweredYaw.yaw.geometry = rail.geometryHash;
+        rail.poweredYaw.yaw.revision++;
+      }
       captureCurrentCurve(rail, edge);
       rail.valid = true;
       rail.revision++;

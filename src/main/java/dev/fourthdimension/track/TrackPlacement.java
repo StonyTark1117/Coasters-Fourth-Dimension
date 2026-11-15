@@ -137,6 +137,7 @@ public final class TrackPlacement {
       rail.yaw.owner = player.getUUID();
       rail.yaw.geometry = rail.geometryHash;
     }
+    if(design == TrackDesign.POWERED_INVERTED_YAW){rail.poweredYaw.yaw.owner=player.getUUID();rail.poweredYaw.yaw.geometry=rail.geometryHash;}
     captureOriginalCurve(rail, curve);
     ((CoasterAnchorpointBlockEntity) level.getBlockEntity(edge.from()))
         .putAnchorPeerCurve(level, edge.to(), curve);
@@ -152,6 +153,7 @@ public final class TrackPlacement {
     rail.profile = rail.profile.scaledTo(TrackGeometry.table(level, storedEdge).length());
     rail.geometryHash = TrackGeometry.fingerprint(level, storedEdge);
     if(design == TrackDesign.NEW_GENERATION_FLYING)rail.yaw.geometry=rail.geometryHash;
+    if(design == TrackDesign.POWERED_INVERTED_YAW)rail.poweredYaw.yaw.geometry=rail.geometryHash;
     if (restoring != null) {
       // Rebuilding a missing occupied section is intentionally inert until the operator uses
       // Repair matching track. Retain the old fingerprint so that action can prove this is the
@@ -161,6 +163,7 @@ public final class TrackPlacement {
       rail.axisMode = restoring.axisMode;
       rail.rollerSection = restoring.rollerSection;
       rail.yaw = restoring.yaw;
+      rail.poweredYaw = restoring.poweredYaw;
       rail.geometryHash = restoring.geometryHash;
       rail.valid = false;
       rail.revision = restoring.revision + 1;
@@ -218,7 +221,8 @@ public final class TrackPlacement {
     }
     if (!curve.bePositions.getFirst().equals(rail.from) || !curve.bePositions.getSecond().equals(rail.to))
       throw new IllegalArgumentException("Original matching curve snapshot has different endpoints");
-    if (!CoasterTrackMaterials.COASTER.equals(curve.getMaterial()))
+    if (!CoasterTrackMaterials.COASTER.equals(curve.getMaterial())
+        && !(rail.family == dev.fourthdimension.contract.Family.ARROW && dev.fourthdimension.integration.CtnbTracks.selected(curve.getMaterial())))
       throw new IllegalArgumentException("Original matching curve snapshot has incompatible material");
     return curve;
   }

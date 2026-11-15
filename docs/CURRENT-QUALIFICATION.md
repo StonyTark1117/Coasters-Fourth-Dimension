@@ -42,7 +42,7 @@ publication is activated.
 | FD501C | Lead | Complete: selected artifact rehashed; current core sufficient, no baseline upgrade/migration. [Disposition](evidence/0.8/dependencies/README.md#fd501c--complete-no-core-change). FD811 retains capability qualification. |
 | FD501D | Lead | Complete: selected artifact rehashed; current core sufficient, no baseline upgrade/migration. [Disposition](evidence/0.8/dependencies/README.md#fd501d--complete-no-core-change). FD812 retains capability qualification. |
 | FD810 | Lead | Complete: [actual-addon native guards and normal station UI/occupied auto-dispatch](evidence/0.8/additions/README.md). All lead316 units inactive; saved banked stopped world retained. Additional drive conflicts remain FD813. |
-| FD811 | Lead | Selected CTNB functional tracks/controls and measured eligibility after its own baseline. |
+| FD811 | Lead | [Native controls and actual provider joins passed](evidence/0.8/ctnb/README.md); connected-client construction/control pending on owned316. |
 | FD812 | Lead | Complete: [actual Wing/S2 optional force and normal occupied operator evidence](evidence/0.8/magnetized/README.md). All lead316 units inactive; saved unloaded world retained. Installed combined conflicts remain FD813. |
 | FD1701A | Lead | Qualified: targeted native 1/1 plus normal occupied Claim/dispatch/held transfer/receiving dispatch/unload passed. [Evidence](evidence/0.8/authority/README.md). World saved; client/server/display316 inactive. Complete; integrated with the coherent shared implementation checkpoint. |
 | FD1401A | Pipeline / Dive | Complete: [qualified native and occupied handoff](evidence/0.8/pipeline/README.md), including full forward/reverse circuits, inclined stop/save/reload/resume, dock/open/unload. Same two IDs; all317 units inactive. B/C reuse this evidence. |
@@ -51,11 +51,11 @@ publication is activated.
 | FD1501D | S2 / Powered Inverted | Complete: [native governor, four-car inversion/rollback/loss and occupied handoff](evidence/0.8/spinning-s2/README.md#occupied-mechanics-handoff--fd1501d). Launch/roll/return/Capture/Open/unload passed; all318 units inactive. E/F reuse accepted mechanics. |
 | FD1501E | S2 / Powered Inverted | Complete: [crafted content, paid construction, controls and finite operating views](evidence/0.8/spinning-s2/content/README.md). |
 | FD1501F | S2 / Powered Inverted | Complete: content occupied cycle/capture/open/unload and actual restart combine with accepted D mechanics. All318 units inactive; saved empty world preserved. |
-| FD1702A | Pipeline / Dive | Consume qualified FD1701A native/occupied handoff for Dive mechanics. |
+| FD1702A | Pipeline / Dive | Native hold/drop/recovery and occupied return/unload passed; owner reconciling content and evidence. |
 | FD1702B | Pipeline / Dive | Prepare fixed-seat Dive content and hold/release example. |
 | FD1702C | Pipeline / Dive | Complete normal hold/drop/return/unload workflow cumulatively. |
 | FD1702 | Pipeline / Dive | Reconcile full Dive A–C outcome. |
-| FD1901A | S2 / Powered Inverted | Consume qualified FD1701A and accepted FD1802A/Fixed Inverted contracts for upright powered yaw. |
+| FD1901A | S2 / Powered Inverted | Native single/four-car travel/yaw/show/reverse/capture and actual power/controller-loss passed; connected-client workflow active on owned318. |
 | FD1901B | S2 / Powered Inverted | Prepare powered drive/yaw content and scene-event controls. |
 | FD1901C | S2 / Powered Inverted | Complete travelling/stop/reverse/unload workflow cumulatively. |
 | FD1901 | S2 / Powered Inverted | Reconcile full Powered Inverted Yaw A–C outcome. |

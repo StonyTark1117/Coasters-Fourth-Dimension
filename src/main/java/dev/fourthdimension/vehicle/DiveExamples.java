@@ -59,6 +59,29 @@ public final class DiveExamples {
   }
 
   public static void register(RegisterCommandsEvent event) {
+  if(Boolean.getBoolean("fourthdimension.validation"))event.getDispatcher().register(Commands.literal("fd").requires(a->a.hasPermission(2)).then(Commands.literal("dive_inspect").executes(ctx->{
+   var l=ctx.getSource().getLevel();var data=FoundationData.get(l);var container=dev.ryanhcode.sable.api.sublevel.SubLevelContainer.getContainer(l);
+   for(var v:data.vehicles.values())if(DiveVehicle.is(v)){
+    var b=(dev.ryanhcode.sable.sublevel.ServerSubLevel)container.getSubLevel(v.chassis);var r=DiveRuntime.rail(l,v);
+    ctx.getSource().sendSuccess(()->Component.literal("Dive "+v.chassis+" center="+dev.silvergold.simulatedcoasters.track.cart.CoasterCartResolve.cartCenterWorld(b)+" velocity="+container.physicsSystem().getPipeline().getLinearVelocity(b,new org.joml.Vector3d())+" safety="+DiveRuntime.safety(l,b,v)+" stopped="+v.stopping+" phase="+v.dive.phase+" countdown="+v.dive.remaining+" releasedEpoch="+v.dive.releaseEpoch),false);
+    if(r!=null){var edge=TrackGeometry.resolve(l,r);var center=dev.silvergold.simulatedcoasters.track.cart.CoasterCartResolve.cartCenterWorld(b);var hit=dev.silvergold.simulatedcoasters.track.graph.CoasterPathTrackFrame.closestHitOnEdge(l,edge,new net.minecraft.world.phys.Vec3(center.x,center.y,center.z));var basis=dev.silvergold.simulatedcoasters.track.graph.CoasterPathTrackFrame.trackBasisAtHit(l,hit);var span=dev.silvergold.simulatedcoasters.track.chainlift.ChainLiftSpanQuery.findAtGraphHit(l,hit,0);
+     if(span!=null){double signed=dev.silvergold.simulatedcoasters.track.chainlift.ChainLiftDriveDirection.signedChainBlocksPerSecond(span.anchor(),span.path(),0,256,16);var velocity=dev.silvergold.simulatedcoasters.track.chainlift.ChainLiftSpanQuery.chainWorldVelocityAtHit(l,span.path(),hit,signed,0);ctx.getSource().sendSuccess(()->Component.literal("drive anchor="+span.anchor().getBlockPos()+" t="+hit.t()+" signed="+signed+" velocity="+velocity+" tangent="+basis.forward()+" nativeTarget="+(-velocity.dot(basis.forward()))+" interlock="+dev.fourthdimension.integration.PropulsionInterlock.holds(b,l)),false);}
+    }
+    for(var bodyId:List.of(v.chassis)){
+     var subject=(dev.ryanhcode.sable.sublevel.ServerSubLevel)container.getSubLevel(bodyId);var origin=subject.getPlot().getCenterBlock();
+     for(var offset:BlockPos.betweenClosed(new BlockPos(-3,-3,-3),new BlockPos(4,4,3))){var pos=origin.offset(offset);var state=l.getBlockState(pos);for(var local:state.getCollisionShape(l,pos).toAabbs()){
+      double[] min={Double.POSITIVE_INFINITY,Double.POSITIVE_INFINITY,Double.POSITIVE_INFINITY},max={-Double.MAX_VALUE,-Double.MAX_VALUE,-Double.MAX_VALUE};
+      for(int corner=0;corner<8;corner++){var point=subject.logicalPose().transformPosition(new org.joml.Vector3d(pos.getX()+((corner&1)==0?local.minX:local.maxX),pos.getY()+((corner&2)==0?local.minY:local.maxY),pos.getZ()+((corner&4)==0?local.minZ:local.maxZ)));double[] xyz={point.x,point.y,point.z};for(int axis=0;axis<3;axis++){min[axis]=Math.min(min[axis],xyz[axis]);max[axis]=Math.max(max[axis],xyz[axis]);}}
+      var bounds=new net.minecraft.world.phys.AABB(min[0],min[1],min[2],max[0],max[1],max[2]);
+      for(var world:BlockPos.betweenClosed(BlockPos.containing(min[0],min[1],min[2]),BlockPos.containing(max[0],max[1],max[2])))for(var collision:l.getBlockState(world).getCollisionShape(l,world).toAabbs())if(bounds.intersects(collision.move(world))){String message="body="+bodyId+" local="+offset.toShortString()+" state="+state+" world bounds="+bounds+" overlaps "+world.toShortString()+" "+l.getBlockState(world)+" shape="+collision.move(world);ctx.getSource().sendSuccess(()->Component.literal(message),false);}
+     }}
+    }
+    if(r!=null)for(var next:data.rails)if(next.matches(r.from,r.to)||next.from.equals(r.to)||next.to.equals(r.to)||next.from.equals(r.from)||next.to.equals(r.from)){
+     var edge=TrackGeometry.resolve(l,next);ctx.getSource().sendSuccess(()->Component.literal("edge "+next.from.toShortString()+" -> "+next.to.toShortString()+" rejection="+(edge==null?"missing":DiveTrack.rejection(l,edge))+" valid="+next.valid),false);
+    }
+   }return 1;
+  })));
+
     var demo = Commands.literal("demo");
     for (boolean car : new boolean[] {true, false})
       demo.then(Commands.literal(car ? "dive" : "dive_track").executes(ctx -> {
@@ -171,7 +194,7 @@ public final class DiveExamples {
     if (vehicle != null) {station.vehicle = vehicle.chassis; vehicle.dock=stationPos;vehicle.fixedDockFrom=edges.getFirst().from();vehicle.fixedDockTo=edges.getFirst().to();vehicle.fixedDockGeometry=DiveRuntime.rail(level,vehicle).geometryHash;}
     station.setChanged();
     for (int side : new int[] {-1, 1})
-      for (var p : BlockPos.betweenClosed(origin.offset(side*4,-1,-4),origin.offset(side*7,-1,48)))
+      for (var p : BlockPos.betweenClosed(origin.offset(side*4,-1,4),origin.offset(side*7,-1,48)))
         level.setBlockAndUpdate(p, Blocks.SMOOTH_STONE.defaultBlockState());
     var holdPos=anchors.get(5).offset(-5,0,0);
     level.setBlockAndUpdate(holdPos,DiveContent.HOLD.get().defaultBlockState());

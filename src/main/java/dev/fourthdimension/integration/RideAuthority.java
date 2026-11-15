@@ -13,7 +13,7 @@ import org.joml.Vector3d;
 
 /** One ride-local longitudinal owner. No route reservation or multi-train scheduling. */
 public final class RideAuthority {
-  public static final String NATIVE_CHAIN = "native_chain", ENGINEERED = "engineered", MAGNETIZED = "magnetized";
+  public static final String NATIVE_CHAIN = "native_chain", ENGINEERED = "engineered", MAGNETIZED = "magnetized", CTNB = "ctnb";
   public record Token(UUID owner, long epoch, long sequence) {}
   public interface Controller extends RideOperations.SpanController {
     UUID authorityId();
@@ -29,7 +29,7 @@ public final class RideAuthority {
 
   public static Token claim(ServerLevel level, BlockPos pos, UUID id, String provider) {
     thread(level);
-    if (!Set.of(NATIVE_CHAIN, ENGINEERED, MAGNETIZED).contains(provider))
+    if (!Set.of(NATIVE_CHAIN, ENGINEERED, MAGNETIZED, CTNB).contains(provider))
       throw new IllegalArgumentException("Unsupported longitudinal provider");
     var v = vehicle(level,id); var owner = controller(level,pos,id); var cars = complete(level,v);
     stopped(level,cars);
@@ -38,6 +38,8 @@ public final class RideAuthority {
       if(cars.stream().anyMatch(c->!dev.fourthdimension.vehicle.WingVehicle.is(c)&&!dev.fourthdimension.vehicle.S2SpinningVehicle.is(c)))
         throw new IllegalArgumentException("Magnetized is qualified for Wing and S2 only");
     }
+    if(CTNB.equals(provider) && (!OptionalIntegrations.installed(OptionalIntegrations.CTNB).mayInspect() || cars.stream().anyMatch(c->!CtnbTracks.supports(c))))
+      throw new IllegalArgumentException("CTNB supports certified Wing and Arrow cars only");
     for (var car : cars) if (car.authority.owner != null)
       throw new IllegalArgumentException("Ride already has an owner; explicitly transfer or resume it");
     assign(level,cars,pos,owner.authorityId(),provider,1);
@@ -81,7 +83,10 @@ public final class RideAuthority {
       throw new IllegalArgumentException("Wait for five stopped server ticks");
     controller(level,pos,id).validateRelease(level,v);
     if(MAGNETIZED.equals(v.authority.provider))OptionalDrive.validateRelease(level,v);
-    change(level,v,false,false); return token(v);
+    if(CTNB.equals(v.authority.provider))CtnbDrive.validateRelease(level,v);
+    change(level,v,false,false);
+    if(CTNB.equals(v.authority.provider))CtnbDrive.released(level,v);
+    return token(v);
   }
 
   /** Atomic validated station request; unchanged vehicle code owns capture and dispatch mechanics. */
@@ -123,7 +128,8 @@ public final class RideAuthority {
       if(distance<nearest){nearest=distance;selected=pos.immutable();}
     }
     if(selected==null)throw new IllegalArgumentException("Bind and approach the receiving Boarding Station first");
-    if(action==65)selectMagnetized(l,selected,v);
+    if(action==66)selectCtnb(l,selected,v);
+    else if(action==65)selectMagnetized(l,selected,v);
     else if(action==60)claim(l,selected,v.chassis,NATIVE_CHAIN);
     else {refresh(l,v);transfer(l,v.authority.controller,v.chassis,token(v),selected);}
   }
@@ -141,6 +147,19 @@ public final class RideAuthority {
     }
   }
 
+  public static void selectCtnb(ServerLevel l,BlockPos selected,FoundationData.Vehicle v){
+    thread(l);
+    if(!OptionalIntegrations.installed(OptionalIntegrations.CTNB).mayInspect() || !CtnbTracks.supports(v))
+      throw new IllegalArgumentException("CTNB supports certified Wing and Arrow cars only");
+    if(v.authority.owner==null)claim(l,selected,v.chassis,CTNB);
+    else{
+      refresh(l,v);if(!v.authority.held)throw new IllegalArgumentException("Hold before selecting a different drive");
+      transfer(l,v.authority.controller,v.chassis,token(v),selected);
+      for(var c:complete(l,v)){c.authority.provider=CTNB;c.authority.epoch++;c.authority.sequence++;c.revision++;}
+      FoundationData.get(l).setDirty();
+    }
+  }
+
   /** Fresh drive permission; also called at each native propulsion callback. */
   public static boolean permits(ServerLevel level, UUID id, UUID owner, long epoch, String provider) {
     var v=FoundationData.get(level).vehicles.get(id);
@@ -149,8 +168,8 @@ public final class RideAuthority {
   }
   public static void direction(ServerLevel l,FoundationData.Vehicle v,int sign){
     thread(l);refresh(l,v);stopped(l,complete(l,v));
-    if(Math.abs(sign)!=1||!MAGNETIZED.equals(v.authority.provider)||!v.authority.held)
-      throw new IllegalArgumentException("Hold Magnetized authority before selecting direction");
+    if(Math.abs(sign)!=1||!(MAGNETIZED.equals(v.authority.provider)||CTNB.equals(v.authority.provider))||!v.authority.held)
+      throw new IllegalArgumentException("Hold optional drive authority before selecting direction");
     for(var c:complete(l,v)){c.authority.direction=sign;c.revision++;}
     FoundationData.get(l).setDirty();
   }

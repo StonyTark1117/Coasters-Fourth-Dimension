@@ -48,8 +48,10 @@ public final class EligibilityHooks {
       return rail.valid && dev.fourthdimension.track.OrdinaryGearCertificate.fits(chassis);
     }
     if (!dev.fourthdimension.vehicle.ConsistRules.eligible(level, chassis, vehicle)) return false;
+    if (!dev.fourthdimension.integration.CtnbTracks.eligible(level,vehicle,hit.edge())) return false;
     if (dev.fourthdimension.vehicle.WingVehicle.is(vehicle))
       return dev.fourthdimension.vehicle.WingTrack.rejection(level, hit.edge()) == null;
+    if (dev.fourthdimension.vehicle.PoweredInvertedYawVehicle.is(vehicle) && dev.fourthdimension.vehicle.PoweredInvertedYawTrack.rejection(level,hit.edge()) != null) return false;
     if (dev.fourthdimension.vehicle.DiveVehicle.is(vehicle) && dev.fourthdimension.vehicle.DiveTrack.rejection(level,hit.edge()) != null) return false;
     if (dev.fourthdimension.vehicle.PipelineVehicle.is(vehicle) && dev.fourthdimension.vehicle.PipelineTrack.rejection(level,hit.edge()) != null) return false;
     if (dev.fourthdimension.vehicle.RollerBallVehicle.is(vehicle) && dev.fourthdimension.vehicle.RollerBallTrack.rejection(level,hit.edge()) != null) return false;

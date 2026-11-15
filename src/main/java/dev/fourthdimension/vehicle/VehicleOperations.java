@@ -92,6 +92,7 @@ public final class VehicleOperations {
   }
 
   public static void capture(ServerLevel level, FoundationData.Vehicle vehicle) {
+    if(PoweredInvertedYawVehicle.is(vehicle)){PoweredInvertedYawRuntime.capture(level,vehicle);return;}
     var winch = dev.fourthdimension.shuttle.ShuttleRuntime.owner(level, vehicle.chassis);
     if (winch != null
         && winch.phase != dev.fourthdimension.shuttle.ShuttleWinchEntity.Phase.BOARDING) {
@@ -207,6 +208,7 @@ public final class VehicleOperations {
   }
 
   public static void dispatch(ServerLevel level, FoundationData.Vehicle vehicle) {
+    if(PoweredInvertedYawVehicle.is(vehicle)){validateDispatch(level,vehicle);PoweredInvertedYawRuntime.start(level,vehicle);}
     if (S2SpinningVehicle.is(vehicle)) { validateDispatch(level,vehicle); S2SpinningRuntime.start(level,vehicle); }
     if (vehicle.authority.owner != null && dev.fourthdimension.integration.RideAuthority.holds(level,vehicle))
       throw new IllegalArgumentException("Release through the bound ride authority before dispatch");
@@ -226,6 +228,7 @@ public final class VehicleOperations {
       if (DiveVehicle.is(v)) DiveRuntime.rememberConsist(level,v);
       if (PipelineVehicle.is(v)) PipelineRuntime.rememberConsist(level,v);
       if (S2SpinningVehicle.is(v)) S2SpinningRuntime.dispatched(level,v);
+      if (PoweredInvertedYawVehicle.is(v)) PoweredInvertedYawRuntime.dispatched(level,v);
       if(SuspendedVehicle.is(v)) {
         var parent=SubLevelContainer.getContainer(level).getSubLevel(v.chassis);
         v.suspendedConsist=List.copyOf(CoasterCartTrainLinkConstraint.getTrainLinkedCartIds(parent));
@@ -541,6 +544,7 @@ public final class VehicleOperations {
   }
 
   public static void brake(ServerLevel level, FoundationData.Vehicle vehicle, double dt) {
+    if(PoweredInvertedYawVehicle.is(vehicle)&&!MATCHING_SUPPORT_LOST.equals(vehicle.fault)&&!vehicle.alignmentRequired){PoweredInvertedYawRuntime.brake(level,vehicle,dt);return;}
     var container = SubLevelContainer.getContainer(level);
     var pipeline = container.physicsSystem().getPipeline();
     // Support loss and a repaired section awaiting explicit realignment are both hard emergency

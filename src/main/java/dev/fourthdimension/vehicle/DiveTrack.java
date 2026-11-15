@@ -9,7 +9,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
 
-/** Qualified overhead contacts with rigid below-track reservation, including native full roll. */
+/** Native N contacts with the wide fixed-row occupied envelope and bounded curvature. */
 public final class DiveTrack {
   private static final Map<CoasterPathEdge,Boolean> SHAPES=new WeakHashMap<>();
   private DiveTrack(){}

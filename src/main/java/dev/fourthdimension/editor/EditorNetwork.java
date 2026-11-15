@@ -149,6 +149,7 @@ public final class EditorNetwork {
   public static void apply(ServerPlayer player, Edit request) {
     if (request.value.length() > 16384)
       throw new IllegalArgumentException("Editor payload too large");
+    if(request.action==70){PoweredInvertedYawEditor.apply(player,request.id,request.revision,request.value);return;}
     if(request.action==8){NewGenerationFlyingEditor.apply(player,NewGenerationFlyingEditor.editable(player,request.id,request.revision),request.value);return;}
     if (request.action < 10) {
       var rail = ProfileEditor.requireEditable(player, request.id, request.revision);
@@ -199,21 +200,27 @@ public final class EditorNetwork {
         throw new IllegalArgumentException("Vehicle settings changed; review the refreshed state and try again");
       var level = player.serverLevel();
       if(NewGenerationFlyingVehicle.is(vehicle)) NewGenerationFlyingEditor.operator(player,vehicle);
+      if(PoweredInvertedYawVehicle.is(vehicle))PoweredInvertedYawEditor.operator(player,vehicle);
+      if(request.action>=71&&request.action<=74&&!PoweredInvertedYawVehicle.is(vehicle))throw new IllegalArgumentException("Powered controls require their matching vehicle");
       if(request.action>=40&&request.action<=42&&!NewGenerationFlyingVehicle.is(vehicle))throw new IllegalArgumentException("Compound Flying control requires its matching car");
       switch (request.action) {
         case 10 -> VehicleOperations.capture(level, vehicle);
         case 11 -> VehicleOperations.restraints(level, vehicle, true);
         case 12 -> VehicleOperations.restraints(level, vehicle, false);
         case 13 -> {
+          if(PoweredInvertedYawVehicle.is(vehicle)){VehicleOperations.dispatch(level,vehicle);break;}
           if(dev.fourthdimension.vehicle.S2SpinningVehicle.is(vehicle)&&!dev.fourthdimension.vehicle.S2SpinningRuntime.optional(vehicle)) { VehicleOperations.dispatch(level,vehicle); break; }
           if(vehicle.authority.owner==null) VehicleOperations.dispatch(level,vehicle);
           else dev.fourthdimension.integration.RideAuthority.dispatch(level,vehicle.authority.controller,vehicle.chassis,dev.fourthdimension.integration.RideAuthority.token(vehicle));
         }
+        case 71 -> PoweredInvertedYawRuntime.resume(level,vehicle);
+        case 72,73 -> PoweredInvertedYawRuntime.direction(level,vehicle,request.action==72?1:-1);
+        case 74 -> PoweredInvertedYawEditor.sound(player,vehicle);
         case 63,64 -> {
           if(!dev.fourthdimension.vehicle.S2SpinningVehicle.is(vehicle))throw new IllegalArgumentException("S2 direction controls require S2");
           dev.fourthdimension.vehicle.S2SpinningRuntime.direction(level,vehicle,request.action==63?1:-1);
         }
-        case 60,61,62,65,67,68 -> dev.fourthdimension.integration.RideAuthority.operate(player,vehicle,request.action);
+        case 60,61,62,65,66,67,68 -> dev.fourthdimension.integration.RideAuthority.operate(player,vehicle,request.action);
         case 14 -> VehicleOperations.retention(level, vehicle, true);
         case 15 -> VehicleOperations.retention(level, vehicle, false);
         case 16 -> {

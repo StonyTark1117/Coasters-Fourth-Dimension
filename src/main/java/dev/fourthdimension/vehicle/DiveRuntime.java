@@ -144,7 +144,7 @@ public final class DiveRuntime {
         v.alignmentRequired=true;
       }else{var reason=safety(level,parent,v);if(reason!=null)fault(level,v,reason);}
     }
-    boolean retained=v.stopping||v.maintenance||v.authority.held||v.authority.suspended;
+    boolean retained=v.stopping||v.maintenance||(v.authority.owner!=null&&(v.authority.held||v.authority.suspended));
     var hold=HOLDS.get(parent);
     if(!retained&&hold!=null){if(hold.isValid())hold.remove();HOLDS.remove(parent);hold=null;}
     if(retained){

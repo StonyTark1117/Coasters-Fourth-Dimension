@@ -63,6 +63,7 @@ public final class Boarding {
     if (PipelineVehicle.is(vehicle)) return PipelineRuntime.ready(level,parent,vehicle);
     if (FixedInvertedVehicle.is(vehicle)) return FixedInvertedRuntime.ready(level, parent, vehicle);
     if (SuspendedVehicle.is(vehicle)) return SuspendedRuntime.ready(level, parent, vehicle);
+    if (PoweredInvertedYawVehicle.is(vehicle)) return PoweredInvertedYawRuntime.ready(level,parent,vehicle);
     if (S2SpinningVehicle.is(vehicle)) return S2SpinningRuntime.ready(level,parent,vehicle);
     if (SpinningVehicle.is(vehicle)) return SpinningRuntime.ready(level, parent, vehicle);
     for (var carrier : vehicle.carriers) {

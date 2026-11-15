@@ -55,10 +55,11 @@ public final class ConsistRules {
     linked.add(b.getUniqueId());
     return first != null
         && second != null
-        && (first.family == Family.ARROW || first.family == Family.PAX || WingVehicle.is(first) || S2SpinningVehicle.is(first) || SuspendedVehicle.is(first) || (DiveVehicle.is(first) || PipelineVehicle.is(first) || FixedInvertedVehicle.is(first)) || AxisVehicle.is(first) || (FlyingVehicle.is(first) || NewGenerationFlyingVehicle.is(first)))
+        && (first.family == Family.ARROW || first.family == Family.PAX || WingVehicle.is(first) || PoweredInvertedYawVehicle.is(first) || S2SpinningVehicle.is(first) || SuspendedVehicle.is(first) || (DiveVehicle.is(first) || PipelineVehicle.is(first) || FixedInvertedVehicle.is(first)) || AxisVehicle.is(first) || (FlyingVehicle.is(first) || NewGenerationFlyingVehicle.is(first)))
         && second.family == first.family
         && (first.family != Family.PAX || linked.size() <= 4)
         && (!DiveVehicle.is(first) || linked.size() <= 3)
+        && (!PoweredInvertedYawVehicle.is(first) || linked.size() <= 4)
         && (!WingVehicle.is(first) || linked.size() <= 2)
         && (!(S2SpinningVehicle.is(first) || SuspendedVehicle.is(first) || (DiveVehicle.is(first) || PipelineVehicle.is(first) || FixedInvertedVehicle.is(first)) || (FlyingVehicle.is(first) || NewGenerationFlyingVehicle.is(first))) || linked.size() <= 4)
         && (!(PipelineVehicle.is(first) || AxisVehicle.is(first)) || linked.size() <= 2)
@@ -78,6 +79,7 @@ public final class ConsistRules {
         && CoasterCartTrainLinkConstraint.getTrainLinkedCartIds(parent).size()
             > (vehicle.recoveryCart == null ? 4 : 5)) return false;
     var ids = CoasterCartTrainLinkConstraint.getTrainLinkedCartIds(parent);
+    if(PoweredInvertedYawVehicle.is(vehicle)&&ids.size()>4)return false;
     if (DiveVehicle.is(vehicle) && ids.size() > 3) return false;
     if (WingVehicle.is(vehicle) && ids.size() > 2) return false;
     if ((S2SpinningVehicle.is(vehicle) || SuspendedVehicle.is(vehicle) || (DiveVehicle.is(vehicle) || PipelineVehicle.is(vehicle) || FixedInvertedVehicle.is(vehicle)) || (FlyingVehicle.is(vehicle) || NewGenerationFlyingVehicle.is(vehicle))) && ids.size() > 4) return false;
@@ -91,7 +93,7 @@ public final class ConsistRules {
       if (other == null && id.equals(vehicle.recoveryCart)) continue;
       if (other == null
           || other.family != vehicle.family
-          || !(vehicle.family == Family.ARROW || vehicle.family == Family.PAX || WingVehicle.is(vehicle) || S2SpinningVehicle.is(vehicle) || SuspendedVehicle.is(vehicle) || (DiveVehicle.is(vehicle) || PipelineVehicle.is(vehicle) || FixedInvertedVehicle.is(vehicle)) || AxisVehicle.is(vehicle) || (FlyingVehicle.is(vehicle) || NewGenerationFlyingVehicle.is(vehicle)))
+          || !(vehicle.family == Family.ARROW || vehicle.family == Family.PAX || WingVehicle.is(vehicle) || PoweredInvertedYawVehicle.is(vehicle) || S2SpinningVehicle.is(vehicle) || SuspendedVehicle.is(vehicle) || (DiveVehicle.is(vehicle) || PipelineVehicle.is(vehicle) || FixedInvertedVehicle.is(vehicle)) || AxisVehicle.is(vehicle) || (FlyingVehicle.is(vehicle) || NewGenerationFlyingVehicle.is(vehicle)))
           || !other.variant.equals(vehicle.variant)
           || !java.util.Objects.equals(other.recoveryCart, vehicle.recoveryCart)
           || other.recoveryCart != null && !RecoveryOperations.retained(other)

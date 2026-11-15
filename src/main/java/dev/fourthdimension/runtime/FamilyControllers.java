@@ -31,7 +31,7 @@ public final class FamilyControllers {
     public final Family family;
 
     @Override public net.minecraft.world.phys.shapes.VoxelShape getShape(net.minecraft.world.level.block.state.BlockState state, net.minecraft.world.level.BlockGetter level, net.minecraft.core.BlockPos pos, net.minecraft.world.phys.shapes.CollisionContext context) {
-      return family == Family.FLYING ? dev.fourthdimension.vehicle.FlyingFrameBlock.controllerShape() : super.getShape(state,level,pos,context);
+      return family == Family.DIVE ? dev.fourthdimension.vehicle.DiveFrameBlock.controllerShape() : family == Family.FLYING ? dev.fourthdimension.vehicle.FlyingFrameBlock.controllerShape() : super.getShape(state,level,pos,context);
     }
 
     private Controller(Family family) {

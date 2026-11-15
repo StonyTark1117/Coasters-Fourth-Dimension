@@ -46,7 +46,13 @@ public final class DiveHoldEntity extends BlockEntity implements RideAuthority.C
   }
   public void changeDwell(){
     var server=(ServerLevel)level;
-    for(var v:FoundationData.get(server).vehicles.values())if(authorizesRide(v.chassis)){
+    var connected=new HashSet<BlockPos>();var pending=new ArrayDeque<BlockPos>();if(from!=null)pending.add(from);
+    while(!pending.isEmpty()){var p=pending.remove();if(!connected.add(p))continue;
+      for(var r:FoundationData.get(server).rails)if(r.family==dev.fourthdimension.contract.Family.DIVE&&r.valid){
+        if(r.from.equals(p))pending.add(r.to);else if(r.to.equals(p))pending.add(r.from);
+      }
+    }
+    for(var v:FoundationData.get(server).vehicles.values())if(DiveVehicle.is(v)&&(authorizesRide(v.chassis)||connected.contains(v.boundFrom))){
       if(!v.stopping||v.carriers.stream().anyMatch(c->!c.occupants.isEmpty()))throw new IllegalArgumentException("Dwell edits require the bound train empty and stopped");
       if(v.dive.phase==DiveState.Phase.HELD||v.dive.phase==DiveState.Phase.RELEASE_ARMED)throw new IllegalArgumentException("Finish or reset the held cycle before changing dwell");
     }

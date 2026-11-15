@@ -213,6 +213,8 @@ public final class CarrierRuntime {
             dev.fourthdimension.vehicle.SuspendedRuntime.fault(level,vehicle,"Suspended cabin body unavailable");
           if (dev.fourthdimension.vehicle.SpinningVehicle.is(vehicle))
             dev.fourthdimension.vehicle.SpinningRuntime.fault(vehicle, "S1 carrier body unavailable");
+          if (dev.fourthdimension.vehicle.PoweredInvertedYawVehicle.is(vehicle))
+            dev.fourthdimension.vehicle.PoweredInvertedYawRuntime.fault(level,vehicle,"Powered Inverted Yaw carrier unavailable");
           if (dev.fourthdimension.vehicle.S2SpinningVehicle.is(vehicle))
             dev.fourthdimension.vehicle.S2SpinningRuntime.fault(level,vehicle,"S2 carrier body unavailable");
           continue;
@@ -289,6 +291,11 @@ public final class CarrierRuntime {
           dev.fourthdimension.vehicle.NativeLoading.update(child,vehicle,carrier);
           dev.fourthdimension.vehicle.FlyingRuntime.update(level,parent,child,vehicle,carrier,rail,(GenericConstraintHandle)handle,event.getTimeStep());
           carrierNanos += System.nanoTime()-carrierStart; continue;
+        }
+        if (dev.fourthdimension.vehicle.PoweredInvertedYawVehicle.is(vehicle)) {
+          dev.fourthdimension.vehicle.NativeLoading.update(child,vehicle,carrier);
+          dev.fourthdimension.vehicle.PoweredInvertedYawRuntime.update(level,parent,child,vehicle,carrier,rail,(RotaryConstraintHandle)handle,event.getTimeStep());
+          carrierNanos += System.nanoTime()-carrierStart;continue;
         }
         if (dev.fourthdimension.vehicle.S2SpinningVehicle.is(vehicle)) {
           dev.fourthdimension.vehicle.NativeLoading.update(child, vehicle, carrier);

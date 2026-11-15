@@ -51,6 +51,8 @@ public final class RotationEditorScreen extends Screen {
     }
     boolean compound=target.vehicle()? data.vehicles.containsKey(target.id())&&dev.fourthdimension.vehicle.NewGenerationFlyingVehicle.is(data.vehicles.get(target.id())) : data.rails.stream().anyMatch(r->r.id.equals(target.id())&&r.variant.equals(dev.fourthdimension.vehicle.NewGenerationFlyingVehicle.VARIANT));
     if(compound){minecraft.setScreen(new NewGenerationFlyingScreen(target));return;}
+    boolean powered=target.vehicle()?data.vehicles.containsKey(target.id())&&dev.fourthdimension.vehicle.PoweredInvertedYawVehicle.is(data.vehicles.get(target.id())):data.rails.stream().anyMatch(r->r.id.equals(target.id())&&r.variant.equals(dev.fourthdimension.vehicle.PoweredInvertedYawVehicle.VARIANT));
+    if(powered){minecraft.setScreen(new PoweredInvertedYawScreen(target));return;}
     int left = width / 2 - 170, top = height / 2 - (target.vehicle() ? 116 : 90);
     value =
         new EditBox(
@@ -119,6 +121,14 @@ public final class RotationEditorScreen extends Screen {
           if(dev.fourthdimension.vehicle.S2SpinningVehicle.is(v))addButton("Resume owner",left+115,top+160,61);
           else {addButton("Drive forward",left+115,top+186,67);addButton("Drive reverse",left+230,top+186,68);}
           value.setValue("Magnetized | direction "+(v.authority.direction==1?"forward":"reverse")+" | "+v.authority.reason);
+        }
+      }
+      if(dev.fourthdimension.integration.CtnbTracks.supports(v)){
+        if(!dev.fourthdimension.integration.RideAuthority.CTNB.equals(v.authority.provider) && dev.fourthdimension.integration.OptionalIntegrations.installed(dev.fourthdimension.integration.OptionalIntegrations.CTNB).mayInspect())
+          addButton("Claim CTNB",left+230,top+134,66);
+        if(dev.fourthdimension.integration.RideAuthority.CTNB.equals(v.authority.provider)){
+          addButton("Drive forward",left+115,top+186,67);addButton("Drive reverse",left+230,top+186,68);
+          value.setValue("CTNB | "+(v.authority.direction==1?"forward":"reverse")+" | dwell "+v.ctnb.remaining+" | "+v.authority.reason);
         }
       }
       if ("Matching track support lost".equals(v.fault))
@@ -509,6 +519,7 @@ public final class RotationEditorScreen extends Screen {
                 var screen = net.minecraft.client.Minecraft.getInstance().screen;
                 if (screen instanceof RotationEditorScreen editor) editor.receiveResult(result);
                 else if(screen instanceof NewGenerationFlyingScreen editor)editor.receive(result);
+                else if(screen instanceof PoweredInvertedYawScreen editor)editor.receive(result);
               };
           });
     }

@@ -16,6 +16,7 @@ public final class FourthDimension {
     dev.fourthdimension.vehicle.YawMarkers.register(bus);
     dev.fourthdimension.vehicle.S2SpinningContent.register(bus);
     dev.fourthdimension.vehicle.DiveContent.register(bus);
+    dev.fourthdimension.vehicle.PoweredInvertedYawContent.register(bus);
     NeoForge.EVENT_BUS.addListener(dev.fourthdimension.vehicle.DiveRuntime::serverTick);
     dev.fourthdimension.integration.create.CreateIntegration.register(bus);
     dev.fourthdimension.shuttle.ShuttleContent.registerItem();

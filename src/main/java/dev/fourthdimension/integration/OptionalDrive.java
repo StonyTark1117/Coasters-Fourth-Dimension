@@ -63,7 +63,7 @@ public final class OptionalDrive {
   }
   public static boolean ctnb(ServerSubLevel body,ServerLevel l,SubLevelPhysicsSystem physics,
       CoasterPathTrackFrame.GraphHit hit,CoasterPathTrackFrame.TrackBasis basis,double dt){
-    // Until explicitly certified, neither CTNB track effects nor its passenger driver may push FD bodies.
+    // The validated adapter runs once at the Chain seam; suppress duplicate addon and driver forces.
     return managed(l,body);
   }
 }

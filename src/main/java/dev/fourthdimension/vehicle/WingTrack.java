@@ -19,8 +19,8 @@ public final class WingTrack {
   public static String rejection(Level level, CoasterPathEdge edge) {
     if (CoasterPathGraphManager.edgeHostedOnSubLevel(level, edge))
       return "Wing requires fixed world track";
-    if (edge.bezier() == null || !CoasterTrackMaterials.COASTER.id.equals(edge.bezier().getMaterial().id))
-      return "Wing requires ordinary Coasters track";
+    if (edge.bezier() == null || !dev.fourthdimension.integration.CtnbTracks.nativeContacts(dev.fourthdimension.integration.CtnbTracks.material(level,edge)))
+      return "Wing requires ordinary Coasters or certified CTNB N-contact track";
     var data = EligibilityHooks.data(level);
     if (data == null || data.rails.stream().anyMatch(r -> r.matches(edge.from(), edge.to())))
       return "Wing cannot use a functional 4D section";

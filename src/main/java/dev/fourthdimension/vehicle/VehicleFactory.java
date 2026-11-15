@@ -21,6 +21,11 @@ public final class VehicleFactory {
 
   public static FoundationData.Vehicle create(
       ServerLevel level, TrackDesign design, CoasterPathTrackFrame.GraphHit hit) {
+    if (hit.edge().bezier() != null
+        && hit.edge().bezier().getMaterial().id.getNamespace().equals(dev.fourthdimension.integration.OptionalIntegrations.CTNB)
+        && (design != TrackDesign.ARROW || !dev.fourthdimension.integration.CtnbTracks.selected(hit.edge().bezier().getMaterial())))
+      throw new IllegalArgumentException("This CTNB material is not qualified for the selected vehicle");
+    if (design == TrackDesign.POWERED_INVERTED_YAW) return PoweredInvertedYawVehicle.create(level,hit);
     if (design == TrackDesign.DIVE) return DiveVehicle.create(level, hit);
     if (design == TrackDesign.PIPELINE) return PipelineVehicle.create(level, hit);
     if (design == TrackDesign.NEW_GENERATION_FLYING) return NewGenerationFlyingVehicle.create(level, hit);
@@ -180,7 +185,7 @@ public final class VehicleFactory {
                   case PAX -> VehicleParts.PAX_SEAT.get();
                   case AXIS -> VehicleParts.AXIS_SEAT.get();
                   case FLYING -> VehicleParts.FLYING_SEAT.get();
-                  case DIVE, PIPELINE, S2_SPINNING -> throw new IllegalStateException("Vehicle uses its dedicated factory");
+                  case POWERED_INVERTED_YAW, DIVE, PIPELINE, S2_SPINNING -> throw new IllegalStateException("Vehicle uses its dedicated factory");
                   case ROLLER_BALL -> throw new IllegalStateException("Roller Ball uses its own factory");
                   case NEW_GENERATION_FLYING -> throw new IllegalStateException("Compound Flying uses its own factory");
                   case SPINNING -> VehicleParts.SPINNING_SEAT.get();
