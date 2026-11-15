@@ -1,9 +1,12 @@
 {
-  "jar": "/mnt/NVME4/fourthdimension-runs/fd917-lead-20261115/build/libs/coasters-fourth-dimension-0.9.0-dev.27.jar",
-  "sha256": "3708e8c2b16a1b7b02768a646a1af2f8473f34e311f4c8ff3c95c6cd9d4a567a",
-  "source_revision": "b07574fa",
+  "jar": "/mnt/NVME4/fourthdimension-runs/fd917-mechanisms-20261115/launch05/libs/coasters-fourth-dimension-0.9.0-dev.27.jar",
+  "sha256": "1cb26e8d7934235b93833c075436d1655b6629a953c7cc0ac99e7adb8bb690bf",
+  "source_revision": "57a78496350aacd25c6a38658ebc6ce099383e53",
   "java": 21,
   "verifiedResources": 430,
   "method": "Every owner-manifest resource and shared material byte-identical to source in integrated jar",
-  "liveEvidenceCarryForward": "Candidate04 production behavior unchanged; S2 delayed example setup repair is covered by its targeted native test."
+  "liveEvidenceCarryForward": "Candidate04 geometry and mechanical behavior unchanged. Cue fix moves remote controller drawing before the unloaded-chassis guard; Art supplies its affected live cue evidence. S2 example setup repair retains its targeted native test.",
+  "cueFixResourceEntriesUnchanged": 701,
+  "fixtureOnlyResourceEntriesUnchanged": 701,
+  "validation": "Java21 compileJava+jar passed in Mechanisms compile-11-fixture.log. Targeted actual reverse and forward restoration passed. No second build required for integration."
 }

@@ -46,6 +46,12 @@ implementation commits; no new chats, subagents or worktrees are needed.
 | Art / pipeline `01a1dd1d-6e99-70d2-aef3-6dcebac10d72` | VP01 common style/reference sheet and full 17-style resource/retain/change inventory; VP02 authoritative asset pipeline/materials; VP06 batches A/B (Arrow, Legacy, Free Spin, Revised, PAX, Wing, Fixed Inverted, Suspended, Dive); VP07 shared item/teaching/optional-appearance reconciliation. Supply own affected VP08 evidence. | Establish source ownership and deterministic exports with a seat/joint/equipment/track material sample; settle batch A/B briefs and common visual interfaces. Publish reusable material/export handoff early. Dependent Arrow/PAX final art follows the relevant proven mechanism; independent silhouettes may proceed. |
 | Mechanisms / articulated art `01a1dd1d-c6a6-7be0-9cb5-2b033ac550da` | VP05 complete equipment/state presentation (PAX drive/catch, restraints, locks, magnets, hold/control cues); VP04 Pipeline wheel path; VP06 batches C/D (Axis, Roller Ball, both Flying variants, S1, S2, Pipeline, Powered Inverted Yaw). Supply per-family items/teaching/optional configurations to VP07 and own affected VP08 evidence. | Inspect actual state/pose sources and PAX placement/catch/drive topology; produce gray stateful assemblies and resolve batch C/D restraints/joints with Art. Coordinate common state/interpolation with lead, then deliver complete equipment and family outcomes on stable materials/interfaces. |
 
+**Powered Inverted evidence transfer — 2026-11-15 20:00 UTC:** Mechanisms
+confirmed its Powered Inverted case is unstarted and transferred only occupied
+fit/representative-motion evidence to lead's existing isolated family runtime.
+Lead retains Axis/Roller Ball evidence and overall integration. Mechanisms keeps
+all source ownership, New-generation Flying/Pipeline and final own cleanup.
+
 **Bounded evidence transfer accepted — 2026-11-15 19:55 UTC:** Art accepts
 Mechanisms' remaining Dive hold cue versus real hold state and Free Spin magnetic
 reaction/field airgap observations. Art uses its own preserved world and private317
@@ -53,17 +59,22 @@ under a fresh run/cleanup record. This is evidence-only; source ownership and
 accepted Art family/item/appearance results are unchanged. Mechanisms retains
 New-generation Flying, Powered Inverted, Pipeline and its remaining equipment.
 
-**Current integration checkpoint — 2026-11-15 19:52 UTC:** Art's assigned outcome
-is complete with all owned runtime stopped; its exact handoff and the owner-approved
-stable Mechanisms implementation/resources are integrated in `b07574fa`. The
-S2 example delayed-bind regression is repaired in `7a32be1f` with one passing
-[targeted native check](evidence/fd917/lead/s2-example-lifecycle.md). Accepted VP03
-and observer evidence remain closed. Lead is collecting transferred Axis/Roller
-Ball fit and representative-motion evidence; Mechanisms retains New-generation
-Flying, Powered Inverted, Pipeline and final equipment/cue views. S2 occupied
-roll/yaw/capture is complete. Next actions in the initial allocation table above
-are historical setup instructions, superseded by this checkpoint. Whole FD917
-remains in progress until remaining evidence and owned-runtime cleanup reconcile.
+**Current integration checkpoint — 2026-11-15 20:14 UTC:** Art's original
+family/item/appearance handoff and stable Mechanisms implementation are integrated
+in `b07574fa`; targeted S2 delayed example repair `7a32be1f`, remote cue loading
+fix `13ebb055`, and Pipeline validation-fixture shaft traversal `57a78496` are
+pushed. Lead Axis/Roller Ball/Powered Inverted occupied fit and motion passed,
+all normally unloaded alive, and the owned family runtime saved/stopped with
+all three units inactive/MainPID0. Mechanisms' remaining Pipeline reverse/forward,
+contact/lighting/reload passed and its cleanup/final handoff is underway. Art's
+Free Spin field/reaction gap passed. The one remaining required visual blocker
+is VP05 cue truth: a live Dive HELD/fault lamp samples only the dark border of its
+indicator texture. Mechanisms owns a bounded `ProductionMesh.java` indicator-UV
+fix; Art retains the stationary fault state for its targeted live readback.
+Shared metal/paint tiling and accepted family/track results remain unchanged.
+Whole FD917 is still in progress until this cue check, final evidence integration
+and remaining owner cleanup complete. Initial allocation next-actions above are
+historical and are superseded by this checkpoint.
 
 **Ownership:** after this initial coordinator assignment, lead alone edits central
 ROADMAP/PLAN/queue, the production guide's shared contract decisions and release

@@ -1,26 +1,29 @@
-# Current lead checkpoint — 2026-11-15 19:59 UTC
+# Current lead checkpoint — 2026-11-15 20:14 UTC
 
-Primary checkout `/home/braydon/Documents/Coasters: Fourth Dimension`, branch
-`main`, HEAD `b07574fa` pushed. Art handoff and stable Mechanisms implementation
-are integrated. S2 example repair is `7a32be1f`, targeted test passed. Remaining
-dirty files are lead queue/families/package evidence, Mechanisms evidence, and
-pre-existing `logs/`; no implementation edit pending. Keep exact ownership.
+Primary checkout `/home/braydon/Documents/Coasters: Fourth Dimension`, `main`,
+HEAD `57a78496` pushed. Implementation integrated; final evidence/queue docs
+remain dirty plus Art/Mechanisms owned final evidence and pre-existing `logs/`.
+No new branch/worktree. Lead alone stages and pushes exact owner manifests.
 
-Axis occupied fit/full roll/normal alive unload passed; see families/README.md.
-Roller Ball normal mount/open/closed passed and route is running. Owned family
-run root `/mnt/NVME4/fourthdimension-runs/fd917-lead-families-20261115`, display318,
-ports25658/25659, units `fd917-lead-families-20261115-{client,server,xvfb}.service`.
-Client1536M/6G, server2048M/4G, Java21. Current camera faces real rider; F1 hidden.
-Roller chassis35dd29d6-056c-4b22-b194-0b90aa6d2960, carrier773ad945-1895-4f15-98b4-476de2f3237b.
-Readback watcher session24500, bounded video session55299, both started19:57UTC.
-Watch current connection and recorded readbacks; no more input diagnostics.
-Preserve/save/stop this run after Roller completion. Previous lead and observer
-runs are already stopped; do not touch other owners' runtimes.
+Lead Axis/Roller Ball/Powered Inverted occupied fit and motion all passed; each
+normally opened and unloaded alive. All family client/server/Xvfb units inactive,
+MainPID0/success, world `FamilyWorkshop` saved20:11:24UTC. Root
+`/mnt/NVME4/fourthdimension-runs/fd917-lead-families-20261115`; display318 released,
+ports25658/25659 stopped. All video/readback collectors ended. Prior Arrow,
+baseline and remote observer runs are also stopped. See families/README.md.
 
-Mechanisms319 retains NG Flying/Powered/Pipeline/final equipment. Art accepted
-fresh evidence-only Dive hold cue and Free Spin magnetic gap checks on private317.
-Their prior Art baseline is complete/stopped and its evidence remains accepted.
-No FD1000 freeze or release qualification/publication authorized.
+Pipeline reverse/forward/contact/night/reload passed; Mechanisms319 final cleanup
+and handoff pending. Art317 Free Spin magnetic gap passed. Remaining required
+VP05 blocker: the small Dive HELD/fault indicator samples dark texture border.
+Mechanisms received exact bounded permission to fix indicator UV selection in
+shared ProductionMesh.java, preserving metal/paint tiling. Art has stationary
+fault state for targeted client-only proof, then normal resume and own cleanup.
+The independent cue unloaded-chassis fix is already13ebb055; initial freeze-based
+lamp capture was inconclusive and is not claimed as proof of that defect.
+
+No FD1000 freeze/release qualification/publication. Reuse all accepted family
+and track evidence; only final cue view/source/compile and evidence integration
+remain. Read newest owner messages before further actions.
 
 ---
 
