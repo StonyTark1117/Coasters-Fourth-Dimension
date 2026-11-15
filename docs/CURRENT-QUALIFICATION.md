@@ -24,6 +24,80 @@ FD403A–F and the FD404 aggregate are now reconciled. There is no remaining 0.4
 acceptance queue. The sections below retain case closure records and artifact
 history; they do not assign new work or add acceptance requirements.
 
+### Active 0.9 assignments — 2026-11-15
+
+Human continuation activates all eleven 0.9 cards from accepted `main`/`origin/main`
+`f06d81607f246773e5b9624cd259c5a49e709fcc`. Accepted 0.4–0.8 cases remain
+closed unless a named change invalidates their required behavior. No 1.0 freeze,
+release, 1.2 work, new chats, subagents or worktrees are activated.
+
+| Card | Owner | Current action / dependency |
+| --- | --- | --- |
+| FD501E | Complete | [Qualified shared baseline and exact dependency disposition](evidence/0.9/dependencies/README.md); consumer work remains assigned below. |
+| FD501F | Complete | [Qualified shared baseline and exact dependency disposition](evidence/0.9/dependencies/README.md); consumer work remains assigned below. |
+| FD501G | Complete | [Qualified shared baseline and exact dependency disposition](evidence/0.9/dependencies/README.md); consumer work remains assigned below. |
+| FD501H | Complete | [Qualified shared baseline and exact dependency disposition](evidence/0.9/dependencies/README.md); consumer work remains assigned below. |
+| FD910 | Skin / Visual | Selected Skin body/appearance options, identity/restraint protection, fallback/persistence and normal input on qualified FD501E baseline. |
+| FD911 | Seats / Immersion | Selected Additions rotating seats, real rider synchronization and distinct mount/restraint/restoration/unload cases. |
+| FD912 | Seats / Immersion | Effects composition and client-only asymmetry on authoritative poses; preserve relative look and comfort. |
+| FD913 | Lead | Waterparked independent ride coexistence, explicit slide rejection and representative rendered graph/control behavior. |
+| FD914 | Lead | Create Coasters utilities coexist without Create-train authority over Sable rides. |
+| FD916 | Skin / Visual | Finite asset inventory/correction list, reuse accepted views; inspect only changed or missing required content views. |
+| FD915 | Lead | Reconcile all eleven outcomes, actual combined seat/pose/render/control conflicts and client-only asymmetry; exact remote HEAD and all-owner cleanup. |
+
+**Owners:** lead `01a1dd1d-1468-7f81-8f31-5532ad7a178d`;
+Skin/Visual `01a1dd1d-6e99-70d2-aef3-6dcebac10d72`;
+Seats/Immersion `01a1dd1d-c6a6-7be0-9cb5-2b033ac550da`.
+All use primary `main`; lead alone edits central ROADMAP/PLAN/queue and stages,
+commits and pushes. Preserve pre-existing `logs/`.
+
+**0.9 ownership reset:** all existing shared source/runtime/client/editor,
+registration/build/generator files belong to lead until an exact acknowledged
+transfer is recorded here. Earlier 0.8 transfers have ended. New uniquely named
+Skin/Visual or Seats/Immersion package files, guides and evidence belong to their
+respective owner; one writer per file. Owners request bounded complete-path
+transfers promptly. Lead owns baseline build/metadata/compatibility changes.
+
+**New package paths confirmed:** Seats/Immersion owns new `Immersion*` and
+`RotatingSeat*` integration/client/mixin/fixture classes and
+`docs/evidence/0.9/{immersion,rotating-seats}`. Observer319 is reserved to this
+owner for changed seat synchronization only, with a separate client directory
+and measured headroom; this does not authorize input to an existing runtime.
+
+**FD910 shared transfer — 2026-11-15:** Skin/Visual owns
+`runtime/FoundationData.java` for the additive cosmetic field and save/load,
+`editor/EditorNetwork.java` for its validated appearance action, and
+`client/RotationEditorScreen.java` for its appearance button. Paths are under
+`src/main/java/dev/fourthdimension/`. Preserve all unrelated existing behavior;
+no native seat/style/physics tag mutation. Lead retains `OptionalIntegrations.java`
+and `fourthdimension.mixins.json` to merge exact supplied registration/fingerprint
+hooks for all packages. Other owners request edits to transferred files through
+Skin/Visual or wait for its explicit return; never edit concurrently.
+
+**FD916 shared transfer — 2026-11-15:** Skin/Visual owns
+`scripts/generate-content.py` and the 51 exact model paths in the frozen
+[owned-model-paths list](evidence/0.9/visual-quality/owned-model-paths.txt), solely
+to correct the inventoried implicit UV coordinates outside their texture sprite.
+Preserve geometry, textures, state and unrelated bytes; check only affected
+representative visuals. No source mechanics or additional model paths transfer.
+
+**FD911/912 shared transfer — 2026-11-15:** Seats/Immersion owns
+`src/main/java/dev/fourthdimension/vehicle/Boarding.java` for the selected external
+seat restore predicate and attachment initialization,
+`src/main/java/dev/fourthdimension/vehicle/VehicleVisualState.java` for external
+seat restraint projection, and
+`src/main/java/dev/fourthdimension/mixin/RiderComfortMixin.java` for deterministic
+Immersion filter composition. Preserve native carrier/mount identity and all
+unrelated families. Normal seat selection uses a new addon-seat item interaction
+subscriber, avoiding concurrent edits to the Skin-owned editor/data files.
+
+**Runtime reservations:** lead display316, game/RCON25650/25651; Skin/Visual317,
+25652/25653; Seats/Immersion318,25654/25655. Additional real observer displays and
+ports require explicit same-owner reservation in this queue or handoff. These are
+reservations, not proof of live ownership: verify PID/cgroup before input. All
+use separate persistent roots and default1536M heap/6GiB client-only scopes after
+current resource checks. No runtime is active from the completed0.8 milestone.
+
 ### Milestone 0.8 complete — 2026-11-15
 
 All 23 cards are closed in the [acceptance record](evidence/0.8/acceptance.md).

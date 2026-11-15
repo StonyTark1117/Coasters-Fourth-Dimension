@@ -11,7 +11,7 @@ description='''Five original matching 4D track and car families for Create: Coas
 [[dependencies.fourthdimension]]
 modId="neoforge"
 type="required"
-versionRange="[21.1.248]"
+versionRange="[21.1.256]"
 ordering="NONE"
 side="BOTH"
 [[dependencies.fourthdimension]]
@@ -29,7 +29,7 @@ side="BOTH"
 [[dependencies.fourthdimension]]
 modId="sable"
 type="required"
-versionRange="[2.0.3]"
+versionRange="[2.0.6]"
 ordering="AFTER"
 side="BOTH"
 [[dependencies.fourthdimension]]
@@ -46,6 +46,6 @@ config="fourthdimension.mixins.json"
 [[dependencies.fourthdimension]]
 modId="veil"
 type="required"
-versionRange="[4.1.4]"
+versionRange="[4.3.2]"
 ordering="AFTER"
 side="CLIENT"

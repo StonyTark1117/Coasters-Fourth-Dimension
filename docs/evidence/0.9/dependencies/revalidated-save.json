@@ -1,0 +1,2549 @@
+{
+  "data": {
+    "schema": 8,
+    "rails": [
+      {
+        "original_curve": {
+          "Starts": [
+            {
+              "V": [
+                0.5,
+                0.75,
+                0.5
+              ]
+            },
+            {
+              "V": [
+                0.5,
+                0.75,
+                48.5
+              ]
+            }
+          ],
+          "Girder": 0,
+          "Normals": [
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          ],
+          "Primary": 1,
+          "Positions": [
+            {
+              "Pos": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "Pos": [
+                0,
+                0,
+                48
+              ]
+            }
+          ],
+          "Axes": [
+            {
+              "V": [
+                0.0,
+                0.0,
+                1.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                0.0,
+                -1.0
+              ]
+            }
+          ],
+          "Material": "simulatedcoasters:coaster_track"
+        },
+        "magnets": [],
+        "profile": [
+          {
+            "distance": 0.0,
+            "slope": 0.0,
+            "angle": 0.0
+          },
+          {
+            "distance": 48.0,
+            "slope": 0.0,
+            "angle": 0.0
+          }
+        ],
+        "lift_lock": 0,
+        "geometry_hash": -7763369288743831935,
+        "revision": 0,
+        "valid": 1,
+        "appearance": {
+          "tint": -1,
+          "id": "fourthdimension:original"
+        },
+        "provider": "fourthdimension:original",
+        "variant": "six_abreast_v1",
+        "from": 80,
+        "to": 196688,
+        "id": [
+          1296188242,
+          469713268,
+          -1178240045,
+          78140700
+        ],
+        "family": "dive"
+      },
+      {
+        "original_curve": {
+          "Starts": [
+            {
+              "V": [
+                0.5,
+                0.75,
+                0.5
+              ]
+            },
+            {
+              "V": [
+                0.5,
+                64.66758232720855,
+                96.22499999999437
+              ]
+            }
+          ],
+          "Girder": 0,
+          "Normals": [
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                0.8351646544170911,
+                -0.5500000000112554
+              ]
+            }
+          ],
+          "Primary": 1,
+          "Positions": [
+            {
+              "Pos": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "Pos": [
+                0,
+                64,
+                96
+              ]
+            }
+          ],
+          "Axes": [
+            {
+              "V": [
+                0.0,
+                0.0,
+                1.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                -0.55,
+                -0.8351646544
+              ]
+            }
+          ],
+          "Material": "simulatedcoasters:coaster_track"
+        },
+        "magnets": [],
+        "profile": [
+          {
+            "distance": 0.0,
+            "slope": 0.0,
+            "angle": 0.0
+          },
+          {
+            "distance": 117.51834905404857,
+            "slope": 0.0,
+            "angle": 0.0
+          }
+        ],
+        "lift_lock": 0,
+        "geometry_hash": 8238983947340668376,
+        "revision": 0,
+        "valid": 1,
+        "appearance": {
+          "tint": -1,
+          "id": "fourthdimension:original"
+        },
+        "provider": "fourthdimension:original",
+        "variant": "six_abreast_v1",
+        "from": 196688,
+        "to": 589968,
+        "id": [
+          1280013632,
+          542458322,
+          -1089123766,
+          590450625
+        ],
+        "family": "dive"
+      },
+      {
+        "original_curve": {
+          "Starts": [
+            {
+              "V": [
+                0.5,
+                0.6675823272085495,
+                0.22499999999436682
+              ]
+            },
+            {
+              "V": [
+                0.5,
+                32.75,
+                64.5
+              ]
+            }
+          ],
+          "Girder": 0,
+          "Normals": [
+            {
+              "V": [
+                0.0,
+                0.8351646544170911,
+                -0.5500000000112554
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          ],
+          "Primary": 1,
+          "Positions": [
+            {
+              "Pos": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "Pos": [
+                0,
+                32,
+                64
+              ]
+            }
+          ],
+          "Axes": [
+            {
+              "V": [
+                0.0,
+                0.55,
+                0.8351646544
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                0.0,
+                -1.0
+              ]
+            }
+          ],
+          "Material": "simulatedcoasters:coaster_track"
+        },
+        "magnets": [],
+        "profile": [
+          {
+            "distance": 0.0,
+            "slope": 0.0,
+            "angle": 0.0
+          },
+          {
+            "distance": 73.04706689722985,
+            "slope": 0.0,
+            "angle": 0.0
+          }
+        ],
+        "lift_lock": 0,
+        "geometry_hash": 4740039596958566675,
+        "revision": 0,
+        "valid": 1,
+        "appearance": {
+          "tint": -1,
+          "id": "fourthdimension:original"
+        },
+        "provider": "fourthdimension:original",
+        "variant": "six_abreast_v1",
+        "from": 589968,
+        "to": 852144,
+        "id": [
+          1643054524,
+          766723714,
+          -1163360334,
+          -1472404058
+        ],
+        "family": "dive"
+      },
+      {
+        "original_curve": {
+          "Starts": [
+            {
+              "V": [
+                0.5,
+                0.75,
+                0.5
+              ]
+            },
+            {
+              "V": [
+                0.5,
+                0.75,
+                32.5
+              ]
+            }
+          ],
+          "Girder": 0,
+          "Normals": [
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          ],
+          "Primary": 1,
+          "Positions": [
+            {
+              "Pos": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "Pos": [
+                0,
+                0,
+                32
+              ]
+            }
+          ],
+          "Axes": [
+            {
+              "V": [
+                0.0,
+                0.0,
+                1.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                0.0,
+                -1.0
+              ]
+            }
+          ],
+          "Material": "simulatedcoasters:coaster_track"
+        },
+        "magnets": [],
+        "profile": [
+          {
+            "distance": 0.0,
+            "slope": 0.0,
+            "angle": 0.0
+          },
+          {
+            "distance": 32.0,
+            "slope": 0.0,
+            "angle": 0.0
+          }
+        ],
+        "lift_lock": 0,
+        "geometry_hash": -2986741703940310143,
+        "revision": 0,
+        "valid": 1,
+        "appearance": {
+          "tint": -1,
+          "id": "fourthdimension:original"
+        },
+        "provider": "fourthdimension:original",
+        "variant": "six_abreast_v1",
+        "from": 852144,
+        "to": 983216,
+        "id": [
+          -972319339,
+          483147938,
+          -1085550213,
+          -692829700
+        ],
+        "family": "dive"
+      },
+      {
+        "original_curve": {
+          "Starts": [
+            {
+              "V": [
+                0.5,
+                0.75,
+                0.5
+              ]
+            },
+            {
+              "V": [
+                0.5,
+                -23.49806448723797,
+                40.931889450449205
+              ]
+            }
+          ],
+          "Girder": 0,
+          "Normals": [
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                0.5038710255240861,
+                0.8637789008984335
+              ]
+            }
+          ],
+          "Primary": 1,
+          "Positions": [
+            {
+              "Pos": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "Pos": [
+                0,
+                -24,
+                40
+              ]
+            }
+          ],
+          "Axes": [
+            {
+              "V": [
+                0.0,
+                0.0,
+                1.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                0.8637789008984335,
+                -0.5038710255240862
+              ]
+            }
+          ],
+          "Material": "simulatedcoasters:coaster_track"
+        },
+        "magnets": [],
+        "profile": [
+          {
+            "distance": 0.0,
+            "slope": 0.0,
+            "angle": 0.0
+          },
+          {
+            "distance": 49.19258392628921,
+            "slope": 0.0,
+            "angle": 0.0
+          }
+        ],
+        "lift_lock": 0,
+        "geometry_hash": -698040124088425643,
+        "revision": 0,
+        "valid": 1,
+        "appearance": {
+          "tint": -1,
+          "id": "fourthdimension:original"
+        },
+        "provider": "fourthdimension:original",
+        "variant": "six_abreast_v1",
+        "from": 983216,
+        "to": 1147032,
+        "id": [
+          1216481905,
+          -1760343149,
+          -1466416717,
+          -1543044549
+        ],
+        "family": "dive"
+      },
+      {
+        "original_curve": {
+          "Starts": [
+            {
+              "V": [
+                0.5,
+                0.5019355127620315,
+                0.931889450449205
+              ]
+            },
+            {
+              "V": [
+                0.5,
+                -47.498064487237954,
+                28.931889450449205
+              ]
+            }
+          ],
+          "Girder": 0,
+          "Normals": [
+            {
+              "V": [
+                0.0,
+                0.5038710255240861,
+                0.8637789008984335
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                0.5038710255240861,
+                0.8637789008984335
+              ]
+            }
+          ],
+          "Primary": 1,
+          "Positions": [
+            {
+              "Pos": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "Pos": [
+                0,
+                -48,
+                28
+              ]
+            }
+          ],
+          "Axes": [
+            {
+              "V": [
+                0.0,
+                -0.8637789008984335,
+                0.5038710255240862
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                0.8637789008984335,
+                -0.5038710255240862
+              ]
+            }
+          ],
+          "Material": "simulatedcoasters:coaster_track"
+        },
+        "magnets": [],
+        "profile": [
+          {
+            "distance": 0.0,
+            "slope": 0.0,
+            "angle": 0.0
+          },
+          {
+            "distance": 55.569775957798065,
+            "slope": 0.0,
+            "angle": 0.0
+          }
+        ],
+        "lift_lock": 0,
+        "geometry_hash": 5146794082271710714,
+        "revision": 0,
+        "valid": 1,
+        "appearance": {
+          "tint": -1,
+          "id": "fourthdimension:original"
+        },
+        "provider": "fourthdimension:original",
+        "variant": "six_abreast_v1",
+        "from": 1147032,
+        "to": 1261672,
+        "id": [
+          -1147617483,
+          -220708461,
+          -1892554010,
+          2122953575
+        ],
+        "family": "dive"
+      },
+      {
+        "original_curve": {
+          "Starts": [
+            {
+              "V": [
+                0.5,
+                0.5019355127620457,
+                0.931889450449205
+              ]
+            },
+            {
+              "V": [
+                0.5,
+                -23.25,
+                44.5
+              ]
+            }
+          ],
+          "Girder": 0,
+          "Normals": [
+            {
+              "V": [
+                0.0,
+                0.5038710255240861,
+                0.8637789008984335
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          ],
+          "Primary": 1,
+          "Positions": [
+            {
+              "Pos": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "Pos": [
+                0,
+                -24,
+                44
+              ]
+            }
+          ],
+          "Axes": [
+            {
+              "V": [
+                0.0,
+                -0.8637789008984335,
+                0.5038710255240862
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                0.0,
+                -1.0
+              ]
+            }
+          ],
+          "Material": "simulatedcoasters:coaster_track"
+        },
+        "magnets": [],
+        "profile": [
+          {
+            "distance": 0.0,
+            "slope": 0.0,
+            "angle": 0.0
+          },
+          {
+            "distance": 51.64309541231079,
+            "slope": 0.0,
+            "angle": 0.0
+          }
+        ],
+        "lift_lock": 0,
+        "geometry_hash": -1524304817338969631,
+        "revision": 0,
+        "valid": 1,
+        "appearance": {
+          "tint": -1,
+          "id": "fourthdimension:original"
+        },
+        "provider": "fourthdimension:original",
+        "variant": "six_abreast_v1",
+        "from": 1261672,
+        "to": 1441872,
+        "id": [
+          -1915405663,
+          98978386,
+          -2034431785,
+          -604178554
+        ],
+        "family": "dive"
+      },
+      {
+        "original_curve": {
+          "Starts": [
+            {
+              "V": [
+                0.5,
+                0.75,
+                0.5
+              ]
+            },
+            {
+              "V": [
+                32.5,
+                0.75,
+                32.5
+              ]
+            }
+          ],
+          "Girder": 0,
+          "Normals": [
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          ],
+          "Primary": 1,
+          "Positions": [
+            {
+              "Pos": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "Pos": [
+                32,
+                0,
+                32
+              ]
+            }
+          ],
+          "Axes": [
+            {
+              "V": [
+                0.0,
+                0.0,
+                1.0
+              ]
+            },
+            {
+              "V": [
+                -1.0,
+                0.0,
+                0.0
+              ]
+            }
+          ],
+          "Material": "simulatedcoasters:coaster_track"
+        },
+        "magnets": [],
+        "profile": [
+          {
+            "distance": 0.0,
+            "slope": 0.0,
+            "angle": 0.0
+          },
+          {
+            "distance": 50.272529165540874,
+            "slope": 0.0,
+            "angle": 0.0
+          }
+        ],
+        "lift_lock": 0,
+        "geometry_hash": -7888130686870739245,
+        "revision": 0,
+        "valid": 1,
+        "appearance": {
+          "tint": -1,
+          "id": "fourthdimension:original"
+        },
+        "provider": "fourthdimension:original",
+        "variant": "six_abreast_v1",
+        "from": 1441872,
+        "to": 8796094595152,
+        "id": [
+          1592989592,
+          1242648479,
+          -1251763718,
+          1740571189
+        ],
+        "family": "dive"
+      },
+      {
+        "original_curve": {
+          "Starts": [
+            {
+              "V": [
+                0.5,
+                0.75,
+                0.5
+              ]
+            },
+            {
+              "V": [
+                32.5,
+                0.75,
+                0.5
+              ]
+            }
+          ],
+          "Girder": 0,
+          "Normals": [
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          ],
+          "Primary": 1,
+          "Positions": [
+            {
+              "Pos": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "Pos": [
+                32,
+                0,
+                0
+              ]
+            }
+          ],
+          "Axes": [
+            {
+              "V": [
+                1.0,
+                0.0,
+                0.0
+              ]
+            },
+            {
+              "V": [
+                -1.0,
+                0.0,
+                0.0
+              ]
+            }
+          ],
+          "Material": "simulatedcoasters:coaster_track"
+        },
+        "magnets": [],
+        "profile": [
+          {
+            "distance": 0.0,
+            "slope": 0.0,
+            "angle": 0.0
+          },
+          {
+            "distance": 32.0,
+            "slope": 0.0,
+            "angle": 0.0
+          }
+        ],
+        "lift_lock": 0,
+        "geometry_hash": -3299687379762744703,
+        "revision": 0,
+        "valid": 1,
+        "appearance": {
+          "tint": -1,
+          "id": "fourthdimension:original"
+        },
+        "provider": "fourthdimension:original",
+        "variant": "six_abreast_v1",
+        "from": 8796094595152,
+        "to": 17592187617360,
+        "id": [
+          -862421717,
+          450121468,
+          -1379115993,
+          1702490243
+        ],
+        "family": "dive"
+      },
+      {
+        "original_curve": {
+          "Starts": [
+            {
+              "V": [
+                0.5,
+                0.75,
+                0.5
+              ]
+            },
+            {
+              "V": [
+                32.5,
+                0.75,
+                -31.5
+              ]
+            }
+          ],
+          "Girder": 0,
+          "Normals": [
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          ],
+          "Primary": 1,
+          "Positions": [
+            {
+              "Pos": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "Pos": [
+                32,
+                0,
+                -32
+              ]
+            }
+          ],
+          "Axes": [
+            {
+              "V": [
+                1.0,
+                0.0,
+                0.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                0.0,
+                1.0
+              ]
+            }
+          ],
+          "Material": "simulatedcoasters:coaster_track"
+        },
+        "magnets": [],
+        "profile": [
+          {
+            "distance": 0.0,
+            "slope": 0.0,
+            "angle": 0.0
+          },
+          {
+            "distance": 50.272529165540874,
+            "slope": 0.0,
+            "angle": 0.0
+          }
+        ],
+        "lift_lock": 0,
+        "geometry_hash": 3345796602430306281,
+        "revision": 0,
+        "valid": 1,
+        "appearance": {
+          "tint": -1,
+          "id": "fourthdimension:original"
+        },
+        "provider": "fourthdimension:original",
+        "variant": "six_abreast_v1",
+        "from": 17592187617360,
+        "to": 26388280508496,
+        "id": [
+          996562673,
+          467486120,
+          -1246494116,
+          -2038573889
+        ],
+        "family": "dive"
+      },
+      {
+        "original_curve": {
+          "Starts": [
+            {
+              "V": [
+                0.5,
+                0.75,
+                0.5
+              ]
+            },
+            {
+              "V": [
+                0.5,
+                0.75,
+                -63.5
+              ]
+            }
+          ],
+          "Girder": 0,
+          "Normals": [
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          ],
+          "Primary": 1,
+          "Positions": [
+            {
+              "Pos": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "Pos": [
+                0,
+                0,
+                -64
+              ]
+            }
+          ],
+          "Axes": [
+            {
+              "V": [
+                0.0,
+                0.0,
+                -1.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                0.0,
+                1.0
+              ]
+            }
+          ],
+          "Material": "simulatedcoasters:coaster_track"
+        },
+        "magnets": [],
+        "profile": [
+          {
+            "distance": 0.0,
+            "slope": 0.0,
+            "angle": 0.0
+          },
+          {
+            "distance": 64.0,
+            "slope": 0.0,
+            "angle": 0.0
+          }
+        ],
+        "lift_lock": 0,
+        "geometry_hash": -5768691320407482239,
+        "revision": 0,
+        "valid": 1,
+        "appearance": {
+          "tint": -1,
+          "id": "fourthdimension:original"
+        },
+        "provider": "fourthdimension:original",
+        "variant": "six_abreast_v1",
+        "from": 26388280508496,
+        "to": 26388280246352,
+        "id": [
+          -1121941521,
+          -596160560,
+          -2131955616,
+          838944242
+        ],
+        "family": "dive"
+      },
+      {
+        "original_curve": {
+          "Starts": [
+            {
+              "V": [
+                0.5,
+                0.75,
+                0.5
+              ]
+            },
+            {
+              "V": [
+                0.5,
+                0.75,
+                -63.5
+              ]
+            }
+          ],
+          "Girder": 0,
+          "Normals": [
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          ],
+          "Primary": 1,
+          "Positions": [
+            {
+              "Pos": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "Pos": [
+                0,
+                0,
+                -64
+              ]
+            }
+          ],
+          "Axes": [
+            {
+              "V": [
+                0.0,
+                0.0,
+                -1.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                0.0,
+                1.0
+              ]
+            }
+          ],
+          "Material": "simulatedcoasters:coaster_track"
+        },
+        "magnets": [],
+        "profile": [
+          {
+            "distance": 0.0,
+            "slope": 0.0,
+            "angle": 0.0
+          },
+          {
+            "distance": 64.0,
+            "slope": 0.0,
+            "angle": 0.0
+          }
+        ],
+        "lift_lock": 0,
+        "geometry_hash": 7387331192799645825,
+        "revision": 0,
+        "valid": 1,
+        "appearance": {
+          "tint": -1,
+          "id": "fourthdimension:original"
+        },
+        "provider": "fourthdimension:original",
+        "variant": "six_abreast_v1",
+        "from": 26388280246352,
+        "to": 26388279984208,
+        "id": [
+          -381684733,
+          1657292630,
+          -1249226256,
+          -1495839167
+        ],
+        "family": "dive"
+      },
+      {
+        "original_curve": {
+          "Starts": [
+            {
+              "V": [
+                0.5,
+                0.75,
+                0.5
+              ]
+            },
+            {
+              "V": [
+                0.5,
+                0.75,
+                -63.5
+              ]
+            }
+          ],
+          "Girder": 0,
+          "Normals": [
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          ],
+          "Primary": 1,
+          "Positions": [
+            {
+              "Pos": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "Pos": [
+                0,
+                0,
+                -64
+              ]
+            }
+          ],
+          "Axes": [
+            {
+              "V": [
+                0.0,
+                0.0,
+                -1.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                0.0,
+                1.0
+              ]
+            }
+          ],
+          "Material": "simulatedcoasters:coaster_track"
+        },
+        "magnets": [],
+        "profile": [
+          {
+            "distance": 0.0,
+            "slope": 0.0,
+            "angle": 0.0
+          },
+          {
+            "distance": 64.0,
+            "slope": 0.0,
+            "angle": 0.0
+          }
+        ],
+        "lift_lock": 0,
+        "geometry_hash": -2034953168874389375,
+        "revision": 0,
+        "valid": 1,
+        "appearance": {
+          "tint": -1,
+          "id": "fourthdimension:original"
+        },
+        "provider": "fourthdimension:original",
+        "variant": "six_abreast_v1",
+        "from": 26388279984208,
+        "to": 26388279722064,
+        "id": [
+          -605138028,
+          628247732,
+          -1350393249,
+          51237450
+        ],
+        "family": "dive"
+      },
+      {
+        "original_curve": {
+          "Starts": [
+            {
+              "V": [
+                0.5,
+                0.75,
+                0.5
+              ]
+            },
+            {
+              "V": [
+                0.5,
+                0.75,
+                -63.5
+              ]
+            }
+          ],
+          "Girder": 0,
+          "Normals": [
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          ],
+          "Primary": 1,
+          "Positions": [
+            {
+              "Pos": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "Pos": [
+                0,
+                0,
+                -64
+              ]
+            }
+          ],
+          "Axes": [
+            {
+              "V": [
+                0.0,
+                0.0,
+                -1.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                0.0,
+                1.0
+              ]
+            }
+          ],
+          "Material": "simulatedcoasters:coaster_track"
+        },
+        "magnets": [],
+        "profile": [
+          {
+            "distance": 0.0,
+            "slope": 0.0,
+            "angle": 0.0
+          },
+          {
+            "distance": 64.0,
+            "slope": 0.0,
+            "angle": 0.0
+          }
+        ],
+        "lift_lock": 0,
+        "geometry_hash": -5475122946986545023,
+        "revision": 0,
+        "valid": 1,
+        "appearance": {
+          "tint": -1,
+          "id": "fourthdimension:original"
+        },
+        "provider": "fourthdimension:original",
+        "variant": "six_abreast_v1",
+        "from": 26388279722064,
+        "to": 26388279459920,
+        "id": [
+          -691620845,
+          2125152265,
+          -1164670949,
+          -1930220429
+        ],
+        "family": "dive"
+      },
+      {
+        "original_curve": {
+          "Starts": [
+            {
+              "V": [
+                0.5,
+                0.75,
+                0.5
+              ]
+            },
+            {
+              "V": [
+                0.5,
+                0.75,
+                -47.5
+              ]
+            }
+          ],
+          "Girder": 0,
+          "Normals": [
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          ],
+          "Primary": 1,
+          "Positions": [
+            {
+              "Pos": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "Pos": [
+                0,
+                0,
+                -48
+              ]
+            }
+          ],
+          "Axes": [
+            {
+              "V": [
+                0.0,
+                0.0,
+                -1.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                0.0,
+                1.0
+              ]
+            }
+          ],
+          "Material": "simulatedcoasters:coaster_track"
+        },
+        "magnets": [],
+        "profile": [
+          {
+            "distance": 0.0,
+            "slope": 0.0,
+            "angle": 0.0
+          },
+          {
+            "distance": 48.0,
+            "slope": 0.0,
+            "angle": 0.0
+          }
+        ],
+        "lift_lock": 0,
+        "geometry_hash": 3592572952802509697,
+        "revision": 0,
+        "valid": 1,
+        "appearance": {
+          "tint": -1,
+          "id": "fourthdimension:original"
+        },
+        "provider": "fourthdimension:original",
+        "variant": "six_abreast_v1",
+        "from": 26388279459920,
+        "to": 26388279263312,
+        "id": [
+          1983811405,
+          1000818406,
+          -1804901904,
+          -389665242
+        ],
+        "family": "dive"
+      },
+      {
+        "original_curve": {
+          "Starts": [
+            {
+              "V": [
+                0.5,
+                0.75,
+                0.5
+              ]
+            },
+            {
+              "V": [
+                0.5,
+                0.75,
+                -47.5
+              ]
+            }
+          ],
+          "Girder": 0,
+          "Normals": [
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          ],
+          "Primary": 1,
+          "Positions": [
+            {
+              "Pos": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "Pos": [
+                0,
+                0,
+                -48
+              ]
+            }
+          ],
+          "Axes": [
+            {
+              "V": [
+                0.0,
+                0.0,
+                -1.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                0.0,
+                1.0
+              ]
+            }
+          ],
+          "Material": "simulatedcoasters:coaster_track"
+        },
+        "magnets": [],
+        "profile": [
+          {
+            "distance": 0.0,
+            "slope": 0.0,
+            "angle": 0.0
+          },
+          {
+            "distance": 48.0,
+            "slope": 0.0,
+            "angle": 0.0
+          }
+        ],
+        "lift_lock": 0,
+        "geometry_hash": -789307621555454079,
+        "revision": 0,
+        "valid": 1,
+        "appearance": {
+          "tint": -1,
+          "id": "fourthdimension:original"
+        },
+        "provider": "fourthdimension:original",
+        "variant": "six_abreast_v1",
+        "from": 26388279263312,
+        "to": 26388279066704,
+        "id": [
+          -1299007734,
+          -294893832,
+          -2089069707,
+          -1206801281
+        ],
+        "family": "dive"
+      },
+      {
+        "original_curve": {
+          "Starts": [
+            {
+              "V": [
+                0.5,
+                0.75,
+                0.5
+              ]
+            },
+            {
+              "V": [
+                -31.5,
+                0.75,
+                -31.5
+              ]
+            }
+          ],
+          "Girder": 0,
+          "Normals": [
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          ],
+          "Primary": 1,
+          "Positions": [
+            {
+              "Pos": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "Pos": [
+                -32,
+                0,
+                -32
+              ]
+            }
+          ],
+          "Axes": [
+            {
+              "V": [
+                0.0,
+                0.0,
+                -1.0
+              ]
+            },
+            {
+              "V": [
+                1.0,
+                0.0,
+                0.0
+              ]
+            }
+          ],
+          "Material": "simulatedcoasters:coaster_track"
+        },
+        "magnets": [],
+        "profile": [
+          {
+            "distance": 0.0,
+            "slope": 0.0,
+            "angle": 0.0
+          },
+          {
+            "distance": 50.27253011433404,
+            "slope": 0.0,
+            "angle": 0.0
+          }
+        ],
+        "lift_lock": 0,
+        "geometry_hash": -9112734543878589237,
+        "revision": 0,
+        "valid": 1,
+        "appearance": {
+          "tint": -1,
+          "id": "fourthdimension:original"
+        },
+        "provider": "fourthdimension:original",
+        "variant": "six_abreast_v1",
+        "from": 26388279066704,
+        "to": 17867063820368,
+        "id": [
+          -1612551067,
+          336481417,
+          -1863122658,
+          -2083401109
+        ],
+        "family": "dive"
+      },
+      {
+        "original_curve": {
+          "Starts": [
+            {
+              "V": [
+                0.5,
+                0.75,
+                0.5
+              ]
+            },
+            {
+              "V": [
+                -31.5,
+                0.75,
+                0.5
+              ]
+            }
+          ],
+          "Girder": 0,
+          "Normals": [
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          ],
+          "Primary": 1,
+          "Positions": [
+            {
+              "Pos": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "Pos": [
+                -32,
+                0,
+                0
+              ]
+            }
+          ],
+          "Axes": [
+            {
+              "V": [
+                -1.0,
+                0.0,
+                0.0
+              ]
+            },
+            {
+              "V": [
+                1.0,
+                0.0,
+                0.0
+              ]
+            }
+          ],
+          "Material": "simulatedcoasters:coaster_track"
+        },
+        "magnets": [],
+        "profile": [
+          {
+            "distance": 0.0,
+            "slope": 0.0,
+            "angle": 0.0
+          },
+          {
+            "distance": 32.0,
+            "slope": 0.0,
+            "angle": 0.0
+          }
+        ],
+        "lift_lock": 0,
+        "geometry_hash": -3390681346530569599,
+        "revision": 0,
+        "valid": 1,
+        "appearance": {
+          "tint": -1,
+          "id": "fourthdimension:original"
+        },
+        "provider": "fourthdimension:original",
+        "variant": "six_abreast_v1",
+        "from": 17867063820368,
+        "to": 9070970798160,
+        "id": [
+          1242227745,
+          -1958916137,
+          -1506160814,
+          -1362651014
+        ],
+        "family": "dive"
+      },
+      {
+        "original_curve": {
+          "Starts": [
+            {
+              "V": [
+                0.5,
+                0.75,
+                0.5
+              ]
+            },
+            {
+              "V": [
+                -31.5,
+                0.75,
+                32.5
+              ]
+            }
+          ],
+          "Girder": 0,
+          "Normals": [
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          ],
+          "Primary": 1,
+          "Positions": [
+            {
+              "Pos": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "Pos": [
+                -32,
+                0,
+                32
+              ]
+            }
+          ],
+          "Axes": [
+            {
+              "V": [
+                -1.0,
+                0.0,
+                0.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                0.0,
+                -1.0
+              ]
+            }
+          ],
+          "Material": "simulatedcoasters:coaster_track"
+        },
+        "magnets": [],
+        "profile": [
+          {
+            "distance": 0.0,
+            "slope": 0.0,
+            "angle": 0.0
+          },
+          {
+            "distance": 50.272529165540945,
+            "slope": 0.0,
+            "angle": 0.0
+          }
+        ],
+        "lift_lock": 0,
+        "geometry_hash": -8469380760337113919,
+        "revision": 0,
+        "valid": 1,
+        "appearance": {
+          "tint": -1,
+          "id": "fourthdimension:original"
+        },
+        "provider": "fourthdimension:original",
+        "variant": "six_abreast_v1",
+        "from": 9070970798160,
+        "to": 80,
+        "id": [
+          -639947558,
+          -1088401715,
+          -1727512483,
+          885025836
+        ],
+        "family": "dive"
+      },
+      {
+        "original_curve": {
+          "Starts": [
+            {
+              "V": [
+                0.5,
+                0.75,
+                0.5
+              ]
+            },
+            {
+              "V": [
+                0.5,
+                0.75,
+                48.5
+              ]
+            }
+          ],
+          "Girder": 0,
+          "Normals": [
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          ],
+          "Primary": 1,
+          "Positions": [
+            {
+              "Pos": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "Pos": [
+                0,
+                0,
+                48
+              ]
+            }
+          ],
+          "Axes": [
+            {
+              "V": [
+                0.0,
+                0.0,
+                1.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                0.0,
+                -1.0
+              ]
+            }
+          ],
+          "Material": "simulatedcoasters:coaster_track"
+        },
+        "magnets": [],
+        "profile": [
+          {
+            "distance": 0.0,
+            "slope": 0.0,
+            "angle": 0.0
+          },
+          {
+            "distance": 48.0,
+            "slope": 0.0,
+            "angle": 0.0
+          }
+        ],
+        "lift_lock": 0,
+        "geometry_hash": -3148962017876880767,
+        "revision": 0,
+        "valid": 1,
+        "appearance": {
+          "tint": -1,
+          "id": "fourthdimension:original"
+        },
+        "provider": "fourthdimension:original",
+        "variant": "six_abreast_v1",
+        "from": 60473139576912,
+        "to": 60473139773520,
+        "id": [
+          1400022730,
+          1676167542,
+          -1209850086,
+          -675689328
+        ],
+        "family": "dive"
+      }
+    ],
+    "vehicles": [
+      {
+        "alignment_required": 0,
+        "contact_layout": "coasters_n_contacts_v1",
+        "mount_frame": "wide_fixed_row_v1",
+        "ctnb": {
+          "kind": "",
+          "remaining": 0
+        },
+        "fixed_dock_from": 80,
+        "variant": "six_abreast_v1",
+        "restraints": 0,
+        "dive": {
+          "phase": "DOCK_CLOSED",
+          "controller": -1374388387688,
+          "needs_resume": 0,
+          "from": 1147032,
+          "geometry": 5146794082271710714,
+          "to": 1261672,
+          "version": 1,
+          "release_epoch": 1,
+          "remaining": 0
+        },
+        "dock": -1374389460912,
+        "fixed_dock_geometry": -7763369288743831935,
+        "fault": "",
+        "boundTo": 196688,
+        "carriers": [
+          {
+            "side": 0.0,
+            "rider_seats": [],
+            "lift_pending": 0,
+            "capture": 1,
+            "body": [
+              719780374,
+              -1484632332,
+              -1723327663,
+              -142341919
+            ],
+            "seats": [
+              -549755813887,
+              -274877906943,
+              1,
+              274877906945,
+              549755813889,
+              824633720833
+            ],
+            "ballast": 0.0,
+            "lift_geometry": 0,
+            "lift_entered": 0,
+            "pivot_height": 0.0,
+            "capture_target": 0.0,
+            "lift_held": 0,
+            "latched": 0,
+            "longitudinal": 0.0,
+            "child_pivot_offset": 0.0,
+            "child_pivot_x": 0.0,
+            "child_pivot_z": 0.0,
+            "occupants": []
+          }
+        ],
+        "chassis": [
+          719780374,
+          -1484632332,
+          -1723327663,
+          -142341919
+        ],
+        "damping": 0.0,
+        "boundFrom": 80,
+        "fixed_consist": [
+          [
+            719780374,
+            -1484632332,
+            -1723327663,
+            -142341919
+          ],
+          [
+            1866656584,
+            -1766765285,
+            -1306424058,
+            -209757723
+          ],
+          [
+            1805106168,
+            1144014818,
+            -1836461183,
+            -752503741
+          ]
+        ],
+        "ballast": 0.0,
+        "revision": 26,
+        "fixed_dock_to": 196688,
+        "boarding_ready": 1,
+        "stopping": 1,
+        "authority": {
+          "owner": [
+            16726100,
+            1567703778,
+            -1205476748,
+            962709060
+          ],
+          "sequence": 17,
+          "reason": "Restored authority requires explicit Resume",
+          "cars": [
+            [
+              719780374,
+              -1484632332,
+              -1723327663,
+              -142341919
+            ],
+            [
+              1866656584,
+              -1766765285,
+              -1306424058,
+              -209757723
+            ],
+            [
+              1805106168,
+              1144014818,
+              -1836461183,
+              -752503741
+            ]
+          ],
+          "controller": -1374388387688,
+          "provider": "native_chain",
+          "held": 1,
+          "epoch": 10,
+          "suspended": 1,
+          "direction": 1
+        },
+        "shuttle_detached": 0,
+        "family": "dive",
+        "suspended_consist": [],
+        "maintenance": 0
+      },
+      {
+        "alignment_required": 0,
+        "contact_layout": "coasters_n_contacts_v1",
+        "mount_frame": "wide_fixed_row_v1",
+        "ctnb": {
+          "kind": "",
+          "remaining": 0
+        },
+        "fixed_dock_from": 80,
+        "variant": "six_abreast_v1",
+        "restraints": 0,
+        "dive": {
+          "phase": "DOCK_CLOSED",
+          "controller": -1374388387688,
+          "needs_resume": 0,
+          "from": 1147032,
+          "geometry": 5146794082271710714,
+          "to": 1261672,
+          "version": 1,
+          "release_epoch": 1,
+          "remaining": 0
+        },
+        "dock": -1374389460912,
+        "fixed_dock_geometry": -7763369288743831935,
+        "fault": "",
+        "boundTo": 196688,
+        "carriers": [
+          {
+            "side": 0.0,
+            "rider_seats": [],
+            "lift_pending": 0,
+            "capture": 1,
+            "body": [
+              1866656584,
+              -1766765285,
+              -1306424058,
+              -209757723
+            ],
+            "seats": [
+              -549755813887,
+              -274877906943,
+              1,
+              274877906945,
+              549755813889,
+              824633720833
+            ],
+            "ballast": 0.0,
+            "lift_geometry": 0,
+            "lift_entered": 0,
+            "pivot_height": 0.0,
+            "capture_target": 0.0,
+            "lift_held": 0,
+            "latched": 0,
+            "longitudinal": 0.0,
+            "child_pivot_offset": 0.0,
+            "child_pivot_x": 0.0,
+            "child_pivot_z": 0.0,
+            "occupants": []
+          }
+        ],
+        "chassis": [
+          1866656584,
+          -1766765285,
+          -1306424058,
+          -209757723
+        ],
+        "damping": 0.0,
+        "boundFrom": 80,
+        "fixed_consist": [
+          [
+            719780374,
+            -1484632332,
+            -1723327663,
+            -142341919
+          ],
+          [
+            1866656584,
+            -1766765285,
+            -1306424058,
+            -209757723
+          ],
+          [
+            1805106168,
+            1144014818,
+            -1836461183,
+            -752503741
+          ]
+        ],
+        "ballast": 0.0,
+        "revision": 26,
+        "fixed_dock_to": 196688,
+        "boarding_ready": 1,
+        "stopping": 1,
+        "authority": {
+          "owner": [
+            16726100,
+            1567703778,
+            -1205476748,
+            962709060
+          ],
+          "sequence": 17,
+          "reason": "Restored authority requires explicit Resume",
+          "cars": [
+            [
+              719780374,
+              -1484632332,
+              -1723327663,
+              -142341919
+            ],
+            [
+              1866656584,
+              -1766765285,
+              -1306424058,
+              -209757723
+            ],
+            [
+              1805106168,
+              1144014818,
+              -1836461183,
+              -752503741
+            ]
+          ],
+          "controller": -1374388387688,
+          "provider": "native_chain",
+          "held": 1,
+          "epoch": 10,
+          "suspended": 1,
+          "direction": 1
+        },
+        "shuttle_detached": 0,
+        "family": "dive",
+        "suspended_consist": [],
+        "maintenance": 0
+      },
+      {
+        "alignment_required": 0,
+        "contact_layout": "coasters_n_contacts_v1",
+        "mount_frame": "wide_fixed_row_v1",
+        "ctnb": {
+          "kind": "",
+          "remaining": 0
+        },
+        "fixed_dock_from": 80,
+        "variant": "six_abreast_v1",
+        "restraints": 0,
+        "dive": {
+          "phase": "DOCK_CLOSED",
+          "controller": -1374388387688,
+          "needs_resume": 0,
+          "from": 1147032,
+          "geometry": 5146794082271710714,
+          "to": 1261672,
+          "version": 1,
+          "release_epoch": 1,
+          "remaining": 0
+        },
+        "dock": -1374389460912,
+        "fixed_dock_geometry": -7763369288743831935,
+        "fault": "",
+        "boundTo": 196688,
+        "carriers": [
+          {
+            "side": 0.0,
+            "rider_seats": [],
+            "lift_pending": 0,
+            "capture": 1,
+            "body": [
+              1805106168,
+              1144014818,
+              -1836461183,
+              -752503741
+            ],
+            "seats": [
+              -549755813887,
+              -274877906943,
+              1,
+              274877906945,
+              549755813889,
+              824633720833
+            ],
+            "ballast": 0.0,
+            "lift_geometry": 0,
+            "lift_entered": 0,
+            "pivot_height": 0.0,
+            "capture_target": 0.0,
+            "lift_held": 0,
+            "latched": 0,
+            "longitudinal": 0.0,
+            "child_pivot_offset": 0.0,
+            "child_pivot_x": 0.0,
+            "child_pivot_z": 0.0,
+            "occupants": []
+          }
+        ],
+        "chassis": [
+          1805106168,
+          1144014818,
+          -1836461183,
+          -752503741
+        ],
+        "damping": 0.0,
+        "boundFrom": 80,
+        "fixed_consist": [
+          [
+            719780374,
+            -1484632332,
+            -1723327663,
+            -142341919
+          ],
+          [
+            1866656584,
+            -1766765285,
+            -1306424058,
+            -209757723
+          ],
+          [
+            1805106168,
+            1144014818,
+            -1836461183,
+            -752503741
+          ]
+        ],
+        "ballast": 0.0,
+        "revision": 26,
+        "fixed_dock_to": 196688,
+        "boarding_ready": 1,
+        "stopping": 1,
+        "authority": {
+          "owner": [
+            16726100,
+            1567703778,
+            -1205476748,
+            962709060
+          ],
+          "sequence": 17,
+          "reason": "Restored authority requires explicit Resume",
+          "cars": [
+            [
+              719780374,
+              -1484632332,
+              -1723327663,
+              -142341919
+            ],
+            [
+              1866656584,
+              -1766765285,
+              -1306424058,
+              -209757723
+            ],
+            [
+              1805106168,
+              1144014818,
+              -1836461183,
+              -752503741
+            ]
+          ],
+          "controller": -1374388387688,
+          "provider": "native_chain",
+          "held": 1,
+          "epoch": 10,
+          "suspended": 1,
+          "direction": 1
+        },
+        "shuttle_detached": 0,
+        "family": "dive",
+        "suspended_consist": [],
+        "maintenance": 0
+      },
+      {
+        "alignment_required": 0,
+        "contact_layout": "coasters_n_contacts_v1",
+        "mount_frame": "wide_fixed_row_v1",
+        "ctnb": {
+          "kind": "",
+          "remaining": 0
+        },
+        "fixed_dock_from": 60473139576912,
+        "variant": "six_abreast_v1",
+        "restraints": 1,
+        "dive": {
+          "phase": "DOCK_OPEN",
+          "geometry": 0,
+          "version": 1,
+          "needs_resume": 0,
+          "release_epoch": 0,
+          "remaining": 60
+        },
+        "dock": 59098750091344,
+        "fixed_dock_geometry": -3148962017876880767,
+        "fault": "",
+        "boundTo": 60473139773520,
+        "carriers": [
+          {
+            "side": 0.0,
+            "rider_seats": [],
+            "lift_pending": 0,
+            "capture": 1,
+            "body": [
+              1821507292,
+              1780958021,
+              -1667371362,
+              -171063125
+            ],
+            "seats": [
+              -549755813887,
+              -274877906943,
+              1,
+              274877906945,
+              549755813889,
+              824633720833
+            ],
+            "ballast": 0.0,
+            "lift_geometry": 0,
+            "lift_entered": 0,
+            "pivot_height": 0.0,
+            "capture_target": 0.0,
+            "lift_held": 0,
+            "latched": 0,
+            "longitudinal": 0.0,
+            "child_pivot_offset": 0.0,
+            "child_pivot_x": 0.0,
+            "child_pivot_z": 0.0,
+            "occupants": []
+          }
+        ],
+        "chassis": [
+          1821507292,
+          1780958021,
+          -1667371362,
+          -171063125
+        ],
+        "damping": 0.0,
+        "boundFrom": 60473139576912,
+        "fixed_consist": [],
+        "ballast": 0.0,
+        "revision": 2,
+        "fixed_dock_to": 60473139773520,
+        "boarding_ready": 1,
+        "stopping": 1,
+        "authority": {},
+        "shuttle_detached": 0,
+        "family": "dive",
+        "suspended_consist": [],
+        "maintenance": 0
+      }
+    ]
+  },
+  "DataVersion": 3955
+}

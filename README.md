@@ -78,12 +78,12 @@ Install the addon and its dependencies on both client and server:
 | Component | Tested version |
 | --- | --- |
 | Minecraft / Java | 1.21.1 / Java 21 |
-| NeoForge | 21.1.248 |
+| NeoForge | 21.1.256 |
 | Create | 6.0.10 |
 | Create: Coasters Simulated | 0.1.5 |
-| Sable | 2.0.3 |
+| Sable | 2.0.6 |
 
-Use the dependencies supplied by those mods, including Flywheel 1.0.6, Sable Companion 1.6.0 and Veil 4.1.4. Exact development artifact pins are in [build.gradle](build.gradle). No optional coaster addon is required or bundled.
+Use the dependencies supplied by those mods, including Flywheel 1.0.6, Sable Companion 1.6.0 and Veil 4.3.2. The [0.9 dependency checkpoint](docs/evidence/0.9/dependencies/README.md) records the qualified upgrade. Exact development artifact pins are in [build.gradle](build.gradle). No optional coaster addon is required or bundled.
 
 Build and ride within **±1024 blocks of horizontal world origin**. The foundation exposed a native physics precision issue at large coordinates; this restriction remains in the current development build. A dimension supports up to 256 sections, 64 vehicles and 8192 total rotation-profile keys, and 512 magnetic spans (eight per section). Back up valuable worlds before trying a development build.
 

@@ -93,7 +93,7 @@ whole-JAR equality is not required. Keep the original run identity and limits.
 | 0.6 | FD1501A–C, FD1301A–C, FD1601A–C, FD601 | Complete 2026-11-15 | S1 conventional free-spinning, Suspended and Fixed Inverted: axes, loading, capture, swing locks and fixed overhead seating. |
 | 0.7 | FD1302A–C, FD1502A–C, FD1801A–C, FD1802A–C, FD1803, FD701 | Complete | Axis/Roller Ball and both Flying variants; New-generation Flying proves scenery-facing yaw in seated and prone postures. |
 | 0.8 | FD1401A–C, FD1501D–F, FD1701A, FD1702A–C, FD1901A–C, FD1902, FD810–FD813 | In progress | Pipeline, S2, Dive, Powered Inverted Yaw, required operating authority and agreed Additions/CTNB/Magnetized capabilities. |
-| 0.9 | FD910–FD916 | Planned | Skin, rotating-seat integration, Immersion, Waterparked/Create Coasters coexistence, and model/texture quality across original and added families. |
+| 0.9 | FD910–FD916 | Active | Skin, rotating-seat integration, Immersion, Waterparked/Create Coasters coexistence, and model/texture quality across original and added families. |
 | 1.0 alpha | FD1000 | Planned | All adopted vehicle families, variants and 1.0 integrations complete; freeze feature scope and supported profiles. |
 | 1.0 beta / RC | FD901–FD905 | Evidence in progress; final gates open | Integrated stabilization, compatibility, lifecycle, migration, rendering and performance; carry accepted cases forward. |
 | 1.0 stable | FD1001–FD1003 | Planned | Final documentation, reproducible packaging and separately authorized publication. |
@@ -607,10 +607,12 @@ or 0.9; FD503 requires their decisions, not all their implementations.
 | <a id="fd501b"></a> **FD501B Additions prerequisites — complete** [Steps](docs/roadmap/0.8-operations.md#fd501b) | FD810, FD911 | Resolve embedded identity and common required dependencies; implement only necessary upgrades/migration. Seat-only prerequisites belong to FD911 and do not block FD810 or closure of this shared baseline. |
 | <a id="fd501c"></a> **FD501C CTNB prerequisites — complete** [Steps](docs/roadmap/0.8-operations.md#fd501c) | FD811 | Resolve selected material/control dependencies and any functional-provider migration required by those capabilities. |
 | <a id="fd501d"></a> **FD501D Magnetized prerequisites — complete** [Steps](docs/roadmap/0.8-operations.md#fd501d) | FD812 | Resolve the propulsion adapter's dependency and version requirements. |
-| <a id="fd501e"></a> **FD501E Coaster Skin prerequisites — planned** [Steps](docs/roadmap/0.9-presentation.md#fd501e) | FD910 | Resolve required core/graphics versions and body/seat-provider changes for the agreed Skin capabilities. |
-| <a id="fd501f"></a> **FD501F Immersion prerequisites — planned** [Steps](docs/roadmap/0.9-presentation.md#fd501f) | FD912 | Resolve the client effects stack and client/server installation constraints. |
-| <a id="fd501g"></a> **FD501G Waterparked prerequisites — planned** [Steps](docs/roadmap/0.9-presentation.md#fd501g) | FD913 | Resolve the selected coexistence profile's dependencies and shared graph/render constraints. |
-| <a id="fd501h"></a> **FD501H Create Coasters prerequisites — planned** [Steps](docs/roadmap/0.9-presentation.md#fd501h) | FD914 | Resolve the selected utility/coexistence profile's dependencies. |
+| <a id="fd501e"></a> **FD501E Coaster Skin prerequisites — complete 2026-11-15** [Steps](docs/roadmap/0.9-presentation.md#fd501e) | FD910 | Resolve required core/graphics versions and body/seat-provider changes for the agreed Skin capabilities. |
+| <a id="fd501f"></a> **FD501F Immersion prerequisites — complete 2026-11-15** [Steps](docs/roadmap/0.9-presentation.md#fd501f) | FD912 | Resolve the client effects stack and client/server installation constraints. |
+| <a id="fd501g"></a> **FD501G Waterparked prerequisites — complete 2026-11-15** [Steps](docs/roadmap/0.9-presentation.md#fd501g) | FD913 | Resolve the selected coexistence profile's dependencies and shared graph/render constraints. |
+| <a id="fd501h"></a> **FD501H Create Coasters prerequisites — complete 2026-11-15** [Steps](docs/roadmap/0.9-presentation.md#fd501h) | FD914 | Resolve the selected utility/coexistence profile's dependencies. |
+
+FD501E–H dependency dispositions and affected upgrade evidence: [0.9 baseline](docs/evidence/0.9/dependencies/README.md). Consumer feature/coexistence acceptance remains in FD910–FD914.
 
 Each row closes when its consumed baseline is usable on `main` and affected
 dependency/load/migration checks pass, or a documented no-change decision suffices.
@@ -736,6 +738,9 @@ Shared control/ownership changes use one owner and integrate before dependent
 adapters. One adapter's dependency issue need not idle independent vehicle work.
 
 ## Milestone 0.9 — presentation, optional seats, coexistence and visual quality
+
+**Active 2026-11-15.** Eleven assignments are recorded in the
+[current queue](docs/CURRENT-QUALIFICATION.md#current-work-queue).
 
 Presentation and seat integrations follow stable representative fixed, freely
 rotating and constrained-motion vehicles. Read-only inspection and asset concepts

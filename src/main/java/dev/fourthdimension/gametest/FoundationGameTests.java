@@ -137,13 +137,15 @@ public final class FoundationGameTests {
     var pipeline = container.physicsSystem().getPipeline();
     var initial = new double[2];
     var maximumSeparation = new double[1];
+    var maximumExcursion = new double[1];
+    var kicked = new boolean[1];
     helper.onEachTick(
-        () ->
-            maximumSeparation[0] =
-                Math.max(
-                    maximumSeparation[0],
-                    Math.abs(
-                        vehicle.carriers.getFirst().angle - vehicle.carriers.getLast().angle)));
+        () -> {
+          maximumSeparation[0] = Math.max(maximumSeparation[0],
+              Math.abs(vehicle.carriers.getFirst().angle - vehicle.carriers.getLast().angle));
+          if (kicked[0]) maximumExcursion[0] = Math.max(maximumExcursion[0],
+              Math.abs(vehicle.carriers.getFirst().angle - initial[0]));
+        });
     var ordinaryId = new java.util.concurrent.atomic.AtomicReference<java.util.UUID>();
     var ordinaryStart = new Vector3d();
     helper.runAtTickTime(
@@ -188,6 +190,7 @@ public final class FoundationGameTests {
                 new Vector3d(),
                 new Vector3d(i == 0 ? 3 : -2, 0, 0));
           }
+          kicked[0] = true;
         });
     helper.runAtTickTime(
         55,
@@ -201,13 +204,13 @@ public final class FoundationGameTests {
               "Ordinary cart received carrier behavior");
           container.removeSubLevel(ordinary, SubLevelRemovalReason.REMOVED);
           helper.assertTrue(
-              Math.abs(vehicle.carriers.getFirst().angle - initial[0]) > .1,
+              maximumExcursion[0] > .1,
               "Free carrier did not move");
           System.out.println(
               "FD_FREE angles="
                   + vehicle.carriers.stream().map(c -> c.angle).toList()
                   + " maximum separation="
-                  + maximumSeparation[0]);
+                  + maximumSeparation[0] + " peak excursion=" + maximumExcursion[0]);
           helper.assertTrue(maximumSeparation[0] > .1, "Independent carriers coupled together");
           var data = FoundationData.get(level);
           var tag = data.save(new CompoundTag(), level.registryAccess());

@@ -1,0 +1,19 @@
+{
+  "artifact": "/home/braydon/.local/state/fourthdimension-fd501-catalog-20261114/coasters-immersion-1672383-9542588.jar",
+  "fileId": 9542588,
+  "version": "1.1.1",
+  "modId": "coasters_immersion",
+  "sha256": "df3332b03763bee3f32206b6716ff3d6963869d944171bc743ad3c40c3353c8b",
+  "classes": {
+    "api/CoasterCart": "4e6b69d38a01a952876de4b17eb13ed1fa1489d8bb51a55634d89823359a08a2",
+    "client/ride/RideScope": "f74f20f1305c4bc534d80809e3dfdc7d8299f9f3ef75635b298e7ecaa5953ec3",
+    "smooth/CameraFilter": "22067f6fc86ba288eda67e563fcd663c77c4527ace0506270cceca3c4d6abd74",
+    "mixin/sable/EntitySubLevelRotationHelperMixin": "7534daaac8ffe641d933a6bfde86e222245cc3dceb7bb3dafb8662e5e0ac671e",
+    "mixin/sable/ClientSubLevelRenderPoseMixin": "a6b99e8b300876d4875020b24d717aecd648da3e0fb9a26e333136b2a5460588",
+    "mixin/sable/SubLevelSnapshotInterpolatorMixin": "a9191cd6924bfb5f16a96d07f88b2b21181438cbc2cec03af19fde5fec5acd08",
+    "client/camera/CinematicCamera": "1271b5204d3531315cd1d23d24236328f3b09012552db11ab4a5430d98b77b68",
+    "mixin/CameraTravelMixin": "1446fb62891488a2d71b6be215257375106efe28fc38e1fba0ca8e1cd3a741b8",
+    "animation/RiderForces": "6955e9105d68018566152d5b63cfb7033f7000fe39ae1290d09b8f3a8a2006e8",
+    "client/PassengerFacing": "ed3622a311738f7cccb3b5c3b1afb8b3b4f5e8b2689695be915e08f482659b77"
+  }
+}

@@ -1,0 +1,122 @@
+modLoader = "javafml"
+loaderVersion = "[4,)"
+license = "MIT"
+
+[[mods]]
+modId = "coasters_immersion"
+
+# Solo cliente: son efectos visuales y de sonido, nada que el servidor necesite saber.
+#
+# Sin esto, un servidor sin el mod rechazaba la conexion por no coincidir la lista de mods, y quien
+# solo queria mejorar como SE VE su atraccion tenia que convencer al administrador de instalarlo.
+# Con IGNORE_SERVER_VERSION el mod deja de participar en esa comprobacion.
+displayTest = "IGNORE_SERVER_VERSION"
+version = "1.1.1"
+displayName = "Coasters: Immersion"
+authors = "mitowav"
+logoFile = "logo.png"
+
+# Los fallos se reportan en el Discord: sale como enlace en la lista de mods del juego.
+issueTrackerURL = "https://discord.gg/W7QBdJ2JdA"
+description = '''
+Camera and physicality for Create: Coasters Simulated. Client side only: install it on your
+own game, no server needed.
+
+Your view stops being welded to the cart and starts behaving like a neck. It follows with
+weight, leans into banked curves, whips through wave turns, rocks forward when the train
+brakes, leans back against the headrest on the lift hill and sinks under the G forces with
+a little rebound. On top of that come speed lines, a depth-aware motion blur that
+stretches the rail and smears lights, a field of view that opens with speed, wind and the
+clatter of a chain lift.
+
+Riders react for real. They float against the harness in airtime, throw their arms up on
+a genuine drop - some do, some do not, each in their own way - and their torso faces the
+seat instead of twisting wherever you look.
+
+Everything is for roller coasters by default and leaves other mods' vehicles alone. Each
+group of effects can also be switched on for helicopters, planes and ships from the
+Vehicles page.
+
+Open the settings from the button in the pause menu. Everything is on one screen, with a
+simple and an advanced view and a search box.
+
+Also: passenger emotes with a radial menu, park sounds (rail joints, brakes, chain lift, tunnels),
+and a track analyser that finds rough joints without riding the circuit.
+
+REQUIREMENTS
+Create: Coasters Simulated, which brings Create and Sable with it.
+
+AUTHORSHIP
+This mod is AI-generated. My own contribution is writing the prompts and testing every
+build in game until the behaviour was right.
+'''
+
+[[mixins]]
+config = "coasters_immersion.mixins.json"
+
+# Correccion sobre Iris Flywheel Compat. Va en su propia configuracion con required=false para
+# que, si ese mod no esta instalado, simplemente no se aplique nada en lugar de fallar el arranque.
+[[mixins]]
+config = "coasters_immersion.irisflw.mixins.json"
+
+# Los mixins sobre Sable van aparte y NO son obligatorios: si Sable no esta instalado su
+# clase objetivo no existe, y un mixin obligatorio abortaria el arranque. Asi el mod carga
+# igual y solo se queda sin la camara suave.
+[[mixins]]
+config = "coasters_immersion.sable.mixins.json"
+
+# Correccion de un congelon de Create: Coasters Simulated (cachés con WeakHashMap bajo candado).
+# Tampoco es obligatoria: sin ese mod su clase objetivo no existe y no se aplica nada.
+[[mixins]]
+config = "coasters_immersion.simulatedcoasters.mixins.json"
+
+[[dependencies.coasters_immersion]]
+modId = "neoforge"
+type = "required"
+versionRange = "[21.1,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.coasters_immersion]]
+modId = "minecraft"
+type = "required"
+versionRange = "[1.21.1,1.22)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.coasters_immersion]]
+modId = "create"
+type = "required"
+versionRange = "[6.0,)"
+ordering = "AFTER"
+side = "CLIENT"
+
+[[dependencies.coasters_immersion]]
+modId = "simulatedcoasters"
+type = "required"
+versionRange = "[0.1,)"
+ordering = "AFTER"
+side = "CLIENT"
+
+[[dependencies.coasters_immersion]]
+modId = "sable"
+type = "required"
+versionRange = "[2.0,)"
+ordering = "AFTER"
+side = "CLIENT"
+
+# El codigo no lo usa: la geometria del soporte giratorio viene del swivel bearing que trae
+# este paquete, y se pide instalado para que el credito llegue a sus autores.
+[[dependencies.coasters_immersion]]
+modId = "aeronautics"
+type = "optional"
+versionRange = "[1.3,)"
+ordering = "AFTER"
+side = "CLIENT"
+
+[[dependencies.coasters_immersion]]
+modId = "sodium"
+type = "optional"
+versionRange = "[0.8,)"
+ordering = "AFTER"
+side = "CLIENT"

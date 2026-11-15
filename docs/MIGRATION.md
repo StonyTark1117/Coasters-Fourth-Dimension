@@ -1,5 +1,12 @@
 # World upgrade and recovery procedure
 
+The current 0.9 dependency checkpoint uses NeoForge21.1.256/Sable2.0.6/Veil4.3.2
+with schema8 unchanged from0.8. Its [copied-world upgrade evidence](evidence/0.9/dependencies/README.md)
+retains native body/seat/rail identities; normal Stop revalidates an unloaded remote
+car after its chunk arrives. Keep the full offline source world. The older schema6
+qualification procedure below remains historical scoped evidence, not a claim that
+the current expanded build uses schema6.
+
 This procedure applies to a world that contains Coasters: Fourth Dimension
 vehicles, functional track, or an attached ordinary-bearing recovery group. It
 is the supported operational procedure for upgrading to the current schema-6

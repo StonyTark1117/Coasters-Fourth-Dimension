@@ -13,7 +13,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.Redirect;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-/** Veil 4.1.4 must publish its final worker count before workers can drain the source. */
+/** Veil 4.3.2 must publish its final worker count before workers can drain the source. */
 @Mixin(targets = "foundry.veil.impl.ThreadTaskScheduler", remap = false)
 public abstract class VeilSchedulerStartupMixin {
   @Shadow @Final private int threadCount;

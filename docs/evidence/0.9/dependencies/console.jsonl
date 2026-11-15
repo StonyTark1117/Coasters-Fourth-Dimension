@@ -1,0 +1,30 @@
+{"at": 1794754910.9904857, "command": "save-all flush", "state": "sending"}
+{"at": 1794754910.9904857, "command": "save-all flush", "state": "responded", "result": "Saving the game (this may take a moment!)\nSaved the game\n"}
+{"at": 1794754924.3759997, "command": "tp Dev -8 80 17 -90 10", "state": "sending"}
+{"at": 1794754924.3759997, "command": "tp Dev -8 80 17 -90 10", "state": "responded", "result": "Teleported Dev to -7.500000, 80.000000, 17.500000\n"}
+{"at": 1794754998.8786545, "command": "gamemode creative Dev", "state": "sending"}
+{"at": 1794754998.8786545, "command": "gamemode creative Dev", "state": "responded", "result": "Set Dev's game mode to Creative Mode\n"}
+{"at": 1794755009.2301533, "command": "tp Dev -3.5 80 17.5 -90 10", "state": "sending"}
+{"at": 1794755009.2301533, "command": "tp Dev -3.5 80 17.5 -90 10", "state": "responded", "result": "Teleported Dev to -3.500000, 80.000000, 17.500000\n"}
+{"at": 1794755009.2897236, "command": "time set day", "state": "sending"}
+{"at": 1794755009.2897236, "command": "time set day", "state": "responded", "result": "Set the time to 1000\n"}
+{"at": 1794755041.0478969, "command": "tp Dev 216.5 80 26.5 -90 0", "state": "sending"}
+{"at": 1794755041.0478969, "command": "tp Dev 216.5 80 26.5 -90 0", "state": "responded", "result": "Teleported Dev to 216.500000, 80.000000, 26.500000\n"}
+{"at": 1794755050.9268546, "command": "save-all flush", "state": "sending"}
+{"at": 1794755050.9268546, "command": "save-all flush", "state": "responded", "result": "Saving the game (this may take a moment!)\nSaved the game\n"}
+{"at": 1794755093.9847853, "command": "stop", "state": "sending"}
+{"at": 1794755093.9847853, "command": "stop", "state": "responded", "result": "Stopping the server\n"}
+{"at": 1794755179.242758, "command": "setblock 216 80 28 minecraft:crafting_table", "state": "sending"}
+{"at": 1794755179.242758, "command": "setblock 216 80 28 minecraft:crafting_table", "state": "responded", "result": "Changed the block at 216, 80, 28\n"}
+{"at": 1794755179.3005621, "command": "tp Dev 216.5 80 26.5 0 29", "state": "sending"}
+{"at": 1794755179.3005621, "command": "tp Dev 216.5 80 26.5 0 29", "state": "responded", "result": "Teleported Dev to 216.500000, 80.000000, 26.500000\n"}
+{"at": 1794755197.9220645, "command": "give Dev create:wrench", "state": "sending"}
+{"at": 1794755197.9220645, "command": "give Dev create:wrench", "state": "responded", "result": "Gave 1 [Wrench] to Dev\n"}
+{"at": 1794755197.9866211, "command": "tp Dev 216.5 80 26.5 -90 0", "state": "sending"}
+{"at": 1794755197.9866211, "command": "tp Dev 216.5 80 26.5 -90 0", "state": "responded", "result": "Teleported Dev to 216.500000, 80.000000, 26.500000\n"}
+{"at": 1794755242.243363, "command": "item replace entity Dev weapon.mainhand with fourthdimension:rotation_tool", "state": "sending"}
+{"at": 1794755242.243363, "command": "item replace entity Dev weapon.mainhand with fourthdimension:rotation_tool", "state": "responded", "result": "Replaced a slot on Dev with [Rotation Tool]\n"}
+{"at": 1794755278.8309152, "command": "save-all flush", "state": "sending"}
+{"at": 1794755278.8309152, "command": "save-all flush", "state": "responded", "result": "Saving the game (this may take a moment!)\nSaved the game\n"}
+{"at": 1794755291.4041884, "command": "stop", "state": "sending"}
+{"at": 1794755291.4041884, "command": "stop", "state": "responded", "result": "Stopping the server\n"}
