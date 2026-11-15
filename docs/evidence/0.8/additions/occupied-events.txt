@@ -1,0 +1,13 @@
+[15Nov2026 05:25:33.754] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Dev joined the game
+[15Nov2026 05:51:29.048] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: ThreadedAnvilChunkStorage: All dimensions are saved
+[15Nov2026 05:52:30.510] [Server thread/INFO] [dev.fourthdimension.vehicle.Boarding/]: FD_BOARDING_EVENT player=Dev action=mount seat=BlockPos{x=20481036, y=129, z=20481032} restraints=false restoring=false
+[15Nov2026 05:52:30.510] [Server thread/INFO] [dev.fourthdimension.vehicle.Boarding/]: FD_BOARDING_ASSIGN player=Dev seat=BlockPos{x=20481036, y=129, z=20481032} offset=BlockPos{x=4, y=1, z=0} knownSeats=[BlockPos{x=-4, y=1, z=0}, BlockPos{x=-3, y=1, z=0}, BlockPos{x=3, y=1, z=0}, BlockPos{x=4, y=1, z=0}] accepted=true
+[15Nov2026 05:52:35.953] [Server thread/INFO] [dev.fourthdimension.editor.EditorNetwork/]: FD_EDITOR_OPEN player=Dev target=9b7a4aff-bb15-4a6d-bc02-acb3c052de53 vehicle=true
+[15Nov2026 05:52:46.786] [Server thread/INFO] [dev.fourthdimension.editor.EditorNetwork/]: FD_EDITOR_RESULT player=Dev target=9b7a4aff-bb15-4a6d-bc02-acb3c052de53 action=11 success=true message=4D settings updated
+[15Nov2026 05:53:04.409] [Server thread/INFO] [dev.fourthdimension.editor.EditorNetwork/]: FD_EDITOR_RESULT player=Dev target=9b7a4aff-bb15-4a6d-bc02-acb3c052de53 action=10 success=false message=Vehicle settings changed; review the refreshed state and try again
+[15Nov2026 05:53:24.532] [Server thread/INFO] [dev.fourthdimension.editor.EditorNetwork/]: FD_EDITOR_RESULT player=Dev target=9b7a4aff-bb15-4a6d-bc02-acb3c052de53 action=10 success=true message=4D settings updated
+[15Nov2026 05:54:26.383] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: ThreadedAnvilChunkStorage: All dimensions are saved
+[15Nov2026 05:54:41.589] [Server thread/INFO] [dev.fourthdimension.vehicle.Boarding/]: FD_BOARDING_EVENT player=Dev action=dismount seat=BlockPos{x=20481036, y=129, z=20481032} restraints=true restoring=false
+[15Nov2026 05:54:41.589] [Server thread/INFO] [dev.fourthdimension.vehicle.Boarding/]: FD_BOARDING_DISMOUNT_CANCEL player=Dev assignedSeats=1
+[15Nov2026 05:54:41.589] [Server thread/INFO] [dev.fourthdimension.vehicle.Boarding/]: FD_BOARDING_EVENT player=Dev action=dismount seat=BlockPos{x=20481036, y=129, z=20481032} restraints=true restoring=false
+[15Nov2026 05:54:42.721] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: ThreadedAnvilChunkStorage: All dimensions are saved

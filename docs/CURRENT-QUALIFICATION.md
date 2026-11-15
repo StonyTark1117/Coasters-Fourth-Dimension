@@ -41,7 +41,7 @@ publication is activated.
 | FD501B | Lead | Complete: exact Additions fingerprint and Aeronautics/Interiors closure loaded in targeted FD810 native run; no core upgrade/migration. [Disposition](evidence/0.8/dependencies/README.md#fd501b--complete-no-core-change). |
 | FD501C | Lead | Complete: selected artifact rehashed; current core sufficient, no baseline upgrade/migration. [Disposition](evidence/0.8/dependencies/README.md#fd501c--complete-no-core-change). FD811 retains capability qualification. |
 | FD501D | Lead | Complete: selected artifact rehashed; current core sufficient, no baseline upgrade/migration. [Disposition](evidence/0.8/dependencies/README.md#fd501d--complete-no-core-change). FD812 retains capability qualification. |
-| FD810 | Lead | Native actual-addon two-car signals/auto-dispatch/interlock case passed. Normal operator example/input next; actual authority conflict covered. |
+| FD810 | Lead | Complete: [actual-addon native guards and normal station UI/occupied auto-dispatch](evidence/0.8/additions/README.md). All lead316 units inactive; saved banked stopped world retained. Additional drive conflicts remain FD813. |
 | FD811 | Lead | Selected CTNB functional tracks/controls and measured eligibility after its own baseline. |
 | FD812 | Lead | Magnetized propulsion adapter and real authority conflicts after its own baseline. |
 | FD1701A | Lead | Qualified: targeted native 1/1 plus normal occupied Claim/dispatch/held transfer/receiving dispatch/unload passed. [Evidence](evidence/0.8/authority/README.md). World saved; client/server/display316 inactive. Complete; integrated with the coherent shared implementation checkpoint. |
