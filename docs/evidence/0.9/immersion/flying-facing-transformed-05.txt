@@ -1,0 +1,339 @@
+Compiled from "PassengerFacing.java"
+public final class dev.mito.coastersimmersion.client.PassengerFacing {
+  private static final float TURN_RATE;
+
+  private static final java.util.Map<java.util.UUID, float[]> aligned;
+
+  private static final float STEP;
+
+  private static final float HYSTERESIS;
+
+  private static final java.util.Map<java.util.UUID, java.lang.Integer> postures;
+
+  private dev.mito.coastersimmersion.client.PassengerFacing();
+    Code:
+       0: aload_0
+       1: invokespecial #32                 // Method java/lang/Object."<init>":()V
+       4: return
+
+  public static void clear();
+    Code:
+       0: getstatic     #37                 // Field aligned:Ljava/util/Map;
+       3: invokeinterface #41,  1           // InterfaceMethod java/util/Map.clear:()V
+       8: getstatic     #43                 // Field postures:Ljava/util/Map;
+      11: invokeinterface #41,  1           // InterfaceMethod java/util/Map.clear:()V
+      16: return
+
+  public static void tick(net.minecraft.client.Minecraft);
+    Code:
+       0: aload_0
+       1: getfield      #51                 // Field net/minecraft/client/Minecraft.level:Lnet/minecraft/client/multiplayer/ClientLevel;
+       4: ifnonnull     16
+       7: getstatic     #37                 // Field aligned:Ljava/util/Map;
+      10: invokeinterface #41,  1           // InterfaceMethod java/util/Map.clear:()V
+      15: return
+      16: invokestatic  #57                 // Method dev/mito/coastersimmersion/config/ImmersionClientConfig.lockBodyToSeat:()Z
+      19: istore_1
+      20: getstatic     #37                 // Field aligned:Ljava/util/Map;
+      23: invokeinterface #61,  1           // InterfaceMethod java/util/Map.keySet:()Ljava/util/Set;
+      28: iload_1
+      29: invokedynamic #81,  0             // InvokeDynamic #0:test:(Z)Ljava/util/function/Predicate;
+      34: invokeinterface #87,  2           // InterfaceMethod java/util/Set.removeIf:(Ljava/util/function/Predicate;)Z
+      39: pop
+      40: aload_0
+      41: getfield      #51                 // Field net/minecraft/client/Minecraft.level:Lnet/minecraft/client/multiplayer/ClientLevel;
+      44: invokevirtual #93                 // Method net/minecraft/client/multiplayer/ClientLevel.players:()Ljava/util/List;
+      47: invokeinterface #99,  1           // InterfaceMethod java/util/List.iterator:()Ljava/util/Iterator;
+      52: astore_2
+      53: aload_2
+      54: invokeinterface #104,  1          // InterfaceMethod java/util/Iterator.hasNext:()Z
+      59: ifeq          339
+      62: aload_2
+      63: invokeinterface #108,  1          // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+      68: checkcast     #110                // class net/minecraft/world/entity/player/Player
+      71: astore_3
+      72: iload_1
+      73: ifne          79
+      76: goto          339
+      79: aload_3
+      80: invokevirtual #114                // Method net/minecraft/world/entity/player/Player.getVehicle:()Lnet/minecraft/world/entity/Entity;
+      83: astore        4
+      85: aload         4
+      87: ifnull        100
+      90: getstatic     #118                // Field dev/mito/coastersimmersion/client/ride/RideScope$Effect.RIDER:Ldev/mito/coastersimmersion/client/ride/RideScope$Effect;
+      93: aload_3
+      94: invokestatic  #122                // Method dev/mito/coastersimmersion/client/ride/RideScope.allows:(Ldev/mito/coastersimmersion/client/ride/RideScope$Effect;Lnet/minecraft/world/entity/Entity;)Z
+      97: ifne          129
+     100: getstatic     #37                 // Field aligned:Ljava/util/Map;
+     103: aload_3
+     104: invokevirtual #126                // Method net/minecraft/world/entity/player/Player.getUUID:()Ljava/util/UUID;
+     107: invokeinterface #130,  2          // InterfaceMethod java/util/Map.remove:(Ljava/lang/Object;)Ljava/lang/Object;
+     112: pop
+     113: getstatic     #43                 // Field postures:Ljava/util/Map;
+     116: aload_3
+     117: invokevirtual #126                // Method net/minecraft/world/entity/player/Player.getUUID:()Ljava/util/UUID;
+     120: invokeinterface #130,  2          // InterfaceMethod java/util/Map.remove:(Ljava/lang/Object;)Ljava/lang/Object;
+     125: pop
+     126: goto          53
+     129: getstatic     #37                 // Field aligned:Ljava/util/Map;
+     132: aload_3
+     133: invokevirtual #126                // Method net/minecraft/world/entity/player/Player.getUUID:()Ljava/util/UUID;
+     136: invokeinterface #133,  2          // InterfaceMethod java/util/Map.get:(Ljava/lang/Object;)Ljava/lang/Object;
+     141: checkcast     #135                // class "[F"
+     144: astore        5
+     146: aload         5
+     148: ifnonnull     185
+     151: iconst_2
+     152: newarray       float
+     154: dup
+     155: iconst_0
+     156: aload_3
+     157: getfield      #138                // Field net/minecraft/world/entity/player/Player.yBodyRot:F
+     160: fastore
+     161: dup
+     162: iconst_1
+     163: aload_3
+     164: getfield      #138                // Field net/minecraft/world/entity/player/Player.yBodyRot:F
+     167: fastore
+     168: astore        5
+     170: getstatic     #37                 // Field aligned:Ljava/util/Map;
+     173: aload_3
+     174: invokevirtual #126                // Method net/minecraft/world/entity/player/Player.getUUID:()Ljava/util/UUID;
+     177: aload         5
+     179: invokeinterface #142,  3          // InterfaceMethod java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+     184: pop
+     185: aload         4
+     187: invokevirtual #148                // Method net/minecraft/world/entity/Entity.getYRot:()F
+     190: aload_3
+     191: invokevirtual #149                // Method net/minecraft/world/entity/player/Player.getYRot:()F
+     194: invokestatic  #155                // Method net/minecraft/util/Mth.degreesDifference:(FF)F
+     197: fstore        6
+     199: getstatic     #43                 // Field postures:Ljava/util/Map;
+     202: aload_3
+     203: invokevirtual #126                // Method net/minecraft/world/entity/player/Player.getUUID:()Ljava/util/UUID;
+     206: invokeinterface #133,  2          // InterfaceMethod java/util/Map.get:(Ljava/lang/Object;)Ljava/lang/Object;
+     211: checkcast     #157                // class java/lang/Integer
+     214: astore        7
+     216: aload         7
+     218: ifnonnull     237
+     221: fload         6
+     223: ldc           #24                 // float 90.0f
+     225: fdiv
+     226: invokestatic  #163                // Method java/lang/Math.round:(F)I
+     229: invokestatic  #167                // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+     232: astore        7
+     234: goto          277
+     237: aload         7
+     239: invokevirtual #171                // Method java/lang/Integer.intValue:()I
+     242: i2f
+     243: ldc           #24                 // float 90.0f
+     245: fmul
+     246: fload         6
+     248: invokestatic  #155                // Method net/minecraft/util/Mth.degreesDifference:(FF)F
+     251: fstore        8
+     253: fload         8
+     255: invokestatic  #175                // Method java/lang/Math.abs:(F)F
+     258: ldc           #176                // float 55.0f
+     260: fcmpl
+     261: ifle          277
+     264: fload         6
+     266: ldc           #24                 // float 90.0f
+     268: fdiv
+     269: invokestatic  #163                // Method java/lang/Math.round:(F)I
+     272: invokestatic  #167                // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+     275: astore        7
+     277: getstatic     #43                 // Field postures:Ljava/util/Map;
+     280: aload_3
+     281: invokevirtual #126                // Method net/minecraft/world/entity/player/Player.getUUID:()Ljava/util/UUID;
+     284: aload         7
+     286: invokeinterface #142,  3          // InterfaceMethod java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+     291: pop
+     292: aload         4
+     294: invokevirtual #148                // Method net/minecraft/world/entity/Entity.getYRot:()F
+     297: aload         7
+     299: invokevirtual #171                // Method java/lang/Integer.intValue:()I
+     302: i2f
+     303: ldc           #24                 // float 90.0f
+     305: fmul
+     306: fadd
+     307: fstore        8
+     309: aload         5
+     311: iconst_0
+     312: aload         5
+     314: iconst_1
+     315: faload
+     316: fastore
+     317: aload         5
+     319: iconst_1
+     320: dup2
+     321: faload
+     322: aload         5
+     324: iconst_1
+     325: faload
+     326: fload         8
+     328: invokestatic  #155                // Method net/minecraft/util/Mth.degreesDifference:(FF)F
+     331: ldc           #19                 // float 0.25f
+     333: fmul
+     334: fadd
+     335: fastore
+     336: goto          53
+     339: return
+
+  public static boolean apply(net.minecraft.world.entity.player.Player, com.mojang.blaze3d.vertex.PoseStack, float);
+    Code:
+       0: new           #194                // class org/spongepowered/asm/mixin/injection/callback/CallbackInfoReturnable
+       3: dup
+       4: ldc           #195                // String apply
+       6: iconst_1
+       7: invokespecial #198                // Method org/spongepowered/asm/mixin/injection/callback/CallbackInfoReturnable."<init>":(Ljava/lang/String;Z)V
+      10: astore        7
+      12: aload_0
+      13: aload_1
+      14: fload_2
+      15: aload         7
+      17: invokestatic  #202                // Method handler$ccm000$fourthdimension$retainedTorso:(Lnet/minecraft/world/entity/player/Player;Lcom/mojang/blaze3d/vertex/PoseStack;FLorg/spongepowered/asm/mixin/injection/callback/CallbackInfoReturnable;)V
+      20: aload         7
+      22: invokevirtual #205                // Method org/spongepowered/asm/mixin/injection/callback/CallbackInfoReturnable.isCancelled:()Z
+      25: ifeq          34
+      28: aload         7
+      30: invokevirtual #208                // Method org/spongepowered/asm/mixin/injection/callback/CallbackInfoReturnable.getReturnValueZ:()Z
+      33: ireturn
+      34: getstatic     #37                 // Field aligned:Ljava/util/Map;
+      37: aload_0
+      38: invokevirtual #126                // Method net/minecraft/world/entity/player/Player.getUUID:()Ljava/util/UUID;
+      41: invokeinterface #133,  2          // InterfaceMethod java/util/Map.get:(Ljava/lang/Object;)Ljava/lang/Object;
+      46: checkcast     #135                // class "[F"
+      49: astore_3
+      50: aload_3
+      51: ifnonnull     56
+      54: iconst_0
+      55: ireturn
+      56: fload_2
+      57: aload_3
+      58: iconst_0
+      59: faload
+      60: aload_3
+      61: iconst_1
+      62: faload
+      63: invokestatic  #212                // Method net/minecraft/util/Mth.rotLerp:(FFF)F
+      66: fstore        4
+      68: fload_2
+      69: aload_0
+      70: getfield      #215                // Field net/minecraft/world/entity/player/Player.yBodyRotO:F
+      73: aload_0
+      74: getfield      #138                // Field net/minecraft/world/entity/player/Player.yBodyRot:F
+      77: invokestatic  #212                // Method net/minecraft/util/Mth.rotLerp:(FFF)F
+      80: fstore        5
+      82: fload         5
+      84: fload         4
+      86: invokestatic  #155                // Method net/minecraft/util/Mth.degreesDifference:(FF)F
+      89: fstore        6
+      91: fload         6
+      93: invokestatic  #175                // Method java/lang/Math.abs:(F)F
+      96: ldc           #216                // float 0.05f
+      98: fcmpg
+      99: ifge          104
+     102: iconst_0
+     103: ireturn
+     104: aload_1
+     105: getstatic     #222                // Field com/mojang/math/Axis.YP:Lcom/mojang/math/Axis;
+     108: fload         6
+     110: fneg
+     111: invokeinterface #226,  2          // InterfaceMethod com/mojang/math/Axis.rotationDegrees:(F)Lorg/joml/Quaternionf;
+     116: invokevirtual #232                // Method com/mojang/blaze3d/vertex/PoseStack.mulPose:(Lorg/joml/Quaternionf;)V
+     119: iconst_1
+     120: ireturn
+
+  public static java.lang.String describe(net.minecraft.world.entity.player.Player);
+    Code:
+       0: getstatic     #37                 // Field aligned:Ljava/util/Map;
+       3: aload_0
+       4: invokevirtual #126                // Method net/minecraft/world/entity/player/Player.getUUID:()Ljava/util/UUID;
+       7: invokeinterface #133,  2          // InterfaceMethod java/util/Map.get:(Ljava/lang/Object;)Ljava/lang/Object;
+      12: checkcast     #135                // class "[F"
+      15: astore_1
+      16: aload_1
+      17: ifnonnull     22
+      20: aconst_null
+      21: areturn
+      22: aload_0
+      23: invokevirtual #114                // Method net/minecraft/world/entity/player/Player.getVehicle:()Lnet/minecraft/world/entity/Entity;
+      26: astore_2
+      27: getstatic     #248                // Field java/util/Locale.ROOT:Ljava/util/Locale;
+      30: ldc           #250                // String cuerpo %.1f  asiento %.1f  postura %d  objetivo %.1f
+      32: iconst_4
+      33: anewarray     #5                  // class java/lang/Object
+      36: dup
+      37: iconst_0
+      38: aload_0
+      39: getfield      #138                // Field net/minecraft/world/entity/player/Player.yBodyRot:F
+      42: invokestatic  #255                // Method java/lang/Float.valueOf:(F)Ljava/lang/Float;
+      45: aastore
+      46: dup
+      47: iconst_1
+      48: aload_2
+      49: ifnonnull     58
+      52: ldc_w         #256                // float NaNf
+      55: goto          62
+      58: aload_2
+      59: invokevirtual #148                // Method net/minecraft/world/entity/Entity.getYRot:()F
+      62: invokestatic  #255                // Method java/lang/Float.valueOf:(F)Ljava/lang/Float;
+      65: aastore
+      66: dup
+      67: iconst_2
+      68: getstatic     #43                 // Field postures:Ljava/util/Map;
+      71: aload_0
+      72: invokevirtual #126                // Method net/minecraft/world/entity/player/Player.getUUID:()Ljava/util/UUID;
+      75: iconst_0
+      76: invokestatic  #167                // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+      79: invokeinterface #259,  3          // InterfaceMethod java/util/Map.getOrDefault:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+      84: checkcast     #157                // class java/lang/Integer
+      87: invokevirtual #171                // Method java/lang/Integer.intValue:()I
+      90: bipush        90
+      92: imul
+      93: invokestatic  #167                // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+      96: aastore
+      97: dup
+      98: iconst_3
+      99: aload_1
+     100: iconst_1
+     101: faload
+     102: invokestatic  #255                // Method java/lang/Float.valueOf:(F)Ljava/lang/Float;
+     105: aastore
+     106: invokestatic  #265                // Method java/lang/String.format:(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+     109: areturn
+
+  private static boolean lambda$tick$0(boolean, java.util.UUID);
+    Code:
+       0: iload_0
+       1: ifne          8
+       4: iconst_1
+       5: goto          9
+       8: iconst_0
+       9: ireturn
+
+  static {};
+    Code:
+       0: new           #272                // class java/util/HashMap
+       3: dup
+       4: invokespecial #273                // Method java/util/HashMap."<init>":()V
+       7: putstatic     #37                 // Field aligned:Ljava/util/Map;
+      10: new           #272                // class java/util/HashMap
+      13: dup
+      14: invokespecial #273                // Method java/util/HashMap."<init>":()V
+      17: putstatic     #43                 // Field postures:Ljava/util/Map;
+      20: return
+
+  private static void handler$ccm000$fourthdimension$retainedTorso(net.minecraft.world.entity.player.Player, com.mojang.blaze3d.vertex.PoseStack, float, org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable);
+    Code:
+       0: invokestatic  #284                // Method dev/fourthdimension/client/ImmersionEffects.enabled:()Z
+       3: ifeq          21
+       6: aload_0
+       7: invokestatic  #290                // Method dev/fourthdimension/vehicle/FlyingRiderPose.binding:(Lnet/minecraft/world/entity/Entity;)Ldev/fourthdimension/vehicle/Boarding$Binding;
+      10: ifnull        21
+      13: aload_3
+      14: iconst_0
+      15: invokestatic  #295                // Method java/lang/Boolean.valueOf:(Z)Ljava/lang/Boolean;
+      18: invokevirtual #299                // Method org/spongepowered/asm/mixin/injection/callback/CallbackInfoReturnable.setReturnValue:(Ljava/lang/Object;)V
+      21: return
+}

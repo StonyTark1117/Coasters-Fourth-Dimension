@@ -1,0 +1,40 @@
+{
+  "owner": "01a1dd1d-c6a6-7be0-9cb5-2b033ac550da",
+  "root": "/mnt/NVME4/fourthdimension-runs/fd09-seats-immersion-20261115",
+  "world": "/mnt/NVME4/fourthdimension-runs/fd09-seats-immersion-20261115/server/world",
+  "displays": [
+    318,
+    319
+  ],
+  "server_port": 25654,
+  "rcon_port": 25655,
+  "units": {
+    "fd09-seats-immersion-20261115-client.service": {
+      "ActiveState": "inactive",
+      "MainPID": "0"
+    },
+    "fd09-seats-immersion-20261115-server.service": {
+      "ActiveState": "inactive",
+      "MainPID": "0"
+    },
+    "fd09-seats-immersion-20261115-xvfb.service": {
+      "ActiveState": "inactive",
+      "MainPID": "0"
+    },
+    "fd09-seats-observer-20261115-client.service": {
+      "ActiveState": "inactive",
+      "MainPID": "0"
+    },
+    "fd09-seats-observer-20261115-xvfb.service": {
+      "ActiveState": "inactive",
+      "MainPID": "0"
+    }
+  },
+  "client_heap": "1536M",
+  "client_scope_bytes": 6442450944,
+  "observed_restart_peaks_bytes": {
+    "client": 3224776704,
+    "observer": 3209465856,
+    "server": 1974755328
+  }
+}

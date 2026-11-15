@@ -2,11 +2,12 @@
   "path": "/mnt/NVME4/fourthdimension-runs/fd09-baseline-20261115/integrated-build/libs/coasters-fourth-dimension-0.9.0-dev.27.jar",
   "sha256": "787a01bfafd96f0d407449c43c092c38f3a0978089b365fb46d95cc9f919ab07",
   "sourceBase": "d8585dd2",
-  "sourceChanges": "Stable returned FD911/FD912 source staged for the following integration commit",
+  "sourceChanges": "Returned FD911/FD912 implementation integrated in sourceIntegrationCommit; later changes are evidence and guidance only.",
   "java": "21.0.13.0.3",
   "gradle": "9.2.1",
   "task": "jar",
   "buildDir": "/mnt/NVME4/fourthdimension-runs/fd09-baseline-20261115/integrated-build",
   "registeredMixinClassesPresent": 49,
-  "runtimeEvidence": "Existing package05 and accepted child records; this final JAR hash does not trigger replay."
+  "runtimeEvidence": "Existing package05 and accepted child records; this final JAR hash does not trigger replay.",
+  "sourceIntegrationCommit": "fd8f334a"
 }

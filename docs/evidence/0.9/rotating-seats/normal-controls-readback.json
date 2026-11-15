@@ -1,0 +1,68 @@
+[
+  {
+    "at": 1794756561.2293725,
+    "command": "data get entity Dev SelectedItem",
+    "state": "responded",
+    "result": "Dev has the following entity data: {count: 16, id: \"minecraft:stone\"}\n"
+  },
+  {
+    "at": 1794756620.6622925,
+    "command": "data get block 20481033 127 20485128",
+    "state": "responded",
+    "result": "The target block is not a block entity\n"
+  },
+  {
+    "at": 1794756644.0404468,
+    "command": "data get block 20481033 127 20485128",
+    "state": "responded",
+    "result": "20481033, 127, 20485128 has the following block data: {BarType: \"over_shoulder\", fourthdimension_original_seat: {Properties: {waterlogged: \"false\", facing: \"north\", restrained: \"false\"}, Name: \"fourthdimension:arrow_seat\"}, MinRange: 8, MaxRange: 64, x: 20481033, y: 127, LastKnownPosition: 5629783566998077567L, z: 20485128, id: \"coasterfins:coaster_seat\", FrequencyFirst: {}, Powered: 1b, FrequencyLast: {}}\n"
+  },
+  {
+    "at": 1794756660.350729,
+    "command": "data get entity Dev SelectedItem",
+    "state": "responded",
+    "result": "Dev has the following entity data: {count: 1, id: \"coasterfins:restraint_selector\"}\n"
+  },
+  {
+    "at": 1794756704.5130994,
+    "command": "data get block 20481033 127 20485128 MinRange",
+    "state": "responded",
+    "result": "20481033, 127, 20485128 has the following block data: 9\n"
+  },
+  {
+    "at": 1794756745.0285356,
+    "command": "data get entity Dev SelectedItem",
+    "state": "responded",
+    "result": "Dev has the following entity data: {components: {\"minecraft:custom_data\": {BarType: \"lap\"}}, count: 1, id: \"coasterfins:restraint_selector\"}\n"
+  },
+  {
+    "at": 1794756755.508918,
+    "command": "data get block 20481033 127 20485128 BarType",
+    "state": "responded",
+    "result": "20481033, 127, 20485128 has the following block data: \"lap\"\n"
+  },
+  {
+    "at": 1794756818.8103683,
+    "command": "data get block 20481033 127 20485128 Powered",
+    "state": "responded",
+    "result": "20481033, 127, 20485128 has the following block data: 0b\n"
+  },
+  {
+    "at": 1794756889.3253021,
+    "command": "data get block 20481033 127 20485128 Powered",
+    "state": "responded",
+    "result": "20481033, 127, 20485128 has the following block data: 1b\n"
+  },
+  {
+    "at": 1794757469.9576168,
+    "command": "execute as Dev on vehicle run data get entity @s",
+    "state": "responded",
+    "result": "Seat has the following entity data: {Motion: [0.0d, 0.0d, 0.0d], FallDistance: 0.0f, \"neoforge:attachments\": {\"create:minecart_controller\": {Type: \"EMPTY\"}}, Pos: [2.04810335E7d, 127.0d, 2.04851285E7d], Fire: -1s, Invulnerable: 0b, Air: 300s, OnGround: 0b, PortalCooldown: 0, UUID: [I; -1127694062, 625887830, -1722934590, 452195592], Rotation: [0.0f, 0.0f], NeoForgeData: {fourthdimension_rotating_seat: 1b}}\n"
+  },
+  {
+    "at": 1794757537.5835803,
+    "command": "data get block 20481033 127 20485128",
+    "state": "responded",
+    "result": "20481033, 127, 20485128 has the following block data: {BarType: \"lap\", fourthdimension_original_seat: {Properties: {waterlogged: \"false\", facing: \"north\", restrained: \"false\"}, Name: \"fourthdimension:arrow_seat\"}, MinRange: 9, MaxRange: 64, x: 20481033, y: 127, LastKnownPosition: 5629783566998077567L, z: 20485128, id: \"coasterfins:coaster_seat\", FrequencyFirst: {}, Powered: 0b, FrequencyLast: {}}\n"
+  }
+]

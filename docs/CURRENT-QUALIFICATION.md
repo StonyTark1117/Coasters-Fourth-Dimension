@@ -24,32 +24,37 @@ FD403A–F and the FD404 aggregate are now reconciled. There is no remaining 0.4
 acceptance queue. The sections below retain case closure records and artifact
 history; they do not assign new work or add acceptance requirements.
 
-### Active 0.9 assignments — 2026-11-15
+### Milestone 0.9 complete — 2026-11-15
 
-Human continuation activates all eleven 0.9 cards from accepted `main`/`origin/main`
+All eleven cards are closed in the [0.9 acceptance record](evidence/0.9/acceptance.md).
+There is no remaining 0.9 acceptance queue. Human continuation authorized the
+work from accepted `main`/`origin/main`
 `f06d81607f246773e5b9624cd259c5a49e709fcc`. Accepted 0.4–0.8 cases remain
 closed unless a named change invalidates their required behavior. No 1.0 freeze,
 release, 1.2 work, new chats, subagents or worktrees are activated.
 
 | Card | Owner | Current action / dependency |
 | --- | --- | --- |
-| FD501E | Complete | [Qualified shared baseline and exact dependency disposition](evidence/0.9/dependencies/README.md); consumer work remains assigned below. |
-| FD501F | Complete | Exact client/observer mod classpath, no bootstrap-library/server inclusion, actual Immersion1.1.1 startup and dedicated-server join verified by existing owner. FD912 effects remain assigned. |
+| FD501E | Complete | [Qualified shared baseline and exact dependency disposition](evidence/0.9/dependencies/README.md); consumer outcomes are closed below. |
+| FD501F | Complete | Exact client/observer mod classpath, no bootstrap-library/server inclusion, actual Immersion1.1.1 startup and dedicated-server join verified by existing owner. FD912 effects are accepted below. |
 | FD501G | Complete | Waterparked optional profile includes KotlinForForge5.10.0. Exact loader/native coexistence check passed; core/schema unchanged. |
-| FD501H | Complete | [Qualified shared baseline and exact dependency disposition](evidence/0.9/dependencies/README.md); consumer work remains assigned below. |
+| FD501H | Complete | [Qualified shared baseline and exact dependency disposition](evidence/0.9/dependencies/README.md); consumer outcomes are closed below. |
 | FD910 | Complete | [Normal selections, occupied Wing ownership, reload and actual provider-removal fallback](evidence/0.9/coaster-skin/README.md); owner saved/stopped all runtimes. |
-| FD911 | Seats / Immersion | Selected Additions rotating seats, real rider synchronization and distinct mount/restraint/restoration/unload cases. |
-| FD912 | Seats / Immersion | Effects composition and client-only asymmetry on authoritative poses; preserve relative look and comfort. |
+| FD911 | Complete | [Native attachment/fallback plus normal selection, real observer, motion, reconnect/restart and unload](evidence/0.9/rotating-seats/README.md). |
+| FD912 | Complete | [Actual client-only composition, first/third/remote views, comfort, restored lifecycle and Flying torso guard](evidence/0.9/immersion/README.md). |
 | FD913 | Complete | [Shared graph, explicit slide refusal and representative rendered coexistence](evidence/0.9/coexistence/README.md); owned runtime saved/stopped. |
 | FD914 | Complete | [Native utility lock/unlock and normal Wing board/unload](evidence/0.9/coexistence/README.md), without Sable authority; owned runtime saved/stopped. |
-| FD916 | Lead reconciliation | [All visual criteria accepted](evidence/0.9/visual-quality/README.md), including fitted-seat/Classic occupied views; owner stopped, await FD911 package closure for final prerequisite reconciliation. |
-| FD915 | Lead | Reconcile all eleven outcomes, actual combined seat/pose/render/control conflicts and client-only asymmetry; exact remote HEAD and all-owner cleanup. |
+| FD916 | Complete | [All visual criteria accepted](evidence/0.9/visual-quality/README.md):378 authored assets,51-model UV correction, selected Skin and native-seat/Classic occupied views; FD911 prerequisite closed. |
+| FD915 | Complete | [Eleven-card reconciliation](evidence/0.9/acceptance.md), named combined profile, configuration guidance, final Java21 package and [all 14 owned units inactive](evidence/0.9/runtime-cleanup.txt). |
 
 **Owners:** lead `01a1dd1d-1468-7f81-8f31-5532ad7a178d`;
 Skin/Visual `01a1dd1d-6e99-70d2-aef3-6dcebac10d72`;
 Seats/Immersion `01a1dd1d-c6a6-7be0-9cb5-2b033ac550da`.
 All use primary `main`; lead alone edits central ROADMAP/PLAN/queue and stages,
 commits and pushes. Preserve pre-existing `logs/`.
+
+**Completed ownership history:** all source transfers below were returned to lead
+and integrated. No implementation or runtime assignment remains active.
 
 **0.9 ownership reset:** all existing shared source/runtime/client/editor,
 registration/build/generator files belong to lead until an exact acknowledged
@@ -91,7 +96,7 @@ Immersion filter composition. Preserve native carrier/mount identity and all
 unrelated families. Normal seat selection uses a new addon-seat item interaction
 subscriber, avoiding concurrent edits to the Skin-owned editor/data files.
 
-**Runtime reservations:** lead display316, game/RCON25650/25651; Skin/Visual317,
+**Released runtime reservations:** lead display316, game/RCON25650/25651; Skin/Visual317,
 25652/25653; Seats/Immersion318,25654/25655. Additional real observer displays and
 ports require explicit same-owner reservation in this queue or handoff. These are
 reservations, not proof of live ownership: verify PID/cgroup before input. All

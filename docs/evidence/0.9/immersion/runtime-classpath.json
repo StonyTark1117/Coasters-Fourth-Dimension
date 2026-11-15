@@ -1,17 +1,17 @@
 {
-  "method": "Inspect exact artifact basename in legacy mod list AND actual direct Java @classpath argument file. Supersedes initial broad-file scan.",
+  "method": "Exact Immersion basename only on client/observer direct runtime classpath, NEVER bootstrap LegacyClasspath; FML already-located bootstrap libraries are skipped as mods.",
   "runs": {
     "client": {
-      "clientLegacyClasspath.txt": true,
-      "clientRunClasspath.txt": true
+      "LegacyClasspath": false,
+      "RunClasspath": true
     },
     "observer": {
-      "observerLegacyClasspath.txt": true,
-      "observerRunClasspath.txt": true
+      "LegacyClasspath": false,
+      "RunClasspath": true
     },
     "server": {
-      "serverLegacyClasspath.txt": false,
-      "serverRunClasspath.txt": false
+      "LegacyClasspath": false,
+      "RunClasspath": false
     }
   }
 }

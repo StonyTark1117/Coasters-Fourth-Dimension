@@ -12,15 +12,23 @@ Sable2.0.6, Companion1.6.0, Flywheel1.0.6 and Veil4.3.2. The current persistence
 schema and network protocol are8; the additive appearance field defaults to
 Original for existing vehicles.
 
-The optional development profile names extend the0.8 set with `skin`,
+The optional development profile names extend the 0.8 set with `skin`,
 `immersion`, `waterparked` and `createcoasters`. Immersion1.1.1 is client-only:
 build configuration includes it in client/observer mod discovery and excludes
 it from dedicated servers and bootstrap libraries. Waterparked0.2.8-beta-hotfix1
 includes its KotlinForForge5.10.0 language loader. Create Coasters is2.0.
 [Waterparked and Create Coasters coexistence](OPTIONAL-COEXISTENCE.md) is qualified;
-[Skin choices](COASTER-SKIN.md), optional seats and effects have individual
-acceptance records in the [current queue](CURRENT-QUALIFICATION.md#current-work-queue).
-The 0.9 aggregate closes only after their remaining required checks finish.
+[Skin choices](COASTER-SKIN.md), [optional seats](evidence/0.9/rotating-seats/README.md)
+and [Immersion setup](evidence/0.9/immersion/README.md#player-setup-and-cleanup)
+have individual acceptance records linked from the
+[current queue](CURRENT-QUALIFICATION.md#current-work-queue).
+The [0.9 aggregate](evidence/0.9/acceptance.md) is complete; final release
+qualification remains in 1.0.
+
+When Immersion is installed, assign distinct keys to its ride menu and Fourth
+Dimension comfort in Minecraft **Options → Controls → Key Binds**. Both defaults
+use `K`, and the ride menu can consume that key before comfort toggles. Keep the
+normal mouse bindings; this is a keyboard shortcut collision.
 
 ## Current 0.8 operations baseline
 

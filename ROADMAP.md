@@ -739,8 +739,10 @@ adapters. One adapter's dependency issue need not idle independent vehicle work.
 
 ## Milestone 0.9 — presentation, optional seats, coexistence and visual quality
 
-**Active 2026-11-15.** Eleven assignments are recorded in the
-[current queue](docs/CURRENT-QUALIFICATION.md#current-work-queue).
+**Complete 2026-11-15.** All eleven cards are reconciled in the
+[0.9 acceptance record](docs/evidence/0.9/acceptance.md). No 1.0 freeze or release
+is activated; the [current queue](docs/CURRENT-QUALIFICATION.md#current-work-queue)
+records closure and runtime cleanup.
 
 Presentation and seat integrations follow stable representative fixed, freely
 rotating and constrained-motion vehicles. Read-only inspection and asset concepts
@@ -753,17 +755,18 @@ before the 1.0 alpha freeze without reopening accepted mechanics.
 | Package / status | Prerequisites | Implementation steps and completion condition |
 | --- | --- | --- |
 | <a id="fd910"></a> **FD910 Coaster Skin — complete 2026-11-15** [Steps](docs/roadmap/0.9-presentation.md#fd910) | FD501E; accepted representative fixed/free/constrained seat and body interfaces | Select agreed chassis/skin options, preserve identity and restraint ownership, reject unsupported modifications, implement fallback/persistence and document choices. Complete when those capabilities work on the named profiles. |
-| <a id="fd911"></a> **FD911 Rotating-seat integration — in progress** [Steps](docs/roadmap/0.9-presentation.md#fd911) | FD501B; stable carrier/seat/restraint interfaces demonstrated by family packages | Integrate the agreed Additions seat capabilities separately from station telemetry; preserve mount ownership, rider count, restraints, restoration and unload. Complete with actual rider synchronization and the distinct lifecycle cases. |
-| <a id="fd912"></a> **FD912 Immersion — in progress** [Steps](docs/roadmap/0.9-presentation.md#fd912) | FD501F, FD904C1; stable representative pose/camera interfaces | Compose effects once, respect relative mouse look and comfort, handle first/third person and remote bodies, restore the camera on exit and verify supported client-only installation. Complete without altering authoritative seat motion. |
+| <a id="fd911"></a> **FD911 Rotating-seat integration — complete 2026-11-15** [Steps](docs/roadmap/0.9-presentation.md#fd911) | FD501B; stable carrier/seat/restraint interfaces demonstrated by family packages | Integrate the agreed Additions seat capabilities separately from station telemetry; preserve mount ownership, rider count, restraints, restoration and unload. Complete with actual rider synchronization and the distinct lifecycle cases. |
+| <a id="fd912"></a> **FD912 Immersion — complete 2026-11-15** [Steps](docs/roadmap/0.9-presentation.md#fd912) | FD501F, FD904C1; stable representative pose/camera interfaces | Compose effects once, respect relative mouse look and comfort, handle first/third person and remote bodies, restore the camera on exit and verify supported client-only installation. Complete without altering authoritative seat motion. |
 | <a id="fd913"></a> **FD913 Waterparked coexistence — complete 2026-11-15** [Steps](docs/roadmap/0.9-presentation.md#fd913) | FD501G; representative accepted core rides | Inspect early, then check shared graph/mixin/render behavior in the named profile. Complete with independent ride coexistence and refusal of slide eligibility for our cars; no amphibious or transfer feature is implied. |
 | <a id="fd914"></a> **FD914 Create Coasters coexistence — complete 2026-11-15** [Steps](docs/roadmap/0.9-presentation.md#fd914) | FD501H; representative accepted core rides | Inspect utility, seat-lock and camera overlap; implement only agreed demonstrated bridges and otherwise coexistence. Complete when utilities and our rides operate together without granting Create-train authority over Sable rides. |
-| <a id="fd915"></a> **FD915 Milestone 0.9 gate — in progress** [Steps](docs/roadmap/0.9-presentation.md#fd915) | FD813, FD910–FD914, FD916 | Resolve actual seat/pose/render/control conflicts in the declared combined profile, include client-only asymmetry, and finish player configuration guidance. Complete when the agreed presentation/seat/coexistence capabilities preserve mechanics and rider state and FD916's model/texture criteria pass. |
+| <a id="fd915"></a> **FD915 Milestone 0.9 gate — complete 2026-11-15** [Steps](docs/roadmap/0.9-presentation.md#fd915) | FD813, FD910–FD914, FD916 | Resolve actual seat/pose/render/control conflicts in the declared combined profile, include client-only asymmetry, and finish player configuration guidance. Complete when the agreed presentation/seat/coexistence capabilities preserve mechanics and rider state and FD916's model/texture criteria pass. |
 
 ### FD916 Review and improve models and textures
 
 **Execution steps:** [FD916](docs/roadmap/0.9-presentation.md#fd916).
 
-**Status: in progress.** **Delivery:** 0.9. **Design:** D08, D16, D17.
+**Status: complete 2026-11-15.**
+**Evidence:** [Finite asset reconciliation and accepted optional views](docs/evidence/0.9/visual-quality/README.md). **Delivery:** 0.9. **Design:** D08, D16, D17.
 **Depends on:** FD404; FD1101B, FD1501B, FD1501E, FD1301B, FD1302B, FD1502B and FD1401B;
 FD1601B, FD1702B, FD1801B, FD1802B and FD1901B;
 FD910/FD911 for affected optional appearance and seat configurations.

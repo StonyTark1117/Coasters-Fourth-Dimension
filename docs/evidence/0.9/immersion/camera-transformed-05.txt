@@ -1,0 +1,441 @@
+Compiled from "EntitySubLevelRotationHelper.java"
+public class dev.ryanhcode.sable.mixinhelpers.camera.camera_rotation.EntitySubLevelRotationHelper {
+  public dev.ryanhcode.sable.mixinhelpers.camera.camera_rotation.EntitySubLevelRotationHelper();
+    Code:
+       0: aload_0
+       1: invokespecial #13                 // Method java/lang/Object."<init>":()V
+       4: return
+
+  public static boolean shouldCameraRotate();
+    Code:
+       0: invokestatic  #23                 // Method net/minecraft/client/Minecraft.getInstance:()Lnet/minecraft/client/Minecraft;
+       3: getfield      #27                 // Field net/minecraft/client/Minecraft.options:Lnet/minecraft/client/Options;
+       6: invokevirtual #33                 // Method net/minecraft/client/Options.getCameraType:()Lnet/minecraft/client/CameraType;
+       9: getstatic     #39                 // Field dev/ryanhcode/sable/mixinhelpers/camera/new_camera_types/SableCameraTypes.SUB_LEVEL_VIEW_UNLOCKED:Lnet/minecraft/client/CameraType;
+      12: if_acmpeq     19
+      15: iconst_1
+      16: goto          20
+      19: iconst_0
+      20: ireturn
+
+  public static org.joml.Quaterniond getEntityOrientation(net.minecraft.world.entity.Entity, java.util.function.Function<dev.ryanhcode.sable.sublevel.SubLevel, dev.ryanhcode.sable.companion.math.Pose3dc>, float, dev.ryanhcode.sable.mixinhelpers.camera.camera_rotation.EntitySubLevelRotationHelper$Type);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: aload_3
+       3: invokestatic  #47                 // Method getSubLevelInheritedOrientation:(Lnet/minecraft/world/entity/Entity;Ljava/util/function/Function;Ldev/ryanhcode/sable/mixinhelpers/camera/camera_rotation/EntitySubLevelRotationHelper$Type;)Lorg/joml/Quaterniond;
+       6: astore        4
+       8: aload         4
+      10: ifnull        102
+      13: aload         4
+      15: dup
+      16: astore        6
+      18: new           #49                 // class org/spongepowered/asm/mixin/injection/callback/CallbackInfoReturnable
+      21: dup
+      22: ldc           #50                 // String getEntityOrientation
+      24: iconst_1
+      25: aload         6
+      27: invokespecial #53                 // Method org/spongepowered/asm/mixin/injection/callback/CallbackInfoReturnable."<init>":(Ljava/lang/String;ZLjava/lang/Object;)V
+      30: astore        6
+      32: aload_0
+      33: aload_1
+      34: fload_2
+      35: aload_3
+      36: aload         6
+      38: invokestatic  #57                 // Method handler$ccb000$fourthdimension$comfort:(Lnet/minecraft/world/entity/Entity;Ljava/util/function/Function;FLdev/ryanhcode/sable/mixinhelpers/camera/camera_rotation/EntitySubLevelRotationHelper$Type;Lorg/spongepowered/asm/mixin/injection/callback/CallbackInfoReturnable;)V
+      41: aload         6
+      43: invokevirtual #60                 // Method org/spongepowered/asm/mixin/injection/callback/CallbackInfoReturnable.isCancelled:()Z
+      46: ifeq          58
+      49: aload         6
+      51: invokevirtual #64                 // Method org/spongepowered/asm/mixin/injection/callback/CallbackInfoReturnable.getReturnValue:()Ljava/lang/Object;
+      54: checkcast     #66                 // class org/joml/Quaterniond
+      57: areturn
+      58: dup
+      59: astore        9
+      61: new           #49                 // class org/spongepowered/asm/mixin/injection/callback/CallbackInfoReturnable
+      64: dup
+      65: ldc           #50                 // String getEntityOrientation
+      67: iconst_1
+      68: aload         9
+      70: invokespecial #53                 // Method org/spongepowered/asm/mixin/injection/callback/CallbackInfoReturnable."<init>":(Ljava/lang/String;ZLjava/lang/Object;)V
+      73: astore        9
+      75: aload_0
+      76: aload_1
+      77: fload_2
+      78: aload_3
+      79: aload         9
+      81: invokestatic  #69                 // Method handler$cli000$coasters_immersion$immersion$applyHeadModel:(Lnet/minecraft/world/entity/Entity;Ljava/util/function/Function;FLdev/ryanhcode/sable/mixinhelpers/camera/camera_rotation/EntitySubLevelRotationHelper$Type;Lorg/spongepowered/asm/mixin/injection/callback/CallbackInfoReturnable;)V
+      84: aload         9
+      86: invokevirtual #60                 // Method org/spongepowered/asm/mixin/injection/callback/CallbackInfoReturnable.isCancelled:()Z
+      89: ifeq          101
+      92: aload         9
+      94: invokevirtual #64                 // Method org/spongepowered/asm/mixin/injection/callback/CallbackInfoReturnable.getReturnValue:()Ljava/lang/Object;
+      97: checkcast     #66                 // class org/joml/Quaterniond
+     100: areturn
+     101: areturn
+     102: aload_0
+     103: fload_2
+     104: invokestatic  #75                 // Method dev/ryanhcode/sable/api/entity/EntitySubLevelUtil.getCustomEntityOrientation:(Lnet/minecraft/world/entity/Entity;F)Lorg/joml/Quaterniondc;
+     107: astore        5
+     109: aload         5
+     111: ifnull        210
+     114: new           #66                 // class org/joml/Quaterniond
+     117: dup
+     118: aload         5
+     120: invokespecial #78                 // Method org/joml/Quaterniond."<init>":(Lorg/joml/Quaterniondc;)V
+     123: dup
+     124: astore        7
+     126: new           #49                 // class org/spongepowered/asm/mixin/injection/callback/CallbackInfoReturnable
+     129: dup
+     130: ldc           #50                 // String getEntityOrientation
+     132: iconst_1
+     133: aload         7
+     135: invokespecial #53                 // Method org/spongepowered/asm/mixin/injection/callback/CallbackInfoReturnable."<init>":(Ljava/lang/String;ZLjava/lang/Object;)V
+     138: astore        7
+     140: aload_0
+     141: aload_1
+     142: fload_2
+     143: aload_3
+     144: aload         7
+     146: invokestatic  #57                 // Method handler$ccb000$fourthdimension$comfort:(Lnet/minecraft/world/entity/Entity;Ljava/util/function/Function;FLdev/ryanhcode/sable/mixinhelpers/camera/camera_rotation/EntitySubLevelRotationHelper$Type;Lorg/spongepowered/asm/mixin/injection/callback/CallbackInfoReturnable;)V
+     149: aload         7
+     151: invokevirtual #60                 // Method org/spongepowered/asm/mixin/injection/callback/CallbackInfoReturnable.isCancelled:()Z
+     154: ifeq          166
+     157: aload         7
+     159: invokevirtual #64                 // Method org/spongepowered/asm/mixin/injection/callback/CallbackInfoReturnable.getReturnValue:()Ljava/lang/Object;
+     162: checkcast     #66                 // class org/joml/Quaterniond
+     165: areturn
+     166: dup
+     167: astore        10
+     169: new           #49                 // class org/spongepowered/asm/mixin/injection/callback/CallbackInfoReturnable
+     172: dup
+     173: ldc           #50                 // String getEntityOrientation
+     175: iconst_1
+     176: aload         10
+     178: invokespecial #53                 // Method org/spongepowered/asm/mixin/injection/callback/CallbackInfoReturnable."<init>":(Ljava/lang/String;ZLjava/lang/Object;)V
+     181: astore        10
+     183: aload_0
+     184: aload_1
+     185: fload_2
+     186: aload_3
+     187: aload         10
+     189: invokestatic  #69                 // Method handler$cli000$coasters_immersion$immersion$applyHeadModel:(Lnet/minecraft/world/entity/Entity;Ljava/util/function/Function;FLdev/ryanhcode/sable/mixinhelpers/camera/camera_rotation/EntitySubLevelRotationHelper$Type;Lorg/spongepowered/asm/mixin/injection/callback/CallbackInfoReturnable;)V
+     192: aload         10
+     194: invokevirtual #60                 // Method org/spongepowered/asm/mixin/injection/callback/CallbackInfoReturnable.isCancelled:()Z
+     197: ifeq          209
+     200: aload         10
+     202: invokevirtual #64                 // Method org/spongepowered/asm/mixin/injection/callback/CallbackInfoReturnable.getReturnValue:()Ljava/lang/Object;
+     205: checkcast     #66                 // class org/joml/Quaterniond
+     208: areturn
+     209: areturn
+     210: aconst_null
+     211: dup
+     212: astore        8
+     214: new           #49                 // class org/spongepowered/asm/mixin/injection/callback/CallbackInfoReturnable
+     217: dup
+     218: ldc           #50                 // String getEntityOrientation
+     220: iconst_1
+     221: aload         8
+     223: invokespecial #53                 // Method org/spongepowered/asm/mixin/injection/callback/CallbackInfoReturnable."<init>":(Ljava/lang/String;ZLjava/lang/Object;)V
+     226: astore        8
+     228: aload_0
+     229: aload_1
+     230: fload_2
+     231: aload_3
+     232: aload         8
+     234: invokestatic  #57                 // Method handler$ccb000$fourthdimension$comfort:(Lnet/minecraft/world/entity/Entity;Ljava/util/function/Function;FLdev/ryanhcode/sable/mixinhelpers/camera/camera_rotation/EntitySubLevelRotationHelper$Type;Lorg/spongepowered/asm/mixin/injection/callback/CallbackInfoReturnable;)V
+     237: aload         8
+     239: invokevirtual #60                 // Method org/spongepowered/asm/mixin/injection/callback/CallbackInfoReturnable.isCancelled:()Z
+     242: ifeq          254
+     245: aload         8
+     247: invokevirtual #64                 // Method org/spongepowered/asm/mixin/injection/callback/CallbackInfoReturnable.getReturnValue:()Ljava/lang/Object;
+     250: checkcast     #66                 // class org/joml/Quaterniond
+     253: areturn
+     254: dup
+     255: astore        11
+     257: new           #49                 // class org/spongepowered/asm/mixin/injection/callback/CallbackInfoReturnable
+     260: dup
+     261: ldc           #50                 // String getEntityOrientation
+     263: iconst_1
+     264: aload         11
+     266: invokespecial #53                 // Method org/spongepowered/asm/mixin/injection/callback/CallbackInfoReturnable."<init>":(Ljava/lang/String;ZLjava/lang/Object;)V
+     269: astore        11
+     271: aload_0
+     272: aload_1
+     273: fload_2
+     274: aload_3
+     275: aload         11
+     277: invokestatic  #69                 // Method handler$cli000$coasters_immersion$immersion$applyHeadModel:(Lnet/minecraft/world/entity/Entity;Ljava/util/function/Function;FLdev/ryanhcode/sable/mixinhelpers/camera/camera_rotation/EntitySubLevelRotationHelper$Type;Lorg/spongepowered/asm/mixin/injection/callback/CallbackInfoReturnable;)V
+     280: aload         11
+     282: invokevirtual #60                 // Method org/spongepowered/asm/mixin/injection/callback/CallbackInfoReturnable.isCancelled:()Z
+     285: ifeq          297
+     288: aload         11
+     290: invokevirtual #64                 // Method org/spongepowered/asm/mixin/injection/callback/CallbackInfoReturnable.getReturnValue:()Ljava/lang/Object;
+     293: checkcast     #66                 // class org/joml/Quaterniond
+     296: areturn
+     297: areturn
+
+  public static org.joml.Quaterniond getSubLevelInheritedOrientation(net.minecraft.world.entity.Entity, java.util.function.Function<dev.ryanhcode.sable.sublevel.SubLevel, dev.ryanhcode.sable.companion.math.Pose3dc>, dev.ryanhcode.sable.mixinhelpers.camera.camera_rotation.EntitySubLevelRotationHelper$Type);
+    Code:
+       0: aload_2
+       1: getstatic     #108                // Field dev/ryanhcode/sable/mixinhelpers/camera/camera_rotation/EntitySubLevelRotationHelper$Type.CAMERA:Ldev/ryanhcode/sable/mixinhelpers/camera/camera_rotation/EntitySubLevelRotationHelper$Type;
+       4: if_acmpne     40
+       7: aload_0
+       8: instanceof    #110                // class net/minecraft/world/entity/player/Player
+      11: ifeq          40
+      14: aload_0
+      15: checkcast     #110                // class net/minecraft/world/entity/player/Player
+      18: astore_3
+      19: aload_3
+      20: invokevirtual #113                // Method net/minecraft/world/entity/player/Player.isLocalPlayer:()Z
+      23: ifeq          40
+      26: invokestatic  #115                // Method shouldCameraRotate:()Z
+      29: ifne          40
+      32: aconst_null
+      33: aload_0
+      34: aload_1
+      35: aload_2
+      36: invokestatic  #119                // Method modifyReturnValue$ceb000$create_coaster_skins$coasterSkins$seatFrame:(Lorg/joml/Quaterniond;Lnet/minecraft/world/entity/Entity;Ljava/util/function/Function;Ldev/ryanhcode/sable/mixinhelpers/camera/camera_rotation/EntitySubLevelRotationHelper$Type;)Lorg/joml/Quaterniond;
+      39: areturn
+      40: getstatic     #125                // Field dev/ryanhcode/sable/Sable.HELPER:Ldev/ryanhcode/sable/ActiveSableCompanion;
+      43: astore_3
+      44: aload_0
+      45: instanceof    #127                // class net/minecraft/world/entity/LivingEntity
+      48: ifeq          142
+      51: aload_0
+      52: checkcast     #127                // class net/minecraft/world/entity/LivingEntity
+      55: astore        4
+      57: aload         4
+      59: invokevirtual #130                // Method net/minecraft/world/entity/LivingEntity.isSleeping:()Z
+      62: ifeq          142
+      65: aload         4
+      67: invokevirtual #134                // Method net/minecraft/world/entity/LivingEntity.getSleepingPos:()Ljava/util/Optional;
+      70: astore        5
+      72: aload         5
+      74: invokevirtual #139                // Method java/util/Optional.isPresent:()Z
+      77: ifeq          142
+      80: aload         5
+      82: invokevirtual #142                // Method java/util/Optional.get:()Ljava/lang/Object;
+      85: checkcast     #144                // class net/minecraft/core/BlockPos
+      88: astore        6
+      90: aload_3
+      91: aload         4
+      93: invokevirtual #148                // Method net/minecraft/world/entity/LivingEntity.level:()Lnet/minecraft/world/level/Level;
+      96: aload         6
+      98: invokevirtual #154                // Method dev/ryanhcode/sable/ActiveSableCompanion.getContaining:(Lnet/minecraft/world/level/Level;Lnet/minecraft/core/Vec3i;)Ldev/ryanhcode/sable/sublevel/SubLevel;
+     101: astore        7
+     103: aload         7
+     105: instanceof    #156                // class dev/ryanhcode/sable/sublevel/ClientSubLevel
+     108: ifeq          142
+     111: aload         7
+     113: checkcast     #156                // class dev/ryanhcode/sable/sublevel/ClientSubLevel
+     116: astore        8
+     118: new           #66                 // class org/joml/Quaterniond
+     121: dup
+     122: aload         8
+     124: invokevirtual #160                // Method dev/ryanhcode/sable/sublevel/ClientSubLevel.renderPose:()Ldev/ryanhcode/sable/companion/math/Pose3dc;
+     127: invokeinterface #166,  1          // InterfaceMethod dev/ryanhcode/sable/companion/math/Pose3dc.orientation:()Lorg/joml/Quaterniondc;
+     132: invokespecial #78                 // Method org/joml/Quaterniond."<init>":(Lorg/joml/Quaterniondc;)V
+     135: aload_0
+     136: aload_1
+     137: aload_2
+     138: invokestatic  #119                // Method modifyReturnValue$ceb000$create_coaster_skins$coasterSkins$seatFrame:(Lorg/joml/Quaterniond;Lnet/minecraft/world/entity/Entity;Ljava/util/function/Function;Ldev/ryanhcode/sable/mixinhelpers/camera/camera_rotation/EntitySubLevelRotationHelper$Type;)Lorg/joml/Quaterniond;
+     141: areturn
+     142: aload_0
+     143: ifnonnull     154
+     146: aconst_null
+     147: aload_0
+     148: aload_1
+     149: aload_2
+     150: invokestatic  #119                // Method modifyReturnValue$ceb000$create_coaster_skins$coasterSkins$seatFrame:(Lorg/joml/Quaterniond;Lnet/minecraft/world/entity/Entity;Ljava/util/function/Function;Ldev/ryanhcode/sable/mixinhelpers/camera/camera_rotation/EntitySubLevelRotationHelper$Type;)Lorg/joml/Quaterniond;
+     153: areturn
+     154: aload_0
+     155: invokevirtual #170                // Method net/minecraft/world/entity/Entity.getVehicle:()Lnet/minecraft/world/entity/Entity;
+     158: astore        4
+     160: aload         4
+     162: ifnonnull     202
+     165: aload_0
+     166: instanceof    #110                // class net/minecraft/world/entity/player/Player
+     169: ifeq          180
+     172: aconst_null
+     173: aload_0
+     174: aload_1
+     175: aload_2
+     176: invokestatic  #119                // Method modifyReturnValue$ceb000$create_coaster_skins$coasterSkins$seatFrame:(Lorg/joml/Quaterniond;Lnet/minecraft/world/entity/Entity;Ljava/util/function/Function;Ldev/ryanhcode/sable/mixinhelpers/camera/camera_rotation/EntitySubLevelRotationHelper$Type;)Lorg/joml/Quaterniond;
+     179: areturn
+     180: aload_3
+     181: aload_0
+     182: invokevirtual #173                // Method dev/ryanhcode/sable/ActiveSableCompanion.getContaining:(Lnet/minecraft/world/entity/Entity;)Ldev/ryanhcode/sable/sublevel/SubLevel;
+     185: ifnull        194
+     188: aload_0
+     189: astore        4
+     191: goto          202
+     194: aconst_null
+     195: aload_0
+     196: aload_1
+     197: aload_2
+     198: invokestatic  #119                // Method modifyReturnValue$ceb000$create_coaster_skins$coasterSkins$seatFrame:(Lorg/joml/Quaterniond;Lnet/minecraft/world/entity/Entity;Ljava/util/function/Function;Ldev/ryanhcode/sable/mixinhelpers/camera/camera_rotation/EntitySubLevelRotationHelper$Type;)Lorg/joml/Quaterniond;
+     201: areturn
+     202: aload_3
+     203: aload         4
+     205: invokevirtual #173                // Method dev/ryanhcode/sable/ActiveSableCompanion.getContaining:(Lnet/minecraft/world/entity/Entity;)Ldev/ryanhcode/sable/sublevel/SubLevel;
+     208: astore        5
+     210: aload         5
+     212: ifnonnull     223
+     215: aconst_null
+     216: aload_0
+     217: aload_1
+     218: aload_2
+     219: invokestatic  #119                // Method modifyReturnValue$ceb000$create_coaster_skins$coasterSkins$seatFrame:(Lorg/joml/Quaterniond;Lnet/minecraft/world/entity/Entity;Ljava/util/function/Function;Ldev/ryanhcode/sable/mixinhelpers/camera/camera_rotation/EntitySubLevelRotationHelper$Type;)Lorg/joml/Quaterniond;
+     222: areturn
+     223: new           #66                 // class org/joml/Quaterniond
+     226: dup
+     227: aload_1
+     228: aload         5
+     230: invokeinterface #177,  2          // InterfaceMethod java/util/function/Function.apply:(Ljava/lang/Object;)Ljava/lang/Object;
+     235: checkcast     #162                // class dev/ryanhcode/sable/companion/math/Pose3dc
+     238: invokeinterface #166,  1          // InterfaceMethod dev/ryanhcode/sable/companion/math/Pose3dc.orientation:()Lorg/joml/Quaterniondc;
+     243: invokespecial #78                 // Method org/joml/Quaterniond."<init>":(Lorg/joml/Quaterniondc;)V
+     246: aload_0
+     247: aload_1
+     248: aload_2
+     249: invokestatic  #119                // Method modifyReturnValue$ceb000$create_coaster_skins$coasterSkins$seatFrame:(Lorg/joml/Quaterniond;Lnet/minecraft/world/entity/Entity;Ljava/util/function/Function;Ldev/ryanhcode/sable/mixinhelpers/camera/camera_rotation/EntitySubLevelRotationHelper$Type;)Lorg/joml/Quaterniond;
+     252: areturn
+
+  private static void handler$ccb000$fourthdimension$comfort(net.minecraft.world.entity.Entity, java.util.function.Function, float, dev.ryanhcode.sable.mixinhelpers.camera.camera_rotation.EntitySubLevelRotationHelper$Type, org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable);
+    Code:
+       0: aload_3
+       1: getstatic     #108                // Field dev/ryanhcode/sable/mixinhelpers/camera/camera_rotation/EntitySubLevelRotationHelper$Type.CAMERA:Ldev/ryanhcode/sable/mixinhelpers/camera/camera_rotation/EntitySubLevelRotationHelper$Type;
+       4: if_acmpne     14
+       7: aload_0
+       8: invokestatic  #206                // Method dev/fourthdimension/client/ImmersionEffects.carrier:(Lnet/minecraft/world/entity/Entity;)Ldev/ryanhcode/sable/sublevel/SubLevel;
+      11: ifnonnull     15
+      14: return
+      15: aload_0
+      16: aload_1
+      17: aload_3
+      18: aload         4
+      20: invokevirtual #64                 // Method org/spongepowered/asm/mixin/injection/callback/CallbackInfoReturnable.getReturnValue:()Ljava/lang/Object;
+      23: checkcast     #66                 // class org/joml/Quaterniond
+      26: invokestatic  #211                // Method dev/fourthdimension/vehicle/FlyingRiderPose.orientation:(Lnet/minecraft/world/entity/Entity;Ljava/util/function/Function;Ldev/ryanhcode/sable/mixinhelpers/camera/camera_rotation/EntitySubLevelRotationHelper$Type;Lorg/joml/Quaterniond;)Lorg/joml/Quaterniond;
+      29: astore        5
+      31: aload_0
+      32: aload         5
+      34: invokestatic  #215                // Method dev/fourthdimension/client/ImmersionEffects.compose:(Lnet/minecraft/world/entity/Entity;Lorg/joml/Quaterniond;)Lorg/joml/Quaterniond;
+      37: astore        5
+      39: aload         4
+      41: aload_0
+      42: aload_3
+      43: aload         5
+      45: invokestatic  #220                // Method dev/fourthdimension/client/RiderComfort.orientation:(Lnet/minecraft/world/entity/Entity;Ldev/ryanhcode/sable/mixinhelpers/camera/camera_rotation/EntitySubLevelRotationHelper$Type;Lorg/joml/Quaterniond;)Lorg/joml/Quaterniond;
+      48: invokevirtual #224                // Method org/spongepowered/asm/mixin/injection/callback/CallbackInfoReturnable.setReturnValue:(Ljava/lang/Object;)V
+      51: return
+
+  private static org.joml.Quaterniond modifyReturnValue$ceb000$create_coaster_skins$coasterSkins$seatFrame(org.joml.Quaterniond, net.minecraft.world.entity.Entity, java.util.function.Function, dev.ryanhcode.sable.mixinhelpers.camera.camera_rotation.EntitySubLevelRotationHelper$Type);
+    Code:
+       0: aload_0
+       1: ifnull        32
+       4: aload_1
+       5: ifnull        32
+       8: aload_1
+       9: invokevirtual #170                // Method net/minecraft/world/entity/Entity.getVehicle:()Lnet/minecraft/world/entity/Entity;
+      12: astore        5
+      14: aload         5
+      16: instanceof    #232                // class medev/coaster/skins/seat/ClassicSeatPose
+      19: ifeq          32
+      22: aload         5
+      24: checkcast     #232                // class medev/coaster/skins/seat/ClassicSeatPose
+      27: astore        4
+      29: goto          34
+      32: aload_0
+      33: areturn
+      34: aload         4
+      36: invokeinterface #236,  1          // InterfaceMethod medev/coaster/skins/seat/ClassicSeatPose.coasterSkins$rotation:()Lorg/joml/Quaternionf;
+      41: astore        5
+      43: aload         5
+      45: getfield      #241                // Field org/joml/Quaternionf.x:F
+      48: fconst_0
+      49: fcmpl
+      50: ifne          75
+      53: aload         5
+      55: getfield      #244                // Field org/joml/Quaternionf.y:F
+      58: fconst_0
+      59: fcmpl
+      60: ifne          75
+      63: aload         5
+      65: getfield      #247                // Field org/joml/Quaternionf.z:F
+      68: fconst_0
+      69: fcmpl
+      70: ifne          75
+      73: aload_0
+      74: areturn
+      75: new           #66                 // class org/joml/Quaterniond
+      78: dup
+      79: aload_0
+      80: invokespecial #78                 // Method org/joml/Quaterniond."<init>":(Lorg/joml/Quaterniondc;)V
+      83: new           #66                 // class org/joml/Quaterniond
+      86: dup
+      87: aload         5
+      89: invokespecial #250                // Method org/joml/Quaterniond."<init>":(Lorg/joml/Quaternionfc;)V
+      92: invokevirtual #254                // Method org/joml/Quaterniond.normalize:()Lorg/joml/Quaterniond;
+      95: invokevirtual #258                // Method org/joml/Quaterniond.mul:(Lorg/joml/Quaterniondc;)Lorg/joml/Quaterniond;
+      98: areturn
+
+  private static void handler$cli000$coasters_immersion$immersion$applyHeadModel(net.minecraft.world.entity.Entity, java.util.function.Function, float, dev.ryanhcode.sable.mixinhelpers.camera.camera_rotation.EntitySubLevelRotationHelper$Type, org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable);
+    Code:
+       0: aload_3
+       1: getstatic     #108                // Field dev/ryanhcode/sable/mixinhelpers/camera/camera_rotation/EntitySubLevelRotationHelper$Type.CAMERA:Ldev/ryanhcode/sable/mixinhelpers/camera/camera_rotation/EntitySubLevelRotationHelper$Type;
+       4: if_acmpeq     8
+       7: return
+       8: invokestatic  #23                 // Method net/minecraft/client/Minecraft.getInstance:()Lnet/minecraft/client/Minecraft;
+      11: astore        5
+      13: aload         5
+      15: invokevirtual #268                // Method net/minecraft/client/Minecraft.isSameThread:()Z
+      18: ifeq          34
+      21: aload_0
+      22: ifnull        34
+      25: aload_0
+      26: aload         5
+      28: invokevirtual #271                // Method net/minecraft/client/Minecraft.getCameraEntity:()Lnet/minecraft/world/entity/Entity;
+      31: if_acmpeq     35
+      34: return
+      35: invokestatic  #276                // Method dev/mito/coastersimmersion/config/ImmersionClientConfig.rotateOnlyWhileRiding:()Z
+      38: ifeq          59
+      41: aload_0
+      42: invokevirtual #279                // Method net/minecraft/world/entity/Entity.getRootVehicle:()Lnet/minecraft/world/entity/Entity;
+      45: aload_0
+      46: if_acmpne     59
+      49: invokestatic  #284                // Method dev/mito/coastersimmersion/smooth/CameraFilter.reset:()V
+      52: aload         4
+      54: aconst_null
+      55: invokevirtual #224                // Method org/spongepowered/asm/mixin/injection/callback/CallbackInfoReturnable.setReturnValue:(Ljava/lang/Object;)V
+      58: return
+      59: getstatic     #290                // Field dev/mito/coastersimmersion/client/ride/RideScope$Effect.INERTIA:Ldev/mito/coastersimmersion/client/ride/RideScope$Effect;
+      62: aload_0
+      63: invokestatic  #296                // Method dev/mito/coastersimmersion/client/ride/RideScope.allows:(Ldev/mito/coastersimmersion/client/ride/RideScope$Effect;Lnet/minecraft/world/entity/Entity;)Z
+      66: ifne          73
+      69: invokestatic  #284                // Method dev/mito/coastersimmersion/smooth/CameraFilter.reset:()V
+      72: return
+      73: aload         4
+      75: invokevirtual #64                 // Method org/spongepowered/asm/mixin/injection/callback/CallbackInfoReturnable.getReturnValue:()Ljava/lang/Object;
+      78: checkcast     #66                 // class org/joml/Quaterniond
+      81: astore        6
+      83: aload         6
+      85: ifnonnull     92
+      88: invokestatic  #299                // Method dev/mito/coastersimmersion/smooth/CameraFilter.noTarget:()V
+      91: return
+      92: invokestatic  #302                // Method dev/mito/coastersimmersion/config/ImmersionClientConfig.cameraProcessingActive:()Z
+      95: ifne          102
+      98: invokestatic  #284                // Method dev/mito/coastersimmersion/smooth/CameraFilter.reset:()V
+     101: return
+     102: invokestatic  #308                // Method dev/mito/coastersimmersion/diag/AllocProbe.begin:()J
+     105: lstore        7
+     107: aload         6
+     109: invokestatic  #311                // Method dev/mito/coastersimmersion/smooth/CameraFilter.apply:(Lorg/joml/Quaterniond;)V
+     112: lload         7
+     114: invokestatic  #315                // Method dev/mito/coastersimmersion/diag/AllocProbe.end:(J)V
+     117: aload         4
+     119: aload         6
+     121: invokevirtual #224                // Method org/spongepowered/asm/mixin/injection/callback/CallbackInfoReturnable.setReturnValue:(Ljava/lang/Object;)V
+     124: return
+}

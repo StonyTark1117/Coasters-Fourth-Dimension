@@ -1,0 +1,132 @@
+{
+  "schema": 8,
+  "vehicles": [
+    {
+      "chassis": [
+        -1474947529,
+        -307541552,
+        -1912576296,
+        641496451
+      ],
+      "family": "arrow_controlled",
+      "variant": "arrow_four_rail_v1",
+      "appearance": "classic",
+      "restraints": 0,
+      "stopping": 1,
+      "fault": "",
+      "carriers": [
+        {
+          "side": -3.0,
+          "rider_seats": [],
+          "lift_pending": 0,
+          "capture": 1,
+          "body": [
+            1353301366,
+            1715751924,
+            -1693972133,
+            -1415562833
+          ],
+          "axis": "X",
+          "seats": [
+            4095,
+            -274877902849
+          ],
+          "ballast": 0.0,
+          "omega": 0.00280397633224286,
+          "lift_geometry": 0,
+          "lift_entered": 0,
+          "pivot_height": 2.0,
+          "angle": -0.0005436216416626255,
+          "capture_target": 0.0,
+          "lift_held": 0,
+          "latched": 0,
+          "longitudinal": 0.0,
+          "child_pivot_offset": 0.0,
+          "child_pivot_x": 0.0,
+          "child_pivot_z": 0.0,
+          "occupants": []
+        },
+        {
+          "side": 3.0,
+          "rider_seats": [],
+          "lift_pending": 0,
+          "capture": 1,
+          "body": [
+            472339536,
+            -1246215633,
+            -1316256137,
+            -2101971292
+          ],
+          "axis": "X",
+          "seats": [
+            4095,
+            274877911039
+          ],
+          "ballast": 0.0,
+          "omega": 0.0027012286729550562,
+          "lift_geometry": 0,
+          "lift_entered": 0,
+          "pivot_height": 2.0,
+          "angle": -0.0006076542532146794,
+          "capture_target": 0.0,
+          "lift_held": 0,
+          "latched": 0,
+          "longitudinal": 0.0,
+          "child_pivot_offset": 0.0,
+          "child_pivot_x": 0.0,
+          "child_pivot_z": 0.0,
+          "occupants": []
+        }
+      ]
+    },
+    {
+      "chassis": [
+        -1519591991,
+        1236486000,
+        -1812461773,
+        -98708897
+      ],
+      "family": "flying",
+      "variant": "station_changeover_v1",
+      "appearance": "original",
+      "restraints": 0,
+      "stopping": 1,
+      "fault": "",
+      "carriers": [
+        {
+          "side": 0.0,
+          "rider_seats": [],
+          "lift_pending": 0,
+          "capture": 1,
+          "body": [
+            469585974,
+            -890223776,
+            -1352553335,
+            -573617072
+          ],
+          "axis": "X",
+          "seats": [
+            -549755813888,
+            -274877906944,
+            0,
+            274877906944
+          ],
+          "ballast": 0.0,
+          "omega": 0.0005041591269074547,
+          "lift_geometry": 0,
+          "lift_entered": 0,
+          "pivot_height": -2.8125,
+          "angle": -0.00015820758376769916,
+          "capture_target": -0.00015880837600597644,
+          "lift_held": 0,
+          "latched": 1,
+          "longitudinal": 0.0,
+          "child_pivot_offset": 0.0,
+          "child_pivot_x": -0.5,
+          "child_pivot_z": 0.0,
+          "occupants": []
+        }
+      ]
+    }
+  ]
+}
