@@ -9,6 +9,7 @@ public final class OptionalIntegrations {
   public static final String TRACK_STYLES = "coasterssimulatedextratypes";
   public static final String ADDITIONS = "coasterfins", CTNB = "coasters_extras", MAGNETIZED = "coastersmagnetized";
   public static final String ENGINEERED = "coastersengineered";
+  public static final String SKIN = "create_coaster_skins", IMMERSION = "coasters_immersion";
 
   public enum Status {
     ABSENT,
@@ -43,6 +44,10 @@ public final class OptionalIntegrations {
       return new Release(modId,release.version(),Status.UNVERIFIED_VERSION);
     if(CTNB.equals(modId)&&release.mayInspect()&&!ctnbFingerprint())
       return new Release(modId,release.version(),Status.UNVERIFIED_VERSION);
+    if(SKIN.equals(modId)&&release.mayInspect()&&!skinFingerprint())
+      return new Release(modId,release.version(),Status.UNVERIFIED_VERSION);
+    if(IMMERSION.equals(modId)&&release.mayInspect()&&!immersionFingerprint())
+      return new Release(modId,release.version(),Status.UNVERIFIED_VERSION);
     return release;
   }
 
@@ -53,7 +58,11 @@ public final class OptionalIntegrations {
         "dev/plushivr/coasterfins/event/StationHandler.class","93a3d998db292b5deff1c4f1121602bb75e23bc5a44dda2fa2054b8df8f0ea1a",
         "dev/plushivr/coasterfins/block/StationBlockEntity.class","a5ea07845cc14c9621b754fa1ba213625f1732431927217ba2417f32d2c4281d",
         "dev/plushivr/coasterfins/block/CoasterSeatBlock.class","0ce0450e1d48242e52a5ebc6bb555bd1a70b720a4268fa2800c5875b2bce0bfd",
-        "dev/plushivr/coasterfins/event/SeatLockTicker.class","93b8b128f5e8528c0268bf735ef09937d854fff74d90e2046dbab2ca2b66bb7b");
+        "dev/plushivr/coasterfins/event/SeatLockTicker.class","93b8b128f5e8528c0268bf735ef09937d854fff74d90e2046dbab2ca2b66bb7b",
+        "dev/plushivr/coasterfins/block/CoasterSeatBlockEntity.class","568b64529b9073c26f233bed4ab0f4fe5c4dde56badd6548fa4ba3fde06c5845",
+        "dev/plushivr/coasterfins/event/SeatDismountHandler.class","13eca186ecd357271bc5ca8f32f1de5a9c4b1f8480b3da6184cd8e5dba4e7738",
+        "dev/plushivr/coasterfins/mixin/SeatEntityMixin.class","1b5e531f447a253f2408b2846e2c35683754d1d0cfa8adfcb0a4301729a0aefc",
+        "dev/plushivr/coasterfins/registry/CFAttachments.class","d1f5fe5507deb2491ca2d7330806a099c4af0d48d0e71378feff66ceac0b531f");
     try {
       var file=ModList.get().getModFileById(ADDITIONS).getFile();
       var digest=java.security.MessageDigest.getInstance("SHA-256");
@@ -97,13 +106,50 @@ public final class OptionalIntegrations {
     }catch(java.io.IOException|java.security.NoSuchAlgorithmException|RuntimeException unavailable){return ctnbVerified=false;}
   }
 
+  private static volatile Boolean skinVerified;
+  private static boolean skinFingerprint(){
+    if(skinVerified!=null)return skinVerified;
+    try(var manifest=OptionalIntegrations.class.getResourceAsStream("/fourthdimension-skin-provider-classes.txt")){
+      if(manifest==null)return skinVerified=false;
+      var file=ModList.get().getModFileById(SKIN).getFile();
+      var digest=java.security.MessageDigest.getInstance("SHA-256");
+      for(var path:new String(manifest.readAllBytes(),java.nio.charset.StandardCharsets.UTF_8).lines().toList())
+        digest.update(java.nio.file.Files.readAllBytes(file.findResource(path)));
+      return skinVerified=java.util.HexFormat.of().formatHex(digest.digest()).equals("b25e600b1c97eaab8c8ca83d67b9ccc408dd4df0e0fc079cb7b98827517c6258");
+    }catch(java.io.IOException|java.security.NoSuchAlgorithmException|RuntimeException unavailable){return skinVerified=false;}
+  }
+
+  private static volatile Boolean immersionVerified;
+  private static boolean immersionFingerprint(){
+    if(immersionVerified!=null)return immersionVerified;
+    var expected=java.util.Map.ofEntries(
+      java.util.Map.entry("dev/mito/coastersimmersion/api/CoasterCart.class","4e6b69d38a01a952876de4b17eb13ed1fa1489d8bb51a55634d89823359a08a2"),
+      java.util.Map.entry("dev/mito/coastersimmersion/client/ride/RideScope.class","f74f20f1305c4bc534d80809e3dfdc7d8299f9f3ef75635b298e7ecaa5953ec3"),
+      java.util.Map.entry("dev/mito/coastersimmersion/smooth/CameraFilter.class","22067f6fc86ba288eda67e563fcd663c77c4527ace0506270cceca3c4d6abd74"),
+      java.util.Map.entry("dev/mito/coastersimmersion/mixin/sable/EntitySubLevelRotationHelperMixin.class","7534daaac8ffe641d933a6bfde86e222245cc3dceb7bb3dafb8662e5e0ac671e"),
+      java.util.Map.entry("dev/mito/coastersimmersion/mixin/sable/ClientSubLevelRenderPoseMixin.class","a6b99e8b300876d4875020b24d717aecd648da3e0fb9a26e333136b2a5460588"),
+      java.util.Map.entry("dev/mito/coastersimmersion/mixin/sable/SubLevelSnapshotInterpolatorMixin.class","a9191cd6924bfb5f16a96d07f88b2b21181438cbc2cec03af19fde5fec5acd08"),
+      java.util.Map.entry("dev/mito/coastersimmersion/client/camera/CinematicCamera.class","1271b5204d3531315cd1d23d24236328f3b09012552db11ab4a5430d98b77b68"),
+      java.util.Map.entry("dev/mito/coastersimmersion/mixin/CameraTravelMixin.class","1446fb62891488a2d71b6be215257375106efe28fc38e1fba0ca8e1cd3a741b8"),
+      java.util.Map.entry("dev/mito/coastersimmersion/animation/RiderForces.class","6955e9105d68018566152d5b63cfb7033f7000fe39ae1290d09b8f3a8a2006e8"),
+      java.util.Map.entry("dev/mito/coastersimmersion/client/PassengerFacing.class","ed3622a311738f7cccb3b5c3b1afb8b3b4f5e8b2689695be915e08f482659b77"));
+    try{
+      var file=ModList.get().getModFileById(IMMERSION).getFile();
+      var digest=java.security.MessageDigest.getInstance("SHA-256");
+      for(var e:expected.entrySet())if(!java.util.HexFormat.of().formatHex(digest.digest(java.nio.file.Files.readAllBytes(file.findResource(e.getKey())))).equals(e.getValue()))return immersionVerified=false;
+      return immersionVerified=true;
+    }catch(java.io.IOException|java.security.NoSuchAlgorithmException|RuntimeException unavailable){return immersionVerified=false;}
+  }
+
   public static Release classify(String modId, String version) {
     boolean known =
         (TRACK_STYLES.equals(modId) && "1.2.0".equals(version))
             || (ENGINEERED.equals(modId) && "1.1.1".equals(version))
             || (ADDITIONS.equals(modId) && "0.2.2".equals(version))
             || (CTNB.equals(modId) && "1.2".equals(version))
-            || (MAGNETIZED.equals(modId) && "1.1.0".equals(version));
+            || (MAGNETIZED.equals(modId) && "1.1.0".equals(version))
+            || (SKIN.equals(modId) && "1.1.0".equals(version))
+            || (IMMERSION.equals(modId) && "1.1.1".equals(version));
     return new Release(
         modId,
         version == null ? "absent" : version,
@@ -113,6 +159,6 @@ public final class OptionalIntegrations {
   }
 
   public static List<Release> installed() {
-    return List.of(installed(TRACK_STYLES), installed(ENGINEERED), installed(ADDITIONS), installed(CTNB), installed(MAGNETIZED));
+    return List.of(installed(TRACK_STYLES), installed(ENGINEERED), installed(ADDITIONS), installed(CTNB), installed(MAGNETIZED), installed(SKIN), installed(IMMERSION));
   }
 }

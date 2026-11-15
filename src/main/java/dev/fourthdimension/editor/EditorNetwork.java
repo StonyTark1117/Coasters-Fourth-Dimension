@@ -204,6 +204,7 @@ public final class EditorNetwork {
       if(request.action>=71&&request.action<=74&&!PoweredInvertedYawVehicle.is(vehicle))throw new IllegalArgumentException("Powered controls require their matching vehicle");
       if(request.action>=40&&request.action<=42&&!NewGenerationFlyingVehicle.is(vehicle))throw new IllegalArgumentException("Compound Flying control requires its matching car");
       switch (request.action) {
+        case 80 -> dev.fourthdimension.integration.SkinAdapter.select(player,vehicle,request.value);
         case 10 -> VehicleOperations.capture(level, vehicle);
         case 11 -> VehicleOperations.restraints(level, vehicle, true);
         case 12 -> VehicleOperations.restraints(level, vehicle, false);

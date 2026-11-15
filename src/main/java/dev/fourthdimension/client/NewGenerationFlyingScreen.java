@@ -37,6 +37,7 @@ public final class NewGenerationFlyingScreen extends Screen {
       addRenderableWidget(Button.builder(Component.literal("Save section"),b->submit(8,form())).bounds(left,top+246,140,20).build());
       addRenderableWidget(Button.builder(Component.literal("Next section"),b->{selected=(selected+1)%Math.max(1,r.yaw.intervals.size());draft=null;rebuildWidgets();}).bounds(left+145,top+246,140,20).build());
     }
+    if(target.vehicle())addRenderableWidget(Button.builder(Component.literal("Appearance"),b->minecraft.setScreen(new SkinAppearanceScreen(target))).bounds(left+290,top,140,14).build());
     addRenderableWidget(Button.builder(Component.literal("Done"),b->onClose()).bounds(left+290,top+246,140,20).build());
     if(pending!=null)for(var child:children())if(child instanceof AbstractWidget w)w.active=false;
   }

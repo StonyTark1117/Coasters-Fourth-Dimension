@@ -33,6 +33,7 @@ public final class PoweredInvertedYawScreen extends Screen {
       addRenderableWidget(Button.builder(Component.literal("Save section"),b->submit(70,form())).bounds(left,top+280,140,20).build());
       addRenderableWidget(Button.builder(Component.literal("Next section"),b->{selected=(selected+1)%Math.max(1,program.yaw.intervals.size());draft=null;rebuildWidgets();}).bounds(left+145,top+280,140,20).build());
     }
+    if(target.vehicle())addRenderableWidget(Button.builder(Component.literal("Appearance"),b->minecraft.setScreen(new SkinAppearanceScreen(target))).bounds(left+290,top,140,14).build());
     addRenderableWidget(Button.builder(Component.literal("Done"),b->onClose()).bounds(left+290,top+280,140,20).build());if(pending!=null)for(var child:children())if(child instanceof AbstractWidget w)w.active=false;
   }
   private String form(){return fields.stream().map(EditBox::getValue).collect(java.util.stream.Collectors.joining("|"));}

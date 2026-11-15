@@ -124,6 +124,7 @@ public final class FoundationData extends SavedData {
     public final UUID chassis;
     public final Family family;
     public String variant = VARIANT;
+    public dev.fourthdimension.integration.SkinAppearance appearance = dev.fourthdimension.integration.SkinAppearance.ORIGINAL;
     public boolean restraints, boardingReady;
     public boolean stopping, maintenance, alignmentRequired;
     /** Set only by explicit shuttle handover; survives unloading a remote stranded car. */
@@ -238,6 +239,7 @@ public final class FoundationData extends SavedData {
       tag.putUUID("chassis", vehicle.chassis);
       tag.putString("family", vehicle.family.id());
       tag.putString("variant", vehicle.variant);
+      tag.putString("appearance", vehicle.appearance.id);
       tag.put("authority", vehicle.authority.save());
       tag.put("ctnb", vehicle.ctnb.save());
       if (dev.fourthdimension.vehicle.DiveVehicle.is(vehicle)) tag.put("dive",vehicle.dive.save());
@@ -409,6 +411,7 @@ public final class FoundationData extends SavedData {
         throw new IllegalArgumentException("Duplicate vehicle identity");
       if (!nativeBodyIds.add(vehicle.chassis))
         throw new IllegalArgumentException("Vehicle chassis reuses a carrier identity");
+      vehicle.appearance = dev.fourthdimension.integration.SkinAppearance.read(tag.getString("appearance"));
       vehicle.restraints = tag.getBoolean("restraints");
       vehicle.stopping = tag.getBoolean("stopping");
       vehicle.maintenance = tag.getBoolean("maintenance");

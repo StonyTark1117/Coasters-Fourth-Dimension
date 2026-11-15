@@ -1,0 +1,391 @@
+{
+  "case": "FD910 provider absent on both sides after clean save/restart",
+  "before": {
+    "5051b4af-b543-4838-9ab8-42f19cae2c11": {
+      "chassis": [
+        1347531951,
+        -1253881800,
+        -1699200271,
+        -1666307055
+      ],
+      "family": "arrow_controlled",
+      "variant": "arrow_four_rail_v1",
+      "appearance": "classic",
+      "restraints": 0,
+      "carriers": [
+        {
+          "body": [
+            -1081616450,
+            929776219,
+            -1553516841,
+            -1003341778
+          ],
+          "seats": [
+            4095,
+            -274877902849
+          ],
+          "rider_seats": [],
+          "occupants": [],
+          "axis": "X",
+          "side": -3.0,
+          "pivot_height": 2.0,
+          "longitudinal": 0.0,
+          "child_pivot_offset": 0.0,
+          "child_pivot_x": 0.0,
+          "child_pivot_z": 0.0
+        },
+        {
+          "body": [
+            645025751,
+            -1379842296,
+            -2143119509,
+            582379984
+          ],
+          "seats": [
+            4095,
+            274877911039
+          ],
+          "rider_seats": [],
+          "occupants": [],
+          "axis": "X",
+          "side": 3.0,
+          "pivot_height": 2.0,
+          "longitudinal": 0.0,
+          "child_pivot_offset": 0.0,
+          "child_pivot_x": 0.0,
+          "child_pivot_z": 0.0
+        }
+      ]
+    },
+    "2d2dc69d-605e-472c-bfa3-3621b02bab05": {
+      "chassis": [
+        757974685,
+        1616791340,
+        -1079822815,
+        -1339315451
+      ],
+      "family": "sns_free_spin",
+      "variant": "sns_magnetic_v1",
+      "appearance": "antarctica",
+      "restraints": 0,
+      "carriers": [
+        {
+          "body": [
+            1142849661,
+            -1825485549,
+            -1368460541,
+            221088160
+          ],
+          "seats": [
+            4095,
+            -274877902849
+          ],
+          "rider_seats": [],
+          "occupants": [],
+          "axis": "X",
+          "side": -3.0,
+          "pivot_height": 2.0,
+          "longitudinal": -3.0,
+          "child_pivot_offset": 0.0,
+          "child_pivot_x": 0.0,
+          "child_pivot_z": 0.0
+        },
+        {
+          "body": [
+            -313487883,
+            -471251825,
+            -1911858192,
+            1326640222
+          ],
+          "seats": [
+            4095,
+            -274877902849
+          ],
+          "rider_seats": [],
+          "occupants": [],
+          "axis": "X",
+          "side": -3.0,
+          "pivot_height": 2.0,
+          "longitudinal": 3.0,
+          "child_pivot_offset": 0.0,
+          "child_pivot_x": 0.0,
+          "child_pivot_z": 0.0
+        },
+        {
+          "body": [
+            601274346,
+            -859815204,
+            -2038602592,
+            -1339451904
+          ],
+          "seats": [
+            4095,
+            274877911039
+          ],
+          "rider_seats": [],
+          "occupants": [],
+          "axis": "X",
+          "side": 3.0,
+          "pivot_height": 2.0,
+          "longitudinal": -3.0,
+          "child_pivot_offset": 0.0,
+          "child_pivot_x": 0.0,
+          "child_pivot_z": 0.0
+        },
+        {
+          "body": [
+            -1614057316,
+            -46903517,
+            -1098920796,
+            697250363
+          ],
+          "seats": [
+            4095,
+            274877911039
+          ],
+          "rider_seats": [],
+          "occupants": [],
+          "axis": "X",
+          "side": 3.0,
+          "pivot_height": 2.0,
+          "longitudinal": 3.0,
+          "child_pivot_offset": 0.0,
+          "child_pivot_x": 0.0,
+          "child_pivot_z": 0.0
+        }
+      ]
+    },
+    "01e03c45-e849-4b75-937e-7df20debfc5e": {
+      "chassis": [
+        31472709,
+        -397849739,
+        -1820426766,
+        233569374
+      ],
+      "family": "wing_fixed",
+      "variant": "wing_fixed_v1",
+      "appearance": "hotdog",
+      "restraints": 0,
+      "carriers": [
+        {
+          "body": [
+            31472709,
+            -397849739,
+            -1820426766,
+            233569374
+          ],
+          "seats": [
+            -1099511627775,
+            -824633720831,
+            824633720833,
+            1099511627777
+          ],
+          "rider_seats": [],
+          "occupants": [],
+          "axis": "X",
+          "side": 0.0,
+          "pivot_height": 0.0,
+          "longitudinal": 0.0,
+          "child_pivot_offset": 0.0,
+          "child_pivot_x": 0.0,
+          "child_pivot_z": 0.0
+        }
+      ]
+    }
+  },
+  "after": {
+    "5051b4af-b543-4838-9ab8-42f19cae2c11": {
+      "chassis": [
+        1347531951,
+        -1253881800,
+        -1699200271,
+        -1666307055
+      ],
+      "family": "arrow_controlled",
+      "variant": "arrow_four_rail_v1",
+      "appearance": "classic",
+      "restraints": 0,
+      "carriers": [
+        {
+          "body": [
+            -1081616450,
+            929776219,
+            -1553516841,
+            -1003341778
+          ],
+          "seats": [
+            4095,
+            -274877902849
+          ],
+          "rider_seats": [],
+          "occupants": [],
+          "axis": "X",
+          "side": -3.0,
+          "pivot_height": 2.0,
+          "longitudinal": 0.0,
+          "child_pivot_offset": 0.0,
+          "child_pivot_x": 0.0,
+          "child_pivot_z": 0.0
+        },
+        {
+          "body": [
+            645025751,
+            -1379842296,
+            -2143119509,
+            582379984
+          ],
+          "seats": [
+            4095,
+            274877911039
+          ],
+          "rider_seats": [],
+          "occupants": [],
+          "axis": "X",
+          "side": 3.0,
+          "pivot_height": 2.0,
+          "longitudinal": 0.0,
+          "child_pivot_offset": 0.0,
+          "child_pivot_x": 0.0,
+          "child_pivot_z": 0.0
+        }
+      ]
+    },
+    "2d2dc69d-605e-472c-bfa3-3621b02bab05": {
+      "chassis": [
+        757974685,
+        1616791340,
+        -1079822815,
+        -1339315451
+      ],
+      "family": "sns_free_spin",
+      "variant": "sns_magnetic_v1",
+      "appearance": "antarctica",
+      "restraints": 0,
+      "carriers": [
+        {
+          "body": [
+            1142849661,
+            -1825485549,
+            -1368460541,
+            221088160
+          ],
+          "seats": [
+            4095,
+            -274877902849
+          ],
+          "rider_seats": [],
+          "occupants": [],
+          "axis": "X",
+          "side": -3.0,
+          "pivot_height": 2.0,
+          "longitudinal": -3.0,
+          "child_pivot_offset": 0.0,
+          "child_pivot_x": 0.0,
+          "child_pivot_z": 0.0
+        },
+        {
+          "body": [
+            -313487883,
+            -471251825,
+            -1911858192,
+            1326640222
+          ],
+          "seats": [
+            4095,
+            -274877902849
+          ],
+          "rider_seats": [],
+          "occupants": [],
+          "axis": "X",
+          "side": -3.0,
+          "pivot_height": 2.0,
+          "longitudinal": 3.0,
+          "child_pivot_offset": 0.0,
+          "child_pivot_x": 0.0,
+          "child_pivot_z": 0.0
+        },
+        {
+          "body": [
+            601274346,
+            -859815204,
+            -2038602592,
+            -1339451904
+          ],
+          "seats": [
+            4095,
+            274877911039
+          ],
+          "rider_seats": [],
+          "occupants": [],
+          "axis": "X",
+          "side": 3.0,
+          "pivot_height": 2.0,
+          "longitudinal": -3.0,
+          "child_pivot_offset": 0.0,
+          "child_pivot_x": 0.0,
+          "child_pivot_z": 0.0
+        },
+        {
+          "body": [
+            -1614057316,
+            -46903517,
+            -1098920796,
+            697250363
+          ],
+          "seats": [
+            4095,
+            274877911039
+          ],
+          "rider_seats": [],
+          "occupants": [],
+          "axis": "X",
+          "side": 3.0,
+          "pivot_height": 2.0,
+          "longitudinal": 3.0,
+          "child_pivot_offset": 0.0,
+          "child_pivot_x": 0.0,
+          "child_pivot_z": 0.0
+        }
+      ]
+    },
+    "01e03c45-e849-4b75-937e-7df20debfc5e": {
+      "chassis": [
+        31472709,
+        -397849739,
+        -1820426766,
+        233569374
+      ],
+      "family": "wing_fixed",
+      "variant": "wing_fixed_v1",
+      "appearance": "hotdog",
+      "restraints": 0,
+      "carriers": [
+        {
+          "body": [
+            31472709,
+            -397849739,
+            -1820426766,
+            233569374
+          ],
+          "seats": [
+            -1099511627775,
+            -824633720831,
+            824633720833,
+            1099511627777
+          ],
+          "rider_seats": [],
+          "occupants": [],
+          "axis": "X",
+          "side": 0.0,
+          "pivot_height": 0.0,
+          "longitudinal": 0.0,
+          "child_pivot_offset": 0.0,
+          "child_pivot_x": 0.0,
+          "child_pivot_z": 0.0
+        }
+      ]
+    }
+  },
+  "identities_appearance_seats_restraints_equal": true,
+  "exclusions": "Runtime ticks, revision, tiny settled carrier angle/omega changes are not identity invariants. No native seat substitution in this run."
+}

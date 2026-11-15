@@ -24,7 +24,11 @@
     "DiveSeatRiderMixin",
     "OptionalDriveFenceMixin",
     "CtnbRepaintMixin",
-    "CtnbRepaintPermissionMixin"
+    "CtnbRepaintPermissionMixin",
+    "SkinTargetGuardMixin",
+    "SkinLinkGuardMixin",
+    "SkinDataGuardMixin",
+    "SkinScrewdriverGuardMixin"
   ],
   "injectors": {
     "defaultRequire": 1
@@ -44,7 +48,9 @@
     "FlyingPlayerModelMixin",
     "FlyingBodyFrameMixin",
     "PipelineWheelMixin",
-    "PipelineCartSliceMixin"
+    "PipelineCartSliceMixin",
+    "SkinClientRenderMixin",
+    "SkinClientStateGuardMixin"
   ],
   "plugin": "dev.fourthdimension.mixin.OptionalDriveFencePlugin"
 }

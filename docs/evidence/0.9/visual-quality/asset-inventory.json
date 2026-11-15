@@ -1,0 +1,2868 @@
+{
+  "scope": "Authored models, blockstates and textures; procedural rendering reviewed separately. Static flags require criterion review, not automatic family requalification.",
+  "counts": {
+    "Arrow": 7,
+    "Axis": 24,
+    "Shared tools/equipment/geometry": 17,
+    "Dive": 12,
+    "Fixed Inverted": 19,
+    "Wing": 38,
+    "Conventional Flying": 35,
+    "Free Spin": 9,
+    "Legacy ZacSpin": 9,
+    "New-generation Flying": 21,
+    "PAX": 14,
+    "Pipeline": 44,
+    "Powered Inverted Yaw": 18,
+    "Revised ZacSpin": 11,
+    "Roller Ball": 31,
+    "S2 Spinning": 28,
+    "S1 Spinning": 23,
+    "Suspended": 18
+  },
+  "files": [
+    {
+      "path": "blockstates/arrow_controlled_controller.json",
+      "group": "Arrow",
+      "sha256": "4c168c2bca280737141ff54ae1efd30672dff9ef1a4900482920c37f760c34f9",
+      "localReferences": [
+        "models/block/arrow_controlled_controller.json"
+      ]
+    },
+    {
+      "path": "blockstates/arrow_seat.json",
+      "group": "Arrow",
+      "sha256": "c40dc92f7c3cc335d421ed3bc1b91afbfa4b7ec0c431c4229d165d7979a87381",
+      "localReferences": [
+        "models/block/arrow_seat_closed.json",
+        "models/block/arrow_seat_open.json"
+      ]
+    },
+    {
+      "path": "blockstates/axis_controller.json",
+      "group": "Axis",
+      "sha256": "7b175877fd6a59d9efaa98981d8f127e204cabfc836d81fc67f6c6ff08fd3cd4",
+      "localReferences": [
+        "models/block/axis_controller.json"
+      ]
+    },
+    {
+      "path": "blockstates/axis_frame.json",
+      "group": "Axis",
+      "sha256": "2afd89b99fd87aec1632e7aeced82514a957b7a2326bca61cd70f8cc461ed17d",
+      "localReferences": [
+        "models/block/axis_frame_0.json",
+        "models/block/axis_frame_1.json",
+        "models/block/axis_frame_10.json",
+        "models/block/axis_frame_11.json",
+        "models/block/axis_frame_2.json",
+        "models/block/axis_frame_3.json",
+        "models/block/axis_frame_4.json",
+        "models/block/axis_frame_5.json",
+        "models/block/axis_frame_6.json",
+        "models/block/axis_frame_7.json",
+        "models/block/axis_frame_8.json",
+        "models/block/axis_frame_9.json"
+      ]
+    },
+    {
+      "path": "blockstates/axis_journal.json",
+      "group": "Axis",
+      "sha256": "fc11b268ac566f6a762bbf32f6948f8fd21d85c2509afe7bc69eee60aa1ae1fa",
+      "localReferences": [
+        "models/block/axis_journal.json"
+      ]
+    },
+    {
+      "path": "blockstates/axis_keel.json",
+      "group": "Axis",
+      "sha256": "d97a96fff847961f28c80ad7d021e9dbb93c4e27c37286fd577c444ba331ba49",
+      "localReferences": [
+        "models/block/axis_keel.json"
+      ]
+    },
+    {
+      "path": "blockstates/axis_seat.json",
+      "group": "Axis",
+      "sha256": "a05f3ae4c48b82d6bd0568037356ac5a45b22c267858bdeba46ba48c67ccc525",
+      "localReferences": [
+        "models/block/axis_seat_0.json",
+        "models/block/axis_seat_1.json"
+      ]
+    },
+    {
+      "path": "blockstates/boarding_station.json",
+      "group": "Shared tools/equipment/geometry",
+      "sha256": "2367494960ae198d160f30eb6c60b5ed2bda54363c2c8de10fff6409f746898a",
+      "localReferences": [
+        "models/block/boarding_station_00.json",
+        "models/block/boarding_station_01.json",
+        "models/block/boarding_station_10.json",
+        "models/block/boarding_station_11.json"
+      ]
+    },
+    {
+      "path": "blockstates/carrier_axle.json",
+      "group": "Shared tools/equipment/geometry",
+      "sha256": "420b54a2c9dfa491c51628c0051a874ce1f2f639357f7a8c132c60fa15e5e02b",
+      "localReferences": [
+        "models/block/carrier_axle.json"
+      ]
+    },
+    {
+      "path": "blockstates/dive_controller.json",
+      "group": "Dive",
+      "sha256": "dbdfa80907372875cf032e31ad9ffac5f1257f494d9e2cfca9e23ffc3580f717",
+      "localReferences": [
+        "models/block/dive_controller.json"
+      ]
+    },
+    {
+      "path": "blockstates/dive_frame.json",
+      "group": "Dive",
+      "sha256": "8a534a6efdf72afe5717eae272770569d5bfab357613ba10dee6398b50ca4fb9",
+      "localReferences": [
+        "models/block/dive_frame.json"
+      ]
+    },
+    {
+      "path": "blockstates/dive_hold.json",
+      "group": "Dive",
+      "sha256": "503af8d7fb04b45fcdac019c5e4b7ebfaf0b1547cfb37c3e5d6b131a616b5260",
+      "localReferences": [
+        "models/block/dive_hold.json"
+      ]
+    },
+    {
+      "path": "blockstates/dive_seat.json",
+      "group": "Dive",
+      "sha256": "dd3d436d724fb4db113ad038a253211eee420e8aa665f163b42f8808c6870a14",
+      "localReferences": [
+        "models/block/dive_seat_closed.json",
+        "models/block/dive_seat_open.json"
+      ]
+    },
+    {
+      "path": "blockstates/fixed_inverted_controller.json",
+      "group": "Fixed Inverted",
+      "sha256": "74a4f9bdc02dea4c4de6444063f45f085cc3d682c094bb89ce24d2634304af23",
+      "localReferences": [
+        "models/block/fixed_inverted_controller.json"
+      ]
+    },
+    {
+      "path": "blockstates/fixed_inverted_frame.json",
+      "group": "Fixed Inverted",
+      "sha256": "9ac65b64f0f9479f553a3cdfc15369a8bb26e6293d3e0894b418d6f8140ec1ca",
+      "localReferences": [
+        "models/block/fixed_inverted_frame_0.json",
+        "models/block/fixed_inverted_frame_1.json",
+        "models/block/fixed_inverted_frame_2.json",
+        "models/block/fixed_inverted_frame_3.json",
+        "models/block/fixed_inverted_frame_4.json",
+        "models/block/fixed_inverted_frame_5.json",
+        "models/block/fixed_inverted_frame_6.json",
+        "models/block/fixed_inverted_frame_7.json",
+        "models/block/fixed_inverted_frame_8.json"
+      ]
+    },
+    {
+      "path": "blockstates/fixed_inverted_seat.json",
+      "group": "Fixed Inverted",
+      "sha256": "11a68edd52ce07ac8d9e9f8712d0165ce7ea1b1ac6845fa8b1caef4777d79bf4",
+      "localReferences": [
+        "models/block/fixed_inverted_seat_closed.json",
+        "models/block/fixed_inverted_seat_closed_outer.json",
+        "models/block/fixed_inverted_seat_open.json",
+        "models/block/fixed_inverted_seat_open_outer.json"
+      ]
+    },
+    {
+      "path": "blockstates/fixed_wing_beam.json",
+      "group": "Wing",
+      "sha256": "ccd7c805914fad41da00226a5ea80eb6a8be61b25b88458ba9946932a5ed96f6",
+      "localReferences": [
+        "models/block/fixed_wing_beam.json"
+      ]
+    },
+    {
+      "path": "blockstates/flying_controller.json",
+      "group": "Conventional Flying",
+      "sha256": "2b306a7c53708996c3a35655713d1d6ac4f0ea334b2af8af42fb689bdcb3a94d",
+      "localReferences": [
+        "models/block/flying_controller.json"
+      ]
+    },
+    {
+      "path": "blockstates/flying_frame.json",
+      "group": "Conventional Flying",
+      "sha256": "3fe6301b9a96bceee5188a08f3fa19b4ab574bf3120520e3da91369a36e917e4",
+      "localReferences": [
+        "models/block/flying_frame_0.json",
+        "models/block/flying_frame_1.json",
+        "models/block/flying_frame_10.json",
+        "models/block/flying_frame_11.json",
+        "models/block/flying_frame_12.json",
+        "models/block/flying_frame_13.json",
+        "models/block/flying_frame_14.json",
+        "models/block/flying_frame_15.json",
+        "models/block/flying_frame_16.json",
+        "models/block/flying_frame_17.json",
+        "models/block/flying_frame_18.json",
+        "models/block/flying_frame_19.json",
+        "models/block/flying_frame_2.json",
+        "models/block/flying_frame_20.json",
+        "models/block/flying_frame_21.json",
+        "models/block/flying_frame_3.json",
+        "models/block/flying_frame_4.json",
+        "models/block/flying_frame_5.json",
+        "models/block/flying_frame_6.json",
+        "models/block/flying_frame_7.json",
+        "models/block/flying_frame_8.json",
+        "models/block/flying_frame_9.json"
+      ]
+    },
+    {
+      "path": "blockstates/flying_lock.json",
+      "group": "Conventional Flying",
+      "sha256": "e3356efb209f55c9d45d971b0f278d680c469403e0e929c6a8e1b102991496db",
+      "localReferences": [
+        "models/block/flying_lock_false.json",
+        "models/block/flying_lock_true.json"
+      ]
+    },
+    {
+      "path": "blockstates/flying_seat.json",
+      "group": "Conventional Flying",
+      "sha256": "3faf0c278dfde79040628c3b5515829f5b2ecfc6daa53fde6f80a735f5c32242",
+      "localReferences": [
+        "models/block/flying_seat_00.json",
+        "models/block/flying_seat_01.json",
+        "models/block/flying_seat_10.json",
+        "models/block/flying_seat_11.json"
+      ]
+    },
+    {
+      "path": "blockstates/free_spin_axle.json",
+      "group": "Free Spin",
+      "sha256": "e7e2b02c4d169467aeb601076bfde77be14bf5adae1ceb3e8cfeee1ed0ba0050",
+      "localReferences": [
+        "models/block/free_spin_axle.json"
+      ]
+    },
+    {
+      "path": "blockstates/free_spin_seat.json",
+      "group": "Free Spin",
+      "sha256": "9ef0f1ac000599aef9fc4b743964e9c4417dd4aa7832264440ff1b0aac4e96a0",
+      "localReferences": [
+        "models/block/free_spin_seat_closed.json",
+        "models/block/free_spin_seat_open.json"
+      ]
+    },
+    {
+      "path": "blockstates/legacy_axle.json",
+      "group": "Legacy ZacSpin",
+      "sha256": "ef3096192109748f1e3035d7bdcc7766da73c041acf06ee3bea7e417bfc3f5c9",
+      "localReferences": [
+        "models/block/legacy_axle.json"
+      ]
+    },
+    {
+      "path": "blockstates/legacy_seat.json",
+      "group": "Legacy ZacSpin",
+      "sha256": "aa5d44d50fb1898da3dcbc1e933bfd7b496b2c34bcbe112ab7d4597bfa5b842f",
+      "localReferences": [
+        "models/block/legacy_seat_closed.json",
+        "models/block/legacy_seat_open.json"
+      ]
+    },
+    {
+      "path": "blockstates/new_generation_flying_deck.json",
+      "group": "New-generation Flying",
+      "sha256": "e8ad349acf478a200b2578b7edc73bceec8d991a5a75d3e2dc3e35c357c41cfd",
+      "localReferences": [
+        "models/block/new_generation_flying_deck_0.json",
+        "models/block/new_generation_flying_deck_1.json",
+        "models/block/new_generation_flying_deck_2.json",
+        "models/block/new_generation_flying_deck_3.json",
+        "models/block/new_generation_flying_deck_4.json",
+        "models/block/new_generation_flying_deck_5.json",
+        "models/block/new_generation_flying_deck_6.json",
+        "models/block/new_generation_flying_deck_7.json"
+      ]
+    },
+    {
+      "path": "blockstates/new_generation_flying_seat.json",
+      "group": "New-generation Flying",
+      "sha256": "d7d280bda29f544cf1eb3b3006a02213de6d22c5231da68e1584e0b325b797b4",
+      "localReferences": [
+        "models/block/new_generation_flying_seat_00.json",
+        "models/block/new_generation_flying_seat_01.json",
+        "models/block/new_generation_flying_seat_10.json",
+        "models/block/new_generation_flying_seat_11.json"
+      ]
+    },
+    {
+      "path": "blockstates/pax_seat.json",
+      "group": "PAX",
+      "sha256": "8664667673a9e97239a3f89f5e478c2cc1b1434a2001e3e048906c8b0be8a6da",
+      "localReferences": [
+        "models/block/pax_seat_closed.json",
+        "models/block/pax_seat_open.json"
+      ]
+    },
+    {
+      "path": "blockstates/pax_shuttle_controller.json",
+      "group": "PAX",
+      "sha256": "73ec8e44f74a31d75201087999ace4abca62724f5b975dd619e35c0ee7918fec",
+      "localReferences": [
+        "models/block/pax_shuttle_controller.json"
+      ]
+    },
+    {
+      "path": "blockstates/pipeline_controller.json",
+      "group": "Pipeline",
+      "sha256": "d4c44901d130da8993ee71adb41f15afb770b9681c059f81cf8897c701b6a688",
+      "localReferences": [
+        "models/block/pipeline_controller.json"
+      ]
+    },
+    {
+      "path": "blockstates/pipeline_frame.json",
+      "group": "Pipeline",
+      "sha256": "4bfd3dbfd47ae8050a5d0bb2cbdfd2ed124cba41c318d7c933f8659902bf03fa",
+      "localReferences": [
+        "models/block/pipeline_frame_0.json",
+        "models/block/pipeline_frame_1.json",
+        "models/block/pipeline_frame_10.json",
+        "models/block/pipeline_frame_11.json",
+        "models/block/pipeline_frame_12.json",
+        "models/block/pipeline_frame_13.json",
+        "models/block/pipeline_frame_14.json",
+        "models/block/pipeline_frame_15.json",
+        "models/block/pipeline_frame_16.json",
+        "models/block/pipeline_frame_17.json",
+        "models/block/pipeline_frame_18.json",
+        "models/block/pipeline_frame_19.json",
+        "models/block/pipeline_frame_2.json",
+        "models/block/pipeline_frame_20.json",
+        "models/block/pipeline_frame_21.json",
+        "models/block/pipeline_frame_22.json",
+        "models/block/pipeline_frame_23.json",
+        "models/block/pipeline_frame_24.json",
+        "models/block/pipeline_frame_25.json",
+        "models/block/pipeline_frame_26.json",
+        "models/block/pipeline_frame_27.json",
+        "models/block/pipeline_frame_28.json",
+        "models/block/pipeline_frame_29.json",
+        "models/block/pipeline_frame_3.json",
+        "models/block/pipeline_frame_4.json",
+        "models/block/pipeline_frame_5.json",
+        "models/block/pipeline_frame_6.json",
+        "models/block/pipeline_frame_7.json",
+        "models/block/pipeline_frame_8.json",
+        "models/block/pipeline_frame_9.json"
+      ]
+    },
+    {
+      "path": "blockstates/pipeline_seat.json",
+      "group": "Pipeline",
+      "sha256": "c42ea65b0f7b8c04d6dfc99be9e094331776cb727887b98a4afc82e82f05c516",
+      "localReferences": [
+        "models/block/pipeline_seat_0_0_closed.json",
+        "models/block/pipeline_seat_0_0_open.json",
+        "models/block/pipeline_seat_0_1_closed.json",
+        "models/block/pipeline_seat_0_1_open.json",
+        "models/block/pipeline_seat_1_0_closed.json",
+        "models/block/pipeline_seat_1_0_open.json",
+        "models/block/pipeline_seat_1_1_closed.json",
+        "models/block/pipeline_seat_1_1_open.json"
+      ]
+    },
+    {
+      "path": "blockstates/powered_inverted_controller.json",
+      "group": "Powered Inverted Yaw",
+      "sha256": "e21ff103b7fd5d9cf279ce284f601ed7e75136489ba495bd6f8246b603ce5214",
+      "localReferences": [
+        "models/block/powered_inverted_controller.json"
+      ]
+    },
+    {
+      "path": "blockstates/powered_inverted_yaw_bearing.json",
+      "group": "Powered Inverted Yaw",
+      "sha256": "d29fdbbaac87aa1f32e7e3ee563d61050483d34732a75c6a79ff9da29fff858b",
+      "localReferences": [
+        "models/block/powered_inverted_yaw_bearing.json"
+      ]
+    },
+    {
+      "path": "blockstates/powered_inverted_yaw_governor.json",
+      "group": "Powered Inverted Yaw",
+      "sha256": "b778f99cfa4e75977ac9ac66ffc4fb847bf33db943ead4d0dbc00bd355d80512",
+      "localReferences": [
+        "models/block/powered_inverted_yaw_governor.json"
+      ]
+    },
+    {
+      "path": "blockstates/powered_inverted_yaw_seat.json",
+      "group": "Powered Inverted Yaw",
+      "sha256": "ba4aa508bc9010b016fefa18906b86fffdccdd927c346392137360d8d9115065",
+      "localReferences": [
+        "models/block/powered_inverted_yaw_seat_closed.json",
+        "models/block/powered_inverted_yaw_seat_open.json"
+      ]
+    },
+    {
+      "path": "blockstates/powered_inverted_yaw_spindle.json",
+      "group": "Powered Inverted Yaw",
+      "sha256": "fd8016dbed781c1052931f73cdd132a1194a539e45ec5bf971c3a0fe1845abf5",
+      "localReferences": [
+        "models/block/powered_inverted_yaw_spindle.json"
+      ]
+    },
+    {
+      "path": "blockstates/revised_axle.json",
+      "group": "Revised ZacSpin",
+      "sha256": "faff10d7193ae75c3734d6f72bb7fcb23d392848f92a8563b6e75a2d9b567280",
+      "localReferences": [
+        "models/block/revised_axle.json"
+      ]
+    },
+    {
+      "path": "blockstates/revised_seat.json",
+      "group": "Revised ZacSpin",
+      "sha256": "c6008e743d3468127ddb2790000fa6d57de468d9a64cd1e481564ac82d1b0465",
+      "localReferences": [
+        "models/block/revised_seat_closed.json",
+        "models/block/revised_seat_open.json"
+      ]
+    },
+    {
+      "path": "blockstates/revised_strut.json",
+      "group": "Revised ZacSpin",
+      "sha256": "3055d57006b9625b77dbf0c6005c6afed2edef05295525205332e6ef4071da69",
+      "localReferences": [
+        "models/block/revised_strut.json"
+      ]
+    },
+    {
+      "path": "blockstates/roller_ball_axle.json",
+      "group": "Roller Ball",
+      "sha256": "61766194c92cfcccc29685fa1b6ca4c9a15ea3726aa93bf15fe19a6f7f9f54b0",
+      "localReferences": [
+        "models/block/roller_ball_axle.json"
+      ]
+    },
+    {
+      "path": "blockstates/roller_ball_ballast.json",
+      "group": "Roller Ball",
+      "sha256": "0f4953e648b64bb71b74cfb60363442e4fef7a622ab69a427b64ef3e5bdc5579",
+      "localReferences": [
+        "models/block/roller_ball_ballast.json"
+      ]
+    },
+    {
+      "path": "blockstates/roller_ball_controller.json",
+      "group": "Roller Ball",
+      "sha256": "45db80b9811f19b63f65dfd33949b50b4ddf07359b9318be9f3a6f89a74c1bcd",
+      "localReferences": [
+        "models/block/roller_ball_controller.json"
+      ]
+    },
+    {
+      "path": "blockstates/roller_ball_frame.json",
+      "group": "Roller Ball",
+      "sha256": "8a4d506f3d8a45201b0872b9d58b0f1d2ab42f92a1e89aa2c63cf6608466c3ef",
+      "localReferences": [
+        "models/block/roller_ball_frame_0_0.json",
+        "models/block/roller_ball_frame_0_1.json",
+        "models/block/roller_ball_frame_1_0.json",
+        "models/block/roller_ball_frame_1_1.json"
+      ]
+    },
+    {
+      "path": "blockstates/roller_ball_seat.json",
+      "group": "Roller Ball",
+      "sha256": "aef4521fac78a0eb2edae71910695797d55baffa87c926cd256877b8dc5e3c29",
+      "localReferences": [
+        "models/block/roller_ball_seat_0_0_east.json",
+        "models/block/roller_ball_seat_0_0_north.json",
+        "models/block/roller_ball_seat_0_0_south.json",
+        "models/block/roller_ball_seat_0_0_west.json",
+        "models/block/roller_ball_seat_0_1_east.json",
+        "models/block/roller_ball_seat_0_1_north.json",
+        "models/block/roller_ball_seat_0_1_south.json",
+        "models/block/roller_ball_seat_0_1_west.json",
+        "models/block/roller_ball_seat_1_0_east.json",
+        "models/block/roller_ball_seat_1_0_north.json",
+        "models/block/roller_ball_seat_1_0_south.json",
+        "models/block/roller_ball_seat_1_0_west.json",
+        "models/block/roller_ball_seat_1_1_east.json",
+        "models/block/roller_ball_seat_1_1_north.json",
+        "models/block/roller_ball_seat_1_1_south.json",
+        "models/block/roller_ball_seat_1_1_west.json"
+      ]
+    },
+    {
+      "path": "blockstates/s2_spinning_bearing.json",
+      "group": "S2 Spinning",
+      "sha256": "1c0e785d023b1602346f8a8cc78c6bbf333acee966a47cdcf10283c2d504cdbd",
+      "localReferences": [
+        "models/block/s2_spinning_bearing.json"
+      ]
+    },
+    {
+      "path": "blockstates/s2_spinning_governor.json",
+      "group": "S2 Spinning",
+      "sha256": "7bb5a9c8c0c8271ec230b5b61e61f4ca7a9e4b0258995a8d7048e433bb88ecbe",
+      "localReferences": [
+        "models/block/s2_spinning_governor.json"
+      ]
+    },
+    {
+      "path": "blockstates/s2_spinning_seat.json",
+      "group": "S2 Spinning",
+      "sha256": "93d90798e630153aaa3b09e764cc9e21386da40d61316aeb6d8937aa71ea447a",
+      "localReferences": [
+        "models/block/s2_spinning_seat_0_east_0.json",
+        "models/block/s2_spinning_seat_0_east_1.json",
+        "models/block/s2_spinning_seat_0_north_0.json",
+        "models/block/s2_spinning_seat_0_north_1.json",
+        "models/block/s2_spinning_seat_0_south_0.json",
+        "models/block/s2_spinning_seat_0_south_1.json",
+        "models/block/s2_spinning_seat_0_west_0.json",
+        "models/block/s2_spinning_seat_0_west_1.json",
+        "models/block/s2_spinning_seat_1_east_0.json",
+        "models/block/s2_spinning_seat_1_east_1.json",
+        "models/block/s2_spinning_seat_1_north_0.json",
+        "models/block/s2_spinning_seat_1_north_1.json",
+        "models/block/s2_spinning_seat_1_south_0.json",
+        "models/block/s2_spinning_seat_1_south_1.json",
+        "models/block/s2_spinning_seat_1_west_0.json",
+        "models/block/s2_spinning_seat_1_west_1.json"
+      ]
+    },
+    {
+      "path": "blockstates/shuttle_carriage.json",
+      "group": "PAX",
+      "sha256": "9c44482f46f7c3b6a9cc6db50c6a1374ccaf72218f2edf4fdfe9af8233a90f0f",
+      "localReferences": [
+        "models/block/shuttle_carriage.json"
+      ]
+    },
+    {
+      "path": "blockstates/shuttle_winch.json",
+      "group": "PAX",
+      "sha256": "ad941f227e49c8a380b2270211483fd48d103429a35ea2dffa4e7c4ef30d4a17",
+      "localReferences": [
+        "models/block/shuttle_winch.json",
+        "models/block/shuttle_winch_y.json",
+        "models/block/shuttle_winch_z.json"
+      ]
+    },
+    {
+      "path": "blockstates/sns_free_spin_controller.json",
+      "group": "Free Spin",
+      "sha256": "8054703d9a16421eb7f9118a44b42f155f5dec2b4a16a68818ebec7413cc081f",
+      "localReferences": [
+        "models/block/sns_free_spin_controller.json"
+      ]
+    },
+    {
+      "path": "blockstates/spin_bearing.json",
+      "group": "S1 Spinning",
+      "sha256": "6c1bafdf1eeade1cb143d2f91eab91eb7fe0ac2bb63afe4ee54884bb0effb05e",
+      "localReferences": [
+        "models/block/spin_bearing.json"
+      ]
+    },
+    {
+      "path": "blockstates/spinning_controller.json",
+      "group": "S1 Spinning",
+      "sha256": "8665ef0ebd0bbca9698260f966d568c8e507071953d70e9bde039269cafbb668",
+      "localReferences": [
+        "models/block/spinning_controller.json"
+      ]
+    },
+    {
+      "path": "blockstates/spinning_seat.json",
+      "group": "S1 Spinning",
+      "sha256": "ae0db77f30d4896285e1b97d408175505f18a515d6c2ef8c9d4af0496b17c565",
+      "localReferences": [
+        "models/block/spinning_seat_0_east_0.json",
+        "models/block/spinning_seat_0_east_1.json",
+        "models/block/spinning_seat_0_north_0.json",
+        "models/block/spinning_seat_0_north_1.json",
+        "models/block/spinning_seat_0_south_0.json",
+        "models/block/spinning_seat_0_south_1.json",
+        "models/block/spinning_seat_0_west_0.json",
+        "models/block/spinning_seat_0_west_1.json",
+        "models/block/spinning_seat_1_east_0.json",
+        "models/block/spinning_seat_1_east_1.json",
+        "models/block/spinning_seat_1_north_0.json",
+        "models/block/spinning_seat_1_north_1.json",
+        "models/block/spinning_seat_1_south_0.json",
+        "models/block/spinning_seat_1_south_1.json",
+        "models/block/spinning_seat_1_west_0.json",
+        "models/block/spinning_seat_1_west_1.json"
+      ]
+    },
+    {
+      "path": "blockstates/suspended_cabin.json",
+      "group": "Suspended",
+      "sha256": "b47b148d549feb6524677f8573810164d47fab23b5de64310183bb7ac376d9ba",
+      "localReferences": [
+        "models/block/suspended_cabin.json"
+      ]
+    },
+    {
+      "path": "blockstates/suspended_controller.json",
+      "group": "Suspended",
+      "sha256": "574b75485861795dd0d3776a3e9a71884fd93ef473f452699dd0499fcf75ab88",
+      "localReferences": [
+        "models/block/suspended_controller.json"
+      ]
+    },
+    {
+      "path": "blockstates/suspended_hanger.json",
+      "group": "Suspended",
+      "sha256": "8de378045f0b6035bad0eaa5df1933a70cc4702a32cdfd20a48dcd82a5739a8b",
+      "localReferences": [
+        "models/block/suspended_hanger_front.json",
+        "models/block/suspended_hanger_rear.json"
+      ]
+    },
+    {
+      "path": "blockstates/suspended_keel.json",
+      "group": "Suspended",
+      "sha256": "04c2907c01b9cd0f4a3757fe4dda64728caa718148f260196d6e83acd1ca3dc6",
+      "localReferences": [
+        "models/block/suspended_keel.json"
+      ]
+    },
+    {
+      "path": "blockstates/suspended_lock.json",
+      "group": "Suspended",
+      "sha256": "c0f6b920d4ac7ca8eecefadb8b28aecea43d1000b43a8b17593513ac0591ed1e",
+      "localReferences": [
+        "models/block/suspended_lock_free.json",
+        "models/block/suspended_lock_locked.json"
+      ]
+    },
+    {
+      "path": "blockstates/suspended_seat.json",
+      "group": "Suspended",
+      "sha256": "64d3133ff02bbfd948a4a5e73187c228e34d30cfdaee8488c1b329c76b256ab4",
+      "localReferences": [
+        "models/block/suspended_seat_closed.json",
+        "models/block/suspended_seat_open.json"
+      ]
+    },
+    {
+      "path": "blockstates/wing_fixed_controller.json",
+      "group": "Wing",
+      "sha256": "fa93957baeb35ad8d1b2e389f96dc3d9f23bff40716a588977da4da8b16d0456",
+      "localReferences": [
+        "models/block/wing_fixed_controller.json"
+      ]
+    },
+    {
+      "path": "blockstates/wing_seat.json",
+      "group": "Wing",
+      "sha256": "45f8ee48edf337b726d92aead59da8c66f600a3db47c91da70ec2bb6def14838",
+      "localReferences": [
+        "models/block/wing_seat_black_closed.json",
+        "models/block/wing_seat_black_open.json",
+        "models/block/wing_seat_blue_closed.json",
+        "models/block/wing_seat_blue_open.json",
+        "models/block/wing_seat_brown_closed.json",
+        "models/block/wing_seat_brown_open.json",
+        "models/block/wing_seat_cyan_closed.json",
+        "models/block/wing_seat_cyan_open.json",
+        "models/block/wing_seat_gray_closed.json",
+        "models/block/wing_seat_gray_open.json",
+        "models/block/wing_seat_green_closed.json",
+        "models/block/wing_seat_green_open.json",
+        "models/block/wing_seat_light_blue_closed.json",
+        "models/block/wing_seat_light_blue_open.json",
+        "models/block/wing_seat_light_gray_closed.json",
+        "models/block/wing_seat_light_gray_open.json",
+        "models/block/wing_seat_lime_closed.json",
+        "models/block/wing_seat_lime_open.json",
+        "models/block/wing_seat_magenta_closed.json",
+        "models/block/wing_seat_magenta_open.json",
+        "models/block/wing_seat_orange_closed.json",
+        "models/block/wing_seat_orange_open.json",
+        "models/block/wing_seat_pink_closed.json",
+        "models/block/wing_seat_pink_open.json",
+        "models/block/wing_seat_purple_closed.json",
+        "models/block/wing_seat_purple_open.json",
+        "models/block/wing_seat_red_closed.json",
+        "models/block/wing_seat_red_open.json",
+        "models/block/wing_seat_white_closed.json",
+        "models/block/wing_seat_white_open.json",
+        "models/block/wing_seat_yellow_closed.json",
+        "models/block/wing_seat_yellow_open.json"
+      ]
+    },
+    {
+      "path": "blockstates/wing_strut.json",
+      "group": "Shared tools/equipment/geometry",
+      "sha256": "0dd8ae19cbbc888ad6ae6c3d27dca6e04382c55576eb141fe0662a4497f45b64",
+      "localReferences": [
+        "models/block/wing_strut.json"
+      ]
+    },
+    {
+      "path": "blockstates/yaw_marker.json",
+      "group": "Shared tools/equipment/geometry",
+      "sha256": "b6c28bcd6c91b5f5b9127196581d3cc03e5e94084547ae5c63529d33161f2571",
+      "localReferences": [
+        "models/block/yaw_marker.json"
+      ]
+    },
+    {
+      "path": "blockstates/zacspin_legacy_controller.json",
+      "group": "Legacy ZacSpin",
+      "sha256": "c64c687b0b71b2da011cf7fb3657f93ea4f384170cc6a626ff547ca48706c065",
+      "localReferences": [
+        "models/block/zacspin_legacy_controller.json"
+      ]
+    },
+    {
+      "path": "blockstates/zacspin_revised_controller.json",
+      "group": "Revised ZacSpin",
+      "sha256": "719c13131b676e2a4a74bedb3dedb4d553b031d60f344eaaf855195a7b9b113a",
+      "localReferences": [
+        "models/block/zacspin_revised_controller.json"
+      ]
+    },
+    {
+      "path": "models/block/arrow_controlled_controller.json",
+      "group": "Arrow",
+      "sha256": "76dff79bcacac6fe8e81fd279a6ffe92b2cbf7dd02885e7e3bf27ad7e9a93a3b",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/arrow_seat_closed.json",
+      "group": "Arrow",
+      "sha256": "eb0196a7a528f4914b703c8bde480ed2351eb43f5894c740db9af10220868c0b",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/arrow_seat_open.json",
+      "group": "Arrow",
+      "sha256": "cce8e949d7ec3e48553cf76a31b68bf2163e144877b609f054cfac4891e8e508",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/axis_controller.json",
+      "group": "Axis",
+      "sha256": "00c3d371bca9e73f7b1f881656078fd3114a1ea97e6226c021e303e081723be9",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/axis_frame_0.json",
+      "group": "Axis",
+      "sha256": "0f143a53784f6a50eb8c1316f20e9c3538ad5745fccc59ae78be7108c1f6d802",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/axis_frame_1.json",
+      "group": "Axis",
+      "sha256": "98d0aaa87a41656172a5105203cd8f3bf5b33a01ef04053997a6e64cb36038dd",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/axis_frame_10.json",
+      "group": "Axis",
+      "sha256": "1772c08413a5749be62a49311ece367c6dd0ede64101401a55b91d94b5018aac",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/axis_frame_11.json",
+      "group": "Axis",
+      "sha256": "1772c08413a5749be62a49311ece367c6dd0ede64101401a55b91d94b5018aac",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/axis_frame_2.json",
+      "group": "Axis",
+      "sha256": "8612a2811c723381345e1cd7de5c8ad6690c9ecafc0bbc4e1ffc2195a41f52d6",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/axis_frame_3.json",
+      "group": "Axis",
+      "sha256": "05e5b05802cf3f4bc21201b410d98f00cd7b02376fc4b828bdb0bcbc387c0779",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/axis_frame_4.json",
+      "group": "Axis",
+      "sha256": "8612a2811c723381345e1cd7de5c8ad6690c9ecafc0bbc4e1ffc2195a41f52d6",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/axis_frame_5.json",
+      "group": "Axis",
+      "sha256": "05e5b05802cf3f4bc21201b410d98f00cd7b02376fc4b828bdb0bcbc387c0779",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/axis_frame_6.json",
+      "group": "Axis",
+      "sha256": "8612a2811c723381345e1cd7de5c8ad6690c9ecafc0bbc4e1ffc2195a41f52d6",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/axis_frame_7.json",
+      "group": "Axis",
+      "sha256": "05e5b05802cf3f4bc21201b410d98f00cd7b02376fc4b828bdb0bcbc387c0779",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/axis_frame_8.json",
+      "group": "Axis",
+      "sha256": "8612a2811c723381345e1cd7de5c8ad6690c9ecafc0bbc4e1ffc2195a41f52d6",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/axis_frame_9.json",
+      "group": "Axis",
+      "sha256": "05e5b05802cf3f4bc21201b410d98f00cd7b02376fc4b828bdb0bcbc387c0779",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/axis_journal.json",
+      "group": "Axis",
+      "sha256": "6e2554aefe135bf5a9ac0c5728509c351e94564709aec6b2f04e1826a22c888d",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/axis_keel.json",
+      "group": "Axis",
+      "sha256": "0a3527cd6a8e144c329b457324687b64dde21f493623508715463edee5fefcf7",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/axis_seat_0.json",
+      "group": "Axis",
+      "sha256": "a9597ac21ebf25c614ae11e526ae5f07f655e08a1870010a5f77f9d4979d7917",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/axis_seat_1.json",
+      "group": "Axis",
+      "sha256": "6a31b9b1bd0e40bd8f553dfdae7578bb90f20bf616d1c8fa49b2b21fb5d1b9c4",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/boarding_station.json",
+      "group": "Shared tools/equipment/geometry",
+      "sha256": "20c3547a4b82db5c296876f47ab068fb1556fbeecdfb44ca4edf1fc56bfb62f7",
+      "localReferences": [
+        "models/block/boarding_station_00.json"
+      ]
+    },
+    {
+      "path": "models/block/boarding_station_00.json",
+      "group": "Shared tools/equipment/geometry",
+      "sha256": "6b09f1f3b31d88e62bfaca73d889fd36c0d864e4aa825fee08888f73881a05ba",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/boarding_station_01.json",
+      "group": "Shared tools/equipment/geometry",
+      "sha256": "ab8f25301643fe26f317a43b611ec21a9c2c49cda730304efc373fba64eeba58",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/boarding_station_10.json",
+      "group": "Shared tools/equipment/geometry",
+      "sha256": "e6d4059b49cdeff2ab79b3c16737f4f5cd7e062d7a243e9d50bdf50d29f8b7b9",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/boarding_station_11.json",
+      "group": "Shared tools/equipment/geometry",
+      "sha256": "8f01aee12fba265057a2be5f2f0337f7a4e64abcbb5aae4733ff30d92dce1be1",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/carrier_axle.json",
+      "group": "Shared tools/equipment/geometry",
+      "sha256": "e39c4bd0aef6ca1e5c3175d1352eeb7470fe33697a00bf6d74af1d6153310718",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/dive_controller.json",
+      "group": "Dive",
+      "sha256": "cbba538129f3efd1c457cc590c96fe360f3a1f8fbf72f7ab671f275d23991cf9",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/dive_frame.json",
+      "group": "Dive",
+      "sha256": "b625287c983684f3f5c6c7e3a086eb39920500629f6ec7c0827c2b418d84111b",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/dive_hold.json",
+      "group": "Dive",
+      "sha256": "51d3e92f2f26c7bf734b601f2f3e9bd2b6f62d6cf123b147e640a5935ad4a647",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/dive_seat_closed.json",
+      "group": "Dive",
+      "sha256": "10e63e8f511371507d0fc3b56428004cc4e38246fde6627b01434da37153e6da",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/dive_seat_open.json",
+      "group": "Dive",
+      "sha256": "03fa0a1811afb30c1be520d5eb84896f95945a05a87f907a5cbfb2f59e52db96",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/fixed_inverted_controller.json",
+      "group": "Fixed Inverted",
+      "sha256": "4fbfed9250a55357a43c3919d02c12aceb68b43e1743ba099084f767ae718c75",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/fixed_inverted_frame_0.json",
+      "group": "Fixed Inverted",
+      "sha256": "ba48bb3cadee792be2bee9b5270549bdf3efeb9daf5b3f80ab772c5d1bfc00e4",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/fixed_inverted_frame_1.json",
+      "group": "Fixed Inverted",
+      "sha256": "7bc0e4ff953a537badc34f38b7ca68db2348844919dbe47f9077f83d55597506",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/fixed_inverted_frame_2.json",
+      "group": "Fixed Inverted",
+      "sha256": "7bc0e4ff953a537badc34f38b7ca68db2348844919dbe47f9077f83d55597506",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/fixed_inverted_frame_3.json",
+      "group": "Fixed Inverted",
+      "sha256": "be74f546cd49e79e09202e367c2a9bc83244a4a358c52b81c640709fc653413a",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/fixed_inverted_frame_4.json",
+      "group": "Fixed Inverted",
+      "sha256": "dc50b24872db01a13a806176a458d038a69658abd7013ed17d84c342a6f40a23",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/fixed_inverted_frame_5.json",
+      "group": "Fixed Inverted",
+      "sha256": "8d3ea959a5bf16bc1cd10625ea3ca760b7463e07da7ee1560fa3de46982b1122",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/fixed_inverted_frame_6.json",
+      "group": "Fixed Inverted",
+      "sha256": "dc50b24872db01a13a806176a458d038a69658abd7013ed17d84c342a6f40a23",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/fixed_inverted_frame_7.json",
+      "group": "Fixed Inverted",
+      "sha256": "8d3ea959a5bf16bc1cd10625ea3ca760b7463e07da7ee1560fa3de46982b1122",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/fixed_inverted_frame_8.json",
+      "group": "Fixed Inverted",
+      "sha256": "e0a851d067e17fedfa6ca5ef083ac40f5b871ce5cdd73bf2cd6f9f2d82af395a",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/fixed_inverted_seat_closed.json",
+      "group": "Fixed Inverted",
+      "sha256": "404c16b05e545110a225b9f7a4878138e3d7691dd92f768d84994c0928267148",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/fixed_inverted_seat_closed_outer.json",
+      "group": "Fixed Inverted",
+      "sha256": "a8b8f44443fbbd9e340ab28963845d6abb1aef4bdb69abb8626fdd6ca66254f4",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/fixed_inverted_seat_open.json",
+      "group": "Fixed Inverted",
+      "sha256": "f89ae554790b4cb12121873da80f982fb3bf657d077e1154f86d79cd1cc3115b",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/fixed_inverted_seat_open_outer.json",
+      "group": "Fixed Inverted",
+      "sha256": "2e2eac791d7eb2579b24dc7b4a34cda574cb99f2e57fac3a9d084c71696b54a4",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/fixed_wing_beam.json",
+      "group": "Wing",
+      "sha256": "52b45ae477d17657929a9fb6b2eb9e6e1744aca39f952ea23b43ab921b602f0e",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/flying_controller.json",
+      "group": "Conventional Flying",
+      "sha256": "c0f84562448a261a8e3379467e68e1edbd88a5d6314d1375e26508b7397f3e71",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/flying_frame_0.json",
+      "group": "Conventional Flying",
+      "sha256": "8c759544a0491aa73110cbf54892124713520ae09468690e4bb19c9480059b4f",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/flying_frame_1.json",
+      "group": "Conventional Flying",
+      "sha256": "b9d0922d56b0c170796a9d978476e88046867b19a503fbcec3ca49cb88174342",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/flying_frame_10.json",
+      "group": "Conventional Flying",
+      "sha256": "11ef2981af092ccc5c2bd577e4e6b6717f5d8c2948924422efb1de676fd2a546",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/flying_frame_11.json",
+      "group": "Conventional Flying",
+      "sha256": "c3190579e04d9226fb8da8f21cc248bf1a93c0cec815522e342f661ddc569c5a",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/flying_frame_12.json",
+      "group": "Conventional Flying",
+      "sha256": "c0f84562448a261a8e3379467e68e1edbd88a5d6314d1375e26508b7397f3e71",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/flying_frame_13.json",
+      "group": "Conventional Flying",
+      "sha256": "c0f84562448a261a8e3379467e68e1edbd88a5d6314d1375e26508b7397f3e71",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/flying_frame_14.json",
+      "group": "Conventional Flying",
+      "sha256": "fca932d2f4c1f8d694c7d7b9e6aafa5c4cc0c49ec111848f6e20db7ca54129b7",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/flying_frame_15.json",
+      "group": "Conventional Flying",
+      "sha256": "ac7a69b21e0b04e0f2cd907746122568b6cba365915380b7ec4101f9ca6d4f1c",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/flying_frame_16.json",
+      "group": "Conventional Flying",
+      "sha256": "db0614c5216a63103849ebf7a7058969667ac68405bd938cb75e3ef8259e6bf7",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/flying_frame_17.json",
+      "group": "Conventional Flying",
+      "sha256": "6b977f8c1b65028f676eeda538993ed3e3d3ff4cea2a1b54e20fe522e5ae22e1",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/flying_frame_18.json",
+      "group": "Conventional Flying",
+      "sha256": "e231bf3727ddb7cef31814d845546c1807277a53c3d2f26f0303db2e42688a7b",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/flying_frame_19.json",
+      "group": "Conventional Flying",
+      "sha256": "e231bf3727ddb7cef31814d845546c1807277a53c3d2f26f0303db2e42688a7b",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/flying_frame_2.json",
+      "group": "Conventional Flying",
+      "sha256": "b9d0922d56b0c170796a9d978476e88046867b19a503fbcec3ca49cb88174342",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/flying_frame_20.json",
+      "group": "Conventional Flying",
+      "sha256": "e231bf3727ddb7cef31814d845546c1807277a53c3d2f26f0303db2e42688a7b",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/flying_frame_21.json",
+      "group": "Conventional Flying",
+      "sha256": "fc32d349563825ab7210586d59d9b2b8ee77e09355871d0a2025c69baebfc502",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/flying_frame_3.json",
+      "group": "Conventional Flying",
+      "sha256": "b9d0922d56b0c170796a9d978476e88046867b19a503fbcec3ca49cb88174342",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/flying_frame_4.json",
+      "group": "Conventional Flying",
+      "sha256": "95c8552c329bb122ecee1cc99d8a0281a69c0a90e75cb7b6ad3a0d0d1a1ed690",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/flying_frame_5.json",
+      "group": "Conventional Flying",
+      "sha256": "ac7a69b21e0b04e0f2cd907746122568b6cba365915380b7ec4101f9ca6d4f1c",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/flying_frame_6.json",
+      "group": "Conventional Flying",
+      "sha256": "db0614c5216a63103849ebf7a7058969667ac68405bd938cb75e3ef8259e6bf7",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/flying_frame_7.json",
+      "group": "Conventional Flying",
+      "sha256": "6613040ca60a6ed292188e3aedf044bd74b28e24446ebbf23166a3ea6d18cb98",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/flying_frame_8.json",
+      "group": "Conventional Flying",
+      "sha256": "7b3fc5ddd0ba7eda9a57e6f511edc0d343058fe624879199728328e1352b680a",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/flying_frame_9.json",
+      "group": "Conventional Flying",
+      "sha256": "ad34c2f0c1a92f45618dee4165b5c8ad54e4da4a18d073e9fbbee9c265e007d8",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/flying_lock_false.json",
+      "group": "Conventional Flying",
+      "sha256": "ce2078efbb0a1b1d3e42157c6961def334bd178ccc43ac908e9b61bc860e65c7",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/flying_lock_true.json",
+      "group": "Conventional Flying",
+      "sha256": "91e21c20fd2fab949cc1bbd71f7e9ec76760927cb8778ad02f93da4fcf857d68",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/flying_seat_00.json",
+      "group": "Conventional Flying",
+      "sha256": "29bc2a37080fc9fb00707d11dbe3531511f68bc236188ee60a263365adadfb68",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/flying_seat_01.json",
+      "group": "Conventional Flying",
+      "sha256": "151b498a01fac746d16af8cd885e8864a6b3e3a45a0992706ceac5525bf6d2cc",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/flying_seat_10.json",
+      "group": "Conventional Flying",
+      "sha256": "a9afbbf8800616df9d8023fd929c7ff7b2f1c16a0bbf012de4cf08f7e9d2d190",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/flying_seat_11.json",
+      "group": "Conventional Flying",
+      "sha256": "d14d775e8fd808f9f52188f273c392b3272a4894b6525c5510576b8295e1e385",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/free_spin_axle.json",
+      "group": "Free Spin",
+      "sha256": "d5048cd847e7d032e40fa8103d65f809709ee73c61dc55afbed9bb18573b7ced",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/free_spin_seat_closed.json",
+      "group": "Free Spin",
+      "sha256": "2050386ef4578f257cabb4156d32a982f7aa9f031ae4aaff3d198c3007f3d7f8",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/free_spin_seat_open.json",
+      "group": "Free Spin",
+      "sha256": "23c5bd587c98ce631ba02fe0bf782dbd90468db71494d516223925d862732d66",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/legacy_axle.json",
+      "group": "Legacy ZacSpin",
+      "sha256": "dac69846079123a783268ddbdd7f9edb16d6cad13ab64511fd27d24632193579",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/legacy_seat_closed.json",
+      "group": "Legacy ZacSpin",
+      "sha256": "ce514b0c1c0a021e4ae8f976a3fd2ee706415856db51bcc52f3da04fa91ee624",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/legacy_seat_open.json",
+      "group": "Legacy ZacSpin",
+      "sha256": "4f3cf0e72fa7bb59d1656a4a2bb11adc131681636013993b0a2abd4c3e7e4021",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/new_generation_flying_deck_0.json",
+      "group": "New-generation Flying",
+      "sha256": "883f1810487e121f4d4453581765df649b4c9f76650bc3a856ff6e90be248211",
+      "localReferences": [
+        "textures/block/new_generation_flying_harness.png",
+        "textures/block/new_generation_flying_latch.png",
+        "textures/block/new_generation_flying_locked.png",
+        "textures/block/new_generation_flying_metal.png",
+        "textures/block/new_generation_flying_seat.png"
+      ]
+    },
+    {
+      "path": "models/block/new_generation_flying_deck_1.json",
+      "group": "New-generation Flying",
+      "sha256": "9479120d6b07d644b6430302f4c017fca2537caebc271b5d504feea9895a217a",
+      "localReferences": [
+        "textures/block/new_generation_flying_harness.png",
+        "textures/block/new_generation_flying_latch.png",
+        "textures/block/new_generation_flying_locked.png",
+        "textures/block/new_generation_flying_metal.png",
+        "textures/block/new_generation_flying_seat.png"
+      ]
+    },
+    {
+      "path": "models/block/new_generation_flying_deck_2.json",
+      "group": "New-generation Flying",
+      "sha256": "400f455b025bbc50209dd50bcc21dccc33a1accbbee189410a237f67ad9ae50e",
+      "localReferences": [
+        "textures/block/new_generation_flying_harness.png",
+        "textures/block/new_generation_flying_latch.png",
+        "textures/block/new_generation_flying_locked.png",
+        "textures/block/new_generation_flying_metal.png",
+        "textures/block/new_generation_flying_seat.png"
+      ]
+    },
+    {
+      "path": "models/block/new_generation_flying_deck_3.json",
+      "group": "New-generation Flying",
+      "sha256": "a095a59950a9127a8e32727cdd67f349cdf37904f6c9caee7b00ab47e14f3779",
+      "localReferences": [
+        "textures/block/new_generation_flying_harness.png",
+        "textures/block/new_generation_flying_latch.png",
+        "textures/block/new_generation_flying_locked.png",
+        "textures/block/new_generation_flying_metal.png",
+        "textures/block/new_generation_flying_seat.png"
+      ]
+    },
+    {
+      "path": "models/block/new_generation_flying_deck_4.json",
+      "group": "New-generation Flying",
+      "sha256": "26bdce08d4e40a7e73796cdca6e8c75f8a9f69a7ae68073f41729aab10c33248",
+      "localReferences": [
+        "textures/block/new_generation_flying_harness.png",
+        "textures/block/new_generation_flying_latch.png",
+        "textures/block/new_generation_flying_locked.png",
+        "textures/block/new_generation_flying_metal.png",
+        "textures/block/new_generation_flying_seat.png"
+      ]
+    },
+    {
+      "path": "models/block/new_generation_flying_deck_5.json",
+      "group": "New-generation Flying",
+      "sha256": "3d753f25cf04fd06622c15b66dba14840113d6f41add52a32049e01a795f9eb3",
+      "localReferences": [
+        "textures/block/new_generation_flying_harness.png",
+        "textures/block/new_generation_flying_latch.png",
+        "textures/block/new_generation_flying_locked.png",
+        "textures/block/new_generation_flying_metal.png",
+        "textures/block/new_generation_flying_seat.png"
+      ]
+    },
+    {
+      "path": "models/block/new_generation_flying_deck_6.json",
+      "group": "New-generation Flying",
+      "sha256": "4bcd6cd4efcc6a1ed4f6676941c9679bf064ae0c5d7907091bba16b7de178416",
+      "localReferences": [
+        "textures/block/new_generation_flying_harness.png",
+        "textures/block/new_generation_flying_latch.png",
+        "textures/block/new_generation_flying_locked.png",
+        "textures/block/new_generation_flying_metal.png",
+        "textures/block/new_generation_flying_seat.png"
+      ]
+    },
+    {
+      "path": "models/block/new_generation_flying_deck_7.json",
+      "group": "New-generation Flying",
+      "sha256": "7e47d57e4cae539ba17d1a179409088a1de7f615839849937f5703ea68f8fdfa",
+      "localReferences": [
+        "textures/block/new_generation_flying_harness.png",
+        "textures/block/new_generation_flying_latch.png",
+        "textures/block/new_generation_flying_locked.png",
+        "textures/block/new_generation_flying_metal.png",
+        "textures/block/new_generation_flying_seat.png"
+      ]
+    },
+    {
+      "path": "models/block/new_generation_flying_seat_00.json",
+      "group": "New-generation Flying",
+      "sha256": "d8d6840557d900f61aa9a650199bd153b3aef71bcf4377124fa9fb505914e74d",
+      "localReferences": [
+        "textures/block/new_generation_flying_harness.png",
+        "textures/block/new_generation_flying_latch.png",
+        "textures/block/new_generation_flying_locked.png",
+        "textures/block/new_generation_flying_metal.png",
+        "textures/block/new_generation_flying_seat.png"
+      ]
+    },
+    {
+      "path": "models/block/new_generation_flying_seat_01.json",
+      "group": "New-generation Flying",
+      "sha256": "e1fb97b816fdc71590a77eefaab5280dde5f08307137dca9b53b2bbb27bbe9cf",
+      "localReferences": [
+        "textures/block/new_generation_flying_harness.png",
+        "textures/block/new_generation_flying_latch.png",
+        "textures/block/new_generation_flying_locked.png",
+        "textures/block/new_generation_flying_metal.png",
+        "textures/block/new_generation_flying_seat.png"
+      ]
+    },
+    {
+      "path": "models/block/new_generation_flying_seat_10.json",
+      "group": "New-generation Flying",
+      "sha256": "918b15c39e9cea49063ef551a8a6160a96df0bca1abaeac283d17f1543c5aa6e",
+      "localReferences": [
+        "textures/block/new_generation_flying_harness.png",
+        "textures/block/new_generation_flying_latch.png",
+        "textures/block/new_generation_flying_locked.png",
+        "textures/block/new_generation_flying_metal.png",
+        "textures/block/new_generation_flying_seat.png"
+      ]
+    },
+    {
+      "path": "models/block/new_generation_flying_seat_11.json",
+      "group": "New-generation Flying",
+      "sha256": "a98ad12cc65b12ca2705fcfe95aa222631250f2c0b7224569b33765e587ace57",
+      "localReferences": [
+        "textures/block/new_generation_flying_harness.png",
+        "textures/block/new_generation_flying_latch.png",
+        "textures/block/new_generation_flying_locked.png",
+        "textures/block/new_generation_flying_metal.png",
+        "textures/block/new_generation_flying_seat.png"
+      ]
+    },
+    {
+      "path": "models/block/pax_seat_closed.json",
+      "group": "PAX",
+      "sha256": "700d731d9a5b4433a8b056dc327ac0913deb77dd0bb4a95590566577b205ea91",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/pax_seat_open.json",
+      "group": "PAX",
+      "sha256": "8894af30dc851334a2712d36cbd2a641a7f775ae609e079776ddff747ea787be",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/pax_shuttle_controller.json",
+      "group": "PAX",
+      "sha256": "7bd2ca365c502723cda18f439649b27eabe1fdf186a37ea68019bce03dcbdae8",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/pipeline_controller.json",
+      "group": "Pipeline",
+      "sha256": "f336029ac5b549c4c8917b46639028239c78efa89274a7d80f0c95511fe68329",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/pipeline_frame_0.json",
+      "group": "Pipeline",
+      "sha256": "54ea0161d6589d63896b2fcd8ff8bc8c7a199af525d478298d7214ad9ef59352",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/pipeline_frame_1.json",
+      "group": "Pipeline",
+      "sha256": "54ea0161d6589d63896b2fcd8ff8bc8c7a199af525d478298d7214ad9ef59352",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/pipeline_frame_10.json",
+      "group": "Pipeline",
+      "sha256": "54ea0161d6589d63896b2fcd8ff8bc8c7a199af525d478298d7214ad9ef59352",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/pipeline_frame_11.json",
+      "group": "Pipeline",
+      "sha256": "54ea0161d6589d63896b2fcd8ff8bc8c7a199af525d478298d7214ad9ef59352",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/pipeline_frame_12.json",
+      "group": "Pipeline",
+      "sha256": "54ea0161d6589d63896b2fcd8ff8bc8c7a199af525d478298d7214ad9ef59352",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/pipeline_frame_13.json",
+      "group": "Pipeline",
+      "sha256": "54ea0161d6589d63896b2fcd8ff8bc8c7a199af525d478298d7214ad9ef59352",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/pipeline_frame_14.json",
+      "group": "Pipeline",
+      "sha256": "54ea0161d6589d63896b2fcd8ff8bc8c7a199af525d478298d7214ad9ef59352",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/pipeline_frame_15.json",
+      "group": "Pipeline",
+      "sha256": "f707c3f6d6c81b6ed35c5631a545a1f4de6720d546508b78544f2fee1fdd32a3",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/pipeline_frame_16.json",
+      "group": "Pipeline",
+      "sha256": "f707c3f6d6c81b6ed35c5631a545a1f4de6720d546508b78544f2fee1fdd32a3",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/pipeline_frame_17.json",
+      "group": "Pipeline",
+      "sha256": "f707c3f6d6c81b6ed35c5631a545a1f4de6720d546508b78544f2fee1fdd32a3",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/pipeline_frame_18.json",
+      "group": "Pipeline",
+      "sha256": "dec4570a3612c616d2de84ef56a99aefae54bc2d98f7ab4d864c0ac2e487b66b",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/pipeline_frame_19.json",
+      "group": "Pipeline",
+      "sha256": "dec4570a3612c616d2de84ef56a99aefae54bc2d98f7ab4d864c0ac2e487b66b",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/pipeline_frame_2.json",
+      "group": "Pipeline",
+      "sha256": "54ea0161d6589d63896b2fcd8ff8bc8c7a199af525d478298d7214ad9ef59352",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/pipeline_frame_20.json",
+      "group": "Pipeline",
+      "sha256": "dec4570a3612c616d2de84ef56a99aefae54bc2d98f7ab4d864c0ac2e487b66b",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/pipeline_frame_21.json",
+      "group": "Pipeline",
+      "sha256": "f28290b898b4eb70601ee570eae47240ed1ebd4f5b3382842543a1715a3f1478",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/pipeline_frame_22.json",
+      "group": "Pipeline",
+      "sha256": "f28290b898b4eb70601ee570eae47240ed1ebd4f5b3382842543a1715a3f1478",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/pipeline_frame_23.json",
+      "group": "Pipeline",
+      "sha256": "db79966f283dd324a719bd153c5f0a49bb97e2fc899f00794ee30b731905a0c5",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/pipeline_frame_24.json",
+      "group": "Pipeline",
+      "sha256": "db79966f283dd324a719bd153c5f0a49bb97e2fc899f00794ee30b731905a0c5",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/pipeline_frame_25.json",
+      "group": "Pipeline",
+      "sha256": "2f97eb2ced7738bbf40195ac1c10a3599ebdc79e76c4c31d8491beee6e5cc9f6",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/pipeline_frame_26.json",
+      "group": "Pipeline",
+      "sha256": "2f97eb2ced7738bbf40195ac1c10a3599ebdc79e76c4c31d8491beee6e5cc9f6",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/pipeline_frame_27.json",
+      "group": "Pipeline",
+      "sha256": "6662fad84b641db3973ef0fc21e7423ddca5ed8b8e06aac28d02696eed19f91c",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/pipeline_frame_28.json",
+      "group": "Pipeline",
+      "sha256": "6662fad84b641db3973ef0fc21e7423ddca5ed8b8e06aac28d02696eed19f91c",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/pipeline_frame_29.json",
+      "group": "Pipeline",
+      "sha256": "dc4d7a5099991c4700eebb8a4b4e4b024a8924c4f83bb57f3bf88acb6e7fa5ee",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/pipeline_frame_3.json",
+      "group": "Pipeline",
+      "sha256": "54ea0161d6589d63896b2fcd8ff8bc8c7a199af525d478298d7214ad9ef59352",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/pipeline_frame_4.json",
+      "group": "Pipeline",
+      "sha256": "54ea0161d6589d63896b2fcd8ff8bc8c7a199af525d478298d7214ad9ef59352",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/pipeline_frame_5.json",
+      "group": "Pipeline",
+      "sha256": "54ea0161d6589d63896b2fcd8ff8bc8c7a199af525d478298d7214ad9ef59352",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/pipeline_frame_6.json",
+      "group": "Pipeline",
+      "sha256": "54ea0161d6589d63896b2fcd8ff8bc8c7a199af525d478298d7214ad9ef59352",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/pipeline_frame_7.json",
+      "group": "Pipeline",
+      "sha256": "54ea0161d6589d63896b2fcd8ff8bc8c7a199af525d478298d7214ad9ef59352",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/pipeline_frame_8.json",
+      "group": "Pipeline",
+      "sha256": "54ea0161d6589d63896b2fcd8ff8bc8c7a199af525d478298d7214ad9ef59352",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/pipeline_frame_9.json",
+      "group": "Pipeline",
+      "sha256": "54ea0161d6589d63896b2fcd8ff8bc8c7a199af525d478298d7214ad9ef59352",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/pipeline_seat_0_0_closed.json",
+      "group": "Pipeline",
+      "sha256": "d2246335c25bb47019cc27264e7935b3b3038539bdbf1b99f811400c0b93e9ae",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/pipeline_seat_0_0_open.json",
+      "group": "Pipeline",
+      "sha256": "17fff598a72f5ca07226593c62b0747e0f0bf6f050696150b6d310babb73e493",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/pipeline_seat_0_1_closed.json",
+      "group": "Pipeline",
+      "sha256": "e456febefd91aa5156b987586d2bf16a38e3ce77527a6c530525306dae39e251",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/pipeline_seat_0_1_open.json",
+      "group": "Pipeline",
+      "sha256": "2edad11707631a97874073d596d252296ed9659ec1805335058b8d3bf9c3421a",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/pipeline_seat_1_0_closed.json",
+      "group": "Pipeline",
+      "sha256": "238efecffcc760b805d9d3a3bc784e8cba928032d6eb59c04cef10fe47835d26",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/pipeline_seat_1_0_open.json",
+      "group": "Pipeline",
+      "sha256": "2af8452d9ae45bf2e65f99ae843e9eb17a3c1e7c2dc0be8605dd4f89e8625c88",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/pipeline_seat_1_1_closed.json",
+      "group": "Pipeline",
+      "sha256": "8667976c8d1cee27b20d2a90a0451913dedc38df8e37ff66ff491f228b71da8e",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/pipeline_seat_1_1_open.json",
+      "group": "Pipeline",
+      "sha256": "1ce7cfd21cfdefd231e75195cd290227e92a9c213a8cc23b9d7cd968483484e9",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/powered_inverted_controller.json",
+      "group": "Powered Inverted Yaw",
+      "sha256": "529fa127c314b54bb14db241470079f3c80d1ada871b11e54599f2187d87f5b8",
+      "localReferences": [
+        "textures/block/powered_inverted_yaw_metal.png",
+        "textures/block/powered_inverted_yaw_seat.png",
+        "textures/block/powered_inverted_yaw_signal.png"
+      ]
+    },
+    {
+      "path": "models/block/powered_inverted_yaw_bearing.json",
+      "group": "Powered Inverted Yaw",
+      "sha256": "39d2200ba5e4f1ac23c2d7794e677d0430b403687034646e10c3c3c60c940e9d",
+      "localReferences": [
+        "textures/block/powered_inverted_yaw_harness.png",
+        "textures/block/powered_inverted_yaw_metal.png",
+        "textures/block/powered_inverted_yaw_seat.png",
+        "textures/block/powered_inverted_yaw_signal.png"
+      ]
+    },
+    {
+      "path": "models/block/powered_inverted_yaw_governor.json",
+      "group": "Powered Inverted Yaw",
+      "sha256": "e5a4906d0bcadf2eb614d560a74e5c7448d50d8a7c874a25d367431ee21b9165",
+      "localReferences": [
+        "textures/block/powered_inverted_yaw_harness.png",
+        "textures/block/powered_inverted_yaw_metal.png",
+        "textures/block/powered_inverted_yaw_seat.png",
+        "textures/block/powered_inverted_yaw_signal.png"
+      ]
+    },
+    {
+      "path": "models/block/powered_inverted_yaw_seat_closed.json",
+      "group": "Powered Inverted Yaw",
+      "sha256": "4bb9bec214391a37d35987e9594b8cffe09a938c38d88791cf68d1cf3b54196f",
+      "localReferences": [
+        "textures/block/powered_inverted_yaw_harness.png",
+        "textures/block/powered_inverted_yaw_metal.png",
+        "textures/block/powered_inverted_yaw_seat.png",
+        "textures/block/powered_inverted_yaw_signal.png"
+      ]
+    },
+    {
+      "path": "models/block/powered_inverted_yaw_seat_open.json",
+      "group": "Powered Inverted Yaw",
+      "sha256": "36669c9c927951265cd3c6424bd34916abc8b6a9113dfbd21d0d791da931be8a",
+      "localReferences": [
+        "textures/block/powered_inverted_yaw_harness.png",
+        "textures/block/powered_inverted_yaw_metal.png",
+        "textures/block/powered_inverted_yaw_seat.png",
+        "textures/block/powered_inverted_yaw_signal.png"
+      ]
+    },
+    {
+      "path": "models/block/powered_inverted_yaw_spindle.json",
+      "group": "Powered Inverted Yaw",
+      "sha256": "dcfff1cca6b1314f39c5ba2f20b3b4684383fc3ec9c38505507557fe8400e6cb",
+      "localReferences": [
+        "textures/block/powered_inverted_yaw_harness.png",
+        "textures/block/powered_inverted_yaw_metal.png",
+        "textures/block/powered_inverted_yaw_seat.png",
+        "textures/block/powered_inverted_yaw_signal.png"
+      ]
+    },
+    {
+      "path": "models/block/revised_axle.json",
+      "group": "Revised ZacSpin",
+      "sha256": "d5048cd847e7d032e40fa8103d65f809709ee73c61dc55afbed9bb18573b7ced",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/revised_seat_closed.json",
+      "group": "Revised ZacSpin",
+      "sha256": "418b2d355c47ee5b325b85ad4366f1d1fda6671540340db53d82a43b7ce203a6",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/revised_seat_open.json",
+      "group": "Revised ZacSpin",
+      "sha256": "e859239598d28581e464f13bef5776e8be4ce1b27021f170d2ec476fc0fcd978",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/revised_strut.json",
+      "group": "Revised ZacSpin",
+      "sha256": "033c5d9d90b9f4915b2427b8bafd717c8454134226afeacbb870fc2217000f47",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/roller_ball_axle.json",
+      "group": "Roller Ball",
+      "sha256": "96857cb0782b6cd7577811143182cfd5f58c652c59ee084defb5ca887a715980",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/roller_ball_ballast.json",
+      "group": "Roller Ball",
+      "sha256": "211b1e04f245f491aea6e60f1864f698ff413f8513677dcc22655bba8e40bfa9",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/roller_ball_controller.json",
+      "group": "Roller Ball",
+      "sha256": "3a80352f987416de6db9b63476dd0dc2debfdcbbad3cb2cc553b7a9501c03ea2",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/roller_ball_frame_0_0.json",
+      "group": "Roller Ball",
+      "sha256": "6863e21a479d3dfa71809043ab2e4f4d1d1f09f04cdc5e955f97a0a2b789ed62",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/roller_ball_frame_0_1.json",
+      "group": "Roller Ball",
+      "sha256": "690fcfb21522f9e985ed99c0e773e6936601dff04d1050626d30cb4fb9ec634b",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/roller_ball_frame_1_0.json",
+      "group": "Roller Ball",
+      "sha256": "8c5842a2d531c6109a7576f5cc57456df1015043181836257a84d1bfc746810d",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/roller_ball_frame_1_1.json",
+      "group": "Roller Ball",
+      "sha256": "8c5842a2d531c6109a7576f5cc57456df1015043181836257a84d1bfc746810d",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/roller_ball_seat_0_0_east.json",
+      "group": "Roller Ball",
+      "sha256": "728c1cb5ffe273763eae870edb589647cfc2c07922811e23cec8a038398d66b3",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/roller_ball_seat_0_0_north.json",
+      "group": "Roller Ball",
+      "sha256": "728c1cb5ffe273763eae870edb589647cfc2c07922811e23cec8a038398d66b3",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/roller_ball_seat_0_0_south.json",
+      "group": "Roller Ball",
+      "sha256": "a4847562bf926cdf85547df7dd2f0e4241c73d82b94df17fac0eace3804e7661",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/roller_ball_seat_0_0_west.json",
+      "group": "Roller Ball",
+      "sha256": "728c1cb5ffe273763eae870edb589647cfc2c07922811e23cec8a038398d66b3",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/roller_ball_seat_0_1_east.json",
+      "group": "Roller Ball",
+      "sha256": "d999b7e49692eecc7cc0a41f3ff5dbce7120b210f0fdcc849141a862188c35b6",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/roller_ball_seat_0_1_north.json",
+      "group": "Roller Ball",
+      "sha256": "d999b7e49692eecc7cc0a41f3ff5dbce7120b210f0fdcc849141a862188c35b6",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/roller_ball_seat_0_1_south.json",
+      "group": "Roller Ball",
+      "sha256": "5221b556de5ca880f842a6a425e781d95caf997090db7f963dd0e73e6fe147f5",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/roller_ball_seat_0_1_west.json",
+      "group": "Roller Ball",
+      "sha256": "d999b7e49692eecc7cc0a41f3ff5dbce7120b210f0fdcc849141a862188c35b6",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/roller_ball_seat_1_0_east.json",
+      "group": "Roller Ball",
+      "sha256": "9cd40ddfe96d941a384d07db84642d54efef6a68ed1edde1703df07a2d549774",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/roller_ball_seat_1_0_north.json",
+      "group": "Roller Ball",
+      "sha256": "9cd40ddfe96d941a384d07db84642d54efef6a68ed1edde1703df07a2d549774",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/roller_ball_seat_1_0_south.json",
+      "group": "Roller Ball",
+      "sha256": "90da3d3ea81a7d99e73c471ad2c32c1fc6bdbdccf237830984917f71bc7c71f0",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/roller_ball_seat_1_0_west.json",
+      "group": "Roller Ball",
+      "sha256": "9cd40ddfe96d941a384d07db84642d54efef6a68ed1edde1703df07a2d549774",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/roller_ball_seat_1_1_east.json",
+      "group": "Roller Ball",
+      "sha256": "d5ce33596f607b35b0cb0a031aea516fc4b187bbb2c984b9ec7ba1b607fab6b1",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/roller_ball_seat_1_1_north.json",
+      "group": "Roller Ball",
+      "sha256": "d5ce33596f607b35b0cb0a031aea516fc4b187bbb2c984b9ec7ba1b607fab6b1",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/roller_ball_seat_1_1_south.json",
+      "group": "Roller Ball",
+      "sha256": "e661321a8a7c10c80534af72e1c6d9ed32d079ac90224911d4bc52d079a3e49b",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/roller_ball_seat_1_1_west.json",
+      "group": "Roller Ball",
+      "sha256": "d5ce33596f607b35b0cb0a031aea516fc4b187bbb2c984b9ec7ba1b607fab6b1",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/s2_spinning_bearing.json",
+      "group": "S2 Spinning",
+      "sha256": "71ea0be50d834309919d03f92487927b310b9a5de77c98c0f3f488258ac67346",
+      "localReferences": [
+        "textures/block/s2_spinning_harness.png",
+        "textures/block/s2_spinning_metal.png",
+        "textures/block/s2_spinning_seat.png",
+        "textures/block/s2_spinning_signal.png"
+      ]
+    },
+    {
+      "path": "models/block/s2_spinning_governor.json",
+      "group": "S2 Spinning",
+      "sha256": "d05fce4f6ea7234463d1d7cfafb88ef9b5c6c8920ed442761cb7fa0269584b8c",
+      "localReferences": [
+        "textures/block/s2_spinning_harness.png",
+        "textures/block/s2_spinning_metal.png",
+        "textures/block/s2_spinning_seat.png",
+        "textures/block/s2_spinning_signal.png"
+      ]
+    },
+    {
+      "path": "models/block/s2_spinning_seat_0_east_0.json",
+      "group": "S2 Spinning",
+      "sha256": "1f77502a1aa195d8caaa7f432d083058abbd2c4bb75b20933952aabad03410cd",
+      "localReferences": [
+        "textures/block/s2_spinning_harness.png",
+        "textures/block/s2_spinning_metal.png",
+        "textures/block/s2_spinning_seat.png",
+        "textures/block/s2_spinning_signal.png"
+      ]
+    },
+    {
+      "path": "models/block/s2_spinning_seat_0_east_1.json",
+      "group": "S2 Spinning",
+      "sha256": "c17554931580b958e2f19ae070373940dadef94ce7277e00685fba8d0881800f",
+      "localReferences": [
+        "textures/block/s2_spinning_harness.png",
+        "textures/block/s2_spinning_metal.png",
+        "textures/block/s2_spinning_seat.png",
+        "textures/block/s2_spinning_signal.png"
+      ]
+    },
+    {
+      "path": "models/block/s2_spinning_seat_0_north_0.json",
+      "group": "S2 Spinning",
+      "sha256": "1f77502a1aa195d8caaa7f432d083058abbd2c4bb75b20933952aabad03410cd",
+      "localReferences": [
+        "textures/block/s2_spinning_harness.png",
+        "textures/block/s2_spinning_metal.png",
+        "textures/block/s2_spinning_seat.png",
+        "textures/block/s2_spinning_signal.png"
+      ]
+    },
+    {
+      "path": "models/block/s2_spinning_seat_0_north_1.json",
+      "group": "S2 Spinning",
+      "sha256": "c17554931580b958e2f19ae070373940dadef94ce7277e00685fba8d0881800f",
+      "localReferences": [
+        "textures/block/s2_spinning_harness.png",
+        "textures/block/s2_spinning_metal.png",
+        "textures/block/s2_spinning_seat.png",
+        "textures/block/s2_spinning_signal.png"
+      ]
+    },
+    {
+      "path": "models/block/s2_spinning_seat_0_south_0.json",
+      "group": "S2 Spinning",
+      "sha256": "8499e2f41ad02f6a59b5bfb6a78dd7e5593a3cf79aefc690c9b70e048dea9249",
+      "localReferences": [
+        "textures/block/s2_spinning_harness.png",
+        "textures/block/s2_spinning_metal.png",
+        "textures/block/s2_spinning_seat.png",
+        "textures/block/s2_spinning_signal.png"
+      ]
+    },
+    {
+      "path": "models/block/s2_spinning_seat_0_south_1.json",
+      "group": "S2 Spinning",
+      "sha256": "2dc9987a61a31b3d8d5049d32266fc669227b165704bede36c70db1adc2b97c3",
+      "localReferences": [
+        "textures/block/s2_spinning_harness.png",
+        "textures/block/s2_spinning_metal.png",
+        "textures/block/s2_spinning_seat.png",
+        "textures/block/s2_spinning_signal.png"
+      ]
+    },
+    {
+      "path": "models/block/s2_spinning_seat_0_west_0.json",
+      "group": "S2 Spinning",
+      "sha256": "1f77502a1aa195d8caaa7f432d083058abbd2c4bb75b20933952aabad03410cd",
+      "localReferences": [
+        "textures/block/s2_spinning_harness.png",
+        "textures/block/s2_spinning_metal.png",
+        "textures/block/s2_spinning_seat.png",
+        "textures/block/s2_spinning_signal.png"
+      ]
+    },
+    {
+      "path": "models/block/s2_spinning_seat_0_west_1.json",
+      "group": "S2 Spinning",
+      "sha256": "c17554931580b958e2f19ae070373940dadef94ce7277e00685fba8d0881800f",
+      "localReferences": [
+        "textures/block/s2_spinning_harness.png",
+        "textures/block/s2_spinning_metal.png",
+        "textures/block/s2_spinning_seat.png",
+        "textures/block/s2_spinning_signal.png"
+      ]
+    },
+    {
+      "path": "models/block/s2_spinning_seat_1_east_0.json",
+      "group": "S2 Spinning",
+      "sha256": "625921a0218bb1b8f9e492f7ac794f7e3c3141fa2efd9362295643652e483b5c",
+      "localReferences": [
+        "textures/block/s2_spinning_harness.png",
+        "textures/block/s2_spinning_metal.png",
+        "textures/block/s2_spinning_seat.png",
+        "textures/block/s2_spinning_signal.png"
+      ]
+    },
+    {
+      "path": "models/block/s2_spinning_seat_1_east_1.json",
+      "group": "S2 Spinning",
+      "sha256": "a472b768bde253c2b290913e14b23ffa74ee7e64d64bc1363490550d6fc2ef7a",
+      "localReferences": [
+        "textures/block/s2_spinning_harness.png",
+        "textures/block/s2_spinning_metal.png",
+        "textures/block/s2_spinning_seat.png",
+        "textures/block/s2_spinning_signal.png"
+      ]
+    },
+    {
+      "path": "models/block/s2_spinning_seat_1_north_0.json",
+      "group": "S2 Spinning",
+      "sha256": "625921a0218bb1b8f9e492f7ac794f7e3c3141fa2efd9362295643652e483b5c",
+      "localReferences": [
+        "textures/block/s2_spinning_harness.png",
+        "textures/block/s2_spinning_metal.png",
+        "textures/block/s2_spinning_seat.png",
+        "textures/block/s2_spinning_signal.png"
+      ]
+    },
+    {
+      "path": "models/block/s2_spinning_seat_1_north_1.json",
+      "group": "S2 Spinning",
+      "sha256": "a472b768bde253c2b290913e14b23ffa74ee7e64d64bc1363490550d6fc2ef7a",
+      "localReferences": [
+        "textures/block/s2_spinning_harness.png",
+        "textures/block/s2_spinning_metal.png",
+        "textures/block/s2_spinning_seat.png",
+        "textures/block/s2_spinning_signal.png"
+      ]
+    },
+    {
+      "path": "models/block/s2_spinning_seat_1_south_0.json",
+      "group": "S2 Spinning",
+      "sha256": "6156ca4957b91eeec72499b2994a936cd15ca80610b5f0ddcc398615c8fe25bd",
+      "localReferences": [
+        "textures/block/s2_spinning_harness.png",
+        "textures/block/s2_spinning_metal.png",
+        "textures/block/s2_spinning_seat.png",
+        "textures/block/s2_spinning_signal.png"
+      ]
+    },
+    {
+      "path": "models/block/s2_spinning_seat_1_south_1.json",
+      "group": "S2 Spinning",
+      "sha256": "9e6a4cd635cb84b31622f37302d2fd54f9358f43cc1c533aed2a52558c4cd658",
+      "localReferences": [
+        "textures/block/s2_spinning_harness.png",
+        "textures/block/s2_spinning_metal.png",
+        "textures/block/s2_spinning_seat.png",
+        "textures/block/s2_spinning_signal.png"
+      ]
+    },
+    {
+      "path": "models/block/s2_spinning_seat_1_west_0.json",
+      "group": "S2 Spinning",
+      "sha256": "625921a0218bb1b8f9e492f7ac794f7e3c3141fa2efd9362295643652e483b5c",
+      "localReferences": [
+        "textures/block/s2_spinning_harness.png",
+        "textures/block/s2_spinning_metal.png",
+        "textures/block/s2_spinning_seat.png",
+        "textures/block/s2_spinning_signal.png"
+      ]
+    },
+    {
+      "path": "models/block/s2_spinning_seat_1_west_1.json",
+      "group": "S2 Spinning",
+      "sha256": "a472b768bde253c2b290913e14b23ffa74ee7e64d64bc1363490550d6fc2ef7a",
+      "localReferences": [
+        "textures/block/s2_spinning_harness.png",
+        "textures/block/s2_spinning_metal.png",
+        "textures/block/s2_spinning_seat.png",
+        "textures/block/s2_spinning_signal.png"
+      ]
+    },
+    {
+      "path": "models/block/shuttle_carriage.json",
+      "group": "PAX",
+      "sha256": "211550d6f6e99dcd9cf173961e1138460f66d494a67b6da09fe1879557f5187e",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/shuttle_winch.json",
+      "group": "PAX",
+      "sha256": "0cb03c781745316893a8c52f9cbb48cb7fbcddb5b882a7782d0fb07f80b5790d",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/shuttle_winch_y.json",
+      "group": "PAX",
+      "sha256": "b81d5aed62bac1e7ecb7dd1358ea82e9787698c88defcae71fb046dcea05d555",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/shuttle_winch_z.json",
+      "group": "PAX",
+      "sha256": "42d1439b23b389605c821252780c389e77df80c317c6e81200193149a37b9e46",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/sns_free_spin_controller.json",
+      "group": "Free Spin",
+      "sha256": "7bd2ca365c502723cda18f439649b27eabe1fdf186a37ea68019bce03dcbdae8",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/spin_bearing.json",
+      "group": "S1 Spinning",
+      "sha256": "ac2fb6fe29155da2d3385e3e8f6656f4dfe1bf757831a169508503e83665a9a8",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/spinning_controller.json",
+      "group": "S1 Spinning",
+      "sha256": "79172c32a0a52a58252a13387288e66e8ff048745622c57f25fa59a5e39a22ef",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/spinning_seat_0_east_0.json",
+      "group": "S1 Spinning",
+      "sha256": "de21b6587b9de74992c316d33c0408274a65f3c5798252115f25932090afee68",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/spinning_seat_0_east_1.json",
+      "group": "S1 Spinning",
+      "sha256": "398f55e2dd9066a2986c43823938657b89b9dd572f9ad951d9f328bb6ebb62b0",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/spinning_seat_0_north_0.json",
+      "group": "S1 Spinning",
+      "sha256": "de21b6587b9de74992c316d33c0408274a65f3c5798252115f25932090afee68",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/spinning_seat_0_north_1.json",
+      "group": "S1 Spinning",
+      "sha256": "398f55e2dd9066a2986c43823938657b89b9dd572f9ad951d9f328bb6ebb62b0",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/spinning_seat_0_south_0.json",
+      "group": "S1 Spinning",
+      "sha256": "864b79ab62dcd1824bbe0eb8eaa38b6f4ff8d905ed0c8d762350bc4d0d4844aa",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/spinning_seat_0_south_1.json",
+      "group": "S1 Spinning",
+      "sha256": "35115ef56e8c735a76beef93aa9eaec941d4da7d2d317e054621abc389757782",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/spinning_seat_0_west_0.json",
+      "group": "S1 Spinning",
+      "sha256": "de21b6587b9de74992c316d33c0408274a65f3c5798252115f25932090afee68",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/spinning_seat_0_west_1.json",
+      "group": "S1 Spinning",
+      "sha256": "398f55e2dd9066a2986c43823938657b89b9dd572f9ad951d9f328bb6ebb62b0",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/spinning_seat_1_east_0.json",
+      "group": "S1 Spinning",
+      "sha256": "bf283ec573445fc66166137fd492114c7496c4d74feb2eef5ad4441d8e00f524",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/spinning_seat_1_east_1.json",
+      "group": "S1 Spinning",
+      "sha256": "032d8e766902459cb9af2aca0bd6d4457f3e16e51c1e34355adaa244ebea6393",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/spinning_seat_1_north_0.json",
+      "group": "S1 Spinning",
+      "sha256": "bf283ec573445fc66166137fd492114c7496c4d74feb2eef5ad4441d8e00f524",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/spinning_seat_1_north_1.json",
+      "group": "S1 Spinning",
+      "sha256": "032d8e766902459cb9af2aca0bd6d4457f3e16e51c1e34355adaa244ebea6393",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/spinning_seat_1_south_0.json",
+      "group": "S1 Spinning",
+      "sha256": "763e005d1b83fa6e83d079e3e0435991e04e3fb25e77320b70931aa0640e8d27",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/spinning_seat_1_south_1.json",
+      "group": "S1 Spinning",
+      "sha256": "6e9d3bb54255beec26fae02d01ddcfe153b97ea3d2d8cc67e27dfc693d523328",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/spinning_seat_1_west_0.json",
+      "group": "S1 Spinning",
+      "sha256": "bf283ec573445fc66166137fd492114c7496c4d74feb2eef5ad4441d8e00f524",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/spinning_seat_1_west_1.json",
+      "group": "S1 Spinning",
+      "sha256": "032d8e766902459cb9af2aca0bd6d4457f3e16e51c1e34355adaa244ebea6393",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/suspended_cabin.json",
+      "group": "Suspended",
+      "sha256": "8a321193c0d9aa33e44c2212ca6e4a3f711e739ce37bbe12b130edbdf90880d7",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/suspended_controller.json",
+      "group": "Suspended",
+      "sha256": "f36e723bdd068edf33dfad309692a72f8ec6ab69d5ea40392cf87c2e670a5c40",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/suspended_hanger_front.json",
+      "group": "Suspended",
+      "sha256": "e958a508c04a013e03d7302cef7ed21b3d98dce74351c092808ee6f1ba14d4e1",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/suspended_hanger_rear.json",
+      "group": "Suspended",
+      "sha256": "e8ef77613cd9533f12ab4c956aa1da15b381803b7fb83dc76815f020106fd643",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/suspended_keel.json",
+      "group": "Suspended",
+      "sha256": "4fa76f6416873a44252c9bff5c4607e285e43f431168e5ca04799bfdaafcb5ad",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/suspended_lock_free.json",
+      "group": "Suspended",
+      "sha256": "a7837c12e1179d5479a7cc329e175b7d1eab9d8c4faeb2920b26a9c2d792f00f",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/suspended_lock_locked.json",
+      "group": "Suspended",
+      "sha256": "174ab828195f22ddfc47e2cc02fca1cb037aebb981fef50195bf493e5c89fe37",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/suspended_seat_closed.json",
+      "group": "Suspended",
+      "sha256": "6fbf23c5f9f1017ec314953cececbed24605782cc2e199b85e8f83d9e815f72b",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/suspended_seat_open.json",
+      "group": "Suspended",
+      "sha256": "3d1c208180e4d30c7570b8060bc02068e6b5c26c56304d39008b2a01dcffc7ba",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/wing_fixed_controller.json",
+      "group": "Wing",
+      "sha256": "d08198aecebc7d6d749f9eeeb32a1de2ff8f9d9d7b101e9be5f9919495018603",
+      "localReferences": [
+        "models/block/fixed_wing_beam.json"
+      ]
+    },
+    {
+      "path": "models/block/wing_seat_black_closed.json",
+      "group": "Wing",
+      "sha256": "8bb83f07d67227f48f3a7ffc7d4f7566b6aa69fcd87899df5d29885e5c9d5e6f",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/wing_seat_black_open.json",
+      "group": "Wing",
+      "sha256": "328a4466903bdddfc880d5d4847e4439623e8e67c2f3a8afc57a0e14e0e891fb",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/wing_seat_blue_closed.json",
+      "group": "Wing",
+      "sha256": "2050386ef4578f257cabb4156d32a982f7aa9f031ae4aaff3d198c3007f3d7f8",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/wing_seat_blue_open.json",
+      "group": "Wing",
+      "sha256": "23c5bd587c98ce631ba02fe0bf782dbd90468db71494d516223925d862732d66",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/wing_seat_brown_closed.json",
+      "group": "Wing",
+      "sha256": "91c3c0faf957b981e7e78338badc40dc85cac1b1f4c871fc379b2da5a5b58a86",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/wing_seat_brown_open.json",
+      "group": "Wing",
+      "sha256": "47fdf288d5da820e5f5b0773f59c08f18eb83d168c25c88a1d7cda4b64bd901b",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/wing_seat_cyan_closed.json",
+      "group": "Wing",
+      "sha256": "fb75d4b72b16f8b4a216b78a4908bba175389bf6674e6a69ed105c75db119144",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/wing_seat_cyan_open.json",
+      "group": "Wing",
+      "sha256": "8728648839b00d1751a465ac34b6f8534a7edf6e3f088f451838ce52890b7a96",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/wing_seat_gray_closed.json",
+      "group": "Wing",
+      "sha256": "c1c5174a0fdbc95b3aa7ee046ed1f4c6ce3fc6d392dbeef9b189f92c5a31cd13",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/wing_seat_gray_open.json",
+      "group": "Wing",
+      "sha256": "83606aeff5a8f6c6972b36f64d3722166281a2d6529c02efef1c609f62e7889e",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/wing_seat_green_closed.json",
+      "group": "Wing",
+      "sha256": "700d731d9a5b4433a8b056dc327ac0913deb77dd0bb4a95590566577b205ea91",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/wing_seat_green_open.json",
+      "group": "Wing",
+      "sha256": "8894af30dc851334a2712d36cbd2a641a7f775ae609e079776ddff747ea787be",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/wing_seat_light_blue_closed.json",
+      "group": "Wing",
+      "sha256": "0f88c013a31ee675753a4acd70786d74f55b198a1b27a874658fdb4a199e5fd4",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/wing_seat_light_blue_open.json",
+      "group": "Wing",
+      "sha256": "5027e5396d8dbb498c579c23ce1a94b2b9f9bc4a7231da3434021ad141f3b17a",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/wing_seat_light_gray_closed.json",
+      "group": "Wing",
+      "sha256": "49b16a71a01ab1c0d9d1dd3f4864824fb5299a9339f9d425d1743225cee75b6c",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/wing_seat_light_gray_open.json",
+      "group": "Wing",
+      "sha256": "7165ae3f50edf15e6bfe7c8284f7a2daa2757aa1aa1a4a3b9e9273892a0a202a",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/wing_seat_lime_closed.json",
+      "group": "Wing",
+      "sha256": "d53576116708eb6f4f32ab02f99576f96675cacf1b5f1fc96694efe0585d133d",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/wing_seat_lime_open.json",
+      "group": "Wing",
+      "sha256": "99d819a992e4c41224b6453a6db5038fb52ece6c1acf8d928466e42bde31e02a",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/wing_seat_magenta_closed.json",
+      "group": "Wing",
+      "sha256": "92312cca46a8a0b8c89d337c7fe8161ae2a9e5376068e416a49957285d0cf141",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/wing_seat_magenta_open.json",
+      "group": "Wing",
+      "sha256": "f27dc31f8d3abea7818d37d31fda591cc22be2bb9af011a2258821a23c96b574",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/wing_seat_orange_closed.json",
+      "group": "Wing",
+      "sha256": "970832b97dc147e90ca2eb793301a0805060a2a252d6e61b6bd427c141c72eaa",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/wing_seat_orange_open.json",
+      "group": "Wing",
+      "sha256": "8aa06714421ea193b3ae56bc07a5f06f4235e8f377a111e07d73ee8ae4b979a5",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/wing_seat_pink_closed.json",
+      "group": "Wing",
+      "sha256": "abb7cfc1a414c47688e5dcb1a7a9935d1e8af11f0def4bcd2854e9d49e9e6347",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/wing_seat_pink_open.json",
+      "group": "Wing",
+      "sha256": "86fe18556821206b647d284bf5ed2e0cb2c7ac62afb0aeb3dc2328247d5bc193",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/wing_seat_purple_closed.json",
+      "group": "Wing",
+      "sha256": "418b2d355c47ee5b325b85ad4366f1d1fda6671540340db53d82a43b7ce203a6",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/wing_seat_purple_open.json",
+      "group": "Wing",
+      "sha256": "e859239598d28581e464f13bef5776e8be4ce1b27021f170d2ec476fc0fcd978",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/wing_seat_red_closed.json",
+      "group": "Wing",
+      "sha256": "eb0196a7a528f4914b703c8bde480ed2351eb43f5894c740db9af10220868c0b",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/wing_seat_red_open.json",
+      "group": "Wing",
+      "sha256": "cce8e949d7ec3e48553cf76a31b68bf2163e144877b609f054cfac4891e8e508",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/wing_seat_white_closed.json",
+      "group": "Wing",
+      "sha256": "8e04fe58f1684f4c7a67a245ed2f18376323aec078ebf3bbc23acd8d1c4b0eba",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/wing_seat_white_open.json",
+      "group": "Wing",
+      "sha256": "1ef457793f7ab988b9b17acbf7a853ddbfb163e66d4916dc97321a7f3bfdc820",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/wing_seat_yellow_closed.json",
+      "group": "Wing",
+      "sha256": "ce514b0c1c0a021e4ae8f976a3fd2ee706415856db51bcc52f3da04fa91ee624",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/wing_seat_yellow_open.json",
+      "group": "Wing",
+      "sha256": "4f3cf0e72fa7bb59d1656a4a2bb11adc131681636013993b0a2abd4c3e7e4021",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/wing_strut.json",
+      "group": "Shared tools/equipment/geometry",
+      "sha256": "bf441e1d280411505c209acdf7906925b18ab24cfeac7c8461440cc400d59025",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/yaw_marker.json",
+      "group": "Shared tools/equipment/geometry",
+      "sha256": "a1b7af436a7072a8d26379ca34e0e3aa353d6f1915f72dce06e505c8f4f148d3",
+      "localReferences": [
+        "textures/block/new_generation_flying_harness.png",
+        "textures/block/new_generation_flying_latch.png",
+        "textures/block/new_generation_flying_locked.png",
+        "textures/block/new_generation_flying_metal.png",
+        "textures/block/new_generation_flying_seat.png"
+      ]
+    },
+    {
+      "path": "models/block/zacspin_legacy_controller.json",
+      "group": "Legacy ZacSpin",
+      "sha256": "38b7e4af90e7af06ce3a184ba35aa07ce03aa9da097655fc80f8e3a1a5ed63bf",
+      "localReferences": []
+    },
+    {
+      "path": "models/block/zacspin_revised_controller.json",
+      "group": "Revised ZacSpin",
+      "sha256": "7bd2ca365c502723cda18f439649b27eabe1fdf186a37ea68019bce03dcbdae8",
+      "localReferences": []
+    },
+    {
+      "path": "models/item/arrow_car.json",
+      "group": "Arrow",
+      "sha256": "b979b043eaa7069a629c3a7f96ee2e369bcf3079b6083216d104e80910ee039d",
+      "localReferences": [
+        "models/block/arrow_seat_closed.json"
+      ]
+    },
+    {
+      "path": "models/item/arrow_track.json",
+      "group": "Arrow",
+      "sha256": "6aa78d37437387359ddbff4456fb4452ff3efc2ef28a5c2f2ca2b312640a087e",
+      "localReferences": []
+    },
+    {
+      "path": "models/item/axis_car.json",
+      "group": "Axis",
+      "sha256": "c08e20afbf36bf3fa616e891bf04ce5a6c40770627e35737bfb5321c06a14684",
+      "localReferences": []
+    },
+    {
+      "path": "models/item/axis_track.json",
+      "group": "Axis",
+      "sha256": "269995af25d2ec32425de0ae6f1394816c2525ad8ff5296720f7d2a094546a86",
+      "localReferences": [
+        "models/item/legacy_zacspin_track.json"
+      ]
+    },
+    {
+      "path": "models/item/boarding_station.json",
+      "group": "Shared tools/equipment/geometry",
+      "sha256": "192a6e78a15e112f66b82017590fc113079fe5b354eaa224fe939e116ca84d4c",
+      "localReferences": [
+        "models/block/boarding_station.json"
+      ]
+    },
+    {
+      "path": "models/item/dive_car.json",
+      "group": "Dive",
+      "sha256": "b733568149c2d86d2f7a2e7ddcb11cc90a4852256a654f8a2da059e611cb4c83",
+      "localReferences": []
+    },
+    {
+      "path": "models/item/dive_hold.json",
+      "group": "Dive",
+      "sha256": "1b6a171b77f239edf8b6abe773f2897db96e0396b3bab4fb71860cc02ae1678b",
+      "localReferences": [
+        "models/block/dive_hold.json"
+      ]
+    },
+    {
+      "path": "models/item/dive_track.json",
+      "group": "Dive",
+      "sha256": "0e5492f60f479054b3b74d0c9a098a97ba0aa0080644e455d27577c0e4c1646c",
+      "localReferences": []
+    },
+    {
+      "path": "models/item/fixed_inverted_car.json",
+      "group": "Fixed Inverted",
+      "sha256": "fe4bc027e30954ffc072b81a77de8833aa2e982ce8c035035b28d79bdda22563",
+      "localReferences": []
+    },
+    {
+      "path": "models/item/fixed_inverted_track.json",
+      "group": "Fixed Inverted",
+      "sha256": "3c46dae7cad1a810ea95a1f104c16b8d184f9686300c0b36fa1ef319780219d0",
+      "localReferences": []
+    },
+    {
+      "path": "models/item/flying_car.json",
+      "group": "Conventional Flying",
+      "sha256": "af35b0eabc7b8cc5a3ef7d8ea6ba82a7eab99cbbf583d53ba69d0dd07f227b87",
+      "localReferences": []
+    },
+    {
+      "path": "models/item/flying_track.json",
+      "group": "Conventional Flying",
+      "sha256": "94af7c286785f1a6a14dd86f49b5ab2ce9354829d5deab59a5cb2e3e13697479",
+      "localReferences": []
+    },
+    {
+      "path": "models/item/free_spin_car.json",
+      "group": "Free Spin",
+      "sha256": "0f17c74e6d93cf4302e01b812b7fa2c98306898340099725495f17edd82f0e84",
+      "localReferences": [
+        "models/block/free_spin_seat_closed.json"
+      ]
+    },
+    {
+      "path": "models/item/free_spin_track.json",
+      "group": "Free Spin",
+      "sha256": "c49371be77c444e7c3b2b7260216f51c796cca5963fc240d47f559f0f093aadb",
+      "localReferences": [
+        "models/item/legacy_zacspin_track.json"
+      ]
+    },
+    {
+      "path": "models/item/legacy_zacspin_car.json",
+      "group": "Legacy ZacSpin",
+      "sha256": "000e878666eb7882b8e5d4475143d48a1c677cca8e399fee729999de28066be1",
+      "localReferences": [
+        "models/block/legacy_seat_closed.json"
+      ]
+    },
+    {
+      "path": "models/item/legacy_zacspin_track.json",
+      "group": "Legacy ZacSpin",
+      "sha256": "31f7a0536b82ad3aa67790cff8517b8552281f91877d36a64e20f2ca66b7c588",
+      "localReferences": []
+    },
+    {
+      "path": "models/item/magnetic_damper.json",
+      "group": "Shared tools/equipment/geometry",
+      "sha256": "13c0ce9ef8c782be338c1558f2d9ce7e04c2408ca4354877e034b0b83fd457e7",
+      "localReferences": []
+    },
+    {
+      "path": "models/item/magnetic_inducer.json",
+      "group": "Shared tools/equipment/geometry",
+      "sha256": "59215e52043c9b147c62e87baa513cd38c1a93af0817be83acfa97d95f0cd8f8",
+      "localReferences": []
+    },
+    {
+      "path": "models/item/new_generation_flying_car.json",
+      "group": "New-generation Flying",
+      "sha256": "bf7fe171d62df7c79553dccbc33b5fdc82b542bd1b2990834e5e603c251edf66",
+      "localReferences": [
+        "textures/block/new_generation_flying_harness.png",
+        "textures/block/new_generation_flying_latch.png",
+        "textures/block/new_generation_flying_locked.png",
+        "textures/block/new_generation_flying_metal.png",
+        "textures/block/new_generation_flying_seat.png"
+      ]
+    },
+    {
+      "path": "models/item/new_generation_flying_track.json",
+      "group": "New-generation Flying",
+      "sha256": "51f2dc871871ec001b54145197422b01543d751671d2eeafd98633e28902fc3f",
+      "localReferences": [
+        "textures/block/new_generation_flying_harness.png",
+        "textures/block/new_generation_flying_latch.png",
+        "textures/block/new_generation_flying_locked.png",
+        "textures/block/new_generation_flying_metal.png",
+        "textures/block/new_generation_flying_seat.png"
+      ]
+    },
+    {
+      "path": "models/item/pax_car.json",
+      "group": "PAX",
+      "sha256": "33686318ce900fd819b356d2dc1953baeb3a73e6fc83b783891e3213683180a8",
+      "localReferences": [
+        "models/block/pax_seat_closed.json"
+      ]
+    },
+    {
+      "path": "models/item/pax_track.json",
+      "group": "PAX",
+      "sha256": "d85ce9c8dba0c1a09d25813ddc90d744fb4edb4a0a7ad0a3c7ab4a40ca711392",
+      "localReferences": [
+        "models/item/legacy_zacspin_track.json"
+      ]
+    },
+    {
+      "path": "models/item/pipeline_car.json",
+      "group": "Pipeline",
+      "sha256": "731cc7f8294d59c851f2d9f99a938a74cf51ec0e55090b39dd643d7eac954135",
+      "localReferences": []
+    },
+    {
+      "path": "models/item/pipeline_track.json",
+      "group": "Pipeline",
+      "sha256": "749c9ed81cde6e93f1d0670ca116b7e04f865b38613ac4ec4ee0455edd10c4c2",
+      "localReferences": []
+    },
+    {
+      "path": "models/item/powered_inverted_yaw_car.json",
+      "group": "Powered Inverted Yaw",
+      "sha256": "e6eb2cfce76b60150d16052be5a63e4348c530b46e6c995590a3c2a7720cc5c2",
+      "localReferences": [
+        "textures/block/powered_inverted_yaw_harness.png",
+        "textures/block/powered_inverted_yaw_metal.png",
+        "textures/block/powered_inverted_yaw_seat.png",
+        "textures/block/powered_inverted_yaw_signal.png"
+      ]
+    },
+    {
+      "path": "models/item/powered_inverted_yaw_governor.json",
+      "group": "Powered Inverted Yaw",
+      "sha256": "b69a666c714978904a63bf08d38b924be9658a985e0cb59d85628e9e832d91d7",
+      "localReferences": [
+        "models/block/powered_inverted_yaw_governor.json"
+      ]
+    },
+    {
+      "path": "models/item/powered_inverted_yaw_track.json",
+      "group": "Powered Inverted Yaw",
+      "sha256": "38a50bd5c599f8fd63a6182af692bc2de5f4223c04dfc00d5238caf8d0ca28d5",
+      "localReferences": [
+        "textures/block/powered_inverted_yaw_harness.png",
+        "textures/block/powered_inverted_yaw_metal.png",
+        "textures/block/powered_inverted_yaw_seat.png",
+        "textures/block/powered_inverted_yaw_signal.png"
+      ]
+    },
+    {
+      "path": "models/item/revised_zacspin_car.json",
+      "group": "Revised ZacSpin",
+      "sha256": "e8298cc02c8abed112f0775749c5bb05bbe724c62cbe42f8c4b9f59b37cd4c9b",
+      "localReferences": [
+        "models/block/revised_seat_closed.json"
+      ]
+    },
+    {
+      "path": "models/item/revised_zacspin_track.json",
+      "group": "Revised ZacSpin",
+      "sha256": "bb58ce84512696dd24d8da12647dd633a847690a797f0a7bf70185e8634c4fc5",
+      "localReferences": [
+        "models/item/legacy_zacspin_track.json"
+      ]
+    },
+    {
+      "path": "models/item/roller_ball_car.json",
+      "group": "Roller Ball",
+      "sha256": "2806f84b7586179cb60ec52f78e879e4e26b02e0cb5de4872644a8606bd145f7",
+      "localReferences": []
+    },
+    {
+      "path": "models/item/roller_ball_lift_control.json",
+      "group": "Roller Ball",
+      "sha256": "cfbb7f9b15d29dda7a49a32c5ca07aa31b43403b2260517f30150349b2154a2f",
+      "localReferences": []
+    },
+    {
+      "path": "models/item/roller_ball_track.json",
+      "group": "Roller Ball",
+      "sha256": "f3495f7dded9179102f49890a550cc8471ff041cd55b2a821af0ea7444a7e6cc",
+      "localReferences": [
+        "models/item/legacy_zacspin_track.json"
+      ]
+    },
+    {
+      "path": "models/item/rotation_tool.json",
+      "group": "Shared tools/equipment/geometry",
+      "sha256": "14b888f3c1dcbe023249d6442f884dc1d6117d31ea6baea8d3c5e5b13d64d00e",
+      "localReferences": []
+    },
+    {
+      "path": "models/item/s2_spinning_car.json",
+      "group": "S2 Spinning",
+      "sha256": "587860cf40cb83c8f88ea9a9754af06bacd697ee3ad24e72b85868fb0bf5f29e",
+      "localReferences": [
+        "textures/block/s2_spinning_harness.png",
+        "textures/block/s2_spinning_metal.png",
+        "textures/block/s2_spinning_seat.png",
+        "textures/block/s2_spinning_signal.png"
+      ]
+    },
+    {
+      "path": "models/item/s2_spinning_governor.json",
+      "group": "S2 Spinning",
+      "sha256": "8476baa84cadf85d31065ecdef0b4ecf4ffbbcedad2e2e706edb5673996595bf",
+      "localReferences": [
+        "models/block/s2_spinning_governor.json"
+      ]
+    },
+    {
+      "path": "models/item/s2_spinning_track.json",
+      "group": "S2 Spinning",
+      "sha256": "2c5bb33697d5c1fe7abda1778e0f7e4397bcc6beed647f09795117d138c95684",
+      "localReferences": [
+        "textures/block/s2_spinning_harness.png",
+        "textures/block/s2_spinning_metal.png",
+        "textures/block/s2_spinning_seat.png",
+        "textures/block/s2_spinning_signal.png"
+      ]
+    },
+    {
+      "path": "models/item/shuttle_winch.json",
+      "group": "PAX",
+      "sha256": "f0556d2a612bee115fb0a63a3a1d6e975180432a6e3a1106b451f55783c43d6d",
+      "localReferences": [
+        "models/block/shuttle_winch.json"
+      ]
+    },
+    {
+      "path": "models/item/spinning_car.json",
+      "group": "S1 Spinning",
+      "sha256": "c75c5a217939d1b0552212169376a37cf355a1f7ba1d599e027a46d7453305a1",
+      "localReferences": []
+    },
+    {
+      "path": "models/item/spinning_track.json",
+      "group": "S1 Spinning",
+      "sha256": "55d40182f0541f31136f7374169aaaceccfb20732630ef1b04b2053a646081eb",
+      "localReferences": [
+        "models/item/legacy_zacspin_track.json"
+      ]
+    },
+    {
+      "path": "models/item/suspended_car.json",
+      "group": "Suspended",
+      "sha256": "7b5e49095f598d4fb82336c5d481e8d9e31f997338156b325a7963678b809f79",
+      "localReferences": []
+    },
+    {
+      "path": "models/item/suspended_latch.json",
+      "group": "Suspended",
+      "sha256": "9c601769dba91416531ecb40c598371a5a8b126302edae26fbaec423eb093ec9",
+      "localReferences": []
+    },
+    {
+      "path": "models/item/suspended_track.json",
+      "group": "Suspended",
+      "sha256": "e697b0cde625e8ad3d934da3d9e9a6efd473ed6075011e36cad23d38d2b3f27e",
+      "localReferences": []
+    },
+    {
+      "path": "models/item/wing_car.json",
+      "group": "Wing",
+      "sha256": "c8d7b28bd5a90eeeca5a09caaadf97bbbcbaed218e7904640b54b14b7b60754f",
+      "localReferences": []
+    },
+    {
+      "path": "models/item/yaw_marker.json",
+      "group": "Shared tools/equipment/geometry",
+      "sha256": "d8ebf3b3869b11f8c3e7fd3f2fb559386ee9f95c6239352435e9c4d9b665401e",
+      "localReferences": [
+        "models/block/yaw_marker.json"
+      ]
+    },
+    {
+      "path": "textures/block/new_generation_flying_harness.png",
+      "group": "New-generation Flying",
+      "sha256": "318c5062b165e10f9a0af519e73bf63213a2b474d4201bc01deb4326fc92bfe9"
+    },
+    {
+      "path": "textures/block/new_generation_flying_latch.png",
+      "group": "New-generation Flying",
+      "sha256": "04d413d9865c950e4e76d95151d75467733badde32f25d02483da2948176c23a"
+    },
+    {
+      "path": "textures/block/new_generation_flying_locked.png",
+      "group": "New-generation Flying",
+      "sha256": "cab47d7dd32072e06d5b63181ed9ed74a5ca751ba6a5e9c3ff9ae6b4c9f53576"
+    },
+    {
+      "path": "textures/block/new_generation_flying_metal.png",
+      "group": "New-generation Flying",
+      "sha256": "fc93ad614199b9dc50492d85b6682eb21bbe2b2e827e918a1f18ca6f7f625e88"
+    },
+    {
+      "path": "textures/block/new_generation_flying_seat.png",
+      "group": "New-generation Flying",
+      "sha256": "8bdc847d8316533b25cc527b0192c804bc81220955f0dac3e6c2f434439c5b5e"
+    },
+    {
+      "path": "textures/block/powered_inverted_yaw_harness.png",
+      "group": "Powered Inverted Yaw",
+      "sha256": "6edf041dd201ac72b35c1d850422de0bd84e6cd1a3fdc5f1d1a2fdc78b799dcb"
+    },
+    {
+      "path": "textures/block/powered_inverted_yaw_metal.png",
+      "group": "Powered Inverted Yaw",
+      "sha256": "e4ca236889e8d56bd724fb486ff1abaad71ddfdb128d4ae9f08bdbf7967fe644"
+    },
+    {
+      "path": "textures/block/powered_inverted_yaw_seat.png",
+      "group": "Powered Inverted Yaw",
+      "sha256": "75c6110f8f58ea66e7beded235a3d5a92d7a6c59e82f99c2fe7099f3f8d1f94e"
+    },
+    {
+      "path": "textures/block/powered_inverted_yaw_signal.png",
+      "group": "Powered Inverted Yaw",
+      "sha256": "c452b895a89e9102792b0568177bdc9a2155b44f1065243afbc464119a8b0d76"
+    },
+    {
+      "path": "textures/block/s2_spinning_harness.png",
+      "group": "S2 Spinning",
+      "sha256": "6edf041dd201ac72b35c1d850422de0bd84e6cd1a3fdc5f1d1a2fdc78b799dcb"
+    },
+    {
+      "path": "textures/block/s2_spinning_metal.png",
+      "group": "S2 Spinning",
+      "sha256": "e4ca236889e8d56bd724fb486ff1abaad71ddfdb128d4ae9f08bdbf7967fe644"
+    },
+    {
+      "path": "textures/block/s2_spinning_seat.png",
+      "group": "S2 Spinning",
+      "sha256": "80c2939caf4a78dfc2668c2cd9735f35b5c5cd1f23b51949a2ecf7fb35902cc9"
+    },
+    {
+      "path": "textures/block/s2_spinning_signal.png",
+      "group": "S2 Spinning",
+      "sha256": "c452b895a89e9102792b0568177bdc9a2155b44f1065243afbc464119a8b0d76"
+    }
+  ],
+  "flags": []
+}

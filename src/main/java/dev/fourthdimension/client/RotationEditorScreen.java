@@ -298,6 +298,8 @@ public final class RotationEditorScreen extends Screen {
                 })
             .bounds(left + 115, top + 134, 110, 20)
             .build());
+    if(target.vehicle())addRenderableWidget(Button.builder(Component.literal("Appearance"), b -> minecraft.setScreen(new SkinAppearanceScreen(target)))
+        .bounds(left + 230, top, 110, 14).build());
     addRenderableWidget(value);
     addRenderableWidget(
         Button.builder(Component.literal("Done"), b -> onClose())
@@ -518,6 +520,7 @@ public final class RotationEditorScreen extends Screen {
               EditorNetwork.resultClient = result -> {
                 var screen = net.minecraft.client.Minecraft.getInstance().screen;
                 if (screen instanceof RotationEditorScreen editor) editor.receiveResult(result);
+                else if(screen instanceof SkinAppearanceScreen editor)editor.receive(result);
                 else if(screen instanceof NewGenerationFlyingScreen editor)editor.receive(result);
                 else if(screen instanceof PoweredInvertedYawScreen editor)editor.receive(result);
               };

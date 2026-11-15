@@ -6,7 +6,22 @@ ROOT=Path(__file__).resolve().parents[1]/'src/main/resources'
 def write(path,value):
     p=ROOT/path;p.parent.mkdir(parents=True,exist_ok=True);p.write_text(json.dumps(value,indent=2)+'\n')
 def box(a,b,texture):
-    return {'from':a,'to':b,'faces':{face:{'texture':texture} for face in ('north','south','east','west','up','down')}}
+    x,y,z=a; X,Y,Z=b
+    implicit={'down':[x,16-Z,X,16-z],'up':[x,z,X,Z],
+              'north':[16-X,16-Y,16-x,16-y],'south':[x,16-Y,X,16-y],
+              'west':[z,16-Y,Z,16-y],'east':[16-Z,16-Y,16-z,16-y]}
+    faces={face:{'texture':texture} for face in ('north','south','east','west','up','down')}
+    for face,uv in implicit.items():
+        if any(v<0 or v>16 for v in uv):
+            # Keep extended geometry inside its intended sprite, avoiding atlas bleed.
+            # Preserve texel density on short edges; scale only edges longer than a tile.
+            fixed=[]
+            for lo,hi in ((uv[0],uv[2]),(uv[1],uv[3])):
+                shift=min(lo,hi); span=abs(hi-lo)
+                scale=min(1,16/span) if span else 1
+                fixed.append(((lo-shift)*scale,(hi-shift)*scale))
+            faces[face]['uv']=[fixed[0][0],fixed[1][0],fixed[0][1],fixed[1][1]]
+    return {'from':a,'to':b,'faces':faces}
 for family,color in [('arrow','red_concrete'),('legacy','yellow_concrete'),('free_spin','blue_concrete'),('revised','purple_concrete'),('pax','green_concrete')]:
     for closed in (False,True):
         parts=[box([1,2,2],[15,5,14],'#cushion'),box([1,4,12],[15,23,15],'#cushion'),
