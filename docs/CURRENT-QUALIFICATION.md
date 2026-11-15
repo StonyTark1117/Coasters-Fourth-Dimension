@@ -149,6 +149,12 @@ See [lead evidence and cleanup](evidence/fd917/lead/README.md). Mechanisms also 
 new `client/fd917/MechanismRenderMetrics.java` and `gametest/Fd917MechanismFixture.java`.
 It approved stable `ProductionMesh.java` for the lead's selective shared commit.
 
+**Final controller disposition transfer:** Art additionally owns
+`models/block/sns_free_spin_controller.json` and `models/block/zacspin_revised_controller.json`
+under the same `assets/fourthdimension/` root. Both are existing same-envelope
+controller models with no Mechanisms overlap; Art's exact manifest now has 124
+existing paths. This resolves remaining placeholder casings without behavior changes.
+
 **Finite remaining work at the current handoff:**
 
 - Lead/Art: final actual-parent stay and actual-child axle-crank fit at neutral
