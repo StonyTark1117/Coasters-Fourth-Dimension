@@ -1,0 +1,2302 @@
+[
+  {
+    "at": "20261115T115909.603502Z",
+    "action": "turn",
+    "values": [
+      "100",
+      "30"
+    ],
+    "expected": "Camera turns visibly from the empty western horizon and pitches down",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T115909.603502Z-before.png",
+    "modifier": null,
+    "state": "sending"
+  },
+  {
+    "at": "20261115T115909.603502Z",
+    "action": "turn",
+    "values": [
+      "100",
+      "30"
+    ],
+    "expected": "Camera turns visibly from the empty western horizon and pitches down",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T115909.603502Z-before.png",
+    "modifier": null,
+    "state": "sent; inspect readback",
+    "motion_steps": [
+      [
+        -1,
+        0
+      ],
+      [
+        101,
+        30
+      ]
+    ],
+    "fresh_capture_tolerance_pixels": 1,
+    "device": 4,
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T115909.603502Z-after.png"
+  },
+  {
+    "at": "20261115T115923.147108Z",
+    "action": "use",
+    "values": [],
+    "expected": "Reachable vanilla crafting table opens its crafting screen",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T115923.147108Z-before.png",
+    "modifier": null,
+    "mouse_button": 3,
+    "mouse_binding": "use/right",
+    "state": "sending"
+  },
+  {
+    "at": "20261115T115923.147108Z",
+    "action": "use",
+    "values": [],
+    "expected": "Reachable vanilla crafting table opens its crafting screen",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T115923.147108Z-before.png",
+    "modifier": null,
+    "mouse_button": 3,
+    "mouse_binding": "use/right",
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T115923.147108Z-after.png"
+  },
+  {
+    "at": "20261115T115941.288083Z",
+    "action": "key",
+    "values": [
+      "Escape"
+    ],
+    "expected": "Crafting closes back to the connected world",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T115941.288083Z-before.png",
+    "modifier": null,
+    "state": "sending"
+  },
+  {
+    "at": "20261115T115941.288083Z",
+    "action": "key",
+    "values": [
+      "Escape"
+    ],
+    "expected": "Crafting closes back to the connected world",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T115941.288083Z-before.png",
+    "modifier": null,
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T115941.288083Z-after.png"
+  },
+  {
+    "at": "20261115T120008.177109Z",
+    "action": "key",
+    "values": [
+      "2"
+    ],
+    "expected": "Empty hotbar slot selected for normal seat boarding",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T120008.177109Z-before.png",
+    "modifier": null,
+    "state": "sending"
+  },
+  {
+    "at": "20261115T120008.177109Z",
+    "action": "key",
+    "values": [
+      "2"
+    ],
+    "expected": "Empty hotbar slot selected for normal seat boarding",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T120008.177109Z-before.png",
+    "modifier": null,
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T120008.177109Z-after.png"
+  },
+  {
+    "at": "20261115T120021.099991Z",
+    "action": "use",
+    "values": [],
+    "expected": "Dev mounts the hit open Pipeline seat and receives a retained assignment",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T120021.099991Z-before.png",
+    "modifier": null,
+    "mouse_button": 3,
+    "mouse_binding": "use/right",
+    "state": "sending"
+  },
+  {
+    "at": "20261115T120021.099991Z",
+    "action": "use",
+    "values": [],
+    "expected": "Dev mounts the hit open Pipeline seat and receives a retained assignment",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T120021.099991Z-before.png",
+    "modifier": null,
+    "mouse_button": 3,
+    "mouse_binding": "use/right",
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T120021.099991Z-after.png"
+  },
+  {
+    "at": "20261115T120033.396046Z",
+    "action": "key",
+    "values": [
+      "1"
+    ],
+    "expected": "Rotation Tool selected while retained in Pipeline seat",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T120033.396046Z-before.png",
+    "modifier": null,
+    "state": "sending"
+  },
+  {
+    "at": "20261115T120033.396046Z",
+    "action": "key",
+    "values": [
+      "1"
+    ],
+    "expected": "Rotation Tool selected while retained in Pipeline seat",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T120033.396046Z-before.png",
+    "modifier": null,
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T120033.396046Z-after.png"
+  },
+  {
+    "at": "20261115T120034.145541Z",
+    "action": "use",
+    "values": [],
+    "expected": "Rotation Tool opens the seated Pipeline operator editor",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T120034.145541Z-before.png",
+    "modifier": null,
+    "mouse_button": 3,
+    "mouse_binding": "use/right",
+    "state": "sending"
+  },
+  {
+    "at": "20261115T120034.145541Z",
+    "action": "use",
+    "values": [],
+    "expected": "Rotation Tool opens the seated Pipeline operator editor",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T120034.145541Z-before.png",
+    "modifier": null,
+    "mouse_button": 3,
+    "mouse_binding": "use/right",
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T120034.145541Z-after.png"
+  },
+  {
+    "at": "20261115T120052.331075Z",
+    "action": "move",
+    "values": [
+      "420",
+      "191"
+    ],
+    "expected": "Pointer over Close restraints button",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T120052.331075Z-before.png",
+    "modifier": null,
+    "state": "sending"
+  },
+  {
+    "at": "20261115T120052.331075Z",
+    "action": "move",
+    "values": [
+      "420",
+      "191"
+    ],
+    "expected": "Pointer over Close restraints button",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T120052.331075Z-before.png",
+    "modifier": null,
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T120052.331075Z-after.png"
+  },
+  {
+    "at": "20261115T120052.834761Z",
+    "action": "click",
+    "values": [
+      "1"
+    ],
+    "expected": "Pipeline editor reports restraints secured across linked train",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T120052.834761Z-before.png",
+    "modifier": null,
+    "mouse_button": 1,
+    "mouse_binding": "attack/left",
+    "state": "sending"
+  },
+  {
+    "at": "20261115T120052.834761Z",
+    "action": "click",
+    "values": [
+      "1"
+    ],
+    "expected": "Pipeline editor reports restraints secured across linked train",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T120052.834761Z-before.png",
+    "modifier": null,
+    "mouse_button": 1,
+    "mouse_binding": "attack/left",
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T120052.834761Z-after.png"
+  },
+  {
+    "at": "20261115T120107.675065Z",
+    "action": "move",
+    "values": [
+      "195",
+      "244"
+    ],
+    "expected": "Pointer over Dispatch",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T120107.675065Z-before.png",
+    "modifier": null,
+    "state": "sending"
+  },
+  {
+    "at": "20261115T120107.675065Z",
+    "action": "move",
+    "values": [
+      "195",
+      "244"
+    ],
+    "expected": "Pointer over Dispatch",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T120107.675065Z-before.png",
+    "modifier": null,
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T120107.675065Z-after.png"
+  },
+  {
+    "at": "20261115T120108.175316Z",
+    "action": "click",
+    "values": [
+      "1"
+    ],
+    "expected": "Both Pipeline cars depart under native Chain with restraints closed",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T120108.175316Z-before.png",
+    "modifier": null,
+    "mouse_button": 1,
+    "mouse_binding": "attack/left",
+    "state": "sending"
+  },
+  {
+    "at": "20261115T120108.175316Z",
+    "action": "click",
+    "values": [
+      "1"
+    ],
+    "expected": "Both Pipeline cars depart under native Chain with restraints closed",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T120108.175316Z-before.png",
+    "modifier": null,
+    "mouse_button": 1,
+    "mouse_binding": "attack/left",
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T120108.175316Z-after.png"
+  },
+  {
+    "at": "20261115T120131.700975Z",
+    "action": "turn",
+    "values": [
+      "600",
+      "0"
+    ],
+    "expected": "Seated player turns from side view toward track direction with normal mouse input",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T120131.700975Z-before.png",
+    "modifier": null,
+    "state": "sending"
+  },
+  {
+    "at": "20261115T120131.700975Z",
+    "action": "turn",
+    "values": [
+      "600",
+      "0"
+    ],
+    "expected": "Seated player turns from side view toward track direction with normal mouse input",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T120131.700975Z-before.png",
+    "modifier": null,
+    "state": "sent; inspect readback",
+    "motion_steps": [
+      [
+        -1,
+        0
+      ],
+      [
+        601,
+        0
+      ]
+    ],
+    "fresh_capture_tolerance_pixels": 1,
+    "device": 4,
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T120131.700975Z-after.png"
+  },
+  {
+    "at": "20261115T120151.148574Z",
+    "action": "key",
+    "values": [
+      "F5"
+    ],
+    "expected": "Third-person occupied view shows fixed Pipeline rider and full-car bank",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T120151.148574Z-before.png",
+    "modifier": null,
+    "state": "sending"
+  },
+  {
+    "at": "20261115T120151.148574Z",
+    "action": "key",
+    "values": [
+      "F5"
+    ],
+    "expected": "Third-person occupied view shows fixed Pipeline rider and full-car bank",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T120151.148574Z-before.png",
+    "modifier": null,
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T120151.148574Z-after.png"
+  },
+  {
+    "at": "20261115T120210.514580Z",
+    "action": "key",
+    "values": [
+      "F5"
+    ],
+    "expected": "Front third-person view exposes seated rider fit and harness clearance",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T120210.514580Z-before.png",
+    "modifier": null,
+    "state": "sending"
+  },
+  {
+    "at": "20261115T120210.514580Z",
+    "action": "key",
+    "values": [
+      "F5"
+    ],
+    "expected": "Front third-person view exposes seated rider fit and harness clearance",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T120210.514580Z-before.png",
+    "modifier": null,
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T120210.514580Z-after.png"
+  },
+  {
+    "at": "20261115T120242.245079Z",
+    "action": "key",
+    "values": [
+      "F5"
+    ],
+    "expected": "Next native camera mode exposes the rider from front",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T120242.245079Z-before.png",
+    "modifier": null,
+    "state": "sending"
+  },
+  {
+    "at": "20261115T120242.245079Z",
+    "action": "key",
+    "values": [
+      "F5"
+    ],
+    "expected": "Next native camera mode exposes the rider from front",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T120242.245079Z-before.png",
+    "modifier": null,
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T120242.245079Z-after.png"
+  },
+  {
+    "at": "20261115T120255.733241Z",
+    "action": "key",
+    "values": [
+      "F5"
+    ],
+    "expected": "Cycle native camera to front rider view for clearance inspection",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T120255.733241Z-before.png",
+    "modifier": null,
+    "state": "sending"
+  },
+  {
+    "at": "20261115T120255.733241Z",
+    "action": "key",
+    "values": [
+      "F5"
+    ],
+    "expected": "Cycle native camera to front rider view for clearance inspection",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T120255.733241Z-before.png",
+    "modifier": null,
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T120255.733241Z-after.png"
+  },
+  {
+    "at": "20261115T120308.954873Z",
+    "action": "use",
+    "values": [],
+    "expected": "Open operator editor while approaching the original dock",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T120308.954873Z-before.png",
+    "modifier": null,
+    "mouse_button": 3,
+    "mouse_binding": "use/right",
+    "state": "sending"
+  },
+  {
+    "at": "20261115T120308.954873Z",
+    "action": "use",
+    "values": [],
+    "expected": "Open operator editor while approaching the original dock",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T120308.954873Z-before.png",
+    "modifier": null,
+    "mouse_button": 3,
+    "mouse_binding": "use/right",
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T120308.954873Z-after.png"
+  },
+  {
+    "at": "20261115T120316.766281Z",
+    "action": "move",
+    "values": [
+      "193",
+      "191"
+    ],
+    "expected": "Pointer over whole-train Stop",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T120316.766281Z-before.png",
+    "modifier": null,
+    "state": "sending"
+  },
+  {
+    "at": "20261115T120316.766281Z",
+    "action": "move",
+    "values": [
+      "193",
+      "191"
+    ],
+    "expected": "Pointer over whole-train Stop",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T120316.766281Z-before.png",
+    "modifier": null,
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T120316.766281Z-after.png"
+  },
+  {
+    "at": "20261115T120317.306257Z",
+    "action": "click",
+    "values": [
+      "1"
+    ],
+    "expected": "Stop brakes both Pipeline cars after full loop return",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T120317.306257Z-before.png",
+    "modifier": null,
+    "mouse_button": 1,
+    "mouse_binding": "attack/left",
+    "state": "sending"
+  },
+  {
+    "at": "20261115T120317.306257Z",
+    "action": "click",
+    "values": [
+      "1"
+    ],
+    "expected": "Stop brakes both Pipeline cars after full loop return",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T120317.306257Z-before.png",
+    "modifier": null,
+    "mouse_button": 1,
+    "mouse_binding": "attack/left",
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T120317.306257Z-after.png"
+  },
+  {
+    "at": "20261115T120639.847853Z",
+    "action": "use",
+    "values": [],
+    "expected": "Restored assigned rider opens corrected operator editor while held",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T120639.847853Z-before.png",
+    "modifier": null,
+    "mouse_button": 3,
+    "mouse_binding": "use/right",
+    "state": "sending"
+  },
+  {
+    "at": "20261115T120639.847853Z",
+    "action": "use",
+    "values": [],
+    "expected": "Restored assigned rider opens corrected operator editor while held",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T120639.847853Z-before.png",
+    "modifier": null,
+    "mouse_button": 3,
+    "mouse_binding": "use/right",
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T120639.847853Z-after.png"
+  },
+  {
+    "at": "20261115T120655.974205Z",
+    "action": "move",
+    "values": [
+      "195",
+      "294"
+    ],
+    "expected": "Pointer over Resume to dock",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T120655.974205Z-before.png",
+    "modifier": null,
+    "state": "sending"
+  },
+  {
+    "at": "20261115T120655.974205Z",
+    "action": "move",
+    "values": [
+      "195",
+      "294"
+    ],
+    "expected": "Pointer over Resume to dock",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T120655.974205Z-before.png",
+    "modifier": null,
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T120655.974205Z-after.png"
+  },
+  {
+    "at": "20261115T120656.489076Z",
+    "action": "click",
+    "values": [
+      "1"
+    ],
+    "expected": "Explicit Resume releases native stationary hold and restores Chain travel after validation",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T120656.489076Z-before.png",
+    "modifier": null,
+    "mouse_button": 1,
+    "mouse_binding": "attack/left",
+    "state": "sending"
+  },
+  {
+    "at": "20261115T120656.489076Z",
+    "action": "click",
+    "values": [
+      "1"
+    ],
+    "expected": "Explicit Resume releases native stationary hold and restores Chain travel after validation",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T120656.489076Z-before.png",
+    "modifier": null,
+    "mouse_button": 1,
+    "mouse_binding": "attack/left",
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T120656.489076Z-after.png"
+  },
+  {
+    "at": "20261115T120719.173639Z",
+    "action": "move",
+    "values": [
+      "195",
+      "191"
+    ],
+    "expected": "Pointer parked over Stop for the approaching dock",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T120719.173639Z-before.png",
+    "modifier": null,
+    "state": "sending"
+  },
+  {
+    "at": "20261115T120719.173639Z",
+    "action": "move",
+    "values": [
+      "195",
+      "191"
+    ],
+    "expected": "Pointer parked over Stop for the approaching dock",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T120719.173639Z-before.png",
+    "modifier": null,
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T120719.173639Z-after.png"
+  },
+  {
+    "at": "20261115T120842.228048Z",
+    "action": "click",
+    "values": [
+      "1"
+    ],
+    "expected": "Normal Stop at the level return dock brakes both linked cars for unload",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T120842.228048Z-before.png",
+    "modifier": null,
+    "mouse_button": 1,
+    "mouse_binding": "attack/left",
+    "state": "sending"
+  },
+  {
+    "at": "20261115T120842.228048Z",
+    "action": "click",
+    "values": [
+      "1"
+    ],
+    "expected": "Normal Stop at the level return dock brakes both linked cars for unload",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T120842.228048Z-before.png",
+    "modifier": null,
+    "mouse_button": 1,
+    "mouse_binding": "attack/left",
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T120842.228048Z-after.png"
+  },
+  {
+    "at": "20261115T120921.857853Z",
+    "action": "move",
+    "values": [
+      "650",
+      "191"
+    ],
+    "expected": "Pointer over Open restraints at verified ready dock",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T120921.857853Z-before.png",
+    "modifier": null,
+    "state": "sending"
+  },
+  {
+    "at": "20261115T120921.857853Z",
+    "action": "move",
+    "values": [
+      "650",
+      "191"
+    ],
+    "expected": "Pointer over Open restraints at verified ready dock",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T120921.857853Z-before.png",
+    "modifier": null,
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T120921.857853Z-after.png"
+  },
+  {
+    "at": "20261115T120922.382366Z",
+    "action": "click",
+    "values": [
+      "1"
+    ],
+    "expected": "Both Pipeline cars open restraints only after the complete train is stopped and dock-aligned",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T120922.382366Z-before.png",
+    "modifier": null,
+    "mouse_button": 1,
+    "mouse_binding": "attack/left",
+    "state": "sending"
+  },
+  {
+    "at": "20261115T120922.382366Z",
+    "action": "click",
+    "values": [
+      "1"
+    ],
+    "expected": "Both Pipeline cars open restraints only after the complete train is stopped and dock-aligned",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T120922.382366Z-before.png",
+    "modifier": null,
+    "mouse_button": 1,
+    "mouse_binding": "attack/left",
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T120922.382366Z-after.png"
+  },
+  {
+    "at": "20261115T120933.339282Z",
+    "action": "key",
+    "values": [
+      "Escape"
+    ],
+    "expected": "Editor closes with restraints open",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T120933.339282Z-before.png",
+    "modifier": null,
+    "state": "sending"
+  },
+  {
+    "at": "20261115T120933.339282Z",
+    "action": "key",
+    "values": [
+      "Escape"
+    ],
+    "expected": "Editor closes with restraints open",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T120933.339282Z-before.png",
+    "modifier": null,
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T120933.339282Z-after.png"
+  },
+  {
+    "at": "20261115T120934.081988Z",
+    "action": "key",
+    "values": [
+      "Shift_L"
+    ],
+    "expected": "Normal Shift unloads Dev at the bound dock and restores free player camera",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T120934.081988Z-before.png",
+    "modifier": null,
+    "state": "sending"
+  },
+  {
+    "at": "20261115T120934.081988Z",
+    "action": "key",
+    "values": [
+      "Shift_L"
+    ],
+    "expected": "Normal Shift unloads Dev at the bound dock and restores free player camera",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T120934.081988Z-before.png",
+    "modifier": null,
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T120934.081988Z-after.png"
+  },
+  {
+    "at": "20261115T120957.006677Z",
+    "action": "key",
+    "values": [
+      "2"
+    ],
+    "expected": "Select Create Wrench to operate motor speed control",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T120957.006677Z-before.png",
+    "modifier": null,
+    "state": "sending"
+  },
+  {
+    "at": "20261115T120957.006677Z",
+    "action": "key",
+    "values": [
+      "2"
+    ],
+    "expected": "Select Create Wrench to operate motor speed control",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T120957.006677Z-before.png",
+    "modifier": null,
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T120957.006677Z-after.png"
+  },
+  {
+    "at": "20261115T121004.588829Z",
+    "action": "hold-use",
+    "values": [],
+    "expected": "Inspect native motor value board; cancel without changing its -64 setting",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T121004.588829Z-before.png",
+    "modifier": null,
+    "mouse_button": 3,
+    "mouse_binding": "use/right",
+    "state": "sending"
+  },
+  {
+    "at": "20261115T121004.588829Z",
+    "action": "hold-use",
+    "values": [],
+    "expected": "Inspect native motor value board; cancel without changing its -64 setting",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T121004.588829Z-before.png",
+    "modifier": null,
+    "mouse_button": 3,
+    "mouse_binding": "use/right",
+    "state": "sent; inspect readback",
+    "during": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T121004.588829Z-held.png",
+    "hold_result": "inspection only; canceled before release",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T121004.588829Z-after.png"
+  },
+  {
+    "at": "20261115T121103.229948Z",
+    "action": "key",
+    "values": [
+      "3"
+    ],
+    "expected": "Select empty hand for speed control; no wrench rotation on a missed value box",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T121103.229948Z-before.png",
+    "modifier": null,
+    "state": "sending"
+  },
+  {
+    "at": "20261115T121103.229948Z",
+    "action": "key",
+    "values": [
+      "3"
+    ],
+    "expected": "Select empty hand for speed control; no wrench rotation on a missed value box",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T121103.229948Z-before.png",
+    "modifier": null,
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T121103.229948Z-after.png"
+  },
+  {
+    "at": "20261115T121113.126629Z",
+    "action": "hold-use",
+    "values": [],
+    "expected": "Open motor speed board at its actual recessed top value box; inspection cancels",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T121113.126629Z-before.png",
+    "modifier": null,
+    "mouse_button": 3,
+    "mouse_binding": "use/right",
+    "state": "sending"
+  },
+  {
+    "at": "20261115T121113.126629Z",
+    "action": "hold-use",
+    "values": [],
+    "expected": "Open motor speed board at its actual recessed top value box; inspection cancels",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T121113.126629Z-before.png",
+    "modifier": null,
+    "mouse_button": 3,
+    "mouse_binding": "use/right",
+    "state": "sent; inspect readback",
+    "during": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T121113.126629Z-held.png",
+    "hold_result": "inspection only; canceled before release",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T121113.126629Z-after.png"
+  },
+  {
+    "at": "20261115T121123.830413Z",
+    "action": "key",
+    "values": [
+      "3"
+    ],
+    "expected": "Select visibly empty third slot now that game menu is closed",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T121123.830413Z-before.png",
+    "modifier": null,
+    "state": "sending"
+  },
+  {
+    "at": "20261115T121123.830413Z",
+    "action": "key",
+    "values": [
+      "3"
+    ],
+    "expected": "Select visibly empty third slot now that game menu is closed",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T121123.830413Z-before.png",
+    "modifier": null,
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T121123.830413Z-after.png"
+  },
+  {
+    "at": "20261115T121132.484981Z",
+    "action": "hold-use",
+    "values": [],
+    "expected": "Inspect speed board with empty hand at visible -64 control, then cancel",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T121132.484981Z-before.png",
+    "modifier": null,
+    "mouse_button": 3,
+    "mouse_binding": "use/right",
+    "state": "sending"
+  },
+  {
+    "at": "20261115T121132.484981Z",
+    "action": "hold-use",
+    "values": [],
+    "expected": "Inspect speed board with empty hand at visible -64 control, then cancel",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T121132.484981Z-before.png",
+    "modifier": null,
+    "mouse_button": 3,
+    "mouse_binding": "use/right",
+    "state": "sent; inspect readback",
+    "during": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T121132.484981Z-held.png",
+    "hold_result": "inspection only; canceled before release",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T121132.484981Z-after.png"
+  },
+  {
+    "at": "20261115T121224.366219Z",
+    "action": "hold-use",
+    "values": [
+      "303",
+      "250"
+    ],
+    "expected": "Select +64 on native speed board to reverse the stopped dock Chain source",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T121224.366219Z-before.png",
+    "modifier": null,
+    "mouse_button": 3,
+    "mouse_binding": "use/right",
+    "state": "sending"
+  },
+  {
+    "at": "20261115T121224.366219Z",
+    "action": "hold-use",
+    "values": [
+      "303",
+      "250"
+    ],
+    "expected": "Select +64 on native speed board to reverse the stopped dock Chain source",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T121224.366219Z-before.png",
+    "modifier": null,
+    "mouse_button": 3,
+    "mouse_binding": "use/right",
+    "state": "sent; inspect readback",
+    "during": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T121224.366219Z-held.png",
+    "selection": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T121224.366219Z-selection.png",
+    "hold_result": "selection submitted on release; verify server state",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T121224.366219Z-after.png"
+  },
+  {
+    "at": "20261115T121316.969825Z",
+    "action": "hold-use",
+    "values": [
+      "303",
+      "250"
+    ],
+    "expected": "Native motor 1 changes direction from -64 to 64; verify exact ScrollValue and connected Chain",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T121316.969825Z-before.png",
+    "modifier": null,
+    "mouse_button": 3,
+    "mouse_binding": "use/right",
+    "state": "sending"
+  },
+  {
+    "at": "20261115T121316.969825Z",
+    "action": "hold-use",
+    "values": [
+      "303",
+      "250"
+    ],
+    "expected": "Native motor 1 changes direction from -64 to 64; verify exact ScrollValue and connected Chain",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T121316.969825Z-before.png",
+    "modifier": null,
+    "mouse_button": 3,
+    "mouse_binding": "use/right",
+    "state": "sent; inspect readback",
+    "during": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T121316.969825Z-held.png",
+    "selection": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T121316.969825Z-selection.png",
+    "hold_result": "selection submitted on release; verify server state",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T121316.969825Z-after.png"
+  },
+  {
+    "at": "20261115T121326.362342Z",
+    "action": "hold-use",
+    "values": [
+      "447",
+      "250"
+    ],
+    "expected": "Native motor 2 changes direction from -128 to 128; verify exact ScrollValue and connected Chain",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T121326.362342Z-before.png",
+    "modifier": null,
+    "mouse_button": 3,
+    "mouse_binding": "use/right",
+    "state": "sending"
+  },
+  {
+    "at": "20261115T121326.362342Z",
+    "action": "hold-use",
+    "values": [
+      "447",
+      "250"
+    ],
+    "expected": "Native motor 2 changes direction from -128 to 128; verify exact ScrollValue and connected Chain",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T121326.362342Z-before.png",
+    "modifier": null,
+    "mouse_button": 3,
+    "mouse_binding": "use/right",
+    "state": "sent; inspect readback",
+    "during": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T121326.362342Z-held.png",
+    "selection": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T121326.362342Z-selection.png",
+    "hold_result": "selection submitted on release; verify server state",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T121326.362342Z-after.png"
+  },
+  {
+    "at": "20261115T121337.178988Z",
+    "action": "hold-use",
+    "values": [
+      "447",
+      "250"
+    ],
+    "expected": "Native motor 6 changes direction from -128 to 128; verify exact ScrollValue and connected Chain",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T121337.178988Z-before.png",
+    "modifier": null,
+    "mouse_button": 3,
+    "mouse_binding": "use/right",
+    "state": "sending"
+  },
+  {
+    "at": "20261115T121337.178988Z",
+    "action": "hold-use",
+    "values": [
+      "447",
+      "250"
+    ],
+    "expected": "Native motor 6 changes direction from -128 to 128; verify exact ScrollValue and connected Chain",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T121337.178988Z-before.png",
+    "modifier": null,
+    "mouse_button": 3,
+    "mouse_binding": "use/right",
+    "state": "sent; inspect readback",
+    "during": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T121337.178988Z-held.png",
+    "selection": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T121337.178988Z-selection.png",
+    "hold_result": "selection submitted on release; verify server state",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T121337.178988Z-after.png"
+  },
+  {
+    "at": "20261115T121340.194288Z",
+    "action": "hold-use",
+    "values": [
+      "447",
+      "250"
+    ],
+    "expected": "Native motor 7 changes direction from -128 to 128; verify exact ScrollValue and connected Chain",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T121340.194288Z-before.png",
+    "modifier": null,
+    "mouse_button": 3,
+    "mouse_binding": "use/right",
+    "state": "sending"
+  },
+  {
+    "at": "20261115T121340.194288Z",
+    "action": "hold-use",
+    "values": [
+      "447",
+      "250"
+    ],
+    "expected": "Native motor 7 changes direction from -128 to 128; verify exact ScrollValue and connected Chain",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T121340.194288Z-before.png",
+    "modifier": null,
+    "mouse_button": 3,
+    "mouse_binding": "use/right",
+    "state": "sent; inspect readback",
+    "during": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T121340.194288Z-held.png",
+    "selection": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T121340.194288Z-selection.png",
+    "hold_result": "selection submitted on release; verify server state",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T121340.194288Z-after.png"
+  },
+  {
+    "at": "20261115T121343.194488Z",
+    "action": "hold-use",
+    "values": [
+      "447",
+      "250"
+    ],
+    "expected": "Native motor 8 changes direction from -128 to 128; verify exact ScrollValue and connected Chain",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T121343.194488Z-before.png",
+    "modifier": null,
+    "mouse_button": 3,
+    "mouse_binding": "use/right",
+    "state": "sending"
+  },
+  {
+    "at": "20261115T121343.194488Z",
+    "action": "hold-use",
+    "values": [
+      "447",
+      "250"
+    ],
+    "expected": "Native motor 8 changes direction from -128 to 128; verify exact ScrollValue and connected Chain",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T121343.194488Z-before.png",
+    "modifier": null,
+    "mouse_button": 3,
+    "mouse_binding": "use/right",
+    "state": "sent; inspect readback",
+    "during": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T121343.194488Z-held.png",
+    "selection": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T121343.194488Z-selection.png",
+    "hold_result": "selection submitted on release; verify server state",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T121343.194488Z-after.png"
+  },
+  {
+    "at": "20261115T121346.199757Z",
+    "action": "hold-use",
+    "values": [
+      "447",
+      "250"
+    ],
+    "expected": "Native motor 9 changes direction from -128 to 128; verify exact ScrollValue and connected Chain",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T121346.199757Z-before.png",
+    "modifier": null,
+    "mouse_button": 3,
+    "mouse_binding": "use/right",
+    "state": "sending"
+  },
+  {
+    "at": "20261115T121346.199757Z",
+    "action": "hold-use",
+    "values": [
+      "447",
+      "250"
+    ],
+    "expected": "Native motor 9 changes direction from -128 to 128; verify exact ScrollValue and connected Chain",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T121346.199757Z-before.png",
+    "modifier": null,
+    "mouse_button": 3,
+    "mouse_binding": "use/right",
+    "state": "sent; inspect readback",
+    "during": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T121346.199757Z-held.png",
+    "selection": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T121346.199757Z-selection.png",
+    "hold_result": "selection submitted on release; verify server state",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T121346.199757Z-after.png"
+  },
+  {
+    "at": "20261115T121349.204565Z",
+    "action": "hold-use",
+    "values": [
+      "447",
+      "228"
+    ],
+    "expected": "Native motor 10 changes direction from 128 to -128; verify exact ScrollValue and connected Chain",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T121349.204565Z-before.png",
+    "modifier": null,
+    "mouse_button": 3,
+    "mouse_binding": "use/right",
+    "state": "sending"
+  },
+  {
+    "at": "20261115T121349.204565Z",
+    "action": "hold-use",
+    "values": [
+      "447",
+      "228"
+    ],
+    "expected": "Native motor 10 changes direction from 128 to -128; verify exact ScrollValue and connected Chain",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T121349.204565Z-before.png",
+    "modifier": null,
+    "mouse_button": 3,
+    "mouse_binding": "use/right",
+    "state": "sent; inspect readback",
+    "during": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T121349.204565Z-held.png",
+    "selection": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T121349.204565Z-selection.png",
+    "hold_result": "selection submitted on release; verify server state",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T121349.204565Z-after.png"
+  },
+  {
+    "at": "20261115T121352.211326Z",
+    "action": "hold-use",
+    "values": [
+      "447",
+      "228"
+    ],
+    "expected": "Native motor 11 changes direction from 128 to -128; verify exact ScrollValue and connected Chain",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T121352.211326Z-before.png",
+    "modifier": null,
+    "mouse_button": 3,
+    "mouse_binding": "use/right",
+    "state": "sending"
+  },
+  {
+    "at": "20261115T121352.211326Z",
+    "action": "hold-use",
+    "values": [
+      "447",
+      "228"
+    ],
+    "expected": "Native motor 11 changes direction from 128 to -128; verify exact ScrollValue and connected Chain",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T121352.211326Z-before.png",
+    "modifier": null,
+    "mouse_button": 3,
+    "mouse_binding": "use/right",
+    "state": "sent; inspect readback",
+    "during": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T121352.211326Z-held.png",
+    "selection": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T121352.211326Z-selection.png",
+    "hold_result": "selection submitted on release; verify server state",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T121352.211326Z-after.png"
+  },
+  {
+    "at": "20261115T121355.216408Z",
+    "action": "hold-use",
+    "values": [
+      "447",
+      "228"
+    ],
+    "expected": "Native motor 12 changes direction from 128 to -128; verify exact ScrollValue and connected Chain",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T121355.216408Z-before.png",
+    "modifier": null,
+    "mouse_button": 3,
+    "mouse_binding": "use/right",
+    "state": "sending"
+  },
+  {
+    "at": "20261115T121355.216408Z",
+    "action": "hold-use",
+    "values": [
+      "447",
+      "228"
+    ],
+    "expected": "Native motor 12 changes direction from 128 to -128; verify exact ScrollValue and connected Chain",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T121355.216408Z-before.png",
+    "modifier": null,
+    "mouse_button": 3,
+    "mouse_binding": "use/right",
+    "state": "sent; inspect readback",
+    "during": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T121355.216408Z-held.png",
+    "selection": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T121355.216408Z-selection.png",
+    "hold_result": "selection submitted on release; verify server state",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T121355.216408Z-after.png"
+  },
+  {
+    "at": "20261115T121358.229301Z",
+    "action": "hold-use",
+    "values": [
+      "447",
+      "228"
+    ],
+    "expected": "Native motor 13 changes direction from 128 to -128; verify exact ScrollValue and connected Chain",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T121358.229301Z-before.png",
+    "modifier": null,
+    "mouse_button": 3,
+    "mouse_binding": "use/right",
+    "state": "sending"
+  },
+  {
+    "at": "20261115T121358.229301Z",
+    "action": "hold-use",
+    "values": [
+      "447",
+      "228"
+    ],
+    "expected": "Native motor 13 changes direction from 128 to -128; verify exact ScrollValue and connected Chain",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T121358.229301Z-before.png",
+    "modifier": null,
+    "mouse_button": 3,
+    "mouse_binding": "use/right",
+    "state": "sent; inspect readback",
+    "during": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T121358.229301Z-held.png",
+    "selection": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T121358.229301Z-selection.png",
+    "hold_result": "selection submitted on release; verify server state",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T121358.229301Z-after.png"
+  },
+  {
+    "at": "20261115T121401.254570Z",
+    "action": "hold-use",
+    "values": [
+      "447",
+      "228"
+    ],
+    "expected": "Native motor 14 changes direction from 128 to -128; verify exact ScrollValue and connected Chain",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T121401.254570Z-before.png",
+    "modifier": null,
+    "mouse_button": 3,
+    "mouse_binding": "use/right",
+    "state": "sending"
+  },
+  {
+    "at": "20261115T121401.254570Z",
+    "action": "hold-use",
+    "values": [
+      "447",
+      "228"
+    ],
+    "expected": "Native motor 14 changes direction from 128 to -128; verify exact ScrollValue and connected Chain",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T121401.254570Z-before.png",
+    "modifier": null,
+    "mouse_button": 3,
+    "mouse_binding": "use/right",
+    "state": "sent; inspect readback",
+    "during": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T121401.254570Z-held.png",
+    "selection": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T121401.254570Z-selection.png",
+    "hold_result": "selection submitted on release; verify server state",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T121401.254570Z-after.png"
+  },
+  {
+    "at": "20261115T121404.277072Z",
+    "action": "hold-use",
+    "values": [
+      "447",
+      "228"
+    ],
+    "expected": "Native motor 15 changes direction from 128 to -128; verify exact ScrollValue and connected Chain",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T121404.277072Z-before.png",
+    "modifier": null,
+    "mouse_button": 3,
+    "mouse_binding": "use/right",
+    "state": "sending"
+  },
+  {
+    "at": "20261115T121404.277072Z",
+    "action": "hold-use",
+    "values": [
+      "447",
+      "228"
+    ],
+    "expected": "Native motor 15 changes direction from 128 to -128; verify exact ScrollValue and connected Chain",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T121404.277072Z-before.png",
+    "modifier": null,
+    "mouse_button": 3,
+    "mouse_binding": "use/right",
+    "state": "sent; inspect readback",
+    "during": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T121404.277072Z-held.png",
+    "selection": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T121404.277072Z-selection.png",
+    "hold_result": "selection submitted on release; verify server state",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T121404.277072Z-after.png"
+  },
+  {
+    "at": "20261115T121407.328159Z",
+    "action": "hold-use",
+    "values": [
+      "447",
+      "250"
+    ],
+    "expected": "Native motor 16 changes direction from -128 to 128; verify exact ScrollValue and connected Chain",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T121407.328159Z-before.png",
+    "modifier": null,
+    "mouse_button": 3,
+    "mouse_binding": "use/right",
+    "state": "sending"
+  },
+  {
+    "at": "20261115T121407.328159Z",
+    "action": "hold-use",
+    "values": [
+      "447",
+      "250"
+    ],
+    "expected": "Native motor 16 changes direction from -128 to 128; verify exact ScrollValue and connected Chain",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T121407.328159Z-before.png",
+    "modifier": null,
+    "mouse_button": 3,
+    "mouse_binding": "use/right",
+    "state": "sent; inspect readback",
+    "during": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T121407.328159Z-held.png",
+    "selection": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T121407.328159Z-selection.png",
+    "hold_result": "selection submitted on release; verify server state",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T121407.328159Z-after.png"
+  },
+  {
+    "at": "20261115T121410.347366Z",
+    "action": "hold-use",
+    "values": [
+      "447",
+      "250"
+    ],
+    "expected": "Native motor 17 changes direction from -128 to 128; verify exact ScrollValue and connected Chain",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T121410.347366Z-before.png",
+    "modifier": null,
+    "mouse_button": 3,
+    "mouse_binding": "use/right",
+    "state": "sending"
+  },
+  {
+    "at": "20261115T121410.347366Z",
+    "action": "hold-use",
+    "values": [
+      "447",
+      "250"
+    ],
+    "expected": "Native motor 17 changes direction from -128 to 128; verify exact ScrollValue and connected Chain",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T121410.347366Z-before.png",
+    "modifier": null,
+    "mouse_button": 3,
+    "mouse_binding": "use/right",
+    "state": "sent; inspect readback",
+    "during": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T121410.347366Z-held.png",
+    "selection": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T121410.347366Z-selection.png",
+    "hold_result": "selection submitted on release; verify server state",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T121410.347366Z-after.png"
+  },
+  {
+    "at": "20261115T121447.260543Z",
+    "action": "use",
+    "values": [],
+    "expected": "Board the same open Pipeline seat normally for reverse travel",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T121447.260543Z-before.png",
+    "modifier": null,
+    "mouse_button": 3,
+    "mouse_binding": "use/right",
+    "state": "sending"
+  },
+  {
+    "at": "20261115T121447.260543Z",
+    "action": "use",
+    "values": [],
+    "expected": "Board the same open Pipeline seat normally for reverse travel",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T121447.260543Z-before.png",
+    "modifier": null,
+    "mouse_button": 3,
+    "mouse_binding": "use/right",
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T121447.260543Z-after.png"
+  },
+  {
+    "at": "20261115T121456.690859Z",
+    "action": "key",
+    "values": [
+      "1"
+    ],
+    "expected": "Select Rotation Tool to inspect closed docked car after source setup repair",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T121456.690859Z-before.png",
+    "modifier": null,
+    "state": "sending"
+  },
+  {
+    "at": "20261115T121456.690859Z",
+    "action": "key",
+    "values": [
+      "1"
+    ],
+    "expected": "Select Rotation Tool to inspect closed docked car after source setup repair",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T121456.690859Z-before.png",
+    "modifier": null,
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T121456.690859Z-after.png"
+  },
+  {
+    "at": "20261115T121501.917215Z",
+    "action": "use",
+    "values": [],
+    "expected": "Inspect fault after interrupted source network, before retrying boarding",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T121501.917215Z-before.png",
+    "modifier": null,
+    "mouse_button": 3,
+    "mouse_binding": "use/right",
+    "state": "sending"
+  },
+  {
+    "at": "20261115T121501.917215Z",
+    "action": "use",
+    "values": [],
+    "expected": "Inspect fault after interrupted source network, before retrying boarding",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T121501.917215Z-before.png",
+    "modifier": null,
+    "mouse_button": 3,
+    "mouse_binding": "use/right",
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T121501.917215Z-after.png"
+  },
+  {
+    "at": "20261115T121509.015731Z",
+    "action": "move",
+    "values": [
+      "195",
+      "191"
+    ],
+    "expected": "Pointer over Stop acknowledgment",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T121509.015731Z-before.png",
+    "modifier": null,
+    "state": "sending"
+  },
+  {
+    "at": "20261115T121509.015731Z",
+    "action": "move",
+    "values": [
+      "195",
+      "191"
+    ],
+    "expected": "Pointer over Stop acknowledgment",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T121509.015731Z-before.png",
+    "modifier": null,
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T121509.015731Z-after.png"
+  },
+  {
+    "at": "20261115T121509.549395Z",
+    "action": "click",
+    "values": [
+      "1"
+    ],
+    "expected": "Explicit Stop acknowledges restored source power while keeping both cars held",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T121509.549395Z-before.png",
+    "modifier": null,
+    "mouse_button": 1,
+    "mouse_binding": "attack/left",
+    "state": "sending"
+  },
+  {
+    "at": "20261115T121509.549395Z",
+    "action": "click",
+    "values": [
+      "1"
+    ],
+    "expected": "Explicit Stop acknowledges restored source power while keeping both cars held",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T121509.549395Z-before.png",
+    "modifier": null,
+    "mouse_button": 1,
+    "mouse_binding": "attack/left",
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T121509.549395Z-after.png"
+  },
+  {
+    "at": "20261115T121517.400024Z",
+    "action": "move",
+    "values": [
+      "650",
+      "191"
+    ],
+    "expected": "Pointer over Open after acknowledged source repair",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T121517.400024Z-before.png",
+    "modifier": null,
+    "state": "sending"
+  },
+  {
+    "at": "20261115T121517.400024Z",
+    "action": "move",
+    "values": [
+      "650",
+      "191"
+    ],
+    "expected": "Pointer over Open after acknowledged source repair",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T121517.400024Z-before.png",
+    "modifier": null,
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T121517.400024Z-after.png"
+  },
+  {
+    "at": "20261115T121517.924801Z",
+    "action": "click",
+    "values": [
+      "1"
+    ],
+    "expected": "Verified dock opens restraints for reboarding after source direction changes",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T121517.924801Z-before.png",
+    "modifier": null,
+    "mouse_button": 1,
+    "mouse_binding": "attack/left",
+    "state": "sending"
+  },
+  {
+    "at": "20261115T121517.924801Z",
+    "action": "click",
+    "values": [
+      "1"
+    ],
+    "expected": "Verified dock opens restraints for reboarding after source direction changes",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T121517.924801Z-before.png",
+    "modifier": null,
+    "mouse_button": 1,
+    "mouse_binding": "attack/left",
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T121517.924801Z-after.png"
+  },
+  {
+    "at": "20261115T121525.965473Z",
+    "action": "key",
+    "values": [
+      "Escape"
+    ],
+    "expected": "Close editor after verified Open",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T121525.965473Z-before.png",
+    "modifier": null,
+    "state": "sending"
+  },
+  {
+    "at": "20261115T121525.965473Z",
+    "action": "key",
+    "values": [
+      "Escape"
+    ],
+    "expected": "Close editor after verified Open",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T121525.965473Z-before.png",
+    "modifier": null,
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T121525.965473Z-after.png"
+  },
+  {
+    "at": "20261115T121526.706383Z",
+    "action": "key",
+    "values": [
+      "3"
+    ],
+    "expected": "Select empty hand at the same seat",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T121526.706383Z-before.png",
+    "modifier": null,
+    "state": "sending"
+  },
+  {
+    "at": "20261115T121526.706383Z",
+    "action": "key",
+    "values": [
+      "3"
+    ],
+    "expected": "Select empty hand at the same seat",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T121526.706383Z-before.png",
+    "modifier": null,
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T121526.706383Z-after.png"
+  },
+  {
+    "at": "20261115T121535.757338Z",
+    "action": "use",
+    "values": [],
+    "expected": "Mount verified open Pipeline seat after repaired-source acknowledgment",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T121535.757338Z-before.png",
+    "modifier": null,
+    "mouse_button": 3,
+    "mouse_binding": "use/right",
+    "state": "sending"
+  },
+  {
+    "at": "20261115T121535.757338Z",
+    "action": "use",
+    "values": [],
+    "expected": "Mount verified open Pipeline seat after repaired-source acknowledgment",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T121535.757338Z-before.png",
+    "modifier": null,
+    "mouse_button": 3,
+    "mouse_binding": "use/right",
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T121535.757338Z-after.png"
+  },
+  {
+    "at": "20261115T121545.618178Z",
+    "action": "key",
+    "values": [
+      "1"
+    ],
+    "expected": "Select Rotation Tool while seated",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T121545.618178Z-before.png",
+    "modifier": null,
+    "state": "sending"
+  },
+  {
+    "at": "20261115T121545.618178Z",
+    "action": "key",
+    "values": [
+      "1"
+    ],
+    "expected": "Select Rotation Tool while seated",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T121545.618178Z-before.png",
+    "modifier": null,
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T121545.618178Z-after.png"
+  },
+  {
+    "at": "20261115T121546.370092Z",
+    "action": "use",
+    "values": [],
+    "expected": "Open Pipeline editor for closed restraints and explicit reverse direction validation",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T121546.370092Z-before.png",
+    "modifier": null,
+    "mouse_button": 3,
+    "mouse_binding": "use/right",
+    "state": "sending"
+  },
+  {
+    "at": "20261115T121546.370092Z",
+    "action": "use",
+    "values": [],
+    "expected": "Open Pipeline editor for closed restraints and explicit reverse direction validation",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T121546.370092Z-before.png",
+    "modifier": null,
+    "mouse_button": 3,
+    "mouse_binding": "use/right",
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T121546.370092Z-after.png"
+  },
+  {
+    "at": "20261115T121554.562175Z",
+    "action": "move",
+    "values": [
+      "425",
+      "191"
+    ],
+    "expected": "Pointer over Close restraints",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T121554.562175Z-before.png",
+    "modifier": null,
+    "state": "sending"
+  },
+  {
+    "at": "20261115T121554.562175Z",
+    "action": "move",
+    "values": [
+      "425",
+      "191"
+    ],
+    "expected": "Pointer over Close restraints",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T121554.562175Z-before.png",
+    "modifier": null,
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T121554.562175Z-after.png"
+  },
+  {
+    "at": "20261115T121555.072166Z",
+    "action": "click",
+    "values": [
+      "1"
+    ],
+    "expected": "Secure both cars before validating reverse direction",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T121555.072166Z-before.png",
+    "modifier": null,
+    "mouse_button": 1,
+    "mouse_binding": "attack/left",
+    "state": "sending"
+  },
+  {
+    "at": "20261115T121555.072166Z",
+    "action": "click",
+    "values": [
+      "1"
+    ],
+    "expected": "Secure both cars before validating reverse direction",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T121555.072166Z-before.png",
+    "modifier": null,
+    "mouse_button": 1,
+    "mouse_binding": "attack/left",
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T121555.072166Z-after.png"
+  },
+  {
+    "at": "20261115T121606.293541Z",
+    "action": "move",
+    "values": [
+      "195",
+      "294"
+    ],
+    "expected": "Pointer over explicit Resume for new source direction",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T121606.293541Z-before.png",
+    "modifier": null,
+    "state": "sending"
+  },
+  {
+    "at": "20261115T121606.293541Z",
+    "action": "move",
+    "values": [
+      "195",
+      "294"
+    ],
+    "expected": "Pointer over explicit Resume for new source direction",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T121606.293541Z-before.png",
+    "modifier": null,
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T121606.293541Z-after.png"
+  },
+  {
+    "at": "20261115T121606.796908Z",
+    "action": "click",
+    "values": [
+      "1"
+    ],
+    "expected": "Validate reversed sources and resume actual native travel backward on the same fixed route",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T121606.796908Z-before.png",
+    "modifier": null,
+    "mouse_button": 1,
+    "mouse_binding": "attack/left",
+    "state": "sending"
+  },
+  {
+    "at": "20261115T121606.796908Z",
+    "action": "click",
+    "values": [
+      "1"
+    ],
+    "expected": "Validate reversed sources and resume actual native travel backward on the same fixed route",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T121606.796908Z-before.png",
+    "modifier": null,
+    "mouse_button": 1,
+    "mouse_binding": "attack/left",
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T121606.796908Z-after.png"
+  },
+  {
+    "at": "20261115T121623.801987Z",
+    "action": "move",
+    "values": [
+      "195",
+      "191"
+    ],
+    "expected": "Pointer over Stop for reverse dock return",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T121623.801987Z-before.png",
+    "modifier": null,
+    "state": "sending"
+  },
+  {
+    "at": "20261115T121623.801987Z",
+    "action": "move",
+    "values": [
+      "195",
+      "191"
+    ],
+    "expected": "Pointer over Stop for reverse dock return",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T121623.801987Z-before.png",
+    "modifier": null,
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T121623.801987Z-after.png"
+  },
+  {
+    "at": "20261115T121800.045389Z",
+    "action": "click",
+    "values": [
+      "1"
+    ],
+    "expected": "Normal Stop on reverse dock return brakes both linked cars for unload",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T121800.045389Z-before.png",
+    "modifier": null,
+    "mouse_button": 1,
+    "mouse_binding": "attack/left",
+    "state": "sending"
+  },
+  {
+    "at": "20261115T121800.045389Z",
+    "action": "click",
+    "values": [
+      "1"
+    ],
+    "expected": "Normal Stop on reverse dock return brakes both linked cars for unload",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T121800.045389Z-before.png",
+    "modifier": null,
+    "mouse_button": 1,
+    "mouse_binding": "attack/left",
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T121800.045389Z-after.png"
+  },
+  {
+    "at": "20261115T121823.030814Z",
+    "action": "move",
+    "values": [
+      "650",
+      "191"
+    ],
+    "expected": "Pointer over Open at the verified reverse-return dock",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T121823.030814Z-before.png",
+    "modifier": null,
+    "state": "sending"
+  },
+  {
+    "at": "20261115T121823.030814Z",
+    "action": "move",
+    "values": [
+      "650",
+      "191"
+    ],
+    "expected": "Pointer over Open at the verified reverse-return dock",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T121823.030814Z-before.png",
+    "modifier": null,
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T121823.030814Z-after.png"
+  },
+  {
+    "at": "20261115T121823.533238Z",
+    "action": "click",
+    "values": [
+      "1"
+    ],
+    "expected": "Open restraints after both cars stop at the same dock following reverse roll travel",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T121823.533238Z-before.png",
+    "modifier": null,
+    "mouse_button": 1,
+    "mouse_binding": "attack/left",
+    "state": "sending"
+  },
+  {
+    "at": "20261115T121823.533238Z",
+    "action": "click",
+    "values": [
+      "1"
+    ],
+    "expected": "Open restraints after both cars stop at the same dock following reverse roll travel",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T121823.533238Z-before.png",
+    "modifier": null,
+    "mouse_button": 1,
+    "mouse_binding": "attack/left",
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T121823.533238Z-after.png"
+  },
+  {
+    "at": "20261115T121839.819946Z",
+    "action": "key",
+    "values": [
+      "Escape"
+    ],
+    "expected": "Close editor after reverse dock Open",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T121839.819946Z-before.png",
+    "modifier": null,
+    "state": "sending"
+  },
+  {
+    "at": "20261115T121839.819946Z",
+    "action": "key",
+    "values": [
+      "Escape"
+    ],
+    "expected": "Close editor after reverse dock Open",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T121839.819946Z-before.png",
+    "modifier": null,
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T121839.819946Z-after.png"
+  },
+  {
+    "at": "20261115T121840.544729Z",
+    "action": "key",
+    "values": [
+      "Shift_L"
+    ],
+    "expected": "Unload normally after reverse ride and return camera ownership to the player",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T121840.544729Z-before.png",
+    "modifier": null,
+    "state": "sending"
+  },
+  {
+    "at": "20261115T121840.544729Z",
+    "action": "key",
+    "values": [
+      "Shift_L"
+    ],
+    "expected": "Unload normally after reverse ride and return camera ownership to the player",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T121840.544729Z-before.png",
+    "modifier": null,
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115/evidence/20261115T121840.544729Z-after.png"
+  }
+]

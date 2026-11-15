@@ -45,7 +45,7 @@ publication is activated.
 | FD811 | Lead | Selected CTNB functional tracks/controls and measured eligibility after its own baseline. |
 | FD812 | Lead | Magnetized propulsion adapter and real authority conflicts after its own baseline. |
 | FD1701A | Lead | Qualified: targeted native 1/1 plus normal occupied Claim/dispatch/held transfer/receiving dispatch/unload passed. [Evidence](evidence/0.8/authority/README.md). World saved; client/server/display316 inactive. Complete; integrated with the coherent shared implementation checkpoint. |
-| FD1401A | Pipeline / Dive | Targeted `fourthdimension_fd1401` 1/1 native contract passed; raw `fd1401-pipeline-20261115/evidence/native-01.log` under persistent run root. Packaged occupied prototype now on owned317. |
+| FD1401A | Pipeline / Dive | Complete: [qualified native and occupied handoff](evidence/0.8/pipeline/README.md), including full forward/reverse circuits, inclined stop/save/reload/resume, dock/open/unload. Same two IDs; all317 units inactive. B/C reuse this evidence. |
 | FD1401B | Pipeline / Dive | Prepare original Pipeline assets/content against stable dimensions. |
 | FD1401C | Pipeline / Dive | Combine A occupied proof with remaining normal construction/content and distinct cases. |
 | FD1501D | S2 / Powered Inverted | Real kinetic governor implemented; Java21 compile + two pure contract checks passed. Targeted native governor now passed (`native-governor-03.log` in `fd1501d-s2-20261115`): actual11.8694bps, ramp3.000011bps², off-center rider, torque, power-loss hold/no-auto-restore. Inversion/four-car/rollback and occupied proof remain. |

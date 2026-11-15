@@ -1,0 +1,38 @@
+[04:56:23] [Server thread/INFO] [de.si.si.SimulatedCoasters/]: [cart-link] linked carts bc305c0d-c372-4a39-ae51-bc19689a68ac <-> 9b4fd044-8440-4ebd-af57-f5250431e32f at distance 8.000
+[05:00:21] [Server thread/INFO] [de.fo.ve.Boarding/]: FD_BOARDING_EVENT player=Dev action=mount seat=BlockPos{x=20481033, y=126, z=20481033} restraints=false restoring=false
+[05:00:21] [Server thread/INFO] [de.fo.ve.Boarding/]: FD_BOARDING_ASSIGN player=Dev seat=BlockPos{x=20481033, y=126, z=20481033} offset=BlockPos{x=1, y=-2, z=1} knownSeats=[BlockPos{x=-1, y=-2, z=-1}, BlockPos{x=1, y=-2, z=-1}, BlockPos{x=-1, y=-2, z=1}, BlockPos{x=1, y=-2, z=1}] accepted=true
+[05:00:34] [Server thread/INFO] [de.fo.ed.EditorNetwork/]: FD_EDITOR_OPEN player=Dev target=bc305c0d-c372-4a39-ae51-bc19689a68ac vehicle=true
+[05:00:52] [Server thread/INFO] [de.fo.ed.EditorNetwork/]: FD_EDITOR_RESULT player=Dev target=bc305c0d-c372-4a39-ae51-bc19689a68ac action=11 success=true message=4D settings updated
+[05:01:08] [Server thread/INFO] [de.fo.ed.EditorNetwork/]: FD_EDITOR_RESULT player=Dev target=bc305c0d-c372-4a39-ae51-bc19689a68ac action=13 success=true message=4D settings updated
+[05:03:09] [Server thread/INFO] [de.fo.ed.EditorNetwork/]: FD_EDITOR_OPEN player=Dev target=bc305c0d-c372-4a39-ae51-bc19689a68ac vehicle=true
+[05:03:17] [Server thread/INFO] [de.fo.ed.EditorNetwork/]: FD_EDITOR_RESULT player=Dev target=bc305c0d-c372-4a39-ae51-bc19689a68ac action=10 success=true message=4D settings updated
+[05:04:11] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage: All dimensions are saved
+[05:04:11] [Server thread/INFO] [de.fo.ve.Boarding/]: FD_BOARDING_EVENT player=Dev action=dismount seat=BlockPos{x=20481033, y=126, z=20481033} restraints=true restoring=false
+[05:04:11] [Server thread/INFO] [de.fo.ve.Boarding/]: FD_BOARDING_DISMOUNT_CANCEL player=Dev assignedSeats=1
+[05:04:11] [Server thread/INFO] [de.fo.ve.Boarding/]: FD_BOARDING_EVENT player=Dev action=dismount seat=BlockPos{x=20481033, y=126, z=20481033} restraints=true restoring=false
+[05:04:12] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage: All dimensions are saved
+[05:05:49] [Server thread/INFO] [de.si.si.SimulatedCoasters/]: [cart-link] restored link bc305c0d-c372-4a39-ae51-bc19689a68ac <-> 9b4fd044-8440-4ebd-af57-f5250431e32f (distance 8.0)
+[05:06:20] [Server thread/INFO] [de.fo.ve.Boarding/]: FD_BOARDING_RESTORE queued player=Dev assignments=1 deadlineTick=11391
+[05:06:20] [Server thread/INFO] [de.fo.ve.Boarding/]: FD_BOARDING_EVENT player=Dev action=mount seat=BlockPos{x=20481033, y=126, z=20481033} restraints=true restoring=true
+[05:06:20] [Server thread/INFO] [de.fo.ve.Boarding/]: FD_BOARDING_ASSIGN player=Dev seat=BlockPos{x=20481033, y=126, z=20481033} offset=BlockPos{x=1, y=-2, z=1} knownSeats=[BlockPos{x=-1, y=-2, z=-1}, BlockPos{x=1, y=-2, z=-1}, BlockPos{x=-1, y=-2, z=1}, BlockPos{x=1, y=-2, z=1}] accepted=true
+[05:06:20] [Server thread/INFO] [de.fo.ve.Boarding/]: FD_BOARDING_RESTORE mounted player=Dev gameTick=11192 deadlineTick=11391
+[05:06:39] [Server thread/INFO] [de.fo.ed.EditorNetwork/]: FD_EDITOR_OPEN player=Dev target=bc305c0d-c372-4a39-ae51-bc19689a68ac vehicle=true
+[05:06:56] [Server thread/INFO] [de.fo.ed.EditorNetwork/]: FD_EDITOR_RESULT player=Dev target=bc305c0d-c372-4a39-ae51-bc19689a68ac action=28 success=true message=4D settings updated
+[05:08:42] [Server thread/INFO] [de.fo.ed.EditorNetwork/]: FD_EDITOR_RESULT player=Dev target=bc305c0d-c372-4a39-ae51-bc19689a68ac action=10 success=true message=4D settings updated
+[05:09:22] [Server thread/INFO] [de.fo.ed.EditorNetwork/]: FD_EDITOR_RESULT player=Dev target=bc305c0d-c372-4a39-ae51-bc19689a68ac action=12 success=true message=4D settings updated
+[05:09:34] [Server thread/INFO] [de.fo.ve.Boarding/]: FD_BOARDING_EVENT player=Dev action=dismount seat=BlockPos{x=20481033, y=126, z=20481033} restraints=false restoring=false
+[05:09:34] [Server thread/INFO] [de.fo.ve.Boarding/]: FD_BOARDING_DISMOUNT_CLEAR player=Dev restraints=false removed=false alive=true
+[05:15:02] [Server thread/INFO] [de.fo.ed.EditorNetwork/]: FD_EDITOR_OPEN player=Dev target=bc305c0d-c372-4a39-ae51-bc19689a68ac vehicle=true
+[05:15:09] [Server thread/INFO] [de.fo.ed.EditorNetwork/]: FD_EDITOR_RESULT player=Dev target=bc305c0d-c372-4a39-ae51-bc19689a68ac action=10 success=true message=4D settings updated
+[05:15:17] [Server thread/INFO] [de.fo.ed.EditorNetwork/]: FD_EDITOR_RESULT player=Dev target=bc305c0d-c372-4a39-ae51-bc19689a68ac action=12 success=true message=4D settings updated
+[05:15:35] [Server thread/INFO] [de.fo.ve.Boarding/]: FD_BOARDING_EVENT player=Dev action=mount seat=BlockPos{x=20481033, y=126, z=20481033} restraints=false restoring=false
+[05:15:35] [Server thread/INFO] [de.fo.ve.Boarding/]: FD_BOARDING_ASSIGN player=Dev seat=BlockPos{x=20481033, y=126, z=20481033} offset=BlockPos{x=1, y=-2, z=1} knownSeats=[BlockPos{x=-1, y=-2, z=-1}, BlockPos{x=1, y=-2, z=-1}, BlockPos{x=-1, y=-2, z=1}, BlockPos{x=1, y=-2, z=1}] accepted=true
+[05:15:46] [Server thread/INFO] [de.fo.ed.EditorNetwork/]: FD_EDITOR_OPEN player=Dev target=bc305c0d-c372-4a39-ae51-bc19689a68ac vehicle=true
+[05:15:55] [Server thread/INFO] [de.fo.ed.EditorNetwork/]: FD_EDITOR_RESULT player=Dev target=bc305c0d-c372-4a39-ae51-bc19689a68ac action=11 success=true message=4D settings updated
+[05:16:06] [Server thread/INFO] [de.fo.ed.EditorNetwork/]: FD_EDITOR_RESULT player=Dev target=bc305c0d-c372-4a39-ae51-bc19689a68ac action=28 success=true message=4D settings updated
+[05:18:00] [Server thread/INFO] [de.fo.ed.EditorNetwork/]: FD_EDITOR_RESULT player=Dev target=bc305c0d-c372-4a39-ae51-bc19689a68ac action=10 success=true message=4D settings updated
+[05:18:23] [Server thread/INFO] [de.fo.ed.EditorNetwork/]: FD_EDITOR_RESULT player=Dev target=bc305c0d-c372-4a39-ae51-bc19689a68ac action=12 success=true message=4D settings updated
+[05:18:40] [Server thread/INFO] [de.fo.ve.Boarding/]: FD_BOARDING_EVENT player=Dev action=dismount seat=BlockPos{x=20481033, y=126, z=20481033} restraints=false restoring=false
+[05:18:40] [Server thread/INFO] [de.fo.ve.Boarding/]: FD_BOARDING_DISMOUNT_CLEAR player=Dev restraints=false removed=false alive=true
+[05:18:59] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage: All dimensions are saved
+[05:18:59] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage: All dimensions are saved

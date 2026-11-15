@@ -1,0 +1,6 @@
+{"at": 1794744596.9242792, "command": "give Dev create:wrench", "result": "Gave 1 [Wrench] to Dev\n"}
+{"at": 1794744596.9277747, "command": "setblock 6 80 12 minecraft:smooth_stone", "result": "Changed the block at 6, 80, 12\n"}
+{"at": 1794744596.9302607, "command": "execute as Dev at @s anchored eyes run tp @s 6.5 81 12.5 facing 3.5 80.99 12.5", "result": "Teleported Dev to 6.500000, 81.000000, 12.500000\n"}
+{"at": 1794744773.4661572, "command": "setblock 1 80 12 create:shaft[axis=x]", "result": "Could not set the block\n"}
+{"at": 1794744773.4671485, "command": "setblock 2 80 12 create:shaft[axis=x]", "result": "Changed the block at 2, 80, 12\n"}
+{"at": 1794744773.4686646, "command": "data get block 3 80 12", "result": "3, 80, 12 has the following block data: {Speed: -64.0f, HasAttachedComputer: 0b, Network: {Capacity: 0.0f, Size: 1, AddedCapacity: 16384.0f, Id: 824633770064L, Stress: 0.0f}, x: 3, y: 80, ScrollValue: 64, z: 12, id: \"create:motor\"}\n"}

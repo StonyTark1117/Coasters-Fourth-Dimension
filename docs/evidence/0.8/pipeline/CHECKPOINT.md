@@ -36,3 +36,8 @@ VehicleFactory, VehicleParts, ConsistRules, EligibilityHooks, Boarding, NativeLo
 FourthDimension and mixin configuration. OriginalTrackRenderer was also handed back to the lead on 2026-11-15 after
 the occupied views verified its bounded P rail/support placement. New Pipeline
 files/resources/generator/guide/evidence remain with this owner.
+
+FD1401A closed in README.md after reverse full-roll return and normal unload.
+All three services inactive/MainPID0; A-qualified-world saved outside builds.
+B/C next: supplied ingredients, normal recipes/paid track/car/Chain/station build.
+Dive authority prerequisite accepted from lead at main cc094ada2382a597c8fcdba4590f38494803d31c.

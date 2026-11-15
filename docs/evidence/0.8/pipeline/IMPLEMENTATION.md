@@ -2,7 +2,7 @@
 
 Primary main at cb46ea07 plus coordinated 0.8 changes. Owner chat
 01a1dd1d-6e99-70d2-aef3-6dcebac10d72; lead owns all integration commits.
-This record does not yet close A–C.
+This historical progress record is reconciled by [the A closure](README.md). B/C remain separately owned.
 
 Native contract 1/1 passed: dedicated P fit rejects ordinary track; two native
 cars link at eight blocks; exact four fixed seats; asymmetric +.8 and full +3.2
@@ -32,5 +32,5 @@ Persistent run root: /mnt/NVME4/fourthdimension-runs/fd1401-pipeline-20261115.
 Launch01 SHA256 206659b5d0f5af0f6054f0f228e6d88f9e13a7f88f8a4f00058dbf484da98154.
 Launch02 SHA256 c0a99ea1011a6f6460b5870d808bf70662ed1c24816a53de145621d28b3fc258.
 Both use Java21, 1536M heap, private317 and a6GiB Minecraft-only service.
-Current launch02 remains owned and active for the remaining dock/reverse/content
-workflow; no live handoff or completion is claimed.
+Launch02 completed forward/reverse return and unload; all owned units were stopped
+and the saved world checkpoint preserved. See README.md for final A closure.
