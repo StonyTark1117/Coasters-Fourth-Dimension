@@ -113,3 +113,50 @@ Code inspection then found the shared missing-child branch lacked S2's train-wid
 fault hook; requested the lead-owned correction. That specific failure check and
 real connected-client occupied/content workflow remain open; the passed route
 is accepted cumulative native evidence and does not need repeating.
+
+## Occupied mechanics handoff — FD1501D
+
+Packaged client01 artifact SHA-256
+`85dd164767616ed0f0ed1cc92b13dcda4bd81a2d27334b5440b7342abdcb5417`, Java21,
+1536MiB game heap/6GiB service, server2048MiB/4GiB, private display318 and
+loopback25654/25655. The real connected player Dev used normal seat right-click,
+Rotation Tool, Close restraints and Dispatch; the route then completed launch,
+unpowered full roll and powered return with one real occupant. Independent
+seated look remained available; Shift with closed restraints kept that occupant.
+The normal seat hit is the cushion shape, below its decorative backrest. An early
+miss was a player standing off the platform and falling; it earned no input credit.
+Default Raw Input and mouse bindings were unchanged after the initial same-client
+camera/vanilla-placement baseline.
+
+A normal Capture button click on return stopped the car and aligned it at retained
+winding -4π. The dedicated server continued ticking while the editor was open.
+The exact dock click was a one-shot GUI action conditioned on read-only player
+position, not an injected ride command; raw record is
+[occupied-return-click.log](client/occupied-return-click.log). Open restraints and
+normal Shift then unloaded the player onto the platform: status occupants0,
+capturetrue, angle-12.5663706143, negligible omega, no fault. See
+[normal-unloaded.json](client/normal-unloaded.json) and the selected client views.
+Commands supplied the disclosed example, tool and safe initial viewpoint, not
+boarding, dispatch, capture, restraint changes or unloading.
+
+[Native loss03](native/native-loss-03.log) passes actual body deletion and a
+separate native coupler removal. Upstream deletion removes the affected native
+hierarchy/chassis too; all surviving cars retain winding, restraints and a fault,
+physically stop and deny unloading. The fixture was corrected to avoid querying
+velocity on the deliberately deleted chassis. The lead supplied the shared
+missing-carrier hook; no earlier passed route needs repeating.
+
+The shared S1 rider/native hierarchy and accepted remote sequence behavior remain
+unchanged; S2 uses the same fractional-seat mount hook and complete server
+snapshot. Dedicated S2 evidence above supplies its launch, inverse support,
+magnetic, four-car, interruption and retained-winding differences. Combined
+native and connected-client evidence qualifies **FD1501D**. E/F still own normal
+new-item construction/governor controls, the finite asset views (including a clear
+inversion operating view), guide reconciliation and actual process-restart
+readback. These are continuing assigned work, not a reset of D's passed cases.
+
+At12:24UTC the occupied client exited, the dedicated server saved every dimension
+and exited, then owned Xvfb318 exited. All three units report `inactive`, MainPID0.
+The saved `server/S2SpinningNative` and `occupied-unloaded-01-world`, screenshots,
+raw input, logs and captured/unloaded state remain preserved. No idle runtime was
+left running. Continue E/F from this stopped world with the latest shared UI.

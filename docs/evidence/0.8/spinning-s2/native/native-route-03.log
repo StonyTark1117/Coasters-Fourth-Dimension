@@ -1,0 +1,326 @@
+> Task :createMinecraftArtifacts UP-TO-DATE
+
+> Task :compileJava
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+
+> Task :processResources UP-TO-DATE
+> Task :classes
+> Task :downloadAssets UP-TO-DATE
+> Task :writeGameTestServerLegacyClasspath UP-TO-DATE
+> Task :prepareGameTestServerRun UP-TO-DATE
+
+> Task :runGameTestServer
+WARN StatusConsoleListener Advanced terminal features are not available in this environment
+[05:10:48] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forgeserverdev, --gameDir, ., --fml.fmlVersion, 4.0.43, --fml.mcVersion, 1.21.1, --fml.neoForgeVersion, 21.1.248, --fml.neoFormVersion, 20240808.144430]
+[05:10:48] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: JVM identified as Arch Linux OpenJDK 64-Bit Server VM 21.0.13.0.3+1
+[05:10:48] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: ModLauncher 11.0.5+main.901c6ea8 starting: java version 21.0.13.0.3 by Arch Linux; OS Linux arch amd64 version 7.2.14-zen1-1-zen
+[05:10:48] [main/INFO] [ne.ne.fm.lo.ImmediateWindowHandler/]: ImmediateWindowProvider not loading because launch target is forgeserverdev
+[05:10:48] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.7 Source=union:/home/braydon/.gradle/caches/modules-2/files-2.1/net.fabricmc/sponge-mixin/0.15.2+mixin.0.8.7/2af2f021d8e02a0220dc27a7a72b4666d66d44ca/sponge-mixin-0.15.2+mixin.0.8.7.jar%2394!/ Service=ModLauncher Env=SERVER
+[05:10:49] [main/WARN] [ne.ne.ja.se.JarSelector/]: Attempted to select a dependency jar for JarJar which was passed in as source: veil. Using Mod File: /home/braydon/.gradle/caches/modules-2/files-2.1/foundry.veil/veil-neoforge-1.21.1/4.1.4/642ec0bd02213ee087d86eda553d6d79c6a04d2b/veil-neoforge-1.21.1-4.1.4.jar
+[05:10:49] [main/WARN] [ne.ne.ja.se.JarSelector/]: Attempted to select a dependency jar for JarJar which was passed in as source: sablecompanion. Using Mod File: /home/braydon/.gradle/caches/modules-2/files-2.1/dev.ryanhcode.sable-companion/sable-companion-common-1.21.1/1.6.0/370be7db705926176e05c0215ed676150c45daae/sable-companion-common-1.21.1-1.6.0.jar
+[05:10:49] [main/WARN] [ne.ne.ja.se.JarSelector/]: Attempted to select a dependency jar for JarJar which was passed in as source: library:sable_rapier. Using Mod File: /home/braydon/.gradle/caches/modules-2/files-2.1/dev.ryanhcode.sable/sable-sable_rapier-1.21.1/2.0.3/a88c0860320890144b6b44c332a2a2db3a61e189/sable-sable_rapier-1.21.1-2.0.3.jar
+[05:10:49] [main/INFO] [ne.ne.fm.lo.mo.lo.JarInJarDependencyLocator/]: Found 4 dependencies adding them to mods collection
+[05:10:49] [main/INFO] [ne.ne.fm.lo.mo.ModDiscoverer/]: 
+     Mod List:
+		Name Version (Mod Id)
+
+		Coasters: Fourth Dimension 0.9.0-dev.27 (fourthdimension)
+		Create 6.0.10 (create)
+		Create: Coasters Simulated 0.1.5 (simulatedcoasters)
+		Flywheel 1.0.6 (flywheel)
+		Minecraft 1.21.1 (minecraft)
+		NeoForge 21.1.248 (neoforge)
+		Ponder 1.0.82+mc1.21.1 (ponder)
+		Sable 2.0.3 (sable)
+		Sable Companion 1.6.0 (sablecompanion)
+		Veil 4.1.4 (veil)
+[05:10:49] [main/INFO] [mixin/]: Compatibility level set to JAVA_21
+[05:10:49] [main/INFO] [cp.mo.mo.LaunchServiceHandler/MODLAUNCHER]: Launching target 'forgeserverdev' with arguments [--gameDir, .]
+[05:10:49] [main/WARN] [mixin/]: Reference map 'ponder.refmap.json' for ponder-common.mixins.json could not be read. If this is a development environment you can ignore this message
+[05:10:49] [main/INFO] [de.ry.sa.mi.AbstractSableMixinPlugin/]: Using Vanilla renderer mixins
+[05:10:49] [main/INFO] [de.ry.sa.mi.AbstractSableMixinPlugin/]: Using Vanilla renderer mixins
+[05:10:49] [main/WARN] [mixin/]: Error loading class: dev/simulated_team/simulated/content/blocks/merging_glue/MergingGlueBlockEntity (java.lang.ClassNotFoundException: dev.simulated_team.simulated.content.blocks.merging_glue.MergingGlueBlockEntity)
+[05:10:49] [main/WARN] [mixin/]: @Mixin target dev.simulated_team.simulated.content.blocks.merging_glue.MergingGlueBlockEntity was not found simulatedcoasters.mixins.json:compat.MergingGlueBlockEntityRivetMixin from mod simulatedcoasters
+[05:10:49] [main/ERROR] [ne.ne.fm.co.as.RuntimeDistCleaner/DISTXFORM]: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER
+[05:10:49] [main/WARN] [mixin/]: Error loading class: net/minecraft/client/multiplayer/ClientLevel (java.lang.RuntimeException: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER)
+[05:10:50] [main/ERROR] [ne.ne.fm.co.as.RuntimeDistCleaner/DISTXFORM]: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER
+[05:10:50] [main/WARN] [mixin/]: Error loading class: net/minecraft/client/multiplayer/ClientLevel (java.lang.RuntimeException: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER)
+[05:10:50] [main/ERROR] [ne.ne.fm.co.as.RuntimeDistCleaner/DISTXFORM]: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER
+[05:10:50] [main/WARN] [mixin/]: Error loading class: net/minecraft/client/multiplayer/ClientLevel (java.lang.RuntimeException: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER)
+[05:10:50] [main/WARN] [mixin/]: Error loading class: dev/jwaterfall/coastersengineered/MotorDrive (java.lang.ClassNotFoundException: dev.jwaterfall.coastersengineered.MotorDrive)
+[05:10:50] [main/WARN] [mixin/]: Error loading class: dev/jwaterfall/coastersengineered/CartAssembly (java.lang.ClassNotFoundException: dev.jwaterfall.coastersengineered.CartAssembly)
+[05:10:50] [main/WARN] [mixin/]: Error loading class: org/jetbrains/annotations/ApiStatus$ScheduledForRemoval (java.lang.ClassNotFoundException: org.jetbrains.annotations.ApiStatus$ScheduledForRemoval)
+[05:10:50] [main/ERROR] [ne.ne.fm.co.as.RuntimeDistCleaner/DISTXFORM]: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER
+[05:10:50] [main/WARN] [mixin/]: Error loading class: net/minecraft/client/multiplayer/ClientLevel (java.lang.RuntimeException: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER)
+[05:10:50] [main/ERROR] [ne.ne.fm.co.as.RuntimeDistCleaner/DISTXFORM]: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER
+[05:10:50] [main/WARN] [mixin/]: Error loading class: net/minecraft/client/multiplayer/ClientLevel (java.lang.RuntimeException: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER)
+[05:10:50] [main/ERROR] [ne.ne.fm.co.as.RuntimeDistCleaner/DISTXFORM]: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER
+[05:10:50] [main/WARN] [mixin/]: Error loading class: net/minecraft/client/multiplayer/ClientLevel (java.lang.RuntimeException: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER)
+[05:10:50] [main/ERROR] [ne.ne.fm.co.as.RuntimeDistCleaner/DISTXFORM]: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER
+[05:10:50] [main/WARN] [mixin/]: Error loading class: net/minecraft/client/multiplayer/ClientLevel (java.lang.RuntimeException: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER)
+[05:10:50] [main/ERROR] [ne.ne.fm.co.as.RuntimeDistCleaner/DISTXFORM]: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER
+[05:10:50] [main/WARN] [mixin/]: Error loading class: net/minecraft/client/multiplayer/ClientLevel (java.lang.RuntimeException: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER)
+[05:10:50] [main/ERROR] [ne.ne.fm.co.as.RuntimeDistCleaner/DISTXFORM]: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER
+[05:10:50] [main/WARN] [mixin/]: Error loading class: net/minecraft/client/multiplayer/ClientLevel (java.lang.RuntimeException: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER)
+[05:10:50] [main/INFO] [MixinExtras|Service/]: Initializing MixinExtras via com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.5.3).
+[05:10:51] [main/ERROR] [ne.ne.fm.co.as.RuntimeDistCleaner/DISTXFORM]: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER
+[05:10:51] [main/WARN] [mixin/]: Error loading class: net/minecraft/client/multiplayer/ClientLevel (java.lang.RuntimeException: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER)
+[05:10:51] [main/ERROR] [ne.ne.fm.co.as.RuntimeDistCleaner/DISTXFORM]: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER
+[05:10:51] [main/WARN] [mixin/]: Error loading class: net/minecraft/client/multiplayer/ClientLevel (java.lang.RuntimeException: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER)
+[05:10:51] [main/ERROR] [ne.ne.fm.co.as.RuntimeDistCleaner/DISTXFORM]: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER
+[05:10:51] [main/WARN] [mixin/]: Error loading class: net/minecraft/client/multiplayer/ClientLevel (java.lang.RuntimeException: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER)
+[05:10:53] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, location] and [teleport, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+[05:10:53] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, location] and [teleport, targets] with inputs: [0.1 -0.5 .9, 0 0 0]
+[05:10:53] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, destination] and [teleport, targets] with inputs: [Player, 0123, @e, dd12be42-52a9-4a91-a8a1-11c01849e498]
+[05:10:53] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, targets] and [teleport, destination] with inputs: [Player, 0123, dd12be42-52a9-4a91-a8a1-11c01849e498]
+[05:10:53] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, targets, location] and [teleport, targets, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+[05:10:53] [modloading-worker-0/INFO] [Veil/]: Veil is initializing.
+[05:10:53] [modloading-worker-0/INFO] [ne.ne.ne.co.NeoForgeMod/NEOFORGE-MOD]: NeoForge mod loading, version 21.1.248, for MC 1.21.1
+[05:10:53] [modloading-worker-0/INFO] [co.si.cr.Create/]: Create 6.0.10 initializing! Commit hash: ac0c444d9828da3453ae8cc65338e8de063286fb
+[05:10:54] [modloading-worker-0/INFO] [de.ry.sa.Sable/]: Sable loaded!
+[05:10:54] [modloading-worker-0/INFO] [de.fo.FourthDimension/]: Coasters: Fourth Dimension loaded from union:/mnt/NVME4/fourthdimension-runs/fd1501d-s2-20261115/build/classes/java/main/%23127!/
+[05:10:55] [main/INFO] [mojang/YggdrasilAuthenticationService]: Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, name=PROD]
+[05:10:55] [NeoForge Version Check/INFO] [ne.ne.fm.VersionChecker/]: [create] Starting version check at https://api.modrinth.com/updates/create/forge_updates.json?neoforge=only
+[05:10:55] [main/WARN] [minecraft/VanillaPackResourcesBuilder]: Assets URL 'union:/mnt/NVME4/fourthdimension-runs/fd1501d-s2-20261115/build/moddev/artifacts/neoforge-21.1.248.jar%23125!/assets/.mcassetsroot' uses unexpected schema
+[05:10:55] [main/WARN] [minecraft/VanillaPackResourcesBuilder]: Assets URL 'union:/mnt/NVME4/fourthdimension-runs/fd1501d-s2-20261115/build/moddev/artifacts/neoforge-21.1.248.jar%23125!/data/.mcassetsroot' uses unexpected schema
+[05:10:55] [main/INFO] [co.si.cr.Create/]: Created 157 recipes which will be injected into the game
+[05:10:55] [main/INFO] [co.si.cr.Create/]: Created 0 tags which will be injected into the game
+[05:10:55] [main/INFO] [ne.ne.ne.ga.GameTestHooks/]: Enabled Gametest Namespaces: [fourthdimension_fd1501d_route]
+[05:10:56] [NeoForge Version Check/INFO] [ne.ne.fm.VersionChecker/]: [create] Found status: OUTDATED Current: 6.0.10 Target: 6.0.10+mc1.21.1
+[05:10:56] [main/INFO] [minecraft/RecipeManager]: Loaded 2860 recipes
+[05:10:56] [main/INFO] [minecraft/AdvancementTree]: Loaded 2522 advancements
+[05:10:57] [Server thread/INFO] [de.ry.sa.Sable/]: Creating physics pipeline for ResourceKey[minecraft:dimension / minecraft:overworld] using RapierPhysicsPipelineProvider
+[2026-11-15T12:10:57.693834224Z] [[32mINFO[0m] (sable_rapier) Rapier scene initialized
+[05:10:57] [Server thread/INFO] [de.ry.sa.Sable/]: Creating physics pipeline for ResourceKey[minecraft:dimension / minecraft:the_nether] using RapierPhysicsPipelineProvider
+[2026-11-15T12:10:57.986379871Z] [[32mINFO[0m] (sable_rapier) Rapier scene initialized
+[05:10:58] [Server thread/INFO] [de.ry.sa.Sable/]: Creating physics pipeline for ResourceKey[minecraft:dimension / minecraft:the_end] using RapierPhysicsPipelineProvider
+[2026-11-15T12:10:58.005762591Z] [[32mINFO[0m] (sable_rapier) Rapier scene initialized
+[05:10:58] [Server thread/INFO] [minecraft/MinecraftServer]: Preparing start region for dimension minecraft:overworld
+[05:10:58] [worldgen/INFO] [minecraft/LoggerChunkProgressListener]: Preparing spawn area: 2%
+[05:10:58] [Server thread/INFO] [minecraft/LoggerChunkProgressListener]: Time elapsed: 110 ms
+[05:10:58] [Server thread/INFO] [minecraft/GameTestServer]: Started game test server
+[05:10:58] [Server thread/INFO] [ne.ne.ne.se.pe.PermissionAPI/]: Successfully initialized permission handler neoforge:default_handler
+[05:10:58] [Server thread/INFO] [minecraft/GameTestServer]: 1 tests are now running at position 10362974, -59, 4595940!
+[05:10:58] [Server thread/INFO] [minecraft/GameTestRunner]: Running test batch 'defaultBatch:0' (1 tests)...
+[05:10:58] [Server thread/INFO] [minecraft/GameTestServer]: [ ]
+[05:10:58] [Server thread/INFO] [minecraft/GameTestServer]: [ ]
+[05:10:59] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[05:10:59] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[05:10:59] [Server thread/INFO] [de.si.si.SimulatedCoasters/]: [cart-link] linked carts 84a4b45d-8d37-4235-bed9-18b84e0384b2 <-> 2ef878e0-6c20-4da7-8323-001e068bbd92 at distance 8.000
+[05:10:59] [Server thread/INFO] [de.si.si.SimulatedCoasters/]: [cart-link] linked carts 2ef878e0-6c20-4da7-8323-001e068bbd92 <-> d7707573-0672-4c56-8240-607ad86b9feb at distance 8.000
+[05:10:59] [Server thread/INFO] [de.si.si.SimulatedCoasters/]: [cart-link] linked carts d7707573-0672-4c56-8240-607ad86b9feb <-> 444a30ec-37ef-4d3e-9267-77ec29f9c098 at distance 8.000
+[05:10:59] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[05:10:59] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[05:10:59] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_S2_ROUTE tick=100 car=0 up=0.9999999999995417 speed=1.0421315740435948 angle=0.011625598989488293 omega=0.059669524179961325 edge=BlockPos{x=100, y=100, z=100} at=8.216484524774486
+FD_S2_ROUTE tick=100 car=1 up=0.9999999999999273 speed=1.0431543330276283 angle=1.622849799303284E-4 omega=0.00150389416487854 edge=BlockPos{x=100, y=100, z=100} at=16.216469738929412
+FD_S2_ROUTE tick=100 car=2 up=0.9999999999997198 speed=1.0396266237581515 angle=0.023110412359097166 omega=0.07736462278797175 edge=BlockPos{x=100, y=100, z=100} at=24.216485005552023
+FD_S2_ROUTE tick=100 car=3 up=0.9999999999999601 speed=1.038821365181884 angle=0.034789977660070616 omega=0.13716005245846616 edge=BlockPos{x=100, y=100, z=100} at=32.21650885512623
+[05:10:59] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[05:11:00] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[05:11:00] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[05:11:00] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[05:11:00] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_S2_ROUTE tick=200 car=0 up=0.9999999999994501 speed=11.873612479404445 angle=3.7001038266736876 omega=1.3242707468211494 edge=BlockPos{x=100, y=100, z=100} at=47.9899768725024
+FD_S2_ROUTE tick=200 car=1 up=0.9999999999999922 speed=11.869562262021946 angle=2.2034370573277364 omega=0.891856639650669 edge=BlockPos{x=100, y=100, z=100} at=55.98999213367288
+FD_S2_ROUTE tick=200 car=2 up=0.999999999999677 speed=11.861388281637474 angle=0.667149756514741 omega=0.07180581111191495 edge=BlockPos{x=100, y=100, z=100} at=63.98999213409619
+FD_S2_ROUTE tick=200 car=3 up=0.8840197762796153 speed=11.8442957056281 angle=3.1920198909739277 omega=0.6558474577153275 edge=BlockPos{x=100, y=100, z=164} at=7.9677104829914285
+[05:11:00] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[05:11:00] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[05:11:00] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[05:11:01] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[05:11:01] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_S2_ROUTE tick=300 car=0 up=-0.8992171910362167 speed=11.00277540395983 angle=8.206792206779252 omega=0.8946090384895741 edge=BlockPos{x=100, y=99, z=188} at=17.760028592963895
+FD_S2_ROUTE tick=300 car=1 up=-0.997288393594906 speed=11.008317028548277 angle=5.437164886899533 omega=0.39760347909109256 edge=BlockPos{x=100, y=98, z=212} at=1.6752861306665952
+FD_S2_ROUTE tick=300 car=2 up=-0.826215764948919 speed=11.006045052854185 angle=1.0405069053472122 omega=-0.09975943576270625 edge=BlockPos{x=100, y=98, z=212} at=9.681358382547927
+FD_S2_ROUTE tick=300 car=3 up=-0.43495427210667864 speed=11.006895186935106 angle=5.869685973917422 omega=0.2703365790997199 edge=BlockPos{x=100, y=98, z=212} at=17.67662974953469
+[05:11:01] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[05:11:01] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[05:11:01] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[05:11:02] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[05:11:02] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_S2_ROUTE tick=400 car=0 up=0.8787776852779489 speed=7.89112707223887 angle=6.233874621505401 omega=-1.0745784204425848 edge=BlockPos{x=100, y=97, z=236} at=16.821569794469546
+FD_S2_ROUTE tick=400 car=1 up=0.9999999999999583 speed=7.885669402507473 angle=6.430599647293588 omega=0.11888952534736259 edge=BlockPos{x=100, y=96, z=260} at=0.8169861062744068
+FD_S2_ROUTE tick=400 car=2 up=0.9999999999997514 speed=7.882945651599477 angle=2.6900552265298154 omega=0.12132282159263823 edge=BlockPos{x=100, y=96, z=260} at=8.816956037344795
+FD_S2_ROUTE tick=400 car=3 up=0.9999999999998791 speed=7.8835106872206095 angle=6.373625526090686 omega=1.1039946201349114E-8 edge=BlockPos{x=100, y=96, z=260} at=16.81692600138517
+[05:11:02] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[05:11:02] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[05:11:02] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[05:11:02] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[05:11:02] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_S2_ROUTE tick=500 car=0 up=0.9999999999997861 speed=7.458698392527441 angle=4.914490517605203 omega=-0.008882791438793863 edge=BlockPos{x=100, y=96, z=260} at=31.15741061843776
+FD_S2_ROUTE tick=500 car=1 up=0.9999999999992639 speed=7.4765286222631495 angle=6.268578278947913 omega=1.1203672250703285E-4 edge=BlockPos{x=100, y=96, z=292} at=7.176833313384222
+FD_S2_ROUTE tick=500 car=2 up=0.9999999999978266 speed=7.4516750567084555 angle=1.9327125232880351 omega=-0.29763615059232373 edge=BlockPos{x=100, y=96, z=292} at=15.197715939439888
+FD_S2_ROUTE tick=500 car=3 up=0.9999999999999334 speed=7.440143541310532 angle=5.660347750972198 omega=3.5152287036250884E-4 edge=BlockPos{x=100, y=96, z=292} at=23.2181704000562
+[05:11:03] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[05:11:03] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[05:11:03] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[05:11:03] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[05:11:03] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_S2_ROUTE tick=600 car=0 up=0.9999999999992699 speed=7.492898607694522 angle=2.9109578020104867 omega=-0.0698450891851795 edge=BlockPos{x=100, y=96, z=292} at=36.42212606810582
+FD_S2_ROUTE tick=600 car=1 up=0.9999999999983629 speed=7.475108346364392 angle=5.101929870297998 omega=-9.66376256117508E-5 edge=BlockPos{x=100, y=96, z=292} at=44.443025385358865
+FD_S2_ROUTE tick=600 car=2 up=0.9999999999999485 speed=7.42846501038786 angle=-0.6976345047870977 omega=-0.037643607176568575 edge=BlockPos{x=132, y=96, z=324} at=2.184753766287656
+FD_S2_ROUTE tick=600 car=3 up=0.9999999999998241 speed=7.427567108771026 angle=4.807315191865793 omega=9.482405070247237E-4 edge=BlockPos{x=132, y=96, z=324} at=10.184769143485669
+[05:11:03] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[05:11:03] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[05:11:03] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[05:11:03] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[05:11:03] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_S2_ROUTE tick=700 car=0 up=0.9999999999997256 speed=7.518645406535548 angle=3.0202748576735705 omega=0.06813140042398876 edge=BlockPos{x=132, y=96, z=324} at=24.26336764096425
+FD_S2_ROUTE tick=700 car=1 up=0.99999999999969 speed=7.527047335491295 angle=4.909304534301688 omega=-1.4255303069338441E-5 edge=BlockPos{x=132, y=96, z=324} at=32.0
+FD_S2_ROUTE tick=700 car=2 up=0.9999999999998548 speed=7.524907781062037 angle=-0.9298948427100426 omega=0.17108856728631747 edge=BlockPos{x=164, y=96, z=324} at=8.284026951105652
+FD_S2_ROUTE tick=700 car=3 up=0.999999999999948 speed=7.508354095325106 angle=4.312668948233967 omega=8.742093217080972E-4 edge=BlockPos{x=164, y=96, z=324} at=16.304882535207515
+[05:11:04] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[05:11:04] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[05:11:04] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[05:11:04] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[05:11:04] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_S2_ROUTE tick=800 car=0 up=0.9999999999996545 speed=7.466125713517736 angle=3.023791224565637 omega=0.3732136797834484 edge=BlockPos{x=164, y=96, z=324} at=29.491741334770456
+FD_S2_ROUTE tick=800 car=1 up=0.9999999999998721 speed=7.454995450192337 angle=3.7499037282220082 omega=-2.455432639908109E-4 edge=BlockPos{x=164, y=96, z=324} at=37.512337304740754
+FD_S2_ROUTE tick=800 car=2 up=0.9999999999987317 speed=7.443305997523128 angle=0.18394352286822457 omega=0.587934341511054 edge=BlockPos{x=164, y=96, z=324} at=45.53312382084715
+FD_S2_ROUTE tick=800 car=3 up=0.9999999999997732 speed=7.401843651797422 angle=3.2457720330521225 omega=0.0013914142096082365 edge=BlockPos{x=196, y=96, z=292} at=3.269867591270584
+[05:11:04] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[05:11:04] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[05:11:04] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[05:11:04] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[05:11:05] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_S2_ROUTE tick=900 car=0 up=0.9999999999996909 speed=7.916804903886705 angle=4.04247971558009 omega=0.1350977971358657 edge=BlockPos{x=196, y=96, z=292} at=17.62225412282047
+FD_S2_ROUTE tick=900 car=1 up=0.9999999999999759 speed=7.920682122725725 angle=3.34015852653025 omega=1.9548537078915742E-4 edge=BlockPos{x=196, y=96, z=292} at=25.62225578434787
+FD_S2_ROUTE tick=900 car=2 up=0.9999999999997554 speed=7.918712729803692 angle=1.6160256915494284 omega=0.06542941331702733 edge=BlockPos{x=196, y=96, z=292} at=33.62225388674621
+FD_S2_ROUTE tick=900 car=3 up=0.9999999999999765 speed=7.917260744024798 angle=3.251261648357904 omega=7.282881683771291E-4 edge=BlockPos{x=196, y=96, z=292} at=41.62226914343866
+[05:11:05] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[05:11:05] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[05:11:05] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[05:11:05] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[05:11:05] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_S2_ROUTE tick=1000 car=0 up=0.9992965232667708 speed=7.846190207938496 angle=3.8282795760853827 omega=-0.19366480729782307 edge=BlockPos{x=196, y=96, z=244} at=9.228852458568532
+FD_S2_ROUTE tick=1000 car=1 up=0.9983828304987576 speed=7.841012586184083 angle=3.34075991281636 omega=3.657923762085241E-5 edge=BlockPos{x=196, y=96, z=244} at=17.23477442174113
+FD_S2_ROUTE tick=1000 car=2 up=0.9980554704604859 speed=7.830786454786834 angle=1.2133951273501697 omega=-0.26489724482131183 edge=BlockPos{x=196, y=96, z=244} at=25.2363097334614
+FD_S2_ROUTE tick=1000 car=3 up=0.9985398284011667 speed=7.830982194871249 angle=3.2535582499326883 omega=2.8445655605057694E-4 edge=BlockPos{x=196, y=96, z=244} at=33.23351476735938
+[05:11:05] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[05:11:05] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[05:11:05] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[05:11:05] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[05:11:06] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_S2_ROUTE tick=1100 car=0 up=0.9999997084060778 speed=7.858358802724155 angle=2.2463770158346836 omega=-0.2908316702911739 edge=BlockPos{x=196, y=98, z=196} at=0.5422225504335332
+FD_S2_ROUTE tick=1100 car=1 up=0.9993792341025453 speed=7.862529311939189 angle=3.3408222195828245 omega=-2.6637189814148827E-5 edge=BlockPos{x=196, y=98, z=196} at=8.553174232335447
+FD_S2_ROUTE tick=1100 car=2 up=0.998444693594023 speed=7.851457706850495 angle=-0.6901674631528896 omega=-0.3626163651616952 edge=BlockPos{x=196, y=98, z=196} at=16.559481884579952
+FD_S2_ROUTE tick=1100 car=3 up=0.9980510459104609 speed=7.850532565731825 angle=3.2542830133713734 omega=4.8553436817303575E-5 edge=BlockPos{x=196, y=98, z=196} at=24.561398600514458
+[05:11:06] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[05:11:06] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[05:11:06] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[05:11:06] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[05:11:06] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_S2_ROUTE tick=1200 car=0 up=0.999335283926814 speed=7.895228593932525 angle=1.8457910685845795 omega=0.1247731819905865 edge=BlockPos{x=196, y=98, z=196} at=39.920935255621075
+FD_S2_ROUTE tick=1200 car=1 up=0.9999962335833754 speed=7.897503995417015 angle=3.340600560394328 omega=-8.236972871690213E-5 edge=BlockPos{x=196, y=98, z=196} at=47.91058286189317
+FD_S2_ROUTE tick=1200 car=2 up=0.9999999999996377 speed=7.911149614875001 angle=-1.4457601276266334 omega=0.02459859776004651 edge=BlockPos{x=196, y=100, z=148} at=7.860397683538567
+FD_S2_ROUTE tick=1200 car=3 up=0.999999999999971 speed=7.910244562165326 angle=3.2543880270979666 omega=-7.963378544734718E-7 edge=BlockPos{x=196, y=100, z=148} at=15.860413294737187
+[05:11:06] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[05:11:06] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[05:11:06] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[05:11:06] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[05:11:06] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_S2_ROUTE tick=1300 car=0 up=0.9999999999999817 speed=7.618382569900008 angle=2.5637507990027424 omega=0.1133654124038004 edge=BlockPos{x=196, y=100, z=148} at=31.3062300589932
+FD_S2_ROUTE tick=1300 car=1 up=0.9999999999999933 speed=7.6301705210482895 angle=3.3403094037023453 omega=-4.0213933755237623E-5 edge=BlockPos{x=196, y=100, z=148} at=39.306222422448954
+FD_S2_ROUTE tick=1300 car=2 up=0.9999999999977045 speed=7.64234030168392 angle=-0.9414561938031916 omega=0.12587342918564706 edge=BlockPos{x=196, y=100, z=148} at=47.30619190842171
+FD_S2_ROUTE tick=1300 car=3 up=0.9999999999998508 speed=7.663125191546529 angle=3.038544003932594 omega=2.6020035259960027E-4 edge=BlockPos{x=196, y=100, z=100} at=7.326011967182211
+[05:11:07] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[05:11:07] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[05:11:07] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[05:11:07] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[05:11:07] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_S2_ROUTE tick=1400 car=0 up=0.999999999997673 speed=7.468000221667482 angle=2.7425068017740855 omega=0.3791869927222219 edge=BlockPos{x=196, y=100, z=100} at=20.63336946493319
+FD_S2_ROUTE tick=1400 car=1 up=0.999999999999293 speed=7.462902492312651 angle=2.4572962164306427 omega=-5.00777801456578E-4 edge=BlockPos{x=196, y=100, z=100} at=28.653623107284975
+FD_S2_ROUTE tick=1400 car=2 up=0.9999999999976179 speed=7.456538673893159 angle=-0.007268621184308991 omega=0.6017920834191495 edge=BlockPos{x=196, y=100, z=100} at=36.67410784245268
+FD_S2_ROUTE tick=1400 car=3 up=0.9999999999986526 speed=7.450044977569185 angle=1.8708236333496526 omega=8.43374844266063E-4 edge=BlockPos{x=196, y=100, z=100} at=44.69498962289909
+[05:11:07] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[05:11:07] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[05:11:07] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[05:11:07] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[05:11:07] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_S2_ROUTE tick=1500 car=0 up=0.9999999999996358 speed=7.918465727607439 angle=3.9563628789754732 omega=0.27270643917908755 edge=BlockPos{x=164, y=100, z=68} at=8.10891770304065
+FD_S2_ROUTE tick=1500 car=1 up=1.0 speed=7.918941667136105 angle=1.769256490852605 omega=4.134736848879689E-5 edge=BlockPos{x=164, y=100, z=68} at=16.10890292661708
+FD_S2_ROUTE tick=1500 car=2 up=0.9999999999995297 speed=7.918371791071059 angle=1.5855491112891502 omega=0.12633889136178597 edge=BlockPos{x=164, y=100, z=68} at=24.108918181194788
+FD_S2_ROUTE tick=1500 car=3 up=0.9999999999999973 speed=7.918231107629618 angle=1.6904161885311564 omega=6.144609460745405E-4 edge=BlockPos{x=164, y=100, z=68} at=32.0
+[05:11:08] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[05:11:08] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[05:11:08] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[05:11:08] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[05:11:08] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_S2_ROUTE tick=1600 car=0 up=0.9999999999980276 speed=7.62959318749853 angle=4.063636581816566 omega=0.0015581404936236343 edge=BlockPos{x=132, y=100, z=68} at=13.548684653226243
+FD_S2_ROUTE tick=1600 car=1 up=0.9999999999992824 speed=7.609899442077996 angle=1.1070701290565412 omega=-2.3300849746887072E-4 edge=BlockPos{x=132, y=100, z=68} at=21.569188578916574
+FD_S2_ROUTE tick=1600 car=2 up=0.9999999999991233 speed=7.593875560273879 angle=0.792733742611857 omega=-0.0045717945734042 edge=BlockPos{x=132, y=100, z=68} at=29.5894451055423
+FD_S2_ROUTE tick=1600 car=3 up=0.9999999999990776 speed=7.584975094525332 angle=0.5279650257343975 omega=2.647197811601591E-5 edge=BlockPos{x=132, y=100, z=68} at=37.61003604154016
+[05:11:08] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[05:11:08] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[05:11:08] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[05:11:08] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[05:11:08] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_S2_ROUTE tick=1700 car=0 up=0.9999999999997233 speed=11.873358802095996 angle=2.9726286297662776 omega=0.038190984508289165 edge=BlockPos{x=100, y=100, z=100} at=7.605141384678858
+FD_S2_ROUTE tick=1700 car=1 up=0.9999999999999867 speed=11.874703520211794 angle=0.199749904664687 omega=7.518624364045453E-5 edge=BlockPos{x=100, y=100, z=100} at=15.605148775147889
+FD_S2_ROUTE tick=1700 car=2 up=0.9999999999997647 speed=11.874595717480913 angle=-0.2581812425427598 omega=-0.18395378195341566 edge=BlockPos{x=100, y=100, z=100} at=23.605126374022788
+FD_S2_ROUTE tick=1700 car=3 up=0.9999999999999857 speed=11.875111644702658 angle=0.30426263120296854 omega=0.30841063109313255 edge=BlockPos{x=100, y=100, z=100} at=31.605133986462782
+[05:11:08] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[05:11:09] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[05:11:09] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[05:11:09] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[05:11:09] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_S2_ROUTE tick=1800 car=0 up=0.9999999999994856 speed=0.0014322255456026233 angle=2.3813488662999047 omega=-0.13649460792788365 edge=BlockPos{x=100, y=100, z=100} at=13.676736334127021
+FD_S2_ROUTE tick=1800 car=1 up=0.9999999999999742 speed=0.001639518394609257 angle=-0.008058575600796872 omega=0.011017953242257916 edge=BlockPos{x=100, y=100, z=100} at=21.676751111139218
+FD_S2_ROUTE tick=1800 car=2 up=0.9999999999992562 speed=0.0014207859734304896 angle=0.009410153842938229 omega=-0.0039332576141470985 edge=BlockPos{x=100, y=100, z=100} at=29.67674348090578
+FD_S2_ROUTE tick=1800 car=3 up=0.9999999999999826 speed=0.002048189309229511 angle=-0.034162477414362465 omega=0.009364623232043371 edge=BlockPos{x=100, y=100, z=100} at=37.67677496152015
+[05:11:09] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[05:11:09] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[05:11:09] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[05:11:09] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[05:11:09] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_S2_ROUTE tick=1900 car=0 up=0.9999999999995413 speed=0.0016950573320062628 angle=1.2664975211109104 omega=-0.10790612712815364 edge=BlockPos{x=100, y=100, z=100} at=13.67070815652572
+FD_S2_ROUTE tick=1900 car=1 up=0.9999999999999928 speed=0.0021835655690264225 angle=-5.183239713588724E-5 omega=6.684804028240578E-5 edge=BlockPos{x=100, y=100, z=100} at=21.670716259177127
+FD_S2_ROUTE tick=1900 car=2 up=0.999999999999705 speed=0.003236700185015641 angle=0.005227997095889991 omega=-3.160083821499988E-4 edge=BlockPos{x=100, y=100, z=100} at=29.670731521413927
+FD_S2_ROUTE tick=1900 car=3 up=0.9999999999999918 speed=0.0031710799162636342 angle=-2.2038570116599825E-4 omega=3.167280585331128E-5 edge=BlockPos{x=100, y=100, z=100} at=37.67073249126433
+[05:11:09] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[05:11:09] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[05:11:09] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[05:11:10] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[05:11:10] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_S2_ROUTE tick=2000 car=0 up=0.9999999999997101 speed=0.003283652036351588 angle=0.35228052032658086 omega=-0.31757984973185727 edge=BlockPos{x=100, y=100, z=100} at=13.658585068790519
+FD_S2_ROUTE tick=2000 car=1 up=0.9999999999999503 speed=0.005405306009656254 angle=-3.4171588644773005E-7 omega=3.9684666083340664E-7 edge=BlockPos{x=100, y=100, z=100} at=21.65858554076241
+FD_S2_ROUTE tick=2000 car=2 up=0.9999999999995359 speed=0.005094194984365194 angle=0.004914522079392538 omega=8.924029900932584E-5 edge=BlockPos{x=100, y=100, z=100} at=29.658570263601213
+FD_S2_ROUTE tick=2000 car=3 up=0.9999999999999976 speed=0.00523408159970867 angle=-1.4811635240428522E-6 omega=-5.461098522176205E-9 edge=BlockPos{x=100, y=100, z=100} at=37.65858650095669
+[05:11:10] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[05:11:10] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[05:11:10] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[05:11:10] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[05:11:10] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_S2_ROUTE tick=2100 car=0 up=0.9999999999996029 speed=0.0047186330928606305 angle=-0.08221929219302439 omega=0.10301246865951438 edge=BlockPos{x=100, y=100, z=100} at=12.13317154276719
+FD_S2_ROUTE tick=2100 car=1 up=0.9999999999999973 speed=0.005008798340306488 angle=0.17518406897598232 omega=-0.20934506530511143 edge=BlockPos{x=100, y=100, z=100} at=20.133156750223023
+FD_S2_ROUTE tick=2100 car=2 up=0.9999999999995698 speed=0.00438547243596753 angle=0.37635849309499997 omega=-0.2447914916040003 edge=BlockPos{x=100, y=100, z=100} at=28.133133865796797
+FD_S2_ROUTE tick=2100 car=3 up=0.9999999999999981 speed=0.005007435945106809 angle=0.17703003530242523 omega=-0.20940946265805793 edge=BlockPos{x=100, y=100, z=100} at=36.13315009621933
+[05:11:10] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[05:11:10] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_S2_ROUTE PASS nativeInversion=4 nativeCoast=4 independentSpread=8.053302575223329 peakSpeeds=[11.876183585269983, 11.875804060362798, 11.890556051424532, 11.888670585703622] dampingWorkNegative=true explicitRollback=true capturedAll=true
+[05:11:10] [Server thread/INFO] [minecraft/GameTestServer]: [+]
+[05:11:10] [Server thread/INFO] [minecraft/GameTestServer]: ========= 1 GAME TESTS COMPLETE IN 12.53 s ======================
+[05:11:10] [Server thread/INFO] [minecraft/GameTestServer]: All 1 required tests passed :)
+[05:11:10] [Server thread/INFO] [minecraft/GameTestServer]: ====================================================
+[05:11:10] [Server thread/INFO] [minecraft/MinecraftServer]: Stopping server
+[05:11:10] [Server thread/INFO] [minecraft/MinecraftServer]: Saving players
+[05:11:10] [Server thread/INFO] [minecraft/MinecraftServer]: Saving worlds
+[05:11:11] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[Test Level]'/minecraft:overworld
+[05:11:11] [Server thread/INFO] [de.ry.sa.Sable/]: Saving sub-levels for level 'ServerLevel[Test Level]'/minecraft:overworld
+[05:11:13] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[Test Level]'/minecraft:the_nether
+[05:11:13] [Server thread/INFO] [de.ry.sa.Sable/]: Saving sub-levels for level 'ServerLevel[Test Level]'/minecraft:the_nether
+[05:11:13] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[Test Level]'/minecraft:the_end
+[05:11:13] [Server thread/INFO] [de.ry.sa.Sable/]: Saving sub-levels for level 'ServerLevel[Test Level]'/minecraft:the_end
+[05:11:13] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (world): All chunks are saved
+[05:11:13] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
+[05:11:13] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (DIM1): All chunks are saved
+[05:11:13] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage: All dimensions are saved
+[05:11:13] [Server thread/INFO] [minecraft/GameTestServer]: Game test server shutting down
+
+[Incubating] Problems report is available at: file:///mnt/NVME4/fourthdimension-runs/fd1501d-s2-20261115/build/reports/problems/problems-report.html
+
+BUILD SUCCESSFUL in 26s
+7 actionable tasks: 2 executed, 5 up-to-date
+Consider enabling configuration cache to speed up this build: https://docs.gradle.org/9.2.1/userguide/configuration_cache_enabling.html

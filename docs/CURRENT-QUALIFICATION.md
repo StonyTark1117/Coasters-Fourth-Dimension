@@ -38,17 +38,17 @@ publication is activated.
 
 | Card | Owner | Current action / dependency |
 | --- | --- | --- |
-| FD501B | Lead | Inspect selected Additions metadata and agreed capabilities; integrate only necessary baseline changes or justified no-change disposition. |
+| FD501B | Lead | Complete: exact Additions fingerprint and Aeronautics/Interiors closure loaded in targeted FD810 native run; no core upgrade/migration. [Disposition](evidence/0.8/dependencies/README.md#fd501b--complete-no-core-change). |
 | FD501C | Lead | Complete: selected artifact rehashed; current core sufficient, no baseline upgrade/migration. [Disposition](evidence/0.8/dependencies/README.md#fd501c--complete-no-core-change). FD811 retains capability qualification. |
 | FD501D | Lead | Complete: selected artifact rehashed; current core sufficient, no baseline upgrade/migration. [Disposition](evidence/0.8/dependencies/README.md#fd501d--complete-no-core-change). FD812 retains capability qualification. |
-| FD810 | Lead | Additions station requests, whole-consist guards and normal operator input after its own baseline. |
+| FD810 | Lead | Native actual-addon two-car signals/auto-dispatch/interlock case passed. Normal operator example/input next; actual authority conflict covered. |
 | FD811 | Lead | Selected CTNB functional tracks/controls and measured eligibility after its own baseline. |
 | FD812 | Lead | Magnetized propulsion adapter and real authority conflicts after its own baseline. |
 | FD1701A | Lead | Qualified: targeted native 1/1 plus normal occupied Claim/dispatch/held transfer/receiving dispatch/unload passed. [Evidence](evidence/0.8/authority/README.md). World saved; client/server/display316 inactive. Complete; integrated with the coherent shared implementation checkpoint. |
 | FD1401A | Pipeline / Dive | Complete: [qualified native and occupied handoff](evidence/0.8/pipeline/README.md), including full forward/reverse circuits, inclined stop/save/reload/resume, dock/open/unload. Same two IDs; all317 units inactive. B/C reuse this evidence. |
 | FD1401B | Pipeline / Dive | Prepare original Pipeline assets/content against stable dimensions. |
 | FD1401C | Pipeline / Dive | Combine A occupied proof with remaining normal construction/content and distinct cases. |
-| FD1501D | S2 / Powered Inverted | Real kinetic governor implemented; Java21 compile + two pure contract checks passed. Targeted native governor now passed (`native-governor-03.log` in `fd1501d-s2-20261115`): actual11.8694bps, ramp3.000011bps², off-center rider, torque, power-loss hold/no-auto-restore. Inversion/four-car/rollback and occupied proof remain. |
+| FD1501D | S2 / Powered Inverted | Complete: [native governor, four-car inversion/rollback/loss and occupied handoff](evidence/0.8/spinning-s2/README.md#occupied-mechanics-handoff--fd1501d). Launch/roll/return/Capture/Open/unload passed; all318 units inactive. E/F reuse accepted mechanics. |
 | FD1501E | S2 / Powered Inverted | Prepare original S2 content against stable dimensions. |
 | FD1501F | S2 / Powered Inverted | Combine D occupied proof with remaining normal construction/content and distinct cases. |
 | FD1702A | Pipeline / Dive | Consume qualified FD1701A native/occupied handoff for Dive mechanics. |
@@ -833,4 +833,4 @@ Verify the retained payloads from the repository root:
 (cd docs/evidence/qualification/2026-11-05-ec2fcda && sha256sum -c SHA256SUMS)
 ```
 
-**2026-11-15 authority closure:** lead occupied run on display316 saved/stopped; all three units inactive. Pipeline owner returned `client/OriginalTrackRenderer.java` to lead. S2 missing-carrier fault hook and non-overlapping magnetic/lift-lock editor controls applied by lead; S2 owner owns their targeted checks.
+**2026-11-15 authority closure:** lead occupied run on display316 saved/stopped; all three units inactive. Pipeline owner returned `client/OriginalTrackRenderer.java` to lead. Lead Additions run uses `/mnt/NVME4/fourthdimension-runs/fd08-additions-20261115`, display316, ports25650/25651, unit prefix `fd08-additions-20261115`, after the previous authority run fully stopped. S2 missing-carrier fault hook and non-overlapping magnetic/lift-lock editor controls applied by lead; S2 owner owns their targeted checks.

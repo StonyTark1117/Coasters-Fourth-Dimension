@@ -10,8 +10,8 @@ CTNB file 8718286, actual `coasters_extras` 1.2, consumes the existing Create6.0
 
 Magnetized file8668703, `coastersmagnetized`1.1.0, has its required loader/Create/Coasters/Sable/Flywheel dependencies on the current core. Development profile `magnetized` names that exact artifact; runtime metadata guard accepts only1.1.0. No upgrade/migration is selected. Longitudinal drive, rollback, power and authority qualification remain FD812 work. Its upstream launch code requires existing motion; the consumer must implement an explicit validated start direction rather than treating boost as a stationary launch.
 
-## FD501B — in progress
+## FD501B — complete, no core change
 
-Selected Additions file9243346 is published0.2.5beta and embeds `coasterfins`0.2.2. Development profile `additions` adds Aeronautics bundle1.3.2 file8763471 (including `simulated`) and Interiors0.6.1v3 file8974633. No required core upgrade. Runtime inspection now compares the four approved class fingerprints from the loaded mod container; a matching version label with different bytes is unsupported. Remaining baseline check: actual loading with this dependency closure. Seat-only behavior remains FD911, outside0.8.
+Selected Additions file9243346 is published0.2.5beta and embeds `coasterfins`0.2.2. Development profile `additions` adds Aeronautics bundle1.3.2 file8763471 (including `simulated`) and Interiors0.6.1v3 file8974633. No required core upgrade. Runtime inspection now compares the four approved class fingerprints from the loaded mod container; a matching version label with different bytes is unsupported. Actual Java21 dedicated profile loaded all selected identities and the runtime fingerprint guard passed in the FD810 native case (`additions-native04.log` under the lead persistent run). No migration is required. Seat-only behavior remains FD911, outside0.8.
 
 These baseline dispositions do not claim adapter gameplay certification. No unchanged family acceptance is reopened. Authority schema8 belongs to FD1701A, independent of optional dependency metadata.

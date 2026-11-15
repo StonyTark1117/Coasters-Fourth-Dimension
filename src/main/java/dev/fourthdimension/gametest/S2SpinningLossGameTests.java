@@ -43,8 +43,9 @@ public final class S2SpinningLossGameTests {
     h.runAtTickTime(140,()->{
       for(int i=0;i<2;i++){var r=rigs.get(i);h.assertTrue(Math.abs(r.car().carriers.getFirst().angle-angles[i])<1,"Surviving winding retained");
         for(var v:List.of(r.car(),tails.get(i))){var p=(ServerSubLevel)SubLevelContainer.getContainer(l).getSubLevel(v.chassis);
-          h.assertTrue(SubLevelContainer.getContainer(l).physicsSystem().getPipeline().getLinearVelocity(p,new Vector3d()).length()<.05,"Whole train physically stopped");}}
-      System.out.println("FD_S2_LOSS PASS bodyLossTrainWide=true couplerLossTrainWide=true nativeStopped=true windingRetained=true unloadDenied=true");h.succeed();
+          if(p==null){h.assertTrue(i==0&&v==tails.getFirst(),"Only the deliberately removed native carrier hierarchy may disappear");continue;}
+          h.assertTrue(SubLevelContainer.getContainer(l).physicsSystem().getPipeline().getLinearVelocity(p,new Vector3d()).length()<.05,"Every surviving native chassis physically stopped");}}
+      System.out.println("FD_S2_LOSS PASS bodyLossTrainWide=true couplerLossTrainWide=true nativeDeletionCascade=true survivingNativeStopped=true windingRetained=true unloadDenied=true");h.succeed();
     });
   }
 }
