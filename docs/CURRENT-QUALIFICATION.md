@@ -169,9 +169,11 @@ existing paths. This resolves remaining placeholder casings without behavior cha
   green shell coexistence; Axis, Roller Ball, New-generation Flying, S2 and
   Powered Inverted changed pose/fit views; equipment cues and item/provider
   contribution. Conventional Flying posture and S1 lap transition have passed.
-- Lead with Mechanisms: one bounded PAX late-join and remote occupied restraint
-  observation after its candidate03 snapshot-bound correction. Lead observer is
-  prepared only; no runtime is active on318. Mechanisms retains the server/world.
+- Lead with Mechanisms: [bounded PAX remote/late-join and occupied restraint
+  observation](evidence/fd917/lead/observer/README.md) passed on candidate03. Both
+  observer units are stopped, MainPID0. The later guide-wheel/input-shaft geometry
+  correction needs only the owner's updated station view. Mechanisms retains its
+  active server/world.
 - Lead: reconcile final source/export/evidence and exact selective integration,
   then verify each owner's saved-world/runtime cleanup. These are the existing
   FD917 criteria; no additional all-family or release qualification sweep.

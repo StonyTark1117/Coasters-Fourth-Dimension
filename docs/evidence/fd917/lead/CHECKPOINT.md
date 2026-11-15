@@ -200,3 +200,16 @@ Observer remote occupied restraint pass is recorded in observer/README.md and
 three PNGs. Its complete75-second video and exact server action result remain in
 the persistent observer root. PAX catch/late-join is the only remaining observer
 claim; the current runtime remains active/owned until that check and cleanup.
+
+
+## Observer completed and cleaned up
+
+Candidate03 remote occupied restraint interpolation, PAX far-spike lift/release
+and fresh-process retained-catch late-join passed cumulatively. Exact images,
+limits and cleanup are in observer/README.md. Lead Observer/client/Xvfb units are
+inactive MainPID0; no ffmpeg remains. The mechanism owner retains its server/world
+and Dev, unchanged by lead cleanup. Later guide-wheel spacing/input-shaft changes
+need only that owner's corrected station view; do not repeat protocol/lifecycle.
+Lead main current committed HEAD before this evidence update is `b048f719`.
+All prior original/baseline lead runtimes are also stopped. Source/resource work
+by Art and Mechanisms remains uncommitted and owned; pre-existing logs untouched.
