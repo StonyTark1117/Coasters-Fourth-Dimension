@@ -1,0 +1,159 @@
+> Task :createMinecraftArtifacts UP-TO-DATE
+> Task :compileJava
+> Task :processResources
+> Task :classes
+> Task :downloadAssets UP-TO-DATE
+> Task :writeGameTestServerLegacyClasspath UP-TO-DATE
+> Task :prepareGameTestServerRun
+
+> Task :runGameTestServer
+WARN StatusConsoleListener Advanced terminal features are not available in this environment
+[07:56:36] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forgeserverdev, --gameDir, ., --fml.fmlVersion, 4.0.45, --fml.mcVersion, 1.21.1, --fml.neoForgeVersion, 21.1.256, --fml.neoFormVersion, 20240808.144430]
+[07:56:36] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: JVM identified as Arch Linux OpenJDK 64-Bit Server VM 21.0.13.0.3+1
+[07:56:36] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: ModLauncher 11.0.5+main.901c6ea8 starting: java version 21.0.13.0.3 by Arch Linux; OS Linux arch amd64 version 7.2.14-zen1-1-zen
+[07:56:36] [main/INFO] [ne.ne.fm.lo.ImmediateWindowHandler/]: ImmediateWindowProvider not loading because launch target is forgeserverdev
+[07:56:36] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.7 Source=union:/home/braydon/.gradle/caches/modules-2/files-2.1/net.fabricmc/sponge-mixin/0.16.4+mixin.0.8.7/26d01f0567ab46e9ca0d2ed89d0ecc11aadbd433/sponge-mixin-0.16.4+mixin.0.8.7.jar%2394!/ Service=ModLauncher Env=SERVER
+[07:56:36] [main/WARN] [ne.ne.ja.se.JarSelector/]: Attempted to select a dependency jar for JarJar which was passed in as source: veil. Using Mod File: /home/braydon/.gradle/caches/modules-2/files-2.1/foundry.veil/veil-neoforge-1.21.1/4.3.2/3d4056e31dd8a06e35901c3b82210c3d471e1e48/veil-neoforge-1.21.1-4.3.2.jar
+[07:56:36] [main/WARN] [ne.ne.ja.se.JarSelector/]: Attempted to select a dependency jar for JarJar which was passed in as source: sablecompanion. Using Mod File: /home/braydon/.gradle/caches/modules-2/files-2.1/dev.ryanhcode.sable-companion/sable-companion-common-1.21.1/1.6.0/370be7db705926176e05c0215ed676150c45daae/sable-companion-common-1.21.1-1.6.0.jar
+[07:56:36] [main/WARN] [ne.ne.ja.se.JarSelector/]: Attempted to select a dependency jar for JarJar which was passed in as source: library:sable_rapier. Using Mod File: /home/braydon/.gradle/caches/modules-2/files-2.1/dev.ryanhcode.sable/sable-sable_rapier-1.21.1/2.0.6/d095eff41df82fbd8b321c2467b712ff35cb6bf1/sable-sable_rapier-1.21.1-2.0.6.jar
+[07:56:36] [main/INFO] [ne.ne.fm.lo.mo.lo.JarInJarDependencyLocator/]: Found 4 dependencies adding them to mods collection
+[07:56:36] [main/INFO] [ne.ne.fm.lo.mo.ModDiscoverer/]: 
+     Mod List:
+		Name Version (Mod Id)
+
+		Coasters: Fourth Dimension 0.9.0-dev.27 (fourthdimension)
+		Create 6.0.10 (create)
+		Create: Coaster Skins 1.1.0 (create_coaster_skins)
+		Create: Coasters Simulated 0.1.5 (simulatedcoasters)
+		Flywheel 1.0.6 (flywheel)
+		Minecraft 1.21.1 (minecraft)
+		NeoForge 21.1.256 (neoforge)
+		Ponder 1.0.82+mc1.21.1 (ponder)
+		Sable 2.0.6 (sable)
+		Sable Companion 1.6.0 (sablecompanion)
+		Veil 4.3.2 (veil)
+[07:56:36] [main/INFO] [mixin/]: Compatibility level set to JAVA_21
+[07:56:36] [main/INFO] [cp.mo.mo.LaunchServiceHandler/MODLAUNCHER]: Launching target 'forgeserverdev' with arguments [--gameDir, .]
+[07:56:36] [main/WARN] [mixin/]: Reference map 'ponder.refmap.json' for ponder-common.mixins.json could not be read. If this is a development environment you can ignore this message
+[07:56:36] [main/INFO] [de.ry.sa.mi.AbstractSableMixinPlugin/]: Using Vanilla renderer mixins
+[07:56:36] [main/INFO] [de.ry.sa.mi.AbstractSableMixinPlugin/]: Using Vanilla renderer mixins
+[07:56:36] [main/WARN] [mixin/]: Error loading class: dev/simulated_team/simulated/content/blocks/merging_glue/MergingGlueBlockEntity (java.lang.ClassNotFoundException: dev.simulated_team.simulated.content.blocks.merging_glue.MergingGlueBlockEntity)
+[07:56:36] [main/WARN] [mixin/]: @Mixin target dev.simulated_team.simulated.content.blocks.merging_glue.MergingGlueBlockEntity was not found simulatedcoasters.mixins.json:compat.MergingGlueBlockEntityRivetMixin from mod simulatedcoasters
+[07:56:36] [main/WARN] [mixin/]: Error loading class: dev/jwaterfall/coastersengineered/MotorDrive (java.lang.ClassNotFoundException: dev.jwaterfall.coastersengineered.MotorDrive)
+[07:56:36] [main/WARN] [mixin/]: Error loading class: dev/jwaterfall/coastersengineered/CartAssembly (java.lang.ClassNotFoundException: dev.jwaterfall.coastersengineered.CartAssembly)
+[07:56:36] [main/WARN] [mixin/]: Error loading class: dev/plushivr/coasterfins/block/StationBlockEntity (java.lang.ClassNotFoundException: dev.plushivr.coasterfins.block.StationBlockEntity)
+[07:56:36] [main/WARN] [mixin/]: Error loading class: dev/notzyvex/coasters_extras/track/TrackRepaint (java.lang.ClassNotFoundException: dev.notzyvex.coasters_extras.track.TrackRepaint)
+[07:56:36] [main/WARN] [mixin/]: Error loading class: dev/notzyvex/coasters_extras/net/ModNetwork (java.lang.ClassNotFoundException: dev.notzyvex.coasters_extras.net.ModNetwork)
+[07:56:37] [main/WARN] [mixin/]: Error loading class: org/jetbrains/annotations/ApiStatus$ScheduledForRemoval (java.lang.ClassNotFoundException: org.jetbrains.annotations.ApiStatus$ScheduledForRemoval)
+[07:56:37] [main/INFO] [MixinExtras|Service/]: Initializing MixinExtras via com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.5.5).
+[07:56:39] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, location] and [teleport, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+[07:56:39] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, location] and [teleport, targets] with inputs: [0.1 -0.5 .9, 0 0 0]
+[07:56:39] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, destination] and [teleport, targets] with inputs: [Player, 0123, @e, dd12be42-52a9-4a91-a8a1-11c01849e498]
+[07:56:40] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, targets] and [teleport, destination] with inputs: [Player, 0123, dd12be42-52a9-4a91-a8a1-11c01849e498]
+[07:56:40] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, targets, location] and [teleport, targets, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+[07:56:40] [modloading-worker-0/INFO] [Veil/]: Veil is initializing.
+[07:56:40] [modloading-worker-0/INFO] [ne.ne.ne.co.NeoForgeMod/NEOFORGE-MOD]: NeoForge mod loading, version 21.1.256, for MC 1.21.1
+[07:56:40] [modloading-worker-0/INFO] [co.si.cr.Create/]: Create 6.0.10 initializing! Commit hash: ac0c444d9828da3453ae8cc65338e8de063286fb
+[07:56:40] [modloading-worker-0/INFO] [de.ry.sa.Sable/]: Sable loaded!
+[07:56:40] [modloading-worker-0/INFO] [de.fo.FourthDimension/]: Coasters: Fourth Dimension loaded from union:/mnt/NVME4/fourthdimension-runs/fd09-baseline-20261115/build/classes/java/main/%23127!/
+[07:56:41] [main/INFO] [mojang/YggdrasilAuthenticationService]: Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, name=PROD]
+[07:56:41] [NeoForge Version Check/INFO] [ne.ne.fm.VersionChecker/]: [create] Starting version check at https://api.modrinth.com/updates/create/forge_updates.json?neoforge=only
+[07:56:41] [main/WARN] [minecraft/VanillaPackResourcesBuilder]: Assets URL 'union:/mnt/NVME4/fourthdimension-runs/fd09-baseline-20261115/build/moddev/artifacts/neoforge-21.1.256.jar%23125!/assets/.mcassetsroot' uses unexpected schema
+[07:56:41] [main/WARN] [minecraft/VanillaPackResourcesBuilder]: Assets URL 'union:/mnt/NVME4/fourthdimension-runs/fd09-baseline-20261115/build/moddev/artifacts/neoforge-21.1.256.jar%23125!/data/.mcassetsroot' uses unexpected schema
+[07:56:41] [main/INFO] [co.si.cr.Create/]: Created 157 recipes which will be injected into the game
+[07:56:41] [main/INFO] [co.si.cr.Create/]: Created 0 tags which will be injected into the game
+[07:56:41] [main/INFO] [ne.ne.ne.ga.GameTestHooks/]: Enabled Gametest Namespaces: [fourthdimension_fd501e_free]
+[07:56:42] [NeoForge Version Check/INFO] [ne.ne.fm.VersionChecker/]: [create] Found status: OUTDATED Current: 6.0.10 Target: 6.0.10+mc1.21.1
+[07:56:42] [main/INFO] [minecraft/RecipeManager]: Loaded 2867 recipes
+[07:56:42] [main/INFO] [minecraft/AdvancementTree]: Loaded 2523 advancements
+[07:56:42] [Server thread/INFO] [de.ry.sa.Sable/]: Creating physics pipeline for ResourceKey[minecraft:dimension / minecraft:overworld] using RapierPhysicsPipelineProvider
+[07:56:43] [Server thread/INFO] [de.ry.sa.Sable/]: Using game directory relative Sable Rapier native directory /mnt/NVME4/fourthdimension-runs/fd09-baseline-20261115/build/runs/gametest/.sable/natives
+[2026-11-15T14:56:43.093311840Z] [[32mINFO[0m] (sable_rapier) Rapier scene initialized
+[07:56:43] [Server thread/INFO] [de.ry.sa.Sable/]: Creating physics pipeline for ResourceKey[minecraft:dimension / minecraft:the_end] using RapierPhysicsPipelineProvider
+[2026-11-15T14:56:43.310983174Z] [[32mINFO[0m] (sable_rapier) Rapier scene initialized
+[07:56:43] [Server thread/INFO] [de.ry.sa.Sable/]: Creating physics pipeline for ResourceKey[minecraft:dimension / minecraft:the_nether] using RapierPhysicsPipelineProvider
+[2026-11-15T14:56:43.337427873Z] [[32mINFO[0m] (sable_rapier) Rapier scene initialized
+[07:56:43] [Server thread/INFO] [minecraft/MinecraftServer]: Preparing start region for dimension minecraft:overworld
+[07:56:43] [worldgen/INFO] [minecraft/LoggerChunkProgressListener]: Preparing spawn area: 2%
+[07:56:43] [Server thread/INFO] [minecraft/LoggerChunkProgressListener]: Time elapsed: 88 ms
+[07:56:43] [Server thread/INFO] [minecraft/GameTestServer]: Started game test server
+[07:56:43] [Server thread/INFO] [ne.ne.ne.se.pe.PermissionAPI/]: Successfully initialized permission handler neoforge:default_handler
+[07:56:43] [Server thread/INFO] [minecraft/GameTestServer]: 1 tests are now running at position 10354014, -59, 14823594!
+[07:56:43] [Server thread/INFO] [minecraft/GameTestRunner]: Running test batch 'defaultBatch:0' (1 tests)...
+[07:56:43] [Server thread/INFO] [minecraft/GameTestServer]: [ ]
+[07:56:43] [Server thread/INFO] [minecraft/GameTestServer]: [ ]
+[07:56:43] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD501E_FREE tick=29 stop=false fault= carriers=[angle=-1.8460948433430455,omega=3.045046336133453,capture=false, angle=-1.9185596263558373,omega=3.130815984069365,capture=false]
+[07:56:43] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD501E_FREE tick=30 stop=false fault= carriers=[angle=-1.6846949079107798,omega=3.372836672883917,capture=false, angle=-1.7523995713920593,omega=3.475572662901663,capture=false]
+FD501E_FREE tick=31 stop=false fault= carriers=[angle=-1.467605342492981,omega=4.431646055226638,capture=false, angle=-1.6007571142829633,omega=3.513611246800457,capture=false]
+FD501E_FREE tick=32 stop=false fault= carriers=[angle=-1.2512243116345787,omega=4.7065328493290055,capture=false, angle=-1.420189356420337,omega=2.844677007118177,capture=false]
+FD501E_FREE tick=33 stop=false fault= carriers=[angle=-1.029421581918717,omega=4.009381877268354,capture=false, angle=-1.2830226510374712,omega=2.7999486807194907,capture=false]
+FD501E_FREE tick=34 stop=false fault= carriers=[angle=-0.841341648689298,omega=3.5172235093893107,capture=false, angle=-1.1576110038104461,omega=2.1738158005668917,capture=false]
+FD501E_FREE tick=35 stop=false fault= carriers=[angle=-0.6807216702101354,omega=2.933327817514234,capture=false, angle=-1.0603680396191306,omega=1.730935344768136,capture=false]
+FD501E_FREE tick=36 stop=false fault= carriers=[angle=-0.5482870241676621,omega=2.3812159705591283,capture=false, angle=-0.9858800981604272,omega=1.2819397558780323,capture=false]
+FD501E_FREE tick=37 stop=false fault= carriers=[angle=-0.44201185280135663,omega=1.8857687776490217,capture=false, angle=-0.9323206088386362,omega=0.8675886939306181,capture=false]
+FD501E_FREE tick=38 stop=false fault= carriers=[angle=-0.3598617352124725,omega=1.4138242951844258,capture=false, angle=-0.8984993341332518,omega=0.5073298601840843,capture=false]
+FD501E_FREE tick=39 stop=false fault= carriers=[angle=-0.30076510667646333,omega=0.9656750872271594,capture=false, angle=-0.8817116065425062,omega=0.1750131613475394,capture=false]
+FD501E_FREE tick=40 stop=false fault= carriers=[angle=-0.2635473390403959,omega=0.536633803883092,capture=false, angle=-0.8811640592700384,omega=-0.13789840692118957,capture=false]
+FD501E_FREE tick=41 stop=false fault= carriers=[angle=-0.2474910473111808,omega=0.11989566800615092,capture=false, angle=-0.8955001376202131,omega=-0.4231400710943699,capture=false]
+FD501E_FREE tick=42 stop=false fault= carriers=[angle=-0.25200277300423035,omega=-0.2855464825542852,capture=false, angle=-0.9237976769551477,omega=-0.6963977419564041,capture=false]
+FD501E_FREE tick=43 stop=false fault= carriers=[angle=-0.27658055467370274,omega=-0.6828214791724029,capture=false, angle=-0.9654385518898393,omega=-0.9556245968395854,capture=false]
+FD501E_FREE tick=44 stop=false fault= carriers=[angle=-0.32086739176764983,omega=-1.0730130580294182,capture=false, angle=-1.019719696745771,omega=-1.2022495111273934,capture=false]
+FD501E_FREE tick=45 stop=false fault= carriers=[angle=-0.3845357668088284,omega=-1.4577025846726588,capture=false, angle=-1.0861313326726714,omega=-1.4397478740546852,capture=false]
+FD501E_FREE tick=46 stop=false fault= carriers=[angle=-0.46730856543352384,omega=-1.8354321717653024,capture=false, angle=-1.1641086312305047,omega=-1.66331255086556,capture=false]
+FD501E_FREE tick=47 stop=false fault= carriers=[angle=-0.5687481038036707,omega=-2.2031587782047586,capture=false, angle=-1.2527810830796409,omega=-1.866922182330388,capture=false]
+FD501E_FREE tick=48 stop=false fault= carriers=[angle=-0.6881167291287245,omega=-2.5492343185525064,capture=false, angle=-1.3508895653561779,omega=-2.0381745489059773,capture=false]
+FD501E_FREE tick=49 stop=false fault= carriers=[angle=-0.8238394336278189,omega=-2.853370918643011,capture=false, angle=-1.456273816054279,omega=-2.154515003295287,capture=false]
+[07:56:43] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD501E_FREE tick=50 stop=false fault= carriers=[angle=-0.9729042834428325,omega=-3.077721849636617,capture=false, angle=-1.5654425975354453,omega=-2.1864945231498765,capture=false]
+FD501E_FREE tick=51 stop=false fault= carriers=[angle=-1.1302525384551245,omega=-3.1815762842508746,capture=false, angle=-1.6733697015564841,omega=-2.105815054408081,capture=false]
+FD501E_FREE tick=52 stop=false fault= carriers=[angle=-1.2890366319252566,omega=-3.138722003708642,capture=false, angle=-1.7739514910432304,omega=-1.8973768930178396,capture=false]
+FD501E_FREE tick=53 stop=false fault= carriers=[angle=-1.4419930905454028,omega=-2.958260471306337,capture=false, angle=-1.8612774067450109,omega=-1.5853644998460164,capture=false]
+FD501E_FREE tick=54 stop=false fault= carriers=[angle=-1.5830965675807338,omega=-2.6750125426733984,capture=false, angle=-1.9310151402451154,omega=-1.2055416078861414,capture=false]
+FD501E_FREE tick=55 stop=false fault= carriers=[angle=-1.7082779667086017,omega=-2.3310943145797447,capture=false, angle=-1.9809433799944216,omega=-0.8004794891494114,capture=false]
+[07:56:44] [Server thread/ERROR] [minecraft/LogTestReporter]: freejointloadingandsave failed at 10354014, -60, 14823594! Free carrier did not move
+[07:56:44] [Server thread/INFO] [minecraft/GameTestServer]: [X]
+[07:56:44] [Server thread/INFO] [minecraft/GameTestServer]: ========= 1 GAME TESTS COMPLETE IN 488.5 ms ======================
+[07:56:44] [Server thread/INFO] [minecraft/GameTestServer]: 1 required tests failed :(
+[07:56:44] [Server thread/INFO] [minecraft/GameTestServer]:    - freejointloadingandsave
+[07:56:44] [Server thread/INFO] [minecraft/GameTestServer]: ====================================================
+[07:56:44] [Server thread/INFO] [minecraft/MinecraftServer]: Stopping server
+[07:56:44] [Server thread/INFO] [minecraft/MinecraftServer]: Saving players
+[07:56:44] [Server thread/INFO] [minecraft/MinecraftServer]: Saving worlds
+[07:56:44] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[Test Level]'/minecraft:overworld
+[07:56:44] [Server thread/INFO] [de.ry.sa.Sable/]: Saving sub-levels for level 'ServerLevel[Test Level]'/minecraft:overworld
+[07:56:45] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[Test Level]'/minecraft:the_end
+[07:56:45] [Server thread/INFO] [de.ry.sa.Sable/]: Saving sub-levels for level 'ServerLevel[Test Level]'/minecraft:the_end
+[07:56:45] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[Test Level]'/minecraft:the_nether
+[07:56:45] [Server thread/INFO] [de.ry.sa.Sable/]: Saving sub-levels for level 'ServerLevel[Test Level]'/minecraft:the_nether
+[07:56:45] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (world): All chunks are saved
+[07:56:45] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (DIM1): All chunks are saved
+[07:56:45] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
+[07:56:45] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage: All dimensions are saved
+[07:56:45] [Server thread/INFO] [minecraft/GameTestServer]: Game test server shutting down
+
+> Task :runGameTestServer FAILED
+
+[Incubating] Problems report is available at: file:///mnt/NVME4/fourthdimension-runs/fd09-baseline-20261115/build/reports/problems/problems-report.html
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':runGameTestServer'.
+> Process 'command '/usr/lib/jvm/java-21-openjdk/bin/java'' finished with non-zero exit value 1
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to generate a Build Scan (powered by Develocity).
+> Get more help at https://help.gradle.org.
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 10.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD FAILED in 11s
+7 actionable tasks: 4 executed, 3 up-to-date

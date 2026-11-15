@@ -1,0 +1,66 @@
+
+> Task :createMinecraftArtifacts
+Loaded 131 artifacts from /mnt/NVME4/fourthdimension-runs/fd09-baseline-20261115/build/tmp/createMinecraftArtifacts/nfrt_artifact_manifest.properties
+*** Started working on downloadJson
+ ✓ Completed downloadJson in 0.01s
+*** Started working on downloadServer
+*** Started working on downloadClientMappings
+*** Started working on downloadClient
+ ✓ Completed downloadServer in 0.01s
+ ✓ Completed downloadClientMappings in 0.01s
+ ✓ Completed downloadClient in 0.01s
+*** Started working on stripClient
+ ♻ Used cache of stripClient in 0.00s
+*** Started working on mergeMappings
+ ♻ Used cache of mergeMappings in 0.00s
+*** Started working on extractServer
+ ♻ Used cache of extractServer in 0.00s
+*** Started working on stripServer
+ ♻ Used cache of stripServer in 0.00s
+*** Started working on merge
+ ♻ Used cache of merge in 0.00s
+*** Started working on rename
+ ♻ Used cache of rename in 0.00s
+*** Started working on decompile
+ ♻ Used cache of decompile in 0.00s
+*** Started working on inject
+ ♻ Used cache of inject in 0.00s
+*** Started working on patch
+ ♻ Used cache of patch in 0.00s
+*** Started working on applyNeoforgePatches
+ ↳ Running external tool io.codechicken:DiffPatch:2.0.0.36:all
+ ✓ Completed applyNeoforgePatches in 1.07s
+*** Started working on transformSources
+ ↳ Running external tool net.neoforged.jst:jst-cli-bundle:2.0.11
+ ✓ Completed transformSources in 2.39s
+*** Started working on recompile
+ 96 items on the compile classpath
+ 0 items on the sourcepath
+*** Started working on sourcesWithNeoForge
+ Compiling 5364 source files
+ ✓ Completed sourcesWithNeoForge in 1.49s
+Copied 0 resource files
+ ✓ Completed recompile in 13.90s
+*** Started working on compiledWithNeoForge
+ ✓ Completed compiledWithNeoForge in 2.18s
+*** Started working on sourcesAndCompiledWithNeoForge
+ ✓ Completed sourcesAndCompiledWithNeoForge in 1.39s
+Total runtime: 21.42s
+
+
+> Task :compileJava
+/home/braydon/Documents/Coasters: Fourth Dimension/src/main/java/dev/fourthdimension/client/RiderComfort.java:28: warning: [removal] bus() in EventBusSubscriber has been deprecated and marked for removal
+      bus = EventBusSubscriber.Bus.MOD)
+      ^
+/home/braydon/Documents/Coasters: Fourth Dimension/src/main/java/dev/fourthdimension/client/RiderComfort.java:28: warning: [removal] Bus in EventBusSubscriber has been deprecated and marked for removal
+      bus = EventBusSubscriber.Bus.MOD)
+                              ^
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+2 warnings
+
+[Incubating] Problems report is available at: file:///mnt/NVME4/fourthdimension-runs/fd09-baseline-20261115/build/reports/problems/problems-report.html
+
+BUILD SUCCESSFUL in 43s
+2 actionable tasks: 2 executed
+Consider enabling configuration cache to speed up this build: https://docs.gradle.org/9.2.1/userguide/configuration_cache_enabling.html
