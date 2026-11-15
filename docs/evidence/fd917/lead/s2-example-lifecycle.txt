@@ -1,0 +1,9 @@
+Selected lines from immutable run log: /mnt/NVME4/fourthdimension-runs/fd917-lead-20261115/s2-example-lifecycle.log
+
+FD917_EXAMPLE_BIND PASS recreatedGovernor=true powerGuardRetained=true boundedRetry=true
+[12:40:44] [Server thread/INFO] [minecraft/GameTestServer]: All 1 required tests passed :)
+[12:40:44] [Server thread/INFO] [minecraft/MinecraftServer]: Saving players
+[12:40:44] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[Test Level]'/minecraft:overworld
+[12:40:47] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[Test Level]'/minecraft:the_nether
+[12:40:47] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[Test Level]'/minecraft:the_end
+BUILD SUCCESSFUL in 19s

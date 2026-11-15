@@ -44,26 +44,43 @@ public final class S2SpinningExamples {
     var demo=Commands.literal("demo");
     for(int n:new int[]{0,1,4})demo.then(Commands.literal(n==0?"s2_spinning_track":n==1?"s2_spinning":"s2_spinning_train").executes(ctx->{
       try {var l=ctx.getSource().getLevel();var e=create(l,BlockPos.containing(ctx.getSource().getPosition()).offset(0,8,12),n);
-        if(n>0)PENDING.computeIfAbsent(l,k->new ArrayList<>()).add(new Pending(e,l.getGameTime()+400));
+        if(n>0)scheduleBind(l,e);
         ctx.getSource().sendSuccess(()->Component.literal("S2 kinetic launch and unpowered downhill roll built. Wait for captured couplers, board, close restraints, Dispatch. Capture on return to the level dock, wait for alignment, then open restraints. Sneak-use the governor to bind a different empty train."),false);return 1;
       }catch(IllegalArgumentException ex){ctx.getSource().sendFailure(Component.literal(ex.getMessage()));return 0;}
     }));
     event.getDispatcher().register(Commands.literal("fd").requires(s->s.hasPermission(2)).then(demo));
   }
+  public static void scheduleBind(ServerLevel level,Example example){
+    PENDING.computeIfAbsent(level,k->new ArrayList<>()).add(new Pending(example,level.getGameTime()+400));
+  }
   @SubscribeEvent public static void tick(LevelTickEvent.Post event){
     if(!(event.getLevel() instanceof ServerLevel l))return;var pending=PENDING.get(l);if(pending==null)return;
     for(var it=pending.iterator();it.hasNext();){var p=it.next();
       if(l.getGameTime()>p.deadline){it.remove();continue;}
-      if(p.example.cars.stream().allMatch(v->v.boardingReady&&Boarding.ready(l,v))){it.remove();bind(l,p.example);}
+      if(p.example.cars.stream().allMatch(v->v.boardingReady&&Boarding.ready(l,v))){
+        try {bind(l,p.example);it.remove();}
+        catch(IllegalArgumentException notReady){
+          // A chunk/controller or kinetic network may change while the native dock settles.
+          // Keep the existing guards and bounded deadline; a setup retry must not crash ticks.
+        }
+      }
     }
+    if(pending.isEmpty())PENDING.remove(l);
   }
   public static void bind(ServerLevel l,Example e){
+    var pos=e.governor.getBlockPos();
+    if(!l.hasChunkAt(pos)||!(l.getBlockEntity(pos) instanceof S2SpinningGovernorEntity governor))
+      throw new IllegalArgumentException("Load the example governor before binding");
     var container=SubLevelContainer.getContainer(l);
-    for(int i=0;i<e.cars.size()-1;i++)if(!CoasterCartTrainLinkConstraint.linkCarts(l,
+    for(int i=0;i<e.cars.size()-1;i++){
+      var next=e.cars.get(i+1).chassis;
+      if(VehicleOperations.consist(l,e.cars.get(i)).stream().anyMatch(v->v.chassis.equals(next)))continue;
+      if(!CoasterCartTrainLinkConstraint.linkCarts(l,
         (ServerSubLevel)container.getSubLevel(e.cars.get(i).chassis),
         (ServerSubLevel)container.getSubLevel(e.cars.get(i+1).chassis),8))
       throw new IllegalArgumentException("Wait for each empty stopped dock latch before coupling");
-    S2SpinningRuntime.rebindDock(l,e.cars.getFirst(),e.station);e.governor.bind(e.cars.getFirst());
+    }
+    S2SpinningRuntime.rebindDock(l,e.cars.getFirst(),e.station);governor.bind(e.cars.getFirst());
     FoundationData.get(l).setDirty();FoundationSync.broadcast(l);
   }
   public static Example create(ServerLevel l,BlockPos origin,int count){
