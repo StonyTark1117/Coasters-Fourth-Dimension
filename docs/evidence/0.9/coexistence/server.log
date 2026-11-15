@@ -1,0 +1,335 @@
+Picked up JAVA_TOOL_OPTIONS: -Xmx2048M
+WARN StatusConsoleListener Advanced terminal features are not available in this environment
+[08:19:14] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forgeserverdev, --gameDir, ., --fml.fmlVersion, 4.0.45, --fml.mcVersion, 1.21.1, --fml.neoForgeVersion, 21.1.256, --fml.neoFormVersion, 20240808.144430, --nogui]
+[08:19:14] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: JVM identified as Arch Linux OpenJDK 64-Bit Server VM 21.0.13.0.3+1
+[08:19:14] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: ModLauncher 11.0.5+main.901c6ea8 starting: java version 21.0.13.0.3 by Arch Linux; OS Linux arch amd64 version 7.2.14-zen1-1-zen
+[08:19:14] [main/INFO] [ne.ne.fm.lo.ImmediateWindowHandler/]: ImmediateWindowProvider not loading because launch target is forgeserverdev
+[08:19:14] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.7 Source=union:/home/braydon/.gradle/caches/modules-2/files-2.1/net.fabricmc/sponge-mixin/0.16.4+mixin.0.8.7/26d01f0567ab46e9ca0d2ed89d0ecc11aadbd433/sponge-mixin-0.16.4+mixin.0.8.7.jar%2394!/ Service=ModLauncher Env=SERVER
+[08:19:14] [main/WARN] [ne.ne.ja.se.JarSelector/]: Attempted to select a dependency jar for JarJar which was passed in as source: veil. Using Mod File: /home/braydon/.gradle/caches/modules-2/files-2.1/foundry.veil/veil-neoforge-1.21.1/4.3.2/3d4056e31dd8a06e35901c3b82210c3d471e1e48/veil-neoforge-1.21.1-4.3.2.jar
+[08:19:14] [main/WARN] [ne.ne.ja.se.JarSelector/]: Attempted to select a dependency jar for JarJar which was passed in as source: library:sable_rapier. Using Mod File: /home/braydon/.gradle/caches/modules-2/files-2.1/dev.ryanhcode.sable/sable-sable_rapier-1.21.1/2.0.6/d095eff41df82fbd8b321c2467b712ff35cb6bf1/sable-sable_rapier-1.21.1-2.0.6.jar
+[08:19:14] [main/WARN] [ne.ne.ja.se.JarSelector/]: Attempted to select a dependency jar for JarJar which was passed in as source: sablecompanion. Using Mod File: /home/braydon/.gradle/caches/modules-2/files-2.1/dev.ryanhcode.sable-companion/sable-companion-common-1.21.1/1.6.0/370be7db705926176e05c0215ed676150c45daae/sable-companion-common-1.21.1-1.6.0.jar
+[08:19:14] [main/INFO] [ne.ne.fm.lo.mo.lo.JarInJarDependencyLocator/]: Found 15 dependencies adding them to mods collection
+[08:19:14] [main/INFO] [ne.ne.fm.lo.mo.ModDiscoverer/]: 
+     Mod List:
+		Name Version (Mod Id)
+
+		Coasters Simulated: Track Styles 1.2.0 (coasterssimulatedextratypes)
+		Coasters: Engineered 1.1.1 (coastersengineered)
+		Coasters: Fourth Dimension 0.9.0-dev.27 (fourthdimension)
+		Coasters: Magnetized 1.1.0 (coastersmagnetized)
+		Create 6.0.10 (create)
+		Create Aeronautics 1.3.2 (aeronautics)
+		Create Aeronautics 1.3.2 (aeronautics_bundled)
+		Create Coasters 2.0 (createcoasters)
+		Create Offroad 1.3.2 (offroad)
+		Create Simulated 1.3.2 (simulated)
+		Create Waterparked 0.2.8-beta-hotfix1 (create_waterparked)
+		Create: Coaster Skins 1.1.0 (create_coaster_skins)
+		Create: Coasters Extras 1.2 (coasters_extras)
+		Create: Coasters Simulated 0.1.5 (simulatedcoasters)
+		Create: Coasters Simulated Additions 0.2.2 (coasterfins)
+		Create: Interiors 0.6.1 (interiors)
+		Flywheel 1.0.6 (flywheel)
+		Kotlin For Forge 5.10.0 (kotlinforforge)
+		Minecraft 1.21.1 (minecraft)
+		NeoForge 21.1.256 (neoforge)
+		Ponder 1.0.82+mc1.21.1 (ponder)
+		Sable 2.0.6 (sable)
+		Sable Companion 1.6.0 (sablecompanion)
+		Veil 4.3.2 (veil)
+[08:19:15] [main/INFO] [mixin/]: Compatibility level set to JAVA_21
+[08:19:15] [main/INFO] [cp.mo.mo.LaunchServiceHandler/MODLAUNCHER]: Launching target 'forgeserverdev' with arguments [--gameDir, ., --nogui]
+[08:19:15] [main/WARN] [mixin/]: Reference map 'aeronautics.refmap.json' for aeronautics.mixins.json could not be read. If this is a development environment you can ignore this message
+[08:19:15] [main/WARN] [mixin/]: Reference map 'ponder.refmap.json' for ponder-common.mixins.json could not be read. If this is a development environment you can ignore this message
+[08:19:15] [main/INFO] [de.ry.sa.mi.AbstractSableMixinPlugin/]: Using Vanilla renderer mixins
+[08:19:15] [main/INFO] [de.ry.sa.mi.AbstractSableMixinPlugin/]: Using Vanilla renderer mixins
+[08:19:15] [main/WARN] [mixin/]: Reference map 'simulated.refmap.json' for simulated.mixins.json could not be read. If this is a development environment you can ignore this message
+[08:19:15] [main/WARN] [mixin/]: Reference map 'offroad.refmap.json' for offroad.mixins.json could not be read. If this is a development environment you can ignore this message
+[08:19:15] [main/WARN] [mixin/]: Error loading class: org/jetbrains/annotations/ApiStatus$ScheduledForRemoval (java.lang.ClassNotFoundException: org.jetbrains.annotations.ApiStatus$ScheduledForRemoval)
+[08:19:15] [main/INFO] [MixinExtras|Service/]: Initializing MixinExtras via com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.5.5).
+[08:19:18] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, location] and [teleport, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+[08:19:18] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, location] and [teleport, targets] with inputs: [0.1 -0.5 .9, 0 0 0]
+[08:19:18] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, destination] and [teleport, targets] with inputs: [Player, 0123, @e, dd12be42-52a9-4a91-a8a1-11c01849e498]
+[08:19:18] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, targets] and [teleport, destination] with inputs: [Player, 0123, dd12be42-52a9-4a91-a8a1-11c01849e498]
+[08:19:18] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, targets, location] and [teleport, targets, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+[08:19:18] [modloading-worker-0/INFO] [Veil/]: Veil is initializing.
+[08:19:18] [modloading-worker-0/INFO] [ne.ne.ne.co.NeoForgeMod/NEOFORGE-MOD]: NeoForge mod loading, version 21.1.256, for MC 1.21.1
+[08:19:18] [modloading-worker-0/INFO] [co.si.cr.Create/]: Create 6.0.10 initializing! Commit hash: ac0c444d9828da3453ae8cc65338e8de063286fb
+Fourth Dimension fenced optional ctnb force callback in dev.silvergold.simulatedcoasters.track.cart.CoasterCartTrackSnap
+[08:19:19] [modloading-worker-0/INFO] [th.ko.ne.te.KotlinForForge/]: Kotlin For Forge Enabled!
+[08:19:19] [modloading-worker-0/WARN] [create_waterparked/]: [create_waterparked] a config spec is not loaded (corrupt or unreadable create_waterparked config file?); using built-in defaults
+[08:19:19] [modloading-worker-0/INFO] [Create: Interiors/]: Create: Interiors v0.6.1 initializing! Create version: 6.0.10 on platform: NeoForge
+[08:19:19] [modloading-worker-0/INFO] [de.jw.co.CoastersEngineered/]: Coasters: Engineered loaded
+[08:19:19] [modloading-worker-0/INFO] [de.ry.sa.Sable/]: Sable loaded!
+[08:19:19] [modloading-worker-0/INFO] [de.fo.FourthDimension/]: Coasters: Fourth Dimension loaded from union:/mnt/NVME4/fourthdimension-runs/fd09-coexistence-20261115/build/libs/coasters-fourth-dimension-0.9.0-dev.27.jar%23127!/
+[08:19:21] [modloading-worker-0/INFO] [create_waterparked/]: Create Waterparked loaded.
+[08:19:21] [modloading-worker-0/INFO] [to.cl.co.CoastersSimulatedExtraTypes/]: HELLO FROM COMMON SETUP
+[08:19:21] [modloading-worker-0/INFO] [to.cl.co.CoastersSimulatedExtraTypes/]: DIRT BLOCK >> minecraft:dirt
+[08:19:21] [modloading-worker-0/INFO] [to.cl.co.CoastersSimulatedExtraTypes/]: The magic number is... 42
+[08:19:21] [modloading-worker-0/INFO] [to.cl.co.CoastersSimulatedExtraTypes/]: ITEM >> minecraft:iron_ingot
+[08:19:21] [modloading-sync-worker/INFO] [Create: Coasters Extras/]: Registered 16 balloons with the Simulated Coasters balloon block entity.
+[08:19:21] [modloading-sync-worker/INFO] [Create: Coasters Extras/]: [display] attached 5 readouts to sensor
+[08:19:21] [modloading-sync-worker/INFO] [Create: Coasters Extras/]: [display] attached 5 readouts to anchorpoint (simulatedcoasters:coaster_anchorpoint)
+[08:19:21] [modloading-worker-0/INFO] [create_waterparked/]: Server starting...
+[08:19:21] [NeoForge Version Check/INFO] [ne.ne.fm.VersionChecker/]: [create] Starting version check at https://api.modrinth.com/updates/create/forge_updates.json?neoforge=only
+[08:19:21] [main/INFO] [mojang/YggdrasilAuthenticationService]: Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, name=PROD]
+[08:19:21] [main/WARN] [minecraft/VanillaPackResourcesBuilder]: Assets URL 'union:/mnt/NVME4/fourthdimension-runs/fd09-coexistence-20261115/build/moddev/artifacts/neoforge-21.1.256.jar%23124!/assets/.mcassetsroot' uses unexpected schema
+[08:19:21] [main/WARN] [minecraft/VanillaPackResourcesBuilder]: Assets URL 'union:/mnt/NVME4/fourthdimension-runs/fd09-coexistence-20261115/build/moddev/artifacts/neoforge-21.1.256.jar%23124!/data/.mcassetsroot' uses unexpected schema
+[08:19:21] [main/INFO] [co.si.cr.Create/]: Created 157 recipes which will be injected into the game
+[08:19:21] [main/INFO] [co.si.cr.Create/]: Created 0 tags which will be injected into the game
+[08:19:22] [NeoForge Version Check/INFO] [ne.ne.fm.VersionChecker/]: [create] Found status: OUTDATED Current: 6.0.10 Target: 6.0.10+mc1.21.1
+[08:19:22] [main/INFO] [minecraft/RecipeManager]: Loaded 3281 recipes
+[08:19:22] [main/INFO] [minecraft/AdvancementTree]: Loaded 2797 advancements
+[08:19:23] [Server thread/INFO] [minecraft/DedicatedServer]: Starting minecraft server version 1.21.1
+[08:19:23] [Server thread/INFO] [minecraft/DedicatedServer]: Loading properties
+[08:19:23] [Server thread/INFO] [minecraft/DedicatedServer]: Default game type: CREATIVE
+[08:19:23] [Server thread/INFO] [minecraft/MinecraftServer]: Generating keypair
+[08:19:23] [Server thread/INFO] [minecraft/DedicatedServer]: Starting Minecraft server on 127.0.0.1:25650
+[08:19:23] [Server thread/INFO] [de.ry.sa.Sable/]: Adding UDP server channel future
+[08:19:23] [Netty Epoll Server IO #0/WARN] [io.ne.ch.AbstractChannel/]: A non-root user can't receive a broadcast packet if the socket is not bound to a wildcard address; binding to a non-wildcard address (/127.0.0.1:25650) anyway as requested.
+[08:19:23] [Netty Epoll Server IO #0/INFO] [de.ry.sa.Sable/]: Server UDP channel active
+[08:19:23] [Server thread/INFO] [minecraft/ServerConnectionListener]: Using epoll channel type
+[08:19:23] [Server thread/WARN] [minecraft/DedicatedServer]: **** SERVER IS RUNNING IN OFFLINE/INSECURE MODE!
+[08:19:23] [Server thread/WARN] [minecraft/DedicatedServer]: The server will make no attempt to authenticate usernames. Beware.
+[08:19:23] [Server thread/WARN] [minecraft/DedicatedServer]: While this makes the game possible to play without internet access, it also opens up the ability for hackers to connect with any username they choose.
+[08:19:23] [Server thread/WARN] [minecraft/DedicatedServer]: To change this, set "online-mode" to "true" in the server.properties file.
+[08:19:23] [Server thread/INFO] [create_waterparked/]: [Waterparked] Sub-level slide riding is DISABLED: dedicated servers default to off for performance. Set slide.subLevelSlideRiding = true in create_waterparked-server.toml to enable it.
+[08:19:23] [Server thread/INFO] [minecraft/DedicatedServer]: Preparing level "Coexistence"
+[08:19:23] [Server thread/INFO] [de.ry.sa.Sable/]: Creating physics pipeline for ResourceKey[minecraft:dimension / minecraft:overworld] using RapierPhysicsPipelineProvider
+[08:19:23] [Server thread/INFO] [de.ry.sa.Sable/]: Using game directory relative Sable Rapier native directory /mnt/NVME4/fourthdimension-runs/fd09-coexistence-20261115/server/.sable/natives
+[2026-11-15T15:19:23.869380137Z] [[32mINFO[0m] (sable_rapier) Rapier scene initialized
+[08:19:24] [Server thread/INFO] [de.ry.sa.Sable/]: Creating physics pipeline for ResourceKey[minecraft:dimension / minecraft:the_end] using RapierPhysicsPipelineProvider
+[2026-11-15T15:19:24.001585972Z] [[32mINFO[0m] (sable_rapier) Rapier scene initialized
+[08:19:24] [Server thread/INFO] [de.ry.sa.Sable/]: Creating physics pipeline for ResourceKey[minecraft:dimension / minecraft:the_nether] using RapierPhysicsPipelineProvider
+[2026-11-15T15:19:24.026990472Z] [[32mINFO[0m] (sable_rapier) Rapier scene initialized
+[08:19:24] [Server thread/INFO] [minecraft/MinecraftServer]: Preparing start region for dimension minecraft:overworld
+[08:19:24] [worldgen/INFO] [minecraft/LoggerChunkProgressListener]: Preparing spawn area: 0%
+[08:19:24] [Server thread/INFO] [minecraft/LoggerChunkProgressListener]: Time elapsed: 183 ms
+[08:19:24] [Server thread/INFO] [minecraft/DedicatedServer]: Done (0.497s)! For help, type "help"
+[08:19:24] [Server thread/INFO] [minecraft/DedicatedServer]: Starting remote control listener
+[08:19:24] [Server thread/INFO] [minecraft/GenericThread]: Thread RCON Listener started
+[08:19:24] [Server thread/INFO] [minecraft/RconThread]: RCON running on 127.0.0.1:25651
+[08:19:24] [LanServerPinger #1/WARN] [minecraft/LanServerPinger]: LanServerPinger: Network is unreachable
+[08:19:24] [Server thread/INFO] [ne.ne.ne.ga.GameTestHooks/]: Enabled Gametest Namespaces: []
+[08:19:24] [Server thread/INFO] [ne.ne.ne.se.pe.PermissionAPI/]: Successfully initialized permission handler neoforge:default_handler
+Fourth Dimension fenced optional fenceMagnetized force callback in dev.silvergold.simulatedcoasters.track.cart.CoasterCartChainLiftDrive
+[08:19:35] [Server thread/INFO] [minecraft/PlayerList]: Dev[/127.0.0.1:45386] logged in with entity id 2 at (6.5, -60.0, -0.5)
+[08:19:35] [Server thread/INFO] [de.ry.sa.Sable/]: Beginning attempted authentication with player Dev
+[08:19:35] [Server thread/INFO] [minecraft/MinecraftServer]: Dev joined the game
+[08:19:35] [Netty Epoll Server IO #0/INFO] [de.ry.sa.Sable/]: UDP authentication complete with /127.0.0.1:45386, UDP routing to /127.0.0.1:56147
+[08:19:50] [RCON Listener #1/INFO] [minecraft/GenericThread]: Thread RCON Client /127.0.0.1 started
+[08:19:50] [RCON Client /127.0.0.1 #2/INFO] [minecraft/RconClient]: Thread RCON Client /127.0.0.1 shutting down
+[08:19:50] [RCON Listener #1/INFO] [minecraft/GenericThread]: Thread RCON Client /127.0.0.1 started
+[08:19:50] [Server thread/INFO] [minecraft/MinecraftServer]: [Rcon: Teleported Dev to -19.500000, 100.000000, 42.500000]
+[08:19:50] [RCON Client /127.0.0.1 #3/INFO] [minecraft/RconClient]: Thread RCON Client /127.0.0.1 shutting down
+[08:19:58] [RCON Listener #1/INFO] [minecraft/GenericThread]: Thread RCON Client /127.0.0.1 started
+[08:19:58] [RCON Client /127.0.0.1 #4/INFO] [minecraft/RconClient]: Thread RCON Client /127.0.0.1 shutting down
+[08:20:22] [RCON Listener #1/INFO] [minecraft/GenericThread]: Thread RCON Client /127.0.0.1 started
+[08:20:22] [RCON Client /127.0.0.1 #5/INFO] [minecraft/RconClient]: Thread RCON Client /127.0.0.1 shutting down
+[08:20:22] [RCON Listener #1/INFO] [minecraft/GenericThread]: Thread RCON Client /127.0.0.1 started
+[08:20:22] [RCON Client /127.0.0.1 #6/INFO] [minecraft/RconClient]: Thread RCON Client /127.0.0.1 shutting down
+[08:20:22] [RCON Listener #1/INFO] [minecraft/GenericThread]: Thread RCON Client /127.0.0.1 started
+[08:20:22] [RCON Client /127.0.0.1 #7/INFO] [minecraft/RconClient]: Thread RCON Client /127.0.0.1 shutting down
+[08:20:33] [RCON Listener #1/INFO] [minecraft/GenericThread]: Thread RCON Client /127.0.0.1 started
+[08:20:33] [Server thread/INFO] [minecraft/MinecraftServer]: [Rcon: Teleported Dev to -18.500000, 100.000000, 42.500000]
+[08:20:33] [RCON Client /127.0.0.1 #8/INFO] [minecraft/RconClient]: Thread RCON Client /127.0.0.1 shutting down
+[08:20:33] [Server thread/WARN] [minecraft/ServerGamePacketListenerImpl]: Dev moved too quickly! 1.0,160.0,0.0
+[08:20:33] [Server thread/WARN] [minecraft/ServerGamePacketListenerImpl]: Dev moved too quickly! 1.0,160.0,0.0
+[08:20:33] [Server thread/WARN] [minecraft/ServerGamePacketListenerImpl]: Dev moved too quickly! 1.0,160.0,0.0
+[08:20:33] [Server thread/WARN] [minecraft/ServerGamePacketListenerImpl]: Dev moved too quickly! 1.0,160.0,0.0
+[08:20:33] [RCON Listener #1/INFO] [minecraft/GenericThread]: Thread RCON Client /127.0.0.1 started
+[08:20:33] [Server thread/INFO] [minecraft/MinecraftServer]: [Rcon: Changed the block at -19, 100, 45]
+[08:20:33] [RCON Client /127.0.0.1 #9/INFO] [minecraft/RconClient]: Thread RCON Client /127.0.0.1 shutting down
+[08:20:33] [RCON Listener #1/INFO] [minecraft/GenericThread]: Thread RCON Client /127.0.0.1 started
+[08:20:33] [Server thread/INFO] [minecraft/MinecraftServer]: [Rcon: Teleported Dev to -18.500000, 100.000000, 42.500000]
+[08:20:33] [RCON Client /127.0.0.1 #10/INFO] [minecraft/RconClient]: Thread RCON Client /127.0.0.1 shutting down
+[08:20:33] [RCON Listener #1/INFO] [minecraft/GenericThread]: Thread RCON Client /127.0.0.1 started
+[08:20:33] [RCON Client /127.0.0.1 #11/INFO] [minecraft/RconClient]: Thread RCON Client /127.0.0.1 shutting down
+[08:20:41] [RCON Listener #1/INFO] [minecraft/GenericThread]: Thread RCON Client /127.0.0.1 started
+[08:20:41] [RCON Client /127.0.0.1 #12/INFO] [minecraft/RconClient]: Thread RCON Client /127.0.0.1 shutting down
+[08:20:49] [RCON Listener #1/INFO] [minecraft/GenericThread]: Thread RCON Client /127.0.0.1 started
+[08:20:49] [RCON Client /127.0.0.1 #13/INFO] [minecraft/RconClient]: Thread RCON Client /127.0.0.1 shutting down
+[08:20:49] [RCON Listener #1/INFO] [minecraft/GenericThread]: Thread RCON Client /127.0.0.1 started
+[08:20:49] [Server thread/INFO] [minecraft/MinecraftServer]: [Rcon: Teleported Dev to -18.500000, 100.000000, 40.500000]
+[08:20:49] [RCON Client /127.0.0.1 #14/INFO] [minecraft/RconClient]: Thread RCON Client /127.0.0.1 shutting down
+[08:20:59] [RCON Listener #1/INFO] [minecraft/GenericThread]: Thread RCON Client /127.0.0.1 started
+[08:20:59] [Server thread/INFO] [minecraft/MinecraftServer]: [Rcon: Teleported Dev to -17.500000, 100.000000, 40.500000]
+[08:20:59] [RCON Client /127.0.0.1 #15/INFO] [minecraft/RconClient]: Thread RCON Client /127.0.0.1 shutting down
+[08:20:59] [RCON Listener #1/INFO] [minecraft/GenericThread]: Thread RCON Client /127.0.0.1 started
+[08:20:59] [Server thread/INFO] [minecraft/MinecraftServer]: [Not Secure] [Rcon] Utility lever present
+[08:20:59] [RCON Client /127.0.0.1 #16/INFO] [minecraft/RconClient]: Thread RCON Client /127.0.0.1 shutting down
+[08:21:09] [RCON Listener #1/INFO] [minecraft/GenericThread]: Thread RCON Client /127.0.0.1 started
+[08:21:09] [RCON Client /127.0.0.1 #17/INFO] [minecraft/RconClient]: Thread RCON Client /127.0.0.1 shutting down
+[08:21:09] [RCON Listener #1/INFO] [minecraft/GenericThread]: Thread RCON Client /127.0.0.1 started
+[08:21:09] [RCON Client /127.0.0.1 #18/INFO] [minecraft/RconClient]: Thread RCON Client /127.0.0.1 shutting down
+[08:21:20] [RCON Listener #1/INFO] [minecraft/GenericThread]: Thread RCON Client /127.0.0.1 started
+[08:21:20] [RCON Client /127.0.0.1 #19/INFO] [minecraft/RconClient]: Thread RCON Client /127.0.0.1 shutting down
+[08:21:20] [RCON Listener #1/INFO] [minecraft/GenericThread]: Thread RCON Client /127.0.0.1 started
+[08:21:20] [RCON Client /127.0.0.1 #20/INFO] [minecraft/RconClient]: Thread RCON Client /127.0.0.1 shutting down
+[08:21:31] [RCON Listener #1/INFO] [minecraft/GenericThread]: Thread RCON Client /127.0.0.1 started
+[08:21:31] [Server thread/INFO] [de.ry.sa.Sable/]: Saving sub-levels for level 'ServerLevel[Test Level]'/minecraft:overworld
+[08:21:31] [Server thread/INFO] [de.ry.sa.Sable/]: Saving sub-levels for level 'ServerLevel[Test Level]'/minecraft:the_end
+[08:21:31] [Server thread/INFO] [de.ry.sa.Sable/]: Saving sub-levels for level 'ServerLevel[Test Level]'/minecraft:the_nether
+[08:21:31] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (Coexistence): All chunks are saved
+[08:21:31] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (DIM1): All chunks are saved
+[08:21:31] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
+[08:21:31] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage: All dimensions are saved
+[08:21:31] [Server thread/INFO] [minecraft/MinecraftServer]: [Rcon: Saved the game]
+[08:21:31] [RCON Client /127.0.0.1 #21/INFO] [minecraft/RconClient]: Thread RCON Client /127.0.0.1 shutting down
+[08:21:40] [RCON Listener #1/INFO] [minecraft/GenericThread]: Thread RCON Client /127.0.0.1 started
+[08:21:40] [Server thread/INFO] [minecraft/MinecraftServer]: [Rcon: Teleported Dev to -6.500000, 100.000000, 42.500000]
+[08:21:40] [RCON Client /127.0.0.1 #22/INFO] [minecraft/RconClient]: Thread RCON Client /127.0.0.1 shutting down
+[08:21:40] [Server thread/WARN] [minecraft/ServerGamePacketListenerImpl]: Dev moved too quickly! 11.0,0.0,2.0
+[08:22:24] [RCON Listener #1/INFO] [minecraft/GenericThread]: Thread RCON Client /127.0.0.1 started
+[08:22:24] [Server thread/INFO] [minecraft/MinecraftServer]: [Rcon: Teleported Dev to -6.500000, 100.000000, 42.500000]
+[08:22:24] [RCON Client /127.0.0.1 #23/INFO] [minecraft/RconClient]: Thread RCON Client /127.0.0.1 shutting down
+[08:23:13] [RCON Listener #1/INFO] [minecraft/GenericThread]: Thread RCON Client /127.0.0.1 started
+[08:23:13] [Server thread/INFO] [minecraft/MinecraftServer]: [Rcon: Teleported Dev to -6.500000, 100.000000, 42.500000]
+[08:23:13] [RCON Client /127.0.0.1 #24/INFO] [minecraft/RconClient]: Thread RCON Client /127.0.0.1 shutting down
+[08:24:14] [RCON Listener #1/INFO] [minecraft/GenericThread]: Thread RCON Client /127.0.0.1 started
+[08:24:14] [Server thread/INFO] [minecraft/MinecraftServer]: [Rcon: Teleported Dev to -6.500000, 100.000000, 42.500000]
+[08:24:14] [RCON Client /127.0.0.1 #25/INFO] [minecraft/RconClient]: Thread RCON Client /127.0.0.1 shutting down
+[08:24:24] [Server thread/INFO] [de.ry.sa.Sable/]: Saving sub-levels for level 'ServerLevel[Test Level]'/minecraft:overworld
+[08:24:24] [Server thread/INFO] [de.ry.sa.Sable/]: Saving sub-levels for level 'ServerLevel[Test Level]'/minecraft:the_end
+[08:24:24] [Server thread/INFO] [de.ry.sa.Sable/]: Saving sub-levels for level 'ServerLevel[Test Level]'/minecraft:the_nether
+[08:24:30] [RCON Listener #1/INFO] [minecraft/GenericThread]: Thread RCON Client /127.0.0.1 started
+[08:24:30] [RCON Client /127.0.0.1 #26/INFO] [minecraft/RconClient]: Thread RCON Client /127.0.0.1 shutting down
+[08:24:30] [Server thread/INFO] [de.fo.ve.Boarding/]: FD_BOARDING_EVENT player=Dev action=mount seat=BlockPos{x=20481036, y=129, z=20481032} restraints=false restoring=false
+[08:24:30] [Server thread/INFO] [de.fo.ve.Boarding/]: FD_BOARDING_ASSIGN player=Dev seat=BlockPos{x=20481036, y=129, z=20481032} offset=BlockPos{x=4, y=1, z=0} knownSeats=[BlockPos{x=-4, y=1, z=0}, BlockPos{x=-3, y=1, z=0}, BlockPos{x=3, y=1, z=0}, BlockPos{x=4, y=1, z=0}] accepted=true
+[08:24:31] [RCON Listener #1/INFO] [minecraft/GenericThread]: Thread RCON Client /127.0.0.1 started
+[08:24:31] [RCON Client /127.0.0.1 #27/INFO] [minecraft/RconClient]: Thread RCON Client /127.0.0.1 shutting down
+[08:24:56] [RCON Listener #1/INFO] [minecraft/GenericThread]: Thread RCON Client /127.0.0.1 started
+[08:24:56] [RCON Client /127.0.0.1 #28/INFO] [minecraft/RconClient]: Thread RCON Client /127.0.0.1 shutting down
+[08:24:56] [Server thread/INFO] [de.fo.ve.Boarding/]: FD_BOARDING_EVENT player=Dev action=dismount seat=BlockPos{x=20481036, y=129, z=20481032} restraints=false restoring=false
+[08:24:56] [Server thread/INFO] [de.fo.ve.Boarding/]: FD_BOARDING_DISMOUNT_CLEAR player=Dev restraints=false removed=false alive=true
+[08:24:57] [RCON Listener #1/INFO] [minecraft/GenericThread]: Thread RCON Client /127.0.0.1 started
+[08:24:57] [RCON Client /127.0.0.1 #29/INFO] [minecraft/RconClient]: Thread RCON Client /127.0.0.1 shutting down
+[08:25:05] [RCON Listener #1/INFO] [minecraft/GenericThread]: Thread RCON Client /127.0.0.1 started
+[08:25:05] [Server thread/INFO] [minecraft/MinecraftServer]: [Rcon: Teleported Dev to -17.500000, 100.000000, 40.500000]
+[08:25:05] [RCON Client /127.0.0.1 #30/INFO] [minecraft/RconClient]: Thread RCON Client /127.0.0.1 shutting down
+[08:25:05] [Server thread/WARN] [minecraft/ServerGamePacketListenerImpl]: Dev moved too quickly! -12.0,-1.0,-2.0
+[08:25:05] [RCON Listener #1/INFO] [minecraft/GenericThread]: Thread RCON Client /127.0.0.1 started
+[08:25:05] [RCON Client /127.0.0.1 #31/INFO] [minecraft/RconClient]: Thread RCON Client /127.0.0.1 shutting down
+[08:25:26] [RCON Listener #1/INFO] [minecraft/GenericThread]: Thread RCON Client /127.0.0.1 started
+[08:25:26] [RCON Client /127.0.0.1 #32/INFO] [minecraft/RconClient]: Thread RCON Client /127.0.0.1 shutting down
+[08:25:27] [RCON Listener #1/INFO] [minecraft/GenericThread]: Thread RCON Client /127.0.0.1 started
+[08:25:27] [RCON Client /127.0.0.1 #33/INFO] [minecraft/RconClient]: Thread RCON Client /127.0.0.1 shutting down
+[08:25:27] [RCON Listener #1/INFO] [minecraft/GenericThread]: Thread RCON Client /127.0.0.1 started
+[08:25:27] [Server thread/INFO] [minecraft/MinecraftServer]: [Rcon: Teleported Dev to 125.500000, 106.000000, 24.500000]
+[08:25:27] [RCON Client /127.0.0.1 #34/INFO] [minecraft/RconClient]: Thread RCON Client /127.0.0.1 shutting down
+[08:25:27] [Server thread/WARN] [minecraft/ServerGamePacketListenerImpl]: Dev moved too quickly! 143.0,6.0,-16.0
+[08:25:27] [Server thread/WARN] [minecraft/ServerGamePacketListenerImpl]: Dev moved too quickly! 143.0,6.0,-16.0
+[08:25:27] [Server thread/WARN] [minecraft/ServerGamePacketListenerImpl]: Dev moved too quickly! 143.0,6.0,-16.0
+[08:25:27] [Server thread/WARN] [minecraft/ServerGamePacketListenerImpl]: Dev moved too quickly! 143.0,6.0,-16.0
+[08:25:45] [RCON Listener #1/INFO] [minecraft/GenericThread]: Thread RCON Client /127.0.0.1 started
+[08:25:45] [Server thread/INFO] [minecraft/MinecraftServer]: [Rcon: Gave 1 [Inflatable Boat 1x2] to Dev]
+[08:25:45] [RCON Client /127.0.0.1 #35/INFO] [minecraft/RconClient]: Thread RCON Client /127.0.0.1 shutting down
+[08:25:45] [RCON Listener #1/INFO] [minecraft/GenericThread]: Thread RCON Client /127.0.0.1 started
+[08:25:45] [Server thread/INFO] [minecraft/MinecraftServer]: [Rcon: Waterparked: 15 slide lines dumped - Click to copy all]
+[08:25:45] [RCON Client /127.0.0.1 #36/INFO] [minecraft/RconClient]: Thread RCON Client /127.0.0.1 shutting down
+[08:26:09] [RCON Listener #1/INFO] [minecraft/GenericThread]: Thread RCON Client /127.0.0.1 started
+[08:26:09] [RCON Client /127.0.0.1 #37/INFO] [minecraft/RconClient]: Thread RCON Client /127.0.0.1 shutting down
+[08:26:21] [RCON Listener #1/INFO] [minecraft/GenericThread]: Thread RCON Client /127.0.0.1 started
+[08:26:21] [RCON Client /127.0.0.1 #38/INFO] [minecraft/RconClient]: Thread RCON Client /127.0.0.1 shutting down
+[08:26:21] [RCON Listener #1/INFO] [minecraft/GenericThread]: Thread RCON Client /127.0.0.1 started
+[08:26:21] [RCON Client /127.0.0.1 #39/INFO] [minecraft/RconClient]: Thread RCON Client /127.0.0.1 shutting down
+[08:26:39] [RCON Listener #1/INFO] [minecraft/GenericThread]: Thread RCON Client /127.0.0.1 started
+[08:26:39] [RCON Client /127.0.0.1 #40/INFO] [minecraft/RconClient]: Thread RCON Client /127.0.0.1 shutting down
+[08:26:39] [RCON Listener #1/INFO] [minecraft/GenericThread]: Thread RCON Client /127.0.0.1 started
+[08:26:39] [RCON Client /127.0.0.1 #41/INFO] [minecraft/RconClient]: Thread RCON Client /127.0.0.1 shutting down
+[08:26:51] [RCON Listener #1/INFO] [minecraft/GenericThread]: Thread RCON Client /127.0.0.1 started
+[08:26:51] [RCON Client /127.0.0.1 #42/INFO] [minecraft/RconClient]: Thread RCON Client /127.0.0.1 shutting down
+[08:27:33] [RCON Listener #1/INFO] [minecraft/GenericThread]: Thread RCON Client /127.0.0.1 started
+[08:27:33] [Server thread/INFO] [minecraft/MinecraftServer]: [Rcon: Modified block data of 130, 106, 24]
+[08:27:33] [RCON Client /127.0.0.1 #43/INFO] [minecraft/RconClient]: Thread RCON Client /127.0.0.1 shutting down
+[08:27:33] [RCON Listener #1/INFO] [minecraft/GenericThread]: Thread RCON Client /127.0.0.1 started
+[08:27:33] [RCON Client /127.0.0.1 #44/INFO] [minecraft/RconClient]: Thread RCON Client /127.0.0.1 shutting down
+[08:27:33] [RCON Listener #1/INFO] [minecraft/GenericThread]: Thread RCON Client /127.0.0.1 started
+[08:27:33] [Server thread/INFO] [minecraft/MinecraftServer]: [Rcon: Summoned new Inflatable Boat 1x2]
+[08:27:33] [RCON Client /127.0.0.1 #45/INFO] [minecraft/RconClient]: Thread RCON Client /127.0.0.1 shutting down
+[08:27:33] [RCON Listener #1/INFO] [minecraft/GenericThread]: Thread RCON Client /127.0.0.1 started
+[08:27:33] [RCON Client /127.0.0.1 #46/INFO] [minecraft/RconClient]: Thread RCON Client /127.0.0.1 shutting down
+[08:27:43] [RCON Listener #1/INFO] [minecraft/GenericThread]: Thread RCON Client /127.0.0.1 started
+[08:27:43] [RCON Client /127.0.0.1 #47/INFO] [minecraft/RconClient]: Thread RCON Client /127.0.0.1 shutting down
+[08:27:43] [RCON Listener #1/INFO] [minecraft/GenericThread]: Thread RCON Client /127.0.0.1 started
+[08:27:43] [RCON Client /127.0.0.1 #48/INFO] [minecraft/RconClient]: Thread RCON Client /127.0.0.1 shutting down
+[08:28:16] [RCON Listener #1/INFO] [minecraft/GenericThread]: Thread RCON Client /127.0.0.1 started
+[08:28:16] [RCON Client /127.0.0.1 #49/INFO] [minecraft/RconClient]: Thread RCON Client /127.0.0.1 shutting down
+[08:28:16] [RCON Listener #1/INFO] [minecraft/GenericThread]: Thread RCON Client /127.0.0.1 started
+[08:28:16] [Server thread/INFO] [minecraft/MinecraftServer]: [Rcon: Teleported Dev to 124.500000, 106.000000, 30.500000]
+[08:28:16] [RCON Client /127.0.0.1 #50/INFO] [minecraft/RconClient]: Thread RCON Client /127.0.0.1 shutting down
+[08:28:36] [RCON Listener #1/INFO] [minecraft/GenericThread]: Thread RCON Client /127.0.0.1 started
+[08:28:36] [Server thread/INFO] [minecraft/MinecraftServer]: [Rcon: Set Dev's game mode to Spectator Mode]
+[08:28:36] [RCON Client /127.0.0.1 #51/INFO] [minecraft/RconClient]: Thread RCON Client /127.0.0.1 shutting down
+[08:28:36] [RCON Listener #1/INFO] [minecraft/GenericThread]: Thread RCON Client /127.0.0.1 started
+[08:28:36] [Server thread/INFO] [minecraft/MinecraftServer]: [Rcon: Teleported Dev to 120.500000, 108.000000, 77.500000]
+[08:28:36] [RCON Client /127.0.0.1 #52/INFO] [minecraft/RconClient]: Thread RCON Client /127.0.0.1 shutting down
+[08:28:36] [Server thread/WARN] [minecraft/ServerGamePacketListenerImpl]: Dev moved too quickly! -4.0,168.0,47.0
+[08:28:36] [Server thread/WARN] [minecraft/ServerGamePacketListenerImpl]: Dev moved too quickly! -4.0,168.0,47.0
+[08:28:36] [Server thread/WARN] [minecraft/ServerGamePacketListenerImpl]: Dev moved too quickly! -4.0,168.0,47.0
+[08:28:36] [Server thread/WARN] [minecraft/ServerGamePacketListenerImpl]: Dev moved too quickly! -4.0,168.0,47.0
+[08:28:36] [RCON Listener #1/INFO] [minecraft/GenericThread]: Thread RCON Client /127.0.0.1 started
+[08:28:36] [RCON Client /127.0.0.1 #53/INFO] [minecraft/RconClient]: Thread RCON Client /127.0.0.1 shutting down
+[08:28:48] [RCON Listener #1/INFO] [minecraft/GenericThread]: Thread RCON Client /127.0.0.1 started
+[08:28:48] [Server thread/INFO] [minecraft/MinecraftServer]: [Rcon: Summoned new Inflatable Boat 1x2]
+[08:28:48] [RCON Client /127.0.0.1 #54/INFO] [minecraft/RconClient]: Thread RCON Client /127.0.0.1 shutting down
+[08:28:48] [RCON Listener #1/INFO] [minecraft/GenericThread]: Thread RCON Client /127.0.0.1 started
+[08:28:48] [RCON Client /127.0.0.1 #55/INFO] [minecraft/RconClient]: Thread RCON Client /127.0.0.1 shutting down
+[08:28:48] [RCON Listener #1/INFO] [minecraft/GenericThread]: Thread RCON Client /127.0.0.1 started
+[08:28:48] [RCON Client /127.0.0.1 #56/INFO] [minecraft/RconClient]: Thread RCON Client /127.0.0.1 shutting down
+[08:28:49] [RCON Listener #1/INFO] [minecraft/GenericThread]: Thread RCON Client /127.0.0.1 started
+[08:28:49] [RCON Client /127.0.0.1 #57/INFO] [minecraft/RconClient]: Thread RCON Client /127.0.0.1 shutting down
+[08:28:49] [RCON Listener #1/INFO] [minecraft/GenericThread]: Thread RCON Client /127.0.0.1 started
+[08:28:49] [RCON Client /127.0.0.1 #58/INFO] [minecraft/RconClient]: Thread RCON Client /127.0.0.1 shutting down
+[08:28:50] [RCON Listener #1/INFO] [minecraft/GenericThread]: Thread RCON Client /127.0.0.1 started
+[08:28:50] [RCON Client /127.0.0.1 #59/INFO] [minecraft/RconClient]: Thread RCON Client /127.0.0.1 shutting down
+[08:28:50] [RCON Listener #1/INFO] [minecraft/GenericThread]: Thread RCON Client /127.0.0.1 started
+[08:28:50] [RCON Client /127.0.0.1 #60/INFO] [minecraft/RconClient]: Thread RCON Client /127.0.0.1 shutting down
+[08:28:51] [RCON Listener #1/INFO] [minecraft/GenericThread]: Thread RCON Client /127.0.0.1 started
+[08:28:51] [RCON Client /127.0.0.1 #61/INFO] [minecraft/RconClient]: Thread RCON Client /127.0.0.1 shutting down
+[08:28:51] [RCON Listener #1/INFO] [minecraft/GenericThread]: Thread RCON Client /127.0.0.1 started
+[08:28:51] [RCON Client /127.0.0.1 #62/INFO] [minecraft/RconClient]: Thread RCON Client /127.0.0.1 shutting down
+[08:28:59] [RCON Listener #1/INFO] [minecraft/GenericThread]: Thread RCON Client /127.0.0.1 started
+[08:28:59] [Server thread/INFO] [minecraft/MinecraftServer]: [Rcon: Teleported Dev to 120.500000, 108.000000, 77.500000]
+[08:28:59] [RCON Client /127.0.0.1 #63/INFO] [minecraft/RconClient]: Thread RCON Client /127.0.0.1 shutting down
+[08:29:24] [Server thread/INFO] [de.ry.sa.Sable/]: Saving sub-levels for level 'ServerLevel[Test Level]'/minecraft:overworld
+[08:29:24] [Server thread/INFO] [de.ry.sa.Sable/]: Saving sub-levels for level 'ServerLevel[Test Level]'/minecraft:the_end
+[08:29:24] [Server thread/INFO] [de.ry.sa.Sable/]: Saving sub-levels for level 'ServerLevel[Test Level]'/minecraft:the_nether
+[08:31:56] [RCON Listener #1/INFO] [minecraft/GenericThread]: Thread RCON Client /127.0.0.1 started
+[08:31:56] [RCON Client /127.0.0.1 #64/INFO] [minecraft/RconClient]: Thread RCON Client /127.0.0.1 shutting down
+[08:31:56] [RCON Listener #1/INFO] [minecraft/GenericThread]: Thread RCON Client /127.0.0.1 started
+[08:31:56] [RCON Client /127.0.0.1 #65/INFO] [minecraft/RconClient]: Thread RCON Client /127.0.0.1 shutting down
+[08:32:20] [RCON Listener #1/INFO] [minecraft/GenericThread]: Thread RCON Client /127.0.0.1 started
+[08:32:20] [Server thread/INFO] [minecraft/MinecraftServer]: [Rcon: Set the time to 1000]
+[08:32:20] [RCON Client /127.0.0.1 #66/INFO] [minecraft/RconClient]: Thread RCON Client /127.0.0.1 shutting down
+[08:32:36] [Netty Epoll Server IO #2/ERROR] [minecraft/Connection]: Exception caught in connection
+io.netty.channel.unix.Errors$NativeIoException: recvAddress(..) failed: Connection reset by peer
+[08:32:36] [RCON Listener #1/INFO] [minecraft/GenericThread]: Thread RCON Client /127.0.0.1 started
+[08:32:36] [Server thread/INFO] [minecraft/ServerGamePacketListenerImpl]: Dev lost connection: Disconnected
+[08:32:36] [Server thread/INFO] [minecraft/MinecraftServer]: Dev left the game
+[08:32:36] [Server thread/INFO] [de.ry.sa.Sable/]: Saving sub-levels for level 'ServerLevel[Test Level]'/minecraft:overworld
+[08:32:36] [Server thread/INFO] [de.ry.sa.Sable/]: Saving sub-levels for level 'ServerLevel[Test Level]'/minecraft:the_end
+[08:32:36] [Server thread/INFO] [de.ry.sa.Sable/]: Saving sub-levels for level 'ServerLevel[Test Level]'/minecraft:the_nether
+[08:32:36] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (Coexistence): All chunks are saved
+[08:32:36] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (DIM1): All chunks are saved
+[08:32:36] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
+[08:32:36] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage: All dimensions are saved
+[08:32:36] [Server thread/INFO] [minecraft/MinecraftServer]: [Rcon: Saved the game]
+[08:32:36] [RCON Client /127.0.0.1 #67/INFO] [minecraft/RconClient]: Thread RCON Client /127.0.0.1 shutting down
+[08:32:36] [RCON Listener #1/INFO] [minecraft/GenericThread]: Thread RCON Client /127.0.0.1 started
+[08:32:36] [Server thread/INFO] [minecraft/MinecraftServer]: [Rcon: Stopping the server]
+[08:32:36] [RCON Client /127.0.0.1 #68/INFO] [minecraft/RconClient]: Thread RCON Client /127.0.0.1 shutting down
+[08:32:36] [Server thread/INFO] [minecraft/MinecraftServer]: Stopping server
+[08:32:36] [Server thread/INFO] [minecraft/MinecraftServer]: Saving players
+[08:32:36] [Server thread/INFO] [minecraft/MinecraftServer]: Saving worlds
+[08:32:36] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[Test Level]'/minecraft:overworld
+[08:32:36] [Server thread/INFO] [de.ry.sa.Sable/]: Saving sub-levels for level 'ServerLevel[Test Level]'/minecraft:overworld
+[08:32:36] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[Test Level]'/minecraft:the_end
+[08:32:36] [Server thread/INFO] [de.ry.sa.Sable/]: Saving sub-levels for level 'ServerLevel[Test Level]'/minecraft:the_end
+[08:32:36] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[Test Level]'/minecraft:the_nether
+[08:32:36] [Server thread/INFO] [de.ry.sa.Sable/]: Saving sub-levels for level 'ServerLevel[Test Level]'/minecraft:the_nether
+[08:32:36] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (Coexistence): All chunks are saved
+[08:32:36] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (DIM1): All chunks are saved
+[08:32:36] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
+[08:32:36] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage: All dimensions are saved
+[08:32:37] [Server thread/INFO] [minecraft/GenericThread]: Thread RCON Listener stopped

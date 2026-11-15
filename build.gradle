@@ -24,6 +24,7 @@ if (project.hasProperty('fdPackaged')) {
 
 repositories {
     mavenCentral()
+    maven { url = 'https://thedarkcolour.github.io/KotlinForForge/'; content { includeGroup 'thedarkcolour' } }
     maven { url = 'https://maven.blamejared.com' }
     maven { url = 'https://maven.createmod.net' }
     maven { url = 'https://maven.ithundxr.dev/snapshots' }
@@ -186,15 +187,19 @@ if (!fdUnknownProfiles.isEmpty()) throw new GradleException("Unknown fdIntegrati
 if (project.hasProperty('fdFeNetwork') && !fdIntegrationProfiles.contains('engineered'))
     throw new GradleException('fdFeNetwork requires -PfdIntegrations=engineered')
 
+configurations {
+    fdImmersionClientMods { canBeConsumed = false; canBeResolved = true }
+}
 dependencies {
     if (fdIntegrationProfiles.contains('skin')) runtimeOnly 'curse.maven:create-coaster-skin-1741580:9409938'
-    if (fdIntegrationProfiles.contains('waterparked')) runtimeOnly 'curse.maven:create-waterparked-1648876:9058331'
+    if (fdIntegrationProfiles.contains('waterparked')) {
+        runtimeOnly 'curse.maven:create-waterparked-1648876:9058331'
+        runtimeOnly 'thedarkcolour:kotlinforforge-neoforge:5.10.0'
+    }
     if (fdIntegrationProfiles.contains('createcoasters')) runtimeOnly 'curse.maven:create-coasters-1298151:8110328'
     if (fdIntegrationProfiles.contains('immersion')) {
-        // Client-only: the dedicated server must remain without Immersion.
-        // Per-run runtime configurations below add it only to client and observer.
-        add(neoForge.runs.client.additionalRuntimeClasspathConfiguration.name, 'curse.maven:coasters-immersion-1672383:9542588')
-        add(neoForge.runs.observer.additionalRuntimeClasspathConfiguration.name, 'curse.maven:coasters-immersion-1672383:9542588')
+        // Mod discovery needs this on the client classpath, not the bootstrap library list.
+        fdImmersionClientMods 'curse.maven:coasters-immersion-1672383:9542588'
     }
     if (fdIntegrationProfiles.contains('styles')) runtimeOnly 'curse.maven:coasters-simulated-track-styles-1642719:9020601'
     if (fdIntegrationProfiles.contains('engineered')) runtimeOnly 'curse.maven:coasters-engineered-1643631:8863559'
@@ -249,17 +254,15 @@ if (serverMaxHeap != null) {
         jvmArgs "-Xmx${serverMaxHeap}"
     }
 }
-// ModDev 2.0.148 puts per-run additions in the legacy mod list, but its direct
-// launcher classpath omits them. Keep client-only jars on both required paths.
+// additionalRuntimeClasspath denotes bootstrap libraries in ModDev/FML, not mods.
+// Keep Immersion out of LegacyClasspath so UserdevLocator discovers its mod metadata.
 if (fdIntegrationProfiles.contains('immersion')) {
-    ['client', 'observer'].each { runName ->
-        def directAdditions = configurations.create("fd${runName.capitalize()}DirectRuntime") {
-            canBeConsumed = false
-            canBeResolved = true
-            extendsFrom neoForge.runs.getByName(runName).additionalRuntimeClasspathConfiguration
+    ['Client', 'Observer'].each { runName ->
+        tasks.named("create${runName}LaunchScript").configure {
+            runtimeClasspath.from(configurations.fdImmersionClientMods)
         }
-        tasks.named("create${runName.capitalize()}LaunchScript").configure {
-            runtimeClasspath.from(directAdditions)
+        tasks.named("run${runName}").configure {
+            classpath(configurations.fdImmersionClientMods)
         }
     }
 }

@@ -33,6 +33,8 @@ public final class EligibilityHooks {
             .filter(r -> r.matches(hit.edge().from(), hit.edge().to()))
             .findFirst()
             .orElse(null);
+    boolean slide=dev.fourthdimension.integration.CoexistenceGuards.waterparked(level,hit.edge());
+    if(vehicle!=null&&slide)return false;
     if (vehicle == null && rail != null && rail.family == dev.fourthdimension.contract.Family.PIPELINE) return false;
     if (vehicle == null) {
       var recovery =
@@ -40,7 +42,7 @@ public final class EligibilityHooks {
               .filter(v -> chassis.getUniqueId().equals(v.recoveryCart))
               .toList();
       if (!recovery.isEmpty())
-        return rail != null
+        return !slide && rail != null
             && rail.valid
             && dev.fourthdimension.track.OrdinaryGearCertificate.fits(chassis)
             && recovery.stream().allMatch(v -> v.variant.equals(rail.variant));

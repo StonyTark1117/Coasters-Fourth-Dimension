@@ -3,8 +3,8 @@
 FD501E, FD501G and FD501H are complete on 2026-11-15. FD501F's
 [separate inspection](../immersion/README.md) and
 [resolved client/server classpaths](../immersion/runtime-classpath.json) record
-the client-only dependency disposition. FD501F is temporarily reopened for actual
-client load confirmation after the direct-launch classpath correction below. These closures qualify prerequisites;
+the client-only dependency disposition. FD501F is complete after actual
+client load confirmation of the direct-launch classpath correction below. These closures qualify prerequisites;
 FD910–FD914 still own their feature and coexistence behavior.
 
 ## Selected artifacts
@@ -16,7 +16,9 @@ Veil4.3.2. Skin1.1.0/file9409938 requires the NeoForge/Sable upgrade.
 No optional Sodium or shader profile is claimed. Skin remains optional.
 Waterparked0.2.8-beta-hotfix1/file9058331 and Create Coasters2.0/file8110328
 require no additional core, provider or schema migration beyond this shared
-baseline; their embedded constraints are satisfied. Their graph/renderer and
+baseline. Waterparked additionally needs the KotlinForForge language loader; the
+optional profile now includes KotlinForForge for NeoForge5.10.0. [Artifact record](../coexistence/language-loader.json)
+and the passing targeted native load close this dependency omission. Their graph/renderer and
 utility/seat/camera overlaps remain explicit FD913/FD914 consumer checks.
 Immersion1.1.1/file9542588 is installed only in the client/observer runtime;
 the resolved server classpath excludes it. No further baseline upgrade is needed.
@@ -76,11 +78,15 @@ was handed off. Skin/Visual and Seats/Immersion received the qualified baseline.
 
 ## FD501F direct-launch correction
 
-The first classpath scan combined multiple generated files and proved only the
-legacy mod list. The Seats/Immersion owner found ModDev2.0.148's direct launcher
-omitted its per-run additions from the actual Java classpath. The build now adds
-a resolvable client/observer-only configuration to the two launch-script tasks.
-Regeneration passes; the corrected exact-file record proves the Immersion JAR in
-both legacy and direct client/observer paths and absent from both server paths.
-Actual addon load confirmation remains with the owner's existing FD912 run.
-FD501E/G/H and all unrelated accepted behavior remain closed.
+The first scan combined generated files, and the first repair put Immersion in
+both legacy and direct classpaths. Actual loading still omitted it. Read-only
+FML4.0.45/BootstrapLauncher2.0.2 inspection found `additionalRuntimeClasspath`
+means bootstrap libraries: paths already located in the bootstrap layer are
+skipped by UserdevLocator when discovering mods. The dedicated resolvable
+`fdImmersionClientMods` configuration now goes only on client/observer direct
+launch and JavaExec classpaths, never their LegacyClasspath or either server
+classpath. The [exact-file record](../immersion/runtime-classpath.json) supersedes
+both earlier broad/incorrect checks. The owner's launch04 confirms actual Immersion1.1.1 discovery, startup, resources
+and authenticated dedicated-server connection with the server omitting Immersion.
+FD501F is closed again; FD912 still owns camera/seat effects, and no unrelated
+acceptance is reopened.

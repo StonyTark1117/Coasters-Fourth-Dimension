@@ -21,6 +21,8 @@ public final class VehicleFactory {
 
   public static FoundationData.Vehicle create(
       ServerLevel level, TrackDesign design, CoasterPathTrackFrame.GraphHit hit) {
+    if(dev.fourthdimension.integration.CoexistenceGuards.waterparked(level,hit.edge()))
+      throw new IllegalArgumentException("Fourth Dimension vehicles cannot use Waterparked slides");
     if (hit.edge().bezier() != null
         && hit.edge().bezier().getMaterial().id.getNamespace().equals(dev.fourthdimension.integration.OptionalIntegrations.CTNB)
         && (design != TrackDesign.ARROW || !dev.fourthdimension.integration.CtnbTracks.selected(hit.edge().bezier().getMaterial())))

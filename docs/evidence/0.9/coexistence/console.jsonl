@@ -1,0 +1,94 @@
+{"at": 1794755990.1648924, "command": "tp Dev -19.5 100 42.5 -90 25", "state": "sending"}
+{"at": 1794755990.1648924, "command": "tp Dev -19.5 100 42.5 -90 25", "state": "responded", "result": "Teleported Dev to -19.500000, 100.000000, 42.500000\n"}
+{"at": 1794756022.7843153, "command": "data get entity Dev Pos", "state": "sending"}
+{"at": 1794756022.7843153, "command": "data get entity Dev Pos", "state": "responded", "result": "Dev has the following entity data: [-19.5d, -60.0d, 42.5d]\n"}
+{"at": 1794756022.8461204, "command": "data get block -15 100 42", "state": "sending"}
+{"at": 1794756022.8461204, "command": "data get block -15 100 42", "state": "responded", "result": "-15, 100, 42 has the following block data: {Speed: 16.0f, ConnectedToExtraKinetics: 0b, Angle: 139.19759f, Network: {Capacity: 262144.0f, Size: 2, AddedStress: 4.0f, Id: -4123168432029L, Stress: 64.0f}, Running: 1b, x: -15, y: 100, ScrollValue: 0, z: 42, id: \"create:mechanical_bearing\", Source: [I; -15, 99, 42]}\n"}
+{"at": 1794756022.9054732, "command": "fd status", "state": "sending"}
+{"at": 1794756022.9054732, "command": "fd status", "state": "responded", "result": "wing_fixed d1926427-d230-4276-8f5b-e2d697c49f10 angle=0.0 omega=0.0 capture=true occupants=0\nCarrier update average: 0 ns across 0 updates\n"}
+{"at": 1794756033.3236516, "command": "tp Dev -18.5 100 42.5 -90 25", "state": "sending"}
+{"at": 1794756033.3236516, "command": "tp Dev -18.5 100 42.5 -90 25", "state": "responded", "result": "Teleported Dev to -18.500000, 100.000000, 42.500000\n"}
+{"at": 1794756033.387544, "command": "setblock -19 100 45 minecraft:crafting_table", "state": "sending"}
+{"at": 1794756033.387544, "command": "setblock -19 100 45 minecraft:crafting_table", "state": "responded", "result": "Changed the block at -19, 100, 45\n"}
+{"at": 1794756033.4495096, "command": "tp Dev -18.5 100 42.5 0 21", "state": "sending"}
+{"at": 1794756033.4495096, "command": "tp Dev -18.5 100 42.5 0 21", "state": "responded", "result": "Teleported Dev to -18.500000, 100.000000, 42.500000\n"}
+{"at": 1794756049.8929927, "command": "tp Dev -18.5 100 40.5 0 35", "state": "sending"}
+{"at": 1794756049.8929927, "command": "tp Dev -18.5 100 40.5 0 35", "state": "responded", "result": "Teleported Dev to -18.500000, 100.000000, 40.500000\n"}
+{"at": 1794756059.413284, "command": "tp Dev -17.5 100 40.5 0 35", "state": "sending"}
+{"at": 1794756059.413284, "command": "tp Dev -17.5 100 40.5 0 35", "state": "responded", "result": "Teleported Dev to -17.500000, 100.000000, 40.500000\n"}
+{"at": 1794756059.4741762, "command": "execute if block -18 100 42 minecraft:lever run say Utility lever present", "state": "sending"}
+{"at": 1794756059.4741762, "command": "execute if block -18 100 42 minecraft:lever run say Utility lever present", "state": "responded", "result": ""}
+{"at": 1794756069.7385218, "command": "data get block -17 100 42", "state": "sending"}
+{"at": 1794756069.7385218, "command": "data get block -17 100 42", "state": "responded", "result": "-17, 100, 42 has the following block data: {x: -17, y: 100, ScrollValue: 3, z: 42, id: \"createcoasters:lock_block_entity\"}\n"}
+{"at": 1794756069.79748, "command": "setblock -18 100 42 minecraft:lever[face=floor,facing=north,powered=false]", "state": "sending"}
+{"at": 1794756069.79748, "command": "setblock -18 100 42 minecraft:lever[face=floor,facing=north,powered=false]", "state": "responded", "result": "Could not set the block\n"}
+{"at": 1794756080.7524126, "command": "execute if block -17 100 42 createcoasters:lock_block[powered=true]", "state": "sending"}
+{"at": 1794756080.7524126, "command": "execute if block -17 100 42 createcoasters:lock_block[powered=true]", "state": "responded", "result": "Test passed\n"}
+{"at": 1794756091.0695522, "command": "save-all flush", "state": "sending"}
+{"at": 1794756091.0695522, "command": "save-all flush", "state": "responded", "result": "Saving the game (this may take a moment!)\nSaved the game\n"}
+{"at": 1794756100.7845607, "command": "tp Dev -6.5 100 42.5 -90 -10", "state": "sending"}
+{"at": 1794756100.7845607, "command": "tp Dev -6.5 100 42.5 -90 -10", "state": "responded", "result": "Teleported Dev to -6.500000, 100.000000, 42.500000\n"}
+{"at": 1794756144.2954876, "command": "tp Dev -6.5 100 42.5 -94 -5", "state": "sending"}
+{"at": 1794756144.2954876, "command": "tp Dev -6.5 100 42.5 -94 -5", "state": "responded", "result": "Teleported Dev to -6.500000, 100.000000, 42.500000\n"}
+{"at": 1794756193.8532877, "command": "tp Dev -6.5 100 42.5 -94 12", "state": "sending"}
+{"at": 1794756193.8532877, "command": "tp Dev -6.5 100 42.5 -94 12", "state": "responded", "result": "Teleported Dev to -6.500000, 100.000000, 42.500000\n"}
+{"at": 1794756254.9959493, "command": "tp Dev -6.5 100 42.5 -90 0", "state": "sending"}
+{"at": 1794756254.9959493, "command": "tp Dev -6.5 100 42.5 -90 0", "state": "responded", "result": "Teleported Dev to -6.500000, 100.000000, 42.500000\n"}
+{"at": 1794756271.3794384, "command": "data get entity Dev RootVehicle", "state": "sending"}
+{"at": 1794756271.3794384, "command": "data get entity Dev RootVehicle", "state": "responded", "result": "Dev has the following entity data: {Entity: {Motion: [0.0d, 0.0d, 0.0d], \"neoforge:attachments\": {\"create:minecart_controller\": {Type: \"EMPTY\"}}, Invulnerable: 0b, Air: 300s, OnGround: 0b, PortalCooldown: 0, Rotation: [0.0f, 0.0f], FallDistance: 0.0f, Pos: [2.04810365E7d, 129.0d, 2.04810325E7d], Fire: -1s, id: \"create:seat\", UUID: [I; 778884723, -1340650665, -1326502522, -1579687339], NeoForgeData: {}}, Attach: [I; 778884723, -1340650665, -1326502522, -1579687339]}\n"}
+{"at": 1794756297.372862, "command": "data get entity Dev RootVehicle", "state": "sending"}
+{"at": 1794756297.372862, "command": "data get entity Dev RootVehicle", "state": "responded", "result": "Found no elements matching RootVehicle\n"}
+{"at": 1794756305.2092035, "command": "tp Dev -17.5 100 40.5 0 35", "state": "sending"}
+{"at": 1794756305.2092035, "command": "tp Dev -17.5 100 40.5 0 35", "state": "responded", "result": "Teleported Dev to -17.500000, 100.000000, 40.500000\n"}
+{"at": 1794756305.2772238, "command": "data get block -17 100 42", "state": "sending"}
+{"at": 1794756305.2772238, "command": "data get block -17 100 42", "state": "responded", "result": "-17, 100, 42 has the following block data: {x: -17, y: 100, ScrollValue: 3, z: 42, id: \"createcoasters:lock_block_entity\"}\n"}
+{"at": 1794756327.361492, "command": "execute if block -17 100 42 createcoasters:lock_block[powered=false]", "state": "sending"}
+{"at": 1794756327.361492, "command": "execute if block -17 100 42 createcoasters:lock_block[powered=false]", "state": "responded", "result": "Test passed\n"}
+{"at": 1794756327.4217443, "command": "tp Dev 125.5 106 24.5 -90 15", "state": "sending"}
+{"at": 1794756327.4217443, "command": "tp Dev 125.5 106 24.5 -90 15", "state": "responded", "result": "Teleported Dev to 125.500000, 106.000000, 24.500000\n"}
+{"at": 1794756345.7136798, "command": "give Dev create_waterparked:inflatable_boat_1x2", "state": "sending"}
+{"at": 1794756345.7136798, "command": "give Dev create_waterparked:inflatable_boat_1x2", "state": "responded", "result": "Gave 1 [Inflatable Boat 1x2] to Dev\n"}
+{"at": 1794756345.7864003, "command": "waterparked dump", "state": "sending"}
+{"at": 1794756345.7864003, "command": "waterparked dump", "state": "responded", "result": "== Waterparked slide dump: 2 anchors in minecraft:overworld ==\nAnchor @ BlockPos{x=130, y=106, z=24}  radius=1.0  waterActive=true  waterAmount=0mb\n  Curve -> peer=BlockPos{x=130, y=100, z=88}  primary=true  a=BlockPos{x=130, y=106, z=24}  b=BlockPos{x=130, y=100, z=88}  segments=128\n    watered=true  sectorFirst=false\n    sectors start=0.0 nextId=1\n      id=0 BLOCK AUTO block=minecraft:gray_concrete width=0.0\n  Support beam: visible=true material=Block{create:copycat_base} custom=false\n  Support bracket: visible=true material=Block{create:copycat_base} custom=false\nAnchor @ BlockPos{x=130, y=100, z=88}  radius=1.0  waterActive=true  waterAmount=0mb\n  Curve -> peer=BlockPos{x=130, y=106, z=24}  primary=false  a=BlockPos{x=130, y=106, z=24}  b=BlockPos{x=130, y=100, z=88}  segments=128\n    watered=true  sectorFirst=true\n    sectors start=0.0 nextId=1\n      id=0 BLOCK AUTO block=minecraft:gray_concrete width=0.0\n  Support beam: visible=true material=Block{create:copycat_base} custom=false\n  Support bracket: visible=true material=Block{create:copycat_base} custom=false\nWaterparked: 15 slide lines dumped - Click to copy all\n"}
+{"at": 1794756369.0759542, "command": "data get block 130 106 24 WaterTank", "state": "sending"}
+{"at": 1794756369.0759542, "command": "data get block 130 106 24 WaterTank", "state": "responded", "result": "130, 106, 24 has the following block data: {}\n"}
+{"at": 1794756381.8210404, "command": "data get entity @e[type=create_waterparked:inflatable_boat_1x2,limit=1] Pos", "state": "sending"}
+{"at": 1794756381.8210404, "command": "data get entity @e[type=create_waterparked:inflatable_boat_1x2,limit=1] Pos", "state": "responded", "result": "Inflatable Boat 1x2 has the following entity data: [128.93140113944344d, -60.02d, 24.55777081657012d]\n"}
+{"at": 1794756399.3480027, "command": "execute as @e[type=create_waterparked:inflatable_boat_1x2] run data get entity @s Pos", "state": "sending"}
+{"at": 1794756399.3480027, "command": "execute as @e[type=create_waterparked:inflatable_boat_1x2] run data get entity @s Pos", "state": "responded", "result": "Inflatable Boat 1x2 has the following entity data: [128.93140113944344d, -60.02d, 24.55777081657012d]\n"}
+{"at": 1794756399.4347246, "command": "data get entity Dev SelectedItem", "state": "sending"}
+{"at": 1794756399.4347246, "command": "data get entity Dev SelectedItem", "state": "responded", "result": "Dev has the following entity data: {count: 1, id: \"create_waterparked:inflatable_boat_1x2\"}\n"}
+{"at": 1794756411.6751552, "command": "data get entity Dev playerGameType", "state": "sending"}
+{"at": 1794756411.6751552, "command": "data get entity Dev playerGameType", "state": "responded", "result": "Dev has the following entity data: 1\n"}
+{"at": 1794756453.56027, "command": "data merge block 130 106 24 {WaterTank:{id:\"minecraft:water\",amount:10000}}", "state": "sending"}
+{"at": 1794756453.56027, "command": "data merge block 130 106 24 {WaterTank:{id:\"minecraft:water\",amount:10000}}", "state": "responded", "result": "Modified block data of 130, 106, 24\n"}
+{"at": 1794756453.6269453, "command": "waterparked refreshwater", "state": "sending"}
+{"at": 1794756453.6269453, "command": "waterparked refreshwater", "state": "responded", "result": "Incorrect argument for command\n...terparked refreshwater<--[HERE]\n"}
+{"at": 1794756453.6897047, "command": "summon create_waterparked:inflatable_boat_1x2 130.5 106.8 26 {Tags:[\"fd913_slide_example\"],Rotation:[0f,0f]}", "state": "sending"}
+{"at": 1794756453.6897047, "command": "summon create_waterparked:inflatable_boat_1x2 130.5 106.8 26 {Tags:[\"fd913_slide_example\"],Rotation:[0f,0f]}", "state": "responded", "result": "Summoned new Inflatable Boat 1x2\n"}
+{"at": 1794756453.753447, "command": "data get entity @e[tag=fd913_slide_example,limit=1] Pos", "state": "sending"}
+{"at": 1794756453.753447, "command": "data get entity @e[tag=fd913_slide_example,limit=1] Pos", "state": "responded", "result": "Inflatable Boat 1x2 has the following entity data: [130.5d, 106.8d, 26.5d]\n"}
+{"at": 1794756463.482719, "command": "data get entity @e[tag=fd913_slide_example,limit=1] Pos", "state": "sending"}
+{"at": 1794756463.482719, "command": "data get entity @e[tag=fd913_slide_example,limit=1] Pos", "state": "responded", "result": "Inflatable Boat 1x2 has the following entity data: [130.50000000775387d, 96.9396882772083d, 82.91603421789306d]\n"}
+{"at": 1794756463.5518298, "command": "data get block 130 106 24 WaterTank", "state": "sending"}
+{"at": 1794756463.5518298, "command": "data get block 130 106 24 WaterTank", "state": "responded", "result": "130, 106, 24 has the following block data: {}\n"}
+{"at": 1794756496.400987, "command": "data get entity @e[tag=fd913_slide_example,limit=1]", "state": "sending"}
+{"at": 1794756496.400987, "command": "data get entity @e[tag=fd913_slide_example,limit=1]", "state": "responded", "result": "Inflatable Boat 1x2 has the following entity data: {NoGravity: 1b, Motion: [0.0d, 0.0d, 0.0d], Brain: {memories: {}}, HurtByTimestamp: 0, Health: 6.0f, Color: 16777215, Invulnerable: 0b, FallFlying: 0b, Air: 300s, OnGround: 0b, PortalCooldown: 0, AbsorptionAmount: 0.0f, Rotation: [-3.199462E-7f, 5.355825f], FallDistance: 4.5358033f, Pos: [130.50000000775387d, 96.76877752683507d, 82.91603421789306d], DeathTime: 0s, Fire: -1s, attributes: [{id: \"minecraft:generic.oxygen_bonus\", base: 0.0d}, {id: \"minecraft:generic.movement_speed\", base: 0.0d}], UUID: [I; -1149138104, 895765008, -1894520387, -563810057], HurtTime: 0s, NeoForgeData: {}, Tags: [\"fd913_slide_example\"]}\n"}
+{"at": 1794756496.4674277, "command": "tp Dev 124.5 106 30.5 -30 5", "state": "sending"}
+{"at": 1794756496.4674277, "command": "tp Dev 124.5 106 30.5 -30 5", "state": "responded", "result": "Teleported Dev to 124.500000, 106.000000, 30.500000\n"}
+{"at": 1794756516.1616757, "command": "gamemode spectator Dev", "state": "sending"}
+{"at": 1794756516.1616757, "command": "gamemode spectator Dev", "state": "responded", "result": "Set Dev's game mode to Spectator Mode\n"}
+{"at": 1794756516.2293487, "command": "tp Dev 120 108 77 -60 25", "state": "sending"}
+{"at": 1794756516.2293487, "command": "tp Dev 120 108 77 -60 25", "state": "responded", "result": "Teleported Dev to 120.500000, 108.000000, 77.500000\n"}
+{"at": 1794756528.1005137, "command": "summon create_waterparked:inflatable_boat_1x2 130.5 106.8 26.5 {Tags:[\"fd913_trace\"],Rotation:[0f,0f]}", "state": "sending"}
+{"at": 1794756528.1005137, "command": "summon create_waterparked:inflatable_boat_1x2 130.5 106.8 26.5 {Tags:[\"fd913_trace\"],Rotation:[0f,0f]}", "state": "responded", "result": "Summoned new Inflatable Boat 1x2\n"}
+{"at": 1794756539.455947, "command": "tp Dev 120.5 108 77.5 -61.6 42", "state": "sending"}
+{"at": 1794756539.455947, "command": "tp Dev 120.5 108 77.5 -61.6 42", "state": "responded", "result": "Teleported Dev to 120.500000, 108.000000, 77.500000\n"}
+{"at": 1794756716.9064596, "command": "data get entity @e[type=create_waterparked:inflatable_boat_1x2,tag=fd913_trace,limit=1] Pos", "state": "sending"}
+{"at": 1794756716.9064596, "command": "data get entity @e[type=create_waterparked:inflatable_boat_1x2,tag=fd913_trace,limit=1] Pos", "state": "responded", "result": "Inflatable Boat 1x2 has the following entity data: [130.5d, 99.10799320931073d, 26.5d]\n"}
+{"at": 1794756740.8596797, "command": "time set day", "state": "sending"}
+{"at": 1794756740.8596797, "command": "time set day", "state": "responded", "result": "Set the time to 1000\n"}
+{"at": 1794756756.468909, "command": "save-all flush", "state": "sending"}
+{"at": 1794756756.468909, "command": "save-all flush", "state": "responded", "result": "Saving the game (this may take a moment!)\nSaved the game\n"}
+{"at": 1794756756.6552966, "command": "stop", "state": "sending"}
+{"at": 1794756756.6552966, "command": "stop", "state": "responded", "result": "Stopping the server\n"}

@@ -22,6 +22,7 @@ public final class TrackPlacement {
   private TrackPlacement() {}
 
   public static void checkEndpoint(ServerLevel level, BlockPos pos, Player player) {
+    dev.fourthdimension.integration.CoexistenceGuards.requireCoreAnchor(level,pos);
     if (!player.mayBuild() || !level.mayInteract(player, pos))
       throw new IllegalArgumentException("Cannot build at this anchor");
     if (!level.hasChunkAt(pos)
@@ -40,6 +41,8 @@ public final class TrackPlacement {
   }
 
   private static void checkConnectableEndpoints(Level level, BlockPos from, BlockPos to) {
+    dev.fourthdimension.integration.CoexistenceGuards.requireCoreAnchor(level,from);
+    dev.fourthdimension.integration.CoexistenceGuards.requireCoreAnchor(level,to);
     if (from.equals(to) || from.distSqr(to) > 64 * 64)
       throw new IllegalArgumentException("Track spans must be distinct and at most 64 blocks");
     if (!level.hasChunkAt(from) || !level.hasChunkAt(to))
