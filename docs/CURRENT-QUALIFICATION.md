@@ -33,14 +33,16 @@ completed 0.5 outcomes remain closed; FD503 is the integrated starting input.
 S2 Spinning, 0.7+ implementation and publication are not activated.
 
 Checkout: `/home/braydon/Documents/Coasters: Fourth Dimension`, existing `main`,
-dispatch HEAD `d73d43b820b725fc9648c6a2daa9348dead16b22`, matching origin/main.
-Only the pre-existing untracked `logs/` remains; preserve it. No new worktree.
+dispatch HEAD `d73d43b820b725fc9648c6a2daa9348dead16b22`. Current integrated
+prerequisite is `ec27e982ece3e906bf144b25cbb5982b8d230d63` (Suspended A),
+pushed and directly verified on origin/main. Preserve active owners' work and the
+pre-existing untracked `logs/`. No new worktree.
 
 | Complete assignment | Owner / chat | Ready work and prerequisites | Evidence / handoff |
 | --- | --- | --- | --- |
-| **FD1501A–C; FD601** | **0.6 lead — Spinning and integration**, `01a1dd1d-1468-7f81-8f31-5532ad7a178d` | Start S1 conventional Spinning from integrated Wing/FD501A and the accepted FD1501 specification. Own its complete mechanics/content/player outcome and final milestone reconciliation. Publish the passing A axis/loading/capture and occupied handoff in main as soon as ready. | `docs/evidence/0.6/spinning/`; lead owns central ROADMAP/PLAN/queue and all Git integration/commit/push. FD601 aggregates the three accepted families without another campaign. |
-| **FD1301A–C** | **0.6 Suspended**, `01a1dd1d-6e99-70d2-aef3-6dcebac10d72` | Own the complete Suspended outcome. Begin dimension/content/example preparation from accepted FD1301 now. Mechanics consumes integrated FD1501A and an explicit shared-file handoff. Implement real bounded Z-axis swing, load/damping, lift locks and dock capture; retain distinct interruption criteria. | `docs/evidence/0.6/suspended/`; publish qualified overhead interfaces and occupied evidence for Fixed Inverted as soon as A passes and is integrated. |
-| **FD1601A–C; FD1601** | **0.6 Fixed Inverted**, `01a1dd1d-c6a6-7be0-9cb5-2b033ac550da` | Own the complete Fixed Inverted outcome. Prepare its dimension/content/example work from accepted FD1601S now. Mechanics consumes Wing and integrated FD1301A overhead geometry, plus an explicit shared-file handoff. Fixed seating must not inherit a swing joint. | `docs/evidence/0.6/fixed-inverted/`; FD1601 reconciles its accepted A–C outcome, then feeds FD601. |
+| **FD1501A–C; FD601** | **0.6 lead — Spinning and integration**, `01a1dd1d-1468-7f81-8f31-5532ad7a178d` | S1 A–C complete. Integrate remaining qualified family changes and reconcile FD601 from cumulative evidence; preserve all closed cases. | `docs/evidence/0.6/spinning/`; lead owns central ROADMAP/PLAN/queue and all Git integration/commit/push. FD601 aggregates the three accepted families without another campaign. |
+| **FD1301A–C** | **0.6 Suspended**, `01a1dd1d-6e99-70d2-aef3-6dcebac10d72` | A integrated at ec27e982. Finish remaining B/C content review and normal construction in Suspended-only paths, then save/stop the retained runtime and hand off the complete outcome. | `docs/evidence/0.6/suspended/`; qualified overhead and occupied A handoff consumed by Fixed Inverted; B/C reuses it. |
+| **FD1601A–C; FD1601** | **0.6 Fixed Inverted**, `01a1dd1d-c6a6-7be0-9cb5-2b033ac550da` | Active implementation from Wing and integrated FD1301A at ec27e982 under the shared-file transfer below. Finish A–C and FD1601; fixed seating must not inherit a swing joint. | `docs/evidence/0.6/fixed-inverted/`; FD1601 reconciles its accepted A–C outcome, then feeds FD601. |
 
 **Shared-file ownership:** initially the lead owns all shared production source,
 registration, asset generators and common resources. Other owners may write their
@@ -88,13 +90,19 @@ Fixed Inverted receives no runtime; reserve independent resources after checking
 headroom. Final family completion requires saved worlds and inactive owned units.
 The lead sends the exact integrated HEAD in the continuation message.
 
+Fixed Inverted reserved its independent root
+`/home/braydon/.local/state/fourthdimension-runs/fd1601-fixed-inverted-20261115`,
+display `:314`, game/RCON ports 25646/25647 and units
+`fd1601-fixed-inverted-20261115-{client,server,xvfb}.service`. Its owner rechecks
+host/cgroup headroom before launch; this reservation does not transfer Suspended's run.
+
 **S1 FD1501A–C complete — 2026-11-15 05:34 UTC.**
 [Construction, content and power-loss/resume acceptance](evidence/0.6/spinning/player/README.md)
 closes S1. Its A handoff `d5565a09ac0d6230b66c9dd332c7b35fb3840f2a` is pushed
 and directly verified on origin/main. The lead now owns FD601 reconciliation and
 integration of the remaining families. All S1 runtime units are inactive and
-its world/evidence retained. Suspended owns the shared paths below; Fixed Inverted
-continues preparation until its qualified overhead handoff. Do not reopen S1
+its world/evidence retained. Fixed Inverted now owns the shared paths under the current transfer above;
+Suspended continues B/C in its family-only paths. Do not reopen S1
 because a later family changes unrelated code or produces a new JAR.
 
 **FD1501A handoff — 2026-11-15 05:14 UTC:** S1 mechanics and the normal

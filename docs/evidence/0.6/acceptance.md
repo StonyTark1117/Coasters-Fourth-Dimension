@@ -24,6 +24,11 @@ recipe, track and car placement, dock binding, power-loss retention, restored
 power without automatic motion, explicit resume and safe unload. Its native
 mechanics and connected-client records cover different claims cumulatively.
 
+The [S1 UV correction](spinning/uv-correction/README.md) closes a specific atlas
+bleed defect found in its retained placement image. Explicit face UVs preserve
+geometry and mechanics; one connected saved-scene visual check passed. S1 A/C
+remain closed, and B is complete with that corrected texture evidence.
+
 The lead's review of the qualified Suspended A shared changes found that original
 and S1 carriers retain the rotary joint path; only Suspended uses the bounded
 generic Z joint. New overhead rendering and fit are selected by Suspended's track

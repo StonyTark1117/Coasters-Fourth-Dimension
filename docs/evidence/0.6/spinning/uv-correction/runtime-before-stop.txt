@@ -1,0 +1,17 @@
+ActiveState=active
+MainPID=738856
+ControlGroup=/user.slice/user-1000.slice/user@1000.service/app.slice/fd1501-spinning-20261114-client.service
+MemoryPeak=2407923712
+MemoryMax=6442450944
+
+ActiveState=active
+MainPID=738503
+ControlGroup=/user.slice/user-1000.slice/user@1000.service/app.slice/fd1501-spinning-20261114-server.service
+MemoryPeak=1660334080
+MemoryMax=4294967296
+
+ActiveState=active
+MainPID=738495
+ControlGroup=/user.slice/user-1000.slice/user@1000.service/app.slice/fd1501-spinning-20261114-xvfb.service
+MemoryPeak=13053952
+MemoryMax=268435456

@@ -1,11 +1,18 @@
 #!/usr/bin/env python3
 """Original S1 four-seat turntable; all centers match the native fractional seating definition."""
 import json
+import sys
 from pathlib import Path
 root=Path(__file__).resolve().parents[1]/'src/main/resources'
 def write(path,value):
  p=root/path;p.parent.mkdir(parents=True,exist_ok=True);p.write_text(json.dumps(value,indent=2)+'\n')
-def box(a,b,t):return {'from':a,'to':b,'faces':{f:{'texture':t} for f in ['north','south','east','west','up','down']}}
+def box(a,b,t):
+ # Extended elements must not derive UVs from their out-of-block coordinates.
+ # Bound each face to its own atlas sprite; geometry and texture identities stay fixed.
+ x,y,z=[min(16,hi-lo) for lo,hi in zip(a,b)]
+ faces={f:{'texture':t,'uv':[0,0,*uv]} for f,uv in
+        [('north',(x,y)),('south',(x,y)),('east',(z,y)),('west',(z,y)),('up',(x,z)),('down',(x,z))]}
+ return {'from':a,'to':b,'faces':faces}
 tex={'cushion':'minecraft:block/orange_concrete','metal':'minecraft:block/iron_block','bar':'minecraft:block/black_concrete','particle':'minecraft:block/orange_concrete'}
 variants={}
 for outer in [False,True]:
@@ -34,4 +41,5 @@ write('assets/fourthdimension/models/item/spinning_car.json',{'textures':tex,'el
 write('assets/fourthdimension/models/item/spinning_track.json',{'parent':'fourthdimension:item/legacy_zacspin_track','textures':{'spine':'minecraft:block/orange_concrete','particle':'minecraft:block/orange_concrete'}})
 write('data/fourthdimension/recipe/spinning_track.json',{'type':'minecraft:crafting_shaped','pattern':['III','CDC','III'],'key':{'I':{'tag':'c:ingots/iron'},'C':{'item':'minecraft:copper_ingot'},'D':{'item':'minecraft:orange_dye'}},'result':{'id':'fourthdimension:spinning_track','count':16}})
 write('data/fourthdimension/recipe/spinning_car.json',{'type':'minecraft:crafting_shaped','pattern':['SSS','BTB','ICI'],'key':{'S':{'item':'create:orange_seat'},'B':{'item':'create:mechanical_bearing'},'I':{'tag':'c:ingots/iron'},'T':{'item':'fourthdimension:spinning_track'},'C':{'item':'simulatedcoasters:coaster_cart'}},'result':{'id':'fourthdimension:spinning_car','count':1}})
-p=root/'assets/fourthdimension/lang/en_us.json';lang=json.loads(p.read_text());lang.update({'item.fourthdimension.spinning_car':'S1 Spinning Car','item.fourthdimension.spinning_track':'S1 Spinning Track','block.fourthdimension.spinning_seat':'Spinning Seat','block.fourthdimension.spin_bearing':'Vertical Spin Bearing','block.fourthdimension.spinning_controller':'S1 Spinning Chassis'});p.write_text(json.dumps(lang,indent=2)+'\n')
+if '--skip-language' not in sys.argv:
+ p=root/'assets/fourthdimension/lang/en_us.json';lang=json.loads(p.read_text());lang.update({'item.fourthdimension.spinning_car':'S1 Spinning Car','item.fourthdimension.spinning_track':'S1 Spinning Track','block.fourthdimension.spinning_seat':'Spinning Seat','block.fourthdimension.spin_bearing':'Vertical Spin Bearing','block.fourthdimension.spinning_controller':'S1 Spinning Chassis'});p.write_text(json.dumps(lang,indent=2)+'\n')

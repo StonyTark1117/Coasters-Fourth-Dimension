@@ -1,0 +1,20 @@
+io.netty.channel.unix.Errors$NativeIoException: recvAddress(..) failed: Connection reset by peer
+[14Nov2026 23:20:59.127] [Server thread/INFO] [net.minecraft.server.network.ServerGamePacketListenerImpl/]: Dev lost connection: Disconnected
+[14Nov2026 23:20:59.127] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Dev left the game
+[14Nov2026 23:20:59.130] [RCON Listener #1/INFO] [net.minecraft.server.rcon.thread.GenericThread/]: Thread RCON Client /127.0.0.1 started
+[14Nov2026 23:20:59.285] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Rcon: Stopping the server]
+[14Nov2026 23:20:59.285] [RCON Client /127.0.0.1 #3/INFO] [net.minecraft.server.rcon.thread.RconClient/]: Thread RCON Client /127.0.0.1 shutting down
+[14Nov2026 23:20:59.315] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Stopping server
+[14Nov2026 23:20:59.316] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving players
+[14Nov2026 23:20:59.316] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving worlds
+[14Nov2026 23:20:59.347] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[SpinningWorkshop]'/minecraft:overworld
+[14Nov2026 23:20:59.347] [Server thread/INFO] [dev.ryanhcode.sable.Sable/]: Saving sub-levels for level 'ServerLevel[SpinningWorkshop]'/minecraft:overworld
+[14Nov2026 23:21:03.421] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[SpinningWorkshop]'/minecraft:the_end
+[14Nov2026 23:21:03.421] [Server thread/INFO] [dev.ryanhcode.sable.Sable/]: Saving sub-levels for level 'ServerLevel[SpinningWorkshop]'/minecraft:the_end
+[14Nov2026 23:21:03.884] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[SpinningWorkshop]'/minecraft:the_nether
+[14Nov2026 23:21:03.884] [Server thread/INFO] [dev.ryanhcode.sable.Sable/]: Saving sub-levels for level 'ServerLevel[SpinningWorkshop]'/minecraft:the_nether
+[14Nov2026 23:21:04.662] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: ThreadedAnvilChunkStorage (SpinningWorkshop): All chunks are saved
+[14Nov2026 23:21:04.663] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: ThreadedAnvilChunkStorage (DIM1): All chunks are saved
+[14Nov2026 23:21:04.663] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
+[14Nov2026 23:21:04.663] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: ThreadedAnvilChunkStorage: All dimensions are saved
+[14Nov2026 23:21:05.145] [Server thread/INFO] [net.minecraft.server.rcon.thread.GenericThread/]: Thread RCON Listener stopped
