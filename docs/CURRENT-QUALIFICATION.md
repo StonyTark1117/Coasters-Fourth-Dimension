@@ -41,7 +41,7 @@ pre-existing untracked `logs/`. No new worktree.
 | Complete assignment | Owner / chat | Ready work and prerequisites | Evidence / handoff |
 | --- | --- | --- | --- |
 | **FD1501A–C; FD601** | **0.6 lead — Spinning and integration**, `01a1dd1d-1468-7f81-8f31-5532ad7a178d` | S1 A–C complete. Integrate remaining qualified family changes and reconcile FD601 from cumulative evidence; preserve all closed cases. | `docs/evidence/0.6/spinning/`; lead owns central ROADMAP/PLAN/queue and all Git integration/commit/push. FD601 aggregates the three accepted families without another campaign. |
-| **FD1301A–C** | **0.6 Suspended**, `01a1dd1d-6e99-70d2-aef3-6dcebac10d72` | A integrated at ec27e982. Finish remaining B/C content review and normal construction in Suspended-only paths, then save/stop the retained runtime and hand off the complete outcome. | `docs/evidence/0.6/suspended/`; qualified overhead and occupied A handoff consumed by Fixed Inverted; B/C reuses it. |
+| **FD1301A–C** | **0.6 Suspended**, `01a1dd1d-6e99-70d2-aef3-6dcebac10d72` | A–C complete. A integrated at ec27e982; B/C construction/content and runtime cleanup accepted below. No remaining Suspended run or source work. | `docs/evidence/0.6/suspended/`; qualified overhead and occupied A handoff consumed by Fixed Inverted; B/C reuses it. |
 | **FD1601A–C; FD1601** | **0.6 Fixed Inverted**, `01a1dd1d-c6a6-7be0-9cb5-2b033ac550da` | Active implementation from Wing and integrated FD1301A at ec27e982 under the shared-file transfer below. Finish A–C and FD1601; fixed seating must not inherit a swing joint. | `docs/evidence/0.6/fixed-inverted/`; FD1601 reconciles its accepted A–C outcome, then feeds FD601. |
 
 **Shared-file ownership:** initially the lead owns all shared production source,
@@ -56,6 +56,15 @@ unrelated decorative polish or C reconciliation. The lead alone stages/commits/
 pushes and edits central status documents; family owners supply ready evidence.
 The user authorizes specific coordination/continuation messages among these three
 owners and from the coordinator, including resuming a ready dependent owner.
+
+**FD1301A–C complete — 2026-11-15 06:24 UTC.**
+[Content, normal construction and cumulative acceptance](evidence/0.6/suspended/BC-acceptance.md)
+close Suspended. Crafting, anchor/track/car/station placement and binding, lift
+setting controls, connected journal, bounded texture UVs and state views pass.
+The owner saved all dimensions at06:24:07UTC; client/server/Xvfb are inactive with
+MainPID0 and display312 absent. The retained-runtime note below is now historical;
+no live Suspended runtime is handed off. Fixed Inverted retains current shared
+file ownership and is the only remaining family outcome for FD601.
 
 **FD1301A handoff — 2026-11-15 06:01 UTC:**
 [Suspended mechanics and four-car occupied cycle](evidence/0.6/suspended/A-handoff.md)

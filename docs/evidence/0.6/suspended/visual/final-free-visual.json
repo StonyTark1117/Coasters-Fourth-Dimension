@@ -1,0 +1,196 @@
+{
+  "at": "2026-11-15T06:19:26.993694704Z",
+  "gameTime": 42788,
+  "input": {
+    "screen": null,
+    "windowActive": true,
+    "glfwFocused": 1,
+    "glfwCursorMode": 212995,
+    "glfwRawMouseMotion": 1,
+    "rawMouseOption": true,
+    "mouseGrabbed": true,
+    "mouseX": 427.0,
+    "mouseY": 240.0,
+    "deltaX": 0.0,
+    "deltaY": 0.0,
+    "playerYaw": 75.965,
+    "playerPitch": 8.997788,
+    "passenger": true,
+    "worldStableView": true,
+    "cameraQuaternion": [
+      -0.0618262,
+      -0.6135245,
+      -0.04827351,
+      0.7857703
+    ],
+    "cameraUp": [
+      0.15172754,
+      0.9876944,
+      -0.037928414
+    ],
+    "nativeSeatOrientation": [
+      -0.026396822153089364,
+      0.9996514840311093,
+      1.7503798437894085E-13,
+      -1.50233306048608E-12
+    ],
+    "ignoreFirstMove": true
+  },
+  "clientWorldGameTime": 42788,
+  "assignedVehicleSnapshot": {
+    "available": true,
+    "assignedVehicle": true,
+    "chassis": "75d7a1cb-c69f-4992-b4e2-df8914b8f304",
+    "family": "suspended",
+    "revision": 3,
+    "stopping": false,
+    "maintenance": false,
+    "alignmentRequired": false,
+    "fault": "",
+    "restraints": true,
+    "boardingReady": false,
+    "boundFrom": [
+      -201,
+      100,
+      400
+    ],
+    "boundTo": [
+      -201,
+      100,
+      440
+    ],
+    "carriers": [
+      {
+        "body": "c3c2cf50-6633-4339-ba28-54ccf18f6d3f",
+        "capture": false,
+        "angle": -0.03739399521056045,
+        "omega": -0.05733301357486198,
+        "latched": false,
+        "liftHeld": false,
+        "captureTarget": 0.0,
+        "occupants": [
+          "380df991-f603-344c-a090-369bad2a924a"
+        ],
+        "riderSeats": [
+          "380df991-f603-344c-a090-369bad2a924a"
+        ]
+      }
+    ],
+    "matchingRailFound": true,
+    "matchingRail": {
+      "from": [
+        -201,
+        100,
+        400
+      ],
+      "to": [
+        -201,
+        100,
+        440
+      ],
+      "valid": true,
+      "variant": "lateral_swing_v1",
+      "revision": 0
+    },
+    "nativeBodyLoaded": true,
+    "bearingPlotPosition": [
+      20481032,
+      128,
+      20546568
+    ],
+    "bearingBlockState": "Block{simulatedcoasters:coaster_cart}[snap_engaged\u003dtrue]",
+    "bearingSnapEngaged": true,
+    "nativeCartCenter": [
+      -200.5,
+      101.12500762939453,
+      420.5
+    ],
+    "nearestGraphCandidates": [
+      {
+        "from": [
+          -201,
+          100,
+          400
+        ],
+        "to": [
+          -201,
+          100,
+          440
+        ],
+        "t": 0.49999999999999994,
+        "point": [
+          -200.5,
+          100.8125,
+          420.5
+        ],
+        "distance": 0.31250762939453125,
+        "chainAnchor": null,
+        "chainSpeed": null,
+        "chainTravelSign": null
+      }
+    ],
+    "matchingGraphEdgeFound": true,
+    "selectedGraphHit": {
+      "point": [
+        -200.5,
+        100.8125,
+        420.5
+      ],
+      "distance": 0.31250762939453125,
+      "from": [
+        -201,
+        100,
+        400
+      ],
+      "to": [
+        -201,
+        100,
+        440
+      ],
+      "t": 0.49999999999999994
+    },
+    "chainDrive": null,
+    "clientTrainLinkIds": [
+      "75d7a1cb-c69f-4992-b4e2-df8914b8f304"
+    ],
+    "clientTrainMembers": [
+      {
+        "id": "75d7a1cb-c69f-4992-b4e2-df8914b8f304",
+        "clientBodyLoaded": true,
+        "clientVehicleRecord": true,
+        "containerBodyLoaded": true
+      }
+    ],
+    "clientVehicleComponentBodies": [
+      {
+        "id": "75d7a1cb-c69f-4992-b4e2-df8914b8f304",
+        "clientCartBodyLoaded": true,
+        "clientBodyRemoved": false
+      },
+      {
+        "id": "c3c2cf50-6633-4339-ba28-54ccf18f6d3f",
+        "clientCartBodyLoaded": false,
+        "clientBodyRemoved": false
+      }
+    ],
+    "clientConsistEligible": true
+  },
+  "selectedAnchor": null,
+  "cachedKey": "null",
+  "cachedStatus": "NONE",
+  "cachedPath": null,
+  "heldItem": "1 fourthdimension:rotation_tool",
+  "hit": "net.minecraft.world.phys.BlockHitResult@150ae70c",
+  "hitType": "MISS",
+  "hitBlock": [
+    -197,
+    97,
+    419
+  ],
+  "hitState": "Block{minecraft:air}",
+  "hitBlockEntity": null,
+  "trackOutlineSelection": "null",
+  "wrenchGraphHit": "null",
+  "wrenchSpanHit": null,
+  "indexedAnchors": []
+}

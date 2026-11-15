@@ -12,7 +12,7 @@ This record combines family evidence and does not require another test campaign.
 | FD1501A | [S1 mechanics and occupied handoff](spinning/README.md), integrated at `d5565a09ac0d6230b66c9dd332c7b35fb3840f2a`; complete |
 | FD1501B/C | [S1 content, construction and interrupted ride](spinning/player/README.md), integrated at `0d7f6edad3c7bb51ee36e46fbb3ae0f175ac756d`; complete |
 | FD1301A | [Suspended native and four-car occupied handoff](suspended/A-handoff.md); complete, integrated with this record |
-| FD1301B/C | [Suspended checkpoint](suspended/README.md); remaining content review and normal construction are in progress |
+| FD1301B/C | [Suspended content, construction and cumulative workflow](suspended/BC-acceptance.md); complete |
 | FD1601A–C / FD1601 | [Fixed Inverted preparation](fixed-inverted/README.md); consumes the integrated Suspended handoff and transferred shared paths |
 
 ## Evidence carried forward
@@ -48,10 +48,11 @@ later relevant changes without reopening unaffected cases for a new JAR.
 
 All S1 client, server and Xvfb units are inactive. Saved worlds and run identities
 remain in its [mechanics](spinning/README.md) and [player](spinning/player/README.md)
-records. Suspended explicitly retains its exact runtime for named continuing
-FD1301B/C work in the [A handoff](suspended/A-handoff.md); Fixed Inverted receives
-source ownership, not that runtime. Remaining owners must finish and verify their
-own runtime cleanup before FD601 closes. The pre-existing root `logs/` directory remains unrelated and
+records. Suspended completed its named continuing B/C work and saved/stopped all owned
+client/server/Xvfb units; [cleanup verification](suspended/construction/cleanup.json)
+records inactive/PID0 and display312 absent. Fixed Inverted received source
+ownership and reserved its own runtime; it must complete and verify cleanup
+before FD601 closes. The pre-existing root `logs/` directory remains unrelated and
 unstaged. No new branch or worktree was created for 0.6.
 
 Remaining Spinning variants belong to 0.8. This milestone does not activate 0.7,

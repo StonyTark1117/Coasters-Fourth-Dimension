@@ -22,7 +22,10 @@ at least 36 blocks long. The example platforms are four blocks to each side.
 One to four identical cars may be linked with the native Wrench at exactly eight
 blocks between bearings. Stop and capture both cars before linking. Initially
 bind each car to a nearby Boarding Station; after coupling, bind the train to the
-chosen station again. Do not mix families or add an ordinary recovery bearing.
+chosen station again with **Shift + right-click**. A deliberate rebind requires the
+whole train stopped, aligned and retained at the level dock. Ordinary right-click
+on an already bound station always opens its controls, including Capture. Do not
+mix families or add an ordinary recovery bearing.
 
 ## Lift and free swing
 
@@ -33,7 +36,7 @@ uncontrolled approach. Native Chain and Create rotation provide travel. Keep
 lift drive at no more than two blocks/second, and all other travel below twelve.
 
 Bind the Boarding Station, wait for Ready, board by right-clicking a seat cushion,
-close restraints and Dispatch. The stopped dock latch must settle for five server
+use the seated Rotation Tool (or station controls) to close restraints and Dispatch. The stopped dock latch must settle for five server
 ticks. The physical lift lock stays closed through the marked lift and releases
 only after the rear of every linked car clears the exit. The cabin then swings
 under gravity and inertia; equal rider masses affect the native center of mass.

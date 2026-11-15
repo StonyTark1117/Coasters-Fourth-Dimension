@@ -10,7 +10,25 @@ def write(path,value):
 def box(a,b,t):
  return {'from':a,'to':b,'faces':{f:{'texture':t} for f in ['north','south','east','west','up','down']}}
 def model(parts):
- return {'parent':'minecraft:block/block','textures':{'cushion':'minecraft:block/orange_concrete','metal':'minecraft:block/iron_block','body':'minecraft:block/cyan_terracotta','restraint':'minecraft:block/black_concrete','accent':'minecraft:block/orange_concrete','particle':'minecraft:block/cyan_terracotta'},'elements':parts}
+ # Automatic UVs use element coordinates and bleed outside an atlas sprite when
+ # parts extend beyond the source block. Tile large cuboids at a consistent scale,
+ # with every face explicitly confined to its own 0..16 sprite rectangle.
+ tiled=[]
+ from itertools import product
+ def intervals(a,b):
+  points=[a]
+  while points[-1]+16<b: points.append(points[-1]+16)
+  points.append(b)
+  return list(zip(points,points[1:]))
+ for part in parts:
+  for xs,ys,zs in product(*(intervals(a,b) for a,b in zip(part['from'],part['to']))):
+   a=[xs[0],ys[0],zs[0]];b=[xs[1],ys[1],zs[1]]
+   x,y,z=[hi-lo for lo,hi in zip(a,b)]
+   faces={}
+   for face,dimensions in [('north',(x,y)),('south',(x,y)),('east',(z,y)),('west',(z,y)),('up',(x,z)),('down',(x,z))]:
+    faces[face]={'texture':part['faces'][face]['texture'],'uv':[0,0,*dimensions]}
+   tiled.append({'from':a,'to':b,'faces':faces})
+ return {'parent':'minecraft:block/block','textures':{'cushion':'minecraft:block/orange_concrete','metal':'minecraft:block/iron_block','body':'minecraft:block/cyan_terracotta','restraint':'minecraft:block/black_concrete','accent':'minecraft:block/orange_concrete','particle':'minecraft:block/cyan_terracotta'},'elements':tiled}
 
 for closed in (False,True):
  parts=[box([1,2,2],[15,5,14],'#cushion'),box([1,4,12],[15,23,15],'#cushion'),
@@ -74,11 +92,12 @@ write('assets/fourthdimension/models/block/suspended_controller.json',model([box
 write('assets/fourthdimension/blockstates/suspended_controller.json',{'variants':{'':{'model':'fourthdimension:block/suspended_controller'}}})
 write('assets/fourthdimension/models/block/suspended_keel.json',model([]))
 write('assets/fourthdimension/blockstates/suspended_keel.json',{'variants':{'':{'model':'fourthdimension:block/suspended_keel'}}})
+write('assets/fourthdimension/models/item/suspended_latch.json',model([box([3,3,2],[13,6,14],'#metal'),box([4,6,3],[6,14,13],'#metal'),box([10,6,3],[12,14,13],'#metal'),box([5,9,5],[11,12,11],'#accent')]))
+write('data/fourthdimension/recipe/suspended_latch.json',{'type':'minecraft:crafting_shaped','pattern':[' I ','CRC',' I '],'key':{'I':{'tag':'c:ingots/iron'},'C':{'item':'minecraft:copper_ingot'},'R':{'item':'minecraft:redstone'}},'result':{'id':'fourthdimension:suspended_latch','count':1}})
+
 for path in (OUT/'assets/fourthdimension/models').rglob('suspended_*.json'):
  data=json.loads(path.read_text())
  for element in data.get('elements',[]):
   assert all(-16<=a<b<=32 for a,b in zip(element['from'],element['to'])),path
+  assert all(all(0<=value<=16 for value in face['uv']) for face in element['faces'].values()),path
 print('Generated and checked Suspended resources')
-
-write('assets/fourthdimension/models/item/suspended_latch.json',model([box([3,3,2],[13,6,14],'#metal'),box([4,6,3],[6,14,13],'#metal'),box([10,6,3],[12,14,13],'#metal'),box([5,9,5],[11,12,11],'#accent')]))
-write('data/fourthdimension/recipe/suspended_latch.json',{'type':'minecraft:crafting_shaped','pattern':[' I ','CRC',' I '],'key':{'I':{'tag':'c:ingots/iron'},'C':{'item':'minecraft:copper_ingot'},'R':{'item':'minecraft:redstone'}},'result':{'id':'fourthdimension:suspended_latch','count':1}})
