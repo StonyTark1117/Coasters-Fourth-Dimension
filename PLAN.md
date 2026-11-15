@@ -344,7 +344,7 @@ sequence is:
 | Foundation–0.3 | FD001–FD305, existing bounded gates | Preserve accepted architecture and original five families. |
 | 0.4 | FD401–FD404 | Complete remaining recovery and player workflows; core checkpoint only. |
 | 0.5 | FD501–FD503; six original discovery IDs; FD1601S, FD1702S, FD1801S, FD1802S, FD1901S; FD1101A–C; FD904C1 | Specify all 1.0 vehicles/dependencies; prove Wing-backed contracts, comfort and reusable tools. |
-| 0.6 | FD1501A–C, FD1301A–C, FD1601A–C, FD601 | S1 conventional free-spinning, Suspended and Fixed Inverted. |
+| 0.6 | FD1501A–C, FD1301A–C, FD1601A–C, FD601 | S1 conventional free-spinning, Suspended and Fixed Inverted; [complete 2026-11-15](docs/evidence/0.6/acceptance.md). |
 | 0.7 | FD1302A–C, FD1502A–C, FD1801A–C, FD1802A–C, FD1803, FD701 | Axis/Roller Ball and Conventional/New-generation Flying, including scenery-facing yaw. |
 | 0.8 | FD1401A–C, FD1501D–F, FD1701A, FD1702A–C, FD1901A–C, FD1902, FD810–FD813 | Pipeline, S2, Dive, Powered Inverted Yaw, required authority and operations adapters. |
 | 0.9 | FD910–FD916 | Presentation, optional seats, coexistence and the complete model/texture review. |

@@ -1,0 +1,258 @@
+Compiled from "CoasterCartChainLinkInteraction.java"
+public final class dev.silvergold.simulatedcoasters.track.cart.CoasterCartChainLinkInteraction {
+  private dev.silvergold.simulatedcoasters.track.cart.CoasterCartChainLinkInteraction();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+       4: return
+
+  public static boolean holdingChain(net.minecraft.world.item.ItemStack);
+    Code:
+       0: aload_0
+       1: getstatic     #7                  // Field net/minecraft/world/item/Items.CHAIN:Lnet/minecraft/world/item/Item;
+       4: invokevirtual #13                 // Method net/minecraft/world/item/ItemStack.is:(Lnet/minecraft/world/item/Item;)Z
+       7: ireturn
+
+  public static void onRightClickBlock(net.neoforged.neoforge.event.entity.player.PlayerInteractEvent$RightClickBlock);
+    Code:
+       0: aload_0
+       1: invokevirtual #19                 // Method net/neoforged/neoforge/event/entity/player/PlayerInteractEvent$RightClickBlock.getHand:()Lnet/minecraft/world/InteractionHand;
+       4: getstatic     #25                 // Field net/minecraft/world/InteractionHand.MAIN_HAND:Lnet/minecraft/world/InteractionHand;
+       7: if_acmpeq     11
+      10: return
+      11: aload_0
+      12: invokevirtual #31                 // Method net/neoforged/neoforge/event/entity/player/PlayerInteractEvent$RightClickBlock.getEntity:()Lnet/minecraft/world/entity/player/Player;
+      15: astore_1
+      16: aload_1
+      17: invokevirtual #35                 // Method net/minecraft/world/entity/player/Player.getMainHandItem:()Lnet/minecraft/world/item/ItemStack;
+      20: astore_2
+      21: aload_2
+      22: invokestatic  #41                 // Method holdingChain:(Lnet/minecraft/world/item/ItemStack;)Z
+      25: ifne          29
+      28: return
+      29: aload_1
+      30: invokevirtual #47                 // Method net/minecraft/world/entity/player/Player.level:()Lnet/minecraft/world/level/Level;
+      33: astore_3
+      34: aload_1
+      35: invokevirtual #51                 // Method net/minecraft/world/entity/player/Player.isShiftKeyDown:()Z
+      38: ifeq          81
+      41: aload_2
+      42: invokestatic  #55                 // Method dev/silvergold/simulatedcoasters/track/cart/CoasterCartLinkSelection.hasLinkTarget:(Lnet/minecraft/world/item/ItemStack;)Z
+      45: ifeq          81
+      48: aload_2
+      49: invokestatic  #60                 // Method dev/silvergold/simulatedcoasters/track/cart/CoasterCartLinkSelection.clearLinkTarget:(Lnet/minecraft/world/item/ItemStack;)V
+      52: aload_3
+      53: invokevirtual #64                 // Method net/minecraft/world/level/Level.isClientSide:()Z
+      56: ifne          75
+      59: aload_1
+      60: ldc           #69                 // String simulatedcoasters.cart.link_cleared
+      62: invokestatic  #71                 // InterfaceMethod net/minecraft/network/chat/Component.translatable:(Ljava/lang/String;)Lnet/minecraft/network/chat/MutableComponent;
+      65: getstatic     #77                 // Field net/minecraft/ChatFormatting.GRAY:Lnet/minecraft/ChatFormatting;
+      68: invokevirtual #83                 // Method net/minecraft/network/chat/MutableComponent.withStyle:(Lnet/minecraft/ChatFormatting;)Lnet/minecraft/network/chat/MutableComponent;
+      71: iconst_1
+      72: invokevirtual #89                 // Method net/minecraft/world/entity/player/Player.displayClientMessage:(Lnet/minecraft/network/chat/Component;Z)V
+      75: aload_0
+      76: iconst_1
+      77: invokevirtual #93                 // Method net/neoforged/neoforge/event/entity/player/PlayerInteractEvent$RightClickBlock.setCanceled:(Z)V
+      80: return
+      81: aload_3
+      82: aload_0
+      83: invokevirtual #97                 // Method net/neoforged/neoforge/event/entity/player/PlayerInteractEvent$RightClickBlock.getPos:()Lnet/minecraft/core/BlockPos;
+      86: invokestatic  #101                // Method dev/silvergold/simulatedcoasters/track/cart/CoasterCartResolve.findCartSubLevelAt:(Lnet/minecraft/world/level/Level;Lnet/minecraft/core/BlockPos;)Ldev/ryanhcode/sable/sublevel/SubLevel;
+      89: astore        4
+      91: aload         4
+      93: ifnonnull     97
+      96: return
+      97: aload_0
+      98: iconst_1
+      99: invokevirtual #93                 // Method net/neoforged/neoforge/event/entity/player/PlayerInteractEvent$RightClickBlock.setCanceled:(Z)V
+     102: aload_3
+     103: invokevirtual #64                 // Method net/minecraft/world/level/Level.isClientSide:()Z
+     106: ifeq          125
+     109: getstatic     #107                // Field net/neoforged/fml/loading/FMLEnvironment.dist:Lnet/neoforged/api/distmarker/Dist;
+     112: getstatic     #113                // Field net/neoforged/api/distmarker/Dist.CLIENT:Lnet/neoforged/api/distmarker/Dist;
+     115: if_acmpne     124
+     118: aload_2
+     119: aload         4
+     121: invokestatic  #118                // Method dev/silvergold/simulatedcoasters/track/cart/CoasterCartChainLinkInteraction$ClientCoupleFeedback.playDenyIfBlocked:(Lnet/minecraft/world/item/ItemStack;Ldev/ryanhcode/sable/sublevel/SubLevel;)V
+     124: return
+     125: aload_1
+     126: instanceof    #124                // class net/minecraft/server/level/ServerPlayer
+     129: ifeq          141
+     132: aload_1
+     133: checkcast     #124                // class net/minecraft/server/level/ServerPlayer
+     136: astore        5
+     138: goto          142
+     141: return
+     142: aload_3
+     143: instanceof    #126                // class net/minecraft/server/level/ServerLevel
+     146: ifeq          158
+     149: aload_3
+     150: checkcast     #126                // class net/minecraft/server/level/ServerLevel
+     153: astore        6
+     155: goto          159
+     158: return
+     159: aload         4
+     161: instanceof    #128                // class dev/ryanhcode/sable/sublevel/ServerSubLevel
+     164: ifeq          177
+     167: aload         4
+     169: checkcast     #128                // class dev/ryanhcode/sable/sublevel/ServerSubLevel
+     172: astore        7
+     174: goto          178
+     177: return
+     178: aload         6
+     180: aload         5
+     182: aload_2
+     183: aload         7
+     185: invokestatic  #130                // Method handleLinkClick:(Lnet/minecraft/server/level/ServerLevel;Lnet/minecraft/server/level/ServerPlayer;Lnet/minecraft/world/item/ItemStack;Ldev/ryanhcode/sable/sublevel/ServerSubLevel;)V
+     188: return
+
+  private static void handleLinkClick(net.minecraft.server.level.ServerLevel, net.minecraft.server.level.ServerPlayer, net.minecraft.world.item.ItemStack, dev.ryanhcode.sable.sublevel.ServerSubLevel);
+    Code:
+       0: aload_2
+       1: invokestatic  #134                // Method dev/silvergold/simulatedcoasters/track/cart/CoasterCartLinkSelection.readLinkTarget:(Lnet/minecraft/world/item/ItemStack;)Ljava/util/UUID;
+       4: astore        4
+       6: aload         4
+       8: ifnonnull     53
+      11: aload_0
+      12: aload_3
+      13: invokestatic  #138                // Method dev/silvergold/simulatedcoasters/track/cart/CoasterCartTrainLinkConstraint.pruneInvalidLinksForCoupling:(Lnet/minecraft/server/level/ServerLevel;Ldev/ryanhcode/sable/sublevel/ServerSubLevel;)V
+      16: aload_0
+      17: aload_2
+      18: aload_3
+      19: invokestatic  #144                // Method dev/silvergold/simulatedcoasters/track/cart/CoasterCartLinkSelection.applyLinkTarget:(Lnet/minecraft/world/level/Level;Lnet/minecraft/world/item/ItemStack;Ldev/ryanhcode/sable/sublevel/SubLevel;)V
+      22: aload_1
+      23: ldc           #148                // String simulatedcoasters.cart.link_selected_chain
+      25: invokestatic  #71                 // InterfaceMethod net/minecraft/network/chat/Component.translatable:(Ljava/lang/String;)Lnet/minecraft/network/chat/MutableComponent;
+      28: getstatic     #77                 // Field net/minecraft/ChatFormatting.GRAY:Lnet/minecraft/ChatFormatting;
+      31: invokevirtual #83                 // Method net/minecraft/network/chat/MutableComponent.withStyle:(Lnet/minecraft/ChatFormatting;)Lnet/minecraft/network/chat/MutableComponent;
+      34: iconst_1
+      35: invokevirtual #150                // Method net/minecraft/server/level/ServerPlayer.displayClientMessage:(Lnet/minecraft/network/chat/Component;Z)V
+      38: getstatic     #151                // Field dev/silvergold/simulatedcoasters/SimulatedCoasters.LOGGER:Lorg/slf4j/Logger;
+      41: ldc           #157                // String [cart-link] chain selected cart {} for coupling
+      43: aload_3
+      44: invokevirtual #159                // Method dev/ryanhcode/sable/sublevel/ServerSubLevel.getUniqueId:()Ljava/util/UUID;
+      47: invokeinterface #163,  3          // InterfaceMethod org/slf4j/Logger.info:(Ljava/lang/String;Ljava/lang/Object;)V
+      52: return
+      53: aload         4
+      55: aload_3
+      56: invokevirtual #159                // Method dev/ryanhcode/sable/sublevel/ServerSubLevel.getUniqueId:()Ljava/util/UUID;
+      59: invokevirtual #169                // Method java/util/UUID.equals:(Ljava/lang/Object;)Z
+      62: ifeq          88
+      65: aload_0
+      66: aload_2
+      67: aload_3
+      68: invokestatic  #144                // Method dev/silvergold/simulatedcoasters/track/cart/CoasterCartLinkSelection.applyLinkTarget:(Lnet/minecraft/world/level/Level;Lnet/minecraft/world/item/ItemStack;Ldev/ryanhcode/sable/sublevel/SubLevel;)V
+      71: aload_1
+      72: ldc           #148                // String simulatedcoasters.cart.link_selected_chain
+      74: invokestatic  #71                 // InterfaceMethod net/minecraft/network/chat/Component.translatable:(Ljava/lang/String;)Lnet/minecraft/network/chat/MutableComponent;
+      77: getstatic     #77                 // Field net/minecraft/ChatFormatting.GRAY:Lnet/minecraft/ChatFormatting;
+      80: invokevirtual #83                 // Method net/minecraft/network/chat/MutableComponent.withStyle:(Lnet/minecraft/ChatFormatting;)Lnet/minecraft/network/chat/MutableComponent;
+      83: iconst_1
+      84: invokevirtual #150                // Method net/minecraft/server/level/ServerPlayer.displayClientMessage:(Lnet/minecraft/network/chat/Component;Z)V
+      87: return
+      88: aload_0
+      89: aload         4
+      91: invokestatic  #175                // Method dev/silvergold/simulatedcoasters/track/cart/CoasterCartResolve.findCartById:(Lnet/minecraft/server/level/ServerLevel;Ljava/util/UUID;)Ldev/ryanhcode/sable/sublevel/ServerSubLevel;
+      94: astore        5
+      96: aload         5
+      98: ifnull        115
+     101: aload         5
+     103: invokevirtual #179                // Method dev/ryanhcode/sable/sublevel/ServerSubLevel.isRemoved:()Z
+     106: ifne          115
+     109: aload         5
+     111: aload_3
+     112: if_acmpne     148
+     115: aload_2
+     116: invokestatic  #60                 // Method dev/silvergold/simulatedcoasters/track/cart/CoasterCartLinkSelection.clearLinkTarget:(Lnet/minecraft/world/item/ItemStack;)V
+     119: getstatic     #151                // Field dev/silvergold/simulatedcoasters/SimulatedCoasters.LOGGER:Lorg/slf4j/Logger;
+     122: ldc           #182                // String [cart-link] chain partner {} missing; selection cleared
+     124: aload         4
+     126: invokeinterface #163,  3          // InterfaceMethod org/slf4j/Logger.info:(Ljava/lang/String;Ljava/lang/Object;)V
+     131: aload_1
+     132: ldc           #69                 // String simulatedcoasters.cart.link_cleared
+     134: invokestatic  #71                 // InterfaceMethod net/minecraft/network/chat/Component.translatable:(Ljava/lang/String;)Lnet/minecraft/network/chat/MutableComponent;
+     137: getstatic     #77                 // Field net/minecraft/ChatFormatting.GRAY:Lnet/minecraft/ChatFormatting;
+     140: invokevirtual #83                 // Method net/minecraft/network/chat/MutableComponent.withStyle:(Lnet/minecraft/ChatFormatting;)Lnet/minecraft/network/chat/MutableComponent;
+     143: iconst_1
+     144: invokevirtual #150                // Method net/minecraft/server/level/ServerPlayer.displayClientMessage:(Lnet/minecraft/network/chat/Component;Z)V
+     147: return
+     148: aload         5
+     150: aload_3
+     151: aconst_null
+     152: invokestatic  #184                // Method dev/silvergold/simulatedcoasters/track/cart/CoasterCartLinkPlacement.bearingCenterDistance:(Ldev/ryanhcode/sable/sublevel/SubLevel;Ldev/ryanhcode/sable/sublevel/SubLevel;Ljava/lang/Double;)D
+     155: dstore        6
+     157: dload         6
+     159: invokestatic  #190                // Method java/lang/Double.isNaN:(D)Z
+     162: ifne          173
+     165: dload         6
+     167: invokestatic  #196                // Method dev/silvergold/simulatedcoasters/track/cart/CoasterCartLinkPlacement.rejectsLinkDistance:(D)Z
+     170: ifeq          174
+     173: return
+     174: aload         5
+     176: aload_3
+     177: invokestatic  #199                // Method dev/silvergold/simulatedcoasters/track/cart/CoasterCartTrainLinkConstraint.coupleRejectLangKey:(Ldev/ryanhcode/sable/sublevel/SubLevel;Ldev/ryanhcode/sable/sublevel/SubLevel;)Ljava/lang/String;
+     180: ifnull        184
+     183: return
+     184: aload_0
+     185: aload         5
+     187: aload_3
+     188: aconst_null
+     189: aload_1
+     190: invokevirtual #203                // Method net/minecraft/server/level/ServerPlayer.getUUID:()Ljava/util/UUID;
+     193: invokestatic  #206                // Method dev/silvergold/simulatedcoasters/track/cart/CoasterCartLinkSnap.isSuppressLinkSnap:(Ljava/util/UUID;)Z
+     196: invokestatic  #212                // Method dev/silvergold/simulatedcoasters/track/cart/CoasterCartLinkPlacement.resolveChainLinkDistance:(Lnet/minecraft/world/level/Level;Ldev/ryanhcode/sable/sublevel/SubLevel;Ldev/ryanhcode/sable/sublevel/SubLevel;Ljava/lang/Double;Z)D
+     199: dstore        8
+     201: aload_0
+     202: aload         5
+     204: invokestatic  #138                // Method dev/silvergold/simulatedcoasters/track/cart/CoasterCartTrainLinkConstraint.pruneInvalidLinksForCoupling:(Lnet/minecraft/server/level/ServerLevel;Ldev/ryanhcode/sable/sublevel/ServerSubLevel;)V
+     207: aload_0
+     208: aload_3
+     209: invokestatic  #138                // Method dev/silvergold/simulatedcoasters/track/cart/CoasterCartTrainLinkConstraint.pruneInvalidLinksForCoupling:(Lnet/minecraft/server/level/ServerLevel;Ldev/ryanhcode/sable/sublevel/ServerSubLevel;)V
+     212: aload_0
+     213: aload         5
+     215: aload_3
+     216: dload         8
+     218: invokestatic  #216                // Method dev/silvergold/simulatedcoasters/track/cart/CoasterCartTrainLinkConstraint.linkCarts:(Lnet/minecraft/server/level/ServerLevel;Ldev/ryanhcode/sable/sublevel/ServerSubLevel;Ldev/ryanhcode/sable/sublevel/ServerSubLevel;D)Z
+     221: ifne          225
+     224: return
+     225: aload_2
+     226: invokestatic  #60                 // Method dev/silvergold/simulatedcoasters/track/cart/CoasterCartLinkSelection.clearLinkTarget:(Lnet/minecraft/world/item/ItemStack;)V
+     229: aload_1
+     230: ldc           #220                // String simulatedcoasters.cart.link_coupled
+     232: invokestatic  #71                 // InterfaceMethod net/minecraft/network/chat/Component.translatable:(Ljava/lang/String;)Lnet/minecraft/network/chat/MutableComponent;
+     235: getstatic     #77                 // Field net/minecraft/ChatFormatting.GRAY:Lnet/minecraft/ChatFormatting;
+     238: invokevirtual #83                 // Method net/minecraft/network/chat/MutableComponent.withStyle:(Lnet/minecraft/ChatFormatting;)Lnet/minecraft/network/chat/MutableComponent;
+     241: iconst_1
+     242: invokevirtual #150                // Method net/minecraft/server/level/ServerPlayer.displayClientMessage:(Lnet/minecraft/network/chat/Component;Z)V
+     245: return
+
+  public static dev.ryanhcode.sable.sublevel.SubLevel resolveHoveredCart(net.minecraft.world.level.Level, net.minecraft.world.phys.HitResult);
+    Code:
+       0: aload_1
+       1: instanceof    #222                // class net/minecraft/world/phys/BlockHitResult
+       4: ifeq          22
+       7: aload_1
+       8: checkcast     #222                // class net/minecraft/world/phys/BlockHitResult
+      11: astore_2
+      12: aload_2
+      13: invokevirtual #224                // Method net/minecraft/world/phys/BlockHitResult.getType:()Lnet/minecraft/world/phys/HitResult$Type;
+      16: getstatic     #228                // Field net/minecraft/world/phys/HitResult$Type.BLOCK:Lnet/minecraft/world/phys/HitResult$Type;
+      19: if_acmpeq     24
+      22: aconst_null
+      23: areturn
+      24: aload_0
+      25: aload_2
+      26: invokevirtual #234                // Method net/minecraft/world/phys/BlockHitResult.getBlockPos:()Lnet/minecraft/core/BlockPos;
+      29: invokestatic  #101                // Method dev/silvergold/simulatedcoasters/track/cart/CoasterCartResolve.findCartSubLevelAt:(Lnet/minecraft/world/level/Level;Lnet/minecraft/core/BlockPos;)Ldev/ryanhcode/sable/sublevel/SubLevel;
+      32: astore_3
+      33: aload_3
+      34: ifnull        44
+      37: aload_3
+      38: invokevirtual #237                // Method dev/ryanhcode/sable/sublevel/SubLevel.isRemoved:()Z
+      41: ifeq          46
+      44: aconst_null
+      45: areturn
+      46: aload_3
+      47: areturn
+}

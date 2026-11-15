@@ -9,6 +9,7 @@
     "ManualSnapAccess",
     "TrackMutationMixin",
     "ConsistLinkMixin",
+    "OverheadChainCouplingMixin",
     "RecoveryLinkAccess",
     "EngagedTrackMixin",
     "ChainDriveGuardMixin",
@@ -20,6 +21,7 @@
     "defaultRequire": 1
   },
   "client": [
+    "OverheadChainOutlineMixin",
     "OriginalTrackBerMixin",
     "OriginalTrackVisualMixin",
     "SableSectionRenderMixin",

@@ -90,7 +90,7 @@ whole-JAR equality is not required. Keep the original run identity and limits.
 | 0.3 | FD301–FD305 | Done for bounded five-family gate | Revised ZacSpin variant and functional PAX-style shuttle system. |
 | 0.4 | FD401–FD404 | Complete 2026-11-15 | Five-family core, recovery and player workflows reconciled at the FD404 development checkpoint; expanded 1.0 qualification remains FD1000. |
 | 0.5 | FD501–FD503; six original discovery IDs; FD1601S, FD1702S, FD1801S, FD1802S, FD1901S; FD1101A–C; FD904C1 | Complete | Specify every 1.0 vehicle, prove Wing-backed extension contracts, establish comfort and reusable tools. Adapter-specific upgrades follow their consumers. |
-| 0.6 | FD1501A–C, FD1301A–C, FD1601A–C, FD601 | In progress | S1 conventional free-spinning, Suspended and Fixed Inverted: axes, loading, capture, swing locks and fixed overhead seating. |
+| 0.6 | FD1501A–C, FD1301A–C, FD1601A–C, FD601 | Complete 2026-11-15 | S1 conventional free-spinning, Suspended and Fixed Inverted: axes, loading, capture, swing locks and fixed overhead seating. |
 | 0.7 | FD1302A–C, FD1502A–C, FD1801A–C, FD1802A–C, FD1803, FD701 | Planned | Axis/Roller Ball and both Flying variants; New-generation Flying proves scenery-facing yaw in seated and prone postures. |
 | 0.8 | FD1401A–C, FD1501D–F, FD1701A, FD1702A–C, FD1901A–C, FD1902, FD810–FD813 | Planned | Pipeline, S2, Dive, Powered Inverted Yaw, required operating authority and agreed Additions/CTNB/Magnetized capabilities. |
 | 0.9 | FD910–FD916 | Planned | Skin, rotating-seat integration, Immersion, Waterparked/Create Coasters coexistence, and model/texture quality across original and added families. |
@@ -681,7 +681,7 @@ not new Styles or whole-release qualification.
 
 **Execution steps:** [FD601](docs/roadmap/0.6-motion.md#fd601).
 
-**Status: in progress.** [Acceptance reconciliation](docs/evidence/0.6/acceptance.md).
+**Status: complete 2026-11-15.** [Acceptance reconciliation](docs/evidence/0.6/acceptance.md).
 **Depends on:** FD503, FD1501A–C, FD1301A–C, FD1601.
 
 **Done when:** S1, Suspended and Fixed Inverted have usable vehicles, content and accepted
@@ -1358,10 +1358,10 @@ acceptance; exact park-branded replicas are not a requirement.
 
 | Package / status | Actual prerequisites | Ordered work and completion condition |
 | --- | --- | --- |
-| <a id="fd1601"></a> **FD1601 Fixed Inverted outcome — in progress** [Steps](docs/roadmap/0.6-motion.md#fd1601) | FD1601C | Group the A–C outcome below; close from its accepted workflow without an additional run. |
+| <a id="fd1601"></a> **FD1601 Fixed Inverted outcome — complete** [Evidence](docs/evidence/0.6/fixed-inverted/BC-acceptance.md) [Steps](docs/roadmap/0.6-motion.md#fd1601) | FD1601C | Group the A–C outcome below; close from its accepted workflow without an additional run. |
 | <a id="fd1601a"></a> **FD1601A Fixed Inverted mechanics — complete** [Evidence](docs/evidence/0.6/fixed-inverted/A-handoff.md) [Steps](docs/roadmap/0.6-motion.md#fd1601a) | FD1601S, FD1101A, FD1301A | Implement the specified overhead fixed-seat configuration, restraints, track fit, consist limits and clearance. Complete construction/operation/capture, distinct recovery and the occupied handoff with correct rider/camera ownership. |
-| <a id="fd1601b"></a> **FD1601B Fixed Inverted content — in progress** [Steps](docs/roadmap/0.6-motion.md#fd1601b) | Stable FD1601A specification/dimensions | Deliver the original content, normal controls and playable example under the common B checklist. |
-| <a id="fd1601c"></a> **FD1601C Fixed Inverted acceptance — in progress** [Steps](docs/roadmap/0.6-motion.md#fd1601c) | FD1601A, FD1601B | Close construction, boarding, riding, stopping/unloading and distinct interruption/persistence cases using cumulative evidence. |
+| <a id="fd1601b"></a> **FD1601B Fixed Inverted content — complete** [Evidence](docs/evidence/0.6/fixed-inverted/BC-acceptance.md) [Steps](docs/roadmap/0.6-motion.md#fd1601b) | Stable FD1601A specification/dimensions | Deliver the original content, normal controls and playable example under the common B checklist. |
+| <a id="fd1601c"></a> **FD1601C Fixed Inverted acceptance — complete** [Evidence](docs/evidence/0.6/fixed-inverted/BC-acceptance.md) [Steps](docs/roadmap/0.6-motion.md#fd1601c) | FD1601A, FD1601B | Close construction, boarding, riding, stopping/unloading and distinct interruption/persistence cases using cumulative evidence. |
 | <a id="fd1602"></a> **FD1602 Shareable setting presets — planned** [Steps](docs/roadmap/1.1-tools.md#fd1602) | FD105, FD203; integrated consumer setting contracts | Save, name, import/export and apply bounded motion/tuning settings. Check family/variant, format version, permissions, numeric bounds and edit state. World-specific bindings require explicit rebinding; incompatible imports leave existing state intact. Complete when presets round-trip and normal player application/rejection works. No blueprint/world-copy system is added. |
 | <a id="fd1603"></a> **FD1603 Colors and original liveries — planned** [Steps](docs/roadmap/1.1-tools.md#fd1603) | Stable consumer material/appearance interfaces; FD910 only for its optional adapter | Provide a finite selectable palette/livery set, preview, persistence and fallback on a missing optional appearance provider. Preserve mechanical identity and seat ownership. Complete when declared original vehicles expose usable choices and affected visuals pass the existing checklist. No optional addon is required for original choices. |
 | <a id="fd1604"></a> **FD1604 Unified operator panel — planned** [Steps](docs/roadmap/1.1-tools.md#fd1604) | FD401D, FD106; integrated control/readiness contracts | Present whole-consist occupancy, restraints, power, faults, recovery and actionable dispatch-denial reasons in one player interface. Commands use the server's existing authority, permission and revision checks; display unavailable optional controls accurately. Complete when representative normal input and distinct controller paths agree with authoritative state. |

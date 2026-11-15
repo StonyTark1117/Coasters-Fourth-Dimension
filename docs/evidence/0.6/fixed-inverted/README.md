@@ -1,40 +1,23 @@
 # Fixed Inverted — FD1601A–C / FD1601
 
-## Current checkpoint
+## Current checkpoint — complete 2026-11-15
 
-Owner: `01a1dd1d-c6a6-7be0-9cb5-2b033ac550da`. Primary checkout
-`/home/braydon/Documents/Coasters: Fourth Dimension`, branch `main`, integrated
-prerequisite `ec27e982ece3e906bf144b25cbb5982b8d230d63` (qualified Suspended A).
-The lead transferred shared production ownership per CURRENT-QUALIFICATION:
-all `src/main/java/dev/fourthdimension/**` except Spinning*/Suspended* family files
-and those two GameTest classes; shared en_us, new Fixed-only assets/tests/generator/
-guide, and this evidence. Lead alone stages, commits, pushes and edits central docs.
-Preserve other owners' uncommitted work and pre-existing `logs/`. No new branch.
+**FD1601A–C and FD1601 are complete.** [A mechanics/occupied handoff](A-handoff.md)
+was integrated on main at `7a563e6d006fff8d80221f6e7d139b42bda452a8`.
+[B/C construction, content and final cleanup](BC-acceptance.md) supplies the
+remaining normal player workflow and the narrowly scoped eight-block native Chain
+input correction. The lead integrates that final change and reconciles FD601;
+no aggregate runtime run or 0.7 work is required.
 
-Production implementation is in progress: one rigid chassis, four exact fractional
-seat centers and equal native rider loads, overhead contact/renderer reuse,
-36-block designated dock, four-car eight-block linking, whole-train fault hold,
-explicit resume and fixed topology persistence. Preparation art's upper crossbar
-was moved below the overhead spine to remove a static clash before any live run.
-All original/Wing/S1/Suspended accepted behavior remains carried forward.
+Owner `01a1dd1d-c6a6-7be0-9cb5-2b033ac550da`, primary checkout
+`/home/braydon/Documents/Coasters: Fourth Dimension`, existing branch `main`.
+The lead owns all staging/commit/push and central documents. Preserve unrelated
+`logs/`. All owned client/server/Xvfb units are inactive with PID0; display314
+is absent. Saved world, logs and evidence remain at
+`/home/braydon/.local/state/fourthdimension-runs/fd1601-fixed-inverted-20261115`.
 
-Owned runtime: `/home/braydon/.local/state/fourthdimension-runs/fd1601-fixed-inverted-20261115`,
-server world `server/FixedInvertedWorkshop`, reserved display `:314`, game/RCON
-25646/25647, units `fd1601-fixed-inverted-20261115-{server,client,xvfb}.service`.
-No runtime was inherited. Server launched Java21 with 2G heap/4G cap; client and
-Xvfb not yet launched. Client will use1536M/6G. Host had30GiB available and263G disk;
-the active app cgroup reports max and approximately19.2GiB current. Recheck before
-client launch because lead and Suspended also own independent clients.
-
-Current check: targeted native fixture `fixednativecontract`
-for four-car fixed topology, precise .8 masses with adjacent fractional seats,
-dock-only unload, saved identity/consist and frame-loss whole-train hold. Java21
-compile/package passed. Two console invocations used namespace/class prefixes and launched no test.
-Diagnosis: @PrefixGameTestTemplate(false) registers the bare lower-case method,
-confirmed against the retained Suspended console record. `fixednativecontract`
-is the corrected launch. No native
-acceptance claimed yet. Next: diagnose native result, then occupied normal input
-and full-roll four-car sweep, non-upright save/reopen, construction/content, cleanup.
+The records below retain preparation and diagnosed run history; their old
+next-action/in-progress wording does not reopen completed cases or assign work.
 
 ## Prepared inputs
 
@@ -56,7 +39,7 @@ Production is now authorized on the integrated prerequisite. See the current
 checkpoint above; the former preparation-only wait is superseded. FD1601 closes
 from its cumulative A–C evidence and does not add an aggregate run.
 
-## Current native retry / save diagnosis
+## Historical native retry / save diagnosis
 
 First native fixture stopped at same-tick dock binding, before any mechanics
 assertion. The correction moves binding to tick55 after native pose settlement

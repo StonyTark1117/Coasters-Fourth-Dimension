@@ -24,7 +24,7 @@ FD403A–F and the FD404 aggregate are now reconciled. There is no remaining 0.4
 acceptance queue. The sections below retain case closure records and artifact
 history; they do not assign new work or add acceptance requirements.
 
-### Active 0.6 assignments — 2026-11-15
+### Milestone 0.6 — complete 2026-11-15
 
 The user authorized completing **0.6 with the same assignment, monitoring and
 commit/push workflow**. Follow [all eleven 0.6 execution cards](roadmap/0.6-motion.md).
@@ -33,16 +33,29 @@ completed 0.5 outcomes remain closed; FD503 is the integrated starting input.
 S2 Spinning, 0.7+ implementation and publication are not activated.
 
 Checkout: `/home/braydon/Documents/Coasters: Fourth Dimension`, existing `main`,
-dispatch HEAD `d73d43b820b725fc9648c6a2daa9348dead16b22`. Current integrated
-prerequisite is `ec27e982ece3e906bf144b25cbb5982b8d230d63` (Suspended A),
-pushed and directly verified on origin/main. Preserve active owners' work and the
-pre-existing untracked `logs/`. No new worktree.
+dispatch HEAD `d73d43b820b725fc9648c6a2daa9348dead16b22`. Fixed Inverted A was
+integrated at `7a563e6d006fff8d80221f6e7d139b42bda452a8`, pushed and directly
+verified on origin/main. This final reconciliation integrates B/C and its narrow
+Chain input correction. Preserve the pre-existing untracked `logs/`. No new worktree.
 
 | Complete assignment | Owner / chat | Ready work and prerequisites | Evidence / handoff |
 | --- | --- | --- | --- |
-| **FD1501A–C; FD601** | **0.6 lead — Spinning and integration**, `01a1dd1d-1468-7f81-8f31-5532ad7a178d` | S1 A–C complete. Integrate remaining qualified family changes and reconcile FD601 from cumulative evidence; preserve all closed cases. | `docs/evidence/0.6/spinning/`; lead owns central ROADMAP/PLAN/queue and all Git integration/commit/push. FD601 aggregates the three accepted families without another campaign. |
+| **FD1501A–C; FD601** | **0.6 lead — Spinning and integration**, `01a1dd1d-1468-7f81-8f31-5532ad7a178d` | S1 A–C and FD601 complete. All eleven 0.6 cards are reconciled; no remaining assigned work. | `docs/evidence/0.6/spinning/`; lead owns central ROADMAP/PLAN/queue and all Git integration/commit/push. FD601 aggregates the three accepted families without another campaign. |
 | **FD1301A–C** | **0.6 Suspended**, `01a1dd1d-6e99-70d2-aef3-6dcebac10d72` | A–C complete. A integrated at ec27e982; B/C construction/content and runtime cleanup accepted below. No remaining Suspended run or source work. | `docs/evidence/0.6/suspended/`; qualified overhead and occupied A handoff consumed by Fixed Inverted; B/C reuses it. |
-| **FD1601A–C; FD1601** | **0.6 Fixed Inverted**, `01a1dd1d-c6a6-7be0-9cb5-2b033ac550da` | A complete with qualified fixed-seat four-car occupied handoff. Finish B/C normal crafting, construction and content, then save/stop the owned runtime and reconcile FD1601. | `docs/evidence/0.6/fixed-inverted/`; FD1601 reconciles its accepted A–C outcome, then feeds FD601. |
+| **FD1601A–C; FD1601** | **0.6 Fixed Inverted**, `01a1dd1d-c6a6-7be0-9cb5-2b033ac550da` | A–C and FD1601 complete. Normal crafting, construction, eight-block Chain coupling, content and cleanup are accepted; no remaining assigned work. | `docs/evidence/0.6/fixed-inverted/`; FD1601 reconciles its accepted A–C outcome, then feeds FD601. |
+
+**Final closure:** [FD601 acceptance](evidence/0.6/acceptance.md) combines the
+three families' native, normal-input, content and persistence evidence. Fixed
+Inverted's [B/C record](evidence/0.6/fixed-inverted/BC-acceptance.md) closes its
+outcome and the shared eight-block Chain input correction. All S1, Suspended and
+Fixed Inverted clients, servers and private displays are inactive; worlds and
+logs are retained. Fixed saved all dimensions at07:10:48UTC and stopped its final
+unit by07:11:18UTC. Source ownership is returned to the lead; no family has pending
+edits or a live runtime. Only unrelated untracked `logs/` remains outside this work.
+No 0.7, release qualification or publication assignment is activated.
+
+The assignment and handoff notes below are historical. Their earlier continuation
+instructions are superseded by this closure and do not reopen work or runtimes.
 
 **Shared-file ownership:** initially the lead owns all shared production source,
 registration, asset generators and common resources. Other owners may write their
@@ -68,6 +81,24 @@ This is an active same-owner continuation, not an idle completed runtime.
 Accepted native and occupied cases carry forward; no 0.7 consumer is activated.
 Shared source ownership remains with Fixed Inverted for any coordinated correction.
 
+**Targeted player-coupling correction — closed 2026-11-15 07:07 UTC.** Normal Chain input reached both
+correct Fixed Inverted bearings, but native `CoasterCartLinkPlacement` rejects
+eight-block spacing before the family eligibility adapter. The native fixture
+called the lower-level link primitive and did not cover this player guard.
+The required normal construction/coupling criterion was isolated under FD1601C;
+the same supported eight-block interaction reopened only that case under FD1301C.
+All accepted native loading, rides, persistence and other content remain closed.
+Fixed Inverted owns the correction and also receives exact registration-file
+ownership of `src/main/resources/fourthdimension.mixins.json`. Retain ordinary
+native distance limits and all family/readiness/consist checks. One affected
+normal coupling proof with scoped shared-path review now closes the common adapter
+case: the server linked both normally placed Fixed Inverted cars at distance8.000
+at07:07:21UTC, the held Chain selection cleared, and the preview changed from
+blocked to eligible. The shared helper admits only Fixed/Suspended pairs that pass
+the existing family, variant, exact-distance, readiness and maximum-four guards;
+other inputs delegate to unchanged native rules. FD1301C is fully closed again.
+This does not request another family ride or qualification campaign.
+
 **FD1301A–C complete — 2026-11-15 06:24 UTC.**
 [Content, normal construction and cumulative acceptance](evidence/0.6/suspended/BC-acceptance.md)
 close Suspended. Crafting, anchor/track/car/station placement and binding, lift
@@ -87,7 +118,7 @@ The connected-journal correction also passed its affected mass/loading, swing-bo
 and capture/save check. Suspended B/C retain remaining content review and normal
 construction; they do not reopen accepted A or delay its consumer.
 
-**Current production ownership after this integration:**
+**Historical production ownership during integration:**
 
 - **Fixed Inverted** (`01a1dd1d-c6a6-7be0-9cb5-2b033ac550da`) owns
   `src/main/java/dev/fourthdimension/**` except `vehicle/Spinning*.java`,

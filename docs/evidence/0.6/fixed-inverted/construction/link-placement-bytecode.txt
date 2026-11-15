@@ -1,0 +1,777 @@
+Compiled from "CoasterCartLinkPlacement.java"
+public final class dev.silvergold.simulatedcoasters.track.cart.CoasterCartLinkPlacement {
+  public static final double PLACEMENT_DISTANCE_SNAP_BLOCKS;
+
+  public static final double PLACEMENT_DISTANCE_MIN_BLOCKS;
+
+  public static final double PLACEMENT_DISTANCE_MAX_BLOCKS;
+
+  public static final double PLACEMENT_DISTANCE_REJECT_BLOCKS;
+
+  private dev.silvergold.simulatedcoasters.track.cart.CoasterCartLinkPlacement();
+    Code:
+       0: aload_0
+       1: invokespecial #3                  // Method java/lang/Object."<init>":()V
+       4: return
+
+  public static net.minecraft.world.phys.Vec3 bearingCenterWorld(net.minecraft.world.phys.Vec3, org.joml.Quaterniond);
+    Code:
+       0: aload_1
+       1: invokestatic  #9                  // Method bearingCenterOffsetPlot:(Lorg/joml/Quaterniond;)Lorg/joml/Vector3d;
+       4: astore_2
+       5: aload_0
+       6: aload_2
+       7: getfield      #13                 // Field org/joml/Vector3d.x:D
+      10: aload_2
+      11: getfield      #19                 // Field org/joml/Vector3d.y:D
+      14: aload_2
+      15: getfield      #22                 // Field org/joml/Vector3d.z:D
+      18: invokevirtual #25                 // Method net/minecraft/world/phys/Vec3.add:(DDD)Lnet/minecraft/world/phys/Vec3;
+      21: areturn
+
+  public static net.minecraft.world.phys.Vec3 plotOriginForBearingCenter(net.minecraft.world.phys.Vec3, org.joml.Quaterniond);
+    Code:
+       0: aload_1
+       1: invokestatic  #9                  // Method bearingCenterOffsetPlot:(Lorg/joml/Quaterniond;)Lorg/joml/Vector3d;
+       4: astore_2
+       5: aload_0
+       6: aload_2
+       7: getfield      #13                 // Field org/joml/Vector3d.x:D
+      10: aload_2
+      11: getfield      #19                 // Field org/joml/Vector3d.y:D
+      14: aload_2
+      15: getfield      #22                 // Field org/joml/Vector3d.z:D
+      18: invokevirtual #31                 // Method net/minecraft/world/phys/Vec3.subtract:(DDD)Lnet/minecraft/world/phys/Vec3;
+      21: areturn
+
+  public static net.minecraft.world.phys.Vec3 bearingCenterWorld(dev.ryanhcode.sable.sublevel.SubLevel, dev.ryanhcode.sable.companion.math.Pose3d);
+    Code:
+       0: aload_0
+       1: invokestatic  #34                 // Method dev/silvergold/simulatedcoasters/track/cart/CoasterCartTrackSnap.representativeBearingPlotPos:(Ldev/ryanhcode/sable/sublevel/SubLevel;)Lnet/minecraft/core/BlockPos;
+       4: astore_2
+       5: aload_2
+       6: ifnonnull     11
+       9: aconst_null
+      10: areturn
+      11: aload_1
+      12: aload_2
+      13: invokestatic  #40                 // Method net/minecraft/world/phys/Vec3.atCenterOf:(Lnet/minecraft/core/Vec3i;)Lnet/minecraft/world/phys/Vec3;
+      16: invokevirtual #44                 // Method dev/ryanhcode/sable/companion/math/Pose3d.transformPosition:(Lnet/minecraft/world/phys/Vec3;)Lnet/minecraft/world/phys/Vec3;
+      19: areturn
+
+  public static dev.silvergold.simulatedcoasters.track.cart.CoasterCartLinkPlacement$AdjustedPlacement snapPlacementToLinkPartner(net.minecraft.world.level.Level, dev.silvergold.simulatedcoasters.track.cart.CoasterCartMidTrackPlacement$PlacementPose, net.minecraft.world.phys.Vec3, java.lang.Double);
+    Code:
+       0: aload_1
+       1: invokevirtual #50                 // Method dev/silvergold/simulatedcoasters/track/cart/CoasterCartMidTrackPlacement$PlacementPose.plotOriginWorld:()Lnet/minecraft/world/phys/Vec3;
+       4: aload_1
+       5: invokevirtual #56                 // Method dev/silvergold/simulatedcoasters/track/cart/CoasterCartMidTrackPlacement$PlacementPose.orientation:()Lorg/joml/Quaterniond;
+       8: invokestatic  #60                 // Method bearingCenterWorld:(Lnet/minecraft/world/phys/Vec3;Lorg/joml/Quaterniond;)Lnet/minecraft/world/phys/Vec3;
+      11: astore        4
+      13: aload         4
+      15: aload_2
+      16: invokevirtual #64                 // Method net/minecraft/world/phys/Vec3.subtract:(Lnet/minecraft/world/phys/Vec3;)Lnet/minecraft/world/phys/Vec3;
+      19: astore        5
+      21: aload         5
+      23: invokevirtual #66                 // Method net/minecraft/world/phys/Vec3.length:()D
+      26: dstore        6
+      28: aload_1
+      29: invokevirtual #56                 // Method dev/silvergold/simulatedcoasters/track/cart/CoasterCartMidTrackPlacement$PlacementPose.orientation:()Lorg/joml/Quaterniond;
+      32: astore        8
+      34: dload         6
+      36: ldc2_w        #70                 // double 1.0E-6d
+      39: dcmpl
+      40: iflt          57
+      43: aload         5
+      45: dconst_1
+      46: dload         6
+      48: ddiv
+      49: invokevirtual #72                 // Method net/minecraft/world/phys/Vec3.scale:(D)Lnet/minecraft/world/phys/Vec3;
+      52: astore        9
+      54: goto          101
+      57: aload_0
+      58: aload_1
+      59: invokevirtual #76                 // Method dev/silvergold/simulatedcoasters/track/cart/CoasterCartMidTrackPlacement$PlacementPose.graphHit:()Ldev/silvergold/simulatedcoasters/track/graph/CoasterPathTrackFrame$GraphHit;
+      62: aload_3
+      63: invokestatic  #80                 // Method dev/silvergold/simulatedcoasters/track/graph/CoasterPathTrackFrame.trackBasisAtHit:(Lnet/minecraft/world/level/Level;Ldev/silvergold/simulatedcoasters/track/graph/CoasterPathTrackFrame$GraphHit;Ljava/lang/Double;)Ldev/silvergold/simulatedcoasters/track/graph/CoasterPathTrackFrame$TrackBasis;
+      66: astore        10
+      68: aload         10
+      70: invokevirtual #86                 // Method dev/silvergold/simulatedcoasters/track/graph/CoasterPathTrackFrame$TrackBasis.forward:()Lnet/minecraft/world/phys/Vec3;
+      73: invokevirtual #91                 // Method net/minecraft/world/phys/Vec3.lengthSqr:()D
+      76: ldc2_w        #94                 // double 1.0E-12d
+      79: dcmpl
+      80: iflt          94
+      83: aload         10
+      85: invokevirtual #86                 // Method dev/silvergold/simulatedcoasters/track/graph/CoasterPathTrackFrame$TrackBasis.forward:()Lnet/minecraft/world/phys/Vec3;
+      88: invokevirtual #96                 // Method net/minecraft/world/phys/Vec3.normalize:()Lnet/minecraft/world/phys/Vec3;
+      91: goto          99
+      94: aload         8
+      96: invokestatic  #99                 // Method plotForwardWorld:(Lorg/joml/Quaterniond;)Lnet/minecraft/world/phys/Vec3;
+      99: astore        9
+     101: dload         6
+     103: ldc2_w        #70                 // double 1.0E-6d
+     106: dcmpg
+     107: ifge          116
+     110: ldc2_w        #103                // double 1.5d
+     113: goto          130
+     116: dload         6
+     118: ldc2_w        #105                // double 0.5d
+     121: ddiv
+     122: invokestatic  #107                // Method java/lang/Math.round:(D)J
+     125: l2d
+     126: ldc2_w        #105                // double 0.5d
+     129: dmul
+     130: dstore        10
+     132: dload         10
+     134: ldc2_w        #103                // double 1.5d
+     137: ldc2_w        #113                // double 6.0d
+     140: invokestatic  #115                // Method net/minecraft/util/Mth.clamp:(DDD)D
+     143: dstore        10
+     145: aload_2
+     146: aload         9
+     148: dload         10
+     150: invokevirtual #72                 // Method net/minecraft/world/phys/Vec3.scale:(D)Lnet/minecraft/world/phys/Vec3;
+     153: invokevirtual #121                // Method net/minecraft/world/phys/Vec3.add:(Lnet/minecraft/world/phys/Vec3;)Lnet/minecraft/world/phys/Vec3;
+     156: astore        12
+     158: aload         12
+     160: aload         8
+     162: invokestatic  #123                // Method plotOriginForBearingCenter:(Lnet/minecraft/world/phys/Vec3;Lorg/joml/Quaterniond;)Lnet/minecraft/world/phys/Vec3;
+     165: astore        13
+     167: new           #126                // class dev/silvergold/simulatedcoasters/track/cart/CoasterCartLinkPlacement$AdjustedPlacement
+     170: dup
+     171: new           #51                 // class dev/silvergold/simulatedcoasters/track/cart/CoasterCartMidTrackPlacement$PlacementPose
+     174: dup
+     175: aload_1
+     176: invokevirtual #76                 // Method dev/silvergold/simulatedcoasters/track/cart/CoasterCartMidTrackPlacement$PlacementPose.graphHit:()Ldev/silvergold/simulatedcoasters/track/graph/CoasterPathTrackFrame$GraphHit;
+     179: aload         13
+     181: aload         8
+     183: invokespecial #128                // Method dev/silvergold/simulatedcoasters/track/cart/CoasterCartMidTrackPlacement$PlacementPose."<init>":(Ldev/silvergold/simulatedcoasters/track/graph/CoasterPathTrackFrame$GraphHit;Lnet/minecraft/world/phys/Vec3;Lorg/joml/Quaterniond;)V
+     186: dload         10
+     188: dload         6
+     190: ldc2_w        #131                // double 7.0d
+     193: dcmpl
+     194: ifle          201
+     197: iconst_1
+     198: goto          202
+     201: iconst_0
+     202: invokespecial #133                // Method dev/silvergold/simulatedcoasters/track/cart/CoasterCartLinkPlacement$AdjustedPlacement."<init>":(Ldev/silvergold/simulatedcoasters/track/cart/CoasterCartMidTrackPlacement$PlacementPose;DZ)V
+     205: areturn
+
+  public static boolean rejectsLinkPlacement(net.minecraft.world.level.Level, net.minecraft.world.item.ItemStack, dev.silvergold.simulatedcoasters.track.cart.CoasterCartMidTrackPlacement$PlacementPose, java.lang.Double, boolean);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: aload_2
+       3: aload_3
+       4: iload         4
+       6: invokestatic  #136                // Method adjustForLinkSelection:(Lnet/minecraft/world/level/Level;Lnet/minecraft/world/item/ItemStack;Ldev/silvergold/simulatedcoasters/track/cart/CoasterCartMidTrackPlacement$PlacementPose;Ljava/lang/Double;Z)Ldev/silvergold/simulatedcoasters/track/cart/CoasterCartLinkPlacement$AdjustedPlacement;
+       9: astore        5
+      11: aload         5
+      13: ifnull        28
+      16: aload         5
+      18: invokevirtual #140                // Method dev/silvergold/simulatedcoasters/track/cart/CoasterCartLinkPlacement$AdjustedPlacement.tooFar:()Z
+      21: ifeq          28
+      24: iconst_1
+      25: goto          29
+      28: iconst_0
+      29: ireturn
+
+  public static boolean rejectsLinkPlacement(net.minecraft.world.level.Level, net.minecraft.world.item.ItemStack, dev.silvergold.simulatedcoasters.track.cart.CoasterCartMidTrackPlacement$PlacementPose, java.lang.Double);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: aload_2
+       3: aload_3
+       4: iconst_0
+       5: invokestatic  #144                // Method rejectsLinkPlacement:(Lnet/minecraft/world/level/Level;Lnet/minecraft/world/item/ItemStack;Ldev/silvergold/simulatedcoasters/track/cart/CoasterCartMidTrackPlacement$PlacementPose;Ljava/lang/Double;Z)Z
+       8: ireturn
+
+  public static boolean isLinkCouplingPlacement(net.minecraft.world.item.ItemStack);
+    Code:
+       0: aload_0
+       1: invokestatic  #148                // Method dev/silvergold/simulatedcoasters/track/cart/CoasterCartLinkSelection.hasLinkTarget:(Lnet/minecraft/world/item/ItemStack;)Z
+       4: ireturn
+
+  public static dev.silvergold.simulatedcoasters.track.cart.CoasterCartMidTrackPlacement$PlacementPose applyLinkSnapIfSelected(net.minecraft.world.level.Level, net.minecraft.world.item.ItemStack, dev.silvergold.simulatedcoasters.track.cart.CoasterCartMidTrackPlacement$PlacementPose, java.lang.Double, boolean);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: aload_2
+       3: aload_3
+       4: iload         4
+       6: invokestatic  #136                // Method adjustForLinkSelection:(Lnet/minecraft/world/level/Level;Lnet/minecraft/world/item/ItemStack;Ldev/silvergold/simulatedcoasters/track/cart/CoasterCartMidTrackPlacement$PlacementPose;Ljava/lang/Double;Z)Ldev/silvergold/simulatedcoasters/track/cart/CoasterCartLinkPlacement$AdjustedPlacement;
+       9: astore        5
+      11: aload         5
+      13: ifnull        24
+      16: aload         5
+      18: invokevirtual #154                // Method dev/silvergold/simulatedcoasters/track/cart/CoasterCartLinkPlacement$AdjustedPlacement.pose:()Ldev/silvergold/simulatedcoasters/track/cart/CoasterCartMidTrackPlacement$PlacementPose;
+      21: goto          25
+      24: aload_2
+      25: areturn
+
+  public static dev.silvergold.simulatedcoasters.track.cart.CoasterCartMidTrackPlacement$PlacementPose applyLinkSnapIfSelected(net.minecraft.world.level.Level, net.minecraft.world.item.ItemStack, dev.silvergold.simulatedcoasters.track.cart.CoasterCartMidTrackPlacement$PlacementPose, java.lang.Double);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: aload_2
+       3: aload_3
+       4: iconst_0
+       5: invokestatic  #158                // Method applyLinkSnapIfSelected:(Lnet/minecraft/world/level/Level;Lnet/minecraft/world/item/ItemStack;Ldev/silvergold/simulatedcoasters/track/cart/CoasterCartMidTrackPlacement$PlacementPose;Ljava/lang/Double;Z)Ldev/silvergold/simulatedcoasters/track/cart/CoasterCartMidTrackPlacement$PlacementPose;
+       8: areturn
+
+  public static dev.silvergold.simulatedcoasters.track.cart.CoasterCartLinkPlacement$AdjustedPlacement adjustForLinkSelection(net.minecraft.world.level.Level, net.minecraft.world.item.ItemStack, dev.silvergold.simulatedcoasters.track.cart.CoasterCartMidTrackPlacement$PlacementPose, java.lang.Double, boolean);
+    Code:
+       0: aload_1
+       1: invokestatic  #148                // Method dev/silvergold/simulatedcoasters/track/cart/CoasterCartLinkSelection.hasLinkTarget:(Lnet/minecraft/world/item/ItemStack;)Z
+       4: ifne          9
+       7: aconst_null
+       8: areturn
+       9: aload_0
+      10: aload_1
+      11: invokestatic  #162                // Method dev/silvergold/simulatedcoasters/track/cart/CoasterCartLinkSelection.readLinkTarget:(Lnet/minecraft/world/item/ItemStack;)Ljava/util/UUID;
+      14: invokestatic  #166                // Method dev/silvergold/simulatedcoasters/track/cart/CoasterCartResolve.findCartById:(Lnet/minecraft/world/level/Level;Ljava/util/UUID;)Ldev/ryanhcode/sable/sublevel/SubLevel;
+      17: astore        5
+      19: aload         5
+      21: ifnull        32
+      24: aload         5
+      26: invokevirtual #172                // Method dev/ryanhcode/sable/sublevel/SubLevel.isRemoved:()Z
+      29: ifeq          34
+      32: aconst_null
+      33: areturn
+      34: aload         5
+      36: aload_3
+      37: invokestatic  #177                // Method partnerBearingCenterWorld:(Ldev/ryanhcode/sable/sublevel/SubLevel;Ljava/lang/Double;)Lnet/minecraft/world/phys/Vec3;
+      40: astore        6
+      42: aload         6
+      44: ifnonnull     49
+      47: aconst_null
+      48: areturn
+      49: iload         4
+      51: ifne          74
+      54: aload_0
+      55: aload         5
+      57: aload_2
+      58: aload_3
+      59: invokestatic  #181                // Method shouldSnapPlacementToLinkPartner:(Lnet/minecraft/world/level/Level;Ldev/ryanhcode/sable/sublevel/SubLevel;Ldev/silvergold/simulatedcoasters/track/cart/CoasterCartMidTrackPlacement$PlacementPose;Ljava/lang/Double;)Z
+      62: ifeq          74
+      65: aload_0
+      66: aload_2
+      67: aload         6
+      69: aload_3
+      70: invokestatic  #185                // Method snapPlacementToLinkPartner:(Lnet/minecraft/world/level/Level;Ldev/silvergold/simulatedcoasters/track/cart/CoasterCartMidTrackPlacement$PlacementPose;Lnet/minecraft/world/phys/Vec3;Ljava/lang/Double;)Ldev/silvergold/simulatedcoasters/track/cart/CoasterCartLinkPlacement$AdjustedPlacement;
+      73: areturn
+      74: aload_2
+      75: aload         6
+      77: invokestatic  #189                // Method placementAtLinkPartnerWithoutSnap:(Ldev/silvergold/simulatedcoasters/track/cart/CoasterCartMidTrackPlacement$PlacementPose;Lnet/minecraft/world/phys/Vec3;)Ldev/silvergold/simulatedcoasters/track/cart/CoasterCartLinkPlacement$AdjustedPlacement;
+      80: areturn
+
+  public static dev.silvergold.simulatedcoasters.track.cart.CoasterCartLinkPlacement$AdjustedPlacement adjustForLinkSelection(net.minecraft.world.level.Level, net.minecraft.world.item.ItemStack, dev.silvergold.simulatedcoasters.track.cart.CoasterCartMidTrackPlacement$PlacementPose, java.lang.Double);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: aload_2
+       3: aload_3
+       4: iconst_0
+       5: invokestatic  #136                // Method adjustForLinkSelection:(Lnet/minecraft/world/level/Level;Lnet/minecraft/world/item/ItemStack;Ldev/silvergold/simulatedcoasters/track/cart/CoasterCartMidTrackPlacement$PlacementPose;Ljava/lang/Double;Z)Ldev/silvergold/simulatedcoasters/track/cart/CoasterCartLinkPlacement$AdjustedPlacement;
+       8: areturn
+
+  public static boolean shouldSnapPlacementToLinkPartner(net.minecraft.world.level.Level, dev.ryanhcode.sable.sublevel.SubLevel, dev.silvergold.simulatedcoasters.track.cart.CoasterCartMidTrackPlacement$PlacementPose, java.lang.Double);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: invokestatic  #193                // Method isCartTrackEngaged:(Lnet/minecraft/world/level/Level;Ldev/ryanhcode/sable/sublevel/SubLevel;)Z
+       5: ifne          10
+       8: iconst_0
+       9: ireturn
+      10: aload_0
+      11: aload_1
+      12: aload_3
+      13: invokestatic  #197                // Method engagedTrackHit:(Lnet/minecraft/world/level/Level;Ldev/ryanhcode/sable/sublevel/SubLevel;Ljava/lang/Double;)Ldev/silvergold/simulatedcoasters/track/graph/CoasterPathTrackFrame$GraphHit;
+      16: astore        4
+      18: aload_2
+      19: invokevirtual #76                 // Method dev/silvergold/simulatedcoasters/track/cart/CoasterCartMidTrackPlacement$PlacementPose.graphHit:()Ldev/silvergold/simulatedcoasters/track/graph/CoasterPathTrackFrame$GraphHit;
+      22: astore        5
+      24: aload         4
+      26: ifnull        34
+      29: aload         5
+      31: ifnonnull     36
+      34: iconst_0
+      35: ireturn
+      36: aload_0
+      37: invokestatic  #201                // Method dev/silvergold/simulatedcoasters/track/graph/CoasterPathGraphLookup.get:(Lnet/minecraft/world/level/Level;)Ldev/silvergold/simulatedcoasters/track/graph/CoasterPathGraph;
+      40: astore        6
+      42: aload         6
+      44: aload         4
+      46: invokevirtual #207                // Method dev/silvergold/simulatedcoasters/track/graph/CoasterPathTrackFrame$GraphHit.edge:()Ldev/silvergold/simulatedcoasters/track/graph/CoasterPathEdge;
+      49: invokevirtual #213                // Method dev/silvergold/simulatedcoasters/track/graph/CoasterPathGraph.indexOfEdge:(Ldev/silvergold/simulatedcoasters/track/graph/CoasterPathEdge;)I
+      52: istore        7
+      54: aload         6
+      56: aload         5
+      58: invokevirtual #207                // Method dev/silvergold/simulatedcoasters/track/graph/CoasterPathTrackFrame$GraphHit.edge:()Ldev/silvergold/simulatedcoasters/track/graph/CoasterPathEdge;
+      61: invokevirtual #213                // Method dev/silvergold/simulatedcoasters/track/graph/CoasterPathGraph.indexOfEdge:(Ldev/silvergold/simulatedcoasters/track/graph/CoasterPathEdge;)I
+      64: istore        8
+      66: aload         6
+      68: iload         7
+      70: iload         8
+      72: invokevirtual #219                // Method dev/silvergold/simulatedcoasters/track/graph/CoasterPathGraph.edgesAreSameOrDirectNeighbors:(II)Z
+      75: ireturn
+
+  private static dev.silvergold.simulatedcoasters.track.cart.CoasterCartLinkPlacement$AdjustedPlacement placementAtLinkPartnerWithoutSnap(dev.silvergold.simulatedcoasters.track.cart.CoasterCartMidTrackPlacement$PlacementPose, net.minecraft.world.phys.Vec3);
+    Code:
+       0: aload_0
+       1: invokevirtual #50                 // Method dev/silvergold/simulatedcoasters/track/cart/CoasterCartMidTrackPlacement$PlacementPose.plotOriginWorld:()Lnet/minecraft/world/phys/Vec3;
+       4: aload_0
+       5: invokevirtual #56                 // Method dev/silvergold/simulatedcoasters/track/cart/CoasterCartMidTrackPlacement$PlacementPose.orientation:()Lorg/joml/Quaterniond;
+       8: invokestatic  #60                 // Method bearingCenterWorld:(Lnet/minecraft/world/phys/Vec3;Lorg/joml/Quaterniond;)Lnet/minecraft/world/phys/Vec3;
+      11: astore_2
+      12: aload_2
+      13: aload_1
+      14: invokevirtual #223                // Method net/minecraft/world/phys/Vec3.distanceTo:(Lnet/minecraft/world/phys/Vec3;)D
+      17: dstore_3
+      18: new           #126                // class dev/silvergold/simulatedcoasters/track/cart/CoasterCartLinkPlacement$AdjustedPlacement
+      21: dup
+      22: aload_0
+      23: dload_3
+      24: dload_3
+      25: ldc2_w        #131                // double 7.0d
+      28: dcmpl
+      29: ifle          36
+      32: iconst_1
+      33: goto          37
+      36: iconst_0
+      37: invokespecial #133                // Method dev/silvergold/simulatedcoasters/track/cart/CoasterCartLinkPlacement$AdjustedPlacement."<init>":(Ldev/silvergold/simulatedcoasters/track/cart/CoasterCartMidTrackPlacement$PlacementPose;DZ)V
+      40: areturn
+
+  public static net.minecraft.world.phys.Vec3 partnerBearingCenterWorld(dev.ryanhcode.sable.sublevel.SubLevel, java.lang.Double);
+    Code:
+       0: new           #45                 // class dev/ryanhcode/sable/companion/math/Pose3d
+       3: dup
+       4: invokespecial #227                // Method dev/ryanhcode/sable/companion/math/Pose3d."<init>":()V
+       7: astore_2
+       8: aload_1
+       9: ifnull        47
+      12: aload_0
+      13: instanceof    #228                // class dev/ryanhcode/sable/sublevel/ClientSubLevel
+      16: ifeq          47
+      19: aload_0
+      20: checkcast     #228                // class dev/ryanhcode/sable/sublevel/ClientSubLevel
+      23: astore_3
+      24: aload_3
+      25: invokevirtual #230                // Method dev/ryanhcode/sable/sublevel/ClientSubLevel.lastPose:()Ldev/ryanhcode/sable/companion/math/Pose3dc;
+      28: aload_3
+      29: invokevirtual #234                // Method dev/ryanhcode/sable/sublevel/ClientSubLevel.logicalPose:()Ldev/ryanhcode/sable/companion/math/Pose3d;
+      32: aload_1
+      33: invokevirtual #238                // Method java/lang/Double.floatValue:()F
+      36: f2d
+      37: aload_2
+      38: invokeinterface #244,  5          // InterfaceMethod dev/ryanhcode/sable/companion/math/Pose3dc.lerp:(Ldev/ryanhcode/sable/companion/math/Pose3dc;DLdev/ryanhcode/sable/companion/math/Pose3d;)Ldev/ryanhcode/sable/companion/math/Pose3d;
+      43: pop
+      44: goto          56
+      47: aload_2
+      48: aload_0
+      49: invokevirtual #250                // Method dev/ryanhcode/sable/sublevel/SubLevel.logicalPose:()Ldev/ryanhcode/sable/companion/math/Pose3d;
+      52: invokevirtual #251                // Method dev/ryanhcode/sable/companion/math/Pose3d.set:(Ldev/ryanhcode/sable/companion/math/Pose3dc;)Ldev/ryanhcode/sable/companion/math/Pose3d;
+      55: pop
+      56: aload_0
+      57: aload_2
+      58: invokestatic  #255                // Method bearingCenterWorld:(Ldev/ryanhcode/sable/sublevel/SubLevel;Ldev/ryanhcode/sable/companion/math/Pose3d;)Lnet/minecraft/world/phys/Vec3;
+      61: areturn
+
+  public static dev.ryanhcode.sable.sublevel.ServerSubLevel spawnPlacedCart(net.minecraft.server.level.ServerLevel, dev.silvergold.simulatedcoasters.track.cart.CoasterCartMidTrackPlacement$PlacementPose, boolean);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: invokevirtual #50                 // Method dev/silvergold/simulatedcoasters/track/cart/CoasterCartMidTrackPlacement$PlacementPose.plotOriginWorld:()Lnet/minecraft/world/phys/Vec3;
+       5: aload_1
+       6: invokevirtual #56                 // Method dev/silvergold/simulatedcoasters/track/cart/CoasterCartMidTrackPlacement$PlacementPose.orientation:()Lorg/joml/Quaterniond;
+       9: iload_2
+      10: ifeq          17
+      13: aconst_null
+      14: goto          21
+      17: aload_1
+      18: invokevirtual #76                 // Method dev/silvergold/simulatedcoasters/track/cart/CoasterCartMidTrackPlacement$PlacementPose.graphHit:()Ldev/silvergold/simulatedcoasters/track/graph/CoasterPathTrackFrame$GraphHit;
+      21: iload_2
+      22: ifne          29
+      25: iconst_1
+      26: goto          30
+      29: iconst_0
+      30: invokestatic  #258                // Method dev/silvergold/simulatedcoasters/track/cart/CoasterCartSpawner.spawnMinimalContraption:(Lnet/minecraft/server/level/ServerLevel;Lnet/minecraft/world/phys/Vec3;Lorg/joml/Quaterniond;Ldev/silvergold/simulatedcoasters/track/graph/CoasterPathTrackFrame$GraphHit;Z)Ldev/ryanhcode/sable/sublevel/ServerSubLevel;
+      33: astore_3
+      34: aload_3
+      35: ifnull        46
+      38: iload_2
+      39: ifeq          46
+      42: aload_3
+      43: invokestatic  #264                // Method dev/silvergold/simulatedcoasters/track/cart/CoasterCartTrackSnap.markSpawnedDisengaged:(Ldev/ryanhcode/sable/sublevel/ServerSubLevel;)V
+      46: aload_3
+      47: areturn
+
+  public static net.minecraft.network.chat.MutableComponent linkDistanceActionBarComponent(double);
+    Code:
+       0: ldc_w         #268                // String simulatedcoasters.cart.link_distance_blocks
+       3: iconst_1
+       4: anewarray     #4                  // class java/lang/Object
+       7: dup
+       8: iconst_0
+       9: dload_0
+      10: d2f
+      11: invokestatic  #270                // Method dev/silvergold/simulatedcoasters/track/CoasterBezierHandleEdit.formatLiftMetersReadout:(F)Ljava/lang/String;
+      14: aastore
+      15: invokestatic  #276                // InterfaceMethod net/minecraft/network/chat/Component.translatable:(Ljava/lang/String;[Ljava/lang/Object;)Lnet/minecraft/network/chat/MutableComponent;
+      18: getstatic     #282                // Field net/minecraft/network/chat/Style.EMPTY:Lnet/minecraft/network/chat/Style;
+      21: ldc_w         #288                // int 16777215
+      24: invokestatic  #289                // Method net/minecraft/network/chat/TextColor.fromRgb:(I)Lnet/minecraft/network/chat/TextColor;
+      27: invokevirtual #295                // Method net/minecraft/network/chat/Style.withColor:(Lnet/minecraft/network/chat/TextColor;)Lnet/minecraft/network/chat/Style;
+      30: invokevirtual #299                // Method net/minecraft/network/chat/MutableComponent.withStyle:(Lnet/minecraft/network/chat/Style;)Lnet/minecraft/network/chat/MutableComponent;
+      33: areturn
+
+  public static net.minecraft.network.chat.Component linkTooFarActionBarComponent();
+    Code:
+       0: ldc_w         #305                // String simulatedcoasters.cart.link_too_far
+       3: invokestatic  #307                // Method dev/silvergold/simulatedcoasters/track/CoasterTrackPlacement.placementErrorMessage:(Ljava/lang/String;)Lnet/minecraft/network/chat/Component;
+       6: areturn
+
+  public static net.minecraft.network.chat.Component linkTooCloseActionBarComponent();
+    Code:
+       0: ldc_w         #313                // String simulatedcoasters.cart.link_too_close
+       3: invokestatic  #307                // Method dev/silvergold/simulatedcoasters/track/CoasterTrackPlacement.placementErrorMessage:(Ljava/lang/String;)Lnet/minecraft/network/chat/Component;
+       6: areturn
+
+  public static net.minecraft.network.chat.Component linkDistanceRejectActionBarComponent(double);
+    Code:
+       0: dload_0
+       1: invokestatic  #315                // Method isLinkDistanceTooClose:(D)Z
+       4: ifeq          11
+       7: invokestatic  #319                // Method linkTooCloseActionBarComponent:()Lnet/minecraft/network/chat/Component;
+      10: areturn
+      11: invokestatic  #323                // Method linkTooFarActionBarComponent:()Lnet/minecraft/network/chat/Component;
+      14: areturn
+
+  public static boolean isValidLinkDistance(double);
+    Code:
+       0: dload_0
+       1: ldc2_w        #70                 // double 1.0E-6d
+       4: dadd
+       5: ldc2_w        #103                // double 1.5d
+       8: dcmpl
+       9: iflt          24
+      12: dload_0
+      13: ldc2_w        #113                // double 6.0d
+      16: dcmpg
+      17: ifgt          24
+      20: iconst_1
+      21: goto          25
+      24: iconst_0
+      25: ireturn
+
+  public static boolean isLinkDistanceTooClose(double);
+    Code:
+       0: dload_0
+       1: invokestatic  #326                // Method java/lang/Double.isNaN:(D)Z
+       4: ifne          23
+       7: dload_0
+       8: ldc2_w        #70                 // double 1.0E-6d
+      11: dadd
+      12: ldc2_w        #103                // double 1.5d
+      15: dcmpg
+      16: ifge          23
+      19: iconst_1
+      20: goto          24
+      23: iconst_0
+      24: ireturn
+
+  public static boolean isLinkDistanceTooFar(double);
+    Code:
+       0: dload_0
+       1: invokestatic  #326                // Method java/lang/Double.isNaN:(D)Z
+       4: ifne          15
+       7: dload_0
+       8: ldc2_w        #131                // double 7.0d
+      11: dcmpl
+      12: ifle          19
+      15: iconst_1
+      16: goto          20
+      19: iconst_0
+      20: ireturn
+
+  public static boolean rejectsLinkDistance(double);
+    Code:
+       0: dload_0
+       1: invokestatic  #315                // Method isLinkDistanceTooClose:(D)Z
+       4: ifne          14
+       7: dload_0
+       8: invokestatic  #329                // Method isLinkDistanceTooFar:(D)Z
+      11: ifeq          18
+      14: iconst_1
+      15: goto          19
+      18: iconst_0
+      19: ireturn
+
+  public static double bearingCenterDistance(dev.ryanhcode.sable.sublevel.SubLevel, dev.ryanhcode.sable.sublevel.SubLevel, java.lang.Double);
+    Code:
+       0: aload_0
+       1: aload_2
+       2: invokestatic  #177                // Method partnerBearingCenterWorld:(Ldev/ryanhcode/sable/sublevel/SubLevel;Ljava/lang/Double;)Lnet/minecraft/world/phys/Vec3;
+       5: astore_3
+       6: aload_1
+       7: aload_2
+       8: invokestatic  #177                // Method partnerBearingCenterWorld:(Ldev/ryanhcode/sable/sublevel/SubLevel;Ljava/lang/Double;)Lnet/minecraft/world/phys/Vec3;
+      11: astore        4
+      13: aload_3
+      14: ifnull        22
+      17: aload         4
+      19: ifnonnull     26
+      22: ldc2_w        #332                // double NaNd
+      25: dreturn
+      26: aload_3
+      27: aload         4
+      29: invokevirtual #223                // Method net/minecraft/world/phys/Vec3.distanceTo:(Lnet/minecraft/world/phys/Vec3;)D
+      32: dreturn
+
+  public static double resolveChainLinkDistance(net.minecraft.world.level.Level, dev.ryanhcode.sable.sublevel.SubLevel, dev.ryanhcode.sable.sublevel.SubLevel, java.lang.Double, boolean);
+    Code:
+       0: aload_1
+       1: aload_2
+       2: aload_3
+       3: invokestatic  #334                // Method bearingCenterDistance:(Ldev/ryanhcode/sable/sublevel/SubLevel;Ldev/ryanhcode/sable/sublevel/SubLevel;Ljava/lang/Double;)D
+       6: dstore        5
+       8: iload         4
+      10: ifne          31
+      13: dload         5
+      15: invokestatic  #326                // Method java/lang/Double.isNaN:(D)Z
+      18: ifne          31
+      21: aload_0
+      22: aload_1
+      23: aload_2
+      24: aload_3
+      25: invokestatic  #338                // Method shareEngagedTrackSpline:(Lnet/minecraft/world/level/Level;Ldev/ryanhcode/sable/sublevel/SubLevel;Ldev/ryanhcode/sable/sublevel/SubLevel;Ljava/lang/Double;)Z
+      28: ifne          34
+      31: dload         5
+      33: dreturn
+      34: dload         5
+      36: invokestatic  #342                // Method snapLinkDistanceToHalfBlocks:(D)D
+      39: dreturn
+
+  public static double resolveChainLinkDistance(net.minecraft.world.level.Level, dev.ryanhcode.sable.sublevel.SubLevel, dev.ryanhcode.sable.sublevel.SubLevel, java.lang.Double);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: aload_2
+       3: aload_3
+       4: iconst_0
+       5: invokestatic  #346                // Method resolveChainLinkDistance:(Lnet/minecraft/world/level/Level;Ldev/ryanhcode/sable/sublevel/SubLevel;Ldev/ryanhcode/sable/sublevel/SubLevel;Ljava/lang/Double;Z)D
+       8: dreturn
+
+  public static double snapLinkDistanceToHalfBlocks(double);
+    Code:
+       0: dload_0
+       1: ldc2_w        #105                // double 0.5d
+       4: ddiv
+       5: invokestatic  #107                // Method java/lang/Math.round:(D)J
+       8: l2d
+       9: ldc2_w        #105                // double 0.5d
+      12: dmul
+      13: dstore_2
+      14: dload_2
+      15: ldc2_w        #103                // double 1.5d
+      18: ldc2_w        #113                // double 6.0d
+      21: invokestatic  #115                // Method net/minecraft/util/Mth.clamp:(DDD)D
+      24: dreturn
+
+  public static boolean shareEngagedTrackSpline(net.minecraft.world.level.Level, dev.ryanhcode.sable.sublevel.SubLevel, dev.ryanhcode.sable.sublevel.SubLevel, java.lang.Double);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: aload_3
+       3: invokestatic  #197                // Method engagedTrackHit:(Lnet/minecraft/world/level/Level;Ldev/ryanhcode/sable/sublevel/SubLevel;Ljava/lang/Double;)Ldev/silvergold/simulatedcoasters/track/graph/CoasterPathTrackFrame$GraphHit;
+       6: astore        4
+       8: aload_0
+       9: aload_2
+      10: aload_3
+      11: invokestatic  #197                // Method engagedTrackHit:(Lnet/minecraft/world/level/Level;Ldev/ryanhcode/sable/sublevel/SubLevel;Ljava/lang/Double;)Ldev/silvergold/simulatedcoasters/track/graph/CoasterPathTrackFrame$GraphHit;
+      14: astore        5
+      16: aload         4
+      18: ifnull        26
+      21: aload         5
+      23: ifnonnull     28
+      26: iconst_0
+      27: ireturn
+      28: aload_0
+      29: invokestatic  #201                // Method dev/silvergold/simulatedcoasters/track/graph/CoasterPathGraphLookup.get:(Lnet/minecraft/world/level/Level;)Ldev/silvergold/simulatedcoasters/track/graph/CoasterPathGraph;
+      32: astore        6
+      34: aload         6
+      36: aload         4
+      38: invokevirtual #207                // Method dev/silvergold/simulatedcoasters/track/graph/CoasterPathTrackFrame$GraphHit.edge:()Ldev/silvergold/simulatedcoasters/track/graph/CoasterPathEdge;
+      41: invokevirtual #213                // Method dev/silvergold/simulatedcoasters/track/graph/CoasterPathGraph.indexOfEdge:(Ldev/silvergold/simulatedcoasters/track/graph/CoasterPathEdge;)I
+      44: istore        7
+      46: aload         6
+      48: aload         5
+      50: invokevirtual #207                // Method dev/silvergold/simulatedcoasters/track/graph/CoasterPathTrackFrame$GraphHit.edge:()Ldev/silvergold/simulatedcoasters/track/graph/CoasterPathEdge;
+      53: invokevirtual #213                // Method dev/silvergold/simulatedcoasters/track/graph/CoasterPathGraph.indexOfEdge:(Ldev/silvergold/simulatedcoasters/track/graph/CoasterPathEdge;)I
+      56: istore        8
+      58: aload         6
+      60: iload         7
+      62: iload         8
+      64: invokevirtual #219                // Method dev/silvergold/simulatedcoasters/track/graph/CoasterPathGraph.edgesAreSameOrDirectNeighbors:(II)Z
+      67: ireturn
+
+  private static dev.silvergold.simulatedcoasters.track.graph.CoasterPathTrackFrame$GraphHit engagedTrackHit(net.minecraft.world.level.Level, dev.ryanhcode.sable.sublevel.SubLevel, java.lang.Double);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: invokestatic  #193                // Method isCartTrackEngaged:(Lnet/minecraft/world/level/Level;Ldev/ryanhcode/sable/sublevel/SubLevel;)Z
+       5: ifne          10
+       8: aconst_null
+       9: areturn
+      10: aload_0
+      11: invokestatic  #201                // Method dev/silvergold/simulatedcoasters/track/graph/CoasterPathGraphLookup.get:(Lnet/minecraft/world/level/Level;)Ldev/silvergold/simulatedcoasters/track/graph/CoasterPathGraph;
+      14: astore_3
+      15: aload_3
+      16: invokevirtual #350                // Method dev/silvergold/simulatedcoasters/track/graph/CoasterPathGraph.edges:()Ljava/util/List;
+      19: invokeinterface #354,  1          // InterfaceMethod java/util/List.isEmpty:()Z
+      24: ifeq          29
+      27: aconst_null
+      28: areturn
+      29: aload_1
+      30: aload_2
+      31: invokestatic  #177                // Method partnerBearingCenterWorld:(Ldev/ryanhcode/sable/sublevel/SubLevel;Ljava/lang/Double;)Lnet/minecraft/world/phys/Vec3;
+      34: astore        4
+      36: aload         4
+      38: ifnonnull     43
+      41: aconst_null
+      42: areturn
+      43: aload_0
+      44: instanceof    #359                // class net/minecraft/server/level/ServerLevel
+      47: ifeq          87
+      50: aload_0
+      51: checkcast     #359                // class net/minecraft/server/level/ServerLevel
+      54: astore        6
+      56: aload_1
+      57: instanceof    #361                // class dev/ryanhcode/sable/sublevel/ServerSubLevel
+      60: ifeq          87
+      63: aload_1
+      64: checkcast     #361                // class dev/ryanhcode/sable/sublevel/ServerSubLevel
+      67: astore        7
+      69: aload         6
+      71: aload_3
+      72: aload         7
+      74: aload         4
+      76: ldc2_w        #363                // double 6.25d
+      79: invokestatic  #365                // Method dev/silvergold/simulatedcoasters/track/cart/CoasterCartTrackHitCache.nearestGraphHit:(Lnet/minecraft/server/level/ServerLevel;Ldev/silvergold/simulatedcoasters/track/graph/CoasterPathGraph;Ldev/ryanhcode/sable/sublevel/ServerSubLevel;Lnet/minecraft/world/phys/Vec3;D)Ldev/silvergold/simulatedcoasters/track/graph/CoasterPathTrackFrame$GraphHit;
+      82: astore        5
+      84: goto          100
+      87: aload_0
+      88: aload_3
+      89: aload         4
+      91: ldc2_w        #363                // double 6.25d
+      94: aload_2
+      95: invokestatic  #371                // Method dev/silvergold/simulatedcoasters/track/graph/CoasterPathTrackFrame.nearestGraphHit:(Lnet/minecraft/world/level/Level;Ldev/silvergold/simulatedcoasters/track/graph/CoasterPathGraph;Lnet/minecraft/world/phys/Vec3;DLjava/lang/Double;)Ldev/silvergold/simulatedcoasters/track/graph/CoasterPathTrackFrame$GraphHit;
+      98: astore        5
+     100: aload_1
+     101: aload_0
+     102: aload         5
+     104: invokestatic  #374                // Method dev/silvergold/simulatedcoasters/track/cart/CoasterCartRailSnapEligibility.filterHitForBearing:(Ldev/ryanhcode/sable/sublevel/SubLevel;Lnet/minecraft/world/level/Level;Ldev/silvergold/simulatedcoasters/track/graph/CoasterPathTrackFrame$GraphHit;)Ldev/silvergold/simulatedcoasters/track/graph/CoasterPathTrackFrame$GraphHit;
+     107: areturn
+
+  private static boolean isCartTrackEngaged(net.minecraft.world.level.Level, dev.ryanhcode.sable.sublevel.SubLevel);
+    Code:
+       0: aload_0
+       1: instanceof    #359                // class net/minecraft/server/level/ServerLevel
+       4: ifeq          32
+       7: aload_1
+       8: instanceof    #361                // class dev/ryanhcode/sable/sublevel/ServerSubLevel
+      11: ifeq          32
+      14: aload_1
+      15: checkcast     #361                // class dev/ryanhcode/sable/sublevel/ServerSubLevel
+      18: astore_2
+      19: aload_2
+      20: invokestatic  #380                // Method dev/silvergold/simulatedcoasters/track/cart/CoasterCartTrackSnap.isBearingDisengaged:(Ldev/ryanhcode/sable/sublevel/ServerSubLevel;)Z
+      23: ifne          30
+      26: iconst_1
+      27: goto          31
+      30: iconst_0
+      31: ireturn
+      32: aload_1
+      33: invokestatic  #34                 // Method dev/silvergold/simulatedcoasters/track/cart/CoasterCartTrackSnap.representativeBearingPlotPos:(Ldev/ryanhcode/sable/sublevel/SubLevel;)Lnet/minecraft/core/BlockPos;
+      36: astore_2
+      37: aload_2
+      38: ifnonnull     43
+      41: iconst_0
+      42: ireturn
+      43: aload_0
+      44: aload_2
+      45: invokevirtual #384                // Method net/minecraft/world/level/Level.getBlockState:(Lnet/minecraft/core/BlockPos;)Lnet/minecraft/world/level/block/state/BlockState;
+      48: astore_3
+      49: getstatic     #390                // Field dev/silvergold/simulatedcoasters/SimulatedCoastersBlocks.COASTER_CART_BLOCK:Lnet/neoforged/neoforge/registries/DeferredBlock;
+      52: invokevirtual #396                // Method net/neoforged/neoforge/registries/DeferredBlock.get:()Ljava/lang/Object;
+      55: checkcast     #401                // class dev/silvergold/simulatedcoasters/track/cart/CoasterCartBlock
+      58: astore        4
+      60: aload_3
+      61: aload         4
+      63: invokevirtual #403                // Method net/minecraft/world/level/block/state/BlockState.is:(Lnet/minecraft/world/level/block/Block;)Z
+      66: ifeq          89
+      69: aload_3
+      70: getstatic     #409                // Field dev/silvergold/simulatedcoasters/track/cart/CoasterCartBlock.SNAP_ENGAGED:Lnet/minecraft/world/level/block/state/properties/BooleanProperty;
+      73: invokevirtual #413                // Method net/minecraft/world/level/block/state/BlockState.getValue:(Lnet/minecraft/world/level/block/state/properties/Property;)Ljava/lang/Comparable;
+      76: checkcast     #417                // class java/lang/Boolean
+      79: invokevirtual #419                // Method java/lang/Boolean.booleanValue:()Z
+      82: ifeq          89
+      85: iconst_1
+      86: goto          90
+      89: iconst_0
+      90: ireturn
+
+  private static org.joml.Vector3d bearingCenterOffsetPlot(org.joml.Quaterniond);
+    Code:
+       0: new           #14                 // class org/joml/Vector3d
+       3: dup
+       4: ldc2_w        #105                // double 0.5d
+       7: ldc2_w        #105                // double 0.5d
+      10: ldc2_w        #105                // double 0.5d
+      13: invokespecial #424                // Method org/joml/Vector3d."<init>":(DDD)V
+      16: astore_1
+      17: aload_0
+      18: aload_1
+      19: invokevirtual #427                // Method org/joml/Quaterniond.transform:(Lorg/joml/Vector3d;)Lorg/joml/Vector3d;
+      22: pop
+      23: aload_1
+      24: areturn
+
+  private static net.minecraft.world.phys.Vec3 plotForwardWorld(org.joml.Quaterniond);
+    Code:
+       0: new           #14                 // class org/joml/Vector3d
+       3: dup
+       4: dconst_0
+       5: dconst_0
+       6: dconst_1
+       7: invokespecial #424                // Method org/joml/Vector3d."<init>":(DDD)V
+      10: astore_1
+      11: aload_0
+      12: aload_1
+      13: invokevirtual #427                // Method org/joml/Quaterniond.transform:(Lorg/joml/Vector3d;)Lorg/joml/Vector3d;
+      16: pop
+      17: aload_1
+      18: invokevirtual #433                // Method org/joml/Vector3d.lengthSquared:()D
+      21: ldc2_w        #94                 // double 1.0E-12d
+      24: dcmpg
+      25: ifge          39
+      28: new           #26                 // class net/minecraft/world/phys/Vec3
+      31: dup
+      32: dconst_0
+      33: dconst_0
+      34: dconst_1
+      35: invokespecial #436                // Method net/minecraft/world/phys/Vec3."<init>":(DDD)V
+      38: areturn
+      39: aload_1
+      40: invokevirtual #437                // Method org/joml/Vector3d.normalize:()Lorg/joml/Vector3d;
+      43: pop
+      44: new           #26                 // class net/minecraft/world/phys/Vec3
+      47: dup
+      48: aload_1
+      49: getfield      #13                 // Field org/joml/Vector3d.x:D
+      52: aload_1
+      53: getfield      #19                 // Field org/joml/Vector3d.y:D
+      56: aload_1
+      57: getfield      #22                 // Field org/joml/Vector3d.z:D
+      60: invokespecial #436                // Method net/minecraft/world/phys/Vec3."<init>":(DDD)V
+      63: areturn
+}

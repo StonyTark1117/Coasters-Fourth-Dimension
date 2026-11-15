@@ -1,0 +1,57 @@
+{
+  "at": "2026-11-15T07:08:01.921881490Z",
+  "gameTime": 34686,
+  "input": {
+    "screen": "dev.fourthdimension.client.RotationEditorScreen",
+    "windowActive": true,
+    "glfwFocused": 1,
+    "glfwCursorMode": 212993,
+    "glfwRawMouseMotion": 1,
+    "rawMouseOption": true,
+    "mouseGrabbed": false,
+    "mouseX": 427.0,
+    "mouseY": 240.0,
+    "deltaX": 0.0,
+    "deltaY": 0.0,
+    "playerYaw": 0.0,
+    "playerPitch": 20.47,
+    "passenger": false,
+    "worldStableView": false,
+    "cameraQuaternion": [
+      0.0,
+      0.9840872,
+      0.1776859,
+      0.0
+    ],
+    "cameraUp": [
+      0.0,
+      0.9368555,
+      0.34971687
+    ],
+    "nativeSeatOrientation": null,
+    "ignoreFirstMove": true
+  },
+  "clientWorldGameTime": 34686,
+  "assignedVehicleSnapshot": {
+    "assignedVehicle": false,
+    "available": true
+  },
+  "selectedAnchor": null,
+  "cachedKey": "null",
+  "cachedStatus": "NONE",
+  "cachedPath": null,
+  "heldItem": "0 minecraft:air",
+  "hit": "net.minecraft.world.phys.BlockHitResult@2560add9",
+  "hitType": "BLOCK",
+  "hitBlock": [
+    196,
+    99,
+    416
+  ],
+  "hitState": "Block{fourthdimension:boarding_station}[facing\u003dnorth,locked\u003dfalse,ready\u003dtrue]",
+  "hitBlockEntity": "dev.fourthdimension.station.BoardingStationEntity",
+  "trackOutlineSelection": "null",
+  "wrenchGraphHit": "null",
+  "wrenchSpanHit": null,
+  "indexedAnchors": []
+}

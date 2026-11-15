@@ -10,6 +10,30 @@ import net.minecraft.world.level.Level;
 public final class ConsistRules {
   private ConsistRules() {}
 
+  /** The native Chain UI caps at seven and snaps at six; qualified overhead cars use eight. */
+  public static boolean eightBlockChain(Level level, SubLevel first, SubLevel second, double distance) {
+    var data = EligibilityHooks.data(level);
+    var vehicle = data == null || first == null ? null : data.vehicles.get(first.getUniqueId());
+    return vehicle != null
+        && (FixedInvertedVehicle.is(vehicle) || SuspendedVehicle.is(vehicle))
+        && canCouple(level, first, second, distance);
+  }
+
+  public static boolean chainDistanceRejected(double distance, Level level,
+      net.minecraft.world.item.ItemStack chain, SubLevel target) {
+    var id = dev.silvergold.simulatedcoasters.track.cart.CoasterCartLinkSelection.readLinkTarget(chain);
+    var selected = id == null ? null : dev.silvergold.simulatedcoasters.track.cart.CoasterCartResolve.findCartById(level,id);
+    return !eightBlockChain(level, selected, target, distance)
+        && dev.silvergold.simulatedcoasters.track.cart.CoasterCartLinkPlacement.rejectsLinkDistance(distance);
+  }
+
+  public static double chainLinkDistance(Level level, SubLevel first, SubLevel second,
+      Double partialTick, boolean suppressSnap) {
+    double distance = dev.silvergold.simulatedcoasters.track.cart.CoasterCartLinkPlacement.bearingCenterDistance(first,second,partialTick);
+    return eightBlockChain(level, first, second, distance) ? 8
+        : dev.silvergold.simulatedcoasters.track.cart.CoasterCartLinkPlacement.resolveChainLinkDistance(level,first,second,partialTick,suppressSnap);
+  }
+
   public static boolean canCouple(Level level, SubLevel a, SubLevel b, double distance) {
     // Coasters can ask its coupling callback while a native body is still being resolved.
     // Treat an incomplete endpoint as an ineligible link instead of crashing the server tick.

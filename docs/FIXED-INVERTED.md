@@ -13,13 +13,14 @@ Fourth Dimension creative tab and the normal recipe book.
    use the Rotation Tool to rebind its profile. Ordinary and Suspended track are
    different functional providers and do not accept this car.
 2. Leave the complete train corridor clear: 2.25 blocks either side, 1.10 above,
-   4.50 below and 1.75 fore/aft from each graph sample. Use radius16 or larger and
-   bank changes no faster than5 degrees/block. Keep travel at or below16 blocks/s.
+   4.50 below and 1.75 fore/aft from each graph sample. Use radius 16 or larger and
+   bank changes no faster than 5 degrees/block. Keep travel at or below 16 blocks/s.
    Supports and platforms must remain outside the moving rider/hanger reservation.
 3. Aim at matching track and use the car item. Bind a Boarding Station beside a
-   straight, level section at least36 blocks long. A four-car train needs eight
-   blocks between bearing centers. Bind newly placed cars before coupling with
-   the native Wrench; then sneak-use the station to rebind the complete train.
+   straight, level section at least 36 blocks long. A four-car train needs eight
+   blocks between bearing centers. Bind newly placed cars, then hold a Minecraft Chain and right-click each
+   exposed native bearing in turn. Wait for **Carts coupled**; the Wrench is not
+   the coupling tool. Then sneak-use the station to rebind the complete train.
    Up to four identical Fixed Inverted cars can link; mixed families cannot.
 4. Approach a cushion from below-track platform level. Use the cushion to board;
    the tall back and rear hanger are not boarding targets. Use the Rotation Tool
@@ -42,15 +43,14 @@ reopened; it is not reset upright to permit unloading.
 The operator-only `/fd demo fixed_inverted` builds an original lifted stadium with
 four quarter-roll spans. `/fd demo fixed_inverted_train` supplies four linked cars;
 `/fd demo fixed_inverted_track` builds the route without a car. Run the command
-high enough above terrain in a clear area: its bounds extend roughly8 blocks left,
-152 right,56 behind and360 forward, with6 blocks below and32 above the origin.
+high enough above terrain in a clear area: its bounds extend roughly 8 blocks left,
+152 right,56 behind and360 forward, with 6 blocks below and32 above the origin.
 These commands are disclosed example setup, not survival construction. The route
-uses ordinary native Chain sources, including one continuous128-block Chain span
+uses ordinary native Chain sources, including one continuous 128-block Chain span
 through the roll driven from its upright approach. Keep motors away from banked
-anchors so neither seats nor running gear intersect them. It has a48-block level dock and 32-radius return turns and spans no longer than64 blocks;
+anchors so neither seats nor running gear intersect them. It has a 48-block level dock and 32-radius return turns and spans no longer than 64 blocks;
 you can build the same layout with anchors, track items and native controls.
 
 The exact route inputs and evidence are in
-[Fixed Inverted evidence](evidence/0.6/fixed-inverted/README.md). Implementation and
-qualification are in progress; that checkpoint names current gaps rather than
-claiming the prepared example has already passed a player run.
+[Fixed Inverted evidence](evidence/0.6/fixed-inverted/README.md). The complete normal construction, occupied ride,
+recovery and content acceptance are recorded there.

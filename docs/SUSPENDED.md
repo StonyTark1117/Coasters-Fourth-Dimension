@@ -19,8 +19,9 @@ laterally, 4.70 below, 1.10 above and 1.75 fore/aft. Use curves with radius at l
 outside the lateral reservation, at the cabin floor. Keep the station straight
 at least 36 blocks long. The example platforms are four blocks to each side.
 
-One to four identical cars may be linked with the native Wrench at exactly eight
-blocks between bearings. Stop and capture both cars before linking. Initially
+One to four identical cars may be linked at exactly eight blocks between bearings.
+Stop and capture both cars, then hold a Minecraft Chain and right-click each
+exposed native bearing in turn. Wait for **Carts coupled**. Initially
 bind each car to a nearby Boarding Station; after coupling, bind the train to the
 chosen station again with **Shift + right-click**. A deliberate rebind requires the
 whole train stopped, aligned and retained at the level dock. Ordinary right-click
