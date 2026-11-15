@@ -91,7 +91,7 @@ whole-JAR equality is not required. Keep the original run identity and limits.
 | 0.4 | FD401–FD404 | Complete 2026-11-15 | Five-family core, recovery and player workflows reconciled at the FD404 development checkpoint; expanded 1.0 qualification remains FD1000. |
 | 0.5 | FD501–FD503; six original discovery IDs; FD1601S, FD1702S, FD1801S, FD1802S, FD1901S; FD1101A–C; FD904C1 | Complete | Specify every 1.0 vehicle, prove Wing-backed extension contracts, establish comfort and reusable tools. Adapter-specific upgrades follow their consumers. |
 | 0.6 | FD1501A–C, FD1301A–C, FD1601A–C, FD601 | Complete 2026-11-15 | S1 conventional free-spinning, Suspended and Fixed Inverted: axes, loading, capture, swing locks and fixed overhead seating. |
-| 0.7 | FD1302A–C, FD1502A–C, FD1801A–C, FD1802A–C, FD1803, FD701 | In progress | Axis/Roller Ball and both Flying variants; New-generation Flying proves scenery-facing yaw in seated and prone postures. |
+| 0.7 | FD1302A–C, FD1502A–C, FD1801A–C, FD1802A–C, FD1803, FD701 | Complete | Axis/Roller Ball and both Flying variants; New-generation Flying proves scenery-facing yaw in seated and prone postures. |
 | 0.8 | FD1401A–C, FD1501D–F, FD1701A, FD1702A–C, FD1901A–C, FD1902, FD810–FD813 | Planned | Pipeline, S2, Dive, Powered Inverted Yaw, required operating authority and agreed Additions/CTNB/Magnetized capabilities. |
 | 0.9 | FD910–FD916 | Planned | Skin, rotating-seat integration, Immersion, Waterparked/Create Coasters coexistence, and model/texture quality across original and added families. |
 | 1.0 alpha | FD1000 | Planned | All adopted vehicle families, variants and 1.0 integrations complete; freeze feature scope and supported profiles. |
@@ -703,7 +703,9 @@ operations. Integrate shared runtime changes one owner at a time.
 
 **Execution steps:** [FD701](docs/roadmap/0.7-complex-motion.md#fd701).
 
-**Status: in progress.** **Depends on:** FD601, FD1302A–C, FD1502A–C, FD1803.
+**Status: complete (2026-11-15).** **Depends on:** FD601, FD1302A–C, FD1502A–C, FD1803.
+
+[Sixteen-card acceptance](docs/evidence/0.7/acceptance.md) reconciles Axis, Roller Ball and both Flying variants, native/occupied/content/persistence evidence, and verified runtime cleanup. Work is integrated on primary `main`; no 0.8 work or publication is activated.
 
 **Done when:** Axis, Roller Ball and both Flying variants complete their specified occupied
 operating cycle, player workflow and distinct interruption/recovery cases.
@@ -1418,13 +1420,13 @@ for Flying. FD1901A may consume it as soon as that handoff is integrated into
 | <a id="fd1801a"></a> **FD1801A Conventional Flying mechanics — complete** [Steps](docs/roadmap/0.7-complex-motion.md#fd1801a) | FD1801S, FD1601A; integrated seat/restraint/camera contracts | Implement the specified seated/prone transforms, pivot, station changeover, locks, running gear and clearance. Complete changeover/dispatch/unload and interrupted-transition recovery; prove occupied prone motion and camera restoration. |
 | <a id="fd1801b"></a> **FD1801B Conventional Flying content — complete** [Steps](docs/roadmap/0.7-complex-motion.md#fd1801b) | Stable FD1801A specification/dimensions | Deliver original vehicle/restraint/station assets, recipes, controls, guide and example with the required pose-specific visual checks. |
 | <a id="fd1801c"></a> **FD1801C Conventional Flying acceptance — complete** [Steps](docs/roadmap/0.7-complex-motion.md#fd1801c) | FD1801A, FD1801B | Close seated boarding, changeover, prone ride, return/unload and distinct interruption cases. Keep this variant closed while New-generation work proceeds. |
-| <a id="fd1802"></a> **FD1802 New-generation Flying outcome — planned** [Steps](docs/roadmap/0.7-complex-motion.md#fd1802) | FD1802C | Close the full sub-variant from A–C evidence; discovery or upright-only targeting is insufficient. |
+| <a id="fd1802"></a> **FD1802 New-generation Flying outcome — complete** [Steps](docs/roadmap/0.7-complex-motion.md#fd1802) | FD1802C | Close the full sub-variant from A–C evidence; discovery or upright-only targeting is insufficient. |
 | <a id="fd1802a"></a> **FD1802A New-generation Flying and shared yaw mechanics — complete** [Steps](docs/roadmap/0.7-complex-motion.md#fd1802a) | FD1802S, FD1801A; integrated profile, marker binding and pose contracts (extend within this package where needed) | Implement the specified seated/sideways sections, route-based posture transitions, yaw pivot/frame and posture composition. Deliver the shared yaw requirements below and prove occupied scenery-facing behavior in both seated and prone states, transitions and distinct synchronization/failure cases. Supply the reusable handoff through this real vehicle. |
-| <a id="fd1802b"></a> **FD1802B New-generation Flying content — in progress** [Steps](docs/roadmap/0.7-complex-motion.md#fd1802b) | Stable FD1802A specification/dimensions | Deliver original variant assets, transition equipment, marker/editor controls, recipes, guide and example combining seated scenery presentation, prone targeting and return to unload. |
-| <a id="fd1802c"></a> **FD1802C New-generation Flying acceptance — in progress** [Steps](docs/roadmap/0.7-complex-motion.md#fd1802c) | FD1802A, FD1802B | Close the complete sub-variant workflow and distinct yaw/posture/persistence cases. Upright-only yaw proof cannot close prone targeting. Reuse FD1801 evidence for unchanged common paths. |
-| <a id="fd1803"></a> **FD1803 Flying outcome gate — planned** [Steps](docs/roadmap/0.7-complex-motion.md#fd1803) | FD1801, FD1802 | Both Flying variants and their declared yaw/posture workflows are complete. Feed FD701 and 1.0; reuse their evidence and leave final release qualification to FD901–FD905. |
+| <a id="fd1802b"></a> **FD1802B New-generation Flying content — complete** [Steps](docs/roadmap/0.7-complex-motion.md#fd1802b) | Stable FD1802A specification/dimensions | Deliver original variant assets, transition equipment, marker/editor controls, recipes, guide and example combining seated scenery presentation, prone targeting and return to unload. |
+| <a id="fd1802c"></a> **FD1802C New-generation Flying acceptance — complete** [Steps](docs/roadmap/0.7-complex-motion.md#fd1802c) | FD1802A, FD1802B | Close the complete sub-variant workflow and distinct yaw/posture/persistence cases. Upright-only yaw proof cannot close prone targeting. Reuse FD1801 evidence for unchanged common paths. |
+| <a id="fd1803"></a> **FD1803 Flying outcome gate — complete** [Steps](docs/roadmap/0.7-complex-motion.md#fd1803) | FD1801, FD1802 | Both Flying variants and their declared yaw/posture workflows are complete. Feed FD701 and 1.0; reuse their evidence and leave final release qualification to FD901–FD905. |
 
-**FD1802A qualified 2026-11-15:** [mechanics and occupied handoff](docs/evidence/0.7/new-generation-flying/QUALIFIED-A.md), including both-posture targeting, loaded native Show, real two-client/restart and normal returned unload. Same owner retains the exact runtime for active B/C; final cleanup belongs to that continuation.
+**FD1802A qualified 2026-11-15:** [mechanics and occupied handoff](docs/evidence/0.7/new-generation-flying/QUALIFIED-A.md), including both-posture targeting, loaded native Show, real two-client/restart and normal returned unload. The same-owner B/C continuation is now complete: [normal construction/content](docs/evidence/0.7/new-generation-flying/construction/README.md) and [verified cleanup](docs/evidence/0.7/new-generation-flying/construction/cleanup.txt) close FD1802 and FD1803. Conventional evidence remains accepted independently.
 
 #### Shared scenery-facing yaw requirements
 

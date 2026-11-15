@@ -37,8 +37,10 @@ for x,y,z in itertools.product(range(-2,3),range(-1,4),range(-1,2)):
  if parts:write(f'assets/fourthdimension/models/block/new_generation_flying_deck_{len(frames)}.json',model(parts));frames.append((x,y,z))
 write('assets/fourthdimension/blockstates/new_generation_flying_deck.json',{'variants':{f'part={i}':{'model':f'fourthdimension:block/new_generation_flying_deck_{i}'}for i in range(len(frames))}})
 parts=box([0,22,6],[16,24,10],'metal')+box([7,24,7],[9,29,9],'latch')
-for x in(3,10):parts+=box([x,7,5],[x+4,9,11],'seat')+box([x,9,10],[x+4,18,12],'seat')+box([x,3,2],[x+4,5,6],'latch')
-m=model(parts);m['display']={'gui':{'rotation':[25,225,0],'translation':[0,-1,0],'scale':[.7,.7,.7]},'ground':{'scale':[.35,.35,.35]}};write('assets/fourthdimension/models/item/new_generation_flying_car.json',m)
+# The miniature retains the real deck's connected outboard suspension frame.
+parts+=box([0,8,7],[2,22,9],'metal')+box([14,8,7],[16,22,9],'metal')+box([0,7,7],[16,9,9],'metal')
+for x in(3,10):parts+=box([x,7,5],[x+4,9,11],'seat')+box([x,9,10],[x+4,18,12],'seat')+box([x,3,2],[x+4,5,6],'latch')+box([x+1,4,5],[x+3,8,7],'metal')
+m=model(parts);m['display']={'gui':{'rotation':[25,225,0],'translation':[0,-1,0],'scale':[.7,.7,.7]},'ground':{'scale':[.35,.35,.35]},'firstperson_righthand':{'rotation':[0,135,0],'translation':[0,1,-1],'scale':[.4,.4,.4]},'firstperson_lefthand':{'rotation':[0,225,0],'translation':[0,1,-1],'scale':[.4,.4,.4]}};write('assets/fourthdimension/models/item/new_generation_flying_car.json',m)
 write('assets/fourthdimension/models/item/new_generation_flying_track.json',model(box([0,8,1],[16,10,3],'metal')+box([0,8,13],[16,10,15],'metal')+box([0,17,6],[16,21,10],'seat')+box([2,10,2],[4,18,14],'latch')+box([12,10,2],[14,18,14],'metal')))
 write('assets/fourthdimension/models/block/yaw_marker.json',model(box([1,0,1],[15,3,15],'metal')+box([6,3,6],[10,12,10],'seat')+box([3,12,3],[13,15,13],'latch')+box([7,15,7],[9,16,9],'locked')))
 write('assets/fourthdimension/blockstates/yaw_marker.json',{'variants':{'':{'model':'fourthdimension:block/yaw_marker'}}});write('assets/fourthdimension/models/item/yaw_marker.json',{'parent':'fourthdimension:block/yaw_marker'})

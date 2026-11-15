@@ -24,7 +24,7 @@ FD403A–F and the FD404 aggregate are now reconciled. There is no remaining 0.4
 acceptance queue. The sections below retain case closure records and artifact
 history; they do not assign new work or add acceptance requirements.
 
-### Active 0.7 assignments — 2026-11-15
+### Milestone 0.7 — complete 2026-11-15
 
 The human explicitly requested **Continue 0.7** in the coordinator chat. This
 supersedes the completed 0.6 assignment and its historical no-0.7 directions.
@@ -51,13 +51,13 @@ Lead alone edits ROADMAP/PLAN/this queue and stages, commits and pushes.
 | FD1801A | Conventional Flying | Complete: [native and occupied handoff](evidence/0.7/conventional-flying/README.md), actual occupied transition save/restart and targeted offline-COM correction passed; A runtime saved and stopped. |
 | FD1801B | Conventional Flying | Complete: [recipes, construction, controls and finite visual review](evidence/0.7/conventional-flying/construction/README.md). |
 | FD1801C | Conventional Flying | Complete: construction combined with accepted occupied/restart workflow; all owned units saved/stopped. |
-| FD1801 | Conventional Flying | Complete independently from accepted A–C. New-generation consumes A and continues. |
-| FD1802A | New-generation Flying | Complete: [qualified native/occupied/shared-yaw handoff](evidence/0.7/new-generation-flying/QUALIFIED-A.md). Loaded Show, full return/unwind/unload and representative reconnect-look correction accepted. Exact runtime remains with the named same-owner B/C continuation. |
-| FD1802B | New-generation Flying | Finishing normal recipes, paid track/car/marker/Chain/editor and finite content review in owned ClearShow world. |
-| FD1802C | New-generation Flying | Reuse completed A occupied workflow; close remaining construction/content then save/stop exact owned runtime. |
-| FD1802 | New-generation Flying | Reconcile full A–C outcome. |
-| FD1803 | New-generation Flying | Reconcile both Flying outcomes; no joint replay. |
-| FD701 | Lead | Integrate all four families, reconcile sixteen cards, verify push and cleanup. |
+| FD1801 | Conventional Flying | Complete independently from accepted A–C; supplied the integrated prerequisite for New-generation Flying. |
+| FD1802A | New-generation Flying | Complete: [qualified native/occupied/shared-yaw handoff](evidence/0.7/new-generation-flying/QUALIFIED-A.md), integrated at `3de3d128`; same-owner B/C continuation and cleanup now complete. |
+| FD1802B | New-generation Flying | Complete: [normal recipes, paid track/car/marker/Chain/editor and finite content review](evidence/0.7/new-generation-flying/construction/README.md). |
+| FD1802C | New-generation Flying | Complete: cumulative A+B, both-posture targeting, full roll, loaded Show, return/unwind/unload and distinct persistence; all owned units saved/stopped. |
+| FD1802 | New-generation Flying | Complete from qualified A–C and final content/cleanup handoff. |
+| FD1803 | New-generation Flying | Complete: both Flying outcomes reconciled independently; no joint replay. |
+| FD701 | Lead | Complete: [all sixteen cards and four families](evidence/0.7/acceptance.md), integrated on primary main with verified cleanup; 0.8 not activated. |
 
 **Owners:** lead `01a1dd1d-1468-7f81-8f31-5532ad7a178d` (Axis, Roller Ball,
 integration); Conventional Flying `01a1dd1d-6e99-70d2-aef3-6dcebac10d72`;
@@ -117,9 +117,13 @@ and selection shapes matching geometry. Save and stop finished/abandoned owned
 runtimes, verify inactive, preserve worlds/logs. Only explicit exact continuing-owner
 handoff permits a live runtime after package handoff.
 
-**Completion:** coordinator monitors every five minutes; lead integrates qualified
-A handoffs early, then final outcomes and FD701, commits/pushes main and verifies
-remote HEAD and cleanup. Gate reconciliation adds no test campaign. No 0.8 starts.
+**Final closure:** [FD701 acceptance](evidence/0.7/acceptance.md) closes all sixteen
+cards. Qualified mechanics were integrated early, followed by the complete
+family outcomes. The `3de3d128` mechanics checkpoint is verified on origin/main;
+the commit containing this final record integrates the remaining content and
+aggregate closure. All owned clients, servers, observer units and private displays
+are saved/stopped. No active 0.7 assignment remains; 0.8 and publication are not
+activated. Pre-existing untracked `logs/` is preserved.
 
 ### Milestone 0.6 — complete 2026-11-15
 

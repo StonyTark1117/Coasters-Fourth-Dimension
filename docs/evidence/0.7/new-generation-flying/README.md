@@ -1,6 +1,30 @@
 # New-generation Flying — FD1802A–C / FD1802 / FD1803
 
-## Current checkpoint — native prototype implementation
+## Qualified outcome — 2026-11-15
+
+FD1802A–C and FD1802 are complete. [Mechanics and occupied acceptance](QUALIFIED-A.md)
+covers actual seated/prone targets, combined transitions, bank/inversion, winding,
+named loaded Show, late join, restart/recovery and returned normal unload.
+[Construction and finite content acceptance](construction/README.md) closes normal
+Survival recipes, paid track, car/marker placement, native Chain, station binding,
+track-editor save and the FD916 asset checklist. The [player guide](../../../NEW-GENERATION-FLYING.md)
+and powered example teach the complete workflow.
+
+FD1803 reconciles this outcome with the already accepted Conventional Flying
+A–C in `fe993053`; no joint replay or 0.8 work is required. Lead owns canonical
+queue/roadmap integration. This owner's mechanics checkpoint is `3de3d128` on
+primary `main`; final content corrections and these records are handed to the
+lead for integration. No branch/worktree was created.
+
+All owned client, server, display and observer units are inactive with MainPID0;
+the server saved all dimensions. The world, native logs and raw input remain on
+persistent storage. [Cleanup verification](construction/cleanup.txt). No runtime
+handoff or remaining package acceptance case is outstanding.
+
+The following entries are historical checkpoints. Their “next”/“remaining” notes
+are superseded by the qualified outcome above and do not reopen accepted cases.
+
+## Historical checkpoint — native prototype implementation
 
 Owner `01a1dd1d-c6a6-7be0-9cb5-2b033ac550da`, primary checkout
 `/home/braydon/Documents/Coasters: Fourth Dimension`, existing `main`.

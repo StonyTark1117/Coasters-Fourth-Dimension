@@ -19,9 +19,11 @@ Spinning's finite 1.0 scope is conventional free-spinning (0.6) and a launched/
 inverting free-spinning configuration with magnetic influence (0.8).
 [Detailed stages and completion criteria](ROADMAP.md#release-map) and
 [integration capabilities](docs/INTEGRATION-BACKLOG.md#release-allocation).
-These additions are planned, not features of the current JAR. Existing accepted
-cases stay closed; new builds do not restart qualification. Optional addons stay
-optional for standalone rides, and publication requires separate authorization.
+Current implementation and acceptance are recorded by package in the roadmap;
+future allocations do not imply that a feature is already delivered. Existing
+accepted cases stay closed; new builds do not restart qualification. Optional
+addons stay optional for standalone rides, and publication requires separate
+authorization.
 
 **Scope clarification:** all adopted vehicle/cart and seat-motion styles are
 required before stable 1.0, including Conventional Flying, New-generation Flying
@@ -35,10 +37,16 @@ after a working native prototype. Moving-track mechanisms never block 1.0.
 [Packages, scope and completion criteria](ROADMAP.md#additional-vehicle-and-supporting-feature-packages).
 
 The build notes below retain their historical observations and limitations.
-Current acceptance belongs to [ROADMAP.md](ROADMAP.md): FD401A–D and FD402A/C/D
-are complete; older “remaining/open” notes do not reopen them. The
-[current work queue](docs/CURRENT-QUALIFICATION.md#current-work-queue) lists
-only unresolved 0.4 cases, their owners, evidence and next actions.
+Current acceptance belongs to [ROADMAP.md](ROADMAP.md). Milestones 0.4–0.7 are
+complete ([0.7 acceptance](docs/evidence/0.7/acceptance.md)); older “remaining/open” notes do not reopen them. The
+[current work queue](docs/CURRENT-QUALIFICATION.md#current-work-queue) identifies
+active assignments, accepted evidence and next actions.
+
+The 0.7 family guides cover [Axis](docs/AXIS.md), [Roller Ball](docs/ROLLER-BALL.md),
+[Conventional Flying](docs/FLYING.md), and
+[New-generation Flying](docs/NEW-GENERATION-FLYING.md). Their package records
+distinguish accepted normal input, native motion, content and persistence from
+disclosed example setup.
 
 The FD402 [sampled player/rack checkpoint](docs/evidence/0.4/recovery/player-rack-clearance/acceptance.md)
 adds family-correct axle geometry and part-level vanilla seated-player clearance

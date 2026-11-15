@@ -59,7 +59,14 @@ Artifact07 advanced already-accepted approach via `tick sprint4000`, then verifi
 accepted constant-prone segment, then verified20tps for observed seated return and
 normal unload. These do not claim player construction or accelerated-motion views.
 
-## Same-owner B/C continuation
+## Completed same-owner B/C continuation
+
+The continuation below finished on 2026-11-15 at 11:20 UTC. Normal construction,
+finite content and full workflow reconciliation passed: [B/C record](construction/README.md).
+Client/server/Xvfb and observer units are all inactive, MainPID0; all dimensions
+saved and the ten temporary force-loaded chunks removed. [Cleanup](construction/cleanup.txt).
+The following ownership description records the accepted continuation at the A
+checkpoint; it is not a current live-runtime instruction.
 
 A is qualified; FD1802B/C remain actively owned here for normal recipes, paid track,
 car/marker placement, native Chain, finite track editor and final FD916 content

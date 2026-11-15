@@ -1,0 +1,1614 @@
+[
+  {
+    "at": "20261115T110507.913974Z",
+    "action": "key",
+    "values": [
+      "Escape"
+    ],
+    "expected": "Close controls before normal rider dismount",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T110507.913974Z-before.png",
+    "modifier": null,
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T110507.913974Z-after.png"
+  },
+  {
+    "at": "20261115T110508.790287Z",
+    "action": "key",
+    "values": [
+      "Shift_L"
+    ],
+    "expected": "Normal Shift dismounts at clear bound dock after zero-yaw seated capture and both restraint releases",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T110508.790287Z-before.png",
+    "modifier": null,
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T110508.790287Z-after.png"
+  },
+  {
+    "at": "20261115T110539.132541Z",
+    "action": "key",
+    "values": [
+      "F5"
+    ],
+    "expected": "Cycle normal unmounted camera toward first-person for crafting",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T110539.132541Z-before.png",
+    "modifier": null,
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T110539.132541Z-after.png"
+  },
+  {
+    "at": "20261115T110546.566334Z",
+    "action": "key",
+    "values": [
+      "F5"
+    ],
+    "expected": "Return normal unmounted camera to first-person at crafting table",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T110546.566334Z-before.png",
+    "modifier": null,
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T110546.566334Z-after.png"
+  },
+  {
+    "at": "20261115T110547.326696Z",
+    "action": "use",
+    "values": [],
+    "expected": "Normal right-click opens reachable crafting table with supplied raw ingredients",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T110547.326696Z-before.png",
+    "modifier": null,
+    "mouse_button": 3,
+    "mouse_binding": "use/right",
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T110547.326696Z-after.png"
+  },
+  {
+    "at": "20261115T110554.294184Z",
+    "action": "move",
+    "values": [
+      "353",
+      "200"
+    ],
+    "expected": "Point to recipe book",
+    "connection": "menu action; no gameplay claim",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T110554.294184Z-before.png",
+    "modifier": null,
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T110554.294184Z-after.png"
+  },
+  {
+    "at": "20261115T110554.844463Z",
+    "action": "click",
+    "values": [
+      "1"
+    ],
+    "expected": "Open recipe book for normal recipe selection",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T110554.844463Z-before.png",
+    "modifier": null,
+    "mouse_button": 1,
+    "mouse_binding": "attack/left",
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T110554.844463Z-after.png"
+  },
+  {
+    "at": "20261115T110604.264389Z",
+    "action": "move",
+    "values": [
+      "328",
+      "177"
+    ],
+    "expected": "Point to recipe search",
+    "connection": "menu action; no gameplay claim",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T110604.264389Z-before.png",
+    "modifier": null,
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T110604.264389Z-after.png"
+  },
+  {
+    "at": "20261115T110604.813465Z",
+    "action": "click",
+    "values": [
+      "1"
+    ],
+    "expected": "Focus recipe search field",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T110604.813465Z-before.png",
+    "modifier": null,
+    "mouse_button": 1,
+    "mouse_binding": "attack/left",
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T110604.813465Z-after.png"
+  },
+  {
+    "at": "20261115T110605.433975Z",
+    "action": "type",
+    "values": [
+      "new-generation"
+    ],
+    "expected": "Filter recipe book to New-generation Flying track and car",
+    "connection": "menu action; no gameplay claim",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T110605.433975Z-before.png",
+    "modifier": null,
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T110605.433975Z-after.png"
+  },
+  {
+    "at": "20261115T110614.353564Z",
+    "action": "move",
+    "values": [
+      "290",
+      "200"
+    ],
+    "expected": "Inspect matching track recipe identity",
+    "connection": "menu action; no gameplay claim",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T110614.353564Z-before.png",
+    "modifier": null,
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T110614.353564Z-after.png"
+  },
+  {
+    "at": "20261115T110619.275389Z",
+    "action": "click",
+    "values": [
+      "1"
+    ],
+    "expected": "Recipe book fills iron/copper/magenta grid with sixteen New-generation Flying Track output",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T110619.275389Z-before.png",
+    "modifier": null,
+    "mouse_button": 1,
+    "mouse_binding": "attack/left",
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T110619.275389Z-after.png"
+  },
+  {
+    "at": "20261115T110635.039055Z",
+    "action": "move",
+    "values": [
+      "548",
+      "200"
+    ],
+    "expected": "Point to crafted track output",
+    "connection": "menu action; no gameplay claim",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T110635.039055Z-before.png",
+    "modifier": null,
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T110635.039055Z-after.png"
+  },
+  {
+    "at": "20261115T110635.568824Z",
+    "action": "click",
+    "values": [
+      "1"
+    ],
+    "expected": "Normal Shift-output crafts available track batch and consumes its vanilla ingredients",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T110635.568824Z-before.png",
+    "modifier": "Shift_L",
+    "mouse_button": 1,
+    "mouse_binding": "attack/left",
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T110635.568824Z-after.png"
+  },
+  {
+    "at": "20261115T110645.573930Z",
+    "action": "move",
+    "values": [
+      "315",
+      "200"
+    ],
+    "expected": "Point to New-generation Flying Car recipe",
+    "connection": "menu action; no gameplay claim",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T110645.573930Z-before.png",
+    "modifier": null,
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T110645.573930Z-after.png"
+  },
+  {
+    "at": "20261115T110646.106308Z",
+    "action": "click",
+    "values": [
+      "1"
+    ],
+    "expected": "Fill car recipe for two cars using crafted track, seats, iron and native bearings",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T110646.106308Z-before.png",
+    "modifier": "Shift_L",
+    "mouse_button": 1,
+    "mouse_binding": "attack/left",
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T110646.106308Z-after.png"
+  },
+  {
+    "at": "20261115T110653.800857Z",
+    "action": "move",
+    "values": [
+      "547",
+      "200"
+    ],
+    "expected": "Point to crafted car output",
+    "connection": "menu action; no gameplay claim",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T110653.800857Z-before.png",
+    "modifier": null,
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T110653.800857Z-after.png"
+  },
+  {
+    "at": "20261115T110654.335083Z",
+    "action": "click",
+    "values": [
+      "1"
+    ],
+    "expected": "Craft two native compound cars normally, consuming two crafted track and six seats",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T110654.335083Z-before.png",
+    "modifier": "Shift_L",
+    "mouse_button": 1,
+    "mouse_binding": "attack/left",
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T110654.335083Z-after.png"
+  },
+  {
+    "at": "20261115T110704.447577Z",
+    "action": "move",
+    "values": [
+      "329",
+      "176"
+    ],
+    "expected": "Point to recipe search",
+    "connection": "menu action; no gameplay claim",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T110704.447577Z-before.png",
+    "modifier": null,
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T110704.447577Z-after.png"
+  },
+  {
+    "at": "20261115T110704.973842Z",
+    "action": "click",
+    "values": [
+      "1"
+    ],
+    "expected": "Focus search",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T110704.973842Z-before.png",
+    "modifier": null,
+    "mouse_button": 1,
+    "mouse_binding": "attack/left",
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T110704.973842Z-after.png"
+  },
+  {
+    "at": "20261115T110705.573551Z",
+    "action": "key",
+    "values": [
+      "a"
+    ],
+    "expected": "Select previous recipe search text",
+    "connection": "menu action; no gameplay claim",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T110705.573551Z-before.png",
+    "modifier": "Control_L",
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T110705.573551Z-after.png"
+  },
+  {
+    "at": "20261115T110706.504431Z",
+    "action": "type",
+    "values": [
+      "yaw"
+    ],
+    "expected": "Find Yaw Marker recipe",
+    "connection": "menu action; no gameplay claim",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T110706.504431Z-before.png",
+    "modifier": null,
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T110706.504431Z-after.png"
+  },
+  {
+    "at": "20261115T110711.694446Z",
+    "action": "move",
+    "values": [
+      "291",
+      "200"
+    ],
+    "expected": "Point to Yaw Marker recipe",
+    "connection": "menu action; no gameplay claim",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T110711.694446Z-before.png",
+    "modifier": null,
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T110711.694446Z-after.png"
+  },
+  {
+    "at": "20261115T110712.224415Z",
+    "action": "click",
+    "values": [
+      "1"
+    ],
+    "expected": "Fill Yaw Marker recipe with iron, compass and glowstone",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T110712.224415Z-before.png",
+    "modifier": null,
+    "mouse_button": 1,
+    "mouse_binding": "attack/left",
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T110712.224415Z-after.png"
+  },
+  {
+    "at": "20261115T110853.639780Z",
+    "action": "move",
+    "values": [
+      "330",
+      "176"
+    ],
+    "expected": "Focus recipe search for the visible Scenery Target Marker name",
+    "connection": "menu action; no gameplay claim",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T110853.639780Z-before.png",
+    "modifier": null,
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T110853.639780Z-after.png"
+  },
+  {
+    "at": "20261115T110854.182277Z",
+    "action": "click",
+    "values": [
+      "1"
+    ],
+    "expected": "Focus search field",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T110854.182277Z-before.png",
+    "modifier": null,
+    "mouse_button": 1,
+    "mouse_binding": "attack/left",
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T110854.182277Z-after.png"
+  },
+  {
+    "at": "20261115T110854.783310Z",
+    "action": "key",
+    "values": [
+      "a"
+    ],
+    "expected": "Select old search text",
+    "connection": "menu action; no gameplay claim",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T110854.783310Z-before.png",
+    "modifier": "Control_L",
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T110854.783310Z-after.png"
+  },
+  {
+    "at": "20261115T110855.715983Z",
+    "action": "type",
+    "values": [
+      "scenery"
+    ],
+    "expected": "Find the displayed Scenery Target Marker recipe",
+    "connection": "menu action; no gameplay claim",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T110855.715983Z-before.png",
+    "modifier": null,
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T110855.715983Z-after.png"
+  },
+  {
+    "at": "20261115T110906.338206Z",
+    "action": "move",
+    "values": [
+      "291",
+      "200"
+    ],
+    "expected": "Point to Scenery Target Marker recipe",
+    "connection": "menu action; no gameplay claim",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T110906.338206Z-before.png",
+    "modifier": null,
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T110906.338206Z-after.png"
+  },
+  {
+    "at": "20261115T110906.868331Z",
+    "action": "click",
+    "values": [
+      "1"
+    ],
+    "expected": "Fill the marker recipe using supplied iron, compass and glowstone",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T110906.868331Z-before.png",
+    "modifier": null,
+    "mouse_button": 1,
+    "mouse_binding": "attack/left",
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T110906.868331Z-after.png"
+  },
+  {
+    "at": "20261115T110916.097888Z",
+    "action": "move",
+    "values": [
+      "548",
+      "200"
+    ],
+    "expected": "Point to marker output",
+    "connection": "menu action; no gameplay claim",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T110916.097888Z-before.png",
+    "modifier": null,
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T110916.097888Z-after.png"
+  },
+  {
+    "at": "20261115T110916.632518Z",
+    "action": "click",
+    "values": [
+      "1"
+    ],
+    "expected": "Craft Scenery Target Marker normally and consume its ingredients",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T110916.632518Z-before.png",
+    "modifier": "Shift_L",
+    "mouse_button": 1,
+    "mouse_binding": "attack/left",
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T110916.632518Z-after.png"
+  },
+  {
+    "at": "20261115T110929.219200Z",
+    "action": "move",
+    "values": [
+      "576",
+      "282"
+    ],
+    "expected": "Point to the fourteen crafted track items in inventory",
+    "connection": "menu action; no gameplay claim",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T110929.219200Z-before.png",
+    "modifier": null,
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T110929.219200Z-after.png"
+  },
+  {
+    "at": "20261115T110929.746697Z",
+    "action": "key",
+    "values": [
+      "6"
+    ],
+    "expected": "Move crafted track to empty hotbar slot6 through normal inventory swap",
+    "connection": "menu action; no gameplay claim",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T110929.746697Z-before.png",
+    "modifier": null,
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T110929.746697Z-after.png"
+  },
+  {
+    "at": "20261115T110930.484509Z",
+    "action": "key",
+    "values": [
+      "Escape"
+    ],
+    "expected": "Close crafting table",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T110930.484509Z-before.png",
+    "modifier": null,
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T110930.484509Z-after.png"
+  },
+  {
+    "at": "20261115T110931.218168Z",
+    "action": "key",
+    "values": [
+      "6"
+    ],
+    "expected": "Select crafted track",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T110931.218168Z-before.png",
+    "modifier": null,
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T110931.218168Z-after.png"
+  },
+  {
+    "at": "20261115T110932.038496Z",
+    "action": "key",
+    "values": [
+      "F3"
+    ],
+    "expected": "Confirm first native anchor identity and normal reach",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T110932.038496Z-before.png",
+    "modifier": null,
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T110932.038496Z-after.png"
+  },
+  {
+    "at": "20261115T110940.569999Z",
+    "action": "use",
+    "values": [],
+    "expected": "Crafted track selects first native anchor220,73,12 without connecting or spending yet",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T110940.569999Z-before.png",
+    "modifier": null,
+    "mouse_button": 3,
+    "mouse_binding": "use/right",
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T110940.569999Z-after.png"
+  },
+  {
+    "at": "20261115T110949.949804Z",
+    "action": "use",
+    "values": [],
+    "expected": "Second anchor creates48-block paid matching track, clears selection and consumes twelve items leaving2",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T110949.949804Z-before.png",
+    "modifier": null,
+    "mouse_button": 3,
+    "mouse_binding": "use/right",
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T110949.949804Z-after.png"
+  },
+  {
+    "at": "20261115T110950.687158Z",
+    "action": "key",
+    "values": [
+      "4"
+    ],
+    "expected": "Select first crafted compound car",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T110950.687158Z-before.png",
+    "modifier": null,
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T110950.687158Z-after.png"
+  },
+  {
+    "at": "20261115T111046.641513Z",
+    "action": "use",
+    "values": [],
+    "expected": "Normal crafted-car air-use on the interior matching rail places first native compound car and consumes its item",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T111046.641513Z-before.png",
+    "modifier": null,
+    "mouse_button": 3,
+    "mouse_binding": "use/right",
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T111046.641513Z-after.png"
+  },
+  {
+    "at": "20261115T111110.765603Z",
+    "action": "use",
+    "values": [],
+    "expected": "Corrected ray from stable platform reaches graph point220.5,73.75,26.5 within6 blocks and places crafted car",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T111110.765603Z-before.png",
+    "modifier": null,
+    "mouse_button": 3,
+    "mouse_binding": "use/right",
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T111110.765603Z-after.png"
+  },
+  {
+    "at": "20261115T111129.474336Z",
+    "action": "use",
+    "values": [],
+    "expected": "Same stable ray now places car after removing the explicitly identified platform strip from compound sweep",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T111129.474336Z-before.png",
+    "modifier": null,
+    "mouse_button": 3,
+    "mouse_binding": "use/right",
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T111129.474336Z-after.png"
+  },
+  {
+    "at": "20261115T111137.964669Z",
+    "action": "key",
+    "values": [
+      "5"
+    ],
+    "expected": "Select second crafted car",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T111137.964669Z-before.png",
+    "modifier": null,
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T111137.964669Z-after.png"
+  },
+  {
+    "at": "20261115T111146.315077Z",
+    "action": "use",
+    "values": [],
+    "expected": "Place second crafted compound car at eight-block bearing spacing; item consumed",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T111146.315077Z-before.png",
+    "modifier": null,
+    "mouse_button": 3,
+    "mouse_binding": "use/right",
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T111146.315077Z-after.png"
+  },
+  {
+    "at": "20261115T111155.690790Z",
+    "action": "use",
+    "values": [],
+    "expected": "Empty-hand first station binds the nearby stopped seated compound car and becomes ready",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T111155.690790Z-before.png",
+    "modifier": null,
+    "mouse_button": 3,
+    "mouse_binding": "use/right",
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T111155.690790Z-after.png"
+  },
+  {
+    "at": "20261115T111204.262009Z",
+    "action": "key",
+    "values": [
+      "Escape"
+    ],
+    "expected": "Close first bound station editor",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T111204.262009Z-before.png",
+    "modifier": null,
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T111204.262009Z-after.png"
+  },
+  {
+    "at": "20261115T111213.699588Z",
+    "action": "use",
+    "values": [],
+    "expected": "Empty-hand second station binds second stopped seated car and becomes ready",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T111213.699588Z-before.png",
+    "modifier": null,
+    "mouse_button": 3,
+    "mouse_binding": "use/right",
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T111213.699588Z-after.png"
+  },
+  {
+    "at": "20261115T111214.336352Z",
+    "action": "key",
+    "values": [
+      "Escape"
+    ],
+    "expected": "Close second station editor",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T111214.336352Z-before.png",
+    "modifier": null,
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T111214.336352Z-after.png"
+  },
+  {
+    "at": "20261115T111215.174967Z",
+    "action": "key",
+    "values": [
+      "8"
+    ],
+    "expected": "Select normal Minecraft Chain",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T111215.174967Z-before.png",
+    "modifier": null,
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T111215.174967Z-after.png"
+  },
+  {
+    "at": "20261115T111626.924577Z",
+    "action": "use",
+    "values": [],
+    "expected": "Native Chain selects first crafted car bearing; SelectedItem gains SimulatedCoastersCartLinkTarget",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T111626.924577Z-before.png",
+    "modifier": null,
+    "mouse_button": 3,
+    "mouse_binding": "use/right",
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T111626.924577Z-after.png"
+  },
+  {
+    "at": "20261115T111636.664024Z",
+    "action": "use",
+    "values": [],
+    "expected": "Native Chain links second crafted bearing to first at 8 blocks; selection clears and native linked carts log appears",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T111636.664024Z-before.png",
+    "modifier": null,
+    "mouse_button": 3,
+    "mouse_binding": "use/right",
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T111636.664024Z-after.png"
+  },
+  {
+    "at": "20261115T111637.610511Z",
+    "action": "key",
+    "values": [
+      "4"
+    ],
+    "expected": "Select empty hand before station consist binding",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T111637.610511Z-before.png",
+    "modifier": null,
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T111637.610511Z-after.png"
+  },
+  {
+    "at": "20261115T111644.378244Z",
+    "action": "use",
+    "values": [],
+    "expected": "Station rebinds both normally linked NG cars as one consist",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T111644.378244Z-before.png",
+    "modifier": "Shift_L",
+    "mouse_button": 3,
+    "mouse_binding": "use/right",
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T111644.378244Z-after.png"
+  },
+  {
+    "at": "20261115T111645.310659Z",
+    "action": "key",
+    "values": [
+      "7"
+    ],
+    "expected": "Select crafted Scenery Target Marker",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T111645.310659Z-before.png",
+    "modifier": null,
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T111645.310659Z-after.png"
+  },
+  {
+    "at": "20261115T111655.203487Z",
+    "action": "key",
+    "values": [
+      "Escape"
+    ],
+    "expected": "Close station controls",
+    "connection": "menu action; no gameplay claim",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T111655.203487Z-before.png",
+    "modifier": null,
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T111655.203487Z-after.png"
+  },
+  {
+    "at": "20261115T111655.946965Z",
+    "action": "key",
+    "values": [
+      "7"
+    ],
+    "expected": "Hold crafted marker in world",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T111655.946965Z-before.png",
+    "modifier": null,
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T111655.946965Z-after.png"
+  },
+  {
+    "at": "20261115T111656.692021Z",
+    "action": "use",
+    "values": [],
+    "expected": "Place crafted Scenery Target Marker on floor 212 68 39; item consumed and marker appears at 212 69 39",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T111656.692021Z-before.png",
+    "modifier": null,
+    "mouse_button": 3,
+    "mouse_binding": "use/right",
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T111656.692021Z-after.png"
+  },
+  {
+    "at": "20261115T111657.507356Z",
+    "action": "key",
+    "values": [
+      "9"
+    ],
+    "expected": "Hold Rotation Tool for normal track-anchor editor access",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T111657.507356Z-before.png",
+    "modifier": null,
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T111657.507356Z-after.png"
+  },
+  {
+    "at": "20261115T111703.229421Z",
+    "action": "use",
+    "values": [],
+    "expected": "Rotation Tool opens New-generation Flying track interval editor from native first anchor",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T111703.229421Z-before.png",
+    "modifier": null,
+    "mouse_button": 3,
+    "mouse_binding": "use/right",
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T111703.229421Z-after.png"
+  },
+  {
+    "at": "20261115T111715.235810Z",
+    "action": "move",
+    "values": [
+      "300",
+      "161"
+    ],
+    "expected": "Focus track form field",
+    "connection": "menu action; no gameplay claim",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T111715.235810Z-before.png",
+    "modifier": null,
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T111715.235810Z-after.png"
+  },
+  {
+    "at": "20261115T111715.789741Z",
+    "action": "click",
+    "values": [
+      "1"
+    ],
+    "expected": "Select track form field",
+    "connection": "menu action; no gameplay claim",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T111715.789741Z-before.png",
+    "modifier": null,
+    "mouse_button": 1,
+    "mouse_binding": "attack/left",
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T111715.789741Z-after.png"
+  },
+  {
+    "at": "20261115T111716.413547Z",
+    "action": "key",
+    "values": [
+      "a"
+    ],
+    "expected": "Select field text",
+    "connection": "menu action; no gameplay claim",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T111716.413547Z-before.png",
+    "modifier": "Control_L",
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T111716.413547Z-after.png"
+  },
+  {
+    "at": "20261115T111717.361977Z",
+    "action": "type",
+    "values": [
+      "Built scenery"
+    ],
+    "expected": "Enter declared scenery section value",
+    "connection": "menu action; no gameplay claim",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T111717.361977Z-before.png",
+    "modifier": null,
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T111717.361977Z-after.png"
+  },
+  {
+    "at": "20261115T111718.057489Z",
+    "action": "move",
+    "values": [
+      "300",
+      "190"
+    ],
+    "expected": "Focus track form field",
+    "connection": "menu action; no gameplay claim",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T111718.057489Z-before.png",
+    "modifier": null,
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T111718.057489Z-after.png"
+  },
+  {
+    "at": "20261115T111718.596846Z",
+    "action": "click",
+    "values": [
+      "1"
+    ],
+    "expected": "Select track form field",
+    "connection": "menu action; no gameplay claim",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T111718.596846Z-before.png",
+    "modifier": null,
+    "mouse_button": 1,
+    "mouse_binding": "attack/left",
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T111718.596846Z-after.png"
+  },
+  {
+    "at": "20261115T111719.215995Z",
+    "action": "key",
+    "values": [
+      "a"
+    ],
+    "expected": "Select field text",
+    "connection": "menu action; no gameplay claim",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T111719.215995Z-before.png",
+    "modifier": "Control_L",
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T111719.215995Z-after.png"
+  },
+  {
+    "at": "20261115T111720.165681Z",
+    "action": "type",
+    "values": [
+      "48"
+    ],
+    "expected": "Enter declared scenery section value",
+    "connection": "menu action; no gameplay claim",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T111720.165681Z-before.png",
+    "modifier": null,
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T111720.165681Z-after.png"
+  },
+  {
+    "at": "20261115T111720.720216Z",
+    "action": "move",
+    "values": [
+      "520",
+      "190"
+    ],
+    "expected": "Focus track form field",
+    "connection": "menu action; no gameplay claim",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T111720.720216Z-before.png",
+    "modifier": null,
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T111720.720216Z-after.png"
+  },
+  {
+    "at": "20261115T111722.263505Z",
+    "action": "click",
+    "values": [
+      "1"
+    ],
+    "expected": "Select track form field",
+    "connection": "menu action; no gameplay claim",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T111722.263505Z-before.png",
+    "modifier": null,
+    "mouse_button": 1,
+    "mouse_binding": "attack/left",
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T111722.263505Z-after.png"
+  },
+  {
+    "at": "20261115T111723.132895Z",
+    "action": "key",
+    "values": [
+      "a"
+    ],
+    "expected": "Select field text",
+    "connection": "menu action; no gameplay claim",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T111723.132895Z-before.png",
+    "modifier": "Control_L",
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T111723.132895Z-after.png"
+  },
+  {
+    "at": "20261115T111724.083302Z",
+    "action": "type",
+    "values": [
+      "TARGET"
+    ],
+    "expected": "Enter declared scenery section value",
+    "connection": "menu action; no gameplay claim",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T111724.083302Z-before.png",
+    "modifier": null,
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T111724.083302Z-after.png"
+  },
+  {
+    "at": "20261115T111724.694198Z",
+    "action": "move",
+    "values": [
+      "520",
+      "219"
+    ],
+    "expected": "Focus track form field",
+    "connection": "menu action; no gameplay claim",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T111724.694198Z-before.png",
+    "modifier": null,
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T111724.694198Z-after.png"
+  },
+  {
+    "at": "20261115T111725.230969Z",
+    "action": "click",
+    "values": [
+      "1"
+    ],
+    "expected": "Select track form field",
+    "connection": "menu action; no gameplay claim",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T111725.230969Z-before.png",
+    "modifier": null,
+    "mouse_button": 1,
+    "mouse_binding": "attack/left",
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T111725.230969Z-after.png"
+  },
+  {
+    "at": "20261115T111725.849323Z",
+    "action": "key",
+    "values": [
+      "a"
+    ],
+    "expected": "Select field text",
+    "connection": "menu action; no gameplay claim",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T111725.849323Z-before.png",
+    "modifier": "Control_L",
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T111725.849323Z-after.png"
+  },
+  {
+    "at": "20261115T111726.795519Z",
+    "action": "type",
+    "values": [
+      "0"
+    ],
+    "expected": "Enter declared scenery section value",
+    "connection": "menu action; no gameplay claim",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T111726.795519Z-before.png",
+    "modifier": null,
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T111726.795519Z-after.png"
+  },
+  {
+    "at": "20261115T111727.341829Z",
+    "action": "move",
+    "values": [
+      "300",
+      "248"
+    ],
+    "expected": "Focus track form field",
+    "connection": "menu action; no gameplay claim",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T111727.341829Z-before.png",
+    "modifier": null,
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T111727.341829Z-after.png"
+  },
+  {
+    "at": "20261115T111727.881366Z",
+    "action": "click",
+    "values": [
+      "1"
+    ],
+    "expected": "Select track form field",
+    "connection": "menu action; no gameplay claim",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T111727.881366Z-before.png",
+    "modifier": null,
+    "mouse_button": 1,
+    "mouse_binding": "attack/left",
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T111727.881366Z-after.png"
+  },
+  {
+    "at": "20261115T111728.502102Z",
+    "action": "key",
+    "values": [
+      "a"
+    ],
+    "expected": "Select field text",
+    "connection": "menu action; no gameplay claim",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T111728.502102Z-before.png",
+    "modifier": "Control_L",
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T111728.502102Z-after.png"
+  },
+  {
+    "at": "20261115T111729.451460Z",
+    "action": "type",
+    "values": [
+      "0:0;48:0"
+    ],
+    "expected": "Enter declared scenery section value",
+    "connection": "menu action; no gameplay claim",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T111729.451460Z-before.png",
+    "modifier": null,
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T111729.451460Z-after.png"
+  },
+  {
+    "at": "20261115T111730.080935Z",
+    "action": "move",
+    "values": [
+      "520",
+      "248"
+    ],
+    "expected": "Focus track form field",
+    "connection": "menu action; no gameplay claim",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T111730.080935Z-before.png",
+    "modifier": null,
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T111730.080935Z-after.png"
+  },
+  {
+    "at": "20261115T111730.625182Z",
+    "action": "click",
+    "values": [
+      "1"
+    ],
+    "expected": "Select track form field",
+    "connection": "menu action; no gameplay claim",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T111730.625182Z-before.png",
+    "modifier": null,
+    "mouse_button": 1,
+    "mouse_binding": "attack/left",
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T111730.625182Z-after.png"
+  },
+  {
+    "at": "20261115T111731.243278Z",
+    "action": "key",
+    "values": [
+      "a"
+    ],
+    "expected": "Select field text",
+    "connection": "menu action; no gameplay claim",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T111731.243278Z-before.png",
+    "modifier": "Control_L",
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T111731.243278Z-after.png"
+  },
+  {
+    "at": "20261115T111732.194740Z",
+    "action": "type",
+    "values": [
+      "212 69 39"
+    ],
+    "expected": "Enter declared scenery section value",
+    "connection": "menu action; no gameplay claim",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T111732.194740Z-before.png",
+    "modifier": null,
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T111732.194740Z-after.png"
+  },
+  {
+    "at": "20261115T111743.995957Z",
+    "action": "move",
+    "values": [
+      "275",
+      "361"
+    ],
+    "expected": "Point to Save section",
+    "connection": "menu action; no gameplay claim",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T111743.995957Z-before.png",
+    "modifier": null,
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T111743.995957Z-after.png"
+  },
+  {
+    "at": "20261115T111744.536078Z",
+    "action": "click",
+    "values": [
+      "1"
+    ],
+    "expected": "Save 0\u201348 TARGET section bound to crafted marker; server acknowledges accepted edit",
+    "connection": "menu action; no gameplay claim",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T111744.536078Z-before.png",
+    "modifier": null,
+    "mouse_button": 1,
+    "mouse_binding": "attack/left",
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T111744.536078Z-after.png"
+  },
+  {
+    "at": "20261115T111755.037013Z",
+    "action": "key",
+    "values": [
+      "Escape"
+    ],
+    "expected": "Close saved track form",
+    "connection": "menu action; no gameplay claim",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T111755.037013Z-before.png",
+    "modifier": null,
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T111755.037013Z-after.png"
+  },
+  {
+    "at": "20261115T111755.782201Z",
+    "action": "key",
+    "values": [
+      "F3"
+    ],
+    "expected": "Hide debug overlay for placed asset view",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T111755.782201Z-before.png",
+    "modifier": null,
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T111755.782201Z-after.png"
+  },
+  {
+    "at": "20261115T111756.607859Z",
+    "action": "key",
+    "values": [
+      "4"
+    ],
+    "expected": "Empty hand for placed two-car assembly view",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T111756.607859Z-before.png",
+    "modifier": null,
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T111756.607859Z-after.png"
+  },
+  {
+    "at": "20261115T111843.993892Z",
+    "action": "key",
+    "values": [
+      "Escape"
+    ],
+    "expected": "Open pause menu to enable item-only validation resource pack",
+    "connection": "menu action; no gameplay claim",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T111843.993892Z-before.png",
+    "modifier": null,
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T111843.993892Z-after.png"
+  },
+  {
+    "at": "20261115T111850.056968Z",
+    "action": "move",
+    "values": [
+      "372",
+      "203"
+    ],
+    "expected": "Point to Options",
+    "connection": "menu action; no gameplay claim",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T111850.056968Z-before.png",
+    "modifier": null,
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T111850.056968Z-after.png"
+  },
+  {
+    "at": "20261115T111850.833495Z",
+    "action": "click",
+    "values": [
+      "1"
+    ],
+    "expected": "Open Options",
+    "connection": "menu action; no gameplay claim",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T111850.833495Z-before.png",
+    "modifier": null,
+    "mouse_button": 1,
+    "mouse_binding": "attack/left",
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T111850.833495Z-after.png"
+  },
+  {
+    "at": "20261115T111855.903913Z",
+    "action": "move",
+    "values": [
+      "350",
+      "173"
+    ],
+    "expected": "Point to Resource Packs",
+    "connection": "menu action; no gameplay claim",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T111855.903913Z-before.png",
+    "modifier": null,
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T111855.903913Z-after.png"
+  },
+  {
+    "at": "20261115T111856.659480Z",
+    "action": "click",
+    "values": [
+      "1"
+    ],
+    "expected": "Open Resource Packs",
+    "connection": "menu action; no gameplay claim",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T111856.659480Z-before.png",
+    "modifier": null,
+    "mouse_button": 1,
+    "mouse_binding": "attack/left",
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T111856.659480Z-after.png"
+  },
+  {
+    "at": "20261115T111904.325873Z",
+    "action": "move",
+    "values": [
+      "230",
+      "137"
+    ],
+    "expected": "Point to item correction pack enable arrow",
+    "connection": "menu action; no gameplay claim",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T111904.325873Z-before.png",
+    "modifier": null,
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T111904.325873Z-after.png"
+  },
+  {
+    "at": "20261115T111905.095709Z",
+    "action": "click",
+    "values": [
+      "1"
+    ],
+    "expected": "Enable exact source item model correction",
+    "connection": "menu action; no gameplay claim",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T111905.095709Z-before.png",
+    "modifier": null,
+    "mouse_button": 1,
+    "mouse_binding": "attack/left",
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T111905.095709Z-after.png"
+  },
+  {
+    "at": "20261115T111913.376310Z",
+    "action": "move",
+    "values": [
+      "500",
+      "464"
+    ],
+    "expected": "Point to Done",
+    "connection": "menu action; no gameplay claim",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T111913.376310Z-before.png",
+    "modifier": null,
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T111913.376310Z-after.png"
+  },
+  {
+    "at": "20261115T111914.154191Z",
+    "action": "click",
+    "values": [
+      "1"
+    ],
+    "expected": "Reload resources with only corrected NG item model",
+    "connection": "menu action; no gameplay claim",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T111914.154191Z-before.png",
+    "modifier": null,
+    "mouse_button": 1,
+    "mouse_binding": "attack/left",
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T111914.154191Z-after.png"
+  },
+  {
+    "at": "20261115T111928.311023Z",
+    "action": "key",
+    "values": [
+      "Escape"
+    ],
+    "expected": "Return to pause menu",
+    "connection": "menu action; no gameplay claim",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T111928.311023Z-before.png",
+    "modifier": null,
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T111928.311023Z-after.png"
+  },
+  {
+    "at": "20261115T111929.389536Z",
+    "action": "key",
+    "values": [
+      "Escape"
+    ],
+    "expected": "Resume world after resource reload",
+    "connection": "menu action; no gameplay claim",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T111929.389536Z-before.png",
+    "modifier": null,
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T111929.389536Z-after.png"
+  },
+  {
+    "at": "20261115T111930.280366Z",
+    "action": "key",
+    "values": [
+      "4"
+    ],
+    "expected": "Hold extra visual-only car item for corrected asset inspection",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T111930.280366Z-before.png",
+    "modifier": null,
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T111930.280366Z-after.png"
+  },
+  {
+    "at": "20261115T111931.177875Z",
+    "action": "key",
+    "values": [
+      "e"
+    ],
+    "expected": "Inspect corrected item in normal inventory",
+    "connection": "menu action; no gameplay claim",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T111931.177875Z-before.png",
+    "modifier": null,
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T111931.177875Z-after.png"
+  },
+  {
+    "at": "20261115T111943.310270Z",
+    "action": "key",
+    "values": [
+      "Escape"
+    ],
+    "expected": "Close inventory after corrected asset review",
+    "connection": "menu action; no gameplay claim",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T111943.310270Z-before.png",
+    "modifier": null,
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/evidence/20261115T111943.310270Z-after.png"
+  }
+]

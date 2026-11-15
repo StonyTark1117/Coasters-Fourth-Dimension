@@ -1,0 +1,432 @@
+{
+  "rail": {
+    "original_curve": {
+      "Starts": [
+        {
+          "V": [
+            0.5,
+            0.75,
+            0.5
+          ]
+        },
+        {
+          "V": [
+            0.5,
+            0.75,
+            48.5
+          ]
+        }
+      ],
+      "Girder": 0,
+      "Normals": [
+        {
+          "V": [
+            0.0,
+            1.0,
+            0.0
+          ]
+        },
+        {
+          "V": [
+            0.0,
+            1.0,
+            0.0
+          ]
+        }
+      ],
+      "Primary": 1,
+      "Positions": [
+        {
+          "Pos": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "Pos": [
+            0,
+            0,
+            48
+          ]
+        }
+      ],
+      "Axes": [
+        {
+          "V": [
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        {
+          "V": [
+            0.0,
+            0.0,
+            -1.0
+          ]
+        }
+      ],
+      "Material": "simulatedcoasters:coaster_track"
+    },
+    "magnets": [],
+    "profile": [
+      {
+        "distance": 0.0,
+        "slope": 0.0,
+        "angle": 0.0
+      },
+      {
+        "distance": 48.0,
+        "slope": 0.0,
+        "angle": 0.0
+      }
+    ],
+    "lift_lock": 0,
+    "geometry_hash": -5605264719772362431,
+    "yaw": {
+      "owner": [
+        940439953,
+        -167562164,
+        -1601161573,
+        -1389718966
+      ],
+      "intervals": [
+        {
+          "phi_to": 0.0,
+          "blend": 8.0,
+          "keys": [
+            {
+              "distance": 0.0,
+              "angle": 0.0
+            },
+            {
+              "distance": 48.0,
+              "angle": 0.0
+            }
+          ],
+          "start": 0.0,
+          "show_duration": 200,
+          "speed": 0.6,
+          "stop_name": "Show",
+          "marker_pos": 58274116431941,
+          "mode": "TARGET",
+          "acceleration": 0.8,
+          "winding": "NEAREST",
+          "marker": [
+            445338809,
+            -1164950912,
+            -1719063311,
+            1435174823
+          ],
+          "name": "Built scenery",
+          "end": 48.0,
+          "id": [
+            1367162991,
+            -1511110439,
+            -2094095961,
+            -2070085475
+          ],
+          "phi_from": 0.0,
+          "dimension": "minecraft:overworld"
+        }
+      ],
+      "geometry": -5605264719772362431,
+      "version": 1,
+      "revision": 1
+    },
+    "revision": 1,
+    "valid": 1,
+    "appearance": {
+      "tint": -1,
+      "id": "fourthdimension:original"
+    },
+    "provider": "fourthdimension:original",
+    "variant": "route_changeover_yaw_v1",
+    "from": 60473139576905,
+    "to": 60473139773513,
+    "id": [
+      -475649908,
+      156127103,
+      -1463843560,
+      -72263497
+    ],
+    "family": "flying"
+  },
+  "vehicles": [
+    {
+      "alignment_required": 0,
+      "contact_layout": "coasters_n_contacts_v1",
+      "mount_frame": "overhead_n_v1",
+      "fault": "",
+      "boundTo": 60473139773513,
+      "carriers": [
+        {
+          "side": 0.0,
+          "rider_seats": [],
+          "lift_pending": 0,
+          "capture": 1,
+          "body": [
+            -1274935081,
+            -310555611,
+            -1822495076,
+            164379630
+          ],
+          "axis": "X",
+          "seats": [
+            -274877906944,
+            0
+          ],
+          "ballast": 0.0,
+          "omega": 0.0,
+          "lift_geometry": 0,
+          "lift_entered": 0,
+          "pivot_height": 0.0,
+          "angle": 0.0,
+          "capture_target": 0.0,
+          "lift_held": 0,
+          "latched": 1,
+          "longitudinal": 0.0,
+          "child_pivot_offset": 0.0,
+          "child_pivot_x": -0.5,
+          "child_pivot_z": 0.0,
+          "occupants": []
+        }
+      ],
+      "chassis": [
+        -2072910979,
+        -1844363201,
+        -1413620179,
+        1479677019
+      ],
+      "damping": 0.0,
+      "boundFrom": 60473139576905,
+      "yaw": {
+        "last_show_tick": -1,
+        "deck": [
+          -1298945741,
+          1763986313,
+          -1778315731,
+          289135260
+        ],
+        "axes": "chassis_y_then_deck_x",
+        "epoch": 0,
+        "entry_angle": 0.0,
+        "branch": 0.0,
+        "stop_name": "",
+        "last_distance": 0.0,
+        "mode": "STATION_CAPTURE",
+        "reference": 0.0,
+        "marker_dimension": "",
+        "entry_distance": 0.0,
+        "show_ticks": 0,
+        "angle": 0.0,
+        "last_target": 0.0,
+        "initialized": 1,
+        "direction": 1,
+        "section_revision": 0,
+        "owner": [
+          940439953,
+          -167562164,
+          -1601161573,
+          -1389718966
+        ],
+        "posture_reference": 0.0,
+        "resume_required": 0,
+        "pivot_y": -3.3125,
+        "next_mode": "PROFILE",
+        "posture_velocity": 0.0,
+        "blend_progress": 0.0,
+        "hold_acknowledged": 0,
+        "transform_order": 1,
+        "reference_velocity": 0.0,
+        "velocity": 0.0,
+        "tick": 31572,
+        "route_fingerprint": 0,
+        "version": 1,
+        "sequence": 15410,
+        "travel_authorized": 0,
+        "status": "READY",
+        "entry_velocity": 0.0
+      },
+      "ballast": 0.0,
+      "revision": 2,
+      "boarding_ready": 1,
+      "stopping": 1,
+      "flying": {
+        "phase": "SEATED_OPEN",
+        "hold_angle": 0.0,
+        "reference_velocity": 0.0,
+        "body": 0,
+        "version": 1,
+        "target": 0.0,
+        "consist": [
+          [
+            -2072910979,
+            -1844363201,
+            -1413620179,
+            1479677019
+          ],
+          [
+            1272852086,
+            -816363360,
+            -1089175004,
+            -1437192304
+          ]
+        ],
+        "reference_angle": 0.0,
+        "legs": 0,
+        "lock": "SEATED",
+        "progress": 0.0,
+        "interruption": "",
+        "dock_to": 60473139773513,
+        "dock_geometry": -5605264719772362431,
+        "dock_from": 60473139576905
+      },
+      "variant": "route_changeover_yaw_v1",
+      "restraints": 0,
+      "shuttle_detached": 0,
+      "family": "flying",
+      "suspended_consist": [],
+      "dock": 59373628006469,
+      "maintenance": 0
+    },
+    {
+      "alignment_required": 0,
+      "contact_layout": "coasters_n_contacts_v1",
+      "mount_frame": "overhead_n_v1",
+      "fault": "",
+      "boundTo": 60473139773513,
+      "carriers": [
+        {
+          "side": 0.0,
+          "rider_seats": [],
+          "lift_pending": 0,
+          "capture": 1,
+          "body": [
+            -441038740,
+            2051493725,
+            -1641113572,
+            1805614656
+          ],
+          "axis": "X",
+          "seats": [
+            -274877906944,
+            0
+          ],
+          "ballast": 0.0,
+          "omega": 0.0,
+          "lift_geometry": 0,
+          "lift_entered": 0,
+          "pivot_height": 0.0,
+          "angle": 0.0,
+          "capture_target": 0.0,
+          "lift_held": 0,
+          "latched": 1,
+          "longitudinal": 0.0,
+          "child_pivot_offset": 0.0,
+          "child_pivot_x": -0.5,
+          "child_pivot_z": 0.0,
+          "occupants": []
+        }
+      ],
+      "chassis": [
+        1272852086,
+        -816363360,
+        -1089175004,
+        -1437192304
+      ],
+      "damping": 0.0,
+      "boundFrom": 60473139576905,
+      "yaw": {
+        "last_show_tick": -1,
+        "deck": [
+          1656334150,
+          -1381350690,
+          -2049958999,
+          1617288565
+        ],
+        "axes": "chassis_y_then_deck_x",
+        "epoch": 0,
+        "entry_angle": 0.0,
+        "branch": 0.0,
+        "stop_name": "",
+        "last_distance": 0.0,
+        "mode": "STATION_CAPTURE",
+        "reference": 0.0,
+        "marker_dimension": "",
+        "entry_distance": 0.0,
+        "show_ticks": 0,
+        "angle": 0.0,
+        "last_target": 0.0,
+        "initialized": 1,
+        "direction": 1,
+        "section_revision": 0,
+        "owner": [
+          940439953,
+          -167562164,
+          -1601161573,
+          -1389718966
+        ],
+        "posture_reference": 0.0,
+        "resume_required": 0,
+        "pivot_y": -3.3125,
+        "next_mode": "PROFILE",
+        "posture_velocity": 0.0,
+        "blend_progress": 0.0,
+        "hold_acknowledged": 0,
+        "transform_order": 1,
+        "reference_velocity": 0.0,
+        "velocity": 0.0,
+        "tick": 31572,
+        "route_fingerprint": 0,
+        "version": 1,
+        "sequence": 14718,
+        "travel_authorized": 0,
+        "status": "READY",
+        "entry_velocity": 0.0
+      },
+      "ballast": 0.0,
+      "revision": 2,
+      "boarding_ready": 1,
+      "stopping": 1,
+      "flying": {
+        "phase": "SEATED_OPEN",
+        "hold_angle": 0.0,
+        "reference_velocity": 0.0,
+        "body": 0,
+        "version": 1,
+        "target": 0.0,
+        "consist": [
+          [
+            -2072910979,
+            -1844363201,
+            -1413620179,
+            1479677019
+          ],
+          [
+            1272852086,
+            -816363360,
+            -1089175004,
+            -1437192304
+          ]
+        ],
+        "reference_angle": 0.0,
+        "legs": 0,
+        "lock": "SEATED",
+        "progress": 0.0,
+        "interruption": "",
+        "dock_to": 60473139773513,
+        "dock_geometry": -5605264719772362431,
+        "dock_from": 60473139576905
+      },
+      "variant": "route_changeover_yaw_v1",
+      "restraints": 0,
+      "shuttle_detached": 0,
+      "family": "flying",
+      "suspended_consist": [],
+      "dock": 59373628006469,
+      "maintenance": 0
+    }
+  ]
+}
