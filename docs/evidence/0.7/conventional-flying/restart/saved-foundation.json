@@ -1,0 +1,2293 @@
+{
+  "data": {
+    "schema": 7,
+    "rails": [
+      {
+        "original_curve": {
+          "Starts": [
+            {
+              "V": [
+                0.5,
+                0.25,
+                0.5
+              ]
+            },
+            {
+              "V": [
+                0.5,
+                0.25,
+                48.5
+              ]
+            }
+          ],
+          "Girder": 0,
+          "Normals": [
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          ],
+          "Primary": 1,
+          "Positions": [
+            {
+              "Pos": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "Pos": [
+                0,
+                0,
+                48
+              ]
+            }
+          ],
+          "Axes": [
+            {
+              "V": [
+                0.0,
+                0.0,
+                1.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                0.0,
+                -1.0
+              ]
+            }
+          ],
+          "Material": "simulatedcoasters:coaster_track"
+        },
+        "magnets": [],
+        "profile": [
+          {
+            "distance": 0.0,
+            "slope": 0.0,
+            "angle": 0.0
+          },
+          {
+            "distance": 48.0,
+            "slope": 0.0,
+            "angle": 0.0
+          }
+        ],
+        "lift_lock": 0,
+        "geometry_hash": -6654608378455241119,
+        "revision": 0,
+        "valid": 1,
+        "appearance": {
+          "tint": -1,
+          "id": "fourthdimension:original"
+        },
+        "provider": "fourthdimension:original",
+        "variant": "station_changeover_v1",
+        "from": 49225,
+        "to": 245833,
+        "id": [
+          -814393975,
+          -1995027530,
+          -1840991171,
+          -1616266756
+        ],
+        "family": "flying"
+      },
+      {
+        "original_curve": {
+          "Starts": [
+            {
+              "V": [
+                0.5,
+                0.25,
+                0.5
+              ]
+            },
+            {
+              "V": [
+                0.5,
+                12.25,
+                48.5
+              ]
+            }
+          ],
+          "Girder": 0,
+          "Normals": [
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          ],
+          "Primary": 1,
+          "Positions": [
+            {
+              "Pos": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "Pos": [
+                0,
+                12,
+                48
+              ]
+            }
+          ],
+          "Axes": [
+            {
+              "V": [
+                0.0,
+                0.0,
+                1.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                0.0,
+                -1.0
+              ]
+            }
+          ],
+          "Material": "simulatedcoasters:coaster_track"
+        },
+        "magnets": [],
+        "profile": [
+          {
+            "distance": 0.0,
+            "slope": 0.0,
+            "angle": 0.0
+          },
+          {
+            "distance": 49.769001306985594,
+            "slope": 0.0,
+            "angle": 0.0
+          }
+        ],
+        "lift_lock": 0,
+        "geometry_hash": 5631484548807788573,
+        "revision": 0,
+        "valid": 1,
+        "appearance": {
+          "tint": -1,
+          "id": "fourthdimension:original"
+        },
+        "provider": "fourthdimension:original",
+        "variant": "station_changeover_v1",
+        "from": 245833,
+        "to": 442453,
+        "id": [
+          1954542516,
+          2037403313,
+          -1655294200,
+          -2022426747
+        ],
+        "family": "flying"
+      },
+      {
+        "original_curve": {
+          "Starts": [
+            {
+              "V": [
+                0.5,
+                0.25,
+                0.5
+              ]
+            },
+            {
+              "V": [
+                0.5,
+                0.25,
+                32.5
+              ]
+            }
+          ],
+          "Girder": 0,
+          "Normals": [
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            {
+              "V": [
+                -0.9999999999999991,
+                -4.371139000186242e-08,
+                0.0
+              ]
+            }
+          ],
+          "Primary": 1,
+          "Positions": [
+            {
+              "Pos": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "Pos": [
+                0,
+                0,
+                32
+              ]
+            }
+          ],
+          "Axes": [
+            {
+              "V": [
+                0.0,
+                0.0,
+                1.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                0.0,
+                -1.0
+              ]
+            }
+          ],
+          "Material": "simulatedcoasters:coaster_track"
+        },
+        "magnets": [],
+        "profile": [
+          {
+            "distance": 0.0,
+            "slope": 0.0,
+            "angle": 0.0
+          },
+          {
+            "distance": 32.00015059783618,
+            "slope": 0.0,
+            "angle": 0.0
+          }
+        ],
+        "lift_lock": 0,
+        "geometry_hash": 8745516743180680729,
+        "revision": 0,
+        "valid": 1,
+        "appearance": {
+          "tint": -1,
+          "id": "fourthdimension:original"
+        },
+        "provider": "fourthdimension:original",
+        "variant": "station_changeover_v1",
+        "from": 442453,
+        "to": 573525,
+        "id": [
+          1306480311,
+          -264027077,
+          -1501569574,
+          572899672
+        ],
+        "family": "flying"
+      },
+      {
+        "original_curve": {
+          "Starts": [
+            {
+              "V": [
+                0.5,
+                0.25,
+                0.5
+              ]
+            },
+            {
+              "V": [
+                0.5,
+                0.25,
+                32.5
+              ]
+            }
+          ],
+          "Girder": 0,
+          "Normals": [
+            {
+              "V": [
+                -0.9999999999999991,
+                -4.371139000186242e-08,
+                0.0
+              ]
+            },
+            {
+              "V": [
+                8.742278000372475e-08,
+                -0.9999999999999962,
+                0.0
+              ]
+            }
+          ],
+          "Primary": 1,
+          "Positions": [
+            {
+              "Pos": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "Pos": [
+                0,
+                0,
+                32
+              ]
+            }
+          ],
+          "Axes": [
+            {
+              "V": [
+                0.0,
+                0.0,
+                1.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                0.0,
+                -1.0
+              ]
+            }
+          ],
+          "Material": "simulatedcoasters:coaster_track"
+        },
+        "magnets": [],
+        "profile": [
+          {
+            "distance": 0.0,
+            "slope": 0.0,
+            "angle": 0.0
+          },
+          {
+            "distance": 32.00015059783618,
+            "slope": 0.0,
+            "angle": 0.0
+          }
+        ],
+        "lift_lock": 0,
+        "geometry_hash": 1112010188549092023,
+        "revision": 0,
+        "valid": 1,
+        "appearance": {
+          "tint": -1,
+          "id": "fourthdimension:original"
+        },
+        "provider": "fourthdimension:original",
+        "variant": "station_changeover_v1",
+        "from": 573525,
+        "to": 704597,
+        "id": [
+          1226712231,
+          -125810244,
+          -2100016878,
+          2065531427
+        ],
+        "family": "flying"
+      },
+      {
+        "original_curve": {
+          "Starts": [
+            {
+              "V": [
+                0.5,
+                0.25,
+                0.5
+              ]
+            },
+            {
+              "V": [
+                0.5,
+                0.25,
+                32.5
+              ]
+            }
+          ],
+          "Girder": 0,
+          "Normals": [
+            {
+              "V": [
+                8.742278000372475e-08,
+                -0.9999999999999962,
+                0.0
+              ]
+            },
+            {
+              "V": [
+                1.0,
+                1.1924880454806037e-08,
+                0.0
+              ]
+            }
+          ],
+          "Primary": 1,
+          "Positions": [
+            {
+              "Pos": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "Pos": [
+                0,
+                0,
+                32
+              ]
+            }
+          ],
+          "Axes": [
+            {
+              "V": [
+                0.0,
+                0.0,
+                1.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                0.0,
+                -1.0
+              ]
+            }
+          ],
+          "Material": "simulatedcoasters:coaster_track"
+        },
+        "magnets": [],
+        "profile": [
+          {
+            "distance": 0.0,
+            "slope": 0.0,
+            "angle": 0.0
+          },
+          {
+            "distance": 32.00015059781366,
+            "slope": 0.0,
+            "angle": 0.0
+          }
+        ],
+        "lift_lock": 0,
+        "geometry_hash": -5209120164800968923,
+        "revision": 0,
+        "valid": 1,
+        "appearance": {
+          "tint": -1,
+          "id": "fourthdimension:original"
+        },
+        "provider": "fourthdimension:original",
+        "variant": "station_changeover_v1",
+        "from": 704597,
+        "to": 835669,
+        "id": [
+          -421112735,
+          -1758442386,
+          -1806304605,
+          -2001897250
+        ],
+        "family": "flying"
+      },
+      {
+        "original_curve": {
+          "Starts": [
+            {
+              "V": [
+                0.5,
+                0.25,
+                0.5
+              ]
+            },
+            {
+              "V": [
+                0.5,
+                0.25,
+                32.5
+              ]
+            }
+          ],
+          "Girder": 0,
+          "Normals": [
+            {
+              "V": [
+                1.0,
+                1.1924880454806037e-08,
+                0.0
+              ]
+            },
+            {
+              "V": [
+                -1.7484556000744886e-07,
+                0.9999999999999848,
+                0.0
+              ]
+            }
+          ],
+          "Primary": 1,
+          "Positions": [
+            {
+              "Pos": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "Pos": [
+                0,
+                0,
+                32
+              ]
+            }
+          ],
+          "Axes": [
+            {
+              "V": [
+                0.0,
+                0.0,
+                1.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                0.0,
+                -1.0
+              ]
+            }
+          ],
+          "Material": "simulatedcoasters:coaster_track"
+        },
+        "magnets": [],
+        "profile": [
+          {
+            "distance": 0.0,
+            "slope": 0.0,
+            "angle": 0.0
+          },
+          {
+            "distance": 32.0001505978587,
+            "slope": 0.0,
+            "angle": 0.0
+          }
+        ],
+        "lift_lock": 0,
+        "geometry_hash": 1002711513788746966,
+        "revision": 0,
+        "valid": 1,
+        "appearance": {
+          "tint": -1,
+          "id": "fourthdimension:original"
+        },
+        "provider": "fourthdimension:original",
+        "variant": "station_changeover_v1",
+        "from": 835669,
+        "to": 966741,
+        "id": [
+          -1292355910,
+          -1463008089,
+          -1495544449,
+          2033265976
+        ],
+        "family": "flying"
+      },
+      {
+        "original_curve": {
+          "Starts": [
+            {
+              "V": [
+                0.5,
+                0.25,
+                0.5
+              ]
+            },
+            {
+              "V": [
+                0.5,
+                -11.75,
+                48.5
+              ]
+            }
+          ],
+          "Girder": 0,
+          "Normals": [
+            {
+              "V": [
+                -1.7484556000744886e-07,
+                0.9999999999999848,
+                0.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          ],
+          "Primary": 1,
+          "Positions": [
+            {
+              "Pos": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "Pos": [
+                0,
+                -12,
+                48
+              ]
+            }
+          ],
+          "Axes": [
+            {
+              "V": [
+                0.0,
+                0.0,
+                1.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                0.0,
+                -1.0
+              ]
+            }
+          ],
+          "Material": "simulatedcoasters:coaster_track"
+        },
+        "magnets": [],
+        "profile": [
+          {
+            "distance": 0.0,
+            "slope": 0.0,
+            "angle": 0.0
+          },
+          {
+            "distance": 49.76900130698562,
+            "slope": 0.0,
+            "angle": 0.0
+          }
+        ],
+        "lift_lock": 0,
+        "geometry_hash": 2456267476195657067,
+        "revision": 0,
+        "valid": 1,
+        "appearance": {
+          "tint": -1,
+          "id": "fourthdimension:original"
+        },
+        "provider": "fourthdimension:original",
+        "variant": "station_changeover_v1",
+        "from": 966741,
+        "to": 1163337,
+        "id": [
+          2091800971,
+          83708314,
+          -1682177332,
+          -2067843156
+        ],
+        "family": "flying"
+      },
+      {
+        "original_curve": {
+          "Starts": [
+            {
+              "V": [
+                0.5,
+                0.25,
+                0.5
+              ]
+            },
+            {
+              "V": [
+                32.5,
+                0.25,
+                32.5
+              ]
+            }
+          ],
+          "Girder": 0,
+          "Normals": [
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          ],
+          "Primary": 1,
+          "Positions": [
+            {
+              "Pos": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "Pos": [
+                32,
+                0,
+                32
+              ]
+            }
+          ],
+          "Axes": [
+            {
+              "V": [
+                0.0,
+                0.0,
+                1.0
+              ]
+            },
+            {
+              "V": [
+                -1.0,
+                0.0,
+                0.0
+              ]
+            }
+          ],
+          "Material": "simulatedcoasters:coaster_track"
+        },
+        "magnets": [],
+        "profile": [
+          {
+            "distance": 0.0,
+            "slope": 0.0,
+            "angle": 0.0
+          },
+          {
+            "distance": 50.272529165540874,
+            "slope": 0.0,
+            "angle": 0.0
+          }
+        ],
+        "lift_lock": 0,
+        "geometry_hash": 818388515740011379,
+        "revision": 0,
+        "valid": 1,
+        "appearance": {
+          "tint": -1,
+          "id": "fourthdimension:original"
+        },
+        "provider": "fourthdimension:original",
+        "variant": "station_changeover_v1",
+        "from": 1163337,
+        "to": 8796094316617,
+        "id": [
+          -1607209652,
+          871383904,
+          -1778064930,
+          -1500400351
+        ],
+        "family": "flying"
+      },
+      {
+        "original_curve": {
+          "Starts": [
+            {
+              "V": [
+                0.5,
+                0.25,
+                0.5
+              ]
+            },
+            {
+              "V": [
+                32.5,
+                0.25,
+                0.5
+              ]
+            }
+          ],
+          "Girder": 0,
+          "Normals": [
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          ],
+          "Primary": 1,
+          "Positions": [
+            {
+              "Pos": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "Pos": [
+                32,
+                0,
+                0
+              ]
+            }
+          ],
+          "Axes": [
+            {
+              "V": [
+                1.0,
+                0.0,
+                0.0
+              ]
+            },
+            {
+              "V": [
+                -1.0,
+                0.0,
+                0.0
+              ]
+            }
+          ],
+          "Material": "simulatedcoasters:coaster_track"
+        },
+        "magnets": [],
+        "profile": [
+          {
+            "distance": 0.0,
+            "slope": 0.0,
+            "angle": 0.0
+          },
+          {
+            "distance": 32.0,
+            "slope": 0.0,
+            "angle": 0.0
+          }
+        ],
+        "lift_lock": 0,
+        "geometry_hash": -6822010516829917599,
+        "revision": 0,
+        "valid": 1,
+        "appearance": {
+          "tint": -1,
+          "id": "fourthdimension:original"
+        },
+        "provider": "fourthdimension:original",
+        "variant": "station_changeover_v1",
+        "from": 8796094316617,
+        "to": 17592187338825,
+        "id": [
+          -802724399,
+          1866810102,
+          -1577569391,
+          1500329324
+        ],
+        "family": "flying"
+      },
+      {
+        "original_curve": {
+          "Starts": [
+            {
+              "V": [
+                0.5,
+                0.25,
+                0.5
+              ]
+            },
+            {
+              "V": [
+                32.5,
+                0.25,
+                -31.5
+              ]
+            }
+          ],
+          "Girder": 0,
+          "Normals": [
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          ],
+          "Primary": 1,
+          "Positions": [
+            {
+              "Pos": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "Pos": [
+                32,
+                0,
+                -32
+              ]
+            }
+          ],
+          "Axes": [
+            {
+              "V": [
+                1.0,
+                0.0,
+                0.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                0.0,
+                1.0
+              ]
+            }
+          ],
+          "Material": "simulatedcoasters:coaster_track"
+        },
+        "magnets": [],
+        "profile": [
+          {
+            "distance": 0.0,
+            "slope": 0.0,
+            "angle": 0.0
+          },
+          {
+            "distance": 50.272529165540874,
+            "slope": 0.0,
+            "angle": 0.0
+          }
+        ],
+        "lift_lock": 0,
+        "geometry_hash": 51835459046466313,
+        "revision": 0,
+        "valid": 1,
+        "appearance": {
+          "tint": -1,
+          "id": "fourthdimension:original"
+        },
+        "provider": "fourthdimension:original",
+        "variant": "station_changeover_v1",
+        "from": 17592187338825,
+        "to": 26388280229961,
+        "id": [
+          -1881890389,
+          48317437,
+          -1855136433,
+          -751395183
+        ],
+        "family": "flying"
+      },
+      {
+        "original_curve": {
+          "Starts": [
+            {
+              "V": [
+                0.5,
+                0.25,
+                0.5
+              ]
+            },
+            {
+              "V": [
+                0.5,
+                0.25,
+                -55.5
+              ]
+            }
+          ],
+          "Girder": 0,
+          "Normals": [
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          ],
+          "Primary": 1,
+          "Positions": [
+            {
+              "Pos": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "Pos": [
+                0,
+                0,
+                -56
+              ]
+            }
+          ],
+          "Axes": [
+            {
+              "V": [
+                0.0,
+                0.0,
+                -1.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                0.0,
+                1.0
+              ]
+            }
+          ],
+          "Material": "simulatedcoasters:coaster_track"
+        },
+        "magnets": [],
+        "profile": [
+          {
+            "distance": 0.0,
+            "slope": 0.0,
+            "angle": 0.0
+          },
+          {
+            "distance": 56.0,
+            "slope": 0.0,
+            "angle": 0.0
+          }
+        ],
+        "lift_lock": 0,
+        "geometry_hash": 428859808956040545,
+        "revision": 0,
+        "valid": 1,
+        "appearance": {
+          "tint": -1,
+          "id": "fourthdimension:original"
+        },
+        "provider": "fourthdimension:original",
+        "variant": "station_changeover_v1",
+        "from": 26388280229961,
+        "to": 26388280000585,
+        "id": [
+          211794316,
+          1273906569,
+          -1383176347,
+          723870954
+        ],
+        "family": "flying"
+      },
+      {
+        "original_curve": {
+          "Starts": [
+            {
+              "V": [
+                0.5,
+                0.25,
+                0.5
+              ]
+            },
+            {
+              "V": [
+                0.5,
+                0.25,
+                -55.5
+              ]
+            }
+          ],
+          "Girder": 0,
+          "Normals": [
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          ],
+          "Primary": 1,
+          "Positions": [
+            {
+              "Pos": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "Pos": [
+                0,
+                0,
+                -56
+              ]
+            }
+          ],
+          "Axes": [
+            {
+              "V": [
+                0.0,
+                0.0,
+                -1.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                0.0,
+                1.0
+              ]
+            }
+          ],
+          "Material": "simulatedcoasters:coaster_track"
+        },
+        "magnets": [],
+        "profile": [
+          {
+            "distance": 0.0,
+            "slope": 0.0,
+            "angle": 0.0
+          },
+          {
+            "distance": 56.0,
+            "slope": 0.0,
+            "angle": 0.0
+          }
+        ],
+        "lift_lock": 0,
+        "geometry_hash": 2202658448429502305,
+        "revision": 0,
+        "valid": 1,
+        "appearance": {
+          "tint": -1,
+          "id": "fourthdimension:original"
+        },
+        "provider": "fourthdimension:original",
+        "variant": "station_changeover_v1",
+        "from": 26388280000585,
+        "to": 26388279771209,
+        "id": [
+          -889259579,
+          523190773,
+          -1728257181,
+          -781422269
+        ],
+        "family": "flying"
+      },
+      {
+        "original_curve": {
+          "Starts": [
+            {
+              "V": [
+                0.5,
+                0.25,
+                0.5
+              ]
+            },
+            {
+              "V": [
+                0.5,
+                0.25,
+                -55.5
+              ]
+            }
+          ],
+          "Girder": 0,
+          "Normals": [
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          ],
+          "Primary": 1,
+          "Positions": [
+            {
+              "Pos": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "Pos": [
+                0,
+                0,
+                -56
+              ]
+            }
+          ],
+          "Axes": [
+            {
+              "V": [
+                0.0,
+                0.0,
+                -1.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                0.0,
+                1.0
+              ]
+            }
+          ],
+          "Material": "simulatedcoasters:coaster_track"
+        },
+        "magnets": [],
+        "profile": [
+          {
+            "distance": 0.0,
+            "slope": 0.0,
+            "angle": 0.0
+          },
+          {
+            "distance": 56.0,
+            "slope": 0.0,
+            "angle": 0.0
+          }
+        ],
+        "lift_lock": 0,
+        "geometry_hash": -6906298855239370399,
+        "revision": 0,
+        "valid": 1,
+        "appearance": {
+          "tint": -1,
+          "id": "fourthdimension:original"
+        },
+        "provider": "fourthdimension:original",
+        "variant": "station_changeover_v1",
+        "from": 26388279771209,
+        "to": 26388279541833,
+        "id": [
+          214505675,
+          1867203371,
+          -1137253250,
+          -2037351710
+        ],
+        "family": "flying"
+      },
+      {
+        "original_curve": {
+          "Starts": [
+            {
+              "V": [
+                0.5,
+                0.25,
+                0.5
+              ]
+            },
+            {
+              "V": [
+                0.5,
+                0.25,
+                -55.5
+              ]
+            }
+          ],
+          "Girder": 0,
+          "Normals": [
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          ],
+          "Primary": 1,
+          "Positions": [
+            {
+              "Pos": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "Pos": [
+                0,
+                0,
+                -56
+              ]
+            }
+          ],
+          "Axes": [
+            {
+              "V": [
+                0.0,
+                0.0,
+                -1.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                0.0,
+                1.0
+              ]
+            }
+          ],
+          "Material": "simulatedcoasters:coaster_track"
+        },
+        "magnets": [],
+        "profile": [
+          {
+            "distance": 0.0,
+            "slope": 0.0,
+            "angle": 0.0
+          },
+          {
+            "distance": 56.0,
+            "slope": 0.0,
+            "angle": 0.0
+          }
+        ],
+        "lift_lock": 0,
+        "geometry_hash": -5137268329530494111,
+        "revision": 0,
+        "valid": 1,
+        "appearance": {
+          "tint": -1,
+          "id": "fourthdimension:original"
+        },
+        "provider": "fourthdimension:original",
+        "variant": "station_changeover_v1",
+        "from": 26388279541833,
+        "to": 26388279312457,
+        "id": [
+          -1743088759,
+          -721860366,
+          -2035162302,
+          -77776477
+        ],
+        "family": "flying"
+      },
+      {
+        "original_curve": {
+          "Starts": [
+            {
+              "V": [
+                0.5,
+                0.25,
+                0.5
+              ]
+            },
+            {
+              "V": [
+                0.5,
+                0.25,
+                -47.5
+              ]
+            }
+          ],
+          "Girder": 0,
+          "Normals": [
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          ],
+          "Primary": 1,
+          "Positions": [
+            {
+              "Pos": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "Pos": [
+                0,
+                0,
+                -48
+              ]
+            }
+          ],
+          "Axes": [
+            {
+              "V": [
+                0.0,
+                0.0,
+                -1.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                0.0,
+                1.0
+              ]
+            }
+          ],
+          "Material": "simulatedcoasters:coaster_track"
+        },
+        "magnets": [],
+        "profile": [
+          {
+            "distance": 0.0,
+            "slope": 0.0,
+            "angle": 0.0
+          },
+          {
+            "distance": 48.0,
+            "slope": 0.0,
+            "angle": 0.0
+          }
+        ],
+        "lift_lock": 0,
+        "geometry_hash": 3097022343183549281,
+        "revision": 0,
+        "valid": 1,
+        "appearance": {
+          "tint": -1,
+          "id": "fourthdimension:original"
+        },
+        "provider": "fourthdimension:original",
+        "variant": "station_changeover_v1",
+        "from": 26388279312457,
+        "to": 26388279115849,
+        "id": [
+          1133347794,
+          -787919221,
+          -1147313335,
+          1731300401
+        ],
+        "family": "flying"
+      },
+      {
+        "original_curve": {
+          "Starts": [
+            {
+              "V": [
+                0.5,
+                0.25,
+                0.5
+              ]
+            },
+            {
+              "V": [
+                -31.5,
+                0.25,
+                -31.5
+              ]
+            }
+          ],
+          "Girder": 0,
+          "Normals": [
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          ],
+          "Primary": 1,
+          "Positions": [
+            {
+              "Pos": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "Pos": [
+                -32,
+                0,
+                -32
+              ]
+            }
+          ],
+          "Axes": [
+            {
+              "V": [
+                0.0,
+                0.0,
+                -1.0
+              ]
+            },
+            {
+              "V": [
+                1.0,
+                0.0,
+                0.0
+              ]
+            }
+          ],
+          "Material": "simulatedcoasters:coaster_track"
+        },
+        "magnets": [],
+        "profile": [
+          {
+            "distance": 0.0,
+            "slope": 0.0,
+            "angle": 0.0
+          },
+          {
+            "distance": 50.27253011433401,
+            "slope": 0.0,
+            "angle": 0.0
+          }
+        ],
+        "lift_lock": 0,
+        "geometry_hash": 1073177640617166251,
+        "revision": 0,
+        "valid": 1,
+        "appearance": {
+          "tint": -1,
+          "id": "fourthdimension:original"
+        },
+        "provider": "fourthdimension:original",
+        "variant": "station_changeover_v1",
+        "from": 26388279115849,
+        "to": 17867063869513,
+        "id": [
+          -2128098419,
+          2055423538,
+          -1731006409,
+          -844389964
+        ],
+        "family": "flying"
+      },
+      {
+        "original_curve": {
+          "Starts": [
+            {
+              "V": [
+                0.5,
+                0.25,
+                0.5
+              ]
+            },
+            {
+              "V": [
+                -31.5,
+                0.25,
+                0.5
+              ]
+            }
+          ],
+          "Girder": 0,
+          "Normals": [
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          ],
+          "Primary": 1,
+          "Positions": [
+            {
+              "Pos": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "Pos": [
+                -32,
+                0,
+                0
+              ]
+            }
+          ],
+          "Axes": [
+            {
+              "V": [
+                -1.0,
+                0.0,
+                0.0
+              ]
+            },
+            {
+              "V": [
+                1.0,
+                0.0,
+                0.0
+              ]
+            }
+          ],
+          "Material": "simulatedcoasters:coaster_track"
+        },
+        "magnets": [],
+        "profile": [
+          {
+            "distance": 0.0,
+            "slope": 0.0,
+            "angle": 0.0
+          },
+          {
+            "distance": 32.0,
+            "slope": 0.0,
+            "angle": 0.0
+          }
+        ],
+        "lift_lock": 0,
+        "geometry_hash": -3267780529540087199,
+        "revision": 0,
+        "valid": 1,
+        "appearance": {
+          "tint": -1,
+          "id": "fourthdimension:original"
+        },
+        "provider": "fourthdimension:original",
+        "variant": "station_changeover_v1",
+        "from": 17867063869513,
+        "to": 9070970847305,
+        "id": [
+          723133503,
+          1975275132,
+          -1103170000,
+          1306543459
+        ],
+        "family": "flying"
+      },
+      {
+        "original_curve": {
+          "Starts": [
+            {
+              "V": [
+                0.5,
+                0.25,
+                0.5
+              ]
+            },
+            {
+              "V": [
+                -31.5,
+                0.25,
+                32.5
+              ]
+            }
+          ],
+          "Girder": 0,
+          "Normals": [
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          ],
+          "Primary": 1,
+          "Positions": [
+            {
+              "Pos": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "Pos": [
+                -32,
+                0,
+                32
+              ]
+            }
+          ],
+          "Axes": [
+            {
+              "V": [
+                -1.0,
+                0.0,
+                0.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                0.0,
+                -1.0
+              ]
+            }
+          ],
+          "Material": "simulatedcoasters:coaster_track"
+        },
+        "magnets": [],
+        "profile": [
+          {
+            "distance": 0.0,
+            "slope": 0.0,
+            "angle": 0.0
+          },
+          {
+            "distance": 50.27252916554095,
+            "slope": 0.0,
+            "angle": 0.0
+          }
+        ],
+        "lift_lock": 0,
+        "geometry_hash": 6920245083601705825,
+        "revision": 0,
+        "valid": 1,
+        "appearance": {
+          "tint": -1,
+          "id": "fourthdimension:original"
+        },
+        "provider": "fourthdimension:original",
+        "variant": "station_changeover_v1",
+        "from": 9070970847305,
+        "to": 49225,
+        "id": [
+          1610509369,
+          684148003,
+          -1398848333,
+          1991034839
+        ],
+        "family": "flying"
+      }
+    ],
+    "vehicles": [
+      {
+        "alignment_required": 0,
+        "contact_layout": "coasters_n_contacts_v1",
+        "mount_frame": "overhead_n_v1",
+        "fault": "",
+        "boundTo": 245833,
+        "carriers": [
+          {
+            "side": 0.0,
+            "rider_seats": [
+              {
+                "seat": 274877906944,
+                "player": [
+                  940439953,
+                  -167562164,
+                  -1601161573,
+                  -1389718966
+                ]
+              }
+            ],
+            "lift_pending": 0,
+            "capture": 1,
+            "body": [
+              1330456470,
+              -1010349233,
+              -1620503107,
+              -1097654120
+            ],
+            "axis": "X",
+            "seats": [
+              -549755813888,
+              -274877906944,
+              0,
+              274877906944
+            ],
+            "ballast": 0.0,
+            "omega": -0.1724649777848166,
+            "lift_geometry": 0,
+            "lift_entered": 0,
+            "pivot_height": -2.8125,
+            "angle": -0.38520853097450786,
+            "capture_target": -0.00011774447491882289,
+            "lift_held": 0,
+            "latched": 0,
+            "longitudinal": 0.0,
+            "child_pivot_offset": 0.0,
+            "child_pivot_x": -0.5,
+            "child_pivot_z": 0.0,
+            "occupants": [
+              [
+                940439953,
+                -167562164,
+                -1601161573,
+                -1389718966
+              ]
+            ]
+          }
+        ],
+        "chassis": [
+          -1319998761,
+          -246461206,
+          -1171842282,
+          -520166088
+        ],
+        "damping": 0.0,
+        "boundFrom": 49225,
+        "ballast": 0.0,
+        "revision": 12,
+        "boarding_ready": 0,
+        "stopping": 1,
+        "flying": {
+          "phase": "TO_PRONE",
+          "hold_angle": 0.0,
+          "reference_velocity": -0.18,
+          "body": 1,
+          "version": 1,
+          "target": 1.5707963267948966,
+          "consist": [
+            [
+              -1608380939,
+              -622637506,
+              -1712106577,
+              520820546
+            ],
+            [
+              -622080013,
+              -105757500,
+              -1508199579,
+              2103269308
+            ],
+            [
+              -1747172984,
+              2067677324,
+              -1741286857,
+              -2022104422
+            ],
+            [
+              -1319998761,
+              -246461206,
+              -1171842282,
+              -520166088
+            ]
+          ],
+          "reference_angle": -0.4072500000000003,
+          "legs": 1,
+          "lock": "NONE",
+          "progress": 0.2452313673030416,
+          "interruption": "",
+          "dock_to": 245833,
+          "dock_geometry": -6654608378455241119,
+          "dock_from": 49225
+        },
+        "variant": "station_changeover_v1",
+        "restraints": 1,
+        "shuttle_detached": 0,
+        "family": "flying",
+        "suspended_consist": [],
+        "dock": -1099511504826,
+        "maintenance": 0
+      },
+      {
+        "alignment_required": 0,
+        "contact_layout": "coasters_n_contacts_v1",
+        "mount_frame": "overhead_n_v1",
+        "fault": "",
+        "boundTo": 245833,
+        "carriers": [
+          {
+            "side": 0.0,
+            "rider_seats": [],
+            "lift_pending": 0,
+            "capture": 1,
+            "body": [
+              -749287306,
+              1796295266,
+              -1648674417,
+              1516285988
+            ],
+            "axis": "X",
+            "seats": [
+              -549755813888,
+              -274877906944,
+              0,
+              274877906944
+            ],
+            "ballast": 0.0,
+            "omega": -0.18451246922615686,
+            "lift_geometry": 0,
+            "lift_entered": 0,
+            "pivot_height": -2.8125,
+            "angle": -0.38147126319716124,
+            "capture_target": -0.00014618565806312584,
+            "lift_held": 0,
+            "latched": 0,
+            "longitudinal": 0.0,
+            "child_pivot_offset": 0.0,
+            "child_pivot_x": -0.5,
+            "child_pivot_z": 0.0,
+            "occupants": []
+          }
+        ],
+        "chassis": [
+          -622080013,
+          -105757500,
+          -1508199579,
+          2103269308
+        ],
+        "damping": 0.0,
+        "boundFrom": 49225,
+        "ballast": 0.0,
+        "revision": 12,
+        "boarding_ready": 0,
+        "stopping": 1,
+        "flying": {
+          "phase": "TO_PRONE",
+          "hold_angle": 0.0,
+          "reference_velocity": -0.18,
+          "body": 1,
+          "version": 1,
+          "target": 1.5707963267948966,
+          "consist": [
+            [
+              -1608380939,
+              -622637506,
+              -1712106577,
+              520820546
+            ],
+            [
+              -622080013,
+              -105757500,
+              -1508199579,
+              2103269308
+            ],
+            [
+              -1747172984,
+              2067677324,
+              -1741286857,
+              -2022104422
+            ],
+            [
+              -1319998761,
+              -246461206,
+              -1171842282,
+              -520166088
+            ]
+          ],
+          "reference_angle": -0.4072500000000003,
+          "legs": 1,
+          "lock": "NONE",
+          "progress": 0.2428521487413505,
+          "interruption": "",
+          "dock_to": 245833,
+          "dock_geometry": -6654608378455241119,
+          "dock_from": 49225
+        },
+        "variant": "station_changeover_v1",
+        "restraints": 1,
+        "shuttle_detached": 0,
+        "family": "flying",
+        "suspended_consist": [],
+        "dock": -1099511504826,
+        "maintenance": 0
+      },
+      {
+        "alignment_required": 0,
+        "contact_layout": "coasters_n_contacts_v1",
+        "mount_frame": "overhead_n_v1",
+        "fault": "",
+        "boundTo": 245833,
+        "carriers": [
+          {
+            "side": 0.0,
+            "rider_seats": [],
+            "lift_pending": 0,
+            "capture": 1,
+            "body": [
+              -1316042224,
+              56577696,
+              -2005037360,
+              42901256
+            ],
+            "axis": "X",
+            "seats": [
+              -549755813888,
+              -274877906944,
+              0,
+              274877906944
+            ],
+            "ballast": 0.0,
+            "omega": -0.18424267042427456,
+            "lift_geometry": 0,
+            "lift_entered": 0,
+            "pivot_height": -2.8125,
+            "angle": -0.38142315845888974,
+            "capture_target": -0.00017484467408626904,
+            "lift_held": 0,
+            "latched": 0,
+            "longitudinal": 0.0,
+            "child_pivot_offset": 0.0,
+            "child_pivot_x": -0.5,
+            "child_pivot_z": 0.0,
+            "occupants": []
+          }
+        ],
+        "chassis": [
+          -1608380939,
+          -622637506,
+          -1712106577,
+          520820546
+        ],
+        "damping": 0.0,
+        "boundFrom": 49225,
+        "ballast": 0.0,
+        "revision": 12,
+        "boarding_ready": 0,
+        "stopping": 1,
+        "flying": {
+          "phase": "TO_PRONE",
+          "hold_angle": 0.0,
+          "reference_velocity": -0.18,
+          "body": 1,
+          "version": 1,
+          "target": 1.5707963267948966,
+          "consist": [
+            [
+              -1608380939,
+              -622637506,
+              -1712106577,
+              520820546
+            ],
+            [
+              -622080013,
+              -105757500,
+              -1508199579,
+              2103269308
+            ],
+            [
+              -1747172984,
+              2067677324,
+              -1741286857,
+              -2022104422
+            ],
+            [
+              -1319998761,
+              -246461206,
+              -1171842282,
+              -520166088
+            ]
+          ],
+          "reference_angle": -0.4072500000000003,
+          "legs": 1,
+          "lock": "NONE",
+          "progress": 0.2428215243138223,
+          "interruption": "",
+          "dock_to": 245833,
+          "dock_geometry": -6654608378455241119,
+          "dock_from": 49225
+        },
+        "variant": "station_changeover_v1",
+        "restraints": 1,
+        "shuttle_detached": 0,
+        "family": "flying",
+        "suspended_consist": [],
+        "dock": -1099511504826,
+        "maintenance": 0
+      },
+      {
+        "alignment_required": 0,
+        "contact_layout": "coasters_n_contacts_v1",
+        "mount_frame": "overhead_n_v1",
+        "fault": "",
+        "boundTo": 245833,
+        "carriers": [
+          {
+            "side": 0.0,
+            "rider_seats": [],
+            "lift_pending": 0,
+            "capture": 1,
+            "body": [
+              1506489867,
+              -623165346,
+              -1503102872,
+              -258306906
+            ],
+            "axis": "X",
+            "seats": [
+              -549755813888,
+              -274877906944,
+              0,
+              274877906944
+            ],
+            "ballast": 0.0,
+            "omega": -0.1840701939217167,
+            "lift_geometry": 0,
+            "lift_entered": 0,
+            "pivot_height": -2.8125,
+            "angle": -0.3814174997323989,
+            "capture_target": -0.00017369450909030445,
+            "lift_held": 0,
+            "latched": 0,
+            "longitudinal": 0.0,
+            "child_pivot_offset": 0.0,
+            "child_pivot_x": -0.5,
+            "child_pivot_z": 0.0,
+            "occupants": []
+          }
+        ],
+        "chassis": [
+          -1747172984,
+          2067677324,
+          -1741286857,
+          -2022104422
+        ],
+        "damping": 0.0,
+        "boundFrom": 49225,
+        "ballast": 0.0,
+        "revision": 12,
+        "boarding_ready": 0,
+        "stopping": 1,
+        "flying": {
+          "phase": "TO_PRONE",
+          "hold_angle": 0.0,
+          "reference_velocity": -0.18,
+          "body": 1,
+          "version": 1,
+          "target": 1.5707963267948966,
+          "consist": [
+            [
+              -1608380939,
+              -622637506,
+              -1712106577,
+              520820546
+            ],
+            [
+              -622080013,
+              -105757500,
+              -1508199579,
+              2103269308
+            ],
+            [
+              -1747172984,
+              2067677324,
+              -1741286857,
+              -2022104422
+            ],
+            [
+              -1319998761,
+              -246461206,
+              -1171842282,
+              -520166088
+            ]
+          ],
+          "reference_angle": -0.4072500000000003,
+          "legs": 1,
+          "lock": "NONE",
+          "progress": 0.24281792185665182,
+          "interruption": "",
+          "dock_to": 245833,
+          "dock_geometry": -6654608378455241119,
+          "dock_from": 49225
+        },
+        "variant": "station_changeover_v1",
+        "restraints": 1,
+        "shuttle_detached": 0,
+        "family": "flying",
+        "suspended_consist": [],
+        "dock": -1099511504826,
+        "maintenance": 0
+      }
+    ]
+  },
+  "DataVersion": 3955
+}

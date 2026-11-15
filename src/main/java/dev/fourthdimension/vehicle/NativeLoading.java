@@ -35,7 +35,8 @@ public final class NativeLoading {
     var level = child.getLevel();
     var tracker = child.getSelfMassTracker();
     var applied = APPLIED.get(child);
-    if (applied == null || applied.tracker != tracker) {
+    boolean firstSample = applied == null || applied.tracker != tracker;
+    if (firstSample) {
       applied = new Applied(tracker);
       APPLIED.put(child, applied);
     }
@@ -90,7 +91,22 @@ public final class NativeLoading {
     applied.sampledTick = gameTick;
     applied.vehicleBallast = vehicle.ballast;
     applied.carrierBallast = carrier.ballast;
-    if (changed) child.updateMergedMassData(1);
+    if (changed || firstSample) child.updateMergedMassData(1);
+    if (firstSample && !changed) {
+      // Sable restores the saved pose origin, but rebuilds mass without offline passengers.
+      // Its merged-mass upload skips equal native mass/COM values, leaving that saved origin
+      // stale. Rebase coordinates once without moving any world-space block or changing angle.
+      var pose = child.logicalPose();
+      var center = child.getMassTracker().getCenterOfMass();
+      if (center != null && pose.rotationPoint().distanceSquared(center) > 1e-12) {
+        var physics = dev.ryanhcode.sable.api.sublevel.SubLevelContainer.getContainer(level).physicsSystem();
+        physics.updatePose(child);
+        var position = new org.joml.Vector3d(center).sub(pose.rotationPoint())
+            .rotate(pose.orientation()).add(pose.position());
+        pose.rotationPoint().set(center);
+        physics.getPipeline().teleport(child, position, pose.orientation());
+      }
+    }
     carrier.occupants = List.copyOf(occupants);
   }
 

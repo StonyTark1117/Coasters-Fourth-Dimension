@@ -42,17 +42,17 @@ Lead alone edits ROADMAP/PLAN/this queue and stages, commits and pushes.
 
 | Card | Owner | Current action / dependency |
 | --- | --- | --- |
-| FD1302A | Lead | Complete: [native and occupied handoff](evidence/0.7/axis/A-handoff.md), including return/unload and targeted dock-edge recovery. Integrating checkpoint; same named owner explicitly continues exact :316 runtime for B/C. |
+| FD1302A | Lead | Complete: [native and occupied handoff](evidence/0.7/axis/A-handoff.md), including return/unload and targeted dock-edge recovery. Integrated at `2b805fcb`; same named owner explicitly continues exact :316 runtime for B/C. |
 | FD1302B | Lead | Axis functional geometry/content with stable specification. |
 | FD1302C | Lead | Cumulative Axis player acceptance after A/B, no duplicate ride. |
 | FD1502A | Lead | Consume the Axis A integration checkpoint, then implement Roller Ball mechanics. |
 | FD1502B | Lead | Roller Ball specification preparation; content with stable mechanics. |
 | FD1502C | Lead | Cumulative Roller Ball acceptance. |
-| FD1801A | Conventional Flying | Native four-car/clearance and real occupied seated→prone→full roll→seated/open/unload passed; only actual interrupted-transition restart remains with owner before A reconciliation. |
+| FD1801A | Conventional Flying | Complete: [native and occupied handoff](evidence/0.7/conventional-flying/README.md), actual occupied transition save/restart and targeted offline-COM correction passed; A runtime saved and stopped. |
 | FD1801B | Conventional Flying | Functional posture geometry/content alongside A. |
 | FD1801C | Conventional Flying | Cumulative seated/changeover/prone/return workflow. |
 | FD1801 | Conventional Flying | Reconcile its accepted A–C without waiting for New-generation. |
-| FD1802A | New-generation Flying | Prepare now; mechanics consumes integrated Conventional A, including occupied handoff. |
+| FD1802A | New-generation Flying | Implement from the integrated Conventional A handoff; preparation complete and production ownership transferred below. |
 | FD1802B | New-generation Flying | Prepare combined seated/prone/yaw geometry and content. |
 | FD1802C | New-generation Flying | Complete both-posture targeting and transition workflow. |
 | FD1802 | New-generation Flying | Reconcile full A–C outcome. |
@@ -78,8 +78,21 @@ and new `src/main/java/dev/fourthdimension/mixin/Flying*Mixin.java` paths,
 explicitly transferred on 2026-11-15. `LocalRiderRenderMixin` remains lead-owned.
 It sends required shared hooks/fields to lead for prompt integration; no simultaneous
 writers. Any additional exact transfer is recorded here before edits.
-New-generation initially owns only `docs/evidence/0.7/new-generation-flying/`
-preparation; its production map is recorded with Conventional A handoff.
+**New-generation production transfer (Conventional A integration, 2026-11-15):**
+New-generation owns new `NewGenerationFlying*.java` family/runtime/client/physics/
+track classes, new `Yaw*.java` state/controller/marker classes, its GameTests and
+unit tests, new `new_generation_flying_*` and `yaw_*` resources, namespaces
+`fourthdimension_fd1802*`, `scripts/generate-new-generation-flying.py`,
+`docs/NEW-GENERATION-FLYING.md` and its evidence directory. Exact existing shared
+files transferred exclusively to that owner: `runtime/FoundationSync.java`,
+`editor/EditorNetwork.java`, `client/RotationEditorScreen.java` and
+`mixin/LocalRiderRenderMixin.java` under `src/main/java/dev/fourthdimension/`.
+The lead will request its Roller Ball additions to those files through that owner.
+Lead retains other existing shared files, including FoundationData, CarrierRuntime,
+VehicleFactory/Parts, contracts, NativeLoading, registration, language and mixin
+configuration; New-generation sends concrete required hooks for lead integration.
+Conventional retains Flying* and RiderComfortMixin; coordinate any pure reuse seam
+with that owner. No simultaneous writers or runtime inheritance.
 Do not wait for unrelated Axis/Roller acceptance to implement Conventional Flying.
 Qualified Conventional A passes to New-generation before B/C decorative completion.
 
