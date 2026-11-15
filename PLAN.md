@@ -356,6 +356,9 @@ sequence is:
 | Post-1.0; versions after feasibility | FD2001–FD2007 | Transfer platforms, turntables, drop tables, tilt tracks and the finite additional moving-track styles. |
 | Independent | FD801 | Inspectable functional Track Styles adapter; unavailable upstream work does not block release. |
 
+Milestone 0.5 is complete: [FD503 reconciliation](docs/evidence/0.5/acceptance.md).
+Later implementation remains separately assigned.
+
 Milestone gates aggregate completion, not start permissions for unrelated tasks.
 Read-only discovery and concepts can advance during 0.4. Operations adapters start
 after their own FD501B–H and control/provider prerequisites; Pipeline does not

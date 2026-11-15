@@ -24,12 +24,12 @@ FD403A–F and the FD404 aggregate are now reconciled. There is no remaining 0.4
 acceptance queue. The sections below retain case closure records and artifact
 history; they do not assign new work or add acceptance requirements.
 
-### Active 0.5 assignments — 2026-11-15
+### Milestone 0.5 — complete 2026-11-15
 
-The user has activated **0.5 only**. Follow the [0.5 execution cards](roadmap/0.5-contracts.md);
-the canonical package criteria and dependencies are unchanged. All nineteen
-cards have an owner below. Assigned dependent work starts when its actual input
-is ready; this is not permission to implement 0.6–0.9 consumers early.
+All nineteen assigned cards are reconciled complete in [FD503 acceptance](evidence/0.5/acceptance.md).
+There is no remaining 0.5 queue or owned runtime. The user activated 0.5 only;
+this closure does not activate 0.6–0.9 implementation. The table retains ownership
+and accepted handoffs for reuse. Historical next actions below are not assignments.
 
 Checkout: `/home/braydon/Documents/Coasters: Fourth Dimension`, branch `main`,
 dispatch HEAD `a4ef96d775b389ae0a5e608ac80a37533c2592ac`. Existing dirty source,
@@ -39,15 +39,15 @@ this Git work does not reopen accepted cases or require a new artifact campaign.
 
 | Complete assignment | Named owner / chat | Ready work and handoff | Scope boundary |
 | --- | --- | --- | --- |
-| **FD1101; FD501A; FD1101A–C; FD904C1; FD503** | **0.5 lead — Wing and shared runtime**, `01a1dd1d-1468-7f81-8f31-5532ad7a178d` | Wing specification/dimensions published; FD501 core decision consumed and FD501A closed by no-change review. Native Wing mechanics passed; occupied ordinary-loop boarding, restraints, Dispatch, banked motion and look verified. Return stop/open/unload passed; integrated handoff is in Wing occupied evidence. Next fixed-group restoration, normal construction/livery and new comfort behavior. Comfort implementation compiles. Native test exited after clean save; dedicated world save is still completing. Reconcile FD503 when its named inputs close. Current evidence: `docs/evidence/0.5/wing/`. | Sole shared production-runtime, camera, asset/registration and Git integration owner. No speculative framework or later-family implementation. Wing C reuses A/B evidence. FD503 is reconciliation, not another run. |
+| **FD1101; FD501A; FD1101A–C; FD904C1; FD503** | **0.5 lead — Wing and shared runtime**, `01a1dd1d-1468-7f81-8f31-5532ad7a178d` | Complete: FD1101/501A/1101A–C/904C1 and FD503. Native, normal construction/coupling, occupied banked lifecycle, persistence and comfort evidence reconciled. All owned client/server/Xvfb services inactive with successful save/exit; world retained. No next runtime action. [Wing acceptance](evidence/0.5/wing/README.md), [comfort](evidence/0.5/comfort/README.md), [aggregate](evidence/0.5/acceptance.md). | Sole shared production-runtime, camera, asset/registration and Git integration owner. No speculative framework or later-family implementation. Wing C reuses A/B evidence. FD503 is reconciliation, not another run. |
 | **FD1501, FD1301, FD1302, FD1502, FD1401, FD1601S, FD1702S, FD1801S, FD1802S, FD1901S** | **0.5 vehicle specifications**, `01a1dd1d-6e99-70d2-aef3-6dcebac10d72` | All ten assigned specifications reconciled complete; [completion mapping](evidence/0.5/specifications/acceptance.md) and analytic dimensions/heading/link evidence reviewed. No remaining specification work. Later A/B/C implementation remains planned. | Specifications and necessary feasibility proof only. Wing specification belongs to the lead. No production runtime changes without explicit bounded file ownership transfer. Both Flying variants and physical scenery yaw retain their adopted scope. |
 | **FD501; FD502** | **0.5 dependency decisions and test tooling**, `01a1dd1d-c6a6-7be0-9cb5-2b033ac550da` | FD501 and FD501A decisions are reconciled complete; the 14-artifact catalog is retained. FD502 complete: finalized native frame/tick/heap/GC evidence accepted; owned-JVM sampler correction verified. No remaining assigned tooling work. Current handoff: `docs/evidence/0.5/dependencies-tooling/`; dependency decisions also in `docs/INTEGRATION-BACKLOG.md`. | FD501A belongs to the lead; FD501B–H implementations remain later-stage work. Existing FD502 repairs remain accepted. Existing sufficient tools can close the remaining disposition by review. Shared runtime edits require an explicit file handoff. |
 
-**FD502 bounded handoff:** The dependency/tooling owner may create only
+**Completed FD502 bounded handoff (historical):** The dependency/tooling owner may create only
 `src/main/java/dev/fourthdimension/runtime/RuntimePerformanceRecorder.java`
 for the opt-in frame/tick/heap/GC collector, plus its dedicated scripts/evidence.
 Lead retains `FourthDimension.java` registration and all other shared runtime files.
-The first useful Wing run will include a short collector event-delivery smoke.
+The first useful Wing run included the accepted collector event-delivery smoke.
 
 **Integration and communication:** After this dispatch, the 0.5 lead owns canonical
 `ROADMAP.md`, `PLAN.md` and queue reconciliation, selective staging/commit/push,
@@ -95,9 +95,8 @@ or abandoned client/server/display services, verify inactive, and preserve world
 and evidence; an explicit continuing-owner handoff is the exception. Never stop
 another owner's process based only on its display number or age.
 
-The 0.5 monitor stops after FD503 and required integration/runtime cleanup are
-verified, or when the human stops monitoring. It does not activate 0.6. Notify
-only for meaningful progress, intervention, completion or needed human input.
+FD503 and required runtime cleanup are now verified; the 0.5 monitor stop condition
+is satisfied. This record does not activate 0.6.
 
 ### Historical 0.4 queue and closure records
 

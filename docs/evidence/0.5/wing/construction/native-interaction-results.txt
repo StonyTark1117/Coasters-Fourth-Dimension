@@ -1,0 +1,40 @@
+[20:14:40] [Server thread/INFO] [de.fo.ve.Boarding/]: FD_BOARDING_ASSIGN player=Dev seat=BlockPos{x=20481036, y=129, z=20481032} offset=BlockPos{x=4, y=1, z=0} knownSeats=[BlockPos{x=-4, y=1, z=0}, BlockPos{x=-3, y=1, z=0}, BlockPos{x=3, y=1, z=0}, BlockPos{x=4, y=1, z=0}] accepted=true
+[20:15:21] [Server thread/INFO] [de.fo.ed.EditorNetwork/]: FD_EDITOR_RESULT player=Dev target=d6a512ad-de6e-42a3-a119-1bec039c0c04 action=11 success=true message=4D settings updated
+[20:15:35] [Server thread/INFO] [de.fo.ed.EditorNetwork/]: FD_EDITOR_RESULT player=Dev target=d6a512ad-de6e-42a3-a119-1bec039c0c04 action=13 success=true message=4D settings updated
+[20:17:32] [Server thread/INFO] [de.fo.ed.EditorNetwork/]: FD_EDITOR_RESULT player=Dev target=d6a512ad-de6e-42a3-a119-1bec039c0c04 action=12 success=true message=4D settings updated
+[20:17:44] [Server thread/INFO] [de.fo.ve.Boarding/]: FD_BOARDING_DISMOUNT_CLEAR player=Dev restraints=false removed=false alive=true
+[20:19:09] [Server thread/INFO] [de.fo.ve.Boarding/]: FD_BOARDING_ASSIGN player=Dev seat=BlockPos{x=20481036, y=129, z=20481032} offset=BlockPos{x=4, y=1, z=0} knownSeats=[BlockPos{x=-4, y=1, z=0}, BlockPos{x=-3, y=1, z=0}, BlockPos{x=3, y=1, z=0}, BlockPos{x=4, y=1, z=0}] accepted=true
+[20:19:18] [Server thread/INFO] [minecraft/MinecraftServer]: Dev left the game
+[20:30:09] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage: All dimensions are saved
+[20:30:17] [Server thread/INFO] [minecraft/GenericThread]: Thread RCON Listener stopped
+[20:31:23] [Server thread/INFO] [de.fo.ve.Boarding/]: FD_BOARDING_ASSIGN player=Dev seat=BlockPos{x=20481036, y=129, z=20481032} offset=BlockPos{x=4, y=1, z=0} knownSeats=[BlockPos{x=-4, y=1, z=0}, BlockPos{x=-3, y=1, z=0}, BlockPos{x=3, y=1, z=0}, BlockPos{x=4, y=1, z=0}] accepted=true
+[20:32:01] [Server thread/INFO] [de.fo.ve.Boarding/]: FD_BOARDING_DISMOUNT_CLEAR player=Dev restraints=false removed=false alive=true
+[20:34:58] [Server thread/INFO] [de.fo.ve.Boarding/]: FD_BOARDING_ASSIGN player=Dev seat=BlockPos{x=20481036, y=129, z=20483080} offset=BlockPos{x=4, y=1, z=0} knownSeats=[BlockPos{x=-4, y=1, z=0}, BlockPos{x=-3, y=1, z=0}, BlockPos{x=3, y=1, z=0}, BlockPos{x=4, y=1, z=0}] accepted=true
+[20:35:28] [Server thread/INFO] [de.fo.ve.Boarding/]: FD_BOARDING_DISMOUNT_CLEAR player=Dev restraints=false removed=false alive=true
+[20:38:04] [Server thread/INFO] [minecraft/MinecraftServer]: Dev left the game
+[20:38:28] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage: All dimensions are saved
+[20:38:35] [Server thread/INFO] [minecraft/GenericThread]: Thread RCON Listener stopped
+[20:44:24] [Server thread/INFO] [de.si.si.SimulatedCoasters/]: [cart-link] chain selected cart f34eafef-78d8-4294-b737-fc43158de676 for coupling
+[20:44:24] [Server thread/INFO] [de.fo.ru.ChainInteractionTrace/]: FD_CHAIN_INPUT side=server player=Dev hand=MAIN_HAND pos=BlockPos{x=20481032, y=128, z=20483080} state=Block{simulatedcoasters:coaster_cart}[snap_engaged=true] canceled=true body=f34eafef-78d8-4294-b737-fc43158de676 cart=f34eafef-78d8-4294-b737-fc43158de676
+[20:44:24] [Server thread/INFO] [de.fo.ru.ChainInteractionTrace/]: FD_CHAIN_INPUT_END side=server canceled=true result=PASS item={minecraft:custom_data=>{SimulatedCoastersCartLinkTarget:[I;-212946961,2027438740,-1221067709,361621110]}, minecraft:max_stack_size=>64, minecraft:lore=>ItemLore[lines=[], styledLines=[]], minecraft:enchantments=>ItemEnchantments{enchantments={}, showInTooltip=true}, minecraft:repair_cost=>0, minecraft:attribute_modifiers=>ItemAttributeModifiers[modifiers=[], showInTooltip=true], minecraft:rarity=>COMMON}
+[20:44:41] [Server thread/INFO] [de.si.si.SimulatedCoasters/]: [cart-link] linked carts f34eafef-78d8-4294-b737-fc43158de676 <-> d6a512ad-de6e-42a3-a119-1bec039c0c04 at distance 6.000
+[20:44:41] [Server thread/INFO] [de.fo.ru.ChainInteractionTrace/]: FD_CHAIN_INPUT side=server player=Dev hand=MAIN_HAND pos=BlockPos{x=20481032, y=128, z=20481032} state=Block{simulatedcoasters:coaster_cart}[snap_engaged=true] canceled=true body=d6a512ad-de6e-42a3-a119-1bec039c0c04 cart=d6a512ad-de6e-42a3-a119-1bec039c0c04
+[20:44:41] [Server thread/INFO] [de.fo.ru.ChainInteractionTrace/]: FD_CHAIN_INPUT_END side=server canceled=true result=PASS item={minecraft:max_stack_size=>64, minecraft:lore=>ItemLore[lines=[], styledLines=[]], minecraft:enchantments=>ItemEnchantments{enchantments={}, showInTooltip=true}, minecraft:repair_cost=>0, minecraft:attribute_modifiers=>ItemAttributeModifiers[modifiers=[], showInTooltip=true], minecraft:rarity=>COMMON}
+[20:45:22] [Server thread/INFO] [de.fo.ve.Boarding/]: FD_BOARDING_ASSIGN player=Dev seat=BlockPos{x=20481036, y=129, z=20481032} offset=BlockPos{x=4, y=1, z=0} knownSeats=[BlockPos{x=-4, y=1, z=0}, BlockPos{x=-3, y=1, z=0}, BlockPos{x=3, y=1, z=0}, BlockPos{x=4, y=1, z=0}] accepted=true
+[20:45:49] [Server thread/INFO] [de.fo.ed.EditorNetwork/]: FD_EDITOR_RESULT player=Dev target=d6a512ad-de6e-42a3-a119-1bec039c0c04 action=11 success=true message=4D settings updated
+[20:46:00] [Server thread/INFO] [de.fo.ed.EditorNetwork/]: FD_EDITOR_RESULT player=Dev target=d6a512ad-de6e-42a3-a119-1bec039c0c04 action=13 success=false message=Vehicle settings changed; review the refreshed state and try again
+[20:47:56] [Server thread/INFO] [de.fo.ed.EditorNetwork/]: FD_EDITOR_RESULT player=Dev target=d6a512ad-de6e-42a3-a119-1bec039c0c04 action=12 success=false message=Vehicle settings changed; review the refreshed state and try again
+[20:48:05] [Server thread/INFO] [de.fo.ve.Boarding/]: FD_BOARDING_DISMOUNT_CANCEL player=Dev assignedSeats=1
+[20:48:05] [Server thread/INFO] [de.fo.ve.Boarding/]: FD_BOARDING_DISMOUNT_CANCEL player=Dev assignedSeats=1
+[20:48:05] [Server thread/INFO] [de.fo.ve.Boarding/]: FD_BOARDING_DISMOUNT_CANCEL player=Dev assignedSeats=1
+[20:48:05] [Server thread/INFO] [de.fo.ve.Boarding/]: FD_BOARDING_DISMOUNT_CANCEL player=Dev assignedSeats=1
+[20:48:27] [Server thread/INFO] [de.fo.ed.EditorNetwork/]: FD_EDITOR_RESULT player=Dev target=d6a512ad-de6e-42a3-a119-1bec039c0c04 action=12 success=true message=4D settings updated
+[20:48:38] [Server thread/INFO] [de.fo.ve.Boarding/]: FD_BOARDING_DISMOUNT_CLEAR player=Dev restraints=false removed=false alive=true
+[20:53:59] [Server thread/INFO] [de.fo.ve.Boarding/]: FD_BOARDING_ASSIGN player=Dev seat=BlockPos{x=20481033, y=127, z=20489224} offset=BlockPos{x=1, y=-1, z=0} knownSeats=[BlockPos{x=0, y=-1, z=0}, BlockPos{x=1, y=-1, z=0}] accepted=true
+[20:54:26] [Server thread/INFO] [de.fo.ed.EditorNetwork/]: FD_EDITOR_RESULT player=Dev target=ca1ed3d3-21a3-4c87-aa5c-398086e3f719 action=11 success=true message=4D settings updated
+[20:54:39] [Server thread/INFO] [de.fo.ed.EditorNetwork/]: FD_EDITOR_RESULT player=Dev target=ca1ed3d3-21a3-4c87-aa5c-398086e3f719 action=13 success=true message=4D settings updated
+[20:56:21] [Server thread/INFO] [de.fo.ed.EditorNetwork/]: FD_EDITOR_RESULT player=Dev target=ca1ed3d3-21a3-4c87-aa5c-398086e3f719 action=12 success=true message=4D settings updated
+[20:56:44] [Server thread/INFO] [de.fo.ve.Boarding/]: FD_BOARDING_DISMOUNT_CLEAR player=Dev restraints=false removed=false alive=true
+[20:57:05] [Server thread/INFO] [minecraft/MinecraftServer]: Dev left the game
+[20:57:21] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage: All dimensions are saved
+[20:57:23] [Server thread/INFO] [minecraft/GenericThread]: Thread RCON Listener stopped

@@ -20,7 +20,9 @@ track.
 
 1. Place the Wing item on a clear level section. Leave at least six blocks
    between bearings. A train may contain one or two Wing cars. Hold a Minecraft Chain and
-   right-click the two stopped chassis in turn, six blocks apart. Wait for
+   right-click the central native bearing block of each stopped chassis in turn,
+   six blocks apart. Approach its exposed side at bearing height, with no track
+   between you and it. A seat click boards instead of selecting a link. Wait for
    **Carts coupled**. Sneak-right-click clears a pending selection. This links
    the cars; a separate track Chain span supplies propulsion. Mixed families reject.
 2. Right-click a seat to board. Use the Rotation Tool on the car to open its

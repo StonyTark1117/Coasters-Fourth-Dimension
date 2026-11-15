@@ -242,7 +242,7 @@ public final class ChainLiftDiagnostics {
         .representativeBearingPlotPos(body);
     state.put("bearingPlotPosition", position(bearingPos));
     if (bearingPos != null && body.getPlot() != null) {
-      var bearingState = body.getPlot().getEmbeddedLevelAccessor().getBlockState(bearingPos);
+      var bearingState = mc.level.getBlockState(bearingPos);
       state.put("bearingBlockState", bearingState.toString());
       state.put("bearingSnapEngaged", bearingState.hasProperty(
           dev.silvergold.simulatedcoasters.track.cart.CoasterCartBlock.SNAP_ENGAGED)

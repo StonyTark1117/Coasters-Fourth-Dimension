@@ -22,8 +22,8 @@ then Shift unloaded onto the platform and cleared the passenger/seat assignment.
 Snapshots and selected images accompany this record. This is the A occupied
 handoff reused by C; crafting/placement, livery and fixed-group restoration remain.
 
-Client and Xvfb stopped; server requested clean stop after reboarding for the
-occupied save/rejoin case. World flush remains in progress, so no runtime-cleanup
-or final package-complete claim is made yet. Native focused mechanics previously
+Client and Xvfb stopped; server clean save finished20:30:17 after reboarding for
+the occupied save/rejoin case. All three original units verified inactive and
+the world preserved at evidence/before-comfort-world before the next run. Native focused mechanics previously
 passed once; do not rerun it. Comfort implementation follows this integrated
 seat/pose handoff and has its own new-behavior checks.

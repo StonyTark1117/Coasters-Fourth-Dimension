@@ -1,0 +1,498 @@
+{
+  "at": "2026-11-15T03:55:19.404903913Z",
+  "gameTime": 35379,
+  "input": {
+    "screen": "net.minecraft.client.gui.screens.PauseScreen",
+    "windowActive": true,
+    "glfwFocused": 1,
+    "glfwCursorMode": 212993,
+    "glfwRawMouseMotion": 1,
+    "rawMouseOption": true,
+    "mouseGrabbed": false,
+    "mouseX": 507.0,
+    "mouseY": 240.0,
+    "deltaX": 0.0,
+    "deltaY": 0.0,
+    "playerYaw": 89.998245,
+    "playerPitch": -6.6080446,
+    "passenger": true,
+    "worldStableView": true,
+    "cameraQuaternion": [
+      0.040754113,
+      -0.7059203,
+      0.040752828,
+      0.7059425
+    ],
+    "cameraUp": [
+      -0.11507663,
+      0.9933567,
+      3.6284332E-6
+    ],
+    "nativeSeatOrientation": [
+      -0.9742557637722968,
+      3.6934829985672764E-6,
+      2.7407964735652487E-6,
+      -0.22544557377625496
+    ],
+    "ignoreFirstMove": false
+  },
+  "clientWorldGameTime": 35379,
+  "assignedVehicleSnapshot": {
+    "available": true,
+    "assignedVehicle": true,
+    "chassis": "ca1ed3d3-21a3-4c87-aa5c-398086e3f719",
+    "family": "arrow_controlled",
+    "revision": 2,
+    "stopping": false,
+    "maintenance": false,
+    "alignmentRequired": false,
+    "fault": "",
+    "restraints": true,
+    "boardingReady": false,
+    "boundFrom": [
+      332,
+      80,
+      56
+    ],
+    "boundTo": [
+      332,
+      80,
+      20
+    ],
+    "carriers": [
+      {
+        "body": "a4e3fa30-cdd7-44c1-95c7-12cd38d925bf",
+        "capture": false,
+        "occupants": [],
+        "riderSeats": []
+      },
+      {
+        "body": "fc3dcecf-8970-4c30-828b-4d1c823e3799",
+        "capture": false,
+        "occupants": [
+          "380df991-f603-344c-a090-369bad2a924a"
+        ],
+        "riderSeats": [
+          "380df991-f603-344c-a090-369bad2a924a"
+        ]
+      }
+    ],
+    "matchingRailFound": true,
+    "matchingRail": {
+      "from": [
+        332,
+        80,
+        56
+      ],
+      "to": [
+        332,
+        80,
+        20
+      ],
+      "valid": true,
+      "variant": "arrow_four_rail_v1",
+      "revision": 0
+    },
+    "nativeBodyLoaded": true,
+    "bearingPlotPosition": [
+      20481032,
+      128,
+      20485128
+    ],
+    "bearingBlockState": "Block{simulatedcoasters:coaster_cart}[snap_engaged\u003dtrue]",
+    "bearingSnapEngaged": true,
+    "nativeCartCenter": [
+      332.5000302484644,
+      81.12499782017471,
+      47.968279014944606
+    ],
+    "nearestGraphCandidates": [
+      {
+        "from": [
+          332,
+          80,
+          56
+        ],
+        "to": [
+          332,
+          80,
+          20
+        ],
+        "t": 0.23699226193190998,
+        "point": [
+          332.5,
+          80.8125,
+          47.968278812749006
+        ],
+        "distance": 0.3124978216387396,
+        "chainAnchor": [
+          332,
+          80,
+          56
+        ],
+        "chainSpeed": -32.0,
+        "chainTravelSign": 1
+      }
+    ],
+    "matchingGraphEdgeFound": true,
+    "selectedGraphHit": {
+      "t": 0.23699226193190998,
+      "to": [
+        332,
+        80,
+        20
+      ],
+      "from": [
+        332,
+        80,
+        56
+      ],
+      "distance": 0.3124978216387396,
+      "point": [
+        332.5,
+        80.8125,
+        47.968278812749006
+      ]
+    },
+    "chainDrive": {
+      "travelSign": 1,
+      "speed": -32.0,
+      "path": {
+        "segments": [
+          {
+            "tEnd": 1.0,
+            "tStart": 0.0,
+            "to": [
+              332,
+              80,
+              20
+            ],
+            "from": [
+              332,
+              80,
+              56
+            ]
+          }
+        ],
+        "length": 36.0
+      },
+      "anchor": [
+        332,
+        80,
+        56
+      ]
+    },
+    "clientTrainLinkIds": [
+      "ca1ed3d3-21a3-4c87-aa5c-398086e3f719"
+    ],
+    "clientTrainMembers": [
+      {
+        "id": "ca1ed3d3-21a3-4c87-aa5c-398086e3f719",
+        "clientBodyLoaded": true,
+        "clientVehicleRecord": true,
+        "containerBodyLoaded": true
+      }
+    ],
+    "clientVehicleComponentBodies": [
+      {
+        "id": "ca1ed3d3-21a3-4c87-aa5c-398086e3f719",
+        "clientCartBodyLoaded": true,
+        "clientBodyRemoved": false
+      },
+      {
+        "id": "a4e3fa30-cdd7-44c1-95c7-12cd38d925bf",
+        "clientCartBodyLoaded": false,
+        "clientBodyRemoved": false
+      },
+      {
+        "id": "fc3dcecf-8970-4c30-828b-4d1c823e3799",
+        "clientCartBodyLoaded": false,
+        "clientBodyRemoved": false
+      }
+    ],
+    "clientConsistEligible": true
+  },
+  "selectedAnchor": null,
+  "cachedKey": "null",
+  "cachedStatus": "NONE",
+  "cachedPath": null,
+  "heldItem": "1 fourthdimension:rotation_tool",
+  "hit": "net.minecraft.world.phys.BlockHitResult@380cde3c",
+  "hitType": "MISS",
+  "hitBlock": [
+    340,
+    83,
+    48
+  ],
+  "hitState": "Block{minecraft:air}",
+  "hitBlockEntity": null,
+  "trackOutlineSelection": "null",
+  "wrenchGraphHit": "null",
+  "wrenchSpanHit": null,
+  "indexedAnchors": [
+    {
+      "anchor": [
+        332,
+        80,
+        56
+      ],
+      "currentBlockEntity": true,
+      "hasShaft": true,
+      "hasSpan": true,
+      "speed": -32.0,
+      "committedSegments": "[ChainLiftCommittedSegment[edgeFrom\u003dBlockPos{x\u003d332, y\u003d80, z\u003d56}, edgeTo\u003dBlockPos{x\u003d332, y\u003d80, z\u003d20}, tStart\u003d0.0, tEnd\u003d1.0]]",
+      "resolvedPath": {
+        "segments": [
+          {
+            "tEnd": 1.0,
+            "tStart": 0.0,
+            "to": [
+              332,
+              80,
+              20
+            ],
+            "from": [
+              332,
+              80,
+              56
+            ]
+          }
+        ],
+        "length": 36.0
+      },
+      "overlapsCached": false,
+      "overlapsProbe": false
+    },
+    {
+      "anchor": [
+        300,
+        80,
+        20
+      ],
+      "currentBlockEntity": true,
+      "hasShaft": true,
+      "hasSpan": true,
+      "speed": 32.0,
+      "committedSegments": "[ChainLiftCommittedSegment[edgeFrom\u003dBlockPos{x\u003d300, y\u003d80, z\u003d20}, edgeTo\u003dBlockPos{x\u003d300, y\u003d80, z\u003d56}, tStart\u003d0.0, tEnd\u003d1.0]]",
+      "resolvedPath": {
+        "segments": [
+          {
+            "tEnd": 1.0,
+            "tStart": 0.0,
+            "to": [
+              300,
+              80,
+              56
+            ],
+            "from": [
+              300,
+              80,
+              20
+            ]
+          }
+        ],
+        "length": 36.0
+      },
+      "overlapsCached": false,
+      "overlapsProbe": false
+    },
+    {
+      "anchor": [
+        308,
+        80,
+        64
+      ],
+      "currentBlockEntity": true,
+      "hasShaft": true,
+      "hasSpan": true,
+      "speed": -32.0,
+      "committedSegments": "[ChainLiftCommittedSegment[edgeFrom\u003dBlockPos{x\u003d308, y\u003d80, z\u003d64}, edgeTo\u003dBlockPos{x\u003d324, y\u003d80, z\u003d64}, tStart\u003d0.0, tEnd\u003d1.0]]",
+      "resolvedPath": {
+        "segments": [
+          {
+            "tEnd": 1.0,
+            "tStart": 0.0,
+            "to": [
+              324,
+              80,
+              64
+            ],
+            "from": [
+              308,
+              80,
+              64
+            ]
+          }
+        ],
+        "length": 16.0
+      },
+      "overlapsCached": false,
+      "overlapsProbe": false
+    },
+    {
+      "anchor": [
+        308,
+        80,
+        12
+      ],
+      "currentBlockEntity": true,
+      "hasShaft": true,
+      "hasSpan": true,
+      "speed": 32.0,
+      "committedSegments": "[ChainLiftCommittedSegment[edgeFrom\u003dBlockPos{x\u003d308, y\u003d80, z\u003d12}, edgeTo\u003dBlockPos{x\u003d300, y\u003d80, z\u003d20}, tStart\u003d0.0, tEnd\u003d1.0]]",
+      "resolvedPath": {
+        "segments": [
+          {
+            "tEnd": 1.0,
+            "tStart": 0.0,
+            "to": [
+              300,
+              80,
+              20
+            ],
+            "from": [
+              308,
+              80,
+              12
+            ]
+          }
+        ],
+        "length": 12.563079635779946
+      },
+      "overlapsCached": false,
+      "overlapsProbe": false
+    },
+    {
+      "anchor": [
+        324,
+        80,
+        12
+      ],
+      "currentBlockEntity": true,
+      "hasShaft": true,
+      "hasSpan": true,
+      "speed": 32.0,
+      "committedSegments": "[ChainLiftCommittedSegment[edgeFrom\u003dBlockPos{x\u003d324, y\u003d80, z\u003d12}, edgeTo\u003dBlockPos{x\u003d308, y\u003d80, z\u003d12}, tStart\u003d0.0, tEnd\u003d1.0]]",
+      "resolvedPath": {
+        "segments": [
+          {
+            "tEnd": 1.0,
+            "tStart": 0.0,
+            "to": [
+              308,
+              80,
+              12
+            ],
+            "from": [
+              324,
+              80,
+              12
+            ]
+          }
+        ],
+        "length": 16.0
+      },
+      "overlapsCached": false,
+      "overlapsProbe": false
+    },
+    {
+      "anchor": [
+        300,
+        80,
+        56
+      ],
+      "currentBlockEntity": true,
+      "hasShaft": true,
+      "hasSpan": true,
+      "speed": 32.0,
+      "committedSegments": "[ChainLiftCommittedSegment[edgeFrom\u003dBlockPos{x\u003d300, y\u003d80, z\u003d56}, edgeTo\u003dBlockPos{x\u003d308, y\u003d80, z\u003d64}, tStart\u003d0.0, tEnd\u003d1.0]]",
+      "resolvedPath": {
+        "segments": [
+          {
+            "tEnd": 1.0,
+            "tStart": 0.0,
+            "to": [
+              308,
+              80,
+              64
+            ],
+            "from": [
+              300,
+              80,
+              56
+            ]
+          }
+        ],
+        "length": 12.816639802702491
+      },
+      "overlapsCached": false,
+      "overlapsProbe": false
+    },
+    {
+      "anchor": [
+        332,
+        80,
+        20
+      ],
+      "currentBlockEntity": true,
+      "hasShaft": true,
+      "hasSpan": true,
+      "speed": -32.0,
+      "committedSegments": "[ChainLiftCommittedSegment[edgeFrom\u003dBlockPos{x\u003d332, y\u003d80, z\u003d20}, edgeTo\u003dBlockPos{x\u003d324, y\u003d80, z\u003d12}, tStart\u003d0.0, tEnd\u003d1.0]]",
+      "resolvedPath": {
+        "segments": [
+          {
+            "tEnd": 1.0,
+            "tStart": 0.0,
+            "to": [
+              324,
+              80,
+              12
+            ],
+            "from": [
+              332,
+              80,
+              20
+            ]
+          }
+        ],
+        "length": 12.563079872929771
+      },
+      "overlapsCached": false,
+      "overlapsProbe": false
+    },
+    {
+      "anchor": [
+        324,
+        80,
+        64
+      ],
+      "currentBlockEntity": true,
+      "hasShaft": true,
+      "hasSpan": true,
+      "speed": -32.0,
+      "committedSegments": "[ChainLiftCommittedSegment[edgeFrom\u003dBlockPos{x\u003d324, y\u003d80, z\u003d64}, edgeTo\u003dBlockPos{x\u003d332, y\u003d80, z\u003d56}, tStart\u003d0.0, tEnd\u003d1.0]]",
+      "resolvedPath": {
+        "segments": [
+          {
+            "tEnd": 1.0,
+            "tStart": 0.0,
+            "to": [
+              332,
+              80,
+              56
+            ],
+            "from": [
+              324,
+              80,
+              64
+            ]
+          }
+        ],
+        "length": 12.756685985848259
+      },
+      "overlapsCached": false,
+      "overlapsProbe": false
+    }
+  ]
+}

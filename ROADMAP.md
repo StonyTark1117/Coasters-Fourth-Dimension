@@ -89,7 +89,7 @@ whole-JAR equality is not required. Keep the original run identity and limits.
 | 0.2 | FD201–FD204 | Done for bounded build | S&S Free Spin vehicle and track with magnetic seat-rotation equipment. |
 | 0.3 | FD301–FD305 | Done for bounded five-family gate | Revised ZacSpin variant and functional PAX-style shuttle system. |
 | 0.4 | FD401–FD404 | Complete 2026-11-15 | Five-family core, recovery and player workflows reconciled at the FD404 development checkpoint; expanded 1.0 qualification remains FD1000. |
-| 0.5 | FD501–FD503; six original discovery IDs; FD1601S, FD1702S, FD1801S, FD1802S, FD1901S; FD1101A–C; FD904C1 | In progress | Specify every 1.0 vehicle, prove Wing-backed extension contracts, establish comfort and reusable tools. Adapter-specific upgrades follow their consumers. |
+| 0.5 | FD501–FD503; six original discovery IDs; FD1601S, FD1702S, FD1801S, FD1802S, FD1901S; FD1101A–C; FD904C1 | Complete | Specify every 1.0 vehicle, prove Wing-backed extension contracts, establish comfort and reusable tools. Adapter-specific upgrades follow their consumers. |
 | 0.6 | FD1501A–C, FD1301A–C, FD1601A–C, FD601 | Planned | S1 conventional free-spinning, Suspended and Fixed Inverted: axes, loading, capture, swing locks and fixed overhead seating. |
 | 0.7 | FD1302A–C, FD1502A–C, FD1801A–C, FD1802A–C, FD1803, FD701 | Planned | Axis/Roller Ball and both Flying variants; New-generation Flying proves scenery-facing yaw in seated and prone postures. |
 | 0.8 | FD1401A–C, FD1501D–F, FD1701A, FD1702A–C, FD1901A–C, FD1902, FD810–FD813 | Planned | Pipeline, S2, Dive, Powered Inverted Yaw, required operating authority and agreed Additions/CTNB/Magnetized capabilities. |
@@ -655,7 +655,7 @@ tools may close this task by review; final park acceptance remains after FD1000.
 
 **Execution steps:** [FD503](docs/roadmap/0.5-contracts.md#fd503).
 
-**Status: planned.** **Depends on:** FD404, FD501 decisions, FD501A, FD502;
+**Status: complete (2026-11-15 UTC).** [Acceptance reconciliation](docs/evidence/0.5/acceptance.md). **Depends on:** FD404, FD501 decisions, FD501A, FD502;
 FD1101, FD1301, FD1302, FD1401, FD1501, FD1502 specifications;
 FD1601S, FD1702S, FD1801S, FD1802S, FD1901S specifications;
 FD1101A–C and FD904C1.
@@ -937,7 +937,7 @@ promise that every maximum-sized world meets the benchmark timings.
 
 **Execution steps:** [FD904C1](docs/roadmap/0.5-contracts.md#fd904c1).
 
-**Status: in progress.** **Depends on:** FD404 and integrated FD1101A seat/pose
+**Status: complete (2026-11-15 UTC).** [Baseline evidence](docs/evidence/0.5/comfort/README.md). **Depends on:** FD404 and integrated FD1101A seat/pose
 contracts, including its occupied client proof. **Delivery:** 0.5.
 
 Deliver D16's selectable comfort option without changing server seat motion.
@@ -1142,11 +1142,13 @@ packages need no retrospective handoff replay.
   plan. Reference the user's [Wing proposal](https://coasterpedia.net/wiki/Winged_roller_coaster)
   during discovery; no claim of universal normal-track fit is made now.
 
+Completion evidence for A–C: [Wing acceptance](docs/evidence/0.5/wing/README.md), reconciled 2026-11-15 UTC.
+
 | Delivery task / status | Prerequisites | Steps and completion condition |
 | --- | --- | --- |
-| <a id="fd1101a"></a> **FD1101A Mechanics — in progress** [Steps](docs/roadmap/0.5-contracts.md#fd1101a) | FD404, FD501A, FD1101 | Extend fixed-seat eligibility and pose/seat contracts through the actual Wing vehicle; implement normal-track fit, restraints, coupling, placement and ordinary station handling. No rotary mechanism or Arrow profile is inherited. Complete when its specified mechanism, affected native invariants and the shared-contract client handoff pass. |
-| <a id="fd1101b"></a> **FD1101B Original content — in progress** [Steps](docs/roadmap/0.5-contracts.md#fd1101b) | FD1101 specification and stable A dimensions | Finish original vehicle/required track assets, restraints, item/recipe content, guide and a playable example. Complete when content represents the implemented behavior and normal player controls. |
-| <a id="fd1101c"></a> **FD1101C Player acceptance — planned** [Steps](docs/roadmap/0.5-contracts.md#fd1101c) | FD1101A, FD1101B | Complete normal construction/boarding/operation/capture/unload for the declared example; combine accepted mechanics, eligibility, clearance, persistence and rider-synchronization evidence. Add only distinct interruption or camera cases. Complete when the whole feature is usable and documented; do not restart acceptance for an unrelated build. |
+| <a id="fd1101a"></a> **FD1101A Mechanics — complete** [Steps](docs/roadmap/0.5-contracts.md#fd1101a) | FD404, FD501A, FD1101 | Extend fixed-seat eligibility and pose/seat contracts through the actual Wing vehicle; implement normal-track fit, restraints, coupling, placement and ordinary station handling. No rotary mechanism or Arrow profile is inherited. Complete when its specified mechanism, affected native invariants and the shared-contract client handoff pass. |
+| <a id="fd1101b"></a> **FD1101B Original content — complete** [Steps](docs/roadmap/0.5-contracts.md#fd1101b) | FD1101 specification and stable A dimensions | Finish original vehicle/required track assets, restraints, item/recipe content, guide and a playable example. Complete when content represents the implemented behavior and normal player controls. |
+| <a id="fd1101c"></a> **FD1101C Player acceptance — complete** [Steps](docs/roadmap/0.5-contracts.md#fd1101c) | FD1101A, FD1101B | Complete normal construction/boarding/operation/capture/unload for the declared example; combine accepted mechanics, eligibility, clearance, persistence and rider-synchronization evidence. Add only distinct interruption or camera cases. Complete when the whole feature is usable and documented; do not restart acceptance for an unrelated build. |
 
 ### FD1501 Spinning coaster variants discovery
 
