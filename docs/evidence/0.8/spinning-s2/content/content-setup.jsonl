@@ -1,0 +1,20 @@
+{"at": 1794745743.0035918, "command": "execute positioned -250 20 0 run fd demo s2_spinning_track", "result": "S2 kinetic launch and unpowered downhill roll built. Wait for captured couplers, board, close restraints, Dispatch. Capture on return to the level dock, wait for alignment, then open restraints. Sneak-use the governor to bind a different empty train.\n"}
+{"at": 1794745743.0558376, "command": "setblock -246 28 12 air", "result": "That position is not loaded\n"}
+{"at": 1794745743.0901794, "command": "setblock -256 29 18 minecraft:crafting_table", "result": "That position is not loaded\n"}
+{"at": 1794745743.092065, "command": "time set day", "result": "Set the time to 1000\n"}
+{"at": 1794745743.0933702, "command": "gamerule doDaylightCycle false", "result": "Gamerule doDaylightCycle is now set to: false\n"}
+{"at": 1794745743.0978794, "command": "clear Dev", "result": "Removed 9 item(s) from player Dev\n"}
+{"at": 1794745743.0999696, "command": "gamemode survival Dev", "result": "Set Dev's game mode to Survival Mode\n"}
+{"at": 1794745743.102371, "command": "tp Dev -255.5 29 20.5 180 25", "result": "Teleported Dev to -255.500000, 29.000000, 20.500000\n"}
+{"at": 1794745743.129705, "command": "give Dev minecraft:iron_ingot 12", "result": "Gave 12 [Iron Ingot] to Dev\n"}
+{"at": 1794745743.152757, "command": "give Dev minecraft:redstone 4", "result": "Gave 4 [Redstone Dust] to Dev\n"}
+{"at": 1794745743.1592336, "command": "give Dev minecraft:red_dye 1", "result": "Gave 1 [Red Dye] to Dev\n"}
+{"at": 1794745743.1654112, "command": "give Dev create:red_seat 4", "result": "Gave 4 [Red Seat] to Dev\n"}
+{"at": 1794745743.1677258, "command": "give Dev create:mechanical_bearing 1", "result": "Gave 1 [Mechanical Bearing] to Dev\n"}
+{"at": 1794745743.169493, "command": "give Dev simulatedcoasters:coaster_cart 1", "result": "Gave 1 [Coaster Cart] to Dev\n"}
+{"at": 1794745743.1711388, "command": "give Dev create:shaft 2", "result": "Gave 2 [Shaft] to Dev\n"}
+{"at": 1794745743.1735728, "command": "give Dev create:clutch 1", "result": "Gave 1 [Clutch] to Dev\n"}
+{"at": 1794745743.1763105, "command": "give Dev fourthdimension:rotation_tool 1", "result": "Gave 1 [Rotation Tool] to Dev\n"}
+{"at": 1794745743.1793332, "command": "recipe give Dev fourthdimension:s2_spinning_track", "result": "Unlocked 1 recipes for Dev\n"}
+{"at": 1794745743.1886475, "command": "recipe give Dev fourthdimension:s2_spinning_car", "result": "Unlocked 1 recipes for Dev\n"}
+{"at": 1794745743.1905928, "command": "recipe give Dev fourthdimension:s2_spinning_governor", "result": "Unlocked 1 recipes for Dev\n"}

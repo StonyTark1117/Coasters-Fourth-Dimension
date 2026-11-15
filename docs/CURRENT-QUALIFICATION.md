@@ -49,8 +49,8 @@ publication is activated.
 | FD1401B | Pipeline / Dive | Complete: [normal crafted content and finite visual review](evidence/0.8/pipeline/construction/README.md); P-only rail support saddle inspected with no mechanics replay. |
 | FD1401C | Pipeline / Dive | Complete: crafted track/cars, paid span, native Chain coupling and whole-consist dock binding combine with accepted A occupied forward/reverse/recovery/unload. All317 units inactive; owner continues Dive. |
 | FD1501D | S2 / Powered Inverted | Complete: [native governor, four-car inversion/rollback/loss and occupied handoff](evidence/0.8/spinning-s2/README.md#occupied-mechanics-handoff--fd1501d). Launch/roll/return/Capture/Open/unload passed; all318 units inactive. E/F reuse accepted mechanics. |
-| FD1501E | S2 / Powered Inverted | Prepare original S2 content against stable dimensions. |
-| FD1501F | S2 / Powered Inverted | Combine D occupied proof with remaining normal construction/content and distinct cases. |
+| FD1501E | S2 / Powered Inverted | Complete: [crafted content, paid construction, controls and finite operating views](evidence/0.8/spinning-s2/content/README.md). |
+| FD1501F | S2 / Powered Inverted | Complete: content occupied cycle/capture/open/unload and actual restart combine with accepted D mechanics. All318 units inactive; saved empty world preserved. |
 | FD1702A | Pipeline / Dive | Consume qualified FD1701A native/occupied handoff for Dive mechanics. |
 | FD1702B | Pipeline / Dive | Prepare fixed-seat Dive content and hold/release example. |
 | FD1702C | Pipeline / Dive | Complete normal hold/drop/return/unload workflow cumulatively. |

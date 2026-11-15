@@ -15,26 +15,26 @@ one S2 track piece. The Kinetic Launch Governor recipe uses four iron ingots,
 two redstone dust, two Create Shafts and a Clutch.
 
 Place and connect S2 track with the normal track item, anchors and Wrench.
-Keep bends at radius16 or greater, roll change at most5degrees per block, and a
-clear rotating-car reservation of2.25blocks to either side and3.65above the track.
-Allow2.25blocks ahead/behind each bearing. S1 track is a different variant and
+Keep bends at radius 16 or greater, roll change at most 5 degrees per block, and a
+clear rotating-car reservation of 2.25 blocks to either side and 3.65 above the track.
+Allow 2.25 blocks ahead/behind each bearing. S1 track is a different variant and
 cannot substitute for inversion-rated S2 track.
 
-Use a level dock at least36blocks long. Place the car and bind a Boarding Station.
+Use a level dock at least 36 blocks long. Place the car and bind a Boarding Station.
 For a train, wait for each empty car's captured readiness, link with the normal
 Chain, then bind the station to the complete train.
 
-Commit a native Chain drive span at least24blocks long. Put the governor's amber
+Commit a native Chain drive span at least 24 blocks long. Put the governor's amber
 output toward that anchor through a straight matching-axis shaft line of at most
 sixteen blocks. Supply its rear input with non-overstressed Create kinetic power
-at192RPM or greater. The governor consumes stress; it is not a power source.
+at 192 RPM or greater. The governor consumes stress; it is not a power source.
 Sneak-right-click the governor with an empty hand near an empty stopped train to
 bind it. Ordinary use shows its power, output and travel-speed status.
 
-The governor ramps real native Chain travel from0 to12blocks/s at no more than
-3blocks/s². Magnetic devices cannot propel the train. A long return may need
+The governor ramps real native Chain travel from 0 to 12 blocks/s at no more than
+3 blocks/s². Magnetic devices cannot propel the train. A long return may need
 additional powered Chain sections because native rolling drag consumes coast
-speed; the example uses an8blocks/s powered return after its unpowered inversion.
+speed; the example uses an 8 blocks/s powered return after its unpowered inversion.
 All native Chain travel remains subject to the same ride authority and stop.
 
 ## Board, spin and return
@@ -47,8 +47,12 @@ and track roll. Closed restraints prevent Shift from unloading a moving car.
 
 An Inducer span applies signed local-Y spin torque; a Damper span opposes the
 current relative spin. Place the matching magnetic attachment with its normal
-item and edit its span using the Rotation Tool. A stronger field is still bounded:
-magnetic angular acceleration is at most1rad/s², and at3rad/s both modes damp.
+item and edit its span using the Rotation Tool on the side of a track anchor.
+S2 has one carrier: use target mask `1`. For example,
+`2:20:damp:1:6:0.1:1` adds a Damper from distance 2 to 20 with strength 6.
+Applying an added span consumes one equipment item; removing it refunds that item.
+Clear the section and its approaches before editing. A stronger field is still bounded:
+magnetic angular acceleration is at most 1 rad/s², and at 3 rad/s both modes damp.
 The car retains passive damping outside magnetic spans.
 
 On the level dock, press Capture. Travel brakes first; the turntable then aligns
@@ -78,7 +82,8 @@ controller or magnetic field as a competing longitudinal drive.
 ## Original example
 
 An operator can use `/fd demo s2_spinning` or `/fd demo s2_spinning_train` in a
-clear area. These commands are disclosed route setup, not proof of normal
+clear area. Use `/fd demo s2_spinning_track` for the route and unbound equipment without a car.
+These commands are disclosed route setup, not proof of normal
 construction. They provide a level launch/dock, an unpowered downhill full roll,
 Inducer and Damper spans, and a supplied Chain return. Four-car setup waits for
 physical dock latches before coupling. Operate it with the normal controls above.

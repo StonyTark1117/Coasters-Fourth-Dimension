@@ -42,9 +42,9 @@ public final class S2SpinningExamples {
   private S2SpinningExamples(){}
   @SubscribeEvent public static void register(RegisterCommandsEvent event){
     var demo=Commands.literal("demo");
-    for(int n:new int[]{1,4})demo.then(Commands.literal(n==1?"s2_spinning":"s2_spinning_train").executes(ctx->{
+    for(int n:new int[]{0,1,4})demo.then(Commands.literal(n==0?"s2_spinning_track":n==1?"s2_spinning":"s2_spinning_train").executes(ctx->{
       try {var l=ctx.getSource().getLevel();var e=create(l,BlockPos.containing(ctx.getSource().getPosition()).offset(0,8,12),n);
-        PENDING.computeIfAbsent(l,k->new ArrayList<>()).add(new Pending(e,l.getGameTime()+400));
+        if(n>0)PENDING.computeIfAbsent(l,k->new ArrayList<>()).add(new Pending(e,l.getGameTime()+400));
         ctx.getSource().sendSuccess(()->Component.literal("S2 kinetic launch and unpowered downhill roll built. Wait for captured couplers, board, close restraints, Dispatch. Capture on return to the level dock, wait for alignment, then open restraints. Sneak-use the governor to bind a different empty train."),false);return 1;
       }catch(IllegalArgumentException ex){ctx.getSource().sendFailure(Component.literal(ex.getMessage()));return 0;}
     }));
@@ -67,7 +67,7 @@ public final class S2SpinningExamples {
     FoundationData.get(l).setDirty();FoundationSync.broadcast(l);
   }
   public static Example create(ServerLevel l,BlockPos origin,int count){
-    if(count!=1&&count!=4)throw new IllegalArgumentException("Example offers one or four cars");
+    if(count!=0&&count!=1&&count!=4)throw new IllegalArgumentException("Example offers track only, one or four cars");
     for(var p:BlockPos.betweenClosed(origin.offset(-8,-8,-40),origin.offset(104,6,232)))
       if(!l.getBlockState(p).isAir())throw new IllegalArgumentException("Clear S2 example area at "+p.toShortString());
     int[][] offsets={{0,0,0},{0,0,64},{0,-1,88},{0,-2,112},{0,-3,136},{0,-4,160},
@@ -128,6 +128,7 @@ public final class S2SpinningExamples {
       var pos=origin.offset(-4,1,24+i*2);docks.add(pos);l.setBlockAndUpdate(pos,StationContent.STATION.get().defaultBlockState());
       ((BoardingStationEntity)l.getBlockEntity(pos)).vehicle=v.chassis;S2SpinningRuntime.rebindDock(l,v,pos);
     }
+    if(count==0){var station=origin.offset(-4,1,20);docks.add(station);l.setBlockAndUpdate(station,StationContent.STATION.get().defaultBlockState());}
     for(int side:new int[]{-1,1})for(var p:BlockPos.betweenClosed(origin.offset(side*4,0,4),origin.offset(side*7,0,60)))l.setBlockAndUpdate(p,Blocks.SMOOTH_STONE.defaultBlockState());
     data.setDirty();FoundationSync.broadcast(l);return new Example(List.copyOf(edges),List.copyOf(cars),docks.getFirst(),(S2SpinningGovernorEntity)l.getBlockEntity(gp));
   }

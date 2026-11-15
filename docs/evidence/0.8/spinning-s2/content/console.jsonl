@@ -1,0 +1,156 @@
+{"at": 1794744903.142926, "command": "give Dev minecraft:stone 8", "state": "sending"}
+{"at": 1794744903.142926, "command": "give Dev minecraft:stone 8", "state": "responded", "result": "Gave 8 [Stone] to Dev\n"}
+{"at": 1794744919.264872, "command": "execute positioned 0 20 0 run fd demo s2_spinning", "state": "sending"}
+{"at": 1794744919.264872, "command": "execute positioned 0 20 0 run fd demo s2_spinning", "state": "responded", "result": "S2 kinetic launch and unpowered downhill roll built. Wait for captured couplers, board, close restraints, Dispatch. Capture on return to the level dock, wait for alignment, then open restraints. Sneak-use the governor to bind a different empty train.\n"}
+{"at": 1794744925.574126, "command": "tp Dev -4.5 29 20.5 -90 10", "state": "sending"}
+{"at": 1794744925.574126, "command": "tp Dev -4.5 29 20.5 -90 10", "state": "responded", "result": "Teleported Dev to -4.500000, 29.000000, 20.500000\n"}
+{"at": 1794744925.6724613, "command": "fd status", "state": "sending"}
+{"at": 1794744925.6724613, "command": "fd status", "state": "responded", "result": "spinning 9d32275a-f5b7-4a9f-9b6a-402c6b5ab1c7 angle=7.58007540397234E-33 omega=-7.438860329226765E-33 capture=true occupants=0\nCarrier update average: 230851 ns across 256 updates\n"}
+{"at": 1794744943.6655827, "command": "give Dev fourthdimension:rotation_editor", "state": "sending"}
+{"at": 1794744943.6655827, "command": "give Dev fourthdimension:rotation_editor", "state": "responded", "result": "Unknown item 'fourthdimension:rotation_editor'\ngive Dev fourthdimension:rotation_editor<--[HERE]\n"}
+{"at": 1794744950.302267, "command": "tp Dev -2.5 29 20.5 -90 -12", "state": "sending"}
+{"at": 1794744950.302267, "command": "tp Dev -2.5 29 20.5 -90 -12", "state": "responded", "result": "Teleported Dev to -2.500000, 29.000000, 20.500000\n"}
+{"at": 1794744984.5014033, "command": "fd status", "state": "sending"}
+{"at": 1794744984.5014033, "command": "fd status", "state": "responded", "result": "spinning 9d32275a-f5b7-4a9f-9b6a-402c6b5ab1c7 angle=7.615228559057343E-33 omega=-5.3823461867931975E-33 capture=true occupants=0\nCarrier update average: 134668 ns across 2610 updates\n"}
+{"at": 1794744984.5875874, "command": "give Dev fourthdimension:rotation_tool", "state": "sending"}
+{"at": 1794744984.5875874, "command": "give Dev fourthdimension:rotation_tool", "state": "responded", "result": "Gave 1 [Rotation Tool] to Dev\n"}
+{"at": 1794744997.9987464, "command": "tp Dev -3.5 29 20.5 -90 -4", "state": "sending"}
+{"at": 1794744997.9987464, "command": "tp Dev -3.5 29 20.5 -90 -4", "state": "responded", "result": "Teleported Dev to -3.500000, 29.000000, 20.500000\n"}
+{"at": 1794745141.1029518, "command": "fd status", "state": "sending"}
+{"at": 1794745141.1029518, "command": "fd status", "state": "responded", "result": "spinning 9d32275a-f5b7-4a9f-9b6a-402c6b5ab1c7 angle=-4.381573873494536E-6 omega=8.32457975604224E-7 capture=true occupants=1\nCarrier update average: 110030 ns across 8874 updates\n"}
+{"at": 1794745181.925102, "command": "fd status", "state": "sending"}
+{"at": 1794745181.925102, "command": "fd status", "state": "responded", "result": "spinning 9d32275a-f5b7-4a9f-9b6a-402c6b5ab1c7 angle=1.3546665900357993 omega=0.12747392880685574 capture=false occupants=1\nCarrier update average: 117708 ns across 10506 updates\n"}
+{"at": 1794745199.5838516, "command": "data get entity Dev Pos", "state": "sending"}
+{"at": 1794745199.5838516, "command": "data get entity Dev Pos", "state": "responded", "result": "Dev has the following entity data: [31.94855422767202d, 26.12483071731201d, 236.83885053588023d]\n"}
+{"at": 1794745199.676444, "command": "fd status", "state": "sending"}
+{"at": 1794745199.676444, "command": "fd status", "state": "responded", "result": "spinning 9d32275a-f5b7-4a9f-9b6a-402c6b5ab1c7 angle=-6.591697007527723 omega=0.22803951844297743 capture=false occupants=1\nCarrier update average: 130414 ns across 11216 updates\n"}
+{"at": 1794745225.6252446, "command": "data get entity Dev Pos", "state": "sending"}
+{"at": 1794745225.6252446, "command": "data get entity Dev Pos", "state": "responded", "result": "Dev has the following entity data: [95.87990877360875d, 28.951843290883033d, 87.37069747761207d]\n"}
+{"at": 1794745237.1512215, "command": "fd status", "state": "sending"}
+{"at": 1794745237.1512215, "command": "fd status", "state": "responded", "result": "spinning 9d32275a-f5b7-4a9f-9b6a-402c6b5ab1c7 angle=-6.719607371145735 omega=0.26592226029712507 capture=false occupants=1\nCarrier update average: 130338 ns across 12716 updates\n"}
+{"at": 1794745247.8788831, "command": "fd status", "state": "sending"}
+{"at": 1794745247.8788831, "command": "fd status", "state": "responded", "result": "spinning 9d32275a-f5b7-4a9f-9b6a-402c6b5ab1c7 angle=-5.381686993792257 omega=-0.003693656214645911 capture=false occupants=1\nCarrier update average: 130512 ns across 13146 updates\n"}
+{"at": 1794745248.76833, "command": "data get entity Dev Pos", "state": "sending"}
+{"at": 1794745248.76833, "command": "data get entity Dev Pos", "state": "responded", "result": "Dev has the following entity data: [14.535948557997692d, 30.124811569289385d, -15.118361507910357d]\n"}
+{"at": 1794745260.7515633, "command": "data get entity Dev Pos", "state": "sending"}
+{"at": 1794745260.7515633, "command": "data get entity Dev Pos", "state": "responded", "result": "Dev has the following entity data: [-2.9718244510369853d, 24.65707370661268d, 101.76309713954286d]\n"}
+{"at": 1794745398.9569905, "command": "fd status", "state": "sending"}
+{"at": 1794745398.9569905, "command": "fd status", "state": "responded", "result": "spinning 9d32275a-f5b7-4a9f-9b6a-402c6b5ab1c7 angle=-12.566377478020256 omega=-4.684686937427058E-8 capture=true occupants=1\nCarrier update average: 139990 ns across 19188 updates\n"}
+{"at": 1794745399.0398788, "command": "save-all flush", "state": "sending"}
+{"at": 1794745399.0398788, "command": "save-all flush", "state": "responded", "result": "Saving the game (this may take a moment!)\nSaved the game\n"}
+{"at": 1794745453.8728309, "command": "fd status", "state": "sending"}
+{"at": 1794745453.8728309, "command": "fd status", "state": "responded", "result": "spinning 9d32275a-f5b7-4a9f-9b6a-402c6b5ab1c7 angle=-12.566370614334794 omega=-5.515354782479775E-13 capture=true occupants=0\nCarrier update average: 135977 ns across 21384 updates\n"}
+{"at": 1794745453.9674542, "command": "save-all flush", "state": "sending"}
+{"at": 1794745453.9674542, "command": "save-all flush", "state": "responded", "result": "Saving the game (this may take a moment!)\nSaved the game\n"}
+{"at": 1794745454.4969554, "command": "stop", "state": "sending"}
+{"at": 1794745454.4969554, "command": "stop", "state": "responded", "result": "Stopping the server\n"}
+{"at": 1794745695.9531436, "command": "fd status", "state": "sending"}
+{"at": 1794745695.9531436, "command": "fd status", "state": "responded", "result": "spinning 9d32275a-f5b7-4a9f-9b6a-402c6b5ab1c7 angle=-12.56637061428551 omega=2.213913753227797E-12 capture=true occupants=0\nCarrier update average: 286656 ns across 850 updates\n"}
+{"at": 1794745696.0539126, "command": "save-all flush", "state": "sending"}
+{"at": 1794745696.0539126, "command": "save-all flush", "state": "responded", "result": "Saving the game (this may take a moment!)\nSaved the game\n"}
+{"at": 1794745756.3522573, "command": "setblock -246 28 12 air", "state": "sending"}
+{"at": 1794745756.3522573, "command": "setblock -246 28 12 air", "state": "responded", "result": "Changed the block at -246, 28, 12\n"}
+{"at": 1794745756.452501, "command": "setblock -256 29 18 minecraft:crafting_table", "state": "sending"}
+{"at": 1794745756.452501, "command": "setblock -256 29 18 minecraft:crafting_table", "state": "responded", "result": "Changed the block at -256, 29, 18\n"}
+{"at": 1794747043.422991, "command": "data get entity Dev Inventory", "state": "sending"}
+{"at": 1794747043.422991, "command": "data get entity Dev Inventory", "state": "responded", "result": "Dev has the following entity data: [{count: 6, Slot: 0b, id: \"minecraft:iron_ingot\"}, {count: 2, Slot: 1b, id: \"minecraft:redstone\"}, {count: 16, Slot: 2b, id: \"fourthdimension:s2_spinning_track\"}, {count: 4, Slot: 3b, id: \"create:red_seat\"}, {count: 1, Slot: 4b, id: \"create:mechanical_bearing\"}, {count: 1, Slot: 5b, id: \"simulatedcoasters:coaster_cart\"}, {count: 2, Slot: 6b, id: \"create:shaft\"}, {count: 1, Slot: 7b, id: \"create:clutch\"}, {count: 1, Slot: 8b, id: \"fourthdimension:rotation_tool\"}]\n"}
+{"at": 1794747057.7716665, "command": "data get entity Dev Inventory", "state": "sending"}
+{"at": 1794747057.7716665, "command": "data get entity Dev Inventory", "state": "responded", "result": "Dev has the following entity data: [{count: 4, Slot: 0b, id: \"minecraft:iron_ingot\"}, {count: 2, Slot: 1b, id: \"minecraft:redstone\"}, {count: 15, Slot: 2b, id: \"fourthdimension:s2_spinning_track\"}, {count: 1, Slot: 5b, id: \"fourthdimension:s2_spinning_car\"}, {count: 2, Slot: 6b, id: \"create:shaft\"}, {count: 1, Slot: 7b, id: \"create:clutch\"}, {count: 1, Slot: 8b, id: \"fourthdimension:rotation_tool\"}]\n"}
+{"at": 1794747082.5321517, "command": "data get entity Dev Inventory", "state": "sending"}
+{"at": 1794747082.5321517, "command": "data get entity Dev Inventory", "state": "responded", "result": "Dev has the following entity data: [{count: 15, Slot: 2b, id: \"fourthdimension:s2_spinning_track\"}, {count: 1, Slot: 5b, id: \"fourthdimension:s2_spinning_car\"}, {count: 1, Slot: 7b, id: \"fourthdimension:s2_spinning_governor\"}, {count: 1, Slot: 8b, id: \"fourthdimension:rotation_tool\"}]\n"}
+{"at": 1794747097.969714, "command": "tp Dev -253.5 29 22.5 -90 25", "state": "sending"}
+{"at": 1794747097.969714, "command": "tp Dev -253.5 29 22.5 -90 25", "state": "responded", "result": "Teleported Dev to -253.500000, 29.000000, 22.500000\n"}
+{"at": 1794747109.4425316, "command": "data get entity Dev Inventory", "state": "sending"}
+{"at": 1794747109.4425316, "command": "data get entity Dev Inventory", "state": "responded", "result": "Dev has the following entity data: [{count: 15, Slot: 2b, id: \"fourthdimension:s2_spinning_track\"}, {count: 1, Slot: 7b, id: \"fourthdimension:s2_spinning_governor\"}, {count: 1, Slot: 8b, id: \"fourthdimension:rotation_tool\"}]\n"}
+{"at": 1794747119.2914238, "command": "tp Dev -255.5 29 30.5 -45 22", "state": "sending"}
+{"at": 1794747119.2914238, "command": "tp Dev -255.5 29 30.5 -45 22", "state": "responded", "result": "Teleported Dev to -255.500000, 29.000000, 30.500000\n"}
+{"at": 1794747126.621107, "command": "data get block -254 29 32", "state": "sending"}
+{"at": 1794747126.621107, "command": "data get block -254 29 32", "state": "responded", "result": "-254, 29, 32 has the following block data: {powered: 0b, x: -254, y: 29, z: 32, id: \"fourthdimension:boarding_station\", authority_id: [I; 1429721107, -1024113147, -1431652097, 703773659], vehicle: [I; -1108113898, -456177125, -2056623302, -225085944]}\n"}
+{"at": 1794747345.0070624, "command": "data get block -254 29 32", "state": "sending"}
+{"at": 1794747345.0070624, "command": "data get block -254 29 32", "state": "responded", "result": "-254, 29, 32 has the following block data: {powered: 0b, x: -254, y: 29, z: 32, id: \"fourthdimension:boarding_station\", authority_id: [I; 1429721107, -1024113147, -1431652097, 703773659], vehicle: [I; -1108113898, -456177125, -2056623302, -225085944]}\n"}
+{"at": 1794747354.5438933, "command": "tp Dev -242.5 29 12.5 90 25", "state": "sending"}
+{"at": 1794747354.5438933, "command": "tp Dev -242.5 29 12.5 90 25", "state": "responded", "result": "Teleported Dev to -242.500000, 29.000000, 12.500000\n"}
+{"at": 1794747376.58186, "command": "fill -244 27 9 -248 27 15 minecraft:stone", "state": "sending"}
+{"at": 1794747376.58186, "command": "fill -244 27 9 -248 27 15 minecraft:stone", "state": "responded", "result": "Successfully filled 35 block(s)\n"}
+{"at": 1794747376.670424, "command": "tp Dev -243.5 28 10.5 45 42", "state": "sending"}
+{"at": 1794747376.670424, "command": "tp Dev -243.5 28 10.5 45 42", "state": "responded", "result": "Teleported Dev to -243.500000, 28.000000, 10.500000\n"}
+{"at": 1794747386.9593463, "command": "data get entity Dev LastDeathLocation", "state": "sending"}
+{"at": 1794747386.9593463, "command": "data get entity Dev LastDeathLocation", "state": "responded", "result": "Dev has the following entity data: {pos: [I; -243, -60, 12], dimension: \"minecraft:overworld\"}\n"}
+{"at": 1794747387.0475442, "command": "tp Dev -244.5 28 10.5 45 42", "state": "sending"}
+{"at": 1794747387.0475442, "command": "tp Dev -244.5 28 10.5 45 42", "state": "responded", "result": "Teleported Dev to -244.500000, 28.000000, 10.500000\n"}
+{"at": 1794747387.1390183, "command": "execute at Dev run tp @e[type=minecraft:item,distance=..100] Dev", "state": "sending"}
+{"at": 1794747387.1390183, "command": "execute at Dev run tp @e[type=minecraft:item,distance=..100] Dev", "state": "responded", "result": "Teleported 3 entities to Dev\n"}
+{"at": 1794747394.271849, "command": "data get entity Dev Inventory", "state": "sending"}
+{"at": 1794747394.271849, "command": "data get entity Dev Inventory", "state": "responded", "result": "Dev has the following entity data: [{count: 15, Slot: 0b, id: \"fourthdimension:s2_spinning_track\"}, {count: 1, Slot: 1b, id: \"fourthdimension:s2_spinning_governor\"}, {count: 1, Slot: 2b, id: \"fourthdimension:rotation_tool\"}]\n"}
+{"at": 1794747394.3530643, "command": "tp Dev -244.5 28 10.5 26.565 35.92", "state": "sending"}
+{"at": 1794747394.3530643, "command": "tp Dev -244.5 28 10.5 26.565 35.92", "state": "responded", "result": "Teleported Dev to -244.500000, 28.000000, 10.500000\n"}
+{"at": 1794747404.3078227, "command": "data get block -246 28 12", "state": "sending"}
+{"at": 1794747404.3078227, "command": "data get block -246 28 12", "state": "responded", "result": "-246, 28, 12 has the following block data: {Speed: -192.0f, cars: [], Network: {Capacity: 3145728.0f, Size: 2, AddedStress: 8.0f, Id: -67345087152100L, Stress: 1536.0f}, x: -246, fault: \"Restore the straight output shaft to the bound Chain anchor\", y: 28, z: 12, ramp_rpm: 0.0d, id: \"fourthdimension:s2_spinning_governor\", authority_id: [I; -1769001120, -556187055, -1782199478, 1315281801], Source: [I; -245, 28, 12]}\n"}
+{"at": 1794747411.4949625, "command": "data get block -246 28 12", "state": "sending"}
+{"at": 1794747411.4949625, "command": "data get block -246 28 12", "state": "responded", "result": "-246, 28, 12 has the following block data: {Speed: -192.0f, fault: \"Held\", authority_id: [I; -1769001120, -556187055, -1782199478, 1315281801], Source: [I; -245, 28, 12], vehicle: [I; -1108113898, -456177125, -2056623302, -225085944], cars: [[I; -1108113898, -456177125, -2056623302, -225085944]], Network: {Capacity: 3145728.0f, Size: 2, AddedStress: 8.0f, Id: -67345087152100L, Stress: 1536.0f}, anchor: -68719476686820L, x: -246, y: 28, z: 12, ramp_rpm: 0.0d, id: \"fourthdimension:s2_spinning_governor\"}\n"}
+{"at": 1794747420.3754294, "command": "tp Dev -253.5 29 20.5 -102.4 11", "state": "sending"}
+{"at": 1794747420.3754294, "command": "tp Dev -253.5 29 20.5 -102.4 11", "state": "responded", "result": "Teleported Dev to -253.500000, 29.000000, 20.500000\n"}
+{"at": 1794747440.9349313, "command": "tp Dev -253.5 29 17.5 -90 25", "state": "sending"}
+{"at": 1794747440.9349313, "command": "tp Dev -253.5 29 17.5 -90 25", "state": "responded", "result": "Teleported Dev to -253.500000, 29.000000, 17.500000\n"}
+{"at": 1794747465.8396556, "command": "fill -254 28 10 -252 28 15 minecraft:stone", "state": "sending"}
+{"at": 1794747465.8396556, "command": "fill -254 28 10 -252 28 15 minecraft:stone", "state": "responded", "result": "Successfully filled 18 block(s)\n"}
+{"at": 1794747465.927673, "command": "tp Dev -252.5 29 12.5 -90 42", "state": "sending"}
+{"at": 1794747465.927673, "command": "tp Dev -252.5 29 12.5 -90 42", "state": "responded", "result": "Teleported Dev to -252.500000, 29.000000, 12.500000\n"}
+{"at": 1794747500.7765658, "command": "fill -222 28 -22 -220 28 -18 minecraft:stone", "state": "sending"}
+{"at": 1794747500.7765658, "command": "fill -222 28 -22 -220 28 -18 minecraft:stone", "state": "responded", "result": "Successfully filled 15 block(s)\n"}
+{"at": 1794747500.8619502, "command": "tp Dev -220.5 29 -19.5 -90 42", "state": "sending"}
+{"at": 1794747500.8619502, "command": "tp Dev -220.5 29 -19.5 -90 42", "state": "responded", "result": "Teleported Dev to -220.500000, 29.000000, -19.500000\n"}
+{"at": 1794747510.5573874, "command": "data get entity Dev Pos", "state": "sending"}
+{"at": 1794747510.5573874, "command": "data get entity Dev Pos", "state": "responded", "result": "Dev has the following entity data: [-220.5d, 29.0d, -19.5d]\n"}
+{"at": 1794747526.8918395, "command": "tp Dev -220.5 29 -19.5 -90 80", "state": "sending"}
+{"at": 1794747526.8918395, "command": "tp Dev -220.5 29 -19.5 -90 80", "state": "responded", "result": "Teleported Dev to -220.500000, 29.000000, -19.500000\n"}
+{"at": 1794747542.8414674, "command": "data get entity Dev SelectedItem", "state": "sending"}
+{"at": 1794747542.8414674, "command": "data get entity Dev SelectedItem", "state": "responded", "result": "Dev has the following entity data: {count: 1, id: \"fourthdimension:rotation_tool\"}\n"}
+{"at": 1794747563.9613934, "command": "data get entity Dev playerGameType", "state": "sending"}
+{"at": 1794747563.9613934, "command": "data get entity Dev playerGameType", "state": "responded", "result": "Dev has the following entity data: 0\n"}
+{"at": 1794747603.1491401, "command": "fill -220 28 -25 -216 28 -23 minecraft:stone", "state": "sending"}
+{"at": 1794747603.1491401, "command": "fill -220 28 -25 -216 28 -23 minecraft:stone", "state": "responded", "result": "Successfully filled 15 block(s)\n"}
+{"at": 1794747603.237555, "command": "tp Dev -217.5 29 -22.5 0 42", "state": "sending"}
+{"at": 1794747603.237555, "command": "tp Dev -217.5 29 -22.5 0 42", "state": "responded", "result": "Teleported Dev to -217.500000, 29.000000, -22.500000\n"}
+{"at": 1794747622.304083, "command": "fill -188 28 -25 -184 28 -23 minecraft:stone", "state": "sending"}
+{"at": 1794747622.304083, "command": "fill -188 28 -25 -184 28 -23 minecraft:stone", "state": "responded", "result": "Successfully filled 15 block(s)\n"}
+{"at": 1794747622.3937829, "command": "tp Dev -185.5 29 -22.5 0 42", "state": "sending"}
+{"at": 1794747622.3937829, "command": "tp Dev -185.5 29 -22.5 0 42", "state": "responded", "result": "Teleported Dev to -185.500000, 29.000000, -22.500000\n"}
+{"at": 1794747644.811854, "command": "give Dev fourthdimension:magnetic_damper 1", "state": "sending"}
+{"at": 1794747644.811854, "command": "give Dev fourthdimension:magnetic_damper 1", "state": "responded", "result": "Gave 1 [Magnetic Spin Damper] to Dev\n"}
+{"at": 1794747658.4205904, "command": "data get entity Dev Inventory", "state": "sending"}
+{"at": 1794747658.4205904, "command": "data get entity Dev Inventory", "state": "responded", "result": "Dev has the following entity data: [{count: 15, Slot: 0b, id: \"fourthdimension:s2_spinning_track\"}, {count: 1, Slot: 2b, id: \"fourthdimension:rotation_tool\"}]\n"}
+{"at": 1794747676.6788657, "command": "fill -222 28 -22 -220 28 -18 air replace minecraft:stone", "state": "sending"}
+{"at": 1794747676.6788657, "command": "fill -222 28 -22 -220 28 -18 air replace minecraft:stone", "state": "responded", "result": "Successfully filled 15 block(s)\n"}
+{"at": 1794747676.7659712, "command": "tp Dev -253.5 29 24.5 -102.4 11", "state": "sending"}
+{"at": 1794747676.7659712, "command": "tp Dev -253.5 29 24.5 -102.4 11", "state": "responded", "result": "Teleported Dev to -253.500000, 29.000000, 24.500000\n"}
+{"at": 1794747712.0333638, "command": "fill -253 28 23 -253 28 25 minecraft:stone", "state": "sending"}
+{"at": 1794747712.0333638, "command": "fill -253 28 23 -253 28 25 minecraft:stone", "state": "responded", "result": "Successfully filled 3 block(s)\n"}
+{"at": 1794747712.1198719, "command": "tp Dev -252.5 29 24 -107.35 14", "state": "sending"}
+{"at": 1794747712.1198719, "command": "tp Dev -252.5 29 24 -107.35 14", "state": "responded", "result": "Teleported Dev to -252.500000, 29.000000, 24.500000\n"}
+{"at": 1794747767.1676686, "command": "data get entity Dev Pos", "state": "sending"}
+{"at": 1794747767.1676686, "command": "data get entity Dev Pos", "state": "responded", "result": "Dev has the following entity data: [-249.80964826060978d, 26.124817636055795d, 179.0113335838345d]\n"}
+{"at": 1794747804.9139488, "command": "data get entity Dev Pos", "state": "sending"}
+{"at": 1794747804.9139488, "command": "data get entity Dev Pos", "state": "responded", "result": "Dev has the following entity data: [-154.15140118733055d, 29.581943027975083d, 77.02411643847353d]\n"}
+{"at": 1794747829.3812473, "command": "data get entity Dev Pos", "state": "sending"}
+{"at": 1794747829.3812473, "command": "data get entity Dev Pos", "state": "responded", "result": "Dev has the following entity data: [-247.51195562326714d, 30.124818918159324d, 0.3860168135623008d]\n"}
+{"at": 1794747883.875983, "command": "fd status", "state": "sending"}
+{"at": 1794747883.875983, "command": "fd status", "state": "responded", "result": "spinning 9d32275a-f5b7-4a9f-9b6a-402c6b5ab1c7 angle=-12.566370614285255 omega=2.963309864049673E-13 capture=true occupants=0\nspinning 1b228525-ac6c-4d31-998d-be08b4610ed9 angle=-0.002850203202790176 omega=0.0030032304621680555 capture=true occupants=0\nCarrier update average: 104193 ns across 118216 updates\n"}
+{"at": 1794747883.9578316, "command": "save-all flush", "state": "sending"}
+{"at": 1794747883.9578316, "command": "save-all flush", "state": "responded", "result": "Saving the game (this may take a moment!)\nSaved the game\n"}
+{"at": 1794747921.446618, "command": "fill -274 28 18 -272 28 30 minecraft:stone", "state": "sending"}
+{"at": 1794747921.446618, "command": "fill -274 28 18 -272 28 30 minecraft:stone", "state": "responded", "result": "Successfully filled 39 block(s)\n"}
+{"at": 1794747921.5317166, "command": "setblock -270 28 20 simulatedcoasters:coaster_anchorpoint", "state": "sending"}
+{"at": 1794747921.5317166, "command": "setblock -270 28 20 simulatedcoasters:coaster_anchorpoint", "state": "responded", "result": "Changed the block at -270, 28, 20\n"}
+{"at": 1794747921.618738, "command": "setblock -270 28 28 simulatedcoasters:coaster_anchorpoint", "state": "sending"}
+{"at": 1794747921.618738, "command": "setblock -270 28 28 simulatedcoasters:coaster_anchorpoint", "state": "responded", "result": "Changed the block at -270, 28, 28\n"}
+{"at": 1794747921.702308, "command": "tp Dev -272.5 29 20.5 -90 42", "state": "sending"}
+{"at": 1794747921.702308, "command": "tp Dev -272.5 29 20.5 -90 42", "state": "responded", "result": "Teleported Dev to -272.500000, 29.000000, 20.500000\n"}
+{"at": 1794747930.9568553, "command": "tp Dev -272.5 29 28.5 -90 42", "state": "sending"}
+{"at": 1794747930.9568553, "command": "tp Dev -272.5 29 28.5 -90 42", "state": "responded", "result": "Teleported Dev to -272.500000, 29.000000, 28.500000\n"}
+{"at": 1794747937.8987873, "command": "data get entity Dev Inventory", "state": "sending"}
+{"at": 1794747937.8987873, "command": "data get entity Dev Inventory", "state": "responded", "result": "Dev has the following entity data: [{count: 13, Slot: 0b, id: \"fourthdimension:s2_spinning_track\"}, {count: 1, Slot: 2b, id: \"fourthdimension:rotation_tool\"}]\n"}
+{"at": 1794747937.992533, "command": "save-all flush", "state": "sending"}
+{"at": 1794747937.992533, "command": "save-all flush", "state": "responded", "result": "Saving the game (this may take a moment!)\nSaved the game\n"}
+{"at": 1794747950.2330637, "command": "stop", "state": "sending"}
+{"at": 1794747950.2330637, "command": "stop", "state": "responded", "result": "Stopping the server\n"}

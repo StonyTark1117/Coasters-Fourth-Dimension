@@ -1,0 +1,3684 @@
+{
+  "schema": 8,
+  "rails": [
+    {
+      "original_curve": {
+        "Starts": [
+          {
+            "V": [
+              0.5,
+              0.75,
+              0.5
+            ]
+          },
+          {
+            "V": [
+              0.5,
+              0.75,
+              64.5
+            ]
+          }
+        ],
+        "Girder": 0,
+        "Normals": [
+          {
+            "V": [
+              0.0,
+              1.0,
+              0.0
+            ]
+          },
+          {
+            "V": [
+              0.0,
+              1.0,
+              0.0
+            ]
+          }
+        ],
+        "Primary": 1,
+        "Positions": [
+          {
+            "Pos": [
+              0,
+              0,
+              0
+            ]
+          },
+          {
+            "Pos": [
+              0,
+              0,
+              64
+            ]
+          }
+        ],
+        "Axes": [
+          {
+            "V": [
+              0.0,
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "V": [
+              0.0,
+              0.0,
+              -1.0
+            ]
+          }
+        ],
+        "Material": "simulatedcoasters:coaster_track"
+      },
+      "magnets": [
+        {
+          "mode": "INDUCE",
+          "falloff": 0.1,
+          "strength": 6.0,
+          "start": 16.0,
+          "end": 56.0,
+          "targets": 1,
+          "direction": 1
+        }
+      ],
+      "profile": [
+        {
+          "distance": 0.0,
+          "slope": 0.0,
+          "angle": 0.0
+        },
+        {
+          "distance": 64.0,
+          "slope": 0.0,
+          "angle": 0.0
+        }
+      ],
+      "lift_lock": 0,
+      "geometry_hash": -7738500857869817215,
+      "revision": 0,
+      "valid": 1,
+      "appearance": {
+        "tint": -1,
+        "id": "fourthdimension:original"
+      },
+      "provider": "fourthdimension:original",
+      "variant": "launched_inverting_v1",
+      "from": 49180,
+      "to": 311324,
+      "id": [
+        -805761928,
+        1888634484,
+        -1757036285,
+        -1727666015
+      ],
+      "family": "spinning"
+    },
+    {
+      "original_curve": {
+        "Starts": [
+          {
+            "V": [
+              0.5,
+              0.75,
+              0.5
+            ]
+          },
+          {
+            "V": [
+              4.440892098500626e-16,
+              -0.7500000218556941,
+              24.5
+            ]
+          }
+        ],
+        "Girder": 0,
+        "Normals": [
+          {
+            "V": [
+              0.0,
+              1.0,
+              0.0
+            ]
+          },
+          {
+            "V": [
+              -0.9999999999999991,
+              -4.371139000186242e-08,
+              0.0
+            ]
+          }
+        ],
+        "Primary": 1,
+        "Positions": [
+          {
+            "Pos": [
+              0,
+              0,
+              0
+            ]
+          },
+          {
+            "Pos": [
+              0,
+              -1,
+              24
+            ]
+          }
+        ],
+        "Axes": [
+          {
+            "V": [
+              0.0,
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "V": [
+              0.0,
+              0.0,
+              -1.0
+            ]
+          }
+        ],
+        "Material": "simulatedcoasters:coaster_track"
+      },
+      "magnets": [],
+      "profile": [
+        {
+          "distance": 0.0,
+          "slope": 0.0,
+          "angle": 0.0
+        },
+        {
+          "distance": 24.068048978955826,
+          "slope": 0.0,
+          "angle": 0.0
+        }
+      ],
+      "lift_lock": 0,
+      "geometry_hash": 2524653964045202910,
+      "revision": 0,
+      "valid": 1,
+      "appearance": {
+        "tint": -1,
+        "id": "fourthdimension:original"
+      },
+      "provider": "fourthdimension:original",
+      "variant": "launched_inverting_v1",
+      "from": 311324,
+      "to": 409627,
+      "id": [
+        -398343429,
+        1450855245,
+        -1082973841,
+        1079939820
+      ],
+      "family": "spinning"
+    },
+    {
+      "original_curve": {
+        "Starts": [
+          {
+            "V": [
+              4.440892098500626e-16,
+              0.24999997814430586,
+              0.5
+            ]
+          },
+          {
+            "V": [
+              0.50000004371139,
+              -1.2499999999999964,
+              24.5
+            ]
+          }
+        ],
+        "Girder": 0,
+        "Normals": [
+          {
+            "V": [
+              -0.9999999999999991,
+              -4.371139000186242e-08,
+              0.0
+            ]
+          },
+          {
+            "V": [
+              8.742278000372475e-08,
+              -0.9999999999999962,
+              0.0
+            ]
+          }
+        ],
+        "Primary": 1,
+        "Positions": [
+          {
+            "Pos": [
+              0,
+              0,
+              0
+            ]
+          },
+          {
+            "Pos": [
+              0,
+              -1,
+              24
+            ]
+          }
+        ],
+        "Axes": [
+          {
+            "V": [
+              0.0,
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "V": [
+              0.0,
+              0.0,
+              -1.0
+            ]
+          }
+        ],
+        "Material": "simulatedcoasters:coaster_track"
+      },
+      "magnets": [],
+      "profile": [
+        {
+          "distance": 0.0,
+          "slope": 0.0,
+          "angle": 0.0
+        },
+        {
+          "distance": 24.06804897349431,
+          "slope": 0.0,
+          "angle": 0.0
+        }
+      ],
+      "lift_lock": 0,
+      "geometry_hash": -7094880790086232609,
+      "revision": 0,
+      "valid": 1,
+      "appearance": {
+        "tint": -1,
+        "id": "fourthdimension:original"
+      },
+      "provider": "fourthdimension:original",
+      "variant": "launched_inverting_v1",
+      "from": 409627,
+      "to": 507930,
+      "id": [
+        1524173523,
+        -1127660851,
+        -1892039682,
+        -1593793347
+      ],
+      "family": "spinning"
+    },
+    {
+      "original_curve": {
+        "Starts": [
+          {
+            "V": [
+              0.50000004371139,
+              -0.24999999999999645,
+              0.5
+            ]
+          },
+          {
+            "V": [
+              1.0,
+              -0.7499999940375588,
+              24.5
+            ]
+          }
+        ],
+        "Girder": 0,
+        "Normals": [
+          {
+            "V": [
+              8.742278000372475e-08,
+              -0.9999999999999962,
+              0.0
+            ]
+          },
+          {
+            "V": [
+              1.0,
+              1.1924880454806037e-08,
+              0.0
+            ]
+          }
+        ],
+        "Primary": 1,
+        "Positions": [
+          {
+            "Pos": [
+              0,
+              0,
+              0
+            ]
+          },
+          {
+            "Pos": [
+              0,
+              -1,
+              24
+            ]
+          }
+        ],
+        "Axes": [
+          {
+            "V": [
+              0.0,
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "V": [
+              0.0,
+              0.0,
+              -1.0
+            ]
+          }
+        ],
+        "Material": "simulatedcoasters:coaster_track"
+      },
+      "magnets": [],
+      "profile": [
+        {
+          "distance": 0.0,
+          "slope": 0.0,
+          "angle": 0.0
+        },
+        {
+          "distance": 24.012697582740557,
+          "slope": 0.0,
+          "angle": 0.0
+        }
+      ],
+      "lift_lock": 0,
+      "geometry_hash": -6793566988925505320,
+      "revision": 0,
+      "valid": 1,
+      "appearance": {
+        "tint": -1,
+        "id": "fourthdimension:original"
+      },
+      "provider": "fourthdimension:original",
+      "variant": "launched_inverting_v1",
+      "from": 507930,
+      "to": 606233,
+      "id": [
+        -1426806408,
+        -2034415859,
+        -1670864505,
+        1931794876
+      ],
+      "family": "spinning"
+    },
+    {
+      "original_curve": {
+        "Starts": [
+          {
+            "V": [
+              1.0,
+              0.2500000059624412,
+              0.5
+            ]
+          },
+          {
+            "V": [
+              0.49999991257722,
+              -0.2500000000000071,
+              24.5
+            ]
+          }
+        ],
+        "Girder": 0,
+        "Normals": [
+          {
+            "V": [
+              1.0,
+              1.1924880454806037e-08,
+              0.0
+            ]
+          },
+          {
+            "V": [
+              -1.7484556000744886e-07,
+              0.9999999999999848,
+              0.0
+            ]
+          }
+        ],
+        "Primary": 1,
+        "Positions": [
+          {
+            "Pos": [
+              0,
+              0,
+              0
+            ]
+          },
+          {
+            "Pos": [
+              0,
+              -1,
+              24
+            ]
+          }
+        ],
+        "Axes": [
+          {
+            "V": [
+              0.0,
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "V": [
+              0.0,
+              0.0,
+              -1.0
+            ]
+          }
+        ],
+        "Material": "simulatedcoasters:coaster_track"
+      },
+      "magnets": [],
+      "profile": [
+        {
+          "distance": 0.0,
+          "slope": 0.0,
+          "angle": 0.0
+        },
+        {
+          "distance": 24.01269758607008,
+          "slope": 0.0,
+          "angle": 0.0
+        }
+      ],
+      "lift_lock": 0,
+      "geometry_hash": -467438287519474788,
+      "revision": 0,
+      "valid": 1,
+      "appearance": {
+        "tint": -1,
+        "id": "fourthdimension:original"
+      },
+      "provider": "fourthdimension:original",
+      "variant": "launched_inverting_v1",
+      "from": 606233,
+      "to": 704536,
+      "id": [
+        -773127629,
+        1218660055,
+        -1939839254,
+        818373592
+      ],
+      "family": "spinning"
+    },
+    {
+      "original_curve": {
+        "Starts": [
+          {
+            "V": [
+              0.49999991257722,
+              0.7499999999999929,
+              0.5
+            ]
+          },
+          {
+            "V": [
+              0.5,
+              0.75,
+              32.5
+            ]
+          }
+        ],
+        "Girder": 0,
+        "Normals": [
+          {
+            "V": [
+              -1.7484556000744886e-07,
+              0.9999999999999848,
+              0.0
+            ]
+          },
+          {
+            "V": [
+              0.0,
+              1.0,
+              0.0
+            ]
+          }
+        ],
+        "Primary": 1,
+        "Positions": [
+          {
+            "Pos": [
+              0,
+              0,
+              0
+            ]
+          },
+          {
+            "Pos": [
+              0,
+              0,
+              32
+            ]
+          }
+        ],
+        "Axes": [
+          {
+            "V": [
+              0.0,
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "V": [
+              0.0,
+              0.0,
+              -1.0
+            ]
+          }
+        ],
+        "Material": "simulatedcoasters:coaster_track"
+      },
+      "magnets": [
+        {
+          "mode": "DAMP",
+          "falloff": 0.1,
+          "strength": 12.0,
+          "start": 2.0,
+          "end": 30.0,
+          "targets": 1,
+          "direction": 1
+        }
+      ],
+      "profile": [
+        {
+          "distance": 0.0,
+          "slope": 0.0,
+          "angle": 0.0
+        },
+        {
+          "distance": 32.0,
+          "slope": 0.0,
+          "angle": 0.0
+        }
+      ],
+      "lift_lock": 0,
+      "geometry_hash": -8125791536779002239,
+      "revision": 0,
+      "valid": 1,
+      "appearance": {
+        "tint": -1,
+        "id": "fourthdimension:original"
+      },
+      "provider": "fourthdimension:original",
+      "variant": "launched_inverting_v1",
+      "from": 704536,
+      "to": 835608,
+      "id": [
+        -881143100,
+        1331053975,
+        -2018072116,
+        175831977
+      ],
+      "family": "spinning"
+    },
+    {
+      "original_curve": {
+        "Starts": [
+          {
+            "V": [
+              0.5,
+              0.75,
+              0.5
+            ]
+          },
+          {
+            "V": [
+              32.5,
+              0.75,
+              32.5
+            ]
+          }
+        ],
+        "Girder": 0,
+        "Normals": [
+          {
+            "V": [
+              0.0,
+              1.0,
+              0.0
+            ]
+          },
+          {
+            "V": [
+              0.0,
+              1.0,
+              0.0
+            ]
+          }
+        ],
+        "Primary": 1,
+        "Positions": [
+          {
+            "Pos": [
+              0,
+              0,
+              0
+            ]
+          },
+          {
+            "Pos": [
+              32,
+              0,
+              32
+            ]
+          }
+        ],
+        "Axes": [
+          {
+            "V": [
+              0.0,
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "V": [
+              -1.0,
+              0.0,
+              0.0
+            ]
+          }
+        ],
+        "Material": "simulatedcoasters:coaster_track"
+      },
+      "magnets": [],
+      "profile": [
+        {
+          "distance": 0.0,
+          "slope": 0.0,
+          "angle": 0.0
+        },
+        {
+          "distance": 50.27252916554089,
+          "slope": 0.0,
+          "angle": 0.0
+        }
+      ],
+      "lift_lock": 0,
+      "geometry_hash": 6768774850502350803,
+      "revision": 0,
+      "valid": 1,
+      "appearance": {
+        "tint": -1,
+        "id": "fourthdimension:original"
+      },
+      "provider": "fourthdimension:original",
+      "variant": "launched_inverting_v1",
+      "from": 835608,
+      "to": 8796093988888,
+      "id": [
+        -2100536106,
+        -839561392,
+        -1506621822,
+        200668917
+      ],
+      "family": "spinning"
+    },
+    {
+      "original_curve": {
+        "Starts": [
+          {
+            "V": [
+              0.5,
+              0.75,
+              0.5
+            ]
+          },
+          {
+            "V": [
+              32.5,
+              0.75,
+              0.5
+            ]
+          }
+        ],
+        "Girder": 0,
+        "Normals": [
+          {
+            "V": [
+              0.0,
+              1.0,
+              0.0
+            ]
+          },
+          {
+            "V": [
+              0.0,
+              1.0,
+              0.0
+            ]
+          }
+        ],
+        "Primary": 1,
+        "Positions": [
+          {
+            "Pos": [
+              0,
+              0,
+              0
+            ]
+          },
+          {
+            "Pos": [
+              32,
+              0,
+              0
+            ]
+          }
+        ],
+        "Axes": [
+          {
+            "V": [
+              1.0,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "V": [
+              -1.0,
+              0.0,
+              0.0
+            ]
+          }
+        ],
+        "Material": "simulatedcoasters:coaster_track"
+      },
+      "magnets": [],
+      "profile": [
+        {
+          "distance": 0.0,
+          "slope": 0.0,
+          "angle": 0.0
+        },
+        {
+          "distance": 32.0,
+          "slope": 0.0,
+          "angle": 0.0
+        }
+      ],
+      "lift_lock": 0,
+      "geometry_hash": 2597023070572024193,
+      "revision": 0,
+      "valid": 1,
+      "appearance": {
+        "tint": -1,
+        "id": "fourthdimension:original"
+      },
+      "provider": "fourthdimension:original",
+      "variant": "launched_inverting_v1",
+      "from": 8796093988888,
+      "to": 17592187011096,
+      "id": [
+        1232291525,
+        1600012765,
+        -2123289330,
+        -876991639
+      ],
+      "family": "spinning"
+    },
+    {
+      "original_curve": {
+        "Starts": [
+          {
+            "V": [
+              0.5,
+              0.75,
+              0.5
+            ]
+          },
+          {
+            "V": [
+              32.5,
+              0.75,
+              -31.5
+            ]
+          }
+        ],
+        "Girder": 0,
+        "Normals": [
+          {
+            "V": [
+              0.0,
+              1.0,
+              0.0
+            ]
+          },
+          {
+            "V": [
+              0.0,
+              1.0,
+              0.0
+            ]
+          }
+        ],
+        "Primary": 1,
+        "Positions": [
+          {
+            "Pos": [
+              0,
+              0,
+              0
+            ]
+          },
+          {
+            "Pos": [
+              32,
+              0,
+              -32
+            ]
+          }
+        ],
+        "Axes": [
+          {
+            "V": [
+              1.0,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "V": [
+              0.0,
+              0.0,
+              1.0
+            ]
+          }
+        ],
+        "Material": "simulatedcoasters:coaster_track"
+      },
+      "magnets": [],
+      "profile": [
+        {
+          "distance": 0.0,
+          "slope": 0.0,
+          "angle": 0.0
+        },
+        {
+          "distance": 50.272529165540824,
+          "slope": 0.0,
+          "angle": 0.0
+        }
+      ],
+      "lift_lock": 0,
+      "geometry_hash": -4877423678136992023,
+      "revision": 0,
+      "valid": 1,
+      "appearance": {
+        "tint": -1,
+        "id": "fourthdimension:original"
+      },
+      "provider": "fourthdimension:original",
+      "variant": "launched_inverting_v1",
+      "from": 17592187011096,
+      "to": 26388279902232,
+      "id": [
+        -1028187578,
+        -132757441,
+        -1834702401,
+        1724538275
+      ],
+      "family": "spinning"
+    },
+    {
+      "original_curve": {
+        "Starts": [
+          {
+            "V": [
+              0.5,
+              0.75,
+              0.5
+            ]
+          },
+          {
+            "V": [
+              0.5,
+              0.75,
+              -47.5
+            ]
+          }
+        ],
+        "Girder": 0,
+        "Normals": [
+          {
+            "V": [
+              0.0,
+              1.0,
+              0.0
+            ]
+          },
+          {
+            "V": [
+              0.0,
+              1.0,
+              0.0
+            ]
+          }
+        ],
+        "Primary": 1,
+        "Positions": [
+          {
+            "Pos": [
+              0,
+              0,
+              0
+            ]
+          },
+          {
+            "Pos": [
+              0,
+              0,
+              -48
+            ]
+          }
+        ],
+        "Axes": [
+          {
+            "V": [
+              0.0,
+              0.0,
+              -1.0
+            ]
+          },
+          {
+            "V": [
+              0.0,
+              0.0,
+              1.0
+            ]
+          }
+        ],
+        "Material": "simulatedcoasters:coaster_track"
+      },
+      "magnets": [],
+      "profile": [
+        {
+          "distance": 0.0,
+          "slope": 0.0,
+          "angle": 0.0
+        },
+        {
+          "distance": 48.0,
+          "slope": 0.0,
+          "angle": 0.0
+        }
+      ],
+      "lift_lock": 0,
+      "geometry_hash": -5639755833652339071,
+      "revision": 0,
+      "valid": 1,
+      "appearance": {
+        "tint": -1,
+        "id": "fourthdimension:original"
+      },
+      "provider": "fourthdimension:original",
+      "variant": "launched_inverting_v1",
+      "from": 26388279902232,
+      "to": 26388279705624,
+      "id": [
+        -250054695,
+        583812716,
+        -1663582888,
+        1367948703
+      ],
+      "family": "spinning"
+    },
+    {
+      "original_curve": {
+        "Starts": [
+          {
+            "V": [
+              0.5,
+              0.75,
+              0.5
+            ]
+          },
+          {
+            "V": [
+              0.5,
+              2.75,
+              -47.5
+            ]
+          }
+        ],
+        "Girder": 0,
+        "Normals": [
+          {
+            "V": [
+              0.0,
+              1.0,
+              0.0
+            ]
+          },
+          {
+            "V": [
+              0.0,
+              1.0,
+              0.0
+            ]
+          }
+        ],
+        "Primary": 1,
+        "Positions": [
+          {
+            "Pos": [
+              0,
+              0,
+              0
+            ]
+          },
+          {
+            "Pos": [
+              0,
+              2,
+              -48
+            ]
+          }
+        ],
+        "Axes": [
+          {
+            "V": [
+              0.0,
+              0.0,
+              -1.0
+            ]
+          },
+          {
+            "V": [
+              0.0,
+              0.0,
+              1.0
+            ]
+          }
+        ],
+        "Material": "simulatedcoasters:coaster_track"
+      },
+      "magnets": [],
+      "profile": [
+        {
+          "distance": 0.0,
+          "slope": 0.0,
+          "angle": 0.0
+        },
+        {
+          "distance": 48.04997518441157,
+          "slope": 0.0,
+          "angle": 0.0
+        }
+      ],
+      "lift_lock": 0,
+      "geometry_hash": -6155114686968502427,
+      "revision": 0,
+      "valid": 1,
+      "appearance": {
+        "tint": -1,
+        "id": "fourthdimension:original"
+      },
+      "provider": "fourthdimension:original",
+      "variant": "launched_inverting_v1",
+      "from": 26388279705624,
+      "to": 26388279509018,
+      "id": [
+        -957332076,
+        -93565005,
+        -1263265146,
+        -1294435354
+      ],
+      "family": "spinning"
+    },
+    {
+      "original_curve": {
+        "Starts": [
+          {
+            "V": [
+              0.5,
+              0.75,
+              0.5
+            ]
+          },
+          {
+            "V": [
+              0.5,
+              2.75,
+              -47.5
+            ]
+          }
+        ],
+        "Girder": 0,
+        "Normals": [
+          {
+            "V": [
+              0.0,
+              1.0,
+              0.0
+            ]
+          },
+          {
+            "V": [
+              0.0,
+              1.0,
+              0.0
+            ]
+          }
+        ],
+        "Primary": 1,
+        "Positions": [
+          {
+            "Pos": [
+              0,
+              0,
+              0
+            ]
+          },
+          {
+            "Pos": [
+              0,
+              2,
+              -48
+            ]
+          }
+        ],
+        "Axes": [
+          {
+            "V": [
+              0.0,
+              0.0,
+              -1.0
+            ]
+          },
+          {
+            "V": [
+              0.0,
+              0.0,
+              1.0
+            ]
+          }
+        ],
+        "Material": "simulatedcoasters:coaster_track"
+      },
+      "magnets": [],
+      "profile": [
+        {
+          "distance": 0.0,
+          "slope": 0.0,
+          "angle": 0.0
+        },
+        {
+          "distance": 48.04997518441157,
+          "slope": 0.0,
+          "angle": 0.0
+        }
+      ],
+      "lift_lock": 0,
+      "geometry_hash": -2513507069923565851,
+      "revision": 0,
+      "valid": 1,
+      "appearance": {
+        "tint": -1,
+        "id": "fourthdimension:original"
+      },
+      "provider": "fourthdimension:original",
+      "variant": "launched_inverting_v1",
+      "from": 26388279509018,
+      "to": 26388279312412,
+      "id": [
+        1092367142,
+        748765297,
+        -2040679590,
+        -1156412661
+      ],
+      "family": "spinning"
+    },
+    {
+      "original_curve": {
+        "Starts": [
+          {
+            "V": [
+              0.5,
+              0.75,
+              0.5
+            ]
+          },
+          {
+            "V": [
+              0.5,
+              0.75,
+              -47.5
+            ]
+          }
+        ],
+        "Girder": 0,
+        "Normals": [
+          {
+            "V": [
+              0.0,
+              1.0,
+              0.0
+            ]
+          },
+          {
+            "V": [
+              0.0,
+              1.0,
+              0.0
+            ]
+          }
+        ],
+        "Primary": 1,
+        "Positions": [
+          {
+            "Pos": [
+              0,
+              0,
+              0
+            ]
+          },
+          {
+            "Pos": [
+              0,
+              0,
+              -48
+            ]
+          }
+        ],
+        "Axes": [
+          {
+            "V": [
+              0.0,
+              0.0,
+              -1.0
+            ]
+          },
+          {
+            "V": [
+              0.0,
+              0.0,
+              1.0
+            ]
+          }
+        ],
+        "Material": "simulatedcoasters:coaster_track"
+      },
+      "magnets": [],
+      "profile": [
+        {
+          "distance": 0.0,
+          "slope": 0.0,
+          "angle": 0.0
+        },
+        {
+          "distance": 48.0,
+          "slope": 0.0,
+          "angle": 0.0
+        }
+      ],
+      "lift_lock": 0,
+      "geometry_hash": -4975520114627809919,
+      "revision": 0,
+      "valid": 1,
+      "appearance": {
+        "tint": -1,
+        "id": "fourthdimension:original"
+      },
+      "provider": "fourthdimension:original",
+      "variant": "launched_inverting_v1",
+      "from": 26388279312412,
+      "to": 26388279115804,
+      "id": [
+        -1100108029,
+        367284096,
+        -1523533480,
+        148871500
+      ],
+      "family": "spinning"
+    },
+    {
+      "original_curve": {
+        "Starts": [
+          {
+            "V": [
+              0.5,
+              0.75,
+              0.5
+            ]
+          },
+          {
+            "V": [
+              -31.5,
+              0.75,
+              -31.5
+            ]
+          }
+        ],
+        "Girder": 0,
+        "Normals": [
+          {
+            "V": [
+              0.0,
+              1.0,
+              0.0
+            ]
+          },
+          {
+            "V": [
+              0.0,
+              1.0,
+              0.0
+            ]
+          }
+        ],
+        "Primary": 1,
+        "Positions": [
+          {
+            "Pos": [
+              0,
+              0,
+              0
+            ]
+          },
+          {
+            "Pos": [
+              -32,
+              0,
+              -32
+            ]
+          }
+        ],
+        "Axes": [
+          {
+            "V": [
+              0.0,
+              0.0,
+              -1.0
+            ]
+          },
+          {
+            "V": [
+              1.0,
+              0.0,
+              0.0
+            ]
+          }
+        ],
+        "Material": "simulatedcoasters:coaster_track"
+      },
+      "magnets": [],
+      "profile": [
+        {
+          "distance": 0.0,
+          "slope": 0.0,
+          "angle": 0.0
+        },
+        {
+          "distance": 50.27253011433401,
+          "slope": 0.0,
+          "angle": 0.0
+        }
+      ],
+      "lift_lock": 0,
+      "geometry_hash": -5547801153699525429,
+      "revision": 0,
+      "valid": 1,
+      "appearance": {
+        "tint": -1,
+        "id": "fourthdimension:original"
+      },
+      "provider": "fourthdimension:original",
+      "variant": "launched_inverting_v1",
+      "from": 26388279115804,
+      "to": 17867063869468,
+      "id": [
+        -369442164,
+        848250758,
+        -1671807611,
+        1209685572
+      ],
+      "family": "spinning"
+    },
+    {
+      "original_curve": {
+        "Starts": [
+          {
+            "V": [
+              0.5,
+              0.75,
+              0.5
+            ]
+          },
+          {
+            "V": [
+              -31.5,
+              0.75,
+              0.5
+            ]
+          }
+        ],
+        "Girder": 0,
+        "Normals": [
+          {
+            "V": [
+              0.0,
+              1.0,
+              0.0
+            ]
+          },
+          {
+            "V": [
+              0.0,
+              1.0,
+              0.0
+            ]
+          }
+        ],
+        "Primary": 1,
+        "Positions": [
+          {
+            "Pos": [
+              0,
+              0,
+              0
+            ]
+          },
+          {
+            "Pos": [
+              -32,
+              0,
+              0
+            ]
+          }
+        ],
+        "Axes": [
+          {
+            "V": [
+              -1.0,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "V": [
+              1.0,
+              0.0,
+              0.0
+            ]
+          }
+        ],
+        "Material": "simulatedcoasters:coaster_track"
+      },
+      "magnets": [],
+      "profile": [
+        {
+          "distance": 0.0,
+          "slope": 0.0,
+          "angle": 0.0
+        },
+        {
+          "distance": 32.0,
+          "slope": 0.0,
+          "angle": 0.0
+        }
+      ],
+      "lift_lock": 0,
+      "geometry_hash": -1199674286030704511,
+      "revision": 0,
+      "valid": 1,
+      "appearance": {
+        "tint": -1,
+        "id": "fourthdimension:original"
+      },
+      "provider": "fourthdimension:original",
+      "variant": "launched_inverting_v1",
+      "from": 17867063869468,
+      "to": 9070970847260,
+      "id": [
+        -1417635757,
+        56838496,
+        -1145568406,
+        686047035
+      ],
+      "family": "spinning"
+    },
+    {
+      "original_curve": {
+        "Starts": [
+          {
+            "V": [
+              0.5,
+              0.75,
+              0.5
+            ]
+          },
+          {
+            "V": [
+              -31.5,
+              0.75,
+              32.5
+            ]
+          }
+        ],
+        "Girder": 0,
+        "Normals": [
+          {
+            "V": [
+              0.0,
+              1.0,
+              0.0
+            ]
+          },
+          {
+            "V": [
+              0.0,
+              1.0,
+              0.0
+            ]
+          }
+        ],
+        "Primary": 1,
+        "Positions": [
+          {
+            "Pos": [
+              0,
+              0,
+              0
+            ]
+          },
+          {
+            "Pos": [
+              -32,
+              0,
+              32
+            ]
+          }
+        ],
+        "Axes": [
+          {
+            "V": [
+              -1.0,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "V": [
+              0.0,
+              0.0,
+              -1.0
+            ]
+          }
+        ],
+        "Material": "simulatedcoasters:coaster_track"
+      },
+      "magnets": [
+        {
+          "mode": "DAMP",
+          "falloff": 0.1,
+          "strength": 12.0,
+          "start": 2.0,
+          "end": 48.27252916554095,
+          "targets": 1,
+          "direction": 1
+        }
+      ],
+      "profile": [
+        {
+          "distance": 0.0,
+          "slope": 0.0,
+          "angle": 0.0
+        },
+        {
+          "distance": 50.27252916554095,
+          "slope": 0.0,
+          "angle": 0.0
+        }
+      ],
+      "lift_lock": 0,
+      "geometry_hash": 7305517039073556673,
+      "revision": 0,
+      "valid": 1,
+      "appearance": {
+        "tint": -1,
+        "id": "fourthdimension:original"
+      },
+      "provider": "fourthdimension:original",
+      "variant": "launched_inverting_v1",
+      "from": 9070970847260,
+      "to": 49180,
+      "id": [
+        188009720,
+        -1392751972,
+        -2142571591,
+        1464134856
+      ],
+      "family": "spinning"
+    },
+    {
+      "original_curve": {
+        "Starts": [
+          {
+            "V": [
+              0.5,
+              0.75,
+              0.5
+            ]
+          },
+          {
+            "V": [
+              0.5,
+              0.75,
+              64.5
+            ]
+          }
+        ],
+        "Girder": 0,
+        "Normals": [
+          {
+            "V": [
+              0.0,
+              1.0,
+              0.0
+            ]
+          },
+          {
+            "V": [
+              0.0,
+              1.0,
+              0.0
+            ]
+          }
+        ],
+        "Primary": 1,
+        "Positions": [
+          {
+            "Pos": [
+              0,
+              0,
+              0
+            ]
+          },
+          {
+            "Pos": [
+              0,
+              0,
+              64
+            ]
+          }
+        ],
+        "Axes": [
+          {
+            "V": [
+              0.0,
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "V": [
+              0.0,
+              0.0,
+              -1.0
+            ]
+          }
+        ],
+        "Material": "simulatedcoasters:coaster_track"
+      },
+      "magnets": [
+        {
+          "mode": "INDUCE",
+          "falloff": 0.1,
+          "strength": 6.0,
+          "start": 16.0,
+          "end": 56.0,
+          "targets": 1,
+          "direction": 1
+        }
+      ],
+      "profile": [
+        {
+          "distance": 0.0,
+          "slope": 0.0,
+          "angle": 0.0
+        },
+        {
+          "distance": 64.0,
+          "slope": 0.0,
+          "angle": 0.0
+        }
+      ],
+      "lift_lock": 0,
+      "geometry_hash": -3989051936942097663,
+      "revision": 0,
+      "valid": 1,
+      "appearance": {
+        "tint": -1,
+        "id": "fourthdimension:original"
+      },
+      "provider": "fourthdimension:original",
+      "variant": "launched_inverting_v1",
+      "from": -68719476686820,
+      "to": -68719476424676,
+      "id": [
+        -43220652,
+        -383302780,
+        -1368499070,
+        556330022
+      ],
+      "family": "spinning"
+    },
+    {
+      "original_curve": {
+        "Starts": [
+          {
+            "V": [
+              0.5,
+              0.75,
+              0.5
+            ]
+          },
+          {
+            "V": [
+              0.0,
+              -0.7500000218556941,
+              24.5
+            ]
+          }
+        ],
+        "Girder": 0,
+        "Normals": [
+          {
+            "V": [
+              0.0,
+              1.0,
+              0.0
+            ]
+          },
+          {
+            "V": [
+              -0.9999999999999991,
+              -4.371139000186242e-08,
+              0.0
+            ]
+          }
+        ],
+        "Primary": 1,
+        "Positions": [
+          {
+            "Pos": [
+              0,
+              0,
+              0
+            ]
+          },
+          {
+            "Pos": [
+              0,
+              -1,
+              24
+            ]
+          }
+        ],
+        "Axes": [
+          {
+            "V": [
+              0.0,
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "V": [
+              0.0,
+              0.0,
+              -1.0
+            ]
+          }
+        ],
+        "Material": "simulatedcoasters:coaster_track"
+      },
+      "magnets": [],
+      "profile": [
+        {
+          "distance": 0.0,
+          "slope": 0.0,
+          "angle": 0.0
+        },
+        {
+          "distance": 24.068048978955844,
+          "slope": 0.0,
+          "angle": 0.0
+        }
+      ],
+      "lift_lock": 0,
+      "geometry_hash": -3599186638527485602,
+      "revision": 0,
+      "valid": 1,
+      "appearance": {
+        "tint": -1,
+        "id": "fourthdimension:original"
+      },
+      "provider": "fourthdimension:original",
+      "variant": "launched_inverting_v1",
+      "from": -68719476424676,
+      "to": -68719476326373,
+      "id": [
+        248994152,
+        -1485813502,
+        -1404236659,
+        829708373
+      ],
+      "family": "spinning"
+    },
+    {
+      "original_curve": {
+        "Starts": [
+          {
+            "V": [
+              0.0,
+              0.24999997814430586,
+              0.5
+            ]
+          },
+          {
+            "V": [
+              0.5000000437113954,
+              -1.2499999999999964,
+              24.5
+            ]
+          }
+        ],
+        "Girder": 0,
+        "Normals": [
+          {
+            "V": [
+              -0.9999999999999991,
+              -4.371139000186242e-08,
+              0.0
+            ]
+          },
+          {
+            "V": [
+              8.742278000372475e-08,
+              -0.9999999999999962,
+              0.0
+            ]
+          }
+        ],
+        "Primary": 1,
+        "Positions": [
+          {
+            "Pos": [
+              0,
+              0,
+              0
+            ]
+          },
+          {
+            "Pos": [
+              0,
+              -1,
+              24
+            ]
+          }
+        ],
+        "Axes": [
+          {
+            "V": [
+              0.0,
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "V": [
+              0.0,
+              0.0,
+              -1.0
+            ]
+          }
+        ],
+        "Material": "simulatedcoasters:coaster_track"
+      },
+      "magnets": [],
+      "profile": [
+        {
+          "distance": 0.0,
+          "slope": 0.0,
+          "angle": 0.0
+        },
+        {
+          "distance": 24.068048973494324,
+          "slope": 0.0,
+          "angle": 0.0
+        }
+      ],
+      "lift_lock": 0,
+      "geometry_hash": -8642100793270928033,
+      "revision": 0,
+      "valid": 1,
+      "appearance": {
+        "tint": -1,
+        "id": "fourthdimension:original"
+      },
+      "provider": "fourthdimension:original",
+      "variant": "launched_inverting_v1",
+      "from": -68719476326373,
+      "to": -68719476228070,
+      "id": [
+        1971418067,
+        -24884485,
+        -1503664187,
+        -69604596
+      ],
+      "family": "spinning"
+    },
+    {
+      "original_curve": {
+        "Starts": [
+          {
+            "V": [
+              0.5000000437113954,
+              -0.24999999999999645,
+              0.5
+            ]
+          },
+          {
+            "V": [
+              1.0,
+              -0.7499999940375588,
+              24.5
+            ]
+          }
+        ],
+        "Girder": 0,
+        "Normals": [
+          {
+            "V": [
+              8.742278000372475e-08,
+              -0.9999999999999962,
+              0.0
+            ]
+          },
+          {
+            "V": [
+              1.0,
+              1.1924880454806037e-08,
+              0.0
+            ]
+          }
+        ],
+        "Primary": 1,
+        "Positions": [
+          {
+            "Pos": [
+              0,
+              0,
+              0
+            ]
+          },
+          {
+            "Pos": [
+              0,
+              -1,
+              24
+            ]
+          }
+        ],
+        "Axes": [
+          {
+            "V": [
+              0.0,
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "V": [
+              0.0,
+              0.0,
+              -1.0
+            ]
+          }
+        ],
+        "Material": "simulatedcoasters:coaster_track"
+      },
+      "magnets": [],
+      "profile": [
+        {
+          "distance": 0.0,
+          "slope": 0.0,
+          "angle": 0.0
+        },
+        {
+          "distance": 24.01269758274056,
+          "slope": 0.0,
+          "angle": 0.0
+        }
+      ],
+      "lift_lock": 0,
+      "geometry_hash": -6461495459784416936,
+      "revision": 0,
+      "valid": 1,
+      "appearance": {
+        "tint": -1,
+        "id": "fourthdimension:original"
+      },
+      "provider": "fourthdimension:original",
+      "variant": "launched_inverting_v1",
+      "from": -68719476228070,
+      "to": -68719476129767,
+      "id": [
+        -101577563,
+        -2129705671,
+        -1540953714,
+        644806552
+      ],
+      "family": "spinning"
+    },
+    {
+      "original_curve": {
+        "Starts": [
+          {
+            "V": [
+              1.0,
+              0.2500000059624412,
+              0.5
+            ]
+          },
+          {
+            "V": [
+              0.4999999125772092,
+              -0.2500000000000071,
+              24.5
+            ]
+          }
+        ],
+        "Girder": 0,
+        "Normals": [
+          {
+            "V": [
+              1.0,
+              1.1924880454806037e-08,
+              0.0
+            ]
+          },
+          {
+            "V": [
+              -1.7484556000744886e-07,
+              0.9999999999999848,
+              0.0
+            ]
+          }
+        ],
+        "Primary": 1,
+        "Positions": [
+          {
+            "Pos": [
+              0,
+              0,
+              0
+            ]
+          },
+          {
+            "Pos": [
+              0,
+              -1,
+              24
+            ]
+          }
+        ],
+        "Axes": [
+          {
+            "V": [
+              0.0,
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "V": [
+              0.0,
+              0.0,
+              -1.0
+            ]
+          }
+        ],
+        "Material": "simulatedcoasters:coaster_track"
+      },
+      "magnets": [],
+      "profile": [
+        {
+          "distance": 0.0,
+          "slope": 0.0,
+          "angle": 0.0
+        },
+        {
+          "distance": 24.01269758607012,
+          "slope": 0.0,
+          "angle": 0.0
+        }
+      ],
+      "lift_lock": 0,
+      "geometry_hash": 6900886457001688604,
+      "revision": 0,
+      "valid": 1,
+      "appearance": {
+        "tint": -1,
+        "id": "fourthdimension:original"
+      },
+      "provider": "fourthdimension:original",
+      "variant": "launched_inverting_v1",
+      "from": -68719476129767,
+      "to": -68719476031464,
+      "id": [
+        668383341,
+        988889101,
+        -1820870851,
+        -2088660880
+      ],
+      "family": "spinning"
+    },
+    {
+      "original_curve": {
+        "Starts": [
+          {
+            "V": [
+              0.4999999125772092,
+              0.7499999999999929,
+              0.5
+            ]
+          },
+          {
+            "V": [
+              0.5,
+              0.75,
+              32.5
+            ]
+          }
+        ],
+        "Girder": 0,
+        "Normals": [
+          {
+            "V": [
+              -1.7484556000744886e-07,
+              0.9999999999999848,
+              0.0
+            ]
+          },
+          {
+            "V": [
+              0.0,
+              1.0,
+              0.0
+            ]
+          }
+        ],
+        "Primary": 1,
+        "Positions": [
+          {
+            "Pos": [
+              0,
+              0,
+              0
+            ]
+          },
+          {
+            "Pos": [
+              0,
+              0,
+              32
+            ]
+          }
+        ],
+        "Axes": [
+          {
+            "V": [
+              0.0,
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "V": [
+              0.0,
+              0.0,
+              -1.0
+            ]
+          }
+        ],
+        "Material": "simulatedcoasters:coaster_track"
+      },
+      "magnets": [
+        {
+          "mode": "DAMP",
+          "falloff": 0.1,
+          "strength": 12.0,
+          "start": 2.0,
+          "end": 30.0,
+          "targets": 1,
+          "direction": 1
+        }
+      ],
+      "profile": [
+        {
+          "distance": 0.0,
+          "slope": 0.0,
+          "angle": 0.0
+        },
+        {
+          "distance": 32.0,
+          "slope": 0.0,
+          "angle": 0.0
+        }
+      ],
+      "lift_lock": 0,
+      "geometry_hash": -6901785697534877439,
+      "revision": 0,
+      "valid": 1,
+      "appearance": {
+        "tint": -1,
+        "id": "fourthdimension:original"
+      },
+      "provider": "fourthdimension:original",
+      "variant": "launched_inverting_v1",
+      "from": -68719476031464,
+      "to": -68719475900392,
+      "id": [
+        -1903928071,
+        -2096412582,
+        -1249874622,
+        21722629
+      ],
+      "family": "spinning"
+    },
+    {
+      "original_curve": {
+        "Starts": [
+          {
+            "V": [
+              0.5,
+              0.75,
+              0.5
+            ]
+          },
+          {
+            "V": [
+              32.5,
+              0.75,
+              32.5
+            ]
+          }
+        ],
+        "Girder": 0,
+        "Normals": [
+          {
+            "V": [
+              0.0,
+              1.0,
+              0.0
+            ]
+          },
+          {
+            "V": [
+              0.0,
+              1.0,
+              0.0
+            ]
+          }
+        ],
+        "Primary": 1,
+        "Positions": [
+          {
+            "Pos": [
+              0,
+              0,
+              0
+            ]
+          },
+          {
+            "Pos": [
+              32,
+              0,
+              32
+            ]
+          }
+        ],
+        "Axes": [
+          {
+            "V": [
+              0.0,
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "V": [
+              -1.0,
+              0.0,
+              0.0
+            ]
+          }
+        ],
+        "Material": "simulatedcoasters:coaster_track"
+      },
+      "magnets": [],
+      "profile": [
+        {
+          "distance": 0.0,
+          "slope": 0.0,
+          "angle": 0.0
+        },
+        {
+          "distance": 50.27252916554083,
+          "slope": 0.0,
+          "angle": 0.0
+        }
+      ],
+      "lift_lock": 0,
+      "geometry_hash": -1242299870296752301,
+      "revision": 0,
+      "valid": 1,
+      "appearance": {
+        "tint": -1,
+        "id": "fourthdimension:original"
+      },
+      "provider": "fourthdimension:original",
+      "variant": "launched_inverting_v1",
+      "from": -68719475900392,
+      "to": -59923382747112,
+      "id": [
+        -2125608370,
+        -94223252,
+        -1298785640,
+        1463150998
+      ],
+      "family": "spinning"
+    },
+    {
+      "original_curve": {
+        "Starts": [
+          {
+            "V": [
+              0.5,
+              0.75,
+              0.5
+            ]
+          },
+          {
+            "V": [
+              32.5,
+              0.75,
+              0.5
+            ]
+          }
+        ],
+        "Girder": 0,
+        "Normals": [
+          {
+            "V": [
+              0.0,
+              1.0,
+              0.0
+            ]
+          },
+          {
+            "V": [
+              0.0,
+              1.0,
+              0.0
+            ]
+          }
+        ],
+        "Primary": 1,
+        "Positions": [
+          {
+            "Pos": [
+              0,
+              0,
+              0
+            ]
+          },
+          {
+            "Pos": [
+              32,
+              0,
+              0
+            ]
+          }
+        ],
+        "Axes": [
+          {
+            "V": [
+              1.0,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "V": [
+              -1.0,
+              0.0,
+              0.0
+            ]
+          }
+        ],
+        "Material": "simulatedcoasters:coaster_track"
+      },
+      "magnets": [],
+      "profile": [
+        {
+          "distance": 0.0,
+          "slope": 0.0,
+          "angle": 0.0
+        },
+        {
+          "distance": 32.0,
+          "slope": 0.0,
+          "angle": 0.0
+        }
+      ],
+      "lift_lock": 0,
+      "geometry_hash": 6001875692616077825,
+      "revision": 0,
+      "valid": 1,
+      "appearance": {
+        "tint": -1,
+        "id": "fourthdimension:original"
+      },
+      "provider": "fourthdimension:original",
+      "variant": "launched_inverting_v1",
+      "from": -59923382747112,
+      "to": -51127289724904,
+      "id": [
+        745934597,
+        -2109911958,
+        -1606516763,
+        -1756541584
+      ],
+      "family": "spinning"
+    },
+    {
+      "original_curve": {
+        "Starts": [
+          {
+            "V": [
+              0.5,
+              0.75,
+              0.5
+            ]
+          },
+          {
+            "V": [
+              32.5,
+              0.75,
+              -31.5
+            ]
+          }
+        ],
+        "Girder": 0,
+        "Normals": [
+          {
+            "V": [
+              0.0,
+              1.0,
+              0.0
+            ]
+          },
+          {
+            "V": [
+              0.0,
+              1.0,
+              0.0
+            ]
+          }
+        ],
+        "Primary": 1,
+        "Positions": [
+          {
+            "Pos": [
+              0,
+              0,
+              0
+            ]
+          },
+          {
+            "Pos": [
+              32,
+              0,
+              -32
+            ]
+          }
+        ],
+        "Axes": [
+          {
+            "V": [
+              1.0,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "V": [
+              0.0,
+              0.0,
+              1.0
+            ]
+          }
+        ],
+        "Material": "simulatedcoasters:coaster_track"
+      },
+      "magnets": [],
+      "profile": [
+        {
+          "distance": 0.0,
+          "slope": 0.0,
+          "angle": 0.0
+        },
+        {
+          "distance": 50.27252916554083,
+          "slope": 0.0,
+          "angle": 0.0
+        }
+      ],
+      "lift_lock": 0,
+      "geometry_hash": -6243515520953381783,
+      "revision": 0,
+      "valid": 1,
+      "appearance": {
+        "tint": -1,
+        "id": "fourthdimension:original"
+      },
+      "provider": "fourthdimension:original",
+      "variant": "launched_inverting_v1",
+      "from": -51127289724904,
+      "to": -42331196833768,
+      "id": [
+        1138562197,
+        -583775678,
+        -1308263736,
+        -426679689
+      ],
+      "family": "spinning"
+    },
+    {
+      "original_curve": {
+        "Starts": [
+          {
+            "V": [
+              0.5,
+              0.75,
+              0.5
+            ]
+          },
+          {
+            "V": [
+              0.5,
+              0.75,
+              -47.5
+            ]
+          }
+        ],
+        "Girder": 0,
+        "Normals": [
+          {
+            "V": [
+              0.0,
+              1.0,
+              0.0
+            ]
+          },
+          {
+            "V": [
+              0.0,
+              1.0,
+              0.0
+            ]
+          }
+        ],
+        "Primary": 1,
+        "Positions": [
+          {
+            "Pos": [
+              0,
+              0,
+              0
+            ]
+          },
+          {
+            "Pos": [
+              0,
+              0,
+              -48
+            ]
+          }
+        ],
+        "Axes": [
+          {
+            "V": [
+              0.0,
+              0.0,
+              -1.0
+            ]
+          },
+          {
+            "V": [
+              0.0,
+              0.0,
+              1.0
+            ]
+          }
+        ],
+        "Material": "simulatedcoasters:coaster_track"
+      },
+      "magnets": [],
+      "profile": [
+        {
+          "distance": 0.0,
+          "slope": 0.0,
+          "angle": 0.0
+        },
+        {
+          "distance": 48.0,
+          "slope": 0.0,
+          "angle": 0.0
+        }
+      ],
+      "lift_lock": 0,
+      "geometry_hash": 2089387716198541569,
+      "revision": 0,
+      "valid": 1,
+      "appearance": {
+        "tint": -1,
+        "id": "fourthdimension:original"
+      },
+      "provider": "fourthdimension:original",
+      "variant": "launched_inverting_v1",
+      "from": -42331196833768,
+      "to": -42331197030376,
+      "id": [
+        52665029,
+        -1221246072,
+        -1166099204,
+        -72196948
+      ],
+      "family": "spinning"
+    },
+    {
+      "original_curve": {
+        "Starts": [
+          {
+            "V": [
+              0.5,
+              0.75,
+              0.5
+            ]
+          },
+          {
+            "V": [
+              0.5,
+              2.75,
+              -47.5
+            ]
+          }
+        ],
+        "Girder": 0,
+        "Normals": [
+          {
+            "V": [
+              0.0,
+              1.0,
+              0.0
+            ]
+          },
+          {
+            "V": [
+              0.0,
+              1.0,
+              0.0
+            ]
+          }
+        ],
+        "Primary": 1,
+        "Positions": [
+          {
+            "Pos": [
+              0,
+              0,
+              0
+            ]
+          },
+          {
+            "Pos": [
+              0,
+              2,
+              -48
+            ]
+          }
+        ],
+        "Axes": [
+          {
+            "V": [
+              0.0,
+              0.0,
+              -1.0
+            ]
+          },
+          {
+            "V": [
+              0.0,
+              0.0,
+              1.0
+            ]
+          }
+        ],
+        "Material": "simulatedcoasters:coaster_track"
+      },
+      "magnets": [],
+      "profile": [
+        {
+          "distance": 0.0,
+          "slope": 0.0,
+          "angle": 0.0
+        },
+        {
+          "distance": 48.04997518441157,
+          "slope": 0.0,
+          "angle": 0.0
+        }
+      ],
+      "lift_lock": 0,
+      "geometry_hash": 5158584985157176293,
+      "revision": 0,
+      "valid": 1,
+      "appearance": {
+        "tint": -1,
+        "id": "fourthdimension:original"
+      },
+      "provider": "fourthdimension:original",
+      "variant": "launched_inverting_v1",
+      "from": -42331197030376,
+      "to": -42331197226982,
+      "id": [
+        215897807,
+        2103984956,
+        -1335071467,
+        -194967708
+      ],
+      "family": "spinning"
+    },
+    {
+      "original_curve": {
+        "Starts": [
+          {
+            "V": [
+              0.5,
+              0.75,
+              0.5
+            ]
+          },
+          {
+            "V": [
+              0.5,
+              2.75,
+              -47.5
+            ]
+          }
+        ],
+        "Girder": 0,
+        "Normals": [
+          {
+            "V": [
+              0.0,
+              1.0,
+              0.0
+            ]
+          },
+          {
+            "V": [
+              0.0,
+              1.0,
+              0.0
+            ]
+          }
+        ],
+        "Primary": 1,
+        "Positions": [
+          {
+            "Pos": [
+              0,
+              0,
+              0
+            ]
+          },
+          {
+            "Pos": [
+              0,
+              2,
+              -48
+            ]
+          }
+        ],
+        "Axes": [
+          {
+            "V": [
+              0.0,
+              0.0,
+              -1.0
+            ]
+          },
+          {
+            "V": [
+              0.0,
+              0.0,
+              1.0
+            ]
+          }
+        ],
+        "Material": "simulatedcoasters:coaster_track"
+      },
+      "magnets": [],
+      "profile": [
+        {
+          "distance": 0.0,
+          "slope": 0.0,
+          "angle": 0.0
+        },
+        {
+          "distance": 48.04997518441157,
+          "slope": 0.0,
+          "angle": 0.0
+        }
+      ],
+      "lift_lock": 0,
+      "geometry_hash": -5273607639773379995,
+      "revision": 0,
+      "valid": 1,
+      "appearance": {
+        "tint": -1,
+        "id": "fourthdimension:original"
+      },
+      "provider": "fourthdimension:original",
+      "variant": "launched_inverting_v1",
+      "from": -42331197226982,
+      "to": -42331197423588,
+      "id": [
+        -1019680167,
+        -1313521618,
+        -1409854398,
+        1552909627
+      ],
+      "family": "spinning"
+    },
+    {
+      "original_curve": {
+        "Starts": [
+          {
+            "V": [
+              0.5,
+              0.75,
+              0.5
+            ]
+          },
+          {
+            "V": [
+              0.5,
+              0.75,
+              -47.5
+            ]
+          }
+        ],
+        "Girder": 0,
+        "Normals": [
+          {
+            "V": [
+              0.0,
+              1.0,
+              0.0
+            ]
+          },
+          {
+            "V": [
+              0.0,
+              1.0,
+              0.0
+            ]
+          }
+        ],
+        "Primary": 1,
+        "Positions": [
+          {
+            "Pos": [
+              0,
+              0,
+              0
+            ]
+          },
+          {
+            "Pos": [
+              0,
+              0,
+              -48
+            ]
+          }
+        ],
+        "Axes": [
+          {
+            "V": [
+              0.0,
+              0.0,
+              -1.0
+            ]
+          },
+          {
+            "V": [
+              0.0,
+              0.0,
+              1.0
+            ]
+          }
+        ],
+        "Material": "simulatedcoasters:coaster_track"
+      },
+      "magnets": [],
+      "profile": [
+        {
+          "distance": 0.0,
+          "slope": 0.0,
+          "angle": 0.0
+        },
+        {
+          "distance": 48.0,
+          "slope": 0.0,
+          "angle": 0.0
+        }
+      ],
+      "lift_lock": 0,
+      "geometry_hash": 4877402625247260673,
+      "revision": 0,
+      "valid": 1,
+      "appearance": {
+        "tint": -1,
+        "id": "fourthdimension:original"
+      },
+      "provider": "fourthdimension:original",
+      "variant": "launched_inverting_v1",
+      "from": -42331197423588,
+      "to": -42331197620196,
+      "id": [
+        340964589,
+        571688355,
+        -2026470994,
+        545486157
+      ],
+      "family": "spinning"
+    },
+    {
+      "original_curve": {
+        "Starts": [
+          {
+            "V": [
+              0.5,
+              0.75,
+              0.5
+            ]
+          },
+          {
+            "V": [
+              -31.5,
+              0.75,
+              -31.5
+            ]
+          }
+        ],
+        "Girder": 0,
+        "Normals": [
+          {
+            "V": [
+              0.0,
+              1.0,
+              0.0
+            ]
+          },
+          {
+            "V": [
+              0.0,
+              1.0,
+              0.0
+            ]
+          }
+        ],
+        "Primary": 1,
+        "Positions": [
+          {
+            "Pos": [
+              0,
+              0,
+              0
+            ]
+          },
+          {
+            "Pos": [
+              -32,
+              0,
+              -32
+            ]
+          }
+        ],
+        "Axes": [
+          {
+            "V": [
+              0.0,
+              0.0,
+              -1.0
+            ]
+          },
+          {
+            "V": [
+              1.0,
+              0.0,
+              0.0
+            ]
+          }
+        ],
+        "Material": "simulatedcoasters:coaster_track"
+      },
+      "magnets": [],
+      "profile": [
+        {
+          "distance": 0.0,
+          "slope": 0.0,
+          "angle": 0.0
+        },
+        {
+          "distance": 50.27253011433394,
+          "slope": 0.0,
+          "angle": 0.0
+        }
+      ],
+      "lift_lock": 0,
+      "geometry_hash": 4029337586763070539,
+      "revision": 0,
+      "valid": 1,
+      "appearance": {
+        "tint": -1,
+        "id": "fourthdimension:original"
+      },
+      "provider": "fourthdimension:original",
+      "variant": "launched_inverting_v1",
+      "from": -42331197620196,
+      "to": -50852412866532,
+      "id": [
+        -515344415,
+        -1740878126,
+        -1567265777,
+        -1800684497
+      ],
+      "family": "spinning"
+    },
+    {
+      "original_curve": {
+        "Starts": [
+          {
+            "V": [
+              0.5,
+              0.75,
+              0.5
+            ]
+          },
+          {
+            "V": [
+              -31.5,
+              0.75,
+              0.5
+            ]
+          }
+        ],
+        "Girder": 0,
+        "Normals": [
+          {
+            "V": [
+              0.0,
+              1.0,
+              0.0
+            ]
+          },
+          {
+            "V": [
+              0.0,
+              1.0,
+              0.0
+            ]
+          }
+        ],
+        "Primary": 1,
+        "Positions": [
+          {
+            "Pos": [
+              0,
+              0,
+              0
+            ]
+          },
+          {
+            "Pos": [
+              -32,
+              0,
+              0
+            ]
+          }
+        ],
+        "Axes": [
+          {
+            "V": [
+              -1.0,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "V": [
+              1.0,
+              0.0,
+              0.0
+            ]
+          }
+        ],
+        "Material": "simulatedcoasters:coaster_track"
+      },
+      "magnets": [
+        {
+          "mode": "DAMP",
+          "falloff": 0.1,
+          "strength": 6.0,
+          "start": 2.0,
+          "end": 20.0,
+          "targets": 1,
+          "direction": 1
+        }
+      ],
+      "profile": [
+        {
+          "distance": 0.0,
+          "slope": 0.0,
+          "angle": 0.0
+        },
+        {
+          "distance": 32.0,
+          "slope": 0.0,
+          "angle": 0.0
+        }
+      ],
+      "lift_lock": 0,
+      "geometry_hash": 5863459588383720705,
+      "revision": 3,
+      "valid": 1,
+      "appearance": {
+        "tint": -1,
+        "id": "fourthdimension:original"
+      },
+      "provider": "fourthdimension:original",
+      "variant": "launched_inverting_v1",
+      "from": -50852412866532,
+      "to": -59648505888740,
+      "id": [
+        -1595052572,
+        2109558756,
+        -1619511306,
+        376582604
+      ],
+      "family": "spinning"
+    },
+    {
+      "original_curve": {
+        "Starts": [
+          {
+            "V": [
+              0.5,
+              0.75,
+              0.5
+            ]
+          },
+          {
+            "V": [
+              -31.5,
+              0.75,
+              32.5
+            ]
+          }
+        ],
+        "Girder": 0,
+        "Normals": [
+          {
+            "V": [
+              0.0,
+              1.0,
+              0.0
+            ]
+          },
+          {
+            "V": [
+              0.0,
+              1.0,
+              0.0
+            ]
+          }
+        ],
+        "Primary": 1,
+        "Positions": [
+          {
+            "Pos": [
+              0,
+              0,
+              0
+            ]
+          },
+          {
+            "Pos": [
+              -32,
+              0,
+              32
+            ]
+          }
+        ],
+        "Axes": [
+          {
+            "V": [
+              -1.0,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "V": [
+              0.0,
+              0.0,
+              -1.0
+            ]
+          }
+        ],
+        "Material": "simulatedcoasters:coaster_track"
+      },
+      "magnets": [
+        {
+          "mode": "DAMP",
+          "falloff": 0.1,
+          "strength": 12.0,
+          "start": 2.0,
+          "end": 48.27252916554091,
+          "targets": 1,
+          "direction": 1
+        }
+      ],
+      "profile": [
+        {
+          "distance": 0.0,
+          "slope": 0.0,
+          "angle": 0.0
+        },
+        {
+          "distance": 50.27252916554091,
+          "slope": 0.0,
+          "angle": 0.0
+        }
+      ],
+      "lift_lock": 0,
+      "geometry_hash": -6316730151482193855,
+      "revision": 0,
+      "valid": 1,
+      "appearance": {
+        "tint": -1,
+        "id": "fourthdimension:original"
+      },
+      "provider": "fourthdimension:original",
+      "variant": "launched_inverting_v1",
+      "from": -59648505888740,
+      "to": -68719476686820,
+      "id": [
+        -694068081,
+        -372030222,
+        -2016693338,
+        1665122925
+      ],
+      "family": "spinning"
+    },
+    {
+      "original_curve": {
+        "Starts": [
+          {
+            "V": [
+              0.5,
+              0.75,
+              0.5
+            ]
+          },
+          {
+            "V": [
+              0.5,
+              0.75,
+              8.5
+            ]
+          }
+        ],
+        "Girder": 0,
+        "Normals": [
+          {
+            "V": [
+              0.0,
+              1.0,
+              0.0
+            ]
+          },
+          {
+            "V": [
+              0.0,
+              1.0,
+              0.0
+            ]
+          }
+        ],
+        "Primary": 1,
+        "Positions": [
+          {
+            "Pos": [
+              0,
+              0,
+              0
+            ]
+          },
+          {
+            "Pos": [
+              0,
+              0,
+              8
+            ]
+          }
+        ],
+        "Axes": [
+          {
+            "V": [
+              0.0,
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "V": [
+              0.0,
+              0.0,
+              -1.0
+            ]
+          }
+        ],
+        "Material": "simulatedcoasters:coaster_track"
+      },
+      "magnets": [],
+      "profile": [
+        {
+          "distance": 0.0,
+          "slope": 0.0,
+          "angle": 0.0
+        },
+        {
+          "distance": 8.0,
+          "slope": 0.0,
+          "angle": 0.0
+        }
+      ],
+      "lift_lock": 0,
+      "geometry_hash": -1258777261775113471,
+      "revision": 0,
+      "valid": 1,
+      "appearance": {
+        "tint": -1,
+        "id": "fourthdimension:original"
+      },
+      "provider": "fourthdimension:original",
+      "variant": "launched_inverting_v1",
+      "from": -74217034792932,
+      "to": -74217034760164,
+      "id": [
+        -703437191,
+        -1616098389,
+        -1359914846,
+        1512905199
+      ],
+      "family": "spinning"
+    }
+  ],
+  "vehicles": [
+    {
+      "alignment_required": 0,
+      "contact_layout": "coasters_n_contacts_v1",
+      "mount_frame": "above_rail_v1",
+      "fault": "",
+      "boundTo": 311324,
+      "carriers": [
+        {
+          "side": 0.0,
+          "rider_seats": [],
+          "lift_pending": 0,
+          "capture": 1,
+          "body": [
+            -1657657510,
+            -172537185,
+            -1687535572,
+            1801105863
+          ],
+          "axis": "Y",
+          "seats": [
+            -1,
+            274877906943,
+            -274877902849,
+            4095
+          ],
+          "ballast": 0.0,
+          "omega": 5.163881175360236e-13,
+          "lift_geometry": 0,
+          "lift_entered": 0,
+          "pivot_height": 1.4375,
+          "angle": -12.566370614285454,
+          "capture_target": -12.566370614359172,
+          "lift_held": 0,
+          "latched": 1,
+          "longitudinal": 0.0,
+          "child_pivot_offset": -0.5,
+          "child_pivot_x": -0.5,
+          "child_pivot_z": -0.5,
+          "occupants": []
+        }
+      ],
+      "chassis": [
+        -1554673670,
+        -1837087605,
+        -2053596709,
+        -756530265
+      ],
+      "damping": 0.2,
+      "boundFrom": 49180,
+      "ballast": 0.0,
+      "revision": 10,
+      "boarding_ready": 1,
+      "stopping": 1,
+      "authority": {
+        "owner": [
+          1736729745,
+          -629454827,
+          -2071437846,
+          1960920878
+        ],
+        "sequence": 3,
+        "reason": "Restored authority requires explicit Resume",
+        "cars": [
+          [
+            -1554673670,
+            -1837087605,
+            -2053596709,
+            -756530265
+          ]
+        ],
+        "controller": 1099511676956,
+        "provider": "native_chain",
+        "held": 1,
+        "epoch": 2,
+        "suspended": 1
+      },
+      "variant": "launched_inverting_v1",
+      "restraints": 0,
+      "shuttle_detached": 0,
+      "family": "spinning",
+      "suspended_consist": [],
+      "dock": -1099511480291,
+      "maintenance": 0,
+      "s2": {
+        "phase": "DOCK_OPEN",
+        "resume_required": 0,
+        "dock_to": 311324,
+        "epoch": 1,
+        "dock_geometry": -7738500857869817215,
+        "governor": 1099511676956,
+        "ramp_speed": 12.0,
+        "version": 1,
+        "dock_from": 49180,
+        "consist": [
+          [
+            -1554673670,
+            -1837087605,
+            -2053596709,
+            -756530265
+          ]
+        ],
+        "direction": 1
+      }
+    },
+    {
+      "alignment_required": 0,
+      "contact_layout": "coasters_n_contacts_v1",
+      "mount_frame": "above_rail_v1",
+      "fault": "",
+      "boundTo": -68719476424676,
+      "carriers": [
+        {
+          "side": 0.0,
+          "rider_seats": [],
+          "lift_pending": 0,
+          "capture": 1,
+          "body": [
+            455247141,
+            -1402188495,
+            -1718764024,
+            -1268707623
+          ],
+          "axis": "Y",
+          "seats": [
+            -1,
+            274877906943,
+            -274877902849,
+            4095
+          ],
+          "ballast": 0.0,
+          "omega": -6.596902940308574e-11,
+          "lift_geometry": 0,
+          "lift_entered": 0,
+          "pivot_height": 1.4375,
+          "angle": 5.094724005734677e-10,
+          "capture_target": 0.0,
+          "lift_held": 0,
+          "latched": 1,
+          "longitudinal": 0.0,
+          "child_pivot_offset": -0.5,
+          "child_pivot_x": -0.5,
+          "child_pivot_z": -0.5,
+          "occupants": []
+        }
+      ],
+      "chassis": [
+        -1108113898,
+        -456177125,
+        -2056623302,
+        -225085944
+      ],
+      "damping": 0.2,
+      "boundFrom": -68719476686820,
+      "ballast": 0.0,
+      "revision": 8,
+      "boarding_ready": 1,
+      "stopping": 1,
+      "authority": {
+        "owner": [
+          -1769001120,
+          -556187055,
+          -1782199478,
+          1315281801
+        ],
+        "sequence": 2,
+        "reason": "",
+        "cars": [
+          [
+            -1108113898,
+            -456177125,
+            -2056623302,
+            -225085944
+          ]
+        ],
+        "controller": -67619965059044,
+        "provider": "native_chain",
+        "held": 1,
+        "epoch": 1,
+        "suspended": 0
+      },
+      "variant": "launched_inverting_v1",
+      "restraints": 0,
+      "shuttle_detached": 0,
+      "family": "spinning",
+      "suspended_consist": [],
+      "dock": -69818988232675,
+      "maintenance": 0,
+      "s2": {
+        "phase": "DOCK_OPEN",
+        "resume_required": 0,
+        "dock_to": -68719476424676,
+        "epoch": 1,
+        "dock_geometry": -3989051936942097663,
+        "governor": -67619965059044,
+        "ramp_speed": 12.0,
+        "version": 1,
+        "dock_from": -68719476686820,
+        "consist": [
+          [
+            -1108113898,
+            -456177125,
+            -2056623302,
+            -225085944
+          ]
+        ],
+        "direction": 1
+      }
+    }
+  ]
+}

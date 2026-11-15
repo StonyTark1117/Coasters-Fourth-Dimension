@@ -184,8 +184,11 @@ public final class RotationEditorScreen extends Screen {
             net.minecraft.client.gui.components.Tooltip.create(
                 Component.literal(
                     "One span per semicolon: start:end:induce or damp:direction +/-1:strength"
-                        + " 0..20:falloff 0..0.5:target sum. Left-front=1, left-rear=2,"
-                        + " right-front=4, right-rear=8, all=15. Distances start at the section"
+                        + " 0..20:falloff 0..0.5:target sum. "
+                        + (rail.variant.equals(dev.fourthdimension.vehicle.S2SpinningVehicle.VARIANT)
+                            ? "S2 single carrier: target=1. "
+                            : "Left-front=1, left-rear=2, right-front=4, right-rear=8, all=15. ")
+                        + "Distances start at the section"
                         + " first anchor. Requires equipment items; removing spans refunds"
                         + " them.")));
       }

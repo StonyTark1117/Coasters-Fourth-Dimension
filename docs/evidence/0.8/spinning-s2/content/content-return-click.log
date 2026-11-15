@@ -1,0 +1,6 @@
+RETURN_POSITION [-249.5484573659449, 30.1248233782975, 17.12873811952661]
+{"at": "20261115T130352.220655Z", "action": "click", "values": ["1"], "expected": "One Capture click on the level return dock stops the occupied train and starts bounded alignment", "connection": "menu action; no gameplay claim", "window": "2097160", "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0", "before": "/mnt/NVME4/fourthdimension-runs/fd1501d-s2-20261115/evidence/20261115T130352.220655Z-before.png", "modifier": null, "mouse_button": 1, "mouse_binding": "attack/left", "state": "sent; inspect readback", "after": "/mnt/NVME4/fourthdimension-runs/fd1501d-s2-20261115/evidence/20261115T130352.220655Z-after.png"}
+spinning 9d32275a-f5b7-4a9f-9b6a-402c6b5ab1c7 angle=-12.56637061428551 omega=2.2134258759897606E-12 capture=true occupants=0
+spinning 1b228525-ac6c-4d31-998d-be08b4610ed9 angle=2.5324119221008083 omega=0.00941861713461374 capture=true occupants=1
+Carrier update average: 104477 ns across 114128 updates
+

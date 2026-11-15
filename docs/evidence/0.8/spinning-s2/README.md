@@ -1,5 +1,11 @@
 # S2 launched/inverting Spinning — FD1501D–F
 
+**Current:** FD1501D is qualified, integrated and closed. FD1501E/F are qualified
+by the [content and cumulative acceptance handoff](content/README.md), including
+normal paid construction, operating views, restart readback and verified cleanup.
+Earlier remaining-check lists below are historical checkpoints; do not replay the
+accepted native governor/route/loss or occupied mechanics cases.
+
 Active owner `01a1dd1d-c6a6-7be0-9cb5-2b033ac550da`, primary checkout
 `/home/braydon/Documents/Coasters: Fourth Dimension`, existing `main`, dispatch
 HEAD `cb46ea072d2c731948e4cac07e4d5350e269dbc5`. Only pre-existing `logs/` was
