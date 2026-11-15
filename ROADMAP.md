@@ -608,7 +608,7 @@ or 0.9; FD503 requires their decisions, not all their implementations.
 | <a id="fd501c"></a> **FD501C CTNB prerequisites — complete** [Steps](docs/roadmap/0.8-operations.md#fd501c) | FD811 | Resolve selected material/control dependencies and any functional-provider migration required by those capabilities. |
 | <a id="fd501d"></a> **FD501D Magnetized prerequisites — complete** [Steps](docs/roadmap/0.8-operations.md#fd501d) | FD812 | Resolve the propulsion adapter's dependency and version requirements. |
 | <a id="fd501e"></a> **FD501E Coaster Skin prerequisites — complete 2026-11-15** [Steps](docs/roadmap/0.9-presentation.md#fd501e) | FD910 | Resolve required core/graphics versions and body/seat-provider changes for the agreed Skin capabilities. |
-| <a id="fd501f"></a> **FD501F Immersion prerequisites — complete 2026-11-15** [Steps](docs/roadmap/0.9-presentation.md#fd501f) | FD912 | Resolve the client effects stack and client/server installation constraints. |
+| <a id="fd501f"></a> **FD501F Immersion prerequisites — active: direct-launch classpath correction** [Steps](docs/roadmap/0.9-presentation.md#fd501f) | FD912 | Resolve the client effects stack and client/server installation constraints. |
 | <a id="fd501g"></a> **FD501G Waterparked prerequisites — complete 2026-11-15** [Steps](docs/roadmap/0.9-presentation.md#fd501g) | FD913 | Resolve the selected coexistence profile's dependencies and shared graph/render constraints. |
 | <a id="fd501h"></a> **FD501H Create Coasters prerequisites — complete 2026-11-15** [Steps](docs/roadmap/0.9-presentation.md#fd501h) | FD914 | Resolve the selected utility/coexistence profile's dependencies. |
 

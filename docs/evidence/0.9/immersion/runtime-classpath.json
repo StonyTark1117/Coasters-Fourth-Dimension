@@ -1,14 +1,17 @@
 {
-  "client": {
-    "immersionPresent": true,
-    "skinPresent": true,
-    "waterparkedPresent": true,
-    "createcoastersPresent": true
-  },
-  "server": {
-    "immersionPresent": false,
-    "skinPresent": true,
-    "waterparkedPresent": true,
-    "createcoastersPresent": true
+  "method": "Inspect exact artifact basename in legacy mod list AND actual direct Java @classpath argument file. Supersedes initial broad-file scan.",
+  "runs": {
+    "client": {
+      "clientLegacyClasspath.txt": true,
+      "clientRunClasspath.txt": true
+    },
+    "observer": {
+      "observerLegacyClasspath.txt": true,
+      "observerRunClasspath.txt": true
+    },
+    "server": {
+      "serverLegacyClasspath.txt": false,
+      "serverRunClasspath.txt": false
+    }
   }
 }

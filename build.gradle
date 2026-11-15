@@ -249,6 +249,20 @@ if (serverMaxHeap != null) {
         jvmArgs "-Xmx${serverMaxHeap}"
     }
 }
+// ModDev 2.0.148 puts per-run additions in the legacy mod list, but its direct
+// launcher classpath omits them. Keep client-only jars on both required paths.
+if (fdIntegrationProfiles.contains('immersion')) {
+    ['client', 'observer'].each { runName ->
+        def directAdditions = configurations.create("fd${runName.capitalize()}DirectRuntime") {
+            canBeConsumed = false
+            canBeResolved = true
+            extendsFrom neoForge.runs.getByName(runName).additionalRuntimeClasspathConfiguration
+        }
+        tasks.named("create${runName.capitalize()}LaunchScript").configure {
+            runtimeClasspath.from(directAdditions)
+        }
+    }
+}
 if (project.hasProperty('fdPackaged')) {
     // Packaged runs and generated launch scripts load the distributable JAR from
     // packagedRuntimeOnly. A file dependency alone does not give Gradle the task edge.

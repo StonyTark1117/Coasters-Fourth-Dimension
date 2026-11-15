@@ -34,7 +34,7 @@ release, 1.2 work, new chats, subagents or worktrees are activated.
 | Card | Owner | Current action / dependency |
 | --- | --- | --- |
 | FD501E | Complete | [Qualified shared baseline and exact dependency disposition](evidence/0.9/dependencies/README.md); consumer work remains assigned below. |
-| FD501F | Complete | [Qualified shared baseline and exact dependency disposition](evidence/0.9/dependencies/README.md); consumer work remains assigned below. |
+| FD501F | Lead + Seats / Immersion | Reopened only for generated direct client/observer classpath omission; metadata/server absence remain valid. Lead repairs launch scripts; owner verifies actual addon load. |
 | FD501G | Complete | [Qualified shared baseline and exact dependency disposition](evidence/0.9/dependencies/README.md); consumer work remains assigned below. |
 | FD501H | Complete | [Qualified shared baseline and exact dependency disposition](evidence/0.9/dependencies/README.md); consumer work remains assigned below. |
 | FD910 | Skin / Visual | Selected Skin body/appearance options, identity/restraint protection, fallback/persistence and normal input on qualified FD501E baseline. |

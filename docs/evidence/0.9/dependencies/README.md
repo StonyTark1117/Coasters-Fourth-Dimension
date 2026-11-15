@@ -2,8 +2,9 @@
 
 FD501E, FD501G and FD501H are complete on 2026-11-15. FD501F's
 [separate inspection](../immersion/README.md) and
-[resolved client/server classpaths](../immersion/runtime-classpath.json) complete
-the client-only dependency disposition. These closures qualify prerequisites;
+[resolved client/server classpaths](../immersion/runtime-classpath.json) record
+the client-only dependency disposition. FD501F is temporarily reopened for actual
+client load confirmation after the direct-launch classpath correction below. These closures qualify prerequisites;
 FD910–FD914 still own their feature and coexistence behavior.
 
 ## Selected artifacts
@@ -72,3 +73,14 @@ Xvfb stopped. [Cleanup](cleanup.txt) shows all three units inactive/MainPID0.
 Full worlds/logs remain at `/mnt/NVME4/fourthdimension-runs/fd09-baseline-20261115`;
 passing native worlds are outside disposable build output. No runtime ownership
 was handed off. Skin/Visual and Seats/Immersion received the qualified baseline.
+
+## FD501F direct-launch correction
+
+The first classpath scan combined multiple generated files and proved only the
+legacy mod list. The Seats/Immersion owner found ModDev2.0.148's direct launcher
+omitted its per-run additions from the actual Java classpath. The build now adds
+a resolvable client/observer-only configuration to the two launch-script tasks.
+Regeneration passes; the corrected exact-file record proves the Immersion JAR in
+both legacy and direct client/observer paths and absent from both server paths.
+Actual addon load confirmation remains with the owner's existing FD912 run.
+FD501E/G/H and all unrelated accepted behavior remain closed.
