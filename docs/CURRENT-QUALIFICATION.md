@@ -55,6 +55,39 @@ pushes and edits central status documents; family owners supply ready evidence.
 The user authorizes specific coordination/continuation messages among these three
 owners and from the coordinator, including resuming a ready dependent owner.
 
+**FD1301A handoff — 2026-11-15 06:01 UTC:**
+[Suspended mechanics and four-car occupied cycle](evidence/0.6/suspended/A-handoff.md)
+are complete. Native load/limits, train lift power loss/resume/release, pending
+entry, capture/save and guarded dock rebind pass. Normal occupied mount, closed
+departure, lift retention, free swing, Capture/Ready/Open and Shift unload pass.
+The lead integrates this qualified handoff on main before resuming Fixed Inverted.
+The connected-journal correction also passed its affected mass/loading, swing-bound
+and capture/save check. Suspended B/C retain remaining content review and normal
+construction; they do not reopen accepted A or delay its consumer.
+
+**Current production ownership after this integration:**
+
+- **Fixed Inverted** (`01a1dd1d-c6a6-7be0-9cb5-2b033ac550da`) owns
+  `src/main/java/dev/fourthdimension/**` except `vehicle/Spinning*.java`,
+  `vehicle/Suspended*.java`, `gametest/SpinningGameTests.java` and
+  `gametest/SuspendedGameTests.java`. It owns shared `lang/en_us.json`, new
+  Fixed-Inverted-only resources/tests/generator/guide and its evidence directory.
+- **Suspended** retains `vehicle/Suspended*.java`, `gametest/SuspendedGameTests.java`,
+  Suspended-only assets/recipes/GameTest resources, `scripts/generate-suspended.py`,
+  `docs/SUSPENDED.md` and its evidence directory for B/C. Shared-file fixes require
+  coordination with the new owner; no simultaneous shared edits.
+- **Lead** retains S1-only files, `scripts/fd-private-client.py`, central status
+  documents and all Git staging/commit/push. Prior shared-path transfer to Suspended
+  below is historical and superseded by this transfer.
+
+Suspended explicitly retains root
+`/home/braydon/.local/state/fourthdimension-runs/fd1301-suspended-20261115`, world
+`server/SuspendedWorkshop2`, display `:312`, ports 25642/25643 and units
+`fd1301-suspended-20261115-{client,server,xvfb}.service` for continuing FD1301B/C.
+Fixed Inverted receives no runtime; reserve independent resources after checking
+headroom. Final family completion requires saved worlds and inactive owned units.
+The lead sends the exact integrated HEAD in the continuation message.
+
 **S1 FD1501A–C complete — 2026-11-15 05:34 UTC.**
 [Construction, content and power-loss/resume acceptance](evidence/0.6/spinning/player/README.md)
 closes S1. Its A handoff `d5565a09ac0d6230b66c9dd332c7b35fb3840f2a` is pushed

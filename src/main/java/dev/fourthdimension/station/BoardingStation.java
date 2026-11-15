@@ -96,7 +96,8 @@ public final class BoardingStation extends BaseEntityBlock {
       station.setChanged();
       v = null;
     }
-    if (v == null || player.isShiftKeyDown()) {
+    boolean rebinding = v == null || player.isShiftKeyDown();
+    if (rebinding) {
       var container = SubLevelContainer.getContainer(level);
       double closest = 12 * 12;
       v = null;
@@ -121,17 +122,26 @@ public final class BoardingStation extends BaseEntityBlock {
             true);
         return InteractionResult.FAIL;
       }
-      station.vehicle = v.chassis;
-      station.setChanged();
     }
-    if (dev.fourthdimension.vehicle.SpinningVehicle.is(v)) {
+    if (rebinding && dev.fourthdimension.vehicle.SuspendedVehicle.is(v)) {
+      try {
+        dev.fourthdimension.vehicle.SuspendedRuntime.rebindDock(server.serverLevel(), v, pos);
+      } catch (IllegalArgumentException rejected) {
+        player.displayClientMessage(Component.literal(rejected.getMessage()), true);
+        return InteractionResult.FAIL;
+      }
+    } else if (dev.fourthdimension.vehicle.SpinningVehicle.is(v)) {
       v.dock = pos.immutable();
       data.setDirty();
     }
+    if (rebinding) {
+      station.vehicle = v.chassis;
+      station.setChanged();
+    }
     player.displayClientMessage(
         Component.literal(
-            (dev.fourthdimension.vehicle.SpinningVehicle.is(v)
-                ? "S1 dock: power requests capture; use Dispatch explicitly. Front: ready. Right side:"
+            ((dev.fourthdimension.vehicle.SpinningVehicle.is(v) || dev.fourthdimension.vehicle.SuspendedVehicle.is(v))
+                ? "Bound dock: power requests capture; use Dispatch explicitly. Front: ready. Right side:"
                 : "Rear redstone input: capture on power; dispatch on release. Front: ready. Right side:")
                 + " restraints closed. "
                 + station.fault),

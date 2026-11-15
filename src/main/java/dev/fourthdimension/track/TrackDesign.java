@@ -12,7 +12,8 @@ public enum TrackDesign {
   FREE_SPIN(Family.FREE_SPIN, "sns_magnetic_v1", 0x377fbe),
   REVISED(Family.ZACSPIN_REVISED, "zacspin_revised_v1", 0x9650c7),
   PAX(Family.PAX, "pax_shuttle_v1", 0x3b9b88),
-  SPINNING(Family.SPINNING, "conventional_v1", 0xe16b30);
+  SPINNING(Family.SPINNING, "conventional_v1", 0xe16b30),
+  SUSPENDED(Family.SUSPENDED, "lateral_swing_v1", 0xe88132);
   // Coasters 0.1.5 wheel renderer: path anchor .3125 + compensation .1875 + axle .1.
   // Main and upstop wheel rows are .55 apart, each with nominal radius .2.
   public static final double HALF_GAUGE = .772;
@@ -43,7 +44,11 @@ public enum TrackDesign {
     this.color = color;
   }
 
+  public boolean overhead() { return this == SUSPENDED; }
+
   public NativeTrackFit nativeFit() {
+    if (overhead()) return new NativeTrackFit(NativeTrackFit.N_CONTACTS, NativeTrackFit.OVERHEAD,
+        new NativeTrackFit.Envelope(3, 1.10, 4.70, 1.75));
     return new NativeTrackFit(NativeTrackFit.N_CONTACTS, NativeTrackFit.ABOVE,
         this == SPINNING ? new NativeTrackFit.Envelope(2.25, 3.65, .95, 2.25)
             : new NativeTrackFit.Envelope(5, rotorRadius()+2.3125,
@@ -56,13 +61,14 @@ public enum TrackDesign {
         family,
         variant,
         new Gear(2 * HALF_GAUGE, WHEEL_RADIUS, TREAD_OUTER, WHEEL_ROW_SPACING),
-        this == SPINNING ? Set.of(Mechanism.ROTARY_CLEARANCE, Mechanism.STATION_CAPTURE)
+        overhead() ? Set.of(Mechanism.ROTARY_CLEARANCE,Mechanism.STATION_CAPTURE,Mechanism.OVERHEAD_MOUNT,Mechanism.SWING_LIMITS,Mechanism.LIFT_LOCK)
+            : this == SPINNING ? Set.of(Mechanism.ROTARY_CLEARANCE, Mechanism.STATION_CAPTURE)
             : family.driven()
             ? Set.of(Mechanism.ROTARY_CLEARANCE, Mechanism.CONTROL_RAILS)
             : family == Family.FREE_SPIN
                 ? Set.of(Mechanism.ROTARY_CLEARANCE, Mechanism.MAGNET_INTERFACE)
                 : Set.of(Mechanism.ROTARY_CLEARANCE),
-        this == SPINNING ? new Clearance(2.25, 3.65, .95)
+        overhead() ? new Clearance(3, 1.10, 4.70) : this == SPINNING ? new Clearance(2.25, 3.65, .95)
             : new Clearance(5, rotorRadius() + 2.3125, rotorRadius() + (pairedRows() ? 3 : 0)));
   }
 
@@ -71,7 +77,7 @@ public enum TrackDesign {
   }
 
   public int groups() {
-    return this == SPINNING ? 1 : pairedRows() ? 4 : 2;
+    return (this == SPINNING || overhead()) ? 1 : pairedRows() ? 4 : 2;
   }
 
   public double childPivotOffset() {
@@ -83,11 +89,11 @@ public enum TrackDesign {
   }
 
   public double axleSpacing() {
-    return this == REVISED ? 14 : this == FREE_SPIN ? 12 : 6;
+    return overhead() ? 8 : this == REVISED ? 14 : this == FREE_SPIN ? 12 : 6;
   }
 
   public boolean canLink() {
-    return this == ARROW || this == PAX;
+    return this == ARROW || this == PAX || overhead();
   }
 
   public double controlHeight(double angle) {

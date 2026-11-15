@@ -16,6 +16,9 @@ public record TrackContract(
     ROTARY_CLEARANCE,
     MAGNET_INTERFACE,
     STATION_CAPTURE,
+    OVERHEAD_MOUNT,
+    SWING_LIMITS,
+    LIFT_LOCK,
     SHUTTLE_CAPTURE
   }
 

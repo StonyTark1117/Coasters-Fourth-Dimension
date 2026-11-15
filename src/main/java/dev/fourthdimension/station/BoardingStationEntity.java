@@ -81,7 +81,8 @@ public final class BoardingStationEntity extends BlockEntity
     if (v != null
         && v.family != dev.fourthdimension.contract.Family.PAX
         && ((signal && nearby && !v.stopping) || (!signal && station.powered && nearby
-            && !dev.fourthdimension.vehicle.SpinningVehicle.is(v)))) {
+            && !dev.fourthdimension.vehicle.SpinningVehicle.is(v)
+            && !dev.fourthdimension.vehicle.SuspendedVehicle.is(v)))) {
       try {
         RideOperations.request(
             level,

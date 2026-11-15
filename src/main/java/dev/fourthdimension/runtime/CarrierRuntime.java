@@ -23,7 +23,7 @@ public final class CarrierRuntime {
 
   private CarrierRuntime() {}
 
-  private static final Map<ServerSubLevel, RotaryConstraintHandle> JOINTS = new WeakHashMap<>();
+  private static final Map<ServerSubLevel, PhysicsConstraintHandle> JOINTS = new WeakHashMap<>();
   private static final Map<ServerSubLevel, dev.fourthdimension.physics.RotationServo> SERVOS =
       new WeakHashMap<>();
   public static long nanos, steps, vehicleUpdates, carrierUpdates, carrierNanos, constraintsRebuilt;
@@ -101,6 +101,14 @@ public final class CarrierRuntime {
     }
   }
 
+  /** Read-only native constraint reaction for the opt-in validation fixture. */
+  public static Vector3d jointAngularImpulseForValidation(ServerSubLevel body) {
+    if(!Boolean.getBoolean("fourthdimension.validation"))throw new IllegalStateException("Validation disabled");
+    var joint=JOINTS.get(body);var angular=new Vector3d();
+    if(joint==null || !joint.isValid())throw new IllegalStateException("No native joint");
+    joint.getJointImpulses(new Vector3d(),angular);return angular;
+  }
+
   public static void tick(ForgeSablePrePhysicsTickEvent event) {
     long start = System.nanoTime();
     var physics = event.getPhysicsSystem();
@@ -174,6 +182,8 @@ public final class CarrierRuntime {
       for (var carrier : vehicle.carriers) {
         var childRaw = container.getSubLevel(carrier.body);
         if (!(childRaw instanceof ServerSubLevel child) || child.isRemoved()) {
+          if (dev.fourthdimension.vehicle.SuspendedVehicle.is(vehicle))
+            dev.fourthdimension.vehicle.SuspendedRuntime.fault(level,vehicle,"Suspended cabin body unavailable");
           if (dev.fourthdimension.vehicle.SpinningVehicle.is(vehicle))
             dev.fourthdimension.vehicle.SpinningRuntime.fault(vehicle, "S1 carrier body unavailable");
           continue;
@@ -186,7 +196,15 @@ public final class CarrierRuntime {
           constraintsRebuilt++;
           var p = parent.getPlot().getCenterBlock();
           var c = child.getPlot().getCenterBlock();
-          handle =
+          if (dev.fourthdimension.vehicle.SuspendedVehicle.is(vehicle)) {
+            var generic=pipeline.addConstraint(parent,child,new GenericConstraintConfiguration(
+                new Vector3d(p.getX()+.5+carrier.side,p.getY()+.5+carrier.pivotHeight,p.getZ()+.5+carrier.longitudinal),
+                new Vector3d(c.getX()+.5+carrier.childPivotX,c.getY()+.5+carrier.childPivotOffset,c.getZ()+.5+carrier.childPivotZ),
+                new Quaterniond(),new Quaterniond(),EnumSet.of(ConstraintJointAxis.LINEAR_X,
+                    ConstraintJointAxis.LINEAR_Y,ConstraintJointAxis.LINEAR_Z,ConstraintJointAxis.ANGULAR_X,ConstraintJointAxis.ANGULAR_Y)));
+            generic.setLimit(ConstraintJointAxis.ANGULAR_Z,carrier.liftHeld?0:-Math.PI/4,carrier.liftHeld?0:Math.PI/4);
+            handle=generic;
+          } else handle =
               pipeline.addConstraint(
                   parent,
                   child,
@@ -227,8 +245,15 @@ public final class CarrierRuntime {
         if (dev.fourthdimension.vehicle.SpinningVehicle.is(vehicle)) {
           dev.fourthdimension.vehicle.NativeLoading.update(child, vehicle, carrier);
           dev.fourthdimension.vehicle.SpinningRuntime.update(level, parent, child, vehicle, carrier,
-              rail, handle, event.getTimeStep());
+              rail, (RotaryConstraintHandle) handle, event.getTimeStep());
           carrierNanos += System.nanoTime() - carrierStart;
+          continue;
+        }
+        if (dev.fourthdimension.vehicle.SuspendedVehicle.is(vehicle)) {
+          dev.fourthdimension.vehicle.NativeLoading.update(child,vehicle,carrier);
+          dev.fourthdimension.vehicle.SuspendedRuntime.update(level,parent,child,vehicle,carrier,rail,
+              (GenericConstraintHandle)handle,event.getTimeStep());
+          carrierNanos += System.nanoTime()-carrierStart;
           continue;
         }
         boolean drive = vehicle.family.driven() || carrier.capture;

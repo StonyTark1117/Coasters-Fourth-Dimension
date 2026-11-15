@@ -174,8 +174,8 @@ public final class EditorNetwork {
                 request.revision,
                 dev.fourthdimension.integration.TrackAppearance.parse(request.value));
         case 6 -> {
-          if (rail.family != dev.fourthdimension.contract.Family.SPINNING)
-            throw new IllegalArgumentException("Lift lock requires S1 track");
+          if (rail.family != dev.fourthdimension.contract.Family.SPINNING && rail.family != dev.fourthdimension.contract.Family.SUSPENDED)
+            throw new IllegalArgumentException("Lift lock requires Spinning or Suspended track");
           rail.liftLock = !rail.liftLock;
           rail.revision++;
           FoundationData.get(player.serverLevel()).setDirty();
@@ -213,6 +213,9 @@ public final class EditorNetwork {
         case 26 -> VehicleOperations.realignMatchingSupport(level, vehicle);
         case 27 -> VehicleOperations.retireDetachedPax(level, vehicle);
         case 28 -> {
+          if(dev.fourthdimension.vehicle.SuspendedVehicle.is(vehicle)) {
+            dev.fourthdimension.vehicle.SuspendedRuntime.resumeToDock(level,vehicle);break;
+          }
           if (!dev.fourthdimension.vehicle.SpinningVehicle.is(vehicle))
             throw new IllegalArgumentException("Resume to dock requires S1");
           dev.fourthdimension.vehicle.SpinningRuntime.resumeToDock(level, vehicle);

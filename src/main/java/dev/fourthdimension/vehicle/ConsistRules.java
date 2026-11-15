@@ -31,14 +31,15 @@ public final class ConsistRules {
     linked.add(b.getUniqueId());
     return first != null
         && second != null
-        && (first.family == Family.ARROW || first.family == Family.PAX || WingVehicle.is(first))
+        && (first.family == Family.ARROW || first.family == Family.PAX || WingVehicle.is(first) || SuspendedVehicle.is(first))
         && second.family == first.family
         && (first.family != Family.PAX || linked.size() <= 4)
         && (!WingVehicle.is(first) || linked.size() <= 2)
+        && (!SuspendedVehicle.is(first) || linked.size() <= 4)
         && first.variant.equals(second.variant)
         && !FoundationData.VARIANT.equals(first.variant)
         && Double.isFinite(distance)
-        && Math.abs(distance - 6) < .01
+        && Math.abs(distance - (SuspendedVehicle.is(first) ? 8 : 6)) < .01
         && first.boardingReady
         && second.boardingReady;
   }
@@ -52,6 +53,7 @@ public final class ConsistRules {
             > (vehicle.recoveryCart == null ? 4 : 5)) return false;
     var ids = CoasterCartTrainLinkConstraint.getTrainLinkedCartIds(parent);
     if (WingVehicle.is(vehicle) && ids.size() > 2) return false;
+    if (SuspendedVehicle.is(vehicle) && ids.size() > 4) return false;
     for (var id : ids) {
       if (id.equals(vehicle.chassis)) continue;
       var other = data.vehicles.get(id);
@@ -60,7 +62,7 @@ public final class ConsistRules {
       if (other == null && id.equals(vehicle.recoveryCart)) continue;
       if (other == null
           || other.family != vehicle.family
-          || !(vehicle.family == Family.ARROW || vehicle.family == Family.PAX || WingVehicle.is(vehicle))
+          || !(vehicle.family == Family.ARROW || vehicle.family == Family.PAX || WingVehicle.is(vehicle) || SuspendedVehicle.is(vehicle))
           || !other.variant.equals(vehicle.variant)
           || !java.util.Objects.equals(other.recoveryCart, vehicle.recoveryCart)
           || other.recoveryCart != null && !RecoveryOperations.retained(other)

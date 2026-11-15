@@ -11,6 +11,11 @@ public final class VehicleParts {
 
   public static final DeferredRegister.Blocks BLOCKS =
       DeferredRegister.createBlocks(FourthDimension.ID);
+  public static final DeferredBlock<CarrierSeatBlock> SUSPENDED_SEAT = BLOCKS.register("suspended_seat", () -> new CarrierSeatBlock(BlockBehaviour.Properties.of().strength(3).noOcclusion(),DyeColor.ORANGE));
+  public static final DeferredBlock<Block> SUSPENDED_CABIN = BLOCKS.register("suspended_cabin", () -> new SuspendedCabinBlock(BlockBehaviour.Properties.of().strength(4).noOcclusion()));
+  public static final DeferredBlock<SuspendedLockBlock> SUSPENDED_LOCK = BLOCKS.register("suspended_lock", () -> new SuspendedLockBlock(BlockBehaviour.Properties.of().strength(4).noOcclusion()));
+  public static final DeferredBlock<SuspendedHangerBlock> SUSPENDED_HANGER = BLOCKS.register("suspended_hanger", () -> new SuspendedHangerBlock(BlockBehaviour.Properties.of().strength(4).noOcclusion()));
+  public static final DeferredBlock<SuspendedKeelBlock> SUSPENDED_KEEL = BLOCKS.register("suspended_keel", () -> new SuspendedKeelBlock(BlockBehaviour.Properties.of().noCollission()));
   public static final DeferredBlock<SpinningSeatBlock> SPINNING_SEAT =
       BLOCKS.register("spinning_seat", () -> new SpinningSeatBlock(
           BlockBehaviour.Properties.of().strength(3).noOcclusion()));

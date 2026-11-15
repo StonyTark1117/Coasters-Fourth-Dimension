@@ -67,7 +67,8 @@ public final class RotationEditorScreen extends Screen {
       updateVehicleStatus(v);
       value.setValue(dev.fourthdimension.vehicle.WingVehicle.is(v)
           ? "Fixed seats — ordinary Coasters track" : dev.fourthdimension.vehicle.SpinningVehicle.is(v)
-              ? "S1 free spin — matching track and a bound dock" : v.damping + "," + v.ballast);
+              ? "S1 free spin — matching track and a bound dock" : dev.fourthdimension.vehicle.SuspendedVehicle.is(v)
+                  ? "Suspended ±45° — overhead track, lift locks, level dock" : v.damping + "," + v.ballast);
       value.setTooltip(
           net.minecraft.client.gui.components.Tooltip.create(
               Component.literal(
@@ -91,7 +92,7 @@ public final class RotationEditorScreen extends Screen {
       else if (v.alignmentRequired)
         addButton("Realign matching track", left, top + 160, 26);
       if (free) addButton("Apply tuning", left, top + 134, 16);
-      if (dev.fourthdimension.vehicle.SpinningVehicle.is(v))
+      if (dev.fourthdimension.vehicle.SpinningVehicle.is(v) || dev.fourthdimension.vehicle.SuspendedVehicle.is(v))
         addButton("Resume to dock", left, top + 134, 28);
       if (v.recoveryCart == null && v.family.foundationFixture()) {
         recoveryAttach = addButton("Attach recovery", left, top + 212, 20);
@@ -166,7 +167,7 @@ public final class RotationEditorScreen extends Screen {
       }
       value.setEditable(!free || magnetic);
       if (magnetic) addButton("Apply magnets", left, top + 82, 4);
-      if (rail.family == dev.fourthdimension.contract.Family.SPINNING)
+      if (rail.family == dev.fourthdimension.contract.Family.SPINNING || rail.family == dev.fourthdimension.contract.Family.SUSPENDED)
         addButton(rail.liftLock ? "Lift lock: on" : "Lift lock: off", left, top + 82, 6);
       if (!free) {
         addButton("Apply profile", left, top + 82, 0);

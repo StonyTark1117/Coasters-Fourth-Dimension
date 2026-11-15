@@ -55,6 +55,7 @@ public final class Boarding {
       var up = new Vector3d(0, 1, 0).rotate(parent.logicalPose().orientation());
       return up.y > .98;
     }
+    if (SuspendedVehicle.is(vehicle)) return SuspendedRuntime.ready(level, parent, vehicle);
     if (SpinningVehicle.is(vehicle)) return SpinningRuntime.ready(level, parent, vehicle);
     for (var carrier : vehicle.carriers) {
       if (!carrier.capture

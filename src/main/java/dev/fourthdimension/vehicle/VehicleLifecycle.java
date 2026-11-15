@@ -40,6 +40,10 @@ public final class VehicleLifecycle {
                   if (vehicle.chassis.equals(body.getUniqueId())
                       || vehicle.carriers.stream()
                           .anyMatch(c -> c.body.equals(body.getUniqueId()))) {
+                    if(SuspendedVehicle.is(vehicle)) {
+                      SuspendedRuntime.fault(level,vehicle,"Suspended native body removed; train retained");
+                      FoundationData.get(level).setDirty();continue;
+                    }
                     if (SpinningVehicle.is(vehicle)) {
                       SpinningRuntime.fault(vehicle, "S1 native body permanently removed; surviving pose retained");
                       FoundationData.get(level).setDirty();

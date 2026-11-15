@@ -3,6 +3,7 @@ package dev.fourthdimension.contract;
 /** Versioned contact orientation and complete reservation in the graph-sample design frame. */
 public record NativeTrackFit(String contacts, String mount, Envelope envelope) {
   public static final String N_CONTACTS = "coasters_n_contacts_v1";
+  public static final String OVERHEAD = "overhead_n_v1";
   public static final String ABOVE = "above_rail_v1";
   public NativeTrackFit {
     if (contacts == null || contacts.isBlank() || mount == null || mount.isBlank() || envelope == null)

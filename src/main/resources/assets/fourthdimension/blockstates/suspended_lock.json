@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "locked=false": {
+      "model": "fourthdimension:block/suspended_lock_free"
+    },
+    "locked=true": {
+      "model": "fourthdimension:block/suspended_lock_locked"
+    }
+  }
+}

@@ -65,6 +65,7 @@ public final class NativeLoading {
           MASS_PER_RIDER * passengers.size()
               + (vehicle.ballast + carrier.ballast) / (100 * carrier.seats.size()));
     }
+    if(SuspendedVehicle.is(vehicle)) desired.put(child.getPlot().getCenterBlock().offset(0,-2,0),1.0);
     var positions = new HashSet<>(applied.masses.keySet());
     positions.addAll(desired.keySet());
     boolean changed = false;
@@ -72,7 +73,8 @@ public final class NativeLoading {
       double delta = desired.getOrDefault(pos, 0.0) - applied.masses.getOrDefault(pos, 0.0);
       if (Math.abs(delta) > 1e-9) {
         tracker.addBlockMass(
-            level, SpinningVehicle.is(vehicle)
+            level, SuspendedVehicle.is(vehicle) && pos.equals(child.getPlot().getCenterBlock().offset(0,-2,0))
+                ? VehicleParts.SUSPENDED_KEEL.get().defaultBlockState() : SpinningVehicle.is(vehicle)
                 ? SpinningSeatBlock.state(pos.below().subtract(child.getPlot().getCenterBlock()))
                 : Blocks.IRON_BLOCK.defaultBlockState(), pos, delta, new Vec3(.12, .06, .12));
         changed = true;

@@ -33,7 +33,7 @@ public final class ExampleLayouts {
     var root = Commands.literal("fd").requires(s -> s.hasPermission(2));
     var demo = Commands.literal("demo");
     for (var design : TrackDesign.values()) {
-      if (design == TrackDesign.PAX || design == TrackDesign.SPINNING) continue;
+      if (design == TrackDesign.PAX || design == TrackDesign.SPINNING || design == TrackDesign.SUSPENDED) continue;
       demo.then(
           Commands.literal(
                   switch (design) {
@@ -43,6 +43,7 @@ public final class ExampleLayouts {
                     case REVISED -> "revised";
                     case PAX -> "pax";
                     case SPINNING -> "spinning";
+                    case SUSPENDED -> "suspended";
                   })
               .executes(
                   ctx -> {

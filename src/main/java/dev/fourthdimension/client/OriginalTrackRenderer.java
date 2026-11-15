@@ -266,7 +266,7 @@ public final class OriginalTrackRenderer {
         center.add(right.scale(TrackDesign.CONTROL_HALF_GAUGE)).add(up.scale(control)),
         center.add(
             up.scale(
-                TrackDesign.SPINE_HEIGHT
+                (design.overhead() ? .90 : TrackDesign.SPINE_HEIGHT)
                     + (ownership.originalOwns(
                             dev.fourthdimension.integration.TrackRenderOwnership.Component.SPINE)
                         ? 0
@@ -286,8 +286,8 @@ public final class OriginalTrackRenderer {
               oldUp,
               right,
               up,
-              rail < 2 ? TrackDesign.RAIL_HALF_WIDTH : rail == 4 ? .22 : .09,
-              rail < 2 ? TrackDesign.RAIL_HALF_HEIGHT : rail == 4 ? .22 : .09,
+              rail < 2 ? TrackDesign.RAIL_HALF_WIDTH : rail == 4 ? (design.overhead() ? .18 : .22) : .09,
+              rail < 2 ? TrackDesign.RAIL_HALF_HEIGHT : rail == 4 ? (design.overhead() ? .18 : .22) : .09,
               rail < 2 ? 0xc6d0d4 : rail == 4 ? decorationColor : 0xf0ca69);
         }
       }
@@ -296,7 +296,7 @@ public final class OriginalTrackRenderer {
         // truss therefore stays outboard of its wheel envelope and joins below the spine.
         if (ownership.originalOwns(
             dev.fourthdimension.integration.TrackRenderOwnership.Component.RUNNING_SUPPORTS)) {
-          var underbrace = center.add(up.scale(TrackDesign.RUNNING_UNDERBRACE_HEIGHT));
+          var underbrace = center.add(up.scale(design.overhead() ? .95 : TrackDesign.RUNNING_UNDERBRACE_HEIGHT));
           for (int side : new int[] {-1, 1}) {
             var outerBottom =
                 underbrace.add(right.scale(side * TrackDesign.RUNNING_OUTBOARD_HALF_GAUGE));

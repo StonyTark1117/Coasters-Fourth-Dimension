@@ -1,0 +1,167 @@
+{
+  "schema": 1,
+  "status": "prepared curve inputs; native placement/shape verification pending integrated implementation",
+  "origin": "graph origin chosen in a loaded empty area, within existing native bounds",
+  "anchors": [
+    {
+      "id": "A",
+      "offset": [
+        0,
+        0,
+        24
+      ],
+      "forward_tangent": [
+        0,
+        0,
+        1
+      ],
+      "bank_degrees": 0
+    },
+    {
+      "id": "B",
+      "offset": [
+        0,
+        0,
+        64
+      ],
+      "forward_tangent": [
+        0,
+        0,
+        1
+      ],
+      "bank_degrees": 0
+    },
+    {
+      "id": "C",
+      "offset": [
+        0,
+        8,
+        104
+      ],
+      "forward_tangent": [
+        0,
+        0,
+        1
+      ],
+      "bank_degrees": 0
+    },
+    {
+      "id": "D",
+      "offset": [
+        32,
+        8,
+        136
+      ],
+      "forward_tangent": [
+        1,
+        0,
+        0
+      ],
+      "bank_degrees": 30
+    },
+    {
+      "id": "E",
+      "offset": [
+        64,
+        8,
+        136
+      ],
+      "forward_tangent": [
+        1,
+        0,
+        0
+      ],
+      "bank_degrees": 30
+    },
+    {
+      "id": "F",
+      "offset": [
+        96,
+        8,
+        104
+      ],
+      "forward_tangent": [
+        0,
+        0,
+        -1
+      ],
+      "bank_degrees": 0
+    },
+    {
+      "id": "G",
+      "offset": [
+        96,
+        0,
+        64
+      ],
+      "forward_tangent": [
+        0,
+        0,
+        -1
+      ],
+      "bank_degrees": 0
+    },
+    {
+      "id": "H",
+      "offset": [
+        96,
+        0,
+        24
+      ],
+      "forward_tangent": [
+        0,
+        0,
+        -1
+      ],
+      "bank_degrees": 0
+    },
+    {
+      "id": "I",
+      "offset": [
+        64,
+        0,
+        -8
+      ],
+      "forward_tangent": [
+        -1,
+        0,
+        0
+      ],
+      "bank_degrees": 0
+    },
+    {
+      "id": "J",
+      "offset": [
+        32,
+        0,
+        -8
+      ],
+      "forward_tangent": [
+        -1,
+        0,
+        0
+      ],
+      "bank_degrees": 0
+    }
+  ],
+  "closed_order": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F",
+    "G",
+    "H",
+    "I",
+    "J",
+    "A"
+  ],
+  "dock": "A-B; 40 blocks flat",
+  "lift": "B-C; 8-block rise over40 horizontal; departure stays latched until whole consist clears C",
+  "free_swing": "C-D-E-F-G-H-I-J-A",
+  "drive": "Native Chain, signed source speed readback; lift2 blocks/s; initial other drive4 blocks/s; passive speed guard12",
+  "platform": "Along A-B, outside |X|<4, floor top graphY=-4; approach nearest seat cushion through the cabin side doorway",
+  "consist": "One car initial occupied cycle; four cars at8-block centers for distinct coupling/sweep/whole-lift-exit claims",
+  "setup_disclosure": "A demo command constructs disclosed setup only. Player construction credit requires normal matching track placement, car item use, binding and controls."
+}

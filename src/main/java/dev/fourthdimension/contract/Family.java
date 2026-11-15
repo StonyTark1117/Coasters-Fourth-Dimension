@@ -8,7 +8,8 @@ public enum Family {
   ZACSPIN_REVISED("zacspin_revised", false),
   PAX("pax_shuttle", false),
   WING("wing_fixed", false),
-  SPINNING("spinning", false);
+  SPINNING("spinning", false),
+  SUSPENDED("suspended", false);
 
   private final String id;
   private final boolean driven;
@@ -31,12 +32,12 @@ public enum Family {
   }
 
   public dev.fourthdimension.physics.CarrierAxis axis() {
-    return this == SPINNING ? dev.fourthdimension.physics.CarrierAxis.Y
+    return this == SUSPENDED ? dev.fourthdimension.physics.CarrierAxis.Z : this == SPINNING ? dev.fourthdimension.physics.CarrierAxis.Y
         : dev.fourthdimension.physics.CarrierAxis.X;
   }
 
   /** The original prototype fixture remains the original five-family acceptance input. */
-  public boolean foundationFixture() { return this != WING && this != SPINNING; }
+  public boolean foundationFixture() { return this != WING && this != SPINNING && this != SUSPENDED; }
 
   public static Family byId(String id) {
     for (Family family : values()) if (family.id.equals(id)) return family;

@@ -26,7 +26,7 @@ public final class VehicleOperations {
     // A coupled PAX train is one safety unit: losing the matching support under any car must
     // capture, restrain, and brake its whole compatible consist before recovery can begin.
     var cars =
-        vehicle.family == dev.fourthdimension.contract.Family.PAX
+        (vehicle.family == dev.fourthdimension.contract.Family.PAX || SuspendedVehicle.is(vehicle))
             ? consist(level, vehicle)
             : List.of(vehicle);
     for (var car : cars) {
@@ -93,6 +93,14 @@ public final class VehicleOperations {
         && winch.phase != dev.fourthdimension.shuttle.ShuttleWinchEntity.Phase.BOARDING) {
       winch.fail("Operator emergency capture: inspect the shuttle before recovery");
       return;
+    }
+    if (SuspendedVehicle.is(vehicle)) {
+      var container=SubLevelContainer.getContainer(level);
+      for(var car:consist(level,vehicle)) {
+        var parent=container.getSubLevel(car.chassis);
+        if(parent instanceof ServerSubLevel body && SuspendedRuntime.safety(level,body,car,SuspendedRuntime.rail(level,car))==null
+            && !car.alignmentRequired)car.fault="";
+      }
     }
     if (SpinningVehicle.is(vehicle)) {
       var container = SubLevelContainer.getContainer(level);
@@ -190,6 +198,14 @@ public final class VehicleOperations {
     var data = FoundationData.get(level);
     var consist = consist(level, vehicle);
     for (var v : consist) {
+      if(SuspendedVehicle.is(v)) {
+        var parent=SubLevelContainer.getContainer(level).getSubLevel(v.chassis);
+        v.suspendedConsist=List.copyOf(CoasterCartTrainLinkConstraint.getTrainLinkedCartIds(parent));
+        var rail=SuspendedRuntime.departureLift(level,v);
+        if(rail!=null)for(var c:v.carriers) {
+          c.liftHeld=true;c.liftEntered=SuspendedRuntime.rail(level,v).liftLock;c.captureTarget=0;c.liftFrom=rail.from;c.liftTo=rail.to;c.liftGeometry=rail.geometryHash;
+        }
+      }
       v.stopping = false;
       v.fault = "";
       v.carriers.forEach(c -> { c.capture = false; c.latched = false; });

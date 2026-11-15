@@ -1,0 +1,105 @@
+{
+  "status": "PASS",
+  "scope": "Prepared JSON bounds and route span length only; native curvature, meshes and occupied rendering not yet checked",
+  "route_spans": [
+    {
+      "edge": "A-B",
+      "endpoint_distance": 40.0
+    },
+    {
+      "edge": "B-C",
+      "endpoint_distance": 40.792156108742276
+    },
+    {
+      "edge": "C-D",
+      "endpoint_distance": 45.254833995939045
+    },
+    {
+      "edge": "D-E",
+      "endpoint_distance": 32.0
+    },
+    {
+      "edge": "E-F",
+      "endpoint_distance": 45.254833995939045
+    },
+    {
+      "edge": "F-G",
+      "endpoint_distance": 40.792156108742276
+    },
+    {
+      "edge": "G-H",
+      "endpoint_distance": 40.0
+    },
+    {
+      "edge": "H-I",
+      "endpoint_distance": 45.254833995939045
+    },
+    {
+      "edge": "I-J",
+      "endpoint_distance": 32.0
+    },
+    {
+      "edge": "J-A",
+      "endpoint_distance": 45.254833995939045
+    }
+  ],
+  "locked_model_bounds": [
+    {
+      "model": "suspended_seat_closed",
+      "minimum_graph": [
+        -1.0,
+        -3.6875,
+        -0.375
+      ],
+      "maximum_graph": [
+        0.0,
+        -2.3125,
+        0.4375
+      ]
+    },
+    {
+      "model": "suspended_seat_open",
+      "minimum_graph": [
+        -1.0,
+        -3.6875,
+        -0.375
+      ],
+      "maximum_graph": [
+        0.0,
+        -1.875,
+        0.4375
+      ]
+    },
+    {
+      "model": "suspended_cabin",
+      "minimum_graph": [
+        -1.0,
+        -4.25,
+        -1.25
+      ],
+      "maximum_graph": [
+        1.0,
+        -2.875,
+        1.25
+      ]
+    }
+  ],
+  "native_child_pivot": [
+    0,
+    0.25,
+    0.5
+  ],
+  "child_seat_block_offsets": [
+    [
+      -1,
+      -2,
+      0
+    ],
+    [
+      0,
+      -2,
+      0
+    ]
+  ],
+  "nominal_player_top_graph_y": -2.1375
+}

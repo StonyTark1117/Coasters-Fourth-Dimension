@@ -128,6 +128,7 @@ public final class FoundationData extends SavedData {
     public boolean recoveryCartRemoved;
     public String fault = "";
     public long revision;
+    public List<UUID> suspendedConsist = List.of();
     public double damping = 5, ballast;
     public final List<Carrier> carriers = new ArrayList<>();
     public BlockPos boundFrom, boundTo;
@@ -147,6 +148,8 @@ public final class FoundationData extends SavedData {
     public List<UUID> occupants = List.of();
     public final Map<UUID, BlockPos> riderSeats = new HashMap<>();
     public List<BlockPos> seats = List.of(new BlockPos(0, -1, 0));
+    public boolean liftPending, liftEntered;
+    public long liftGeometry;
     public double pivotHeight = 2;
     public double longitudinal;
     public double childPivotOffset;
@@ -214,10 +217,17 @@ public final class FoundationData extends SavedData {
       tag.putUUID("chassis", vehicle.chassis);
       tag.putString("family", vehicle.family.id());
       tag.putString("variant", vehicle.variant);
+      ListTag consistIds=new ListTag();
+      for(var id:vehicle.suspendedConsist)consistIds.add(NbtUtils.createUUID(id));
+      tag.put("suspended_consist",consistIds);
       if (vehicle.dock != null) tag.putLong("dock", vehicle.dock.asLong());
       if (dev.fourthdimension.vehicle.SpinningVehicle.is(vehicle)) {
         tag.putString("contact_layout", dev.fourthdimension.contract.NativeTrackFit.N_CONTACTS);
         tag.putString("mount_frame", dev.fourthdimension.contract.NativeTrackFit.ABOVE);
+      }
+      if (dev.fourthdimension.vehicle.SuspendedVehicle.is(vehicle)) {
+        tag.putString("contact_layout", dev.fourthdimension.contract.NativeTrackFit.N_CONTACTS);
+        tag.putString("mount_frame", dev.fourthdimension.contract.NativeTrackFit.OVERHEAD);
       }
       tag.putBoolean("restraints", vehicle.restraints);
       tag.putBoolean("stopping", vehicle.stopping);
@@ -248,6 +258,9 @@ public final class FoundationData extends SavedData {
         c.putDouble("omega", carrier.omega);
         c.putBoolean("capture", carrier.capture);
         c.putDouble("pivot_height", carrier.pivotHeight);
+        c.putBoolean("lift_pending",carrier.liftPending);
+        c.putBoolean("lift_entered",carrier.liftEntered);
+        c.putLong("lift_geometry",carrier.liftGeometry);
         c.putDouble("child_pivot_offset", carrier.childPivotOffset);
         c.putDouble("child_pivot_x", carrier.childPivotX);
         c.putDouble("child_pivot_z", carrier.childPivotZ);
@@ -377,12 +390,20 @@ public final class FoundationData extends SavedData {
           || vehicle.ballast < 0
           || vehicle.ballast > 240)
         throw new IllegalArgumentException("Invalid loading/damping preset");
+      var consistIds=new ArrayList<UUID>();
+      for(Tag id:tag.getList("suspended_consist",Tag.TAG_INT_ARRAY))consistIds.add(NbtUtils.loadUUID(id));
+      if(consistIds.size()>4 || new HashSet<>(consistIds).size()!=consistIds.size())throw new IllegalArgumentException("Invalid Suspended consist");
+      vehicle.suspendedConsist=List.copyOf(consistIds);
       vehicle.variant = tag.contains("variant") ? tag.getString("variant") : VARIANT;
       if (tag.contains("dock")) vehicle.dock = BlockPos.of(tag.getLong("dock"));
       if (dev.fourthdimension.vehicle.SpinningVehicle.is(vehicle)
           && (!dev.fourthdimension.contract.NativeTrackFit.N_CONTACTS.equals(tag.getString("contact_layout"))
               || !dev.fourthdimension.contract.NativeTrackFit.ABOVE.equals(tag.getString("mount_frame"))))
         throw new IllegalArgumentException("Unknown S1 contact/mount definition");
+      if (dev.fourthdimension.vehicle.SuspendedVehicle.is(vehicle)
+          && (!dev.fourthdimension.contract.NativeTrackFit.N_CONTACTS.equals(tag.getString("contact_layout"))
+              || !dev.fourthdimension.contract.NativeTrackFit.OVERHEAD.equals(tag.getString("mount_frame"))))
+        throw new IllegalArgumentException("Unknown Suspended contact/mount definition");
       if (!VARIANT.equals(vehicle.variant)
           && !dev.fourthdimension.vehicle.WingVehicle.is(vehicle)
           && dev.fourthdimension.track.TrackDesign.byVariant(vehicle.variant).family
@@ -408,6 +429,7 @@ public final class FoundationData extends SavedData {
           throw new IllegalArgumentException("Carrier axis disagrees with family");
         carrier.latched = c.getBoolean("latched");
         carrier.liftHeld = c.getBoolean("lift_held");
+        carrier.liftPending=c.getBoolean("lift_pending");carrier.liftEntered=c.getBoolean("lift_entered");carrier.liftGeometry=c.getLong("lift_geometry");
         carrier.captureTarget = c.getDouble("capture_target");
         if (c.contains("lift_from")) {
           carrier.liftFrom = BlockPos.of(c.getLong("lift_from"));
@@ -434,7 +456,7 @@ public final class FoundationData extends SavedData {
             || carrier.childPivotOffset < -.5
             || carrier.childPivotOffset > 0
             || !Double.isFinite(carrier.pivotHeight)
-            || carrier.pivotHeight < 0
+            || carrier.pivotHeight < (dev.fourthdimension.vehicle.SuspendedVehicle.is(vehicle) ? -2 : 0)
             || carrier.pivotHeight > 4
             || carrier.seats.isEmpty()
             || carrier.seats.size() > 4
@@ -472,6 +494,8 @@ public final class FoundationData extends SavedData {
           throw new IllegalArgumentException("Invalid fixed Wing topology");
       } else if (dev.fourthdimension.vehicle.SpinningVehicle.is(vehicle)) {
         dev.fourthdimension.vehicle.SpinningVehicle.validate(vehicle);
+      } else if (dev.fourthdimension.vehicle.SuspendedVehicle.is(vehicle)) {
+        dev.fourthdimension.vehicle.SuspendedVehicle.validate(vehicle);
       } else if (!VARIANT.equals(vehicle.variant)) {
         var layout = dev.fourthdimension.track.TrackDesign.byVariant(vehicle.variant);
         if (vehicle.carriers.size() != layout.groups()

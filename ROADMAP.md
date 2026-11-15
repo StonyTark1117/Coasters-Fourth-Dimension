@@ -681,7 +681,8 @@ not new Styles or whole-release qualification.
 
 **Execution steps:** [FD601](docs/roadmap/0.6-motion.md#fd601).
 
-**Status: planned.** **Depends on:** FD503, FD1501A–C, FD1301A–C, FD1601.
+**Status: in progress.** [Acceptance reconciliation](docs/evidence/0.6/acceptance.md).
+**Depends on:** FD503, FD1501A–C, FD1301A–C, FD1601.
 
 **Done when:** S1, Suspended and Fixed Inverted have usable vehicles, content and accepted
 player workflows. Their distinct interruption/persistence cases are covered;
@@ -1216,7 +1217,7 @@ free-spinning variant. Do not silently promote it into the 1.0 gate.
 
 | Delivery task / status | Prerequisites | Steps and completion condition |
 | --- | --- | --- |
-| <a id="fd1301a"></a> **FD1301A Mechanics — planned** [Steps](docs/roadmap/0.6-motion.md#fd1301a) | FD501A, FD1501A, FD1301 | Implement the overhead bogie/hanger, bounded lateral swing, loading/damping and safe lift/station locks. Reuse integrated carrier infrastructure; do not substitute a cabin animation for dynamics. Complete when its specified mechanism, affected native invariants and the shared-contract client handoff pass. |
+| <a id="fd1301a"></a> **FD1301A Mechanics — complete (2026-11-15 UTC)** [Steps](docs/roadmap/0.6-motion.md#fd1301a) | FD501A, FD1501A, FD1301 | Implement the overhead bogie/hanger, bounded lateral swing, loading/damping and safe lift/station locks. Reuse integrated carrier infrastructure; do not substitute a cabin animation for dynamics. Complete when its specified mechanism, affected native invariants and the shared-contract client handoff pass. [Accepted native and four-car occupied handoff](docs/evidence/0.6/suspended/A-handoff.md). |
 | <a id="fd1301b"></a> **FD1301B Original content — planned** [Steps](docs/roadmap/0.6-motion.md#fd1301b) | FD1301 specification and stable A dimensions | Finish original vehicle/required track assets, restraints, item/recipe content, guide and a playable example. Complete when content represents the implemented behavior and normal player controls. |
 | <a id="fd1301c"></a> **FD1301C Player acceptance — planned** [Steps](docs/roadmap/0.6-motion.md#fd1301c) | FD1301A, FD1301B | Complete normal construction/boarding/operation/capture/unload for the declared example; combine accepted mechanics, eligibility, clearance, persistence and rider-synchronization evidence. Add only distinct interruption or camera cases. Complete when the whole feature is usable and documented; do not restart acceptance for an unrelated build. |
 

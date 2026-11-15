@@ -41,7 +41,7 @@ public record VehicleContract(
       return Eligibility.MISSING_MECHANISM;
     if (family == Family.ARROW && !track.mechanisms().contains(Mechanism.CONTROL_RAILS))
       return Eligibility.MISSING_MECHANISM;
-    if (family == Family.SPINNING && !track.mechanisms().contains(Mechanism.STATION_CAPTURE))
+    if ((family == Family.SPINNING || family == Family.SUSPENDED) && !track.mechanisms().contains(Mechanism.STATION_CAPTURE))
       return Eligibility.MISSING_MECHANISM;
     if (!track.mechanisms().containsAll(requiredMechanisms)) return Eligibility.MISSING_MECHANISM;
     return ordinary() ? Eligibility.ORDINARY_RAIL_ACCESS : Eligibility.FOUR_D;

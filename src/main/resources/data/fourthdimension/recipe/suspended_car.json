@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "SAS",
+    "ITI",
+    "ICI"
+  ],
+  "key": {
+    "S": {
+      "item": "create:red_seat"
+    },
+    "A": {
+      "item": "fourthdimension:suspended_latch"
+    },
+    "I": {
+      "tag": "c:ingots/iron"
+    },
+    "T": {
+      "item": "fourthdimension:suspended_track"
+    },
+    "C": {
+      "item": "simulatedcoasters:coaster_cart"
+    }
+  },
+  "result": {
+    "id": "fourthdimension:suspended_car",
+    "count": 1
+  }
+}
