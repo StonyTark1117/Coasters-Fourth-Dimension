@@ -1,10 +1,20 @@
 {
+  "parent": "minecraft:block/block",
+  "ambientocclusion": true,
   "textures": {
-    "seat": "minecraft:block/lime_concrete",
-    "metal": "minecraft:block/iron_block",
-    "pad": "minecraft:block/black_concrete",
-    "cue": "minecraft:block/yellow_concrete",
-    "particle": "minecraft:block/lime_concrete"
+    "metal": "fourthdimension:block/fd917/structural",
+    "body": "fourthdimension:block/fd917/paint_lime",
+    "paint": "fourthdimension:block/fd917/paint_lime",
+    "accent": "fourthdimension:block/fd917/paint_lime",
+    "cushion": "fourthdimension:block/fd917/upholstery_black",
+    "seat": "fourthdimension:block/fd917/upholstery_black",
+    "restraint": "fourthdimension:block/fd917/restraint",
+    "harness": "fourthdimension:block/fd917/restraint",
+    "contact": "fourthdimension:block/fd917/machined",
+    "bolt": "fourthdimension:block/fd917/fastener",
+    "rubber": "fourthdimension:block/fd917/rubber",
+    "latch": "fourthdimension:block/fd917/paint_orange",
+    "particle": "fourthdimension:block/fd917/paint_lime"
   },
   "elements": []
 }

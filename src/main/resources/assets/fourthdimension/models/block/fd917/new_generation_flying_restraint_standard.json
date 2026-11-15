@@ -1,0 +1,366 @@
+{
+  "parent": "minecraft:block/block",
+  "ambientocclusion": true,
+  "textures": {
+    "metal": "fourthdimension:block/fd917/structural",
+    "body": "fourthdimension:block/fd917/paint_purple",
+    "paint": "fourthdimension:block/fd917/paint_purple",
+    "accent": "fourthdimension:block/fd917/paint_purple",
+    "cushion": "fourthdimension:block/fd917/upholstery_black",
+    "seat": "fourthdimension:block/fd917/upholstery_black",
+    "restraint": "fourthdimension:block/fd917/restraint",
+    "harness": "fourthdimension:block/fd917/restraint",
+    "contact": "fourthdimension:block/fd917/machined",
+    "bolt": "fourthdimension:block/fd917/fastener",
+    "rubber": "fourthdimension:block/fd917/rubber",
+    "latch": "fourthdimension:block/fd917/paint_orange",
+    "particle": "fourthdimension:block/fd917/paint_purple"
+  },
+  "elements": [
+    {
+      "name": "body restraint pad",
+      "from": [
+        2,
+        11,
+        1.5
+      ],
+      "to": [
+        4,
+        24,
+        3.5
+      ],
+      "faces": {
+        "north": {
+          "texture": "#restraint",
+          "uv": [
+            0,
+            0,
+            2,
+            13
+          ]
+        },
+        "south": {
+          "texture": "#restraint",
+          "uv": [
+            0,
+            0,
+            2,
+            13
+          ]
+        },
+        "east": {
+          "texture": "#restraint",
+          "uv": [
+            0,
+            0,
+            2.0,
+            13
+          ]
+        },
+        "west": {
+          "texture": "#restraint",
+          "uv": [
+            0,
+            0,
+            2.0,
+            13
+          ]
+        },
+        "up": {
+          "texture": "#restraint",
+          "uv": [
+            0,
+            0,
+            2,
+            2.0
+          ]
+        },
+        "down": {
+          "texture": "#restraint",
+          "uv": [
+            0,
+            0,
+            2,
+            2.0
+          ]
+        }
+      }
+    },
+    {
+      "name": "shoulder hinge arm",
+      "from": [
+        2,
+        22,
+        2.5
+      ],
+      "to": [
+        4,
+        25,
+        15
+      ],
+      "faces": {
+        "north": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            2,
+            3
+          ]
+        },
+        "south": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            2,
+            3
+          ]
+        },
+        "east": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            12.5,
+            3
+          ]
+        },
+        "west": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            12.5,
+            3
+          ]
+        },
+        "up": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            2,
+            12.5
+          ]
+        },
+        "down": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            2,
+            12.5
+          ]
+        }
+      }
+    },
+    {
+      "name": "body restraint pad",
+      "from": [
+        12,
+        11,
+        1.5
+      ],
+      "to": [
+        14,
+        24,
+        3.5
+      ],
+      "faces": {
+        "north": {
+          "texture": "#restraint",
+          "uv": [
+            0,
+            0,
+            2,
+            13
+          ]
+        },
+        "south": {
+          "texture": "#restraint",
+          "uv": [
+            0,
+            0,
+            2,
+            13
+          ]
+        },
+        "east": {
+          "texture": "#restraint",
+          "uv": [
+            0,
+            0,
+            2.0,
+            13
+          ]
+        },
+        "west": {
+          "texture": "#restraint",
+          "uv": [
+            0,
+            0,
+            2.0,
+            13
+          ]
+        },
+        "up": {
+          "texture": "#restraint",
+          "uv": [
+            0,
+            0,
+            2,
+            2.0
+          ]
+        },
+        "down": {
+          "texture": "#restraint",
+          "uv": [
+            0,
+            0,
+            2,
+            2.0
+          ]
+        }
+      }
+    },
+    {
+      "name": "shoulder hinge arm",
+      "from": [
+        12,
+        22,
+        2.5
+      ],
+      "to": [
+        14,
+        25,
+        15
+      ],
+      "faces": {
+        "north": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            2,
+            3
+          ]
+        },
+        "south": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            2,
+            3
+          ]
+        },
+        "east": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            12.5,
+            3
+          ]
+        },
+        "west": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            12.5,
+            3
+          ]
+        },
+        "up": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            2,
+            12.5
+          ]
+        },
+        "down": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            2,
+            12.5
+          ]
+        }
+      }
+    },
+    {
+      "name": "lower crossbar",
+      "from": [
+        2,
+        10,
+        1.5
+      ],
+      "to": [
+        14,
+        13,
+        3.5
+      ],
+      "faces": {
+        "north": {
+          "texture": "#restraint",
+          "uv": [
+            0,
+            0,
+            12,
+            3
+          ]
+        },
+        "south": {
+          "texture": "#restraint",
+          "uv": [
+            0,
+            0,
+            12,
+            3
+          ]
+        },
+        "east": {
+          "texture": "#restraint",
+          "uv": [
+            0,
+            0,
+            2.0,
+            3
+          ]
+        },
+        "west": {
+          "texture": "#restraint",
+          "uv": [
+            0,
+            0,
+            2.0,
+            3
+          ]
+        },
+        "up": {
+          "texture": "#restraint",
+          "uv": [
+            0,
+            0,
+            12,
+            2.0
+          ]
+        },
+        "down": {
+          "texture": "#restraint",
+          "uv": [
+            0,
+            0,
+            12,
+            2.0
+          ]
+        }
+      }
+    }
+  ]
+}

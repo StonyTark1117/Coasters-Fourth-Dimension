@@ -1,11 +1,20 @@
 {
   "parent": "minecraft:block/block",
+  "ambientocclusion": true,
   "textures": {
-    "seat": "minecraft:block/white_concrete",
-    "metal": "minecraft:block/iron_block",
-    "harness": "minecraft:block/black_concrete",
-    "latch": "minecraft:block/yellow_concrete",
-    "particle": "minecraft:block/white_concrete"
+    "metal": "fourthdimension:block/fd917/structural",
+    "body": "fourthdimension:block/fd917/paint_white",
+    "paint": "fourthdimension:block/fd917/paint_white",
+    "accent": "fourthdimension:block/fd917/paint_white",
+    "cushion": "fourthdimension:block/fd917/upholstery_white",
+    "seat": "fourthdimension:block/fd917/upholstery_white",
+    "restraint": "fourthdimension:block/fd917/restraint",
+    "harness": "fourthdimension:block/fd917/restraint",
+    "contact": "fourthdimension:block/fd917/machined",
+    "bolt": "fourthdimension:block/fd917/fastener",
+    "rubber": "fourthdimension:block/fd917/rubber",
+    "latch": "fourthdimension:block/fd917/paint_orange",
+    "particle": "fourthdimension:block/fd917/paint_white"
   },
   "elements": [
     {
@@ -25,8 +34,8 @@
           "uv": [
             0,
             0,
-            16,
-            16
+            12,
+            12
           ]
         },
         "south": {
@@ -34,8 +43,8 @@
           "uv": [
             0,
             0,
-            16,
-            16
+            12,
+            12
           ]
         },
         "east": {
@@ -43,8 +52,8 @@
           "uv": [
             0,
             0,
-            16,
-            16
+            12,
+            12
           ]
         },
         "west": {
@@ -52,8 +61,8 @@
           "uv": [
             0,
             0,
-            16,
-            16
+            12,
+            12
           ]
         },
         "up": {
@@ -61,8 +70,8 @@
           "uv": [
             0,
             0,
-            16,
-            16
+            12,
+            12
           ]
         },
         "down": {
@@ -70,8 +79,8 @@
           "uv": [
             0,
             0,
-            16,
-            16
+            12,
+            12
           ]
         }
       }
@@ -93,8 +102,8 @@
           "uv": [
             0,
             0,
-            16,
-            16
+            10,
+            4
           ]
         },
         "south": {
@@ -102,8 +111,8 @@
           "uv": [
             0,
             0,
-            16,
-            16
+            10,
+            4
           ]
         },
         "east": {
@@ -111,8 +120,8 @@
           "uv": [
             0,
             0,
-            16,
-            16
+            10,
+            4
           ]
         },
         "west": {
@@ -120,8 +129,8 @@
           "uv": [
             0,
             0,
-            16,
-            16
+            10,
+            4
           ]
         },
         "up": {
@@ -129,8 +138,8 @@
           "uv": [
             0,
             0,
-            16,
-            16
+            10,
+            10
           ]
         },
         "down": {
@@ -138,8 +147,8 @@
           "uv": [
             0,
             0,
-            16,
-            16
+            10,
+            10
           ]
         }
       }

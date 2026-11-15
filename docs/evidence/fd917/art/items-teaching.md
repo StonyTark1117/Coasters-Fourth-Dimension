@@ -1,0 +1,9 @@
+# Production items and teaching
+
+All17 current whole-car inventory icons are readable in [items-all17.png](items-all17.png): original nine above and C/D eight below. They depict complete distinct car arrangements, not unrelated single-seat icons.
+
+Art launch04 plus eleven-file resource correction supplied the bounded hand check. The original six winged miniatures span36 model units and were cropped at .38 first-person scale. `generate-content.py` now sets .18 with mirrored x translation and y3 for their first-person transforms only. The full paired-row Free Spin miniature fits in [hand/ground/frame view](item-hand-ground-frame.png); the unchanged ground, fixed and [third-person hand](item-third-person.png) transforms are readable. The other eleven smaller models use the same shared `item_display` source, with their retained dimensions. Inventory transforms did not change. Rotation Tool retains its recognized native handheld compass and unchanged transforms.
+
+Matching static raised restraints, Arrow independently rotating carriers and readable seventh fault caption, plus Boarding closed/open block-state changes passed in launch02. PAX launch04 now visibly has [closed travel](ponder-pax-closed-travel.png) and [open after return](ponder-pax-open-return.png); the remote-drive caption and receiver/carriage separation fit the854×480 view. These are schematic teaching, not ride mechanics evidence. Native Suspended plot/reload separately proves no duplicate fixed/dynamic bars. Scoped caption patch is merged by lead; generator never overwrites unrelated language.
+
+Eleven-file correction pack contains only five controller screw texture aliases and six original whole-car hand transforms. It does not affect teaching, world shell, restraint state, geometry attachment or authority. Final source JSON alias/bounds/UV checks passed; Ponder repeat export is byte-identical.

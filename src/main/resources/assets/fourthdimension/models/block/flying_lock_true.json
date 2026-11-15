@@ -1,78 +1,87 @@
 {
   "parent": "minecraft:block/block",
+  "ambientocclusion": true,
   "textures": {
-    "seat": "minecraft:block/cyan_concrete",
-    "metal": "minecraft:block/iron_block",
-    "harness": "minecraft:block/black_concrete",
-    "latch": "minecraft:block/orange_concrete",
-    "locked": "minecraft:block/lime_concrete",
-    "particle": "minecraft:block/cyan_concrete"
+    "metal": "fourthdimension:block/fd917/structural",
+    "body": "fourthdimension:block/fd917/paint_light_blue",
+    "paint": "fourthdimension:block/fd917/paint_light_blue",
+    "accent": "fourthdimension:block/fd917/paint_light_blue",
+    "cushion": "fourthdimension:block/fd917/upholstery_black",
+    "seat": "fourthdimension:block/fd917/upholstery_black",
+    "restraint": "fourthdimension:block/fd917/restraint",
+    "harness": "fourthdimension:block/fd917/restraint",
+    "contact": "fourthdimension:block/fd917/machined",
+    "bolt": "fourthdimension:block/fd917/fastener",
+    "rubber": "fourthdimension:block/fd917/rubber",
+    "latch": "fourthdimension:block/fd917/paint_orange",
+    "particle": "fourthdimension:block/fd917/paint_light_blue"
   },
   "elements": [
     {
+      "name": "posture axle core",
       "from": [
-        -8,
-        20,
-        16
+        -1.25,
+        22.75,
+        6.75
       ],
       "to": [
-        8,
-        24,
-        18
+        1.25,
+        25.25,
+        9.25
       ],
       "faces": {
         "north": {
-          "texture": "#locked",
+          "texture": "#contact",
           "uv": [
             0,
             0,
-            16,
-            16
+            2.5,
+            2.5
           ]
         },
         "south": {
-          "texture": "#locked",
+          "texture": "#contact",
           "uv": [
             0,
             0,
-            16,
-            16
+            2.5,
+            2.5
           ]
         },
         "east": {
-          "texture": "#locked",
+          "texture": "#contact",
           "uv": [
             0,
             0,
-            16,
-            16
+            2.5,
+            2.5
           ]
         },
         "west": {
-          "texture": "#locked",
+          "texture": "#contact",
           "uv": [
             0,
             0,
-            16,
-            16
+            2.5,
+            2.5
           ]
         },
         "up": {
-          "texture": "#locked",
+          "texture": "#contact",
           "uv": [
             0,
             0,
-            16,
-            16
+            2.5,
+            2.5
           ]
         },
         "down": {
-          "texture": "#locked",
+          "texture": "#contact",
           "uv": [
             0,
             0,
-            16,
-            16
+            2.5,
+            2.5
           ]
         }
       }

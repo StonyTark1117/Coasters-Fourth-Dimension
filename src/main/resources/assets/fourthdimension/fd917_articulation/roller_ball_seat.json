@@ -1,0 +1,132 @@
+{
+  "parts": [
+    {
+      "model": "fourthdimension:block/fd917/roller_ball_restraint_left_false_facing_north",
+      "property": "restrained",
+      "pivot": [
+        12,
+        23,
+        22
+      ],
+      "axis": "x",
+      "open_degrees": 50,
+      "rotate_facing": false,
+      "when": {
+        "left": "false",
+        "facing": "north"
+      }
+    },
+    {
+      "model": "fourthdimension:block/fd917/roller_ball_restraint_left_false_facing_south",
+      "property": "restrained",
+      "pivot": [
+        12,
+        23,
+        10
+      ],
+      "axis": "x",
+      "open_degrees": -50,
+      "rotate_facing": false,
+      "when": {
+        "left": "false",
+        "facing": "south"
+      }
+    },
+    {
+      "model": "fourthdimension:block/fd917/roller_ball_restraint_left_false_facing_east",
+      "property": "restrained",
+      "pivot": [
+        12,
+        23,
+        22
+      ],
+      "axis": "x",
+      "open_degrees": 50,
+      "rotate_facing": false,
+      "when": {
+        "left": "false",
+        "facing": "east"
+      }
+    },
+    {
+      "model": "fourthdimension:block/fd917/roller_ball_restraint_left_false_facing_west",
+      "property": "restrained",
+      "pivot": [
+        12,
+        23,
+        22
+      ],
+      "axis": "x",
+      "open_degrees": 50,
+      "rotate_facing": false,
+      "when": {
+        "left": "false",
+        "facing": "west"
+      }
+    },
+    {
+      "model": "fourthdimension:block/fd917/roller_ball_restraint_left_true_facing_north",
+      "property": "restrained",
+      "pivot": [
+        20,
+        23,
+        22
+      ],
+      "axis": "x",
+      "open_degrees": 50,
+      "rotate_facing": false,
+      "when": {
+        "left": "true",
+        "facing": "north"
+      }
+    },
+    {
+      "model": "fourthdimension:block/fd917/roller_ball_restraint_left_true_facing_south",
+      "property": "restrained",
+      "pivot": [
+        20,
+        23,
+        10
+      ],
+      "axis": "x",
+      "open_degrees": -50,
+      "rotate_facing": false,
+      "when": {
+        "left": "true",
+        "facing": "south"
+      }
+    },
+    {
+      "model": "fourthdimension:block/fd917/roller_ball_restraint_left_true_facing_east",
+      "property": "restrained",
+      "pivot": [
+        20,
+        23,
+        22
+      ],
+      "axis": "x",
+      "open_degrees": 50,
+      "rotate_facing": false,
+      "when": {
+        "left": "true",
+        "facing": "east"
+      }
+    },
+    {
+      "model": "fourthdimension:block/fd917/roller_ball_restraint_left_true_facing_west",
+      "property": "restrained",
+      "pivot": [
+        20,
+        23,
+        22
+      ],
+      "axis": "x",
+      "open_degrees": 50,
+      "rotate_facing": false,
+      "when": {
+        "left": "true",
+        "facing": "west"
+      }
+    }
+  ]
+}

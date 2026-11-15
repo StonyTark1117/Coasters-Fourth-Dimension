@@ -1,157 +1,654 @@
 {
+  "parent": "minecraft:block/block",
+  "ambientocclusion": true,
   "textures": {
-    "cushion": "minecraft:block/orange_concrete",
-    "metal": "minecraft:block/iron_block",
-    "bar": "minecraft:block/black_concrete",
-    "particle": "minecraft:block/orange_concrete"
+    "metal": "fourthdimension:block/fd917/structural",
+    "body": "fourthdimension:block/fd917/paint_orange",
+    "paint": "fourthdimension:block/fd917/paint_orange",
+    "accent": "fourthdimension:block/fd917/paint_orange",
+    "cushion": "fourthdimension:block/fd917/upholstery_black",
+    "seat": "fourthdimension:block/fd917/upholstery_black",
+    "restraint": "fourthdimension:block/fd917/restraint",
+    "harness": "fourthdimension:block/fd917/restraint",
+    "contact": "fourthdimension:block/fd917/machined",
+    "bolt": "fourthdimension:block/fd917/fastener",
+    "rubber": "fourthdimension:block/fd917/rubber",
+    "latch": "fourthdimension:block/fd917/paint_orange",
+    "particle": "fourthdimension:block/fd917/paint_orange"
   },
   "elements": [
     {
+      "name": "pressed seat pan",
       "from": [
-        1.4000000000000004,
-        10,
-        7
+        1.1500000000000004,
+        9,
+        5
       ],
       "to": [
-        11.4,
-        12,
-        17
+        11.649999999999999,
+        11,
+        19
       ],
       "faces": {
         "north": {
-          "texture": "#cushion",
+          "texture": "#body",
           "uv": [
             0,
             0,
-            10.0,
+            10.499999999999998,
             2
           ]
         },
         "south": {
-          "texture": "#cushion",
+          "texture": "#body",
           "uv": [
             0,
             0,
-            10.0,
+            10.499999999999998,
             2
           ]
         },
         "east": {
-          "texture": "#cushion",
+          "texture": "#body",
           "uv": [
             0,
             0,
-            10,
+            14,
             2
           ]
         },
         "west": {
-          "texture": "#cushion",
+          "texture": "#body",
           "uv": [
             0,
             0,
-            10,
+            14,
             2
           ]
         },
         "up": {
-          "texture": "#cushion",
+          "texture": "#body",
           "uv": [
             0,
             0,
-            10.0,
-            10
+            10.499999999999998,
+            14
           ]
         },
         "down": {
-          "texture": "#cushion",
+          "texture": "#body",
           "uv": [
             0,
             0,
-            10.0,
-            10
+            10.499999999999998,
+            14
           ]
         }
       }
     },
     {
+      "name": "seat cushion",
       "from": [
-        1.4000000000000004,
-        12,
-        6
+        1.9000000000000004,
+        11,
+        7
       ],
       "to": [
-        11.4,
+        10.899999999999999,
+        12.8,
+        18
+      ],
+      "faces": {
+        "north": {
+          "texture": "#seat",
+          "uv": [
+            0,
+            0,
+            8.999999999999998,
+            1.8000000000000007
+          ]
+        },
+        "south": {
+          "texture": "#seat",
+          "uv": [
+            0,
+            0,
+            8.999999999999998,
+            1.8000000000000007
+          ]
+        },
+        "east": {
+          "texture": "#seat",
+          "uv": [
+            0,
+            0,
+            11,
+            1.8000000000000007
+          ]
+        },
+        "west": {
+          "texture": "#seat",
+          "uv": [
+            0,
+            0,
+            11,
+            1.8000000000000007
+          ]
+        },
+        "up": {
+          "texture": "#seat",
+          "uv": [
+            0,
+            0,
+            8.999999999999998,
+            11
+          ]
+        },
+        "down": {
+          "texture": "#seat",
+          "uv": [
+            0,
+            0,
+            8.999999999999998,
+            11
+          ]
+        }
+      }
+    },
+    {
+      "name": "structural seat back",
+      "from": [
+        1.1500000000000004,
+        12.8,
+        4
+      ],
+      "to": [
+        11.649999999999999,
+        27,
+        7
+      ],
+      "faces": {
+        "north": {
+          "texture": "#body",
+          "uv": [
+            0,
+            0,
+            10.499999999999998,
+            14.2
+          ]
+        },
+        "south": {
+          "texture": "#body",
+          "uv": [
+            0,
+            0,
+            10.499999999999998,
+            14.2
+          ]
+        },
+        "east": {
+          "texture": "#body",
+          "uv": [
+            0,
+            0,
+            3,
+            14.2
+          ]
+        },
+        "west": {
+          "texture": "#body",
+          "uv": [
+            0,
+            0,
+            3,
+            14.2
+          ]
+        },
+        "up": {
+          "texture": "#body",
+          "uv": [
+            0,
+            0,
+            10.499999999999998,
+            3
+          ]
+        },
+        "down": {
+          "texture": "#body",
+          "uv": [
+            0,
+            0,
+            10.499999999999998,
+            3
+          ]
+        }
+      }
+    },
+    {
+      "name": "back padding",
+      "from": [
+        2.2750000000000004,
+        12.8,
+        7
+      ],
+      "to": [
+        10.524999999999999,
+        25,
+        8.2
+      ],
+      "faces": {
+        "north": {
+          "texture": "#seat",
+          "uv": [
+            0,
+            0,
+            8.249999999999998,
+            12.2
+          ]
+        },
+        "south": {
+          "texture": "#seat",
+          "uv": [
+            0,
+            0,
+            8.249999999999998,
+            12.2
+          ]
+        },
+        "east": {
+          "texture": "#seat",
+          "uv": [
+            0,
+            0,
+            1.1999999999999993,
+            12.2
+          ]
+        },
+        "west": {
+          "texture": "#seat",
+          "uv": [
+            0,
+            0,
+            1.1999999999999993,
+            12.2
+          ]
+        },
+        "up": {
+          "texture": "#seat",
+          "uv": [
+            0,
+            0,
+            8.249999999999998,
+            1.1999999999999993
+          ]
+        },
+        "down": {
+          "texture": "#seat",
+          "uv": [
+            0,
+            0,
+            8.249999999999998,
+            1.1999999999999993
+          ]
+        }
+      }
+    },
+    {
+      "name": "head pad",
+      "from": [
+        3.4000000000000004,
+        25,
+        5
+      ],
+      "to": [
+        9.399999999999999,
         29,
         8
       ],
       "faces": {
         "north": {
-          "texture": "#cushion",
+          "texture": "#seat",
           "uv": [
             0,
             0,
-            10.0,
-            16
+            5.999999999999998,
+            4
           ]
         },
         "south": {
-          "texture": "#cushion",
+          "texture": "#seat",
           "uv": [
             0,
             0,
-            10.0,
-            16
+            5.999999999999998,
+            4
           ]
         },
         "east": {
-          "texture": "#cushion",
+          "texture": "#seat",
           "uv": [
             0,
             0,
-            2,
-            16
+            3,
+            4
           ]
         },
         "west": {
-          "texture": "#cushion",
+          "texture": "#seat",
           "uv": [
             0,
             0,
-            2,
-            16
+            3,
+            4
           ]
         },
         "up": {
-          "texture": "#cushion",
+          "texture": "#seat",
           "uv": [
             0,
             0,
-            10.0,
-            2
+            5.999999999999998,
+            3
           ]
         },
         "down": {
-          "texture": "#cushion",
+          "texture": "#seat",
           "uv": [
             0,
             0,
-            10.0,
-            2
+            5.999999999999998,
+            3
           ]
         }
       }
     },
     {
+      "name": "footwell base",
+      "from": [
+        1.1500000000000004,
+        2,
+        3
+      ],
+      "to": [
+        11.649999999999999,
+        4,
+        19
+      ],
+      "faces": {
+        "north": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            10.499999999999998,
+            2
+          ]
+        },
+        "south": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            10.499999999999998,
+            2
+          ]
+        },
+        "east": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            16,
+            2
+          ]
+        },
+        "west": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            16,
+            2
+          ]
+        },
+        "up": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            10.499999999999998,
+            16
+          ]
+        },
+        "down": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            10.499999999999998,
+            16
+          ]
+        }
+      }
+    },
+    {
+      "name": "left car sill",
+      "from": [
+        10.899999999999999,
+        4,
+        5
+      ],
+      "to": [
+        12.399999999999999,
+        14,
+        19
+      ],
+      "faces": {
+        "north": {
+          "texture": "#body",
+          "uv": [
+            0,
+            0,
+            1.5,
+            10
+          ]
+        },
+        "south": {
+          "texture": "#body",
+          "uv": [
+            0,
+            0,
+            1.5,
+            10
+          ]
+        },
+        "east": {
+          "texture": "#body",
+          "uv": [
+            0,
+            0,
+            14,
+            10
+          ]
+        },
+        "west": {
+          "texture": "#body",
+          "uv": [
+            0,
+            0,
+            14,
+            10
+          ]
+        },
+        "up": {
+          "texture": "#body",
+          "uv": [
+            0,
+            0,
+            1.5,
+            14
+          ]
+        },
+        "down": {
+          "texture": "#body",
+          "uv": [
+            0,
+            0,
+            1.5,
+            14
+          ]
+        }
+      }
+    },
+    {
+      "name": "right car sill",
       "from": [
         0.40000000000000036,
-        3,
-        7
+        4,
+        5
       ],
       "to": [
-        2.4000000000000004,
-        12,
-        17
+        1.9000000000000004,
+        14,
+        19
+      ],
+      "faces": {
+        "north": {
+          "texture": "#body",
+          "uv": [
+            0,
+            0,
+            1.5,
+            10
+          ]
+        },
+        "south": {
+          "texture": "#body",
+          "uv": [
+            0,
+            0,
+            1.5,
+            10
+          ]
+        },
+        "east": {
+          "texture": "#body",
+          "uv": [
+            0,
+            0,
+            14,
+            10
+          ]
+        },
+        "west": {
+          "texture": "#body",
+          "uv": [
+            0,
+            0,
+            14,
+            10
+          ]
+        },
+        "up": {
+          "texture": "#body",
+          "uv": [
+            0,
+            0,
+            1.5,
+            14
+          ]
+        },
+        "down": {
+          "texture": "#body",
+          "uv": [
+            0,
+            0,
+            1.5,
+            14
+          ]
+        }
+      }
+    },
+    {
+      "name": "footwell tread",
+      "from": [
+        1.9000000000000004,
+        4,
+        12
+      ],
+      "to": [
+        10.899999999999999,
+        5,
+        19
+      ],
+      "faces": {
+        "north": {
+          "texture": "#rubber",
+          "uv": [
+            0,
+            0,
+            8.999999999999998,
+            1
+          ]
+        },
+        "south": {
+          "texture": "#rubber",
+          "uv": [
+            0,
+            0,
+            8.999999999999998,
+            1
+          ]
+        },
+        "east": {
+          "texture": "#rubber",
+          "uv": [
+            0,
+            0,
+            7,
+            1
+          ]
+        },
+        "west": {
+          "texture": "#rubber",
+          "uv": [
+            0,
+            0,
+            7,
+            1
+          ]
+        },
+        "up": {
+          "texture": "#rubber",
+          "uv": [
+            0,
+            0,
+            8.999999999999998,
+            7
+          ]
+        },
+        "down": {
+          "texture": "#rubber",
+          "uv": [
+            0,
+            0,
+            8.999999999999998,
+            7
+          ]
+        }
+      }
+    },
+    {
+      "name": "seat riser",
+      "from": [
+        9.399999999999999,
+        4,
+        6
+      ],
+      "to": [
+        10.899999999999999,
+        10,
+        10
       ],
       "faces": {
         "north": {
@@ -159,8 +656,8 @@
           "uv": [
             0,
             0,
-            2.0,
-            9
+            1.5,
+            6
           ]
         },
         "south": {
@@ -168,8 +665,8 @@
           "uv": [
             0,
             0,
-            2.0,
-            9
+            1.5,
+            6
           ]
         },
         "east": {
@@ -177,8 +674,8 @@
           "uv": [
             0,
             0,
-            10,
-            9
+            4,
+            6
           ]
         },
         "west": {
@@ -186,8 +683,8 @@
           "uv": [
             0,
             0,
-            10,
-            9
+            4,
+            6
           ]
         },
         "up": {
@@ -195,8 +692,8 @@
           "uv": [
             0,
             0,
-            2.0,
-            10
+            1.5,
+            4
           ]
         },
         "down": {
@@ -204,22 +701,23 @@
           "uv": [
             0,
             0,
-            2.0,
-            10
+            1.5,
+            4
           ]
         }
       }
     },
     {
+      "name": "seat riser",
       "from": [
-        10.4,
-        3,
-        7
+        1.9000000000000004,
+        4,
+        6
       ],
       "to": [
-        12.4,
-        12,
-        17
+        3.4000000000000004,
+        10,
+        10
       ],
       "faces": {
         "north": {
@@ -227,8 +725,8 @@
           "uv": [
             0,
             0,
-            2.0,
-            9
+            1.5,
+            6
           ]
         },
         "south": {
@@ -236,8 +734,8 @@
           "uv": [
             0,
             0,
-            2.0,
-            9
+            1.5,
+            6
           ]
         },
         "east": {
@@ -245,8 +743,8 @@
           "uv": [
             0,
             0,
-            10,
-            9
+            4,
+            6
           ]
         },
         "west": {
@@ -254,8 +752,8 @@
           "uv": [
             0,
             0,
-            10,
-            9
+            4,
+            6
           ]
         },
         "up": {
@@ -263,8 +761,8 @@
           "uv": [
             0,
             0,
-            2.0,
-            10
+            1.5,
+            4
           ]
         },
         "down": {
@@ -272,212 +770,284 @@
           "uv": [
             0,
             0,
-            2.0,
-            10
+            1.5,
+            4
           ]
         }
       }
     },
     {
+      "name": "roundabout end panel",
       "from": [
-        2.4000000000000004,
-        18,
-        14
+        0.40000000000000036,
+        4,
+        19
       ],
       "to": [
-        4.4,
+        12.399999999999999,
+        9,
+        22
+      ],
+      "faces": {
+        "north": {
+          "texture": "#body",
+          "uv": [
+            0,
+            0,
+            11.999999999999998,
+            5
+          ]
+        },
+        "south": {
+          "texture": "#body",
+          "uv": [
+            0,
+            0,
+            11.999999999999998,
+            5
+          ]
+        },
+        "east": {
+          "texture": "#body",
+          "uv": [
+            0,
+            0,
+            3,
+            5
+          ]
+        },
+        "west": {
+          "texture": "#body",
+          "uv": [
+            0,
+            0,
+            3,
+            5
+          ]
+        },
+        "up": {
+          "texture": "#body",
+          "uv": [
+            0,
+            0,
+            11.999999999999998,
+            3
+          ]
+        },
+        "down": {
+          "texture": "#body",
+          "uv": [
+            0,
+            0,
+            11.999999999999998,
+            3
+          ]
+        }
+      }
+    },
+    {
+      "name": "end bumper",
+      "from": [
+        1.9000000000000004,
+        5,
+        22
+      ],
+      "to": [
+        10.899999999999999,
+        7,
+        23
+      ],
+      "faces": {
+        "north": {
+          "texture": "#contact",
+          "uv": [
+            0,
+            0,
+            8.999999999999998,
+            2
+          ]
+        },
+        "south": {
+          "texture": "#contact",
+          "uv": [
+            0,
+            0,
+            8.999999999999998,
+            2
+          ]
+        },
+        "east": {
+          "texture": "#contact",
+          "uv": [
+            0,
+            0,
+            1,
+            2
+          ]
+        },
+        "west": {
+          "texture": "#contact",
+          "uv": [
+            0,
+            0,
+            1,
+            2
+          ]
+        },
+        "up": {
+          "texture": "#contact",
+          "uv": [
+            0,
+            0,
+            8.999999999999998,
+            1
+          ]
+        },
+        "down": {
+          "texture": "#contact",
+          "uv": [
+            0,
+            0,
+            8.999999999999998,
+            1
+          ]
+        }
+      }
+    },
+    {
+      "name": "left fixed hinge socket",
+      "from": [
+        10.899999999999999,
+        25,
+        4
+      ],
+      "to": [
+        12.399999999999999,
         29,
-        16
+        8
       ],
       "faces": {
         "north": {
-          "texture": "#bar",
+          "texture": "#contact",
           "uv": [
             0,
             0,
-            2.0,
-            11
+            1.5,
+            4
           ]
         },
         "south": {
-          "texture": "#bar",
+          "texture": "#contact",
           "uv": [
             0,
             0,
-            2.0,
-            11
+            1.5,
+            4
           ]
         },
         "east": {
-          "texture": "#bar",
+          "texture": "#contact",
           "uv": [
             0,
             0,
-            2,
-            11
+            4,
+            4
           ]
         },
         "west": {
-          "texture": "#bar",
+          "texture": "#contact",
           "uv": [
             0,
             0,
-            2,
-            11
+            4,
+            4
           ]
         },
         "up": {
-          "texture": "#bar",
+          "texture": "#contact",
           "uv": [
             0,
             0,
-            2.0,
-            2
+            1.5,
+            4
           ]
         },
         "down": {
-          "texture": "#bar",
+          "texture": "#contact",
           "uv": [
             0,
             0,
-            2.0,
-            2
+            1.5,
+            4
           ]
         }
       }
     },
     {
+      "name": "right fixed hinge socket",
       "from": [
-        8.4,
-        18,
-        14
+        0.40000000000000036,
+        25,
+        4
       ],
       "to": [
-        10.4,
+        1.9000000000000004,
         29,
-        16
+        8
       ],
       "faces": {
         "north": {
-          "texture": "#bar",
+          "texture": "#contact",
           "uv": [
             0,
             0,
-            2.0,
-            11
+            1.5,
+            4
           ]
         },
         "south": {
-          "texture": "#bar",
+          "texture": "#contact",
           "uv": [
             0,
             0,
-            2.0,
-            11
+            1.5,
+            4
           ]
         },
         "east": {
-          "texture": "#bar",
+          "texture": "#contact",
           "uv": [
             0,
             0,
-            2,
-            11
+            4,
+            4
           ]
         },
         "west": {
-          "texture": "#bar",
+          "texture": "#contact",
           "uv": [
             0,
             0,
-            2,
-            11
+            4,
+            4
           ]
         },
         "up": {
-          "texture": "#bar",
+          "texture": "#contact",
           "uv": [
             0,
             0,
-            2.0,
-            2
+            1.5,
+            4
           ]
         },
         "down": {
-          "texture": "#bar",
+          "texture": "#contact",
           "uv": [
             0,
             0,
-            2.0,
-            2
-          ]
-        }
-      }
-    },
-    {
-      "from": [
-        2.4000000000000004,
-        17,
-        14
-      ],
-      "to": [
-        10.4,
-        19,
-        16
-      ],
-      "faces": {
-        "north": {
-          "texture": "#bar",
-          "uv": [
-            0,
-            0,
-            8.0,
-            2
-          ]
-        },
-        "south": {
-          "texture": "#bar",
-          "uv": [
-            0,
-            0,
-            8.0,
-            2
-          ]
-        },
-        "east": {
-          "texture": "#bar",
-          "uv": [
-            0,
-            0,
-            2,
-            2
-          ]
-        },
-        "west": {
-          "texture": "#bar",
-          "uv": [
-            0,
-            0,
-            2,
-            2
-          ]
-        },
-        "up": {
-          "texture": "#bar",
-          "uv": [
-            0,
-            0,
-            8.0,
-            2
-          ]
-        },
-        "down": {
-          "texture": "#bar",
-          "uv": [
-            0,
-            0,
-            8.0,
-            2
+            1.5,
+            4
           ]
         }
       }

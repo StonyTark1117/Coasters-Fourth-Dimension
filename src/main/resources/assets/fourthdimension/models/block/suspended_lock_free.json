@@ -1,220 +1,93 @@
 {
   "parent": "minecraft:block/block",
+  "ambientocclusion": true,
   "textures": {
-    "cushion": "minecraft:block/orange_concrete",
-    "metal": "minecraft:block/iron_block",
-    "body": "minecraft:block/cyan_terracotta",
-    "restraint": "minecraft:block/black_concrete",
-    "accent": "minecraft:block/orange_concrete",
-    "particle": "minecraft:block/cyan_terracotta",
-    "lamp": "minecraft:block/orange_concrete"
+    "metal": "fourthdimension:block/fd917/structural",
+    "body": "fourthdimension:block/fd917/paint_orange",
+    "paint": "fourthdimension:block/fd917/paint_orange",
+    "accent": "fourthdimension:block/fd917/paint_orange",
+    "cushion": "fourthdimension:block/fd917/upholstery_orange",
+    "seat": "fourthdimension:block/fd917/upholstery_orange",
+    "restraint": "fourthdimension:block/fd917/restraint",
+    "harness": "fourthdimension:block/fd917/restraint",
+    "contact": "fourthdimension:block/fd917/machined",
+    "bolt": "fourthdimension:block/fd917/fastener",
+    "rubber": "fourthdimension:block/fd917/rubber",
+    "latch": "fourthdimension:block/fd917/paint_orange",
+    "particle": "fourthdimension:block/fd917/paint_orange"
   },
   "elements": [
     {
+      "name": "swing journal core",
       "from": [
-        -3,
-        16,
-        0
+        -1.25,
+        18.75,
+        6.75
       ],
       "to": [
-        3,
-        24,
-        16
+        1.25,
+        21.25,
+        9.25
       ],
       "faces": {
         "north": {
-          "texture": "#metal",
+          "texture": "#contact",
           "uv": [
             0,
             0,
-            6,
-            8
+            2.5,
+            2.5
           ]
         },
         "south": {
-          "texture": "#metal",
+          "texture": "#contact",
           "uv": [
             0,
             0,
-            6,
-            8
+            2.5,
+            2.5
           ]
         },
         "east": {
-          "texture": "#metal",
+          "texture": "#contact",
           "uv": [
             0,
             0,
-            16,
-            8
+            2.5,
+            2.5
           ]
         },
         "west": {
-          "texture": "#metal",
+          "texture": "#contact",
           "uv": [
             0,
             0,
-            16,
-            8
+            2.5,
+            2.5
           ]
         },
         "up": {
-          "texture": "#metal",
+          "texture": "#contact",
           "uv": [
             0,
             0,
-            6,
-            16
+            2.5,
+            2.5
           ]
         },
         "down": {
-          "texture": "#metal",
+          "texture": "#contact",
           "uv": [
             0,
             0,
-            6,
-            16
+            2.5,
+            2.5
           ]
         }
       }
     },
     {
-      "from": [
-        -4,
-        18,
-        2
-      ],
-      "to": [
-        4,
-        22,
-        14
-      ],
-      "faces": {
-        "north": {
-          "texture": "#restraint",
-          "uv": [
-            0,
-            0,
-            8,
-            4
-          ]
-        },
-        "south": {
-          "texture": "#restraint",
-          "uv": [
-            0,
-            0,
-            8,
-            4
-          ]
-        },
-        "east": {
-          "texture": "#restraint",
-          "uv": [
-            0,
-            0,
-            12,
-            4
-          ]
-        },
-        "west": {
-          "texture": "#restraint",
-          "uv": [
-            0,
-            0,
-            12,
-            4
-          ]
-        },
-        "up": {
-          "texture": "#restraint",
-          "uv": [
-            0,
-            0,
-            8,
-            12
-          ]
-        },
-        "down": {
-          "texture": "#restraint",
-          "uv": [
-            0,
-            0,
-            8,
-            12
-          ]
-        }
-      }
-    },
-    {
-      "from": [
-        -3,
-        19,
-        -0.1
-      ],
-      "to": [
-        3,
-        23,
-        0
-      ],
-      "faces": {
-        "north": {
-          "texture": "#lamp",
-          "uv": [
-            0,
-            0,
-            6,
-            4
-          ]
-        },
-        "south": {
-          "texture": "#lamp",
-          "uv": [
-            0,
-            0,
-            6,
-            4
-          ]
-        },
-        "east": {
-          "texture": "#lamp",
-          "uv": [
-            0,
-            0,
-            0.1,
-            4
-          ]
-        },
-        "west": {
-          "texture": "#lamp",
-          "uv": [
-            0,
-            0,
-            0.1,
-            4
-          ]
-        },
-        "up": {
-          "texture": "#lamp",
-          "uv": [
-            0,
-            0,
-            6,
-            0.1
-          ]
-        },
-        "down": {
-          "texture": "#lamp",
-          "uv": [
-            0,
-            0,
-            6,
-            0.1
-          ]
-        }
-      }
-    },
-    {
+      "name": "fore aft pivot shaft",
       "from": [
         -1,
         19,
@@ -227,16 +100,7 @@
       ],
       "faces": {
         "north": {
-          "texture": "#metal",
-          "uv": [
-            0,
-            0,
-            2,
-            2
-          ]
-        },
-        "south": {
-          "texture": "#metal",
+          "texture": "#contact",
           "uv": [
             0,
             0,
@@ -245,7 +109,7 @@
           ]
         },
         "east": {
-          "texture": "#metal",
+          "texture": "#contact",
           "uv": [
             0,
             0,
@@ -254,7 +118,7 @@
           ]
         },
         "west": {
-          "texture": "#metal",
+          "texture": "#contact",
           "uv": [
             0,
             0,
@@ -263,7 +127,7 @@
           ]
         },
         "up": {
-          "texture": "#metal",
+          "texture": "#contact",
           "uv": [
             0,
             0,
@@ -272,7 +136,7 @@
           ]
         },
         "down": {
-          "texture": "#metal",
+          "texture": "#contact",
           "uv": [
             0,
             0,
@@ -283,6 +147,7 @@
       }
     },
     {
+      "name": "fore aft pivot shaft",
       "from": [
         -1,
         19,
@@ -294,26 +159,8 @@
         16
       ],
       "faces": {
-        "north": {
-          "texture": "#metal",
-          "uv": [
-            0,
-            0,
-            2,
-            2
-          ]
-        },
-        "south": {
-          "texture": "#metal",
-          "uv": [
-            0,
-            0,
-            2,
-            2
-          ]
-        },
         "east": {
-          "texture": "#metal",
+          "texture": "#contact",
           "uv": [
             0,
             0,
@@ -322,7 +169,7 @@
           ]
         },
         "west": {
-          "texture": "#metal",
+          "texture": "#contact",
           "uv": [
             0,
             0,
@@ -331,7 +178,7 @@
           ]
         },
         "up": {
-          "texture": "#metal",
+          "texture": "#contact",
           "uv": [
             0,
             0,
@@ -340,7 +187,7 @@
           ]
         },
         "down": {
-          "texture": "#metal",
+          "texture": "#contact",
           "uv": [
             0,
             0,
@@ -351,6 +198,7 @@
       }
     },
     {
+      "name": "fore aft pivot shaft",
       "from": [
         -1,
         19,
@@ -362,17 +210,8 @@
         32
       ],
       "faces": {
-        "north": {
-          "texture": "#metal",
-          "uv": [
-            0,
-            0,
-            2,
-            2
-          ]
-        },
         "south": {
-          "texture": "#metal",
+          "texture": "#contact",
           "uv": [
             0,
             0,
@@ -381,7 +220,7 @@
           ]
         },
         "east": {
-          "texture": "#metal",
+          "texture": "#contact",
           "uv": [
             0,
             0,
@@ -390,7 +229,7 @@
           ]
         },
         "west": {
-          "texture": "#metal",
+          "texture": "#contact",
           "uv": [
             0,
             0,
@@ -399,7 +238,7 @@
           ]
         },
         "up": {
-          "texture": "#metal",
+          "texture": "#contact",
           "uv": [
             0,
             0,
@@ -408,7 +247,7 @@
           ]
         },
         "down": {
-          "texture": "#metal",
+          "texture": "#contact",
           "uv": [
             0,
             0,
@@ -419,6 +258,7 @@
       }
     },
     {
+      "name": "front cabin suspension rod",
       "from": [
         -1,
         0,
@@ -466,15 +306,6 @@
             16
           ]
         },
-        "up": {
-          "texture": "#metal",
-          "uv": [
-            0,
-            0,
-            2,
-            2
-          ]
-        },
         "down": {
           "texture": "#metal",
           "uv": [
@@ -487,6 +318,7 @@
       }
     },
     {
+      "name": "front cabin suspension rod",
       "from": [
         -1,
         16,
@@ -542,19 +374,11 @@
             2,
             2
           ]
-        },
-        "down": {
-          "texture": "#metal",
-          "uv": [
-            0,
-            0,
-            2,
-            2
-          ]
         }
       }
     },
     {
+      "name": "rear cabin suspension rod",
       "from": [
         -1,
         0,
@@ -602,15 +426,6 @@
             16
           ]
         },
-        "up": {
-          "texture": "#metal",
-          "uv": [
-            0,
-            0,
-            2,
-            2
-          ]
-        },
         "down": {
           "texture": "#metal",
           "uv": [
@@ -623,6 +438,7 @@
       }
     },
     {
+      "name": "rear cabin suspension rod",
       "from": [
         -1,
         16,
@@ -671,15 +487,6 @@
           ]
         },
         "up": {
-          "texture": "#metal",
-          "uv": [
-            0,
-            0,
-            2,
-            2
-          ]
-        },
-        "down": {
           "texture": "#metal",
           "uv": [
             0,

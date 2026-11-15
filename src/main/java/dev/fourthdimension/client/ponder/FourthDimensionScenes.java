@@ -164,6 +164,7 @@ final class FourthDimensionScenes {
     rotate(scene, groups, -90);
     text(scene, "arrow", 4, new Vec3(3, 3, 6));
     text(scene, "arrow", 5, new Vec3(3, 3, 6));
+    text(scene, "arrow", 6, new Vec3(3, 4, 6));
     scene.markAsFinished();
   }
 
@@ -274,11 +275,11 @@ final class FourthDimensionScenes {
     scene.world().showSection(util.select().fromTo(6, 1, 1, 6, 3, 11), Direction.DOWN);
     scene.world().showSection(util.select().position(4, 1, 6), Direction.DOWN);
     var catchLink =
-        scene.world().showIndependentSection(util.select().position(5, 2, 6), Direction.DOWN);
+        scene.world().showIndependentSection(util.select().position(6, 6, 6), Direction.DOWN);
     var chassis =
         scene
             .world()
-            .showIndependentSection(util.select().fromTo(4, 4, 6, 8, 4, 6), Direction.DOWN);
+            .showIndependentSection(util.select().fromTo(4, 4, 6, 8, 5, 6), Direction.DOWN);
     var left =
         scene
             .world()
@@ -297,6 +298,8 @@ final class FourthDimensionScenes {
     text(scene, "pax", 2, new Vec3(4, 1, 6));
     scene.overlay().showControls(new Vec3(4, 1, 6), Pointing.DOWN, 70).rightClick();
     text(scene, "pax", 3, new Vec3(4, 1, 6));
+    scene.world().modifyBlocks(body(util), state -> state.getBlock() instanceof CarrierSeatBlock
+        ? state.setValue(CarrierSeatBlock.RESTRAINED, true) : state, false);
     var lift = new Vec3(0, 2, -4);
     train.forEach(link -> scene.world().moveSection(link, lift, 80));
     scene.world().moveSection(catchLink, lift, 80);
@@ -307,7 +310,9 @@ final class FourthDimensionScenes {
     text(scene, "pax", 5, new Vec3(6, 5, 10));
     train.forEach(link -> scene.world().moveSection(link, new Vec3(0, -2, -4), 80));
     rotate(scene, List.of(left, right), -115, 70);
-    text(scene, "pax", 6, new Vec3(5, 2, 6));
+    text(scene, "pax", 6, new Vec3(6, 6, 6));
+    scene.world().modifyBlocks(body(util), state -> state.getBlock() instanceof CarrierSeatBlock
+        ? state.setValue(CarrierSeatBlock.RESTRAINED, false) : state, false);
     text(scene, "pax", 7, new Vec3(4, 1, 6));
     scene.markAsFinished();
   }

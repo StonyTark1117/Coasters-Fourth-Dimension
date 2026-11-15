@@ -1,0 +1,30 @@
+{
+  "parts": [
+    {
+      "model": "fourthdimension:block/fd917/new_generation_flying_restraint_standard",
+      "property": "restrained",
+      "pivot": [
+        8,
+        23,
+        14
+      ],
+      "axis": "x",
+      "open_degrees": 50,
+      "rotate_facing": false,
+      "when": {}
+    },
+    {
+      "model": "fourthdimension:block/fd917/new_generation_flying_leg_restraint",
+      "property": "legs",
+      "pivot": [
+        8,
+        4,
+        6
+      ],
+      "axis": "x",
+      "open_degrees": -75,
+      "rotate_facing": false,
+      "when": {}
+    }
+  ]
+}

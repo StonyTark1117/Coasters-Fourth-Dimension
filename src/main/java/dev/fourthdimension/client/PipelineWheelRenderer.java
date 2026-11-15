@@ -1,74 +1,133 @@
 package dev.fourthdimension.client;
 
-import com.mojang.blaze3d.vertex.VertexConsumer;
+import dev.fourthdimension.client.fd917.ProductionMesh;
+import dev.fourthdimension.client.fd917.ProductionModels;
+import dev.fourthdimension.contract.Family;
 import dev.fourthdimension.runtime.EligibilityHooks;
+import dev.fourthdimension.track.TrackDesign;
+import dev.fourthdimension.track.TrackGeometry;
 import dev.fourthdimension.vehicle.PipelineVehicle;
 import dev.ryanhcode.sable.api.sublevel.SubLevelContainer;
 import dev.ryanhcode.sable.sublevel.ClientSubLevel;
+import dev.silvergold.simulatedcoasters.track.graph.CoasterPathEdge;
+import dev.silvergold.simulatedcoasters.track.graph.CoasterPathTrackFrame;
+import java.util.*;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.renderer.LevelRenderer;
+import net.minecraft.client.renderer.Sheets;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.phys.Vec3;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.client.event.RenderLevelStageEvent;
 import org.joml.Vector3d;
-import org.joml.Matrix4f;
 
-/** Original twelve-sided run/upstop/side rollers in the physical native chassis frame. */
-@EventBusSubscriber(modid="fourthdimension",value=Dist.CLIENT)
+/** Two articulated side-rail trucks; the native chassis remains the only physical running body. */
+@EventBusSubscriber(modid="fourthdimension", value=Dist.CLIENT)
 public final class PipelineWheelRenderer {
-  private static final java.util.Map<ClientSubLevel,Spin> SPINS=new java.util.WeakHashMap<>();
-  private record Spin(Vector3d position,double distance){}
-  private PipelineWheelRenderer(){}
-  @SubscribeEvent public static void render(RenderLevelStageEvent event){
-    if(event.getStage()!=RenderLevelStageEvent.Stage.AFTER_BLOCK_ENTITIES)return;
-    var mc=Minecraft.getInstance();if(mc.level==null)return;
-    var data=EligibilityHooks.data(mc.level);var container=SubLevelContainer.getContainer(mc.level);
-    if(data==null||container==null)return;
-    var buffers=mc.renderBuffers().bufferSource();var out=buffers.getBuffer(RenderType.debugQuads());
-    var camera=event.getCamera().getPosition();var stack=event.getPoseStack();stack.pushPose();
-    stack.translate(-camera.x,-camera.y,-camera.z);var matrix=stack.last().pose();
-    for(var v:data.vehicles.values()){
-      if(!PipelineVehicle.is(v)||!(container.getSubLevel(v.chassis) instanceof ClientSubLevel body))continue;
-      var pose=body.renderPose();var p=body.getPlot().getCenterBlock();
-      var center=pose.transformPosition(new Vector3d(p.getX()+.5,p.getY()+.5,p.getZ()+.5));
-      if(center.distanceSquared(camera.x,camera.y,camera.z)>160*160)continue;
-      // Cylindrical treads are rotationally symmetric; alternating hub facets expose travel spin.
-      var old=SPINS.get(body);double travel=old==null?0:old.distance;
-      if(old!=null&&old.position.distanceSquared(center)<4){
-        var forward=new Vector3d(0,0,-1).rotate(pose.orientation());
-        travel+=new Vector3d(center).sub(old.position).dot(forward);
+  private static final Map<ClientSubLevel, Spin[]> SPINS = new WeakHashMap<>();
+  private record Spin(Vector3d position, double distance) {}
+  private static Object lastLevel;
+  private static int generation = -1;
+  private static long edgeTick = Long.MIN_VALUE;
+  private static final Map<UUID, List<CoasterPathEdge>> ROUTES = new HashMap<>();
+  private PipelineWheelRenderer() {}
+
+  @SubscribeEvent public static void logout(net.neoforged.neoforge.client.event.ClientPlayerNetworkEvent.LoggingOut event) {
+    SPINS.clear();ROUTES.clear();lastLevel=null;edgeTick=Long.MIN_VALUE;
+  }
+  @SubscribeEvent public static void render(RenderLevelStageEvent event) {
+    if (event.getStage()!=RenderLevelStageEvent.Stage.AFTER_BLOCK_ENTITIES) return;
+    var mc=Minecraft.getInstance();
+    if (lastLevel!=mc.level || generation!=ProductionModels.generation()) {
+      SPINS.clear(); ROUTES.clear(); edgeTick=Long.MIN_VALUE;
+      lastLevel=mc.level; generation=ProductionModels.generation();
+    }
+    if (mc.level==null) return;
+    var data=EligibilityHooks.data(mc.level); var container=SubLevelContainer.getContainer(mc.level);
+    if (data==null || container==null) return;
+    if (edgeTick!=mc.level.getGameTime()) {
+      ROUTES.clear();
+      for (var vehicle : data.vehicles.values()) if (PipelineVehicle.is(vehicle)) {
+        var matching=data.rails.stream().filter(r -> r.valid && r.family==Family.PIPELINE).toList();
+        var bound=matching.stream().filter(r -> r.matches(vehicle.boundFrom,vehicle.boundTo)).findFirst().orElse(null);
+        if (bound==null) continue;
+        var candidates=new ArrayList<dev.fourthdimension.runtime.FoundationData.Rail>();
+        candidates.add(bound);
+        // A bogie may cross either end of the current authoritative edge. Follow only
+        // unambiguous graph continuations; nearby disconnected or branching rails cannot win.
+        for (var start : List.of(bound.from,bound.to)) {
+          var node=start; var previous=bound;
+          double remaining=3;
+          while (remaining>0 && candidates.size()<9) {
+            var at=node;
+            var incident=matching.stream().filter(r -> r.from.equals(at)||r.to.equals(at)).toList();
+            if (incident.size()!=2) break;
+            var next=incident.getFirst()==previous?incident.getLast():incident.getFirst();
+            if(candidates.contains(next)) break;
+            var edge=TrackGeometry.resolve(mc.level,next); if(edge==null) break;
+            candidates.add(next); remaining-=TrackGeometry.table(mc.level,edge).length();
+            node=next.from.equals(at)?next.to:next.from; previous=next;
+          }
+        }
+        ROUTES.put(vehicle.chassis,candidates.stream().map(r -> TrackGeometry.resolve(mc.level,r))
+            .filter(Objects::nonNull).toList());
       }
-      SPINS.put(body,new Spin(new Vector3d(center),travel));
-      double spin=travel/.20;
-      for(int side:new int[]{-1,1})for(double z:new double[]{-2.3,2.3}){
-        for(double y:new double[]{.60,.05})wheel(out,matrix,pose,p,side*1.5,y,z,.20,.22,false,spin*(y>.3?1:-1));
-        wheel(out,matrix,pose,p,side*1.75625,.325,z,.125,.18,true,travel/.125*side);
+      edgeTick=mc.level.getGameTime();
+    }
+    long renderStarted=dev.fourthdimension.client.fd917.MechanismRenderMetrics.start();
+    var camera=event.getCamera().getPosition(); var stack=event.getPoseStack();
+    stack.pushPose(); stack.translate(-camera.x,-camera.y,-camera.z);
+    var mesh=new ProductionMesh(stack.last());
+    for (var vehicle:data.vehicles.values()) {
+      if (!PipelineVehicle.is(vehicle) || !(container.getSubLevel(vehicle.chassis) instanceof ClientSubLevel body)) continue;
+      var pose=body.renderPose(); var p=body.getPlot().getCenterBlock();
+      var center=pose.transformPosition(new Vector3d(p.getX()+.5,p.getY()+.1875,p.getZ()+.5));
+      if (center.distanceSquared(camera.x,camera.y,camera.z)>128*128) { SPINS.remove(body); continue; }
+      var spins=SPINS.computeIfAbsent(body, ignored -> new Spin[2]);
+      for (int end=0;end<2;end++) {
+        double z=end==0?-2.3:2.3;
+        var expected=pose.transformPosition(new Vector3d(p.getX()+.5,p.getY()+.1875,p.getZ()+.5+z));
+        var hit=CoasterPathTrackFrame.nearestGraphHit(mc.level,ROUTES.getOrDefault(vehicle.chassis,List.of()),new Vec3(expected.x,expected.y,expected.z),1);
+        if (hit==null) { spins[end]=null; continue; }
+        var basis=CoasterPathTrackFrame.trackBasisAtHit(mc.level,hit);
+        var origin=vec(hit.point()); var up=vec(basis.up()); var right=vec(basis.right());
+        var bodyRight=new Vector3d(1,0,0).rotate(pose.orientation());
+        if (right.dot(bodyRight)<0) right.negate();
+        var forward=new Vector3d(up).cross(right).normalize();
+        // Keep phase sign tied to the chassis forward frame even if an edge's canonical order changes.
+        var old=spins[end]; double travel=0;
+        if (old!=null && old.position.distanceSquared(origin)<4)
+          travel=old.distance+new Vector3d(origin).sub(old.position).dot(forward);
+        spins[end]=new Spin(new Vector3d(origin),travel);
+        if(!ProductionMesh.visible(event,origin,4))continue;
+        int light=LevelRenderer.getLightColor(mc.level,BlockPos.containing(origin.x,origin.y,origin.z));
+        for(int side:new int[]{-1,1}) {
+          var rail=new Vector3d(origin).fma(side*1.5,right).fma(TrackDesign.MAIN_RAIL_HEIGHT,up);
+          var upper=new Vector3d(rail).fma(TrackDesign.RAIL_HALF_HEIGHT+.20,up);
+          var lower=new Vector3d(rail).fma(-TrackDesign.RAIL_HALF_HEIGHT-.20,up);
+          var lateral=new Vector3d(rail).fma(side*(TrackDesign.RAIL_HALF_WIDTH+.125),right);
+          mesh.wheel(upper,right,up,.20,.22,-travel/.20,light);
+          mesh.wheel(lower,right,up,.20,.22,travel/.20,light);
+          mesh.wheel(lateral,up,right,.125,.18,side*travel/.125,light);
+          // An inboard C bracket carries both vertical rollers without crossing the rail.
+          var upperIn=new Vector3d(upper).fma(-side*.23,right);
+          var lowerIn=new Vector3d(lower).fma(-side*.23,right);
+          mesh.beam(upper,upperIn,up,.065,.065,"machined",light);
+          mesh.beam(lower,lowerIn,up,.065,.065,"machined",light);
+          mesh.beam(upperIn,lowerIn,forward,.09,.09,"structural",light);
+          var topSide=new Vector3d(lateral).fma(.20,up);
+          mesh.beam(lateral,topSide,right,.055,.055,"machined",light);
+          mesh.beam(topSide,upperIn,up,.075,.075,"structural",light);
+          var mount=pose.transformPosition(new Vector3d(p.getX()+.5+side*1.4,p.getY()+.1875+.55,p.getZ()+.5+z));
+          mesh.beam(upperIn,mount,up,.10,.10,"structural",light);
+          mesh.wheel(mount,forward,up,.10,.10,0,light);
+        }
       }
     }
-    stack.popPose();buffers.endBatch(RenderType.debugQuads());
+    stack.popPose(); mc.renderBuffers().bufferSource().endBatch(Sheets.cutoutBlockSheet());
+    dev.fourthdimension.client.fd917.MechanismRenderMetrics.finish("pipeline",renderStarted);
   }
-  private static void wheel(VertexConsumer out,Matrix4f matrix,dev.ryanhcode.sable.companion.math.Pose3dc pose,
-      net.minecraft.core.BlockPos p,double x,double y,double z,double radius,double width,boolean vertical,double spin){
-    for(int i=0;i<12;i++){
-      double a=i*Math.PI/6+spin,b=(i+1)*Math.PI/6+spin;
-      var a0=point(x,y,z,radius,width,-1,a,vertical);var a1=point(x,y,z,radius,width,1,a,vertical);
-      var b0=point(x,y,z,radius,width,-1,b,vertical);var b1=point(x,y,z,radius,width,1,b,vertical);
-      quad(out,matrix,pose,p,a0,b0,b1,a1,0x30383e);
-      var c0=point(x,y,z,0,width,-1,0,vertical);var c1=point(x,y,z,0,width,1,0,vertical);
-      int color=i%3==0?0xe0b345:0xa4b0b7;
-      quad(out,matrix,pose,p,c0,c0,b0,a0,color);quad(out,matrix,pose,p,c1,c1,a1,b1,color);
-    }
-  }
-  private static Vector3d point(double x,double y,double z,double r,double width,int side,double angle,boolean vertical){
-    return vertical?new Vector3d(x+r*Math.cos(angle),y+side*width/2,z+r*Math.sin(angle)):
-        new Vector3d(x+side*width/2,y+r*Math.cos(angle),z+r*Math.sin(angle));
-  }
-  private static void quad(VertexConsumer out,Matrix4f matrix,dev.ryanhcode.sable.companion.math.Pose3dc pose,
-      net.minecraft.core.BlockPos p,Vector3d a,Vector3d b,Vector3d c,Vector3d d,int color){
-    for(var v:new Vector3d[]{a,b,c,d}){
-      var world=pose.transformPosition(new Vector3d(v).add(p.getX()+.5,p.getY()+.1875,p.getZ()+.5));
-      out.addVertex(matrix,(float)world.x,(float)world.y,(float)world.z).setColor(color>>16&255,color>>8&255,color&255,255);
-    }
-  }
+  private static Vector3d vec(Vec3 v) { return new Vector3d(v.x,v.y,v.z); }
 }

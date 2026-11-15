@@ -1,38 +1,88 @@
 {
+  "parent": "minecraft:block/block",
+  "ambientocclusion": true,
   "textures": {
-    "metal": "minecraft:block/iron_block",
-    "particle": "minecraft:block/iron_block"
+    "metal": "fourthdimension:block/fd917/structural",
+    "body": "fourthdimension:block/fd917/paint_cyan",
+    "paint": "fourthdimension:block/fd917/paint_cyan",
+    "accent": "fourthdimension:block/fd917/paint_cyan",
+    "cushion": "fourthdimension:block/fd917/upholstery_cyan",
+    "seat": "fourthdimension:block/fd917/upholstery_cyan",
+    "restraint": "fourthdimension:block/fd917/restraint",
+    "harness": "fourthdimension:block/fd917/restraint",
+    "contact": "fourthdimension:block/fd917/machined",
+    "bolt": "fourthdimension:block/fd917/fastener",
+    "rubber": "fourthdimension:block/fd917/rubber",
+    "latch": "fourthdimension:block/fd917/paint_orange",
+    "particle": "fourthdimension:block/fd917/paint_cyan"
   },
   "elements": [
     {
+      "name": "native carriage core",
       "from": [
-        2,
         3,
-        2
+        5,
+        3
       ],
       "to": [
-        14,
         13,
-        14
+        11,
+        13
       ],
       "faces": {
         "north": {
-          "texture": "#metal"
+          "texture": "#body",
+          "uv": [
+            0,
+            0,
+            10,
+            6
+          ]
         },
         "south": {
-          "texture": "#metal"
+          "texture": "#body",
+          "uv": [
+            0,
+            0,
+            10,
+            6
+          ]
         },
         "east": {
-          "texture": "#metal"
+          "texture": "#body",
+          "uv": [
+            0,
+            0,
+            10,
+            6
+          ]
         },
         "west": {
-          "texture": "#metal"
+          "texture": "#body",
+          "uv": [
+            0,
+            0,
+            10,
+            6
+          ]
         },
         "up": {
-          "texture": "#metal"
+          "texture": "#body",
+          "uv": [
+            0,
+            0,
+            10,
+            10
+          ]
         },
         "down": {
-          "texture": "#metal"
+          "texture": "#body",
+          "uv": [
+            0,
+            0,
+            10,
+            10
+          ]
         }
       }
     }

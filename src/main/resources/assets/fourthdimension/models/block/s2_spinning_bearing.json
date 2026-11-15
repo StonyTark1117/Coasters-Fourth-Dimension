@@ -1,14 +1,93 @@
 {
   "parent": "minecraft:block/block",
+  "ambientocclusion": true,
   "textures": {
-    "seat": "fourthdimension:block/s2_spinning_seat",
-    "metal": "fourthdimension:block/s2_spinning_metal",
-    "harness": "fourthdimension:block/s2_spinning_harness",
-    "signal": "fourthdimension:block/s2_spinning_signal",
-    "particle": "fourthdimension:block/s2_spinning_seat"
+    "metal": "fourthdimension:block/fd917/structural",
+    "body": "fourthdimension:block/fd917/paint_red",
+    "paint": "fourthdimension:block/fd917/paint_red",
+    "accent": "fourthdimension:block/fd917/paint_red",
+    "cushion": "fourthdimension:block/fd917/upholstery_black",
+    "seat": "fourthdimension:block/fd917/upholstery_black",
+    "restraint": "fourthdimension:block/fd917/restraint",
+    "harness": "fourthdimension:block/fd917/restraint",
+    "contact": "fourthdimension:block/fd917/machined",
+    "bolt": "fourthdimension:block/fd917/fastener",
+    "rubber": "fourthdimension:block/fd917/rubber",
+    "latch": "fourthdimension:block/fd917/paint_orange",
+    "particle": "fourthdimension:block/fd917/paint_red"
   },
   "elements": [
     {
+      "name": "turntable drum",
+      "from": [
+        1,
+        -9,
+        1
+      ],
+      "to": [
+        15,
+        -5,
+        15
+      ],
+      "faces": {
+        "north": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            14,
+            4
+          ]
+        },
+        "south": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            14,
+            4
+          ]
+        },
+        "east": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            14,
+            4
+          ]
+        },
+        "west": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            14,
+            4
+          ]
+        },
+        "up": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            14,
+            14
+          ]
+        },
+        "down": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            14,
+            14
+          ]
+        }
+      }
+    },
+    {
+      "name": "turntable race",
       "from": [
         0,
         -8,
@@ -21,43 +100,43 @@
       ],
       "faces": {
         "north": {
-          "texture": "#metal",
+          "texture": "#contact",
           "uv": [
             0,
             0,
             16,
-            16
+            2
           ]
         },
         "south": {
-          "texture": "#metal",
+          "texture": "#contact",
           "uv": [
             0,
             0,
             16,
-            16
+            2
           ]
         },
         "east": {
-          "texture": "#metal",
+          "texture": "#contact",
           "uv": [
             0,
             0,
             16,
-            16
+            2
           ]
         },
         "west": {
-          "texture": "#metal",
+          "texture": "#contact",
           "uv": [
             0,
             0,
             16,
-            16
+            2
           ]
         },
         "up": {
-          "texture": "#metal",
+          "texture": "#contact",
           "uv": [
             0,
             0,
@@ -66,12 +145,81 @@
           ]
         },
         "down": {
-          "texture": "#metal",
+          "texture": "#contact",
           "uv": [
             0,
             0,
             16,
             16
+          ]
+        }
+      }
+    },
+    {
+      "name": "upper shell mounting plate",
+      "from": [
+        2,
+        -5,
+        2
+      ],
+      "to": [
+        14,
+        -3,
+        14
+      ],
+      "faces": {
+        "north": {
+          "texture": "#body",
+          "uv": [
+            0,
+            0,
+            12,
+            2
+          ]
+        },
+        "south": {
+          "texture": "#body",
+          "uv": [
+            0,
+            0,
+            12,
+            2
+          ]
+        },
+        "east": {
+          "texture": "#body",
+          "uv": [
+            0,
+            0,
+            12,
+            2
+          ]
+        },
+        "west": {
+          "texture": "#body",
+          "uv": [
+            0,
+            0,
+            12,
+            2
+          ]
+        },
+        "up": {
+          "texture": "#body",
+          "uv": [
+            0,
+            0,
+            12,
+            12
+          ]
+        },
+        "down": {
+          "texture": "#body",
+          "uv": [
+            0,
+            0,
+            12,
+            12
           ]
         }
       }

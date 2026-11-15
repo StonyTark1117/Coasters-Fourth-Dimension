@@ -1,0 +1,68 @@
+{
+  "parts": [
+    {
+      "model": "fourthdimension:block/fd917/pipeline_restraint_right_false_rear_false",
+      "property": "restrained",
+      "pivot": [
+        14.4,
+        23,
+        10
+      ],
+      "axis": "x",
+      "open_degrees": 50,
+      "rotate_facing": false,
+      "when": {
+        "right": "false",
+        "rear": "false"
+      }
+    },
+    {
+      "model": "fourthdimension:block/fd917/pipeline_restraint_right_false_rear_true",
+      "property": "restrained",
+      "pivot": [
+        14.4,
+        23,
+        18
+      ],
+      "axis": "x",
+      "open_degrees": 50,
+      "rotate_facing": false,
+      "when": {
+        "right": "false",
+        "rear": "true"
+      }
+    },
+    {
+      "model": "fourthdimension:block/fd917/pipeline_restraint_right_true_rear_false",
+      "property": "restrained",
+      "pivot": [
+        1.6,
+        23,
+        10
+      ],
+      "axis": "x",
+      "open_degrees": 50,
+      "rotate_facing": false,
+      "when": {
+        "right": "true",
+        "rear": "false"
+      }
+    },
+    {
+      "model": "fourthdimension:block/fd917/pipeline_restraint_right_true_rear_true",
+      "property": "restrained",
+      "pivot": [
+        1.6,
+        23,
+        18
+      ],
+      "axis": "x",
+      "open_degrees": 50,
+      "rotate_facing": false,
+      "when": {
+        "right": "true",
+        "rear": "true"
+      }
+    }
+  ]
+}

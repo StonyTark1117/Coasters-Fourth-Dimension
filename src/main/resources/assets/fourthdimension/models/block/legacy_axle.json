@@ -1,11 +1,24 @@
 {
   "parent": "minecraft:block/block",
+  "ambientocclusion": true,
   "textures": {
-    "metal": "minecraft:block/iron_block",
-    "particle": "minecraft:block/iron_block"
+    "metal": "fourthdimension:block/fd917/structural",
+    "body": "fourthdimension:block/fd917/paint_gray",
+    "paint": "fourthdimension:block/fd917/paint_gray",
+    "accent": "fourthdimension:block/fd917/paint_gray",
+    "cushion": "fourthdimension:block/fd917/upholstery_gray",
+    "seat": "fourthdimension:block/fd917/upholstery_gray",
+    "restraint": "fourthdimension:block/fd917/restraint",
+    "harness": "fourthdimension:block/fd917/restraint",
+    "contact": "fourthdimension:block/fd917/machined",
+    "bolt": "fourthdimension:block/fd917/fastener",
+    "rubber": "fourthdimension:block/fd917/rubber",
+    "latch": "fourthdimension:block/fd917/paint_orange",
+    "particle": "fourthdimension:block/fd917/paint_gray"
   },
   "elements": [
     {
+      "name": "rotating axle",
       "from": [
         0,
         6,
@@ -17,12 +30,198 @@
         12.5
       ],
       "faces": {
-        "north": { "texture": "#metal" },
-        "south": { "texture": "#metal" },
-        "east": { "texture": "#metal" },
-        "west": { "texture": "#metal" },
-        "up": { "texture": "#metal" },
-        "down": { "texture": "#metal" }
+        "north": {
+          "texture": "#contact",
+          "uv": [
+            0,
+            0,
+            16,
+            4
+          ]
+        },
+        "south": {
+          "texture": "#contact",
+          "uv": [
+            0,
+            0,
+            16,
+            4
+          ]
+        },
+        "east": {
+          "texture": "#contact",
+          "uv": [
+            0,
+            0,
+            1.5,
+            4
+          ]
+        },
+        "west": {
+          "texture": "#contact",
+          "uv": [
+            0,
+            0,
+            1.5,
+            4
+          ]
+        },
+        "up": {
+          "texture": "#contact",
+          "uv": [
+            0,
+            0,
+            16,
+            1.5
+          ]
+        },
+        "down": {
+          "texture": "#contact",
+          "uv": [
+            0,
+            0,
+            16,
+            1.5
+          ]
+        }
+      }
+    },
+    {
+      "name": "journal collar",
+      "from": [
+        0,
+        5,
+        10.75
+      ],
+      "to": [
+        2,
+        11,
+        12.75
+      ],
+      "faces": {
+        "north": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            2,
+            6
+          ]
+        },
+        "south": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            2,
+            6
+          ]
+        },
+        "east": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            2.0,
+            6
+          ]
+        },
+        "west": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            2.0,
+            6
+          ]
+        },
+        "up": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            2,
+            2.0
+          ]
+        },
+        "down": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            2,
+            2.0
+          ]
+        }
+      }
+    },
+    {
+      "name": "journal collar",
+      "from": [
+        14,
+        5,
+        10.75
+      ],
+      "to": [
+        16,
+        11,
+        12.75
+      ],
+      "faces": {
+        "north": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            2,
+            6
+          ]
+        },
+        "south": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            2,
+            6
+          ]
+        },
+        "east": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            2.0,
+            6
+          ]
+        },
+        "west": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            2.0,
+            6
+          ]
+        },
+        "up": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            2,
+            2.0
+          ]
+        },
+        "down": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            2,
+            2.0
+          ]
+        }
       }
     }
   ]

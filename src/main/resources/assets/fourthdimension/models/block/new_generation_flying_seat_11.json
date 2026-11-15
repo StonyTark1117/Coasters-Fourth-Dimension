@@ -1,23 +1,410 @@
 {
   "parent": "minecraft:block/block",
+  "ambientocclusion": true,
   "textures": {
-    "seat": "fourthdimension:block/new_generation_flying_seat",
-    "metal": "fourthdimension:block/new_generation_flying_metal",
-    "harness": "fourthdimension:block/new_generation_flying_harness",
-    "latch": "fourthdimension:block/new_generation_flying_latch",
-    "locked": "fourthdimension:block/new_generation_flying_locked",
-    "particle": "fourthdimension:block/new_generation_flying_seat"
+    "metal": "fourthdimension:block/fd917/structural",
+    "body": "fourthdimension:block/fd917/paint_purple",
+    "paint": "fourthdimension:block/fd917/paint_purple",
+    "accent": "fourthdimension:block/fd917/paint_purple",
+    "cushion": "fourthdimension:block/fd917/upholstery_black",
+    "seat": "fourthdimension:block/fd917/upholstery_black",
+    "restraint": "fourthdimension:block/fd917/restraint",
+    "harness": "fourthdimension:block/fd917/restraint",
+    "contact": "fourthdimension:block/fd917/machined",
+    "bolt": "fourthdimension:block/fd917/fastener",
+    "rubber": "fourthdimension:block/fd917/rubber",
+    "latch": "fourthdimension:block/fd917/paint_orange",
+    "particle": "fourthdimension:block/fd917/paint_purple"
   },
   "elements": [
     {
+      "name": "pressed seat pan",
       "from": [
         1,
-        5,
+        4,
         1
       ],
       "to": [
         15,
-        8,
+        6,
+        15
+      ],
+      "faces": {
+        "north": {
+          "texture": "#body",
+          "uv": [
+            0,
+            0,
+            14,
+            2
+          ]
+        },
+        "south": {
+          "texture": "#body",
+          "uv": [
+            0,
+            0,
+            14,
+            2
+          ]
+        },
+        "east": {
+          "texture": "#body",
+          "uv": [
+            0,
+            0,
+            14,
+            2
+          ]
+        },
+        "west": {
+          "texture": "#body",
+          "uv": [
+            0,
+            0,
+            14,
+            2
+          ]
+        },
+        "up": {
+          "texture": "#body",
+          "uv": [
+            0,
+            0,
+            14,
+            14
+          ]
+        },
+        "down": {
+          "texture": "#body",
+          "uv": [
+            0,
+            0,
+            14,
+            14
+          ]
+        }
+      }
+    },
+    {
+      "name": "seat cushion",
+      "from": [
+        2,
+        6,
+        2
+      ],
+      "to": [
+        14,
+        7.8,
+        13
+      ],
+      "faces": {
+        "north": {
+          "texture": "#seat",
+          "uv": [
+            0,
+            0,
+            12,
+            1.7999999999999998
+          ]
+        },
+        "south": {
+          "texture": "#seat",
+          "uv": [
+            0,
+            0,
+            12,
+            1.7999999999999998
+          ]
+        },
+        "east": {
+          "texture": "#seat",
+          "uv": [
+            0,
+            0,
+            11,
+            1.7999999999999998
+          ]
+        },
+        "west": {
+          "texture": "#seat",
+          "uv": [
+            0,
+            0,
+            11,
+            1.7999999999999998
+          ]
+        },
+        "up": {
+          "texture": "#seat",
+          "uv": [
+            0,
+            0,
+            12,
+            11
+          ]
+        },
+        "down": {
+          "texture": "#seat",
+          "uv": [
+            0,
+            0,
+            12,
+            11
+          ]
+        }
+      }
+    },
+    {
+      "name": "structural seat back",
+      "from": [
+        1,
+        7.8,
+        13
+      ],
+      "to": [
+        15,
+        23.8,
+        16
+      ],
+      "faces": {
+        "north": {
+          "texture": "#body",
+          "uv": [
+            0,
+            0,
+            14,
+            16.0
+          ]
+        },
+        "south": {
+          "texture": "#body",
+          "uv": [
+            0,
+            0,
+            14,
+            16.0
+          ]
+        },
+        "east": {
+          "texture": "#body",
+          "uv": [
+            0,
+            0,
+            3,
+            16.0
+          ]
+        },
+        "west": {
+          "texture": "#body",
+          "uv": [
+            0,
+            0,
+            3,
+            16.0
+          ]
+        },
+        "down": {
+          "texture": "#body",
+          "uv": [
+            0,
+            0,
+            14,
+            3
+          ]
+        }
+      }
+    },
+    {
+      "name": "structural seat back",
+      "from": [
+        1,
+        23.8,
+        13
+      ],
+      "to": [
+        15,
+        27,
+        16
+      ],
+      "faces": {
+        "north": {
+          "texture": "#body",
+          "uv": [
+            0,
+            0,
+            14,
+            3.1999999999999993
+          ]
+        },
+        "south": {
+          "texture": "#body",
+          "uv": [
+            0,
+            0,
+            14,
+            3.1999999999999993
+          ]
+        },
+        "east": {
+          "texture": "#body",
+          "uv": [
+            0,
+            0,
+            3,
+            3.1999999999999993
+          ]
+        },
+        "west": {
+          "texture": "#body",
+          "uv": [
+            0,
+            0,
+            3,
+            3.1999999999999993
+          ]
+        },
+        "up": {
+          "texture": "#body",
+          "uv": [
+            0,
+            0,
+            14,
+            3
+          ]
+        }
+      }
+    },
+    {
+      "name": "back padding",
+      "from": [
+        2.5,
+        7.8,
+        11.8
+      ],
+      "to": [
+        13.5,
+        23.8,
+        13
+      ],
+      "faces": {
+        "north": {
+          "texture": "#seat",
+          "uv": [
+            0,
+            0,
+            11.0,
+            16.0
+          ]
+        },
+        "south": {
+          "texture": "#seat",
+          "uv": [
+            0,
+            0,
+            11.0,
+            16.0
+          ]
+        },
+        "east": {
+          "texture": "#seat",
+          "uv": [
+            0,
+            0,
+            1.1999999999999993,
+            16.0
+          ]
+        },
+        "west": {
+          "texture": "#seat",
+          "uv": [
+            0,
+            0,
+            1.1999999999999993,
+            16.0
+          ]
+        },
+        "down": {
+          "texture": "#seat",
+          "uv": [
+            0,
+            0,
+            11.0,
+            1.1999999999999993
+          ]
+        }
+      }
+    },
+    {
+      "name": "back padding",
+      "from": [
+        2.5,
+        23.8,
+        11.8
+      ],
+      "to": [
+        13.5,
+        25,
+        13
+      ],
+      "faces": {
+        "north": {
+          "texture": "#seat",
+          "uv": [
+            0,
+            0,
+            11.0,
+            1.1999999999999993
+          ]
+        },
+        "south": {
+          "texture": "#seat",
+          "uv": [
+            0,
+            0,
+            11.0,
+            1.1999999999999993
+          ]
+        },
+        "east": {
+          "texture": "#seat",
+          "uv": [
+            0,
+            0,
+            1.1999999999999993,
+            1.1999999999999993
+          ]
+        },
+        "west": {
+          "texture": "#seat",
+          "uv": [
+            0,
+            0,
+            1.1999999999999993,
+            1.1999999999999993
+          ]
+        },
+        "up": {
+          "texture": "#seat",
+          "uv": [
+            0,
+            0,
+            11.0,
+            1.1999999999999993
+          ]
+        }
+      }
+    },
+    {
+      "name": "head pad",
+      "from": [
+        4,
+        25,
+        12
+      ],
+      "to": [
+        12,
+        29,
         15
       ],
       "faces": {
@@ -26,8 +413,8 @@
           "uv": [
             0,
             0,
-            16,
-            16
+            8,
+            4
           ]
         },
         "south": {
@@ -35,8 +422,8 @@
           "uv": [
             0,
             0,
-            16,
-            16
+            8,
+            4
           ]
         },
         "east": {
@@ -44,8 +431,8 @@
           "uv": [
             0,
             0,
-            16,
-            16
+            3,
+            4
           ]
         },
         "west": {
@@ -53,8 +440,8 @@
           "uv": [
             0,
             0,
-            16,
-            16
+            3,
+            4
           ]
         },
         "up": {
@@ -62,8 +449,8 @@
           "uv": [
             0,
             0,
-            16,
-            16
+            8,
+            3
           ]
         },
         "down": {
@@ -71,149 +458,374 @@
           "uv": [
             0,
             0,
-            16,
-            16
+            8,
+            3
           ]
         }
       }
     },
     {
+      "name": "left posture cradle",
       "from": [
-        1,
-        8,
-        14
+        0,
+        5,
+        10
       ],
       "to": [
-        15,
-        24,
+        2,
+        21,
         17
       ],
       "faces": {
         "north": {
-          "texture": "#seat",
+          "texture": "#body",
           "uv": [
             0,
             0,
-            16,
+            2,
             16
           ]
         },
         "south": {
-          "texture": "#seat",
+          "texture": "#body",
           "uv": [
             0,
             0,
-            16,
+            2,
             16
           ]
         },
         "east": {
-          "texture": "#seat",
+          "texture": "#body",
           "uv": [
             0,
             0,
-            16,
+            7,
             16
           ]
         },
         "west": {
-          "texture": "#seat",
+          "texture": "#body",
           "uv": [
             0,
             0,
-            16,
-            16
-          ]
-        },
-        "up": {
-          "texture": "#seat",
-          "uv": [
-            0,
-            0,
-            16,
+            7,
             16
           ]
         },
         "down": {
-          "texture": "#seat",
+          "texture": "#body",
           "uv": [
             0,
             0,
-            16,
-            16
+            2,
+            7
           ]
         }
       }
     },
     {
+      "name": "left posture cradle",
       "from": [
-        1,
-        24,
-        14
+        0,
+        21,
+        10
       ],
       "to": [
-        15,
-        29,
+        2,
+        25,
         17
       ],
       "faces": {
         "north": {
-          "texture": "#seat",
+          "texture": "#body",
           "uv": [
             0,
             0,
-            16,
-            16
+            2,
+            4
           ]
         },
         "south": {
-          "texture": "#seat",
+          "texture": "#body",
           "uv": [
             0,
             0,
-            16,
-            16
+            2,
+            4
           ]
         },
         "east": {
-          "texture": "#seat",
+          "texture": "#body",
           "uv": [
             0,
             0,
-            16,
-            16
+            7,
+            4
           ]
         },
         "west": {
-          "texture": "#seat",
+          "texture": "#body",
           "uv": [
             0,
             0,
-            16,
-            16
+            7,
+            4
           ]
         },
         "up": {
-          "texture": "#seat",
+          "texture": "#body",
           "uv": [
             0,
             0,
-            16,
-            16
-          ]
-        },
-        "down": {
-          "texture": "#seat",
-          "uv": [
-            0,
-            0,
-            16,
-            16
+            2,
+            7
           ]
         }
       }
     },
     {
+      "name": "right posture cradle",
+      "from": [
+        14,
+        5,
+        10
+      ],
+      "to": [
+        16,
+        21,
+        17
+      ],
+      "faces": {
+        "north": {
+          "texture": "#body",
+          "uv": [
+            0,
+            0,
+            2,
+            16
+          ]
+        },
+        "south": {
+          "texture": "#body",
+          "uv": [
+            0,
+            0,
+            2,
+            16
+          ]
+        },
+        "east": {
+          "texture": "#body",
+          "uv": [
+            0,
+            0,
+            7,
+            16
+          ]
+        },
+        "west": {
+          "texture": "#body",
+          "uv": [
+            0,
+            0,
+            7,
+            16
+          ]
+        },
+        "down": {
+          "texture": "#body",
+          "uv": [
+            0,
+            0,
+            2,
+            7
+          ]
+        }
+      }
+    },
+    {
+      "name": "right posture cradle",
+      "from": [
+        14,
+        21,
+        10
+      ],
+      "to": [
+        16,
+        25,
+        17
+      ],
+      "faces": {
+        "north": {
+          "texture": "#body",
+          "uv": [
+            0,
+            0,
+            2,
+            4
+          ]
+        },
+        "south": {
+          "texture": "#body",
+          "uv": [
+            0,
+            0,
+            2,
+            4
+          ]
+        },
+        "east": {
+          "texture": "#body",
+          "uv": [
+            0,
+            0,
+            7,
+            4
+          ]
+        },
+        "west": {
+          "texture": "#body",
+          "uv": [
+            0,
+            0,
+            7,
+            4
+          ]
+        },
+        "up": {
+          "texture": "#body",
+          "uv": [
+            0,
+            0,
+            2,
+            7
+          ]
+        }
+      }
+    },
+    {
+      "name": "posture load spine",
+      "from": [
+        5,
+        2,
+        15
+      ],
+      "to": [
+        11,
+        18,
+        18
+      ],
+      "faces": {
+        "north": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            6,
+            16
+          ]
+        },
+        "south": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            6,
+            16
+          ]
+        },
+        "east": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            3,
+            16
+          ]
+        },
+        "west": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            3,
+            16
+          ]
+        },
+        "down": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            6,
+            3
+          ]
+        }
+      }
+    },
+    {
+      "name": "posture load spine",
+      "from": [
+        5,
+        18,
+        15
+      ],
+      "to": [
+        11,
+        24,
+        18
+      ],
+      "faces": {
+        "north": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            6,
+            6
+          ]
+        },
+        "south": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            6,
+            6
+          ]
+        },
+        "east": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            3,
+            6
+          ]
+        },
+        "west": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            3,
+            6
+          ]
+        },
+        "up": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            6,
+            3
+          ]
+        }
+      }
+    },
+    {
+      "name": "ankle support",
       "from": [
         2,
         -11,
@@ -226,62 +838,63 @@
       ],
       "faces": {
         "north": {
-          "texture": "#metal",
+          "texture": "#rubber",
           "uv": [
             0,
             0,
-            16,
-            16
+            12,
+            3
           ]
         },
         "south": {
-          "texture": "#metal",
+          "texture": "#rubber",
           "uv": [
             0,
             0,
-            16,
-            16
+            12,
+            3
           ]
         },
         "east": {
-          "texture": "#metal",
+          "texture": "#rubber",
           "uv": [
             0,
             0,
-            16,
-            16
+            7,
+            3
           ]
         },
         "west": {
-          "texture": "#metal",
+          "texture": "#rubber",
           "uv": [
             0,
             0,
-            16,
-            16
+            7,
+            3
           ]
         },
         "up": {
-          "texture": "#metal",
+          "texture": "#rubber",
           "uv": [
             0,
             0,
-            16,
-            16
+            12,
+            7
           ]
         },
         "down": {
-          "texture": "#metal",
+          "texture": "#rubber",
           "uv": [
             0,
             0,
-            16,
-            16
+            12,
+            7
           ]
         }
       }
     },
     {
+      "name": "leg restraint spine",
       "from": [
         6,
         -8,
@@ -298,8 +911,8 @@
           "uv": [
             0,
             0,
-            16,
-            16
+            4,
+            13
           ]
         },
         "south": {
@@ -307,8 +920,8 @@
           "uv": [
             0,
             0,
-            16,
-            16
+            4,
+            13
           ]
         },
         "east": {
@@ -316,8 +929,8 @@
           "uv": [
             0,
             0,
-            16,
-            16
+            3,
+            13
           ]
         },
         "west": {
@@ -325,8 +938,8 @@
           "uv": [
             0,
             0,
-            16,
-            16
+            3,
+            13
           ]
         },
         "up": {
@@ -334,8 +947,8 @@
           "uv": [
             0,
             0,
-            16,
-            16
+            4,
+            3
           ]
         },
         "down": {
@@ -343,552 +956,491 @@
           "uv": [
             0,
             0,
-            16,
-            16
+            4,
+            3
           ]
         }
       }
     },
     {
+      "name": "compact deck back sill",
       "from": [
-        2,
-        11,
-        1
+        0,
+        6,
+        14
       ],
       "to": [
-        4,
-        27,
-        3
-      ],
-      "faces": {
-        "north": {
-          "texture": "#harness",
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ]
-        },
-        "south": {
-          "texture": "#harness",
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ]
-        },
-        "east": {
-          "texture": "#harness",
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ]
-        },
-        "west": {
-          "texture": "#harness",
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ]
-        },
-        "up": {
-          "texture": "#harness",
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ]
-        },
-        "down": {
-          "texture": "#harness",
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ]
-        }
-      }
-    },
-    {
-      "from": [
-        2,
-        25,
-        3
-      ],
-      "to": [
-        4,
-        28,
-        16
-      ],
-      "faces": {
-        "north": {
-          "texture": "#harness",
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ]
-        },
-        "south": {
-          "texture": "#harness",
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ]
-        },
-        "east": {
-          "texture": "#harness",
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ]
-        },
-        "west": {
-          "texture": "#harness",
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ]
-        },
-        "up": {
-          "texture": "#harness",
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ]
-        },
-        "down": {
-          "texture": "#harness",
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ]
-        }
-      }
-    },
-    {
-      "from": [
-        12,
-        11,
-        1
-      ],
-      "to": [
-        14,
-        27,
-        3
-      ],
-      "faces": {
-        "north": {
-          "texture": "#harness",
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ]
-        },
-        "south": {
-          "texture": "#harness",
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ]
-        },
-        "east": {
-          "texture": "#harness",
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ]
-        },
-        "west": {
-          "texture": "#harness",
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ]
-        },
-        "up": {
-          "texture": "#harness",
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ]
-        },
-        "down": {
-          "texture": "#harness",
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ]
-        }
-      }
-    },
-    {
-      "from": [
-        12,
-        25,
-        3
-      ],
-      "to": [
-        14,
-        28,
-        16
-      ],
-      "faces": {
-        "north": {
-          "texture": "#harness",
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ]
-        },
-        "south": {
-          "texture": "#harness",
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ]
-        },
-        "east": {
-          "texture": "#harness",
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ]
-        },
-        "west": {
-          "texture": "#harness",
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ]
-        },
-        "up": {
-          "texture": "#harness",
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ]
-        },
-        "down": {
-          "texture": "#harness",
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ]
-        }
-      }
-    },
-    {
-      "from": [
-        2,
+        16,
         10,
-        1
-      ],
-      "to": [
-        14,
-        13,
-        3
+        19
       ],
       "faces": {
         "north": {
-          "texture": "#latch",
+          "texture": "#body",
           "uv": [
             0,
             0,
             16,
-            16
+            4
           ]
         },
         "south": {
-          "texture": "#latch",
+          "texture": "#body",
           "uv": [
             0,
             0,
             16,
-            16
+            4
           ]
         },
         "east": {
-          "texture": "#latch",
+          "texture": "#body",
           "uv": [
             0,
             0,
-            16,
-            16
+            5,
+            4
           ]
         },
         "west": {
-          "texture": "#latch",
+          "texture": "#body",
           "uv": [
             0,
             0,
-            16,
-            16
+            5,
+            4
           ]
         },
         "up": {
-          "texture": "#latch",
+          "texture": "#body",
           "uv": [
             0,
             0,
             16,
-            16
+            5
           ]
         },
         "down": {
-          "texture": "#latch",
+          "texture": "#body",
           "uv": [
             0,
             0,
             16,
-            16
+            5
           ]
         }
       }
     },
     {
-      "from": [
-        2,
-        -6,
-        -2
-      ],
-      "to": [
-        14,
-        -3,
-        0
-      ],
-      "faces": {
-        "north": {
-          "texture": "#latch",
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ]
-        },
-        "south": {
-          "texture": "#latch",
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ]
-        },
-        "east": {
-          "texture": "#latch",
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ]
-        },
-        "west": {
-          "texture": "#latch",
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ]
-        },
-        "up": {
-          "texture": "#latch",
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ]
-        },
-        "down": {
-          "texture": "#latch",
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ]
-        }
-      }
-    },
-    {
+      "name": "posture bearing cheek",
       "from": [
         1,
-        -6,
-        -1
+        10,
+        17
       ],
       "to": [
         3,
-        4,
-        1
+        22,
+        19
       ],
       "faces": {
         "north": {
-          "texture": "#harness",
+          "texture": "#contact",
           "uv": [
             0,
             0,
-            16,
-            16
+            2,
+            12
           ]
         },
         "south": {
-          "texture": "#harness",
+          "texture": "#contact",
           "uv": [
             0,
             0,
-            16,
-            16
+            2,
+            12
           ]
         },
         "east": {
-          "texture": "#harness",
+          "texture": "#contact",
           "uv": [
             0,
             0,
-            16,
-            16
+            2,
+            12
           ]
         },
         "west": {
-          "texture": "#harness",
+          "texture": "#contact",
           "uv": [
             0,
             0,
-            16,
-            16
+            2,
+            12
           ]
         },
         "up": {
-          "texture": "#harness",
+          "texture": "#contact",
           "uv": [
             0,
             0,
-            16,
-            16
+            2,
+            2
           ]
         },
         "down": {
-          "texture": "#harness",
+          "texture": "#contact",
           "uv": [
             0,
             0,
-            16,
-            16
+            2,
+            2
           ]
         }
       }
     },
     {
+      "name": "posture bearing cheek",
       "from": [
         13,
-        -6,
-        -1
+        10,
+        17
       ],
       "to": [
         15,
-        4,
-        1
+        22,
+        19
       ],
       "faces": {
         "north": {
-          "texture": "#harness",
+          "texture": "#contact",
           "uv": [
             0,
             0,
-            16,
-            16
+            2,
+            12
           ]
         },
         "south": {
-          "texture": "#harness",
+          "texture": "#contact",
           "uv": [
             0,
             0,
-            16,
-            16
+            2,
+            12
           ]
         },
         "east": {
-          "texture": "#harness",
+          "texture": "#contact",
           "uv": [
             0,
             0,
-            16,
-            16
+            2,
+            12
           ]
         },
         "west": {
-          "texture": "#harness",
+          "texture": "#contact",
           "uv": [
             0,
             0,
-            16,
-            16
+            2,
+            12
           ]
         },
         "up": {
-          "texture": "#harness",
+          "texture": "#contact",
           "uv": [
             0,
             0,
-            16,
-            16
+            2,
+            2
           ]
         },
         "down": {
-          "texture": "#harness",
+          "texture": "#contact",
           "uv": [
             0,
             0,
-            16,
-            16
+            2,
+            2
+          ]
+        }
+      }
+    },
+    {
+      "name": "left fixed hinge socket",
+      "from": [
+        0,
+        21,
+        12
+      ],
+      "to": [
+        2,
+        25,
+        16
+      ],
+      "faces": {
+        "north": {
+          "texture": "#contact",
+          "uv": [
+            0,
+            0,
+            2,
+            4
+          ]
+        },
+        "south": {
+          "texture": "#contact",
+          "uv": [
+            0,
+            0,
+            2,
+            4
+          ]
+        },
+        "east": {
+          "texture": "#contact",
+          "uv": [
+            0,
+            0,
+            4,
+            4
+          ]
+        },
+        "west": {
+          "texture": "#contact",
+          "uv": [
+            0,
+            0,
+            4,
+            4
+          ]
+        },
+        "up": {
+          "texture": "#contact",
+          "uv": [
+            0,
+            0,
+            2,
+            4
+          ]
+        },
+        "down": {
+          "texture": "#contact",
+          "uv": [
+            0,
+            0,
+            2,
+            4
+          ]
+        }
+      }
+    },
+    {
+      "name": "right fixed hinge socket",
+      "from": [
+        14,
+        21,
+        12
+      ],
+      "to": [
+        16,
+        25,
+        16
+      ],
+      "faces": {
+        "north": {
+          "texture": "#contact",
+          "uv": [
+            0,
+            0,
+            2,
+            4
+          ]
+        },
+        "south": {
+          "texture": "#contact",
+          "uv": [
+            0,
+            0,
+            2,
+            4
+          ]
+        },
+        "east": {
+          "texture": "#contact",
+          "uv": [
+            0,
+            0,
+            4,
+            4
+          ]
+        },
+        "west": {
+          "texture": "#contact",
+          "uv": [
+            0,
+            0,
+            4,
+            4
+          ]
+        },
+        "up": {
+          "texture": "#contact",
+          "uv": [
+            0,
+            0,
+            2,
+            4
+          ]
+        },
+        "down": {
+          "texture": "#contact",
+          "uv": [
+            0,
+            0,
+            2,
+            4
+          ]
+        }
+      }
+    },
+    {
+      "name": "left ankle socket",
+      "from": [
+        0,
+        2,
+        4
+      ],
+      "to": [
+        3,
+        6,
+        8
+      ],
+      "faces": {
+        "north": {
+          "texture": "#contact",
+          "uv": [
+            0,
+            0,
+            3,
+            4
+          ]
+        },
+        "south": {
+          "texture": "#contact",
+          "uv": [
+            0,
+            0,
+            3,
+            4
+          ]
+        },
+        "east": {
+          "texture": "#contact",
+          "uv": [
+            0,
+            0,
+            4,
+            4
+          ]
+        },
+        "west": {
+          "texture": "#contact",
+          "uv": [
+            0,
+            0,
+            4,
+            4
+          ]
+        },
+        "up": {
+          "texture": "#contact",
+          "uv": [
+            0,
+            0,
+            3,
+            4
+          ]
+        },
+        "down": {
+          "texture": "#contact",
+          "uv": [
+            0,
+            0,
+            3,
+            4
+          ]
+        }
+      }
+    },
+    {
+      "name": "right ankle socket",
+      "from": [
+        13,
+        2,
+        4
+      ],
+      "to": [
+        16,
+        6,
+        8
+      ],
+      "faces": {
+        "north": {
+          "texture": "#contact",
+          "uv": [
+            0,
+            0,
+            3,
+            4
+          ]
+        },
+        "south": {
+          "texture": "#contact",
+          "uv": [
+            0,
+            0,
+            3,
+            4
+          ]
+        },
+        "east": {
+          "texture": "#contact",
+          "uv": [
+            0,
+            0,
+            4,
+            4
+          ]
+        },
+        "west": {
+          "texture": "#contact",
+          "uv": [
+            0,
+            0,
+            4,
+            4
+          ]
+        },
+        "up": {
+          "texture": "#contact",
+          "uv": [
+            0,
+            0,
+            3,
+            4
+          ]
+        },
+        "down": {
+          "texture": "#contact",
+          "uv": [
+            0,
+            0,
+            3,
+            4
           ]
         }
       }

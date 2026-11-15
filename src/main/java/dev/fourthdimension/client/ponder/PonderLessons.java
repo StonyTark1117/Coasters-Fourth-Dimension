@@ -23,11 +23,12 @@ final class PonderLessons {
           "The chassis needs propulsion from Create or the native chain system. Seat rotation does not drive the train."))),
     Map.entry("arrow", new Lesson("Driven Arrow wing carriers", List.of(
           "The Arrow car has four seats on two driven wing carriers. It requires Controlled 4D Track.",
-          "This animation illustrates the hinge motion. In a real ride, carriers follow a distance profile while the chassis follows the track.",
+          "This is a motion diagram. In the ride, paired followers read the control rails; a rack and 8:1 gear train drive the real carrier axle.",
           "The car follows the profile on its bound section. Edit that section's keys as distance:degrees[:slope], separated by semicolons.",
           "Keep a full turn as 360 degrees, not zero. Place the car on the section with the profile you authored.",
-          "Left and right carriers share the controlled profile. A full turn can continue through any number of revolutions within the supported limits.",
-          "Capture and align the carriers before boarding. Close restraints before releasing capture and dispatching."))),
+          "The exposed spring allows limited tracking lag. During capture or acquisition the clutch opens, so a non-neutral rail does not pretend to drive a neutral seat.",
+          "Capture and align both carriers before boarding. Close restraints before releasing capture and dispatching; the clutch re-engages after the axle acquires its target.",
+          "If tracking exceeds the spring travel, the clutch releases and the train requests stop and capture. Inspect the profile and fault before resuming."))),
     Map.entry("legacy", new Lesson("Legacy ZacSpin free carriers", List.of(
           "The Legacy ZacSpin car has eight seats on two back-to-back carriers. Use Legacy ZacSpin Track.",
           "Gravity, track motion and rider loading drive its free rotation. Section angle keys do not drive these carriers.",
@@ -49,8 +50,8 @@ final class PonderLessons {
     Map.entry("magnets", new Lesson("Induce spin, damp spin, then capture", List.of(
           "Use an Inducer or Damper on a Magnetic Free Spin section to install a span.",
           "Edit its start and end distances, direction, strength, falloff and target mask with the Rotation Tool.",
-          "Orange marks an inducer in this diagram. Its torque assists selected carriers while they pass the span.",
-          "Cyan marks a damper. It opposes existing spin; it does not prescribe a final seat angle.",
+          "Orange marks an inducer. Track-mounted magnetic faces act across an air gap on the selected carriers\u2019 reaction rings.",
+          "Cyan marks a damper. It opposes existing spin across the same air gap; it does not prescribe a final seat angle or mechanically latch the carrier.",
           "Targets use car-local left-front 1, left-rear 2, right-front 4, right-rear 8. Add them; 15 selects all four.",
           "Rollback does not swap these group names. Ordinary carts receive no magnetic seat assistance.",
           "Capture and readiness provide the boarding lock. A slow carrier is not automatically safe to board."))),
@@ -65,10 +66,10 @@ final class PonderLessons {
     Map.entry("pax", new Lesson("PAX catch, powered lift, release and return", List.of(
           "Build one connected PAX track route between two spikes. The compact route shown here is a diagram.",
           "Place four PAX cars six blocks apart. Hold a Minecraft Chain, right-click one car then its neighbor, and repeat for each adjacent pair.",
-          "Place a winch within twelve blocks of the stopped train. Sneak-use it to bind, then supply Create rotation at 16 to 128 RPM.",
+          "Place a winch within twelve blocks of the stopped train. Sneak-use it to bind, then supply Create rotation at 16 to 128 RPM. This is the remote drive unit.",
           "Wait for boarding readiness. Board, close restraints and have the platform operator use the winch to start.",
-          "The mechanical catch lifts the train. The catch releases at the crest; the train then travels freely.",
+          "A separate guided carriage engages the lead receiver and lifts the train. At the crest its catch releases; the train then travels freely.",
           "The shuttle passes outbound, reverses and returns. Seat rotation remains free during the ride.",
           "The returning train is caught and retained. Wait for the winch to report boarding readiness before opening restraints.",
-          "If lift power is interrupted, restore power, inspect the route and use the winch normally to resume."))));
+          "If lift power is interrupted, restore power, inspect the route and use the winch normally to resume. The diagram does not show a cable to the remote drive."))));
 }

@@ -1,11 +1,20 @@
 {
   "parent": "minecraft:block/block",
+  "ambientocclusion": true,
   "textures": {
-    "seat": "minecraft:block/blue_concrete",
-    "metal": "minecraft:block/iron_block",
-    "harness": "minecraft:block/black_concrete",
-    "latch": "minecraft:block/orange_concrete",
-    "particle": "minecraft:block/blue_concrete"
+    "metal": "fourthdimension:block/fd917/structural",
+    "body": "fourthdimension:block/fd917/paint_blue",
+    "paint": "fourthdimension:block/fd917/paint_blue",
+    "accent": "fourthdimension:block/fd917/paint_blue",
+    "cushion": "fourthdimension:block/fd917/upholstery_black",
+    "seat": "fourthdimension:block/fd917/upholstery_black",
+    "restraint": "fourthdimension:block/fd917/restraint",
+    "harness": "fourthdimension:block/fd917/restraint",
+    "contact": "fourthdimension:block/fd917/machined",
+    "bolt": "fourthdimension:block/fd917/fastener",
+    "rubber": "fourthdimension:block/fd917/rubber",
+    "latch": "fourthdimension:block/fd917/paint_orange",
+    "particle": "fourthdimension:block/fd917/paint_blue"
   },
   "elements": [
     {
@@ -25,8 +34,8 @@
           "uv": [
             0,
             0,
-            16,
-            16
+            2.56,
+            16.0
           ]
         },
         "south": {
@@ -34,8 +43,8 @@
           "uv": [
             0,
             0,
-            16,
-            16
+            2.56,
+            16.0
           ]
         },
         "east": {
@@ -43,8 +52,8 @@
           "uv": [
             0,
             0,
-            16,
-            16
+            2.5600000000000005,
+            16.0
           ]
         },
         "west": {
@@ -52,8 +61,8 @@
           "uv": [
             0,
             0,
-            16,
-            16
+            2.5600000000000005,
+            16.0
           ]
         },
         "up": {
@@ -61,8 +70,8 @@
           "uv": [
             0,
             0,
-            16,
-            16
+            2.56,
+            2.5600000000000005
           ]
         },
         "down": {
@@ -70,8 +79,8 @@
           "uv": [
             0,
             0,
-            16,
-            16
+            2.56,
+            2.5600000000000005
           ]
         }
       }

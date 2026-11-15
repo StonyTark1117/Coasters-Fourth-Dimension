@@ -1,11 +1,20 @@
 {
   "parent": "minecraft:block/block",
+  "ambientocclusion": true,
   "textures": {
-    "seat": "fourthdimension:block/powered_inverted_yaw_seat",
-    "metal": "fourthdimension:block/powered_inverted_yaw_metal",
-    "harness": "fourthdimension:block/powered_inverted_yaw_harness",
-    "signal": "fourthdimension:block/powered_inverted_yaw_signal",
-    "particle": "fourthdimension:block/powered_inverted_yaw_seat"
+    "metal": "fourthdimension:block/fd917/structural",
+    "body": "fourthdimension:block/fd917/paint_cyan",
+    "paint": "fourthdimension:block/fd917/paint_cyan",
+    "accent": "fourthdimension:block/fd917/paint_cyan",
+    "cushion": "fourthdimension:block/fd917/upholstery_black",
+    "seat": "fourthdimension:block/fd917/upholstery_black",
+    "restraint": "fourthdimension:block/fd917/restraint",
+    "harness": "fourthdimension:block/fd917/restraint",
+    "contact": "fourthdimension:block/fd917/machined",
+    "bolt": "fourthdimension:block/fd917/fastener",
+    "rubber": "fourthdimension:block/fd917/rubber",
+    "latch": "fourthdimension:block/fd917/paint_orange",
+    "particle": "fourthdimension:block/fd917/paint_cyan"
   },
   "elements": [
     {
@@ -25,8 +34,8 @@
           "uv": [
             0,
             0,
-            16,
-            16
+            12,
+            12
           ]
         },
         "south": {
@@ -34,8 +43,8 @@
           "uv": [
             0,
             0,
-            16,
-            16
+            12,
+            12
           ]
         },
         "east": {
@@ -43,8 +52,8 @@
           "uv": [
             0,
             0,
-            16,
-            16
+            12,
+            12
           ]
         },
         "west": {
@@ -52,8 +61,8 @@
           "uv": [
             0,
             0,
-            16,
-            16
+            12,
+            12
           ]
         },
         "up": {
@@ -61,8 +70,8 @@
           "uv": [
             0,
             0,
-            16,
-            16
+            12,
+            12
           ]
         },
         "down": {
@@ -70,8 +79,8 @@
           "uv": [
             0,
             0,
-            16,
-            16
+            12,
+            12
           ]
         }
       }
@@ -93,8 +102,8 @@
           "uv": [
             0,
             0,
-            16,
-            16
+            8,
+            8
           ]
         },
         "south": {
@@ -102,8 +111,8 @@
           "uv": [
             0,
             0,
-            16,
-            16
+            8,
+            8
           ]
         },
         "east": {
@@ -111,8 +120,8 @@
           "uv": [
             0,
             0,
-            16,
-            16
+            2,
+            8
           ]
         },
         "west": {
@@ -120,8 +129,8 @@
           "uv": [
             0,
             0,
-            16,
-            16
+            2,
+            8
           ]
         },
         "up": {
@@ -129,8 +138,8 @@
           "uv": [
             0,
             0,
-            16,
-            16
+            8,
+            2
           ]
         },
         "down": {
@@ -138,8 +147,8 @@
           "uv": [
             0,
             0,
-            16,
-            16
+            8,
+            2
           ]
         }
       }
@@ -157,57 +166,57 @@
       ],
       "faces": {
         "north": {
-          "texture": "#signal",
+          "texture": "#latch",
           "uv": [
             0,
             0,
-            16,
-            16
+            4,
+            4
           ]
         },
         "south": {
-          "texture": "#signal",
+          "texture": "#latch",
           "uv": [
             0,
             0,
-            16,
-            16
+            4,
+            4
           ]
         },
         "east": {
-          "texture": "#signal",
+          "texture": "#latch",
           "uv": [
             0,
             0,
-            16,
-            16
+            1,
+            4
           ]
         },
         "west": {
-          "texture": "#signal",
+          "texture": "#latch",
           "uv": [
             0,
             0,
-            16,
-            16
+            1,
+            4
           ]
         },
         "up": {
-          "texture": "#signal",
+          "texture": "#latch",
           "uv": [
             0,
             0,
-            16,
-            16
+            4,
+            1
           ]
         },
         "down": {
-          "texture": "#signal",
+          "texture": "#latch",
           "uv": [
             0,
             0,
-            16,
-            16
+            4,
+            1
           ]
         }
       }
@@ -229,8 +238,8 @@
           "uv": [
             0,
             0,
-            16,
-            16
+            4,
+            4
           ]
         },
         "south": {
@@ -238,8 +247,8 @@
           "uv": [
             0,
             0,
-            16,
-            16
+            4,
+            4
           ]
         },
         "east": {
@@ -247,8 +256,8 @@
           "uv": [
             0,
             0,
-            16,
-            16
+            3,
+            4
           ]
         },
         "west": {
@@ -256,8 +265,8 @@
           "uv": [
             0,
             0,
-            16,
-            16
+            3,
+            4
           ]
         },
         "up": {
@@ -265,8 +274,8 @@
           "uv": [
             0,
             0,
-            16,
-            16
+            4,
+            3
           ]
         },
         "down": {
@@ -274,8 +283,8 @@
           "uv": [
             0,
             0,
-            16,
-            16
+            4,
+            3
           ]
         }
       }
@@ -297,8 +306,8 @@
           "uv": [
             0,
             0,
-            16,
-            16
+            8,
+            2
           ]
         },
         "south": {
@@ -306,8 +315,8 @@
           "uv": [
             0,
             0,
-            16,
-            16
+            8,
+            2
           ]
         },
         "east": {
@@ -315,8 +324,8 @@
           "uv": [
             0,
             0,
-            16,
-            16
+            1,
+            2
           ]
         },
         "west": {
@@ -324,8 +333,8 @@
           "uv": [
             0,
             0,
-            16,
-            16
+            1,
+            2
           ]
         },
         "up": {
@@ -333,8 +342,8 @@
           "uv": [
             0,
             0,
-            16,
-            16
+            8,
+            1
           ]
         },
         "down": {
@@ -342,8 +351,8 @@
           "uv": [
             0,
             0,
-            16,
-            16
+            8,
+            1
           ]
         }
       }

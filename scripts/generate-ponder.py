@@ -100,9 +100,10 @@ def car(family, color):
 
 
 def generate():
-    language_path = RESOURCES / "assets/fourthdimension/lang/en_us.json"
-    language = json.loads(language_path.read_text())
-    language = {k: v for k, v in language.items() if not k.startswith("fourthdimension.ponder.")}
+    # Shared language is integrated by its owner. Export an exact scoped patch;
+    # do not erase unrelated translations during deterministic regeneration.
+    language_path = REPO / "docs/evidence/fd917/art/ponder-language-patch.json"
+    language = {}
     declarations = []
     for name, lesson in LESSONS.items():
         language[f"fourthdimension.ponder.{name}.header"] = lesson["title"]
@@ -155,7 +156,10 @@ final class PonderLessons {
         y = 1 + abs(z - 6) // 2
         pax[(6, y, z)] = state("green_concrete")
     pax[(4, 1, 6)] = state("fourthdimension:shuttle_winch", axis="x")
-    pax[(5, 2, 6)] = state("fourthdimension:shuttle_carriage")
+    # Route-local carriage above the lead chassis; the remote kinetic unit is
+    # deliberately separate. These blocks illustrate roles, not cable routing.
+    pax[(6, 6, 6)] = state("fourthdimension:shuttle_carriage")
+    pax[(6, 5, 6)] = state("iron_bars", north="false", south="false", east="false", west="false", waterlogged="false")
     for x in (2, 3, 9, 10):
         pax[(x, 3, 6)] = state("fourthdimension:pax_seat", facing="north", restrained="false")
         pax[(x, 4, 6)] = state("fourthdimension:free_spin_axle")

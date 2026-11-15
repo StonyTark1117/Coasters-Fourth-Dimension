@@ -1,11 +1,20 @@
 {
   "parent": "minecraft:block/block",
+  "ambientocclusion": true,
   "textures": {
-    "seat": "fourthdimension:block/powered_inverted_yaw_seat",
-    "metal": "fourthdimension:block/powered_inverted_yaw_metal",
-    "harness": "fourthdimension:block/powered_inverted_yaw_harness",
-    "signal": "fourthdimension:block/powered_inverted_yaw_signal",
-    "particle": "fourthdimension:block/powered_inverted_yaw_seat"
+    "metal": "fourthdimension:block/fd917/structural",
+    "body": "fourthdimension:block/fd917/paint_cyan",
+    "paint": "fourthdimension:block/fd917/paint_cyan",
+    "accent": "fourthdimension:block/fd917/paint_cyan",
+    "cushion": "fourthdimension:block/fd917/upholstery_black",
+    "seat": "fourthdimension:block/fd917/upholstery_black",
+    "restraint": "fourthdimension:block/fd917/restraint",
+    "harness": "fourthdimension:block/fd917/restraint",
+    "contact": "fourthdimension:block/fd917/machined",
+    "bolt": "fourthdimension:block/fd917/fastener",
+    "rubber": "fourthdimension:block/fd917/rubber",
+    "latch": "fourthdimension:block/fd917/paint_orange",
+    "particle": "fourthdimension:block/fd917/paint_cyan"
   },
   "elements": [
     {
@@ -26,7 +35,7 @@
             0,
             0,
             16,
-            16
+            6
           ]
         },
         "south": {
@@ -35,7 +44,7 @@
             0,
             0,
             16,
-            16
+            6
           ]
         },
         "east": {
@@ -44,7 +53,7 @@
             0,
             0,
             16,
-            16
+            6
           ]
         },
         "west": {
@@ -53,7 +62,7 @@
             0,
             0,
             16,
-            16
+            6
           ]
         },
         "up": {
@@ -93,8 +102,8 @@
           "uv": [
             0,
             0,
-            16,
-            16
+            12,
+            6
           ]
         },
         "south": {
@@ -102,8 +111,8 @@
           "uv": [
             0,
             0,
-            16,
-            16
+            12,
+            6
           ]
         },
         "east": {
@@ -112,7 +121,7 @@
             0,
             0,
             16,
-            16
+            6
           ]
         },
         "west": {
@@ -121,7 +130,7 @@
             0,
             0,
             16,
-            16
+            6
           ]
         },
         "up": {
@@ -129,7 +138,7 @@
           "uv": [
             0,
             0,
-            16,
+            12,
             16
           ]
         },
@@ -138,7 +147,7 @@
           "uv": [
             0,
             0,
-            16,
+            12,
             16
           ]
         }
@@ -157,57 +166,126 @@
       ],
       "faces": {
         "north": {
-          "texture": "#signal",
+          "texture": "#latch",
           "uv": [
             0,
             0,
-            16,
-            16
+            6,
+            4
           ]
         },
         "south": {
-          "texture": "#signal",
+          "texture": "#latch",
           "uv": [
             0,
             0,
-            16,
-            16
+            6,
+            4
           ]
         },
         "east": {
-          "texture": "#signal",
+          "texture": "#latch",
           "uv": [
             0,
             0,
-            16,
-            16
+            8,
+            4
           ]
         },
         "west": {
-          "texture": "#signal",
+          "texture": "#latch",
           "uv": [
             0,
             0,
-            16,
-            16
+            8,
+            4
           ]
         },
         "up": {
-          "texture": "#signal",
+          "texture": "#latch",
           "uv": [
             0,
             0,
-            16,
-            16
+            6,
+            8
           ]
         },
         "down": {
-          "texture": "#signal",
+          "texture": "#latch",
           "uv": [
             0,
             0,
-            16,
-            16
+            6,
+            8
+          ]
+        }
+      }
+    },
+    {
+      "name": "yaw race collar",
+      "from": [
+        -4,
+        6,
+        3
+      ],
+      "to": [
+        4,
+        14,
+        13
+      ],
+      "faces": {
+        "north": {
+          "texture": "#contact",
+          "uv": [
+            0,
+            0,
+            8,
+            8
+          ]
+        },
+        "south": {
+          "texture": "#contact",
+          "uv": [
+            0,
+            0,
+            8,
+            8
+          ]
+        },
+        "east": {
+          "texture": "#contact",
+          "uv": [
+            0,
+            0,
+            10,
+            8
+          ]
+        },
+        "west": {
+          "texture": "#contact",
+          "uv": [
+            0,
+            0,
+            10,
+            8
+          ]
+        },
+        "up": {
+          "texture": "#contact",
+          "uv": [
+            0,
+            0,
+            8,
+            10
+          ]
+        },
+        "down": {
+          "texture": "#contact",
+          "uv": [
+            0,
+            0,
+            8,
+            10
           ]
         }
       }

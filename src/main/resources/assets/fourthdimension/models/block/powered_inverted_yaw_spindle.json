@@ -1,11 +1,20 @@
 {
   "parent": "minecraft:block/block",
+  "ambientocclusion": true,
   "textures": {
-    "seat": "fourthdimension:block/powered_inverted_yaw_seat",
-    "metal": "fourthdimension:block/powered_inverted_yaw_metal",
-    "harness": "fourthdimension:block/powered_inverted_yaw_harness",
-    "signal": "fourthdimension:block/powered_inverted_yaw_signal",
-    "particle": "fourthdimension:block/powered_inverted_yaw_seat"
+    "metal": "fourthdimension:block/fd917/structural",
+    "body": "fourthdimension:block/fd917/paint_cyan",
+    "paint": "fourthdimension:block/fd917/paint_cyan",
+    "accent": "fourthdimension:block/fd917/paint_cyan",
+    "cushion": "fourthdimension:block/fd917/upholstery_black",
+    "seat": "fourthdimension:block/fd917/upholstery_black",
+    "restraint": "fourthdimension:block/fd917/restraint",
+    "harness": "fourthdimension:block/fd917/restraint",
+    "contact": "fourthdimension:block/fd917/machined",
+    "bolt": "fourthdimension:block/fd917/fastener",
+    "rubber": "fourthdimension:block/fd917/rubber",
+    "latch": "fourthdimension:block/fd917/paint_orange",
+    "particle": "fourthdimension:block/fd917/paint_cyan"
   },
   "elements": [
     {
@@ -25,7 +34,7 @@
           "uv": [
             0,
             0,
-            16,
+            2,
             16
           ]
         },
@@ -34,7 +43,7 @@
           "uv": [
             0,
             0,
-            16,
+            2,
             16
           ]
         },
@@ -43,7 +52,7 @@
           "uv": [
             0,
             0,
-            16,
+            2,
             16
           ]
         },
@@ -52,7 +61,7 @@
           "uv": [
             0,
             0,
-            16,
+            2,
             16
           ]
         },
@@ -61,8 +70,8 @@
           "uv": [
             0,
             0,
-            16,
-            16
+            2,
+            2
           ]
         },
         "down": {
@@ -70,8 +79,146 @@
           "uv": [
             0,
             0,
-            16,
-            16
+            2,
+            2
+          ]
+        }
+      }
+    },
+    {
+      "name": "spindle flange",
+      "from": [
+        5,
+        0,
+        5
+      ],
+      "to": [
+        11,
+        3,
+        11
+      ],
+      "faces": {
+        "north": {
+          "texture": "#contact",
+          "uv": [
+            0,
+            0,
+            6,
+            3
+          ]
+        },
+        "south": {
+          "texture": "#contact",
+          "uv": [
+            0,
+            0,
+            6,
+            3
+          ]
+        },
+        "east": {
+          "texture": "#contact",
+          "uv": [
+            0,
+            0,
+            6,
+            3
+          ]
+        },
+        "west": {
+          "texture": "#contact",
+          "uv": [
+            0,
+            0,
+            6,
+            3
+          ]
+        },
+        "up": {
+          "texture": "#contact",
+          "uv": [
+            0,
+            0,
+            6,
+            6
+          ]
+        },
+        "down": {
+          "texture": "#contact",
+          "uv": [
+            0,
+            0,
+            6,
+            6
+          ]
+        }
+      }
+    },
+    {
+      "name": "spindle flange",
+      "from": [
+        5,
+        13,
+        5
+      ],
+      "to": [
+        11,
+        16,
+        11
+      ],
+      "faces": {
+        "north": {
+          "texture": "#contact",
+          "uv": [
+            0,
+            0,
+            6,
+            3
+          ]
+        },
+        "south": {
+          "texture": "#contact",
+          "uv": [
+            0,
+            0,
+            6,
+            3
+          ]
+        },
+        "east": {
+          "texture": "#contact",
+          "uv": [
+            0,
+            0,
+            6,
+            3
+          ]
+        },
+        "west": {
+          "texture": "#contact",
+          "uv": [
+            0,
+            0,
+            6,
+            3
+          ]
+        },
+        "up": {
+          "texture": "#contact",
+          "uv": [
+            0,
+            0,
+            6,
+            6
+          ]
+        },
+        "down": {
+          "texture": "#contact",
+          "uv": [
+            0,
+            0,
+            6,
+            6
           ]
         }
       }

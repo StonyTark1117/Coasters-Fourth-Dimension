@@ -1,12 +1,20 @@
 {
   "parent": "minecraft:block/block",
+  "ambientocclusion": true,
   "textures": {
-    "cushion": "minecraft:block/orange_concrete",
-    "metal": "minecraft:block/iron_block",
-    "body": "minecraft:block/cyan_terracotta",
-    "restraint": "minecraft:block/black_concrete",
-    "accent": "minecraft:block/orange_concrete",
-    "particle": "minecraft:block/cyan_terracotta"
+    "metal": "fourthdimension:block/fd917/structural",
+    "body": "fourthdimension:block/fd917/paint_cyan",
+    "paint": "fourthdimension:block/fd917/paint_cyan",
+    "accent": "fourthdimension:block/fd917/paint_cyan",
+    "cushion": "fourthdimension:block/fd917/upholstery_orange",
+    "seat": "fourthdimension:block/fd917/upholstery_orange",
+    "restraint": "fourthdimension:block/fd917/restraint",
+    "harness": "fourthdimension:block/fd917/restraint",
+    "contact": "fourthdimension:block/fd917/machined",
+    "bolt": "fourthdimension:block/fd917/fastener",
+    "rubber": "fourthdimension:block/fd917/rubber",
+    "latch": "fourthdimension:block/fd917/paint_orange",
+    "particle": "fourthdimension:block/fd917/paint_cyan"
   },
   "elements": [
     {

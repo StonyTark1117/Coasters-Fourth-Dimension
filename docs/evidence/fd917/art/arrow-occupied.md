@@ -34,7 +34,4 @@ stale-revision guard; the refreshed Ready state accepted the next Open. The
 `FD_BOARDING_DISMOUNT_CLEAR`, restraints=false, alive=true. Native camera returned
 to first person. [Bounded server/client log](arrow-occupied.log).
 
-The Art runtime remains actively owned for the remaining FD917 family/teaching
-work, with the world retained under `server/SkinWorkshop`. Final cleanup is part
-of that same assigned outcome. This closes the shared occupied cycle; final
-Arrow visual axle-to-linkage reconciliation remains with lead and Art.
+The later [final axle interface](arrow-interface.md) passed and was accepted by lead. The complete Art run is now saved and stopped; see [cleanup](runtime-cleanup.txt). The shared occupied cycle remains closed.

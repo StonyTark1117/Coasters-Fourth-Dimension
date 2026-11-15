@@ -1,12 +1,20 @@
 {
   "parent": "minecraft:block/block",
+  "ambientocclusion": true,
   "textures": {
-    "seat": "minecraft:block/cyan_concrete",
-    "metal": "minecraft:block/iron_block",
-    "harness": "minecraft:block/black_concrete",
-    "latch": "minecraft:block/orange_concrete",
-    "locked": "minecraft:block/lime_concrete",
-    "particle": "minecraft:block/cyan_concrete"
+    "metal": "fourthdimension:block/fd917/structural",
+    "body": "fourthdimension:block/fd917/paint_light_blue",
+    "paint": "fourthdimension:block/fd917/paint_light_blue",
+    "accent": "fourthdimension:block/fd917/paint_light_blue",
+    "cushion": "fourthdimension:block/fd917/upholstery_black",
+    "seat": "fourthdimension:block/fd917/upholstery_black",
+    "restraint": "fourthdimension:block/fd917/restraint",
+    "harness": "fourthdimension:block/fd917/restraint",
+    "contact": "fourthdimension:block/fd917/machined",
+    "bolt": "fourthdimension:block/fd917/fastener",
+    "rubber": "fourthdimension:block/fd917/rubber",
+    "latch": "fourthdimension:block/fd917/paint_orange",
+    "particle": "fourthdimension:block/fd917/paint_light_blue"
   },
   "elements": [
     {
@@ -26,8 +34,8 @@
           "uv": [
             0,
             0,
-            16,
-            16
+            4.0,
+            7.0
           ]
         },
         "south": {
@@ -35,8 +43,8 @@
           "uv": [
             0,
             0,
-            16,
-            16
+            4.0,
+            7.0
           ]
         },
         "east": {
@@ -44,8 +52,8 @@
           "uv": [
             0,
             0,
-            16,
-            16
+            4.0,
+            7.0
           ]
         },
         "west": {
@@ -53,8 +61,8 @@
           "uv": [
             0,
             0,
-            16,
-            16
+            4.0,
+            7.0
           ]
         },
         "up": {
@@ -62,8 +70,8 @@
           "uv": [
             0,
             0,
-            16,
-            16
+            4.0,
+            4.0
           ]
         },
         "down": {
@@ -71,8 +79,8 @@
           "uv": [
             0,
             0,
-            16,
-            16
+            4.0,
+            4.0
           ]
         }
       }
@@ -94,8 +102,8 @@
           "uv": [
             0,
             0,
-            16,
-            16
+            16.0,
+            4.0
           ]
         },
         "south": {
@@ -103,8 +111,8 @@
           "uv": [
             0,
             0,
-            16,
-            16
+            16.0,
+            4.0
           ]
         },
         "east": {
@@ -112,8 +120,8 @@
           "uv": [
             0,
             0,
-            16,
-            16
+            4.0,
+            4.0
           ]
         },
         "west": {
@@ -121,8 +129,8 @@
           "uv": [
             0,
             0,
-            16,
-            16
+            4.0,
+            4.0
           ]
         },
         "up": {
@@ -130,8 +138,8 @@
           "uv": [
             0,
             0,
-            16,
-            16
+            16.0,
+            4.0
           ]
         },
         "down": {
@@ -139,8 +147,8 @@
           "uv": [
             0,
             0,
-            16,
-            16
+            16.0,
+            4.0
           ]
         }
       }

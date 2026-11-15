@@ -1,10 +1,20 @@
 {
+  "parent": "minecraft:block/block",
+  "ambientocclusion": true,
   "textures": {
-    "cushion": "minecraft:block/cyan_concrete",
-    "metal": "minecraft:block/iron_block",
-    "bar": "minecraft:block/black_concrete",
-    "accent": "minecraft:block/yellow_concrete",
-    "particle": "minecraft:block/cyan_concrete"
+    "metal": "fourthdimension:block/fd917/structural",
+    "body": "fourthdimension:block/fd917/paint_cyan",
+    "paint": "fourthdimension:block/fd917/paint_cyan",
+    "accent": "fourthdimension:block/fd917/paint_cyan",
+    "cushion": "fourthdimension:block/fd917/upholstery_black",
+    "seat": "fourthdimension:block/fd917/upholstery_black",
+    "restraint": "fourthdimension:block/fd917/restraint",
+    "harness": "fourthdimension:block/fd917/restraint",
+    "contact": "fourthdimension:block/fd917/machined",
+    "bolt": "fourthdimension:block/fd917/fastener",
+    "rubber": "fourthdimension:block/fd917/rubber",
+    "latch": "fourthdimension:block/fd917/paint_orange",
+    "particle": "fourthdimension:block/fd917/paint_cyan"
   },
   "elements": [
     {
@@ -16,19 +26,10 @@
       "to": [
         3,
         16,
-        28
+        4
       ],
       "faces": {
         "north": {
-          "texture": "#metal",
-          "uv": [
-            0,
-            0,
-            6,
-            4
-          ]
-        },
-        "south": {
           "texture": "#metal",
           "uv": [
             0,
@@ -77,7 +78,175 @@
     },
     {
       "from": [
+        -3,
+        12,
+        4
+      ],
+      "to": [
+        3,
+        16,
+        20
+      ],
+      "faces": {
+        "east": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            16,
+            4
+          ]
+        },
+        "west": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            16,
+            4
+          ]
+        },
+        "up": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            6,
+            16
+          ]
+        },
+        "down": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            6,
+            16
+          ]
+        }
+      }
+    },
+    {
+      "from": [
+        -3,
+        12,
+        20
+      ],
+      "to": [
+        3,
+        16,
+        28
+      ],
+      "faces": {
+        "south": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            6,
+            4
+          ]
+        },
+        "east": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            8,
+            4
+          ]
+        },
+        "west": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            8,
+            4
+          ]
+        },
+        "up": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            6,
+            8
+          ]
+        },
+        "down": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            6,
+            8
+          ]
+        }
+      }
+    },
+    {
+      "from": [
         -16,
+        0,
+        11
+      ],
+      "to": [
+        0,
+        3,
+        14
+      ],
+      "faces": {
+        "north": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            16,
+            3
+          ]
+        },
+        "south": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            16,
+            3
+          ]
+        },
+        "west": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            3,
+            3
+          ]
+        },
+        "up": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            16,
+            3
+          ]
+        },
+        "down": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            16,
+            3
+          ]
+        }
+      }
+    },
+    {
+      "from": [
+        0,
         0,
         11
       ],
@@ -106,15 +275,6 @@
           ]
         },
         "east": {
-          "texture": "#metal",
-          "uv": [
-            0,
-            0,
-            3,
-            3
-          ]
-        },
-        "west": {
           "texture": "#metal",
           "uv": [
             0,
@@ -206,6 +366,144 @@
             0,
             0,
             4,
+            3
+          ]
+        }
+      }
+    },
+    {
+      "name": "longitudinal journal collar",
+      "from": [
+        -4,
+        10,
+        10
+      ],
+      "to": [
+        4,
+        18,
+        15
+      ],
+      "faces": {
+        "north": {
+          "texture": "#contact",
+          "uv": [
+            0,
+            0,
+            8,
+            8
+          ]
+        },
+        "south": {
+          "texture": "#contact",
+          "uv": [
+            0,
+            0,
+            8,
+            8
+          ]
+        },
+        "east": {
+          "texture": "#contact",
+          "uv": [
+            0,
+            0,
+            5,
+            8
+          ]
+        },
+        "west": {
+          "texture": "#contact",
+          "uv": [
+            0,
+            0,
+            5,
+            8
+          ]
+        },
+        "up": {
+          "texture": "#contact",
+          "uv": [
+            0,
+            0,
+            8,
+            5
+          ]
+        },
+        "down": {
+          "texture": "#contact",
+          "uv": [
+            0,
+            0,
+            8,
+            5
+          ]
+        }
+      }
+    },
+    {
+      "name": "front journal collar",
+      "from": [
+        -3,
+        11,
+        -6
+      ],
+      "to": [
+        3,
+        17,
+        -3
+      ],
+      "faces": {
+        "north": {
+          "texture": "#contact",
+          "uv": [
+            0,
+            0,
+            6,
+            6
+          ]
+        },
+        "south": {
+          "texture": "#contact",
+          "uv": [
+            0,
+            0,
+            6,
+            6
+          ]
+        },
+        "east": {
+          "texture": "#contact",
+          "uv": [
+            0,
+            0,
+            3,
+            6
+          ]
+        },
+        "west": {
+          "texture": "#contact",
+          "uv": [
+            0,
+            0,
+            3,
+            6
+          ]
+        },
+        "up": {
+          "texture": "#contact",
+          "uv": [
+            0,
+            0,
+            6,
+            3
+          ]
+        },
+        "down": {
+          "texture": "#contact",
+          "uv": [
+            0,
+            0,
+            6,
             3
           ]
         }

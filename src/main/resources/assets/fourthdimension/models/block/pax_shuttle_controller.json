@@ -1,6 +1,573 @@
 {
-  "parent": "minecraft:block/cube_all",
+  "parent": "minecraft:block/block",
+  "ambientocclusion": true,
   "textures": {
-    "all": "minecraft:block/copper_block"
-  }
+    "metal": "fourthdimension:block/fd917/structural",
+    "body": "fourthdimension:block/fd917/paint_green",
+    "paint": "fourthdimension:block/fd917/paint_green",
+    "accent": "fourthdimension:block/fd917/paint_green",
+    "cushion": "fourthdimension:block/fd917/upholstery_green",
+    "seat": "fourthdimension:block/fd917/upholstery_green",
+    "restraint": "fourthdimension:block/fd917/restraint",
+    "harness": "fourthdimension:block/fd917/restraint",
+    "contact": "fourthdimension:block/fd917/machined",
+    "bolt": "fourthdimension:block/fd917/fastener",
+    "rubber": "fourthdimension:block/fd917/rubber",
+    "latch": "fourthdimension:block/fd917/paint_orange",
+    "particle": "fourthdimension:block/fd917/paint_green"
+  },
+  "elements": [
+    {
+      "name": "controller casing",
+      "from": [
+        2,
+        0,
+        2
+      ],
+      "to": [
+        14,
+        8,
+        14
+      ],
+      "faces": {
+        "north": {
+          "texture": "#paint",
+          "uv": [
+            0,
+            0,
+            12,
+            8
+          ]
+        },
+        "south": {
+          "texture": "#paint",
+          "uv": [
+            0,
+            0,
+            12,
+            8
+          ]
+        },
+        "east": {
+          "texture": "#paint",
+          "uv": [
+            0,
+            0,
+            12,
+            8
+          ]
+        },
+        "west": {
+          "texture": "#paint",
+          "uv": [
+            0,
+            0,
+            12,
+            8
+          ]
+        },
+        "up": {
+          "texture": "#paint",
+          "uv": [
+            0,
+            0,
+            12,
+            12
+          ]
+        },
+        "down": {
+          "texture": "#paint",
+          "uv": [
+            0,
+            0,
+            12,
+            12
+          ]
+        }
+      }
+    },
+    {
+      "name": "beam lower flange",
+      "from": [
+        0,
+        8,
+        5
+      ],
+      "to": [
+        16,
+        10,
+        11
+      ],
+      "faces": {
+        "north": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            16,
+            2
+          ]
+        },
+        "south": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            16,
+            2
+          ]
+        },
+        "east": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            6,
+            2
+          ]
+        },
+        "west": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            6,
+            2
+          ]
+        },
+        "up": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            16,
+            6
+          ]
+        },
+        "down": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            16,
+            6
+          ]
+        }
+      }
+    },
+    {
+      "name": "beam upper flange",
+      "from": [
+        0,
+        14,
+        5
+      ],
+      "to": [
+        16,
+        16,
+        11
+      ],
+      "faces": {
+        "north": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            16,
+            2
+          ]
+        },
+        "south": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            16,
+            2
+          ]
+        },
+        "east": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            6,
+            2
+          ]
+        },
+        "west": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            6,
+            2
+          ]
+        },
+        "up": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            16,
+            6
+          ]
+        },
+        "down": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            16,
+            6
+          ]
+        }
+      }
+    },
+    {
+      "name": "beam web",
+      "from": [
+        0,
+        10,
+        7
+      ],
+      "to": [
+        16,
+        14,
+        9
+      ],
+      "faces": {
+        "north": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            16,
+            4
+          ]
+        },
+        "south": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            16,
+            4
+          ]
+        },
+        "east": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            2,
+            4
+          ]
+        },
+        "west": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            2,
+            4
+          ]
+        },
+        "up": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            16,
+            2
+          ]
+        },
+        "down": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            16,
+            2
+          ]
+        }
+      }
+    },
+    {
+      "name": "access plate",
+      "from": [
+        4,
+        2,
+        1
+      ],
+      "to": [
+        12,
+        7,
+        2
+      ],
+      "faces": {
+        "north": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            8,
+            5
+          ]
+        },
+        "south": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            8,
+            5
+          ]
+        },
+        "east": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            1,
+            5
+          ]
+        },
+        "west": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            1,
+            5
+          ]
+        },
+        "up": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            8,
+            1
+          ]
+        },
+        "down": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            8,
+            1
+          ]
+        }
+      }
+    },
+    {
+      "name": "plate screw",
+      "from": [
+        5,
+        3,
+        0.95
+      ],
+      "to": [
+        6,
+        4,
+        1
+      ],
+      "faces": {
+        "north": {
+          "texture": "#bolt",
+          "uv": [
+            0,
+            0,
+            1,
+            1
+          ]
+        },
+        "south": {
+          "texture": "#bolt",
+          "uv": [
+            0,
+            0,
+            1,
+            1
+          ]
+        },
+        "east": {
+          "texture": "#bolt",
+          "uv": [
+            0,
+            0,
+            0.050000000000000044,
+            1
+          ]
+        },
+        "west": {
+          "texture": "#bolt",
+          "uv": [
+            0,
+            0,
+            0.050000000000000044,
+            1
+          ]
+        },
+        "up": {
+          "texture": "#bolt",
+          "uv": [
+            0,
+            0,
+            1,
+            0.050000000000000044
+          ]
+        },
+        "down": {
+          "texture": "#bolt",
+          "uv": [
+            0,
+            0,
+            1,
+            0.050000000000000044
+          ]
+        }
+      }
+    },
+    {
+      "name": "access plate",
+      "from": [
+        4,
+        2,
+        14
+      ],
+      "to": [
+        12,
+        7,
+        15
+      ],
+      "faces": {
+        "north": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            8,
+            5
+          ]
+        },
+        "south": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            8,
+            5
+          ]
+        },
+        "east": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            1,
+            5
+          ]
+        },
+        "west": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            1,
+            5
+          ]
+        },
+        "up": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            8,
+            1
+          ]
+        },
+        "down": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            8,
+            1
+          ]
+        }
+      }
+    },
+    {
+      "name": "plate screw",
+      "from": [
+        5,
+        3,
+        13.95
+      ],
+      "to": [
+        6,
+        4,
+        14
+      ],
+      "faces": {
+        "north": {
+          "texture": "#bolt",
+          "uv": [
+            0,
+            0,
+            1,
+            1
+          ]
+        },
+        "south": {
+          "texture": "#bolt",
+          "uv": [
+            0,
+            0,
+            1,
+            1
+          ]
+        },
+        "east": {
+          "texture": "#bolt",
+          "uv": [
+            0,
+            0,
+            0.05000000000000071,
+            1
+          ]
+        },
+        "west": {
+          "texture": "#bolt",
+          "uv": [
+            0,
+            0,
+            0.05000000000000071,
+            1
+          ]
+        },
+        "up": {
+          "texture": "#bolt",
+          "uv": [
+            0,
+            0,
+            1,
+            0.05000000000000071
+          ]
+        },
+        "down": {
+          "texture": "#bolt",
+          "uv": [
+            0,
+            0,
+            1,
+            0.05000000000000071
+          ]
+        }
+      }
+    }
+  ]
 }

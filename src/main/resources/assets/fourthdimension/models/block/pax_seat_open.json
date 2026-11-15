@@ -1,13 +1,24 @@
 {
   "parent": "minecraft:block/block",
+  "ambientocclusion": true,
   "textures": {
-    "cushion": "minecraft:block/green_concrete",
-    "metal": "minecraft:block/iron_block",
-    "restraint": "minecraft:block/black_concrete",
-    "particle": "minecraft:block/green_concrete"
+    "metal": "fourthdimension:block/fd917/structural",
+    "body": "fourthdimension:block/fd917/paint_green",
+    "paint": "fourthdimension:block/fd917/paint_green",
+    "accent": "fourthdimension:block/fd917/paint_green",
+    "cushion": "fourthdimension:block/fd917/upholstery_green",
+    "seat": "fourthdimension:block/fd917/upholstery_green",
+    "restraint": "fourthdimension:block/fd917/restraint",
+    "harness": "fourthdimension:block/fd917/restraint",
+    "contact": "fourthdimension:block/fd917/machined",
+    "bolt": "fourthdimension:block/fd917/fastener",
+    "rubber": "fourthdimension:block/fd917/rubber",
+    "latch": "fourthdimension:block/fd917/paint_orange",
+    "particle": "fourthdimension:block/fd917/paint_green"
   },
   "elements": [
     {
+      "name": "seat cushion",
       "from": [
         1,
         2,
@@ -20,289 +31,973 @@
       ],
       "faces": {
         "north": {
-          "texture": "#cushion"
+          "texture": "#cushion",
+          "uv": [
+            0,
+            0,
+            14,
+            3
+          ]
         },
         "south": {
-          "texture": "#cushion"
+          "texture": "#cushion",
+          "uv": [
+            0,
+            0,
+            14,
+            3
+          ]
         },
         "east": {
-          "texture": "#cushion"
+          "texture": "#cushion",
+          "uv": [
+            0,
+            0,
+            12,
+            3
+          ]
         },
         "west": {
-          "texture": "#cushion"
+          "texture": "#cushion",
+          "uv": [
+            0,
+            0,
+            12,
+            3
+          ]
         },
         "up": {
-          "texture": "#cushion"
+          "texture": "#cushion",
+          "uv": [
+            0,
+            0,
+            14,
+            12
+          ]
         },
         "down": {
-          "texture": "#cushion"
+          "texture": "#cushion",
+          "uv": [
+            0,
+            0,
+            14,
+            12
+          ]
         }
       }
     },
     {
+      "name": "back cushion",
       "from": [
-        1,
-        4,
+        2,
+        5,
         12
       ],
       "to": [
-        15,
-        23,
-        15
+        14,
+        21,
+        14.5
       ],
       "faces": {
         "north": {
           "texture": "#cushion",
           "uv": [
             0,
-            0.0,
-            14,
-            16.0
+            0,
+            12,
+            16
           ]
         },
         "south": {
           "texture": "#cushion",
           "uv": [
             0,
-            0.0,
-            14,
-            16.0
+            0,
+            12,
+            16
           ]
         },
         "east": {
           "texture": "#cushion",
           "uv": [
             0,
-            0.0,
-            3,
-            16.0
+            0,
+            2.5,
+            16
           ]
         },
         "west": {
           "texture": "#cushion",
           "uv": [
             0,
-            0.0,
-            3,
-            16.0
+            0,
+            2.5,
+            16
           ]
         },
         "up": {
-          "texture": "#cushion"
+          "texture": "#cushion",
+          "uv": [
+            0,
+            0,
+            12,
+            2.5
+          ]
         },
         "down": {
-          "texture": "#cushion"
+          "texture": "#cushion",
+          "uv": [
+            0,
+            0,
+            12,
+            2.5
+          ]
         }
       }
     },
     {
+      "name": "underseat support",
+      "from": [
+        1,
+        0,
+        3
+      ],
+      "to": [
+        15,
+        2,
+        14
+      ],
+      "faces": {
+        "north": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            14,
+            2
+          ]
+        },
+        "south": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            14,
+            2
+          ]
+        },
+        "east": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            11,
+            2
+          ]
+        },
+        "west": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            11,
+            2
+          ]
+        },
+        "up": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            14,
+            11
+          ]
+        },
+        "down": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            14,
+            11
+          ]
+        }
+      }
+    },
+    {
+      "name": "compact shuttle shell",
+      "from": [
+        1,
+        3,
+        13
+      ],
+      "to": [
+        15,
+        19,
+        16
+      ],
+      "faces": {
+        "north": {
+          "texture": "#paint",
+          "uv": [
+            0,
+            0,
+            14,
+            16
+          ]
+        },
+        "south": {
+          "texture": "#paint",
+          "uv": [
+            0,
+            0,
+            14,
+            16
+          ]
+        },
+        "east": {
+          "texture": "#paint",
+          "uv": [
+            0,
+            0,
+            3,
+            16
+          ]
+        },
+        "west": {
+          "texture": "#paint",
+          "uv": [
+            0,
+            0,
+            3,
+            16
+          ]
+        },
+        "down": {
+          "texture": "#paint",
+          "uv": [
+            0,
+            0,
+            14,
+            3
+          ]
+        }
+      }
+    },
+    {
+      "name": "compact shuttle shell",
+      "from": [
+        1,
+        19,
+        13
+      ],
+      "to": [
+        15,
+        21,
+        16
+      ],
+      "faces": {
+        "north": {
+          "texture": "#paint",
+          "uv": [
+            0,
+            0,
+            14,
+            2
+          ]
+        },
+        "south": {
+          "texture": "#paint",
+          "uv": [
+            0,
+            0,
+            14,
+            2
+          ]
+        },
+        "east": {
+          "texture": "#paint",
+          "uv": [
+            0,
+            0,
+            3,
+            2
+          ]
+        },
+        "west": {
+          "texture": "#paint",
+          "uv": [
+            0,
+            0,
+            3,
+            2
+          ]
+        },
+        "up": {
+          "texture": "#paint",
+          "uv": [
+            0,
+            0,
+            14,
+            3
+          ]
+        }
+      }
+    },
+    {
+      "name": "shuttle head fairing",
+      "from": [
+        3,
+        21,
+        12
+      ],
+      "to": [
+        13,
+        25,
+        16
+      ],
+      "faces": {
+        "north": {
+          "texture": "#paint",
+          "uv": [
+            0,
+            0,
+            10,
+            4
+          ]
+        },
+        "south": {
+          "texture": "#paint",
+          "uv": [
+            0,
+            0,
+            10,
+            4
+          ]
+        },
+        "east": {
+          "texture": "#paint",
+          "uv": [
+            0,
+            0,
+            4,
+            4
+          ]
+        },
+        "west": {
+          "texture": "#paint",
+          "uv": [
+            0,
+            0,
+            4,
+            4
+          ]
+        },
+        "up": {
+          "texture": "#paint",
+          "uv": [
+            0,
+            0,
+            10,
+            4
+          ]
+        },
+        "down": {
+          "texture": "#paint",
+          "uv": [
+            0,
+            0,
+            10,
+            4
+          ]
+        }
+      }
+    },
+    {
+      "name": "short car nose",
+      "from": [
+        2,
+        0,
+        0
+      ],
+      "to": [
+        14,
+        2,
+        4
+      ],
+      "faces": {
+        "north": {
+          "texture": "#paint",
+          "uv": [
+            0,
+            0,
+            12,
+            2
+          ]
+        },
+        "south": {
+          "texture": "#paint",
+          "uv": [
+            0,
+            0,
+            12,
+            2
+          ]
+        },
+        "east": {
+          "texture": "#paint",
+          "uv": [
+            0,
+            0,
+            4,
+            2
+          ]
+        },
+        "west": {
+          "texture": "#paint",
+          "uv": [
+            0,
+            0,
+            4,
+            2
+          ]
+        },
+        "up": {
+          "texture": "#paint",
+          "uv": [
+            0,
+            0,
+            12,
+            4
+          ]
+        },
+        "down": {
+          "texture": "#paint",
+          "uv": [
+            0,
+            0,
+            12,
+            4
+          ]
+        }
+      }
+    },
+    {
+      "name": "boxed shuttle side",
       "from": [
         0,
-        1,
-        2
+        2,
+        1
       ],
       "to": [
         2,
-        6,
-        15
+        10,
+        14
       ],
       "faces": {
         "north": {
-          "texture": "#metal"
+          "texture": "#paint",
+          "uv": [
+            0,
+            0,
+            2,
+            8
+          ]
         },
         "south": {
-          "texture": "#metal"
+          "texture": "#paint",
+          "uv": [
+            0,
+            0,
+            2,
+            8
+          ]
         },
         "east": {
-          "texture": "#metal"
+          "texture": "#paint",
+          "uv": [
+            0,
+            0,
+            13,
+            8
+          ]
         },
         "west": {
-          "texture": "#metal"
+          "texture": "#paint",
+          "uv": [
+            0,
+            0,
+            13,
+            8
+          ]
         },
         "up": {
-          "texture": "#metal"
+          "texture": "#paint",
+          "uv": [
+            0,
+            0,
+            2,
+            13
+          ]
         },
         "down": {
-          "texture": "#metal"
+          "texture": "#paint",
+          "uv": [
+            0,
+            0,
+            2,
+            13
+          ]
         }
       }
     },
     {
+      "name": "lower mounting rail",
+      "from": [
+        0,
+        0,
+        3
+      ],
+      "to": [
+        2,
+        2,
+        15
+      ],
+      "faces": {
+        "north": {
+          "texture": "#contact",
+          "uv": [
+            0,
+            0,
+            2,
+            2
+          ]
+        },
+        "south": {
+          "texture": "#contact",
+          "uv": [
+            0,
+            0,
+            2,
+            2
+          ]
+        },
+        "east": {
+          "texture": "#contact",
+          "uv": [
+            0,
+            0,
+            12,
+            2
+          ]
+        },
+        "west": {
+          "texture": "#contact",
+          "uv": [
+            0,
+            0,
+            12,
+            2
+          ]
+        },
+        "up": {
+          "texture": "#contact",
+          "uv": [
+            0,
+            0,
+            2,
+            12
+          ]
+        },
+        "down": {
+          "texture": "#contact",
+          "uv": [
+            0,
+            0,
+            2,
+            12
+          ]
+        }
+      }
+    },
+    {
+      "name": "boxed shuttle side",
       "from": [
         14,
-        1,
-        2
+        2,
+        1
       ],
       "to": [
         16,
-        6,
-        15
+        10,
+        14
       ],
       "faces": {
         "north": {
-          "texture": "#metal"
+          "texture": "#paint",
+          "uv": [
+            0,
+            0,
+            2,
+            8
+          ]
         },
         "south": {
-          "texture": "#metal"
+          "texture": "#paint",
+          "uv": [
+            0,
+            0,
+            2,
+            8
+          ]
         },
         "east": {
-          "texture": "#metal"
+          "texture": "#paint",
+          "uv": [
+            0,
+            0,
+            13,
+            8
+          ]
         },
         "west": {
-          "texture": "#metal"
+          "texture": "#paint",
+          "uv": [
+            0,
+            0,
+            13,
+            8
+          ]
         },
         "up": {
-          "texture": "#metal"
+          "texture": "#paint",
+          "uv": [
+            0,
+            0,
+            2,
+            13
+          ]
         },
         "down": {
-          "texture": "#metal"
+          "texture": "#paint",
+          "uv": [
+            0,
+            0,
+            2,
+            13
+          ]
         }
       }
     },
     {
+      "name": "lower mounting rail",
       "from": [
+        14,
+        0,
+        3
+      ],
+      "to": [
+        16,
+        2,
+        15
+      ],
+      "faces": {
+        "north": {
+          "texture": "#contact",
+          "uv": [
+            0,
+            0,
+            2,
+            2
+          ]
+        },
+        "south": {
+          "texture": "#contact",
+          "uv": [
+            0,
+            0,
+            2,
+            2
+          ]
+        },
+        "east": {
+          "texture": "#contact",
+          "uv": [
+            0,
+            0,
+            12,
+            2
+          ]
+        },
+        "west": {
+          "texture": "#contact",
+          "uv": [
+            0,
+            0,
+            12,
+            2
+          ]
+        },
+        "up": {
+          "texture": "#contact",
+          "uv": [
+            0,
+            0,
+            2,
+            12
+          ]
+        },
+        "down": {
+          "texture": "#contact",
+          "uv": [
+            0,
+            0,
+            2,
+            12
+          ]
+        }
+      }
+    },
+    {
+      "name": "fixed restraint hinge",
+      "from": [
+        1,
+        20,
+        13
+      ],
+      "to": [
         3,
-        22,
-        13
-      ],
-      "to": [
-        5,
-        30,
-        15
+        24,
+        16
       ],
       "faces": {
         "north": {
-          "texture": "#restraint",
+          "texture": "#metal",
           "uv": [
             0,
             0,
             2,
-            8
+            4
           ]
         },
         "south": {
-          "texture": "#restraint",
+          "texture": "#metal",
           "uv": [
             0,
             0,
             2,
-            8
+            4
           ]
         },
         "east": {
-          "texture": "#restraint",
+          "texture": "#metal",
           "uv": [
             0,
             0,
-            2,
-            8
+            3,
+            4
           ]
         },
         "west": {
-          "texture": "#restraint",
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            3,
+            4
+          ]
+        },
+        "up": {
+          "texture": "#metal",
           "uv": [
             0,
             0,
             2,
-            8
+            3
           ]
         },
-        "up": {
-          "texture": "#restraint"
-        },
         "down": {
-          "texture": "#restraint"
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            2,
+            3
+          ]
         }
       }
     },
     {
+      "name": "hinge pin",
       "from": [
-        11,
-        22,
-        13
+        0.9,
+        21,
+        14
       ],
       "to": [
-        13,
-        30,
-        15
+        1.1,
+        23,
+        16
       ],
       "faces": {
         "north": {
-          "texture": "#restraint",
+          "texture": "#contact",
           "uv": [
             0,
             0,
-            2,
-            8
+            0.20000000000000007,
+            2
           ]
         },
         "south": {
-          "texture": "#restraint",
+          "texture": "#contact",
           "uv": [
             0,
             0,
-            2,
-            8
+            0.20000000000000007,
+            2
           ]
         },
         "east": {
-          "texture": "#restraint",
+          "texture": "#contact",
           "uv": [
             0,
             0,
             2,
-            8
+            2
           ]
         },
         "west": {
-          "texture": "#restraint",
+          "texture": "#contact",
           "uv": [
             0,
             0,
             2,
-            8
+            2
           ]
         },
         "up": {
-          "texture": "#restraint"
+          "texture": "#contact",
+          "uv": [
+            0,
+            0,
+            0.20000000000000007,
+            2
+          ]
         },
         "down": {
-          "texture": "#restraint"
+          "texture": "#contact",
+          "uv": [
+            0,
+            0,
+            0.20000000000000007,
+            2
+          ]
         }
       }
     },
     {
+      "name": "fixed restraint hinge",
       "from": [
-        3,
-        28,
+        13,
+        20,
         13
       ],
       "to": [
-        13,
-        30,
-        15
+        15,
+        24,
+        16
       ],
       "faces": {
         "north": {
-          "texture": "#restraint",
+          "texture": "#metal",
           "uv": [
             0,
             0,
-            10,
+            2,
+            4
+          ]
+        },
+        "south": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            2,
+            4
+          ]
+        },
+        "east": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            3,
+            4
+          ]
+        },
+        "west": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            3,
+            4
+          ]
+        },
+        "up": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            2,
+            3
+          ]
+        },
+        "down": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            2,
+            3
+          ]
+        }
+      }
+    },
+    {
+      "name": "hinge pin",
+      "from": [
+        12.9,
+        21,
+        14
+      ],
+      "to": [
+        13.1,
+        23,
+        16
+      ],
+      "faces": {
+        "north": {
+          "texture": "#contact",
+          "uv": [
+            0,
+            0,
+            0.1999999999999993,
             2
           ]
         },
         "south": {
-          "texture": "#restraint",
+          "texture": "#contact",
           "uv": [
             0,
             0,
-            10,
+            0.1999999999999993,
             2
           ]
         },
         "east": {
-          "texture": "#restraint",
+          "texture": "#contact",
           "uv": [
             0,
             0,
@@ -311,7 +1006,7 @@
           ]
         },
         "west": {
-          "texture": "#restraint",
+          "texture": "#contact",
           "uv": [
             0,
             0,
@@ -320,10 +1015,22 @@
           ]
         },
         "up": {
-          "texture": "#restraint"
+          "texture": "#contact",
+          "uv": [
+            0,
+            0,
+            0.1999999999999993,
+            2
+          ]
         },
         "down": {
-          "texture": "#restraint"
+          "texture": "#contact",
+          "uv": [
+            0,
+            0,
+            0.1999999999999993,
+            2
+          ]
         }
       }
     }

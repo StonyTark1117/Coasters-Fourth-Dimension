@@ -23,6 +23,15 @@ public final class ShuttleWinchEntity extends KineticBlockEntity
     FAULT
   }
 
+  // Presentation reads the real transient catch handle, never infers engagement from phase.
+  public boolean catchEngaged;
+  public void projectCatch(boolean engaged) {
+    if (catchEngaged == engaged) return;
+    catchEngaged = engaged;
+    sendData();
+    if (level instanceof ServerLevel server) Fd917ShuttleSync.broadcast(server);
+  }
+
   public UUID vehicle, carriage;
   public List<UUID> cars = List.of();
   public BlockPos routeStart, routeEnd;
@@ -280,12 +289,16 @@ public final class ShuttleWinchEntity extends KineticBlockEntity
   public void changed() {
     setChanged();
     sendData();
+    if (level instanceof ServerLevel server) Fd917ShuttleSync.broadcast(server);
   }
 
   @Override
   protected void write(CompoundTag tag, HolderLookup.Provider registries, boolean client) {
     super.write(tag, registries, client);
-    if (client) tag.put("ride_telemetry", telemetry.save());
+    if (client) {
+      tag.put("ride_telemetry", telemetry.save());
+      tag.putBoolean("fd917_catch_engaged", catchEngaged);
+    }
     if (vehicle != null) tag.putUUID("shuttle_vehicle", vehicle);
     if (carriage != null) tag.putUUID("shuttle_carriage", carriage);
     var list = new ListTag();
@@ -306,6 +319,7 @@ public final class ShuttleWinchEntity extends KineticBlockEntity
   @Override
   protected void read(CompoundTag tag, HolderLookup.Provider registries, boolean client) {
     super.read(tag, registries, client);
+    catchEngaged = client && tag.getBoolean("fd917_catch_engaged");
     if (client)
       telemetry =
           dev.fourthdimension.integration.RideTelemetry.load(tag.getCompound("ride_telemetry"));

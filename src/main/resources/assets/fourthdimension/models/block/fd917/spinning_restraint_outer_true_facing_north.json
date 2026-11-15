@@ -1,0 +1,435 @@
+{
+  "parent": "minecraft:block/block",
+  "ambientocclusion": true,
+  "textures": {
+    "metal": "fourthdimension:block/fd917/structural",
+    "body": "fourthdimension:block/fd917/paint_orange",
+    "paint": "fourthdimension:block/fd917/paint_orange",
+    "accent": "fourthdimension:block/fd917/paint_orange",
+    "cushion": "fourthdimension:block/fd917/upholstery_black",
+    "seat": "fourthdimension:block/fd917/upholstery_black",
+    "restraint": "fourthdimension:block/fd917/restraint",
+    "harness": "fourthdimension:block/fd917/restraint",
+    "contact": "fourthdimension:block/fd917/machined",
+    "bolt": "fourthdimension:block/fd917/fastener",
+    "rubber": "fourthdimension:block/fd917/rubber",
+    "latch": "fourthdimension:block/fd917/paint_orange",
+    "particle": "fourthdimension:block/fd917/paint_orange"
+  },
+  "elements": [
+    {
+      "name": "lap arm",
+      "from": [
+        4.35,
+        13,
+        -2.5
+      ],
+      "to": [
+        5.85,
+        16,
+        10
+      ],
+      "faces": {
+        "north": {
+          "texture": "#contact",
+          "uv": [
+            0,
+            0,
+            1.5,
+            3
+          ]
+        },
+        "south": {
+          "texture": "#contact",
+          "uv": [
+            0,
+            0,
+            1.5,
+            3
+          ]
+        },
+        "east": {
+          "texture": "#contact",
+          "uv": [
+            0,
+            0,
+            12.5,
+            3
+          ]
+        },
+        "west": {
+          "texture": "#contact",
+          "uv": [
+            0,
+            0,
+            12.5,
+            3
+          ]
+        },
+        "up": {
+          "texture": "#contact",
+          "uv": [
+            0,
+            0,
+            1.5,
+            12.5
+          ]
+        },
+        "down": {
+          "texture": "#contact",
+          "uv": [
+            0,
+            0,
+            1.5,
+            12.5
+          ]
+        }
+      }
+    },
+    {
+      "name": "back hinge arm",
+      "from": [
+        4.35,
+        15,
+        8
+      ],
+      "to": [
+        5.85,
+        28,
+        11
+      ],
+      "faces": {
+        "north": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            1.5,
+            13
+          ]
+        },
+        "south": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            1.5,
+            13
+          ]
+        },
+        "east": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            3,
+            13
+          ]
+        },
+        "west": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            3,
+            13
+          ]
+        },
+        "up": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            1.5,
+            3
+          ]
+        },
+        "down": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            1.5,
+            3
+          ]
+        }
+      }
+    },
+    {
+      "name": "lap arm",
+      "from": [
+        13.350000000000001,
+        13,
+        -2.5
+      ],
+      "to": [
+        14.850000000000001,
+        16,
+        10
+      ],
+      "faces": {
+        "north": {
+          "texture": "#contact",
+          "uv": [
+            0,
+            0,
+            1.5,
+            3
+          ]
+        },
+        "south": {
+          "texture": "#contact",
+          "uv": [
+            0,
+            0,
+            1.5,
+            3
+          ]
+        },
+        "east": {
+          "texture": "#contact",
+          "uv": [
+            0,
+            0,
+            12.5,
+            3
+          ]
+        },
+        "west": {
+          "texture": "#contact",
+          "uv": [
+            0,
+            0,
+            12.5,
+            3
+          ]
+        },
+        "up": {
+          "texture": "#contact",
+          "uv": [
+            0,
+            0,
+            1.5,
+            12.5
+          ]
+        },
+        "down": {
+          "texture": "#contact",
+          "uv": [
+            0,
+            0,
+            1.5,
+            12.5
+          ]
+        }
+      }
+    },
+    {
+      "name": "back hinge arm",
+      "from": [
+        13.350000000000001,
+        15,
+        8
+      ],
+      "to": [
+        14.850000000000001,
+        28,
+        11
+      ],
+      "faces": {
+        "north": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            1.5,
+            13
+          ]
+        },
+        "south": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            1.5,
+            13
+          ]
+        },
+        "east": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            3,
+            13
+          ]
+        },
+        "west": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            3,
+            13
+          ]
+        },
+        "up": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            1.5,
+            3
+          ]
+        },
+        "down": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            1.5,
+            3
+          ]
+        }
+      }
+    },
+    {
+      "name": "lap cushion",
+      "from": [
+        5.1,
+        12,
+        -4
+      ],
+      "to": [
+        14.100000000000001,
+        16,
+        0
+      ],
+      "faces": {
+        "north": {
+          "texture": "#restraint",
+          "uv": [
+            0,
+            0,
+            9.000000000000002,
+            4
+          ]
+        },
+        "south": {
+          "texture": "#restraint",
+          "uv": [
+            0,
+            0,
+            9.000000000000002,
+            4
+          ]
+        },
+        "east": {
+          "texture": "#restraint",
+          "uv": [
+            0,
+            0,
+            4,
+            4
+          ]
+        },
+        "west": {
+          "texture": "#restraint",
+          "uv": [
+            0,
+            0,
+            4,
+            4
+          ]
+        },
+        "up": {
+          "texture": "#restraint",
+          "uv": [
+            0,
+            0,
+            9.000000000000002,
+            4
+          ]
+        },
+        "down": {
+          "texture": "#restraint",
+          "uv": [
+            0,
+            0,
+            9.000000000000002,
+            4
+          ]
+        }
+      }
+    },
+    {
+      "name": "hand grip",
+      "from": [
+        6.6,
+        13,
+        -5
+      ],
+      "to": [
+        12.600000000000001,
+        15,
+        -4
+      ],
+      "faces": {
+        "north": {
+          "texture": "#rubber",
+          "uv": [
+            0,
+            0,
+            6.000000000000002,
+            2
+          ]
+        },
+        "south": {
+          "texture": "#rubber",
+          "uv": [
+            0,
+            0,
+            6.000000000000002,
+            2
+          ]
+        },
+        "east": {
+          "texture": "#rubber",
+          "uv": [
+            0,
+            0,
+            1,
+            2
+          ]
+        },
+        "west": {
+          "texture": "#rubber",
+          "uv": [
+            0,
+            0,
+            1,
+            2
+          ]
+        },
+        "up": {
+          "texture": "#rubber",
+          "uv": [
+            0,
+            0,
+            6.000000000000002,
+            1
+          ]
+        },
+        "down": {
+          "texture": "#rubber",
+          "uv": [
+            0,
+            0,
+            6.000000000000002,
+            1
+          ]
+        }
+      }
+    }
+  ]
+}

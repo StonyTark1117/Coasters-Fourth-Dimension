@@ -1,17 +1,85 @@
 {
   "parent": "minecraft:block/block",
+  "ambientocclusion": true,
   "textures": {
-    "seat": "minecraft:block/blue_concrete",
-    "metal": "minecraft:block/iron_block",
-    "harness": "minecraft:block/black_concrete",
-    "latch": "minecraft:block/orange_concrete",
-    "particle": "minecraft:block/blue_concrete"
+    "metal": "fourthdimension:block/fd917/structural",
+    "body": "fourthdimension:block/fd917/paint_blue",
+    "paint": "fourthdimension:block/fd917/paint_blue",
+    "accent": "fourthdimension:block/fd917/paint_blue",
+    "cushion": "fourthdimension:block/fd917/upholstery_black",
+    "seat": "fourthdimension:block/fd917/upholstery_black",
+    "restraint": "fourthdimension:block/fd917/restraint",
+    "harness": "fourthdimension:block/fd917/restraint",
+    "contact": "fourthdimension:block/fd917/machined",
+    "bolt": "fourthdimension:block/fd917/fastener",
+    "rubber": "fourthdimension:block/fd917/rubber",
+    "latch": "fourthdimension:block/fd917/paint_orange",
+    "particle": "fourthdimension:block/fd917/paint_blue"
   },
   "elements": [
     {
       "from": [
         4.48,
         -1.0,
+        4.48
+      ],
+      "to": [
+        11.52,
+        15.0,
+        11.52
+      ],
+      "faces": {
+        "north": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            7.039999999999999,
+            16.0
+          ]
+        },
+        "south": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            7.039999999999999,
+            16.0
+          ]
+        },
+        "east": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            7.039999999999999,
+            16.0
+          ]
+        },
+        "west": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            7.039999999999999,
+            16.0
+          ]
+        },
+        "down": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            7.039999999999999,
+            7.039999999999999
+          ]
+        }
+      }
+    },
+    {
+      "from": [
+        4.48,
+        15.0,
         4.48
       ],
       "to": [
@@ -25,8 +93,8 @@
           "uv": [
             0,
             0,
-            16,
-            16
+            7.039999999999999,
+            1.120000000000001
           ]
         },
         "south": {
@@ -34,8 +102,8 @@
           "uv": [
             0,
             0,
-            16,
-            16
+            7.039999999999999,
+            1.120000000000001
           ]
         },
         "east": {
@@ -43,8 +111,8 @@
           "uv": [
             0,
             0,
-            16,
-            16
+            7.039999999999999,
+            1.120000000000001
           ]
         },
         "west": {
@@ -52,8 +120,8 @@
           "uv": [
             0,
             0,
-            16,
-            16
+            7.039999999999999,
+            1.120000000000001
           ]
         },
         "up": {
@@ -61,17 +129,8 @@
           "uv": [
             0,
             0,
-            16,
-            16
-          ]
-        },
-        "down": {
-          "texture": "#metal",
-          "uv": [
-            0,
-            0,
-            16,
-            16
+            7.039999999999999,
+            7.039999999999999
           ]
         }
       }
@@ -93,8 +152,8 @@
           "uv": [
             0,
             0,
-            16,
-            16
+            14,
+            6
           ]
         },
         "south": {
@@ -102,8 +161,8 @@
           "uv": [
             0,
             0,
-            16,
-            16
+            14,
+            6
           ]
         },
         "east": {
@@ -111,8 +170,8 @@
           "uv": [
             0,
             0,
-            16,
-            16
+            14,
+            6
           ]
         },
         "west": {
@@ -120,8 +179,8 @@
           "uv": [
             0,
             0,
-            16,
-            16
+            14,
+            6
           ]
         },
         "up": {
@@ -129,8 +188,8 @@
           "uv": [
             0,
             0,
-            16,
-            16
+            14,
+            14
           ]
         },
         "down": {
@@ -138,8 +197,8 @@
           "uv": [
             0,
             0,
-            16,
-            16
+            14,
+            14
           ]
         }
       }

@@ -1,0 +1,435 @@
+{
+  "parent": "minecraft:block/block",
+  "ambientocclusion": true,
+  "textures": {
+    "metal": "fourthdimension:block/fd917/structural",
+    "body": "fourthdimension:block/fd917/paint_red",
+    "paint": "fourthdimension:block/fd917/paint_red",
+    "accent": "fourthdimension:block/fd917/paint_red",
+    "cushion": "fourthdimension:block/fd917/upholstery_red",
+    "seat": "fourthdimension:block/fd917/upholstery_red",
+    "restraint": "fourthdimension:block/fd917/restraint",
+    "harness": "fourthdimension:block/fd917/restraint",
+    "contact": "fourthdimension:block/fd917/machined",
+    "bolt": "fourthdimension:block/fd917/fastener",
+    "rubber": "fourthdimension:block/fd917/rubber",
+    "latch": "fourthdimension:block/fd917/paint_orange",
+    "particle": "fourthdimension:block/fd917/paint_red"
+  },
+  "elements": [
+    {
+      "name": "shoulder padding",
+      "from": [
+        2,
+        9,
+        3
+      ],
+      "to": [
+        4,
+        22,
+        5
+      ],
+      "faces": {
+        "north": {
+          "texture": "#restraint",
+          "uv": [
+            0,
+            0,
+            2,
+            13
+          ]
+        },
+        "south": {
+          "texture": "#restraint",
+          "uv": [
+            0,
+            0,
+            2,
+            13
+          ]
+        },
+        "east": {
+          "texture": "#restraint",
+          "uv": [
+            0,
+            0,
+            2,
+            13
+          ]
+        },
+        "west": {
+          "texture": "#restraint",
+          "uv": [
+            0,
+            0,
+            2,
+            13
+          ]
+        },
+        "up": {
+          "texture": "#restraint",
+          "uv": [
+            0,
+            0,
+            2,
+            2
+          ]
+        },
+        "down": {
+          "texture": "#restraint",
+          "uv": [
+            0,
+            0,
+            2,
+            2
+          ]
+        }
+      }
+    },
+    {
+      "name": "hinge arm",
+      "from": [
+        2,
+        20,
+        4
+      ],
+      "to": [
+        4,
+        22,
+        14
+      ],
+      "faces": {
+        "north": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            2,
+            2
+          ]
+        },
+        "south": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            2,
+            2
+          ]
+        },
+        "east": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            10,
+            2
+          ]
+        },
+        "west": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            10,
+            2
+          ]
+        },
+        "up": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            2,
+            10
+          ]
+        },
+        "down": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            2,
+            10
+          ]
+        }
+      }
+    },
+    {
+      "name": "shoulder padding",
+      "from": [
+        12,
+        9,
+        3
+      ],
+      "to": [
+        14,
+        22,
+        5
+      ],
+      "faces": {
+        "north": {
+          "texture": "#restraint",
+          "uv": [
+            0,
+            0,
+            2,
+            13
+          ]
+        },
+        "south": {
+          "texture": "#restraint",
+          "uv": [
+            0,
+            0,
+            2,
+            13
+          ]
+        },
+        "east": {
+          "texture": "#restraint",
+          "uv": [
+            0,
+            0,
+            2,
+            13
+          ]
+        },
+        "west": {
+          "texture": "#restraint",
+          "uv": [
+            0,
+            0,
+            2,
+            13
+          ]
+        },
+        "up": {
+          "texture": "#restraint",
+          "uv": [
+            0,
+            0,
+            2,
+            2
+          ]
+        },
+        "down": {
+          "texture": "#restraint",
+          "uv": [
+            0,
+            0,
+            2,
+            2
+          ]
+        }
+      }
+    },
+    {
+      "name": "hinge arm",
+      "from": [
+        12,
+        20,
+        4
+      ],
+      "to": [
+        14,
+        22,
+        14
+      ],
+      "faces": {
+        "north": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            2,
+            2
+          ]
+        },
+        "south": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            2,
+            2
+          ]
+        },
+        "east": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            10,
+            2
+          ]
+        },
+        "west": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            10,
+            2
+          ]
+        },
+        "up": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            2,
+            10
+          ]
+        },
+        "down": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            2,
+            10
+          ]
+        }
+      }
+    },
+    {
+      "name": "lap crossbar",
+      "from": [
+        3,
+        8,
+        3
+      ],
+      "to": [
+        13,
+        10,
+        5
+      ],
+      "faces": {
+        "north": {
+          "texture": "#restraint",
+          "uv": [
+            0,
+            0,
+            10,
+            2
+          ]
+        },
+        "south": {
+          "texture": "#restraint",
+          "uv": [
+            0,
+            0,
+            10,
+            2
+          ]
+        },
+        "east": {
+          "texture": "#restraint",
+          "uv": [
+            0,
+            0,
+            2,
+            2
+          ]
+        },
+        "west": {
+          "texture": "#restraint",
+          "uv": [
+            0,
+            0,
+            2,
+            2
+          ]
+        },
+        "up": {
+          "texture": "#restraint",
+          "uv": [
+            0,
+            0,
+            10,
+            2
+          ]
+        },
+        "down": {
+          "texture": "#restraint",
+          "uv": [
+            0,
+            0,
+            10,
+            2
+          ]
+        }
+      }
+    },
+    {
+      "name": "center buckle",
+      "from": [
+        6,
+        8,
+        2.75
+      ],
+      "to": [
+        10,
+        9.5,
+        3
+      ],
+      "faces": {
+        "north": {
+          "texture": "#latch",
+          "uv": [
+            0,
+            0,
+            4,
+            1.5
+          ]
+        },
+        "south": {
+          "texture": "#latch",
+          "uv": [
+            0,
+            0,
+            4,
+            1.5
+          ]
+        },
+        "east": {
+          "texture": "#latch",
+          "uv": [
+            0,
+            0,
+            0.25,
+            1.5
+          ]
+        },
+        "west": {
+          "texture": "#latch",
+          "uv": [
+            0,
+            0,
+            0.25,
+            1.5
+          ]
+        },
+        "up": {
+          "texture": "#latch",
+          "uv": [
+            0,
+            0,
+            4,
+            0.25
+          ]
+        },
+        "down": {
+          "texture": "#latch",
+          "uv": [
+            0,
+            0,
+            4,
+            0.25
+          ]
+        }
+      }
+    }
+  ]
+}

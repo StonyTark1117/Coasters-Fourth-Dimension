@@ -1,168 +1,502 @@
 {
+  "parent": "minecraft:block/block",
+  "ambientocclusion": true,
   "textures": {
-    "body": "minecraft:block/copper_block",
-    "drum": "minecraft:block/iron_block",
-    "cable": "minecraft:block/black_concrete",
-    "particle": "minecraft:block/copper_block"
+    "metal": "fourthdimension:block/fd917/structural",
+    "body": "fourthdimension:block/fd917/paint_cyan",
+    "paint": "fourthdimension:block/fd917/paint_cyan",
+    "accent": "fourthdimension:block/fd917/paint_cyan",
+    "cushion": "fourthdimension:block/fd917/upholstery_cyan",
+    "seat": "fourthdimension:block/fd917/upholstery_cyan",
+    "restraint": "fourthdimension:block/fd917/restraint",
+    "harness": "fourthdimension:block/fd917/restraint",
+    "contact": "fourthdimension:block/fd917/machined",
+    "bolt": "fourthdimension:block/fd917/fastener",
+    "rubber": "fourthdimension:block/fd917/rubber",
+    "latch": "fourthdimension:block/fd917/paint_orange",
+    "particle": "fourthdimension:block/fd917/paint_cyan"
   },
   "elements": [
     {
+      "name": "input shaft bearing",
       "from": [
+        3,
         0,
-        1,
-        1
-      ],
-      "to": [
-        3,
-        15,
-        15
-      ],
-      "faces": {
-        "north": {
-          "texture": "#body"
-        },
-        "south": {
-          "texture": "#body"
-        },
-        "east": {
-          "texture": "#body"
-        },
-        "west": {
-          "texture": "#body"
-        },
-        "up": {
-          "texture": "#body"
-        },
-        "down": {
-          "texture": "#body"
-        }
-      }
-    },
-    {
-      "from": [
-        3,
-        2,
-        2
-      ],
-      "to": [
-        14,
-        5,
-        14
-      ],
-      "faces": {
-        "north": {
-          "texture": "#body"
-        },
-        "south": {
-          "texture": "#body"
-        },
-        "east": {
-          "texture": "#body"
-        },
-        "west": {
-          "texture": "#body"
-        },
-        "up": {
-          "texture": "#body"
-        },
-        "down": {
-          "texture": "#body"
-        }
-      }
-    },
-    {
-      "from": [
-        3,
-        11,
-        2
-      ],
-      "to": [
-        14,
-        14,
-        14
-      ],
-      "faces": {
-        "north": {
-          "texture": "#body"
-        },
-        "south": {
-          "texture": "#body"
-        },
-        "east": {
-          "texture": "#body"
-        },
-        "west": {
-          "texture": "#body"
-        },
-        "up": {
-          "texture": "#body"
-        },
-        "down": {
-          "texture": "#body"
-        }
-      }
-    },
-    {
-      "from": [
-        5,
-        5,
         3
       ],
       "to": [
         13,
-        11,
+        3,
         13
       ],
       "faces": {
         "north": {
-          "texture": "#drum"
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            10,
+            3
+          ]
         },
         "south": {
-          "texture": "#drum"
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            10,
+            3
+          ]
         },
         "east": {
-          "texture": "#drum"
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            10,
+            3
+          ]
         },
         "west": {
-          "texture": "#drum"
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            10,
+            3
+          ]
         },
         "up": {
-          "texture": "#drum"
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            10,
+            10
+          ]
         },
         "down": {
-          "texture": "#drum"
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            10,
+            10
+          ]
         }
       }
     },
     {
+      "name": "output clutch bearing",
       "from": [
-        7,
-        0,
-        7
+        3,
+        13,
+        3
       ],
       "to": [
-        9,
+        13,
         16,
-        9
+        13
       ],
       "faces": {
         "north": {
-          "texture": "#cable"
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            10,
+            3
+          ]
         },
         "south": {
-          "texture": "#cable"
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            10,
+            3
+          ]
         },
         "east": {
-          "texture": "#cable"
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            10,
+            3
+          ]
         },
         "west": {
-          "texture": "#cable"
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            10,
+            3
+          ]
         },
         "up": {
-          "texture": "#cable"
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            10,
+            10
+          ]
         },
         "down": {
-          "texture": "#cable"
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            10,
+            10
+          ]
+        }
+      }
+    },
+    {
+      "name": "remote kinetic drive foot",
+      "from": [
+        1,
+        0,
+        1
+      ],
+      "to": [
+        3,
+        16,
+        15
+      ],
+      "faces": {
+        "north": {
+          "texture": "#body",
+          "uv": [
+            0,
+            0,
+            2,
+            16
+          ]
+        },
+        "south": {
+          "texture": "#body",
+          "uv": [
+            0,
+            0,
+            2,
+            16
+          ]
+        },
+        "east": {
+          "texture": "#body",
+          "uv": [
+            0,
+            0,
+            14,
+            16
+          ]
+        },
+        "west": {
+          "texture": "#body",
+          "uv": [
+            0,
+            0,
+            14,
+            16
+          ]
+        },
+        "up": {
+          "texture": "#body",
+          "uv": [
+            0,
+            0,
+            2,
+            14
+          ]
+        },
+        "down": {
+          "texture": "#body",
+          "uv": [
+            0,
+            0,
+            2,
+            14
+          ]
+        }
+      }
+    },
+    {
+      "name": "controller cover",
+      "from": [
+        13,
+        1,
+        3
+      ],
+      "to": [
+        15,
+        15,
+        13
+      ],
+      "faces": {
+        "north": {
+          "texture": "#body",
+          "uv": [
+            0,
+            0,
+            2,
+            14
+          ]
+        },
+        "south": {
+          "texture": "#body",
+          "uv": [
+            0,
+            0,
+            2,
+            14
+          ]
+        },
+        "east": {
+          "texture": "#body",
+          "uv": [
+            0,
+            0,
+            10,
+            14
+          ]
+        },
+        "west": {
+          "texture": "#body",
+          "uv": [
+            0,
+            0,
+            10,
+            14
+          ]
+        },
+        "up": {
+          "texture": "#body",
+          "uv": [
+            0,
+            0,
+            2,
+            10
+          ]
+        },
+        "down": {
+          "texture": "#body",
+          "uv": [
+            0,
+            0,
+            2,
+            10
+          ]
+        }
+      }
+    },
+    {
+      "name": "generator rear casing",
+      "from": [
+        3,
+        3,
+        11
+      ],
+      "to": [
+        13,
+        13,
+        14
+      ],
+      "faces": {
+        "north": {
+          "texture": "#body",
+          "uv": [
+            0,
+            0,
+            10,
+            10
+          ]
+        },
+        "south": {
+          "texture": "#body",
+          "uv": [
+            0,
+            0,
+            10,
+            10
+          ]
+        },
+        "east": {
+          "texture": "#body",
+          "uv": [
+            0,
+            0,
+            3,
+            10
+          ]
+        },
+        "west": {
+          "texture": "#body",
+          "uv": [
+            0,
+            0,
+            3,
+            10
+          ]
+        },
+        "up": {
+          "texture": "#body",
+          "uv": [
+            0,
+            0,
+            10,
+            3
+          ]
+        },
+        "down": {
+          "texture": "#body",
+          "uv": [
+            0,
+            0,
+            10,
+            3
+          ]
+        }
+      }
+    },
+    {
+      "name": "input bearing flange",
+      "from": [
+        6,
+        1,
+        2
+      ],
+      "to": [
+        10,
+        3,
+        3
+      ],
+      "faces": {
+        "north": {
+          "texture": "#bolt",
+          "uv": [
+            0,
+            0,
+            4,
+            2
+          ]
+        },
+        "south": {
+          "texture": "#bolt",
+          "uv": [
+            0,
+            0,
+            4,
+            2
+          ]
+        },
+        "east": {
+          "texture": "#bolt",
+          "uv": [
+            0,
+            0,
+            1,
+            2
+          ]
+        },
+        "west": {
+          "texture": "#bolt",
+          "uv": [
+            0,
+            0,
+            1,
+            2
+          ]
+        },
+        "up": {
+          "texture": "#bolt",
+          "uv": [
+            0,
+            0,
+            4,
+            1
+          ]
+        },
+        "down": {
+          "texture": "#bolt",
+          "uv": [
+            0,
+            0,
+            4,
+            1
+          ]
+        }
+      }
+    },
+    {
+      "name": "output bearing flange",
+      "from": [
+        6,
+        13,
+        2
+      ],
+      "to": [
+        10,
+        15,
+        3
+      ],
+      "faces": {
+        "north": {
+          "texture": "#bolt",
+          "uv": [
+            0,
+            0,
+            4,
+            2
+          ]
+        },
+        "south": {
+          "texture": "#bolt",
+          "uv": [
+            0,
+            0,
+            4,
+            2
+          ]
+        },
+        "east": {
+          "texture": "#bolt",
+          "uv": [
+            0,
+            0,
+            1,
+            2
+          ]
+        },
+        "west": {
+          "texture": "#bolt",
+          "uv": [
+            0,
+            0,
+            1,
+            2
+          ]
+        },
+        "up": {
+          "texture": "#bolt",
+          "uv": [
+            0,
+            0,
+            4,
+            1
+          ]
+        },
+        "down": {
+          "texture": "#bolt",
+          "uv": [
+            0,
+            0,
+            4,
+            1
+          ]
         }
       }
     }

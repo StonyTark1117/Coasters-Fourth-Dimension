@@ -1,24 +1,33 @@
 {
   "parent": "minecraft:block/block",
+  "ambientocclusion": true,
   "textures": {
-    "seat": "fourthdimension:block/new_generation_flying_seat",
-    "metal": "fourthdimension:block/new_generation_flying_metal",
-    "harness": "fourthdimension:block/new_generation_flying_harness",
-    "latch": "fourthdimension:block/new_generation_flying_latch",
-    "locked": "fourthdimension:block/new_generation_flying_locked",
-    "particle": "fourthdimension:block/new_generation_flying_seat"
+    "metal": "fourthdimension:block/fd917/structural",
+    "body": "fourthdimension:block/fd917/paint_purple",
+    "paint": "fourthdimension:block/fd917/paint_purple",
+    "accent": "fourthdimension:block/fd917/paint_purple",
+    "cushion": "fourthdimension:block/fd917/upholstery_black",
+    "seat": "fourthdimension:block/fd917/upholstery_black",
+    "restraint": "fourthdimension:block/fd917/restraint",
+    "harness": "fourthdimension:block/fd917/restraint",
+    "contact": "fourthdimension:block/fd917/machined",
+    "bolt": "fourthdimension:block/fd917/fastener",
+    "rubber": "fourthdimension:block/fd917/rubber",
+    "latch": "fourthdimension:block/fd917/paint_orange",
+    "particle": "fourthdimension:block/fd917/paint_purple"
   },
   "elements": [
     {
+      "name": "overhead support",
       "from": [
         0,
-        22,
-        6
+        21,
+        5
       ],
       "to": [
         16,
-        24,
-        10
+        23,
+        11
       ],
       "faces": {
         "north": {
@@ -27,7 +36,7 @@
             0,
             0,
             16,
-            16
+            2
           ]
         },
         "south": {
@@ -36,7 +45,7 @@
             0,
             0,
             16,
-            16
+            2
           ]
         },
         "east": {
@@ -44,8 +53,8 @@
           "uv": [
             0,
             0,
-            16,
-            16
+            6,
+            2
           ]
         },
         "west": {
@@ -53,8 +62,8 @@
           "uv": [
             0,
             0,
-            16,
-            16
+            6,
+            2
           ]
         },
         "up": {
@@ -63,7 +72,7 @@
             0,
             0,
             16,
-            16
+            6
           ]
         },
         "down": {
@@ -72,497 +81,91 @@
             0,
             0,
             16,
-            16
+            6
           ]
         }
       }
     },
     {
-      "from": [
-        7,
-        24,
-        7
-      ],
-      "to": [
-        9,
-        29,
-        9
-      ],
-      "faces": {
-        "north": {
-          "texture": "#latch",
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ]
-        },
-        "south": {
-          "texture": "#latch",
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ]
-        },
-        "east": {
-          "texture": "#latch",
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ]
-        },
-        "west": {
-          "texture": "#latch",
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ]
-        },
-        "up": {
-          "texture": "#latch",
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ]
-        },
-        "down": {
-          "texture": "#latch",
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ]
-        }
-      }
-    },
-    {
+      "name": "outer hanger",
       "from": [
         0,
-        8,
-        7
+        6,
+        8
       ],
       "to": [
         2,
-        22,
-        9
-      ],
-      "faces": {
-        "north": {
-          "texture": "#metal",
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ]
-        },
-        "south": {
-          "texture": "#metal",
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ]
-        },
-        "east": {
-          "texture": "#metal",
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ]
-        },
-        "west": {
-          "texture": "#metal",
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ]
-        },
-        "up": {
-          "texture": "#metal",
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ]
-        },
-        "down": {
-          "texture": "#metal",
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ]
-        }
-      }
-    },
-    {
-      "from": [
-        14,
-        8,
-        7
-      ],
-      "to": [
-        16,
-        22,
-        9
-      ],
-      "faces": {
-        "north": {
-          "texture": "#metal",
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ]
-        },
-        "south": {
-          "texture": "#metal",
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ]
-        },
-        "east": {
-          "texture": "#metal",
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ]
-        },
-        "west": {
-          "texture": "#metal",
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ]
-        },
-        "up": {
-          "texture": "#metal",
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ]
-        },
-        "down": {
-          "texture": "#metal",
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ]
-        }
-      }
-    },
-    {
-      "from": [
-        0,
-        7,
-        7
-      ],
-      "to": [
-        16,
-        9,
-        9
-      ],
-      "faces": {
-        "north": {
-          "texture": "#metal",
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ]
-        },
-        "south": {
-          "texture": "#metal",
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ]
-        },
-        "east": {
-          "texture": "#metal",
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ]
-        },
-        "west": {
-          "texture": "#metal",
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ]
-        },
-        "up": {
-          "texture": "#metal",
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ]
-        },
-        "down": {
-          "texture": "#metal",
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ]
-        }
-      }
-    },
-    {
-      "from": [
-        3,
-        7,
-        5
-      ],
-      "to": [
-        7,
-        9,
-        11
-      ],
-      "faces": {
-        "north": {
-          "texture": "#seat",
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ]
-        },
-        "south": {
-          "texture": "#seat",
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ]
-        },
-        "east": {
-          "texture": "#seat",
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ]
-        },
-        "west": {
-          "texture": "#seat",
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ]
-        },
-        "up": {
-          "texture": "#seat",
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ]
-        },
-        "down": {
-          "texture": "#seat",
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ]
-        }
-      }
-    },
-    {
-      "from": [
-        3,
-        9,
+        21,
         10
       ],
-      "to": [
-        7,
-        18,
-        12
-      ],
       "faces": {
         "north": {
-          "texture": "#seat",
+          "texture": "#metal",
           "uv": [
             0,
             0,
-            16,
-            16
+            2,
+            15
           ]
         },
         "south": {
-          "texture": "#seat",
+          "texture": "#metal",
           "uv": [
             0,
             0,
-            16,
-            16
+            2,
+            15
           ]
         },
         "east": {
-          "texture": "#seat",
+          "texture": "#metal",
           "uv": [
             0,
             0,
-            16,
-            16
+            2,
+            15
           ]
         },
         "west": {
-          "texture": "#seat",
+          "texture": "#metal",
           "uv": [
             0,
             0,
-            16,
-            16
+            2,
+            15
           ]
         },
         "up": {
-          "texture": "#seat",
+          "texture": "#metal",
           "uv": [
             0,
             0,
-            16,
-            16
+            2,
+            2
           ]
         },
         "down": {
-          "texture": "#seat",
+          "texture": "#metal",
           "uv": [
             0,
             0,
-            16,
-            16
+            2,
+            2
           ]
         }
       }
     },
     {
+      "name": "outer hanger",
       "from": [
-        3,
-        3,
-        2
-      ],
-      "to": [
-        7,
-        5,
-        6
-      ],
-      "faces": {
-        "north": {
-          "texture": "#latch",
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ]
-        },
-        "south": {
-          "texture": "#latch",
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ]
-        },
-        "east": {
-          "texture": "#latch",
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ]
-        },
-        "west": {
-          "texture": "#latch",
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ]
-        },
-        "up": {
-          "texture": "#latch",
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ]
-        },
-        "down": {
-          "texture": "#latch",
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ]
-        }
-      }
-    },
-    {
-      "from": [
-        4,
-        4,
-        5
-      ],
-      "to": [
+        14,
         6,
-        8,
-        7
+        8
+      ],
+      "to": [
+        16,
+        21,
+        10
       ],
       "faces": {
         "north": {
@@ -570,8 +173,8 @@
           "uv": [
             0,
             0,
-            16,
-            16
+            2,
+            15
           ]
         },
         "south": {
@@ -579,8 +182,8 @@
           "uv": [
             0,
             0,
-            16,
-            16
+            2,
+            15
           ]
         },
         "east": {
@@ -588,8 +191,8 @@
           "uv": [
             0,
             0,
-            16,
-            16
+            2,
+            15
           ]
         },
         "west": {
@@ -597,8 +200,8 @@
           "uv": [
             0,
             0,
-            16,
-            16
+            2,
+            15
           ]
         },
         "up": {
@@ -606,8 +209,8 @@
           "uv": [
             0,
             0,
-            16,
-            16
+            2,
+            2
           ]
         },
         "down": {
@@ -615,20 +218,90 @@
           "uv": [
             0,
             0,
-            16,
-            16
+            2,
+            2
           ]
         }
       }
     },
     {
+      "name": "yaw bearing",
       "from": [
-        10,
-        7,
-        5
+        6,
+        23,
+        6
       ],
       "to": [
-        14,
+        10,
+        26,
+        10
+      ],
+      "faces": {
+        "north": {
+          "texture": "#contact",
+          "uv": [
+            0,
+            0,
+            4,
+            3
+          ]
+        },
+        "south": {
+          "texture": "#contact",
+          "uv": [
+            0,
+            0,
+            4,
+            3
+          ]
+        },
+        "east": {
+          "texture": "#contact",
+          "uv": [
+            0,
+            0,
+            4,
+            3
+          ]
+        },
+        "west": {
+          "texture": "#contact",
+          "uv": [
+            0,
+            0,
+            4,
+            3
+          ]
+        },
+        "up": {
+          "texture": "#contact",
+          "uv": [
+            0,
+            0,
+            4,
+            4
+          ]
+        },
+        "down": {
+          "texture": "#contact",
+          "uv": [
+            0,
+            0,
+            4,
+            4
+          ]
+        }
+      }
+    },
+    {
+      "name": "seat cushion",
+      "from": [
+        2,
+        7,
+        6
+      ],
+      "to": [
+        7,
         9,
         11
       ],
@@ -638,8 +311,8 @@
           "uv": [
             0,
             0,
-            16,
-            16
+            5,
+            2
           ]
         },
         "south": {
@@ -647,8 +320,8 @@
           "uv": [
             0,
             0,
-            16,
-            16
+            5,
+            2
           ]
         },
         "east": {
@@ -656,8 +329,8 @@
           "uv": [
             0,
             0,
-            16,
-            16
+            5,
+            2
           ]
         },
         "west": {
@@ -665,8 +338,8 @@
           "uv": [
             0,
             0,
-            16,
-            16
+            5,
+            2
           ]
         },
         "up": {
@@ -674,8 +347,8 @@
           "uv": [
             0,
             0,
-            16,
-            16
+            5,
+            5
           ]
         },
         "down": {
@@ -683,212 +356,491 @@
           "uv": [
             0,
             0,
-            16,
-            16
+            5,
+            5
           ]
         }
       }
     },
     {
+      "name": "seat back",
+      "from": [
+        2,
+        9,
+        10
+      ],
+      "to": [
+        7,
+        17,
+        12
+      ],
+      "faces": {
+        "north": {
+          "texture": "#body",
+          "uv": [
+            0,
+            0,
+            5,
+            8
+          ]
+        },
+        "south": {
+          "texture": "#body",
+          "uv": [
+            0,
+            0,
+            5,
+            8
+          ]
+        },
+        "east": {
+          "texture": "#body",
+          "uv": [
+            0,
+            0,
+            2,
+            8
+          ]
+        },
+        "west": {
+          "texture": "#body",
+          "uv": [
+            0,
+            0,
+            2,
+            8
+          ]
+        },
+        "up": {
+          "texture": "#body",
+          "uv": [
+            0,
+            0,
+            5,
+            2
+          ]
+        },
+        "down": {
+          "texture": "#body",
+          "uv": [
+            0,
+            0,
+            5,
+            2
+          ]
+        }
+      }
+    },
+    {
+      "name": "left harness",
+      "from": [
+        2,
+        10,
+        6
+      ],
+      "to": [
+        3,
+        16,
+        7
+      ],
+      "faces": {
+        "north": {
+          "texture": "#restraint",
+          "uv": [
+            0,
+            0,
+            1,
+            6
+          ]
+        },
+        "south": {
+          "texture": "#restraint",
+          "uv": [
+            0,
+            0,
+            1,
+            6
+          ]
+        },
+        "east": {
+          "texture": "#restraint",
+          "uv": [
+            0,
+            0,
+            1,
+            6
+          ]
+        },
+        "west": {
+          "texture": "#restraint",
+          "uv": [
+            0,
+            0,
+            1,
+            6
+          ]
+        },
+        "up": {
+          "texture": "#restraint",
+          "uv": [
+            0,
+            0,
+            1,
+            1
+          ]
+        },
+        "down": {
+          "texture": "#restraint",
+          "uv": [
+            0,
+            0,
+            1,
+            1
+          ]
+        }
+      }
+    },
+    {
+      "name": "right harness",
+      "from": [
+        6,
+        10,
+        6
+      ],
+      "to": [
+        7,
+        16,
+        7
+      ],
+      "faces": {
+        "north": {
+          "texture": "#restraint",
+          "uv": [
+            0,
+            0,
+            1,
+            6
+          ]
+        },
+        "south": {
+          "texture": "#restraint",
+          "uv": [
+            0,
+            0,
+            1,
+            6
+          ]
+        },
+        "east": {
+          "texture": "#restraint",
+          "uv": [
+            0,
+            0,
+            1,
+            6
+          ]
+        },
+        "west": {
+          "texture": "#restraint",
+          "uv": [
+            0,
+            0,
+            1,
+            6
+          ]
+        },
+        "up": {
+          "texture": "#restraint",
+          "uv": [
+            0,
+            0,
+            1,
+            1
+          ]
+        },
+        "down": {
+          "texture": "#restraint",
+          "uv": [
+            0,
+            0,
+            1,
+            1
+          ]
+        }
+      }
+    },
+    {
+      "name": "seat cushion",
+      "from": [
+        10,
+        7,
+        6
+      ],
+      "to": [
+        15,
+        9,
+        11
+      ],
+      "faces": {
+        "north": {
+          "texture": "#seat",
+          "uv": [
+            0,
+            0,
+            5,
+            2
+          ]
+        },
+        "south": {
+          "texture": "#seat",
+          "uv": [
+            0,
+            0,
+            5,
+            2
+          ]
+        },
+        "east": {
+          "texture": "#seat",
+          "uv": [
+            0,
+            0,
+            5,
+            2
+          ]
+        },
+        "west": {
+          "texture": "#seat",
+          "uv": [
+            0,
+            0,
+            5,
+            2
+          ]
+        },
+        "up": {
+          "texture": "#seat",
+          "uv": [
+            0,
+            0,
+            5,
+            5
+          ]
+        },
+        "down": {
+          "texture": "#seat",
+          "uv": [
+            0,
+            0,
+            5,
+            5
+          ]
+        }
+      }
+    },
+    {
+      "name": "seat back",
       "from": [
         10,
         9,
         10
       ],
       "to": [
-        14,
-        18,
+        15,
+        17,
         12
       ],
       "faces": {
         "north": {
-          "texture": "#seat",
+          "texture": "#body",
           "uv": [
             0,
             0,
-            16,
-            16
+            5,
+            8
           ]
         },
         "south": {
-          "texture": "#seat",
+          "texture": "#body",
           "uv": [
             0,
             0,
-            16,
-            16
+            5,
+            8
           ]
         },
         "east": {
-          "texture": "#seat",
+          "texture": "#body",
           "uv": [
             0,
             0,
-            16,
-            16
+            2,
+            8
           ]
         },
         "west": {
-          "texture": "#seat",
+          "texture": "#body",
           "uv": [
             0,
             0,
-            16,
-            16
+            2,
+            8
           ]
         },
         "up": {
-          "texture": "#seat",
+          "texture": "#body",
           "uv": [
             0,
             0,
-            16,
-            16
+            5,
+            2
           ]
         },
         "down": {
-          "texture": "#seat",
+          "texture": "#body",
           "uv": [
             0,
             0,
-            16,
-            16
+            5,
+            2
           ]
         }
       }
     },
     {
+      "name": "left harness",
       "from": [
         10,
-        3,
-        2
-      ],
-      "to": [
-        14,
-        5,
+        10,
         6
       ],
-      "faces": {
-        "north": {
-          "texture": "#latch",
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ]
-        },
-        "south": {
-          "texture": "#latch",
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ]
-        },
-        "east": {
-          "texture": "#latch",
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ]
-        },
-        "west": {
-          "texture": "#latch",
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ]
-        },
-        "up": {
-          "texture": "#latch",
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ]
-        },
-        "down": {
-          "texture": "#latch",
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ]
-        }
-      }
-    },
-    {
-      "from": [
-        11,
-        4,
-        5
-      ],
       "to": [
-        13,
-        8,
+        11,
+        16,
         7
       ],
       "faces": {
         "north": {
-          "texture": "#metal",
+          "texture": "#restraint",
           "uv": [
             0,
             0,
-            16,
-            16
+            1,
+            6
           ]
         },
         "south": {
-          "texture": "#metal",
+          "texture": "#restraint",
           "uv": [
             0,
             0,
-            16,
-            16
+            1,
+            6
           ]
         },
         "east": {
-          "texture": "#metal",
+          "texture": "#restraint",
           "uv": [
             0,
             0,
-            16,
-            16
+            1,
+            6
           ]
         },
         "west": {
-          "texture": "#metal",
+          "texture": "#restraint",
           "uv": [
             0,
             0,
-            16,
-            16
+            1,
+            6
           ]
         },
         "up": {
-          "texture": "#metal",
+          "texture": "#restraint",
           "uv": [
             0,
             0,
-            16,
-            16
+            1,
+            1
           ]
         },
         "down": {
-          "texture": "#metal",
+          "texture": "#restraint",
           "uv": [
             0,
             0,
-            16,
-            16
+            1,
+            1
+          ]
+        }
+      }
+    },
+    {
+      "name": "right harness",
+      "from": [
+        14,
+        10,
+        6
+      ],
+      "to": [
+        15,
+        16,
+        7
+      ],
+      "faces": {
+        "north": {
+          "texture": "#restraint",
+          "uv": [
+            0,
+            0,
+            1,
+            6
+          ]
+        },
+        "south": {
+          "texture": "#restraint",
+          "uv": [
+            0,
+            0,
+            1,
+            6
+          ]
+        },
+        "east": {
+          "texture": "#restraint",
+          "uv": [
+            0,
+            0,
+            1,
+            6
+          ]
+        },
+        "west": {
+          "texture": "#restraint",
+          "uv": [
+            0,
+            0,
+            1,
+            6
+          ]
+        },
+        "up": {
+          "texture": "#restraint",
+          "uv": [
+            0,
+            0,
+            1,
+            1
+          ]
+        },
+        "down": {
+          "texture": "#restraint",
+          "uv": [
+            0,
+            0,
+            1,
+            1
           ]
         }
       }
@@ -907,16 +859,33 @@
         0
       ],
       "scale": [
-        0.7,
-        0.7,
-        0.7
+        0.65,
+        0.65,
+        0.65
       ]
     },
     "ground": {
+      "translation": [
+        0,
+        2,
+        0
+      ],
       "scale": [
-        0.35,
-        0.35,
-        0.35
+        0.3,
+        0.3,
+        0.3
+      ]
+    },
+    "fixed": {
+      "rotation": [
+        0,
+        180,
+        0
+      ],
+      "scale": [
+        0.5,
+        0.5,
+        0.5
       ]
     },
     "firstperson_righthand": {
@@ -928,12 +897,12 @@
       "translation": [
         0,
         1,
-        -1
+        0
       ],
       "scale": [
-        0.4,
-        0.4,
-        0.4
+        0.38,
+        0.38,
+        0.38
       ]
     },
     "firstperson_lefthand": {
@@ -945,12 +914,46 @@
       "translation": [
         0,
         1,
-        -1
+        0
       ],
       "scale": [
-        0.4,
-        0.4,
-        0.4
+        0.38,
+        0.38,
+        0.38
+      ]
+    },
+    "thirdperson_righthand": {
+      "rotation": [
+        75,
+        45,
+        0
+      ],
+      "translation": [
+        0,
+        2,
+        0
+      ],
+      "scale": [
+        0.35,
+        0.35,
+        0.35
+      ]
+    },
+    "thirdperson_lefthand": {
+      "rotation": [
+        75,
+        225,
+        0
+      ],
+      "translation": [
+        0,
+        2,
+        0
+      ],
+      "scale": [
+        0.35,
+        0.35,
+        0.35
       ]
     }
   }

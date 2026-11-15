@@ -1,23 +1,102 @@
 {
   "parent": "minecraft:block/block",
+  "ambientocclusion": true,
   "textures": {
-    "seat": "fourthdimension:block/powered_inverted_yaw_seat",
-    "metal": "fourthdimension:block/powered_inverted_yaw_metal",
-    "harness": "fourthdimension:block/powered_inverted_yaw_harness",
-    "signal": "fourthdimension:block/powered_inverted_yaw_signal",
-    "particle": "fourthdimension:block/powered_inverted_yaw_seat"
+    "metal": "fourthdimension:block/fd917/structural",
+    "body": "fourthdimension:block/fd917/paint_cyan",
+    "paint": "fourthdimension:block/fd917/paint_cyan",
+    "accent": "fourthdimension:block/fd917/paint_cyan",
+    "cushion": "fourthdimension:block/fd917/upholstery_black",
+    "seat": "fourthdimension:block/fd917/upholstery_black",
+    "restraint": "fourthdimension:block/fd917/restraint",
+    "harness": "fourthdimension:block/fd917/restraint",
+    "contact": "fourthdimension:block/fd917/machined",
+    "bolt": "fourthdimension:block/fd917/fastener",
+    "rubber": "fourthdimension:block/fd917/rubber",
+    "latch": "fourthdimension:block/fd917/paint_orange",
+    "particle": "fourthdimension:block/fd917/paint_cyan"
   },
   "elements": [
     {
+      "name": "pressed seat pan",
+      "from": [
+        1,
+        3,
+        1
+      ],
+      "to": [
+        15,
+        5,
+        15
+      ],
+      "faces": {
+        "north": {
+          "texture": "#body",
+          "uv": [
+            0,
+            0,
+            14,
+            2
+          ]
+        },
+        "south": {
+          "texture": "#body",
+          "uv": [
+            0,
+            0,
+            14,
+            2
+          ]
+        },
+        "east": {
+          "texture": "#body",
+          "uv": [
+            0,
+            0,
+            14,
+            2
+          ]
+        },
+        "west": {
+          "texture": "#body",
+          "uv": [
+            0,
+            0,
+            14,
+            2
+          ]
+        },
+        "up": {
+          "texture": "#body",
+          "uv": [
+            0,
+            0,
+            14,
+            14
+          ]
+        },
+        "down": {
+          "texture": "#body",
+          "uv": [
+            0,
+            0,
+            14,
+            14
+          ]
+        }
+      }
+    },
+    {
+      "name": "seat cushion",
       "from": [
         2,
-        4,
+        5,
         2
       ],
       "to": [
         14,
-        7,
-        14
+        6.8,
+        13
       ],
       "faces": {
         "north": {
@@ -25,8 +104,8 @@
           "uv": [
             0,
             0,
-            16,
-            16
+            12,
+            1.7999999999999998
           ]
         },
         "south": {
@@ -34,8 +113,8 @@
           "uv": [
             0,
             0,
-            16,
-            16
+            12,
+            1.7999999999999998
           ]
         },
         "east": {
@@ -43,8 +122,8 @@
           "uv": [
             0,
             0,
-            16,
-            16
+            11,
+            1.7999999999999998
           ]
         },
         "west": {
@@ -52,8 +131,8 @@
           "uv": [
             0,
             0,
-            16,
-            16
+            11,
+            1.7999999999999998
           ]
         },
         "up": {
@@ -61,8 +140,8 @@
           "uv": [
             0,
             0,
-            16,
-            16
+            12,
+            11
           ]
         },
         "down": {
@@ -70,198 +149,372 @@
           "uv": [
             0,
             0,
-            16,
-            16
+            12,
+            11
           ]
         }
       }
     },
     {
-      "from": [
-        2,
-        7,
-        12
-      ],
-      "to": [
-        14,
-        23,
-        14
-      ],
-      "faces": {
-        "north": {
-          "texture": "#seat",
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ]
-        },
-        "south": {
-          "texture": "#seat",
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ]
-        },
-        "east": {
-          "texture": "#seat",
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ]
-        },
-        "west": {
-          "texture": "#seat",
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ]
-        },
-        "up": {
-          "texture": "#seat",
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ]
-        },
-        "down": {
-          "texture": "#seat",
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ]
-        }
-      }
-    },
-    {
-      "from": [
-        2,
-        23,
-        12
-      ],
-      "to": [
-        14,
-        30,
-        14
-      ],
-      "faces": {
-        "north": {
-          "texture": "#seat",
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ]
-        },
-        "south": {
-          "texture": "#seat",
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ]
-        },
-        "east": {
-          "texture": "#seat",
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ]
-        },
-        "west": {
-          "texture": "#seat",
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ]
-        },
-        "up": {
-          "texture": "#seat",
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ]
-        },
-        "down": {
-          "texture": "#seat",
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ]
-        }
-      }
-    },
-    {
+      "name": "structural seat back",
       "from": [
         1,
+        6.8,
+        13
+      ],
+      "to": [
+        15,
+        22.8,
+        16
+      ],
+      "faces": {
+        "north": {
+          "texture": "#body",
+          "uv": [
+            0,
+            0,
+            14,
+            16.0
+          ]
+        },
+        "south": {
+          "texture": "#body",
+          "uv": [
+            0,
+            0,
+            14,
+            16.0
+          ]
+        },
+        "east": {
+          "texture": "#body",
+          "uv": [
+            0,
+            0,
+            3,
+            16.0
+          ]
+        },
+        "west": {
+          "texture": "#body",
+          "uv": [
+            0,
+            0,
+            3,
+            16.0
+          ]
+        },
+        "down": {
+          "texture": "#body",
+          "uv": [
+            0,
+            0,
+            14,
+            3
+          ]
+        }
+      }
+    },
+    {
+      "name": "structural seat back",
+      "from": [
+        1,
+        22.8,
+        13
+      ],
+      "to": [
+        15,
+        27,
+        16
+      ],
+      "faces": {
+        "north": {
+          "texture": "#body",
+          "uv": [
+            0,
+            0,
+            14,
+            4.199999999999999
+          ]
+        },
+        "south": {
+          "texture": "#body",
+          "uv": [
+            0,
+            0,
+            14,
+            4.199999999999999
+          ]
+        },
+        "east": {
+          "texture": "#body",
+          "uv": [
+            0,
+            0,
+            3,
+            4.199999999999999
+          ]
+        },
+        "west": {
+          "texture": "#body",
+          "uv": [
+            0,
+            0,
+            3,
+            4.199999999999999
+          ]
+        },
+        "up": {
+          "texture": "#body",
+          "uv": [
+            0,
+            0,
+            14,
+            3
+          ]
+        }
+      }
+    },
+    {
+      "name": "back padding",
+      "from": [
+        2.5,
+        6.8,
+        11.8
+      ],
+      "to": [
+        13.5,
+        22.8,
+        13
+      ],
+      "faces": {
+        "north": {
+          "texture": "#seat",
+          "uv": [
+            0,
+            0,
+            11.0,
+            16.0
+          ]
+        },
+        "south": {
+          "texture": "#seat",
+          "uv": [
+            0,
+            0,
+            11.0,
+            16.0
+          ]
+        },
+        "east": {
+          "texture": "#seat",
+          "uv": [
+            0,
+            0,
+            1.1999999999999993,
+            16.0
+          ]
+        },
+        "west": {
+          "texture": "#seat",
+          "uv": [
+            0,
+            0,
+            1.1999999999999993,
+            16.0
+          ]
+        },
+        "down": {
+          "texture": "#seat",
+          "uv": [
+            0,
+            0,
+            11.0,
+            1.1999999999999993
+          ]
+        }
+      }
+    },
+    {
+      "name": "back padding",
+      "from": [
+        2.5,
+        22.8,
+        11.8
+      ],
+      "to": [
+        13.5,
+        25,
+        13
+      ],
+      "faces": {
+        "north": {
+          "texture": "#seat",
+          "uv": [
+            0,
+            0,
+            11.0,
+            2.1999999999999993
+          ]
+        },
+        "south": {
+          "texture": "#seat",
+          "uv": [
+            0,
+            0,
+            11.0,
+            2.1999999999999993
+          ]
+        },
+        "east": {
+          "texture": "#seat",
+          "uv": [
+            0,
+            0,
+            1.1999999999999993,
+            2.1999999999999993
+          ]
+        },
+        "west": {
+          "texture": "#seat",
+          "uv": [
+            0,
+            0,
+            1.1999999999999993,
+            2.1999999999999993
+          ]
+        },
+        "up": {
+          "texture": "#seat",
+          "uv": [
+            0,
+            0,
+            11.0,
+            1.1999999999999993
+          ]
+        }
+      }
+    },
+    {
+      "name": "head pad",
+      "from": [
+        4,
+        25,
+        12
+      ],
+      "to": [
+        12,
+        29,
+        15
+      ],
+      "faces": {
+        "north": {
+          "texture": "#seat",
+          "uv": [
+            0,
+            0,
+            8,
+            4
+          ]
+        },
+        "south": {
+          "texture": "#seat",
+          "uv": [
+            0,
+            0,
+            8,
+            4
+          ]
+        },
+        "east": {
+          "texture": "#seat",
+          "uv": [
+            0,
+            0,
+            3,
+            4
+          ]
+        },
+        "west": {
+          "texture": "#seat",
+          "uv": [
+            0,
+            0,
+            3,
+            4
+          ]
+        },
+        "up": {
+          "texture": "#seat",
+          "uv": [
+            0,
+            0,
+            8,
+            3
+          ]
+        },
+        "down": {
+          "texture": "#seat",
+          "uv": [
+            0,
+            0,
+            8,
+            3
+          ]
+        }
+      }
+    },
+    {
+      "name": "upright pod floor",
+      "from": [
+        0,
         -12,
         -1
       ],
       "to": [
-        15,
+        16,
         -10,
-        14
+        15
       ],
       "faces": {
         "north": {
-          "texture": "#metal",
+          "texture": "#body",
           "uv": [
             0,
             0,
             16,
-            16
+            2
           ]
         },
         "south": {
-          "texture": "#metal",
+          "texture": "#body",
           "uv": [
             0,
             0,
             16,
-            16
+            2
           ]
         },
         "east": {
-          "texture": "#metal",
+          "texture": "#body",
           "uv": [
             0,
             0,
             16,
-            16
+            2
           ]
         },
         "west": {
-          "texture": "#metal",
+          "texture": "#body",
           "uv": [
             0,
             0,
             16,
-            16
+            2
           ]
         },
         "up": {
-          "texture": "#metal",
+          "texture": "#body",
           "uv": [
             0,
             0,
@@ -270,7 +523,7 @@
           ]
         },
         "down": {
-          "texture": "#metal",
+          "texture": "#body",
           "uv": [
             0,
             0,
@@ -281,15 +534,16 @@
       }
     },
     {
+      "name": "rear pod support",
       "from": [
         1,
         -10,
-        10
+        11
       ],
       "to": [
         3,
         6,
-        14
+        15
       ],
       "faces": {
         "north": {
@@ -297,7 +551,7 @@
           "uv": [
             0,
             0,
-            16,
+            2,
             16
           ]
         },
@@ -306,7 +560,7 @@
           "uv": [
             0,
             0,
-            16,
+            2,
             16
           ]
         },
@@ -315,7 +569,7 @@
           "uv": [
             0,
             0,
-            16,
+            4,
             16
           ]
         },
@@ -324,16 +578,7 @@
           "uv": [
             0,
             0,
-            16,
-            16
-          ]
-        },
-        "up": {
-          "texture": "#metal",
-          "uv": [
-            0,
-            0,
-            16,
+            4,
             16
           ]
         },
@@ -342,552 +587,704 @@
           "uv": [
             0,
             0,
-            16,
-            16
+            2,
+            4
           ]
         }
       }
     },
     {
+      "name": "rear pod support",
+      "from": [
+        1,
+        6,
+        11
+      ],
+      "to": [
+        3,
+        7,
+        15
+      ],
+      "faces": {
+        "north": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            2,
+            1
+          ]
+        },
+        "south": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            2,
+            1
+          ]
+        },
+        "east": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            4,
+            1
+          ]
+        },
+        "west": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            4,
+            1
+          ]
+        },
+        "up": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            2,
+            4
+          ]
+        }
+      }
+    },
+    {
+      "name": "rear pod support",
       "from": [
         13,
         -10,
-        10
+        11
       ],
       "to": [
         15,
         6,
+        15
+      ],
+      "faces": {
+        "north": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            2,
+            16
+          ]
+        },
+        "south": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            2,
+            16
+          ]
+        },
+        "east": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            4,
+            16
+          ]
+        },
+        "west": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            4,
+            16
+          ]
+        },
+        "down": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            2,
+            4
+          ]
+        }
+      }
+    },
+    {
+      "name": "rear pod support",
+      "from": [
+        13,
+        6,
+        11
+      ],
+      "to": [
+        15,
+        7,
+        15
+      ],
+      "faces": {
+        "north": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            2,
+            1
+          ]
+        },
+        "south": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            2,
+            1
+          ]
+        },
+        "east": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            4,
+            1
+          ]
+        },
+        "west": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            4,
+            1
+          ]
+        },
+        "up": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            2,
+            4
+          ]
+        }
+      }
+    },
+    {
+      "name": "left cabin shoulder",
+      "from": [
+        0,
+        5,
+        8
+      ],
+      "to": [
+        2,
+        21,
+        16
+      ],
+      "faces": {
+        "north": {
+          "texture": "#body",
+          "uv": [
+            0,
+            0,
+            2,
+            16
+          ]
+        },
+        "south": {
+          "texture": "#body",
+          "uv": [
+            0,
+            0,
+            2,
+            16
+          ]
+        },
+        "east": {
+          "texture": "#body",
+          "uv": [
+            0,
+            0,
+            8,
+            16
+          ]
+        },
+        "west": {
+          "texture": "#body",
+          "uv": [
+            0,
+            0,
+            8,
+            16
+          ]
+        },
+        "down": {
+          "texture": "#body",
+          "uv": [
+            0,
+            0,
+            2,
+            8
+          ]
+        }
+      }
+    },
+    {
+      "name": "left cabin shoulder",
+      "from": [
+        0,
+        21,
+        8
+      ],
+      "to": [
+        2,
+        22,
+        16
+      ],
+      "faces": {
+        "north": {
+          "texture": "#body",
+          "uv": [
+            0,
+            0,
+            2,
+            1
+          ]
+        },
+        "south": {
+          "texture": "#body",
+          "uv": [
+            0,
+            0,
+            2,
+            1
+          ]
+        },
+        "east": {
+          "texture": "#body",
+          "uv": [
+            0,
+            0,
+            8,
+            1
+          ]
+        },
+        "west": {
+          "texture": "#body",
+          "uv": [
+            0,
+            0,
+            8,
+            1
+          ]
+        },
+        "up": {
+          "texture": "#body",
+          "uv": [
+            0,
+            0,
+            2,
+            8
+          ]
+        }
+      }
+    },
+    {
+      "name": "right cabin shoulder",
+      "from": [
+        14,
+        5,
+        8
+      ],
+      "to": [
+        16,
+        21,
+        16
+      ],
+      "faces": {
+        "north": {
+          "texture": "#body",
+          "uv": [
+            0,
+            0,
+            2,
+            16
+          ]
+        },
+        "south": {
+          "texture": "#body",
+          "uv": [
+            0,
+            0,
+            2,
+            16
+          ]
+        },
+        "east": {
+          "texture": "#body",
+          "uv": [
+            0,
+            0,
+            8,
+            16
+          ]
+        },
+        "west": {
+          "texture": "#body",
+          "uv": [
+            0,
+            0,
+            8,
+            16
+          ]
+        },
+        "down": {
+          "texture": "#body",
+          "uv": [
+            0,
+            0,
+            2,
+            8
+          ]
+        }
+      }
+    },
+    {
+      "name": "right cabin shoulder",
+      "from": [
+        14,
+        21,
+        8
+      ],
+      "to": [
+        16,
+        22,
+        16
+      ],
+      "faces": {
+        "north": {
+          "texture": "#body",
+          "uv": [
+            0,
+            0,
+            2,
+            1
+          ]
+        },
+        "south": {
+          "texture": "#body",
+          "uv": [
+            0,
+            0,
+            2,
+            1
+          ]
+        },
+        "east": {
+          "texture": "#body",
+          "uv": [
+            0,
+            0,
+            8,
+            1
+          ]
+        },
+        "west": {
+          "texture": "#body",
+          "uv": [
+            0,
+            0,
+            8,
+            1
+          ]
+        },
+        "up": {
+          "texture": "#body",
+          "uv": [
+            0,
+            0,
+            2,
+            8
+          ]
+        }
+      }
+    },
+    {
+      "name": "pod footwell",
+      "from": [
+        3,
+        -10,
+        0
+      ],
+      "to": [
+        13,
+        -9,
+        9
+      ],
+      "faces": {
+        "north": {
+          "texture": "#rubber",
+          "uv": [
+            0,
+            0,
+            10,
+            1
+          ]
+        },
+        "south": {
+          "texture": "#rubber",
+          "uv": [
+            0,
+            0,
+            10,
+            1
+          ]
+        },
+        "east": {
+          "texture": "#rubber",
+          "uv": [
+            0,
+            0,
+            9,
+            1
+          ]
+        },
+        "west": {
+          "texture": "#rubber",
+          "uv": [
+            0,
+            0,
+            9,
+            1
+          ]
+        },
+        "up": {
+          "texture": "#rubber",
+          "uv": [
+            0,
+            0,
+            10,
+            9
+          ]
+        },
+        "down": {
+          "texture": "#rubber",
+          "uv": [
+            0,
+            0,
+            10,
+            9
+          ]
+        }
+      }
+    },
+    {
+      "name": "upright pod crown",
+      "from": [
+        5,
+        27,
         14
       ],
-      "faces": {
-        "north": {
-          "texture": "#metal",
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ]
-        },
-        "south": {
-          "texture": "#metal",
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ]
-        },
-        "east": {
-          "texture": "#metal",
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ]
-        },
-        "west": {
-          "texture": "#metal",
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ]
-        },
-        "up": {
-          "texture": "#metal",
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ]
-        },
-        "down": {
-          "texture": "#metal",
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ]
-        }
-      }
-    },
-    {
-      "from": [
-        3,
-        8,
-        1
-      ],
       "to": [
-        5,
-        24,
-        3
-      ],
-      "faces": {
-        "north": {
-          "texture": "#harness",
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ]
-        },
-        "south": {
-          "texture": "#harness",
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ]
-        },
-        "east": {
-          "texture": "#harness",
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ]
-        },
-        "west": {
-          "texture": "#harness",
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ]
-        },
-        "up": {
-          "texture": "#harness",
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ]
-        },
-        "down": {
-          "texture": "#harness",
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ]
-        }
-      }
-    },
-    {
-      "from": [
-        3,
-        24,
-        1
-      ],
-      "to": [
-        5,
-        28,
-        3
-      ],
-      "faces": {
-        "north": {
-          "texture": "#harness",
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ]
-        },
-        "south": {
-          "texture": "#harness",
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ]
-        },
-        "east": {
-          "texture": "#harness",
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ]
-        },
-        "west": {
-          "texture": "#harness",
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ]
-        },
-        "up": {
-          "texture": "#harness",
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ]
-        },
-        "down": {
-          "texture": "#harness",
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ]
-        }
-      }
-    },
-    {
-      "from": [
         11,
-        8,
-        1
-      ],
-      "to": [
-        13,
-        24,
-        3
+        30,
+        16
       ],
       "faces": {
         "north": {
-          "texture": "#harness",
+          "texture": "#body",
           "uv": [
             0,
             0,
-            16,
-            16
+            6,
+            3
           ]
         },
         "south": {
-          "texture": "#harness",
+          "texture": "#body",
           "uv": [
             0,
             0,
-            16,
-            16
+            6,
+            3
           ]
         },
         "east": {
-          "texture": "#harness",
+          "texture": "#body",
           "uv": [
             0,
             0,
-            16,
-            16
+            2,
+            3
           ]
         },
         "west": {
-          "texture": "#harness",
+          "texture": "#body",
           "uv": [
             0,
             0,
-            16,
-            16
+            2,
+            3
           ]
         },
         "up": {
-          "texture": "#harness",
+          "texture": "#body",
           "uv": [
             0,
             0,
-            16,
-            16
+            6,
+            2
           ]
         },
         "down": {
-          "texture": "#harness",
+          "texture": "#body",
           "uv": [
             0,
             0,
-            16,
-            16
+            6,
+            2
           ]
         }
       }
     },
     {
+      "name": "left fixed hinge socket",
       "from": [
-        11,
-        24,
-        1
+        0,
+        25,
+        12
       ],
       "to": [
-        13,
-        28,
-        3
-      ],
-      "faces": {
-        "north": {
-          "texture": "#harness",
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ]
-        },
-        "south": {
-          "texture": "#harness",
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ]
-        },
-        "east": {
-          "texture": "#harness",
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ]
-        },
-        "west": {
-          "texture": "#harness",
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ]
-        },
-        "up": {
-          "texture": "#harness",
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ]
-        },
-        "down": {
-          "texture": "#harness",
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ]
-        }
-      }
-    },
-    {
-      "from": [
-        3,
-        26,
-        2
-      ],
-      "to": [
-        5,
+        2,
         29,
-        14
+        16
       ],
       "faces": {
         "north": {
-          "texture": "#harness",
+          "texture": "#contact",
           "uv": [
             0,
             0,
-            16,
-            16
+            2,
+            4
           ]
         },
         "south": {
-          "texture": "#harness",
+          "texture": "#contact",
           "uv": [
             0,
             0,
-            16,
-            16
+            2,
+            4
           ]
         },
         "east": {
-          "texture": "#harness",
+          "texture": "#contact",
           "uv": [
             0,
             0,
-            16,
-            16
+            4,
+            4
           ]
         },
         "west": {
-          "texture": "#harness",
+          "texture": "#contact",
           "uv": [
             0,
             0,
-            16,
-            16
+            4,
+            4
           ]
         },
         "up": {
-          "texture": "#harness",
+          "texture": "#contact",
           "uv": [
             0,
             0,
-            16,
-            16
+            2,
+            4
           ]
         },
         "down": {
-          "texture": "#harness",
+          "texture": "#contact",
           "uv": [
             0,
             0,
-            16,
-            16
+            2,
+            4
           ]
         }
       }
     },
     {
+      "name": "right fixed hinge socket",
       "from": [
-        11,
-        26,
-        2
+        14,
+        25,
+        12
       ],
       "to": [
-        13,
+        16,
         29,
-        14
+        16
       ],
       "faces": {
         "north": {
-          "texture": "#harness",
+          "texture": "#contact",
           "uv": [
             0,
             0,
-            16,
-            16
+            2,
+            4
           ]
         },
         "south": {
-          "texture": "#harness",
+          "texture": "#contact",
           "uv": [
             0,
             0,
-            16,
-            16
+            2,
+            4
           ]
         },
         "east": {
-          "texture": "#harness",
+          "texture": "#contact",
           "uv": [
             0,
             0,
-            16,
-            16
+            4,
+            4
           ]
         },
         "west": {
-          "texture": "#harness",
+          "texture": "#contact",
           "uv": [
             0,
             0,
-            16,
-            16
+            4,
+            4
           ]
         },
         "up": {
-          "texture": "#harness",
+          "texture": "#contact",
           "uv": [
             0,
             0,
-            16,
-            16
+            2,
+            4
           ]
         },
         "down": {
-          "texture": "#harness",
+          "texture": "#contact",
           "uv": [
             0,
             0,
-            16,
-            16
-          ]
-        }
-      }
-    },
-    {
-      "from": [
-        3,
-        8,
-        1
-      ],
-      "to": [
-        13,
-        11,
-        3
-      ],
-      "faces": {
-        "north": {
-          "texture": "#signal",
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ]
-        },
-        "south": {
-          "texture": "#signal",
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ]
-        },
-        "east": {
-          "texture": "#signal",
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ]
-        },
-        "west": {
-          "texture": "#signal",
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ]
-        },
-        "up": {
-          "texture": "#signal",
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ]
-        },
-        "down": {
-          "texture": "#signal",
-          "uv": [
-            0,
-            0,
-            16,
-            16
+            2,
+            4
           ]
         }
       }

@@ -1,0 +1,132 @@
+{
+  "parts": [
+    {
+      "model": "fourthdimension:block/fd917/s2_spinning_restraint_outer_false_facing_north",
+      "property": "restrained",
+      "pivot": [
+        6.4,
+        27,
+        10
+      ],
+      "axis": "x",
+      "open_degrees": 55,
+      "rotate_facing": false,
+      "when": {
+        "outer": "false",
+        "facing": "north"
+      }
+    },
+    {
+      "model": "fourthdimension:block/fd917/s2_spinning_restraint_outer_false_facing_south",
+      "property": "restrained",
+      "pivot": [
+        6.4,
+        27,
+        6
+      ],
+      "axis": "x",
+      "open_degrees": -55,
+      "rotate_facing": false,
+      "when": {
+        "outer": "false",
+        "facing": "south"
+      }
+    },
+    {
+      "model": "fourthdimension:block/fd917/s2_spinning_restraint_outer_false_facing_east",
+      "property": "restrained",
+      "pivot": [
+        6.4,
+        27,
+        10
+      ],
+      "axis": "x",
+      "open_degrees": 55,
+      "rotate_facing": false,
+      "when": {
+        "outer": "false",
+        "facing": "east"
+      }
+    },
+    {
+      "model": "fourthdimension:block/fd917/s2_spinning_restraint_outer_false_facing_west",
+      "property": "restrained",
+      "pivot": [
+        6.4,
+        27,
+        10
+      ],
+      "axis": "x",
+      "open_degrees": 55,
+      "rotate_facing": false,
+      "when": {
+        "outer": "false",
+        "facing": "west"
+      }
+    },
+    {
+      "model": "fourthdimension:block/fd917/s2_spinning_restraint_outer_true_facing_north",
+      "property": "restrained",
+      "pivot": [
+        9.6,
+        27,
+        10
+      ],
+      "axis": "x",
+      "open_degrees": 55,
+      "rotate_facing": false,
+      "when": {
+        "outer": "true",
+        "facing": "north"
+      }
+    },
+    {
+      "model": "fourthdimension:block/fd917/s2_spinning_restraint_outer_true_facing_south",
+      "property": "restrained",
+      "pivot": [
+        9.6,
+        27,
+        6
+      ],
+      "axis": "x",
+      "open_degrees": -55,
+      "rotate_facing": false,
+      "when": {
+        "outer": "true",
+        "facing": "south"
+      }
+    },
+    {
+      "model": "fourthdimension:block/fd917/s2_spinning_restraint_outer_true_facing_east",
+      "property": "restrained",
+      "pivot": [
+        9.6,
+        27,
+        10
+      ],
+      "axis": "x",
+      "open_degrees": 55,
+      "rotate_facing": false,
+      "when": {
+        "outer": "true",
+        "facing": "east"
+      }
+    },
+    {
+      "model": "fourthdimension:block/fd917/s2_spinning_restraint_outer_true_facing_west",
+      "property": "restrained",
+      "pivot": [
+        9.6,
+        27,
+        10
+      ],
+      "axis": "x",
+      "open_degrees": 55,
+      "rotate_facing": false,
+      "when": {
+        "outer": "true",
+        "facing": "west"
+      }
+    }
+  ]
+}

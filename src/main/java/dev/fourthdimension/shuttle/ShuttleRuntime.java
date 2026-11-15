@@ -176,6 +176,7 @@ public final class ShuttleRuntime {
           v.shuttleDetached = true;
           v.revision++;
         });
+    winch.projectCatch(false);
     winch.vehicle = null;
     winch.cars = List.of();
     winch.carriage = null;
@@ -437,6 +438,9 @@ public final class ShuttleRuntime {
       } catch (IllegalArgumentException failure) {
         if (winch.phase != ShuttleWinchEntity.Phase.FAULT
             || !winch.fault.equals(failure.getMessage())) winch.fail(failure.getMessage());
+      } finally {
+        var live = HANDLES.get(winch);
+        winch.projectCatch(live != null && live.catchJoint != null && live.catchJoint.isValid());
       }
     }
   }
