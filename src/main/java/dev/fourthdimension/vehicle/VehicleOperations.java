@@ -23,6 +23,8 @@ public final class VehicleOperations {
    * than leaving a rider in a stopped but permanently unalignable free carrier.
    */
   public static void failForLostSupport(ServerLevel level, FoundationData.Vehicle vehicle) {
+    if (AxisVehicle.is(vehicle)) { AxisRuntime.fault(level,vehicle,MATCHING_SUPPORT_LOST); for(var c:consist(level,vehicle))c.alignmentRequired=true; return; }
+    if (FlyingVehicle.is(vehicle)) { FlyingRuntime.fault(level,vehicle,MATCHING_SUPPORT_LOST); for(var c:consist(level,vehicle))c.alignmentRequired=true; return; }
     // A coupled PAX train is one safety unit: losing the matching support under any car must
     // capture, restrain, and brake its whole compatible consist before recovery can begin.
     var cars =
@@ -94,6 +96,8 @@ public final class VehicleOperations {
       winch.fail("Operator emergency capture: inspect the shuttle before recovery");
       return;
     }
+    if (FlyingVehicle.is(vehicle)) { FlyingRuntime.capture(level,vehicle); return; }
+    if (AxisVehicle.is(vehicle)) AxisRuntime.acknowledge(level,vehicle);
     if (FixedInvertedVehicle.is(vehicle)) FixedInvertedRuntime.acknowledge(level, vehicle);
     if (SuspendedVehicle.is(vehicle)) {
       var container=SubLevelContainer.getContainer(level);
@@ -130,6 +134,7 @@ public final class VehicleOperations {
   }
 
   public static void restraints(ServerLevel level, FoundationData.Vehicle vehicle, boolean closed) {
+    if (FlyingVehicle.is(vehicle)) throw new IllegalArgumentException("Use the separate Flying body and leg restraint controls");
     if (!closed && vehicle.recoveryCart != null)
       throw new IllegalArgumentException("Disconnect recovery before opening restraints");
     if (!closed && dev.fourthdimension.shuttle.ShuttleRuntime.running(level, vehicle.chassis))
@@ -149,6 +154,7 @@ public final class VehicleOperations {
 
   /** Read-only preflight shared by diagnostics and every dispatch request. */
   public static void validateDispatch(ServerLevel level, FoundationData.Vehicle vehicle) {
+    if (FlyingVehicle.is(vehicle)) { FlyingRuntime.validateDispatch(level,vehicle); return; }
     if (vehicle.recoveryCart != null)
       throw new IllegalArgumentException("Disconnect recovery before ride dispatch");
     var data = FoundationData.get(level);
@@ -191,6 +197,7 @@ public final class VehicleOperations {
   }
 
   public static void dispatch(ServerLevel level, FoundationData.Vehicle vehicle) {
+    if (FlyingVehicle.is(vehicle)) { FlyingRuntime.dispatch(level,vehicle); return; }
     validateDispatch(level, vehicle);
     if (vehicle.family == dev.fourthdimension.contract.Family.PAX) {
       dev.fourthdimension.shuttle.ShuttleRuntime.owner(level, vehicle.chassis).start();
@@ -199,6 +206,7 @@ public final class VehicleOperations {
     var data = FoundationData.get(level);
     var consist = consist(level, vehicle);
     for (var v : consist) {
+      if (AxisVehicle.is(v)) AxisRuntime.rememberConsist(level,v);
       if (FixedInvertedVehicle.is(v)) FixedInvertedRuntime.rememberConsist(level, v);
       if(SuspendedVehicle.is(v)) {
         var parent=SubLevelContainer.getContainer(level).getSubLevel(v.chassis);
@@ -230,7 +238,7 @@ public final class VehicleOperations {
       // The lost section can leave the native chassis without a track constraint, so the normal
       // station-ready velocity check is unavailable until after this exact section is restored.
       // Captured carriers, stopped motion, and closed restraints are the repair interlock.
-      if (!v.stopping || !v.restraints || v.carriers.stream().anyMatch(carrier -> !carrier.capture))
+      if (!v.stopping || !v.restraints || !AxisVehicle.is(v) && v.carriers.stream().anyMatch(carrier -> !carrier.capture))
         throw new IllegalArgumentException(
             "Keep restraints closed and capture every carrier before repair");
       var rail =
@@ -346,7 +354,7 @@ public final class VehicleOperations {
     for (var v : consist) {
       if (!v.alignmentRequired)
         throw new IllegalArgumentException("This vehicle does not require matching-track realignment");
-      if (!v.stopping || !v.restraints || v.carriers.stream().anyMatch(carrier -> !carrier.capture))
+      if (!v.stopping || !v.restraints || !AxisVehicle.is(v) && v.carriers.stream().anyMatch(carrier -> !carrier.capture))
         throw new IllegalArgumentException(
             "Keep restraints closed and capture every carrier before realignment");
       // Older saves can contain the boundary fault that used to overwrite a successful support

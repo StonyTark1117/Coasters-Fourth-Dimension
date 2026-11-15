@@ -55,6 +55,8 @@ public final class Boarding {
       var up = new Vector3d(0, 1, 0).rotate(parent.logicalPose().orientation());
       return up.y > .98;
     }
+    if (AxisVehicle.is(vehicle)) return AxisRuntime.ready(level,parent,vehicle);
+    if (FlyingVehicle.is(vehicle)) return FlyingRuntime.ready(level,parent,vehicle);
     if (FixedInvertedVehicle.is(vehicle)) return FixedInvertedRuntime.ready(level, parent, vehicle);
     if (SuspendedVehicle.is(vehicle)) return SuspendedRuntime.ready(level, parent, vehicle);
     if (SpinningVehicle.is(vehicle)) return SpinningRuntime.ready(level, parent, vehicle);

@@ -45,8 +45,11 @@ public final class RidePreview {
     loadingPreset = preset;
     previewDamping = damping;
     magnets = java.util.List.copyOf(equipment);
-    label =
-        rail.family.driven()
+    label = rail.family == dev.fourthdimension.contract.Family.AXIS
+        ? "Axis " + rail.axisMode + " | authored DRIVE pose or upright reference | full outboard sweep"
+        : rail.family == dev.fourthdimension.contract.Family.FLYING
+        ? "Flying | seated/prone endpoint references | complete posture reservation"
+        : rail.family.driven()
             ? "Controlled poses | authored angles | conservative swept clearance"
             : "Free reference | "
                 + new String[] {
@@ -125,6 +128,8 @@ public final class RidePreview {
     var output = new java.util.ArrayList<Line>();
     boolean magnetic = rail.family == dev.fourthdimension.contract.Family.FREE_SPIN;
     var design = TrackDesign.byVariant(rail.variant);
+    if (design == TrackDesign.AXIS || design == TrackDesign.FLYING)
+      return combinedFamilyPreview(rail,edge,design);
     int groups = design.groups();
     var states = new FreeRotor.State[groups];
     java.util.Arrays.fill(states, new FreeRotor.State(Math.PI / 4, 0));
@@ -230,6 +235,38 @@ public final class RidePreview {
       previousDistance = distance;
     }
     return java.util.List.copyOf(output);
+  }
+
+  /** Reference poses only; the real native body and its current load own live motion. */
+  private static java.util.List<Line> combinedFamilyPreview(FoundationData.Rail rail,CoasterPathEdge edge,TrackDesign design) {
+    var level=Minecraft.getInstance().level;var table=TrackGeometry.table(level,edge);
+    var out=new java.util.ArrayList<Line>();boolean canonical=edge.from().equals(rail.from);
+    for(double distance=0;distance<=table.length();distance+=4) {
+      double t=table.parameterAt(canonical?distance:table.length()-distance);
+      var p=CoasterPathGraphManager.sampleEdgePosition(level,edge,t);
+      var hit=new CoasterPathTrackFrame.GraphHit(p,edge,t);var b=CoasterPathTrackFrame.trackBasisAtHit(level,hit);
+      if(design==TrackDesign.AXIS) {
+        double a=rail.axisMode==dev.fourthdimension.vehicle.AxisState.Mode.DRIVE?controlled.angleAt(distance):0;
+        var right=b.right().scale(Math.cos(a)).subtract(b.up().scale(Math.sin(a)));
+        var up=b.up().scale(Math.cos(a)).add(b.right().scale(Math.sin(a)));
+        var pivot=p.add(b.right().scale(-4)).add(b.up().scale(1.5));
+        for(double side:new double[]{-.5,.5})
+          box(out,pivot.add(right.scale(side)).add(up.scale(-.775)),right,up,b.forward(),.35,.625,.35,0x67e5ff);
+        box(out,pivot,b.right(),b.up(),b.forward(),2.5,2.5,1.5,
+            dev.fourthdimension.vehicle.AxisTrack.obstruction(level,hit)==null?0xf2d36b:0xff5b5b);
+      } else {
+        var pivot=p.add(b.up().scale(-2.5));
+        for(double phi:new double[]{0,Math.PI/2}) {
+          var up=b.up().scale(Math.cos(phi)).add(b.forward().scale(Math.sin(phi)));
+          var forward=b.forward().scale(Math.cos(phi)).subtract(b.up().scale(Math.sin(phi)));
+          for(double side:new double[]{-1.5,-.5,.5,1.5})
+            box(out,pivot.add(b.right().scale(side)).add(up.scale(.625)),b.right(),up,forward,.35,.625,.35,phi==0?0x67e5ff:0xc3a3ff);
+        }
+        box(out,p.add(b.up().scale(-2.7)),b.right(),b.up(),b.forward(),2.25,1.8,2.5,
+            dev.fourthdimension.vehicle.FlyingTrack.obstruction(level,hit)==null?0xf2d36b:0xff5b5b);
+      }
+    }
+    return java.util.List.copyOf(out);
   }
 
   private static void box(

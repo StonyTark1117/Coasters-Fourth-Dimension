@@ -30,6 +30,10 @@ public final class FamilyControllers {
   public static final class Controller extends Block {
     public final Family family;
 
+    @Override public net.minecraft.world.phys.shapes.VoxelShape getShape(net.minecraft.world.level.block.state.BlockState state, net.minecraft.world.level.BlockGetter level, net.minecraft.core.BlockPos pos, net.minecraft.world.phys.shapes.CollisionContext context) {
+      return family == Family.FLYING ? dev.fourthdimension.vehicle.FlyingFrameBlock.controllerShape() : super.getShape(state,level,pos,context);
+    }
+
     private Controller(Family family) {
       super(BlockBehaviour.Properties.of().strength(3).noOcclusion());
       this.family = family;

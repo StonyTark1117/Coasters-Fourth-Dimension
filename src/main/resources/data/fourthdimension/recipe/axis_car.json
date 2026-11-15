@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "SBS",
+    "ITI",
+    "ICI"
+  ],
+  "key": {
+    "S": {
+      "item": "create:cyan_seat"
+    },
+    "B": {
+      "item": "create:mechanical_bearing"
+    },
+    "I": {
+      "tag": "c:ingots/iron"
+    },
+    "T": {
+      "item": "fourthdimension:axis_track"
+    },
+    "C": {
+      "item": "simulatedcoasters:coaster_cart"
+    }
+  },
+  "result": {
+    "id": "fourthdimension:axis_car",
+    "count": 1
+  }
+}

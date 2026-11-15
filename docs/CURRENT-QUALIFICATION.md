@@ -24,6 +24,90 @@ FD403A–F and the FD404 aggregate are now reconciled. There is no remaining 0.4
 acceptance queue. The sections below retain case closure records and artifact
 history; they do not assign new work or add acceptance requirements.
 
+### Active 0.7 assignments — 2026-11-15
+
+The human explicitly requested **Continue 0.7** in the coordinator chat. This
+supersedes the completed 0.6 assignment and its historical no-0.7 directions.
+Complete all sixteen [0.7 execution cards](roadmap/0.7-complex-motion.md) under
+canonical ROADMAP criteria, using the same existing owners, monitoring,
+integration/commit/push and cleanup workflow. Accepted 0.4–0.6 cases remain closed
+unless a named required criterion is invalidated. No new chats/subagents, 0.8
+implementation or publication. The user authorizes coordination/continuation
+messages among these three owners and coordinator `01a1a961-64bb-7701-9a19-2acee5ff23a3`.
+
+Primary checkout `/home/braydon/Documents/Coasters: Fourth Dimension`, existing
+`main`, dispatch baseline `b8db0f06b566ed5b465c758c005db11d5c7b9837`, verified on
+origin/main. Preserve pre-existing untracked `logs/` and all owners' changes.
+Lead alone edits ROADMAP/PLAN/this queue and stages, commits and pushes.
+
+| Card | Owner | Current action / dependency |
+| --- | --- | --- |
+| FD1302A | Lead | Complete: [native and occupied handoff](evidence/0.7/axis/A-handoff.md), including return/unload and targeted dock-edge recovery. Integrating checkpoint; same named owner explicitly continues exact :316 runtime for B/C. |
+| FD1302B | Lead | Axis functional geometry/content with stable specification. |
+| FD1302C | Lead | Cumulative Axis player acceptance after A/B, no duplicate ride. |
+| FD1502A | Lead | Consume the Axis A integration checkpoint, then implement Roller Ball mechanics. |
+| FD1502B | Lead | Roller Ball specification preparation; content with stable mechanics. |
+| FD1502C | Lead | Cumulative Roller Ball acceptance. |
+| FD1801A | Conventional Flying | Native four-car/clearance and real occupied seated→prone→full roll→seated/open/unload passed; only actual interrupted-transition restart remains with owner before A reconciliation. |
+| FD1801B | Conventional Flying | Functional posture geometry/content alongside A. |
+| FD1801C | Conventional Flying | Cumulative seated/changeover/prone/return workflow. |
+| FD1801 | Conventional Flying | Reconcile its accepted A–C without waiting for New-generation. |
+| FD1802A | New-generation Flying | Prepare now; mechanics consumes integrated Conventional A, including occupied handoff. |
+| FD1802B | New-generation Flying | Prepare combined seated/prone/yaw geometry and content. |
+| FD1802C | New-generation Flying | Complete both-posture targeting and transition workflow. |
+| FD1802 | New-generation Flying | Reconcile full A–C outcome. |
+| FD1803 | New-generation Flying | Reconcile both Flying outcomes; no joint replay. |
+| FD701 | Lead | Integrate all four families, reconcile sixteen cards, verify push and cleanup. |
+
+**Owners:** lead `01a1dd1d-1468-7f81-8f31-5532ad7a178d` (Axis, Roller Ball,
+integration); Conventional Flying `01a1dd1d-6e99-70d2-aef3-6dcebac10d72`;
+New-generation Flying `01a1dd1d-c6a6-7be0-9cb5-2b033ac550da`.
+
+**Initial exact file ownership:** lead owns existing shared production, registration,
+serialization, editor/network/runtime paths, shared generators and `en_us.json`.
+Lead also owns Axis*/RollerBall* new files/resources/tests/generators/guides and
+`docs/evidence/0.7/{axis,roller-ball}/` plus `scripts/fd-private-client.py`.
+Conventional Flying may immediately implement new
+`src/main/java/dev/fourthdimension/vehicle/Flying*.java`,
+`gametest/FlyingGameTests.java`, `src/test/java/dev/fourthdimension/Flying*Test.java`,
+new resources with `flying_` basename under assets/fourthdimension and recipes,
+`src/main/resources/data/fourthdimension_fd1801/`, `scripts/generate-flying.py`,
+`docs/FLYING.md` and `docs/evidence/0.7/conventional-flying/`.
+Conventional also owns the entire `src/main/java/dev/fourthdimension/mixin/RiderComfortMixin.java`
+and new `src/main/java/dev/fourthdimension/mixin/Flying*Mixin.java` paths,
+explicitly transferred on 2026-11-15. `LocalRiderRenderMixin` remains lead-owned.
+It sends required shared hooks/fields to lead for prompt integration; no simultaneous
+writers. Any additional exact transfer is recorded here before edits.
+New-generation initially owns only `docs/evidence/0.7/new-generation-flying/`
+preparation; its production map is recorded with Conventional A handoff.
+Do not wait for unrelated Axis/Roller acceptance to implement Conventional Flying.
+Qualified Conventional A passes to New-generation before B/C decorative completion.
+
+**Build/runtime coordination:** both active implementation owners announce a coherent
+source checkpoint before packaging while the other is editing; use distinct persistent
+build outputs and never consume an unfinished prerequisite. No live runtime is
+inherited. Lead reserves root
+`/home/braydon/.local/state/fourthdimension-runs/fd1302-axis-20261115`,
+Its initial native worlds remain there for clean save; future lead build/client/server
+root is `/mnt/NVME4/fourthdimension-runs/fd1302-axis-20261115` on a separate
+persistent SSD after measured root-device IO stalls.
+Private display316, ports25650/25651, units `fd1302-axis-20261115-{server,client,xvfb}.service`.
+Conventional may reserve display317/ports25652/25653 and New-generation318/25654/25655
+only after recording their exact roots/units and checking live ownership/headroom.
+Java21, default1536M heap/6GiB Minecraft-only limit, host/cgroup checks and
+persistent storage apply. Reuse proven private input; one expected result, one
+input, actual connection/hit/reach/state readback. Diagnose twice-inconclusive
+approaches before changing the demonstrated failed condition. Normal native Chain
+input must be covered separately from direct link primitives where newly affected.
+Keep motors clear of both rider and running-gear sweep; use bounded explicit UVs
+and selection shapes matching geometry. Save and stop finished/abandoned owned
+runtimes, verify inactive, preserve worlds/logs. Only explicit exact continuing-owner
+handoff permits a live runtime after package handoff.
+
+**Completion:** coordinator monitors every five minutes; lead integrates qualified
+A handoffs early, then final outcomes and FD701, commits/pushes main and verifies
+remote HEAD and cleanup. Gate reconciliation adds no test campaign. No 0.8 starts.
+
 ### Milestone 0.6 — complete 2026-11-15
 
 The user authorized completing **0.6 with the same assignment, monitoring and

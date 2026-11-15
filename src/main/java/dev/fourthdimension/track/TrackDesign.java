@@ -14,7 +14,9 @@ public enum TrackDesign {
   PAX(Family.PAX, "pax_shuttle_v1", 0x3b9b88),
   SPINNING(Family.SPINNING, "conventional_v1", 0xe16b30),
   SUSPENDED(Family.SUSPENDED, "lateral_swing_v1", 0xe88132),
-  FIXED_INVERTED(Family.FIXED_INVERTED, "four_abreast_v1", 0x8558ac);
+  FIXED_INVERTED(Family.FIXED_INVERTED, "four_abreast_v1", 0x8558ac),
+  AXIS(Family.AXIS, "longitudinal_roll_v1", 0x25b7ba),
+  FLYING(Family.FLYING, "station_changeover_v1", 0x379ba6);
   // Coasters 0.1.5 wheel renderer: path anchor .3125 + compensation .1875 + axle .1.
   // Main and upstop wheel rows are .55 apart, each with nominal radius .2.
   public static final double HALF_GAUGE = .772;
@@ -45,9 +47,11 @@ public enum TrackDesign {
     this.color = color;
   }
 
-  public boolean overhead() { return this == SUSPENDED || this == FIXED_INVERTED; }
+  public boolean overhead() { return this == SUSPENDED || this == FIXED_INVERTED || this == FLYING; }
 
   public NativeTrackFit nativeFit() {
+    if (this == AXIS) return dev.fourthdimension.vehicle.AxisVehicle.FIT;
+    if (this == FLYING) return dev.fourthdimension.vehicle.FlyingVehicle.FIT;
     if (this == FIXED_INVERTED) return dev.fourthdimension.vehicle.FixedInvertedVehicle.FIT;
     if (overhead()) return new NativeTrackFit(NativeTrackFit.N_CONTACTS, NativeTrackFit.OVERHEAD,
         new NativeTrackFit.Envelope(3, 1.10, 4.70, 1.75));
@@ -63,7 +67,9 @@ public enum TrackDesign {
         family,
         variant,
         new Gear(2 * HALF_GAUGE, WHEEL_RADIUS, TREAD_OUTER, WHEEL_ROW_SPACING),
-        this == FIXED_INVERTED ? Set.of(Mechanism.OVERHEAD_MOUNT, Mechanism.STATION_CAPTURE)
+        this == AXIS ? Set.of(Mechanism.ROTARY_CLEARANCE, Mechanism.STATION_CAPTURE, Mechanism.ROTATION_DRIVE, Mechanism.LIFT_LOCK)
+            : this == FLYING ? Set.of(Mechanism.ROTARY_CLEARANCE, Mechanism.STATION_CAPTURE, Mechanism.OVERHEAD_MOUNT, Mechanism.POSTURE_LOCK)
+            : this == FIXED_INVERTED ? Set.of(Mechanism.OVERHEAD_MOUNT, Mechanism.STATION_CAPTURE)
             : overhead() ? Set.of(Mechanism.ROTARY_CLEARANCE,Mechanism.STATION_CAPTURE,Mechanism.OVERHEAD_MOUNT,Mechanism.SWING_LIMITS,Mechanism.LIFT_LOCK)
             : this == SPINNING ? Set.of(Mechanism.ROTARY_CLEARANCE, Mechanism.STATION_CAPTURE)
             : family.driven()
@@ -71,7 +77,7 @@ public enum TrackDesign {
             : family == Family.FREE_SPIN
                 ? Set.of(Mechanism.ROTARY_CLEARANCE, Mechanism.MAGNET_INTERFACE)
                 : Set.of(Mechanism.ROTARY_CLEARANCE),
-        this == FIXED_INVERTED ? new Clearance(2.25, 1.10, 4.50) : overhead() ? new Clearance(3, 1.10, 4.70) : this == SPINNING ? new Clearance(2.25, 3.65, .95)
+        this == AXIS ? new Clearance(6.5,4,1) : this == FLYING ? new Clearance(2.25,1.10,4.50) : this == FIXED_INVERTED ? new Clearance(2.25, 1.10, 4.50) : overhead() ? new Clearance(3, 1.10, 4.70) : this == SPINNING ? new Clearance(2.25, 3.65, .95)
             : new Clearance(5, rotorRadius() + 2.3125, rotorRadius() + (pairedRows() ? 3 : 0)));
   }
 
@@ -80,7 +86,7 @@ public enum TrackDesign {
   }
 
   public int groups() {
-    return (this == SPINNING || overhead()) ? 1 : pairedRows() ? 4 : 2;
+    return (this == SPINNING || this == AXIS || overhead()) ? 1 : pairedRows() ? 4 : 2;
   }
 
   public double childPivotOffset() {
@@ -92,11 +98,11 @@ public enum TrackDesign {
   }
 
   public double axleSpacing() {
-    return overhead() ? 8 : this == REVISED ? 14 : this == FREE_SPIN ? 12 : 6;
+    return (overhead() || this == AXIS) ? 8 : this == REVISED ? 14 : this == FREE_SPIN ? 12 : 6;
   }
 
   public boolean canLink() {
-    return this == ARROW || this == PAX || overhead();
+    return this == ARROW || this == PAX || this == AXIS || overhead();
   }
 
   public double controlHeight(double angle) {

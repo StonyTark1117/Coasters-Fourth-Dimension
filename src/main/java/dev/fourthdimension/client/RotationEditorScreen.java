@@ -65,7 +65,9 @@ public final class RotationEditorScreen extends Screen {
       magnetic = v.family == dev.fourthdimension.contract.Family.FREE_SPIN;
       recovery = v.recoveryCart != null;
       updateVehicleStatus(v);
-      value.setValue(dev.fourthdimension.vehicle.FixedInvertedVehicle.is(v)
+      value.setValue(dev.fourthdimension.vehicle.AxisVehicle.is(v) ? "Axis — continuous roll, track FREE / DAMP / DRIVE"
+          : dev.fourthdimension.vehicle.FlyingVehicle.is(v) ? "Flying — " + v.flying.phase + " | lock " + v.flying.lock
+          : dev.fourthdimension.vehicle.FixedInvertedVehicle.is(v)
           ? "Fixed Inverted — four seats, overhead track, level dock" : dev.fourthdimension.vehicle.WingVehicle.is(v)
           ? "Fixed seats — ordinary Coasters track" : dev.fourthdimension.vehicle.SpinningVehicle.is(v)
               ? "S1 free spin — matching track and a bound dock" : dev.fourthdimension.vehicle.SuspendedVehicle.is(v)
@@ -82,9 +84,17 @@ public final class RotationEditorScreen extends Screen {
                           .collect(Collectors.joining(" / "))
                       + ". Applying uniform tuning resets per-group ballast.")));
       value.setEditable(free);
-      addButton(v.family.rotary() ? "Capture" : "Stop", left, top + 82, 10);
-      addButton("Close restraints", left + 115, top + 82, 11);
-      addButton("Open restraints", left + 230, top + 82, 12);
+      addButton(v.family.rotary() && !dev.fourthdimension.vehicle.FlyingVehicle.is(v) ? "Capture" : "Stop", left, top + 82, 10);
+      if (dev.fourthdimension.vehicle.FlyingVehicle.is(v)) {
+        addButton(v.flying.body ? "Open body" : "Close body", left+115,top+82,v.flying.body?35:34);
+        addButton(v.flying.legs ? "Open legs" : "Close legs", left+230,top+82,v.flying.legs?37:36);
+        addButton("Set prone",left,top+186,31);
+        addButton("Set seated",left+115,top+186,32);
+        addButton("Resume posture",left+230,top+186,33);
+      } else {
+        addButton("Close restraints", left + 115, top + 82, 11);
+        addButton("Open restraints", left + 230, top + 82, 12);
+      }
       addButton("Dispatch", left, top + 108, 13);
       addButton("Retain", left + 115, top + 108, 14);
       addButton("Release retention", left + 230, top + 108, 15);
@@ -93,7 +103,7 @@ public final class RotationEditorScreen extends Screen {
       else if (v.alignmentRequired)
         addButton("Realign matching track", left, top + 160, 26);
       if (free) addButton("Apply tuning", left, top + 134, 16);
-      if (dev.fourthdimension.vehicle.FixedInvertedVehicle.is(v) || dev.fourthdimension.vehicle.SpinningVehicle.is(v) || dev.fourthdimension.vehicle.SuspendedVehicle.is(v))
+      if (dev.fourthdimension.vehicle.AxisVehicle.is(v) || dev.fourthdimension.vehicle.FlyingVehicle.is(v) || dev.fourthdimension.vehicle.FixedInvertedVehicle.is(v) || dev.fourthdimension.vehicle.SpinningVehicle.is(v) || dev.fourthdimension.vehicle.SuspendedVehicle.is(v))
         addButton("Resume to dock", left, top + 134, 28);
       if (v.recoveryCart == null && v.family.foundationFixture()) {
         recoveryAttach = addButton("Attach recovery", left, top + 212, 20);
@@ -170,6 +180,10 @@ public final class RotationEditorScreen extends Screen {
       if (magnetic) addButton("Apply magnets", left, top + 82, 4);
       if (rail.family == dev.fourthdimension.contract.Family.SPINNING || rail.family == dev.fourthdimension.contract.Family.SUSPENDED)
         addButton(rail.liftLock ? "Lift lock: on" : "Lift lock: off", left, top + 82, 6);
+      if (rail.family == dev.fourthdimension.contract.Family.AXIS) {
+        addButton("Roll: "+rail.axisMode,left,top+134,7);
+        addButton(rail.liftLock?"Lift lock: on":"Lift lock: off",left+230,top+134,6);
+      }
       if (!free) {
         addButton("Apply profile", left, top + 82, 0);
         addButton("Mirror angles", left + 115, top + 82, 2);
@@ -374,6 +388,11 @@ public final class RotationEditorScreen extends Screen {
                 + (vehicle.boardingReady ? "Ready" : "Aligning / moving")
                 + " | "
                 + (vehicle.restraints ? "Restraints closed" : "Restraints open");
+    if (dev.fourthdimension.vehicle.FlyingVehicle.is(vehicle)) {
+      status="Flying | body "+(vehicle.flying.body?"closed":"open")+" | legs "+(vehicle.flying.legs?"closed":"open")+" | lock "+vehicle.flying.lock;
+      if(value!=null)value.setValue(String.format(java.util.Locale.ROOT,"%s | %.1f° | %s",vehicle.flying.phase,
+          Math.toDegrees(-vehicle.carriers.getFirst().angle),vehicle.flying.lock));
+    }
     if (!vehicle.fault.isEmpty()) status += " | " + vehicle.fault;
   }
 
@@ -411,6 +430,12 @@ public final class RotationEditorScreen extends Screen {
                     ? "start:end:induce/damp:direction:strength:falloff:mask"
                     : "Free-spin motion is tuned on the car"
                 : "distance:degrees:slope; ...  (angles remain unwrapped)");
+    if(target.vehicle()) {
+      var snapshot=EligibilityHooks.data(minecraft.level);
+      var selected=snapshot==null?null:snapshot.vehicles.get(target.id());
+      if(selected!=null&&dev.fourthdimension.vehicle.FlyingVehicle.is(selected))
+        hint="Close body + legs; set prone, wait for lock, dispatch. Seated to unload.";
+    }
     String instruction = feedback.isEmpty() ? hint : feedback;
     graphics.drawString(
         font, font.plainSubstrByWidth(instruction, 340), left + 10, top + 42,

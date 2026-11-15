@@ -174,11 +174,20 @@ public final class EditorNetwork {
                 request.revision,
                 dev.fourthdimension.integration.TrackAppearance.parse(request.value));
         case 6 -> {
-          if (rail.family != dev.fourthdimension.contract.Family.SPINNING && rail.family != dev.fourthdimension.contract.Family.SUSPENDED)
-            throw new IllegalArgumentException("Lift lock requires Spinning or Suspended track");
+          if (rail.family != dev.fourthdimension.contract.Family.SPINNING && rail.family != dev.fourthdimension.contract.Family.SUSPENDED && rail.family != dev.fourthdimension.contract.Family.AXIS)
+            throw new IllegalArgumentException("Lift lock requires Spinning, Suspended or Axis track");
           rail.liftLock = !rail.liftLock;
           rail.revision++;
           FoundationData.get(player.serverLevel()).setDirty();
+        }
+        case 7 -> {
+          if (rail.family != dev.fourthdimension.contract.Family.AXIS) throw new IllegalArgumentException("Roll modes require Axis track");
+          var modes=dev.fourthdimension.vehicle.AxisState.Mode.values();
+          var old=rail.axisMode;rail.axisMode=modes[(old.ordinal()+1)%modes.length];
+          if(rail.axisMode==dev.fourthdimension.vehicle.AxisState.Mode.DRIVE) {
+            try { ProfileEditor.apply(player,request.id,request.revision,rail.profile,false); }
+            catch(RuntimeException failure) { rail.axisMode=old;throw failure; }
+          } else {rail.revision++;FoundationData.get(player.serverLevel()).setDirty();}
         }
         default -> throw new IllegalArgumentException("Unknown profile operation");
       }
@@ -213,6 +222,8 @@ public final class EditorNetwork {
         case 26 -> VehicleOperations.realignMatchingSupport(level, vehicle);
         case 27 -> VehicleOperations.retireDetachedPax(level, vehicle);
         case 28 -> {
+          if(dev.fourthdimension.vehicle.AxisVehicle.is(vehicle)) { dev.fourthdimension.vehicle.AxisRuntime.resumeToDock(level,vehicle); break; }
+          if(dev.fourthdimension.vehicle.FlyingVehicle.is(vehicle)) { dev.fourthdimension.vehicle.FlyingRuntime.resumeToDock(level,vehicle); break; }
           if(dev.fourthdimension.vehicle.FixedInvertedVehicle.is(vehicle)) {
             dev.fourthdimension.vehicle.FixedInvertedRuntime.resumeToDock(level,vehicle);break;
           }
@@ -222,6 +233,11 @@ public final class EditorNetwork {
           if (!dev.fourthdimension.vehicle.SpinningVehicle.is(vehicle))
             throw new IllegalArgumentException("Resume to dock requires S1");
           dev.fourthdimension.vehicle.SpinningRuntime.resumeToDock(level, vehicle);
+        }
+        case 31, 32, 33, 34, 35, 36, 37 -> {
+          if (!dev.fourthdimension.vehicle.FlyingVehicle.is(vehicle)) throw new IllegalArgumentException("Flying controls require a Flying car");
+          if (request.action <= 33) dev.fourthdimension.vehicle.FlyingRuntime.requestPosture(level,vehicle,request.action==31,request.action==33);
+          else dev.fourthdimension.vehicle.FlyingRuntime.restraints(level,vehicle,request.action<=35,request.action==34||request.action==36);
         }
         case 17, 18, 19 -> VehicleOperations.loadingPreset(level, vehicle, request.action - 17);
         default -> throw new IllegalArgumentException("Unknown vehicle operation");

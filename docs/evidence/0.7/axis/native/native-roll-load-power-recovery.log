@@ -1,0 +1,206 @@
+> Task :createMinecraftArtifacts UP-TO-DATE
+
+> Task :compileJava
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+
+> Task :processResources UP-TO-DATE
+> Task :classes
+> Task :downloadAssets UP-TO-DATE
+> Task :writeGameTestServerLegacyClasspath UP-TO-DATE
+> Task :prepareGameTestServerRun UP-TO-DATE
+
+> Task :runGameTestServer
+WARN StatusConsoleListener Advanced terminal features are not available in this environment
+[01:29:45] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forgeserverdev, --gameDir, ., --fml.fmlVersion, 4.0.43, --fml.mcVersion, 1.21.1, --fml.neoForgeVersion, 21.1.248, --fml.neoFormVersion, 20240808.144430]
+[01:29:45] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: JVM identified as Arch Linux OpenJDK 64-Bit Server VM 21.0.13.0.3+1
+[01:29:45] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: ModLauncher 11.0.5+main.901c6ea8 starting: java version 21.0.13.0.3 by Arch Linux; OS Linux arch amd64 version 7.2.14-zen1-1-zen
+[01:29:45] [main/INFO] [ne.ne.fm.lo.ImmediateWindowHandler/]: ImmediateWindowProvider not loading because launch target is forgeserverdev
+[01:29:46] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.7 Source=union:/home/braydon/.gradle/caches/modules-2/files-2.1/net.fabricmc/sponge-mixin/0.15.2+mixin.0.8.7/2af2f021d8e02a0220dc27a7a72b4666d66d44ca/sponge-mixin-0.15.2+mixin.0.8.7.jar%2394!/ Service=ModLauncher Env=SERVER
+[01:29:46] [main/WARN] [ne.ne.ja.se.JarSelector/]: Attempted to select a dependency jar for JarJar which was passed in as source: veil. Using Mod File: /home/braydon/.gradle/caches/modules-2/files-2.1/foundry.veil/veil-neoforge-1.21.1/4.1.4/642ec0bd02213ee087d86eda553d6d79c6a04d2b/veil-neoforge-1.21.1-4.1.4.jar
+[01:29:46] [main/WARN] [ne.ne.ja.se.JarSelector/]: Attempted to select a dependency jar for JarJar which was passed in as source: sablecompanion. Using Mod File: /home/braydon/.gradle/caches/modules-2/files-2.1/dev.ryanhcode.sable-companion/sable-companion-common-1.21.1/1.6.0/370be7db705926176e05c0215ed676150c45daae/sable-companion-common-1.21.1-1.6.0.jar
+[01:29:46] [main/WARN] [ne.ne.ja.se.JarSelector/]: Attempted to select a dependency jar for JarJar which was passed in as source: library:sable_rapier. Using Mod File: /home/braydon/.gradle/caches/modules-2/files-2.1/dev.ryanhcode.sable/sable-sable_rapier-1.21.1/2.0.3/a88c0860320890144b6b44c332a2a2db3a61e189/sable-sable_rapier-1.21.1-2.0.3.jar
+[01:29:46] [main/INFO] [ne.ne.fm.lo.mo.lo.JarInJarDependencyLocator/]: Found 4 dependencies adding them to mods collection
+[01:29:46] [main/INFO] [ne.ne.fm.lo.mo.ModDiscoverer/]: 
+     Mod List:
+		Name Version (Mod Id)
+
+		Coasters: Fourth Dimension 0.9.0-dev.27 (fourthdimension)
+		Create 6.0.10 (create)
+		Create: Coasters Simulated 0.1.5 (simulatedcoasters)
+		Flywheel 1.0.6 (flywheel)
+		Minecraft 1.21.1 (minecraft)
+		NeoForge 21.1.248 (neoforge)
+		Ponder 1.0.82+mc1.21.1 (ponder)
+		Sable 2.0.3 (sable)
+		Sable Companion 1.6.0 (sablecompanion)
+		Veil 4.1.4 (veil)
+[01:29:46] [main/INFO] [mixin/]: Compatibility level set to JAVA_21
+[01:29:46] [main/INFO] [cp.mo.mo.LaunchServiceHandler/MODLAUNCHER]: Launching target 'forgeserverdev' with arguments [--gameDir, .]
+[01:29:46] [main/WARN] [mixin/]: Reference map 'ponder.refmap.json' for ponder-common.mixins.json could not be read. If this is a development environment you can ignore this message
+[01:29:46] [main/INFO] [de.ry.sa.mi.AbstractSableMixinPlugin/]: Using Vanilla renderer mixins
+[01:29:46] [main/INFO] [de.ry.sa.mi.AbstractSableMixinPlugin/]: Using Vanilla renderer mixins
+[01:29:46] [main/WARN] [mixin/]: Error loading class: dev/simulated_team/simulated/content/blocks/merging_glue/MergingGlueBlockEntity (java.lang.ClassNotFoundException: dev.simulated_team.simulated.content.blocks.merging_glue.MergingGlueBlockEntity)
+[01:29:46] [main/WARN] [mixin/]: @Mixin target dev.simulated_team.simulated.content.blocks.merging_glue.MergingGlueBlockEntity was not found simulatedcoasters.mixins.json:compat.MergingGlueBlockEntityRivetMixin from mod simulatedcoasters
+[01:29:46] [main/ERROR] [ne.ne.fm.co.as.RuntimeDistCleaner/DISTXFORM]: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER
+[01:29:46] [main/WARN] [mixin/]: Error loading class: net/minecraft/client/multiplayer/ClientLevel (java.lang.RuntimeException: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER)
+[01:29:46] [main/ERROR] [ne.ne.fm.co.as.RuntimeDistCleaner/DISTXFORM]: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER
+[01:29:46] [main/WARN] [mixin/]: Error loading class: net/minecraft/client/multiplayer/ClientLevel (java.lang.RuntimeException: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER)
+[01:29:46] [main/ERROR] [ne.ne.fm.co.as.RuntimeDistCleaner/DISTXFORM]: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER
+[01:29:46] [main/WARN] [mixin/]: Error loading class: net/minecraft/client/multiplayer/ClientLevel (java.lang.RuntimeException: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER)
+[01:29:46] [main/WARN] [mixin/]: Error loading class: dev/jwaterfall/coastersengineered/MotorDrive (java.lang.ClassNotFoundException: dev.jwaterfall.coastersengineered.MotorDrive)
+[01:29:46] [main/WARN] [mixin/]: Error loading class: dev/jwaterfall/coastersengineered/CartAssembly (java.lang.ClassNotFoundException: dev.jwaterfall.coastersengineered.CartAssembly)
+[01:29:46] [main/WARN] [mixin/]: Error loading class: org/jetbrains/annotations/ApiStatus$ScheduledForRemoval (java.lang.ClassNotFoundException: org.jetbrains.annotations.ApiStatus$ScheduledForRemoval)
+[01:29:46] [main/ERROR] [ne.ne.fm.co.as.RuntimeDistCleaner/DISTXFORM]: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER
+[01:29:46] [main/WARN] [mixin/]: Error loading class: net/minecraft/client/multiplayer/ClientLevel (java.lang.RuntimeException: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER)
+[01:29:46] [main/ERROR] [ne.ne.fm.co.as.RuntimeDistCleaner/DISTXFORM]: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER
+[01:29:46] [main/WARN] [mixin/]: Error loading class: net/minecraft/client/multiplayer/ClientLevel (java.lang.RuntimeException: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER)
+[01:29:46] [main/ERROR] [ne.ne.fm.co.as.RuntimeDistCleaner/DISTXFORM]: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER
+[01:29:46] [main/WARN] [mixin/]: Error loading class: net/minecraft/client/multiplayer/ClientLevel (java.lang.RuntimeException: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER)
+[01:29:46] [main/ERROR] [ne.ne.fm.co.as.RuntimeDistCleaner/DISTXFORM]: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER
+[01:29:46] [main/WARN] [mixin/]: Error loading class: net/minecraft/client/multiplayer/ClientLevel (java.lang.RuntimeException: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER)
+[01:29:46] [main/ERROR] [ne.ne.fm.co.as.RuntimeDistCleaner/DISTXFORM]: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER
+[01:29:46] [main/WARN] [mixin/]: Error loading class: net/minecraft/client/multiplayer/ClientLevel (java.lang.RuntimeException: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER)
+[01:29:46] [main/ERROR] [ne.ne.fm.co.as.RuntimeDistCleaner/DISTXFORM]: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER
+[01:29:46] [main/WARN] [mixin/]: Error loading class: net/minecraft/client/multiplayer/ClientLevel (java.lang.RuntimeException: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER)
+[01:29:46] [main/INFO] [MixinExtras|Service/]: Initializing MixinExtras via com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.5.3).
+[01:29:47] [main/ERROR] [ne.ne.fm.co.as.RuntimeDistCleaner/DISTXFORM]: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER
+[01:29:47] [main/WARN] [mixin/]: Error loading class: net/minecraft/client/multiplayer/ClientLevel (java.lang.RuntimeException: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER)
+[01:29:47] [main/ERROR] [ne.ne.fm.co.as.RuntimeDistCleaner/DISTXFORM]: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER
+[01:29:47] [main/WARN] [mixin/]: Error loading class: net/minecraft/client/multiplayer/ClientLevel (java.lang.RuntimeException: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER)
+[01:29:47] [main/ERROR] [ne.ne.fm.co.as.RuntimeDistCleaner/DISTXFORM]: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER
+[01:29:47] [main/WARN] [mixin/]: Error loading class: net/minecraft/client/multiplayer/ClientLevel (java.lang.RuntimeException: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER)
+[01:29:49] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, location] and [teleport, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+[01:29:49] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, location] and [teleport, targets] with inputs: [0.1 -0.5 .9, 0 0 0]
+[01:29:49] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, destination] and [teleport, targets] with inputs: [Player, 0123, @e, dd12be42-52a9-4a91-a8a1-11c01849e498]
+[01:29:49] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, targets] and [teleport, destination] with inputs: [Player, 0123, dd12be42-52a9-4a91-a8a1-11c01849e498]
+[01:29:49] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, targets, location] and [teleport, targets, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+[01:29:49] [modloading-worker-0/INFO] [Veil/]: Veil is initializing.
+[01:29:49] [modloading-worker-0/INFO] [ne.ne.ne.co.NeoForgeMod/NEOFORGE-MOD]: NeoForge mod loading, version 21.1.248, for MC 1.21.1
+[01:29:49] [modloading-worker-0/INFO] [co.si.cr.Create/]: Create 6.0.10 initializing! Commit hash: ac0c444d9828da3453ae8cc65338e8de063286fb
+[01:29:50] [modloading-worker-0/INFO] [de.ry.sa.Sable/]: Sable loaded!
+[01:29:50] [modloading-worker-0/INFO] [de.fo.FourthDimension/]: Coasters: Fourth Dimension loaded from union:/mnt/NVME4/fourthdimension-runs/fd1302-axis-20261115/build/classes/java/main/%23127!/
+[01:29:51] [main/INFO] [mojang/YggdrasilAuthenticationService]: Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, name=PROD]
+[01:29:51] [NeoForge Version Check/INFO] [ne.ne.fm.VersionChecker/]: [create] Starting version check at https://api.modrinth.com/updates/create/forge_updates.json?neoforge=only
+[01:29:51] [main/WARN] [minecraft/VanillaPackResourcesBuilder]: Assets URL 'union:/mnt/NVME4/fourthdimension-runs/fd1302-axis-20261115/build/moddev/artifacts/neoforge-21.1.248.jar%23125!/assets/.mcassetsroot' uses unexpected schema
+[01:29:51] [main/WARN] [minecraft/VanillaPackResourcesBuilder]: Assets URL 'union:/mnt/NVME4/fourthdimension-runs/fd1302-axis-20261115/build/moddev/artifacts/neoforge-21.1.248.jar%23125!/data/.mcassetsroot' uses unexpected schema
+[01:29:51] [main/INFO] [co.si.cr.Create/]: Created 157 recipes which will be injected into the game
+[01:29:51] [main/INFO] [co.si.cr.Create/]: Created 0 tags which will be injected into the game
+[01:29:51] [main/INFO] [ne.ne.ne.ga.GameTestHooks/]: Enabled Gametest Namespaces: [fourthdimension_fd1302]
+[01:29:52] [main/INFO] [minecraft/RecipeManager]: Loaded 2849 recipes
+[01:29:52] [NeoForge Version Check/INFO] [ne.ne.fm.VersionChecker/]: [create] Found status: OUTDATED Current: 6.0.10 Target: 6.0.10+mc1.21.1
+[01:29:52] [main/INFO] [minecraft/AdvancementTree]: Loaded 2522 advancements
+[01:29:52] [Server thread/INFO] [de.ry.sa.Sable/]: Creating physics pipeline for ResourceKey[minecraft:dimension / minecraft:overworld] using RapierPhysicsPipelineProvider
+[2026-11-15T08:29:52.902146992Z] [[32mINFO[0m] (sable_rapier) Rapier scene initialized
+[01:29:53] [Server thread/INFO] [de.ry.sa.Sable/]: Creating physics pipeline for ResourceKey[minecraft:dimension / minecraft:the_end] using RapierPhysicsPipelineProvider
+[2026-11-15T08:29:53.112353484Z] [[32mINFO[0m] (sable_rapier) Rapier scene initialized
+[01:29:53] [Server thread/INFO] [de.ry.sa.Sable/]: Creating physics pipeline for ResourceKey[minecraft:dimension / minecraft:the_nether] using RapierPhysicsPipelineProvider
+[2026-11-15T08:29:53.134213026Z] [[32mINFO[0m] (sable_rapier) Rapier scene initialized
+[01:29:53] [Server thread/INFO] [minecraft/MinecraftServer]: Preparing start region for dimension minecraft:overworld
+[01:29:53] [worldgen/INFO] [minecraft/LoggerChunkProgressListener]: Preparing spawn area: 2%
+[01:29:53] [Server thread/INFO] [minecraft/LoggerChunkProgressListener]: Time elapsed: 102 ms
+[01:29:53] [Server thread/INFO] [minecraft/GameTestServer]: Started game test server
+[01:29:53] [Server thread/INFO] [ne.ne.ne.se.pe.PermissionAPI/]: Successfully initialized permission handler neoforge:default_handler
+[01:29:53] [Server thread/INFO] [minecraft/GameTestServer]: 1 tests are now running at position -484138, -59, 1376714!
+[01:29:53] [Server thread/INFO] [minecraft/GameTestRunner]: Running test batch 'defaultBatch:0' (1 tests)...
+[01:29:53] [Server thread/INFO] [minecraft/GameTestServer]: [ ]
+[01:29:53] [Server thread/INFO] [minecraft/GameTestServer]: [ ]
+[01:29:54] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[01:29:54] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[01:29:54] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_AXIS_ALIGN tick=109 angle=0.29930945146181165 omega=-0.09317310294136405 goal=0.25826766402217277 rate=-0.25000000000000006 fault=
+[01:29:54] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_AXIS_ALIGN tick=129 angle=0.159723621626582 omega=-0.21421162225306034 goal=0.004468626581779631 rate=-0.06684778666328177 fault=
+[01:29:54] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_AXIS_ALIGN tick=149 angle=0.058170166566567524 omega=-0.07639202615246178 goal=0.0 rate=0.0 fault=
+[01:29:54] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_AXIS_ALIGN tick=169 angle=0.020659960444045725 omega=-0.02234407141804695 goal=0.0 rate=0.0 fault=
+[01:29:54] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_AXIS_ALIGN tick=189 angle=0.013103642403237508 omega=-0.00898212194442749 goal=0.0 rate=0.0 fault=
+[01:29:54] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_AXIS_ALIGN tick=209 angle=0.012156419573282576 omega=-0.005380232818424702 goal=0.0 rate=0.0 fault=
+[01:29:54] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_AXIS_EMPTY mass=4.0 inertia=7.994726562500104 com=( 2.048E+7  1.278E+2  2.048E+7)
+[01:29:54] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[01:29:54] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[01:29:54] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_AXIS_LOADED inertia=8.418726562779302 com=( 2.048E+7  1.279E+2  2.048E+7) angle=-0.0015898974020131002
+[01:29:54] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[01:29:54] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[01:29:54] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[01:29:54] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[01:29:54] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[01:29:54] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[01:29:54] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[01:29:54] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[01:29:54] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[01:29:54] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[01:29:54] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[01:29:54] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[01:29:55] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[01:29:55] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[01:29:55] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[01:29:55] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[01:29:55] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[01:29:55] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[01:29:55] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[01:29:55] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_AXIS_DRIVE peak=7.174587854583628 maxOmega=0.637187186858742 angle=7.200870662969342 target=7.412067010309295
+[01:29:55] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[01:29:55] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[01:29:55] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[01:29:55] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[01:29:55] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[01:29:55] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[01:29:55] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[01:29:55] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[01:29:55] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[01:29:55] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[01:29:55] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[01:29:55] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[01:29:55] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[01:29:55] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[01:29:55] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[01:29:55] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[01:29:55] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[01:29:55] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[01:29:55] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[01:29:55] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[01:29:55] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[01:29:55] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[01:29:55] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[01:29:55] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[01:29:56] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[01:29:56] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[01:29:56] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_AXIS_REVERSE angle=-0.011813343553705289 fault=
+[01:29:56] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[01:29:56] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[01:29:56] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[01:29:56] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[01:29:56] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[01:29:56] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[01:29:56] [Server thread/INFO] [minecraft/GameTestServer]: [+]
+[01:29:56] [Server thread/INFO] [minecraft/GameTestServer]: ========= 1 GAME TESTS COMPLETE IN 2.912 s ======================
+[01:29:56] [Server thread/INFO] [minecraft/GameTestServer]: All 1 required tests passed :)
+[01:29:56] [Server thread/INFO] [minecraft/GameTestServer]: ====================================================
+[01:29:56] [Server thread/INFO] [minecraft/MinecraftServer]: Stopping server
+[01:29:56] [Server thread/INFO] [minecraft/MinecraftServer]: Saving players
+[01:29:56] [Server thread/INFO] [minecraft/MinecraftServer]: Saving worlds
+[01:29:56] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[Test Level]'/minecraft:overworld
+[01:29:56] [Server thread/INFO] [de.ry.sa.Sable/]: Saving sub-levels for level 'ServerLevel[Test Level]'/minecraft:overworld
+[01:30:06] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[Test Level]'/minecraft:the_end
+[01:30:06] [Server thread/INFO] [de.ry.sa.Sable/]: Saving sub-levels for level 'ServerLevel[Test Level]'/minecraft:the_end
+[01:30:06] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[Test Level]'/minecraft:the_nether
+[01:30:06] [Server thread/INFO] [de.ry.sa.Sable/]: Saving sub-levels for level 'ServerLevel[Test Level]'/minecraft:the_nether
+[01:30:06] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (world): All chunks are saved
+[01:30:06] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (DIM1): All chunks are saved
+[01:30:06] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
+[01:30:06] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage: All dimensions are saved
+[01:30:06] [Server thread/INFO] [minecraft/GameTestServer]: Game test server shutting down
+
+[Incubating] Problems report is available at: file:///mnt/NVME4/fourthdimension-runs/fd1302-axis-20261115/build/reports/problems/problems-report.html
+
+BUILD SUCCESSFUL in 23s
+7 actionable tasks: 2 executed, 5 up-to-date
+Consider enabling configuration cache to speed up this build: https://docs.gradle.org/9.2.1/userguide/configuration_cache_enabling.html

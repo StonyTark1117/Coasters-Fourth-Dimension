@@ -186,6 +186,10 @@ public final class CarrierRuntime {
       for (var carrier : vehicle.carriers) {
         var childRaw = container.getSubLevel(carrier.body);
         if (!(childRaw instanceof ServerSubLevel child) || child.isRemoved()) {
+          if (dev.fourthdimension.vehicle.AxisVehicle.is(vehicle))
+            dev.fourthdimension.vehicle.AxisRuntime.fault(level,vehicle,"Axis carrier unavailable");
+          if (dev.fourthdimension.vehicle.FlyingVehicle.is(vehicle))
+            dev.fourthdimension.vehicle.FlyingRuntime.fault(level,vehicle,"Flying carrier unavailable");
           if (dev.fourthdimension.vehicle.SuspendedVehicle.is(vehicle))
             dev.fourthdimension.vehicle.SuspendedRuntime.fault(level,vehicle,"Suspended cabin body unavailable");
           if (dev.fourthdimension.vehicle.SpinningVehicle.is(vehicle))
@@ -200,7 +204,9 @@ public final class CarrierRuntime {
           constraintsRebuilt++;
           var p = parent.getPlot().getCenterBlock();
           var c = child.getPlot().getCenterBlock();
-          if (dev.fourthdimension.vehicle.SuspendedVehicle.is(vehicle)) {
+          if (dev.fourthdimension.vehicle.FlyingVehicle.is(vehicle)) {
+            handle=dev.fourthdimension.vehicle.FlyingRuntime.createJoint(parent,child,carrier);
+          } else if (dev.fourthdimension.vehicle.SuspendedVehicle.is(vehicle)) {
             var generic=pipeline.addConstraint(parent,child,new GenericConstraintConfiguration(
                 new Vector3d(p.getX()+.5+carrier.side,p.getY()+.5+carrier.pivotHeight,p.getZ()+.5+carrier.longitudinal),
                 new Vector3d(c.getX()+.5+carrier.childPivotX,c.getY()+.5+carrier.childPivotOffset,c.getZ()+.5+carrier.childPivotZ),
@@ -246,6 +252,16 @@ public final class CarrierRuntime {
                 .getAngularVelocity(child, new Vector3d())
                 .sub(pipeline.getAngularVelocity(parent, new Vector3d()))
                 .dot(axis);
+        if (dev.fourthdimension.vehicle.AxisVehicle.is(vehicle)) {
+          dev.fourthdimension.vehicle.NativeLoading.update(child,vehicle,carrier);
+          dev.fourthdimension.vehicle.AxisRuntime.update(level,parent,child,vehicle,carrier,rail,(RotaryConstraintHandle)handle,event.getTimeStep());
+          carrierNanos += System.nanoTime()-carrierStart; continue;
+        }
+        if (dev.fourthdimension.vehicle.FlyingVehicle.is(vehicle)) {
+          dev.fourthdimension.vehicle.NativeLoading.update(child,vehicle,carrier);
+          dev.fourthdimension.vehicle.FlyingRuntime.update(level,parent,child,vehicle,carrier,rail,(GenericConstraintHandle)handle,event.getTimeStep());
+          carrierNanos += System.nanoTime()-carrierStart; continue;
+        }
         if (dev.fourthdimension.vehicle.SpinningVehicle.is(vehicle)) {
           dev.fourthdimension.vehicle.NativeLoading.update(child, vehicle, carrier);
           dev.fourthdimension.vehicle.SpinningRuntime.update(level, parent, child, vehicle, carrier,

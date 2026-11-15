@@ -80,6 +80,8 @@ public final class ProfileEditor {
       if (neighbor != rail && neighbor.valid && neighbor.adjacent(rail)) {
         if (!neighbor.variant.equals(rail.variant))
           throw new IllegalArgumentException("Incompatible family at junction");
+        if (rail.family == dev.fourthdimension.contract.Family.AXIS
+            && (rail.axisMode != dev.fourthdimension.vehicle.AxisState.Mode.DRIVE || neighbor.axisMode != dev.fourthdimension.vehicle.AxisState.Mode.DRIVE)) continue;
         for (var endpoint : List.of(rail.from, rail.to))
           if (endpoint.equals(neighbor.from) || endpoint.equals(neighbor.to)) {
             var a =
@@ -90,7 +92,9 @@ public final class ProfileEditor {
                     : neighbor.profile.keys().getLast();
             double aOut = endpoint.equals(rail.from) ? a.slope() : -a.slope();
             double bOut = endpoint.equals(neighbor.from) ? b.slope() : -b.slope();
-            if (Math.abs(a.angle() - b.angle()) > 1e-7 || Math.abs(aOut + bOut) > 1e-7)
+            double angleError=a.angle()-b.angle();
+            if(rail.family == dev.fourthdimension.contract.Family.AXIS) angleError=Math.atan2(Math.sin(angleError),Math.cos(angleError));
+            if (Math.abs(angleError) > 1e-7 || Math.abs(aOut + bOut) > 1e-7)
               throw new IllegalArgumentException(
                   "Junction must match unwrapped angle, rail displacement and slope");
           }

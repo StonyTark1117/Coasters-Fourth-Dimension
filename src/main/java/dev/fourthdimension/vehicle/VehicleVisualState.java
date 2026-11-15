@@ -15,7 +15,7 @@ public final class VehicleVisualState {
     var container = SubLevelContainer.getContainer(level);
     if (container == null) return;
     for (var v : FoundationData.get(level).vehicles.values())
-      if (!FoundationData.VARIANT.equals(v.variant)) {
+      if (!FoundationData.VARIANT.equals(v.variant) && !FlyingVehicle.is(v)) {
         for (var c : v.carriers) {
           var body = container.getSubLevel(c.body);
           if (body == null) continue;

@@ -11,6 +11,13 @@ public final class VehicleParts {
 
   public static final DeferredRegister.Blocks BLOCKS =
       DeferredRegister.createBlocks(FourthDimension.ID);
+  public static final DeferredBlock<AxisSeatBlock> AXIS_SEAT = BLOCKS.register("axis_seat", () -> new AxisSeatBlock(BlockBehaviour.Properties.of().strength(3).noOcclusion()));
+  public static final DeferredBlock<AxisFrameBlock> AXIS_FRAME = BLOCKS.register("axis_frame", () -> new AxisFrameBlock(BlockBehaviour.Properties.of().strength(4).noOcclusion().noCollission()));
+  public static final DeferredBlock<AxisKeelBlock> AXIS_KEEL = BLOCKS.register("axis_keel", () -> new AxisKeelBlock(BlockBehaviour.Properties.of().noCollission()));
+  public static final DeferredBlock<FlyingSeatBlock> FLYING_SEAT = BLOCKS.register("flying_seat", () -> new FlyingSeatBlock(BlockBehaviour.Properties.of().strength(3).noOcclusion()));
+  public static final DeferredBlock<FlyingFrameBlock> FLYING_FRAME = BLOCKS.register("flying_frame", () -> new FlyingFrameBlock(BlockBehaviour.Properties.of().strength(4).noOcclusion().noCollission()));
+  public static final DeferredBlock<FlyingLockBlock> FLYING_LOCK = BLOCKS.register("flying_lock", () -> new FlyingLockBlock(BlockBehaviour.Properties.of().strength(4).noOcclusion().noCollission()));
+  public static final DeferredBlock<Block> AXIS_JOURNAL = BLOCKS.register("axis_journal", () -> new MechanicalPartBlock(BlockBehaviour.Properties.of().strength(4).noOcclusion(), Block.box(-3,12,-12,3,16,28)));
   public static final DeferredBlock<FixedInvertedSeatBlock> FIXED_INVERTED_SEAT = BLOCKS.register("fixed_inverted_seat", () -> new FixedInvertedSeatBlock(BlockBehaviour.Properties.of().strength(3).noOcclusion()));
   public static final DeferredBlock<FixedInvertedFrameBlock> FIXED_INVERTED_FRAME = BLOCKS.register("fixed_inverted_frame", () -> new FixedInvertedFrameBlock(BlockBehaviour.Properties.of().strength(4).noOcclusion().noCollission()));
   public static final DeferredBlock<CarrierSeatBlock> SUSPENDED_SEAT = BLOCKS.register("suspended_seat", () -> new CarrierSeatBlock(BlockBehaviour.Properties.of().strength(3).noOcclusion(),DyeColor.ORANGE));

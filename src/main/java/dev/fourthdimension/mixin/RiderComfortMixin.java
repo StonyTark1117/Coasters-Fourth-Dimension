@@ -19,6 +19,7 @@ public abstract class RiderComfortMixin {
   private static void fourthdimension$comfort(Entity entity,
       Function<SubLevel, Pose3dc> pose, float partialTick,
       EntitySubLevelRotationHelper.Type type, CallbackInfoReturnable<Quaterniond> callback) {
-    callback.setReturnValue(RiderComfort.orientation(entity, type, callback.getReturnValue()));
+    var neutral=dev.fourthdimension.vehicle.FlyingRiderPose.orientation(entity,pose,type,callback.getReturnValue());
+    callback.setReturnValue(RiderComfort.orientation(entity, type, neutral));
   }
 }

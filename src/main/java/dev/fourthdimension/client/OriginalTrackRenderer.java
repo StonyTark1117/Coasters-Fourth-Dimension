@@ -274,7 +274,7 @@ public final class OriginalTrackRenderer {
       };
       if (previous != null) {
         for (int rail = 0; rail < 5; rail++) {
-          if ((rail == 2 || rail == 3) && !design.family.driven()) continue;
+          if ((rail == 2 || rail == 3) && design.family != dev.fourthdimension.contract.Family.ARROW) continue;
           if (rail == 4
               && !ownership.originalOwns(
                   dev.fourthdimension.integration.TrackRenderOwnership.Component.SPINE)) continue;
@@ -357,7 +357,7 @@ public final class OriginalTrackRenderer {
                 decorationColor);
         }
         for (int side = 0; side < 2; side++) {
-          if (design.family.driven())
+          if (design.family == dev.fourthdimension.contract.Family.ARROW)
             tube(
                 result,
                 points[side + 2],

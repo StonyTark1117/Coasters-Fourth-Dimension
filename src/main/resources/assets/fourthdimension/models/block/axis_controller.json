@@ -1,0 +1,215 @@
+{
+  "textures": {
+    "cushion": "minecraft:block/cyan_concrete",
+    "metal": "minecraft:block/iron_block",
+    "bar": "minecraft:block/black_concrete",
+    "accent": "minecraft:block/yellow_concrete",
+    "particle": "minecraft:block/cyan_concrete"
+  },
+  "elements": [
+    {
+      "from": [
+        3,
+        0,
+        3
+      ],
+      "to": [
+        13,
+        10,
+        13
+      ],
+      "faces": {
+        "north": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            10,
+            10
+          ]
+        },
+        "south": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            10,
+            10
+          ]
+        },
+        "east": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            10,
+            10
+          ]
+        },
+        "west": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            10,
+            10
+          ]
+        },
+        "up": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            10,
+            10
+          ]
+        },
+        "down": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            10,
+            10
+          ]
+        }
+      }
+    },
+    {
+      "from": [
+        0,
+        9.4,
+        0
+      ],
+      "to": [
+        16,
+        12.6,
+        16
+      ],
+      "faces": {
+        "north": {
+          "texture": "#cushion",
+          "uv": [
+            0,
+            0,
+            16,
+            3.1999999999999993
+          ]
+        },
+        "south": {
+          "texture": "#cushion",
+          "uv": [
+            0,
+            0,
+            16,
+            3.1999999999999993
+          ]
+        },
+        "east": {
+          "texture": "#cushion",
+          "uv": [
+            0,
+            0,
+            16,
+            3.1999999999999993
+          ]
+        },
+        "west": {
+          "texture": "#cushion",
+          "uv": [
+            0,
+            0,
+            16,
+            3.1999999999999993
+          ]
+        },
+        "up": {
+          "texture": "#cushion",
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ]
+        },
+        "down": {
+          "texture": "#cushion",
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ]
+        }
+      }
+    },
+    {
+      "from": [
+        4,
+        12.6,
+        4
+      ],
+      "to": [
+        12,
+        15,
+        12
+      ],
+      "faces": {
+        "north": {
+          "texture": "#accent",
+          "uv": [
+            0,
+            0,
+            8,
+            2.4000000000000004
+          ]
+        },
+        "south": {
+          "texture": "#accent",
+          "uv": [
+            0,
+            0,
+            8,
+            2.4000000000000004
+          ]
+        },
+        "east": {
+          "texture": "#accent",
+          "uv": [
+            0,
+            0,
+            8,
+            2.4000000000000004
+          ]
+        },
+        "west": {
+          "texture": "#accent",
+          "uv": [
+            0,
+            0,
+            8,
+            2.4000000000000004
+          ]
+        },
+        "up": {
+          "texture": "#accent",
+          "uv": [
+            0,
+            0,
+            8,
+            8
+          ]
+        },
+        "down": {
+          "texture": "#accent",
+          "uv": [
+            0,
+            0,
+            8,
+            8
+          ]
+        }
+      }
+    }
+  ]
+}

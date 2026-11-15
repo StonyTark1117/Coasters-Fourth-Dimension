@@ -21,6 +21,8 @@ public final class VehicleFactory {
 
   public static FoundationData.Vehicle create(
       ServerLevel level, TrackDesign design, CoasterPathTrackFrame.GraphHit hit) {
+    if (design == TrackDesign.AXIS) return AxisVehicle.create(level, hit);
+    if (design == TrackDesign.FLYING) return FlyingVehicle.create(level, hit);
     if (design == TrackDesign.FIXED_INVERTED) return FixedInvertedVehicle.create(level, hit);
     if (design == TrackDesign.SUSPENDED) return SuspendedVehicle.create(level, hit);
     if (design == TrackDesign.SPINNING) return SpinningVehicle.create(level, hit);
@@ -171,6 +173,8 @@ public final class VehicleFactory {
                   case FREE_SPIN -> VehicleParts.FREE_SPIN_SEAT.get();
                   case REVISED -> VehicleParts.REVISED_SEAT.get();
                   case PAX -> VehicleParts.PAX_SEAT.get();
+                  case AXIS -> VehicleParts.AXIS_SEAT.get();
+                  case FLYING -> VehicleParts.FLYING_SEAT.get();
                   case SPINNING -> VehicleParts.SPINNING_SEAT.get();
                   case SUSPENDED -> VehicleParts.SUSPENDED_SEAT.get();
                   case FIXED_INVERTED -> VehicleParts.FIXED_INVERTED_SEAT.get();

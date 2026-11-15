@@ -76,6 +76,8 @@ public final class SurvivalBuildingGameTests {
       case SPINNING -> TrackItems.SPINNING.get();
       case SUSPENDED -> TrackItems.SUSPENDED.get();
       case FIXED_INVERTED -> TrackItems.FIXED_INVERTED.get();
+      case AXIS -> TrackItems.AXIS.get();
+      case FLYING -> TrackItems.FLYING.get();
     };
   }
 
@@ -89,6 +91,8 @@ public final class SurvivalBuildingGameTests {
       case SPINNING -> TrackItems.SPINNING_CAR.get();
       case SUSPENDED -> TrackItems.SUSPENDED_CAR.get();
       case FIXED_INVERTED -> TrackItems.FIXED_INVERTED_CAR.get();
+      case AXIS -> TrackItems.AXIS_CAR.get();
+      case FLYING -> TrackItems.FLYING_CAR.get();
     };
   }
 

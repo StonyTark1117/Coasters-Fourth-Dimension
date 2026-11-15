@@ -38,6 +38,9 @@ public final class FourthDimension {
     NeoForge.EVENT_BUS.addListener(dev.fourthdimension.track.ExampleLayouts::register);
     NeoForge.EVENT_BUS.addListener(dev.fourthdimension.vehicle.WingExamples::register);
     NeoForge.EVENT_BUS.addListener(dev.fourthdimension.vehicle.SpinningExamples::register);
+    NeoForge.EVENT_BUS.addListener(dev.fourthdimension.vehicle.AxisExamples::register);
+    NeoForge.EVENT_BUS.addListener(dev.fourthdimension.vehicle.FlyingExamples::register);
+    NeoForge.EVENT_BUS.addListener(dev.fourthdimension.vehicle.FlyingExamples::tick);
     NeoForge.EVENT_BUS.addListener(dev.fourthdimension.vehicle.FixedInvertedExamples::register);
     NeoForge.EVENT_BUS.addListener(dev.fourthdimension.vehicle.FixedInvertedExamples::tick);
     NeoForge.EVENT_BUS.addListener(dev.fourthdimension.vehicle.SuspendedExamples::register);

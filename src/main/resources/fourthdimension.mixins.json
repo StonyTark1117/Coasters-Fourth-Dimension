@@ -15,7 +15,9 @@
     "ChainDriveGuardMixin",
     "EngineeredMotorGuardMixin",
     "EngineeredAssemblyMixin",
-    "LoadingDependencyMixin"
+    "LoadingDependencyMixin",
+    "FlyingSeatRiderMixin",
+    "AxisSeatRiderMixin"
   ],
   "injectors": {
     "defaultRequire": 1
@@ -31,6 +33,8 @@
     "FontManagerReloadTraceMixin",
     "FontSetReloadTraceMixin",
     "NativeImageUploadTraceMixin",
-    "RiderComfortMixin"
+    "RiderComfortMixin",
+    "FlyingPlayerModelMixin",
+    "FlyingBodyFrameMixin"
   ]
 }

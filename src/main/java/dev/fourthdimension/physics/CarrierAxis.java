@@ -5,7 +5,7 @@ import org.joml.Vector3d;
 
 /** Native plot-local joint axes. The same definition owns creation, sampling and restore. */
 public enum CarrierAxis {
-  X(1, 0, 0), Y(0, 1, 0), Z(0, 0, 1);
+  X(1, 0, 0), Y(0, 1, 0), Z(0, 0, 1), NEGATIVE_Z(0, 0, -1);
 
   private final double x, y, z;
 

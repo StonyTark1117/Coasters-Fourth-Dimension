@@ -1,0 +1,36 @@
+{
+  "variants": {
+    "facing=north,restrained=false": {
+      "model": "fourthdimension:block/axis_seat_0",
+      "y": 0
+    },
+    "facing=east,restrained=false": {
+      "model": "fourthdimension:block/axis_seat_0",
+      "y": 90
+    },
+    "facing=south,restrained=false": {
+      "model": "fourthdimension:block/axis_seat_0",
+      "y": 180
+    },
+    "facing=west,restrained=false": {
+      "model": "fourthdimension:block/axis_seat_0",
+      "y": 270
+    },
+    "facing=north,restrained=true": {
+      "model": "fourthdimension:block/axis_seat_1",
+      "y": 0
+    },
+    "facing=east,restrained=true": {
+      "model": "fourthdimension:block/axis_seat_1",
+      "y": 90
+    },
+    "facing=south,restrained=true": {
+      "model": "fourthdimension:block/axis_seat_1",
+      "y": 180
+    },
+    "facing=west,restrained=true": {
+      "model": "fourthdimension:block/axis_seat_1",
+      "y": 270
+    }
+  }
+}

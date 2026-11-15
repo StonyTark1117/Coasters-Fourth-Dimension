@@ -40,6 +40,14 @@ public final class VehicleLifecycle {
                   if (vehicle.chassis.equals(body.getUniqueId())
                       || vehicle.carriers.stream()
                           .anyMatch(c -> c.body.equals(body.getUniqueId()))) {
+                    if(AxisVehicle.is(vehicle)) {
+                      AxisRuntime.fault(level,vehicle,"Axis native body removed; surviving train retained");
+                      FoundationData.get(level).setDirty();continue;
+                    }
+                    if(FlyingVehicle.is(vehicle)) {
+                      FlyingRuntime.fault(level,vehicle,"Flying native body removed; surviving train retained");
+                      FoundationData.get(level).setDirty();
+                    }
                     if(FixedInvertedVehicle.is(vehicle))
                       FixedInvertedRuntime.fault(level,vehicle,"Fixed Inverted native body removed; surviving train retained");
                     if(SuspendedVehicle.is(vehicle)) {

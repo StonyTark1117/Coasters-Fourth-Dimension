@@ -1,0 +1,7 @@
+data remove block 24 83 124 ChainLiftSpan
+data remove block 24 83 124 ChainLiftShaftAxis
+setblock 24 83 125 air
+data remove block 72 83 124 ChainLiftSpan
+data remove block 72 83 124 ChainLiftShaftAxis
+setblock 72 83 125 air
+data merge block 0 83 100 {ChainLiftSpan:{Kind:"ANCHOR",EndAnchor:26388279476307L,EdgeFrom:0L,EdgeTo:0L,EndT:0.0d},ChainLiftCommittedLength:123.45892679043698d,ChainLiftCommittedSegments:[{TStart:0.0d,TEnd:1.0d,EdgeFrom:409683L,EdgeTo:6597070274643L},{TStart:0.0d,TEnd:1.0d,EdgeFrom:6597070274643L,EdgeTo:19791209807955L},{TStart:0.0d,TEnd:1.0d,EdgeFrom:19791209807955L,EdgeTo:26388279476307L}]}

@@ -91,7 +91,7 @@ whole-JAR equality is not required. Keep the original run identity and limits.
 | 0.4 | FD401–FD404 | Complete 2026-11-15 | Five-family core, recovery and player workflows reconciled at the FD404 development checkpoint; expanded 1.0 qualification remains FD1000. |
 | 0.5 | FD501–FD503; six original discovery IDs; FD1601S, FD1702S, FD1801S, FD1802S, FD1901S; FD1101A–C; FD904C1 | Complete | Specify every 1.0 vehicle, prove Wing-backed extension contracts, establish comfort and reusable tools. Adapter-specific upgrades follow their consumers. |
 | 0.6 | FD1501A–C, FD1301A–C, FD1601A–C, FD601 | Complete 2026-11-15 | S1 conventional free-spinning, Suspended and Fixed Inverted: axes, loading, capture, swing locks and fixed overhead seating. |
-| 0.7 | FD1302A–C, FD1502A–C, FD1801A–C, FD1802A–C, FD1803, FD701 | Planned | Axis/Roller Ball and both Flying variants; New-generation Flying proves scenery-facing yaw in seated and prone postures. |
+| 0.7 | FD1302A–C, FD1502A–C, FD1801A–C, FD1802A–C, FD1803, FD701 | In progress | Axis/Roller Ball and both Flying variants; New-generation Flying proves scenery-facing yaw in seated and prone postures. |
 | 0.8 | FD1401A–C, FD1501D–F, FD1701A, FD1702A–C, FD1901A–C, FD1902, FD810–FD813 | Planned | Pipeline, S2, Dive, Powered Inverted Yaw, required operating authority and agreed Additions/CTNB/Magnetized capabilities. |
 | 0.9 | FD910–FD916 | Planned | Skin, rotating-seat integration, Immersion, Waterparked/Create Coasters coexistence, and model/texture quality across original and added families. |
 | 1.0 alpha | FD1000 | Planned | All adopted vehicle families, variants and 1.0 integrations complete; freeze feature scope and supported profiles. |
@@ -703,7 +703,7 @@ operations. Integrate shared runtime changes one owner at a time.
 
 **Execution steps:** [FD701](docs/roadmap/0.7-complex-motion.md#fd701).
 
-**Status: planned.** **Depends on:** FD601, FD1302A–C, FD1502A–C, FD1803.
+**Status: in progress.** **Depends on:** FD601, FD1302A–C, FD1502A–C, FD1803.
 
 **Done when:** Axis, Roller Ball and both Flying variants complete their specified occupied
 operating cycle, player workflow and distinct interruption/recovery cases.
@@ -1147,7 +1147,7 @@ Completion evidence for A–C: [Wing acceptance](docs/evidence/0.5/wing/README.m
 
 | Delivery task / status | Prerequisites | Steps and completion condition |
 | --- | --- | --- |
-| <a id="fd1101a"></a> **FD1101A Mechanics — complete** [Steps](docs/roadmap/0.5-contracts.md#fd1101a) | FD404, FD501A, FD1101 | Extend fixed-seat eligibility and pose/seat contracts through the actual Wing vehicle; implement normal-track fit, restraints, coupling, placement and ordinary station handling. No rotary mechanism or Arrow profile is inherited. Complete when its specified mechanism, affected native invariants and the shared-contract client handoff pass. |
+| <a id="fd1101a"></a> **FD1101A Mechanics — complete** [Steps](docs/roadmap/0.5-contracts.md#fd1101a) | FD404, FD501A, FD1101 | Extend fixed-seat eligibility and pose/seat contracts through the actual Wing vehicle; implement normal-track fit, restraints, coupling, placement and ordinary station handling. No rotary mechanism or Arrow profile is inherited. Complete when its specified mechanism, affected native invariants and the shared-contract client handoff pass. [Accepted Axis A handoff](docs/evidence/0.7/axis/A-handoff.md). |
 | <a id="fd1101b"></a> **FD1101B Original content — complete** [Steps](docs/roadmap/0.5-contracts.md#fd1101b) | FD1101 specification and stable A dimensions | Finish original vehicle/required track assets, restraints, item/recipe content, guide and a playable example. Complete when content represents the implemented behavior and normal player controls. |
 | <a id="fd1101c"></a> **FD1101C Player acceptance — complete** [Steps](docs/roadmap/0.5-contracts.md#fd1101c) | FD1101A, FD1101B | Complete normal construction/boarding/operation/capture/unload for the declared example; combine accepted mechanics, eligibility, clearance, persistence and rider-synchronization evidence. Add only distinct interruption or camera cases. Complete when the whole feature is usable and documented; do not restart acceptance for an unrelated build. |
 
@@ -1245,8 +1245,8 @@ free-spinning variant. Do not silently promote it into the 1.0 gate.
 
 | Delivery task / status | Prerequisites | Steps and completion condition |
 | --- | --- | --- |
-| <a id="fd1302a"></a> **FD1302A Mechanics — planned** [Steps](docs/roadmap/0.7-complex-motion.md#fd1302a) | FD501A, FD1501A, FD1301A, FD1302 | Implement the selected Axis rotation/modes, off-axis inertia, propulsion ownership, capture and clearance, using the established motion infrastructure without equating Axis with Suspended. Complete when its specified mechanism, affected native invariants and the shared-contract client handoff pass. |
-| <a id="fd1302b"></a> **FD1302B Original content — planned** [Steps](docs/roadmap/0.7-complex-motion.md#fd1302b) | FD1302 specification and stable A dimensions | Finish original vehicle/required track assets, restraints, item/recipe content, guide and a playable example. Complete when content represents the implemented behavior and normal player controls. |
+| <a id="fd1302a"></a> **FD1302A Mechanics — complete** [Steps](docs/roadmap/0.7-complex-motion.md#fd1302a) | FD501A, FD1501A, FD1301A, FD1302 | Implement the selected Axis rotation/modes, off-axis inertia, propulsion ownership, capture and clearance, using the established motion infrastructure without equating Axis with Suspended. Complete when its specified mechanism, affected native invariants and the shared-contract client handoff pass. |
+| <a id="fd1302b"></a> **FD1302B Original content — in progress** [Steps](docs/roadmap/0.7-complex-motion.md#fd1302b) | FD1302 specification and stable A dimensions | Finish original vehicle/required track assets, restraints, item/recipe content, guide and a playable example. Complete when content represents the implemented behavior and normal player controls. |
 | <a id="fd1302c"></a> **FD1302C Player acceptance — planned** [Steps](docs/roadmap/0.7-complex-motion.md#fd1302c) | FD1302A, FD1302B | Complete normal construction/boarding/operation/capture/unload for the declared example; combine accepted mechanics, eligibility, clearance, persistence and rider-synchronization evidence. Add only distinct interruption or camera cases. Complete when the whole feature is usable and documented; do not restart acceptance for an unrelated build. |
 
 ### FD1502 Roller Ball coaster discovery
@@ -1412,9 +1412,9 @@ for Flying. FD1901A may consume it as soon as that handoff is integrated into
 
 | Package / status | Actual prerequisites | Ordered work and completion condition |
 | --- | --- | --- |
-| <a id="fd1801"></a> **FD1801 Conventional Flying outcome — planned** [Steps](docs/roadmap/0.7-complex-motion.md#fd1801) | FD1801C | Close this variant from A–C evidence independently of the New-generation variant. |
-| <a id="fd1801a"></a> **FD1801A Conventional Flying mechanics — planned** [Steps](docs/roadmap/0.7-complex-motion.md#fd1801a) | FD1801S, FD1601A; integrated seat/restraint/camera contracts | Implement the specified seated/prone transforms, pivot, station changeover, locks, running gear and clearance. Complete changeover/dispatch/unload and interrupted-transition recovery; prove occupied prone motion and camera restoration. |
-| <a id="fd1801b"></a> **FD1801B Conventional Flying content — planned** [Steps](docs/roadmap/0.7-complex-motion.md#fd1801b) | Stable FD1801A specification/dimensions | Deliver original vehicle/restraint/station assets, recipes, controls, guide and example with the required pose-specific visual checks. |
+| <a id="fd1801"></a> **FD1801 Conventional Flying outcome — in progress** [Steps](docs/roadmap/0.7-complex-motion.md#fd1801) | FD1801C | Close this variant from A–C evidence independently of the New-generation variant. |
+| <a id="fd1801a"></a> **FD1801A Conventional Flying mechanics — in progress** [Steps](docs/roadmap/0.7-complex-motion.md#fd1801a) | FD1801S, FD1601A; integrated seat/restraint/camera contracts | Implement the specified seated/prone transforms, pivot, station changeover, locks, running gear and clearance. Complete changeover/dispatch/unload and interrupted-transition recovery; prove occupied prone motion and camera restoration. |
+| <a id="fd1801b"></a> **FD1801B Conventional Flying content — in progress** [Steps](docs/roadmap/0.7-complex-motion.md#fd1801b) | Stable FD1801A specification/dimensions | Deliver original vehicle/restraint/station assets, recipes, controls, guide and example with the required pose-specific visual checks. |
 | <a id="fd1801c"></a> **FD1801C Conventional Flying acceptance — planned** [Steps](docs/roadmap/0.7-complex-motion.md#fd1801c) | FD1801A, FD1801B | Close seated boarding, changeover, prone ride, return/unload and distinct interruption cases. Keep this variant closed while New-generation work proceeds. |
 | <a id="fd1802"></a> **FD1802 New-generation Flying outcome — planned** [Steps](docs/roadmap/0.7-complex-motion.md#fd1802) | FD1802C | Close the full sub-variant from A–C evidence; discovery or upright-only targeting is insufficient. |
 | <a id="fd1802a"></a> **FD1802A New-generation Flying and shared yaw mechanics — planned** [Steps](docs/roadmap/0.7-complex-motion.md#fd1802a) | FD1802S, FD1801A; integrated profile, marker binding and pose contracts (extend within this package where needed) | Implement the specified seated/sideways sections, route-based posture transitions, yaw pivot/frame and posture composition. Deliver the shared yaw requirements below and prove occupied scenery-facing behavior in both seated and prone states, transitions and distinct synchronization/failure cases. Supply the reusable handoff through this real vehicle. |

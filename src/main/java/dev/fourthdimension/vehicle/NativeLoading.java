@@ -66,6 +66,7 @@ public final class NativeLoading {
           MASS_PER_RIDER * passengers.size()
               + (vehicle.ballast + carrier.ballast) / (100 * carrier.seats.size()));
     }
+    if(AxisVehicle.is(vehicle)) desired.put(child.getPlot().getCenterBlock().offset(0,-1,0),1.0);
     if(SuspendedVehicle.is(vehicle)) desired.put(child.getPlot().getCenterBlock().offset(0,-2,0),1.0);
     var positions = new HashSet<>(applied.masses.keySet());
     positions.addAll(desired.keySet());
@@ -74,7 +75,9 @@ public final class NativeLoading {
       double delta = desired.getOrDefault(pos, 0.0) - applied.masses.getOrDefault(pos, 0.0);
       if (Math.abs(delta) > 1e-9) {
         tracker.addBlockMass(
-            level, SuspendedVehicle.is(vehicle) && pos.equals(child.getPlot().getCenterBlock().offset(0,-2,0))
+            level, AxisVehicle.is(vehicle) && pos.equals(child.getPlot().getCenterBlock().offset(0,-1,0))
+                ? VehicleParts.AXIS_KEEL.get().defaultBlockState() : FlyingVehicle.is(vehicle)
+                ? VehicleParts.FLYING_SEAT.get().defaultBlockState() : SuspendedVehicle.is(vehicle) && pos.equals(child.getPlot().getCenterBlock().offset(0,-2,0))
                 ? VehicleParts.SUSPENDED_KEEL.get().defaultBlockState() : FixedInvertedVehicle.is(vehicle)
                 ? VehicleParts.FIXED_INVERTED_SEAT.get().defaultBlockState() : SpinningVehicle.is(vehicle)
                 ? SpinningSeatBlock.state(pos.below().subtract(child.getPlot().getCenterBlock()))
