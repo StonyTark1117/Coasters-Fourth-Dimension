@@ -52,7 +52,7 @@ public final class NativeLoading {
       var seat = child.getPlot().getCenterBlock().offset(offset);
       var passengers =
           level.getEntitiesOfClass(SeatEntity.class, new AABB(seat)).stream()
-              .filter(s -> !(PipelineVehicle.is(vehicle)||FixedInvertedVehicle.is(vehicle)) || s.blockPosition().equals(seat))
+              .filter(s -> !(DiveVehicle.is(vehicle)||PipelineVehicle.is(vehicle)||FixedInvertedVehicle.is(vehicle)) || s.blockPosition().equals(seat))
               .flatMap(s -> s.getPassengers().stream().filter(p -> p.getVehicle() == s))
               .toList();
       for (var passenger : passengers) {
@@ -77,7 +77,7 @@ public final class NativeLoading {
       double delta = desired.getOrDefault(pos, 0.0) - applied.masses.getOrDefault(pos, 0.0);
       if (Math.abs(delta) > 1e-9) {
         tracker.addBlockMass(
-            level, PipelineVehicle.is(vehicle) ? VehicleParts.PIPELINE_SEAT.get().defaultBlockState().setValue(PipelineSeatBlock.RIGHT,pos.getX()>child.getPlot().getCenterBlock().getX()).setValue(PipelineSeatBlock.REAR,pos.getZ()>child.getPlot().getCenterBlock().getZ()) : AxisVehicle.is(vehicle) && pos.equals(child.getPlot().getCenterBlock().offset(0,-1,0))
+            level, DiveVehicle.is(vehicle) ? DiveContent.SEAT.get().defaultBlockState() : PipelineVehicle.is(vehicle) ? VehicleParts.PIPELINE_SEAT.get().defaultBlockState().setValue(PipelineSeatBlock.RIGHT,pos.getX()>child.getPlot().getCenterBlock().getX()).setValue(PipelineSeatBlock.REAR,pos.getZ()>child.getPlot().getCenterBlock().getZ()) : AxisVehicle.is(vehicle) && pos.equals(child.getPlot().getCenterBlock().offset(0,-1,0))
                 ? VehicleParts.AXIS_KEEL.get().defaultBlockState() : RollerBallVehicle.is(vehicle)
                 ? (pos.equals(child.getPlot().getCenterBlock()) ? VehicleParts.ROLLER_BALL_BALLAST.get().defaultBlockState() : VehicleParts.ROLLER_BALL_SEAT.get().defaultBlockState().setValue(RollerBallSeatBlock.LEFT,pos.getX()<child.getPlot().getCenterBlock().getX())) : NewGenerationFlyingVehicle.is(vehicle)
                 ? VehicleParts.NEW_GENERATION_FLYING_SEAT.get().defaultBlockState() : FlyingVehicle.is(vehicle)

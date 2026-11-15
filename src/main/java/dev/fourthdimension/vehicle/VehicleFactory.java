@@ -21,6 +21,7 @@ public final class VehicleFactory {
 
   public static FoundationData.Vehicle create(
       ServerLevel level, TrackDesign design, CoasterPathTrackFrame.GraphHit hit) {
+    if (design == TrackDesign.DIVE) return DiveVehicle.create(level, hit);
     if (design == TrackDesign.PIPELINE) return PipelineVehicle.create(level, hit);
     if (design == TrackDesign.NEW_GENERATION_FLYING) return NewGenerationFlyingVehicle.create(level, hit);
     if (design == TrackDesign.ROLLER_BALL) return RollerBallVehicle.create(level, hit);
@@ -179,7 +180,7 @@ public final class VehicleFactory {
                   case PAX -> VehicleParts.PAX_SEAT.get();
                   case AXIS -> VehicleParts.AXIS_SEAT.get();
                   case FLYING -> VehicleParts.FLYING_SEAT.get();
-                  case PIPELINE, S2_SPINNING -> throw new IllegalStateException("Vehicle uses its dedicated factory");
+                  case DIVE, PIPELINE, S2_SPINNING -> throw new IllegalStateException("Vehicle uses its dedicated factory");
                   case ROLLER_BALL -> throw new IllegalStateException("Roller Ball uses its own factory");
                   case NEW_GENERATION_FLYING -> throw new IllegalStateException("Compound Flying uses its own factory");
                   case SPINNING -> VehicleParts.SPINNING_SEAT.get();

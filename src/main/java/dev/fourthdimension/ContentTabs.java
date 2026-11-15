@@ -21,6 +21,7 @@ public final class ContentTabs {
                   .displayItems(
                       (parameters, output) -> {
                         TrackItems.ITEMS.getEntries().forEach(item -> output.accept(item.get()));
+                        dev.fourthdimension.vehicle.DiveContent.ITEMS.getEntries().forEach(item -> output.accept(item.get()));
                         dev.fourthdimension.vehicle.S2SpinningContent.ITEMS.getEntries().forEach(item -> output.accept(item.get()));
                         output.accept(dev.fourthdimension.vehicle.YawMarkers.ITEM.get());
                       })

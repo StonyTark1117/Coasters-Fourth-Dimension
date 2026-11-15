@@ -123,6 +123,10 @@ public final class BoardingStation extends BaseEntityBlock {
         return InteractionResult.FAIL;
       }
     }
+    if (rebinding && dev.fourthdimension.vehicle.DiveVehicle.is(v)) {
+      try { dev.fourthdimension.vehicle.DiveRuntime.rebindDock(server.serverLevel(),v,pos); }
+      catch (IllegalArgumentException denied) { server.displayClientMessage(net.minecraft.network.chat.Component.literal(denied.getMessage()), true); return net.minecraft.world.InteractionResult.FAIL; }
+    }
     if (rebinding && dev.fourthdimension.vehicle.PipelineVehicle.is(v)) {
       try { dev.fourthdimension.vehicle.PipelineRuntime.rebindDock(server.serverLevel(),v,pos); }
       catch (IllegalArgumentException rejected) { player.displayClientMessage(Component.literal(rejected.getMessage()),true); return InteractionResult.FAIL; }

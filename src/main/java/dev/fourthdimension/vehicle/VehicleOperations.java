@@ -100,6 +100,7 @@ public final class VehicleOperations {
     }
     if (vehicle.authority.owner != null) dev.fourthdimension.integration.RideAuthority.emergencyHold(level,vehicle);
     if (S2SpinningVehicle.is(vehicle)) { S2SpinningRuntime.capture(level,vehicle); return; }
+    if (DiveVehicle.is(vehicle)) DiveRuntime.acknowledge(level,vehicle);
     if (PipelineVehicle.is(vehicle)) PipelineRuntime.acknowledge(level,vehicle);
     if (RollerBallVehicle.is(vehicle)) { RollerBallRuntime.capture(level,vehicle); return; }
     if (NewGenerationFlyingVehicle.is(vehicle)) { NewGenerationFlyingRuntime.capture(level,vehicle); return; }
@@ -222,6 +223,7 @@ public final class VehicleOperations {
       if(RollerBallVehicle.is(v))v.roller.routeHash=RollerBallTrack.validateRoute(level,v);
       if (AxisVehicle.is(v)) AxisRuntime.rememberConsist(level,v);
       if (FixedInvertedVehicle.is(v)) FixedInvertedRuntime.rememberConsist(level, v);
+      if (DiveVehicle.is(v)) DiveRuntime.rememberConsist(level,v);
       if (PipelineVehicle.is(v)) PipelineRuntime.rememberConsist(level,v);
       if (S2SpinningVehicle.is(v)) S2SpinningRuntime.dispatched(level,v);
       if(SuspendedVehicle.is(v)) {

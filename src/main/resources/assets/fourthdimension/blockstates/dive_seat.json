@@ -1,0 +1,28 @@
+{
+  "variants": {
+    "facing=north,restrained=false": {
+      "model": "fourthdimension:block/dive_seat_open"
+    },
+    "facing=north,restrained=true": {
+      "model": "fourthdimension:block/dive_seat_closed"
+    },
+    "facing=south,restrained=false": {
+      "model": "fourthdimension:block/dive_seat_open"
+    },
+    "facing=south,restrained=true": {
+      "model": "fourthdimension:block/dive_seat_closed"
+    },
+    "facing=east,restrained=false": {
+      "model": "fourthdimension:block/dive_seat_open"
+    },
+    "facing=east,restrained=true": {
+      "model": "fourthdimension:block/dive_seat_closed"
+    },
+    "facing=west,restrained=false": {
+      "model": "fourthdimension:block/dive_seat_open"
+    },
+    "facing=west,restrained=true": {
+      "model": "fourthdimension:block/dive_seat_closed"
+    }
+  }
+}

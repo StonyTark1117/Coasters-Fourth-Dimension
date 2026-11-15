@@ -59,6 +59,7 @@ public final class Boarding {
     if (AxisVehicle.is(vehicle)) return AxisRuntime.ready(level,parent,vehicle);
     if (NewGenerationFlyingVehicle.is(vehicle)) return NewGenerationFlyingRuntime.ready(level,parent,vehicle);
     if (FlyingVehicle.is(vehicle)) return FlyingRuntime.ready(level,parent,vehicle);
+    if (DiveVehicle.is(vehicle)) return DiveRuntime.ready(level,parent,vehicle);
     if (PipelineVehicle.is(vehicle)) return PipelineRuntime.ready(level,parent,vehicle);
     if (FixedInvertedVehicle.is(vehicle)) return FixedInvertedRuntime.ready(level, parent, vehicle);
     if (SuspendedVehicle.is(vehicle)) return SuspendedRuntime.ready(level, parent, vehicle);
@@ -75,7 +76,7 @@ public final class Boarding {
 
   public static boolean seatOccupied(Level level, BlockPos pos) {
     var binding=at(level,pos);
-    if(binding==null||!(PipelineVehicle.is(binding.vehicle)||FixedInvertedVehicle.is(binding.vehicle)))
+    if(binding==null||!(DiveVehicle.is(binding.vehicle)||PipelineVehicle.is(binding.vehicle)||FixedInvertedVehicle.is(binding.vehicle)))
       return com.simibubi.create.content.contraptions.actors.seat.SeatBlock.isSeatOccupied(level,pos);
     return level.getEntitiesOfClass(com.simibubi.create.content.contraptions.actors.seat.SeatEntity.class,
         new net.minecraft.world.phys.AABB(pos)).stream().anyMatch(s->s.blockPosition().equals(pos)&&s.isVehicle());
@@ -108,6 +109,9 @@ public final class Boarding {
           && !canBoard(level, seat.blockPosition())) {
         event.setCanceled(true);
         return;
+      }
+      if (DiveVehicle.is(binding.vehicle)) {
+        var pos=seat.blockPosition();seat.setPos(pos.getX(),pos.getY()+.4375,pos.getZ()+.5);
       }
       if (FixedInvertedVehicle.is(binding.vehicle)) {
         var pos = seat.blockPosition();

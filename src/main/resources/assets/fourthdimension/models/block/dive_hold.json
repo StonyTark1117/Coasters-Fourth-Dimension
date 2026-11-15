@@ -1,0 +1,284 @@
+{
+  "parent": "minecraft:block/block",
+  "textures": {
+    "seat": "minecraft:block/white_concrete",
+    "metal": "minecraft:block/iron_block",
+    "harness": "minecraft:block/black_concrete",
+    "latch": "minecraft:block/yellow_concrete",
+    "particle": "minecraft:block/white_concrete"
+  },
+  "elements": [
+    {
+      "from": [
+        0,
+        0,
+        0
+      ],
+      "to": [
+        16,
+        12,
+        16
+      ],
+      "faces": {
+        "north": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ]
+        },
+        "south": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ]
+        },
+        "east": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ]
+        },
+        "west": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ]
+        },
+        "up": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ]
+        },
+        "down": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ]
+        }
+      }
+    },
+    {
+      "from": [
+        2,
+        12,
+        2
+      ],
+      "to": [
+        14,
+        14,
+        14
+      ],
+      "faces": {
+        "north": {
+          "texture": "#harness",
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ]
+        },
+        "south": {
+          "texture": "#harness",
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ]
+        },
+        "east": {
+          "texture": "#harness",
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ]
+        },
+        "west": {
+          "texture": "#harness",
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ]
+        },
+        "up": {
+          "texture": "#harness",
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ]
+        },
+        "down": {
+          "texture": "#harness",
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ]
+        }
+      }
+    },
+    {
+      "from": [
+        3,
+        14,
+        3
+      ],
+      "to": [
+        7,
+        15,
+        13
+      ],
+      "faces": {
+        "north": {
+          "texture": "#latch",
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ]
+        },
+        "south": {
+          "texture": "#latch",
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ]
+        },
+        "east": {
+          "texture": "#latch",
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ]
+        },
+        "west": {
+          "texture": "#latch",
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ]
+        },
+        "up": {
+          "texture": "#latch",
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ]
+        },
+        "down": {
+          "texture": "#latch",
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ]
+        }
+      }
+    },
+    {
+      "from": [
+        9,
+        14,
+        3
+      ],
+      "to": [
+        13,
+        15,
+        13
+      ],
+      "faces": {
+        "north": {
+          "texture": "#seat",
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ]
+        },
+        "south": {
+          "texture": "#seat",
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ]
+        },
+        "east": {
+          "texture": "#seat",
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ]
+        },
+        "west": {
+          "texture": "#seat",
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ]
+        },
+        "up": {
+          "texture": "#seat",
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ]
+        },
+        "down": {
+          "texture": "#seat",
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ]
+        }
+      }
+    }
+  ]
+}

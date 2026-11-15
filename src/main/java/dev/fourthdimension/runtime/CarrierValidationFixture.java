@@ -1169,7 +1169,7 @@ public final class CarrierValidationFixture {
       case ZACSPIN -> List.of(TrackDesign.LEGACY);
       case FREE_SPIN -> List.of(TrackDesign.FREE_SPIN);
       case ZACSPIN_REVISED -> List.of(TrackDesign.REVISED);
-      case PIPELINE, ROLLER_BALL, PAX, WING, SPINNING, SUSPENDED, FIXED_INVERTED, AXIS, FLYING -> List.of();
+      case DIVE, PIPELINE, ROLLER_BALL, PAX, WING, SPINNING, SUSPENDED, FIXED_INVERTED, AXIS, FLYING -> List.of();
     };
   }
 

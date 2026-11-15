@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "IRI",
+    "CTC",
+    "IRI"
+  ],
+  "key": {
+    "I": {
+      "tag": "c:ingots/iron"
+    },
+    "R": {
+      "item": "minecraft:redstone"
+    },
+    "C": {
+      "item": "minecraft:copper_ingot"
+    },
+    "T": {
+      "item": "fourthdimension:dive_track"
+    }
+  },
+  "result": {
+    "id": "fourthdimension:dive_hold",
+    "count": 1
+  }
+}

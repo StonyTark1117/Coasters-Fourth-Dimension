@@ -151,6 +151,10 @@ public final class CarrierRuntime {
       vehicleUpdates++;
       physics.updatePose(parent);
       dev.fourthdimension.integration.RideAuthority.tick(level, vehicle, event.getTimeStep());
+      if (dev.fourthdimension.vehicle.DiveVehicle.is(vehicle)) {
+        dev.fourthdimension.vehicle.DiveRuntime.tick(level,parent,vehicle,event.getTimeStep());
+        continue;
+      }
       if (dev.fourthdimension.vehicle.PipelineVehicle.is(vehicle)) {
         dev.fourthdimension.vehicle.PipelineRuntime.tick(level,parent,vehicle,event.getTimeStep());
         continue;

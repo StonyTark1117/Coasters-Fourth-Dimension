@@ -1,0 +1,148 @@
+{
+  "parent": "minecraft:block/block",
+  "textures": {
+    "seat": "minecraft:block/white_concrete",
+    "metal": "minecraft:block/iron_block",
+    "harness": "minecraft:block/black_concrete",
+    "latch": "minecraft:block/yellow_concrete",
+    "particle": "minecraft:block/white_concrete"
+  },
+  "elements": [
+    {
+      "from": [
+        2,
+        4,
+        2
+      ],
+      "to": [
+        14,
+        16,
+        14
+      ],
+      "faces": {
+        "north": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ]
+        },
+        "south": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ]
+        },
+        "east": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ]
+        },
+        "west": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ]
+        },
+        "up": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ]
+        },
+        "down": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ]
+        }
+      }
+    },
+    {
+      "from": [
+        3,
+        12,
+        3
+      ],
+      "to": [
+        13,
+        16,
+        13
+      ],
+      "faces": {
+        "north": {
+          "texture": "#latch",
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ]
+        },
+        "south": {
+          "texture": "#latch",
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ]
+        },
+        "east": {
+          "texture": "#latch",
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ]
+        },
+        "west": {
+          "texture": "#latch",
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ]
+        },
+        "up": {
+          "texture": "#latch",
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ]
+        },
+        "down": {
+          "texture": "#latch",
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ]
+        }
+      }
+    }
+  ]
+}

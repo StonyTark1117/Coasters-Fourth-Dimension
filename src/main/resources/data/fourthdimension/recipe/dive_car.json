@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "SSS",
+    "SSS",
+    "ICT"
+  ],
+  "key": {
+    "S": {
+      "item": "create:red_seat"
+    },
+    "I": {
+      "tag": "c:ingots/iron"
+    },
+    "T": {
+      "item": "fourthdimension:dive_track"
+    },
+    "C": {
+      "item": "simulatedcoasters:coaster_cart"
+    }
+  },
+  "result": {
+    "id": "fourthdimension:dive_car",
+    "count": 1
+  }
+}

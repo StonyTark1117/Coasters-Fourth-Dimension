@@ -75,6 +75,7 @@ public final class RotationEditorScreen extends Screen {
           ? "Fixed seats — ordinary Coasters track" : dev.fourthdimension.vehicle.SpinningVehicle.is(v)
               ? "S1 free spin — matching track and a bound dock" : dev.fourthdimension.vehicle.SuspendedVehicle.is(v)
                   ? "Suspended ±45° — overhead track, lift locks, level dock" : v.damping + "," + v.ballast);
+      if(dev.fourthdimension.vehicle.DiveVehicle.is(v)) value.setValue("Dive: "+v.dive.phase+" | hold "+v.dive.remaining+" ticks");
       value.setTooltip(
           net.minecraft.client.gui.components.Tooltip.create(
               Component.literal(
@@ -116,7 +117,7 @@ public final class RotationEditorScreen extends Screen {
       else if (v.alignmentRequired)
         addButton("Realign matching track", left, top + 160, 26);
       if (free) addButton("Apply tuning", left, top + 134, 16);
-      if (dev.fourthdimension.vehicle.PipelineVehicle.is(v) || dev.fourthdimension.vehicle.S2SpinningVehicle.is(v) || dev.fourthdimension.vehicle.RollerBallVehicle.is(v) || dev.fourthdimension.vehicle.AxisVehicle.is(v) || dev.fourthdimension.vehicle.FlyingVehicle.is(v) || dev.fourthdimension.vehicle.FixedInvertedVehicle.is(v) || dev.fourthdimension.vehicle.SpinningVehicle.is(v) || dev.fourthdimension.vehicle.SuspendedVehicle.is(v))
+      if (dev.fourthdimension.vehicle.DiveVehicle.is(v) || dev.fourthdimension.vehicle.PipelineVehicle.is(v) || dev.fourthdimension.vehicle.S2SpinningVehicle.is(v) || dev.fourthdimension.vehicle.RollerBallVehicle.is(v) || dev.fourthdimension.vehicle.AxisVehicle.is(v) || dev.fourthdimension.vehicle.FlyingVehicle.is(v) || dev.fourthdimension.vehicle.FixedInvertedVehicle.is(v) || dev.fourthdimension.vehicle.SpinningVehicle.is(v) || dev.fourthdimension.vehicle.SuspendedVehicle.is(v))
         addButton("Resume to dock", left, top + 134, 28);
       if (v.recoveryCart == null && v.family.foundationFixture()) {
         recoveryAttach = addButton("Attach recovery", left, top + 212, 20);
