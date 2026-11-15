@@ -2,31 +2,37 @@
 
 Updated 2026-11-14 America/Phoenix. Owner: `01a1dd1d-c6a6-7be0-9cb5-2b033ac550da`.
 Workspace: `/home/braydon/Documents/Coasters: Fourth Dimension`, existing `main`,
-starting HEAD `a4ef96d7`; current lead integration HEAD `f7825405`. Earlier dirty files were inspected and preserved; this
-owner edits this directory, `docs/INTEGRATION-BACKLOG.md`, and dedicated tooling
-only. No staging, commits or branches. Lead granted exclusive creation of
-`src/main/java/dev/fourthdimension/runtime/RuntimePerformanceRecorder.java`;
-all other production files remain lead-owned.
+starting HEAD `a4ef96d7`; current lead integration HEAD `2128ae50`. Earlier dirty
+files remain preserved. No branch, staging or commit was created by this owner.
 
-- **Verified state:** core baseline decision below is ready for FD501A/Wing.
-  FD501 optional decisions/catalog are complete and ready for lead closure;
-  FD502 collector implementation is ready; native event-delivery smoke is
-  assigned to the first useful Wing run.
-- **Exact next action (lead):** call `RuntimePerformanceRecorder.register()`
-  once from `FourthDimension` and enable the properties below for its useful Wing
-  run; return the stopped output files for this owner's event-delivery review.
-- **Last failed condition / changed precondition:** resource smoke first rejected
-  a valid empty-valued `/proc/status` entry. Parser now preserves empty values;
-  the single corrected three-sample check passed. No failed Minecraft attempt.
-- **Evidence:** this record; [dependency decisions](dependency-decisions.md),
-  [dated catalog](catalog-20261114.json), forthcoming tooling disposition. Existing accepted input/world handoff remains
-  `docs/evidence/0.4/fd502-execution-repair-20261113/README.md`.
-- **Runtime:** no Minecraft, display, port or world allocated. The small Java-only
-  recorder check (PID 577999, 128 MiB heap) exited successfully. Temporary
-  owned `fd502-resource-smoke-20261114-server.service` ran `/usr/bin/sleep` only
-  (PID 571287, 64 MiB scope); stopped with `ActiveState=inactive`, `MainPID=0`,
-  `Result=success`. No live owned services remain. No park-performance or
-  compatibility claim is inferred from inspection.
+- **Verified state:** FD501 decisions/catalog are complete. **FD502 complete by
+  cumulative evidence:** accepted input/scenario repair, external resource sampler,
+  Java/JFR check and actual Wing frame/tick delivery all pass. No further test is due.
+- **Exact next action (lead):** integrate the ready collector/scripts/evidence and
+  reconcile canonical FD502/FD503 status using [native delivery acceptance](native-smoke/README.md).
+  Do not repeat dependency research, sampler/JFR checks, Wing event delivery or 0.4 acceptance.
+- **Last failed condition / changed precondition:** the earlier empty-valued
+  `/proc/status` parser issue was fixed and passed once. Native recordings have
+  zero errors/dropped events; no unresolved collector failure.
+- **Evidence:** [dependency decisions](dependency-decisions.md),
+  [catalog](catalog-20261114.json), [tooling disposition](tooling-review.md),
+  [native acceptance/hashes/summary](native-smoke/README.md). Raw source copies
+  match the lead's finalized recordings byte for byte; originals remain unchanged.
+- **Runtime:** no owned client/server/display or lingering service. Prior sampler
+  service and isolated JVM exited (accepted cleanup retained). Lead
+  `01a1dd1d-1468-7f81-8f31-5532ad7a178d` continues Wing at
+  `/home/braydon/.local/state/fourthdimension-runs/fd1101-wing-20261114`, `:310`,
+  ports `25630/25631`, units `fd1101-wing-20261114-*`; its completed collectors
+  were reviewed read-only. No game runtime ownership transfer or stop is requested.
+- **Scope:** collector readiness is closed; FD904B final park, sustained workload,
+  budgets and native-GPU acceptance remain later work. No new park was launched.
+- **Ready files:** this evidence directory, `scripts/fd-resource-sample.py`,
+  `scripts/fd-performance-summary.py`, and the granted
+  `src/main/java/dev/fourthdimension/runtime/RuntimePerformanceRecorder.java`.
+  Lead owns registration/canonical documents and all other shared runtime files.
+
+The sections below retain the decisions and implementation handoff. Their former
+planned event-delivery step is now fulfilled by the linked native acceptance.
 
 ## Core decision — ready for lead
 
@@ -116,8 +122,8 @@ or build pin change is needed for these measurements.
 ## Collector implementation ready — registration contract
 
 The granted single file `RuntimePerformanceRecorder.java` now provides
-`public static synchronized void register()`. **Lead action:** add
-`RuntimePerformanceRecorder.register();` once in `FourthDimension`'s constructor.
+`public static synchronized void register()`. **Lead integration observed:**
+`RuntimePerformanceRecorder.register();` is present in `FourthDimension`'s constructor.
 No mixin/config/build edit is required. No listeners, threads or files are created
 when `fourthdimension.performanceFile` is absent. Client event references live
 in a nested class loaded only for `Dist.CLIENT`; common registration is safe
@@ -153,7 +159,7 @@ time and GC ID. A `complete` footer reports dropped queue events; JFR failures
 produce `collector_error`, and I/O failure leaves an incomplete file. Neither
 counts as acceptance. No explicit GC is requested by the recorder.
 
-The remaining native smoke needs nonzero client `frame`, server `tick`, JVM
+The now-passed native smoke required nonzero client `frame`, server `tick`, JVM
 `heap` records, and interpretable `gc`/`post_gc` if natural collections occurred,
 with completed footer, no collector errors or dropped events. A short window
 without GC is not a failure; raw JFR metadata plus the first natural GC during
@@ -171,4 +177,16 @@ JFR pause records, six post-GC records, complete footer, zero dropped events and
 no collector errors; the Java process exited. Raw `jvm-smoke.jsonl`, sibling
 `.jfr`, log and `jvm-summary.json` are retained. This verifies the actual JFR
 field names/units and final-chunk extraction; it does not claim native Minecraft
-frame/tick delivery, which remains the one useful Wing-run check.
+frame/tick delivery, now verified by the linked native Wing recordings.
+
+## Files ready for lead integration
+
+Owned uncommitted files: `docs/INTEGRATION-BACKLOG.md`, this evidence directory,
+`scripts/fd-resource-sample.py`, `scripts/fd-performance-summary.py`, and the
+granted `src/main/java/dev/fourthdimension/runtime/RuntimePerformanceRecorder.java`.
+No staging or commit performed by this owner. Existing `main`, now at `2128ae50`, is
+retained; all unrelated live changes belong to the lead/specification owner.
+No owned active services, clients, servers or displays remain. FD501 is complete. **FD502 is now complete** through
+[native frame/tick acceptance](native-smoke/README.md) and the earlier compatible
+checks. No dependency audit, collector replay, old-family replay or final park
+benchmark remains in this assignment.

@@ -1,0 +1,16 @@
+{"kind":"manifest","unix_ns":1794711964790048012,"monotonic_ns":456757189502739,"process":"server","collector":"fd-runtime-performance-v1","pid":577999,"java":"21.0.13.0.3","seconds":20,"frame_scope":"Consecutive in-world RenderFrameEvent.Pre CPU intervals, includes pacing; not GPU presentation","tick_scope":"Minecraft native tickServer ring sample, including worlds/status/autosave; excludes idle pacing and Post listeners","gc_scope":"JFR jdk.GCPhasePause duration, not concurrent collection elapsed time","post_gc_scope":"JFR jdk.GCHeapSummary After GC heapUsed, not RSS or allocated heap"}
+{"kind":"heap","unix_ns":1794711970593008479,"monotonic_ns":456762992463206,"process":"server","used_bytes":51136368,"committed_bytes":134217728,"max_bytes":134217728}
+{"kind":"heap","unix_ns":1794711971694403896,"monotonic_ns":456764093858623,"process":"server","used_bytes":51136368,"committed_bytes":134217728,"max_bytes":134217728}
+{"kind":"heap","unix_ns":1794711972695487094,"monotonic_ns":456765094941821,"process":"server","used_bytes":51136368,"committed_bytes":134217728,"max_bytes":134217728}
+{"kind":"post_gc","unix_ns":1794711970585031450,"process":"server","after_bytes":51136368,"gc_id":10}
+{"kind":"post_gc","unix_ns":1794711970554814382,"process":"server","after_bytes":129026072,"gc_id":6}
+{"kind":"gc","unix_ns":1794711970553363333,"process":"server","duration_ns":1451239,"gc_id":6}
+{"kind":"post_gc","unix_ns":1794711970555131380,"process":"server","after_bytes":131282736,"gc_id":7}
+{"kind":"gc","unix_ns":1794711970554910101,"process":"server","duration_ns":221409,"gc_id":7}
+{"kind":"post_gc","unix_ns":1794711970572999103,"process":"server","after_bytes":107761176,"gc_id":8}
+{"kind":"gc","unix_ns":1794711970555135160,"process":"server","duration_ns":17865513,"gc_id":8}
+{"kind":"post_gc","unix_ns":1794711970574038605,"process":"server","after_bytes":109865064,"gc_id":9}
+{"kind":"gc","unix_ns":1794711970573190381,"process":"server","duration_ns":848824,"gc_id":9}
+{"kind":"post_gc","unix_ns":1794711970584928211,"process":"server","after_bytes":51136368,"gc_id":11}
+{"kind":"gc","unix_ns":1794711970574877788,"process":"server","duration_ns":10051553,"gc_id":11}
+{"kind":"complete","unix_ns":1794711973702973255,"monotonic_ns":456766102427982,"process":"server","reason":"isolated_jfr_smoke","rows":15,"dropped_events":0,"lossless":true}

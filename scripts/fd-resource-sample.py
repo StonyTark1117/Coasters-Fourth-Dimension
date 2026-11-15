@@ -56,6 +56,19 @@ def process_sample(pid, expected_group, proc=Path("/proc")):
             "threads": int(status.get("Threads:", "0")), "cgroup": expected_group}
 
 
+def game_pid(state):
+    # Generated launch scripts may keep a shell as MainPID. Measure the actual
+    # game JVM within the verified owned unit, not that shell's tiny RSS/CPU.
+    group = state["ControlGroup"]
+    candidates = []
+    for value in (Path("/sys/fs/cgroup") / group.lstrip("/") / "cgroup.procs").read_text().split():
+        if (Path("/proc") / value / "comm").read_text().strip() == "java":
+            candidates.append(value)
+    if len(candidates) != 1:
+        raise RuntimeError("Expected exactly one game JVM in the owned unit")
+    return candidates[0]
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("run", type=Path)
@@ -74,7 +87,8 @@ def main():
     spec.loader.exec_module(module)
     private = module.PrivateRun(args.run, args.owner)
     initial = {part: private.state(part) for part in args.parts}
-    identities = {part: process_sample(s["MainPID"], s["ControlGroup"])["start_ticks"]
+    game_pids = {part: game_pid(s) for part, s in initial.items()}
+    identities = {part: process_sample(game_pids[part], s["ControlGroup"])["start_ticks"]
                   for part, s in initial.items()}
     output.parent.mkdir(parents=True, exist_ok=True)
     start = time.monotonic()
@@ -82,7 +96,7 @@ def main():
         stream.write(json.dumps({"kind": "manifest", "owner": args.owner,
                                  "run": str(args.run.resolve()), "seconds": args.seconds,
                                  "clock_ticks_per_second": os.sysconf("SC_CLK_TCK"),
-                                 "units": initial, "collector": "fd-resource-sample-v1",
+                                 "units": initial, "game_pids": game_pids, "collector": "fd-resource-sample-v2",
                                  "scope": "process RSS/CPU and cgroup ancestors; no heap/GC/frame claim"}) + "\n")
         for index in range(args.seconds):
             time.sleep(max(0, start + index - time.monotonic()))
@@ -93,7 +107,9 @@ def main():
                 state = private.state(part)
                 if any(state[key] != initial[part][key] for key in ("MainPID", "ControlGroup")):
                     raise RuntimeError("Runtime restarted during sampling; retain the partial record")
-                sample = process_sample(state["MainPID"], state["ControlGroup"])
+                if game_pid(state) != game_pids[part]:
+                    raise RuntimeError("Game JVM restarted during sampling")
+                sample = process_sample(game_pids[part], state["ControlGroup"])
                 if sample["start_ticks"] != identities[part]:
                     raise RuntimeError("PID reused during sampling; retain the partial record")
                 sample["groups"] = cgroup_samples(state["ControlGroup"])

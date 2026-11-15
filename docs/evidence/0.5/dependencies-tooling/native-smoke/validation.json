@@ -1,0 +1,90 @@
+{
+  "scope": "FD502 native event delivery, not FD904B park qualification",
+  "source_run": "/home/braydon/.local/state/fourthdimension-runs/fd1101-wing-20261114",
+  "run_owner": "01a1dd1d-1468-7f81-8f31-5532ad7a178d",
+  "runtime_control": "none; lead continues Wing gameplay",
+  "processes": {
+    "client": {
+      "counts": {
+        "manifest": 1,
+        "heap": 102,
+        "frame": 8705,
+        "post_gc": 50,
+        "gc": 61,
+        "complete": 1
+      },
+      "pid_at_capture": 583632,
+      "java": "21.0.13.0.3",
+      "first_unix_ns": 1794712385250029608,
+      "last_unix_ns": 1794712488281093780,
+      "duration_seconds": 103.031064172,
+      "clock_offset_ns": 1794255207600479324,
+      "checks": "passed: footer counts/loss/errors, process identity, timestamp bounds, positive monotonic order, exact wall/monotonic mapping, nanosecond durations, heap byte consistency",
+      "heap_sample_gap_seconds": {
+        "min": 0.911218363,
+        "median": 1.001608322,
+        "max": 1.128140086
+      },
+      "raw_files": {
+        "client-performance.jsonl": {
+          "source": "/home/braydon/.local/state/fourthdimension-runs/fd1101-wing-20261114/evidence/client-performance.jsonl",
+          "bytes": 1777616,
+          "sha256": "f6cf334a2d008837b5044c5e930277bbc5e359b7976b03e4e064705ace1a90cb"
+        },
+        "client-performance.jsonl.jfr": {
+          "source": "/home/braydon/.local/state/fourthdimension-runs/fd1101-wing-20261114/evidence/client-performance.jsonl.jfr",
+          "bytes": 152477,
+          "sha256": "0f5bcc7499b8d934275300406a1a5f5281b852e49b8ff8c42d8431be1ad32999"
+        }
+      },
+      "screens": {
+        "net.minecraft.client.gui.screens.ReceivingLevelScreen": 3,
+        "none": 8702
+      },
+      "paused_frames": 0,
+      "adjacent_frame_timestamp_vs_duration_abs_error_ns_max": 13909
+    },
+    "server": {
+      "counts": {
+        "manifest": 1,
+        "heap": 115,
+        "tick": 2240,
+        "post_gc": 26,
+        "gc": 32,
+        "complete": 1
+      },
+      "pid_at_capture": 583335,
+      "java": "21.0.13.0.3",
+      "first_unix_ns": 1794712370178819051,
+      "last_unix_ns": 1794712488562388720,
+      "duration_seconds": 118.383569669,
+      "clock_offset_ns": 1794255207600478344,
+      "checks": "passed: footer counts/loss/errors, process identity, timestamp bounds, positive monotonic order, exact wall/monotonic mapping, nanosecond durations, heap byte consistency",
+      "heap_sample_gap_seconds": {
+        "min": 0.994913807,
+        "median": 1.046798584,
+        "max": 1.102081881
+      },
+      "raw_files": {
+        "server-performance.jsonl": {
+          "source": "/home/braydon/.local/state/fourthdimension-runs/fd1101-wing-20261114/evidence/server-performance.jsonl",
+          "bytes": 389496,
+          "sha256": "25742407e2d555c32fbe3562a5e7f823bfe14a099ec159a717ac7b3e29016b6d"
+        },
+        "server-performance.jsonl.jfr": {
+          "source": "/home/braydon/.local/state/fourthdimension-runs/fd1101-wing-20261114/evidence/server-performance.jsonl.jfr",
+          "bytes": 147884,
+          "sha256": "95ae69ef19afb5da942ac886b408edb2b7b6f2794167289c7da5d41d548083f8"
+        }
+      },
+      "tick_sequence": {
+        "first": 1,
+        "last": 2240,
+        "contiguous": true,
+        "ticks_with_connected_player": 1575
+      }
+    }
+  },
+  "collector_source_sha256": "85aa99966a29311da22adfea38fa679fb2a15b41ca395e735c2726c14919b77b",
+  "summarizer_sha256": "382cff212845750a62eebe49d33e5f211a390f52c23e51224064864391ff68db"
+}

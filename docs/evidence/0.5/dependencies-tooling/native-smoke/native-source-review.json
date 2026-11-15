@@ -1,0 +1,7 @@
+{
+  "source_archive": "/home/braydon/.local/state/fourthdimension-runs/fd1101-wing-20261114/build/moddev/artifacts/neoforge-21.1.248-sources.jar",
+  "server_source_sha256": "b906c6597095e206ade6a9db34f76993f667bdf2bfacaeca793ba9ce14e568ed",
+  "client_source_sha256": "10bb994d90796f512da38ace6b1cc0255fbadbd0677c4af3f9d54f76dacf7fae",
+  "server_scope": "Native tickServer duration is populated before Post and includes world/status/autosave work; excludes idle pacing and later Post listeners.",
+  "client_scope": "Consecutive RenderFrameEvent.Pre callbacks delimit CPU frame intervals including intervening render/presentation-call/pacing work; no actual display presentation timestamp."
+}

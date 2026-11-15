@@ -1,0 +1,44 @@
+{
+  "collector_errors": [],
+  "scope": "measurement summary only; no workload, GPU or acceptance certification",
+  "window": {
+    "start_unix_ns": null,
+    "end_unix_ns": null
+  },
+  "sources": {
+    "resource:server": {
+      "rss_bytes": {
+        "count": 3,
+        "median": 4395008,
+        "p95": 4395008,
+        "p99": 4395008,
+        "max": 4395008,
+        "percentile_method": "nearest-rank"
+      },
+      "cgroup_bytes": {
+        "count": 3,
+        "median": 204800,
+        "p95": 204800,
+        "p99": 204800,
+        "max": 204800,
+        "percentile_method": "nearest-rank"
+      },
+      "lifetime_cgroup_peak_bytes": 2359296
+    }
+  },
+  "missing": [
+    "frame",
+    "tick",
+    "gc",
+    "post_gc",
+    "heap"
+  ],
+  "inputs": [
+    {
+      "path": "/home/braydon/Documents/Coasters: Fourth Dimension/docs/evidence/0.5/dependencies-tooling/resource-smoke.jsonl",
+      "rows": 5,
+      "completed_footer": true,
+      "dropped_events": null
+    }
+  ]
+}

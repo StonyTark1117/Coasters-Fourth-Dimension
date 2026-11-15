@@ -627,7 +627,13 @@ still feed FD813/FD915 and FD1000 through their consuming packages.
 
 **Execution steps:** [FD502](docs/roadmap/0.5-contracts.md#fd502).
 
-**Status: in progress — FD403 input/fixture repair complete 2026-11-13; later collector needs remain.** **Depends on:** FD006; changes require a named current blocker.
+**Status: complete (2026-11-14).** **Depends on:** FD006; changes require a named current blocker.
+
+The [native collector acceptance](docs/evidence/0.5/dependencies-tooling/native-smoke/README.md)
+combines the accepted input/fixture/resource checks with completed client frames,
+server ticks, heap and actual JFR GC readback; no dropped rows or collector errors.
+The lead corrected shell-launcher PID sampling to select the owned game JVM and
+verified it during the saved Wing server's flush (see the sampler addendum).
 
 The current narrow assignment and owner are in the [active queue](docs/CURRENT-QUALIFICATION.md#fd403-construction-and-teaching-cases).
 It may run during 0.4: FD404 is not a prerequisite. The executable private

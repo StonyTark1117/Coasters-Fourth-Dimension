@@ -1,0 +1,101 @@
+{
+  "collector_errors": [],
+  "scope": "measurement summary only; no workload, GPU or acceptance certification",
+  "window": {
+    "start_unix_ns": null,
+    "end_unix_ns": null
+  },
+  "sources": {
+    "frame:client": {
+      "count": 8705,
+      "median": 8.410774,
+      "p95": 9.971492,
+      "p99": 10.682867,
+      "max": 2179.575662,
+      "percentile_method": "nearest-rank",
+      "units": "ms",
+      "over_50_ms": 6,
+      "over_100_ms": 4,
+      "measurement": "CPU frame-start intervals; not GPU presentation"
+    },
+    "tick:server": {
+      "count": 2240,
+      "median": 2.1211260000000003,
+      "p95": 3.67617,
+      "p99": 8.833227,
+      "max": 92.723675,
+      "percentile_method": "nearest-rank",
+      "units": "ms",
+      "over_50_ms": 1
+    },
+    "gc:client": {
+      "count": 61,
+      "median": 4.115454,
+      "p95": 14.903854,
+      "p99": 19.248988,
+      "max": 19.248988,
+      "percentile_method": "nearest-rank",
+      "units": "ms",
+      "post_gc_heap_bytes": null
+    },
+    "gc:server": {
+      "count": 32,
+      "median": 5.112216,
+      "p95": 9.268935,
+      "p99": 11.725737,
+      "max": 11.725737,
+      "percentile_method": "nearest-rank",
+      "units": "ms",
+      "post_gc_heap_bytes": null
+    },
+    "post_gc:client": {
+      "count": 50,
+      "median": 572245936.0,
+      "p95": 644811992,
+      "p99": 697303040,
+      "max": 697303040,
+      "percentile_method": "nearest-rank"
+    },
+    "post_gc:server": {
+      "count": 26,
+      "median": 398686612.0,
+      "p95": 461015056,
+      "p99": 470996688,
+      "max": 470996688,
+      "percentile_method": "nearest-rank"
+    },
+    "heap:client": {
+      "count": 102,
+      "median": 751958064.0,
+      "p95": 944071184,
+      "p99": 972355624,
+      "max": 984849392,
+      "percentile_method": "nearest-rank"
+    },
+    "heap:server": {
+      "count": 115,
+      "median": 529296824,
+      "p95": 665611072,
+      "p99": 679243192,
+      "max": 690777528,
+      "percentile_method": "nearest-rank"
+    }
+  },
+  "missing": [
+    "resource"
+  ],
+  "inputs": [
+    {
+      "path": "/home/braydon/Documents/Coasters: Fourth Dimension/docs/evidence/0.5/dependencies-tooling/native-smoke/client-performance.jsonl",
+      "rows": 8920,
+      "completed_footer": true,
+      "dropped_events": 0
+    },
+    {
+      "path": "/home/braydon/Documents/Coasters: Fourth Dimension/docs/evidence/0.5/dependencies-tooling/native-smoke/server-performance.jsonl",
+      "rows": 2415,
+      "completed_footer": true,
+      "dropped_events": 0
+    }
+  ]
+}

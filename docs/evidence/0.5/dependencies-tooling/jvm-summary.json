@@ -1,0 +1,49 @@
+{
+  "collector_errors": [],
+  "scope": "measurement summary only; no workload, GPU or acceptance certification",
+  "window": {
+    "start_unix_ns": null,
+    "end_unix_ns": null
+  },
+  "sources": {
+    "gc:server": {
+      "count": 5,
+      "median": 1.451239,
+      "p95": 17.865513,
+      "p99": 17.865513,
+      "max": 17.865513,
+      "percentile_method": "nearest-rank",
+      "units": "ms",
+      "post_gc_heap_bytes": null
+    },
+    "post_gc:server": {
+      "count": 6,
+      "median": 108813120.0,
+      "p95": 131282736,
+      "p99": 131282736,
+      "max": 131282736,
+      "percentile_method": "nearest-rank"
+    },
+    "heap:server": {
+      "count": 3,
+      "median": 51136368,
+      "p95": 51136368,
+      "p99": 51136368,
+      "max": 51136368,
+      "percentile_method": "nearest-rank"
+    }
+  },
+  "missing": [
+    "frame",
+    "tick",
+    "resource"
+  ],
+  "inputs": [
+    {
+      "path": "/home/braydon/Documents/Coasters: Fourth Dimension/docs/evidence/0.5/dependencies-tooling/jvm-smoke.jsonl",
+      "rows": 16,
+      "completed_footer": true,
+      "dropped_events": 0
+    }
+  ]
+}
