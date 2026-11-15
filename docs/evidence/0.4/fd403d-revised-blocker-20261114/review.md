@@ -605,6 +605,17 @@ combined with the accepted lower-hinge/reopen and teaching records. No external
 hard blocker remains for FD403D; the separate FD403C Free Spin damper case is
 the remaining 0.4 family outcome.
 
+## Runtime cleanup (2026-11-14 UTC)
+
+After FD403D acceptance was complete, the owned runtime was shut down without
+deleting its retained data. `fd403d-revised-20261113-client.service` stopped,
+then `fd403d-revised-20261113-server.service` completed its normal player/world
+and chunk save at 18:34:26 UTC, followed by RCON listener shutdown. The owned
+`:299` Xvfb service was then stopped. The retained root remains
+`/home/braydon/.local/state/fourthdimension-runs/fd403d-revised-20261113`,
+including `server-new`, `client-new`, `build-new`, logs, and evidence. The
+separate FD403C `:260` runtime was not touched.
+
 
 ## Independent completion verification — 2026-11-14
 

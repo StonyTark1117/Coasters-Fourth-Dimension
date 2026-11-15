@@ -24,6 +24,77 @@ FD403A–F and the FD404 aggregate are now reconciled. There is no remaining 0.4
 acceptance queue. The sections below retain case closure records and artifact
 history; they do not assign new work or add acceptance requirements.
 
+### Active 0.5 assignments — 2026-11-15
+
+The user has activated **0.5 only**. Follow the [0.5 execution cards](roadmap/0.5-contracts.md);
+the canonical package criteria and dependencies are unchanged. All nineteen
+cards have an owner below. Assigned dependent work starts when its actual input
+is ready; this is not permission to implement 0.6–0.9 consumers early.
+
+Checkout: `/home/braydon/Documents/Coasters: Fourth Dimension`, branch `main`,
+dispatch HEAD `a4ef96d775b389ae0a5e608ac80a37533c2592ac`. Existing dirty source,
+documentation and untracked evidence are preserved. The new lead first inventories
+and reconciles ready earlier changes, including evidence linked by the 0.4 closure;
+this Git work does not reopen accepted cases or require a new artifact campaign.
+
+| Complete assignment | Named owner / chat | Ready work and handoff | Scope boundary |
+| --- | --- | --- | --- |
+| **FD1101; FD501A; FD1101A–C; FD904C1; FD503** | **0.5 lead — Wing and shared runtime**, `01a1dd1d-1468-7f81-8f31-5532ad7a178d` | Start Wing specification, measured track fit and fixed-seat ownership now. Consume FD501's core decision for FD501A; then deliver Wing mechanics, original content/example and accepted workflow as one outcome. Publish integrated A contracts/occupied evidence before comfort C1. Reconcile FD503 when its named inputs close. Current evidence: `docs/evidence/0.5/wing/`. | Sole shared production-runtime, camera, asset/registration and Git integration owner. No speculative framework or later-family implementation. Wing C reuses A/B evidence. FD503 is reconciliation, not another run. |
+| **FD1501, FD1301, FD1302, FD1502, FD1401, FD1601S, FD1702S, FD1801S, FD1802S, FD1901S** | **0.5 vehicle specifications**, `01a1dd1d-6e99-70d2-aef3-6dcebac10d72` | Resolve the ten remaining vehicle specifications, prioritizing uncertain Pipeline, Roller Ball, Spinning and Axis constraints. Publish each finished specification immediately under `docs/design/0.5/`; retain current handoff/prototypes in `docs/evidence/0.5/specifications/`. | Specifications and necessary feasibility proof only. Wing specification belongs to the lead. No production runtime changes without explicit bounded file ownership transfer. Both Flying variants and physical scenery yaw retain their adopted scope. |
+| **FD501; FD502** | **0.5 dependency decisions and test tooling**, `01a1dd1d-c6a6-7be0-9cb5-2b033ac550da` | Deliver Wing's core baseline decision first, independently of optional adapters. Finish the dated capability/dependency inventory and review existing reusable tooling against named collector needs; repair only demonstrated gaps. Current handoff: `docs/evidence/0.5/dependencies-tooling/`; dependency decisions also in `docs/INTEGRATION-BACKLOG.md`. | FD501A belongs to the lead; FD501B–H implementations remain later-stage work. Existing FD502 repairs remain accepted. Existing sufficient tools can close the remaining disposition by review. Shared runtime edits require an explicit file handoff. |
+
+**Integration and communication:** After this dispatch, the 0.5 lead owns canonical
+`ROADMAP.md`, `PLAN.md` and queue reconciliation, selective staging/commit/push,
+and shared runtime edits. Other owners write their separate package evidence and
+report ready paths/decisions; the coordinator relays concrete handoffs. Avoid
+concurrent edits to these central files. Dependent code consumes integrated `main`
+contracts, not another owner's unfinished changes. The coordinator is
+**Audit and improve roadmap**, `01a1a961-64bb-7701-9a19-2acee5ff23a3`.
+
+**Continuation and monitoring:** Every owner keeps a compact current checkpoint
+at the top of its evidence record: assigned FD IDs, last verified state, exact
+next action, retained evidence, failed condition/changed precondition if relevant,
+and any owned runtime identity. This is a handoff, not another assignment tracker.
+After context reset, start here and at that checkpoint; do not revive historical
+FD403 goals, audit already-closed families, or reread entire historical logs.
+Continue through compatible steps until the existing outcome is complete.
+
+The coordinator checks these three owners every five minutes for substantive
+actions and evidence. Two inconclusive attempts with the same approach require
+diagnosis before retry. If two checks show the same unresolved action without
+concrete progress, inspect the actual logs/code/state before intervening; elapsed
+time alone does not invalidate a long-running useful operation. Intervene on
+repeated setup/aim/connection failures, stopped unfinished work, duplicated
+acceptance, scope drift, demonstrated regressions or abandoned runtimes. Send one
+specific changed action, then verify the resulting action/evidence; do not stack
+unchanged prompts while work is progressing. A new JAR does not reopen a case.
+Name the required criterion and affected change before recording a regression;
+close it after its targeted fix passes without restarting siblings.
+
+An internal dependency is a named prerequisite owned by this team, not an external
+blocker. A setup error or defect within authorized ownership is work to diagnose
+and fix. Call a dependency external only when authorized tools/access cannot
+resolve the named prerequisite; identify the exact human action once and continue
+independent work. A valid prerequisite wait is not abandonment or permission to
+start unrelated tasks.
+
+**Runtime ownership:** No graphical runtime is assigned by this dispatch. Record
+owner, live scope/PIDs, display, port, world/game directory and artifact before a
+run; verify connection, geometry and native target/readbacks before input. Reuse
+`scripts/fd-private-client.py` and current AGENTS Java/storage/memory rules. Check
+host CPU/memory and cgroup headroom, including other owners' jobs. Coordinate
+graphical work with the lead by default; independent private runs still require
+separate owned resources and adequate measured headroom. Save and stop completed
+or abandoned client/server/display services, verify inactive, and preserve worlds
+and evidence; an explicit continuing-owner handoff is the exception. Never stop
+another owner's process based only on its display number or age.
+
+The 0.5 monitor stops after FD503 and required integration/runtime cleanup are
+verified, or when the human stops monitoring. It does not activate 0.6. Notify
+only for meaningful progress, intervention, completion or needed human input.
+
+### Historical 0.4 queue and closure records
+
 Case IDs below are stable children of their owning roadmap task. Open rows identify
 remaining acceptance work; completed rows are retained as closure records. **Unrecorded**
 means this document does not establish a current owner, not that no other agent is

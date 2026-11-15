@@ -25,7 +25,8 @@
     "text": [
       "The Arrow car has four seats on two driven wing carriers. It requires Controlled 4D Track.",
       "This animation illustrates the hinge motion. In a real ride, carriers follow a distance profile while the chassis follows the track.",
-      "Edit keys as distance:degrees[:slope], separated by semicolons. Keep a full turn as 360 degrees, not zero.",
+      "The car follows the profile on its bound section. Edit that section's keys as distance:degrees[:slope], separated by semicolons.",
+      "Keep a full turn as 360 degrees, not zero. Place the car on the section with the profile you authored.",
       "Left and right carriers share the controlled profile. A full turn can continue through any number of revolutions within the supported limits.",
       "Capture and align the carriers before boarding. Close restraints before releasing capture and dispatching."
     ]

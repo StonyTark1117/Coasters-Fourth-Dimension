@@ -163,6 +163,7 @@ final class FourthDimensionScenes {
     text(scene, "arrow", 3, new Vec3(9, 4, 6));
     rotate(scene, groups, -90);
     text(scene, "arrow", 4, new Vec3(3, 3, 6));
+    text(scene, "arrow", 5, new Vec3(3, 3, 6));
     scene.markAsFinished();
   }
 

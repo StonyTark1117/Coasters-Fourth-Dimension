@@ -100,6 +100,20 @@ client run; interactive runs need a persistent, uniquely reserved Xvfb display.
 Confirm that the display belongs to this task before sending input, and never
 reuse another agent's display.
 
+Agents may run graphical clients and send live input concurrently when each
+task owns its own private display, client game directory, world/server port,
+and process scope, with enough host memory for both. Another agent using input
+is not a global input lock and is not a reason to defer an independent assigned
+case. Coordinate a handoff to reuse or change the same client, display, or
+server/world. If the user explicitly assigns parallel work on the same
+acceptance case, the agents may run separate copies concurrently: record each
+run's owner, scope, paths, display, port, and evidence, then reconcile the
+results before closing the shared case. Case coordination avoids duplicate or
+conflicting claims; it does not forbid an independent private run. Verify
+resource ownership before acting; do not send input to or stop another task's
+runtime. A display handed to another task stays theirs until handed back, but
+that does not prevent starting a different owned private display.
+
 Do not launch Minecraft on the user's desktop or control the user's mouse,
 keyboard, windows, or browser for project testing. Do not move this Minecraft
 workflow into ChatGPT's built-in Agent Workspace: it does not provide this
@@ -113,6 +127,33 @@ alive until its clients exit, then stop only the processes and display started
 for this task. Preserve requested logs, screenshots, and worlds before cleanup.
 See `docs/FD403-RUN-PREPARATION.md` for the packaged client and server procedure.
 
+Before reporting a goal or case complete, stop its owned client, let its server
+save and exit cleanly, then stop its owned Xvfb display and any run services or
+scopes. Verify their PIDs or units are inactive and report any process that
+could not be stopped. Preserve the saved world, logs, and evidence needed for
+reopen or handoff. An idle live runtime is not a handoff: keep it running after
+completion only when a named continuing task has explicitly accepted ownership
+of the exact client, server/world, display, and units. Apply the same cleanup
+when abandoning or blocking a run with no active owner. Do not stop another
+task's active processes; ask its owner to clean up a completed or abandoned run.
+If the owner is unavailable and a completed case left an orphaned unit, a
+coordinating agent may stop that unit after confirming the case is closed, no
+client or other task is attached, the world and logs are saved, and the exact
+unit belongs to that completed run. Record the verification and what was
+stopped; do not use this exception on a live or ambiguous run.
+
+Before diagnosing a failed in-world input, confirm the client is still in the
+world and the dedicated server log shows that player connected. A live Java
+process or visible Minecraft window does not prove an active connection: the
+client can sit on “Connection Lost — Timed out” indefinitely. When it has
+disconnected, check the server process, listening port, and latest server log,
+then reconnect to the same world before resuming the interaction. Direct
+Connection does not save an entry in Minecraft's server list; use the recorded
+endpoint or read `server-ip` and `server-port` from that run's `server.properties`
+instead of expecting a saved entry. Confirm the new join in both client view
+and server log. If it times out again, diagnose that connection separately from
+mouse input and preserve the world.
+
 For interactive input on a private Xvfb display, identify the Minecraft window
 on that exact `DISPLAY` and check its current geometry after every process
 restart, resource reload, or resize. Recalibrate screen and window-relative
@@ -125,6 +166,56 @@ unqualified `T` has opened Social Interactions instead of chat; the window-
 targeted `/` command key avoids that mapping. Do not infer display ownership
 from an old display number or service name; verify its live PID and cgroup
 before treating it as another agent's active client or stopping it.
+
+For automated Xvfb mouse input (`xdotool`/XTest), check the private client's
+`options.txt` before launch and after startup. Keep
+`key_key.use:key.mouse.right` and `key_key.attack:key.mouse.left`; do not
+assume copied or restored options retained those bindings. A diagnostic remap
+must be recorded, reverted, and verified before interpreting normal-use results.
+Restart after changing mouse settings or bindings. Test pointer movement and
+button clicks **separately in the same live client**: confirm a visible camera
+turn, then a reachable vanilla in-world right-click or item placement, before
+testing mod interactions. Menu clicks or a changed cursor alone do not prove
+in-world use. F3 naming a targeted block does not prove it is within interaction
+reach: check the player-to-target distance and reposition before clicking. If
+placement has no visible effect, check for obstructing track or blocks before
+changing mouse settings again.
+
+The later 2026-11-12 FD403 run on private Xvfb `:298` proved both camera turning
+with **absolute XTest pointer motion** and normal in-world right-click with
+`rawMouseInput:true` and default bindings in the same live client. It also
+placed a Creative Motor by right-click. This supersedes earlier inconclusive
+claims that Raw Input On prevented item use. Resume that run with those proven
+settings; do not toggle Raw Input, remap controls, or repeat a generic mouse
+diagnostic after an interaction miss. A failed click now calls for checking
+focus, F3 hit identity, reach, obstruction, selected item, and relevant game
+state (such as seated status, restraints, or an existing Chain span).
+For each Wrench, Chain, station, seat, or other state-changing click, name the
+expected visible/log/world-state result first. Send one input, read that result,
+and stop if it did not change. Do not batch clicks or repeat a decompiled
+interaction sequence as a substitute for proving that its event or packet
+arrived; inspect the handler guards and current state before any retry. Read the
+newest run evidence before reviving an older control explanation that later
+observations superseded.
+
+For a new run, establish one configuration that passes both camera turning and
+reachable in-world use, then keep it fixed. If one F3 aim attempt misses, stop
+repeating pointer warps or `/tp` angle guesses: inspect player position, target
+geometry, and intervening blocks, then make one calculated correction and
+confirm its F3 hit before clicking. If that still fails, preserve the state and
+diagnose the target or game interaction before repeating that approach. Once a
+specific cause is found and the next setup changes the failed condition, a new
+targeted client attempt is allowed; this is not a permanent launch ban. Record
+the corrected preconditions and expected readback before that attempt. A disclosed
+aim/position setup command is allowed only when the assigned acceptance permits
+it; it does not prove normal player camera control.
+
+Do not use the host `ydotool` daemon or `/dev/uinput` as a shortcut for Xvfb
+mouse control. `ydotool` emits kernel device events; setting `DISPLAY` does not
+route them to the private Xvfb server, and they may reach the user's desktop.
+The presence of `ydotool` or a writable `/dev/uinput` is not proof of isolated
+input. Any replacement input method must be demonstrably bound to the owned
+private display before it sends a button or motion event.
 
 The current executable procedure is [scripts/fd-private-client.py](scripts/fd-private-client.py),
 verified in the [FD502 handoff](docs/evidence/0.4/fd502-execution-repair-20261113/README.md).

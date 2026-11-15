@@ -95,7 +95,7 @@ tested bounds, not general-world or unlimited-layout support.
 
 | Family | Matching car and operating exercise |
 | --- | --- |
-| Controlled Arrow/S&S | The four-seat car has two driven wing carriers. Edit section keys as `distance:degrees[:slope]`, separated by semicolons. Angles stay unwrapped, so a full turn is 360 degrees rather than zero. Capture, board, close restraints and dispatch around the original powered circuit. |
+| Controlled Arrow/S&S | The four-seat car has two driven wing carriers. The car follows the profile on its bound section, so author the keys on the section where you will place it. Edit keys as `distance:degrees[:slope]`, separated by semicolons. Angles stay unwrapped, so a full turn is 360 degrees rather than zero. Capture, board, close restraints and dispatch around the original powered circuit. |
 | Legacy ZacSpin | The eight-seat car has two free carriers with back-to-back seating. Tune damping and ballast on the car; section rotation keys do not drive its carriers. Rider distribution changes the free response. Capture both groups before unloading. |
 | S&S-inspired Free Spin | Four independent paired carriers use free dynamics. Install inducers or dampers on matching track and edit each span with the Rotation Tool. Compare spin before and after the zone. A damper slows rotation; the capture system supplies the boarding lock. |
 | Revised free rotor | Four independent paired carriers have lower hinges and a different chassis layout. Run it on Revised Free-Rotor Track and compare the groups' responses with different rider loading. This is an inspired variant, not a claim of exact manufacturer coupling. |

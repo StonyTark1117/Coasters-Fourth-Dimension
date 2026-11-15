@@ -22,6 +22,15 @@ Read the current task status and [remaining-case queue](CURRENT-QUALIFICATION.md
 before the qualification record's historical evidence. Claim or confirm the case's
 owner and check for a run already covering it. An unrecorded owner is not proof
 that no other agent is running the case.
+Ownership is per case and shared runtime, not a global lock on live input.
+Independent assigned cases may be tested simultaneously in separately owned
+private displays and isolated game directories, worlds, ports, and process
+scopes, subject to the host memory checks in `AGENTS.md`. Another agent's client
+run alone does not block a separate client run. Coordinate only when the same
+runtime would be shared. For the same case, an explicit user assignment to work
+in parallel permits independent copied worlds and private runs; coordinate
+scope and reconcile evidence before closure, without treating case ownership
+as a global display or input lock.
 Name the unresolved behavior or relevant change, the smallest check that answers
 it, and the pass/stop condition. A sentence in the task update is enough; no new
 manifest or audit document is required just to decide whether to test.
@@ -112,6 +121,11 @@ fresh construction, a second profile, another camera angle, extra passengers,
 or another restart to a completed case without identifying an unresolved
 advertised claim. An evidence note saying a run did not cover something is not,
 by itself, a new release requirement.
+Completion also ends the owned runtime: save and stop its client and server,
+then stop its private display and verify the units are inactive. Retain the
+world and evidence on disk for any later reopen. A live run may remain only
+after an explicit handoff to a named continuing owner; otherwise it consumes
+host resources and can block other qualification work.
 
 After two inconclusive attempts with the same setup/input approach, stop that
 approach and diagnose the fixture, targeting, logs, or tooling before another
@@ -119,6 +133,9 @@ launch. Record the precise blocker and continue independent work if possible.
 Do not retry unchanged worlds or commands indefinitely. Real supported-case
 failures remain release blockers; a failed fixture/setup is not automatically a
 product failure, and a passing unrelated test cannot waive either uncertainty.
+After diagnosis identifies a specific cause and a changed setup that addresses
+it, the owner may run the smallest targeted check again. Preservation and
+diagnosis are prerequisites to that retry, not a permanent ban on live tests.
 
 Raw evidence remains immutable. Current task status takes precedence over old
 per-run “still open” prose. Update one current status/next-action entry rather
@@ -175,6 +192,23 @@ can follow. Later player acceptance cites the same proof and checks only remaini
 claims. Do not apply this new scheduling rule retrospectively to closed packages.
 
 ## Gate blockers and follow-up work
+
+An **external blocker** is a specific dependency the owner cannot resolve within
+its authorized access or scope. Examples include missing credentials, an
+inaccessible required service or artifact, or an unresolved decision reserved
+for the human. Record the evidence, the missing dependency, and the exact
+external action needed. Difficulty, elapsed time, failed input, a damaged test
+setup, a guard whose preconditions have not been met, and a local defect within
+the owner's repair scope do not establish an external blocker.
+
+A case can block acceptance or release while its owner continues repairing it.
+The two-inconclusive-attempt rule stops the unchanged approach, not the assigned
+outcome: diagnose, change the demonstrated failed condition, and perform the
+smallest affected check. Preserve completed evidence and continue compatible
+steps. Naming a cause, preserving a world, or explaining a premature stop does
+not complete the assignment. If a fix belongs to another existing owner,
+handoff the concrete finding and continue independent assigned work; do not
+expand ownership or require the human to resolve ordinary coordination.
 
 Before holding a milestone or release open, record the affected case, the named
 required criterion or supported invariant it violates, and the gate that consumes

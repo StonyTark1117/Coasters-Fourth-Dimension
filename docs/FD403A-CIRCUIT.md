@@ -16,9 +16,9 @@ contains the input proof, resources and evidence.
 | Full native circuit mechanics | [Native eight-section loop](evidence/0.4/survival-client-arrow-loop-native/README.md) remains accepted at its synthetic-player scope. It does not certify the connected-client circuit. |
 | Camera and ordinary item use | FD502 verified both in one connected client. Use the checked-in helper; do not repeat mouse-method discovery. |
 | This loop's return connections and propulsion | All nine graph edges already exist. FD502 verified motion over their combined route, repaired F–G with normal Chain input and corrected C–D coverage/direction as disclosed setup. Do not rebuild the other connections. If using this copy for normal-construction acceptance, replace/verify **only C–D's command-extended Chain span** through normal client input. Its command edit earns no placement credit. |
-| Complete occupied client circuit | Still open: record one completed circuit with the intended car, expected route order, controlled-profile behavior, normal final capture/open/unload and no fault. Reuse earlier component evidence; no second client is required. |
-| Final circuit state after reopen | Still open: save/reopen the completed circuit and check its relevant route/profile and vehicle/carrier identities and captured/unloaded usability. Do not repeat unrelated persistence or recovery cases. |
-| Arrow teaching | Reconcile those observations with the [accepted common/changed-caption review](evidence/0.4/teaching-current/acceptance.md). Share the result with FD403F; no second walkthrough run. |
+| Complete occupied client circuit | **Accepted 2026-11-13** by combining the [independent two-return circuit](evidence/0.4/fd403a-independent-circuit-20261113/README.md) with the [normal C–D construction and traversal record](evidence/0.4/fd403a-circuit-reconciliation-20261113/README.md). The separate `:256` attempt timed out under server lag before capture and is credited only for normal C–D placement and traversal. |
+| Final circuit state after reopen | **Accepted 2026-11-13** in the independent circuit run: normal capture/open/unload, clean save and cold reopen, controller Ready/open, no player `RootVehicle`, and intended route, chassis and carrier identities restored. |
+| Arrow teaching | **Reconciled 2026-11-13** against the [accepted common/changed-caption review](evidence/0.4/teaching-current/acceptance.md). The observed circuit agrees with the Arrow controlled-profile, dispatch, capture, restraint and return captions; no second walkthrough run is required. |
 
 ## Saved world and intended vehicle
 
@@ -100,6 +100,12 @@ or direction.
    a new test sequence for FD403 agents.
 
 ## Preparation proof and limitations
+
+The [cumulative FD403A reconciliation](evidence/0.4/fd403a-circuit-reconciliation-20261113/README.md)
+records the normal C–D player placement/traversal and the compatible independent
+two-return circuit with capture, unload and cold reopen. The `:256` owner run
+timed out before final capture under server lag; no final-state claim is taken
+from it.
 
 The first occupied preparation traversal crossed A–I–H–G and isolated the G–F
 power gap. After its normal Chain repair, the same occupied car crossed F–E–D
