@@ -33,7 +33,11 @@ public final class ProductionMesh {
     if (n.lengthSquared() < 1e-16) return;
     n.normalize();
     var texture = sprite(material);
-    float u = (float)Math.min(1, a.distance(b)), v = (float)Math.min(1, b.distance(c));
+    // Indicators are complete framed symbols, not a repeating surface material.
+    // Thin lamp faces must include the colored center instead of only its border.
+    boolean indicator = material.startsWith("indicator_");
+    float u = indicator ? 1 : (float)Math.min(1, a.distance(b));
+    float v = indicator ? 1 : (float)Math.min(1, b.distance(c));
     vertex(a, n, texture.getU(0), texture.getV(0), light);
     vertex(b, n, texture.getU(u), texture.getV(0), light);
     vertex(c, n, texture.getU(u), texture.getV(v), light);
