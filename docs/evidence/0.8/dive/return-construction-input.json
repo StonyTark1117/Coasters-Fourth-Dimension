@@ -1,0 +1,896 @@
+[
+  {
+    "at": "20261115T133415.954800Z",
+    "action": "move",
+    "values": [
+      "195",
+      "295"
+    ],
+    "expected": "Position pointer on Resume to dock",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1702-dive-20261115/evidence/20261115T133415.954800Z-before.png",
+    "modifier": null,
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1702-dive-20261115/evidence/20261115T133415.954800Z-after.png"
+  },
+  {
+    "at": "20261115T133416.480128Z",
+    "action": "attack",
+    "values": [],
+    "expected": "Resume saved DROP once; corrected controller collision permits passage beyond return junction",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1702-dive-20261115/evidence/20261115T133416.480128Z-before.png",
+    "modifier": null,
+    "mouse_button": 1,
+    "mouse_binding": "attack/left",
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1702-dive-20261115/evidence/20261115T133416.480128Z-after.png"
+  },
+  {
+    "at": "20261115T133428.619012Z",
+    "action": "key",
+    "values": [
+      "Escape"
+    ],
+    "expected": "Close stale pre-resume editor snapshot",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1702-dive-20261115/evidence/20261115T133428.619012Z-before.png",
+    "modifier": null,
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1702-dive-20261115/evidence/20261115T133428.619012Z-after.png"
+  },
+  {
+    "at": "20261115T133429.345961Z",
+    "action": "use",
+    "values": [],
+    "expected": "Refresh editor after authority resumed for one subsequent dock Stop",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1702-dive-20261115/evidence/20261115T133429.345961Z-before.png",
+    "modifier": null,
+    "mouse_button": 3,
+    "mouse_binding": "use/right",
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1702-dive-20261115/evidence/20261115T133429.345961Z-after.png"
+  },
+  {
+    "at": "20261115T133435.989867Z",
+    "action": "move",
+    "values": [
+      "195",
+      "192"
+    ],
+    "expected": "Position pointer on Stop for monitored return to original level dock",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1702-dive-20261115/evidence/20261115T133435.989867Z-before.png",
+    "modifier": null,
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1702-dive-20261115/evidence/20261115T133435.989867Z-after.png"
+  },
+  {
+    "at": "20261115T133548.926092Z",
+    "action": "attack",
+    "values": [],
+    "expected": "Stop acknowledges the corrected platform obstruction before Resume",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1702-dive-20261115/evidence/20261115T133548.926092Z-before.png",
+    "modifier": null,
+    "mouse_button": 1,
+    "mouse_binding": "attack/left",
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1702-dive-20261115/evidence/20261115T133548.926092Z-after.png"
+  },
+  {
+    "at": "20261115T133559.939606Z",
+    "action": "move",
+    "values": [
+      "195",
+      "295"
+    ],
+    "expected": "Position Resume to dock after platform repair",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1702-dive-20261115/evidence/20261115T133559.939606Z-before.png",
+    "modifier": null,
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1702-dive-20261115/evidence/20261115T133559.939606Z-after.png"
+  },
+  {
+    "at": "20261115T133600.458374Z",
+    "action": "attack",
+    "values": [],
+    "expected": "Resume the retained train across the cleared final curve",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1702-dive-20261115/evidence/20261115T133600.458374Z-before.png",
+    "modifier": null,
+    "mouse_button": 1,
+    "mouse_binding": "attack/left",
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1702-dive-20261115/evidence/20261115T133600.458374Z-after.png"
+  },
+  {
+    "at": "20261115T133609.646471Z",
+    "action": "key",
+    "values": [
+      "Escape"
+    ],
+    "expected": "Close pre-resume editor",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1702-dive-20261115/evidence/20261115T133609.646471Z-before.png",
+    "modifier": null,
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1702-dive-20261115/evidence/20261115T133609.646471Z-after.png"
+  },
+  {
+    "at": "20261115T133610.400319Z",
+    "action": "use",
+    "values": [],
+    "expected": "Refresh editor for dock Stop",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1702-dive-20261115/evidence/20261115T133610.400319Z-before.png",
+    "modifier": null,
+    "mouse_button": 3,
+    "mouse_binding": "use/right",
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1702-dive-20261115/evidence/20261115T133610.400319Z-after.png"
+  },
+  {
+    "at": "20261115T133611.024433Z",
+    "action": "move",
+    "values": [
+      "195",
+      "192"
+    ],
+    "expected": "Position Stop button",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1702-dive-20261115/evidence/20261115T133611.024433Z-before.png",
+    "modifier": null,
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1702-dive-20261115/evidence/20261115T133611.024433Z-after.png"
+  },
+  {
+    "at": "20261115T133909.853657Z",
+    "action": "attack",
+    "values": [],
+    "expected": "One normal Stop click at returning level dock retains all three cars; verify stopped ready state",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1702-dive-20261115/evidence/20261115T133909.853657Z-before.png",
+    "modifier": null,
+    "mouse_button": 1,
+    "mouse_binding": "attack/left",
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1702-dive-20261115/evidence/20261115T133909.853657Z-after.png"
+  },
+  {
+    "at": "20261115T133943.328309Z",
+    "action": "move",
+    "values": [
+      "656",
+      "192"
+    ],
+    "expected": "Position Open restraints at ready original dock",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1702-dive-20261115/evidence/20261115T133943.328309Z-before.png",
+    "modifier": null,
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1702-dive-20261115/evidence/20261115T133943.328309Z-after.png"
+  },
+  {
+    "at": "20261115T133943.845549Z",
+    "action": "attack",
+    "values": [],
+    "expected": "Normal Open releases all three stopped docked rows for unload",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1702-dive-20261115/evidence/20261115T133943.845549Z-before.png",
+    "modifier": null,
+    "mouse_button": 1,
+    "mouse_binding": "attack/left",
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1702-dive-20261115/evidence/20261115T133943.845549Z-after.png"
+  },
+  {
+    "at": "20261115T133952.314427Z",
+    "action": "key",
+    "values": [
+      "Escape"
+    ],
+    "expected": "Close editor before normal dismount",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1702-dive-20261115/evidence/20261115T133952.314427Z-before.png",
+    "modifier": null,
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1702-dive-20261115/evidence/20261115T133952.314427Z-after.png"
+  },
+  {
+    "at": "20261115T133953.058692Z",
+    "action": "key",
+    "values": [
+      "Shift_L"
+    ],
+    "expected": "Normal Shift unloads rider to the original safe dock and restores walking camera",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1702-dive-20261115/evidence/20261115T133953.058692Z-before.png",
+    "modifier": null,
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1702-dive-20261115/evidence/20261115T133953.058692Z-after.png"
+  },
+  {
+    "at": "20261115T134004.378861Z",
+    "action": "turn",
+    "values": [
+      "0",
+      "300"
+    ],
+    "expected": "Walking camera looks down toward the safely unloaded dock",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1702-dive-20261115/evidence/20261115T134004.378861Z-before.png",
+    "modifier": null,
+    "state": "sent; inspect readback",
+    "motion_steps": [
+      [
+        0,
+        -1
+      ],
+      [
+        0,
+        301
+      ]
+    ],
+    "fresh_capture_tolerance_pixels": 1,
+    "device": 4,
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1702-dive-20261115/evidence/20261115T134004.378861Z-after.png"
+  },
+  {
+    "at": "20261115T134012.675112Z",
+    "action": "use",
+    "values": [],
+    "expected": "Open reachable crafting table with supplied raw ingredients in Survival",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1702-dive-20261115/evidence/20261115T134012.675112Z-before.png",
+    "modifier": null,
+    "mouse_button": 3,
+    "mouse_binding": "use/right",
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1702-dive-20261115/evidence/20261115T134012.675112Z-after.png"
+  },
+  {
+    "at": "20261115T134019.110132Z",
+    "action": "move",
+    "values": [
+      "280",
+      "160"
+    ],
+    "expected": "Position recipe book button",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1702-dive-20261115/evidence/20261115T134019.110132Z-before.png",
+    "modifier": null,
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1702-dive-20261115/evidence/20261115T134019.110132Z-after.png"
+  },
+  {
+    "at": "20261115T134019.652096Z",
+    "action": "attack",
+    "values": [],
+    "expected": "Open recipe book",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1702-dive-20261115/evidence/20261115T134019.652096Z-before.png",
+    "modifier": null,
+    "mouse_button": 1,
+    "mouse_binding": "attack/left",
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1702-dive-20261115/evidence/20261115T134019.652096Z-after.png"
+  },
+  {
+    "at": "20261115T134026.859806Z",
+    "action": "move",
+    "values": [
+      "220",
+      "114"
+    ],
+    "expected": "Position recipe search",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1702-dive-20261115/evidence/20261115T134026.859806Z-before.png",
+    "modifier": null,
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1702-dive-20261115/evidence/20261115T134026.859806Z-after.png"
+  },
+  {
+    "at": "20261115T134027.389514Z",
+    "action": "attack",
+    "values": [],
+    "expected": "Focus recipe search",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1702-dive-20261115/evidence/20261115T134027.389514Z-before.png",
+    "modifier": null,
+    "mouse_button": 1,
+    "mouse_binding": "attack/left",
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1702-dive-20261115/evidence/20261115T134027.389514Z-after.png"
+  },
+  {
+    "at": "20261115T134027.994338Z",
+    "action": "type",
+    "values": [
+      "Dive"
+    ],
+    "expected": "Filter to three original Dive recipes",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1702-dive-20261115/evidence/20261115T134027.994338Z-before.png",
+    "modifier": null,
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1702-dive-20261115/evidence/20261115T134027.994338Z-after.png"
+  },
+  {
+    "at": "20261115T134034.088602Z",
+    "action": "move",
+    "values": [
+      "154",
+      "160"
+    ],
+    "expected": "Position Dive Track recipe",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1702-dive-20261115/evidence/20261115T134034.088602Z-before.png",
+    "modifier": null,
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1702-dive-20261115/evidence/20261115T134034.088602Z-after.png"
+  },
+  {
+    "at": "20261115T134034.617986Z",
+    "action": "attack",
+    "values": [],
+    "expected": "Fill two batches of iron-copper-white-dye Dive Track",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1702-dive-20261115/evidence/20261115T134034.617986Z-before.png",
+    "modifier": "Shift_L",
+    "mouse_button": 1,
+    "mouse_binding": "attack/left",
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1702-dive-20261115/evidence/20261115T134034.617986Z-after.png"
+  },
+  {
+    "at": "20261115T134044.175641Z",
+    "action": "move",
+    "values": [
+      "668",
+      "160"
+    ],
+    "expected": "Position16-track output",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1702-dive-20261115/evidence/20261115T134044.175641Z-before.png",
+    "modifier": null,
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1702-dive-20261115/evidence/20261115T134044.175641Z-after.png"
+  },
+  {
+    "at": "20261115T134044.703715Z",
+    "action": "attack",
+    "values": [],
+    "expected": "Craft32 Dive Track using two ingredient batches",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1702-dive-20261115/evidence/20261115T134044.703715Z-before.png",
+    "modifier": "Shift_L",
+    "mouse_button": 1,
+    "mouse_binding": "attack/left",
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1702-dive-20261115/evidence/20261115T134044.703715Z-after.png"
+  },
+  {
+    "at": "20261115T134050.510017Z",
+    "action": "move",
+    "values": [
+      "254",
+      "160"
+    ],
+    "expected": "Position six-seat Dive Car recipe",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1702-dive-20261115/evidence/20261115T134050.510017Z-before.png",
+    "modifier": null,
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1702-dive-20261115/evidence/20261115T134050.510017Z-after.png"
+  },
+  {
+    "at": "20261115T134051.046225Z",
+    "action": "attack",
+    "values": [],
+    "expected": "Fill six seats plus iron bearing and crafted Dive Track",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1702-dive-20261115/evidence/20261115T134051.046225Z-before.png",
+    "modifier": null,
+    "mouse_button": 1,
+    "mouse_binding": "attack/left",
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1702-dive-20261115/evidence/20261115T134051.046225Z-after.png"
+  },
+  {
+    "at": "20261115T134058.519061Z",
+    "action": "move",
+    "values": [
+      "668",
+      "160"
+    ],
+    "expected": "Position Dive Car output",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1702-dive-20261115/evidence/20261115T134058.519061Z-before.png",
+    "modifier": null,
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1702-dive-20261115/evidence/20261115T134058.519061Z-after.png"
+  },
+  {
+    "at": "20261115T134059.043419Z",
+    "action": "attack",
+    "values": [],
+    "expected": "Craft one six-seat Dive Car consuming one crafted track",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1702-dive-20261115/evidence/20261115T134059.043419Z-before.png",
+    "modifier": "Shift_L",
+    "mouse_button": 1,
+    "mouse_binding": "attack/left",
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1702-dive-20261115/evidence/20261115T134059.043419Z-after.png"
+  },
+  {
+    "at": "20261115T134105.663306Z",
+    "action": "move",
+    "values": [
+      "204",
+      "160"
+    ],
+    "expected": "Position Dive Hold recipe",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1702-dive-20261115/evidence/20261115T134105.663306Z-before.png",
+    "modifier": null,
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1702-dive-20261115/evidence/20261115T134105.663306Z-after.png"
+  },
+  {
+    "at": "20261115T134106.188931Z",
+    "action": "attack",
+    "values": [],
+    "expected": "Fill Dive Hold recipe with crafted track iron copper and redstone",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1702-dive-20261115/evidence/20261115T134106.188931Z-before.png",
+    "modifier": null,
+    "mouse_button": 1,
+    "mouse_binding": "attack/left",
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1702-dive-20261115/evidence/20261115T134106.188931Z-after.png"
+  },
+  {
+    "at": "20261115T134112.880614Z",
+    "action": "move",
+    "values": [
+      "668",
+      "160"
+    ],
+    "expected": "Position Dive Hold output",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1702-dive-20261115/evidence/20261115T134112.880614Z-before.png",
+    "modifier": null,
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1702-dive-20261115/evidence/20261115T134112.880614Z-after.png"
+  },
+  {
+    "at": "20261115T134113.409441Z",
+    "action": "attack",
+    "values": [],
+    "expected": "Craft Dive Hold Controller with30 crafted track remaining",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1702-dive-20261115/evidence/20261115T134113.409441Z-before.png",
+    "modifier": "Shift_L",
+    "mouse_button": 1,
+    "mouse_binding": "attack/left",
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1702-dive-20261115/evidence/20261115T134113.409441Z-after.png"
+  },
+  {
+    "at": "20261115T134129.816139Z",
+    "action": "key",
+    "values": [
+      "Escape"
+    ],
+    "expected": "Close crafting with original crafted items retained",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1702-dive-20261115/evidence/20261115T134129.816139Z-before.png",
+    "modifier": null,
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1702-dive-20261115/evidence/20261115T134129.816139Z-after.png"
+  },
+  {
+    "at": "20261115T134130.654648Z",
+    "action": "key",
+    "values": [
+      "9"
+    ],
+    "expected": "Select30 crafted Dive Track at first anchor",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1702-dive-20261115/evidence/20261115T134130.654648Z-before.png",
+    "modifier": null,
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1702-dive-20261115/evidence/20261115T134130.654648Z-after.png"
+  },
+  {
+    "at": "20261115T134131.380104Z",
+    "action": "key",
+    "values": [
+      "F3"
+    ],
+    "expected": "Confirm reachable first native anchor hit before track use",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1702-dive-20261115/evidence/20261115T134131.380104Z-before.png",
+    "modifier": null,
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1702-dive-20261115/evidence/20261115T134131.380104Z-after.png"
+  },
+  {
+    "at": "20261115T134139.428944Z",
+    "action": "use",
+    "values": [],
+    "expected": "First normal Dive Track use selects native anchor220,80,12",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1702-dive-20261115/evidence/20261115T134139.428944Z-before.png",
+    "modifier": null,
+    "mouse_button": 3,
+    "mouse_binding": "use/right",
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1702-dive-20261115/evidence/20261115T134139.428944Z-after.png"
+  },
+  {
+    "at": "20261115T134157.059189Z",
+    "action": "use",
+    "values": [],
+    "expected": "Second anchor use creates48-block dedicated Dive span consuming12 track",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1702-dive-20261115/evidence/20261115T134157.059189Z-before.png",
+    "modifier": null,
+    "mouse_button": 3,
+    "mouse_binding": "use/right",
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1702-dive-20261115/evidence/20261115T134157.059189Z-after.png"
+  },
+  {
+    "at": "20261115T134207.999237Z",
+    "action": "key",
+    "values": [
+      "F3"
+    ],
+    "expected": "Hide debug overlay for car placement view",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1702-dive-20261115/evidence/20261115T134207.999237Z-before.png",
+    "modifier": null,
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1702-dive-20261115/evidence/20261115T134207.999237Z-after.png"
+  },
+  {
+    "at": "20261115T134208.831255Z",
+    "action": "key",
+    "values": [
+      "8"
+    ],
+    "expected": "Select crafted Dive Car aimed at the paid dedicated track",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1702-dive-20261115/evidence/20261115T134208.831255Z-before.png",
+    "modifier": null,
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1702-dive-20261115/evidence/20261115T134208.831255Z-after.png"
+  },
+  {
+    "at": "20261115T134222.604007Z",
+    "action": "use",
+    "values": [],
+    "expected": "Normal crafted car use creates one six-seat native Dive car on the paid span and consumes the item",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1702-dive-20261115/evidence/20261115T134222.604007Z-before.png",
+    "modifier": null,
+    "mouse_button": 3,
+    "mouse_binding": "use/right",
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1702-dive-20261115/evidence/20261115T134222.604007Z-after.png"
+  },
+  {
+    "at": "20261115T134237.661148Z",
+    "action": "key",
+    "values": [
+      "F3"
+    ],
+    "expected": "Confirm reachable station before normal binding",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1702-dive-20261115/evidence/20261115T134237.661148Z-before.png",
+    "modifier": null,
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1702-dive-20261115/evidence/20261115T134237.661148Z-after.png"
+  },
+  {
+    "at": "20261115T134244.914384Z",
+    "action": "use",
+    "values": [],
+    "expected": "Normal station use binds the newly crafted stopped Dive car to the paid48-block dock",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1702-dive-20261115/evidence/20261115T134244.914384Z-before.png",
+    "modifier": null,
+    "mouse_button": 3,
+    "mouse_binding": "use/right",
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1702-dive-20261115/evidence/20261115T134244.914384Z-after.png"
+  },
+  {
+    "at": "20261115T134255.810941Z",
+    "action": "key",
+    "values": [
+      "Escape"
+    ],
+    "expected": "Close station editor before placed-car view",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1702-dive-20261115/evidence/20261115T134255.810941Z-before.png",
+    "modifier": null,
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1702-dive-20261115/evidence/20261115T134255.810941Z-after.png"
+  },
+  {
+    "at": "20261115T134256.586870Z",
+    "action": "key",
+    "values": [
+      "F3"
+    ],
+    "expected": "Hide debug overlay",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1702-dive-20261115/evidence/20261115T134256.586870Z-before.png",
+    "modifier": null,
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1702-dive-20261115/evidence/20261115T134256.586870Z-after.png"
+  },
+  {
+    "at": "20261115T134306.479667Z",
+    "action": "use",
+    "values": [],
+    "expected": "Read bound crafted car ready state after native settling",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1702-dive-20261115/evidence/20261115T134306.479667Z-before.png",
+    "modifier": null,
+    "mouse_button": 3,
+    "mouse_binding": "use/right",
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1702-dive-20261115/evidence/20261115T134306.479667Z-after.png"
+  },
+  {
+    "at": "20261115T134317.066935Z",
+    "action": "key",
+    "values": [
+      "Escape"
+    ],
+    "expected": "Close ready car editor",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1702-dive-20261115/evidence/20261115T134317.066935Z-before.png",
+    "modifier": null,
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1702-dive-20261115/evidence/20261115T134317.066935Z-after.png"
+  },
+  {
+    "at": "20261115T134345.036575Z",
+    "action": "key",
+    "values": [
+      "7"
+    ],
+    "expected": "Select crafted Dive Hold at supplied powered pedestal",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1702-dive-20261115/evidence/20261115T134345.036575Z-before.png",
+    "modifier": null,
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1702-dive-20261115/evidence/20261115T134345.036575Z-after.png"
+  },
+  {
+    "at": "20261115T134345.768798Z",
+    "action": "key",
+    "values": [
+      "F3"
+    ],
+    "expected": "Confirm redstone pedestal hit and reach before placement",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1702-dive-20261115/evidence/20261115T134345.768798Z-before.png",
+    "modifier": null,
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1702-dive-20261115/evidence/20261115T134345.768798Z-after.png"
+  },
+  {
+    "at": "20261115T134352.986371Z",
+    "action": "use",
+    "values": [],
+    "expected": "Place crafted Dive Hold on redstone pedestal at -5,152,280 and consume item",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1702-dive-20261115/evidence/20261115T134352.986371Z-before.png",
+    "modifier": null,
+    "mouse_button": 3,
+    "mouse_binding": "use/right",
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1702-dive-20261115/evidence/20261115T134352.986371Z-after.png"
+  },
+  {
+    "at": "20261115T134400.143024Z",
+    "action": "key",
+    "values": [
+      "F3"
+    ],
+    "expected": "Hide debug for readable hold status",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1702-dive-20261115/evidence/20261115T134400.143024Z-before.png",
+    "modifier": null,
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1702-dive-20261115/evidence/20261115T134400.143024Z-after.png"
+  },
+  {
+    "at": "20261115T134400.892979Z",
+    "action": "use",
+    "values": [],
+    "expected": "Empty-hand use binds crafted controller to the authored60-degree descending hold",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1702-dive-20261115/evidence/20261115T134400.892979Z-before.png",
+    "modifier": null,
+    "mouse_button": 3,
+    "mouse_binding": "use/right",
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1702-dive-20261115/evidence/20261115T134400.892979Z-after.png"
+  },
+  {
+    "at": "20261115T134436.162676Z",
+    "action": "use",
+    "values": [],
+    "expected": "With the connected train empty and stopped, one sneak-use changes configured dwell from60 to80 ticks",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1702-dive-20261115/evidence/20261115T134436.162676Z-before.png",
+    "modifier": "Shift_L",
+    "mouse_button": 3,
+    "mouse_binding": "use/right",
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1702-dive-20261115/evidence/20261115T134436.162676Z-after.png"
+  },
+  {
+    "at": "20261115T134448.766230Z",
+    "action": "turn",
+    "values": [
+      "0",
+      "-93"
+    ],
+    "expected": "Raise aim from pedestal to controller body so crouching still hits the controller",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1702-dive-20261115/evidence/20261115T134448.766230Z-before.png",
+    "modifier": null,
+    "state": "sent; inspect readback",
+    "motion_steps": [
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        -94
+      ]
+    ],
+    "fresh_capture_tolerance_pixels": 1,
+    "device": 4,
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1702-dive-20261115/evidence/20261115T134448.766230Z-after.png"
+  },
+  {
+    "at": "20261115T134454.510788Z",
+    "action": "use",
+    "values": [],
+    "expected": "Corrected body aim keeps controller targeted while crouched; configured dwell changes60 to80 once",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1702-dive-20261115/evidence/20261115T134454.510788Z-before.png",
+    "modifier": "Shift_L",
+    "mouse_button": 3,
+    "mouse_binding": "use/right",
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1702-dive-20261115/evidence/20261115T134454.510788Z-after.png"
+  }
+]

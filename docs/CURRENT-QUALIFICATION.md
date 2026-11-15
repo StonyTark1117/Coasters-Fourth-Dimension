@@ -51,10 +51,10 @@ publication is activated.
 | FD1501D | S2 / Powered Inverted | Complete: [native governor, four-car inversion/rollback/loss and occupied handoff](evidence/0.8/spinning-s2/README.md#occupied-mechanics-handoff--fd1501d). Launch/roll/return/Capture/Open/unload passed; all318 units inactive. E/F reuse accepted mechanics. |
 | FD1501E | S2 / Powered Inverted | Complete: [crafted content, paid construction, controls and finite operating views](evidence/0.8/spinning-s2/content/README.md). |
 | FD1501F | S2 / Powered Inverted | Complete: content occupied cycle/capture/open/unload and actual restart combine with accepted D mechanics. All318 units inactive; saved empty world preserved. |
-| FD1702A | Pipeline / Dive | Native hold/drop/recovery and occupied return/unload passed; owner reconciling content and evidence. |
-| FD1702B | Pipeline / Dive | Prepare fixed-seat Dive content and hold/release example. |
-| FD1702C | Pipeline / Dive | Complete normal hold/drop/return/unload workflow cumulatively. |
-| FD1702 | Pipeline / Dive | Reconcile full Dive A–C outcome. |
+| FD1702A | Pipeline / Dive | Complete: [native, occupied hold/drop/restart/return/unload and normal Survival construction](evidence/0.8/dive/README.md). All317 units inactive/MainPID0; completed world retained. |
+| FD1702B | Pipeline / Dive | Complete: [native, occupied hold/drop/restart/return/unload and normal Survival construction](evidence/0.8/dive/README.md). All317 units inactive/MainPID0; completed world retained. |
+| FD1702C | Pipeline / Dive | Complete: [native, occupied hold/drop/restart/return/unload and normal Survival construction](evidence/0.8/dive/README.md). All317 units inactive/MainPID0; completed world retained. |
+| FD1702 | Pipeline / Dive | Complete: [native, occupied hold/drop/restart/return/unload and normal Survival construction](evidence/0.8/dive/README.md). All317 units inactive/MainPID0; completed world retained. |
 | FD1901A | S2 / Powered Inverted | Native single/four-car travel/yaw/show/reverse/capture and actual power/controller-loss passed; connected-client workflow active on owned318. |
 | FD1901B | S2 / Powered Inverted | Prepare powered drive/yaw content and scene-event controls. |
 | FD1901C | S2 / Powered Inverted | Complete travelling/stop/reverse/unload workflow cumulatively. |

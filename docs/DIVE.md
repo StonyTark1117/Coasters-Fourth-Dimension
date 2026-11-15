@@ -1,6 +1,6 @@
 # Dive — six-abreast fixed row
 
-Implementation in qualification for FD1702A–C. The one supported variant has six
+Qualified for FD1702A–C ([evidence](evidence/0.8/dive/README.md)). The one supported variant has six
 fixed seats per car and one to three native cars coupled at eight blocks. Use its
 own white/iron Dive Track: ordinary N rails do not reserve the wide occupied row
 or declare the hold section. Keep 3.25 blocks clear on either side, 3.65 above the

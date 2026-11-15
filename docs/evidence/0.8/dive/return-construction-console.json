@@ -1,0 +1,320 @@
+[
+  {
+    "at": 1794749657.0632696,
+    "command": "fd validation motion Dev",
+    "state": "responded",
+    "result": "Validation motion chassis=2ae6fa16-a782-4ef4-9948-1b51f78408e1 position=( 9.275E+1  8.112E+1  3.675E+2) velocity=( 3.623E+0 -2.481E-4 -6.605E+0) capture=false\n"
+  },
+  {
+    "at": 1794749669.92842,
+    "command": "fd validation motion Dev",
+    "state": "responded",
+    "result": "Validation motion chassis=2ae6fa16-a782-4ef4-9948-1b51f78408e1 position=( 9.650E+1  8.112E+1  2.664E+2) velocity=( 4.797E-7 -2.481E-4 -8.001E+0) capture=false\n"
+  },
+  {
+    "at": 1794749707.37144,
+    "command": "fd validation motion Dev",
+    "state": "responded",
+    "result": "Validation motion chassis=2ae6fa16-a782-4ef4-9948-1b51f78408e1 position=( 8.257E+1  8.112E+1 -2.592E+1) velocity=(-5.896E+0 -2.481E-4 -4.139E+0) capture=false\n"
+  },
+  {
+    "at": 1794749726.6840503,
+    "command": "fd dive_inspect",
+    "state": "responded",
+    "result": "Dive 2ae6fa16-a782-4ef4-9948-1b51f78408e1 center=( 1.077E+1  8.112E+1 -2.299E+1) velocity=(-6.181E-5 -1.491E-5  1.286E-4) safety=null stopped=true phase=DROP countdown=0 releasedEpoch=1\ndrive anchor=BlockPos{x=32, y=80, z=-32} t=0.4745730605046813 signed=-8.0 velocity=(5.65685424949238, -0.0, -5.65685424949238) tangent=(-0.7340065165420216, 0.0, 0.6791424251759325) nativeTarget=7.9939775961228685 interlock=true\nedge 0, 80, 0 -> 0, 80, 48 rejection=null valid=true\nedge 64, 80, -32 -> 32, 80, -32 rejection=null valid=true\nedge 32, 80, -32 -> 0, 80, 0 rejection=null valid=true\nDive 6f42eb48-96b1-4d1b-b221-8d06f37f59e5 center=( 5.622E+0  8.112E+1 -1.687E+1) velocity=( 1.166E-4 -1.492E-5 -9.349E-5) safety=null stopped=true phase=DROP countdown=0 releasedEpoch=1\ndrive anchor=BlockPos{x=32, y=80, z=-32} t=0.6376124916332819 signed=-8.0 velocity=(5.65685424949238, -0.0, -5.65685424949238) tangent=(-0.5436180747146262, 0.0, 0.8393327045001661) nativeTarget=7.823150992239995 interlock=true\nedge 0, 80, 0 -> 0, 80, 48 rejection=null valid=true\nedge 64, 80, -32 -> 32, 80, -32 rejection=null valid=true\nedge 32, 80, -32 -> 0, 80, 0 rejection=null valid=true\nDive 6b97bbf8-4430-47e2-9289-d381d325b443 center=( 2.149E+0  8.112E+1 -9.666E+0) velocity=( 3.065E-5  4.489E-5  1.402E-5) safety=null stopped=true phase=DROP countdown=0 releasedEpoch=1\ndrive anchor=BlockPos{x=32, y=80, z=-32} t=0.7989199459428611 signed=-8.0 velocity=(5.65685424949238, -0.0, -5.65685424949238) tangent=(-0.31747671955641155, 0.0, 0.9482660663230017) nativeTarget=7.160122457066283 interlock=true\nedge 0, 80, 0 -> 0, 80, 48 rejection=null valid=true\nedge 64, 80, -32 -> 32, 80, -32 rejection=null valid=true\nedge 32, 80, -32 -> 0, 80, 0 rejection=null valid=true\n"
+  },
+  {
+    "at": 1794749748.7271852,
+    "command": "fill 4 79 -4 7 79 3 minecraft:air replace minecraft:smooth_stone",
+    "state": "responded",
+    "result": "Successfully filled 32 block(s)\n"
+  },
+  {
+    "at": 1794749748.8216395,
+    "command": "fill -7 79 -4 -4 79 3 minecraft:air replace minecraft:smooth_stone",
+    "state": "responded",
+    "result": "Successfully filled 32 block(s)\n"
+  },
+  {
+    "at": 1794749761.039029,
+    "command": "fd validation motion Dev",
+    "state": "responded",
+    "result": "Validation motion chassis=2ae6fa16-a782-4ef4-9948-1b51f78408e1 position=( 9.667E+0  8.112E+1 -2.192E+1) velocity=(-5.396E+0 -2.481E-4  5.367E+0) capture=false\n"
+  },
+  {
+    "at": 1794749778.1218636,
+    "command": "fd validation motion Dev",
+    "state": "responded",
+    "result": "Validation motion chassis=2ae6fa16-a782-4ef4-9948-1b51f78408e1 position=( 5.000E-1  1.071E+2  1.007E+2) velocity=( 6.832E-7  5.156E+0  5.732E+0) capture=false\n"
+  },
+  {
+    "at": 1794749789.4471037,
+    "command": "forceload add 208 0 239 79",
+    "state": "responded",
+    "result": "Marked 10 chunks in Overworld from [13, 0] to [14, 4] to be force loaded\n"
+  },
+  {
+    "at": 1794749789.5343223,
+    "command": "fill 210 79 6 216 79 66 minecraft:smooth_stone",
+    "state": "responded",
+    "result": "Successfully filled 427 block(s)\n"
+  },
+  {
+    "at": 1794749789.5982637,
+    "command": "setblock 220 80 12 simulatedcoasters:coaster_anchorpoint",
+    "state": "responded",
+    "result": "Changed the block at 220, 80, 12\n"
+  },
+  {
+    "at": 1794749789.6549082,
+    "command": "setblock 220 80 60 simulatedcoasters:coaster_anchorpoint",
+    "state": "responded",
+    "result": "Changed the block at 220, 80, 60\n"
+  },
+  {
+    "at": 1794749789.712511,
+    "command": "setblock 215 80 8 minecraft:crafting_table",
+    "state": "responded",
+    "result": "Changed the block at 215, 80, 8\n"
+  },
+  {
+    "at": 1794749952.4255202,
+    "command": "fd validation motion Dev",
+    "state": "responded",
+    "result": "Validation motion chassis=2ae6fa16-a782-4ef4-9948-1b51f78408e1 position=( 5.000E-1  8.112E+1  1.190E+1) velocity=( 3.160E-9 -1.493E-5  6.127E-6) capture=true\n"
+  },
+  {
+    "at": 1794749975.4341292,
+    "command": "save-all flush",
+    "state": "responded",
+    "result": "Saving the game (this may take a moment!)\nSaved the game\n"
+  },
+  {
+    "at": 1794749993.8128371,
+    "command": "data get entity Dev Pos",
+    "state": "responded",
+    "result": "Dev has the following entity data: [-3.5d, 80.0d, 11.5d]\n"
+  },
+  {
+    "at": 1794750004.997253,
+    "command": "save-all flush",
+    "state": "responded",
+    "result": "Saving the game (this may take a moment!)\nSaved the game\n"
+  },
+  {
+    "at": 1794750005.08326,
+    "command": "tp Dev 215.5 80 6.5 0 36",
+    "state": "responded",
+    "result": "Teleported Dev to 215.500000, 80.000000, 6.500000\n"
+  },
+  {
+    "at": 1794750005.1400428,
+    "command": "clear Dev",
+    "state": "responded",
+    "result": "Removed 1 item(s) from player Dev\n"
+  },
+  {
+    "at": 1794750005.2115135,
+    "command": "gamemode survival Dev",
+    "state": "responded",
+    "result": ""
+  },
+  {
+    "at": 1794750005.2777169,
+    "command": "give Dev minecraft:iron_ingot 17",
+    "state": "responded",
+    "result": "Gave 17 [Iron Ingot] to Dev\n"
+  },
+  {
+    "at": 1794750005.355973,
+    "command": "give Dev minecraft:copper_ingot 6",
+    "state": "responded",
+    "result": "Gave 6 [Copper Ingot] to Dev\n"
+  },
+  {
+    "at": 1794750005.4266245,
+    "command": "give Dev minecraft:white_dye 2",
+    "state": "responded",
+    "result": "Gave 2 [White Dye] to Dev\n"
+  },
+  {
+    "at": 1794750005.484339,
+    "command": "give Dev minecraft:redstone 2",
+    "state": "responded",
+    "result": "Gave 2 [Redstone Dust] to Dev\n"
+  },
+  {
+    "at": 1794750005.545827,
+    "command": "give Dev create:red_seat 6",
+    "state": "responded",
+    "result": "Gave 6 [Red Seat] to Dev\n"
+  },
+  {
+    "at": 1794750005.603822,
+    "command": "give Dev simulatedcoasters:coaster_cart 1",
+    "state": "responded",
+    "result": "Gave 1 [Coaster Cart] to Dev\n"
+  },
+  {
+    "at": 1794750005.6646597,
+    "command": "recipe give Dev fourthdimension:dive_track",
+    "state": "responded",
+    "result": "Unlocked 1 recipes for Dev\n"
+  },
+  {
+    "at": 1794750005.7225456,
+    "command": "recipe give Dev fourthdimension:dive_car",
+    "state": "responded",
+    "result": "Unlocked 1 recipes for Dev\n"
+  },
+  {
+    "at": 1794750005.778848,
+    "command": "recipe give Dev fourthdimension:dive_hold",
+    "state": "responded",
+    "result": "Unlocked 1 recipes for Dev\n"
+  },
+  {
+    "at": 1794750074.2177224,
+    "command": "data get entity Dev Inventory",
+    "state": "responded",
+    "result": "Dev has the following entity data: [{count: 1, Slot: 6b, id: \"fourthdimension:dive_hold\"}, {count: 1, Slot: 7b, id: \"fourthdimension:dive_car\"}, {count: 30, Slot: 8b, id: \"fourthdimension:dive_track\"}]\n"
+  },
+  {
+    "at": 1794750090.543855,
+    "command": "tp Dev 216.5 80 12.5 -90 16",
+    "state": "responded",
+    "result": "Teleported Dev to 216.500000, 80.000000, 12.500000\n"
+  },
+  {
+    "at": 1794750100.037183,
+    "command": "data get entity Dev Inventory",
+    "state": "responded",
+    "result": "Dev has the following entity data: [{count: 1, Slot: 6b, id: \"fourthdimension:dive_hold\"}, {count: 1, Slot: 7b, id: \"fourthdimension:dive_car\"}, {count: 30, Slot: 8b, components: {\"fourthdimension:track_selection\": {pos: [I; 220, 80, 12], dimension: \"minecraft:overworld\"}}, id: \"fourthdimension:dive_track\"}]\n"
+  },
+  {
+    "at": 1794750105.3656228,
+    "command": "tp Dev 216.5 80 60.5 -90 16",
+    "state": "responded",
+    "result": "Teleported Dev to 216.500000, 80.000000, 60.500000\n"
+  },
+  {
+    "at": 1794750117.6734602,
+    "command": "data get entity Dev Inventory",
+    "state": "responded",
+    "result": "Dev has the following entity data: [{count: 1, Slot: 6b, id: \"fourthdimension:dive_hold\"}, {count: 1, Slot: 7b, id: \"fourthdimension:dive_car\"}, {count: 18, Slot: 8b, id: \"fourthdimension:dive_track\"}]\n"
+  },
+  {
+    "at": 1794750128.7148874,
+    "command": "tp Dev 216.5 80 26.5 -90 12",
+    "state": "responded",
+    "result": "Teleported Dev to 216.500000, 80.000000, 26.500000\n"
+  },
+  {
+    "at": 1794750143.2048311,
+    "command": "data get entity Dev Inventory",
+    "state": "responded",
+    "result": "Dev has the following entity data: [{count: 1, Slot: 6b, id: \"fourthdimension:dive_hold\"}, {count: 18, Slot: 8b, id: \"fourthdimension:dive_track\"}]\n"
+  },
+  {
+    "at": 1794750157.4723227,
+    "command": "setblock 215 80 24 fourthdimension:boarding_station",
+    "state": "responded",
+    "result": "Changed the block at 215, 80, 24\n"
+  },
+  {
+    "at": 1794750157.559577,
+    "command": "tp Dev 215.5 80 22.5 0 36",
+    "state": "responded",
+    "result": "Teleported Dev to 215.500000, 80.000000, 22.500000\n"
+  },
+  {
+    "at": 1794750165.5542505,
+    "command": "data get block 215 80 24",
+    "state": "responded",
+    "result": "215, 80, 24 has the following block data: {powered: 0b, x: 215, y: 80, z: 24, id: \"fourthdimension:boarding_station\", authority_id: [I; 1180522145, -845328398, -1524142235, 2043157222], vehicle: [I; 1821507292, 1780958021, -1667371362, -171063125]}\n"
+  },
+  {
+    "at": 1794750177.3493152,
+    "command": "fd dive_inspect",
+    "state": "responded",
+    "result": "Dive 2ae6fa16-a782-4ef4-9948-1b51f78408e1 center=( 5.000E-1  8.112E+1  1.190E+1) velocity=( 2.339E-7 -1.493E-5  5.948E-6) safety=null stopped=true phase=DOCK_CLOSED countdown=0 releasedEpoch=1\ndrive anchor=BlockPos{x=0, y=80, z=0} t=0.2375764174523053 signed=-8.0 velocity=(-0.0, -0.0, -8.0) tangent=(0.0, 0.0, 1.0) nativeTarget=8.0 interlock=true\nedge 0, 80, 0 -> 0, 80, 48 rejection=null valid=true\nedge 0, 80, 48 -> 0, 144, 144 rejection=null valid=true\nedge 32, 80, -32 -> 0, 80, 0 rejection=null valid=true\nDive 6f42eb48-96b1-4d1b-b221-8d06f37f59e5 center=( 5.000E-1  8.112E+1  1.990E+1) velocity=( 2.564E-11 -7.572E-5 -5.822E-6) safety=null stopped=true phase=DOCK_CLOSED countdown=0 releasedEpoch=1\ndrive anchor=BlockPos{x=0, y=80, z=0} t=0.40424312616449043 signed=-8.0 velocity=(-0.0, -0.0, -8.0) tangent=(0.0, 0.0, 1.0) nativeTarget=8.0 interlock=true\nedge 0, 80, 0 -> 0, 80, 48 rejection=null valid=true\nedge 0, 80, 48 -> 0, 144, 144 rejection=null valid=true\nedge 32, 80, -32 -> 0, 80, 0 rejection=null valid=true\nDive 6b97bbf8-4430-47e2-9289-d381d325b443 center=( 5.000E-1  8.112E+1  2.790E+1) velocity=( 6.738E-11 -7.572E-5 -1.257E-7) safety=null stopped=true phase=DOCK_CLOSED countdown=0 releasedEpoch=1\ndrive anchor=BlockPos{x=0, y=80, z=0} t=0.570909827879667 signed=-8.0 velocity=(-0.0, -0.0, -8.0) tangent=(0.0, 0.0, 1.0) nativeTarget=8.0 interlock=true\nedge 0, 80, 0 -> 0, 80, 48 rejection=null valid=true\nedge 0, 80, 48 -> 0, 144, 144 rejection=null valid=true\nedge 32, 80, -32 -> 0, 80, 0 rejection=null valid=true\nDive 6c91fedc-6a27-4345-9c9d-ee9ef5cdc8ab center=( 2.205E+2  8.112E+1  2.650E+1) velocity=(-3.057E-12 -2.481E-4  0.000E+0) safety=null stopped=true phase=DOCK_OPEN countdown=60 releasedEpoch=0\nedge 220, 80, 12 -> 220, 80, 60 rejection=null valid=true\n"
+  },
+  {
+    "at": 1794750177.445433,
+    "command": "save-all flush",
+    "state": "responded",
+    "result": "Saving the game (this may take a moment!)\nSaved the game\n"
+  },
+  {
+    "at": 1794750197.7955303,
+    "command": "setblock 213 82 20 minecraft:smooth_stone",
+    "state": "responded",
+    "result": "Changed the block at 213, 82, 20\n"
+  },
+  {
+    "at": 1794750197.885416,
+    "command": "tp Dev 213.5 83 20.5 -49.4 12",
+    "state": "responded",
+    "result": "Teleported Dev to 213.500000, 83.000000, 20.500000\n"
+  },
+  {
+    "at": 1794750224.8122723,
+    "command": "fill -9 151 278 -7 151 282 minecraft:smooth_stone",
+    "state": "responded",
+    "result": "Successfully filled 15 block(s)\n"
+  },
+  {
+    "at": 1794750224.8677404,
+    "command": "setblock -5 152 280 minecraft:air",
+    "state": "responded",
+    "result": "Changed the block at -5, 152, 280\n"
+  },
+  {
+    "at": 1794750224.9216702,
+    "command": "tp Dev -7.5 152 280.5 -90 28.4",
+    "state": "responded",
+    "result": "Teleported Dev to -7.500000, 152.000000, 280.500000\n"
+  },
+  {
+    "at": 1794750233.608473,
+    "command": "data get block -5 152 280",
+    "state": "responded",
+    "result": "-5, 152, 280 has the following block data: {identity: [I; -1844369764, -31373233, -1331776771, 1121236108], x: -5, y: 152, dwell: 60, z: 280, id: \"fourthdimension:dive_hold\"}\n"
+  },
+  {
+    "at": 1794750241.5091262,
+    "command": "data get block -5 152 280",
+    "state": "responded",
+    "result": "-5, 152, 280 has the following block data: {identity: [I; -1844369764, -31373233, -1331776771, 1121236108], x: -5, y: 152, dwell: 60, from: 1147032L, geometry: 5146794082271710714L, z: 280, to: 1261672L, id: \"fourthdimension:dive_hold\"}\n"
+  },
+  {
+    "at": 1794750276.9660997,
+    "command": "data get block -5 152 280",
+    "state": "responded",
+    "result": "-5, 152, 280 has the following block data: {identity: [I; -1844369764, -31373233, -1331776771, 1121236108], x: -5, y: 152, dwell: 60, from: 1147032L, geometry: 5146794082271710714L, z: 280, to: 1261672L, id: \"fourthdimension:dive_hold\"}\n"
+  },
+  {
+    "at": 1794750277.049925,
+    "command": "data get entity Dev Inventory",
+    "state": "responded",
+    "result": "Dev has the following entity data: [{count: 18, Slot: 8b, id: \"fourthdimension:dive_track\"}]\n"
+  },
+  {
+    "at": 1794750295.3188763,
+    "command": "data get block -5 152 280",
+    "state": "responded",
+    "result": "-5, 152, 280 has the following block data: {identity: [I; -1844369764, -31373233, -1331776771, 1121236108], x: -5, y: 152, dwell: 80, from: 1147032L, geometry: 5146794082271710714L, z: 280, to: 1261672L, id: \"fourthdimension:dive_hold\"}\n"
+  },
+  {
+    "at": 1794750307.5377824,
+    "command": "save-all flush",
+    "state": "responded",
+    "result": "Saving the game (this may take a moment!)\nSaved the game\n"
+  },
+  {
+    "at": 1794750307.6492524,
+    "command": "stop",
+    "state": "responded",
+    "result": "Stopping the server\n"
+  }
+]

@@ -1,0 +1,298 @@
+> Task :createMinecraftArtifacts UP-TO-DATE
+
+> Task :compileJava
+/home/braydon/Documents/Coasters: Fourth Dimension/src/main/java/dev/fourthdimension/client/RiderComfort.java:28: warning: [removal] bus() in EventBusSubscriber has been deprecated and marked for removal
+      bus = EventBusSubscriber.Bus.MOD)
+      ^
+/home/braydon/Documents/Coasters: Fourth Dimension/src/main/java/dev/fourthdimension/client/RiderComfort.java:28: warning: [removal] Bus in EventBusSubscriber has been deprecated and marked for removal
+      bus = EventBusSubscriber.Bus.MOD)
+                              ^
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+2 warnings
+
+> Task :processResources
+> Task :classes
+
+> Task :downloadAssets
+Loaded 131 artifacts from /mnt/NVME4/fourthdimension-runs/fd1702-dive-20261115/build/tmp/downloadAssets/nfrt_artifact_manifest.properties
+Downloading asset index 17
+Using Minecraft asset root: /home/braydon/.gradle/caches/neoformruntime/assets
+  ↓ https://piston-meta.mojang.com/v1/packages/de573f83da62843433ec9951c66feec7ed0a60a1/17.json
+
+> Task :writeGameTestServerLegacyClasspath
+> Task :prepareGameTestServerRun
+
+> Task :runGameTestServer
+WARN StatusConsoleListener Advanced terminal features are not available in this environment
+[06:12:39] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forgeserverdev, --gameDir, ., --fml.fmlVersion, 4.0.43, --fml.mcVersion, 1.21.1, --fml.neoForgeVersion, 21.1.248, --fml.neoFormVersion, 20240808.144430]
+[06:12:39] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: JVM identified as Arch Linux OpenJDK 64-Bit Server VM 21.0.13.0.3+1
+[06:12:39] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: ModLauncher 11.0.5+main.901c6ea8 starting: java version 21.0.13.0.3 by Arch Linux; OS Linux arch amd64 version 7.2.14-zen1-1-zen
+[06:12:39] [main/INFO] [ne.ne.fm.lo.ImmediateWindowHandler/]: ImmediateWindowProvider not loading because launch target is forgeserverdev
+[06:12:39] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.7 Source=union:/home/braydon/.gradle/caches/modules-2/files-2.1/net.fabricmc/sponge-mixin/0.15.2+mixin.0.8.7/2af2f021d8e02a0220dc27a7a72b4666d66d44ca/sponge-mixin-0.15.2+mixin.0.8.7.jar%2394!/ Service=ModLauncher Env=SERVER
+[06:12:40] [main/WARN] [ne.ne.ja.se.JarSelector/]: Attempted to select a dependency jar for JarJar which was passed in as source: veil. Using Mod File: /home/braydon/.gradle/caches/modules-2/files-2.1/foundry.veil/veil-neoforge-1.21.1/4.1.4/642ec0bd02213ee087d86eda553d6d79c6a04d2b/veil-neoforge-1.21.1-4.1.4.jar
+[06:12:40] [main/WARN] [ne.ne.ja.se.JarSelector/]: Attempted to select a dependency jar for JarJar which was passed in as source: sablecompanion. Using Mod File: /home/braydon/.gradle/caches/modules-2/files-2.1/dev.ryanhcode.sable-companion/sable-companion-common-1.21.1/1.6.0/370be7db705926176e05c0215ed676150c45daae/sable-companion-common-1.21.1-1.6.0.jar
+[06:12:40] [main/WARN] [ne.ne.ja.se.JarSelector/]: Attempted to select a dependency jar for JarJar which was passed in as source: library:sable_rapier. Using Mod File: /home/braydon/.gradle/caches/modules-2/files-2.1/dev.ryanhcode.sable/sable-sable_rapier-1.21.1/2.0.3/a88c0860320890144b6b44c332a2a2db3a61e189/sable-sable_rapier-1.21.1-2.0.3.jar
+[06:12:40] [main/INFO] [ne.ne.fm.lo.mo.lo.JarInJarDependencyLocator/]: Found 4 dependencies adding them to mods collection
+[06:12:40] [main/INFO] [ne.ne.fm.lo.mo.ModDiscoverer/]: 
+     Mod List:
+		Name Version (Mod Id)
+
+		Coasters: Fourth Dimension 0.9.0-dev.27 (fourthdimension)
+		Create 6.0.10 (create)
+		Create: Coasters Simulated 0.1.5 (simulatedcoasters)
+		Flywheel 1.0.6 (flywheel)
+		Minecraft 1.21.1 (minecraft)
+		NeoForge 21.1.248 (neoforge)
+		Ponder 1.0.82+mc1.21.1 (ponder)
+		Sable 2.0.3 (sable)
+		Sable Companion 1.6.0 (sablecompanion)
+		Veil 4.1.4 (veil)
+[06:12:40] [main/INFO] [mixin/]: Compatibility level set to JAVA_21
+[06:12:40] [main/INFO] [cp.mo.mo.LaunchServiceHandler/MODLAUNCHER]: Launching target 'forgeserverdev' with arguments [--gameDir, .]
+[06:12:40] [main/WARN] [mixin/]: Reference map 'ponder.refmap.json' for ponder-common.mixins.json could not be read. If this is a development environment you can ignore this message
+[06:12:40] [main/INFO] [de.ry.sa.mi.AbstractSableMixinPlugin/]: Using Vanilla renderer mixins
+[06:12:40] [main/INFO] [de.ry.sa.mi.AbstractSableMixinPlugin/]: Using Vanilla renderer mixins
+[06:12:40] [main/WARN] [mixin/]: Error loading class: dev/simulated_team/simulated/content/blocks/merging_glue/MergingGlueBlockEntity (java.lang.ClassNotFoundException: dev.simulated_team.simulated.content.blocks.merging_glue.MergingGlueBlockEntity)
+[06:12:40] [main/WARN] [mixin/]: @Mixin target dev.simulated_team.simulated.content.blocks.merging_glue.MergingGlueBlockEntity was not found simulatedcoasters.mixins.json:compat.MergingGlueBlockEntityRivetMixin from mod simulatedcoasters
+[06:12:40] [main/ERROR] [ne.ne.fm.co.as.RuntimeDistCleaner/DISTXFORM]: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER
+[06:12:40] [main/WARN] [mixin/]: Error loading class: net/minecraft/client/multiplayer/ClientLevel (java.lang.RuntimeException: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER)
+[06:12:40] [main/ERROR] [ne.ne.fm.co.as.RuntimeDistCleaner/DISTXFORM]: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER
+[06:12:40] [main/WARN] [mixin/]: Error loading class: net/minecraft/client/multiplayer/ClientLevel (java.lang.RuntimeException: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER)
+[06:12:40] [main/ERROR] [ne.ne.fm.co.as.RuntimeDistCleaner/DISTXFORM]: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER
+[06:12:40] [main/WARN] [mixin/]: Error loading class: net/minecraft/client/multiplayer/ClientLevel (java.lang.RuntimeException: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER)
+[06:12:40] [main/WARN] [mixin/]: Error loading class: dev/jwaterfall/coastersengineered/MotorDrive (java.lang.ClassNotFoundException: dev.jwaterfall.coastersengineered.MotorDrive)
+[06:12:40] [main/WARN] [mixin/]: Error loading class: dev/jwaterfall/coastersengineered/CartAssembly (java.lang.ClassNotFoundException: dev.jwaterfall.coastersengineered.CartAssembly)
+[06:12:40] [main/WARN] [mixin/]: Error loading class: dev/plushivr/coasterfins/block/StationBlockEntity (java.lang.ClassNotFoundException: dev.plushivr.coasterfins.block.StationBlockEntity)
+[06:12:40] [main/WARN] [mixin/]: Error loading class: org/jetbrains/annotations/ApiStatus$ScheduledForRemoval (java.lang.ClassNotFoundException: org.jetbrains.annotations.ApiStatus$ScheduledForRemoval)
+[06:12:40] [main/ERROR] [ne.ne.fm.co.as.RuntimeDistCleaner/DISTXFORM]: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER
+[06:12:40] [main/WARN] [mixin/]: Error loading class: net/minecraft/client/multiplayer/ClientLevel (java.lang.RuntimeException: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER)
+[06:12:40] [main/ERROR] [ne.ne.fm.co.as.RuntimeDistCleaner/DISTXFORM]: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER
+[06:12:40] [main/WARN] [mixin/]: Error loading class: net/minecraft/client/multiplayer/ClientLevel (java.lang.RuntimeException: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER)
+[06:12:40] [main/ERROR] [ne.ne.fm.co.as.RuntimeDistCleaner/DISTXFORM]: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER
+[06:12:40] [main/WARN] [mixin/]: Error loading class: net/minecraft/client/multiplayer/ClientLevel (java.lang.RuntimeException: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER)
+[06:12:40] [main/ERROR] [ne.ne.fm.co.as.RuntimeDistCleaner/DISTXFORM]: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER
+[06:12:40] [main/WARN] [mixin/]: Error loading class: net/minecraft/client/multiplayer/ClientLevel (java.lang.RuntimeException: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER)
+[06:12:40] [main/ERROR] [ne.ne.fm.co.as.RuntimeDistCleaner/DISTXFORM]: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER
+[06:12:40] [main/WARN] [mixin/]: Error loading class: net/minecraft/client/multiplayer/ClientLevel (java.lang.RuntimeException: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER)
+[06:12:40] [main/ERROR] [ne.ne.fm.co.as.RuntimeDistCleaner/DISTXFORM]: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER
+[06:12:40] [main/WARN] [mixin/]: Error loading class: net/minecraft/client/multiplayer/ClientLevel (java.lang.RuntimeException: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER)
+[06:12:40] [main/INFO] [MixinExtras|Service/]: Initializing MixinExtras via com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.5.3).
+[06:12:41] [main/ERROR] [ne.ne.fm.co.as.RuntimeDistCleaner/DISTXFORM]: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER
+[06:12:41] [main/WARN] [mixin/]: Error loading class: net/minecraft/client/multiplayer/ClientLevel (java.lang.RuntimeException: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER)
+[06:12:41] [main/ERROR] [ne.ne.fm.co.as.RuntimeDistCleaner/DISTXFORM]: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER
+[06:12:41] [main/WARN] [mixin/]: Error loading class: net/minecraft/client/multiplayer/ClientLevel (java.lang.RuntimeException: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER)
+[06:12:41] [main/ERROR] [ne.ne.fm.co.as.RuntimeDistCleaner/DISTXFORM]: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER
+[06:12:41] [main/WARN] [mixin/]: Error loading class: net/minecraft/client/multiplayer/ClientLevel (java.lang.RuntimeException: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER)
+[06:12:43] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, location] and [teleport, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+[06:12:43] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, location] and [teleport, targets] with inputs: [0.1 -0.5 .9, 0 0 0]
+[06:12:43] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, destination] and [teleport, targets] with inputs: [Player, 0123, @e, dd12be42-52a9-4a91-a8a1-11c01849e498]
+[06:12:43] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, targets] and [teleport, destination] with inputs: [Player, 0123, dd12be42-52a9-4a91-a8a1-11c01849e498]
+[06:12:43] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, targets, location] and [teleport, targets, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+[06:12:43] [modloading-worker-0/INFO] [Veil/]: Veil is initializing.
+[06:12:43] [modloading-worker-0/INFO] [ne.ne.ne.co.NeoForgeMod/NEOFORGE-MOD]: NeoForge mod loading, version 21.1.248, for MC 1.21.1
+[06:12:43] [modloading-worker-0/INFO] [co.si.cr.Create/]: Create 6.0.10 initializing! Commit hash: ac0c444d9828da3453ae8cc65338e8de063286fb
+[06:12:44] [modloading-worker-0/INFO] [de.ry.sa.Sable/]: Sable loaded!
+[06:12:44] [modloading-worker-0/INFO] [de.fo.FourthDimension/]: Coasters: Fourth Dimension loaded from union:/mnt/NVME4/fourthdimension-runs/fd1702-dive-20261115/build/classes/java/main/%23127!/
+[06:12:45] [main/INFO] [mojang/YggdrasilAuthenticationService]: Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, name=PROD]
+[06:12:45] [NeoForge Version Check/INFO] [ne.ne.fm.VersionChecker/]: [create] Starting version check at https://api.modrinth.com/updates/create/forge_updates.json?neoforge=only
+[06:12:45] [main/WARN] [minecraft/VanillaPackResourcesBuilder]: Assets URL 'union:/mnt/NVME4/fourthdimension-runs/fd1702-dive-20261115/build/moddev/artifacts/neoforge-21.1.248.jar%23125!/assets/.mcassetsroot' uses unexpected schema
+[06:12:45] [main/WARN] [minecraft/VanillaPackResourcesBuilder]: Assets URL 'union:/mnt/NVME4/fourthdimension-runs/fd1702-dive-20261115/build/moddev/artifacts/neoforge-21.1.248.jar%23125!/data/.mcassetsroot' uses unexpected schema
+[06:12:45] [main/INFO] [co.si.cr.Create/]: Created 157 recipes which will be injected into the game
+[06:12:45] [main/INFO] [co.si.cr.Create/]: Created 0 tags which will be injected into the game
+[06:12:45] [main/INFO] [ne.ne.ne.ga.GameTestHooks/]: Enabled Gametest Namespaces: [fourthdimension_fd1702]
+[06:12:45] [NeoForge Version Check/INFO] [ne.ne.fm.VersionChecker/]: [create] Found status: OUTDATED Current: 6.0.10 Target: 6.0.10+mc1.21.1
+[06:12:45] [main/INFO] [minecraft/RecipeManager]: Loaded 2863 recipes
+[06:12:45] [main/INFO] [minecraft/AdvancementTree]: Loaded 2522 advancements
+[06:12:46] [Server thread/INFO] [de.ry.sa.Sable/]: Creating physics pipeline for ResourceKey[minecraft:dimension / minecraft:overworld] using RapierPhysicsPipelineProvider
+[2026-11-15T13:12:46.608023424Z] [[32mINFO[0m] (sable_rapier) Rapier scene initialized
+[06:12:46] [Server thread/INFO] [de.ry.sa.Sable/]: Creating physics pipeline for ResourceKey[minecraft:dimension / minecraft:the_end] using RapierPhysicsPipelineProvider
+[2026-11-15T13:12:46.830014645Z] [[32mINFO[0m] (sable_rapier) Rapier scene initialized
+[06:12:46] [Server thread/INFO] [de.ry.sa.Sable/]: Creating physics pipeline for ResourceKey[minecraft:dimension / minecraft:the_nether] using RapierPhysicsPipelineProvider
+[2026-11-15T13:12:46.848784013Z] [[32mINFO[0m] (sable_rapier) Rapier scene initialized
+[06:12:46] [Server thread/INFO] [minecraft/MinecraftServer]: Preparing start region for dimension minecraft:overworld
+[06:12:46] [worldgen/INFO] [minecraft/LoggerChunkProgressListener]: Preparing spawn area: 2%
+[06:12:46] [Server thread/INFO] [minecraft/LoggerChunkProgressListener]: Time elapsed: 87 ms
+[06:12:46] [Server thread/INFO] [minecraft/GameTestServer]: Started game test server
+[06:12:46] [Server thread/INFO] [ne.ne.ne.se.pe.PermissionAPI/]: Successfully initialized permission handler neoforge:default_handler
+[06:12:47] [Server thread/INFO] [minecraft/GameTestServer]: 1 tests are now running at position -4613819, -59, 1316569!
+[06:12:47] [Server thread/INFO] [minecraft/GameTestRunner]: Running test batch 'defaultBatch:0' (1 tests)...
+[06:12:47] [Server thread/INFO] [minecraft/GameTestServer]: [ ]
+[06:12:47] [Server thread/INFO] [minecraft/GameTestServer]: [ ]
+[06:12:47] [Server thread/INFO] [de.si.si.SimulatedCoasters/]: [cart-link] linked carts c38b8af2-0cab-4375-a019-fa523b0b624d <-> 66ff1998-13b3-4a85-b15e-8d05a27a6178 at distance 8.000
+[06:12:47] [Server thread/INFO] [de.si.si.SimulatedCoasters/]: [cart-link] linked carts 66ff1998-13b3-4a85-b15e-8d05a27a6178 <-> b21e0026-d069-4e78-a817-537854c10644 at distance 8.000
+[06:12:47] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:12:47] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_DIVE_NATIVE phase=RUNNING step=1 cars=3 fault= center=( 5.000E-1  8.112E+1  2.013E+1)
+[06:12:47] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:12:48] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:12:48] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:12:48] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:12:48] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_DIVE_NATIVE phase=RUNNING step=1 cars=3 fault= center=( 5.000E-1  8.214E+1  5.861E+1)
+[06:12:48] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:12:48] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:12:48] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:12:48] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:12:48] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_DIVE_NATIVE phase=RUNNING step=1 cars=3 fault= center=( 5.000E-1  1.005E+2  9.316E+1)
+[06:12:48] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:12:48] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:12:48] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:12:48] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:12:48] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_DIVE_NATIVE phase=RUNNING step=1 cars=3 fault= center=( 5.000E-1  1.270E+2  1.219E+2)
+[06:12:48] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:12:48] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:12:48] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:12:49] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:12:49] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_DIVE_NATIVE phase=RUNNING step=1 cars=3 fault= center=( 5.000E-1  1.511E+2  1.529E+2)
+[06:12:49] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:12:49] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:12:49] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:12:49] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:12:49] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_DIVE_NATIVE phase=RUNNING step=1 cars=3 fault= center=( 5.000E-1  1.720E+2  1.861E+2)
+[06:12:49] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:12:49] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:12:49] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:12:49] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:12:49] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_DIVE_NATIVE phase=RUNNING step=1 cars=3 fault= center=( 5.000E-1  1.771E+2  2.104E+2)
+[06:12:49] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:12:49] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:12:49] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:12:49] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:12:49] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_DIVE_NATIVE phase=RUNNING step=1 cars=3 fault= center=( 5.000E-1  1.771E+2  2.154E+2)
+[06:12:49] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:12:49] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:12:49] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:12:49] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:12:49] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_DIVE_NATIVE phase=RUNNING step=1 cars=3 fault= center=( 5.000E-1  1.771E+2  2.204E+2)
+[06:12:49] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:12:49] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:12:49] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:12:49] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:12:49] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_DIVE_NATIVE phase=RUNNING step=1 cars=3 fault= center=( 5.000E-1  1.771E+2  2.254E+2)
+[06:12:49] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:12:49] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:12:50] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:12:50] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:12:50] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_DIVE_NATIVE phase=RUNNING step=1 cars=3 fault= center=( 5.000E-1  1.771E+2  2.302E+2)
+[06:12:50] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:12:50] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:12:50] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:12:50] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:12:50] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_DIVE_NATIVE phase=RUNNING step=1 cars=3 fault= center=( 5.000E-1  1.771E+2  2.351E+2)
+[06:12:50] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:12:50] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:12:50] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:12:50] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:12:50] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_DIVE_NATIVE phase=RUNNING step=1 cars=3 fault= center=( 5.000E-1  1.771E+2  2.400E+2)
+[06:12:50] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:12:50] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:12:50] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:12:50] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:12:50] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_DIVE_NATIVE phase=RUNNING step=1 cars=3 fault= center=( 5.000E-1  1.769E+2  2.448E+2)
+[06:12:50] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:12:50] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:12:50] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:12:50] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:12:50] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_DIVE_NATIVE phase=RUNNING step=1 cars=3 fault= center=( 5.000E-1  1.760E+2  2.498E+2)
+[06:12:50] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:12:50] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:12:50] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:12:50] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:12:50] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_DIVE_NATIVE phase=RUNNING step=1 cars=3 fault= center=( 5.000E-1  1.744E+2  2.548E+2)
+[06:12:50] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:12:50] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:12:50] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:12:50] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:12:50] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_DIVE_NATIVE phase=RUNNING step=1 cars=3 fault= center=( 5.000E-1  1.723E+2  2.597E+2)
+[06:12:50] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:12:50] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:12:51] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:12:51] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:12:51] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_DIVE_NATIVE phase=RUNNING step=1 cars=3 fault= center=( 5.000E-1  1.697E+2  2.643E+2)
+[06:12:51] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:12:51] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:12:51] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:12:51] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:12:51] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_DIVE_NATIVE phase=RUNNING step=1 cars=3 fault= center=( 5.000E-1  1.667E+2  2.687E+2)
+[06:12:51] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:12:51] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:12:51] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:12:51] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:12:51] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_DIVE_NATIVE phase=RUNNING step=1 cars=3 fault= center=( 5.000E-1  1.633E+2  2.727E+2)
+[06:12:51] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:12:51] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:12:51] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:12:51] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:12:51] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_DIVE_NATIVE phase=RUNNING step=1 cars=3 fault= center=( 5.000E-1  1.594E+2  2.764E+2)
+[06:12:51] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:12:51] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:12:51] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:12:51] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:12:51] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_DIVE_NATIVE phase=RUNNING step=1 cars=3 fault= center=( 5.000E-1  1.551E+2  2.798E+2)
+[06:12:51] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:12:51] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:12:51] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:12:51] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:12:51] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_DIVE_NATIVE phase=APPROACH step=1 cars=3 fault= center=( 5.000E-1  1.504E+2  2.826E+2)
+[06:12:51] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:12:51] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:12:51] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:12:51] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:12:51] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_DIVE_NATIVE phase=HELD step=3 cars=3 fault=Dive restore requires explicit Resume center=( 5.000E-1  1.490E+2  2.834E+2)
+[06:12:52] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:12:52] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:12:52] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:12:52] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_DIVE_NATIVE PASS threeCars8 sixSeats18 physicalHold powerFreeze explicitResume closedExitGuards heldAndDropPersistence gravityRelease velocity=( 5.936E-14 -6.142E+0  3.583E+0)
+[06:12:52] [Server thread/INFO] [minecraft/GameTestServer]: [+]
+[06:12:52] [Server thread/INFO] [minecraft/GameTestServer]: ========= 1 GAME TESTS COMPLETE IN 5.268 s ======================
+[06:12:52] [Server thread/INFO] [minecraft/GameTestServer]: All 1 required tests passed :)
+[06:12:52] [Server thread/INFO] [minecraft/GameTestServer]: ====================================================
+[06:12:52] [Server thread/INFO] [minecraft/MinecraftServer]: Stopping server
+[06:12:52] [Server thread/INFO] [minecraft/MinecraftServer]: Saving players
+[06:12:52] [Server thread/INFO] [minecraft/MinecraftServer]: Saving worlds
+[06:12:52] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[Test Level]'/minecraft:overworld
+[06:12:52] [Server thread/INFO] [de.ry.sa.Sable/]: Saving sub-levels for level 'ServerLevel[Test Level]'/minecraft:overworld
+[06:12:59] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[Test Level]'/minecraft:the_end
+[06:12:59] [Server thread/INFO] [de.ry.sa.Sable/]: Saving sub-levels for level 'ServerLevel[Test Level]'/minecraft:the_end
+[06:12:59] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[Test Level]'/minecraft:the_nether
+[06:12:59] [Server thread/INFO] [de.ry.sa.Sable/]: Saving sub-levels for level 'ServerLevel[Test Level]'/minecraft:the_nether
+[06:12:59] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (world): All chunks are saved
+[06:12:59] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (DIM1): All chunks are saved
+[06:12:59] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
+[06:12:59] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage: All dimensions are saved
+[06:12:59] [Server thread/INFO] [minecraft/GameTestServer]: Game test server shutting down
+
+[Incubating] Problems report is available at: file:///mnt/NVME4/fourthdimension-runs/fd1702-dive-20261115/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 10.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD SUCCESSFUL in 22s
+7 actionable tasks: 6 executed, 1 up-to-date
