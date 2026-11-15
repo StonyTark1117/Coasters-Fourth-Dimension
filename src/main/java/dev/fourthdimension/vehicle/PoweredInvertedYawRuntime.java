@@ -22,7 +22,7 @@ import static dev.fourthdimension.vehicle.YawState.Mode.*;
 
 /** One upright physical yaw joint per car; one fenced native Chain owner for travel. */
 public final class PoweredInvertedYawRuntime {
-  private static final class Motion { final DockCapture latch=new DockCapture();GenericConstraintHandle hold;long tick=Long.MIN_VALUE,resumeAt=Long.MIN_VALUE;int stoppedTicks;boolean initialized;double speed,distance;YawSection.Interval interval; }
+  private static final class Motion { final DockCapture latch=new DockCapture();GenericConstraintHandle hold;long tick=Long.MIN_VALUE,resumeAt=Long.MIN_VALUE,releaseNotBefore=Long.MIN_VALUE;int stoppedTicks;boolean initialized;double speed,distance;YawSection.Interval interval; }
   private static final Map<ServerSubLevel,Motion> MOTION=new WeakHashMap<>();
   private PoweredInvertedYawRuntime(){}
   private static ServerSubLevel body(ServerLevel l,UUID id){var b=id==null?null:SubLevelContainer.getContainer(l).getSubLevel(id);return b instanceof ServerSubLevel s&&!s.isRemoved()?s:null;}
@@ -99,16 +99,19 @@ public final class PoweredInvertedYawRuntime {
   }
   public static void dispatched(ServerLevel l,FoundationData.Vehicle v){var s=v.poweredYaw;s.phase=RUN;s.mode=BLEND;s.section=null;s.travelRequest=0;s.resumeRequired=false;s.holdAcknowledged=false;s.epoch=v.authority.epoch;s.consist=cars(l,v).stream().map(c->c.chassis).toList();}
   public static void resume(ServerLevel l,FoundationData.Vehicle v){
+    boolean heldShow=v.poweredYaw.phase==HELD_DWELL;
+    boolean interruptedShow=v.poweredYaw.phase==FAULT&&v.poweredYaw.interruptedPhase==HELD_DWELL;
     for(var car:cars(l,v)){var b=body(l,car.chassis);if(b==null||!car.stopping||speed(l,b)>.05||!car.restraints)throw new IllegalArgumentException("Stop and retain every car before explicit resume");}
     var g=governor(l,v);if(g==null)throw new IllegalArgumentException("Restore the bound governor");g.acknowledge(v);
-    for(var car:cars(l,v)){var reason=safety(l,body(l,car.chassis),car,rail(l,car));if(reason!=null)throw new IllegalArgumentException(reason);car.fault="";car.poweredYaw.resumeRequired=false;}
-    if(v.poweredYaw.interruptedPhase==HELD_DWELL){for(var car:cars(l,v)){var state=car.poweredYaw;state.phase=HELD_DWELL;state.mode=state.interruptedMode;state.holdAcknowledged=true;state.resumeRequired=false;car.stopping=true;hold(l,car);}changed(l);return;}
+    for(var car:cars(l,v)){var reason=safety(l,body(l,car.chassis),car,rail(l,car));if(reason!=null)throw new IllegalArgumentException(reason);car.fault="";car.poweredYaw.resumeRequired=false;car.maintenance=false;}
+    if(heldShow||interruptedShow){for(var car:cars(l,v)){var state=car.poweredYaw;state.phase=HELD_DWELL;if(interruptedShow)state.mode=state.interruptedMode;MOTION.get(body(l,car.chassis)).releaseNotBefore=l.getGameTime()+6;state.holdAcknowledged=true;state.resumeRequired=false;car.stopping=true;hold(l,car);}changed(l);return;}
     // Recovery creates a new authority epoch. Its stop samples must be collected
     // after acknowledgment, so retain this explicit request only in live memory.
     var motion=MOTION.get(body(l,v.chassis));motion.resumeAt=l.getGameTime()+6;
     for(var car:cars(l,v)){car.poweredYaw.phase=RUN;car.poweredYaw.mode=HOLD_FAULT;car.poweredYaw.status="RESUME_WAIT_STOPPED";}changed(l);
   }
   public static void direction(ServerLevel l,FoundationData.Vehicle v,int sign){
+    var pending=MOTION.get(body(l,v.chassis));if(pending!=null)pending.resumeAt=Long.MIN_VALUE;
     if(Math.abs(sign)!=1)throw new IllegalArgumentException("Choose forward or reverse");for(var car:cars(l,v)){var b=body(l,car.chassis);if(b==null||!car.stopping||speed(l,b)>.05||MOTION.get(b)==null||MOTION.get(b).stoppedTicks<5)throw new IllegalArgumentException("Hold the whole train for five stopped ticks before reversal");}
     var g=governor(l,v);if(g==null)throw new IllegalArgumentException("Restore governor");g.acknowledge(v);for(var car:cars(l,v)){car.poweredYaw.direction=sign;car.poweredYaw.pendingDirection=sign;car.poweredYaw.travelRequest=0;car.revision++;}changed(l);
   }
@@ -142,7 +145,7 @@ public final class PoweredInvertedYawRuntime {
       for(var car:cars){hold(l,car);car.poweredYaw.showTicks++;car.poweredYaw.holdAcknowledged=true;}
       if(s.dwellRemaining>0)for(var car:cars)car.poweredYaw.dwellRemaining=Math.max(0,car.poweredYaw.dwellRemaining-1);
       boolean settled=cars.stream().allMatch(car->{var c=car.carriers.getFirst();return Math.abs(c.angle-car.poweredYaw.target)<.035&&Math.abs(c.omega)<.05;});
-      if(s.dwellRemaining==0&&settled){
+      if(s.dwellRemaining==0&&settled&&l.getGameTime()>=m.releaseNotBefore){
         event(l,v,"DWELL_COMPLETE",s.stop);
         try{g.release(v);for(var car:cars){releaseHold(l,car);var state=car.poweredYaw;state.direction=state.pendingDirection;state.phase=RUN;state.holdAcknowledged=false;state.travelRequest=0;state.epoch=car.authority.epoch;car.stopping=false;car.carriers.forEach(c->c.capture=false);}}
         catch(IllegalArgumentException denied){fault(l,v,denied.getMessage());}

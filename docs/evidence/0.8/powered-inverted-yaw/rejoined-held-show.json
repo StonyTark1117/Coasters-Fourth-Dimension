@@ -1,0 +1,1583 @@
+{
+  "data": {
+    "schema": 8,
+    "rails": [
+      {
+        "original_curve": {
+          "Starts": [
+            {
+              "V": [
+                0.5,
+                0.75,
+                0.5
+              ]
+            },
+            {
+              "V": [
+                0.5,
+                0.75,
+                64.5
+              ]
+            }
+          ],
+          "Girder": 0,
+          "Normals": [
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          ],
+          "Primary": 1,
+          "Positions": [
+            {
+              "Pos": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "Pos": [
+                0,
+                0,
+                64
+              ]
+            }
+          ],
+          "Axes": [
+            {
+              "V": [
+                0.0,
+                0.0,
+                1.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                0.0,
+                -1.0
+              ]
+            }
+          ],
+          "Material": "simulatedcoasters:coaster_track"
+        },
+        "magnets": [],
+        "profile": [
+          {
+            "distance": 0.0,
+            "slope": 0.0,
+            "angle": 0.0
+          },
+          {
+            "distance": 64.0,
+            "slope": 0.0,
+            "angle": 0.0
+          }
+        ],
+        "lift_lock": 0,
+        "geometry_hash": 1957450587360036225,
+        "powered_yaw": {
+          "speeds": [
+            {
+              "start": 0.0,
+              "end": 64.0,
+              "speed": 4.0
+            }
+          ],
+          "stops": [],
+          "version": 1,
+          "yaw": {
+            "owner": [
+              940439953,
+              -167562164,
+              -1601161573,
+              -1389718966
+            ],
+            "intervals": [
+              {
+                "phi_to": 0.0,
+                "blend": 0.0,
+                "keys": [
+                  {
+                    "distance": 0.0,
+                    "angle": 0.0
+                  },
+                  {
+                    "distance": 64.0,
+                    "angle": 6.283185307179586
+                  }
+                ],
+                "start": 0.0,
+                "show_duration": 400,
+                "speed": 0.45,
+                "stop_name": "",
+                "mode": "PROFILE",
+                "acceleration": 0.45,
+                "winding": "NEAREST",
+                "name": "Section0",
+                "end": 64.0,
+                "id": [
+                  -92274709,
+                  1139362407,
+                  -1937090480,
+                  416162674
+                ],
+                "phi_from": 0.0
+              }
+            ],
+            "geometry": 1957450587360036225,
+            "version": 1,
+            "revision": 0
+          }
+        },
+        "revision": 0,
+        "valid": 1,
+        "appearance": {
+          "tint": -1,
+          "id": "fourthdimension:original"
+        },
+        "provider": "fourthdimension:original",
+        "variant": "upright_yaw_v1",
+        "from": 27487791104100,
+        "to": 27487791366244,
+        "id": [
+          -2036741802,
+          1421558856,
+          -1733928617,
+          -1656148260
+        ],
+        "family": "powered_inverted"
+      },
+      {
+        "original_curve": {
+          "Starts": [
+            {
+              "V": [
+                0.5,
+                0.75,
+                0.5
+              ]
+            },
+            {
+              "V": [
+                0.5,
+                0.75,
+                64.5
+              ]
+            }
+          ],
+          "Girder": 0,
+          "Normals": [
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          ],
+          "Primary": 1,
+          "Positions": [
+            {
+              "Pos": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "Pos": [
+                0,
+                0,
+                64
+              ]
+            }
+          ],
+          "Axes": [
+            {
+              "V": [
+                0.0,
+                0.0,
+                1.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                0.0,
+                -1.0
+              ]
+            }
+          ],
+          "Material": "simulatedcoasters:coaster_track"
+        },
+        "magnets": [],
+        "profile": [
+          {
+            "distance": 0.0,
+            "slope": 0.0,
+            "angle": 0.0
+          },
+          {
+            "distance": 64.0,
+            "slope": 0.0,
+            "angle": 0.0
+          }
+        ],
+        "lift_lock": 0,
+        "geometry_hash": -7873878862531250815,
+        "powered_yaw": {
+          "speeds": [
+            {
+              "start": 0.0,
+              "end": 64.0,
+              "speed": 4.0
+            }
+          ],
+          "stops": [],
+          "version": 1,
+          "yaw": {
+            "owner": [
+              940439953,
+              -167562164,
+              -1601161573,
+              -1389718966
+            ],
+            "intervals": [
+              {
+                "phi_to": 0.0,
+                "blend": 0.0,
+                "keys": [
+                  {
+                    "distance": 0.0,
+                    "angle": 0.0
+                  },
+                  {
+                    "distance": 64.0,
+                    "angle": 0.0
+                  }
+                ],
+                "start": 0.0,
+                "show_duration": 400,
+                "speed": 0.45,
+                "stop_name": "",
+                "marker_pos": 36283884519521,
+                "mode": "TARGET",
+                "acceleration": 0.45,
+                "winding": "NEAREST",
+                "marker": [
+                  592872010,
+                  -490323056,
+                  -1788957827,
+                  1707879209
+                ],
+                "name": "Section1",
+                "end": 64.0,
+                "id": [
+                  -1527736559,
+                  1538936807,
+                  -1152677234,
+                  328864544
+                ],
+                "phi_from": 0.0,
+                "dimension": "minecraft:overworld"
+              }
+            ],
+            "geometry": -7873878862531250815,
+            "version": 1,
+            "revision": 0
+          }
+        },
+        "revision": 0,
+        "valid": 1,
+        "appearance": {
+          "tint": -1,
+          "id": "fourthdimension:original"
+        },
+        "provider": "fourthdimension:original",
+        "variant": "upright_yaw_v1",
+        "from": 27487791366244,
+        "to": 27487791628388,
+        "id": [
+          -695318229,
+          941772681,
+          -1242322294,
+          117666432
+        ],
+        "family": "powered_inverted"
+      },
+      {
+        "original_curve": {
+          "Starts": [
+            {
+              "V": [
+                0.5,
+                0.75,
+                0.5
+              ]
+            },
+            {
+              "V": [
+                32.5,
+                0.75,
+                32.5
+              ]
+            }
+          ],
+          "Girder": 0,
+          "Normals": [
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          ],
+          "Primary": 1,
+          "Positions": [
+            {
+              "Pos": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "Pos": [
+                32,
+                0,
+                32
+              ]
+            }
+          ],
+          "Axes": [
+            {
+              "V": [
+                0.0,
+                0.0,
+                1.0
+              ]
+            },
+            {
+              "V": [
+                -1.0,
+                0.0,
+                0.0
+              ]
+            }
+          ],
+          "Material": "simulatedcoasters:coaster_track"
+        },
+        "magnets": [],
+        "profile": [
+          {
+            "distance": 0.0,
+            "slope": 0.0,
+            "angle": 0.0
+          },
+          {
+            "distance": 50.272529165540824,
+            "slope": 0.0,
+            "angle": 0.0
+          }
+        ],
+        "lift_lock": 0,
+        "geometry_hash": 7279178933924690899,
+        "powered_yaw": {
+          "speeds": [
+            {
+              "start": 0.0,
+              "end": 50.272529165540824,
+              "speed": 4.0
+            }
+          ],
+          "stops": [
+            {
+              "name": "Turn and reverse",
+              "dwell": 400,
+              "id": [
+                -1714083698,
+                2068662707,
+                -1950444993,
+                -525412537
+              ],
+              "distance": 25.136264582770412,
+              "direction": -1
+            }
+          ],
+          "version": 1,
+          "yaw": {
+            "owner": [
+              940439953,
+              -167562164,
+              -1601161573,
+              -1389718966
+            ],
+            "intervals": [
+              {
+                "phi_to": 0.0,
+                "blend": 0.0,
+                "keys": [
+                  {
+                    "distance": 0.0,
+                    "angle": 6.283185307179586
+                  },
+                  {
+                    "distance": 50.272529165540824,
+                    "angle": 12.566370614359172
+                  }
+                ],
+                "start": 0.0,
+                "show_duration": 400,
+                "speed": 0.45,
+                "stop_name": "Turn and reverse",
+                "mode": "SHOW_STOP",
+                "acceleration": 0.45,
+                "winding": "NEAREST",
+                "name": "Show",
+                "end": 50.272529165540824,
+                "id": [
+                  -1714083698,
+                  2068662707,
+                  -1950444993,
+                  -525412537
+                ],
+                "phi_from": 0.0
+              }
+            ],
+            "geometry": 7279178933924690899,
+            "version": 1,
+            "revision": 0
+          }
+        },
+        "revision": 0,
+        "valid": 1,
+        "appearance": {
+          "tint": -1,
+          "id": "fourthdimension:original"
+        },
+        "provider": "fourthdimension:original",
+        "variant": "upright_yaw_v1",
+        "from": 27487791628388,
+        "to": 36283884781668,
+        "id": [
+          1292562013,
+          208683091,
+          -1780402662,
+          -2026660780
+        ],
+        "family": "powered_inverted"
+      },
+      {
+        "original_curve": {
+          "Starts": [
+            {
+              "V": [
+                0.5,
+                0.75,
+                0.5
+              ]
+            },
+            {
+              "V": [
+                32.5,
+                0.75,
+                -31.5
+              ]
+            }
+          ],
+          "Girder": 0,
+          "Normals": [
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          ],
+          "Primary": 1,
+          "Positions": [
+            {
+              "Pos": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "Pos": [
+                32,
+                0,
+                -32
+              ]
+            }
+          ],
+          "Axes": [
+            {
+              "V": [
+                1.0,
+                0.0,
+                0.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                0.0,
+                1.0
+              ]
+            }
+          ],
+          "Material": "simulatedcoasters:coaster_track"
+        },
+        "magnets": [],
+        "profile": [
+          {
+            "distance": 0.0,
+            "slope": 0.0,
+            "angle": 0.0
+          },
+          {
+            "distance": 50.27252916554086,
+            "slope": 0.0,
+            "angle": 0.0
+          }
+        ],
+        "lift_lock": 0,
+        "geometry_hash": 6459930604700880617,
+        "powered_yaw": {
+          "speeds": [
+            {
+              "start": 0.0,
+              "end": 50.27252916554086,
+              "speed": 4.0
+            }
+          ],
+          "stops": [],
+          "version": 1,
+          "yaw": {
+            "owner": [
+              940439953,
+              -167562164,
+              -1601161573,
+              -1389718966
+            ],
+            "intervals": [
+              {
+                "phi_to": 0.0,
+                "blend": 0.0,
+                "keys": [
+                  {
+                    "distance": 0.0,
+                    "angle": 0.0
+                  },
+                  {
+                    "distance": 50.27252916554086,
+                    "angle": 0.0
+                  }
+                ],
+                "start": 0.0,
+                "show_duration": 400,
+                "speed": 0.45,
+                "stop_name": "",
+                "mode": "PROFILE",
+                "acceleration": 0.45,
+                "winding": "NEAREST",
+                "name": "Section3",
+                "end": 50.27252916554086,
+                "id": [
+                  1890798731,
+                  1259031756,
+                  -1662786610,
+                  -494278422
+                ],
+                "phi_from": 0.0
+              }
+            ],
+            "geometry": 6459930604700880617,
+            "version": 1,
+            "revision": 0
+          }
+        },
+        "revision": 0,
+        "valid": 1,
+        "appearance": {
+          "tint": -1,
+          "id": "fourthdimension:original"
+        },
+        "provider": "fourthdimension:original",
+        "variant": "upright_yaw_v1",
+        "from": 36283884781668,
+        "to": 45079977672804,
+        "id": [
+          -1504838215,
+          -290698867,
+          -1890269777,
+          1759743760
+        ],
+        "family": "powered_inverted"
+      },
+      {
+        "original_curve": {
+          "Starts": [
+            {
+              "V": [
+                0.5,
+                0.75,
+                0.5
+              ]
+            },
+            {
+              "V": [
+                0.5,
+                0.75,
+                -63.5
+              ]
+            }
+          ],
+          "Girder": 0,
+          "Normals": [
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          ],
+          "Primary": 1,
+          "Positions": [
+            {
+              "Pos": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "Pos": [
+                0,
+                0,
+                -64
+              ]
+            }
+          ],
+          "Axes": [
+            {
+              "V": [
+                0.0,
+                0.0,
+                -1.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                0.0,
+                1.0
+              ]
+            }
+          ],
+          "Material": "simulatedcoasters:coaster_track"
+        },
+        "magnets": [],
+        "profile": [
+          {
+            "distance": 0.0,
+            "slope": 0.0,
+            "angle": 0.0
+          },
+          {
+            "distance": 64.0,
+            "slope": 0.0,
+            "angle": 0.0
+          }
+        ],
+        "lift_lock": 0,
+        "geometry_hash": 1586943668463937921,
+        "powered_yaw": {
+          "speeds": [
+            {
+              "start": 0.0,
+              "end": 64.0,
+              "speed": 4.0
+            }
+          ],
+          "stops": [],
+          "version": 1,
+          "yaw": {
+            "owner": [
+              940439953,
+              -167562164,
+              -1601161573,
+              -1389718966
+            ],
+            "intervals": [
+              {
+                "phi_to": 0.0,
+                "blend": 0.0,
+                "keys": [
+                  {
+                    "distance": 0.0,
+                    "angle": 0.0
+                  },
+                  {
+                    "distance": 64.0,
+                    "angle": 0.0
+                  }
+                ],
+                "start": 0.0,
+                "show_duration": 400,
+                "speed": 0.45,
+                "stop_name": "",
+                "mode": "PROFILE",
+                "acceleration": 0.45,
+                "winding": "NEAREST",
+                "name": "Section4",
+                "end": 64.0,
+                "id": [
+                  -828242987,
+                  1656309782,
+                  -1335947185,
+                  1108455745
+                ],
+                "phi_from": 0.0
+              }
+            ],
+            "geometry": 1586943668463937921,
+            "version": 1,
+            "revision": 0
+          }
+        },
+        "revision": 0,
+        "valid": 1,
+        "appearance": {
+          "tint": -1,
+          "id": "fourthdimension:original"
+        },
+        "provider": "fourthdimension:original",
+        "variant": "upright_yaw_v1",
+        "from": 45079977672804,
+        "to": 45079977410660,
+        "id": [
+          -575697119,
+          1965834831,
+          -1111837371,
+          -1684577552
+        ],
+        "family": "powered_inverted"
+      },
+      {
+        "original_curve": {
+          "Starts": [
+            {
+              "V": [
+                0.5,
+                0.75,
+                0.5
+              ]
+            },
+            {
+              "V": [
+                0.5,
+                0.75,
+                -63.5
+              ]
+            }
+          ],
+          "Girder": 0,
+          "Normals": [
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          ],
+          "Primary": 1,
+          "Positions": [
+            {
+              "Pos": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "Pos": [
+                0,
+                0,
+                -64
+              ]
+            }
+          ],
+          "Axes": [
+            {
+              "V": [
+                0.0,
+                0.0,
+                -1.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                0.0,
+                1.0
+              ]
+            }
+          ],
+          "Material": "simulatedcoasters:coaster_track"
+        },
+        "magnets": [],
+        "profile": [
+          {
+            "distance": 0.0,
+            "slope": 0.0,
+            "angle": 0.0
+          },
+          {
+            "distance": 64.0,
+            "slope": 0.0,
+            "angle": 0.0
+          }
+        ],
+        "lift_lock": 0,
+        "geometry_hash": 7576811700301511041,
+        "powered_yaw": {
+          "speeds": [
+            {
+              "start": 0.0,
+              "end": 64.0,
+              "speed": 4.0
+            }
+          ],
+          "stops": [],
+          "version": 1,
+          "yaw": {
+            "owner": [
+              940439953,
+              -167562164,
+              -1601161573,
+              -1389718966
+            ],
+            "intervals": [
+              {
+                "phi_to": 0.0,
+                "blend": 0.0,
+                "keys": [
+                  {
+                    "distance": 0.0,
+                    "angle": 0.0
+                  },
+                  {
+                    "distance": 64.0,
+                    "angle": 0.0
+                  }
+                ],
+                "start": 0.0,
+                "show_duration": 400,
+                "speed": 0.45,
+                "stop_name": "",
+                "mode": "PROFILE",
+                "acceleration": 0.45,
+                "winding": "NEAREST",
+                "name": "Section5",
+                "end": 64.0,
+                "id": [
+                  -1130709575,
+                  1501053970,
+                  -1231424812,
+                  -234040797
+                ],
+                "phi_from": 0.0
+              }
+            ],
+            "geometry": 7576811700301511041,
+            "version": 1,
+            "revision": 0
+          }
+        },
+        "revision": 0,
+        "valid": 1,
+        "appearance": {
+          "tint": -1,
+          "id": "fourthdimension:original"
+        },
+        "provider": "fourthdimension:original",
+        "variant": "upright_yaw_v1",
+        "from": 45079977410660,
+        "to": 45079977148516,
+        "id": [
+          1391918028,
+          -1058191875,
+          -1719442334,
+          -517052167
+        ],
+        "family": "powered_inverted"
+      },
+      {
+        "original_curve": {
+          "Starts": [
+            {
+              "V": [
+                0.5,
+                0.75,
+                0.5
+              ]
+            },
+            {
+              "V": [
+                -31.5,
+                0.75,
+                -31.5
+              ]
+            }
+          ],
+          "Girder": 0,
+          "Normals": [
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          ],
+          "Primary": 1,
+          "Positions": [
+            {
+              "Pos": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "Pos": [
+                -32,
+                0,
+                -32
+              ]
+            }
+          ],
+          "Axes": [
+            {
+              "V": [
+                0.0,
+                0.0,
+                -1.0
+              ]
+            },
+            {
+              "V": [
+                1.0,
+                0.0,
+                0.0
+              ]
+            }
+          ],
+          "Material": "simulatedcoasters:coaster_track"
+        },
+        "magnets": [],
+        "profile": [
+          {
+            "distance": 0.0,
+            "slope": 0.0,
+            "angle": 0.0
+          },
+          {
+            "distance": 50.27253011433405,
+            "slope": 0.0,
+            "angle": 0.0
+          }
+        ],
+        "lift_lock": 0,
+        "geometry_hash": 8012137403235480011,
+        "powered_yaw": {
+          "speeds": [
+            {
+              "start": 0.0,
+              "end": 50.27253011433405,
+              "speed": 4.0
+            }
+          ],
+          "stops": [],
+          "version": 1,
+          "yaw": {
+            "owner": [
+              940439953,
+              -167562164,
+              -1601161573,
+              -1389718966
+            ],
+            "intervals": [
+              {
+                "phi_to": 0.0,
+                "blend": 0.0,
+                "keys": [
+                  {
+                    "distance": 0.0,
+                    "angle": 0.0
+                  },
+                  {
+                    "distance": 50.27253011433405,
+                    "angle": 0.0
+                  }
+                ],
+                "start": 0.0,
+                "show_duration": 400,
+                "speed": 0.45,
+                "stop_name": "",
+                "mode": "PROFILE",
+                "acceleration": 0.45,
+                "winding": "NEAREST",
+                "name": "Section6",
+                "end": 50.27253011433405,
+                "id": [
+                  270564458,
+                  1531529365,
+                  -1879676558,
+                  -1701500028
+                ],
+                "phi_from": 0.0
+              }
+            ],
+            "geometry": 8012137403235480011,
+            "version": 1,
+            "revision": 0
+          }
+        },
+        "revision": 0,
+        "valid": 1,
+        "appearance": {
+          "tint": -1,
+          "id": "fourthdimension:original"
+        },
+        "provider": "fourthdimension:original",
+        "variant": "upright_yaw_v1",
+        "from": 45079977148516,
+        "to": 36283883995236,
+        "id": [
+          762612280,
+          -1410643441,
+          -1613688524,
+          949999743
+        ],
+        "family": "powered_inverted"
+      },
+      {
+        "original_curve": {
+          "Starts": [
+            {
+              "V": [
+                0.5,
+                0.75,
+                0.5
+              ]
+            },
+            {
+              "V": [
+                -31.5,
+                0.75,
+                32.5
+              ]
+            }
+          ],
+          "Girder": 0,
+          "Normals": [
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          ],
+          "Primary": 1,
+          "Positions": [
+            {
+              "Pos": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "Pos": [
+                -32,
+                0,
+                32
+              ]
+            }
+          ],
+          "Axes": [
+            {
+              "V": [
+                -1.0,
+                0.0,
+                0.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                0.0,
+                -1.0
+              ]
+            }
+          ],
+          "Material": "simulatedcoasters:coaster_track"
+        },
+        "magnets": [],
+        "profile": [
+          {
+            "distance": 0.0,
+            "slope": 0.0,
+            "angle": 0.0
+          },
+          {
+            "distance": 50.272529165540845,
+            "slope": 0.0,
+            "angle": 0.0
+          }
+        ],
+        "lift_lock": 0,
+        "geometry_hash": 8812328331681733569,
+        "powered_yaw": {
+          "speeds": [
+            {
+              "start": 0.0,
+              "end": 50.272529165540845,
+              "speed": 4.0
+            }
+          ],
+          "stops": [],
+          "version": 1,
+          "yaw": {
+            "owner": [
+              940439953,
+              -167562164,
+              -1601161573,
+              -1389718966
+            ],
+            "intervals": [
+              {
+                "phi_to": 0.0,
+                "blend": 2.0,
+                "keys": [
+                  {
+                    "distance": 0.0,
+                    "angle": 0.0
+                  },
+                  {
+                    "distance": 50.272529165540845,
+                    "angle": 0.0
+                  }
+                ],
+                "start": 0.0,
+                "show_duration": 400,
+                "speed": 0.45,
+                "stop_name": "",
+                "mode": "PROFILE",
+                "acceleration": 0.45,
+                "winding": "NEAREST",
+                "name": "Section7",
+                "end": 50.272529165540845,
+                "id": [
+                  -200865225,
+                  1198541954,
+                  -1122549203,
+                  -1194277338
+                ],
+                "phi_from": 0.0
+              }
+            ],
+            "geometry": 8812328331681733569,
+            "version": 1,
+            "revision": 1
+          }
+        },
+        "revision": 1,
+        "valid": 1,
+        "appearance": {
+          "tint": -1,
+          "id": "fourthdimension:original"
+        },
+        "provider": "fourthdimension:original",
+        "variant": "upright_yaw_v1",
+        "from": 36283883995236,
+        "to": 27487791104100,
+        "id": [
+          72958914,
+          -2144515562,
+          -2116932718,
+          1683407713
+        ],
+        "family": "powered_inverted"
+      },
+      {
+        "original_curve": {
+          "Starts": [
+            {
+              "V": [
+                0.5,
+                0.75,
+                0.5
+              ]
+            },
+            {
+              "V": [
+                0.5,
+                0.75,
+                8.5
+              ]
+            }
+          ],
+          "Girder": 0,
+          "Normals": [
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          ],
+          "Primary": 1,
+          "Positions": [
+            {
+              "Pos": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "Pos": [
+                0,
+                0,
+                8
+              ]
+            }
+          ],
+          "Axes": [
+            {
+              "V": [
+                0.0,
+                0.0,
+                1.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                0.0,
+                -1.0
+              ]
+            }
+          ],
+          "Material": "simulatedcoasters:coaster_track"
+        },
+        "magnets": [],
+        "profile": [
+          {
+            "distance": 0.0,
+            "slope": 0.0,
+            "angle": 0.0
+          },
+          {
+            "distance": 8.0,
+            "slope": 0.0,
+            "angle": 0.0
+          }
+        ],
+        "lift_lock": 0,
+        "geometry_hash": -561523913134754623,
+        "powered_yaw": {
+          "speeds": [],
+          "stops": [],
+          "version": 1,
+          "yaw": {
+            "owner": [
+              940439953,
+              -167562164,
+              -1601161573,
+              -1389718966
+            ],
+            "intervals": [],
+            "geometry": -561523913134754623,
+            "version": 1,
+            "revision": 0
+          }
+        },
+        "revision": 0,
+        "valid": 1,
+        "appearance": {
+          "tint": -1,
+          "id": "fourthdimension:original"
+        },
+        "provider": "fourthdimension:original",
+        "variant": "upright_yaw_v1",
+        "from": 23089744625759,
+        "to": 23089744658527,
+        "id": [
+          -1167495908,
+          -1483847303,
+          -2064756141,
+          457630564
+        ],
+        "family": "powered_inverted"
+      }
+    ],
+    "vehicles": [
+      {
+        "alignment_required": 0,
+        "contact_layout": "coasters_n_contacts_v1",
+        "mount_frame": "overhead_n_v1",
+        "fault": "Reload requires explicit retained recovery",
+        "boundTo": 36283884781668,
+        "carriers": [
+          {
+            "side": 0.0,
+            "rider_seats": [
+              {
+                "seat": -274877906944,
+                "player": [
+                  940439953,
+                  -167562164,
+                  -1601161573,
+                  -1389718966
+                ]
+              }
+            ],
+            "lift_pending": 0,
+            "capture": 1,
+            "body": [
+              -1334054518,
+              -40153767,
+              -1449524498,
+              -63203839
+            ],
+            "axis": "Y",
+            "seats": [
+              -274877906944,
+              0
+            ],
+            "ballast": 0.0,
+            "omega": -0.0002774703448220009,
+            "lift_geometry": 0,
+            "lift_entered": 0,
+            "pivot_height": -3.3125,
+            "angle": 7.53234311606381,
+            "capture_target": 0.0,
+            "lift_held": 0,
+            "latched": 0,
+            "longitudinal": 0.0,
+            "child_pivot_offset": 0.0,
+            "child_pivot_x": -0.5,
+            "child_pivot_z": 0.0,
+            "occupants": [
+              [
+                940439953,
+                -167562164,
+                -1601161573,
+                -1389718966
+              ]
+            ]
+          }
+        ],
+        "chassis": [
+          -2134944046,
+          -1796518402,
+          -1194371499,
+          -1485487313
+        ],
+        "ctnb": {
+          "kind": "",
+          "remaining": 0
+        },
+        "damping": 0.0,
+        "boundFrom": 27487791628388,
+        "powered_yaw": {
+          "next_stop": 0,
+          "distance": 25.436249010203944,
+          "axes": "chassis_y_upright",
+          "stopped_ticks": 5,
+          "event_ticks": {
+            "SECTION_ENTER:fa7fffeb-43e9-4a67-8c8a-585018ce2372": 8543,
+            "STOP_HELD:99d5288e-7b4d-49b3-8bbe-923fe0aed747": 9329,
+            "RIDE_FAULT:99d5288e-7b4d-49b3-8bbe-923fe0aed747": 9461,
+            "SECTION_ENTER:a4f09711-5bba-4fe7-bb4b-8a8e139a1320": 8845,
+            "YAW_REACHED:null": 3225,
+            "SECTION_ENTER:99d5288e-7b4d-49b3-8bbe-923fe0aed747": 9165,
+            "YAW_REACHED:99d5288e-7b4d-49b3-8bbe-923fe0aed747": 9303
+          },
+          "section": [
+            -1714083698,
+            2068662707,
+            -1950444993,
+            -525412537
+          ],
+          "epoch": 1,
+          "entry_angle": 8.630569881649471,
+          "consist": [
+            [
+              -2134944046,
+              -1796518402,
+              -1194371499,
+              -1485487313
+            ]
+          ],
+          "mode": "HOLD_FAULT",
+          "reference": 7.532318313625963,
+          "entry_distance": 0.18453530618878336,
+          "show_ticks": 124,
+          "initialized": 1,
+          "dock_from": 27487791104100,
+          "interrupted_phase": "HELD_DWELL",
+          "direction": 1,
+          "section_revision": 0,
+          "phase": "FAULT",
+          "owner": [
+            940439953,
+            -167562164,
+            -1601161573,
+            -1389718966
+          ],
+          "speed_index": 0,
+          "controller": 28587302731876,
+          "travel_request": 0.0,
+          "resume_required": 1,
+          "route_geometry": 7279178933924690899,
+          "next_mode": "SHOW_STOP",
+          "last_tick": -1,
+          "pending_direction": -1,
+          "hold_acknowledged": 0,
+          "reference_velocity": 0.0,
+          "version": 1,
+          "target": 7.720262884267086,
+          "dwell_remaining": 276,
+          "interrupted_mode": "SHOW_STOP",
+          "sequence": 8,
+          "yaw_reached": 0,
+          "stop": [
+            -1714083698,
+            2068662707,
+            -1950444993,
+            -525412537
+          ],
+          "dock_to": 27487791366244,
+          "dock_geometry": 1957450587360036225,
+          "status": "Reload requires explicit retained recovery"
+        },
+        "ballast": 0.0,
+        "revision": 7,
+        "boarding_ready": 0,
+        "stopping": 1,
+        "authority": {
+          "owner": [
+            -573846358,
+            611664837,
+            -1477568036,
+            -841410785
+          ],
+          "sequence": 3,
+          "reason": "Restored authority requires explicit Resume",
+          "cars": [
+            [
+              -2134944046,
+              -1796518402,
+              -1194371499,
+              -1485487313
+            ]
+          ],
+          "controller": 28587302731876,
+          "provider": "native_chain",
+          "held": 1,
+          "epoch": 2,
+          "suspended": 1,
+          "direction": 1
+        },
+        "variant": "upright_yaw_v1",
+        "restraints": 1,
+        "shuttle_detached": 0,
+        "family": "powered_inverted",
+        "suspended_consist": [],
+        "dock": 26663157448799,
+        "maintenance": 0
+      }
+    ]
+  },
+  "DataVersion": 3955
+}

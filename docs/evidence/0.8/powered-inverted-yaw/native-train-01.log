@@ -1,0 +1,348 @@
+> Task :createMinecraftArtifacts UP-TO-DATE
+
+> Task :compileJava
+/home/braydon/Documents/Coasters: Fourth Dimension/src/main/java/dev/fourthdimension/client/RiderComfort.java:28: warning: [removal] bus() in EventBusSubscriber has been deprecated and marked for removal
+      bus = EventBusSubscriber.Bus.MOD)
+      ^
+/home/braydon/Documents/Coasters: Fourth Dimension/src/main/java/dev/fourthdimension/client/RiderComfort.java:28: warning: [removal] Bus in EventBusSubscriber has been deprecated and marked for removal
+      bus = EventBusSubscriber.Bus.MOD)
+                              ^
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+2 warnings
+
+> Task :processResources
+> Task :classes
+
+> Task :downloadAssets
+Loaded 131 artifacts from /mnt/NVME4/fourthdimension-runs/fd1901-powered-yaw-20261115/build/tmp/downloadAssets/nfrt_artifact_manifest.properties
+Downloading asset index 17
+Using Minecraft asset root: /home/braydon/.gradle/caches/neoformruntime/assets
+  ↓ https://piston-meta.mojang.com/v1/packages/de573f83da62843433ec9951c66feec7ed0a60a1/17.json
+
+> Task :writeGameTestServerLegacyClasspath UP-TO-DATE
+> Task :prepareGameTestServerRun
+
+> Task :runGameTestServer
+WARN StatusConsoleListener Advanced terminal features are not available in this environment
+[06:35:14] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forgeserverdev, --gameDir, ., --fml.fmlVersion, 4.0.43, --fml.mcVersion, 1.21.1, --fml.neoForgeVersion, 21.1.248, --fml.neoFormVersion, 20240808.144430]
+[06:35:14] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: JVM identified as Arch Linux OpenJDK 64-Bit Server VM 21.0.13.0.3+1
+[06:35:14] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: ModLauncher 11.0.5+main.901c6ea8 starting: java version 21.0.13.0.3 by Arch Linux; OS Linux arch amd64 version 7.2.14-zen1-1-zen
+[06:35:14] [main/INFO] [ne.ne.fm.lo.ImmediateWindowHandler/]: ImmediateWindowProvider not loading because launch target is forgeserverdev
+[06:35:14] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.7 Source=union:/home/braydon/.gradle/caches/modules-2/files-2.1/net.fabricmc/sponge-mixin/0.15.2+mixin.0.8.7/2af2f021d8e02a0220dc27a7a72b4666d66d44ca/sponge-mixin-0.15.2+mixin.0.8.7.jar%2394!/ Service=ModLauncher Env=SERVER
+[06:35:14] [main/WARN] [ne.ne.ja.se.JarSelector/]: Attempted to select a dependency jar for JarJar which was passed in as source: veil. Using Mod File: /home/braydon/.gradle/caches/modules-2/files-2.1/foundry.veil/veil-neoforge-1.21.1/4.1.4/642ec0bd02213ee087d86eda553d6d79c6a04d2b/veil-neoforge-1.21.1-4.1.4.jar
+[06:35:14] [main/WARN] [ne.ne.ja.se.JarSelector/]: Attempted to select a dependency jar for JarJar which was passed in as source: sablecompanion. Using Mod File: /home/braydon/.gradle/caches/modules-2/files-2.1/dev.ryanhcode.sable-companion/sable-companion-common-1.21.1/1.6.0/370be7db705926176e05c0215ed676150c45daae/sable-companion-common-1.21.1-1.6.0.jar
+[06:35:14] [main/WARN] [ne.ne.ja.se.JarSelector/]: Attempted to select a dependency jar for JarJar which was passed in as source: library:sable_rapier. Using Mod File: /home/braydon/.gradle/caches/modules-2/files-2.1/dev.ryanhcode.sable/sable-sable_rapier-1.21.1/2.0.3/a88c0860320890144b6b44c332a2a2db3a61e189/sable-sable_rapier-1.21.1-2.0.3.jar
+[06:35:14] [main/INFO] [ne.ne.fm.lo.mo.lo.JarInJarDependencyLocator/]: Found 4 dependencies adding them to mods collection
+[06:35:14] [main/INFO] [ne.ne.fm.lo.mo.ModDiscoverer/]: 
+     Mod List:
+		Name Version (Mod Id)
+
+		Coasters: Fourth Dimension 0.9.0-dev.27 (fourthdimension)
+		Create 6.0.10 (create)
+		Create: Coasters Simulated 0.1.5 (simulatedcoasters)
+		Flywheel 1.0.6 (flywheel)
+		Minecraft 1.21.1 (minecraft)
+		NeoForge 21.1.248 (neoforge)
+		Ponder 1.0.82+mc1.21.1 (ponder)
+		Sable 2.0.3 (sable)
+		Sable Companion 1.6.0 (sablecompanion)
+		Veil 4.1.4 (veil)
+[06:35:15] [main/INFO] [mixin/]: Compatibility level set to JAVA_21
+[06:35:15] [main/INFO] [cp.mo.mo.LaunchServiceHandler/MODLAUNCHER]: Launching target 'forgeserverdev' with arguments [--gameDir, .]
+[06:35:15] [main/WARN] [mixin/]: Reference map 'ponder.refmap.json' for ponder-common.mixins.json could not be read. If this is a development environment you can ignore this message
+[06:35:15] [main/INFO] [de.ry.sa.mi.AbstractSableMixinPlugin/]: Using Vanilla renderer mixins
+[06:35:15] [main/INFO] [de.ry.sa.mi.AbstractSableMixinPlugin/]: Using Vanilla renderer mixins
+[06:35:15] [main/WARN] [mixin/]: Error loading class: dev/simulated_team/simulated/content/blocks/merging_glue/MergingGlueBlockEntity (java.lang.ClassNotFoundException: dev.simulated_team.simulated.content.blocks.merging_glue.MergingGlueBlockEntity)
+[06:35:15] [main/WARN] [mixin/]: @Mixin target dev.simulated_team.simulated.content.blocks.merging_glue.MergingGlueBlockEntity was not found simulatedcoasters.mixins.json:compat.MergingGlueBlockEntityRivetMixin from mod simulatedcoasters
+[06:35:15] [main/ERROR] [ne.ne.fm.co.as.RuntimeDistCleaner/DISTXFORM]: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER
+[06:35:15] [main/WARN] [mixin/]: Error loading class: net/minecraft/client/multiplayer/ClientLevel (java.lang.RuntimeException: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER)
+[06:35:15] [main/ERROR] [ne.ne.fm.co.as.RuntimeDistCleaner/DISTXFORM]: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER
+[06:35:15] [main/WARN] [mixin/]: Error loading class: net/minecraft/client/multiplayer/ClientLevel (java.lang.RuntimeException: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER)
+[06:35:15] [main/ERROR] [ne.ne.fm.co.as.RuntimeDistCleaner/DISTXFORM]: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER
+[06:35:15] [main/WARN] [mixin/]: Error loading class: net/minecraft/client/multiplayer/ClientLevel (java.lang.RuntimeException: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER)
+[06:35:15] [main/WARN] [mixin/]: Error loading class: dev/jwaterfall/coastersengineered/MotorDrive (java.lang.ClassNotFoundException: dev.jwaterfall.coastersengineered.MotorDrive)
+[06:35:15] [main/WARN] [mixin/]: Error loading class: dev/jwaterfall/coastersengineered/CartAssembly (java.lang.ClassNotFoundException: dev.jwaterfall.coastersengineered.CartAssembly)
+[06:35:15] [main/WARN] [mixin/]: Error loading class: dev/plushivr/coasterfins/block/StationBlockEntity (java.lang.ClassNotFoundException: dev.plushivr.coasterfins.block.StationBlockEntity)
+[06:35:15] [main/WARN] [mixin/]: Error loading class: dev/notzyvex/coasters_extras/track/TrackRepaint (java.lang.ClassNotFoundException: dev.notzyvex.coasters_extras.track.TrackRepaint)
+[06:35:15] [main/WARN] [mixin/]: Error loading class: org/jetbrains/annotations/ApiStatus$ScheduledForRemoval (java.lang.ClassNotFoundException: org.jetbrains.annotations.ApiStatus$ScheduledForRemoval)
+[06:35:15] [main/ERROR] [ne.ne.fm.co.as.RuntimeDistCleaner/DISTXFORM]: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER
+[06:35:15] [main/WARN] [mixin/]: Error loading class: net/minecraft/client/multiplayer/ClientLevel (java.lang.RuntimeException: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER)
+[06:35:15] [main/ERROR] [ne.ne.fm.co.as.RuntimeDistCleaner/DISTXFORM]: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER
+[06:35:15] [main/WARN] [mixin/]: Error loading class: net/minecraft/client/multiplayer/ClientLevel (java.lang.RuntimeException: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER)
+[06:35:15] [main/ERROR] [ne.ne.fm.co.as.RuntimeDistCleaner/DISTXFORM]: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER
+[06:35:15] [main/WARN] [mixin/]: Error loading class: net/minecraft/client/multiplayer/ClientLevel (java.lang.RuntimeException: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER)
+[06:35:15] [main/ERROR] [ne.ne.fm.co.as.RuntimeDistCleaner/DISTXFORM]: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER
+[06:35:15] [main/WARN] [mixin/]: Error loading class: net/minecraft/client/multiplayer/ClientLevel (java.lang.RuntimeException: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER)
+[06:35:15] [main/ERROR] [ne.ne.fm.co.as.RuntimeDistCleaner/DISTXFORM]: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER
+[06:35:15] [main/WARN] [mixin/]: Error loading class: net/minecraft/client/multiplayer/ClientLevel (java.lang.RuntimeException: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER)
+[06:35:15] [main/ERROR] [ne.ne.fm.co.as.RuntimeDistCleaner/DISTXFORM]: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER
+[06:35:15] [main/WARN] [mixin/]: Error loading class: net/minecraft/client/multiplayer/ClientLevel (java.lang.RuntimeException: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER)
+[06:35:15] [main/INFO] [MixinExtras|Service/]: Initializing MixinExtras via com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.5.3).
+[06:35:16] [main/ERROR] [ne.ne.fm.co.as.RuntimeDistCleaner/DISTXFORM]: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER
+[06:35:16] [main/WARN] [mixin/]: Error loading class: net/minecraft/client/multiplayer/ClientLevel (java.lang.RuntimeException: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER)
+[06:35:16] [main/ERROR] [ne.ne.fm.co.as.RuntimeDistCleaner/DISTXFORM]: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER
+[06:35:16] [main/WARN] [mixin/]: Error loading class: net/minecraft/client/multiplayer/ClientLevel (java.lang.RuntimeException: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER)
+[06:35:16] [main/ERROR] [ne.ne.fm.co.as.RuntimeDistCleaner/DISTXFORM]: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER
+[06:35:16] [main/WARN] [mixin/]: Error loading class: net/minecraft/client/multiplayer/ClientLevel (java.lang.RuntimeException: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER)
+[06:35:18] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, location] and [teleport, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+[06:35:18] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, location] and [teleport, targets] with inputs: [0.1 -0.5 .9, 0 0 0]
+[06:35:18] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, destination] and [teleport, targets] with inputs: [Player, 0123, @e, dd12be42-52a9-4a91-a8a1-11c01849e498]
+[06:35:18] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, targets] and [teleport, destination] with inputs: [Player, 0123, dd12be42-52a9-4a91-a8a1-11c01849e498]
+[06:35:18] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, targets, location] and [teleport, targets, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+[06:35:18] [modloading-worker-0/INFO] [Veil/]: Veil is initializing.
+[06:35:18] [modloading-worker-0/INFO] [ne.ne.ne.co.NeoForgeMod/NEOFORGE-MOD]: NeoForge mod loading, version 21.1.248, for MC 1.21.1
+[06:35:18] [modloading-worker-0/INFO] [co.si.cr.Create/]: Create 6.0.10 initializing! Commit hash: ac0c444d9828da3453ae8cc65338e8de063286fb
+[06:35:19] [modloading-worker-0/INFO] [de.ry.sa.Sable/]: Sable loaded!
+[06:35:19] [modloading-worker-0/INFO] [de.fo.FourthDimension/]: Coasters: Fourth Dimension loaded from union:/mnt/NVME4/fourthdimension-runs/fd1901-powered-yaw-20261115/build/classes/java/main/%23127!/
+[06:35:20] [main/INFO] [mojang/YggdrasilAuthenticationService]: Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, name=PROD]
+[06:35:20] [NeoForge Version Check/INFO] [ne.ne.fm.VersionChecker/]: [create] Starting version check at https://api.modrinth.com/updates/create/forge_updates.json?neoforge=only
+[06:35:20] [main/WARN] [minecraft/VanillaPackResourcesBuilder]: Assets URL 'union:/mnt/NVME4/fourthdimension-runs/fd1901-powered-yaw-20261115/build/moddev/artifacts/neoforge-21.1.248.jar%23125!/assets/.mcassetsroot' uses unexpected schema
+[06:35:20] [main/WARN] [minecraft/VanillaPackResourcesBuilder]: Assets URL 'union:/mnt/NVME4/fourthdimension-runs/fd1901-powered-yaw-20261115/build/moddev/artifacts/neoforge-21.1.248.jar%23125!/data/.mcassetsroot' uses unexpected schema
+[06:35:20] [main/INFO] [co.si.cr.Create/]: Created 157 recipes which will be injected into the game
+[06:35:20] [main/INFO] [co.si.cr.Create/]: Created 0 tags which will be injected into the game
+[06:35:20] [main/INFO] [ne.ne.ne.ga.GameTestHooks/]: Enabled Gametest Namespaces: [fourthdimension_fd1901_train]
+[06:35:21] [NeoForge Version Check/INFO] [ne.ne.fm.VersionChecker/]: [create] Found status: OUTDATED Current: 6.0.10 Target: 6.0.10+mc1.21.1
+[06:35:21] [main/INFO] [minecraft/RecipeManager]: Loaded 2866 recipes
+[06:35:21] [main/INFO] [minecraft/AdvancementTree]: Loaded 2522 advancements
+[06:35:21] [Server thread/INFO] [de.ry.sa.Sable/]: Creating physics pipeline for ResourceKey[minecraft:dimension / minecraft:overworld] using RapierPhysicsPipelineProvider
+[2026-11-15T13:35:22.077836867Z] [[32mINFO[0m] (sable_rapier) Rapier scene initialized
+[06:35:22] [Server thread/INFO] [de.ry.sa.Sable/]: Creating physics pipeline for ResourceKey[minecraft:dimension / minecraft:the_end] using RapierPhysicsPipelineProvider
+[2026-11-15T13:35:22.314120907Z] [[32mINFO[0m] (sable_rapier) Rapier scene initialized
+[06:35:22] [Server thread/INFO] [de.ry.sa.Sable/]: Creating physics pipeline for ResourceKey[minecraft:dimension / minecraft:the_nether] using RapierPhysicsPipelineProvider
+[2026-11-15T13:35:22.335082409Z] [[32mINFO[0m] (sable_rapier) Rapier scene initialized
+[06:35:22] [Server thread/INFO] [minecraft/MinecraftServer]: Preparing start region for dimension minecraft:overworld
+[06:35:22] [worldgen/INFO] [minecraft/LoggerChunkProgressListener]: Preparing spawn area: 2%
+[06:35:22] [Server thread/INFO] [minecraft/LoggerChunkProgressListener]: Time elapsed: 95 ms
+[06:35:22] [Server thread/INFO] [minecraft/GameTestServer]: Started game test server
+[06:35:22] [Server thread/INFO] [ne.ne.ne.se.pe.PermissionAPI/]: Successfully initialized permission handler neoforge:default_handler
+[06:35:22] [Server thread/INFO] [minecraft/GameTestServer]: 1 tests are now running at position -3413490, -59, 8123355!
+[06:35:23] [Server thread/INFO] [minecraft/GameTestRunner]: Running test batch 'defaultBatch:0' (1 tests)...
+[06:35:23] [Server thread/INFO] [minecraft/GameTestServer]: [ ]
+[06:35:23] [Server thread/INFO] [minecraft/GameTestServer]: [ ]
+[06:35:23] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:35:23] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:35:23] [Server thread/INFO] [de.si.si.SimulatedCoasters/]: [cart-link] linked carts 2e0a5cab-1791-4438-a291-2c12e1ae0032 <-> 814d15d2-104f-4386-992d-384ea0b602df at distance 6.000
+[06:35:23] [Server thread/INFO] [de.si.si.SimulatedCoasters/]: [cart-link] linked carts 814d15d2-104f-4386-992d-384ea0b602df <-> 3663a450-9ddd-4585-9c07-145b06bddf58 at distance 6.000
+[06:35:23] [Server thread/INFO] [de.si.si.SimulatedCoasters/]: [cart-link] linked carts 3663a450-9ddd-4585-9c07-145b06bddf58 <-> 727be19f-47e4-4d87-870c-1c9c3220e02c at distance 6.000
+[06:35:23] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:35:24] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:35:24] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_POWERED_NATIVE tick=100 car=0 phase=RUN mode=PROFILE distance=8.202148899848318 actualSpeed=0.8625004456600489 direction=1 psi=0.037647553490925356 omega=0.16846404939123968 target=0.2803639029704091 dwell=0 authority=false
+FD_POWERED_NATIVE tick=100 car=1 phase=RUN mode=PROFILE distance=14.202141267705002 actualSpeed=0.8626453736803407 direction=1 psi=0.03718501540375359 omega=0.1719983822954704 target=0.7865942331998316 dwell=0 authority=false
+FD_POWERED_NATIVE tick=100 car=2 phase=RUN mode=PROFILE distance=20.20214938783522 actualSpeed=0.8625010417064356 direction=1 psi=0.037647496228885906 omega=0.16846434868048754 target=1.4775486790139525 dwell=0 authority=false
+FD_POWERED_NATIVE tick=100 car=3 phase=RUN mode=PROFILE distance=26.202141752342364 actualSpeed=0.8626455524956439 direction=1 psi=0.03718501542381917 omega=0.17199595404648 target=2.2911009076921975 dwell=0 authority=false
+[06:35:24] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:35:24] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:35:24] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:35:25] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:35:25] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_POWERED_NATIVE tick=200 car=0 phase=RUN mode=PROFILE distance=25.791474332950543 actualSpeed=3.99055674625309 direction=1 psi=1.819696165550486 omega=0.42641990912337 target=2.2104796747305304 dwell=0 authority=false
+FD_POWERED_NATIVE tick=200 car=1 phase=RUN mode=PROFILE distance=31.791459066435934 actualSpeed=3.9908662199011387 direction=1 psi=2.2046581166917854 omega=0.42695571037741414 target=3.0814382474993502 dwell=0 authority=false
+FD_POWERED_NATIVE tick=200 car=2 phase=RUN mode=PROFILE distance=37.79147527265504 actualSpeed=3.99013164593156 direction=1 psi=2.2046349204528317 omega=0.4262257786311161 target=3.9566278701116464 dwell=0 authority=false
+FD_POWERED_NATIVE tick=200 car=3 phase=RUN mode=PROFILE distance=43.79146001102084 actualSpeed=3.990862882042299 direction=1 psi=2.204657904384174 omega=0.4269374626075838 target=4.773920959177057 dwell=0 authority=false
+[06:35:25] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:35:25] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:35:25] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:35:25] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:35:25] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_POWERED_NATIVE tick=300 car=0 phase=RUN mode=PROFILE distance=45.78734014008561 actualSpeed=3.989298849839994 direction=1 psi=4.0697238845050885 omega=0.4262860533851156 target=5.022250974132253 dwell=0 authority=false
+FD_POWERED_NATIVE tick=300 car=1 phase=RUN mode=PROFILE distance=51.78734014008561 actualSpeed=3.990176236538007 direction=1 psi=4.454644378709868 omega=0.4269449021941865 target=5.665826026630505 dwell=0 authority=false
+FD_POWERED_NATIVE tick=300 car=2 phase=RUN mode=PROFILE distance=57.7873401400856 actualSpeed=3.9890034492197244 direction=1 psi=4.4546197854952245 omega=0.426336940116157 target=6.106586157960174 dwell=0 authority=false
+FD_POWERED_NATIVE tick=300 car=3 phase=RUN mode=PROFILE distance=63.78734014601399 actualSpeed=3.990084207042773 direction=1 psi=4.454643498527452 omega=0.42698808735284893 target=6.282405146125911 dwell=0 authority=false
+[06:35:26] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:35:26] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:35:26] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:35:26] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:35:26] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_POWERED_NATIVE tick=400 car=0 phase=RUN mode=TARGET distance=1.7827606561734717 actualSpeed=3.9897334869043393 direction=1 psi=6.282288894873995 omega=0.4138592620926196 target=7.095579585207537 dwell=0 authority=false
+FD_POWERED_NATIVE tick=400 car=1 phase=RUN mode=TARGET distance=7.782745579575419 actualSpeed=3.990753209508557 direction=1 psi=6.704537368967491 omega=0.4275891659565681 target=7.204165500168196 dwell=0 authority=false
+FD_POWERED_NATIVE tick=400 car=2 phase=RUN mode=TARGET distance=13.782745813111353 actualSpeed=3.9906225497806775 direction=1 psi=6.70461566220886 omega=0.42638382202385394 target=7.334092780993502 dwell=0 authority=false
+FD_POWERED_NATIVE tick=400 car=3 phase=RUN mode=TARGET distance=19.782746312968847 actualSpeed=3.9910323976634396 direction=1 psi=6.704537410995641 omega=0.42758898450887545 target=7.486547536442069 dwell=0 authority=false
+[06:35:26] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:35:26] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:35:27] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:35:27] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:35:27] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_POWERED_NATIVE tick=500 car=0 phase=RUN mode=TARGET distance=21.777909265650273 actualSpeed=3.991619854686975 direction=1 psi=7.515784332912824 omega=0.1040648993331232 target=7.54195354486252 dwell=0 authority=false
+FD_POWERED_NATIVE tick=500 car=1 phase=RUN mode=TARGET distance=27.777909265650273 actualSpeed=3.9909642099135003 direction=1 psi=7.689643501346497 omega=0.11479640217772828 target=7.719728886926116 dwell=0 authority=false
+FD_POWERED_NATIVE tick=500 car=2 phase=RUN mode=TARGET distance=33.77791021410808 actualSpeed=3.991177588228221 direction=1 psi=7.874932826987185 omega=0.11808532365131091 target=7.906368655494887 dwell=0 authority=false
+FD_POWERED_NATIVE tick=500 car=3 phase=RUN mode=TARGET distance=39.77792546590301 actualSpeed=3.988607203874982 direction=1 psi=8.059886079705338 omega=0.11426142577263154 target=8.089466090772095 dwell=0 authority=false
+[06:35:27] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:35:27] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:35:27] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:35:28] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:35:28] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_POWERED_NATIVE tick=600 car=0 phase=RUN mode=TARGET distance=41.773439407103396 actualSpeed=3.9910323913147057 direction=1 psi=8.119209910926553 omega=0.1109308300490362 target=8.14754342819358 dwell=0 authority=false
+FD_POWERED_NATIVE tick=600 car=1 phase=RUN mode=TARGET distance=47.773439407103396 actualSpeed=3.990805899975806 direction=1 psi=8.285843310741281 omega=0.0987038170065095 target=8.30943253799261 dwell=0 authority=false
+FD_POWERED_NATIVE tick=600 car=2 phase=RUN mode=TARGET distance=53.77345464238684 actualSpeed=3.9900067145969365 direction=1 psi=8.43072091259797 omega=0.08402049413367117 target=8.449307111360765 dwell=0 authority=false
+FD_POWERED_NATIVE tick=600 car=3 phase=RUN mode=TARGET distance=59.77343940710339 actualSpeed=3.9907923101254252 direction=1 psi=8.552744475534507 omega=0.07008716223704885 target=8.567002915795412 dwell=0 authority=false
+[06:35:28] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:35:28] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:35:28] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:35:28] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:35:28] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_POWERED_NATIVE tick=700 car=0 phase=RUN mode=TARGET distance=60.45117376511336 actualSpeed=3.547914061166222 direction=1 psi=8.567645929700184 omega=0.0601736913633086 target=8.579187571924866 dwell=0 authority=false
+FD_POWERED_NATIVE tick=700 car=1 phase=RUN mode=SHOW_STOP distance=2.4527572761887653 actualSpeed=3.5544526132362217 direction=1 psi=8.624119634517651 omega=0.09576519495752057 target=8.631670826909378 dwell=0 authority=false
+FD_POWERED_NATIVE tick=700 car=2 phase=RUN mode=SHOW_STOP distance=8.461546979863979 actualSpeed=3.5524287844562883 direction=1 psi=8.620584821649317 omega=0.09752491881195569 target=8.628460284983372 dwell=0 authority=false
+FD_POWERED_NATIVE tick=700 car=3 phase=RUN mode=SHOW_STOP distance=14.470447606161994 actualSpeed=3.547052371971229 direction=1 psi=8.622532009697343 omega=0.09877681640586973 target=8.6304015357238 dwell=0 authority=false
+[06:35:29] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:35:29] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:35:29] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:35:29] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:35:29] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_POWERED_NATIVE tick=800 car=0 phase=RUN mode=SHOW_STOP distance=14.985582928044701 actualSpeed=3.904872449076854 direction=1 psi=8.621630860792372 omega=0.10755287223783055 target=8.630292092037312 dwell=0 authority=false
+FD_POWERED_NATIVE tick=800 car=1 phase=RUN mode=SHOW_STOP distance=20.994289857006184 actualSpeed=3.9010066053834995 direction=1 psi=8.623035445964833 omega=0.10997851944378148 target=8.631670826909378 dwell=0 authority=false
+FD_POWERED_NATIVE tick=800 car=2 phase=RUN mode=SHOW_STOP distance=27.002936714559993 actualSpeed=3.896993041587643 direction=1 psi=8.619902682367819 omega=0.10575094707224118 target=8.628460284983372 dwell=0 authority=false
+FD_POWERED_NATIVE tick=800 car=3 phase=RUN mode=SHOW_STOP distance=33.01160766578402 actualSpeed=3.8944467864485173 direction=1 psi=8.621739306285125 omega=0.10803481995131696 target=8.6304015357238 dwell=0 authority=false
+[06:35:29] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:35:29] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:35:30] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:35:30] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:35:30] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_POWERED_NATIVE tick=900 car=0 phase=HELD_DWELL mode=SHOW_STOP distance=25.264764209054345 actualSpeed=5.4218173438297674E-5 direction=1 psi=8.360198686923315 omega=-0.42127546746148825 target=6.3431176665816595 dwell=377 authority=true
+FD_POWERED_NATIVE tick=900 car=1 phase=HELD_DWELL mode=SHOW_STOP distance=31.273508628486397 actualSpeed=3.559672648491491E-5 direction=1 psi=8.36159405113493 omega=-0.42243779988020297 target=6.3431176665816595 dwell=377 authority=true
+FD_POWERED_NATIVE tick=900 car=2 phase=HELD_DWELL mode=SHOW_STOP distance=37.28236134983359 actualSpeed=2.4869250253219425E-4 direction=1 psi=8.358332839443001 omega=-0.42074260485704235 target=6.3431176665816595 dwell=377 authority=true
+FD_POWERED_NATIVE tick=900 car=3 phase=HELD_DWELL mode=SHOW_STOP distance=43.291328585644216 actualSpeed=2.492765264704288E-4 direction=1 psi=8.36032247236007 omega=-0.42192773233986286 target=6.3431176665816595 dwell=377 authority=true
+[06:35:30] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:35:30] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:35:30] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:35:30] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:35:30] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_POWERED_NATIVE tick=1000 car=0 phase=HELD_DWELL mode=SHOW_STOP distance=25.264764209054345 actualSpeed=5.4036727318170896E-5 direction=1 psi=7.234169883581712 omega=0.4255098291426133 target=7.700148248253855 dwell=277 authority=true
+FD_POWERED_NATIVE tick=1000 car=1 phase=HELD_DWELL mode=SHOW_STOP distance=31.273508628486397 actualSpeed=3.1772117384739997E-5 direction=1 psi=7.232804543677558 omega=0.42634455812196664 target=7.700148248253855 dwell=277 authority=true
+FD_POWERED_NATIVE tick=1000 car=2 phase=HELD_DWELL mode=SHOW_STOP distance=37.28236134983359 actualSpeed=2.485799575387246E-4 direction=1 psi=7.233186078283427 omega=0.42530461474772985 target=7.700148248253855 dwell=277 authority=true
+FD_POWERED_NATIVE tick=1000 car=3 phase=HELD_DWELL mode=SHOW_STOP distance=43.291328585644216 actualSpeed=2.5031045919486134E-4 direction=1 psi=7.234067039946899 omega=0.4262813798172222 target=7.700148248253855 dwell=277 authority=true
+[06:35:31] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:35:31] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:35:31] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:35:31] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:35:31] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_POWERED_NATIVE tick=1100 car=0 phase=HELD_DWELL mode=SHOW_STOP distance=25.264764209054345 actualSpeed=5.435274428759761E-5 direction=1 psi=9.484098289898318 omega=0.4263607440096554 target=9.964313708650105 dwell=177 authority=true
+FD_POWERED_NATIVE tick=1100 car=1 phase=HELD_DWELL mode=SHOW_STOP distance=31.273508628486397 actualSpeed=3.3045659125087185E-5 direction=1 psi=9.482716781848236 omega=0.4273192250462522 target=9.964313708650105 dwell=177 authority=true
+FD_POWERED_NATIVE tick=1100 car=2 phase=HELD_DWELL mode=SHOW_STOP distance=37.28236134983359 actualSpeed=2.488215762262566E-4 direction=1 psi=9.483086544342799 omega=0.42639998994743755 target=9.964313708650105 dwell=177 authority=true
+FD_POWERED_NATIVE tick=1100 car=3 phase=HELD_DWELL mode=SHOW_STOP distance=43.291328585644216 actualSpeed=2.501205807472261E-4 direction=1 psi=9.483983881991804 omega=0.4273672735469587 target=9.964313708650105 dwell=177 authority=true
+[06:35:31] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:35:31] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:35:31] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:35:31] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:35:32] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_POWERED_NATIVE tick=1200 car=0 phase=HELD_DWELL mode=SHOW_STOP distance=25.264764209054345 actualSpeed=5.4415554438411035E-5 direction=1 psi=11.730013995272534 omega=0.3984800656513839 target=11.957516802674235 dwell=77 authority=true
+FD_POWERED_NATIVE tick=1200 car=1 phase=HELD_DWELL mode=SHOW_STOP distance=31.273508628486397 actualSpeed=3.429174930683205E-5 direction=1 psi=11.728927663163129 omega=0.40021395775790214 target=11.957516802674235 dwell=77 authority=true
+FD_POWERED_NATIVE tick=1200 car=2 phase=HELD_DWELL mode=SHOW_STOP distance=37.28236134983359 actualSpeed=2.476593762133474E-4 direction=1 psi=11.72926107728621 omega=0.3986764335826061 target=11.957516802674235 dwell=77 authority=true
+FD_POWERED_NATIVE tick=1200 car=3 phase=HELD_DWELL mode=SHOW_STOP distance=43.291328585644216 actualSpeed=2.4890398075802717E-4 direction=1 psi=11.729924993566614 omega=0.39912383805348356 target=11.957516802674235 dwell=77 authority=true
+[06:35:32] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:35:32] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:35:32] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:35:32] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:35:32] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_POWERED_NATIVE tick=1300 car=0 phase=RUN mode=SHOW_STOP distance=24.12672322314401 actualSpeed=2.0395502404692225 direction=-1 psi=12.305782020049511 omega=-0.4703971858012178 target=8.630292092037312 dwell=0 authority=false
+FD_POWERED_NATIVE tick=1300 car=1 phase=RUN mode=SHOW_STOP distance=30.135419070350878 actualSpeed=2.0436975721228094 direction=-1 psi=12.306243531747752 omega=-0.47538513534445137 target=8.631670826909378 dwell=0 authority=false
+FD_POWERED_NATIVE tick=1300 car=2 phase=RUN mode=SHOW_STOP distance=36.14422187097901 actualSpeed=2.0442413890076114 direction=-1 psi=12.305814254898182 omega=-0.470337193106925 target=8.628460284983372 dwell=0 authority=false
+FD_POWERED_NATIVE tick=1300 car=3 phase=RUN mode=SHOW_STOP distance=42.153163118129115 actualSpeed=2.050799145619779 direction=-1 psi=12.30631073858392 omega=-0.47567132953964797 target=8.6304015357238 dwell=0 authority=false
+[06:35:32] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:35:32] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:35:33] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:35:33] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:35:33] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_POWERED_NATIVE tick=1400 car=0 phase=RUN mode=SHOW_STOP distance=5.632304773410134 actualSpeed=3.7137234626817324 direction=-1 psi=10.060583541159025 omega=-0.5285348295559945 target=8.630292092037312 dwell=0 authority=false
+FD_POWERED_NATIVE tick=1400 car=1 phase=RUN mode=SHOW_STOP distance=11.641184083303976 actualSpeed=3.704162640226714 direction=-1 psi=10.060639725668938 omega=-0.5322231745408179 target=8.631670826909378 dwell=0 authority=false
+FD_POWERED_NATIVE tick=1400 car=2 phase=RUN mode=SHOW_STOP distance=17.6499840664249 actualSpeed=3.7047215731094316 direction=-1 psi=10.060521823900693 omega=-0.5283143183256459 target=8.628460284983372 dwell=0 authority=false
+FD_POWERED_NATIVE tick=1400 car=3 phase=RUN mode=SHOW_STOP distance=23.658670711493883 actualSpeed=3.6968905740855784 direction=-1 psi=10.060575480071149 omega=-0.5332528441687225 target=8.6304015357238 dwell=0 authority=false
+[06:35:33] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:35:33] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:35:33] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:35:33] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:35:34] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_POWERED_NATIVE tick=1500 car=0 phase=RUN mode=TARGET distance=51.68625067535117 actualSpeed=3.673350127610121 direction=-1 psi=8.423123894909004 omega=-0.07251756180650946 target=8.407586268272796 dwell=0 authority=false
+FD_POWERED_NATIVE tick=1500 car=1 phase=RUN mode=TARGET distance=57.686235427610264 actualSpeed=3.680059471613408 direction=-1 psi=8.543997693615113 omega=-0.058127611837706275 target=8.532114910891588 dwell=0 authority=false
+FD_POWERED_NATIVE tick=1500 car=2 phase=RUN mode=TARGET distance=63.686235425905394 actualSpeed=3.680795702824016 direction=-1 psi=8.632951364225887 omega=-0.04869679876491367 target=8.635864835486583 dwell=0 authority=false
+FD_POWERED_NATIVE tick=1500 car=3 phase=RUN mode=SHOW_STOP distance=5.6947800575655165 actualSpeed=3.695882439086424 direction=-1 psi=8.637734406391267 omega=-0.08854090737434558 target=8.6304015357238 dwell=0 authority=false
+[06:35:34] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:35:34] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:35:34] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:35:34] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:35:34] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_POWERED_NATIVE tick=1600 car=0 phase=RUN mode=TARGET distance=32.08084296144924 actualSpeed=3.992741375677949 direction=-1 psi=7.890993338133368 omega=-0.11766345284378191 target=7.859632524318845 dwell=0 authority=false
+FD_POWERED_NATIVE tick=1600 car=1 phase=RUN mode=TARGET distance=38.08082770006013 actualSpeed=3.989921367102749 direction=-1 psi=8.073832098446188 omega=-0.11206698096267101 target=8.044781673162047 dwell=0 authority=false
+FD_POWERED_NATIVE tick=1600 car=2 phase=RUN mode=TARGET distance=44.08082770006013 actualSpeed=3.9900183971050764 direction=-1 psi=8.242389850821477 omega=-0.10003797647587047 target=8.217696532316047 dwell=0 authority=false
+FD_POWERED_NATIVE tick=1600 car=3 phase=RUN mode=TARGET distance=50.08082770006013 actualSpeed=3.9901862501286085 direction=-1 psi=8.390453814647861 omega=-0.08640992656810957 target=8.370652726334566 dwell=0 authority=false
+[06:35:34] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:35:35] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:35:35] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:35:35] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:35:35] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_POWERED_NATIVE tick=1700 car=0 phase=RUN mode=TARGET distance=12.08551070545203 actualSpeed=3.9908767039824435 direction=-1 psi=7.319673257913308 omega=-0.0884694863759539 target=7.299561813268634 dwell=0 authority=false
+FD_POWERED_NATIVE tick=1700 car=1 phase=RUN mode=TARGET distance=18.085495924376115 actualSpeed=3.9899499772955695 direction=-1 psi=7.47166431644337 omega=-0.10346082589694051 target=7.446446865978898 dwell=0 authority=false
+FD_POWERED_NATIVE tick=1700 car=2 phase=RUN mode=TARGET distance=24.08551118229121 actualSpeed=3.990922241931104 direction=-1 psi=7.643961854368566 omega=-0.11375133713685742 target=7.614466491000225 dwell=0 authority=false
+FD_POWERED_NATIVE tick=1700 car=3 phase=RUN mode=TARGET distance=30.085495924376126 actualSpeed=3.9902103303855525 direction=-1 psi=7.828777885773336 omega=-0.11861228203806357 target=7.797338821193609 dwell=0 authority=false
+[06:35:35] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:35:35] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:35:35] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:35:36] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:35:36] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_POWERED_NATIVE tick=1800 car=0 phase=RUN mode=PROFILE distance=56.45103643624511 actualSpeed=3.989693432582938 direction=-1 psi=6.45831920731794 omega=-0.4263437423239688 target=6.053670092348753 dwell=0 authority=false
+FD_POWERED_NATIVE tick=1800 car=1 phase=RUN mode=PROFILE distance=62.45102117598407 actualSpeed=3.98975352037582 direction=-1 psi=7.041593177342966 omega=-0.16581303498788275 target=6.274928032804289 dwell=0 authority=false
+FD_POWERED_NATIVE tick=1800 car=2 phase=RUN mode=TARGET distance=4.451034760399501 actualSpeed=3.990686207543643 direction=-1 psi=7.1594219612002465 omega=-0.07051803305160848 target=7.144987949738326 dwell=0 authority=false
+FD_POWERED_NATIVE tick=1800 car=3 phase=RUN mode=TARGET distance=10.451035003450892 actualSpeed=3.990055596723512 direction=-1 psi=7.282314384140831 omega=-0.08523540845019087 target=7.263480947070725 dwell=0 authority=false
+[06:35:36] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:35:36] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:35:36] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:35:36] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:35:36] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_POWERED_NATIVE tick=1900 car=0 phase=RETURN_CAPTURE mode=STATION_CAPTURE distance=37.13607977207146 actualSpeed=2.3961365711348606 direction=-1 psi=4.277102418661059 omega=-0.4265601876327841 target=0.0 dwell=0 authority=false
+FD_POWERED_NATIVE tick=1900 car=1 phase=RETURN_CAPTURE mode=STATION_CAPTURE distance=43.13609503297215 actualSpeed=2.3962040541716623 direction=-1 psi=4.947966554026863 omega=-0.4261876544800622 target=0.0 dwell=0 authority=false
+FD_POWERED_NATIVE tick=1900 car=2 phase=RETURN_CAPTURE mode=STATION_CAPTURE distance=49.13607977051774 actualSpeed=2.3954489719771144 direction=-1 psi=5.562683737975325 omega=-0.4257494366781492 target=0.0 dwell=0 authority=false
+FD_POWERED_NATIVE tick=1900 car=3 phase=RETURN_CAPTURE mode=STATION_CAPTURE distance=55.13609503297213 actualSpeed=2.396639406428189 direction=-1 psi=6.2264705585137206 omega=-0.4244103157639481 target=0.0 dwell=0 authority=false
+[06:35:37] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:35:37] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:35:37] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:35:37] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:35:37] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_POWERED_NATIVE tick=2000 car=0 phase=RETURN_CAPTURE mode=STATION_CAPTURE distance=35.751436224828524 actualSpeed=1.0667555442296455E-4 direction=-1 psi=2.027060757782029 omega=-0.42649836852317813 target=0.0 dwell=0 authority=true
+FD_POWERED_NATIVE tick=2000 car=1 phase=RETURN_CAPTURE mode=STATION_CAPTURE distance=41.75143622482855 actualSpeed=6.772611305824943E-5 direction=-1 psi=2.6980983020904983 omega=-0.4272642142455263 target=0.0 dwell=0 authority=true
+FD_POWERED_NATIVE tick=2000 car=2 phase=RETURN_CAPTURE mode=STATION_CAPTURE distance=47.75143622337129 actualSpeed=3.3854796738261065E-5 direction=-1 psi=3.3127213474142283 omega=-0.4263920347781763 target=0.0 dwell=0 authority=true
+FD_POWERED_NATIVE tick=2000 car=3 phase=RETURN_CAPTURE mode=STATION_CAPTURE distance=53.75143622482855 actualSpeed=3.072835548644183E-5 direction=-1 psi=3.9769259881493464 omega=-0.42735210398009693 target=0.0 dwell=0 authority=true
+[06:35:37] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:35:37] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:35:37] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:35:37] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:35:38] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_POWERED_NATIVE tick=2100 car=0 phase=RETURN_CAPTURE mode=STATION_CAPTURE distance=35.751436224828524 actualSpeed=1.061086893643464E-4 direction=-1 psi=0.001902426313576862 omega=-0.020836731657606602 target=0.0 dwell=0 authority=true
+FD_POWERED_NATIVE tick=2100 car=1 phase=RETURN_CAPTURE mode=STATION_CAPTURE distance=41.75143622482855 actualSpeed=6.774353100719826E-5 direction=-1 psi=0.44809639494705716 omega=-0.4271996669481805 target=0.0 dwell=0 authority=true
+FD_POWERED_NATIVE tick=2100 car=2 phase=RETURN_CAPTURE mode=STATION_CAPTURE distance=47.75143622337129 actualSpeed=3.2836314560552365E-5 direction=-1 psi=1.0627294881063725 omega=-0.4264186486708569 target=0.0 dwell=0 authority=true
+FD_POWERED_NATIVE tick=2100 car=3 phase=RETURN_CAPTURE mode=STATION_CAPTURE distance=53.75143622482855 actualSpeed=3.618389592746787E-5 direction=-1 psi=1.7269259739496523 omega=-0.42714132208224503 target=0.0 dwell=0 authority=true
+[06:35:38] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:35:38] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:35:38] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[06:35:38] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_POWERED_NATIVE PASS cars=4 peakNativeSpeeds=[3.9937000567838488, 3.99231938112108, 3.9927342231190996, 3.99276856172536] peakYaw=[0.5339854209713689, 0.5388534894389089, 0.5331057339526255, 0.5391228720747144] actualSourceRamp=2.000002861022949 independentTargetSpread=0.5483335543705614 fullTurn=true show=true reverse=true capture=true eventSequence=46
+[06:35:38] [Server thread/INFO] [minecraft/GameTestServer]: [+]
+[06:35:38] [Server thread/INFO] [minecraft/GameTestServer]: ========= 1 GAME TESTS COMPLETE IN 16.14 s ======================
+[06:35:38] [Server thread/INFO] [minecraft/GameTestServer]: All 1 required tests passed :)
+[06:35:38] [Server thread/INFO] [minecraft/GameTestServer]: ====================================================
+[06:35:38] [Server thread/INFO] [minecraft/MinecraftServer]: Stopping server
+[06:35:38] [Server thread/INFO] [minecraft/MinecraftServer]: Saving players
+[06:35:38] [Server thread/INFO] [minecraft/MinecraftServer]: Saving worlds
+[06:35:38] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[Test Level]'/minecraft:overworld
+[06:35:38] [Server thread/INFO] [de.ry.sa.Sable/]: Saving sub-levels for level 'ServerLevel[Test Level]'/minecraft:overworld
+[06:35:40] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[Test Level]'/minecraft:the_end
+[06:35:40] [Server thread/INFO] [de.ry.sa.Sable/]: Saving sub-levels for level 'ServerLevel[Test Level]'/minecraft:the_end
+[06:35:40] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[Test Level]'/minecraft:the_nether
+[06:35:40] [Server thread/INFO] [de.ry.sa.Sable/]: Saving sub-levels for level 'ServerLevel[Test Level]'/minecraft:the_nether
+[06:35:40] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (world): All chunks are saved
+[06:35:40] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (DIM1): All chunks are saved
+[06:35:40] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
+[06:35:40] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage: All dimensions are saved
+[06:35:40] [Server thread/INFO] [minecraft/GameTestServer]: Game test server shutting down
+
+[Incubating] Problems report is available at: file:///mnt/NVME4/fourthdimension-runs/fd1901-powered-yaw-20261115/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 10.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD SUCCESSFUL in 29s
+7 actionable tasks: 5 executed, 2 up-to-date

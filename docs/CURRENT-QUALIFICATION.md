@@ -55,11 +55,11 @@ publication is activated.
 | FD1702B | Pipeline / Dive | Complete: [native, occupied hold/drop/restart/return/unload and normal Survival construction](evidence/0.8/dive/README.md). All317 units inactive/MainPID0; completed world retained. |
 | FD1702C | Pipeline / Dive | Complete: [native, occupied hold/drop/restart/return/unload and normal Survival construction](evidence/0.8/dive/README.md). All317 units inactive/MainPID0; completed world retained. |
 | FD1702 | Pipeline / Dive | Complete: [native, occupied hold/drop/restart/return/unload and normal Survival construction](evidence/0.8/dive/README.md). All317 units inactive/MainPID0; completed world retained. |
-| FD1901A | S2 / Powered Inverted | Native single/four-car travel/yaw/show/reverse/capture and actual power/controller-loss passed; connected-client workflow active on owned318. |
-| FD1901B | S2 / Powered Inverted | Prepare powered drive/yaw content and scene-event controls. |
-| FD1901C | S2 / Powered Inverted | Complete travelling/stop/reverse/unload workflow cumulatively. |
-| FD1901 | S2 / Powered Inverted | Reconcile full Powered Inverted Yaw A–C outcome. |
-| FD1902 | S2 / Powered Inverted | Reconcile Powered Inverted outcome gate. |
+| FD1901A | S2 / Powered Inverted | Complete: [native one/four-car mechanics, crafted content, occupied show/restart/reverse/return/unload and finite outputs](evidence/0.8/powered-inverted-yaw/README.md). All318 units inactive/MainPID0; same empty car/world retained. |
+| FD1901B | S2 / Powered Inverted | Complete: [native one/four-car mechanics, crafted content, occupied show/restart/reverse/return/unload and finite outputs](evidence/0.8/powered-inverted-yaw/README.md). All318 units inactive/MainPID0; same empty car/world retained. |
+| FD1901C | S2 / Powered Inverted | Complete: [native one/four-car mechanics, crafted content, occupied show/restart/reverse/return/unload and finite outputs](evidence/0.8/powered-inverted-yaw/README.md). All318 units inactive/MainPID0; same empty car/world retained. |
+| FD1901 | S2 / Powered Inverted | Complete: [native one/four-car mechanics, crafted content, occupied show/restart/reverse/return/unload and finite outputs](evidence/0.8/powered-inverted-yaw/README.md). All318 units inactive/MainPID0; same empty car/world retained. |
+| FD1902 | S2 / Powered Inverted | Complete: [native one/four-car mechanics, crafted content, occupied show/restart/reverse/return/unload and finite outputs](evidence/0.8/powered-inverted-yaw/README.md). All318 units inactive/MainPID0; same empty car/world retained. |
 | FD813 | Lead | Integrate all 23 cards, actual combined-control conflicts, exact remote HEAD and all-runtime cleanup. |
 
 **Owners:** lead `01a1dd1d-1468-7f81-8f31-5532ad7a178d`;

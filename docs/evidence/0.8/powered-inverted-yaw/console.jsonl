@@ -1,0 +1,136 @@
+{"at": 1794749925.127915, "command": "forceload add 80 48 176 288", "state": "sending"}
+{"at": 1794749925.127915, "command": "forceload add 80 48 176 288", "state": "responded", "result": "Marked 112 chunks in Overworld from [5, 3] to [11, 18] to be force loaded\n"}
+{"at": 1794749947.6308312, "command": "execute as Dev positioned 100 92 88 run fd demo powered_inverted_yaw_track", "state": "sending"}
+{"at": 1794749947.6308312, "command": "execute as Dev positioned 100 92 88 run fd demo powered_inverted_yaw_track", "state": "responded", "result": "Powered upright yaw circuit built. Wait for captured coupling; board, close restraints and Dispatch. It tracks scenery, performs a yaw show and reverses. Capture on return to the level dock; wait for unwind before opening restraints.\n"}
+{"at": 1794749947.888791, "command": "tp Dev 96.5 95 108.5 0 0", "state": "sending"}
+{"at": 1794749947.888791, "command": "tp Dev 96.5 95 108.5 0 0", "state": "responded", "result": "Teleported Dev to 96.500000, 95.000000, 108.500000\n"}
+{"at": 1794749948.0141356, "command": "setblock 96 95 110 minecraft:crafting_table", "state": "sending"}
+{"at": 1794749948.0141356, "command": "setblock 96 95 110 minecraft:crafting_table", "state": "responded", "result": "Changed the block at 96, 95, 110\n"}
+{"at": 1794749948.1940408, "command": "time set day", "state": "sending"}
+{"at": 1794749948.1940408, "command": "time set day", "state": "responded", "result": "Set the time to 1000\n"}
+{"at": 1794749948.293969, "command": "gamerule doDaylightCycle false", "state": "sending"}
+{"at": 1794749948.293969, "command": "gamerule doDaylightCycle false", "state": "responded", "result": "Gamerule doDaylightCycle is now set to: false\n"}
+{"at": 1794749948.3834424, "command": "gamerule doMobSpawning false", "state": "sending"}
+{"at": 1794749948.3834424, "command": "gamerule doMobSpawning false", "state": "responded", "result": "Gamerule doMobSpawning is now set to: false\n"}
+{"at": 1794749960.8260815, "command": "data get entity Dev Rotation", "state": "sending"}
+{"at": 1794749960.8260815, "command": "data get entity Dev Rotation", "state": "responded", "result": "Dev has the following entity data: [3.1500003f, 0.0f]\n"}
+{"at": 1794749970.2300243, "command": "give Dev minecraft:iron_ingot 14", "state": "sending"}
+{"at": 1794749970.2300243, "command": "give Dev minecraft:iron_ingot 14", "state": "responded", "result": "Gave 14 [Iron Ingot] to Dev\n"}
+{"at": 1794749970.3331773, "command": "give Dev minecraft:redstone 4", "state": "sending"}
+{"at": 1794749970.3331773, "command": "give Dev minecraft:redstone 4", "state": "responded", "result": "Gave 4 [Redstone Dust] to Dev\n"}
+{"at": 1794749970.4334123, "command": "give Dev minecraft:cyan_dye", "state": "sending"}
+{"at": 1794749970.4334123, "command": "give Dev minecraft:cyan_dye", "state": "responded", "result": "Gave 1 [Cyan Dye] to Dev\n"}
+{"at": 1794749970.528109, "command": "give Dev create:cyan_seat 2", "state": "sending"}
+{"at": 1794749970.528109, "command": "give Dev create:cyan_seat 2", "state": "responded", "result": "Gave 2 [Cyan Seat] to Dev\n"}
+{"at": 1794749970.624373, "command": "give Dev create:mechanical_bearing", "state": "sending"}
+{"at": 1794749970.624373, "command": "give Dev create:mechanical_bearing", "state": "responded", "result": "Gave 1 [Mechanical Bearing] to Dev\n"}
+{"at": 1794749970.722294, "command": "give Dev simulatedcoasters:coaster_cart", "state": "sending"}
+{"at": 1794749970.722294, "command": "give Dev simulatedcoasters:coaster_cart", "state": "responded", "result": "Gave 1 [Coaster Cart] to Dev\n"}
+{"at": 1794749970.8210118, "command": "give Dev create:shaft 2", "state": "sending"}
+{"at": 1794749970.8210118, "command": "give Dev create:shaft 2", "state": "responded", "result": "Gave 2 [Shaft] to Dev\n"}
+{"at": 1794749970.9139605, "command": "give Dev create:clutch", "state": "sending"}
+{"at": 1794749970.9139605, "command": "give Dev create:clutch", "state": "responded", "result": "Gave 1 [Clutch] to Dev\n"}
+{"at": 1794749971.0061371, "command": "recipe give Dev fourthdimension:powered_inverted_yaw_track", "state": "sending"}
+{"at": 1794749971.0061371, "command": "recipe give Dev fourthdimension:powered_inverted_yaw_track", "state": "responded", "result": "Unlocked 1 recipes for Dev\n"}
+{"at": 1794749971.095375, "command": "recipe give Dev fourthdimension:powered_inverted_yaw_car", "state": "sending"}
+{"at": 1794749971.095375, "command": "recipe give Dev fourthdimension:powered_inverted_yaw_car", "state": "responded", "result": "Unlocked 1 recipes for Dev\n"}
+{"at": 1794749971.1851494, "command": "recipe give Dev fourthdimension:powered_inverted_yaw_governor", "state": "sending"}
+{"at": 1794749971.1851494, "command": "recipe give Dev fourthdimension:powered_inverted_yaw_governor", "state": "responded", "result": "Unlocked 1 recipes for Dev\n"}
+{"at": 1794749971.2728105, "command": "gamemode survival Dev", "state": "sending"}
+{"at": 1794749971.2728105, "command": "gamemode survival Dev", "state": "responded", "result": "Set Dev's game mode to Survival Mode\n"}
+{"at": 1794750034.460224, "command": "data get entity Dev Inventory", "state": "sending"}
+{"at": 1794750034.460224, "command": "data get entity Dev Inventory", "state": "responded", "result": "Dev has the following entity data: [{count: 1, Slot: 5b, id: \"fourthdimension:powered_inverted_yaw_car\"}, {count: 1, Slot: 7b, id: \"fourthdimension:powered_inverted_yaw_governor\"}, {count: 15, Slot: 8b, id: \"fourthdimension:powered_inverted_yaw_track\"}]\n"}
+{"at": 1794750064.2933097, "command": "fill 97 97 99 97 97 110 minecraft:smooth_stone", "state": "sending"}
+{"at": 1794750064.2933097, "command": "fill 97 97 99 97 97 110 minecraft:smooth_stone", "state": "responded", "result": "Successfully filled 12 block(s)\n"}
+{"at": 1794750064.3861015, "command": "tp Dev 97.5 98 108.5 -90 -21", "state": "sending"}
+{"at": 1794750064.3861015, "command": "tp Dev 97.5 98 108.5 -90 -21", "state": "responded", "result": "Teleported Dev to 97.500000, 98.000000, 108.500000\n"}
+{"at": 1794750064.4777486, "command": "give Dev fourthdimension:rotation_tool", "state": "sending"}
+{"at": 1794750064.4777486, "command": "give Dev fourthdimension:rotation_tool", "state": "responded", "result": "Gave 1 [Rotation Tool] to Dev\n"}
+{"at": 1794750073.503215, "command": "data get entity Dev Inventory", "state": "sending"}
+{"at": 1794750073.503215, "command": "data get entity Dev Inventory", "state": "responded", "result": "Dev has the following entity data: [{count: 1, Slot: 0b, id: \"fourthdimension:rotation_tool\"}, {count: 1, Slot: 7b, id: \"fourthdimension:powered_inverted_yaw_governor\"}, {count: 15, Slot: 8b, id: \"fourthdimension:powered_inverted_yaw_track\"}]\n"}
+{"at": 1794750099.4131315, "command": "tp Dev 97.5 95 118.5 0 29", "state": "sending"}
+{"at": 1794750099.4131315, "command": "tp Dev 97.5 95 118.5 0 29", "state": "responded", "result": "Teleported Dev to 97.500000, 95.000000, 118.500000\n"}
+{"at": 1794750099.5080738, "command": "fill 97 97 99 97 97 110 minecraft:air", "state": "sending"}
+{"at": 1794750099.5080738, "command": "fill 97 97 99 97 97 110 minecraft:air", "state": "responded", "result": "Successfully filled 12 block(s)\n"}
+{"at": 1794750113.956904, "command": "setblock 97 95 120 minecraft:air", "state": "sending"}
+{"at": 1794750113.956904, "command": "setblock 97 95 120 minecraft:air", "state": "responded", "result": "Changed the block at 97, 95, 120\n"}
+{"at": 1794750114.0436459, "command": "setblock 97 95 116 fourthdimension:boarding_station", "state": "sending"}
+{"at": 1794750114.0436459, "command": "setblock 97 95 116 fourthdimension:boarding_station", "state": "responded", "result": "Changed the block at 97, 95, 116\n"}
+{"at": 1794750114.1323452, "command": "tp Dev 97.5 95 114.5 0 29", "state": "sending"}
+{"at": 1794750114.1323452, "command": "tp Dev 97.5 95 114.5 0 29", "state": "responded", "result": "Teleported Dev to 97.500000, 95.000000, 114.500000\n"}
+{"at": 1794750119.4992301, "command": "data get block 97 95 116", "state": "sending"}
+{"at": 1794750119.4992301, "command": "data get block 97 95 116", "state": "responded", "result": "97, 95, 116 has the following block data: {powered: 0b, x: 97, y: 95, z: 116, id: \"fourthdimension:boarding_station\", authority_id: [I; 1343004204, 86262548, -2107594248, -718890492], vehicle: [I; -2134944046, -1796518402, -1194371499, -1485487313]}\n"}
+{"at": 1794750153.4626036, "command": "setblock 104 100 100 air", "state": "sending"}
+{"at": 1794750153.4626036, "command": "setblock 104 100 100 air", "state": "responded", "result": "Changed the block at 104, 100, 100\n"}
+{"at": 1794750153.5489168, "command": "fill 103 99 97 107 99 102 minecraft:smooth_stone", "state": "sending"}
+{"at": 1794750153.5489168, "command": "fill 103 99 97 107 99 102 minecraft:smooth_stone", "state": "responded", "result": "Successfully filled 30 block(s)\n"}
+{"at": 1794750153.6395667, "command": "tp Dev 106.5 100 97.5 33.69 24.2", "state": "sending"}
+{"at": 1794750153.6395667, "command": "tp Dev 106.5 100 97.5 33.69 24.2", "state": "responded", "result": "Teleported Dev to 106.500000, 100.000000, 97.500000\n"}
+{"at": 1794750160.0395975, "command": "data get block 104 100 100", "state": "sending"}
+{"at": 1794750160.0395975, "command": "data get block 104 100 100", "state": "responded", "result": "104, 100, 100 has the following block data: {Speed: -128.0f, sound: 0b, fault: \"Restore the straight output shaft to the bound Chain anchor\", authority_id: [I; -573846358, 611664837, -1477568036, -841410785], Source: [I; 105, 100, 100], cars: [], route: [], drives: [], Network: {Capacity: 2097152.0f, Size: 2, AddedStress: 8.0f, Id: 28862180638820L, Stress: 1024.0f}, last_event: \"\", x: 104, y: 100, z: 100, ramp_rpm: 0.0d, event_sequence: 0L, id: \"fourthdimension:powered_inverted_yaw_governor\"}\n"}
+{"at": 1794750165.577663, "command": "data get block 104 100 100", "state": "sending"}
+{"at": 1794750165.577663, "command": "data get block 104 100 100", "state": "responded", "result": "104, 100, 100 has the following block data: {Speed: -128.0f, sound: 0b, fault: \"Held\", authority_id: [I; -573846358, 611664837, -1477568036, -841410785], Source: [I; 105, 100, 100], vehicle: [I; -2134944046, -1796518402, -1194371499, -1485487313], master: 28587302731876L, cars: [[I; -2134944046, -1796518402, -1194371499, -1485487313]], route: [{id: [I; -2036741802, 1421558856, -1733928617, -1656148260], hash: 1957450587360036225L, direction: 1}, {id: [I; 72958914, -2144515562, -2116932718, 1683407713], hash: 8812328331681733569L, direction: 1}, {id: [I; -695318229, 941772681, -1242322294, 117666432], hash: -7873878862531250815L, direction: 1}, {id: [I; 762612280, -1410643441, -1613688524, 949999743], hash: 8012137403235480011L, direction: 1}, {id: [I; 1292562013, 208683091, -1780402662, -2026660780], hash: 7279178933924690899L, direction: 1}, {id: [I; 1391918028, -1058191875, -1719442334, -517052167], hash: 7576811700301511041L, direction: 1}, {id: [I; -1504838215, -290698867, -1890269777, 1759743760], hash: 6459930604700880617L, direction: 1}, {id: [I; -575697119, 1965834831, -1111837371, -1684577552], hash: 1586943668463937921L, direction: 1}], drives: [{pos: 28587302731876L, sign: 1}, {pos: 36283884011620L, sign: 1}, {pos: 28587302994020L, sign: 1}, {pos: 46179488776292L, sign: 1}, {pos: 28587303256164L, sign: 1}, {pos: 46179489038436L, sign: 1}, {pos: 36283884798052L, sign: 1}, {pos: 46179489300580L, sign: 1}], Network: {Capacity: 2097152.0f, Size: 2, AddedStress: 8.0f, Id: 28862180638820L, Stress: 1024.0f}, anchor: 27487791104100L, last_event: \"\", x: 104, y: 100, z: 100, ramp_rpm: 0.0d, event_sequence: 0L, id: \"fourthdimension:powered_inverted_yaw_governor\"}\n"}
+{"at": 1794750180.138361, "command": "fill 80 94 106 87 94 118 minecraft:smooth_stone", "state": "sending"}
+{"at": 1794750180.138361, "command": "fill 80 94 106 87 94 118 minecraft:smooth_stone", "state": "responded", "result": "Successfully filled 104 block(s)\n"}
+{"at": 1794750180.2289503, "command": "setblock 84 95 108 simulatedcoasters:coaster_anchorpoint", "state": "sending"}
+{"at": 1794750180.2289503, "command": "setblock 84 95 108 simulatedcoasters:coaster_anchorpoint", "state": "responded", "result": "Changed the block at 84, 95, 108\n"}
+{"at": 1794750180.329868, "command": "setblock 84 95 116 simulatedcoasters:coaster_anchorpoint", "state": "sending"}
+{"at": 1794750180.329868, "command": "setblock 84 95 116 simulatedcoasters:coaster_anchorpoint", "state": "responded", "result": "Changed the block at 84, 95, 116\n"}
+{"at": 1794750180.4356446, "command": "tp Dev 81.5 95 108.5 -90 21", "state": "sending"}
+{"at": 1794750180.4356446, "command": "tp Dev 81.5 95 108.5 -90 21", "state": "responded", "result": "Teleported Dev to 81.500000, 95.000000, 108.500000\n"}
+{"at": 1794750194.0834353, "command": "tp Dev 81.5 95 116.5 -90 21", "state": "sending"}
+{"at": 1794750194.0834353, "command": "tp Dev 81.5 95 116.5 -90 21", "state": "responded", "result": "Teleported Dev to 81.500000, 95.000000, 116.500000\n"}
+{"at": 1794750200.983298, "command": "data get entity Dev Inventory", "state": "sending"}
+{"at": 1794750200.983298, "command": "data get entity Dev Inventory", "state": "responded", "result": "Dev has the following entity data: [{count: 1, Slot: 0b, id: \"fourthdimension:rotation_tool\"}, {count: 13, Slot: 8b, id: \"fourthdimension:powered_inverted_yaw_track\"}]\n"}
+{"at": 1794750212.9499943, "command": "setblock 97 99 100 minecraft:smooth_stone", "state": "sending"}
+{"at": 1794750212.9499943, "command": "setblock 97 99 100 minecraft:smooth_stone", "state": "responded", "result": "Changed the block at 97, 99, 100\n"}
+{"at": 1794750213.0386255, "command": "tp Dev 97.5 100 100.5 -90 21", "state": "sending"}
+{"at": 1794750213.0386255, "command": "tp Dev 97.5 100 100.5 -90 21", "state": "responded", "result": "Teleported Dev to 97.500000, 100.000000, 100.500000\n"}
+{"at": 1794750262.570046, "command": "save-all flush", "state": "sending"}
+{"at": 1794750262.570046, "command": "save-all flush", "state": "responded", "result": "Saving the game (this may take a moment!)\nSaved the game\n"}
+{"at": 1794750262.7546349, "command": "execute positioned 100 96 108 run sable info @e[distance=..25,limit=10]", "state": "sending"}
+{"at": 1794750262.7546349, "command": "execute positioned 100 96 108 run sable info @e[distance=..25,limit=10]", "state": "responded", "result": "Found 2 sub-levels:\n80bf56d2-94eb-4dfe-b8cf-5655a775432f:\n    Position: 100.5 99.625 108.5\n    Orientation: -2.5729743668989613E-8 1.0 1.2442356012211668E-15 -5.538756844662707E-13\n    Mass: 4.0\n    Linear Velocity: -6.745190148649272E-7 -2.386180312896613E-5 3.8643357448426424E-14\n    Angular Velocity: -5.982290362782888E-16 5.550402556658905E-16 4.2343208406236954E-7\nb07bf18a-fd9b-4d59-a99a-02eefc3b9601:\n    Position: 100.35416412353516 97.2499771118164 108.5\n    Orientation: -9.714030966279097E-7 1.0 1.313421993506727E-15 -6.837741093820848E-13\n    Mass: 3.0\n    Linear Velocity: 4.975182237103581E-4 -7.35352688934654E-4 -3.577415056896238E-13\n    Angular Velocity: -4.601491239365936E-14 -3.0476127264172925E-12 1.784011401468888E-4\n"}
+{"at": 1794750275.5810726, "command": "setblock 97 99 100 air", "state": "sending"}
+{"at": 1794750275.5810726, "command": "setblock 97 99 100 air", "state": "responded", "result": "Changed the block at 97, 99, 100\n"}
+{"at": 1794750275.6695833, "command": "tp Dev 97.5 95 108.5 -90 -13.3", "state": "sending"}
+{"at": 1794750275.6695833, "command": "tp Dev 97.5 95 108.5 -90 -13.3", "state": "responded", "result": "Teleported Dev to 97.500000, 95.000000, 108.500000\n"}
+{"at": 1794750283.20115, "command": "fd status", "state": "sending"}
+{"at": 1794750283.20115, "command": "fd status", "state": "responded", "result": "powered_inverted b07bf18a-fd9b-4d59-a99a-02eefc3b9601 angle=4.0605799868950175E-13 omega=-6.447551050002657E-12 capture=true occupants=1\nCarrier update average: 169693 ns across 8408 updates\n"}
+{"at": 1794750361.99335, "command": "gamerule sendCommandFeedback false", "state": "sending"}
+{"at": 1794750361.99335, "command": "gamerule sendCommandFeedback false", "state": "responded", "result": "Gamerule sendCommandFeedback is now set to: false\n"}
+{"at": 1794750433.7559185, "command": "save-all flush", "state": "sending"}
+{"at": 1794750433.7559185, "command": "save-all flush", "state": "responded", "result": "Saving the game (this may take a moment!)\nSaved the game\n"}
+{"at": 1794750439.8528767, "command": "fd status", "state": "sending"}
+{"at": 1794750439.8528767, "command": "fd status", "state": "responded", "result": "powered_inverted b07bf18a-fd9b-4d59-a99a-02eefc3b9601 angle=7.532343116063811 omega=-2.7750763726253866E-4 capture=true occupants=1\nCarrier update average: 299500 ns across 796 updates\n"}
+{"at": 1794750457.8542976, "command": "data get block 104 100 100", "state": "sending"}
+{"at": 1794750457.8542976, "command": "data get block 104 100 100", "state": "responded", "result": "104, 100, 100 has the following block data: {Speed: -128.0f, sound: 0b, fault: \"Restored; explicitly Capture then Dispatch/Resume\", authority_id: [I; -573846358, 611664837, -1477568036, -841410785], Source: [I; 105, 100, 100], vehicle: [I; -2134944046, -1796518402, -1194371499, -1485487313], master: 28587302731876L, cars: [[I; -2134944046, -1796518402, -1194371499, -1485487313]], route: [{id: [I; -2036741802, 1421558856, -1733928617, -1656148260], hash: 1957450587360036225L, direction: 1}, {id: [I; 72958914, -2144515562, -2116932718, 1683407713], hash: 8812328331681733569L, direction: 1}, {id: [I; -695318229, 941772681, -1242322294, 117666432], hash: -7873878862531250815L, direction: 1}, {id: [I; 762612280, -1410643441, -1613688524, 949999743], hash: 8012137403235480011L, direction: 1}, {id: [I; 1292562013, 208683091, -1780402662, -2026660780], hash: 7279178933924690899L, direction: 1}, {id: [I; 1391918028, -1058191875, -1719442334, -517052167], hash: 7576811700301511041L, direction: 1}, {id: [I; -1504838215, -290698867, -1890269777, 1759743760], hash: 6459930604700880617L, direction: 1}, {id: [I; -575697119, 1965834831, -1111837371, -1684577552], hash: 1586943668463937921L, direction: 1}], drives: [{pos: 28587302731876L, sign: 1}, {pos: 36283884011620L, sign: 1}, {pos: 28587302994020L, sign: 1}, {pos: 46179488776292L, sign: 1}, {pos: 28587303256164L, sign: 1}, {pos: 46179489038436L, sign: 1}, {pos: 36283884798052L, sign: 1}, {pos: 46179489300580L, sign: 1}], Network: {Capacity: 2097152.0f, Size: 2, AddedStress: 8.0f, Id: 28862180638820L, Stress: 1024.0f}, anchor: 27487791104100L, last_event: \"RIDE_FAULT ride=80bf56d2-94eb-4dfe-b8cf-5655a775432f car=80bf56d2-94eb-4dfe-b8cf-5655a775432f event=99d5288e-7b4d-49b3-8bbe-923fe0aed747 tick=9461 epoch=2 sequence=7 car_sequence=8\", x: 104, y: 100, z: 100, ramp_rpm: 0.0d, event_sequence: 7L, id: \"fourthdimension:powered_inverted_yaw_governor\"}\n"}
+{"at": 1794750457.9541154, "command": "save-all flush", "state": "sending"}
+{"at": 1794750457.9541154, "command": "save-all flush", "state": "responded", "result": "Saving the game (this may take a moment!)\nSaved the game\n"}
+{"at": 1794750511.8216596, "command": "setblock 104 100 101 minecraft:redstone_lamp", "state": "sending"}
+{"at": 1794750511.8216596, "command": "setblock 104 100 101 minecraft:redstone_lamp", "state": "responded", "result": "Changed the block at 104, 100, 101\n"}
+{"at": 1794750534.4575346, "command": "fd status", "state": "sending"}
+{"at": 1794750534.4575346, "command": "fd status", "state": "responded", "result": "powered_inverted b07bf18a-fd9b-4d59-a99a-02eefc3b9601 angle=0.025993856550269853 omega=-0.047106785250826 capture=false occupants=1\nCarrier update average: 276647 ns across 4580 updates\n"}
+{"at": 1794750544.4246466, "command": "save-all flush", "state": "sending"}
+{"at": 1794750544.4246466, "command": "save-all flush", "state": "responded", "result": "Saving the game (this may take a moment!)\nSaved the game\n"}
+{"at": 1794750676.98033, "command": "stop", "state": "sending"}
+{"at": 1794750676.98033, "command": "stop", "state": "responded", "result": "Stopping the server\n"}
+{"at": 1794750830.7049303, "command": "execute if block 104 100 101 minecraft:redstone_lamp[lit=true] run time query gametime", "state": "sending"}
+{"at": 1794750830.7049303, "command": "execute if block 104 100 101 minecraft:redstone_lamp[lit=true] run time query gametime", "state": "responded", "result": ""}
+{"at": 1794750859.8752322, "command": "fd status", "state": "sending"}
+{"at": 1794750859.8752322, "command": "fd status", "state": "responded", "result": "powered_inverted b07bf18a-fd9b-4d59-a99a-02eefc3b9601 angle=1.2252382201933526E-5 omega=-3.270483183232098E-4 capture=true occupants=0\nCarrier update average: 256598 ns across 4334 updates\n"}
+{"at": 1794750871.6863987, "command": "data get entity Dev Pos", "state": "sending"}
+{"at": 1794750871.6863987, "command": "data get entity Dev Pos", "state": "responded", "result": "Dev has the following entity data: [103.5d, 95.0d, 127.5d]\n"}
+{"at": 1794750871.776348, "command": "weather clear", "state": "sending"}
+{"at": 1794750871.776348, "command": "weather clear", "state": "responded", "result": "Set the weather to clear\n"}
+{"at": 1794750871.873101, "command": "save-all flush", "state": "sending"}
+{"at": 1794750871.873101, "command": "save-all flush", "state": "responded", "result": "Saving the game (this may take a moment!)\nSaved the game\n"}
+{"at": 1794750887.4402225, "command": "tp Dev 103.5 95 127.5 90 -13.3", "state": "sending"}
+{"at": 1794750887.4402225, "command": "tp Dev 103.5 95 127.5 90 -13.3", "state": "responded", "result": "Teleported Dev to 103.500000, 95.000000, 127.500000\n"}
+{"at": 1794750904.3076148, "command": "execute positioned 20481031.5 128.25 20483080.5 out_sub_level @i anchored eyes run tp Dev 103.5 95 127.5 facing ~ ~ ~", "state": "sending"}
+{"at": 1794750904.3076148, "command": "execute positioned 20481031.5 128.25 20483080.5 out_sub_level @i anchored eyes run tp Dev 103.5 95 127.5 facing ~ ~ ~", "state": "responded", "result": "Teleported Dev to 103.500000, 95.000000, 127.500000\n"}
+{"at": 1794750919.704683, "command": "data get block 104 100 100 sound", "state": "sending"}
+{"at": 1794750919.704683, "command": "data get block 104 100 100 sound", "state": "responded", "result": "104, 100, 100 has the following block data: 1b\n"}
+{"at": 1794750954.5994198, "command": "save-all flush", "state": "sending"}
+{"at": 1794750954.5994198, "command": "save-all flush", "state": "responded", "result": "Saving the game (this may take a moment!)\nSaved the game\n"}
+{"at": 1794750955.1805692, "command": "stop", "state": "sending"}
+{"at": 1794750955.1805692, "command": "stop", "state": "responded", "result": "Stopping the server\n"}
