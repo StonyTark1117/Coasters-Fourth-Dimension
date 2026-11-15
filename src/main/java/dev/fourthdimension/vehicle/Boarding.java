@@ -111,6 +111,7 @@ public final class Boarding {
         event.setCanceled(true);
         return;
       }
+      dev.fourthdimension.integration.RotatingSeatIntegration.mounted(seat);
       if (DiveVehicle.is(binding.vehicle)) {
         var pos=seat.blockPosition();seat.setPos(pos.getX(),pos.getY()+.4375,pos.getZ()+.5);
       }
@@ -341,7 +342,8 @@ public final class Boarding {
           finishRestore(player, "already-mounted");
           continue;
         }
-        if (level.getBlockState(seat).getBlock() instanceof CarrierSeatBlock
+        if ((level.getBlockState(seat).getBlock() instanceof CarrierSeatBlock
+                || dev.fourthdimension.integration.RotatingSeatIntegration.managed(level,seat))
             && !seatOccupied(level, seat)) {
           RESTORING.add(player.getUUID());
           try {

@@ -28,7 +28,9 @@
     "SkinTargetGuardMixin",
     "SkinLinkGuardMixin",
     "SkinDataGuardMixin",
-    "SkinScrewdriverGuardMixin"
+    "SkinScrewdriverGuardMixin",
+    "RotatingSeatBlockEntityMixin",
+    "RotatingSeatDismountMixin"
   ],
   "injectors": {
     "defaultRequire": 1
@@ -50,7 +52,12 @@
     "PipelineWheelMixin",
     "PipelineCartSliceMixin",
     "SkinClientRenderMixin",
-    "SkinClientStateGuardMixin"
+    "SkinClientStateGuardMixin",
+    "ImmersionCarrierMixin",
+    "ImmersionComfortScopeMixin",
+    "ImmersionComfortTravelMixin",
+    "ImmersionComfortNeckMixin",
+    "ImmersionPassengerFacingMixin"
   ],
   "plugin": "dev.fourthdimension.mixin.OptionalDriveFencePlugin"
 }

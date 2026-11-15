@@ -31,6 +31,7 @@ public final class VehicleVisualState {
           for (var relative : c.seats) {
             var pos = body.getPlot().getCenterBlock().offset(relative);
             var state = level.getBlockState(pos);
+            dev.fourthdimension.integration.RotatingSeatIntegration.project(level,pos,v.restraints);
             if (state.getBlock() instanceof CarrierSeatBlock
                 && state.getValue(CarrierSeatBlock.RESTRAINED) != v.restraints)
               level.setBlock(pos, state.setValue(CarrierSeatBlock.RESTRAINED, v.restraints), 3);
