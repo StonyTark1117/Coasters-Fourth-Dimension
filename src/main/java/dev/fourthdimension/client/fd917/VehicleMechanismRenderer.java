@@ -28,6 +28,17 @@ public final class VehicleMechanismRenderer {
     var camera=event.getCamera().getPosition();var stack=event.getPoseStack();
     stack.pushPose();stack.translate(-camera.x,-camera.y,-camera.z);var mesh=new ProductionMesh(stack.last());
     for(var v:data.vehicles.values()) {
+      // Remote controls use authoritative snapshots even when their train body is not watched.
+      if(DiveVehicle.is(v)&&v.dive.controller!=null) {
+        String cue=!v.fault.isBlank()||v.dive.needsResume?"indicator_fault":
+            v.dive.phase==DiveState.Phase.HELD?"indicator_hold":
+            v.dive.phase==DiveState.Phase.RELEASE_ARMED?"indicator_ready":"indicator_off";
+        control(mesh,v.dive.controller,cue,camera,DiveHoldEntity.class);
+      }
+      if(S2SpinningVehicle.is(v)&&v.s2.governor!=null)
+        control(mesh,v.s2.governor,!v.fault.isBlank()||v.s2.resumeRequired?"indicator_fault":v.stopping?"indicator_hold":"indicator_off",camera,S2SpinningGovernorEntity.class);
+      if(PoweredInvertedYawVehicle.is(v)&&v.poweredYaw.controller!=null)
+        control(mesh,v.poweredYaw.controller,!v.fault.isBlank()||v.poweredYaw.resumeRequired?"indicator_fault":v.poweredYaw.holdAcknowledged?"indicator_hold":"indicator_off",camera,PoweredInvertedYawGovernorEntity.class);
       if(!(container.getSubLevel(v.chassis) instanceof ClientSubLevel chassis))continue;
       boolean joints=AxisVehicle.is(v)||RollerBallVehicle.is(v)||FlyingVehicle.is(v)||NewGenerationFlyingVehicle.is(v)
           ||SpinningVehicle.is(v)||S2SpinningVehicle.is(v)||PoweredInvertedYawVehicle.is(v)||SuspendedVehicle.is(v);
@@ -95,17 +106,7 @@ public final class VehicleMechanismRenderer {
           }
         }
       }
-      // Existing server snapshots supply these remote-controller cues; no fake physical holding jaw.
-      if(DiveVehicle.is(v)&&v.dive.controller!=null) {
-        String cue=!v.fault.isBlank()||v.dive.needsResume?"indicator_fault":
-            v.dive.phase==DiveState.Phase.HELD?"indicator_hold":
-            v.dive.phase==DiveState.Phase.RELEASE_ARMED?"indicator_ready":"indicator_off";
-        control(mesh,v.dive.controller,cue,camera,DiveHoldEntity.class);
-      }
-      if(S2SpinningVehicle.is(v)&&v.s2.governor!=null)
-        control(mesh,v.s2.governor,!v.fault.isBlank()||v.s2.resumeRequired?"indicator_fault":v.stopping?"indicator_hold":"indicator_off",camera,S2SpinningGovernorEntity.class);
-      if(PoweredInvertedYawVehicle.is(v)&&v.poweredYaw.controller!=null)
-        control(mesh,v.poweredYaw.controller,!v.fault.isBlank()||v.poweredYaw.resumeRequired?"indicator_fault":v.poweredYaw.holdAcknowledged?"indicator_hold":"indicator_off",camera,PoweredInvertedYawGovernorEntity.class);
+
     }
     stack.popPose();mc.renderBuffers().bufferSource().endBatch(Sheets.cutoutBlockSheet());
     dev.fourthdimension.client.fd917.MechanismRenderMetrics.finish("joints",renderStarted);
