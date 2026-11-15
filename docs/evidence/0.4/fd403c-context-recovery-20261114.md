@@ -14,6 +14,40 @@ and remaining work stay in [the current queue](../../CURRENT-QUALIFICATION.md#cu
 The [FD403C execution card](../../roadmap/0.4-core.md#fd403c) remains the procedure;
 this record adds no acceptance requirement or separate assignment tracker.
 
+## Current resume checkpoint — 2026-11-15 00:07 UTC
+
+Root refreshed this summary from the owner's retained console/input records
+and latest substantive actions, without controlling the runtime. This checkpoint
+supersedes the older current-state instructions below, including the 20:06 i7
+repair. Earlier sections remain historical evidence, not work to repeat.
+
+- Stay on **FD403C plus its Free Spin FD403F contribution**. The active goal
+  remains C; the initial Arrow prompt/preview does not reopen FD403A.
+- Same owned runtime: `:260`, endpoint `127.0.0.1:25612`, run root
+  `/home/braydon/.local/state/fourthdimension-runs/fd403c-free-spin-20261113`.
+  Keep the owner's existing processes, world and current `run.json`.
+- The restored i2 motor had delivered the wrong direction. At 00:00:40 the
+  owner corrected the disclosed north-facing power fixture at `(368,-60,173)`
+  to `ScrollValue=-16`. At 00:00:50–57 motor and anchor both read `Speed=+16`
+  on the same kinetic network. The 10.799449 m i2→i1 Chain span with
+  `TravelSign=-1` remains intact. This correction is complete; do not rebuild it.
+- Normal reboarding and restraints closure preceded Dispatch at 00:06:10.
+  Carrier `a79f9650-1b2c-433c-8428-b94eb0ed765f` is released and occupied.
+  Chassis `49305388-c9f5-4125-aaa1-12dbfc7c17a5` moved from approximately
+  `(368.43,-57.018,172.43)` toward i1 to `(364.298,-57.018,168.298)`.
+  The 00:06:37 and 00:07:21 samples remain near that second position, and the
+  same carrier's `damperImpulses` remains zero. Correct direction is verified;
+  passage through DAMP is not.
+- Next: continue the owner's current diagnosis of this new stop using actual
+  vehicle, route and propulsion state. Do not keep polling an unchanged pass
+  or repeat the prior setup. Preserve the corrected span, fix the demonstrated
+  cause and finish the remaining occupied DAMP claim, normal Capture/open/unload,
+  outstanding local cleanup and Free Spin teaching reconciliation. Reuse
+  accepted construction, input and unchanged persistence evidence.
+
+Evidence: the run's `evidence/console.jsonl` and `evidence/input.jsonl` at the
+timestamps above; no additional test campaign or acceptance condition is added.
+
 ## Resume the existing family and runtime
 
 - Owner: **Complete FD403C Free Spin**, thread
