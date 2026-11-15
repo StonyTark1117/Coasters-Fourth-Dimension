@@ -9,8 +9,12 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.context.UseOnContext;
+import org.slf4j.Logger;
+import com.mojang.logging.LogUtils;
 
 public final class RotationTool extends Item {
+  private static final boolean VALIDATION = Boolean.getBoolean("fourthdimension.validation");
+  private static final Logger LOGGER = LogUtils.getLogger();
   public RotationTool(Properties properties) {
     super(properties);
   }
@@ -35,9 +39,30 @@ public final class RotationTool extends Item {
     if (context.getLevel().isClientSide) return InteractionResult.SUCCESS;
     if (!(context.getPlayer() instanceof ServerPlayer player)) return InteractionResult.PASS;
     var level = player.serverLevel();
-    if (player.distanceToSqr(context.getClickLocation()) > 64) return InteractionResult.FAIL;
+    double distance = player.distanceToSqr(context.getClickLocation());
+    if (VALIDATION)
+      LOGGER.info(
+          "FD_ROTATION_USE_ON player={} hand={} item={} clicked={} hit={} distanceSq={} shift={}",
+          player.getGameProfile().getName(),
+          context.getHand(),
+          context.getItemInHand().getItem(),
+          context.getClickedPos(),
+          context.getClickLocation(),
+          distance,
+          player.isShiftKeyDown());
+    if (distance > 64) {
+      if (VALIDATION) LOGGER.info("FD_ROTATION_GUARD player={} guard=reach result=FAIL", player.getName().getString());
+      return InteractionResult.FAIL;
+    }
     var body = Sable.HELPER.getContaining(level, context.getClickedPos());
     var data = FoundationData.get(level);
+    if (VALIDATION)
+      LOGGER.info(
+          "FD_ROTATION_RESOLVE player={} body={} dataVehicles={} dataRails={}",
+          player.getGameProfile().getName(),
+          body == null ? null : body.getUniqueId(),
+          data.vehicles.size(),
+          data.rails.size());
     if (body != null) {
       if (player.isShiftKeyDown()
           && dev.fourthdimension.vehicle.RecoveryOperations.ordinary(level, body)) {
@@ -56,7 +81,16 @@ public final class RotationTool extends Item {
       }
       var binding = Boarding.at(level, context.getClickedPos());
       var vehicle = binding == null ? data.vehicles.get(body.getUniqueId()) : binding.vehicle();
+      if (VALIDATION)
+        LOGGER.info(
+            "FD_ROTATION_BIND player={} binding={} vehicle={} chassis={}",
+            player.getGameProfile().getName(),
+            binding == null ? null : binding.carrier().body,
+            vehicle == null ? null : vehicle.variant,
+            vehicle == null ? null : vehicle.chassis);
       if (vehicle != null) {
+        if (VALIDATION)
+          LOGGER.info("FD_ROTATION_DISPATCH player={} target={} vehicle=true", player.getGameProfile().getName(), vehicle.chassis);
         EditorNetwork.open(player, new EditorNetwork.Target(vehicle.chassis, true));
         return InteractionResult.SUCCESS;
       }
@@ -67,11 +101,14 @@ public final class RotationTool extends Item {
     if (hit != null)
       for (var rail : data.rails)
         if (rail.original() && rail.matches(hit.edge().from(), hit.edge().to())) {
+          if (VALIDATION)
+            LOGGER.info("FD_ROTATION_DISPATCH player={} target={} vehicle=false", player.getGameProfile().getName(), rail.id);
           EditorNetwork.open(player, new EditorNetwork.Target(rail.id, false));
           return InteractionResult.SUCCESS;
         }
     player.displayClientMessage(
         Component.literal("Use the rotation tool on a 4D section or car"), true);
+    if (VALIDATION) LOGGER.info("FD_ROTATION_GUARD player={} guard=target result=FAIL", player.getName().getString());
     return InteractionResult.FAIL;
   }
 }

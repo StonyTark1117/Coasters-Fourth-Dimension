@@ -44,3 +44,10 @@ playable example. C adds only missing construction, coupling, clearance or
 restoration claims. Comfort C1 follows the integrated fixed-seat proof and
 changes client view only. FD503 reconciles its eleven specifications, FD501
 decisions, FD501A/FD502, Wing A–C and C1; it adds no runtime sweep.
+
+## Occupied handoff
+
+[Native occupied loop and station handoff](occupied/README.md) passed; all eleven
+specifications are integrated. Client/display stopped for the next build; dedicated
+server and native GameTest server are finishing clean world saves. FD502 collectors
+are finalized losslessly in the run evidence directory for owner review.

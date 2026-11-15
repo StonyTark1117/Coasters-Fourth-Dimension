@@ -27,6 +27,12 @@ public record VehicleContract(
   }
 
   public Eligibility evaluate(TrackContract track) {
+    if (family == Family.WING) {
+      if (track.family() != null) return Eligibility.WRONG_FAMILY;
+      if (!runningGear.fits(track.mainRails())) return Eligibility.CONTACT_MISMATCH;
+      if (!track.clearance().contains(sweptEnvelope)) return Eligibility.CLEARANCE_MISMATCH;
+      return Eligibility.FIXED_SEAT;
+    }
     if (!ordinary() && (family != track.family() || !variant.equals(track.variant())))
       return Eligibility.WRONG_FAMILY;
     if (!runningGear.fits(track.mainRails())) return Eligibility.CONTACT_MISMATCH;
@@ -44,11 +50,12 @@ public record VehicleContract(
     CONTACT_MISMATCH,
     CLEARANCE_MISMATCH,
     MISSING_MECHANISM,
+    FIXED_SEAT,
     ORDINARY_RAIL_ACCESS,
     FOUR_D;
 
     public boolean allowed() {
-      return this == ORDINARY_RAIL_ACCESS || this == FOUR_D;
+      return this == ORDINARY_RAIL_ACCESS || this == FOUR_D || this == FIXED_SEAT;
     }
   }
 }

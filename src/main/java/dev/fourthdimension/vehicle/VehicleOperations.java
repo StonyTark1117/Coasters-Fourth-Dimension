@@ -94,6 +94,17 @@ public final class VehicleOperations {
       winch.fail("Operator emergency capture: inspect the shuttle before recovery");
       return;
     }
+    if (WingVehicle.is(vehicle)) {
+      var container = SubLevelContainer.getContainer(level);
+      for (var v : consist(level, vehicle)) {
+        var body = container.getSubLevel(v.chassis);
+        if (body instanceof ServerSubLevel parent && WingTrack.support(level, v) != null) {
+          // Explicit Stop acknowledges a repaired ordinary route; it never dispatches.
+          var reason = WingRuntime.safety(level, parent, v);
+          if (reason == null) { v.fault = ""; v.alignmentRequired = false; }
+        }
+      }
+    }
     for (var v : consist(level, vehicle)) {
       v.stopping = true;
       v.carriers.forEach(c -> c.capture = true);
@@ -135,6 +146,11 @@ public final class VehicleOperations {
             "All carriers must be captured and restraints closed before dispatch");
       if (v.maintenance)
         throw new IllegalArgumentException("Release maintenance retention before dispatch");
+      if (WingVehicle.is(v)) {
+        if (WingTrack.support(level, v) == null || !v.fault.isEmpty())
+          throw new IllegalArgumentException("Restore and inspect Wing's ordinary track before dispatch");
+        continue;
+      }
       var rail =
           data.rails.stream()
               .filter(r -> r.matches(v.boundFrom, v.boundTo))
@@ -405,7 +421,7 @@ public final class VehicleOperations {
 
   public static void tune(
       ServerLevel level, FoundationData.Vehicle vehicle, double damping, double ballast) {
-    if (vehicle.family.driven()
+    if (!vehicle.family.rotary() || vehicle.family.driven()
         || !Boarding.ready(level, vehicle)
         || vehicle.carriers.stream().anyMatch(c -> !c.occupants.isEmpty()))
       throw new IllegalArgumentException("Tune an empty, stopped, captured free-spin vehicle");

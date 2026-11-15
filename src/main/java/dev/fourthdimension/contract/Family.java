@@ -6,7 +6,8 @@ public enum Family {
   ZACSPIN("zacspin_legacy", false),
   FREE_SPIN("sns_free_spin", false),
   ZACSPIN_REVISED("zacspin_revised", false),
-  PAX("pax_shuttle", false);
+  PAX("pax_shuttle", false),
+  WING("wing_fixed", false);
 
   private final String id;
   private final boolean driven;
@@ -22,6 +23,10 @@ public enum Family {
 
   public boolean driven() {
     return driven;
+  }
+
+  public boolean rotary() {
+    return this != WING;
   }
 
   public static Family byId(String id) {

@@ -47,6 +47,8 @@ public final class EligibilityHooks {
       return rail.valid && dev.fourthdimension.track.OrdinaryGearCertificate.fits(chassis);
     }
     if (!dev.fourthdimension.vehicle.ConsistRules.eligible(level, chassis, vehicle)) return false;
+    if (dev.fourthdimension.vehicle.WingVehicle.is(vehicle))
+      return dev.fourthdimension.vehicle.WingTrack.rejection(level, hit.edge()) == null;
     if (rail == null
         || !rail.valid
         || rail.family() != vehicle.family
@@ -65,6 +67,14 @@ public final class EligibilityHooks {
     var data = FoundationData.get(level);
     var vehicle = data.vehicles.get(chassis.getUniqueId());
     if (vehicle == null) return;
+    if (dev.fourthdimension.vehicle.WingVehicle.is(vehicle)) {
+      if (!hit.edge().from().equals(vehicle.boundFrom) || !hit.edge().to().equals(vehicle.boundTo)) {
+        vehicle.boundFrom = hit.edge().from();
+        vehicle.boundTo = hit.edge().to();
+        data.setDirty();
+      }
+      return;
+    }
     var rail =
         data.rails.stream()
             .filter(r -> r.matches(hit.edge().from(), hit.edge().to()))

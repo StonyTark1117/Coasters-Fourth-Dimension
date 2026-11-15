@@ -355,6 +355,7 @@ public final class FoundationData extends SavedData {
         throw new IllegalArgumentException("Invalid loading/damping preset");
       vehicle.variant = tag.contains("variant") ? tag.getString("variant") : VARIANT;
       if (!VARIANT.equals(vehicle.variant)
+          && !dev.fourthdimension.vehicle.WingVehicle.is(vehicle)
           && dev.fourthdimension.track.TrackDesign.byVariant(vehicle.variant).family
               != vehicle.family)
         throw new IllegalArgumentException("Vehicle family and variant disagree");
@@ -367,7 +368,8 @@ public final class FoundationData extends SavedData {
       for (Tag group : groups) {
         var c = (CompoundTag) group;
         var carrier = new Carrier(c.getUUID("body"), c.getDouble("side"));
-        if (!nativeBodyIds.add(carrier.body))
+        if (!(dev.fourthdimension.vehicle.WingVehicle.is(vehicle) && carrier.body.equals(vehicle.chassis))
+            && !nativeBodyIds.add(carrier.body))
           throw new IllegalArgumentException("Duplicate native carrier identity");
         carrier.longitudinal = c.getDouble("longitudinal");
         carrier.childPivotOffset = c.getDouble("child_pivot_offset");
@@ -393,7 +395,8 @@ public final class FoundationData extends SavedData {
             || carrier.seats.isEmpty()
             || carrier.seats.size() > 4
             || new HashSet<>(carrier.seats).size() != carrier.seats.size()
-            || carrier.seats.stream().anyMatch(p -> p.distSqr(BlockPos.ZERO) > 16))
+            || (!dev.fourthdimension.vehicle.WingVehicle.is(vehicle)
+                && carrier.seats.stream().anyMatch(p -> p.distSqr(BlockPos.ZERO) > 16)))
           throw new IllegalArgumentException("Invalid carrier seating geometry");
         if (!Double.isFinite(carrier.angle)
             || !Double.isFinite(carrier.omega)
@@ -414,7 +417,16 @@ public final class FoundationData extends SavedData {
         }
         vehicle.carriers.add(carrier);
       }
-      if (!VARIANT.equals(vehicle.variant)) {
+      if (dev.fourthdimension.vehicle.WingVehicle.is(vehicle)) {
+        if (vehicle.carriers.size() != 1) throw new IllegalArgumentException("Wing needs one fixed seat group");
+        var fixed = vehicle.carriers.getFirst();
+        if (!fixed.body.equals(vehicle.chassis)
+            || !fixed.seats.equals(dev.fourthdimension.vehicle.WingVehicle.SEATS)
+            || fixed.side != 0 || fixed.longitudinal != 0 || fixed.pivotHeight != 0
+            || fixed.childPivotOffset != 0 || fixed.angle != 0 || fixed.omega != 0
+            || vehicle.damping != 0 || vehicle.ballast != 0 || fixed.ballast != 0)
+          throw new IllegalArgumentException("Invalid fixed Wing topology");
+      } else if (!VARIANT.equals(vehicle.variant)) {
         var layout = dev.fourthdimension.track.TrackDesign.byVariant(vehicle.variant);
         if (vehicle.carriers.size() != layout.groups()
             || vehicle.carriers.stream()
@@ -455,7 +467,8 @@ public final class FoundationData extends SavedData {
 
   private static void validateIdentity(CompoundTag tag) {
     // The first local schema-1 prototype omitted these fixed identifiers.
-    if (tag.contains("variant") && !VARIANT.equals(tag.getString("variant")))
+    if (tag.contains("variant") && !VARIANT.equals(tag.getString("variant"))
+        && !dev.fourthdimension.vehicle.WingVehicle.VARIANT.equals(tag.getString("variant")))
       dev.fourthdimension.track.TrackDesign.byVariant(tag.getString("variant"));
     if (tag.contains("provider")
         && !PROVIDER.equals(tag.getString("provider"))

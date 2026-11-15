@@ -11,6 +11,12 @@ public final class VehicleParts {
 
   public static final DeferredRegister.Blocks BLOCKS =
       DeferredRegister.createBlocks(FourthDimension.ID);
+  public static final DeferredBlock<WingSeatBlock> WING_SEAT =
+      BLOCKS.register("wing_seat", () -> new WingSeatBlock(
+          BlockBehaviour.Properties.of().strength(3).noOcclusion()));
+  public static final DeferredBlock<Block> WING_BEAM =
+      BLOCKS.register("fixed_wing_beam", () -> new MechanicalPartBlock(
+          BlockBehaviour.Properties.of().strength(4).noOcclusion(), Block.box(0, 2, 4, 16, 8, 12)));
   public static final DeferredBlock<CarrierSeatBlock> ARROW_SEAT =
       BLOCKS.register(
           "arrow_seat",

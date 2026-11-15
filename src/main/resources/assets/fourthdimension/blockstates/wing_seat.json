@@ -1,0 +1,516 @@
+{
+  "variants": {
+    "color=white,facing=north,restrained=false": {
+      "model": "fourthdimension:block/wing_seat_white_open",
+      "y": 0
+    },
+    "color=white,facing=north,restrained=true": {
+      "model": "fourthdimension:block/wing_seat_white_closed",
+      "y": 0
+    },
+    "color=white,facing=east,restrained=false": {
+      "model": "fourthdimension:block/wing_seat_white_open",
+      "y": 90
+    },
+    "color=white,facing=east,restrained=true": {
+      "model": "fourthdimension:block/wing_seat_white_closed",
+      "y": 90
+    },
+    "color=white,facing=south,restrained=false": {
+      "model": "fourthdimension:block/wing_seat_white_open",
+      "y": 180
+    },
+    "color=white,facing=south,restrained=true": {
+      "model": "fourthdimension:block/wing_seat_white_closed",
+      "y": 180
+    },
+    "color=white,facing=west,restrained=false": {
+      "model": "fourthdimension:block/wing_seat_white_open",
+      "y": 270
+    },
+    "color=white,facing=west,restrained=true": {
+      "model": "fourthdimension:block/wing_seat_white_closed",
+      "y": 270
+    },
+    "color=orange,facing=north,restrained=false": {
+      "model": "fourthdimension:block/wing_seat_orange_open",
+      "y": 0
+    },
+    "color=orange,facing=north,restrained=true": {
+      "model": "fourthdimension:block/wing_seat_orange_closed",
+      "y": 0
+    },
+    "color=orange,facing=east,restrained=false": {
+      "model": "fourthdimension:block/wing_seat_orange_open",
+      "y": 90
+    },
+    "color=orange,facing=east,restrained=true": {
+      "model": "fourthdimension:block/wing_seat_orange_closed",
+      "y": 90
+    },
+    "color=orange,facing=south,restrained=false": {
+      "model": "fourthdimension:block/wing_seat_orange_open",
+      "y": 180
+    },
+    "color=orange,facing=south,restrained=true": {
+      "model": "fourthdimension:block/wing_seat_orange_closed",
+      "y": 180
+    },
+    "color=orange,facing=west,restrained=false": {
+      "model": "fourthdimension:block/wing_seat_orange_open",
+      "y": 270
+    },
+    "color=orange,facing=west,restrained=true": {
+      "model": "fourthdimension:block/wing_seat_orange_closed",
+      "y": 270
+    },
+    "color=magenta,facing=north,restrained=false": {
+      "model": "fourthdimension:block/wing_seat_magenta_open",
+      "y": 0
+    },
+    "color=magenta,facing=north,restrained=true": {
+      "model": "fourthdimension:block/wing_seat_magenta_closed",
+      "y": 0
+    },
+    "color=magenta,facing=east,restrained=false": {
+      "model": "fourthdimension:block/wing_seat_magenta_open",
+      "y": 90
+    },
+    "color=magenta,facing=east,restrained=true": {
+      "model": "fourthdimension:block/wing_seat_magenta_closed",
+      "y": 90
+    },
+    "color=magenta,facing=south,restrained=false": {
+      "model": "fourthdimension:block/wing_seat_magenta_open",
+      "y": 180
+    },
+    "color=magenta,facing=south,restrained=true": {
+      "model": "fourthdimension:block/wing_seat_magenta_closed",
+      "y": 180
+    },
+    "color=magenta,facing=west,restrained=false": {
+      "model": "fourthdimension:block/wing_seat_magenta_open",
+      "y": 270
+    },
+    "color=magenta,facing=west,restrained=true": {
+      "model": "fourthdimension:block/wing_seat_magenta_closed",
+      "y": 270
+    },
+    "color=light_blue,facing=north,restrained=false": {
+      "model": "fourthdimension:block/wing_seat_light_blue_open",
+      "y": 0
+    },
+    "color=light_blue,facing=north,restrained=true": {
+      "model": "fourthdimension:block/wing_seat_light_blue_closed",
+      "y": 0
+    },
+    "color=light_blue,facing=east,restrained=false": {
+      "model": "fourthdimension:block/wing_seat_light_blue_open",
+      "y": 90
+    },
+    "color=light_blue,facing=east,restrained=true": {
+      "model": "fourthdimension:block/wing_seat_light_blue_closed",
+      "y": 90
+    },
+    "color=light_blue,facing=south,restrained=false": {
+      "model": "fourthdimension:block/wing_seat_light_blue_open",
+      "y": 180
+    },
+    "color=light_blue,facing=south,restrained=true": {
+      "model": "fourthdimension:block/wing_seat_light_blue_closed",
+      "y": 180
+    },
+    "color=light_blue,facing=west,restrained=false": {
+      "model": "fourthdimension:block/wing_seat_light_blue_open",
+      "y": 270
+    },
+    "color=light_blue,facing=west,restrained=true": {
+      "model": "fourthdimension:block/wing_seat_light_blue_closed",
+      "y": 270
+    },
+    "color=yellow,facing=north,restrained=false": {
+      "model": "fourthdimension:block/wing_seat_yellow_open",
+      "y": 0
+    },
+    "color=yellow,facing=north,restrained=true": {
+      "model": "fourthdimension:block/wing_seat_yellow_closed",
+      "y": 0
+    },
+    "color=yellow,facing=east,restrained=false": {
+      "model": "fourthdimension:block/wing_seat_yellow_open",
+      "y": 90
+    },
+    "color=yellow,facing=east,restrained=true": {
+      "model": "fourthdimension:block/wing_seat_yellow_closed",
+      "y": 90
+    },
+    "color=yellow,facing=south,restrained=false": {
+      "model": "fourthdimension:block/wing_seat_yellow_open",
+      "y": 180
+    },
+    "color=yellow,facing=south,restrained=true": {
+      "model": "fourthdimension:block/wing_seat_yellow_closed",
+      "y": 180
+    },
+    "color=yellow,facing=west,restrained=false": {
+      "model": "fourthdimension:block/wing_seat_yellow_open",
+      "y": 270
+    },
+    "color=yellow,facing=west,restrained=true": {
+      "model": "fourthdimension:block/wing_seat_yellow_closed",
+      "y": 270
+    },
+    "color=lime,facing=north,restrained=false": {
+      "model": "fourthdimension:block/wing_seat_lime_open",
+      "y": 0
+    },
+    "color=lime,facing=north,restrained=true": {
+      "model": "fourthdimension:block/wing_seat_lime_closed",
+      "y": 0
+    },
+    "color=lime,facing=east,restrained=false": {
+      "model": "fourthdimension:block/wing_seat_lime_open",
+      "y": 90
+    },
+    "color=lime,facing=east,restrained=true": {
+      "model": "fourthdimension:block/wing_seat_lime_closed",
+      "y": 90
+    },
+    "color=lime,facing=south,restrained=false": {
+      "model": "fourthdimension:block/wing_seat_lime_open",
+      "y": 180
+    },
+    "color=lime,facing=south,restrained=true": {
+      "model": "fourthdimension:block/wing_seat_lime_closed",
+      "y": 180
+    },
+    "color=lime,facing=west,restrained=false": {
+      "model": "fourthdimension:block/wing_seat_lime_open",
+      "y": 270
+    },
+    "color=lime,facing=west,restrained=true": {
+      "model": "fourthdimension:block/wing_seat_lime_closed",
+      "y": 270
+    },
+    "color=pink,facing=north,restrained=false": {
+      "model": "fourthdimension:block/wing_seat_pink_open",
+      "y": 0
+    },
+    "color=pink,facing=north,restrained=true": {
+      "model": "fourthdimension:block/wing_seat_pink_closed",
+      "y": 0
+    },
+    "color=pink,facing=east,restrained=false": {
+      "model": "fourthdimension:block/wing_seat_pink_open",
+      "y": 90
+    },
+    "color=pink,facing=east,restrained=true": {
+      "model": "fourthdimension:block/wing_seat_pink_closed",
+      "y": 90
+    },
+    "color=pink,facing=south,restrained=false": {
+      "model": "fourthdimension:block/wing_seat_pink_open",
+      "y": 180
+    },
+    "color=pink,facing=south,restrained=true": {
+      "model": "fourthdimension:block/wing_seat_pink_closed",
+      "y": 180
+    },
+    "color=pink,facing=west,restrained=false": {
+      "model": "fourthdimension:block/wing_seat_pink_open",
+      "y": 270
+    },
+    "color=pink,facing=west,restrained=true": {
+      "model": "fourthdimension:block/wing_seat_pink_closed",
+      "y": 270
+    },
+    "color=gray,facing=north,restrained=false": {
+      "model": "fourthdimension:block/wing_seat_gray_open",
+      "y": 0
+    },
+    "color=gray,facing=north,restrained=true": {
+      "model": "fourthdimension:block/wing_seat_gray_closed",
+      "y": 0
+    },
+    "color=gray,facing=east,restrained=false": {
+      "model": "fourthdimension:block/wing_seat_gray_open",
+      "y": 90
+    },
+    "color=gray,facing=east,restrained=true": {
+      "model": "fourthdimension:block/wing_seat_gray_closed",
+      "y": 90
+    },
+    "color=gray,facing=south,restrained=false": {
+      "model": "fourthdimension:block/wing_seat_gray_open",
+      "y": 180
+    },
+    "color=gray,facing=south,restrained=true": {
+      "model": "fourthdimension:block/wing_seat_gray_closed",
+      "y": 180
+    },
+    "color=gray,facing=west,restrained=false": {
+      "model": "fourthdimension:block/wing_seat_gray_open",
+      "y": 270
+    },
+    "color=gray,facing=west,restrained=true": {
+      "model": "fourthdimension:block/wing_seat_gray_closed",
+      "y": 270
+    },
+    "color=light_gray,facing=north,restrained=false": {
+      "model": "fourthdimension:block/wing_seat_light_gray_open",
+      "y": 0
+    },
+    "color=light_gray,facing=north,restrained=true": {
+      "model": "fourthdimension:block/wing_seat_light_gray_closed",
+      "y": 0
+    },
+    "color=light_gray,facing=east,restrained=false": {
+      "model": "fourthdimension:block/wing_seat_light_gray_open",
+      "y": 90
+    },
+    "color=light_gray,facing=east,restrained=true": {
+      "model": "fourthdimension:block/wing_seat_light_gray_closed",
+      "y": 90
+    },
+    "color=light_gray,facing=south,restrained=false": {
+      "model": "fourthdimension:block/wing_seat_light_gray_open",
+      "y": 180
+    },
+    "color=light_gray,facing=south,restrained=true": {
+      "model": "fourthdimension:block/wing_seat_light_gray_closed",
+      "y": 180
+    },
+    "color=light_gray,facing=west,restrained=false": {
+      "model": "fourthdimension:block/wing_seat_light_gray_open",
+      "y": 270
+    },
+    "color=light_gray,facing=west,restrained=true": {
+      "model": "fourthdimension:block/wing_seat_light_gray_closed",
+      "y": 270
+    },
+    "color=cyan,facing=north,restrained=false": {
+      "model": "fourthdimension:block/wing_seat_cyan_open",
+      "y": 0
+    },
+    "color=cyan,facing=north,restrained=true": {
+      "model": "fourthdimension:block/wing_seat_cyan_closed",
+      "y": 0
+    },
+    "color=cyan,facing=east,restrained=false": {
+      "model": "fourthdimension:block/wing_seat_cyan_open",
+      "y": 90
+    },
+    "color=cyan,facing=east,restrained=true": {
+      "model": "fourthdimension:block/wing_seat_cyan_closed",
+      "y": 90
+    },
+    "color=cyan,facing=south,restrained=false": {
+      "model": "fourthdimension:block/wing_seat_cyan_open",
+      "y": 180
+    },
+    "color=cyan,facing=south,restrained=true": {
+      "model": "fourthdimension:block/wing_seat_cyan_closed",
+      "y": 180
+    },
+    "color=cyan,facing=west,restrained=false": {
+      "model": "fourthdimension:block/wing_seat_cyan_open",
+      "y": 270
+    },
+    "color=cyan,facing=west,restrained=true": {
+      "model": "fourthdimension:block/wing_seat_cyan_closed",
+      "y": 270
+    },
+    "color=purple,facing=north,restrained=false": {
+      "model": "fourthdimension:block/wing_seat_purple_open",
+      "y": 0
+    },
+    "color=purple,facing=north,restrained=true": {
+      "model": "fourthdimension:block/wing_seat_purple_closed",
+      "y": 0
+    },
+    "color=purple,facing=east,restrained=false": {
+      "model": "fourthdimension:block/wing_seat_purple_open",
+      "y": 90
+    },
+    "color=purple,facing=east,restrained=true": {
+      "model": "fourthdimension:block/wing_seat_purple_closed",
+      "y": 90
+    },
+    "color=purple,facing=south,restrained=false": {
+      "model": "fourthdimension:block/wing_seat_purple_open",
+      "y": 180
+    },
+    "color=purple,facing=south,restrained=true": {
+      "model": "fourthdimension:block/wing_seat_purple_closed",
+      "y": 180
+    },
+    "color=purple,facing=west,restrained=false": {
+      "model": "fourthdimension:block/wing_seat_purple_open",
+      "y": 270
+    },
+    "color=purple,facing=west,restrained=true": {
+      "model": "fourthdimension:block/wing_seat_purple_closed",
+      "y": 270
+    },
+    "color=blue,facing=north,restrained=false": {
+      "model": "fourthdimension:block/wing_seat_blue_open",
+      "y": 0
+    },
+    "color=blue,facing=north,restrained=true": {
+      "model": "fourthdimension:block/wing_seat_blue_closed",
+      "y": 0
+    },
+    "color=blue,facing=east,restrained=false": {
+      "model": "fourthdimension:block/wing_seat_blue_open",
+      "y": 90
+    },
+    "color=blue,facing=east,restrained=true": {
+      "model": "fourthdimension:block/wing_seat_blue_closed",
+      "y": 90
+    },
+    "color=blue,facing=south,restrained=false": {
+      "model": "fourthdimension:block/wing_seat_blue_open",
+      "y": 180
+    },
+    "color=blue,facing=south,restrained=true": {
+      "model": "fourthdimension:block/wing_seat_blue_closed",
+      "y": 180
+    },
+    "color=blue,facing=west,restrained=false": {
+      "model": "fourthdimension:block/wing_seat_blue_open",
+      "y": 270
+    },
+    "color=blue,facing=west,restrained=true": {
+      "model": "fourthdimension:block/wing_seat_blue_closed",
+      "y": 270
+    },
+    "color=brown,facing=north,restrained=false": {
+      "model": "fourthdimension:block/wing_seat_brown_open",
+      "y": 0
+    },
+    "color=brown,facing=north,restrained=true": {
+      "model": "fourthdimension:block/wing_seat_brown_closed",
+      "y": 0
+    },
+    "color=brown,facing=east,restrained=false": {
+      "model": "fourthdimension:block/wing_seat_brown_open",
+      "y": 90
+    },
+    "color=brown,facing=east,restrained=true": {
+      "model": "fourthdimension:block/wing_seat_brown_closed",
+      "y": 90
+    },
+    "color=brown,facing=south,restrained=false": {
+      "model": "fourthdimension:block/wing_seat_brown_open",
+      "y": 180
+    },
+    "color=brown,facing=south,restrained=true": {
+      "model": "fourthdimension:block/wing_seat_brown_closed",
+      "y": 180
+    },
+    "color=brown,facing=west,restrained=false": {
+      "model": "fourthdimension:block/wing_seat_brown_open",
+      "y": 270
+    },
+    "color=brown,facing=west,restrained=true": {
+      "model": "fourthdimension:block/wing_seat_brown_closed",
+      "y": 270
+    },
+    "color=green,facing=north,restrained=false": {
+      "model": "fourthdimension:block/wing_seat_green_open",
+      "y": 0
+    },
+    "color=green,facing=north,restrained=true": {
+      "model": "fourthdimension:block/wing_seat_green_closed",
+      "y": 0
+    },
+    "color=green,facing=east,restrained=false": {
+      "model": "fourthdimension:block/wing_seat_green_open",
+      "y": 90
+    },
+    "color=green,facing=east,restrained=true": {
+      "model": "fourthdimension:block/wing_seat_green_closed",
+      "y": 90
+    },
+    "color=green,facing=south,restrained=false": {
+      "model": "fourthdimension:block/wing_seat_green_open",
+      "y": 180
+    },
+    "color=green,facing=south,restrained=true": {
+      "model": "fourthdimension:block/wing_seat_green_closed",
+      "y": 180
+    },
+    "color=green,facing=west,restrained=false": {
+      "model": "fourthdimension:block/wing_seat_green_open",
+      "y": 270
+    },
+    "color=green,facing=west,restrained=true": {
+      "model": "fourthdimension:block/wing_seat_green_closed",
+      "y": 270
+    },
+    "color=red,facing=north,restrained=false": {
+      "model": "fourthdimension:block/wing_seat_red_open",
+      "y": 0
+    },
+    "color=red,facing=north,restrained=true": {
+      "model": "fourthdimension:block/wing_seat_red_closed",
+      "y": 0
+    },
+    "color=red,facing=east,restrained=false": {
+      "model": "fourthdimension:block/wing_seat_red_open",
+      "y": 90
+    },
+    "color=red,facing=east,restrained=true": {
+      "model": "fourthdimension:block/wing_seat_red_closed",
+      "y": 90
+    },
+    "color=red,facing=south,restrained=false": {
+      "model": "fourthdimension:block/wing_seat_red_open",
+      "y": 180
+    },
+    "color=red,facing=south,restrained=true": {
+      "model": "fourthdimension:block/wing_seat_red_closed",
+      "y": 180
+    },
+    "color=red,facing=west,restrained=false": {
+      "model": "fourthdimension:block/wing_seat_red_open",
+      "y": 270
+    },
+    "color=red,facing=west,restrained=true": {
+      "model": "fourthdimension:block/wing_seat_red_closed",
+      "y": 270
+    },
+    "color=black,facing=north,restrained=false": {
+      "model": "fourthdimension:block/wing_seat_black_open",
+      "y": 0
+    },
+    "color=black,facing=north,restrained=true": {
+      "model": "fourthdimension:block/wing_seat_black_closed",
+      "y": 0
+    },
+    "color=black,facing=east,restrained=false": {
+      "model": "fourthdimension:block/wing_seat_black_open",
+      "y": 90
+    },
+    "color=black,facing=east,restrained=true": {
+      "model": "fourthdimension:block/wing_seat_black_closed",
+      "y": 90
+    },
+    "color=black,facing=south,restrained=false": {
+      "model": "fourthdimension:block/wing_seat_black_open",
+      "y": 180
+    },
+    "color=black,facing=south,restrained=true": {
+      "model": "fourthdimension:block/wing_seat_black_closed",
+      "y": 180
+    },
+    "color=black,facing=west,restrained=false": {
+      "model": "fourthdimension:block/wing_seat_black_open",
+      "y": 270
+    },
+    "color=black,facing=west,restrained=true": {
+      "model": "fourthdimension:block/wing_seat_black_closed",
+      "y": 270
+    }
+  }
+}

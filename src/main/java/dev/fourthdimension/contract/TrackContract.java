@@ -19,12 +19,13 @@ public record TrackContract(
   }
 
   public TrackContract {
-    Objects.requireNonNull(family);
     Objects.requireNonNull(mainRails);
     Objects.requireNonNull(clearance);
     if (provider == null || provider.isBlank() || variant == null || variant.isBlank())
       throw new IllegalArgumentException("Missing functional identity");
     mechanisms = Set.copyOf(mechanisms);
+    if (family == null && !mechanisms.isEmpty())
+      throw new IllegalArgumentException("Ordinary track cannot declare 4D mechanisms");
   }
 
   public record Gear(double gauge, double runningRadius, double sideContact, double upstopContact) {

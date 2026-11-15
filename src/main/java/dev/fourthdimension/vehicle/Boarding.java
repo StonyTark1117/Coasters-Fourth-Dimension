@@ -49,6 +49,12 @@ public final class Boarding {
     if (container.physicsSystem().getPipeline().getLinearVelocity(parent, new Vector3d()).length()
             > .08
         && !ShuttleRuntime.stationHeld(level, vehicle)) return false;
+    if (WingVehicle.is(vehicle)) {
+      if (!vehicle.stopping || !vehicle.fault.isEmpty() || WingTrack.support(level, vehicle) == null)
+        return false;
+      var up = new Vector3d(0, 1, 0).rotate(parent.logicalPose().orientation());
+      return up.y > .98;
+    }
     for (var carrier : vehicle.carriers) {
       if (!carrier.capture
           || Math.abs(carrier.omega) > .08

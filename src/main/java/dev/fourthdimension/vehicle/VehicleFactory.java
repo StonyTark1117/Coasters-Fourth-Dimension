@@ -48,9 +48,7 @@ public final class VehicleFactory {
               < Math.pow(
                       Math.max(
                           design.axleSpacing(),
-                          FoundationData.VARIANT.equals(existing.variant)
-                              ? 6
-                              : TrackDesign.byVariant(existing.variant).axleSpacing()),
+                          WingVehicle.spacing(existing)),
                       2)
                   - .01)
         throw new IllegalArgumentException(

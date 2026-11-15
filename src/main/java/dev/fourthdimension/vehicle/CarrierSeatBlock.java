@@ -11,11 +11,15 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.*;
 import net.minecraft.world.level.block.state.properties.*;
 import net.minecraft.world.phys.BlockHitResult;
+import com.mojang.logging.LogUtils;
+import org.slf4j.Logger;
 
 /**
  * Own seat/restraint geometry, with Create's passenger entity and Sable's native rider transform.
  */
-public final class CarrierSeatBlock extends SeatBlock {
+public class CarrierSeatBlock extends SeatBlock {
+  private static final boolean VALIDATION = Boolean.getBoolean("fourthdimension.validation");
+  private static final Logger LOGGER = LogUtils.getLogger();
   public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
   public static final BooleanProperty RESTRAINED = BooleanProperty.create("restrained");
 
@@ -46,8 +50,13 @@ public final class CarrierSeatBlock extends SeatBlock {
       Player player,
       InteractionHand hand,
       BlockHitResult hit) {
-    if (stack.getItem() instanceof dev.fourthdimension.editor.RotationTool)
+    if (stack.getItem() instanceof dev.fourthdimension.editor.RotationTool) {
+        if (VALIDATION)
+          LOGGER.info(
+              "FD_ROTATION_BLOCK_USE player={} pos={} hand={} result=SKIP_DEFAULT",
+              player.getName().getString(), pos, hand);
       return ItemInteractionResult.SKIP_DEFAULT_BLOCK_INTERACTION;
+    }
     return board(level, pos, player) ? ItemInteractionResult.SUCCESS : ItemInteractionResult.FAIL;
   }
 

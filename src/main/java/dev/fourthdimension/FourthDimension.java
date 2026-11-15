@@ -11,6 +11,7 @@ public final class FourthDimension {
   public static final String ID = "fourthdimension";
 
   public FourthDimension(IEventBus bus) {
+    RuntimePerformanceRecorder.register();
     dev.fourthdimension.integration.create.CreateIntegration.register(bus);
     dev.fourthdimension.shuttle.ShuttleContent.registerItem();
     dev.fourthdimension.station.StationContent.registerItem();
@@ -34,6 +35,7 @@ public final class FourthDimension {
     NeoForge.EVENT_BUS.addListener(PrototypeFixture::register);
     NeoForge.EVENT_BUS.addListener(dev.fourthdimension.runtime.ValidationCommands::register);
     NeoForge.EVENT_BUS.addListener(dev.fourthdimension.track.ExampleLayouts::register);
+    NeoForge.EVENT_BUS.addListener(dev.fourthdimension.vehicle.WingExamples::register);
     NeoForge.EVENT_BUS.addListener(dev.fourthdimension.vehicle.RecoveryExamples::register);
     NeoForge.EVENT_BUS.addListener(dev.fourthdimension.shuttle.ShuttleExamples::register);
     NeoForge.EVENT_BUS.addListener(dev.fourthdimension.shuttle.ShuttleExamples::tick);

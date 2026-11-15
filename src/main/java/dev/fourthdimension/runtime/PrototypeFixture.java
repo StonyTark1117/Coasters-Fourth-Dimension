@@ -81,7 +81,7 @@ public final class PrototypeFixture {
                   data.setDirty();
                   return 1;
                 }));
-    for (Family family : Family.values())
+    for (Family family : java.util.Arrays.stream(Family.values()).filter(Family::rotary).toList())
       root.then(
           Commands.literal(family.id())
               .executes(

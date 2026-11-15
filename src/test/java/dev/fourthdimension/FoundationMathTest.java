@@ -27,8 +27,8 @@ class FoundationMathTest {
 
   @Test
   void allFiveFamiliesAreStrictAndProvidersMayBeEquivalent() {
-    for (Family a : Family.values())
-      for (Family b : Family.values()) {
+    for (Family a : java.util.Arrays.stream(Family.values()).filter(Family::rotary).toList())
+      for (Family b : java.util.Arrays.stream(Family.values()).filter(Family::rotary).toList()) {
         var cart = new VehicleContract(a, "v1", gear, clearance, Set.of(), 2);
         var track =
             new TrackContract(

@@ -61,11 +61,12 @@ public final class RotationEditorScreen extends Screen {
         return;
       }
       revision = v.revision;
-      free = !v.family.driven();
+      free = v.family.rotary() && !v.family.driven();
       magnetic = v.family == dev.fourthdimension.contract.Family.FREE_SPIN;
       recovery = v.recoveryCart != null;
       updateVehicleStatus(v);
-      value.setValue(v.damping + "," + v.ballast);
+      value.setValue(dev.fourthdimension.vehicle.WingVehicle.is(v)
+          ? "Fixed seats — ordinary Coasters track" : v.damping + "," + v.ballast);
       value.setTooltip(
           net.minecraft.client.gui.components.Tooltip.create(
               Component.literal(
@@ -78,7 +79,7 @@ public final class RotationEditorScreen extends Screen {
                           .collect(Collectors.joining(" / "))
                       + ". Applying uniform tuning resets per-group ballast.")));
       value.setEditable(free);
-      addButton("Capture", left, top + 82, 10);
+      addButton(v.family.rotary() ? "Capture" : "Stop", left, top + 82, 10);
       addButton("Close restraints", left + 115, top + 82, 11);
       addButton("Open restraints", left + 230, top + 82, 12);
       addButton("Dispatch", left, top + 108, 13);
@@ -89,11 +90,11 @@ public final class RotationEditorScreen extends Screen {
       else if (v.alignmentRequired)
         addButton("Realign matching track", left, top + 160, 26);
       if (free) addButton("Apply tuning", left, top + 134, 16);
-      if (v.recoveryCart == null) {
+      if (v.recoveryCart == null && v.family.rotary()) {
         recoveryAttach = addButton("Attach recovery", left, top + 212, 20);
         if (v.family == dev.fourthdimension.contract.Family.PAX)
           addButton("Detach shuttle", left + 115, top + 212, 24);
-      } else {
+      } else if (v.recoveryCart != null) {
         recoveryStartTow = addButton("Start tow", left, top + 212, 21);
         addButton("Brake tow", left + 115, top + 212, 22);
         addButton("Detach recovery", left + 230, top + 212, 23);

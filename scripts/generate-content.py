@@ -80,3 +80,28 @@ write('assets/fourthdimension/models/block/shuttle_carriage.json',{
 write('assets/fourthdimension/blockstates/shuttle_carriage.json',{'variants':{'':{'model':'fourthdimension:block/shuttle_carriage'}}})
 write('data/fourthdimension/recipe/shuttle_winch.json',{'type':'minecraft:crafting_shaped','pattern':['IRI','CSC','ITI'],
     'key':{'I':{'tag':'c:ingots/iron'},'R':{'item':'minecraft:redstone'},'C':{'item':'minecraft:copper_ingot'},'S':{'item':'create:shaft'},'T':{'item':'fourthdimension:pax_track'}},'result':{'id':'fourthdimension:shuttle_winch','count':1}})
+
+# Fixed Wing has rigid original beam geometry and selectable seat cushion liveries.
+for color in ['white','orange','magenta','light_blue','yellow','lime','pink','gray','light_gray','cyan','purple','blue','brown','green','red','black']:
+    for closed in (False, True):
+        model=json.loads((ROOT/f'assets/fourthdimension/models/block/arrow_seat_{"closed" if closed else "open"}.json').read_text())
+        model['textures']['cushion']=f'minecraft:block/{color}_concrete'
+        model['textures']['particle']=f'minecraft:block/{color}_concrete'
+        write(f'assets/fourthdimension/models/block/wing_seat_{color}_{"closed" if closed else "open"}.json', model)
+variants={}
+for color in ['white','orange','magenta','light_blue','yellow','lime','pink','gray','light_gray','cyan','purple','blue','brown','green','red','black']:
+    for direction,angle in [('north',0),('east',90),('south',180),('west',270)]:
+        for closed in (False,True):
+            variants[f'color={color},facing={direction},restrained={str(closed).lower()}']={'model':f'fourthdimension:block/wing_seat_{color}_{"closed" if closed else "open"}','y':angle}
+write('assets/fourthdimension/blockstates/wing_seat.json',{'variants':variants})
+write('assets/fourthdimension/models/block/fixed_wing_beam.json',{'parent':'minecraft:block/block','textures':{'metal':'minecraft:block/iron_block','accent':'minecraft:block/cyan_concrete','particle':'minecraft:block/iron_block'},'elements':[box([0,2,4],[16,6,12],'#metal'),box([0,6,5],[16,8,11],'#accent')]})
+write('assets/fourthdimension/blockstates/fixed_wing_beam.json',{'variants':{'':{'model':'fourthdimension:block/fixed_wing_beam'}}})
+write('assets/fourthdimension/models/block/wing_fixed_controller.json',{'parent':'fourthdimension:block/fixed_wing_beam'})
+write('assets/fourthdimension/blockstates/wing_fixed_controller.json',{'variants':{'':{'model':'fourthdimension:block/wing_fixed_controller'}}})
+# Inventory silhouette shows the rigid wing and all four seats, rather than a rotary carrier.
+item_parts=[box([-8,7,7],[24,9,9],'#metal')]
+for x in [-7,-1,15,21]:
+    item_parts += [box([x,8,5],[x+4,9,10],'#cushion'),box([x,9,9],[x+4,15,10],'#cushion'),box([x+.5,10,5],[x+1,15,6],'#restraint'),box([x+3,10,5],[x+3.5,15,6],'#restraint')]
+item_parts += [box([5,2,5],[11,7,11],'#metal')]
+write('assets/fourthdimension/models/item/wing_car.json',{'parent':'minecraft:block/block','textures':{'cushion':'minecraft:block/cyan_concrete','metal':'minecraft:block/iron_block','restraint':'minecraft:block/black_concrete','particle':'minecraft:block/cyan_concrete'},'elements':item_parts,'display':{'gui':{'rotation':[25,225,0],'translation':[0,0,0],'scale':[.55,.55,.55]},'ground':{'scale':[.3,.3,.3]}}})
+write('data/fourthdimension/recipe/wing_car.json',{'type':'minecraft:crafting_shaped','pattern':['SAS','ITI','ICI'],'key':{'S':{'item':'create:red_seat'},'A':{'item':'minecraft:iron_bars'},'I':{'tag':'c:ingots/iron'},'T':{'item':'simulatedcoasters:coaster_track'},'C':{'item':'simulatedcoasters:coaster_cart'}},'result':{'id':'fourthdimension:wing_car','count':1}})

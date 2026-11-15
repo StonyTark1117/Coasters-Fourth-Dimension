@@ -172,7 +172,7 @@ public final class RecoveryOperations {
         || !cart.getUniqueId().equals(v.recoveryCart)
         || !ordinary(level, cart)
         || !Double.isFinite(distance)
-        || Math.abs(distance - TrackDesign.byVariant(v.variant).axleSpacing()) > .01
+        || Math.abs(distance - WingVehicle.spacing(v)) > .01
         || !ordinarySupport(level, cart, v)
         || speed(level, cart) > .08) return false;
     var ids = CoasterCartTrainLinkConstraint.getTrainLinkedCartIds(cart);
@@ -198,6 +198,8 @@ public final class RecoveryOperations {
   }
 
   public static void attach(ServerPlayer player, FoundationData.Vehicle selected) {
+    if (WingVehicle.is(selected))
+      throw new IllegalArgumentException("Wing uses ordinary track; restore its route and Stop before unloading");
     var level = player.serverLevel();
     var container = SubLevelContainer.getContainer(level);
     var selection = SELECTED.get(player);
@@ -225,7 +227,7 @@ public final class RecoveryOperations {
           "Capture and retain every car, close restraints, and detach any shuttle winch before"
               + " coupling");
     var parent = (ServerSubLevel) container.getSubLevel(selected.chassis);
-    double spacing = TrackDesign.byVariant(selected.variant).axleSpacing();
+    double spacing = WingVehicle.spacing(selected);
     var center = CoasterCartResolve.cartCenterWorld(parent);
     var ordinaryCenter = CoasterCartResolve.cartCenterWorld(cart);
     if (center == null

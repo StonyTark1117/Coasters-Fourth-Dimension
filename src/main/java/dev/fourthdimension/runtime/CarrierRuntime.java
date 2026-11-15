@@ -138,6 +138,10 @@ public final class CarrierRuntime {
       if (!(parentRaw instanceof ServerSubLevel parent) || parent.isRemoved()) continue;
       vehicleUpdates++;
       physics.updatePose(parent);
+      if (dev.fourthdimension.vehicle.WingVehicle.is(vehicle)) {
+        dev.fourthdimension.vehicle.WingRuntime.tick(level, parent, vehicle, event.getTimeStep());
+        continue;
+      }
       FoundationData.Rail rail = matchingRail(data, vehicle);
       boolean content = !FoundationData.VARIANT.equals(vehicle.variant);
       boolean supportLost =

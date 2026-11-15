@@ -14,7 +14,7 @@ import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
 
-public final class VehicleItem extends Item {
+public class VehicleItem extends Item {
   public final TrackDesign design;
 
   public VehicleItem(Properties properties, TrackDesign design) {
@@ -31,7 +31,7 @@ public final class VehicleItem extends Item {
       if (!player.mayBuild()) throw new IllegalArgumentException("Cannot place a vehicle here");
       var hit = aimedTrack(level, player);
       if (hit == null)
-        throw new IllegalArgumentException("Aim at matching 4D track to place this car");
+        throw new IllegalArgumentException(design == null ? "Aim at ordinary Coasters track" : "Aim at matching 4D track to place this car");
       if (!level.mayInteract(player, BlockPos.containing(hit.point())))
         throw new IllegalArgumentException("Cannot place a vehicle here");
       place(level, player, stack, hit);
@@ -59,7 +59,7 @@ public final class VehicleItem extends Item {
           CoasterPathTrackFrame.nearestGraphHit(
               level, CoasterPathGraphManager.get(level), context.getClickLocation(), 4);
       if (hit == null)
-        throw new IllegalArgumentException("Click matching 4D track to place this car");
+        throw new IllegalArgumentException(design == null ? "Click ordinary Coasters track" : "Click matching 4D track to place this car");
       place(level, player, context.getItemInHand(), hit);
       return InteractionResult.SUCCESS;
     } catch (IllegalArgumentException | IllegalStateException failure) {
@@ -73,10 +73,12 @@ public final class VehicleItem extends Item {
       Player player,
       ItemStack stack,
       CoasterPathTrackFrame.GraphHit hit) {
-    VehicleFactory.create(level, design, hit);
+    if (design == null) WingVehicle.create(level, hit);
+    else VehicleFactory.create(level, design, hit);
     if (!player.isCreative()) stack.shrink(1);
     player.displayClientMessage(
-        Component.literal("Carrier capture engaged. Wait for alignment before boarding."), true);
+        Component.literal(design == null ? "Wing stopped. Board, close restraints, then dispatch."
+            : "Carrier capture engaged. Wait for alignment before boarding."), true);
   }
 
   /** The rail is a rendered curve, so an interior placement need not click a support block. */
