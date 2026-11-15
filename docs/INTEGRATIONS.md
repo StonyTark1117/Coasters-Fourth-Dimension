@@ -4,6 +4,24 @@ FD401 remains complete for its original bounded scope. The addon remains
 standalone: no optional JAR is required or bundled. Later capability qualification
 is recorded below; decorative similarity alone never grants mechanical eligibility.
 
+## Current 0.9 extension
+
+The [0.9 dependency record](evidence/0.9/dependencies/README.md) supersedes the
+historical core pins below: NeoForge21.1.256, Create6.0.10, Simulated Coasters0.1.5,
+Sable2.0.6, Companion1.6.0, Flywheel1.0.6 and Veil4.3.2. The current persistence
+schema and network protocol are8; the additive appearance field defaults to
+Original for existing vehicles.
+
+The optional development profile names extend the0.8 set with `skin`,
+`immersion`, `waterparked` and `createcoasters`. Immersion1.1.1 is client-only:
+build configuration includes it in client/observer mod discovery and excludes
+it from dedicated servers and bootstrap libraries. Waterparked0.2.8-beta-hotfix1
+includes its KotlinForForge5.10.0 language loader. Create Coasters is2.0.
+[Waterparked and Create Coasters coexistence](OPTIONAL-COEXISTENCE.md) is qualified;
+[Skin choices](COASTER-SKIN.md), optional seats and effects have individual
+acceptance records in the [current queue](CURRENT-QUALIFICATION.md#current-work-queue).
+The 0.9 aggregate closes only after their remaining required checks finish.
+
 ## Current 0.8 operations baseline
 
 The selected [CTNB tracks and controls](CTNB.md), [Magnetized drive](MAGNETIZED.md)

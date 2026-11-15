@@ -34,15 +34,15 @@ release, 1.2 work, new chats, subagents or worktrees are activated.
 | Card | Owner | Current action / dependency |
 | --- | --- | --- |
 | FD501E | Complete | [Qualified shared baseline and exact dependency disposition](evidence/0.9/dependencies/README.md); consumer work remains assigned below. |
-| FD501F | Lead + Seats / Immersion | Reopened only for generated direct client/observer classpath omission; metadata/server absence remain valid. Lead repairs launch scripts; owner verifies actual addon load. |
-| FD501G | Complete | [Qualified shared baseline and exact dependency disposition](evidence/0.9/dependencies/README.md); consumer work remains assigned below. |
+| FD501F | Complete | Exact client/observer mod classpath, no bootstrap-library/server inclusion, actual Immersion1.1.1 startup and dedicated-server join verified by existing owner. FD912 effects remain assigned. |
+| FD501G | Complete | Waterparked optional profile includes KotlinForForge5.10.0. Exact loader/native coexistence check passed; core/schema unchanged. |
 | FD501H | Complete | [Qualified shared baseline and exact dependency disposition](evidence/0.9/dependencies/README.md); consumer work remains assigned below. |
-| FD910 | Skin / Visual | Selected Skin body/appearance options, identity/restraint protection, fallback/persistence and normal input on qualified FD501E baseline. |
+| FD910 | Complete | [Normal selections, occupied Wing ownership, reload and actual provider-removal fallback](evidence/0.9/coaster-skin/README.md); owner saved/stopped all runtimes. |
 | FD911 | Seats / Immersion | Selected Additions rotating seats, real rider synchronization and distinct mount/restraint/restoration/unload cases. |
 | FD912 | Seats / Immersion | Effects composition and client-only asymmetry on authoritative poses; preserve relative look and comfort. |
-| FD913 | Lead | Waterparked independent ride coexistence, explicit slide rejection and representative rendered graph/control behavior. |
-| FD914 | Lead | Create Coasters utilities coexist without Create-train authority over Sable rides. |
-| FD916 | Skin / Visual | Finite asset inventory/correction list, reuse accepted views; inspect only changed or missing required content views. |
+| FD913 | Complete | [Shared graph, explicit slide refusal and representative rendered coexistence](evidence/0.9/coexistence/README.md); owned runtime saved/stopped. |
+| FD914 | Complete | [Native utility lock/unlock and normal Wing board/unload](evidence/0.9/coexistence/README.md), without Sable authority; owned runtime saved/stopped. |
+| FD916 | Lead reconciliation | [All visual criteria accepted](evidence/0.9/visual-quality/README.md), including fitted-seat/Classic occupied views; owner stopped, await FD911 package closure for final prerequisite reconciliation. |
 | FD915 | Lead | Reconcile all eleven outcomes, actual combined seat/pose/render/control conflicts and client-only asymmetry; exact remote HEAD and all-owner cleanup. |
 
 **Owners:** lead `01a1dd1d-1468-7f81-8f31-5532ad7a178d`;
