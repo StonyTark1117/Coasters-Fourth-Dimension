@@ -11,7 +11,12 @@ def write(name,parts,color='gray',item=False,overrides=None):
     if item:m['display']=item_display(.70)
     path=BASE/('models/item'if item else'models/block')/(name+'.json')
     path.parent.mkdir(parents=True,exist_ok=True);path.write_text(json.dumps(m,indent=2)+'\n');written.append(str(path.relative_to(ROOT)))
-def b(a,c,t,n):return box(a,c,t,n)
+def b(a,c,t,n):
+    part=box(a,c,t,n)
+    # These framed state symbols need their center, not a density-cropped border.
+    if t in ('signal','lock','off'):
+        for face in part['faces'].values():face['uv']=[0,0,16,16]
+    return part
 frame=[b([0,3,3],[3,13,13],'metal','input shaft bearing'),b([13,3,3],[16,13,13],'metal','output clutch bearing'),b([0,1,1],[16,3,15],'body','remote kinetic drive foot'),b([1,13,3],[15,15,13],'body','controller cover'),b([3,3,11],[13,13,14],'body','generator rear casing'),b([1,6,2],[3,10,3],'bolt','input bearing flange'),b([13,6,2],[15,10,3],'bolt','output bearing flange')]
 for axis in ('x','y','z'):
     parts=json.loads(json.dumps(frame))

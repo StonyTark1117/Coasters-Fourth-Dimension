@@ -1,0 +1,17 @@
+Id=fd917-mechanisms-20261115-client.service
+MainPID=1534704
+ControlGroup=/user.slice/user-1000.slice/user@1000.service/app.slice/fd917-mechanisms-20261115-client.service
+MemoryPeak=2341040128
+MemoryMax=6442450944
+
+Id=fd917-mechanisms-20261115-server.service
+MainPID=1534469
+ControlGroup=/user.slice/user-1000.slice/user@1000.service/app.slice/fd917-mechanisms-20261115-server.service
+MemoryPeak=1486520320
+MemoryMax=4294967296
+
+Id=fd917-mechanisms-20261115-xvfb.service
+MainPID=1438786
+ControlGroup=/user.slice/user-1000.slice/user@1000.service/app.slice/fd917-mechanisms-20261115-xvfb.service
+MemoryPeak=22138880
+MemoryMax=268435456

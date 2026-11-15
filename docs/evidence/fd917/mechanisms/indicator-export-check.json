@@ -1,0 +1,36 @@
+{
+  "result": "PASS",
+  "scope": "Explicit UVs only for equipment signal/lock/off symbols; geometry unchanged",
+  "repeat_export_identical": true,
+  "symbol_faces_checked": 84,
+  "outputs_sha256": {
+    "src/main/resources/assets/fourthdimension/models/block/shuttle_winch.json": "4d793d7db0940881f175d4672a269046a6e0dabc78fdaebf55d633b4c5e5e047",
+    "src/main/resources/assets/fourthdimension/models/block/shuttle_winch_y.json": "6621887e2f1a22b4f39659db1a5e87051ebb9b76a964de20f378450209edfeb1",
+    "src/main/resources/assets/fourthdimension/models/block/shuttle_winch_z.json": "83ea0e0338fa1343b0415b454b394775c42c60e975ab2610be6e12ec56c1077d",
+    "src/main/resources/assets/fourthdimension/models/block/shuttle_carriage.json": "4376e774894a9ac44ef62abec5c0234716c6112a0e9ccc59c9ef4bae0fa4aa1c",
+    "src/main/resources/assets/fourthdimension/models/item/shuttle_winch.json": "befe8a0aa485ca3baeecde78dad8f1e15dbd0cfc314afb22bd43fd0f71a41ca3",
+    "src/main/resources/assets/fourthdimension/models/block/boarding_station_00.json": "5e1514ff4fd228929198153dad370b874e66dce57b12a057c90841c3e8ebffbf",
+    "src/main/resources/assets/fourthdimension/models/block/boarding_station.json": "5e1514ff4fd228929198153dad370b874e66dce57b12a057c90841c3e8ebffbf",
+    "src/main/resources/assets/fourthdimension/models/item/boarding_station.json": "84ab23b510abce178696fb0c40d7354bdfd9231274c9f6408ea6f1a48daa490a",
+    "src/main/resources/assets/fourthdimension/models/block/boarding_station_01.json": "ca38297a2e82f6d7a9cb876909a77cab1de8b75dab0c8a83742955fdfb8c877d",
+    "src/main/resources/assets/fourthdimension/models/block/boarding_station_10.json": "4a0af1d4f2bb805b4042b5f176e02b5bd42349bbdc7ce7c9ce9a84536e60adab",
+    "src/main/resources/assets/fourthdimension/models/block/boarding_station_11.json": "bd886f27af424b5ca6e2d28c6b3ad0e4a0b91fad5b66a5ffd2da45beca2849f8",
+    "src/main/resources/assets/fourthdimension/models/block/dive_hold.json": "e8fc09dd439d038f3335b138edff97e0f6dd52be8c48e386dc12c7c682b02e70",
+    "src/main/resources/assets/fourthdimension/models/item/dive_hold.json": "547f1caa6b30e0c0508b960c7317833bc097f69fe773766e549e758b630e189f",
+    "src/main/resources/assets/fourthdimension/models/block/suspended_lock_free.json": "20a1eec5d89e25099215c92a83c5a38b50d3b5ab68054d25acdeed72dd018cd0",
+    "src/main/resources/assets/fourthdimension/models/block/suspended_lock_locked.json": "20a1eec5d89e25099215c92a83c5a38b50d3b5ab68054d25acdeed72dd018cd0",
+    "src/main/resources/assets/fourthdimension/models/item/magnetic_inducer.json": "d199c79858c154f01230e7323a89a80a5b35a4ea97e175a055509d25ea4d7997",
+    "src/main/resources/assets/fourthdimension/models/item/magnetic_damper.json": "1273a80b551cd713afa2f00af95a02714985989093e01481dc8fdfeb7421cfa8"
+  },
+  "changed_models": [
+    "src/main/resources/assets/fourthdimension/models/block/boarding_station_00.json",
+    "src/main/resources/assets/fourthdimension/models/block/boarding_station.json",
+    "src/main/resources/assets/fourthdimension/models/item/boarding_station.json",
+    "src/main/resources/assets/fourthdimension/models/block/boarding_station_01.json",
+    "src/main/resources/assets/fourthdimension/models/block/boarding_station_10.json",
+    "src/main/resources/assets/fourthdimension/models/block/boarding_station_11.json",
+    "src/main/resources/assets/fourthdimension/models/block/dive_hold.json",
+    "src/main/resources/assets/fourthdimension/models/item/dive_hold.json"
+  ],
+  "geometry_materials_unchanged_vs_HEAD": true
+}

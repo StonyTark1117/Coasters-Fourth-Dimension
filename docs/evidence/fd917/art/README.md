@@ -114,3 +114,18 @@ animated parts have one render owner. Native optional seats bypass this renderer
 Existing seat mounts, physics shapes, mass, carrier pivots and saved IDs remain
 unchanged initially. Any enlarged restraint sweep is a named new visual envelope,
 not silently treated as equivalent to the former endpoint-only art.
+
+
+## Transferred cue/interface follow-up — complete
+
+Mechanisms subsequently transferred the bounded [Free Spin magnetic interface](free-spin-magnetic-fit.md)
+and [Dive hold cue](dive-cue-fit.md) observations to Art. Both pass cumulatively
+with the original Art handoff. The Dive check found thin-symbol UV cropping and
+light sampled inside the opaque controller; Mechanisms corrected both. Client08
+shows actual fault red, resumed HELD amber and committed DROP off. Free Spin's
+native changing-pose views preserve the designed magnetic air gap.
+
+[Follow-up cleanup](followup-runtime-cleanup.txt) verifies client/server/Xvfb
+inactive/MainPID0 and all worlds saved. [Exact follow-up paths](followup-integration-paths.txt)
+are separate from the already integrated original211-path manifest. Lead retains
+staging/commit/push ownership. No Art runtime or source work remains outstanding.

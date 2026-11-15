@@ -1,0 +1,179 @@
+[
+  {
+    "chassis": [
+      719780374,
+      -1484632332,
+      -1723327663,
+      -142341919
+    ],
+    "family": "dive",
+    "dive": {
+      "phase": "HELD",
+      "controller": -1374388387688,
+      "needs_resume": 1,
+      "from": 1147032,
+      "geometry": 5146794082271710714,
+      "to": 1261672,
+      "version": 1,
+      "release_epoch": 12,
+      "remaining": 46
+    },
+    "fault": "Dive held power/controller loss; Resume required",
+    "restraints": 1,
+    "stopping": 1,
+    "authority": {
+      "owner": [
+        -1844369764,
+        -31373233,
+        -1331776771,
+        1121236108
+      ],
+      "sequence": 1,
+      "reason": "Bound authority controller unavailable",
+      "cars": [
+        [
+          719780374,
+          -1484632332,
+          -1723327663,
+          -142341919
+        ],
+        [
+          1866656584,
+          -1766765285,
+          -1306424058,
+          -209757723
+        ],
+        [
+          1805106168,
+          1144014818,
+          -1836461183,
+          -752503741
+        ]
+      ],
+      "controller": -1374388387688,
+      "provider": "native_chain",
+      "held": 1,
+      "epoch": 15,
+      "suspended": 1,
+      "direction": 1
+    }
+  },
+  {
+    "chassis": [
+      1866656584,
+      -1766765285,
+      -1306424058,
+      -209757723
+    ],
+    "family": "dive",
+    "dive": {
+      "phase": "HELD",
+      "controller": -1374388387688,
+      "needs_resume": 1,
+      "from": 1147032,
+      "geometry": 5146794082271710714,
+      "to": 1261672,
+      "version": 1,
+      "release_epoch": 12,
+      "remaining": 46
+    },
+    "fault": "Dive held power/controller loss; Resume required",
+    "restraints": 1,
+    "stopping": 1,
+    "authority": {
+      "owner": [
+        -1844369764,
+        -31373233,
+        -1331776771,
+        1121236108
+      ],
+      "sequence": 1,
+      "reason": "Bound authority controller unavailable",
+      "cars": [
+        [
+          719780374,
+          -1484632332,
+          -1723327663,
+          -142341919
+        ],
+        [
+          1866656584,
+          -1766765285,
+          -1306424058,
+          -209757723
+        ],
+        [
+          1805106168,
+          1144014818,
+          -1836461183,
+          -752503741
+        ]
+      ],
+      "controller": -1374388387688,
+      "provider": "native_chain",
+      "held": 1,
+      "epoch": 15,
+      "suspended": 1,
+      "direction": 1
+    }
+  },
+  {
+    "chassis": [
+      1805106168,
+      1144014818,
+      -1836461183,
+      -752503741
+    ],
+    "family": "dive",
+    "dive": {
+      "phase": "HELD",
+      "controller": -1374388387688,
+      "needs_resume": 1,
+      "from": 1147032,
+      "geometry": 5146794082271710714,
+      "to": 1261672,
+      "version": 1,
+      "release_epoch": 12,
+      "remaining": 46
+    },
+    "fault": "Dive held power/controller loss; Resume required",
+    "restraints": 1,
+    "stopping": 1,
+    "authority": {
+      "owner": [
+        -1844369764,
+        -31373233,
+        -1331776771,
+        1121236108
+      ],
+      "sequence": 1,
+      "reason": "Bound authority controller unavailable",
+      "cars": [
+        [
+          719780374,
+          -1484632332,
+          -1723327663,
+          -142341919
+        ],
+        [
+          1866656584,
+          -1766765285,
+          -1306424058,
+          -209757723
+        ],
+        [
+          1805106168,
+          1144014818,
+          -1836461183,
+          -752503741
+        ]
+      ],
+      "controller": -1374388387688,
+      "provider": "native_chain",
+      "held": 1,
+      "epoch": 15,
+      "suspended": 1,
+      "direction": 1
+    }
+  }
+]

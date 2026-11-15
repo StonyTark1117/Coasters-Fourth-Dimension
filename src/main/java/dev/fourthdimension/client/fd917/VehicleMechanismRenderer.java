@@ -139,7 +139,9 @@ public final class VehicleMechanismRenderer {
     var center=new Vector3d(pos.getX()+.5,pos.getY()+.96,pos.getZ()+.5);
     if(center.distanceSquared(camera.x,camera.y,camera.z)>64*64||!Minecraft.getInstance().level.hasChunkAt(pos)
         ||!controllerType.isInstance(Minecraft.getInstance().level.getBlockEntity(pos)))return;
-    mesh.beam(new Vector3d(center).add(-.22,0,0),new Vector3d(center).add(.22,0,0),new Vector3d(0,1,0),.16,.08,cue,light(center));
+    // The lens lies on the exposed top face; its center floors inside the opaque housing.
+    int lensLight=LevelRenderer.getLightColor(Minecraft.getInstance().level,pos.above());
+    mesh.beam(new Vector3d(center).add(-.22,0,0),new Vector3d(center).add(.22,0,0),new Vector3d(0,1,0),.16,.08,cue,lensLight);
   }
   private static Vector3d at(ClientSubLevel body,double x,double y,double z) {
     var p=body.getPlot().getCenterBlock();return body.renderPose().transformPosition(new Vector3d(p.getX()+.5+x,p.getY()+.5+y,p.getZ()+.5+z));
