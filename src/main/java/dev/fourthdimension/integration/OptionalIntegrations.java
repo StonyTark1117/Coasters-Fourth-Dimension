@@ -88,12 +88,12 @@ public final class OptionalIntegrations {
       var file=ModList.get().getModFileById(CTNB).getFile();
       var digest=java.security.MessageDigest.getInstance("SHA-256");
       var paths=new java.util.ArrayList<String>();
-      for(var c:java.util.List.of("mixin/CoasterCartDriveMixin","mixin/ResourceLocationCoasterAliasMixin","mixin/CurveBerMaterialsMixin","client/BeamModels","track/TrackRepaint","StationBoostBehaviour","SendDirectionBehaviour","LaunchTriggerBehaviour","net/SensorTracker","net/StationTracker","net/RideTelemetry"))paths.add("dev/notzyvex/coasters_extras/"+c+".class");
+      for(var c:java.util.List.of("mixin/CoasterCartDriveMixin","mixin/ResourceLocationCoasterAliasMixin","mixin/CurveBerMaterialsMixin","client/BeamModels","track/TrackRepaint","StationBoostBehaviour","SendDirectionBehaviour","LaunchTriggerBehaviour","net/SensorTracker","net/StationTracker","net/RideTelemetry","net/RepaintPayload","net/ModNetwork"))paths.add("dev/notzyvex/coasters_extras/"+c+".class");
       for(var k:java.util.List.of("boost_track","powered_boost_track","station_track","launch_track","reverse_track","brake_track","sensor_track"))
         for(var p:java.util.List.of("segment_left","segment_right","segment_center_beam","tie"))
           for(var ext:java.util.List.of("obj","json"))paths.add("assets/coasters_extras/models/block/track/"+k+"/"+p+"."+ext);
       for(var path:paths)digest.update(java.nio.file.Files.readAllBytes(file.findResource(path)));
-      return ctnbVerified=java.util.HexFormat.of().formatHex(digest.digest()).equals("b042191997cfb47be87a4df167e9512a2a41ad749dbc7e91c6be6dc6bb41b7ce");
+      return ctnbVerified=java.util.HexFormat.of().formatHex(digest.digest()).equals("271cde971819c466f393072aaf1d0cc718332ae278e5f4645acd3140bc5d2323");
     }catch(java.io.IOException|java.security.NoSuchAlgorithmException|RuntimeException unavailable){return ctnbVerified=false;}
   }
 

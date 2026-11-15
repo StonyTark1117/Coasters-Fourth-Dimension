@@ -1,0 +1,78 @@
+{"at": 1794750345.418467, "command": "gamerule doDaylightCycle false", "state": "sending"}
+{"at": 1794750345.418467, "command": "gamerule doDaylightCycle false", "state": "responded", "result": "Gamerule doDaylightCycle is now set to: false\n"}
+{"at": 1794750380.232823, "command": "tp Dev 0.5 -60 0.5 0 0", "state": "sending"}
+{"at": 1794750380.232823, "command": "tp Dev 0.5 -60 0.5 0 0", "state": "responded", "result": "Teleported Dev to 0.500000, -60.000000, 0.500000\n"}
+{"at": 1794750392.7632523, "command": "data get entity Dev Rotation", "state": "sending"}
+{"at": 1794750392.7632523, "command": "data get entity Dev Rotation", "state": "responded", "result": "Dev has the following entity data: [6.150001f, 0.0f]\n"}
+{"at": 1794750401.4835973, "command": "give Dev minecraft:stone 4", "state": "sending"}
+{"at": 1794750401.4835973, "command": "give Dev minecraft:stone 4", "state": "responded", "result": "Gave 4 [Stone] to Dev\n"}
+{"at": 1794750401.5715494, "command": "tp Dev 0.5 -60 0.5 0 70", "state": "sending"}
+{"at": 1794750401.5715494, "command": "tp Dev 0.5 -60 0.5 0 70", "state": "responded", "result": "Teleported Dev to 0.500000, -60.000000, 0.500000\n"}
+{"at": 1794750402.2614508, "command": "execute if block 0 -60 1 minecraft:stone run say FD811 normal vanilla use passed", "state": "sending"}
+{"at": 1794750402.2614508, "command": "execute if block 0 -60 1 minecraft:stone run say FD811 normal vanilla use passed", "state": "responded", "result": ""}
+{"at": 1794750424.411304, "command": "execute if block 0 -60 1 minecraft:stone run say FD811 normal vanilla use passed", "state": "sending"}
+{"at": 1794750424.411304, "command": "execute if block 0 -60 1 minecraft:stone run say FD811 normal vanilla use passed", "state": "responded", "result": ""}
+{"at": 1794750424.475704, "command": "execute positioned 20 -60 0 run fd demo ctnb_track", "state": "sending"}
+{"at": 1794750424.475704, "command": "execute positioned 20 -60 0 run fd demo ctnb_track", "state": "responded", "result": "CTNB loop ready. Empty version: sneak-use Station Track on the first curve, place a Wing car and bind the Boarding Station. Claim CTNB, board, close restraints and Dispatch. The reverse section captures; choose reverse then Dispatch. Station return captures for the native dial dwell and requires explicit Dispatch; powered station anchors hold. Stop, open and unload at the level platform.\n"}
+{"at": 1794750424.727387, "command": "give Dev coasters_extras:station_track 16", "state": "sending"}
+{"at": 1794750424.727387, "command": "give Dev coasters_extras:station_track 16", "state": "responded", "result": "Gave 16 [Station Coaster Track] to Dev\n"}
+{"at": 1794750442.3976455, "command": "execute if block -1 -60 1 minecraft:stone run say FD811 normal vanilla use passed at minus1 minus60 1", "state": "sending"}
+{"at": 1794750442.3976455, "command": "execute if block -1 -60 1 minecraft:stone run say FD811 normal vanilla use passed at minus1 minus60 1", "state": "responded", "result": ""}
+{"at": 1794750442.4548595, "command": "tp Dev 18.5 -56 52.5 -90 32", "state": "sending"}
+{"at": 1794750442.4548595, "command": "tp Dev 18.5 -56 52.5 -90 32", "state": "responded", "result": "Teleported Dev to 18.500000, -56.000000, 52.500000\n"}
+{"at": 1794750491.1627202, "command": "setblock 17 -58 52 minecraft:smooth_stone", "state": "sending"}
+{"at": 1794750491.1627202, "command": "setblock 17 -58 52 minecraft:smooth_stone", "state": "responded", "result": "Changed the block at 17, -58, 52\n"}
+{"at": 1794750491.2276418, "command": "tp Dev 17.5 -57 52.5 -90 20", "state": "sending"}
+{"at": 1794750491.2276418, "command": "tp Dev 17.5 -57 52.5 -90 20", "state": "responded", "result": "Teleported Dev to 17.500000, -57.000000, 52.500000\n"}
+{"at": 1794750518.3599703, "command": "data get block 20 -57 36", "state": "sending"}
+{"at": 1794750518.3599703, "command": "data get block 20 -57 36", "state": "responded", "result": "20, -57, 36 has the following block data: {AnchorPeerCurves: [{Peer: 5497558552519L, Bezier: {Starts: [{V: [0.5d, 0.25d, 0.5d]}, {V: [0.5d, 0.25d, 64.5d]}], Girder: 0b, Normals: [{V: [0.0d, 1.0d, 0.0d]}, {V: [0.0d, 1.0d, 0.0d]}], Primary: 1b, Positions: [{Pos: [I; 0, 0, 0]}, {Pos: [I; 0, 0, 64]}], Axes: [{V: [0.0d, 0.0d, 1.0d]}, {V: [0.0d, 0.0d, -1.0d]}], Material: \"simulatedcoasters:coaster_track\"}, HHi: 21.333333333333332d, HLo: 21.333333333333332d}, {Peer: 12094627958727L, Bezier: {Starts: [{V: [0.5d, 0.25d, 0.5d]}, {V: [24.5d, 0.25d, -23.5d]}], Girder: 0b, Normals: [{V: [0.0d, 1.0d, 0.0d]}, {V: [0.0d, 1.0d, 0.0d]}], Primary: 0b, Positions: [{Pos: [I; 0, 0, 0]}, {Pos: [I; 24, 0, -24]}], Axes: [{V: [0.0d, 0.0d, -1.0d]}, {V: [-1.0d, 0.0d, 0.0d]}], Material: \"coasters_extras:boost_track\"}, HHi: 13.254833586250424d, HLo: 13.254833586250424d}], Speed: 64.0f, LaunchTrigger: 0, ChainLiftFirstHop: 5497558552519L, ChainLiftCommittedSegments: [{TStart: 0.0d, TEnd: 1.0d, EdgeFrom: 5497558290375L, EdgeTo: 5497558552519L}], ChainLiftTravelSign: -1, AnchorPeerCurveTints: [], StationDirection: 0, Source: [I; 21, -57, 36], ChainLiftShaftAxis: \"x\", StationLaunch: 0, SendDirection: 0, ChainLiftCommittedLength: 64.0d, ChainLiftSpan: {EdgeFrom: 0L, Kind: \"ANCHOR\", EdgeTo: 0L, EndT: 0.0d, EndAnchor: 5497558552519L}, JointBank: 0.0f, Network: {Capacity: 1048576.0f, Size: 2, Id: 5772436197319L, Stress: 0.0f}, x: 20, y: -57, ScrollValue: 0, z: 36, id: \"simulatedcoasters:coaster_anchorpoint\"}\n"}
+{"at": 1794750551.9058807, "command": "data get entity Dev Rotation", "state": "sending"}
+{"at": 1794750551.9058807, "command": "data get entity Dev Rotation", "state": "responded", "result": "Dev has the following entity data: [-90.0f, 16.099998f]\n"}
+{"at": 1794750583.819552, "command": "data get block 20 -57 36 AnchorPeerCurves[0].Bezier.Material", "state": "sending"}
+{"at": 1794750583.819552, "command": "data get block 20 -57 36 AnchorPeerCurves[0].Bezier.Material", "state": "responded", "result": "20, -57, 36 has the following block data: \"simulatedcoasters:coaster_track\"\n"}
+{"at": 1794750690.6769328, "command": "save-all flush", "state": "sending"}
+{"at": 1794750690.6769328, "command": "save-all flush", "state": "responded", "result": "Saving the game (this may take a moment!)\nSaved the game\n"}
+{"at": 1794750693.7576199, "command": "stop", "state": "sending"}
+{"at": 1794750693.7576199, "command": "stop", "state": "responded", "result": "Stopping the server\n"}
+{"at": 1794750999.462493, "command": "data get block 20 -57 36 AnchorPeerCurves[0].Bezier.Material", "state": "sending"}
+{"at": 1794750999.462493, "command": "data get block 20 -57 36 AnchorPeerCurves[0].Bezier.Material", "state": "responded", "result": "20, -57, 36 has the following block data: \"coasters_extras:station_track\"\n"}
+{"at": 1794751026.1831162, "command": "give Dev fourthdimension:wing_car 1", "state": "sending"}
+{"at": 1794751026.1831162, "command": "give Dev fourthdimension:wing_car 1", "state": "responded", "result": "Gave 1 [Fixed-seat Wing Car] to Dev\n"}
+{"at": 1794751032.6453338, "command": "data get entity Dev SelectedItem", "state": "sending"}
+{"at": 1794751032.6453338, "command": "data get entity Dev SelectedItem", "state": "responded", "result": "Dev has the following entity data: {count: 1, id: \"fourthdimension:wing_car\"}\n"}
+{"at": 1794751051.295131, "command": "tp Dev 14.5 -56 51.5 0 35", "state": "sending"}
+{"at": 1794751051.295131, "command": "tp Dev 14.5 -56 51.5 0 35", "state": "responded", "result": "Teleported Dev to 14.500000, -56.000000, 51.500000\n"}
+{"at": 1794751113.5597377, "command": "data get block 14 -57 54", "state": "sending"}
+{"at": 1794751113.5597377, "command": "data get block 14 -57 54", "state": "responded", "result": "14, -57, 54 has the following block data: {powered: 0b, x: 14, y: -57, z: 54, id: \"fourthdimension:boarding_station\", authority_id: [I; 527215034, 1816610509, -2006155429, -664362155], vehicle: [I; -766839352, 285819153, -1693049614, -1653005045]}\n"}
+{"at": 1794751149.6544197, "command": "save-all flush", "state": "sending"}
+{"at": 1794751149.6544197, "command": "save-all flush", "state": "responded", "result": "Saving the game (this may take a moment!)\nSaved the game\n"}
+{"at": 1794751160.8505175, "command": "tp Dev 14.5 -56 52.5 -90 0", "state": "sending"}
+{"at": 1794751160.8505175, "command": "tp Dev 14.5 -56 52.5 -90 0", "state": "responded", "result": "Teleported Dev to 14.500000, -56.000000, 52.500000\n"}
+{"at": 1794751200.3745856, "command": "data get entity Dev RootVehicle", "state": "sending"}
+{"at": 1794751200.3745856, "command": "data get entity Dev RootVehicle", "state": "responded", "result": "Dev has the following entity data: {Entity: {Motion: [0.0d, 0.0d, 0.0d], FallDistance: 0.0f, \"neoforge:attachments\": {\"create:minecart_controller\": {Type: \"EMPTY\"}}, Pos: [2.04810365E7d, 129.0d, 2.04810325E7d], Fire: -1s, Invulnerable: 0b, id: \"create:seat\", Air: 300s, OnGround: 0b, PortalCooldown: 0, UUID: [I; -1608264243, 73876064, -1401583907, -873781275], Rotation: [0.0f, 0.0f]}, Attach: [I; -1608264243, 73876064, -1401583907, -873781275]}\n"}
+{"at": 1794751208.8575842, "command": "give Dev fourthdimension:rotation_tool 1", "state": "sending"}
+{"at": 1794751208.8575842, "command": "give Dev fourthdimension:rotation_tool 1", "state": "responded", "result": "Gave 1 [Rotation Tool] to Dev\n"}
+{"at": 1794751222.3270614, "command": "data get entity Dev SelectedItem", "state": "sending"}
+{"at": 1794751222.3270614, "command": "data get entity Dev SelectedItem", "state": "responded", "result": "Dev has the following entity data: {count: 1, id: \"fourthdimension:rotation_tool\"}\n"}
+{"at": 1794751274.6798701, "command": "data get entity Dev Pos", "state": "sending"}
+{"at": 1794751274.6798701, "command": "data get entity Dev Pos", "state": "responded", "result": "Dev has the following entity data: [16.652991381347213d, -56.15080787758707d, 103.89146851461257d]\n"}
+{"at": 1794751351.0084112, "command": "data get entity Dev Pos", "state": "sending"}
+{"at": 1794751351.0084112, "command": "data get entity Dev Pos", "state": "responded", "result": "Dev has the following entity data: [120.50000649318099d, -56.06250495093851d, 99.85232560021596d]\n"}
+{"at": 1794751421.9777703, "command": "data get entity Dev Pos", "state": "sending"}
+{"at": 1794751421.9777703, "command": "data get entity Dev Pos", "state": "responded", "result": "Dev has the following entity data: [27.50339873706864d, -57.46943921478162d, 123.41625495984763d]\n"}
+{"at": 1794751440.1877918, "command": "data get entity Dev Pos", "state": "sending"}
+{"at": 1794751440.1877918, "command": "data get entity Dev Pos", "state": "responded", "result": "Dev has the following entity data: [16.499999228864908d, -56.06250113624124d, 99.81771871145988d]\n"}
+{"at": 1794751484.1663706, "command": "save-all flush", "state": "sending"}
+{"at": 1794751484.1663706, "command": "save-all flush", "state": "responded", "result": "Saving the game (this may take a moment!)\nSaved the game\n"}
+{"at": 1794751495.0702944, "command": "data get entity Dev Pos", "state": "sending"}
+{"at": 1794751495.0702944, "command": "data get entity Dev Pos", "state": "responded", "result": "Dev has the following entity data: [16.499999228864908d, -56.06250113624124d, 60.470184531772375d]\n"}
+{"at": 1794751511.6553557, "command": "data get entity Dev Pos", "state": "sending"}
+{"at": 1794751511.6553557, "command": "data get entity Dev Pos", "state": "responded", "result": "Dev has the following entity data: [16.822952792270645d, -56.062501136241245d, 32.23742583119903d]\n"}
+{"at": 1794751589.4784112, "command": "data get entity Dev RootVehicle", "state": "sending"}
+{"at": 1794751589.4784112, "command": "data get entity Dev RootVehicle", "state": "responded", "result": "Found no elements matching RootVehicle\n"}
+{"at": 1794751589.5353937, "command": "data get entity Dev Pos", "state": "sending"}
+{"at": 1794751589.5353937, "command": "data get entity Dev Pos", "state": "responded", "result": "Dev has the following entity data: [16.5d, -60.0d, 32.5d]\n"}
+{"at": 1794751589.5945835, "command": "save-all flush", "state": "sending"}
+{"at": 1794751589.5945835, "command": "save-all flush", "state": "responded", "result": "Saving the game (this may take a moment!)\nSaved the game\n"}
+{"at": 1794751610.9279814, "command": "stop", "state": "sending"}
+{"at": 1794751610.9279814, "command": "stop", "state": "responded", "result": "Stopping the server\n"}

@@ -4,7 +4,7 @@
 
 ## FD501C — complete, no core change
 
-CTNB file 8718286, actual `coasters_extras` 1.2, consumes the existing Create6.0.10/Coasters0.1.5 stack. Keep NeoForge21.1.248/Sable2.0.3/Veil4.1.4. Development profile `ctnb` names that exact artifact; the runtime metadata guard accepts only1.2. No dependency or saved-data migration is required by this baseline. Functional eligibility, control interception and the first supported gameplay profile belong to FD811, which remains open.
+CTNB file 8718286, actual `coasters_extras` 1.2, consumes the existing Create6.0.10/Coasters0.1.5 stack. Keep NeoForge21.1.248/Sable2.0.3/Veil4.1.4. Development profile `ctnb` names that exact artifact; the runtime metadata guard accepts only1.2. No dependency or saved-data migration is required by this baseline. Functional eligibility, control interception and the first supported gameplay profile belong to [FD811](../ctnb/README.md), now qualified.
 
 ## FD501D — complete, no core change
 

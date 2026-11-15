@@ -23,7 +23,8 @@
     "AdditionsStationMixin",
     "DiveSeatRiderMixin",
     "OptionalDriveFenceMixin",
-    "CtnbRepaintMixin"
+    "CtnbRepaintMixin",
+    "CtnbRepaintPermissionMixin"
   ],
   "injectors": {
     "defaultRequire": 1

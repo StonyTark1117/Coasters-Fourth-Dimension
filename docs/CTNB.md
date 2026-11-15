@@ -27,6 +27,10 @@ the change transfers authority and invalidates the previous provider's lease.
 Board normally, close restraints, and Dispatch. Native Chain, Engineered and
 Magnetized cannot simultaneously push a CTNB-owned ride.
 
+Sneak-use a selected material item on an empty curve to repaint it. The current
+Coasters curve hit is forwarded to the native CTNB repaint packet; server-side
+held-item, permission, reach and occupied-geometry checks still apply.
+
 The native anchor dials supply target speed, launch speed, direction and signal
 mode. Targets are capped at 12 blocks/s and drive acceleration at 8 blocks/s²;
 braking is capped at 4 blocks/s². A zero brake target stops without reversing.
@@ -53,7 +57,9 @@ CTNB's broad `ResourceLocation.equals` alias for every `*_track` ID.
 `/fd demo ctnb` supplies a ready Wing loop with all seven selected materials.
 `/fd demo ctnb_track` leaves its first curve native and supplies no car: repaint
 that curve as Station Track, place a Wing car and bind the station normally.
-The reverse span returns the ride along the loop to the level station. These
+The reverse span returns the ride along the loop to the station section. It
+captures when entering that section; after dwell, explicitly Dispatch and Stop
+near the platform if you want to unload there. These
 commands are disclosed setup conveniences, not evidence of player construction.
 
 Qualification is tracked in [the current queue](CURRENT-QUALIFICATION.md) and
