@@ -1,9 +1,11 @@
 # FD917 production baseline reconciliation
 
-**In progress.** Implementation and Art's completed baseline are integrated on
-`main`; remaining assigned motion/cue evidence and runtime cleanup are tracked
-in the [current queue](../../CURRENT-QUALIFICATION.md#current-work-queue).
-FD1000 freeze and release qualification/publication have not started.
+**Complete — 2026-11-15.** All 17 adopted styles and the finite shared visual,
+mechanical, state, item and appearance criteria are accepted cumulatively.
+Implementation and final owner evidence are integrated on `main` through
+`c3ff5b9c`; the [package identity](lead/integration-package.json) records the final
+Java21 artifact. No required FD917 case remains open. FD1000 freeze and release
+qualification/publication remain separate and have not started.
 
 ## Integrated result
 
@@ -24,8 +26,9 @@ FD1000 freeze and release qualification/publication have not started.
   [Mechanisms](mechanisms/README.md) supplies articulated restraint endpoints,
   physical pivots/locks, Pipeline wheels, PAX drive/catch and truthful state cues.
 - [Integrated package](lead/integration-package.json) built under Java21 and
-  contains430 byte-identical selected resources. Source integrated in `b07574fa`;
-  the targeted S2 example repair is `7a32be1f`.
+  contains429 verified byte-identical selected resources. Bulk source integrated in
+  `b07574fa`; final source/evidence in `c3ff5b9c`. The targeted S2 example repair
+  is `7a32be1f`.
 
 ## Cumulative visual evidence
 
@@ -34,12 +37,12 @@ FD1000 freeze and release qualification/publication have not started.
 | Arrow | [Transmission/range/contact](lead/README.md), [occupied normal cycle](art/arrow-occupied.md), [neutral/nonzero interface](art/arrow-interface.md): accepted. |
 | Legacy, Revised, Free Spin shells | [Distinct occupied open/closed fit](art/family-fit.md): accepted. [Actual field/reaction gap](art/free-spin-magnetic-fit.md) also passed. |
 | Wing, Fixed Inverted, Suspended | [Art handoff and views](art/README.md): accepted, including preserved16 Wing colors, dangling-leg space and Suspended journal/single-bar reload. |
-| Dive shell | [Occupied six-abreast floorless fit](art/dive-fit.md): accepted. Remote hold-cue view remains assigned to Art. |
+| Dive shell | [Occupied six-abreast floorless fit](art/dive-fit.md): accepted. [Actual fault/held/released cue](art/dive-cue-fit.md): accepted. |
 | PAX | [Corrected guide/catch and actual occupied cycle](mechanisms/README.md), [remote close/far-spike/late-join](lead/observer/README.md): accepted within the recorded bounds. |
 | Axis | [Occupied open/closed, banked actual full roll and normal unload](lead/families/README.md): accepted. |
 | Roller Ball, Powered Inverted | [Occupied fit, actual swing/yaw/show and normal unload](lead/families/README.md): accepted. |
-| Conventional Flying, New-generation Flying, S1, S2 | [Mechanism evidence](mechanisms/README.md): owner reconciling completed distinct occupied posture/yaw/roll views and final cleanup. |
-| Pipeline | [Wheel/occupied route record](mechanisms/README.md): forward/reload plus targeted reverse/forward restoration and contact/lighting passed; final owner handoff pending. |
+| Conventional Flying, New-generation Flying, S1, S2 | [Mechanism evidence](mechanisms/README.md): accepted distinct occupied posture/yaw/roll views and verified final cleanup. |
+| Pipeline | [Wheel/occupied route record](mechanisms/README.md): forward/reload plus targeted reverse/forward restoration and contact/lighting passed; final handoff and cleanup accepted. |
 | Items, teaching and optional appearances | [All17 icons and shared transforms/Ponder](art/items-teaching.md), [Skin/Track Styles/provider reconciliation](art/appearances.md): accepted; unchanged adapter acceptance carries forward. |
 
 ## Affected behavior and limits
@@ -65,10 +68,24 @@ persistence acceptance remain closed. This package hands its integrated resource
 actual identities and accumulated evidence to FD1000 and FD901–FD904; no second
 art campaign or Cartesian family×provider replay is implied.
 
+## Final cue correction
+
+The real held Dive fault exposed two presentation defects: density UVs cropped
+small indicator faces to the dark border, and the lens sampled light inside its
+opaque housing. The renderer now samples the whole indicator and exposed light
+above the controller, preserving world lighting. Art's [same-state live proof](art/dive-cue-fit.md)
+shows red fault, normal Resume to amber HELD and committed DROP/off with release
+epoch16. Earlier failed views remain labeled. The final baked station/Dive symbol
+change is UV-only: [84 faces and deterministic exports](mechanisms/indicator-export-check.json)
+passed; all other geometry/materials are unchanged. No extra family replay is needed.
+
 ## Runtime disposition
 
-Original lead/baseline and remote observer runs are saved/stopped with verified
-inactive units. Art's original production run is also saved/stopped. The lead family run is also saved/stopped, with all three units inactive/MainPID0.
-Mechanisms is finalizing its cleanup handoff; the bounded Art cue continuation
-remains explicitly owned. Completion requires their final saved-world/evidence
-and inactive-unit verification.
+All owned clients, servers, private displays and collectors are stopped. Saved
+worlds and full logs remain under their recorded persistent run roots. The
+[lead family cleanup](lead/families/runtime-cleanup.txt),
+[Mechanisms cleanup](mechanisms/runtime-cleanup.txt), and
+[Art follow-up cleanup](art/followup-runtime-cleanup.txt) verify inactive units
+and MainPID0; server logs confirm saved worlds. Earlier lead/observer and Art
+baseline cleanup remains linked in their handoffs. No runtime is left awaiting
+an owner, and no process failed cleanup.

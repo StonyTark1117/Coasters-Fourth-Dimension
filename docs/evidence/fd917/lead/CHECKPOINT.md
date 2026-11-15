@@ -1,29 +1,19 @@
-# Current lead checkpoint — 2026-11-15 20:14 UTC
+# Final lead checkpoint — 2026-11-15
 
-Primary checkout `/home/braydon/Documents/Coasters: Fourth Dimension`, `main`,
-HEAD `57a78496` pushed. Implementation integrated; final evidence/queue docs
-remain dirty plus Art/Mechanisms owned final evidence and pre-existing `logs/`.
-No new branch/worktree. Lead alone stages and pushes exact owner manifests.
+FD917 complete. Primary checkout `/home/braydon/Documents/Coasters: Fourth Dimension`,
+branch `main`, final implementation/evidence revision `c3ff5b9c`. No new worktree.
+The [root reconciliation](../README.md) owns cumulative acceptance and the
+[integration package](integration-package.json) records the final JAR. All 17
+styles, shared track/Arrow mechanisms, equipment/state cues, item/teaching and
+optional-appearance claims passed their affected checks. No required case remains.
 
-Lead Axis/Roller Ball/Powered Inverted occupied fit and motion all passed; each
-normally opened and unloaded alive. All family client/server/Xvfb units inactive,
-MainPID0/success, world `FamilyWorkshop` saved20:11:24UTC. Root
-`/mnt/NVME4/fourthdimension-runs/fd917-lead-families-20261115`; display318 released,
-ports25658/25659 stopped. All video/readback collectors ended. Prior Arrow,
-baseline and remote observer runs are also stopped. See families/README.md.
+All lead, Art and Mechanisms clients/servers/Xvfb units are inactive/MainPID0;
+worlds and full logs are preserved. See linked cleanup records in the reconciliation.
+No runtime handoff is pending. Lead integrates the final central status documents
+and pushes `main`; pre-existing untracked `logs/` stays untouched. FD1000 freeze,
+release qualification and publication are not activated.
 
-Pipeline reverse/forward/contact/night/reload passed; Mechanisms319 final cleanup
-and handoff pending. Art317 Free Spin magnetic gap passed. Remaining required
-VP05 blocker: the small Dive HELD/fault indicator samples dark texture border.
-Mechanisms received exact bounded permission to fix indicator UV selection in
-shared ProductionMesh.java, preserving metal/paint tiling. Art has stationary
-fault state for targeted client-only proof, then normal resume and own cleanup.
-The independent cue unloaded-chassis fix is already13ebb055; initial freeze-based
-lamp capture was inconclusive and is not claimed as proof of that defect.
-
-No FD1000 freeze/release qualification/publication. Reuse all accepted family
-and track evidence; only final cue view/source/compile and evidence integration
-remain. Read newest owner messages before further actions.
+The remainder is historical work evidence, superseded by this completion record.
 
 ---
 

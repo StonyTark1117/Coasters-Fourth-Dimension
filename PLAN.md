@@ -20,7 +20,9 @@ the expanded 1.0 alpha freeze, followed by FD901–FD905 and FD1001–FD1003.
 The **2026-11-15** [visual production plan](docs/roadmap/pre-1.0-visual-production.md)
 adds FD917 before that freeze: production art and connected mechanism presentation
 for the 17 adopted styles. Milestones through 0.9, including FD916, retain their
-accepted baseline; the new target is assigned work rather than a claim of completion.
+accepted baseline. FD917 completed on 2026-11-15 with its
+[integrated production handoff](docs/evidence/fd917/README.md), targeted checks
+and verified runtime cleanup; the 1.0 freeze remains separately planned.
 
 The [integration backlog](docs/INTEGRATION-BACKLOG.md) owns the dated artifact
 inventory and adopted allocation. Its November 2 catalog and the initial

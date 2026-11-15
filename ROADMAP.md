@@ -30,7 +30,7 @@ their accepted behavior. On **2026-11-15**, the additional
 [visual production plan](docs/roadmap/pre-1.0-visual-production.md) was adopted as
 **FD917**, required before FD1000. This raises the production-art and visible-
 mechanism target without reopening FD916 or earlier milestone gates. FD917 is
-in progress under the human-authorized assignments in the current queue. FD801 remains an
+complete on 2026-11-15 with its [accepted production handoff](docs/evidence/fd917/README.md). FD801 remains an
 independent upstream-dependent package.
 
 **Artifact being qualified:** use the source/JAR and profile identities in the
@@ -97,7 +97,7 @@ whole-JAR equality is not required. Keep the original run identity and limits.
 | 0.7 | FD1302A–C, FD1502A–C, FD1801A–C, FD1802A–C, FD1803, FD701 | Complete | Axis/Roller Ball and both Flying variants; New-generation Flying proves scenery-facing yaw in seated and prone postures. |
 | 0.8 | FD1401A–C, FD1501D–F, FD1701A, FD1702A–C, FD1901A–C, FD1902, FD810–FD813 | Complete 2026-11-15 | Pipeline, S2, Dive, Powered Inverted Yaw, required operating authority and agreed Additions/CTNB/Magnetized capabilities. |
 | 0.9 | FD910–FD916 | Complete 2026-11-15 | Skin, rotating-seat integration, Immersion, Waterparked/Create Coasters coexistence, and the accepted model/texture baseline. |
-| Pre-1.0 production | FD917 | In progress | Production models/materials, connected mechanisms and truthful state presentation for all 17 vehicle styles, required tracks/equipment/items and affected optional appearances. |
+| Pre-1.0 production | FD917 | Complete | Production models/materials, connected mechanisms and truthful state presentation for all 17 vehicle styles, required tracks/equipment/items and affected optional appearances. |
 | 1.0 alpha | FD1000 | Planned | All adopted vehicle families, variants, 1.0 integrations and FD917 production visuals accepted; freeze feature scope and supported profiles. |
 | 1.0 beta / RC | FD901–FD905 | Evidence in progress; final gates open | Integrated stabilization, compatibility, lifecycle, migration, rendering and performance; carry accepted cases forward. |
 | 1.0 stable | FD1001–FD1003 | Planned | Final documentation, reproducible packaging and separately authorized publication. |
@@ -833,7 +833,7 @@ earlier milestone acceptance remain closed unless an actual affected case fails.
 
 **Execution steps:** [Pre-1.0 visual production, VP01–VP09](docs/roadmap/pre-1.0-visual-production.md#fd917).
 
-**Status: in progress; assigned 2026-11-15.** **Delivery:** before FD1000's alpha
+**Status: complete 2026-11-15.** [Accepted production handoff](docs/evidence/fd917/README.md). **Delivery:** before FD1000's alpha
 freeze. **Depends on:** FD915's accepted asset, family and optional-provider
 contracts; relevant dimensioned specifications. **Design:** D08, D13, D14, D16, D17.
 
@@ -893,8 +893,8 @@ until its affected check passes; update the changed claim without resetting othe
 acceptance. Contract/scope changes after freeze require an explicit freeze
 revision. New liveries, taste-only refinements, unseen internal detail, new ride
 systems and moving-track work stay outside this package. The human's subsequent
-FD917 assignment activates implementation and monitoring as recorded in the
-current queue; the freeze and publication remain separate.
+FD917 assignment is complete with integrated source, cumulative evidence and
+verified runtime cleanup; the freeze and publication remain separate.
 
 ## Version 1.0 alpha — expanded feature freeze
 

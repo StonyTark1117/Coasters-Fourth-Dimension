@@ -1,11 +1,10 @@
 # FD917 shared track and Arrow mechanism
 
-The shared renderer and connected Arrow assembly are implemented and have passed
-bounded native and live geometry checks. **FD917 is still in progress:** Art and
-Mechanisms retain their family/equipment reviews, Art has passed the new occupied Arrow cycle and final neutral/nonzero axle-interface
-fit review. VP03 is accepted cumulatively; the other family/equipment outcomes
-remain assigned. This record does
-not close the whole package or start FD1000.
+The shared renderer and connected Arrow assembly passed bounded native and live
+geometry checks, including the occupied normal cycle and neutral/nonzero interface
+fit. VP03 and the complete FD917 package are accepted cumulatively in the
+[final reconciliation](../README.md). This record retains the actual identities
+and limits of the lead checks; FD1000 remains a separate package.
 
 ## Changed behavior
 
