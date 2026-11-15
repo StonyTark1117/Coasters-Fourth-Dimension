@@ -259,6 +259,29 @@ Track Styles decoration must not replace or hide them. Skin must retain required
 moving/state parts, and optional seats must not acquire a second visual restraint
 or duplicate attachment. Optional providers remain optional.
 
+### Adopted interface decisions — 2026-11-15 implementation
+
+- Arrow keeps the existing height mapping and saved programs. The prototype uses
+  a one-block-circumference rack pinion, 4x2 speed-up, finite slow-stage torsion
+  spring and explicit capture/acquisition clutch. Its one bounded mechanical
+  change is release/stop/capture after engaged overtravel. See the dimensioned
+  [contract and affected native evidence](../evidence/fd917/lead/arrow-contract.md).
+  Dynamic visual continuity remains required before dependent final Arrow art.
+- PAX retains the supported remote kinetic/control winch placement model. The
+  production drive is route-local guided carriage/rack/pinion with the receiver
+  at the actual +3 local-up anchor. No cable path is invented between an arbitrary
+  remote winch and the train, and no new placement restriction is imposed.
+- S2 and Powered Inverted use the verified lap-bar reference vocabulary with
+  hip-side hinge pivots; adopted seat anchors, capacity and restraint authority
+  remain unchanged. Fixed Inverted removes visual foot platforms/front rods for
+  dangling legs; any mismatch with retained selection shapes needs a named,
+  bounded review rather than silently changing mass or collision.
+- Restraint exports separate static seats from hinged components. Client
+  interpolation follows authoritative endpoints on actual native render poses;
+  resource reload starts at the correct endpoint. Optional provider seats do not
+  acquire a duplicate authored restraint. The component descriptor is
+  `assets/fourthdimension/fd917_articulation/<seat_block>.json`.
+
 ## 4. Family production briefs
 
 The dimensions and movement in the existing [design specifications](../design/0.5/)

@@ -78,6 +78,77 @@ exclude another owner's assets before regeneration. No broad destructive generat
   needed after its inspection; Art requests bounded model/resource paths from its
   inventory. Required fixes may be transferred without new human approval.
 
+**Acknowledged transfers — 2026-11-15:** Art owns the 122 existing paths in
+[its exact output manifest](evidence/fd917/art/requested-output-paths.txt), plus
+new `scripts/fd917_materials.py`, `assets-source/fd917/` and
+`src/main/resources/assets/fourthdimension/textures/block/fd917/`. Generators
+must filter outputs to that manifest; equipment paths remain excluded. Arrow
+final exterior waits for lead's mechanism handoff. Mechanisms additionally owns
+`src/main/java/dev/fourthdimension/shuttle/ShuttleRuntime.java` and
+`src/main/java/dev/fourthdimension/shuttle/ShuttleWinchEntity.java` for truthful
+catch/drive presentation and bounded synchronization. Its equipment resources follow the exact separate manifest granted below. These transfers do not change saved
+programs or physical interfaces without an explicit affected-contract record.
+
+**Mechanisms resource transfer — 2026-11-15:** the exact two arrays in
+[resource-ownership-request.json](evidence/fd917/mechanisms/resource-ownership-request.json)
+are transferred; they do not overlap Art's manifest and include no shared textures,
+recipes or language. New client `client/fd917/{ArticulatedPartsRenderer,ProductionModels,ProductionMesh,PaxMechanismRenderer}.java`
+may own its state/model registration via client event
+subscribers. Art and Mechanisms must agree separate static shell versus animated
+restraint components before export; no duplicate closed bar in a baked seat and
+its moving overlay. New per-family component models follow that family's owner.
+
+**Lead integration checkpoint — 2026-11-15:** shared materials are integrated in
+`04538f8b` after planning `f3286be6`; lead transmission/track source and evidence
+are committed/pushed in `42bfb8d8`, with matching remote HEAD. [Arrow contract and bounded native evidence](evidence/fd917/lead/arrow-contract.md)
+record the preserved mapping, 8:1 transmission, finite spring/clutch, capture and
+one new overtravel response. Ordinary tracking/capture/persistence and deliberate
+input discontinuity passed the targeted native check. Connected motion/contact,
+reverse/recovery presentation and rendered cost were subsequently checked below;
+the final axle-interface fit view remains open before VP03 closure.
+Lead owns the new `ArrowMechanismRenderer.java`, `physics/ArrowTransmission.java`
+and its bounded `CarrierRuntime.java` / `FoundationData.java` integration.
+
+Mechanisms additionally owns new `shuttle/Fd917ShuttleSync.java` for remote PAX
+presentation state. Art additionally owns `scripts/generate-ponder.py` and
+`scripts/ponder-lessons.json`; the exact generated Ponder outputs are granted below.
+Shared `en_us.json` stays lead-owned with scoped requested caption patches.
+
+Current private runtime reservations: Art root
+`/mnt/NVME4/fourthdimension-runs/fd917-art-20261115`, display317, game25652/RCON25653,
+units `fd917-art-20261115-{client,server,xvfb}`; Lead root
+`/mnt/NVME4/fourthdimension-runs/fd917-lead-20261115`, display318, game25654/RCON25655,
+units `fd917-lead-20261115-{client,server,xvfb}`. Each uses 1536M/6G client and
+2048M/4G server defaults; no runtime handoff is implied. Check owner checkpoints
+for live state before touching any process.
+
+**Additional exact transfers / current evidence — 2026-11-15:** Mechanisms owns
+`models/block/shuttle_winch_y.json`, `shuttle_winch_z.json`, the **15** existing
+paths in [equipment-ownership-request.json](evidence/fd917/mechanisms/equipment-ownership-request.json),
+and new `client/fd917/StaticArticulationModel.java` and `VehicleMechanismRenderer.java`.
+Equipment generation must use its own bounded exporter; Art retains its generators.
+Art owns the **11** paths in [ponder-output-request.txt](evidence/fd917/art/ponder-output-request.txt).
+Lead merged nine scoped Ponder English keys from Art's keymap; shared language
+ownership remains with Lead.
+
+Lead's [Arrow motion record](evidence/fd917/lead/arrow-motion.json) now combines
+full forward/reverse +/-8pi, curve/bank/nonzero joins and nonzero capture. Peak
+follower-to-tessellated-rail gap is .00115844 block against the 1/64 block limit;
+actual pose and finite spring bounds are recorded. Art has passed the new occupied
+shared-contract cycle in its current Arrow seat view. Comparable track-stage cost
+passed at 3.4069 ms versus retained 6.5595 ms in the same view. A retained baked
+axle offset required one actual-child crank; its compilation passed and Art owns
+the final interface/fit view on its next necessary refresh. Complete production
+handoff remains open; no complete-package claim is made.
+Mechanisms additionally reserves display319, game25656/RCON25657 and
+`fd917-mechanisms-20261115-{client,server,xvfb}` under its named persistent root.
+Lead's comparison used prefix `fd917-lead-baseline-20261115` under
+`fd917-lead-20261115/comparison-baseline`. Both original and comparison lead
+runtimes have saved/stopped: all six units inactive, MainPID 0, with no handoff.
+See [lead evidence and cleanup](evidence/fd917/lead/README.md). Mechanisms also owns
+new `client/fd917/MechanismRenderMetrics.java` and `gametest/Fd917MechanismFixture.java`.
+It approved stable `ProductionMesh.java` for the lead's selective shared commit.
+
 **Execution/stop boundary:** all 17 production briefs and section 6 criteria are
 required; the prior UV pass is not proof of the new production target. Preserve
 native/provider art boundaries, stable identities and saved programs. Resolve
@@ -87,7 +158,7 @@ accepted unchanged cases, test only changed claims, and reconcile cumulative
 evidence without a new full qualification campaign. The lead maintains progress,
 finite remaining claims, integrated handoffs and exact path transfers here.
 
-No runtime is reserved by this assignment. Owners record exact private display,
+Owners record exact private display,
 world/game directories, ports, PIDs/units and resources before launch. Apply
 AGENTS.md's Java 21, persistent storage, default 1536M heap and 6 GiB client-only
 scope, measured headroom and targeted-input rules. Save/stop owned runs when done
