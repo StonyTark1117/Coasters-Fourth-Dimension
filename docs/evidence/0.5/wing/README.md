@@ -51,3 +51,14 @@ decisions, FD501A/FD502, Wing A–C and C1; it adds no runtime sweep.
 specifications are integrated. Client/display stopped for the next build; dedicated
 server and native GameTest server are finishing clean world saves. FD502 collectors
 are finalized losslessly in the run evidence directory for owner review.
+
+## Current checkpoint — integrated cefd4fae
+
+Native test clean shutdown completed20:22:10 local; its process is inactive.
+Wing occupied return/stop/open/unload passed and is integrated. World-stable
+comfort view compiles and awaits the same world's reconnect. Dedicated server
+Java583335 (unit MainPID583334) is still actively flushing its clean stop; do
+not restart or overwrite the saved world until it exits. Client/Xvfb inactive.
+Next: rebuild diagnostics, restart saved world/client, verify exact Wing seat
+restore, craft/place/dye and comfort upright/bank/rotary-inverted views. A/C reuse
+the already-passing loop; do not replay it merely for a build hash.

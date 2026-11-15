@@ -164,6 +164,17 @@ public final class ChainLiftDiagnostics {
     state.put("playerYaw", mc.player.getYRot());
     state.put("playerPitch", mc.player.getXRot());
     state.put("passenger", mc.player.isPassenger());
+    state.put("worldStableView", dev.fourthdimension.runtime.RiderComfortSettings.ENABLED.get());
+    var camera = mc.gameRenderer.getMainCamera();
+    var q = camera.rotation();
+    state.put("cameraQuaternion", new float[] {q.x, q.y, q.z, q.w});
+    state.put("cameraUp", new float[] {camera.getUpVector().x, camera.getUpVector().y, camera.getUpVector().z});
+    var nativeQ = dev.ryanhcode.sable.mixinhelpers.camera.camera_rotation.EntitySubLevelRotationHelper
+        .getSubLevelInheritedOrientation(mc.player,
+            sub -> ((dev.ryanhcode.sable.sublevel.ClientSubLevel) sub).renderPose(),
+            dev.ryanhcode.sable.mixinhelpers.camera.camera_rotation.EntitySubLevelRotationHelper.Type.CAMERA);
+    state.put("nativeSeatOrientation", nativeQ == null ? null
+        : new double[] {nativeQ.x, nativeQ.y, nativeQ.z, nativeQ.w});
     try {
       var field = net.minecraft.client.MouseHandler.class.getDeclaredField("ignoreFirstMove");
       field.setAccessible(true);
@@ -213,7 +224,7 @@ public final class ChainLiftDiagnostics {
         .filter(candidate -> candidate.matches(vehicle.boundFrom, vehicle.boundTo))
         .findFirst().orElse(null);
     state.put("matchingRailFound", rail != null);
-    if (rail == null) return state;
+    if (rail != null) {
     var railState = new LinkedHashMap<String, Object>();
     railState.put("from", position(rail.from));
     railState.put("to", position(rail.to));
@@ -221,6 +232,7 @@ public final class ChainLiftDiagnostics {
     railState.put("variant", rail.variant);
     railState.put("revision", rail.revision);
     state.put("matchingRail", railState);
+    }
 
     var body = CoasterCartResolve.findCartById(mc.level, vehicle.chassis);
     var center = body == null ? null : CoasterCartResolve.cartCenterWorld(body);
@@ -266,7 +278,8 @@ public final class ChainLiftDiagnostics {
     nearbyHits.sort(java.util.Comparator.comparingDouble(row -> (double) row.get("distance")));
     state.put("nearestGraphCandidates", nearbyHits.stream().limit(8).toList());
     CoasterPathEdge selectedEdge = graph.edges().stream()
-        .filter(edge -> rail.matches(edge.from(), edge.to()))
+        .filter(edge -> (vehicle.boundFrom.equals(edge.from()) && vehicle.boundTo.equals(edge.to()))
+            || (vehicle.boundFrom.equals(edge.to()) && vehicle.boundTo.equals(edge.from())))
         .findFirst().orElse(null);
     state.put("matchingGraphEdgeFound", selectedEdge != null);
     if (selectedEdge == null) return state;

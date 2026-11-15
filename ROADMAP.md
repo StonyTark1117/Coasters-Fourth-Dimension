@@ -937,7 +937,7 @@ promise that every maximum-sized world meets the benchmark timings.
 
 **Execution steps:** [FD904C1](docs/roadmap/0.5-contracts.md#fd904c1).
 
-**Status: planned.** **Depends on:** FD404 and integrated FD1101A seat/pose
+**Status: in progress.** **Depends on:** FD404 and integrated FD1101A seat/pose
 contracts, including its occupied client proof. **Delivery:** 0.5.
 
 Deliver D16's selectable comfort option without changing server seat motion.

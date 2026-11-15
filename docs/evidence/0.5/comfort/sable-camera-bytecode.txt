@@ -1,0 +1,373 @@
+Compiled from "CameraMixin.java"
+public abstract class dev.ryanhcode.sable.neoforge.mixin.camera_rotation.CameraMixin {
+  private static org.joml.Vector3f FORWARDS;
+
+  private static org.joml.Vector3f UP;
+
+  private static org.joml.Vector3f LEFT;
+
+  private org.joml.Quaternionf rotation;
+
+  private org.joml.Vector3f left;
+
+  private org.joml.Vector3f up;
+
+  private org.joml.Vector3f forwards;
+
+  private float yRot;
+
+  private float xRot;
+
+  private net.minecraft.world.entity.Entity entity;
+
+  public dev.ryanhcode.sable.neoforge.mixin.camera_rotation.CameraMixin();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+       4: return
+
+  protected abstract void setRotation(float, float, float);
+
+  private void sable$redirectSetRotation(net.minecraft.client.Camera, float, float, float, net.neoforged.neoforge.client.event.ViewportEvent$ComputeCameraAngles);
+    Code:
+       0: aload_0
+       1: aload         5
+       3: invokevirtual #7                  // Method net/neoforged/neoforge/client/event/ViewportEvent$ComputeCameraAngles.getYaw:()F
+       6: ldc           #13                 // float 180.0f
+       8: fadd
+       9: aload         5
+      11: invokevirtual #14                 // Method net/neoforged/neoforge/client/event/ViewportEvent$ComputeCameraAngles.getPitch:()F
+      14: fneg
+      15: fload         4
+      17: invokevirtual #17                 // Method setRotation:(FFF)V
+      20: return
+
+  private void sable$setPosition(net.minecraft.world.phys.Vec3, com.llamalad7.mixinextras.injector.wrapoperation.Operation<java.lang.Void>);
+    Code:
+       0: aload_0
+       1: getfield      #23                 // Field entity:Lnet/minecraft/world/entity/Entity;
+       4: ifnonnull     23
+       7: aload_2
+       8: iconst_1
+       9: anewarray     #2                  // class java/lang/Object
+      12: dup
+      13: iconst_0
+      14: aload_1
+      15: aastore
+      16: invokeinterface #27,  2           // InterfaceMethod com/llamalad7/mixinextras/injector/wrapoperation/Operation.call:([Ljava/lang/Object;)Ljava/lang/Object;
+      21: pop
+      22: return
+      23: aload_0
+      24: getfield      #23                 // Field entity:Lnet/minecraft/world/entity/Entity;
+      27: invokevirtual #33                 // Method net/minecraft/world/entity/Entity.level:()Lnet/minecraft/world/level/Level;
+      30: astore_3
+      31: getstatic     #39                 // Field dev/ryanhcode/sable/Sable.HELPER:Ldev/ryanhcode/sable/ActiveSableCompanion;
+      34: aload_3
+      35: aload_1
+      36: invokevirtual #45                 // Method dev/ryanhcode/sable/ActiveSableCompanion.getContaining:(Lnet/minecraft/world/level/Level;Lnet/minecraft/core/Position;)Ldev/ryanhcode/sable/sublevel/SubLevel;
+      39: checkcast     #51                 // class dev/ryanhcode/sable/sublevel/ClientSubLevel
+      42: astore        4
+      44: aload         4
+      46: ifnonnull     65
+      49: aload_2
+      50: iconst_1
+      51: anewarray     #2                  // class java/lang/Object
+      54: dup
+      55: iconst_0
+      56: aload_1
+      57: aastore
+      58: invokeinterface #27,  2           // InterfaceMethod com/llamalad7/mixinextras/injector/wrapoperation/Operation.call:([Ljava/lang/Object;)Ljava/lang/Object;
+      63: pop
+      64: return
+      65: aload         4
+      67: invokevirtual #53                 // Method dev/ryanhcode/sable/sublevel/ClientSubLevel.renderPose:()Ldev/ryanhcode/sable/companion/math/Pose3dc;
+      70: astore        5
+      72: aload         5
+      74: aload_1
+      75: invokeinterface #57,  2           // InterfaceMethod dev/ryanhcode/sable/companion/math/Pose3dc.transformPosition:(Lnet/minecraft/world/phys/Vec3;)Lnet/minecraft/world/phys/Vec3;
+      80: astore        6
+      82: aload_2
+      83: iconst_1
+      84: anewarray     #2                  // class java/lang/Object
+      87: dup
+      88: iconst_0
+      89: aload         6
+      91: aastore
+      92: invokeinterface #27,  2           // InterfaceMethod com/llamalad7/mixinextras/injector/wrapoperation/Operation.call:([Ljava/lang/Object;)Ljava/lang/Object;
+      97: pop
+      98: return
+
+  public void sable$rotateView(float, float, float, org.spongepowered.asm.mixin.injection.callback.CallbackInfo);
+    Code:
+       0: invokestatic  #63                 // Method net/minecraft/client/Minecraft.getInstance:()Lnet/minecraft/client/Minecraft;
+       3: invokevirtual #69                 // Method net/minecraft/client/Minecraft.getTimer:()Lnet/minecraft/client/DeltaTracker;
+       6: iconst_1
+       7: invokeinterface #73,  2           // InterfaceMethod net/minecraft/client/DeltaTracker.getGameTimeDeltaPartialTick:(Z)F
+      12: fstore        5
+      14: aload_0
+      15: getfield      #23                 // Field entity:Lnet/minecraft/world/entity/Entity;
+      18: invokedynamic #79,  0             // InvokeDynamic #0:apply:()Ljava/util/function/Function;
+      23: fload         5
+      25: getstatic     #83                 // Field dev/ryanhcode/sable/mixinhelpers/camera/camera_rotation/EntitySubLevelRotationHelper$Type.CAMERA:Ldev/ryanhcode/sable/mixinhelpers/camera/camera_rotation/EntitySubLevelRotationHelper$Type;
+      28: invokestatic  #89                 // Method dev/ryanhcode/sable/mixinhelpers/camera/camera_rotation/EntitySubLevelRotationHelper.getEntityOrientation:(Lnet/minecraft/world/entity/Entity;Ljava/util/function/Function;FLdev/ryanhcode/sable/mixinhelpers/camera/camera_rotation/EntitySubLevelRotationHelper$Type;)Lorg/joml/Quaterniond;
+      31: astore        6
+      33: aload         6
+      35: ifnull        148
+      38: aload_0
+      39: getfield      #95                 // Field rotation:Lorg/joml/Quaternionf;
+      42: new           #99                 // class org/joml/Quaternionf
+      45: dup
+      46: aload         6
+      48: invokespecial #101                // Method org/joml/Quaternionf."<init>":(Lorg/joml/Quaterniondc;)V
+      51: invokevirtual #104                // Method org/joml/Quaternionf.premul:(Lorg/joml/Quaternionfc;)Lorg/joml/Quaternionf;
+      54: pop
+      55: getstatic     #108                // Field FORWARDS:Lorg/joml/Vector3f;
+      58: aload_0
+      59: getfield      #95                 // Field rotation:Lorg/joml/Quaternionf;
+      62: aload_0
+      63: getfield      #112                // Field forwards:Lorg/joml/Vector3f;
+      66: invokevirtual #115                // Method org/joml/Vector3f.rotate:(Lorg/joml/Quaternionfc;Lorg/joml/Vector3f;)Lorg/joml/Vector3f;
+      69: pop
+      70: getstatic     #121                // Field UP:Lorg/joml/Vector3f;
+      73: aload_0
+      74: getfield      #95                 // Field rotation:Lorg/joml/Quaternionf;
+      77: aload_0
+      78: getfield      #124                // Field up:Lorg/joml/Vector3f;
+      81: invokevirtual #115                // Method org/joml/Vector3f.rotate:(Lorg/joml/Quaternionfc;Lorg/joml/Vector3f;)Lorg/joml/Vector3f;
+      84: pop
+      85: getstatic     #127                // Field LEFT:Lorg/joml/Vector3f;
+      88: aload_0
+      89: getfield      #95                 // Field rotation:Lorg/joml/Quaternionf;
+      92: aload_0
+      93: getfield      #130                // Field left:Lorg/joml/Vector3f;
+      96: invokevirtual #115                // Method org/joml/Vector3f.rotate:(Lorg/joml/Quaternionfc;Lorg/joml/Vector3f;)Lorg/joml/Vector3f;
+      99: pop
+     100: aload_0
+     101: getfield      #95                 // Field rotation:Lorg/joml/Quaternionf;
+     104: new           #116                // class org/joml/Vector3f
+     107: dup
+     108: invokespecial #133                // Method org/joml/Vector3f."<init>":()V
+     111: invokevirtual #134                // Method org/joml/Quaternionf.getEulerAnglesYXZ:(Lorg/joml/Vector3f;)Lorg/joml/Vector3f;
+     114: astore        7
+     116: aload_0
+     117: ldc           #138                // float -180.0f
+     119: aload         7
+     121: getfield      #139                // Field org/joml/Vector3f.y:F
+     124: f2d
+     125: invokestatic  #143                // Method java/lang/Math.toDegrees:(D)D
+     128: d2f
+     129: fsub
+     130: putfield      #149                // Field yRot:F
+     133: aload_0
+     134: aload         7
+     136: getfield      #152                // Field org/joml/Vector3f.x:F
+     139: f2d
+     140: invokestatic  #143                // Method java/lang/Math.toDegrees:(D)D
+     143: dneg
+     144: d2f
+     145: putfield      #155                // Field xRot:F
+     148: return
+
+  private static dev.ryanhcode.sable.companion.math.Pose3dc lambda$sable$rotateView$0(dev.ryanhcode.sable.sublevel.SubLevel);
+    Code:
+       0: aload_0
+       1: checkcast     #51                 // class dev/ryanhcode/sable/sublevel/ClientSubLevel
+       4: invokevirtual #53                 // Method dev/ryanhcode/sable/sublevel/ClientSubLevel.renderPose:()Ldev/ryanhcode/sable/companion/math/Pose3dc;
+       7: areturn
+}
+Compiled from "EntitySubLevelRotationHelper.java"
+public class dev.ryanhcode.sable.mixinhelpers.camera.camera_rotation.EntitySubLevelRotationHelper {
+  public dev.ryanhcode.sable.mixinhelpers.camera.camera_rotation.EntitySubLevelRotationHelper();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+       4: return
+
+  public static boolean shouldCameraRotate();
+    Code:
+       0: invokestatic  #7                  // Method net/minecraft/client/Minecraft.getInstance:()Lnet/minecraft/client/Minecraft;
+       3: getfield      #13                 // Field net/minecraft/client/Minecraft.options:Lnet/minecraft/client/Options;
+       6: invokevirtual #17                 // Method net/minecraft/client/Options.getCameraType:()Lnet/minecraft/client/CameraType;
+       9: getstatic     #23                 // Field dev/ryanhcode/sable/mixinhelpers/camera/new_camera_types/SableCameraTypes.SUB_LEVEL_VIEW_UNLOCKED:Lnet/minecraft/client/CameraType;
+      12: if_acmpeq     19
+      15: iconst_1
+      16: goto          20
+      19: iconst_0
+      20: ireturn
+
+  public static org.joml.Quaterniond getEntityOrientation(net.minecraft.world.entity.Entity, java.util.function.Function<dev.ryanhcode.sable.sublevel.SubLevel, dev.ryanhcode.sable.companion.math.Pose3dc>, float, dev.ryanhcode.sable.mixinhelpers.camera.camera_rotation.EntitySubLevelRotationHelper$Type);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: aload_3
+       3: invokestatic  #29                 // Method getSubLevelInheritedOrientation:(Lnet/minecraft/world/entity/Entity;Ljava/util/function/Function;Ldev/ryanhcode/sable/mixinhelpers/camera/camera_rotation/EntitySubLevelRotationHelper$Type;)Lorg/joml/Quaterniond;
+       6: astore        4
+       8: aload         4
+      10: ifnull        16
+      13: aload         4
+      15: areturn
+      16: aload_0
+      17: fload_2
+      18: invokestatic  #35                 // Method dev/ryanhcode/sable/api/entity/EntitySubLevelUtil.getCustomEntityOrientation:(Lnet/minecraft/world/entity/Entity;F)Lorg/joml/Quaterniondc;
+      21: astore        5
+      23: aload         5
+      25: ifnull        38
+      28: new           #41                 // class org/joml/Quaterniond
+      31: dup
+      32: aload         5
+      34: invokespecial #43                 // Method org/joml/Quaterniond."<init>":(Lorg/joml/Quaterniondc;)V
+      37: areturn
+      38: aconst_null
+      39: areturn
+
+  public static org.joml.Quaterniond getSubLevelInheritedOrientation(net.minecraft.world.entity.Entity, java.util.function.Function<dev.ryanhcode.sable.sublevel.SubLevel, dev.ryanhcode.sable.companion.math.Pose3dc>, dev.ryanhcode.sable.mixinhelpers.camera.camera_rotation.EntitySubLevelRotationHelper$Type);
+    Code:
+       0: aload_2
+       1: getstatic     #46                 // Field dev/ryanhcode/sable/mixinhelpers/camera/camera_rotation/EntitySubLevelRotationHelper$Type.CAMERA:Ldev/ryanhcode/sable/mixinhelpers/camera/camera_rotation/EntitySubLevelRotationHelper$Type;
+       4: if_acmpne     34
+       7: aload_0
+       8: instanceof    #52                 // class net/minecraft/world/entity/player/Player
+      11: ifeq          34
+      14: aload_0
+      15: checkcast     #52                 // class net/minecraft/world/entity/player/Player
+      18: astore_3
+      19: aload_3
+      20: invokevirtual #54                 // Method net/minecraft/world/entity/player/Player.isLocalPlayer:()Z
+      23: ifeq          34
+      26: invokestatic  #58                 // Method shouldCameraRotate:()Z
+      29: ifne          34
+      32: aconst_null
+      33: areturn
+      34: getstatic     #61                 // Field dev/ryanhcode/sable/Sable.HELPER:Ldev/ryanhcode/sable/ActiveSableCompanion;
+      37: astore_3
+      38: aload_0
+      39: instanceof    #67                 // class net/minecraft/world/entity/LivingEntity
+      42: ifeq          130
+      45: aload_0
+      46: checkcast     #67                 // class net/minecraft/world/entity/LivingEntity
+      49: astore        4
+      51: aload         4
+      53: invokevirtual #69                 // Method net/minecraft/world/entity/LivingEntity.isSleeping:()Z
+      56: ifeq          130
+      59: aload         4
+      61: invokevirtual #72                 // Method net/minecraft/world/entity/LivingEntity.getSleepingPos:()Ljava/util/Optional;
+      64: astore        5
+      66: aload         5
+      68: invokevirtual #76                 // Method java/util/Optional.isPresent:()Z
+      71: ifeq          130
+      74: aload         5
+      76: invokevirtual #81                 // Method java/util/Optional.get:()Ljava/lang/Object;
+      79: checkcast     #85                 // class net/minecraft/core/BlockPos
+      82: astore        6
+      84: aload_3
+      85: aload         4
+      87: invokevirtual #87                 // Method net/minecraft/world/entity/LivingEntity.level:()Lnet/minecraft/world/level/Level;
+      90: aload         6
+      92: invokevirtual #91                 // Method dev/ryanhcode/sable/ActiveSableCompanion.getContaining:(Lnet/minecraft/world/level/Level;Lnet/minecraft/core/Vec3i;)Ldev/ryanhcode/sable/sublevel/SubLevel;
+      95: astore        7
+      97: aload         7
+      99: instanceof    #97                 // class dev/ryanhcode/sable/sublevel/ClientSubLevel
+     102: ifeq          130
+     105: aload         7
+     107: checkcast     #97                 // class dev/ryanhcode/sable/sublevel/ClientSubLevel
+     110: astore        8
+     112: new           #41                 // class org/joml/Quaterniond
+     115: dup
+     116: aload         8
+     118: invokevirtual #99                 // Method dev/ryanhcode/sable/sublevel/ClientSubLevel.renderPose:()Ldev/ryanhcode/sable/companion/math/Pose3dc;
+     121: invokeinterface #103,  1          // InterfaceMethod dev/ryanhcode/sable/companion/math/Pose3dc.orientation:()Lorg/joml/Quaterniondc;
+     126: invokespecial #43                 // Method org/joml/Quaterniond."<init>":(Lorg/joml/Quaterniondc;)V
+     129: areturn
+     130: aload_0
+     131: ifnonnull     136
+     134: aconst_null
+     135: areturn
+     136: aload_0
+     137: invokevirtual #109                // Method net/minecraft/world/entity/Entity.getVehicle:()Lnet/minecraft/world/entity/Entity;
+     140: astore        4
+     142: aload         4
+     144: ifnonnull     172
+     147: aload_0
+     148: instanceof    #52                 // class net/minecraft/world/entity/player/Player
+     151: ifeq          156
+     154: aconst_null
+     155: areturn
+     156: aload_3
+     157: aload_0
+     158: invokevirtual #115                // Method dev/ryanhcode/sable/ActiveSableCompanion.getContaining:(Lnet/minecraft/world/entity/Entity;)Ldev/ryanhcode/sable/sublevel/SubLevel;
+     161: ifnull        170
+     164: aload_0
+     165: astore        4
+     167: goto          172
+     170: aconst_null
+     171: areturn
+     172: aload_3
+     173: aload         4
+     175: invokevirtual #115                // Method dev/ryanhcode/sable/ActiveSableCompanion.getContaining:(Lnet/minecraft/world/entity/Entity;)Ldev/ryanhcode/sable/sublevel/SubLevel;
+     178: astore        5
+     180: aload         5
+     182: ifnonnull     187
+     185: aconst_null
+     186: areturn
+     187: new           #41                 // class org/joml/Quaterniond
+     190: dup
+     191: aload_1
+     192: aload         5
+     194: invokeinterface #118,  2          // InterfaceMethod java/util/function/Function.apply:(Ljava/lang/Object;)Ljava/lang/Object;
+     199: checkcast     #104                // class dev/ryanhcode/sable/companion/math/Pose3dc
+     202: invokeinterface #103,  1          // InterfaceMethod dev/ryanhcode/sable/companion/math/Pose3dc.orientation:()Lorg/joml/Quaterniondc;
+     207: invokespecial #43                 // Method org/joml/Quaterniond."<init>":(Lorg/joml/Quaterniondc;)V
+     210: areturn
+}
+Compiled from "EntityMixin.java"
+public abstract class dev.ryanhcode.sable.mixin.camera.camera_rotation.EntityMixin {
+  private net.minecraft.world.level.Level level;
+
+  public dev.ryanhcode.sable.mixin.camera.camera_rotation.EntityMixin();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+       4: return
+
+  public void sable$calculateViewVector(float, float, org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable<net.minecraft.world.phys.Vec3>);
+    Code:
+       0: aload_0
+       1: getfield      #7                  // Field level:Lnet/minecraft/world/level/Level;
+       4: astore        6
+       6: aload         6
+       8: instanceof    #13                 // class dev/ryanhcode/sable/mixinterface/clip_overwrite/LevelPoseProviderExtension
+      11: ifeq          38
+      14: aload         6
+      16: checkcast     #13                 // class dev/ryanhcode/sable/mixinterface/clip_overwrite/LevelPoseProviderExtension
+      19: astore        5
+      21: aload         5
+      23: dup
+      24: invokestatic  #15                 // Method java/util/Objects.requireNonNull:(Ljava/lang/Object;)Ljava/lang/Object;
+      27: pop
+      28: invokedynamic #21,  0             // InvokeDynamic #0:apply:(Ldev/ryanhcode/sable/mixinterface/clip_overwrite/LevelPoseProviderExtension;)Ljava/util/function/Function;
+      33: astore        4
+      35: goto          45
+      38: invokedynamic #25,  0             // InvokeDynamic #1:apply:()Ljava/util/function/Function;
+      43: astore        4
+      45: aload_0
+      46: checkcast     #28                 // class net/minecraft/world/entity/Entity
+      49: aload         4
+      51: fconst_0
+      52: getstatic     #30                 // Field dev/ryanhcode/sable/mixinhelpers/camera/camera_rotation/EntitySubLevelRotationHelper$Type.CAMERA:Ldev/ryanhcode/sable/mixinhelpers/camera/camera_rotation/EntitySubLevelRotationHelper$Type;
+      55: invokestatic  #36                 // Method dev/ryanhcode/sable/mixinhelpers/camera/camera_rotation/EntitySubLevelRotationHelper.getEntityOrientation:(Lnet/minecraft/world/entity/Entity;Ljava/util/function/Function;FLdev/ryanhcode/sable/mixinhelpers/camera/camera_rotation/EntitySubLevelRotationHelper$Type;)Lorg/joml/Quaterniond;
+      58: astore        5
+      60: aload         5
+      62: ifnull        91
+      65: aload_3
+      66: invokevirtual #42                 // Method org/spongepowered/asm/mixin/injection/callback/CallbackInfoReturnable.getReturnValue:()Ljava/lang/Object;
+      69: checkcast     #48                 // class net/minecraft/world/phys/Vec3
+      72: astore        6
+      74: aload_3
+      75: aload         5
+      77: aload         6
+      79: invokestatic  #50                 // Method dev/ryanhcode/sable/companion/math/JOMLConversion.toJOML:(Lnet/minecraft/core/Position;)Lorg/joml/Vector3d;
+      82: invokevirtual #56                 // Method org/joml/Quaterniond.transform:(Lorg/joml/Vector3d;)Lorg/joml/Vector3d;
+      85: invokestatic  #62                 // Method dev/ryanhcode/sable/companion/math/JOMLConversion.toMojang:(Lorg/joml/Vector3dc;)Lnet/minecraft/world/phys/Vec3;
+      88: invokevirtual #66                 // Method org/spongepowered/asm/mixin/injection/callback/CallbackInfoReturnable.setReturnValue:(Ljava/lang/Object;)V
+      91: return
+}

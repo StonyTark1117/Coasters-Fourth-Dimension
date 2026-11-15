@@ -1,0 +1,35 @@
+> Task :createMinecraftArtifacts UP-TO-DATE
+
+> Task :compileJava
+/home/braydon/Documents/Coasters: Fourth Dimension/src/main/java/dev/fourthdimension/client/RiderComfort.java:28: warning: [removal] bus() in EventBusSubscriber has been deprecated and marked for removal
+      bus = EventBusSubscriber.Bus.MOD)
+      ^
+/home/braydon/Documents/Coasters: Fourth Dimension/src/main/java/dev/fourthdimension/client/RiderComfort.java:28: warning: [removal] Bus in EventBusSubscriber has been deprecated and marked for removal
+      bus = EventBusSubscriber.Bus.MOD)
+                              ^
+2 warnings
+
+> Task :processResources UP-TO-DATE
+> Task :classes
+> Task :jarJar NO-SOURCE
+> Task :jar
+> Task :compileTestJava
+> Task :processTestResources NO-SOURCE
+> Task :testClasses
+> Task :test
+> Task :compilePackagedJava NO-SOURCE
+> Task :processPackagedResources NO-SOURCE
+> Task :packagedClasses UP-TO-DATE
+> Task :downloadAssets UP-TO-DATE
+> Task :writeClientLegacyClasspath UP-TO-DATE
+> Task :prepareClientRun UP-TO-DATE
+> Task :createClientLaunchScript
+> Task :writeServerLegacyClasspath UP-TO-DATE
+> Task :prepareServerRun UP-TO-DATE
+> Task :createServerLaunchScript
+
+[Incubating] Problems report is available at: file:///home/braydon/.local/state/fourthdimension-runs/fd1101-wing-20261114/build/reports/problems/problems-report.html
+
+BUILD SUCCESSFUL in 4s
+13 actionable tasks: 6 executed, 7 up-to-date
+Consider enabling configuration cache to speed up this build: https://docs.gradle.org/9.2.1/userguide/configuration_cache_enabling.html

@@ -362,7 +362,7 @@ public final class RotationEditorScreen extends Screen {
                         ? "editor.fourthdimension.recovery.braked"
                         : "editor.fourthdimension.recovery.towing")
                 .getString()
-            : vehicle.family.id()
+            : (dev.fourthdimension.vehicle.WingVehicle.is(vehicle) ? "Wing" : vehicle.family.id())
                 + " | "
                 + (vehicle.boardingReady ? "Ready" : "Aligning / moving")
                 + " | "

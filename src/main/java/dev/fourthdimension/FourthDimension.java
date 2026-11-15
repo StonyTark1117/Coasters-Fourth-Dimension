@@ -10,7 +10,8 @@ import net.neoforged.neoforge.common.NeoForge;
 public final class FourthDimension {
   public static final String ID = "fourthdimension";
 
-  public FourthDimension(IEventBus bus) {
+  public FourthDimension(IEventBus bus, net.neoforged.fml.ModContainer container) {
+    container.registerConfig(net.neoforged.fml.config.ModConfig.Type.CLIENT, RiderComfortSettings.SPEC);
     RuntimePerformanceRecorder.register();
     dev.fourthdimension.integration.create.CreateIntegration.register(bus);
     dev.fourthdimension.shuttle.ShuttleContent.registerItem();
