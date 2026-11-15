@@ -110,6 +110,14 @@ def rcon(config, command):
         if request != 1 or kind != 2:
             raise RuntimeError("RCON authentication failed")
         send(2, command, 2)
+        if command.strip().lower() == "stop":
+            # A trailing command can wait forever after stop ends the server
+            # event loop, while shutdown joins this RCON thread. Stop has one
+            # short acknowledgement; do not enqueue the normal end marker.
+            request, kind, answer = read()
+            if request != 2:
+                raise RuntimeError("Unexpected RCON stop response identity")
+            return answer
         send(2, "", 3)  # Ordered end marker: command output may span several packets.
         chunks = []
         while True:

@@ -49,6 +49,8 @@ public final class EligibilityHooks {
     if (!dev.fourthdimension.vehicle.ConsistRules.eligible(level, chassis, vehicle)) return false;
     if (dev.fourthdimension.vehicle.WingVehicle.is(vehicle))
       return dev.fourthdimension.vehicle.WingTrack.rejection(level, hit.edge()) == null;
+    if (dev.fourthdimension.vehicle.SpinningVehicle.is(vehicle)
+        && dev.fourthdimension.vehicle.SpinningTrack.rejection(level, hit.edge()) != null) return false;
     if (rail == null
         || !rail.valid
         || rail.family() != vehicle.family

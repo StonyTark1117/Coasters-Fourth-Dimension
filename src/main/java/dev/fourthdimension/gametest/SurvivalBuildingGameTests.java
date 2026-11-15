@@ -73,6 +73,7 @@ public final class SurvivalBuildingGameTests {
       case FREE_SPIN -> TrackItems.FREE_SPIN.get();
       case REVISED -> TrackItems.REVISED.get();
       case PAX -> TrackItems.PAX.get();
+      case SPINNING -> TrackItems.SPINNING.get();
     };
   }
 
@@ -83,6 +84,7 @@ public final class SurvivalBuildingGameTests {
       case FREE_SPIN -> TrackItems.FREE_SPIN_CAR.get();
       case REVISED -> TrackItems.REVISED_CAR.get();
       case PAX -> TrackItems.PAX_CAR.get();
+      case SPINNING -> TrackItems.SPINNING_CAR.get();
     };
   }
 

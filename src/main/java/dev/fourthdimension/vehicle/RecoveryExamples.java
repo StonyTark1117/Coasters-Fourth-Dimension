@@ -30,6 +30,7 @@ public final class RecoveryExamples {
     var root = Commands.literal("fd").requires(s -> s.hasPermission(2));
     var demo = Commands.literal("demo");
     for (var design : TrackDesign.values()) {
+      if (design == TrackDesign.SPINNING) continue;
       demo.then(
           Commands.literal("recovery_" + design.name().toLowerCase(Locale.ROOT))
               .executes(
@@ -169,6 +170,7 @@ public final class RecoveryExamples {
               case FREE_SPIN -> TrackItems.FREE_SPIN;
               case REVISED -> TrackItems.REVISED;
               case PAX -> TrackItems.PAX;
+              case SPINNING -> throw new IllegalArgumentException("S1 has no ordinary recovery adapter");
             })
             .get()
             .getDefaultInstance());

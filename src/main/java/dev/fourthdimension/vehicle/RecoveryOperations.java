@@ -198,6 +198,8 @@ public final class RecoveryOperations {
   }
 
   public static void attach(ServerPlayer player, FoundationData.Vehicle selected) {
+    if (SpinningVehicle.is(selected))
+      throw new IllegalArgumentException("S1 requires its matching dock; ordinary recovery is unsupported");
     if (WingVehicle.is(selected))
       throw new IllegalArgumentException("Wing uses ordinary track; restore its route and Stop before unloading");
     var level = player.serverLevel();

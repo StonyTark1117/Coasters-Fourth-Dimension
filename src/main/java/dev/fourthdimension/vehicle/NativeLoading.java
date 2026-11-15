@@ -72,7 +72,9 @@ public final class NativeLoading {
       double delta = desired.getOrDefault(pos, 0.0) - applied.masses.getOrDefault(pos, 0.0);
       if (Math.abs(delta) > 1e-9) {
         tracker.addBlockMass(
-            level, Blocks.IRON_BLOCK.defaultBlockState(), pos, delta, new Vec3(.12, .06, .12));
+            level, SpinningVehicle.is(vehicle)
+                ? SpinningSeatBlock.state(pos.below().subtract(child.getPlot().getCenterBlock()))
+                : Blocks.IRON_BLOCK.defaultBlockState(), pos, delta, new Vec3(.12, .06, .12));
         changed = true;
       }
     }

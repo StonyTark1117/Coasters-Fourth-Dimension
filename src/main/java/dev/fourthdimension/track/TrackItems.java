@@ -22,6 +22,11 @@ public final class TrackItems {
                   .persistent(GlobalPos.CODEC)
                   .networkSynchronized(GlobalPos.STREAM_CODEC)
                   .build());
+  public static final DeferredItem<FamilyTrackItem> SPINNING =
+      ITEMS.register("spinning_track", () -> new FamilyTrackItem(new Item.Properties(), TrackDesign.SPINNING));
+  public static final DeferredItem<dev.fourthdimension.vehicle.VehicleItem> SPINNING_CAR =
+      ITEMS.register("spinning_car", () -> new dev.fourthdimension.vehicle.VehicleItem(
+          new Item.Properties().stacksTo(1), TrackDesign.SPINNING));
   public static final DeferredItem<dev.fourthdimension.vehicle.VehicleItem> WING_CAR =
       ITEMS.register("wing_car", () -> new dev.fourthdimension.vehicle.VehicleItem(
           new Item.Properties().stacksTo(1), null));

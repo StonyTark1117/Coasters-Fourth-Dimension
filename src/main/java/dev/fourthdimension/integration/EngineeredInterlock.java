@@ -31,6 +31,7 @@ public final class EngineeredInterlock {
                   unavailable(container, car.chassis)
                       || car.carriers.stream().anyMatch(c -> unavailable(container, c.body))
                       || car.family == Family.PAX
+                      || car.family == Family.SPINNING
                       || car.stopping
                       || car.maintenance
                       || !car.restraints

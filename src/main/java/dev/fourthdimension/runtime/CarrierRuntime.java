@@ -90,8 +90,8 @@ public final class CarrierRuntime {
             new Quaterniond(parent.logicalPose().orientation())
                 .conjugate()
                 .mul(child.logicalPose().orientation());
-        carrier.angle = FreeRotor.unwrap(carrier.angle, 2 * Math.atan2(relative.x, relative.w));
-        var axis = new Vector3d(1, 0, 0).rotate(parent.logicalPose().orientation());
+        carrier.angle = vehicle.family.axis().angle(carrier.angle, relative);
+        var axis = vehicle.family.axis().vector().rotate(parent.logicalPose().orientation());
         carrier.omega =
             pipeline
                 .getAngularVelocity(child, new Vector3d())
@@ -173,7 +173,11 @@ public final class CarrierRuntime {
       }
       for (var carrier : vehicle.carriers) {
         var childRaw = container.getSubLevel(carrier.body);
-        if (!(childRaw instanceof ServerSubLevel child) || child.isRemoved()) continue;
+        if (!(childRaw instanceof ServerSubLevel child) || child.isRemoved()) {
+          if (dev.fourthdimension.vehicle.SpinningVehicle.is(vehicle))
+            dev.fourthdimension.vehicle.SpinningRuntime.fault(vehicle, "S1 carrier body unavailable");
+          continue;
+        }
         long carrierStart = System.nanoTime();
         carrierUpdates++;
         physics.updatePose(child);
@@ -192,14 +196,14 @@ public final class CarrierRuntime {
                           p.getY() + .5 + carrier.pivotHeight,
                           p.getZ() + .5 + carrier.longitudinal),
                       new Vector3d(
-                          c.getX() + .5, c.getY() + .5 + carrier.childPivotOffset, c.getZ() + .5),
-                      new Vector3d(1, 0, 0),
-                      new Vector3d(1, 0, 0)));
+                          c.getX() + .5 + carrier.childPivotX, c.getY() + .5 + carrier.childPivotOffset, c.getZ() + .5 + carrier.childPivotZ),
+                      vehicle.family.axis().vector(),
+                      vehicle.family.axis().vector()));
           handle.setContactsEnabled(false);
           JOINTS.put(child, handle);
           // Sable omits very small angular speeds from its native save. Restore
           // our exact relative speed once when rebuilding the joint, not per tick.
-          var restoredAxis = new Vector3d(1, 0, 0).rotate(parent.logicalPose().orientation());
+          var restoredAxis = vehicle.family.axis().vector().rotate(parent.logicalPose().orientation());
           var desired =
               pipeline
                   .getAngularVelocity(parent, new Vector3d())
@@ -213,13 +217,20 @@ public final class CarrierRuntime {
             new Quaterniond(parent.logicalPose().orientation())
                 .conjugate()
                 .mul(child.logicalPose().orientation());
-        carrier.angle = FreeRotor.unwrap(carrier.angle, 2 * Math.atan2(relative.x, relative.w));
-        var axis = new Vector3d(1, 0, 0).rotate(parent.logicalPose().orientation());
+        carrier.angle = vehicle.family.axis().angle(carrier.angle, relative);
+        var axis = vehicle.family.axis().vector().rotate(parent.logicalPose().orientation());
         carrier.omega =
             pipeline
                 .getAngularVelocity(child, new Vector3d())
                 .sub(pipeline.getAngularVelocity(parent, new Vector3d()))
                 .dot(axis);
+        if (dev.fourthdimension.vehicle.SpinningVehicle.is(vehicle)) {
+          dev.fourthdimension.vehicle.NativeLoading.update(child, vehicle, carrier);
+          dev.fourthdimension.vehicle.SpinningRuntime.update(level, parent, child, vehicle, carrier,
+              rail, handle, event.getTimeStep());
+          carrierNanos += System.nanoTime() - carrierStart;
+          continue;
+        }
         boolean drive = vehicle.family.driven() || carrier.capture;
         double goal =
             carrier.capture

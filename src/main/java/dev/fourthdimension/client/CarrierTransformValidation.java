@@ -568,7 +568,7 @@ public final class CarrierTransformValidation {
       return Math.clamp(
           Integer.parseInt(System.getProperty("fourthdimension.carrierValidationFamilies", "1")),
           1,
-          (int) java.util.Arrays.stream(Family.values()).filter(Family::rotary).count());
+          (int) java.util.Arrays.stream(Family.values()).filter(Family::foundationFixture).count());
     } catch (NumberFormatException ignored) {
       return 1;
     }
@@ -954,7 +954,7 @@ public final class CarrierTransformValidation {
       return Math.clamp(
           Integer.parseInt(System.getProperty("fourthdimension.carrierValidationMotionFamilies", "1")),
           1,
-          (int) java.util.Arrays.stream(Family.values()).filter(Family::rotary).count());
+          (int) java.util.Arrays.stream(Family.values()).filter(Family::foundationFixture).count());
     } catch (NumberFormatException ignored) {
       return 1;
     }

@@ -21,6 +21,7 @@ public final class VehicleFactory {
 
   public static FoundationData.Vehicle create(
       ServerLevel level, TrackDesign design, CoasterPathTrackFrame.GraphHit hit) {
+    if (design == TrackDesign.SPINNING) return SpinningVehicle.create(level, hit);
     var data = FoundationData.get(level);
     if (data.vehicles.size() >= 64) throw new IllegalArgumentException("Vehicle capacity reached");
     var rail =
@@ -168,6 +169,7 @@ public final class VehicleFactory {
                   case FREE_SPIN -> VehicleParts.FREE_SPIN_SEAT.get();
                   case REVISED -> VehicleParts.REVISED_SEAT.get();
                   case PAX -> VehicleParts.PAX_SEAT.get();
+                  case SPINNING -> VehicleParts.SPINNING_SEAT.get();
                 };
             blocks.setBlock(
                 seat,

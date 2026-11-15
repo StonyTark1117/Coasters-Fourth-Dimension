@@ -213,6 +213,11 @@ public final class ChainLiftDiagnostics {
       var row = new LinkedHashMap<String, Object>();
       row.put("body", carrier.body.toString());
       row.put("capture", carrier.capture);
+      row.put("angle", carrier.angle);
+      row.put("omega", carrier.omega);
+      row.put("latched", carrier.latched);
+      row.put("liftHeld", carrier.liftHeld);
+      row.put("captureTarget", carrier.captureTarget);
       row.put("occupants", carrier.occupants.stream().map(Object::toString).toList());
       row.put("riderSeats", carrier.riderSeats.keySet().stream().map(Object::toString).toList());
       carriers.add(row);

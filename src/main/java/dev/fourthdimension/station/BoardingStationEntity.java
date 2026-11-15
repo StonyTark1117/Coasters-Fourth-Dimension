@@ -80,7 +80,8 @@ public final class BoardingStationEntity extends BlockEntity
     boolean nearby = RideOperations.nearby(level, pos, station.vehicle);
     if (v != null
         && v.family != dev.fourthdimension.contract.Family.PAX
-        && ((signal && nearby && !v.stopping) || (!signal && station.powered && nearby))) {
+        && ((signal && nearby && !v.stopping) || (!signal && station.powered && nearby
+            && !dev.fourthdimension.vehicle.SpinningVehicle.is(v)))) {
       try {
         RideOperations.request(
             level,

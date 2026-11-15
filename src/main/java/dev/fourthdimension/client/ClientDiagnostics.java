@@ -85,7 +85,7 @@ public final class ClientDiagnostics {
             new Quaterniond(parent.logicalPose().orientation())
                 .conjugate()
                 .mul(child.logicalPose().orientation());
-        double angle = 2 * Math.atan2(relative.x, relative.w);
+        double angle = v.family.axis().angle(c.angle, relative);
         LogUtils.getLogger()
             .info(
                 "FD_CLIENT player={} body={} snapshotAngle={} nativeAngle={} occupants={} riding={}"

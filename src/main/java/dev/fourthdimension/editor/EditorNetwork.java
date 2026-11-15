@@ -173,6 +173,13 @@ public final class EditorNetwork {
                 request.id,
                 request.revision,
                 dev.fourthdimension.integration.TrackAppearance.parse(request.value));
+        case 6 -> {
+          if (rail.family != dev.fourthdimension.contract.Family.SPINNING)
+            throw new IllegalArgumentException("Lift lock requires S1 track");
+          rail.liftLock = !rail.liftLock;
+          rail.revision++;
+          FoundationData.get(player.serverLevel()).setDirty();
+        }
         default -> throw new IllegalArgumentException("Unknown profile operation");
       }
     } else {
@@ -205,6 +212,11 @@ public final class EditorNetwork {
         case 25 -> VehicleOperations.repairMatchingSupport(level, vehicle);
         case 26 -> VehicleOperations.realignMatchingSupport(level, vehicle);
         case 27 -> VehicleOperations.retireDetachedPax(level, vehicle);
+        case 28 -> {
+          if (!dev.fourthdimension.vehicle.SpinningVehicle.is(vehicle))
+            throw new IllegalArgumentException("Resume to dock requires S1");
+          dev.fourthdimension.vehicle.SpinningRuntime.resumeToDock(level, vehicle);
+        }
         case 17, 18, 19 -> VehicleOperations.loadingPreset(level, vehicle, request.action - 17);
         default -> throw new IllegalArgumentException("Unknown vehicle operation");
       }

@@ -1,0 +1,64 @@
+{
+  "source": "/home/braydon/.local/state/fourthdimension-runs/fd1501-spinning-20261114/server/SpinningWorkshop/data/fourthdimension_foundation.dat",
+  "sha256": "e3e246ec338cdf10396852b583e415024b4cfd1cbee2567263cec392232adaa6",
+  "schema": 7,
+  "vehicles": [
+    {
+      "alignment_required": 0,
+      "contact_layout": "coasters_n_contacts_v1",
+      "mount_frame": "above_rail_v1",
+      "fault": "",
+      "boundTo": 409693,
+      "carriers": [
+        {
+          "side": 0.0,
+          "rider_seats": [],
+          "capture": 1,
+          "body": [
+            -778934064,
+            166612785,
+            -1396402044,
+            -687971671
+          ],
+          "axis": "Y",
+          "seats": [
+            -1,
+            274877906943,
+            -274877902849,
+            4095
+          ],
+          "ballast": 0.0,
+          "omega": 4.505557439808719e-33,
+          "pivot_height": 1.4375,
+          "angle": -2.488737835073375e-32,
+          "capture_target": 0.0,
+          "lift_held": 0,
+          "latched": 1,
+          "longitudinal": 0.0,
+          "child_pivot_offset": -0.5,
+          "child_pivot_x": -0.5,
+          "child_pivot_z": -0.5,
+          "occupants": []
+        }
+      ],
+      "chassis": [
+        -525988623,
+        2025408353,
+        -1751084200,
+        -961480393
+      ],
+      "damping": 0.35,
+      "boundFrom": 147549,
+      "ballast": 0.0,
+      "revision": 0,
+      "boarding_ready": 1,
+      "stopping": 1,
+      "variant": "conventional_v1",
+      "restraints": 0,
+      "shuttle_detached": 0,
+      "family": "spinning",
+      "dock": -1649267220387,
+      "maintenance": 0
+    }
+  ]
+}

@@ -55,6 +55,7 @@ public final class Boarding {
       var up = new Vector3d(0, 1, 0).rotate(parent.logicalPose().orientation());
       return up.y > .98;
     }
+    if (SpinningVehicle.is(vehicle)) return SpinningRuntime.ready(level, parent, vehicle);
     for (var carrier : vehicle.carriers) {
       if (!carrier.capture
           || Math.abs(carrier.omega) > .08
@@ -91,6 +92,14 @@ public final class Boarding {
           && !canBoard(level, seat.blockPosition())) {
         event.setCanceled(true);
         return;
+      }
+      if (SpinningVehicle.is(binding.vehicle)) {
+        var pos = seat.blockPosition();
+        var state = level.getBlockState(pos);
+        if (state.getBlock() instanceof SpinningSeatBlock block) {
+          var center = block.getCenterOfMass(level, state);
+          seat.setPos(pos.getX()+center.x(), pos.getY()+.75, pos.getZ()+center.z());
+        }
       }
       if (event.getEntityMounting() instanceof net.minecraft.server.level.ServerPlayer player) {
         var container = SubLevelContainer.getContainer(level);

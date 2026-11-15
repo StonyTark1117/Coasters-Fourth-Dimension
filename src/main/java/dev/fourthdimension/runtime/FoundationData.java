@@ -11,7 +11,7 @@ import net.minecraft.world.level.saveddata.SavedData;
 
 /** World-owned authoritative bindings. Native Sable bodies persist poses and velocities. */
 public final class FoundationData extends SavedData {
-  public static final int SCHEMA = 6;
+  public static final int SCHEMA = 7;
   // Keep full functional snapshots below Minecraft's one-megabyte custom-payload limit.
   public static final int MAX_PROFILE_KEYS = 8192;
   public static final String VARIANT = "foundation_v1";
@@ -45,6 +45,7 @@ public final class FoundationData extends SavedData {
     public final String variant;
     public long geometryHash, revision;
     public boolean valid = true;
+    public boolean liftLock;
     /**
      * Serialized native curve at the time this rail was authored. It is optional for legacy
      * saves; when present it lets an occupied support repair put back the exact former curve
@@ -130,6 +131,7 @@ public final class FoundationData extends SavedData {
     public double damping = 5, ballast;
     public final List<Carrier> carriers = new ArrayList<>();
     public BlockPos boundFrom, boundTo;
+    public BlockPos dock;
 
     public Vehicle(UUID chassis, Family family) {
       this.chassis = chassis;
@@ -148,6 +150,10 @@ public final class FoundationData extends SavedData {
     public double pivotHeight = 2;
     public double longitudinal;
     public double childPivotOffset;
+    public double childPivotX, childPivotZ;
+    public boolean latched, liftHeld;
+    public double captureTarget;
+    public BlockPos liftFrom, liftTo;
     public double ballast;
 
     public Carrier(UUID body, double side) {
@@ -182,6 +188,7 @@ public final class FoundationData extends SavedData {
       tag.putLong("geometry_hash", rail.geometryHash);
       tag.putLong("revision", rail.revision);
       tag.putBoolean("valid", rail.valid);
+      tag.putBoolean("lift_lock", rail.liftLock);
       if (includeOriginalCurves && rail.originalCurve != null)
         tag.put("original_curve", rail.originalCurve.copy());
       ListTag keys = new ListTag();
@@ -207,6 +214,11 @@ public final class FoundationData extends SavedData {
       tag.putUUID("chassis", vehicle.chassis);
       tag.putString("family", vehicle.family.id());
       tag.putString("variant", vehicle.variant);
+      if (vehicle.dock != null) tag.putLong("dock", vehicle.dock.asLong());
+      if (dev.fourthdimension.vehicle.SpinningVehicle.is(vehicle)) {
+        tag.putString("contact_layout", dev.fourthdimension.contract.NativeTrackFit.N_CONTACTS);
+        tag.putString("mount_frame", dev.fourthdimension.contract.NativeTrackFit.ABOVE);
+      }
       tag.putBoolean("restraints", vehicle.restraints);
       tag.putBoolean("stopping", vehicle.stopping);
       tag.putBoolean("maintenance", vehicle.maintenance);
@@ -237,6 +249,16 @@ public final class FoundationData extends SavedData {
         c.putBoolean("capture", carrier.capture);
         c.putDouble("pivot_height", carrier.pivotHeight);
         c.putDouble("child_pivot_offset", carrier.childPivotOffset);
+        c.putDouble("child_pivot_x", carrier.childPivotX);
+        c.putDouble("child_pivot_z", carrier.childPivotZ);
+        c.putString("axis", vehicle.family.axis().name());
+        c.putBoolean("latched", carrier.latched);
+        c.putBoolean("lift_held", carrier.liftHeld);
+        c.putDouble("capture_target", carrier.captureTarget);
+        if (carrier.liftFrom != null) {
+          c.putLong("lift_from", carrier.liftFrom.asLong());
+          c.putLong("lift_to", carrier.liftTo.asLong());
+        }
         c.putLongArray("seats", carrier.seats.stream().mapToLong(BlockPos::asLong).toArray());
         ListTag occupancy = new ListTag();
         for (UUID occupant : carrier.occupants) occupancy.add(NbtUtils.createUUID(occupant));
@@ -261,6 +283,7 @@ public final class FoundationData extends SavedData {
 
   public static FoundationData load(CompoundTag root, HolderLookup.Provider registries) {
     if (root.getInt("schema") != SCHEMA
+        && root.getInt("schema") != 6
         && root.getInt("schema") != 5
         && root.getInt("schema") != 4
         && root.getInt("schema") != 3
@@ -299,6 +322,7 @@ public final class FoundationData extends SavedData {
               tag.getLong("revision"),
               !tag.contains("valid") || tag.getBoolean("valid")));
       var loadedRail = data.rails.getLast();
+      loadedRail.liftLock = tag.getBoolean("lift_lock");
       if (tag.contains("original_curve", Tag.TAG_COMPOUND))
         loadedRail.originalCurve = tag.getCompound("original_curve").copy();
       if (!railIds.add(loadedRail.id))
@@ -354,6 +378,11 @@ public final class FoundationData extends SavedData {
           || vehicle.ballast > 240)
         throw new IllegalArgumentException("Invalid loading/damping preset");
       vehicle.variant = tag.contains("variant") ? tag.getString("variant") : VARIANT;
+      if (tag.contains("dock")) vehicle.dock = BlockPos.of(tag.getLong("dock"));
+      if (dev.fourthdimension.vehicle.SpinningVehicle.is(vehicle)
+          && (!dev.fourthdimension.contract.NativeTrackFit.N_CONTACTS.equals(tag.getString("contact_layout"))
+              || !dev.fourthdimension.contract.NativeTrackFit.ABOVE.equals(tag.getString("mount_frame"))))
+        throw new IllegalArgumentException("Unknown S1 contact/mount definition");
       if (!VARIANT.equals(vehicle.variant)
           && !dev.fourthdimension.vehicle.WingVehicle.is(vehicle)
           && dev.fourthdimension.track.TrackDesign.byVariant(vehicle.variant).family
@@ -373,6 +402,21 @@ public final class FoundationData extends SavedData {
           throw new IllegalArgumentException("Duplicate native carrier identity");
         carrier.longitudinal = c.getDouble("longitudinal");
         carrier.childPivotOffset = c.getDouble("child_pivot_offset");
+        carrier.childPivotX = c.getDouble("child_pivot_x");
+        carrier.childPivotZ = c.getDouble("child_pivot_z");
+        if (c.contains("axis") && !vehicle.family.axis().name().equals(c.getString("axis")))
+          throw new IllegalArgumentException("Carrier axis disagrees with family");
+        carrier.latched = c.getBoolean("latched");
+        carrier.liftHeld = c.getBoolean("lift_held");
+        carrier.captureTarget = c.getDouble("capture_target");
+        if (c.contains("lift_from")) {
+          carrier.liftFrom = BlockPos.of(c.getLong("lift_from"));
+          carrier.liftTo = BlockPos.of(c.getLong("lift_to"));
+        }
+        if (!Double.isFinite(carrier.childPivotX) || !Double.isFinite(carrier.childPivotZ)
+            || Math.abs(carrier.childPivotX) > .5 || Math.abs(carrier.childPivotZ) > .5
+            || !Double.isFinite(carrier.captureTarget))
+          throw new IllegalArgumentException("Invalid joint pivot/capture state");
         carrier.ballast = c.getDouble("ballast");
         if (!Double.isFinite(carrier.longitudinal)
             || Math.abs(carrier.longitudinal) > 3
@@ -426,6 +470,8 @@ public final class FoundationData extends SavedData {
             || fixed.childPivotOffset != 0 || fixed.angle != 0 || fixed.omega != 0
             || vehicle.damping != 0 || vehicle.ballast != 0 || fixed.ballast != 0)
           throw new IllegalArgumentException("Invalid fixed Wing topology");
+      } else if (dev.fourthdimension.vehicle.SpinningVehicle.is(vehicle)) {
+        dev.fourthdimension.vehicle.SpinningVehicle.validate(vehicle);
       } else if (!VARIANT.equals(vehicle.variant)) {
         var layout = dev.fourthdimension.track.TrackDesign.byVariant(vehicle.variant);
         if (vehicle.carriers.size() != layout.groups()
@@ -440,6 +486,7 @@ public final class FoundationData extends SavedData {
           var carrier = vehicle.carriers.get(i);
           if (carrier.side != (i < layout.groups() / 2 ? -3 : 3)
               || carrier.longitudinal != (layout.pairedRows() ? (i % 2 == 0 ? -3 : 3) : 0)
+              || carrier.childPivotX != 0 || carrier.childPivotZ != 0
               || carrier.childPivotOffset != layout.childPivotOffset()
               || carrier.pivotHeight != 2 + layout.childPivotOffset())
             throw new IllegalArgumentException("Carrier order or pivot geometry changed");

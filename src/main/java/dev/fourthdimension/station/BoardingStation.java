@@ -124,9 +124,15 @@ public final class BoardingStation extends BaseEntityBlock {
       station.vehicle = v.chassis;
       station.setChanged();
     }
+    if (dev.fourthdimension.vehicle.SpinningVehicle.is(v)) {
+      v.dock = pos.immutable();
+      data.setDirty();
+    }
     player.displayClientMessage(
         Component.literal(
-            "Rear redstone input: capture on power; dispatch on release. Front: ready. Right side:"
+            (dev.fourthdimension.vehicle.SpinningVehicle.is(v)
+                ? "S1 dock: power requests capture; use Dispatch explicitly. Front: ready. Right side:"
+                : "Rear redstone input: capture on power; dispatch on release. Front: ready. Right side:")
                 + " restraints closed. "
                 + station.fault),
         false);

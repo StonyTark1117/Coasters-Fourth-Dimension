@@ -152,6 +152,7 @@ public final class TrackPlacement {
       // Repair matching track. Retain the old fingerprint so that action can prove this is the
       // same geometry, rather than silently accepting a changed curve as a new binding.
       rail.profile = restoring.profile;
+      rail.liftLock = restoring.liftLock;
       rail.geometryHash = restoring.geometryHash;
       rail.valid = false;
       rail.revision = restoring.revision + 1;

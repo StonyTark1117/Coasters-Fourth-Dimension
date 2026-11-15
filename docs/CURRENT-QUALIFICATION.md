@@ -24,6 +24,99 @@ FD403A–F and the FD404 aggregate are now reconciled. There is no remaining 0.4
 acceptance queue. The sections below retain case closure records and artifact
 history; they do not assign new work or add acceptance requirements.
 
+### Active 0.6 assignments — 2026-11-15
+
+The user authorized completing **0.6 with the same assignment, monitoring and
+commit/push workflow**. Follow [all eleven 0.6 execution cards](roadmap/0.6-motion.md).
+The canonical criteria and dependencies are unchanged. FD401–FD404 and all
+completed 0.5 outcomes remain closed; FD503 is the integrated starting input.
+S2 Spinning, 0.7+ implementation and publication are not activated.
+
+Checkout: `/home/braydon/Documents/Coasters: Fourth Dimension`, existing `main`,
+dispatch HEAD `d73d43b820b725fc9648c6a2daa9348dead16b22`, matching origin/main.
+Only the pre-existing untracked `logs/` remains; preserve it. No new worktree.
+
+| Complete assignment | Owner / chat | Ready work and prerequisites | Evidence / handoff |
+| --- | --- | --- | --- |
+| **FD1501A–C; FD601** | **0.6 lead — Spinning and integration**, `01a1dd1d-1468-7f81-8f31-5532ad7a178d` | Start S1 conventional Spinning from integrated Wing/FD501A and the accepted FD1501 specification. Own its complete mechanics/content/player outcome and final milestone reconciliation. Publish the passing A axis/loading/capture and occupied handoff in main as soon as ready. | `docs/evidence/0.6/spinning/`; lead owns central ROADMAP/PLAN/queue and all Git integration/commit/push. FD601 aggregates the three accepted families without another campaign. |
+| **FD1301A–C** | **0.6 Suspended**, `01a1dd1d-6e99-70d2-aef3-6dcebac10d72` | Own the complete Suspended outcome. Begin dimension/content/example preparation from accepted FD1301 now. Mechanics consumes integrated FD1501A and an explicit shared-file handoff. Implement real bounded Z-axis swing, load/damping, lift locks and dock capture; retain distinct interruption criteria. | `docs/evidence/0.6/suspended/`; publish qualified overhead interfaces and occupied evidence for Fixed Inverted as soon as A passes and is integrated. |
+| **FD1601A–C; FD1601** | **0.6 Fixed Inverted**, `01a1dd1d-c6a6-7be0-9cb5-2b033ac550da` | Own the complete Fixed Inverted outcome. Prepare its dimension/content/example work from accepted FD1601S now. Mechanics consumes Wing and integrated FD1301A overhead geometry, plus an explicit shared-file handoff. Fixed seating must not inherit a swing joint. | `docs/evidence/0.6/fixed-inverted/`; FD1601 reconciles its accepted A–C outcome, then feeds FD601. |
+
+**Shared-file ownership:** initially the lead owns all shared production source,
+registration, asset generators and common resources. Other owners may write their
+own evidence/preparation directories immediately. Before production edits by a
+dependent owner, the lead records an exact file/path ownership transfer here,
+including new family files and resources. One writer per shared file at a time;
+the former owner stops edits to transferred files until returned. Integrate the
+prerequisite contract into main before dependent implementation; do not build
+against an unfinished checkout. A handoff can occur after A without waiting for
+unrelated decorative polish or C reconciliation. The lead alone stages/commits/
+pushes and edits central status documents; family owners supply ready evidence.
+The user authorizes specific coordination/continuation messages among these three
+owners and from the coordinator, including resuming a ready dependent owner.
+
+**FD1501A handoff — 2026-11-15 05:14 UTC:** S1 mechanics and the normal
+occupied cycle are [accepted](evidence/0.6/spinning/README.md). Native test and
+twelve targeted math tests pass; occupied mount, lift/free motion, guarded stop,
+capture, open and unload pass. All owned runtimes are stopped and worlds retained.
+B/C remain assigned to the lead: corrected-example normal construction/content and
+the distinct power-loss/resume case. The original five and Wing stay closed.
+
+Upon integration of this handoff on `main`, production ownership transfers to
+**0.6 Suspended** (`01a1dd1d-6e99-70d2-aef3-6dcebac10d72`) for:
+
+- `src/main/java/dev/fourthdimension/**`, except the lead-retained
+  `vehicle/Spinning*.java` and `gametest/SpinningGameTests.java`.
+- Shared `src/main/resources/assets/fourthdimension/lang/en_us.json` and new
+  Suspended-only blockstates, models, textures, recipes and GameTest resources.
+- New Suspended-only test source, asset generator and player guide; its existing
+  `docs/evidence/0.6/suspended/**` remains its own.
+
+This is a single writer transfer of the shared Java/registration/runtime paths;
+the lead stops editing them until returned. The lead retains S1-specific files,
+`scripts/fd-private-client.py`, all central status and Git operations. Existing
+S1/original/Wing resources remain unchanged by this transfer. Fixed Inverted still
+waits for integrated Suspended A and the next explicit shared-file transfer.
+The lead sends the exact integration HEAD in the continuation message; no new
+branch, worktree or runtime is handed off.
+
+**Execution and monitoring:** complete compatible steps through the whole assigned
+outcome. Each owner keeps a compact current checkpoint: FD IDs, verified state,
+exact next action, integrated prerequisite commit, current file ownership, failed
+condition/changed precondition and runtime identity. Start there after compaction;
+old 0.4/0.5 goals and pending prose are history. Internal prerequisite waits are
+valid; use independent preparation, then consume the ready handoff. No new chats
+or subagents are needed for these assignments.
+
+The coordinator monitors every five minutes. Two inconclusive attempts require
+diagnosis before another attempt. Two checks with no concrete progress trigger
+inspection, not an automatic restart of useful long operations. Intervene with
+one changed actionable step and verify substantive action; avoid stacked prompts.
+Accepted mechanics/content/interaction/persistence evidence carries independently.
+No fresh hash, fixture or document change restarts acceptance. Name the violated
+required criterion before reopening a specific regression, then close it after
+the targeted fix passes. Native checks prove dynamics; occupied clients prove
+missing input/rendering claims. Use two real clients only for a changed or still
+uncovered synchronization claim. Gates reconcile evidence, never add test sweeps.
+
+**Input and runtime safeguards:** use current AGENTS Java21, persistent storage,
+1536M heap and 6GiB Minecraft-only scope defaults with measured adjustments.
+Coordinate graphical runs with the lead; verify CPU/memory/cgroup headroom and
+distinct owned display, world, port and scope. Reuse `scripts/fd-private-client.py`.
+Confirm connection, geometry, actual interaction hit, reach and expected readback
+before input. F3 alone is insufficient: 0.5 proved a track curve can replace the
+interaction ray with MISS, and rendered seat backs can exceed cushion hit shapes.
+Never click after an actual MISS. Calculate from current body/seat geometry after
+a miss; diagnose before another guess. Internal setup/source defects are authorized
+work, not permission requests. Save/stop owned clients, servers and Xvfb when done,
+verify inactive, and preserve worlds/evidence. Long saves require I/O/state diagnosis;
+do not kill a progressing save or repeatedly launch copies. Only a named prerequisite
+unresolvable with authorized tools/access is external; report exact human action once.
+
+**Completion:** lead reconciles FD601, integrates all accepted changes, commits and
+pushes main normally, verifies remote HEAD and owned-runtime cleanup. Coordinator
+then disables the monitor and reports completion. Do not activate 0.7 automatically.
+
 ### Milestone 0.5 — complete 2026-11-15
 
 All nineteen assigned cards are reconciled complete in [FD503 acceptance](evidence/0.5/acceptance.md).

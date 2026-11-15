@@ -15,6 +15,7 @@ public record TrackContract(
     CONTROL_RAILS,
     ROTARY_CLEARANCE,
     MAGNET_INTERFACE,
+    STATION_CAPTURE,
     SHUTTLE_CAPTURE
   }
 
