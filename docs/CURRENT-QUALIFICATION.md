@@ -49,9 +49,9 @@ Lead alone edits ROADMAP/PLAN/this queue and stages, commits and pushes.
 | FD1502B | Lead | Roller Ball specification preparation; content with stable mechanics. |
 | FD1502C | Lead | Cumulative Roller Ball acceptance. |
 | FD1801A | Conventional Flying | Complete: [native and occupied handoff](evidence/0.7/conventional-flying/README.md), actual occupied transition save/restart and targeted offline-COM correction passed; A runtime saved and stopped. |
-| FD1801B | Conventional Flying | Functional posture geometry/content alongside A. |
-| FD1801C | Conventional Flying | Cumulative seated/changeover/prone/return workflow. |
-| FD1801 | Conventional Flying | Reconcile its accepted A–C without waiting for New-generation. |
+| FD1801B | Conventional Flying | Complete: [recipes, construction, controls and finite visual review](evidence/0.7/conventional-flying/construction/README.md). |
+| FD1801C | Conventional Flying | Complete: construction combined with accepted occupied/restart workflow; all owned units saved/stopped. |
+| FD1801 | Conventional Flying | Complete independently from accepted A–C. New-generation consumes A and continues. |
 | FD1802A | New-generation Flying | Implement from the integrated Conventional A handoff; preparation complete and production ownership transferred below. |
 | FD1802B | New-generation Flying | Prepare combined seated/prone/yaw geometry and content. |
 | FD1802C | New-generation Flying | Complete both-posture targeting and transition workflow. |

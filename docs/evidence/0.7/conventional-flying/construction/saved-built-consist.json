@@ -1,0 +1,291 @@
+{
+  "vehicles": [
+    {
+      "alignment_required": 0,
+      "contact_layout": "coasters_n_contacts_v1",
+      "mount_frame": "overhead_n_v1",
+      "fault": "",
+      "boundTo": 60473139773513,
+      "carriers": [
+        {
+          "side": 0.0,
+          "rider_seats": [],
+          "lift_pending": 0,
+          "capture": 1,
+          "body": [
+            1173847073,
+            438847344,
+            -2135544105,
+            585601481
+          ],
+          "axis": "X",
+          "seats": [
+            -549755813888,
+            -274877906944,
+            0,
+            274877906944
+          ],
+          "ballast": 0.0,
+          "omega": 0.0,
+          "lift_geometry": 0,
+          "lift_entered": 0,
+          "pivot_height": -2.8125,
+          "angle": 0.0,
+          "capture_target": 0.0,
+          "lift_held": 0,
+          "latched": 1,
+          "longitudinal": 0.0,
+          "child_pivot_offset": 0.0,
+          "child_pivot_x": -0.5,
+          "child_pivot_z": 0.0,
+          "occupants": []
+        }
+      ],
+      "chassis": [
+        965059848,
+        -1789574592,
+        -1485313513,
+        1359876278
+      ],
+      "damping": 0.0,
+      "boundFrom": 60473139576905,
+      "ballast": 0.0,
+      "revision": 2,
+      "boarding_ready": 1,
+      "stopping": 1,
+      "flying": {
+        "phase": "SEATED_OPEN",
+        "hold_angle": 0.0,
+        "reference_velocity": 0.0,
+        "body": 1,
+        "version": 1,
+        "target": 0.0,
+        "consist": [
+          [
+            696434263,
+            -1263581605,
+            -1513549488,
+            258848284
+          ],
+          [
+            965059848,
+            -1789574592,
+            -1485313513,
+            1359876278
+          ]
+        ],
+        "reference_angle": 0.0,
+        "legs": 1,
+        "lock": "SEATED",
+        "progress": 1.0,
+        "interruption": "",
+        "dock_to": 60473139773513,
+        "dock_geometry": -5605264719772362431,
+        "dock_from": 60473139576905
+      },
+      "variant": "station_changeover_v1",
+      "restraints": 1,
+      "shuttle_detached": 0,
+      "family": "flying",
+      "suspended_consist": [],
+      "dock": 59373628006469,
+      "maintenance": 0
+    },
+    {
+      "alignment_required": 0,
+      "contact_layout": "coasters_n_contacts_v1",
+      "mount_frame": "overhead_n_v1",
+      "fault": "",
+      "boundTo": 60473139773513,
+      "carriers": [
+        {
+          "side": 0.0,
+          "rider_seats": [],
+          "lift_pending": 0,
+          "capture": 1,
+          "body": [
+            1799060341,
+            700926157,
+            -1577895785,
+            2011004103
+          ],
+          "axis": "X",
+          "seats": [
+            -549755813888,
+            -274877906944,
+            0,
+            274877906944
+          ],
+          "ballast": 0.0,
+          "omega": 0.0,
+          "lift_geometry": 0,
+          "lift_entered": 0,
+          "pivot_height": -2.8125,
+          "angle": 0.0,
+          "capture_target": 0.0,
+          "lift_held": 0,
+          "latched": 1,
+          "longitudinal": 0.0,
+          "child_pivot_offset": 0.0,
+          "child_pivot_x": -0.5,
+          "child_pivot_z": 0.0,
+          "occupants": []
+        }
+      ],
+      "chassis": [
+        696434263,
+        -1263581605,
+        -1513549488,
+        258848284
+      ],
+      "damping": 0.0,
+      "boundFrom": 60473139576905,
+      "ballast": 0.0,
+      "revision": 2,
+      "boarding_ready": 1,
+      "stopping": 1,
+      "flying": {
+        "phase": "SEATED_OPEN",
+        "hold_angle": 0.0,
+        "reference_velocity": 0.0,
+        "body": 1,
+        "version": 1,
+        "target": 0.0,
+        "consist": [
+          [
+            696434263,
+            -1263581605,
+            -1513549488,
+            258848284
+          ],
+          [
+            965059848,
+            -1789574592,
+            -1485313513,
+            1359876278
+          ]
+        ],
+        "reference_angle": 0.0,
+        "legs": 1,
+        "lock": "SEATED",
+        "progress": 1.0,
+        "interruption": "",
+        "dock_to": 60473139773513,
+        "dock_geometry": -5605264719772362431,
+        "dock_from": 60473139576905
+      },
+      "variant": "station_changeover_v1",
+      "restraints": 1,
+      "shuttle_detached": 0,
+      "family": "flying",
+      "suspended_consist": [],
+      "dock": 59373628006469,
+      "maintenance": 0
+    }
+  ],
+  "rails": [
+    {
+      "original_curve": {
+        "Starts": [
+          {
+            "V": [
+              0.5,
+              0.75,
+              0.5
+            ]
+          },
+          {
+            "V": [
+              0.5,
+              0.75,
+              48.5
+            ]
+          }
+        ],
+        "Girder": 0,
+        "Normals": [
+          {
+            "V": [
+              0.0,
+              1.0,
+              0.0
+            ]
+          },
+          {
+            "V": [
+              0.0,
+              1.0,
+              0.0
+            ]
+          }
+        ],
+        "Primary": 1,
+        "Positions": [
+          {
+            "Pos": [
+              0,
+              0,
+              0
+            ]
+          },
+          {
+            "Pos": [
+              0,
+              0,
+              48
+            ]
+          }
+        ],
+        "Axes": [
+          {
+            "V": [
+              0.0,
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "V": [
+              0.0,
+              0.0,
+              -1.0
+            ]
+          }
+        ],
+        "Material": "simulatedcoasters:coaster_track"
+      },
+      "magnets": [],
+      "profile": [
+        {
+          "distance": 0.0,
+          "slope": 0.0,
+          "angle": 0.0
+        },
+        {
+          "distance": 48.0,
+          "slope": 0.0,
+          "angle": 0.0
+        }
+      ],
+      "lift_lock": 0,
+      "geometry_hash": -5605264719772362431,
+      "revision": 0,
+      "valid": 1,
+      "appearance": {
+        "tint": -1,
+        "id": "fourthdimension:original"
+      },
+      "provider": "fourthdimension:original",
+      "variant": "station_changeover_v1",
+      "from": 60473139576905,
+      "to": 60473139773513,
+      "id": [
+        -424233895,
+        -529512842,
+        -1606162970,
+        -1943331079
+      ],
+      "family": "flying"
+    }
+  ]
+}

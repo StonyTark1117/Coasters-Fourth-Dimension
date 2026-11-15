@@ -222,3 +222,22 @@ Remaining: craft new Flying Track/Car recipes, normal track application/car plac
 Chain8, inventory/placed view and content reconciliation. Prior occupied views and
 all mechanics acceptance carry forward unchanged. These are same task-owned
 resources317/25652–3, currently stopped; startup requires headroom/ownership checks.
+
+
+## Final Conventional outcome complete
+
+A integrated5fe557f2; main subsequently0a49c089 (Axis B/C). Conventional B/C
+normal recipes,48-block track connection, two crafted car placements, native
+Chain8 and final station rebind passed. Flying recipe collision with Axis cyan
+corrected to light_blue in source/generator/guide and tested byte-identical override
+via normal reload/crafting. Complete criterion mapping in construction/README.md.
+All owned317 units inactive/PID0; final workshop saved with crafted two-car consist,
+all earlier restart/occupied checkpoints retained. No remaining Conventional case.
+Lead has final integration handoff, remains sole stager/committer/central-status owner.
+
+NG owner requested additive dispatch in FlyingRiderPose and FlyingSeatRiderMixin;
+those edits now accept NG and compute posture relative to its yaw deck, preserving
+Conventional branch. Transferred these NG-specific edits to NG owner for coherent
+compile/NG validation; excluded from Conventional content commit. Other uncommitted
+production/Yaw/NewGeneration files belong to active NG work, preexisting logs/ untouched.
+Do not launch or replay Conventional merely for the consumer's new JAR.

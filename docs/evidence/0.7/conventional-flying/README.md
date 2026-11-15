@@ -2,11 +2,12 @@
 
 Owner `01a1dd1d-6e99-70d2-aef3-6dcebac10d72`, 2026-11-15. Primary checkout
 `/home/braydon/Documents/Coasters: Fourth Dimension`, branch `main`.
-Production first integrated by the lead in `2b805fcb`; the final offline-origin
-correction is supplied with this handoff. Lead alone stages and commits.
+Production first integrated by the lead in `2b805fcb`; mechanics and the final
+offline-origin correction integrated in `5fe557f2`. Lead alone stages and commits.
 
-**FD1801A mechanics complete.** FD1801B/C construction/content reconciliation
-continues independently. No New-generation behavior is claimed. The [player
+**FD1801A/B/C and FD1801 complete.** [Construction/content evidence](construction/README.md)
+closes the remaining recipe, placement, coupling and visual claims cumulatively.
+No New-generation behavior is claimed. The [player
 guide](../../../FLYING.md) and [specification](../../../design/0.5/FD1801S-conventional-flying.md)
 define the supported vehicle. No older family or release profile was reopened.
 

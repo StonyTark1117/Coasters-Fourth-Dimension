@@ -1,0 +1,737 @@
+[
+  {
+    "at": "20261115T091311.334147Z",
+    "action": "use",
+    "values": [],
+    "expected": "Open reachable vanilla crafting table from supplied ingredient fixture",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1801-flying-20261115/evidence/20261115T091311.334147Z-before.png",
+    "modifier": null,
+    "mouse_button": 3,
+    "mouse_binding": "use/right",
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1801-flying-20261115/evidence/20261115T091311.334147Z-after.png"
+  },
+  {
+    "at": "20261115T091331.863836Z",
+    "action": "move",
+    "values": [
+      "425",
+      "285"
+    ],
+    "expected": "Respawn after unloaded construction area lacked platform; platform now built",
+    "connection": "menu action; no gameplay claim",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1801-flying-20261115/evidence/20261115T091331.863836Z-before.png",
+    "modifier": null,
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1801-flying-20261115/evidence/20261115T091331.863836Z-after.png"
+  },
+  {
+    "at": "20261115T091332.385910Z",
+    "action": "click",
+    "values": [
+      "1"
+    ],
+    "expected": "Respawn Dev before applying corrected supported construction fixture",
+    "connection": "menu action; no gameplay claim",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1801-flying-20261115/evidence/20261115T091332.385910Z-before.png",
+    "modifier": null,
+    "mouse_button": 1,
+    "mouse_binding": "attack/left",
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1801-flying-20261115/evidence/20261115T091332.385910Z-after.png"
+  },
+  {
+    "at": "20261115T091333.626077Z",
+    "action": "use",
+    "values": [],
+    "expected": "Open crafting table after respawn on completed platform",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1801-flying-20261115/evidence/20261115T091333.626077Z-before.png",
+    "modifier": null,
+    "mouse_button": 3,
+    "mouse_binding": "use/right",
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1801-flying-20261115/evidence/20261115T091333.626077Z-after.png"
+  },
+  {
+    "at": "20261115T091350.147745Z",
+    "action": "move",
+    "values": [
+      "280",
+      "160"
+    ],
+    "expected": "Select recipe book button",
+    "connection": "menu action; no gameplay claim",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1801-flying-20261115/evidence/20261115T091350.147745Z-before.png",
+    "modifier": null,
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1801-flying-20261115/evidence/20261115T091350.147745Z-after.png"
+  },
+  {
+    "at": "20261115T091350.673906Z",
+    "action": "click",
+    "values": [
+      "1"
+    ],
+    "expected": "Show normal crafting recipe book",
+    "connection": "menu action; no gameplay claim",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1801-flying-20261115/evidence/20261115T091350.673906Z-before.png",
+    "modifier": null,
+    "mouse_button": 1,
+    "mouse_binding": "attack/left",
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1801-flying-20261115/evidence/20261115T091350.673906Z-after.png"
+  },
+  {
+    "at": "20261115T091405.366086Z",
+    "action": "move",
+    "values": [
+      "229",
+      "110"
+    ],
+    "expected": "Select recipe search field",
+    "connection": "menu action; no gameplay claim",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1801-flying-20261115/evidence/20261115T091405.366086Z-before.png",
+    "modifier": null,
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1801-flying-20261115/evidence/20261115T091405.366086Z-after.png"
+  },
+  {
+    "at": "20261115T091405.888915Z",
+    "action": "click",
+    "values": [
+      "1"
+    ],
+    "expected": "Focus recipe search",
+    "connection": "menu action; no gameplay claim",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1801-flying-20261115/evidence/20261115T091405.888915Z-before.png",
+    "modifier": null,
+    "mouse_button": 1,
+    "mouse_binding": "attack/left",
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1801-flying-20261115/evidence/20261115T091405.888915Z-after.png"
+  },
+  {
+    "at": "20261115T091406.490439Z",
+    "action": "type",
+    "values": [
+      "flying"
+    ],
+    "expected": "Filter unlocked recipes to Flying Track and Conventional Flying Car",
+    "connection": "menu action; no gameplay claim",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1801-flying-20261115/evidence/20261115T091406.490439Z-before.png",
+    "modifier": null,
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1801-flying-20261115/evidence/20261115T091406.490439Z-after.png"
+  },
+  {
+    "at": "20261115T091423.998156Z",
+    "action": "move",
+    "values": [
+      "155",
+      "160"
+    ],
+    "expected": "Select Flying Track recipe icon",
+    "connection": "menu action; no gameplay claim",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1801-flying-20261115/evidence/20261115T091423.998156Z-before.png",
+    "modifier": null,
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1801-flying-20261115/evidence/20261115T091423.998156Z-after.png"
+  },
+  {
+    "at": "20261115T091424.512126Z",
+    "action": "click",
+    "values": [
+      "1"
+    ],
+    "expected": "Fill recipe grid for two sixteen-track batches using supplied iron/copper/cyan",
+    "connection": "menu action; no gameplay claim",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1801-flying-20261115/evidence/20261115T091424.512126Z-before.png",
+    "modifier": "Shift_L",
+    "mouse_button": 1,
+    "mouse_binding": "attack/left",
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1801-flying-20261115/evidence/20261115T091424.512126Z-after.png"
+  },
+  {
+    "at": "20261115T091438.152667Z",
+    "action": "move",
+    "values": [
+      "669",
+      "160"
+    ],
+    "expected": "Select sixteen-track output",
+    "connection": "menu action; no gameplay claim",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1801-flying-20261115/evidence/20261115T091438.152667Z-before.png",
+    "modifier": null,
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1801-flying-20261115/evidence/20261115T091438.152667Z-after.png"
+  },
+  {
+    "at": "20261115T091438.675640Z",
+    "action": "click",
+    "values": [
+      "1"
+    ],
+    "expected": "Craft thirty-two Flying Track into survival inventory, consume two ingredient batches",
+    "connection": "menu action; no gameplay claim",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1801-flying-20261115/evidence/20261115T091438.675640Z-before.png",
+    "modifier": "Shift_L",
+    "mouse_button": 1,
+    "mouse_binding": "attack/left",
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1801-flying-20261115/evidence/20261115T091438.675640Z-after.png"
+  },
+  {
+    "at": "20261115T091521.869455Z",
+    "action": "key",
+    "values": [
+      "Escape"
+    ],
+    "expected": "Return unused cyan recipe ingredients before correcting duplicate recipe",
+    "connection": "menu action; no gameplay claim",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1801-flying-20261115/evidence/20261115T091521.869455Z-before.png",
+    "modifier": null,
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1801-flying-20261115/evidence/20261115T091521.869455Z-after.png"
+  },
+  {
+    "at": "20261115T091537.736229Z",
+    "action": "use",
+    "values": [],
+    "expected": "Reopen crafting table for unique light blue Flying recipe",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1801-flying-20261115/evidence/20261115T091537.736229Z-before.png",
+    "modifier": null,
+    "mouse_button": 3,
+    "mouse_binding": "use/right",
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1801-flying-20261115/evidence/20261115T091537.736229Z-after.png"
+  },
+  {
+    "at": "20261115T091557.463281Z",
+    "action": "move",
+    "values": [
+      "229",
+      "110"
+    ],
+    "expected": "Select recipe search field after reload",
+    "connection": "menu action; no gameplay claim",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1801-flying-20261115/evidence/20261115T091557.463281Z-before.png",
+    "modifier": null,
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1801-flying-20261115/evidence/20261115T091557.463281Z-after.png"
+  },
+  {
+    "at": "20261115T091557.991741Z",
+    "action": "click",
+    "values": [
+      "1"
+    ],
+    "expected": "Focus recipe search",
+    "connection": "menu action; no gameplay claim",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1801-flying-20261115/evidence/20261115T091557.991741Z-before.png",
+    "modifier": null,
+    "mouse_button": 1,
+    "mouse_binding": "attack/left",
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1801-flying-20261115/evidence/20261115T091557.991741Z-after.png"
+  },
+  {
+    "at": "20261115T091558.603654Z",
+    "action": "type",
+    "values": [
+      "flying"
+    ],
+    "expected": "Filter Flying recipes",
+    "connection": "menu action; no gameplay claim",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1801-flying-20261115/evidence/20261115T091558.603654Z-before.png",
+    "modifier": null,
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1801-flying-20261115/evidence/20261115T091558.603654Z-after.png"
+  },
+  {
+    "at": "20261115T091610.146640Z",
+    "action": "move",
+    "values": [
+      "155",
+      "160"
+    ],
+    "expected": "Select corrected Flying Track recipe",
+    "connection": "menu action; no gameplay claim",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1801-flying-20261115/evidence/20261115T091610.146640Z-before.png",
+    "modifier": null,
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1801-flying-20261115/evidence/20261115T091610.146640Z-after.png"
+  },
+  {
+    "at": "20261115T091610.665189Z",
+    "action": "click",
+    "values": [
+      "1"
+    ],
+    "expected": "Fill Flying Track grid with light blue dye, unique output sixteen Flying Track",
+    "connection": "menu action; no gameplay claim",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1801-flying-20261115/evidence/20261115T091610.665189Z-before.png",
+    "modifier": null,
+    "mouse_button": 1,
+    "mouse_binding": "attack/left",
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1801-flying-20261115/evidence/20261115T091610.665189Z-after.png"
+  },
+  {
+    "at": "20261115T091622.613404Z",
+    "action": "move",
+    "values": [
+      "669",
+      "160"
+    ],
+    "expected": "Select corrected sixteen Flying Track output",
+    "connection": "menu action; no gameplay claim",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1801-flying-20261115/evidence/20261115T091622.613404Z-before.png",
+    "modifier": null,
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1801-flying-20261115/evidence/20261115T091622.613404Z-after.png"
+  },
+  {
+    "at": "20261115T091623.132014Z",
+    "action": "click",
+    "values": [
+      "1"
+    ],
+    "expected": "Craft corrected Flying Track; total32 and no conflicting next output",
+    "connection": "menu action; no gameplay claim",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1801-flying-20261115/evidence/20261115T091623.132014Z-before.png",
+    "modifier": "Shift_L",
+    "mouse_button": 1,
+    "mouse_binding": "attack/left",
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1801-flying-20261115/evidence/20261115T091623.132014Z-after.png"
+  },
+  {
+    "at": "20261115T091634.638200Z",
+    "action": "move",
+    "values": [
+      "205",
+      "160"
+    ],
+    "expected": "Select Conventional Flying Car recipe",
+    "connection": "menu action; no gameplay claim",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1801-flying-20261115/evidence/20261115T091634.638200Z-before.png",
+    "modifier": null,
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1801-flying-20261115/evidence/20261115T091634.638200Z-after.png"
+  },
+  {
+    "at": "20261115T091635.158310Z",
+    "action": "click",
+    "values": [
+      "1"
+    ],
+    "expected": "Fill two car batches with four red seats, iron, bearing and crafted Flying Track each",
+    "connection": "menu action; no gameplay claim",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1801-flying-20261115/evidence/20261115T091635.158310Z-before.png",
+    "modifier": "Shift_L",
+    "mouse_button": 1,
+    "mouse_binding": "attack/left",
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1801-flying-20261115/evidence/20261115T091635.158310Z-after.png"
+  },
+  {
+    "at": "20261115T091649.776024Z",
+    "action": "move",
+    "values": [
+      "669",
+      "160"
+    ],
+    "expected": "Select Flying Car output",
+    "connection": "menu action; no gameplay claim",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1801-flying-20261115/evidence/20261115T091649.776024Z-before.png",
+    "modifier": null,
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1801-flying-20261115/evidence/20261115T091649.776024Z-after.png"
+  },
+  {
+    "at": "20261115T091650.291879Z",
+    "action": "click",
+    "values": [
+      "1"
+    ],
+    "expected": "Craft two Conventional Flying Cars into survival inventory",
+    "connection": "menu action; no gameplay claim",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1801-flying-20261115/evidence/20261115T091650.291879Z-before.png",
+    "modifier": "Shift_L",
+    "mouse_button": 1,
+    "mouse_binding": "attack/left",
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1801-flying-20261115/evidence/20261115T091650.291879Z-after.png"
+  },
+  {
+    "at": "20261115T091702.866249Z",
+    "action": "key",
+    "values": [
+      "Escape"
+    ],
+    "expected": "Close table with two crafted cars and thirty Flying Track",
+    "connection": "menu action; no gameplay claim",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1801-flying-20261115/evidence/20261115T091702.866249Z-before.png",
+    "modifier": null,
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1801-flying-20261115/evidence/20261115T091702.866249Z-after.png"
+  },
+  {
+    "at": "20261115T091703.676920Z",
+    "action": "key",
+    "values": [
+      "9"
+    ],
+    "expected": "Hold normally crafted Flying Track",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1801-flying-20261115/evidence/20261115T091703.676920Z-before.png",
+    "modifier": null,
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1801-flying-20261115/evidence/20261115T091703.676920Z-after.png"
+  },
+  {
+    "at": "20261115T091704.412904Z",
+    "action": "key",
+    "values": [
+      "F3"
+    ],
+    "expected": "Verify first upstream anchor hit before track selection",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1801-flying-20261115/evidence/20261115T091704.412904Z-before.png",
+    "modifier": null,
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1801-flying-20261115/evidence/20261115T091704.412904Z-after.png"
+  },
+  {
+    "at": "20261115T091717.206978Z",
+    "action": "use",
+    "values": [],
+    "expected": "Select first Coasters anchor with Flying Track; stack gains first endpoint",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1801-flying-20261115/evidence/20261115T091717.206978Z-before.png",
+    "modifier": null,
+    "mouse_button": 3,
+    "mouse_binding": "use/right",
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1801-flying-20261115/evidence/20261115T091717.206978Z-after.png"
+  },
+  {
+    "at": "20261115T091737.502011Z",
+    "action": "use",
+    "values": [],
+    "expected": "Connect 48-block native span as Flying Track, consume12 from crafted30 and clear selection",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1801-flying-20261115/evidence/20261115T091737.502011Z-before.png",
+    "modifier": null,
+    "mouse_button": 3,
+    "mouse_binding": "use/right",
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1801-flying-20261115/evidence/20261115T091737.502011Z-after.png"
+  },
+  {
+    "at": "20261115T091749.445259Z",
+    "action": "key",
+    "values": [
+      "5"
+    ],
+    "expected": "Hold first normally crafted Conventional Flying Car aimed at new native span",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1801-flying-20261115/evidence/20261115T091749.445259Z-before.png",
+    "modifier": null,
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1801-flying-20261115/evidence/20261115T091749.445259Z-after.png"
+  },
+  {
+    "at": "20261115T091803.033673Z",
+    "action": "use",
+    "values": [],
+    "expected": "Place first crafted Flying Car at aimed track interior z26.5, consume item and create native chassis/row",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1801-flying-20261115/evidence/20261115T091803.033673Z-before.png",
+    "modifier": null,
+    "mouse_button": 3,
+    "mouse_binding": "use/right",
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1801-flying-20261115/evidence/20261115T091803.033673Z-after.png"
+  },
+  {
+    "at": "20261115T091817.398798Z",
+    "action": "key",
+    "values": [
+      "8"
+    ],
+    "expected": "Select second crafted Flying Car at calculated eight-block-separated aim",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1801-flying-20261115/evidence/20261115T091817.398798Z-before.png",
+    "modifier": null,
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1801-flying-20261115/evidence/20261115T091817.398798Z-after.png"
+  },
+  {
+    "at": "20261115T091830.577663Z",
+    "action": "use",
+    "values": [],
+    "expected": "Place second crafted Flying Car eight blocks from first, consume final car item",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1801-flying-20261115/evidence/20261115T091830.577663Z-before.png",
+    "modifier": null,
+    "mouse_button": 3,
+    "mouse_binding": "use/right",
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1801-flying-20261115/evidence/20261115T091830.577663Z-after.png"
+  },
+  {
+    "at": "20261115T091842.685198Z",
+    "action": "key",
+    "values": [
+      "2"
+    ],
+    "expected": "Empty hand for station binding",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1801-flying-20261115/evidence/20261115T091842.685198Z-before.png",
+    "modifier": null,
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1801-flying-20261115/evidence/20261115T091842.685198Z-after.png"
+  },
+  {
+    "at": "20261115T091852.735964Z",
+    "action": "use",
+    "values": [],
+    "expected": "Bind first nearby Flying Car to station through normal empty-hand use, open editor",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1801-flying-20261115/evidence/20261115T091852.735964Z-before.png",
+    "modifier": null,
+    "mouse_button": 3,
+    "mouse_binding": "use/right",
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1801-flying-20261115/evidence/20261115T091852.735964Z-after.png"
+  },
+  {
+    "at": "20261115T091902.105248Z",
+    "action": "key",
+    "values": [
+      "Escape"
+    ],
+    "expected": "Close first bound station editor",
+    "connection": "menu action; no gameplay claim",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1801-flying-20261115/evidence/20261115T091902.105248Z-before.png",
+    "modifier": null,
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1801-flying-20261115/evidence/20261115T091902.105248Z-after.png"
+  },
+  {
+    "at": "20261115T091913.405043Z",
+    "action": "use",
+    "values": [],
+    "expected": "Bind second car to second station through normal empty-hand use",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1801-flying-20261115/evidence/20261115T091913.405043Z-before.png",
+    "modifier": null,
+    "mouse_button": 3,
+    "mouse_binding": "use/right",
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1801-flying-20261115/evidence/20261115T091913.405043Z-after.png"
+  },
+  {
+    "at": "20261115T091936.553970Z",
+    "action": "key",
+    "values": [
+      "Escape"
+    ],
+    "expected": "Close second station editor after binding",
+    "connection": "menu action; no gameplay claim",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1801-flying-20261115/evidence/20261115T091936.553970Z-before.png",
+    "modifier": null,
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1801-flying-20261115/evidence/20261115T091936.553970Z-after.png"
+  },
+  {
+    "at": "20261115T091937.405777Z",
+    "action": "key",
+    "values": [
+      "6"
+    ],
+    "expected": "Hold normal Minecraft Chain for eight-block native coupling",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1801-flying-20261115/evidence/20261115T091937.405777Z-before.png",
+    "modifier": null,
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1801-flying-20261115/evidence/20261115T091937.405777Z-after.png"
+  },
+  {
+    "at": "20261115T091952.922988Z",
+    "action": "use",
+    "values": [],
+    "expected": "Select first ready Flying bearing with normal Chain; chain target component expected",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1801-flying-20261115/evidence/20261115T091952.922988Z-before.png",
+    "modifier": null,
+    "mouse_button": 3,
+    "mouse_binding": "use/right",
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1801-flying-20261115/evidence/20261115T091952.922988Z-after.png"
+  },
+  {
+    "at": "20261115T092007.855415Z",
+    "action": "use",
+    "values": [],
+    "expected": "Link second ready Flying bearing at eight-block distance; native linked distance8, consume one Chain",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1801-flying-20261115/evidence/20261115T092007.855415Z-before.png",
+    "modifier": null,
+    "mouse_button": 3,
+    "mouse_binding": "use/right",
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1801-flying-20261115/evidence/20261115T092007.855415Z-after.png"
+  },
+  {
+    "at": "20261115T092018.277404Z",
+    "action": "key",
+    "values": [
+      "2"
+    ],
+    "expected": "Select empty hand for final consist rebind",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1801-flying-20261115/evidence/20261115T092018.277404Z-before.png",
+    "modifier": null,
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1801-flying-20261115/evidence/20261115T092018.277404Z-after.png"
+  },
+  {
+    "at": "20261115T092027.337346Z",
+    "action": "use",
+    "values": [],
+    "expected": "Rebind final linked Flying consist at station; clear consist-changed fault and retain both cars",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1801-flying-20261115/evidence/20261115T092027.337346Z-before.png",
+    "modifier": "Shift_L",
+    "mouse_button": 3,
+    "mouse_binding": "use/right",
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1801-flying-20261115/evidence/20261115T092027.337346Z-after.png"
+  },
+  {
+    "at": "20261115T092059.181898Z",
+    "action": "key",
+    "values": [
+      "Escape"
+    ],
+    "expected": "Close final linked consist editor after successful rebind",
+    "connection": "menu action; no gameplay claim",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1801-flying-20261115/evidence/20261115T092059.181898Z-before.png",
+    "modifier": null,
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1801-flying-20261115/evidence/20261115T092059.181898Z-after.png"
+  },
+  {
+    "at": "20261115T092059.923424Z",
+    "action": "key",
+    "values": [
+      "F3"
+    ],
+    "expected": "Hide debug text for placed model review",
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "window": "2097160",
+    "geometry": "WINDOW=2097160\nX=0\nY=0\nWIDTH=854\nHEIGHT=480\nSCREEN=0",
+    "before": "/mnt/NVME4/fourthdimension-runs/fd1801-flying-20261115/evidence/20261115T092059.923424Z-before.png",
+    "modifier": null,
+    "state": "sent; inspect readback",
+    "after": "/mnt/NVME4/fourthdimension-runs/fd1801-flying-20261115/evidence/20261115T092059.923424Z-after.png"
+  }
+]
