@@ -26,8 +26,8 @@ body and share angle/omega. Do not create two independently animated halves.
 | --- | --- |
 | Family / variant | `roller_ball / vertical_zigzag_v1`, dedicated N-contact track with transverse-rotor clearance and lift/station capture |
 | Pivot | `(0,2.0,0)` at graph origin; axle X; carrier center of mass below axle at capture |
-| Seats | X=`-3.75,-2.75,2.75,3.75`, Y=.50, Z=0 at capture; two outward original pairs, all face +Z; harness plus foot support |
-| Rotating bounds | Each side pod X=[2.25,4.25] or [-4.25,-2.25]; all passenger/restraint points within radius 2.50 in YZ from pivot; axle radius .125 |
+| Seats | Four seats at `(X,Y,Z)=(±3.25,1.0,±.50)` at capture; front/back pairs face outward ±Z, all on the same carrier; harness plus foot support |
+| Rotating bounds | Each side pod X=[2.25,4.25] or [-4.25,-2.25]; occupied closed Y=[-.25,2.50], Z=[-1,1], hence radius≤sqrt(2.25²+1²)=2.46222 in YZ from pivot; reserved rotation radius2.50; axle radius .125 |
 | Reserved envelope | half-width 4.50; aboveO 4.75; belowO .75; half-length 2.75; rail/support structure excluded from both pod cylinders |
 | Relative motion | Full turns permitted, unwrapped angle; passive `c/I=.6 s⁻¹`; over-speed damping above 2 rad/s, fault/brake above 3 rad/s; no scenery target mode |
 | Loading | Four equal .8-unit riders; each seat mass at its actual carrier-relative torso point; add 1 native mass unit of centered under-axle ballast at Y=1.0; log actual assembled inertia |
@@ -91,7 +91,7 @@ route/speed validation and the original geometry, not a new graph solver.
 The retained prototype plan is one occupied car on the full smooth up/zigzag/return
 route: record native edge retention and signed speed, carrier angle/omega, actual
 mass, restraint/latch state and transforms at summit, tightest bend and return.
-Use empty then asymmetric declared load to distinguish inertial response; stop
+Use empty then fore/aft asymmetric declared load to distinguish inertial response; stop
 and restart once at a summit-release boundary, and confirm the same car/seat
 identities. Inspect the full pod sweep at minimum radius; reject N ordinary/wrong
 family and a requested second car. Pass means no edge hop, support loss, forbidden

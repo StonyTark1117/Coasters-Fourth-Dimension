@@ -1,0 +1,21 @@
+{
+  "status": "PASS",
+  "scope": "Analytic dimensions, coordinate/heading composition and local links only; no native/client run",
+  "owned_design_files": 12,
+  "local_links_checked": 24,
+  "compound_corner_samples": 5016,
+  "maximum_heading_error": 1.5700924586837752e-16,
+  "compound_radius": 1.9339079605813716,
+  "clearance_margins_blocks": {
+    "pipeline_inner_rail_to_rider": 0.3687499999999999,
+    "spinning_lower_body_to_native_top_wheel": 0.30000000000000004,
+    "suspended_cabin_to_native_underbrace": 0.26966991411008945,
+    "axis_reserved_sweep_to_native_running_outboard": 0.3799999999999999,
+    "fixed_inverted_head_to_underbrace": 0.8,
+    "conventional_flying_to_original_underbrace_REJECTED": 0.18445055785964892,
+    "conventional_flying_to_relocated_brace": 0.33445055785964883,
+    "new_flying_sphere_to_native_underbrace": 0.36609203941862845,
+    "powered_inverted_head_to_underbrace": 0.8
+  },
+  "later_required": "Actual original meshes, native solver stability, coupled curves, occupied transforms and lifecycle remain their existing A/B/C claims"
+}
