@@ -71,9 +71,17 @@ public final class Fd917MechanismFixture {
       if(cars.size()!=1||!cars.getFirst().stopping)throw new IllegalArgumentException("One stopped Pipeline fixture required");
       var motors=new java.util.HashSet<net.minecraft.core.BlockPos>();
       for(var rail:data.rails)if(rail.family==dev.fourthdimension.contract.Family.PIPELINE)
-        for(var pos:java.util.List.of(rail.from,rail.to))for(var direction:net.minecraft.core.Direction.values())
-          if(level.hasChunkAt(pos.relative(direction))&&level.getBlockEntity(pos.relative(direction)) instanceof com.simibubi.create.content.kinetics.motor.CreativeMotorBlockEntity motor
-              &&motors.add(motor.getBlockPos()))motor.generatedSpeed.setValue(-motor.generatedSpeed.getValue());
+        for(var pos:java.util.List.of(rail.from,rail.to))for(var direction:net.minecraft.core.Direction.values())for(int distance=1;distance<=3;distance++) {
+          var target=pos.relative(direction,distance);
+          if(!level.hasChunkAt(target))break;
+          if(level.getBlockEntity(target) instanceof com.simibubi.create.content.kinetics.motor.CreativeMotorBlockEntity motor) {
+            if(motors.add(target))motor.generatedSpeed.setValue(-motor.generatedSpeed.getValue());
+            break;
+          }
+          var state=level.getBlockState(target);
+          // Native examples place the motor behind two coaxial shafts.
+          if(!com.simibubi.create.AllBlocks.SHAFT.has(state)||state.getValue(net.minecraft.world.level.block.state.properties.BlockStateProperties.AXIS)!=direction.getAxis())break;
+        }
       ctx.getSource().sendSuccess(()->Component.literal("FD917_PIPELINE_REVERSE changedMotors="+motors.size()),false);return motors.size();
     }));
     event.getDispatcher().register(root);
