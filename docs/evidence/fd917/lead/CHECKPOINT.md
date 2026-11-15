@@ -1,3 +1,29 @@
+# Current lead checkpoint — 2026-11-15 19:59 UTC
+
+Primary checkout `/home/braydon/Documents/Coasters: Fourth Dimension`, branch
+`main`, HEAD `b07574fa` pushed. Art handoff and stable Mechanisms implementation
+are integrated. S2 example repair is `7a32be1f`, targeted test passed. Remaining
+dirty files are lead queue/families/package evidence, Mechanisms evidence, and
+pre-existing `logs/`; no implementation edit pending. Keep exact ownership.
+
+Axis occupied fit/full roll/normal alive unload passed; see families/README.md.
+Roller Ball normal mount/open/closed passed and route is running. Owned family
+run root `/mnt/NVME4/fourthdimension-runs/fd917-lead-families-20261115`, display318,
+ports25658/25659, units `fd917-lead-families-20261115-{client,server,xvfb}.service`.
+Client1536M/6G, server2048M/4G, Java21. Current camera faces real rider; F1 hidden.
+Roller chassis35dd29d6-056c-4b22-b194-0b90aa6d2960, carrier773ad945-1895-4f15-98b4-476de2f3237b.
+Readback watcher session24500, bounded video session55299, both started19:57UTC.
+Watch current connection and recorded readbacks; no more input diagnostics.
+Preserve/save/stop this run after Roller completion. Previous lead and observer
+runs are already stopped; do not touch other owners' runtimes.
+
+Mechanisms319 retains NG Flying/Powered/Pipeline/final equipment. Art accepted
+fresh evidence-only Dive hold cue and Free Spin magnetic gap checks on private317.
+Their prior Art baseline is complete/stopped and its evidence remains accepted.
+No FD1000 freeze or release qualification/publication authorized.
+
+---
+
 # FD917 lead checkpoint — 2026-11-15
 
 Owner chat: `01a1dd1d-1468-7f81-8f31-5532ad7a178d`.

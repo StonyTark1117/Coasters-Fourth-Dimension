@@ -46,6 +46,25 @@ implementation commits; no new chats, subagents or worktrees are needed.
 | Art / pipeline `01a1dd1d-6e99-70d2-aef3-6dcebac10d72` | VP01 common style/reference sheet and full 17-style resource/retain/change inventory; VP02 authoritative asset pipeline/materials; VP06 batches A/B (Arrow, Legacy, Free Spin, Revised, PAX, Wing, Fixed Inverted, Suspended, Dive); VP07 shared item/teaching/optional-appearance reconciliation. Supply own affected VP08 evidence. | Establish source ownership and deterministic exports with a seat/joint/equipment/track material sample; settle batch A/B briefs and common visual interfaces. Publish reusable material/export handoff early. Dependent Arrow/PAX final art follows the relevant proven mechanism; independent silhouettes may proceed. |
 | Mechanisms / articulated art `01a1dd1d-c6a6-7be0-9cb5-2b033ac550da` | VP05 complete equipment/state presentation (PAX drive/catch, restraints, locks, magnets, hold/control cues); VP04 Pipeline wheel path; VP06 batches C/D (Axis, Roller Ball, both Flying variants, S1, S2, Pipeline, Powered Inverted Yaw). Supply per-family items/teaching/optional configurations to VP07 and own affected VP08 evidence. | Inspect actual state/pose sources and PAX placement/catch/drive topology; produce gray stateful assemblies and resolve batch C/D restraints/joints with Art. Coordinate common state/interpolation with lead, then deliver complete equipment and family outcomes on stable materials/interfaces. |
 
+**Bounded evidence transfer accepted — 2026-11-15 19:55 UTC:** Art accepts
+Mechanisms' remaining Dive hold cue versus real hold state and Free Spin magnetic
+reaction/field airgap observations. Art uses its own preserved world and private317
+under a fresh run/cleanup record. This is evidence-only; source ownership and
+accepted Art family/item/appearance results are unchanged. Mechanisms retains
+New-generation Flying, Powered Inverted, Pipeline and its remaining equipment.
+
+**Current integration checkpoint — 2026-11-15 19:52 UTC:** Art's assigned outcome
+is complete with all owned runtime stopped; its exact handoff and the owner-approved
+stable Mechanisms implementation/resources are integrated in `b07574fa`. The
+S2 example delayed-bind regression is repaired in `7a32be1f` with one passing
+[targeted native check](evidence/fd917/lead/s2-example-lifecycle.md). Accepted VP03
+and observer evidence remain closed. Lead is collecting transferred Axis/Roller
+Ball fit and representative-motion evidence; Mechanisms retains New-generation
+Flying, Powered Inverted, Pipeline and final equipment/cue views. S2 occupied
+roll/yaw/capture is complete. Next actions in the initial allocation table above
+are historical setup instructions, superseded by this checkpoint. Whole FD917
+remains in progress until remaining evidence and owned-runtime cleanup reconcile.
+
 **Ownership:** after this initial coordinator assignment, lead alone edits central
 ROADMAP/PLAN/queue, the production guide's shared contract decisions and release
 allocation, and stages/commits/pushes. All existing shared source/runtime/client/
@@ -166,14 +185,19 @@ existing paths. This resolves remaining placeholder casings without behavior cha
   transition and current Track Styles boundary. Its accepted Wing, Fixed
   Inverted, Suspended, Arrow lifecycle and item/static-Ponder views stay closed.
 - Mechanisms: remaining Pipeline contact/route observations; PAX drive/catch and
-  green shell coexistence; Axis, Roller Ball, New-generation Flying, S2 and
-  Powered Inverted changed pose/fit views; equipment cues and item/provider
+  green shell coexistence; New-generation Flying, S2 and Powered Inverted changed
+  pose/fit views; equipment cues and item/provider
   contribution. Conventional Flying posture and S1 lap transition have passed.
 - Lead with Mechanisms: [bounded PAX remote/late-join and occupied restraint
   observation](evidence/fd917/lead/observer/README.md) passed on candidate03. Both
   observer units are stopped, MainPID0. The later guide-wheel/input-shaft geometry
   correction needs only the owner's updated station view. Mechanisms retains its
   active server/world.
+- Lead owns the transferred, previously unstarted Axis and Roller Ball changed
+  fit/representative-motion observations. Mechanisms retains their source. New
+  private root `fd917-lead-families-20261115` under persistent runs uses318,
+  game25658/RCON25659, client1536M/6GiB and server2048M/4GiB; candidate04 SHA9030cc1f…,
+  new `server/FamilyWorkshop`. No old family qualification is reopened.
 - Lead: reconcile final source/export/evidence and exact selective integration,
   then verify each owner's saved-world/runtime cleanup. These are the existing
   FD917 criteria; no additional all-family or release qualification sweep.
