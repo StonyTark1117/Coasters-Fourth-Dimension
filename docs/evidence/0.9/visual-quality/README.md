@@ -1,9 +1,11 @@
 # FD916 finite visual review
 
 Owner: Skin/Visual, chat `01a1dd1d-6e99-70d2-aef3-6dcebac10d72`, primary `main`.
-Status: inventory, bounded UV correction and affected client comparisons complete;
-FD911 appearance reconciliation remains open. Earlier family acceptance is
-retained. This record does not claim that static checks establish visual quality.
+Status: **FD916 visual criteria complete, 2026-11-15**. Inventory, bounded UV
+correction, affected comparisons and optional appearance reconciliation passed.
+Earlier family acceptance is retained. FD911's separate synchronization and
+persistence closure remains with its owner and the milestone lead; this record
+does not claim that static checks establish visual quality or close that package.
 
 ## Reference and review method
 
@@ -60,7 +62,7 @@ claims of rerunning every family on the 0.9 artifact.
 | Powered Inverted Yaw | [Finite review](../../0.8/powered-inverted-yaw/README.md), compact collar/spindle/governor and occupied reverse/show | Accepted unchanged |
 | Shared equipment/tools | Original teaching inventory/Ponder and later family station/marker/lock/control views | Boarding indicator and carrier axle UV affected; all other assets unchanged |
 | Optional Skin | [FD910](../coaster-skin/README.md) | Industrial/Classic/Antarctica/Hotdog, fixed/free/constrained interfaces, reload, occupied ownership and fallback views passed |
-| Optional native seats | [FD911](../rotating-seats/) | Await owner’s selected seat/restraint/occupied appearance handoff |
+| Optional native seats | [FD911](../rotating-seats/), contribution below | Native red lap-seat fit, rider relationship and combined Classic presentation passed |
 
 ## One finite correction list
 
@@ -112,8 +114,8 @@ vehicle feature and does not supply movement acceptance.
 
 The UV correction case is closed. Accepted family occupied-motion and clearance
 views carry forward because every mesh/seat/pivot/state definition is unchanged.
-No repeated original-family ride or livery matrix is required. FD916 remains
-open only for the optional native-seat presentation contribution.
+No repeated original-family ride or livery matrix is required. The optional
+appearance contributions are reconciled below.
 
 ## Skin contribution — passed
 
@@ -127,3 +129,46 @@ geometry rather than a missing-texture placeholder. PAX and Pipeline retain thei
 original purpose-built presentation. The finite mappings contain no new authored
 textures and reuse the provider's existing resources. These affected views close
 the Skin contribution across the shared fixed/free/constrained interfaces.
+
+## Native-seat contribution — passed
+
+The FD911 owner supplied three inspected views from its existing two-client run:
+
+- [Native red seat and lap bar](native-seat-lap.png) shows intentional upholstery,
+  restraint and base materials, with the optional seat aligned to the original
+  carrier footprint.
+- [Whole rider from Observer](native-seat-classic-observer.png) shows the selected
+  Classic running gear, original Arrow body/carrier, actual optional seat and
+  whole rider together at normal gameplay scale. The observer used Spectator
+  mode for framing; the rider used the normal mount path.
+- [Third-person ridden view](native-seat-classic-rider.png) retains the visible
+  rider/restraint relationship and running-gear attachment in the owner's live
+  ride. Its full synchronization, inversion and persistence evidence belongs to
+  [FD911](../rotating-seats/README.md), not a second FD916 mechanics campaign.
+
+The actual Additions seat uses the unchanged CarrierSeatBlock footprint shared
+by Arrow, Legacy, Free Spin, Revised, PAX and Suspended. Specialized family seat
+subclasses retain their original geometry. The sixteen provider colors and four
+upstream restraint choices remain external authored resources; this review does
+not claim separate captures of every choice. The selected red lap-seat exercises
+the changed attachment and rider relationship, with source/ownership invariants
+and the provider's unchanged rendering shared across the declared choices.
+
+Source run: `/mnt/NVME4/fourthdimension-runs/fd09-seats-immersion-20261115`.
+Owner: `01a1dd1d-c6a6-7be0-9cb5-2b033ac550da`. Original captures:
+`observer/evidence/20261115T153235.561380Z-state.png`,
+`observer/evidence/20261115T153630.598097Z-state.png`, and
+`evidence/20261115T153731.369797Z-after.png`. That continuing owner retains its
+runtime responsibility; Skin/Visual's separate runtime is fully stopped as
+recorded in [FD910 cleanup](../coaster-skin/runtime-cleanup.txt).
+
+## Accepted visual baseline
+
+Every declared group has criterion coverage through the accepted family records
+and bounded additions above. The finite correction list contains one resolved
+UV defect class, affecting 51 models/696 faces; no recorded visual criterion
+failure remains. Inventory hashes define the accepted authored asset baseline.
+The optional adapters add no redistributed provider artwork. FD915 consumes this
+review with FD911's own package closure; FD904A may reuse it without another
+aesthetic review. Further taste-based changes are follow-up work, not acceptance
+blockers. This freezes the visual review only, not a 1.0 release or publication.
