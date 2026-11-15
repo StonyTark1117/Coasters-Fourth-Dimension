@@ -1,0 +1,91 @@
+{
+  "data": {
+    "schema": 8,
+    "rails": [],
+    "vehicles": [
+      {
+        "alignment_required": 0,
+        "fault": "",
+        "boundTo": 2473901592519,
+        "carriers": [
+          {
+            "side": 0.0,
+            "rider_seats": [],
+            "lift_pending": 0,
+            "capture": 1,
+            "body": [
+              -1904034188,
+              -1594537200,
+              -1708364770,
+              -130819371
+            ],
+            "axis": "X",
+            "seats": [
+              -1099511627775,
+              -824633720831,
+              824633720833,
+              1099511627777
+            ],
+            "ballast": 0.0,
+            "omega": 0.0,
+            "lift_geometry": 0,
+            "lift_entered": 0,
+            "pivot_height": 0.0,
+            "angle": 0.0,
+            "capture_target": 0.0,
+            "lift_held": 0,
+            "latched": 0,
+            "longitudinal": 0.0,
+            "child_pivot_offset": 0.0,
+            "child_pivot_x": 0.0,
+            "child_pivot_z": 0.0,
+            "occupants": []
+          }
+        ],
+        "chassis": [
+          -1904034188,
+          -1594537200,
+          -1708364770,
+          -130819371
+        ],
+        "damping": 0.0,
+        "boundFrom": 2473901330375,
+        "ballast": 0.0,
+        "revision": 7,
+        "boarding_ready": 1,
+        "stopping": 1,
+        "authority": {
+          "owner": [
+            -1535121748,
+            -1770042568,
+            -1823623576,
+            1636374019
+          ],
+          "sequence": 2,
+          "reason": "",
+          "cars": [
+            [
+              -1904034188,
+              -1594537200,
+              -1708364770,
+              -130819371
+            ]
+          ],
+          "controller": 824633962439,
+          "provider": "magnetized",
+          "held": 1,
+          "epoch": 1,
+          "suspended": 0,
+          "direction": 1
+        },
+        "variant": "wing_fixed_v1",
+        "restraints": 0,
+        "shuttle_detached": 0,
+        "family": "wing_fixed",
+        "suspended_consist": [],
+        "maintenance": 0
+      }
+    ]
+  },
+  "DataVersion": 3955
+}

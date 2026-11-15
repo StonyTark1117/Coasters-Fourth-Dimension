@@ -112,6 +112,15 @@ public final class RotationEditorScreen extends Screen {
         addButton(v.authority.owner==null?"Claim station":"Resume owner",left+115,top+160,v.authority.owner==null?60:61);
         if(v.authority.owner!=null && !"Matching track support lost".equals(v.fault) && !v.alignmentRequired)addButton("Transfer owner",left,top+160,62);
       }
+      if(dev.fourthdimension.vehicle.WingVehicle.is(v)||dev.fourthdimension.vehicle.S2SpinningVehicle.is(v)){
+        if(!dev.fourthdimension.integration.RideAuthority.MAGNETIZED.equals(v.authority.provider) && dev.fourthdimension.integration.OptionalIntegrations.installed(dev.fourthdimension.integration.OptionalIntegrations.MAGNETIZED).mayInspect())
+          addButton("Claim Magnetized",left+230,top+160,65);
+        if(dev.fourthdimension.integration.RideAuthority.MAGNETIZED.equals(v.authority.provider)){
+          if(dev.fourthdimension.vehicle.S2SpinningVehicle.is(v))addButton("Resume owner",left+115,top+160,61);
+          else {addButton("Drive forward",left+115,top+186,67);addButton("Drive reverse",left+230,top+186,68);}
+          value.setValue("Magnetized | direction "+(v.authority.direction==1?"forward":"reverse")+" | "+v.authority.reason);
+        }
+      }
       if ("Matching track support lost".equals(v.fault))
         addButton("Repair matching track", left, top + 160, 25);
       else if (v.alignmentRequired)

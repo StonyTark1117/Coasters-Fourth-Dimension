@@ -104,7 +104,9 @@ public final class S2SpinningRuntime {
     var velocity=container.physicsSystem().getPipeline().getLinearVelocity(parent,new Vector3d());
     double speed=velocity.length();if(speed>16.05)return "S2 travel exceeds 16 blocks/s";
     if(Math.abs(v.carriers.getFirst().omega)>4)return "S2 spin exceeds 4 rad/s";
-    if(v.s2.governor!=null){
+    if(optional(v)){
+      if(!dev.fourthdimension.integration.OptionalIntegrations.installed(dev.fourthdimension.integration.OptionalIntegrations.MAGNETIZED).mayInspect())return "S2 Magnetized unavailable";
+    }else if(v.s2.governor!=null){
       var governor=governor(level,v);
       if(governor==null)return "S2 launch governor unavailable";
       var unavailable=governor.availability();if(unavailable!=null)return "S2 "+unavailable;
@@ -117,7 +119,7 @@ public final class S2SpinningRuntime {
     }
     var activeChain=ChainLiftSpanQuery.findAtGraphHit(level,hit,0);
     if(rail.liftLock&&activeChain==null)return "S2 lift lock requires a governed native Chain span";
-    if(!v.stopping&&activeChain!=null&&Math.abs(activeChain.anchor().getSpeed())<.001){
+    if(!optional(v)&&!v.stopping&&activeChain!=null&&Math.abs(activeChain.anchor().getSpeed())<.001){
       var controller=governor(level,v);
       // The governed source starts at zero during its bounded launch ramp.
       if(controller==null||!activeChain.anchor().getBlockPos().equals(controller.anchor))return "S2 return Chain power lost; retained travel hold";
@@ -134,10 +136,11 @@ public final class S2SpinningRuntime {
     return null;
   }
   public static void capture(ServerLevel level,FoundationData.Vehicle selected){
+    if(optional(selected))dev.fourthdimension.integration.RideAuthority.emergencyHold(level,selected);
     var container=SubLevelContainer.getContainer(level);
     for(var v:VehicleOperations.consist(level,selected)){v.stopping=true;v.carriers.forEach(c->c.capture=true);}
     var governor=governor(level,selected);
-    if(governor!=null&&governor.availability()==null)governor.acknowledge(selected);
+    if(!optional(selected)&&governor!=null&&governor.availability()==null)governor.acknowledge(selected);
     for(var v:VehicleOperations.consist(level,selected)){
       if(container.getSubLevel(v.chassis) instanceof ServerSubLevel p
           &&safety(level,p,v,rail(level,v))==null&&!v.alignmentRequired){v.fault="";v.s2.resumeRequired=false;}
@@ -167,7 +170,13 @@ public final class S2SpinningRuntime {
         &&level.getBlockEntity(v.s2.governor) instanceof S2SpinningGovernorEntity g&&g.authorizesRide(v.chassis)?g:null;
   }
   /** Runs before the common dispatch mutates stopping/capture state. */
+  public static boolean optional(FoundationData.Vehicle v){return dev.fourthdimension.integration.RideAuthority.MAGNETIZED.equals(v.authority.provider);}
   public static void start(ServerLevel level,FoundationData.Vehicle v){
+    if(optional(v)){
+      dev.fourthdimension.integration.OptionalDrive.validateRelease(level,v);
+      if(dev.fourthdimension.integration.RideAuthority.holds(level,v))throw new IllegalArgumentException("Release through the selected Magnetized authority");
+      return;
+    }
     var governor=governor(level,v);if(governor==null)throw new IllegalArgumentException("Bind a powered S2 kinetic launch governor");
     governor.release(v);
   }
@@ -179,14 +188,16 @@ public final class S2SpinningRuntime {
       if(!car.stopping||!(raw instanceof ServerSubLevel parent)||container.physicsSystem().getPipeline().getLinearVelocity(parent,new Vector3d()).length()>.05)
         throw new IllegalArgumentException("Stop the entire S2 train before authorizing direction");
     }
-    capture(level,v);for(var car:VehicleOperations.consist(level,v))car.s2.direction=sign;
+    capture(level,v);
+    if(optional(v))dev.fourthdimension.integration.RideAuthority.direction(level,v,sign);
+    for(var car:VehicleOperations.consist(level,v))car.s2.direction=sign;
   }
   public static void update(ServerLevel level,ServerSubLevel parent,ServerSubLevel child,
       FoundationData.Vehicle v,FoundationData.Carrier c,FoundationData.Rail rail,RotaryConstraintHandle joint,double dt){
     var m=MOTION.computeIfAbsent(child,k->new Motion());
     if(!m.initialized){m.initialized=true;c.latched=false;if(!v.stopping)fault(level,v,"S2 reload hold; inspect and explicitly resume");}
     if(m.checked!=level.getGameTime()){m.checked=level.getGameTime();var reason=safety(level,parent,v,rail);if(reason!=null)fault(level,v,reason);}
-    if(!v.stopping&&v.fault.isEmpty()){
+    if(!optional(v)&&!v.stopping&&v.fault.isEmpty()){
       var governor=governor(level,v);
       try{if(governor==null)throw new IllegalArgumentException("S2 launch governor unavailable");
         governor.command(v.chassis,v.s2.epoch,12*v.s2.direction,3);v.s2.rampSpeed=Math.abs(governor.actualBps());

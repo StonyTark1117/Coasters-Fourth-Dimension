@@ -39,6 +39,8 @@ public final class OptionalIntegrations {
             .orElse(null));
     if (ADDITIONS.equals(modId) && release.mayInspect() && !additionsFingerprint())
       return new Release(modId,release.version(),Status.UNVERIFIED_VERSION);
+    if(MAGNETIZED.equals(modId)&&release.mayInspect()&&!magnetizedFingerprint())
+      return new Release(modId,release.version(),Status.UNVERIFIED_VERSION);
     return release;
   }
 
@@ -59,6 +61,22 @@ public final class OptionalIntegrations {
       }
       return additionsVerified=true;
     } catch(java.io.IOException|java.security.NoSuchAlgorithmException|RuntimeException unavailable) {return additionsVerified=false;}
+  }
+
+  private static volatile Boolean magnetizedVerified;
+  private static boolean magnetizedFingerprint(){
+    if(magnetizedVerified!=null)return magnetizedVerified;
+    var expected=java.util.Map.of(
+      "magnet/MagnetBoost.class","dec5df29cc8c76232fad2bd46b5e9413683c5cbafb15bad9e0bc10ab9a9c1cfd",
+      "magnet/MagnetizedAnchors.class","9739fc5c50a75bcc4ca36582a92f1eff34e71725f0a9a1499952d95b45e130bd",
+      "magnet/MagnetScrollValue.class","e92c9b10bda5a35f15082b25c9f1af7422e644a1d6ffcfa44eecfbf039435118",
+      "mixin/CoasterCartMagnetDriveMixin.class","c5850472ccabb22355bf3ea5f74fb54d2446288d7e7f53de33fd5537a6a4901e");
+    try{
+      var file=ModList.get().getModFileById(MAGNETIZED).getFile();var digest=java.security.MessageDigest.getInstance("SHA-256");
+      for(var e:expected.entrySet())if(!java.util.HexFormat.of().formatHex(digest.digest(java.nio.file.Files.readAllBytes(
+          file.findResource("net/antopfr/coastersmagnetized/"+e.getKey())))).equals(e.getValue()))return magnetizedVerified=false;
+      return magnetizedVerified=true;
+    }catch(java.io.IOException|java.security.NoSuchAlgorithmException|RuntimeException unavailable){return magnetizedVerified=false;}
   }
 
   public static Release classify(String modId, String version) {

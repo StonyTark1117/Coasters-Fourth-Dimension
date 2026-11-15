@@ -43,7 +43,7 @@ publication is activated.
 | FD501D | Lead | Complete: selected artifact rehashed; current core sufficient, no baseline upgrade/migration. [Disposition](evidence/0.8/dependencies/README.md#fd501d--complete-no-core-change). FD812 retains capability qualification. |
 | FD810 | Lead | Complete: [actual-addon native guards and normal station UI/occupied auto-dispatch](evidence/0.8/additions/README.md). All lead316 units inactive; saved banked stopped world retained. Additional drive conflicts remain FD813. |
 | FD811 | Lead | Selected CTNB functional tracks/controls and measured eligibility after its own baseline. |
-| FD812 | Lead | Magnetized propulsion adapter and real authority conflicts after its own baseline. |
+| FD812 | Lead | Complete: [actual Wing/S2 optional force and normal occupied operator evidence](evidence/0.8/magnetized/README.md). All lead316 units inactive; saved unloaded world retained. Installed combined conflicts remain FD813. |
 | FD1701A | Lead | Qualified: targeted native 1/1 plus normal occupied Claim/dispatch/held transfer/receiving dispatch/unload passed. [Evidence](evidence/0.8/authority/README.md). World saved; client/server/display316 inactive. Complete; integrated with the coherent shared implementation checkpoint. |
 | FD1401A | Pipeline / Dive | Complete: [qualified native and occupied handoff](evidence/0.8/pipeline/README.md), including full forward/reverse circuits, inclined stop/save/reload/resume, dock/open/unload. Same two IDs; all317 units inactive. B/C reuse this evidence. |
 | FD1401B | Pipeline / Dive | Complete: [normal crafted content and finite visual review](evidence/0.8/pipeline/construction/README.md); P-only rail support saddle inspected with no mechanics replay. |

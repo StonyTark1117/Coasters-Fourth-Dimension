@@ -1,0 +1,32 @@
+{"at": 1794748544.1687803, "command": "tp Dev 9.5 -60 4.5 0 0", "state": "sending"}
+{"at": 1794748544.1687803, "command": "tp Dev 9.5 -60 4.5 0 0", "state": "responded", "result": "Teleported Dev to 9.500000, -60.000000, 4.500000\n"}
+{"at": 1794748544.233104, "command": "execute as Dev at @s run fd demo magnetized", "state": "sending"}
+{"at": 1794748544.233104, "command": "execute as Dev at @s run fd demo magnetized", "state": "responded", "result": "Magnetized loop ready. Right-click the first anchor with Gold, set its force, then use the car editor near the station: Claim Magnetized, board, Close restraints, Dispatch. Drive forward/reverse requires a held stopped train. Stop on the level dock to unload. Loss of equipped-section power latches a hold; restore, Stop and Resume owner explicitly.\n"}
+{"at": 1794748544.51362, "command": "give Dev minecraft:gold_ingot 4", "state": "sending"}
+{"at": 1794748544.51362, "command": "give Dev minecraft:gold_ingot 4", "state": "responded", "result": "Gave 4 [Gold Ingot] to Dev\n"}
+{"at": 1794748544.5949621, "command": "give Dev minecraft:stone 8", "state": "sending"}
+{"at": 1794748544.5949621, "command": "give Dev minecraft:stone 8", "state": "responded", "result": "Gave 8 [Stone] to Dev\n"}
+{"at": 1794748544.6800492, "command": "give Dev fourthdimension:rotation_tool", "state": "sending"}
+{"at": 1794748544.6800492, "command": "give Dev fourthdimension:rotation_tool", "state": "responded", "result": "Gave 1 [Rotation Tool] to Dev\n"}
+{"at": 1794748564.2863512, "command": "data get entity Dev Rotation", "state": "sending"}
+{"at": 1794748564.2863512, "command": "data get entity Dev Rotation", "state": "responded", "result": "Dev has the following entity data: [6.150001f, 0.0f]\n"}
+{"at": 1794748564.3516917, "command": "tp Dev 9.5 -60 4.5 0 60", "state": "sending"}
+{"at": 1794748564.3516917, "command": "tp Dev 9.5 -60 4.5 0 60", "state": "responded", "result": "Teleported Dev to 9.500000, -60.000000, 4.500000\n"}
+{"at": 1794748584.04347, "command": "execute if block 9 -60 5 minecraft:stone run say FD812 vanilla placement confirmed", "state": "sending"}
+{"at": 1794748584.04347, "command": "execute if block 9 -60 5 minecraft:stone run say FD812 vanilla placement confirmed", "state": "responded", "result": ""}
+{"at": 1794748584.1124196, "command": "tp Dev 6.5 -57 38.5 -56.31 20.8", "state": "sending"}
+{"at": 1794748584.1124196, "command": "tp Dev 6.5 -57 38.5 -56.31 20.8", "state": "responded", "result": "Teleported Dev to 6.500000, -57.000000, 38.500000\n"}
+{"at": 1794748593.2359138, "command": "data get block 9 -57 40", "state": "sending"}
+{"at": 1794748593.2359138, "command": "data get block 9 -57 40", "state": "responded", "result": "9, -57, 40 has the following block data: {AnchorPeerCurves: [{Peer: 9070970998727L, Bezier: {Starts: [{V: [0.5d, 0.25d, 0.5d]}, {V: [24.5d, 0.25d, -23.5d]}], Girder: 0b, Normals: [{V: [0.0d, 1.0d, 0.0d]}, {V: [0.0d, 1.0d, 0.0d]}], Primary: 0b, Positions: [{Pos: [I; 0, 0, 0]}, {Pos: [I; 24, 0, -24]}], Axes: [{V: [0.0d, 0.0d, -1.0d]}, {V: [-1.0d, 0.0d, 0.0d]}], Material: \"simulatedcoasters:coaster_track\"}, HHi: 13.254833586250424d, HLo: 13.254833586250424d}, {Peer: 2473901592519L, Bezier: {Starts: [{V: [0.5d, 0.25d, 0.5d]}, {V: [0.5d, 0.25d, 64.5d]}], Girder: 0b, Normals: [{V: [0.0d, 1.0d, 0.0d]}, {V: [0.0d, 1.0d, 0.0d]}], Primary: 1b, Positions: [{Pos: [I; 0, 0, 0]}, {Pos: [I; 0, 0, 64]}], Axes: [{V: [0.0d, 0.0d, 1.0d]}, {V: [0.0d, 0.0d, -1.0d]}], Material: \"simulatedcoasters:coaster_track\"}, HHi: 21.333333333333332d, HLo: 21.333333333333332d}], Speed: 64.0f, WoodenCurves: [], ChainLiftFirstHop: 2473901592519L, ChainLiftCommittedSegments: [{TStart: 0.0d, TEnd: 1.0d, EdgeFrom: 2473901330375L, EdgeTo: 2473901592519L}], ChainLiftTravelSign: -1, AnchorPeerCurveTints: [], Source: [I; 10, -57, 40], ChainLiftShaftAxis: \"x\", ChainLiftCommittedLength: 64.0d, ChainLiftSpan: {EdgeFrom: 0L, Kind: \"ANCHOR\", EdgeTo: 0L, EndT: 0.0d, EndAnchor: 2473901592519L}, JointBank: 0.0f, Network: {Capacity: 1048576.0f, Size: 2, Id: 2748779237319L, Stress: 0.0f}, x: 9, y: -57, ScrollValue: 100, z: 40, id: \"simulatedcoasters:coaster_anchorpoint\"}\n"}
+{"at": 1794748627.6002393, "command": "tp Dev 3.5 -57 60.5 -135 10.1", "state": "sending"}
+{"at": 1794748627.6002393, "command": "tp Dev 3.5 -57 60.5 -135 10.1", "state": "responded", "result": "Teleported Dev to 3.500000, -57.000000, 60.500000\n"}
+{"at": 1794748695.9275312, "command": "data get entity Dev Pos", "state": "sending"}
+{"at": 1794748695.9275312, "command": "data get entity Dev Pos", "state": "responded", "result": "Dev has the following entity data: [35.01734095521677d, -58.37164424605761d, 133.1178580127115d]\n"}
+{"at": 1794748756.8599346, "command": "data get entity Dev Pos", "state": "sending"}
+{"at": 1794748756.8599346, "command": "data get entity Dev Pos", "state": "responded", "result": "Dev has the following entity data: [5.499999228864913d, -56.06250113624124d, 57.355521889235035d]\n"}
+{"at": 1794748793.7129824, "command": "data get entity Dev RootVehicle", "state": "sending"}
+{"at": 1794748793.7129824, "command": "data get entity Dev RootVehicle", "state": "responded", "result": "Found no elements matching RootVehicle\n"}
+{"at": 1794748793.7751448, "command": "save-all flush", "state": "sending"}
+{"at": 1794748793.7751448, "command": "save-all flush", "state": "responded", "result": "Saving the game (this may take a moment!)\nSaved the game\n"}
+{"at": 1794748794.46383, "command": "stop", "state": "sending"}
+{"at": 1794748794.46383, "command": "stop", "state": "responded", "result": "Stopping the server\n"}

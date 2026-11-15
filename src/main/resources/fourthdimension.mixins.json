@@ -21,7 +21,8 @@
     "RollerBallSeatRiderMixin",
     "PipelineSeatRiderMixin",
     "AdditionsStationMixin",
-    "DiveSeatRiderMixin"
+    "DiveSeatRiderMixin",
+    "OptionalDriveFenceMixin"
   ],
   "injectors": {
     "defaultRequire": 1
@@ -42,5 +43,6 @@
     "FlyingBodyFrameMixin",
     "PipelineWheelMixin",
     "PipelineCartSliceMixin"
-  ]
+  ],
+  "plugin": "dev.fourthdimension.mixin.OptionalDriveFencePlugin"
 }

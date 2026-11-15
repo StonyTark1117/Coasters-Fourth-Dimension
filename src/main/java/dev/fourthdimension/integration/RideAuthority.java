@@ -33,6 +33,11 @@ public final class RideAuthority {
       throw new IllegalArgumentException("Unsupported longitudinal provider");
     var v = vehicle(level,id); var owner = controller(level,pos,id); var cars = complete(level,v);
     stopped(level,cars);
+    if(MAGNETIZED.equals(provider)){
+      if(!OptionalIntegrations.installed(OptionalIntegrations.MAGNETIZED).mayInspect())throw new IllegalArgumentException("Supported Magnetized installation required");
+      if(cars.stream().anyMatch(c->!dev.fourthdimension.vehicle.WingVehicle.is(c)&&!dev.fourthdimension.vehicle.S2SpinningVehicle.is(c)))
+        throw new IllegalArgumentException("Magnetized is qualified for Wing and S2 only");
+    }
     for (var car : cars) if (car.authority.owner != null)
       throw new IllegalArgumentException("Ride already has an owner; explicitly transfer or resume it");
     assign(level,cars,pos,owner.authorityId(),provider,1);
@@ -46,7 +51,9 @@ public final class RideAuthority {
     var cars=complete(level,v);
     if (!v.authority.held) throw new IllegalArgumentException("Hold before transferring authority");
     stopped(level,cars); var owner = controller(level,next,id);
+    int direction=v.authority.direction;
     assign(level,cars,next,owner.authorityId(),v.authority.provider,v.authority.epoch+1);
+    for(var car:cars)car.authority.direction=direction;
     return token(v);
   }
 
@@ -73,6 +80,7 @@ public final class RideAuthority {
     for(var car:cars) if(car.authority.stoppedTicks<5)
       throw new IllegalArgumentException("Wait for five stopped server ticks");
     controller(level,pos,id).validateRelease(level,v);
+    if(MAGNETIZED.equals(v.authority.provider))OptionalDrive.validateRelease(level,v);
     change(level,v,false,false); return token(v);
   }
 
@@ -96,6 +104,9 @@ public final class RideAuthority {
   /** Normal editor controls; player permission/range is checked independently of the ride token. */
   public static void operate(net.minecraft.server.level.ServerPlayer player, FoundationData.Vehicle v, int action) {
     var l=player.serverLevel();
+    if(action==67||action==68){
+      direction(l,v,action==67?1:-1);return;
+    }
     if(action==61) {
       refresh(l,v);var pos=v.authority.controller;
       if(pos==null||!l.mayInteract(player,pos)||!player.mayBuild()
@@ -112,8 +123,22 @@ public final class RideAuthority {
       if(distance<nearest){nearest=distance;selected=pos.immutable();}
     }
     if(selected==null)throw new IllegalArgumentException("Bind and approach the receiving Boarding Station first");
-    if(action==60)claim(l,selected,v.chassis,NATIVE_CHAIN);
+    if(action==65)selectMagnetized(l,selected,v);
+    else if(action==60)claim(l,selected,v.chassis,NATIVE_CHAIN);
     else {refresh(l,v);transfer(l,v.authority.controller,v.chassis,token(v),selected);}
+  }
+
+  public static void selectMagnetized(ServerLevel l,BlockPos selected,FoundationData.Vehicle v){
+    thread(l);
+    if(!OptionalIntegrations.installed(OptionalIntegrations.MAGNETIZED).mayInspect())throw new IllegalArgumentException("Supported Magnetized installation required");
+    if(!dev.fourthdimension.vehicle.WingVehicle.is(v)&&!dev.fourthdimension.vehicle.S2SpinningVehicle.is(v))throw new IllegalArgumentException("Magnetized supports Wing and S2");
+    if(v.authority.owner==null)claim(l,selected,v.chassis,MAGNETIZED);
+    else{
+      refresh(l,v);if(!v.authority.held)throw new IllegalArgumentException("Hold before selecting a different drive");
+      transfer(l,v.authority.controller,v.chassis,token(v),selected);
+      for(var c:complete(l,v)){c.authority.provider=MAGNETIZED;c.authority.epoch++;c.authority.sequence++;c.revision++;}
+      FoundationData.get(l).setDirty();
+    }
   }
 
   /** Fresh drive permission; also called at each native propulsion callback. */
@@ -121,6 +146,13 @@ public final class RideAuthority {
     var v=FoundationData.get(level).vehicles.get(id);
     return v!=null && owner!=null && owner.equals(v.authority.owner) && epoch==v.authority.epoch
         && provider.equals(v.authority.provider) && !holds(level,v);
+  }
+  public static void direction(ServerLevel l,FoundationData.Vehicle v,int sign){
+    thread(l);refresh(l,v);stopped(l,complete(l,v));
+    if(Math.abs(sign)!=1||!MAGNETIZED.equals(v.authority.provider)||!v.authority.held)
+      throw new IllegalArgumentException("Hold Magnetized authority before selecting direction");
+    for(var c:complete(l,v)){c.authority.direction=sign;c.revision++;}
+    FoundationData.get(l).setDirty();
   }
   public static boolean deniesProvider(ServerLevel level, FoundationData.Vehicle v, String provider) {
     return v.authority.owner!=null && (!provider.equals(v.authority.provider)||holds(level,v));
@@ -156,7 +188,7 @@ public final class RideAuthority {
         throw new IllegalArgumentException("Consist authority changed");
     } catch(IllegalArgumentException unavailable) {suspend(level,v,unavailable.getMessage());}
   }
-  private static void suspend(ServerLevel level, FoundationData.Vehicle v, String reason) {
+  public static void suspend(ServerLevel level, FoundationData.Vehicle v, String reason) {
     for(var id:v.authority.cars) {
       var car=FoundationData.get(level).vehicles.get(id); if(car==null)continue;
       var s=car.authority;

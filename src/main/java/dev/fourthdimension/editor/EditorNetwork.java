@@ -205,7 +205,7 @@ public final class EditorNetwork {
         case 11 -> VehicleOperations.restraints(level, vehicle, true);
         case 12 -> VehicleOperations.restraints(level, vehicle, false);
         case 13 -> {
-          if(dev.fourthdimension.vehicle.S2SpinningVehicle.is(vehicle)) { VehicleOperations.dispatch(level,vehicle); break; }
+          if(dev.fourthdimension.vehicle.S2SpinningVehicle.is(vehicle)&&!dev.fourthdimension.vehicle.S2SpinningRuntime.optional(vehicle)) { VehicleOperations.dispatch(level,vehicle); break; }
           if(vehicle.authority.owner==null) VehicleOperations.dispatch(level,vehicle);
           else dev.fourthdimension.integration.RideAuthority.dispatch(level,vehicle.authority.controller,vehicle.chassis,dev.fourthdimension.integration.RideAuthority.token(vehicle));
         }
@@ -213,7 +213,7 @@ public final class EditorNetwork {
           if(!dev.fourthdimension.vehicle.S2SpinningVehicle.is(vehicle))throw new IllegalArgumentException("S2 direction controls require S2");
           dev.fourthdimension.vehicle.S2SpinningRuntime.direction(level,vehicle,request.action==63?1:-1);
         }
-        case 60,61,62 -> dev.fourthdimension.integration.RideAuthority.operate(player,vehicle,request.action);
+        case 60,61,62,65,67,68 -> dev.fourthdimension.integration.RideAuthority.operate(player,vehicle,request.action);
         case 14 -> VehicleOperations.retention(level, vehicle, true);
         case 15 -> VehicleOperations.retention(level, vehicle, false);
         case 16 -> {
