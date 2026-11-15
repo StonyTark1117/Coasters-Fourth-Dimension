@@ -17,6 +17,11 @@ adapters can advance after their interfaces; presentation/seat integrations foll
 stable mechanisms. FD404 is the five-family development checkpoint; FD1000 is
 the expanded 1.0 alpha freeze, followed by FD901–FD905 and FD1001–FD1003.
 
+The **2026-11-15** [visual production plan](docs/roadmap/pre-1.0-visual-production.md)
+adds FD917 before that freeze: production art and connected mechanism presentation
+for the 17 adopted styles. Milestones through 0.9, including FD916, retain their
+accepted baseline; the new target is assigned work rather than a claim of completion.
+
 The [integration backlog](docs/INTEGRATION-BACKLOG.md) owns the dated artifact
 inventory and adopted allocation. Its November 2 catalog and the initial
 September 30 research remain historical inspections, not claims about latest
@@ -233,6 +238,17 @@ passes, further taste-based refinements remain nonblocking follow-up work.
 Post-1.0 content packages use this same checklist for their new assets and affected
 combinations. They do not reopen FD916 or require another review of unchanged art.
 
+[FD917](ROADMAP.md#fd917-deliver-the-production-visual-baseline) owns the additional
+pre-1.0 production target: connected machinery, distinct family silhouettes,
+native-compatible textured/world-lit surfaces, truthful state transitions and
+complete item/teaching representations. Its finite 17-style briefs include
+reference decisions for S2/Powered Inverted restraints and Fixed Inverted leg
+space. Use existing capacities and seat/pivot/clearance envelopes first; explicitly
+scope any necessary contract change and verify only its affected behavior.
+Preserve Wing's 16 colors and the selected optional appearance/seat boundaries.
+New selectable liveries remain FD1603. FD1000 requires the completed FD917 baseline;
+FD904 and FD1002 consume it for rendering/performance and release packaging.
+
 ## D09 Shared carrier model
 
 Expansion extends these contracts incrementally through working families. Wing
@@ -285,7 +301,13 @@ Free-spin previews show trajectories for declared starting conditions and loadin
 
 The controlled family uses an idealized rail-driven mechanism: a server-evaluated profile sets a rotary constraint target, and the visible control rails are generated from the same data. This preserves position-dependent mechanical behavior without asking four separate wheel contacts to solve the chassis motion. Free-spin families do not use this profile or its rail-displacement mapping.
 
-A later version could add explicit follower-wheel contact. That would introduce extra collision and solver work and should follow a stable functional release.
+A later version could add a full contact-driven follower/gear physics solver.
+The visible connected follower–slider–transmission–axle assembly is required
+before 1.0 by [FD917 VP03](docs/roadmap/pre-1.0-visual-production.md#vp03); it is not
+deferred with that optional solver. Use actual interpolated chassis/carrier pose,
+defined rail contact samples and an explicit ratio. Resolve servo lag and neutral
+capture through a coherent mechanism or the minimum bounded drive/capture change;
+do not substitute the profile target for the real seat angle or hide separation.
 
 For the initial visual mechanism, define a bounded monotonic mapping between control-rail displacement and unwrapped axle angle, with a configurable effective gear ratio. Treat this as a game approximation, not a verified engineering model of the real rides. Rail stroke, geometry clearance, and maximum rotation must be mutually consistent. Do not reset rail height whenever the angle crosses 360 degrees.
 
@@ -355,7 +377,8 @@ sequence is:
 | 0.7 | FD1302A–C, FD1502A–C, FD1801A–C, FD1802A–C, FD1803, FD701 | Axis/Roller Ball and Conventional/New-generation Flying, including scenery-facing yaw. |
 | 0.8 | FD1401A–C, FD1501D–F, FD1701A, FD1702A–C, FD1901A–C, FD1902, FD810–FD813 | Pipeline, S2, Dive, Powered Inverted Yaw, required authority and operations adapters. |
 | 0.9 | FD910–FD916 | Presentation, optional seats, coexistence and the complete model/texture review. |
-| 1.0 alpha | FD1000 | Complete all adopted vehicles/variants and 1.0 integrations; freeze features/profiles. |
+| Pre-1.0 production | FD917 | Production art, connected mechanisms and truthful state presentation for all 17 styles and required shared/player-facing assets. |
+| 1.0 alpha | FD1000 | Complete all adopted vehicles/variants, 1.0 integrations and FD917; freeze features/profiles and the production visual baseline. |
 | 1.0 beta / RC | FD901–FD905 | Integrated stabilization and outstanding final qualification. |
 | 1.0 stable | FD1001–FD1003 | Documentation, packaging and separately authorized publication. |
 | 1.1 | FD1602–FD1605 | Shareable presets, colors/liveries and unified operator panel. |

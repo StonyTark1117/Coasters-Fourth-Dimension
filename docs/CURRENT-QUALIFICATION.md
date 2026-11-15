@@ -24,6 +24,83 @@ FD403A–F and the FD404 aggregate are now reconciled. There is no remaining 0.4
 acceptance queue. The sections below retain case closure records and artifact
 history; they do not assign new work or add acceptance requirements.
 
+### Active FD917 visual production — 2026-11-15
+
+Human instruction: **“Assign tasks to other agents to complete FD917 and monitor
+as needed.”** This activates the complete
+[FD917 outcome](../ROADMAP.md#fd917-deliver-the-production-visual-baseline), using
+[VP01–VP09](roadmap/pre-1.0-visual-production.md#fd917) as procedures rather than
+new gates. Accepted 0.4–0.9 behavior remains closed except for specifically
+changed/failed claims. FD1000 freeze, final release qualification, publication,
+1.1/1.2 and moving-track implementation are not activated.
+
+All owners use `/home/braydon/Documents/Coasters: Fourth Dimension`, existing
+`main`, starting at `ff22baa18fdcd1215e5a4527e67638fef8fb8ab6`. Preserve the eight
+pending roadmap/planning documents, including the previously untracked production
+plan, and pre-existing `logs/`. Lead integrates those planning changes before
+implementation commits; no new chats, subagents or worktrees are needed.
+
+| Owner | Complete assigned outcome | Current next action / handoff |
+| --- | --- | --- |
+| Lead `01a1dd1d-1468-7f81-8f31-5532ad7a178d` | VP01 mechanical/interface decisions, VP03 complete connected Arrow mechanism, VP04 shared track rendering, VP08/VP09 cumulative acceptance and integration. Own overall FD917 completion, exact selective commit/push and cleanup reconciliation. | Establish the finite Arrow topology/ratio/contact/interpolation contract with Art and Mechanisms; prove the connected gray mechanism through travel, joins, reverse, multi-turn and capture/recovery before dependent final Arrow art. Relay integrated contracts and paths promptly; coordinate any necessary bounded physics/migration correction. |
+| Art / pipeline `01a1dd1d-6e99-70d2-aef3-6dcebac10d72` | VP01 common style/reference sheet and full 17-style resource/retain/change inventory; VP02 authoritative asset pipeline/materials; VP06 batches A/B (Arrow, Legacy, Free Spin, Revised, PAX, Wing, Fixed Inverted, Suspended, Dive); VP07 shared item/teaching/optional-appearance reconciliation. Supply own affected VP08 evidence. | Establish source ownership and deterministic exports with a seat/joint/equipment/track material sample; settle batch A/B briefs and common visual interfaces. Publish reusable material/export handoff early. Dependent Arrow/PAX final art follows the relevant proven mechanism; independent silhouettes may proceed. |
+| Mechanisms / articulated art `01a1dd1d-c6a6-7be0-9cb5-2b033ac550da` | VP05 complete equipment/state presentation (PAX drive/catch, restraints, locks, magnets, hold/control cues); VP04 Pipeline wheel path; VP06 batches C/D (Axis, Roller Ball, both Flying variants, S1, S2, Pipeline, Powered Inverted Yaw). Supply per-family items/teaching/optional configurations to VP07 and own affected VP08 evidence. | Inspect actual state/pose sources and PAX placement/catch/drive topology; produce gray stateful assemblies and resolve batch C/D restraints/joints with Art. Coordinate common state/interpolation with lead, then deliver complete equipment and family outcomes on stable materials/interfaces. |
+
+**Ownership:** after this initial coordinator assignment, lead alone edits central
+ROADMAP/PLAN/queue, the production guide's shared contract decisions and release
+allocation, and stages/commits/pushes. All existing shared source/runtime/client/
+registration/build files initially belong to lead except the bounded transfers
+below. Old 0.9 transfers are history. Record an exact acknowledged path transfer
+before another owner edits any other existing file; grant coherent bounded sets
+promptly rather than turning all content into a lead-only bottleneck. Each owner
+may create uniquely namespaced package files/resources and evidence under
+`docs/evidence/fd917/{lead,art,mechanisms}/`; register new shared paths before use.
+One writer per file, including exported assets. Generator ownership does not
+implicitly transfer every output: record exact resource-output manifests and
+exclude another owner's assets before regeneration. No broad destructive generation.
+
+**Initial exact transfers from lead, accepted by starting the assignment:**
+
+- Art: `scripts/generate-content.py`, `scripts/generate-fixed-inverted.py`,
+  `scripts/generate-suspended.py`, `scripts/generate-dive.py`. Own common material/
+  export sources introduced under the `fd917` namespace; other owners consume
+  them after the integrated handoff. Shared Ponder/teaching generators and
+  registration hooks need a separate bounded transfer or lead-applied integration.
+- Mechanisms: `scripts/generate-axis.py`, `scripts/generate-roller-ball.py`,
+  `scripts/generate-flying.py`, `scripts/generate-new-generation-flying.py`,
+  `scripts/generate-spinning-content.py`, `scripts/generate-s2.py`,
+  `scripts/generate-pipeline.py`, `scripts/generate-powered-inverted.py`,
+  `src/main/java/dev/fourthdimension/client/PipelineWheelRenderer.java` and
+  `src/main/java/dev/fourthdimension/vehicle/VehicleVisualState.java`.
+- Lead retains `OriginalTrackRenderer.java`, `CarrierRuntime.java`, `TrackDesign.java`,
+  `VehicleFactory.java`, shared sync/persistence/registration and all other
+  untransferred paths. Mechanisms requests the exact PAX/seat/pivot/runtime paths
+  needed after its inspection; Art requests bounded model/resource paths from its
+  inventory. Required fixes may be transferred without new human approval.
+
+**Execution/stop boundary:** all 17 production briefs and section 6 criteria are
+required; the prior UV pass is not proof of the new production target. Preserve
+native/provider art boundaries, stable identities and saved programs. Resolve
+Arrow's actual-pose/contact mismatch, truthful equipment state and distinct
+silhouettes before final materials; do not hide required work as polish. Reuse
+accepted unchanged cases, test only changed claims, and reconcile cumulative
+evidence without a new full qualification campaign. The lead maintains progress,
+finite remaining claims, integrated handoffs and exact path transfers here.
+
+No runtime is reserved by this assignment. Owners record exact private display,
+world/game directories, ports, PIDs/units and resources before launch. Apply
+AGENTS.md's Java 21, persistent storage, default 1536M heap and 6 GiB client-only
+scope, measured headroom and targeted-input rules. Save/stop owned runs when done
+or abandoned; another owner must explicitly accept an exact continuing handoff.
+Coordinator monitors evidence and asks owners to intervene/clean up; it does not
+take their inputs or stop their runtimes. Completion requires FD917 acceptance,
+selective integration/push, verified exact remote HEAD and all-owner cleanup.
+
+The existing three owners and coordinator may exchange specific continuation,
+diagnosis, ownership and ready-handoff messages to finish this human assignment.
+The existing heartbeat is repurposed for FD917 and stays quiet on unchanged or
+non-actionable checks. Completed 0.9 ownership records below remain historical.
+
 ### Milestone 0.9 complete — 2026-11-15
 
 All eleven cards are closed in the [0.9 acceptance record](evidence/0.9/acceptance.md).

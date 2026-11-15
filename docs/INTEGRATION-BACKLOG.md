@@ -197,7 +197,8 @@ migration run. A blocked optional adapter does not block a sufficient core basel
 | 0.8 / FD501B–D, FD810–FD813 | Additions station telemetry/interlocks, selected CTNB tracks/controls, Magnetized equipment and actual authority conflicts | Can start after their integrated control/provider prerequisites, independently of Axis/Roller Ball. Add an operator example per capability and qualify the named operations profile. |
 | 0.8 / FD1701A, FD1702, FD1901–FD1902 | Required authority, Dive and upright-seated Powered Inverted Yaw | Consume integrated FD1802A targeting and validated hold/dispatch authority. Provide standalone vehicle/drive paths and optional scene-event adapters. Full multi-train management is not a prerequisite. |
 | 0.9 / FD501E–H, FD910–FD916; reuse FD501B | Coaster Skin, rotating-seat follow-up, Immersion, Waterparked and Create Coasters coexistence; shared model/texture review | Stable representative fixed/free/constrained seat/pose interfaces; normal input, rider state, fallback and combined-profile behavior. FD916 checks the complete original/new asset set and affected appearance/seat combinations before FD915 closes. |
-| 1.0 alpha / FD1000 | Freeze all agreed 1.0 capabilities and supported profiles | All adopted vehicles, variants and 1.0 integrations implemented with cumulative acceptance; no silent scope reduction. |
+| Pre-1.0 production / FD917 | Production visuals and connected mechanisms for all 17 styles, including affected Skin/seat/Track Styles presentation | Consume accepted FD915 contracts; preserve render/mount ownership and fallback. Complete the finite production criteria and necessary bounded renderer/state/mechanical changes before FD1000; existing adapter acceptance remains valid where unchanged. |
+| 1.0 alpha / FD1000 | Freeze all agreed 1.0 capabilities, production visuals and supported profiles | All adopted vehicles, variants, 1.0 integrations and FD917 implemented with cumulative acceptance; no silent scope reduction. |
 | 1.0 beta / RC / FD901–FD905 | Integrated qualification | Reuse accepted cases, test outstanding interactions and final workload, fix affected defects without resetting earlier gates. |
 | 1.0 stable / FD1001–FD1003 | Accurate support docs and reproducible artifacts | Clean install/package checks; publication remains separate. |
 | 1.1 / FD1602–FD1605 | Shareable presets, colors/liveries and operator panel | Consume integrated appearance, editing and control contracts. Skin is optional; panel commands preserve server authority and original choices work standalone. |
@@ -222,6 +223,14 @@ accepted 1.0 baseline. Preset/library and livery customization are distinct 1.1
 features; they are not retroactive conditions on the existing editor or art gate.
 The additional 1.0 vehicle assets themselves feed FD916 in 0.9; their earlier
 content checks count toward that review rather than triggering another art pass.
+
+The 2026-11-15 [FD917 adoption](../ROADMAP.md#fd917-deliver-the-production-visual-baseline)
+adds the [production-art and connected-mechanism target](roadmap/pre-1.0-visual-production.md)
+after that accepted 0.9 baseline. It checks changed Skin/seat/Track Styles surfaces
+and moving/state parts without reopening unrelated adapter capabilities or changing
+dependency pins. It feeds FD1000 directly; FD904 consumes its accepted visuals and
+measurements, and FD1002 checks exported/fallback resources in the release package.
+Required visual failures remain blockers through beta/RC, not deferred polish.
 
 For Spinning S2, the 0.5 specification names a working standalone launch path
 and supported configuration. FD812 adds an optional Magnetized alternative;
@@ -363,8 +372,9 @@ for a named profile**. Existing evidence stays bounded until the remaining gates
 2. In 0.5, resolve new-family specifications and independent FD501 dependency decisions. Wing proves contract changes with an occupied client handoff; FD501A handles core-required upgrades/migration and FD904C1 closes baseline comfort. Adapter-specific prerequisites follow their consumers through FD501B–H.
 3. Advance operations adapters after their own dependency and integrated control/provider prerequisites. They need not wait for the complex-family milestones; finish them and actual conflict-pair coverage in 0.8.
 4. Inspect coexistence early. Complete presentation/seat adapters in 0.9 against representative stable mechanisms, with player guidance supplied by each feature owner.
-5. Freeze the full scope at FD1000, reuse accumulated evidence through FD901–FD905 (including FD904C2 camera reconciliation), and complete final documentation/packaging through FD1001–FD1003.
-6. Publish only when separately authorized. FD801 stays independently conditional on inspectable upstream functionality.
+5. Complete FD917's production visuals and connected mechanisms, preserving accepted contracts and checking only affected optional-provider paths.
+6. Freeze the full scope and production baseline at FD1000, reuse accumulated evidence through FD901–FD905 (including FD904C2 camera reconciliation), and complete final documentation/packaging through FD1001–FD1003.
+7. Publish only when separately authorized. FD801 stays independently conditional on inspectable upstream functionality.
 
 No integration coding, dependency activation, compatibility testing, version bump,
 merge of implementation code or publication is performed by this planning update.

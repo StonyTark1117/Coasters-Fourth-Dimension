@@ -238,3 +238,21 @@ adequate captures. Texture-only edits need their affected visual checks, not a
 mechanics replay; changed geometry, seats or pivots need only the affected
 clearance, rider/render and mechanical checks. FD904A consumes the accepted visual
 baseline without restarting the art review or broader qualification.
+
+The subsequently adopted [FD917 production target](../ROADMAP.md#fd917-deliver-the-production-visual-baseline)
+is additional required pre-1.0 scope. FD916/FD915 retain their completed baseline;
+FD917 owns the new finite silhouette, material/lighting, connected-mechanism and
+state-presentation claims. Its acceptance is required before FD1000. An earlier
+UV check or old geometry view does not prove a replacement production asset, but
+unchanged functional and visual evidence still carries forward. Use the
+[FD917 acceptance table](roadmap/pre-1.0-visual-production.md#6-finite-acceptance-and-verification-plan)
+to identify each changed claim and the smallest affected check.
+
+During 1.0 beta/RC, newly found failures of those required criteria block the
+consuming FD904/FD905 gate until corrected. Texture-only fixes need affected visual
+checks; geometry, seat, pivot, state or mechanical changes need only their affected
+checks. Contract/scope changes after freeze require an explicit freeze revision,
+not an automatic replay of accepted cases. FD1002 verifies the production exports
+and standalone fallback in packaging. New aesthetic preferences outside the
+finite briefs remain nonblocking; the planned production work itself cannot be
+waived as polish.

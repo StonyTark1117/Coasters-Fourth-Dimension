@@ -23,13 +23,15 @@ The [integration allocation](docs/INTEGRATION-BACKLOG.md#release-allocation)
 uses the same sequence. This adopts the work plan; it does not certify new
 capabilities, activate dependencies, change artifact versions or authorize publication.
 
-**Current stage: 0.4 complete; no release candidate is accepted.** Foundation
-through the bounded five-family 0.3 gate, FD401A–D, FD402A–F, FD403A–F and FD404
-retain their accepted status. FD402 is complete for its declared recovery scope.
-Early design research
-and asset concepts may proceed independently; implementation follows the explicit
-package prerequisites below. The old blanket expansion pause is superseded by
-this adopted sequence. FD801 remains an independent upstream-dependent package.
+**Current stage: development milestones through 0.9 complete; no 1.0 freeze or
+release candidate is accepted.** The [0.8](docs/evidence/0.8/acceptance.md) and
+[0.9](docs/evidence/0.9/acceptance.md) records retain the earlier milestones and
+their accepted behavior. On **2026-11-15**, the additional
+[visual production plan](docs/roadmap/pre-1.0-visual-production.md) was adopted as
+**FD917**, required before FD1000. This raises the production-art and visible-
+mechanism target without reopening FD916 or earlier milestone gates. FD917 is
+in progress under the human-authorized assignments in the current queue. FD801 remains an
+independent upstream-dependent package.
 
 **Artifact being qualified:** use the source/JAR and profile identities in the
 [current qualification record](docs/CURRENT-QUALIFICATION.md#artifact-and-scope).
@@ -58,9 +60,10 @@ a requirement to leave a fully covered task open or schedule another run.
 3. Build S1 conventional free-spinning, then Suspended and Fixed Inverted (0.6). In 0.7 implement Axis and Roller Ball, and Conventional Flying followed by New-generation Flying with scenery-facing yaw. The two 0.7 chains follow their actual prerequisites and share runtime ownership.
 4. Complete Pipeline, S2 launched/inverting free-spinning, Dive, Powered Inverted Yaw and operations integrations (0.8). Establish the required hold/dispatch authority before Dive/powered travel; consume the Flying yaw handoff for Powered Inverted. Pipeline and adapters do not wait for unrelated families.
 5. Complete presentation, optional seats, coexistence and the model-and-texture review (0.9) against stable representative vehicle interfaces. Review all original and added families; recipes, guides, examples and asset improvements accompany each feature.
-6. Close FD1000 at 1.0 alpha to freeze the expanded feature scope. During beta/RC reconcile accumulated acceptance and finish FD901–FD905; FD1001–FD1003 own documentation, packaging and stable release.
-7. Deliver the standalone preset library, colors/liveries and unified operator panel in 1.1, then ride-local multi-train operations in 1.2. These supporting tools do not postpone the vehicle families or add a blanket prerequisite to them.
-8. Develop turntables, drop tables, tilt tracks and the finite additional moving-track styles through the separate post-1.0 program. Prove moving route connections and occupied retention first; assign release numbers after feasibility. These mechanisms never block 1.0.
+6. Complete FD917 production visuals and connected mechanisms across the 17 adopted vehicle styles. Resolve shared dimensions/materials and the Arrow linkage prototype before dependent final art; integrate required renderer, state and bounded mechanical changes before the freeze.
+7. Close FD1000 at 1.0 alpha with FD917's accepted production baseline. During beta/RC reconcile accumulated acceptance, fix remaining required visual defects and finish FD901–FD905; FD1001–FD1003 own documentation, packaging and stable release.
+8. Deliver the standalone preset library, colors/liveries and unified operator panel in 1.1, then ride-local multi-train operations in 1.2. These supporting tools do not postpone the vehicle families or add a blanket prerequisite to them.
+9. Develop turntables, drop tables, tilt tracks and the finite additional moving-track styles through the separate post-1.0 program. Prove moving route connections and occupied retention first; assign release numbers after feasibility. These mechanisms never block 1.0.
 
 A [4,800-tick PAX source recovery](docs/evidence/0.9/fd401-pax-longhold-source-229e586/acceptance.md),
 its [packaged named test](docs/evidence/0.9/fd401-pax-packaged-longhold-229e586/README.md),
@@ -92,9 +95,10 @@ whole-JAR equality is not required. Keep the original run identity and limits.
 | 0.5 | FD501–FD503; six original discovery IDs; FD1601S, FD1702S, FD1801S, FD1802S, FD1901S; FD1101A–C; FD904C1 | Complete | Specify every 1.0 vehicle, prove Wing-backed extension contracts, establish comfort and reusable tools. Adapter-specific upgrades follow their consumers. |
 | 0.6 | FD1501A–C, FD1301A–C, FD1601A–C, FD601 | Complete 2026-11-15 | S1 conventional free-spinning, Suspended and Fixed Inverted: axes, loading, capture, swing locks and fixed overhead seating. |
 | 0.7 | FD1302A–C, FD1502A–C, FD1801A–C, FD1802A–C, FD1803, FD701 | Complete | Axis/Roller Ball and both Flying variants; New-generation Flying proves scenery-facing yaw in seated and prone postures. |
-| 0.8 | FD1401A–C, FD1501D–F, FD1701A, FD1702A–C, FD1901A–C, FD1902, FD810–FD813 | In progress | Pipeline, S2, Dive, Powered Inverted Yaw, required operating authority and agreed Additions/CTNB/Magnetized capabilities. |
-| 0.9 | FD910–FD916 | Active | Skin, rotating-seat integration, Immersion, Waterparked/Create Coasters coexistence, and model/texture quality across original and added families. |
-| 1.0 alpha | FD1000 | Planned | All adopted vehicle families, variants and 1.0 integrations complete; freeze feature scope and supported profiles. |
+| 0.8 | FD1401A–C, FD1501D–F, FD1701A, FD1702A–C, FD1901A–C, FD1902, FD810–FD813 | Complete 2026-11-15 | Pipeline, S2, Dive, Powered Inverted Yaw, required operating authority and agreed Additions/CTNB/Magnetized capabilities. |
+| 0.9 | FD910–FD916 | Complete 2026-11-15 | Skin, rotating-seat integration, Immersion, Waterparked/Create Coasters coexistence, and the accepted model/texture baseline. |
+| Pre-1.0 production | FD917 | In progress | Production models/materials, connected mechanisms and truthful state presentation for all 17 vehicle styles, required tracks/equipment/items and affected optional appearances. |
+| 1.0 alpha | FD1000 | Planned | All adopted vehicle families, variants, 1.0 integrations and FD917 production visuals accepted; freeze feature scope and supported profiles. |
 | 1.0 beta / RC | FD901–FD905 | Evidence in progress; final gates open | Integrated stabilization, compatibility, lifecycle, migration, rendering and performance; carry accepted cases forward. |
 | 1.0 stable | FD1001–FD1003 | Planned | Final documentation, reproducible packaging and separately authorized publication. |
 | 1.1 | FD1602–FD1605 | Planned | Shareable setting presets, colors/liveries and a unified operator panel; Fixed Inverted is already a 1.0 requirement. |
@@ -105,8 +109,8 @@ whole-JAR equality is not required. Keep the original run identity and limits.
 Milestone labels are delivery targets, not dates, JAR version changes or universal
 start barriers. A milestone gate aggregates its named deliverables; individual
 packages can start once their own prerequisites are met. Required 0.4–0.9
-gates feed FD1000 and the 1.0 release, but unrelated unfinished work need not idle
-an agent. Permanent FD numbers do not change when their release allocation moves.
+gates and FD917 feed FD1000 and the 1.0 release, but unrelated unfinished work need
+not idle an agent. Permanent FD numbers do not change when their release allocation moves.
 Post-1.0 gates consume only their declared packages. Publication of an earlier
 version is not a prerequisite for later design or implementation; integrated
 contracts and their accepted handoff are. Keep the 1.0 qualification baseline
@@ -823,22 +827,92 @@ missing asset remains in release scope. Freeze the accepted visual baseline and
 stop; further taste-based refinements are follow-up work. Existing mechanics and
 earlier milestone acceptance remain closed unless an actual affected case fails.
 
+## Pre-1.0 — visual production and connected mechanisms
+
+### FD917 Deliver the production visual baseline
+
+**Execution steps:** [Pre-1.0 visual production, VP01–VP09](docs/roadmap/pre-1.0-visual-production.md#fd917).
+
+**Status: in progress; assigned 2026-11-15.** **Delivery:** before FD1000's alpha
+freeze. **Depends on:** FD915's accepted asset, family and optional-provider
+contracts; relevant dimensioned specifications. **Design:** D08, D13, D14, D16, D17.
+
+Deliver the new production target for **17 styles**: Arrow, Legacy ZacSpin, Free
+Spin, Revised ZacSpin, PAX, Wing, S1/S2 Spinning, Suspended, Fixed Inverted, Axis,
+Roller Ball, Conventional/New-generation Flying, Pipeline, Dive and Powered
+Inverted Yaw. Include authored bodies, seats, restraints, wheels, pivots, tracks,
+equipment, controllers/tools and item/teaching representations. Preserve Wing's
+16 colors and the selected Skin/seat configurations, with standalone fallback.
+Use the pinned Coasters Simulated resources as the style/scale reference; do not
+redistribute native/provider art or introduce a dependency-upgrade campaign.
+
+FD916's bounded UV/finish and family-content acceptance remain valid for their
+original inputs. They do not establish the newly requested production silhouettes,
+materials or connected mechanism presentation. Retain adequate assets and evidence;
+replace or correct only what the finite production briefs require. The following
+work is required scope, not an unspecified post-release polish backlog:
+
+| Procedure | Required outcome |
+| --- | --- |
+| VP01 — Reference and dimensions | One finite per-style/shared-asset list records retain/change decisions, source ownership, native interfaces and affected envelopes. Resolve Arrow ratio/contact layout, PAX reference/drive routing, S2/Powered Inverted restraint direction, Fixed Inverted leg space and deliberate non-replica variants. |
+| VP02 — Asset pipeline and materials | Editable authoritative sources and deterministic exports; intentional metal/paint/rubber/padding/indicator treatment, consistent texel density and bounded UVs; no generator overwrites of authored art or missing runtime resources. |
+| VP03 — Arrow connection prototype | Fixed profiled rails connect visibly through followers, slider/transmission and axle to the actual seat pose. Resolve stroke/ratio, contact sampling, servo/capture mismatch and unwrapped multi-turn travel, including bank/curve/joins, reverse and capture/recovery. A decorative rack or hidden mismatch does not pass. |
+| VP04 — Track and running gear | Textured, world-lit authored track and Pipeline wheels, correct contacts/supports/joins, normals/culling and bounded render cost. Preserve native running gear and optional decoration ownership. |
+| VP05 — Equipment and state | Complete PAX drive/catch/guidance, restraint hinges/transitions, claimed latch/receiver connections, magnetic reaction surfaces/air gaps and truthful hold/ready/fault cues. Distinguish remote controls from physical contact devices; use authoritative state and actual pose. |
+| VP06 — All vehicle styles | Distinct production shells, seating arrangements and suspension/pivot structure for the 17 briefs; identity cannot rely only on color. Fit each distinct changed rider/restraint and motion envelope. Independent batches follow their own stable inputs. |
+| VP07 — Items, teaching and optional appearances | Recognizable inventory/held/world representations and accurate affected Ponder scenes; Skin, seats and Track Styles preserve required moving parts, cues and one render/mount owner, with deterministic missing-provider fallback. |
+| VP08–VP09 — Acceptance and integration | Reconcile implementation evidence, affected lifecycle/compatibility and comparable renderer measurements; integrate the production revision and export instructions, preserve worlds/evidence and verify owned-runtime cleanup. Hand off to FD1000 and FD901–FD904 without a second art campaign. |
+
+The [finite acceptance table](docs/roadmap/pre-1.0-visual-production.md#6-finite-acceptance-and-verification-plan)
+defines the required continuity, recognition, rider fit, material/lighting, track,
+state, item/teaching, optional-provider, functional and performance claims for
+this package. For the new Arrow assembly, specified contact surfaces permit at
+most **1/64 block unintended gap/penetration**, with no visible detachment at
+normal inspection distance; separately document intentional clearances. This
+does not impose a new tolerance on unchanged native gear or magnetic air gaps.
+
+Prove the connected gray Arrow prototype before dependent final art. Use actual
+interpolated chassis/carrier poses and compatible coordinate frames; a profile
+target cannot replace the rider's actual pose. A full contact-driven gear solver
+is not required. If the existing architecture cannot maintain the defined
+connection, make the minimum necessary drive/capture/dimension correction here,
+with explicit saved-program, seat/pivot and clearance dispositions. Do not defer
+the defining connection beyond 1.0 or hide it with cosmetic animation.
+
+**Done when:** every style and shared asset has a completed production brief and
+all required claims have direct or valid retained evidence; no required missing
+asset, unintended placeholder, disconnected defining mechanism or false state
+cue remains. New geometry/state receives only affected occupied/clearance,
+synchronization and mechanical checks; textures alone need no mechanics replay.
+Compare changed renderer cost against declared measurements/budgets; final park
+qualification remains FD904B. No Cartesian family × color × provider campaign.
+
+All required production work completes **before FD1000**. During beta/RC, a new
+failure of this accepted baseline remains a release blocker through FD904/FD905
+until its affected check passes; update the changed claim without resetting other
+acceptance. Contract/scope changes after freeze require an explicit freeze
+revision. New liveries, taste-only refinements, unseen internal detail, new ride
+systems and moving-track work stay outside this package. The human's subsequent
+FD917 assignment activates implementation and monitoring as recorded in the
+current queue; the freeze and publication remain separate.
+
 ## Version 1.0 alpha — expanded feature freeze
 
 ### FD1000 Freeze the complete expanded feature set
 
 **Execution steps:** [FD1000](docs/roadmap/1.0-release.md#fd1000).
 
-**Status: planned.** **Depends on:** FD404, FD503, FD601, FD701, FD813, FD915.
+**Status: planned.** **Depends on:** FD404, FD503, FD601, FD701, FD813, FD915, FD917.
 
 1. Reconcile all family/variant and integration acceptance, reusing existing results under the validation policy.
-2. Finish missing original assets, recipes, guides, examples and usability work in their owning packages, including FD916's accepted visual baseline through FD915; do not rerun complete walkthroughs just to consolidate records.
+2. Finish missing original assets, recipes, guides, examples and usability work in their owning packages. Require FD917's integrated production baseline, carrying forward FD916/FD915's unaffected acceptance; do not substitute the earlier UV review for the new production criteria or rerun complete walkthroughs just to consolidate records.
 3. Freeze the included capability list, named profiles/dependency identities, deliverable source/JAR and support limits in the qualification record. Preserve the original core baseline and all prior run identities.
 4. Declare feature complete and move to stabilization. Additional scope needs an explicit revision; no agreed feature is silently deferred to make the gate pass.
 
 **Done when:** all scope formerly proposed through 1.5 plus the adopted Fixed
 Inverted, Dive, both Flying variants and Powered Inverted Yaw is implemented and
-accepted within the agreed specifications. Discovery, a prototype or a staged addon alone
+accepted within the agreed specifications, including FD917's production models,
+materials and connected mechanism presentation. Discovery, a prototype or a staged addon alone
 cannot close this gate. FD801 availability remains outside the mandatory gate.
 
 ## Version 1.0 beta and release candidate
@@ -907,7 +981,7 @@ implementation packages; no new family × profile × interruption cross product.
 **Status: in progress.** Schema-1–5 loader regressions, a real historical schema-3
 world, appearance removal/reinstall and bounded provenance backfill have evidence.
 
-**Depends on:** FD1000 for final qualification; FD501A and the consuming FD501B–H packages own earlier migration implementation. **Design:** D04, D09, D10, D16.
+**Depends on:** FD1000 for final qualification; FD501A and the consuming FD501B–H packages own earlier migration implementation, with FD917 owning any migration required by its production changes. **Design:** D04, D09, D10, D16.
 
 On the selected JAR, retain the loader matrix and real historical schema-3 upgrade,
 sustained Arrow/Legacy/Free Spin rides, two-client seat restoration, save/reopen,
@@ -915,7 +989,7 @@ backup restoration and appearance-provider removal/reinstall. Preserve all saved
 rail/profile/chassis/carrier IDs. Intact legacy rails may gain exact provenance;
 changed/foreign/missing rails must not acquire invented geometry. Missing functional
 providers and unsupported conversions reject clearly. Include any schema/provider
-migration deliberately selected and implemented in FD501A or the consuming adapter package; archived schema-7 work
+migration deliberately selected and implemented in FD501A, the consuming adapter package or FD917; archived schema-7 work
 is not presumed implemented or certified. Carry the accepted schema-6 results forward.
 
 **Evidence / next action:** [migration procedure](docs/MIGRATION.md),
@@ -939,7 +1013,7 @@ memory and sustained-park acceptance have not yet been measured.
 
 | Task / status | Required scenario and pass condition | Evidence / next action |
 | --- | --- | --- |
-| <a id="fd904a"></a> **FD904A Rendering — in progress** [Steps](docs/roadmap/1.0-release.md#fd904a) | Accepted original-family checks plus new mechanism-specific rider/body/camera coverage and the frozen advertised graphics profiles; nonempty `geometryStages` >=500, correct ownership and visible geometry, clean reload and shutdown; solver/frame/rider evidence retains its measured bounds | [Historical render evidence](docs/evidence/0.9/client-render-sampling.md) and [artifact reuse map](docs/CURRENT-QUALIFICATION.md). Accepted FAST/FABULOUS gates and FD401B visuals carry forward when their render inputs are unchanged; run only missing/changed paths. FD402B supplies recovery views; FD916 supplies the accepted model/texture finish without a second art review. |
+| <a id="fd904a"></a> **FD904A Rendering — in progress** [Steps](docs/roadmap/1.0-release.md#fd904a) | Accepted original-family checks plus new mechanism-specific rider/body/camera coverage and the frozen advertised graphics profiles; nonempty `geometryStages` >=500, correct ownership and visible geometry, clean reload and shutdown; solver/frame/rider evidence retains its measured bounds | [Historical render evidence](docs/evidence/0.9/client-render-sampling.md) and [artifact reuse map](docs/CURRENT-QUALIFICATION.md). Accepted FAST/FABULOUS gates and FD401B visuals carry forward when their render inputs are unchanged; run only missing/changed paths. FD402B supplies recovery views; FD917 supplies the production visual baseline, retaining unchanged FD916 evidence. Resolve new required visual failures before FD905 without a second all-family art review. |
 | <a id="fd904b"></a> **FD904B Representative park — planned** [Steps](docs/roadmap/1.0-release.md#fd904b) | The fixed mixed-family scene, declared hardware/settings, frame/tick percentiles, heap/RSS/cgroup and GC measurements, frozen budgets and one combined-profile 30-minute sustained run defined in [PERFORMANCE.md](docs/PERFORMANCE.md#representative-park-acceptance-fd904b) | Implement/validate whole-frame and whole-server collectors; an initial baseline can close initial measured acceptance without a duplicate same-artifact run. Freeze budgets for later comparisons. Keep 120,000 ns/runtime invocation and 6,000 ns/carrier limits in all four native profiles. No existing average or llvmpipe capture proves GPU smoothness. |
 | <a id="fd904c"></a> **FD904C Rider camera and comfort — planned; cumulative parent** [Steps](docs/roadmap/1.0-release.md#fd904c) | FD904C1 owns the independently closable 0.5 baseline; FD904C2 reconciles later family/effects coverage for final qualification | [D16](PLAN.md#d16-riders-and-synchronization). FD503 and FD912 depend only on FD904C1. Later cases do not reopen a completed baseline or require a second camera implementation. |
 
@@ -974,6 +1048,7 @@ open. Only a named regression in a baseline case can reopen that case.
 
 Each later family's player-acceptance package supplies its distinct pose/comfort
 cases during development; FD912 supplies optional-effects ownership and restoration.
+FD917 supplies any affected rider/restraint/pose observations from production changes.
 At final qualification, link that coverage to the frozen family/variant/profile
 list and resolve only identified missing or affected cases. This is reconciliation,
 not a second implementation, a new all-family run or a prerequisite for FD503.
@@ -1024,7 +1099,7 @@ Finalize installation instructions, version/dependency matrix, all included fami
 
 **Depends on:** FD905, FD1001.
 
-Build from the intended release revision, record checksums, verify packaged metadata/assets, and smoke-test clean client and dedicated-server installs using the documented dependencies.
+Build from the intended release revision, record checksums, verify packaged metadata/assets, and smoke-test clean client and dedicated-server installs using the documented dependencies. Include FD917's runtime meshes/materials/textures, blockstates, item transforms and changed teaching resources; ensure generated output matches its authoritative sources and fallback assets ship without optional providers. Authoring sources need not ship in the JAR.
 
 **Done when:** the artifact is reproducible, contains only intended distributable content, and clean client/server installs work with the documented dependencies. Reuse the accepted family/variant rides and restrictions when relevant packaged inputs and install context match; use a representative clean-install ride to check packaging, expanding only for a family-specific packaging risk. Do not repeat survival construction or the full qualification matrix here.
 
@@ -1045,14 +1120,15 @@ Spinning variants, Suspended, Axis, Pipeline, Roller Ball, Fixed Inverted, Dive,
 Conventional Flying, New-generation Flying with scenery-facing yaw, and Powered
 Inverted Yaw, with their original
 vehicles and required track contracts. It includes the agreed operations,
-presentation, optional-seat and coexistence capabilities through FD915, including
-FD916's complete model-and-texture review. Strict
+presentation, optional-seat and coexistence capabilities through FD915, retaining
+FD916's model-and-texture review, plus FD917's production art and connected
+mechanism presentation. Strict
 eligibility, correct riders/camera, persistent multiplayer state, usable content,
 supported migrations and measured performance remain release requirements.
 Optional addons stay optional for standalone rides. Ordinary-cart access and
 towing retain their separately proven bounds; FD801 availability does not block release.
 Required earlier gates include these vehicle outcomes through FD601/FD701/FD813
-and their visual finish through FD916. FD1602–FD1605 builder tools, FD1701B/C and
+and the production visual baseline through FD917. FD1602–FD1605 builder tools, FD1701B/C and
 FD1703 multi-train operations, and FD2001–FD2007 moving-track mechanisms remain
 post-1.0 and are not prerequisites for this release.
 
@@ -1068,6 +1144,7 @@ publish them consistently; FD1002 must verify the boundaries on the release JAR.
 | Recovery envelope | Accept only the FD402 declared bearing, family/consist/route, drive, equipment and provider set | FD402A–F certify it; unmeasured grades, assemblies, compact-spike pulls and cosmetic overrides stay unsupported. |
 | Stabilized comfort camera | Deliver before 1.0 as already specified in D16; not implicitly deferred | FD904C1 delivers the 0.5 baseline; FD904C2 consumes later coverage. An unmet required camera criterion blocks 1.0, without reopening unrelated accepted cases. |
 | Expanded families/variants, required tracks, supported upgrades and named profiles | Preserve original five-family acceptance and deliver every adopted vehicle/cart style, including Fixed Inverted, Dive, both Flying variants and Powered Inverted Yaw | FD503/FD601/FD701/FD813/FD915 feed FD1000, then FD905; optional addons remain optional for standalone use. Moving-track mechanisms are post-1.0. |
+| Production visual baseline | Deliver the finite 17-style production briefs, visible mechanism connections, truthful state cues and required shared/item/teaching assets before freeze; required visual failures cannot be deferred as polish | FD917 feeds FD1000; FD904/FD905 resolve new required failures during beta/RC; FD1002 verifies production exports and standalone fallback. Retain unchanged FD916 and family evidence. |
 
 ## External compatibility work
 
