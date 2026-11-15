@@ -1,0 +1,454 @@
+{
+  "at": "2026-11-15T05:33:37.482259024Z",
+  "gameTime": 35846,
+  "input": {
+    "screen": null,
+    "windowActive": true,
+    "glfwFocused": 1,
+    "glfwCursorMode": 212995,
+    "glfwRawMouseMotion": 1,
+    "rawMouseOption": true,
+    "mouseGrabbed": true,
+    "mouseX": 427.0,
+    "mouseY": 240.0,
+    "deltaX": 0.0,
+    "deltaY": 0.0,
+    "playerYaw": -105.80674,
+    "playerPitch": 28.195953,
+    "passenger": false,
+    "worldStableView": false,
+    "cameraQuaternion": [
+      0.19428475,
+      0.58499414,
+      0.1469184,
+      -0.7735957
+    ],
+    "cameraUp": [
+      0.45462176,
+      0.8813368,
+      -0.1287029
+    ],
+    "nativeSeatOrientation": null,
+    "ignoreFirstMove": true
+  },
+  "clientWorldGameTime": 35846,
+  "assignedVehicleSnapshot": {
+    "assignedVehicle": false,
+    "available": true
+  },
+  "selectedAnchor": null,
+  "cachedKey": "null",
+  "cachedStatus": "NONE",
+  "cachedPath": null,
+  "heldItem": "1 fourthdimension:rotation_tool",
+  "hit": "net.minecraft.world.phys.BlockHitResult@7cc66edd",
+  "hitType": "BLOCK",
+  "hitBlock": [
+    20481032,
+    128,
+    20485128
+  ],
+  "hitState": "Block{simulatedcoasters:coaster_cart}[snap_engaged\u003dtrue]",
+  "hitBlockEntity": null,
+  "trackOutlineSelection": "null",
+  "wrenchGraphHit": "null",
+  "wrenchSpanHit": null,
+  "indexedAnchors": [
+    {
+      "anchor": [
+        200,
+        93,
+        36
+      ],
+      "currentBlockEntity": true,
+      "hasShaft": true,
+      "hasSpan": true,
+      "speed": 64.0,
+      "committedSegments": "[ChainLiftCommittedSegment[edgeFrom\u003dBlockPos{x\u003d200, y\u003d93, z\u003d36}, edgeTo\u003dBlockPos{x\u003d200, y\u003d93, z\u003d100}, tStart\u003d0.0, tEnd\u003d1.0]]",
+      "resolvedPath": {
+        "segments": [
+          {
+            "tEnd": 1.0,
+            "tStart": 0.0,
+            "to": [
+              200,
+              93,
+              100
+            ],
+            "from": [
+              200,
+              93,
+              36
+            ]
+          }
+        ],
+        "length": 64.0
+      },
+      "overlapsCached": false,
+      "overlapsProbe": false
+    },
+    {
+      "anchor": [
+        72,
+        93,
+        124
+      ],
+      "currentBlockEntity": true,
+      "hasShaft": true,
+      "hasSpan": true,
+      "speed": -64.0,
+      "committedSegments": "[ChainLiftCommittedSegment[edgeFrom\u003dBlockPos{x\u003d72, y\u003d93, z\u003d124}, edgeTo\u003dBlockPos{x\u003d96, y\u003d93, z\u003d100}, tStart\u003d0.0, tEnd\u003d1.0]]",
+      "resolvedPath": {
+        "segments": [
+          {
+            "tEnd": 1.0,
+            "tStart": 0.0,
+            "to": [
+              96,
+              93,
+              100
+            ],
+            "from": [
+              72,
+              93,
+              124
+            ]
+          }
+        ],
+        "length": 37.714355778470555
+      },
+      "overlapsCached": false,
+      "overlapsProbe": false
+    },
+    {
+      "anchor": [
+        224,
+        93,
+        124
+      ],
+      "currentBlockEntity": true,
+      "hasShaft": true,
+      "hasSpan": true,
+      "speed": -64.0,
+      "committedSegments": "[ChainLiftCommittedSegment[edgeFrom\u003dBlockPos{x\u003d224, y\u003d93, z\u003d124}, edgeTo\u003dBlockPos{x\u003d272, y\u003d93, z\u003d124}, tStart\u003d0.0, tEnd\u003d1.0]]",
+      "resolvedPath": {
+        "segments": [
+          {
+            "tEnd": 1.0,
+            "tStart": 0.0,
+            "to": [
+              272,
+              93,
+              124
+            ],
+            "from": [
+              224,
+              93,
+              124
+            ]
+          }
+        ],
+        "length": 48.0
+      },
+      "overlapsCached": false,
+      "overlapsProbe": false
+    },
+    {
+      "anchor": [
+        72,
+        93,
+        12
+      ],
+      "currentBlockEntity": true,
+      "hasShaft": true,
+      "hasSpan": true,
+      "speed": 64.0,
+      "committedSegments": "[ChainLiftCommittedSegment[edgeFrom\u003dBlockPos{x\u003d72, y\u003d93, z\u003d12}, edgeTo\u003dBlockPos{x\u003d24, y\u003d93, z\u003d12}, tStart\u003d0.0, tEnd\u003d1.0]]",
+      "resolvedPath": {
+        "segments": [
+          {
+            "tEnd": 1.0,
+            "tStart": 0.0,
+            "to": [
+              24,
+              93,
+              12
+            ],
+            "from": [
+              72,
+              93,
+              12
+            ]
+          }
+        ],
+        "length": 48.0
+      },
+      "overlapsCached": false,
+      "overlapsProbe": false
+    },
+    {
+      "anchor": [
+        272,
+        93,
+        124
+      ],
+      "currentBlockEntity": true,
+      "hasShaft": true,
+      "hasSpan": true,
+      "speed": -64.0,
+      "committedSegments": "[ChainLiftCommittedSegment[edgeFrom\u003dBlockPos{x\u003d272, y\u003d93, z\u003d124}, edgeTo\u003dBlockPos{x\u003d296, y\u003d93, z\u003d100}, tStart\u003d0.0, tEnd\u003d1.0]]",
+      "resolvedPath": {
+        "segments": [
+          {
+            "tEnd": 1.0,
+            "tStart": 0.0,
+            "to": [
+              296,
+              93,
+              100
+            ],
+            "from": [
+              272,
+              93,
+              124
+            ]
+          }
+        ],
+        "length": 37.71429535505097
+      },
+      "overlapsCached": false,
+      "overlapsProbe": false
+    },
+    {
+      "anchor": [
+        96,
+        93,
+        36
+      ],
+      "currentBlockEntity": true,
+      "hasShaft": true,
+      "hasSpan": true,
+      "speed": -64.0,
+      "committedSegments": "[ChainLiftCommittedSegment[edgeFrom\u003dBlockPos{x\u003d96, y\u003d93, z\u003d36}, edgeTo\u003dBlockPos{x\u003d72, y\u003d93, z\u003d12}, tStart\u003d0.0, tEnd\u003d1.0]]",
+      "resolvedPath": {
+        "segments": [
+          {
+            "tEnd": 1.0,
+            "tStart": 0.0,
+            "to": [
+              72,
+              93,
+              12
+            ],
+            "from": [
+              96,
+              93,
+              36
+            ]
+          }
+        ],
+        "length": 37.689239618789294
+      },
+      "overlapsCached": false,
+      "overlapsProbe": false
+    },
+    {
+      "anchor": [
+        200,
+        93,
+        100
+      ],
+      "currentBlockEntity": true,
+      "hasShaft": true,
+      "hasSpan": true,
+      "speed": 64.0,
+      "committedSegments": "[ChainLiftCommittedSegment[edgeFrom\u003dBlockPos{x\u003d200, y\u003d93, z\u003d100}, edgeTo\u003dBlockPos{x\u003d224, y\u003d93, z\u003d124}, tStart\u003d0.0, tEnd\u003d1.0]]",
+      "resolvedPath": {
+        "segments": [
+          {
+            "tEnd": 1.0,
+            "tStart": 0.0,
+            "to": [
+              224,
+              93,
+              124
+            ],
+            "from": [
+              200,
+              93,
+              100
+            ]
+          }
+        ],
+        "length": 37.7142953549006
+      },
+      "overlapsCached": false,
+      "overlapsProbe": false
+    },
+    {
+      "anchor": [
+        96,
+        93,
+        100
+      ],
+      "currentBlockEntity": true,
+      "hasShaft": true,
+      "hasSpan": true,
+      "speed": -64.0,
+      "committedSegments": "[ChainLiftCommittedSegment[edgeFrom\u003dBlockPos{x\u003d96, y\u003d93, z\u003d100}, edgeTo\u003dBlockPos{x\u003d96, y\u003d93, z\u003d36}, tStart\u003d0.0, tEnd\u003d1.0]]",
+      "resolvedPath": {
+        "segments": [
+          {
+            "tEnd": 1.0,
+            "tStart": 0.0,
+            "to": [
+              96,
+              93,
+              36
+            ],
+            "from": [
+              96,
+              93,
+              100
+            ]
+          }
+        ],
+        "length": 64.0
+      },
+      "overlapsCached": false,
+      "overlapsProbe": false
+    },
+    {
+      "anchor": [
+        224,
+        93,
+        12
+      ],
+      "currentBlockEntity": true,
+      "hasShaft": true,
+      "hasSpan": true,
+      "speed": 64.0,
+      "committedSegments": "[ChainLiftCommittedSegment[edgeFrom\u003dBlockPos{x\u003d224, y\u003d93, z\u003d12}, edgeTo\u003dBlockPos{x\u003d200, y\u003d93, z\u003d36}, tStart\u003d0.0, tEnd\u003d1.0]]",
+      "resolvedPath": {
+        "segments": [
+          {
+            "tEnd": 1.0,
+            "tStart": 0.0,
+            "to": [
+              200,
+              93,
+              36
+            ],
+            "from": [
+              224,
+              93,
+              12
+            ]
+          }
+        ],
+        "length": 37.68923890733988
+      },
+      "overlapsCached": false,
+      "overlapsProbe": false
+    },
+    {
+      "anchor": [
+        272,
+        93,
+        12
+      ],
+      "currentBlockEntity": true,
+      "hasShaft": true,
+      "hasSpan": true,
+      "speed": 64.0,
+      "committedSegments": "[ChainLiftCommittedSegment[edgeFrom\u003dBlockPos{x\u003d272, y\u003d93, z\u003d12}, edgeTo\u003dBlockPos{x\u003d224, y\u003d93, z\u003d12}, tStart\u003d0.0, tEnd\u003d1.0]]",
+      "resolvedPath": {
+        "segments": [
+          {
+            "tEnd": 1.0,
+            "tStart": 0.0,
+            "to": [
+              224,
+              93,
+              12
+            ],
+            "from": [
+              272,
+              93,
+              12
+            ]
+          }
+        ],
+        "length": 48.0
+      },
+      "overlapsCached": false,
+      "overlapsProbe": false
+    },
+    {
+      "anchor": [
+        296,
+        93,
+        36
+      ],
+      "currentBlockEntity": true,
+      "hasShaft": true,
+      "hasSpan": true,
+      "speed": -64.0,
+      "committedSegments": "[ChainLiftCommittedSegment[edgeFrom\u003dBlockPos{x\u003d296, y\u003d93, z\u003d36}, edgeTo\u003dBlockPos{x\u003d272, y\u003d93, z\u003d12}, tStart\u003d0.0, tEnd\u003d1.0]]",
+      "resolvedPath": {
+        "segments": [
+          {
+            "tEnd": 1.0,
+            "tStart": 0.0,
+            "to": [
+              272,
+              93,
+              12
+            ],
+            "from": [
+              296,
+              93,
+              36
+            ]
+          }
+        ],
+        "length": 37.68923961878931
+      },
+      "overlapsCached": false,
+      "overlapsProbe": false
+    },
+    {
+      "anchor": [
+        296,
+        93,
+        100
+      ],
+      "currentBlockEntity": true,
+      "hasShaft": true,
+      "hasSpan": true,
+      "speed": -64.0,
+      "committedSegments": "[ChainLiftCommittedSegment[edgeFrom\u003dBlockPos{x\u003d296, y\u003d93, z\u003d100}, edgeTo\u003dBlockPos{x\u003d296, y\u003d93, z\u003d36}, tStart\u003d0.0, tEnd\u003d1.0]]",
+      "resolvedPath": {
+        "segments": [
+          {
+            "tEnd": 1.0,
+            "tStart": 0.0,
+            "to": [
+              296,
+              93,
+              36
+            ],
+            "from": [
+              296,
+              93,
+              100
+            ]
+          }
+        ],
+        "length": 64.0
+      },
+      "overlapsCached": false,
+      "overlapsProbe": false
+    }
+  ]
+}

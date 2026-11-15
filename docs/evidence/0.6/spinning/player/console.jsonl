@@ -1,0 +1,50 @@
+{"at": 1794719889.4530249, "command": "execute positioned 200 90 0 run fd demo spinning_track", "state": "sending"}
+{"at": 1794719889.4530249, "command": "execute positioned 200 90 0 run fd demo spinning_track", "state": "responded", "result": "S1 Spinning loop built. Board at the level station; close restraints and Dispatch. Use Capture or power the station to stop the returning car. Open restraints only after the dock latch settles.\n"}
+{"at": 1794719890.130988, "command": "time set day", "state": "sending"}
+{"at": 1794719890.130988, "command": "time set day", "state": "responded", "result": "Set the time to 1000\n"}
+{"at": 1794719890.195576, "command": "gamerule doDaylightCycle false", "state": "sending"}
+{"at": 1794719890.195576, "command": "gamerule doDaylightCycle false", "state": "responded", "result": "Gamerule doDaylightCycle is now set to: false\n"}
+{"at": 1794719933.0329113, "command": "setblock 196 94 42 minecraft:crafting_table", "state": "sending"}
+{"at": 1794719933.0329113, "command": "setblock 196 94 42 minecraft:crafting_table", "state": "responded", "result": "Changed the block at 196, 94, 42\n"}
+{"at": 1794720035.1519845, "command": "data get entity Dev Inventory", "state": "sending"}
+{"at": 1794720035.1519845, "command": "data get entity Dev Inventory", "state": "responded", "result": "Dev has the following entity data: [{count: 2, Slot: 0b, id: \"minecraft:iron_ingot\"}, {count: 3, Slot: 3b, id: \"create:orange_seat\"}, {count: 2, Slot: 4b, id: \"create:mechanical_bearing\"}, {count: 1, Slot: 5b, id: \"simulatedcoasters:coaster_cart\"}, {count: 1, Slot: 6b, id: \"fourthdimension:rotation_tool\"}, {count: 16, Slot: 8b, id: \"fourthdimension:spinning_track\"}]\n"}
+{"at": 1794720052.4497962, "command": "data get entity Dev Inventory", "state": "sending"}
+{"at": 1794720052.4497962, "command": "data get entity Dev Inventory", "state": "responded", "result": "Dev has the following entity data: [{count: 1, Slot: 6b, id: \"fourthdimension:rotation_tool\"}, {count: 1, Slot: 7b, id: \"fourthdimension:spinning_car\"}, {count: 15, Slot: 8b, id: \"fourthdimension:spinning_track\"}]\n"}
+{"at": 1794720144.022048, "command": "data get block 200 93 36 id", "state": "sending"}
+{"at": 1794720144.022048, "command": "data get block 200 93 36 id", "state": "responded", "result": "200, 93, 36 has the following block data: \"simulatedcoasters:coaster_anchorpoint\"\n"}
+{"at": 1794720197.8178399, "command": "data get entity Dev SelectedItem", "state": "sending"}
+{"at": 1794720197.8178399, "command": "data get entity Dev SelectedItem", "state": "responded", "result": "Dev has the following entity data: {components: {\"fourthdimension:track_selection\": {pos: [I; 180, 93, 40], dimension: \"minecraft:overworld\"}}, count: 15, id: \"fourthdimension:spinning_track\"}\n"}
+{"at": 1794720216.3981137, "command": "tp Dev 177.5 94 56.5 -90 36.5", "state": "sending"}
+{"at": 1794720216.3981137, "command": "tp Dev 177.5 94 56.5 -90 36.5", "state": "responded", "result": "Teleported Dev to 177.500000, 94.000000, 56.500000\n"}
+{"at": 1794720230.575163, "command": "data get entity Dev SelectedItem", "state": "sending"}
+{"at": 1794720230.575163, "command": "data get entity Dev SelectedItem", "state": "responded", "result": "Dev has the following entity data: {count: 11, id: \"fourthdimension:spinning_track\"}\n"}
+{"at": 1794720254.9870927, "command": "tp Dev 197.5 94 38.5 -123.69 33.3", "state": "sending"}
+{"at": 1794720254.9870927, "command": "tp Dev 197.5 94 38.5 -123.69 33.3", "state": "responded", "result": "Teleported Dev to 197.500000, 94.000000, 38.500000\n"}
+{"at": 1794720277.8430865, "command": "data get entity Dev SelectedItem", "state": "sending"}
+{"at": 1794720277.8430865, "command": "data get entity Dev SelectedItem", "state": "responded", "result": "Found no elements matching SelectedItem\n"}
+{"at": 1794720277.8934429, "command": "fd status", "state": "sending"}
+{"at": 1794720277.8934429, "command": "fd status", "state": "responded", "result": "spinning d19268d0-09ee-4f31-acc4-9884d6fe62a9 angle=-1.4485532346961592E-10 omega=-1.3190572752912698E-11 capture=true occupants=0\nspinning 2f84fa0d-187f-4846-9322-5535323ec839 angle=2.1634718591493355E-32 omega=-4.447979522661284E-33 capture=true occupants=0\nCarrier update average: 47773 ns across 16156 updates\n"}
+{"at": 1794720323.0593872, "command": "data get block 197 94 36", "state": "sending"}
+{"at": 1794720323.0593872, "command": "data get block 197 94 36", "state": "responded", "result": "197, 94, 36 has the following block data: {powered: 0b, x: 197, y: 94, z: 36, id: \"fourthdimension:boarding_station\", vehicle: [I; 2113377926, -1758573645, -1521933711, 1382112648]}\n"}
+{"at": 1794720338.5924206, "command": "execute at Dev run sable info @n", "state": "sending"}
+{"at": 1794720338.5924206, "command": "execute at Dev run sable info @n", "state": "responded", "result": "Found 1 sub-levels:\n7df79686-972e-4bb3-a549-227152615d88:\n    Position: 200.5 94.125 36.886592864990234\n    Orientation: 9.32375449029255E-21 1.0 -2.4106443816719696E-28 1.831530342401796E-31\n    Mass: 2.0\n    Linear Velocity: 3.624980068170735E-18 -0.0012406359892338514 -1.4200221059934884E-24\n    Angular Velocity: 4.92456311660411E-26 2.0595864438748131E-32 -1.0518770294817284E-17\n"}
+{"at": 1794720375.0285664, "command": "execute at Dev run sable info @e[distance=0..10,limit=3,sort=nearest]", "state": "sending"}
+{"at": 1794720375.0285664, "command": "execute at Dev run sable info @e[distance=0..10,limit=3,sort=nearest]", "state": "responded", "result": "Found 2 sub-levels:\n7df79686-972e-4bb3-a549-227152615d88:\n    Position: 200.5 94.125 36.886592864990234\n    Orientation: 9.32375449029255E-21 1.0 -1.570805314529243E-28 2.918183768924812E-31\n    Mass: 2.0\n    Linear Velocity: 3.624980068170735E-18 -0.0012406359892338514 -1.4372908628544553E-24\n    Angular Velocity: 4.48706455635403E-26 1.877495315966336E-32 -1.0518770294817284E-17\n2f84fa0d-187f-4846-9322-5535323ec839:\n    Position: 200.5 94.59362030029297 36.886592864990234\n    Orientation: 1.0407509069506639E-14 1.0 -1.368848641293903E-27 9.063249523935968E-31\n    Mass: 8.0\n    Linear Velocity: 1.0904223721685562E-16 -0.0018546985229477286 -1.7970365805765906E-24\n    Angular Velocity: 1.1261231010682167E-25 -6.488978609088577E-33 -1.704866755726175E-16\n"}
+{"at": 1794720467.7481117, "command": "data get block 201 93 36", "state": "sending"}
+{"at": 1794720467.7481117, "command": "data get block 201 93 36", "state": "responded", "result": "201, 93, 36 has the following block data: {Speed: 64.0f, HasAttachedComputer: 0b, Network: {Capacity: 1048576.0f, Size: 2, AddedCapacity: 16384.0f, Id: 55250459443293L, Stress: 0.0f}, x: 201, y: 93, ScrollValue: -64, z: 36, id: \"create:motor\"}\n"}
+{"at": 1794720559.7254097, "command": "setblock 201 93 36 create:creative_motor[facing=west]", "state": "sending"}
+{"at": 1794720559.7254097, "command": "setblock 201 93 36 create:creative_motor[facing=west]", "state": "responded", "result": "Changed the block at 201, 93, 36\n"}
+{"at": 1794720559.7814617, "command": "data merge block 201 93 36 {ScrollValue:-64,Speed:64.0f}", "state": "sending"}
+{"at": 1794720559.7814617, "command": "data merge block 201 93 36 {ScrollValue:-64,Speed:64.0f}", "state": "responded", "result": "Modified block data of 201, 93, 36\n"}
+{"at": 1794720568.1224875, "command": "data get block 200 93 36 Speed", "state": "sending"}
+{"at": 1794720568.1224875, "command": "data get block 200 93 36 Speed", "state": "responded", "result": "200, 93, 36 has the following block data: 0.0f\n"}
+{"at": 1794720597.3535554, "command": "data get block 201 93 36", "state": "sending"}
+{"at": 1794720597.3535554, "command": "data get block 201 93 36", "state": "responded", "result": "201, 93, 36 has the following block data: {Speed: 0.0f, HasAttachedComputer: 0b, x: 201, y: 93, ScrollValue: -64, z: 36, id: \"create:motor\"}\n"}
+{"at": 1794720621.2597919, "command": "setblock 201 93 36 minecraft:air", "state": "sending"}
+{"at": 1794720621.2597919, "command": "setblock 201 93 36 minecraft:air", "state": "responded", "result": "Changed the block at 201, 93, 36\n"}
+{"at": 1794720621.3137293, "command": "setblock 201 93 36 create:creative_motor[facing=west]{ScrollValue:-64}", "state": "sending"}
+{"at": 1794720621.3137293, "command": "setblock 201 93 36 create:creative_motor[facing=west]{ScrollValue:-64}", "state": "responded", "result": "Changed the block at 201, 93, 36\n"}
+{"at": 1794720627.430749, "command": "data get block 200 93 36 Speed", "state": "sending"}
+{"at": 1794720627.430749, "command": "data get block 200 93 36 Speed", "state": "responded", "result": "200, 93, 36 has the following block data: 64.0f\n"}
+{"at": 1794720829.7465749, "command": "stop", "state": "sending"}
+{"at": 1794720829.7465749, "command": "stop", "state": "responded", "result": "Stopping the server\n"}

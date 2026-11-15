@@ -1,0 +1,124 @@
+{
+  "source": "/home/braydon/.local/state/fourthdimension-runs/fd1501-spinning-20261114/server/SpinningWorkshop/data/fourthdimension_foundation.dat",
+  "sha256": "fd91f5b5df881d59190ef0d0d5c3622eb8ae6ba7313636f234b786b066298766",
+  "schema": 7,
+  "vehicles": [
+    {
+      "alignment_required": 0,
+      "contact_layout": "coasters_n_contacts_v1",
+      "mount_frame": "above_rail_v1",
+      "fault": "",
+      "boundTo": 409693,
+      "carriers": [
+        {
+          "side": 0.0,
+          "rider_seats": [],
+          "capture": 1,
+          "body": [
+            -778934064,
+            166612785,
+            -1396402044,
+            -687971671
+          ],
+          "axis": "Y",
+          "lift_from": 147549,
+          "seats": [
+            -1,
+            274877906943,
+            -274877902849,
+            4095
+          ],
+          "ballast": 0.0,
+          "omega": -7.766996998156697e-12,
+          "lift_to": 409693,
+          "pivot_height": 1.4375,
+          "angle": -1.4447874661724865e-10,
+          "capture_target": 0.0,
+          "lift_held": 0,
+          "latched": 1,
+          "longitudinal": 0.0,
+          "child_pivot_offset": -0.5,
+          "child_pivot_x": -0.5,
+          "child_pivot_z": -0.5,
+          "occupants": []
+        }
+      ],
+      "chassis": [
+        -525988623,
+        2025408353,
+        -1751084200,
+        -961480393
+      ],
+      "damping": 0.35,
+      "boundFrom": 147549,
+      "ballast": 0.0,
+      "revision": 4,
+      "boarding_ready": 1,
+      "stopping": 1,
+      "variant": "conventional_v1",
+      "restraints": 0,
+      "shuttle_detached": 0,
+      "family": "spinning",
+      "dock": -824633573282,
+      "maintenance": 0
+    },
+    {
+      "alignment_required": 0,
+      "contact_layout": "coasters_n_contacts_v1",
+      "mount_frame": "above_rail_v1",
+      "fault": "",
+      "boundTo": 54975581536349,
+      "carriers": [
+        {
+          "side": 0.0,
+          "rider_seats": [],
+          "capture": 1,
+          "body": [
+            797243917,
+            410994758,
+            -1826466507,
+            842975289
+          ],
+          "axis": "Y",
+          "seats": [
+            -1,
+            274877906943,
+            -274877902849,
+            4095
+          ],
+          "ballast": 0.0,
+          "omega": 1.5930659522749077e-06,
+          "pivot_height": 1.4375,
+          "angle": -1.2634687847971464e-06,
+          "capture_target": 0.0,
+          "lift_held": 0,
+          "latched": 1,
+          "longitudinal": 0.0,
+          "child_pivot_offset": -0.5,
+          "child_pivot_x": -0.5,
+          "child_pivot_z": -0.5,
+          "occupants": []
+        }
+      ],
+      "chassis": [
+        2113377926,
+        -1758573645,
+        -1521933711,
+        1382112648
+      ],
+      "damping": 0.35,
+      "boundFrom": 61572651204701,
+      "ballast": 0.0,
+      "revision": 5,
+      "boarding_ready": 1,
+      "stopping": 1,
+      "variant": "conventional_v1",
+      "restraints": 0,
+      "shuttle_detached": 0,
+      "family": "spinning",
+      "dock": 54150947815518,
+      "maintenance": 0
+    }
+  ],
+  "railCount": 17
+}

@@ -26,7 +26,10 @@ and .95 below. Keep the full rotating rider envelope clear.
 4. Use a seat to board, use the Rotation Tool/controller to **Close restraints**, then
    **Dispatch**. The rider and camera follow the actual native carrier; look remains
    independent. Shift cannot unload while restrained.
-5. Capture the returning car near its bound dock. When angle, spin and travel are
+5. Put the dock at the lift entrance and Capture the returning car before it enters
+   the locked section. The example dock is close enough to capture from its final
+   curve. If unsettled spin triggers a safe lift-entry stop, use Capture there to
+   align before dispatching again. When angle, spin and travel are
    settled for five server ticks, **Open restraints**, close the editor, then Shift
    to unload. Rear redstone requests capture. Removing power never dispatches S1.
 

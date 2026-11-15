@@ -55,12 +55,20 @@ pushes and edits central status documents; family owners supply ready evidence.
 The user authorizes specific coordination/continuation messages among these three
 owners and from the coordinator, including resuming a ready dependent owner.
 
+**S1 FD1501A–C complete — 2026-11-15 05:34 UTC.**
+[Construction, content and power-loss/resume acceptance](evidence/0.6/spinning/player/README.md)
+closes S1. Its A handoff `d5565a09ac0d6230b66c9dd332c7b35fb3840f2a` is pushed
+and directly verified on origin/main. The lead now owns FD601 reconciliation and
+integration of the remaining families. All S1 runtime units are inactive and
+its world/evidence retained. Suspended owns the shared paths below; Fixed Inverted
+continues preparation until its qualified overhead handoff. Do not reopen S1
+because a later family changes unrelated code or produces a new JAR.
+
 **FD1501A handoff — 2026-11-15 05:14 UTC:** S1 mechanics and the normal
 occupied cycle are [accepted](evidence/0.6/spinning/README.md). Native test and
 twelve targeted math tests pass; occupied mount, lift/free motion, guarded stop,
 capture, open and unload pass. All owned runtimes are stopped and worlds retained.
-B/C remain assigned to the lead: corrected-example normal construction/content and
-the distinct power-loss/resume case. The original five and Wing stay closed.
+B/C subsequently closed in the record above. The original five and Wing stay closed.
 
 Upon integration of this handoff on `main`, production ownership transfers to
 **0.6 Suspended** (`01a1dd1d-6e99-70d2-aef3-6dcebac10d72`) for:

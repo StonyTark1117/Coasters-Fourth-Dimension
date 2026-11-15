@@ -1,8 +1,8 @@
 # S1 Spinning — FD1501A–C
 
-**FD1501A mechanics and occupied handoff complete, 2026-11-15 UTC.**
-FD1501B/C remain in progress: normal construction, the corrected example approach,
-remaining content views and the distinct power-loss/resume case are next. Owner:
+**FD1501A–C complete, 2026-11-15 UTC.** A's native and occupied handoff is
+below; [B/C construction, content and power-loss acceptance](player/README.md)
+closes the remaining workflow. Owner:
 `01a1dd1d-1468-7f81-8f31-5532ad7a178d`. Primary checkout
 `/home/braydon/Documents/Coasters: Fourth Dimension`, branch `main`; input HEAD
 `d73d43b820b725fc9648c6a2daa9348dead16b22`. Preserve unrelated `logs/`.
@@ -116,5 +116,5 @@ restart removed the per-write disk stall without bypassing clean world saving.
 Final client stopped05:13:38 UTC; server saved all dimensions05:13:40 and stopped its
 RCON listener05:13:41. Client, server and Xvfb units all inactive/MainPID0 verified.
 World, original/updated JARs and full input records/screenshots remain under the root.
-No live runtime is handed off. The corrected example-source layout is compiled;
-its normal construction/content check remains B/C, without repeating accepted A.
+No live runtime is handed off. The corrected example-source layout and remaining normal construction/content
+checks are accepted in the linked B/C record, without repeating accepted A.
