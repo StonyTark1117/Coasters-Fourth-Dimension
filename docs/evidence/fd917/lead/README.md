@@ -2,8 +2,9 @@
 
 The shared renderer and connected Arrow assembly are implemented and have passed
 bounded native and live geometry checks. **FD917 is still in progress:** Art and
-Mechanisms retain their family/equipment reviews, Art has passed the new occupied Arrow cycle, and one final axle-interface view
-is pending within its already assigned seat review. This record does
+Mechanisms retain their family/equipment reviews, Art has passed the new occupied Arrow cycle and final neutral/nonzero axle-interface
+fit review. VP03 is accepted cumulatively; the other family/equipment outcomes
+remain assigned. This record does
 not close the whole package or start FD1000.
 
 ## Changed behavior
@@ -30,11 +31,12 @@ Art identified the retained baked axle ahead of the actual hinge: its shaft cent
 is local z=-5.5/16, while the hinge is z=.5. The renderer now adds an actual-child
 crank from the hinge through an inboard point x=.5-side*.36 to that shaft center.
 The radial member is .07 block thick. This closes the geometric offset without
-changing the pivot or seating; compilation passed, with the affected fit view
-pending on Art's next necessary refresh. Prior rail-contact and occupied-cycle
-evidence remains valid. Two articulated stays now also join the rail-following
-guide/gearbox to the actual parent wing-strut web; they share this final fit view.
-`compile-chassis-interface.log` passed after the support addition.
+changing the pivot or seating. Two articulated stays also join the rail-following
+guide/gearbox to the actual parent wing-strut web. Art's [final fit review](../art/arrow-interface.md)
+passed at neutral and actual5.0704695rad with the real rider retained. The nonzero
+view has disclosed rail occlusion; exposed endpoints, the neutral view and actual
+parent/child construction combine with the range record. Nominal radial clearance
+to the .6-wide rider is .025 block. Prior contact and lifecycle evidence is retained.
 
 The mechanism stays within one car: its longitudinal extent is under one block
 about the chassis station, versus the existing six-block linked spacing. It does
@@ -55,7 +57,7 @@ new manufacturer dimension. Final shells must retain this clearance.
 | Materials and world light | [Day](views/day.png), [midnight](views/midnight.png) and [local light](views/local-light.png) show authored surfaces responding beside native running gear. No shader or GPU-smoothness claim is made. |
 | Placement preview | A disclosed item-selection/setup fixture showed textured alpha rails at the actual F3-named target anchor, without placing the connection. [Preview](views/textured-placement-preview.png). |
 | Private input baseline | Same live client used default right/left bindings and Raw Input On. Relative XTest camera turn changed yaw90→94.65degrees; normal right-click visibly placed stone and produced the expected server broadcast. Later spectator teleports were explicitly view setup, not normal player-operation evidence. |
-| Occupied shared contract | Art's current launch02 passed normal mount, Close, Dispatch, motion, Capture while restrained, Open and normal Shift unload. Its `art/arrow-occupied.md` record combines with the full-stroke contact observation here; only the subsequently added axle crank needs its fit view. |
+| Occupied shared contract | Art's current launch02 passed normal mount, Close, Dispatch, motion, Capture while restrained, Open and normal Shift unload. Its `art/arrow-occupied.md` record combines with the full-stroke contact observation here; the final crank/stay fit also passed in `art/arrow-interface.md`. |
 | Runtime cleanup | Both lead runtime sets saved and stopped. All six client/server/Xvfb units are inactive, MainPID0. [Inventory](runtime-cleanup.txt). Art and Mechanisms remain independently owned. |
 
 The selected [forward curve](views/forward-minimum.png), [forward bank](views/forward-bank.png),
@@ -109,3 +111,8 @@ operation. Art's occupied view supplies that affected shared-contract observatio
 compilation passed in `compile-final-lead.log` and, after the axle crank addition,
 `compile-axle-interface.log`.
 No full family/profile release campaign was run or requested by this work.
+
+The shared-track static initialization defect discovered in Art's combined-profile
+launch03 was corrected by resolving Sheets only in the live render event. Java21
+compile passed and Art's launch04 joined Skin/Additions/Track Styles successfully
+without the early initialization error. This closes that named startup defect.

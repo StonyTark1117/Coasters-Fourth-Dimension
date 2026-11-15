@@ -1,8 +1,8 @@
 # Arrow production mechanism contract
 
 2026-11-15; rail transmission verified in the [bounded lead evidence](README.md).
-The occupied lifecycle passed in Art's current build. The final baked-axle crank
-fit view and whole-package acceptance remain in their current assignments.
+The occupied lifecycle and final baked-axle crank/stay fit passed in Art's current
+build. VP03 is accepted cumulatively; whole-package acceptance remains assigned.
 
 The preserved control mapping is `height=-.85+angle/(16*pi)`: one actual axle
 turn displaces the follower .125 block. The input rack pinion has radius
@@ -59,15 +59,14 @@ The child hinge is local (.5,.5,.5), while the retained baked axle center is
 (.5,.5,-5.5/16). An actual-child-pose crank runs from the hinge to
 (.5-side*.36,.5,.5), then to (.5-side*.36,.5,-5.5/16). It joins the eccentric
 shaft without moving native pivots, seats or physics. The .07-block radial member
-lies at the inboard side of the bucket. Source compilation passed; Art owns the
-remaining current-build fit view. This narrowly affected view does not reopen
+lies at the inboard side of the bucket. Source compilation and Art's neutral/nonzero occupied fit view passed. This narrowly affected view does not reopen
 rail contact, full stroke or the completed occupied operator cycle.
 
 
 The guide/gearbox also has two explicit articulated stays ending in the actual
 parent wing-strut web at local `(.5+side*x,2.5,.5)`, for x=1.65 and 2.02.
 Using the parent render pose prevents a rail-frame approximation from floating
-beside the chassis on curves. These stays and the crank share one pending fit
+beside the chassis on curves. These stays and the crank share the accepted final fit
 view; `compile-chassis-interface.log` passed after this final support addition.
 
 ```mermaid

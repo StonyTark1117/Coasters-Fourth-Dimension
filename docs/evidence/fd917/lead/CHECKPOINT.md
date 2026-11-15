@@ -188,3 +188,15 @@ Live remote occupied PAX restraint recording started; acceptance awaits readback
 Render distance2; requested simulation2 was rejected by MC's [5:33] schema, so
 use5 at the next restart. This does not determine watched chunks on the dedicated
 server. No observer gameplay-use claim is made; it only records another player.
+
+
+Art's corrected launch04 SHA47edf836cafb0d59b335803058d466192841abc08ac6ca9f4819b9b15f8c0b39
+joined the combined Skin/Additions/Track Styles profile successfully, with no
+early Sheets initialization. The named startup defect is closed. Art continues
+the affected Arrow fit and VP07 views; separate controller texture aliases were
+corrected in its source and will be viewed during its necessary Dive refresh.
+
+Observer remote occupied restraint pass is recorded in observer/README.md and
+three PNGs. Its complete75-second video and exact server action result remain in
+the persistent observer root. PAX catch/late-join is the only remaining observer
+claim; the current runtime remains active/owned until that check and cleanup.

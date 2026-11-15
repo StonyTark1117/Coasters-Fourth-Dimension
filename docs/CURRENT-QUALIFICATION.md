@@ -105,7 +105,7 @@ record the preserved mapping, 8:1 transmission, finite spring/clutch, capture an
 one new overtravel response. Ordinary tracking/capture/persistence and deliberate
 input discontinuity passed the targeted native check. Connected motion/contact,
 reverse/recovery presentation and rendered cost were subsequently checked below;
-the final axle-interface fit view remains open before VP03 closure.
+the final axle-interface fit view subsequently passed, closing VP03 cumulatively.
 Lead owns the new `ArrowMechanismRenderer.java`, `physics/ArrowTransmission.java`
 and its bounded `CarrierRuntime.java` / `FoundationData.java` integration.
 
@@ -137,8 +137,9 @@ follower-to-tessellated-rail gap is .00115844 block against the 1/64 block limit
 actual pose and finite spring bounds are recorded. Art has passed the new occupied
 shared-contract cycle in its current Arrow seat view. Comparable track-stage cost
 passed at 3.4069 ms versus retained 6.5595 ms in the same view. A retained baked
-axle offset required one actual-child crank; its compilation passed and Art owns
-the final interface/fit view on its next necessary refresh. Complete production
+axle offset required one actual-child crank and actual-parent support stays; their
+compilation and [final occupied fit](evidence/fd917/art/arrow-interface.md) passed.
+VP03 is accepted with the retained full-stroke/contact and occupied lifecycle records. Complete production
 handoff remains open; no complete-package claim is made.
 Mechanisms additionally reserves display319, game25656/RCON25657 and
 `fd917-mechanisms-20261115-{client,server,xvfb}` under its named persistent root.
@@ -157,9 +158,10 @@ existing paths. This resolves remaining placeholder casings without behavior cha
 
 **Finite remaining work at the current handoff:**
 
-- Lead/Art: final actual-parent stay and actual-child axle-crank fit at neutral
-  and nonzero pose. Full-stroke contact, occupied lifecycle, lighting, reload,
-  preview and comparable shared-track cost are already retained.
+- Lead/Art: VP03 is closed after the final actual-parent stay/actual-child crank
+  fit at neutral and nonzero pose. Full-stroke contact, occupied lifecycle,
+  lighting, reload, preview and comparable shared-track cost are retained. The
+  early Sheets startup defect is corrected and combined-profile startup passed.
 - Art: remaining distinct A/B family/appearance views, final PAX Ponder state
   transition and current Track Styles boundary. Its accepted Wing, Fixed
   Inverted, Suspended, Arrow lifecycle and item/static-Ponder views stay closed.
