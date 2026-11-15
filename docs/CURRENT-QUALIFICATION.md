@@ -24,7 +24,11 @@ FD403A–F and the FD404 aggregate are now reconciled. There is no remaining 0.4
 acceptance queue. The sections below retain case closure records and artifact
 history; they do not assign new work or add acceptance requirements.
 
-### Active 0.8 assignments — 2026-11-15
+### Milestone 0.8 complete — 2026-11-15
+
+All 23 cards are closed in the [acceptance record](evidence/0.8/acceptance.md).
+There is no remaining 0.8 acceptance queue. The ownership table retains closure
+and handoff provenance; no 0.9/1.2 work or publication is activated.
 
 The human's **Continue .8** instruction in coordinator chat
 `01a1a961-64bb-7701-9a19-2acee5ff23a3` authorizes all 23
@@ -60,7 +64,7 @@ publication is activated.
 | FD1901C | S2 / Powered Inverted | Complete: [native one/four-car mechanics, crafted content, occupied show/restart/reverse/return/unload and finite outputs](evidence/0.8/powered-inverted-yaw/README.md). All318 units inactive/MainPID0; same empty car/world retained. |
 | FD1901 | S2 / Powered Inverted | Complete: [native one/four-car mechanics, crafted content, occupied show/restart/reverse/return/unload and finite outputs](evidence/0.8/powered-inverted-yaw/README.md). All318 units inactive/MainPID0; same empty car/world retained. |
 | FD1902 | S2 / Powered Inverted | Complete: [native one/four-car mechanics, crafted content, occupied show/restart/reverse/return/unload and finite outputs](evidence/0.8/powered-inverted-yaw/README.md). All318 units inactive/MainPID0; same empty car/world retained. |
-| FD813 | Lead | Integrate all 23 cards, actual combined-control conflicts, exact remote HEAD and all-runtime cleanup. |
+| FD813 | Lead | Complete: [23-card reconciliation and actual combined-control conflicts](evidence/0.8/acceptance.md); all owner runtimes stopped, evidence/worlds preserved. Final integration verifies exact origin/main HEAD. |
 
 **Owners:** lead `01a1dd1d-1468-7f81-8f31-5532ad7a178d`;
 Pipeline/Dive `01a1dd1d-6e99-70d2-aef3-6dcebac10d72`;
@@ -110,7 +114,7 @@ RotationEditorScreen and FoundationSync.
 ports25650/25651, prefix `fd08-operations-20261115` after checking live ownership.
 Pipeline/Dive may reserve display317 and ports25652/25653; S2/Powered Inverted
 may reserve318 and25654/25655. Each records its exact world/game/build paths and
-units before launch. Java21, persistent storage, measured host/cgroup headroom,
+units before launch. Java 21, persistent storage, measured host/cgroup headroom,
 1536M game heap and6GiB Minecraft-only scope apply. Native tests need no display.
 Normal input must reach actual game handlers; verify connection/window/native hit,
 use the proven private helper and diagnose two inconclusive attempts before retry.
@@ -208,7 +212,7 @@ persistent SSD after measured root-device IO stalls.
 Private display316, ports25650/25651, units `fd1302-axis-20261115-{server,client,xvfb}.service`.
 Conventional may reserve display317/ports25652/25653 and New-generation318/25654/25655
 only after recording their exact roots/units and checking live ownership/headroom.
-Java21, default1536M heap/6GiB Minecraft-only limit, host/cgroup checks and
+Java 21, default1536M heap/6GiB Minecraft-only limit, host/cgroup checks and
 persistent storage apply. Reuse proven private input; one expected result, one
 input, actual connection/hit/reach/state readback. Diagnose twice-inconclusive
 approaches before changing the demonstrated failed condition. Normal native Chain
@@ -401,7 +405,7 @@ the targeted fix passes. Native checks prove dynamics; occupied clients prove
 missing input/rendering claims. Use two real clients only for a changed or still
 uncovered synchronization claim. Gates reconcile evidence, never add test sweeps.
 
-**Input and runtime safeguards:** use current AGENTS Java21, persistent storage,
+**Input and runtime safeguards:** use current AGENTS Java 21, persistent storage,
 1536M heap and 6GiB Minecraft-only scope defaults with measured adjustments.
 Coordinate graphical runs with the lead; verify CPU/memory/cgroup headroom and
 distinct owned display, world, port and scope. Reuse `scripts/fd-private-client.py`.

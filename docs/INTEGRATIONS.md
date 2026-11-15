@@ -1,9 +1,21 @@
 # Optional integration development
 
-FD401 is complete for its declared bounded scope under the cumulative validation policy. The addon remains standalone: no optional JAR is required or
-bundled, and no external functional track is certified yet. FD801 owns a future
-Track Styles Arrow 4D mechanical adapter; a decorative model or equal main-rail
-gauge cannot satisfy that gate.
+FD401 remains complete for its original bounded scope. The addon remains
+standalone: no optional JAR is required or bundled. Later capability qualification
+is recorded below; decorative similarity alone never grants mechanical eligibility.
+
+## Current 0.8 operations baseline
+
+The selected [CTNB tracks and controls](CTNB.md), [Magnetized drive](MAGNETIZED.md)
+and [Additions station operations](evidence/0.8/additions/README.md) are qualified.
+The named operations profile is
+`styles,engineered,additions,ctnb,magnetized`, with the exact dependency identities
+and actual force/controller conflict evidence recorded in
+[FD813](evidence/0.8/operations/README.md). It remains optional; standalone vehicle
+mechanics do not require these addons. Historical FD401 and earlier baseline
+statements below describe their original checkpoints, not the current capability
+set. Presentation/seat coexistence in 0.9 and final release qualification remain
+separate work.
 
 ## Release scope and planned capabilities
 

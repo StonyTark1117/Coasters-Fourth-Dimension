@@ -712,6 +712,10 @@ operating cycle, player workflow and distinct interruption/recovery cases.
 
 ## Milestone 0.8 — remaining vehicles and operations
 
+**Complete 2026-11-15.** [Twenty-three-card acceptance](docs/evidence/0.8/acceptance.md)
+reconciles all vehicle/operations outcomes, actual combined-control conflicts,
+normal occupied workflows and verified runtime cleanup. No 0.9 or 1.2 work is activated.
+
 Complete Pipeline (FD1401A–C), S2 launched/inverting free-spinning
 (FD1501D–F), Dive (FD1702), Powered Inverted Yaw (FD1901/FD1902), and the
 operations packages below. FD1701A supplies required hold/dispatch authority;
@@ -726,7 +730,7 @@ defines the capability boundaries, optional installation and dependency caveats.
 | <a id="fd810"></a> **FD810 Additions station operations — complete** [Steps](docs/roadmap/0.8-operations.md#fd810) | FD401, FD501B; integrated control/telemetry contracts | Resolve runtime identity, read whole-consist telemetry, submit validated station requests and reject stale/unsafe dispatch. Supply an operator example. Complete when the agreed station capabilities preserve restraints, faults and mechanics authority; rotating seats remain FD911. |
 | <a id="fd811"></a> **FD811 CTNB tracks and controls — complete** [Steps](docs/roadmap/0.8-operations.md#fd811) | FD501C; reviewed functional provider/control contracts | Enumerate included materials/behaviors, implement measured eligibility and provider joins, preserve profiles and add the selected station/launch/reverse controls. Complete when agreed capabilities and unsafe/unknown rejections pass, with a usable example. |
 | <a id="fd812"></a> **FD812 Magnetized propulsion — complete** [Steps](docs/roadmap/0.8-operations.md#fd812) | FD401, FD501D; integrated propulsion ownership contract | Implement directional propulsion/braking, rollback and power transitions. Keep longitudinal propulsion distinct from carrier-axis magnetic torque. Complete when the operator example and affected authority/interlock cases pass. |
-| <a id="fd813"></a> **FD813 Milestone 0.8 gate — planned** [Steps](docs/roadmap/0.8-operations.md#fd813) | FD701, FD1401A–C, FD1501D–F, FD1702, FD1902, FD810–FD812 | Reconcile individual evidence and check actual control-conflict pairs plus the named combined operations profile. Complete when all agreed vehicles/variants and 1.0 operations capabilities are usable and documented. A staged JAR or startup alone is not acceptance. |
+| <a id="fd813"></a> **FD813 Milestone 0.8 gate — complete** [Steps](docs/roadmap/0.8-operations.md#fd813) | FD701, FD1401A–C, FD1501D–F, FD1702, FD1902, FD810–FD812 | Reconcile individual evidence and check actual control-conflict pairs plus the named combined operations profile. Complete when all agreed vehicles/variants and 1.0 operations capabilities are usable and documented. A staged JAR or startup alone is not acceptance. |
 
 Shared control/ownership changes use one owner and integrate before dependent
 adapters. One adapter's dependency issue need not idle independent vehicle work.
