@@ -166,3 +166,25 @@ requested waiting for candidate03 and its authored PAX state. It retains server
 ownership at25656; the lead will control only its Observer/display and record
 new PAX late-join plus a remote occupied restraint transition. No new server or
 world is owned by this observer. The prepared candidate02 copy is not acceptance.
+
+
+## Startup correction and active bounded observer
+
+Art's launch03 optional profile exposed a registry-order crash: the shared track
+renderer initialized `Sheets.cutoutBlockSheet()` in its subscriber static field,
+before registry materials were safe. Core-only clients logged the early load but
+joined. The render type is now resolved inside the live render event; Java21
+`compile-lazy-sheet.log` passed. Art will verify corrected startup as part of its
+already pending fit/teaching view. Prior geometry measurements are unaffected.
+
+Mechanisms authorized the lead Observer to join candidate03, SHA256
+`1aaf423428c6138218867a391a394e6b6b39b354faad1080ee282ed4dec16506`.
+Own root `/mnt/NVME4/fourthdimension-runs/fd917-lead-observer-20261115`, display318,
+client/Xvfb prefix `fd917-lead-observer-20261115`. Client launcher1476845,
+Java1476846, private window2097160 at854x480. MaxHeap1610612736 and cgroup6GiB
+verified. Server/world remain Mechanisms-owned on25656. Never stop that server.
+Observer is spectator at (-391.5,108,467.5), yaw53.13/pitch15; owner positioned it.
+Live remote occupied PAX restraint recording started; acceptance awaits readback.
+Render distance2; requested simulation2 was rejected by MC's [5:33] schema, so
+use5 at the next restart. This does not determine watched chunks on the dedicated
+server. No observer gameplay-use claim is made; it only records another player.

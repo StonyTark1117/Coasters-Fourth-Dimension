@@ -29,7 +29,6 @@ public final class OriginalTrackRenderer {
   private record Quad(Vec3 a, Vec3 b, Vec3 c, Vec3 d, Vec3 normal,
                       BlockPos lightAt, float width, float length, float phase, int color, String material) {}
 
-  private static final RenderType SURFACE = net.minecraft.client.renderer.Sheets.cutoutBlockSheet();
   private static final RenderType TRANSLUCENT = RenderType.entityTranslucent(TextureAtlas.LOCATION_BLOCKS);
   private record Transparent(List<Quad> quads,float alpha) {}
   private static final Map<BlockPos, Integer> FRAME_LIGHT = new HashMap<>();
@@ -126,7 +125,10 @@ public final class OriginalTrackRenderer {
     pose.pushPose();
     pose.translate(-camera.x, -camera.y, -camera.z);
     var buffers = mc.renderBuffers().bufferSource();
-    var consumer = buffers.getBuffer(SURFACE);
+    // Event subscribers are loaded during mod construction, before registry-backed
+    // Sheets materials are safe to initialize. Resolve this only in a live render.
+    var surface = net.minecraft.client.renderer.Sheets.cutoutBlockSheet();
+    var consumer = buffers.getBuffer(surface);
     FRAME_LIGHT.clear();
     FRAME_SPRITES.clear();
     long renderStart = System.nanoTime();
@@ -200,7 +202,7 @@ public final class OriginalTrackRenderer {
         }
     // Normal world steel is opaque. Only invalid previews and placement ghosts need
     // blending/sorting; putting every tube in the translucent batch adds avoidable cost.
-    buffers.endBatch(SURFACE);
+    buffers.endBatch(surface);
     var translucentConsumer=buffers.getBuffer(TRANSLUCENT);
     for(var part:transparent)draw(translucentConsumer,pose.last(),part.quads,part.alpha);
     var held = mc.player.getMainHandItem();
@@ -258,14 +260,14 @@ public final class OriginalTrackRenderer {
       // restored immediately; the next frame contains the fully Original cached mesh.
       for (var decoration : failedDecorations) {
         draw(
-            buffers.getBuffer(decoration.alpha<1?TRANSLUCENT:SURFACE),
+            buffers.getBuffer(decoration.alpha<1?TRANSLUCENT:surface),
             pose.last(),
             decoration.mesh.originalFallback,
             decoration.alpha);
         inRangeQuads += decoration.mesh.originalFallback.size();
       }
     }
-    buffers.endBatch(SURFACE);
+    buffers.endBatch(surface);
     buffers.endBatch(TRANSLUCENT);
     pose.popPose();
     TrackRenderMetrics.rendered(
