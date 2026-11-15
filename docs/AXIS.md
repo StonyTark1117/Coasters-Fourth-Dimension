@@ -23,7 +23,11 @@ Bind a Boarding Station to a stopped car on a clear, level straight at least
 normally, close restraints with the Rotation Tool, then Dispatch explicitly.
 Station power requests capture; removing power does not dispatch automatically.
 
-Use the Rotation Tool on an unoccupied track section to choose its roll mode:
+Use the Rotation Tool on a solid anchor/support surface within two blocks of an
+unoccupied track section to choose its roll mode. The native anchor overlay can
+show a target even when the ordinary block ray misses; use a reachable nearby
+support in that case. Remove temporary supports from the vehicle sweep before
+operation.
 
 - **FREE** follows native gravity and the actual rider load with baseline damping.
 - **DAMP** removes relative roll energy more strongly.
@@ -39,7 +43,9 @@ a settled upright relative orientation through its authored section and clears
 only after the complete pod leaves it.
 
 Capture stops travel and aligns to the nearest upright turn at the declared
-dock. Wait for Ready before opening restraints and leaving the seat. If drive
+dock. If the return lift stops a rolling pod just before the dock inset, Capture
+can align it with restraints closed; Resume into the dock, then Capture again.
+Ready and restraint opening still require the complete train inside the dock. Wait for Ready before opening restraints and leaving the seat. If drive
 power disappears, the pod damps and the train stops with restraints retained;
 it does not jump upright. Restore the supply, inspect the route, and explicitly
 use Resume to dock. Stop/capture at the dock before unloading. A restart retains
@@ -50,5 +56,6 @@ banked loop, one driven turn and a damp-to-free return. `/fd demo axis_track`
 builds the track and station for normal car placement. These commands are setup
 helpers; they do not replace player construction or boarding.
 
-Implementation and acceptance are still in progress; current evidence is in
-[the Axis record](evidence/0.7/axis/README.md).
+Mechanics, construction, controls and player acceptance are complete. See
+[the Axis record](evidence/0.7/axis/README.md) and
+[construction/content acceptance](evidence/0.7/axis/BC-acceptance.md).

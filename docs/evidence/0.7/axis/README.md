@@ -151,3 +151,8 @@ station ownership/range, full-sweep clearance, stopped state and fault acknowled
 remain required. Ready/open still require the two-block inset for both cars.
 This is the only reopened behavior. The occupied world was saved cleanly before
 its targeted replay; previous placement/coupling/drive/reload evidence remains valid.
+
+## Final B/C closure
+
+[Construction, content review and cleanup](BC-acceptance.md) close FD1302B/C.
+A remains accepted; the explicitly continued runtime is now saved and stopped.

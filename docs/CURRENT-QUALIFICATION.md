@@ -42,9 +42,9 @@ Lead alone edits ROADMAP/PLAN/this queue and stages, commits and pushes.
 
 | Card | Owner | Current action / dependency |
 | --- | --- | --- |
-| FD1302A | Lead | Complete: [native and occupied handoff](evidence/0.7/axis/A-handoff.md), including return/unload and targeted dock-edge recovery. Integrated at `2b805fcb`; same named owner explicitly continues exact :316 runtime for B/C. |
-| FD1302B | Lead | Axis functional geometry/content with stable specification. |
-| FD1302C | Lead | Cumulative Axis player acceptance after A/B, no duplicate ride. |
+| FD1302A | Lead | Complete: [native and occupied handoff](evidence/0.7/axis/A-handoff.md), including return/unload and targeted dock-edge recovery. Integrated at `2b805fcb`; same-owner B/C continuation finished and exact :316 runtime saved/stopped. |
+| FD1302B | Lead | Complete: [normal crafting, placement, editor and finite visual review](evidence/0.7/axis/BC-acceptance.md). |
+| FD1302C | Lead | Complete: cumulative A+B workflow, all owned runtimes saved/stopped; no duplicate ride. |
 | FD1502A | Lead | Consume the Axis A integration checkpoint, then implement Roller Ball mechanics. |
 | FD1502B | Lead | Roller Ball specification preparation; content with stable mechanics. |
 | FD1502C | Lead | Cumulative Roller Ball acceptance. |
