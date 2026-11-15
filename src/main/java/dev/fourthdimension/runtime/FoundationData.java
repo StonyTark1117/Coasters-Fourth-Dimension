@@ -163,6 +163,8 @@ public final class FoundationData extends SavedData {
     public final double side;
     public double angle, omega;
     public boolean capture;
+    /** Arrow slow-stage clutch; false in old saves until actual pose can engage safely. */
+    public boolean controlCoupled;
     public List<UUID> occupants = List.of();
     public final Map<UUID, BlockPos> riderSeats = new HashMap<>();
     public List<BlockPos> seats = List.of(new BlockPos(0, -1, 0));
@@ -302,6 +304,7 @@ public final class FoundationData extends SavedData {
         c.putDouble("ballast", carrier.ballast);
         if (!(dev.fourthdimension.vehicle.DiveVehicle.is(vehicle) || dev.fourthdimension.vehicle.FixedInvertedVehicle.is(vehicle) || dev.fourthdimension.vehicle.PipelineVehicle.is(vehicle))) { c.putDouble("angle", carrier.angle); c.putDouble("omega", carrier.omega); }
         c.putBoolean("capture", carrier.capture);
+        c.putBoolean("control_coupled", carrier.controlCoupled);
         c.putDouble("pivot_height", carrier.pivotHeight);
         c.putBoolean("lift_pending",carrier.liftPending);
         c.putBoolean("lift_entered",carrier.liftEntered);
@@ -519,6 +522,7 @@ public final class FoundationData extends SavedData {
         carrier.angle = c.getDouble("angle");
         carrier.omega = c.getDouble("omega");
         carrier.capture = c.getBoolean("capture");
+        carrier.controlCoupled = c.getBoolean("control_coupled");
         carrier.pivotHeight = c.contains("pivot_height") ? c.getDouble("pivot_height") : 2;
         if (c.contains("seats"))
           carrier.seats = Arrays.stream(c.getLongArray("seats")).mapToObj(BlockPos::of).toList();

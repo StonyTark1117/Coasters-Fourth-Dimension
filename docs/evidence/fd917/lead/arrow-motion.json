@@ -1,0 +1,31 @@
+{
+  "candidate": {
+    "jar": "/mnt/NVME4/fourthdimension-runs/fd917-lead-20261115/candidate-02/libs/coasters-fourth-dimension-0.9.0-dev.27.jar",
+    "sha256": "367e841c338470bc9573c0623622b12390f7ab3cc37c0dacab8a74f04b65ce33",
+    "source_head": "04538f8b",
+    "uncommitted_fd917": true
+  },
+  "run_root": "/mnt/NVME4/fourthdimension-runs/fd917-lead-20261115",
+  "profile": "one authored Arrow, eight-edge loop,30deg bank, continuous whole-loop +/-8pi",
+  "setup": "fd917 stroke; dispatch/capture/reverse; spectator positions follow actual chassis. These commands are disclosed setup, not player-operation evidence.",
+  "max_contact_gap_blocks": 0.0011584361117961857,
+  "limit_blocks": 0.015625,
+  "max_slow_spring_radians": 0.16626484822876542,
+  "spring_limit_radians": 0.39269908169872414,
+  "actual_angle_range_radians": [
+    -25.136244819026185,
+    25.134769337679735
+  ],
+  "rider_proof": "Art owner planned current-build normal Arrow occupied view; pending",
+  "cost_status": "comparable fixed scene pending; current live counters are not whole-frame or GPU performance",
+  "views": {
+    "day": "20261115T183436.966012Z-state.png",
+    "midnight": "20261115T183712.782633Z-state.png",
+    "local-light": "20261115T183756.989743Z-state.png",
+    "forward-minimum": "arrow-forward-02.png",
+    "forward-bank": "arrow-forward-07.png",
+    "capture": "arrow-capture-01.png",
+    "reverse-bank": "arrow-reverse-04.png",
+    "reverse-stroke": "arrow-reverse-06.png"
+  }
+}

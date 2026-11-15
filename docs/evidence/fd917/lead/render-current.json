@@ -1,0 +1,42 @@
+{
+  "source": "FD917 opaque textured track + frustum cache",
+  "jar_sha256": "cf125780776a213b722776d48271830d62feaecbd74ec8068b93edd747a017c9",
+  "log": "/mnt/NVME4/fourthdimension-runs/fd917-lead-20261115/evidence/client.log",
+  "camera": [
+    6.5,
+    100.5,
+    22.5,
+    110,
+    0
+  ],
+  "render_distance": 6,
+  "resolution": [
+    854,
+    480
+  ],
+  "renderer": "llvmpipe LLVM23.1.4 Mesa26.2.6",
+  "first": {
+    "stages": 735,
+    "geometryStages": 735,
+    "avgStageNanos": 3409249,
+    "meshBuilds": 8,
+    "avgMeshBuildNanos": 7946404,
+    "inRangeRails": 1470,
+    "inRangeQuads": 8978760,
+    "inRangeDecorationPieces": 0
+  },
+  "last": {
+    "stages": 7725,
+    "geometryStages": 7725,
+    "avgStageNanos": 3407132,
+    "meshBuilds": 8,
+    "avgMeshBuildNanos": 7946404,
+    "inRangeRails": 15450,
+    "inRangeQuads": 94368600,
+    "inRangeDecorationPieces": 0
+  },
+  "window_frames": 6990,
+  "window_avg_ns": 3406909.3969957083,
+  "log_start_byte": 484596,
+  "ratio_to_baseline": 0.5193818588758681
+}

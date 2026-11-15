@@ -1,0 +1,40 @@
+{
+  "source": "retained0.9",
+  "jar_sha256": "787a01bfafd96f0d407449c43c092c38f3a0978089b365fb46d95cc9f919ab07",
+  "log": "/mnt/NVME4/fourthdimension-runs/fd917-lead-20261115/comparison-baseline/evidence/client.log",
+  "camera": [
+    6.5,
+    100.5,
+    22.5,
+    110,
+    0
+  ],
+  "render_distance": 6,
+  "resolution": [
+    854,
+    480
+  ],
+  "renderer": "llvmpipe LLVM23.1.4 Mesa26.2.6",
+  "first": {
+    "stages": 777,
+    "geometryStages": 777,
+    "avgStageNanos": 7082772,
+    "meshBuilds": 8,
+    "avgMeshBuildNanos": 4938591,
+    "inRangeRails": 6216,
+    "inRangeQuads": 22613808,
+    "inRangeDecorationPieces": 0
+  },
+  "last": {
+    "stages": 5140,
+    "geometryStages": 5140,
+    "avgStageNanos": 6638641,
+    "meshBuilds": 8,
+    "avgMeshBuildNanos": 4938591,
+    "inRangeRails": 41120,
+    "inRangeQuads": 149594560,
+    "inRangeDecorationPieces": 0
+  },
+  "window_frames": 4363,
+  "window_avg_ns": 6559546.3891817555
+}

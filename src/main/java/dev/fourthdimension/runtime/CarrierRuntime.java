@@ -317,6 +317,22 @@ public final class CarrierRuntime {
           carrierNanos += System.nanoTime()-carrierStart;
           continue;
         }
+        if (content && vehicle.family == dev.fourthdimension.contract.Family.ARROW) {
+          boolean wasCoupled=carrier.controlCoupled;
+          if (carrier.capture || !Double.isFinite(target)) carrier.controlCoupled=false;
+          else if (wasCoupled && !dev.fourthdimension.physics.ArrowTransmission.withinSpring(target,carrier.angle)) {
+            // Release before neutral capture; never snap the native pose to make the rack fit.
+            // All linked cars retain the ordinary operator stop/recovery authority.
+            dev.fourthdimension.vehicle.VehicleOperations.capture(level,vehicle);
+            for(var car:dev.fourthdimension.vehicle.VehicleOperations.consist(level,vehicle)) {
+              car.fault=dev.fourthdimension.physics.ArrowTransmission.OVERTRAVEL;
+              for(var c:car.carriers)c.controlCoupled=false;
+              car.revision++;
+            }
+          } else if (!wasCoupled)
+            carrier.controlCoupled=dev.fourthdimension.physics.ArrowTransmission.mayEngage(target,carrier.angle);
+          if (wasCoupled!=carrier.controlCoupled) vehicle.revision++;
+        }
         boolean drive = vehicle.family.driven() || carrier.capture;
         double goal =
             carrier.capture

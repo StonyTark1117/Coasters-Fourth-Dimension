@@ -15,12 +15,25 @@ import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.client.event.*;
-import org.joml.Matrix4f;
+import com.mojang.blaze3d.vertex.PoseStack;
+import net.minecraft.client.renderer.LevelRenderer;
+import net.minecraft.client.renderer.texture.OverlayTexture;
+import net.minecraft.client.renderer.texture.TextureAtlas;
+import net.minecraft.client.renderer.texture.TextureAtlasSprite;
+import net.minecraft.core.BlockPos;
+import net.minecraft.resources.ResourceLocation;
 
 /** Original procedural tube/spine meshes, shared by placed tracks and placement ghosts. */
 @EventBusSubscriber(modid = "fourthdimension", value = Dist.CLIENT)
 public final class OriginalTrackRenderer {
-  private record Quad(Vec3 a, Vec3 b, Vec3 c, Vec3 d, int color) {}
+  private record Quad(Vec3 a, Vec3 b, Vec3 c, Vec3 d, Vec3 normal,
+                      BlockPos lightAt, float width, float length, float phase, int color, String material) {}
+
+  private static final RenderType SURFACE = net.minecraft.client.renderer.Sheets.cutoutBlockSheet();
+  private static final RenderType TRANSLUCENT = RenderType.entityTranslucent(TextureAtlas.LOCATION_BLOCKS);
+  private record Transparent(List<Quad> quads,float alpha) {}
+  private static final Map<BlockPos, Integer> FRAME_LIGHT = new HashMap<>();
+  private static final Map<String, TextureAtlasSprite> FRAME_SPRITES = new HashMap<>();
 
   private record Mesh(
       long revision,
@@ -28,7 +41,22 @@ public final class OriginalTrackRenderer {
       long modelGeneration,
       List<Quad> quads,
       dev.fourthdimension.client.integration.TrackStylesRenderer.Mesh decoration,
-      List<Quad> originalFallback) {}
+      List<Quad> originalFallback, AABB bounds) {
+    Mesh(long revision,long geometry,long generation,List<Quad> quads,
+         dev.fourthdimension.client.integration.TrackStylesRenderer.Mesh decoration,
+         List<Quad> fallback) {
+      this(revision,geometry,generation,quads,decoration,fallback,boundsOf(quads));
+    }
+  }
+
+  private static AABB boundsOf(List<Quad> quads) {
+    AABB bounds=null;
+    for(var q:quads) {
+      var box=new AABB(q.a,q.c).minmax(new AABB(q.b,q.d));
+      bounds=bounds==null?box:bounds.minmax(box);
+    }
+    return bounds==null?new AABB(0,0,0,0,0,0):bounds.inflate(2);
+  }
 
   private record Decoration(UUID rail, Mesh mesh, float alpha) {}
 
@@ -58,6 +86,8 @@ public final class OriginalTrackRenderer {
     var level = Minecraft.getInstance().level;
     if (level != lastLevel) {
       MESHES.clear();
+      FRAME_LIGHT.clear();
+      FRAME_SPRITES.clear();
       SEEN.clear();
       STYLE_DRAW_FAILURES.clear();
       TrackRenderMetrics.reset();
@@ -96,12 +126,15 @@ public final class OriginalTrackRenderer {
     pose.pushPose();
     pose.translate(-camera.x, -camera.y, -camera.z);
     var buffers = mc.renderBuffers().bufferSource();
-    var consumer = buffers.getBuffer(RenderType.debugQuads());
+    var consumer = buffers.getBuffer(SURFACE);
+    FRAME_LIGHT.clear();
+    FRAME_SPRITES.clear();
     long renderStart = System.nanoTime();
     int inRangeRails = 0;
     int inRangeQuads = 0;
     int inRangeDecorationPieces = 0;
     var decorations = new ArrayList<Decoration>();
+    var transparent = new ArrayList<Transparent>();
     var data = EligibilityHooks.data(mc.level);
     if (data != null)
       for (var rail : data.rails)
@@ -153,7 +186,9 @@ public final class OriginalTrackRenderer {
             MESHES.put(rail.id, mesh);
             TrackRenderMetrics.meshBuilt(System.nanoTime() - buildStart);
           }
-          draw(consumer, pose.last().pose(), mesh.quads, rail.valid ? 1f : .4f);
+          if (!event.getFrustum().isVisible(mesh.bounds)) continue;
+          if(rail.valid)draw(consumer, pose.last(), mesh.quads, 1f);
+          else transparent.add(new Transparent(mesh.quads,.4f));
           if (rail.profile.keys().stream().anyMatch(key -> Math.abs(key.angle()) >= .25))
             TrackRenderMetrics.renderedNonzeroProfile(rail.id);
           inRangeRails++;
@@ -163,6 +198,11 @@ public final class OriginalTrackRenderer {
             inRangeDecorationPieces += mesh.decoration.pieces().size();
           }
         }
+    // Normal world steel is opaque. Only invalid previews and placement ghosts need
+    // blending/sorting; putting every tube in the translucent batch adds avoidable cost.
+    buffers.endBatch(SURFACE);
+    var translucentConsumer=buffers.getBuffer(TRANSLUCENT);
+    for(var part:transparent)draw(translucentConsumer,pose.last(),part.quads,part.alpha);
     var held = mc.player.getMainHandItem();
     if (held.getItem() instanceof FamilyTrackItem item
         && mc.hitResult instanceof BlockHitResult hit) {
@@ -195,7 +235,7 @@ public final class OriginalTrackRenderer {
                     item.design.color);
             ghostKey = key;
           }
-          draw(consumer, pose.last().pose(), ghost, .35f);
+          draw(translucentConsumer, pose.last(), ghost, .35f);
         } catch (IllegalArgumentException ignored) {
           /* Invalid hover has no placeable ghost. */
         }
@@ -216,17 +256,17 @@ public final class OriginalTrackRenderer {
       // Reacquire after the provider batch: a provider can fail after queuing a partial cutout.
       // Its style is disabled for this generation, and the only suppressed Original component is
       // restored immediately; the next frame contains the fully Original cached mesh.
-      var fallbackConsumer = buffers.getBuffer(RenderType.debugQuads());
       for (var decoration : failedDecorations) {
         draw(
-            fallbackConsumer,
-            pose.last().pose(),
+            buffers.getBuffer(decoration.alpha<1?TRANSLUCENT:SURFACE),
+            pose.last(),
             decoration.mesh.originalFallback,
             decoration.alpha);
         inRangeQuads += decoration.mesh.originalFallback.size();
       }
     }
-    buffers.endBatch(RenderType.debugQuads());
+    buffers.endBatch(SURFACE);
+    buffers.endBatch(TRANSLUCENT);
     pose.popPose();
     TrackRenderMetrics.rendered(
         System.nanoTime() - renderStart,
@@ -248,6 +288,7 @@ public final class OriginalTrackRenderer {
     int count = Math.max(8, (int) Math.ceil(table.length() * 4));
     var result = new ArrayList<Quad>();
     Vec3[] previous = null;
+    double[] railPhase = new double[5];
     Vec3 oldUp = null, oldRight = null;
     for (int i = 0; i <= count; i++) {
       double distance = table.length() * i / count, t = table.parameterAt(distance);
@@ -288,7 +329,9 @@ public final class OriginalTrackRenderer {
               up,
               rail < 2 ? TrackDesign.RAIL_HALF_WIDTH : rail == 4 ? (design.overhead() ? .18 : .22) : .09,
               rail < 2 ? TrackDesign.RAIL_HALF_HEIGHT : rail == 4 ? (design.overhead() ? .18 : .22) : .09,
-              rail < 2 ? 0xc6d0d4 : rail == 4 ? decorationColor : 0xf0ca69);
+              rail < 2 ? 0xc6d0d4 : rail == 4 ? decorationColor : 0xf0ca69,
+              railPhase[rail]);
+          railPhase[rail] += previous[rail].distanceTo(points[rail]);
         }
       }
       if (i % 8 == 0 || i == count) {
@@ -461,7 +504,7 @@ public final class OriginalTrackRenderer {
       Vec3 right = basis.right(), up = basis.up();
       Vec3 current = center.add(up.scale(TrackDesign.SPINE_HEIGHT));
       if (previous != null)
-        tube(result, previous, current, oldRight, oldUp, right, up, .22, .22, color);
+        tube(result, previous, current, oldRight, oldUp, right, up, .22, .22, color, distance-table.length()/count);
       previous = current;
       oldUp = up;
       oldRight = right;
@@ -493,32 +536,62 @@ public final class OriginalTrackRenderer {
       double radiusX,
       double radiusY,
       int color) {
-    for (int face = 0; face < 8; face++) {
-      double p = 2 * Math.PI * face / 8, q = 2 * Math.PI * (face + 1) / 8;
-      double light = .72 + .28 * Math.max(0, Math.sin((p + q) / 2));
-      int shaded =
-          ((int) (((color >> 16) & 255) * light) << 16)
-              | ((int) (((color >> 8) & 255) * light) << 8)
-              | (int) ((color & 255) * light);
-      out.add(
-          new Quad(
-              a.add(ar.scale(Math.cos(p) * radiusX)).add(au.scale(Math.sin(p) * radiusY)),
-              a.add(ar.scale(Math.cos(q) * radiusX)).add(au.scale(Math.sin(q) * radiusY)),
-              b.add(br.scale(Math.cos(q) * radiusX)).add(bu.scale(Math.sin(q) * radiusY)),
-              b.add(br.scale(Math.cos(p) * radiusX)).add(bu.scale(Math.sin(p) * radiusY)),
-              shaded));
+    tube(out,a,b,ar,au,br,bu,radiusX,radiusY,color,0);
+  }
+
+  private static void tube(List<Quad> out, Vec3 a,Vec3 b,Vec3 ar,Vec3 au,Vec3 br,Vec3 bu,
+                           double radiusX,double radiusY,int color,double phase) {
+    // Split long supports so material density stays 16 pixels/block. The mesh is cached;
+    // only current world light is looked up at draw time, once per occupied block.
+    double length=a.distanceTo(b);
+    if(length<1e-9)return;
+    double fraction=phase-Math.floor(phase);
+    for (double offset=0;offset<length-1e-9;) {
+      double endOffset=Math.min(length,offset+1-fraction);
+      double t0=offset/length, t1=endOffset/length;
+      var start=a.lerp(b,t0); var end=a.lerp(b,t1);
+      var sr=ar.lerp(br,t0); var su=au.lerp(bu,t0);
+      var er=ar.lerp(br,t1); var eu=au.lerp(bu,t1);
+      for (int face = 0; face < 8; face++) {
+        double p=2*Math.PI*face/8, q=2*Math.PI*(face+1)/8;
+        var v0=start.add(sr.scale(Math.cos(p)*radiusX)).add(su.scale(Math.sin(p)*radiusY));
+        var v1=start.add(sr.scale(Math.cos(q)*radiusX)).add(su.scale(Math.sin(q)*radiusY));
+        var v2=end.add(er.scale(Math.cos(q)*radiusX)).add(eu.scale(Math.sin(q)*radiusY));
+        var v3=end.add(er.scale(Math.cos(p)*radiusX)).add(eu.scale(Math.sin(p)*radiusY));
+        var normal=v1.subtract(v0).cross(v2.subtract(v0)).normalize();
+        var outward=sr.scale(Math.cos((p+q)/2)).add(su.scale(Math.sin((p+q)/2)));
+        if(normal.dot(outward)<0) {
+          var swap=v0; v0=v3; v3=swap;
+          swap=v1; v1=v2; v2=swap; normal=normal.scale(-1);
+        }
+        String material=color==0xc6d0d4||color==0xf0ca69?"machined":"structural";
+        out.add(new Quad(v0,v1,v2,v3,normal,BlockPos.containing(v0.add(v2).scale(.5)),
+            (float)v0.distanceTo(v1),(float)(endOffset-offset),(float)fraction,color,material));
+      }
+      offset=endOffset; fraction=0;
     }
   }
 
-  private static void draw(VertexConsumer buffer, Matrix4f matrix, List<Quad> quads, float alpha) {
-    for (var quad : quads)
-      for (var point : List.of(quad.a, quad.b, quad.c, quad.d))
-        buffer
-            .addVertex(matrix, (float) point.x, (float) point.y, (float) point.z)
-            .setColor(
-                (quad.color >> 16) & 255,
-                (quad.color >> 8) & 255,
-                quad.color & 255,
-                (int) (alpha * 255));
+  private static void draw(VertexConsumer buffer, PoseStack.Pose pose, List<Quad> quads, float alpha) {
+    var mc=Minecraft.getInstance();
+    for(var q:quads) {
+      var sprite=FRAME_SPRITES.computeIfAbsent(q.material, name->mc.getTextureAtlas(TextureAtlas.LOCATION_BLOCKS)
+          .apply(ResourceLocation.fromNamespaceAndPath("fourthdimension","block/fd917/"+name)));
+      int light=FRAME_LIGHT.computeIfAbsent(q.lightAt, pos->LevelRenderer.getLightColor(mc.level,pos));
+      // Geometry is subdivided before caching, so no UV reaches a neighboring atlas sprite.
+      float u=sprite.getU(Math.min(1,q.width)), v=sprite.getV(Math.min(1,q.phase+q.length));
+      vertex(buffer,pose,q,q.a,sprite.getU0(),sprite.getV(q.phase),light,alpha);
+      vertex(buffer,pose,q,q.b,u,sprite.getV(q.phase),light,alpha);
+      vertex(buffer,pose,q,q.c,u,v,light,alpha);
+      vertex(buffer,pose,q,q.d,sprite.getU0(),v,light,alpha);
+    }
+  }
+
+  private static void vertex(VertexConsumer buffer, PoseStack.Pose pose, Quad q, Vec3 p,
+                             float u,float v,int light,float alpha) {
+    buffer.addVertex(pose.pose(),(float)p.x,(float)p.y,(float)p.z)
+        .setColor((q.color>>16)&255,(q.color>>8)&255,q.color&255,(int)(alpha*255))
+        .setUv(u,v).setOverlay(OverlayTexture.NO_OVERLAY).setLight(light)
+        .setNormal(pose,(float)q.normal.x,(float)q.normal.y,(float)q.normal.z);
   }
 }
