@@ -32,7 +32,9 @@ crank from the hinge through an inboard point x=.5-side*.36 to that shaft center
 The radial member is .07 block thick. This closes the geometric offset without
 changing the pivot or seating; compilation passed, with the affected fit view
 pending on Art's next necessary refresh. Prior rail-contact and occupied-cycle
-evidence remains valid.
+evidence remains valid. Two articulated stays now also join the rail-following
+guide/gearbox to the actual parent wing-strut web; they share this final fit view.
+`compile-chassis-interface.log` passed after the support addition.
 
 The mechanism stays within one car: its longitudinal extent is under one block
 about the chassis station, versus the existing six-block linked spacing. It does

@@ -62,3 +62,30 @@ shaft without moving native pivots, seats or physics. The .07-block radial membe
 lies at the inboard side of the bucket. Source compilation passed; Art owns the
 remaining current-build fit view. This narrowly affected view does not reopen
 rail contact, full stroke or the completed occupied operator cycle.
+
+
+The guide/gearbox also has two explicit articulated stays ending in the actual
+parent wing-strut web at local `(.5+side*x,2.5,.5)`, for x=1.65 and 2.02.
+Using the parent render pose prevents a rail-frame approximation from floating
+beside the chassis on curves. These stays and the crank share one pending fit
+view; `compile-chassis-interface.log` passed after this final support addition.
+
+```mermaid
+flowchart LR
+    R[Control rail: h = -.85 + input / 16π] --> F[Paired .12-radius followers]
+    F --> K[Sliding rack and guide]
+    K --> P[20-tooth input pinion: input / 8]
+    P --> S[Bounded slow spring: ±π/8]
+    S --> C[Capture/acquisition clutch]
+    C --> G[64:16 then 32:16: 8× output]
+    G --> V[Telescopic CV shaft]
+    V --> H[Actual child hinge]
+    H --> E[Actual-child eccentric crank]
+    E --> A[Retained axle and seats]
+    B[Actual parent wing strut] --- K
+    B --- G
+```
+
+The diagram shows the simplified presentation contract; the native rotary servo
+still supplies motion authority. When the clutch opens, the output/servo remains
+connected to the child, while the input spring unloads with the rail follower.

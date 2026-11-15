@@ -95,6 +95,15 @@ public final class ArrowMechanismRenderer {
         // A late state packet cannot draw an attached spring beyond its physical travel.
         boolean coupled=!carrier.capture&&carrier.controlCoupled&&ArrowTransmission.withinSpring(input,actual);
         assembly(mesh,frame,side,h,input,actual,travel,coupled,pivot,light);
+        // The rail-following guide must visibly bear on the actual chassis too. These
+        // articulated stays terminate inside the retained wing-strut web, not a rail-frame
+        // approximation of it, so interpolation/curvature cannot detach the support.
+        for(double x:new double[]{1.65,2.02}) {
+          var mount=parentPose.transformPosition(new Vector3d(p.getX()+.5+side*x,p.getY()+2.5,p.getZ()+.5));
+          var guide=frame.at(side*x,x<2?-.10:1.15,.30+ArrowTransmission.RACK_PINION_RADIUS+.16);
+          mesh.beam(guide,mount,frame.right,.09,.09,"structural",light);
+          mesh.ring(mount,bodyRight,frame.up,.035,.07,.12,"machined",light);
+        }
         // The retained baked axle is ahead of the actual hinge, not coaxial with it.
         // A crank on the inboard side of the bucket joins both in the child's real frame.
         // Keep the radial member outside the rider/head cushion; never translate the pivot
