@@ -208,6 +208,12 @@ public final class ChainLiftDiagnostics {
     state.put("boardingReady", vehicle.boardingReady);
     state.put("boundFrom", position(vehicle.boundFrom));
     state.put("boundTo", position(vehicle.boundTo));
+    if(dev.fourthdimension.vehicle.RollerBallVehicle.is(vehicle)) {
+      var roller=vehicle.roller;
+      state.put("roller",Map.of("phase",roller.phase.name(),"pitch",roller.pitch,
+          "direction",roller.direction,"released",roller.released,"pendingRelease",roller.pendingRelease,
+          "restartHold",roller.restartHold,"command",roller.command,"commandRate",roller.commandRate));
+    }
     var carriers = new ArrayList<Map<String, Object>>();
     for (var carrier : vehicle.carriers) {
       var row = new LinkedHashMap<String, Object>();

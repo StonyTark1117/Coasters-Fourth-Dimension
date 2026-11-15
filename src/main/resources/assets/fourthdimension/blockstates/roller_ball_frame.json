@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "latched=false,damping=false": {
+      "model": "fourthdimension:block/roller_ball_frame_0_0"
+    },
+    "latched=false,damping=true": {
+      "model": "fourthdimension:block/roller_ball_frame_0_1"
+    },
+    "latched=true,damping=false": {
+      "model": "fourthdimension:block/roller_ball_frame_1_0"
+    },
+    "latched=true,damping=true": {
+      "model": "fourthdimension:block/roller_ball_frame_1_1"
+    }
+  }
+}

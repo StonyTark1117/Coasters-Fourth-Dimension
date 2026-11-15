@@ -25,7 +25,7 @@ public final class Boarding {
 
   private record Exit(net.minecraft.world.phys.Vec3 position, long tick) {}
 
-  private record Restore(long deadline, boolean noGravity) {}
+  private record Restore(long deadline, boolean noGravity, float yaw, float pitch) {}
 
   private static final java.util.Map<java.util.UUID, Restore> RESTORE = new java.util.HashMap<>();
   private static final java.util.Set<java.util.UUID> RESTORING = new java.util.HashSet<>();
@@ -55,7 +55,9 @@ public final class Boarding {
       var up = new Vector3d(0, 1, 0).rotate(parent.logicalPose().orientation());
       return up.y > .98;
     }
+    if (RollerBallVehicle.is(vehicle)) return RollerBallRuntime.ready(level,parent,vehicle);
     if (AxisVehicle.is(vehicle)) return AxisRuntime.ready(level,parent,vehicle);
+    if (NewGenerationFlyingVehicle.is(vehicle)) return NewGenerationFlyingRuntime.ready(level,parent,vehicle);
     if (FlyingVehicle.is(vehicle)) return FlyingRuntime.ready(level,parent,vehicle);
     if (FixedInvertedVehicle.is(vehicle)) return FixedInvertedRuntime.ready(level, parent, vehicle);
     if (SuspendedVehicle.is(vehicle)) return SuspendedRuntime.ready(level, parent, vehicle);
@@ -256,7 +258,7 @@ public final class Boarding {
       long deadline = player.serverLevel().getGameTime() + 200;
       RESTORE.put(
           player.getUUID(),
-          new Restore(deadline, player.isNoGravity()));
+          new Restore(deadline, player.isNoGravity(), player.getYRot(), player.getXRot()));
       player.getPersistentData().putBoolean(GRAVITY_RESTORE, player.isNoGravity());
       player.setNoGravity(true);
       player.setDeltaMovement(net.minecraft.world.phys.Vec3.ZERO);
@@ -274,6 +276,17 @@ public final class Boarding {
     var state = RESTORE.remove(player.getUUID());
     if (state != null) {
       player.setNoGravity(state.noGravity);
+      if ((outcome.equals("mounted") || outcome.equals("already-mounted"))
+          && player.getVehicle() != null) {
+        var binding = at(player.level(), player.getVehicle().blockPosition());
+        if (binding != null) {
+          player.setYRot(state.yaw);
+          player.setXRot(state.pitch);
+          net.neoforged.neoforge.network.PacketDistributor.sendToPlayer(player,
+              new RestoredLookSync.Look(player.level().dimension().location(),
+                  binding.carrier.body, player.getVehicle().blockPosition(), state.yaw, state.pitch));
+        }
+      }
       LOGGER.info(
           "FD_BOARDING_RESTORE {} player={} gameTick={} deadlineTick={}",
           outcome,

@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="650" viewBox="0 0 900 650">
+<rect width="900" height="650" fill="#f5f7fa"/>
+<g font-family="sans-serif" fill="#172a3b"><text x="30" y="35" font-size="24">New-generation Flying — combined occupied reservation</text><text x="30" y="61" font-size="14">Specification reference only • graph-origin design frame • native frame/solver still unproven</text>
+<rect x="124.0" y="79.6" width="352.0" height="406.4" fill="#ddeaf5" stroke="#6483a1"/>
+<line x1="124.0" x2="476.0" y1="150" y2="150" stroke="#384b61"/>
+<circle cx="300" cy="342" r="123.77010947720778" fill="#bc9fe3" fill-opacity=".4" stroke="#7145a0"/>
+<circle cx="300" cy="342" r="4" fill="#7145a0"/>
+<text x="480" y="155" font-size="15">graph O</text>
+<text x="440" y="342" font-size="15">pivot P=(0,-3,0)</text>
+<text x="585" y="330" font-size="15">R=1.93391 occupied sphere</text>
+<text x="95" y="520" font-size="15">Whole reservation: X/Z ±2.75, Y +1.10 / -5.25</text>
+<text x="95" y="550" font-size="15">Outer chassis-Y yaw → inner yaw-deck-X posture</text>
+<text x="95" y="580" font-size="15">Head-first presentation remains yaw-deck +Z through changeover</text>
+<text x="95" y="610" font-size="15">Spindle/forks and running gear require separate measured geometry.</text>
+<text x="585" y="135" font-size="17">Candidate overlap section</text>
+<text x="585" y="170" font-size="15">24 blocks at ≤2 blocks/s</text>
+<text x="585" y="200" font-size="15">Posture: 0° → 90°</text>
+<text x="585" y="230" font-size="15">Yaw: 90° → 180°</text>
+<text x="585" y="260" font-size="15">Rate-limited physical servo</text>
+<text x="585" y="290" font-size="15">Exit waits for actual endpoint lock</text>
+</g></svg>

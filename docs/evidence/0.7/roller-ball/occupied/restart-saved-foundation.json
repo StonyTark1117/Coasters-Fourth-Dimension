@@ -1,0 +1,2571 @@
+{
+  "data": {
+    "schema": 7,
+    "rails": [
+      {
+        "roller_section": "DOCK",
+        "original_curve": {
+          "Starts": [
+            {
+              "V": [
+                0.5,
+                0.25,
+                0.5
+              ]
+            },
+            {
+              "V": [
+                0.5,
+                0.25,
+                32.5
+              ]
+            }
+          ],
+          "Girder": 0,
+          "Normals": [
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          ],
+          "Primary": 1,
+          "Positions": [
+            {
+              "Pos": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "Pos": [
+                0,
+                0,
+                32
+              ]
+            }
+          ],
+          "Axes": [
+            {
+              "V": [
+                0.0,
+                0.0,
+                1.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                0.0,
+                -1.0
+              ]
+            }
+          ],
+          "Material": "simulatedcoasters:coaster_track"
+        },
+        "magnets": [],
+        "profile": [
+          {
+            "distance": 0.0,
+            "slope": 0.0,
+            "angle": 0.0
+          },
+          {
+            "distance": 32.0,
+            "slope": 0.0,
+            "angle": 0.0
+          }
+        ],
+        "lift_lock": 0,
+        "geometry_hash": -3223706673671341919,
+        "revision": 0,
+        "valid": 1,
+        "appearance": {
+          "tint": -1,
+          "id": "fourthdimension:original"
+        },
+        "provider": "fourthdimension:original",
+        "variant": "vertical_zigzag_v1",
+        "from": 80,
+        "to": 131152,
+        "id": [
+          1338109390,
+          149110836,
+          -1414604483,
+          1679932494
+        ],
+        "family": "roller_ball"
+      },
+      {
+        "roller_section": "LIFT",
+        "original_curve": {
+          "Starts": [
+            {
+              "V": [
+                0.5,
+                0.25,
+                0.5
+              ]
+            },
+            {
+              "V": [
+                0.5,
+                16.25,
+                16.5
+              ]
+            }
+          ],
+          "Girder": 0,
+          "Normals": [
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                0.0,
+                -1.0
+              ]
+            }
+          ],
+          "Primary": 1,
+          "Positions": [
+            {
+              "Pos": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "Pos": [
+                0,
+                16,
+                16
+              ]
+            }
+          ],
+          "Axes": [
+            {
+              "V": [
+                0.0,
+                0.0,
+                1.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                -1.0,
+                0.0
+              ]
+            }
+          ],
+          "Material": "simulatedcoasters:coaster_track"
+        },
+        "magnets": [],
+        "profile": [
+          {
+            "distance": 0.0,
+            "slope": 0.0,
+            "angle": 0.0
+          },
+          {
+            "distance": 24.497595533187436,
+            "slope": 0.0,
+            "angle": 0.0
+          }
+        ],
+        "lift_lock": 0,
+        "geometry_hash": -92370330877060255,
+        "revision": 0,
+        "valid": 1,
+        "appearance": {
+          "tint": -1,
+          "id": "fourthdimension:original"
+        },
+        "provider": "fourthdimension:original",
+        "variant": "vertical_zigzag_v1",
+        "from": 131152,
+        "to": 196704,
+        "id": [
+          -1468085482,
+          -43237209,
+          -1153522169,
+          1562168387
+        ],
+        "family": "roller_ball"
+      },
+      {
+        "roller_section": "LIFT",
+        "original_curve": {
+          "Starts": [
+            {
+              "V": [
+                0.5,
+                0.25,
+                0.5
+              ]
+            },
+            {
+              "V": [
+                0.5,
+                48.25,
+                0.5
+              ]
+            }
+          ],
+          "Girder": 0,
+          "Normals": [
+            {
+              "V": [
+                0.0,
+                0.0,
+                -1.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                0.0,
+                -1.0
+              ]
+            }
+          ],
+          "Primary": 1,
+          "Positions": [
+            {
+              "Pos": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "Pos": [
+                0,
+                48,
+                0
+              ]
+            }
+          ],
+          "Axes": [
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                -1.0,
+                0.0
+              ]
+            }
+          ],
+          "Material": "simulatedcoasters:coaster_track"
+        },
+        "magnets": [],
+        "profile": [
+          {
+            "distance": 0.0,
+            "slope": 0.0,
+            "angle": 0.0
+          },
+          {
+            "distance": 48.0,
+            "slope": 0.0,
+            "angle": 0.0
+          }
+        ],
+        "lift_lock": 0,
+        "geometry_hash": 6078684128936431409,
+        "revision": 0,
+        "valid": 1,
+        "appearance": {
+          "tint": -1,
+          "id": "fourthdimension:original"
+        },
+        "provider": "fourthdimension:original",
+        "variant": "vertical_zigzag_v1",
+        "from": 196704,
+        "to": 196752,
+        "id": [
+          1527003591,
+          -199406670,
+          -1130138301,
+          789478094
+        ],
+        "family": "roller_ball"
+      },
+      {
+        "roller_section": "LIFT",
+        "original_curve": {
+          "Starts": [
+            {
+              "V": [
+                0.5,
+                0.25,
+                0.5
+              ]
+            },
+            {
+              "V": [
+                0.5,
+                48.25,
+                0.5
+              ]
+            }
+          ],
+          "Girder": 0,
+          "Normals": [
+            {
+              "V": [
+                0.0,
+                0.0,
+                -1.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                0.0,
+                -1.0
+              ]
+            }
+          ],
+          "Primary": 1,
+          "Positions": [
+            {
+              "Pos": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "Pos": [
+                0,
+                48,
+                0
+              ]
+            }
+          ],
+          "Axes": [
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                -1.0,
+                0.0
+              ]
+            }
+          ],
+          "Material": "simulatedcoasters:coaster_track"
+        },
+        "magnets": [],
+        "profile": [
+          {
+            "distance": 0.0,
+            "slope": 0.0,
+            "angle": 0.0
+          },
+          {
+            "distance": 48.0,
+            "slope": 0.0,
+            "angle": 0.0
+          }
+        ],
+        "lift_lock": 0,
+        "geometry_hash": 67551534943945521,
+        "revision": 0,
+        "valid": 1,
+        "appearance": {
+          "tint": -1,
+          "id": "fourthdimension:original"
+        },
+        "provider": "fourthdimension:original",
+        "variant": "vertical_zigzag_v1",
+        "from": 196752,
+        "to": 196800,
+        "id": [
+          -1858782565,
+          -1263320969,
+          -1155661754,
+          2008539966
+        ],
+        "family": "roller_ball"
+      },
+      {
+        "roller_section": "SUMMIT",
+        "original_curve": {
+          "Starts": [
+            {
+              "V": [
+                0.5,
+                0.25,
+                0.5
+              ]
+            },
+            {
+              "V": [
+                0.5,
+                16.25,
+                16.5
+              ]
+            }
+          ],
+          "Girder": 0,
+          "Normals": [
+            {
+              "V": [
+                0.0,
+                0.0,
+                -1.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          ],
+          "Primary": 1,
+          "Positions": [
+            {
+              "Pos": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "Pos": [
+                0,
+                16,
+                16
+              ]
+            }
+          ],
+          "Axes": [
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                0.0,
+                -1.0
+              ]
+            }
+          ],
+          "Material": "simulatedcoasters:coaster_track"
+        },
+        "magnets": [],
+        "profile": [
+          {
+            "distance": 0.0,
+            "slope": 0.0,
+            "angle": 0.0
+          },
+          {
+            "distance": 24.693945052511573,
+            "slope": 0.0,
+            "angle": 0.0
+          }
+        ],
+        "lift_lock": 0,
+        "geometry_hash": -4445303430484841451,
+        "revision": 0,
+        "valid": 1,
+        "appearance": {
+          "tint": -1,
+          "id": "fourthdimension:original"
+        },
+        "provider": "fourthdimension:original",
+        "variant": "vertical_zigzag_v1",
+        "from": 196800,
+        "to": 262352,
+        "id": [
+          -1055259772,
+          371214520,
+          -2143632855,
+          1319902075
+        ],
+        "family": "roller_ball"
+      },
+      {
+        "roller_section": "SUMMIT",
+        "original_curve": {
+          "Starts": [
+            {
+              "V": [
+                0.5,
+                0.25,
+                0.5
+              ]
+            },
+            {
+              "V": [
+                0.5,
+                -15.75,
+                16.5
+              ]
+            }
+          ],
+          "Girder": 0,
+          "Normals": [
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                0.0,
+                1.0
+              ]
+            }
+          ],
+          "Primary": 1,
+          "Positions": [
+            {
+              "Pos": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "Pos": [
+                0,
+                -16,
+                16
+              ]
+            }
+          ],
+          "Axes": [
+            {
+              "V": [
+                0.0,
+                0.0,
+                1.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          ],
+          "Material": "simulatedcoasters:coaster_track"
+        },
+        "magnets": [],
+        "profile": [
+          {
+            "distance": 0.0,
+            "slope": 0.0,
+            "angle": 0.0
+          },
+          {
+            "distance": 24.693945052511562,
+            "slope": 0.0,
+            "angle": 0.0
+          }
+        ],
+        "lift_lock": 0,
+        "geometry_hash": 5297436613906749511,
+        "revision": 0,
+        "valid": 1,
+        "appearance": {
+          "tint": -1,
+          "id": "fourthdimension:original"
+        },
+        "provider": "fourthdimension:original",
+        "variant": "vertical_zigzag_v1",
+        "from": 262352,
+        "to": 327872,
+        "id": [
+          -1145009245,
+          1417957288,
+          -1197781002,
+          -1694615384
+        ],
+        "family": "roller_ball"
+      },
+      {
+        "roller_section": "SUMMIT",
+        "original_curve": {
+          "Starts": [
+            {
+              "V": [
+                0.5,
+                0.25,
+                0.5
+              ]
+            },
+            {
+              "V": [
+                0.5,
+                -15.75,
+                16.5
+              ]
+            }
+          ],
+          "Girder": 0,
+          "Normals": [
+            {
+              "V": [
+                0.0,
+                0.0,
+                1.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                0.9863939238321437,
+                0.1643989873053573
+              ]
+            }
+          ],
+          "Primary": 1,
+          "Positions": [
+            {
+              "Pos": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "Pos": [
+                0,
+                -16,
+                16
+              ]
+            }
+          ],
+          "Axes": [
+            {
+              "V": [
+                0.0,
+                -1.0,
+                0.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                0.1643989873053573,
+                -0.9863939238321437
+              ]
+            }
+          ],
+          "Material": "simulatedcoasters:coaster_track"
+        },
+        "magnets": [],
+        "profile": [
+          {
+            "distance": 0.0,
+            "slope": 0.0,
+            "angle": 0.0
+          },
+          {
+            "distance": 24.173220762858858,
+            "slope": 0.0,
+            "angle": 0.0
+          }
+        ],
+        "lift_lock": 0,
+        "geometry_hash": 7441741505748021590,
+        "revision": 0,
+        "valid": 1,
+        "appearance": {
+          "tint": -1,
+          "id": "fourthdimension:original"
+        },
+        "provider": "fourthdimension:original",
+        "variant": "vertical_zigzag_v1",
+        "from": 327872,
+        "to": 393392,
+        "id": [
+          -1343981102,
+          -1916124330,
+          -1912178342,
+          -327656234
+        ],
+        "family": "roller_ball"
+      },
+      {
+        "roller_section": "FREE",
+        "original_curve": {
+          "Starts": [
+            {
+              "V": [
+                0.5,
+                0.25,
+                0.5
+              ]
+            },
+            {
+              "V": [
+                0.5,
+                -7.75,
+                48.5
+              ]
+            }
+          ],
+          "Girder": 0,
+          "Normals": [
+            {
+              "V": [
+                0.0,
+                0.9863939238321437,
+                0.1643989873053573
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                0.9863939238321437,
+                0.1643989873053573
+              ]
+            }
+          ],
+          "Primary": 1,
+          "Positions": [
+            {
+              "Pos": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "Pos": [
+                0,
+                -8,
+                48
+              ]
+            }
+          ],
+          "Axes": [
+            {
+              "V": [
+                0.0,
+                -0.1643989873053573,
+                0.9863939238321437
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                0.1643989873053573,
+                -0.9863939238321437
+              ]
+            }
+          ],
+          "Material": "simulatedcoasters:coaster_track"
+        },
+        "magnets": [],
+        "profile": [
+          {
+            "distance": 0.0,
+            "slope": 0.0,
+            "angle": 0.0
+          },
+          {
+            "distance": 48.662100242384945,
+            "slope": 0.0,
+            "angle": 0.0
+          }
+        ],
+        "lift_lock": 0,
+        "geometry_hash": -2047467611802695313,
+        "revision": 0,
+        "valid": 1,
+        "appearance": {
+          "tint": -1,
+          "id": "fourthdimension:original"
+        },
+        "provider": "fourthdimension:original",
+        "variant": "vertical_zigzag_v1",
+        "from": 393392,
+        "to": 589992,
+        "id": [
+          1778622491,
+          917587075,
+          -1154465163,
+          1554458843
+        ],
+        "family": "roller_ball"
+      },
+      {
+        "roller_section": "FREE",
+        "original_curve": {
+          "Starts": [
+            {
+              "V": [
+                0.5,
+                0.25,
+                0.5
+              ]
+            },
+            {
+              "V": [
+                0.5,
+                -15.75,
+                16.5
+              ]
+            }
+          ],
+          "Girder": 0,
+          "Normals": [
+            {
+              "V": [
+                0.0,
+                0.9863939238321437,
+                0.1643989873053573
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                0.0,
+                1.0
+              ]
+            }
+          ],
+          "Primary": 1,
+          "Positions": [
+            {
+              "Pos": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "Pos": [
+                0,
+                -16,
+                16
+              ]
+            }
+          ],
+          "Axes": [
+            {
+              "V": [
+                0.0,
+                -0.1643989873053573,
+                0.9863939238321437
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          ],
+          "Material": "simulatedcoasters:coaster_track"
+        },
+        "magnets": [],
+        "profile": [
+          {
+            "distance": 0.0,
+            "slope": 0.0,
+            "angle": 0.0
+          },
+          {
+            "distance": 24.348926702599808,
+            "slope": 0.0,
+            "angle": 0.0
+          }
+        ],
+        "lift_lock": 0,
+        "geometry_hash": 6858834007828331506,
+        "revision": 0,
+        "valid": 1,
+        "appearance": {
+          "tint": -1,
+          "id": "fourthdimension:original"
+        },
+        "provider": "fourthdimension:original",
+        "variant": "vertical_zigzag_v1",
+        "from": 589992,
+        "to": 655512,
+        "id": [
+          -461924374,
+          -1811265460,
+          -1138308704,
+          -1539019476
+        ],
+        "family": "roller_ball"
+      },
+      {
+        "roller_section": "FREE",
+        "original_curve": {
+          "Starts": [
+            {
+              "V": [
+                0.5,
+                0.25,
+                0.5
+              ]
+            },
+            {
+              "V": [
+                0.5,
+                -15.75,
+                -15.5
+              ]
+            }
+          ],
+          "Girder": 0,
+          "Normals": [
+            {
+              "V": [
+                0.0,
+                0.0,
+                1.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                -0.9863939238321437,
+                0.1643989873053573
+              ]
+            }
+          ],
+          "Primary": 1,
+          "Positions": [
+            {
+              "Pos": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "Pos": [
+                0,
+                -16,
+                -16
+              ]
+            }
+          ],
+          "Axes": [
+            {
+              "V": [
+                0.0,
+                -1.0,
+                0.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                0.1643989873053573,
+                0.9863939238321437
+              ]
+            }
+          ],
+          "Material": "simulatedcoasters:coaster_track"
+        },
+        "magnets": [],
+        "profile": [
+          {
+            "distance": 0.0,
+            "slope": 0.0,
+            "angle": 0.0
+          },
+          {
+            "distance": 24.348926702599798,
+            "slope": 0.0,
+            "angle": 0.0
+          }
+        ],
+        "lift_lock": 0,
+        "geometry_hash": -3226813651771455662,
+        "revision": 0,
+        "valid": 1,
+        "appearance": {
+          "tint": -1,
+          "id": "fourthdimension:original"
+        },
+        "provider": "fourthdimension:original",
+        "variant": "vertical_zigzag_v1",
+        "from": 655512,
+        "to": 589960,
+        "id": [
+          1890103858,
+          -204060683,
+          -1195620318,
+          1232616905
+        ],
+        "family": "roller_ball"
+      },
+      {
+        "roller_section": "FREE",
+        "original_curve": {
+          "Starts": [
+            {
+              "V": [
+                0.5,
+                0.25,
+                0.5
+              ]
+            },
+            {
+              "V": [
+                0.5,
+                -7.75,
+                -47.5
+              ]
+            }
+          ],
+          "Girder": 0,
+          "Normals": [
+            {
+              "V": [
+                0.0,
+                -0.9863939238321437,
+                0.1643989873053573
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                -0.9863939238321437,
+                0.1643989873053573
+              ]
+            }
+          ],
+          "Primary": 1,
+          "Positions": [
+            {
+              "Pos": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "Pos": [
+                0,
+                -8,
+                -48
+              ]
+            }
+          ],
+          "Axes": [
+            {
+              "V": [
+                0.0,
+                -0.1643989873053573,
+                -0.9863939238321437
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                0.1643989873053573,
+                0.9863939238321437
+              ]
+            }
+          ],
+          "Material": "simulatedcoasters:coaster_track"
+        },
+        "magnets": [],
+        "profile": [
+          {
+            "distance": 0.0,
+            "slope": 0.0,
+            "angle": 0.0
+          },
+          {
+            "distance": 48.662100242384945,
+            "slope": 0.0,
+            "angle": 0.0
+          }
+        ],
+        "lift_lock": 0,
+        "geometry_hash": 6732819441932368311,
+        "revision": 0,
+        "valid": 1,
+        "appearance": {
+          "tint": -1,
+          "id": "fourthdimension:original"
+        },
+        "provider": "fourthdimension:original",
+        "variant": "vertical_zigzag_v1",
+        "from": 589960,
+        "to": 393344,
+        "id": [
+          1724610577,
+          -374193582,
+          -1317489332,
+          498853505
+        ],
+        "family": "roller_ball"
+      },
+      {
+        "roller_section": "FREE",
+        "original_curve": {
+          "Starts": [
+            {
+              "V": [
+                0.5,
+                0.25,
+                0.5
+              ]
+            },
+            {
+              "V": [
+                0.5,
+                -15.75,
+                -15.5
+              ]
+            }
+          ],
+          "Girder": 0,
+          "Normals": [
+            {
+              "V": [
+                0.0,
+                -0.9863939238321437,
+                0.1643989873053573
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                0.0,
+                1.0
+              ]
+            }
+          ],
+          "Primary": 1,
+          "Positions": [
+            {
+              "Pos": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "Pos": [
+                0,
+                -16,
+                -16
+              ]
+            }
+          ],
+          "Axes": [
+            {
+              "V": [
+                0.0,
+                -0.1643989873053573,
+                -0.9863939238321437
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          ],
+          "Material": "simulatedcoasters:coaster_track"
+        },
+        "magnets": [],
+        "profile": [
+          {
+            "distance": 0.0,
+            "slope": 0.0,
+            "angle": 0.0
+          },
+          {
+            "distance": 24.17322076285889,
+            "slope": 0.0,
+            "angle": 0.0
+          }
+        ],
+        "lift_lock": 0,
+        "geometry_hash": 5683393940636649670,
+        "revision": 0,
+        "valid": 1,
+        "appearance": {
+          "tint": -1,
+          "id": "fourthdimension:original"
+        },
+        "provider": "fourthdimension:original",
+        "variant": "vertical_zigzag_v1",
+        "from": 393344,
+        "to": 327792,
+        "id": [
+          265157640,
+          -1344188778,
+          -2075745473,
+          1438730604
+        ],
+        "family": "roller_ball"
+      },
+      {
+        "roller_section": "FREE",
+        "original_curve": {
+          "Starts": [
+            {
+              "V": [
+                0.5,
+                0.25,
+                0.5
+              ]
+            },
+            {
+              "V": [
+                0.5,
+                -15.75,
+                16.5
+              ]
+            }
+          ],
+          "Girder": 0,
+          "Normals": [
+            {
+              "V": [
+                0.0,
+                0.0,
+                1.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                0.9863939238321437,
+                0.1643989873053573
+              ]
+            }
+          ],
+          "Primary": 1,
+          "Positions": [
+            {
+              "Pos": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "Pos": [
+                0,
+                -16,
+                16
+              ]
+            }
+          ],
+          "Axes": [
+            {
+              "V": [
+                0.0,
+                -1.0,
+                0.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                0.1643989873053573,
+                -0.9863939238321437
+              ]
+            }
+          ],
+          "Material": "simulatedcoasters:coaster_track"
+        },
+        "magnets": [],
+        "profile": [
+          {
+            "distance": 0.0,
+            "slope": 0.0,
+            "angle": 0.0
+          },
+          {
+            "distance": 24.17322076285883,
+            "slope": 0.0,
+            "angle": 0.0
+          }
+        ],
+        "lift_lock": 0,
+        "geometry_hash": 8135323135387796822,
+        "revision": 0,
+        "valid": 1,
+        "appearance": {
+          "tint": -1,
+          "id": "fourthdimension:original"
+        },
+        "provider": "fourthdimension:original",
+        "variant": "vertical_zigzag_v1",
+        "from": 327792,
+        "to": 393312,
+        "id": [
+          2030559010,
+          -661829720,
+          -1576343766,
+          821545572
+        ],
+        "family": "roller_ball"
+      },
+      {
+        "roller_section": "FREE",
+        "original_curve": {
+          "Starts": [
+            {
+              "V": [
+                0.5,
+                0.25,
+                0.5
+              ]
+            },
+            {
+              "V": [
+                0.5,
+                -7.75,
+                48.5
+              ]
+            }
+          ],
+          "Girder": 0,
+          "Normals": [
+            {
+              "V": [
+                0.0,
+                0.9863939238321437,
+                0.1643989873053573
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                0.9863939238321437,
+                0.1643989873053573
+              ]
+            }
+          ],
+          "Primary": 1,
+          "Positions": [
+            {
+              "Pos": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "Pos": [
+                0,
+                -8,
+                48
+              ]
+            }
+          ],
+          "Axes": [
+            {
+              "V": [
+                0.0,
+                -0.1643989873053573,
+                0.9863939238321437
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                0.1643989873053573,
+                -0.9863939238321437
+              ]
+            }
+          ],
+          "Material": "simulatedcoasters:coaster_track"
+        },
+        "magnets": [],
+        "profile": [
+          {
+            "distance": 0.0,
+            "slope": 0.0,
+            "angle": 0.0
+          },
+          {
+            "distance": 48.66210024238502,
+            "slope": 0.0,
+            "angle": 0.0
+          }
+        ],
+        "lift_lock": 0,
+        "geometry_hash": 4765644938260182383,
+        "revision": 0,
+        "valid": 1,
+        "appearance": {
+          "tint": -1,
+          "id": "fourthdimension:original"
+        },
+        "provider": "fourthdimension:original",
+        "variant": "vertical_zigzag_v1",
+        "from": 393312,
+        "to": 589912,
+        "id": [
+          1539730145,
+          -707771889,
+          -1620359833,
+          205711613
+        ],
+        "family": "roller_ball"
+      },
+      {
+        "roller_section": "FREE",
+        "original_curve": {
+          "Starts": [
+            {
+              "V": [
+                0.5,
+                0.25,
+                0.5
+              ]
+            },
+            {
+              "V": [
+                0.5,
+                -15.75,
+                16.5
+              ]
+            }
+          ],
+          "Girder": 0,
+          "Normals": [
+            {
+              "V": [
+                0.0,
+                0.9863939238321437,
+                0.1643989873053573
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                0.0,
+                1.0
+              ]
+            }
+          ],
+          "Primary": 1,
+          "Positions": [
+            {
+              "Pos": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "Pos": [
+                0,
+                -16,
+                16
+              ]
+            }
+          ],
+          "Axes": [
+            {
+              "V": [
+                0.0,
+                -0.1643989873053573,
+                0.9863939238321437
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          ],
+          "Material": "simulatedcoasters:coaster_track"
+        },
+        "magnets": [],
+        "profile": [
+          {
+            "distance": 0.0,
+            "slope": 0.0,
+            "angle": 0.0
+          },
+          {
+            "distance": 24.348926702599805,
+            "slope": 0.0,
+            "angle": 0.0
+          }
+        ],
+        "lift_lock": 0,
+        "geometry_hash": -1499903649606754318,
+        "revision": 0,
+        "valid": 1,
+        "appearance": {
+          "tint": -1,
+          "id": "fourthdimension:original"
+        },
+        "provider": "fourthdimension:original",
+        "variant": "vertical_zigzag_v1",
+        "from": 589912,
+        "to": 655432,
+        "id": [
+          -1881310545,
+          -625455437,
+          -1447179704,
+          -2113074172
+        ],
+        "family": "roller_ball"
+      },
+      {
+        "roller_section": "FREE",
+        "original_curve": {
+          "Starts": [
+            {
+              "V": [
+                0.5,
+                0.25,
+                0.5
+              ]
+            },
+            {
+              "V": [
+                0.5,
+                -23.75,
+                -15.5
+              ]
+            }
+          ],
+          "Girder": 0,
+          "Normals": [
+            {
+              "V": [
+                0.0,
+                0.0,
+                1.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                -1.0,
+                0.0
+              ]
+            }
+          ],
+          "Primary": 1,
+          "Positions": [
+            {
+              "Pos": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "Pos": [
+                0,
+                -24,
+                -16
+              ]
+            }
+          ],
+          "Axes": [
+            {
+              "V": [
+                0.0,
+                -1.0,
+                0.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                0.0,
+                1.0
+              ]
+            }
+          ],
+          "Material": "simulatedcoasters:coaster_track"
+        },
+        "magnets": [],
+        "profile": [
+          {
+            "distance": 0.0,
+            "slope": 0.0,
+            "angle": 0.0
+          },
+          {
+            "distance": 31.48127176245574,
+            "slope": 0.0,
+            "angle": 0.0
+          }
+        ],
+        "lift_lock": 0,
+        "geometry_hash": -1066221709379304830,
+        "revision": 0,
+        "valid": 1,
+        "appearance": {
+          "tint": -1,
+          "id": "fourthdimension:original"
+        },
+        "provider": "fourthdimension:original",
+        "variant": "vertical_zigzag_v1",
+        "from": 655432,
+        "to": 589872,
+        "id": [
+          -2001481575,
+          -2034286105,
+          -1614982334,
+          60367838
+        ],
+        "family": "roller_ball"
+      },
+      {
+        "roller_section": "RETURN",
+        "original_curve": {
+          "Starts": [
+            {
+              "V": [
+                0.5,
+                0.25,
+                0.5
+              ]
+            },
+            {
+              "V": [
+                0.5,
+                0.25,
+                -55.5
+              ]
+            }
+          ],
+          "Girder": 0,
+          "Normals": [
+            {
+              "V": [
+                0.0,
+                -1.0,
+                0.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                -1.0,
+                0.0
+              ]
+            }
+          ],
+          "Primary": 1,
+          "Positions": [
+            {
+              "Pos": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "Pos": [
+                0,
+                0,
+                -56
+              ]
+            }
+          ],
+          "Axes": [
+            {
+              "V": [
+                0.0,
+                0.0,
+                -1.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                0.0,
+                1.0
+              ]
+            }
+          ],
+          "Material": "simulatedcoasters:coaster_track"
+        },
+        "magnets": [],
+        "profile": [
+          {
+            "distance": 0.0,
+            "slope": 0.0,
+            "angle": 0.0
+          },
+          {
+            "distance": 56.0,
+            "slope": 0.0,
+            "angle": 0.0
+          }
+        ],
+        "lift_lock": 0,
+        "geometry_hash": 7582082427430992057,
+        "revision": 0,
+        "valid": 1,
+        "appearance": {
+          "tint": -1,
+          "id": "fourthdimension:original"
+        },
+        "provider": "fourthdimension:original",
+        "variant": "vertical_zigzag_v1",
+        "from": 589872,
+        "to": 360496,
+        "id": [
+          880991876,
+          1834631948,
+          -1982510080,
+          1168833804
+        ],
+        "family": "roller_ball"
+      },
+      {
+        "roller_section": "RETURN",
+        "original_curve": {
+          "Starts": [
+            {
+              "V": [
+                0.5,
+                0.25,
+                0.5
+              ]
+            },
+            {
+              "V": [
+                0.5,
+                0.25,
+                -55.5
+              ]
+            }
+          ],
+          "Girder": 0,
+          "Normals": [
+            {
+              "V": [
+                0.0,
+                -1.0,
+                0.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                -1.0,
+                0.0
+              ]
+            }
+          ],
+          "Primary": 1,
+          "Positions": [
+            {
+              "Pos": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "Pos": [
+                0,
+                0,
+                -56
+              ]
+            }
+          ],
+          "Axes": [
+            {
+              "V": [
+                0.0,
+                0.0,
+                -1.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                0.0,
+                1.0
+              ]
+            }
+          ],
+          "Material": "simulatedcoasters:coaster_track"
+        },
+        "magnets": [],
+        "profile": [
+          {
+            "distance": 0.0,
+            "slope": 0.0,
+            "angle": 0.0
+          },
+          {
+            "distance": 56.0,
+            "slope": 0.0,
+            "angle": 0.0
+          }
+        ],
+        "lift_lock": 0,
+        "geometry_hash": 2654311424284092089,
+        "revision": 0,
+        "valid": 1,
+        "appearance": {
+          "tint": -1,
+          "id": "fourthdimension:original"
+        },
+        "provider": "fourthdimension:original",
+        "variant": "vertical_zigzag_v1",
+        "from": 360496,
+        "to": 131120,
+        "id": [
+          828493574,
+          -1155184920,
+          -1677986642,
+          -1401827375
+        ],
+        "family": "roller_ball"
+      },
+      {
+        "roller_section": "RETURN",
+        "original_curve": {
+          "Starts": [
+            {
+              "V": [
+                0.5,
+                0.25,
+                0.5
+              ]
+            },
+            {
+              "V": [
+                0.5,
+                0.25,
+                -47.5
+              ]
+            }
+          ],
+          "Girder": 0,
+          "Normals": [
+            {
+              "V": [
+                0.0,
+                -1.0,
+                0.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                -1.0,
+                0.0
+              ]
+            }
+          ],
+          "Primary": 1,
+          "Positions": [
+            {
+              "Pos": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "Pos": [
+                0,
+                0,
+                -48
+              ]
+            }
+          ],
+          "Axes": [
+            {
+              "V": [
+                0.0,
+                0.0,
+                -1.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                0.0,
+                1.0
+              ]
+            }
+          ],
+          "Material": "simulatedcoasters:coaster_track"
+        },
+        "magnets": [],
+        "profile": [
+          {
+            "distance": 0.0,
+            "slope": 0.0,
+            "angle": 0.0
+          },
+          {
+            "distance": 48.0,
+            "slope": 0.0,
+            "angle": 0.0
+          }
+        ],
+        "lift_lock": 0,
+        "geometry_hash": 2882780104419258809,
+        "revision": 0,
+        "valid": 1,
+        "appearance": {
+          "tint": -1,
+          "id": "fourthdimension:original"
+        },
+        "provider": "fourthdimension:original",
+        "variant": "vertical_zigzag_v1",
+        "from": 131120,
+        "to": 274877841456,
+        "id": [
+          -1192171054,
+          796738755,
+          -1819406278,
+          964333752
+        ],
+        "family": "roller_ball"
+      },
+      {
+        "roller_section": "RETURN",
+        "original_curve": {
+          "Starts": [
+            {
+              "V": [
+                0.5,
+                0.25,
+                0.5
+              ]
+            },
+            {
+              "V": [
+                0.5,
+                16.25,
+                -15.5
+              ]
+            }
+          ],
+          "Girder": 0,
+          "Normals": [
+            {
+              "V": [
+                0.0,
+                -1.0,
+                0.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                0.0,
+                -1.0
+              ]
+            }
+          ],
+          "Primary": 1,
+          "Positions": [
+            {
+              "Pos": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "Pos": [
+                0,
+                16,
+                -16
+              ]
+            }
+          ],
+          "Axes": [
+            {
+              "V": [
+                0.0,
+                0.0,
+                -1.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                -1.0,
+                0.0
+              ]
+            }
+          ],
+          "Material": "simulatedcoasters:coaster_track"
+        },
+        "magnets": [],
+        "profile": [
+          {
+            "distance": 0.0,
+            "slope": 0.0,
+            "angle": 0.0
+          },
+          {
+            "distance": 24.693945052511573,
+            "slope": 0.0,
+            "angle": 0.0
+          }
+        ],
+        "lift_lock": 0,
+        "geometry_hash": 4410308507796692699,
+        "revision": 0,
+        "valid": 1,
+        "appearance": {
+          "tint": -1,
+          "id": "fourthdimension:original"
+        },
+        "provider": "fourthdimension:original",
+        "variant": "vertical_zigzag_v1",
+        "from": 274877841456,
+        "to": 274877775936,
+        "id": [
+          1255787480,
+          -1135653057,
+          -1826424385,
+          1982687250
+        ],
+        "family": "roller_ball"
+      },
+      {
+        "roller_section": "RETURN",
+        "original_curve": {
+          "Starts": [
+            {
+              "V": [
+                0.5,
+                0.25,
+                0.5
+              ]
+            },
+            {
+              "V": [
+                0.5,
+                16.25,
+                16.5
+              ]
+            }
+          ],
+          "Girder": 0,
+          "Normals": [
+            {
+              "V": [
+                0.0,
+                0.0,
+                -1.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          ],
+          "Primary": 1,
+          "Positions": [
+            {
+              "Pos": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "Pos": [
+                0,
+                16,
+                16
+              ]
+            }
+          ],
+          "Axes": [
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                0.0,
+                -1.0
+              ]
+            }
+          ],
+          "Material": "simulatedcoasters:coaster_track"
+        },
+        "magnets": [],
+        "profile": [
+          {
+            "distance": 0.0,
+            "slope": 0.0,
+            "angle": 0.0
+          },
+          {
+            "distance": 24.69394505251155,
+            "slope": 0.0,
+            "angle": 0.0
+          }
+        ],
+        "lift_lock": 0,
+        "geometry_hash": 1633531083939399701,
+        "revision": 0,
+        "valid": 1,
+        "appearance": {
+          "tint": -1,
+          "id": "fourthdimension:original"
+        },
+        "provider": "fourthdimension:original",
+        "variant": "vertical_zigzag_v1",
+        "from": 274877775936,
+        "to": 274877841488,
+        "id": [
+          794442968,
+          1385514727,
+          -1745459690,
+          1089873700
+        ],
+        "family": "roller_ball"
+      },
+      {
+        "roller_section": "RETURN",
+        "original_curve": {
+          "Starts": [
+            {
+              "V": [
+                0.5,
+                0.25,
+                0.5
+              ]
+            },
+            {
+              "V": [
+                0.5,
+                0.25,
+                16.5
+              ]
+            }
+          ],
+          "Girder": 0,
+          "Normals": [
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          ],
+          "Primary": 1,
+          "Positions": [
+            {
+              "Pos": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "Pos": [
+                0,
+                0,
+                16
+              ]
+            }
+          ],
+          "Axes": [
+            {
+              "V": [
+                0.0,
+                0.0,
+                1.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                0.0,
+                -1.0
+              ]
+            }
+          ],
+          "Material": "simulatedcoasters:coaster_track"
+        },
+        "magnets": [],
+        "profile": [
+          {
+            "distance": 0.0,
+            "slope": 0.0,
+            "angle": 0.0
+          },
+          {
+            "distance": 16.0,
+            "slope": 0.0,
+            "angle": 0.0
+          }
+        ],
+        "lift_lock": 0,
+        "geometry_hash": -6554064579328292703,
+        "revision": 0,
+        "valid": 1,
+        "appearance": {
+          "tint": -1,
+          "id": "fourthdimension:original"
+        },
+        "provider": "fourthdimension:original",
+        "variant": "vertical_zigzag_v1",
+        "from": 274877841488,
+        "to": 80,
+        "id": [
+          -2108578612,
+          -563327842,
+          -1907492884,
+          1318491831
+        ],
+        "family": "roller_ball"
+      },
+      {
+        "roller_section": "DOCK",
+        "original_curve": {
+          "Starts": [
+            {
+              "V": [
+                0.5,
+                0.75,
+                0.5
+              ]
+            },
+            {
+              "V": [
+                0.5,
+                0.75,
+                32.5
+              ]
+            }
+          ],
+          "Girder": 0,
+          "Normals": [
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          ],
+          "Primary": 1,
+          "Positions": [
+            {
+              "Pos": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "Pos": [
+                0,
+                0,
+                32
+              ]
+            }
+          ],
+          "Axes": [
+            {
+              "V": [
+                0.0,
+                0.0,
+                1.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                0.0,
+                -1.0
+              ]
+            }
+          ],
+          "Material": "simulatedcoasters:coaster_track"
+        },
+        "magnets": [],
+        "profile": [
+          {
+            "distance": 0.0,
+            "slope": 0.0,
+            "angle": 0.0
+          },
+          {
+            "distance": 32.0,
+            "slope": 0.0,
+            "angle": 0.0
+          }
+        ],
+        "lift_lock": 0,
+        "geometry_hash": -5242487466122136703,
+        "revision": 6,
+        "valid": 1,
+        "appearance": {
+          "tint": -1,
+          "id": "fourthdimension:original"
+        },
+        "provider": "fourthdimension:original",
+        "variant": "vertical_zigzag_v1",
+        "from": 54975582290004,
+        "to": 54975582421076,
+        "id": [
+          -841118380,
+          2032289879,
+          -1515528063,
+          -12961929
+        ],
+        "family": "roller_ball"
+      }
+    ],
+    "vehicles": [
+      {
+        "alignment_required": 0,
+        "contact_layout": "coasters_n_contacts_v1",
+        "mount_frame": "above_rail_v1",
+        "fault": "",
+        "boundTo": 589992,
+        "carriers": [
+          {
+            "side": 0.0,
+            "rider_seats": [
+              {
+                "seat": 1099511623680,
+                "player": [
+                  940439953,
+                  -167562164,
+                  -1601161573,
+                  -1389718966
+                ]
+              }
+            ],
+            "lift_pending": 0,
+            "capture": 0,
+            "body": [
+              -1237130387,
+              455295823,
+              -1319746326,
+              -491396407
+            ],
+            "axis": "X",
+            "seats": [
+              -824633724928,
+              1099511623680,
+              -1099511627776,
+              824633720832
+            ],
+            "ballast": 0.0,
+            "omega": 0.00048798491375720294,
+            "lift_geometry": 0,
+            "lift_entered": 0,
+            "pivot_height": 1.6875,
+            "angle": 6.447782376238049,
+            "capture_target": 4.712338873309138,
+            "lift_held": 0,
+            "latched": 0,
+            "longitudinal": 0.0,
+            "child_pivot_offset": 1.0,
+            "child_pivot_x": 0.0,
+            "child_pivot_z": 0.0,
+            "occupants": [
+              [
+                940439953,
+                -167562164,
+                -1601161573,
+                -1389718966
+              ]
+            ]
+          }
+        ],
+        "chassis": [
+          -1218623520,
+          845497672,
+          -1590644019,
+          -806235249
+        ],
+        "damping": 0.6,
+        "boundFrom": 393392,
+        "ballast": 0.0,
+        "revision": 5,
+        "boarding_ready": 0,
+        "stopping": 0,
+        "variant": "vertical_zigzag_v1",
+        "restraints": 1,
+        "shuttle_detached": 0,
+        "family": "roller_ball",
+        "suspended_consist": [],
+        "dock": -1649267392431,
+        "roller": {
+          "phase": "LIFT_GUIDED",
+          "restart_hold": 0,
+          "route_hash": -571144719623710430,
+          "command": 6.448334502015759,
+          "rate": 0.0,
+          "initialized": 1,
+          "dock_to": 131152,
+          "pending_release": 1,
+          "pitch": -6.448334502015759,
+          "dock_geometry": -3223706673671341919,
+          "released": 0,
+          "dock_from": 80,
+          "direction": 1.0
+        },
+        "maintenance": 0
+      },
+      {
+        "alignment_required": 0,
+        "contact_layout": "coasters_n_contacts_v1",
+        "mount_frame": "above_rail_v1",
+        "fault": "",
+        "boundTo": 54975582421076,
+        "carriers": [
+          {
+            "side": 0.0,
+            "rider_seats": [],
+            "lift_pending": 0,
+            "capture": 1,
+            "body": [
+              1059433643,
+              946751435,
+              -2072031635,
+              1267848802
+            ],
+            "axis": "X",
+            "seats": [
+              -824633724928,
+              1099511623680,
+              -1099511627776,
+              824633720832
+            ],
+            "ballast": 0.0,
+            "omega": 0.0,
+            "lift_geometry": 0,
+            "lift_entered": 0,
+            "pivot_height": 1.6875,
+            "angle": 0.0,
+            "capture_target": 0.0,
+            "lift_held": 0,
+            "latched": 1,
+            "longitudinal": 0.0,
+            "child_pivot_offset": 1.0,
+            "child_pivot_x": 0.0,
+            "child_pivot_z": 0.0,
+            "occupants": []
+          }
+        ],
+        "chassis": [
+          -1137769739,
+          -1555280632,
+          -1469978288,
+          1992122943
+        ],
+        "damping": 0.6,
+        "boundFrom": 54975582290004,
+        "ballast": 0.0,
+        "revision": 1,
+        "boarding_ready": 1,
+        "stopping": 1,
+        "variant": "vertical_zigzag_v1",
+        "restraints": 0,
+        "shuttle_detached": 0,
+        "family": "roller_ball",
+        "suspended_consist": [],
+        "dock": 53326314909780,
+        "roller": {
+          "phase": "DOCK_OPEN",
+          "restart_hold": 0,
+          "route_hash": 0,
+          "command": 0.0,
+          "rate": 0.0,
+          "initialized": 1,
+          "dock_to": 54975582421076,
+          "pending_release": 0,
+          "pitch": 0.0,
+          "dock_geometry": -5242487466122136703,
+          "released": 0,
+          "dock_from": 54975582290004,
+          "direction": 0.0
+        },
+        "maintenance": 0
+      }
+    ]
+  },
+  "DataVersion": 3955
+}

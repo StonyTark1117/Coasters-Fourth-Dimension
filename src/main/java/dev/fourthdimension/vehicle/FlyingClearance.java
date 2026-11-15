@@ -17,6 +17,17 @@ public final class FlyingClearance {
       double x,
       double y,
       double z, dev.silvergold.simulatedcoasters.track.graph.CoasterPathTrackFrame.GraphHit hit) {
+    return firstObstruction(level,center,right,up,forward,x,y,z,hit,2);
+  }
+
+  /** Family-specific shaft reach; ordinary blocks and banked drive ports remain obstacles. */
+  public static BlockPos firstObstruction(
+      net.minecraft.world.level.Level level, Vec3 center, Vec3 right, Vec3 up, Vec3 forward,
+      double x, double y, double z,
+      dev.silvergold.simulatedcoasters.track.graph.CoasterPathTrackFrame.GraphHit hit,
+      int allowedDriveShaftDistance) {
+    if(allowedDriveShaftDistance<0||allowedDriveShaftDistance>3)
+      throw new IllegalArgumentException("Unsupported Flying drive shaft reach");
     Vec3 extent =
         new Vec3(
             Math.abs(right.x) * x + Math.abs(up.x) * y + Math.abs(forward.x) * z,
@@ -27,7 +38,7 @@ public final class FlyingClearance {
             BlockPos.containing(center.subtract(extent)),
             BlockPos.containing(center.add(extent)))) {
       if (!level.hasChunkAt(pos)) return pos.immutable();
-      if(intentionalContact(level,pos,hit))continue;
+      if(intentionalContact(level,pos,hit,allowedDriveShaftDistance))continue;
       var shape = level.getBlockState(pos).getCollisionShape(level, pos);
       if (shape.isEmpty()) continue;
       for (var local : shape.toAabbs()) {
@@ -60,7 +71,7 @@ public final class FlyingClearance {
     return null;
   }
   private static boolean intentionalContact(net.minecraft.world.level.Level level,BlockPos pos,
-      dev.silvergold.simulatedcoasters.track.graph.CoasterPathTrackFrame.GraphHit hit){
+      dev.silvergold.simulatedcoasters.track.graph.CoasterPathTrackFrame.GraphHit hit,int allowedDriveShaftDistance){
     var state=level.getBlockState(pos);
     for(var anchorPos:java.util.List.of(hit.edge().from(),hit.edge().to())){
       if(!(level.getBlockEntity(anchorPos) instanceof dev.silvergold.simulatedcoasters.track.anchor.CoasterAnchorpointBlockEntity anchor))continue;
@@ -73,7 +84,7 @@ public final class FlyingClearance {
               dev.silvergold.simulatedcoasters.track.graph.CoasterPathGraphManager.sampleEdgePosition(level,hit.edge(),anchorPos.equals(hit.edge().from())?0:1),hit.edge(),anchorPos.equals(hit.edge().from())?0:1));
       if(basis.up().y<.999)continue;
       var delta=pos.subtract(anchorPos);int along=axis==net.minecraft.core.Direction.Axis.X?delta.getX():delta.getZ();
-      if(delta.getY()==0&&Math.abs(along)>=1&&Math.abs(along)<=2
+      if(delta.getY()==0&&Math.abs(along)>=1&&Math.abs(along)<=allowedDriveShaftDistance
           &&(axis==net.minecraft.core.Direction.Axis.X?delta.getZ():delta.getX())==0)return true;
     }return false;
   }

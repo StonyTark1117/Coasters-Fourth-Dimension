@@ -58,6 +58,8 @@ public final class PropulsionInterlock {
   private static boolean componentsUnavailable(
       SubLevelContainer container, FoundationData.Vehicle car) {
     return unavailable(container, car.chassis)
+        || dev.fourthdimension.vehicle.NewGenerationFlyingVehicle.is(car)
+            && (car.yaw.deck == null || unavailable(container, car.yaw.deck))
         || car.carriers.stream().anyMatch(carrier -> unavailable(container, carrier.body));
   }
 

@@ -1,0 +1,42 @@
+{
+  "case": "native compound topology/loading/motion/recovery",
+  "result": "pass",
+  "mass_empty": 2.0,
+  "mass_two_riders": 3.6,
+  "yaw_speed_peak": 0.46090077542541513,
+  "posture_speed_peak": 0.16779003335402679,
+  "yaw_acceleration_peak": 0.5128772591411503,
+  "posture_acceleration_peak": 0.15275518560076834,
+  "hinge_gap_max": 0.00022323199714602296,
+  "limits": {
+    "yaw_speed": 0.6,
+    "posture_speed": 0.25,
+    "yaw_acceleration": 0.8,
+    "posture_acceleration": 0.35
+  },
+  "fixed_reference": "discrete braking prevents reference crossing seated hard endpoint",
+  "not_claimed": [
+    "moving route",
+    "target marker resolution/faults",
+    "winding fullturn",
+    "show stop",
+    "real restart",
+    "occupied input",
+    "second-client late join"
+  ],
+  "sources_after_run": {
+    "src/main/java/dev/fourthdimension/vehicle/NewGenerationFlyingSeatBlock.java": "4f3cfafaa78b7db5671ad1b2c2985b56d5f393aab4eec35bb8501293544a924f",
+    "src/main/java/dev/fourthdimension/vehicle/NewGenerationFlyingTrack.java": "3bfde742a70b810f57b3c0c258fc6ff7ab04387219d4435e51c1dc829af70f4e",
+    "src/main/java/dev/fourthdimension/vehicle/NewGenerationFlyingDeckBlock.java": "9e8757be90352f973558c99d044e3ca620de3aba89a97d1c517c175e2d26c621",
+    "src/main/java/dev/fourthdimension/vehicle/NewGenerationFlyingVehicle.java": "145eb8ac0597b265400f5126a019395c7781c8f208baae861368f66115808dc6",
+    "src/main/java/dev/fourthdimension/vehicle/NewGenerationFlyingRuntime.java": "58a9f55769cc999a627172db9b2b15d921b2bb4dba246df048e2a300a543c5bb",
+    "src/main/java/dev/fourthdimension/vehicle/NewGenerationFlyingEditor.java": "c9887533c970ac5d9de597f66c8a77ebb802fd8c3bafecd2df354fbe5d4e2ab3",
+    "src/main/java/dev/fourthdimension/vehicle/NewGenerationFlyingExamples.java": "10ca9e5d6a25d349c4f8177ec45f1df7be60affee313400ee39806edb3a6869c",
+    "src/main/java/dev/fourthdimension/vehicle/YawState.java": "d61b44954f55cb2a34c9d349614e8134126bc3ce5848361f828bd17e62815fb7",
+    "src/main/java/dev/fourthdimension/vehicle/YawSection.java": "dc626a770701d59475dd146cf540a082c098947355963e7170c88e7b3a6fd473",
+    "src/main/java/dev/fourthdimension/vehicle/YawController.java": "8f2cfdc7b95db480455f7273b8f9f8906c2cd2a372b37f75b105dd28926cd779",
+    "src/main/java/dev/fourthdimension/vehicle/YawMarkers.java": "c4083c7bb7c6b58890ed3fb4767dd0152f30f199fac9c4e14080b06da00b20df",
+    "src/main/java/dev/fourthdimension/vehicle/YawMarkerEntity.java": "e6de67fc2dbc2f70c14bd54af4ef025595140bf0ab57eb2cb213724778e49e3f",
+    "src/main/java/dev/fourthdimension/vehicle/YawMarkerBlock.java": "a0b4c1cb86bc11de6456581f5503b1c95d970e7e4f77db340c8e405f63b34d64"
+  }
+}

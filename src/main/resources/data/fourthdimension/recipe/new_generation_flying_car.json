@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "ISI",
+    "SCS",
+    "ITI"
+  ],
+  "key": {
+    "I": {
+      "tag": "c:ingots/iron"
+    },
+    "S": {
+      "item": "create:red_seat"
+    },
+    "C": {
+      "item": "simulatedcoasters:coaster_cart"
+    },
+    "T": {
+      "item": "fourthdimension:new_generation_flying_track"
+    }
+  },
+  "result": {
+    "id": "fourthdimension:new_generation_flying_car",
+    "count": 1
+  }
+}

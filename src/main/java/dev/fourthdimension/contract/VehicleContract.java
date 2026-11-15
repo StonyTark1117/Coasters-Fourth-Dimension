@@ -45,6 +45,9 @@ public record VehicleContract(
       return Eligibility.MISSING_MECHANISM;
     if (family == Family.FIXED_INVERTED && !track.mechanisms().contains(Mechanism.OVERHEAD_MOUNT))
       return Eligibility.MISSING_MECHANISM;
+    if (family == Family.FLYING && "route_changeover_yaw_v1".equals(variant)
+        && !track.mechanisms().contains(Mechanism.YAW))
+      return Eligibility.MISSING_MECHANISM;
     if (family == Family.FLYING && !track.mechanisms().containsAll(Set.of(Mechanism.POSTURE_LOCK, Mechanism.OVERHEAD_MOUNT, Mechanism.STATION_CAPTURE)))
       return Eligibility.MISSING_MECHANISM;
     if (family == Family.AXIS && !track.mechanisms().containsAll(Set.of(Mechanism.ROTATION_DRIVE, Mechanism.STATION_CAPTURE, Mechanism.LIFT_LOCK)))

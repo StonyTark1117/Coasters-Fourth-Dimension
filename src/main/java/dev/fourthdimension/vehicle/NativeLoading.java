@@ -67,6 +67,7 @@ public final class NativeLoading {
           MASS_PER_RIDER * passengers.size()
               + (vehicle.ballast + carrier.ballast) / (100 * carrier.seats.size()));
     }
+    if(RollerBallVehicle.is(vehicle)) desired.put(child.getPlot().getCenterBlock(),1.0);
     if(AxisVehicle.is(vehicle)) desired.put(child.getPlot().getCenterBlock().offset(0,-1,0),1.0);
     if(SuspendedVehicle.is(vehicle)) desired.put(child.getPlot().getCenterBlock().offset(0,-2,0),1.0);
     var positions = new HashSet<>(applied.masses.keySet());
@@ -77,7 +78,9 @@ public final class NativeLoading {
       if (Math.abs(delta) > 1e-9) {
         tracker.addBlockMass(
             level, AxisVehicle.is(vehicle) && pos.equals(child.getPlot().getCenterBlock().offset(0,-1,0))
-                ? VehicleParts.AXIS_KEEL.get().defaultBlockState() : FlyingVehicle.is(vehicle)
+                ? VehicleParts.AXIS_KEEL.get().defaultBlockState() : RollerBallVehicle.is(vehicle)
+                ? (pos.equals(child.getPlot().getCenterBlock()) ? VehicleParts.ROLLER_BALL_BALLAST.get().defaultBlockState() : VehicleParts.ROLLER_BALL_SEAT.get().defaultBlockState().setValue(RollerBallSeatBlock.LEFT,pos.getX()<child.getPlot().getCenterBlock().getX())) : NewGenerationFlyingVehicle.is(vehicle)
+                ? VehicleParts.NEW_GENERATION_FLYING_SEAT.get().defaultBlockState() : FlyingVehicle.is(vehicle)
                 ? VehicleParts.FLYING_SEAT.get().defaultBlockState() : SuspendedVehicle.is(vehicle) && pos.equals(child.getPlot().getCenterBlock().offset(0,-2,0))
                 ? VehicleParts.SUSPENDED_KEEL.get().defaultBlockState() : FixedInvertedVehicle.is(vehicle)
                 ? VehicleParts.FIXED_INVERTED_SEAT.get().defaultBlockState() : SpinningVehicle.is(vehicle)

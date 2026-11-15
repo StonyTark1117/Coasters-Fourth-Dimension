@@ -81,6 +81,9 @@ public final class RotationTool extends Item {
       }
       var binding = Boarding.at(level, context.getClickedPos());
       var vehicle = binding == null ? data.vehicles.get(body.getUniqueId()) : binding.vehicle();
+      if(vehicle==null)vehicle=data.vehicles.values().stream()
+          .filter(v->dev.fourthdimension.vehicle.NewGenerationFlyingVehicle.is(v)&&body.getUniqueId().equals(v.yaw.deck))
+          .findFirst().orElse(null);
       if (VALIDATION)
         LOGGER.info(
             "FD_ROTATION_BIND player={} binding={} vehicle={} chassis={}",

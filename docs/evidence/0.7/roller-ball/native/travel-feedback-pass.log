@@ -1,0 +1,801 @@
+> Task :createMinecraftArtifacts UP-TO-DATE
+
+> Task :compileJava
+/home/braydon/Documents/Coasters: Fourth Dimension/src/main/java/dev/fourthdimension/client/RiderComfort.java:28: warning: [removal] bus() in EventBusSubscriber has been deprecated and marked for removal
+      bus = EventBusSubscriber.Bus.MOD)
+      ^
+/home/braydon/Documents/Coasters: Fourth Dimension/src/main/java/dev/fourthdimension/client/RiderComfort.java:28: warning: [removal] Bus in EventBusSubscriber has been deprecated and marked for removal
+      bus = EventBusSubscriber.Bus.MOD)
+                              ^
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+2 warnings
+
+> Task :processResources
+> Task :classes
+
+> Task :downloadAssets
+Loaded 131 artifacts from /mnt/NVME4/fourthdimension-runs/fd1502-roller-ball-20261115/build/tmp/downloadAssets/nfrt_artifact_manifest.properties
+Downloading asset index 17
+Using Minecraft asset root: /home/braydon/.gradle/caches/neoformruntime/assets
+  ↓ https://piston-meta.mojang.com/v1/packages/de573f83da62843433ec9951c66feec7ed0a60a1/17.json
+
+> Task :writeGameTestServerLegacyClasspath UP-TO-DATE
+> Task :prepareGameTestServerRun
+
+> Task :runGameTestServer
+WARN StatusConsoleListener Advanced terminal features are not available in this environment
+[03:21:26] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forgeserverdev, --gameDir, ., --fml.fmlVersion, 4.0.43, --fml.mcVersion, 1.21.1, --fml.neoForgeVersion, 21.1.248, --fml.neoFormVersion, 20240808.144430]
+[03:21:26] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: JVM identified as Arch Linux OpenJDK 64-Bit Server VM 21.0.13.0.3+1
+[03:21:26] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: ModLauncher 11.0.5+main.901c6ea8 starting: java version 21.0.13.0.3 by Arch Linux; OS Linux arch amd64 version 7.2.14-zen1-1-zen
+[03:21:26] [main/INFO] [ne.ne.fm.lo.ImmediateWindowHandler/]: ImmediateWindowProvider not loading because launch target is forgeserverdev
+[03:21:26] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.7 Source=union:/home/braydon/.gradle/caches/modules-2/files-2.1/net.fabricmc/sponge-mixin/0.15.2+mixin.0.8.7/2af2f021d8e02a0220dc27a7a72b4666d66d44ca/sponge-mixin-0.15.2+mixin.0.8.7.jar%2394!/ Service=ModLauncher Env=SERVER
+[03:21:26] [main/WARN] [ne.ne.ja.se.JarSelector/]: Attempted to select a dependency jar for JarJar which was passed in as source: veil. Using Mod File: /home/braydon/.gradle/caches/modules-2/files-2.1/foundry.veil/veil-neoforge-1.21.1/4.1.4/642ec0bd02213ee087d86eda553d6d79c6a04d2b/veil-neoforge-1.21.1-4.1.4.jar
+[03:21:26] [main/WARN] [ne.ne.ja.se.JarSelector/]: Attempted to select a dependency jar for JarJar which was passed in as source: sablecompanion. Using Mod File: /home/braydon/.gradle/caches/modules-2/files-2.1/dev.ryanhcode.sable-companion/sable-companion-common-1.21.1/1.6.0/370be7db705926176e05c0215ed676150c45daae/sable-companion-common-1.21.1-1.6.0.jar
+[03:21:26] [main/WARN] [ne.ne.ja.se.JarSelector/]: Attempted to select a dependency jar for JarJar which was passed in as source: library:sable_rapier. Using Mod File: /home/braydon/.gradle/caches/modules-2/files-2.1/dev.ryanhcode.sable/sable-sable_rapier-1.21.1/2.0.3/a88c0860320890144b6b44c332a2a2db3a61e189/sable-sable_rapier-1.21.1-2.0.3.jar
+[03:21:26] [main/INFO] [ne.ne.fm.lo.mo.lo.JarInJarDependencyLocator/]: Found 4 dependencies adding them to mods collection
+[03:21:26] [main/INFO] [ne.ne.fm.lo.mo.ModDiscoverer/]: 
+     Mod List:
+		Name Version (Mod Id)
+
+		Coasters: Fourth Dimension 0.9.0-dev.27 (fourthdimension)
+		Create 6.0.10 (create)
+		Create: Coasters Simulated 0.1.5 (simulatedcoasters)
+		Flywheel 1.0.6 (flywheel)
+		Minecraft 1.21.1 (minecraft)
+		NeoForge 21.1.248 (neoforge)
+		Ponder 1.0.82+mc1.21.1 (ponder)
+		Sable 2.0.3 (sable)
+		Sable Companion 1.6.0 (sablecompanion)
+		Veil 4.1.4 (veil)
+[03:21:26] [main/INFO] [mixin/]: Compatibility level set to JAVA_21
+[03:21:26] [main/INFO] [cp.mo.mo.LaunchServiceHandler/MODLAUNCHER]: Launching target 'forgeserverdev' with arguments [--gameDir, .]
+[03:21:27] [main/WARN] [mixin/]: Reference map 'ponder.refmap.json' for ponder-common.mixins.json could not be read. If this is a development environment you can ignore this message
+[03:21:27] [main/INFO] [de.ry.sa.mi.AbstractSableMixinPlugin/]: Using Vanilla renderer mixins
+[03:21:27] [main/INFO] [de.ry.sa.mi.AbstractSableMixinPlugin/]: Using Vanilla renderer mixins
+[03:21:27] [main/WARN] [mixin/]: Error loading class: dev/simulated_team/simulated/content/blocks/merging_glue/MergingGlueBlockEntity (java.lang.ClassNotFoundException: dev.simulated_team.simulated.content.blocks.merging_glue.MergingGlueBlockEntity)
+[03:21:27] [main/WARN] [mixin/]: @Mixin target dev.simulated_team.simulated.content.blocks.merging_glue.MergingGlueBlockEntity was not found simulatedcoasters.mixins.json:compat.MergingGlueBlockEntityRivetMixin from mod simulatedcoasters
+[03:21:27] [main/ERROR] [ne.ne.fm.co.as.RuntimeDistCleaner/DISTXFORM]: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER
+[03:21:27] [main/WARN] [mixin/]: Error loading class: net/minecraft/client/multiplayer/ClientLevel (java.lang.RuntimeException: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER)
+[03:21:27] [main/ERROR] [ne.ne.fm.co.as.RuntimeDistCleaner/DISTXFORM]: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER
+[03:21:27] [main/WARN] [mixin/]: Error loading class: net/minecraft/client/multiplayer/ClientLevel (java.lang.RuntimeException: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER)
+[03:21:27] [main/ERROR] [ne.ne.fm.co.as.RuntimeDistCleaner/DISTXFORM]: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER
+[03:21:27] [main/WARN] [mixin/]: Error loading class: net/minecraft/client/multiplayer/ClientLevel (java.lang.RuntimeException: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER)
+[03:21:27] [main/WARN] [mixin/]: Error loading class: dev/jwaterfall/coastersengineered/MotorDrive (java.lang.ClassNotFoundException: dev.jwaterfall.coastersengineered.MotorDrive)
+[03:21:27] [main/WARN] [mixin/]: Error loading class: dev/jwaterfall/coastersengineered/CartAssembly (java.lang.ClassNotFoundException: dev.jwaterfall.coastersengineered.CartAssembly)
+[03:21:27] [main/WARN] [mixin/]: Error loading class: org/jetbrains/annotations/ApiStatus$ScheduledForRemoval (java.lang.ClassNotFoundException: org.jetbrains.annotations.ApiStatus$ScheduledForRemoval)
+[03:21:27] [main/ERROR] [ne.ne.fm.co.as.RuntimeDistCleaner/DISTXFORM]: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER
+[03:21:27] [main/WARN] [mixin/]: Error loading class: net/minecraft/client/multiplayer/ClientLevel (java.lang.RuntimeException: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER)
+[03:21:27] [main/ERROR] [ne.ne.fm.co.as.RuntimeDistCleaner/DISTXFORM]: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER
+[03:21:27] [main/WARN] [mixin/]: Error loading class: net/minecraft/client/multiplayer/ClientLevel (java.lang.RuntimeException: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER)
+[03:21:27] [main/ERROR] [ne.ne.fm.co.as.RuntimeDistCleaner/DISTXFORM]: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER
+[03:21:27] [main/WARN] [mixin/]: Error loading class: net/minecraft/client/multiplayer/ClientLevel (java.lang.RuntimeException: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER)
+[03:21:27] [main/ERROR] [ne.ne.fm.co.as.RuntimeDistCleaner/DISTXFORM]: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER
+[03:21:27] [main/WARN] [mixin/]: Error loading class: net/minecraft/client/multiplayer/ClientLevel (java.lang.RuntimeException: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER)
+[03:21:27] [main/ERROR] [ne.ne.fm.co.as.RuntimeDistCleaner/DISTXFORM]: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER
+[03:21:27] [main/WARN] [mixin/]: Error loading class: net/minecraft/client/multiplayer/ClientLevel (java.lang.RuntimeException: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER)
+[03:21:27] [main/ERROR] [ne.ne.fm.co.as.RuntimeDistCleaner/DISTXFORM]: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER
+[03:21:27] [main/WARN] [mixin/]: Error loading class: net/minecraft/client/multiplayer/ClientLevel (java.lang.RuntimeException: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER)
+[03:21:27] [main/INFO] [MixinExtras|Service/]: Initializing MixinExtras via com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.5.3).
+[03:21:28] [main/ERROR] [ne.ne.fm.co.as.RuntimeDistCleaner/DISTXFORM]: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER
+[03:21:28] [main/WARN] [mixin/]: Error loading class: net/minecraft/client/multiplayer/ClientLevel (java.lang.RuntimeException: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER)
+[03:21:28] [main/ERROR] [ne.ne.fm.co.as.RuntimeDistCleaner/DISTXFORM]: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER
+[03:21:28] [main/WARN] [mixin/]: Error loading class: net/minecraft/client/multiplayer/ClientLevel (java.lang.RuntimeException: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER)
+[03:21:28] [main/ERROR] [ne.ne.fm.co.as.RuntimeDistCleaner/DISTXFORM]: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER
+[03:21:28] [main/WARN] [mixin/]: Error loading class: net/minecraft/client/multiplayer/ClientLevel (java.lang.RuntimeException: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER)
+[03:21:30] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, location] and [teleport, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+[03:21:30] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, location] and [teleport, targets] with inputs: [0.1 -0.5 .9, 0 0 0]
+[03:21:30] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, destination] and [teleport, targets] with inputs: [Player, 0123, @e, dd12be42-52a9-4a91-a8a1-11c01849e498]
+[03:21:30] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, targets] and [teleport, destination] with inputs: [Player, 0123, dd12be42-52a9-4a91-a8a1-11c01849e498]
+[03:21:30] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, targets, location] and [teleport, targets, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+[03:21:30] [modloading-worker-0/INFO] [Veil/]: Veil is initializing.
+[03:21:30] [modloading-worker-0/INFO] [ne.ne.ne.co.NeoForgeMod/NEOFORGE-MOD]: NeoForge mod loading, version 21.1.248, for MC 1.21.1
+[03:21:30] [modloading-worker-0/INFO] [co.si.cr.Create/]: Create 6.0.10 initializing! Commit hash: ac0c444d9828da3453ae8cc65338e8de063286fb
+[03:21:30] [modloading-worker-0/INFO] [de.ry.sa.Sable/]: Sable loaded!
+[03:21:30] [modloading-worker-0/INFO] [de.fo.FourthDimension/]: Coasters: Fourth Dimension loaded from union:/mnt/NVME4/fourthdimension-runs/fd1502-roller-ball-20261115/build/classes/java/main/%23127!/
+[03:21:31] [main/ERROR] [minecraft/Settings]: Failed to load properties from file: server.properties
+java.nio.file.NoSuchFileException: server.properties
+	at java.base/sun.nio.fs.UnixException.translateToIOException(UnixException.java:92) ~[?:?] {}
+	at java.base/sun.nio.fs.UnixException.rethrowAsIOException(UnixException.java:106) ~[?:?] {}
+	at java.base/sun.nio.fs.UnixException.rethrowAsIOException(UnixException.java:111) ~[?:?] {}
+	at java.base/sun.nio.fs.UnixFileSystemProvider.newByteChannel(UnixFileSystemProvider.java:261) ~[?:?] {}
+	at java.base/java.nio.file.Files.newByteChannel(Files.java:380) ~[?:?] {}
+	at java.base/java.nio.file.Files.newByteChannel(Files.java:432) ~[?:?] {}
+	at java.base/java.nio.file.spi.FileSystemProvider.newInputStream(FileSystemProvider.java:420) ~[?:?] {}
+	at java.base/java.nio.file.Files.newInputStream(Files.java:160) ~[?:?] {}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.server.dedicated.Settings.loadFromFile(Settings.java:38) ~[neoforge-21.1.248.jar%23125!/:?] {re:classloading}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.server.dedicated.DedicatedServerProperties.fromFile(DedicatedServerProperties.java:132) ~[neoforge-21.1.248.jar%23125!/:?] {re:classloading}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.server.dedicated.DedicatedServerSettings.<init>(DedicatedServerSettings.java:12) ~[neoforge-21.1.248.jar%23125!/:?] {re:classloading}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.server.Main.main(Main.java:125) ~[neoforge-21.1.248.jar%23125!/:?] {re:classloading}
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[?:?] {}
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[?:?] {}
+	at MC-BOOTSTRAP/fml_loader@4.0.43/net.neoforged.fml.loading.targets.CommonLaunchHandler.runTarget(CommonLaunchHandler.java:136) ~[loader-4.0.43.jar%23102!/:4.0] {}
+	at MC-BOOTSTRAP/fml_loader@4.0.43/net.neoforged.fml.loading.targets.CommonLaunchHandler.serverService(CommonLaunchHandler.java:128) ~[loader-4.0.43.jar%23102!/:4.0] {}
+	at MC-BOOTSTRAP/fml_loader@4.0.43/net.neoforged.fml.loading.targets.NeoForgeServerDevLaunchHandler.runService(NeoForgeServerDevLaunchHandler.java:23) ~[loader-4.0.43.jar%23102!/:4.0] {}
+	at MC-BOOTSTRAP/fml_loader@4.0.43/net.neoforged.fml.loading.targets.CommonLaunchHandler.lambda$launchService$4(CommonLaunchHandler.java:118) ~[loader-4.0.43.jar%23102!/:4.0] {}
+	at MC-BOOTSTRAP/cpw.mods.modlauncher@11.0.5/cpw.mods.modlauncher.LaunchServiceHandlerDecorator.launch(LaunchServiceHandlerDecorator.java:30) [modlauncher-11.0.5.jar%2382!/:?] {}
+	at MC-BOOTSTRAP/cpw.mods.modlauncher@11.0.5/cpw.mods.modlauncher.LaunchServiceHandler.launch(LaunchServiceHandler.java:53) [modlauncher-11.0.5.jar%2382!/:?] {}
+	at MC-BOOTSTRAP/cpw.mods.modlauncher@11.0.5/cpw.mods.modlauncher.LaunchServiceHandler.launch(LaunchServiceHandler.java:71) [modlauncher-11.0.5.jar%2382!/:?] {}
+	at MC-BOOTSTRAP/cpw.mods.modlauncher@11.0.5/cpw.mods.modlauncher.Launcher.run(Launcher.java:103) [modlauncher-11.0.5.jar%2382!/:?] {}
+	at MC-BOOTSTRAP/cpw.mods.modlauncher@11.0.5/cpw.mods.modlauncher.Launcher.main(Launcher.java:74) [modlauncher-11.0.5.jar%2382!/:?] {}
+	at MC-BOOTSTRAP/cpw.mods.modlauncher@11.0.5/cpw.mods.modlauncher.BootstrapLaunchConsumer.accept(BootstrapLaunchConsumer.java:26) [modlauncher-11.0.5.jar%2382!/:?] {}
+	at MC-BOOTSTRAP/cpw.mods.modlauncher@11.0.5/cpw.mods.modlauncher.BootstrapLaunchConsumer.accept(BootstrapLaunchConsumer.java:23) [modlauncher-11.0.5.jar%2382!/:?] {}
+	at cpw.mods.bootstraplauncher@2.0.2/cpw.mods.bootstraplauncher.BootstrapLauncher.run(BootstrapLauncher.java:210) [bootstraplauncher-2.0.2.jar:?] {}
+	at cpw.mods.bootstraplauncher@2.0.2/cpw.mods.bootstraplauncher.BootstrapLauncher.main(BootstrapLauncher.java:69) [bootstraplauncher-2.0.2.jar:?] {}
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[?:?] {}
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[?:?] {}
+	at net.neoforged.devlaunch.Main.main(Main.java:57) [DevLaunch-1.0.2.jar:?] {}
+[03:21:31] [main/INFO] [mojang/YggdrasilAuthenticationService]: Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, name=PROD]
+[03:21:31] [NeoForge Version Check/INFO] [ne.ne.fm.VersionChecker/]: [create] Starting version check at https://api.modrinth.com/updates/create/forge_updates.json?neoforge=only
+[03:21:31] [main/WARN] [minecraft/VanillaPackResourcesBuilder]: Assets URL 'union:/mnt/NVME4/fourthdimension-runs/fd1502-roller-ball-20261115/build/moddev/artifacts/neoforge-21.1.248.jar%23125!/assets/.mcassetsroot' uses unexpected schema
+[03:21:31] [main/WARN] [minecraft/VanillaPackResourcesBuilder]: Assets URL 'union:/mnt/NVME4/fourthdimension-runs/fd1502-roller-ball-20261115/build/moddev/artifacts/neoforge-21.1.248.jar%23125!/data/.mcassetsroot' uses unexpected schema
+[03:21:31] [main/INFO] [co.si.cr.Create/]: Created 157 recipes which will be injected into the game
+[03:21:31] [main/INFO] [co.si.cr.Create/]: Created 0 tags which will be injected into the game
+[03:21:31] [main/INFO] [ne.ne.ne.ga.GameTestHooks/]: Enabled Gametest Namespaces: [fourthdimension_fd1502_route]
+[03:21:32] [NeoForge Version Check/INFO] [ne.ne.fm.VersionChecker/]: [create] Found status: OUTDATED Current: 6.0.10 Target: 6.0.10+mc1.21.1
+[03:21:32] [main/INFO] [minecraft/RecipeManager]: Loaded 2855 recipes
+[03:21:32] [main/INFO] [minecraft/AdvancementTree]: Loaded 2522 advancements
+[03:21:33] [Server thread/INFO] [de.ry.sa.Sable/]: Creating physics pipeline for ResourceKey[minecraft:dimension / minecraft:overworld] using RapierPhysicsPipelineProvider
+[2026-11-15T10:21:33.311796019Z] [[32mINFO[0m] (sable_rapier) Rapier scene initialized
+[03:21:33] [Server thread/INFO] [de.ry.sa.Sable/]: Creating physics pipeline for ResourceKey[minecraft:dimension / minecraft:the_nether] using RapierPhysicsPipelineProvider
+[2026-11-15T10:21:33.514092878Z] [[32mINFO[0m] (sable_rapier) Rapier scene initialized
+[03:21:33] [Server thread/INFO] [de.ry.sa.Sable/]: Creating physics pipeline for ResourceKey[minecraft:dimension / minecraft:the_end] using RapierPhysicsPipelineProvider
+[2026-11-15T10:21:33.525256781Z] [[32mINFO[0m] (sable_rapier) Rapier scene initialized
+[03:21:33] [Server thread/INFO] [minecraft/MinecraftServer]: Preparing start region for dimension minecraft:overworld
+[03:21:33] [worldgen/INFO] [minecraft/LoggerChunkProgressListener]: Preparing spawn area: 2%
+[03:21:33] [Server thread/INFO] [minecraft/LoggerChunkProgressListener]: Time elapsed: 89 ms
+[03:21:33] [Server thread/INFO] [minecraft/GameTestServer]: Started game test server
+[03:21:33] [Server thread/INFO] [ne.ne.ne.se.pe.PermissionAPI/]: Successfully initialized permission handler neoforge:default_handler
+[03:21:33] [Server thread/INFO] [minecraft/GameTestServer]: 1 tests are now running at position -5359849, -59, 8156741!
+[03:21:33] [Server thread/INFO] [minecraft/GameTestRunner]: Running test batch 'defaultBatch:0' (1 tests)...
+[03:21:33] [Server thread/INFO] [minecraft/GameTestServer]: [ ]
+[03:21:33] [Server thread/INFO] [minecraft/GameTestServer]: [ ]
+[03:21:34] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:34] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_ROLLER_BOUND edge=BlockPos{x=-300, y=80, z=-300}..BlockPos{x=-300, y=80, z=-268} valid=true saved=1346275066685418145 native=1346275066685418145
+FD_ROLLER_BOUND edge=BlockPos{x=-300, y=80, z=-268}..BlockPos{x=-300, y=96, z=-252} valid=true saved=6931672719390692705 native=6931672719390692705
+FD_ROLLER_BOUND edge=BlockPos{x=-300, y=96, z=-252}..BlockPos{x=-300, y=144, z=-252} valid=true saved=-918831786289056463 native=-918831786289056463
+FD_ROLLER_BOUND edge=BlockPos{x=-300, y=144, z=-252}..BlockPos{x=-300, y=192, z=-252} valid=true saved=2863487317632307505 native=2863487317632307505
+FD_ROLLER_BOUND edge=BlockPos{x=-300, y=192, z=-252}..BlockPos{x=-300, y=208, z=-236} valid=true saved=-2204017269852067307 native=-2204017269852067307
+FD_ROLLER_BOUND edge=BlockPos{x=-300, y=208, z=-236}..BlockPos{x=-300, y=192, z=-220} valid=true saved=7991178522959091783 native=7991178522959091783
+FD_ROLLER_BOUND edge=BlockPos{x=-300, y=192, z=-220}..BlockPos{x=-300, y=176, z=-204} valid=true saved=6088787238154726230 native=6088787238154726230
+FD_ROLLER_BOUND edge=BlockPos{x=-300, y=176, z=-204}..BlockPos{x=-300, y=168, z=-156} valid=true saved=2925611348236529519 native=2925611348236529519
+FD_ROLLER_BOUND edge=BlockPos{x=-300, y=168, z=-156}..BlockPos{x=-300, y=152, z=-140} valid=true saved=-3393278801728295950 native=-3393278801728295950
+FD_ROLLER_BOUND edge=BlockPos{x=-300, y=152, z=-140}..BlockPos{x=-300, y=136, z=-156} valid=true saved=1325991204277670738 native=1325991204277670738
+FD_ROLLER_BOUND edge=BlockPos{x=-300, y=136, z=-156}..BlockPos{x=-300, y=128, z=-204} valid=true saved=-7621385582565048905 native=-7621385582565048905
+FD_ROLLER_BOUND edge=BlockPos{x=-300, y=128, z=-204}..BlockPos{x=-300, y=112, z=-220} valid=true saved=-8076520760249084218 native=-8076520760249084218
+FD_ROLLER_BOUND edge=BlockPos{x=-300, y=112, z=-220}..BlockPos{x=-300, y=96, z=-204} valid=true saved=5761604148667195222 native=5761604148667195222
+FD_ROLLER_BOUND edge=BlockPos{x=-300, y=96, z=-204}..BlockPos{x=-300, y=88, z=-156} valid=true saved=6851235821162830703 native=6851235821162830703
+FD_ROLLER_BOUND edge=BlockPos{x=-300, y=88, z=-156}..BlockPos{x=-300, y=72, z=-140} valid=true saved=3344916688286902258 native=3344916688286902258
+FD_ROLLER_BOUND edge=BlockPos{x=-300, y=72, z=-140}..BlockPos{x=-300, y=48, z=-156} valid=true saved=-3160044857534954878 native=-3160044857534954878
+FD_ROLLER_BOUND edge=BlockPos{x=-300, y=48, z=-156}..BlockPos{x=-300, y=48, z=-212} valid=true saved=-5254008299867095879 native=-5254008299867095879
+FD_ROLLER_BOUND edge=BlockPos{x=-300, y=48, z=-212}..BlockPos{x=-300, y=48, z=-268} valid=true saved=5763359891573679801 native=5763359891573679801
+FD_ROLLER_BOUND edge=BlockPos{x=-300, y=48, z=-268}..BlockPos{x=-300, y=48, z=-316} valid=true saved=-1633579138291170887 native=-1633579138291170887
+FD_ROLLER_BOUND edge=BlockPos{x=-300, y=48, z=-316}..BlockPos{x=-300, y=64, z=-332} valid=true saved=1998014298351555291 native=1998014298351555291
+FD_ROLLER_BOUND edge=BlockPos{x=-300, y=64, z=-332}..BlockPos{x=-300, y=80, z=-316} valid=true saved=4188220699813989909 native=4188220699813989909
+FD_ROLLER_BOUND edge=BlockPos{x=-300, y=80, z=-316}..BlockPos{x=-300, y=80, z=-300} valid=true saved=-6332918798004812639 native=-6332918798004812639
+[03:21:34] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:34] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:34] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:34] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:34] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:34] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:34] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:34] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_ROLLER_ROUTE_MOTION tick=200 center=(-2.995E+2  8.063E+1 -2.867E+2) speed=1.7796518244268906 phase=LIFT_LOCKED pitch=-1.9296554531503392E-7 angle=-6.092635689560357E-6 omega=2.127680727526092E-5 command=1.9296145262969396E-7 latched=true fault=
+[03:21:34] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:34] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:34] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:34] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:35] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_ROLLER_ROUTE_MOTION tick=300 center=(-2.995E+2  8.063E+1 -2.778E+2) speed=1.779816571627369 phase=LIFT_LOCKED pitch=-1.9373978360640057E-7 angle=-6.1165551095120896E-6 omega=2.219272349941526E-5 command=1.9373572506123698E-7 latched=true fault=
+[03:21:35] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:35] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:35] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:35] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:35] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_ROLLER_ROUTE_MOTION tick=400 center=(-2.995E+2  8.063E+1 -2.697E+2) speed=0.8957762736249272 phase=LIFT_LOCKED pitch=-1.4546213425907616E-7 angle=-4.676778704745929E-6 omega=-1.1187431799380351E-4 command=1.454599816084078E-7 latched=true fault=
+[03:21:35] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:35] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:35] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:35] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:35] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_ROLLER_ROUTE_MOTION tick=500 center=(-2.995E+2  8.063E+1 -2.672E+2) speed=0.21552704866739616 phase=LIFT_GUIDED pitch=0.02614016784317461 angle=-0.02452287423497988 omega=0.008038747115422226 command=-0.024641157515427902 latched=false fault=
+[03:21:35] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:35] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:35] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:35] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:35] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_ROLLER_ROUTE_MOTION tick=600 center=(-2.995E+2  8.101E+1 -2.647E+2) speed=0.8885061935631349 phase=LIFT_GUIDED pitch=0.25409161563451044 angle=-0.2425249405389147 omega=-0.015571756808234905 command=-0.2466530151119301 latched=false fault=
+[03:21:35] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:35] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:35] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:35] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:35] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_ROLLER_ROUTE_MOTION tick=700 center=(-2.995E+2  8.426E+1 -2.585E+2) speed=1.1356294284595714 phase=LIFT_GUIDED pitch=0.677687520181492 angle=-0.667932992664174 omega=-0.017694293164562985 command=-0.6725062992962816 latched=false fault=
+[03:21:35] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:35] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:35] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:35] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:35] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_ROLLER_ROUTE_MOTION tick=800 center=(-2.995E+2  8.856E+1 -2.545E+2) speed=0.8496125842032101 phase=LIFT_GUIDED pitch=0.9691728908104492 angle=-0.9617753507057445 omega=-0.011985126565268947 command=-0.9655248025550907 latched=false fault=
+[03:21:35] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:35] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:35] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:35] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:36] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_ROLLER_ROUTE_MOTION tick=900 center=(-2.995E+2  9.249E+1 -2.525E+2) speed=0.5217996073061308 phase=LIFT_GUIDED pitch=1.2375312819738715 angle=-1.230700998244402 omega=-0.012962661727397547 command=-1.234212521579822 latched=false fault=
+[03:21:36] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:36] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:36] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:36] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:36] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_ROLLER_ROUTE_MOTION tick=1000 center=(-2.995E+2  9.503E+1 -2.519E+2) speed=0.05468402174762044 phase=LIFT_GUIDED pitch=1.4508279978005552 angle=-1.448459972900107 omega=-0.005982704000321688 command=-1.4500403710480174 latched=false fault=
+[03:21:36] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:36] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:36] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:36] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:36] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_ROLLER_ROUTE_MOTION tick=1100 center=(-2.995E+2  9.577E+1 -2.519E+2) speed=0.04600303122463753 phase=LIFT_GUIDED pitch=1.522031468909522 angle=-1.5209323027736883 omega=-0.0032935602467050185 command=-1.5217519018119456 latched=false fault=
+[03:21:36] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:36] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:36] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:36] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:36] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_ROLLER_ROUTE_MOTION tick=1200 center=(-2.995E+2  9.691E+1 -2.519E+2) speed=0.6404748115567901 phase=LIFT_LOCKED pitch=1.5707921964035383 angle=-1.5706512431996742 omega=-7.091872926638021E-5 command=-1.570792196448964 latched=true fault=
+[03:21:36] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:36] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:36] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:36] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:36] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_ROLLER_ROUTE_MOTION tick=1300 center=(-2.995E+2  1.008E+2 -2.519E+2) speed=0.6406535062107495 phase=LIFT_LOCKED pitch=1.5707921964034492 angle=-1.5706512559790717 omega=-7.100461472166853E-5 command=-1.5707921964034492 latched=true fault=
+[03:21:36] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:36] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:36] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:36] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:36] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_ROLLER_ROUTE_MOTION tick=1400 center=(-2.995E+2  1.047E+2 -2.519E+2) speed=0.6406542214668255 phase=LIFT_LOCKED pitch=1.5707921964033595 angle=-1.5706512632143201 omega=-7.097864163135815E-5 command=-1.5707921964487852 latched=true fault=
+[03:21:36] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:36] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:36] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:36] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:36] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_ROLLER_ROUTE_MOTION tick=1500 center=(-2.995E+2  1.086E+2 -2.519E+2) speed=0.6406530889756594 phase=LIFT_LOCKED pitch=1.5707921964034917 angle=-1.5706512495894365 omega=-7.098817623597634E-5 command=-1.5707921964489173 latched=true fault=
+[03:21:36] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:37] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:37] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:37] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:37] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_ROLLER_ROUTE_MOTION tick=1600 center=(-2.995E+2  1.125E+2 -2.519E+2) speed=0.6406536850254112 phase=LIFT_LOCKED pitch=1.5707923649909388 angle=-1.5706514037687576 omega=-7.152623850725041E-5 command=-1.5707923649454885 latched=true fault=
+[03:21:37] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:37] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:37] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:37] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:37] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_ROLLER_ROUTE_MOTION tick=1700 center=(-2.995E+2  1.164E+2 -2.519E+2) speed=0.6406533869957852 phase=LIFT_LOCKED pitch=1.5707921964034606 angle=-1.5706512450793186 omega=-7.091214819020779E-5 command=-1.5707921964034606 latched=true fault=
+[03:21:37] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:37] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:37] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:37] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:37] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_ROLLER_ROUTE_MOTION tick=1800 center=(-2.995E+2  1.203E+2 -2.519E+2) speed=0.6406549963207311 phase=LIFT_LOCKED pitch=1.570792364990907 angle=-1.5706514002918386 omega=-7.151254976548019E-5 command=-1.5707923649454814 latched=true fault=
+[03:21:37] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:37] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:37] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:37] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:37] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_ROLLER_ROUTE_MOTION tick=1900 center=(-2.995E+2  1.241E+2 -2.519E+2) speed=0.6406515988593756 phase=LIFT_LOCKED pitch=1.5707921964034242 angle=-1.5706512651913453 omega=-7.100825252712159E-5 command=-1.5707921964034242 latched=true fault=
+[03:21:37] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:37] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:37] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:37] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:37] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_ROLLER_ROUTE_MOTION tick=2000 center=(-2.995E+2  1.250E+2 -2.519E+2) speed=0.0012239008940154047 phase=HOLD pitch=1.5707921964034384 angle=-1.5706475951428502 omega=3.1345603820034186E-4 command=-1.5706510702632988 latched=true fault=Roller Ball lift Chain power unavailable
+[03:21:37] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:37] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:37] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:37] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:37] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_ROLLER_ROUTE_MOTION tick=2100 center=(-2.995E+2  1.279E+2 -2.519E+2) speed=0.6406525525787837 phase=LIFT_LOCKED pitch=1.5707903419419267 angle=-1.5706512980593268 omega=-7.046051537809071E-5 command=-1.5707903419419267 latched=true fault=
+[03:21:37] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:37] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:37] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:37] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:37] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_ROLLER_ROUTE_MOTION tick=2200 center=(-2.995E+2  1.318E+2 -2.519E+2) speed=0.6406556520069131 phase=LIFT_LOCKED pitch=1.5707905105294833 angle=-1.5706514446388966 omega=-7.129918497237381E-5 command=-1.570790510484033 latched=true fault=
+[03:21:37] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:37] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:37] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:38] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:38] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_ROLLER_ROUTE_MOTION tick=2300 center=(-2.995E+2  1.357E+2 -2.519E+2) speed=0.6406465325203591 phase=LIFT_LOCKED pitch=1.5707903419418685 angle=-1.570651278765371 omega=-7.051587123638123E-5 command=-1.5707903419418685 latched=true fault=
+[03:21:38] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:38] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:38] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:38] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:38] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_ROLLER_ROUTE_MOTION tick=2400 center=(-2.995E+2  1.396E+2 -2.519E+2) speed=0.6406601819386752 phase=LIFT_LOCKED pitch=1.570790341941933 angle=-1.5706513258096657 omega=-7.074475731015972E-5 command=-1.5707903419873588 latched=true fault=
+[03:21:38] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:38] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:38] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:38] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:38] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_ROLLER_ROUTE_MOTION tick=2500 center=(-2.995E+2  1.429E+2 -2.519E+2) speed=0.1660421760243025 phase=LIFT_LOCKED pitch=1.5707901733545793 angle=-1.570651369021765 omega=-7.306586909587245E-5 command=-1.5707901733545793 latched=true fault=
+[03:21:38] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:38] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:38] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:38] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:38] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_ROLLER_ROUTE_MOTION tick=2600 center=(-2.995E+2  1.438E+2 -2.519E+2) speed=0.012062135176758441 phase=LIFT_GUIDED pitch=1.5707964110879113 angle=-1.5708187620597847 omega=-4.7700532057357964E-4 command=-1.5707964110879113 latched=false fault=
+[03:21:38] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:38] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:38] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:38] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:38] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_ROLLER_ROUTE_MOTION tick=2700 center=(-2.995E+2  1.457E+2 -2.519E+2) speed=0.6406494530778102 phase=LIFT_LOCKED pitch=1.5707975911998104 angle=-1.570818634981261 omega=-3.0869393190372386E-6 command=-1.570797591245236 latched=true fault=
+[03:21:38] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:38] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:38] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:38] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:38] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_ROLLER_ROUTE_MOTION tick=2800 center=(-2.995E+2  1.496E+2 -2.519E+2) speed=0.6406498703337093 phase=LIFT_LOCKED pitch=1.5707975911997805 angle=-1.5708186299435818 omega=-2.980514326063506E-6 command=-1.5707975911997805 latched=true fault=
+[03:21:38] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:38] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:38] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:38] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:38] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_ROLLER_ROUTE_MOTION tick=2900 center=(-2.995E+2  1.534E+2 -2.519E+2) speed=0.6406354460076868 phase=LIFT_LOCKED pitch=1.5707975911997534 angle=-1.5708186253806167 omega=-2.983804435946874E-6 command=-1.5707975911997534 latched=true fault=
+[03:21:38] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:38] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:39] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:39] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:39] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_ROLLER_ROUTE_MOTION tick=3000 center=(-2.995E+2  1.573E+2 -2.519E+2) speed=0.6406500491431614 phase=LIFT_LOCKED pitch=1.5707975911997198 angle=-1.5708186259200674 omega=-3.0127222393285957E-6 command=-1.5707975911997198 latched=true fault=
+[03:21:39] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:39] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:39] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:39] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:39] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_ROLLER_ROUTE_MOTION tick=3100 center=(-2.995E+2  1.612E+2 -2.519E+2) speed=0.6406517180734019 phase=LIFT_LOCKED pitch=1.5707977597871585 angle=-1.570818797487238 omega=-3.0030346147184447E-6 command=-1.5707977597417329 latched=true fault=
+[03:21:39] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:39] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:39] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:39] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:39] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_ROLLER_ROUTE_MOTION tick=3200 center=(-2.995E+2  1.651E+2 -2.519E+2) speed=0.640650943213451 phase=LIFT_LOCKED pitch=1.5707975911998193 angle=-1.5708186501494559 omega=-3.258018953210033E-6 command=-1.570797591245245 latched=true fault=
+[03:21:39] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:39] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:39] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:39] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:39] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_ROLLER_ROUTE_MOTION tick=3300 center=(-2.995E+2  1.690E+2 -2.519E+2) speed=0.6406494531010799 phase=LIFT_LOCKED pitch=1.5707975911997865 angle=-1.5708186299343019 omega=-2.9803814776911292E-6 command=-1.5707975911997865 latched=true fault=
+[03:21:39] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:39] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:39] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:39] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:39] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_ROLLER_ROUTE_MOTION tick=3400 center=(-2.995E+2  1.729E+2 -2.519E+2) speed=0.6406501087619306 phase=LIFT_LOCKED pitch=1.5707975911998355 angle=-1.5708186293361277 omega=-2.977890248509402E-6 command=-1.5707975911998355 latched=true fault=
+[03:21:39] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:39] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:39] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:39] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:39] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_ROLLER_ROUTE_MOTION tick=3500 center=(-2.995E+2  1.768E+2 -2.519E+2) speed=0.6406481417993298 phase=LIFT_LOCKED pitch=1.5707975911998076 angle=-1.570818634666659 omega=-3.008275809893922E-6 command=-1.5707975911998076 latched=true fault=
+[03:21:39] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:39] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:39] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:39] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:39] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_ROLLER_ROUTE_MOTION tick=3600 center=(-2.995E+2  1.807E+2 -2.519E+2) speed=0.6406513008414713 phase=LIFT_LOCKED pitch=1.5707977597871712 angle=-1.5708188023562994 omega=-3.0458479393796305E-6 command=-1.5707977597417209 latched=true fault=
+[03:21:39] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:39] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:39] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:39] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:39] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_ROLLER_ROUTE_MOTION tick=3700 center=(-2.995E+2  1.846E+2 -2.519E+2) speed=0.640649810725201 phase=LIFT_LOCKED pitch=1.570797591199832 angle=-1.570818650049034 omega=-3.2565298172979067E-6 command=-1.5707975912452576 latched=true fault=
+[03:21:39] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:40] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:40] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:40] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:40] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_ROLLER_ROUTE_MOTION tick=3800 center=(-2.995E+2  1.885E+2 -2.519E+2) speed=0.6406518372830411 phase=LIFT_LOCKED pitch=1.5707975911998788 angle=-1.5708186475064856 omega=-3.1781635968434377E-6 command=-1.5707975912453045 latched=true fault=
+[03:21:40] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:40] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:40] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:40] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:40] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_ROLLER_ROUTE_MOTION tick=3900 center=(-2.995E+2  1.912E+2 -2.519E+2) speed=0.036094467294600495 phase=LIFT_LOCKED pitch=1.5707974226124188 angle=-1.570818745901792 omega=-5.010503035385504E-6 command=-1.570797422657869 latched=true fault=
+[03:21:40] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:40] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:40] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:40] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:40] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_ROLLER_ROUTE_MOTION tick=4000 center=(-2.995E+2  1.920E+2 -2.519E+2) speed=0.011027415960622768 phase=LIFT_GUIDED pitch=1.5707964110881543 angle=-1.5708187298981928 omega=-4.7490921305919624E-4 command=-1.5707964110881543 latched=false fault=
+[03:21:40] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:40] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:40] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:40] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:40] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_ROLLER_ROUTE_MOTION tick=4100 center=(-2.995E+2  1.926E+2 -2.519E+2) speed=0.007858398574381309 phase=LIFT_GUIDED pitch=1.5389992363652127 angle=-1.5399895652427138 omega=0.003949950564390539 command=-1.5392141254913636 latched=false fault=
+[03:21:40] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:40] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:40] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:40] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:40] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_ROLLER_ROUTE_MOTION tick=4200 center=(-2.995E+2  1.932E+2 -2.518E+2) speed=0.03319247858574378 phase=LIFT_GUIDED pitch=1.4826576280560468 angle=-1.4837568240645447 omega=0.005285677542365046 command=-1.4829055550720827 latched=false fault=
+[03:21:40] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:40] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:40] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:40] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:40] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_ROLLER_ROUTE_MOTION tick=4300 center=(-2.995E+2  1.946E+2 -2.516E+2) speed=0.3353817258325459 phase=LIFT_GUIDED pitch=1.36929815721791 angle=-1.3728899443617193 omega=0.014741960695323708 command=-1.3707522053440195 latched=false fault=
+[03:21:40] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:40] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:40] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:40] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:40] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_ROLLER_ROUTE_MOTION tick=4400 center=(-2.995E+2  1.971E+2 -2.508E+2) speed=0.5818807867832835 phase=LIFT_GUIDED pitch=1.1820394248907242 angle=-1.1868378532234707 omega=0.021630526190677703 command=-1.1841905161375332 latched=false fault=
+[03:21:40] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:40] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:41] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:41] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:41] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_ROLLER_ROUTE_MOTION tick=4500 center=(-2.995E+2  2.005E+2 -2.490E+2) speed=0.8406072139329782 phase=LIFT_GUIDED pitch=0.9661623889893062 angle=-0.9715994174589345 omega=0.025827372464978307 command=-0.9687037184370163 latched=false fault=
+[03:21:41] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:41] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:41] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:41] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:41] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_ROLLER_ROUTE_MOTION tick=4600 center=(-2.995E+2  2.042E+2 -2.456E+2) speed=1.0815284869337896 phase=LIFT_GUIDED pitch=0.7272196916319055 angle=-0.7338581504937256 omega=0.029647503146440178 command=-0.730511706172436 latched=false fault=
+[03:21:41] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:41] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:41] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:41] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:41] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_ROLLER_ROUTE_MOTION tick=4700 center=(-2.995E+2  2.075E+2 -2.407E+2) speed=1.3008936975146423 phase=LIFT_GUIDED pitch=0.41581934064164894 angle=-0.42740866649793763 omega=0.03632607754379796 command=-0.4224941195613914 latched=false fault=
+[03:21:41] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:41] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:41] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:41] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:41] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_ROLLER_ROUTE_MOTION tick=4800 center=(-2.995E+2  2.086E+2 -2.365E+2) speed=0.3851847300604436 phase=LIFT_GUIDED pitch=0.09696776609041988 angle=-0.10226734886744715 omega=0.03295370959771645 command=-0.09820463016189913 latched=false fault=
+[03:21:41] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:41] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:41] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:41] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:41] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_ROLLER_ROUTE_MOTION tick=4900 center=(-2.995E+2  2.086E+2 -2.349E+2) speed=0.4201492734283033 phase=LIFT_GUIDED pitch=-0.051714471686366996 angle=0.04612266185193069 omega=0.03159344155488413 command=0.05040046780914802 latched=false fault=
+[03:21:41] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:41] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:41] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:41] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:41] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_ROLLER_ROUTE_MOTION tick=5000 center=(-2.995E+2  2.079E+2 -2.314E+2) speed=1.8092920169470277 phase=LIFT_GUIDED pitch=-0.3296511928924795 angle=0.3108079736729114 omega=0.03834199371153557 command=0.3181326874355266 latched=false fault=
+[03:21:41] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:41] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:41] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:41] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:41] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_ROLLER_ROUTE_MOTION tick=5100 center=(-2.995E+2  2.029E+2 -2.240E+2) speed=2.1894333599269395 phase=LIFT_GUIDED pitch=-0.8098580962451852 angle=0.7940281494371264 omega=0.033682943197499766 command=0.8010559356525888 latched=false fault=
+[03:21:41] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:41] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:41] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:42] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:42] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_ROLLER_ROUTE_MOTION tick=5200 center=(-2.995E+2  1.951E+2 -2.195E+2) speed=1.7415783522608994 phase=LIFT_GUIDED pitch=-1.3206149776185003 angle=1.3007166374758814 omega=0.04237187761879934 command=1.3085205986355422 latched=false fault=
+[03:21:42] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:42] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:42] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:42] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:42] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_ROLLER_ROUTE_MOTION tick=5300 center=(-2.995E+2  1.917E+2 -2.191E+2) speed=0.526057046390017 phase=LIFT_GUIDED pitch=-1.5194883765320948 angle=1.5274578966245165 omega=-0.02100807983976237 command=1.5236234845734113 latched=false fault=
+[03:21:42] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:42] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:42] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:42] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:42] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_ROLLER_ROUTE_MOTION tick=5400 center=(-2.995E+2  1.857E+2 -2.170E+2) speed=1.736756067657921 phase=LIFT_GUIDED pitch=-1.0021905114665919 angle=1.0256267207569305 omega=-0.045404086042283055 command=1.0186861347882703 latched=false fault=
+[03:21:42] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:42] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:42] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:42] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:42] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_ROLLER_ROUTE_MOTION tick=5500 center=(-2.995E+2  1.791E+2 -2.100E+2) speed=1.7356355467933942 phase=LIFT_GUIDED pitch=-0.5416051844016163 angle=0.5531650388494256 omega=-0.026772167202796533 command=0.5492954612215325 latched=false fault=
+[03:21:42] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:42] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:42] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:42] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:42] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_ROLLER_ROUTE_MOTION tick=5600 center=(-2.995E+2  1.768E+2 -2.043E+2) speed=0.3588508303292851 phase=LIFT_GUIDED pitch=-0.22706229850442677 angle=0.2270528470646922 omega=0.012457655508573674 command=0.22807074220639909 latched=false fault=
+[03:21:42] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:42] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:42] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:42] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:42] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_ROLLER_ROUTE_MOTION tick=5700 center=(-2.995E+2  1.766E+2 -2.030E+2) speed=0.1644024711166232 phase=LIFT_GUIDED pitch=-0.1651491701522211 angle=0.1645981897224533 omega=5.749281887882301E-4 command=0.1651491701522211 latched=false fault=
+[03:21:42] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:42] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:42] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:42] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:42] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_ROLLER_ROUTE_MOTION tick=5800 center=(-2.995E+2  1.764E+2 -2.023E+2) speed=0.2380996262758256 phase=LIFT_GUIDED pitch=-0.1651492741049944 angle=0.1645991291313169 omega=3.7627515845238205E-4 command=0.16514927410358093 latched=false fault=
+[03:21:42] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:42] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:42] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:42] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:43] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_ROLLER_ROUTE_MOTION tick=5900 center=(-2.995E+2  1.753E+2 -1.957E+2) speed=3.959823867543369 phase=FREE_DESCENT pitch=-0.16514879889235706 angle=0.06594871778309766 omega=0.3756561724329698 command=0.06594871778309766 latched=false fault=
+[03:21:43] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:43] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:43] [Server thread/INFO] [de.ry.sa.Sable/]: Saving sub-levels for level 'ServerLevel[Test Level]'/minecraft:overworld
+[03:21:43] [Server thread/INFO] [de.ry.sa.Sable/]: Saving sub-levels for level 'ServerLevel[Test Level]'/minecraft:the_nether
+[03:21:43] [Server thread/INFO] [de.ry.sa.Sable/]: Saving sub-levels for level 'ServerLevel[Test Level]'/minecraft:the_end
+[03:21:43] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:43] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:43] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_ROLLER_ROUTE_MOTION tick=6000 center=(-2.995E+2  1.703E+2 -1.654E+2) speed=6.544073471873471 phase=FREE_DESCENT pitch=-0.16514863553799475 angle=-0.03023644766308376 omega=-0.31597101460745913 command=-0.03023644766308376 latched=false fault=
+[03:21:43] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:43] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:43] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:43] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:43] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_ROLLER_ROUTE_MOTION tick=6100 center=(-2.995E+2  1.553E+2 -1.396E+2) speed=7.116257932336095 phase=FREE_DESCENT pitch=-1.2661167278127188 angle=0.24528351907079782 omega=-0.1947569600482956 command=0.24528351907079782 latched=false fault=
+[03:21:43] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:43] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:43] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:43] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:43] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_ROLLER_ROUTE_MOTION tick=6200 center=(-2.995E+2  1.353E+2 -1.586E+2) speed=6.502825664299431 phase=FREE_DESCENT pitch=-2.976443795296008 angle=3.339569463915756 omega=-0.9088801707168642 command=3.339569463915756 latched=false fault=
+[03:21:43] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:43] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:43] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:43] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:43] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_ROLLER_ROUTE_MOTION tick=6300 center=(-2.995E+2  1.300E+2 -1.909E+2) speed=6.570701660889374 phase=FREE_DESCENT pitch=-2.976444018051779 angle=2.8706402528514396 omega=-0.23898226793310626 command=2.8706402528514396 latched=false fault=
+[03:21:43] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:43] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:43] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:43] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:43] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_ROLLER_ROUTE_MOTION tick=6400 center=(-2.995E+2  1.167E+2 -2.181E+2) speed=5.573237939244518 phase=FREE_DESCENT pitch=-2.005292776423878 angle=2.715537613823112 omega=-0.005905414491764555 command=2.715537613823112 latched=false fault=
+[03:21:43] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:43] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:43] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:43] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:43] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_ROLLER_ROUTE_MOTION tick=6500 center=(-2.995E+2  9.624E+1 -2.012E+2) speed=5.3556967740528325 phase=FREE_DESCENT pitch=-0.1651485315845395 angle=-0.4251326765682565 omega=0.6685485517520517 command=-0.4251326765682565 latched=false fault=
+[03:21:43] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:43] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:43] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:43] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:44] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_ROLLER_ROUTE_MOTION tick=6600 center=(-2.995E+2  9.096E+1 -1.695E+2) speed=6.567812567265505 phase=FREE_DESCENT pitch=-0.16514869493952336 angle=0.1198974250026117 omega=0.490235246804993 command=0.1198974250026117 latched=false fault=
+[03:21:44] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:44] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:44] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:44] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:44] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_ROLLER_ROUTE_MOTION tick=6700 center=(-2.995E+2  7.895E+1 -1.412E+2) speed=7.0545157336644255 phase=FREE_DESCENT pitch=-0.997955689894139 angle=0.170198683820212 omega=0.12804318351961305 command=0.170198683820212 latched=false fault=
+[03:21:44] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:44] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:44] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:44] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:44] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_ROLLER_ROUTE_MOTION tick=6800 center=(-2.995E+2  5.017E+1 -1.490E+2) speed=6.979737775577163 phase=FREE_DESCENT pitch=-2.486025154627762 angle=2.5910947362599006 omega=-0.36210662625459317 command=2.5910947362599006 latched=false fault=
+[03:21:44] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:44] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:44] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:44] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:44] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_ROLLER_ROUTE_MOTION tick=6900 center=(-2.995E+2  4.787E+1 -1.635E+2) speed=2.0422591135069483 phase=RETURN_DAMP pitch=-3.141592574561312 angle=2.937015360707005 omega=0.6908682866821091 command=2.937015360707005 latched=false fault=
+[03:21:44] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:44] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:44] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:44] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:44] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_ROLLER_ROUTE_MOTION tick=7000 center=(-2.995E+2  4.787E+1 -1.734E+2) speed=1.994326019854297 phase=RETURN_DAMP pitch=-3.1415924728870577 angle=3.063332744493979 omega=0.146156028852495 command=3.063332744493979 latched=false fault=
+[03:21:44] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:44] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:44] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:44] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:44] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_ROLLER_ROUTE_MOTION tick=7100 center=(-2.995E+2  4.787E+1 -1.833E+2) speed=1.9844486913496957 phase=RETURN_DAMP pitch=-3.1415927443189804 angle=3.091296269677807 omega=0.029380253382472937 command=3.091296269677807 latched=false fault=
+[03:21:44] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:44] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:44] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:44] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:44] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_ROLLER_ROUTE_MOTION tick=7200 center=(-2.995E+2  4.787E+1 -1.933E+2) speed=1.9828759633564776 phase=RETURN_DAMP pitch=-3.141592838549286 angle=3.097131987961577 omega=0.004691774068498538 command=3.097131987961577 latched=false fault=
+[03:21:44] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:44] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:44] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:44] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:44] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_ROLLER_ROUTE_MOTION tick=7300 center=(-2.995E+2  4.787E+1 -2.032E+2) speed=1.982372537643936 phase=RETURN_DAMP pitch=-3.141592494707129 angle=3.099414283205523 omega=-0.0028475917509710835 command=3.099414283205523 latched=false fault=
+[03:21:44] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:44] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:45] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:45] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:45] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_ROLLER_ROUTE_MOTION tick=7400 center=(-2.995E+2  4.787E+1 -2.132E+2) speed=1.982419749485476 phase=RETURN_DAMP pitch=-3.141592734846897 angle=3.0991209757857585 omega=-0.0011688370300791248 command=3.0991209757857585 latched=false fault=
+[03:21:45] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:45] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:45] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:45] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:45] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_ROLLER_ROUTE_MOTION tick=7500 center=(-2.995E+2  4.787E+1 -2.231E+2) speed=1.9824779236041015 phase=RETURN_DAMP pitch=-3.1415925162195046 angle=3.0990899991646748 omega=-0.001753242421566441 command=3.0990899991646748 latched=false fault=
+[03:21:45] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:45] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:45] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:45] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:45] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_ROLLER_ROUTE_MOTION tick=7600 center=(-2.995E+2  4.787E+1 -2.330E+2) speed=1.9824824535541588 phase=RETURN_DAMP pitch=-3.1415925029991683 angle=3.0990883558275075 omega=-0.0018419339134038745 command=3.0990883558275075 latched=false fault=
+[03:21:45] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:45] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:45] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:45] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:45] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_ROLLER_ROUTE_MOTION tick=7700 center=(-2.995E+2  4.787E+1 -2.430E+2) speed=1.9824801885774428 phase=RETURN_DAMP pitch=-3.1415925029994916 angle=3.0990879312387234 omega=-0.0018497200328546962 command=3.0990879312387234 latched=false fault=
+[03:21:45] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:45] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:45] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:45] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:45] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_ROLLER_ROUTE_MOTION tick=7800 center=(-2.995E+2  4.787E+1 -2.529E+2) speed=1.9824795925317544 phase=RETURN_DAMP pitch=-3.141592499782926 angle=3.099088330262988 omega=-0.0018498373800550783 command=3.099088330262988 latched=false fault=
+[03:21:45] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:45] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:45] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:45] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:45] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_ROLLER_ROUTE_MOTION tick=7900 center=(-2.995E+2  4.787E+1 -2.628E+2) speed=1.9826184713201382 phase=RETURN_DAMP pitch=-3.1415926470928563 angle=3.098983540321043 omega=-0.0016789048511310304 command=3.098983540321043 latched=false fault=
+[03:21:45] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:45] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:45] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:45] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:45] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_ROLLER_ROUTE_MOTION tick=8000 center=(-2.995E+2  4.787E+1 -2.727E+2) speed=1.9826263391331147 phase=RETURN_DAMP pitch=-3.1415926470411786 angle=3.0990867754493636 omega=-0.0016908129925435622 command=3.0990867754493636 latched=false fault=
+[03:21:45] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:45] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:45] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:45] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:45] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_ROLLER_ROUTE_MOTION tick=8100 center=(-2.995E+2  4.787E+1 -2.826E+2) speed=1.981992741881861 phase=RETURN_DAMP pitch=-3.141592517328919 angle=3.099082384966413 omega=-0.0016412822019741887 command=3.099082384966413 latched=false fault=
+[03:21:45] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:45] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:45] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:45] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:46] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_ROLLER_ROUTE_MOTION tick=8200 center=(-2.995E+2  4.787E+1 -2.925E+2) speed=1.9826796256730177 phase=RETURN_DAMP pitch=-3.141592647113883 angle=3.0990332621889265 omega=-0.0017208168514309481 command=3.0990332621889265 latched=false fault=
+[03:21:46] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:46] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:46] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:46] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:46] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_ROLLER_ROUTE_MOTION tick=8300 center=(-2.995E+2  4.787E+1 -3.024E+2) speed=1.9825140440016749 phase=RETURN_DAMP pitch=-3.141592647230993 angle=3.098988522578596 omega=-0.001747928892383748 command=3.098988522578596 latched=false fault=
+[03:21:46] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:46] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:46] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:46] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:46] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_ROLLER_ROUTE_MOTION tick=8400 center=(-2.995E+2  4.787E+1 -3.123E+2) speed=1.9817570651615823 phase=RETURN_DAMP pitch=-3.1415926472567657 angle=3.0990902370219167 omega=-0.0019763044130744066 command=3.0990902370219167 latched=false fault=
+[03:21:46] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:46] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:46] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:46] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:46] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_ROLLER_ROUTE_MOTION tick=8500 center=(-2.995E+2  4.868E+1 -3.198E+2) speed=1.3571433471863785 phase=RETURN_DAMP pitch=-3.4883345739102096 angle=3.3922927859826 omega=0.01006441428471899 command=3.3922927859826 latched=false fault=
+[03:21:46] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:46] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:46] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:46] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:46] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_ROLLER_ROUTE_MOTION tick=8600 center=(-2.995E+2  5.176E+1 -3.251E+2) speed=1.1311612868026735 phase=RETURN_DAMP pitch=-3.826156832219668 angle=3.7588221136012323 omega=-0.03560108294107086 command=3.7588221136012323 latched=false fault=
+[03:21:46] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:46] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:46] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:46] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:46] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_ROLLER_ROUTE_MOTION tick=8700 center=(-2.995E+2  5.555E+1 -3.287E+2) speed=0.8874793047645011 phase=RETURN_DAMP pitch=-4.075077192783586 angle=4.012713154667535 omega=-0.040604280385481126 command=4.012713154667535 latched=false fault=
+[03:21:46] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:46] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:46] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:46] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:46] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_ROLLER_ROUTE_MOTION tick=8800 center=(-2.995E+2  5.907E+1 -3.307E+2) speed=0.6243353161319415 phase=RETURN_DAMP pitch=-4.297776608019277 angle=4.2361818914687985 omega=-0.029467485703271238 command=4.2361818914687985 latched=false fault=
+[03:21:46] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:46] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:46] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:46] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:46] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_ROLLER_ROUTE_MOTION tick=8900 center=(-2.995E+2  6.176E+1 -3.316E+2) speed=0.36705938028155227 phase=RETURN_DAMP pitch=-4.493682663816803 angle=4.433128974759345 omega=-0.01706974879922995 command=4.433128974759345 latched=false fault=
+[03:21:46] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:46] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:46] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:46] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:47] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_ROLLER_ROUTE_MOTION tick=9000 center=(-2.995E+2  6.349E+1 -3.318E+2) speed=0.16330091629621132 phase=RETURN_DAMP pitch=-4.640634007708365 angle=4.581773647564285 omega=-0.009172140054546038 command=4.581773647564285 latched=false fault=
+[03:21:47] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:47] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:47] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:47] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:47] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_ROLLER_ROUTE_MOTION tick=9100 center=(-2.995E+2  6.452E+1 -3.319E+2) speed=0.09280624537457818 phase=RETURN_DAMP pitch=-4.737373692033335 angle=4.678552138097815 omega=0.00434977357283003 command=4.678552138097815 latched=false fault=
+[03:21:47] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:47] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:47] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:47] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:47] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_ROLLER_ROUTE_MOTION tick=9200 center=(-2.995E+2  6.587E+1 -3.318E+2) speed=0.2573590892272396 phase=RETURN_DAMP pitch=-4.8564196403646935 angle=4.795274838539365 omega=0.009321284921271156 command=4.795274838539365 latched=false fault=
+[03:21:47] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:47] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:47] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:47] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:47] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_ROLLER_ROUTE_MOTION tick=9300 center=(-2.995E+2  6.806E+1 -3.312E+2) speed=0.4872584360377401 phase=RETURN_DAMP pitch=-5.027486747918129 angle=4.96378350694202 omega=0.021229097560221746 command=4.96378350694202 latched=false fault=
+[03:21:47] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:47] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:47] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:47] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:47] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_ROLLER_ROUTE_MOTION tick=9400 center=(-2.995E+2  7.118E+1 -3.298E+2) speed=0.748363131700157 phase=RETURN_DAMP pitch=-5.235813529423759 angle=5.168340263714429 omega=0.034799490881715384 command=5.168340263714429 latched=false fault=
+[03:21:47] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:47] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:47] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:47] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:47] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_ROLLER_ROUTE_MOTION tick=9500 center=(-2.995E+2  7.488E+1 -3.270E+2) speed=0.9983146834320507 phase=RETURN_DAMP pitch=-5.465354736997069 angle=5.394133967098124 omega=0.04375178316749749 command=5.394133967098124 latched=false fault=
+[03:21:47] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:47] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:47] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:47] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:47] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_ROLLER_ROUTE_MOTION tick=9600 center=(-2.995E+2  7.845E+1 -3.226E+2) speed=1.2278722482916686 phase=RETURN_DAMP pitch=-5.741308050669478 angle=5.666418893487886 omega=0.04718172020845545 command=5.666418893487886 latched=false fault=
+[03:21:47] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:47] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:47] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:47] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:47] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_ROLLER_ROUTE_MOTION tick=9700 center=(-2.995E+2  8.055E+1 -3.167E+2) speed=1.398582471860335 phase=RETURN_DAMP pitch=-6.16536578331707 angle=6.093035831013612 omega=0.029455382560776282 command=6.093035831013612 latched=false fault=
+[03:21:47] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:47] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:47] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:47] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:47] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_ROLLER_ROUTE_MOTION tick=9800 center=(-2.995E+2  8.063E+1 -3.076E+2) speed=1.987076659849808 phase=RETURN_DAMP pitch=-6.283185145203205 angle=6.220883341177843 omega=0.08528963091840341 command=6.220883341177843 latched=false fault=
+[03:21:48] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:48] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:48] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:48] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[03:21:48] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_ROLLER_ROUTE_MOTION tick=9900 center=(-2.995E+2  8.063E+1 -2.976E+2) speed=1.982905169681323 phase=FREE_DESCENT pitch=-6.283185498623555 angle=6.211520517778199 omega=0.019645014355123322 command=6.211520517778199 latched=false fault=
+[03:21:48] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_ROLLER_ROUTE_PASS ticks=9927 speedPeak=7.237499665762957 angleRange=-1.5708193237847237..6.283185033660378 guideRate=0.049298870224775686 guideAccel=0.37370770146833876 phases=[LIFT_LOCKED, SECURED, RETURN_DAMP, DOCK_CAPTURE, LIFT_GUIDED, HOLD, FREE_DESCENT]
+[03:21:48] [Server thread/INFO] [minecraft/GameTestServer]: [+]
+[03:21:48] [Server thread/INFO] [minecraft/GameTestServer]: ========= 1 GAME TESTS COMPLETE IN 14.43 s ======================
+[03:21:48] [Server thread/INFO] [minecraft/GameTestServer]: All 1 required tests passed :)
+[03:21:48] [Server thread/INFO] [minecraft/GameTestServer]: ====================================================
+[03:21:48] [Server thread/INFO] [minecraft/MinecraftServer]: Stopping server
+[03:21:48] [Server thread/INFO] [minecraft/MinecraftServer]: Saving players
+[03:21:48] [Server thread/INFO] [minecraft/MinecraftServer]: Saving worlds
+[03:21:48] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[Test Level]'/minecraft:overworld
+[03:21:48] [Server thread/INFO] [de.ry.sa.Sable/]: Saving sub-levels for level 'ServerLevel[Test Level]'/minecraft:overworld
+[03:21:50] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[Test Level]'/minecraft:the_nether
+[03:21:50] [Server thread/INFO] [de.ry.sa.Sable/]: Saving sub-levels for level 'ServerLevel[Test Level]'/minecraft:the_nether
+[03:21:50] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[Test Level]'/minecraft:the_end
+[03:21:50] [Server thread/INFO] [de.ry.sa.Sable/]: Saving sub-levels for level 'ServerLevel[Test Level]'/minecraft:the_end
+[03:21:50] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (world): All chunks are saved
+[03:21:50] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
+[03:21:50] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (DIM1): All chunks are saved
+[03:21:50] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage: All dimensions are saved
+[03:21:50] [Server thread/INFO] [minecraft/GameTestServer]: Game test server shutting down
+
+[Incubating] Problems report is available at: file:///mnt/NVME4/fourthdimension-runs/fd1502-roller-ball-20261115/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 10.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD SUCCESSFUL in 27s
+7 actionable tasks: 5 executed, 2 up-to-date

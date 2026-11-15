@@ -15,7 +15,7 @@ public final class ConsistRules {
     var data = EligibilityHooks.data(level);
     var vehicle = data == null || first == null ? null : data.vehicles.get(first.getUniqueId());
     return vehicle != null
-        && (FixedInvertedVehicle.is(vehicle) || SuspendedVehicle.is(vehicle) || AxisVehicle.is(vehicle) || FlyingVehicle.is(vehicle))
+        && (FixedInvertedVehicle.is(vehicle) || SuspendedVehicle.is(vehicle) || AxisVehicle.is(vehicle) || (FlyingVehicle.is(vehicle) || NewGenerationFlyingVehicle.is(vehicle)))
         && canCouple(level, first, second, distance);
   }
 
@@ -55,16 +55,16 @@ public final class ConsistRules {
     linked.add(b.getUniqueId());
     return first != null
         && second != null
-        && (first.family == Family.ARROW || first.family == Family.PAX || WingVehicle.is(first) || SuspendedVehicle.is(first) || FixedInvertedVehicle.is(first) || AxisVehicle.is(first) || FlyingVehicle.is(first))
+        && (first.family == Family.ARROW || first.family == Family.PAX || WingVehicle.is(first) || SuspendedVehicle.is(first) || FixedInvertedVehicle.is(first) || AxisVehicle.is(first) || (FlyingVehicle.is(first) || NewGenerationFlyingVehicle.is(first)))
         && second.family == first.family
         && (first.family != Family.PAX || linked.size() <= 4)
         && (!WingVehicle.is(first) || linked.size() <= 2)
-        && (!(SuspendedVehicle.is(first) || FixedInvertedVehicle.is(first) || FlyingVehicle.is(first)) || linked.size() <= 4)
+        && (!(SuspendedVehicle.is(first) || FixedInvertedVehicle.is(first) || (FlyingVehicle.is(first) || NewGenerationFlyingVehicle.is(first))) || linked.size() <= 4)
         && (!AxisVehicle.is(first) || linked.size() <= 2)
         && first.variant.equals(second.variant)
         && !FoundationData.VARIANT.equals(first.variant)
         && Double.isFinite(distance)
-        && Math.abs(distance - ((SuspendedVehicle.is(first) || FixedInvertedVehicle.is(first) || AxisVehicle.is(first) || FlyingVehicle.is(first)) ? 8 : 6)) < .01
+        && Math.abs(distance - ((SuspendedVehicle.is(first) || FixedInvertedVehicle.is(first) || AxisVehicle.is(first) || (FlyingVehicle.is(first) || NewGenerationFlyingVehicle.is(first))) ? 8 : 6)) < .01
         && first.boardingReady
         && second.boardingReady;
   }
@@ -78,8 +78,9 @@ public final class ConsistRules {
             > (vehicle.recoveryCart == null ? 4 : 5)) return false;
     var ids = CoasterCartTrainLinkConstraint.getTrainLinkedCartIds(parent);
     if (WingVehicle.is(vehicle) && ids.size() > 2) return false;
-    if ((SuspendedVehicle.is(vehicle) || FixedInvertedVehicle.is(vehicle) || FlyingVehicle.is(vehicle)) && ids.size() > 4) return false;
+    if ((SuspendedVehicle.is(vehicle) || FixedInvertedVehicle.is(vehicle) || (FlyingVehicle.is(vehicle) || NewGenerationFlyingVehicle.is(vehicle))) && ids.size() > 4) return false;
     if (AxisVehicle.is(vehicle) && ids.size() > 2) return false;
+    if (RollerBallVehicle.is(vehicle) && (ids.stream().anyMatch(id -> !id.equals(vehicle.chassis)) || vehicle.recoveryCart != null)) return false;
     for (var id : ids) {
       if (id.equals(vehicle.chassis)) continue;
       var other = data.vehicles.get(id);
@@ -88,7 +89,7 @@ public final class ConsistRules {
       if (other == null && id.equals(vehicle.recoveryCart)) continue;
       if (other == null
           || other.family != vehicle.family
-          || !(vehicle.family == Family.ARROW || vehicle.family == Family.PAX || WingVehicle.is(vehicle) || SuspendedVehicle.is(vehicle) || FixedInvertedVehicle.is(vehicle) || AxisVehicle.is(vehicle) || FlyingVehicle.is(vehicle))
+          || !(vehicle.family == Family.ARROW || vehicle.family == Family.PAX || WingVehicle.is(vehicle) || SuspendedVehicle.is(vehicle) || FixedInvertedVehicle.is(vehicle) || AxisVehicle.is(vehicle) || (FlyingVehicle.is(vehicle) || NewGenerationFlyingVehicle.is(vehicle)))
           || !other.variant.equals(vehicle.variant)
           || !java.util.Objects.equals(other.recoveryCart, vehicle.recoveryCart)
           || other.recoveryCart != null && !RecoveryOperations.retained(other)

@@ -1,0 +1,21 @@
+{
+  "source": "Pinned Create BezierConnection.Runtime.determineHandles: vertical tangent projection intersection is null, handle = endpoint distance / 3",
+  "corners": [
+    {
+      "nominal_corner": 8,
+      "native_fallback_handle": 3.771236166328254,
+      "endpoint_radius": 5.044815499854967
+    },
+    {
+      "nominal_corner": 12,
+      "native_fallback_handle": 5.656854249492381,
+      "endpoint_radius": 7.56722324978245
+    },
+    {
+      "nominal_corner": 16,
+      "native_fallback_handle": 7.542472332656508,
+      "endpoint_radius": 10.089630999709934
+    }
+  ],
+  "correction": "Use 16-block final quarter bends. Native minimum remains >=8; no criterion relaxed."
+}

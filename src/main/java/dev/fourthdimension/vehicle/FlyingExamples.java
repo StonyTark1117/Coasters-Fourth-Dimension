@@ -7,6 +7,7 @@ import dev.fourthdimension.runtime.*;
 import dev.fourthdimension.station.*;
 import dev.fourthdimension.track.TrackGeometry;
 import dev.silvergold.simulatedcoasters.*;
+import dev.silvergold.simulatedcoasters.track.CoasterBezierHandleEdit;
 import dev.silvergold.simulatedcoasters.track.CoasterTrackPlacement;
 import dev.silvergold.simulatedcoasters.track.anchor.CoasterAnchorpointBlockEntity;
 import dev.silvergold.simulatedcoasters.track.chainlift.ChainLiftEndRef;
@@ -81,6 +82,12 @@ public final class FlyingExamples {
   }
 
   public static Example create(ServerLevel level, BlockPos origin, boolean includeVehicle) {
+    return create(level, origin, includeVehicle, false);
+  }
+
+  /** Opt in to native lifted endpoints without changing established example geometry. */
+  public static Example create(ServerLevel level, BlockPos origin, boolean includeVehicle,
+      boolean nativePlacementEndpoints) {
     if (Math.abs((long) origin.getX()) > 850 || Math.abs((long) origin.getZ()) > 850)
       throw new IllegalArgumentException("Choose an example area near world origin");
     for (var pos : BlockPos.betweenClosed(origin.offset(-8,-6,-56),origin.offset(152,32,360)))
@@ -102,11 +109,18 @@ public final class FlyingExamples {
     var normals = new ArrayList<Vec3>();
     for (int i = 0; i < anchors.size(); i++)
       normals.add(CoasterTrackPlacement.anchorFaceNormalForAxis(level, anchors.get(i), tangent[i]));
+    var starts = new ArrayList<Vec3>();
+    for (int i = 0; i < anchors.size(); i++)
+      // Resolve each hub once, using its authored forward tangent for both incident
+      // curves. Native lift follows the banked normal, not a fixed world-Y offset.
+      starts.add(nativePlacementEndpoints
+          ? CoasterBezierHandleEdit.liftedWorldCenterFromCanonicalTangent(level, anchors.get(i), tangent[i])
+          : CoasterAnchorpointBlockEntity.worldCenterBase(level, anchors.get(i)));
     var edges = new ArrayList<CoasterPathEdge>();
     for (int i = 0; i < anchors.size(); i++) {
       int next = (i + 1) % anchors.size();
       edges.add(connect(level, anchors.get(i), anchors.get(next), tangent[i], tangent[next].scale(-1),
-          normals.get(i), normals.get(next)));
+          normals.get(i), normals.get(next), starts.get(i), starts.get(next)));
     }
     var data = FoundationData.get(level);
     for (int i=0;i<edges.size();i++) {
@@ -165,9 +179,15 @@ public final class FlyingExamples {
 
   public static CoasterPathEdge connect(ServerLevel level, BlockPos from, BlockPos to,
       Vec3 firstTangent, Vec3 secondTangent, Vec3 firstNormal, Vec3 secondNormal) {
-    var curve = new BezierConnection(Couple.create(from,to), Couple.create(
+    return connect(level, from, to, firstTangent, secondTangent, firstNormal, secondNormal,
         CoasterAnchorpointBlockEntity.worldCenterBase(level,from),
-        CoasterAnchorpointBlockEntity.worldCenterBase(level,to)),
+        CoasterAnchorpointBlockEntity.worldCenterBase(level,to));
+  }
+
+  private static CoasterPathEdge connect(ServerLevel level, BlockPos from, BlockPos to,
+      Vec3 firstTangent, Vec3 secondTangent, Vec3 firstNormal, Vec3 secondNormal,
+      Vec3 firstStart, Vec3 secondStart) {
+    var curve = new BezierConnection(Couple.create(from,to), Couple.create(firstStart,secondStart),
         Couple.create(firstTangent,secondTangent), Couple.create(firstNormal,secondNormal),
         true,false,CoasterTrackMaterials.COASTER);
     ((CoasterAnchorpointBlockEntity) level.getBlockEntity(from)).putAnchorPeerCurve(level,to,curve);

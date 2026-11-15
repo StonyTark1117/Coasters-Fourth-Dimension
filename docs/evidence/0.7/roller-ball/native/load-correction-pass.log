@@ -1,0 +1,370 @@
+> Task :createMinecraftArtifacts UP-TO-DATE
+
+> Task :compileJava
+/home/braydon/Documents/Coasters: Fourth Dimension/src/main/java/dev/fourthdimension/client/RiderComfort.java:28: warning: [removal] bus() in EventBusSubscriber has been deprecated and marked for removal
+      bus = EventBusSubscriber.Bus.MOD)
+      ^
+/home/braydon/Documents/Coasters: Fourth Dimension/src/main/java/dev/fourthdimension/client/RiderComfort.java:28: warning: [removal] Bus in EventBusSubscriber has been deprecated and marked for removal
+      bus = EventBusSubscriber.Bus.MOD)
+                              ^
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+2 warnings
+
+> Task :processResources
+> Task :classes
+
+> Task :downloadAssets
+Loaded 131 artifacts from /mnt/NVME4/fourthdimension-runs/fd1502-roller-ball-20261115/build/tmp/downloadAssets/nfrt_artifact_manifest.properties
+Downloading asset index 17
+Using Minecraft asset root: /home/braydon/.gradle/caches/neoformruntime/assets
+  ↓ https://piston-meta.mojang.com/v1/packages/de573f83da62843433ec9951c66feec7ed0a60a1/17.json
+
+> Task :writeGameTestServerLegacyClasspath UP-TO-DATE
+> Task :prepareGameTestServerRun
+
+> Task :runGameTestServer
+WARN StatusConsoleListener Advanced terminal features are not available in this environment
+[02:52:01] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forgeserverdev, --gameDir, ., --fml.fmlVersion, 4.0.43, --fml.mcVersion, 1.21.1, --fml.neoForgeVersion, 21.1.248, --fml.neoFormVersion, 20240808.144430]
+[02:52:01] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: JVM identified as Arch Linux OpenJDK 64-Bit Server VM 21.0.13.0.3+1
+[02:52:01] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: ModLauncher 11.0.5+main.901c6ea8 starting: java version 21.0.13.0.3 by Arch Linux; OS Linux arch amd64 version 7.2.14-zen1-1-zen
+[02:52:01] [main/INFO] [ne.ne.fm.lo.ImmediateWindowHandler/]: ImmediateWindowProvider not loading because launch target is forgeserverdev
+[02:52:01] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.7 Source=union:/home/braydon/.gradle/caches/modules-2/files-2.1/net.fabricmc/sponge-mixin/0.15.2+mixin.0.8.7/2af2f021d8e02a0220dc27a7a72b4666d66d44ca/sponge-mixin-0.15.2+mixin.0.8.7.jar%2394!/ Service=ModLauncher Env=SERVER
+[02:52:01] [main/WARN] [ne.ne.ja.se.JarSelector/]: Attempted to select a dependency jar for JarJar which was passed in as source: veil. Using Mod File: /home/braydon/.gradle/caches/modules-2/files-2.1/foundry.veil/veil-neoforge-1.21.1/4.1.4/642ec0bd02213ee087d86eda553d6d79c6a04d2b/veil-neoforge-1.21.1-4.1.4.jar
+[02:52:01] [main/WARN] [ne.ne.ja.se.JarSelector/]: Attempted to select a dependency jar for JarJar which was passed in as source: sablecompanion. Using Mod File: /home/braydon/.gradle/caches/modules-2/files-2.1/dev.ryanhcode.sable-companion/sable-companion-common-1.21.1/1.6.0/370be7db705926176e05c0215ed676150c45daae/sable-companion-common-1.21.1-1.6.0.jar
+[02:52:01] [main/WARN] [ne.ne.ja.se.JarSelector/]: Attempted to select a dependency jar for JarJar which was passed in as source: library:sable_rapier. Using Mod File: /home/braydon/.gradle/caches/modules-2/files-2.1/dev.ryanhcode.sable/sable-sable_rapier-1.21.1/2.0.3/a88c0860320890144b6b44c332a2a2db3a61e189/sable-sable_rapier-1.21.1-2.0.3.jar
+[02:52:01] [main/INFO] [ne.ne.fm.lo.mo.lo.JarInJarDependencyLocator/]: Found 4 dependencies adding them to mods collection
+[02:52:01] [main/INFO] [ne.ne.fm.lo.mo.ModDiscoverer/]: 
+     Mod List:
+		Name Version (Mod Id)
+
+		Coasters: Fourth Dimension 0.9.0-dev.27 (fourthdimension)
+		Create 6.0.10 (create)
+		Create: Coasters Simulated 0.1.5 (simulatedcoasters)
+		Flywheel 1.0.6 (flywheel)
+		Minecraft 1.21.1 (minecraft)
+		NeoForge 21.1.248 (neoforge)
+		Ponder 1.0.82+mc1.21.1 (ponder)
+		Sable 2.0.3 (sable)
+		Sable Companion 1.6.0 (sablecompanion)
+		Veil 4.1.4 (veil)
+[02:52:02] [main/INFO] [mixin/]: Compatibility level set to JAVA_21
+[02:52:02] [main/INFO] [cp.mo.mo.LaunchServiceHandler/MODLAUNCHER]: Launching target 'forgeserverdev' with arguments [--gameDir, .]
+[02:52:02] [main/WARN] [mixin/]: Reference map 'ponder.refmap.json' for ponder-common.mixins.json could not be read. If this is a development environment you can ignore this message
+[02:52:02] [main/INFO] [de.ry.sa.mi.AbstractSableMixinPlugin/]: Using Vanilla renderer mixins
+[02:52:02] [main/INFO] [de.ry.sa.mi.AbstractSableMixinPlugin/]: Using Vanilla renderer mixins
+[02:52:02] [main/WARN] [mixin/]: Error loading class: dev/simulated_team/simulated/content/blocks/merging_glue/MergingGlueBlockEntity (java.lang.ClassNotFoundException: dev.simulated_team.simulated.content.blocks.merging_glue.MergingGlueBlockEntity)
+[02:52:02] [main/WARN] [mixin/]: @Mixin target dev.simulated_team.simulated.content.blocks.merging_glue.MergingGlueBlockEntity was not found simulatedcoasters.mixins.json:compat.MergingGlueBlockEntityRivetMixin from mod simulatedcoasters
+[02:52:02] [main/ERROR] [ne.ne.fm.co.as.RuntimeDistCleaner/DISTXFORM]: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER
+[02:52:02] [main/WARN] [mixin/]: Error loading class: net/minecraft/client/multiplayer/ClientLevel (java.lang.RuntimeException: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER)
+[02:52:02] [main/ERROR] [ne.ne.fm.co.as.RuntimeDistCleaner/DISTXFORM]: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER
+[02:52:02] [main/WARN] [mixin/]: Error loading class: net/minecraft/client/multiplayer/ClientLevel (java.lang.RuntimeException: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER)
+[02:52:02] [main/ERROR] [ne.ne.fm.co.as.RuntimeDistCleaner/DISTXFORM]: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER
+[02:52:02] [main/WARN] [mixin/]: Error loading class: net/minecraft/client/multiplayer/ClientLevel (java.lang.RuntimeException: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER)
+[02:52:02] [main/WARN] [mixin/]: Error loading class: dev/jwaterfall/coastersengineered/MotorDrive (java.lang.ClassNotFoundException: dev.jwaterfall.coastersengineered.MotorDrive)
+[02:52:02] [main/WARN] [mixin/]: Error loading class: dev/jwaterfall/coastersengineered/CartAssembly (java.lang.ClassNotFoundException: dev.jwaterfall.coastersengineered.CartAssembly)
+[02:52:02] [main/WARN] [mixin/]: Error loading class: org/jetbrains/annotations/ApiStatus$ScheduledForRemoval (java.lang.ClassNotFoundException: org.jetbrains.annotations.ApiStatus$ScheduledForRemoval)
+[02:52:02] [main/ERROR] [ne.ne.fm.co.as.RuntimeDistCleaner/DISTXFORM]: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER
+[02:52:02] [main/WARN] [mixin/]: Error loading class: net/minecraft/client/multiplayer/ClientLevel (java.lang.RuntimeException: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER)
+[02:52:02] [main/ERROR] [ne.ne.fm.co.as.RuntimeDistCleaner/DISTXFORM]: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER
+[02:52:02] [main/WARN] [mixin/]: Error loading class: net/minecraft/client/multiplayer/ClientLevel (java.lang.RuntimeException: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER)
+[02:52:02] [main/ERROR] [ne.ne.fm.co.as.RuntimeDistCleaner/DISTXFORM]: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER
+[02:52:02] [main/WARN] [mixin/]: Error loading class: net/minecraft/client/multiplayer/ClientLevel (java.lang.RuntimeException: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER)
+[02:52:02] [main/ERROR] [ne.ne.fm.co.as.RuntimeDistCleaner/DISTXFORM]: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER
+[02:52:02] [main/WARN] [mixin/]: Error loading class: net/minecraft/client/multiplayer/ClientLevel (java.lang.RuntimeException: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER)
+[02:52:02] [main/ERROR] [ne.ne.fm.co.as.RuntimeDistCleaner/DISTXFORM]: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER
+[02:52:02] [main/WARN] [mixin/]: Error loading class: net/minecraft/client/multiplayer/ClientLevel (java.lang.RuntimeException: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER)
+[02:52:02] [main/ERROR] [ne.ne.fm.co.as.RuntimeDistCleaner/DISTXFORM]: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER
+[02:52:02] [main/WARN] [mixin/]: Error loading class: net/minecraft/client/multiplayer/ClientLevel (java.lang.RuntimeException: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER)
+[02:52:02] [main/INFO] [MixinExtras|Service/]: Initializing MixinExtras via com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.5.3).
+[02:52:03] [main/ERROR] [ne.ne.fm.co.as.RuntimeDistCleaner/DISTXFORM]: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER
+[02:52:03] [main/WARN] [mixin/]: Error loading class: net/minecraft/client/multiplayer/ClientLevel (java.lang.RuntimeException: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER)
+[02:52:03] [main/ERROR] [ne.ne.fm.co.as.RuntimeDistCleaner/DISTXFORM]: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER
+[02:52:03] [main/WARN] [mixin/]: Error loading class: net/minecraft/client/multiplayer/ClientLevel (java.lang.RuntimeException: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER)
+[02:52:03] [main/ERROR] [ne.ne.fm.co.as.RuntimeDistCleaner/DISTXFORM]: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER
+[02:52:03] [main/WARN] [mixin/]: Error loading class: net/minecraft/client/multiplayer/ClientLevel (java.lang.RuntimeException: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER)
+[02:52:05] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, location] and [teleport, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+[02:52:05] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, location] and [teleport, targets] with inputs: [0.1 -0.5 .9, 0 0 0]
+[02:52:05] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, destination] and [teleport, targets] with inputs: [Player, 0123, @e, dd12be42-52a9-4a91-a8a1-11c01849e498]
+[02:52:05] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, targets] and [teleport, destination] with inputs: [Player, 0123, dd12be42-52a9-4a91-a8a1-11c01849e498]
+[02:52:05] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, targets, location] and [teleport, targets, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+[02:52:05] [modloading-worker-0/INFO] [Veil/]: Veil is initializing.
+[02:52:05] [modloading-worker-0/INFO] [ne.ne.ne.co.NeoForgeMod/NEOFORGE-MOD]: NeoForge mod loading, version 21.1.248, for MC 1.21.1
+[02:52:05] [modloading-worker-0/INFO] [co.si.cr.Create/]: Create 6.0.10 initializing! Commit hash: ac0c444d9828da3453ae8cc65338e8de063286fb
+[02:52:06] [modloading-worker-0/INFO] [de.ry.sa.Sable/]: Sable loaded!
+[02:52:06] [modloading-worker-0/INFO] [de.fo.FourthDimension/]: Coasters: Fourth Dimension loaded from union:/mnt/NVME4/fourthdimension-runs/fd1502-roller-ball-20261115/build/classes/java/main/%23127!/
+[02:52:07] [main/ERROR] [minecraft/Settings]: Failed to load properties from file: server.properties
+java.nio.file.NoSuchFileException: server.properties
+	at java.base/sun.nio.fs.UnixException.translateToIOException(UnixException.java:92) ~[?:?] {}
+	at java.base/sun.nio.fs.UnixException.rethrowAsIOException(UnixException.java:106) ~[?:?] {}
+	at java.base/sun.nio.fs.UnixException.rethrowAsIOException(UnixException.java:111) ~[?:?] {}
+	at java.base/sun.nio.fs.UnixFileSystemProvider.newByteChannel(UnixFileSystemProvider.java:261) ~[?:?] {}
+	at java.base/java.nio.file.Files.newByteChannel(Files.java:380) ~[?:?] {}
+	at java.base/java.nio.file.Files.newByteChannel(Files.java:432) ~[?:?] {}
+	at java.base/java.nio.file.spi.FileSystemProvider.newInputStream(FileSystemProvider.java:420) ~[?:?] {}
+	at java.base/java.nio.file.Files.newInputStream(Files.java:160) ~[?:?] {}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.server.dedicated.Settings.loadFromFile(Settings.java:38) ~[neoforge-21.1.248.jar%23125!/:?] {re:classloading}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.server.dedicated.DedicatedServerProperties.fromFile(DedicatedServerProperties.java:132) ~[neoforge-21.1.248.jar%23125!/:?] {re:classloading}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.server.dedicated.DedicatedServerSettings.<init>(DedicatedServerSettings.java:12) ~[neoforge-21.1.248.jar%23125!/:?] {re:classloading}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.server.Main.main(Main.java:125) ~[neoforge-21.1.248.jar%23125!/:?] {re:classloading}
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[?:?] {}
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[?:?] {}
+	at MC-BOOTSTRAP/fml_loader@4.0.43/net.neoforged.fml.loading.targets.CommonLaunchHandler.runTarget(CommonLaunchHandler.java:136) ~[loader-4.0.43.jar%23102!/:4.0] {}
+	at MC-BOOTSTRAP/fml_loader@4.0.43/net.neoforged.fml.loading.targets.CommonLaunchHandler.serverService(CommonLaunchHandler.java:128) ~[loader-4.0.43.jar%23102!/:4.0] {}
+	at MC-BOOTSTRAP/fml_loader@4.0.43/net.neoforged.fml.loading.targets.NeoForgeServerDevLaunchHandler.runService(NeoForgeServerDevLaunchHandler.java:23) ~[loader-4.0.43.jar%23102!/:4.0] {}
+	at MC-BOOTSTRAP/fml_loader@4.0.43/net.neoforged.fml.loading.targets.CommonLaunchHandler.lambda$launchService$4(CommonLaunchHandler.java:118) ~[loader-4.0.43.jar%23102!/:4.0] {}
+	at MC-BOOTSTRAP/cpw.mods.modlauncher@11.0.5/cpw.mods.modlauncher.LaunchServiceHandlerDecorator.launch(LaunchServiceHandlerDecorator.java:30) [modlauncher-11.0.5.jar%2382!/:?] {}
+	at MC-BOOTSTRAP/cpw.mods.modlauncher@11.0.5/cpw.mods.modlauncher.LaunchServiceHandler.launch(LaunchServiceHandler.java:53) [modlauncher-11.0.5.jar%2382!/:?] {}
+	at MC-BOOTSTRAP/cpw.mods.modlauncher@11.0.5/cpw.mods.modlauncher.LaunchServiceHandler.launch(LaunchServiceHandler.java:71) [modlauncher-11.0.5.jar%2382!/:?] {}
+	at MC-BOOTSTRAP/cpw.mods.modlauncher@11.0.5/cpw.mods.modlauncher.Launcher.run(Launcher.java:103) [modlauncher-11.0.5.jar%2382!/:?] {}
+	at MC-BOOTSTRAP/cpw.mods.modlauncher@11.0.5/cpw.mods.modlauncher.Launcher.main(Launcher.java:74) [modlauncher-11.0.5.jar%2382!/:?] {}
+	at MC-BOOTSTRAP/cpw.mods.modlauncher@11.0.5/cpw.mods.modlauncher.BootstrapLaunchConsumer.accept(BootstrapLaunchConsumer.java:26) [modlauncher-11.0.5.jar%2382!/:?] {}
+	at MC-BOOTSTRAP/cpw.mods.modlauncher@11.0.5/cpw.mods.modlauncher.BootstrapLaunchConsumer.accept(BootstrapLaunchConsumer.java:23) [modlauncher-11.0.5.jar%2382!/:?] {}
+	at cpw.mods.bootstraplauncher@2.0.2/cpw.mods.bootstraplauncher.BootstrapLauncher.run(BootstrapLauncher.java:210) [bootstraplauncher-2.0.2.jar:?] {}
+	at cpw.mods.bootstraplauncher@2.0.2/cpw.mods.bootstraplauncher.BootstrapLauncher.main(BootstrapLauncher.java:69) [bootstraplauncher-2.0.2.jar:?] {}
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[?:?] {}
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[?:?] {}
+	at net.neoforged.devlaunch.Main.main(Main.java:57) [DevLaunch-1.0.2.jar:?] {}
+[02:52:07] [main/INFO] [mojang/YggdrasilAuthenticationService]: Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, name=PROD]
+[02:52:07] [NeoForge Version Check/INFO] [ne.ne.fm.VersionChecker/]: [create] Starting version check at https://api.modrinth.com/updates/create/forge_updates.json?neoforge=only
+[02:52:07] [main/WARN] [minecraft/VanillaPackResourcesBuilder]: Assets URL 'union:/mnt/NVME4/fourthdimension-runs/fd1502-roller-ball-20261115/build/moddev/artifacts/neoforge-21.1.248.jar%23125!/assets/.mcassetsroot' uses unexpected schema
+[02:52:07] [main/WARN] [minecraft/VanillaPackResourcesBuilder]: Assets URL 'union:/mnt/NVME4/fourthdimension-runs/fd1502-roller-ball-20261115/build/moddev/artifacts/neoforge-21.1.248.jar%23125!/data/.mcassetsroot' uses unexpected schema
+[02:52:07] [main/INFO] [co.si.cr.Create/]: Created 157 recipes which will be injected into the game
+[02:52:07] [main/INFO] [co.si.cr.Create/]: Created 0 tags which will be injected into the game
+[02:52:07] [main/INFO] [ne.ne.ne.ga.GameTestHooks/]: Enabled Gametest Namespaces: [fourthdimension_fd1502_route, fourthdimension_fd1502]
+[02:52:07] [NeoForge Version Check/INFO] [ne.ne.fm.VersionChecker/]: [create] Found status: OUTDATED Current: 6.0.10 Target: 6.0.10+mc1.21.1
+[02:52:07] [main/INFO] [minecraft/RecipeManager]: Loaded 2855 recipes
+[02:52:07] [main/INFO] [minecraft/AdvancementTree]: Loaded 2522 advancements
+[02:52:08] [Server thread/INFO] [de.ry.sa.Sable/]: Creating physics pipeline for ResourceKey[minecraft:dimension / minecraft:overworld] using RapierPhysicsPipelineProvider
+[2026-11-15T09:52:08.466607590Z] [[32mINFO[0m] (sable_rapier) Rapier scene initialized
+[02:52:08] [Server thread/INFO] [de.ry.sa.Sable/]: Creating physics pipeline for ResourceKey[minecraft:dimension / minecraft:the_end] using RapierPhysicsPipelineProvider
+[2026-11-15T09:52:08.675277768Z] [[32mINFO[0m] (sable_rapier) Rapier scene initialized
+[02:52:08] [Server thread/INFO] [de.ry.sa.Sable/]: Creating physics pipeline for ResourceKey[minecraft:dimension / minecraft:the_nether] using RapierPhysicsPipelineProvider
+[2026-11-15T09:52:08.699983670Z] [[32mINFO[0m] (sable_rapier) Rapier scene initialized
+[02:52:08] [Server thread/INFO] [minecraft/MinecraftServer]: Preparing start region for dimension minecraft:overworld
+[02:52:08] [worldgen/INFO] [minecraft/LoggerChunkProgressListener]: Preparing spawn area: 2%
+[02:52:08] [Server thread/INFO] [minecraft/LoggerChunkProgressListener]: Time elapsed: 88 ms
+[02:52:08] [Server thread/INFO] [minecraft/GameTestServer]: Started game test server
+[02:52:08] [Server thread/INFO] [ne.ne.ne.se.pe.PermissionAPI/]: Successfully initialized permission handler neoforge:default_handler
+[02:52:08] [Server thread/INFO] [minecraft/GameTestServer]: 3 tests are now running at position -7312843, -59, -2678080!
+[02:52:09] [Server thread/INFO] [minecraft/GameTestRunner]: Running test batch 'defaultBatch:0' (3 tests)...
+[02:52:09] [Server thread/INFO] [minecraft/GameTestServer]: [   ]
+[02:52:09] [Server thread/INFO] [minecraft/GameTestServer]: [__ ]
+FD_ROLLER_ROUTE from=BlockPos{x=-500, y=80, z=-500} to=BlockPos{x=-500, y=80, z=-468} length=32.0
+FD_ROLLER_ROUTE from=BlockPos{x=-500, y=80, z=-468} to=BlockPos{x=-500, y=96, z=-452} length=24.49759553318746
+FD_ROLLER_ROUTE from=BlockPos{x=-500, y=96, z=-452} to=BlockPos{x=-500, y=144, z=-452} length=48.0
+FD_ROLLER_ROUTE from=BlockPos{x=-500, y=144, z=-452} to=BlockPos{x=-500, y=192, z=-452} length=48.0
+FD_ROLLER_ROUTE from=BlockPos{x=-500, y=192, z=-452} to=BlockPos{x=-500, y=208, z=-436} length=24.69394505251158
+FD_ROLLER_ROUTE from=BlockPos{x=-500, y=208, z=-436} to=BlockPos{x=-500, y=192, z=-420} length=24.6939450525116
+FD_ROLLER_ROUTE from=BlockPos{x=-500, y=192, z=-420} to=BlockPos{x=-500, y=176, z=-404} length=24.173220762858847
+FD_ROLLER_ROUTE from=BlockPos{x=-500, y=176, z=-404} to=BlockPos{x=-500, y=168, z=-356} length=48.66210024238493
+FD_ROLLER_ROUTE from=BlockPos{x=-500, y=168, z=-356} to=BlockPos{x=-500, y=152, z=-340} length=24.348926702599798
+FD_ROLLER_ROUTE from=BlockPos{x=-500, y=152, z=-340} to=BlockPos{x=-500, y=136, z=-356} length=24.348926702599794
+FD_ROLLER_ROUTE from=BlockPos{x=-500, y=136, z=-356} to=BlockPos{x=-500, y=128, z=-404} length=48.66210024238493
+FD_ROLLER_ROUTE from=BlockPos{x=-500, y=128, z=-404} to=BlockPos{x=-500, y=112, z=-420} length=24.173220762858833
+FD_ROLLER_ROUTE from=BlockPos{x=-500, y=112, z=-420} to=BlockPos{x=-500, y=96, z=-404} length=24.17322076285881
+FD_ROLLER_ROUTE from=BlockPos{x=-500, y=96, z=-404} to=BlockPos{x=-500, y=88, z=-356} length=48.66210024238501
+FD_ROLLER_ROUTE from=BlockPos{x=-500, y=88, z=-356} to=BlockPos{x=-500, y=72, z=-340} length=24.34892670259981
+FD_ROLLER_ROUTE from=BlockPos{x=-500, y=72, z=-340} to=BlockPos{x=-500, y=48, z=-356} length=31.481271762455744
+FD_ROLLER_ROUTE from=BlockPos{x=-500, y=48, z=-356} to=BlockPos{x=-500, y=48, z=-412} length=56.0
+FD_ROLLER_ROUTE from=BlockPos{x=-500, y=48, z=-412} to=BlockPos{x=-500, y=48, z=-468} length=56.0
+FD_ROLLER_ROUTE from=BlockPos{x=-500, y=48, z=-468} to=BlockPos{x=-500, y=48, z=-516} length=48.0
+FD_ROLLER_ROUTE from=BlockPos{x=-500, y=48, z=-516} to=BlockPos{x=-500, y=64, z=-532} length=24.693945052511555
+FD_ROLLER_ROUTE from=BlockPos{x=-500, y=64, z=-532} to=BlockPos{x=-500, y=80, z=-516} length=24.693945052511573
+FD_ROLLER_ROUTE from=BlockPos{x=-500, y=80, z=-516} to=BlockPos{x=-500, y=80, z=-500} length=16.0
+[02:52:09] [Server thread/INFO] [minecraft/GameTestServer]: [__+]
+[02:52:09] [Server thread/INFO] [minecraft/GameTestServer]: [__+]
+FD_ROLLER_BOUND edge=BlockPos{x=-700, y=100, z=-700}..BlockPos{x=-700, y=100, z=-660} valid=true saved=-6668058875863856991 native=-6668058875863856991
+FD_ROLLER_BOUND edge=BlockPos{x=-500, y=80, z=-500}..BlockPos{x=-500, y=80, z=-468} valid=true saved=-1199714622285697375 native=-1199714622285697375
+FD_ROLLER_BOUND edge=BlockPos{x=-500, y=80, z=-468}..BlockPos{x=-500, y=96, z=-452} valid=true saved=3380107239822687585 native=3380107239822687585
+FD_ROLLER_BOUND edge=BlockPos{x=-500, y=96, z=-452}..BlockPos{x=-500, y=144, z=-452} valid=true saved=-4916007205914751695 native=-4916007205914751695
+FD_ROLLER_BOUND edge=BlockPos{x=-500, y=144, z=-452}..BlockPos{x=-500, y=192, z=-452} valid=true saved=-571763932990349007 native=-571763932990349007
+FD_ROLLER_BOUND edge=BlockPos{x=-500, y=192, z=-452}..BlockPos{x=-500, y=208, z=-436} valid=true saved=-8235276513370706411 native=-8235276513370706411
+FD_ROLLER_BOUND edge=BlockPos{x=-500, y=208, z=-436}..BlockPos{x=-500, y=192, z=-420} valid=true saved=-6904392504461977529 native=-6904392504461977529
+FD_ROLLER_BOUND edge=BlockPos{x=-500, y=192, z=-420}..BlockPos{x=-500, y=176, z=-404} valid=true saved=-3073428684420747434 native=-3073428684420747434
+FD_ROLLER_BOUND edge=BlockPos{x=-500, y=176, z=-404}..BlockPos{x=-500, y=168, z=-356} valid=true saved=1975514283008350063 native=1975514283008350063
+FD_ROLLER_BOUND edge=BlockPos{x=-500, y=168, z=-356}..BlockPos{x=-500, y=152, z=-340} valid=true saved=4482359326074531826 native=4482359326074531826
+FD_ROLLER_BOUND edge=BlockPos{x=-500, y=152, z=-340}..BlockPos{x=-500, y=136, z=-356} valid=true saved=8544638327950949202 native=8544638327950949202
+FD_ROLLER_BOUND edge=BlockPos{x=-500, y=136, z=-356}..BlockPos{x=-500, y=128, z=-404} valid=true saved=-8798429125135204937 native=-8798429125135204937
+FD_ROLLER_BOUND edge=BlockPos{x=-500, y=128, z=-404}..BlockPos{x=-500, y=112, z=-420} valid=true saved=-2824866376703729978 native=-2824866376703729978
+FD_ROLLER_BOUND edge=BlockPos{x=-500, y=112, z=-420}..BlockPos{x=-500, y=96, z=-404} valid=true saved=736048219440786262 native=736048219440786262
+FD_ROLLER_BOUND edge=BlockPos{x=-500, y=96, z=-404}..BlockPos{x=-500, y=88, z=-356} valid=true saved=-5864647731366988945 native=-5864647731366988945
+FD_ROLLER_BOUND edge=BlockPos{x=-500, y=88, z=-356}..BlockPos{x=-500, y=72, z=-340} valid=true saved=-575229051807738894 native=-575229051807738894
+FD_ROLLER_BOUND edge=BlockPos{x=-500, y=72, z=-340}..BlockPos{x=-500, y=48, z=-356} valid=true saved=1341847305149771394 native=1341847305149771394
+FD_ROLLER_BOUND edge=BlockPos{x=-500, y=48, z=-356}..BlockPos{x=-500, y=48, z=-412} valid=true saved=7469180393255353529 native=7469180393255353529
+FD_ROLLER_BOUND edge=BlockPos{x=-500, y=48, z=-412}..BlockPos{x=-500, y=48, z=-468} valid=true saved=2398425542525381305 native=2398425542525381305
+FD_ROLLER_BOUND edge=BlockPos{x=-500, y=48, z=-468}..BlockPos{x=-500, y=48, z=-516} valid=true saved=2944344465645474233 native=2944344465645474233
+FD_ROLLER_BOUND edge=BlockPos{x=-500, y=48, z=-516}..BlockPos{x=-500, y=64, z=-532} valid=true saved=1532922542962665179 native=1532922542962665179
+FD_ROLLER_BOUND edge=BlockPos{x=-500, y=64, z=-532}..BlockPos{x=-500, y=80, z=-516} valid=true saved=1836751710291632661 native=1836751710291632661
+FD_ROLLER_BOUND edge=BlockPos{x=-500, y=80, z=-516}..BlockPos{x=-500, y=80, z=-500} valid=true saved=-8709536967329796959 native=-8709536967329796959
+FD_ROLLER_BOUND edge=BlockPos{x=-300, y=80, z=-300}..BlockPos{x=-300, y=80, z=-268} valid=true saved=1346275066685418145 native=1346275066685418145
+FD_ROLLER_BOUND edge=BlockPos{x=-300, y=80, z=-268}..BlockPos{x=-300, y=96, z=-252} valid=true saved=6931672719390692705 native=6931672719390692705
+FD_ROLLER_BOUND edge=BlockPos{x=-300, y=96, z=-252}..BlockPos{x=-300, y=144, z=-252} valid=true saved=-918831786289056463 native=-918831786289056463
+FD_ROLLER_BOUND edge=BlockPos{x=-300, y=144, z=-252}..BlockPos{x=-300, y=192, z=-252} valid=true saved=2863487317632307505 native=2863487317632307505
+FD_ROLLER_BOUND edge=BlockPos{x=-300, y=192, z=-252}..BlockPos{x=-300, y=208, z=-236} valid=true saved=-2204017269852067307 native=-2204017269852067307
+FD_ROLLER_BOUND edge=BlockPos{x=-300, y=208, z=-236}..BlockPos{x=-300, y=192, z=-220} valid=true saved=7991178522959091783 native=7991178522959091783
+FD_ROLLER_BOUND edge=BlockPos{x=-300, y=192, z=-220}..BlockPos{x=-300, y=176, z=-204} valid=true saved=6088787238154726230 native=6088787238154726230
+FD_ROLLER_BOUND edge=BlockPos{x=-300, y=176, z=-204}..BlockPos{x=-300, y=168, z=-156} valid=true saved=2925611348236529519 native=2925611348236529519
+FD_ROLLER_BOUND edge=BlockPos{x=-300, y=168, z=-156}..BlockPos{x=-300, y=152, z=-140} valid=true saved=-3393278801728295950 native=-3393278801728295950
+FD_ROLLER_BOUND edge=BlockPos{x=-300, y=152, z=-140}..BlockPos{x=-300, y=136, z=-156} valid=true saved=1325991204277670738 native=1325991204277670738
+FD_ROLLER_BOUND edge=BlockPos{x=-300, y=136, z=-156}..BlockPos{x=-300, y=128, z=-204} valid=true saved=-7621385582565048905 native=-7621385582565048905
+FD_ROLLER_BOUND edge=BlockPos{x=-300, y=128, z=-204}..BlockPos{x=-300, y=112, z=-220} valid=true saved=-8076520760249084218 native=-8076520760249084218
+FD_ROLLER_BOUND edge=BlockPos{x=-300, y=112, z=-220}..BlockPos{x=-300, y=96, z=-204} valid=true saved=5761604148667195222 native=5761604148667195222
+FD_ROLLER_BOUND edge=BlockPos{x=-300, y=96, z=-204}..BlockPos{x=-300, y=88, z=-156} valid=true saved=6851235821162830703 native=6851235821162830703
+FD_ROLLER_BOUND edge=BlockPos{x=-300, y=88, z=-156}..BlockPos{x=-300, y=72, z=-140} valid=true saved=3344916688286902258 native=3344916688286902258
+FD_ROLLER_BOUND edge=BlockPos{x=-300, y=72, z=-140}..BlockPos{x=-300, y=48, z=-156} valid=true saved=-3160044857534954878 native=-3160044857534954878
+FD_ROLLER_BOUND edge=BlockPos{x=-300, y=48, z=-156}..BlockPos{x=-300, y=48, z=-212} valid=true saved=-5254008299867095879 native=-5254008299867095879
+FD_ROLLER_BOUND edge=BlockPos{x=-300, y=48, z=-212}..BlockPos{x=-300, y=48, z=-268} valid=true saved=5763359891573679801 native=5763359891573679801
+FD_ROLLER_BOUND edge=BlockPos{x=-300, y=48, z=-268}..BlockPos{x=-300, y=48, z=-316} valid=true saved=-1633579138291170887 native=-1633579138291170887
+FD_ROLLER_BOUND edge=BlockPos{x=-300, y=48, z=-316}..BlockPos{x=-300, y=64, z=-332} valid=true saved=1998014298351555291 native=1998014298351555291
+FD_ROLLER_BOUND edge=BlockPos{x=-300, y=64, z=-332}..BlockPos{x=-300, y=80, z=-316} valid=true saved=4188220699813989909 native=4188220699813989909
+FD_ROLLER_BOUND edge=BlockPos{x=-300, y=80, z=-316}..BlockPos{x=-300, y=80, z=-300} valid=true saved=-6332918798004812639 native=-6332918798004812639
+[02:52:09] [Server thread/INFO] [minecraft/GameTestServer]: [__+]
+[02:52:10] [Server thread/INFO] [minecraft/GameTestServer]: [__+]
+FD_ROLLER_HINGE gap=1.244228769584232E-4 pivot=(-6.995E+2  1.023E+2 -6.875E+2)
+FD_ROLLER_EMPTY mass=11.0 inertia=11.349166669149927 com=( 2.048E+7  1.289E+2  2.048E+7)
+[02:52:10] [Server thread/INFO] [minecraft/GameTestServer]: [__+]
+[02:52:10] [Server thread/INFO] [minecraft/GameTestServer]: [__+]
+[02:52:10] [Server thread/INFO] [minecraft/GameTestServer]: [__+]
+FD_ROLLER_HINGE gap=1.5452527752353814E-4 pivot=(-6.995E+2  1.023E+2 -6.875E+2)
+[02:52:10] [Server thread/INFO] [minecraft/GameTestServer]: [__+]
+[02:52:10] [Server thread/INFO] [minecraft/GameTestServer]: [__+]
+FD_ROLLER_ROUTE_MOTION tick=200 center=(-2.995E+2  8.062E+1 -2.867E+2) speed=1.8716945866733152 phase=FREE_DESCENT pitch=3.513024781965192E-7 angle=-0.4059003702296718 omega=-0.6482708857469063 command=-0.4059003702296718 latched=false fault=
+[02:52:10] [Server thread/INFO] [minecraft/GameTestServer]: [__+]
+FD_ROLLER_HINGE gap=1.644957413916954E-4 pivot=(-6.995E+2  1.023E+2 -6.875E+2)
+FD_ROLLER_LOADED mass=14.200000000000003 inertia=12.98316667132368 angle=5.250962836311285E-12 omega=-1.8101224099733347E-11
+[02:52:10] [Server thread/INFO] [minecraft/GameTestServer]: [+_+]
+[02:52:10] [Server thread/INFO] [minecraft/GameTestServer]: [+_+]
+[02:52:10] [Server thread/INFO] [minecraft/GameTestServer]: [+_+]
+[02:52:10] [Server thread/INFO] [minecraft/GameTestServer]: [+_+]
+FD_ROLLER_ROUTE_MOTION tick=300 center=(-2.995E+2  8.062E+1 -2.767E+2) speed=1.9361742944715123 phase=FREE_DESCENT pitch=-7.77419885159775E-8 angle=-0.21954319280616533 omega=-0.263316822982815 command=-0.21954319280616533 latched=false fault=
+[02:52:10] [Server thread/INFO] [minecraft/GameTestServer]: [+_+]
+[02:52:10] [Server thread/INFO] [minecraft/GameTestServer]: [+_+]
+[02:52:10] [Server thread/INFO] [minecraft/GameTestServer]: [+_+]
+[02:52:10] [Server thread/INFO] [minecraft/GameTestServer]: [+_+]
+[02:52:10] [Server thread/INFO] [minecraft/GameTestServer]: [+_+]
+FD_ROLLER_ROUTE_MOTION tick=400 center=(-2.995E+2  8.064E+1 -2.670E+2) speed=1.2682168812772305 phase=LIFT_GUIDED pitch=0.044746352239964274 angle=-0.09931916029552759 omega=0.2240184730283731 command=-0.07502328169884322 latched=false fault=
+[02:52:10] [Server thread/INFO] [minecraft/GameTestServer]: [+_+]
+[02:52:10] [Server thread/INFO] [minecraft/GameTestServer]: [+_+]
+[02:52:10] [Server thread/INFO] [minecraft/GameTestServer]: [+_+]
+[02:52:11] [Server thread/INFO] [minecraft/GameTestServer]: [+_+]
+[02:52:11] [Server thread/INFO] [minecraft/GameTestServer]: [+_+]
+FD_ROLLER_ROUTE_MOTION tick=500 center=(-2.995E+2  8.325E+1 -2.599E+2) speed=1.1962646799018333 phase=LIFT_GUIDED pitch=0.5904115931517215 angle=-0.5799400401751809 omega=0.010947456401037206 command=-0.583823626217833 latched=false fault=
+[02:52:11] [Server thread/INFO] [minecraft/GameTestServer]: [+_+]
+[02:52:11] [Server thread/INFO] [minecraft/GameTestServer]: [+_+]
+[02:52:11] [Server thread/INFO] [minecraft/GameTestServer]: [+_+]
+[02:52:11] [Server thread/INFO] [minecraft/GameTestServer]: [+_+]
+[02:52:11] [Server thread/INFO] [minecraft/GameTestServer]: [+_+]
+FD_ROLLER_ROUTE_MOTION tick=600 center=(-2.995E+2  8.748E+1 -2.553E+2) speed=0.9261872526937844 phase=LIFT_GUIDED pitch=0.9001520657027878 angle=-0.886863435824019 omega=-0.060654965822332374 command=-0.8963583138571553 latched=false fault=
+[02:52:11] [Server thread/INFO] [minecraft/GameTestServer]: [+_+]
+[02:52:11] [Server thread/INFO] [minecraft/GameTestServer]: [+_+]
+[02:52:11] [Server thread/INFO] [minecraft/GameTestServer]: [+_+]
+[02:52:11] [Server thread/INFO] [minecraft/GameTestServer]: [+_+]
+[02:52:11] [Server thread/INFO] [minecraft/GameTestServer]: [+_+]
+FD_ROLLER_ROUTE_MOTION tick=700 center=(-2.995E+2  9.161E+1 -2.529E+2) speed=0.6011760868803637 phase=LIFT_GUIDED pitch=1.1723037686605142 angle=-1.1662586725716155 omega=0.01302301252994842 command=-1.1688035883045431 latched=false fault=
+[02:52:11] [Server thread/INFO] [minecraft/GameTestServer]: [+_+]
+[02:52:11] [Server thread/INFO] [minecraft/GameTestServer]: [+_+]
+[02:52:11] [Server thread/INFO] [minecraft/GameTestServer]: [+_+]
+[02:52:11] [Server thread/INFO] [minecraft/GameTestServer]: [+_+]
+[02:52:11] [Server thread/INFO] [minecraft/GameTestServer]: [+_+]
+FD_ROLLER_ROUTE_MOTION tick=800 center=(-2.995E+2  9.468E+1 -2.520E+2) speed=0.2757251879842483 phase=LIFT_GUIDED pitch=1.4175484099355373 angle=-1.4112056554674086 omega=-0.023802056569360974 command=-1.4151888626293654 latched=false fault=
+[02:52:11] [Server thread/INFO] [minecraft/GameTestServer]: [+_+]
+[02:52:11] [Server thread/INFO] [minecraft/GameTestServer]: [+_+]
+[02:52:11] [Server thread/INFO] [minecraft/GameTestServer]: [+_+]
+[02:52:11] [Server thread/INFO] [minecraft/GameTestServer]: [+_+]
+[02:52:11] [Server thread/INFO] [minecraft/GameTestServer]: [+_+]
+FD_ROLLER_ROUTE_MOTION tick=900 center=(-2.995E+2  9.652E+1 -2.519E+2) speed=0.6187755043657838 phase=LIFT_LOCKED pitch=1.5707944723342169 angle=-1.5569927010353781 omega=0.005939603184555822 command=-1.5707944723342169 latched=true fault=
+[02:52:11] [Server thread/INFO] [minecraft/GameTestServer]: [+_+]
+[02:52:11] [Server thread/INFO] [minecraft/GameTestServer]: [+_+]
+[02:52:11] [Server thread/INFO] [minecraft/GameTestServer]: [+_+]
+[02:52:12] [Server thread/INFO] [minecraft/GameTestServer]: [+_+]
+[02:52:12] [Server thread/INFO] [minecraft/GameTestServer]: [+_+]
+FD_ROLLER_ROUTE_MOTION tick=1000 center=(-2.995E+2  1.004E+2 -2.519E+2) speed=0.6360161381390933 phase=LIFT_LOCKED pitch=1.5707951466841055 angle=-1.567374776145213 omega=0.0014272526034016725 command=-1.5707951466841055 latched=true fault=
+[02:52:12] [Server thread/INFO] [minecraft/GameTestServer]: [+_+]
+[02:52:12] [Server thread/INFO] [minecraft/GameTestServer]: [+_+]
+[02:52:12] [Server thread/INFO] [minecraft/GameTestServer]: [+_+]
+[02:52:12] [Server thread/INFO] [minecraft/GameTestServer]: [+_+]
+[02:52:12] [Server thread/INFO] [minecraft/GameTestServer]: [+_+]
+FD_ROLLER_ROUTE_MOTION tick=1100 center=(-2.995E+2  1.042E+2 -2.519E+2) speed=0.6360845070719899 phase=LIFT_LOCKED pitch=1.5707958210333424 angle=-1.5725657591243247 omega=-0.0011846895881066422 command=-1.5707958210333424 latched=true fault=
+[02:52:12] [Server thread/INFO] [minecraft/GameTestServer]: [+_+]
+[02:52:12] [Server thread/INFO] [minecraft/GameTestServer]: [+_+]
+[02:52:12] [Server thread/INFO] [minecraft/GameTestServer]: [+_+]
+[02:52:12] [Server thread/INFO] [minecraft/GameTestServer]: [+_+]
+[02:52:12] [Server thread/INFO] [minecraft/GameTestServer]: [+_+]
+FD_ROLLER_ROUTE_MOTION tick=1200 center=(-2.995E+2  1.081E+2 -2.519E+2) speed=0.6360969026513262 phase=LIFT_LOCKED pitch=1.570796158208076 angle=-1.5734201576822668 omega=-3.114410461950044E-4 command=-1.5707961581626502 latched=true fault=
+[02:52:12] [Server thread/INFO] [minecraft/GameTestServer]: [+_+]
+[02:52:12] [Server thread/INFO] [minecraft/GameTestServer]: [+_+]
+[02:52:12] [Server thread/INFO] [minecraft/GameTestServer]: [+_+]
+[02:52:12] [Server thread/INFO] [minecraft/GameTestServer]: [+_+]
+[02:52:12] [Server thread/INFO] [minecraft/GameTestServer]: [+_+]
+FD_ROLLER_ROUTE_MOTION tick=1300 center=(-2.995E+2  1.120E+2 -2.519E+2) speed=0.6362323824380421 phase=LIFT_LOCKED pitch=1.5707959896205657 angle=-1.5737195177075534 omega=5.099585997445285E-4 command=-1.5707959896205657 latched=true fault=
+[02:52:12] [Server thread/INFO] [minecraft/GameTestServer]: [+_+]
+[02:52:12] [Server thread/INFO] [minecraft/GameTestServer]: [+_+]
+[02:52:12] [Server thread/INFO] [minecraft/GameTestServer]: [+_+]
+[02:52:12] [Server thread/INFO] [minecraft/GameTestServer]: [+_+]
+[02:52:12] [Server thread/INFO] [minecraft/GameTestServer]: [+_+]
+FD_ROLLER_ROUTE_MOTION tick=1400 center=(-2.995E+2  1.159E+2 -2.519E+2) speed=0.6362580743713204 phase=LIFT_LOCKED pitch=1.5707959896205377 angle=-1.5739182592850118 omega=2.0325566983040108E-4 command=-1.5707959896659633 latched=true fault=
+[02:52:12] [Server thread/INFO] [minecraft/GameTestServer]: [+_+]
+[02:52:12] [Server thread/INFO] [minecraft/GameTestServer]: [+_+]
+[02:52:12] [Server thread/INFO] [minecraft/GameTestServer]: [+_+]
+[02:52:13] [Server thread/INFO] [minecraft/GameTestServer]: [+_+]
+[02:52:13] [Server thread/INFO] [minecraft/GameTestServer]: [+_+]
+FD_ROLLER_ROUTE_MOTION tick=1500 center=(-2.995E+2  1.197E+2 -2.519E+2) speed=0.6361836870506781 phase=LIFT_LOCKED pitch=1.5707960739141755 angle=-1.5740732327145381 omega=5.53763832684706E-4 command=-1.5707960739141755 latched=true fault=
+[02:52:13] [Server thread/INFO] [minecraft/GameTestServer]: [+_+]
+[02:52:13] [Server thread/INFO] [minecraft/GameTestServer]: [+_+]
+[02:52:13] [Server thread/INFO] [minecraft/GameTestServer]: [+_+]
+[02:52:13] [Server thread/INFO] [minecraft/GameTestServer]: [+_+]
+[02:52:13] [Server thread/INFO] [minecraft/GameTestServer]: [+_+]
+FD_ROLLER_ROUTE_MOTION tick=1600 center=(-2.995E+2  1.236E+2 -2.519E+2) speed=0.6362412660767155 phase=LIFT_LOCKED pitch=1.5707959053268392 angle=-1.5741002519550504 omega=3.8879195222737295E-4 command=-1.5707959053268392 latched=true fault=
+[02:52:13] [Server thread/INFO] [minecraft/GameTestServer]: [+_+]
+[02:52:13] [Server thread/INFO] [minecraft/GameTestServer]: [+_+]
+[02:52:13] [Server thread/INFO] [minecraft/GameTestServer]: [+_+]
+[02:52:13] [Server thread/INFO] [minecraft/GameTestServer]: [+_+]
+[02:52:13] [Server thread/INFO] [minecraft/GameTestServer]: [+_+]
+FD_ROLLER_ROUTE_MOTION tick=1700 center=(-2.995E+2  1.246E+2 -2.519E+2) speed=0.2742342949376909 phase=HOLD pitch=1.5707964110885917 angle=-1.5741004270963659 omega=2.618614252497912E-4 command=-1.5741002656933323 latched=true fault=Roller Ball lift Chain power unavailable
+[02:52:13] [Server thread/INFO] [minecraft/GameTestServer]: [+_+]
+[02:52:13] [Server thread/ERROR] [minecraft/LogTestReporter]: liftzigzagreturnandpowerhold failed at -7312820, -60, -2678080! Power loss retains and stops lift
+[02:52:13] [Server thread/INFO] [minecraft/GameTestServer]: [+X+]
+[02:52:13] [Server thread/INFO] [minecraft/GameTestServer]: ========= 3 GAME TESTS COMPLETE IN 4.688 s ======================
+[02:52:13] [Server thread/INFO] [minecraft/GameTestServer]: 1 required tests failed :(
+[02:52:13] [Server thread/INFO] [minecraft/GameTestServer]:    - liftzigzagreturnandpowerhold
+[02:52:13] [Server thread/INFO] [minecraft/GameTestServer]: ====================================================
+[02:52:13] [Server thread/INFO] [minecraft/MinecraftServer]: Stopping server
+[02:52:13] [Server thread/INFO] [minecraft/MinecraftServer]: Saving players
+[02:52:13] [Server thread/INFO] [minecraft/MinecraftServer]: Saving worlds
+[02:52:14] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[Test Level]'/minecraft:overworld
+[02:52:14] [Server thread/INFO] [de.ry.sa.Sable/]: Saving sub-levels for level 'ServerLevel[Test Level]'/minecraft:overworld
+[02:52:16] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[Test Level]'/minecraft:the_end
+[02:52:16] [Server thread/INFO] [de.ry.sa.Sable/]: Saving sub-levels for level 'ServerLevel[Test Level]'/minecraft:the_end
+[02:52:16] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[Test Level]'/minecraft:the_nether
+[02:52:16] [Server thread/INFO] [de.ry.sa.Sable/]: Saving sub-levels for level 'ServerLevel[Test Level]'/minecraft:the_nether
+[02:52:16] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (world): All chunks are saved
+[02:52:16] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (DIM1): All chunks are saved
+[02:52:16] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
+[02:52:16] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage: All dimensions are saved
+[02:52:16] [Server thread/INFO] [minecraft/GameTestServer]: Game test server shutting down
+
+> Task :runGameTestServer FAILED
+
+[Incubating] Problems report is available at: file:///mnt/NVME4/fourthdimension-runs/fd1502-roller-ball-20261115/build/reports/problems/problems-report.html
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':runGameTestServer'.
+> Process 'command '/usr/lib/jvm/java-21-openjdk/bin/java'' finished with non-zero exit value 1
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to generate a Build Scan (powered by Develocity).
+> Get more help at https://help.gradle.org.
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 10.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/9.2.1/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD FAILED in 17s
+7 actionable tasks: 5 executed, 2 up-to-date

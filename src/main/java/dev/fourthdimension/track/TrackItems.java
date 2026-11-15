@@ -22,8 +22,13 @@ public final class TrackItems {
                   .persistent(GlobalPos.CODEC)
                   .networkSynchronized(GlobalPos.STREAM_CODEC)
                   .build());
+  public static final DeferredItem<FamilyTrackItem> ROLLER_BALL = ITEMS.register("roller_ball_track", () -> new FamilyTrackItem(new Item.Properties(), TrackDesign.ROLLER_BALL));
+  public static final DeferredItem<dev.fourthdimension.vehicle.VehicleItem> ROLLER_BALL_CAR = ITEMS.register("roller_ball_car", () -> new dev.fourthdimension.vehicle.VehicleItem(new Item.Properties().stacksTo(1), TrackDesign.ROLLER_BALL));
+  public static final DeferredItem<dev.fourthdimension.vehicle.RollerBallLiftControl> ROLLER_BALL_LIFT_CONTROL = ITEMS.register("roller_ball_lift_control", () -> new dev.fourthdimension.vehicle.RollerBallLiftControl(new Item.Properties().stacksTo(1)));
   public static final DeferredItem<FamilyTrackItem> AXIS = ITEMS.register("axis_track", () -> new FamilyTrackItem(new Item.Properties(), TrackDesign.AXIS));
   public static final DeferredItem<dev.fourthdimension.vehicle.VehicleItem> AXIS_CAR = ITEMS.register("axis_car", () -> new dev.fourthdimension.vehicle.VehicleItem(new Item.Properties().stacksTo(1), TrackDesign.AXIS));
+  public static final DeferredItem<FamilyTrackItem> NEW_GENERATION_FLYING = ITEMS.register("new_generation_flying_track", () -> new FamilyTrackItem(new Item.Properties(), TrackDesign.NEW_GENERATION_FLYING));
+  public static final DeferredItem<dev.fourthdimension.vehicle.VehicleItem> NEW_GENERATION_FLYING_CAR = ITEMS.register("new_generation_flying_car", () -> new dev.fourthdimension.vehicle.VehicleItem(new Item.Properties().stacksTo(1), TrackDesign.NEW_GENERATION_FLYING));
   public static final DeferredItem<FamilyTrackItem> FLYING = ITEMS.register("flying_track", () -> new FamilyTrackItem(new Item.Properties(), TrackDesign.FLYING));
   public static final DeferredItem<dev.fourthdimension.vehicle.VehicleItem> FLYING_CAR = ITEMS.register("flying_car", () -> new dev.fourthdimension.vehicle.VehicleItem(new Item.Properties().stacksTo(1), TrackDesign.FLYING));
   public static final DeferredItem<FamilyTrackItem> FIXED_INVERTED = ITEMS.register("fixed_inverted_track", () -> new FamilyTrackItem(new Item.Properties(), TrackDesign.FIXED_INVERTED));

@@ -33,7 +33,7 @@ public final class ExampleLayouts {
     var root = Commands.literal("fd").requires(s -> s.hasPermission(2));
     var demo = Commands.literal("demo");
     for (var design : TrackDesign.values()) {
-      if (design == TrackDesign.AXIS || design == TrackDesign.FLYING || design == TrackDesign.PAX || design == TrackDesign.SPINNING || design == TrackDesign.SUSPENDED || design == TrackDesign.FIXED_INVERTED) continue;
+      if (design == TrackDesign.ROLLER_BALL || design == TrackDesign.NEW_GENERATION_FLYING || design == TrackDesign.AXIS || design == TrackDesign.FLYING || design == TrackDesign.PAX || design == TrackDesign.SPINNING || design == TrackDesign.SUSPENDED || design == TrackDesign.FIXED_INVERTED) continue;
       demo.then(
           Commands.literal(
                   switch (design) {
@@ -47,6 +47,8 @@ public final class ExampleLayouts {
                     case FIXED_INVERTED -> "fixed_inverted";
                     case AXIS -> "axis";
                     case FLYING -> "flying";
+                    case ROLLER_BALL -> "roller_ball";
+                    case NEW_GENERATION_FLYING -> "new_generation_flying";
                   })
               .executes(
                   ctx -> {

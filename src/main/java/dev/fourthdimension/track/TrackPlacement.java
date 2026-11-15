@@ -133,6 +133,10 @@ public final class TrackPlacement {
             TrackGeometry.fingerprint(level, edge),
             0,
             true);
+    if (design == TrackDesign.NEW_GENERATION_FLYING) {
+      rail.yaw.owner = player.getUUID();
+      rail.yaw.geometry = rail.geometryHash;
+    }
     captureOriginalCurve(rail, curve);
     ((CoasterAnchorpointBlockEntity) level.getBlockEntity(edge.from()))
         .putAnchorPeerCurve(level, edge.to(), curve);
@@ -147,12 +151,16 @@ public final class TrackPlacement {
     TrackGeometry.invalidate(level);
     rail.profile = rail.profile.scaledTo(TrackGeometry.table(level, storedEdge).length());
     rail.geometryHash = TrackGeometry.fingerprint(level, storedEdge);
+    if(design == TrackDesign.NEW_GENERATION_FLYING)rail.yaw.geometry=rail.geometryHash;
     if (restoring != null) {
       // Rebuilding a missing occupied section is intentionally inert until the operator uses
       // Repair matching track. Retain the old fingerprint so that action can prove this is the
       // same geometry, rather than silently accepting a changed curve as a new binding.
       rail.profile = restoring.profile;
       rail.liftLock = restoring.liftLock;
+      rail.axisMode = restoring.axisMode;
+      rail.rollerSection = restoring.rollerSection;
+      rail.yaw = restoring.yaw;
       rail.geometryHash = restoring.geometryHash;
       rail.valid = false;
       rail.revision = restoring.revision + 1;
@@ -232,7 +240,7 @@ public final class TrackPlacement {
                     vehicle.stopping
                         && vehicle.restraints
                         && VehicleOperations.MATCHING_SUPPORT_LOST.equals(vehicle.fault)
-                        && vehicle.carriers.stream().allMatch(carrier -> carrier.capture));
+                        && (dev.fourthdimension.vehicle.RollerBallVehicle.is(vehicle) || vehicle.carriers.stream().allMatch(carrier -> carrier.capture)));
   }
 
   /**

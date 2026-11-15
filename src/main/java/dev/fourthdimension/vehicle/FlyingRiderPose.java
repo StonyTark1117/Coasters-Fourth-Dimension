@@ -14,12 +14,14 @@ public final class FlyingRiderPose {
   public static Boarding.Binding binding(Entity rider){
     if(rider==null||!rider.isAlive()||rider.getVehicle()==null)return null;
     var b=Boarding.at(rider.level(),rider.getVehicle().blockPosition());
-    return b!=null&&FlyingVehicle.is(b.vehicle())?b:null;
+    return b!=null&&(FlyingVehicle.is(b.vehicle())||NewGenerationFlyingVehicle.is(b.vehicle()))?b:null;
   }
   public static double phi(Entity entity,Function<SubLevel,Pose3dc> poses){
     var b=binding(entity);if(b==null)return Double.NaN;
     var container=SubLevelContainer.getContainer(entity.level());if(container==null)return Double.NaN;
-    var parent=container.getSubLevel(b.vehicle().chassis);var child=container.getSubLevel(b.carrier().body);
+    var parentId=NewGenerationFlyingVehicle.is(b.vehicle())?b.vehicle().yaw.deck:b.vehicle().chassis;
+    if(parentId==null)return Double.NaN;
+    var parent=container.getSubLevel(parentId);var child=container.getSubLevel(b.carrier().body);
     if(parent==null||child==null||parent.isRemoved()||child.isRemoved())return Double.NaN;
     var relative=new Quaterniond(poses.apply(parent).orientation()).conjugate().mul(poses.apply(child).orientation());
     return Math.clamp(-2*Math.atan2(relative.x,relative.w),0,Math.PI/2);

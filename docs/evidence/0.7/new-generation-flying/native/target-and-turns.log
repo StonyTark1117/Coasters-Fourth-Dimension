@@ -1,0 +1,299 @@
+> Task :createMinecraftArtifacts UP-TO-DATE
+
+> Task :compileJava
+/home/braydon/Documents/Coasters: Fourth Dimension/src/main/java/dev/fourthdimension/client/RiderComfort.java:28: warning: [removal] bus() in EventBusSubscriber has been deprecated and marked for removal
+      bus = EventBusSubscriber.Bus.MOD)
+      ^
+/home/braydon/Documents/Coasters: Fourth Dimension/src/main/java/dev/fourthdimension/client/RiderComfort.java:28: warning: [removal] Bus in EventBusSubscriber has been deprecated and marked for removal
+      bus = EventBusSubscriber.Bus.MOD)
+                              ^
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+2 warnings
+
+> Task :processResources UP-TO-DATE
+> Task :classes
+
+> Task :downloadAssets
+Loaded 131 artifacts from /mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/build/tmp/downloadAssets/nfrt_artifact_manifest.properties
+Downloading asset index 17
+Using Minecraft asset root: /home/braydon/.gradle/caches/neoformruntime/assets
+  ↓ https://piston-meta.mojang.com/v1/packages/de573f83da62843433ec9951c66feec7ed0a60a1/17.json
+
+> Task :writeGameTestServerLegacyClasspath
+> Task :prepareGameTestServerRun
+
+> Task :runGameTestServer
+WARN StatusConsoleListener Advanced terminal features are not available in this environment
+[02:47:49] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forgeserverdev, --gameDir, ., --fml.fmlVersion, 4.0.43, --fml.mcVersion, 1.21.1, --fml.neoForgeVersion, 21.1.248, --fml.neoFormVersion, 20240808.144430]
+[02:47:49] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: JVM identified as Arch Linux OpenJDK 64-Bit Server VM 21.0.13.0.3+1
+[02:47:49] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: ModLauncher 11.0.5+main.901c6ea8 starting: java version 21.0.13.0.3 by Arch Linux; OS Linux arch amd64 version 7.2.14-zen1-1-zen
+[02:47:49] [main/INFO] [ne.ne.fm.lo.ImmediateWindowHandler/]: ImmediateWindowProvider not loading because launch target is forgeserverdev
+[02:47:49] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.7 Source=union:/home/braydon/.gradle/caches/modules-2/files-2.1/net.fabricmc/sponge-mixin/0.15.2+mixin.0.8.7/2af2f021d8e02a0220dc27a7a72b4666d66d44ca/sponge-mixin-0.15.2+mixin.0.8.7.jar%2394!/ Service=ModLauncher Env=SERVER
+[02:47:49] [main/WARN] [ne.ne.ja.se.JarSelector/]: Attempted to select a dependency jar for JarJar which was passed in as source: veil. Using Mod File: /home/braydon/.gradle/caches/modules-2/files-2.1/foundry.veil/veil-neoforge-1.21.1/4.1.4/642ec0bd02213ee087d86eda553d6d79c6a04d2b/veil-neoforge-1.21.1-4.1.4.jar
+[02:47:49] [main/WARN] [ne.ne.ja.se.JarSelector/]: Attempted to select a dependency jar for JarJar which was passed in as source: sablecompanion. Using Mod File: /home/braydon/.gradle/caches/modules-2/files-2.1/dev.ryanhcode.sable-companion/sable-companion-common-1.21.1/1.6.0/370be7db705926176e05c0215ed676150c45daae/sable-companion-common-1.21.1-1.6.0.jar
+[02:47:49] [main/WARN] [ne.ne.ja.se.JarSelector/]: Attempted to select a dependency jar for JarJar which was passed in as source: library:sable_rapier. Using Mod File: /home/braydon/.gradle/caches/modules-2/files-2.1/dev.ryanhcode.sable/sable-sable_rapier-1.21.1/2.0.3/a88c0860320890144b6b44c332a2a2db3a61e189/sable-sable_rapier-1.21.1-2.0.3.jar
+[02:47:49] [main/INFO] [ne.ne.fm.lo.mo.lo.JarInJarDependencyLocator/]: Found 4 dependencies adding them to mods collection
+[02:47:49] [main/INFO] [ne.ne.fm.lo.mo.ModDiscoverer/]: 
+     Mod List:
+		Name Version (Mod Id)
+
+		Coasters: Fourth Dimension 0.9.0-dev.27 (fourthdimension)
+		Create 6.0.10 (create)
+		Create: Coasters Simulated 0.1.5 (simulatedcoasters)
+		Flywheel 1.0.6 (flywheel)
+		Minecraft 1.21.1 (minecraft)
+		NeoForge 21.1.248 (neoforge)
+		Ponder 1.0.82+mc1.21.1 (ponder)
+		Sable 2.0.3 (sable)
+		Sable Companion 1.6.0 (sablecompanion)
+		Veil 4.1.4 (veil)
+[02:47:49] [main/INFO] [mixin/]: Compatibility level set to JAVA_21
+[02:47:49] [main/INFO] [cp.mo.mo.LaunchServiceHandler/MODLAUNCHER]: Launching target 'forgeserverdev' with arguments [--gameDir, .]
+[02:47:49] [main/WARN] [mixin/]: Reference map 'ponder.refmap.json' for ponder-common.mixins.json could not be read. If this is a development environment you can ignore this message
+[02:47:49] [main/INFO] [de.ry.sa.mi.AbstractSableMixinPlugin/]: Using Vanilla renderer mixins
+[02:47:49] [main/INFO] [de.ry.sa.mi.AbstractSableMixinPlugin/]: Using Vanilla renderer mixins
+[02:47:49] [main/WARN] [mixin/]: Error loading class: dev/simulated_team/simulated/content/blocks/merging_glue/MergingGlueBlockEntity (java.lang.ClassNotFoundException: dev.simulated_team.simulated.content.blocks.merging_glue.MergingGlueBlockEntity)
+[02:47:49] [main/WARN] [mixin/]: @Mixin target dev.simulated_team.simulated.content.blocks.merging_glue.MergingGlueBlockEntity was not found simulatedcoasters.mixins.json:compat.MergingGlueBlockEntityRivetMixin from mod simulatedcoasters
+[02:47:49] [main/ERROR] [ne.ne.fm.co.as.RuntimeDistCleaner/DISTXFORM]: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER
+[02:47:49] [main/WARN] [mixin/]: Error loading class: net/minecraft/client/multiplayer/ClientLevel (java.lang.RuntimeException: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER)
+[02:47:49] [main/ERROR] [ne.ne.fm.co.as.RuntimeDistCleaner/DISTXFORM]: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER
+[02:47:49] [main/WARN] [mixin/]: Error loading class: net/minecraft/client/multiplayer/ClientLevel (java.lang.RuntimeException: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER)
+[02:47:49] [main/ERROR] [ne.ne.fm.co.as.RuntimeDistCleaner/DISTXFORM]: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER
+[02:47:49] [main/WARN] [mixin/]: Error loading class: net/minecraft/client/multiplayer/ClientLevel (java.lang.RuntimeException: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER)
+[02:47:49] [main/WARN] [mixin/]: Error loading class: dev/jwaterfall/coastersengineered/MotorDrive (java.lang.ClassNotFoundException: dev.jwaterfall.coastersengineered.MotorDrive)
+[02:47:49] [main/WARN] [mixin/]: Error loading class: dev/jwaterfall/coastersengineered/CartAssembly (java.lang.ClassNotFoundException: dev.jwaterfall.coastersengineered.CartAssembly)
+[02:47:50] [main/WARN] [mixin/]: Error loading class: org/jetbrains/annotations/ApiStatus$ScheduledForRemoval (java.lang.ClassNotFoundException: org.jetbrains.annotations.ApiStatus$ScheduledForRemoval)
+[02:47:50] [main/ERROR] [ne.ne.fm.co.as.RuntimeDistCleaner/DISTXFORM]: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER
+[02:47:50] [main/WARN] [mixin/]: Error loading class: net/minecraft/client/multiplayer/ClientLevel (java.lang.RuntimeException: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER)
+[02:47:50] [main/ERROR] [ne.ne.fm.co.as.RuntimeDistCleaner/DISTXFORM]: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER
+[02:47:50] [main/WARN] [mixin/]: Error loading class: net/minecraft/client/multiplayer/ClientLevel (java.lang.RuntimeException: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER)
+[02:47:50] [main/ERROR] [ne.ne.fm.co.as.RuntimeDistCleaner/DISTXFORM]: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER
+[02:47:50] [main/WARN] [mixin/]: Error loading class: net/minecraft/client/multiplayer/ClientLevel (java.lang.RuntimeException: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER)
+[02:47:50] [main/ERROR] [ne.ne.fm.co.as.RuntimeDistCleaner/DISTXFORM]: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER
+[02:47:50] [main/WARN] [mixin/]: Error loading class: net/minecraft/client/multiplayer/ClientLevel (java.lang.RuntimeException: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER)
+[02:47:50] [main/ERROR] [ne.ne.fm.co.as.RuntimeDistCleaner/DISTXFORM]: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER
+[02:47:50] [main/WARN] [mixin/]: Error loading class: net/minecraft/client/multiplayer/ClientLevel (java.lang.RuntimeException: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER)
+[02:47:50] [main/ERROR] [ne.ne.fm.co.as.RuntimeDistCleaner/DISTXFORM]: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER
+[02:47:50] [main/WARN] [mixin/]: Error loading class: net/minecraft/client/multiplayer/ClientLevel (java.lang.RuntimeException: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER)
+[02:47:50] [main/INFO] [MixinExtras|Service/]: Initializing MixinExtras via com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.5.3).
+[02:47:50] [main/ERROR] [ne.ne.fm.co.as.RuntimeDistCleaner/DISTXFORM]: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER
+[02:47:50] [main/WARN] [mixin/]: Error loading class: net/minecraft/client/multiplayer/ClientLevel (java.lang.RuntimeException: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER)
+[02:47:50] [main/ERROR] [ne.ne.fm.co.as.RuntimeDistCleaner/DISTXFORM]: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER
+[02:47:50] [main/WARN] [mixin/]: Error loading class: net/minecraft/client/multiplayer/ClientLevel (java.lang.RuntimeException: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER)
+[02:47:50] [main/ERROR] [ne.ne.fm.co.as.RuntimeDistCleaner/DISTXFORM]: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER
+[02:47:50] [main/WARN] [mixin/]: Error loading class: net/minecraft/client/multiplayer/ClientLevel (java.lang.RuntimeException: Attempted to load class net/minecraft/client/multiplayer/ClientLevel for invalid dist DEDICATED_SERVER)
+[02:47:52] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, location] and [teleport, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+[02:47:52] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, location] and [teleport, targets] with inputs: [0.1 -0.5 .9, 0 0 0]
+[02:47:52] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, destination] and [teleport, targets] with inputs: [Player, 0123, @e, dd12be42-52a9-4a91-a8a1-11c01849e498]
+[02:47:52] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, targets] and [teleport, destination] with inputs: [Player, 0123, dd12be42-52a9-4a91-a8a1-11c01849e498]
+[02:47:52] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, targets, location] and [teleport, targets, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+[02:47:52] [modloading-worker-0/INFO] [Veil/]: Veil is initializing.
+[02:47:52] [modloading-worker-0/INFO] [ne.ne.ne.co.NeoForgeMod/NEOFORGE-MOD]: NeoForge mod loading, version 21.1.248, for MC 1.21.1
+[02:47:52] [modloading-worker-0/INFO] [co.si.cr.Create/]: Create 6.0.10 initializing! Commit hash: ac0c444d9828da3453ae8cc65338e8de063286fb
+[02:47:53] [modloading-worker-0/INFO] [de.ry.sa.Sable/]: Sable loaded!
+[02:47:53] [modloading-worker-0/INFO] [de.fo.FourthDimension/]: Coasters: Fourth Dimension loaded from union:/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/build/classes/java/main/%23127!/
+[02:47:54] [main/INFO] [mojang/YggdrasilAuthenticationService]: Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, name=PROD]
+[02:47:54] [NeoForge Version Check/INFO] [ne.ne.fm.VersionChecker/]: [create] Starting version check at https://api.modrinth.com/updates/create/forge_updates.json?neoforge=only
+[02:47:54] [main/WARN] [minecraft/VanillaPackResourcesBuilder]: Assets URL 'union:/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/build/moddev/artifacts/neoforge-21.1.248.jar%23125!/assets/.mcassetsroot' uses unexpected schema
+[02:47:54] [main/WARN] [minecraft/VanillaPackResourcesBuilder]: Assets URL 'union:/mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/build/moddev/artifacts/neoforge-21.1.248.jar%23125!/data/.mcassetsroot' uses unexpected schema
+[02:47:54] [main/INFO] [co.si.cr.Create/]: Created 157 recipes which will be injected into the game
+[02:47:54] [main/INFO] [co.si.cr.Create/]: Created 0 tags which will be injected into the game
+[02:47:54] [main/INFO] [ne.ne.ne.ga.GameTestHooks/]: Enabled Gametest Namespaces: [fourthdimension_fd1802_route]
+[02:47:54] [NeoForge Version Check/INFO] [ne.ne.fm.VersionChecker/]: [create] Found status: OUTDATED Current: 6.0.10 Target: 6.0.10+mc1.21.1
+[02:47:55] [main/INFO] [minecraft/RecipeManager]: Loaded 2855 recipes
+[02:47:55] [main/INFO] [minecraft/AdvancementTree]: Loaded 2522 advancements
+[02:47:55] [Server thread/INFO] [de.ry.sa.Sable/]: Creating physics pipeline for ResourceKey[minecraft:dimension / minecraft:overworld] using RapierPhysicsPipelineProvider
+[2026-11-15T09:47:55.876590451Z] [[32mINFO[0m] (sable_rapier) Rapier scene initialized
+[02:47:56] [Server thread/INFO] [de.ry.sa.Sable/]: Creating physics pipeline for ResourceKey[minecraft:dimension / minecraft:the_end] using RapierPhysicsPipelineProvider
+[2026-11-15T09:47:56.090428035Z] [[32mINFO[0m] (sable_rapier) Rapier scene initialized
+[02:47:56] [Server thread/INFO] [de.ry.sa.Sable/]: Creating physics pipeline for ResourceKey[minecraft:dimension / minecraft:the_nether] using RapierPhysicsPipelineProvider
+[2026-11-15T09:47:56.110612321Z] [[32mINFO[0m] (sable_rapier) Rapier scene initialized
+[02:47:56] [Server thread/INFO] [minecraft/MinecraftServer]: Preparing start region for dimension minecraft:overworld
+[02:47:56] [worldgen/INFO] [minecraft/LoggerChunkProgressListener]: Preparing spawn area: 2%
+[02:47:56] [Server thread/INFO] [minecraft/LoggerChunkProgressListener]: Time elapsed: 90 ms
+[02:47:56] [Server thread/INFO] [minecraft/GameTestServer]: Started game test server
+[02:47:56] [Server thread/INFO] [ne.ne.ne.se.pe.PermissionAPI/]: Successfully initialized permission handler neoforge:default_handler
+[02:47:56] [Server thread/INFO] [minecraft/GameTestServer]: 1 tests are now running at position -14794862, -59, 10144403!
+[02:47:56] [Server thread/INFO] [minecraft/GameTestRunner]: Running test batch 'defaultBatch:0' (1 tests)...
+[02:47:56] [Server thread/INFO] [minecraft/GameTestServer]: [ ]
+[02:47:56] [Server thread/INFO] [minecraft/GameTestServer]: [ ]
+[02:47:57] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[02:47:57] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[02:47:57] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[02:47:57] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[02:47:57] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_NG_ROUTE tick=100 bank=0 psi=0.46364803978211167 omega=-4.269403924506143E-6 phi=-8.261047405439784E-13 phiDot=-7.264225036924261E-14 lock=SEATED mode=TARGET status=TARGET_VALID fault=
+FD_NG_ROUTE tick=100 bank=90 psi=0.4720369100684693 omega=-3.075791055032882E-6 phi=8.341376933825057E-5 phiDot=8.927365049708745E-5 lock=SEATED mode=TARGET status=TARGET_VALID fault=
+FD_NG_ROUTE tick=100 bank=180 psi=0.46364803999219434 omega=-4.266975539901588E-6 phi=2.1112743246912894E-12 phiDot=-1.13880239687384E-11 lock=SEATED mode=TARGET status=TARGET_VALID fault=
+[02:47:57] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[02:47:57] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[02:47:58] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[02:47:58] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_NG_TARGET phase=seated dot=0.9999999999999172 phi=-7.829715195917484E-13
+FD_NG_TARGET phase=seated dot=0.9999999171875901 phi=1.3299343906526714E-4
+FD_NG_TARGET phase=seated dot=0.9999999999999211 phi=7.991761900083426E-12
+[02:47:58] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_NG_ROUTE tick=200 bank=0 psi=0.46364695379123055 omega=6.065766128308916E-6 phi=0.011454765582857199 phiDot=-0.06576316334410216 lock=NONE mode=TARGET status=TARGET_VALID fault=
+FD_NG_ROUTE tick=200 bank=90 psi=0.4720796016694437 omega=2.523164211086045E-4 phi=0.013616716004587501 phiDot=-0.05744582292943377 lock=NONE mode=TARGET status=TARGET_VALID fault=
+FD_NG_ROUTE tick=200 bank=180 psi=0.46364683569460113 omega=2.000728474438169E-6 phi=0.011511575172917798 phiDot=-0.06589049508295511 lock=NONE mode=TARGET status=TARGET_VALID fault=
+[02:47:58] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[02:47:58] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[02:47:58] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[02:47:58] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[02:47:58] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_NG_ROUTE tick=300 bank=0 psi=0.46532497150248653 omega=7.5620285025922E-4 phi=0.8597572919137 phiDot=-0.18181029576006918 lock=NONE mode=TARGET status=TARGET_VALID fault=
+FD_NG_ROUTE tick=300 bank=90 psi=0.4779452987387798 omega=8.241938094621011E-4 phi=0.8629433914523431 phiDot=-0.1822478707570984 lock=NONE mode=TARGET status=TARGET_VALID fault=
+FD_NG_ROUTE tick=300 bank=180 psi=0.4653081356271523 omega=7.420240433408157E-4 phi=0.8652079930770229 phiDot=-0.17389363282954773 lock=NONE mode=TARGET status=TARGET_VALID fault=
+[02:47:58] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[02:47:58] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[02:47:58] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[02:47:59] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[02:47:59] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_NG_ROUTE tick=400 bank=0 psi=0.46613277054639796 omega=5.056505199529379E-4 phi=1.5522126064520259 phiDot=-5.888351668140624E-4 lock=PRONE mode=TARGET status=TARGET_VALID fault=
+FD_NG_ROUTE tick=400 bank=90 psi=0.48033299362967213 omega=-7.278742645908235E-4 phi=1.5544373711069983 phiDot=-0.011049206957967284 lock=PRONE mode=TARGET status=TARGET_VALID fault=
+FD_NG_ROUTE tick=400 bank=180 psi=0.46600286359894316 omega=5.789940129321447E-4 phi=1.5592006496384696 phiDot=0.0014294738197418962 lock=PRONE mode=TARGET status=TARGET_VALID fault=
+[02:47:59] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_NG_TARGET phase=prone dot=0.9999999953475296 phi=1.5522185517193376
+FD_NG_TARGET phase=prone dot=0.9999832230102824 phi=1.554341311768973
+FD_NG_TARGET phase=prone dot=0.9999999875180765 phi=1.5592463874207088
+[02:47:59] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[02:47:59] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[02:47:59] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[02:47:59] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_NG_ROUTE tick=500 bank=0 psi=0.4661325084041893 omega=5.061574371226144E-4 phi=1.5523198651503034 phiDot=-5.815979933469918E-4 lock=PRONE mode=TARGET status=TARGET_VALID fault=
+FD_NG_ROUTE tick=500 bank=90 psi=0.4803392253338603 omega=-7.770264848289419E-4 phi=1.5543526810496662 phiDot=-1.6506038240121404E-4 lock=PRONE mode=TARGET status=TARGET_VALID fault=
+FD_NG_ROUTE tick=500 bank=180 psi=0.46600303307472946 omega=5.782978644503244E-4 phi=1.5595674067842977 phiDot=0.0032867838021706968 lock=PRONE mode=TARGET status=TARGET_VALID fault=
+[02:47:59] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[02:47:59] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[02:47:59] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[02:47:59] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[02:47:59] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_NG_TARGET phase=restored target dot=0.9999999953509078 phi=1.5523196717012686
+FD_NG_TARGET phase=restored target dot=0.9999832225241286 phi=1.5543487205753246
+FD_NG_TARGET phase=restored target dot=0.9999999875549027 phi=1.559843869925476
+FD_NG_ROUTE tick=600 bank=0 psi=0.46613248601460283 omega=5.061340507011114E-4 phi=1.5523196717012686 phiDot=-5.816023520951788E-4 lock=PRONE mode=PROFILE status=READY fault=
+FD_NG_ROUTE tick=600 bank=90 psi=0.48033897380910234 omega=-7.729319734400531E-4 phi=1.5543487205753246 phiDot=-1.654352893187146E-4 lock=PRONE mode=TARGET status=TARGET_VALID fault=
+FD_NG_ROUTE tick=600 bank=180 psi=0.46600316945868653 omega=5.783526720345074E-4 phi=1.559843869925476 phiDot=0.002768676611322547 lock=PRONE mode=TARGET status=TARGET_VALID fault=
+[02:47:59] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[02:48:00] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[02:48:00] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[02:48:00] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[02:48:00] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_NG_ROUTE tick=700 bank=0 psi=2.442166050574001 omega=0.4489337606233693 phi=1.5523118003448881 phiDot=-5.925258163236441E-4 lock=PRONE mode=PROFILE status=READY fault=
+FD_NG_ROUTE tick=700 bank=90 psi=0.48033890445096367 omega=-7.728345995361321E-4 phi=1.554352437024499 phiDot=-1.6511087927597706E-4 lock=PRONE mode=TARGET status=TARGET_VALID fault=
+FD_NG_ROUTE tick=700 bank=180 psi=0.46600334196000903 omega=5.778741656425003E-4 phi=1.5600672154241964 phiDot=0.005417976383279744 lock=PRONE mode=TARGET status=TARGET_VALID fault=
+[02:48:00] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[02:48:00] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[02:48:00] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[02:48:00] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[02:48:00] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_NG_ROUTE tick=800 bank=0 psi=4.693289798476302 omega=0.4486628679464914 phi=1.5523429262823163 phiDot=-6.020498939780323E-4 lock=PRONE mode=PROFILE status=READY fault=
+FD_NG_ROUTE tick=800 bank=90 psi=0.4803389742414424 omega=-7.7306300231642E-4 phi=1.5543530007758681 phiDot=-1.649190947447692E-4 lock=PRONE mode=TARGET status=TARGET_VALID fault=
+FD_NG_ROUTE tick=800 bank=180 psi=0.4660033582472189 omega=5.777934025073813E-4 phi=1.560067215419996 phiDot=0.005417978729356729 lock=PRONE mode=TARGET status=TARGET_VALID fault=
+[02:48:00] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[02:48:00] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[02:48:00] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[02:48:01] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[02:48:01] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_NG_ROUTE tick=900 bank=0 psi=6.942080372022929 omega=0.4502410977811465 phi=1.552375202429579 phiDot=-5.174675199997581E-4 lock=PRONE mode=PROFILE status=READY fault=
+FD_NG_ROUTE tick=900 bank=90 psi=0.48033899002954666 omega=-7.728368908167504E-4 phi=1.5543481421894028 phiDot=-1.6556068168599054E-4 lock=PRONE mode=TARGET status=TARGET_VALID fault=
+FD_NG_ROUTE tick=900 bank=180 psi=0.466003330853544 omega=5.780467804628991E-4 phi=1.5600672154230562 phiDot=0.005417977847099959 lock=PRONE mode=TARGET status=TARGET_VALID fault=
+[02:48:01] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[02:48:01] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[02:48:01] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[02:48:01] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[02:48:01] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_NG_ROUTE tick=1000 bank=0 psi=9.1919892138457 omega=0.4500231262557384 phi=1.5523884368800631 phiDot=-8.401857941489751E-4 lock=PRONE mode=PROFILE status=READY fault=
+FD_NG_ROUTE tick=1000 bank=90 psi=0.48033890382745503 omega=-7.726127785517353E-4 phi=1.554342798850033 phiDot=-1.6602908026461973E-4 lock=PRONE mode=TARGET status=TARGET_VALID fault=
+FD_NG_ROUTE tick=1000 bank=180 psi=0.4660033470931687 omega=5.777807568984114E-4 phi=1.5600672154256208 phiDot=0.005417977121716979 lock=PRONE mode=TARGET status=TARGET_VALID fault=
+[02:48:01] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[02:48:01] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[02:48:01] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[02:48:01] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[02:48:01] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_NG_ROUTE tick=1100 bank=0 psi=11.44300062930938 omega=0.4488547247372635 phi=1.5523738033186294 phiDot=-6.204101862544963E-4 lock=PRONE mode=PROFILE status=READY fault=
+FD_NG_ROUTE tick=1100 bank=90 psi=0.48033892813773127 omega=-7.729749329613986E-4 phi=1.5543500364532885 phiDot=-1.6529236727060977E-4 lock=PRONE mode=TARGET status=TARGET_VALID fault=
+FD_NG_ROUTE tick=1100 bank=180 psi=0.4660033634443843 omega=5.778387608338495E-4 phi=1.5600672154234088 phiDot=0.005417978598586497 lock=PRONE mode=TARGET status=TARGET_VALID fault=
+[02:48:02] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[02:48:02] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[02:48:02] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[02:48:02] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[02:48:02] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_NG_ROUTE tick=1200 bank=0 psi=12.566323182348544 omega=-5.907148049429712E-4 phi=1.55239562733999 phiDot=-5.781058119898508E-4 lock=PRONE mode=PROFILE status=READY fault=
+FD_NG_ROUTE tick=1200 bank=90 psi=0.4803389314163321 omega=-7.728002837989609E-4 phi=1.5543434577351183 phiDot=-1.660138761530141E-4 lock=PRONE mode=TARGET status=TARGET_VALID fault=
+FD_NG_ROUTE tick=1200 bank=180 psi=0.4660033359624386 omega=5.779351963741156E-4 phi=1.5600672154257935 phiDot=0.005417978505028485 lock=PRONE mode=TARGET status=TARGET_VALID fault=
+[02:48:02] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[02:48:02] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[02:48:02] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[02:48:02] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[02:48:02] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_NG_ROUTE tick=1300 bank=0 psi=12.566323182629926 omega=-5.906985504545031E-4 phi=1.5523956273399904 phiDot=-5.781058119843509E-4 lock=PRONE mode=SHOW_STOP status=AWAIT_SHOW_ACK fault=
+FD_NG_ROUTE tick=1300 bank=90 psi=0.48033895773900026 omega=-7.747718853979212E-4 phi=1.554348747528146 phiDot=-1.6566071221072845E-4 lock=PRONE mode=TARGET status=TARGET_VALID fault=
+FD_NG_ROUTE tick=1300 bank=180 psi=0.4660033522644632 omega=5.778597146842494E-4 phi=1.5600672154322883 phiDot=0.0054179773571014275 lock=PRONE mode=TARGET status=TARGET_VALID fault=
+[02:48:02] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[02:48:02] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[02:48:02] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[02:48:02] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[02:48:03] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_NG_ROUTE tick=1400 bank=0 psi=12.566323176020585 omega=-5.906779158400411E-4 phi=1.5523956273363524 phiDot=-5.781049970791066E-4 lock=PRONE mode=SHOW_STOP status=AWAIT_SHOW_ACK fault=
+FD_NG_ROUTE tick=1400 bank=90 psi=0.480338588980144 omega=-7.717857532189617E-4 phi=1.554339523078095 phiDot=-1.933839797897228E-4 lock=PRONE mode=TARGET status=TARGET_VALID fault=
+FD_NG_ROUTE tick=1400 bank=180 psi=0.4660033248489107 omega=5.78020397838031E-4 phi=1.5600672154182567 phiDot=0.0054179767613103235 lock=PRONE mode=TARGET status=TARGET_VALID fault=
+[02:48:03] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[02:48:03] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[02:48:03] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[02:48:03] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[02:48:03] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_NG_ROUTE tick=1500 bank=0 psi=12.566323169813014 omega=-5.906567864591364E-4 phi=1.5523956273399901 phiDot=-5.781053463288398E-4 lock=PRONE mode=SHOW_STOP status=AWAIT_SHOW_ACK fault=
+FD_NG_ROUTE tick=1500 bank=90 psi=0.4803388640428006 omega=-7.726949348946365E-4 phi=1.5543523333864355 phiDot=-1.6519256155831397E-4 lock=PRONE mode=TARGET status=TARGET_VALID fault=
+FD_NG_ROUTE tick=1500 bank=180 psi=0.4660033411082531 omega=5.778785021142153E-4 phi=1.5600672154254935 phiDot=0.005417977391835415 lock=PRONE mode=TARGET status=TARGET_VALID fault=
+[02:48:03] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[02:48:03] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[02:48:03] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[02:48:03] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[02:48:03] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+FD_NG_ROUTE tick=1600 bank=0 psi=12.566323164276167 omega=-5.906339545057221E-4 phi=1.5523956273399904 phiDot=-5.78106277651881E-4 lock=PRONE mode=SHOW_STOP status=AWAIT_SHOW_ACK fault=
+FD_NG_ROUTE tick=1600 bank=90 psi=0.48033898237988837 omega=-7.724132210014109E-4 phi=1.5543552418926934 phiDot=-0.006416623945243028 lock=PRONE mode=TARGET status=TARGET_VALID fault=
+FD_NG_ROUTE tick=1600 bank=180 psi=0.4660033574211206 omega=5.777967203499855E-4 phi=1.5600672154218185 phiDot=0.005417976939866055 lock=PRONE mode=TARGET status=TARGET_VALID fault=
+[02:48:03] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[02:48:03] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[02:48:04] [Server thread/INFO] [minecraft/GameTestServer]: [_]
+[02:48:04] [Server thread/ERROR] [minecraft/LogTestReporter]: targetwindingandshow failed at -14794862, -60, 10144403! Tick show actual yaw: 12.56632316016405 / 
+[02:48:04] [Server thread/INFO] [minecraft/GameTestServer]: [X]
+[02:48:04] [Server thread/INFO] [minecraft/GameTestServer]: ========= 1 GAME TESTS COMPLETE IN 7.776 s ======================
+[02:48:04] [Server thread/INFO] [minecraft/GameTestServer]: 1 required tests failed :(
+[02:48:04] [Server thread/INFO] [minecraft/GameTestServer]:    - targetwindingandshow
+[02:48:04] [Server thread/INFO] [minecraft/GameTestServer]: ====================================================
+[02:48:04] [Server thread/INFO] [minecraft/MinecraftServer]: Stopping server
+[02:48:04] [Server thread/INFO] [minecraft/MinecraftServer]: Saving players
+[02:48:04] [Server thread/INFO] [minecraft/MinecraftServer]: Saving worlds
+[02:48:04] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[Test Level]'/minecraft:overworld
+[02:48:04] [Server thread/INFO] [de.ry.sa.Sable/]: Saving sub-levels for level 'ServerLevel[Test Level]'/minecraft:overworld
+[02:48:16] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[Test Level]'/minecraft:the_end
+[02:48:16] [Server thread/INFO] [de.ry.sa.Sable/]: Saving sub-levels for level 'ServerLevel[Test Level]'/minecraft:the_end
+[02:48:16] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[Test Level]'/minecraft:the_nether
+[02:48:16] [Server thread/INFO] [de.ry.sa.Sable/]: Saving sub-levels for level 'ServerLevel[Test Level]'/minecraft:the_nether
+[02:48:16] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (world): All chunks are saved
+[02:48:16] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (DIM1): All chunks are saved
+[02:48:16] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
+[02:48:16] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage: All dimensions are saved
+[02:48:16] [Server thread/INFO] [minecraft/GameTestServer]: Game test server shutting down
+
+> Task :runGameTestServer FAILED
+
+[Incubating] Problems report is available at: file:///mnt/NVME4/fourthdimension-runs/fd1802-new-generation-20261115/build/reports/problems/problems-report.html
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':runGameTestServer'.
+> Process 'command '/usr/lib/jvm/java-21-openjdk/bin/java'' finished with non-zero exit value 1
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to generate a Build Scan (powered by Develocity).
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 30s
+7 actionable tasks: 5 executed, 2 up-to-date

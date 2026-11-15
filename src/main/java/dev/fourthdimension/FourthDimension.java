@@ -13,6 +13,7 @@ public final class FourthDimension {
   public FourthDimension(IEventBus bus, net.neoforged.fml.ModContainer container) {
     container.registerConfig(net.neoforged.fml.config.ModConfig.Type.CLIENT, RiderComfortSettings.SPEC);
     RuntimePerformanceRecorder.register();
+    dev.fourthdimension.vehicle.YawMarkers.register(bus);
     dev.fourthdimension.integration.create.CreateIntegration.register(bus);
     dev.fourthdimension.shuttle.ShuttleContent.registerItem();
     dev.fourthdimension.station.StationContent.registerItem();
@@ -32,6 +33,7 @@ public final class FourthDimension {
     dev.fourthdimension.track.TrackItems.COMPONENTS.register(bus);
     NeoForge.EVENT_BUS.addListener(dev.fourthdimension.track.TrackPlacement::tick);
     bus.addListener(FoundationSync::register);
+    bus.addListener(dev.fourthdimension.runtime.RestoredLookSync::register);
     bus.addListener(dev.fourthdimension.editor.EditorNetwork::register);
     NeoForge.EVENT_BUS.addListener(PrototypeFixture::register);
     NeoForge.EVENT_BUS.addListener(dev.fourthdimension.runtime.ValidationCommands::register);
@@ -39,7 +41,9 @@ public final class FourthDimension {
     NeoForge.EVENT_BUS.addListener(dev.fourthdimension.vehicle.WingExamples::register);
     NeoForge.EVENT_BUS.addListener(dev.fourthdimension.vehicle.SpinningExamples::register);
     NeoForge.EVENT_BUS.addListener(dev.fourthdimension.vehicle.AxisExamples::register);
+    NeoForge.EVENT_BUS.addListener(dev.fourthdimension.vehicle.RollerBallExamples::register);
     NeoForge.EVENT_BUS.addListener(dev.fourthdimension.vehicle.FlyingExamples::register);
+    NeoForge.EVENT_BUS.addListener(dev.fourthdimension.vehicle.NewGenerationFlyingExamples::register);
     NeoForge.EVENT_BUS.addListener(dev.fourthdimension.vehicle.FlyingExamples::tick);
     NeoForge.EVENT_BUS.addListener(dev.fourthdimension.vehicle.FixedInvertedExamples::register);
     NeoForge.EVENT_BUS.addListener(dev.fourthdimension.vehicle.FixedInvertedExamples::tick);

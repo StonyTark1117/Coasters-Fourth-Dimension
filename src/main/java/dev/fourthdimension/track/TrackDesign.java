@@ -16,7 +16,9 @@ public enum TrackDesign {
   SUSPENDED(Family.SUSPENDED, "lateral_swing_v1", 0xe88132),
   FIXED_INVERTED(Family.FIXED_INVERTED, "four_abreast_v1", 0x8558ac),
   AXIS(Family.AXIS, "longitudinal_roll_v1", 0x25b7ba),
-  FLYING(Family.FLYING, "station_changeover_v1", 0x379ba6);
+  FLYING(Family.FLYING, "station_changeover_v1", 0x379ba6),
+  NEW_GENERATION_FLYING(Family.FLYING, "route_changeover_yaw_v1", 0x705ed6),
+  ROLLER_BALL(Family.ROLLER_BALL, "vertical_zigzag_v1", 0x92b83d);
   // Coasters 0.1.5 wheel renderer: path anchor .3125 + compensation .1875 + axle .1.
   // Main and upstop wheel rows are .55 apart, each with nominal radius .2.
   public static final double HALF_GAUGE = .772;
@@ -47,9 +49,11 @@ public enum TrackDesign {
     this.color = color;
   }
 
-  public boolean overhead() { return this == SUSPENDED || this == FIXED_INVERTED || this == FLYING; }
+  public boolean overhead() { return this == SUSPENDED || this == FIXED_INVERTED || this == FLYING || this == NEW_GENERATION_FLYING; }
 
   public NativeTrackFit nativeFit() {
+    if (this == NEW_GENERATION_FLYING) return dev.fourthdimension.vehicle.NewGenerationFlyingVehicle.FIT;
+    if (this == ROLLER_BALL) return dev.fourthdimension.vehicle.RollerBallVehicle.FIT;
     if (this == AXIS) return dev.fourthdimension.vehicle.AxisVehicle.FIT;
     if (this == FLYING) return dev.fourthdimension.vehicle.FlyingVehicle.FIT;
     if (this == FIXED_INVERTED) return dev.fourthdimension.vehicle.FixedInvertedVehicle.FIT;
@@ -67,7 +71,9 @@ public enum TrackDesign {
         family,
         variant,
         new Gear(2 * HALF_GAUGE, WHEEL_RADIUS, TREAD_OUTER, WHEEL_ROW_SPACING),
-        this == AXIS ? Set.of(Mechanism.ROTARY_CLEARANCE, Mechanism.STATION_CAPTURE, Mechanism.ROTATION_DRIVE, Mechanism.LIFT_LOCK)
+        this == ROLLER_BALL ? Set.of(Mechanism.ROTARY_CLEARANCE, Mechanism.STATION_CAPTURE, Mechanism.LIFT_LOCK)
+            : this == NEW_GENERATION_FLYING ? Set.of(Mechanism.ROTARY_CLEARANCE, Mechanism.STATION_CAPTURE, Mechanism.OVERHEAD_MOUNT, Mechanism.POSTURE_LOCK, Mechanism.YAW)
+            : this == AXIS ? Set.of(Mechanism.ROTARY_CLEARANCE, Mechanism.STATION_CAPTURE, Mechanism.ROTATION_DRIVE, Mechanism.LIFT_LOCK)
             : this == FLYING ? Set.of(Mechanism.ROTARY_CLEARANCE, Mechanism.STATION_CAPTURE, Mechanism.OVERHEAD_MOUNT, Mechanism.POSTURE_LOCK)
             : this == FIXED_INVERTED ? Set.of(Mechanism.OVERHEAD_MOUNT, Mechanism.STATION_CAPTURE)
             : overhead() ? Set.of(Mechanism.ROTARY_CLEARANCE,Mechanism.STATION_CAPTURE,Mechanism.OVERHEAD_MOUNT,Mechanism.SWING_LIMITS,Mechanism.LIFT_LOCK)
@@ -77,7 +83,7 @@ public enum TrackDesign {
             : family == Family.FREE_SPIN
                 ? Set.of(Mechanism.ROTARY_CLEARANCE, Mechanism.MAGNET_INTERFACE)
                 : Set.of(Mechanism.ROTARY_CLEARANCE),
-        this == AXIS ? new Clearance(6.5,4,1) : this == FLYING ? new Clearance(2.25,1.10,4.50) : this == FIXED_INVERTED ? new Clearance(2.25, 1.10, 4.50) : overhead() ? new Clearance(3, 1.10, 4.70) : this == SPINNING ? new Clearance(2.25, 3.65, .95)
+        this == ROLLER_BALL ? new Clearance(4.5,4.75,.75) : this == NEW_GENERATION_FLYING ? new Clearance(2.75,1.10,5.25) : this == AXIS ? new Clearance(6.5,4,1) : this == FLYING ? new Clearance(2.25,1.10,4.50) : this == FIXED_INVERTED ? new Clearance(2.25, 1.10, 4.50) : overhead() ? new Clearance(3, 1.10, 4.70) : this == SPINNING ? new Clearance(2.25, 3.65, .95)
             : new Clearance(5, rotorRadius() + 2.3125, rotorRadius() + (pairedRows() ? 3 : 0)));
   }
 
@@ -86,7 +92,7 @@ public enum TrackDesign {
   }
 
   public int groups() {
-    return (this == SPINNING || this == AXIS || overhead()) ? 1 : pairedRows() ? 4 : 2;
+    return (this == ROLLER_BALL || this == SPINNING || this == AXIS || overhead()) ? 1 : pairedRows() ? 4 : 2;
   }
 
   public double childPivotOffset() {

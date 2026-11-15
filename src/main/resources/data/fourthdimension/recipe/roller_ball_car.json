@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "SBS",
+    "STS",
+    "ICI"
+  ],
+  "key": {
+    "S": {
+      "item": "create:lime_seat"
+    },
+    "B": {
+      "item": "create:mechanical_bearing"
+    },
+    "I": {
+      "tag": "c:ingots/iron"
+    },
+    "T": {
+      "item": "fourthdimension:roller_ball_track"
+    },
+    "C": {
+      "item": "simulatedcoasters:coaster_cart"
+    }
+  },
+  "result": {
+    "id": "fourthdimension:roller_ball_car",
+    "count": 1
+  }
+}

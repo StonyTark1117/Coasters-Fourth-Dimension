@@ -149,8 +149,10 @@ public final class EditorNetwork {
   public static void apply(ServerPlayer player, Edit request) {
     if (request.value.length() > 16384)
       throw new IllegalArgumentException("Editor payload too large");
+    if(request.action==8){NewGenerationFlyingEditor.apply(player,NewGenerationFlyingEditor.editable(player,request.id,request.revision),request.value);return;}
     if (request.action < 10) {
       var rail = ProfileEditor.requireEditable(player, request.id, request.revision);
+      if(rail.variant.equals(NewGenerationFlyingVehicle.VARIANT)&&rail.yaw.owner!=null&&!player.hasPermissions(2)&&!player.getUUID().equals(rail.yaw.owner))throw new IllegalArgumentException("Only the route owner/operator may edit it");
       switch (request.action) {
         case 0 ->
             ProfileEditor.apply(player, request.id, request.revision, parse(request.value), false);
@@ -196,6 +198,8 @@ public final class EditorNetwork {
       if (vehicle.revision != request.revision)
         throw new IllegalArgumentException("Vehicle settings changed; review the refreshed state and try again");
       var level = player.serverLevel();
+      if(NewGenerationFlyingVehicle.is(vehicle)) NewGenerationFlyingEditor.operator(player,vehicle);
+      if(request.action>=40&&request.action<=42&&!NewGenerationFlyingVehicle.is(vehicle))throw new IllegalArgumentException("Compound Flying control requires its matching car");
       switch (request.action) {
         case 10 -> VehicleOperations.capture(level, vehicle);
         case 11 -> VehicleOperations.restraints(level, vehicle, true);
@@ -222,6 +226,7 @@ public final class EditorNetwork {
         case 26 -> VehicleOperations.realignMatchingSupport(level, vehicle);
         case 27 -> VehicleOperations.retireDetachedPax(level, vehicle);
         case 28 -> {
+          if(dev.fourthdimension.vehicle.RollerBallVehicle.is(vehicle)) { dev.fourthdimension.vehicle.RollerBallRuntime.resume(level,vehicle); break; }
           if(dev.fourthdimension.vehicle.AxisVehicle.is(vehicle)) { dev.fourthdimension.vehicle.AxisRuntime.resumeToDock(level,vehicle); break; }
           if(dev.fourthdimension.vehicle.FlyingVehicle.is(vehicle)) { dev.fourthdimension.vehicle.FlyingRuntime.resumeToDock(level,vehicle); break; }
           if(dev.fourthdimension.vehicle.FixedInvertedVehicle.is(vehicle)) {
@@ -234,7 +239,14 @@ public final class EditorNetwork {
             throw new IllegalArgumentException("Resume to dock requires S1");
           dev.fourthdimension.vehicle.SpinningRuntime.resumeToDock(level, vehicle);
         }
+        case 40 -> NewGenerationFlyingRuntime.unwind(level,vehicle);
+        case 41 -> NewGenerationFlyingRuntime.retry(level,vehicle);
+        case 42 -> {
+          var fields=request.value.split("\\|",-1);if(fields.length!=3)throw new IllegalArgumentException("Invalid show request");
+          NewGenerationFlyingRuntime.show(level,vehicle,UUID.fromString(fields[0]),Long.parseLong(fields[1]),fields[2]);
+        }
         case 31, 32, 33, 34, 35, 36, 37 -> {
+          if(NewGenerationFlyingVehicle.is(vehicle)&&request.action>=34){NewGenerationFlyingRuntime.restraints(level,vehicle,request.action<=35,request.action==34||request.action==36);break;}
           if (!dev.fourthdimension.vehicle.FlyingVehicle.is(vehicle)) throw new IllegalArgumentException("Flying controls require a Flying car");
           if (request.action <= 33) dev.fourthdimension.vehicle.FlyingRuntime.requestPosture(level,vehicle,request.action==31,request.action==33);
           else dev.fourthdimension.vehicle.FlyingRuntime.restraints(level,vehicle,request.action<=35,request.action==34||request.action==36);

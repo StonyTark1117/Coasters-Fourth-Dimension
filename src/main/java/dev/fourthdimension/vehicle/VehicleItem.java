@@ -74,7 +74,14 @@ public final class VehicleItem extends Item {
       ItemStack stack,
       CoasterPathTrackFrame.GraphHit hit) {
     if (design == null) WingVehicle.create(level, hit);
-    else VehicleFactory.create(level, design, hit);
+    else {
+      var vehicle = VehicleFactory.create(level, design, hit);
+      if (NewGenerationFlyingVehicle.is(vehicle)) {
+        vehicle.yaw.owner = player.getUUID();
+        dev.fourthdimension.runtime.FoundationData.get(level).setDirty();
+        dev.fourthdimension.runtime.FoundationSync.broadcast(level);
+      }
+    }
     if (!player.isCreative()) stack.shrink(1);
     player.displayClientMessage(
         Component.literal(design == null ? "Wing stopped. Board, close restraints, then dispatch."

@@ -1,0 +1,56 @@
+{
+  "accepted_claims": [
+    "actual projected target seated and prone at 0/90/180 bank",
+    "missing marker retained hold and explicit restore",
+    "actual unwrapped two full turns"
+  ],
+  "native_fixture_overall": "failed later at show acknowledgment; no overall pass claimed",
+  "targets": [
+    {
+      "phase": "seated",
+      "dot": 0.9999999999999172,
+      "phi": -7.829715195917484e-13
+    },
+    {
+      "phase": "seated",
+      "dot": 0.9999999171875901,
+      "phi": 0.00013299343906526714
+    },
+    {
+      "phase": "seated",
+      "dot": 0.9999999999999211,
+      "phi": 7.991761900083426e-12
+    },
+    {
+      "phase": "prone",
+      "dot": 0.9999999953475296,
+      "phi": 1.5522185517193376
+    },
+    {
+      "phase": "prone",
+      "dot": 0.9999832230102824,
+      "phi": 1.554341311768973
+    },
+    {
+      "phase": "prone",
+      "dot": 0.9999999875180765,
+      "phi": 1.5592463874207088
+    },
+    {
+      "phase": "restored target",
+      "dot": 0.9999999953509078,
+      "phi": 1.5523196717012686
+    },
+    {
+      "phase": "restored target",
+      "dot": 0.9999832225241286,
+      "phi": 1.5543487205753246
+    },
+    {
+      "phase": "restored target",
+      "dot": 0.9999999875549027,
+      "phi": 1.559843869925476
+    }
+  ],
+  "remaining": "show and winding-boundary checks moved to fourthdimension_fd1802_show after concrete acknowledgment-status fix"
+}

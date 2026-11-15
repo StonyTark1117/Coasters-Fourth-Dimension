@@ -79,6 +79,10 @@ public final class CarrierRuntime {
       if (!(container.getSubLevel(vehicle.chassis) instanceof ServerSubLevel parent)
           || parent.isRemoved()) continue;
       physics.updatePose(parent);
+      if (dev.fourthdimension.vehicle.NewGenerationFlyingVehicle.is(vehicle)) {
+        dev.fourthdimension.vehicle.NewGenerationFlyingRuntime.refresh(level, vehicle);
+        continue;
+      }
       for (var carrier : vehicle.carriers) {
         if (!(container.getSubLevel(carrier.body) instanceof ServerSubLevel child)
             || child.isRemoved()) continue;
@@ -146,6 +150,10 @@ public final class CarrierRuntime {
       if (!(parentRaw instanceof ServerSubLevel parent) || parent.isRemoved()) continue;
       vehicleUpdates++;
       physics.updatePose(parent);
+      if (dev.fourthdimension.vehicle.NewGenerationFlyingVehicle.is(vehicle)) {
+        dev.fourthdimension.vehicle.NewGenerationFlyingRuntime.tick(level, parent, vehicle, event.getTimeStep());
+        continue;
+      }
       if (dev.fourthdimension.vehicle.FixedInvertedVehicle.is(vehicle)) {
         dev.fourthdimension.vehicle.FixedInvertedRuntime.tick(level, parent, vehicle, event.getTimeStep());
         continue;
@@ -186,6 +194,8 @@ public final class CarrierRuntime {
       for (var carrier : vehicle.carriers) {
         var childRaw = container.getSubLevel(carrier.body);
         if (!(childRaw instanceof ServerSubLevel child) || child.isRemoved()) {
+          if (dev.fourthdimension.vehicle.RollerBallVehicle.is(vehicle))
+            dev.fourthdimension.vehicle.RollerBallRuntime.fault(level,vehicle,"Roller Ball carrier unavailable");
           if (dev.fourthdimension.vehicle.AxisVehicle.is(vehicle))
             dev.fourthdimension.vehicle.AxisRuntime.fault(level,vehicle,"Axis carrier unavailable");
           if (dev.fourthdimension.vehicle.FlyingVehicle.is(vehicle))
@@ -204,7 +214,9 @@ public final class CarrierRuntime {
           constraintsRebuilt++;
           var p = parent.getPlot().getCenterBlock();
           var c = child.getPlot().getCenterBlock();
-          if (dev.fourthdimension.vehicle.FlyingVehicle.is(vehicle)) {
+          if (dev.fourthdimension.vehicle.RollerBallVehicle.is(vehicle)) {
+            handle=dev.fourthdimension.vehicle.RollerBallRuntime.joint(parent,child,carrier);
+          } else if (dev.fourthdimension.vehicle.FlyingVehicle.is(vehicle)) {
             handle=dev.fourthdimension.vehicle.FlyingRuntime.createJoint(parent,child,carrier);
           } else if (dev.fourthdimension.vehicle.SuspendedVehicle.is(vehicle)) {
             var generic=pipeline.addConstraint(parent,child,new GenericConstraintConfiguration(
@@ -252,6 +264,11 @@ public final class CarrierRuntime {
                 .getAngularVelocity(child, new Vector3d())
                 .sub(pipeline.getAngularVelocity(parent, new Vector3d()))
                 .dot(axis);
+        if (dev.fourthdimension.vehicle.RollerBallVehicle.is(vehicle)) {
+          dev.fourthdimension.vehicle.NativeLoading.update(child,vehicle,carrier);
+          JOINTS.put(child,dev.fourthdimension.vehicle.RollerBallRuntime.update(level,parent,child,vehicle,carrier,rail,(GenericConstraintHandle)handle,event.getTimeStep()));
+          carrierNanos += System.nanoTime()-carrierStart; continue;
+        }
         if (dev.fourthdimension.vehicle.AxisVehicle.is(vehicle)) {
           dev.fourthdimension.vehicle.NativeLoading.update(child,vehicle,carrier);
           dev.fourthdimension.vehicle.AxisRuntime.update(level,parent,child,vehicle,carrier,rail,(RotaryConstraintHandle)handle,event.getTimeStep());

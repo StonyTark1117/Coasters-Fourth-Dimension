@@ -1,0 +1,52 @@
+{
+  "variants": {
+    "facing=north,restrained=false,legs=false": {
+      "model": "fourthdimension:block/new_generation_flying_seat_00"
+    },
+    "facing=north,restrained=false,legs=true": {
+      "model": "fourthdimension:block/new_generation_flying_seat_01"
+    },
+    "facing=north,restrained=true,legs=false": {
+      "model": "fourthdimension:block/new_generation_flying_seat_10"
+    },
+    "facing=north,restrained=true,legs=true": {
+      "model": "fourthdimension:block/new_generation_flying_seat_11"
+    },
+    "facing=south,restrained=false,legs=false": {
+      "model": "fourthdimension:block/new_generation_flying_seat_00"
+    },
+    "facing=south,restrained=false,legs=true": {
+      "model": "fourthdimension:block/new_generation_flying_seat_01"
+    },
+    "facing=south,restrained=true,legs=false": {
+      "model": "fourthdimension:block/new_generation_flying_seat_10"
+    },
+    "facing=south,restrained=true,legs=true": {
+      "model": "fourthdimension:block/new_generation_flying_seat_11"
+    },
+    "facing=east,restrained=false,legs=false": {
+      "model": "fourthdimension:block/new_generation_flying_seat_00"
+    },
+    "facing=east,restrained=false,legs=true": {
+      "model": "fourthdimension:block/new_generation_flying_seat_01"
+    },
+    "facing=east,restrained=true,legs=false": {
+      "model": "fourthdimension:block/new_generation_flying_seat_10"
+    },
+    "facing=east,restrained=true,legs=true": {
+      "model": "fourthdimension:block/new_generation_flying_seat_11"
+    },
+    "facing=west,restrained=false,legs=false": {
+      "model": "fourthdimension:block/new_generation_flying_seat_00"
+    },
+    "facing=west,restrained=false,legs=true": {
+      "model": "fourthdimension:block/new_generation_flying_seat_01"
+    },
+    "facing=west,restrained=true,legs=false": {
+      "model": "fourthdimension:block/new_generation_flying_seat_10"
+    },
+    "facing=west,restrained=true,legs=true": {
+      "model": "fourthdimension:block/new_generation_flying_seat_11"
+    }
+  }
+}

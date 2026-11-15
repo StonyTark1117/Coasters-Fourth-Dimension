@@ -15,7 +15,8 @@ public abstract class FlyingSeatRiderMixin {
   private void fourthdimension$flyingHip(Entity rider,Entity.MoveFunction move,CallbackInfo ci){
     var seat=(SeatEntity)(Object)this;
     if(!(rider instanceof Player)||!seat.hasPassenger(rider))return;
-    var b=Boarding.at(seat.level(),seat.blockPosition());if(b==null||!FlyingVehicle.is(b.vehicle()))return;
+    var b=Boarding.at(seat.level(),seat.blockPosition());
+    if(b==null||!(FlyingVehicle.is(b.vehicle())||NewGenerationFlyingVehicle.is(b.vehicle())))return;
     // Vanilla player model hips are .75 above its feet; this places them at the authored .5 hip.
     move.accept(rider,seat.getX(),seat.blockPosition().getY()-.25,seat.getZ());ci.cancel();
   }

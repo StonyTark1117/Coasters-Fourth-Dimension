@@ -1,0 +1,2839 @@
+{
+  "data": {
+    "schema": 7,
+    "rails": [
+      {
+        "original_curve": {
+          "Starts": [
+            {
+              "V": [
+                0.5,
+                0.25,
+                0.5
+              ]
+            },
+            {
+              "V": [
+                0.5,
+                0.25,
+                48.5
+              ]
+            }
+          ],
+          "Girder": 0,
+          "Normals": [
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          ],
+          "Primary": 1,
+          "Positions": [
+            {
+              "Pos": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "Pos": [
+                0,
+                0,
+                48
+              ]
+            }
+          ],
+          "Axes": [
+            {
+              "V": [
+                0.0,
+                0.0,
+                1.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                0.0,
+                -1.0
+              ]
+            }
+          ],
+          "Material": "simulatedcoasters:coaster_track"
+        },
+        "magnets": [],
+        "profile": [
+          {
+            "distance": 0.0,
+            "slope": 0.0,
+            "angle": 0.0
+          },
+          {
+            "distance": 48.0,
+            "slope": 0.0,
+            "angle": 0.0
+          }
+        ],
+        "lift_lock": 0,
+        "geometry_hash": 642024761156414689,
+        "yaw": {
+          "owner": [
+            940439953,
+            -167562164,
+            -1601161573,
+            -1389718966
+          ],
+          "intervals": [
+            {
+              "phi_to": 0.0,
+              "blend": 8.0,
+              "keys": [
+                {
+                  "distance": 0.0,
+                  "angle": 1.5707963267948966
+                },
+                {
+                  "distance": 48.0,
+                  "angle": 1.5707963267948966
+                }
+              ],
+              "start": 0.0,
+              "show_duration": 0,
+              "speed": 0.6,
+              "stop_name": "",
+              "mode": "PROFILE",
+              "acceleration": 0.8,
+              "winding": "NEAREST",
+              "name": "Section 0",
+              "end": 48.0,
+              "id": [
+                172584819,
+                2102808229,
+                -2032615428,
+                679951386
+              ],
+              "phi_from": 0.0
+            }
+          ],
+          "geometry": 642024761156414689,
+          "version": 1,
+          "revision": 0
+        },
+        "revision": 0,
+        "valid": 1,
+        "appearance": {
+          "tint": -1,
+          "id": "fourthdimension:original"
+        },
+        "provider": "fourthdimension:original",
+        "variant": "route_changeover_yaw_v1",
+        "from": 49167,
+        "to": 245775,
+        "id": [
+          614675279,
+          1996901803,
+          -1486191575,
+          969335901
+        ],
+        "family": "flying"
+      },
+      {
+        "original_curve": {
+          "Starts": [
+            {
+              "V": [
+                0.5,
+                0.25,
+                0.5
+              ]
+            },
+            {
+              "V": [
+                0.5,
+                12.25,
+                48.5
+              ]
+            }
+          ],
+          "Girder": 0,
+          "Normals": [
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          ],
+          "Primary": 1,
+          "Positions": [
+            {
+              "Pos": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "Pos": [
+                0,
+                12,
+                48
+              ]
+            }
+          ],
+          "Axes": [
+            {
+              "V": [
+                0.0,
+                0.0,
+                1.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                0.0,
+                -1.0
+              ]
+            }
+          ],
+          "Material": "simulatedcoasters:coaster_track"
+        },
+        "magnets": [],
+        "profile": [
+          {
+            "distance": 0.0,
+            "slope": 0.0,
+            "angle": 0.0
+          },
+          {
+            "distance": 49.76900130698559,
+            "slope": 0.0,
+            "angle": 0.0
+          }
+        ],
+        "lift_lock": 0,
+        "geometry_hash": -1922026315079363171,
+        "yaw": {
+          "owner": [
+            940439953,
+            -167562164,
+            -1601161573,
+            -1389718966
+          ],
+          "intervals": [
+            {
+              "phi_to": 1.5707963267948966,
+              "blend": 8.0,
+              "keys": [
+                {
+                  "distance": 0.0,
+                  "angle": 1.5707963267948966
+                },
+                {
+                  "distance": 49.76900130698559,
+                  "angle": 3.141592653589793
+                }
+              ],
+              "start": 0.0,
+              "show_duration": 0,
+              "speed": 0.6,
+              "stop_name": "",
+              "mode": "PROFILE",
+              "acceleration": 0.8,
+              "winding": "NEAREST",
+              "name": "Section 1",
+              "end": 49.76900130698559,
+              "id": [
+                837673804,
+                -640728799,
+                -1933221163,
+                2086793336
+              ],
+              "phi_from": 0.0
+            }
+          ],
+          "geometry": -1922026315079363171,
+          "version": 1,
+          "revision": 0
+        },
+        "revision": 0,
+        "valid": 1,
+        "appearance": {
+          "tint": -1,
+          "id": "fourthdimension:original"
+        },
+        "provider": "fourthdimension:original",
+        "variant": "route_changeover_yaw_v1",
+        "from": 245775,
+        "to": 442395,
+        "id": [
+          1922359805,
+          1103121097,
+          -1438470333,
+          -1913973372
+        ],
+        "family": "flying"
+      },
+      {
+        "original_curve": {
+          "Starts": [
+            {
+              "V": [
+                0.5,
+                0.25,
+                0.5
+              ]
+            },
+            {
+              "V": [
+                0.5,
+                0.25,
+                32.5
+              ]
+            }
+          ],
+          "Girder": 0,
+          "Normals": [
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            {
+              "V": [
+                -0.9999999999999991,
+                -4.371139000186242e-08,
+                0.0
+              ]
+            }
+          ],
+          "Primary": 1,
+          "Positions": [
+            {
+              "Pos": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "Pos": [
+                0,
+                0,
+                32
+              ]
+            }
+          ],
+          "Axes": [
+            {
+              "V": [
+                0.0,
+                0.0,
+                1.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                0.0,
+                -1.0
+              ]
+            }
+          ],
+          "Material": "simulatedcoasters:coaster_track"
+        },
+        "magnets": [],
+        "profile": [
+          {
+            "distance": 0.0,
+            "slope": 0.0,
+            "angle": 0.0
+          },
+          {
+            "distance": 32.000150597836175,
+            "slope": 0.0,
+            "angle": 0.0
+          }
+        ],
+        "lift_lock": 0,
+        "geometry_hash": -4406722585575952743,
+        "yaw": {
+          "owner": [
+            940439953,
+            -167562164,
+            -1601161573,
+            -1389718966
+          ],
+          "intervals": [
+            {
+              "phi_to": 1.5707963267948966,
+              "blend": 8.0,
+              "keys": [
+                {
+                  "distance": 0.0,
+                  "angle": 3.141592653589793
+                },
+                {
+                  "distance": 32.000150597836175,
+                  "angle": 3.141592653589793
+                }
+              ],
+              "start": 0.0,
+              "show_duration": 0,
+              "speed": 0.6,
+              "stop_name": "",
+              "marker_pos": -6597069062123,
+              "mode": "TARGET",
+              "acceleration": 0.8,
+              "winding": "NEAREST",
+              "marker": [
+                -35792910,
+                -736539578,
+                -1862062008,
+                -428512019
+              ],
+              "name": "Section 2",
+              "end": 32.000150597836175,
+              "id": [
+                719331486,
+                -239517337,
+                -1418219691,
+                17152354
+              ],
+              "phi_from": 1.5707963267948966,
+              "dimension": "minecraft:overworld"
+            }
+          ],
+          "geometry": -4406722585575952743,
+          "version": 1,
+          "revision": 0
+        },
+        "revision": 0,
+        "valid": 1,
+        "appearance": {
+          "tint": -1,
+          "id": "fourthdimension:original"
+        },
+        "provider": "fourthdimension:original",
+        "variant": "route_changeover_yaw_v1",
+        "from": 442395,
+        "to": 573467,
+        "id": [
+          1244838899,
+          -899724613,
+          -1300033341,
+          2011828983
+        ],
+        "family": "flying"
+      },
+      {
+        "original_curve": {
+          "Starts": [
+            {
+              "V": [
+                0.5,
+                0.25,
+                0.5
+              ]
+            },
+            {
+              "V": [
+                0.5,
+                0.25,
+                32.5
+              ]
+            }
+          ],
+          "Girder": 0,
+          "Normals": [
+            {
+              "V": [
+                -0.9999999999999991,
+                -4.371139000186242e-08,
+                0.0
+              ]
+            },
+            {
+              "V": [
+                8.742278000372475e-08,
+                -0.9999999999999962,
+                0.0
+              ]
+            }
+          ],
+          "Primary": 1,
+          "Positions": [
+            {
+              "Pos": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "Pos": [
+                0,
+                0,
+                32
+              ]
+            }
+          ],
+          "Axes": [
+            {
+              "V": [
+                0.0,
+                0.0,
+                1.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                0.0,
+                -1.0
+              ]
+            }
+          ],
+          "Material": "simulatedcoasters:coaster_track"
+        },
+        "magnets": [],
+        "profile": [
+          {
+            "distance": 0.0,
+            "slope": 0.0,
+            "angle": 0.0
+          },
+          {
+            "distance": 32.000150597836175,
+            "slope": 0.0,
+            "angle": 0.0
+          }
+        ],
+        "lift_lock": 0,
+        "geometry_hash": -1924352317088004553,
+        "yaw": {
+          "owner": [
+            940439953,
+            -167562164,
+            -1601161573,
+            -1389718966
+          ],
+          "intervals": [
+            {
+              "phi_to": 1.5707963267948966,
+              "blend": 8.0,
+              "keys": [
+                {
+                  "distance": 0.0,
+                  "angle": 3.141592653589793
+                },
+                {
+                  "distance": 32.000150597836175,
+                  "angle": 3.141592653589793
+                }
+              ],
+              "start": 0.0,
+              "show_duration": 0,
+              "speed": 0.6,
+              "stop_name": "",
+              "marker_pos": -6597069062123,
+              "mode": "TARGET",
+              "acceleration": 0.8,
+              "winding": "NEAREST",
+              "marker": [
+                -35792910,
+                -736539578,
+                -1862062008,
+                -428512019
+              ],
+              "name": "Section 3",
+              "end": 32.000150597836175,
+              "id": [
+                750276594,
+                661604154,
+                -1130656199,
+                864325578
+              ],
+              "phi_from": 1.5707963267948966,
+              "dimension": "minecraft:overworld"
+            }
+          ],
+          "geometry": -1924352317088004553,
+          "version": 1,
+          "revision": 0
+        },
+        "revision": 0,
+        "valid": 1,
+        "appearance": {
+          "tint": -1,
+          "id": "fourthdimension:original"
+        },
+        "provider": "fourthdimension:original",
+        "variant": "route_changeover_yaw_v1",
+        "from": 573467,
+        "to": 704539,
+        "id": [
+          980692230,
+          -920828396,
+          -1405018206,
+          -464464842
+        ],
+        "family": "flying"
+      },
+      {
+        "original_curve": {
+          "Starts": [
+            {
+              "V": [
+                0.5,
+                0.25,
+                0.5
+              ]
+            },
+            {
+              "V": [
+                0.5,
+                0.25,
+                32.5
+              ]
+            }
+          ],
+          "Girder": 0,
+          "Normals": [
+            {
+              "V": [
+                8.742278000372475e-08,
+                -0.9999999999999962,
+                0.0
+              ]
+            },
+            {
+              "V": [
+                1.0,
+                1.1924880454806037e-08,
+                0.0
+              ]
+            }
+          ],
+          "Primary": 1,
+          "Positions": [
+            {
+              "Pos": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "Pos": [
+                0,
+                0,
+                32
+              ]
+            }
+          ],
+          "Axes": [
+            {
+              "V": [
+                0.0,
+                0.0,
+                1.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                0.0,
+                -1.0
+              ]
+            }
+          ],
+          "Material": "simulatedcoasters:coaster_track"
+        },
+        "magnets": [],
+        "profile": [
+          {
+            "distance": 0.0,
+            "slope": 0.0,
+            "angle": 0.0
+          },
+          {
+            "distance": 32.00015059781366,
+            "slope": 0.0,
+            "angle": 0.0
+          }
+        ],
+        "lift_lock": 0,
+        "geometry_hash": 7686902637748904869,
+        "yaw": {
+          "owner": [
+            940439953,
+            -167562164,
+            -1601161573,
+            -1389718966
+          ],
+          "intervals": [
+            {
+              "phi_to": 1.5707963267948966,
+              "blend": 8.0,
+              "keys": [
+                {
+                  "distance": 0.0,
+                  "angle": 3.141592653589793
+                },
+                {
+                  "distance": 32.00015059781366,
+                  "angle": 3.141592653589793
+                }
+              ],
+              "start": 0.0,
+              "show_duration": 0,
+              "speed": 0.6,
+              "stop_name": "",
+              "marker_pos": -6597069062123,
+              "mode": "TARGET",
+              "acceleration": 0.8,
+              "winding": "NEAREST",
+              "marker": [
+                -35792910,
+                -736539578,
+                -1862062008,
+                -428512019
+              ],
+              "name": "Section 4",
+              "end": 32.00015059781366,
+              "id": [
+                596994699,
+                -1055241642,
+                -1457691543,
+                710442407
+              ],
+              "phi_from": 1.5707963267948966,
+              "dimension": "minecraft:overworld"
+            }
+          ],
+          "geometry": 7686902637748904869,
+          "version": 1,
+          "revision": 0
+        },
+        "revision": 0,
+        "valid": 1,
+        "appearance": {
+          "tint": -1,
+          "id": "fourthdimension:original"
+        },
+        "provider": "fourthdimension:original",
+        "variant": "route_changeover_yaw_v1",
+        "from": 704539,
+        "to": 835611,
+        "id": [
+          1841279553,
+          871514543,
+          -1782561809,
+          -2002444442
+        ],
+        "family": "flying"
+      },
+      {
+        "original_curve": {
+          "Starts": [
+            {
+              "V": [
+                0.5,
+                0.25,
+                0.5
+              ]
+            },
+            {
+              "V": [
+                0.5,
+                0.25,
+                32.5
+              ]
+            }
+          ],
+          "Girder": 0,
+          "Normals": [
+            {
+              "V": [
+                1.0,
+                1.1924880454806037e-08,
+                0.0
+              ]
+            },
+            {
+              "V": [
+                -1.7484556000744886e-07,
+                0.9999999999999848,
+                0.0
+              ]
+            }
+          ],
+          "Primary": 1,
+          "Positions": [
+            {
+              "Pos": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "Pos": [
+                0,
+                0,
+                32
+              ]
+            }
+          ],
+          "Axes": [
+            {
+              "V": [
+                0.0,
+                0.0,
+                1.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                0.0,
+                -1.0
+              ]
+            }
+          ],
+          "Material": "simulatedcoasters:coaster_track"
+        },
+        "magnets": [],
+        "profile": [
+          {
+            "distance": 0.0,
+            "slope": 0.0,
+            "angle": 0.0
+          },
+          {
+            "distance": 32.0001505978587,
+            "slope": 0.0,
+            "angle": 0.0
+          }
+        ],
+        "lift_lock": 0,
+        "geometry_hash": 319302651575648086,
+        "yaw": {
+          "owner": [
+            940439953,
+            -167562164,
+            -1601161573,
+            -1389718966
+          ],
+          "intervals": [
+            {
+              "phi_to": 1.5707963267948966,
+              "blend": 8.0,
+              "keys": [
+                {
+                  "distance": 0.0,
+                  "angle": 3.141592653589793
+                },
+                {
+                  "distance": 32.0001505978587,
+                  "angle": 3.141592653589793
+                }
+              ],
+              "start": 0.0,
+              "show_duration": 0,
+              "speed": 0.6,
+              "stop_name": "",
+              "marker_pos": -6597069062123,
+              "mode": "TARGET",
+              "acceleration": 0.8,
+              "winding": "NEAREST",
+              "marker": [
+                -35792910,
+                -736539578,
+                -1862062008,
+                -428512019
+              ],
+              "name": "Section 5",
+              "end": 32.0001505978587,
+              "id": [
+                310633670,
+                653936641,
+                -1520760818,
+                -1028841055
+              ],
+              "phi_from": 1.5707963267948966,
+              "dimension": "minecraft:overworld"
+            }
+          ],
+          "geometry": 319302651575648086,
+          "version": 1,
+          "revision": 0
+        },
+        "revision": 0,
+        "valid": 1,
+        "appearance": {
+          "tint": -1,
+          "id": "fourthdimension:original"
+        },
+        "provider": "fourthdimension:original",
+        "variant": "route_changeover_yaw_v1",
+        "from": 835611,
+        "to": 966683,
+        "id": [
+          -1685901603,
+          -1208463808,
+          -1413023362,
+          -130309119
+        ],
+        "family": "flying"
+      },
+      {
+        "original_curve": {
+          "Starts": [
+            {
+              "V": [
+                0.5,
+                0.25,
+                0.5
+              ]
+            },
+            {
+              "V": [
+                0.5,
+                -11.75,
+                48.5
+              ]
+            }
+          ],
+          "Girder": 0,
+          "Normals": [
+            {
+              "V": [
+                -1.7484556000744886e-07,
+                0.9999999999999848,
+                0.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          ],
+          "Primary": 1,
+          "Positions": [
+            {
+              "Pos": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "Pos": [
+                0,
+                -12,
+                48
+              ]
+            }
+          ],
+          "Axes": [
+            {
+              "V": [
+                0.0,
+                0.0,
+                1.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                0.0,
+                -1.0
+              ]
+            }
+          ],
+          "Material": "simulatedcoasters:coaster_track"
+        },
+        "magnets": [],
+        "profile": [
+          {
+            "distance": 0.0,
+            "slope": 0.0,
+            "angle": 0.0
+          },
+          {
+            "distance": 49.76900130698565,
+            "slope": 0.0,
+            "angle": 0.0
+          }
+        ],
+        "lift_lock": 0,
+        "geometry_hash": -3540356153404134421,
+        "yaw": {
+          "owner": [
+            940439953,
+            -167562164,
+            -1601161573,
+            -1389718966
+          ],
+          "intervals": [
+            {
+              "phi_to": 1.5707963267948966,
+              "blend": 8.0,
+              "keys": [
+                {
+                  "distance": 0.0,
+                  "angle": 3.141592653589793
+                },
+                {
+                  "distance": 49.76900130698565,
+                  "angle": 3.141592653589793
+                }
+              ],
+              "start": 0.0,
+              "show_duration": 0,
+              "speed": 0.6,
+              "stop_name": "",
+              "marker_pos": -6597069062123,
+              "mode": "TARGET",
+              "acceleration": 0.8,
+              "winding": "NEAREST",
+              "marker": [
+                -35792910,
+                -736539578,
+                -1862062008,
+                -428512019
+              ],
+              "name": "Section 6",
+              "end": 49.76900130698565,
+              "id": [
+                874795976,
+                -1236451241,
+                -1807792117,
+                906793235
+              ],
+              "phi_from": 1.5707963267948966,
+              "dimension": "minecraft:overworld"
+            }
+          ],
+          "geometry": -3540356153404134421,
+          "version": 1,
+          "revision": 0
+        },
+        "revision": 0,
+        "valid": 1,
+        "appearance": {
+          "tint": -1,
+          "id": "fourthdimension:original"
+        },
+        "provider": "fourthdimension:original",
+        "variant": "route_changeover_yaw_v1",
+        "from": 966683,
+        "to": 1163279,
+        "id": [
+          296315213,
+          -1480441032,
+          -1593309740,
+          1321295849
+        ],
+        "family": "flying"
+      },
+      {
+        "original_curve": {
+          "Starts": [
+            {
+              "V": [
+                0.5,
+                0.25,
+                0.5
+              ]
+            },
+            {
+              "V": [
+                32.5,
+                0.25,
+                32.5
+              ]
+            }
+          ],
+          "Girder": 0,
+          "Normals": [
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          ],
+          "Primary": 1,
+          "Positions": [
+            {
+              "Pos": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "Pos": [
+                32,
+                0,
+                32
+              ]
+            }
+          ],
+          "Axes": [
+            {
+              "V": [
+                0.0,
+                0.0,
+                1.0
+              ]
+            },
+            {
+              "V": [
+                -1.0,
+                0.0,
+                0.0
+              ]
+            }
+          ],
+          "Material": "simulatedcoasters:coaster_track"
+        },
+        "magnets": [],
+        "profile": [
+          {
+            "distance": 0.0,
+            "slope": 0.0,
+            "angle": 0.0
+          },
+          {
+            "distance": 50.272529165540874,
+            "slope": 0.0,
+            "angle": 0.0
+          }
+        ],
+        "lift_lock": 0,
+        "geometry_hash": -8182137798658439693,
+        "yaw": {
+          "owner": [
+            940439953,
+            -167562164,
+            -1601161573,
+            -1389718966
+          ],
+          "intervals": [
+            {
+              "phi_to": 1.5707963267948966,
+              "blend": 8.0,
+              "keys": [
+                {
+                  "distance": 0.0,
+                  "angle": 3.141592653589793
+                },
+                {
+                  "distance": 50.272529165540874,
+                  "angle": 3.141592653589793
+                }
+              ],
+              "start": 0.0,
+              "show_duration": 0,
+              "speed": 0.6,
+              "stop_name": "",
+              "marker_pos": -6597069062123,
+              "mode": "TARGET",
+              "acceleration": 0.8,
+              "winding": "NEAREST",
+              "marker": [
+                -35792910,
+                -736539578,
+                -1862062008,
+                -428512019
+              ],
+              "name": "Section 7",
+              "end": 50.272529165540874,
+              "id": [
+                -187567110,
+                -1055307262,
+                -1129279162,
+                -1326784108
+              ],
+              "phi_from": 1.5707963267948966,
+              "dimension": "minecraft:overworld"
+            }
+          ],
+          "geometry": -8182137798658439693,
+          "version": 1,
+          "revision": 0
+        },
+        "revision": 0,
+        "valid": 1,
+        "appearance": {
+          "tint": -1,
+          "id": "fourthdimension:original"
+        },
+        "provider": "fourthdimension:original",
+        "variant": "route_changeover_yaw_v1",
+        "from": 1163279,
+        "to": 8796094316559,
+        "id": [
+          181013901,
+          -176142125,
+          -1648197368,
+          440100961
+        ],
+        "family": "flying"
+      },
+      {
+        "original_curve": {
+          "Starts": [
+            {
+              "V": [
+                0.5,
+                0.25,
+                0.5
+              ]
+            },
+            {
+              "V": [
+                32.5,
+                0.25,
+                0.5
+              ]
+            }
+          ],
+          "Girder": 0,
+          "Normals": [
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          ],
+          "Primary": 1,
+          "Positions": [
+            {
+              "Pos": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "Pos": [
+                32,
+                0,
+                0
+              ]
+            }
+          ],
+          "Axes": [
+            {
+              "V": [
+                1.0,
+                0.0,
+                0.0
+              ]
+            },
+            {
+              "V": [
+                -1.0,
+                0.0,
+                0.0
+              ]
+            }
+          ],
+          "Material": "simulatedcoasters:coaster_track"
+        },
+        "magnets": [],
+        "profile": [
+          {
+            "distance": 0.0,
+            "slope": 0.0,
+            "angle": 0.0
+          },
+          {
+            "distance": 32.0,
+            "slope": 0.0,
+            "angle": 0.0
+          }
+        ],
+        "lift_lock": 0,
+        "geometry_hash": -7931877260780991263,
+        "yaw": {
+          "owner": [
+            940439953,
+            -167562164,
+            -1601161573,
+            -1389718966
+          ],
+          "intervals": [
+            {
+              "phi_to": 1.5707963267948966,
+              "blend": 8.0,
+              "keys": [
+                {
+                  "distance": 0.0,
+                  "angle": 3.141592653589793
+                },
+                {
+                  "distance": 32.0,
+                  "angle": 3.141592653589793
+                }
+              ],
+              "start": 0.0,
+              "show_duration": 0,
+              "speed": 0.6,
+              "stop_name": "",
+              "mode": "PROFILE",
+              "acceleration": 0.8,
+              "winding": "NEAREST",
+              "name": "Section 8",
+              "end": 32.0,
+              "id": [
+                664265975,
+                -627619607,
+                -1340638224,
+                -1205476118
+              ],
+              "phi_from": 1.5707963267948966
+            }
+          ],
+          "geometry": -7931877260780991263,
+          "version": 1,
+          "revision": 0
+        },
+        "revision": 0,
+        "valid": 1,
+        "appearance": {
+          "tint": -1,
+          "id": "fourthdimension:original"
+        },
+        "provider": "fourthdimension:original",
+        "variant": "route_changeover_yaw_v1",
+        "from": 8796094316559,
+        "to": 17592187338767,
+        "id": [
+          530912708,
+          -251837535,
+          -1428590610,
+          -1403071158
+        ],
+        "family": "flying"
+      },
+      {
+        "original_curve": {
+          "Starts": [
+            {
+              "V": [
+                0.5,
+                0.25,
+                0.5
+              ]
+            },
+            {
+              "V": [
+                32.5,
+                0.25,
+                -31.5
+              ]
+            }
+          ],
+          "Girder": 0,
+          "Normals": [
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          ],
+          "Primary": 1,
+          "Positions": [
+            {
+              "Pos": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "Pos": [
+                32,
+                0,
+                -32
+              ]
+            }
+          ],
+          "Axes": [
+            {
+              "V": [
+                1.0,
+                0.0,
+                0.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                0.0,
+                1.0
+              ]
+            }
+          ],
+          "Material": "simulatedcoasters:coaster_track"
+        },
+        "magnets": [],
+        "profile": [
+          {
+            "distance": 0.0,
+            "slope": 0.0,
+            "angle": 0.0
+          },
+          {
+            "distance": 50.272529165540874,
+            "slope": 0.0,
+            "angle": 0.0
+          }
+        ],
+        "lift_lock": 0,
+        "geometry_hash": -5198773901670436215,
+        "yaw": {
+          "owner": [
+            940439953,
+            -167562164,
+            -1601161573,
+            -1389718966
+          ],
+          "intervals": [
+            {
+              "phi_to": 1.5707963267948966,
+              "blend": 8.0,
+              "keys": [
+                {
+                  "distance": 0.0,
+                  "angle": 3.141592653589793
+                },
+                {
+                  "distance": 50.272529165540874,
+                  "angle": 9.42477796076938
+                }
+              ],
+              "start": 0.0,
+              "show_duration": 400,
+              "speed": 0.6,
+              "stop_name": "Scenery Show",
+              "mode": "SHOW_STOP",
+              "acceleration": 0.8,
+              "winding": "NEAREST",
+              "name": "Section 9",
+              "end": 50.272529165540874,
+              "id": [
+                -31338476,
+                -554284355,
+                -1247316572,
+                -1301692703
+              ],
+              "phi_from": 1.5707963267948966
+            }
+          ],
+          "geometry": -5198773901670436215,
+          "version": 1,
+          "revision": 0
+        },
+        "revision": 0,
+        "valid": 1,
+        "appearance": {
+          "tint": -1,
+          "id": "fourthdimension:original"
+        },
+        "provider": "fourthdimension:original",
+        "variant": "route_changeover_yaw_v1",
+        "from": 17592187338767,
+        "to": 26388280229903,
+        "id": [
+          1665998785,
+          -571129615,
+          -1992549515,
+          1030541033
+        ],
+        "family": "flying"
+      },
+      {
+        "original_curve": {
+          "Starts": [
+            {
+              "V": [
+                0.5,
+                0.25,
+                0.5
+              ]
+            },
+            {
+              "V": [
+                0.5,
+                0.25,
+                -55.5
+              ]
+            }
+          ],
+          "Girder": 0,
+          "Normals": [
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          ],
+          "Primary": 1,
+          "Positions": [
+            {
+              "Pos": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "Pos": [
+                0,
+                0,
+                -56
+              ]
+            }
+          ],
+          "Axes": [
+            {
+              "V": [
+                0.0,
+                0.0,
+                -1.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                0.0,
+                1.0
+              ]
+            }
+          ],
+          "Material": "simulatedcoasters:coaster_track"
+        },
+        "magnets": [],
+        "profile": [
+          {
+            "distance": 0.0,
+            "slope": 0.0,
+            "angle": 0.0
+          },
+          {
+            "distance": 56.0,
+            "slope": 0.0,
+            "angle": 0.0
+          }
+        ],
+        "lift_lock": 0,
+        "geometry_hash": -826337842915061791,
+        "yaw": {
+          "owner": [
+            940439953,
+            -167562164,
+            -1601161573,
+            -1389718966
+          ],
+          "intervals": [
+            {
+              "phi_to": 1.5707963267948966,
+              "blend": 8.0,
+              "keys": [
+                {
+                  "distance": 0.0,
+                  "angle": 3.141592653589793
+                },
+                {
+                  "distance": 56.0,
+                  "angle": 3.141592653589793
+                }
+              ],
+              "start": 0.0,
+              "show_duration": 0,
+              "speed": 0.6,
+              "stop_name": "",
+              "mode": "PROFILE",
+              "acceleration": 0.8,
+              "winding": "NEAREST",
+              "name": "Section 10",
+              "end": 56.0,
+              "id": [
+                -1456739373,
+                2055553695,
+                -2073526253,
+                1487300723
+              ],
+              "phi_from": 1.5707963267948966
+            }
+          ],
+          "geometry": -826337842915061791,
+          "version": 1,
+          "revision": 0
+        },
+        "revision": 0,
+        "valid": 1,
+        "appearance": {
+          "tint": -1,
+          "id": "fourthdimension:original"
+        },
+        "provider": "fourthdimension:original",
+        "variant": "route_changeover_yaw_v1",
+        "from": 26388280229903,
+        "to": 26388280000527,
+        "id": [
+          -167615098,
+          1396785499,
+          -1566762039,
+          1758274422
+        ],
+        "family": "flying"
+      },
+      {
+        "original_curve": {
+          "Starts": [
+            {
+              "V": [
+                0.5,
+                0.25,
+                0.5
+              ]
+            },
+            {
+              "V": [
+                0.5,
+                0.25,
+                -55.5
+              ]
+            }
+          ],
+          "Girder": 0,
+          "Normals": [
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          ],
+          "Primary": 1,
+          "Positions": [
+            {
+              "Pos": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "Pos": [
+                0,
+                0,
+                -56
+              ]
+            }
+          ],
+          "Axes": [
+            {
+              "V": [
+                0.0,
+                0.0,
+                -1.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                0.0,
+                1.0
+              ]
+            }
+          ],
+          "Material": "simulatedcoasters:coaster_track"
+        },
+        "magnets": [],
+        "profile": [
+          {
+            "distance": 0.0,
+            "slope": 0.0,
+            "angle": 0.0
+          },
+          {
+            "distance": 56.0,
+            "slope": 0.0,
+            "angle": 0.0
+          }
+        ],
+        "lift_lock": 0,
+        "geometry_hash": 4798246925098810849,
+        "yaw": {
+          "owner": [
+            940439953,
+            -167562164,
+            -1601161573,
+            -1389718966
+          ],
+          "intervals": [
+            {
+              "phi_to": 1.5707963267948966,
+              "blend": 8.0,
+              "keys": [
+                {
+                  "distance": 0.0,
+                  "angle": 3.141592653589793
+                },
+                {
+                  "distance": 56.0,
+                  "angle": 3.141592653589793
+                }
+              ],
+              "start": 0.0,
+              "show_duration": 0,
+              "speed": 0.6,
+              "stop_name": "",
+              "mode": "PROFILE",
+              "acceleration": 0.8,
+              "winding": "NEAREST",
+              "name": "Section 11",
+              "end": 56.0,
+              "id": [
+                -529406935,
+                -1769455530,
+                -1836629335,
+                -78235536
+              ],
+              "phi_from": 1.5707963267948966
+            }
+          ],
+          "geometry": 4798246925098810849,
+          "version": 1,
+          "revision": 0
+        },
+        "revision": 0,
+        "valid": 1,
+        "appearance": {
+          "tint": -1,
+          "id": "fourthdimension:original"
+        },
+        "provider": "fourthdimension:original",
+        "variant": "route_changeover_yaw_v1",
+        "from": 26388280000527,
+        "to": 26388279771151,
+        "id": [
+          -797018484,
+          32589208,
+          -1727835810,
+          -329031832
+        ],
+        "family": "flying"
+      },
+      {
+        "original_curve": {
+          "Starts": [
+            {
+              "V": [
+                0.5,
+                0.25,
+                0.5
+              ]
+            },
+            {
+              "V": [
+                0.5,
+                0.25,
+                -55.5
+              ]
+            }
+          ],
+          "Girder": 0,
+          "Normals": [
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          ],
+          "Primary": 1,
+          "Positions": [
+            {
+              "Pos": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "Pos": [
+                0,
+                0,
+                -56
+              ]
+            }
+          ],
+          "Axes": [
+            {
+              "V": [
+                0.0,
+                0.0,
+                -1.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                0.0,
+                1.0
+              ]
+            }
+          ],
+          "Material": "simulatedcoasters:coaster_track"
+        },
+        "magnets": [],
+        "profile": [
+          {
+            "distance": 0.0,
+            "slope": 0.0,
+            "angle": 0.0
+          },
+          {
+            "distance": 56.0,
+            "slope": 0.0,
+            "angle": 0.0
+          }
+        ],
+        "lift_lock": 0,
+        "geometry_hash": -3160670197022178335,
+        "yaw": {
+          "owner": [
+            940439953,
+            -167562164,
+            -1601161573,
+            -1389718966
+          ],
+          "intervals": [
+            {
+              "phi_to": 1.5707963267948966,
+              "blend": 8.0,
+              "keys": [
+                {
+                  "distance": 0.0,
+                  "angle": 3.141592653589793
+                },
+                {
+                  "distance": 56.0,
+                  "angle": 3.141592653589793
+                }
+              ],
+              "start": 0.0,
+              "show_duration": 0,
+              "speed": 0.6,
+              "stop_name": "",
+              "mode": "PROFILE",
+              "acceleration": 0.8,
+              "winding": "NEAREST",
+              "name": "Section 12",
+              "end": 56.0,
+              "id": [
+                823295716,
+                1997226548,
+                -1634855832,
+                620041564
+              ],
+              "phi_from": 1.5707963267948966
+            }
+          ],
+          "geometry": -3160670197022178335,
+          "version": 1,
+          "revision": 0
+        },
+        "revision": 0,
+        "valid": 1,
+        "appearance": {
+          "tint": -1,
+          "id": "fourthdimension:original"
+        },
+        "provider": "fourthdimension:original",
+        "variant": "route_changeover_yaw_v1",
+        "from": 26388279771151,
+        "to": 26388279541775,
+        "id": [
+          318202501,
+          1570328475,
+          -1410519928,
+          -1836671998
+        ],
+        "family": "flying"
+      },
+      {
+        "original_curve": {
+          "Starts": [
+            {
+              "V": [
+                0.5,
+                0.25,
+                0.5
+              ]
+            },
+            {
+              "V": [
+                0.5,
+                0.25,
+                -55.5
+              ]
+            }
+          ],
+          "Girder": 0,
+          "Normals": [
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          ],
+          "Primary": 1,
+          "Positions": [
+            {
+              "Pos": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "Pos": [
+                0,
+                0,
+                -56
+              ]
+            }
+          ],
+          "Axes": [
+            {
+              "V": [
+                0.0,
+                0.0,
+                -1.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                0.0,
+                1.0
+              ]
+            }
+          ],
+          "Material": "simulatedcoasters:coaster_track"
+        },
+        "magnets": [],
+        "profile": [
+          {
+            "distance": 0.0,
+            "slope": 0.0,
+            "angle": 0.0
+          },
+          {
+            "distance": 56.0,
+            "slope": 0.0,
+            "angle": 0.0
+          }
+        ],
+        "lift_lock": 0,
+        "geometry_hash": -6545479005442227743,
+        "yaw": {
+          "owner": [
+            940439953,
+            -167562164,
+            -1601161573,
+            -1389718966
+          ],
+          "intervals": [
+            {
+              "phi_to": 1.5707963267948966,
+              "blend": 8.0,
+              "keys": [
+                {
+                  "distance": 0.0,
+                  "angle": 3.141592653589793
+                },
+                {
+                  "distance": 56.0,
+                  "angle": 3.141592653589793
+                }
+              ],
+              "start": 0.0,
+              "show_duration": 0,
+              "speed": 0.6,
+              "stop_name": "",
+              "mode": "PROFILE",
+              "acceleration": 0.8,
+              "winding": "NEAREST",
+              "name": "Section 13",
+              "end": 56.0,
+              "id": [
+                1613138666,
+                -1832042395,
+                -1209166595,
+                -272052907
+              ],
+              "phi_from": 1.5707963267948966
+            }
+          ],
+          "geometry": -6545479005442227743,
+          "version": 1,
+          "revision": 0
+        },
+        "revision": 0,
+        "valid": 1,
+        "appearance": {
+          "tint": -1,
+          "id": "fourthdimension:original"
+        },
+        "provider": "fourthdimension:original",
+        "variant": "route_changeover_yaw_v1",
+        "from": 26388279541775,
+        "to": 26388279312399,
+        "id": [
+          -1169483979,
+          -451001973,
+          -1952165938,
+          -1922205383
+        ],
+        "family": "flying"
+      },
+      {
+        "original_curve": {
+          "Starts": [
+            {
+              "V": [
+                0.5,
+                0.25,
+                0.5
+              ]
+            },
+            {
+              "V": [
+                0.5,
+                0.25,
+                -47.5
+              ]
+            }
+          ],
+          "Girder": 0,
+          "Normals": [
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          ],
+          "Primary": 1,
+          "Positions": [
+            {
+              "Pos": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "Pos": [
+                0,
+                0,
+                -48
+              ]
+            }
+          ],
+          "Axes": [
+            {
+              "V": [
+                0.0,
+                0.0,
+                -1.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                0.0,
+                1.0
+              ]
+            }
+          ],
+          "Material": "simulatedcoasters:coaster_track"
+        },
+        "magnets": [],
+        "profile": [
+          {
+            "distance": 0.0,
+            "slope": 0.0,
+            "angle": 0.0
+          },
+          {
+            "distance": 48.0,
+            "slope": 0.0,
+            "angle": 0.0
+          }
+        ],
+        "lift_lock": 0,
+        "geometry_hash": 6385067294861736929,
+        "yaw": {
+          "owner": [
+            940439953,
+            -167562164,
+            -1601161573,
+            -1389718966
+          ],
+          "intervals": [
+            {
+              "phi_to": 0.0,
+              "blend": 8.0,
+              "keys": [
+                {
+                  "distance": 0.0,
+                  "angle": 3.141592653589793
+                },
+                {
+                  "distance": 48.0,
+                  "angle": 3.141592653589793
+                }
+              ],
+              "start": 0.0,
+              "show_duration": 0,
+              "speed": 0.6,
+              "stop_name": "",
+              "mode": "PROFILE",
+              "acceleration": 0.8,
+              "winding": "NEAREST",
+              "name": "Section 14",
+              "end": 48.0,
+              "id": [
+                -1011786658,
+                1132937582,
+                -1136194907,
+                2045208537
+              ],
+              "phi_from": 1.5707963267948966
+            }
+          ],
+          "geometry": 6385067294861736929,
+          "version": 1,
+          "revision": 0
+        },
+        "revision": 0,
+        "valid": 1,
+        "appearance": {
+          "tint": -1,
+          "id": "fourthdimension:original"
+        },
+        "provider": "fourthdimension:original",
+        "variant": "route_changeover_yaw_v1",
+        "from": 26388279312399,
+        "to": 26388279115791,
+        "id": [
+          -509591177,
+          -1465826209,
+          -2051236849,
+          953123090
+        ],
+        "family": "flying"
+      },
+      {
+        "original_curve": {
+          "Starts": [
+            {
+              "V": [
+                0.5,
+                0.25,
+                0.5
+              ]
+            },
+            {
+              "V": [
+                -31.5,
+                0.25,
+                -31.5
+              ]
+            }
+          ],
+          "Girder": 0,
+          "Normals": [
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          ],
+          "Primary": 1,
+          "Positions": [
+            {
+              "Pos": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "Pos": [
+                -32,
+                0,
+                -32
+              ]
+            }
+          ],
+          "Axes": [
+            {
+              "V": [
+                0.0,
+                0.0,
+                -1.0
+              ]
+            },
+            {
+              "V": [
+                1.0,
+                0.0,
+                0.0
+              ]
+            }
+          ],
+          "Material": "simulatedcoasters:coaster_track"
+        },
+        "magnets": [],
+        "profile": [
+          {
+            "distance": 0.0,
+            "slope": 0.0,
+            "angle": 0.0
+          },
+          {
+            "distance": 50.27253011433401,
+            "slope": 0.0,
+            "angle": 0.0
+          }
+        ],
+        "lift_lock": 0,
+        "geometry_hash": -3443850172592321493,
+        "yaw": {
+          "owner": [
+            940439953,
+            -167562164,
+            -1601161573,
+            -1389718966
+          ],
+          "intervals": [
+            {
+              "phi_to": 0.0,
+              "blend": 8.0,
+              "keys": [
+                {
+                  "distance": 0.0,
+                  "angle": 3.141592653589793
+                },
+                {
+                  "distance": 50.27253011433401,
+                  "angle": 3.141592653589793
+                }
+              ],
+              "start": 0.0,
+              "show_duration": 0,
+              "speed": 0.6,
+              "stop_name": "",
+              "mode": "PROFILE",
+              "acceleration": 0.8,
+              "winding": "NEAREST",
+              "name": "Section 15",
+              "end": 50.27253011433401,
+              "id": [
+                -1938340476,
+                -1403109325,
+                -1197209810,
+                1936570684
+              ],
+              "phi_from": 0.0
+            }
+          ],
+          "geometry": -3443850172592321493,
+          "version": 1,
+          "revision": 0
+        },
+        "revision": 0,
+        "valid": 1,
+        "appearance": {
+          "tint": -1,
+          "id": "fourthdimension:original"
+        },
+        "provider": "fourthdimension:original",
+        "variant": "route_changeover_yaw_v1",
+        "from": 26388279115791,
+        "to": 17867063869455,
+        "id": [
+          945625407,
+          -452181518,
+          -1980748893,
+          1353018412
+        ],
+        "family": "flying"
+      },
+      {
+        "original_curve": {
+          "Starts": [
+            {
+              "V": [
+                0.5,
+                0.25,
+                0.5
+              ]
+            },
+            {
+              "V": [
+                -31.5,
+                0.25,
+                0.5
+              ]
+            }
+          ],
+          "Girder": 0,
+          "Normals": [
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          ],
+          "Primary": 1,
+          "Positions": [
+            {
+              "Pos": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "Pos": [
+                -32,
+                0,
+                0
+              ]
+            }
+          ],
+          "Axes": [
+            {
+              "V": [
+                -1.0,
+                0.0,
+                0.0
+              ]
+            },
+            {
+              "V": [
+                1.0,
+                0.0,
+                0.0
+              ]
+            }
+          ],
+          "Material": "simulatedcoasters:coaster_track"
+        },
+        "magnets": [],
+        "profile": [
+          {
+            "distance": 0.0,
+            "slope": 0.0,
+            "angle": 0.0
+          },
+          {
+            "distance": 32.0,
+            "slope": 0.0,
+            "angle": 0.0
+          }
+        ],
+        "lift_lock": 0,
+        "geometry_hash": 4781064748553299169,
+        "yaw": {
+          "owner": [
+            940439953,
+            -167562164,
+            -1601161573,
+            -1389718966
+          ],
+          "intervals": [
+            {
+              "phi_to": 0.0,
+              "blend": 8.0,
+              "keys": [
+                {
+                  "distance": 0.0,
+                  "angle": 3.141592653589793
+                },
+                {
+                  "distance": 32.0,
+                  "angle": 3.141592653589793
+                }
+              ],
+              "start": 0.0,
+              "show_duration": 0,
+              "speed": 0.6,
+              "stop_name": "",
+              "mode": "PROFILE",
+              "acceleration": 0.8,
+              "winding": "NEAREST",
+              "name": "Section 16",
+              "end": 32.0,
+              "id": [
+                288122260,
+                -917093686,
+                -2006081114,
+                -1782905903
+              ],
+              "phi_from": 0.0
+            }
+          ],
+          "geometry": 4781064748553299169,
+          "version": 1,
+          "revision": 0
+        },
+        "revision": 0,
+        "valid": 1,
+        "appearance": {
+          "tint": -1,
+          "id": "fourthdimension:original"
+        },
+        "provider": "fourthdimension:original",
+        "variant": "route_changeover_yaw_v1",
+        "from": 17867063869455,
+        "to": 9070970847247,
+        "id": [
+          -392653840,
+          1704937803,
+          -1601778329,
+          -1685536719
+        ],
+        "family": "flying"
+      },
+      {
+        "original_curve": {
+          "Starts": [
+            {
+              "V": [
+                0.5,
+                0.25,
+                0.5
+              ]
+            },
+            {
+              "V": [
+                -31.5,
+                0.25,
+                32.5
+              ]
+            }
+          ],
+          "Girder": 0,
+          "Normals": [
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          ],
+          "Primary": 1,
+          "Positions": [
+            {
+              "Pos": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "Pos": [
+                -32,
+                0,
+                32
+              ]
+            }
+          ],
+          "Axes": [
+            {
+              "V": [
+                -1.0,
+                0.0,
+                0.0
+              ]
+            },
+            {
+              "V": [
+                0.0,
+                0.0,
+                -1.0
+              ]
+            }
+          ],
+          "Material": "simulatedcoasters:coaster_track"
+        },
+        "magnets": [],
+        "profile": [
+          {
+            "distance": 0.0,
+            "slope": 0.0,
+            "angle": 0.0
+          },
+          {
+            "distance": 50.27252916554095,
+            "slope": 0.0,
+            "angle": 0.0
+          }
+        ],
+        "lift_lock": 0,
+        "geometry_hash": 3121165877496140257,
+        "yaw": {
+          "owner": [
+            940439953,
+            -167562164,
+            -1601161573,
+            -1389718966
+          ],
+          "intervals": [
+            {
+              "phi_to": 0.0,
+              "blend": 8.0,
+              "keys": [
+                {
+                  "distance": 0.0,
+                  "angle": 3.141592653589793
+                },
+                {
+                  "distance": 50.27252916554095,
+                  "angle": 3.141592653589793
+                }
+              ],
+              "start": 0.0,
+              "show_duration": 0,
+              "speed": 0.6,
+              "stop_name": "",
+              "mode": "PROFILE",
+              "acceleration": 0.8,
+              "winding": "NEAREST",
+              "name": "Section 17",
+              "end": 50.27252916554095,
+              "id": [
+                1746128209,
+                939083358,
+                -1756108800,
+                898304448
+              ],
+              "phi_from": 0.0
+            }
+          ],
+          "geometry": 3121165877496140257,
+          "version": 1,
+          "revision": 0
+        },
+        "revision": 0,
+        "valid": 1,
+        "appearance": {
+          "tint": -1,
+          "id": "fourthdimension:original"
+        },
+        "provider": "fourthdimension:original",
+        "variant": "route_changeover_yaw_v1",
+        "from": 9070970847247,
+        "to": 49167,
+        "id": [
+          2054930303,
+          1795181641,
+          -1713794206,
+          485760981
+        ],
+        "family": "flying"
+      }
+    ],
+    "vehicles": [
+      {
+        "alignment_required": 0,
+        "contact_layout": "coasters_n_contacts_v1",
+        "mount_frame": "overhead_n_v1",
+        "fault": "",
+        "boundTo": 442395,
+        "carriers": [
+          {
+            "side": 0.0,
+            "rider_seats": [
+              {
+                "seat": 0,
+                "player": [
+                  940439953,
+                  -167562164,
+                  -1601161573,
+                  -1389718966
+                ]
+              }
+            ],
+            "lift_pending": 0,
+            "capture": 1,
+            "body": [
+              1095452863,
+              -846050465,
+              -2035892011,
+              1542996681
+            ],
+            "axis": "X",
+            "seats": [
+              -274877906944,
+              0
+            ],
+            "ballast": 0.0,
+            "omega": -0.05263350922786148,
+            "lift_geometry": 0,
+            "lift_entered": 0,
+            "pivot_height": 0.0,
+            "angle": -0.29364072003049035,
+            "capture_target": -5.4812318219364655e-06,
+            "lift_held": 0,
+            "latched": 0,
+            "longitudinal": 0.0,
+            "child_pivot_offset": 0.0,
+            "child_pivot_x": -0.5,
+            "child_pivot_z": 0.0,
+            "occupants": [
+              [
+                940439953,
+                -167562164,
+                -1601161573,
+                -1389718966
+              ]
+            ]
+          }
+        ],
+        "chassis": [
+          -1570255997,
+          -187872826,
+          -1287017263,
+          -1993868702
+        ],
+        "damping": 0.0,
+        "boundFrom": 245775,
+        "yaw": {
+          "last_show_tick": -1,
+          "deck": [
+            -1175484457,
+            -1540079005,
+            -2011677376,
+            -2020519518
+          ],
+          "axes": "chassis_y_then_deck_x",
+          "section": [
+            837673804,
+            -640728799,
+            -1933221163,
+            2086793336
+          ],
+          "epoch": 7,
+          "entry_angle": 1.5707915155737435,
+          "branch": 0.0,
+          "stop_name": "",
+          "last_distance": 14.16150523143013,
+          "mode": "PROFILE",
+          "reference": 1.876810420789231,
+          "marker_dimension": "",
+          "entry_distance": 0.18200508971191234,
+          "show_ticks": 0,
+          "angle": 1.8717929480131916,
+          "last_target": 1.879960989716182,
+          "initialized": 1,
+          "direction": 1,
+          "section_revision": 0,
+          "owner": [
+            940439953,
+            -167562164,
+            -1601161573,
+            -1389718966
+          ],
+          "posture_reference": -0.2987787139325492,
+          "previous_section": [
+            172584819,
+            2102808229,
+            -2032615428,
+            679951386
+          ],
+          "resume_required": 0,
+          "pivot_y": -3.3125,
+          "next_mode": "PROFILE",
+          "posture_velocity": -0.055819214403472234,
+          "blend_progress": 1.0,
+          "hold_acknowledged": 0,
+          "transform_order": 1,
+          "reference_velocity": 0.053249526141138155,
+          "velocity": 0.05776241165616436,
+          "tick": 10773,
+          "route_fingerprint": -1922026315079363171,
+          "version": 1,
+          "sequence": 17767,
+          "travel_authorized": 1,
+          "status": "READY",
+          "entry_velocity": 2.7061072543887273e-05
+        },
+        "ballast": 0.0,
+        "revision": 9,
+        "boarding_ready": 0,
+        "stopping": 0,
+        "flying": {
+          "phase": "TO_PRONE",
+          "hold_angle": 0.0,
+          "reference_velocity": -0.055819214403472234,
+          "body": 1,
+          "version": 1,
+          "target": 1.5707963267948966,
+          "consist": [],
+          "reference_angle": -0.2987787139325492,
+          "legs": 1,
+          "lock": "NONE",
+          "progress": 0.0,
+          "interruption": "",
+          "dock_to": 245775,
+          "dock_geometry": 642024761156414689,
+          "dock_from": 49167
+        },
+        "variant": "route_changeover_yaw_v1",
+        "restraints": 1,
+        "shuttle_detached": 0,
+        "family": "flying",
+        "suspended_consist": [],
+        "dock": -1099511504884,
+        "maintenance": 0
+      }
+    ]
+  },
+  "DataVersion": 3955
+}

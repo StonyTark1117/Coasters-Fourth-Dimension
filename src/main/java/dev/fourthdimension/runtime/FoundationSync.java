@@ -19,6 +19,10 @@ import net.neoforged.neoforge.network.event.RegisterPayloadHandlersEvent;
 public final class FoundationSync {
   private static final HashMap<UUID, Long> PENDING_NATIVE_LINK_RESYNCS = new HashMap<>();
 
+  private static final UUID SESSION=UUID.randomUUID();
+  private static long sequence;
+  private record Received(UUID session,long sequence){}
+  private static final java.util.Map<net.minecraft.world.level.Level,Received> RECEIVED=new java.util.WeakHashMap<>();
   private FoundationSync() {}
 
   /** A full dimension-scoped state replacement; stale snapshots are ignored client-side. */
@@ -57,6 +61,13 @@ public final class FoundationSync {
                     () -> {
                       var level = context.player().level();
                       if (!accepts(level, payload)) return;
+                      var old=RECEIVED.get(level);
+                      if(payload.tag.hasUUID("sync_session")){
+                        var session=payload.tag.getUUID("sync_session");var seq=payload.tag.getLong("sync_sequence");
+                        if(old!=null&&(!old.session.equals(session)||seq<=old.sequence))return;
+                        var restored=FoundationData.load(payload.tag,level.registryAccess());
+                        EligibilityHooks.CLIENT.put(level,restored);RECEIVED.put(level,new Received(session,seq));return;
+                      }
                       EligibilityHooks.CLIENT.put(
                           level, FoundationData.load(payload.tag, level.registryAccess()));
                     }));
@@ -90,7 +101,12 @@ public final class FoundationSync {
         player,
         new Snapshot(
             level.dimension().location(),
-            FoundationData.get(level).snapshot(new CompoundTag(), level.registryAccess())));
+            snapshot(level)));
+  }
+
+  private static CompoundTag snapshot(ServerLevel level){
+    var tag=FoundationData.get(level).snapshot(new CompoundTag(),level.registryAccess());
+    tag.putUUID("sync_session",SESSION);tag.putLong("sync_sequence",++sequence);tag.putLong("sync_tick",level.getGameTime());return tag;
   }
 
   public static boolean accepts(net.minecraft.world.level.Level level, Snapshot snapshot) {

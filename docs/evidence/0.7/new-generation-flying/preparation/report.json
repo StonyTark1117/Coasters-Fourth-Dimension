@@ -1,0 +1,33 @@
+{
+  "scope": "specification-only math; not native dynamics, assets, synchronization or acceptance",
+  "samples": 18335,
+  "occupied_sphere_radius": 1.9339079605813716,
+  "sphere_graph_top": -1.0660920394186284,
+  "sphere_graph_bottom": -4.933907960581371,
+  "gap_to_original_native_underbrace_minus_0_70": 0.36609203941862845,
+  "reserved_half_width": 2.75,
+  "reserved_above_graph": 1.1,
+  "reserved_below_graph": 5.25,
+  "reserved_half_length": 2.75,
+  "sample_radius_error": 6.661338147750939e-16,
+  "continuous_bound": "Orthogonal Rx/Ry/B preserve Euclidean norm; max corner norm bounds every point of the convex occupied box for every combined trajectory. Does not bound yaw-deck forks/spindle/bogie: those need their own authored geometry and native sweep.",
+  "presentation_heading_error": 1.5700924586837752e-16,
+  "banked_projected_target_heading_error": 3.3306690738754696e-16,
+  "candidate_cases": {
+    "pi_tie_positive": 3.141592653589793,
+    "positive_limit_unreachable": null,
+    "negative_limit_unreachable": null,
+    "positive_last_half_turn": 25.132741228718345
+  },
+  "transition_candidate": {
+    "length": 24.0,
+    "speed": 2.0,
+    "seconds": 12.0,
+    "phi_max_rate": 0.19634954084936207,
+    "phi_max_acceleration": 0.06544984694978735,
+    "yaw_max_rate": 0.19634954084936207,
+    "yaw_max_acceleration": 0.06544984694978735
+  },
+  "stopped_distance_profile_constant": 6.283185307179586,
+  "limits": "Reference rate bounds assume constant travel speed. Native rate/acceleration, loading/solver response, endpoint lock dwell, blends, drive holds, marker validity and actual clearances remain required."
+}

@@ -15,6 +15,7 @@ public record TrackContract(
     CONTROL_RAILS,
     ROTATION_DRIVE,
     POSTURE_LOCK,
+    YAW,
     ROTARY_CLEARANCE,
     MAGNET_INTERFACE,
     STATION_CAPTURE,

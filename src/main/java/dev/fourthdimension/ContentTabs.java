@@ -19,7 +19,9 @@ public final class ContentTabs {
                   .title(Component.literal("Coasters: Fourth Dimension"))
                   .icon(() -> TrackItems.ARROW.get().getDefaultInstance())
                   .displayItems(
-                      (parameters, output) ->
-                          TrackItems.ITEMS.getEntries().forEach(item -> output.accept(item.get())))
+                      (parameters, output) -> {
+                        TrackItems.ITEMS.getEntries().forEach(item -> output.accept(item.get()));
+                        output.accept(dev.fourthdimension.vehicle.YawMarkers.ITEM.get());
+                      })
                   .build());
 }

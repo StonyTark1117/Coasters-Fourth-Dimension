@@ -49,6 +49,8 @@ public final class RotationEditorScreen extends Screen {
       onClose();
       return;
     }
+    boolean compound=target.vehicle()? data.vehicles.containsKey(target.id())&&dev.fourthdimension.vehicle.NewGenerationFlyingVehicle.is(data.vehicles.get(target.id())) : data.rails.stream().anyMatch(r->r.id.equals(target.id())&&r.variant.equals(dev.fourthdimension.vehicle.NewGenerationFlyingVehicle.VARIANT));
+    if(compound){minecraft.setScreen(new NewGenerationFlyingScreen(target));return;}
     int left = width / 2 - 170, top = height / 2 - (target.vehicle() ? 116 : 90);
     value =
         new EditBox(
@@ -65,7 +67,8 @@ public final class RotationEditorScreen extends Screen {
       magnetic = v.family == dev.fourthdimension.contract.Family.FREE_SPIN;
       recovery = v.recoveryCart != null;
       updateVehicleStatus(v);
-      value.setValue(dev.fourthdimension.vehicle.AxisVehicle.is(v) ? "Axis — continuous roll, track FREE / DAMP / DRIVE"
+      value.setValue(dev.fourthdimension.vehicle.RollerBallVehicle.is(v) ? "Roller Ball — passive swing; latch on guided lift"
+          : dev.fourthdimension.vehicle.AxisVehicle.is(v) ? "Axis — continuous roll, track FREE / DAMP / DRIVE"
           : dev.fourthdimension.vehicle.FlyingVehicle.is(v) ? "Flying — " + v.flying.phase + " | lock " + v.flying.lock
           : dev.fourthdimension.vehicle.FixedInvertedVehicle.is(v)
           ? "Fixed Inverted — four seats, overhead track, level dock" : dev.fourthdimension.vehicle.WingVehicle.is(v)
@@ -83,6 +86,9 @@ public final class RotationEditorScreen extends Screen {
                                       java.util.Locale.ROOT, "%.0f", v.ballast + c.ballast))
                           .collect(Collectors.joining(" / "))
                       + ". Applying uniform tuning resets per-group ballast.")));
+      if(dev.fourthdimension.vehicle.RollerBallVehicle.is(v))
+        value.setTooltip(net.minecraft.client.gui.components.Tooltip.create(Component.literal(
+            "Passive carrier motion. The Lift Control owns guided climb and summit release; return sections damp the carrier.")));
       value.setEditable(free);
       addButton(v.family.rotary() && !dev.fourthdimension.vehicle.FlyingVehicle.is(v) ? "Capture" : "Stop", left, top + 82, 10);
       if (dev.fourthdimension.vehicle.FlyingVehicle.is(v)) {
@@ -103,7 +109,7 @@ public final class RotationEditorScreen extends Screen {
       else if (v.alignmentRequired)
         addButton("Realign matching track", left, top + 160, 26);
       if (free) addButton("Apply tuning", left, top + 134, 16);
-      if (dev.fourthdimension.vehicle.AxisVehicle.is(v) || dev.fourthdimension.vehicle.FlyingVehicle.is(v) || dev.fourthdimension.vehicle.FixedInvertedVehicle.is(v) || dev.fourthdimension.vehicle.SpinningVehicle.is(v) || dev.fourthdimension.vehicle.SuspendedVehicle.is(v))
+      if (dev.fourthdimension.vehicle.RollerBallVehicle.is(v) || dev.fourthdimension.vehicle.AxisVehicle.is(v) || dev.fourthdimension.vehicle.FlyingVehicle.is(v) || dev.fourthdimension.vehicle.FixedInvertedVehicle.is(v) || dev.fourthdimension.vehicle.SpinningVehicle.is(v) || dev.fourthdimension.vehicle.SuspendedVehicle.is(v))
         addButton("Resume to dock", left, top + 134, 28);
       if (v.recoveryCart == null && v.family.foundationFixture()) {
         recoveryAttach = addButton("Attach recovery", left, top + 212, 20);
@@ -393,6 +399,14 @@ public final class RotationEditorScreen extends Screen {
       if(value!=null)value.setValue(String.format(java.util.Locale.ROOT,"%s | %.1f° | %s",vehicle.flying.phase,
           Math.toDegrees(-vehicle.carriers.getFirst().angle),vehicle.flying.lock));
     }
+    if (dev.fourthdimension.vehicle.RollerBallVehicle.is(vehicle)) {
+      var carrier=vehicle.carriers.getFirst();
+      String mechanism=carrier.latched||carrier.liftHeld?"latched"
+          :vehicle.roller.phase==dev.fourthdimension.vehicle.RollerBallState.Phase.RETURN_DAMP?"damping"
+          :vehicle.roller.released?"free":"guided";
+      status="Roller Ball | "+vehicle.roller.phase+" | "+mechanism
+          +" | restraints "+(vehicle.restraints?"closed":"open");
+    }
     if (!vehicle.fault.isEmpty()) status += " | " + vehicle.fault;
   }
 
@@ -435,6 +449,13 @@ public final class RotationEditorScreen extends Screen {
       var selected=snapshot==null?null:snapshot.vehicles.get(target.id());
       if(selected!=null&&dev.fourthdimension.vehicle.FlyingVehicle.is(selected))
         hint="Close body + legs; set prone, wait for lock, dispatch. Seated to unload.";
+      if(selected!=null&&dev.fourthdimension.vehicle.RollerBallVehicle.is(selected))
+        hint="Close restraints and Dispatch; the tagged summit guides release.";
+    } else {
+      var snapshot=EligibilityHooks.data(minecraft.level);
+      var selected=snapshot==null?null:snapshot.rails.stream().filter(r->r.id.equals(target.id())).findFirst().orElse(null);
+      if(selected!=null&&selected.family==dev.fourthdimension.contract.Family.ROLLER_BALL)
+        hint="Use section tags for lift, swing and return; bind the Lift Control.";
     }
     String instruction = feedback.isEmpty() ? hint : feedback;
     graphics.drawString(
@@ -466,6 +487,7 @@ public final class RotationEditorScreen extends Screen {
               EditorNetwork.resultClient = result -> {
                 var screen = net.minecraft.client.Minecraft.getInstance().screen;
                 if (screen instanceof RotationEditorScreen editor) editor.receiveResult(result);
+                else if(screen instanceof NewGenerationFlyingScreen editor)editor.receive(result);
               };
           });
     }

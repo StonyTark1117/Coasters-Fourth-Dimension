@@ -23,7 +23,9 @@ public final class VehicleOperations {
    * than leaving a rider in a stopped but permanently unalignable free carrier.
    */
   public static void failForLostSupport(ServerLevel level, FoundationData.Vehicle vehicle) {
+    if (RollerBallVehicle.is(vehicle)) { RollerBallRuntime.fault(level,vehicle,MATCHING_SUPPORT_LOST); vehicle.alignmentRequired=true; return; }
     if (AxisVehicle.is(vehicle)) { AxisRuntime.fault(level,vehicle,MATCHING_SUPPORT_LOST); for(var c:consist(level,vehicle))c.alignmentRequired=true; return; }
+    if (NewGenerationFlyingVehicle.is(vehicle)) { NewGenerationFlyingRuntime.fault(level,vehicle,MATCHING_SUPPORT_LOST); for(var c:consist(level,vehicle))c.alignmentRequired=true; return; }
     if (FlyingVehicle.is(vehicle)) { FlyingRuntime.fault(level,vehicle,MATCHING_SUPPORT_LOST); for(var c:consist(level,vehicle))c.alignmentRequired=true; return; }
     // A coupled PAX train is one safety unit: losing the matching support under any car must
     // capture, restrain, and brake its whole compatible consist before recovery can begin.
@@ -96,6 +98,8 @@ public final class VehicleOperations {
       winch.fail("Operator emergency capture: inspect the shuttle before recovery");
       return;
     }
+    if (RollerBallVehicle.is(vehicle)) { RollerBallRuntime.capture(level,vehicle); return; }
+    if (NewGenerationFlyingVehicle.is(vehicle)) { NewGenerationFlyingRuntime.capture(level,vehicle); return; }
     if (FlyingVehicle.is(vehicle)) { FlyingRuntime.capture(level,vehicle); return; }
     if (AxisVehicle.is(vehicle)) AxisRuntime.acknowledge(level,vehicle);
     if (FixedInvertedVehicle.is(vehicle)) FixedInvertedRuntime.acknowledge(level, vehicle);
@@ -134,7 +138,7 @@ public final class VehicleOperations {
   }
 
   public static void restraints(ServerLevel level, FoundationData.Vehicle vehicle, boolean closed) {
-    if (FlyingVehicle.is(vehicle)) throw new IllegalArgumentException("Use the separate Flying body and leg restraint controls");
+    if (FlyingVehicle.is(vehicle) || NewGenerationFlyingVehicle.is(vehicle)) throw new IllegalArgumentException("Use the separate Flying body and leg restraint controls");
     if (!closed && vehicle.recoveryCart != null)
       throw new IllegalArgumentException("Disconnect recovery before opening restraints");
     if (!closed && dev.fourthdimension.shuttle.ShuttleRuntime.running(level, vehicle.chassis))
@@ -154,9 +158,11 @@ public final class VehicleOperations {
 
   /** Read-only preflight shared by diagnostics and every dispatch request. */
   public static void validateDispatch(ServerLevel level, FoundationData.Vehicle vehicle) {
+    if (NewGenerationFlyingVehicle.is(vehicle)) { NewGenerationFlyingRuntime.validateDispatch(level,vehicle); return; }
     if (FlyingVehicle.is(vehicle)) { FlyingRuntime.validateDispatch(level,vehicle); return; }
     if (vehicle.recoveryCart != null)
       throw new IllegalArgumentException("Disconnect recovery before ride dispatch");
+    if(RollerBallVehicle.is(vehicle))RollerBallTrack.validateRoute(level,vehicle);
     var data = FoundationData.get(level);
     var consist = consist(level, vehicle);
     for (var v : consist) {
@@ -197,6 +203,7 @@ public final class VehicleOperations {
   }
 
   public static void dispatch(ServerLevel level, FoundationData.Vehicle vehicle) {
+    if (NewGenerationFlyingVehicle.is(vehicle)) { NewGenerationFlyingRuntime.dispatch(level,vehicle); return; }
     if (FlyingVehicle.is(vehicle)) { FlyingRuntime.dispatch(level,vehicle); return; }
     validateDispatch(level, vehicle);
     if (vehicle.family == dev.fourthdimension.contract.Family.PAX) {
@@ -206,6 +213,7 @@ public final class VehicleOperations {
     var data = FoundationData.get(level);
     var consist = consist(level, vehicle);
     for (var v : consist) {
+      if(RollerBallVehicle.is(v))v.roller.routeHash=RollerBallTrack.validateRoute(level,v);
       if (AxisVehicle.is(v)) AxisRuntime.rememberConsist(level,v);
       if (FixedInvertedVehicle.is(v)) FixedInvertedRuntime.rememberConsist(level, v);
       if(SuspendedVehicle.is(v)) {
@@ -218,7 +226,7 @@ public final class VehicleOperations {
       }
       v.stopping = false;
       v.fault = "";
-      v.carriers.forEach(c -> { c.capture = false; c.latched = false; });
+      v.carriers.forEach(c -> { if(RollerBallVehicle.is(v))c.liftHeld=c.latched; c.capture = false; c.latched = false; });
       v.revision++;
     }
     data.setDirty();
@@ -238,7 +246,7 @@ public final class VehicleOperations {
       // The lost section can leave the native chassis without a track constraint, so the normal
       // station-ready velocity check is unavailable until after this exact section is restored.
       // Captured carriers, stopped motion, and closed restraints are the repair interlock.
-      if (!v.stopping || !v.restraints || !AxisVehicle.is(v) && v.carriers.stream().anyMatch(carrier -> !carrier.capture))
+      if (!v.stopping || !v.restraints || !AxisVehicle.is(v) && !RollerBallVehicle.is(v) && v.carriers.stream().anyMatch(carrier -> !carrier.capture))
         throw new IllegalArgumentException(
             "Keep restraints closed and capture every carrier before repair");
       var rail =
@@ -256,7 +264,7 @@ public final class VehicleOperations {
         throw new IllegalArgumentException(
             "Restored geometry changed; unload riders and explicitly rebind the profile before operating");
     }
-    var shuttleRoute = repairedShuttleRoute(level, vehicle);
+    var repairedRoute = RollerBallVehicle.is(vehicle) ? RollerBallTrack.repairedRoute(level,vehicle) : repairedShuttleRoute(level, vehicle);
     var repaired = new HashSet<FoundationData.Rail>();
     for (var v : consist) {
       var rail =
@@ -268,7 +276,7 @@ public final class VehicleOperations {
       v.fault = "";
       v.revision++;
     }
-    for (var rail : shuttleRoute)
+    for (var rail : repairedRoute)
       if (!rail.valid) {
         rail.valid = true;
         rail.revision++;
@@ -354,7 +362,7 @@ public final class VehicleOperations {
     for (var v : consist) {
       if (!v.alignmentRequired)
         throw new IllegalArgumentException("This vehicle does not require matching-track realignment");
-      if (!v.stopping || !v.restraints || !AxisVehicle.is(v) && v.carriers.stream().anyMatch(carrier -> !carrier.capture))
+      if (!v.stopping || !v.restraints || !AxisVehicle.is(v) && !RollerBallVehicle.is(v) && v.carriers.stream().anyMatch(carrier -> !carrier.capture))
         throw new IllegalArgumentException(
             "Keep restraints closed and capture every carrier before realignment");
       // Older saves can contain the boundary fault that used to overwrite a successful support
@@ -426,6 +434,7 @@ public final class VehicleOperations {
             "Unable to stop every linked chassis before realignment");
     }
     for (var candidate : candidates) {
+      if(RollerBallVehicle.is(candidate.vehicle))RollerBallRuntime.releaseHold(level,candidate.vehicle);
       var plotBearing = CoasterCartTrackSnap.representativeBearingPlotPos(candidate.chassis);
       if (plotBearing == null) throw new IllegalArgumentException("Vehicle bearing is unavailable");
       var localBearing = net.minecraft.world.phys.Vec3.atCenterOf(plotBearing);

@@ -45,16 +45,16 @@ Lead alone edits ROADMAP/PLAN/this queue and stages, commits and pushes.
 | FD1302A | Lead | Complete: [native and occupied handoff](evidence/0.7/axis/A-handoff.md), including return/unload and targeted dock-edge recovery. Integrated at `2b805fcb`; same-owner B/C continuation finished and exact :316 runtime saved/stopped. |
 | FD1302B | Lead | Complete: [normal crafting, placement, editor and finite visual review](evidence/0.7/axis/BC-acceptance.md). |
 | FD1302C | Lead | Complete: cumulative A+B workflow, all owned runtimes saved/stopped; no duplicate ride. |
-| FD1502A | Lead | Consume the Axis A integration checkpoint, then implement Roller Ball mechanics. |
-| FD1502B | Lead | Roller Ball specification preparation; content with stable mechanics. |
-| FD1502C | Lead | Cumulative Roller Ball acceptance. |
+| FD1502A | Lead | Complete: [native/occupied/summit restart and look correction](evidence/0.7/roller-ball/A-handoff.md); all owned runtime units saved/stopped. |
+| FD1502B | Lead | Complete: [recipes, normal construction/Chain/controls and finite asset review](evidence/0.7/roller-ball/BC-acceptance.md). |
+| FD1502C | Lead | Complete: cumulative A+B, normal full circuit/capture/unload, actual summit restart and targeted reconnect look. |
 | FD1801A | Conventional Flying | Complete: [native and occupied handoff](evidence/0.7/conventional-flying/README.md), actual occupied transition save/restart and targeted offline-COM correction passed; A runtime saved and stopped. |
 | FD1801B | Conventional Flying | Complete: [recipes, construction, controls and finite visual review](evidence/0.7/conventional-flying/construction/README.md). |
 | FD1801C | Conventional Flying | Complete: construction combined with accepted occupied/restart workflow; all owned units saved/stopped. |
 | FD1801 | Conventional Flying | Complete independently from accepted A–C. New-generation consumes A and continues. |
-| FD1802A | New-generation Flying | Implement from the integrated Conventional A handoff; preparation complete and production ownership transferred below. |
-| FD1802B | New-generation Flying | Prepare combined seated/prone/yaw geometry and content. |
-| FD1802C | New-generation Flying | Complete both-posture targeting and transition workflow. |
+| FD1802A | New-generation Flying | Complete: [qualified native/occupied/shared-yaw handoff](evidence/0.7/new-generation-flying/QUALIFIED-A.md). Loaded Show, full return/unwind/unload and representative reconnect-look correction accepted. Exact runtime remains with the named same-owner B/C continuation. |
+| FD1802B | New-generation Flying | Finishing normal recipes, paid track/car/marker/Chain/editor and finite content review in owned ClearShow world. |
+| FD1802C | New-generation Flying | Reuse completed A occupied workflow; close remaining construction/content then save/stop exact owned runtime. |
 | FD1802 | New-generation Flying | Reconcile full A–C outcome. |
 | FD1803 | New-generation Flying | Reconcile both Flying outcomes; no joint replay. |
 | FD701 | Lead | Integrate all four families, reconcile sixteen cards, verify push and cleanup. |

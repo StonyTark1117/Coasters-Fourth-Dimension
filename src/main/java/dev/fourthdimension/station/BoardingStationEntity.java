@@ -83,8 +83,10 @@ public final class BoardingStationEntity extends BlockEntity
         && ((signal && nearby && !v.stopping) || (!signal && station.powered && nearby
             && !dev.fourthdimension.vehicle.SpinningVehicle.is(v)
             && !dev.fourthdimension.vehicle.SuspendedVehicle.is(v)
+            && !dev.fourthdimension.vehicle.RollerBallVehicle.is(v)
             && !dev.fourthdimension.vehicle.AxisVehicle.is(v)
             && !dev.fourthdimension.vehicle.FlyingVehicle.is(v)
+            && !dev.fourthdimension.vehicle.NewGenerationFlyingVehicle.is(v)
             && !dev.fourthdimension.vehicle.FixedInvertedVehicle.is(v)))) {
       try {
         RideOperations.request(

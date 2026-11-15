@@ -123,8 +123,14 @@ public final class BoardingStation extends BaseEntityBlock {
         return InteractionResult.FAIL;
       }
     }
-    if (rebinding && dev.fourthdimension.vehicle.AxisVehicle.is(v)) {
+    if (rebinding && dev.fourthdimension.vehicle.RollerBallVehicle.is(v)) {
+      try { dev.fourthdimension.vehicle.RollerBallRuntime.rebindDock(server.serverLevel(),v,pos); }
+      catch (IllegalArgumentException rejected) { player.displayClientMessage(Component.literal(rejected.getMessage()),true); return InteractionResult.FAIL; }
+    } else if (rebinding && dev.fourthdimension.vehicle.AxisVehicle.is(v)) {
       try { dev.fourthdimension.vehicle.AxisRuntime.rebindDock(server.serverLevel(),v,pos); }
+      catch (IllegalArgumentException rejected) { player.displayClientMessage(Component.literal(rejected.getMessage()),true); return InteractionResult.FAIL; }
+    } else if (rebinding && dev.fourthdimension.vehicle.NewGenerationFlyingVehicle.is(v)) {
+      try { dev.fourthdimension.vehicle.NewGenerationFlyingRuntime.rebindDock(server.serverLevel(),v,pos); }
       catch (IllegalArgumentException rejected) { player.displayClientMessage(Component.literal(rejected.getMessage()),true); return InteractionResult.FAIL; }
     } else if (rebinding && dev.fourthdimension.vehicle.FlyingVehicle.is(v)) {
       try { dev.fourthdimension.vehicle.FlyingRuntime.rebindDock(server.serverLevel(),v,pos); }
@@ -149,7 +155,7 @@ public final class BoardingStation extends BaseEntityBlock {
     }
     player.displayClientMessage(
         Component.literal(
-            ((dev.fourthdimension.vehicle.SpinningVehicle.is(v) || dev.fourthdimension.vehicle.SuspendedVehicle.is(v) || dev.fourthdimension.vehicle.FixedInvertedVehicle.is(v) || dev.fourthdimension.vehicle.AxisVehicle.is(v) || dev.fourthdimension.vehicle.FlyingVehicle.is(v))
+            ((dev.fourthdimension.vehicle.RollerBallVehicle.is(v) || dev.fourthdimension.vehicle.NewGenerationFlyingVehicle.is(v) || dev.fourthdimension.vehicle.SpinningVehicle.is(v) || dev.fourthdimension.vehicle.SuspendedVehicle.is(v) || dev.fourthdimension.vehicle.FixedInvertedVehicle.is(v) || dev.fourthdimension.vehicle.AxisVehicle.is(v) || dev.fourthdimension.vehicle.FlyingVehicle.is(v))
                 ? "Bound dock: power requests capture; use Dispatch explicitly. Front: ready. Right side:"
                 : "Rear redstone input: capture on power; dispatch on release. Front: ready. Right side:")
                 + " restraints closed. "

@@ -11,9 +11,15 @@ public final class VehicleParts {
 
   public static final DeferredRegister.Blocks BLOCKS =
       DeferredRegister.createBlocks(FourthDimension.ID);
+  public static final DeferredBlock<RollerBallSeatBlock> ROLLER_BALL_SEAT = BLOCKS.register("roller_ball_seat", () -> new RollerBallSeatBlock(BlockBehaviour.Properties.of().strength(3).noOcclusion()));
+  public static final DeferredBlock<Block> ROLLER_BALL_AXLE = BLOCKS.register("roller_ball_axle", () -> new RollerBallAxleBlock(BlockBehaviour.Properties.of().strength(4).noOcclusion()));
+  public static final DeferredBlock<RollerBallFrameBlock> ROLLER_BALL_FRAME = BLOCKS.register("roller_ball_frame", () -> new RollerBallFrameBlock(BlockBehaviour.Properties.of().strength(4).noOcclusion()));
+  public static final DeferredBlock<Block> ROLLER_BALL_BALLAST = BLOCKS.register("roller_ball_ballast", () -> new Block(BlockBehaviour.Properties.of().noCollission()));
   public static final DeferredBlock<AxisSeatBlock> AXIS_SEAT = BLOCKS.register("axis_seat", () -> new AxisSeatBlock(BlockBehaviour.Properties.of().strength(3).noOcclusion()));
   public static final DeferredBlock<AxisFrameBlock> AXIS_FRAME = BLOCKS.register("axis_frame", () -> new AxisFrameBlock(BlockBehaviour.Properties.of().strength(4).noOcclusion().noCollission()));
   public static final DeferredBlock<AxisKeelBlock> AXIS_KEEL = BLOCKS.register("axis_keel", () -> new AxisKeelBlock(BlockBehaviour.Properties.of().noCollission()));
+  public static final DeferredBlock<NewGenerationFlyingSeatBlock> NEW_GENERATION_FLYING_SEAT = BLOCKS.register("new_generation_flying_seat", () -> new NewGenerationFlyingSeatBlock(BlockBehaviour.Properties.of().strength(3).noOcclusion()));
+  public static final DeferredBlock<NewGenerationFlyingDeckBlock> NEW_GENERATION_FLYING_DECK = BLOCKS.register("new_generation_flying_deck", () -> new NewGenerationFlyingDeckBlock(BlockBehaviour.Properties.of().strength(4).noOcclusion()));
   public static final DeferredBlock<FlyingSeatBlock> FLYING_SEAT = BLOCKS.register("flying_seat", () -> new FlyingSeatBlock(BlockBehaviour.Properties.of().strength(3).noOcclusion()));
   public static final DeferredBlock<FlyingFrameBlock> FLYING_FRAME = BLOCKS.register("flying_frame", () -> new FlyingFrameBlock(BlockBehaviour.Properties.of().strength(4).noOcclusion().noCollission()));
   public static final DeferredBlock<FlyingLockBlock> FLYING_LOCK = BLOCKS.register("flying_lock", () -> new FlyingLockBlock(BlockBehaviour.Properties.of().strength(4).noOcclusion().noCollission()));
