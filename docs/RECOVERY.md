@@ -1,6 +1,6 @@
 # Ordinary-bearing recovery
 
-Development build 0.9.0-dev.27 includes explicit recovery coupling for the five
+The frozen 1.0 feature set includes explicit recovery coupling for the five
 original families. A 4D car stays on its matching functional track throughout.
 Only the pinned, unmodified bare Coasters bearing is certified as the ordinary
 recovery cart. It acquires no carriers, profile, magnetic assistance or 4D data.
@@ -14,6 +14,12 @@ the operator can resume.
 The occupied banked recovery fixtures now check the mounted native rider against
 the carrier's non-seat mechanical rack at every recorded pose. The intentional
 seat attachment is excluded; see the [rider-rack checkpoint](evidence/0.4/recovery/rider-rack-clearance/acceptance.md).
+
+FD402A–F and the original-family development gate are complete within these
+limits. Final release lifecycle aggregation belongs to FD902. The dated native
+and client checkpoints below preserve their individual measured bounds; earlier
+“open” notes do not reopen the cumulative accepted scope. Current assignments
+and release status are in [the qualification queue](CURRENT-QUALIFICATION.md#current-work-queue).
 
 ## Operator workflow
 
@@ -63,6 +69,37 @@ and its actual carriage, clears the winch assignment, and preserves the native
 four-car couplings and all chassis/carrier bodies. Moving shuttles reject handover.
 Normal winch binding remains unavailable until recovery is disconnected.
 
+## PAX shuttle interruption recovery
+
+An assigned PAX shuttle uses its winch's **Recover** action. The ordinary-bearing
+**Start tow** and **Detach shuttle** workflow above is a separate handover.
+After a cold restart during OUTBOUND or RETURNING, the repaired runtime retains
+the original carriage, four chassis, eight carriers and native links in FAULT.
+It does not resume gravity travel automatically; **Resume** rejects these phases.
+Inspect the route, power, native bodies, carrier capture and alignment, then choose
+**Recover** explicitly. Recovery keeps the train held while the empty carriage
+approaches and physically catches it before returning to BOARDING.
+
+If the saved interruption was already CAPTURING, explicit **Resume** can continue
+that recovery. Reloading does not automatically catch a distant carriage or
+advance the cycle. A temporary native-body holding gap during BOARDING rebuilds
+the station's neutral capture and holds when the original bodies return; it
+does not authorize dispatch.
+
+For matching-track support loss, restore the exact original curve, then use
+**Repair → Realign → Recover**. Repair alone leaves alignment required. Realign
+retains the existing limit of eight blocks from each chassis's saved station
+slot; a train straddling the spike outside that range rejects realignment.
+Restoring track does not waive this limit or authorize automatic movement.
+Within the supported station range, the accepted sequence retained the occupied
+train, returned it to BOARDING, completed a full occupied cycle, and allowed
+**Open** followed by ordinary **Shift** unload.
+
+See the [cold-phase repair evidence](evidence/1.0/mechanisms/phase-restarts.md)
+and [support-loss recovery and range boundary](evidence/1.0/mechanisms/outbound-support/README.md).
+These checks cover the bounded repair candidate; the final release artifact
+remains subject to the [qualification queue](CURRENT-QUALIFICATION.md#current-work-queue).
+
 ## Interruption and save behavior
 
 Lost or altered gear, a broken coupler, missing native components, incompatible
@@ -87,23 +124,24 @@ stall. Inspect propulsion and cut external power; the fault does not clear and
 towing does not resume automatically. Start/brake/disconnect, lost availability
 and power cut reset the transient progress window. It is not saved as ride state.
 
-Save schema is **6** and network protocol is **7**. Existing schemas 1–5 load without
-inventing recovery state. Upgrade clients and servers together, back up worlds,
-and do not downgrade a recovery-mode world to a version that cannot read schema 6.
-Dev.27 exercises that loader contract for all five supported legacy schema numbers
-using the occupied five-family recovery fixture; see the
-[migration checkpoint](evidence/0.9/recovery-schema-migration.md). This does not
-replace a packaged historic-world upgrade or backup/recovery procedure. Follow
-the [world upgrade and recovery procedure](MIGRATION.md) before opening a
-recovery-mode world in a newer build.
+Current saves write **schema 8**. Foundation synchronization uses protocol7,
+editor messages8 and PAX presentation snapshots1; keep clients and server on the
+same build. Declared historical schemas1–8 are supported, and absent old recovery
+fields do not invent a recovery partner. The historical dev.27 loader checkpoint
+retains its schema1–5 scope; current [migration and backup restoration](evidence/1.0/art/migration.md)
+adds real schema3→8 identity preservation and exact offline restore. Follow
+[the whole-world backup procedure](MIGRATION.md); never downgrade an upgraded
+world in place.
+
 A packaged empty Arrow example also preserves its actual coupling through a
 fresh-JVM reopening, remains braked, and completes normal start/disconnect and
 restraint opening; see the [bounded client check](evidence/0.4/recovery/gui/arrow-gui-acceptance.md).
 The native checks include serialization, legacy-schema loading, and actual Sable
 holding/restoration of all five occupied recovery groups: bearing, chassis,
 carriers, native couplings and 32 passengers. They stay braked after restoration
-and resume only through the normal explicit operator action. A complete
-fresh-process recovery-mode restart/unload matrix remains part of FD902.
+and resume only through the normal explicit operator action. Final
+fresh-process recovery-mode restart/unload reconciliation belongs to FD902, which
+reuses these accepted cases and checks only named remaining failures.
 
 ## Flat examples and validated scope
 
@@ -152,10 +190,10 @@ an assigned four-car shuttle.
 
 All five **single-car** routes have occupied native traversal and original seat
 identity evidence, with normal brake/power/disconnect/unload controls and measured
-body/track anchor and orientation offsets. These are headless native checks;
-complete rendered vehicle/rider and control-rack clearance and the full
-operator/lifecycle matrix remain open. Dev.20 supplies separate occupied original
-train acceptance below. See the
+body/track anchor and orientation offsets. These are headless native checks; they do not alone establish rendered
+vehicle/rider/control-rack clearance or operator lifecycle. The later cumulative
+FD402 closure below supplies those cases. Dev.20 supplies separate occupied
+original-train acceptance below. See the
 [banked towing checkpoint](evidence/0.4/recovery/banked-tow/acceptance.md).
 
 ## Original train bend/bank examples
@@ -216,8 +254,9 @@ recovery. The [combined PAX permanent-removal record](evidence/0.4/recovery/perm
 closes E6/E7 with accepted native cleanup evidence. **FD402A–F are complete as of
 2026-11-11** for the declared recovery scope; the [recovery queue](CURRENT-QUALIFICATION.md#fd402-recovery-cases)
 has no open cases. The bounded route, solver and equipment limits above still
-apply. FD403 construction/teaching and the FD404 development checkpoint remain
-separate open packages.
+apply. FD403 construction/teaching and FD404 also subsequently closed; the
+[current queue](CURRENT-QUALIFICATION.md#current-work-queue) records their cumulative
+acceptance rather than reopening them from this historical checkpoint.
 
 The [isolated Engineered recovery/FE checkpoint](evidence/0.4/recovery/engineered-fe/acceptance.md)
 now covers the certified bare ordinary bearing with Engineered 1.1.1: braked and
@@ -260,8 +299,9 @@ and 0.0625 for rider/rack clearance on the checked subset; see the
 [dense-clearance checkpoint](evidence/0.4/recovery/dense-clearance/acceptance.md)
 and its [coverage correction](evidence/0.4/recovery/dense-clearance/rider-rack-coverage-correction.md).
 Ten-tick samples still do not certify continuous swept clearance, rendered players,
-intentional seat contact, linkage or optional decoration. Full rendered/operator/lifecycle
-acceptance remains FD402.
+intentional seat contact, linkage or optional decoration. Their bounded evidence
+combines with the later FD402 rendered/operator/lifecycle closure above; these
+sample limits are not a new acceptance gate.
 
 The later [sampled vanilla-player checkpoint](evidence/0.4/recovery/player-rack-clearance/acceptance.md)
 replays the current one-tick traces with part-level vanilla seated-player

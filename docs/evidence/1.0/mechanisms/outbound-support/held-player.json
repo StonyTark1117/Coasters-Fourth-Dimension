@@ -1,0 +1,328 @@
+{
+  "label": "snapshot",
+  "tick": 12185,
+  "phase": "FAULT",
+  "interrupted": "OUTBOUND",
+  "fault": "Matching track support lost",
+  "winch": -1649267142551,
+  "lead": "460eef94-8e96-4481-a4d6-543ad0c888eb",
+  "carriage": {
+    "id": "ea49730b-f894-4c67-9c17-0ac5264b72ef",
+    "loaded": true,
+    "cartCenter": false,
+    "position": [
+      0.4999985694885254,
+      126.02977752685547,
+      27.681896209716797
+    ],
+    "velocity": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "links": []
+  },
+  "distance": 10.350000000000016,
+  "cycles": 2,
+  "lossTick": 10788,
+  "cars": [
+    {
+      "id": "460eef94-8e96-4481-a4d6-543ad0c888eb",
+      "loaded": true,
+      "cartCenter": true,
+      "position": [
+        0.5018673717181091,
+        107.95296625786645,
+        53.34948383583236
+      ],
+      "velocity": [
+        -0.047772061079740524,
+        0.1967323273420334,
+        0.07614825665950775
+      ],
+      "links": [
+        "30783ff3-e6ff-4c7c-8d33-3875352074a3",
+        "460eef94-8e96-4481-a4d6-543ad0c888eb",
+        "5dd405db-18ed-4b66-98ac-85679f35d7f4",
+        "73534e18-ef8b-4110-8050-e1a487cba3a9"
+      ],
+      "stopping": true,
+      "restraints": true,
+      "alignmentRequired": true,
+      "fault": "Matching track support lost",
+      "ready": false,
+      "boundFrom": "BlockPos{x=0, y=129, z=17}",
+      "boundTo": "BlockPos{x=0, y=105, z=65}",
+      "carriers": [
+        {
+          "id": "8b3b71b6-65dd-4cbc-8751-4ba88caa2c5a",
+          "loaded": true,
+          "cartCenter": false,
+          "position": [
+            3.458727126809655,
+            109.74382010398915,
+            54.000470109604414
+          ],
+          "velocity": [
+            0.2145838737487793,
+            -2.367614269256592,
+            -0.913513720035553
+          ],
+          "links": [],
+          "angle": -0.03451847831556851,
+          "omega": -0.0,
+          "capture": true,
+          "occupants": [],
+          "riderSeats": "{}"
+        },
+        {
+          "id": "84d42fcd-7ff5-4f95-8eaa-ce1d35f04e57",
+          "loaded": true,
+          "cartCenter": false,
+          "position": [
+            -2.447923707347244,
+            109.76285350358155,
+            54.00725345966423
+          ],
+          "velocity": [
+            -0.2675088346004486,
+            -2.381746530532837,
+            -1.0617573261260986
+          ],
+          "links": [],
+          "angle": -0.012617411360065767,
+          "omega": -0.0,
+          "capture": true,
+          "occupants": [],
+          "riderSeats": "{}"
+        }
+      ]
+    },
+    {
+      "id": "30783ff3-e6ff-4c7c-8d33-3875352074a3",
+      "loaded": true,
+      "cartCenter": true,
+      "position": [
+        0.5024724004613766,
+        106.57988724294827,
+        59.19101485739536
+      ],
+      "velocity": [
+        -0.0430234894156456,
+        0.13604669272899628,
+        0.07801730930805206
+      ],
+      "links": [
+        "30783ff3-e6ff-4c7c-8d33-3875352074a3",
+        "460eef94-8e96-4481-a4d6-543ad0c888eb",
+        "5dd405db-18ed-4b66-98ac-85679f35d7f4",
+        "73534e18-ef8b-4110-8050-e1a487cba3a9"
+      ],
+      "stopping": true,
+      "restraints": true,
+      "alignmentRequired": true,
+      "fault": "Matching track support lost",
+      "ready": false,
+      "boundFrom": "BlockPos{x=0, y=129, z=17}",
+      "boundTo": "BlockPos{x=0, y=105, z=65}",
+      "carriers": [
+        {
+          "id": "4bd6aead-2cac-4ef7-83fa-08a44a099b01",
+          "loaded": true,
+          "cartCenter": false,
+          "position": [
+            3.4524991090893984,
+            108.44165009198574,
+            59.57789817507783
+          ],
+          "velocity": [
+            0.12079063057899475,
+            -2.5962271690368652,
+            -0.40392887592315674
+          ],
+          "links": [],
+          "angle": -0.12795198710505457,
+          "omega": 0.0,
+          "capture": true,
+          "occupants": [],
+          "riderSeats": "{}"
+        },
+        {
+          "id": "658affc3-ecdc-44bf-b4b8-9872297b07c8",
+          "loaded": true,
+          "cartCenter": false,
+          "position": [
+            -2.437267807567645,
+            108.46339878869543,
+            59.58215838146526
+          ],
+          "velocity": [
+            -0.18524879217147827,
+            -2.6288185119628906,
+            -0.5377172231674194
+          ],
+          "links": [],
+          "angle": -0.1079524469499424,
+          "omega": 0.0,
+          "capture": true,
+          "occupants": [],
+          "riderSeats": "{}"
+        }
+      ]
+    },
+    {
+      "id": "73534e18-ef8b-4110-8050-e1a487cba3a9",
+      "loaded": true,
+      "cartCenter": true,
+      "position": [
+        0.49685958404849856,
+        106.0664520469412,
+        65.16892504409505
+      ],
+      "velocity": [
+        0.0423150472342968,
+        0.11289311945438385,
+        0.0642925426363945
+      ],
+      "links": [
+        "30783ff3-e6ff-4c7c-8d33-3875352074a3",
+        "460eef94-8e96-4481-a4d6-543ad0c888eb",
+        "5dd405db-18ed-4b66-98ac-85679f35d7f4",
+        "73534e18-ef8b-4110-8050-e1a487cba3a9"
+      ],
+      "stopping": true,
+      "restraints": true,
+      "alignmentRequired": true,
+      "fault": "Matching track support lost",
+      "ready": false,
+      "boundFrom": "BlockPos{x=0, y=129, z=17}",
+      "boundTo": "BlockPos{x=0, y=105, z=65}",
+      "carriers": [
+        {
+          "id": "25308df4-1679-4c72-86c9-5fdd40553b5d",
+          "loaded": true,
+          "cartCenter": false,
+          "position": [
+            3.4305957720879894,
+            107.98715507640395,
+            65.25215297084804
+          ],
+          "velocity": [
+            0.15382279455661774,
+            -2.758315324783325,
+            -0.07396461069583893
+          ],
+          "links": [],
+          "angle": -0.1852780534829177,
+          "omega": 0.0,
+          "capture": true,
+          "occupants": [],
+          "riderSeats": "{}"
+        },
+        {
+          "id": "1d399896-d78e-4069-be02-b5f73d482fb7",
+          "loaded": true,
+          "cartCenter": false,
+          "position": [
+            -2.4506273274492067,
+            107.96263096442544,
+            65.25164697904697
+          ],
+          "velocity": [
+            -0.08765646070241928,
+            -2.6945960521698,
+            0.029942244291305542
+          ],
+          "links": [],
+          "angle": -0.2022728086333835,
+          "omega": 0.0,
+          "capture": true,
+          "occupants": [],
+          "riderSeats": "{}"
+        }
+      ]
+    },
+    {
+      "id": "5dd405db-18ed-4b66-98ac-85679f35d7f4",
+      "loaded": true,
+      "cartCenter": true,
+      "position": [
+        0.47084828982145105,
+        106.08439605715293,
+        71.16965249965507
+      ],
+      "velocity": [
+        0.11343864351511002,
+        0.19985783100128174,
+        0.12487514317035675
+      ],
+      "links": [
+        "30783ff3-e6ff-4c7c-8d33-3875352074a3",
+        "460eef94-8e96-4481-a4d6-543ad0c888eb",
+        "5dd405db-18ed-4b66-98ac-85679f35d7f4",
+        "73534e18-ef8b-4110-8050-e1a487cba3a9"
+      ],
+      "stopping": true,
+      "restraints": true,
+      "alignmentRequired": true,
+      "fault": "Matching track support lost",
+      "ready": false,
+      "boundFrom": "BlockPos{x=0, y=105, z=65}",
+      "boundTo": "BlockPos{x=0, y=105, z=97}",
+      "carriers": [
+        {
+          "id": "6c5895a2-3ebe-4b51-a91d-467e08029ac8",
+          "loaded": true,
+          "cartCenter": false,
+          "position": [
+            3.327098215357152,
+            108.07736992363986,
+            71.09847742052519
+          ],
+          "velocity": [
+            0.21246659755706787,
+            -3.4433348178863525,
+            0.38688117265701294
+          ],
+          "links": [],
+          "angle": -0.3871445688751181,
+          "omega": 0.0,
+          "capture": true,
+          "occupants": [],
+          "riderSeats": "{}"
+        },
+        {
+          "id": "bb450abd-5136-4272-9c97-aaa13c03aca1",
+          "loaded": true,
+          "cartCenter": false,
+          "position": [
+            -2.5667626371736665,
+            107.90847474819086,
+            71.10194109618912
+          ],
+          "velocity": [
+            -0.15144041180610657,
+            -1.4938029050827026,
+            0.3487502336502075
+          ],
+          "links": [],
+          "angle": -0.5887063207637026,
+          "omega": 0.0,
+          "capture": true,
+          "occupants": [
+            "48516062-50c2-36f2-9ebc-5be485c307ae"
+          ],
+          "riderSeats": "{48516062-50c2-36f2-9ebc-5be485c307ae=BlockPos{x=0, y=-1, z=0}}"
+        }
+      ]
+    }
+  ],
+  "riders": [
+    {
+      "seatEntity": "32c4a819-ed24-480c-9fcf-8f5c5357d37c",
+      "type": "entity.minecraft.player",
+      "id": "48516062-50c2-36f2-9ebc-5be485c307ae",
+      "seat": 5629783292195668095
+    }
+  ]
+}

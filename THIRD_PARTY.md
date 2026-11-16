@@ -1,20 +1,27 @@
 # Dependency and asset provenance
 
-All addon Java, procedural track meshes, car/seat/restraint/station models, fixtures, and test logic in this repository were authored for this project. Original model definitions reference Minecraft textures; the texture files are not copied into this repository. Passenger entities and seat interaction support come from Create; original seat blocks/models are ours. Coasters running gear remains provided by the installed dependency. Track contact dimensions were measured from the pinned running-gear model and render transforms; no wheel or track asset files were copied.
+All addon Java, procedural track meshes, car/seat/restraint/station models, fixtures, and test logic in this repository were authored for this project. Legacy model definitions reference installed Minecraft textures without copying those files. FD917 adds 41 independently authored pixel materials and deterministic runtime models; their editable sources and exporters are in [assets-source/fd917](assets-source/fd917/README.md). Passenger entities and seat interaction support come from Create; original seat blocks/models are ours. Coasters running gear remains provided by the installed dependency. Track contact dimensions were measured from the pinned running-gear model and render transforms; no wheel or track asset files were copied.
 
 The Gradle wrapper comes from [NeoForge's 1.21.1 ModDevGradle MDK](https://github.com/NeoForgeMDKs/MDK-1.21.1-ModDevGradle). Its scripts retain their Apache 2.0 notice and its JAR contains the upstream license. The shell script has a project-root/relative-JAR adjustment for checkout paths containing colons. The distribution SHA-256 is pinned.
 
-Runtime dependencies are downloaded through their Maven/CurseMaven distributions, not copied into the addon JAR. See [dependency audit](research/dependency-audit.json) for inspected artifacts and terms. Coasters Simulated APIs and Sable 2.0.3 source/JAR signatures informed the integration; native physics, seat, camera, and render implementations remain upstream.
+Runtime dependencies are downloaded through their Maven/CurseMaven distributions, not copied into the addon JAR. See [dependency audit](research/dependency-audit.json) for inspected artifacts and terms. Coasters Simulated APIs and the recorded Sable source/JAR signatures informed the integration; native physics, seat, camera and render implementations remain upstream. The frozen current stack uses Sable2.0.6; [the dependency manifest](docs/evidence/1.0/lead/freeze.json) preserves exact current artifacts while earlier audits retain their actual versions.
 
-Optional third-party addon code/assets are not bundled into our release. Existing
-Track Styles appearance and Engineered operating adapters are independently
-authored and use separately installed addons. The [integration backlog](docs/INTEGRATION-BACKLOG.md)
-also stages Additions, CTNB, Magnetized, Immersion, Coaster Skin, Waterparked and
-the separate Create Coasters utility for deferred work. Its ignored local JAR
-cache is not distributable mod content. The [artifact catalog](research/integration-catalog-2026-11-02.json)
-records declared licenses and provenance. Track Styles' project/JAR license
-mismatch remains unresolved; no staged artifact or proposed adapter authorizes
-copying its code or assets.
+Optional third-party addon code/assets are not bundled into this release.
+Independently authored adapters now cover the accepted Track Styles appearance,
+Engineered operation, Additions station/selected-seat, measured CTNB track,
+Magnetized drive, Skin appearance, Immersion client effects, Waterparked coexistence
+and Create Coasters native-utility boundaries. They use separately installed
+upstream addons. [Frozen capabilities and dependencies](docs/evidence/1.0/lead/freeze.md)
+and [0.9 acceptance](docs/evidence/0.9/acceptance.md) define their actual scope;
+an installed addon does not authorize arbitrary functional conversion or asset reuse.
+
+The [historical artifact catalog](research/integration-catalog-2026-11-02.json)
+and [selected dependency decisions](docs/evidence/0.5/dependencies-tooling/dependency-decisions.md)
+record inspected metadata, declared licenses and provenance. Ignored research JAR
+caches are not distributable project content. Track Styles' recorded project/JAR
+license mismatch remains unresolved; no adapter or qualification result grants
+permission to copy its code or assets. Optional-provider artwork remains external
+and the addon includes its own standalone fallback content.
 
 The packaged-JAR test run uses an isolated Gradle source set, following [ModDevGradle run/source-set configuration](https://github.com/neoforged/ModDevGradle#isolated-source-sets). It exercises our binary JAR with the dependency binaries rather than loose addon classes.
 

@@ -1,0 +1,12 @@
+{
+  "jar": "/mnt/NVME4/fourthdimension-runs/fd10-mechanisms-20261115/launch04/libs/coasters-fourth-dimension-0.9.0-dev.27.jar",
+  "sha256": "8e441483af8a794ff0a4aa671d45d99f75c3c0de1138620aa7b3aaf8e82453e4",
+  "changed": [
+    "dev/fourthdimension/shuttle/ShuttleRuntime.class",
+    "dev/fourthdimension/shuttle/ShuttleWinchEntity.class"
+  ],
+  "added": [
+    "dev/fourthdimension/gametest/Fd902LifecycleFixture.class"
+  ],
+  "baseline_sha256": "9c14b760e71c69295d697ccd2ef317144d817d96f944094ebb618382af2b406f"
+}

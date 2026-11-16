@@ -34,8 +34,8 @@ public final class OperationsGameTests {
                 UUID.fromString("fdfdfdfd-0000-0000-0000-000000000106"), "FDOperationsTest"));
     player.setGameMode(GameType.CREATIVE);
     var rails = new ArrayList<FoundationData.Rail>();
-    for (var design : TrackDesign.values()) {
-      var from = new BlockPos(700 + design.ordinal() * 24, 120, 110);
+    for (var design : OriginalFamilyCases.designs()) {
+      var from = new BlockPos(700 + OriginalFamilyCases.index(design) * 24, 120, 110);
       var to = from.offset(0, 0, 40);
       for (var p : List.of(from, to))
         level.setBlockAndUpdate(
@@ -67,13 +67,13 @@ public final class OperationsGameTests {
             int index = i;
             EditorGameTests.rejects(
                 helper,
-                () -> VehicleFactory.create(level, TrackDesign.values()[index], hit),
+                () -> VehicleFactory.create(level, OriginalFamilyCases.designs()[index], hit),
                 "Swept obstruction accepted");
             helper.assertTrue(
                 count == FoundationData.get(level).vehicles.size(),
                 "Failed placement leaked a vehicle");
             level.removeBlock(obstacle, false);
-            vehicles.add(VehicleFactory.create(level, TrackDesign.values()[i], hit));
+            vehicles.add(VehicleFactory.create(level, OriginalFamilyCases.designs()[i], hit));
           }
           level.setBlockAndUpdate(stationPos, StationContent.STATION.get().defaultBlockState());
           ((BoardingStationEntity) level.getBlockEntity(stationPos)).vehicle =
@@ -220,10 +220,10 @@ public final class OperationsGameTests {
     var cars = new ArrayList<FoundationData.Vehicle>();
     var riders = new ArrayList<net.minecraft.world.entity.animal.Pig>();
     var originalBindings = new HashMap<UUID, List<BlockPos>>();
-    for (var design : TrackDesign.values()) {
+    for (var design : OriginalFamilyCases.designs()) {
       // Keep this recovery test away from the family matrix's fixed fixture coordinates.
       // Simulated Coasters' native physics also requires this fixture to remain within 1024 blocks.
-      var from = new BlockPos(-900 + design.ordinal() * 24, 120, -500);
+      var from = new BlockPos(-900 + OriginalFamilyCases.index(design) * 24, 120, -500);
       var to = from.offset(0, 0, 32);
       for (var anchor : List.of(from, to))
         level.setBlockAndUpdate(
@@ -241,7 +241,7 @@ public final class OperationsGameTests {
             var hit =
                 new CoasterPathTrackFrame.GraphHit(
                     CoasterPathGraphManager.sampleEdgePosition(level, edge, .5), edge, .5);
-            cars.add(VehicleFactory.create(level, TrackDesign.values()[i], hit));
+            cars.add(VehicleFactory.create(level, OriginalFamilyCases.designs()[i], hit));
           }
         });
     helper.runAtTickTime(
@@ -398,7 +398,7 @@ public final class OperationsGameTests {
     // still proves packet replication, while this regression keeps the authoritative support
     // recovery path honest about distinct seat assignments throughout the five-family sequence.
     var riders = new ArrayList<net.minecraft.server.level.ServerPlayer>();
-    for (int index = 0; index < TrackDesign.values().length * 2; index++) {
+    for (int index = 0; index < OriginalFamilyCases.designs().length * 2; index++) {
       var profile =
           new com.mojang.authlib.GameProfile(
               UUID.nameUUIDFromBytes(
@@ -415,10 +415,10 @@ public final class OperationsGameTests {
       rider.setGameMode(GameType.CREATIVE);
       riders.add(rider);
     }
-    for (var design : TrackDesign.values()) {
+    for (var design : OriginalFamilyCases.designs()) {
       // Use a separate chunk-loaded corridor; native carrier clearance extends beyond each car's
       // center and cannot overlap concurrently running fixtures.
-      var from = new BlockPos(-1020 + design.ordinal() * 24, 120, -500);
+      var from = new BlockPos(-1020 + OriginalFamilyCases.index(design) * 24, 120, -500);
       var to = from.offset(0, 0, 32);
       for (var anchor : List.of(from, to))
         level.setBlockAndUpdate(
@@ -515,8 +515,8 @@ public final class OperationsGameTests {
             player.setItemInHand(
                 InteractionHand.MAIN_HAND, TrackItems.ARROW.get().getDefaultInstance());
             var wrongDesign =
-                TrackDesign.values()[(TrackDesign.byVariant(rail.variant).ordinal() + 1)
-                    % TrackDesign.values().length];
+                OriginalFamilyCases.designs()[(OriginalFamilyCases.index(TrackDesign.byVariant(rail.variant)) + 1)
+                    % OriginalFamilyCases.designs().length];
             EditorGameTests.rejects(
                 helper,
                 () ->

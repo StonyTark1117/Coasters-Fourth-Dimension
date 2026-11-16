@@ -59,7 +59,7 @@ m=model(parts);m['display']=item_display(.65)
 write('assets/fourthdimension/models/item/suspended_car.json',m)
 track=model([box([0,8,1],[16,10,3],'#metal'),box([0,8,13],[16,10,15],'#metal'),box([0,17,6],[16,21,10],'#body'),box([2,10,2],[4,18,14],'#metal'),box([12,10,2],[14,18,14],'#metal')])
 write('assets/fourthdimension/models/item/suspended_track.json',track)
-write('data/fourthdimension/recipe/suspended_track.json',{'type':'minecraft:crafting_shaped','pattern':['III','CDC','III'],'key':{'I':{'tag':'c:ingots/iron'},'C':{'item':'minecraft:copper_ingot'},'D':{'item':'minecraft:orange_dye'}},'result':{'id':'fourthdimension:suspended_track','count':16}})
+write('data/fourthdimension/recipe/suspended_track.json',{'type':'minecraft:crafting_shaped','pattern':['ICI','IDI','ICI'],'key':{'I':{'tag':'c:ingots/iron'},'C':{'item':'minecraft:copper_ingot'},'D':{'item':'minecraft:orange_dye'}},'result':{'id':'fourthdimension:suspended_track','count':16}})
 write('data/fourthdimension/recipe/suspended_car.json',{'type':'minecraft:crafting_shaped','pattern':['SAS','ITI','ICI'],'key':{'S':{'item':'create:red_seat'},'A':{'item':'fourthdimension:suspended_latch'},'I':{'tag':'c:ingots/iron'},'T':{'item':'fourthdimension:suspended_track'},'C':{'item':'simulatedcoasters:coaster_cart'}},'result':{'id':'fourthdimension:suspended_car','count':1}})
 
 # Native child journal: pivot x=0,y=.25,z=.5. Fore/aft fork inner faces are ±1.5.

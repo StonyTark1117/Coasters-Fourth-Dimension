@@ -39,8 +39,8 @@ public final class FamilyEligibilityGameTests {
     var rails = new ArrayList<FoundationData.Rail>();
     var hits = new ArrayList<CoasterPathTrackFrame.GraphHit>();
     var vehicles = new ArrayList<FoundationData.Vehicle>();
-    for (var design : TrackDesign.values()) {
-      var from = new BlockPos(-800 + design.ordinal() * 24, 120, -640);
+    for (var design : OriginalFamilyCases.designs()) {
+      var from = new BlockPos(-800 + OriginalFamilyCases.index(design) * 24, 120, -640);
       var to = from.offset(0, 0, 32);
       for (var anchor : List.of(from, to))
         level.setBlockAndUpdate(
@@ -58,8 +58,8 @@ public final class FamilyEligibilityGameTests {
                 new CoasterPathTrackFrame.GraphHit(
                     CoasterPathGraphManager.sampleEdgePosition(level, edge, .5), edge, .5));
           }
-          for (int i = 0; i < TrackDesign.values().length; i++) {
-            var design = TrackDesign.values()[i];
+          for (int i = 0; i < OriginalFamilyCases.designs().length; i++) {
+            var design = OriginalFamilyCases.designs()[i];
             for (int j = 0; j < hits.size(); j++) {
               if (i == j) continue;
               var wrong = hits.get(j);
@@ -67,7 +67,7 @@ public final class FamilyEligibilityGameTests {
               EditorGameTests.rejects(
                   helper,
                   () -> VehicleFactory.create(level, design, wrong),
-                  "Wrong-family factory accepted " + design + " on " + TrackDesign.values()[j]);
+                  "Wrong-family factory accepted " + design + " on " + OriginalFamilyCases.designs()[j]);
               helper.assertTrue(
                   data.vehicles.size() == count, "Rejected factory leaked vehicle state");
             }

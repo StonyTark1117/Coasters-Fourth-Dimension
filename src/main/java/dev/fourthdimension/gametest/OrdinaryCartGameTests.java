@@ -26,7 +26,7 @@ public final class OrdinaryCartGameTests {
   @GameTest(template = "empty", timeoutTicks = 180)
   public static void bareBearingsFitAllTracksWithoutReceivingRotation(GameTestHelper helper) {
     var level = helper.getLevel();
-    for (int x = 36; x <= 41; x++) for (int z = 6; z <= 10; z++) level.setChunkForced(x, z, true);
+    for (int x = 36; x <= 44; x++) for (int z = 6; z <= 10; z++) level.setChunkForced(x, z, true);
     var player =
         FakePlayerFactory.get(
             level,
@@ -38,8 +38,8 @@ public final class OrdinaryCartGameTests {
     var starts = new ArrayList<Vector3d>();
     FoundationData.Vehicle[] controlledArrow = {null};
     var container = SubLevelContainer.getContainer(level);
-    for (var design : TrackDesign.values()) {
-      var from = new BlockPos(600 + design.ordinal() * 24, 116, 110);
+    for (var design : OriginalFamilyCases.designs()) {
+      var from = new BlockPos(600 + OriginalFamilyCases.index(design) * 24, 116, 110);
       var to = from.offset(0, 0, 32);
       for (var p : List.of(from, to))
         level.setBlockAndUpdate(
@@ -110,6 +110,10 @@ public final class OrdinaryCartGameTests {
           var data = FoundationData.get(level);
           for (int i = 0; i < bodies.size(); i++) {
             var body = bodies.get(i);
+            System.out.println("FD_ORDINARY_TRAVEL family=" + OriginalFamilyCases.designs()[i]
+                + " distance=" + body.logicalPose().position().distance(starts.get(i))
+                + " loaded=" + (container.getSubLevel(body.getUniqueId()) != null)
+                + " velocity=" + container.physicsSystem().getPipeline().getLinearVelocity(body, new Vector3d()));
             helper.assertTrue(
                 body.logicalPose().position().distance(starts.get(i)) > 1,
                 "Ordinary bearing failed native traversal");
@@ -162,7 +166,7 @@ public final class OrdinaryCartGameTests {
           }
           System.out.println(
               "FD_ORDINARY_MATRIX families="
-                  + TrackDesign.values().length
+                  + OriginalFamilyCases.designs().length
                   + " directFits=5 nativeFits=5 wideRejects=5 nativeWideRejects=5"
                   + " mixedConsistRejects=2 no4D=true");
           helper.succeed();

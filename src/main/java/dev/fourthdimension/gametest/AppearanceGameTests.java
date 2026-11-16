@@ -157,8 +157,8 @@ public final class AppearanceGameTests {
     helper.assertTrue(
         rail.revision == revision && rail.appearance.tint() == 0x12abcd,
         "Rejected appearance edit mutated state");
-    for (var design : TrackDesign.values()) {
-      var start = from.offset(24 + design.ordinal() * 24, 0, 0);
+    for (var design : OriginalFamilyCases.designs()) {
+      var start = from.offset(24 + OriginalFamilyCases.index(design) * 24, 0, 0);
       var finish = start.offset(0, 0, 32);
       for (var pos : List.of(start, finish))
         level.setBlockAndUpdate(

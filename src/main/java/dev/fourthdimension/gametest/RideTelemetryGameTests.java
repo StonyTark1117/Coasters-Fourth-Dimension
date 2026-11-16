@@ -459,7 +459,7 @@ public final class RideTelemetryGameTests {
       player.setPos(to.getX() + 2, to.getY() + 1, to.getZ());
       rails.add(
           TrackPlacement.connect(
-              level, from, to, TrackDesign.values()[i], player, player.getMainHandItem()));
+              level, from, to, OriginalFamilyCases.designs()[i], player, player.getMainHandItem()));
     }
     var pax = ShuttleExamples.create(level, new BlockPos(-600, 180, 650), false);
     var groups = new ArrayList<List<FoundationData.Vehicle>>();
@@ -478,7 +478,7 @@ public final class RideTelemetryGameTests {
               cars.add(
                   VehicleFactory.create(
                       level,
-                      TrackDesign.values()[i],
+                      OriginalFamilyCases.designs()[i],
                       new CoasterPathTrackFrame.GraphHit(
                           CoasterPathGraphManager.sampleEdgePosition(level, edge, t), edge, t)));
             }

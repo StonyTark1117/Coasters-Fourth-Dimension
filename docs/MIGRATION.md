@@ -1,94 +1,114 @@
-# World upgrade and recovery procedure
+# World upgrades and backup recovery
 
-The current 0.9 dependency checkpoint uses NeoForge21.1.256/Sable2.0.6/Veil4.3.2
-with schema8 unchanged from0.8. Its [copied-world upgrade evidence](evidence/0.9/dependencies/README.md)
-retains native body/seat/rail identities; normal Stop revalidates an unloaded remote
-car after its chunk arrives. Keep the full offline source world. The older schema6
-qualification procedure below remains historical scoped evidence, not a claim that
-the current expanded build uses schema6.
+The current frozen 1.0 qualification build writes **save schema 8** and uses
+**Foundation sync protocol 7** (editor protocol 8; PAX snapshot protocol 1).
+It reads declared Fourth Dimension records from schemas
+1–8; this is not a converter for arbitrary third-party track or archived branch
+formats. Install matching Fourth Dimension builds on clients and server.
+[Qualification inputs](evidence/1.0/lead/freeze.md) record the exact pinned
+Minecraft 1.21.1, Java 21, NeoForge, Create, Coasters Simulated, Sable, Companion,
+Veil and Flywheel versions. An addon discovered after that freeze is not an
+incidental upgrade dependency.
 
-This procedure applies to a world that contains Coasters: Fourth Dimension
-vehicles, functional track, or an attached ordinary-bearing recovery group. It
-is the supported operational procedure for upgrading to the current schema-6
-build. It does not convert third-party functional blocks, replace a removed
-provider, or make a downgrade safe.
+## Preserve the original
 
-The [expanded integration plan](INTEGRATION-BACKLOG.md#current-baseline-and-branch-reconciliation)
-retains schema 6 / protocol 7 for the recorded qualification baseline. FD501
-records core and per-adapter migration decisions. FD501A implements core-required
-changes; the consuming FD501B–H package owns adapter-specific migrations. A later
-adapter migration does not reopen a completed core prerequisite or unrelated acceptance.
-Archived schema-7/protocol-8 provider work is not certified by this procedure.
-The final expanded release uses FD903 to reconcile supported migration evidence. Staged addons and their newer dependencies
-must not be added as an incidental part of this upgrade.
+1. Stop rides and recovery towing normally. For an attached recovery group, use
+   **Brake tow**, remove propulsion and wait for the bearing and carriers to
+   stop. Detach recovery or keep the complete stopped group on its matching
+   loaded route. Do not upgrade a moving tow.
+2. Have players disconnect, stop the server normally and wait for its process
+   to exit. For singleplayer, close the world and client. Copy the **whole world**,
+   including `level.dat`, `region`, `entities`, `poi`, `data`, `playerdata`,
+   dimensions and Sable `sublevels`. Copying only the Foundation data file loses
+   the native bodies and is not a usable backup.
+3. Preserve the prior mod/dependency/configuration instance, world name and JAR
+   identities. Keep the original offline world copy unchanged. A per-file
+   SHA-256 manifest lets you verify that a later restore is byte-identical.
+   Keep backups outside build directories: Gradle `clean` can remove run worlds.
 
-## Before the upgrade
+## Upgrade a separate copy
 
-1. Stop every active ride and recovery tow. For a recovery group, use **Brake
-   tow**, cut ordinary propulsion, wait for the bearing and all carriers to
-   stop, then either detach recovery or leave the complete stopped group in a
-   loaded, matching-track corridor. Do not begin an upgrade while a tow is
-   moving.
-2. Stop the server normally, then make an offline copy of the *entire* world
-   directory. Keep `region`, `entities`, `poi`, `data`, `playerdata`, and
-   `level.dat` together; retain that copy unchanged until the upgraded world has
-   been inspected. For single player, close the world before copying its save
-   directory.
-3. Record the prior mod JAR name, Minecraft/Create/Coasters Simulated versions,
-   optional addon versions, and the world name. Preserve the prior instance or
-   server directory so the copy can be reopened if restoration is necessary.
+1. Install the selected Fourth Dimension JAR and its qualified dependencies in
+   a separate instance. Keep required functional providers and the same optional
+   appearance providers present during the first inspection. Immersion belongs
+   only on clients; do not put it on the dedicated server.
+2. Open a working copy of the complete world. Let the relevant chunks and native
+   bodies load before interpreting an unavailable car. `/fd status` reports
+   family, occupancy and capture; inspect the actual matching track, carriers,
+   station/restraint state and saved programs. Use normal Stop/revalidation when
+   the documented family workflow requires it after its chunk arrives.
+3. Check ordinary operation on the affected rides. Previously attached recovery
+   must remain braked. Confirm its ordinary bearing, retained group, matching
+   route and propulsion before explicit **Start tow**. Missing power or repaired
+   support does not authorize automatic resume.
+   An assigned PAX shuttle interrupted during OUTBOUND or RETURNING reopens in
+   FAULT with its original carriage/train/native links retained and requires
+   explicit **Recover** after inspection; **Resume** rejects those gravity phases.
+   An interrupted CAPTURING recovery permits explicit **Resume** without an
+   automatic distant catch. Follow the [PAX interruption workflow](RECOVERY.md#pax-shuttle-interruption-recovery),
+   including the unchanged eight-block station realignment limit after track loss.
+4. Save and stop the copied instance normally, then reopen it. Confirm the same
+   chassis/carriers, programs and rider assignments. Logical player-to-carrier
+   seat identity is persistent; Create may recreate its passenger entity UUID
+   during reconnect. That is distinct from losing a saved seat assignment.
+5. Keep the original backup until inspection succeeds. Apply the selected build
+   to production only after the copied world is satisfactory.
 
-## Upgrade on a copy first
+## Restore if inspection fails
 
-1. Install matching current Fourth Dimension JARs on both the server and every
-   client that will join it. Do not mix schema-6 clients with an older server,
-   or schema-6 server data with an older client build.
-2. Keep the same required base dependencies. Keep any optional appearance
-   provider installed for this first inspection. An appearance provider is not
-   a functional-track conversion tool, and its removal must not be used as the
-   first step of an upgrade.
-3. Start a copy of the world. Let it finish loading before moving vehicles or
-   opening a station. Use `/fd status` to identify Fourth Dimension vehicles,
-   their family and capture state. Check that each 4D car remains on matching
-   functional track and that its carrier topology is present.
-4. For a previously attached recovery group, inspect it while stopped. Recovery
-   must remain braked after a load. Confirm the ordinary bearing, matching
-   family route and retained 4D group are present before choosing **Start tow**.
-   Never use an upgrade to bypass the normal recovery guards.
-5. Save, stop the copy normally, and reopen it once. Only after this inspection
-   succeeds should the same upgrade be applied to the production world.
+Stop the upgraded instance and retain its world and logs for diagnosis. Restore
+an untouched **complete offline backup** into the matching preserved instance,
+verify its manifest, then open it there. To roll back an upgrade, use the original
+pre-upgrade backup and prior compatible mods; never load an upgraded schema-8
+world in an older build as a substitute for restoring the backup.
 
-## If inspection fails
+Record the family, track coordinates, source/target build and provider versions,
+server log, and whether recovery was attached. Do not replace foreign functional
+blocks or rewrite saved IDs to force acceptance. Recovery controls do not bypass
+track provenance, family, body, power or route guards.
 
-Stop the upgraded instance without continuing play. Restore the untouched world
-directory copy into the preserved prior instance; do not downgrade the upgraded
-world in place. Keep the failed copy and its `latest.log` for diagnosis. Record
-the affected vehicle family, its track coordinates, installed optional addons,
-and whether recovery was attached. Do not delete or replace external functional
-track blocks in an attempt to repair the saved Fourth Dimension state.
+## Supported data and provider boundary
 
-## Supported data boundary
+Known historical records retain rail IDs and complete profiles, chassis/carrier
+IDs, families and topology. Old records without recovery fields gain neither an
+invented recovery partner nor a removed-bearing marker. A saved 4D-to-4D recovery
+reference is not reinterpreted as ordinary recovery equipment. Unknown schemas,
+unknown functional providers, invalid identities and unsupported conversions
+reject rather than silently truncate or substitute geometry.
 
-The schema-6 loader accepts prior schemas 1 through 5. Where the old record has
-no recovery fields, loading leaves `recovery_cart` absent and does not invent a
-removed-bearing marker. Saved 4D-to-4D recovery references are rejected rather
-than being reinterpreted as ordinary recovery equipment. The current regression
-proves that contract for the occupied five-family fixture; see the
-[FD903 migration evidence](evidence/0.9/recovery-schema-migration.md). A
-[complete schema-3 world replay](evidence/0.9/native-schema3-world-replay.md)
-also verifies that one historical world retains all three chassis and eight
-native carriers after upgrade and reopen. A connected client then completed an
-[Arrow ride](evidence/0.9/native-schema3-client-ride.md) on that upgraded world;
-separate [Legacy and Free Spin operator cycles](evidence/0.9/native-schema3-legacy-free-spin-operator.md)
-confirmed boarding, restraint actions, dispatch requests, capture and unloading
-without measuring sustained travel. A distinct
-[appearance-provider lifecycle](evidence/0.9/appearance-provider-lifecycle.md)
-preserved functional IDs and profiles through Track Styles removal and
-reinstallation in a different saved world.
+Exact intact legacy curves may acquire bounded provenance during revalidation.
+Changed, missing or foreign curves must not acquire an invented fingerprint or
+new track geometry. The admission limits remain 256 sections, 64 vehicles,
+8192 profile keys and 512 magnetic spans per dimension, at most eight spans per
+section. These storage limits are not a park-performance promise.
 
-These checks do not prove a packaged upgrade from every historical release,
-sustained Legacy or Free Spin travel after migration, two-client migration,
-provider removal during that same schema-3 upgrade, or conversion between this
-addon's functional track and another mod's functional blocks. Broader FD903
-acceptance remains open. Restore the backup instead of attempting an unsupported
-conversion.
+Appearance ownership is separate from functional eligibility. The accepted Track
+Styles removal/reinstallation case preserves saved appearance references and
+functional IDs/profiles, with fallback when the appearance provider is absent.
+This does not permit removing a required functional provider or converting its
+track. Later adopted core/adapter contracts and schema-8 dependency upgrades are
+recorded below; unrelated archived schema-7/protocol-8 provider work is not
+certified merely because the current loader also recognizes schema number 7.
+
+## Evidence and limits
+
+- [Historical loader/recovery matrix](evidence/0.9/recovery-schema-migration.md)
+  and [native historical fixture](../src/main/java/dev/fourthdimension/gametest/HistoricalMigrationGameTests.java)
+  retain their bounded schema/identity/rejection checks.
+- [Genuine schema-3 world](evidence/0.9/native-schema3-world-replay.md), created by
+  the historical 0.2.0 build, contains 24 rails, three chassis and eight carriers.
+  Its accepted [Arrow ride](evidence/0.9/native-schema3-client-ride.md) is retained.
+  [Final frozen-input migration record](evidence/1.0/art/migration.md) adds current
+  schema-8 identity comparison, sustained Legacy/Free Spin travel, two actual
+  Arrow riders and exact offline backup restoration/cold reopen.
+- [Provenance backfill](evidence/0.9/create-telemetry/307ec35-legacy-provenance/README.md),
+  [appearance-provider lifecycle](evidence/0.9/appearance-provider-lifecycle.md),
+  [schema-8 dependency upgrade](evidence/0.9/dependencies/README.md) and
+  [FD917 production disposition](evidence/fd917/README.md) retain their actual
+  tested inputs. Production art did not change seat anchors or saved programs.
+
+These records cover declared contracts and representative real historical saves.
+They do not claim a packaged upgrade from every prior release, every possible
+optional-addon subset, or third-party functional-block conversion. Qualification
+status and any remaining gate belong to [the current queue](CURRENT-QUALIFICATION.md#current-work-queue)
+and [ROADMAP](../ROADMAP.md).

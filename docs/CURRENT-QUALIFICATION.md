@@ -52,8 +52,41 @@ and final FD917 JAR `9c14b760…`. FD901–FD905 qualification is now released t
 assigned owners. Existing accepted milestones retain their own identities.
 
 **Exact new transfer, acknowledged by Art:** `README.md`, `CHANGELOG.md`,
-`docs/MIGRATION.md`; unique `scripts/fd10-art-*` and `docs/evidence/1.0/art/`.
+`docs/MIGRATION.md`, plus acknowledged bounded current-contract/attribution updates
+to `docs/RECOVERY.md` and `THIRD_PARTY.md`; unique `scripts/fd10-art-*` and `docs/evidence/1.0/art/`.
 Lead will not edit these paths concurrently. No runtime shared path is transferred.
+
+**FD901/FD904B checkpoint:** the first current base65-test native run exposed
+stale original-five enum/ordinal fixtures and cascading capacity failures;
+logs and saved world are preserved. Lead repairs the finite inputs, and
+Mechanisms returned bounded readiness repairs in three PAX test methods.
+Native recipe selection also exposed three exact recipe collisions; lead owns
+only newer Fixed Inverted/Suspended track pattern and Powered Inverted governor
+pattern corrections plus targeted recipe-manager verification. These changes do
+not reopen motion, persistence or visual geometry. Remaining profiles wait for
+corrected base acceptance. [Private native-GPU setup](evidence/1.0/lead/gpu-path.md)
+now renders an actual RX7900XTX image through EGL/VirtualGL into owned Xvfb;
+Minecraft/workload measurements are still required. No exclusive performance
+window is reserved yet.
+
+**FD902 complete:** [final lifecycle reconciliation](evidence/1.0/mechanisms/README.md)
+closes A/B/C and the aggregate. The bounded production repair in
+`shuttle/ShuttleRuntime.java` and `ShuttleWinchEntity.recover` preserves original
+carriage/train/native links through cold gravity/capture phases, restores BOARDING
+capture after a native body gap, and requires explicit recovery. Actual occupied
+RETURNING/CAPTURING restarts and supported OUTBOUND Repair → Realign → Recover →
+full cycle/Open/Shift passed. Existing eight-block realignment bounds remain;
+all owner runtimes are stopped. Production ownership returned to lead. Targeted
+idle/caught native checks and the physical16-rider cycle passed; its timing check
+awaits the quiet performance window. All44 native recipes passed after three
+newer-pattern corrections. Original base coverage is cumulative; the remaining
+23-case run passed21, and its two isolated boundaries plus six new directed
+variant/family rejects and Pipeline bare-bearing denial then passed3/3.
+
+**FD904C2/C complete:** [the all-17-style camera reconciliation](evidence/1.0/art/camera-reconciliation.md)
+combines accepted C1/FD912, each distinct pose/restoration and FD917 production
+rider views. Relevant shared camera paths are unchanged; no new camera run is
+required. [FD903 migration](evidence/1.0/art/migration.md) and [FD904A rendering](evidence/1.0/art/rendering.md) are also complete: actual historical sustained rides, exact offline restore/two-player seats, all three current graphics modes and normal cleanup passed. FD904B remains assigned and open.
 
 These are whole-outcome assignments; guide steps are procedures, not extra gates.
 Owners can inspect and prepare independently while FD1000 is reconciled. Final

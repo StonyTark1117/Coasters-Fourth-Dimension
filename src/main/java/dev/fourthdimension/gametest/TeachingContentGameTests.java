@@ -123,9 +123,13 @@ public final class TeachingContentGameTests {
     var level = helper.getLevel();
     var manager = level.getRecipeManager();
     var cases = crafts();
-    long owned =
-        manager.getRecipeIds().filter(id -> id.getNamespace().equals("fourthdimension")).count();
-    helper.assertTrue(owned == cases.size(), "Untested or missing player recipe");
+    // This inventory proves original-family recipes. Expanded-family content has
+    // independent native/player checks and must not invalidate this finite list.
+    var owned = manager.getRecipeIds().filter(id -> id.getNamespace().equals("fourthdimension"))
+        .collect(java.util.stream.Collectors.toSet());
+    helper.assertTrue(cases.stream().allMatch(c -> owned.contains(
+        ResourceLocation.fromNamespaceAndPath("fourthdimension", c.name()))),
+        "Missing original player recipe");
     // Use real advancements/recipe-book state without registering a client that
     // has not negotiated the installed mods' custom payloads. Only network output
     // is discarded by NeoForge's fake connection; recipe discovery runs normally.

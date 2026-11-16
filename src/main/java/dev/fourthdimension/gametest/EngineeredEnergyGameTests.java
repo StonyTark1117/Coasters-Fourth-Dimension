@@ -369,7 +369,7 @@ public final class EngineeredEnergyGameTests {
     var controllerBlock =
         BuiltInRegistries.BLOCK.get(
             ResourceLocation.parse("coastersengineered:linear_motor_controller"));
-    for (int i = 0; i <= TrackDesign.values().length; i++) {
+    for (int i = 0; i <= OriginalFamilyCases.designs().length; i++) {
       var fixture = new Fixture();
       var from = new BlockPos(-700 + i * 24, 120, -500);
       var to = from.offset(0, 0, 48);
@@ -377,7 +377,7 @@ public final class EngineeredEnergyGameTests {
         level.setBlockAndUpdate(
             pos, SimulatedCoastersBlocks.COASTER_ANCHORPOINT.get().defaultBlockState());
       player.setPos(to.getX() + 2, to.getY() + 1, to.getZ());
-      var design = i == TrackDesign.values().length ? TrackDesign.ARROW : TrackDesign.values()[i];
+      var design = i == OriginalFamilyCases.designs().length ? TrackDesign.ARROW : OriginalFamilyCases.designs()[i];
       fixture.rail =
           TrackPlacement.connect(level, from, to, design, player, player.getMainHandItem());
       fixture.controllerPos = from.offset(-6, 0, 0);
@@ -399,8 +399,8 @@ public final class EngineeredEnergyGameTests {
             var hit =
                 new CoasterPathTrackFrame.GraphHit(
                     CoasterPathGraphManager.sampleEdgePosition(level, edge, t), edge, t);
-            if (i < TrackDesign.values().length) {
-              f.vehicle = VehicleFactory.create(level, TrackDesign.values()[i], hit);
+            if (i < OriginalFamilyCases.designs().length) {
+              f.vehicle = VehicleFactory.create(level, OriginalFamilyCases.designs()[i], hit);
               f.body = (ServerSubLevel) container.getSubLevel(f.vehicle.chassis);
             } else {
               var q =

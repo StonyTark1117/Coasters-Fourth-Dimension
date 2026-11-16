@@ -1,0 +1,440 @@
+{
+  "label": "normal-stop-OUTBOUND",
+  "tick": 2496,
+  "phase": "OUTBOUND",
+  "interrupted": "BOARDING",
+  "fault": "",
+  "winch": -1649267142551,
+  "lead": "460eef94-8e96-4481-a4d6-543ad0c888eb",
+  "carriage": {
+    "id": "ea49730b-f894-4c67-9c17-0ac5264b72ef",
+    "loaded": true,
+    "cartCenter": false,
+    "position": [
+      0.4999985694885254,
+      130.4942626953125,
+      21.976272583007812
+    ],
+    "velocity": [
+      1.0594390914775431e-05,
+      -0.05672046169638634,
+      0.06937366724014282
+    ],
+    "links": []
+  },
+  "distance": 3.05,
+  "cycles": 0,
+  "lossTick": -1,
+  "cars": [
+    {
+      "id": "460eef94-8e96-4481-a4d6-543ad0c888eb",
+      "loaded": true,
+      "cartCenter": true,
+      "position": [
+        0.5000000792710603,
+        128.13946301493374,
+        20.117690746686836
+      ],
+      "velocity": [
+        -2.59802934721165e-08,
+        -0.18473370373249054,
+        0.23126915097236633
+      ],
+      "links": [
+        "30783ff3-e6ff-4c7c-8d33-3875352074a3",
+        "460eef94-8e96-4481-a4d6-543ad0c888eb",
+        "5dd405db-18ed-4b66-98ac-85679f35d7f4",
+        "73534e18-ef8b-4110-8050-e1a487cba3a9"
+      ],
+      "stopping": false,
+      "restraints": true,
+      "alignmentRequired": false,
+      "fault": "",
+      "ready": false,
+      "boundFrom": "BlockPos{x=0, y=129, z=17}",
+      "boundTo": "BlockPos{x=0, y=105, z=65}",
+      "carriers": [
+        {
+          "id": "8b3b71b6-65dd-4cbc-8751-4ba88caa2c5a",
+          "loaded": true,
+          "cartCenter": false,
+          "position": [
+            3.500013179930871,
+            129.70403646149163,
+            21.363334717574432
+          ],
+          "velocity": [
+            7.700540299993008e-05,
+            -0.17131541669368744,
+            0.17459113895893097
+          ],
+          "links": [],
+          "angle": -0.0010612911817710338,
+          "omega": -0.05954123320351267,
+          "capture": false,
+          "occupants": [
+            "1ef56cc8-3829-41cc-aadc-961a920515c6",
+            "4730ca20-93f4-4607-9a5e-27e0f42a0265"
+          ],
+          "riderSeats": "{}"
+        },
+        {
+          "id": "84d42fcd-7ff5-4f95-8eaa-ce1d35f04e57",
+          "loaded": true,
+          "cartCenter": false,
+          "position": [
+            -2.50000164517451,
+            129.70408606969252,
+            21.363373656720412
+          ],
+          "velocity": [
+            2.5785688194446266e-05,
+            -0.171662375330925,
+            0.17461489140987396
+          ],
+          "links": [],
+          "angle": -0.001146533815679523,
+          "omega": -0.059010882253852016,
+          "capture": false,
+          "occupants": [
+            "eaf07b9b-ecca-4f79-8ce9-fa70acd02076",
+            "522725f4-12e9-4eda-9ba0-f379d3159f98"
+          ],
+          "riderSeats": "{}"
+        }
+      ]
+    },
+    {
+      "id": "30783ff3-e6ff-4c7c-8d33-3875352074a3",
+      "loaded": true,
+      "cartCenter": true,
+      "position": [
+        0.5000000691712362,
+        124.4327616807716,
+        24.83578678351192
+      ],
+      "velocity": [
+        -1.616466960285834e-07,
+        -0.18261736631393433,
+        0.23583652079105377
+      ],
+      "links": [
+        "30783ff3-e6ff-4c7c-8d33-3875352074a3",
+        "460eef94-8e96-4481-a4d6-543ad0c888eb",
+        "5dd405db-18ed-4b66-98ac-85679f35d7f4",
+        "73534e18-ef8b-4110-8050-e1a487cba3a9"
+      ],
+      "stopping": false,
+      "restraints": true,
+      "alignmentRequired": false,
+      "fault": "",
+      "ready": false,
+      "boundFrom": "BlockPos{x=0, y=129, z=17}",
+      "boundTo": "BlockPos{x=0, y=105, z=65}",
+      "carriers": [
+        {
+          "id": "4bd6aead-2cac-4ef7-83fa-08a44a099b01",
+          "loaded": true,
+          "cartCenter": false,
+          "position": [
+            3.5000149217619447,
+            126.01601962068369,
+            26.057586960392825
+          ],
+          "velocity": [
+            2.0756764570251107e-05,
+            -0.16815905272960663,
+            0.17630557715892792
+          ],
+          "links": [],
+          "angle": -0.0005001801472358386,
+          "omega": -0.05987054439163132,
+          "capture": false,
+          "occupants": [
+            "58129dab-6bb8-42e3-a984-f80b4cdbc465",
+            "71b4457b-e1b7-4bf3-970e-efbbd3886f1c"
+          ],
+          "riderSeats": "{}"
+        },
+        {
+          "id": "658affc3-ecdc-44bf-b4b8-9872297b07c8",
+          "loaded": true,
+          "cartCenter": false,
+          "position": [
+            -2.5000015820525885,
+            126.01608240069505,
+            26.057625481655442
+          ],
+          "velocity": [
+            -2.5984236344811507e-05,
+            -0.1689208745956421,
+            0.17654672265052795
+          ],
+          "links": [],
+          "angle": -0.0005971958092733375,
+          "omega": -0.058702267283536044,
+          "capture": false,
+          "occupants": [
+            "16503384-8372-4358-85a5-d5ba3c474656",
+            "28d70ded-f478-468a-81d8-7da1c4b90968"
+          ],
+          "riderSeats": "{}"
+        }
+      ]
+    },
+    {
+      "id": "73534e18-ef8b-4110-8050-e1a487cba3a9",
+      "loaded": true,
+      "cartCenter": true,
+      "position": [
+        0.5000000455543661,
+        120.82994013113593,
+        29.6336614534568
+      ],
+      "velocity": [
+        5.99265433720575e-07,
+        -0.1759946644306183,
+        0.24115847051143646
+      ],
+      "links": [
+        "30783ff3-e6ff-4c7c-8d33-3875352074a3",
+        "460eef94-8e96-4481-a4d6-543ad0c888eb",
+        "5dd405db-18ed-4b66-98ac-85679f35d7f4",
+        "73534e18-ef8b-4110-8050-e1a487cba3a9"
+      ],
+      "stopping": false,
+      "restraints": true,
+      "alignmentRequired": false,
+      "fault": "",
+      "ready": false,
+      "boundFrom": "BlockPos{x=0, y=129, z=17}",
+      "boundTo": "BlockPos{x=0, y=105, z=65}",
+      "carriers": [
+        {
+          "id": "25308df4-1679-4c72-86c9-5fdd40553b5d",
+          "loaded": true,
+          "cartCenter": false,
+          "position": [
+            3.5000149685543276,
+            122.44732974723611,
+            30.809906992101443
+          ],
+          "velocity": [
+            1.1603751772781834e-05,
+            -0.16271330416202545,
+            0.17670147120952606
+          ],
+          "links": [],
+          "angle": -0.0005494891012408756,
+          "omega": -0.06341878843097525,
+          "capture": false,
+          "occupants": [
+            "e0ee95b3-bc92-4497-a53e-f64724ca4bd8",
+            "4550dc8f-df1b-4b85-ba76-49a845a829de"
+          ],
+          "riderSeats": "{}"
+        },
+        {
+          "id": "1d399896-d78e-4069-be02-b5f73d482fb7",
+          "loaded": true,
+          "cartCenter": false,
+          "position": [
+            -2.500001936350251,
+            122.44738569284631,
+            30.809941451677673
+          ],
+          "velocity": [
+            -1.1201065717614256e-05,
+            -0.16315370798110962,
+            0.17707623541355133
+          ],
+          "links": [],
+          "angle": -0.0006487122743225512,
+          "omega": -0.06253652047565801,
+          "capture": false,
+          "occupants": [
+            "c36a50ba-d1a6-44de-816a-20a52859efa0",
+            "b4bcd102-5719-4b31-b9ab-c1bc66008956"
+          ],
+          "riderSeats": "{}"
+        }
+      ]
+    },
+    {
+      "id": "5dd405db-18ed-4b66-98ac-85679f35d7f4",
+      "loaded": true,
+      "cartCenter": true,
+      "position": [
+        0.499999973837851,
+        117.39868010313256,
+        34.555679462761596
+      ],
+      "velocity": [
+        1.4876670206831477e-07,
+        -0.1675557643175125,
+        0.2512242794036865
+      ],
+      "links": [
+        "30783ff3-e6ff-4c7c-8d33-3875352074a3",
+        "460eef94-8e96-4481-a4d6-543ad0c888eb",
+        "5dd405db-18ed-4b66-98ac-85679f35d7f4",
+        "73534e18-ef8b-4110-8050-e1a487cba3a9"
+      ],
+      "stopping": false,
+      "restraints": true,
+      "alignmentRequired": false,
+      "fault": "",
+      "ready": false,
+      "boundFrom": "BlockPos{x=0, y=129, z=17}",
+      "boundTo": "BlockPos{x=0, y=105, z=65}",
+      "carriers": [
+        {
+          "id": "6c5895a2-3ebe-4b51-a91d-467e08029ac8",
+          "loaded": true,
+          "cartCenter": false,
+          "position": [
+            3.500014800785511,
+            119.06435916134775,
+            35.66248019587481
+          ],
+          "velocity": [
+            -6.239100184757262e-05,
+            -0.15754643082618713,
+            0.17906925082206726
+          ],
+          "links": [],
+          "angle": -0.00042400328477566556,
+          "omega": -0.06462017114855345,
+          "capture": false,
+          "occupants": [
+            "6e45bbad-5a08-4b4d-a5b4-111c95c9f925",
+            "df5f95f2-038b-4086-a88b-82eb2f29bd5f"
+          ],
+          "riderSeats": "{}"
+        },
+        {
+          "id": "bb450abd-5136-4272-9c97-aaa13c03aca1",
+          "loaded": true,
+          "cartCenter": false,
+          "position": [
+            -2.500001176539371,
+            119.06443160399938,
+            35.662516728987185
+          ],
+          "velocity": [
+            3.252822716603987e-05,
+            -0.158625528216362,
+            0.17887349426746368
+          ],
+          "links": [],
+          "angle": -0.0005293705280297111,
+          "omega": -0.0649166818822024,
+          "capture": false,
+          "occupants": [
+            "91e1423c-d425-47dc-8976-6af2ca54d2d4",
+            "312ab357-49de-43ef-90ca-6a7f73d4585c"
+          ],
+          "riderSeats": "{}"
+        }
+      ]
+    }
+  ],
+  "riders": [
+    {
+      "seatEntity": "3950d5c1-3e33-45c0-9645-37eff855d775",
+      "seat": 5629783292111782015,
+      "id": "1ef56cc8-3829-41cc-aadc-961a920515c6",
+      "type": "entity.minecraft.pig"
+    },
+    {
+      "seatEntity": "097aa20b-a042-4958-9a29-7dea48c79a91",
+      "seat": 5629783017233875071,
+      "id": "4730ca20-93f4-4607-9a5e-27e0f42a0265",
+      "type": "entity.minecraft.pig"
+    },
+    {
+      "seatEntity": "1d6cb76e-32ed-4929-a896-d962ad5bd42b",
+      "seat": 5629783292120170623,
+      "id": "eaf07b9b-ecca-4f79-8ce9-fa70acd02076",
+      "type": "entity.minecraft.pig"
+    },
+    {
+      "seatEntity": "14751e2f-fefe-441c-a675-71a35f7cbf9f",
+      "seat": 5629783566998077567,
+      "id": "522725f4-12e9-4eda-9ba0-f379d3159f98",
+      "type": "entity.minecraft.pig"
+    },
+    {
+      "seatEntity": "d9c76be2-6dd5-4805-8458-172a81767750",
+      "seat": 5629783292136947839,
+      "id": "58129dab-6bb8-42e3-a984-f80b4cdbc465",
+      "type": "entity.minecraft.pig"
+    },
+    {
+      "seatEntity": "bb853ee8-21b7-4cae-a699-cefb6ce08c5c",
+      "seat": 5629783017259040895,
+      "id": "71b4457b-e1b7-4bf3-970e-efbbd3886f1c",
+      "type": "entity.minecraft.pig"
+    },
+    {
+      "seatEntity": "d4cb405c-755d-4959-8b68-24f7e18218c0",
+      "seat": 5629783292145336447,
+      "id": "16503384-8372-4358-85a5-d5ba3c474656",
+      "type": "entity.minecraft.pig"
+    },
+    {
+      "seatEntity": "f3a05c5c-7325-4dfc-b518-84cd8bafe8cd",
+      "seat": 5629783567023243391,
+      "id": "28d70ded-f478-468a-81d8-7da1c4b90968",
+      "type": "entity.minecraft.pig"
+    },
+    {
+      "seatEntity": "3dd21325-3014-4c0a-b573-2d29c6b93b4c",
+      "seat": 5629783292162113663,
+      "id": "e0ee95b3-bc92-4497-a53e-f64724ca4bd8",
+      "type": "entity.minecraft.pig"
+    },
+    {
+      "seatEntity": "456ca9e1-e51c-484b-9f0c-2a335a8b2d0d",
+      "seat": 5629783017284206719,
+      "id": "4550dc8f-df1b-4b85-ba76-49a845a829de",
+      "type": "entity.minecraft.pig"
+    },
+    {
+      "seatEntity": "7e31af5c-a16f-4652-8637-aa4d13159fe4",
+      "seat": 5629783292170502271,
+      "id": "c36a50ba-d1a6-44de-816a-20a52859efa0",
+      "type": "entity.minecraft.pig"
+    },
+    {
+      "seatEntity": "6e7dcc61-22d7-4241-91cb-2ee8f089c940",
+      "seat": 5629783567048409215,
+      "id": "b4bcd102-5719-4b31-b9ab-c1bc66008956",
+      "type": "entity.minecraft.pig"
+    },
+    {
+      "seatEntity": "8662525b-72ed-4b5a-ba7e-59db7ec1147e",
+      "seat": 5629783292187279487,
+      "id": "6e45bbad-5a08-4b4d-a5b4-111c95c9f925",
+      "type": "entity.minecraft.pig"
+    },
+    {
+      "seatEntity": "e624eea5-9cfa-4349-ad01-0f70abe4d375",
+      "seat": 5629783017309372543,
+      "id": "df5f95f2-038b-4086-a88b-82eb2f29bd5f",
+      "type": "entity.minecraft.pig"
+    },
+    {
+      "seatEntity": "8e886691-2ecc-454b-9cc1-b1a5dd855735",
+      "seat": 5629783292195668095,
+      "id": "91e1423c-d425-47dc-8976-6af2ca54d2d4",
+      "type": "entity.minecraft.pig"
+    },
+    {
+      "seatEntity": "1e5d9548-f7fa-4602-8696-177a3627ea06",
+      "seat": 5629783567073575039,
+      "id": "312ab357-49de-43ef-90ca-6a7f73d4585c",
+      "type": "entity.minecraft.pig"
+    }
+  ]
+}

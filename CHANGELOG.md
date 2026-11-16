@@ -1,6 +1,49 @@
 # Changelog
 
-## Unreleased — FD402 sampled player/rack clearance
+## Unreleased — expanded 1.0 qualification
+
+- Freeze all 17 adopted styles: original Arrow/Legacy/Free Spin/Revised/PAX, Wing,
+  S1/S2 Spinning, Suspended, Fixed Inverted, Axis, Roller Ball, both Flying
+  configurations, Pipeline, Dive and Powered Inverted Yaw. Their guides define
+  actual topology, drive, coupling, station and failure-recovery boundaries.
+- Deliver shared ride-local authority, retained native riders/constraints,
+  explicit station/restraint workflows, selected comfort camera and accepted
+  optional drive/control/seat/appearance/effects/coexistence adapters.
+- Integrate the FD917 production models/materials/items/teaching, actual-pose
+  Arrow mechanism and shared track, occupied fit and truthful state cues while
+  preserving native seat anchors, saved programs and external asset ownership.
+- Qualify the pinned Minecraft1.21.1/Java21/NeoForge21.1.256/Create6.0.10/
+  Coasters0.1.5/Sable2.0.6 stack. Current saves write schema8; Foundation sync7,
+  editor8 and PAX presentation1 require matching client/server builds.
+- Complete current historical schema3 identity/profile preservation, sustained
+  Legacy/Free Spin rides, two actual Arrow seats through exact offline backup
+  restore and cold reopen, and normal post-restore unload. Retain accepted older
+  loader/provider/provenance cases at their actual tested revisions.
+- Repair PAX cold OUTBOUND/RETURNING faults to retain the original carriage,
+  train and native links until explicit Recover; restore BOARDING capture/holds
+  after a native-body holding gap. Interrupted CAPTURING permits explicit Resume
+  without an automatic distant catch. Supported track restoration followed by
+  Repair → Realign → Recover completes an occupied cycle and normal unload;
+  the existing eight-block realignment limit still rejects out-of-range states.
+  [Accepted lifecycle evidence](docs/evidence/1.0/mechanisms/README.md) records the
+  bounded repair candidate separately from the final release artifact.
+- Reconcile expanded camera coverage and current Fast/Fancy/Fabulous nonempty
+  geometry, resource reload and clean shutdown. Representative-park performance,
+  final lifecycle/compatibility aggregation and release packaging retain their
+  separate qualification records.
+- Preserve ±1024 horizontal coordinates, declared dimension admission limits,
+  bounded ordinary-bearing recovery and optional-provider restrictions. Vehicle
+  concepts are independently authored game approximations. No manufacturer assets
+  or optional addon binaries are bundled.
+
+The [current queue](docs/CURRENT-QUALIFICATION.md#current-work-queue) owns final
+status. The retained `0.9.0-dev.27` qualification label is not a published1.0
+version. [FD1000](docs/evidence/1.0/lead/freeze.md) pins the feature baseline;
+[FD903/FD904 evidence](docs/evidence/1.0/art/migration.md) records affected checks.
+Historical entries below describe their own checkpoints and limitations; a later
+artifact does not restart closed cases or retroactively change those results.
+
+## Historical FD402 development checkpoint — sampled player/rack clearance
 
 - Give Arrow, Legacy, Free Spin/PAX and Revised their family-correct axle geometry, including an idempotent Legacy saved-vehicle conversion from the shared axle block.
 - Extend the source-pinned one-tick auditor with part-level vanilla seated-player envelopes and require player-to-track plus player-to-every-non-seat-rack separation.

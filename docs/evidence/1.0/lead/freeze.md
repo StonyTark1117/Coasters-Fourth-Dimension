@@ -21,7 +21,7 @@ No missing owning-package criterion was identified. These records remain attache
 to their actual artifacts; the freeze does not relabel every earlier run as a run
 of the final JAR. FD917's finite spring/clutch and actual-pose linkage changes,
 PAX bounded remote snapshots and targeted example/indicator fixes retain their
-accepted affected checks. Schema8 and protocol7 remain the current contracts;
+accepted affected checks. Schema8, Foundation sync7, editor8 and PAX snapshot1 remain the current contracts;
 FD903 separately reconciles supported historical reads and restoration.
 
 ## Frozen capabilities and limits

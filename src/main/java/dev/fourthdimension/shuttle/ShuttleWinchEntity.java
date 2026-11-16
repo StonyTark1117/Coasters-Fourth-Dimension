@@ -203,7 +203,7 @@ public final class ShuttleWinchEntity extends KineticBlockEntity
     if (Math.abs(getSpeed()) < 16)
       throw new IllegalArgumentException("Restore winch power before recovery");
     for (var id : cars)
-      if (!Boarding.ready(server, FoundationData.get(server).vehicles.get(id)))
+      if (!ShuttleRuntime.readyForRecovery(server, FoundationData.get(server).vehicles.get(id)))
         throw new IllegalArgumentException(
             "Stop and capture every carrier before shuttle recovery");
     phase = Phase.CAPTURING;

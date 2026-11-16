@@ -70,8 +70,8 @@ public final class EngineeredGameTests {
     var block =
         BuiltInRegistries.BLOCK.get(
             ResourceLocation.parse("coastersengineered:linear_motor_controller"));
-    for (var design : TrackDesign.values()) {
-      var from = new BlockPos(-600 + design.ordinal() * 24, 120, -800);
+    for (var design : OriginalFamilyCases.designs()) {
+      var from = new BlockPos(-600 + OriginalFamilyCases.index(design) * 24, 120, -800);
       var to = from.offset(0, 0, 48);
       for (var p : List.of(from, to))
         level.setBlockAndUpdate(
@@ -95,7 +95,7 @@ public final class EngineeredGameTests {
             var hit =
                 new CoasterPathTrackFrame.GraphHit(
                     CoasterPathGraphManager.sampleEdgePosition(level, edge, t), edge, t);
-            var vehicle = VehicleFactory.create(level, TrackDesign.values()[i], hit);
+            var vehicle = VehicleFactory.create(level, OriginalFamilyCases.designs()[i], hit);
             vehicles.add(vehicle);
             starts.add(
                 new Vector3d(container.getSubLevel(vehicle.chassis).logicalPose().position()));

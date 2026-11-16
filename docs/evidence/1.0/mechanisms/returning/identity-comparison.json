@@ -1,0 +1,33 @@
+[
+  {
+    "file": "docs/evidence/1.0/mechanisms/returning/restored-player.json",
+    "tick": 7414,
+    "phase": "FAULT",
+    "distance": 20.45000000000016,
+    "cycles": 1,
+    "riders": 1,
+    "originalBodiesAndLinks": true
+  },
+  {
+    "file": "docs/evidence/1.0/mechanisms/returning/held-player.json",
+    "tick": 7701,
+    "phase": "FAULT",
+    "distance": 20.45000000000016,
+    "cycles": 1,
+    "riders": 1,
+    "originalBodiesAndLinks": true,
+    "maximumChassisDisplacement": 7.629439583936821e-06,
+    "carriageDisplacement": 0.0
+  },
+  {
+    "file": "docs/evidence/1.0/mechanisms/capturing/recovered-boarding.json",
+    "tick": 9734,
+    "phase": "BOARDING",
+    "distance": 62.68004423774931,
+    "cycles": 2,
+    "riders": 1,
+    "originalBodiesAndLinks": true,
+    "maximumChassisDisplacement": 40.82733507016284,
+    "carriageDisplacement": 39.15624730530895
+  }
+]

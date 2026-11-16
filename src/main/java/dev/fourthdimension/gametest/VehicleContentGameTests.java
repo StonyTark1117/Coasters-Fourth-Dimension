@@ -155,8 +155,8 @@ public final class VehicleContentGameTests {
                 UUID.fromString("fdfdfdfd-0000-0000-0000-000000000104"), "FDLoadTest"));
     player.setGameMode(GameType.CREATIVE);
     var rails = new ArrayList<FoundationData.Rail>();
-    for (var design : TrackDesign.values()) {
-      var from = new BlockPos(-116 + design.ordinal() * 18, 96, 205);
+    for (var design : OriginalFamilyCases.designs()) {
+      var from = new BlockPos(-116 + OriginalFamilyCases.index(design) * 18, 96, 205);
       var to = from.offset(0, 0, 36);
       for (var p : List.of(from, to))
         level.setBlockAndUpdate(
@@ -201,7 +201,7 @@ public final class VehicleContentGameTests {
             var v =
                 VehicleFactory.create(
                     level,
-                    TrackDesign.values()[i],
+                    OriginalFamilyCases.designs()[i],
                     new CoasterPathTrackFrame.GraphHit(point, edge, .4));
             vehicles.add(v);
             helper.assertTrue(
@@ -244,7 +244,7 @@ public final class VehicleContentGameTests {
           container
               .physicsSystem()
               .getPipeline()
-              .addLinearAndAngularVelocity(body, new Vector3d(), new Vector3d(1.5, 0, 0));
+              .addLinearAndAngularVelocity(body, new Vector3d(), new Vector3d(2, 0, 0));
           masses[1] = c.angle;
           released.set(true);
         });

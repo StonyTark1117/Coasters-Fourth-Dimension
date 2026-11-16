@@ -1,0 +1,68 @@
+{
+  "Speed": 128.0,
+  "shuttle_carriage": [
+    -364285173,
+    -124498841,
+    -1676211515,
+    642478831
+  ],
+  "shuttle_distance": 62.68004423774931,
+  "shuttle_maximum": 104.38058973835629,
+  "shuttle_start": 69761,
+  "shuttle_station": 62.68004423774931,
+  "Source": [
+    -7,
+    105,
+    73
+  ],
+  "shuttle_end": 594057,
+  "shuttle_fault": "",
+  "shuttle_cars": [
+    [
+      1175383956,
+      -1902754687,
+      -1529457606,
+      -792164117
+    ],
+    [
+      813187059,
+      -419476356,
+      -1926023051,
+      891319459
+    ],
+    [
+      1934839320,
+      -276086512,
+      -2142183004,
+      -2016697431
+    ],
+    [
+      1574176219,
+      418204518,
+      -1733524121,
+      -1623861260
+    ]
+  ],
+  "shuttle_interrupted": "OUTBOUND",
+  "shuttle_cycles": 4,
+  "keepPacked": 0,
+  "Network": {
+    "Capacity": 2097152.0,
+    "Size": 2,
+    "AddedStress": 8.0,
+    "Id": -1924145049495,
+    "Stress": 1024.0
+  },
+  "shuttle_phase": "BOARDING",
+  "x": -6,
+  "shuttle_pending_retention": 0,
+  "y": 105,
+  "z": 73,
+  "id": "fourthdimension:shuttle_winch",
+  "shuttle_vehicle": [
+    1175383956,
+    -1902754687,
+    -1529457606,
+    -792164117
+  ]
+}

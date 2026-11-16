@@ -61,10 +61,10 @@ public final class RecoveryGameTests {
                 UUID.fromString("fdfdfdfd-0000-0000-0000-000000000402"), "FDRecovery"));
     player.setGameMode(GameType.CREATIVE);
     var cases = new ArrayList<Case>();
-    for (var design : TrackDesign.values()) {
+    for (var design : OriginalFamilyCases.designs()) {
       var c = new Case(design);
       cases.add(c);
-      var from = new BlockPos(-900 + 24 * design.ordinal(), 160, 400);
+      var from = new BlockPos(-900 + 24 * OriginalFamilyCases.index(design), 160, 400);
       var example = RecoveryExamples.create(level, from, design);
       c.car = example.car();
       c.ordinary = example.bearing();

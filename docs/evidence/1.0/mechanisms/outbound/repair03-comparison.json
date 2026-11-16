@@ -1,0 +1,33 @@
+[
+  {
+    "file": "/mnt/NVME4/fourthdimension-runs/fd10-mechanisms-20261115/evidence/console-1794789171650789598.json",
+    "tick": 2576,
+    "phase": "FAULT",
+    "distance": 3.05,
+    "cycles": 0,
+    "riders": 0,
+    "originalBodiesAndLinks": true
+  },
+  {
+    "file": "/mnt/NVME4/fourthdimension-runs/fd10-mechanisms-20261115/evidence/console-1794789183206074005.json",
+    "tick": 2807,
+    "phase": "FAULT",
+    "distance": 3.05,
+    "cycles": 0,
+    "riders": 0,
+    "originalBodiesAndLinks": true,
+    "maximumChassisDisplacement": 0.000488737353998315,
+    "carriageDisplacement": 0.0012745901282272432
+  },
+  {
+    "file": "docs/evidence/1.0/mechanisms/outbound/repair03-held.json",
+    "tick": 3915,
+    "phase": "FAULT",
+    "distance": 3.05,
+    "cycles": 0,
+    "riders": 0,
+    "originalBodiesAndLinks": true,
+    "maximumChassisDisplacement": 0.0009115409664566527,
+    "carriageDisplacement": 0.002367337774286076
+  }
+]

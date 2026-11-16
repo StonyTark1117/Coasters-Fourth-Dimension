@@ -1,154 +1,183 @@
 # Coasters: Fourth Dimension
 
-Current development qualification and remaining release gates are indexed in
-[the artifact record](docs/CURRENT-QUALIFICATION.md) and [ROADMAP.md](ROADMAP.md).
-The checkpoint history below retains its bounded results; a development version
-label does not establish current-artifact acceptance.
+A Minecraft/Create: Coasters Simulated addon with **17 vehicle styles**, matching
+functional track, native moving seats and mechanisms, station/restraint controls,
+saved ride programs and optional integrations. The rides are independently authored
+game interpretations inspired by coaster concepts; manufacturer names do not imply
+endorsed assets, exact engineering or verified real-world coupling.
 
-A Create: Coasters Simulated addon developing five original 4D families: controlled Arrow/S&S cars, legacy ZacSpin, magnetic S&S Free Spin, revised ZacSpin, and a PAX-style catch/lift/release shuttle. Every family has matching functional track. Arrow and PAX cars support family-specific native coupling; the other families operate individually.
-
-**Adopted roadmap (2026-11-11):** stable 1.0 includes the scope formerly proposed
-through 1.5. Finish the five-family core in 0.4; resolve designs and deliver Wing,
-shared contracts and comfort in 0.5; Spinning/Suspended/Fixed Inverted in 0.6;
-Axis/Roller Ball and both Flying variants in 0.7; Pipeline, remaining Spinning,
-Dive, Powered Inverted Yaw and operations integrations in 0.8; then
-presentation, optional seats, coexistence and the model/texture review in 0.9.
-FD916 reviews and improves original and added family assets before FD1000 freezes
-features at 1.0 alpha; beta/RC qualification and final packaging precede stable release.
-Spinning's finite 1.0 scope is conventional free-spinning (0.6) and a launched/
-inverting free-spinning configuration with magnetic influence (0.8).
-[Detailed stages and completion criteria](ROADMAP.md#release-map) and
-[integration capabilities](docs/INTEGRATION-BACKLOG.md#release-allocation).
-Current implementation and acceptance are recorded by package in the roadmap;
-future allocations do not imply that a feature is already delivered. Existing
-accepted cases stay closed; new builds do not restart qualification. Optional
-addons stay optional for standalone rides, and publication requires separate
-authorization.
-
-**Scope clarification:** all adopted vehicle/cart and seat-motion styles are
-required before stable 1.0, including Conventional Flying, New-generation Flying
-with scenery-facing yaw in seated/prone postures, and the separate upright-seated
-Powered Inverted Yaw Coaster. Their former proposed 1.1–1.4 allocations are superseded.
-Standalone shareable presets, colors/liveries and a unified operator panel retain
-1.1; ride-local multi-train management retains 1.2. A separate post-1.0 moving-track
-program covers transfer platforms, turntables, drop tables, tilt tracks, elevator,
-teeter-totter, side-drop and compound motion tables, with release numbers assigned
-after a working native prototype. Moving-track mechanisms never block 1.0.
-[Packages, scope and completion criteria](ROADMAP.md#additional-vehicle-and-supporting-feature-packages).
-
-The build notes below retain their historical observations and limitations.
-Current acceptance belongs to [ROADMAP.md](ROADMAP.md). Milestones 0.4–0.7 are
-complete ([0.7 acceptance](docs/evidence/0.7/acceptance.md)); older “remaining/open” notes do not reopen them. The
-[current work queue](docs/CURRENT-QUALIFICATION.md#current-work-queue) identifies
-active assignments, accepted evidence and next actions.
-
-The 0.7 family guides cover [Axis](docs/AXIS.md), [Roller Ball](docs/ROLLER-BALL.md),
-[Conventional Flying](docs/FLYING.md), and
-[New-generation Flying](docs/NEW-GENERATION-FLYING.md). Their package records
-distinguish accepted normal input, native motion, content and persistence from
-disclosed example setup.
-
-The FD402 [sampled player/rack checkpoint](docs/evidence/0.4/recovery/player-rack-clearance/acceptance.md)
-adds family-correct axle geometry and part-level vanilla seated-player clearance
-to the five single-car and two linked-train banked routes. A bounded
-[native substep checkpoint](docs/evidence/0.4/recovery/native-physics-substeps/acceptance.md)
-also clears every recorded Rapier post-physics step of the occupied two-car
-Arrow route. Equipped/cosmetic meshes, observed client rendering, the other
-families' substeps and the unexposed within-substep trajectory remain open.
-The bounded [Engineered recovery/FE checkpoint](docs/evidence/0.4/recovery/engineered-fe/acceptance.md)
-also passes native braked/starved holds, supplied occupied towing, speed capping,
-rebraking, rider retention and cleanup on the certified ordinary bearing.
-The [occupied strength-rating checkpoint](docs/evidence/0.4/recovery/strength-rating/acceptance.md)
-limits production recovery to four original cars, rejects a fifth before partial
-coupling, and physically tows a fully occupied four-car Arrow consist through
-normal braking and link-preserving detach.
-
-Development build `0.9.0-dev.27` advances FD903 migration coverage: the occupied five-family recovery fixture now loads every supported legacy schema (1–5) after legacy records omit recovery fields. It preserves all chassis identities without inventing a recovery partner or removed-partner state. A separate [complete schema-3 native-world replay](docs/evidence/0.9/native-schema3-world-replay.md) now preserves all three original chassis and eight carriers across upgrade and reopen. Bounded connected-client [Legacy and Free Spin operator cycles](docs/evidence/0.9/native-schema3-legacy-free-spin-operator.md) now add historical seat/editor/restraint/unload coverage; sustained historical rides, broader worlds and provider conversion remain open. See the [recovery migration checkpoint](docs/evidence/0.9/recovery-schema-migration.md). Dev.26’s source-pinned FD402 trace still records native chassis, rider and carrier-rack poses every ten ticks; its seven routes pass with at least 577 poses each and body/track, rider/track and rider/rack bounds of 0.0460, 0.08 and 0.0625 blocks. See the [dense-clearance checkpoint](docs/evidence/0.4/recovery/dense-clearance/acceptance.md).
-
-**Current stage: completing 0.4**, with the remaining FD402/FD403 work active; FD902 lifecycle evidence carries into the expanded 1.0 qualification. Dev.23 adds sampled full-spin native-wheel envelopes on the banked recovery routes, excluding only their intended running-rail contact; see the [wheel-clearance checkpoint](docs/evidence/0.4/recovery/wheel-clearance/acceptance.md). Dev.22 moves Original visual supports out of the native lower-bearing channel and extends sampled recovery clearance to that lower-bearing model; see the [bearing-clearance checkpoint](docs/evidence/0.4/recovery/bearing-clearance/acceptance.md). Player meshes and continuous swept clearance remain open. Dev.21 records actual native body poses and default block-model states for independent sampled track/neighbor clearance; see the [model clearance checkpoint](docs/evidence/0.4/recovery/model-clearance/acceptance.md). Dev.20 adds occupied two-car Arrow and four-car PAX recovery across a complete bend/bank/level-runout route. All original cars, carriers, 24 native passenger seats and train links survive normal braking, power cut, disconnection and unloading; see the [banked train checkpoint](docs/evidence/0.4/recovery/banked-trains/acceptance.md). Dev.19 adds occupied single-car recovery through a native quarter bend, sustained 30° bank and level runout for all five families; it measures body/track alignment and preserves original seats and Arrow profiles through braking, power cut, disconnection and unloading. See the [banked recovery checkpoint](docs/evidence/0.4/recovery/banked-tow/acceptance.md); complete linked-train mesh/rider and rendered clearance remain open. Dev.18 detects powered native-chain stalls and records the loaded compact PAX spike propulsion limit; see the [stall checkpoint](docs/evidence/0.4/recovery/chain-stall/acceptance.md). Dev.17 adds a single occupied PAX test from physical winch handover through recovery towing, braking, disconnection and unloading; see the [handover checkpoint](docs/evidence/0.4/recovery/occupied-handover/acceptance.md). Dev.16 adds recovery-specific editor guidance, wrapped fault status and lever-controlled demo chain power. Dev.15 adds guarded recovery coupling, start/brake/disconnect controls, retained matching-track support and physical PAX winch handover; see [recovery operation and limits](docs/RECOVERY.md). Dev.14 fixes caught-boarding restoration and validates both unoccupied boundary reopen and one-rider boarding cold restores. The rider completes a full post-reopen shuttle cycle and normal unloading with stable carriage/carrier state and no saved faults. Permanent destruction still faults and missing equipment rejects operation. The complete multiplayer/lifecycle matrix remains open; see the [caught shuttle checkpoint](docs/evidence/0.9/caught-shuttle-acceptance.md) and [occupied boarding evidence](docs/evidence/0.9/occupied-shuttle-acceptance.md).
-
-FD201–FD204 implement the **bounded 0.2 build**. See [magnetic-family instructions and acceptance](docs/MAGNETIC.md), and the earlier [0.1 acceptance](docs/PLAYABLE.md). The current `0.9.0-dev.27` branch retains the completed **bounded 0.3 gate**, adding revised carriers and a physical PAX catch/lift/release shuttle with five-family packaged single-player and dedicated-server evidence; see [instructions, acceptance, and outstanding gates](docs/REVISED-SHUTTLE.md). Optional track appearance and Engineered operating adapters retain their accepted bounded scope under [FD401](docs/INTEGRATIONS.md), with save schema 6 and network protocol 7; clients and servers must upgrade together. Engineered native tests include a coupled Arrow full turn/rollback and FE-enabled starvation/supply/braking/retention. Inspected Arrow decoration falls back to Original above +720° without changing the profile; a real styled Arrow circuit now has bounded evidence. A native 30° banked circuit adds loaded full-turn/capture checks and a recorded default-decoration/control-rail clearance audit. A packaged dev.6 banked styled ride has GUI/reload/reopen/unloading evidence. Dev.8 revises decoration placement after a native lower-wheel envelope conflict and adds a level-straight wheel/support audit; dev.22 moves the Original visual supports out of the native lower-bearing channel, dev.23 samples full-spin wheel envelopes, dev.26 doubles the native recovery trace density, and dev.27 expands the supported-schema recovery migration regression. Render modes and complete vehicle clearance remain open. It is not an accepted release candidate. The four-pair Free Spin and revised topologies are original game approximations; exact manufacturer coupling is not claimed.
-
-FD403 now includes localized guidance and vanilla recipe-book discovery for all fifteen player items, plus nine original Ponder scenes reachable through the normal inventory shortcut. Dev.11 validates survival crafting and native placement for all five families and corrects ordinary stations accepting PAX; see the [survival checkpoint](docs/evidence/0.4/survival-acceptance.md). Packaged connected survival clients now craft, place, board and operate short unpowered Arrow, Legacy and Free Spin sections; see the [Arrow](docs/evidence/0.4/survival-client-arrow.md) and [Legacy/Free Spin](docs/evidence/0.4/survival-client-legacy-free-spin.md) checkpoints. The [Revised](docs/evidence/0.4/survival-client-revised/acceptance.md) checkpoint adds normal-range boarding and an operator cycle; the [PAX](docs/evidence/0.4/survival-client-pax/acceptance.md) checkpoint adds connected survival route construction, four cars and a single-car winch binding. A separate [PAX demo client cycle](docs/evidence/0.4/survival-client-pax/demo/acceptance.md) now completes three native links and one occupied powered four-car return/catch through normal mounted controls. A [manual-link demo client cycle](docs/evidence/0.4/survival-client-pax/manual-links/acceptance.md) additionally proves three player Chain links, winch binding, normal boarding, mounted dispatch, recatch and dismount on a command-authored route. The [survival-built PAX cycle](docs/evidence/0.4/survival-client-pax/survival-cycle/acceptance.md) records three normal Chain links, an occupied powered four-car return and catch, unloading and reopen with a disclosed upstream motor fixture. Follow the [five-family building guide](docs/BUILDING.md). Complete player-built powered circuits and family teaching walkthroughs remain unfinished. Dev.12 defers Veil 4.1.4 shader-worker startup until its final worker count is initialized and completes empty schedules; see the [scheduler checkpoint](docs/evidence/0.4/scheduler-acceptance.md). The dev.8 bitmap-glyph crash has later targeted font-reload fixes and interactive retests; styled occupied post-reload operation and broader rendering coverage remain open.
+**1.0 qualification is in progress.** The expanded feature set and production art
+are frozen; final release acceptance and packaging are tracked in
+[ROADMAP](ROADMAP.md) and [the current qualification queue](docs/CURRENT-QUALIFICATION.md#current-work-queue).
+The qualification JAR still carries the historical `0.9.0-dev.27` label. That label
+is not a published 1.0 release. [Frozen inputs](docs/evidence/1.0/lead/freeze.md)
+identify the actual source, JAR and dependencies. Earlier checkpoint limitations
+remain historical evidence in the [changelog](CHANGELOG.md); they do not reopen
+completed cases.
 
 ## Install
 
-Install the addon and its dependencies on both client and server:
+Install the same Fourth Dimension build on every client and dedicated server,
+using Minecraft **1.21.1**, **Java 21** and these qualified dependencies:
 
-| Component | Tested version |
+| Component | Qualified version |
 | --- | --- |
-| Minecraft / Java | 1.21.1 / Java 21 |
 | NeoForge | 21.1.256 |
-| Create | 6.0.10 |
+| Create | 6.0.10; development coordinate 6.0.10-280 |
 | Create: Coasters Simulated | 0.1.5 |
-| Sable | 2.0.6 |
+| Sable / Sable Companion | 2.0.6 / 1.6.0 |
+| Veil / Flywheel | 4.3.2 / 1.0.6 |
 
-Use the dependencies supplied by those mods, including Flywheel 1.0.6, Sable Companion 1.6.0 and Veil 4.3.2. The [0.9 dependency checkpoint](docs/evidence/0.9/dependencies/README.md) records the qualified upgrade. Exact development artifact pins are in [build.gradle](build.gradle). No optional coaster addon is required or bundled.
+Use the required support dependencies supplied by those mods. The
+[artifact manifest](docs/evidence/1.0/lead/freeze.json) distinguishes development
+artifacts from distributable upstream metadata and records exact hashes. No
+optional coaster addon is required for standalone Fourth Dimension rides or bundled
+inside this addon. Keep **Immersion off dedicated servers**.
 
-Build and ride within **±1024 blocks of horizontal world origin**. The foundation exposed a native physics precision issue at large coordinates; this restriction remains in the current development build. A dimension supports up to 256 sections, 64 vehicles and 8192 total rotation-profile keys, and 512 magnetic spans (eight per section). Back up valuable worlds before trying a development build.
+Before opening an existing world, follow [backup, copied-world upgrade and restore](docs/MIGRATION.md).
+Current saves use schema8. Foundation synchronization uses protocol7, editor
+messages8 and the PAX presentation snapshot1; matching client/server builds are
+required. Do not downgrade an upgraded world in place.
 
-The [1.0 plan](ROADMAP.md#supported-envelope-and-explicit-10-dispositions) retains
-these as explicit supported limits. They are admission/storage ceilings, not a
-performance guarantee for a fully populated park. Boundary qualification and the
-representative-park benchmark remain release work; optional stabilized camera
-baseline delivery is tracked in FD904C1; FD904C2 reconciles later family/effects
-coverage without reopening that baseline.
+## Vehicles and guides
 
-## Build a ride
+| Style | Motion and operating guide |
+| --- | --- |
+| Arrow controlled | Programmed independent seat rotation on four-rail track; [basic construction](docs/PLAYABLE.md) and [banked operation](docs/evidence/0.4/bank-acceptance.md). |
+| Legacy ZacSpin | Independent passive back-to-back seat rotation; original-family construction below. |
+| S&S-inspired Free Spin | Four independently modeled seat pairs with magnetic influence; [magnetic equipment](docs/MAGNETIC.md). |
+| Revised ZacSpin | Revised free-rotation topology; [Revised/Shuttle guide](docs/REVISED-SHUTTLE.md). |
+| PAX-inspired shuttle | Physical catch, carriage lift and release; [shuttle operation](docs/REVISED-SHUTTLE.md) and [interruption recovery](docs/RECOVERY.md#pax-shuttle-interruption-recovery). |
+| Wing | Fixed seats beside the track; [Wing](docs/WING.md). |
+| S1 Spinning | Conventional native free-yaw turntable; [S1](docs/SPINNING.md). |
+| S2 Spinning | Launched/inverting free-yaw configuration with magnetic influence; [S2](docs/SPINNING-S2.md). |
+| Suspended | Hanging cabin with bounded passive swing; [Suspended](docs/SUSPENDED.md). |
+| Fixed Inverted | Fixed row below overhead track; [Fixed Inverted](docs/FIXED-INVERTED.md). |
+| Axis | Independent longitudinal pod roll; [Axis](docs/AXIS.md). |
+| Roller Ball | Lift/summit/free-descent pendular cycle; [Roller Ball](docs/ROLLER-BALL.md). |
+| Conventional Flying | Physical seated/prone posture; [Flying](docs/FLYING.md). |
+| New-generation Flying | Seated/prone posture with independent scenery-facing yaw; [NG Flying](docs/NEW-GENERATION-FLYING.md). |
+| Pipeline | Fixed-seat whole-chassis roll on dedicated track; [Pipeline](docs/PIPELINE.md). |
+| Dive | Incline, held dwell and validated gravity drop; [Dive](docs/DIVE.md). |
+| Powered Inverted Yaw | Upright seats below overhead support with independently powered yaw/show; [Powered Inverted](docs/POWERED-INVERTED-YAW.md). |
 
-1. Obtain matching track and car items, a Rotation Tool, and a Boarding Station from crafting or the Fourth Dimension creative tab. Place Coasters anchorpoints and use one of our track items on two anchors. A span may be at most 64 blocks; survival placement consumes one matching track item per four blocks, rounded up.
-2. Place the matching car on its track. Leave room for the full wings, riders, and their rotation. Vehicle placement rejects obstructed wing envelopes. Leave at least six blocks between controlled-car axles. Use Coasters' chain coupling on two captured Arrow cars with a six-block snapped link distance. Legacy and Free Spin cars cannot couple. Leave twelve blocks between Free Spin axles and fourteen between revised axles. PAX cars link six blocks apart, up to four cars; their separate winch workflow is described in the shuttle guide.
-3. For Arrow rotation, use the Rotation Tool on a section before placing cars. Keys use `distance:degrees:slope`, separated by semicolons; slope is degrees per block. Keys must cover the entire displayed section length. For a 36-block section, `0:0;18:360;36:0` makes one full turn and returns. Adjacent sections must match unwrapped angle and slope. `360` and `0` have different control-rail positions.
-4. Copy/paste, mirror, reverse and explicit geometry rebinding are available in the editor. Editing occupied sections or their immediate approaches is rejected. Rebind after changing native curve geometry. Use Preview Seats to inspect cyan pose markers and yellow/red conservative clearance boxes. Free-spin previews label their starting conditions and are examples; live motion comes from native physics.
-5. Place loading platforms outside the wing envelope. Wait for stopped translation, captured upright carriers and low angular speed, then right-click an empty seat. Use the Rotation Tool on the car, station, or in the air while riding to close restraints and dispatch. Coasters/Create propulsion moves the chassis; the addon controls the rotary mechanisms.
-6. For either free-spin family, tune damping and declared ballast on an empty captured car. Each rider contributes a declared 80 kg at the same modeled torso location; ballast is per carrier. Gravity, chassis movement and inertia determine free motion. Free Spin also offers empty, balanced (160 kg per pair), and left-front-only ballast presets; these change ballast, not passenger count. Apply them only to an empty captured car.
+Each guide defines its actual seat count, variant, track reservation, drive,
+coupling, station and recovery boundaries. Matching appearance alone never grants
+functional eligibility. Fixed Inverted, Suspended and Powered Inverted governor
+recipes retain their documented ingredients; use the recipe book for their distinct
+current crafting patterns.
 
-A Boarding Station binds to a car within twelve blocks on first use; shift-use rebinds it. Its **rear input** requests capture when powered and dispatch on the falling edge. It acts when the bound car is within eight blocks. The **front output** is ready/aligned; the **right output** is restraints closed. The lights show the same states. Dispatch also requires captured carriers, closed restraints and valid matching track. Retain/Release Retention provides a maintenance interlock.
+## Build and operate an original-family ride
 
-Locking seats never changes the track family. An Arrow car requires Arrow functional track; a legacy car requires legacy track; a Free Spin car requires magnetic Free Spin track. Ordinary access is certified only for the pinned, unmodified Coasters bearing. It receives no rotating seats or 4D behavior. Added bodies are rejected until their gear and clearance are separately certified. Rail access does not certify towing a 4D train. Dev.15 adds [guarded recovery controls and flat examples](docs/RECOVERY.md), with native loaded towing/braking evidence for all five families. Full rendered, curved/banked, strength and lifecycle recovery acceptance remain open.
+1. Craft the matching track/car, Rotation Tool and Boarding Station, or use the
+   Fourth Dimension creative tab. Connect two Coasters anchorpoints with matching
+   functional track. A span is at most64blocks; Survival consumes one track item
+   per four blocks, rounded up. Leave the family guide's full rider/mechanism
+   corridor clear.
+2. Configure Arrow rotation before occupying the section. Keys use
+   `distance:degrees:slope`, separated by semicolons; slope is degrees per block.
+   Cover the whole displayed section length. For a36-block section,
+   `0:0;18:360;36:720` gives two turns. Adjacent ends must agree in angle and slope;
+   a changed native curve requires explicit profile revalidation.
+3. Place the correct car. Only declared same-family consists may couple: normal
+   Chain use selects each exposed native bearing. Arrow/PAX use six-block spacing;
+   other families have their own guides. Legacy and Free Spin do not gain ordinary
+   ride coupling because an ordinary recovery bearing can fit their rails.
+4. Bind a nearby Boarding Station, wait for Ready and use an empty cushion to board.
+   The tall visual back is not the cushion's click target. Use the Rotation Tool
+   on the car/station or while seated, Close restraints and explicitly Dispatch.
+   Native Coasters/Create or the declared optional drive moves the chassis.
+5. Capture/Stop on the family's permitted dock, wait for Ready, Open restraints
+   and Shift to leave. Repairing power or support does not automatically resume a
+   faulted ride. Use the guide's explicit recovery action after checking the cause.
 
-## Magnetic equipment
+Original free-spin tuning uses declared rider loading (80kg per rider), damping
+and empty-car ballast. Magnetic Inducers/Dampers create bounded spans on matching
+Free Spin track; orange induces and cyan damps. They exchange energy with native
+motion and do not replace propulsion. See [the equipment guide](docs/MAGNETIC.md).
+The separately selectable comfort option stabilizes only the local camera;
+mouse look, native eye position, physical riders and remote players remain native.
+Its default K binding can conflict with Immersion: assign distinct keys in Controls.
 
-Use a Magnetic Inducer or Magnetic Damper on matching Free Spin track to install a span and open its editor. The Rotation Tool also opens that editor. Each added span consumes one matching equipment item in survival; removing it refunds the item. Orange bars induce spin by taking translational energy; cyan bars damp rotation. Propulsion still comes from Coasters/Create.
+Operator-level examples use `/fd demo <family>` in a clear disposable world; the
+family guides list exact layouts and footprints. Examples provide authored setup,
+not a claim that commands are required for normal construction. `/fd status`
+reports family, angle, capture and occupancy. `/fd clear` removes this dimension's
+addon vehicles/track connections; reserve it for disposable worlds.
 
-Enter semicolon-separated spans as `start:end:induce|damp:direction:strength:falloff:targets`. For example, `3:9:induce:1:4:0.2:1;12:18:induce:-1:4:0.2:8;24:32:damp:1:5:0.2:15` fits a 36-block section. Distances follow the first-to-second anchor direction. Direction is `1` or `-1`, strength `0..20`, and falloff `0..0.5` is the fraction of each end used for a linear ramp. Target masks add left-front `1`, left-rear `2`, right-front `4`, right-rear `8`; `15` targets all four. Group names refer to the car's local frame and do not swap during rollback.
+## Optional integrations
 
-Spans must be at least 0.05 blocks long and remain inside their section. Editing occupied sections/approaches is rejected. Preview loading cycles through empty, balanced and front-loaded reference cases; **Preview seats** draws the selected case without changing the car. Reference previews use declared starting conditions and constant powered speed; live native motion can differ.
+| Optional addon | Frozen version / file | Accepted role |
+| --- | --- | --- |
+| Track Styles | 1.2.0 / 9020601 | Cosmetic ownership/fallback on eligible track; no automatic external functional Arrow conversion. |
+| Engineered | 1.1.1 / 8863559 | Declared FE drive/control, including the bounded ordinary-bearing recovery source. |
+| Additions | runtime0.2.2 / 9243346 (distribution label0.2.5) | Accepted station and selected-seat adapters; Aeronautics1.3.2 and Interiors0.6.1 support dependencies. |
+| CTNB | 1.2 / 8718286 | Specifically measured functional rails/operations; appearance is not blanket eligibility. |
+| Magnetized | 1.1.0 / 8668703 | Declared longitudinal drive authority. |
+| Coaster Skin | 1.1.0 / 9409938 | Accepted appearance ownership. |
+| Immersion | 1.1.1 / 9542588 | Client-only effects composed with native rider pose and comfort. |
+| Waterparked | 0.2.8-beta-hotfix1 / 9058331 | Slide coexistence/separation; requires KotlinForForge5.10.0. |
+| Create Coasters | 2.0 / 8110328 | Accepted native utility coexistence; does not confer another seat/drive authority. |
 
-## Demonstration layouts
+Named profiles are base, Styles-only, Engineered-only, combined-core
+(Styles+Engineered), operations (plus Additions/CTNB/Magnetized), and
+combined-expanded (plus Skin/Immersion/Waterparked/Create Coasters). The
+[frozen capability record](docs/evidence/1.0/lead/freeze.md) and
+[0.9 acceptance](docs/evidence/0.9/acceptance.md) define coverage; every possible
+addon subset/version is not promised. Create Addition is an optional validation
+FE fixture, not a required release dependency. Optional upstream code/art remains
+separately installed; see [attribution and terms](THIRD_PARTY.md).
 
-Operator level 2 is required. In an empty test world, run:
+## Limits and known boundaries
 
-```text
-/execute positioned -100 120 0 run fd demo arrow
-/execute positioned -350 207 -212 run fd demo arrow_bank
-/execute positioned 100 120 0 run fd demo legacy
-/execute positioned -400 120 0 run fd demo free_spin
-/execute positioned 400 140 0 run fd demo revised
-/execute positioned 0 140 0 run fd demo pax
-```
+Build within **±1024blocks horizontally from world origin**. Per dimension,
+admission/storage limits are256sections,64vehicles,8192profile keys and512magnetic
+spans, with at most8spans per section. These are correctness limits, not a promise
+that a maximally populated park meets measured performance budgets.
 
-The Arrow, legacy, Free Spin, and revised circuit commands reserve a clear 47 × 17 × 69 region starting above/ahead of the command position. The original examples include track, a car, platforms, a boarding station and native Coasters chain drives powered by Create creative motors at 32 RPM. Arrow has a full-turn rotation program; both free-spin examples have hills. Free Spin also has two oppositely directed, separately targeted inducer spans and an all-group damper on the far straight. Board, close restraints and dispatch. After the car leaves, power the rear of the station so it captures the returning car; release power to dispatch again.
+[Ordinary-bearing recovery](docs/RECOVERY.md) covers the certified unmodified
+bearing and five original families, at most four original cars, at or below
+0.75blocks/s, on their matching route. It retains the stated equipment, coupling,
+propulsion and operator guards. It does not certify arbitrary added bodies,
+locomotives, newer-family towing or every external drive.
 
-`arrow_bank` uses the same circuit footprint with native 30° banking, a level station, and full controlled turns on both the banked upper straight and level right straight. Its chain motors sit on the high side of the banked joints. Styling remains optional; the native-motion and recorded default-mesh checks are described in [bank acceptance](docs/evidence/0.4/bank-acceptance.md).
+Supported graphics are Minecraft Fast, Fancy and Fabulous with the pinned stack.
+Historical shader observations do not advertise a current Sodium/shader profile.
+[Performance](docs/PERFORMANCE.md) distinguishes component timing and renderer
+correctness from representative-park whole-frame/tick/memory results.
 
-The PAX command builds its separate four-car two-spike layout and physical winch. `/fd demo pax_tall` creates the taller shuttle example. See [shuttle operation and restart recovery](docs/REVISED-SHUTTLE.md); these examples need larger clear corridors.
+Unknown schemas/providers and unsupported conversions fail closed. A future
+external Track Styles Arrow4D functional adapter, standalone builder tools,
+unified multi-train management and moving-track mechanisms remain outside1.0.
+Four-pair Free Spin and Revised topologies, dimensions and force models are game
+approximations, not manufacturer specifications.
 
-`/fd status` reports angles, occupancy and capture. `/fd clear` removes this dimension's addon vehicles and their track connections; it leaves station blocks, platforms and motors. Use it only in disposable test worlds. Other `/fd` commands are foundation diagnostics; they do not replace the normal items or station workflow.
+## Development
 
-## Development and verification
+Use Java21 for every build and launch on this host:
 
 ```sh
+export JAVA_HOME=/usr/lib/jvm/java-21-openjdk
+export PATH="$JAVA_HOME/bin:$PATH"
+"$JAVA_HOME/bin/java" -version
+./gradlew --version
 ./gradlew build
-./gradlew runGameTestServer
-./gradlew runClient
-./gradlew runServer
 ```
 
-Use `JAVA_HOME=/usr/lib/jvm/java-21-openjdk` on this workstation. The generated server directory needs Minecraft EULA acceptance. Offline mode is for loopback development identities only.
+Follow [the validation policy](docs/VALIDATION-POLICY.md) and current queue before
+scheduling tests; accepted cases are reused. `./gradlew properties` reports the
+actual `buildDir`; colon-containing checkout paths default to persistent
+`~/.local/state/fourthdimension-<path-hash>/build`. Keep valuable worlds outside
+build directories and `/tmp`. Graphical project tests use an owned private Xvfb
+and the [packaged run procedure](docs/FD403-RUN-PREPARATION.md).
 
-The artifact is under the Gradle `buildDir` in `libs/coasters-fourth-dimension-0.9.0-dev.27.jar`. For Unix checkout paths containing `:`, the default build directory is under `~/.local/state/fourthdimension-<path-hash>/build`, outside the checkout so Java classpaths remain valid. Read the actual `buildDir` from `./gradlew properties`. On this host `/tmp` is memory-backed and may be cleared on reboot; use persistent paths for isolated builds and game directories. `clean` deletes default run directories under the build directory, so keep valuable worlds elsewhere. GameTests recreate their disposable world.
+`-PfdPackaged` selects the built JAR; isolated client/server/observer game-directory
+properties prevent run-data collisions. `-PfdValidation` enables bounded state
+tracing; `-PfdRenderValidation` instruments `runClient` track geometry stages.
+Neither trace is a whole-frame benchmark. Use immutable runtime inputs when
+preparing concurrent builds. Build metadata, release artifact identity and
+clean-install evidence belong to the final packaging record.
 
-After `build`, `-PfdPackaged` runs the built JAR using an isolated source set and separate `packaged-client`/`packaged-server` directories. It does not load the addon's loose compiled classes. `-PfdClientGameDirectory=/absolute/path` gives a client run its own game directory when concurrent GUI work must not share options, saves, logs or resource packs. `-PfdConnect=127.0.0.1:25581` connects to a test server; `-PfdWorld=FolderName` opens an existing single-player save. `runObserver` starts a second identity. `-PfdValidation` logs functional/native pose snapshots; combine it with `-PfdRenderValidation` to log the bounded FD904 track-render sample every 100 client ticks. `-PfdSchedulerValidation` checks 512 native client schedules once after world load (128 empty schedules and 3072 tasks); `-PfdFontValidation` observes font reload/apply, closed FontSets and only an already-unallocated image immediately before Minecraft's own upload failure, without changing font/image lifecycle. Adding `-PfdFontValidationReload` requests one client resource reload after initial load for headless lifecycle tracing; `-PfdFontValidationReloads=N` requests 1–64 sequential reloads instead. With a loaded world, `-PfdFontValidationChat` opens command chat after the final controlled reload and confirms twenty client ticks. All font validation options require `-PfdFontValidation` and are inactive by default. Stale-FontSet recovery is separate production behavior and remains active without tracing; it redirects to the current font set or Minecraft's actual missing-font fallback when an ID disappears. `-PfdPerformanceTargets` enables the target-host FD904 timing limits in the performance GameTests. `runServer -PfdFrozen` starts paused for saved-state comparisons. `-PfdShuttleValidation` logs shuttle availability/phase changes without changing behavior and defaults to false.
-
-Design, licenses and evidence: [PLAN.md](PLAN.md), [ROADMAP.md](ROADMAP.md), [agent execution guides](docs/roadmap/README.md), [THIRD_PARTY.md](THIRD_PARTY.md), [foundation acceptance](docs/FOUNDATION.md), [0.1 acceptance](docs/PLAYABLE.md), [0.2 acceptance](docs/MAGNETIC.md). Before upgrading a world that has recovery data, follow the [world upgrade and recovery procedure](docs/MIGRATION.md).
+Design and contribution references: [PLAN](PLAN.md), [ROADMAP](ROADMAP.md),
+[milestone guides](docs/roadmap/README.md), [production asset sources](assets-source/fd917/README.md),
+[license](LICENSE), [third-party provenance](THIRD_PARTY.md), [changelog](CHANGELOG.md).

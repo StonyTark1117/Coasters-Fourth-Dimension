@@ -227,12 +227,25 @@ public final class RecoveryHandoverGameTests {
           helper.assertTrue(
               example.winch().cars.isEmpty() && cars.stream().allMatch(car -> car.shuttleDetached),
               "Retirement handover did not record per-car detach authority");
-          at(operator, container.getSubLevel(retired.chassis));
-          edit(operator, retired, 27);
+
         });
-    helper.runAtTickTime(
-        135,
+    long[] retiredAt = {-1};
+    helper.onEachTick(
         () -> {
+          if (helper.getTick() <= 130) return;
+          if (retiredAt[0] < 0) {
+            boolean ready = retired.maintenance && retired.stopping && Boarding.ready(level, retired);
+            if (!ready && helper.getTick() < 290) return;
+            helper.assertTrue(ready, "Detached car did not settle: maintenance=" + retired.maintenance
+                + " stopping=" + retired.stopping + " speed=" + container.physicsSystem().getPipeline()
+                .getLinearVelocity((ServerSubLevel) container.getSubLevel(retired.chassis), new Vector3d()).length()
+                + " carriers=" + retired.carriers.stream().map(c -> "capture=" + c.capture + ",angle=" + c.angle + ",omega=" + c.omega).toList());
+            at(operator, container.getSubLevel(retired.chassis));
+            edit(operator, retired, 27);
+            retiredAt[0] = helper.getTick();
+            return;
+          }
+          if (helper.getTick() - retiredAt[0] < 5) return;
           helper.assertTrue(
               !FoundationData.get(level).vehicles.containsKey(retired.chassis)
                   && bodies.stream().allMatch(id -> container.getSubLevel(id) == null)

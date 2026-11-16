@@ -1,0 +1,434 @@
+{
+  "original": {
+    "path": "/mnt/NVME4/fourthdimension-runs/fd10-art-20261115/source/fd903-schema3-native-world/data/fourthdimension_foundation.dat",
+    "sha256": "c27a35a14f5b6a3e098517c16780637d1eaa9adc49f45b4cbccd3c11e2c2aa7a",
+    "schema": 3,
+    "rails": 24,
+    "vehicles": [
+      {
+        "family": "arrow_controlled",
+        "chassis": "2f3e3099-82f6-480d-ae2f-7d253cc63134",
+        "restraints": 0,
+        "stopping": 1,
+        "fault": "",
+        "carriers": [
+          {
+            "body": "d4c9946d-2669-407b-aaf7-e07fc88ad6fe",
+            "rider_seats": [],
+            "capture": 1
+          },
+          {
+            "body": "6b758d48-53b8-4fa1-a430-98c73553e57d",
+            "rider_seats": [],
+            "capture": 1
+          }
+        ]
+      },
+      {
+        "family": "zacspin_legacy",
+        "chassis": "33826259-544c-4c6b-937a-751a3bb87d67",
+        "restraints": 0,
+        "stopping": 1,
+        "fault": "",
+        "carriers": [
+          {
+            "body": "076d4f4c-868e-4c1e-8951-62aeb1f8f306",
+            "rider_seats": [],
+            "capture": 1
+          },
+          {
+            "body": "6ae52794-a8f3-481b-b6fb-d2e3007c90d0",
+            "rider_seats": [],
+            "capture": 1
+          }
+        ]
+      },
+      {
+        "family": "sns_free_spin",
+        "chassis": "3ea8cbd9-7a45-44b4-aa44-3a56b7932ded",
+        "restraints": 0,
+        "stopping": 1,
+        "fault": "",
+        "carriers": [
+          {
+            "body": "c4c94135-d44a-4743-8cb4-084867a27c71",
+            "rider_seats": [],
+            "capture": 1
+          },
+          {
+            "body": "e7baca0f-e94a-4c97-a718-d9f9913dc8e1",
+            "rider_seats": [],
+            "capture": 1
+          },
+          {
+            "body": "69213274-ea40-443a-8462-3c9751b847fe",
+            "rider_seats": [],
+            "capture": 1
+          },
+          {
+            "body": "086a7cb5-8e0e-43a6-beae-0d0e98839656",
+            "rider_seats": [],
+            "capture": 1
+          }
+        ]
+      }
+    ]
+  },
+  "before_disconnect": {
+    "path": "/mnt/NVME4/fourthdimension-runs/fd10-art-20261115/evidence/two-rider-before.dat",
+    "sha256": "e5ad8aa00454dabf767db8c2ab3ac81e290e0b2c00c171fe0a87a966fdf8749a",
+    "schema": 8,
+    "rails": 24,
+    "vehicles": [
+      {
+        "family": "arrow_controlled",
+        "chassis": "2f3e3099-82f6-480d-ae2f-7d253cc63134",
+        "restraints": 1,
+        "stopping": 1,
+        "fault": "",
+        "carriers": [
+          {
+            "body": "d4c9946d-2669-407b-aaf7-e07fc88ad6fe",
+            "rider_seats": [],
+            "capture": 1
+          },
+          {
+            "body": "6b758d48-53b8-4fa1-a430-98c73553e57d",
+            "rider_seats": [
+              {
+                "seat": 4095,
+                "player": [
+                  301266199,
+                  -2059649805,
+                  -1608804992,
+                  -1648951199
+                ]
+              },
+              {
+                "seat": 274877911039,
+                "player": [
+                  940439953,
+                  -167562164,
+                  -1601161573,
+                  -1389718966
+                ]
+              }
+            ],
+            "capture": 1
+          }
+        ]
+      },
+      {
+        "family": "zacspin_legacy",
+        "chassis": "33826259-544c-4c6b-937a-751a3bb87d67",
+        "restraints": 0,
+        "stopping": 1,
+        "fault": "",
+        "carriers": [
+          {
+            "body": "076d4f4c-868e-4c1e-8951-62aeb1f8f306",
+            "rider_seats": [],
+            "capture": 1
+          },
+          {
+            "body": "6ae52794-a8f3-481b-b6fb-d2e3007c90d0",
+            "rider_seats": [],
+            "capture": 1
+          }
+        ]
+      },
+      {
+        "family": "sns_free_spin",
+        "chassis": "3ea8cbd9-7a45-44b4-aa44-3a56b7932ded",
+        "restraints": 0,
+        "stopping": 1,
+        "fault": "",
+        "carriers": [
+          {
+            "body": "c4c94135-d44a-4743-8cb4-084867a27c71",
+            "rider_seats": [],
+            "capture": 1
+          },
+          {
+            "body": "e7baca0f-e94a-4c97-a718-d9f9913dc8e1",
+            "rider_seats": [],
+            "capture": 1
+          },
+          {
+            "body": "69213274-ea40-443a-8462-3c9751b847fe",
+            "rider_seats": [],
+            "capture": 1
+          },
+          {
+            "body": "086a7cb5-8e0e-43a6-beae-0d0e98839656",
+            "rider_seats": [],
+            "capture": 1
+          }
+        ]
+      }
+    ]
+  },
+  "offline_backup": {
+    "path": "/mnt/NVME4/fourthdimension-runs/fd10-art-20261115/backups/schema8-two-rider/data/fourthdimension_foundation.dat",
+    "sha256": "b1f4ba05d3008d96f4c30f4b89e675ab438badf91eed2dd65aec267845b2ca43",
+    "schema": 8,
+    "rails": 24,
+    "vehicles": [
+      {
+        "family": "arrow_controlled",
+        "chassis": "2f3e3099-82f6-480d-ae2f-7d253cc63134",
+        "restraints": 1,
+        "stopping": 1,
+        "fault": "",
+        "carriers": [
+          {
+            "body": "d4c9946d-2669-407b-aaf7-e07fc88ad6fe",
+            "rider_seats": [],
+            "capture": 1
+          },
+          {
+            "body": "6b758d48-53b8-4fa1-a430-98c73553e57d",
+            "rider_seats": [
+              {
+                "seat": 4095,
+                "player": [
+                  301266199,
+                  -2059649805,
+                  -1608804992,
+                  -1648951199
+                ]
+              },
+              {
+                "seat": 274877911039,
+                "player": [
+                  940439953,
+                  -167562164,
+                  -1601161573,
+                  -1389718966
+                ]
+              }
+            ],
+            "capture": 1
+          }
+        ]
+      },
+      {
+        "family": "zacspin_legacy",
+        "chassis": "33826259-544c-4c6b-937a-751a3bb87d67",
+        "restraints": 0,
+        "stopping": 1,
+        "fault": "",
+        "carriers": [
+          {
+            "body": "076d4f4c-868e-4c1e-8951-62aeb1f8f306",
+            "rider_seats": [],
+            "capture": 1
+          },
+          {
+            "body": "6ae52794-a8f3-481b-b6fb-d2e3007c90d0",
+            "rider_seats": [],
+            "capture": 1
+          }
+        ]
+      },
+      {
+        "family": "sns_free_spin",
+        "chassis": "3ea8cbd9-7a45-44b4-aa44-3a56b7932ded",
+        "restraints": 0,
+        "stopping": 1,
+        "fault": "",
+        "carriers": [
+          {
+            "body": "c4c94135-d44a-4743-8cb4-084867a27c71",
+            "rider_seats": [],
+            "capture": 1
+          },
+          {
+            "body": "e7baca0f-e94a-4c97-a718-d9f9913dc8e1",
+            "rider_seats": [],
+            "capture": 1
+          },
+          {
+            "body": "69213274-ea40-443a-8462-3c9751b847fe",
+            "rider_seats": [],
+            "capture": 1
+          },
+          {
+            "body": "086a7cb5-8e0e-43a6-beae-0d0e98839656",
+            "rider_seats": [],
+            "capture": 1
+          }
+        ]
+      }
+    ]
+  },
+  "restored_live": {
+    "path": "/mnt/NVME4/fourthdimension-runs/fd10-art-20261115/evidence/two-rider-restored.dat",
+    "sha256": "ad42c3a362c6720982e3ecdedc69fdb40befa88798f9ec2115698cdf36c8fdc7",
+    "schema": 8,
+    "rails": 24,
+    "vehicles": [
+      {
+        "family": "arrow_controlled",
+        "chassis": "2f3e3099-82f6-480d-ae2f-7d253cc63134",
+        "restraints": 1,
+        "stopping": 1,
+        "fault": "",
+        "carriers": [
+          {
+            "body": "d4c9946d-2669-407b-aaf7-e07fc88ad6fe",
+            "rider_seats": [],
+            "capture": 1
+          },
+          {
+            "body": "6b758d48-53b8-4fa1-a430-98c73553e57d",
+            "rider_seats": [
+              {
+                "seat": 4095,
+                "player": [
+                  301266199,
+                  -2059649805,
+                  -1608804992,
+                  -1648951199
+                ]
+              },
+              {
+                "seat": 274877911039,
+                "player": [
+                  940439953,
+                  -167562164,
+                  -1601161573,
+                  -1389718966
+                ]
+              }
+            ],
+            "capture": 1
+          }
+        ]
+      },
+      {
+        "family": "zacspin_legacy",
+        "chassis": "33826259-544c-4c6b-937a-751a3bb87d67",
+        "restraints": 0,
+        "stopping": 1,
+        "fault": "",
+        "carriers": [
+          {
+            "body": "076d4f4c-868e-4c1e-8951-62aeb1f8f306",
+            "rider_seats": [],
+            "capture": 1
+          },
+          {
+            "body": "6ae52794-a8f3-481b-b6fb-d2e3007c90d0",
+            "rider_seats": [],
+            "capture": 1
+          }
+        ]
+      },
+      {
+        "family": "sns_free_spin",
+        "chassis": "3ea8cbd9-7a45-44b4-aa44-3a56b7932ded",
+        "restraints": 0,
+        "stopping": 1,
+        "fault": "",
+        "carriers": [
+          {
+            "body": "c4c94135-d44a-4743-8cb4-084867a27c71",
+            "rider_seats": [],
+            "capture": 1
+          },
+          {
+            "body": "e7baca0f-e94a-4c97-a718-d9f9913dc8e1",
+            "rider_seats": [],
+            "capture": 1
+          },
+          {
+            "body": "69213274-ea40-443a-8462-3c9751b847fe",
+            "rider_seats": [],
+            "capture": 1
+          },
+          {
+            "body": "086a7cb5-8e0e-43a6-beae-0d0e98839656",
+            "rider_seats": [],
+            "capture": 1
+          }
+        ]
+      }
+    ]
+  },
+  "final_empty": {
+    "path": "/mnt/NVME4/fourthdimension-runs/fd10-art-20261115/server/HistoricalWorkshop/data/fourthdimension_foundation.dat",
+    "sha256": "81cebcddf546313b36756b552375dd8b0d9401acb6de37a01af4d399763e54bb",
+    "schema": 8,
+    "rails": 24,
+    "vehicles": [
+      {
+        "family": "arrow_controlled",
+        "chassis": "2f3e3099-82f6-480d-ae2f-7d253cc63134",
+        "restraints": 0,
+        "stopping": 1,
+        "fault": "",
+        "carriers": [
+          {
+            "body": "d4c9946d-2669-407b-aaf7-e07fc88ad6fe",
+            "rider_seats": [],
+            "capture": 1
+          },
+          {
+            "body": "6b758d48-53b8-4fa1-a430-98c73553e57d",
+            "rider_seats": [],
+            "capture": 1
+          }
+        ]
+      },
+      {
+        "family": "zacspin_legacy",
+        "chassis": "33826259-544c-4c6b-937a-751a3bb87d67",
+        "restraints": 0,
+        "stopping": 1,
+        "fault": "",
+        "carriers": [
+          {
+            "body": "076d4f4c-868e-4c1e-8951-62aeb1f8f306",
+            "rider_seats": [],
+            "capture": 1
+          },
+          {
+            "body": "6ae52794-a8f3-481b-b6fb-d2e3007c90d0",
+            "rider_seats": [],
+            "capture": 1
+          }
+        ]
+      },
+      {
+        "family": "sns_free_spin",
+        "chassis": "3ea8cbd9-7a45-44b4-aa44-3a56b7932ded",
+        "restraints": 0,
+        "stopping": 1,
+        "fault": "",
+        "carriers": [
+          {
+            "body": "c4c94135-d44a-4743-8cb4-084867a27c71",
+            "rider_seats": [],
+            "capture": 1
+          },
+          {
+            "body": "e7baca0f-e94a-4c97-a718-d9f9913dc8e1",
+            "rider_seats": [],
+            "capture": 1
+          },
+          {
+            "body": "69213274-ea40-443a-8462-3c9751b847fe",
+            "rider_seats": [],
+            "capture": 1
+          },
+          {
+            "body": "086a7cb5-8e0e-43a6-beae-0d0e98839656",
+            "rider_seats": [],
+            "capture": 1
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -26,7 +26,7 @@ public final class DemoRideGameTests {
     var riders = new ArrayList<net.minecraft.world.entity.animal.Pig>();
     var container = SubLevelContainer.getContainer(level);
     for (int i = 0; i < 2; i++)
-      vehicles.add(ExampleLayouts.create(level, origins.get(i), TrackDesign.values()[i]));
+      vehicles.add(ExampleLayouts.create(level, origins.get(i), OriginalFamilyCases.designs()[i]));
     double[] maxAngle = {Double.NEGATIVE_INFINITY, Double.NEGATIVE_INFINITY};
     double[] minAngle = {Double.POSITIVE_INFINITY, Double.POSITIVE_INFINITY};
     double[] maxX = {0, 0}, maxZ = {0, 0};

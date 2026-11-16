@@ -1,0 +1,26 @@
+{
+  "first-server": {
+    "path": "/mnt/NVME4/fourthdimension-runs/fd10-art-20261115/evidence/first-server.log",
+    "sha256": "ad2486fd961d09c8e84c0ad4d23b98d00325622803dfbd6c1c4c7a2ab318d3ad"
+  },
+  "first-client": {
+    "path": "/mnt/NVME4/fourthdimension-runs/fd10-art-20261115/evidence/first-client.log",
+    "sha256": "0cde5d8039ec8c9f1cdbbb07cb9d213897fb7d279a092561da96b78b8e7cb100"
+  },
+  "first-observer": {
+    "path": "/mnt/NVME4/fourthdimension-runs/fd10-art-20261115/evidence/first-observer.log",
+    "sha256": "e8b545d6150617503765ac7b510bc419abe1164e97fc770b007a32aa826f98b9"
+  },
+  "restored-server": {
+    "path": "/mnt/NVME4/fourthdimension-runs/fd10-art-20261115/server/logs/latest.log",
+    "sha256": "7b3d4f735495238144db5aec2b79921b3968c7a9cce55de8b13dc66aac25ae5b"
+  },
+  "restored-client": {
+    "path": "/mnt/NVME4/fourthdimension-runs/fd10-art-20261115/client/logs/latest.log",
+    "sha256": "1a612ab7293f06fa31377b00d1452a16bb5dc9702e311d6e5935b8ff3d51973f"
+  },
+  "restored-observer": {
+    "path": "/mnt/NVME4/fourthdimension-runs/fd10-art-20261115/observer/client/logs/latest.log",
+    "sha256": "6967a41445bbadc12ebf9dcb99d22a9bab519dbbefbf8d2e5830b66040612598"
+  }
+}

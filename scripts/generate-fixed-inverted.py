@@ -55,7 +55,7 @@ for x in (1,5,9,13):
 m=model(parts);m['display']=item_display(.65)
 write('assets/fourthdimension/models/item/fixed_inverted_car.json',m)
 write('assets/fourthdimension/models/item/fixed_inverted_track.json',model([box([0,8,1],[16,10,3],'metal'),box([0,8,13],[16,10,15],'metal'),box([0,17,6],[16,21,10],'seat'),box([2,10,2],[4,18,14],'metal'),box([12,10,2],[14,18,14],'metal')]))
-write('data/fourthdimension/recipe/fixed_inverted_track.json',{'type':'minecraft:crafting_shaped','pattern':['III','CDC','III'],'key':{'I':{'tag':'c:ingots/iron'},'C':{'item':'minecraft:copper_ingot'},'D':{'item':'minecraft:purple_dye'}},'result':{'id':'fourthdimension:fixed_inverted_track','count':16}})
+write('data/fourthdimension/recipe/fixed_inverted_track.json',{'type':'minecraft:crafting_shaped','pattern':['ICI','IDI','ICI'],'key':{'I':{'tag':'c:ingots/iron'},'C':{'item':'minecraft:copper_ingot'},'D':{'item':'minecraft:purple_dye'}},'result':{'id':'fourthdimension:fixed_inverted_track','count':16}})
 write('data/fourthdimension/recipe/fixed_inverted_car.json',{'type':'minecraft:crafting_shaped','pattern':['SIS','SCS','ITI'],'key':{'S':{'item':'create:red_seat'},'I':{'tag':'c:ingots/iron'},'T':{'item':'fourthdimension:fixed_inverted_track'},'C':{'item':'simulatedcoasters:coaster_cart'}},'result':{'id':'fourthdimension:fixed_inverted_car','count':1}})
 for f in (OUT/'assets/fourthdimension/models').rglob('fixed_inverted_*.json'):
  for e in json.loads(f.read_text()).get('elements',[]):

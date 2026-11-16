@@ -1,0 +1,30 @@
+{
+  "owner": "01a1dd1d-c6a6-7be0-9cb5-2b033ac550da",
+  "units": {
+    "client": {
+      "ActiveState": "inactive",
+      "MainPID": "0",
+      "Result": "success",
+      "ExecMainStatus": "0"
+    },
+    "server": {
+      "ActiveState": "inactive",
+      "MainPID": "0",
+      "Result": "success",
+      "ExecMainStatus": "0"
+    },
+    "xvfb": {
+      "ActiveState": "inactive",
+      "MainPID": "0",
+      "Result": "success",
+      "ExecMainStatus": "0"
+    }
+  },
+  "display319_absent": true,
+  "saved_world": "/mnt/NVME4/fourthdimension-runs/fd10-mechanisms-20261115/server/PaxLifecycle",
+  "all_dimensions_saved": true,
+  "forced_chunks_removed": 22,
+  "client_heap_bytes": 1610612736,
+  "client_limit_bytes": 6442450944,
+  "last_observed_client_peak_bytes": 2666160128
+}

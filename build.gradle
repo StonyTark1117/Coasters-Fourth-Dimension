@@ -271,8 +271,9 @@ if (project.hasProperty('fdPackaged')) {
     // packagedRuntimeOnly. A file dependency alone does not give Gradle the task edge.
     tasks.matching {
         it.name in [
-            'runClient', 'runObserver', 'runServer',
-            'createClientLaunchScript', 'createObserverLaunchScript', 'createServerLaunchScript'
+            'runClient', 'runObserver', 'runServer', 'runGameTestServer',
+            'createClientLaunchScript', 'createObserverLaunchScript', 'createServerLaunchScript',
+            'createGameTestServerLaunchScript'
         ]
     }.configureEach {
         dependsOn tasks.named('jar')

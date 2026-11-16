@@ -62,12 +62,12 @@ public final class BankedRecoveryGameTests {
     player.setGameMode(GameType.CREATIVE);
     var meshTrace = new RecoveryMeshTrace("recovery-bank-mesh-trace.jsonl");
     var cases = new ArrayList<Case>();
-    for (var design : TrackDesign.values())
+    for (var design : OriginalFamilyCases.designs())
       cases.add(
           new Case(
               design,
               BankedRecoveryExamples.create(
-                  level, new BlockPos(-900, 240, 500 + 80 * design.ordinal()), design)));
+                  level, new BlockPos(-900, 240, 500 + 80 * OriginalFamilyCases.index(design)), design)));
     for (var c : cases) {
       helper.assertTrue(
           !c.design.family.driven()

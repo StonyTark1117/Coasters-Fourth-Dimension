@@ -125,6 +125,23 @@ public final class ShuttleRuntime {
     return w != null && w.phase != ShuttleWinchEntity.Phase.BOARDING;
   }
 
+  /** A fault-held chassis can have solver residue without travelling along the route. */
+  public static boolean readyForRecovery(ServerLevel level, FoundationData.Vehicle car) {
+    if (Boarding.ready(level, car)) return true;
+    var winch = owner(level, car.chassis);
+    if (winch == null || winch.phase != ShuttleWinchEntity.Phase.FAULT) return false;
+    var handles = HANDLES.get(winch);
+    var hold = handles == null ? null : handles.supportHolds.get(car.chassis);
+    var container = SubLevelContainer.getContainer(level);
+    if (hold == null || !hold.isValid() || container.getSubLevel(car.chassis) == null)
+      return false;
+    return car.carriers.stream()
+        .allMatch(c -> c.capture
+            && Math.abs(c.omega) <= .08
+            && Math.abs(Math.atan2(Math.sin(c.angle), Math.cos(c.angle))) <= .04
+            && container.getSubLevel(c.body) != null);
+  }
+
   /** An explicit stationary handover; never pulls against the powered physical catch. */
   public static void detachForRecovery(
       net.minecraft.server.level.ServerPlayer player, FoundationData.Vehicle selected) {
@@ -297,7 +314,13 @@ public final class ShuttleRuntime {
                         .map(data.vehicles::get)
                         .allMatch(car -> stationHeld(level, car)));
           }
-          else releaseSupportHolds(winch);
+          else {
+            releaseSupportHolds(winch);
+            // A native holding gap invalidates station constraints without reloading
+            // this block entity. Restore the saved captured posture once the complete
+            // body set returns, just as on a cold BOARDING reload.
+            HANDLES.computeIfAbsent(winch, k -> new Handles()).stationRestorePending = true;
+          }
           continue;
         }
         if (!level.hasChunkAt(winch.getBlockPos())
@@ -307,18 +330,18 @@ public final class ShuttleRuntime {
             || level.getBlockEntity(winch.getBlockPos()) != winch)
           throw new IllegalArgumentException("Shuttle winch chunk unavailable or winch removed");
         if (winch.phase == ShuttleWinchEntity.Phase.FAULT) {
-          // Native constraints are transient. Rebuild the stationary catch after a reload,
-          // without advancing the persisted carriage coordinate or resuming the lift.
+          // Native constraints are transient. Every persisted carriage needs its guide,
+          // including the empty carriage during a gravity run. Rebuilding the guide does
+          // not advance its coordinate or catch a train that was travelling independently.
           var container = SubLevelContainer.getContainer(level);
           if (winch.carriage != null
-              && container.getSubLevel(winch.carriage) != null
-              && container.getSubLevel(winch.vehicle) instanceof ServerSubLevel lead
-              && (winch.interrupted == ShuttleWinchEntity.Phase.LIFTING
-                  || winch.interrupted == ShuttleWinchEntity.Phase.CAPTURING
-                  || winch.interrupted == ShuttleWinchEntity.Phase.BOARDING)) {
+              && container.getSubLevel(winch.carriage) instanceof ServerSubLevel) {
             var held = HANDLES.computeIfAbsent(winch, k -> new Handles());
             ensureCarriage(level, winch, null, held);
-            catchTrain(level, lead, winch, held);
+            if (container.getSubLevel(winch.vehicle) instanceof ServerSubLevel lead
+                && (winch.interrupted == ShuttleWinchEntity.Phase.LIFTING
+                    || winch.interrupted == ShuttleWinchEntity.Phase.BOARDING))
+              catchTrain(level, lead, winch, held);
           }
           // The winch keeps its support-loss fault until Recover. After every car has
           // been repaired and realigned, release the temporary world holds so the
@@ -330,10 +353,19 @@ public final class ShuttleRuntime {
                   .allMatch(car -> car != null && !car.alignmentRequired && car.fault.isEmpty());
           if (VehicleOperations.MATCHING_SUPPORT_LOST.equals(winch.fault) && !realigned)
             holdUnsupportedTrain(level, winch, true);
+          else if (winch.interrupted == ShuttleWinchEntity.Phase.OUTBOUND
+              || winch.interrupted == ShuttleWinchEntity.Phase.RETURNING
+              || winch.interrupted == ShuttleWinchEntity.Phase.CAPTURING)
+            // Brakes alone can creep down a steep spike. Retain the chassis at the
+            // interruption while captured carriers settle. Explicit Recover/Resume
+            // enters CAPTURING, which positions the empty carriage before catching.
+            holdUnsupportedTrain(level, winch, false);
           else releaseSupportHolds(winch);
           continue;
         }
-        releaseSupportHolds(winch);
+        // Explicit recovery keeps the interrupted train held while the empty
+        // carriage approaches. Release those holds only once its catch is real.
+        if (winch.phase != ShuttleWinchEntity.Phase.CAPTURING) releaseSupportHolds(winch);
         var route = route(level, winch);
         if (winch.phase != ShuttleWinchEntity.Phase.BOARDING) {
           winch.validateTrain(false);
@@ -402,7 +434,8 @@ public final class ShuttleRuntime {
         } else if (winch.phase == ShuttleWinchEntity.Phase.CAPTURING) {
           ensureCarriage(level, winch, route, handles);
           if (handles.catchJoint == null || !handles.catchJoint.isValid()) {
-            if (Math.abs(speed) > .08) continue;
+            var retained = handles.supportHolds.get(winch.vehicle);
+            if (Math.abs(speed) > .08 && (retained == null || !retained.isValid())) continue;
             winch.carriageDistance = location.distance();
             positionGuide(level, winch, route, handles);
             // Move the empty carriage before engaging a physical catch; no long-range snapping.
@@ -412,6 +445,7 @@ public final class ShuttleRuntime {
             catchTrain(level, lead, winch, handles);
             releaseBrakes(level, winch, true);
           }
+          releaseSupportHolds(winch);
           double delta = winch.stationDistance - winch.carriageDistance;
           double returnSpeed = Math.min(2, Math.sqrt(Math.abs(delta) * 2));
           winch.carriageDistance +=

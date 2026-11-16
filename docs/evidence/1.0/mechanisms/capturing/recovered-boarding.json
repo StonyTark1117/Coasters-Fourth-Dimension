@@ -1,0 +1,328 @@
+{
+  "label": "snapshot",
+  "tick": 9734,
+  "phase": "BOARDING",
+  "interrupted": "CAPTURING",
+  "fault": "",
+  "winch": -1649267142551,
+  "lead": "460eef94-8e96-4481-a4d6-543ad0c888eb",
+  "carriage": {
+    "id": "ea49730b-f894-4c67-9c17-0ac5264b72ef",
+    "loaded": true,
+    "cartCenter": false,
+    "position": [
+      0.49998265504837036,
+      109.14838409423828,
+      73.517822265625
+    ],
+    "velocity": [
+      -0.0049527487717568874,
+      0.14683638513088226,
+      -0.036530252546072006
+    ],
+    "links": []
+  },
+  "distance": 62.68004423774931,
+  "cycles": 2,
+  "lossTick": -1,
+  "cars": [
+    {
+      "id": "460eef94-8e96-4481-a4d6-543ad0c888eb",
+      "loaded": true,
+      "cartCenter": true,
+      "position": [
+        0.4999999741721365,
+        106.12593623574206,
+        73.51816940106578
+      ],
+      "velocity": [
+        -0.00016148752183653414,
+        0.24991317093372345,
+        -0.008699904195964336
+      ],
+      "links": [
+        "30783ff3-e6ff-4c7c-8d33-3875352074a3",
+        "460eef94-8e96-4481-a4d6-543ad0c888eb",
+        "5dd405db-18ed-4b66-98ac-85679f35d7f4",
+        "73534e18-ef8b-4110-8050-e1a487cba3a9"
+      ],
+      "stopping": true,
+      "restraints": true,
+      "alignmentRequired": false,
+      "fault": "",
+      "ready": true,
+      "boundFrom": "BlockPos{x=0, y=105, z=65}",
+      "boundTo": "BlockPos{x=0, y=105, z=97}",
+      "carriers": [
+        {
+          "id": "8b3b71b6-65dd-4cbc-8751-4ba88caa2c5a",
+          "loaded": true,
+          "cartCenter": false,
+          "position": [
+            3.5000537963156706,
+            108.12596179444573,
+            73.51829812160457
+          ],
+          "velocity": [
+            -0.003475708421319723,
+            0.024235863238573074,
+            -0.0019201359245926142
+          ],
+          "links": [],
+          "angle": -0.0008182724270619546,
+          "omega": 0.0,
+          "capture": true,
+          "occupants": [],
+          "riderSeats": "{}"
+        },
+        {
+          "id": "84d42fcd-7ff5-4f95-8eaa-ce1d35f04e57",
+          "loaded": true,
+          "cartCenter": false,
+          "position": [
+            -2.5003453946168115,
+            108.12610561231081,
+            73.51803506678068
+          ],
+          "velocity": [
+            -0.0004727414925582707,
+            0.03690500184893608,
+            -0.005386931821703911
+          ],
+          "links": [],
+          "angle": -0.0007014469088377721,
+          "omega": 0.0,
+          "capture": true,
+          "occupants": [],
+          "riderSeats": "{}"
+        }
+      ]
+    },
+    {
+      "id": "30783ff3-e6ff-4c7c-8d33-3875352074a3",
+      "loaded": true,
+      "cartCenter": true,
+      "position": [
+        0.5000000183762358,
+        106.12595912388511,
+        79.51857567366287
+      ],
+      "velocity": [
+        -9.62832709774375e-05,
+        0.2558373510837555,
+        0.0034801496658474207
+      ],
+      "links": [
+        "30783ff3-e6ff-4c7c-8d33-3875352074a3",
+        "460eef94-8e96-4481-a4d6-543ad0c888eb",
+        "5dd405db-18ed-4b66-98ac-85679f35d7f4",
+        "73534e18-ef8b-4110-8050-e1a487cba3a9"
+      ],
+      "stopping": true,
+      "restraints": true,
+      "alignmentRequired": false,
+      "fault": "",
+      "ready": true,
+      "boundFrom": "BlockPos{x=0, y=105, z=65}",
+      "boundTo": "BlockPos{x=0, y=105, z=97}",
+      "carriers": [
+        {
+          "id": "4bd6aead-2cac-4ef7-83fa-08a44a099b01",
+          "loaded": true,
+          "cartCenter": false,
+          "position": [
+            3.500160155529698,
+            108.12598503943194,
+            79.51855746458361
+          ],
+          "velocity": [
+            -0.0022545328829437494,
+            0.024869181215763092,
+            -0.0011811190051957965
+          ],
+          "links": [],
+          "angle": -0.000407031960061755,
+          "omega": 0.0,
+          "capture": true,
+          "occupants": [],
+          "riderSeats": "{}"
+        },
+        {
+          "id": "658affc3-ecdc-44bf-b4b8-9872297b07c8",
+          "loaded": true,
+          "cartCenter": false,
+          "position": [
+            -2.500284570092787,
+            108.1261665171872,
+            79.51862304080706
+          ],
+          "velocity": [
+            2.3441973098670132e-05,
+            0.03701256588101387,
+            -0.005498791579157114
+          ],
+          "links": [],
+          "angle": -0.0006853133199008745,
+          "omega": 0.0,
+          "capture": true,
+          "occupants": [],
+          "riderSeats": "{}"
+        }
+      ]
+    },
+    {
+      "id": "73534e18-ef8b-4110-8050-e1a487cba3a9",
+      "loaded": true,
+      "cartCenter": true,
+      "position": [
+        0.4999999659026743,
+        106.12595912388439,
+        85.51856119299858
+      ],
+      "velocity": [
+        -0.0001466520770918578,
+        0.255826860666275,
+        0.004355541430413723
+      ],
+      "links": [
+        "30783ff3-e6ff-4c7c-8d33-3875352074a3",
+        "460eef94-8e96-4481-a4d6-543ad0c888eb",
+        "5dd405db-18ed-4b66-98ac-85679f35d7f4",
+        "73534e18-ef8b-4110-8050-e1a487cba3a9"
+      ],
+      "stopping": true,
+      "restraints": true,
+      "alignmentRequired": false,
+      "fault": "",
+      "ready": true,
+      "boundFrom": "BlockPos{x=0, y=105, z=65}",
+      "boundTo": "BlockPos{x=0, y=105, z=97}",
+      "carriers": [
+        {
+          "id": "25308df4-1679-4c72-86c9-5fdd40553b5d",
+          "loaded": true,
+          "cartCenter": false,
+          "position": [
+            3.5001461693836746,
+            108.12598792355601,
+            85.51857073231201
+          ],
+          "velocity": [
+            -0.002395874820649624,
+            0.024947525933384895,
+            -0.000572903489228338
+          ],
+          "links": [],
+          "angle": -0.0005722397183629891,
+          "omega": 0.0,
+          "capture": true,
+          "occupants": [],
+          "riderSeats": "{}"
+        },
+        {
+          "id": "1d399896-d78e-4069-be02-b5f73d482fb7",
+          "loaded": true,
+          "cartCenter": false,
+          "position": [
+            -2.500362453698977,
+            108.12614086538343,
+            85.51846006560838
+          ],
+          "velocity": [
+            -0.0007495525642298162,
+            0.037418466061353683,
+            -0.005549302324652672
+          ],
+          "links": [],
+          "angle": -0.00037246678032424663,
+          "omega": 0.0,
+          "capture": true,
+          "occupants": [],
+          "riderSeats": "{}"
+        }
+      ]
+    },
+    {
+      "id": "5dd405db-18ed-4b66-98ac-85679f35d7f4",
+      "loaded": true,
+      "cartCenter": true,
+      "position": [
+        0.5000000307146089,
+        106.12595912388635,
+        91.51875035354199
+      ],
+      "velocity": [
+        -0.00019392641843296587,
+        0.2556282877922058,
+        0.003493378171697259
+      ],
+      "links": [
+        "30783ff3-e6ff-4c7c-8d33-3875352074a3",
+        "460eef94-8e96-4481-a4d6-543ad0c888eb",
+        "5dd405db-18ed-4b66-98ac-85679f35d7f4",
+        "73534e18-ef8b-4110-8050-e1a487cba3a9"
+      ],
+      "stopping": true,
+      "restraints": true,
+      "alignmentRequired": false,
+      "fault": "",
+      "ready": true,
+      "boundFrom": "BlockPos{x=0, y=105, z=65}",
+      "boundTo": "BlockPos{x=0, y=105, z=97}",
+      "carriers": [
+        {
+          "id": "6c5895a2-3ebe-4b51-a91d-467e08029ac8",
+          "loaded": true,
+          "cartCenter": false,
+          "position": [
+            3.500070058890383,
+            108.12599052659023,
+            91.51888814222492
+          ],
+          "velocity": [
+            -0.0031720446422696114,
+            0.024671904742717743,
+            -0.001063804840669036
+          ],
+          "links": [],
+          "angle": -0.000741156606920844,
+          "omega": 0.0,
+          "capture": true,
+          "occupants": [],
+          "riderSeats": "{}"
+        },
+        {
+          "id": "bb450abd-5136-4272-9c97-aaa13c03aca1",
+          "loaded": true,
+          "cartCenter": false,
+          "position": [
+            -2.5002033758358726,
+            108.12600286826695,
+            91.51872870456624
+          ],
+          "velocity": [
+            0.00017701492470223457,
+            0.02928083948791027,
+            0.00021037437545601279
+          ],
+          "links": [],
+          "angle": -0.00061969769451136,
+          "omega": 0.0,
+          "capture": true,
+          "occupants": [
+            "48516062-50c2-36f2-9ebc-5be485c307ae"
+          ],
+          "riderSeats": "{48516062-50c2-36f2-9ebc-5be485c307ae=BlockPos{x=0, y=-1, z=0}}"
+        }
+      ]
+    }
+  ],
+  "riders": [
+    {
+      "seatEntity": "32c4a819-ed24-480c-9fcf-8f5c5357d37c",
+      "type": "entity.minecraft.player",
+      "id": "48516062-50c2-36f2-9ebc-5be485c307ae",
+      "seat": 5629783292195668095
+    }
+  ]
+}

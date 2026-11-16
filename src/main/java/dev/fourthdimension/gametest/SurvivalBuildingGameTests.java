@@ -263,8 +263,8 @@ public final class SurvivalBuildingGameTests {
     var data = FoundationData.get(level);
     var rails = new ArrayList<FoundationData.Rail>();
     var vehicles = new ArrayList<FoundationData.Vehicle>();
-    for (var design : TrackDesign.values()) {
-      var from = new BlockPos(-900 + design.ordinal() * 24, 132, -880);
+    for (var design : OriginalFamilyCases.designs()) {
+      var from = new BlockPos(-900 + OriginalFamilyCases.index(design) * 24, 132, -880);
       var to = from.offset(0, 0, 32);
       place(helper, player, item("simulatedcoasters:coaster_anchorpoint"), from);
       place(helper, player, item("simulatedcoasters:coaster_anchorpoint"), to);
@@ -332,10 +332,10 @@ public final class SurvivalBuildingGameTests {
     helper.runAtTickTime(
         10,
         () -> {
-          for (int i = 0; i < TrackDesign.values().length; i++) {
-            var design = TrackDesign.values()[i];
+          for (int i = 0; i < OriginalFamilyCases.designs().length; i++) {
+            var design = OriginalFamilyCases.designs()[i];
             var rail = rails.get(i);
-            for (var other : TrackDesign.values()) {
+            for (var other : OriginalFamilyCases.designs()) {
               if (other == design) continue;
               hold(helper, player, car(other));
               int badCount = count(player, car(other));
@@ -348,8 +348,8 @@ public final class SurvivalBuildingGameTests {
                   "Rejected car placement consumed items or allocated a vehicle");
             }
           }
-          for (int i = 0; i < TrackDesign.values().length; i++) {
-            var design = TrackDesign.values()[i];
+          for (int i = 0; i < OriginalFamilyCases.designs().length; i++) {
+            var design = OriginalFamilyCases.designs()[i];
             var rail = rails.get(i);
             hold(helper, player, car(design));
             helper.assertTrue(
