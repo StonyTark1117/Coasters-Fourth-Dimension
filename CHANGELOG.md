@@ -1,5 +1,11 @@
 # Changelog
 
+## Unreleased
+
+- Change project-authored code and assets from MIT to CC0 1.0 Universal
+  (`CC0-1.0`), including the mod license metadata. Third-party terms are unchanged.
+  The previously verified 1.0.0 JAR and checksum below predate this license change.
+
 ## 1.0.0 — verified release readiness, unpublished
 
 - Freeze all 17 adopted styles: original Arrow/Legacy/Free Spin/Revised/PAX, Wing,

@@ -193,6 +193,10 @@ Neither trace is a whole-frame benchmark. Use immutable runtime inputs when
 preparing concurrent builds. Build metadata, release artifact identity and
 clean-install evidence belong to the final packaging record.
 
+Project-authored code and assets are dedicated to the public domain under
+[CC0 1.0 Universal](LICENSE). Third-party components retain their own terms; see
+[third-party provenance](THIRD_PARTY.md).
+
 Design and contribution references: [PLAN](PLAN.md), [ROADMAP](ROADMAP.md),
 [milestone guides](docs/roadmap/README.md), [production asset sources](assets-source/fd917/README.md),
 [license](LICENSE), [third-party provenance](THIRD_PARTY.md), [changelog](CHANGELOG.md).
