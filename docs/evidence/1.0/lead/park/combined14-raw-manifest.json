@@ -1,0 +1,72 @@
+{
+  "raw": [
+    {
+      "source": "/mnt/NVME4/fourthdimension-runs/fd10-lead-20261115/park-combined01/evidence/client-combined14.jsonl",
+      "sha256": "2b338e345406ff016a3729e10fbb626b9db6e017e1d60295727c302eddabf070",
+      "gzip": "client-combined14.jsonl.gz",
+      "gzip_sha256": "e1266def67cf72cb14cd68c881257092903efa32bda2efee335dfc8701c917c8"
+    },
+    {
+      "source": "/mnt/NVME4/fourthdimension-runs/fd10-lead-20261115/park-combined01/evidence/server-combined14.jsonl",
+      "sha256": "61e1db93a595965d79f6d0466e59fd447924d1986913d6cf4fa2a7528f2f5064",
+      "gzip": "server-combined14.jsonl.gz",
+      "gzip_sha256": "60106469f13344b77a260b138488361e779c869018fa31d768192a47e182b92b"
+    },
+    {
+      "source": "/mnt/NVME4/fourthdimension-runs/fd10-lead-20261115/park-combined01/evidence/combined14-resources.jsonl",
+      "sha256": "4d100601212684c9b34ac6bef1e732f8b0c8ca7aa373cd1ab1033405554c487c",
+      "gzip": "combined14-resources.jsonl.gz",
+      "gzip_sha256": "b2415eecae802dade65ac13f8dd1b21ed0ba80805a5398d6b12fb103fb86b51f"
+    },
+    {
+      "source": "/mnt/NVME4/fourthdimension-runs/fd10-lead-20261115/park-combined01/evidence/combined14-windows.jsonl",
+      "sha256": "3e66e6478dc055b795982b487a1cac6d62631132252b89f29c2e15cf1549189b",
+      "gzip": "combined14-windows.jsonl.gz",
+      "gzip_sha256": "2f4190a4c38f3834496bc85ce84aa5da4f110deceeafac076bcad03c040212fc"
+    },
+    {
+      "source": "/mnt/NVME4/fourthdimension-runs/fd10-lead-20261115/park-combined01/evidence/combined14-warm-windows.jsonl",
+      "sha256": "98ee1c906e26c2efc4d6387efe0124800a141a54abf9a689140c823d9928333d",
+      "gzip": "combined14-warm-windows.jsonl.gz",
+      "gzip_sha256": "09e58d47279c529cfa70227d5c570adeb173ed89a538c7b9e4d2d5a12469a1ef"
+    },
+    {
+      "source": "/mnt/NVME4/fourthdimension-runs/fd10-lead-20261115/park-combined01/evidence/combined14-warm-resources.jsonl",
+      "sha256": "ae54d5466027f6e740ce7fa681961300f4c556d0769481afeb6996b7370a51ff",
+      "gzip": "combined14-warm-resources.jsonl.gz",
+      "gzip_sha256": "47c2a28db8bb867ed648e99b2f84e9f5646aa623155ba69462ef25779f09a1f7"
+    }
+  ],
+  "jvm_footers": [
+    {
+      "kind": "complete",
+      "unix_ns": 1794803093111720561,
+      "monotonic_ns": 547885511239817,
+      "process": "client",
+      "reason": "stop_file",
+      "rows": 317239,
+      "dropped_events": 0,
+      "lossless": true
+    },
+    {
+      "kind": "complete",
+      "unix_ns": 1794803093118598069,
+      "monotonic_ns": 547885518119415,
+      "process": "server",
+      "reason": "stop_file",
+      "rows": 59653,
+      "dropped_events": 0,
+      "lossless": true
+    }
+  ],
+  "resource_footer": {
+    "kind": "complete",
+    "samples": 1800,
+    "reason": "duration",
+    "unix_ns": 1794802708048154254,
+    "elapsed_seconds": 1799.012738420046
+  },
+  "world_checkpoint": "/mnt/NVME4/fourthdimension-runs/fd10-lead-20261115/park-combined01/checkpoints/world-drained14",
+  "cleanup": "normal Open/Shift for Dev; all17ready/Open/unload; save-all flush; stop. Verified client/server/Xvfb inactive/MainPID0 before15 launch.89unseated fixture pigs removed on next cold setup.",
+  "sustained_scope": "1800seconds workload/tick/resource pass; fixed-view frame comparison remains open; later invalid Creative followup excluded"
+}

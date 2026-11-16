@@ -1004,15 +1004,17 @@ unsupported conversions refuse safely, and the documented backup recovery works.
 
 **Execution steps:** [FD904](docs/roadmap/1.0-release.md#fd904).
 
-**Status: in progress.** Host-scoped addon timing limits exist; whole-frame/tick,
-memory and sustained-park acceptance have not yet been measured.
+**Status: in progress.** The quiet addon timing scenes and base/combined five-minute
+samples have evidence. [The fixed park record](docs/evidence/1.0/lead/park/README.md)
+records the completed sustained/memory check and remaining frame comparison
+and mounted views.
 
 **Depends on:** FD1000 for final qualification, FD006. FD904C1 has the early prerequisites below; FD904C2 reconciles later coverage. **Design:** D16, D17.
 
 | Task / status | Required scenario and pass condition | Evidence / next action |
 | --- | --- | --- |
 | <a id="fd904a"></a> **FD904A Rendering — complete 2026-11-16 UTC** [Steps](docs/roadmap/1.0-release.md#fd904a) | Accepted original-family checks plus new mechanism-specific rider/body/camera coverage and the frozen advertised graphics profiles; nonempty `geometryStages` >=500, correct ownership and visible geometry, clean reload and shutdown; solver/frame/rider evidence retains its measured bounds | [Final rendering reconciliation](docs/evidence/1.0/art/rendering.md), [historical render evidence](docs/evidence/0.9/client-render-sampling.md) and [artifact reuse map](docs/CURRENT-QUALIFICATION.md). Accepted FAST/FABULOUS gates and FD401B visuals carry forward when their render inputs are unchanged; run only missing/changed paths. FD402B supplies recovery views; FD917 supplies the production visual baseline, retaining unchanged FD916 evidence. Resolve new required visual failures before FD905 without a second all-family art review. |
-| <a id="fd904b"></a> **FD904B Representative park — in progress** [Steps](docs/roadmap/1.0-release.md#fd904b) | The fixed mixed-family scene, declared hardware/settings, frame/tick percentiles, heap/RSS/cgroup and GC measurements, frozen budgets and one combined-profile 30-minute sustained run defined in [PERFORMANCE.md](docs/PERFORMANCE.md#representative-park-acceptance-fd904b) | Implement/validate whole-frame and whole-server collectors; an initial baseline can close initial measured acceptance without a duplicate same-artifact run. Freeze budgets for later comparisons. Keep 120,000 ns/runtime invocation and 6,000 ns/carrier limits in all four native profiles. No existing average or llvmpipe capture proves GPU smoothness. |
+| <a id="fd904b"></a> **FD904B Representative park — in progress** [Steps](docs/roadmap/1.0-release.md#fd904b) | The fixed mixed-family scene, declared hardware/settings, frame/tick percentiles, heap/RSS/cgroup and GC measurements, frozen budgets and one combined-profile 30-minute sustained run defined in [PERFORMANCE.md](docs/PERFORMANCE.md#representative-park-acceptance-fd904b) | [Measured park evidence](docs/evidence/1.0/lead/park/README.md) records verified collectors, accepted base timing and valid combined first300, bounded repairs, completed sustained/memory check and remaining frame-comparison and occupied-view work. An initial baseline can close initial measured acceptance without a duplicate same-artifact run. Keep 120,000 ns/runtime invocation and 6,000 ns/carrier limits in all four native profiles. No existing average or llvmpipe capture proves GPU smoothness. |
 | <a id="fd904c"></a> **FD904C Rider camera and comfort — complete 2026-11-16 UTC** [Steps](docs/roadmap/1.0-release.md#fd904c) | FD904C1 owns the independently closable 0.5 baseline; FD904C2 reconciles later family/effects coverage for final qualification | [D16](PLAN.md#d16-riders-and-synchronization). FD503 and FD912 depend only on FD904C1. Later cases do not reopen a completed baseline or require a second camera implementation. |
 
 **Done when:** FD904A–C pass on stated configurations, the performance budget is

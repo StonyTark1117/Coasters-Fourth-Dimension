@@ -1,0 +1,345 @@
+{
+  "kind": "complete",
+  "unix_ns": 1794800906985308521,
+  "elapsed_seconds": 300.10171533201355,
+  "state": {
+    "tick": 200183,
+    "running": true,
+    "forcedChunks": 1680,
+    "rails": 198,
+    "groups": [
+      {
+        "name": "arrow",
+        "cars": [
+          "075f3ef6-f9e6-4a69-91d8-1ac33d82ddc3",
+          "1b48bc00-45b2-464c-9ad5-503ad6878b72"
+        ],
+        "center": [
+          -849.5000609853527,
+          111.12499019077852,
+          -831.1566166018301
+        ],
+        "ready": true,
+        "stopping": true,
+        "fault": "",
+        "cycles": 3,
+        "held": true,
+        "restraints": true,
+        "riders": 8
+      },
+      {
+        "name": "legacy",
+        "cars": [
+          "71c61dad-8236-4e71-ae15-86525878e6d0"
+        ],
+        "center": [
+          -467.5000000301056,
+          111.12499019077849,
+          -814.4074704728564
+        ],
+        "ready": false,
+        "stopping": false,
+        "fault": "",
+        "cycles": 4,
+        "held": false,
+        "restraints": true,
+        "riders": 8
+      },
+      {
+        "name": "free_spin",
+        "cars": [
+          "b4ec3fe5-0a7e-41ea-8684-e9586cd61d27"
+        ],
+        "center": [
+          -117.49999260490087,
+          111.1249967302595,
+          -818.4074097219617
+        ],
+        "ready": false,
+        "stopping": false,
+        "fault": "",
+        "cycles": 4,
+        "held": false,
+        "restraints": true,
+        "riders": 8
+      },
+      {
+        "name": "revised",
+        "cars": [
+          "95cd7f27-cfc3-4d9f-a843-62fe4d566eeb"
+        ],
+        "center": [
+          232.50000001453654,
+          111.12499038032871,
+          -817.2914428732394
+        ],
+        "ready": false,
+        "stopping": false,
+        "fault": "",
+        "cycles": 4,
+        "held": false,
+        "restraints": true,
+        "riders": 8
+      },
+      {
+        "name": "pax",
+        "cars": [
+          "5fffa096-9d4a-49da-b161-9da0f863c67f",
+          "9c0c0dba-9777-42c8-9529-9ff14364fd3b",
+          "58607ac3-b83c-4749-b230-956f846e07aa",
+          "18733539-3aaf-474c-8c11-720837b4a28f"
+        ],
+        "center": [
+          550.4999466554175,
+          130.37988010052456,
+          -891.3848713844474
+        ],
+        "ready": false,
+        "stopping": false,
+        "fault": "",
+        "cycles": 9,
+        "held": false,
+        "restraints": true,
+        "riders": 16
+      },
+      {
+        "name": "wing",
+        "cars": [
+          "f22a2529-dabc-456c-b988-9a5295bf0051"
+        ],
+        "center": [
+          -849.5000610351557,
+          110.62499283299294,
+          -336.87689208611846
+        ],
+        "ready": false,
+        "stopping": false,
+        "fault": "",
+        "cycles": 3,
+        "held": false,
+        "restraints": true,
+        "riders": 4
+      },
+      {
+        "name": "spinning",
+        "cars": [
+          "f7d6f0b4-c695-4c30-a5d9-284759b7412f"
+        ],
+        "center": [
+          -471.7569579986441,
+          110.62498474121094,
+          -369.50003048150194
+        ],
+        "ready": false,
+        "stopping": false,
+        "fault": "",
+        "cycles": 3,
+        "held": false,
+        "restraints": true,
+        "riders": 4
+      },
+      {
+        "name": "suspended",
+        "cars": [
+          "289c6278-4387-41ac-bbee-e53fd44aba39"
+        ],
+        "center": [
+          -149.49999989316296,
+          112.50522821019288,
+          -292.88883684184566
+        ],
+        "ready": false,
+        "stopping": false,
+        "fault": "",
+        "cycles": 3,
+        "held": false,
+        "restraints": true,
+        "riders": 2
+      },
+      {
+        "name": "fixed_inverted",
+        "cars": [
+          "be377253-38ac-446f-a498-70ea3a1d455b"
+        ],
+        "center": [
+          286.0044860908367,
+          110.6249933657439,
+          -73.79909514045016
+        ],
+        "ready": false,
+        "stopping": false,
+        "fault": "",
+        "cycles": 3,
+        "held": false,
+        "restraints": true,
+        "riders": 4
+      },
+      {
+        "name": "axis",
+        "cars": [
+          "de3ed2fc-956c-4ee5-a564-56858a807e74"
+        ],
+        "center": [
+          580.5300903014528,
+          110.57475577361905,
+          -257.3124898195672
+        ],
+        "ready": false,
+        "stopping": false,
+        "fault": "",
+        "cycles": 3,
+        "held": false,
+        "restraints": true,
+        "riders": 2
+      },
+      {
+        "name": "roller_ball",
+        "cars": [
+          "05df0538-7996-4e39-81aa-e6cbe91b49d6"
+        ],
+        "center": [
+          -749.5,
+          77.87498982747394,
+          184.09757995223288
+        ],
+        "ready": false,
+        "stopping": false,
+        "fault": "",
+        "cycles": 1,
+        "held": false,
+        "restraints": true,
+        "riders": 4
+      },
+      {
+        "name": "flying",
+        "cars": [
+          "c18ba672-5869-44a0-881a-5ee45e585be2"
+        ],
+        "center": [
+          -499.50000009891147,
+          110.62498931884748,
+          135.98226965976923
+        ],
+        "ready": false,
+        "stopping": false,
+        "fault": "",
+        "cycles": 3,
+        "held": false,
+        "restraints": true,
+        "riders": 4
+      },
+      {
+        "name": "new_generation_flying",
+        "cars": [
+          "4634d14d-6b38-434a-8e72-748b472f613d"
+        ],
+        "center": [
+          -53.49999617881114,
+          111.12498931884767,
+          261.0002746682899
+        ],
+        "ready": false,
+        "stopping": false,
+        "fault": "",
+        "cycles": 1,
+        "held": false,
+        "restraints": true,
+        "riders": 2
+      },
+      {
+        "name": "pipeline",
+        "cars": [
+          "60048d18-1de9-4e27-a8ea-06bf2ccbb8c1"
+        ],
+        "center": [
+          287.7393188531806,
+          111.1249911100968,
+          404.5022277937596
+        ],
+        "ready": false,
+        "stopping": false,
+        "fault": "",
+        "cycles": 3,
+        "held": false,
+        "restraints": true,
+        "riders": 4
+      },
+      {
+        "name": "dive",
+        "cars": [
+          "afa0056c-ae6d-4be3-91e6-95fb42e0493a"
+        ],
+        "center": [
+          550.4999579325183,
+          204.6095925785843,
+          364.30115297025833
+        ],
+        "ready": false,
+        "stopping": false,
+        "fault": "",
+        "cycles": 2,
+        "held": false,
+        "restraints": true,
+        "riders": 6
+      },
+      {
+        "name": "s2_spinning",
+        "cars": [
+          "f9668c69-f317-437b-b11f-b502c40bcad8"
+        ],
+        "center": [
+          -762.6303105909238,
+          107.12498474121132,
+          804.8861080897667
+        ],
+        "ready": false,
+        "stopping": false,
+        "fault": "",
+        "cycles": 4,
+        "held": false,
+        "restraints": true,
+        "riders": 4
+      },
+      {
+        "name": "powered_inverted_yaw",
+        "cars": [
+          "a46d560d-cdd1-48e2-8cbe-0e231cbe1078"
+        ],
+        "center": [
+          -499.5000000268272,
+          111.12499237060527,
+          650.7011726571174
+        ],
+        "ready": false,
+        "stopping": false,
+        "fault": "",
+        "cycles": 2,
+        "held": false,
+        "restraints": true,
+        "riders": 2
+      }
+    ],
+    "vehicles": 21,
+    "draining": false,
+    "carriers": 34
+  },
+  "observed_center_path": {
+    "arrow": 423.7347098495371,
+    "legacy": 505.2356112870866,
+    "free_spin": 507.9535803936612,
+    "revised": 507.2344185568621,
+    "pax": 1152.2581197190673,
+    "wing": 1050.149229408343,
+    "spinning": 1015.6774093673732,
+    "suspended": 867.1205724231127,
+    "fixed_inverted": 1906.307141891219,
+    "axis": 806.8628820917146,
+    "roller_ball": 520.905836499403,
+    "flying": 1593.375844187407,
+    "new_generation_flying": 507.5533796757874,
+    "pipeline": 1906.8421880659414,
+    "dive": 1228.600906409397,
+    "s2_spinning": 2063.20360740382,
+    "powered_inverted_yaw": 817.9127810475645
+  }
+}

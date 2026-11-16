@@ -1,0 +1,201 @@
+{
+  "collector_errors": [],
+  "scope": "measurement summary only; no workload, GPU or acceptance certification",
+  "window": {
+    "start_unix_ns": 1794802719872007159,
+    "end_unix_ns": 1794803019872007159
+  },
+  "sources": {
+    "frame:client": {
+      "count": 107375,
+      "median": 1.363765,
+      "p95": 12.525185,
+      "p99": 16.46315,
+      "max": 49.553659,
+      "percentile_method": "nearest-rank",
+      "units": "ms",
+      "over_50_ms": 0,
+      "over_100_ms": 0,
+      "measurement": "CPU frame-start intervals; not GPU presentation"
+    },
+    "tick:server": {
+      "count": 5999,
+      "median": 28.461984,
+      "p95": 51.220068,
+      "p99": 75.601447,
+      "max": 115.380033,
+      "percentile_method": "nearest-rank",
+      "units": "ms",
+      "over_50_ms": 318
+    },
+    "gc:client": {
+      "count": 1217,
+      "median": 1.750917,
+      "p95": 2.79676,
+      "p99": 3.395432,
+      "max": 10.379989,
+      "percentile_method": "nearest-rank",
+      "units": "ms",
+      "post_gc_heap_bytes": null
+    },
+    "gc:server": {
+      "count": 409,
+      "median": 1.965457,
+      "p95": 2.93121,
+      "p99": 5.6434,
+      "max": 9.592285,
+      "percentile_method": "nearest-rank",
+      "units": "ms",
+      "post_gc_heap_bytes": null
+    },
+    "post_gc:client": {
+      "count": 974,
+      "median": 1316384376.0,
+      "p95": 1434799552,
+      "p99": 1487607424,
+      "max": 1527485184,
+      "percentile_method": "nearest-rank"
+    },
+    "post_gc:server": {
+      "count": 318,
+      "median": 1217821288.0,
+      "p95": 1460671888,
+      "p99": 1489660488,
+      "max": 1567519456,
+      "percentile_method": "nearest-rank"
+    },
+    "heap:client": {
+      "count": 299,
+      "median": 1422155200,
+      "p95": 1508782896,
+      "p99": 1525049704,
+      "max": 1526346856,
+      "percentile_method": "nearest-rank"
+    },
+    "heap:server": {
+      "count": 291,
+      "median": 1668308824,
+      "p95": 2013067824,
+      "p99": 2032190832,
+      "max": 2037591008,
+      "percentile_method": "nearest-rank"
+    },
+    "resource:client": {
+      "rss_bytes": {
+        "count": 300,
+        "median": 3611219968.0,
+        "p95": 3614044160,
+        "p99": 3629461504,
+        "max": 3629461504,
+        "percentile_method": "nearest-rank"
+      },
+      "cgroup_bytes": {
+        "count": 300,
+        "median": 3502229504.0,
+        "p95": 3514355712,
+        "p99": 3528814592,
+        "max": 3529699328,
+        "percentile_method": "nearest-rank"
+      },
+      "lifetime_cgroup_peak_bytes": 3530063872
+    },
+    "resource:server": {
+      "rss_bytes": {
+        "count": 300,
+        "median": 2999115776.0,
+        "p95": 2999607296,
+        "p99": 3005214720,
+        "max": 3005263872,
+        "percentile_method": "nearest-rank"
+      },
+      "cgroup_bytes": {
+        "count": 300,
+        "median": 3149883392.0,
+        "p95": 3160035328,
+        "p99": 3160879104,
+        "max": 3161522176,
+        "percentile_method": "nearest-rank"
+      },
+      "lifetime_cgroup_peak_bytes": 3162796032
+    }
+  },
+  "missing": [],
+  "final_three_five_minute_periods": [
+    {
+      "start_unix_ns": 1794802119872007159,
+      "end_unix_ns": 1794802419872007159,
+      "processes": {}
+    },
+    {
+      "start_unix_ns": 1794802419872007159,
+      "end_unix_ns": 1794802719872007159,
+      "processes": {}
+    },
+    {
+      "start_unix_ns": 1794802719872007159,
+      "end_unix_ns": 1794803019872007159,
+      "processes": {
+        "client": {
+          "rss_bytes": {
+            "count": 300,
+            "median": 3611219968.0,
+            "p95": 3614044160,
+            "p99": 3629461504,
+            "max": 3629461504,
+            "percentile_method": "nearest-rank"
+          },
+          "post_gc_heap_bytes": {
+            "count": 974,
+            "median": 1316384376.0,
+            "p95": 1434799552,
+            "p99": 1487607424,
+            "max": 1527485184,
+            "percentile_method": "nearest-rank"
+          }
+        },
+        "server": {
+          "rss_bytes": {
+            "count": 300,
+            "median": 2999115776.0,
+            "p95": 2999607296,
+            "p99": 3005214720,
+            "max": 3005263872,
+            "percentile_method": "nearest-rank"
+          },
+          "post_gc_heap_bytes": {
+            "count": 318,
+            "median": 1217821288.0,
+            "p95": 1460671888,
+            "p99": 1489660488,
+            "max": 1567519456,
+            "percentile_method": "nearest-rank"
+          }
+        }
+      }
+    }
+  ],
+  "inputs": [
+    {
+      "path": "/mnt/NVME4/fourthdimension-runs/fd10-lead-20261115/park-combined01/evidence/client-combined14.jsonl",
+      "rows": 317240,
+      "completed_footer": true,
+      "dropped_events": 0
+    },
+    {
+      "path": "/mnt/NVME4/fourthdimension-runs/fd10-lead-20261115/park-combined01/evidence/server-combined14.jsonl",
+      "rows": 59654,
+      "completed_footer": true,
+      "dropped_events": 0
+    },
+    {
+      "path": "/mnt/NVME4/fourthdimension-runs/fd10-lead-20261115/park-combined01/evidence/combined14-warm-resources.jsonl",
+      "rows": 302,
+      "completed_footer": true,
+      "dropped_events": null
+    }
+  ],
+  "validity": {
+    "accepted": false,
+    "reason": "Fixed camera setup failure: Dev remained Creative after normal Arrow Open/Shift and fell from elevated park positions. Numeric distributions remain preserved but cannot establish frame comparability or acceptance."
+  }
+}

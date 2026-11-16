@@ -94,3 +94,34 @@ no-power retention and the existing entry guide limits. The unchanged complete
 route, four unique riders, power-loss hold/no automatic resume and explicit
 recovery passed. All owned diagnostic and qualification runtimes are stopped.
 No saved schema, protocol, dependency, seat or renderer geometry changes.
+
+## Representative-park performance and Flying example clearance
+
+The expanded combined park exceeded its initial whole-server p95 budget in
+runtime12 (63.124 ms against 50 ms). Two bounded optimizations address sampled
+hot paths: live chunk palettes exclude managed-plot sections that cannot contain
+the requested bearing/rivet block, and each Bezier connection reuses its pure
+endpoint key until either endpoint value changes. Potential matches still use
+the native scan, ordinary plots keep native behavior, and editable handles,
+geometry and safety decisions are never cached. Two native tests passed,
+including 24 same-tick scan comparisons, ordinary-cart control, endpoint mutation
+and reversal, and native handle edits. The valid combined13r2 first300 seconds
+then recorded p95 tick work 48.974 ms with all17 groups moving and90 riders.
+
+Its sustained interval stopped at843 seconds after a Flying bearing contacted
+the first east drive shaft at the final roll endpoint. A preserved native pose
+and shaft geometry located the contact. Moving that endpoint's drive west kept
+its128RPM, native Chain span and speed; removing the east contact shaft released
+the same four-rider vehicle without pose or velocity edits. Normal return,
+capture and seated lock passed with the original riders and no fault. The source
+example mirrors only this port and compensates its motor direction. It does not
+change the nominal-envelope clearance exemption or claim a generic collision
+rejection repair. No schema, protocol, dependency, track geometry, seat or visual
+asset changed. The exact observations, runtime identities and stopped failed
+windows are in [the park evidence](park/README.md).
+
+These changes are integrated in `c5e41b52`; runtime14 differs from13 only in
+`FlyingExamples.class`. Accepted base timing, native compatibility, lifecycle,
+migration, rendering and camera cases carry forward. The affected sustained
+park check and remaining timed mounted views stay open until their own evidence
+passes; a new artifact hash does not reset earlier gates.

@@ -1,0 +1,19 @@
+{
+  "observed_first300_frame_ms": {
+    "p95": 16.677071,
+    "p99": 21.48942
+  },
+  "retained_baseline13r2_frame_ms": {
+    "p95": 14.485161,
+    "p99": 19.307386
+  },
+  "fixed_110percent_ceiling_ms": {
+    "p95": 15.9336771,
+    "p99": 21.238124600000003
+  },
+  "diagnosis": "All park views broadly slower; renderer/resources/profile unchanged, onlyexamplelayout changed. PriorJVMageatwarmup1015.79s vs28.71s; extra14 fml.maxThreads systemproperty doesnotselectFMLthreads (actualconfigmaxThreads1 unchanged, confirmedpinnedFMLConfig getter). Warmup maturity hypothesis, notyetproved.",
+  "finite_followup": "After uninterrupted1800 completes, one additional identical17view/Arrow300s sample in the same fullywarmed JVM; preserve bothresults, no thresholdchange. No second sustainedrun.",
+  "followup_outcome": "Invalid setup: normal Arrow Open/Shift left player Creative. Fixed-view teleport did not set mode, so player fell. No frame pass or warmup-cause conclusion; raw preserved.",
+  "corrected_precondition": "park-measure.py, park-warmup.py, park-occupied.py explicitly set Spectator and assert the server gamemode selector before fixed views/transfers. Verify elevated fixed camera screenshot before bounded replacement.",
+  "replacement": "Same immutable runtime14/settings, fresh combined15 collectors; finite occupied segments first, then300second all-group warmup and one corrected300second comparison if collector time permits. No second1800 window."
+}

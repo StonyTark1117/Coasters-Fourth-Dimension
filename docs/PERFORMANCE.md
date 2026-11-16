@@ -73,7 +73,9 @@ but it prevents an accelerated-Flywheel claim for shader-mode sampling.
 
 ## Representative park acceptance (FD904B)
 
-**Status: planned; no whole-frame/tick or memory baseline is claimed.** This
+**Status: in progress.** [The fixed park evidence](evidence/1.0/lead/park/README.md)
+records the accepted base and valid combined five-minute samples; sustained
+memory, the affected frame comparison and remaining mounted views are open. This
 protocol extends the existing subsystem checks under
 [VALIDATION-POLICY.md](VALIDATION-POLICY.md). The 120,000 ns/invocation and
 6,000 ns/carrier limits above remain unchanged. Reuse accepted native profile

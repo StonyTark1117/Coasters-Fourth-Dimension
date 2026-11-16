@@ -126,3 +126,48 @@ stopping states reset that timer. Replaying the prior failed raw window detects
 Flying at60.32seconds stationary. This guards workload validity, not a new
 vehicle timing requirement. [Execution](execution-combined14.json) and
 [JAR diff](runtime14-diff.json) preserve the actual inputs.
+
+### One bounded frame-comparison follow-up
+
+Runtime14's first300 passes the50ms tick criterion, but frame p95/p99
+16.677071/21.489420ms exceed the retained13r2×110% ceilings
+15.9336771/21.2381246ms. The broadly slower view segments and differing JVM age
+(~329seconds versus~1316seconds at measurement start) identify a warmup-maturity
+question; they do not prove its cause. The settings, renderer/resources and
+runtime classes match apart from the one example-layout class. Both runs use
+FML config `maxThreads=1`; runtime14's additional `fml.maxThreads` system property
+does not select that pinned FML config getter.
+
+Before the follow-up, [this finite plan](frame-comparison-plan14.json) declares
+one additional identical300-second17-view/Arrow sequence in the same JVM after
+the uninterrupted1800-second window. Preserve both results and compare against
+the existing ceilings. Do not rerun sustained qualification or raise the limits
+for this question. The transfer wrapper uses normal Arrow capture/Open/Shift,
+refills its vacated seat, and retains90 occupants before the comparison begins.
+Afterward the remaining actual mounted segments consume the available recorder
+budget and stop at a safe transfer boundary.
+
+For supplemental mounted segments only, once the current style has supplied its
+first100 moving ticks, the helper may pause the next style's next dispatch so it
+returns normally and waits for boarding during the current ride's safe return.
+Only that next station is prepared; other groups continue cycling. Each such
+hold and the actual per-group state are recorded. These transfer preparations
+are outside the completed1800-second window, and supplemental frame statistics
+are reported separately rather than compared to the full-park baseline.
+
+### Follow-up setup failure and bounded replacement
+
+The `combined14-warm` follow-up is invalid: its transfer omitted Creative→Spectator,
+and the player fell from fixed camera positions. Its numeric frame comparison is
+not acceptance and does not prove the warmup hypothesis. Original13r2 and14 views
+remain elevated spectator scenes. The complete1800-second14 window is retained:
+36000ticks,p95=49.069593ms, stable final-three-period RSS/post-GC medians,53plots,
+all17moving,90riders, zero recorder drops. Normal unload/save and all units
+inactive/PID0 are verified in `cleanup14.jsonl` and final summaries.
+
+All three wrappers now explicitly set Spectator and assert a server gamemode
+selector before fixed views or dismounted transfers. Before a replacement sample,
+verify the elevated camera screenshot and current connection. Fresh `combined15`
+recorders reuse immutable runtime14 and unchanged settings. Productive mounted
+segments may precede the300-second all-group warmup and one corrected300-second
+comparison; finite collector deadlines still apply. No second1800-second run.

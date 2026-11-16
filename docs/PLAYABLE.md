@@ -1,6 +1,10 @@
 # Version 0.1 acceptance: FD101–FD109
 
-The 0.1 implementation adds original controlled Arrow/S&S-style and legacy ZacSpin-style rides. The package audit below covers the bounded near-origin build; it does not certify the later five-family 1.0 release. FD101–FD109 are complete within the stated limits.
+This is the historical 0.1 acceptance record. Dependency versions, schema numbers,
+test counts and scope limits below describe that checkpoint. Use the
+[current installation and 17-style guide](../README.md) for the supported release.
+
+The 0.1 implementation adds original controlled Arrow/S&S-style and legacy ZacSpin-style rides. The package audit below covers the bounded near-origin build; it does not certify the expanded 1.0 release. FD101–FD109 are complete within the stated limits.
 
 ## Package audit
 

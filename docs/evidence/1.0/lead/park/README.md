@@ -1,8 +1,9 @@
 # FD904B — representative park measurement
 
 **In progress, 2026-11-16 UTC.** The base five-minute sample and its cleanup
-passed. Combined sustained measurement and the other sixteen actual mounted
-performance views remain open. The [fixed protocol](protocol.md) defines the
+passed. The combined1800-second sustained workload/memory check is complete;
+the bounded frame comparison and other sixteen actual mounted performance views
+remain open. The [fixed protocol](protocol.md) defines the
 finite workload; [preparation](preparation.md) records failed setup separately.
 
 ## Combined failure and bounded correction
@@ -81,7 +82,44 @@ layout correction. The approximate nominal-envelope shaft exemption is unchanged
 this record does not claim a generic swept-collision rejection repair. Subsequent
 measurement checks running groups for60seconds without0.05block movement, while
 ready/stopping states reset the timer; a detected stall records native diagnostics
-and stops the window. Required sustained timing and mounted views remain open.
+and stops the window. The subsequent sustained result is recorded below; mounted
+views and the frame comparison remain open.
+
+## Completed combined sustained window; comparison still open
+
+Immutable runtime14 differs from13 only in the Flying example equipment layout.
+[Execution identity](execution-combined14.json) and the [final summary](combined14-sustained-final.json)
+retain the1800-second bounds, complete recorders and all raw inputs. All17groups
+cycled with90riders and no running stall/fault. It records36000ticks (20TPS),
+tick median/p95/p99/max27.172/49.070/72.919/137.429ms and1691ticks>50ms.
+The146595frames have median/p95/p99/max12.373/18.368/23.113/51.201ms,
+one frame>50ms and none>100ms. The sustained Arrow-heavy view mix is reported
+separately from the fixed17-view first300 comparison.
+
+Final three five-minute median RSS values are3427.66/3428.72/3428.80MiB(client)
+and2867.16/2859.37/2860.16MiB(server). Post-GC medians are1249.11/1249.74/1249.29MiB
+and1161.14/1161.27/1161.31MiB, respectively. Both plateau; no cgroup OOM/max event
+occurred. GC p95/p99/max were2.497/3.120/20.530ms(client) and2.875/4.112/22.824ms(server).
+Both JVM recorders ended losslessly with zero drops; the resource sampler completed
+1800samples. Allocated native plots remained53 before and after. All riders
+unloaded normally, the world saved and all three units were verified inactive/PID0.
+The saved checkpoint is `park-combined01/checkpoints/world-drained14`.
+
+The original14 first300 frame p95/p99=16.677071/21.489420ms exceed the retained
+13r2×110% ceilings15.9336771/21.2381246ms. This comparison remains open. The
+subsequent [`combined14-warm`](combined14-warm-invalid-summary.json) is **invalid**: after normal Arrow Open/Shift the
+wrapper left Dev in Creative; fixed cameras fell to bedrock. Its numeric frame
+pass cannot establish comparability or prove warmup maturity. The [failed view](park-1794802842491368164.png)
+contrasts with the correctly elevated [original14](park-1794801031235084065.png)
+and [13r2](park-1794798862251407678.png) spectator views. This later setup failure
+does not invalidate the earlier sustained interval.
+
+The [bounded replacement plan](frame-comparison-plan14.json) corrects the exact
+mode transition: wrappers explicitly set Spectator and verify the server's
+`execute if entity` selector before fixed views and dismounted transfers.
+Fresh `combined15` collectors reuse the same immutable runtime14/settings for
+finite supplemental mounted segments and one corrected300-second comparison.
+There is no second sustained run and no threshold increase.
 
 ## Accepted base sample
 

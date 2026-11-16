@@ -101,7 +101,21 @@ world with90 riders before the outstanding sustained window. The source example
 uses the same west port with negative-axis motor sign compensation. This repairs
 example equipment placement; the nominal-envelope clearance exemption is unchanged.
 Accepted base and lifecycle evidence stay closed.
-Lead owns the active `park-combined01` client/server/Xvfb323 runtime through cleanup.
+Runtime14's fresh warmup passed and its first300 recorded5999 ticks with
+p95 tick48.051ms. Frame p95/p99=16.677/21.489ms exceed the retained13r2
+110% frame ceilings15.934/21.238ms. That comparison remains open: every park
+view broadly slowed, while assets/render code/settings are unchanged; the prior
+JVM had about22 minutes of activity before measurement versus5.5 minutes here.
+The1800-second window completed with36000ticks,p95=49.070ms, all17groups
+cycling and90riders. Final lossless collectors show stable final-three-period
+RSS/post-GC heap;53allocated plots remain unchanged. Normal unload/save and all
+three inactive/PID0 units are verified. The subsequent bounded comparison is
+**invalid**: the transfer left Dev in Creative, so fixed cameras fell to bedrock.
+Original14 spectator views are verified; the sustained result is unaffected.
+Helpers now explicitly set Spectator and verify its server selector. A corrected
+bounded comparison and remaining16mounted segments use the same immutable
+runtime14 with fresh `combined15` collectors; no second sustained run. Lead owns
+`park-combined01`,Xvfb323,ports25664/25665 through its next cleanup.
 
 **FD904B bounded mechanisms repair complete (2026-11-15):** The mechanisms
 owner returned `vehicle/RollerBallRuntime.java`, new
