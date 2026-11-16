@@ -1,0 +1,243 @@
+{
+  "date": "2026-11-15",
+  "source": "b05b70fd6cd4d8dece007fafd8ae333ec6ab4b60",
+  "artifact_source": "c3ff5b9c",
+  "artifact": {
+    "jar": "/mnt/NVME4/fourthdimension-runs/fd917-mechanisms-20261115/indicator-final/coasters-fourth-dimension-0.9.0-dev.27.jar",
+    "sha256": "9c14b760e71c69295d697ccd2ef317144d817d96f944094ebb618382af2b406f",
+    "source_revision": "c3ff5b9c433840106f03e19e26708eb207127fd6",
+    "java": 21,
+    "verifiedResources": 429,
+    "method": "Every resource in Art integration and final Mechanisms export manifests, plus fd917-namespaced shared resources, byte-identical to source in final JAR",
+    "liveEvidenceCarryForward": "Accepted family geometry/physics, structural and wheel UVs unchanged. Dynamic indicator full-symbol UV and exposed lens lighting passed actual Dive fault red, normal Resume amber HELD, and DROP/off in client08. Final eight baked station/Dive resource changes affect only symbol UVs; 84 full-symbol faces and deterministic repeat export verified. Remote cue drawing precedes unloaded-chassis guard. S2 example and Pipeline validation-only fixture retain their passing targeted evidence.",
+    "cueFixResourceEntriesUnchanged": 701,
+    "fixtureOnlyResourceEntriesUnchanged": 701,
+    "validation": "Java21 compileJava+jar passed in compile-13-lens-light.txt and compile-14-symbols.txt. Evidence manifest hashes, final JAR identity and 429 packaged resource bytes verified at integration.",
+    "indicatorFixResourceEntriesUnchanged": 701,
+    "finalSymbolModelsChanged": 8,
+    "priorResourceComparisons": "The 701 unchanged resource counts below describe earlier cue/fixture/indicator steps, before the final eight baked-symbol UV changes."
+  },
+  "schema": 8,
+  "protocol": 7,
+  "minecraft": "1.21.1",
+  "java": 21,
+  "profiles": {
+    "base": [],
+    "styles": [
+      "styles"
+    ],
+    "engineered": [
+      "engineered"
+    ],
+    "combined-core": [
+      "styles",
+      "engineered"
+    ],
+    "operations": [
+      "styles",
+      "engineered",
+      "additions",
+      "ctnb",
+      "magnetized"
+    ],
+    "combined-expanded": [
+      "styles",
+      "engineered",
+      "additions",
+      "ctnb",
+      "magnetized",
+      "skin",
+      "immersion",
+      "waterparked",
+      "createcoasters"
+    ]
+  },
+  "client_only": [
+    "immersion"
+  ],
+  "profile_note": "Named original four and accepted expansion profiles; individual optional capability checks retain their recorded profiles. No Cartesian all-subset promise. Shader/Sodium excluded from this freeze pending separately qualified pinned configuration. FE producer is fixture only.",
+  "artifacts": [
+    {
+      "coordinate": "com.simibubi.create:create-1.21.1:6.0.10-280:slim",
+      "path": "/home/braydon/.gradle/caches/modules-2/files-2.1/com.simibubi.create/create-1.21.1/6.0.10-280/92471e8fc5ed4e3c2279001d77ebcec6fd38bcab/create-1.21.1-6.0.10-280-slim.jar",
+      "sha256": "f0652bee27460f2d26a748f537cb5d687981441378d3a526d17ffaab5a1072bb",
+      "bytes": 17452009,
+      "scope": "core or required support"
+    },
+    {
+      "coordinate": "com.tterrag.registrate:Registrate:MC1.21-1.3.0+67",
+      "path": "/home/braydon/.gradle/caches/modules-2/files-2.1/com.tterrag.registrate/Registrate/MC1.21-1.3.0+67/66ddc4cd56472fea1ea1a24182901e6c92a51c0a/Registrate-MC1.21-1.3.0+67.jar",
+      "sha256": "510f4041c41739f1d8ea8850ab8364d3e3a5fada8529beed5d9f479e2523db52",
+      "bytes": 181448,
+      "scope": "core or required support"
+    },
+    {
+      "coordinate": "curse.maven:coasters-engineered-1643631:8863559",
+      "path": "/home/braydon/.gradle/caches/modules-2/files-2.1/curse.maven/coasters-engineered-1643631/8863559/71238147443c0cf85bc661f0c56a9e6d4d36fd74/coasters-engineered-1643631-8863559.jar",
+      "sha256": "eea19ed769ed573727b4e15184c229f66aff85f20667464650724e1b2d657f5d",
+      "bytes": 539658,
+      "scope": "optional"
+    },
+    {
+      "coordinate": "curse.maven:coasters-immersion-1672383:9542588",
+      "path": "/home/braydon/.gradle/caches/modules-2/files-2.1/curse.maven/coasters-immersion-1672383/9542588/e01503ded31c65628c2a72e704113c4ad9f69f0d/coasters-immersion-1672383-9542588.jar",
+      "sha256": "df3332b03763bee3f32206b6716ff3d6963869d944171bc743ad3c40c3353c8b",
+      "bytes": 766580,
+      "scope": "optional"
+    },
+    {
+      "coordinate": "curse.maven:coasters-magnetized-1642979:8668703",
+      "path": "/home/braydon/.gradle/caches/modules-2/files-2.1/curse.maven/coasters-magnetized-1642979/8668703/26332fc0110181036d58b4135fd1cf431d842cb0/coasters-magnetized-1642979-8668703.jar",
+      "sha256": "52314bdace976a41d7d0948d4505ef96561719616d50dfffddce33f8f014e32a",
+      "bytes": 242057,
+      "scope": "optional"
+    },
+    {
+      "coordinate": "curse.maven:coasters-simulated-track-styles-1642719:9020601",
+      "path": "/home/braydon/.gradle/caches/modules-2/files-2.1/curse.maven/coasters-simulated-track-styles-1642719/9020601/145320803450eb3b4ade952d6019208a9861423f/coasters-simulated-track-styles-1642719-9020601.jar",
+      "sha256": "42535a83307f6898b33c13ca201533bb9e337418fd7c73039c867fc80bfbcb38",
+      "bytes": 1056916,
+      "scope": "optional"
+    },
+    {
+      "coordinate": "curse.maven:create-aeronautics-676721:8763471",
+      "path": "/home/braydon/.gradle/caches/modules-2/files-2.1/curse.maven/create-aeronautics-676721/8763471/ddbe9cbc25e8f663218aa1e9fdfc4b99f0e11e4b/create-aeronautics-676721-8763471.jar",
+      "sha256": "a3f330d4757640f8715d991a43eedb826e4d0e51558d859c843ae6693bd35f1e",
+      "bytes": 33123131,
+      "scope": "optional"
+    },
+    {
+      "coordinate": "curse.maven:create-coaster-skin-1741580:9409938",
+      "path": "/home/braydon/.gradle/caches/modules-2/files-2.1/curse.maven/create-coaster-skin-1741580/9409938/60779d987d2b711058144d474b61340ae7f87523/create-coaster-skin-1741580-9409938.jar",
+      "sha256": "13bea13f8ef894dd341c2b86e584d27120f0f0483385358cd772b8a158e698ea",
+      "bytes": 2063235,
+      "scope": "optional"
+    },
+    {
+      "coordinate": "curse.maven:create-coasters-1298151:8110328",
+      "path": "/home/braydon/.gradle/caches/modules-2/files-2.1/curse.maven/create-coasters-1298151/8110328/e91386c483898d27af9693a346239d810afcc82a/create-coasters-1298151-8110328.jar",
+      "sha256": "6bd2f93154450cfc6a1a7028e77ed69b6e8656fe41ed98afa9ba789ce947de86",
+      "bytes": 7262287,
+      "scope": "optional"
+    },
+    {
+      "coordinate": "curse.maven:create-coasters-simulated-1601871:8655742",
+      "path": "/home/braydon/.gradle/caches/modules-2/files-2.1/curse.maven/create-coasters-simulated-1601871/8655742/4d3381b781a1129f793358b8ae13e0abcd2e655b/create-coasters-simulated-1601871-8655742.jar",
+      "sha256": "f80b4c3cdf9fa6188804967147761b0373e150a6eadbdc53626e5ac9700b2049",
+      "bytes": 1892119,
+      "scope": "core or required support"
+    },
+    {
+      "coordinate": "curse.maven:create-coasters-simulated-additions-1661497:9243346",
+      "path": "/home/braydon/.gradle/caches/modules-2/files-2.1/curse.maven/create-coasters-simulated-additions-1661497/9243346/8eebe4e5c9ebc735fa2933bef0f1e12f87ca18bc/create-coasters-simulated-additions-1661497-9243346.jar",
+      "sha256": "f73473e2347823d45f2c524f059ac4b624864ebdb4dce90e29021e5b42af9d5c",
+      "bytes": 1942991,
+      "scope": "optional"
+    },
+    {
+      "coordinate": "curse.maven:create-waterparked-1648876:9058331",
+      "path": "/home/braydon/.gradle/caches/modules-2/files-2.1/curse.maven/create-waterparked-1648876/9058331/30693df94e25557346d04409eb458fd88d28a582/create-waterparked-1648876-9058331.jar",
+      "sha256": "c83ef412419ee68e12e9305fd7b5c4a624ffe9ac00d9352cc095e76887778e9c",
+      "bytes": 3091403,
+      "scope": "optional"
+    },
+    {
+      "coordinate": "curse.maven:createaddition-439890:8188476",
+      "path": "/home/braydon/.gradle/caches/modules-2/files-2.1/curse.maven/createaddition-439890/8188476/87b539d41ed238e98b26c607c0c81a973323147e/createaddition-439890-8188476.jar",
+      "sha256": "41876c3780b70365a1848994d146a73423cc19fbe86485885795d9e7d855e7e9",
+      "bytes": 1661802,
+      "scope": "validation-only FE network"
+    },
+    {
+      "coordinate": "curse.maven:ctnb-1649197:8718286",
+      "path": "/home/braydon/.gradle/caches/modules-2/files-2.1/curse.maven/ctnb-1649197/8718286/1615edd0c781c0489713ee9e81c2e03bbc989828/ctnb-1649197-8718286.jar",
+      "sha256": "e989c33e305779e37d4cd61bd4a7a13700faa45a604bd4aa92eacad738145115",
+      "bytes": 7733880,
+      "scope": "optional"
+    },
+    {
+      "coordinate": "curse.maven:interiors-906239:8974633",
+      "path": "/home/braydon/.gradle/caches/modules-2/files-2.1/curse.maven/interiors-906239/8974633/1c1cca4888ca30e12e6dee53f466ffa8af4ab796/interiors-906239-8974633.jar",
+      "sha256": "d230a2960dcb0c3d5753bc1d4adb71c8c18c9491b8e3cfd4a6b56533dae7a2c6",
+      "bytes": 471085,
+      "scope": "optional"
+    },
+    {
+      "coordinate": "dev.engine-room.flywheel:flywheel-neoforge-1.21.1:1.0.6",
+      "path": "/home/braydon/.gradle/caches/modules-2/files-2.1/dev.engine-room.flywheel/flywheel-neoforge-1.21.1/1.0.6/a943872ad0bdd4458d818d8d7dc123fb250eb744/flywheel-neoforge-1.21.1-1.0.6.jar",
+      "sha256": "31dda15c205eb596d3b3449ef03f6af7363a6cd35b3da4bfe916b304f9e5337e",
+      "bytes": 873570,
+      "scope": "core or required support"
+    },
+    {
+      "coordinate": "dev.engine-room.flywheel:flywheel-neoforge-api-1.21.1:1.0.6",
+      "path": "/home/braydon/.gradle/caches/modules-2/files-2.1/dev.engine-room.flywheel/flywheel-neoforge-api-1.21.1/1.0.6/78de23fcd1796061b2ffe9b8a98d38c2a0e56b3f/flywheel-neoforge-api-1.21.1-1.0.6.jar",
+      "sha256": "a79565dee7160fedd48de4899e0d21c845a8933b0413020e0a3ff65d0bec0308",
+      "bytes": 279363,
+      "scope": "core or required support"
+    },
+    {
+      "coordinate": "dev.ryanhcode.sable-companion:sable-companion-common-1.21.1:1.6.0",
+      "path": "/home/braydon/.gradle/caches/modules-2/files-2.1/dev.ryanhcode.sable-companion/sable-companion-common-1.21.1/1.6.0/370be7db705926176e05c0215ed676150c45daae/sable-companion-common-1.21.1-1.6.0.jar",
+      "sha256": "873633e35046e3761b277ff8a1ecad0d55d9a3014fa81a0b084c9aecba1f3bed",
+      "bytes": 35444,
+      "scope": "core or required support"
+    },
+    {
+      "coordinate": "dev.ryanhcode.sable:sable-neoforge-1.21.1:2.0.6",
+      "path": "/home/braydon/.gradle/caches/modules-2/files-2.1/dev.ryanhcode.sable/sable-neoforge-1.21.1/2.0.6/cf46f7e8c1511f170abcdbee739944f0540549bf/sable-neoforge-1.21.1-2.0.6.jar",
+      "sha256": "9c199157843bf953a47dff625fc5bb41c01a90538d35ad18e6996bbcb8a617c2",
+      "bytes": 12986135,
+      "scope": "core or required support"
+    },
+    {
+      "coordinate": "dev.ryanhcode.sable:sable-sable_rapier-1.21.1:2.0.6",
+      "path": "/home/braydon/.gradle/caches/modules-2/files-2.1/dev.ryanhcode.sable/sable-sable_rapier-1.21.1/2.0.6/d095eff41df82fbd8b321c2467b712ff35cb6bf1/sable-sable_rapier-1.21.1-2.0.6.jar",
+      "sha256": "0f0ec5f9a0cdbff937fb36542eb568988f27e6eb7f848cb4df35ad202ced53a7",
+      "bytes": 7607225,
+      "scope": "core or required support"
+    },
+    {
+      "coordinate": "foundry.veil:veil-neoforge-1.21.1:4.3.2",
+      "path": "/home/braydon/.gradle/caches/modules-2/files-2.1/foundry.veil/veil-neoforge-1.21.1/4.3.2/3d4056e31dd8a06e35901c3b82210c3d471e1e48/veil-neoforge-1.21.1-4.3.2.jar",
+      "sha256": "774b83887d882dc47cd4d29d140cef0c8677747a6fe7799649f490926a4e0265",
+      "bytes": 3359227,
+      "scope": "core or required support"
+    },
+    {
+      "coordinate": "net.createmod.ponder:ponder-neoforge:1.0.82+mc1.21.1",
+      "path": "/home/braydon/.gradle/caches/modules-2/files-2.1/net.createmod.ponder/ponder-neoforge/1.0.82+mc1.21.1/b10a04f40b9d6d33c346fb38df33f10f7e51b713/ponder-neoforge-1.0.82+mc1.21.1.jar",
+      "sha256": "0cf4611ad853042b689ac386184c5bbe02950efcffddb49e5f604e82baddb0dc",
+      "bytes": 820109,
+      "scope": "core or required support"
+    },
+    {
+      "coordinate": "net.neoforged:neoforge:21.1.256:universal",
+      "path": "/home/braydon/.gradle/caches/modules-2/files-2.1/net.neoforged/neoforge/21.1.256/37bb3370235532a59e258cebc8e8f066288c4543/neoforge-21.1.256-universal.jar",
+      "sha256": "e0a08bae5cea95be96c09770530f5643bb183af8af59c64694eb346cb4c93fa4",
+      "bytes": 3552847,
+      "scope": "core or required support"
+    },
+    {
+      "coordinate": "thedarkcolour:kfflang-neoforge:5.10.0",
+      "path": "/home/braydon/.gradle/caches/modules-2/files-2.1/thedarkcolour/kfflang-neoforge/5.10.0/c6eda38d0d182ec671966519e9fd7886a2ac59ea/kfflang-neoforge-5.10.0.jar",
+      "sha256": "0c11ac765eb601bd72f237d686e128103cb0ef68afb06e5fe60cb014083958e3",
+      "bytes": 22678,
+      "scope": "core or required support"
+    },
+    {
+      "coordinate": "thedarkcolour:kfflib-neoforge:5.10.0",
+      "path": "/home/braydon/.gradle/caches/modules-2/files-2.1/thedarkcolour/kfflib-neoforge/5.10.0/8d0cb8d4472f748e093c9af3bdfd8183035312f3/kfflib-neoforge-5.10.0.jar",
+      "sha256": "482177d601da0193784b5748c2b59848c4d163737ffcc9093b26a8469430ba69",
+      "bytes": 39805,
+      "scope": "core or required support"
+    },
+    {
+      "coordinate": "thedarkcolour:kffmod-neoforge:5.10.0",
+      "path": "/home/braydon/.gradle/caches/modules-2/files-2.1/thedarkcolour/kffmod-neoforge/5.10.0/26befb610c838149d9cb04027e3a7aa437b8c456/kffmod-neoforge-5.10.0.jar",
+      "sha256": "6a1eaacffe942f5b4af838896cce9880d22d8305330df6786519f736a0110322",
+      "bytes": 69852,
+      "scope": "core or required support"
+    }
+  ]
+}

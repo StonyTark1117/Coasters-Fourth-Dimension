@@ -24,6 +24,63 @@ FD403A–F and the FD404 aggregate are now reconciled. There is no remaining 0.4
 acceptance queue. The sections below retain case closure records and artifact
 history; they do not assign new work or add acceptance requirements.
 
+### Active 1.0 — authorized 2026-11-15
+
+The human said **"Continue 1.0"** after verified FD917 completion. This activates
+FD1000, final FD901–FD905 qualification, and FD1001–FD1003 release readiness in
+prerequisite order under [the 1.0 execution guide](roadmap/1.0-release.md).
+Publication, release-triggering tags/uploads, 1.1/1.2 and moving-track work are
+outside this authorization. FD1003 may close release readiness without claiming
+publication. Earlier statements below that 1.0 is not activated are historical.
+
+Starting local and remote `main`: `b05b70fd6cd4d8dece007fafd8ae333ec6ab4b60`.
+The checkout contains only pre-existing untracked `logs/`. All FD917 runtimes
+are stopped. Its [production acceptance](evidence/fd917/README.md) and final
+[artifact](evidence/fd917/lead/integration-package.json) are inputs to the freeze,
+not an automatic release-candidate pass. Accepted 0.4–0.9/FD917 cases stay closed
+unless a named relevant change or new defect invalidates the specific claim.
+
+| Existing owner | Complete assigned outcomes | Immediate action / handoff |
+| --- | --- | --- |
+| Lead `01a1dd1d-1468-7f81-8f31-5532ad7a178d` | FD1000 freeze; FD901 compatibility; FD904B representative park and FD904 aggregate; FD905; FD1002 packaging; FD1003 readiness; overall integration | Reconcile prerequisites and freeze exact capabilities, profiles/dependency identities, source/JAR and support limits. Send the qualified freeze to both owners. Map accepted native coverage before the outstanding release sweep. Prepare verified whole-frame/tick/resource collectors and the prescribed park; complete subsequent gates in prerequisite order. |
+| Art `01a1dd1d-6e99-70d2-aef3-6dcebac10d72` | FD903 migration/provider/backup; FD904A technical rendering; FD904C2/C camera reconciliation; FD1001 release documentation | Inspect retained real historical worlds and accepted evidence now; identify only uncovered/affected claims. Final qualification consumes the lead's freeze. Reuse FD917's finite visual evidence. Prepare documentation now and finalize against FD905. |
+| Mechanisms `01a1dd1d-c6a6-7be0-9cb5-2b033ac550da` | FD902A normal lifecycle, FD902B recovery reconciliation, FD902C PAX phase interruptions, FD902 aggregate | Map current evidence to each distinct lifecycle path before runs; consume accepted FD402D/E and family/adapter records. Cover only remaining required interruptions and real-client synchronization; preserve worlds and explicit operator recovery. |
+
+**FD1000 freeze complete — 2026-11-15:** [scope/profile/artifact handoff](evidence/1.0/lead/freeze.md)
+and [pinned machine record](evidence/1.0/lead/freeze.json) select source `b05b70fd`
+and final FD917 JAR `9c14b760…`. FD901–FD905 qualification is now released to the
+assigned owners. Existing accepted milestones retain their own identities.
+
+**Exact new transfer, acknowledged by Art:** `README.md`, `CHANGELOG.md`,
+`docs/MIGRATION.md`; unique `scripts/fd10-art-*` and `docs/evidence/1.0/art/`.
+Lead will not edit these paths concurrently. No runtime shared path is transferred.
+
+These are whole-outcome assignments; guide steps are procedures, not extra gates.
+Owners can inspect and prepare independently while FD1000 is reconciled. Final
+qualification uses the recorded freeze; do not silently change pins or scope.
+Lead records exact case or bounded file transfers if load balancing is needed.
+No new chats, subagents or worktrees are required. Specific continuation,
+diagnosis, ownership and ready-handoff messages among these owners/coordinator
+continue the established human-authorized workflow.
+
+After this coordinator activation, lead alone edits central ROADMAP/PLAN/queue,
+shared guide decisions and stages/commits/pushes. Old FD917 file transfers end.
+Existing shared source/runtime/client/build/registration/generator and release
+documentation files initially belong to lead until an exact acknowledged transfer;
+grant coherent bounded paths promptly, including generated output manifests.
+Owners may create uniquely namespaced evidence/helpers under `docs/evidence/1.0/`
+and agreed package namespaces. One writer per file; preserve all uncommitted work.
+
+Before runs follow AGENTS, VALIDATION-POLICY and PERFORMANCE. Record the violated
+required criterion, smallest affected check and stop condition. FD904B uses its
+fixed workload/settings, measured budgets, base/combined samples and one sustained
+combined window; software rendering cannot certify a native-GPU target. Diagnose
+authorized host/private-display access before declaring an external blocker.
+Reuse accepted observations; no family/profile/interruption Cartesian campaign.
+Every owner saves/stops its runtimes and verifies cleanup at completion. Final
+readiness requires cumulative evidence, selective push with exact remote HEAD,
+clean owned-runtime disposition and truthful publication status.
+
 ### FD917 visual production — complete 2026-11-15
 
 The human-authorized complete FD917 assignment is closed. All 17 adopted styles,
@@ -910,6 +967,13 @@ own criteria/package status; this queue owns case assignment and next action;
 the records below preserve artifact provenance and observations.
 
 ## Artifact and scope
+
+The active expanded 1.0 freeze is [FD1000](evidence/1.0/lead/freeze.md), with
+[exact source/JAR/profiles/dependencies](evidence/1.0/lead/freeze.json). Final
+FD901–FD905 acceptance is still in progress. The following original-core identity
+is historical evidence, preserved without relabeling its results.
+
+### Historical original-core qualification artifact
 
 | Field | Recorded value |
 | --- | --- |

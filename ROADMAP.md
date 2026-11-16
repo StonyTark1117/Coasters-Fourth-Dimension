@@ -23,8 +23,8 @@ The [integration allocation](docs/INTEGRATION-BACKLOG.md#release-allocation)
 uses the same sequence. This adopts the work plan; it does not certify new
 capabilities, activate dependencies, change artifact versions or authorize publication.
 
-**Current stage: development milestones through 0.9 complete; no 1.0 freeze or
-release candidate is accepted.** The [0.8](docs/evidence/0.8/acceptance.md) and
+**Current stage: expanded 1.0 alpha feature freeze complete; final qualification
+is in progress and no release candidate is accepted.** The [0.8](docs/evidence/0.8/acceptance.md) and
 [0.9](docs/evidence/0.9/acceptance.md) records retain the earlier milestones and
 their accepted behavior. On **2026-11-15**, the additional
 [visual production plan](docs/roadmap/pre-1.0-visual-production.md) was adopted as
@@ -98,7 +98,7 @@ whole-JAR equality is not required. Keep the original run identity and limits.
 | 0.8 | FD1401A–C, FD1501D–F, FD1701A, FD1702A–C, FD1901A–C, FD1902, FD810–FD813 | Complete 2026-11-15 | Pipeline, S2, Dive, Powered Inverted Yaw, required operating authority and agreed Additions/CTNB/Magnetized capabilities. |
 | 0.9 | FD910–FD916 | Complete 2026-11-15 | Skin, rotating-seat integration, Immersion, Waterparked/Create Coasters coexistence, and the accepted model/texture baseline. |
 | Pre-1.0 production | FD917 | Complete | Production models/materials, connected mechanisms and truthful state presentation for all 17 vehicle styles, required tracks/equipment/items and affected optional appearances. |
-| 1.0 alpha | FD1000 | Planned | All adopted vehicle families, variants, 1.0 integrations and FD917 production visuals accepted; freeze feature scope and supported profiles. |
+| 1.0 alpha | FD1000 | Complete 2026-11-15 | All adopted vehicle families, variants, 1.0 integrations and FD917 production visuals accepted; freeze feature scope and supported profiles. |
 | 1.0 beta / RC | FD901–FD905 | Evidence in progress; final gates open | Integrated stabilization, compatibility, lifecycle, migration, rendering and performance; carry accepted cases forward. |
 | 1.0 stable | FD1001–FD1003 | Planned | Final documentation, reproducible packaging and separately authorized publication. |
 | 1.1 | FD1602–FD1605 | Planned | Shareable setting presets, colors/liveries and a unified operator panel; Fixed Inverted is already a 1.0 requirement. |
@@ -902,7 +902,7 @@ verified runtime cleanup; the freeze and publication remain separate.
 
 **Execution steps:** [FD1000](docs/roadmap/1.0-release.md#fd1000).
 
-**Status: planned.** **Depends on:** FD404, FD503, FD601, FD701, FD813, FD915, FD917.
+**Status: complete 2026-11-15.** [Frozen scope, profiles and artifact](docs/evidence/1.0/lead/freeze.md). **Depends on:** FD404, FD503, FD601, FD701, FD813, FD915, FD917.
 
 1. Reconcile all family/variant and integration acceptance, reusing existing results under the validation policy.
 2. Finish missing original assets, recipes, guides, examples and usability work in their owning packages. Require FD917's integrated production baseline, carrying forward FD916/FD915's unaffected acceptance; do not substitute the earlier UV review for the new production criteria or rerun complete walkthroughs just to consolidate records.
