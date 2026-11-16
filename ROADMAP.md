@@ -100,7 +100,7 @@ whole-JAR equality is not required. Keep the original run identity and limits.
 | Pre-1.0 production | FD917 | Complete | Production models/materials, connected mechanisms and truthful state presentation for all 17 vehicle styles, required tracks/equipment/items and affected optional appearances. |
 | 1.0 alpha | FD1000 | Complete 2026-11-15 | All adopted vehicle families, variants, 1.0 integrations and FD917 production visuals accepted; freeze feature scope and supported profiles. |
 | 1.0 beta / RC | FD901–FD905 | Complete | Integrated stabilization, compatibility, lifecycle, migration, rendering and performance; carry accepted cases forward. |
-| 1.0 stable | FD1001–FD1003 | Planned | Final documentation, reproducible packaging and separately authorized publication. |
+| 1.0 stable | FD1001–FD1003 | Release readiness complete; unpublished | Final documentation, reproducible packaging and separately authorized publication. |
 | 1.1 | FD1602–FD1605 | Planned | Shareable setting presets, colors/liveries and a unified operator panel; Fixed Inverted is already a 1.0 requirement. |
 | 1.2 | FD1701B–C, FD1703 | Planned | Bounded ride-local multi-train operation using the earlier FD1701A authority; Dive is already a 1.0 requirement. |
 | Post-1.0 moving-track program; release numbers after feasibility | FD2001–FD2007 | Planned | Transfer platforms, turntables, drop tables, tilt tracks, elevator, teeter-totter, side-drop and compound motion-table styles. |
@@ -1095,7 +1095,7 @@ Finalize installation instructions, version/dependency matrix, all included fami
 
 **Execution steps:** [FD1002](docs/roadmap/1.0-release.md#fd1002).
 
-**Status: in progress.** Lead is reproducing1.0.0 and checking the prepared clean client/server install.
+**Status: complete (2026-11-16 UTC).** [Reproducibility and clean-install acceptance](docs/evidence/1.0/lead/release/README.md) verify1.0.0 SHA-256 `0192b815…`, intended content, actual occupied ride and clean shutdown.
 
 **Depends on:** FD905, FD1001.
 
@@ -1107,7 +1107,7 @@ Build from the intended release revision, record checksums, verify packaged meta
 
 **Execution steps:** [FD1003](docs/roadmap/1.0-release.md#fd1003).
 
-**Status: planned.**
+**Status: release readiness complete; unpublished (2026-11-16 UTC).** [Final checklist](docs/evidence/1.0/lead/release-readiness.md) reconciles every required gate. Publication requires separate authorization.
 
 **Depends on:** FD1001, FD1002 and all required earlier gates.
 

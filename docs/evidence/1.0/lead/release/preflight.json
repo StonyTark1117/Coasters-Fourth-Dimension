@@ -1,0 +1,41 @@
+{
+  "unix_ns": 1794811161374180360,
+  "owner": "01a1dd1d-1468-7f81-8f31-5532ad7a178d",
+  "settings": {
+    "renderDistance": "8",
+    "simulationDistance": "6",
+    "key_key.use": "key.mouse.right",
+    "key_key.attack": "key.mouse.left",
+    "rawMouseInput": "true",
+    "guiScale": "2"
+  },
+  "commands": {
+    "free -h": "               total        used        free      shared  buff/cache   available\nMem:            61Gi        29Gi        11Gi       2.8Gi        23Gi        31Gi\nSwap:             0B          0B          0B\n",
+    "df -h /mnt/NVME4/fourthdimension-runs/fd10-lead-20261115/release-install01": "Filesystem      Size  Used Avail Use% Mounted on\n/dev/nvme3n1p1  932G  885G   47G  96% /mnt/NVME4\n",
+    "findmnt -T /mnt/NVME4/fourthdimension-runs/fd10-lead-20261115/release-install01": "TARGET     SOURCE         FSTYPE OPTIONS\n/mnt/NVME4 /dev/nvme3n1p1 xfs    rw,nosuid,nodev,relatime,inode64,logbufs=8,logbsize=32k,noquota\n"
+  },
+  "cgroups": {
+    "/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/app.slice/app-org.chromium.Chromium-210284.scope": {
+      "memory.max": "max",
+      "memory.current": "23875153920"
+    },
+    "/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/app.slice": {
+      "memory.max": "max",
+      "memory.current": "44929433600"
+    },
+    "/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service": {
+      "memory.max": "max",
+      "memory.current": "52072521728"
+    },
+    "/sys/fs/cgroup/user.slice/user-1000.slice": {
+      "memory.max": "max",
+      "memory.current": "52085055488"
+    },
+    "/sys/fs/cgroup/user.slice": {
+      "memory.max": "max",
+      "memory.current": "52085112832"
+    },
+    "/sys/fs/cgroup": {}
+  },
+  "process_review": "Reviewed Java/Gradle/Minecraft and agent processes; both park runs inactive before release client. No other task runtime touched."
+}

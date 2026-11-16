@@ -6,15 +6,16 @@ saved ride programs and optional integrations. The rides are independently autho
 game interpretations inspired by coaster concepts; manufacturer names do not imply
 endorsed assets, exact engineering or verified real-world coupling.
 
-**The release candidate is qualified for intended version 1.0.0.**
-[FD905](docs/evidence/1.0/lead/release-candidate.md) records accepted source
-`c7bb65938bfbe7e7dd2feecbedbe5d7801b10a08`, candidate17's checksum and the
+**Version1.0.0 is verified and ready for release; it has not been published.**
+[Release readiness](docs/evidence/1.0/lead/release-readiness.md) reconciles the
 completed compatibility, lifecycle, migration, rendering and performance gates.
-The qualified JAR still carries the historical `0.9.0-dev.27` label. Stable
-1.0.0 packaging, its final checksum and clean-install verification remain with
-FD1002; no stable release has been published. [ROADMAP](ROADMAP.md) and
-[the current qualification queue](docs/CURRENT-QUALIFICATION.md#current-work-queue)
-track packaging and release readiness.
+[Packaging and clean-install verification](docs/evidence/1.0/lead/release/README.md)
+record two byte-identical Java21 builds, intended resources and a representative
+occupied ride on clean production client/server installs. Artifact:
+`coasters-fourth-dimension-1.0.0.jar`; [SHA-256](docs/evidence/1.0/lead/release/SHA256SUMS)
+`0192b8150460924ebf57ee2d0352472f21cfe9685f6081c556eeedd963743837`.
+[ROADMAP](ROADMAP.md) and [the current queue](docs/CURRENT-QUALIFICATION.md#current-work-queue)
+retain the gate status and publication boundary.
 
 [Frozen inputs](docs/evidence/1.0/lead/freeze.md) and
 [accepted amendments](docs/evidence/1.0/lead/freeze-amendments.md) define the

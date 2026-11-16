@@ -1,0 +1,26 @@
+{
+  "at": 1794811652717685662,
+  "world": "/mnt/NVME4/fourthdimension-runs/fd10-lead-20261115/release-install01/server/world",
+  "normal_unload": "Open restraints with refreshed revision then actual Shift; RootVehicle absent",
+  "normal_exit": "Disconnect, Quit Game, save-all flush, stop",
+  "units": {
+    "client": {
+      "ActiveState": "inactive",
+      "MainPID": "0",
+      "ControlGroup": "",
+      "WorkingDirectory": ""
+    },
+    "server": {
+      "ActiveState": "inactive",
+      "MainPID": "0",
+      "ControlGroup": "",
+      "WorkingDirectory": ""
+    },
+    "xvfb": {
+      "ActiveState": "inactive",
+      "MainPID": "0",
+      "ControlGroup": "",
+      "WorkingDirectory": ""
+    }
+  }
+}

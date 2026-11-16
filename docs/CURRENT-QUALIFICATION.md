@@ -1,11 +1,14 @@
 # Current qualification record
 
 Updated 2026-11-16 UTC. This is the single artifact index for the active roadmap.
-FD905 is complete: [the accepted candidate](evidence/1.0/lead/release-candidate.md)
-is source `c7bb6593`, candidate17 SHA-256 `77170d33…`. FD404 remains the completed
-0.4 checkpoint. Intended stable version1.0.0 now proceeds through FD1001–FD1003;
-publication remains unauthorized. Historical runs retain their own identities
-under [VALIDATION-POLICY.md](VALIDATION-POLICY.md).
+**1.0 release readiness is complete; unpublished.** FD1000, FD901–FD905 and
+FD1001–FD1003 are closed under their stated readiness criteria.
+[Final checklist](evidence/1.0/lead/release-readiness.md) and
+[package acceptance](evidence/1.0/lead/release/README.md) select1.0.0 from source
+`0e2be865d13d1c968ca64c634a5c26aac5a3bf9e`, SHA-256 `0192b815…`.
+All owned runtimes are stopped with saved worlds. There is no remaining1.0
+acceptance assignment; publication requires separate authorization. Historical
+runs keep their own identities under [VALIDATION-POLICY.md](VALIDATION-POLICY.md).
 
 Planning allocation updated 2026-11-11: FD404 is the five-family development
 checkpoint; FD1000 owns the expanded 1.0 alpha freeze. The identities and runtime
@@ -24,7 +27,7 @@ FD403A–F and the FD404 aggregate are now reconciled. There is no remaining 0.4
 acceptance queue. The sections below retain case closure records and artifact
 history; they do not assign new work or add acceptance requirements.
 
-### Active 1.0 — authorized 2026-11-15
+### Completed 1.0 readiness — authorized 2026-11-15
 
 The human said **"Continue 1.0"** after verified FD917 completion. This activates
 FD1000, final FD901–FD905 qualification, and FD1001–FD1003 release readiness in
@@ -146,17 +149,13 @@ base/combined300-second checks are pending. No threshold changes, sustained-wind
 reset or all-family art review is introduced. Runtime16 remains on immutable14
 while its remaining mounted segments finish; builds wait until those samples end.
 
-**Current closure / next action:** FD904B and FD904 are complete. All17 mounted
-views, initial base/combined samples, the1800-second sustained plateau and
-[renderer17 affected comparisons](evidence/1.0/lead/park/renderer-repair.md) pass.
-The combined17 initial-limit classifier error is preserved and reconciled against
-the unchanged later-regression ceiling using the complete raw300-second interval.
-Both park runtimes saved, unloaded and stopped; final units are inactive/PID0.
-[FD905](evidence/1.0/lead/release-candidate.md) is complete on source `c7bb6593`,
-candidate17 SHA-256 `77170d33e8a4a6993b3d4c2fc4f70ed3a491f19f83948fa75ced752ed485b5c5`.
-[FD1001 documentation](evidence/1.0/art/release-documentation.md) is complete for intended1.0.0; lead owns FD1002 reproducible packaging
-and the prepared clean client/server install, then unpublished FD1003 readiness.
-Earlier progress paragraphs above are retained run history, not open assignments.
+**Current closure / next action:** FD904B/FD904, FD905, FD1001, FD1002 and
+FD1003 readiness are complete. [The final checklist](evidence/1.0/lead/release-readiness.md)
+links the completed park, documentation, reproducible1.0.0 package and actual clean
+client/server occupied ride. Final normal unloading/save/exit is verified; client,
+server and Xvfb units are inactive/PID0. No live runtime or unfinished case is
+handed off. Publication, new release-triggering tags/uploads and post1.0 work
+remain outside authorization. Earlier progress paragraphs are retained history.
 
 **FD904B bounded mechanisms repair complete (2026-11-15):** The mechanisms
 owner returned `vehicle/RollerBallRuntime.java`, new

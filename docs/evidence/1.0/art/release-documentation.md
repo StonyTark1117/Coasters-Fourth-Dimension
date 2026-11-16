@@ -67,3 +67,12 @@ Art evidence and docs are integrated. This final handoff changes only README.md,
 CHANGELOG.md and docs/evidence/1.0/art/release-documentation.md, uncommitted for
 lead integration. Other owners' changes are untouched. [Runtime cleanup](runtime-cleanup.txt) confirms
 no Art runtime remains; there is no live runtime awaiting a handoff.
+
+## Stable identity reconciliation by lead
+
+FD1002/FD1003 subsequently completed for1.0.0 from `0e2be865`, SHA-256
+`0192b8150460924ebf57ee2d0352472f21cfe9685f6081c556eeedd963743837`.
+[Final package and install record](../lead/release/README.md) proves identical
+independent builds and only version metadata differs from the accepted candidate.
+README/CHANGELOG now state verified readiness and the final checksum; publication
+remains separate. The earlier signoff/handoff retains its original review identity.

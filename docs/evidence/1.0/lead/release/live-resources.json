@@ -1,0 +1,38 @@
+{
+  "at": 1794811485371459675,
+  "units": {
+    "client": {
+      "ActiveState": "active",
+      "MainPID": "1998510",
+      "ControlGroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/fd10-lead-release-install01-client.service",
+      "memory": {
+        "memory.max": "6442450944",
+        "memory.current": "2453426176",
+        "memory.peak": "2493493248",
+        "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0"
+      }
+    },
+    "server": {
+      "ActiveState": "active",
+      "MainPID": "1998191",
+      "ControlGroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/fd10-lead-release-install01-server.service",
+      "memory": {
+        "memory.max": "4294967296",
+        "memory.current": "1367490560",
+        "memory.peak": "1369034752",
+        "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0"
+      }
+    },
+    "xvfb": {
+      "ActiveState": "active",
+      "MainPID": "1998201",
+      "ControlGroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/fd10-lead-release-install01-xvfb.service",
+      "memory": {
+        "memory.max": "268435456",
+        "memory.current": "12959744",
+        "memory.peak": "16297984",
+        "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0"
+      }
+    }
+  }
+}

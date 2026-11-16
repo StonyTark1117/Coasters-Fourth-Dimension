@@ -1,6 +1,6 @@
 # Changelog
 
-## 1.0.0 — qualified candidate, unreleased
+## 1.0.0 — verified release readiness, unpublished
 
 - Freeze all 17 adopted styles: original Arrow/Legacy/Free Spin/Revised/PAX, Wing,
   S1/S2 Spinning, Suspended, Fixed Inverted, Axis, Roller Ball, both Flying
@@ -52,14 +52,13 @@
   concepts are independently authored game approximations. No manufacturer assets
   or optional addon binaries are bundled.
 
-The [accepted candidate](docs/evidence/1.0/lead/release-candidate.md) records source
-`c7bb65938bfbe7e7dd2feecbedbe5d7801b10a08` and candidate17's checksum. Its retained
-`0.9.0-dev.27` label is not a published1.0 version. Intended stable **1.0.0**
-still requires FD1002 reproducible packaging, final checksum and clean-install
-verification, followed by release-readiness review. The
-[current queue](docs/CURRENT-QUALIFICATION.md#current-work-queue) owns that status.
-[FD1000](docs/evidence/1.0/lead/freeze.md) pins the feature baseline;
-[FD903/FD904 evidence](docs/evidence/1.0/art/migration.md) records affected checks.
+[Release readiness](docs/evidence/1.0/lead/release-readiness.md) is complete.
+[FD1002](docs/evidence/1.0/lead/release/README.md) verifies reproducible1.0.0
+from source `0e2be865d13d1c968ca64c634a5c26aac5a3bf9e`, final checksum and
+clean client/server occupied ride. The stable JAR differs from accepted candidate17
+only in version metadata; earlier qualification keeps its own artifact identity.
+Publication remains a separately authorized action.
+[FD1000](docs/evidence/1.0/lead/freeze.md) pins the feature baseline.
 Historical entries below describe their own checkpoints and limitations; a later
 artifact does not restart closed cases or retroactively change those results.
 

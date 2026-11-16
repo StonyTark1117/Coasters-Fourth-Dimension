@@ -77,7 +77,10 @@ but it prevents an accelerated-Flywheel claim for shader-mode sampling.
 covers initial base/combined acceptance, the30-minute sustained workload/memory
 plateau, all17 mounted views and candidate17's affected comparisons at the
 previously frozen later-regression limits. All owned park runtimes saved and stopped.
-Admission limits remain separate from the measured workload's performance tier.
+Admission limits remain separate from the measured workload's performance tier. The120,000ns/invocation
+and6,000ns/carrier limits above remain unchanged. Reuse accepted native profile
+checks unless a performance-relevant change affects them; they are not a
+four-profile prerequisite to every park measurement.
 
 FD502 owns early collector readiness and useful development measurements. Final
 expanded-park acceptance is scheduled after FD1000; earlier valid subsystem and
