@@ -38,5 +38,10 @@ for i in range(61):
  if i in (0,30,60):
   d=json.loads(cmd('fd904 snapshot').strip().removeprefix('FD904_STATE '));assert sum(g['riders'] for g in d['groups'])==90 and all(not g['fault'] for g in d['groups'])
  if i<60:time.sleep(max(0,start+i+1-time.monotonic()))
-assert jfr.exists() and jfr.stat().st_size>0,jfr
+for _ in range(15):
+ if jfr.exists() and jfr.stat().st_size>0:
+  check=subprocess.run(['/usr/lib/jvm/java-21-openjdk/bin/jfr','summary',str(jfr)],text=True,capture_output=True)
+  if check.returncode==0:record('jfr_verified',summary=check.stdout);break
+ time.sleep(1)
+else:raise RuntimeError('Diagnostic JFR did not finish flushing')
 record('complete',jfr=str(jfr),duration_seconds=time.monotonic()-start);f.close();print('Pipeline60 diagnostic complete',flush=True)

@@ -1,0 +1,44 @@
+{
+  "unix_ns": 1794809049963812445,
+  "status": {
+    "owner": "01a1dd1d-1468-7f81-8f31-5532ad7a178d",
+    "display": ":322",
+    "window": "2097159",
+    "geometry": "WINDOW=2097159\nX=0\nY=0\nWIDTH=1280\nHEIGHT=720\nSCREEN=0",
+    "options": {
+      "key_key.use": "key.mouse.right",
+      "key_key.attack": "key.mouse.left",
+      "rawMouseInput": "true"
+    },
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "client": {
+      "ActiveState": "active",
+      "MainPID": "1963805",
+      "ControlGroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/fd10-lead-park-base02-client.service",
+      "WorkingDirectory": "/mnt/NVME4/fourthdimension-runs/fd10-lead-20261115/park-base02"
+    },
+    "server": {
+      "ActiveState": "active",
+      "MainPID": "1963444",
+      "ControlGroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/fd10-lead-park-base02-server.service",
+      "WorkingDirectory": "/mnt/NVME4/fourthdimension-runs/fd10-lead-20261115/park-base02"
+    }
+  },
+  "jar_sha256": "77170d33e8a4a6993b3d4c2fc4f70ed3a491f19f83948fa75ced752ed485b5c5",
+  "jvm": {
+    "client": {
+      "pid": "1963806",
+      "command": "/usr/lib/jvm/java-21-openjdk/bin/java -Dfourthdimension.parkManifest=/mnt/NVME4/fourthdimension-runs/fd10-lead-20261115/park-base02/park.json -Dfourthdimension.performanceFile=/mnt/NVME4/fourthdimension-runs/fd10-lead-20261115/park-base02/evidence/client-base17.jsonl -Dfourthdimension.performanceSeconds=3600 @/mnt/NVME4/fourthdimension-runs/fd10-lead-20261115/park-base02/runtime17/moddev/clientRunClasspath.txt @/mnt/NVME4/fourthdimension-runs/fd10-lead-20261115/park-base02/runtime17/moddev/clientRunVmArgs.txt -Dfml.modFolders= net.neoforged.devlaunch.Main @/mnt/NVME4/fourthdimension-runs/fd10-lead-20261115/park-base02/runtime17/moddev/clientRunProgramArgs.txt ",
+      "flags": "1963806:\n-XX:CICompilerCount=12 -XX:ConcGCThreads=5 -XX:+FlightRecorder -XX:G1ConcRefinementThreads=18 -XX:G1EagerReclaimRemSetThreshold=12 -XX:G1HeapRegionSize=1048576 -XX:G1RemSetArrayOfCardsEntries=12 -XX:G1RemSetHowlMaxNumBuckets=8 -XX:G1RemSetHowlNumBuckets=4 -XX:GCDrainStackTargetSize=64 -XX:InitialHeapSize=100663296 -XX:MarkStackSize=4194304 -XX:MaxHeapSize=1610612736 -XX:MaxNewSize=965738496 -XX:MinHeapDeltaBytes=1048576 -XX:MinHeapSize=8388608 -XX:NonNMethodCodeHeapSize=7602480 -XX:NonProfiledCodeHeapSize=122027880 -XX:ProfiledCodeHeapSize=122027880 -XX:ReservedCodeCacheSize=251658240 -XX:+SegmentedCodeCache -XX:SoftMaxHeapSize=1610612736 -XX:+UseCompressedOops -XX:+UseG1GC \n",
+      "memory.max": "6442450944",
+      "memory.current": "3140579328"
+    },
+    "server": {
+      "pid": "1963445",
+      "command": "/usr/lib/jvm/java-21-openjdk/bin/java -Dfourthdimension.parkManifest=/mnt/NVME4/fourthdimension-runs/fd10-lead-20261115/park-base02/park.json -Dfourthdimension.performanceFile=/mnt/NVME4/fourthdimension-runs/fd10-lead-20261115/park-base02/evidence/server-base17.jsonl -Dfourthdimension.performanceSeconds=3600 @/mnt/NVME4/fourthdimension-runs/fd10-lead-20261115/park-base02/runtime17/moddev/serverRunClasspath.txt @/mnt/NVME4/fourthdimension-runs/fd10-lead-20261115/park-base02/runtime17/moddev/serverRunVmArgs.txt -Dfml.modFolders= net.neoforged.devlaunch.Main @/mnt/NVME4/fourthdimension-runs/fd10-lead-20261115/park-base02/runtime17/moddev/serverRunProgramArgs.txt ",
+      "flags": "1963445:\n-XX:CICompilerCount=12 -XX:ConcGCThreads=5 -XX:+FlightRecorder -XX:G1ConcRefinementThreads=18 -XX:G1EagerReclaimRemSetThreshold=12 -XX:G1HeapRegionSize=1048576 -XX:G1RemSetArrayOfCardsEntries=12 -XX:G1RemSetHowlMaxNumBuckets=8 -XX:G1RemSetHowlNumBuckets=4 -XX:GCDrainStackTargetSize=64 -XX:InitialHeapSize=67108864 -XX:MarkStackSize=4194304 -XX:MaxHeapSize=2147483648 -XX:MaxNewSize=1287651328 -XX:MinHeapDeltaBytes=1048576 -XX:MinHeapSize=8388608 -XX:NonNMethodCodeHeapSize=7602480 -XX:NonProfiledCodeHeapSize=122027880 -XX:ProfiledCodeHeapSize=122027880 -XX:ReservedCodeCacheSize=251658240 -XX:+SegmentedCodeCache -XX:SoftMaxHeapSize=2147483648 -XX:+UseCompressedOops -XX:+UseG1GC \n",
+      "memory.max": "4294967296",
+      "memory.current": "2961186816"
+    }
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "unix_ns": 1794808781732266671,
+  "cgroups": [
+    {
+      "path": "/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/app.slice/app-org.chromium.Chromium-210284.scope",
+      "memory.max": "max",
+      "memory.current": "23756918784"
+    },
+    {
+      "path": "/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/app.slice",
+      "memory.max": "max",
+      "memory.current": "45876948992"
+    },
+    {
+      "path": "/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service",
+      "memory.max": "max",
+      "memory.current": "52989607936"
+    },
+    {
+      "path": "/sys/fs/cgroup/user.slice/user-1000.slice",
+      "memory.max": "max",
+      "memory.current": "53002141696"
+    },
+    {
+      "path": "/sys/fs/cgroup/user.slice",
+      "memory.max": "max",
+      "memory.current": "53002199040"
+    },
+    {
+      "path": "/sys/fs/cgroup"
+    }
+  ],
+  "memory": "               total        used        free      shared  buff/cache   available\nMem:            61Gi        32Gi       9.6Gi       2.8Gi        23Gi        29Gi\nSwap:             0B          0B          0B\n",
+  "disk": "Filesystem      Size  Used Avail Use% Mounted on\n/dev/nvme3n1p1  932G  885G   47G  96% /mnt/NVME4\n",
+  "mount": "TARGET     SOURCE         FSTYPE OPTIONS\n/mnt/NVME4 /dev/nvme3n1p1 xfs    rw,nosuid,nodev,relatime,inode64,logbufs=8,logbsize=32k,noquota\n",
+  "concurrent_task_server": "combined16 normal drain only; stop before base17 timing",
+  "client_heap": "1536M",
+  "client_scope": "6G",
+  "server_heap": "2048M",
+  "server_scope": "4G"
+}

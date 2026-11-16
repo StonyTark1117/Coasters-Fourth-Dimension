@@ -1,0 +1,2206 @@
+{
+  "scope": "Actual occupied supplemental views with helper boarding; not normal player-input acceptance, not spliced into sustained window, no uniform per-family frame threshold. Paused next station prepares safe transfer; other groups continue cycling.",
+  "sources": [
+    "client-combined16.jsonl",
+    "server-combined16.jsonl",
+    "occupied16-resources.jsonl"
+  ],
+  "completed": [
+    "roller_ball",
+    "flying",
+    "new_generation_flying",
+    "pipeline"
+  ],
+  "remaining": [
+    "dive",
+    "s2_spinning",
+    "powered_inverted_yaw"
+  ],
+  "continuation": null,
+  "segments": [
+    {
+      "style": "roller_ball",
+      "start_unix_ns": 1794806468672789472,
+      "end_unix_ns": 1794806854655390078,
+      "ticks": 7720,
+      "center_path_distance": 732.6098576264502,
+      "motion_proof": {
+        "kind": "occupied_motion",
+        "unix_ns": 1794806473947380398,
+        "style": "roller_ball",
+        "game_ticks": 106,
+        "center_path_distance": 8.68701933511143,
+        "state": {
+          "rails": 198,
+          "forcedChunks": 1680,
+          "running": true,
+          "tick": 308512,
+          "carriers": 34,
+          "draining": false,
+          "vehicles": 21,
+          "groups": [
+            {
+              "name": "arrow",
+              "cars": [
+                "075f3ef6-f9e6-4a69-91d8-1ac33d82ddc3",
+                "1b48bc00-45b2-464c-9ad5-503ad6878b72"
+              ],
+              "center": [
+                -849.5000609956495,
+                111.12499019077849,
+                -816.2695924311279
+              ],
+              "ready": false,
+              "stopping": false,
+              "fault": "",
+              "cycles": 5,
+              "held": false,
+              "restraints": true,
+              "riders": 8
+            },
+            {
+              "name": "legacy",
+              "cars": [
+                "71c61dad-8236-4e71-ae15-86525878e6d0"
+              ],
+              "center": [
+                -467.49996958335356,
+                111.12499019077848,
+                -832.6242676172112
+              ],
+              "ready": false,
+              "stopping": false,
+              "fault": "",
+              "cycles": 5,
+              "held": false,
+              "restraints": true,
+              "riders": 8
+            },
+            {
+              "name": "free_spin",
+              "cars": [
+                "b4ec3fe5-0a7e-41ea-8684-e9586cd61d27"
+              ],
+              "center": [
+                -117.49999239106158,
+                111.12499673025948,
+                -837.7138671251266
+              ],
+              "ready": false,
+              "stopping": false,
+              "fault": "",
+              "cycles": 5,
+              "held": false,
+              "restraints": true,
+              "riders": 8
+            },
+            {
+              "name": "revised",
+              "cars": [
+                "95cd7f27-cfc3-4d9f-a843-62fe4d566eeb"
+              ],
+              "center": [
+                232.50001521303656,
+                111.12499800972324,
+                -836.2363891556843
+              ],
+              "ready": false,
+              "stopping": false,
+              "fault": "",
+              "cycles": 5,
+              "held": false,
+              "restraints": true,
+              "riders": 8
+            },
+            {
+              "name": "pax",
+              "cars": [
+                "5fffa096-9d4a-49da-b161-9da0f863c67f",
+                "9c0c0dba-9777-42c8-9529-9ff14364fd3b",
+                "58607ac3-b83c-4749-b230-956f846e07aa",
+                "18733539-3aaf-474c-8c11-720837b4a28f"
+              ],
+              "center": [
+                550.4999466328558,
+                111.12499790335988,
+                -849.4053574502876
+              ],
+              "ready": false,
+              "stopping": false,
+              "fault": "",
+              "cycles": 12,
+              "held": false,
+              "restraints": true,
+              "riders": 16
+            },
+            {
+              "name": "wing",
+              "cars": [
+                "f22a2529-dabc-456c-b988-9a5295bf0051"
+              ],
+              "center": [
+                -845.2569580099705,
+                110.62499283299294,
+                -359.1311645477446
+              ],
+              "ready": false,
+              "stopping": false,
+              "fault": "",
+              "cycles": 4,
+              "held": false,
+              "restraints": true,
+              "riders": 4
+            },
+            {
+              "name": "spinning",
+              "cars": [
+                "f7d6f0b4-c695-4c30-a5d9-284759b7412f"
+              ],
+              "center": [
+                -428.6225891029583,
+                110.62499237060547,
+                -369.5000305707024
+              ],
+              "ready": false,
+              "stopping": false,
+              "fault": "",
+              "cycles": 4,
+              "held": false,
+              "restraints": true,
+              "riders": 4
+            },
+            {
+              "name": "suspended",
+              "cars": [
+                "289c6278-4387-41ac-bbee-e53fd44aba39"
+              ],
+              "center": [
+                -122.07696537864217,
+                110.62499237060547,
+                -377.17550650143005
+              ],
+              "ready": false,
+              "stopping": false,
+              "fault": "",
+              "cycles": 3,
+              "held": false,
+              "restraints": true,
+              "riders": 2
+            },
+            {
+              "name": "fixed_inverted",
+              "cars": [
+                "be377253-38ac-446f-a498-70ea3a1d455b"
+              ],
+              "center": [
+                200.87464027655315,
+                122.23338422806754,
+                -178.00216666978636
+              ],
+              "ready": false,
+              "stopping": false,
+              "fault": "",
+              "cycles": 4,
+              "held": false,
+              "restraints": true,
+              "riders": 4
+            },
+            {
+              "name": "axis",
+              "cars": [
+                "de3ed2fc-956c-4ee5-a564-56858a807e74"
+              ],
+              "center": [
+                550.4999257944191,
+                110.62499237077893,
+                -339.6773986959975
+              ],
+              "ready": false,
+              "stopping": false,
+              "fault": "",
+              "cycles": 3,
+              "held": false,
+              "restraints": true,
+              "riders": 2
+            },
+            {
+              "name": "roller_ball",
+              "cars": [
+                "05df0538-7996-4e39-81aa-e6cbe91b49d6"
+              ],
+              "center": [
+                -749.5,
+                110.62500254313153,
+                122.03106690277241
+              ],
+              "ready": false,
+              "stopping": false,
+              "fault": "",
+              "cycles": 2,
+              "held": true,
+              "restraints": true,
+              "riders": 4
+            },
+            {
+              "name": "flying",
+              "cars": [
+                "c18ba672-5869-44a0-881a-5ee45e585be2"
+              ],
+              "center": [
+                -403.99001793172675,
+                110.62498931883637,
+                104.8813695757793
+              ],
+              "ready": false,
+              "stopping": false,
+              "fault": "",
+              "cycles": 3,
+              "held": false,
+              "restraints": true,
+              "riders": 4
+            },
+            {
+              "name": "new_generation_flying",
+              "cars": [
+                "4634d14d-6b38-434a-8e72-748b472f613d"
+              ],
+              "center": [
+                -69.45053861102656,
+                111.12498931884764,
+                82.80953200444245
+              ],
+              "ready": false,
+              "stopping": false,
+              "fault": "",
+              "cycles": 1,
+              "held": false,
+              "restraints": true,
+              "riders": 2
+            },
+            {
+              "name": "pipeline",
+              "cars": [
+                "60048d18-1de9-4e27-a8ea-06bf2ccbb8c1"
+              ],
+              "center": [
+                201.3618788137386,
+                122.30438753789367,
+                305.2924477566787
+              ],
+              "ready": false,
+              "stopping": false,
+              "fault": "",
+              "cycles": 4,
+              "held": false,
+              "restraints": true,
+              "riders": 4
+            },
+            {
+              "name": "dive",
+              "cars": [
+                "afa0056c-ae6d-4be3-91e6-95fb42e0493a"
+              ],
+              "center": [
+                646.5000420697036,
+                111.12498993432821,
+                342.5427856445714
+              ],
+              "ready": false,
+              "stopping": false,
+              "fault": "",
+              "cycles": 2,
+              "held": false,
+              "restraints": true,
+              "riders": 6
+            },
+            {
+              "name": "s2_spinning",
+              "cars": [
+                "f9668c69-f317-437b-b11f-b502c40bcad8"
+              ],
+              "center": [
+                -753.4999387479367,
+                107.12498474121098,
+                758.6848144866194
+              ],
+              "ready": false,
+              "stopping": false,
+              "fault": "",
+              "cycles": 5,
+              "held": false,
+              "restraints": true,
+              "riders": 4
+            },
+            {
+              "name": "powered_inverted_yaw",
+              "cars": [
+                "a46d560d-cdd1-48e2-8cbe-0e231cbe1078"
+              ],
+              "center": [
+                -465.81124926797906,
+                111.12499237060537,
+                750.4566037426364
+              ],
+              "ready": false,
+              "stopping": false,
+              "fault": "",
+              "cycles": 3,
+              "held": false,
+              "restraints": true,
+              "riders": 2
+            }
+          ]
+        },
+        "screenshot": "/mnt/NVME4/fourthdimension-runs/fd10-lead-20261115/park-combined01/evidence/occupied16-roller_ballmoving-1794806473880415036.png"
+      },
+      "statistics": {
+        "collector_errors": [],
+        "scope": "measurement summary only; no workload, GPU or acceptance certification",
+        "window": {
+          "start_unix_ns": 1794806468672789472,
+          "end_unix_ns": 1794806854655390078
+        },
+        "sources": {
+          "frame:client": {
+            "count": 87559,
+            "median": 4.012303,
+            "p95": 7.386368,
+            "p99": 10.319414,
+            "max": 34.218715,
+            "percentile_method": "nearest-rank",
+            "units": "ms",
+            "over_50_ms": 0,
+            "over_100_ms": 0,
+            "measurement": "CPU frame-start intervals; not GPU presentation"
+          },
+          "tick:server": {
+            "count": 7720,
+            "median": 28.82396,
+            "p95": 52.026877,
+            "p99": 72.518236,
+            "max": 175.608774,
+            "percentile_method": "nearest-rank",
+            "units": "ms",
+            "over_50_ms": 439
+          },
+          "gc:client": {
+            "count": 2267,
+            "median": 1.537023,
+            "p95": 2.705201,
+            "p99": 3.220786,
+            "max": 19.41223,
+            "percentile_method": "nearest-rank",
+            "units": "ms",
+            "post_gc_heap_bytes": null
+          },
+          "gc:server": {
+            "count": 578,
+            "median": 1.936045,
+            "p95": 2.823386,
+            "p99": 3.345424,
+            "max": 5.020597,
+            "percentile_method": "nearest-rank",
+            "units": "ms",
+            "post_gc_heap_bytes": null
+          },
+          "post_gc:client": {
+            "count": 1759,
+            "median": 1290881304,
+            "p95": 1428835520,
+            "p99": 1445942168,
+            "max": 1526798192,
+            "percentile_method": "nearest-rank"
+          },
+          "post_gc:server": {
+            "count": 444,
+            "median": 1226312216.0,
+            "p95": 1468991688,
+            "p99": 1497097456,
+            "max": 1524759240,
+            "percentile_method": "nearest-rank"
+          },
+          "heap:client": {
+            "count": 385,
+            "median": 1404504032,
+            "p95": 1514002640,
+            "p99": 1523541824,
+            "max": 1524609392,
+            "percentile_method": "nearest-rank"
+          },
+          "heap:server": {
+            "count": 375,
+            "median": 1667665032,
+            "p95": 1998210656,
+            "p99": 2027082440,
+            "max": 2035699800,
+            "percentile_method": "nearest-rank"
+          },
+          "resource:client": {
+            "rss_bytes": {
+              "count": 386,
+              "median": 3659474944.0,
+              "p95": 3671199744,
+              "p99": 3679727616,
+              "max": 3682516992,
+              "percentile_method": "nearest-rank"
+            },
+            "cgroup_bytes": {
+              "count": 386,
+              "median": 3539255296.0,
+              "p95": 3560325120,
+              "p99": 3561447424,
+              "max": 3561996288,
+              "percentile_method": "nearest-rank"
+            },
+            "lifetime_cgroup_peak_bytes": 3562954752
+          },
+          "resource:server": {
+            "rss_bytes": {
+              "count": 386,
+              "median": 3006791680.0,
+              "p95": 3012038656,
+              "p99": 3025985536,
+              "max": 3026022400,
+              "percentile_method": "nearest-rank"
+            },
+            "cgroup_bytes": {
+              "count": 386,
+              "median": 3032205312.0,
+              "p95": 3041107968,
+              "p99": 3045490688,
+              "max": 3056762880,
+              "percentile_method": "nearest-rank"
+            },
+            "lifetime_cgroup_peak_bytes": 3057278976
+          }
+        },
+        "missing": [],
+        "final_three_five_minute_periods": [
+          {
+            "start_unix_ns": 1794805954655390078,
+            "end_unix_ns": 1794806254655390078,
+            "processes": {}
+          },
+          {
+            "start_unix_ns": 1794806254655390078,
+            "end_unix_ns": 1794806554655390078,
+            "processes": {
+              "client": {
+                "rss_bytes": {
+                  "count": 86,
+                  "median": 3649312768.0,
+                  "p95": 3672596480,
+                  "p99": 3682516992,
+                  "max": 3682516992,
+                  "percentile_method": "nearest-rank"
+                },
+                "post_gc_heap_bytes": {
+                  "count": 392,
+                  "median": 1291014852.0,
+                  "p95": 1431499016,
+                  "p99": 1448974872,
+                  "max": 1526798192,
+                  "percentile_method": "nearest-rank"
+                }
+              },
+              "server": {
+                "rss_bytes": {
+                  "count": 86,
+                  "median": 3011950592.0,
+                  "p95": 3014959104,
+                  "p99": 3026022400,
+                  "max": 3026022400,
+                  "percentile_method": "nearest-rank"
+                },
+                "post_gc_heap_bytes": {
+                  "count": 99,
+                  "median": 1225935488,
+                  "p95": 1476745984,
+                  "p99": 1497097456,
+                  "max": 1497097456,
+                  "percentile_method": "nearest-rank"
+                }
+              }
+            }
+          },
+          {
+            "start_unix_ns": 1794806554655390078,
+            "end_unix_ns": 1794806854655390078,
+            "processes": {
+              "client": {
+                "rss_bytes": {
+                  "count": 300,
+                  "median": 3669450752.0,
+                  "p95": 3671154688,
+                  "p99": 3671326720,
+                  "max": 3671367680,
+                  "percentile_method": "nearest-rank"
+                },
+                "post_gc_heap_bytes": {
+                  "count": 1367,
+                  "median": 1290847464,
+                  "p95": 1428184936,
+                  "p99": 1442933784,
+                  "max": 1458280808,
+                  "percentile_method": "nearest-rank"
+                }
+              },
+              "server": {
+                "rss_bytes": {
+                  "count": 300,
+                  "median": 3006771200.0,
+                  "p95": 3011522560,
+                  "p99": 3015634944,
+                  "max": 3021451264,
+                  "percentile_method": "nearest-rank"
+                },
+                "post_gc_heap_bytes": {
+                  "count": 345,
+                  "median": 1226350664,
+                  "p95": 1468331968,
+                  "p99": 1497580360,
+                  "max": 1524759240,
+                  "percentile_method": "nearest-rank"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "normal_return_and_open_shift": true,
+      "screenshots": [
+        "/mnt/NVME4/fourthdimension-runs/fd10-lead-20261115/park-combined01/evidence/occupied16-roller_ballboarded-1794806468609878594.png",
+        "/mnt/NVME4/fourthdimension-runs/fd10-lead-20261115/park-combined01/evidence/occupied16-roller_ballmoving-1794806473880415036.png",
+        "/mnt/NVME4/fourthdimension-runs/fd10-lead-20261115/park-combined01/evidence/occupied16-roller_ballmechanism-1794806499327310390.png",
+        "/mnt/NVME4/fourthdimension-runs/fd10-lead-20261115/park-combined01/evidence/occupied16-roller_ballmechanism-1794806529803521929.png",
+        "/mnt/NVME4/fourthdimension-runs/fd10-lead-20261115/park-combined01/evidence/occupied16-roller_ballmechanism-1794806560290274097.png",
+        "/mnt/NVME4/fourthdimension-runs/fd10-lead-20261115/park-combined01/evidence/occupied16-roller_ballmechanism-1794806590779787460.png",
+        "/mnt/NVME4/fourthdimension-runs/fd10-lead-20261115/park-combined01/evidence/occupied16-roller_ballmechanism-1794806621241709511.png",
+        "/mnt/NVME4/fourthdimension-runs/fd10-lead-20261115/park-combined01/evidence/occupied16-roller_ballmechanism-1794806651740429630.png",
+        "/mnt/NVME4/fourthdimension-runs/fd10-lead-20261115/park-combined01/evidence/occupied16-roller_ballmechanism-1794806682182587332.png",
+        "/mnt/NVME4/fourthdimension-runs/fd10-lead-20261115/park-combined01/evidence/occupied16-roller_ballmechanism-1794806712587451146.png",
+        "/mnt/NVME4/fourthdimension-runs/fd10-lead-20261115/park-combined01/evidence/occupied16-roller_ballmechanism-1794806742982161834.png",
+        "/mnt/NVME4/fourthdimension-runs/fd10-lead-20261115/park-combined01/evidence/occupied16-roller_ballmechanism-1794806773429310689.png",
+        "/mnt/NVME4/fourthdimension-runs/fd10-lead-20261115/park-combined01/evidence/occupied16-roller_ballmechanism-1794806803829352309.png",
+        "/mnt/NVME4/fourthdimension-runs/fd10-lead-20261115/park-combined01/evidence/occupied16-roller_ballmechanism-1794806834270555506.png",
+        "/mnt/NVME4/fourthdimension-runs/fd10-lead-20261115/park-combined01/evidence/occupied16-roller_ballreturned-1794806854588827874.png"
+      ]
+    },
+    {
+      "style": "flying",
+      "start_unix_ns": 1794806856144550379,
+      "end_unix_ns": 1794806998557564912,
+      "ticks": 2849,
+      "center_path_distance": 802.7317194586254,
+      "motion_proof": {
+        "kind": "occupied_motion",
+        "unix_ns": 1794806871471534051,
+        "style": "flying",
+        "game_ticks": 307,
+        "center_path_distance": 19.582397111496064,
+        "state": {
+          "rails": 198,
+          "forcedChunks": 1680,
+          "running": true,
+          "tick": 316462,
+          "carriers": 34,
+          "draining": false,
+          "vehicles": 21,
+          "groups": [
+            {
+              "name": "arrow",
+              "cars": [
+                "075f3ef6-f9e6-4a69-91d8-1ac33d82ddc3",
+                "1b48bc00-45b2-464c-9ad5-503ad6878b72"
+              ],
+              "center": [
+                -849.5000609695501,
+                111.12499019077934,
+                -836.0054948182772
+              ],
+              "ready": false,
+              "stopping": false,
+              "fault": "",
+              "cycles": 9,
+              "held": false,
+              "restraints": true,
+              "riders": 8
+            },
+            {
+              "name": "legacy",
+              "cars": [
+                "71c61dad-8236-4e71-ae15-86525878e6d0"
+              ],
+              "center": [
+                -492.178803418348,
+                117.08162312867792,
+                -797.5388940305257
+              ],
+              "ready": false,
+              "stopping": false,
+              "fault": "",
+              "cycles": 10,
+              "held": false,
+              "restraints": true,
+              "riders": 8
+            },
+            {
+              "name": "free_spin",
+              "cars": [
+                "b4ec3fe5-0a7e-41ea-8684-e9586cd61d27"
+              ],
+              "center": [
+                -131.98361206386807,
+                117.12499673025948,
+                -797.5000610949896
+              ],
+              "ready": false,
+              "stopping": false,
+              "fault": "",
+              "cycles": 10,
+              "held": false,
+              "restraints": true,
+              "riders": 8
+            },
+            {
+              "name": "revised",
+              "cars": [
+                "95cd7f27-cfc3-4d9f-a843-62fe4d566eeb"
+              ],
+              "center": [
+                213.6937255582957,
+                117.12499800972324,
+                -797.5000610267659
+              ],
+              "ready": false,
+              "stopping": false,
+              "fault": "",
+              "cycles": 10,
+              "held": false,
+              "restraints": true,
+              "riders": 8
+            },
+            {
+              "name": "pax",
+              "cars": [
+                "5fffa096-9d4a-49da-b161-9da0f863c67f",
+                "9c0c0dba-9777-42c8-9529-9ff14364fd3b",
+                "58607ac3-b83c-4749-b230-956f846e07aa",
+                "18733539-3aaf-474c-8c11-720837b4a28f"
+              ],
+              "center": [
+                550.4999465808132,
+                119.2643275579061,
+                -875.4385343665364
+              ],
+              "ready": false,
+              "stopping": false,
+              "fault": "",
+              "cycles": 23,
+              "held": false,
+              "restraints": true,
+              "riders": 16
+            },
+            {
+              "name": "wing",
+              "cars": [
+                "f22a2529-dabc-456c-b988-9a5295bf0051"
+              ],
+              "center": [
+                -826.6511840857534,
+                110.62499283299294,
+                -369.473297118987
+              ],
+              "ready": false,
+              "stopping": false,
+              "fault": "",
+              "cycles": 8,
+              "held": false,
+              "restraints": true,
+              "riders": 4
+            },
+            {
+              "name": "spinning",
+              "cars": [
+                "f7d6f0b4-c695-4c30-a5d9-284759b7412f"
+              ],
+              "center": [
+                -403.4999694235228,
+                110.62498474121094,
+                -291.95489501182897
+              ],
+              "ready": false,
+              "stopping": false,
+              "fault": "",
+              "cycles": 8,
+              "held": false,
+              "restraints": true,
+              "riders": 4
+            },
+            {
+              "name": "suspended",
+              "cars": [
+                "289c6278-4387-41ac-bbee-e53fd44aba39"
+              ],
+              "center": [
+                -77.02444459091912,
+                110.62499237060545,
+                -376.3660585060805
+              ],
+              "ready": false,
+              "stopping": false,
+              "fault": "",
+              "cycles": 6,
+              "held": false,
+              "restraints": true,
+              "riders": 2
+            },
+            {
+              "name": "fixed_inverted",
+              "cars": [
+                "be377253-38ac-446f-a498-70ea3a1d455b"
+              ],
+              "center": [
+                296.5000305324825,
+                110.6249933657439,
+                -191.8636474572122
+              ],
+              "ready": false,
+              "stopping": false,
+              "fault": "",
+              "cycles": 7,
+              "held": false,
+              "restraints": true,
+              "riders": 4
+            },
+            {
+              "name": "axis",
+              "cars": [
+                "de3ed2fc-956c-4ee5-a564-56858a807e74"
+              ],
+              "center": [
+                550.4999258128419,
+                110.62499237077844,
+                -336.67266847167963
+              ],
+              "ready": false,
+              "stopping": false,
+              "fault": "",
+              "cycles": 6,
+              "held": false,
+              "restraints": true,
+              "riders": 2
+            },
+            {
+              "name": "roller_ball",
+              "cars": [
+                "05df0538-7996-4e39-81aa-e6cbe91b49d6"
+              ],
+              "center": [
+                -749.5,
+                110.62500254313153,
+                137.2318725606197
+              ],
+              "ready": false,
+              "stopping": false,
+              "fault": "",
+              "cycles": 3,
+              "held": false,
+              "restraints": true,
+              "riders": 4
+            },
+            {
+              "name": "flying",
+              "cars": [
+                "c18ba672-5869-44a0-881a-5ee45e585be2"
+              ],
+              "center": [
+                -499.49996942834764,
+                110.62498931884751,
+                135.28678928191982
+              ],
+              "ready": false,
+              "stopping": false,
+              "fault": "",
+              "cycles": 4,
+              "held": true,
+              "restraints": true,
+              "riders": 4
+            },
+            {
+              "name": "new_generation_flying",
+              "cars": [
+                "4634d14d-6b38-434a-8e72-748b472f613d"
+              ],
+              "center": [
+                -53.49999618081067,
+                111.12498931884767,
+                192.1430817051095
+              ],
+              "ready": false,
+              "stopping": false,
+              "fault": "",
+              "cycles": 2,
+              "held": false,
+              "restraints": true,
+              "riders": 2
+            },
+            {
+              "name": "pipeline",
+              "cars": [
+                "60048d18-1de9-4e27-a8ea-06bf2ccbb8c1"
+              ],
+              "center": [
+                296.50003052875104,
+                111.1249911100968,
+                281.9929504431784
+              ],
+              "ready": false,
+              "stopping": false,
+              "fault": "",
+              "cycles": 7,
+              "held": false,
+              "restraints": true,
+              "riders": 4
+            },
+            {
+              "name": "dive",
+              "cars": [
+                "afa0056c-ae6d-4be3-91e6-95fb42e0493a"
+              ],
+              "center": [
+                550.4999579223977,
+                169.6106630965477,
+                398.88594059672783
+              ],
+              "ready": false,
+              "stopping": false,
+              "fault": "",
+              "cycles": 4,
+              "held": false,
+              "restraints": true,
+              "riders": 6
+            },
+            {
+              "name": "s2_spinning",
+              "cars": [
+                "f9668c69-f317-437b-b11f-b502c40bcad8"
+              ],
+              "center": [
+                -849.5000610211498,
+                111.125,
+                602.0663452149721
+              ],
+              "ready": true,
+              "stopping": true,
+              "fault": "",
+              "cycles": 9,
+              "held": false,
+              "restraints": true,
+              "riders": 4
+            },
+            {
+              "name": "powered_inverted_yaw",
+              "cars": [
+                "a46d560d-cdd1-48e2-8cbe-0e231cbe1078"
+              ],
+              "center": [
+                -499.5000005221911,
+                111.12499237060507,
+                596.2047109650014
+              ],
+              "ready": false,
+              "stopping": false,
+              "fault": "",
+              "cycles": 6,
+              "held": false,
+              "restraints": true,
+              "riders": 2
+            }
+          ]
+        },
+        "screenshot": "/mnt/NVME4/fourthdimension-runs/fd10-lead-20261115/park-combined01/evidence/occupied16-flyingmoving-1794806871376386479.png"
+      },
+      "statistics": {
+        "collector_errors": [],
+        "scope": "measurement summary only; no workload, GPU or acceptance certification",
+        "window": {
+          "start_unix_ns": 1794806856144550379,
+          "end_unix_ns": 1794806998557564912
+        },
+        "sources": {
+          "frame:client": {
+            "count": 14937,
+            "median": 9.433811,
+            "p95": 14.566847,
+            "p99": 18.653088,
+            "max": 30.23052,
+            "percentile_method": "nearest-rank",
+            "units": "ms",
+            "over_50_ms": 0,
+            "over_100_ms": 0,
+            "measurement": "CPU frame-start intervals; not GPU presentation"
+          },
+          "tick:server": {
+            "count": 2848,
+            "median": 26.3429995,
+            "p95": 47.427945,
+            "p99": 71.064477,
+            "max": 137.132506,
+            "percentile_method": "nearest-rank",
+            "units": "ms",
+            "over_50_ms": 119
+          },
+          "gc:client": {
+            "count": 605,
+            "median": 1.790355,
+            "p95": 2.503271,
+            "p99": 2.999255,
+            "max": 3.63177,
+            "percentile_method": "nearest-rank",
+            "units": "ms",
+            "post_gc_heap_bytes": null
+          },
+          "gc:server": {
+            "count": 186,
+            "median": 2.0072460000000003,
+            "p95": 3.037835,
+            "p99": 18.165356,
+            "max": 18.494532,
+            "percentile_method": "nearest-rank",
+            "units": "ms",
+            "post_gc_heap_bytes": null
+          },
+          "post_gc:client": {
+            "count": 484,
+            "median": 1304410964.0,
+            "p95": 1419338232,
+            "p99": 1481396728,
+            "max": 1520328240,
+            "percentile_method": "nearest-rank"
+          },
+          "post_gc:server": {
+            "count": 149,
+            "median": 1229266784,
+            "p95": 1475833072,
+            "p99": 1536556288,
+            "max": 1575431672,
+            "percentile_method": "nearest-rank"
+          },
+          "heap:client": {
+            "count": 141,
+            "median": 1389941024,
+            "p95": 1511620336,
+            "p99": 1521797616,
+            "max": 1522192448,
+            "percentile_method": "nearest-rank"
+          },
+          "heap:server": {
+            "count": 138,
+            "median": 1683926900.0,
+            "p95": 2020488416,
+            "p99": 2032914496,
+            "max": 2034979208,
+            "percentile_method": "nearest-rank"
+          },
+          "resource:client": {
+            "rss_bytes": {
+              "count": 143,
+              "median": 3678879744,
+              "p95": 3688972288,
+              "p99": 3689394176,
+              "max": 3689422848,
+              "percentile_method": "nearest-rank"
+            },
+            "cgroup_bytes": {
+              "count": 143,
+              "median": 3572408320,
+              "p95": 3580309504,
+              "p99": 3581706240,
+              "max": 3582275584,
+              "percentile_method": "nearest-rank"
+            },
+            "lifetime_cgroup_peak_bytes": 3582521344
+          },
+          "resource:server": {
+            "rss_bytes": {
+              "count": 143,
+              "median": 3013242880,
+              "p95": 3013451776,
+              "p99": 3022295040,
+              "max": 3025367040,
+              "percentile_method": "nearest-rank"
+            },
+            "cgroup_bytes": {
+              "count": 143,
+              "median": 3056381952,
+              "p95": 3061514240,
+              "p99": 3068526592,
+              "max": 3068829696,
+              "percentile_method": "nearest-rank"
+            },
+            "lifetime_cgroup_peak_bytes": 3069333504
+          }
+        },
+        "missing": [],
+        "final_three_five_minute_periods": [
+          {
+            "start_unix_ns": 1794806098557564912,
+            "end_unix_ns": 1794806398557564912,
+            "processes": {}
+          },
+          {
+            "start_unix_ns": 1794806398557564912,
+            "end_unix_ns": 1794806698557564912,
+            "processes": {}
+          },
+          {
+            "start_unix_ns": 1794806698557564912,
+            "end_unix_ns": 1794806998557564912,
+            "processes": {
+              "client": {
+                "rss_bytes": {
+                  "count": 143,
+                  "median": 3678879744,
+                  "p95": 3688972288,
+                  "p99": 3689394176,
+                  "max": 3689422848,
+                  "percentile_method": "nearest-rank"
+                },
+                "post_gc_heap_bytes": {
+                  "count": 484,
+                  "median": 1304410964.0,
+                  "p95": 1419338232,
+                  "p99": 1481396728,
+                  "max": 1520328240,
+                  "percentile_method": "nearest-rank"
+                }
+              },
+              "server": {
+                "rss_bytes": {
+                  "count": 143,
+                  "median": 3013242880,
+                  "p95": 3013451776,
+                  "p99": 3022295040,
+                  "max": 3025367040,
+                  "percentile_method": "nearest-rank"
+                },
+                "post_gc_heap_bytes": {
+                  "count": 149,
+                  "median": 1229266784,
+                  "p95": 1475833072,
+                  "p99": 1536556288,
+                  "max": 1575431672,
+                  "percentile_method": "nearest-rank"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "normal_return_and_open_shift": true,
+      "screenshots": [
+        "/mnt/NVME4/fourthdimension-runs/fd10-lead-20261115/park-combined01/evidence/occupied16-flyingboarded-1794806856058049744.png",
+        "/mnt/NVME4/fourthdimension-runs/fd10-lead-20261115/park-combined01/evidence/occupied16-flyingmoving-1794806871376386479.png",
+        "/mnt/NVME4/fourthdimension-runs/fd10-lead-20261115/park-combined01/evidence/occupied16-flyingmechanism-1794806886739381898.png",
+        "/mnt/NVME4/fourthdimension-runs/fd10-lead-20261115/park-combined01/evidence/occupied16-flyingmechanism-1794806917187690900.png",
+        "/mnt/NVME4/fourthdimension-runs/fd10-lead-20261115/park-combined01/evidence/occupied16-flyingmechanism-1794806947649557062.png",
+        "/mnt/NVME4/fourthdimension-runs/fd10-lead-20261115/park-combined01/evidence/occupied16-flyingmechanism-1794806978124973427.png",
+        "/mnt/NVME4/fourthdimension-runs/fd10-lead-20261115/park-combined01/evidence/occupied16-flyingreturned-1794806998478561157.png"
+      ]
+    },
+    {
+      "style": "new_generation_flying",
+      "start_unix_ns": 1794806999921659130,
+      "end_unix_ns": 1794807457010923802,
+      "ticks": 9139,
+      "center_path_distance": 812.0032932815928,
+      "motion_proof": {
+        "kind": "occupied_motion",
+        "unix_ns": 1794807005160124108,
+        "style": "new_generation_flying",
+        "game_ticks": 105,
+        "center_path_distance": 9.728065622256509,
+        "state": {
+          "rails": 198,
+          "forcedChunks": 1680,
+          "running": true,
+          "tick": 319136,
+          "carriers": 34,
+          "draining": false,
+          "vehicles": 21,
+          "groups": [
+            {
+              "name": "arrow",
+              "cars": [
+                "075f3ef6-f9e6-4a69-91d8-1ac33d82ddc3",
+                "1b48bc00-45b2-464c-9ad5-503ad6878b72"
+              ],
+              "center": [
+                -817.4999390342247,
+                111.12499019078007,
+                -830.9768044017687
+              ],
+              "ready": false,
+              "stopping": false,
+              "fault": "",
+              "cycles": 11,
+              "held": false,
+              "restraints": true,
+              "riders": 8
+            },
+            {
+              "name": "legacy",
+              "cars": [
+                "71c61dad-8236-4e71-ae15-86525878e6d0"
+              ],
+              "center": [
+                -490.5859679613644,
+                111.12499019077848,
+                -849.5000609293467
+              ],
+              "ready": false,
+              "stopping": false,
+              "fault": "",
+              "cycles": 11,
+              "held": false,
+              "restraints": true,
+              "riders": 8
+            },
+            {
+              "name": "free_spin",
+              "cars": [
+                "b4ec3fe5-0a7e-41ea-8684-e9586cd61d27"
+              ],
+              "center": [
+                -148.81167602076107,
+                111.12499673025948,
+                -844.7526855384192
+              ],
+              "ready": false,
+              "stopping": false,
+              "fault": "",
+              "cycles": 11,
+              "held": false,
+              "restraints": true,
+              "riders": 8
+            },
+            {
+              "name": "revised",
+              "cars": [
+                "95cd7f27-cfc3-4d9f-a843-62fe4d566eeb"
+              ],
+              "center": [
+                203.634658846156,
+                111.12499800972324,
+                -847.8517455930237
+              ],
+              "ready": false,
+              "stopping": false,
+              "fault": "",
+              "cycles": 11,
+              "held": false,
+              "restraints": true,
+              "riders": 8
+            },
+            {
+              "name": "pax",
+              "cars": [
+                "5fffa096-9d4a-49da-b161-9da0f863c67f",
+                "9c0c0dba-9777-42c8-9529-9ff14364fd3b",
+                "58607ac3-b83c-4749-b230-956f846e07aa",
+                "18733539-3aaf-474c-8c11-720837b4a28f"
+              ],
+              "center": [
+                550.4999466742511,
+                111.1249978389278,
+                -844.0125107270314
+              ],
+              "ready": false,
+              "stopping": false,
+              "fault": "",
+              "cycles": 27,
+              "held": false,
+              "restraints": true,
+              "riders": 16
+            },
+            {
+              "name": "wing",
+              "cars": [
+                "f22a2529-dabc-456c-b988-9a5295bf0051"
+              ],
+              "center": [
+                -845.0914948915525,
+                110.618350695524,
+                -267.5114585529437
+              ],
+              "ready": false,
+              "stopping": false,
+              "fault": "",
+              "cycles": 10,
+              "held": false,
+              "restraints": true,
+              "riders": 4
+            },
+            {
+              "name": "spinning",
+              "cars": [
+                "f7d6f0b4-c695-4c30-a5d9-284759b7412f"
+              ],
+              "center": [
+                -443.4366454945067,
+                110.62499237060547,
+                -369.5000305730876
+              ],
+              "ready": false,
+              "stopping": false,
+              "fault": "",
+              "cycles": 9,
+              "held": false,
+              "restraints": true,
+              "riders": 4
+            },
+            {
+              "name": "suspended",
+              "cars": [
+                "289c6278-4387-41ac-bbee-e53fd44aba39"
+              ],
+              "center": [
+                -67.27591698111355,
+                110.62499237060547,
+                -371.80786142466116
+              ],
+              "ready": false,
+              "stopping": false,
+              "fault": "",
+              "cycles": 7,
+              "held": false,
+              "restraints": true,
+              "riders": 2
+            },
+            {
+              "name": "fixed_inverted",
+              "cars": [
+                "be377253-38ac-446f-a498-70ea3a1d455b"
+              ],
+              "center": [
+                296.5000305324822,
+                110.6249933657439,
+                -308.58148192986846
+              ],
+              "ready": false,
+              "stopping": false,
+              "fault": "",
+              "cycles": 8,
+              "held": false,
+              "restraints": true,
+              "riders": 4
+            },
+            {
+              "name": "axis",
+              "cars": [
+                "de3ed2fc-956c-4ee5-a564-56858a807e74"
+              ],
+              "center": [
+                550.499925817956,
+                110.62499237077832,
+                -335.15890503118584
+              ],
+              "ready": true,
+              "stopping": true,
+              "fault": "",
+              "cycles": 7,
+              "held": false,
+              "restraints": true,
+              "riders": 2
+            },
+            {
+              "name": "roller_ball",
+              "cars": [
+                "05df0538-7996-4e39-81aa-e6cbe91b49d6"
+              ],
+              "center": [
+                -749.5000000013866,
+                238.14082605348665,
+                171.2070685523454
+              ],
+              "ready": false,
+              "stopping": false,
+              "fault": "",
+              "cycles": 3,
+              "held": false,
+              "restraints": true,
+              "riders": 4
+            },
+            {
+              "name": "flying",
+              "cars": [
+                "c18ba672-5869-44a0-881a-5ee45e585be2"
+              ],
+              "center": [
+                -499.4999696169268,
+                110.62498931884758,
+                115.92385887165902
+              ],
+              "ready": false,
+              "stopping": true,
+              "fault": "",
+              "cycles": 4,
+              "held": false,
+              "restraints": true,
+              "riders": 4
+            },
+            {
+              "name": "new_generation_flying",
+              "cars": [
+                "4634d14d-6b38-434a-8e72-748b472f613d"
+              ],
+              "center": [
+                -149.50001526941676,
+                111.12498931884765,
+                124.98104108219815
+              ],
+              "ready": false,
+              "stopping": false,
+              "fault": "",
+              "cycles": 3,
+              "held": true,
+              "restraints": true,
+              "riders": 2
+            },
+            {
+              "name": "pipeline",
+              "cars": [
+                "60048d18-1de9-4e27-a8ea-06bf2ccbb8c1"
+              ],
+              "center": [
+                296.500030528751,
+                111.1249911100968,
+                164.30514526739717
+              ],
+              "ready": false,
+              "stopping": false,
+              "fault": "",
+              "cycles": 8,
+              "held": false,
+              "restraints": true,
+              "riders": 4
+            },
+            {
+              "name": "dive",
+              "cars": [
+                "afa0056c-ae6d-4be3-91e6-95fb42e0493a"
+              ],
+              "center": [
+                550.499957930297,
+                207.1250128225119,
+                323.79611206562726
+              ],
+              "ready": false,
+              "stopping": false,
+              "fault": "",
+              "cycles": 5,
+              "held": false,
+              "restraints": true,
+              "riders": 6
+            },
+            {
+              "name": "s2_spinning",
+              "cars": [
+                "f9668c69-f317-437b-b11f-b502c40bcad8"
+              ],
+              "center": [
+                -753.4999387652213,
+                107.19824759047921,
+                728.9692549712955
+              ],
+              "ready": false,
+              "stopping": false,
+              "fault": "",
+              "cycles": 11,
+              "held": false,
+              "restraints": true,
+              "riders": 4
+            },
+            {
+              "name": "powered_inverted_yaw",
+              "cars": [
+                "a46d560d-cdd1-48e2-8cbe-0e231cbe1078"
+              ],
+              "center": [
+                -499.5000001742898,
+                111.12499237060518,
+                675.2951651199245
+              ],
+              "ready": false,
+              "stopping": false,
+              "fault": "",
+              "cycles": 6,
+              "held": false,
+              "restraints": true,
+              "riders": 2
+            }
+          ]
+        },
+        "screenshot": "/mnt/NVME4/fourthdimension-runs/fd10-lead-20261115/park-combined01/evidence/occupied16-new_generation_flyingmoving-1794807005079198210.png"
+      },
+      "statistics": {
+        "collector_errors": [],
+        "scope": "measurement summary only; no workload, GPU or acceptance certification",
+        "window": {
+          "start_unix_ns": 1794806999921659130,
+          "end_unix_ns": 1794807457010923802
+        },
+        "sources": {
+          "frame:client": {
+            "count": 98674,
+            "median": 3.750686,
+            "p95": 9.788624,
+            "p99": 13.346311,
+            "max": 37.233431,
+            "percentile_method": "nearest-rank",
+            "units": "ms",
+            "over_50_ms": 0,
+            "over_100_ms": 0,
+            "measurement": "CPU frame-start intervals; not GPU presentation"
+          },
+          "tick:server": {
+            "count": 9142,
+            "median": 26.772379,
+            "p95": 48.735461,
+            "p99": 68.91422,
+            "max": 129.339732,
+            "percentile_method": "nearest-rank",
+            "units": "ms",
+            "over_50_ms": 427
+          },
+          "gc:client": {
+            "count": 3250,
+            "median": 1.504846,
+            "p95": 2.302988,
+            "p99": 2.819812,
+            "max": 5.52229,
+            "percentile_method": "nearest-rank",
+            "units": "ms",
+            "post_gc_heap_bytes": null
+          },
+          "gc:server": {
+            "count": 627,
+            "median": 1.970003,
+            "p95": 2.910434,
+            "p99": 16.212945,
+            "max": 18.569805,
+            "percentile_method": "nearest-rank",
+            "units": "ms",
+            "post_gc_heap_bytes": null
+          },
+          "post_gc:client": {
+            "count": 2593,
+            "median": 1320325040,
+            "p95": 1495309832,
+            "p99": 1515751144,
+            "max": 1525615920,
+            "percentile_method": "nearest-rank"
+          },
+          "post_gc:server": {
+            "count": 494,
+            "median": 1243630996.0,
+            "p95": 1477584264,
+            "p99": 1524454936,
+            "max": 1570474760,
+            "percentile_method": "nearest-rank"
+          },
+          "heap:client": {
+            "count": 456,
+            "median": 1425473352.0,
+            "p95": 1517889896,
+            "p99": 1524945344,
+            "max": 1526931216,
+            "percentile_method": "nearest-rank"
+          },
+          "heap:server": {
+            "count": 445,
+            "median": 1681388240,
+            "p95": 2004236848,
+            "p99": 2034026112,
+            "max": 2056182264,
+            "percentile_method": "nearest-rank"
+          },
+          "resource:client": {
+            "rss_bytes": {
+              "count": 457,
+              "median": 3683708928,
+              "p95": 3685146624,
+              "p99": 3685339136,
+              "max": 3695513600,
+              "percentile_method": "nearest-rank"
+            },
+            "cgroup_bytes": {
+              "count": 457,
+              "median": 3588325376,
+              "p95": 3598798848,
+              "p99": 3600072704,
+              "max": 3601321984,
+              "percentile_method": "nearest-rank"
+            },
+            "lifetime_cgroup_peak_bytes": 3601326080
+          },
+          "resource:server": {
+            "rss_bytes": {
+              "count": 457,
+              "median": 3015647232,
+              "p95": 3015843840,
+              "p99": 3015876608,
+              "max": 3039678464,
+              "percentile_method": "nearest-rank"
+            },
+            "cgroup_bytes": {
+              "count": 457,
+              "median": 3079495680,
+              "p95": 3095822336,
+              "p99": 3096862720,
+              "max": 3098181632,
+              "percentile_method": "nearest-rank"
+            },
+            "lifetime_cgroup_peak_bytes": 3098439680
+          }
+        },
+        "missing": [],
+        "final_three_five_minute_periods": [
+          {
+            "start_unix_ns": 1794806557010923802,
+            "end_unix_ns": 1794806857010923802,
+            "processes": {}
+          },
+          {
+            "start_unix_ns": 1794806857010923802,
+            "end_unix_ns": 1794807157010923802,
+            "processes": {
+              "client": {
+                "rss_bytes": {
+                  "count": 157,
+                  "median": 3683295232,
+                  "p95": 3684519936,
+                  "p99": 3684597760,
+                  "max": 3684614144,
+                  "percentile_method": "nearest-rank"
+                },
+                "post_gc_heap_bytes": {
+                  "count": 858,
+                  "median": 1322281292.0,
+                  "p95": 1486119136,
+                  "p99": 1515857704,
+                  "max": 1525615920,
+                  "percentile_method": "nearest-rank"
+                }
+              },
+              "server": {
+                "rss_bytes": {
+                  "count": 157,
+                  "median": 3013246976,
+                  "p95": 3015544832,
+                  "p99": 3039662080,
+                  "max": 3039678464,
+                  "percentile_method": "nearest-rank"
+                },
+                "post_gc_heap_bytes": {
+                  "count": 174,
+                  "median": 1236182200.0,
+                  "p95": 1501515224,
+                  "p99": 1533007832,
+                  "max": 1570474760,
+                  "percentile_method": "nearest-rank"
+                }
+              }
+            }
+          },
+          {
+            "start_unix_ns": 1794807157010923802,
+            "end_unix_ns": 1794807457010923802,
+            "processes": {
+              "client": {
+                "rss_bytes": {
+                  "count": 300,
+                  "median": 3683770368.0,
+                  "p95": 3685224448,
+                  "p99": 3685343232,
+                  "max": 3695513600,
+                  "percentile_method": "nearest-rank"
+                },
+                "post_gc_heap_bytes": {
+                  "count": 1735,
+                  "median": 1320044600,
+                  "p95": 1497361672,
+                  "p99": 1515610392,
+                  "max": 1525351408,
+                  "percentile_method": "nearest-rank"
+                }
+              },
+              "server": {
+                "rss_bytes": {
+                  "count": 300,
+                  "median": 3015710720.0,
+                  "p95": 3015847936,
+                  "p99": 3015876608,
+                  "max": 3015876608,
+                  "percentile_method": "nearest-rank"
+                },
+                "post_gc_heap_bytes": {
+                  "count": 320,
+                  "median": 1245834520.0,
+                  "p95": 1468440944,
+                  "p99": 1505706928,
+                  "max": 1521604832,
+                  "percentile_method": "nearest-rank"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "normal_return_and_open_shift": true,
+      "screenshots": [
+        "/mnt/NVME4/fourthdimension-runs/fd10-lead-20261115/park-combined01/evidence/occupied16-new_generation_flyingboarded-1794806999835700309.png",
+        "/mnt/NVME4/fourthdimension-runs/fd10-lead-20261115/park-combined01/evidence/occupied16-new_generation_flyingmoving-1794807005079198210.png",
+        "/mnt/NVME4/fourthdimension-runs/fd10-lead-20261115/park-combined01/evidence/occupied16-new_generation_flyingmechanism-1794807030528151525.png",
+        "/mnt/NVME4/fourthdimension-runs/fd10-lead-20261115/park-combined01/evidence/occupied16-new_generation_flyingmechanism-1794807061001362384.png",
+        "/mnt/NVME4/fourthdimension-runs/fd10-lead-20261115/park-combined01/evidence/occupied16-new_generation_flyingmechanism-1794807091497782318.png",
+        "/mnt/NVME4/fourthdimension-runs/fd10-lead-20261115/park-combined01/evidence/occupied16-new_generation_flyingmechanism-1794807122002248793.png",
+        "/mnt/NVME4/fourthdimension-runs/fd10-lead-20261115/park-combined01/evidence/occupied16-new_generation_flyingmechanism-1794807152426964699.png",
+        "/mnt/NVME4/fourthdimension-runs/fd10-lead-20261115/park-combined01/evidence/occupied16-new_generation_flyingmechanism-1794807182833438112.png",
+        "/mnt/NVME4/fourthdimension-runs/fd10-lead-20261115/park-combined01/evidence/occupied16-new_generation_flyingmechanism-1794807213296339984.png",
+        "/mnt/NVME4/fourthdimension-runs/fd10-lead-20261115/park-combined01/evidence/occupied16-new_generation_flyingmechanism-1794807243756852109.png",
+        "/mnt/NVME4/fourthdimension-runs/fd10-lead-20261115/park-combined01/evidence/occupied16-new_generation_flyingmechanism-1794807274181283194.png",
+        "/mnt/NVME4/fourthdimension-runs/fd10-lead-20261115/park-combined01/evidence/occupied16-new_generation_flyingmechanism-1794807304577355805.png",
+        "/mnt/NVME4/fourthdimension-runs/fd10-lead-20261115/park-combined01/evidence/occupied16-new_generation_flyingmechanism-1794807334986216392.png",
+        "/mnt/NVME4/fourthdimension-runs/fd10-lead-20261115/park-combined01/evidence/occupied16-new_generation_flyingmechanism-1794807365526112900.png",
+        "/mnt/NVME4/fourthdimension-runs/fd10-lead-20261115/park-combined01/evidence/occupied16-new_generation_flyingmechanism-1794807395925072500.png",
+        "/mnt/NVME4/fourthdimension-runs/fd10-lead-20261115/park-combined01/evidence/occupied16-new_generation_flyingmechanism-1794807426382584776.png",
+        "/mnt/NVME4/fourthdimension-runs/fd10-lead-20261115/park-combined01/evidence/occupied16-new_generation_flyingmechanism-1794807456784723295.png",
+        "/mnt/NVME4/fourthdimension-runs/fd10-lead-20261115/park-combined01/evidence/occupied16-new_generation_flyingreturned-1794807456926613679.png"
+      ]
+    },
+    {
+      "style": "pipeline",
+      "start_unix_ns": 1794807458549865815,
+      "end_unix_ns": 1794807575910680499,
+      "ticks": 2348,
+      "center_path_distance": 802.589445154205,
+      "motion_proof": {
+        "kind": "occupied_motion",
+        "unix_ns": 1794807463868472039,
+        "style": "pipeline",
+        "game_ticks": 106,
+        "center_path_distance": 20.17034912109375,
+        "state": {
+          "rails": 198,
+          "forcedChunks": 1680,
+          "running": true,
+          "tick": 328309,
+          "carriers": 34,
+          "draining": false,
+          "vehicles": 21,
+          "groups": [
+            {
+              "name": "arrow",
+              "cars": [
+                "075f3ef6-f9e6-4a69-91d8-1ac33d82ddc3",
+                "1b48bc00-45b2-464c-9ad5-503ad6878b72"
+              ],
+              "center": [
+                -848.6810910013517,
+                111.12499019077868,
+                -801.9685661762277
+              ],
+              "ready": false,
+              "stopping": false,
+              "fault": "",
+              "cycles": 17,
+              "held": false,
+              "restraints": true,
+              "riders": 8
+            },
+            {
+              "name": "legacy",
+              "cars": [
+                "71c61dad-8236-4e71-ae15-86525878e6d0"
+              ],
+              "center": [
+                -497.20000447581674,
+                114.17061134049943,
+                -799.8854489131575
+              ],
+              "ready": false,
+              "stopping": false,
+              "fault": "",
+              "cycles": 17,
+              "held": false,
+              "restraints": true,
+              "riders": 8
+            },
+            {
+              "name": "free_spin",
+              "cars": [
+                "b4ec3fe5-0a7e-41ea-8684-e9586cd61d27"
+              ],
+              "center": [
+                -135.6818695273638,
+                117.12499673025948,
+                -797.5000000958474
+              ],
+              "ready": false,
+              "stopping": false,
+              "fault": "",
+              "cycles": 17,
+              "held": false,
+              "restraints": true,
+              "riders": 8
+            },
+            {
+              "name": "revised",
+              "cars": [
+                "95cd7f27-cfc3-4d9f-a843-62fe4d566eeb"
+              ],
+              "center": [
+                207.79115884405212,
+                117.07775787869495,
+                -797.5418993766449
+              ],
+              "ready": false,
+              "stopping": false,
+              "fault": "",
+              "cycles": 17,
+              "held": false,
+              "restraints": true,
+              "riders": 8
+            },
+            {
+              "name": "pax",
+              "cars": [
+                "5fffa096-9d4a-49da-b161-9da0f863c67f",
+                "9c0c0dba-9777-42c8-9529-9ff14364fd3b",
+                "58607ac3-b83c-4749-b230-956f846e07aa",
+                "18733539-3aaf-474c-8c11-720837b4a28f"
+              ],
+              "center": [
+                550.4999464676769,
+                111.12500549909076,
+                -841.4750083854154
+              ],
+              "ready": false,
+              "stopping": true,
+              "fault": "",
+              "cycles": 39,
+              "held": false,
+              "restraints": true,
+              "riders": 16
+            },
+            {
+              "name": "wing",
+              "cars": [
+                "f22a2529-dabc-456c-b988-9a5295bf0051"
+              ],
+              "center": [
+                -776.0348510779361,
+                110.62499283299294,
+                -369.4564819338371
+              ],
+              "ready": false,
+              "stopping": false,
+              "fault": "",
+              "cycles": 14,
+              "held": false,
+              "restraints": true,
+              "riders": 4
+            },
+            {
+              "name": "spinning",
+              "cars": [
+                "f7d6f0b4-c695-4c30-a5d9-284759b7412f"
+              ],
+              "center": [
+                -499.50003052762895,
+                110.62498474121094,
+                -297.8045959578485
+              ],
+              "ready": false,
+              "stopping": false,
+              "fault": "",
+              "cycles": 14,
+              "held": false,
+              "restraints": true,
+              "riders": 4
+            },
+            {
+              "name": "suspended",
+              "cars": [
+                "289c6278-4387-41ac-bbee-e53fd44aba39"
+              ],
+              "center": [
+                -149.49999988761505,
+                110.62499237060547,
+                -307.82324218702104
+              ],
+              "ready": false,
+              "stopping": false,
+              "fault": "",
+              "cycles": 11,
+              "held": false,
+              "restraints": true,
+              "riders": 2
+            },
+            {
+              "name": "fixed_inverted",
+              "cars": [
+                "be377253-38ac-446f-a498-70ea3a1d455b"
+              ],
+              "center": [
+                296.50003053248207,
+                110.6249933657439,
+                -164.7230224572122
+              ],
+              "ready": false,
+              "stopping": false,
+              "fault": "",
+              "cycles": 12,
+              "held": false,
+              "restraints": true,
+              "riders": 4
+            },
+            {
+              "name": "axis",
+              "cars": [
+                "de3ed2fc-956c-4ee5-a564-56858a807e74"
+              ],
+              "center": [
+                646.4484195596436,
+                110.62496065386105,
+                -279.8340457199006
+              ],
+              "ready": false,
+              "stopping": false,
+              "fault": "",
+              "cycles": 11,
+              "held": false,
+              "restraints": true,
+              "riders": 2
+            },
+            {
+              "name": "roller_ball",
+              "cars": [
+                "05df0538-7996-4e39-81aa-e6cbe91b49d6"
+              ],
+              "center": [
+                -749.499999996946,
+                203.81088974538565,
+                223.41565315093473
+              ],
+              "ready": false,
+              "stopping": false,
+              "fault": "",
+              "cycles": 4,
+              "held": false,
+              "restraints": true,
+              "riders": 4
+            },
+            {
+              "name": "flying",
+              "cars": [
+                "c18ba672-5869-44a0-881a-5ee45e585be2"
+              ],
+              "center": [
+                -499.8729011992282,
+                122.21067509237218,
+                241.03562925540348
+              ],
+              "ready": false,
+              "stopping": false,
+              "fault": "",
+              "cycles": 8,
+              "held": false,
+              "restraints": true,
+              "riders": 4
+            },
+            {
+              "name": "new_generation_flying",
+              "cars": [
+                "4634d14d-6b38-434a-8e72-748b472f613d"
+              ],
+              "center": [
+                -149.50001528019803,
+                111.12498931884765,
+                122.04788983039356
+              ],
+              "ready": false,
+              "stopping": false,
+              "fault": "",
+              "cycles": 4,
+              "held": false,
+              "restraints": true,
+              "riders": 2
+            },
+            {
+              "name": "pipeline",
+              "cars": [
+                "60048d18-1de9-4e27-a8ea-06bf2ccbb8c1"
+              ],
+              "center": [
+                200.49998473003637,
+                111.1249911100968,
+                136.06153869256377
+              ],
+              "ready": false,
+              "stopping": false,
+              "fault": "",
+              "cycles": 9,
+              "held": true,
+              "restraints": true,
+              "riders": 4
+            },
+            {
+              "name": "dive",
+              "cars": [
+                "afa0056c-ae6d-4be3-91e6-95fb42e0493a"
+              ],
+              "center": [
+                550.499957930297,
+                207.1250128225119,
+                337.97702025782485
+              ],
+              "ready": false,
+              "stopping": false,
+              "fault": "",
+              "cycles": 7,
+              "held": false,
+              "restraints": true,
+              "riders": 6
+            },
+            {
+              "name": "s2_spinning",
+              "cars": [
+                "f9668c69-f317-437b-b11f-b502c40bcad8"
+              ],
+              "center": [
+                -754.8854982086899,
+                111.12500000000003,
+                581.1506348608872
+              ],
+              "ready": false,
+              "stopping": false,
+              "fault": "",
+              "cycles": 16,
+              "held": false,
+              "restraints": true,
+              "riders": 4
+            },
+            {
+              "name": "powered_inverted_yaw",
+              "cars": [
+                "a46d560d-cdd1-48e2-8cbe-0e231cbe1078"
+              ],
+              "center": [
+                -495.87973028143773,
+                111.12499237060531,
+                733.3002936507702
+              ],
+              "ready": false,
+              "stopping": false,
+              "fault": "",
+              "cycles": 9,
+              "held": false,
+              "restraints": true,
+              "riders": 2
+            }
+          ]
+        },
+        "screenshot": "/mnt/NVME4/fourthdimension-runs/fd10-lead-20261115/park-combined01/evidence/occupied16-pipelinemoving-1794807463768849993.png"
+      },
+      "statistics": {
+        "collector_errors": [],
+        "scope": "measurement summary only; no workload, GPU or acceptance certification",
+        "window": {
+          "start_unix_ns": 1794807458549865815,
+          "end_unix_ns": 1794807575910680499
+        },
+        "sources": {
+          "frame:client": {
+            "count": 8230,
+            "median": 14.0667985,
+            "p95": 20.837425,
+            "p99": 25.588392,
+            "max": 36.662219,
+            "percentile_method": "nearest-rank",
+            "units": "ms",
+            "over_50_ms": 0,
+            "over_100_ms": 0,
+            "measurement": "CPU frame-start intervals; not GPU presentation"
+          },
+          "tick:server": {
+            "count": 2348,
+            "median": 27.5829715,
+            "p95": 54.107106,
+            "p99": 74.749519,
+            "max": 140.986218,
+            "percentile_method": "nearest-rank",
+            "units": "ms",
+            "over_50_ms": 148
+          },
+          "gc:client": {
+            "count": 694,
+            "median": 1.7422435,
+            "p95": 2.314435,
+            "p99": 2.826387,
+            "max": 3.598987,
+            "percentile_method": "nearest-rank",
+            "units": "ms",
+            "post_gc_heap_bytes": null
+          },
+          "gc:server": {
+            "count": 177,
+            "median": 2.062045,
+            "p95": 2.879826,
+            "p99": 3.723758,
+            "max": 3.754498,
+            "percentile_method": "nearest-rank",
+            "units": "ms",
+            "post_gc_heap_bytes": null
+          },
+          "post_gc:client": {
+            "count": 559,
+            "median": 1340041064,
+            "p95": 1463447424,
+            "p99": 1502307560,
+            "max": 1525689848,
+            "percentile_method": "nearest-rank"
+          },
+          "post_gc:server": {
+            "count": 141,
+            "median": 1259978344,
+            "p95": 1514490128,
+            "p99": 1556436832,
+            "max": 1558994848,
+            "percentile_method": "nearest-rank"
+          },
+          "heap:client": {
+            "count": 117,
+            "median": 1425630640,
+            "p95": 1516414192,
+            "p99": 1526781512,
+            "max": 1527211840,
+            "percentile_method": "nearest-rank"
+          },
+          "heap:server": {
+            "count": 114,
+            "median": 1680851924.0,
+            "p95": 2011515152,
+            "p99": 2028749152,
+            "max": 2036256528,
+            "percentile_method": "nearest-rank"
+          },
+          "resource:client": {
+            "rss_bytes": {
+              "count": 117,
+              "median": 3684941824,
+              "p95": 3709378560,
+              "p99": 3710881792,
+              "max": 3710885888,
+              "percentile_method": "nearest-rank"
+            },
+            "cgroup_bytes": {
+              "count": 117,
+              "median": 3601940480,
+              "p95": 3626508288,
+              "p99": 3627446272,
+              "max": 3627466752,
+              "percentile_method": "nearest-rank"
+            },
+            "lifetime_cgroup_peak_bytes": 3627909120
+          },
+          "resource:server": {
+            "rss_bytes": {
+              "count": 117,
+              "median": 3016400896,
+              "p95": 3016593408,
+              "p99": 3016609792,
+              "max": 3016613888,
+              "percentile_method": "nearest-rank"
+            },
+            "cgroup_bytes": {
+              "count": 117,
+              "median": 3102367744,
+              "p95": 3107123200,
+              "p99": 3107278848,
+              "max": 3107459072,
+              "percentile_method": "nearest-rank"
+            },
+            "lifetime_cgroup_peak_bytes": 3108106240
+          }
+        },
+        "missing": [],
+        "final_three_five_minute_periods": [
+          {
+            "start_unix_ns": 1794806675910680499,
+            "end_unix_ns": 1794806975910680499,
+            "processes": {}
+          },
+          {
+            "start_unix_ns": 1794806975910680499,
+            "end_unix_ns": 1794807275910680499,
+            "processes": {}
+          },
+          {
+            "start_unix_ns": 1794807275910680499,
+            "end_unix_ns": 1794807575910680499,
+            "processes": {
+              "client": {
+                "rss_bytes": {
+                  "count": 117,
+                  "median": 3684941824,
+                  "p95": 3709378560,
+                  "p99": 3710881792,
+                  "max": 3710885888,
+                  "percentile_method": "nearest-rank"
+                },
+                "post_gc_heap_bytes": {
+                  "count": 559,
+                  "median": 1340041064,
+                  "p95": 1463447424,
+                  "p99": 1502307560,
+                  "max": 1525689848,
+                  "percentile_method": "nearest-rank"
+                }
+              },
+              "server": {
+                "rss_bytes": {
+                  "count": 117,
+                  "median": 3016400896,
+                  "p95": 3016593408,
+                  "p99": 3016609792,
+                  "max": 3016613888,
+                  "percentile_method": "nearest-rank"
+                },
+                "post_gc_heap_bytes": {
+                  "count": 141,
+                  "median": 1259978344,
+                  "p95": 1514490128,
+                  "p99": 1556436832,
+                  "max": 1558994848,
+                  "percentile_method": "nearest-rank"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "normal_return_and_open_shift": true,
+      "screenshots": [
+        "/mnt/NVME4/fourthdimension-runs/fd10-lead-20261115/park-combined01/evidence/occupied16-pipelineboarded-1794807458446911575.png",
+        "/mnt/NVME4/fourthdimension-runs/fd10-lead-20261115/park-combined01/evidence/occupied16-pipelinemoving-1794807463768849993.png",
+        "/mnt/NVME4/fourthdimension-runs/fd10-lead-20261115/park-combined01/evidence/occupied16-pipelinemechanism-1794807489329206026.png",
+        "/mnt/NVME4/fourthdimension-runs/fd10-lead-20261115/park-combined01/evidence/occupied16-pipelinemechanism-1794807519927907167.png",
+        "/mnt/NVME4/fourthdimension-runs/fd10-lead-20261115/park-combined01/evidence/occupied16-pipelinemechanism-1794807550428435979.png",
+        "/mnt/NVME4/fourthdimension-runs/fd10-lead-20261115/park-combined01/evidence/occupied16-pipelinereturned-1794807575825242539.png"
+      ]
+    }
+  ]
+}

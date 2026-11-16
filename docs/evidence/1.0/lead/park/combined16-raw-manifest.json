@@ -1,0 +1,61 @@
+{
+  "jar_sha256": "85d3550dbc7fabe82815c6f54b7af231e1156f02c9ec3e262ad05371dbe34b74",
+  "files": [
+    {
+      "name": "occupied16-windows.jsonl",
+      "source": "/mnt/NVME4/fourthdimension-runs/fd10-lead-20261115/park-combined01/evidence/occupied16-windows.jsonl",
+      "sha256": "5625d96f84b6be509ac4cc0b3fc795dad8dd2806d80814d4b8ee541cbb619c2a",
+      "compressed_sha256": "fb1704836d64ea5b78483330554b15310712061b161e137ab4bac4533df41224"
+    },
+    {
+      "name": "occupied16-resources.jsonl",
+      "source": "/mnt/NVME4/fourthdimension-runs/fd10-lead-20261115/park-combined01/evidence/occupied16-resources.jsonl",
+      "sha256": "51bc5b556cc7c24d73c8c78d01343ad8f3c64b68cdf3431a132035aac5165c30",
+      "compressed_sha256": "e7e9408e6325b30f0df78b882f6008830c8cda9490e1c50534b92d466c49d58a"
+    },
+    {
+      "name": "occupied16b-windows.jsonl",
+      "source": "/mnt/NVME4/fourthdimension-runs/fd10-lead-20261115/park-combined01/evidence/occupied16b-windows.jsonl",
+      "sha256": "e6cf9b032b549e6a1e4a7352b0d086034027a27e208e8aaaa630963a285f7a02",
+      "compressed_sha256": "ee87aeb322159f30854890a1b72dfc725cd9f1da87907f696a4a359cde043091"
+    },
+    {
+      "name": "occupied16b-resources.jsonl",
+      "source": "/mnt/NVME4/fourthdimension-runs/fd10-lead-20261115/park-combined01/evidence/occupied16b-resources.jsonl",
+      "sha256": "ea81759c480db69c230e9f029f33cb5965d6f301e4b65ba49390e0d37e100b49",
+      "compressed_sha256": "194320d78e3c038e8665b719f52cd19ff6f1cc3ae7082406b6f0f20b0654dae5"
+    },
+    {
+      "name": "client-combined16.jsonl",
+      "source": "/mnt/NVME4/fourthdimension-runs/fd10-lead-20261115/park-combined01/evidence/client-combined16.jsonl",
+      "sha256": "0d68c4b2cefec069ac469108f546b306785687594984a9db730455c1b7aa4c7d",
+      "compressed_sha256": "636352a5d8261a83251c3b4b1f14b7f8d8229981dc9dea35c72204582355ff36",
+      "footer": {
+        "kind": "complete",
+        "unix_ns": 1794808499702795508,
+        "monotonic_ns": 553292102315994,
+        "process": "client",
+        "reason": "stop_file",
+        "rows": 372268,
+        "dropped_events": 0,
+        "lossless": true
+      }
+    },
+    {
+      "name": "server-combined16.jsonl",
+      "source": "/mnt/NVME4/fourthdimension-runs/fd10-lead-20261115/park-combined01/evidence/server-combined16.jsonl",
+      "sha256": "37e2bb1cb78d72444adf7c60f70f61a24fd4e78558aafef0a87ae3a9c457e1cc",
+      "compressed_sha256": "37417a19df5f570d291acc292547d2020acf90d963b877f45422de476636d6e5",
+      "footer": {
+        "kind": "complete",
+        "unix_ns": 1794808499631759130,
+        "monotonic_ns": 553292031278916,
+        "process": "server",
+        "reason": "stop_file",
+        "rows": 59620,
+        "dropped_events": 0,
+        "lossless": true
+      }
+    }
+  ]
+}

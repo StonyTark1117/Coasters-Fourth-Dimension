@@ -17,7 +17,6 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.client.event.*;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.renderer.LevelRenderer;
-import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.client.renderer.texture.TextureAtlas;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.core.BlockPos;
@@ -576,24 +575,27 @@ public final class OriginalTrackRenderer {
 
   private static void draw(VertexConsumer buffer, PoseStack.Pose pose, List<Quad> quads, float alpha) {
     var mc=Minecraft.getInstance();
+    var writer=new TrackVertexWriter(buffer,pose);
+    String material=null;
+    TextureAtlasSprite sprite=null;
+    BlockPos lightAt=null;
+    int light=0;
     for(var q:quads) {
-      var sprite=FRAME_SPRITES.computeIfAbsent(q.material, name->mc.getTextureAtlas(TextureAtlas.LOCATION_BLOCKS)
-          .apply(ResourceLocation.fromNamespaceAndPath("fourthdimension","block/fd917/"+name)));
-      int light=FRAME_LIGHT.computeIfAbsent(q.lightAt, pos->LevelRenderer.getLightColor(mc.level,pos));
+      // Adjacent faces commonly share these values. Reuse only within this draw;
+      // FRAME_LIGHT still refreshes world lighting every render frame.
+      if(!q.material.equals(material)) {
+        material=q.material;
+        sprite=FRAME_SPRITES.computeIfAbsent(material, name->mc.getTextureAtlas(TextureAtlas.LOCATION_BLOCKS)
+            .apply(ResourceLocation.fromNamespaceAndPath("fourthdimension","block/fd917/"+name)));
+      }
+      if(!q.lightAt.equals(lightAt)) {
+        lightAt=q.lightAt;
+        light=FRAME_LIGHT.computeIfAbsent(lightAt, pos->LevelRenderer.getLightColor(mc.level,pos));
+      }
       // Geometry is subdivided before caching, so no UV reaches a neighboring atlas sprite.
       float u=sprite.getU(Math.min(1,q.width)), v=sprite.getV(Math.min(1,q.phase+q.length));
-      vertex(buffer,pose,q,q.a,sprite.getU0(),sprite.getV(q.phase),light,alpha);
-      vertex(buffer,pose,q,q.b,u,sprite.getV(q.phase),light,alpha);
-      vertex(buffer,pose,q,q.c,u,v,light,alpha);
-      vertex(buffer,pose,q,q.d,sprite.getU0(),v,light,alpha);
+      writer.quad(q.a,q.b,q.c,q.d,q.normal,q.color,
+          sprite.getU0(),u,sprite.getV(q.phase),v,light,alpha);
     }
-  }
-
-  private static void vertex(VertexConsumer buffer, PoseStack.Pose pose, Quad q, Vec3 p,
-                             float u,float v,int light,float alpha) {
-    buffer.addVertex(pose.pose(),(float)p.x,(float)p.y,(float)p.z)
-        .setColor((q.color>>16)&255,(q.color>>8)&255,q.color&255,(int)(alpha*255))
-        .setUv(u,v).setOverlay(OverlayTexture.NO_OVERLAY).setLight(light)
-        .setNormal(pose,(float)q.normal.x,(float)q.normal.y,(float)q.normal.z);
   }
 }

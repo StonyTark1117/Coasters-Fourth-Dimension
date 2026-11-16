@@ -137,6 +137,30 @@ are verified. Successor16 uses the same immutable runtime14, private323 and
 ports25664/25665, with fresh collectors for the seven remaining mounted views
 and separate diagnostic. Lead retains ownership through cleanup.
 
+The separate60-second runtime16 Pipeline profile identifies CPU vertex emission
+and repeated per-quad lookups as dominant render-thread costs; GPU utilization
+averages about22%. Lead owns a [bounded emission repair](evidence/1.0/lead/park/renderer-repair.md):
+native full-attribute writes, a shared normal transform and frame-local scratch/
+consecutive lookup reuse. Byte-equivalence, representative reload and affected
+base/combined300-second checks are pending. No threshold changes, sustained-window
+reset or all-family art review is introduced. Runtime16 remains on immutable14
+while its remaining mounted segments finish; builds wait until those samples end.
+
+**Current remaining FD904B work:** All17mounted views are now covered by Arrow,
+nine15/15b and [seven16/16b segments](evidence/1.0/lead/park/occupied16.md).
+Dive's transfer-only helper setup was diagnosed and corrected in the same mounted
+client; its nonmoving interval is excluded. Both16 recorders closed losslessly;
+normal unload/save/checkpoint and all three inactive/PID0 units are verified.
+The renderer's60-case byte check and Java21 build pass. Candidate17 SHA-256
+`77170d33e8a4a6993b3d4c2fc4f70ed3a491f19f83948fa75ced752ed485b5c5`
+changes only track-renderer classes. Lead owns the affected base/combined300-second
+checks at existing ceilings plus representative reload; sustained/memory remains
+closed. Base17 passed all frozen frame/tick/RSS/post-GC limits and completed normal
+unload/save/checkpoint; all base units are inactive/PID0. Representative Fancy
+reload restored visible geometry with4,992nonempty stages. Combined17 now warms
+on private323, ports25664/25665; only its fixed300 comparison remains. Lead owns
+that runtime through cleanup.
+
 **FD904B bounded mechanisms repair complete (2026-11-15):** The mechanisms
 owner returned `vehicle/RollerBallRuntime.java`, new
 `gametest/Fd904RollerLoadGameTests.java`, its uniquely named empty GameTest

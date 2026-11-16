@@ -2,29 +2,26 @@
 
 **In progress, 2026-11-16 UTC.** The base five-minute sample and its cleanup
 passed. The combined1800-second sustained workload/memory check is complete;
-the bounded frame comparison and seven remaining actual mounted performance
-views remain open. The [fixed protocol](protocol.md) defines the
+all17actual mounted views are covered and their runtimes stopped. The affected
+combined renderer comparison remains open. The [fixed protocol](protocol.md) defines the
 finite workload; [preparation](preparation.md) records failed setup separately.
 
-Mounted15 completed nine supplemental actual occupied views (Legacy, Free Spin,
-Revised, PAX, Wing, S1 Spinning, Suspended, Fixed Inverted, Axis), each with
-recorded movement and normal Open/Shift. PAX's initially premature Open was
-correctly rejected; waiting for controller BOARDING completed its safe transfer
-without repeating the ride. Raw15/15b windows and resource streams are preserved;
-JVM collectors have stopped losslessly after the corrected comparison. Seven styles
-remain: Roller Ball, Conventional Flying, New-generation Flying, Pipeline, Dive,
-S2 Spinning and Powered Inverted Yaw. The valid corrected comparison passed tick
-p95 (47.915487 ms) and frame p99 (21.164141 ms), but frame p95 (16.563280 ms)
-still exceeds the fixed 15.9336771 ms ceiling. Longer warmup did not resolve it.
-Normalized classpaths/settings match; recorded throttling and memory events do
-not explain the broad per-view increase. No further acceptance timing retry is
-scheduled. The remaining mounted-view run will include one separate 60-second
-client render-thread/GPU diagnostic to identify the dominant cost before a fix.
-The nine completed views and accepted sustained window remain closed. All15 riders
-subsequently unloaded normally; save/checkpoint and all three inactive/PID0 units
-are verified. Successor16 uses the same immutable runtime14, private323 and
-ports25664/25665, with fresh collectors for the seven remaining mounted views
-and separate diagnostic. Lead retains ownership through cleanup.
+The nine15/15b and [remaining seven16/16b occupied views](occupied16.md), together
+with Arrow in the fixed window, cover every style. Dive's transfer-only helper
+setup was excluded and corrected in the same mounted client; its subsequent
+actual motion and normal unload passed. All16 recorders closed losslessly and
+all owned16 units are inactive/PID0 with a saved checkpoint.
+
+The valid comparison15 passed tick p95=47.915487ms and frame p99=21.164141ms,
+but frame p95=16.563280ms exceeded the unchanged15.9336771ms ceiling. Longer
+warmup did not resolve it. A separate60-second Pipeline profile identified CPU
+vertex emission and repeated lookups. The [bounded renderer repair](renderer-repair.md)
+passed60 native buffer cases/8,110,080 identical attribute bytes and a Java21
+build. It introduces no retained resource or sustained allocation path; the
+accepted1800-second workload/memory result remains closed. Candidate17 passed the affected base300-second frame/tick/RSS/post-GC comparison
+and representative nonempty render/reload proof; its base runtime saved and stopped.
+The combined300-second comparison remains pending. No ceiling is raised and no family/art matrix
+is restarted.
 
 ## Combined failure and bounded correction
 

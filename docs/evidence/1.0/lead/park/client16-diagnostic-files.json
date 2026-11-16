@@ -1,0 +1,21 @@
+{
+  "jar_sha256": "85d3550dbc7fabe82815c6f54b7af231e1156f02c9ec3e262ad05371dbe34b74",
+  "purpose": "Separate 60-second Pipeline profile after warmup; excluded from acceptance timing",
+  "files": [
+    {
+      "path": "/mnt/NVME4/fourthdimension-runs/fd10-lead-20261115/park-combined01/evidence/client16-pipeline60.jfr",
+      "bytes": 10371350,
+      "sha256": "11c707be951b9523b7097a73188baba755dfbbad228566ccd0a20b998d6c0df8"
+    },
+    {
+      "path": "/mnt/NVME4/fourthdimension-runs/fd10-lead-20261115/park-combined01/evidence/client16-pipeline-profile.jsonl",
+      "bytes": 146033,
+      "sha256": "c5cda4671bac944764a62f57d48c516473a1e4fe9de5dd8841a8ed2c68a82118"
+    },
+    {
+      "path": "/mnt/NVME4/fourthdimension-runs/fd10-lead-20261115/park-combined01/evidence/client16-profile-ranking.json",
+      "bytes": 8135,
+      "sha256": "bb5bef79ad16c0ea64d873d561d64e1d31d898839860deb032709969feb963df"
+    }
+  ]
+}

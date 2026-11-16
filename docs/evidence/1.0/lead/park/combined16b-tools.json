@@ -1,0 +1,12 @@
+{
+  "purpose": "Same-live-client continuation for Dive, S2 Spinning and Powered Inverted Yaw after verified Dive transfer-only helper setup. Stationary initial Dive interval excluded; four completed16 views retained.",
+  "jar_sha256": "85d3550dbc7fabe82815c6f54b7af231e1156f02c9ec3e262ad05371dbe34b74",
+  "initial_helper": "park-occupied16-initial.py",
+  "helper": "park-occupied.py",
+  "helper_sha256": "b1a61c255bfc6aa0f0e7ef3f7ed864621a4b8b540a577708d2858416949dcd48",
+  "changes": [
+    "Read back Dive station authority after transfer-only dispatch before one actual dispatch",
+    "Require cycle increment and closed restraints, then movement; fail early if still docked",
+    "Resume existing mounted Dev so no new world or artificial relocation is introduced"
+  ]
+}

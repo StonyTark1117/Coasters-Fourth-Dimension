@@ -1,0 +1,13 @@
+{
+  "baseline": "/mnt/NVME4/fourthdimension-runs/fd10-lead-20261115/park-combined01/runtime14/libs/coasters-fourth-dimension-0.9.0-dev.27.jar",
+  "candidate": "/mnt/NVME4/fourthdimension-runs/fd10-lead-20261115/build-park-base/libs/coasters-fourth-dimension-0.9.0-dev.27.jar",
+  "sha256": "77170d33e8a4a6993b3d4c2fc4f70ed3a491f19f83948fa75ced752ed485b5c5",
+  "changed_entries": [
+    "dev/fourthdimension/client/OriginalTrackRenderer$Decoration.class",
+    "dev/fourthdimension/client/OriginalTrackRenderer$Mesh.class",
+    "dev/fourthdimension/client/OriginalTrackRenderer$Quad.class",
+    "dev/fourthdimension/client/OriginalTrackRenderer$Transparent.class",
+    "dev/fourthdimension/client/OriginalTrackRenderer.class",
+    "dev/fourthdimension/client/TrackVertexWriter.class"
+  ]
+}

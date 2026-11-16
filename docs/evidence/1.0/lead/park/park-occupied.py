@@ -3,7 +3,7 @@ import importlib.util,json,time,sys,subprocess,argparse,math
 from pathlib import Path
 repo=Path('/home/braydon/Documents/Coasters: Fourth Dimension')
 spec=importlib.util.spec_from_file_location('m',repo/'scripts/fd-private-client.py');m=importlib.util.module_from_spec(spec);spec.loader.exec_module(m)
-p=argparse.ArgumentParser();p.add_argument('run');p.add_argument('label');p.add_argument('--budget',type=int,required=True);p.add_argument('--recorder-stem',required=True);p.add_argument('styles',nargs='+');a=p.parse_args();assert 60<=a.budget<=3500
+p=argparse.ArgumentParser();p.add_argument('run');p.add_argument('label');p.add_argument('--budget',type=int,required=True);p.add_argument('--recorder-stem',required=True);p.add_argument('--resume-mounted',action='store_true');p.add_argument('styles',nargs='+');a=p.parse_args();assert 60<=a.budget<=3500
 r=m.PrivateRun(a.run,'01a1dd1d-1468-7f81-8f31-5532ad7a178d');r.state('server');r.state('client');r.window()
 stream=(r.evidence/(a.label+'-windows.jsonl')).open('x');stop=r.evidence/(a.label+'-resource.stop');assert not stop.exists()
 def record(kind,**kw):stream.write(json.dumps({'kind':kind,'unix_ns':time.time_ns(),**kw})+'\n');stream.flush()
@@ -54,7 +54,7 @@ def wait_ready(n):
 sampler=None;done=[];start=time.monotonic()
 try:
  sampler=subprocess.Popen([sys.executable,str(repo/'scripts/fd-resource-sample.py'),a.run,'--owner',r.c['owner'],'--seconds',str(a.budget),'--stop-file',str(stop),'--output',str(r.evidence/(a.label+'-resources.jsonl'))])
- spectator()
+ if not a.resume_mounted:spectator()
  record('segments_start',styles=a.styles,budget_seconds=a.budget)
  for n in a.styles:
   if time.monotonic()-start+2*return_bound(n)+30>a.budget:record('bounded_handoff',completed=done,remaining=a.styles[len(done):]);break
@@ -67,11 +67,27 @@ try:
    manifest=json.loads(data.open().readline())
    remaining=(manifest['unix_ns']+manifest['seconds']*1_000_000_000-time.time_ns())/1e9
    assert remaining>2*return_bound(n)+30,str(data)+' lacks safe transfer/ride collector time' 
-  command('fd904 pause '+n);wait_ready(n);command('fd904 open '+n);command('gamemode creative Dev');command('execute as Dev run fd904 mount '+n);d=state();g=group(d,n);initial=d['tick'];last=g['center'];distance=0.;proof=False
+  command('fd904 pause '+n);wait_ready(n)
+  if a.resume_mounted and n==a.styles[0]:
+   answer=command('execute as Dev on vehicle if entity @s[type=create:seat]');assert 'Test passed, count: 1' in answer,answer
+   record('resumed_existing_mount',style=n,meaning='Same owned seat after diagnosed transfer-only setup; stationary prior interval excluded')
+  else:
+   command('fd904 open '+n);command('gamemode creative Dev');command('execute as Dev run fd904 mount '+n)
+  d=state();g=group(d,n);initial=d['tick'];last=g['center'];distance=0.;proof=False
   record('occupied_start',style=n,state=d,screenshot=snap(n+'boarded'));command('fd904 inspect '+n);command('fd904 dispatch '+n)
+  if n=='dive':
+   after=group(state(),n)
+   if after['cycles']==g['cycles'] and after['ready'] and not after['restraints']:
+    answer=command('fd904 inspect '+n);line=next(x for x in answer.splitlines() if x.startswith('FD904_DIAGNOSTIC '));diagnostic=json.loads(line.removeprefix('FD904_DIAGNOSTIC '))
+    assert diagnostic['authority']['controller']==diagnostic['dock'] and diagnostic['authority']['owner'],diagnostic
+    record('transfer_only_readback',style=n,expected='Verified station authority; next dispatch closes restraints and increments cycle',diagnostic=diagnostic)
+    command('fd904 dispatch '+n);after=group(state(),n)
+   assert after['cycles']==g['cycles']+1 and after['restraints'],after
   deadline=time.monotonic()+return_bound(n);nextshot=time.monotonic()+30
   while True:
    time.sleep(5);d=state();g=group(d,n);distance+=math.dist(last,g['center']);last=g['center'];elapsed=d['tick']-initial
+   if n=='dive' and not proof and elapsed>=100 and distance<2 and g['ready']:
+    command('fd904 inspect '+n);raise RuntimeError('Dive remained docked after dispatch; diagnose before retry')
    if not proof and elapsed>=100 and distance>=2:
     record('occupied_motion',style=n,game_ticks=elapsed,center_path_distance=distance,state=d,screenshot=snap(n+'moving'));command('fd904 inspect '+n);proof=True
     index=a.styles.index(n)
