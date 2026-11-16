@@ -1,0 +1,19 @@
+{
+  "added": [
+    "data/fourthdimension_fd904_performance/structure/empty.nbt",
+    "dev/fourthdimension/gametest/Fd904PerformanceGameTests.class",
+    "dev/fourthdimension/mixin/BezierCurveKeyMixin.class",
+    "dev/fourthdimension/mixin/ManagedPlotScanMixin.class",
+    "dev/fourthdimension/mixin/PeerCurveKeyMixin.class",
+    "dev/fourthdimension/runtime/CurveEdgeKey$Key.class",
+    "dev/fourthdimension/runtime/CurveEdgeKey.class",
+    "dev/fourthdimension/runtime/ManagedPlotScan.class"
+  ],
+  "removed": [],
+  "changed": [
+    "META-INF/neoforge.mods.toml",
+    "dev/fourthdimension/gametest/Fd904ParkFixture$Group.class",
+    "dev/fourthdimension/gametest/Fd904ParkFixture.class",
+    "fourthdimension.mixins.json"
+  ]
+}

@@ -76,12 +76,18 @@ def main():
     parser.add_argument("--seconds", type=int, required=True)
     parser.add_argument("--parts", nargs="+", choices=("client", "server"), default=["client", "server"])
     parser.add_argument("--output", type=Path, required=True)
+    parser.add_argument("--stop-file", type=Path,
+                        help="Optional persistent stop marker for a bounded variable-length segment")
     args = parser.parse_args()
     if not 1 <= args.seconds <= 3600:
         parser.error("Choose a bounded window of 1–3600 seconds")
     output = args.output.resolve()
     if output.is_relative_to("/tmp"):
         parser.error("Use persistent evidence storage")
+    if args.stop_file is not None:
+        args.stop_file = args.stop_file.resolve()
+        if args.stop_file.is_relative_to("/tmp") or args.stop_file.exists():
+            parser.error("Use a new persistent stop marker")
     spec = importlib.util.spec_from_file_location("private_client", Path(__file__).with_name("fd-private-client.py"))
     module = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(module)
@@ -96,10 +102,16 @@ def main():
         stream.write(json.dumps({"kind": "manifest", "owner": args.owner,
                                  "run": str(args.run.resolve()), "seconds": args.seconds,
                                  "clock_ticks_per_second": os.sysconf("SC_CLK_TCK"),
-                                 "units": initial, "game_pids": game_pids, "collector": "fd-resource-sample-v2",
+                                 "units": initial, "game_pids": game_pids, "collector": "fd-resource-sample-v3",
+                                 "stop_file": str(args.stop_file) if args.stop_file else None,
                                  "scope": "process RSS/CPU and cgroup ancestors; no heap/GC/frame claim"}) + "\n")
+        samples = 0
+        reason = "duration"
         for index in range(args.seconds):
             time.sleep(max(0, start + index - time.monotonic()))
+            if args.stop_file is not None and args.stop_file.exists():
+                reason = "stop_file"
+                break
             row = {"kind": "resource", "unix_ns": time.time_ns(), "monotonic_ns": time.monotonic_ns(),
                    "sample": index, "host_meminfo": key_values(read_text(Path("/proc/meminfo"))),
                    "host_loadavg": read_text(Path("/proc/loadavg")), "processes": {}}
@@ -116,7 +128,8 @@ def main():
                 row["processes"][part] = sample
             stream.write(json.dumps(row) + "\n")
             stream.flush()
-        stream.write(json.dumps({"kind": "complete", "samples": args.seconds,
+            samples += 1
+        stream.write(json.dumps({"kind": "complete", "samples": samples, "reason": reason,
                                  "unix_ns": time.time_ns(), "elapsed_seconds": time.monotonic() - start}) + "\n")
     print(output)
 

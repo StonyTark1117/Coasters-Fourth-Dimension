@@ -1,0 +1,197 @@
+{
+  "collector_errors": [],
+  "scope": "measurement summary only; no workload, GPU or acceptance certification",
+  "window": {
+    "start_unix_ns": 1794794277372742004,
+    "end_unix_ns": 1794794577372742004
+  },
+  "sources": {
+    "frame:client": {
+      "count": 41789,
+      "median": 7.66271,
+      "p95": 12.430624,
+      "p99": 15.271357,
+      "max": 38.550633,
+      "percentile_method": "nearest-rank",
+      "units": "ms",
+      "over_50_ms": 0,
+      "over_100_ms": 0,
+      "measurement": "CPU frame-start intervals; not GPU presentation"
+    },
+    "tick:server": {
+      "count": 6000,
+      "median": 30.5151585,
+      "p95": 44.703914,
+      "p99": 56.635378,
+      "max": 131.570908,
+      "percentile_method": "nearest-rank",
+      "units": "ms",
+      "over_50_ms": 129
+    },
+    "gc:client": {
+      "count": 465,
+      "median": 2.546463,
+      "p95": 5.775366,
+      "p99": 14.891336,
+      "max": 17.359349,
+      "percentile_method": "nearest-rank",
+      "units": "ms",
+      "post_gc_heap_bytes": null
+    },
+    "gc:server": {
+      "count": 164,
+      "median": 2.3218775,
+      "p95": 3.799705,
+      "p99": 4.535175,
+      "max": 5.705137,
+      "percentile_method": "nearest-rank",
+      "units": "ms",
+      "post_gc_heap_bytes": null
+    },
+    "post_gc:client": {
+      "count": 372,
+      "median": 934017144.0,
+      "p95": 1015843632,
+      "p99": 1072272168,
+      "max": 1119828752,
+      "percentile_method": "nearest-rank"
+    },
+    "post_gc:server": {
+      "count": 131,
+      "median": 1034095944,
+      "p95": 1229492472,
+      "p99": 1326562848,
+      "max": 1390359432,
+      "percentile_method": "nearest-rank"
+    },
+    "heap:client": {
+      "count": 298,
+      "median": 1224004376.0,
+      "p95": 1495945560,
+      "p99": 1512435080,
+      "max": 1513500488,
+      "percentile_method": "nearest-rank"
+    },
+    "heap:server": {
+      "count": 293,
+      "median": 1543758832,
+      "p95": 2001425384,
+      "p99": 2035445704,
+      "max": 2088276216,
+      "percentile_method": "nearest-rank"
+    },
+    "resource:client": {
+      "rss_bytes": {
+        "count": 300,
+        "median": 3385896960.0,
+        "p95": 3397570560,
+        "p99": 3426467840,
+        "max": 3427119104,
+        "percentile_method": "nearest-rank"
+      },
+      "cgroup_bytes": {
+        "count": 300,
+        "median": 3250841600.0,
+        "p95": 3264458752,
+        "p99": 3290660864,
+        "max": 3293204480,
+        "percentile_method": "nearest-rank"
+      },
+      "lifetime_cgroup_peak_bytes": 3296124928
+    },
+    "resource:server": {
+      "rss_bytes": {
+        "count": 300,
+        "median": 3016749056.0,
+        "p95": 3030069248,
+        "p99": 3030417408,
+        "max": 3030417408,
+        "percentile_method": "nearest-rank"
+      },
+      "cgroup_bytes": {
+        "count": 300,
+        "median": 3067672576.0,
+        "p95": 3084931072,
+        "p99": 3086245888,
+        "max": 3087327232,
+        "percentile_method": "nearest-rank"
+      },
+      "lifetime_cgroup_peak_bytes": 3090128896
+    }
+  },
+  "missing": [],
+  "final_three_five_minute_periods": [
+    {
+      "start_unix_ns": 1794793677372742004,
+      "end_unix_ns": 1794793977372742004,
+      "processes": {}
+    },
+    {
+      "start_unix_ns": 1794793977372742004,
+      "end_unix_ns": 1794794277372742004,
+      "processes": {}
+    },
+    {
+      "start_unix_ns": 1794794277372742004,
+      "end_unix_ns": 1794794577372742004,
+      "processes": {
+        "client": {
+          "rss_bytes": {
+            "count": 300,
+            "median": 3385896960.0,
+            "p95": 3397570560,
+            "p99": 3426467840,
+            "max": 3427119104,
+            "percentile_method": "nearest-rank"
+          },
+          "post_gc_heap_bytes": {
+            "count": 372,
+            "median": 934017144.0,
+            "p95": 1015843632,
+            "p99": 1072272168,
+            "max": 1119828752,
+            "percentile_method": "nearest-rank"
+          }
+        },
+        "server": {
+          "rss_bytes": {
+            "count": 300,
+            "median": 3016749056.0,
+            "p95": 3030069248,
+            "p99": 3030417408,
+            "max": 3030417408,
+            "percentile_method": "nearest-rank"
+          },
+          "post_gc_heap_bytes": {
+            "count": 131,
+            "median": 1034095944,
+            "p95": 1229492472,
+            "p99": 1326562848,
+            "max": 1390359432,
+            "percentile_method": "nearest-rank"
+          }
+        }
+      }
+    }
+  ],
+  "inputs": [
+    {
+      "path": "/mnt/NVME4/fourthdimension-runs/fd10-lead-20261115/park-base02/evidence/client-base11.jsonl",
+      "rows": 104223,
+      "completed_footer": true,
+      "dropped_events": 0
+    },
+    {
+      "path": "/mnt/NVME4/fourthdimension-runs/fd10-lead-20261115/park-base02/evidence/server-base11.jsonl",
+      "rows": 18923,
+      "completed_footer": true,
+      "dropped_events": 0
+    },
+    {
+      "path": "/mnt/NVME4/fourthdimension-runs/fd10-lead-20261115/park-base02/evidence/base-resources.jsonl",
+      "rows": 302,
+      "completed_footer": true,
+      "dropped_events": null
+    }
+  ]
+}

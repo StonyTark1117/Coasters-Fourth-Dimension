@@ -1,0 +1,14 @@
+{
+  "input": "combined13r2-windows.jsonl.gz",
+  "detected": {
+    "style": "flying",
+    "unix_ns": 1794799326215551750,
+    "stationary_seconds": 60.320000410079956
+  },
+  "threshold_seconds": 60,
+  "movement_blocks": 0.05,
+  "intentional_stationary_states": [
+    "ready",
+    "stopping"
+  ]
+}

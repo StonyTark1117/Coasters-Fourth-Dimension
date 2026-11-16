@@ -1,0 +1,41 @@
+{
+  "unix_ns": 1794800710806967648,
+  "status": {
+    "owner": "01a1dd1d-1468-7f81-8f31-5532ad7a178d",
+    "display": ":323",
+    "window": "2097159",
+    "geometry": "WINDOW=2097159\nX=0\nY=0\nWIDTH=1280\nHEIGHT=720\nSCREEN=0",
+    "options": {
+      "key_key.use": "key.mouse.right",
+      "key_key.attack": "key.mouse.left",
+      "rawMouseInput": "true"
+    },
+    "connection": "There are 1 of a max of 20 players online: Dev\n",
+    "client": {
+      "ActiveState": "active",
+      "MainPID": "1854690",
+      "ControlGroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/fd10-lead-park-combined01-client.service",
+      "WorkingDirectory": "/mnt/NVME4/fourthdimension-runs/fd10-lead-20261115/park-combined01"
+    },
+    "server": {
+      "ActiveState": "active",
+      "MainPID": "1854176",
+      "ControlGroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/fd10-lead-park-combined01-server.service",
+      "WorkingDirectory": "/mnt/NVME4/fourthdimension-runs/fd10-lead-20261115/park-combined01"
+    }
+  },
+  "jvm": {
+    "client": {
+      "pid": "1854691",
+      "flags": "1854691:\n-XX:CICompilerCount=12 -XX:ConcGCThreads=5 -XX:+FlightRecorder -XX:G1ConcRefinementThreads=18 -XX:G1EagerReclaimRemSetThreshold=12 -XX:G1HeapRegionSize=1048576 -XX:G1RemSetArrayOfCardsEntries=12 -XX:G1RemSetHowlMaxNumBuckets=8 -XX:G1RemSetHowlNumBuckets=4 -XX:GCDrainStackTargetSize=64 -XX:InitialHeapSize=100663296 -XX:MarkStackSize=4194304 -XX:MaxHeapSize=1610612736 -XX:MaxNewSize=965738496 -XX:MinHeapDeltaBytes=1048576 -XX:MinHeapSize=8388608 -XX:NonNMethodCodeHeapSize=7602480 -XX:NonProfiledCodeHeapSize=122027880 -XX:ProfiledCodeHeapSize=122027880 -XX:ReservedCodeCacheSize=251658240 -XX:+SegmentedCodeCache -XX:SoftMaxHeapSize=1610612736 -XX:+UseCompressedOops -XX:+UseG1GC \n",
+      "command": "/usr/lib/jvm/java-21-openjdk/bin/java -Xmx1536M -Dfourthdimension.parkManifest=/mnt/NVME4/fourthdimension-runs/fd10-lead-20261115/park-combined01/park.json -Dfourthdimension.performanceFile=/mnt/NVME4/fourthdimension-runs/fd10-lead-20261115/park-combined01/evidence/client-combined14.jsonl -Dfourthdimension.performanceSeconds=3600 @/mnt/NVME4/fourthdimension-runs/fd10-lead-20261115/park-combined01/runtime14/moddev/clientRunClasspath.txt @/mnt/NVME4/fourthdimension-runs/fd10-lead-20261115/park-combined01/runtime14/moddev/clientRunVmArgs.txt -Dfml.modFolders= net.neoforged.devlaunch.Main @/mnt/NVME4/fourthdimension-runs/fd10-lead-20261115/park-combined01/runtime14/moddev/clientRunProgramArgs.txt "
+    },
+    "server": {
+      "pid": "1854177",
+      "flags": "1854177:\n-XX:CICompilerCount=12 -XX:ConcGCThreads=5 -XX:+FlightRecorder -XX:G1ConcRefinementThreads=18 -XX:G1EagerReclaimRemSetThreshold=12 -XX:G1HeapRegionSize=1048576 -XX:G1RemSetArrayOfCardsEntries=12 -XX:G1RemSetHowlMaxNumBuckets=8 -XX:G1RemSetHowlNumBuckets=4 -XX:GCDrainStackTargetSize=64 -XX:InitialHeapSize=67108864 -XX:MarkStackSize=4194304 -XX:MaxHeapSize=2147483648 -XX:MaxNewSize=1287651328 -XX:MinHeapDeltaBytes=1048576 -XX:MinHeapSize=8388608 -XX:NonNMethodCodeHeapSize=7602480 -XX:NonProfiledCodeHeapSize=122027880 -XX:ProfiledCodeHeapSize=122027880 -XX:ReservedCodeCacheSize=251658240 -XX:+SegmentedCodeCache -XX:SoftMaxHeapSize=2147483648 -XX:+UseCompressedOops -XX:+UseG1GC \n",
+      "command": "/usr/lib/jvm/java-21-openjdk/bin/java -Xmx2048M -Dfourthdimension.parkManifest=/mnt/NVME4/fourthdimension-runs/fd10-lead-20261115/park-combined01/park.json -Dfourthdimension.performanceFile=/mnt/NVME4/fourthdimension-runs/fd10-lead-20261115/park-combined01/evidence/server-combined14.jsonl -Dfourthdimension.performanceSeconds=3600 @/mnt/NVME4/fourthdimension-runs/fd10-lead-20261115/park-combined01/runtime14/moddev/serverRunClasspath.txt @/mnt/NVME4/fourthdimension-runs/fd10-lead-20261115/park-combined01/runtime14/moddev/serverRunVmArgs.txt -Dfml.modFolders= net.neoforged.devlaunch.Main @/mnt/NVME4/fourthdimension-runs/fd10-lead-20261115/park-combined01/runtime14/moddev/serverRunProgramArgs.txt "
+    }
+  },
+  "snapshot": "/mnt/NVME4/fourthdimension-runs/fd10-lead-20261115/park-combined01/runtime14/snapshot.json",
+  "jar_sha256": "85d3550dbc7fabe82815c6f54b7af231e1156f02c9ec3e262ad05371dbe34b74"
+}

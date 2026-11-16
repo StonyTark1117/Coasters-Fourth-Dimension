@@ -1,6 +1,6 @@
 # Current qualification record
 
-Updated 2026-11-15 UTC. This is the single artifact index for the active roadmap.
+Updated 2026-11-16 UTC. This is the single artifact index for the active roadmap.
 The selected build is a **qualification baseline, not an accepted release candidate**.
 FD404 is complete as the 0.4 five-family development checkpoint; FD905 remains
 open for 1.0 release qualification. A later source change has its own identity,
@@ -56,18 +56,52 @@ assigned owners. Existing accepted milestones retain their own identities.
 to `docs/RECOVERY.md` and `THIRD_PARTY.md`; unique `scripts/fd10-art-*` and `docs/evidence/1.0/art/`.
 Lead will not edit these paths concurrently. No runtime shared path is transferred.
 
-**FD901/FD904B checkpoint:** the first current base65-test native run exposed
-stale original-five enum/ordinal fixtures and cascading capacity failures;
-logs and saved world are preserved. Lead repairs the finite inputs, and
-Mechanisms returned bounded readiness repairs in three PAX test methods.
-Native recipe selection also exposed three exact recipe collisions; lead owns
-only newer Fixed Inverted/Suspended track pattern and Powered Inverted governor
-pattern corrections plus targeted recipe-manager verification. These changes do
-not reopen motion, persistence or visual geometry. Remaining profiles wait for
-corrected base acceptance. [Private native-GPU setup](evidence/1.0/lead/gpu-path.md)
-now renders an actual RX7900XTX image through EGL/VirtualGL into owned Xvfb;
-Minecraft/workload measurements are still required. No exclusive performance
-window is reserved yet.
+**FD901 complete / FD904B in progress:** Native compatibility and the three
+quiet subsystem timing scenes are accepted in the [native reconciliation](evidence/1.0/lead/native/README.md).
+The lead's [fixed park protocol](evidence/1.0/lead/park/protocol.md) uses17 styles,
+21 chassis,34 carriers,198 rails and90 occupied seats on the private native-GPU
+client. [Preparation corrections](evidence/1.0/lead/park/preparation.md) repair
+benchmark operator sequencing without changing production mechanics. The base
+300-second sample passed:6000 ticks at19.995TPS,p95 tick44.704ms and frame12.431ms,
+lossless collectors and unchanged53 allocated native plots. Its world is saved;
+all `park-base02` units are verified inactive. Combined comparison, sustained
+window and remaining occupied views remain open. Lead owns `park-combined01`,
+private display323, ports25664/25665; its server loaded the verified saved copy.
+Client startup passed with serial early mod initialization. One clean save/reopen
+and ordinary Capture/Transfer restored the initially refused empty Roller/Dive
+boarding state; the failed first load and bounded recovery are preserved in
+preparation. Runtime12's first300-second combined window failed the initial
+p95 whole-server tick budget:63.124ms against50ms. The nominal1800-second run
+was stopped at366seconds; no sustained pass is claimed. Both recorders stopped
+losslessly. All groups subsequently returned ready and fault-free, Dev dismounted
+normally, all fixture riders unloaded, and the server saved; all three units
+are inactive/PID0. The saved world and failed recordings are preserved.
+A60-second JFR identified repeated full-section bearing/rivet scans and curve-key
+string construction. Lead's bounded live-palette exclusion and endpoint-key reuse
+passed two targeted native tests (24 same-tick scan comparisons, ordinary-cart
+control, endpoint mutation/reversal and handle editing). Runtime13's first300
+recorded6000ticks,p95 tick48.786ms and frame p95=14.536ms, but is **not accepted**:
+Conventional Flying remained prone-locked at the dock after the earlier warmup
+drain cleared its helper preparation state. The required17-group cycling workload
+was not met. The attempt is stopped and preserved. Normal Flying dispatch and
+an explicit per-group movement check corrected the preconditions. Fresh warmup
+`combined13d` passed all17 movements; replacement window `combined13r2` first300
+recorded6000ticks,p95=48.974ms and frame p95=14.485ms,90 riders and no faults.
+The sustained attempt stopped at843seconds: Flying cycle7 remained physically
+stationary against the east shaft at the final roll endpoint from approximately
+546seconds. Both JVM recorders stopped losslessly (zero drops); the resource
+sampler closed with843 samples. The first300 remains valid; the sustained case
+stays open. A saved stalled-world checkpoint and native bearing/shaft geometry
+identified the contact. Mirroring only that endpoint's drive to the west retained
+128RPM and the same native Chain span/speed. Removing the east contact shaft
+released the bearing within92ticks with all4 riders retained and no fault.
+Normal capture/seated-lock return passed with all4 riders. After normal unload
+and save, all runtime13 units stopped. Runtime14 now warms the same corrected
+world with90 riders before the outstanding sustained window. The source example
+uses the same west port with negative-axis motor sign compensation. This repairs
+example equipment placement; the nominal-envelope clearance exemption is unchanged.
+Accepted base and lifecycle evidence stay closed.
+Lead owns the active `park-combined01` client/server/Xvfb323 runtime through cleanup.
 
 **FD904B bounded mechanisms repair complete (2026-11-15):** The mechanisms
 owner returned `vehicle/RollerBallRuntime.java`, new
@@ -113,7 +147,7 @@ RETURNING/CAPTURING restarts and supported OUTBOUND Repair → Realign → Recov
 full cycle/Open/Shift passed. Existing eight-block realignment bounds remain;
 all owner runtimes are stopped. Production ownership returned to lead. Targeted
 idle/caught native checks and the physical16-rider cycle passed; its timing check
-awaits the quiet performance window. All44 native recipes passed after three
+also passed in the quiet performance window. All44 native recipes passed after three
 newer-pattern corrections. Original base coverage is cumulative; the remaining
 23-case run passed21, and its two isolated boundaries plus six new directed
 variant/family rejects and Pipeline bare-bearing denial then passed3/3.

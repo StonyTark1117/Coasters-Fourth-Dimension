@@ -4,6 +4,9 @@
   "package": "dev.fourthdimension.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
+    "ManagedPlotScanMixin",
+    "BezierCurveKeyMixin",
+    "PeerCurveKeyMixin",
     "RailEligibilityMixin",
     "InitialSnapMixin",
     "ManualSnapAccess",

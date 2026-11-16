@@ -152,7 +152,10 @@ public final class FlyingExamples {
           spanEdges.stream().mapToDouble(e -> TrackGeometry.table(level,e).length()).sum());
       var axis = Math.abs(tangent[i].z) > .5 ? Direction.Axis.X : Direction.Axis.Z;
       anchor.commitChainLift(axis, ChainLiftEndRef.anchor(spanEdges.getLast().to()), path);
-      var direction = axis == Direction.Axis.X ? Direction.EAST : (i == 8 || i == 9) ? Direction.NORTH : Direction.SOUTH;
+      // The final quarter-roll sweeps the bearing's upper half east of the port.
+      // Feed its upright endpoint from the west so the approaching bearing clears the shaft.
+      var direction = i == 6 ? Direction.WEST : axis == Direction.Axis.X ? Direction.EAST
+          : (i == 8 || i == 9) ? Direction.NORTH : Direction.SOUTH;
       // Keep full motor cubes outside the vehicle reservation; only native shafts meet the port.
       for(int step=1;step<=2;step++)level.setBlockAndUpdate(anchors.get(i).relative(direction,step),
           AllBlocks.SHAFT.getDefaultState().setValue(BlockStateProperties.AXIS,axis));
@@ -160,7 +163,8 @@ public final class FlyingExamples {
       level.setBlockAndUpdate(pos, AllBlocks.CREATIVE_MOTOR.getDefaultState()
           .setValue(BlockStateProperties.FACING, direction.getOpposite()));
       ((CreativeMotorBlockEntity) level.getBlockEntity(pos)).generatedSpeed.setValue(
-          (i<=1?64:128) * anchor.getChainLiftTravelSign() * (direction == Direction.NORTH ? -1 : 1));
+          (i<=1?64:128) * anchor.getChainLiftTravelSign()
+              * (direction.getAxisDirection() == Direction.AxisDirection.NEGATIVE ? -1 : 1));
     }
     FoundationData.Vehicle vehicle = includeVehicle ? FlyingVehicle.create(level, sample(level, edges.getFirst(), 6)) : null;
     // Capture must be reachable before lift entry, including a safely stopped

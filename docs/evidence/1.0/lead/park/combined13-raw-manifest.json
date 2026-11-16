@@ -1,0 +1,54 @@
+{
+  "combined13r2-windows.jsonl": {
+    "sha256": "043fa12e44244407a4fda7a64f5d8ea29713442640538d18424b601790f8b627",
+    "bytes": 539262,
+    "compressed_sha256": "906da24d67ac232d3a7cacb357e4b72b8d13011c417d7a2934a9f26399bb36d2",
+    "last_row": {
+      "kind": "sustained_stopped",
+      "unix_ns": 1794799582548832942,
+      "reason": "Flying cycle7 stationary on elevated track near(-499.4873,122.6248,333.8125) since about546seconds; first300 remains valid, sustained17-group cycling failed."
+    }
+  },
+  "combined13r2-resources.jsonl": {
+    "sha256": "4953560ac2fd7f6a5534938ab5a9dfebe78aa864e6f6a4237d7270a6b92e595e",
+    "bytes": 9076129,
+    "compressed_sha256": "2e3c8c468a0fce202694be86d00cf1040b492e5bfc7a48e99f5c2d1a9dc4b2d3",
+    "last_row": {
+      "kind": "complete",
+      "samples": 843,
+      "reason": "stop_file",
+      "unix_ns": 1794799583075283343,
+      "elapsed_seconds": 843.0001062049996
+    }
+  },
+  "client-combined13b.jsonl": {
+    "sha256": "18e9adb03b89653ee05e9b41a147bc8acdcc3eab7826e3a43e8de12f7d44263d",
+    "bytes": 54597787,
+    "compressed_sha256": "2997ec5c0b01b90f7cde54c5b165a96d21bbe29369d40ca1e3dedef277e0877b",
+    "last_row": {
+      "kind": "complete",
+      "unix_ns": 1794799582639748075,
+      "monotonic_ns": 544375039269231,
+      "process": "client",
+      "reason": "stop_file",
+      "rows": 276216,
+      "dropped_events": 0,
+      "lossless": true
+    }
+  },
+  "server-combined13b.jsonl": {
+    "sha256": "e3bbdf47ba1ea2c6618e2c6eba63a56bdcea87cd5af34ed98880164f4fddf5c1",
+    "bytes": 8011961,
+    "compressed_sha256": "2ddc99c22a277fa7fe3215554c18a36fd72db4d896399f750ceeedbd8969a35a",
+    "last_row": {
+      "kind": "complete",
+      "unix_ns": 1794799582616652363,
+      "monotonic_ns": 544375016169699,
+      "process": "server",
+      "reason": "stop_file",
+      "rows": 50489,
+      "dropped_events": 0,
+      "lossless": true
+    }
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "run": {
+    "root": "/mnt/NVME4/fourthdimension-runs/fd10-lead-20261115/park-base02",
+    "owner": "01a1dd1d-1468-7f81-8f31-5532ad7a178d",
+    "display": 322,
+    "unit_prefix": "fd10-lead-park-base02",
+    "player": "Dev",
+    "client_script": "/mnt/NVME4/fourthdimension-runs/fd10-lead-20261115/park-base02/client-launch.sh",
+    "server_script": "/mnt/NVME4/fourthdimension-runs/fd10-lead-20261115/park-base02/server-launch.sh",
+    "client_limit": "6G",
+    "server_limit": "4G"
+  },
+  "runtime": "/mnt/NVME4/fourthdimension-runs/fd10-lead-20261115/park-base02/runtime11",
+  "files": {
+    "client-launch.sh": "074bad5f6c16c043fd7bf49c167d39673e6ba7a90604e1d66c717ef96b97653e",
+    "server-launch.sh": "88234e4e81cee18f253318ee0ec3b0a69600dd6a98deb3a1156b9130ac9f71e3",
+    "park.json": "22d56798d1ea70c13d2d96d65d84abbd177809fd78ad8df85645f3119bbaeb79",
+    "runtime11/moddev/gameTestServerRunClasspath.txt": "8c3f2cd4c076d6347ddb1fc731c7f6fd7de9ca0d5c0c183fbcb38139e616d889",
+    "runtime11/moddev/gameTestServerRunProgramArgs.txt": "d978833c5f1ecbc766df0d49bbcbaa55190f87bd03678f5a3589b1f59164d5af",
+    "runtime11/moddev/gameTestServerRunVmArgs.txt": "145fd296726ba2c651fcdb8ec6bdd0bb17d91dd295b2dfbdea4f205c08a284c9",
+    "runtime11/moddev/gameTestServerLegacyClasspath.txt": "056b04b5a37edae83898b60887c8194b7021d90925157fab14cee18359c13981",
+    "runtime11/moddev/serverRunClasspath.txt": "8c3f2cd4c076d6347ddb1fc731c7f6fd7de9ca0d5c0c183fbcb38139e616d889",
+    "runtime11/moddev/serverRunProgramArgs.txt": "687a39019a7d0f18b313217ac31c160e9c0eff115daa241785bfd118721e0a97",
+    "runtime11/moddev/serverRunVmArgs.txt": "c95526c247dbe12ff2b24e6ac33005e03ecf2a2f0a2ce7caa19f24fa76f2e3ef",
+    "runtime11/moddev/serverLegacyClasspath.txt": "056b04b5a37edae83898b60887c8194b7021d90925157fab14cee18359c13981",
+    "runtime11/moddev/clientRunClasspath.txt": "8c3f2cd4c076d6347ddb1fc731c7f6fd7de9ca0d5c0c183fbcb38139e616d889",
+    "runtime11/moddev/clientRunProgramArgs.txt": "aba88c7e03a355e954cfd2cf82ca253cf0fb36558f6a955c055daa84fe712da4",
+    "runtime11/moddev/clientRunVmArgs.txt": "8e8d9ed8e769dac26b597c0846a6009c37ff6f984c8354652e0bda2dcab0fdba",
+    "runtime11/moddev/clientLegacyClasspath.txt": "1c979cf20ff91cb7e9184c59fd50f0429e43fcf608eb178592791c04990459d0",
+    "runtime11/libs/coasters-fourth-dimension-0.9.0-dev.27.jar": "a198b49ee1307246b758d5eda508926089941bc889d821f662c7ac2e8b9a5a64"
+  },
+  "dependency_identity_source": "../freeze.json; actual loaded profile retained in server/client logs",
+  "source_overlay": {
+    "source": "/mnt/NVME4/fourthdimension-runs/fd10-lead-20261115/park-base02/runtime08/libs/coasters-fourth-dimension-0.9.0-dev.27.jar",
+    "sha256": "a198b49ee1307246b758d5eda508926089941bc889d821f662c7ac2e8b9a5a64",
+    "sources": {
+      "src/main/java/dev/fourthdimension/gametest/Fd904ParkFixture.java": "f1ab139c88f0ec389d6da815e3e3dda53385695f8ab99fddd8b26c0c71f4b457"
+    }
+  }
+}

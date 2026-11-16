@@ -1,0 +1,38 @@
+{
+  "base-windows.jsonl": {
+    "source": "/mnt/NVME4/fourthdimension-runs/fd10-lead-20261115/park-base02/evidence/base-windows.jsonl",
+    "sha256": "74fa7c026a2114d46b81614a3b8dc35d3590af63dc9acfa2814e97a1bc831cc0",
+    "archive": "base-windows.jsonl.gz",
+    "archive_sha256": "fe46171c02afa155ab8951170f3edf6454905496854d5bdeee62e5a4a560d039"
+  },
+  "base-resources.jsonl": {
+    "source": "/mnt/NVME4/fourthdimension-runs/fd10-lead-20261115/park-base02/evidence/base-resources.jsonl",
+    "sha256": "683377cabef78602125a8365b213db745aada61ab94e30a266d4354573469f2f",
+    "archive": "base-resources.jsonl.gz",
+    "archive_sha256": "410a28473f25758e52af1a0b76f1961ed6cb743bd84d80d9dd7bb5f41ef94faf"
+  },
+  "client-base11.jsonl": {
+    "source": "/mnt/NVME4/fourthdimension-runs/fd10-lead-20261115/park-base02/evidence/client-base11.jsonl",
+    "sha256": "1bd9108d2e568b077d2221472e79a6848a5a128640fbfa35e4bb1b985fa01668",
+    "archive": "client-base11.jsonl.gz",
+    "archive_sha256": "c9670d62f4ea390e3980df367b4eb228bbbd9c74fdccfda5b8b4c57242b6d2fe"
+  },
+  "server-base11.jsonl": {
+    "source": "/mnt/NVME4/fourthdimension-runs/fd10-lead-20261115/park-base02/evidence/server-base11.jsonl",
+    "sha256": "ff7d8b788b60971b5e075613890d382acab357e1c7dacef726b7ecc1450ed2d6",
+    "archive": "server-base11.jsonl.gz",
+    "archive_sha256": "76f6d3dd7ecc27c0d1e24db5dfb215e38fec9f5bf2aaec8acb9b491b2f112e75"
+  },
+  "native-allocation-before.json": {
+    "source": "/mnt/NVME4/fourthdimension-runs/fd10-lead-20261115/park-base02/evidence/native-allocation-before.json",
+    "sha256": "39d254d04b45ece0bd31f65656f7f57b34c40374a10c3584ad09162353059336",
+    "archive": "native-allocation-before.json.gz",
+    "archive_sha256": "746edb45f7e0a83bc042f88e73349bccc0f1400009978f50d5b44fc52a26a838"
+  },
+  "native-allocation-after.json": {
+    "source": "/mnt/NVME4/fourthdimension-runs/fd10-lead-20261115/park-base02/evidence/native-allocation-after.json",
+    "sha256": "3945a184f2ddd2dc3095e0e9dcb4081dd79dc11e067b5f3ac6c5b5e187b343b7",
+    "archive": "native-allocation-after.json.gz",
+    "archive_sha256": "201e97b3f758c42ecd604f9098cc72e2e4cec850c4c6276a164525cd8e5e4ea9"
+  }
+}
