@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased — expanded 1.0 qualification
+## 1.0.0 — qualified candidate, unreleased
 
 - Freeze all 17 adopted styles: original Arrow/Legacy/Free Spin/Revised/PAX, Wing,
   S1/S2 Spinning, Suspended, Fixed Inverted, Axis, Roller Ball, both Flying
@@ -33,18 +33,32 @@
   the existing eight-block realignment limit still rejects out-of-range states.
   [Accepted lifecycle evidence](docs/evidence/1.0/mechanisms/README.md) records the
   bounded repair candidate separately from the final release artifact.
-- Reconcile expanded camera coverage and current Fast/Fancy/Fabulous nonempty
-  geometry, resource reload and clean shutdown. Representative-park performance,
-  final lifecycle/compatibility aggregation and release packaging retain their
-  separate qualification records.
+- Complete compatibility/lifecycle qualification, expanded camera coverage and
+  Fast/Fancy/Fabulous nonempty geometry, resource reload and clean shutdown.
+  [Representative-park acceptance](docs/evidence/1.0/lead/park/README.md) includes
+  all 17 mounted views, a 1,800-second sustained workload/memory plateau and
+  candidate17 base/combined checks under the existing later-regression ceilings.
+- Correct colliding recipe patterns without changing ingredient/output counts,
+  restore the supported full four-rider Roller Ball lift, and move the Flying
+  example's obstructing endpoint drive to the west with its native Chain span
+  and speed preserved. [Bounded amendments](docs/evidence/1.0/lead/freeze-amendments.md)
+  retain the failures, affected acceptance and unchanged support boundaries.
+- Reduce native scan and endpoint-string overhead without caching geometry,
+  editable handles or safety decisions. Optimize track vertex emission with
+  [byte-equivalence and reload proof](docs/evidence/1.0/lead/park/renderer-repair.md),
+  preserving geometry, materials, poses and resource lifetime.
 - Preserve ±1024 horizontal coordinates, declared dimension admission limits,
   bounded ordinary-bearing recovery and optional-provider restrictions. Vehicle
   concepts are independently authored game approximations. No manufacturer assets
   or optional addon binaries are bundled.
 
-The [current queue](docs/CURRENT-QUALIFICATION.md#current-work-queue) owns final
-status. The retained `0.9.0-dev.27` qualification label is not a published1.0
-version. [FD1000](docs/evidence/1.0/lead/freeze.md) pins the feature baseline;
+The [accepted candidate](docs/evidence/1.0/lead/release-candidate.md) records source
+`c7bb65938bfbe7e7dd2feecbedbe5d7801b10a08` and candidate17's checksum. Its retained
+`0.9.0-dev.27` label is not a published1.0 version. Intended stable **1.0.0**
+still requires FD1002 reproducible packaging, final checksum and clean-install
+verification, followed by release-readiness review. The
+[current queue](docs/CURRENT-QUALIFICATION.md#current-work-queue) owns that status.
+[FD1000](docs/evidence/1.0/lead/freeze.md) pins the feature baseline;
 [FD903/FD904 evidence](docs/evidence/1.0/art/migration.md) records affected checks.
 Historical entries below describe their own checkpoints and limitations; a later
 artifact does not restart closed cases or retroactively change those results.

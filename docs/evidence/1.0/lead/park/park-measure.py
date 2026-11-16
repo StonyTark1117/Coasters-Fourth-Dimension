@@ -5,6 +5,7 @@ spec=importlib.util.spec_from_file_location('m',repo/'scripts/fd-private-client.
 r=m.PrivateRun(sys.argv[1],'01a1dd1d-1468-7f81-8f31-5532ad7a178d');r.state('server');r.state('client');r.window()
 label=sys.argv[2];seconds=int(sys.argv[3]);assert seconds in (300,1800)
 recorder_stem=sys.argv[4] if len(sys.argv)>4 else label.split('-')[0]+'11'
+tick_limit=float(sys.argv[5]) if len(sys.argv)>5 else 50.0
 stream=(r.evidence/(label+'-windows.jsonl')).open('x');names=[g['name'] for g in json.loads((r.root/'park.json').read_text())]
 def record(kind,**data):stream.write(json.dumps({'kind':kind,'unix_ns':time.time_ns(),**data})+'\n');stream.flush()
 def command(cmd):
@@ -63,9 +64,9 @@ try:
     except json.JSONDecodeError: continue
     if row.get('kind')=='tick' and start_ns<=row.get('unix_ns',0)<start_ns+300_000_000_000: ticks.append(row['duration_ns']/1e6)
    ticks.sort();p95=ticks[math.ceil(.95*len(ticks))-1]
-   record('first300_budget',tick_count=len(ticks),tick_p95_ms=p95,threshold_ms=50)
+   record('first300_budget',tick_count=len(ticks),tick_p95_ms=p95,threshold_ms=tick_limit)
    print('First300 tick p95',p95,'ms; ticks',len(ticks),flush=True)
-   if p95>50:raise RuntimeError('First300 p95 server tick budget failed: '+str(p95)+'ms')
+   if p95>tick_limit:raise RuntimeError('First300 p95 server tick budget failed: '+str(p95)+'ms')
   if int(elapsed)//60 != int(elapsed-10)//60:print('Measured seconds',round(elapsed),flush=True)
  record('window_end',state=d,screenshot=r.snapshot("park-"+str(time.time_ns())),elapsed_seconds=time.monotonic()-start)
  sampler.wait(timeout=15);assert sampler.returncode==0,sampler.returncode

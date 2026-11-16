@@ -99,7 +99,7 @@ whole-JAR equality is not required. Keep the original run identity and limits.
 | 0.9 | FD910–FD916 | Complete 2026-11-15 | Skin, rotating-seat integration, Immersion, Waterparked/Create Coasters coexistence, and the accepted model/texture baseline. |
 | Pre-1.0 production | FD917 | Complete | Production models/materials, connected mechanisms and truthful state presentation for all 17 vehicle styles, required tracks/equipment/items and affected optional appearances. |
 | 1.0 alpha | FD1000 | Complete 2026-11-15 | All adopted vehicle families, variants, 1.0 integrations and FD917 production visuals accepted; freeze feature scope and supported profiles. |
-| 1.0 beta / RC | FD901–FD905 | Evidence in progress; final gates open | Integrated stabilization, compatibility, lifecycle, migration, rendering and performance; carry accepted cases forward. |
+| 1.0 beta / RC | FD901–FD905 | Complete | Integrated stabilization, compatibility, lifecycle, migration, rendering and performance; carry accepted cases forward. |
 | 1.0 stable | FD1001–FD1003 | Planned | Final documentation, reproducible packaging and separately authorized publication. |
 | 1.1 | FD1602–FD1605 | Planned | Shareable setting presets, colors/liveries and a unified operator panel; Fixed Inverted is already a 1.0 requirement. |
 | 1.2 | FD1701B–C, FD1703 | Planned | Bounded ride-local multi-train operation using the earlier FD1701A authority; Dive is already a 1.0 requirement. |
@@ -1004,17 +1004,17 @@ unsupported conversions refuse safely, and the documented backup recovery works.
 
 **Execution steps:** [FD904](docs/roadmap/1.0-release.md#fd904).
 
-**Status: in progress.** The quiet addon timing scenes and base/combined five-minute
-samples have evidence. [The fixed park record](docs/evidence/1.0/lead/park/README.md)
-records the completed sustained/memory check and remaining frame comparison
-and mounted views.
+**Status: complete (2026-11-16 UTC).** Rendering, camera and the
+[fixed park record](docs/evidence/1.0/lead/park/README.md) cover every required
+criterion, including sustained memory, all17 occupied views and the affected
+renderer comparisons at the frozen budgets. Owned runtimes are stopped.
 
 **Depends on:** FD1000 for final qualification, FD006. FD904C1 has the early prerequisites below; FD904C2 reconciles later coverage. **Design:** D16, D17.
 
 | Task / status | Required scenario and pass condition | Evidence / next action |
 | --- | --- | --- |
 | <a id="fd904a"></a> **FD904A Rendering — complete 2026-11-16 UTC** [Steps](docs/roadmap/1.0-release.md#fd904a) | Accepted original-family checks plus new mechanism-specific rider/body/camera coverage and the frozen advertised graphics profiles; nonempty `geometryStages` >=500, correct ownership and visible geometry, clean reload and shutdown; solver/frame/rider evidence retains its measured bounds | [Final rendering reconciliation](docs/evidence/1.0/art/rendering.md), [historical render evidence](docs/evidence/0.9/client-render-sampling.md) and [artifact reuse map](docs/CURRENT-QUALIFICATION.md). Accepted FAST/FABULOUS gates and FD401B visuals carry forward when their render inputs are unchanged; run only missing/changed paths. FD402B supplies recovery views; FD917 supplies the production visual baseline, retaining unchanged FD916 evidence. Resolve new required visual failures before FD905 without a second all-family art review. |
-| <a id="fd904b"></a> **FD904B Representative park — in progress** [Steps](docs/roadmap/1.0-release.md#fd904b) | The fixed mixed-family scene, declared hardware/settings, frame/tick percentiles, heap/RSS/cgroup and GC measurements, frozen budgets and one combined-profile 30-minute sustained run defined in [PERFORMANCE.md](docs/PERFORMANCE.md#representative-park-acceptance-fd904b) | [Measured park evidence](docs/evidence/1.0/lead/park/README.md) records verified collectors, accepted base timing and valid combined first300, bounded repairs, completed sustained/memory check and remaining frame-comparison and occupied-view work. An initial baseline can close initial measured acceptance without a duplicate same-artifact run. Keep 120,000 ns/runtime invocation and 6,000 ns/carrier limits in all four native profiles. No existing average or llvmpipe capture proves GPU smoothness. |
+| <a id="fd904b"></a> **FD904B Representative park — complete 2026-11-16 UTC** [Steps](docs/roadmap/1.0-release.md#fd904b) | The fixed mixed-family scene, declared hardware/settings, frame/tick percentiles, heap/RSS/cgroup and GC measurements, frozen budgets and one combined-profile 30-minute sustained run defined in [PERFORMANCE.md](docs/PERFORMANCE.md#representative-park-acceptance-fd904b) | [Measured park evidence](docs/evidence/1.0/lead/park/README.md) records verified collectors, accepted base timing and valid combined first300, bounded repairs, completed sustained/memory check, all17 occupied views and passing affected renderer comparisons. An initial baseline can close initial measured acceptance without a duplicate same-artifact run. Keep 120,000 ns/runtime invocation and 6,000 ns/carrier limits in all four native profiles. No existing average or llvmpipe capture proves GPU smoothness. |
 | <a id="fd904c"></a> **FD904C Rider camera and comfort — complete 2026-11-16 UTC** [Steps](docs/roadmap/1.0-release.md#fd904c) | FD904C1 owns the independently closable 0.5 baseline; FD904C2 reconciles later family/effects coverage for final qualification | [D16](PLAN.md#d16-riders-and-synchronization). FD503 and FD912 depend only on FD904C1. Later cases do not reopen a completed baseline or require a second camera implementation. |
 
 **Done when:** FD904A–C pass on stated configurations, the performance budget is
@@ -1061,7 +1061,7 @@ FD904C parent from C1 and C2 without replaying either one's accepted cases.
 
 **Execution steps:** [FD905](docs/roadmap/1.0-release.md#fd905).
 
-**Status: planned; awaiting FD901–FD904 and all earlier release gates.**
+**Status: complete (2026-11-16 UTC).** [Candidate reconciliation](docs/evidence/1.0/lead/release-candidate.md) selects source `c7bb6593` and qualified candidate17; all prerequisites pass with scoped carry-forward. Intended stable version is1.0.0; publication is separate.
 
 **Depends on:** FD1000, FD901–FD904.
 
@@ -1083,7 +1083,7 @@ complete input-hash inventory for unaffected claims or relabel historical runs.
 
 **Execution steps:** [FD1001](docs/roadmap/1.0-release.md#fd1001).
 
-**Status: planned.**
+**Status: complete (2026-11-16 UTC).** [Documentation signoff](docs/evidence/1.0/art/release-documentation.md) matches FD905 and intended1.0.0; stable artifact identity is supplied by FD1002.
 
 **Depends on:** FD905.
 
@@ -1095,7 +1095,7 @@ Finalize installation instructions, version/dependency matrix, all included fami
 
 **Execution steps:** [FD1002](docs/roadmap/1.0-release.md#fd1002).
 
-**Status: planned.**
+**Status: in progress.** Lead is reproducing1.0.0 and checking the prepared clean client/server install.
 
 **Depends on:** FD905, FD1001.
 

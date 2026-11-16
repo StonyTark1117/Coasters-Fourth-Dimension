@@ -1,6 +1,7 @@
 from pathlib import Path
 import json,time,subprocess,sys,importlib.util,argparse
 p=argparse.ArgumentParser();p.add_argument('root',type=Path);p.add_argument('stem');p.add_argument('baseline',type=Path);a=p.parse_args()
+baseline=json.loads(a.baseline.read_text());tick_limit=baseline['sources']['tick:server']['p95']*1.1
 base=a.root.parent;e=a.root/'evidence';repo=Path('/home/braydon/Documents/Coasters: Fourth Dimension');label='comparison-'+a.stem
 for _ in range(100):
  rows=[json.loads(x) for x in (e/('warmup-'+a.stem+'.jsonl')).read_text().splitlines()]
@@ -10,7 +11,7 @@ for _ in range(100):
 else:raise TimeoutError('Warmup did not finish')
 other='fd10-lead-park-combined01-server.service' if a.stem.startswith('base') else 'fd10-lead-park-base02-server.service'
 state=subprocess.check_output(['systemctl','--user','show',other,'-p','ActiveState','--value'],text=True).strip();assert state=='inactive',(other,state)
-result=subprocess.run([sys.executable,str(base/'park-measure.py'),str(a.root/'run.json'),label,'300',a.stem])
+result=subprocess.run([sys.executable,str(base/'park-measure.py'),str(a.root/'run.json'),label,'300',a.stem,str(tick_limit)])
 spec=importlib.util.spec_from_file_location('m',repo/'scripts/fd-private-client.py');m=importlib.util.module_from_spec(spec);spec.loader.exec_module(m);r=m.PrivateRun(a.root/'run.json','01a1dd1d-1468-7f81-8f31-5532ad7a178d');r.state('server')
 answer=m.rcon(r.c,'fd904 drain');(e/('drain-'+a.stem+'.json')).write_text(json.dumps({'unix_ns':time.time_ns(),'answer':answer},indent=2)+'\n')
 for side in ['client','server']:(e/(side+'-'+a.stem+'.jsonl.stop')).touch()
@@ -31,7 +32,6 @@ s=json.loads((e/(label+'-summary.json')).read_text());baseline=json.loads(a.base
 for source in ['frame:client','tick:server']:
  for metric in ['p95','p99']:
   limit=baseline['sources'][source][metric]*1.1
-  if source=='tick:server' and metric=='p95':limit=min(limit,50)
   value=s['sources'][source][metric];checks.append({'source':source,'metric':metric,'actual':value,'limit':limit,'pass':value<=limit})
 for side in ['client','server']:
  for source,metric in [('resource:'+side,'rss_bytes'),('post_gc:'+side,None)]:

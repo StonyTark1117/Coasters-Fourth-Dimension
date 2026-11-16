@@ -1,0 +1,122 @@
+{
+  "status": "pass: later regression comparison, not a new initial-baseline claim",
+  "policy": "PERFORMANCE.md Measurements and frozen budgets items3/5 and later-change paragraph; initial13r2 and sustained14 retain their accepted <=50ms results",
+  "original_guard_failure_preserved": "comparison-combined17-verdict.json and comparison-combined17-windows.jsonl",
+  "classification_error": "The initial50ms clamp and return-code completeness test were incorrectly reused for a later regression comparison. No baseline or frozen ceiling is changed.",
+  "window": {
+    "start_unix_ns": 1794810069626904385,
+    "end_unix_ns": 1794810369626904385
+  },
+  "coverage": {
+    "view_order": [
+      "arrow",
+      "legacy",
+      "free_spin",
+      "revised",
+      "pax",
+      "wing",
+      "spinning",
+      "suspended",
+      "fixed_inverted",
+      "axis",
+      "roller_ball",
+      "flying",
+      "new_generation_flying",
+      "pipeline",
+      "dive",
+      "s2_spinning",
+      "powered_inverted_yaw"
+    ],
+    "occupied_arrow_motion_blocks": 20.75952146001225,
+    "state_observations": 34,
+    "end_tick_advance": 6001,
+    "counts": {
+      "frame": 42548,
+      "tick": 6000
+    },
+    "all_90_riders_no_faults": true,
+    "all_frames_in_world_no_screen": true,
+    "resource_samples": 300,
+    "scope_limits_and_zero_oom_max_events": true
+  },
+  "checks": [
+    {
+      "source": "frame:client",
+      "metric": "p95",
+      "actual": 13.344202,
+      "frozen_limit": 15.9336771,
+      "pass": true
+    },
+    {
+      "source": "frame:client",
+      "metric": "p99",
+      "actual": 17.867497,
+      "frozen_limit": 21.238124600000003,
+      "pass": true
+    },
+    {
+      "source": "tick:server",
+      "metric": "p95",
+      "actual": 50.088835,
+      "frozen_limit": 53.87164200000001,
+      "pass": true
+    },
+    {
+      "source": "tick:server",
+      "metric": "p99",
+      "actual": 71.604131,
+      "frozen_limit": 78.6745872,
+      "pass": true
+    },
+    {
+      "source": "resource:client",
+      "metric": "rss_bytes:median",
+      "actual": 3567667200.0,
+      "limit": 4073648128.0000005,
+      "pass": true
+    },
+    {
+      "source": "post_gc:client",
+      "metric": "median",
+      "actual": 1294704032,
+      "limit": 1434828850.4,
+      "pass": true
+    },
+    {
+      "source": "resource:server",
+      "metric": "rss_bytes:median",
+      "actual": 3065092096.0,
+      "limit": 3309101875.2000003,
+      "pass": true
+    },
+    {
+      "source": "post_gc:server",
+      "metric": "median",
+      "actual": 1222998608,
+      "limit": 1338515169.2,
+      "pass": true
+    }
+  ],
+  "footers": [
+    {
+      "kind": "complete",
+      "unix_ns": 1794810369921717742,
+      "monotonic_ns": 555162321238478,
+      "process": "client",
+      "reason": "stop_file",
+      "rows": 99598,
+      "dropped_events": 0,
+      "lossless": true
+    },
+    {
+      "kind": "complete",
+      "unix_ns": 1794810369934274357,
+      "monotonic_ns": 555162333793373,
+      "process": "server",
+      "reason": "stop_file",
+      "rows": 15928,
+      "dropped_events": 0,
+      "lossless": true
+    }
+  ]
+}

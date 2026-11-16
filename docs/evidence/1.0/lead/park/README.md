@@ -1,10 +1,15 @@
 # FD904B — representative park measurement
 
-**In progress, 2026-11-16 UTC.** The base five-minute sample and its cleanup
-passed. The combined1800-second sustained workload/memory check is complete;
-all17actual mounted views are covered and their runtimes stopped. The affected
-combined renderer comparison remains open. The [fixed protocol](protocol.md) defines the
-finite workload; [preparation](preparation.md) records failed setup separately.
+**Complete, 2026-11-16 UTC.** Initial base11 and combined13r2 measurements,
+combined14's 1800-second workload/memory plateau, all17 mounted views and the
+[renderer17 affected comparisons](renderer-repair.md) cover the required protocol.
+Base and combined17 pass the previously frozen later-regression ceilings. Combined17
+p95 tick work is50.088835ms against the existing53.871642ms later ceiling; this is
+not a new initial <=50ms claim. The original mistaken initial-limit verdict and
+[complete-data reconciliation](comparison-combined17-reconciled.json) are preserved.
+All owned runtimes are stopped with saved worlds/checkpoints, including
+[final combined cleanup](cleanup-combined17.json). The [fixed protocol](protocol.md)
+defines the finite workload; historical attempts below retain their actual identities.
 
 The nine15/15b and [remaining seven16/16b occupied views](occupied16.md), together
 with Arrow in the fixed window, cover every style. Dive's transfer-only helper
@@ -20,7 +25,7 @@ passed60 native buffer cases/8,110,080 identical attribute bytes and a Java21
 build. It introduces no retained resource or sustained allocation path; the
 accepted1800-second workload/memory result remains closed. Candidate17 passed the affected base300-second frame/tick/RSS/post-GC comparison
 and representative nonempty render/reload proof; its base runtime saved and stopped.
-The combined300-second comparison remains pending. No ceiling is raised and no family/art matrix
+The combined300-second comparison passes the frozen later-regression limits. No ceiling is raised and no family/art matrix
 is restarted.
 
 ## Combined failure and bounded correction

@@ -73,14 +73,11 @@ but it prevents an accelerated-Flywheel claim for shader-mode sampling.
 
 ## Representative park acceptance (FD904B)
 
-**Status: in progress.** [The fixed park evidence](evidence/1.0/lead/park/README.md)
-records the accepted base and valid combined five-minute samples; sustained
-memory, the affected frame comparison and remaining mounted views are open. This
-protocol extends the existing subsystem checks under
-[VALIDATION-POLICY.md](VALIDATION-POLICY.md). The 120,000 ns/invocation and
-6,000 ns/carrier limits above remain unchanged. Reuse accepted native profile
-checks unless a performance-relevant change affects them; they are not a
-four-profile prerequisite to every park measurement.
+**Status: complete (2026-11-16 UTC).** [The fixed park evidence](evidence/1.0/lead/park/README.md)
+covers initial base/combined acceptance, the30-minute sustained workload/memory
+plateau, all17 mounted views and candidate17's affected comparisons at the
+previously frozen later-regression limits. All owned park runtimes saved and stopped.
+Admission limits remain separate from the measured workload's performance tier.
 
 FD502 owns early collector readiness and useful development measurements. Final
 expanded-park acceptance is scheduled after FD1000; earlier valid subsystem and
@@ -200,3 +197,10 @@ Until the applicable measurements exist, FD904B stays planned/in progress.
 Neither the original nine-chassis scene nor the expanded frozen workload certifies
 maximum-capacity parks: 64 vehicles and other admission limits remain separate
 correctness boundaries covered by FD901.
+
+The 1.0 [park acceptance record](evidence/1.0/lead/park/README.md) is complete
+(2026-11-16 UTC): initial base/combined measurements, all17 mounted styles,
+combined30-minute workload and memory plateau, and renderer17's affected later
+comparisons are accepted. The [classifier correction](evidence/1.0/lead/park/renderer-repair.md#combined-comparison-and-evaluator-correction)
+retains the original failed initial-limit check and all samples; the already-frozen
+later limits are unchanged. All owned park runtimes saved and stopped.

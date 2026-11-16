@@ -1,11 +1,11 @@
 # Current qualification record
 
 Updated 2026-11-16 UTC. This is the single artifact index for the active roadmap.
-The selected build is a **qualification baseline, not an accepted release candidate**.
-FD404 is complete as the 0.4 five-family development checkpoint; FD905 remains
-open for 1.0 release qualification. A later source change has its own identity,
-but unaffected acceptance carries forward under [VALIDATION-POLICY.md](VALIDATION-POLICY.md).
-Do not reselect the baseline or repeat a run just because the commit/JAR changed.
+FD905 is complete: [the accepted candidate](evidence/1.0/lead/release-candidate.md)
+is source `c7bb6593`, candidate17 SHA-256 `77170d33…`. FD404 remains the completed
+0.4 checkpoint. Intended stable version1.0.0 now proceeds through FD1001–FD1003;
+publication remains unauthorized. Historical runs retain their own identities
+under [VALIDATION-POLICY.md](VALIDATION-POLICY.md).
 
 Planning allocation updated 2026-11-11: FD404 is the five-family development
 checkpoint; FD1000 owns the expanded 1.0 alpha freeze. The identities and runtime
@@ -146,20 +146,17 @@ base/combined300-second checks are pending. No threshold changes, sustained-wind
 reset or all-family art review is introduced. Runtime16 remains on immutable14
 while its remaining mounted segments finish; builds wait until those samples end.
 
-**Current remaining FD904B work:** All17mounted views are now covered by Arrow,
-nine15/15b and [seven16/16b segments](evidence/1.0/lead/park/occupied16.md).
-Dive's transfer-only helper setup was diagnosed and corrected in the same mounted
-client; its nonmoving interval is excluded. Both16 recorders closed losslessly;
-normal unload/save/checkpoint and all three inactive/PID0 units are verified.
-The renderer's60-case byte check and Java21 build pass. Candidate17 SHA-256
-`77170d33e8a4a6993b3d4c2fc4f70ed3a491f19f83948fa75ced752ed485b5c5`
-changes only track-renderer classes. Lead owns the affected base/combined300-second
-checks at existing ceilings plus representative reload; sustained/memory remains
-closed. Base17 passed all frozen frame/tick/RSS/post-GC limits and completed normal
-unload/save/checkpoint; all base units are inactive/PID0. Representative Fancy
-reload restored visible geometry with4,992nonempty stages. Combined17 now warms
-on private323, ports25664/25665; only its fixed300 comparison remains. Lead owns
-that runtime through cleanup.
+**Current closure / next action:** FD904B and FD904 are complete. All17 mounted
+views, initial base/combined samples, the1800-second sustained plateau and
+[renderer17 affected comparisons](evidence/1.0/lead/park/renderer-repair.md) pass.
+The combined17 initial-limit classifier error is preserved and reconciled against
+the unchanged later-regression ceiling using the complete raw300-second interval.
+Both park runtimes saved, unloaded and stopped; final units are inactive/PID0.
+[FD905](evidence/1.0/lead/release-candidate.md) is complete on source `c7bb6593`,
+candidate17 SHA-256 `77170d33e8a4a6993b3d4c2fc4f70ed3a491f19f83948fa75ced752ed485b5c5`.
+[FD1001 documentation](evidence/1.0/art/release-documentation.md) is complete for intended1.0.0; lead owns FD1002 reproducible packaging
+and the prepared clean client/server install, then unpublished FD1003 readiness.
+Earlier progress paragraphs above are retained run history, not open assignments.
 
 **FD904B bounded mechanisms repair complete (2026-11-15):** The mechanisms
 owner returned `vehicle/RollerBallRuntime.java`, new
@@ -213,7 +210,7 @@ variant/family rejects and Pipeline bare-bearing denial then passed3/3.
 **FD904C2/C complete:** [the all-17-style camera reconciliation](evidence/1.0/art/camera-reconciliation.md)
 combines accepted C1/FD912, each distinct pose/restoration and FD917 production
 rider views. Relevant shared camera paths are unchanged; no new camera run is
-required. [FD903 migration](evidence/1.0/art/migration.md) and [FD904A rendering](evidence/1.0/art/rendering.md) are also complete: actual historical sustained rides, exact offline restore/two-player seats, all three current graphics modes and normal cleanup passed. FD904B remains assigned and open.
+required. [FD903 migration](evidence/1.0/art/migration.md) and [FD904A rendering](evidence/1.0/art/rendering.md) are also complete: actual historical sustained rides, exact offline restore/two-player seats, all three current graphics modes and normal cleanup passed. FD904B subsequently closed in the current closure entry above.
 
 These are whole-outcome assignments; guide steps are procedures, not extra gates.
 Owners can inspect and prepare independently while FD1000 is reconciled. Final

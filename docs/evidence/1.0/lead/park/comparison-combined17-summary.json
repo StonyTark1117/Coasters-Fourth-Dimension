@@ -1,0 +1,197 @@
+{
+  "collector_errors": [],
+  "scope": "measurement summary only; no workload, GPU or acceptance certification",
+  "window": {
+    "start_unix_ns": 1794810069626904385,
+    "end_unix_ns": 1794810369626904385
+  },
+  "sources": {
+    "frame:client": {
+      "count": 42548,
+      "median": 6.797064000000001,
+      "p95": 13.344202,
+      "p99": 17.867497,
+      "max": 40.993493,
+      "percentile_method": "nearest-rank",
+      "units": "ms",
+      "over_50_ms": 0,
+      "over_100_ms": 0,
+      "measurement": "CPU frame-start intervals; not GPU presentation"
+    },
+    "tick:server": {
+      "count": 6000,
+      "median": 27.911558,
+      "p95": 50.088835,
+      "p99": 71.604131,
+      "max": 122.569755,
+      "percentile_method": "nearest-rank",
+      "units": "ms",
+      "over_50_ms": 303
+    },
+    "gc:client": {
+      "count": 1039,
+      "median": 1.89765,
+      "p95": 3.053835,
+      "p99": 8.282158,
+      "max": 20.592904,
+      "percentile_method": "nearest-rank",
+      "units": "ms",
+      "post_gc_heap_bytes": null
+    },
+    "gc:server": {
+      "count": 420,
+      "median": 2.093919,
+      "p95": 3.21822,
+      "p99": 4.238089,
+      "max": 5.171019,
+      "percentile_method": "nearest-rank",
+      "units": "ms",
+      "post_gc_heap_bytes": null
+    },
+    "post_gc:client": {
+      "count": 831,
+      "median": 1294704032,
+      "p95": 1399388776,
+      "p99": 1418705144,
+      "max": 1523833888,
+      "percentile_method": "nearest-rank"
+    },
+    "post_gc:server": {
+      "count": 325,
+      "median": 1222998608,
+      "p95": 1458006312,
+      "p99": 1505601504,
+      "max": 1547528464,
+      "percentile_method": "nearest-rank"
+    },
+    "heap:client": {
+      "count": 298,
+      "median": 1405764000.0,
+      "p95": 1507882944,
+      "p99": 1525136288,
+      "max": 1525627776,
+      "percentile_method": "nearest-rank"
+    },
+    "heap:server": {
+      "count": 292,
+      "median": 1700149072.0,
+      "p95": 2007946944,
+      "p99": 2028890192,
+      "max": 2062379280,
+      "percentile_method": "nearest-rank"
+    },
+    "resource:client": {
+      "rss_bytes": {
+        "count": 300,
+        "median": 3567667200.0,
+        "p95": 3578646528,
+        "p99": 3608088576,
+        "max": 3608174592,
+        "percentile_method": "nearest-rank"
+      },
+      "cgroup_bytes": {
+        "count": 300,
+        "median": 3419662336.0,
+        "p95": 3432054784,
+        "p99": 3460669440,
+        "max": 3462103040,
+        "percentile_method": "nearest-rank"
+      },
+      "lifetime_cgroup_peak_bytes": 3462848512
+    },
+    "resource:server": {
+      "rss_bytes": {
+        "count": 300,
+        "median": 3065092096.0,
+        "p95": 3071549440,
+        "p99": 3071565824,
+        "max": 3071565824,
+        "percentile_method": "nearest-rank"
+      },
+      "cgroup_bytes": {
+        "count": 300,
+        "median": 3072028672.0,
+        "p95": 3087626240,
+        "p99": 3088691200,
+        "max": 3088846848,
+        "percentile_method": "nearest-rank"
+      },
+      "lifetime_cgroup_peak_bytes": 3089555456
+    }
+  },
+  "missing": [],
+  "final_three_five_minute_periods": [
+    {
+      "start_unix_ns": 1794809469626904385,
+      "end_unix_ns": 1794809769626904385,
+      "processes": {}
+    },
+    {
+      "start_unix_ns": 1794809769626904385,
+      "end_unix_ns": 1794810069626904385,
+      "processes": {}
+    },
+    {
+      "start_unix_ns": 1794810069626904385,
+      "end_unix_ns": 1794810369626904385,
+      "processes": {
+        "client": {
+          "rss_bytes": {
+            "count": 300,
+            "median": 3567667200.0,
+            "p95": 3578646528,
+            "p99": 3608088576,
+            "max": 3608174592,
+            "percentile_method": "nearest-rank"
+          },
+          "post_gc_heap_bytes": {
+            "count": 831,
+            "median": 1294704032,
+            "p95": 1399388776,
+            "p99": 1418705144,
+            "max": 1523833888,
+            "percentile_method": "nearest-rank"
+          }
+        },
+        "server": {
+          "rss_bytes": {
+            "count": 300,
+            "median": 3065092096.0,
+            "p95": 3071549440,
+            "p99": 3071565824,
+            "max": 3071565824,
+            "percentile_method": "nearest-rank"
+          },
+          "post_gc_heap_bytes": {
+            "count": 325,
+            "median": 1222998608,
+            "p95": 1458006312,
+            "p99": 1505601504,
+            "max": 1547528464,
+            "percentile_method": "nearest-rank"
+          }
+        }
+      }
+    }
+  ],
+  "inputs": [
+    {
+      "path": "/mnt/NVME4/fourthdimension-runs/fd10-lead-20261115/park-combined01/evidence/client-combined17.jsonl",
+      "rows": 99599,
+      "completed_footer": true,
+      "dropped_events": 0
+    },
+    {
+      "path": "/mnt/NVME4/fourthdimension-runs/fd10-lead-20261115/park-combined01/evidence/server-combined17.jsonl",
+      "rows": 15929,
+      "completed_footer": true,
+      "dropped_events": 0
+    },
+    {
+      "path": "/mnt/NVME4/fourthdimension-runs/fd10-lead-20261115/park-combined01/evidence/comparison-combined17-resources.jsonl",
+      "rows": 302,
+      "completed_footer": true,
+      "dropped_events": null
+    }
+  ]
+}

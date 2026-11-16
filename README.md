@@ -6,14 +6,20 @@ saved ride programs and optional integrations. The rides are independently autho
 game interpretations inspired by coaster concepts; manufacturer names do not imply
 endorsed assets, exact engineering or verified real-world coupling.
 
-**1.0 qualification is in progress.** The expanded feature set and production art
-are frozen; final release acceptance and packaging are tracked in
-[ROADMAP](ROADMAP.md) and [the current qualification queue](docs/CURRENT-QUALIFICATION.md#current-work-queue).
-The qualification JAR still carries the historical `0.9.0-dev.27` label. That label
-is not a published 1.0 release. [Frozen inputs](docs/evidence/1.0/lead/freeze.md)
-identify the actual source, JAR and dependencies. Earlier checkpoint limitations
-remain historical evidence in the [changelog](CHANGELOG.md); they do not reopen
-completed cases.
+**The release candidate is qualified for intended version 1.0.0.**
+[FD905](docs/evidence/1.0/lead/release-candidate.md) records accepted source
+`c7bb65938bfbe7e7dd2feecbedbe5d7801b10a08`, candidate17's checksum and the
+completed compatibility, lifecycle, migration, rendering and performance gates.
+The qualified JAR still carries the historical `0.9.0-dev.27` label. Stable
+1.0.0 packaging, its final checksum and clean-install verification remain with
+FD1002; no stable release has been published. [ROADMAP](ROADMAP.md) and
+[the current qualification queue](docs/CURRENT-QUALIFICATION.md#current-work-queue)
+track packaging and release readiness.
+
+[Frozen inputs](docs/evidence/1.0/lead/freeze.md) and
+[accepted amendments](docs/evidence/1.0/lead/freeze-amendments.md) define the
+qualified scope and dependencies. Earlier checkpoint limitations remain historical
+evidence in the [changelog](CHANGELOG.md); they do not reopen completed cases.
 
 ## Install
 
@@ -149,6 +155,10 @@ Supported graphics are Minecraft Fast, Fancy and Fabulous with the pinned stack.
 Historical shader observations do not advertise a current Sodium/shader profile.
 [Performance](docs/PERFORMANCE.md) distinguishes component timing and renderer
 correctness from representative-park whole-frame/tick/memory results.
+The [accepted park evidence](docs/evidence/1.0/lead/park/README.md) covers all
+17 mounted views, the 1,800-second sustained workload and memory plateau, and
+candidate17's base/combined checks against existing later-regression ceilings.
+Those measurements apply to their recorded hardware, settings and workload.
 
 Unknown schemas/providers and unsupported conversions fail closed. A future
 external Track Styles Arrow4D functional adapter, standalone builder tools,

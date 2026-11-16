@@ -1,0 +1,85 @@
+{
+  "baseline": "/home/braydon/Documents/Coasters: Fourth Dimension/docs/evidence/1.0/lead/park/combined13r2-first300-summary.json",
+  "complete_measurement": false,
+  "checks": [
+    {
+      "source": "frame:client",
+      "metric": "p95",
+      "actual": 13.344202,
+      "limit": 15.9336771,
+      "pass": true
+    },
+    {
+      "source": "frame:client",
+      "metric": "p99",
+      "actual": 17.867497,
+      "limit": 21.238124600000003,
+      "pass": true
+    },
+    {
+      "source": "tick:server",
+      "metric": "p95",
+      "actual": 50.088835,
+      "limit": 50,
+      "pass": false
+    },
+    {
+      "source": "tick:server",
+      "metric": "p99",
+      "actual": 71.604131,
+      "limit": 78.6745872,
+      "pass": true
+    },
+    {
+      "source": "resource:client",
+      "metric": "rss_bytes:median",
+      "actual": 3567667200.0,
+      "limit": 4073648128.0000005,
+      "pass": true
+    },
+    {
+      "source": "post_gc:client",
+      "metric": "median",
+      "actual": 1294704032,
+      "limit": 1434828850.4,
+      "pass": true
+    },
+    {
+      "source": "resource:server",
+      "metric": "rss_bytes:median",
+      "actual": 3065092096.0,
+      "limit": 3309101875.2000003,
+      "pass": true
+    },
+    {
+      "source": "post_gc:server",
+      "metric": "median",
+      "actual": 1222998608,
+      "limit": 1338515169.2,
+      "pass": true
+    }
+  ],
+  "all_pass": false,
+  "footers": [
+    {
+      "kind": "complete",
+      "unix_ns": 1794810369921717742,
+      "monotonic_ns": 555162321238478,
+      "process": "client",
+      "reason": "stop_file",
+      "rows": 99598,
+      "dropped_events": 0,
+      "lossless": true
+    },
+    {
+      "kind": "complete",
+      "unix_ns": 1794810369934274357,
+      "monotonic_ns": 555162333793373,
+      "process": "server",
+      "reason": "stop_file",
+      "rows": 15928,
+      "dropped_events": 0,
+      "lossless": true
+    }
+  ]
+}

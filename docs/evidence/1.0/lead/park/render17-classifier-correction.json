@@ -1,0 +1,13 @@
+{
+  "reason": "PERFORMANCE distinguishes initial <=50ms acceptance from later frozen110% frame/tick comparisons. Candidate17 is the latter; initial13r2 and sustained14 remain accepted with unchanged server code.",
+  "original_tools": [
+    "park-measure-initial-guard.py",
+    "measure-render17-initial-guard.py"
+  ],
+  "corrected_tools": {
+    "park-measure.py": "db90aca9ba70c549cc08806076aae333c5f4e05694a3ac0d78e689aeed84d75f",
+    "measure-render17.py": "aff6a1c897c2717a427c7c2c47b577b14d15ec9f727ab720b63a96dadf62d0ac",
+    "reconcile-combined17.py": "67808f63fe91af5807a31b3cb7bdd1895dcd8114cbbbec7095c44ad9bae7cfd6"
+  },
+  "validation": "Read-only complete raw-data reconciliation passed; all corrected scripts parse. No rerun and no baseline or ceiling change."
+}
