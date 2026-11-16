@@ -69,6 +69,41 @@ now renders an actual RX7900XTX image through EGL/VirtualGL into owned Xvfb;
 Minecraft/workload measurements are still required. No exclusive performance
 window is reserved yet.
 
+**FD904B bounded mechanisms repair complete (2026-11-15):** The mechanisms
+owner returned `vehicle/RollerBallRuntime.java`, new
+`gametest/Fd904RollerLoadGameTests.java`, its uniquely named empty GameTest
+namespace, and `docs/evidence/1.0/mechanisms/roller-load/` for the park's
+four-rider lift-join diagnosis and any demonstrated correction. The four-seat
+load fixture previously proved dock mass/hinge behavior; the accepted moving
+route carried one rider. The park's four synthetic riders stalled at the first
+curve-to-vertical join without a fault. Required criterion: supported full-load
+Roller Ball progresses through its powered lift while retaining riders and the
+accepted guide limits. Compare load in the same native process before changing
+physics. This transfer does not reopen FD902 or the accepted one-rider route.
+Lead retains the park world, profile bridges, central status and sole Git
+integration. The [full-load native repair](evidence/1.0/mechanisms/roller-load/README.md) passed
+with four unique riders, guide limits, power-loss hold, explicit resume and full
+return. All eight units are inactive/PID0; source ownership is back with lead.
+
+**FD1001 narrow documentation handoff complete:** Art returned `README.md`,
+`CHANGELOG.md`, and `docs/RECOVERY.md` after reconciling the accepted Arrow travel
+limiter described below. Intended stable version is 1.0.0; final documentation
+closure still waits for FD905 and artifact identities. No runtime replay is
+assigned for these prose changes.
+
+**FD901 current-pin bridges:** Styles passed 3/3, combined-core 5/5, and
+operations' installed-provider ownership bridge 1/1. Engineered passed 11/12;
+the remaining linked Arrow full-turn/rollback exposed FD917's finite spring
+fault on a previously accepted continuous program. Lead's bounded passive
+`ArrowTravelGovernor` now slows native translation across the complete consist
+before the unchanged 3 rad/s seat servo exhausts its spring margin. The unchanged
+powered-train test and FD917 normal/capture/persistence/abrupt-overtravel test
+passed together 2/2. Full turns, reverse winding, independent axles, native
+coupling and riders were preserved; deliberate +8-radian discontinuity still
+faults. The three quiet subsystem timing scenes subsequently passed with the Arrow
+governor and final Roller repair. [FD901 is complete](evidence/1.0/lead/native/README.md).
+No passing profile or recovery case is reopened.
+
 **FD902 complete:** [final lifecycle reconciliation](evidence/1.0/mechanisms/README.md)
 closes A/B/C and the aggregate. The bounded production repair in
 `shuttle/ShuttleRuntime.java` and `ShuttleWinchEntity.recover` preserves original

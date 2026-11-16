@@ -1,0 +1,75 @@
+diff --git a/src/main/java/dev/fourthdimension/vehicle/RollerBallRuntime.java b/src/main/java/dev/fourthdimension/vehicle/RollerBallRuntime.java
+index 64fa8794..c68a53ad 100644
+--- a/src/main/java/dev/fourthdimension/vehicle/RollerBallRuntime.java
++++ b/src/main/java/dev/fourthdimension/vehicle/RollerBallRuntime.java
+@@ -154,22 +154,64 @@ public final class RollerBallRuntime {
+       var center=CoasterCartResolve.cartCenterWorld(p);var hit=CoasterPathTrackFrame.closestHitOnEdge(l,edge,new Vec3(center.x,center.y,center.z));
+       var basis=CoasterPathTrackFrame.trackBasisAtHit(l,hit);double signed=velocity.dot(basis.forward().x,basis.forward().y,basis.forward().z);
+       if(Math.abs(signed)>.1){if(s.direction!=0&&Math.signum(signed)!=s.direction)fault(l,v,"Roller Ball unexpected reversal; retained brake");else s.direction=Math.signum(signed);}
++      boolean chainDriven=false;
++      Vector3d childBeforeChain=null;
++      if(!v.stopping&&r.rollerSection!=FREE){
++        var span=ChainLiftSpanQuery.findAtGraphHit(l,hit,0);
++        double chainSpeed=span==null?0:ChainLiftDriveDirection.signedChainBlocksPerSecond(span.anchor(),span.path(),0,256,16);
++        double target=span==null?0:-ChainLiftSpanQuery.chainWorldVelocityAtHit(l,span.path(),hit,chainSpeed,0).dot(basis.forward());
++        var gravity=dev.ryanhcode.sable.physics.config.dimension_physics.DimensionPhysicsData.getGravity(l);
++        double alongGravity=gravity.dot(basis.forward().x,basis.forward().y,basis.forward().z);
++        if(Math.abs(chainSpeed)>=.001&&target*alongGravity< -1e-6){
++          // Coasters speed-matches only the running-gear body. Our separate, loaded
++          // carrier otherwise dilutes that correction through the hinge and can stall
++          // before a vertical join. Share the native uphill Chain drive with its load;
++          // level/downhill spans retain their existing native path, with no assistance
++          // on unpowered rail or independent target/gravity cancellation.
++          childBeforeChain=pipeline.getLinearVelocity(child,new Vector3d());
++          CoasterCartChainLiftDrive.applySpeedMatch(child,l,SubLevelContainer.getContainer(l).physicsSystem(),hit,basis,dt);
++          chainDriven=true;
++        }
++      }
+       double limit=guided?1.75:r.rollerSection==RETURN?2.5:6.5;
+       if(guided){
+         var path=TrackGeometry.table(l,edge);double distance=path.distanceAt(hit.t());
+-        double remaining=signed>=0?path.length()-distance:distance;
+-        boolean straight=r.from.getY()==r.to.getY()||r.from.getZ()==r.to.getZ();
+-        double boundary=straight?remaining:Math.min(distance,path.length()-distance);
++        double boundary=Math.min(distance,path.length()-distance);
+         // Curves are tangent-continuous but curvature can step at an anchor. Approach
+-        // that join slowly so the native frame's pitch-rate step stays inside guide acceleration.
++        // and leave that join slowly: the native running-gear frame can still be
++        // finishing the curve when the nearest center hit has entered the straight.
+         limit=Math.min(limit,.1+.5*Math.max(0,boundary-1));
+       }
+       var tangent=new Vector3d(basis.forward().x,basis.forward().y,basis.forward().z);
+       double travelSpeed=measuredVelocity.dot(tangent);
++      if(chainDriven){
++        // Chain writes a pre-solve velocity to each body. Predict their shared
++        // translation after gravity, so a stronger loaded pull cannot outrun the
++        // join limit for one substep. Keeping gravity in this estimate avoids
++        // mistaking lift support for travel (and braking a loaded car to rest).
++        double parentMass=p.getMassTracker().getMass(),childMass=child.getMassTracker().getMass();
++        var childVelocity=pipeline.getLinearVelocity(child,new Vector3d());
++        double predicted=pipeline.getLinearVelocity(p,new Vector3d()).mul(parentMass)
++            .add(new Vector3d(childVelocity).mul(childMass))
++            .div(parentMass+childMass).dot(tangent)
++            +dev.ryanhcode.sable.physics.config.dimension_physics.DimensionPhysicsData.getGravity(l).dot(tangent)*dt;
++        // Native Chain can accelerate at 64 blocks/s², while this guide's brake
++        // is bounded to 24. Trim only the extra carrier pull which that brake
++        // cannot absorb this substep; never weaken braking or invent propulsion.
++        double direction=Math.signum(predicted);
++        double added=Math.max(0,childVelocity.sub(childBeforeChain).dot(tangent)*direction);
++        double excess=Math.max(0,Math.abs(predicted)-limit-24*dt);
++        double trim=Math.min(added,excess*(parentMass+childMass)/childMass);
++        if(trim>0){
++          pipeline.addLinearAndAngularVelocity(child,new Vector3d(tangent).mul(-direction*trim),new Vector3d());
++          predicted-=direction*trim*childMass/(parentMass+childMass);
++        }
++        if(Math.abs(predicted)>Math.abs(travelSpeed))travelSpeed=predicted;
++      }
+       if(Math.abs(travelSpeed)>limit){
+         var delta=tangent.mul(-Math.copySign(Math.min(Math.abs(travelSpeed)-limit,24*dt),travelSpeed));
+-        // Read actual pose travel across the preceding native substep. Pre-solve velocities
+-        // include Chain's pull and gravity support, which must not be mistaken for motion.
++        // Brake both bodies equally using completed travel and, on powered rail,
++        // the gravity-adjusted prediction above rather than raw support velocity.
+         pipeline.addLinearAndAngularVelocity(p,new Vector3d(delta),new Vector3d());
+         pipeline.addLinearAndAngularVelocity(child,new Vector3d(delta),new Vector3d());
+       }

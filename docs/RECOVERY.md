@@ -69,6 +69,24 @@ and its actual carriage, clears the winch assignment, and preserves the native
 four-car couplings and all chassis/carrier bodies. Moving shuttles reject handover.
 Normal winch binding remains unavailable until recovery is disconnected.
 
+## Arrow control-coupling overtravel
+
+Steep continuous Arrow rotation programs can limit the whole linked train's
+travel speed. Passive braking accounts for the approaching profile slope and
+actual transmission lag, allowing the unchanged 3 rad/s seat servo to follow
+the program. It preserves full-turn winding and the saved profile and supplies
+no propulsion.
+
+The finite transmission guard still applies. Abrupt overtravel releases the
+control coupling and captures/stops the linked train with
+`Arrow control coupling overtravel: capture and inspect the profile`.
+Wait for capture to settle, inspect the profile and correct the cause before
+using the normal explicit ride controls. Travel limiting does not make an
+abrupt discontinuity valid or authorize automatic restart. The
+[targeted repair evidence](evidence/1.0/lead/freeze-amendments.md#continuous-arrow-program-regression--targeted-repair)
+retains both the continuous full-turn/rollback proof and the deliberate
+overtravel fault check.
+
 ## PAX shuttle interruption recovery
 
 An assigned PAX shuttle uses its winch's **Recover** action. The ordinary-bearing

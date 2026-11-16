@@ -6,7 +6,8 @@
       "MainPID": "0",
       "Result": "success"
     },
-    "journal_sha256": "597a8c36e23a8d266e92b3cffcdf49c5e31c20ca4f004160d06b994e8ff62e5c"
+    "journal_sha256": "597a8c36e23a8d266e92b3cffcdf49c5e31c20ca4f004160d06b994e8ff62e5c",
+    "console_sha256": "79b8e45d2b158d208d6fc1e81b758a58bbc1dac9c2e82414ef3915a59b27ccee"
   },
   "native-isolated01": {
     "unit": "fd10-lead-native-isolated01",
@@ -15,7 +16,8 @@
       "MainPID": "0",
       "Result": "exit-code"
     },
-    "journal_sha256": "563bda681ee4609cd06188f41be059d59d9895858763ea874e48a7370f79e1a3"
+    "journal_sha256": "563bda681ee4609cd06188f41be059d59d9895858763ea874e48a7370f79e1a3",
+    "console_sha256": "64e73206fe57b13d4c1d4e62d529b232c7b9a3ddb898b48064316709290472da"
   },
   "native-three01": {
     "unit": "fd10-lead-native-three01",
@@ -58,5 +60,110 @@
   },
   "native-base02": {
     "log_sha256": "2a0379c02c8842aed0f53f27d831e63bfedfe0162dba106945e5fab3d88547ea"
+  },
+  "native-styles01": {
+    "unit": "fd10-lead-native-styles01",
+    "cleanup": {
+      "ActiveState": "inactive",
+      "MainPID": "0",
+      "Result": "success"
+    },
+    "journal_sha256": "0fd5d8b07479a39ff7f98b7e63a7d781f04f720c909ab773ee0f457e457cd93b",
+    "profile.json": {
+      "profile": "styles",
+      "namespace": "fourthdimension_fd901",
+      "filter": "AppearanceGameTests,FamilyEligibilityGameTests",
+      "performance": false,
+      "jarSha256": "decf9775c3cc1492128d4a006b778b3de58757454bb5962600f8dbf19dee5ad6"
+    }
+  },
+  "native-engineered01": {
+    "unit": "fd10-lead-native-engineered01",
+    "cleanup": {
+      "ActiveState": "failed",
+      "MainPID": "0",
+      "Result": "exit-code"
+    },
+    "journal_sha256": "c4c22ca8df991402246c1c2a3b34f7f516ba657984ca5debe153384315488f4d",
+    "profile.json": {
+      "profile": "engineered",
+      "namespace": "fourthdimension_fd901",
+      "filter": "EngineeredGameTests,EngineeredEnergyGameTests,EngineeredInterlockGameTests,EngineeredAvailabilityGameTests,EngineeredRecoveryAvailabilityGameTests",
+      "performance": false,
+      "jarSha256": "decf9775c3cc1492128d4a006b778b3de58757454bb5962600f8dbf19dee5ad6"
+    }
+  },
+  "native-combined-core01": {
+    "unit": "fd10-lead-native-combined-core01",
+    "cleanup": {
+      "ActiveState": "inactive",
+      "MainPID": "0",
+      "Result": "success"
+    },
+    "journal_sha256": "121a2dbbb348d5f8ae48a695b6355417e7ca8e37b437c72b86113e23c9cb2dbc",
+    "profile.json": {
+      "profile": "styles,engineered",
+      "namespace": "fourthdimension_fd901",
+      "filter": "AppearanceGameTests,FamilyEligibilityGameTests,installedMotorsRespectCaptureAndDriveDispatchedFamilies,nativeEnergyStarvationSupplyBrakeAndRetention",
+      "performance": false,
+      "jarSha256": "decf9775c3cc1492128d4a006b778b3de58757454bb5962600f8dbf19dee5ad6"
+    }
+  },
+  "native-operations01": {
+    "unit": "fd10-lead-native-operations01",
+    "cleanup": {
+      "ActiveState": "inactive",
+      "MainPID": "0",
+      "Result": "success"
+    },
+    "journal_sha256": "b486b752ba7b65488745b2af07aa79c37de42fd99d87f53951d695bfe568f4ec",
+    "profile.json": {
+      "profile": "styles,engineered,additions,ctnb,magnetized",
+      "namespace": "fourthdimension_fd813",
+      "filter": "",
+      "performance": false,
+      "jarSha256": "decf9775c3cc1492128d4a006b778b3de58757454bb5962600f8dbf19dee5ad6"
+    }
+  },
+  "native-arrow-governor01": {
+    "unit": "fd10-lead-native-arrow-governor01",
+    "cleanup": {
+      "ActiveState": "inactive",
+      "MainPID": "0",
+      "Result": "success"
+    },
+    "journal_sha256": "18d01066826750201927148ac935eadf3751d3ed4d7616312a3837e860449f02",
+    "profile.json": {
+      "profile": "engineered",
+      "namespace": "fourthdimension_fd901,fourthdimension_fd917_arrow",
+      "filter": "installedMotorDrivesLinkedControlledTurnsAndRollback",
+      "performance": false,
+      "jarSha256": "a787c2f5041ee454ecf7af7eab661936085c5b65f18a4cc9c0719bc50e53440b"
+    },
+    "overlay.json": {
+      "source": "/mnt/NVME4/fourthdimension-runs/fd10-lead-20261115/native-engineered01/libs/coasters-fourth-dimension-0.9.0-dev.27.jar",
+      "sha256": "a787c2f5041ee454ecf7af7eab661936085c5b65f18a4cc9c0719bc50e53440b",
+      "sources": {
+        "src/main/java/dev/fourthdimension/vehicle/ArrowTravelGovernor.java": "1b0a5b22b485044266581dd6beb1dca88584ee8fe75ef7a281f0fd9bd41472cd",
+        "src/main/java/dev/fourthdimension/runtime/CarrierRuntime.java": "808873a17a8af676d5e9c62c42f12ca05e2fc2b6f0759b9492445e5c7106a230"
+      }
+    }
+  },
+  "native-quiet02": {
+    "cleanup": {
+      "ActiveState": "inactive",
+      "MainPID": "0",
+      "Result": "success"
+    },
+    "journal_sha256": "d129dc0fa32f1d7e50b9d84e972edefc35e22bd92cef331507d8cc5b1324f2c6",
+    "overlay": {
+      "source": "/mnt/NVME4/fourthdimension-runs/fd10-lead-20261115/native-quiet01/libs/coasters-fourth-dimension-0.9.0-dev.27.jar",
+      "sha256": "f51f31df04031e0a03b04ccf7bdb417e66781ffa4590d85a48f1774496dd440c",
+      "sources": {
+        "src/main/java/dev/fourthdimension/vehicle/ArrowTravelGovernor.java": "1b0a5b22b485044266581dd6beb1dca88584ee8fe75ef7a281f0fd9bd41472cd",
+        "src/main/java/dev/fourthdimension/runtime/CarrierRuntime.java": "808873a17a8af676d5e9c62c42f12ca05e2fc2b6f0759b9492445e5c7106a230",
+        "src/main/java/dev/fourthdimension/vehicle/RollerBallRuntime.java": "33f525621bd5c17357eaf23f78493883ba4978e9abaf648704d8d32f5126d712"
+      }
+    }
   }
 }

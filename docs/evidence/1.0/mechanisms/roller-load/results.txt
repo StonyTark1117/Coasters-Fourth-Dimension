@@ -1,0 +1,14 @@
+diagnosis.log
+FD904_ROLLER_START mode=diagnose chassis=959c1e1c-9fda-4480-b68d-c5e82d8d3c35 carrier=b24a054d-1049-4297-a558-b728c915c22a occupants=[2aa1718e-d71b-4fe5-a882-c921ddbe2a3d, a03e1c60-6880-451c-81ee-3570aa4e314e, 34098cc0-e160-4146-a79b-ade50e38a55e, c2e2f48e-eecd-4546-aee4-40914856a35e]
+FD904_ROLLER_UNLOAD tick=1829 center=(-7.495E+2  1.261E+2  1.581E+2) sameProcess=true reset=false chassis=959c1e1c-9fda-4480-b68d-c5e82d8d3c35 carrier=b24a054d-1049-4297-a558-b728c915c22a
+FD904_ROLLER_DIAG_PASS displacement=2.5573452991101604 deltaY=2.5573445040435843 nativeBodiesUnchanged=true
+[18:13:43] [Server thread/INFO] [minecraft/GameTestServer]: All 1 required tests passed :)
+[18:13:50] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage: All dimensions are saved
+qualify06.log
+FD904_ROLLER_START mode=qualify chassis=927c2fb7-e3a0-4cd3-b63c-6b066f78a22a carrier=66953e12-7505-4b53-b168-f401b9f67479 occupants=[1d58075d-d7da-4d06-8bca-46d19e04ca0e, 6b5d88e2-9f2d-4827-8710-b8b7e3a8dd18, 2ca4cd52-9313-48e5-b7ec-6e264f88d98f, 726602e3-fa4c-4429-9cd0-1233c402bbf5]
+FD904_ROLLER_ENTRY tick=1225 guideRate=0.050694434234173975 guideAccel=0.17380189457071538 angleRate=0.11861469650052636 angleAccel=0.24237538219521415
+FD904_ROLLER_POWER_CUT tick=1503 center=(-7.495E+2  1.551E+2  1.581E+2)
+FD904_ROLLER_POWER_HOLD drift=3.0205239912645E-7 velocity=(-4.503E-12 -1.423E-3 -3.259E-6) fault=Roller Ball lift Chain power unavailable
+FD904_ROLLER_CYCLE_PASS tick=7896 guideRate=0.050694434234173975 guideAccel=0.3965098163462243 angleRate=0.1398814797885617 angleAccel=0.5850077196533299 phases=[SECURED, LIFT_GUIDED, LIFT_LOCKED, FREE_DESCENT, RETURN_DAMP, DOCK_CAPTURE, HOLD]
+[18:24:40] [Server thread/INFO] [minecraft/GameTestServer]: All 1 required tests passed :)
+[18:24:43] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage: All dimensions are saved

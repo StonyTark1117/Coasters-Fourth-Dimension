@@ -1,0 +1,36 @@
+{
+  "units_before_clear_failed_status": {
+    "fd904-roller-load-diagnosis": "ActiveState=inactive\nMainPID=0\nResult=success",
+    "fd904-roller-load-qualify01": "ActiveState=failed\nMainPID=0\nResult=exit-code",
+    "fd904-roller-load-qualify02": "ActiveState=failed\nMainPID=0\nResult=exit-code",
+    "fd904-roller-load-qualify03": "ActiveState=failed\nMainPID=0\nResult=exit-code",
+    "fd904-roller-load-qualify04": "ActiveState=failed\nMainPID=0\nResult=exit-code",
+    "fd904-roller-load-trace": "ActiveState=failed\nMainPID=0\nResult=exit-code",
+    "fd904-roller-load-qualify05": "ActiveState=failed\nMainPID=0\nResult=exit-code",
+    "fd904-roller-load-qualify06": "ActiveState=inactive\nMainPID=0\nResult=success"
+  },
+  "owned_java_processes_remaining": [],
+  "port_25691": "State Recv-Q Send-Q Local Address:Port Peer Address:PortProcess\n",
+  "no_client_or_display_started": true,
+  "worlds_preserved": [
+    "/mnt/NVME4/fourthdimension-runs/fd904-roller-load-20261115/diagnosis-restraint-guard/world",
+    "/mnt/NVME4/fourthdimension-runs/fd904-roller-load-20261115/diagnosis/world",
+    "/mnt/NVME4/fourthdimension-runs/fd904-roller-load-20261115/qualify01/world",
+    "/mnt/NVME4/fourthdimension-runs/fd904-roller-load-20261115/qualify02/world",
+    "/mnt/NVME4/fourthdimension-runs/fd904-roller-load-20261115/qualify03/world",
+    "/mnt/NVME4/fourthdimension-runs/fd904-roller-load-20261115/qualify04/world",
+    "/mnt/NVME4/fourthdimension-runs/fd904-roller-load-20261115/trace/world",
+    "/mnt/NVME4/fourthdimension-runs/fd904-roller-load-20261115/qualify05/world",
+    "/mnt/NVME4/fourthdimension-runs/fd904-roller-load-20261115/qualify06/world"
+  ],
+  "units_after_cleanup": {
+    "fd904-roller-load-diagnosis": "ActiveState=inactive\nMainPID=0",
+    "fd904-roller-load-qualify01": "ActiveState=inactive\nMainPID=0",
+    "fd904-roller-load-qualify02": "ActiveState=inactive\nMainPID=0",
+    "fd904-roller-load-qualify03": "ActiveState=inactive\nMainPID=0",
+    "fd904-roller-load-qualify04": "ActiveState=inactive\nMainPID=0",
+    "fd904-roller-load-trace": "ActiveState=inactive\nMainPID=0",
+    "fd904-roller-load-qualify05": "ActiveState=inactive\nMainPID=0",
+    "fd904-roller-load-qualify06": "ActiveState=inactive\nMainPID=0"
+  }
+}

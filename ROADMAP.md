@@ -925,7 +925,7 @@ this scheduling does not defer known defects. Earlier accepted cases stay closed
 
 **Execution steps:** [FD901](docs/roadmap/1.0-release.md#fd901).
 
-**Status: in progress; historical pre-FD404 matrix observed.**
+**Status: complete — 2026-11-15.**
 
 **Depends on:** FD1000 for final qualification. **Design:** D02, D04, D17.
 
@@ -942,10 +942,13 @@ coupling, ordinary bare-bearing fit/non-fit, cosmetic-only tracks and occupied
 boundary braking. External functional tracks qualify only for the specifically
 accepted FD811/FD801 capabilities; staging or cosmetic appearance grants nothing.
 
-**Evidence / next action:** the [historical profile matrix](docs/evidence/0.9/profile-matrix-abc4a9a/README.md)
-passed its 49-test inventory. Map accepted results and current tests to the
-required entry paths, then run uncovered/affected checks or the outstanding
-release sweep. Record actual test counts rather than treating “49” as current.
+**Evidence:** [Frozen-profile reconciliation](docs/evidence/1.0/lead/native/README.md)
+closes the original65-case inventory cumulatively, the current Styles/Engineered/
+combined/operations bridges, six distinct directed variant rejects and Pipeline
+bare-bearing denial. Current-pin expanded-provider evidence carries forward.
+All44 recipes pass native selection; the bounded PAX and Arrow failures have
+passing affected replacements. The three quiet runtime timing scenes pass the
+unchanged120000/6000ns limits. All native qualification runtimes are stopped.
 
 **Done when:** every advertised combination and rejection path has results for
 the selected identity; ordinary carts acquire no 4D effects and a rejected
@@ -1009,7 +1012,7 @@ memory and sustained-park acceptance have not yet been measured.
 | Task / status | Required scenario and pass condition | Evidence / next action |
 | --- | --- | --- |
 | <a id="fd904a"></a> **FD904A Rendering — complete 2026-11-16 UTC** [Steps](docs/roadmap/1.0-release.md#fd904a) | Accepted original-family checks plus new mechanism-specific rider/body/camera coverage and the frozen advertised graphics profiles; nonempty `geometryStages` >=500, correct ownership and visible geometry, clean reload and shutdown; solver/frame/rider evidence retains its measured bounds | [Final rendering reconciliation](docs/evidence/1.0/art/rendering.md), [historical render evidence](docs/evidence/0.9/client-render-sampling.md) and [artifact reuse map](docs/CURRENT-QUALIFICATION.md). Accepted FAST/FABULOUS gates and FD401B visuals carry forward when their render inputs are unchanged; run only missing/changed paths. FD402B supplies recovery views; FD917 supplies the production visual baseline, retaining unchanged FD916 evidence. Resolve new required visual failures before FD905 without a second all-family art review. |
-| <a id="fd904b"></a> **FD904B Representative park — planned** [Steps](docs/roadmap/1.0-release.md#fd904b) | The fixed mixed-family scene, declared hardware/settings, frame/tick percentiles, heap/RSS/cgroup and GC measurements, frozen budgets and one combined-profile 30-minute sustained run defined in [PERFORMANCE.md](docs/PERFORMANCE.md#representative-park-acceptance-fd904b) | Implement/validate whole-frame and whole-server collectors; an initial baseline can close initial measured acceptance without a duplicate same-artifact run. Freeze budgets for later comparisons. Keep 120,000 ns/runtime invocation and 6,000 ns/carrier limits in all four native profiles. No existing average or llvmpipe capture proves GPU smoothness. |
+| <a id="fd904b"></a> **FD904B Representative park — in progress** [Steps](docs/roadmap/1.0-release.md#fd904b) | The fixed mixed-family scene, declared hardware/settings, frame/tick percentiles, heap/RSS/cgroup and GC measurements, frozen budgets and one combined-profile 30-minute sustained run defined in [PERFORMANCE.md](docs/PERFORMANCE.md#representative-park-acceptance-fd904b) | Implement/validate whole-frame and whole-server collectors; an initial baseline can close initial measured acceptance without a duplicate same-artifact run. Freeze budgets for later comparisons. Keep 120,000 ns/runtime invocation and 6,000 ns/carrier limits in all four native profiles. No existing average or llvmpipe capture proves GPU smoothness. |
 | <a id="fd904c"></a> **FD904C Rider camera and comfort — complete 2026-11-16 UTC** [Steps](docs/roadmap/1.0-release.md#fd904c) | FD904C1 owns the independently closable 0.5 baseline; FD904C2 reconciles later family/effects coverage for final qualification | [D16](PLAN.md#d16-riders-and-synchronization). FD503 and FD912 depend only on FD904C1. Later cases do not reopen a completed baseline or require a second camera implementation. |
 
 **Done when:** FD904A–C pass on stated configurations, the performance budget is

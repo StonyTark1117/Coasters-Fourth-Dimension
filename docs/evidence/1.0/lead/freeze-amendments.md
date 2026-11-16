@@ -1,7 +1,7 @@
 # Bounded stabilization after FD1000
 
 The immutable FD1000 baseline remains `b05b70fd` / JAR `9c14b760…`.
-Qualification found two bounded production problems; neither changes advertised
+Qualification found the bounded production problems below. They do not change advertised
 scope, dependency pins, saved schemas, protocols or accepted unrelated behavior.
 
 - PAX cold OUTBOUND/RETURNING lost the empty carriage guide and allowed gravity
@@ -14,9 +14,9 @@ scope, dependency pins, saved schemas, protocols or accepted unrelated behavior.
   `ISI / RCR / ISI`. Ingredient types/counts and output counts are unchanged.
   The two track generators match their authored JSON. All44 owned crafting
   recipes pass actual native recipe-manager selection, including shapeless
-  Rotation Tool, in [recipe03](native/recipe03.log.gz).
+  Rotation Tool, in [recipe03](native/recipe03-console.log.gz).
 
-The current packaged stabilization artifact at
+The first packaged stabilization artifact at
 `/mnt/NVME4/fourthdimension-runs/fd10-lead-20261115/park-base02/runtime04/libs/coasters-fourth-dimension-0.9.0-dev.27.jar`
 has SHA256 `6fb58446c6a2b73c8bb9303e2f066eda7eda3b073c3adcbb82a527465416669a`.
 ZIP-entry comparison against the freeze changes exactly those two production
@@ -49,4 +49,48 @@ now explicitly depends on `jar`, matching the existing client/server task edges;
 this fixes Gradle's reported undeclared output dependency without changing game
 behavior. Worlds, failed logs and snapshots remain on persistent storage.
 
-FD901 optional-profile checks and FD904B measured park remain in progress.
+[FD901 qualification](native/README.md) is complete; FD904B measured park remains in progress.
+
+## Continuous Arrow program regression — targeted repair
+
+Current-pin Engineered qualification exposed a previously accepted linked Arrow
+full-turn/rollback program tripping FD917's finite spring guard. The unchanged
+program turns through 2π over six blocks with zero Hermite endpoint slopes;
+its peak derivative is π/2 radians/block, exceeding the unchanged 3 rad/s seat
+servo at the requested travel speed. This is a supported continuous program,
+not the deliberate impossible discontinuity used to verify overtravel.
+
+`ArrowTravelGovernor` applies passive tangent braking to the whole linked
+consist, once per native body per physics step. The worst car's approaching
+profile slope and actual spring lag set the limit. Braking looks ahead across
+the current segment's ramp, preserves travel direction and independent axles,
+and never supplies propulsion, changes provider ownership, rewrites the angle
+program, raises the seat servo limits or teleports a body. Lag that travel
+relieves does not incur an additional lag penalty. The existing >π fault and
+clutch/capture behavior remain intact.
+
+The isolated `native-arrow-governor01` run passed both the **unchanged** powered
+linked full-turn/rollback fixture and FD917's normal tracking, capture,
+persistence and deliberately injected +8-radian discontinuity fixture (2/2).
+Full turns were 6.28443/6.28280 radians, rollback −.00269/−.00274, independent
+axle difference 6.27347 and native spacing error .000305 block; riders remained
+mounted until normal unload. FD917 measured normal peak lag .62103 radians,
+1624 coupled samples and the expected overtravel fault. The server saved and
+stopped. [Raw journals and artifact identities](native/runs.json) preserve the
+failed Engineered run and passing targeted replacement. Quiet subsystem cost passed the three existing limits in native-quiet02; the
+assigned park measurement remains open. Unrelated profile results carry forward. This is an explicit post-freeze stabilization amendment to longitudinal
+response under excessive continuous transmission demand; schema, protocol,
+profile data and dependency pins remain unchanged.
+
+## Full-load Roller Ball lift
+
+The park exposed a supported four-rider stall at the first lift join. The prior
+one-rider moving route and four-seat stationary load evidence retain their scope.
+A same-process load reduction isolated the stall to the attached load.
+[The bounded repair and full four-rider acceptance](../mechanisms/roller-load/README.md)
+share native uphill Chain correction with the loaded carrier, trim only added
+pull beyond the existing guide brake capacity, and preserve powered ownership,
+no-power retention and the existing entry guide limits. The unchanged complete
+route, four unique riders, power-loss hold/no automatic resume and explicit
+recovery passed. All owned diagnostic and qualification runtimes are stopped.
+No saved schema, protocol, dependency, seat or renderer geometry changes.

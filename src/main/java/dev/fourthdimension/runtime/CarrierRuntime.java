@@ -367,6 +367,7 @@ public final class CarrierRuntime {
           level, vehicle, parent, event.getTimeStep());
       vehicle.boardingReady = dev.fourthdimension.vehicle.Boarding.ready(level, vehicle);
     }
+    dev.fourthdimension.vehicle.ArrowTravelGovernor.tick(level,data,event.getTimeStep());
     if (!data.vehicles.isEmpty()) data.setDirty();
     nanos += System.nanoTime() - start;
     steps++;

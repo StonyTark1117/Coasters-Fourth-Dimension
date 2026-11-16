@@ -79,6 +79,10 @@ current crafting patterns.
    Cover the whole displayed section length. For a36-block section,
    `0:0;18:360;36:720` gives two turns. Adjacent ends must agree in angle and slope;
    a changed native curve requires explicit profile revalidation.
+   Steep continuous Arrow programs can slow the whole linked train so its physical
+   transmission can follow the programmed rotation. Full turns and the saved
+   program remain unchanged; the seat servo retains its 3 rad/s limit. Abrupt
+   overtravel still captures/stops the train and requires [profile inspection](docs/RECOVERY.md#arrow-control-coupling-overtravel).
 3. Place the correct car. Only declared same-family consists may couple: normal
    Chain use selects each exposed native bearing. Arrow/PAX use six-block spacing;
    other families have their own guides. Legacy and Free Spin do not gain ordinary

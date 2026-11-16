@@ -12,6 +12,12 @@
 - Integrate the FD917 production models/materials/items/teaching, actual-pose
   Arrow mechanism and shared track, occupied fit and truthful state cues while
   preserving native seat anchors, saved programs and external asset ownership.
+- Limit linked Arrow travel under steep continuous rotation demand using passive
+  braking based on approaching profile slope and actual transmission lag. Preserve
+  the saved program, full-turn winding and unchanged 3 rad/s seat servo; abrupt
+  overtravel still releases the control coupling and captures/stops the train for
+  inspection. The [targeted stabilization evidence](docs/evidence/1.0/lead/freeze-amendments.md#continuous-arrow-program-regression--targeted-repair)
+  passes the unchanged powered linked full-turn/rollback and FD917 fault fixtures.
 - Qualify the pinned Minecraft1.21.1/Java21/NeoForge21.1.256/Create6.0.10/
   Coasters0.1.5/Sable2.0.6 stack. Current saves write schema8; Foundation sync7,
   editor8 and PAX presentation1 require matching client/server builds.
