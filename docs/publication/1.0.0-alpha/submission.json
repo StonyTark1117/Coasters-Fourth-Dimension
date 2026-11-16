@@ -1,0 +1,38 @@
+{
+  "version": "1.0.0",
+  "channel": "alpha",
+  "source_commit": "108369e250a12134549e4420fdeb96a74af75d8b",
+  "license": "CC0-1.0",
+  "artifact": "coasters-fourth-dimension-1.0.0.jar",
+  "sha256": "5a5754f192b61cac016d06cec88313c8b64d2febc669407c5ddfa12c22f6e6f4",
+  "modrinth": {
+    "project_id": "4eicZbtp",
+    "version_id": "64iMUI36",
+    "url": "https://modrinth.com/mod/coasters-fourth-dimension",
+    "status_at_submission": "processing",
+    "version_type": "alpha",
+    "environment": "client_and_server",
+    "uploaded_sha512_verified": true,
+    "revised_icon_update_http": 204
+  },
+  "curseforge": {
+    "project_id": 1809752,
+    "file_id": 9645712,
+    "url": "https://www.curseforge.com/minecraft/mc-mods/coasters-fourth-dimension",
+    "author_url": "https://authors.curseforge.com/#/projects/1809752/files",
+    "upload_http": 200,
+    "license_selection": "Custom License: CC0 1.0 Universal with legal-code and repository LICENSE links",
+    "distribution": "Allow distribution to 3rd party",
+    "status_at_creation": "New project; moderator approval required before public visibility",
+    "revised_icon_status": "Replacement loaded in crop dialog; awaiting human expansion and Save As Logo, then form Save.",
+    "file_ui_verification": "Pending crop completion; API upload receipt verified."
+  },
+  "icon": {
+    "path": "assets-source/publishing/project-icon.png",
+    "sha256": "5209f73574126857481860b555fb488ed13b7928992a97386a045b90cd16d2f6",
+    "prompt": "assets-source/publishing/arrow-icon-prompt.txt",
+    "tool": "image_gen",
+    "mode": "edit"
+  },
+  "moderation": "Do not monitor full approval; submission is not approval."
+}

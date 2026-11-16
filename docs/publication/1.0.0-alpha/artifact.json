@@ -1,0 +1,21 @@
+{
+  "source_commit": "108369e250a12134549e4420fdeb96a74af75d8b",
+  "version": "1.0.0",
+  "channel": "alpha",
+  "license": "CC0-1.0",
+  "artifact": "/mnt/NVME4/fourthdimension-runs/fd10-publication-20261116/release-1.0.0-alpha/coasters-fourth-dimension-1.0.0.jar",
+  "sha256": "5a5754f192b61cac016d06cec88313c8b64d2febc669407c5ddfa12c22f6e6f4",
+  "bytes": 2710596,
+  "comparison_to_accepted_build": {
+    "previous_sha256": "0192b8150460924ebf57ee2d0352472f21cfe9685f6081c556eeedd963743837",
+    "added_entries": [],
+    "removed_entries": [],
+    "changed_entries": [
+      "META-INF/neoforge.mods.toml",
+      "META-INF/LICENSE-fourthdimension.txt"
+    ],
+    "code_and_game_assets_identical": true
+  },
+  "build": "Java 21.0.13; Gradle 9.2.1; jar --no-build-cache; BUILD SUCCESSFUL",
+  "validation": "Archive contents and license metadata checked. Existing behavioral acceptance reused for license-only change."
+}
