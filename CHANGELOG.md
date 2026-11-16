@@ -1,6 +1,14 @@
 # Changelog
 
-## Unreleased
+## 1.0.0 Beta — 2026-11-16
+
+- Promote the verified alpha file to Beta on Modrinth and CurseForge. Version
+  number, JAR bytes, dependencies and support limits are unchanged. Completed
+  FD901–FD905 acceptance carries forward; no new gameplay changes or runtime runs.
+- [Beta publication record](docs/publication/1.0.0-beta/README.md) records the
+  unchanged CC0 artifact and destination identities.
+
+## 1.0.0 Alpha — 2026-11-16
 
 - Change project-authored code and assets from MIT to CC0 1.0 Universal
   (`CC0-1.0`), including the mod license metadata. Third-party terms are unchanged.

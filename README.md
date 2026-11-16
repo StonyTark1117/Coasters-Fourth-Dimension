@@ -6,16 +6,16 @@ saved ride programs and optional integrations. The rides are independently autho
 game interpretations inspired by coaster concepts; manufacturer names do not imply
 endorsed assets, exact engineering or verified real-world coupling.
 
-**Version 1.0.0 Alpha has been submitted to [Modrinth](https://modrinth.com/mod/coasters-fourth-dimension)
+**Version 1.0.0 Beta has been submitted to [Modrinth](https://modrinth.com/mod/coasters-fourth-dimension)
 and [CurseForge](https://www.curseforge.com/minecraft/mc-mods/coasters-fourth-dimension).**
 Project visibility and downloads depend on each platform's moderation approval.
-[Submission record](docs/publication/1.0.0-alpha/submission.json) identifies both uploads.
+[Beta promotion record](docs/publication/1.0.0-beta/README.md) identifies both existing files.
 
 [Release readiness](docs/evidence/1.0/lead/release-readiness.md) reconciles the
 completed compatibility, lifecycle, migration, rendering and performance gates.
 [Packaging and clean-install verification](docs/evidence/1.0/lead/release/README.md)
 record the accepted builds and representative occupied ride on clean production
-client/server installs. The published alpha candidate was rebuilt after the CC0
+client/server installs. The published candidate was rebuilt after the CC0
 license change; [archive comparison](docs/publication/1.0.0-alpha/artifact.json)
 confirms that only license text and license metadata changed. Code and game assets
 remain identical to the accepted build. Artifact:

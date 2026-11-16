@@ -1,0 +1,48 @@
+{
+  "id": "64iMUI36",
+  "project_id": "4eicZbtp",
+  "name": "Coasters: Fourth Dimension 1.0.0 Beta",
+  "version_number": "1.0.0",
+  "version_type": "beta",
+  "status": "listed",
+  "files": [
+    {
+      "id": "LN7yj9uQ",
+      "hashes": {
+        "sha512": "047d632e5d580faa120dc06050c2e3c63aa097e72e12da8d346a662c99f804c4316d7427afd8072b50d3623134ca7889dcf32291b8fe69083b8a5a53daef946f",
+        "sha1": "2395a11e91b977c01820bd35cac2265d6a82704c"
+      },
+      "url": "https://cdn.modrinth.com/data/4eicZbtp/versions/64iMUI36/coasters-fourth-dimension-1.0.0.jar",
+      "filename": "coasters-fourth-dimension-1.0.0.jar",
+      "primary": true,
+      "size": 2710596,
+      "file_type": null
+    }
+  ],
+  "dependencies": [
+    {
+      "version_id": null,
+      "project_id": "W1ZUfWdr",
+      "file_name": null,
+      "dependency_type": "required"
+    },
+    {
+      "version_id": null,
+      "project_id": "T9PomCSv",
+      "file_name": null,
+      "dependency_type": "required"
+    },
+    {
+      "version_id": null,
+      "project_id": "LNytGWDc",
+      "file_name": null,
+      "dependency_type": "required"
+    }
+  ],
+  "game_versions": [
+    "1.21.1"
+  ],
+  "loaders": [
+    "neoforge"
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "version": "1.0.0",
+  "channel": "beta",
+  "date": "2026-11-16",
+  "authorization": "Promote the verified file to Beta",
+  "source_commit": "108369e250a12134549e4420fdeb96a74af75d8b",
+  "sha256": "5a5754f192b61cac016d06cec88313c8b64d2febc669407c5ddfa12c22f6e6f4",
+  "bytes": 2710596,
+  "artifact_unchanged": true,
+  "modrinth": {
+    "project_id": "4eicZbtp",
+    "version_id": "64iMUI36",
+    "version_type": "beta",
+    "name": "Coasters: Fourth Dimension 1.0.0 Beta",
+    "readback_verified": true,
+    "file_hashes_unchanged": true,
+    "dependencies_unchanged": true,
+    "description": "Updated to Beta via project PATCH HTTP 204"
+  },
+  "curseforge": {
+    "project_id": 1809752,
+    "file_id": 9645712,
+    "release_type": "beta",
+    "update_http": 200,
+    "ui_name": "Coasters: Fourth Dimension 1.0.0 Beta",
+    "ui_status": "Under Review",
+    "ui_project_status": "New; unlisted",
+    "evidence": "curseforge-beta.png",
+    "description": "Updated to Beta; author UI confirmed Changes saved successfully."
+  },
+  "validation": "Verified local SHA-256, archive CC0/version metadata, Modrinth readback and same file hashes, CurseForge update receipt and Beta UI. FD901\u2013FD905 and FD1002 reused; no code/assets/dependency changes or runtime launches.",
+  "moderation_monitoring": false
+}
