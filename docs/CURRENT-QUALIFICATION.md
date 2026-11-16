@@ -117,6 +117,26 @@ bounded comparison and remaining16mounted segments use the same immutable
 runtime14 with fresh `combined15` collectors; no second sustained run. Lead owns
 `park-combined01`,Xvfb323,ports25664/25665 through its next cleanup.
 
+Mounted15 completed nine supplemental actual occupied views (Legacy, Free Spin,
+Revised, PAX, Wing, S1 Spinning, Suspended, Fixed Inverted, Axis), each with
+recorded movement and normal Open/Shift. PAX's initially premature Open was
+correctly rejected; waiting for controller BOARDING completed its safe transfer
+without repeating the ride. Raw15/15b windows and resource streams are preserved;
+JVM collectors have stopped losslessly after the corrected comparison. Seven styles
+remain: Roller Ball, Conventional Flying, New-generation Flying, Pipeline, Dive,
+S2 Spinning and Powered Inverted Yaw. The valid corrected comparison passed tick
+p95 (47.915487 ms) and frame p99 (21.164141 ms), but frame p95 (16.563280 ms)
+still exceeds the fixed 15.9336771 ms ceiling. Longer warmup did not resolve it.
+Normalized classpaths/settings match; recorded throttling and memory events do
+not explain the broad per-view increase. No further acceptance timing retry is
+scheduled. The remaining mounted-view run will include one separate 60-second
+client render-thread/GPU diagnostic to identify the dominant cost before a fix.
+The nine completed views and accepted sustained window remain closed. All15 riders
+subsequently unloaded normally; save/checkpoint and all three inactive/PID0 units
+are verified. Successor16 uses the same immutable runtime14, private323 and
+ports25664/25665, with fresh collectors for the seven remaining mounted views
+and separate diagnostic. Lead retains ownership through cleanup.
+
 **FD904B bounded mechanisms repair complete (2026-11-15):** The mechanisms
 owner returned `vehicle/RollerBallRuntime.java`, new
 `gametest/Fd904RollerLoadGameTests.java`, its uniquely named empty GameTest

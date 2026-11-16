@@ -1,0 +1,33 @@
+{
+  "valid_fixed_spectator_views": true,
+  "frame_p95_limit_ms": 15.9336771,
+  "frame_p99_limit_ms": 21.2381246,
+  "tick_p95_initial_limit_ms": 50,
+  "frame_p95": 16.56328,
+  "frame_p99": 21.164141,
+  "tick_p95": 47.915487,
+  "frame_pass": false,
+  "tick_pass": true,
+  "footers": [
+    {
+      "kind": "complete",
+      "unix_ns": 1794805565854004056,
+      "monotonic_ns": 550358253523193,
+      "process": "client",
+      "reason": "stop_file",
+      "rows": 331480,
+      "dropped_events": 0,
+      "lossless": true
+    },
+    {
+      "kind": "complete",
+      "unix_ns": 1794805565857432360,
+      "monotonic_ns": 550358256948176,
+      "process": "server",
+      "reason": "stop_file",
+      "rows": 47580,
+      "dropped_events": 0,
+      "lossless": true
+    }
+  ]
+}

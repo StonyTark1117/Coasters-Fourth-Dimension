@@ -159,3 +159,18 @@ authority Transfer, and S2/Powered Close / Capture revalidated their cold states
 All17 became ready and fault-free before90 seats were filled. No vehicle state
 or physics values were written directly. The subsequent warmup verifies every
 group's movement before timing.
+
+### Mounted15 PAX transfer guard
+
+Legacy, Free Spin and Revised completed their actual mounted segments and normal
+unloads. PAX recorded621game ticks and194.2blocks of center travel. The helper
+then treated lead-car `ready && stopping` as final shuttle capture and attempted
+Open while the winch was still capturing. Production correctly rejected Open:
+"Shuttle restraints remain closed until final station capture." No rider was
+forced out. The helper now also reads `shuttle_phase` from the benchmark's winch
+at(544,110,-842) and waits for `BOARDING` before boarding/unloading PAX. After the
+controller naturally reached that phase, normal Open and actual Shift reduced
+occupancy90→89; Spectator/view/refill restored90. The original occupied measurements
+and separate continuation preserve this scope; PAX is not rerun. Remaining
+Wing→Axis segments continue in the same JVM as `occupied15b`. No production
+change or earlier lifecycle acceptance is implicated.

@@ -2,9 +2,29 @@
 
 **In progress, 2026-11-16 UTC.** The base five-minute sample and its cleanup
 passed. The combined1800-second sustained workload/memory check is complete;
-the bounded frame comparison and other sixteen actual mounted performance views
-remain open. The [fixed protocol](protocol.md) defines the
+the bounded frame comparison and seven remaining actual mounted performance
+views remain open. The [fixed protocol](protocol.md) defines the
 finite workload; [preparation](preparation.md) records failed setup separately.
+
+Mounted15 completed nine supplemental actual occupied views (Legacy, Free Spin,
+Revised, PAX, Wing, S1 Spinning, Suspended, Fixed Inverted, Axis), each with
+recorded movement and normal Open/Shift. PAX's initially premature Open was
+correctly rejected; waiting for controller BOARDING completed its safe transfer
+without repeating the ride. Raw15/15b windows and resource streams are preserved;
+JVM collectors have stopped losslessly after the corrected comparison. Seven styles
+remain: Roller Ball, Conventional Flying, New-generation Flying, Pipeline, Dive,
+S2 Spinning and Powered Inverted Yaw. The valid corrected comparison passed tick
+p95 (47.915487 ms) and frame p99 (21.164141 ms), but frame p95 (16.563280 ms)
+still exceeds the fixed 15.9336771 ms ceiling. Longer warmup did not resolve it.
+Normalized classpaths/settings match; recorded throttling and memory events do
+not explain the broad per-view increase. No further acceptance timing retry is
+scheduled. The remaining mounted-view run will include one separate 60-second
+client render-thread/GPU diagnostic to identify the dominant cost before a fix.
+The nine completed views and accepted sustained window remain closed. All15 riders
+subsequently unloaded normally; save/checkpoint and all three inactive/PID0 units
+are verified. Successor16 uses the same immutable runtime14, private323 and
+ports25664/25665, with fresh collectors for the seven remaining mounted views
+and separate diagnostic. Lead retains ownership through cleanup.
 
 ## Combined failure and bounded correction
 

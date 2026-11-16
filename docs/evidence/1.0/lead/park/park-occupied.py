@@ -38,11 +38,17 @@ def shift(n):
 # Bounds include headroom over the preserved cycle periods, not new acceptance targets.
 return_bounds={'roller_ball':600,'new_generation_flying':600,'dive':540,'powered_inverted_yaw':330}
 def return_bound(n):return return_bounds.get(n,240)
+def station_ready(n,g):
+ if not (g['ready'] and g['stopping']):return False
+ if n=='pax':
+  answer=command('data get block 544 110 -842 shuttle_phase')
+  return '"BOARDING"' in answer
+ return True
 def wait_ready(n):
  end=time.monotonic()+return_bound(n)
  while True:
   d=state();g=group(d,n)
-  if g['ready']:return d
+  if station_ready(n,g):return d
   if time.monotonic()>end:raise TimeoutError(n+' normal return exceeded recorded run bound')
   time.sleep(5)
 sampler=None;done=[];start=time.monotonic()
@@ -73,7 +79,7 @@ try:
      following=a.styles[index+1];command('fd904 pause '+following);record('next_station_preparation',current_style=n,next_style=following,meaning='Next group finishes its current route and holds ready for safe transfer; other groups keep cycling')
    if time.monotonic()>=nextshot:
     record('occupied_mechanism',style=n,game_ticks=elapsed,state=d,screenshot=snap(n+'mechanism'));command('fd904 inspect '+n);nextshot=time.monotonic()+30;print(n,'occupied ticks',elapsed,flush=True)
-   if proof and g['ready'] and g['stopping']:
+   if proof and station_ready(n,g):
     record('occupied_end',style=n,game_ticks=elapsed,center_path_distance=distance,state=d,screenshot=snap(n+'returned'));break
    if time.monotonic()>deadline:raise TimeoutError(n+' occupied safe return exceeded recorded run bound')
   command('fd904 open '+n);shift(n);done.append(n);record('style_complete',style=n);print('Occupied view complete',n,flush=True)
