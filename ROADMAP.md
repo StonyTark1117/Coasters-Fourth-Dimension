@@ -99,8 +99,8 @@ whole-JAR equality is not required. Keep the original run identity and limits.
 | 0.9 | FD910–FD916 | Complete 2026-11-15 | Skin, rotating-seat integration, Immersion, Waterparked/Create Coasters coexistence, and the accepted model/texture baseline. |
 | Pre-1.0 production | FD917 | Complete | Production models/materials, connected mechanisms and truthful state presentation for all 17 vehicle styles, required tracks/equipment/items and affected optional appearances. |
 | 1.0 alpha | FD1000 | Complete 2026-11-15 | All adopted vehicle families, variants, 1.0 integrations and FD917 production visuals accepted; freeze feature scope and supported profiles. |
-| 1.0 beta / RC | FD901–FD905 | Complete | Integrated stabilization, compatibility, lifecycle, migration, rendering and performance; carry accepted cases forward. |
-| 1.0 stable | FD1001–FD1003 | Release readiness complete; unpublished | Final documentation, reproducible packaging and separately authorized publication. |
+| 1.0 beta / RC | FD901–FD905 | Complete; 1.0.0 files promoted to Beta | Integrated stabilization, compatibility, lifecycle, migration, rendering and performance; carry accepted cases forward. |
+| 1.0 stable | FD1001–FD1003 | Release readiness complete; stable promotion pending | Final documentation, reproducible packaging and separately authorized publication. |
 | 1.1 | FD1602–FD1605 | Planned | Shareable setting presets, colors/liveries and a unified operator panel; Fixed Inverted is already a 1.0 requirement. |
 | 1.2 | FD1701B–C, FD1703 | Planned | Bounded ride-local multi-train operation using the earlier FD1701A authority; Dive is already a 1.0 requirement. |
 | Post-1.0 moving-track program; release numbers after feasibility | FD2001–FD2007 | Planned | Transfer platforms, turntables, drop tables, tilt tracks, elevator, teeter-totter, side-drop and compound motion-table styles. |
@@ -1107,13 +1107,46 @@ Build from the intended release revision, record checksums, verify packaged meta
 
 **Execution steps:** [FD1003](docs/roadmap/1.0-release.md#fd1003).
 
-**Status: release readiness complete; unpublished (2026-11-16 UTC).** [Final checklist](docs/evidence/1.0/lead/release-readiness.md) reconciles every required gate. Publication requires separate authorization.
+**Status: release readiness complete; Beta published; stable promotion pending (updated 2026-11-17).** [Final checklist](docs/evidence/1.0/lead/release-readiness.md) reconciles every required gate. The separately authorized [1.0.0 Beta promotion](docs/publication/1.0.0-beta/README.md) was verified on both platforms on 2026-11-16; platform moderation approval is not implied. Stable promotion has not been authorized or performed.
 
 **Depends on:** FD1001, FD1002 and all required earlier gates.
 
-Review the finished release against the definition below. Publishing is a future execution action, not authorized or performed by this planning document.
+Review the finished release against the definition below. Alpha upload and Beta promotion are recorded in the publication evidence; this planning document does not authorize stable promotion, release-triggering tags or a GitHub Release.
 
 **Done when:** the release checklist and evidence are complete; when publication is separately requested, the published artifacts and release notes match the verified build.
+
+#### Remaining steps from Beta to full 1.0.0
+
+No implementation, documentation-acceptance, compatibility, lifecycle, migration,
+rendering/performance or clean-install gate remains open. FD1000, FD901–FD905
+and FD1001–FD1003 readiness stay closed. There is no mandatory additional RC,
+beta waiting period or repeat test campaign in the adopted acceptance criteria.
+
+1. Obtain the human's explicit instruction to promote 1.0.0 to stable Release.
+2. Promote the existing verified Modrinth version `64iMUI36` and CurseForge file
+   `9645712` from Beta to Release, and update their display names, release notes,
+   listing descriptions and repository release wording to match. Preserve the
+   supported versions, dependencies and verified CC0 artifact. A rebuild is not
+   needed for a channel change.
+3. Read back the channel and metadata, confirm the published file identities
+   against the verified artifact, and record stable publication here and in the
+   current qualification record. GitHub Releases/tags are separate publication
+   actions if requested; they are not an extra qualification gate.
+
+The current distributable is the [CC0 package](docs/publication/1.0.0-alpha/artifact.json)
+from source `108369e250a12134549e4420fdeb96a74af75d8b`, SHA-256
+`5a5754f192b61cac016d06cec88313c8b64d2febc669407c5ddfa12c22f6e6f4`.
+Its only differences from the accepted FD1002 package are the two recorded
+license metadata/text entries; code and game assets are identical. Beta promotion
+preserved the same bytes and acceptance.
+
+**Platform availability:** At the 2026-11-16 Beta verification, CurseForge showed
+Under Review and the project was New and unlisted. Public discoverability still
+requires platform approval and a decision to change the preserved unlisted
+setting. This is separate from development readiness and Release channel status.
+No current moderation outcome is claimed, and approval monitoring remains off as
+requested. A newly reported defect would reopen only its affected criterion under
+[VALIDATION-POLICY](docs/VALIDATION-POLICY.md); no new defect is asserted here.
 
 Stable 1.0 includes the original five families plus fixed-seat Wing, agreed
 Spinning variants, Suspended, Axis, Pipeline, Roller Ball, Fixed Inverted, Dive,

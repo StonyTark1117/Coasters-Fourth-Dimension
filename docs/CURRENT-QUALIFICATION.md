@@ -1,14 +1,27 @@
 # Current qualification record
 
-Updated 2026-11-16 UTC. This is the single artifact index for the active roadmap.
-**1.0 release readiness is complete; unpublished.** FD1000, FD901–FD905 and
-FD1001–FD1003 are closed under their stated readiness criteria.
+Updated 2026-11-17. This is the single artifact index for the active roadmap.
+**1.0 release readiness is complete; 1.0.0 is Beta on both platforms; stable
+promotion remains pending.** FD1000, FD901–FD905 and FD1001–FD1003 are closed
+under their stated readiness criteria. There is no remaining 1.0 acceptance
+assignment. See [remaining Beta-to-stable actions](../ROADMAP.md#remaining-steps-from-beta-to-full-100).
+
 [Final checklist](evidence/1.0/lead/release-readiness.md) and
-[package acceptance](evidence/1.0/lead/release/README.md) select1.0.0 from source
-`0e2be865d13d1c968ca64c634a5c26aac5a3bf9e`, SHA-256 `0192b815…`.
-All owned runtimes are stopped with saved worlds. There is no remaining1.0
-acceptance assignment; publication requires separate authorization. Historical
-runs keep their own identities under [VALIDATION-POLICY.md](VALIDATION-POLICY.md).
+[package acceptance](evidence/1.0/lead/release/README.md) retain the tested package
+from source `0e2be865d13d1c968ca64c634a5c26aac5a3bf9e`, SHA-256 `0192b815…`.
+The subsequent [CC0 publication package](publication/1.0.0-alpha/artifact.json)
+from source `108369e250a12134549e4420fdeb96a74af75d8b` has SHA-256
+`5a5754f192b61cac016d06cec88313c8b64d2febc669407c5ddfa12c22f6e6f4`.
+Only the recorded license metadata/text entries changed; code and game assets
+are identical. The authorized [Beta promotion](publication/1.0.0-beta/README.md)
+on 2026-11-16 retained that file on Modrinth and CurseForge. Stable promotion,
+release-triggering tags and a GitHub Release have not been performed.
+
+All qualification runtimes were stopped with saved worlds; publication launched
+none. Historical runs keep their own identities under
+[VALIDATION-POLICY.md](VALIDATION-POLICY.md). Platform review/visibility are
+separate from acceptance; the last recorded CurseForge state was Under Review,
+New and unlisted. Approval is not claimed or monitored.
 
 Planning allocation updated 2026-11-11: FD404 is the five-family development
 checkpoint; FD1000 owns the expanded 1.0 alpha freeze. The identities and runtime
@@ -32,8 +45,9 @@ history; they do not assign new work or add acceptance requirements.
 The human said **"Continue 1.0"** after verified FD917 completion. This activates
 FD1000, final FD901–FD905 qualification, and FD1001–FD1003 release readiness in
 prerequisite order under [the 1.0 execution guide](roadmap/1.0-release.md).
-Publication, release-triggering tags/uploads, 1.1/1.2 and moving-track work are
-outside this authorization. FD1003 may close release readiness without claiming
+Publication, release-triggering tags/uploads, 1.1/1.2 and moving-track work were
+outside that original authorization. Subsequent explicit requests authorized
+alpha upload and Beta promotion, as recorded above; stable promotion remains separate. FD1003 may close release readiness without claiming
 publication. Earlier statements below that 1.0 is not activated are historical.
 
 Starting local and remote `main`: `b05b70fd6cd4d8dece007fafd8ae333ec6ab4b60`.
@@ -154,8 +168,10 @@ FD1003 readiness are complete. [The final checklist](evidence/1.0/lead/release-r
 links the completed park, documentation, reproducible1.0.0 package and actual clean
 client/server occupied ride. Final normal unloading/save/exit is verified; client,
 server and Xvfb units are inactive/PID0. No live runtime or unfinished case is
-handed off. Publication, new release-triggering tags/uploads and post1.0 work
-remain outside authorization. Earlier progress paragraphs are retained history.
+handed off. Alpha upload and Beta promotion subsequently completed under separate
+authorization; see the current publication state above. Stable promotion, new
+release-triggering tags and post-1.0 work remain outside that authorization.
+Earlier progress paragraphs are retained history.
 
 **FD904B bounded mechanisms repair complete (2026-11-15):** The mechanisms
 owner returned `vehicle/RollerBallRuntime.java`, new

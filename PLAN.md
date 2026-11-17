@@ -23,8 +23,11 @@ for the 17 adopted styles. Milestones through 0.9, including FD916, retain their
 accepted baseline. FD917 completed on 2026-11-15 with its
 [integrated production handoff](docs/evidence/fd917/README.md), targeted checks
 and verified runtime cleanup. The [1.0 alpha freeze](docs/evidence/1.0/lead/freeze.md)
-is complete; final qualification and release readiness are now active, with
-publication separately authorized.
+is complete, as are FD901–FD905 final qualification and FD1001–FD1003 release
+readiness. The verified 1.0.0 file was separately authorized and promoted to
+[Beta on both platforms](docs/publication/1.0.0-beta/README.md) on 2026-11-16.
+Only the [stable publication actions](ROADMAP.md#remaining-steps-from-beta-to-full-100)
+remain; there is no open 1.0 implementation or qualification assignment.
 
 The [integration backlog](docs/INTEGRATION-BACKLOG.md) owns the dated artifact
 inventory and adopted allocation. Its November 2 catalog and the initial
