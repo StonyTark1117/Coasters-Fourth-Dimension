@@ -30,6 +30,42 @@ will carry unaffected acceptance forward; no new JAR or run is required here.
 
 ## Current work queue
 
+### Active 1.2 — agents assigned 2026-11-17
+
+The human requested **"Assign 1.2 tasks to agents"**. Reuse the three existing
+owners below on primary `main` at `/home/braydon/Documents/Coasters: Fourth Dimension`.
+Assignment baseline: `147c718a`; only pre-existing untracked `logs/`.
+FD1701A and 1.0/1.1 acceptance remain closed. Read the
+[1.2 execution guide](roadmap/1.2-multi-train.md) and current source before changes.
+Publication, stable promotion, 1.3/1.4 implementation and moving-track work are not assigned.
+
+| Outcome / contribution | Owner | Immediate work and handoff |
+| --- | --- | --- |
+| **FD1701B implementation; FD1701 and FD1703 aggregates; integration** | Lead `01a1dd1d-1468-7f81-8f31-5532ad7a178d` | Audit existing authority/upstream block capabilities; declare the one fixed circuit, finite train count and supported homogeneous consists before implementation. Own whole-consist occupancy, reservations, admission, dispatch/braking separation and persistent fail-closed recovery. Supply the stable contract and exact path transfers to the other owners; integrate their accepted work and close the aggregates without duplicate campaigns. |
+| **FD1701B controls, example and guide contribution; FD1703 documentation/content contribution** | Art `01a1dd1d-6e99-70d2-aef3-6dcebac10d72` | Inspect normal operator/editor paths and accepted example mechanisms. Prepare the player workflow and documentation independently; implement normal controls, diagnostics and the example against the lead's declared circuit/count contract. Return source, usable example, guide and affected client evidence to lead and acceptance owner. |
+| **FD1701C acceptance** | Mechanisms `01a1dd1d-c6a6-7be0-9cb5-2b033ac550da` | Map retained FD1701A authority evidence and inspect implementation invariants now. Prepare focused tests, then qualify the integrated FD1701B contract: occupied admission/dispatch/separation at the declared limit and distinct removal, unload, interruption and restart paths. Unresolved occupancy must deny entry. Hand cumulative evidence and precise defects to lead. |
+
+**File and runtime ownership:** After this coordinator activation, lead alone edits
+central `ROADMAP.md`, `PLAN.md`, this queue, shared contract decisions and stages/
+commits/pushes. Existing shared source/runtime/client/build/registration/example
+files initially belong to lead. Art and Mechanisms may inspect all paths and create
+uniquely namespaced `docs/evidence/1.2/art/`, `docs/evidence/1.2/mechanisms/`,
+`scripts/fd12-art-*`, `scripts/fd12-mechanisms-*` and uniquely named test helpers;
+production edits require an exact acknowledged path transfer recorded here.
+Lead may transfer coherent bundles promptly, including output manifests before
+asset generation. One writer per file; no new chats, subagents or worktrees.
+Specific ownership, diagnosis, continuation and ready-handoff messages among these
+owners and the coordinator are part of this assignment.
+
+Independent preparation can proceed immediately. Acceptance consumes the integrated
+contract and implementation rather than a speculative duplicate. Preserve prior
+worlds, evidence, 1.3/1.4 planning and uncommitted work. Follow AGENTS, Java21,
+VALIDATION-POLICY and the private-display/resource rules; every runtime has its
+own exact paths, display, ports and units, and must save/stop before completion.
+Lead keeps this finite queue current, reconciles affected packaging/docs and a
+representative workload, selectively commits/pushes and verifies remote HEAD.
+No ongoing heartbeat monitor is activated by this assignment.
+
 ### Completed 1.1 — authorized and verified 2026-11-17
 
 The human requested **"Continue 1.1"**. This chat owns FD1602–FD1605 and shared
