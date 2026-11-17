@@ -105,7 +105,7 @@ whole-JAR equality is not required. Keep the original run identity and limits.
 | 1.1 | FD1602–FD1605 | Complete 2026-11-17; unpublished | Shareable setting presets, colors/liveries and a unified operator panel; Fixed Inverted is already a 1.0 requirement. |
 | 1.2 | FD1701B–C, FD1703 | Planned | Bounded ride-local multi-train operation using the earlier FD1701A authority; Dive is already a 1.0 requirement. |
 | 1.3 | FD2101–FD2103 | Planned | Repair unsupported-looking car/seat structures and add two original, selectable body variants for existing Wing and Fixed Inverted vehicles without changing their ride contracts. |
-| 1.4 | FD2201–FD2204 | Planned | Add standing, motorbike and suspended flying-bike/Thrill Glider-inspired coasters as three distinct specialty vehicles, each with its own boarding, restraints, fit and recovery. |
+| 1.4 | FD2201–FD2204 | Planned | Add standard and Surf-style standing configurations, plus motorbike and suspended flying-bike/Thrill Glider-inspired coasters, with distinct boarding, restraints, fit and recovery. |
 | Post-1.0 moving-track program; release numbers after feasibility | FD2001–FD2007 | Planned | Transfer platforms, turntables, drop tables, tilt tracks, elevator, teeter-totter, side-drop and compound motion-table styles. |
 | Independent compatibility | FD801 | Planned | Inspectable functional Track Styles Arrow 4D adapter; upstream availability never blocks standalone release. |
 
@@ -1551,29 +1551,32 @@ as a body variant.
 
 ### Version 1.4 — specialty vehicles
 
-These are new vehicle styles with their own player contracts. The standing
-coaster has a fixed upright standing travel posture; its seat/support,
-restraint, boarding platform, rider/camera position and evacuation must match
-that posture. [B&M Surf](https://www.bolliger-mabillard.com/surf-coaster)
-is a standing-coaster reference, not a commitment to reproduce a specific
-commercial dynamic restraint. The second style is a straddle-seated motorbike
-vehicle inspired by [Vekoma's Motorbike Coasters](https://www.vekoma.com/motorbike-coasters).
+These are new vehicle styles with their own player contracts. FD2201 includes
+two original standing models: a standard stand-up train with a fixed upright
+standing ride pose, and a Surf-style train with bounded vertical seat travel
+while the rider remains upright. Specify distinct supports, restraints,
+boarding platforms, rider/camera positions, swept envelopes and evacuation
+for each. [B&M Surf](https://www.bolliger-mabillard.com/surf-coaster) and
+[SeaWorld Pipeline](https://seaworld.com/orlando/roller-coasters/pipeline/)
+are references for the dynamic seat; the game implementation must define its
+own travel and capture limits rather than copy a commercial mechanism. The
+next specialty vehicle is a straddle-seated motorbike inspired by
+[Vekoma's Motorbike Coasters](https://www.vekoma.com/motorbike-coasters).
 Its riding pose, hold-down restraint, loading clearance and dismount differ
 from the 1.0 seated cars. The third is a suspended flying-bike coaster inspired
 by [Six Flags' Thrill Glider](https://www.sixflags.com/magicmountain/new-in-2027).
 Its prone, face-forward rider position beneath the track and multiple launches
 need a distinct vehicle, restraint, track-fit and propulsion specification;
-it is not New-generation Flying or a visual variant of motorbike. All three
-use original assets and a finite, dimensioned configuration selected before
-implementation; a painted existing car is not
-sufficient. New vehicle identifiers and required migration/fallback are owned
-inside these packages. None depends on FD2001–FD2007 moving track
-or on the 1.3 model choices. Surf-style spring motion and other specialty
+it is not New-generation Flying or a visual variant of motorbike. Each
+configuration uses original assets and finite, dimensioned specifications;
+a painted existing car is insufficient. New vehicle identifiers and required
+migration/fallback are owned inside these packages. None depends on
+FD2001–FD2007 moving track or on the 1.3 model choices. Other specialty
 concepts need their own later package.
 
 | Package / status | Actual prerequisites | Ordered work and completion condition |
 | --- | --- | --- |
-| <a id="fd2201"></a> **FD2201 Standing coaster — planned** [Steps](docs/roadmap/1.4-specialty-vehicles.md#fd2201) | FD1101A shared vehicle/seat contract; FD403 player construction; FD917 presentation baseline | Specify one fixed standing configuration and measured track/clearance envelope; implement its vehicle, restraint/dispatch, boarding, rider/camera and recovery behavior with original content and example. Complete with normal player operation, occupied fit and distinct interrupted/unload/restart cases. |
+| <a id="fd2201"></a> **FD2201 Standard and Surf-style standing coaster — planned** [Steps](docs/roadmap/1.4-specialty-vehicles.md#fd2201) | FD1101A shared vehicle/seat contract; FD403 player construction; FD917 presentation baseline | Specify two distinct standing configurations: a fixed standard stand-up train and a Surf-style train with bounded vertical seat travel. Deliver original models, matching restraints/supports, measured track/clearance envelopes, boarding, rider/camera and recovery behavior, content and examples for both. Complete when each works through normal occupied operation, motion/fit limits and distinct interrupted/unload/restart cases. |
 | <a id="fd2202"></a> **FD2202 Motorbike coaster — planned** [Steps](docs/roadmap/1.4-specialty-vehicles.md#fd2202) | FD1101A shared vehicle/seat contract; FD403 player construction; FD917 presentation baseline | Specify one straddle-seated configuration and measured track/clearance envelope; implement its vehicle, hold-down restraint, boarding, rider/camera and recovery behavior with original content and example. Complete with normal player operation, occupied fit and distinct interrupted/unload/restart cases. |
 | <a id="fd2204"></a> **FD2204 Suspended flying-bike coaster — planned** [Steps](docs/roadmap/1.4-specialty-vehicles.md#fd2204) | FD1101A shared vehicle/seat contract; FD106 retention/stop interface; FD403 player construction; FD917 presentation baseline | Specify one Thrill Glider-inspired configuration with prone face-forward riders below the track and a bounded multi-launch route. Prove eligible suspended track and launch authority before implementation; deliver distinct vehicle, restraints, boarding, propulsion, camera, recovery, original content and example. Complete with normal occupied operation, measured fit and distinct interrupted launch, unload and restart cases. |
 | <a id="fd2203"></a> **FD2203 Version 1.4 specialty-vehicle gate — planned** [Steps](docs/roadmap/1.4-specialty-vehicles.md#fd2203) | FD2201, FD2202, FD2204 | Reconcile all three distinct vehicle outcomes, their original content, supported profiles and affected integration/release checks. Reuse accepted shared and 1.0 evidence; publication is separate. |

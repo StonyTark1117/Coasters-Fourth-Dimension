@@ -395,7 +395,7 @@ sequence is:
 | 1.1 | FD1602–FD1605 | Shareable presets, colors/liveries and unified operator panel. |
 | 1.2 | FD1701B–C, FD1703 | Ride-local multi-train operation, consuming the earlier FD1701A authority. |
 | 1.3 | FD2101–FD2103 | Coherent car/seat supports and two selectable original body variants on existing Wing and Fixed Inverted vehicles. |
-| 1.4 | FD2201–FD2204 | Standing, motorbike and suspended flying-bike specialty vehicles, each with complete player and recovery behavior. |
+| 1.4 | FD2201–FD2204 | Standard and Surf-style standing configurations, plus motorbike and suspended flying-bike vehicles, with complete player and recovery behavior. |
 | Post-1.0; versions after feasibility | FD2001–FD2007 | Transfer platforms, turntables, drop tables, tilt tracks and the finite additional moving-track styles. |
 | Independent | FD801 | Inspectable functional Track Styles adapter; unavailable upstream work does not block release. |
 
@@ -494,7 +494,7 @@ accepted evidence while extending contracts through concrete features.
 | 1.1 / FD1602–FD1605 | Setting presets; colors/original liveries; unified operator panel | Presets validate compatibility/version/permissions and explicitly rebind world references. Appearance preserves mechanics; panel commands use existing authority. No arbitrary texture uploads, scripting or park-wide controller. |
 | 1.2 / FD1701B–C, FD1703 | Ride-local multi-train management | One fixed circuit, finite train limit and declared homogeneous consists; whole-consist occupancy/reservations and fail-closed dispatch. No shared-track network, arbitrary junction routing or automatic depot management. |
 | 1.3 / FD2101–FD2103 | Car structure and body variants | Correct unsupported-looking seat connections in affected models. Add compact Wing and open-frame Fixed Inverted body choices through existing appearance selection; retain their mechanical, seat and track contracts. |
-| 1.4 / FD2201–FD2204 | Standing, motorbike and suspended flying-bike coasters | Three distinct vehicle styles, each with a dimensioned configuration, appropriate restraint and boarding, occupied fit, camera, recovery and original content. The flying-bike style adds suspended track fit and bounded multi-launch propulsion; no moving-track dependency. |
+| 1.4 / FD2201–FD2204 | Standing, motorbike and suspended flying-bike coasters | Standing includes fixed standard and dynamic Surf-style models with distinct restraint/seat behavior and measured fit. Motorbike and flying-bike have their own boarding, occupied camera and recovery; the latter adds suspended track fit and bounded multi-launch propulsion. No moving-track dependency. |
 
 References: [B&M Inverted](https://www.bolliger-mabillard.com/inverted-coaster),
 [B&M Dive](https://www.bolliger-mabillard.com/dive-coaster),
@@ -605,13 +605,18 @@ track eligibility, propulsion or rider/camera ownership.
 Save/load and unavailable-choice fallback must retain the mechanical vehicle
 and rider state. A new mechanics request receives a new vehicle specification.
 
-FD2201, FD2202 and FD2204 each specify one dimensioned new vehicle before
-implementing it. Standing uses a fixed upright standing ride pose and a matching
-restraint, platform, camera and evacuation path. Motorbike uses a
-straddle-seated ride pose, hold-down restraint and its own boarding/dismount
-geometry. These are separate
-from the existing seated Pipeline and floorless Dive configurations. FD2204 is
-a Thrill Glider-inspired suspended flying-bike style with a prone face-forward
+FD2201 specifies two dimensioned standing configurations before implementation:
+a standard stand-up model with a fixed upright ride pose, and a Surf-style model
+with bounded vertical seat travel. Give each its own support and restraint
+geometry, platform fit, rider/camera transform, capture limits, occupied sweep and
+evacuation path. The [B&M Surf](https://www.bolliger-mabillard.com/surf-coaster)
+and [SeaWorld Pipeline](https://seaworld.com/orlando/roller-coasters/pipeline/)
+references support the dynamic-seat distinction; the game travel and
+restraint mechanics need their own measured specification. FD2202 specifies a
+motorbike with a straddle-seated ride pose, hold-down restraint and its own
+boarding/dismount geometry. These are separate from the existing seated
+Pipeline and floorless Dive configurations. FD2204 specifies a
+Thrill Glider-inspired suspended flying-bike style with a prone face-forward
 rider below the track and bounded multi-launch operation. It is distinct from
 New-generation Flying and the upright motorbike style: its eligible track,
 boarding/restraint, propulsion authority, occupied camera and recovery all
@@ -620,9 +625,10 @@ need their own specification and evidence. See the
 and [press release](https://www.prnewswire.com/news-releases/six-flags-magic-mountain-announces-thrill-glider-the-worlds-first-thrillglider-roller-coaster-opening-in-2027-302875547.html)
 for the reference concept. Keep
 capacity, train geometry, track fit, rider sweep and recovery measurable in
-each specification. All three need original content and occupied player acceptance;
-none inherits a commercial ride's proprietary art or unverified actuator
-details. The [1.3 guide](docs/roadmap/1.3-car-models.md) and
+each specification. Both FD2201 models and the FD2202/FD2204 vehicles need
+original content and occupied player acceptance. None inherits a commercial
+ride's proprietary art or unverified actuator details. The
+[1.3 guide](docs/roadmap/1.3-car-models.md) and
 [1.4 guide](docs/roadmap/1.4-specialty-vehicles.md) order the handoffs; the
 [roadmap](ROADMAP.md#version-13-car-models) owns scope and
 acceptance. The moving-track program remains independently allocated.
