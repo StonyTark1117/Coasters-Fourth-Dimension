@@ -104,6 +104,8 @@ whole-JAR equality is not required. Keep the original run identity and limits.
 | 1.0 stable | FD1001–FD1003 | Release readiness complete; stable promotion pending | Final documentation, reproducible packaging and separately authorized publication. |
 | 1.1 | FD1602–FD1605 | In progress (authorized 2026-11-17) | Shareable setting presets, colors/liveries and a unified operator panel; Fixed Inverted is already a 1.0 requirement. |
 | 1.2 | FD1701B–C, FD1703 | Planned | Bounded ride-local multi-train operation using the earlier FD1701A authority; Dive is already a 1.0 requirement. |
+| 1.3 | | Unplanned | Further model improvements, focusing on coaster cars. Current seats in the cars are held up by floating steel bars on some for example to start. More model variants such as Thrill Glider model (example, more should be added)
+| 1.4 | | Unplanned | Stand up coaster and other specialty models not yet covered
 | Post-1.0 moving-track program; release numbers after feasibility | FD2001–FD2007 | Planned | Transfer platforms, turntables, drop tables, tilt tracks, elevator, teeter-totter, side-drop and compound motion-table styles. |
 | Independent compatibility | FD801 | Planned | Inspectable functional Track Styles Arrow 4D adapter; upstream availability never blocks standalone release. |
 
