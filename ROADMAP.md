@@ -1545,7 +1545,7 @@ as a body variant.
 | --- | --- | --- |
 | <a id="fd2101"></a> **FD2101 Car support correction — planned** [Steps](docs/roadmap/1.3-car-models.md#fd2101) | FD917 production assets; affected vehicle specifications | Inventory and fix unsupported-looking seat/car connections in the affected original models. Complete when their structural path remains connected through their actual motion and occupied fit, with no new clipping or false restraint state. |
 | <a id="fd2102"></a> **FD2102 Selectable car body variants — planned** [Steps](docs/roadmap/1.3-car-models.md#fd2102) | FD1603 appearance selection; stable Wing and Fixed Inverted dimensions | Specify and deliver the compact Wing and open-frame Fixed Inverted body choices, including item/preview presentation, persistence and base-model fallback. Complete when both differ in geometry from their base cars and preserve the existing mechanical, rider and clearance contracts during normal play. |
-| <a id="fd2103"></a> **FD2103 Version 1.3 car-model gate — planned** [Steps](docs/roadmap/1.3-car-models.md#fd2103) | FD2101, FD2102 | Reconcile affected structural views, both model choices, persistence/fallback and relevant package/content checks. Retain FD917 and unrelated 1.0/1.1 evidence. |
+| <a id="fd2103"></a> **FD2103 Version 1.3 car-model gate — planned** [Steps](docs/roadmap/1.3-car-models.md#fd2103) | FD2101, FD2102 , further model support and final pass before marking complete | Reconcile affected structural views, both model choices, persistence/fallback and relevant package/content checks. Retain FD917 and unrelated 1.0/1.1 evidence. |
 
 <a id="version-14-specialty-vehicles"></a>
 
