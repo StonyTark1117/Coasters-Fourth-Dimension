@@ -104,8 +104,8 @@ whole-JAR equality is not required. Keep the original run identity and limits.
 | 1.0 stable | FD1001–FD1003 | Release readiness complete; stable promotion pending | Final documentation, reproducible packaging and separately authorized publication. |
 | 1.1 | FD1602–FD1605 | Complete 2026-11-17; unpublished | Shareable setting presets, colors/liveries and a unified operator panel; Fixed Inverted is already a 1.0 requirement. |
 | 1.2 | FD1701B–C, FD1703 | Planned | Bounded ride-local multi-train operation using the earlier FD1701A authority; Dive is already a 1.0 requirement. |
-| 1.3 | FD2101–FD2103 | Planned | Repair unsupported-looking car/seat structures and add two original, selectable model variants on existing Wing and Flying vehicles without changing their ride contracts. |
-| 1.4 | FD2201–FD2203 | Planned | Add one standing coaster and one straddle-seated motorbike coaster as distinct specialty vehicles, with their own boarding, restraints, fit and recovery. |
+| 1.3 | FD2101–FD2103 | Planned | Repair unsupported-looking car/seat structures and add two original, selectable body variants for existing Wing and Fixed Inverted vehicles without changing their ride contracts. |
+| 1.4 | FD2201–FD2204 | Planned | Add standing, motorbike and suspended flying-bike/Thrill Glider-inspired coasters as three distinct specialty vehicles, each with its own boarding, restraints, fit and recovery. |
 | Post-1.0 moving-track program; release numbers after feasibility | FD2001–FD2007 | Planned | Transfer platforms, turntables, drop tables, tilt tracks, elevator, teeter-totter, side-drop and compound motion-table styles. |
 | Independent compatibility | FD801 | Planned | Inspectable functional Track Styles Arrow 4D adapter; upstream availability never blocks standalone release. |
 
@@ -1533,21 +1533,18 @@ brackets cannot hide a detached moving joint. Identify affected models from
 source and retained views before changing them, and validate only the affected
 cars. This work does not reopen all 17 FD917 styles.
 
-Add two original selectable body variants: a compact Wing shell and a
-glider-inspired New-generation Flying shell. The latter may draw visual
-inspiration from the [Six Flags Thrill Glider announcement](https://www.sixflags.com/magicmountain/new-in-2027),
-but it retains the existing Flying seating, changeover, yaw, track and propulsion
-contracts. A face-forward flying-bike posture, suspended track conversion or
-new propulsion is a new vehicle specification, not a model choice in this
-release. Neither variant copies branded artwork. Model selection uses the
-existing appearance controls, persists, previews, falls back to the base model
-when unavailable and preserves capacity, seat ownership, camera, restraint,
-clearance and sweep. A color/livery alone does not count as a body variant.
+Add two original selectable body variants: a compact Wing shell and an
+open-frame Fixed Inverted shell. Both retain their existing seat, restraint,
+track and motion contracts. Neither variant copies branded artwork. Model
+selection uses the existing appearance controls, persists, previews and falls
+back to the base model when unavailable. It preserves capacity, seat ownership,
+camera, restraint, clearance and sweep. A color/livery alone does not count
+as a body variant.
 
 | Package / status | Actual prerequisites | Ordered work and completion condition |
 | --- | --- | --- |
 | <a id="fd2101"></a> **FD2101 Car support correction — planned** [Steps](docs/roadmap/1.3-car-models.md#fd2101) | FD917 production assets; affected vehicle specifications | Inventory and fix unsupported-looking seat/car connections in the affected original models. Complete when their structural path remains connected through their actual motion and occupied fit, with no new clipping or false restraint state. |
-| <a id="fd2102"></a> **FD2102 Selectable car body variants — planned** [Steps](docs/roadmap/1.3-car-models.md#fd2102) | FD1603 appearance selection; stable Wing and New-generation Flying dimensions | Specify and deliver the compact Wing and glider-inspired Flying body choices, including item/preview presentation, persistence and base-model fallback. Complete when both differ in geometry from their base cars and preserve the existing mechanical, rider and clearance contracts during normal play. |
+| <a id="fd2102"></a> **FD2102 Selectable car body variants — planned** [Steps](docs/roadmap/1.3-car-models.md#fd2102) | FD1603 appearance selection; stable Wing and Fixed Inverted dimensions | Specify and deliver the compact Wing and open-frame Fixed Inverted body choices, including item/preview presentation, persistence and base-model fallback. Complete when both differ in geometry from their base cars and preserve the existing mechanical, rider and clearance contracts during normal play. |
 | <a id="fd2103"></a> **FD2103 Version 1.3 car-model gate — planned** [Steps](docs/roadmap/1.3-car-models.md#fd2103) | FD2101, FD2102 | Reconcile affected structural views, both model choices, persistence/fallback and relevant package/content checks. Retain FD917 and unrelated 1.0/1.1 evidence. |
 
 <a id="version-14-specialty-vehicles"></a>
@@ -1562,18 +1559,24 @@ is a standing-coaster reference, not a commitment to reproduce a specific
 commercial dynamic restraint. The second style is a straddle-seated motorbike
 vehicle inspired by [Vekoma's Motorbike Coasters](https://www.vekoma.com/motorbike-coasters).
 Its riding pose, hold-down restraint, loading clearance and dismount differ
-from the 1.0 seated cars. Both use original assets and a finite, dimensioned
-configuration selected before implementation; a painted existing car is not
+from the 1.0 seated cars. The third is a suspended flying-bike coaster inspired
+by [Six Flags' Thrill Glider](https://www.sixflags.com/magicmountain/new-in-2027).
+Its prone, face-forward rider position beneath the track and multiple launches
+need a distinct vehicle, restraint, track-fit and propulsion specification;
+it is not New-generation Flying or a visual variant of motorbike. All three
+use original assets and a finite, dimensioned configuration selected before
+implementation; a painted existing car is not
 sufficient. New vehicle identifiers and required migration/fallback are owned
-inside these packages. Neither vehicle depends on FD2001–FD2007 moving track
-or on the 1.3 cosmetic model choices. Surf-style spring motion, a true
-flying-bike vehicle and other specialty concepts need their own later package.
+inside these packages. None depends on FD2001–FD2007 moving track
+or on the 1.3 model choices. Surf-style spring motion and other specialty
+concepts need their own later package.
 
 | Package / status | Actual prerequisites | Ordered work and completion condition |
 | --- | --- | --- |
 | <a id="fd2201"></a> **FD2201 Standing coaster — planned** [Steps](docs/roadmap/1.4-specialty-vehicles.md#fd2201) | FD1101A shared vehicle/seat contract; FD403 player construction; FD917 presentation baseline | Specify one fixed standing configuration and measured track/clearance envelope; implement its vehicle, restraint/dispatch, boarding, rider/camera and recovery behavior with original content and example. Complete with normal player operation, occupied fit and distinct interrupted/unload/restart cases. |
 | <a id="fd2202"></a> **FD2202 Motorbike coaster — planned** [Steps](docs/roadmap/1.4-specialty-vehicles.md#fd2202) | FD1101A shared vehicle/seat contract; FD403 player construction; FD917 presentation baseline | Specify one straddle-seated configuration and measured track/clearance envelope; implement its vehicle, hold-down restraint, boarding, rider/camera and recovery behavior with original content and example. Complete with normal player operation, occupied fit and distinct interrupted/unload/restart cases. |
-| <a id="fd2203"></a> **FD2203 Version 1.4 specialty-vehicle gate — planned** [Steps](docs/roadmap/1.4-specialty-vehicles.md#fd2203) | FD2201, FD2202 | Reconcile both distinct vehicle outcomes, their original content, supported profiles and affected integration/release checks. Reuse accepted shared and 1.0 evidence; publication is separate. |
+| <a id="fd2204"></a> **FD2204 Suspended flying-bike coaster — planned** [Steps](docs/roadmap/1.4-specialty-vehicles.md#fd2204) | FD1101A shared vehicle/seat contract; FD106 retention/stop interface; FD403 player construction; FD917 presentation baseline | Specify one Thrill Glider-inspired configuration with prone face-forward riders below the track and a bounded multi-launch route. Prove eligible suspended track and launch authority before implementation; deliver distinct vehicle, restraints, boarding, propulsion, camera, recovery, original content and example. Complete with normal occupied operation, measured fit and distinct interrupted launch, unload and restart cases. |
+| <a id="fd2203"></a> **FD2203 Version 1.4 specialty-vehicle gate — planned** [Steps](docs/roadmap/1.4-specialty-vehicles.md#fd2203) | FD2201, FD2202, FD2204 | Reconcile all three distinct vehicle outcomes, their original content, supported profiles and affected integration/release checks. Reuse accepted shared and 1.0 evidence; publication is separate. |
 
 ### Milestone 0.7 — Conventional and New-generation Flying
 

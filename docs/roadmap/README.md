@@ -39,7 +39,7 @@ moving-track mechanisms remain after 1.0. Completed packages were not rewritten.
 | [1.1 — Builder and operator tools](1.1-tools.md) | [FD1602](1.1-tools.md#fd1602), [FD1603](1.1-tools.md#fd1603), [FD1604](1.1-tools.md#fd1604), [FD1605](1.1-tools.md#fd1605) |
 | [1.2 — Ride-local multi-train operations](1.2-multi-train.md) | [FD1701B](1.2-multi-train.md#fd1701b), [FD1701C](1.2-multi-train.md#fd1701c), [FD1701](1.2-multi-train.md#fd1701), [FD1703](1.2-multi-train.md#fd1703) |
 | [1.3 — Car structure and model choices](1.3-car-models.md) | [FD2101](1.3-car-models.md#fd2101), [FD2102](1.3-car-models.md#fd2102), [FD2103](1.3-car-models.md#fd2103) |
-| [1.4 — Specialty vehicles](1.4-specialty-vehicles.md) | [FD2201](1.4-specialty-vehicles.md#fd2201), [FD2202](1.4-specialty-vehicles.md#fd2202), [FD2203](1.4-specialty-vehicles.md#fd2203) |
+| [1.4 — Specialty vehicles](1.4-specialty-vehicles.md) | [FD2201](1.4-specialty-vehicles.md#fd2201), [FD2202](1.4-specialty-vehicles.md#fd2202), [FD2204](1.4-specialty-vehicles.md#fd2204), [FD2203](1.4-specialty-vehicles.md#fd2203) |
 | [Post-1.0 — Moving-track mechanisms](moving-track.md) | [FD2001](moving-track.md#fd2001), [FD2002](moving-track.md#fd2002), [FD2003](moving-track.md#fd2003), [FD2004](moving-track.md#fd2004), [FD2005](moving-track.md#fd2005), [FD2006A](moving-track.md#fd2006a), [FD2006B](moving-track.md#fd2006b), [FD2006C](moving-track.md#fd2006c), [FD2006D](moving-track.md#fd2006d), [FD2006](moving-track.md#fd2006), [FD2007](moving-track.md#fd2007) |
 | [Independent external compatibility](external-compatibility.md) | [FD801](external-compatibility.md#fd801) |
 

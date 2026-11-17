@@ -394,8 +394,8 @@ sequence is:
 | 1.0 stable | FD1001–FD1003 | Documentation, packaging and separately authorized publication. |
 | 1.1 | FD1602–FD1605 | Shareable presets, colors/liveries and unified operator panel. |
 | 1.2 | FD1701B–C, FD1703 | Ride-local multi-train operation, consuming the earlier FD1701A authority. |
-| 1.3 | FD2101–FD2103 | Coherent car/seat supports and two selectable original body variants on existing Wing and New-generation Flying vehicles. |
-| 1.4 | FD2201–FD2203 | One standing and one straddle-seated motorbike specialty vehicle, each with complete player and recovery behavior. |
+| 1.3 | FD2101–FD2103 | Coherent car/seat supports and two selectable original body variants on existing Wing and Fixed Inverted vehicles. |
+| 1.4 | FD2201–FD2204 | Standing, motorbike and suspended flying-bike specialty vehicles, each with complete player and recovery behavior. |
 | Post-1.0; versions after feasibility | FD2001–FD2007 | Transfer platforms, turntables, drop tables, tilt tracks and the finite additional moving-track styles. |
 | Independent | FD801 | Inspectable functional Track Styles adapter; unavailable upstream work does not block release. |
 
@@ -493,8 +493,8 @@ accepted evidence while extending contracts through concrete features.
 | 0.8 / FD1901–FD1902 | Powered Inverted Yaw Coaster | Upright-seated passengers below the track, one independently controlled full-turn yaw carrier per car, powered speed/direction/dwell and scenery-facing show sections. This is the MACK-style concept, distinct from Flying and Arrow-style free lateral swing. |
 | 1.1 / FD1602–FD1605 | Setting presets; colors/original liveries; unified operator panel | Presets validate compatibility/version/permissions and explicitly rebind world references. Appearance preserves mechanics; panel commands use existing authority. No arbitrary texture uploads, scripting or park-wide controller. |
 | 1.2 / FD1701B–C, FD1703 | Ride-local multi-train management | One fixed circuit, finite train limit and declared homogeneous consists; whole-consist occupancy/reservations and fail-closed dispatch. No shared-track network, arbitrary junction routing or automatic depot management. |
-| 1.3 / FD2101–FD2103 | Car structure and body variants | Correct unsupported-looking seat connections in affected models. Add compact Wing and glider-inspired New-generation Flying body choices through existing appearance selection; retain their mechanical, posture, seat and track contracts. |
-| 1.4 / FD2201–FD2203 | Standing and motorbike coasters | New fixed-standing and straddle-seated vehicle styles, each with a dimensioned configuration, distinct restraint and boarding, occupied fit, camera, recovery and original content. No moving-track dependency. |
+| 1.3 / FD2101–FD2103 | Car structure and body variants | Correct unsupported-looking seat connections in affected models. Add compact Wing and open-frame Fixed Inverted body choices through existing appearance selection; retain their mechanical, seat and track contracts. |
+| 1.4 / FD2201–FD2204 | Standing, motorbike and suspended flying-bike coasters | Three distinct vehicle styles, each with a dimensioned configuration, appropriate restraint and boarding, occupied fit, camera, recovery and original content. The flying-bike style adds suspended track fit and bounded multi-launch propulsion; no moving-track dependency. |
 
 References: [B&M Inverted](https://www.bolliger-mabillard.com/inverted-coaster),
 [B&M Dive](https://www.bolliger-mabillard.com/dive-coaster),
@@ -599,23 +599,29 @@ unchanged assets and contracts.
 
 Body choice is a separate, persistent appearance identifier from the 1.1
 upholstery palette/livery. Extend the existing appearance selector to show a
-base body plus one compact Wing and one glider-inspired New-generation Flying
-body. A selected body cannot alter vehicle type, seat count, pose changeover,
-restrained state, yaw, track eligibility, propulsion or rider/camera ownership.
-The Flying choice is an original visual interpretation of the
-[Thrill Glider announcement](https://www.sixflags.com/magicmountain/new-in-2027),
-not a claim to implement its suspended track, launch or flying-bike posture.
+base body plus one compact Wing and one open-frame Fixed Inverted
+body. A selected body cannot alter vehicle type, seat count, restrained state,
+track eligibility, propulsion or rider/camera ownership.
 Save/load and unavailable-choice fallback must retain the mechanical vehicle
 and rider state. A new mechanics request receives a new vehicle specification.
 
-FD2201 and FD2202 each specify one dimensioned new vehicle before implementing
-it. Standing uses a fixed upright standing ride pose and a matching restraint,
-platform, camera and evacuation path. Motorbike uses a straddle-seated ride pose,
-hold-down restraint and its own boarding/dismount geometry. These are separate
-from the existing seated Pipeline and floorless Dive configurations. Keep
+FD2201, FD2202 and FD2204 each specify one dimensioned new vehicle before
+implementing it. Standing uses a fixed upright standing ride pose and a matching
+restraint, platform, camera and evacuation path. Motorbike uses a
+straddle-seated ride pose, hold-down restraint and its own boarding/dismount
+geometry. These are separate
+from the existing seated Pipeline and floorless Dive configurations. FD2204 is
+a Thrill Glider-inspired suspended flying-bike style with a prone face-forward
+rider below the track and bounded multi-launch operation. It is distinct from
+New-generation Flying and the upright motorbike style: its eligible track,
+boarding/restraint, propulsion authority, occupied camera and recovery all
+need their own specification and evidence. See the
+[Six Flags announcement](https://www.sixflags.com/magicmountain/new-in-2027)
+and [press release](https://www.prnewswire.com/news-releases/six-flags-magic-mountain-announces-thrill-glider-the-worlds-first-thrillglider-roller-coaster-opening-in-2027-302875547.html)
+for the reference concept. Keep
 capacity, train geometry, track fit, rider sweep and recovery measurable in
-each specification. Both need original content and occupied player acceptance;
-neither inherits a commercial ride's proprietary art or unverified actuator
+each specification. All three need original content and occupied player acceptance;
+none inherits a commercial ride's proprietary art or unverified actuator
 details. The [1.3 guide](docs/roadmap/1.3-car-models.md) and
 [1.4 guide](docs/roadmap/1.4-specialty-vehicles.md) order the handoffs; the
 [roadmap](ROADMAP.md#version-13-car-models) owns scope and
