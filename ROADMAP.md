@@ -1560,14 +1560,13 @@ for each. [B&M Surf](https://www.bolliger-mabillard.com/surf-coaster) and
 [SeaWorld Pipeline](https://seaworld.com/orlando/roller-coasters/pipeline/)
 are references for the dynamic seat; the game implementation must define its
 own travel and capture limits rather than copy a commercial mechanism. The
-next specialty vehicle is a straddle-seated motorbike inspired by
+next specialty vehicle is a straddle-seated motorbike inspired by https://coasterpedia.net/wiki/Motorbike_roller_coaster
 [Vekoma's Motorbike Coasters](https://www.vekoma.com/motorbike-coasters).
 Its riding pose, hold-down restraint, loading clearance and dismount differ
 from the 1.0 seated cars. The third is a suspended flying-bike coaster inspired
 by [Six Flags' Thrill Glider](https://www.sixflags.com/magicmountain/new-in-2027).
 Its prone, face-forward rider position beneath the track and multiple launches
-need a distinct vehicle, restraint, track-fit and propulsion specification;
-it is not New-generation Flying or a visual variant of motorbike. Each
+need a distinct vehicle, restraint. Each
 configuration uses original assets and finite, dimensioned specifications;
 a painted existing car is insufficient. New vehicle identifiers and required
 migration/fallback are owned inside these packages. None depends on
