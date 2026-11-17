@@ -1513,8 +1513,8 @@ It consumes the hold authority without waiting for unrelated multi-train cases.
 | --- | --- | --- |
 | <a id="fd1701"></a> **FD1701 Ride-local operations outcome — planned** [Steps](docs/roadmap/1.2-multi-train.md#fd1701) | FD1701C | Group the authority, implementation and acceptance below; no additional run is required to close the parent. |
 | <a id="fd1701a"></a> **FD1701A Ride-local authority contract — complete** [Steps](docs/roadmap/0.8-operations.md#fd1701a) | Integrated FD106 control/stop interfaces; FD810, FD811 or FD812 only for the adapter actually consumed | Audit provider behavior, select ownership and expose validated hold/release/dispatch requests through the existing controller. Prove fail-closed authority transfer and one representative occupied handoff. Name finite supported profiles and missing native hooks before dependent work. |
-| <a id="fd1701b"></a> **FD1701B Block operation and example — in progress** [Steps](docs/roadmap/1.2-multi-train.md#fd1701b) | FD1701A | Implement whole-consist block occupancy, route reservations, train admission and station dispatch interlocks for the declared circuit/count. Preserve identities and occupancy across removal, unload, interruption and restart; unresolved occupancy must not grant entry. Supply normal controls, diagnostics, guide and a multi-train example. |
-| <a id="fd1701c"></a> **FD1701C Ride-local operations acceptance — planned** [Steps](docs/roadmap/1.2-multi-train.md#fd1701c) | FD1701B | Close normal separation/dispatch and distinct interruption/restart cases at the declared train limit. Combine native reservation evidence with occupied interaction; no park-wide matrix is required. |
+| <a id="fd1701b"></a> **FD1701B Block operation and example — in progress (six-block Arrow contract integrated 2026-11-17)** [Steps](docs/roadmap/1.2-multi-train.md#fd1701b) | FD1701A | Implement whole-consist block occupancy, route reservations, train admission and station dispatch interlocks for the declared circuit/count. Preserve identities and occupancy across removal, unload, interruption and restart; unresolved occupancy must not grant entry. Supply normal controls, diagnostics, guide and a multi-train example. |
+| <a id="fd1701c"></a> **FD1701C Ride-local operations acceptance — planned (native state tests prepared; occupied client case open)** [Steps](docs/roadmap/1.2-multi-train.md#fd1701c) | FD1701B | Close normal separation/dispatch and distinct interruption/restart cases at the declared train limit. Combine native reservation evidence with occupied interaction; no park-wide matrix is required. |
 | <a id="fd1702"></a> **FD1702 Dive outcome — complete** [Steps](docs/roadmap/0.8-operations.md#fd1702) | FD1702C | Group the A–C vehicle outcome; close from accepted evidence without another walkthrough. |
 | <a id="fd1702a"></a> **FD1702A Dive mechanics — complete** [Steps](docs/roadmap/0.8-operations.md#fd1702a) | FD1702S, FD1101A, FD1701A | Implement the specified fixed-seat vehicle, measured track fit, clearance, approach, timed hold, validated release, stopping/recovery and restraint interlocks through the established authority; include occupied handoff. |
 | <a id="fd1702b"></a> **FD1702B Dive content — complete** [Steps](docs/roadmap/0.8-operations.md#fd1702b) | Stable FD1702A specification/dimensions | Deliver original vehicle/equipment assets, recipes, controls, guide and a hold-and-drop example. |
@@ -1540,6 +1540,7 @@ selection uses the existing appearance controls, persists, previews and falls
 back to the base model when unavailable. It preserves capacity, seat ownership,
 camera, restraint, clearance and sweep. A color/livery alone does not count
 as a body variant.
+Repair any other discovered modeling or texture issues.
 
 | Package / status | Actual prerequisites | Ordered work and completion condition |
 | --- | --- | --- |
@@ -1558,7 +1559,8 @@ while the rider remains upright. Specify distinct supports, restraints,
 boarding platforms, rider/camera positions, swept envelopes and evacuation
 for each. [B&M Surf](https://www.bolliger-mabillard.com/surf-coaster) and
 [SeaWorld Pipeline](https://seaworld.com/orlando/roller-coasters/pipeline/)
-are references for the dynamic seat; the game implementation must define its
+are references for the dynamic seat; the game implementation must define itsn 1.3 car-model gate — planned** [Steps](docs/roadmap/1.3-car-models.md#fd2103) | FD2101, FD2102 , further model support and final pass before marking complete | Reconcile affected structural views, both model choices, persistence/fallback and relevant package/content checks. Retain FD917 and unrelated 1.0/1.1 evidence. |
+
 own travel and capture limits rather than copy a commercial mechanism. The
 next specialty vehicle is a straddle-seated motorbike inspired by https://coasterpedia.net/wiki/Motorbike_roller_coaster
 [Vekoma's Motorbike Coasters](https://www.vekoma.com/motorbike-coasters).
