@@ -17,8 +17,9 @@ Their former proposed 1.1–1.4 vehicle allocations are superseded; FD IDs remai
 unchanged. Standalone builder tools retain 1.1 and multi-train operations retain
 1.2; only their control interfaces actually needed by vehicles move earlier.
 FD2001–FD2007 moving-track work never feeds FD1000, FD905 or FD1003.
-Spinning's 1.0 list remains S1 conventional free-spinning and S2 launched/inverting
-free-spinning with magnetic influence.
+Spinning's 1.0 list remains **Classic Spinning** (S1, conventional free-spinning)
+and **Launched Inverting Spinning** (S2, with launch, inversions and magnetic
+influence). S1/S2 remain stable design identifiers in the roadmap.
 The [integration allocation](docs/INTEGRATION-BACKLOG.md#release-allocation)
 uses the same sequence. This adopts the work plan; it does not certify new
 capabilities, activate dependencies, change artifact versions or authorize publication.
@@ -93,9 +94,9 @@ whole-JAR equality is not required. Keep the original run identity and limits.
 | 0.3 | FD301–FD305 | Done for bounded five-family gate | Revised ZacSpin variant and functional PAX-style shuttle system. |
 | 0.4 | FD401–FD404 | Complete 2026-11-15 | Five-family core, recovery and player workflows reconciled at the FD404 development checkpoint; expanded 1.0 qualification remains FD1000. |
 | 0.5 | FD501–FD503; six original discovery IDs; FD1601S, FD1702S, FD1801S, FD1802S, FD1901S; FD1101A–C; FD904C1 | Complete | Specify every 1.0 vehicle, prove Wing-backed extension contracts, establish comfort and reusable tools. Adapter-specific upgrades follow their consumers. |
-| 0.6 | FD1501A–C, FD1301A–C, FD1601A–C, FD601 | Complete 2026-11-15 | S1 conventional free-spinning, Suspended and Fixed Inverted: axes, loading, capture, swing locks and fixed overhead seating. |
+| 0.6 | FD1501A–C, FD1301A–C, FD1601A–C, FD601 | Complete 2026-11-15 | Classic Spinning (S1), Suspended and Fixed Inverted: axes, loading, capture, swing locks and fixed overhead seating. |
 | 0.7 | FD1302A–C, FD1502A–C, FD1801A–C, FD1802A–C, FD1803, FD701 | Complete | Axis/Roller Ball and both Flying variants; New-generation Flying proves scenery-facing yaw in seated and prone postures. |
-| 0.8 | FD1401A–C, FD1501D–F, FD1701A, FD1702A–C, FD1901A–C, FD1902, FD810–FD813 | Complete 2026-11-15 | Pipeline, S2, Dive, Powered Inverted Yaw, required operating authority and agreed Additions/CTNB/Magnetized capabilities. |
+| 0.8 | FD1401A–C, FD1501D–F, FD1701A, FD1702A–C, FD1901A–C, FD1902, FD810–FD813 | Complete 2026-11-15 | Pipeline, Launched Inverting Spinning (S2), Dive, Powered Inverted Yaw, required operating authority and agreed Additions/CTNB/Magnetized capabilities. |
 | 0.9 | FD910–FD916 | Complete 2026-11-15 | Skin, rotating-seat integration, Immersion, Waterparked/Create Coasters coexistence, and the accepted model/texture baseline. |
 | Pre-1.0 production | FD917 | Complete | Production models/materials, connected mechanisms and truthful state presentation for all 17 vehicle styles, required tracks/equipment/items and affected optional appearances. |
 | 1.0 alpha | FD1000 | Complete 2026-11-15 | All adopted vehicle families, variants, 1.0 integrations and FD917 production visuals accepted; freeze feature scope and supported profiles. |
@@ -1299,8 +1300,8 @@ Completion evidence for A–C: [Wing acceptance](docs/evidence/0.5/wing/README.m
 
 | Adopted 1.0 variant | Finite scope | Delivery |
 | --- | --- | --- |
-| S1 Conventional free-spinning | One specified passenger/carrier arrangement rotating about the vehicle's local upright axis; load-sensitive free motion, damping, clearance and controlled station capture. | 0.6 / FD1501A–C |
-| S2 Launched/inverting free-spinning | One specified vehicle configuration with free rotation through inversions, launch interaction, magnetic spin influence and station capture. Use [MACK Xtreme Spinning](https://www.mack-rides.com/products/xtreme-spinning-coaster) as a reference, with original assets. | 0.8 / FD1501D–F |
+| Classic Spinning (S1) | One specified passenger/carrier arrangement rotating about the vehicle's local upright axis; load-sensitive free motion, damping, clearance and controlled station capture. | 0.6 / FD1501A–C |
+| Launched Inverting Spinning (S2) | One specified vehicle configuration with free rotation through inversions, launch interaction, magnetic spin influence and station capture. Use [MACK Xtreme Spinning](https://www.mack-rides.com/products/xtreme-spinning-coaster) as a reference, with original assets. | 0.8 / FD1501D–F |
 
 During 0.5 name S2's working longitudinal propulsion provider and supported
 configuration, including a functioning standalone path; an unavailable optional

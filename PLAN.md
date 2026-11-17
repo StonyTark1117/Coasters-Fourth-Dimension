@@ -37,6 +37,10 @@ The archived schema-7/protocol-8 registry is not automatically part of the build
 FD501 records core and per-adapter decisions. FD501A owns core-required changes;
 FD501B–H own adapter-specific prerequisites without blocking unrelated families.
 
+The Spinning variants are called **Classic Spinning** (S1) and
+**Launched Inverting Spinning** (S2) in player-facing content. S1/S2 remain
+stable design identifiers in package and acceptance records.
+
 The active 0.8 implementation has qualified ride-local authority (FD1701A):
 [shared handoff](docs/evidence/0.8/authority/README.md). Schema 8 retains controller
 identity and requires explicit restoration; schemas 1–7 remain readable. Pipeline
@@ -83,7 +87,7 @@ axes, seats, dimensions and track contracts; release labels do not settle them.
 | Added family package | Delivery milestone | Required behavior / specification boundary |
 | --- | --- | --- |
 | Fixed-seat Wing / FD1101A–C | 0.5 | Fixed passenger seats, measured ordinary-track fit, restraints, coupling and station workflow; no inherited 4D rotation. |
-| Spinning / FD1501A–C, D–F | 0.6 S1; 0.8 S2 | S1 conventional free-spinning; S2 launched/inverting free-spinning with magnetic influence. Each has one specified configuration and distinct loading/damping/capture contracts where required. |
+| Spinning / FD1501A–C, D–F | 0.6 S1; 0.8 S2 | Classic Spinning has conventional non-inverting free motion; Launched Inverting Spinning adds inversion-rated track, launch and magnetic influence. Each has one specified configuration and distinct loading/damping/capture contracts where required. |
 | Suspended / FD1301A–C | 0.6 | Overhead running gear, lateral swing, declared limits/damping and safe lift/station locks. |
 | Axis / FD1302A–C | 0.7 | Explicit rotation-axis/mode, capture, propulsion and clearance behavior distinct from Suspended. |
 | Roller Ball / FD1502A–C | 0.7 | Its own vehicle/route, passenger mechanism, lift/return transitions and retention/capture. |

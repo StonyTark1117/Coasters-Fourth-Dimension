@@ -2,6 +2,9 @@
 
 **Specification complete; implementation remains FD1501A–F.** Version 1,
 2026-11-14 America/Phoenix. Normative [shared conventions](specification-conventions.md).
+Player-facing names are **Classic Spinning** for S1 and **Launched Inverting
+Spinning** for S2. The S1/S2 identifiers and variant IDs below remain stable
+for saved worlds and acceptance records.
 
 ## Adopted variants and sources
 

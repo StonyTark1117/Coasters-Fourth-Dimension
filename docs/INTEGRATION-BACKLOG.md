@@ -232,9 +232,10 @@ dependency pins. It feeds FD1000 directly; FD904 consumes its accepted visuals a
 measurements, and FD1002 checks exported/fallback resources in the release package.
 Required visual failures remain blockers through beta/RC, not deferred polish.
 
-For Spinning S2, the 0.5 specification names a working standalone launch path
-and supported configuration. FD812 adds an optional Magnetized alternative;
-an unavailable provider is not a substitute for the committed vehicle. Later
+For Launched Inverting Spinning (S2), the 0.5 specification names a working
+standalone launch path and supported configuration. FD812 adds an optional
+Magnetized alternative; an unavailable provider is not a substitute for the
+committed vehicle. Later
 consumers refresh only their required version/capability decisions when work
 starts; do not upgrade every optional addon or replay old profiles merely because
 the release number changes. Required migrations get a bounded owning package.

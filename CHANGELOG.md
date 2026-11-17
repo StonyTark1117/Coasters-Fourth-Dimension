@@ -2,6 +2,7 @@
 
 ## 1.1.0 — in development, unpublished
 
+- Rename the S1 and S2 player-facing Spinning variants to Classic Spinning and Launched Inverting Spinning. Saved IDs and existing worlds remain compatible.
 - Add named portable setting presets with local save/import/export, exact destination compatibility and explicit marker rebinding.
 - Add five original upholstery palettes with world preview, per-car persistence and Original fallback.
 - Add a unified whole-consist operator panel using existing guarded server operations.

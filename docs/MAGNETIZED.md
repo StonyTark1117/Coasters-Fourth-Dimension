@@ -8,19 +8,20 @@ authorize Fourth Dimension propulsion.
 
 ## Equip and select
 
-On ordinary Wing track or dedicated S2 track, right-click a native anchor with
-Gold Ingot to equip launch magnets, or Lapis Lazuli for brakes. Supply redstone
-and use the upstream force setting (0–100%). Brake equipment removes motion in
-either direction and never reverses a stopped car. Remove equipment with the
+On ordinary Wing track or dedicated [Launched Inverting Spinning](SPINNING-S2.md)
+track, right-click a native anchor with Gold Ingot to equip launch magnets, or
+Lapis Lazuli for brakes. Supply redstone and use the upstream force setting
+(0–100%). Brake equipment removes motion in either direction and never reverses
+a stopped car. Remove equipment with the
 upstream empty-hand interaction. Do not confuse the force percentage with a
 travel-direction control.
 
 Bind a Boarding Station to the stopped complete train, within eight blocks of
 the lead. Use the Rotation Tool near that station and select **Claim Magnetized**.
 This explicitly transfers any held previous owner and selects Magnetized as the
-only permitted longitudinal provider. An S2 governor's old lease then expires
-and its output stays zero. Native Chain and Engineered cannot add force while
-Magnetized owns the train. CTNB conflicts are reconciled separately by FD813.
+only permitted longitudinal provider. The spinning train's governor lease then
+expires and its output stays zero. Native Chain and Engineered cannot add force
+while Magnetized owns the train. CTNB conflicts are reconciled separately by FD813.
 
 Select forward or reverse while stopped and held. Direction means the native
 section's committed first-to-second anchor direction; connect successive sections
@@ -30,13 +31,15 @@ brake-only section, open restraints, unavailable owner or stale request cannot
 launch. Propulsion approaches the selected signed target, so an opposite-moving
 rollback is slowed before reversing. Target speed is bounded by12blocks/s and
 the addon server cap. Impulse acceleration is bounded by12blocks/s² for Wing and
-3blocks/s² for S2; actual speed also reflects native drag and track slope.
+3blocks/s² for Launched Inverting Spinning; actual speed also reflects native
+drag and track slope.
 
-S2 keeps its dedicated track, body, spin, clearance, route and dock guards. Its
-optional drive replaces the governor command path only after explicit selection;
-all required powered travel sections need Magnetized equipment because native
-Chain is fenced. Its carrier-axis magnets remain independent. The ordinary
-standalone S2 governor path is unchanged. A lift lock still needs an actual native
+Launched Inverting Spinning keeps its dedicated track, body, spin, clearance,
+route and dock guards. Its optional drive replaces the governor command path
+only after explicit selection; all required powered travel sections need
+Magnetized equipment because native Chain is fenced. Its carrier-axis magnets
+remain independent. The ordinary
+standalone governor path is unchanged. A lift lock still needs an actual native
 Chain span to define its guided section; it does not grant competing propulsion.
 
 Loss of power on an equipped section latches the selected authority held. Restoring

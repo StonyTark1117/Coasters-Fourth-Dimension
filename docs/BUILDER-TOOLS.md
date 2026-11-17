@@ -15,7 +15,7 @@ A successful server acknowledgement is required before treating an apply as save
 | Selected destination | Portable settings |
 | --- | --- |
 | Arrow or Axis original rail | Complete distance/angle/slope profile |
-| Free Spin or Launched Inverting Spinning (S2) original rail | Complete magnetic span list |
+| Free Spin or Launched Inverting Spinning original rail | Complete magnetic span list |
 | Legacy ZacSpin, Free Spin, Revised ZacSpin or PAX car | Damping and ballast |
 | New-generation Flying original rail | One named route interval: posture, yaw, blend, winding, rate limits and show stop |
 | Powered Inverted Yaw original rail | One named route interval with its powered speed/dwell/direction/event settings |
