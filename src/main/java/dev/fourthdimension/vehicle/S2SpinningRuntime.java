@@ -71,67 +71,68 @@ public final class S2SpinningRuntime {
   }
   public static void rebindDock(ServerLevel level,FoundationData.Vehicle selected,BlockPos pos){
     var cars=VehicleOperations.consist(level,selected);var container=SubLevelContainer.getContainer(level);
-    if(cars.size()>4)throw new IllegalArgumentException("S2 permits one to four cars");
+    if(cars.size()>4)throw new IllegalArgumentException("Launched Inverting Spinning permits one to four cars");
     for(var v:cars){var r=rail(level,v);var edge=r==null?null:TrackGeometry.resolve(level,r);
       if(!S2SpinningVehicle.is(v)||!v.stopping||v.alignmentRequired||v.maintenance
           ||!(container.getSubLevel(v.chassis) instanceof ServerSubLevel p)||edge==null
           ||S2SpinningTrack.rejection(level,edge)!=null||TrackGeometry.table(level,edge).length()<36
           ||container.physicsSystem().getPipeline().getLinearVelocity(p,new Vector3d()).length()>.05
           ||new Vector3d(0,1,0).rotate(p.logicalPose().orientation()).y<.999)
-        throw new IllegalArgumentException("Stop every S2 car on a clear level 36-block dock before binding");
+        throw new IllegalArgumentException("Stop every Launched Inverting Spinning car on a clear level 36-block dock before binding");
     }
     for(var v:cars){var r=rail(level,v);v.dock=pos.immutable();v.s2.dockFrom=r.from;v.s2.dockTo=r.to;
       v.s2.dockGeometry=r.geometryHash;v.s2.consist=List.of();
-      if(v.fault.startsWith("S2 coupler/consist changed")){v.fault="";v.s2.resumeRequired=false;}
+      if(v.fault.startsWith("Launched Inverting Spinning coupler/consist changed")
+          ||v.fault.startsWith("S2 coupler/consist changed")){v.fault="";v.s2.resumeRequired=false;}
       v.revision++;
     }FoundationData.get(level).setDirty();
   }
   public static String safety(ServerLevel level,ServerSubLevel parent,FoundationData.Vehicle v,FoundationData.Rail rail){
     var edge=rail==null?null:TrackGeometry.resolve(level,rail);
-    if(edge==null||!rail.valid)return "S2 matching track unavailable";
+    if(edge==null||!rail.valid)return "Launched Inverting Spinning matching track unavailable";
     var reason=S2SpinningTrack.rejection(level,edge);if(reason!=null)return reason;
-    if(!FamilyControllers.find(parent).equals(Set.of(v.family)))return "S2 controller unavailable";
-    if(!ConsistRules.eligible(level,parent,v))return "S2 requires one to four identical supported cars";
+    if(!FamilyControllers.find(parent).equals(Set.of(v.family)))return "Launched Inverting Spinning controller unavailable";
+    if(!ConsistRules.eligible(level,parent,v))return "Launched Inverting Spinning requires one to four identical supported cars";
     if(!v.s2.consist.isEmpty()&&!new HashSet<>(v.s2.consist).equals(new HashSet<>(CoasterCartTrainLinkConstraint.getTrainLinkedCartIds(parent))))
-      return "S2 coupler/consist changed; stop and rebind at dock";
+      return "Launched Inverting Spinning coupler/consist changed; stop and rebind at dock";
     var container=SubLevelContainer.getContainer(level);
-    if(container.getSubLevel(v.carriers.getFirst().body)==null)return "S2 carrier unavailable";
+    if(container.getSubLevel(v.carriers.getFirst().body)==null)return "Launched Inverting Spinning carrier unavailable";
     if(v.dock!=null&&(!level.hasChunkAt(v.dock)||!(level.getBlockEntity(v.dock) instanceof BoardingStationEntity)))
-      return "S2 dock unavailable";
-    var center=CoasterCartResolve.cartCenterWorld(parent);if(center==null)return "S2 native bearing unavailable";
+      return "Launched Inverting Spinning dock unavailable";
+    var center=CoasterCartResolve.cartCenterWorld(parent);if(center==null)return "Launched Inverting Spinning native bearing unavailable";
     var hit=CoasterPathTrackFrame.closestHitOnEdge(level,edge,new Vec3(center.x,center.y,center.z));
-    if(hit==null)return "S2 track position unavailable";
+    if(hit==null)return "Launched Inverting Spinning track position unavailable";
     var velocity=container.physicsSystem().getPipeline().getLinearVelocity(parent,new Vector3d());
-    double speed=velocity.length();if(speed>16.05)return "S2 travel exceeds 16 blocks/s";
-    if(Math.abs(v.carriers.getFirst().omega)>4)return "S2 spin exceeds 4 rad/s";
+    double speed=velocity.length();if(speed>16.05)return "Launched Inverting Spinning travel exceeds 16 blocks/s";
+    if(Math.abs(v.carriers.getFirst().omega)>4)return "Launched Inverting Spinning spin exceeds 4 rad/s";
     if(optional(v)){
-      if(!dev.fourthdimension.integration.OptionalIntegrations.installed(dev.fourthdimension.integration.OptionalIntegrations.MAGNETIZED).mayInspect())return "S2 Magnetized unavailable";
+      if(!dev.fourthdimension.integration.OptionalIntegrations.installed(dev.fourthdimension.integration.OptionalIntegrations.MAGNETIZED).mayInspect())return "Launched Inverting Spinning Magnetized unavailable";
     }else if(v.s2.governor!=null){
       var governor=governor(level,v);
-      if(governor==null)return "S2 launch governor unavailable";
-      var unavailable=governor.availability();if(unavailable!=null)return "S2 "+unavailable;
-    }else if(!v.stopping)return "S2 launch governor is not bound";
+      if(governor==null)return "Launched Inverting Spinning launch governor unavailable";
+      var unavailable=governor.availability();if(unavailable!=null)return "Launched Inverting Spinning "+unavailable;
+    }else if(!v.stopping)return "Launched Inverting Spinning launch governor is not bound";
     var table=TrackGeometry.table(level,edge);double at=table.distanceAt(hit.t()),look=speed*speed/12+2.25;
     for(double s=Math.max(0,at-look);s<=Math.min(table.length(),at+look);s+=.5){
       double t=table.parameterAt(s);var point=CoasterPathGraphManager.sampleEdgePosition(level,edge,t);
       var obstruction=S2SpinningTrack.obstruction(level,new CoasterPathTrackFrame.GraphHit(point,edge,t));
-      if(obstruction!=null)return "S2 rotating sweep obstructed at "+obstruction.toShortString();
+      if(obstruction!=null)return "Launched Inverting Spinning rotating sweep obstructed at "+obstruction.toShortString();
     }
     var activeChain=ChainLiftSpanQuery.findAtGraphHit(level,hit,0);
-    if(rail.liftLock&&activeChain==null)return "S2 lift lock requires a governed native Chain span";
+    if(rail.liftLock&&activeChain==null)return "Launched Inverting Spinning lift lock requires a governed native Chain span";
     if(!optional(v)&&!v.stopping&&activeChain!=null&&Math.abs(activeChain.anchor().getSpeed())<.001){
       var controller=governor(level,v);
       // The governed source starts at zero during its bounded launch ramp.
-      if(controller==null||!activeChain.anchor().getBlockPos().equals(controller.anchor))return "S2 return Chain power lost; retained travel hold";
+      if(controller==null||!activeChain.anchor().getBlockPos().equals(controller.anchor))return "Launched Inverting Spinning return Chain power lost; retained travel hold";
     }
     var basis=CoasterPathTrackFrame.trackBasisAtHit(level,hit);
     double signed=velocity.dot(basis.forward().x,basis.forward().y,basis.forward().z);
     if(Math.abs(signed)>.01&&(signed>=0?table.length()-at:at)<=look){
       var endpoint=signed>=0?edge.to():edge.from();
       var next=FoundationData.get(level).rails.stream().filter(r->r!=rail&&(r.from.equals(endpoint)||r.to.equals(endpoint))).toList();
-      if(next.size()!=1)return "S2 end or ambiguous route; stop and inspect";
+      if(next.size()!=1)return "Launched Inverting Spinning end or ambiguous route; stop and inspect";
       var following=TrackGeometry.resolve(level,next.getFirst());
-      if(following==null||S2SpinningTrack.rejection(level,following)!=null)return "S2 incompatible route ahead";
+      if(following==null||S2SpinningTrack.rejection(level,following)!=null)return "Launched Inverting Spinning incompatible route ahead";
     }
     return null;
   }
@@ -153,9 +154,9 @@ public final class S2SpinningRuntime {
       if(!v.stopping||!v.restraints||v.maintenance||v.alignmentRequired
           ||!(container.getSubLevel(v.chassis) instanceof ServerSubLevel p)
           ||container.physicsSystem().getPipeline().getLinearVelocity(p,new Vector3d()).length()>.05)
-        throw new IllegalArgumentException("Stop and retain all S2 riders before explicit resume");
+        throw new IllegalArgumentException("Stop and retain all Launched Inverting Spinning riders before explicit resume");
       var reason=safety(level,p,v,rail(level,v));if(reason!=null)throw new IllegalArgumentException(reason);
-      if(dock(level,p,v))throw new IllegalArgumentException("At the S2 dock use Capture then Dispatch");
+      if(dock(level,p,v))throw new IllegalArgumentException("At the Launched Inverting Spinning dock use Capture then Dispatch");
     }
     start(level,selected);
     for(var v:cars){v.fault="";v.s2.resumeRequired=false;v.s2.rampSpeed=0;
@@ -177,16 +178,16 @@ public final class S2SpinningRuntime {
       if(dev.fourthdimension.integration.RideAuthority.holds(level,v))throw new IllegalArgumentException("Release through the selected Magnetized authority");
       return;
     }
-    var governor=governor(level,v);if(governor==null)throw new IllegalArgumentException("Bind a powered S2 kinetic launch governor");
+    var governor=governor(level,v);if(governor==null)throw new IllegalArgumentException("Bind a powered Launched Inverting Spinning kinetic launch governor");
     governor.release(v);
   }
   public static void direction(ServerLevel level,FoundationData.Vehicle v,int sign){
-    if(Math.abs(sign)!=1)throw new IllegalArgumentException("S2 direction must be forward or reverse");
+    if(Math.abs(sign)!=1)throw new IllegalArgumentException("Launched Inverting Spinning direction must be forward or reverse");
     var container=SubLevelContainer.getContainer(level);
     for(var car:VehicleOperations.consist(level,v)){
       var raw=container.getSubLevel(car.chassis);
       if(!car.stopping||!(raw instanceof ServerSubLevel parent)||container.physicsSystem().getPipeline().getLinearVelocity(parent,new Vector3d()).length()>.05)
-        throw new IllegalArgumentException("Stop the entire S2 train before authorizing direction");
+        throw new IllegalArgumentException("Stop the entire Launched Inverting Spinning train before authorizing direction");
     }
     capture(level,v);
     if(optional(v))dev.fourthdimension.integration.RideAuthority.direction(level,v,sign);
@@ -195,11 +196,11 @@ public final class S2SpinningRuntime {
   public static void update(ServerLevel level,ServerSubLevel parent,ServerSubLevel child,
       FoundationData.Vehicle v,FoundationData.Carrier c,FoundationData.Rail rail,RotaryConstraintHandle joint,double dt){
     var m=MOTION.computeIfAbsent(child,k->new Motion());
-    if(!m.initialized){m.initialized=true;c.latched=false;if(!v.stopping)fault(level,v,"S2 reload hold; inspect and explicitly resume");}
+    if(!m.initialized){m.initialized=true;c.latched=false;if(!v.stopping)fault(level,v,"Launched Inverting Spinning reload hold; inspect and explicitly resume");}
     if(m.checked!=level.getGameTime()){m.checked=level.getGameTime();var reason=safety(level,parent,v,rail);if(reason!=null)fault(level,v,reason);}
     if(!optional(v)&&!v.stopping&&v.fault.isEmpty()){
       var governor=governor(level,v);
-      try{if(governor==null)throw new IllegalArgumentException("S2 launch governor unavailable");
+      try{if(governor==null)throw new IllegalArgumentException("Launched Inverting Spinning launch governor unavailable");
         governor.command(v.chassis,v.s2.epoch,12*v.s2.direction,3);v.s2.rampSpeed=Math.abs(governor.actualBps());
       }catch(IllegalArgumentException denied){fault(level,v,denied.getMessage());}
     }
@@ -207,7 +208,7 @@ public final class S2SpinningRuntime {
     double travel=pipeline.getLinearVelocity(parent,new Vector3d()).length();
     if(rail!=null&&rail.liftLock&&!v.stopping){
       if(!c.liftHeld){
-        if(Math.abs(c.omega)>.05)fault(level,v,"S2 lift entry requires a settled captured carrier");
+        if(Math.abs(c.omega)>.05)fault(level,v,"Launched Inverting Spinning lift entry requires a settled captured carrier");
         else {c.liftHeld=true;c.captureTarget=c.angle;}
       }
       c.liftFrom=rail.from;c.liftTo=rail.to;
@@ -228,7 +229,7 @@ public final class S2SpinningRuntime {
     double goal=aligning?m.servo.advance(c.captureTarget,c.angle,dt):c.liftHeld?c.captureTarget:c.angle;
     boolean drive=aligning||c.liftHeld;
     double inertia=SpinningRuntime.jointInertia(child,c);
-    if(!Double.isFinite(inertia)||inertia<=0){fault(level,v,"S2 native inertia unavailable");return;}
+    if(!Double.isFinite(inertia)||inertia<=0){fault(level,v,"Launched Inverting Spinning native inertia unavailable");return;}
     double decay=.20+(Math.abs(c.omega)>3?2:0)+(v.stopping?2:0);
     joint.setMotor(RotaryConstraintHandle.DEFAULT_AXIS,Math.atan2(Math.sin(goal),Math.cos(goal)),
         drive?inertia*8:0,drive?inertia*6:inertia*decay,false,drive?inertia*.5:inertia*10);

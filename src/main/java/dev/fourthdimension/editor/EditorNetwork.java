@@ -87,7 +87,8 @@ public final class EditorNetwork {
   }
 
   public static void register(RegisterPayloadHandlersEvent event) {
-    var registrar = event.registrar("8");
+    var registrar = event.registrar("9");
+    dev.fourthdimension.tools.ToolsNetwork.register(registrar);
     registrar.playToClient(
         Target.TYPE, Target.CODEC, (p, c) -> c.enqueueWork(() -> openClient.accept(p)));
     registrar.playToClient(
@@ -99,6 +100,7 @@ public final class EditorNetwork {
             c.enqueueWork(
                 () -> {
                   if (!(c.player() instanceof ServerPlayer player)) return;
+                  if(p.action==91){dev.fourthdimension.tools.ToolsNetwork.send(player,p.id);return;}
                   boolean success = false;
                   String message;
                   try {
@@ -149,6 +151,8 @@ public final class EditorNetwork {
   public static void apply(ServerPlayer player, Edit request) {
     if (request.value.length() > 16384)
       throw new IllegalArgumentException("Editor payload too large");
+    if(request.action==92||request.action==93){dev.fourthdimension.tools.OperatorPanel.shuttle(player,request.id,request.revision,request.action==93);return;}
+    if(request.action==90){dev.fourthdimension.tools.PresetService.apply(player,request.id,request.revision,request.value);return;}
     if(request.action==70){PoweredInvertedYawEditor.apply(player,request.id,request.revision,request.value);return;}
     if(request.action==8){NewGenerationFlyingEditor.apply(player,NewGenerationFlyingEditor.editable(player,request.id,request.revision),request.value);return;}
     if (request.action < 10) {
@@ -204,6 +208,7 @@ public final class EditorNetwork {
       if(request.action>=71&&request.action<=74&&!PoweredInvertedYawVehicle.is(vehicle))throw new IllegalArgumentException("Powered controls require their matching vehicle");
       if(request.action>=40&&request.action<=42&&!NewGenerationFlyingVehicle.is(vehicle))throw new IllegalArgumentException("Compound Flying control requires its matching car");
       switch (request.action) {
+        case 81 -> dev.fourthdimension.tools.PaletteService.apply(player,vehicle,request.value);
         case 80 -> dev.fourthdimension.integration.SkinAdapter.select(player,vehicle,request.value);
         case 10 -> VehicleOperations.capture(level, vehicle);
         case 11 -> VehicleOperations.restraints(level, vehicle, true);
@@ -218,7 +223,7 @@ public final class EditorNetwork {
         case 72,73 -> PoweredInvertedYawRuntime.direction(level,vehicle,request.action==72?1:-1);
         case 74 -> PoweredInvertedYawEditor.sound(player,vehicle);
         case 63,64 -> {
-          if(!dev.fourthdimension.vehicle.S2SpinningVehicle.is(vehicle))throw new IllegalArgumentException("S2 direction controls require S2");
+          if(!dev.fourthdimension.vehicle.S2SpinningVehicle.is(vehicle))throw new IllegalArgumentException("Direction controls require Launched Inverting Spinning");
           dev.fourthdimension.vehicle.S2SpinningRuntime.direction(level,vehicle,request.action==63?1:-1);
         }
         case 60,61,62,65,66,67,68 -> dev.fourthdimension.integration.RideAuthority.operate(player,vehicle,request.action);
@@ -256,7 +261,7 @@ public final class EditorNetwork {
             dev.fourthdimension.vehicle.SuspendedRuntime.resumeToDock(level,vehicle);break;
           }
           if (!dev.fourthdimension.vehicle.SpinningVehicle.is(vehicle))
-            throw new IllegalArgumentException("Resume to dock requires S1");
+            throw new IllegalArgumentException("Resume to dock requires Classic Spinning");
           dev.fourthdimension.vehicle.SpinningRuntime.resumeToDock(level, vehicle);
         }
         case 40 -> NewGenerationFlyingRuntime.unwind(level,vehicle);

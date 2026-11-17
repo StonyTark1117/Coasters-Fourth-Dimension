@@ -1,6 +1,6 @@
-# S2 launched/inverting Spinning
+# Launched Inverting Spinning
 
-S2 is the four-seat red-harness Spinning car on **S2 Launched Spinning Track**.
+This is the four-seat red-harness Spinning car on **Launched Inverting Spinning Track**.
 It supports one to four identical cars, with eight blocks between bearings. Its
 free seat turntable rotates about the car's local vertical axis, including when
 the track is upside down. Uneven passengers and acceleration affect the spin.
@@ -11,14 +11,14 @@ It has no programmed scenery-facing target.
 Craft sixteen track pieces with six iron ingots (top and bottom rows), two
 redstone dust (middle left/right) and red dye (center). The car recipe uses four
 Create Red Seats, a Mechanical Bearing, a native Coaster Cart, two iron ingots and
-one S2 track piece. The Kinetic Launch Governor recipe uses four iron ingots,
+one Launched Inverting Spinning track piece. The Kinetic Launch Governor recipe uses four iron ingots,
 two redstone dust, two Create Shafts and a Clutch.
 
-Place and connect S2 track with the normal track item, anchors and Wrench.
+Place and connect Launched Inverting Spinning track with the normal track item, anchors and Wrench.
 Keep bends at radius 16 or greater, roll change at most 5 degrees per block, and a
 clear rotating-car reservation of 2.25 blocks to either side and 3.65 above the track.
-Allow 2.25 blocks ahead/behind each bearing. S1 track is a different variant and
-cannot substitute for inversion-rated S2 track.
+Allow 2.25 blocks ahead/behind each bearing. Classic Spinning track is a different
+variant and cannot substitute for inversion-rated track.
 
 Use a level dock at least 36 blocks long. Place the car and bind a Boarding Station.
 For a train, wait for each empty car's captured readiness, link with the normal
@@ -48,7 +48,7 @@ and track roll. Closed restraints prevent Shift from unloading a moving car.
 An Inducer span applies signed local-Y spin torque; a Damper span opposes the
 current relative spin. Place the matching magnetic attachment with its normal
 item and edit its span using the Rotation Tool on the side of a track anchor.
-S2 has one carrier: use target mask `1`. For example,
+Each car has one carrier: use target mask `1`. For example,
 `2:20:damp:1:6:0.1:1` adds a Damper from distance 2 to 20 with strength 6.
 Applying an added span consumes one equipment item; removing it refunds that item.
 Clear the section and its approaches before editing. A stronger field is still bounded:

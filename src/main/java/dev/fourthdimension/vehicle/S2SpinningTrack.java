@@ -14,13 +14,13 @@ public final class S2SpinningTrack {
   private static final Map<CoasterPathEdge,Boolean> SHAPES=new WeakHashMap<>();
   private S2SpinningTrack(){}
   public static String rejection(Level level,CoasterPathEdge edge){
-    if(CoasterPathGraphManager.edgeHostedOnSubLevel(level,edge))return "S2 Spinning requires fixed world track";
+    if(CoasterPathGraphManager.edgeHostedOnSubLevel(level,edge))return "Launched Inverting Spinning requires fixed world track";
     var data=EligibilityHooks.data(level);
     var rail=data==null?null:data.rails.stream().filter(r->r.matches(edge.from(),edge.to())).findFirst().orElse(null);
     if(rail==null||!rail.valid||rail.family!=Family.SPINNING||!S2SpinningVehicle.VARIANT.equals(rail.variant))
-      return "S2 Spinning requires matching inversion-rated track with launch and magnetic capability";
-    if(!TrackDesign.S2_SPINNING.nativeFit().accepts(S2SpinningVehicle.FIT))return "S2 Spinning contact/mount/envelope mismatch";
-    return SHAPES.computeIfAbsent(edge,e->shapeFits(level,e))?null:"S2 Spinning needs radius >=16 and roll change <=5 degrees/block";
+      return "Launched Inverting Spinning requires matching inversion-rated track with launch and magnetic capability";
+    if(!TrackDesign.S2_SPINNING.nativeFit().accepts(S2SpinningVehicle.FIT))return "Launched Inverting Spinning contact/mount/envelope mismatch";
+    return SHAPES.computeIfAbsent(edge,e->shapeFits(level,e))?null:"Launched Inverting Spinning needs radius >=16 and roll change <=5 degrees/block";
   }
   private static boolean shapeFits(Level level,CoasterPathEdge edge){
     Vec3 last=null,tangent=null,up=null;

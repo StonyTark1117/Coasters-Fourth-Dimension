@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="dev.fourthdimension.tools.SettingPresetTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2026-11-17T07:36:17.924Z" hostname="Hades" time="0.053">
+  <properties/>
+  <testcase name="finiteLibraryAndPaletteFallback()" classname="dev.fourthdimension.tools.SettingPresetTest" time="0.043"/>
+  <testcase name="roundTripNamesAndSettings()" classname="dev.fourthdimension.tools.SettingPresetTest" time="0.006"/>
+  <testcase name="namesCannotEscapeLibraryAndReplacementIsExact()" classname="dev.fourthdimension.tools.SettingPresetTest" time="0.001"/>
+  <testcase name="rejectsIncompatibleTargetsAndVersions()" classname="dev.fourthdimension.tools.SettingPresetTest" time="0.001"/>
+  <testcase name="corruptLibraryIsPreserved()" classname="dev.fourthdimension.tools.SettingPresetTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

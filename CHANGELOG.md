@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.1.0 — in development, unpublished
+
+- Add named portable setting presets with local save/import/export, exact destination compatibility and explicit marker rebinding.
+- Add five original upholstery palettes with world preview, per-car persistence and Original fallback.
+- Add a unified whole-consist operator panel using existing guarded server operations.
+- See the [builder tools guide](docs/BUILDER-TOOLS.md) for the finite settings and appearance scope.
+
 ## 1.0.0 Beta — 2026-11-16
 
 - Promote the verified alpha file to Beta on Modrinth and CurseForge. Version

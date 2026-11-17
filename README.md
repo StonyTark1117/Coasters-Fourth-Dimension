@@ -29,6 +29,10 @@ retain the completed qualification history.
 qualified scope and dependencies. Earlier checkpoint limitations remain historical
 evidence in the [changelog](CHANGELOG.md); they do not reopen completed cases.
 
+The 1.1 development build adds [builder and operator tools](docs/BUILDER-TOOLS.md):
+shareable presets, original upholstery colors and a unified ride panel. It is not
+yet a published release. The public 1.0.0 Beta files remain unchanged.
+
 ## Install
 
 Install the same Fourth Dimension build on every client and dedicated server,
@@ -63,8 +67,8 @@ required. Do not downgrade an upgraded world in place.
 | Revised ZacSpin | Revised free-rotation topology; [Revised/Shuttle guide](docs/REVISED-SHUTTLE.md). |
 | PAX-inspired shuttle | Physical catch, carriage lift and release; [shuttle operation](docs/REVISED-SHUTTLE.md) and [interruption recovery](docs/RECOVERY.md#pax-shuttle-interruption-recovery). |
 | Wing | Fixed seats beside the track; [Wing](docs/WING.md). |
-| S1 Spinning | Conventional native free-yaw turntable; [S1](docs/SPINNING.md). |
-| S2 Spinning | Launched/inverting free-yaw configuration with magnetic influence; [S2](docs/SPINNING-S2.md). |
+| Classic Spinning | Conventional single-car free-yaw turntable without inversions; [guide](docs/SPINNING.md). |
+| Launched Inverting Spinning | One to four free-yaw cars with launch, inversions and magnetic influence; [guide](docs/SPINNING-S2.md). |
 | Suspended | Hanging cabin with bounded passive swing; [Suspended](docs/SUSPENDED.md). |
 | Fixed Inverted | Fixed row below overhead track; [Fixed Inverted](docs/FIXED-INVERTED.md). |
 | Axis | Independent longitudinal pod roll; [Axis](docs/AXIS.md). |

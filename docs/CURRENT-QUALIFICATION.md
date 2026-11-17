@@ -30,6 +30,21 @@ will carry unaffected acceptance forward; no new JAR or run is required here.
 
 ## Current work queue
 
+### Active 1.1 — authorized 2026-11-17
+
+The human requested **"Continue 1.1"**. This chat owns FD1602–FD1605 and shared
+integration on primary `main`, starting at `b4893639`; only pre-existing `logs/`
+was untracked. The separately completed spinning-name task changed player-facing labels while preserving saved identifiers; those edits are retained. This chat owns the private 1.1 test runtimes. 1.0 acceptance remains
+closed; stable promotion and 1.1 publication are separate from this implementation.
+
+| Package | State | Next action |
+| --- | --- | --- |
+| FD1602 presets | Complete | [Native rejection/round-trip and normal client save/import/apply](evidence/1.1/README.md). |
+| FD1603 appearance | Complete | Five original upholstery choices; native isolation/persistence and client preview/cancel/reopen/reload verified. |
+| FD1604 operator panel | Complete | Native ordinary, station-authority and PAX sources/denials; connected-client restraint commands and readiness verified. |
+| FD1605 aggregate | Final verification | Reproducible 1.1.0 package built; finish bounded tools performance sample, cleanup and integration. |
+
+
 Use the [milestone execution guides](roadmap/README.md) for package procedures
 and handoffs. This queue retains active ownership and next actions; the guides
 do not create another tracker or reopen cases. A next action may reference a

@@ -13,15 +13,15 @@ public final class SpinningTrack {
   private static final Map<CoasterPathEdge,Boolean> SHAPES=new WeakHashMap<>();
   private SpinningTrack() {}
   public static String rejection(Level level,CoasterPathEdge edge) {
-    if(CoasterPathGraphManager.edgeHostedOnSubLevel(level,edge))return "S1 requires fixed world track";
+    if(CoasterPathGraphManager.edgeHostedOnSubLevel(level,edge))return "Classic Spinning requires fixed world track";
     var data=EligibilityHooks.data(level);
     var rail=data==null?null:data.rails.stream().filter(r->r.matches(edge.from(),edge.to())).findFirst().orElse(null);
     if(rail==null || !rail.valid || !SpinningVehicle.VARIANT.equals(rail.variant)
         || rail.family!=dev.fourthdimension.contract.Family.SPINNING)
-      return "S1 requires matching conventional Spinning track and capture capability";
-    if(!TrackDesign.SPINNING.nativeFit().accepts(SpinningVehicle.FIT))return "S1 contact/mount/envelope mismatch";
+      return "Classic Spinning requires matching track and capture capability";
+    if(!TrackDesign.SPINNING.nativeFit().accepts(SpinningVehicle.FIT))return "Classic Spinning contact/mount/envelope mismatch";
     return SHAPES.computeIfAbsent(edge,e->shapeFits(level,e))?null:
-        "S1 needs radius >=12, bank/slope <=60 degrees and no inversions";
+        "Classic Spinning needs radius >=12, bank/slope <=60 degrees and no inversions";
   }
   private static boolean shapeFits(Level level,CoasterPathEdge edge) {
     Vec3 previous=null,tangent=null;

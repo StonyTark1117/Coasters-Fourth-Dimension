@@ -31,13 +31,13 @@ public final class MagneticEquipmentItem extends Item {
       var hit =
           CoasterPathTrackFrame.nearestGraphHit(
               level, CoasterPathGraphManager.get(level), context.getClickLocation(), 4);
-      if (hit == null) throw new IllegalArgumentException("Use on a Free Spin or S2 track section");
+      if (hit == null) throw new IllegalArgumentException("Use on a Free Spin or Launched Inverting Spinning track section");
       var rail =
           FoundationData.get(level).rails.stream()
               .filter(r -> r.matches(hit.edge().from(), hit.edge().to()))
               .findFirst()
               .orElseThrow(
-                  () -> new IllegalArgumentException("Requires functional Free Spin or S2 track"));
+                  () -> new IllegalArgumentException("Requires functional Free Spin or Launched Inverting Spinning track"));
       double length = rail.profile.keys().getLast().distance();
       double d = TrackGeometry.distance(level, hit.edge(), rail, hit.t());
       double start = Math.max(0, Math.min(length - 4, d - 2)), end = Math.min(length, start + 4);

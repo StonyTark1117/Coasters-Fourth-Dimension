@@ -48,7 +48,7 @@ public final class ProductionModels {
       for (var state : block.getStateDefinition().getPossibleStates()) {
         var id = net.minecraft.client.renderer.block.BlockModelShaper.stateToModelLocation(state);
         var original = models.get(id);
-        if (original != null) models.put(id, new StaticArticulationModel(original, state, entry.getValue(), models));
+        if (original != null) models.put(id, new dev.fourthdimension.client.tools.PaletteModels(new StaticArticulationModel(original, state, entry.getValue(), models)));
       }
     }
   }

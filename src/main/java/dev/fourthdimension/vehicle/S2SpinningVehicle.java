@@ -26,18 +26,18 @@ public final class S2SpinningVehicle {
     return v.family == Family.SPINNING && VARIANT.equals(v.variant);
   }
   public static void validate(FoundationData.Vehicle v) {
-    if (v.carriers.size()!=1) throw new IllegalArgumentException("S2 requires one carrier");
+    if (v.carriers.size()!=1) throw new IllegalArgumentException("Launched Inverting Spinning requires one carrier per car");
     var c=v.carriers.getFirst();
     if (c.body.equals(v.chassis) || !c.seats.equals(SEATS) || c.side!=0 || c.longitudinal!=0
         || c.pivotHeight!=PIVOT || c.childPivotOffset!=-.5 || c.childPivotX!=-.5 || c.childPivotZ!=-.5
         || v.ballast!=0 || c.ballast!=0 || v.damping!=.20 || v.recoveryCart!=null)
-      throw new IllegalArgumentException("Invalid S2 geometry/loading definition");
+      throw new IllegalArgumentException("Invalid Launched Inverting Spinning geometry/loading definition");
   }
   public static FoundationData.Vehicle create(ServerLevel level, CoasterPathTrackFrame.GraphHit hit) {
     var rejection=S2SpinningTrack.rejection(level,hit.edge());
     if (rejection!=null) throw new IllegalArgumentException(rejection);
     var obstruction=S2SpinningTrack.obstruction(level,hit);
-    if (obstruction!=null) throw new IllegalArgumentException("Clear/load S2 envelope at "+obstruction.toShortString());
+    if (obstruction!=null) throw new IllegalArgumentException("Clear/load Launched Inverting Spinning envelope at "+obstruction.toShortString());
     var data=FoundationData.get(level);
     if (data.vehicles.size()>=64) throw new IllegalArgumentException("Vehicle capacity reached");
     var container=SubLevelContainer.getContainer(level);

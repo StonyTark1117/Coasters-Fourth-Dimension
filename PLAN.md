@@ -498,6 +498,17 @@ required game capability, not an assertion of exact real-world actuator design.
 All 1.0 posture/yaw transitions use fixed track geometry and vehicle joints;
 New-generation Flying's route-based changeover has no moving-track prerequisite.
 
+### Implemented 1.1 tool boundary
+
+[Builder/operator tools](docs/BUILDER-TOOLS.md) freeze the finite preset list:
+Arrow/Axis profiles, Free Spin/Launched Inverting Spinning magnets, original
+Legacy/Free Spin/Revised/PAX tuning, and one named New-generation Flying or
+Powered Inverted route interval. World markers require fresh explicit binding.
+Five original upholstery palettes apply to all 17 styles without replacing
+mechanical meshes or optional chassis. The operator panel samples whole-consist
+state and delegates guarded commands; it adds no physics or park-wide control.
+[Qualification evidence](docs/evidence/1.1/README.md) records affected checks.
+
 ### Shared yaw and posture ownership
 
 FD1802A delivers yaw through the New-generation Flying implementation; FD1901A

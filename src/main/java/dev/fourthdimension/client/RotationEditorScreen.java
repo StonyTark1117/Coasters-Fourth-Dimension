@@ -75,7 +75,7 @@ public final class RotationEditorScreen extends Screen {
           : dev.fourthdimension.vehicle.FixedInvertedVehicle.is(v)
           ? "Fixed Inverted — four seats, overhead track, level dock" : dev.fourthdimension.vehicle.WingVehicle.is(v)
           ? "Fixed seats — ordinary Coasters track" : dev.fourthdimension.vehicle.SpinningVehicle.is(v)
-              ? "S1 free spin — matching track and a bound dock" : dev.fourthdimension.vehicle.SuspendedVehicle.is(v)
+              ? "Classic Spinning — matching track and a bound dock" : dev.fourthdimension.vehicle.SuspendedVehicle.is(v)
                   ? "Suspended ±45° — overhead track, lift locks, level dock" : v.damping + "," + v.ballast);
       if(dev.fourthdimension.vehicle.DiveVehicle.is(v)) value.setValue("Dive: "+v.dive.phase+" | hold "+v.dive.remaining+" ticks");
       value.setTooltip(
@@ -206,7 +206,7 @@ public final class RotationEditorScreen extends Screen {
                     "One span per semicolon: start:end:induce or damp:direction +/-1:strength"
                         + " 0..20:falloff 0..0.5:target sum. "
                         + (rail.variant.equals(dev.fourthdimension.vehicle.S2SpinningVehicle.VARIANT)
-                            ? "S2 single carrier: target=1. "
+                            ? "Launched Inverting Spinning has one carrier per car: target=1. "
                             : "Left-front=1, left-rear=2, right-front=4, right-rear=8, all=15. ")
                         + "Distances start at the section"
                         + " first anchor. Requires equipment items; removing spans refunds"
@@ -298,8 +298,7 @@ public final class RotationEditorScreen extends Screen {
                 })
             .bounds(left + 115, top + 134, 110, 20)
             .build());
-    if(target.vehicle())addRenderableWidget(Button.builder(Component.literal("Appearance"), b -> minecraft.setScreen(new SkinAppearanceScreen(target)))
-        .bounds(left + 230, top, 110, 14).build());
+    dev.fourthdimension.client.tools.ToolNavigation.add(this, target, left + 230, top, 110, this::addRenderableWidget);
     addRenderableWidget(value);
     addRenderableWidget(
         Button.builder(Component.literal("Done"), b -> onClose())
@@ -513,13 +512,17 @@ public final class RotationEditorScreen extends Screen {
     public static void setup(FMLClientSetupEvent event) {
       event.enqueueWork(
           () -> {
+              dev.fourthdimension.tools.ToolsNetwork.receive = state -> {var screen=net.minecraft.client.Minecraft.getInstance().screen;if(screen instanceof dev.fourthdimension.client.tools.OperatorScreen panel)panel.receive(state);};
               EditorNetwork.openClient =
                   target ->
                       net.minecraft.client.Minecraft.getInstance()
                           .setScreen(new RotationEditorScreen(target));
               EditorNetwork.resultClient = result -> {
                 var screen = net.minecraft.client.Minecraft.getInstance().screen;
-                if (screen instanceof RotationEditorScreen editor) editor.receiveResult(result);
+                if (screen instanceof dev.fourthdimension.client.tools.PresetScreen presets) presets.receive(result);
+                else if (screen instanceof dev.fourthdimension.client.tools.PaletteScreen palette) palette.receive(result);
+                else if (screen instanceof dev.fourthdimension.client.tools.OperatorScreen panel) panel.receive(result);
+                else if (screen instanceof RotationEditorScreen editor) editor.receiveResult(result);
                 else if(screen instanceof SkinAppearanceScreen editor)editor.receive(result);
                 else if(screen instanceof NewGenerationFlyingScreen editor)editor.receive(result);
                 else if(screen instanceof PoweredInvertedYawScreen editor)editor.receive(result);

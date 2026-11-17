@@ -92,7 +92,7 @@ public final class S2SpinningGovernorEntity extends SplitShaftBlockEntity implem
   }
   @Override public void validateRelease(ServerLevel server,FoundationData.Vehicle selected){
     var reason=availability();if(reason!=null)throw new IllegalArgumentException(reason);
-    if(Math.abs(inputRpm())<192)throw new IllegalArgumentException("Supply at least192 RPM for the12 b/s S2 launch");
+    if(Math.abs(inputRpm())<192)throw new IllegalArgumentException("Supply at least 192 RPM for the 12 b/s Launched Inverting Spinning launch");
     var path=anchorEntity().resolveChainLiftSpanPath(0);var container=SubLevelContainer.getContainer(server);
     for(var v:VehicleOperations.consist(server,selected)){
       if(!authorizesRide(v.chassis))throw new IllegalArgumentException("Governor consist binding changed");

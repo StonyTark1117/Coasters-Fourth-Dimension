@@ -36,7 +36,7 @@ public final class RideAuthority {
     if(MAGNETIZED.equals(provider)){
       if(!OptionalIntegrations.installed(OptionalIntegrations.MAGNETIZED).mayInspect())throw new IllegalArgumentException("Supported Magnetized installation required");
       if(cars.stream().anyMatch(c->!dev.fourthdimension.vehicle.WingVehicle.is(c)&&!dev.fourthdimension.vehicle.S2SpinningVehicle.is(c)))
-        throw new IllegalArgumentException("Magnetized is qualified for Wing and S2 only");
+        throw new IllegalArgumentException("Magnetized is qualified for Wing and Launched Inverting Spinning only");
     }
     if(CTNB.equals(provider) && (!OptionalIntegrations.installed(OptionalIntegrations.CTNB).mayInspect() || cars.stream().anyMatch(c->!CtnbTracks.supports(c))))
       throw new IllegalArgumentException("CTNB supports certified Wing and Arrow cars only");
@@ -137,7 +137,7 @@ public final class RideAuthority {
   public static void selectMagnetized(ServerLevel l,BlockPos selected,FoundationData.Vehicle v){
     thread(l);
     if(!OptionalIntegrations.installed(OptionalIntegrations.MAGNETIZED).mayInspect())throw new IllegalArgumentException("Supported Magnetized installation required");
-    if(!dev.fourthdimension.vehicle.WingVehicle.is(v)&&!dev.fourthdimension.vehicle.S2SpinningVehicle.is(v))throw new IllegalArgumentException("Magnetized supports Wing and S2");
+    if(!dev.fourthdimension.vehicle.WingVehicle.is(v)&&!dev.fourthdimension.vehicle.S2SpinningVehicle.is(v))throw new IllegalArgumentException("Magnetized supports Wing and Launched Inverting Spinning");
     if(v.authority.owner==null)claim(l,selected,v.chassis,MAGNETIZED);
     else{
       refresh(l,v);if(!v.authority.held)throw new IllegalArgumentException("Hold before selecting a different drive");

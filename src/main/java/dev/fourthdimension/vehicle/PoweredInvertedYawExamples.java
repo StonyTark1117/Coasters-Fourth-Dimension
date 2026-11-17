@@ -104,7 +104,7 @@ public final class PoweredInvertedYawExamples {
       if(i==2)rail.poweredYaw.stops=List.of(new PoweredInvertedYawSection.Stop(interval.id(),"Turn and reverse",length*.5,400,-1));
       TrackPlacement.captureOriginalCurve(rail,edge.bezier());data.rails.add(rail);
     }
-    for(var edge:edges){var reason=PoweredInvertedYawTrack.rejection(l,edge);if(reason!=null)throw new IllegalArgumentException("S2 example "+edge.from()+": "+reason);}
+    for(var edge:edges){var reason=PoweredInvertedYawTrack.rejection(l,edge);if(reason!=null)throw new IllegalArgumentException("Powered Inverted Yaw example "+edge.from()+": "+reason);}
     var launch=edges.getFirst();BlockPos gp=null;
     for(int i=0;i<edges.size();i++){
       var edge=edges.get(i);var anchor=(CoasterAnchorpointBlockEntity)l.getBlockEntity(edge.from());

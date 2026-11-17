@@ -35,7 +35,7 @@ public final class S2SpinningGovernorBlock extends DirectionalKineticBlock imple
           double d=center==null?Double.POSITIVE_INFINITY:center.distanceSquared(new Vector3d(pos.getX()+.5,pos.getY()+.5,pos.getZ()+.5));
           if(d<best){best=d;nearest=v;}
         }
-        if(nearest==null)throw new IllegalArgumentException("Place a stopped S2 train within twelve blocks");
+        if(nearest==null)throw new IllegalArgumentException("Place a stopped Launched Inverting Spinning train within twelve blocks");
         governor.bind(nearest);
       }
       player.displayClientMessage(Component.literal("Kinetic launch governor: "+governor.status()+". Rear shaft supplies power; front shaft feeds a >=24-block Chain. Use car Capture/Dispatch or Resume; sneak-use binds."),false);

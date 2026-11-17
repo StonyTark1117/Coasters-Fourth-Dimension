@@ -212,11 +212,11 @@ public final class CarrierRuntime {
           if (dev.fourthdimension.vehicle.SuspendedVehicle.is(vehicle))
             dev.fourthdimension.vehicle.SuspendedRuntime.fault(level,vehicle,"Suspended cabin body unavailable");
           if (dev.fourthdimension.vehicle.SpinningVehicle.is(vehicle))
-            dev.fourthdimension.vehicle.SpinningRuntime.fault(vehicle, "S1 carrier body unavailable");
+            dev.fourthdimension.vehicle.SpinningRuntime.fault(vehicle, "Classic Spinning carrier body unavailable");
           if (dev.fourthdimension.vehicle.PoweredInvertedYawVehicle.is(vehicle))
             dev.fourthdimension.vehicle.PoweredInvertedYawRuntime.fault(level,vehicle,"Powered Inverted Yaw carrier unavailable");
           if (dev.fourthdimension.vehicle.S2SpinningVehicle.is(vehicle))
-            dev.fourthdimension.vehicle.S2SpinningRuntime.fault(level,vehicle,"S2 carrier body unavailable");
+            dev.fourthdimension.vehicle.S2SpinningRuntime.fault(level,vehicle,"Launched Inverting Spinning carrier body unavailable");
           continue;
         }
         long carrierStart = System.nanoTime();

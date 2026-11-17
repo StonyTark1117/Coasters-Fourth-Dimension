@@ -50,7 +50,7 @@ public final class SpinningRuntime {
     if(!v.stopping || !v.restraints || v.maintenance || v.alignmentRequired
         || !(container.getSubLevel(v.chassis) instanceof ServerSubLevel parent)
         || container.physicsSystem().getPipeline().getLinearVelocity(parent,new Vector3d()).length()>.05)
-      throw new IllegalArgumentException("Stop, retain riders and repair support before S1 resume");
+      throw new IllegalArgumentException("Stop, retain riders and repair support before Classic Spinning resume");
     var rail=FoundationData.get(level).rails.stream().filter(r->r.matches(v.boundFrom,v.boundTo)).findFirst().orElse(null);
     var reason=safety(level,parent,v,rail);
     if(reason!=null)throw new IllegalArgumentException(reason);
@@ -68,34 +68,34 @@ public final class SpinningRuntime {
     return mass.getInertiaTensor().m11()+mass.getMass()*(arm.x*arm.x+arm.z*arm.z);
   }
   public static String safety(ServerLevel level,ServerSubLevel parent,FoundationData.Vehicle v,FoundationData.Rail rail) {
-    if(rail==null || !rail.valid)return "S1 matching track unavailable";
+    if(rail==null || !rail.valid)return "Classic Spinning matching track unavailable";
     if(v.dock!=null && (!level.hasChunkAt(v.dock)
         || !(level.getBlockEntity(v.dock) instanceof BoardingStationEntity station)
-        || !v.chassis.equals(station.vehicle))) return "S1 designated dock unavailable; restore then Capture";
+        || !v.chassis.equals(station.vehicle))) return "Classic Spinning designated dock unavailable; restore then Capture";
     var edge=TrackGeometry.resolve(level,rail);
-    if(edge==null)return "S1 route unavailable";
+    if(edge==null)return "Classic Spinning route unavailable";
     var reason=SpinningTrack.rejection(level,edge);if(reason!=null)return reason;
-    if(!ConsistRules.eligible(level,parent,v))return "S1 permits one car only";
+    if(!ConsistRules.eligible(level,parent,v))return "Classic Spinning permits one car only";
     var container=SubLevelContainer.getContainer(level);
-    if(container.getSubLevel(v.carriers.getFirst().body)==null)return "S1 carrier body unavailable";
-    var center=CoasterCartResolve.cartCenterWorld(parent);if(center==null)return "S1 running gear unavailable";
+    if(container.getSubLevel(v.carriers.getFirst().body)==null)return "Classic Spinning carrier body unavailable";
+    var center=CoasterCartResolve.cartCenterWorld(parent);if(center==null)return "Classic Spinning running gear unavailable";
     var hit=CoasterPathTrackFrame.closestHitOnEdge(level,edge,new Vec3(center.x,center.y,center.z));
-    if(hit==null)return "S1 track position unavailable";
+    if(hit==null)return "Classic Spinning track position unavailable";
     var speed=container.physicsSystem().getPipeline().getLinearVelocity(parent,new Vector3d()).length();
-    if(speed>10.05)return "S1 travel speed exceeds 10 blocks/s";
-    if(Math.abs(v.carriers.getFirst().omega)>3)return "S1 spin exceeds 3 rad/s; stopped for inspection";
+    if(speed>10.05)return "Classic Spinning travel speed exceeds 10 blocks/s";
+    if(Math.abs(v.carriers.getFirst().omega)>3)return "Classic Spinning spin exceeds 3 rad/s; stopped for inspection";
     var table=TrackGeometry.table(level,edge);double distance=table.distanceAt(hit.t());
     // Look in both directions through the braking distance; no assumption about rollback sign.
     double look=speed*speed/12+2.25;
     for(double s=Math.max(0,distance-look);s<=Math.min(table.length(),distance+look);s+=.5) {
       double t=table.parameterAt(s);var point=CoasterPathGraphManager.sampleEdgePosition(level,edge,t);
       if(SpinningTrack.obstruction(level,new CoasterPathTrackFrame.GraphHit(point,edge,t))!=null)
-        return "S1 rider sweep obstructed; clear it then Capture";
+        return "Classic Spinning rider sweep obstructed; clear it then Capture";
     }
     var span=ChainLiftSpanQuery.findAtGraphHit(level,hit,0);
     if(span!=null && Math.abs(ChainLiftDriveDirection.signedChainBlocksPerSecond(span.anchor(),span.path(),0,256,16))<.001)
-      return "S1 Chain power unavailable; restore then Capture and Dispatch";
-    if(rail.liftLock && span==null)return "S1 lift requires a powered native Chain span";
+      return "Classic Spinning Chain power unavailable; restore then Capture and Dispatch";
+    if(rail.liftLock && span==null)return "Classic Spinning lift requires a powered native Chain span";
     return null;
   }
   public static void update(ServerLevel level,ServerSubLevel parent,ServerSubLevel child,
@@ -104,7 +104,7 @@ public final class SpinningRuntime {
     var state=STATES.computeIfAbsent(child,k->new State());
     if(!state.initialized) {
       state.initialized=true;c.latched=false;
-      if(!v.stopping)fault(v,"S1 reload holds travel; inspect then Capture and Dispatch");
+      if(!v.stopping)fault(v,"Classic Spinning reload holds travel; inspect then Capture and Dispatch");
     }
     var pipeline=SubLevelContainer.getContainer(level).physicsSystem().getPipeline();
     double travel=pipeline.getLinearVelocity(parent,new Vector3d()).length();
@@ -115,7 +115,7 @@ public final class SpinningRuntime {
     if(v.stopping || v.maintenance)VehicleOperations.brake(level,v,dt);
     if(rail!=null && rail.liftLock && !v.stopping) {
       if(!c.liftHeld) {
-        if(Math.abs(c.omega)>.05)fault(v,"S1 lift entry requires a settled captured carrier");
+        if(Math.abs(c.omega)>.05)fault(v,"Classic Spinning lift entry requires a settled captured carrier");
         else {c.liftHeld=true;c.captureTarget=c.angle;}
       }
       c.liftFrom=rail.from;c.liftTo=rail.to;
@@ -135,7 +135,7 @@ public final class SpinningRuntime {
     boolean aligning=v.stopping && c.capture && atDock && travel<=.05 && Math.abs(c.omega)<=.35;
     boolean drive=aligning || c.liftHeld;
     double inertia=jointInertia(child,c);
-    if(!Double.isFinite(inertia) || inertia<=0) {fault(v,"S1 native inertia unavailable");return;}
+    if(!Double.isFinite(inertia) || inertia<=0) {fault(v,"Classic Spinning native inertia unavailable");return;}
     if(aligning) {
       if(state.servo==null) {
         c.captureTarget=Math.rint(c.angle/(2*Math.PI))*2*Math.PI;

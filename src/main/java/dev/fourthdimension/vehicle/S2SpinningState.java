@@ -25,16 +25,16 @@ public final class S2SpinningState {
   public static S2SpinningState read(CompoundTag n){
     var s=new S2SpinningState();
     if(n.isEmpty())return s;
-    if(n.getInt("version")!=1)throw new IllegalArgumentException("Unsupported S2 state");
+    if(n.getInt("version")!=1)throw new IllegalArgumentException("Unsupported Launched Inverting Spinning state");
     if(n.contains("dock_from")){s.dockFrom=BlockPos.of(n.getLong("dock_from"));s.dockTo=BlockPos.of(n.getLong("dock_to"));s.dockGeometry=n.getLong("dock_geometry");}
     if(n.contains("governor"))s.governor=BlockPos.of(n.getLong("governor"));
     var ids=new ArrayList<UUID>();for(Tag id:n.getList("consist",Tag.TAG_INT_ARRAY))ids.add(NbtUtils.loadUUID(id));
-    if(ids.size()>4||new HashSet<>(ids).size()!=ids.size())throw new IllegalArgumentException("Invalid S2 consist");
+    if(ids.size()>4||new HashSet<>(ids).size()!=ids.size())throw new IllegalArgumentException("Invalid Launched Inverting Spinning consist");
     s.consist=List.copyOf(ids);s.epoch=n.getLong("epoch");s.rampSpeed=n.getDouble("ramp_speed");
     s.direction=n.getInt("direction");s.resumeRequired=n.getBoolean("resume_required");s.phase=n.getString("phase");
     if(!Double.isFinite(s.rampSpeed)||s.rampSpeed<0||s.rampSpeed>12||Math.abs(s.direction)!=1||s.epoch<0
         ||!Set.of("DOCK_OPEN","SECURED_CAPTURED","DISPATCH","FREE","DAMP","STOPPED_ALIGN","CAPTURED","FAULT").contains(s.phase))
-      throw new IllegalArgumentException("Invalid S2 launch state");
+      throw new IllegalArgumentException("Invalid Launched Inverting Spinning launch state");
     return s;
   }
 }

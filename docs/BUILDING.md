@@ -302,7 +302,7 @@ for the exact packaged-client and native-resource checks. The
 [connected-client acceptance procedure](FD403-ACCEPTANCE.md) lists the remaining
 five-family exercise and evidence needed to close FD403.
 
-## S1 conventional Spinning
+## Classic Spinning
 
-See [the S1 building and operation guide](SPINNING.md) for its dedicated track,
+See [the Classic Spinning building and operation guide](SPINNING.md) for its dedicated track,
 four-seat native Y-axis carrier, Chain lift locks, dock capture and explicit restart.

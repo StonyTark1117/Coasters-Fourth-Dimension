@@ -124,6 +124,7 @@ public final class FoundationData extends SavedData {
     public final UUID chassis;
     public final Family family;
     public String variant = VARIANT;
+    public dev.fourthdimension.tools.VehiclePalette palette = dev.fourthdimension.tools.VehiclePalette.ORIGINAL;
     public dev.fourthdimension.integration.SkinAppearance appearance = dev.fourthdimension.integration.SkinAppearance.ORIGINAL;
     public boolean restraints, boardingReady;
     public boolean stopping, maintenance, alignmentRequired;
@@ -242,6 +243,7 @@ public final class FoundationData extends SavedData {
       tag.putString("family", vehicle.family.id());
       tag.putString("variant", vehicle.variant);
       tag.putString("appearance", vehicle.appearance.id);
+      tag.putString("palette", vehicle.palette.name());
       tag.put("authority", vehicle.authority.save());
       tag.put("ctnb", vehicle.ctnb.save());
       if (dev.fourthdimension.vehicle.DiveVehicle.is(vehicle)) tag.put("dive",vehicle.dive.save());
@@ -415,6 +417,7 @@ public final class FoundationData extends SavedData {
       if (!nativeBodyIds.add(vehicle.chassis))
         throw new IllegalArgumentException("Vehicle chassis reuses a carrier identity");
       vehicle.appearance = dev.fourthdimension.integration.SkinAppearance.read(tag.getString("appearance"));
+      vehicle.palette = dev.fourthdimension.tools.VehiclePalette.read(tag.getString("palette"));
       vehicle.restraints = tag.getBoolean("restraints");
       vehicle.stopping = tag.getBoolean("stopping");
       vehicle.maintenance = tag.getBoolean("maintenance");
@@ -467,7 +470,7 @@ public final class FoundationData extends SavedData {
       if ((dev.fourthdimension.vehicle.SpinningVehicle.is(vehicle) || dev.fourthdimension.vehicle.S2SpinningVehicle.is(vehicle) || dev.fourthdimension.vehicle.AxisVehicle.is(vehicle) || dev.fourthdimension.vehicle.RollerBallVehicle.is(vehicle))
           && (!dev.fourthdimension.contract.NativeTrackFit.N_CONTACTS.equals(tag.getString("contact_layout"))
               || !dev.fourthdimension.contract.NativeTrackFit.ABOVE.equals(tag.getString("mount_frame"))))
-        throw new IllegalArgumentException("Unknown S1 contact/mount definition");
+        throw new IllegalArgumentException("Unknown Classic Spinning contact/mount definition");
       if ((dev.fourthdimension.vehicle.PoweredInvertedYawVehicle.is(vehicle) || dev.fourthdimension.vehicle.SuspendedVehicle.is(vehicle) || dev.fourthdimension.vehicle.FixedInvertedVehicle.is(vehicle) || dev.fourthdimension.vehicle.FlyingVehicle.is(vehicle) || dev.fourthdimension.vehicle.NewGenerationFlyingVehicle.is(vehicle))
           && (!dev.fourthdimension.contract.NativeTrackFit.N_CONTACTS.equals(tag.getString("contact_layout"))
               || !dev.fourthdimension.contract.NativeTrackFit.OVERHEAD.equals(tag.getString("mount_frame"))))

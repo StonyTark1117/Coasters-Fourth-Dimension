@@ -45,7 +45,7 @@ public final class S2SpinningExamples {
     for(int n:new int[]{0,1,4})demo.then(Commands.literal(n==0?"s2_spinning_track":n==1?"s2_spinning":"s2_spinning_train").executes(ctx->{
       try {var l=ctx.getSource().getLevel();var e=create(l,BlockPos.containing(ctx.getSource().getPosition()).offset(0,8,12),n);
         if(n>0)scheduleBind(l,e);
-        ctx.getSource().sendSuccess(()->Component.literal("S2 kinetic launch and unpowered downhill roll built. Wait for captured couplers, board, close restraints, Dispatch. Capture on return to the level dock, wait for alignment, then open restraints. Sneak-use the governor to bind a different empty train."),false);return 1;
+        ctx.getSource().sendSuccess(()->Component.literal("Launched Inverting Spinning loop built with kinetic launch and unpowered downhill roll. Wait for captured couplers, board, close restraints, Dispatch. Capture on return to the level dock, wait for alignment, then open restraints. Sneak-use the governor to bind a different empty train."),false);return 1;
       }catch(IllegalArgumentException ex){ctx.getSource().sendFailure(Component.literal(ex.getMessage()));return 0;}
     }));
     event.getDispatcher().register(Commands.literal("fd").requires(s->s.hasPermission(2)).then(demo));
@@ -86,7 +86,7 @@ public final class S2SpinningExamples {
   public static Example create(ServerLevel l,BlockPos origin,int count){
     if(count!=0&&count!=1&&count!=4)throw new IllegalArgumentException("Example offers track only, one or four cars");
     for(var p:BlockPos.betweenClosed(origin.offset(-8,-8,-40),origin.offset(104,6,232)))
-      if(!l.getBlockState(p).isAir())throw new IllegalArgumentException("Clear S2 example area at "+p.toShortString());
+      if(!l.getBlockState(p).isAir())throw new IllegalArgumentException("Clear Launched Inverting Spinning example area at "+p.toShortString());
     int[][] offsets={{0,0,0},{0,0,64},{0,-1,88},{0,-2,112},{0,-3,136},{0,-4,160},
       {0,-4,192},{32,-4,224},{64,-4,224},{96,-4,192},{96,-4,144},{96,-2,96},
       {96,0,48},{96,0,0},{64,0,-32},{32,0,-32}};
@@ -119,7 +119,7 @@ public final class S2SpinningExamples {
       if(i==5||i==15)rail.magnets=List.of(new MagneticSpan(2,length-2,MagneticSpan.Mode.DAMP,1,12,.1,1));
       TrackPlacement.captureOriginalCurve(rail,edge.bezier());data.rails.add(rail);
     }
-    for(var edge:edges){var reason=S2SpinningTrack.rejection(l,edge);if(reason!=null)throw new IllegalArgumentException("S2 example "+edge.from()+": "+reason);}
+    for(var edge:edges){var reason=S2SpinningTrack.rejection(l,edge);if(reason!=null)throw new IllegalArgumentException("Launched Inverting Spinning example "+edge.from()+": "+reason);}
     var anchor=(CoasterAnchorpointBlockEntity)l.getBlockEntity(origin);var launch=edges.getFirst();
     anchor.commitChainLift(Direction.Axis.X,ChainLiftEndRef.anchor(launch.to()),new CoasterPathGraphSpans.SpanPath(List.of(new CoasterPathGraphSpans.PathSegment(launch,0,1)),TrackGeometry.table(l,launch).length()));
     for(int i=1;i<=3;i++)l.setBlockAndUpdate(origin.east(i),AllBlocks.SHAFT.getDefaultState().setValue(BlockStateProperties.AXIS,Direction.Axis.X));

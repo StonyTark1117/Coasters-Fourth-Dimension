@@ -34,7 +34,7 @@ public final class SpinningExamples {
         try {
           create(ctx.getSource().getLevel(), BlockPos.containing(ctx.getSource().getPosition()).offset(0, 3, 12), car);
           ctx.getSource().sendSuccess(() -> Component.literal(
-              "S1 Spinning loop built. Board at the level station; close restraints and Dispatch. "
+              "Classic Spinning loop built. Board at the level station; close restraints and Dispatch. "
                   + "Use Capture or power the station to stop the returning car. Open restraints only after the dock latch settles."), false);
           return 1;
         } catch (IllegalArgumentException failure) {
