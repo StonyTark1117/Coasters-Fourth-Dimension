@@ -1,0 +1,588 @@
+{
+  "scope": "Representative stationary tools scene; not fixed-park requalification or GPU presentation",
+  "inputs": [
+    {
+      "file": "client-performance.jsonl",
+      "rows": 46920,
+      "footer": {
+        "kind": "complete",
+        "unix_ns": 1794903971087602370,
+        "monotonic_ns": 83796183466009,
+        "process": "client",
+        "reason": "stop_file",
+        "rows": 46919,
+        "dropped_events": 0,
+        "lossless": true
+      }
+    },
+    {
+      "file": "server-performance.jsonl",
+      "rows": 16764,
+      "footer": {
+        "kind": "complete",
+        "unix_ns": 1794903971099118363,
+        "monotonic_ns": 83796194982952,
+        "process": "server",
+        "reason": "stop_file",
+        "rows": 16763,
+        "dropped_events": 0,
+        "lossless": true
+      }
+    },
+    {
+      "file": "resources.jsonl",
+      "rows": 422,
+      "footer": {
+        "kind": "complete",
+        "samples": 420,
+        "reason": "duration",
+        "unix_ns": 1794903690677255978,
+        "elapsed_seconds": 419.0134357200004
+      }
+    },
+    {
+      "file": "resources-final.jsonl",
+      "rows": 241,
+      "footer": {
+        "kind": "complete",
+        "samples": 239,
+        "reason": "stop_file",
+        "unix_ns": 1794903971467373279,
+        "elapsed_seconds": 239.0000954940042
+      }
+    }
+  ],
+  "windows": {
+    "original": {
+      "collector_errors": [],
+      "scope": "measurement summary only; no workload, GPU or acceptance certification",
+      "window": {
+        "start_unix_ns": 1794903271616045881,
+        "end_unix_ns": 1794903331616045881
+      },
+      "sources": {
+        "frame:client": {
+          "count": 3579,
+          "median": 16.760595,
+          "p95": 19.133145,
+          "p99": 19.580551,
+          "max": 23.28253,
+          "percentile_method": "nearest-rank",
+          "units": "ms",
+          "over_50_ms": 0,
+          "over_100_ms": 0,
+          "measurement": "CPU frame-start intervals; not GPU presentation"
+        },
+        "tick:server": {
+          "count": 1200,
+          "median": 4.036184,
+          "p95": 4.993354,
+          "p99": 5.727257,
+          "max": 9.660449,
+          "percentile_method": "nearest-rank",
+          "units": "ms",
+          "over_50_ms": 0
+        },
+        "gc:client": {
+          "count": 19,
+          "median": 3.227546,
+          "p95": 9.112805,
+          "p99": 9.112805,
+          "max": 9.112805,
+          "percentile_method": "nearest-rank",
+          "units": "ms",
+          "post_gc_heap_bytes": null
+        },
+        "gc:server": {
+          "count": 7,
+          "median": 1.855067,
+          "p95": 3.404505,
+          "p99": 3.404505,
+          "max": 3.404505,
+          "percentile_method": "nearest-rank",
+          "units": "ms",
+          "post_gc_heap_bytes": null
+        },
+        "post_gc:client": {
+          "count": 15,
+          "median": 627963184,
+          "p95": 640555480,
+          "p99": 640555480,
+          "max": 640555480,
+          "percentile_method": "nearest-rank"
+        },
+        "post_gc:server": {
+          "count": 6,
+          "median": 400816396.0,
+          "p95": 405051160,
+          "p99": 405051160,
+          "max": 405051160,
+          "percentile_method": "nearest-rank"
+        },
+        "heap:client": {
+          "count": 59,
+          "median": 824495208,
+          "p95": 1018924816,
+          "p99": 1022760008,
+          "max": 1022760008,
+          "percentile_method": "nearest-rank"
+        },
+        "heap:server": {
+          "count": 58,
+          "median": 537654388.0,
+          "p95": 669231784,
+          "p99": 674534744,
+          "max": 674534744,
+          "percentile_method": "nearest-rank"
+        },
+        "resource:client": {
+          "rss_bytes": {
+            "count": 60,
+            "median": 2391154688.0,
+            "p95": 2397040640,
+            "p99": 2397044736,
+            "max": 2397044736,
+            "percentile_method": "nearest-rank"
+          },
+          "cgroup_bytes": {
+            "count": 60,
+            "median": 2244712448.0,
+            "p95": 2248339456,
+            "p99": 2248704000,
+            "max": 2248704000,
+            "percentile_method": "nearest-rank"
+          },
+          "lifetime_cgroup_peak_bytes": 2249297920
+        },
+        "resource:server": {
+          "rss_bytes": {
+            "count": 60,
+            "median": 1328408576.0,
+            "p95": 1332723712,
+            "p99": 1332723712,
+            "max": 1332723712,
+            "percentile_method": "nearest-rank"
+          },
+          "cgroup_bytes": {
+            "count": 60,
+            "median": 1321562112.0,
+            "p95": 1326206976,
+            "p99": 1326350336,
+            "max": 1326350336,
+            "percentile_method": "nearest-rank"
+          },
+          "lifetime_cgroup_peak_bytes": 1331859456
+        }
+      },
+      "missing": [],
+      "final_three_five_minute_periods": [
+        {
+          "start_unix_ns": 1794902431616045881,
+          "end_unix_ns": 1794902731616045881,
+          "processes": {}
+        },
+        {
+          "start_unix_ns": 1794902731616045881,
+          "end_unix_ns": 1794903031616045881,
+          "processes": {}
+        },
+        {
+          "start_unix_ns": 1794903031616045881,
+          "end_unix_ns": 1794903331616045881,
+          "processes": {
+            "client": {
+              "rss_bytes": {
+                "count": 60,
+                "median": 2391154688.0,
+                "p95": 2397040640,
+                "p99": 2397044736,
+                "max": 2397044736,
+                "percentile_method": "nearest-rank"
+              },
+              "post_gc_heap_bytes": {
+                "count": 15,
+                "median": 627963184,
+                "p95": 640555480,
+                "p99": 640555480,
+                "max": 640555480,
+                "percentile_method": "nearest-rank"
+              }
+            },
+            "server": {
+              "rss_bytes": {
+                "count": 60,
+                "median": 1328408576.0,
+                "p95": 1332723712,
+                "p99": 1332723712,
+                "max": 1332723712,
+                "percentile_method": "nearest-rank"
+              },
+              "post_gc_heap_bytes": {
+                "count": 6,
+                "median": 400816396.0,
+                "p95": 405051160,
+                "p99": 405051160,
+                "max": 405051160,
+                "percentile_method": "nearest-rank"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "ocean": {
+      "collector_errors": [],
+      "scope": "measurement summary only; no workload, GPU or acceptance certification",
+      "window": {
+        "start_unix_ns": 1794903783327273625,
+        "end_unix_ns": 1794903843327273625
+      },
+      "sources": {
+        "frame:client": {
+          "count": 3580,
+          "median": 16.7577,
+          "p95": 18.825535,
+          "p99": 19.221169,
+          "max": 23.509718,
+          "percentile_method": "nearest-rank",
+          "units": "ms",
+          "over_50_ms": 0,
+          "over_100_ms": 0,
+          "measurement": "CPU frame-start intervals; not GPU presentation"
+        },
+        "tick:server": {
+          "count": 1200,
+          "median": 3.8017285,
+          "p95": 4.877946,
+          "p99": 5.505693,
+          "max": 41.401548,
+          "percentile_method": "nearest-rank",
+          "units": "ms",
+          "over_50_ms": 0
+        },
+        "gc:client": {
+          "count": 23,
+          "median": 2.163784,
+          "p95": 3.43104,
+          "p99": 3.596119,
+          "max": 3.596119,
+          "percentile_method": "nearest-rank",
+          "units": "ms",
+          "post_gc_heap_bytes": null
+        },
+        "gc:server": {
+          "count": 7,
+          "median": 1.398716,
+          "p95": 1.995193,
+          "p99": 1.995193,
+          "max": 1.995193,
+          "percentile_method": "nearest-rank",
+          "units": "ms",
+          "post_gc_heap_bytes": null
+        },
+        "post_gc:client": {
+          "count": 17,
+          "median": 609471928,
+          "p95": 619774104,
+          "p99": 619774104,
+          "max": 619774104,
+          "percentile_method": "nearest-rank"
+        },
+        "post_gc:server": {
+          "count": 6,
+          "median": 382933456.0,
+          "p95": 385027512,
+          "p99": 385027512,
+          "max": 385027512,
+          "percentile_method": "nearest-rank"
+        },
+        "heap:client": {
+          "count": 59,
+          "median": 834496696,
+          "p95": 1024555688,
+          "p99": 1033197952,
+          "max": 1033197952,
+          "percentile_method": "nearest-rank"
+        },
+        "heap:server": {
+          "count": 59,
+          "median": 516851992,
+          "p95": 657157664,
+          "p99": 659758552,
+          "max": 659758552,
+          "percentile_method": "nearest-rank"
+        },
+        "resource:client": {
+          "rss_bytes": {
+            "count": 60,
+            "median": 2415509504.0,
+            "p95": 2425860096,
+            "p99": 2432499712,
+            "max": 2432499712,
+            "percentile_method": "nearest-rank"
+          },
+          "cgroup_bytes": {
+            "count": 60,
+            "median": 2293981184.0,
+            "p95": 2299727872,
+            "p99": 2305699840,
+            "max": 2305699840,
+            "percentile_method": "nearest-rank"
+          },
+          "lifetime_cgroup_peak_bytes": 2336727040
+        },
+        "resource:server": {
+          "rss_bytes": {
+            "count": 60,
+            "median": 1370963968.0,
+            "p95": 1371074560,
+            "p99": 1371074560,
+            "max": 1371074560,
+            "percentile_method": "nearest-rank"
+          },
+          "cgroup_bytes": {
+            "count": 60,
+            "median": 1367279616.0,
+            "p95": 1367994368,
+            "p99": 1368973312,
+            "max": 1368973312,
+            "percentile_method": "nearest-rank"
+          },
+          "lifetime_cgroup_peak_bytes": 1394999296
+        }
+      },
+      "missing": [],
+      "final_three_five_minute_periods": [
+        {
+          "start_unix_ns": 1794902943327273625,
+          "end_unix_ns": 1794903243327273625,
+          "processes": {}
+        },
+        {
+          "start_unix_ns": 1794903243327273625,
+          "end_unix_ns": 1794903543327273625,
+          "processes": {}
+        },
+        {
+          "start_unix_ns": 1794903543327273625,
+          "end_unix_ns": 1794903843327273625,
+          "processes": {
+            "client": {
+              "rss_bytes": {
+                "count": 60,
+                "median": 2415509504.0,
+                "p95": 2425860096,
+                "p99": 2432499712,
+                "max": 2432499712,
+                "percentile_method": "nearest-rank"
+              },
+              "post_gc_heap_bytes": {
+                "count": 17,
+                "median": 609471928,
+                "p95": 619774104,
+                "p99": 619774104,
+                "max": 619774104,
+                "percentile_method": "nearest-rank"
+              }
+            },
+            "server": {
+              "rss_bytes": {
+                "count": 60,
+                "median": 1370963968.0,
+                "p95": 1371074560,
+                "p99": 1371074560,
+                "max": 1371074560,
+                "percentile_method": "nearest-rank"
+              },
+              "post_gc_heap_bytes": {
+                "count": 6,
+                "median": 382933456.0,
+                "p95": 385027512,
+                "p99": 385027512,
+                "max": 385027512,
+                "percentile_method": "nearest-rank"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "operator": {
+      "collector_errors": [],
+      "scope": "measurement summary only; no workload, GPU or acceptance certification",
+      "window": {
+        "start_unix_ns": 1794903885462063864,
+        "end_unix_ns": 1794903945462063864
+      },
+      "sources": {
+        "frame:client": {
+          "count": 3586,
+          "median": 16.729051499999997,
+          "p95": 18.811801,
+          "p99": 19.199709,
+          "max": 23.796121,
+          "percentile_method": "nearest-rank",
+          "units": "ms",
+          "over_50_ms": 0,
+          "over_100_ms": 0,
+          "measurement": "CPU frame-start intervals; not GPU presentation"
+        },
+        "tick:server": {
+          "count": 1200,
+          "median": 3.7796950000000002,
+          "p95": 4.664778,
+          "p99": 5.158927,
+          "max": 7.059662,
+          "percentile_method": "nearest-rank",
+          "units": "ms",
+          "over_50_ms": 0
+        },
+        "gc:client": {
+          "count": 24,
+          "median": 2.1664695,
+          "p95": 3.393731,
+          "p99": 11.019451,
+          "max": 11.019451,
+          "percentile_method": "nearest-rank",
+          "units": "ms",
+          "post_gc_heap_bytes": null
+        },
+        "gc:server": {
+          "count": 7,
+          "median": 1.423237,
+          "p95": 1.911315,
+          "p99": 1.911315,
+          "max": 1.911315,
+          "percentile_method": "nearest-rank",
+          "units": "ms",
+          "post_gc_heap_bytes": null
+        },
+        "post_gc:client": {
+          "count": 18,
+          "median": 607838488.0,
+          "p95": 619375520,
+          "p99": 619375520,
+          "max": 619375520,
+          "percentile_method": "nearest-rank"
+        },
+        "post_gc:server": {
+          "count": 6,
+          "median": 382032216.0,
+          "p95": 384115856,
+          "p99": 384115856,
+          "max": 384115856,
+          "percentile_method": "nearest-rank"
+        },
+        "heap:client": {
+          "count": 60,
+          "median": 818928940.0,
+          "p95": 1018146240,
+          "p99": 1033165912,
+          "max": 1033165912,
+          "percentile_method": "nearest-rank"
+        },
+        "heap:server": {
+          "count": 58,
+          "median": 544688592.0,
+          "p95": 668277888,
+          "p99": 670377104,
+          "max": 670377104,
+          "percentile_method": "nearest-rank"
+        },
+        "resource:client": {
+          "rss_bytes": {
+            "count": 60,
+            "median": 2402390016.0,
+            "p95": 2413912064,
+            "p99": 2415833088,
+            "max": 2415833088,
+            "percentile_method": "nearest-rank"
+          },
+          "cgroup_bytes": {
+            "count": 60,
+            "median": 2288869376.0,
+            "p95": 2296209408,
+            "p99": 2301120512,
+            "max": 2301120512,
+            "percentile_method": "nearest-rank"
+          },
+          "lifetime_cgroup_peak_bytes": 2336727040
+        },
+        "resource:server": {
+          "rss_bytes": {
+            "count": 60,
+            "median": 1370480640.0,
+            "p95": 1370570752,
+            "p99": 1370570752,
+            "max": 1370570752,
+            "percentile_method": "nearest-rank"
+          },
+          "cgroup_bytes": {
+            "count": 60,
+            "median": 1366923264.0,
+            "p95": 1367461888,
+            "p99": 1367691264,
+            "max": 1367691264,
+            "percentile_method": "nearest-rank"
+          },
+          "lifetime_cgroup_peak_bytes": 1394999296
+        }
+      },
+      "missing": [],
+      "final_three_five_minute_periods": [
+        {
+          "start_unix_ns": 1794903045462063864,
+          "end_unix_ns": 1794903345462063864,
+          "processes": {}
+        },
+        {
+          "start_unix_ns": 1794903345462063864,
+          "end_unix_ns": 1794903645462063864,
+          "processes": {}
+        },
+        {
+          "start_unix_ns": 1794903645462063864,
+          "end_unix_ns": 1794903945462063864,
+          "processes": {
+            "client": {
+              "rss_bytes": {
+                "count": 60,
+                "median": 2402390016.0,
+                "p95": 2413912064,
+                "p99": 2415833088,
+                "max": 2415833088,
+                "percentile_method": "nearest-rank"
+              },
+              "post_gc_heap_bytes": {
+                "count": 18,
+                "median": 607838488.0,
+                "p95": 619375520,
+                "p99": 619375520,
+                "max": 619375520,
+                "percentile_method": "nearest-rank"
+              }
+            },
+            "server": {
+              "rss_bytes": {
+                "count": 60,
+                "median": 1370480640.0,
+                "p95": 1370570752,
+                "p99": 1370570752,
+                "max": 1370570752,
+                "percentile_method": "nearest-rank"
+              },
+              "post_gc_heap_bytes": {
+                "count": 6,
+                "median": 382032216.0,
+                "p95": 384115856,
+                "p99": 384115856,
+                "max": 384115856,
+                "percentile_method": "nearest-rank"
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

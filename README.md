@@ -29,9 +29,10 @@ retain the completed qualification history.
 qualified scope and dependencies. Earlier checkpoint limitations remain historical
 evidence in the [changelog](CHANGELOG.md); they do not reopen completed cases.
 
-The 1.1 development build adds [builder and operator tools](docs/BUILDER-TOOLS.md):
+The verified, unpublished 1.1 build adds [builder and operator tools](docs/BUILDER-TOOLS.md):
 shareable presets, original upholstery colors and a unified ride panel. It is not
-yet a published release. The public 1.0.0 Beta files remain unchanged.
+yet a published release. [Qualification and package](docs/evidence/1.1/README.md)
+record its targeted checks and support limits. The public 1.0.0 Beta files remain unchanged.
 
 ## Install
 

@@ -1,0 +1,19 @@
+{
+  "source_commit": "cdbfaf26cccc65735a071b60f3d552f5498f091c",
+  "version": "1.1.0",
+  "publication": "unpublished",
+  "jar": "/mnt/NVME4/fourthdimension-runs/fd11-primary-20261117/build/libs/coasters-fourth-dimension-1.1.0.jar",
+  "sha256": "8ae7c1ff0f705a04ca23635fd50b662ef82b9bfa4e95b50d234540dc0f08c975",
+  "bytes": 2775799,
+  "reproducible": true,
+  "verification": "Java 21 jar rebuild with --rerun-tasks --no-build-cache -x createMinecraftArtifacts; source/resources recompiled and repackaged; identical SHA256",
+  "license": "CC0-1.0",
+  "embedded_provider_jars": [],
+  "profile": "Frozen 1.0 base dependencies; unchanged pins",
+  "new_protocol": "9; client and server both require 1.1",
+  "validation": {
+    "unit_tests_passed": 5,
+    "native_cases_passed": 5,
+    "native_fixture_failures_corrected": 1
+  }
+}

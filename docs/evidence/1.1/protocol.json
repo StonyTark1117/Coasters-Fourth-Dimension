@@ -1,0 +1,18 @@
+{
+  "scope": "Representative stationary builder-tools sample; not the FD904 fixed park or a new universal FPS budget",
+  "source": "cdbfaf26",
+  "scene": "Saved Arrow plus Free Spin recovery fixture, two FD chassis/six carriers, empty and captured; one ordinary recovery bearing",
+  "display": ":332",
+  "resolution": [
+    854,
+    480
+  ],
+  "max_fps": 60,
+  "render_distance": 8,
+  "simulation_distance": 5,
+  "shaders": false,
+  "warmup": "At least 60 seconds after client join and resize",
+  "windows": "60 seconds each, original Free Spin materials/world view, Ocean materials/world view, authoritative operator panel; exclude UI transitions from stable windows",
+  "comparison": "Report measured frame/tick/RSS/heap/GC without substituting for unchanged 1.0 park acceptance",
+  "remaining_graphical_jobs": 0
+}

@@ -1,0 +1,72 @@
+{
+  "client": [
+    {
+      "name": "coasters-fourth-dimension-1.1.0.jar",
+      "sha256": "8ae7c1ff0f705a04ca23635fd50b662ef82b9bfa4e95b50d234540dc0f08c975"
+    },
+    {
+      "name": "create-1.21.1-6.0.10-280.jar",
+      "sha256": "192c7b0be13f523dcec9a7a2393bbc2614c3c9bd3edb1f7720a97bcd4f0b87a7"
+    },
+    {
+      "name": "create-coasters-simulated-1601871-8655742.jar",
+      "sha256": "f80b4c3cdf9fa6188804967147761b0373e150a6eadbdc53626e5ac9700b2049"
+    },
+    {
+      "name": "sable-neoforge-1.21.1-2.0.6.jar",
+      "sha256": "9c199157843bf953a47dff625fc5bb41c01a90538d35ad18e6996bbcb8a617c2"
+    }
+  ],
+  "server": [
+    {
+      "name": "coasters-fourth-dimension-1.1.0.jar",
+      "sha256": "8ae7c1ff0f705a04ca23635fd50b662ef82b9bfa4e95b50d234540dc0f08c975"
+    },
+    {
+      "name": "create-1.21.1-6.0.10-280.jar",
+      "sha256": "192c7b0be13f523dcec9a7a2393bbc2614c3c9bd3edb1f7720a97bcd4f0b87a7"
+    },
+    {
+      "name": "create-coasters-simulated-1601871-8655742.jar",
+      "sha256": "f80b4c3cdf9fa6188804967147761b0373e150a6eadbdc53626e5ac9700b2049"
+    },
+    {
+      "name": "sable-neoforge-1.21.1-2.0.6.jar",
+      "sha256": "9c199157843bf953a47dff625fc5bb41c01a90538d35ad18e6996bbcb8a617c2"
+    }
+  ],
+  "client_nested_dependencies": [
+    {
+      "parent": "create-1.21.1-6.0.10-280.jar",
+      "entry": "META-INF/jarjar/flywheel-neoforge-1.21.1-1.0.6.jar",
+      "sha256": "31dda15c205eb596d3b3449ef03f6af7363a6cd35b3da4bfe916b304f9e5337e"
+    },
+    {
+      "parent": "sable-neoforge-1.21.1-2.0.6.jar",
+      "entry": "META-INF/jarjar/sable-companion-common-1.21.1-1.6.0.jar",
+      "sha256": "873633e35046e3761b277ff8a1ecad0d55d9a3014fa81a0b084c9aecba1f3bed"
+    },
+    {
+      "parent": "sable-neoforge-1.21.1-2.0.6.jar",
+      "entry": "META-INF/jarjar/veil-neoforge-1.21.1-4.3.2.jar",
+      "sha256": "774b83887d882dc47cd4d29d140cef0c8677747a6fe7799649f490926a4e0265"
+    }
+  ],
+  "server_nested_dependencies": [
+    {
+      "parent": "create-1.21.1-6.0.10-280.jar",
+      "entry": "META-INF/jarjar/flywheel-neoforge-1.21.1-1.0.6.jar",
+      "sha256": "31dda15c205eb596d3b3449ef03f6af7363a6cd35b3da4bfe916b304f9e5337e"
+    },
+    {
+      "parent": "sable-neoforge-1.21.1-2.0.6.jar",
+      "entry": "META-INF/jarjar/sable-companion-common-1.21.1-1.6.0.jar",
+      "sha256": "873633e35046e3761b277ff8a1ecad0d55d9a3014fa81a0b084c9aecba1f3bed"
+    },
+    {
+      "parent": "sable-neoforge-1.21.1-2.0.6.jar",
+      "entry": "META-INF/jarjar/veil-neoforge-1.21.1-4.3.2.jar",
+      "sha256": "774b83887d882dc47cd4d29d140cef0c8677747a6fe7799649f490926a4e0265"
+    }
+  ]
+}

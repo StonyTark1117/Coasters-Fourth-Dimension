@@ -1,0 +1,67 @@
+{
+  "verified_utc": "2026-11-17T08:29:40.039872+00:00",
+  "units": {
+    "fd11-primary-final02-client.service": {
+      "ActiveState": "inactive",
+      "MainPID": "0",
+      "Result": "success"
+    },
+    "fd11-primary-final02-server.service": {
+      "ActiveState": "inactive",
+      "MainPID": "0",
+      "Result": "success"
+    },
+    "fd11-primary-final02-xvfb.service": {
+      "ActiveState": "inactive",
+      "MainPID": "0",
+      "Result": "success"
+    },
+    "fd11-primary-private01-client.service": {
+      "ActiveState": "inactive",
+      "MainPID": "0",
+      "Result": "success"
+    },
+    "fd11-primary-private01-server.service": {
+      "ActiveState": "inactive",
+      "MainPID": "0",
+      "Result": "success"
+    },
+    "fd11-primary-private01-xvfb.service": {
+      "ActiveState": "inactive",
+      "MainPID": "0",
+      "Result": "success"
+    }
+  },
+  "former_pids_absent": [
+    592955,
+    611108,
+    609472,
+    596423,
+    626764,
+    626321,
+    626341
+  ],
+  "worlds": [
+    {
+      "path": "/home/braydon/.local/state/fd11-20261117/private01/server/world",
+      "exists": true
+    },
+    {
+      "path": "/mnt/NVME4/fourthdimension-runs/fd11-primary-20261117/private02/server/world",
+      "exists": true
+    },
+    {
+      "path": "/mnt/NVME4/fourthdimension-runs/fd11-primary-20261117/routes-first-world",
+      "exists": true
+    },
+    {
+      "path": "/mnt/NVME4/fourthdimension-runs/fd11-primary-20261117/panel-world",
+      "exists": true
+    },
+    {
+      "path": "/mnt/NVME4/fourthdimension-runs/fd11-primary-20261117/build/runs/gametest/world",
+      "exists": true
+    }
+  ],
+  "clean_shutdown": "Client Quit Game; RCON stop after zero online players; all dimensions saved; private Xvfb stopped only after client exit. No forcekill."
+}
