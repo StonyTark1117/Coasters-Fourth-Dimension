@@ -21,10 +21,12 @@ public final class ExternalRideAuthorityGameTests {
   @GameTest(template="empty",timeoutTicks=180)
   public static void registeredOwnershipTransferLossAndRestore(GameTestHelper h) {
     var available = new boolean[] {true};
+    var accessory = new boolean[] {false};
     var identities = new java.util.HashMap<BlockPos, UUID>();
     String providerId = "launchsystems_fixture:authority";
     var adapter = new RideAuthority.ExternalProvider() {
       public boolean supports(net.minecraft.server.level.ServerLevel level, FoundationData.Vehicle vehicle) { return available[0]; }
+      public boolean accessoryPowerAvailable(net.minecraft.server.level.ServerLevel level, FoundationData.Vehicle vehicle) { return accessory[0]; }
       public RideAuthority.Controller controller(net.minecraft.server.level.ServerLevel level, BlockPos pos) {
         if (level.getBlockEntity(pos) instanceof BoardingStationEntity) throw new IllegalStateException("Native controller must not invoke external resolver");
         if (!identities.containsKey(pos) || !level.getBlockState(pos).is(Blocks.BARREL)) return null;
@@ -59,6 +61,13 @@ public final class ExternalRideAuthorityGameTests {
       var v=car[0];token[1]=RideAuthority.transfer(l,first,v.chassis,token[0],second);
       denied(h,()->RideAuthority.release(l,first,v.chassis,token[0]),"stale transfer token");
       h.assertTrue(RideAuthority.holds(l,v),"Transfer retained native braking");
+      h.assertTrue(RideAuthority.externalSelected(v) && RideAuthority.externalAvailable(l,v), "Held external controller is available without permitting travel");
+      h.assertTrue(!RideAuthority.externalAccessoryPower(l,v), "An armed controller does not invent accessory power");
+      accessory[0]=true;
+      h.assertTrue(RideAuthority.externalAccessoryPower(l,v), "Live external accessory supply supports held posture controls");
+      accessory[0]=false;
+      h.assertTrue(!RideAuthority.externalAccessoryPower(l,v), "Accessory supply loss is immediate");
+      accessory[0]=true;
     });
     h.runAtTickTime(66,()->{
       var v=car[0];RideAuthority.dispatch(l,second,v.chassis,token[1]);
@@ -82,6 +91,7 @@ public final class ExternalRideAuthorityGameTests {
       l.setBlockAndUpdate(second,Blocks.AIR.defaultBlockState());
       var body=(ServerSubLevel)SubLevelContainer.getContainer(l).getSubLevel(v.chassis);
       h.assertTrue(PropulsionInterlock.holds(body,l)&&v.authority.suspended,"Missing controller denies force immediately");
+      h.assertTrue(RideAuthority.externalSelected(v) && !RideAuthority.externalAccessoryPower(l,v), "Missing controller retains external selection and denies accessory power");
       VehicleOperations.capture(l,v);
     });
     h.runAtTickTime(125,()->{
@@ -96,7 +106,7 @@ public final class ExternalRideAuthorityGameTests {
       denied(h,()->RideAuthority.resume(l,first,v.chassis,RideAuthority.token(v)),"unsupported resume");
       denied(h,()->RideAuthority.transfer(l,first,v.chassis,RideAuthority.token(v),first),"unsupported transfer");
       h.assertTrue(!RideAuthority.permits(l,v.chassis,RideAuthority.token(v),null),"Null provider is not a permit");
-      System.out.println("LS004_FACADE_NATIVE PASS exclusiveOwner=true heldTransfer=true staleDenied=true replayDenied=true providerExclusive=true savedHold=true explicitResume=true immediateLossHold=true replacementTransfer=true schema7Upgrade=true");
+      System.out.println("LS004_FACADE_NATIVE PASS exclusiveOwner=true heldTransfer=true staleDenied=true replayDenied=true providerExclusive=true savedHold=true explicitResume=true immediateLossHold=true replacementTransfer=true schema7Upgrade=true externalAccessorySupply=true");
       h.succeed();
     });
   }

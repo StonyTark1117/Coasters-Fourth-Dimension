@@ -105,7 +105,9 @@ public final class S2SpinningRuntime {
     var velocity=container.physicsSystem().getPipeline().getLinearVelocity(parent,new Vector3d());
     double speed=velocity.length();if(speed>16.05)return "Launched Inverting Spinning travel exceeds 16 blocks/s";
     if(Math.abs(v.carriers.getFirst().omega)>4)return "Launched Inverting Spinning spin exceeds 4 rad/s";
-    if(optional(v)){
+    if(dev.fourthdimension.integration.RideAuthority.externalSelected(v)){
+      if(!dev.fourthdimension.integration.RideAuthority.externalAvailable(level,v))return "Launched Inverting Spinning external controller unavailable";
+    }else if(optional(v)){
       if(!dev.fourthdimension.integration.OptionalIntegrations.installed(dev.fourthdimension.integration.OptionalIntegrations.MAGNETIZED).mayInspect())return "Launched Inverting Spinning Magnetized unavailable";
     }else if(v.s2.governor!=null){
       var governor=governor(level,v);
@@ -171,8 +173,14 @@ public final class S2SpinningRuntime {
         &&level.getBlockEntity(v.s2.governor) instanceof S2SpinningGovernorEntity g&&g.authorizesRide(v.chassis)?g:null;
   }
   /** Runs before the common dispatch mutates stopping/capture state. */
-  public static boolean optional(FoundationData.Vehicle v){return dev.fourthdimension.integration.RideAuthority.MAGNETIZED.equals(v.authority.provider);}
+  public static boolean optional(FoundationData.Vehicle v){return dev.fourthdimension.integration.RideAuthority.MAGNETIZED.equals(v.authority.provider)||dev.fourthdimension.integration.RideAuthority.externalSelected(v);}
   public static void start(ServerLevel level,FoundationData.Vehicle v){
+    if(dev.fourthdimension.integration.RideAuthority.externalSelected(v)){
+      if(!dev.fourthdimension.integration.RideAuthority.externalAvailable(level,v)
+          ||dev.fourthdimension.integration.RideAuthority.holds(level,v))
+        throw new IllegalArgumentException("Release through the selected external authority");
+      return;
+    }
     if(optional(v)){
       dev.fourthdimension.integration.OptionalDrive.validateRelease(level,v);
       if(dev.fourthdimension.integration.RideAuthority.holds(level,v))throw new IllegalArgumentException("Release through the selected Magnetized authority");

@@ -14,10 +14,14 @@ import org.joml.Vector3d;
 /** One ride-local longitudinal owner. No route reservation or multi-train scheduling. */
 public final class RideAuthority {
   public static final int EXTERNAL_API = 1;
+  /** Optional family power contract; API1 controllers remain binary compatible. */
+  public static final int EXTERNAL_FAMILY_API = 1;
   /** Optional integrations register a real controller adapter, never borrow another provider's identity. */
   public interface ExternalProvider {
     Controller controller(ServerLevel level, BlockPos position);
     boolean supports(ServerLevel level, FoundationData.Vehicle vehicle);
+    /** Actual live accessory supply, independent of longitudinal hold or stored launch energy. */
+    default boolean accessoryPowerAvailable(ServerLevel level, FoundationData.Vehicle vehicle) { return false; }
   }
   private static final Map<String, ExternalProvider> EXTERNAL = new java.util.concurrent.ConcurrentHashMap<>();
   public static void registerExternal(String id, int api, ExternalProvider provider) {
@@ -34,6 +38,31 @@ public final class RideAuthority {
     void validateRelease(ServerLevel level, FoundationData.Vehicle vehicle);
   }
   private RideAuthority() {}
+
+  /** Persisted external ownership must never fall back to a native drive if its mod disappears. */
+  public static boolean externalSelected(FoundationData.Vehicle v) {
+    return v.authority.owner != null && v.authority.provider != null
+        && !Set.of(NATIVE_CHAIN, ENGINEERED, MAGNETIZED, CTNB).contains(v.authority.provider);
+  }
+
+  /** Live supply/identity check. A held train may power posture controls without a drive permit. */
+  public static boolean externalAvailable(ServerLevel level, FoundationData.Vehicle v) {
+    if (!externalSelected(v) || !EXTERNAL.containsKey(v.authority.provider)) return false;
+    try {
+      var cars = complete(level, v);
+      validateExternal(level, cars, v.authority.provider);
+      var controller = controller(level, v.authority.controller, v.chassis, v.authority.provider);
+      for (var car : cars) if (!Objects.equals(car.authority.owner, controller.authorityId())
+          || car.authority.epoch != v.authority.epoch || !car.authority.provider.equals(v.authority.provider)) return false;
+      return true;
+    } catch (IllegalArgumentException unavailable) { return false; }
+  }
+
+  public static boolean externalAccessoryPower(ServerLevel level, FoundationData.Vehicle v) {
+    if (!externalAvailable(level, v)) return false;
+    var provider = EXTERNAL.get(v.authority.provider);
+    return complete(level, v).stream().allMatch(car -> provider.accessoryPowerAvailable(level, car));
+  }
 
   public static Token token(FoundationData.Vehicle v) {
     return new Token(v.authority.owner, v.authority.epoch, v.authority.sequence);
@@ -198,7 +227,7 @@ public final class RideAuthority {
   }
   public static void direction(ServerLevel l,FoundationData.Vehicle v,int sign){
     thread(l);refresh(l,v);stopped(l,complete(l,v));
-    if(Math.abs(sign)!=1||!(MAGNETIZED.equals(v.authority.provider)||CTNB.equals(v.authority.provider))||!v.authority.held)
+    if(Math.abs(sign)!=1||!(MAGNETIZED.equals(v.authority.provider)||CTNB.equals(v.authority.provider)||externalSelected(v))||!v.authority.held)
       throw new IllegalArgumentException("Hold optional drive authority before selecting direction");
     for(var c:complete(l,v)){c.authority.direction=sign;c.revision++;}
     FoundationData.get(l).setDirty();
