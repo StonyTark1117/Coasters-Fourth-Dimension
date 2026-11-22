@@ -61,10 +61,26 @@ public final class VehicleMechanismRenderer {
           var childAxis=new Vector3d(localAxis).rotate(child.renderPose().orientation());
           var childRadial=new Vector3d(localRadial).rotate(child.renderPose().orientation());
           var fixed=at(parent,c.side,c.pivotHeight,c.longitudinal);
+          // Longitudinal journals already meet their fore/aft forks. Put the
+          // brake at the front fork, not unsupported at the middle of the shaft.
+          // Both collar front faces meet the fork plane; neither enters its solid clamp.
+          boolean forkBrake=AxisVehicle.is(v)||SuspendedVehicle.is(v);
+          double brakeOffset=AxisVehicle.is(v)?-1.07:SuspendedVehicle.is(v)?-1.29:0;
+          fixed.fma(brakeOffset,axis);
+          var receiver=new Vector3d(hub).fma(brakeOffset,childAxis);
           // Structural race belongs to the parent; receiver and spokes rotate with the child.
-          mesh.ring(fixed,axis,radial,.18,.29,.34,"structural",light);
-          mesh.ring(hub,childAxis,childRadial,.12,.17,.42,"machined",light);
-          var disc=new Vector3d(hub).fma(.30,childAxis);
+          if(SpinningVehicle.is(v)||S2SpinningVehicle.is(v)) {
+            // The controller ends .3125 below this pivot. Carry its fixed race
+            // with an annular sleeve; keep the .17-radius child receiver free.
+            mesh.ring(new Vector3d(fixed).fma(-.245,axis),axis,radial,.18,.29,.19,"structural",light);
+          }
+          // Axis has a rectangular journal: its corner sweep needs a wider bore.
+          double fixedInner=AxisVehicle.is(v)?.25:.18, fixedOuter=AxisVehicle.is(v)?.32:.29;
+          double fixedWidth=AxisVehicle.is(v)?.36:forkBrake?.42:.34;
+          double receiverWidth=AxisVehicle.is(v)?.36:.42;
+          mesh.ring(fixed,axis,radial,fixedInner,fixedOuter,fixedWidth,"structural",light);
+          mesh.ring(receiver,childAxis,childRadial,SuspendedVehicle.is(v)?.04:.12,.17,receiverWidth,"machined",light);
+          var disc=new Vector3d(receiver).fma(.30,childAxis);
           mesh.ring(disc,childAxis,childRadial,.08,.32,.06,"machined",light);
           for(int i=0;i<4;i++) {
             var spoke=new Vector3d(childRadial).rotateAxis(i*Math.PI/2,childAxis.x,childAxis.y,childAxis.z);
@@ -73,6 +89,12 @@ public final class VehicleMechanismRenderer {
           boolean locked=c.latched||c.liftHeld;
           double gap=locked?.033:.11;
           var caliper=new Vector3d(fixed).fma(.30,axis).fma(.26,radial);
+          if(forkBrake) {
+            // Keep the two fixed caliper arms joined outside the .32-radius
+            // rotating disc rather than leaving the far arm unsupported.
+            mesh.beam(new Vector3d(fixed).fma(.06,axis).fma(.39,radial),
+                new Vector3d(fixed).fma(.54,axis).fma(.39,radial),radial,.065,.065,"structural",light);
+          }
           for(int side:new int[]{-1,1}) {
             var pad=new Vector3d(caliper).fma(side*gap,axis);
             mesh.beam(new Vector3d(pad).fma(-.065,radial),new Vector3d(pad).fma(.065,radial),axis,.13,.045,"rubber",light);

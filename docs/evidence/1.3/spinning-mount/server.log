@@ -1,0 +1,552 @@
+[22Nov2026 10:30:47.696] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forgeserverdev, --gameDir, ., --fml.fmlVersion, 4.0.45, --fml.mcVersion, 1.21.1, --fml.neoForgeVersion, 21.1.256, --fml.neoFormVersion, 20240808.144430, --nogui]
+[22Nov2026 10:30:47.698] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: JVM identified as Arch Linux OpenJDK 64-Bit Server VM 21.0.13.1+2
+[22Nov2026 10:30:47.699] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher 11.0.5+main.901c6ea8 starting: java version 21.0.13.1 by Arch Linux; OS Linux arch amd64 version 7.3.4-zen2-2-zen
+[22Nov2026 10:30:47.755] [main/INFO] [net.neoforged.fml.loading.ImmediateWindowHandler/]: ImmediateWindowProvider not loading because launch target is forgeserverdev
+[22Nov2026 10:30:47.777] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.7 Source=union:/home/braydon/.gradle/caches/modules-2/files-2.1/net.fabricmc/sponge-mixin/0.16.4+mixin.0.8.7/26d01f0567ab46e9ca0d2ed89d0ecc11aadbd433/sponge-mixin-0.16.4+mixin.0.8.7.jar%2394!/ Service=ModLauncher Env=SERVER
+[22Nov2026 10:30:48.038] [main/WARN] [net.neoforged.jarjar.selection.JarSelector/]: Attempted to select a dependency jar for JarJar which was passed in as source: veil. Using Mod File: /home/braydon/.gradle/caches/modules-2/files-2.1/foundry.veil/veil-neoforge-1.21.1/4.3.2/3d4056e31dd8a06e35901c3b82210c3d471e1e48/veil-neoforge-1.21.1-4.3.2.jar
+[22Nov2026 10:30:48.039] [main/WARN] [net.neoforged.jarjar.selection.JarSelector/]: Attempted to select a dependency jar for JarJar which was passed in as source: sablecompanion. Using Mod File: /home/braydon/.gradle/caches/modules-2/files-2.1/dev.ryanhcode.sable-companion/sable-companion-common-1.21.1/1.6.0/370be7db705926176e05c0215ed676150c45daae/sable-companion-common-1.21.1-1.6.0.jar
+[22Nov2026 10:30:48.039] [main/WARN] [net.neoforged.jarjar.selection.JarSelector/]: Attempted to select a dependency jar for JarJar which was passed in as source: library:sable_rapier. Using Mod File: /home/braydon/.gradle/caches/modules-2/files-2.1/dev.ryanhcode.sable/sable-sable_rapier-1.21.1/2.0.6/d095eff41df82fbd8b321c2467b712ff35cb6bf1/sable-sable_rapier-1.21.1-2.0.6.jar
+[22Nov2026 10:30:48.039] [main/INFO] [net.neoforged.fml.loading.moddiscovery.locators.JarInJarDependencyLocator/]: Found 4 dependencies adding them to mods collection
+[22Nov2026 10:30:48.040] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/]: 
+     Mod List:
+		Name Version (Mod Id)
+
+		Coasters: Fourth Dimension 1.1.0 (fourthdimension)
+		Create 6.0.10 (create)
+		Create: Coasters Simulated 0.1.5 (simulatedcoasters)
+		Flywheel 1.0.6 (flywheel)
+		Minecraft 1.21.1 (minecraft)
+		NeoForge 21.1.256 (neoforge)
+		Ponder 1.0.82+mc1.21.1 (ponder)
+		Sable 2.0.6 (sable)
+		Sable Companion 1.6.0 (sablecompanion)
+		Veil 4.3.2 (veil)
+[22Nov2026 10:30:48.438] [main/INFO] [mixin/]: Compatibility level set to JAVA_21
+[22Nov2026 10:30:48.451] [main/INFO] [cpw.mods.modlauncher.LaunchServiceHandler/MODLAUNCHER]: Launching target 'forgeserverdev' with arguments [--gameDir, ., --nogui]
+[22Nov2026 10:30:48.501] [main/WARN] [mixin/]: Reference map 'ponder.refmap.json' for ponder-common.mixins.json could not be read. If this is a development environment you can ignore this message
+[22Nov2026 10:30:48.505] [main/INFO] [dev.ryanhcode.sable.mixin.AbstractSableMixinPlugin/]: Using Vanilla renderer mixins
+[22Nov2026 10:30:48.505] [main/INFO] [dev.ryanhcode.sable.mixin.AbstractSableMixinPlugin/]: Using Vanilla renderer mixins
+[22Nov2026 10:30:48.642] [main/WARN] [mixin/]: Error loading class: dev/simulated_team/simulated/content/blocks/merging_glue/MergingGlueBlockEntity (java.lang.ClassNotFoundException: dev.simulated_team.simulated.content.blocks.merging_glue.MergingGlueBlockEntity)
+[22Nov2026 10:30:48.643] [main/WARN] [mixin/]: @Mixin target dev.simulated_team.simulated.content.blocks.merging_glue.MergingGlueBlockEntity was not found simulatedcoasters.mixins.json:compat.MergingGlueBlockEntityRivetMixin from mod simulatedcoasters
+[22Nov2026 10:30:48.890] [main/WARN] [mixin/]: Error loading class: dev/jwaterfall/coastersengineered/MotorDrive (java.lang.ClassNotFoundException: dev.jwaterfall.coastersengineered.MotorDrive)
+[22Nov2026 10:30:48.892] [main/WARN] [mixin/]: Error loading class: dev/jwaterfall/coastersengineered/CartAssembly (java.lang.ClassNotFoundException: dev.jwaterfall.coastersengineered.CartAssembly)
+[22Nov2026 10:30:48.893] [main/WARN] [mixin/]: Error loading class: dev/plushivr/coasterfins/block/StationBlockEntity (java.lang.ClassNotFoundException: dev.plushivr.coasterfins.block.StationBlockEntity)
+[22Nov2026 10:30:48.894] [main/WARN] [mixin/]: Error loading class: dev/notzyvex/coasters_extras/track/TrackRepaint (java.lang.ClassNotFoundException: dev.notzyvex.coasters_extras.track.TrackRepaint)
+[22Nov2026 10:30:48.894] [main/WARN] [mixin/]: Error loading class: dev/notzyvex/coasters_extras/net/ModNetwork (java.lang.ClassNotFoundException: dev.notzyvex.coasters_extras.net.ModNetwork)
+[22Nov2026 10:30:48.895] [main/WARN] [mixin/]: Error loading class: medev/coaster/skins/skin/CartSkinTargets (java.lang.ClassNotFoundException: medev.coaster.skins.skin.CartSkinTargets)
+[22Nov2026 10:30:48.895] [main/WARN] [mixin/]: Error loading class: medev/coaster/skins/skin/LinkedCartSkins (java.lang.ClassNotFoundException: medev.coaster.skins.skin.LinkedCartSkins)
+[22Nov2026 10:30:48.895] [main/WARN] [mixin/]: Error loading class: medev/coaster/skins/skin/CartSkinData (java.lang.ClassNotFoundException: medev.coaster.skins.skin.CartSkinData)
+[22Nov2026 10:30:48.896] [main/WARN] [mixin/]: Error loading class: medev/coaster/skins/item/ScrewDriverItem (java.lang.ClassNotFoundException: medev.coaster.skins.item.ScrewDriverItem)
+[22Nov2026 10:30:48.896] [main/WARN] [mixin/]: Error loading class: dev/plushivr/coasterfins/block/CoasterSeatBlockEntity (java.lang.ClassNotFoundException: dev.plushivr.coasterfins.block.CoasterSeatBlockEntity)
+[22Nov2026 10:30:48.896] [main/WARN] [mixin/]: Error loading class: dev/plushivr/coasterfins/event/SeatDismountHandler (java.lang.ClassNotFoundException: dev.plushivr.coasterfins.event.SeatDismountHandler)
+[22Nov2026 10:30:48.911] [main/WARN] [mixin/]: Error loading class: org/jetbrains/annotations/ApiStatus$ScheduledForRemoval (java.lang.ClassNotFoundException: org.jetbrains.annotations.ApiStatus$ScheduledForRemoval)
+[22Nov2026 10:30:48.997] [main/INFO] [MixinExtras|Service/]: Initializing MixinExtras via com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.5.5).
+[22Nov2026 10:30:52.437] [main/WARN] [net.minecraft.commands.Commands/]: Ambiguity between arguments [teleport, location] and [teleport, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+[22Nov2026 10:30:52.438] [main/WARN] [net.minecraft.commands.Commands/]: Ambiguity between arguments [teleport, location] and [teleport, targets] with inputs: [0.1 -0.5 .9, 0 0 0]
+[22Nov2026 10:30:52.440] [main/WARN] [net.minecraft.commands.Commands/]: Ambiguity between arguments [teleport, destination] and [teleport, targets] with inputs: [Player, 0123, @e, dd12be42-52a9-4a91-a8a1-11c01849e498]
+[22Nov2026 10:30:52.441] [main/WARN] [net.minecraft.commands.Commands/]: Ambiguity between arguments [teleport, targets] and [teleport, destination] with inputs: [Player, 0123, dd12be42-52a9-4a91-a8a1-11c01849e498]
+[22Nov2026 10:30:52.441] [main/WARN] [net.minecraft.commands.Commands/]: Ambiguity between arguments [teleport, targets, location] and [teleport, targets, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+[22Nov2026 10:30:52.483] [modloading-worker-0/INFO] [Veil/]: Veil is initializing.
+[22Nov2026 10:30:52.495] [modloading-worker-0/INFO] [net.neoforged.neoforge.common.NeoForgeMod/NEOFORGE-MOD]: NeoForge mod loading, version 21.1.256, for MC 1.21.1
+[22Nov2026 10:30:52.504] [modloading-worker-0/INFO] [com.simibubi.create.Create/]: Create 6.0.10 initializing! Commit hash: ac0c444d9828da3453ae8cc65338e8de063286fb
+[22Nov2026 10:30:53.532] [modloading-worker-0/INFO] [dev.ryanhcode.sable.Sable/]: Sable loaded!
+[22Nov2026 10:30:53.578] [modloading-worker-0/INFO] [dev.fourthdimension.FourthDimension/]: Coasters: Fourth Dimension loaded from union:/mnt/NVME4/fourthdimension-runs/fd13-spinning-20261122/build/libs/coasters-fourth-dimension-1.1.0.jar%23127!/
+[22Nov2026 10:30:54.860] [main/INFO] [com.mojang.authlib.yggdrasil.YggdrasilAuthenticationService/]: Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, name=PROD]
+[22Nov2026 10:30:54.865] [NeoForge Version Check/INFO] [net.neoforged.fml.VersionChecker/]: [create] Starting version check at https://api.modrinth.com/updates/create/forge_updates.json?neoforge=only
+[22Nov2026 10:30:54.885] [main/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/mnt/NVME4/fourthdimension-runs/fd13-spinning-20261122/build/moddev/artifacts/neoforge-21.1.256.jar%23124!/assets/.mcassetsroot' uses unexpected schema
+[22Nov2026 10:30:54.895] [main/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/mnt/NVME4/fourthdimension-runs/fd13-spinning-20261122/build/moddev/artifacts/neoforge-21.1.256.jar%23124!/data/.mcassetsroot' uses unexpected schema
+[22Nov2026 10:30:54.936] [main/INFO] [com.simibubi.create.Create/]: Created 157 recipes which will be injected into the game
+[22Nov2026 10:30:54.940] [main/INFO] [com.simibubi.create.Create/]: Created 0 tags which will be injected into the game
+[22Nov2026 10:30:54.980] [main/INFO] [net.minecraft.server.MinecraftServer/]: Found new data pack create:dynamic_data, loading it automatically
+[22Nov2026 10:30:55.250] [main/INFO] [net.minecraft.server.Main/]: No existing world data, creating new world
+[22Nov2026 10:30:55.254] [NeoForge Version Check/INFO] [net.neoforged.fml.VersionChecker/]: [create] Found status: OUTDATED Current: 6.0.10 Target: 6.0.10+mc1.21.1
+[22Nov2026 10:30:55.667] [main/INFO] [net.minecraft.world.item.crafting.RecipeManager/]: Loaded 2865 recipes
+[22Nov2026 10:30:55.782] [main/INFO] [net.minecraft.advancements.AdvancementTree/]: Loaded 2521 advancements
+[22Nov2026 10:30:56.543] [Server thread/INFO] [net.minecraft.server.dedicated.DedicatedServer/]: Starting minecraft server version 1.21.1
+[22Nov2026 10:30:56.543] [Server thread/INFO] [net.minecraft.server.dedicated.DedicatedServer/]: Loading properties
+[22Nov2026 10:30:56.544] [Server thread/INFO] [net.minecraft.server.dedicated.DedicatedServer/]: Default game type: CREATIVE
+[22Nov2026 10:30:56.544] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Generating keypair
+[22Nov2026 10:30:56.588] [Server thread/INFO] [net.minecraft.server.dedicated.DedicatedServer/]: Starting Minecraft server on 127.0.0.1:25733
+[22Nov2026 10:30:56.624] [Server thread/INFO] [dev.ryanhcode.sable.Sable/]: Adding UDP server channel future
+[22Nov2026 10:30:56.649] [Netty Epoll Server IO #0/WARN] [io.netty.channel.AbstractChannel/]: A non-root user can't receive a broadcast packet if the socket is not bound to a wildcard address; binding to a non-wildcard address (/127.0.0.1:25733) anyway as requested.
+[22Nov2026 10:30:56.649] [Netty Epoll Server IO #0/INFO] [dev.ryanhcode.sable.Sable/]: Server UDP channel active
+[22Nov2026 10:30:56.650] [Server thread/INFO] [net.minecraft.server.network.ServerConnectionListener/]: Using epoll channel type
+[22Nov2026 10:30:56.653] [Server thread/WARN] [net.minecraft.server.dedicated.DedicatedServer/]: **** SERVER IS RUNNING IN OFFLINE/INSECURE MODE!
+[22Nov2026 10:30:56.653] [Server thread/WARN] [net.minecraft.server.dedicated.DedicatedServer/]: The server will make no attempt to authenticate usernames. Beware.
+[22Nov2026 10:30:56.653] [Server thread/WARN] [net.minecraft.server.dedicated.DedicatedServer/]: While this makes the game possible to play without internet access, it also opens up the ability for hackers to connect with any username they choose.
+[22Nov2026 10:30:56.653] [Server thread/WARN] [net.minecraft.server.dedicated.DedicatedServer/]: To change this, set "online-mode" to "true" in the server.properties file.
+[22Nov2026 10:30:56.686] [Server thread/INFO] [net.minecraft.server.dedicated.DedicatedServer/]: Preparing level "SpinningMount"
+[22Nov2026 10:30:56.705] [Server thread/INFO] [dev.ryanhcode.sable.Sable/]: Creating physics pipeline for ResourceKey[minecraft:dimension / minecraft:overworld] using RapierPhysicsPipelineProvider
+[22Nov2026 10:30:56.710] [Server thread/INFO] [dev.ryanhcode.sable.Sable/]: Using game directory relative Sable Rapier native directory /mnt/NVME4/fourthdimension-runs/fd13-spinning-20261122/server/.sable/natives
+[22Nov2026 10:30:57.061] [Server thread/INFO] [dev.ryanhcode.sable.Sable/]: Creating physics pipeline for ResourceKey[minecraft:dimension / minecraft:the_nether] using RapierPhysicsPipelineProvider
+[22Nov2026 10:30:57.078] [Server thread/INFO] [dev.ryanhcode.sable.Sable/]: Creating physics pipeline for ResourceKey[minecraft:dimension / minecraft:the_end] using RapierPhysicsPipelineProvider
+[22Nov2026 10:30:57.098] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Preparing start region for dimension minecraft:overworld
+[22Nov2026 10:30:57.112] [worldgen/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Preparing spawn area: 2%
+[22Nov2026 10:30:57.198] [Server thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Time elapsed: 99 ms
+[22Nov2026 10:30:57.198] [Server thread/INFO] [net.minecraft.server.dedicated.DedicatedServer/]: Done (0.532s)! For help, type "help"
+[22Nov2026 10:30:57.199] [Server thread/INFO] [net.minecraft.server.dedicated.DedicatedServer/]: Starting remote control listener
+[22Nov2026 10:30:57.200] [Server thread/INFO] [net.minecraft.server.rcon.thread.GenericThread/]: Thread RCON Listener started
+[22Nov2026 10:30:57.200] [Server thread/INFO] [net.minecraft.server.rcon.thread.RconThread/]: RCON running on 127.0.0.1:25734
+[22Nov2026 10:30:57.206] [LanServerPinger #1/WARN] [net.minecraft.client.server.LanServerPinger/]: LanServerPinger: Network is unreachable
+[22Nov2026 10:30:57.231] [Server thread/INFO] [net.neoforged.neoforge.gametest.GameTestHooks/]: Enabled Gametest Namespaces: []
+[22Nov2026 10:30:57.326] [Server thread/INFO] [net.neoforged.neoforge.server.permission.PermissionAPI/]: Successfully initialized permission handler neoforge:default_handler
+[22Nov2026 10:31:04.531] [Server thread/INFO] [net.minecraft.server.players.PlayerList/]: Dev[/127.0.0.1:39436] logged in with entity id 1 at (3.5, -60.0, -2.5)
+[22Nov2026 10:31:04.536] [Server thread/INFO] [dev.ryanhcode.sable.Sable/]: Beginning attempted authentication with player Dev
+[22Nov2026 10:31:04.547] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Dev joined the game
+[22Nov2026 10:31:04.870] [Netty Epoll Server IO #0/INFO] [dev.ryanhcode.sable.Sable/]: UDP authentication complete with /127.0.0.1:39436, UDP routing to /127.0.0.1:47057
+[22Nov2026 10:31:07.539] [RCON Listener #1/INFO] [net.minecraft.server.rcon.thread.GenericThread/]: Thread RCON Client /127.0.0.1 started
+[22Nov2026 10:31:07.931] [RCON Client /127.0.0.1 #2/INFO] [net.minecraft.server.rcon.thread.RconClient/]: Thread RCON Client /127.0.0.1 shutting down
+[22Nov2026 10:31:08.029] [RCON Listener #1/INFO] [net.minecraft.server.rcon.thread.GenericThread/]: Thread RCON Client /127.0.0.1 started
+[22Nov2026 10:31:08.506] [RCON Client /127.0.0.1 #3/INFO] [net.minecraft.server.rcon.thread.RconClient/]: Thread RCON Client /127.0.0.1 shutting down
+[22Nov2026 10:31:14.445] [RCON Listener #1/INFO] [net.minecraft.server.rcon.thread.GenericThread/]: Thread RCON Client /127.0.0.1 started
+[22Nov2026 10:31:14.446] [RCON Client /127.0.0.1 #4/INFO] [net.minecraft.server.rcon.thread.RconClient/]: Thread RCON Client /127.0.0.1 shutting down
+[22Nov2026 10:31:14.514] [RCON Listener #1/INFO] [net.minecraft.server.rcon.thread.GenericThread/]: Thread RCON Client /127.0.0.1 started
+[22Nov2026 10:31:14.519] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Rcon: FD917_MECHANISM action=inspect family=s1 id=bebcd31b-b7c6-46ff-8910-54e50b2d87bd center=unloaded stopping=true restraints=false fault= bound=BlockPos{x=100, y=103, z=136}/BlockPos{x=100, y=103, z=200} carriers=[body=591931e1-cbff-48a2-a774-a4eae880c3f1,angle=0.0,latched=false,lift=false,riders=0]]
+[22Nov2026 10:31:14.520] [RCON Client /127.0.0.1 #5/INFO] [net.minecraft.server.rcon.thread.RconClient/]: Thread RCON Client /127.0.0.1 shutting down
+[22Nov2026 10:31:14.583] [RCON Listener #1/INFO] [net.minecraft.server.rcon.thread.GenericThread/]: Thread RCON Client /127.0.0.1 started
+[22Nov2026 10:31:14.583] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Rcon: FD917_MECHANISM action=inspect family=s2 id=8a806bbd-00e5-4318-bb4d-cd78360798ff center=unloaded stopping=true restraints=false fault= bound=BlockPos{x=350, y=108, z=112}/BlockPos{x=350, y=108, z=176} carriers=[body=165fb464-2c9d-4184-bc01-57f4f8dd63d8,angle=0.0,latched=false,lift=false,riders=0]]
+[22Nov2026 10:31:14.583] [RCON Client /127.0.0.1 #6/INFO] [net.minecraft.server.rcon.thread.RconClient/]: Thread RCON Client /127.0.0.1 shutting down
+[22Nov2026 10:31:24.589] [RCON Listener #1/INFO] [net.minecraft.server.rcon.thread.GenericThread/]: Thread RCON Client /127.0.0.1 started
+[22Nov2026 10:31:24.592] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Rcon: Teleported Dev to 96.500000, 104.000000, 142.500000]
+[22Nov2026 10:31:24.594] [RCON Client /127.0.0.1 #7/INFO] [net.minecraft.server.rcon.thread.RconClient/]: Thread RCON Client /127.0.0.1 shutting down
+[22Nov2026 10:31:24.610] [Server thread/WARN] [net.minecraft.server.network.ServerGamePacketListenerImpl/]: Dev moved too quickly! 93.0,164.0,145.0
+[22Nov2026 10:31:24.658] [RCON Listener #1/INFO] [net.minecraft.server.rcon.thread.GenericThread/]: Thread RCON Client /127.0.0.1 started
+[22Nov2026 10:31:24.659] [RCON Client /127.0.0.1 #8/INFO] [net.minecraft.server.rcon.thread.RconClient/]: Thread RCON Client /127.0.0.1 shutting down
+[22Nov2026 10:31:24.725] [RCON Listener #1/INFO] [net.minecraft.server.rcon.thread.GenericThread/]: Thread RCON Client /127.0.0.1 started
+[22Nov2026 10:31:24.732] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Rcon: Gave 1 [Rotation Tool] to Dev]
+[22Nov2026 10:31:24.733] [RCON Client /127.0.0.1 #9/INFO] [net.minecraft.server.rcon.thread.RconClient/]: Thread RCON Client /127.0.0.1 shutting down
+[22Nov2026 10:31:24.802] [RCON Listener #1/INFO] [net.minecraft.server.rcon.thread.GenericThread/]: Thread RCON Client /127.0.0.1 started
+[22Nov2026 10:31:25.237] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Rcon: Set the time to 1000]
+[22Nov2026 10:31:25.279] [RCON Client /127.0.0.1 #10/INFO] [net.minecraft.server.rcon.thread.RconClient/]: Thread RCON Client /127.0.0.1 shutting down
+[22Nov2026 10:31:29.686] [RCON Listener #1/INFO] [net.minecraft.server.rcon.thread.GenericThread/]: Thread RCON Client /127.0.0.1 started
+[22Nov2026 10:31:29.687] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Rcon: FD917_MECHANISM action=inspect family=s1 id=bebcd31b-b7c6-46ff-8910-54e50b2d87bd center=( 1.005E+2  1.036E+2  1.425E+2) stopping=true restraints=false fault= bound=BlockPos{x=100, y=103, z=136}/BlockPos{x=100, y=103, z=200} carriers=[body=591931e1-cbff-48a2-a774-a4eae880c3f1,angle=-2.379812704720853E-32,latched=true,lift=false,riders=0]]
+[22Nov2026 10:31:29.689] [RCON Client /127.0.0.1 #11/INFO] [net.minecraft.server.rcon.thread.RconClient/]: Thread RCON Client /127.0.0.1 shutting down
+[22Nov2026 10:31:41.582] [RCON Listener #1/INFO] [net.minecraft.server.rcon.thread.GenericThread/]: Thread RCON Client /127.0.0.1 started
+[22Nov2026 10:31:41.583] [RCON Client /127.0.0.1 #12/INFO] [net.minecraft.server.rcon.thread.RconClient/]: Thread RCON Client /127.0.0.1 shutting down
+[22Nov2026 10:31:42.184] [RCON Listener #1/INFO] [net.minecraft.server.rcon.thread.GenericThread/]: Thread RCON Client /127.0.0.1 started
+[22Nov2026 10:31:42.186] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Rcon: Changed the block at 95, 104, 140]
+[22Nov2026 10:31:42.186] [RCON Client /127.0.0.1 #13/INFO] [net.minecraft.server.rcon.thread.RconClient/]: Thread RCON Client /127.0.0.1 shutting down
+[22Nov2026 10:31:42.247] [RCON Listener #1/INFO] [net.minecraft.server.rcon.thread.GenericThread/]: Thread RCON Client /127.0.0.1 started
+[22Nov2026 10:31:42.248] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Rcon: Teleported Dev to 95.500000, 104.000000, 142.500000]
+[22Nov2026 10:31:42.248] [RCON Client /127.0.0.1 #14/INFO] [net.minecraft.server.rcon.thread.RconClient/]: Thread RCON Client /127.0.0.1 shutting down
+[22Nov2026 10:31:42.334] [RCON Listener #1/INFO] [net.minecraft.server.rcon.thread.GenericThread/]: Thread RCON Client /127.0.0.1 started
+[22Nov2026 10:31:42.335] [RCON Client /127.0.0.1 #15/INFO] [net.minecraft.server.rcon.thread.RconClient/]: Thread RCON Client /127.0.0.1 shutting down
+[22Nov2026 10:31:43.097] [RCON Listener #1/INFO] [net.minecraft.server.rcon.thread.GenericThread/]: Thread RCON Client /127.0.0.1 started
+[22Nov2026 10:31:43.098] [RCON Client /127.0.0.1 #16/INFO] [net.minecraft.server.rcon.thread.RconClient/]: Thread RCON Client /127.0.0.1 shutting down
+[22Nov2026 10:31:55.644] [RCON Listener #1/INFO] [net.minecraft.server.rcon.thread.GenericThread/]: Thread RCON Client /127.0.0.1 started
+[22Nov2026 10:31:55.645] [RCON Client /127.0.0.1 #17/INFO] [net.minecraft.server.rcon.thread.RconClient/]: Thread RCON Client /127.0.0.1 shutting down
+[22Nov2026 10:31:56.289] [RCON Listener #1/INFO] [net.minecraft.server.rcon.thread.GenericThread/]: Thread RCON Client /127.0.0.1 started
+[22Nov2026 10:31:56.295] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Not Secure] [Rcon] FD13_SPIN_INPUT_PASS
+[22Nov2026 10:31:56.296] [RCON Client /127.0.0.1 #18/INFO] [net.minecraft.server.rcon.thread.RconClient/]: Thread RCON Client /127.0.0.1 shutting down
+[22Nov2026 10:32:05.921] [RCON Listener #1/INFO] [net.minecraft.server.rcon.thread.GenericThread/]: Thread RCON Client /127.0.0.1 started
+[22Nov2026 10:32:05.923] [RCON Client /127.0.0.1 #19/INFO] [net.minecraft.server.rcon.thread.RconClient/]: Thread RCON Client /127.0.0.1 shutting down
+[22Nov2026 10:32:28.235] [RCON Listener #1/INFO] [net.minecraft.server.rcon.thread.GenericThread/]: Thread RCON Client /127.0.0.1 started
+[22Nov2026 10:32:28.236] [RCON Client /127.0.0.1 #20/INFO] [net.minecraft.server.rcon.thread.RconClient/]: Thread RCON Client /127.0.0.1 shutting down
+[22Nov2026 10:32:34.815] [RCON Listener #1/INFO] [net.minecraft.server.rcon.thread.GenericThread/]: Thread RCON Client /127.0.0.1 started
+[22Nov2026 10:32:34.816] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Rcon: Teleported Dev to 97.500000, 104.000000, 142.500000]
+[22Nov2026 10:32:34.817] [RCON Client /127.0.0.1 #21/INFO] [net.minecraft.server.rcon.thread.RconClient/]: Thread RCON Client /127.0.0.1 shutting down
+[22Nov2026 10:32:43.646] [RCON Listener #1/INFO] [net.minecraft.server.rcon.thread.GenericThread/]: Thread RCON Client /127.0.0.1 started
+[22Nov2026 10:32:43.683] [Server thread/INFO] [dev.ryanhcode.sable.Sable/]: Saving sub-levels for level 'ServerLevel[SpinningMount]'/minecraft:overworld
+[22Nov2026 10:32:43.733] [Server thread/INFO] [dev.ryanhcode.sable.Sable/]: Saving sub-levels for level 'ServerLevel[SpinningMount]'/minecraft:the_nether
+[22Nov2026 10:32:43.733] [Server thread/INFO] [dev.ryanhcode.sable.Sable/]: Saving sub-levels for level 'ServerLevel[SpinningMount]'/minecraft:the_end
+[22Nov2026 10:32:43.738] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Rcon: Saved the game]
+[22Nov2026 10:32:43.782] [RCON Client /127.0.0.1 #22/INFO] [net.minecraft.server.rcon.thread.RconClient/]: Thread RCON Client /127.0.0.1 shutting down
+[22Nov2026 10:33:00.108] [RCON Listener #1/INFO] [net.minecraft.server.rcon.thread.GenericThread/]: Thread RCON Client /127.0.0.1 started
+[22Nov2026 10:33:00.113] [RCON Client /127.0.0.1 #23/INFO] [net.minecraft.server.rcon.thread.RconClient/]: Thread RCON Client /127.0.0.1 shutting down
+[22Nov2026 10:33:00.195] [RCON Listener #1/INFO] [net.minecraft.server.rcon.thread.GenericThread/]: Thread RCON Client /127.0.0.1 started
+[22Nov2026 10:33:00.198] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Rcon: Teleported Dev to 97.500000, 104.000000, 141.500000]
+[22Nov2026 10:33:00.199] [RCON Client /127.0.0.1 #24/INFO] [net.minecraft.server.rcon.thread.RconClient/]: Thread RCON Client /127.0.0.1 shutting down
+[22Nov2026 10:33:31.234] [RCON Listener #1/INFO] [net.minecraft.server.rcon.thread.GenericThread/]: Thread RCON Client /127.0.0.1 started
+[22Nov2026 10:33:31.236] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Rcon: Teleported Dev to 97.500000, 104.000000, 141.500000]
+[22Nov2026 10:33:31.238] [RCON Client /127.0.0.1 #25/INFO] [net.minecraft.server.rcon.thread.RconClient/]: Thread RCON Client /127.0.0.1 shutting down
+[22Nov2026 10:33:42.563] [RCON Listener #1/INFO] [net.minecraft.server.rcon.thread.GenericThread/]: Thread RCON Client /127.0.0.1 started
+[22Nov2026 10:33:42.565] [RCON Client /127.0.0.1 #26/INFO] [net.minecraft.server.rcon.thread.RconClient/]: Thread RCON Client /127.0.0.1 shutting down
+[22Nov2026 10:33:42.696] [Server thread/INFO] [dev.fourthdimension.vehicle.Boarding/]: FD_BOARDING_EVENT player=Dev action=mount seat=BlockPos{x=20481032, y=127, z=20483080} restraints=false restoring=false
+[22Nov2026 10:33:42.696] [Server thread/INFO] [dev.fourthdimension.vehicle.Boarding/]: FD_BOARDING_ASSIGN player=Dev seat=BlockPos{x=20481032, y=127, z=20483080} offset=BlockPos{x=0, y=-1, z=0} knownSeats=[BlockPos{x=-1, y=-1, z=-1}, BlockPos{x=0, y=-1, z=-1}, BlockPos{x=-1, y=-1, z=0}, BlockPos{x=0, y=-1, z=0}] accepted=true
+[22Nov2026 10:33:43.233] [RCON Listener #1/INFO] [net.minecraft.server.rcon.thread.GenericThread/]: Thread RCON Client /127.0.0.1 started
+[22Nov2026 10:33:43.234] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Rcon: FD917_MECHANISM action=inspect family=s1 id=bebcd31b-b7c6-46ff-8910-54e50b2d87bd center=( 1.005E+2  1.036E+2  1.425E+2) stopping=true restraints=false fault= bound=BlockPos{x=100, y=103, z=136}/BlockPos{x=100, y=103, z=200} carriers=[body=591931e1-cbff-48a2-a774-a4eae880c3f1,angle=-2.0240689656730976E-4,latched=true,lift=false,riders=1]]
+[22Nov2026 10:33:43.234] [RCON Client /127.0.0.1 #27/INFO] [net.minecraft.server.rcon.thread.RconClient/]: Thread RCON Client /127.0.0.1 shutting down
+[22Nov2026 10:33:52.138] [RCON Listener #1/INFO] [net.minecraft.server.rcon.thread.GenericThread/]: Thread RCON Client /127.0.0.1 started
+[22Nov2026 10:33:52.140] [RCON Client /127.0.0.1 #28/INFO] [net.minecraft.server.rcon.thread.RconClient/]: Thread RCON Client /127.0.0.1 shutting down
+[22Nov2026 10:33:52.918] [RCON Listener #1/INFO] [net.minecraft.server.rcon.thread.GenericThread/]: Thread RCON Client /127.0.0.1 started
+[22Nov2026 10:33:52.919] [RCON Client /127.0.0.1 #29/INFO] [net.minecraft.server.rcon.thread.RconClient/]: Thread RCON Client /127.0.0.1 shutting down
+[22Nov2026 10:33:53.700] [RCON Listener #1/INFO] [net.minecraft.server.rcon.thread.GenericThread/]: Thread RCON Client /127.0.0.1 started
+[22Nov2026 10:33:53.701] [RCON Client /127.0.0.1 #30/INFO] [net.minecraft.server.rcon.thread.RconClient/]: Thread RCON Client /127.0.0.1 shutting down
+[22Nov2026 10:33:54.491] [RCON Listener #1/INFO] [net.minecraft.server.rcon.thread.GenericThread/]: Thread RCON Client /127.0.0.1 started
+[22Nov2026 10:33:54.493] [RCON Client /127.0.0.1 #31/INFO] [net.minecraft.server.rcon.thread.RconClient/]: Thread RCON Client /127.0.0.1 shutting down
+[22Nov2026 10:33:54.585] [Server thread/INFO] [dev.fourthdimension.editor.EditorNetwork/]: FD_EDITOR_OPEN player=Dev target=bebcd31b-b7c6-46ff-8910-54e50b2d87bd vehicle=true
+[22Nov2026 10:34:09.451] [Server thread/INFO] [dev.fourthdimension.editor.EditorNetwork/]: FD_EDITOR_RESULT player=Dev target=bebcd31b-b7c6-46ff-8910-54e50b2d87bd action=11 success=true message=4D settings updated
+[22Nov2026 10:34:10.002] [RCON Listener #1/INFO] [net.minecraft.server.rcon.thread.GenericThread/]: Thread RCON Client /127.0.0.1 started
+[22Nov2026 10:34:10.003] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Rcon: FD917_MECHANISM action=inspect family=s1 id=bebcd31b-b7c6-46ff-8910-54e50b2d87bd center=( 1.005E+2  1.036E+2  1.425E+2) stopping=true restraints=true fault= bound=BlockPos{x=100, y=103, z=136}/BlockPos{x=100, y=103, z=200} carriers=[body=591931e1-cbff-48a2-a774-a4eae880c3f1,angle=-1.2025552738162007E-4,latched=true,lift=false,riders=1]]
+[22Nov2026 10:34:10.003] [RCON Client /127.0.0.1 #32/INFO] [net.minecraft.server.rcon.thread.RconClient/]: Thread RCON Client /127.0.0.1 shutting down
+[22Nov2026 10:34:19.277] [Server thread/INFO] [dev.fourthdimension.editor.EditorNetwork/]: FD_EDITOR_RESULT player=Dev target=bebcd31b-b7c6-46ff-8910-54e50b2d87bd action=13 success=true message=4D settings updated
+[22Nov2026 10:34:19.840] [RCON Listener #1/INFO] [net.minecraft.server.rcon.thread.GenericThread/]: Thread RCON Client /127.0.0.1 started
+[22Nov2026 10:34:19.840] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Rcon: FD917_MECHANISM action=inspect family=s1 id=bebcd31b-b7c6-46ff-8910-54e50b2d87bd center=( 1.005E+2  1.036E+2  1.442E+2) stopping=false restraints=true fault= bound=BlockPos{x=100, y=103, z=136}/BlockPos{x=100, y=103, z=200} carriers=[body=591931e1-cbff-48a2-a774-a4eae880c3f1,angle=-0.060302438969532725,latched=false,lift=true,riders=1]]
+[22Nov2026 10:34:19.841] [RCON Client /127.0.0.1 #33/INFO] [net.minecraft.server.rcon.thread.RconClient/]: Thread RCON Client /127.0.0.1 shutting down
+[22Nov2026 10:34:27.816] [RCON Listener #1/INFO] [net.minecraft.server.rcon.thread.GenericThread/]: Thread RCON Client /127.0.0.1 started
+[22Nov2026 10:34:27.817] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Rcon: FD917_MECHANISM action=inspect family=s1 id=bebcd31b-b7c6-46ff-8910-54e50b2d87bd center=( 1.005E+2  1.036E+2  1.757E+2) stopping=false restraints=true fault= bound=BlockPos{x=100, y=103, z=136}/BlockPos{x=100, y=103, z=200} carriers=[body=591931e1-cbff-48a2-a774-a4eae880c3f1,angle=-0.008652084258913765,latched=false,lift=true,riders=1]]
+[22Nov2026 10:34:27.817] [RCON Client /127.0.0.1 #34/INFO] [net.minecraft.server.rcon.thread.RconClient/]: Thread RCON Client /127.0.0.1 shutting down
+[22Nov2026 10:34:39.912] [RCON Listener #1/INFO] [net.minecraft.server.rcon.thread.GenericThread/]: Thread RCON Client /127.0.0.1 started
+[22Nov2026 10:34:39.913] [RCON Client /127.0.0.1 #35/INFO] [net.minecraft.server.rcon.thread.RconClient/]: Thread RCON Client /127.0.0.1 shutting down
+[22Nov2026 10:34:40.526] [RCON Listener #1/INFO] [net.minecraft.server.rcon.thread.GenericThread/]: Thread RCON Client /127.0.0.1 started
+[22Nov2026 10:34:40.527] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Rcon: FD917_MECHANISM action=inspect family=s1 id=bebcd31b-b7c6-46ff-8910-54e50b2d87bd center=( 1.107E+2  1.036E+2  2.203E+2) stopping=false restraints=true fault= bound=BlockPos{x=100, y=103, z=200}/BlockPos{x=124, y=103, z=224} carriers=[body=591931e1-cbff-48a2-a774-a4eae880c3f1,angle=0.5021951184654778,latched=false,lift=false,riders=1]]
+[22Nov2026 10:34:40.532] [RCON Client /127.0.0.1 #36/INFO] [net.minecraft.server.rcon.thread.RconClient/]: Thread RCON Client /127.0.0.1 shutting down
+[22Nov2026 10:34:49.163] [RCON Listener #1/INFO] [net.minecraft.server.rcon.thread.GenericThread/]: Thread RCON Client /127.0.0.1 started
+[22Nov2026 10:34:49.164] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Rcon: FD917_MECHANISM action=inspect family=s1 id=bebcd31b-b7c6-46ff-8910-54e50b2d87bd center=( 1.416E+2  1.036E+2  2.247E+2) stopping=false restraints=true fault= bound=BlockPos{x=124, y=103, z=224}/BlockPos{x=172, y=103, z=224} carriers=[body=591931e1-cbff-48a2-a774-a4eae880c3f1,angle=0.646200989799333,latched=false,lift=false,riders=1]]
+[22Nov2026 10:34:49.164] [RCON Client /127.0.0.1 #37/INFO] [net.minecraft.server.rcon.thread.RconClient/]: Thread RCON Client /127.0.0.1 shutting down
+[22Nov2026 10:35:06.591] [RCON Listener #1/INFO] [net.minecraft.server.rcon.thread.GenericThread/]: Thread RCON Client /127.0.0.1 started
+[22Nov2026 10:35:06.592] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Rcon: FD917_MECHANISM action=inspect family=s1 id=bebcd31b-b7c6-46ff-8910-54e50b2d87bd center=( 1.963E+2  1.036E+2  2.039E+2) stopping=false restraints=true fault= bound=BlockPos{x=172, y=103, z=224}/BlockPos{x=196, y=103, z=200} carriers=[body=591931e1-cbff-48a2-a774-a4eae880c3f1,angle=0.6548650247189612,latched=false,lift=false,riders=1]]
+[22Nov2026 10:35:06.592] [RCON Client /127.0.0.1 #38/INFO] [net.minecraft.server.rcon.thread.RconClient/]: Thread RCON Client /127.0.0.1 shutting down
+[22Nov2026 10:35:17.935] [RCON Listener #1/INFO] [net.minecraft.server.rcon.thread.GenericThread/]: Thread RCON Client /127.0.0.1 started
+[22Nov2026 10:35:17.936] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Rcon: FD917_MECHANISM action=inspect family=s1 id=bebcd31b-b7c6-46ff-8910-54e50b2d87bd center=( 1.965E+2  1.036E+2  1.600E+2) stopping=false restraints=true fault= bound=BlockPos{x=196, y=103, z=200}/BlockPos{x=196, y=103, z=136} carriers=[body=591931e1-cbff-48a2-a774-a4eae880c3f1,angle=-0.13836689540536198,latched=false,lift=false,riders=1]]
+[22Nov2026 10:35:17.936] [RCON Client /127.0.0.1 #39/INFO] [net.minecraft.server.rcon.thread.RconClient/]: Thread RCON Client /127.0.0.1 shutting down
+[22Nov2026 10:35:43.614] [RCON Listener #1/INFO] [net.minecraft.server.rcon.thread.GenericThread/]: Thread RCON Client /127.0.0.1 started
+[22Nov2026 10:35:43.615] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Rcon: FD917_MECHANISM action=inspect family=s1 id=bebcd31b-b7c6-46ff-8910-54e50b2d87bd center=( 1.364E+2  1.036E+2  1.125E+2) stopping=false restraints=true fault= bound=BlockPos{x=172, y=103, z=112}/BlockPos{x=124, y=103, z=112} carriers=[body=591931e1-cbff-48a2-a774-a4eae880c3f1,angle=-0.0720039740877506,latched=false,lift=false,riders=1]]
+[22Nov2026 10:35:43.615] [RCON Client /127.0.0.1 #40/INFO] [net.minecraft.server.rcon.thread.RconClient/]: Thread RCON Client /127.0.0.1 shutting down
+[22Nov2026 10:35:49.976] [RCON Listener #1/INFO] [net.minecraft.server.rcon.thread.GenericThread/]: Thread RCON Client /127.0.0.1 started
+[22Nov2026 10:35:49.982] [RCON Client /127.0.0.1 #41/INFO] [net.minecraft.server.rcon.thread.RconClient/]: Thread RCON Client /127.0.0.1 shutting down
+[22Nov2026 10:35:50.098] [Server thread/INFO] [dev.fourthdimension.editor.EditorNetwork/]: FD_EDITOR_OPEN player=Dev target=bebcd31b-b7c6-46ff-8910-54e50b2d87bd vehicle=true
+[22Nov2026 10:35:57.291] [Server thread/INFO] [dev.ryanhcode.sable.Sable/]: Saving sub-levels for level 'ServerLevel[SpinningMount]'/minecraft:overworld
+[22Nov2026 10:35:57.297] [Server thread/INFO] [dev.ryanhcode.sable.Sable/]: Saving sub-levels for level 'ServerLevel[SpinningMount]'/minecraft:the_nether
+[22Nov2026 10:35:57.297] [Server thread/INFO] [dev.ryanhcode.sable.Sable/]: Saving sub-levels for level 'ServerLevel[SpinningMount]'/minecraft:the_end
+[22Nov2026 10:35:58.674] [RCON Listener #1/INFO] [net.minecraft.server.rcon.thread.GenericThread/]: Thread RCON Client /127.0.0.1 started
+[22Nov2026 10:35:58.674] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Rcon: FD917_MECHANISM action=inspect family=s1 id=bebcd31b-b7c6-46ff-8910-54e50b2d87bd center=( 1.005E+2  1.036E+2  1.371E+2) stopping=true restraints=true fault=Classic Spinning lift entry requires a settled captured carrier bound=BlockPos{x=100, y=103, z=136}/BlockPos{x=100, y=103, z=200} carriers=[body=591931e1-cbff-48a2-a774-a4eae880c3f1,angle=-0.26613757898227347,latched=false,lift=false,riders=1]]
+[22Nov2026 10:35:58.675] [RCON Client /127.0.0.1 #42/INFO] [net.minecraft.server.rcon.thread.RconClient/]: Thread RCON Client /127.0.0.1 shutting down
+[22Nov2026 10:36:06.696] [Server thread/INFO] [dev.fourthdimension.editor.EditorNetwork/]: FD_EDITOR_RESULT player=Dev target=bebcd31b-b7c6-46ff-8910-54e50b2d87bd action=10 success=true message=4D settings updated
+[22Nov2026 10:36:07.255] [RCON Listener #1/INFO] [net.minecraft.server.rcon.thread.GenericThread/]: Thread RCON Client /127.0.0.1 started
+[22Nov2026 10:36:07.257] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Rcon: FD917_MECHANISM action=inspect family=s1 id=bebcd31b-b7c6-46ff-8910-54e50b2d87bd center=( 1.005E+2  1.036E+2  1.371E+2) stopping=true restraints=true fault= bound=BlockPos{x=100, y=103, z=136}/BlockPos{x=100, y=103, z=200} carriers=[body=591931e1-cbff-48a2-a774-a4eae880c3f1,angle=-0.2276348782113472,latched=false,lift=false,riders=1]]
+[22Nov2026 10:36:07.257] [RCON Client /127.0.0.1 #43/INFO] [net.minecraft.server.rcon.thread.RconClient/]: Thread RCON Client /127.0.0.1 shutting down
+[22Nov2026 10:36:15.855] [RCON Listener #1/INFO] [net.minecraft.server.rcon.thread.GenericThread/]: Thread RCON Client /127.0.0.1 started
+[22Nov2026 10:36:15.856] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Rcon: FD917_MECHANISM action=inspect family=s1 id=bebcd31b-b7c6-46ff-8910-54e50b2d87bd center=( 1.005E+2  1.036E+2  1.370E+2) stopping=true restraints=true fault= bound=BlockPos{x=100, y=103, z=136}/BlockPos{x=100, y=103, z=200} carriers=[body=591931e1-cbff-48a2-a774-a4eae880c3f1,angle=0.001798093936957657,latched=true,lift=false,riders=1]]
+[22Nov2026 10:36:15.856] [RCON Client /127.0.0.1 #44/INFO] [net.minecraft.server.rcon.thread.RconClient/]: Thread RCON Client /127.0.0.1 shutting down
+[22Nov2026 10:36:27.995] [Server thread/INFO] [dev.fourthdimension.editor.EditorNetwork/]: FD_EDITOR_RESULT player=Dev target=bebcd31b-b7c6-46ff-8910-54e50b2d87bd action=12 success=true message=4D settings updated
+[22Nov2026 10:36:28.547] [RCON Listener #1/INFO] [net.minecraft.server.rcon.thread.GenericThread/]: Thread RCON Client /127.0.0.1 started
+[22Nov2026 10:36:28.548] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Rcon: FD917_MECHANISM action=inspect family=s1 id=bebcd31b-b7c6-46ff-8910-54e50b2d87bd center=( 1.005E+2  1.036E+2  1.370E+2) stopping=true restraints=false fault= bound=BlockPos{x=100, y=103, z=136}/BlockPos{x=100, y=103, z=200} carriers=[body=591931e1-cbff-48a2-a774-a4eae880c3f1,angle=0.0017994910314057977,latched=true,lift=false,riders=1]]
+[22Nov2026 10:36:28.548] [RCON Client /127.0.0.1 #45/INFO] [net.minecraft.server.rcon.thread.RconClient/]: Thread RCON Client /127.0.0.1 shutting down
+[22Nov2026 10:36:37.117] [RCON Listener #1/INFO] [net.minecraft.server.rcon.thread.GenericThread/]: Thread RCON Client /127.0.0.1 started
+[22Nov2026 10:36:37.118] [RCON Client /127.0.0.1 #46/INFO] [net.minecraft.server.rcon.thread.RconClient/]: Thread RCON Client /127.0.0.1 shutting down
+[22Nov2026 10:36:37.919] [RCON Listener #1/INFO] [net.minecraft.server.rcon.thread.GenericThread/]: Thread RCON Client /127.0.0.1 started
+[22Nov2026 10:36:37.920] [RCON Client /127.0.0.1 #47/INFO] [net.minecraft.server.rcon.thread.RconClient/]: Thread RCON Client /127.0.0.1 shutting down
+[22Nov2026 10:36:38.079] [Server thread/INFO] [dev.fourthdimension.vehicle.Boarding/]: FD_BOARDING_EVENT player=Dev action=dismount seat=BlockPos{x=20481032, y=127, z=20483080} restraints=false restoring=false
+[22Nov2026 10:36:38.079] [Server thread/INFO] [dev.fourthdimension.vehicle.Boarding/]: FD_BOARDING_DISMOUNT_CLEAR player=Dev restraints=false removed=false alive=true
+[22Nov2026 10:36:38.686] [RCON Listener #1/INFO] [net.minecraft.server.rcon.thread.GenericThread/]: Thread RCON Client /127.0.0.1 started
+[22Nov2026 10:36:38.687] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Rcon: FD917_MECHANISM action=inspect family=s1 id=bebcd31b-b7c6-46ff-8910-54e50b2d87bd center=( 1.005E+2  1.036E+2  1.370E+2) stopping=true restraints=false fault= bound=BlockPos{x=100, y=103, z=136}/BlockPos{x=100, y=103, z=200} carriers=[body=591931e1-cbff-48a2-a774-a4eae880c3f1,angle=0.0012793731903240275,latched=true,lift=false,riders=0]]
+[22Nov2026 10:36:38.687] [RCON Client /127.0.0.1 #48/INFO] [net.minecraft.server.rcon.thread.RconClient/]: Thread RCON Client /127.0.0.1 shutting down
+[22Nov2026 10:36:38.754] [RCON Listener #1/INFO] [net.minecraft.server.rcon.thread.GenericThread/]: Thread RCON Client /127.0.0.1 started
+[22Nov2026 10:36:38.757] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Rcon: Teleported Dev to 346.500000, 109.000000, 120.500000]
+[22Nov2026 10:36:38.757] [RCON Client /127.0.0.1 #49/INFO] [net.minecraft.server.rcon.thread.RconClient/]: Thread RCON Client /127.0.0.1 shutting down
+[22Nov2026 10:36:47.629] [RCON Listener #1/INFO] [net.minecraft.server.rcon.thread.GenericThread/]: Thread RCON Client /127.0.0.1 started
+[22Nov2026 10:36:47.631] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Rcon: FD917_MECHANISM action=inspect family=s2 id=8a806bbd-00e5-4318-bb4d-cd78360798ff center=( 3.505E+2  1.091E+2  1.205E+2) stopping=true restraints=false fault= bound=BlockPos{x=350, y=108, z=112}/BlockPos{x=350, y=108, z=176} carriers=[body=165fb464-2c9d-4184-bc01-57f4f8dd63d8,angle=-2.3953824212637524E-32,latched=true,lift=false,riders=0]]
+[22Nov2026 10:36:47.632] [RCON Client /127.0.0.1 #50/INFO] [net.minecraft.server.rcon.thread.RconClient/]: Thread RCON Client /127.0.0.1 shutting down
+[22Nov2026 10:37:13.504] [RCON Listener #1/INFO] [net.minecraft.server.rcon.thread.GenericThread/]: Thread RCON Client /127.0.0.1 started
+[22Nov2026 10:37:13.519] [RCON Client /127.0.0.1 #51/INFO] [net.minecraft.server.rcon.thread.RconClient/]: Thread RCON Client /127.0.0.1 shutting down
+[22Nov2026 10:37:13.605] [RCON Listener #1/INFO] [net.minecraft.server.rcon.thread.GenericThread/]: Thread RCON Client /127.0.0.1 started
+[22Nov2026 10:37:13.607] [RCON Client /127.0.0.1 #52/INFO] [net.minecraft.server.rcon.thread.RconClient/]: Thread RCON Client /127.0.0.1 shutting down
+[22Nov2026 10:37:25.222] [RCON Listener #1/INFO] [net.minecraft.server.rcon.thread.GenericThread/]: Thread RCON Client /127.0.0.1 started
+[22Nov2026 10:37:25.224] [RCON Client /127.0.0.1 #53/INFO] [net.minecraft.server.rcon.thread.RconClient/]: Thread RCON Client /127.0.0.1 shutting down
+[22Nov2026 10:37:26.039] [RCON Listener #1/INFO] [net.minecraft.server.rcon.thread.GenericThread/]: Thread RCON Client /127.0.0.1 started
+[22Nov2026 10:37:26.042] [RCON Client /127.0.0.1 #54/INFO] [net.minecraft.server.rcon.thread.RconClient/]: Thread RCON Client /127.0.0.1 shutting down
+[22Nov2026 10:37:26.819] [RCON Listener #1/INFO] [net.minecraft.server.rcon.thread.GenericThread/]: Thread RCON Client /127.0.0.1 started
+[22Nov2026 10:37:26.821] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Rcon: Changed the block at 354, 107, 114]
+[22Nov2026 10:37:26.823] [RCON Client /127.0.0.1 #55/INFO] [net.minecraft.server.rcon.thread.RconClient/]: Thread RCON Client /127.0.0.1 shutting down
+[22Nov2026 10:37:26.902] [RCON Listener #1/INFO] [net.minecraft.server.rcon.thread.GenericThread/]: Thread RCON Client /127.0.0.1 started
+[22Nov2026 10:37:26.904] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Rcon: Teleported Dev to 354.500000, 108.000000, 114.500000]
+[22Nov2026 10:37:26.904] [RCON Client /127.0.0.1 #56/INFO] [net.minecraft.server.rcon.thread.RconClient/]: Thread RCON Client /127.0.0.1 shutting down
+[22Nov2026 10:37:26.908] [Server thread/WARN] [net.minecraft.server.network.ServerGamePacketListenerImpl/]: Dev moved too quickly! 7.999317294575974,-1.0,-6.000000079836298
+[22Nov2026 10:37:27.010] [RCON Listener #1/INFO] [net.minecraft.server.rcon.thread.GenericThread/]: Thread RCON Client /127.0.0.1 started
+[22Nov2026 10:37:27.011] [RCON Client /127.0.0.1 #57/INFO] [net.minecraft.server.rcon.thread.RconClient/]: Thread RCON Client /127.0.0.1 shutting down
+[22Nov2026 10:37:40.129] [RCON Listener #1/INFO] [net.minecraft.server.rcon.thread.GenericThread/]: Thread RCON Client /127.0.0.1 started
+[22Nov2026 10:37:40.130] [RCON Client /127.0.0.1 #58/INFO] [net.minecraft.server.rcon.thread.RconClient/]: Thread RCON Client /127.0.0.1 shutting down
+[22Nov2026 10:37:40.786] [RCON Listener #1/INFO] [net.minecraft.server.rcon.thread.GenericThread/]: Thread RCON Client /127.0.0.1 started
+[22Nov2026 10:37:40.790] [RCON Client /127.0.0.1 #59/INFO] [net.minecraft.server.rcon.thread.RconClient/]: Thread RCON Client /127.0.0.1 shutting down
+[22Nov2026 10:37:51.618] [RCON Listener #1/INFO] [net.minecraft.server.rcon.thread.GenericThread/]: Thread RCON Client /127.0.0.1 started
+[22Nov2026 10:37:51.619] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Rcon: Teleported Dev to 346.500000, 109.000000, 119.500000]
+[22Nov2026 10:37:51.620] [RCON Client /127.0.0.1 #60/INFO] [net.minecraft.server.rcon.thread.RconClient/]: Thread RCON Client /127.0.0.1 shutting down
+[22Nov2026 10:38:05.261] [RCON Listener #1/INFO] [net.minecraft.server.rcon.thread.GenericThread/]: Thread RCON Client /127.0.0.1 started
+[22Nov2026 10:38:05.262] [RCON Client /127.0.0.1 #61/INFO] [net.minecraft.server.rcon.thread.RconClient/]: Thread RCON Client /127.0.0.1 shutting down
+[22Nov2026 10:38:06.046] [RCON Listener #1/INFO] [net.minecraft.server.rcon.thread.GenericThread/]: Thread RCON Client /127.0.0.1 started
+[22Nov2026 10:38:06.048] [RCON Client /127.0.0.1 #62/INFO] [net.minecraft.server.rcon.thread.RconClient/]: Thread RCON Client /127.0.0.1 shutting down
+[22Nov2026 10:38:06.142] [Server thread/INFO] [dev.fourthdimension.vehicle.Boarding/]: FD_BOARDING_EVENT player=Dev action=mount seat=BlockPos{x=20481032, y=127, z=20487176} restraints=false restoring=false
+[22Nov2026 10:38:06.142] [Server thread/INFO] [dev.fourthdimension.vehicle.Boarding/]: FD_BOARDING_ASSIGN player=Dev seat=BlockPos{x=20481032, y=127, z=20487176} offset=BlockPos{x=0, y=-1, z=0} knownSeats=[BlockPos{x=-1, y=-1, z=-1}, BlockPos{x=0, y=-1, z=-1}, BlockPos{x=-1, y=-1, z=0}, BlockPos{x=0, y=-1, z=0}] accepted=true
+[22Nov2026 10:38:06.688] [RCON Listener #1/INFO] [net.minecraft.server.rcon.thread.GenericThread/]: Thread RCON Client /127.0.0.1 started
+[22Nov2026 10:38:06.690] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Rcon: FD917_MECHANISM action=inspect family=s2 id=8a806bbd-00e5-4318-bb4d-cd78360798ff center=( 3.505E+2  1.091E+2  1.205E+2) stopping=true restraints=false fault= bound=BlockPos{x=350, y=108, z=112}/BlockPos{x=350, y=108, z=176} carriers=[body=165fb464-2c9d-4184-bc01-57f4f8dd63d8,angle=-3.608087337906051E-4,latched=true,lift=false,riders=1]]
+[22Nov2026 10:38:06.691] [RCON Client /127.0.0.1 #63/INFO] [net.minecraft.server.rcon.thread.RconClient/]: Thread RCON Client /127.0.0.1 shutting down
+[22Nov2026 10:38:12.877] [RCON Listener #1/INFO] [net.minecraft.server.rcon.thread.GenericThread/]: Thread RCON Client /127.0.0.1 started
+[22Nov2026 10:38:12.880] [RCON Client /127.0.0.1 #64/INFO] [net.minecraft.server.rcon.thread.RconClient/]: Thread RCON Client /127.0.0.1 shutting down
+[22Nov2026 10:38:13.637] [RCON Listener #1/INFO] [net.minecraft.server.rcon.thread.GenericThread/]: Thread RCON Client /127.0.0.1 started
+[22Nov2026 10:38:13.638] [RCON Client /127.0.0.1 #65/INFO] [net.minecraft.server.rcon.thread.RconClient/]: Thread RCON Client /127.0.0.1 shutting down
+[22Nov2026 10:38:14.412] [RCON Listener #1/INFO] [net.minecraft.server.rcon.thread.GenericThread/]: Thread RCON Client /127.0.0.1 started
+[22Nov2026 10:38:14.416] [RCON Client /127.0.0.1 #66/INFO] [net.minecraft.server.rcon.thread.RconClient/]: Thread RCON Client /127.0.0.1 shutting down
+[22Nov2026 10:38:14.498] [Server thread/INFO] [dev.fourthdimension.editor.EditorNetwork/]: FD_EDITOR_OPEN player=Dev target=8a806bbd-00e5-4318-bb4d-cd78360798ff vehicle=true
+[22Nov2026 10:38:28.449] [Server thread/INFO] [dev.fourthdimension.editor.EditorNetwork/]: FD_EDITOR_RESULT player=Dev target=8a806bbd-00e5-4318-bb4d-cd78360798ff action=10 success=true message=4D settings updated
+[22Nov2026 10:38:28.976] [RCON Listener #1/INFO] [net.minecraft.server.rcon.thread.GenericThread/]: Thread RCON Client /127.0.0.1 started
+[22Nov2026 10:38:28.976] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Rcon: FD917_MECHANISM action=inspect family=s2 id=8a806bbd-00e5-4318-bb4d-cd78360798ff center=( 3.505E+2  1.091E+2  1.205E+2) stopping=true restraints=false fault= bound=BlockPos{x=350, y=108, z=112}/BlockPos{x=350, y=108, z=176} carriers=[body=165fb464-2c9d-4184-bc01-57f4f8dd63d8,angle=-2.699378285562681E-4,latched=true,lift=false,riders=1]]
+[22Nov2026 10:38:28.977] [RCON Client /127.0.0.1 #67/INFO] [net.minecraft.server.rcon.thread.RconClient/]: Thread RCON Client /127.0.0.1 shutting down
+[22Nov2026 10:38:35.517] [Server thread/INFO] [dev.fourthdimension.editor.EditorNetwork/]: FD_EDITOR_RESULT player=Dev target=8a806bbd-00e5-4318-bb4d-cd78360798ff action=11 success=true message=4D settings updated
+[22Nov2026 10:38:36.060] [RCON Listener #1/INFO] [net.minecraft.server.rcon.thread.GenericThread/]: Thread RCON Client /127.0.0.1 started
+[22Nov2026 10:38:36.060] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Rcon: FD917_MECHANISM action=inspect family=s2 id=8a806bbd-00e5-4318-bb4d-cd78360798ff center=( 3.505E+2  1.091E+2  1.205E+2) stopping=true restraints=true fault= bound=BlockPos{x=350, y=108, z=112}/BlockPos{x=350, y=108, z=176} carriers=[body=165fb464-2c9d-4184-bc01-57f4f8dd63d8,angle=-2.886270056038244E-4,latched=true,lift=false,riders=1]]
+[22Nov2026 10:38:36.060] [RCON Client /127.0.0.1 #68/INFO] [net.minecraft.server.rcon.thread.RconClient/]: Thread RCON Client /127.0.0.1 shutting down
+[22Nov2026 10:38:43.038] [Server thread/INFO] [dev.fourthdimension.editor.EditorNetwork/]: FD_EDITOR_RESULT player=Dev target=8a806bbd-00e5-4318-bb4d-cd78360798ff action=13 success=true message=4D settings updated
+[22Nov2026 10:38:43.583] [RCON Listener #1/INFO] [net.minecraft.server.rcon.thread.GenericThread/]: Thread RCON Client /127.0.0.1 started
+[22Nov2026 10:38:43.584] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Rcon: FD917_MECHANISM action=inspect family=s2 id=8a806bbd-00e5-4318-bb4d-cd78360798ff center=( 3.505E+2  1.091E+2  1.208E+2) stopping=false restraints=true fault= bound=BlockPos{x=350, y=108, z=112}/BlockPos{x=350, y=108, z=176} carriers=[body=165fb464-2c9d-4184-bc01-57f4f8dd63d8,angle=-0.01525933050397554,latched=false,lift=false,riders=1]]
+[22Nov2026 10:38:43.584] [RCON Client /127.0.0.1 #69/INFO] [net.minecraft.server.rcon.thread.RconClient/]: Thread RCON Client /127.0.0.1 shutting down
+[22Nov2026 10:38:49.432] [RCON Listener #1/INFO] [net.minecraft.server.rcon.thread.GenericThread/]: Thread RCON Client /127.0.0.1 started
+[22Nov2026 10:38:49.433] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Rcon: FD917_MECHANISM action=inspect family=s2 id=8a806bbd-00e5-4318-bb4d-cd78360798ff center=( 3.505E+2  1.091E+2  1.713E+2) stopping=false restraints=true fault= bound=BlockPos{x=350, y=108, z=112}/BlockPos{x=350, y=108, z=176} carriers=[body=165fb464-2c9d-4184-bc01-57f4f8dd63d8,angle=0.15287384912760346,latched=false,lift=false,riders=1]]
+[22Nov2026 10:38:49.433] [RCON Client /127.0.0.1 #70/INFO] [net.minecraft.server.rcon.thread.RconClient/]: Thread RCON Client /127.0.0.1 shutting down
+[22Nov2026 10:38:58.009] [RCON Listener #1/INFO] [net.minecraft.server.rcon.thread.GenericThread/]: Thread RCON Client /127.0.0.1 started
+[22Nov2026 10:38:58.010] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Rcon: FD917_MECHANISM action=inspect family=s2 id=8a806bbd-00e5-4318-bb4d-cd78360798ff center=( 3.508E+2  1.052E+2  2.644E+2) stopping=false restraints=true fault= bound=BlockPos{x=350, y=105, z=248}/BlockPos{x=350, y=104, z=272} carriers=[body=165fb464-2c9d-4184-bc01-57f4f8dd63d8,angle=-2.2322310050463807,latched=false,lift=false,riders=1]]
+[22Nov2026 10:38:58.010] [RCON Client /127.0.0.1 #71/INFO] [net.minecraft.server.rcon.thread.RconClient/]: Thread RCON Client /127.0.0.1 shutting down
+[22Nov2026 10:39:17.915] [RCON Listener #1/INFO] [net.minecraft.server.rcon.thread.GenericThread/]: Thread RCON Client /127.0.0.1 started
+[22Nov2026 10:39:17.916] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Rcon: FD917_MECHANISM action=inspect family=s2 id=8a806bbd-00e5-4318-bb4d-cd78360798ff center=( 4.391E+2  1.051E+2  3.249E+2) stopping=false restraints=true fault= bound=BlockPos{x=414, y=104, z=336}/BlockPos{x=446, y=104, z=304} carriers=[body=165fb464-2c9d-4184-bc01-57f4f8dd63d8,angle=-6.481752622458817,latched=false,lift=false,riders=1]]
+[22Nov2026 10:39:17.916] [RCON Client /127.0.0.1 #72/INFO] [net.minecraft.server.rcon.thread.RconClient/]: Thread RCON Client /127.0.0.1 shutting down
+[22Nov2026 10:39:34.729] [RCON Listener #1/INFO] [net.minecraft.server.rcon.thread.GenericThread/]: Thread RCON Client /127.0.0.1 started
+[22Nov2026 10:39:34.731] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Rcon: FD917_MECHANISM action=inspect family=s2 id=8a806bbd-00e5-4318-bb4d-cd78360798ff center=( 4.465E+2  1.074E+2  1.963E+2) stopping=false restraints=true fault= bound=BlockPos{x=446, y=106, z=208}/BlockPos{x=446, y=108, z=160} carriers=[body=165fb464-2c9d-4184-bc01-57f4f8dd63d8,angle=-7.559804182168291,latched=false,lift=false,riders=1]]
+[22Nov2026 10:39:34.732] [RCON Client /127.0.0.1 #73/INFO] [net.minecraft.server.rcon.thread.RconClient/]: Thread RCON Client /127.0.0.1 shutting down
+[22Nov2026 10:39:44.255] [RCON Listener #1/INFO] [net.minecraft.server.rcon.thread.GenericThread/]: Thread RCON Client /127.0.0.1 started
+[22Nov2026 10:39:44.256] [RCON Client /127.0.0.1 #74/INFO] [net.minecraft.server.rcon.thread.RconClient/]: Thread RCON Client /127.0.0.1 shutting down
+[22Nov2026 10:39:44.348] [Server thread/INFO] [dev.fourthdimension.editor.EditorNetwork/]: FD_EDITOR_OPEN player=Dev target=8a806bbd-00e5-4318-bb4d-cd78360798ff vehicle=true
+[22Nov2026 10:39:51.639] [RCON Listener #1/INFO] [net.minecraft.server.rcon.thread.GenericThread/]: Thread RCON Client /127.0.0.1 started
+[22Nov2026 10:39:51.640] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Rcon: FD917_MECHANISM action=inspect family=s2 id=8a806bbd-00e5-4318-bb4d-cd78360798ff center=( 4.190E+2  1.091E+2  8.081E+1) stopping=false restraints=true fault= bound=BlockPos{x=446, y=108, z=112}/BlockPos{x=414, y=108, z=80} carriers=[body=165fb464-2c9d-4184-bc01-57f4f8dd63d8,angle=-5.874423438004869,latched=false,lift=false,riders=1]]
+[22Nov2026 10:39:51.640] [RCON Client /127.0.0.1 #75/INFO] [net.minecraft.server.rcon.thread.RconClient/]: Thread RCON Client /127.0.0.1 shutting down
+[22Nov2026 10:40:09.173] [RCON Listener #1/INFO] [net.minecraft.server.rcon.thread.GenericThread/]: Thread RCON Client /127.0.0.1 started
+[22Nov2026 10:40:09.174] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Rcon: FD917_MECHANISM action=inspect family=s2 id=8a806bbd-00e5-4318-bb4d-cd78360798ff center=( 3.505E+2  1.091E+2  1.782E+2) stopping=false restraints=true fault= bound=BlockPos{x=350, y=108, z=176}/BlockPos{x=350, y=107, z=200} carriers=[body=165fb464-2c9d-4184-bc01-57f4f8dd63d8,angle=-5.719128515234159,latched=false,lift=false,riders=1]]
+[22Nov2026 10:40:09.174] [RCON Client /127.0.0.1 #76/INFO] [net.minecraft.server.rcon.thread.RconClient/]: Thread RCON Client /127.0.0.1 shutting down
+[22Nov2026 10:40:24.127] [RCON Listener #1/INFO] [net.minecraft.server.rcon.thread.GenericThread/]: Thread RCON Client /127.0.0.1 started
+[22Nov2026 10:40:24.131] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Rcon: FD917_MECHANISM action=inspect family=s2 id=8a806bbd-00e5-4318-bb4d-cd78360798ff center=( 3.537E+2  1.051E+2  3.185E+2) stopping=false restraints=true fault= bound=BlockPos{x=350, y=104, z=304}/BlockPos{x=382, y=104, z=336} carriers=[body=165fb464-2c9d-4184-bc01-57f4f8dd63d8,angle=-11.738574065852774,latched=false,lift=false,riders=1]]
+[22Nov2026 10:40:24.131] [RCON Client /127.0.0.1 #77/INFO] [net.minecraft.server.rcon.thread.RconClient/]: Thread RCON Client /127.0.0.1 shutting down
+[22Nov2026 10:40:25.132] [RCON Listener #1/INFO] [net.minecraft.server.rcon.thread.GenericThread/]: Thread RCON Client /127.0.0.1 started
+[22Nov2026 10:40:25.133] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Rcon: FD917_MECHANISM action=inspect family=s2 id=8a806bbd-00e5-4318-bb4d-cd78360798ff center=( 3.579E+2  1.051E+2  3.249E+2) stopping=false restraints=true fault= bound=BlockPos{x=350, y=104, z=304}/BlockPos{x=382, y=104, z=336} carriers=[body=165fb464-2c9d-4184-bc01-57f4f8dd63d8,angle=-12.155888346249776,latched=false,lift=false,riders=1]]
+[22Nov2026 10:40:25.133] [RCON Client /127.0.0.1 #78/INFO] [net.minecraft.server.rcon.thread.RconClient/]: Thread RCON Client /127.0.0.1 shutting down
+[22Nov2026 10:40:26.134] [RCON Listener #1/INFO] [net.minecraft.server.rcon.thread.GenericThread/]: Thread RCON Client /127.0.0.1 started
+[22Nov2026 10:40:26.136] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Rcon: FD917_MECHANISM action=inspect family=s2 id=8a806bbd-00e5-4318-bb4d-cd78360798ff center=( 3.636E+2  1.051E+2  3.303E+2) stopping=false restraints=true fault= bound=BlockPos{x=350, y=104, z=304}/BlockPos{x=382, y=104, z=336} carriers=[body=165fb464-2c9d-4184-bc01-57f4f8dd63d8,angle=-12.548154430880425,latched=false,lift=false,riders=1]]
+[22Nov2026 10:40:26.136] [RCON Client /127.0.0.1 #79/INFO] [net.minecraft.server.rcon.thread.RconClient/]: Thread RCON Client /127.0.0.1 shutting down
+[22Nov2026 10:40:27.137] [RCON Listener #1/INFO] [net.minecraft.server.rcon.thread.GenericThread/]: Thread RCON Client /127.0.0.1 started
+[22Nov2026 10:40:27.138] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Rcon: FD917_MECHANISM action=inspect family=s2 id=8a806bbd-00e5-4318-bb4d-cd78360798ff center=( 3.703E+2  1.051E+2  3.341E+2) stopping=false restraints=true fault= bound=BlockPos{x=350, y=104, z=304}/BlockPos{x=382, y=104, z=336} carriers=[body=165fb464-2c9d-4184-bc01-57f4f8dd63d8,angle=-12.811291885853423,latched=false,lift=false,riders=1]]
+[22Nov2026 10:40:27.139] [RCON Client /127.0.0.1 #80/INFO] [net.minecraft.server.rcon.thread.RconClient/]: Thread RCON Client /127.0.0.1 shutting down
+[22Nov2026 10:40:28.139] [RCON Listener #1/INFO] [net.minecraft.server.rcon.thread.GenericThread/]: Thread RCON Client /127.0.0.1 started
+[22Nov2026 10:40:28.140] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Rcon: FD917_MECHANISM action=inspect family=s2 id=8a806bbd-00e5-4318-bb4d-cd78360798ff center=( 3.770E+2  1.051E+2  3.360E+2) stopping=false restraints=true fault= bound=BlockPos{x=350, y=104, z=304}/BlockPos{x=382, y=104, z=336} carriers=[body=165fb464-2c9d-4184-bc01-57f4f8dd63d8,angle=-12.913151525413152,latched=false,lift=false,riders=1]]
+[22Nov2026 10:40:28.141] [RCON Client /127.0.0.1 #81/INFO] [net.minecraft.server.rcon.thread.RconClient/]: Thread RCON Client /127.0.0.1 shutting down
+[22Nov2026 10:40:29.141] [RCON Listener #1/INFO] [net.minecraft.server.rcon.thread.GenericThread/]: Thread RCON Client /127.0.0.1 started
+[22Nov2026 10:40:29.142] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Rcon: FD917_MECHANISM action=inspect family=s2 id=8a806bbd-00e5-4318-bb4d-cd78360798ff center=( 3.832E+2  1.051E+2  3.365E+2) stopping=false restraints=true fault= bound=BlockPos{x=382, y=104, z=336}/BlockPos{x=414, y=104, z=336} carriers=[body=165fb464-2c9d-4184-bc01-57f4f8dd63d8,angle=-12.864867317328498,latched=false,lift=false,riders=1]]
+[22Nov2026 10:40:29.143] [RCON Client /127.0.0.1 #82/INFO] [net.minecraft.server.rcon.thread.RconClient/]: Thread RCON Client /127.0.0.1 shutting down
+[22Nov2026 10:40:30.144] [RCON Listener #1/INFO] [net.minecraft.server.rcon.thread.GenericThread/]: Thread RCON Client /127.0.0.1 started
+[22Nov2026 10:40:30.146] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Rcon: FD917_MECHANISM action=inspect family=s2 id=8a806bbd-00e5-4318-bb4d-cd78360798ff center=( 3.910E+2  1.051E+2  3.365E+2) stopping=false restraints=true fault= bound=BlockPos{x=382, y=104, z=336}/BlockPos{x=414, y=104, z=336} carriers=[body=165fb464-2c9d-4184-bc01-57f4f8dd63d8,angle=-12.707479307600817,latched=false,lift=false,riders=1]]
+[22Nov2026 10:40:30.147] [RCON Client /127.0.0.1 #83/INFO] [net.minecraft.server.rcon.thread.RconClient/]: Thread RCON Client /127.0.0.1 shutting down
+[22Nov2026 10:40:31.148] [RCON Listener #1/INFO] [net.minecraft.server.rcon.thread.GenericThread/]: Thread RCON Client /127.0.0.1 started
+[22Nov2026 10:40:31.148] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Rcon: FD917_MECHANISM action=inspect family=s2 id=8a806bbd-00e5-4318-bb4d-cd78360798ff center=( 3.990E+2  1.051E+2  3.365E+2) stopping=false restraints=true fault= bound=BlockPos{x=382, y=104, z=336}/BlockPos{x=414, y=104, z=336} carriers=[body=165fb464-2c9d-4184-bc01-57f4f8dd63d8,angle=-12.610782710305534,latched=false,lift=false,riders=1]]
+[22Nov2026 10:40:31.149] [RCON Client /127.0.0.1 #84/INFO] [net.minecraft.server.rcon.thread.RconClient/]: Thread RCON Client /127.0.0.1 shutting down
+[22Nov2026 10:40:32.149] [RCON Listener #1/INFO] [net.minecraft.server.rcon.thread.GenericThread/]: Thread RCON Client /127.0.0.1 started
+[22Nov2026 10:40:32.150] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Rcon: FD917_MECHANISM action=inspect family=s2 id=8a806bbd-00e5-4318-bb4d-cd78360798ff center=( 4.069E+2  1.051E+2  3.365E+2) stopping=false restraints=true fault= bound=BlockPos{x=382, y=104, z=336}/BlockPos{x=414, y=104, z=336} carriers=[body=165fb464-2c9d-4184-bc01-57f4f8dd63d8,angle=-12.56638789456665,latched=false,lift=false,riders=1]]
+[22Nov2026 10:40:32.151] [RCON Client /127.0.0.1 #85/INFO] [net.minecraft.server.rcon.thread.RconClient/]: Thread RCON Client /127.0.0.1 shutting down
+[22Nov2026 10:40:33.151] [RCON Listener #1/INFO] [net.minecraft.server.rcon.thread.GenericThread/]: Thread RCON Client /127.0.0.1 started
+[22Nov2026 10:40:33.152] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Rcon: FD917_MECHANISM action=inspect family=s2 id=8a806bbd-00e5-4318-bb4d-cd78360798ff center=( 4.148E+2  1.051E+2  3.365E+2) stopping=false restraints=true fault= bound=BlockPos{x=382, y=104, z=336}/BlockPos{x=414, y=104, z=336} carriers=[body=165fb464-2c9d-4184-bc01-57f4f8dd63d8,angle=-12.568519598168528,latched=false,lift=false,riders=1]]
+[22Nov2026 10:40:33.153] [RCON Client /127.0.0.1 #86/INFO] [net.minecraft.server.rcon.thread.RconClient/]: Thread RCON Client /127.0.0.1 shutting down
+[22Nov2026 10:40:34.154] [RCON Listener #1/INFO] [net.minecraft.server.rcon.thread.GenericThread/]: Thread RCON Client /127.0.0.1 started
+[22Nov2026 10:40:34.155] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Rcon: FD917_MECHANISM action=inspect family=s2 id=8a806bbd-00e5-4318-bb4d-cd78360798ff center=( 4.213E+2  1.051E+2  3.358E+2) stopping=false restraints=true fault= bound=BlockPos{x=414, y=104, z=336}/BlockPos{x=446, y=104, z=304} carriers=[body=165fb464-2c9d-4184-bc01-57f4f8dd63d8,angle=-12.674257830069928,latched=false,lift=false,riders=1]]
+[22Nov2026 10:40:34.155] [RCON Client /127.0.0.1 #87/INFO] [net.minecraft.server.rcon.thread.RconClient/]: Thread RCON Client /127.0.0.1 shutting down
+[22Nov2026 10:40:35.156] [RCON Listener #1/INFO] [net.minecraft.server.rcon.thread.GenericThread/]: Thread RCON Client /127.0.0.1 started
+[22Nov2026 10:40:35.157] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Rcon: FD917_MECHANISM action=inspect family=s2 id=8a806bbd-00e5-4318-bb4d-cd78360798ff center=( 4.279E+2  1.051E+2  3.336E+2) stopping=false restraints=true fault= bound=BlockPos{x=414, y=104, z=336}/BlockPos{x=446, y=104, z=304} carriers=[body=165fb464-2c9d-4184-bc01-57f4f8dd63d8,angle=-12.753688368720455,latched=false,lift=false,riders=1]]
+[22Nov2026 10:40:35.157] [RCON Client /127.0.0.1 #88/INFO] [net.minecraft.server.rcon.thread.RconClient/]: Thread RCON Client /127.0.0.1 shutting down
+[22Nov2026 10:40:36.158] [RCON Listener #1/INFO] [net.minecraft.server.rcon.thread.GenericThread/]: Thread RCON Client /127.0.0.1 started
+[22Nov2026 10:40:36.158] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Rcon: FD917_MECHANISM action=inspect family=s2 id=8a806bbd-00e5-4318-bb4d-cd78360798ff center=( 4.344E+2  1.051E+2  3.296E+2) stopping=false restraints=true fault= bound=BlockPos{x=414, y=104, z=336}/BlockPos{x=446, y=104, z=304} carriers=[body=165fb464-2c9d-4184-bc01-57f4f8dd63d8,angle=-12.79309141814012,latched=false,lift=false,riders=1]]
+[22Nov2026 10:40:36.159] [RCON Client /127.0.0.1 #89/INFO] [net.minecraft.server.rcon.thread.RconClient/]: Thread RCON Client /127.0.0.1 shutting down
+[22Nov2026 10:40:37.159] [RCON Listener #1/INFO] [net.minecraft.server.rcon.thread.GenericThread/]: Thread RCON Client /127.0.0.1 started
+[22Nov2026 10:40:37.160] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Rcon: FD917_MECHANISM action=inspect family=s2 id=8a806bbd-00e5-4318-bb4d-cd78360798ff center=( 4.399E+2  1.051E+2  3.240E+2) stopping=false restraints=true fault= bound=BlockPos{x=414, y=104, z=336}/BlockPos{x=446, y=104, z=304} carriers=[body=165fb464-2c9d-4184-bc01-57f4f8dd63d8,angle=-12.751660460563215,latched=false,lift=false,riders=1]]
+[22Nov2026 10:40:37.160] [RCON Client /127.0.0.1 #90/INFO] [net.minecraft.server.rcon.thread.RconClient/]: Thread RCON Client /127.0.0.1 shutting down
+[22Nov2026 10:40:38.162] [RCON Listener #1/INFO] [net.minecraft.server.rcon.thread.GenericThread/]: Thread RCON Client /127.0.0.1 started
+[22Nov2026 10:40:38.162] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Rcon: FD917_MECHANISM action=inspect family=s2 id=8a806bbd-00e5-4318-bb4d-cd78360798ff center=( 4.438E+2  1.051E+2  3.173E+2) stopping=false restraints=true fault= bound=BlockPos{x=414, y=104, z=336}/BlockPos{x=446, y=104, z=304} carriers=[body=165fb464-2c9d-4184-bc01-57f4f8dd63d8,angle=-12.614951039687112,latched=false,lift=false,riders=1]]
+[22Nov2026 10:40:38.163] [RCON Client /127.0.0.1 #91/INFO] [net.minecraft.server.rcon.thread.RconClient/]: Thread RCON Client /127.0.0.1 shutting down
+[22Nov2026 10:40:39.163] [RCON Listener #1/INFO] [net.minecraft.server.rcon.thread.GenericThread/]: Thread RCON Client /127.0.0.1 started
+[22Nov2026 10:40:39.164] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Rcon: FD917_MECHANISM action=inspect family=s2 id=8a806bbd-00e5-4318-bb4d-cd78360798ff center=( 4.459E+2  1.051E+2  3.106E+2) stopping=false restraints=true fault= bound=BlockPos{x=414, y=104, z=336}/BlockPos{x=446, y=104, z=304} carriers=[body=165fb464-2c9d-4184-bc01-57f4f8dd63d8,angle=-12.388770654163594,latched=false,lift=false,riders=1]]
+[22Nov2026 10:40:39.165] [RCON Client /127.0.0.1 #92/INFO] [net.minecraft.server.rcon.thread.RconClient/]: Thread RCON Client /127.0.0.1 shutting down
+[22Nov2026 10:40:40.166] [RCON Listener #1/INFO] [net.minecraft.server.rcon.thread.GenericThread/]: Thread RCON Client /127.0.0.1 started
+[22Nov2026 10:40:40.167] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Rcon: FD917_MECHANISM action=inspect family=s2 id=8a806bbd-00e5-4318-bb4d-cd78360798ff center=( 4.465E+2  1.051E+2  3.044E+2) stopping=false restraints=true fault= bound=BlockPos{x=414, y=104, z=336}/BlockPos{x=446, y=104, z=304} carriers=[body=165fb464-2c9d-4184-bc01-57f4f8dd63d8,angle=-12.091589316455387,latched=false,lift=false,riders=1]]
+[22Nov2026 10:40:40.167] [RCON Client /127.0.0.1 #93/INFO] [net.minecraft.server.rcon.thread.RconClient/]: Thread RCON Client /127.0.0.1 shutting down
+[22Nov2026 10:40:41.168] [RCON Listener #1/INFO] [net.minecraft.server.rcon.thread.GenericThread/]: Thread RCON Client /127.0.0.1 started
+[22Nov2026 10:40:41.169] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Rcon: FD917_MECHANISM action=inspect family=s2 id=8a806bbd-00e5-4318-bb4d-cd78360798ff center=( 4.465E+2  1.051E+2  2.967E+2) stopping=false restraints=true fault= bound=BlockPos{x=446, y=104, z=304}/BlockPos{x=446, y=104, z=256} carriers=[body=165fb464-2c9d-4184-bc01-57f4f8dd63d8,angle=-11.822529232209593,latched=false,lift=false,riders=1]]
+[22Nov2026 10:40:41.169] [RCON Client /127.0.0.1 #94/INFO] [net.minecraft.server.rcon.thread.RconClient/]: Thread RCON Client /127.0.0.1 shutting down
+[22Nov2026 10:40:42.170] [RCON Listener #1/INFO] [net.minecraft.server.rcon.thread.GenericThread/]: Thread RCON Client /127.0.0.1 started
+[22Nov2026 10:40:42.171] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Rcon: FD917_MECHANISM action=inspect family=s2 id=8a806bbd-00e5-4318-bb4d-cd78360798ff center=( 4.465E+2  1.051E+2  2.888E+2) stopping=false restraints=true fault= bound=BlockPos{x=446, y=104, z=304}/BlockPos{x=446, y=104, z=256} carriers=[body=165fb464-2c9d-4184-bc01-57f4f8dd63d8,angle=-11.677054642450994,latched=false,lift=false,riders=1]]
+[22Nov2026 10:40:42.171] [RCON Client /127.0.0.1 #95/INFO] [net.minecraft.server.rcon.thread.RconClient/]: Thread RCON Client /127.0.0.1 shutting down
+[22Nov2026 10:40:43.172] [RCON Listener #1/INFO] [net.minecraft.server.rcon.thread.GenericThread/]: Thread RCON Client /127.0.0.1 started
+[22Nov2026 10:40:43.173] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Rcon: FD917_MECHANISM action=inspect family=s2 id=8a806bbd-00e5-4318-bb4d-cd78360798ff center=( 4.465E+2  1.051E+2  2.808E+2) stopping=false restraints=true fault= bound=BlockPos{x=446, y=104, z=304}/BlockPos{x=446, y=104, z=256} carriers=[body=165fb464-2c9d-4184-bc01-57f4f8dd63d8,angle=-11.617356930349139,latched=false,lift=false,riders=1]]
+[22Nov2026 10:40:43.173] [RCON Client /127.0.0.1 #96/INFO] [net.minecraft.server.rcon.thread.RconClient/]: Thread RCON Client /127.0.0.1 shutting down
+[22Nov2026 10:40:44.174] [RCON Listener #1/INFO] [net.minecraft.server.rcon.thread.GenericThread/]: Thread RCON Client /127.0.0.1 started
+[22Nov2026 10:40:44.174] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Rcon: FD917_MECHANISM action=inspect family=s2 id=8a806bbd-00e5-4318-bb4d-cd78360798ff center=( 4.465E+2  1.051E+2  2.729E+2) stopping=false restraints=true fault= bound=BlockPos{x=446, y=104, z=304}/BlockPos{x=446, y=104, z=256} carriers=[body=165fb464-2c9d-4184-bc01-57f4f8dd63d8,angle=-11.631333822770157,latched=false,lift=false,riders=1]]
+[22Nov2026 10:40:44.175] [RCON Client /127.0.0.1 #97/INFO] [net.minecraft.server.rcon.thread.RconClient/]: Thread RCON Client /127.0.0.1 shutting down
+[22Nov2026 10:40:45.175] [RCON Listener #1/INFO] [net.minecraft.server.rcon.thread.GenericThread/]: Thread RCON Client /127.0.0.1 started
+[22Nov2026 10:40:45.176] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Rcon: FD917_MECHANISM action=inspect family=s2 id=8a806bbd-00e5-4318-bb4d-cd78360798ff center=( 4.465E+2  1.051E+2  2.650E+2) stopping=false restraints=true fault= bound=BlockPos{x=446, y=104, z=304}/BlockPos{x=446, y=104, z=256} carriers=[body=165fb464-2c9d-4184-bc01-57f4f8dd63d8,angle=-11.708220504277714,latched=false,lift=false,riders=1]]
+[22Nov2026 10:40:45.176] [RCON Client /127.0.0.1 #98/INFO] [net.minecraft.server.rcon.thread.RconClient/]: Thread RCON Client /127.0.0.1 shutting down
+[22Nov2026 10:40:46.177] [RCON Listener #1/INFO] [net.minecraft.server.rcon.thread.GenericThread/]: Thread RCON Client /127.0.0.1 started
+[22Nov2026 10:40:46.180] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Rcon: FD917_MECHANISM action=inspect family=s2 id=8a806bbd-00e5-4318-bb4d-cd78360798ff center=( 4.465E+2  1.051E+2  2.566E+2) stopping=false restraints=true fault= bound=BlockPos{x=446, y=104, z=304}/BlockPos{x=446, y=104, z=256} carriers=[body=165fb464-2c9d-4184-bc01-57f4f8dd63d8,angle=-11.846812062605458,latched=false,lift=false,riders=1]]
+[22Nov2026 10:40:46.180] [RCON Client /127.0.0.1 #99/INFO] [net.minecraft.server.rcon.thread.RconClient/]: Thread RCON Client /127.0.0.1 shutting down
+[22Nov2026 10:40:47.180] [RCON Listener #1/INFO] [net.minecraft.server.rcon.thread.GenericThread/]: Thread RCON Client /127.0.0.1 started
+[22Nov2026 10:40:47.181] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Rcon: FD917_MECHANISM action=inspect family=s2 id=8a806bbd-00e5-4318-bb4d-cd78360798ff center=( 4.465E+2  1.053E+2  2.487E+2) stopping=false restraints=true fault= bound=BlockPos{x=446, y=104, z=256}/BlockPos{x=446, y=106, z=208} carriers=[body=165fb464-2c9d-4184-bc01-57f4f8dd63d8,angle=-12.025600569132262,latched=false,lift=false,riders=1]]
+[22Nov2026 10:40:47.182] [RCON Client /127.0.0.1 #100/INFO] [net.minecraft.server.rcon.thread.RconClient/]: Thread RCON Client /127.0.0.1 shutting down
+[22Nov2026 10:40:48.182] [RCON Listener #1/INFO] [net.minecraft.server.rcon.thread.GenericThread/]: Thread RCON Client /127.0.0.1 started
+[22Nov2026 10:40:48.183] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Rcon: FD917_MECHANISM action=inspect family=s2 id=8a806bbd-00e5-4318-bb4d-cd78360798ff center=( 4.465E+2  1.056E+2  2.408E+2) stopping=false restraints=true fault= bound=BlockPos{x=446, y=104, z=256}/BlockPos{x=446, y=106, z=208} carriers=[body=165fb464-2c9d-4184-bc01-57f4f8dd63d8,angle=-12.26687017753654,latched=false,lift=false,riders=1]]
+[22Nov2026 10:40:48.183] [RCON Client /127.0.0.1 #101/INFO] [net.minecraft.server.rcon.thread.RconClient/]: Thread RCON Client /127.0.0.1 shutting down
+[22Nov2026 10:40:49.184] [RCON Listener #1/INFO] [net.minecraft.server.rcon.thread.GenericThread/]: Thread RCON Client /127.0.0.1 started
+[22Nov2026 10:40:49.185] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Rcon: FD917_MECHANISM action=inspect family=s2 id=8a806bbd-00e5-4318-bb4d-cd78360798ff center=( 4.465E+2  1.061E+2  2.329E+2) stopping=false restraints=true fault= bound=BlockPos{x=446, y=104, z=256}/BlockPos{x=446, y=106, z=208} carriers=[body=165fb464-2c9d-4184-bc01-57f4f8dd63d8,angle=-12.569729666211414,latched=false,lift=false,riders=1]]
+[22Nov2026 10:40:49.185] [RCON Client /127.0.0.1 #102/INFO] [net.minecraft.server.rcon.thread.RconClient/]: Thread RCON Client /127.0.0.1 shutting down
+[22Nov2026 10:40:50.186] [RCON Listener #1/INFO] [net.minecraft.server.rcon.thread.GenericThread/]: Thread RCON Client /127.0.0.1 started
+[22Nov2026 10:40:50.187] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Rcon: FD917_MECHANISM action=inspect family=s2 id=8a806bbd-00e5-4318-bb4d-cd78360798ff center=( 4.465E+2  1.066E+2  2.251E+2) stopping=false restraints=true fault= bound=BlockPos{x=446, y=104, z=256}/BlockPos{x=446, y=106, z=208} carriers=[body=165fb464-2c9d-4184-bc01-57f4f8dd63d8,angle=-12.905927031671462,latched=false,lift=false,riders=1]]
+[22Nov2026 10:40:50.187] [RCON Client /127.0.0.1 #103/INFO] [net.minecraft.server.rcon.thread.RconClient/]: Thread RCON Client /127.0.0.1 shutting down
+[22Nov2026 10:40:51.188] [RCON Listener #1/INFO] [net.minecraft.server.rcon.thread.GenericThread/]: Thread RCON Client /127.0.0.1 started
+[22Nov2026 10:40:51.188] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Rcon: FD917_MECHANISM action=inspect family=s2 id=8a806bbd-00e5-4318-bb4d-cd78360798ff center=( 4.465E+2  1.070E+2  2.172E+2) stopping=false restraints=true fault= bound=BlockPos{x=446, y=104, z=256}/BlockPos{x=446, y=106, z=208} carriers=[body=165fb464-2c9d-4184-bc01-57f4f8dd63d8,angle=-13.233804690988777,latched=false,lift=false,riders=1]]
+[22Nov2026 10:40:51.189] [RCON Client /127.0.0.1 #104/INFO] [net.minecraft.server.rcon.thread.RconClient/]: Thread RCON Client /127.0.0.1 shutting down
+[22Nov2026 10:40:52.189] [RCON Listener #1/INFO] [net.minecraft.server.rcon.thread.GenericThread/]: Thread RCON Client /127.0.0.1 started
+[22Nov2026 10:40:52.190] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Rcon: FD917_MECHANISM action=inspect family=s2 id=8a806bbd-00e5-4318-bb4d-cd78360798ff center=( 4.465E+2  1.071E+2  2.094E+2) stopping=false restraints=true fault= bound=BlockPos{x=446, y=104, z=256}/BlockPos{x=446, y=106, z=208} carriers=[body=165fb464-2c9d-4184-bc01-57f4f8dd63d8,angle=-13.515444776081514,latched=false,lift=false,riders=1]]
+[22Nov2026 10:40:52.190] [RCON Client /127.0.0.1 #105/INFO] [net.minecraft.server.rcon.thread.RconClient/]: Thread RCON Client /127.0.0.1 shutting down
+[22Nov2026 10:40:53.191] [RCON Listener #1/INFO] [net.minecraft.server.rcon.thread.GenericThread/]: Thread RCON Client /127.0.0.1 started
+[22Nov2026 10:40:53.191] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Rcon: FD917_MECHANISM action=inspect family=s2 id=8a806bbd-00e5-4318-bb4d-cd78360798ff center=( 4.465E+2  1.072E+2  2.014E+2) stopping=false restraints=true fault= bound=BlockPos{x=446, y=106, z=208}/BlockPos{x=446, y=108, z=160} carriers=[body=165fb464-2c9d-4184-bc01-57f4f8dd63d8,angle=-13.737983195041673,latched=false,lift=false,riders=1]]
+[22Nov2026 10:40:53.192] [RCON Client /127.0.0.1 #106/INFO] [net.minecraft.server.rcon.thread.RconClient/]: Thread RCON Client /127.0.0.1 shutting down
+[22Nov2026 10:40:54.193] [RCON Listener #1/INFO] [net.minecraft.server.rcon.thread.GenericThread/]: Thread RCON Client /127.0.0.1 started
+[22Nov2026 10:40:54.193] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Rcon: FD917_MECHANISM action=inspect family=s2 id=8a806bbd-00e5-4318-bb4d-cd78360798ff center=( 4.465E+2  1.076E+2  1.935E+2) stopping=false restraints=true fault= bound=BlockPos{x=446, y=106, z=208}/BlockPos{x=446, y=108, z=160} carriers=[body=165fb464-2c9d-4184-bc01-57f4f8dd63d8,angle=-13.88519797538191,latched=false,lift=false,riders=1]]
+[22Nov2026 10:40:54.194] [RCON Client /127.0.0.1 #107/INFO] [net.minecraft.server.rcon.thread.RconClient/]: Thread RCON Client /127.0.0.1 shutting down
+[22Nov2026 10:40:55.194] [RCON Listener #1/INFO] [net.minecraft.server.rcon.thread.GenericThread/]: Thread RCON Client /127.0.0.1 started
+[22Nov2026 10:40:55.195] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Rcon: FD917_MECHANISM action=inspect family=s2 id=8a806bbd-00e5-4318-bb4d-cd78360798ff center=( 4.465E+2  1.081E+2  1.857E+2) stopping=false restraints=true fault= bound=BlockPos{x=446, y=106, z=208}/BlockPos{x=446, y=108, z=160} carriers=[body=165fb464-2c9d-4184-bc01-57f4f8dd63d8,angle=-13.94225907731584,latched=false,lift=false,riders=1]]
+[22Nov2026 10:40:55.195] [RCON Client /127.0.0.1 #108/INFO] [net.minecraft.server.rcon.thread.RconClient/]: Thread RCON Client /127.0.0.1 shutting down
+[22Nov2026 10:40:56.196] [RCON Listener #1/INFO] [net.minecraft.server.rcon.thread.GenericThread/]: Thread RCON Client /127.0.0.1 started
+[22Nov2026 10:40:56.196] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Rcon: FD917_MECHANISM action=inspect family=s2 id=8a806bbd-00e5-4318-bb4d-cd78360798ff center=( 4.465E+2  1.085E+2  1.778E+2) stopping=false restraints=true fault= bound=BlockPos{x=446, y=106, z=208}/BlockPos{x=446, y=108, z=160} carriers=[body=165fb464-2c9d-4184-bc01-57f4f8dd63d8,angle=-13.91106262957492,latched=false,lift=false,riders=1]]
+[22Nov2026 10:40:56.196] [RCON Client /127.0.0.1 #109/INFO] [net.minecraft.server.rcon.thread.RconClient/]: Thread RCON Client /127.0.0.1 shutting down
+[22Nov2026 10:40:57.197] [RCON Listener #1/INFO] [net.minecraft.server.rcon.thread.GenericThread/]: Thread RCON Client /127.0.0.1 started
+[22Nov2026 10:40:57.198] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Rcon: FD917_MECHANISM action=inspect family=s2 id=8a806bbd-00e5-4318-bb4d-cd78360798ff center=( 4.465E+2  1.089E+2  1.700E+2) stopping=false restraints=true fault= bound=BlockPos{x=446, y=106, z=208}/BlockPos{x=446, y=108, z=160} carriers=[body=165fb464-2c9d-4184-bc01-57f4f8dd63d8,angle=-13.808003487664708,latched=false,lift=false,riders=1]]
+[22Nov2026 10:40:57.198] [RCON Client /127.0.0.1 #110/INFO] [net.minecraft.server.rcon.thread.RconClient/]: Thread RCON Client /127.0.0.1 shutting down
+[22Nov2026 10:40:57.288] [Server thread/INFO] [dev.ryanhcode.sable.Sable/]: Saving sub-levels for level 'ServerLevel[SpinningMount]'/minecraft:overworld
+[22Nov2026 10:40:57.301] [Server thread/INFO] [dev.ryanhcode.sable.Sable/]: Saving sub-levels for level 'ServerLevel[SpinningMount]'/minecraft:the_nether
+[22Nov2026 10:40:57.301] [Server thread/INFO] [dev.ryanhcode.sable.Sable/]: Saving sub-levels for level 'ServerLevel[SpinningMount]'/minecraft:the_end
+[22Nov2026 10:40:58.199] [RCON Listener #1/INFO] [net.minecraft.server.rcon.thread.GenericThread/]: Thread RCON Client /127.0.0.1 started
+[22Nov2026 10:40:58.199] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Rcon: FD917_MECHANISM action=inspect family=s2 id=8a806bbd-00e5-4318-bb4d-cd78360798ff center=( 4.465E+2  1.091E+2  1.621E+2) stopping=false restraints=true fault= bound=BlockPos{x=446, y=106, z=208}/BlockPos{x=446, y=108, z=160} carriers=[body=165fb464-2c9d-4184-bc01-57f4f8dd63d8,angle=-13.661692947602598,latched=false,lift=false,riders=1]]
+[22Nov2026 10:40:58.200] [RCON Client /127.0.0.1 #111/INFO] [net.minecraft.server.rcon.thread.RconClient/]: Thread RCON Client /127.0.0.1 shutting down
+[22Nov2026 10:40:59.200] [RCON Listener #1/INFO] [net.minecraft.server.rcon.thread.GenericThread/]: Thread RCON Client /127.0.0.1 started
+[22Nov2026 10:40:59.201] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Rcon: FD917_MECHANISM action=inspect family=s2 id=8a806bbd-00e5-4318-bb4d-cd78360798ff center=( 4.465E+2  1.091E+2  1.542E+2) stopping=false restraints=true fault= bound=BlockPos{x=446, y=108, z=160}/BlockPos{x=446, y=108, z=112} carriers=[body=165fb464-2c9d-4184-bc01-57f4f8dd63d8,angle=-13.504055669155752,latched=false,lift=false,riders=1]]
+[22Nov2026 10:40:59.201] [RCON Client /127.0.0.1 #112/INFO] [net.minecraft.server.rcon.thread.RconClient/]: Thread RCON Client /127.0.0.1 shutting down
+[22Nov2026 10:41:00.202] [RCON Listener #1/INFO] [net.minecraft.server.rcon.thread.GenericThread/]: Thread RCON Client /127.0.0.1 started
+[22Nov2026 10:41:00.203] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Rcon: FD917_MECHANISM action=inspect family=s2 id=8a806bbd-00e5-4318-bb4d-cd78360798ff center=( 4.465E+2  1.091E+2  1.463E+2) stopping=false restraints=true fault= bound=BlockPos{x=446, y=108, z=160}/BlockPos{x=446, y=108, z=112} carriers=[body=165fb464-2c9d-4184-bc01-57f4f8dd63d8,angle=-13.352168431805609,latched=false,lift=false,riders=1]]
+[22Nov2026 10:41:00.204] [RCON Client /127.0.0.1 #113/INFO] [net.minecraft.server.rcon.thread.RconClient/]: Thread RCON Client /127.0.0.1 shutting down
+[22Nov2026 10:41:01.204] [RCON Listener #1/INFO] [net.minecraft.server.rcon.thread.GenericThread/]: Thread RCON Client /127.0.0.1 started
+[22Nov2026 10:41:01.205] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Rcon: FD917_MECHANISM action=inspect family=s2 id=8a806bbd-00e5-4318-bb4d-cd78360798ff center=( 4.465E+2  1.091E+2  1.383E+2) stopping=false restraints=true fault= bound=BlockPos{x=446, y=108, z=160}/BlockPos{x=446, y=108, z=112} carriers=[body=165fb464-2c9d-4184-bc01-57f4f8dd63d8,angle=-13.214841383782156,latched=false,lift=false,riders=1]]
+[22Nov2026 10:41:01.205] [RCON Client /127.0.0.1 #114/INFO] [net.minecraft.server.rcon.thread.RconClient/]: Thread RCON Client /127.0.0.1 shutting down
+[22Nov2026 10:41:02.206] [RCON Listener #1/INFO] [net.minecraft.server.rcon.thread.GenericThread/]: Thread RCON Client /127.0.0.1 started
+[22Nov2026 10:41:02.206] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Rcon: FD917_MECHANISM action=inspect family=s2 id=8a806bbd-00e5-4318-bb4d-cd78360798ff center=( 4.465E+2  1.091E+2  1.304E+2) stopping=false restraints=true fault= bound=BlockPos{x=446, y=108, z=160}/BlockPos{x=446, y=108, z=112} carriers=[body=165fb464-2c9d-4184-bc01-57f4f8dd63d8,angle=-13.0989855996786,latched=false,lift=false,riders=1]]
+[22Nov2026 10:41:02.207] [RCON Client /127.0.0.1 #115/INFO] [net.minecraft.server.rcon.thread.RconClient/]: Thread RCON Client /127.0.0.1 shutting down
+[22Nov2026 10:41:03.207] [RCON Listener #1/INFO] [net.minecraft.server.rcon.thread.GenericThread/]: Thread RCON Client /127.0.0.1 started
+[22Nov2026 10:41:03.208] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Rcon: FD917_MECHANISM action=inspect family=s2 id=8a806bbd-00e5-4318-bb4d-cd78360798ff center=( 4.465E+2  1.091E+2  1.224E+2) stopping=false restraints=true fault= bound=BlockPos{x=446, y=108, z=160}/BlockPos{x=446, y=108, z=112} carriers=[body=165fb464-2c9d-4184-bc01-57f4f8dd63d8,angle=-13.008993614120397,latched=false,lift=false,riders=1]]
+[22Nov2026 10:41:03.208] [RCON Client /127.0.0.1 #116/INFO] [net.minecraft.server.rcon.thread.RconClient/]: Thread RCON Client /127.0.0.1 shutting down
+[22Nov2026 10:41:04.209] [RCON Listener #1/INFO] [net.minecraft.server.rcon.thread.GenericThread/]: Thread RCON Client /127.0.0.1 started
+[22Nov2026 10:41:04.209] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Rcon: FD917_MECHANISM action=inspect family=s2 id=8a806bbd-00e5-4318-bb4d-cd78360798ff center=( 4.465E+2  1.091E+2  1.145E+2) stopping=false restraints=true fault= bound=BlockPos{x=446, y=108, z=160}/BlockPos{x=446, y=108, z=112} carriers=[body=165fb464-2c9d-4184-bc01-57f4f8dd63d8,angle=-12.94692719700406,latched=false,lift=false,riders=1]]
+[22Nov2026 10:41:04.209] [RCON Client /127.0.0.1 #117/INFO] [net.minecraft.server.rcon.thread.RconClient/]: Thread RCON Client /127.0.0.1 shutting down
+[22Nov2026 10:41:05.210] [RCON Listener #1/INFO] [net.minecraft.server.rcon.thread.GenericThread/]: Thread RCON Client /127.0.0.1 started
+[22Nov2026 10:41:05.211] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Rcon: FD917_MECHANISM action=inspect family=s2 id=8a806bbd-00e5-4318-bb4d-cd78360798ff center=( 4.461E+2  1.091E+2  1.076E+2) stopping=false restraints=true fault= bound=BlockPos{x=446, y=108, z=112}/BlockPos{x=414, y=108, z=80} carriers=[body=165fb464-2c9d-4184-bc01-57f4f8dd63d8,angle=-12.9937200112658,latched=false,lift=false,riders=1]]
+[22Nov2026 10:41:05.211] [RCON Client /127.0.0.1 #118/INFO] [net.minecraft.server.rcon.thread.RconClient/]: Thread RCON Client /127.0.0.1 shutting down
+[22Nov2026 10:41:06.211] [RCON Listener #1/INFO] [net.minecraft.server.rcon.thread.GenericThread/]: Thread RCON Client /127.0.0.1 started
+[22Nov2026 10:41:06.212] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Rcon: FD917_MECHANISM action=inspect family=s2 id=8a806bbd-00e5-4318-bb4d-cd78360798ff center=( 4.444E+2  1.091E+2  1.011E+2) stopping=false restraints=true fault= bound=BlockPos{x=446, y=108, z=112}/BlockPos{x=414, y=108, z=80} carriers=[body=165fb464-2c9d-4184-bc01-57f4f8dd63d8,angle=-13.013529609907705,latched=false,lift=false,riders=1]]
+[22Nov2026 10:41:06.213] [RCON Client /127.0.0.1 #119/INFO] [net.minecraft.server.rcon.thread.RconClient/]: Thread RCON Client /127.0.0.1 shutting down
+[22Nov2026 10:41:07.213] [RCON Listener #1/INFO] [net.minecraft.server.rcon.thread.GenericThread/]: Thread RCON Client /127.0.0.1 started
+[22Nov2026 10:41:07.214] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Rcon: FD917_MECHANISM action=inspect family=s2 id=8a806bbd-00e5-4318-bb4d-cd78360798ff center=( 4.410E+2  1.091E+2  9.449E+1) stopping=false restraints=true fault= bound=BlockPos{x=446, y=108, z=112}/BlockPos{x=414, y=108, z=80} carriers=[body=165fb464-2c9d-4184-bc01-57f4f8dd63d8,angle=-12.970735176133598,latched=false,lift=false,riders=1]]
+[22Nov2026 10:41:07.214] [RCON Client /127.0.0.1 #120/INFO] [net.minecraft.server.rcon.thread.RconClient/]: Thread RCON Client /127.0.0.1 shutting down
+[22Nov2026 10:41:08.215] [RCON Listener #1/INFO] [net.minecraft.server.rcon.thread.GenericThread/]: Thread RCON Client /127.0.0.1 started
+[22Nov2026 10:41:08.215] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Rcon: FD917_MECHANISM action=inspect family=s2 id=8a806bbd-00e5-4318-bb4d-cd78360798ff center=( 4.358E+2  1.091E+2  8.859E+1) stopping=false restraints=true fault= bound=BlockPos{x=446, y=108, z=112}/BlockPos{x=414, y=108, z=80} carriers=[body=165fb464-2c9d-4184-bc01-57f4f8dd63d8,angle=-12.842518690458151,latched=false,lift=false,riders=1]]
+[22Nov2026 10:41:08.217] [RCON Client /127.0.0.1 #121/INFO] [net.minecraft.server.rcon.thread.RconClient/]: Thread RCON Client /127.0.0.1 shutting down
+[22Nov2026 10:41:09.218] [RCON Listener #1/INFO] [net.minecraft.server.rcon.thread.GenericThread/]: Thread RCON Client /127.0.0.1 started
+[22Nov2026 10:41:09.219] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Rcon: FD917_MECHANISM action=inspect family=s2 id=8a806bbd-00e5-4318-bb4d-cd78360798ff center=( 4.293E+2  1.091E+2  8.414E+1) stopping=false restraints=true fault= bound=BlockPos{x=446, y=108, z=112}/BlockPos{x=414, y=108, z=80} carriers=[body=165fb464-2c9d-4184-bc01-57f4f8dd63d8,angle=-12.62759517989485,latched=false,lift=false,riders=1]]
+[22Nov2026 10:41:09.219] [RCON Client /127.0.0.1 #122/INFO] [net.minecraft.server.rcon.thread.RconClient/]: Thread RCON Client /127.0.0.1 shutting down
+[22Nov2026 10:41:10.220] [RCON Listener #1/INFO] [net.minecraft.server.rcon.thread.GenericThread/]: Thread RCON Client /127.0.0.1 started
+[22Nov2026 10:41:10.220] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Rcon: FD917_MECHANISM action=inspect family=s2 id=8a806bbd-00e5-4318-bb4d-cd78360798ff center=( 4.225E+2  1.091E+2  8.151E+1) stopping=false restraints=true fault= bound=BlockPos{x=446, y=108, z=112}/BlockPos{x=414, y=108, z=80} carriers=[body=165fb464-2c9d-4184-bc01-57f4f8dd63d8,angle=-12.338900596901208,latched=false,lift=false,riders=1]]
+[22Nov2026 10:41:10.220] [RCON Client /127.0.0.1 #123/INFO] [net.minecraft.server.rcon.thread.RconClient/]: Thread RCON Client /127.0.0.1 shutting down
+[22Nov2026 10:41:11.221] [RCON Listener #1/INFO] [net.minecraft.server.rcon.thread.GenericThread/]: Thread RCON Client /127.0.0.1 started
+[22Nov2026 10:41:11.222] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Rcon: FD917_MECHANISM action=inspect family=s2 id=8a806bbd-00e5-4318-bb4d-cd78360798ff center=( 4.161E+2  1.091E+2  8.054E+1) stopping=false restraints=true fault= bound=BlockPos{x=446, y=108, z=112}/BlockPos{x=414, y=108, z=80} carriers=[body=165fb464-2c9d-4184-bc01-57f4f8dd63d8,angle=-11.99615016431636,latched=false,lift=false,riders=1]]
+[22Nov2026 10:41:11.222] [RCON Client /127.0.0.1 #124/INFO] [net.minecraft.server.rcon.thread.RconClient/]: Thread RCON Client /127.0.0.1 shutting down
+[22Nov2026 10:41:12.223] [RCON Listener #1/INFO] [net.minecraft.server.rcon.thread.GenericThread/]: Thread RCON Client /127.0.0.1 started
+[22Nov2026 10:41:12.223] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Rcon: FD917_MECHANISM action=inspect family=s2 id=8a806bbd-00e5-4318-bb4d-cd78360798ff center=( 4.091E+2  1.091E+2  8.050E+1) stopping=false restraints=true fault= bound=BlockPos{x=414, y=108, z=80}/BlockPos{x=382, y=108, z=80} carriers=[body=165fb464-2c9d-4184-bc01-57f4f8dd63d8,angle=-11.656668268274183,latched=false,lift=false,riders=1]]
+[22Nov2026 10:41:12.224] [RCON Client /127.0.0.1 #125/INFO] [net.minecraft.server.rcon.thread.RconClient/]: Thread RCON Client /127.0.0.1 shutting down
+[22Nov2026 10:41:13.224] [RCON Listener #1/INFO] [net.minecraft.server.rcon.thread.GenericThread/]: Thread RCON Client /127.0.0.1 started
+[22Nov2026 10:41:13.225] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Rcon: FD917_MECHANISM action=inspect family=s2 id=8a806bbd-00e5-4318-bb4d-cd78360798ff center=( 4.011E+2  1.091E+2  8.050E+1) stopping=false restraints=true fault= bound=BlockPos{x=414, y=108, z=80}/BlockPos{x=382, y=108, z=80} carriers=[body=165fb464-2c9d-4184-bc01-57f4f8dd63d8,angle=-11.457826945823404,latched=false,lift=false,riders=1]]
+[22Nov2026 10:41:13.225] [RCON Client /127.0.0.1 #126/INFO] [net.minecraft.server.rcon.thread.RconClient/]: Thread RCON Client /127.0.0.1 shutting down
+[22Nov2026 10:41:14.226] [RCON Listener #1/INFO] [net.minecraft.server.rcon.thread.GenericThread/]: Thread RCON Client /127.0.0.1 started
+[22Nov2026 10:41:14.226] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Rcon: FD917_MECHANISM action=inspect family=s2 id=8a806bbd-00e5-4318-bb4d-cd78360798ff center=( 3.932E+2  1.091E+2  8.050E+1) stopping=false restraints=true fault= bound=BlockPos{x=414, y=108, z=80}/BlockPos{x=382, y=108, z=80} carriers=[body=165fb464-2c9d-4184-bc01-57f4f8dd63d8,angle=-11.350932065704333,latched=false,lift=false,riders=1]]
+[22Nov2026 10:41:14.227] [RCON Client /127.0.0.1 #127/INFO] [net.minecraft.server.rcon.thread.RconClient/]: Thread RCON Client /127.0.0.1 shutting down
+[22Nov2026 10:41:15.227] [RCON Listener #1/INFO] [net.minecraft.server.rcon.thread.GenericThread/]: Thread RCON Client /127.0.0.1 started
+[22Nov2026 10:41:15.230] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Rcon: FD917_MECHANISM action=inspect family=s2 id=8a806bbd-00e5-4318-bb4d-cd78360798ff center=( 3.848E+2  1.091E+2  8.050E+1) stopping=false restraints=true fault= bound=BlockPos{x=414, y=108, z=80}/BlockPos{x=382, y=108, z=80} carriers=[body=165fb464-2c9d-4184-bc01-57f4f8dd63d8,angle=-11.321616193294153,latched=false,lift=false,riders=1]]
+[22Nov2026 10:41:15.231] [RCON Client /127.0.0.1 #128/INFO] [net.minecraft.server.rcon.thread.RconClient/]: Thread RCON Client /127.0.0.1 shutting down
+[22Nov2026 10:41:16.232] [RCON Listener #1/INFO] [net.minecraft.server.rcon.thread.GenericThread/]: Thread RCON Client /127.0.0.1 started
+[22Nov2026 10:41:16.232] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Rcon: FD917_MECHANISM action=inspect family=s2 id=8a806bbd-00e5-4318-bb4d-cd78360798ff center=( 3.780E+2  1.091E+2  8.082E+1) stopping=false restraints=true fault= bound=BlockPos{x=382, y=108, z=80}/BlockPos{x=350, y=108, z=112} carriers=[body=165fb464-2c9d-4184-bc01-57f4f8dd63d8,angle=-11.418040288673723,latched=false,lift=false,riders=1]]
+[22Nov2026 10:41:16.233] [RCON Client /127.0.0.1 #129/INFO] [net.minecraft.server.rcon.thread.RconClient/]: Thread RCON Client /127.0.0.1 shutting down
+[22Nov2026 10:41:17.233] [RCON Listener #1/INFO] [net.minecraft.server.rcon.thread.GenericThread/]: Thread RCON Client /127.0.0.1 started
+[22Nov2026 10:41:17.234] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Rcon: FD917_MECHANISM action=inspect family=s2 id=8a806bbd-00e5-4318-bb4d-cd78360798ff center=( 3.715E+2  1.091E+2  8.244E+1) stopping=false restraints=true fault= bound=BlockPos{x=382, y=108, z=80}/BlockPos{x=350, y=108, z=112} carriers=[body=165fb464-2c9d-4184-bc01-57f4f8dd63d8,angle=-11.630866162366434,latched=false,lift=false,riders=1]]
+[22Nov2026 10:41:17.234] [RCON Client /127.0.0.1 #130/INFO] [net.minecraft.server.rcon.thread.RconClient/]: Thread RCON Client /127.0.0.1 shutting down
+[22Nov2026 10:41:18.235] [RCON Listener #1/INFO] [net.minecraft.server.rcon.thread.GenericThread/]: Thread RCON Client /127.0.0.1 started
+[22Nov2026 10:41:18.235] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Rcon: FD917_MECHANISM action=inspect family=s2 id=8a806bbd-00e5-4318-bb4d-cd78360798ff center=( 3.649E+2  1.091E+2  8.579E+1) stopping=false restraints=true fault= bound=BlockPos{x=382, y=108, z=80}/BlockPos{x=350, y=108, z=112} carriers=[body=165fb464-2c9d-4184-bc01-57f4f8dd63d8,angle=-11.865589802161903,latched=false,lift=false,riders=1]]
+[22Nov2026 10:41:18.235] [RCON Client /127.0.0.1 #131/INFO] [net.minecraft.server.rcon.thread.RconClient/]: Thread RCON Client /127.0.0.1 shutting down
+[22Nov2026 10:41:19.236] [RCON Listener #1/INFO] [net.minecraft.server.rcon.thread.GenericThread/]: Thread RCON Client /127.0.0.1 started
+[22Nov2026 10:41:19.237] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Rcon: FD917_MECHANISM action=inspect family=s2 id=8a806bbd-00e5-4318-bb4d-cd78360798ff center=( 3.589E+2  1.091E+2  9.088E+1) stopping=false restraints=true fault= bound=BlockPos{x=382, y=108, z=80}/BlockPos{x=350, y=108, z=112} carriers=[body=165fb464-2c9d-4184-bc01-57f4f8dd63d8,angle=-12.108982272169586,latched=false,lift=false,riders=1]]
+[22Nov2026 10:41:19.237] [RCON Client /127.0.0.1 #132/INFO] [net.minecraft.server.rcon.thread.RconClient/]: Thread RCON Client /127.0.0.1 shutting down
+[22Nov2026 10:41:20.238] [RCON Listener #1/INFO] [net.minecraft.server.rcon.thread.GenericThread/]: Thread RCON Client /127.0.0.1 started
+[22Nov2026 10:41:20.239] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Rcon: FD917_MECHANISM action=inspect family=s2 id=8a806bbd-00e5-4318-bb4d-cd78360798ff center=( 3.544E+2  1.091E+2  9.725E+1) stopping=false restraints=true fault= bound=BlockPos{x=382, y=108, z=80}/BlockPos{x=350, y=108, z=112} carriers=[body=165fb464-2c9d-4184-bc01-57f4f8dd63d8,angle=-12.349459354458839,latched=false,lift=false,riders=1]]
+[22Nov2026 10:41:20.239] [RCON Client /127.0.0.1 #133/INFO] [net.minecraft.server.rcon.thread.RconClient/]: Thread RCON Client /127.0.0.1 shutting down
+[22Nov2026 10:41:21.239] [RCON Listener #1/INFO] [net.minecraft.server.rcon.thread.GenericThread/]: Thread RCON Client /127.0.0.1 started
+[22Nov2026 10:41:21.240] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Rcon: FD917_MECHANISM action=inspect family=s2 id=8a806bbd-00e5-4318-bb4d-cd78360798ff center=( 3.516E+2  1.091E+2  1.041E+2) stopping=false restraints=true fault= bound=BlockPos{x=382, y=108, z=80}/BlockPos{x=350, y=108, z=112} carriers=[body=165fb464-2c9d-4184-bc01-57f4f8dd63d8,angle=-12.575819257361903,latched=false,lift=false,riders=1]]
+[22Nov2026 10:41:21.240] [RCON Client /127.0.0.1 #134/INFO] [net.minecraft.server.rcon.thread.RconClient/]: Thread RCON Client /127.0.0.1 shutting down
+[22Nov2026 10:41:22.241] [RCON Listener #1/INFO] [net.minecraft.server.rcon.thread.GenericThread/]: Thread RCON Client /127.0.0.1 started
+[22Nov2026 10:41:22.241] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Rcon: FD917_MECHANISM action=inspect family=s2 id=8a806bbd-00e5-4318-bb4d-cd78360798ff center=( 3.506E+2  1.091E+2  1.105E+2) stopping=false restraints=true fault= bound=BlockPos{x=382, y=108, z=80}/BlockPos{x=350, y=108, z=112} carriers=[body=165fb464-2c9d-4184-bc01-57f4f8dd63d8,angle=-12.775599659673224,latched=false,lift=false,riders=1]]
+[22Nov2026 10:41:22.241] [RCON Client /127.0.0.1 #135/INFO] [net.minecraft.server.rcon.thread.RconClient/]: Thread RCON Client /127.0.0.1 shutting down
+[22Nov2026 10:41:23.242] [RCON Listener #1/INFO] [net.minecraft.server.rcon.thread.GenericThread/]: Thread RCON Client /127.0.0.1 started
+[22Nov2026 10:41:23.243] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Rcon: FD917_MECHANISM action=inspect family=s2 id=8a806bbd-00e5-4318-bb4d-cd78360798ff center=( 3.505E+2  1.091E+2  1.187E+2) stopping=false restraints=true fault= bound=BlockPos{x=350, y=108, z=112}/BlockPos{x=350, y=108, z=176} carriers=[body=165fb464-2c9d-4184-bc01-57f4f8dd63d8,angle=-12.889510147908602,latched=false,lift=false,riders=1]]
+[22Nov2026 10:41:23.243] [RCON Client /127.0.0.1 #136/INFO] [net.minecraft.server.rcon.thread.RconClient/]: Thread RCON Client /127.0.0.1 shutting down
+[22Nov2026 10:41:24.244] [RCON Listener #1/INFO] [net.minecraft.server.rcon.thread.GenericThread/]: Thread RCON Client /127.0.0.1 started
+[22Nov2026 10:41:24.244] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Rcon: FD917_MECHANISM action=inspect family=s2 id=8a806bbd-00e5-4318-bb4d-cd78360798ff center=( 3.505E+2  1.091E+2  1.306E+2) stopping=false restraints=true fault= bound=BlockPos{x=350, y=108, z=112}/BlockPos{x=350, y=108, z=176} carriers=[body=165fb464-2c9d-4184-bc01-57f4f8dd63d8,angle=-13.081588622351791,latched=false,lift=false,riders=1]]
+[22Nov2026 10:41:24.244] [RCON Client /127.0.0.1 #137/INFO] [net.minecraft.server.rcon.thread.RconClient/]: Thread RCON Client /127.0.0.1 shutting down
+[22Nov2026 10:41:24.381] [Server thread/INFO] [dev.fourthdimension.editor.EditorNetwork/]: FD_EDITOR_RESULT player=Dev target=8a806bbd-00e5-4318-bb4d-cd78360798ff action=10 success=true message=4D settings updated
+[22Nov2026 10:41:29.157] [RCON Listener #1/INFO] [net.minecraft.server.rcon.thread.GenericThread/]: Thread RCON Client /127.0.0.1 started
+[22Nov2026 10:41:29.158] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Rcon: FD917_MECHANISM action=inspect family=s2 id=8a806bbd-00e5-4318-bb4d-cd78360798ff center=( 3.505E+2  1.091E+2  1.378E+2) stopping=true restraints=true fault= bound=BlockPos{x=350, y=108, z=112}/BlockPos{x=350, y=108, z=176} carriers=[body=165fb464-2c9d-4184-bc01-57f4f8dd63d8,angle=-12.564537137896313,latched=false,lift=false,riders=1]]
+[22Nov2026 10:41:29.158] [RCON Client /127.0.0.1 #138/INFO] [net.minecraft.server.rcon.thread.RconClient/]: Thread RCON Client /127.0.0.1 shutting down
+[22Nov2026 10:41:36.622] [RCON Listener #1/INFO] [net.minecraft.server.rcon.thread.GenericThread/]: Thread RCON Client /127.0.0.1 started
+[22Nov2026 10:41:36.623] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Rcon: FD917_MECHANISM action=inspect family=s2 id=8a806bbd-00e5-4318-bb4d-cd78360798ff center=( 3.505E+2  1.091E+2  1.378E+2) stopping=true restraints=true fault= bound=BlockPos{x=350, y=108, z=112}/BlockPos{x=350, y=108, z=176} carriers=[body=165fb464-2c9d-4184-bc01-57f4f8dd63d8,angle=-12.556724562989523,latched=true,lift=false,riders=1]]
+[22Nov2026 10:41:36.623] [RCON Client /127.0.0.1 #139/INFO] [net.minecraft.server.rcon.thread.RconClient/]: Thread RCON Client /127.0.0.1 shutting down
+[22Nov2026 10:41:45.993] [Server thread/INFO] [dev.fourthdimension.editor.EditorNetwork/]: FD_EDITOR_RESULT player=Dev target=8a806bbd-00e5-4318-bb4d-cd78360798ff action=12 success=true message=4D settings updated
+[22Nov2026 10:41:46.534] [RCON Listener #1/INFO] [net.minecraft.server.rcon.thread.GenericThread/]: Thread RCON Client /127.0.0.1 started
+[22Nov2026 10:41:46.535] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Rcon: FD917_MECHANISM action=inspect family=s2 id=8a806bbd-00e5-4318-bb4d-cd78360798ff center=( 3.505E+2  1.091E+2  1.378E+2) stopping=true restraints=false fault= bound=BlockPos{x=350, y=108, z=112}/BlockPos{x=350, y=108, z=176} carriers=[body=165fb464-2c9d-4184-bc01-57f4f8dd63d8,angle=-12.556729233069436,latched=true,lift=false,riders=1]]
+[22Nov2026 10:41:46.535] [RCON Client /127.0.0.1 #140/INFO] [net.minecraft.server.rcon.thread.RconClient/]: Thread RCON Client /127.0.0.1 shutting down
+[22Nov2026 10:41:54.636] [RCON Listener #1/INFO] [net.minecraft.server.rcon.thread.GenericThread/]: Thread RCON Client /127.0.0.1 started
+[22Nov2026 10:41:54.636] [RCON Client /127.0.0.1 #141/INFO] [net.minecraft.server.rcon.thread.RconClient/]: Thread RCON Client /127.0.0.1 shutting down
+[22Nov2026 10:41:55.394] [RCON Listener #1/INFO] [net.minecraft.server.rcon.thread.GenericThread/]: Thread RCON Client /127.0.0.1 started
+[22Nov2026 10:41:55.394] [RCON Client /127.0.0.1 #142/INFO] [net.minecraft.server.rcon.thread.RconClient/]: Thread RCON Client /127.0.0.1 shutting down
+[22Nov2026 10:41:55.529] [Server thread/INFO] [dev.fourthdimension.vehicle.Boarding/]: FD_BOARDING_EVENT player=Dev action=dismount seat=BlockPos{x=20481032, y=127, z=20487176} restraints=false restoring=false
+[22Nov2026 10:41:55.529] [Server thread/INFO] [dev.fourthdimension.vehicle.Boarding/]: FD_BOARDING_DISMOUNT_CLEAR player=Dev restraints=false removed=false alive=true
+[22Nov2026 10:41:56.143] [RCON Listener #1/INFO] [net.minecraft.server.rcon.thread.GenericThread/]: Thread RCON Client /127.0.0.1 started
+[22Nov2026 10:41:56.143] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Rcon: FD917_MECHANISM action=inspect family=s2 id=8a806bbd-00e5-4318-bb4d-cd78360798ff center=( 3.505E+2  1.091E+2  1.378E+2) stopping=true restraints=false fault= bound=BlockPos{x=350, y=108, z=112}/BlockPos{x=350, y=108, z=176} carriers=[body=165fb464-2c9d-4184-bc01-57f4f8dd63d8,angle=-12.559466367218329,latched=true,lift=false,riders=0]]
+[22Nov2026 10:41:56.143] [RCON Client /127.0.0.1 #143/INFO] [net.minecraft.server.rcon.thread.RconClient/]: Thread RCON Client /127.0.0.1 shutting down
+[22Nov2026 10:41:56.215] [RCON Listener #1/INFO] [net.minecraft.server.rcon.thread.GenericThread/]: Thread RCON Client /127.0.0.1 started
+[22Nov2026 10:41:56.216] [RCON Client /127.0.0.1 #144/INFO] [net.minecraft.server.rcon.thread.RconClient/]: Thread RCON Client /127.0.0.1 shutting down
+[22Nov2026 10:42:10.680] [Server thread/INFO] [net.minecraft.server.network.ServerGamePacketListenerImpl/]: Dev lost connection: Disconnected
+[22Nov2026 10:42:10.681] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Dev left the game
+[22Nov2026 10:42:11.422] [RCON Listener #1/INFO] [net.minecraft.server.rcon.thread.GenericThread/]: Thread RCON Client /127.0.0.1 started
+[22Nov2026 10:42:11.424] [RCON Client /127.0.0.1 #145/INFO] [net.minecraft.server.rcon.thread.RconClient/]: Thread RCON Client /127.0.0.1 shutting down
+[22Nov2026 10:42:19.611] [RCON Listener #1/INFO] [net.minecraft.server.rcon.thread.GenericThread/]: Thread RCON Client /127.0.0.1 started
+[22Nov2026 10:42:19.611] [Server thread/INFO] [dev.ryanhcode.sable.Sable/]: Saving sub-levels for level 'ServerLevel[SpinningMount]'/minecraft:overworld
+[22Nov2026 10:42:19.634] [Server thread/INFO] [dev.ryanhcode.sable.Sable/]: Saving sub-levels for level 'ServerLevel[SpinningMount]'/minecraft:the_nether
+[22Nov2026 10:42:19.638] [Server thread/INFO] [dev.ryanhcode.sable.Sable/]: Saving sub-levels for level 'ServerLevel[SpinningMount]'/minecraft:the_end
+[22Nov2026 10:42:19.644] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: ThreadedAnvilChunkStorage (SpinningMount): All chunks are saved
+[22Nov2026 10:42:19.644] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
+[22Nov2026 10:42:19.644] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: ThreadedAnvilChunkStorage (DIM1): All chunks are saved
+[22Nov2026 10:42:19.644] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: ThreadedAnvilChunkStorage: All dimensions are saved
+[22Nov2026 10:42:19.644] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Rcon: Saved the game]
+[22Nov2026 10:42:19.644] [RCON Client /127.0.0.1 #146/INFO] [net.minecraft.server.rcon.thread.RconClient/]: Thread RCON Client /127.0.0.1 shutting down
+[22Nov2026 10:42:19.707] [RCON Listener #1/INFO] [net.minecraft.server.rcon.thread.GenericThread/]: Thread RCON Client /127.0.0.1 started
+[22Nov2026 10:42:19.709] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Rcon: Stopping the server]
+[22Nov2026 10:42:19.709] [RCON Client /127.0.0.1 #147/INFO] [net.minecraft.server.rcon.thread.RconClient/]: Thread RCON Client /127.0.0.1 shutting down
+[22Nov2026 10:42:19.729] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Stopping server
+[22Nov2026 10:42:19.730] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving players
+[22Nov2026 10:42:19.730] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving worlds
+[22Nov2026 10:42:19.798] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[SpinningMount]'/minecraft:overworld
+[22Nov2026 10:42:19.798] [Server thread/INFO] [dev.ryanhcode.sable.Sable/]: Saving sub-levels for level 'ServerLevel[SpinningMount]'/minecraft:overworld
+[22Nov2026 10:42:20.208] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[SpinningMount]'/minecraft:the_nether
+[22Nov2026 10:42:20.208] [Server thread/INFO] [dev.ryanhcode.sable.Sable/]: Saving sub-levels for level 'ServerLevel[SpinningMount]'/minecraft:the_nether
+[22Nov2026 10:42:20.212] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[SpinningMount]'/minecraft:the_end
+[22Nov2026 10:42:20.212] [Server thread/INFO] [dev.ryanhcode.sable.Sable/]: Saving sub-levels for level 'ServerLevel[SpinningMount]'/minecraft:the_end
+[22Nov2026 10:42:20.216] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: ThreadedAnvilChunkStorage (SpinningMount): All chunks are saved
+[22Nov2026 10:42:20.216] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
+[22Nov2026 10:42:20.216] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: ThreadedAnvilChunkStorage (DIM1): All chunks are saved
+[22Nov2026 10:42:20.216] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: ThreadedAnvilChunkStorage: All dimensions are saved
+[22Nov2026 10:42:20.238] [Server thread/INFO] [net.minecraft.server.rcon.thread.GenericThread/]: Thread RCON Listener stopped

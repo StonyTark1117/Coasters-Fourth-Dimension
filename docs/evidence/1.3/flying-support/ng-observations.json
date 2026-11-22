@@ -1,0 +1,145 @@
+[
+  {
+    "at": 1795368730.243721,
+    "command": "execute as Dev run fd ng_inspect",
+    "state": "sending"
+  },
+  {
+    "at": 1795368730.243721,
+    "command": "execute as Dev run fd ng_inspect",
+    "state": "responded",
+    "result": "NG e1a2aa0c-0b0c-4561-8a36-ad27e845e129 center=(-1.995E+2  1.251E+2  1.185E+2) velocity=( 0.000E+0 -1.489E-3  0.000E+0) safety=null stopped=true drive=false psi=0.0 phi=-0.0\ndrive anchor=BlockPos{x=-200, y=124, z=112} t=0.125 signed=-2.0 velocity=(-0.0, -0.0, -2.0) tangent=(0.0, 0.0, 1.0) nativeTarget=2.0 interlock=true\nedge -200, 124, 112 -> -200, 124, 160 rejection=null valid=true\nedge -200, 124, 160 -> -200, 136, 208 rejection=null valid=true\nedge -168, 124, 80 -> -200, 124, 112 rejection=null valid=true\n"
+  },
+  {
+    "at": 1795368850.2040772,
+    "command": "execute as Dev run fd ng_inspect",
+    "state": "sending"
+  },
+  {
+    "at": 1795368850.2040772,
+    "command": "execute as Dev run fd ng_inspect",
+    "state": "responded",
+    "result": "NG e1a2aa0c-0b0c-4561-8a36-ad27e845e129 center=(-1.995E+2  1.251E+2  1.185E+2) velocity=( 0.000E+0 -1.489E-3  0.000E+0) safety=null stopped=true drive=false psi=0.0 phi=-0.0\ndrive anchor=BlockPos{x=-200, y=124, z=112} t=0.125 signed=-2.0 velocity=(-0.0, -0.0, -2.0) tangent=(0.0, 0.0, 1.0) nativeTarget=2.0 interlock=true\nedge -200, 124, 112 -> -200, 124, 160 rejection=null valid=true\nedge -200, 124, 160 -> -200, 136, 208 rejection=null valid=true\nedge -168, 124, 80 -> -200, 124, 112 rejection=null valid=true\n"
+  },
+  {
+    "at": 1795368955.072277,
+    "command": "execute as Dev run fd ng_inspect",
+    "state": "sending"
+  },
+  {
+    "at": 1795368955.072277,
+    "command": "execute as Dev run fd ng_inspect",
+    "state": "responded",
+    "result": "NG e1a2aa0c-0b0c-4561-8a36-ad27e845e129 center=(-1.995E+2  1.251E+2  1.377E+2) velocity=(-4.388E-6 -1.588E-3  1.976E+0) safety=null stopped=false drive=true psi=-0.20398004691902039 phi=6.2621520266842216E-6\ndrive anchor=BlockPos{x=-200, y=124, z=112} t=0.5242894587590811 signed=-2.0 velocity=(-0.0, -0.0, -2.0) tangent=(0.0, 0.0, 1.0) nativeTarget=2.0 interlock=false\nedge -200, 124, 112 -> -200, 124, 160 rejection=null valid=true\nedge -200, 124, 160 -> -200, 136, 208 rejection=null valid=true\nedge -168, 124, 80 -> -200, 124, 112 rejection=null valid=true\n"
+  },
+  {
+    "at": 1795368966.7375221,
+    "command": "execute as Dev run fd ng_inspect",
+    "state": "sending"
+  },
+  {
+    "at": 1795368966.7375221,
+    "command": "execute as Dev run fd ng_inspect",
+    "state": "responded",
+    "result": "NG e1a2aa0c-0b0c-4561-8a36-ad27e845e129 center=(-1.995E+2  1.251E+2  1.607E+2) velocity=(-1.618E-4  6.058E-3  2.033E+0) safety=null stopped=false drive=true psi=-2.353063816415073 phi=1.0815139593133676E-4\ndrive anchor=BlockPos{x=-200, y=124, z=160} t=0.004477083262910986 signed=-2.0 velocity=(-0.0, -0.485071250072666, -1.940285000290664) tangent=(0.0, 0.006490985631553366, 0.9999789333308632) nativeTarget=1.943392715463033 interlock=false\nbody=e1a2aa0c-0b0c-4561-8a36-ad27e845e129 local=0, -1, 0 state=Block{fourthdimension:flying_controller} world bounds=AABB[-199.62500225296327, 124.26120501093558, 160.22167761405328] -> [-199.37500106571952, 124.41496939202234, 161.22223533008275] overlaps -200, 124, 160 Block{simulatedcoasters:coaster_anchorpoint}[chain_lift_shaft=true,facing=up,track_connected=true] shape=AABB[-200.0, 124.0, 160.0] -> [-199.0, 124.5, 161.0]\nbody=e1a2aa0c-0b0c-4561-8a36-ad27e845e129 local=0, 0, 0 state=Block{simulatedcoasters:coaster_cart}[snap_engaged=true] world bounds=AABB[-200.00000072531225, 124.6237008629647, 160.21711307601083] -> [-198.99999595600494, 125.62746238056181, 161.2208709525094] overlaps -199, 124, 160 Block{create:shaft}[axis=x,waterlogged=false] shape=AABB[-199.0, 124.3125, 160.3125] -> [-198.0, 124.6875, 160.6875]\ndeck box=0 world bounds=AABB[-199.67687141176464, 123.96218940508714, 160.54415350911194] -> [-199.32323022813313, 124.61359296644716, 160.90029331542377] overlaps -200, 124, 160 Block{simulatedcoasters:coaster_anchorpoint}[chain_lift_shaft=true,facing=up,track_connected=true] shape=AABB[-200.0, 124.0, 160.0] -> [-199.0, 124.5, 161.0]\ndeck box=1 world bounds=AABB[-200.6469478761267, 123.95817399521938, 159.5716919453411] -> [-198.35322199113787, 124.11761235064809, 161.87474728035713] overlaps -200, 124, 160 Block{simulatedcoasters:coaster_anchorpoint}[chain_lift_shaft=true,facing=up,track_connected=true] shape=AABB[-200.0, 124.0, 160.0] -> [-199.0, 124.5, 161.0]\nedge -200, 124, 112 -> -200, 124, 160 rejection=null valid=true\nedge -200, 124, 160 -> -200, 136, 208 rejection=null valid=true\nedge -200, 136, 208 -> -200, 136, 240 rejection=null valid=true\n"
+  },
+  {
+    "at": 1795368970.9468935,
+    "command": "execute as Dev run fd ng_inspect",
+    "state": "sending"
+  },
+  {
+    "at": 1795368970.9468935,
+    "command": "execute as Dev run fd ng_inspect",
+    "state": "responded",
+    "result": "NG e1a2aa0c-0b0c-4561-8a36-ad27e845e129 center=(-1.995E+2  1.259E+2  1.680E+2) velocity=( 6.064E-5  3.254E-1  1.683E+0) safety=null stopped=false drive=true psi=-0.7331160581884462 phi=0.08923091066006032\ndrive anchor=BlockPos{x=-200, y=124, z=160} t=0.15585619952778773 signed=-2.0 velocity=(-0.0, -0.485071250072666, -1.940285000290664) tangent=(0.0, 0.1924127586520517, 0.981314083414636) nativeTarget=1.9973628939926806 interlock=false\nedge -200, 124, 112 -> -200, 124, 160 rejection=null valid=true\nedge -200, 124, 160 -> -200, 136, 208 rejection=null valid=true\nedge -200, 136, 208 -> -200, 136, 240 rejection=null valid=true\n"
+  },
+  {
+    "at": 1795368975.1469457,
+    "command": "execute as Dev run fd ng_inspect",
+    "state": "sending"
+  },
+  {
+    "at": 1795368975.1469457,
+    "command": "execute as Dev run fd ng_inspect",
+    "state": "responded",
+    "result": "NG e1a2aa0c-0b0c-4561-8a36-ad27e845e129 center=(-1.995E+2  1.276E+2  1.745E+2) velocity=(-2.026E-6  4.435E-1  1.434E+0) safety=null stopped=false drive=true psi=1.156709342359837 phi=0.2954176935323508\ndrive anchor=BlockPos{x=-200, y=124, z=160} t=0.2904758897196128 signed=-2.0 velocity=(-0.0, -0.485071250072666, -1.940285000290664) tangent=(0.0, 0.29733290133313134, 0.9547738715448921) nativeTarget=1.996761063765394 interlock=false\nedge -200, 124, 112 -> -200, 124, 160 rejection=null valid=true\nedge -200, 124, 160 -> -200, 136, 208 rejection=null valid=true\nedge -200, 136, 208 -> -200, 136, 240 rejection=null valid=true\n"
+  },
+  {
+    "at": 1795368979.356162,
+    "command": "execute as Dev run fd ng_inspect",
+    "state": "sending"
+  },
+  {
+    "at": 1795368979.356162,
+    "command": "execute as Dev run fd ng_inspect",
+    "state": "responded",
+    "result": "NG e1a2aa0c-0b0c-4561-8a36-ad27e845e129 center=(-1.995E+2  1.296E+2  1.803E+2) velocity=( 6.715E-6  4.760E-1  1.295E+0) safety=null stopped=false drive=true psi=2.1375010515158794 phi=0.5567126718504223\ndrive anchor=BlockPos{x=-200, y=124, z=160} t=0.4142625479752512 signed=-2.0 velocity=(-0.0, -0.485071250072666, -1.940285000290664) tangent=(0.0, 0.3463099944941569, 0.9381201350112133) nativeTarget=1.9882054483748484 interlock=false\nedge -200, 124, 112 -> -200, 124, 160 rejection=null valid=true\nedge -200, 124, 160 -> -200, 136, 208 rejection=null valid=true\nedge -200, 136, 208 -> -200, 136, 240 rejection=null valid=true\n"
+  },
+  {
+    "at": 1795368983.5789316,
+    "command": "execute as Dev run fd ng_inspect",
+    "state": "sending"
+  },
+  {
+    "at": 1795368983.5789316,
+    "command": "execute as Dev run fd ng_inspect",
+    "state": "responded",
+    "result": "NG e1a2aa0c-0b0c-4561-8a36-ad27e845e129 center=(-1.995E+2  1.317E+2  1.860E+2) velocity=(-3.831E-5  4.740E-1  1.255E+0) safety=null stopped=false drive=true psi=2.4245044482504836 phi=0.8427224422833347\ndrive anchor=BlockPos{x=-200, y=124, z=160} t=0.5352669058722723 signed=-2.0 velocity=(-0.0, -0.485071250072666, -1.940285000290664) tangent=(0.0, 0.35430042798855915, 0.935131652082809) nativeTarget=1.9862828693389931 interlock=false\nedge -200, 124, 112 -> -200, 124, 160 rejection=null valid=true\nedge -200, 124, 160 -> -200, 136, 208 rejection=null valid=true\nedge -200, 136, 208 -> -200, 136, 240 rejection=null valid=true\n"
+  },
+  {
+    "at": 1795368994.183155,
+    "command": "execute as Dev run fd ng_inspect",
+    "state": "sending"
+  },
+  {
+    "at": 1795368994.183155,
+    "command": "execute as Dev run fd ng_inspect",
+    "state": "responded",
+    "result": "NG e1a2aa0c-0b0c-4561-8a36-ad27e845e129 center=(-1.995E+2  1.365E+2  2.019E+2) velocity=(-1.308E-5  2.759E-1  1.587E+0) safety=null stopped=false drive=true psi=3.05848177751133 phi=1.483054499598041\ndrive anchor=BlockPos{x=-200, y=124, z=160} t=0.8656186160182581 signed=-2.0 velocity=(-0.0, -0.485071250072666, -1.940285000290664) tangent=(0.0, 0.17035054416077552, 0.9853835253870077) nativeTarget=1.994557025248572 interlock=false\nedge -200, 124, 112 -> -200, 124, 160 rejection=null valid=true\nedge -200, 124, 160 -> -200, 136, 208 rejection=null valid=true\nedge -200, 136, 208 -> -200, 136, 240 rejection=null valid=true\n"
+  },
+  {
+    "at": 1795368998.3865519,
+    "command": "execute as Dev run fd ng_inspect",
+    "state": "sending"
+  },
+  {
+    "at": 1795368998.3865519,
+    "command": "execute as Dev run fd ng_inspect",
+    "state": "responded",
+    "result": "NG e1a2aa0c-0b0c-4561-8a36-ad27e845e129 center=(-1.995E+2  1.371E+2  2.094E+2) velocity=(-2.888E-3 -5.759E-3  1.962E+0) safety=null stopped=false drive=true psi=3.1528305121611604 phi=1.5698142479056159\ndrive anchor=BlockPos{x=-200, y=136, z=208} t=0.026956270213238015 signed=-2.0 velocity=(0.0351453920852444, 0.035145393621497864, -1.9993823052939037) tangent=(-0.0024585068499140914, -0.0024585069520331607, 0.9999939557255513) nativeTarget=1.9995430308602575 interlock=false\nbody=e1a2aa0c-0b0c-4561-8a36-ad27e845e129 local=0, -1, 0 state=Block{fourthdimension:flying_controller} world bounds=AABB[-199.61439406060597, 136.25600856273667, 208.86158862048393] -> [-199.3567579479417, 136.41746648287474, 209.86246510974138] overlaps -200, 136, 208 Block{simulatedcoasters:coaster_anchorpoint}[chain_lift_shaft=true,facing=up,track_connected=true] shape=AABB[-200.0, 136.0, 208.0] -> [-199.0, 136.5, 209.0]\nedge -200, 124, 160 -> -200, 136, 208 rejection=null valid=true\nedge -200, 136, 208 -> -200, 136, 240 rejection=null valid=true\nedge -200, 136, 240 -> -200, 136, 272 rejection=null valid=true\n"
+  },
+  {
+    "at": 1795369002.590163,
+    "command": "execute as Dev run fd ng_inspect",
+    "state": "sending"
+  },
+  {
+    "at": 1795369002.590163,
+    "command": "execute as Dev run fd ng_inspect",
+    "state": "responded",
+    "result": "NG e1a2aa0c-0b0c-4561-8a36-ad27e845e129 center=(-1.998E+2  1.370E+2  2.178E+2) velocity=(-3.693E-2 -3.920E-2  1.998E+0) safety=null stopped=false drive=true psi=4.880929827921396 phi=1.5691661596624726\ndrive anchor=BlockPos{x=-200, y=136, z=208} t=0.28917033928667113 signed=-2.0 velocity=(0.0351453920852444, 0.035145393621497864, -1.9993823052939037) tangent=(-0.019264336574782746, -0.019264337418272815, 0.9996288164314634) nativeTarget=1.9999942728185613 interlock=false\nedge -200, 124, 160 -> -200, 136, 208 rejection=null valid=true\nedge -200, 136, 208 -> -200, 136, 240 rejection=null valid=true\nedge -200, 136, 240 -> -200, 136, 272 rejection=null valid=true\n"
+  },
+  {
+    "at": 1795369006.7895703,
+    "command": "execute as Dev run fd ng_inspect",
+    "state": "sending"
+  },
+  {
+    "at": 1795369006.7895703,
+    "command": "execute as Dev run fd ng_inspect",
+    "state": "responded",
+    "result": "NG e1a2aa0c-0b0c-4561-8a36-ad27e845e129 center=(-2.001E+2  1.367E+2  2.262E+2) velocity=(-4.553E-2 -4.705E-2  2.006E+0) safety=null stopped=false drive=true psi=5.28878047716577 phi=1.568539128560118\ndrive anchor=BlockPos{x=-200, y=136, z=208} t=0.5543352659578501 signed=-2.0 velocity=(0.0351453920852444, 0.035145393621497864, -1.9993823052939037) tangent=(-0.023151028395492667, -0.023151029407726093, 0.9994638861517677) nativeTarget=1.9999377127635387 interlock=false\nedge -200, 124, 160 -> -200, 136, 208 rejection=null valid=true\nedge -200, 136, 208 -> -200, 136, 240 rejection=null valid=true\nedge -200, 136, 240 -> -200, 136, 272 rejection=null valid=true\n"
+  },
+  {
+    "at": 1795369029.0047247,
+    "command": "execute as Dev run fd ng_inspect",
+    "state": "sending"
+  },
+  {
+    "at": 1795369029.0047247,
+    "command": "execute as Dev run fd ng_inspect",
+    "state": "responded",
+    "result": "NG e1a2aa0c-0b0c-4561-8a36-ad27e845e129 center=(-2.003E+2  1.361E+2  2.472E+2) velocity=( 1.666E-4 -1.751E-3  1.105E-2) safety=null stopped=true drive=false psi=0.8336515036988233 phi=1.5655534778212854\ndrive anchor=BlockPos{x=-200, y=136, z=208} t=0.20821648052938474 signed=-2.0 velocity=(-0.035145395157753105, 0.035145390548990935, -1.9993823052939037) tangent=(0.015452117336660172, -0.015452115311985721, 0.9997612035892367) nativeTarget=1.9999910013729245 interlock=true\nedge -200, 136, 208 -> -200, 136, 240 rejection=null valid=true\nedge -200, 136, 240 -> -200, 136, 272 rejection=null valid=true\nedge -200, 136, 272 -> -200, 136, 304 rejection=null valid=true\n"
+  }
+]

@@ -1,0 +1,154 @@
+[22Nov2026 11:03:08.620] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forgeserverdev, --gameDir, ., --fml.fmlVersion, 4.0.45, --fml.mcVersion, 1.21.1, --fml.neoForgeVersion, 21.1.256, --fml.neoFormVersion, 20240808.144430, --nogui]
+[22Nov2026 11:03:08.622] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: JVM identified as Arch Linux OpenJDK 64-Bit Server VM 21.0.13.1+2
+[22Nov2026 11:03:08.623] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher 11.0.5+main.901c6ea8 starting: java version 21.0.13.1 by Arch Linux; OS Linux arch amd64 version 7.3.4-zen2-2-zen
+[22Nov2026 11:03:08.671] [main/INFO] [net.neoforged.fml.loading.ImmediateWindowHandler/]: ImmediateWindowProvider not loading because launch target is forgeserverdev
+[22Nov2026 11:03:08.692] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.7 Source=union:/home/braydon/.gradle/caches/modules-2/files-2.1/net.fabricmc/sponge-mixin/0.16.4+mixin.0.8.7/26d01f0567ab46e9ca0d2ed89d0ecc11aadbd433/sponge-mixin-0.16.4+mixin.0.8.7.jar%2394!/ Service=ModLauncher Env=SERVER
+[22Nov2026 11:03:08.958] [main/WARN] [net.neoforged.jarjar.selection.JarSelector/]: Attempted to select a dependency jar for JarJar which was passed in as source: veil. Using Mod File: /home/braydon/.gradle/caches/modules-2/files-2.1/foundry.veil/veil-neoforge-1.21.1/4.3.2/3d4056e31dd8a06e35901c3b82210c3d471e1e48/veil-neoforge-1.21.1-4.3.2.jar
+[22Nov2026 11:03:08.958] [main/WARN] [net.neoforged.jarjar.selection.JarSelector/]: Attempted to select a dependency jar for JarJar which was passed in as source: sablecompanion. Using Mod File: /home/braydon/.gradle/caches/modules-2/files-2.1/dev.ryanhcode.sable-companion/sable-companion-common-1.21.1/1.6.0/370be7db705926176e05c0215ed676150c45daae/sable-companion-common-1.21.1-1.6.0.jar
+[22Nov2026 11:03:08.959] [main/WARN] [net.neoforged.jarjar.selection.JarSelector/]: Attempted to select a dependency jar for JarJar which was passed in as source: library:sable_rapier. Using Mod File: /home/braydon/.gradle/caches/modules-2/files-2.1/dev.ryanhcode.sable/sable-sable_rapier-1.21.1/2.0.6/d095eff41df82fbd8b321c2467b712ff35cb6bf1/sable-sable_rapier-1.21.1-2.0.6.jar
+[22Nov2026 11:03:08.959] [main/INFO] [net.neoforged.fml.loading.moddiscovery.locators.JarInJarDependencyLocator/]: Found 4 dependencies adding them to mods collection
+[22Nov2026 11:03:08.960] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/]: 
+     Mod List:
+		Name Version (Mod Id)
+
+		Coasters: Fourth Dimension 1.1.0 (fourthdimension)
+		Create 6.0.10 (create)
+		Create: Coasters Simulated 0.1.5 (simulatedcoasters)
+		Flywheel 1.0.6 (flywheel)
+		Minecraft 1.21.1 (minecraft)
+		NeoForge 21.1.256 (neoforge)
+		Ponder 1.0.82+mc1.21.1 (ponder)
+		Sable 2.0.6 (sable)
+		Sable Companion 1.6.0 (sablecompanion)
+		Veil 4.3.2 (veil)
+[22Nov2026 11:03:09.368] [main/INFO] [mixin/]: Compatibility level set to JAVA_21
+[22Nov2026 11:03:09.389] [main/INFO] [cpw.mods.modlauncher.LaunchServiceHandler/MODLAUNCHER]: Launching target 'forgeserverdev' with arguments [--gameDir, ., --nogui]
+[22Nov2026 11:03:09.445] [main/WARN] [mixin/]: Reference map 'ponder.refmap.json' for ponder-common.mixins.json could not be read. If this is a development environment you can ignore this message
+[22Nov2026 11:03:09.451] [main/INFO] [dev.ryanhcode.sable.mixin.AbstractSableMixinPlugin/]: Using Vanilla renderer mixins
+[22Nov2026 11:03:09.452] [main/INFO] [dev.ryanhcode.sable.mixin.AbstractSableMixinPlugin/]: Using Vanilla renderer mixins
+[22Nov2026 11:03:09.707] [main/WARN] [mixin/]: Error loading class: dev/simulated_team/simulated/content/blocks/merging_glue/MergingGlueBlockEntity (java.lang.ClassNotFoundException: dev.simulated_team.simulated.content.blocks.merging_glue.MergingGlueBlockEntity)
+[22Nov2026 11:03:09.708] [main/WARN] [mixin/]: @Mixin target dev.simulated_team.simulated.content.blocks.merging_glue.MergingGlueBlockEntity was not found simulatedcoasters.mixins.json:compat.MergingGlueBlockEntityRivetMixin from mod simulatedcoasters
+[22Nov2026 11:03:10.107] [main/WARN] [mixin/]: Error loading class: dev/jwaterfall/coastersengineered/MotorDrive (java.lang.ClassNotFoundException: dev.jwaterfall.coastersengineered.MotorDrive)
+[22Nov2026 11:03:10.108] [main/WARN] [mixin/]: Error loading class: dev/jwaterfall/coastersengineered/CartAssembly (java.lang.ClassNotFoundException: dev.jwaterfall.coastersengineered.CartAssembly)
+[22Nov2026 11:03:10.109] [main/WARN] [mixin/]: Error loading class: dev/plushivr/coasterfins/block/StationBlockEntity (java.lang.ClassNotFoundException: dev.plushivr.coasterfins.block.StationBlockEntity)
+[22Nov2026 11:03:10.110] [main/WARN] [mixin/]: Error loading class: dev/notzyvex/coasters_extras/track/TrackRepaint (java.lang.ClassNotFoundException: dev.notzyvex.coasters_extras.track.TrackRepaint)
+[22Nov2026 11:03:10.110] [main/WARN] [mixin/]: Error loading class: dev/notzyvex/coasters_extras/net/ModNetwork (java.lang.ClassNotFoundException: dev.notzyvex.coasters_extras.net.ModNetwork)
+[22Nov2026 11:03:10.110] [main/WARN] [mixin/]: Error loading class: medev/coaster/skins/skin/CartSkinTargets (java.lang.ClassNotFoundException: medev.coaster.skins.skin.CartSkinTargets)
+[22Nov2026 11:03:10.111] [main/WARN] [mixin/]: Error loading class: medev/coaster/skins/skin/LinkedCartSkins (java.lang.ClassNotFoundException: medev.coaster.skins.skin.LinkedCartSkins)
+[22Nov2026 11:03:10.111] [main/WARN] [mixin/]: Error loading class: medev/coaster/skins/skin/CartSkinData (java.lang.ClassNotFoundException: medev.coaster.skins.skin.CartSkinData)
+[22Nov2026 11:03:10.111] [main/WARN] [mixin/]: Error loading class: medev/coaster/skins/item/ScrewDriverItem (java.lang.ClassNotFoundException: medev.coaster.skins.item.ScrewDriverItem)
+[22Nov2026 11:03:10.111] [main/WARN] [mixin/]: Error loading class: dev/plushivr/coasterfins/block/CoasterSeatBlockEntity (java.lang.ClassNotFoundException: dev.plushivr.coasterfins.block.CoasterSeatBlockEntity)
+[22Nov2026 11:03:10.112] [main/WARN] [mixin/]: Error loading class: dev/plushivr/coasterfins/event/SeatDismountHandler (java.lang.ClassNotFoundException: dev.plushivr.coasterfins.event.SeatDismountHandler)
+[22Nov2026 11:03:10.127] [main/WARN] [mixin/]: Error loading class: org/jetbrains/annotations/ApiStatus$ScheduledForRemoval (java.lang.ClassNotFoundException: org.jetbrains.annotations.ApiStatus$ScheduledForRemoval)
+[22Nov2026 11:03:10.231] [main/INFO] [MixinExtras|Service/]: Initializing MixinExtras via com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.5.5).
+[22Nov2026 11:03:13.889] [main/WARN] [net.minecraft.commands.Commands/]: Ambiguity between arguments [teleport, location] and [teleport, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+[22Nov2026 11:03:13.890] [main/WARN] [net.minecraft.commands.Commands/]: Ambiguity between arguments [teleport, location] and [teleport, targets] with inputs: [0.1 -0.5 .9, 0 0 0]
+[22Nov2026 11:03:13.892] [main/WARN] [net.minecraft.commands.Commands/]: Ambiguity between arguments [teleport, destination] and [teleport, targets] with inputs: [Player, 0123, @e, dd12be42-52a9-4a91-a8a1-11c01849e498]
+[22Nov2026 11:03:13.892] [main/WARN] [net.minecraft.commands.Commands/]: Ambiguity between arguments [teleport, targets] and [teleport, destination] with inputs: [Player, 0123, dd12be42-52a9-4a91-a8a1-11c01849e498]
+[22Nov2026 11:03:13.893] [main/WARN] [net.minecraft.commands.Commands/]: Ambiguity between arguments [teleport, targets, location] and [teleport, targets, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+[22Nov2026 11:03:13.945] [modloading-worker-0/INFO] [Veil/]: Veil is initializing.
+[22Nov2026 11:03:13.958] [modloading-worker-0/INFO] [net.neoforged.neoforge.common.NeoForgeMod/NEOFORGE-MOD]: NeoForge mod loading, version 21.1.256, for MC 1.21.1
+[22Nov2026 11:03:13.967] [modloading-worker-0/INFO] [com.simibubi.create.Create/]: Create 6.0.10 initializing! Commit hash: ac0c444d9828da3453ae8cc65338e8de063286fb
+[22Nov2026 11:03:14.790] [modloading-worker-0/INFO] [dev.ryanhcode.sable.Sable/]: Sable loaded!
+[22Nov2026 11:03:14.827] [modloading-worker-0/INFO] [dev.fourthdimension.FourthDimension/]: Coasters: Fourth Dimension loaded from union:/mnt/NVME4/fourthdimension-runs/fd13-base-20261122/build/libs/coasters-fourth-dimension-1.1.0.jar%23127!/
+[22Nov2026 11:03:15.859] [main/INFO] [com.mojang.authlib.yggdrasil.YggdrasilAuthenticationService/]: Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, name=PROD]
+[22Nov2026 11:03:15.872] [NeoForge Version Check/INFO] [net.neoforged.fml.VersionChecker/]: [create] Starting version check at https://api.modrinth.com/updates/create/forge_updates.json?neoforge=only
+[22Nov2026 11:03:15.913] [main/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/mnt/NVME4/fourthdimension-runs/fd13-base-20261122/build/moddev/artifacts/neoforge-21.1.256.jar%23124!/assets/.mcassetsroot' uses unexpected schema
+[22Nov2026 11:03:15.914] [main/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/mnt/NVME4/fourthdimension-runs/fd13-base-20261122/build/moddev/artifacts/neoforge-21.1.256.jar%23124!/data/.mcassetsroot' uses unexpected schema
+[22Nov2026 11:03:15.945] [main/INFO] [com.simibubi.create.Create/]: Created 157 recipes which will be injected into the game
+[22Nov2026 11:03:15.948] [main/INFO] [com.simibubi.create.Create/]: Created 0 tags which will be injected into the game
+[22Nov2026 11:03:16.245] [NeoForge Version Check/INFO] [net.neoforged.fml.VersionChecker/]: [create] Found status: OUTDATED Current: 6.0.10 Target: 6.0.10+mc1.21.1
+[22Nov2026 11:03:16.670] [main/INFO] [net.minecraft.world.item.crafting.RecipeManager/]: Loaded 2865 recipes
+[22Nov2026 11:03:16.772] [main/INFO] [net.minecraft.advancements.AdvancementTree/]: Loaded 2521 advancements
+[22Nov2026 11:03:17.484] [Server thread/INFO] [net.minecraft.server.dedicated.DedicatedServer/]: Starting minecraft server version 1.21.1
+[22Nov2026 11:03:17.484] [Server thread/INFO] [net.minecraft.server.dedicated.DedicatedServer/]: Loading properties
+[22Nov2026 11:03:17.484] [Server thread/INFO] [net.minecraft.server.dedicated.DedicatedServer/]: Default game type: CREATIVE
+[22Nov2026 11:03:17.485] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Generating keypair
+[22Nov2026 11:03:17.523] [Server thread/INFO] [net.minecraft.server.dedicated.DedicatedServer/]: Starting Minecraft server on 127.0.0.1:25713
+[22Nov2026 11:03:17.551] [Server thread/INFO] [dev.ryanhcode.sable.Sable/]: Adding UDP server channel future
+[22Nov2026 11:03:17.573] [Netty Epoll Server IO #0/WARN] [io.netty.channel.AbstractChannel/]: A non-root user can't receive a broadcast packet if the socket is not bound to a wildcard address; binding to a non-wildcard address (/127.0.0.1:25713) anyway as requested.
+[22Nov2026 11:03:17.574] [Netty Epoll Server IO #0/INFO] [dev.ryanhcode.sable.Sable/]: Server UDP channel active
+[22Nov2026 11:03:17.574] [Server thread/INFO] [net.minecraft.server.network.ServerConnectionListener/]: Using epoll channel type
+[22Nov2026 11:03:17.577] [Server thread/WARN] [net.minecraft.server.dedicated.DedicatedServer/]: **** SERVER IS RUNNING IN OFFLINE/INSECURE MODE!
+[22Nov2026 11:03:17.577] [Server thread/WARN] [net.minecraft.server.dedicated.DedicatedServer/]: The server will make no attempt to authenticate usernames. Beware.
+[22Nov2026 11:03:17.577] [Server thread/WARN] [net.minecraft.server.dedicated.DedicatedServer/]: While this makes the game possible to play without internet access, it also opens up the ability for hackers to connect with any username they choose.
+[22Nov2026 11:03:17.577] [Server thread/WARN] [net.minecraft.server.dedicated.DedicatedServer/]: To change this, set "online-mode" to "true" in the server.properties file.
+[22Nov2026 11:03:17.600] [Server thread/INFO] [net.minecraft.server.dedicated.DedicatedServer/]: Preparing level "SkinWorkshop"
+[22Nov2026 11:03:17.615] [Server thread/INFO] [dev.ryanhcode.sable.Sable/]: Creating physics pipeline for ResourceKey[minecraft:dimension / minecraft:overworld] using RapierPhysicsPipelineProvider
+[22Nov2026 11:03:17.621] [Server thread/INFO] [dev.ryanhcode.sable.Sable/]: Using game directory relative Sable Rapier native directory /mnt/NVME4/fourthdimension-runs/fd13-base-20261122/server/.sable/natives
+[22Nov2026 11:03:17.833] [Server thread/INFO] [dev.ryanhcode.sable.Sable/]: Creating physics pipeline for ResourceKey[minecraft:dimension / minecraft:the_end] using RapierPhysicsPipelineProvider
+[22Nov2026 11:03:17.854] [Server thread/INFO] [dev.ryanhcode.sable.Sable/]: Creating physics pipeline for ResourceKey[minecraft:dimension / minecraft:the_nether] using RapierPhysicsPipelineProvider
+[22Nov2026 11:03:17.861] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Preparing start region for dimension minecraft:overworld
+[22Nov2026 11:03:17.958] [worldgen/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Preparing spawn area: 0%
+[22Nov2026 11:03:18.106] [Server thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Time elapsed: 245 ms
+[22Nov2026 11:03:18.106] [Server thread/INFO] [net.minecraft.server.dedicated.DedicatedServer/]: Done (0.524s)! For help, type "help"
+[22Nov2026 11:03:18.106] [Server thread/INFO] [net.minecraft.server.dedicated.DedicatedServer/]: Starting remote control listener
+[22Nov2026 11:03:18.108] [Server thread/INFO] [net.minecraft.server.rcon.thread.GenericThread/]: Thread RCON Listener started
+[22Nov2026 11:03:18.108] [Server thread/INFO] [net.minecraft.server.rcon.thread.RconThread/]: RCON running on 127.0.0.1:25714
+[22Nov2026 11:03:18.116] [LanServerPinger #1/WARN] [net.minecraft.client.server.LanServerPinger/]: LanServerPinger: Network is unreachable
+[22Nov2026 11:03:18.142] [Server thread/INFO] [net.neoforged.neoforge.gametest.GameTestHooks/]: Enabled Gametest Namespaces: []
+[22Nov2026 11:03:18.257] [Server thread/INFO] [net.neoforged.neoforge.server.permission.PermissionAPI/]: Successfully initialized permission handler neoforge:default_handler
+[22Nov2026 11:03:21.973] [Server thread/INFO] [net.minecraft.server.players.PlayerList/]: Dev[/127.0.0.1:37108] logged in with entity id 13 at (4.5, 76.0, 209.5)
+[22Nov2026 11:03:21.978] [Server thread/INFO] [dev.ryanhcode.sable.Sable/]: Beginning attempted authentication with player Dev
+[22Nov2026 11:03:21.989] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Dev joined the game
+[22Nov2026 11:03:22.234] [Netty Epoll Server IO #0/INFO] [dev.ryanhcode.sable.Sable/]: UDP authentication complete with /127.0.0.1:37108, UDP routing to /127.0.0.1:52652
+[22Nov2026 11:03:27.217] [RCON Listener #1/INFO] [net.minecraft.server.rcon.thread.GenericThread/]: Thread RCON Client /127.0.0.1 started
+[22Nov2026 11:03:27.225] [RCON Client /127.0.0.1 #2/INFO] [net.minecraft.server.rcon.thread.RconClient/]: Thread RCON Client /127.0.0.1 shutting down
+[22Nov2026 11:03:31.782] [RCON Listener #1/INFO] [net.minecraft.server.rcon.thread.GenericThread/]: Thread RCON Client /127.0.0.1 started
+[22Nov2026 11:03:31.787] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Rcon: FD917_MECHANISM action=inspect family=fixed_inverted id=c6093d81-77f5-4431-b35b-94cb1adf3025 center=( 5.000E-1  8.062E+1  2.093E+2) stopping=true restraints=false fault= bound=BlockPos{x=0, y=80, z=200}/BlockPos{x=0, y=80, z=248} carriers=[body=c6093d81-77f5-4431-b35b-94cb1adf3025,angle=0.0,latched=false,lift=false,riders=0]]
+[22Nov2026 11:03:31.788] [RCON Client /127.0.0.1 #3/INFO] [net.minecraft.server.rcon.thread.RconClient/]: Thread RCON Client /127.0.0.1 shutting down
+[22Nov2026 11:03:38.748] [RCON Listener #1/INFO] [net.minecraft.server.rcon.thread.GenericThread/]: Thread RCON Client /127.0.0.1 started
+[22Nov2026 11:03:38.751] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Rcon: Teleported Dev to 2.500000, 75.000000, 211.200000]
+[22Nov2026 11:03:38.751] [RCON Client /127.0.0.1 #4/INFO] [net.minecraft.server.rcon.thread.RconClient/]: Thread RCON Client /127.0.0.1 shutting down
+[22Nov2026 11:03:46.311] [RCON Listener #1/INFO] [net.minecraft.server.rcon.thread.GenericThread/]: Thread RCON Client /127.0.0.1 started
+[22Nov2026 11:03:46.327] [RCON Client /127.0.0.1 #5/INFO] [net.minecraft.server.rcon.thread.RconClient/]: Thread RCON Client /127.0.0.1 shutting down
+[22Nov2026 11:03:56.054] [RCON Listener #1/INFO] [net.minecraft.server.rcon.thread.GenericThread/]: Thread RCON Client /127.0.0.1 started
+[22Nov2026 11:03:56.057] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Rcon: Set Dev's game mode to Spectator Mode]
+[22Nov2026 11:03:56.057] [RCON Client /127.0.0.1 #6/INFO] [net.minecraft.server.rcon.thread.RconClient/]: Thread RCON Client /127.0.0.1 shutting down
+[22Nov2026 11:03:56.112] [RCON Listener #1/INFO] [net.minecraft.server.rcon.thread.GenericThread/]: Thread RCON Client /127.0.0.1 started
+[22Nov2026 11:03:56.116] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Rcon: Teleported Dev to 2.500000, 75.000000, 211.200000]
+[22Nov2026 11:03:56.116] [RCON Client /127.0.0.1 #7/INFO] [net.minecraft.server.rcon.thread.RconClient/]: Thread RCON Client /127.0.0.1 shutting down
+[22Nov2026 11:03:56.124] [Server thread/WARN] [net.minecraft.server.network.ServerGamePacketListenerImpl/]: Dev moved too quickly! 0.0,135.0,0.0
+[22Nov2026 11:03:56.149] [Server thread/WARN] [net.minecraft.server.network.ServerGamePacketListenerImpl/]: Dev moved too quickly! 0.0,135.0,0.0
+[22Nov2026 11:03:56.171] [RCON Listener #1/INFO] [net.minecraft.server.rcon.thread.GenericThread/]: Thread RCON Client /127.0.0.1 started
+[22Nov2026 11:03:56.172] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Rcon: Set Dev's game mode to Creative Mode]
+[22Nov2026 11:03:56.172] [RCON Client /127.0.0.1 #8/INFO] [net.minecraft.server.rcon.thread.RconClient/]: Thread RCON Client /127.0.0.1 shutting down
+[22Nov2026 11:04:00.881] [RCON Listener #1/INFO] [net.minecraft.server.rcon.thread.GenericThread/]: Thread RCON Client /127.0.0.1 started
+[22Nov2026 11:04:00.882] [RCON Client /127.0.0.1 #9/INFO] [net.minecraft.server.rcon.thread.RconClient/]: Thread RCON Client /127.0.0.1 shutting down
+[22Nov2026 11:04:00.987] [Server thread/INFO] [dev.fourthdimension.vehicle.CarrierSeatBlock/]: FD_ROTATION_BLOCK_USE player=Dev pos=BlockPos{x=20481032, y=124, z=20503560} hand=MAIN_HAND result=SKIP_DEFAULT
+[22Nov2026 11:04:00.988] [Server thread/INFO] [dev.fourthdimension.editor.RotationTool/]: FD_ROTATION_USE_ON player=Dev hand=MAIN_HAND item=fourthdimension:rotation_tool clicked=BlockPos{x=20481032, y=124, z=20503560} hit=(2.048103184698081E7, 124.81360971927643, 2.0503560125E7) distanceSq=7.945684931125045 shift=false
+[22Nov2026 11:04:00.988] [Server thread/INFO] [dev.fourthdimension.editor.RotationTool/]: FD_ROTATION_RESOLVE player=Dev body=c6093d81-77f5-4431-b35b-94cb1adf3025 dataVehicles=12 dataRails=99
+[22Nov2026 11:04:00.988] [Server thread/INFO] [dev.fourthdimension.editor.RotationTool/]: FD_ROTATION_BIND player=Dev binding=c6093d81-77f5-4431-b35b-94cb1adf3025 vehicle=four_abreast_v1 chassis=c6093d81-77f5-4431-b35b-94cb1adf3025
+[22Nov2026 11:04:00.988] [Server thread/INFO] [dev.fourthdimension.editor.RotationTool/]: FD_ROTATION_DISPATCH player=Dev target=c6093d81-77f5-4431-b35b-94cb1adf3025 vehicle=true
+[22Nov2026 11:04:00.988] [Server thread/INFO] [dev.fourthdimension.editor.EditorNetwork/]: FD_EDITOR_OPEN player=Dev target=c6093d81-77f5-4431-b35b-94cb1adf3025 vehicle=true
+[22Nov2026 11:04:27.160] [RCON Listener #1/INFO] [net.minecraft.server.rcon.thread.GenericThread/]: Thread RCON Client /127.0.0.1 started
+[22Nov2026 11:04:27.177] [Server thread/INFO] [dev.ryanhcode.sable.Sable/]: Saving sub-levels for level 'ServerLevel[SkinWorkshop]'/minecraft:overworld
+[22Nov2026 11:04:27.294] [Server thread/INFO] [dev.ryanhcode.sable.Sable/]: Saving sub-levels for level 'ServerLevel[SkinWorkshop]'/minecraft:the_end
+[22Nov2026 11:04:27.304] [Server thread/INFO] [dev.ryanhcode.sable.Sable/]: Saving sub-levels for level 'ServerLevel[SkinWorkshop]'/minecraft:the_nether
+[22Nov2026 11:04:27.326] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: ThreadedAnvilChunkStorage (SkinWorkshop): All chunks are saved
+[22Nov2026 11:04:27.326] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: ThreadedAnvilChunkStorage (DIM1): All chunks are saved
+[22Nov2026 11:04:27.326] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
+[22Nov2026 11:04:27.326] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: ThreadedAnvilChunkStorage: All dimensions are saved
+[22Nov2026 11:04:27.327] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Rcon: Saved the game]
+[22Nov2026 11:04:27.368] [RCON Client /127.0.0.1 #10/INFO] [net.minecraft.server.rcon.thread.RconClient/]: Thread RCON Client /127.0.0.1 shutting down
+[22Nov2026 11:04:27.820] [Netty Epoll Server IO #2/ERROR] [net.minecraft.network.Connection/]: Exception caught in connection
+io.netty.channel.unix.Errors$NativeIoException: recvAddress(..) failed: Connection reset by peer
+[22Nov2026 11:04:27.866] [Server thread/INFO] [net.minecraft.server.network.ServerGamePacketListenerImpl/]: Dev lost connection: Disconnected
+[22Nov2026 11:04:27.866] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Dev left the game
+[22Nov2026 11:04:27.874] [RCON Listener #1/INFO] [net.minecraft.server.rcon.thread.GenericThread/]: Thread RCON Client /127.0.0.1 started
+[22Nov2026 11:04:27.881] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Rcon: Stopping the server]
+[22Nov2026 11:04:27.882] [RCON Client /127.0.0.1 #11/INFO] [net.minecraft.server.rcon.thread.RconClient/]: Thread RCON Client /127.0.0.1 shutting down
+[22Nov2026 11:04:27.921] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Stopping server
+[22Nov2026 11:04:27.922] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving players
+[22Nov2026 11:04:27.922] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving worlds
+[22Nov2026 11:04:27.941] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[SkinWorkshop]'/minecraft:overworld
+[22Nov2026 11:04:27.941] [Server thread/INFO] [dev.ryanhcode.sable.Sable/]: Saving sub-levels for level 'ServerLevel[SkinWorkshop]'/minecraft:overworld
+[22Nov2026 11:04:28.008] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[SkinWorkshop]'/minecraft:the_end
+[22Nov2026 11:04:28.009] [Server thread/INFO] [dev.ryanhcode.sable.Sable/]: Saving sub-levels for level 'ServerLevel[SkinWorkshop]'/minecraft:the_end
+[22Nov2026 11:04:28.016] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[SkinWorkshop]'/minecraft:the_nether
+[22Nov2026 11:04:28.017] [Server thread/INFO] [dev.ryanhcode.sable.Sable/]: Saving sub-levels for level 'ServerLevel[SkinWorkshop]'/minecraft:the_nether
+[22Nov2026 11:04:28.030] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: ThreadedAnvilChunkStorage (SkinWorkshop): All chunks are saved
+[22Nov2026 11:04:28.031] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: ThreadedAnvilChunkStorage (DIM1): All chunks are saved
+[22Nov2026 11:04:28.031] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
+[22Nov2026 11:04:28.031] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: ThreadedAnvilChunkStorage: All dimensions are saved
+[22Nov2026 11:04:28.051] [Server thread/INFO] [net.minecraft.server.rcon.thread.GenericThread/]: Thread RCON Listener stopped

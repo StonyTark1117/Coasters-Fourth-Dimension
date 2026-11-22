@@ -1,0 +1,30 @@
+Id=fd13-flying-20261122-client.service
+ActiveState=inactive
+MainPID=0
+
+Id=fd13-flying-20261122-server.service
+ActiveState=inactive
+MainPID=0
+
+Id=fd13-flying-20261122-xvfb.service
+ActiveState=inactive
+MainPID=0
+
+[10:37:45] [RCON Client /127.0.0.1 #95/INFO] [minecraft/RconClient]: Thread RCON Client /127.0.0.1 shutting down
+[10:37:45] [RCON Listener #1/INFO] [minecraft/GenericThread]: Thread RCON Client /127.0.0.1 started
+[10:37:45] [Server thread/INFO] [minecraft/MinecraftServer]: [Rcon: Stopping the server]
+[10:37:45] [RCON Client /127.0.0.1 #96/INFO] [minecraft/RconClient]: Thread RCON Client /127.0.0.1 shutting down
+[10:37:46] [Server thread/INFO] [minecraft/MinecraftServer]: Stopping server
+[10:37:46] [Server thread/INFO] [minecraft/MinecraftServer]: Saving players
+[10:37:46] [Server thread/INFO] [minecraft/MinecraftServer]: Saving worlds
+[10:37:46] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[FlyingSupports]'/minecraft:overworld
+[10:37:46] [Server thread/INFO] [de.ry.sa.Sable/]: Saving sub-levels for level 'ServerLevel[FlyingSupports]'/minecraft:overworld
+[10:37:46] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[FlyingSupports]'/minecraft:the_end
+[10:37:46] [Server thread/INFO] [de.ry.sa.Sable/]: Saving sub-levels for level 'ServerLevel[FlyingSupports]'/minecraft:the_end
+[10:37:46] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'ServerLevel[FlyingSupports]'/minecraft:the_nether
+[10:37:46] [Server thread/INFO] [de.ry.sa.Sable/]: Saving sub-levels for level 'ServerLevel[FlyingSupports]'/minecraft:the_nether
+[10:37:46] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (FlyingSupports): All chunks are saved
+[10:37:46] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (DIM1): All chunks are saved
+[10:37:46] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
+[10:37:46] [Server thread/INFO] [minecraft/MinecraftServer]: ThreadedAnvilChunkStorage: All dimensions are saved
+[10:37:46] [Server thread/INFO] [minecraft/GenericThread]: Thread RCON Listener stopped

@@ -1,0 +1,76 @@
+{"at": 1795369910.5989265, "command": "op Dev", "state": "sending"}
+{"at": 1795369910.5989265, "command": "op Dev", "state": "responded", "result": "Made Dev a server operator\n"}
+{"at": 1795369910.6771448, "command": "gamemode creative Dev", "state": "sending"}
+{"at": 1795369910.6771448, "command": "gamemode creative Dev", "state": "responded", "result": ""}
+{"at": 1795369910.7337036, "command": "gamerule doDaylightCycle false", "state": "sending"}
+{"at": 1795369910.7337036, "command": "gamerule doDaylightCycle false", "state": "responded", "result": "Gamerule doDaylightCycle is now set to: false\n"}
+{"at": 1795369910.7916949, "command": "time set day", "state": "sending"}
+{"at": 1795369910.7916949, "command": "time set day", "state": "responded", "result": "Set the time to 1000\n"}
+{"at": 1795369910.8520076, "command": "execute as Dev positioned 100 120 100 run fd demo wing", "state": "sending"}
+{"at": 1795369910.8520076, "command": "execute as Dev positioned 100 120 100 run fd demo wing", "state": "responded", "result": "Wing ordinary-track loop built. Board at the level station; close restraints and Dispatch. Use Stop or power the station to stop the returning car. Dye an empty stopped seat to recolor.\n"}
+{"at": 1795369911.2525523, "command": "item replace entity Dev hotbar.0 with fourthdimension:rotation_tool", "state": "sending"}
+{"at": 1795369911.2525523, "command": "item replace entity Dev hotbar.0 with fourthdimension:rotation_tool", "state": "responded", "result": "Replaced a slot on Dev with [Rotation Tool]\n"}
+{"at": 1795369911.3550408, "command": "tp Dev 93.5 123 151.5 -90 10", "state": "sending"}
+{"at": 1795369911.3550408, "command": "tp Dev 93.5 123 151.5 -90 10", "state": "responded", "result": "Teleported Dev to 93.500000, 123.000000, 151.500000\n"}
+{"at": 1795369930.512293, "command": "setblock 94 123 151 minecraft:lever[face=floor,facing=north,powered=false]", "state": "sending"}
+{"at": 1795369930.512293, "command": "setblock 94 123 151 minecraft:lever[face=floor,facing=north,powered=false]", "state": "responded", "result": "Changed the block at 94, 123, 151\n"}
+{"at": 1795369930.5720992, "command": "tp Dev 93.5 123 149.5 -26.565 32.42", "state": "sending"}
+{"at": 1795369930.5720992, "command": "tp Dev 93.5 123 149.5 -26.565 32.42", "state": "responded", "result": "Teleported Dev to 93.500000, 123.000000, 149.500000\n"}
+{"at": 1795369946.2258217, "command": "execute if block 94 123 151 minecraft:lever[powered=true] run say FD2102_WING_INPUT_PASS", "state": "sending"}
+{"at": 1795369946.2258217, "command": "execute if block 94 123 151 minecraft:lever[powered=true] run say FD2102_WING_INPUT_PASS", "state": "responded", "result": ""}
+{"at": 1795369946.2895174, "command": "setblock 94 123 151 air", "state": "sending"}
+{"at": 1795369946.2895174, "command": "setblock 94 123 151 air", "state": "responded", "result": "Changed the block at 94, 123, 151\n"}
+{"at": 1795369946.3474667, "command": "execute positioned 100 124 154 run sable info @n", "state": "sending"}
+{"at": 1795369946.3474667, "command": "execute positioned 100 124 154 run sable info @n", "state": "responded", "result": "Found 1 sub-levels:\n13320978-85f5-4b70-9afd-d94c8c659e44:\n    Position: 100.5 124.32500457763672 154.5\n    Orientation: 0.0 1.0 0.0 0.0\n    Mass: 10.0\n    Linear Velocity: 0.0 -2.481274423189461E-4 0.0\n    Angular Velocity: 0.0 0.0 0.0\n"}
+{"at": 1795369966.526737, "command": "tp Dev 94.5 123 152.5 -45 -10", "state": "sending"}
+{"at": 1795369966.526737, "command": "tp Dev 94.5 123 152.5 -45 -10", "state": "responded", "result": "Teleported Dev to 94.500000, 123.000000, 152.500000\n"}
+{"at": 1795369979.169229, "command": "tp Dev 94.5 124 154.5 -90 30", "state": "sending"}
+{"at": 1795369979.169229, "command": "tp Dev 94.5 124 154.5 -90 30", "state": "responded", "result": "Teleported Dev to 94.500000, 124.000000, 154.500000\n"}
+{"at": 1795370026.231994, "command": "save-all flush", "state": "sending"}
+{"at": 1795370026.231994, "command": "save-all flush", "state": "responded", "result": "Saving the game (this may take a moment!)\nSaved the game\n"}
+{"at": 1795370079.4335573, "command": "save-all flush", "state": "sending"}
+{"at": 1795370079.4335573, "command": "save-all flush", "state": "responded", "result": "Saving the game (this may take a moment!)\nSaved the game\n"}
+{"at": 1795370112.3448465, "command": "save-all flush", "state": "sending"}
+{"at": 1795370112.3448465, "command": "save-all flush", "state": "responded", "result": "Saving the game (this may take a moment!)\nSaved the game\n"}
+{"at": 1795370152.7145047, "command": "fd status", "state": "sending"}
+{"at": 1795370152.7145047, "command": "fd status", "state": "responded", "result": "wing_fixed 13320978-85f5-4b70-9afd-d94c8c659e44 angle=0.0 omega=0.0 capture=true occupants=1\nCarrier update average: 0 ns across 0 updates\n"}
+{"at": 1795370189.7566235, "command": "execute positioned 100 124 154 run sable info @n", "state": "sending"}
+{"at": 1795370189.7566235, "command": "execute positioned 100 124 154 run sable info @n", "state": "responded", "result": "Found 1 sub-levels:\n13320978-85f5-4b70-9afd-d94c8c659e44:\n    Position: 100.20370483398438 124.42130279541016 156.8258056640625\n    Orientation: -2.0466122303423916E-15 1.0 -6.09757735973016E-23 1.1152220916910965E-19\n    Mass: 10.8\n    Linear Velocity: 2.3841860752327193E-7 -2.481281408108771E-4 4.0\n    Angular Velocity: -3.7433345743264437E-22 -6.815378558133077E-21 1.2478707303587022E-12\n"}
+{"at": 1795370201.2789974, "command": "execute positioned 100 124 190 run sable info @n", "state": "sending"}
+{"at": 1795370201.2789974, "command": "execute positioned 100 124 190 run sable info @n", "state": "responded", "result": "Found 1 sub-levels:\n13320978-85f5-4b70-9afd-d94c8c659e44:\n    Position: 100.25481414794922 124.41761016845703 202.3016357421875\n    Orientation: -0.006067776586860418 0.999419629573822 2.0351861894596368E-4 -0.03352139890193939\n    Mass: 10.8\n    Linear Velocity: 0.20191073417663574 -2.4812735500745475E-4 3.006532907485962\n    Angular Velocity: -8.828478719564645E-14 9.73103130823201E-18 -1.3098711568529375E-12\n"}
+{"at": 1795370201.334084, "command": "fd status", "state": "sending"}
+{"at": 1795370201.334084, "command": "fd status", "state": "responded", "result": "wing_fixed 13320978-85f5-4b70-9afd-d94c8c659e44 angle=0.0 omega=0.0 capture=false occupants=1\nCarrier update average: 0 ns across 0 updates\n"}
+{"at": 1795370217.8628254, "command": "execute positioned 125 124 224 run sable info @n", "state": "sending"}
+{"at": 1795370217.8628254, "command": "execute positioned 125 124 224 run sable info @n", "state": "responded", "result": "Found 1 sub-levels:\n13320978-85f5-4b70-9afd-d94c8c659e44:\n    Position: 150.17605590820312 124.11622619628906 225.3422393798828\n    Orientation: -0.1830127239227295 0.6830127835273743 0.1830126941204071 -0.6830127239227295\n    Mass: 10.8\n    Linear Velocity: 4.0 -2.4812755873426795E-4 4.6461592906332783E-10\n    Angular Velocity: -1.5782992794448137E-18 -2.0907983393106226E-14 -2.0516167974563015E-14\n"}
+{"at": 1795370231.6220615, "command": "execute positioned 175 124 220 run sable info @n", "state": "sending"}
+{"at": 1795370231.6220615, "command": "execute positioned 175 124 220 run sable info @n", "state": "responded", "result": "Found 1 sub-levels:\n13320978-85f5-4b70-9afd-d94c8c659e44:\n    Position: 195.114013671875 124.38494110107422 209.7180938720703\n    Orientation: -0.009862741455435753 0.192790687084198 0.050129953771829605 -0.9799089431762695\n    Mass: 10.8\n    Linear Velocity: 0.1794142723083496 -2.481293922755867E-4 -0.43831053376197815\n    Angular Velocity: -2.7950482640176633E-13 -3.1272026543408037E-15 7.164639975049125E-13\n"}
+{"at": 1795370231.682305, "command": "fd status", "state": "sending"}
+{"at": 1795370231.682305, "command": "fd status", "state": "responded", "result": "wing_fixed 13320978-85f5-4b70-9afd-d94c8c659e44 angle=0.0 omega=0.0 capture=true occupants=1\nCarrier update average: 0 ns across 0 updates\n"}
+{"at": 1795370242.5348353, "command": "execute positioned 195 124 209 run sable info @n", "state": "sending"}
+{"at": 1795370242.5348353, "command": "execute positioned 195 124 209 run sable info @n", "state": "responded", "result": "Found 1 sub-levels:\n13320978-85f5-4b70-9afd-d94c8c659e44:\n    Position: 195.11834716796875 124.38517761230469 209.70571899414062\n    Orientation: -0.009766044095158577 0.19198593497276306 0.049855317920446396 -0.9800819158554077\n    Mass: 10.8\n    Linear Velocity: 1.5853927892717223E-10 -2.4812857736833394E-4 -5.161797100861065E-10\n    Angular Velocity: 1.2738016208230923E-13 -5.5979208932416345E-15 -3.15857230778413E-13\n"}
+{"at": 1795370277.1147418, "command": "fd status", "state": "sending"}
+{"at": 1795370277.1147418, "command": "fd status", "state": "responded", "result": "wing_fixed 13320978-85f5-4b70-9afd-d94c8c659e44 angle=0.0 omega=0.0 capture=true occupants=0\nCarrier update average: 0 ns across 0 updates\n"}
+{"at": 1795370277.1794708, "command": "save-all flush", "state": "sending"}
+{"at": 1795370277.1794708, "command": "save-all flush", "state": "responded", "result": "Saving the game (this may take a moment!)\nSaved the game\n"}
+{"at": 1795370306.8361242, "command": "fill 201 123 212 203 123 216 minecraft:smooth_stone", "state": "sending"}
+{"at": 1795370306.8361242, "command": "fill 201 123 212 203 123 216 minecraft:smooth_stone", "state": "responded", "result": "That position is not loaded\n"}
+{"at": 1795370306.8958354, "command": "execute positioned 20481036.5 129.6 20481032.5 out_sub_level 13320978-85f5-4b70-9afd-d94c8c659e44 anchored eyes run tp Dev 201.5 124 214.5 facing ~ ~ ~", "state": "sending"}
+{"at": 1795370306.8958354, "command": "execute positioned 20481036.5 129.6 20481032.5 out_sub_level 13320978-85f5-4b70-9afd-d94c8c659e44 anchored eyes run tp Dev 201.5 124 214.5 facing ~ ~ ~", "state": "responded", "result": ""}
+{"at": 1795370319.5395548, "command": "tp Dev 201.5 124 214.5 135 10", "state": "sending"}
+{"at": 1795370319.5395548, "command": "tp Dev 201.5 124 214.5 135 10", "state": "responded", "result": "Teleported Dev to 201.500000, 124.000000, 214.500000\n"}
+{"at": 1795370320.480603, "command": "fill 201 123 212 203 123 216 minecraft:smooth_stone", "state": "sending"}
+{"at": 1795370320.480603, "command": "fill 201 123 212 203 123 216 minecraft:smooth_stone", "state": "responded", "result": "Successfully filled 15 block(s)\n"}
+{"at": 1795370320.5755782, "command": "execute positioned 20481036.5 129.6 20481032.5 out_sub_level 13320978-85f5-4b70-9afd-d94c8c659e44 anchored eyes run tp Dev 201.5 124 214.5 facing ~ ~ ~", "state": "sending"}
+{"at": 1795370320.5755782, "command": "execute positioned 20481036.5 129.6 20481032.5 out_sub_level 13320978-85f5-4b70-9afd-d94c8c659e44 anchored eyes run tp Dev 201.5 124 214.5 facing ~ ~ ~", "state": "responded", "result": "Teleported Dev to 201.500000, 124.000000, 214.500000\n"}
+{"at": 1795370341.1713054, "command": "list", "state": "sending"}
+{"at": 1795370341.1713054, "command": "list", "state": "responded", "result": "There are 0 of a max of 20 players online: \n"}
+{"at": 1795370341.6336336, "command": "stop", "state": "sending"}
+{"at": 1795370341.6336336, "command": "stop", "state": "responded", "result": "Stopping the server\n"}
+{"at": 1795370381.79537, "command": "save-all flush", "state": "sending"}
+{"at": 1795370381.79537, "command": "save-all flush", "state": "responded", "result": "Saving the game (this may take a moment!)\nSaved the game\n"}
+{"at": 1795370737.9776173, "command": "save-all flush", "state": "sending"}
+{"at": 1795370737.9776173, "command": "save-all flush", "state": "responded", "result": "Saving the game (this may take a moment!)\nSaved the game\n"}
+{"at": 1795370769.2941086, "command": "save-all flush", "state": "sending"}
+{"at": 1795370769.2941086, "command": "save-all flush", "state": "responded", "result": "Saving the game (this may take a moment!)\nSaved the game\n"}
+{"at": 1795370781.3433166, "command": "stop", "state": "sending"}
+{"at": 1795370781.3433166, "command": "stop", "state": "responded", "result": "Stopping the server\n"}

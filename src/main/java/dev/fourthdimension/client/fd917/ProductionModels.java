@@ -48,7 +48,12 @@ public final class ProductionModels {
       for (var state : block.getStateDefinition().getPossibleStates()) {
         var id = net.minecraft.client.renderer.block.BlockModelShaper.stateToModelLocation(state);
         var original = models.get(id);
-        if (original != null) models.put(id, new dev.fourthdimension.client.tools.PaletteModels(new StaticArticulationModel(original, state, entry.getValue(), models)));
+        if (original != null) {
+          var body = state.getBlock() instanceof dev.fourthdimension.vehicle.WingSeatBlock
+              || state.getBlock() instanceof dev.fourthdimension.vehicle.FixedInvertedSeatBlock
+              ? new dev.fourthdimension.client.tools.BodyModels(original, state, models) : original;
+          models.put(id, new dev.fourthdimension.client.tools.PaletteModels(new StaticArticulationModel(body, state, entry.getValue(), models)));
+        }
       }
     }
   }
@@ -93,5 +98,6 @@ public final class ProductionModels {
     }
     parts = Map.copyOf(loaded);
     generation++;
+    dev.fourthdimension.client.tools.BodyModels.resourceReloaded();
   }
 }

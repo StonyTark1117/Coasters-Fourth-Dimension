@@ -6,8 +6,8 @@
     "body": "fourthdimension:block/fd917/paint_purple",
     "paint": "fourthdimension:block/fd917/paint_purple",
     "accent": "fourthdimension:block/fd917/paint_purple",
-    "cushion": "fourthdimension:block/fd917/upholstery_purple",
-    "seat": "fourthdimension:block/fd917/upholstery_purple",
+    "cushion": "fourthdimension:block/fd917/upholstery_black",
+    "seat": "fourthdimension:block/fd917/upholstery_black",
     "restraint": "fourthdimension:block/fd917/restraint",
     "harness": "fourthdimension:block/fd917/restraint",
     "contact": "fourthdimension:block/fd917/machined",
@@ -161,7 +161,7 @@
       ],
       "to": [
         8,
-        28,
+        23,
         17
       ],
       "faces": {
@@ -171,7 +171,7 @@
             0,
             0,
             16,
-            16
+            11
           ]
         },
         "south": {
@@ -180,7 +180,7 @@
             0,
             0,
             16,
-            16
+            11
           ]
         },
         "east": {
@@ -189,7 +189,7 @@
             0,
             0,
             3,
-            16
+            11
           ]
         },
         "west": {
@@ -198,7 +198,7 @@
             0,
             0,
             3,
-            16
+            11
           ]
         },
         "up": {
@@ -223,13 +223,81 @@
     },
     {
       "from": [
+        -7,
+        23,
+        14
+      ],
+      "to": [
+        7,
+        28,
+        17
+      ],
+      "faces": {
+        "north": {
+          "texture": "#paint",
+          "uv": [
+            0,
+            0,
+            14,
+            5
+          ]
+        },
+        "south": {
+          "texture": "#paint",
+          "uv": [
+            0,
+            0,
+            14,
+            5
+          ]
+        },
+        "east": {
+          "texture": "#paint",
+          "uv": [
+            0,
+            0,
+            3,
+            5
+          ]
+        },
+        "west": {
+          "texture": "#paint",
+          "uv": [
+            0,
+            0,
+            3,
+            5
+          ]
+        },
+        "up": {
+          "texture": "#paint",
+          "uv": [
+            0,
+            0,
+            14,
+            3
+          ]
+        },
+        "down": {
+          "texture": "#paint",
+          "uv": [
+            0,
+            0,
+            14,
+            3
+          ]
+        }
+      }
+    },
+    {
+      "from": [
         -5,
         28,
         13
       ],
       "to": [
         5,
-        32,
+        30,
         17
       ],
       "faces": {
@@ -239,7 +307,7 @@
             0,
             0,
             10,
-            4
+            2
           ]
         },
         "south": {
@@ -248,7 +316,7 @@
             0,
             0,
             10,
-            4
+            2
           ]
         },
         "east": {
@@ -257,7 +325,7 @@
             0,
             0,
             4,
-            4
+            2
           ]
         },
         "west": {
@@ -266,7 +334,7 @@
             0,
             0,
             4,
-            4
+            2
           ]
         },
         "up": {
@@ -284,6 +352,74 @@
             0,
             0,
             10,
+            4
+          ]
+        }
+      }
+    },
+    {
+      "from": [
+        -4,
+        30,
+        13
+      ],
+      "to": [
+        4,
+        32,
+        17
+      ],
+      "faces": {
+        "north": {
+          "texture": "#paint",
+          "uv": [
+            0,
+            0,
+            8,
+            2
+          ]
+        },
+        "south": {
+          "texture": "#paint",
+          "uv": [
+            0,
+            0,
+            8,
+            2
+          ]
+        },
+        "east": {
+          "texture": "#paint",
+          "uv": [
+            0,
+            0,
+            4,
+            2
+          ]
+        },
+        "west": {
+          "texture": "#paint",
+          "uv": [
+            0,
+            0,
+            4,
+            2
+          ]
+        },
+        "up": {
+          "texture": "#paint",
+          "uv": [
+            0,
+            0,
+            8,
+            4
+          ]
+        },
+        "down": {
+          "texture": "#paint",
+          "uv": [
+            0,
+            0,
+            8,
             4
           ]
         }

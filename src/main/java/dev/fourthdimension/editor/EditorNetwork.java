@@ -209,6 +209,7 @@ public final class EditorNetwork {
       if(request.action>=40&&request.action<=42&&!NewGenerationFlyingVehicle.is(vehicle))throw new IllegalArgumentException("Compound Flying control requires its matching car");
       switch (request.action) {
         case 81 -> dev.fourthdimension.tools.PaletteService.apply(player,vehicle,request.value);
+        case 82 -> dev.fourthdimension.tools.BodyService.apply(player,vehicle,request.value);
         case 80 -> dev.fourthdimension.integration.SkinAdapter.select(player,vehicle,request.value);
         case 10 -> VehicleOperations.capture(level, vehicle);
         case 11 -> VehicleOperations.restraints(level, vehicle, true);

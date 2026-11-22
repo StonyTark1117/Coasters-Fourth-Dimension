@@ -1,6 +1,6 @@
 # Current qualification record
 
-Updated 2026-11-17. This is the single artifact index for the active roadmap.
+Updated 2026-11-22. This is the single artifact index for the active roadmap.
 **1.0 release readiness is complete; 1.0.0 is Beta on both platforms; stable
 promotion remains pending.** FD1000, FD901–FD905 and FD1001–FD1003 are closed
 under their stated readiness criteria. There is no remaining 1.0 acceptance
@@ -76,32 +76,45 @@ Lead keeps this finite queue current, reconciles affected packaging/docs and a
 representative workload, selectively commits/pushes and verifies remote HEAD.
 The later human request activated continued coordinator monitoring for 1.2 and FD2101.
 
-### 1.3 model work — FD2101 complete 2026-11-22
+### Completed 1.3 — accepted 2026-11-22
 
-FD2101 owner `01a1e8b5-8dd3-7110-a26d-e29e8b8ec23e` resolved the finite
-evidenced original-model defect list in the [FD2101 repair record](evidence/1.3/fd2101/README.md):
-Fixed Inverted pan/frame, Arrow axle-to-bucket and center mount, shared
-original-family controller/axle/seat paths, paired center spines, Revised seat
-intrusion, and the subsequently reported floating parent bearing yoke. The
-last bearing regression has a same-angle open/closed visual comparison, exact
-beam-containment audit, Java 21 build identity, and saved/inactive private run.
-Accepted unaffected FD917 behavior and FD2104's broader structural questions
-remain separate.
+The human requested **“Continue 1.3”** after the completed 1.2/FD2101
+integration at `b5e78f31`. This coordinator owns FD2104, then FD2102 and
+FD2103 on primary `main`, including central planning, model generators/outputs
+and the original appearance path. No new branch or worktree is needed;
+pre-existing untracked `logs/` is preserved. Publication remains separate.
+The earlier 1.2 central-file allocation is complete and does not prevent this
+new assignment. The FD2101 owner is reviewing acceptance wording read-only;
+its named repair evidence remains intact.
 
-The human requested broader model improvements before variants, including a
-comparison with real-life or other-game counterparts. **FD2104 first reference pass is complete** in the [17-style matrix and recommendations](evidence/1.3/model-reference-review.md). The [read-only structural follow-up](evidence/1.3/structural-reference-follow-up.md) confirms five shared architectural gaps and leaves twelve interfaces explicitly unverified; implementation reconciliation remains open, recommendations are candidates, and FD2104 implementation remains planned. FD2104 implementation and FD2102/FD2103 remain planned,
-not newly assigned for implementation. FD2102 now waits for FD2101/FD2104 base
-readiness. See the [revised 1.3 roadmap](../ROADMAP.md#version-13-car-models).
+| Package | Current work |
+| --- | --- |
+| FD2101 | Prior repairs remain accepted. P1 Pipeline floor/pan/shell gap closed with [affected evidence](evidence/1.3/pipeline-support/README.md). P2 S1/S2 mounting and P3 Axis/Suspended brake repairs are accepted with source/affected client evidence and clean shutdown. Finite defect work is complete. |
+| FD2104 | W1 Wing, I1 Fixed Inverted and F1 Flying/NG Flying saddles accepted with source/client evidence and cleanup. P2/P3 affected views and cleanup also accepted; base readiness complete; see [finite work record](evidence/1.3/base-refinement.md). |
+| FD2102 | Complete: [both body choices](evidence/1.3/body-variants/README.md), normal preview/cancel/Apply, independent upholstery, occupied ride/stop/unload, native guards, cold persistence and resource fallback accepted. |
+| FD2103 | Complete: [integration manifest](evidence/1.3/integration-manifest.md) reconciles cumulative evidence and byte-identical independent packages. All owned runtimes stopped. No remaining 1.3 acceptance assignment; publication and 1.4 remain separate. |
 
-The finite FD2101 source is reconciled against the current checkout and the
-support audit passes. Its generator/factory/parts paths are included in the
-selective central integration with the completed 1.2 work. No FD2104
-implementation is included.
+The [first reference pass](evidence/1.3/model-reference-review.md) and
+[structural follow-up](evidence/1.3/structural-reference-follow-up.md) remain
+historical review inputs. Their missing-interface warnings must be resolved or
+explicitly retained as limits, never silently converted into passes. Current
+implementation disposition belongs in the finite work record.
 
-Preserve the active 1.2 ownership and accepted C1/C5. The coordinator monitors
-1.2 and retains the completed FD2101 record; the reference review supplies planning input,
-not permission for a new all-family qualification campaign. Coordinate central
-document edits and exact generator/output paths with the integration lead.
+**1.3 completed ownership, 2026-11-22:** All work below is complete and every runtime is stopped; no live handoff remains. Base repairs/refinements and their
+private runtimes are complete. For FD2102, `/root/fd13_structure_reconcile`
+owns the 22 alternate/miniature models, their generator/audit, and Fixed Inverted
+client evidence under `evidence/1.3/body-variants/fixed-client/`. It completed and returned the
+explicit handoff of the stopped `:341`/25713 runtime at
+`/mnt/NVME4/fourthdimension-runs/fd13-base-20261122`.
+`/root/fd13_body_design` owns picker/navigation UI and builder documentation,
+plus Wing client evidence, shared resource fallback/reload checks and its own
+`:342`/25723 runtime under `fd13-wing-body-20261122` (the earlier Flying world stays untouched).
+`/root/fd13_spinning_check` owns the focused native body transaction tests in
+`fourthdimension_fd13` and their isolated persistent run under
+`fd13-spinning-20261122/body-tests`.
+Coordinator owns body persistence/guards/render substitution, central documents
+and final integration. Private builds/game directories/scopes stay separate.
+The human authorized delegation in the active 1.3 completion goal.
 
 **FD1701 fixture-helper transfer — 2026-11-22:** the validation-only
 `Fd1701FixtureRepair.java` path is transferred to coordinator ownership for a

@@ -3,9 +3,9 @@
   "ambientocclusion": true,
   "textures": {
     "metal": "fourthdimension:block/fd917/structural",
-    "body": "fourthdimension:block/fd917/paint_red",
-    "paint": "fourthdimension:block/fd917/paint_red",
-    "accent": "fourthdimension:block/fd917/paint_red",
+    "body": "fourthdimension:block/fd917/paint_gray",
+    "paint": "fourthdimension:block/fd917/paint_gray",
+    "accent": "fourthdimension:block/fd917/paint_gray",
     "cushion": "fourthdimension:block/fd917/upholstery_red",
     "seat": "fourthdimension:block/fd917/upholstery_red",
     "restraint": "fourthdimension:block/fd917/restraint",
@@ -14,7 +14,7 @@
     "bolt": "fourthdimension:block/fd917/fastener",
     "rubber": "fourthdimension:block/fd917/rubber",
     "latch": "fourthdimension:block/fd917/paint_orange",
-    "particle": "fourthdimension:block/fd917/paint_red"
+    "particle": "fourthdimension:block/fd917/paint_gray"
   },
   "elements": [
     {
@@ -225,7 +225,76 @@
       }
     },
     {
-      "name": "fixed wing shell",
+      "name": "continuous fixed mounting shoe",
+      "from": [
+        0,
+        0,
+        4
+      ],
+      "to": [
+        16,
+        3.5,
+        12
+      ],
+      "faces": {
+        "north": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            16,
+            3.5
+          ]
+        },
+        "south": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            16,
+            3.5
+          ]
+        },
+        "east": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            8,
+            3.5
+          ]
+        },
+        "west": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            8,
+            3.5
+          ]
+        },
+        "up": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            16,
+            8
+          ]
+        },
+        "down": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            16,
+            8
+          ]
+        }
+      }
+    },
+    {
+      "name": "lower wing shell",
       "from": [
         1,
         4,
@@ -233,7 +302,7 @@
       ],
       "to": [
         15,
-        20,
+        16,
         16
       ],
       "faces": {
@@ -243,7 +312,7 @@
             0,
             0,
             14,
-            16
+            12
           ]
         },
         "south": {
@@ -252,7 +321,7 @@
             0,
             0,
             14,
-            16
+            12
           ]
         },
         "east": {
@@ -261,7 +330,7 @@
             0,
             0,
             1.5,
-            16
+            12
           ]
         },
         "west": {
@@ -270,7 +339,16 @@
             0,
             0,
             1.5,
-            16
+            12
+          ]
+        },
+        "up": {
+          "texture": "#paint",
+          "uv": [
+            0,
+            0,
+            14,
+            1.5
           ]
         },
         "down": {
@@ -285,15 +363,15 @@
       }
     },
     {
-      "name": "fixed wing shell",
+      "name": "tapered wing shoulders",
       "from": [
-        1,
-        20,
+        2,
+        16,
         14.5
       ],
       "to": [
-        15,
-        22,
+        14,
+        21,
         16
       ],
       "faces": {
@@ -302,8 +380,8 @@
           "uv": [
             0,
             0,
-            14,
-            2
+            12,
+            5
           ]
         },
         "south": {
@@ -311,8 +389,8 @@
           "uv": [
             0,
             0,
-            14,
-            2
+            12,
+            5
           ]
         },
         "east": {
@@ -321,7 +399,7 @@
             0,
             0,
             1.5,
-            2
+            5
           ]
         },
         "west": {
@@ -330,7 +408,7 @@
             0,
             0,
             1.5,
-            2
+            5
           ]
         },
         "up": {
@@ -338,22 +416,31 @@
           "uv": [
             0,
             0,
-            14,
+            12,
+            1.5
+          ]
+        },
+        "down": {
+          "texture": "#paint",
+          "uv": [
+            0,
+            0,
+            12,
             1.5
           ]
         }
       }
     },
     {
-      "name": "high wing head fairing",
+      "name": "inset wing crown",
       "from": [
         4,
-        22,
+        21,
         13
       ],
       "to": [
         12,
-        27,
+        24,
         16
       ],
       "faces": {
@@ -363,7 +450,7 @@
             0,
             0,
             8,
-            5
+            3
           ]
         },
         "south": {
@@ -372,7 +459,7 @@
             0,
             0,
             8,
-            5
+            3
           ]
         },
         "east": {
@@ -381,7 +468,7 @@
             0,
             0,
             3,
-            5
+            3
           ]
         },
         "west": {
@@ -390,7 +477,7 @@
             0,
             0,
             3,
-            5
+            3
           ]
         },
         "up": {
@@ -408,6 +495,75 @@
             0,
             0,
             8,
+            3
+          ]
+        }
+      }
+    },
+    {
+      "name": "compact head fairing",
+      "from": [
+        5,
+        24,
+        13
+      ],
+      "to": [
+        11,
+        26,
+        16
+      ],
+      "faces": {
+        "north": {
+          "texture": "#paint",
+          "uv": [
+            0,
+            0,
+            6,
+            2
+          ]
+        },
+        "south": {
+          "texture": "#paint",
+          "uv": [
+            0,
+            0,
+            6,
+            2
+          ]
+        },
+        "east": {
+          "texture": "#paint",
+          "uv": [
+            0,
+            0,
+            3,
+            2
+          ]
+        },
+        "west": {
+          "texture": "#paint",
+          "uv": [
+            0,
+            0,
+            3,
+            2
+          ]
+        },
+        "up": {
+          "texture": "#paint",
+          "uv": [
+            0,
+            0,
+            6,
+            3
+          ]
+        },
+        "down": {
+          "texture": "#paint",
+          "uv": [
+            0,
+            0,
+            6,
             3
           ]
         }
@@ -552,11 +708,11 @@
       }
     },
     {
-      "name": "fixed arm fairing",
+      "name": "tapered arm fairing",
       "from": [
         0,
         5,
-        5
+        7
       ],
       "to": [
         2,
@@ -587,7 +743,7 @@
           "uv": [
             0,
             0,
-            7,
+            5,
             3
           ]
         },
@@ -596,7 +752,7 @@
           "uv": [
             0,
             0,
-            7,
+            5,
             3
           ]
         },
@@ -606,7 +762,7 @@
             0,
             0,
             2,
-            7
+            5
           ]
         },
         "down": {
@@ -615,7 +771,7 @@
             0,
             0,
             2,
-            7
+            5
           ]
         }
       }
@@ -690,11 +846,11 @@
       }
     },
     {
-      "name": "fixed arm fairing",
+      "name": "tapered arm fairing",
       "from": [
         14,
         5,
-        5
+        7
       ],
       "to": [
         16,
@@ -725,7 +881,7 @@
           "uv": [
             0,
             0,
-            7,
+            5,
             3
           ]
         },
@@ -734,7 +890,7 @@
           "uv": [
             0,
             0,
-            7,
+            5,
             3
           ]
         },
@@ -744,7 +900,7 @@
             0,
             0,
             2,
-            7
+            5
           ]
         },
         "down": {
@@ -753,7 +909,7 @@
             0,
             0,
             2,
-            7
+            5
           ]
         }
       }

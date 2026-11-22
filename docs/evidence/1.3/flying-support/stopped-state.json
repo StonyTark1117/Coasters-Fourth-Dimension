@@ -1,0 +1,255 @@
+[
+  {
+    "alignment_required": 0,
+    "contact_layout": "coasters_n_contacts_v1",
+    "mount_frame": "overhead_n_v1",
+    "ctnb": {
+      "kind": "",
+      "remaining": 0
+    },
+    "variant": "station_changeover_v1",
+    "restraints": 0,
+    "palette": "ORIGINAL",
+    "dock": 26388279599224,
+    "fault": "",
+    "boundTo": 27487791349883,
+    "carriers": [
+      {
+        "side": 0.0,
+        "control_coupled": 0,
+        "rider_seats": [],
+        "lift_pending": 0,
+        "capture": 1,
+        "body": [
+          -1056037655,
+          -725856759,
+          -1711745971,
+          -1834847965
+        ],
+        "axis": "X",
+        "seats": [
+          -549755813888,
+          -274877906944,
+          0,
+          274877906944
+        ],
+        "ballast": 0.0,
+        "omega": 0.001045002844587075,
+        "lift_geometry": 0,
+        "lift_entered": 0,
+        "pivot_height": -2.8125,
+        "angle": -0.0001782546156929857,
+        "capture_target": -0.00017704443991219728,
+        "lift_held": 0,
+        "latched": 1,
+        "longitudinal": 0.0,
+        "child_pivot_offset": 0.0,
+        "child_pivot_x": -0.5,
+        "child_pivot_z": 0.0,
+        "occupants": []
+      }
+    ],
+    "chassis": [
+      -1877849671,
+      243483923,
+      -1782417001,
+      -315304938
+    ],
+    "damping": 0.0,
+    "boundFrom": 27487791153275,
+    "ballast": 0.0,
+    "revision": 6,
+    "appearance": "original",
+    "boarding_ready": 1,
+    "stopping": 1,
+    "authority": {},
+    "flying": {
+      "phase": "SEATED_OPEN",
+      "hold_angle": 0.0,
+      "reference_velocity": 0.0,
+      "body": 0,
+      "version": 1,
+      "target": 0.0,
+      "consist": [],
+      "reference_angle": 0.0,
+      "legs": 0,
+      "lock": "SEATED",
+      "progress": 0.9998872900089641,
+      "interruption": "",
+      "dock_to": 27487791349883,
+      "dock_geometry": 5338754392911539681,
+      "dock_from": 27487791153275
+    },
+    "shuttle_detached": 0,
+    "family": "flying",
+    "suspended_consist": [],
+    "maintenance": 0
+  },
+  {
+    "alignment_required": 0,
+    "contact_layout": "coasters_n_contacts_v1",
+    "mount_frame": "overhead_n_v1",
+    "ctnb": {
+      "kind": "",
+      "remaining": 0
+    },
+    "variant": "route_changeover_yaw_v1",
+    "restraints": 1,
+    "palette": "ORIGINAL",
+    "dock": -56075092483975,
+    "fault": "",
+    "boundTo": -54975580274552,
+    "carriers": [
+      {
+        "side": 0.0,
+        "control_coupled": 0,
+        "rider_seats": [
+          {
+            "seat": 0,
+            "player": [
+              940439953,
+              -167562164,
+              -1601161573,
+              -1389718966
+            ]
+          }
+        ],
+        "lift_pending": 0,
+        "capture": 1,
+        "body": [
+          1447894756,
+          -1221114791,
+          -1202192714,
+          -1072047650
+        ],
+        "axis": "X",
+        "seats": [
+          -274877906944,
+          0
+        ],
+        "ballast": 0.0,
+        "omega": 0.0006611307424321777,
+        "lift_geometry": 0,
+        "lift_entered": 0,
+        "pivot_height": 0.0,
+        "angle": -1.5640650178532023,
+        "capture_target": -1.5640672236376711,
+        "lift_held": 0,
+        "latched": 1,
+        "longitudinal": 0.0,
+        "child_pivot_offset": 0.0,
+        "child_pivot_x": -0.5,
+        "child_pivot_z": 0.0,
+        "occupants": [
+          [
+            940439953,
+            -167562164,
+            -1601161573,
+            -1389718966
+          ]
+        ]
+      }
+    ],
+    "chassis": [
+      -509433332,
+      185353569,
+      -1976128217,
+      -398073559
+    ],
+    "damping": 0.0,
+    "boundFrom": -54975580405624,
+    "yaw": {
+      "last_show_tick": -1,
+      "deck": [
+        1180366387,
+        1467499809,
+        -1159326936,
+        -377177457
+      ],
+      "axes": "chassis_y_then_deck_x",
+      "section": [
+        -1936367369,
+        -1197847474,
+        -1185707107,
+        -1962495717
+      ],
+      "epoch": 4,
+      "entry_angle": 2.4827320869764558,
+      "branch": 0.0,
+      "stop_name": "",
+      "last_distance": 6.820093333403784,
+      "mode": "BLEND",
+      "reference": 0.8155335517116706,
+      "marker_dimension": "minecraft:overworld",
+      "entry_distance": 0.06841980980597205,
+      "show_ticks": 0,
+      "angle": 0.814518213434982,
+      "last_target": 0.8155340523740588,
+      "initialized": 1,
+      "direction": 1,
+      "section_revision": 0,
+      "owner": [
+        940439953,
+        -167562164,
+        -1601161573,
+        -1389718966
+      ],
+      "posture_reference": -1.555796326794903,
+      "previous_section": [
+        816763226,
+        -2072230208,
+        -1405933489,
+        -1496257232
+      ],
+      "resume_required": 0,
+      "pivot_y": -3.3125,
+      "next_mode": "TARGET",
+      "posture_velocity": 0.0,
+      "blend_progress": 0.8439591904497264,
+      "hold_acknowledged": 0,
+      "transform_order": 1,
+      "reference_velocity": 0.0006712645897296726,
+      "velocity": -0.0009572548001100349,
+      "tick": 10877,
+      "route_fingerprint": -2290847687958994949,
+      "version": 1,
+      "sequence": 13147,
+      "marker": [
+        -1010102387,
+        -1321385151,
+        -1569778163,
+        -367577204
+      ],
+      "travel_authorized": 0,
+      "status": "TARGET_VALID",
+      "entry_velocity": -0.05206284847703941
+    },
+    "ballast": 0.0,
+    "revision": 8,
+    "appearance": "original",
+    "boarding_ready": 0,
+    "stopping": 1,
+    "authority": {},
+    "flying": {
+      "phase": "PRONE_LOCKED",
+      "hold_angle": 0.0,
+      "reference_velocity": 0.0,
+      "body": 1,
+      "version": 1,
+      "target": 1.5707963267948966,
+      "consist": [],
+      "reference_angle": -1.555796326794903,
+      "legs": 1,
+      "lock": "PRONE",
+      "progress": 0.0,
+      "interruption": "",
+      "dock_to": -54975580733316,
+      "dock_geometry": -3496957151773163135,
+      "dock_from": -54975580929924
+    },
+    "shuttle_detached": 0,
+    "family": "flying",
+    "suspended_consist": [],
+    "maintenance": 0
+  }
+]

@@ -1,0 +1,78 @@
+{
+  "alignment_required": 0,
+  "contact_layout": "coasters_n_contacts_v1",
+  "mount_frame": "overhead_n_v1",
+  "ctnb": {
+    "kind": "",
+    "remaining": 0
+  },
+  "body": "fixed_inverted_open_frame",
+  "fixed_dock_from": 819280,
+  "variant": "four_abreast_v1",
+  "restraints": 0,
+  "palette": "CRIMSON",
+  "dock": -1099510734771,
+  "fixed_dock_geometry": -696634127534486623,
+  "fault": "",
+  "boundTo": 1015888,
+  "carriers": [
+    {
+      "side": 0.0,
+      "control_coupled": 0,
+      "rider_seats": [],
+      "lift_pending": 0,
+      "capture": 1,
+      "body": [
+        -972472959,
+        2012562481,
+        -1285843765,
+        450834469
+      ],
+      "seats": [
+        -274877902852,
+        4092,
+        274877911036,
+        549755817980
+      ],
+      "ballast": 0.0,
+      "lift_geometry": 0,
+      "lift_entered": 0,
+      "pivot_height": 0.0,
+      "capture_target": 0.0,
+      "lift_held": 0,
+      "latched": 0,
+      "longitudinal": 0.0,
+      "child_pivot_offset": 0.0,
+      "child_pivot_x": 0.0,
+      "child_pivot_z": 0.0,
+      "occupants": []
+    }
+  ],
+  "chassis": [
+    -972472959,
+    2012562481,
+    -1285843765,
+    450834469
+  ],
+  "damping": 0.0,
+  "boundFrom": 819280,
+  "fixed_consist": [
+    [
+      -972472959,
+      2012562481,
+      -1285843765,
+      450834469
+    ]
+  ],
+  "ballast": 0.0,
+  "revision": 18,
+  "appearance": "original",
+  "fixed_dock_to": 1015888,
+  "boarding_ready": 1,
+  "stopping": 1,
+  "authority": {},
+  "shuttle_detached": 0,
+  "family": "fixed_inverted",
+  "suspended_consist": [],
+  "maintenance": 1
+}

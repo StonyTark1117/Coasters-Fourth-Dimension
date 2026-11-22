@@ -1,0 +1,8 @@
+Wing: 16 dyes; all pads, shoe, pan, uprights, hinge/contact parts exact; rigid face-contact graph connected; paint volume 0.401 of base
+Wing native four-seat assembly: controller → beams → retained shoes → each pan/hinge path PASS (padding excluded)
+Fixed Inverted: pads and all metal/support/hinge parts exact; rigid graph connected; paint volume 0.367 of base
+Fixed Inverted_outer: pads and all metal/support/hinge parts exact; rigid graph connected; paint volume 0.367 of base
+Fixed Inverted native four-seat assembly: controller → gantry/spars → retained underpan rails → every shell/hinge PASS (padding excluded)
+Open-frame rear shell has three measured apertures formerly occupied by paint; not a palette-only change
+Four picker miniatures: exact base copies, alternate shell geometry, original display/material mapping and bounded extents PASS
+PASS: 22 repeatable alternate/picker models; fixed geometry only. Dynamic restraint resources and accepted base files are never written.

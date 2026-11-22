@@ -1,0 +1,65 @@
+FD2102 finite body geometry, 2026-11-22
+Owner /root/fd13_structure_reconcile; primary main, baseline b5e78f31 plus
+accepted FD2104 working assets. No base generator, base asset or renderer edit.
+
+Regenerate: python3 scripts/generate-body-variants.py
+Audit: python3 scripts/fd13-body-geometry-audit.py
+geometry.txt records the passing result; geometry-inputs.txt pins both scripts
+and all 22 exports. Generation only writes models/block/fd917/body_*.json.
+No Gradle build, client launch or runtime acceptance is claimed here.
+
+wing_compact: sixteen dye-specific fixed models. The lower painted back is
+X3..13,Y4..18,Z14.5..15.25; the next step X4..12,Y18..21; upper steps narrow
+further. Arm fairings shorten from Z7..12 to Z10..12. Existing cushions, head
+pad, metal pan, mounting shoe, uprights, hinge blocks and contact plates remain
+byte-equivalent elements. Two slim exposed fixed metal risers at X1..2 and
+X14..15,Y12..20,Z13..14.75 join retained uprights to the hinge blocks. A fixed
+header X1..15,Y20..21,Z14..14.75 supports the compact back. The new rigid path
+does not rely on padding. Painted cuboid volume is 40.1% of the base total.
+The original complete restraint mesh and articulation descriptor are reused.
+
+fixed_inverted_open_frame: inner and outer fixed seat models. Four broad rear
+paint elements are replaced by a lower crossmember X-7..7,Y12..15,Z14..16,
+side rails X-7..-5 and X5..7,Y14..30,Z14..16, and head/hinge crossmembers.
+The lower crossmember overlaps the retained central metal support stem. The
+side rails carry the original hinge blocks; the head crossmembers touch the
+unchanged pad. Existing metal stem, underpan rails, contact plates, cushions
+and outer-seat support remain exact. Three rear-shell sample points that were
+inside base paint are now genuinely open. Painted cuboid volume is 36.7% of
+base total. No native frame, seat placement or restraint change.
+
+Contact checks use positive-area shared faces or overlapping volume, not just
+enclosing bounds or corner/edge coincidence. Padding, restraints and rubber
+are excluded from rigid graph traversal. Each body's whole rigid shell and
+fixed hinge graph is connected, and every pad touches that graph. The audit
+then assembles the actual native four-seat cells and retained controller/beam
+or gantry/spar models, tracing the controller to all four seat support graphs.
+Original model bounds are not exceeded; all sixteen Wing texture maps remain
+exactly their accepted base dye mapping. Exports must equal a fresh in-memory
+generation, giving repeatability without rewriting the bases.
+
+Picker models: body_wing_base_item and body_fixed_inverted_base_item copy the
+accepted inventory JSONs exactly. Wing compact keeps its accepted chassis,
+beam and miniature restraint elements, replacing each of the four fixed seats
+with an exact quarter-scale alternate export. Fixed Inverted open-frame uses
+four affine miniatures of the actual alternate fixed geometry and closed
+restraint mesh (scale .1875,.4,.25), retaining the original overhead gantry
+and display transform. One lower rail and two upper connectors give that
+miniature a continuous rigid gantry-to-seat path inside the original inventory
+extents. These small models retain the cyan Wing / black Fixed Inverted
+upholstery and all original display settings. They are picker depictions,
+not new constructible car items.
+
+World resource names (fourthdimension:block/fd917/ prefix):
+body_wing_compact_<dye> (16)
+body_fixed_inverted_open_frame
+body_fixed_inverted_open_frame_outer
+Picker resource names with the same prefix:
+body_wing_base_item
+body_wing_compact_item
+body_fixed_inverted_base_item
+body_fixed_inverted_open_frame_item
+
+Bounds and structural connectivity do not establish client appearance, editor
+preview/apply/cancel behavior, persistence, permissions, or occupied clearance.
+Those remain the coordinator's finite FD2102 runtime/integration checks.

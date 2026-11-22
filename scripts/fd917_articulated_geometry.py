@@ -60,6 +60,9 @@ def shell(family):
                   b([6,22,16],[10,26,24],'contact','transverse axle boss')]
     elif family in ('flying','new_generation_flying'):
         parts += [b([0,low,10],[2,25,17],'body','left posture cradle'),b([14,low,10],[16,25,17],'body','right posture cradle'),
+                  # The true posture shaft is at y=z=8, thickness 1.92 model units.
+                  # Edge saddles join it to the pan without depending on upholstery.
+                  b([0,low-1,6],[2,7.5,10],'metal','left fixed shaft saddle'),b([14,low-1,6],[16,7.5,10],'metal','right fixed shaft saddle'),
                   b([5,2,15],[11,24,18],'metal','posture load spine'),b([2,-11,-1],[14,-8,6],'rubber','ankle support'),
                   b([6,-8,4],[10,5,7],'metal','leg restraint spine')]
         if family=='new_generation_flying':
@@ -75,7 +78,10 @@ def shell(family):
             parts += [b([0,3,-3],[16,7,1],'body','low inverting nose'),b([1,7,-1],[3,11,3],'body','separate left pod cheek'),b([13,7,-1],[15,11,3],'body','separate right pod cheek')]
     elif family=='pipeline':
         parts += [b([0,low-1,-1],[2,14,15],'body','left narrow cockpit coaming'),b([14,low-1,-1],[16,14,15],'body','right narrow cockpit coaming'),
-                  b([1,0,-1],[15,2,14],'metal','side rail cabin pan'),b([2,2,-1],[14,3,4],'rubber','seated footwell'),
+                  # Native floor ends one model unit below this seat block.
+                  # Fixed rear risers carry the shell without using the footwell or restraint.
+                  b([1,-1,-1],[15,2,14],'metal','side rail cabin pan'),b([2,2,-1],[14,3,4],'rubber','seated footwell'),
+                  b([3,2,10],[5,5,14],'metal','left fixed seat riser'),b([11,2,10],[13,5,14],'metal','right fixed seat riser'),
                   b([2,low-1,-2],[14,low+2,0],'body','nose sill')]
     else:
         parts += [b([0,-12,-1],[16,-10,15],'body','upright pod floor'),b([1,-10,11],[3,7,15],'metal','rear pod support'),b([13,-10,11],[15,7,15],'metal','rear pod support'),

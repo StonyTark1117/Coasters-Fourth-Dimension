@@ -11,7 +11,7 @@ def write(path,data):
  if rel not in OWNED and not path.startswith(('assets/fourthdimension/models/block/fd917/','assets/fourthdimension/fd917_articulation/')):return
  target.parent.mkdir(parents=True,exist_ok=True);target.write_text(json.dumps(data,indent=2)+'\n')
 def box(a,b,t):return production_box(a,b,t)
-def model(parts):return production_model(parts,'purple')
+def model(parts,padding=None):return production_model(parts,'purple',padding=padding)
 def worldbox(lo,hi,pos,t):
  # input native X/Z, graph Y. Block origin relative to graph is (x-.5,y-.1875,z-.5).
  origin=[pos[0]-.5,pos[1]-.1875,pos[2]-.5]
@@ -19,13 +19,14 @@ def worldbox(lo,hi,pos,t):
 for closed in (False,True):
  # X=0 and Y=.9375 are exact fractional seat centers in the containing block.
  parts=[box([-7,12,2],[7,15,14],'seat'),box([-6,15,12],[6,28,14],'seat'),
-        box([-8,12,14],[8,28,17],'paint'),box([-5,28,13],[5,32,17],'paint'),
+        box([-8,12,14],[8,23,17],'paint'),box([-7,23,14],[7,28,17],'paint'),
+        box([-5,28,13],[5,30,17],'paint'),box([-4,30,13],[4,32,17],'paint'),
         box([-4,28,12],[4,31,14],'seat'),box([-2,7,8],[2,13,30],'metal'),
         box([-8,7,20],[8,11,24],'metal'),box([-8,7,28],[8,11,32],'metal')]
  # No front foot platform or shin rods: four seats visibly hang below the track.
  for x in (-7,5):parts += [box([x,26,13],[x+2,31,16.75],'metal'),box([x,28,12.75],[x+2,30,13],'contact')]
- write(f'assets/fourthdimension/models/block/fixed_inverted_seat_{"closed"if closed else "open"}.json',model(parts))
- write(f'assets/fourthdimension/models/block/fixed_inverted_seat_{"closed"if closed else "open"}_outer.json',model(parts+[box([8,7,28],[12,16,32],'metal')]))
+ write(f'assets/fourthdimension/models/block/fixed_inverted_seat_{"closed"if closed else "open"}.json',model(parts,padding='black'))
+ write(f'assets/fourthdimension/models/block/fixed_inverted_seat_{"closed"if closed else "open"}_outer.json',model(parts+[box([8,7,28],[12,16,32],'metal')],padding='black'))
 write('assets/fourthdimension/blockstates/fixed_inverted_seat.json',{'variants':{f'facing={d},restrained={str(c).lower()},outer={str(o).lower()}':{'model':f'fourthdimension:block/fixed_inverted_seat_{"closed"if c else "open"}{"_outer"if o else ""}'}for d in ('north','south','east','west')for c in (False,True)for o in (False,True)}})
 restraint=[]
 for x in (-6,4):restraint += [box([x,17,2],[x+2,29,4],'harness'),box([x,27,3],[x+2,29,15],'metal')]
@@ -37,11 +38,17 @@ for i,pos in enumerate(frame):
  x,y,z=pos;parts=[]
  if y==-1:
   lo=max(-2.25,x-.5);hi=min(2.25,x+.5)
-  parts.append(worldbox([lo,-.9,1.25],[hi,-.75,1.5],pos,'metal'))
+  # Keep continuous full-depth flanges; expose the inset web instead of a
+  # solid rectangular bar. End coordinates still meet the accepted posts.
+  parts += [worldbox([lo,-.9,1.25],[hi,-.87,1.5],pos,'metal'),
+            worldbox([lo,-.78,1.25],[hi,-.75,1.5],pos,'metal'),
+            worldbox([lo,-.87,1.34],[hi,-.78,1.41],pos,'metal')]
  if abs(x)==2:
   lo,hi=(-2.25,-2)if x<0 else(2,2.25)
   ylo=max(-3.75,y-.1875);yhi=min(-.75,y+.8125)
-  parts.append(worldbox([lo,ylo,1.25],[hi,yhi,1.5],pos,'metal'))
+  parts += [worldbox([lo,ylo,1.25],[hi,yhi,1.29],pos,'metal'),
+            worldbox([lo,ylo,1.46],[hi,yhi,1.5],pos,'metal'),
+            worldbox([lo+.09,ylo,1.29],[hi-.09,yhi,1.46],pos,'metal')]
  if pos==(-2,-4,0):
   # The four seat-block rear crossbars start at x=-1.5. Bridge the end post to
   # the first crossbar in the existing bottom frame cell, without adding a ride block.
@@ -55,8 +62,8 @@ write('assets/fourthdimension/blockstates/fixed_inverted_controller.json',{'vari
 # Four distinct cushions identify this fixed row in inventory.
 parts=[box([0,23,7],[16,25,10],'metal'),box([0,5,12],[2,24,14],'metal'),box([14,5,12],[16,24,14],'metal')]
 for x in (1,5,9,13):
- parts += [box([x-1,5,6],[x+2,7,11],'seat'),box([x-1,7,10],[x+2,15,12],'paint'),box([x-1,8,6],[x,14,7],'harness'),box([x+1,8,6],[x+2,14,7],'harness')]
-m=model(parts);m['display']=item_display(.65)
+ parts += [box([x-1,5,6],[x+2,7,11],'seat'),box([x-1,7,10],[x+2,12,12],'paint'),box([x-.6,12,10],[x+1.6,15,12],'paint'),box([x-.6,7,9.5],[x+1.6,13,10],'seat'),box([x-1,8,6],[x,14,7],'harness'),box([x+1,8,6],[x+2,14,7],'harness')]
+m=model(parts,padding='black');m['display']=item_display(.65)
 write('assets/fourthdimension/models/item/fixed_inverted_car.json',m)
 write('assets/fourthdimension/models/item/fixed_inverted_track.json',model([box([0,8,1],[16,10,3],'metal'),box([0,8,13],[16,10,15],'metal'),box([0,17,6],[16,21,10],'seat'),box([2,10,2],[4,18,14],'metal'),box([12,10,2],[14,18,14],'metal')]))
 write('data/fourthdimension/recipe/fixed_inverted_track.json',{'type':'minecraft:crafting_shaped','pattern':['ICI','IDI','ICI'],'key':{'I':{'tag':'c:ingots/iron'},'C':{'item':'minecraft:copper_ingot'},'D':{'item':'minecraft:purple_dye'}},'result':{'id':'fourthdimension:fixed_inverted_track','count':16}})

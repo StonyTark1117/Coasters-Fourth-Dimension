@@ -1,0 +1,119 @@
+{
+  "baseline": "b5e78f31b72a6c22dae25219d1eefa1f5de20a3e",
+  "results": [
+    {
+      "baseline": true,
+      "seat": "pipeline_seat_0_0_open",
+      "gap": 0.0625,
+      "controller_to_all_seat_parts": false
+    },
+    {
+      "baseline": true,
+      "seat": "pipeline_seat_1_0_open",
+      "gap": 0.0625,
+      "controller_to_all_seat_parts": false
+    },
+    {
+      "baseline": true,
+      "seat": "pipeline_seat_0_1_open",
+      "gap": 0.0625,
+      "controller_to_all_seat_parts": false
+    },
+    {
+      "baseline": true,
+      "seat": "pipeline_seat_1_1_open",
+      "gap": 0.0625,
+      "controller_to_all_seat_parts": false
+    },
+    {
+      "baseline": false,
+      "seat": "pipeline_seat_0_0_open",
+      "gap": 0.0,
+      "controller_to_all_seat_parts": true
+    },
+    {
+      "baseline": false,
+      "seat": "pipeline_seat_1_0_open",
+      "gap": 0.0,
+      "controller_to_all_seat_parts": true
+    },
+    {
+      "baseline": false,
+      "seat": "pipeline_seat_0_1_open",
+      "gap": 0.0,
+      "controller_to_all_seat_parts": true
+    },
+    {
+      "baseline": false,
+      "seat": "pipeline_seat_1_1_open",
+      "gap": 0.0,
+      "controller_to_all_seat_parts": true
+    },
+    {
+      "baseline": true,
+      "seat": "pipeline_seat_0_0_closed",
+      "gap": 0.0625,
+      "controller_to_all_seat_parts": false
+    },
+    {
+      "baseline": true,
+      "seat": "pipeline_seat_1_0_closed",
+      "gap": 0.0625,
+      "controller_to_all_seat_parts": false
+    },
+    {
+      "baseline": true,
+      "seat": "pipeline_seat_0_1_closed",
+      "gap": 0.0625,
+      "controller_to_all_seat_parts": false
+    },
+    {
+      "baseline": true,
+      "seat": "pipeline_seat_1_1_closed",
+      "gap": 0.0625,
+      "controller_to_all_seat_parts": false
+    },
+    {
+      "baseline": false,
+      "seat": "pipeline_seat_0_0_closed",
+      "gap": 0.0,
+      "controller_to_all_seat_parts": true
+    },
+    {
+      "baseline": false,
+      "seat": "pipeline_seat_1_0_closed",
+      "gap": 0.0,
+      "controller_to_all_seat_parts": true
+    },
+    {
+      "baseline": false,
+      "seat": "pipeline_seat_0_1_closed",
+      "gap": 0.0,
+      "controller_to_all_seat_parts": true
+    },
+    {
+      "baseline": false,
+      "seat": "pipeline_seat_1_1_closed",
+      "gap": 0.0,
+      "controller_to_all_seat_parts": true
+    }
+  ],
+  "envelope": [
+    [
+      -1.0,
+      -2.2125,
+      -2.0
+    ],
+    [
+      2.0,
+      0.8075,
+      3.0
+    ]
+  ],
+  "unchanged": [
+    "native assembly",
+    "rider/cushion/hinge parts",
+    "restraint meshes and articulation"
+  ],
+  "result": "PASS"
+}

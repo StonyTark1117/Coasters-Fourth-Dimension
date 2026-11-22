@@ -1,0 +1,194 @@
+[
+  {
+    "at": 1795368674.5123887,
+    "command": "fd917_mechanism inspect s1",
+    "state": "responded",
+    "result": "FD917_MECHANISM action=inspect family=s1 id=bebcd31b-b7c6-46ff-8910-54e50b2d87bd center=unloaded stopping=true restraints=false fault= bound=BlockPos{x=100, y=103, z=136}/BlockPos{x=100, y=103, z=200} carriers=[body=591931e1-cbff-48a2-a774-a4eae880c3f1,angle=0.0,latched=false,lift=false,riders=0]\n"
+  },
+  {
+    "at": 1795368674.5817633,
+    "command": "fd917_mechanism inspect s2",
+    "state": "responded",
+    "result": "FD917_MECHANISM action=inspect family=s2 id=8a806bbd-00e5-4318-bb4d-cd78360798ff center=unloaded stopping=true restraints=false fault= bound=BlockPos{x=350, y=108, z=112}/BlockPos{x=350, y=108, z=176} carriers=[body=165fb464-2c9d-4184-bc01-57f4f8dd63d8,angle=0.0,latched=false,lift=false,riders=0]\n"
+  },
+  {
+    "at": 1795368689.6830258,
+    "command": "fd917_mechanism inspect s1",
+    "state": "responded",
+    "result": "FD917_MECHANISM action=inspect family=s1 id=bebcd31b-b7c6-46ff-8910-54e50b2d87bd center=( 1.005E+2  1.036E+2  1.425E+2) stopping=true restraints=false fault= bound=BlockPos{x=100, y=103, z=136}/BlockPos{x=100, y=103, z=200} carriers=[body=591931e1-cbff-48a2-a774-a4eae880c3f1,angle=-2.379812704720853E-32,latched=true,lift=false,riders=0]\n"
+  },
+  {
+    "at": 1795368823.2320514,
+    "command": "fd917_mechanism inspect s1",
+    "state": "responded",
+    "result": "FD917_MECHANISM action=inspect family=s1 id=bebcd31b-b7c6-46ff-8910-54e50b2d87bd center=( 1.005E+2  1.036E+2  1.425E+2) stopping=true restraints=false fault= bound=BlockPos{x=100, y=103, z=136}/BlockPos{x=100, y=103, z=200} carriers=[body=591931e1-cbff-48a2-a774-a4eae880c3f1,angle=-2.0240689656730976E-4,latched=true,lift=false,riders=1]\n"
+  },
+  {
+    "at": 1795368850.000617,
+    "command": "fd917_mechanism inspect s1",
+    "state": "responded",
+    "result": "FD917_MECHANISM action=inspect family=s1 id=bebcd31b-b7c6-46ff-8910-54e50b2d87bd center=( 1.005E+2  1.036E+2  1.425E+2) stopping=true restraints=true fault= bound=BlockPos{x=100, y=103, z=136}/BlockPos{x=100, y=103, z=200} carriers=[body=591931e1-cbff-48a2-a774-a4eae880c3f1,angle=-1.2025552738162007E-4,latched=true,lift=false,riders=1]\n"
+  },
+  {
+    "at": 1795368859.8378854,
+    "command": "fd917_mechanism inspect s1",
+    "state": "responded",
+    "result": "FD917_MECHANISM action=inspect family=s1 id=bebcd31b-b7c6-46ff-8910-54e50b2d87bd center=( 1.005E+2  1.036E+2  1.442E+2) stopping=false restraints=true fault= bound=BlockPos{x=100, y=103, z=136}/BlockPos{x=100, y=103, z=200} carriers=[body=591931e1-cbff-48a2-a774-a4eae880c3f1,angle=-0.060302438969532725,latched=false,lift=true,riders=1]\n"
+  },
+  {
+    "at": 1795368867.813706,
+    "command": "fd917_mechanism inspect s1",
+    "state": "responded",
+    "result": "FD917_MECHANISM action=inspect family=s1 id=bebcd31b-b7c6-46ff-8910-54e50b2d87bd center=( 1.005E+2  1.036E+2  1.757E+2) stopping=false restraints=true fault= bound=BlockPos{x=100, y=103, z=136}/BlockPos{x=100, y=103, z=200} carriers=[body=591931e1-cbff-48a2-a774-a4eae880c3f1,angle=-0.008652084258913765,latched=false,lift=true,riders=1]\n"
+  },
+  {
+    "at": 1795368880.524625,
+    "command": "fd917_mechanism inspect s1",
+    "state": "responded",
+    "result": "FD917_MECHANISM action=inspect family=s1 id=bebcd31b-b7c6-46ff-8910-54e50b2d87bd center=( 1.107E+2  1.036E+2  2.203E+2) stopping=false restraints=true fault= bound=BlockPos{x=100, y=103, z=200}/BlockPos{x=124, y=103, z=224} carriers=[body=591931e1-cbff-48a2-a774-a4eae880c3f1,angle=0.5021951184654778,latched=false,lift=false,riders=1]\n"
+  },
+  {
+    "at": 1795368889.1613512,
+    "command": "fd917_mechanism inspect s1",
+    "state": "responded",
+    "result": "FD917_MECHANISM action=inspect family=s1 id=bebcd31b-b7c6-46ff-8910-54e50b2d87bd center=( 1.416E+2  1.036E+2  2.247E+2) stopping=false restraints=true fault= bound=BlockPos{x=124, y=103, z=224}/BlockPos{x=172, y=103, z=224} carriers=[body=591931e1-cbff-48a2-a774-a4eae880c3f1,angle=0.646200989799333,latched=false,lift=false,riders=1]\n"
+  },
+  {
+    "at": 1795368906.5900478,
+    "command": "fd917_mechanism inspect s1",
+    "state": "responded",
+    "result": "FD917_MECHANISM action=inspect family=s1 id=bebcd31b-b7c6-46ff-8910-54e50b2d87bd center=( 1.963E+2  1.036E+2  2.039E+2) stopping=false restraints=true fault= bound=BlockPos{x=172, y=103, z=224}/BlockPos{x=196, y=103, z=200} carriers=[body=591931e1-cbff-48a2-a774-a4eae880c3f1,angle=0.6548650247189612,latched=false,lift=false,riders=1]\n"
+  },
+  {
+    "at": 1795368917.932225,
+    "command": "fd917_mechanism inspect s1",
+    "state": "responded",
+    "result": "FD917_MECHANISM action=inspect family=s1 id=bebcd31b-b7c6-46ff-8910-54e50b2d87bd center=( 1.965E+2  1.036E+2  1.600E+2) stopping=false restraints=true fault= bound=BlockPos{x=196, y=103, z=200}/BlockPos{x=196, y=103, z=136} carriers=[body=591931e1-cbff-48a2-a774-a4eae880c3f1,angle=-0.13836689540536198,latched=false,lift=false,riders=1]\n"
+  },
+  {
+    "at": 1795368943.612019,
+    "command": "fd917_mechanism inspect s1",
+    "state": "responded",
+    "result": "FD917_MECHANISM action=inspect family=s1 id=bebcd31b-b7c6-46ff-8910-54e50b2d87bd center=( 1.364E+2  1.036E+2  1.125E+2) stopping=false restraints=true fault= bound=BlockPos{x=172, y=103, z=112}/BlockPos{x=124, y=103, z=112} carriers=[body=591931e1-cbff-48a2-a774-a4eae880c3f1,angle=-0.0720039740877506,latched=false,lift=false,riders=1]\n"
+  },
+  {
+    "at": 1795368958.6725595,
+    "command": "fd917_mechanism inspect s1",
+    "state": "responded",
+    "result": "FD917_MECHANISM action=inspect family=s1 id=bebcd31b-b7c6-46ff-8910-54e50b2d87bd center=( 1.005E+2  1.036E+2  1.371E+2) stopping=true restraints=true fault=Classic Spinning lift entry requires a settled captured carrier bound=BlockPos{x=100, y=103, z=136}/BlockPos{x=100, y=103, z=200} carriers=[body=591931e1-cbff-48a2-a774-a4eae880c3f1,angle=-0.26613757898227347,latched=false,lift=false,riders=1]\n"
+  },
+  {
+    "at": 1795368967.2540538,
+    "command": "fd917_mechanism inspect s1",
+    "state": "responded",
+    "result": "FD917_MECHANISM action=inspect family=s1 id=bebcd31b-b7c6-46ff-8910-54e50b2d87bd center=( 1.005E+2  1.036E+2  1.371E+2) stopping=true restraints=true fault= bound=BlockPos{x=100, y=103, z=136}/BlockPos{x=100, y=103, z=200} carriers=[body=591931e1-cbff-48a2-a774-a4eae880c3f1,angle=-0.2276348782113472,latched=false,lift=false,riders=1]\n"
+  },
+  {
+    "at": 1795368975.8530543,
+    "command": "fd917_mechanism inspect s1",
+    "state": "responded",
+    "result": "FD917_MECHANISM action=inspect family=s1 id=bebcd31b-b7c6-46ff-8910-54e50b2d87bd center=( 1.005E+2  1.036E+2  1.370E+2) stopping=true restraints=true fault= bound=BlockPos{x=100, y=103, z=136}/BlockPos{x=100, y=103, z=200} carriers=[body=591931e1-cbff-48a2-a774-a4eae880c3f1,angle=0.001798093936957657,latched=true,lift=false,riders=1]\n"
+  },
+  {
+    "at": 1795368988.5457554,
+    "command": "fd917_mechanism inspect s1",
+    "state": "responded",
+    "result": "FD917_MECHANISM action=inspect family=s1 id=bebcd31b-b7c6-46ff-8910-54e50b2d87bd center=( 1.005E+2  1.036E+2  1.370E+2) stopping=true restraints=false fault= bound=BlockPos{x=100, y=103, z=136}/BlockPos{x=100, y=103, z=200} carriers=[body=591931e1-cbff-48a2-a774-a4eae880c3f1,angle=0.0017994910314057977,latched=true,lift=false,riders=1]\n"
+  },
+  {
+    "at": 1795368998.6848953,
+    "command": "fd917_mechanism inspect s1",
+    "state": "responded",
+    "result": "FD917_MECHANISM action=inspect family=s1 id=bebcd31b-b7c6-46ff-8910-54e50b2d87bd center=( 1.005E+2  1.036E+2  1.370E+2) stopping=true restraints=false fault= bound=BlockPos{x=100, y=103, z=136}/BlockPos{x=100, y=103, z=200} carriers=[body=591931e1-cbff-48a2-a774-a4eae880c3f1,angle=0.0012793731903240275,latched=true,lift=false,riders=0]\n"
+  },
+  {
+    "at": 1795369007.627188,
+    "command": "fd917_mechanism inspect s2",
+    "state": "responded",
+    "result": "FD917_MECHANISM action=inspect family=s2 id=8a806bbd-00e5-4318-bb4d-cd78360798ff center=( 3.505E+2  1.091E+2  1.205E+2) stopping=true restraints=false fault= bound=BlockPos{x=350, y=108, z=112}/BlockPos{x=350, y=108, z=176} carriers=[body=165fb464-2c9d-4184-bc01-57f4f8dd63d8,angle=-2.3953824212637524E-32,latched=true,lift=false,riders=0]\n"
+  },
+  {
+    "at": 1795369086.6865177,
+    "command": "fd917_mechanism inspect s2",
+    "state": "responded",
+    "result": "FD917_MECHANISM action=inspect family=s2 id=8a806bbd-00e5-4318-bb4d-cd78360798ff center=( 3.505E+2  1.091E+2  1.205E+2) stopping=true restraints=false fault= bound=BlockPos{x=350, y=108, z=112}/BlockPos{x=350, y=108, z=176} carriers=[body=165fb464-2c9d-4184-bc01-57f4f8dd63d8,angle=-3.608087337906051E-4,latched=true,lift=false,riders=1]\n"
+  },
+  {
+    "at": 1795369108.9747093,
+    "command": "fd917_mechanism inspect s2",
+    "state": "responded",
+    "result": "FD917_MECHANISM action=inspect family=s2 id=8a806bbd-00e5-4318-bb4d-cd78360798ff center=( 3.505E+2  1.091E+2  1.205E+2) stopping=true restraints=false fault= bound=BlockPos{x=350, y=108, z=112}/BlockPos{x=350, y=108, z=176} carriers=[body=165fb464-2c9d-4184-bc01-57f4f8dd63d8,angle=-2.699378285562681E-4,latched=true,lift=false,riders=1]\n"
+  },
+  {
+    "at": 1795369116.058249,
+    "command": "fd917_mechanism inspect s2",
+    "state": "responded",
+    "result": "FD917_MECHANISM action=inspect family=s2 id=8a806bbd-00e5-4318-bb4d-cd78360798ff center=( 3.505E+2  1.091E+2  1.205E+2) stopping=true restraints=true fault= bound=BlockPos{x=350, y=108, z=112}/BlockPos{x=350, y=108, z=176} carriers=[body=165fb464-2c9d-4184-bc01-57f4f8dd63d8,angle=-2.886270056038244E-4,latched=true,lift=false,riders=1]\n"
+  },
+  {
+    "at": 1795369123.5814068,
+    "command": "fd917_mechanism inspect s2",
+    "state": "responded",
+    "result": "FD917_MECHANISM action=inspect family=s2 id=8a806bbd-00e5-4318-bb4d-cd78360798ff center=( 3.505E+2  1.091E+2  1.208E+2) stopping=false restraints=true fault= bound=BlockPos{x=350, y=108, z=112}/BlockPos{x=350, y=108, z=176} carriers=[body=165fb464-2c9d-4184-bc01-57f4f8dd63d8,angle=-0.01525933050397554,latched=false,lift=false,riders=1]\n"
+  },
+  {
+    "at": 1795369129.4313006,
+    "command": "fd917_mechanism inspect s2",
+    "state": "responded",
+    "result": "FD917_MECHANISM action=inspect family=s2 id=8a806bbd-00e5-4318-bb4d-cd78360798ff center=( 3.505E+2  1.091E+2  1.713E+2) stopping=false restraints=true fault= bound=BlockPos{x=350, y=108, z=112}/BlockPos{x=350, y=108, z=176} carriers=[body=165fb464-2c9d-4184-bc01-57f4f8dd63d8,angle=0.15287384912760346,latched=false,lift=false,riders=1]\n"
+  },
+  {
+    "at": 1795369138.0075023,
+    "command": "fd917_mechanism inspect s2",
+    "state": "responded",
+    "result": "FD917_MECHANISM action=inspect family=s2 id=8a806bbd-00e5-4318-bb4d-cd78360798ff center=( 3.508E+2  1.052E+2  2.644E+2) stopping=false restraints=true fault= bound=BlockPos{x=350, y=105, z=248}/BlockPos{x=350, y=104, z=272} carriers=[body=165fb464-2c9d-4184-bc01-57f4f8dd63d8,angle=-2.2322310050463807,latched=false,lift=false,riders=1]\n"
+  },
+  {
+    "at": 1795369157.913684,
+    "command": "fd917_mechanism inspect s2",
+    "state": "responded",
+    "result": "FD917_MECHANISM action=inspect family=s2 id=8a806bbd-00e5-4318-bb4d-cd78360798ff center=( 4.391E+2  1.051E+2  3.249E+2) stopping=false restraints=true fault= bound=BlockPos{x=414, y=104, z=336}/BlockPos{x=446, y=104, z=304} carriers=[body=165fb464-2c9d-4184-bc01-57f4f8dd63d8,angle=-6.481752622458817,latched=false,lift=false,riders=1]\n"
+  },
+  {
+    "at": 1795369174.7271197,
+    "command": "fd917_mechanism inspect s2",
+    "state": "responded",
+    "result": "FD917_MECHANISM action=inspect family=s2 id=8a806bbd-00e5-4318-bb4d-cd78360798ff center=( 4.465E+2  1.074E+2  1.963E+2) stopping=false restraints=true fault= bound=BlockPos{x=446, y=106, z=208}/BlockPos{x=446, y=108, z=160} carriers=[body=165fb464-2c9d-4184-bc01-57f4f8dd63d8,angle=-7.559804182168291,latched=false,lift=false,riders=1]\n"
+  },
+  {
+    "at": 1795369191.637898,
+    "command": "fd917_mechanism inspect s2",
+    "state": "responded",
+    "result": "FD917_MECHANISM action=inspect family=s2 id=8a806bbd-00e5-4318-bb4d-cd78360798ff center=( 4.190E+2  1.091E+2  8.081E+1) stopping=false restraints=true fault= bound=BlockPos{x=446, y=108, z=112}/BlockPos{x=414, y=108, z=80} carriers=[body=165fb464-2c9d-4184-bc01-57f4f8dd63d8,angle=-5.874423438004869,latched=false,lift=false,riders=1]\n"
+  },
+  {
+    "at": 1795369209.1722136,
+    "command": "fd917_mechanism inspect s2",
+    "state": "responded",
+    "result": "FD917_MECHANISM action=inspect family=s2 id=8a806bbd-00e5-4318-bb4d-cd78360798ff center=( 3.505E+2  1.091E+2  1.782E+2) stopping=false restraints=true fault= bound=BlockPos{x=350, y=108, z=176}/BlockPos{x=350, y=107, z=200} carriers=[body=165fb464-2c9d-4184-bc01-57f4f8dd63d8,angle=-5.719128515234159,latched=false,lift=false,riders=1]\n"
+  },
+  {
+    "at": 1795369289.1559,
+    "command": "fd917_mechanism inspect s2",
+    "state": "responded",
+    "result": "FD917_MECHANISM action=inspect family=s2 id=8a806bbd-00e5-4318-bb4d-cd78360798ff center=( 3.505E+2  1.091E+2  1.378E+2) stopping=true restraints=true fault= bound=BlockPos{x=350, y=108, z=112}/BlockPos{x=350, y=108, z=176} carriers=[body=165fb464-2c9d-4184-bc01-57f4f8dd63d8,angle=-12.564537137896313,latched=false,lift=false,riders=1]\n"
+  },
+  {
+    "at": 1795369296.620936,
+    "command": "fd917_mechanism inspect s2",
+    "state": "responded",
+    "result": "FD917_MECHANISM action=inspect family=s2 id=8a806bbd-00e5-4318-bb4d-cd78360798ff center=( 3.505E+2  1.091E+2  1.378E+2) stopping=true restraints=true fault= bound=BlockPos{x=350, y=108, z=112}/BlockPos{x=350, y=108, z=176} carriers=[body=165fb464-2c9d-4184-bc01-57f4f8dd63d8,angle=-12.556724562989523,latched=true,lift=false,riders=1]\n"
+  },
+  {
+    "at": 1795369306.5334618,
+    "command": "fd917_mechanism inspect s2",
+    "state": "responded",
+    "result": "FD917_MECHANISM action=inspect family=s2 id=8a806bbd-00e5-4318-bb4d-cd78360798ff center=( 3.505E+2  1.091E+2  1.378E+2) stopping=true restraints=false fault= bound=BlockPos{x=350, y=108, z=112}/BlockPos{x=350, y=108, z=176} carriers=[body=165fb464-2c9d-4184-bc01-57f4f8dd63d8,angle=-12.556729233069436,latched=true,lift=false,riders=1]\n"
+  },
+  {
+    "at": 1795369316.1417568,
+    "command": "fd917_mechanism inspect s2",
+    "state": "responded",
+    "result": "FD917_MECHANISM action=inspect family=s2 id=8a806bbd-00e5-4318-bb4d-cd78360798ff center=( 3.505E+2  1.091E+2  1.378E+2) stopping=true restraints=false fault= bound=BlockPos{x=350, y=108, z=112}/BlockPos{x=350, y=108, z=176} carriers=[body=165fb464-2c9d-4184-bc01-57f4f8dd63d8,angle=-12.559466367218329,latched=true,lift=false,riders=0]\n"
+  }
+]

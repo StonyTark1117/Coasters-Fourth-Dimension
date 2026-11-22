@@ -1,0 +1,29 @@
+{
+  "jar": "/mnt/NVME4/fourthdimension-runs/fd13-flying-20261122/build/libs/coasters-fourth-dimension-1.1.0.jar",
+  "jar_sha256": "00337780a15681beba7c59c78ec59664c3243ac3693819aaa6a803aec320dc42",
+  "asset_sha256": {
+    "assets/fourthdimension/models/block/flying_seat_00.json": "afbbd10b4e04b6aaf58d33d477a91dcb842bd0dba015a7c0df9fe779b15189c5",
+    "assets/fourthdimension/models/block/flying_seat_01.json": "afbbd10b4e04b6aaf58d33d477a91dcb842bd0dba015a7c0df9fe779b15189c5",
+    "assets/fourthdimension/models/block/flying_seat_10.json": "afbbd10b4e04b6aaf58d33d477a91dcb842bd0dba015a7c0df9fe779b15189c5",
+    "assets/fourthdimension/models/block/flying_seat_11.json": "afbbd10b4e04b6aaf58d33d477a91dcb842bd0dba015a7c0df9fe779b15189c5",
+    "assets/fourthdimension/models/block/new_generation_flying_seat_00.json": "7fc302067bcde47dc9801eae82fc4d594c80a9ecfe8dff7287c95333251e9a90",
+    "assets/fourthdimension/models/block/new_generation_flying_seat_01.json": "7fc302067bcde47dc9801eae82fc4d594c80a9ecfe8dff7287c95333251e9a90",
+    "assets/fourthdimension/models/block/new_generation_flying_seat_10.json": "7fc302067bcde47dc9801eae82fc4d594c80a9ecfe8dff7287c95333251e9a90",
+    "assets/fourthdimension/models/block/new_generation_flying_seat_11.json": "7fc302067bcde47dc9801eae82fc4d594c80a9ecfe8dff7287c95333251e9a90"
+  },
+  "source_assets_match": true,
+  "server": "/mnt/NVME4/fourthdimension-runs/fd13-flying-20261122/server",
+  "world": "FlyingSupports",
+  "display": 342,
+  "ports": [
+    25723,
+    25724
+  ],
+  "owner": "fd13-flying",
+  "source_head": "b5e78f31b72a6c22dae25219d1eefa1f5de20a3e plus recorded FD2104 changes",
+  "java": "21.0.13.1",
+  "client_heap": "1536M",
+  "client_scope": "6G",
+  "server_heap": "2048M",
+  "server_scope": "4G"
+}

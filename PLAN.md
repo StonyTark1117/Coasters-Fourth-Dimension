@@ -590,6 +590,10 @@ families because moving-track research produces a new artifact.
 
 ## D21 Post-1.0 car models and specialty vehicle contracts
 
+The finite 1.3 implementation is accepted 2026-11-22; see the
+[reconciled model/body evidence](docs/evidence/1.3/integration-manifest.md).
+The ordered design and unchanged-contract requirements below remain authoritative.
+
 The 1.3 order is FD2101 defect repair and FD2104 base-model review/refinement,
 then FD2102 body variants and FD2103 reconciliation. Review the existing 17 styles
 against real coaster designs and useful documented game counterparts, beyond the

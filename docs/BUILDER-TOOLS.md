@@ -1,7 +1,7 @@
-# Builder and operator tools (1.1)
+# Builder and operator tools
 
 Open a vehicle or original track section with the Rotation Tool, then select
-**Tools** in the editor header. Client and server must both run the same 1.1 build.
+**Tools** in the editor header. Client and server must both run the same build.
 The tools extend the accepted 1.0 vehicles; no optional addon is required.
 
 ## Portable setting presets
@@ -60,6 +60,25 @@ Mechanical identity, articulated meshes and seat ownership remain unchanged.
 Original fallback when the provider/resources are absent. Original cushion colors
 remain independent of that optional integration. No arbitrary texture uploads or
 branded replica liveries are included.
+
+## Car body (1.3)
+
+On an original fixed Wing or Fixed Inverted car, select **Car body** in Tools.
+Wing offers **Original** and **Compact Wing**; Fixed Inverted offers **Original**
+and **Open-frame Fixed Inverted**. The picker shows the selected body's miniature
+and previews its geometry on this car. **Back / cancel preview** or Escape removes
+the local preview. **Apply body** requests a server save; wait for the result before
+treating it as saved. Leaving after Apply does not cancel an already sent request.
+
+The entire train must be empty, stopped and captured. The selected car keeps its
+seats, restraints, motion, colors and optional chassis appearance. Its body choice
+survives world reopening. Existing inventory car items still build Original cars;
+use this picker to choose an alternate body after construction.
+
+Missing saved choices and unavailable model resources display Original. An unknown
+saved choice remains preserved until you explicitly apply another body. A stale or
+refused request shows the server's reason and returns to the current saved body;
+review that state before choosing again.
 
 ## Ride operator panel
 

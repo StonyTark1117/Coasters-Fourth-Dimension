@@ -125,6 +125,7 @@ public final class FoundationData extends SavedData {
     public final UUID chassis;
     public final Family family;
     public String variant = VARIANT;
+    public String bodyId = "base";
     public dev.fourthdimension.tools.VehiclePalette palette = dev.fourthdimension.tools.VehiclePalette.ORIGINAL;
     public dev.fourthdimension.integration.SkinAppearance appearance = dev.fourthdimension.integration.SkinAppearance.ORIGINAL;
     public boolean restraints, boardingReady;
@@ -273,6 +274,7 @@ public final class FoundationData extends SavedData {
       tag.putString("variant", vehicle.variant);
       tag.putString("appearance", vehicle.appearance.id);
       tag.putString("palette", vehicle.palette.name());
+      tag.putString("body", vehicle.bodyId);
       tag.put("authority", vehicle.authority.save());
       tag.put("ctnb", vehicle.ctnb.save());
       if (dev.fourthdimension.vehicle.DiveVehicle.is(vehicle)) tag.put("dive",vehicle.dive.save());
@@ -456,6 +458,7 @@ public final class FoundationData extends SavedData {
         throw new IllegalArgumentException("Vehicle chassis reuses a carrier identity");
       vehicle.appearance = dev.fourthdimension.integration.SkinAppearance.read(tag.getString("appearance"));
       vehicle.palette = dev.fourthdimension.tools.VehiclePalette.read(tag.getString("palette"));
+      vehicle.bodyId = tag.contains("body") ? tag.getString("body") : "base";
       vehicle.restraints = tag.getBoolean("restraints");
       vehicle.stopping = tag.getBoolean("stopping");
       vehicle.maintenance = tag.getBoolean("maintenance");

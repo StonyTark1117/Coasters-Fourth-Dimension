@@ -1,0 +1,79 @@
+{
+  "sha256": "f09dfb9be12415d276bb0fc2e67309df7ce164a167d5759944305bea3ca44e70",
+  "nbt": {
+    "data": {
+      "schema": 8,
+      "rails": [],
+      "vehicles": [
+        {
+          "alignment_required": 0,
+          "fault": "",
+          "boundTo": 27487791513723,
+          "carriers": [
+            {
+              "side": 0.0,
+              "control_coupled": 0,
+              "rider_seats": [],
+              "lift_pending": 0,
+              "capture": 1,
+              "body": [
+                322046328,
+                -2047521936,
+                -1694639796,
+                -1939497404
+              ],
+              "axis": "X",
+              "seats": [
+                -1099511627775,
+                -824633720831,
+                824633720833,
+                1099511627777
+              ],
+              "ballast": 0.0,
+              "omega": 0.0,
+              "lift_geometry": 0,
+              "lift_entered": 0,
+              "pivot_height": 0.0,
+              "angle": 0.0,
+              "capture_target": 0.0,
+              "lift_held": 0,
+              "latched": 0,
+              "longitudinal": 0.0,
+              "child_pivot_offset": 0.0,
+              "child_pivot_x": 0.0,
+              "child_pivot_z": 0.0,
+              "occupants": []
+            }
+          ],
+          "chassis": [
+            322046328,
+            -2047521936,
+            -1694639796,
+            -1939497404
+          ],
+          "ctnb": {
+            "kind": "",
+            "remaining": 0
+          },
+          "damping": 0.0,
+          "body": "base",
+          "boundFrom": 27487791251579,
+          "ballast": 0.0,
+          "revision": 0,
+          "appearance": "original",
+          "boarding_ready": 1,
+          "stopping": 1,
+          "authority": {},
+          "variant": "wing_fixed_v1",
+          "restraints": 0,
+          "shuttle_detached": 0,
+          "palette": "ORIGINAL",
+          "family": "wing_fixed",
+          "suspended_consist": [],
+          "maintenance": 0
+        }
+      ]
+    },
+    "DataVersion": 3955
+  }
+}

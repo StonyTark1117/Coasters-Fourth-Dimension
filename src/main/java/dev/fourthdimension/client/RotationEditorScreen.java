@@ -521,6 +521,7 @@ public final class RotationEditorScreen extends Screen {
                 var screen = net.minecraft.client.Minecraft.getInstance().screen;
                 if (screen instanceof dev.fourthdimension.client.tools.PresetScreen presets) presets.receive(result);
                 else if (screen instanceof dev.fourthdimension.client.tools.PaletteScreen palette) palette.receive(result);
+                else if (screen instanceof dev.fourthdimension.client.tools.BodyScreen body) body.receive(result);
                 else if (screen instanceof dev.fourthdimension.client.tools.OperatorScreen panel) panel.receive(result);
                 else if (screen instanceof RotationEditorScreen editor) editor.receiveResult(result);
                 else if(screen instanceof SkinAppearanceScreen editor)editor.receive(result);

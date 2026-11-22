@@ -35,8 +35,17 @@ def seat(f):
   p += [box([1,3,13],[15,21,16],'paint','compact shuttle shell'),box([3,21,12],[13,25,16],'paint','shuttle head fairing'),box([2,0,0],[14,2,4],'paint','short car nose')]
   for x in (0,14):p += [box([x,2,1],[x+2,10,14],'paint','boxed shuttle side'),box([x,0,3],[x+2,2,15],'contact','lower mounting rail')]
  elif f=='wing':
-  p += [box([1,4,14.5],[15,22,16],'paint','fixed wing shell'),box([4,22,13],[12,27,16],'paint','high wing head fairing'),box([5,22,11.5],[11,25,13],'cushion','head pad')]
-  for x in (0,14):p += [box([x,1,12],[x+2,12,14],'metal','rigid wing upright'),box([x,5,5],[x+2,8,12],'paint','fixed arm fairing')]
+  # The fixed beam cells are replaced by seat blocks at the outer stations.
+  # A full-width mounting shoe continues the beam through each seat; all of
+  # this assembly is rigid on the native chassis, with no invented rotary hub.
+  p += [box([0,0,4],[16,3.5,12],'metal','continuous fixed mounting shoe'),
+        box([1,4,14.5],[15,16,16],'paint','lower wing shell'),
+        box([2,16,14.5],[14,21,16],'paint','tapered wing shoulders'),
+        box([4,21,13],[12,24,16],'paint','inset wing crown'),
+        box([5,24,13],[11,26,16],'paint','compact head fairing'),
+        box([5,22,11.5],[11,25,13],'cushion','head pad')]
+  for x in (0,14):p += [box([x,1,12],[x+2,12,14],'metal','rigid wing upright'),
+                        box([x,5,7],[x+2,8,12],'paint','tapered arm fairing')]
  else:raise ValueError(f)
  # The axle sits ahead of these child-local shells. Rails carry its load to the
  # rear face; exposed posts then bring it to the pans without crossing the
@@ -110,7 +119,7 @@ p=[box([0,2,4],[16,3.5,12],'metal','fixed wing lower flange'),box([0,6.5,4],[16,
 write('models/block/fixed_wing_beam.json',model(p,'cyan'))
 write('models/block/wing_fixed_controller.json',{'parent':'fourthdimension:block/fixed_wing_beam'})
 for c in COLORS:
- for state in ('open','closed'):write(f'models/block/wing_seat_{c}_{state}.json',model(seat('wing'),c))
+ for state in ('open','closed'):write(f'models/block/wing_seat_{c}_{state}.json',model(seat('wing'),'gray',padding=c))
  write('models/block/fd917/wing_restraint.json',model(shoulder(),'cyan'))
 write('fd917_articulation/wing_seat.json',{'parts':[{'model':'fourthdimension:block/fd917/wing_restraint','property':'restrained','pivot':[8,22,14],'axis':'x','open_degrees':55,'rotate_facing':True,'when':{}}]})
 def miniature(f,c):
@@ -139,7 +148,7 @@ def miniature(f,c):
     q['from']=[a[0]*.25+x,a[1]*.25+7,a[2]*.25+z]
     q['to']=[b[0]*.25+x,b[1]*.25+7,b[2]*.25+z]
     p.append(q)
- m=model(p,c);m['display']=item_display(.48 if paired else .52)
+ m=model(p,'gray' if f=='wing' else c,padding=c if f=='wing' else None);m['display']=item_display(.48 if paired else .52)
  # Whole winged cars span 36 model units; normalize their held silhouette so
  # the outer pair does not disappear beyond the first-person viewport.
  for hand,x,angle in [('right',-2,135),('left',2,225)]:
