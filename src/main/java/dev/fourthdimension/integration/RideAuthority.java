@@ -13,6 +13,18 @@ import org.joml.Vector3d;
 
 /** One ride-local longitudinal owner. No route reservation or multi-train scheduling. */
 public final class RideAuthority {
+  public static final int EXTERNAL_API = 1;
+  /** Optional integrations register a real controller adapter, never borrow another provider's identity. */
+  public interface ExternalProvider {
+    Controller controller(ServerLevel level, BlockPos position);
+    boolean supports(ServerLevel level, FoundationData.Vehicle vehicle);
+  }
+  private static final Map<String, ExternalProvider> EXTERNAL = new java.util.concurrent.ConcurrentHashMap<>();
+  public static void registerExternal(String id, int api, ExternalProvider provider) {
+    if (api != EXTERNAL_API || id == null || id.length()>80 || !id.matches("[a-z0-9_]+:[a-z0-9_/]+") || provider == null
+        || EXTERNAL.putIfAbsent(id, provider) != null)
+      throw new IllegalArgumentException("Invalid or duplicate external longitudinal provider");
+  }
   public static final String NATIVE_CHAIN = "native_chain", ENGINEERED = "engineered", MAGNETIZED = "magnetized", CTNB = "ctnb";
   public record Token(UUID owner, long epoch, long sequence) {}
   public interface Controller extends RideOperations.SpanController {
@@ -29,10 +41,11 @@ public final class RideAuthority {
 
   public static Token claim(ServerLevel level, BlockPos pos, UUID id, String provider) {
     thread(level);
-    if (!Set.of(NATIVE_CHAIN, ENGINEERED, MAGNETIZED, CTNB).contains(provider))
+    if (provider==null || !Set.of(NATIVE_CHAIN, ENGINEERED, MAGNETIZED, CTNB).contains(provider) && !EXTERNAL.containsKey(provider))
       throw new IllegalArgumentException("Unsupported longitudinal provider");
-    var v = vehicle(level,id); var owner = controller(level,pos,id); var cars = complete(level,v);
+    var v = vehicle(level,id); var owner = controller(level,pos,id,provider); var cars = complete(level,v);
     stopped(level,cars);
+    validateExternal(level,cars,provider);
     if(MAGNETIZED.equals(provider)){
       if(!OptionalIntegrations.installed(OptionalIntegrations.MAGNETIZED).mayInspect())throw new IllegalArgumentException("Supported Magnetized installation required");
       if(cars.stream().anyMatch(c->!dev.fourthdimension.vehicle.WingVehicle.is(c)&&!dev.fourthdimension.vehicle.S2SpinningVehicle.is(c)))
@@ -51,8 +64,9 @@ public final class RideAuthority {
     if(!token(v).equals(token)||!Objects.equals(pos,v.authority.controller))
       throw new IllegalArgumentException("Stale authority transfer");
     var cars=complete(level,v);
+    validateExternal(level,cars,v.authority.provider);
     if (!v.authority.held) throw new IllegalArgumentException("Hold before transferring authority");
-    stopped(level,cars); var owner = controller(level,next,id);
+    stopped(level,cars); var owner = controller(level,next,id,v.authority.provider);
     int direction=v.authority.direction;
     assign(level,cars,next,owner.authorityId(),v.authority.provider,v.authority.epoch+1);
     for(var car:cars)car.authority.direction=direction;
@@ -66,7 +80,8 @@ public final class RideAuthority {
 
   public static Token resume(ServerLevel level, BlockPos pos, UUID id, Token token) {
     var v = checked(level,pos,id,token,true); var cars = complete(level,v); stopped(level,cars);
-    controller(level,pos,id).validateRelease(level,v);
+    validateExternal(level,cars,v.authority.provider);
+    controller(level,pos,id,v.authority.provider).validateRelease(level,v);
     for (var car : cars) {
       car.authority.epoch++; car.authority.sequence++; car.authority.held=true;
       car.authority.suspended=false; car.authority.reason=""; car.authority.restored=false;
@@ -81,7 +96,7 @@ public final class RideAuthority {
     var cars=complete(level,v); safeRelease(level,cars);
     for(var car:cars) if(car.authority.stoppedTicks<5)
       throw new IllegalArgumentException("Wait for five stopped server ticks");
-    controller(level,pos,id).validateRelease(level,v);
+    controller(level,pos,id,v.authority.provider).validateRelease(level,v);
     if(MAGNETIZED.equals(v.authority.provider))OptionalDrive.validateRelease(level,v);
     if(CTNB.equals(v.authority.provider))CtnbDrive.validateRelease(level,v);
     change(level,v,false,false);
@@ -96,6 +111,21 @@ public final class RideAuthority {
     release(level,pos,id,token);
     try { VehicleOperations.dispatch(level,v); }
     catch(RuntimeException failure) { suspend(level,v,"Dispatch failed: "+failure.getMessage()); throw failure; }
+  }
+
+  /** Native capture under the same fresh owner token; seats, restraints and rotor alignment stay vehicle-owned. */
+  public static Token capture(ServerLevel level, BlockPos pos, UUID id, Token token) {
+    var v=checked(level,pos,id,token,false);
+    stopped(level,complete(level,v));
+    VehicleOperations.capture(level,v);
+    return token(v);
+  }
+
+  /** Sequence matters as well as epoch: a held/released request cannot reuse an earlier permit. */
+  public static boolean permits(ServerLevel level, UUID id, Token expected, String provider) {
+    var v=FoundationData.get(level).vehicles.get(id);
+    return v!=null && expected!=null && expected.owner()!=null && Objects.equals(provider,v.authority.provider)
+        && !holds(level,v) && expected.equals(token(v));
   }
 
   /** Emergency stop is always allowed; it cannot clear a suspended authority. */
@@ -199,9 +229,10 @@ public final class RideAuthority {
     if(v.authority.restored) { suspend(level,v,"Restored authority requires explicit Resume"); return; }
     if(v.authority.suspended)return;
     try {
-      var c=controller(level,v.authority.controller,v.chassis);
+      var c=controller(level,v.authority.controller,v.chassis,v.authority.provider);
       if(!c.authorityId().equals(v.authority.owner))throw new IllegalArgumentException("Controller identity changed");
       var cars=complete(level,v);
+      validateExternal(level,cars,v.authority.provider);
       for(var car:cars) if(!Objects.equals(car.authority.owner,v.authority.owner)
           ||car.authority.epoch!=v.authority.epoch||!car.authority.provider.equals(v.authority.provider))
         throw new IllegalArgumentException("Consist authority changed");
@@ -220,15 +251,30 @@ public final class RideAuthority {
     thread(level);var v=vehicle(level,id);refresh(level,v);
     if(!token(v).equals(expected)||!Objects.equals(pos,v.authority.controller))
       throw new IllegalArgumentException("Stale or foreign ride-authority request");
-    var c=controller(level,pos,id);
+    var c=controller(level,pos,id,v.authority.provider);
     if(!Objects.equals(c.authorityId(),v.authority.owner))throw new IllegalArgumentException("Controller identity changed");
     if(!resume&&v.authority.suspended)throw new IllegalArgumentException(v.authority.reason);
     complete(level,v);return v;
   }
-  private static Controller controller(ServerLevel l,BlockPos pos,UUID id) {
-    if(pos==null||!l.hasChunkAt(pos)||!(l.getBlockEntity(pos) instanceof Controller c)
-        ||!c.authorizesRide(id)||!c.authorityAvailable(id))throw new IllegalArgumentException("Bound authority controller unavailable");
-    return c;
+  private static Controller controller(ServerLevel l,BlockPos pos,UUID id,String providerId) {
+    if(pos==null||!l.hasChunkAt(pos))throw new IllegalArgumentException("Bound authority controller unavailable");
+    var provider=EXTERNAL.get(providerId);
+    Controller result=provider==null
+        ? (l.getBlockEntity(pos) instanceof Controller nativeController ? nativeController : null)
+        : provider.controller(l,pos);
+    if(result==null||!result.authorizesRide(id)||!result.authorityAvailable(id))
+      throw new IllegalArgumentException("Bound authority controller unavailable");
+    return result;
+  }
+  private static void validateExternal(ServerLevel l,List<FoundationData.Vehicle> cars,String id) {
+    var provider=EXTERNAL.get(id);
+    if(provider==null) {
+      if(!Set.of(NATIVE_CHAIN,ENGINEERED,MAGNETIZED,CTNB).contains(id))
+        throw new IllegalArgumentException("Saved longitudinal provider is unavailable");
+      return;
+    }
+    for(var car:cars)if(!provider.supports(l,car)||RideLocalOperations.isManaged(l,car))
+      throw new IllegalArgumentException("External provider does not support this vehicle or managed route");
   }
   private static FoundationData.Vehicle vehicle(ServerLevel l,UUID id) {
     var v=FoundationData.get(l).vehicles.get(id);
