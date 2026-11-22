@@ -129,11 +129,16 @@ public final class VehicleFactory {
       }
       if (design.pairedRows()) {
         for (int z = -3; z <= 3; z++)
-          embedded.setBlock(new BlockPos(0, 2, z), VehicleParts.STRUT.get().defaultBlockState(), 3);
+          embedded.setBlock(new BlockPos(0, 2, z),
+              (z == 0 || design != TrackDesign.REVISED && Math.abs(z) == 3
+                  ? VehicleParts.PAIRED_SPINE_CROSS.get()
+                  : VehicleParts.PAIRED_SPINE.get()).defaultBlockState(), 3);
         for (int z : new int[] {-3, 3})
-          for (int x = -2; x <= 2 && design != TrackDesign.REVISED; x++)
+          for (int x = -2; x <= 2 && design != TrackDesign.REVISED; x++) {
+            if (x == 0) continue; // the center cross cell carries both beams
             embedded.setBlock(
                 new BlockPos(x, 2, z), VehicleParts.STRUT.get().defaultBlockState(), 3);
+          }
       }
       for (int sign : new int[] {-1, 1}) {
         for (double longitudinal : design.pairedRows() ? new double[] {-3, 3} : new double[] {0}) {

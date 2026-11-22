@@ -35,6 +35,21 @@ public final class OperatorPanel {
       power=governor==null?"Powered governor unavailable":governor.inputRpm()+" input RPM";
     }
     var result=telemetry.save();result.putLong("revision",vehicle.revision);result.putString("controller",controller);result.putString("power",power);
+    var route = FoundationData.get(level).rideLocal;
+    if (dev.fourthdimension.integration.RideLocalOperations.ROUTE_ID.equals(route.routeId)
+        && vehicle.family == dev.fourthdimension.contract.Family.ARROW) {
+      var train = route.trains.get(vehicle.chassis);
+      result.putString("route", route.routeId); result.putInt("route_trains", route.trains.size());
+      result.putInt("route_block", train == null ? -1 : train.block);
+      result.putBoolean("route_managed", dev.fourthdimension.integration.RideLocalOperations.isManaged(level, vehicle));
+      if (train == null) result.putString("route_denial", "Admit this complete Arrow train before dispatch");
+      else if (train.unresolved || train.restored || train.braking)
+        result.putString("route_denial", "Route reservation is braking or unresolved; recover before dispatch");
+      if (!result.getString("route_denial").isBlank()) {
+        result.putBoolean("dispatch", false);
+        result.putString("denial", result.getString("route_denial"));
+      }
+    }
     String recovery=vehicle.recoveryCart!=null?(vehicle.stopping?"Recovery attached / braked":"Recovery towing"):
         vehicle.alignmentRequired?"Matching support realignment required":vehicle.shuttleDetached?"PAX detached for recovery":vehicle.maintenance?"Retained for maintenance":"No recovery attachment";
     result.putString("recovery",recovery);

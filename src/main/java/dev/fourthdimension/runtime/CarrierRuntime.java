@@ -120,6 +120,8 @@ public final class CarrierRuntime {
     var container = SubLevelContainer.getContainer(level);
     if (container == null) return;
     var data = FoundationData.get(level);
+    if (level.getGameTime() % 20 == 0 && !data.rideLocal.routeId.isEmpty())
+      dev.fourthdimension.integration.RideLocalOperations.reconcile(level);
     var pipeline = physics.getPipeline();
     // Every active car checks its bound rail once per physics callback. The PAX
     // shuttle has four cars, so avoid allocating two stream pipelines for each

@@ -1,0 +1,16 @@
+Run root: /mnt/NVME4/fourthdimension-runs/fd2101-20261117
+Saved world: /mnt/NVME4/fourthdimension-runs/fd2101-20261117/server/SkinWorkshop
+Full trace: /mnt/NVME4/fourthdimension-runs/fd2101-20261117/server/fd-fixed-trace.jsonl
+Client/server/Xvfb stopped after save-all flush and normal dismount.
+
+Id=fd2101-20261117-client.service
+ActiveState=inactive
+MainPID=0
+
+Id=fd2101-20261117-server.service
+ActiveState=inactive
+MainPID=0
+
+Id=fd2101-20261117-xvfb.service
+ActiveState=inactive
+MainPID=0

@@ -1,0 +1,64 @@
+--- a/src/main/java/dev/fourthdimension/client/fd917/OriginalCarrierSupportRenderer.java
++++ b/src/main/java/dev/fourthdimension/client/fd917/OriginalCarrierSupportRenderer.java
+@@ -36,25 +36,31 @@
+     for (var vehicle:data.vehicles.values()) {
+       if (!supported(vehicle.family) || FoundationData.VARIANT.equals(vehicle.variant)
+           || !(container.getSubLevel(vehicle.chassis) instanceof ClientSubLevel parent)) continue;
+-      if (vehicle.family==Family.ZACSPIN || vehicle.family==Family.FREE_SPIN
+-          || vehicle.family==Family.ZACSPIN_REVISED) {
+-        // The baked center strut uses the same transverse I-beam in seven Z
+-        // cells. Each cell stops short of the next by half a block, leaving
+-        // both paired crossbeams visually and structurally detached from the
+-        // controller. This continuous chassis-frame spine bridges every cell.
+-        var center=at(parent,0,2.5,0);
++      if (vehicle.family==Family.FREE_SPIN || vehicle.family==Family.ZACSPIN_REVISED) {
++        // at() is relative to the plot BLOCK CENTER: the baked upper strut is
++        // centered at Y=2, and the lower Revised rows at Y=1.5.
++        var center=at(parent,0,2,0);
+         if (center.distanceSquared(camera.x,camera.y,camera.z)<128*128
+             && ProductionMesh.visible(event,center,4)) {
+           int centerLight=LevelRenderer.getLightColor(mc.level,BlockPos.containing(center.x,center.y,center.z));
+           var up=new Vector3d(0,1,0).rotate(parent.renderPose().orientation());
+           var axis=new Vector3d(1,0,0).rotate(parent.renderPose().orientation());
+-          // A deep center girder also overlaps the lower Revised crossbeams,
+-          // rather than meeting their top edges at a single coplanar face.
+-          mesh.beam(at(parent,0,2.15,-3.5),at(parent,0,2.15,3.5),up,.78,.85,"structural",centerLight);
+-          // The center controller carries the two ends as a braced cantilever.
+-          for (int row : new int[] {-3,3}) {
+-            mesh.beam(at(parent,-.24,1.55,0),at(parent,-.24,2.5,row),axis,.16,.16,"structural",centerLight);
+-            mesh.beam(at(parent,.24,1.55,0),at(parent,.24,2.5,row),axis,.16,.16,"structural",centerLight);
++          // Existing X-oriented cells supply the transverse stiffeners. Fill
++          // only their half-block Z gaps with matching I-section flanges;
++          // drawing over their existing faces would cause coplanar flicker.
++          for (int cell=-3;cell<3;cell++)
++            spineFlanges(mesh,parent,up,cell+.25,cell+.75,centerLight);
++          spineFlanges(mesh,parent,up,-3.5,-3.25,centerLight);
++          spineFlanges(mesh,parent,up,3.25,3.5,centerLight);
++          mesh.beam(at(parent,0,2,-3.5),at(parent,0,2,3.5),up,
++              .125,.3125,"structural",centerLight);
++          if (vehicle.family==Family.ZACSPIN_REVISED) {
++            // Positive overlap with BOTH the lower row and upper spine.
++            // Use the parent X axis for a vertical beam's cross-section;
++            // parent Y would be parallel and trigger a world-axis fallback.
++            for (int row : new int[] {-3,3})
++              mesh.beam(at(parent,0,1.375,row),at(parent,0,2,row),axis,
++                  .5,.5,"structural",centerLight);
+           }
+         }
+       }
+@@ -96,6 +102,15 @@
+     mc.renderBuffers().bufferSource().endBatch(Sheets.cutoutBlockSheet());
+   }
+
++  /** Flanges match wing_strut's 8/16 width and 1.5/16 thickness. */
++  private static void spineFlanges(ProductionMesh mesh,ClientSubLevel parent,
++      Vector3d up,double fromZ,double toZ,int light) {
++    mesh.beam(at(parent,0,1.796875,fromZ),at(parent,0,1.796875,toZ),up,
++        .5,.09375,"structural",light);
++    mesh.beam(at(parent,0,2.203125,fromZ),at(parent,0,2.203125,toZ),up,
++        .5,.09375,"structural",light);
++  }
++
+   private static boolean supported(Family family) {
+     return family==Family.ZACSPIN || family==Family.FREE_SPIN
+         || family==Family.ZACSPIN_REVISED || family==Family.PAX;

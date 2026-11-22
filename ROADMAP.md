@@ -103,7 +103,7 @@ whole-JAR equality is not required. Keep the original run identity and limits.
 | 1.0 beta / RC | FD901–FD905 | Complete; 1.0.0 files promoted to Beta | Integrated stabilization, compatibility, lifecycle, migration, rendering and performance; carry accepted cases forward. |
 | 1.0 stable | FD1001–FD1003 | Release readiness complete; stable promotion pending | Final documentation, reproducible packaging and separately authorized publication. |
 | 1.1 | FD1602–FD1605 | Complete 2026-11-17; unpublished | Shareable setting presets, colors/liveries and a unified operator panel; Fixed Inverted is already a 1.0 requirement. |
-| 1.2 | FD1701B–C, FD1703 | In progress (agents assigned 2026-11-17) | Bounded ride-local multi-train operation using the earlier FD1701A authority; Dive is already a 1.0 requirement. |
+| 1.2 | FD1701B–C, FD1703 | Complete 2026-11-22 | Bounded ride-local multi-train operation using the earlier FD1701A authority; Dive is already a 1.0 requirement. |
 | 1.3 | FD2101–FD2103 | Planned | Repair unsupported-looking car/seat structures and add two original, selectable body variants for existing Wing and Fixed Inverted vehicles without changing their ride contracts. |
 | 1.4 | FD2201–FD2204 | Planned | Add standard and Surf-style standing configurations, plus motorbike and suspended flying-bike/Thrill Glider-inspired coasters, with distinct boarding, restraints, fit and recovery. |
 | Post-1.0 moving-track program; release numbers after feasibility | FD2001–FD2007 | Planned | Transfer platforms, turntables, drop tables, tilt tracks, elevator, teeter-totter, side-drop and compound motion-table styles. |
@@ -1511,42 +1511,56 @@ It consumes the hold authority without waiting for unrelated multi-train cases.
 
 | Package / status | Actual prerequisites | Ordered work and completion condition |
 | --- | --- | --- |
-| <a id="fd1701"></a> **FD1701 Ride-local operations outcome — planned** [Steps](docs/roadmap/1.2-multi-train.md#fd1701) | FD1701C | Group the authority, implementation and acceptance below; no additional run is required to close the parent. |
+| <a id="fd1701"></a> **FD1701 Ride-local operations outcome — complete 2026-11-22** [Steps](docs/roadmap/1.2-multi-train.md#fd1701) | FD1701C | Group the authority, implementation and acceptance below; close from cumulative C1–C6 evidence without replaying accepted native cases. |
 | <a id="fd1701a"></a> **FD1701A Ride-local authority contract — complete** [Steps](docs/roadmap/0.8-operations.md#fd1701a) | Integrated FD106 control/stop interfaces; FD810, FD811 or FD812 only for the adapter actually consumed | Audit provider behavior, select ownership and expose validated hold/release/dispatch requests through the existing controller. Prove fail-closed authority transfer and one representative occupied handoff. Name finite supported profiles and missing native hooks before dependent work. |
-| <a id="fd1701b"></a> **FD1701B Block operation and example — in progress (six-block Arrow contract integrated 2026-11-17)** [Steps](docs/roadmap/1.2-multi-train.md#fd1701b) | FD1701A | Implement whole-consist block occupancy, route reservations, train admission and station dispatch interlocks for the declared circuit/count. Preserve identities and occupancy across removal, unload, interruption and restart; unresolved occupancy must not grant entry. Supply normal controls, diagnostics, guide and a multi-train example. |
-| <a id="fd1701c"></a> **FD1701C Ride-local operations acceptance — planned (native state tests prepared; occupied client case open)** [Steps](docs/roadmap/1.2-multi-train.md#fd1701c) | FD1701B | Close normal separation/dispatch and distinct interruption/restart cases at the declared train limit. Combine native reservation evidence with occupied interaction; no park-wide matrix is required. |
+| <a id="fd1701b"></a> **FD1701B Block operation and example — complete 2026-11-22** [Steps](docs/roadmap/1.2-multi-train.md#fd1701b) | FD1701A | Implement whole-consist block occupancy, route reservations, train admission and station dispatch interlocks for the declared circuit/count. Preserve identities and occupancy across removal, unload, interruption and restart; unresolved occupancy must not grant entry. Supply normal controls, diagnostics, guide and a multi-train example. The selective package is tracked in [the integration manifest](docs/evidence/1.2/integration-manifest.md). |
+| <a id="fd1701c"></a> **FD1701C Ride-local operations acceptance — complete 2026-11-22** [Steps](docs/roadmap/1.2-multi-train.md#fd1701c) | FD1701B | C1 proves native three-train admission and atomic fourth-denial identity/reservation preservation; C5 proves serialized live-loaded-state fail-closed recovery and explicit resume. C3 production-hook removal is accepted by `fd1701c-c3c4-observer.log`; C4 is accepted by `fd1701c-c4-ticket.log` with documented Sable force-load tickets, delayed same-UUID stability, reservation equality, and explicit resume. The connected occupied C2/C6 run proves physical separation and player/server agreement at the reserved boundary; see [the integration manifest](docs/evidence/1.2/integration-manifest.md). |
 | <a id="fd1702"></a> **FD1702 Dive outcome — complete** [Steps](docs/roadmap/0.8-operations.md#fd1702) | FD1702C | Group the A–C vehicle outcome; close from accepted evidence without another walkthrough. |
 | <a id="fd1702a"></a> **FD1702A Dive mechanics — complete** [Steps](docs/roadmap/0.8-operations.md#fd1702a) | FD1702S, FD1101A, FD1701A | Implement the specified fixed-seat vehicle, measured track fit, clearance, approach, timed hold, validated release, stopping/recovery and restraint interlocks through the established authority; include occupied handoff. |
 | <a id="fd1702b"></a> **FD1702B Dive content — complete** [Steps](docs/roadmap/0.8-operations.md#fd1702b) | Stable FD1702A specification/dimensions | Deliver original vehicle/equipment assets, recipes, controls, guide and a hold-and-drop example. |
 | <a id="fd1702c"></a> **FD1702C Dive acceptance — complete** [Steps](docs/roadmap/0.8-operations.md#fd1702c) | FD1702A, FD1702B | Close normal player operation and distinct interrupted-hold/release cases with cumulative evidence. |
-| <a id="fd1703"></a> **FD1703 Version 1.2 multi-train gate — planned** [Steps](docs/roadmap/1.2-multi-train.md#fd1703) | FD1701 | Reconcile the declared multi-train outcome and applicable post-1.0 release checks. Dive is already consumed by FD813/1.0; do not replay it for this gate. |
+| <a id="fd1703"></a> **FD1703 Version 1.2 multi-train gate — complete 2026-11-22** [Steps](docs/roadmap/1.2-multi-train.md#fd1703) | FD1701 | Reconcile the declared multi-train outcome and applicable post-1.0 release checks after connected physical separation is accepted. Dive is already consumed by FD813/1.0; do not replay it for this gate. |
 
 <a id="version-13-car-models"></a>
 
-### Version 1.3 — car structure and model choices
+### Version 1.3 — base-model repair, refinement and body choices
 
-FD917's accepted production baseline remains accepted. Version 1.3 adds a
-specific follow-up: make any unsupported-looking seat bars and car connections
-read as a continuous load path in empty, occupied, stationary and moving views.
-The correction must follow the actual seat pivot and restraint state; decorative
-brackets cannot hide a detached moving joint. Identify affected models from
-source and retained views before changing them, and validate only the affected
-cars. This work does not reopen all 17 FD917 styles.
+Improve the existing car models before deriving selectable variants from them.
+FD2101's findings show that earlier accepted views do not establish that every
+joint is connected or every base model is finished enough for variant work.
+Separate **defects** (literal gaps, disconnected supports, clipping, wrong moving
+attachments or broken textures) from **model refinement** (proportions,
+silhouette, convincing construction, restraint/rider fit and material/detail
+quality). Both are part of 1.3; closing a support defect alone does not close the
+base-model work.
 
-Add two original selectable body variants: a compact Wing shell and an
-open-frame Fixed Inverted shell. Both retain their existing seat, restraint,
-track and motion contracts. Neither variant copies branded artwork. Model
-selection uses the existing appearance controls, persists, previews and falls
-back to the base model when unavailable. It preserves capacity, seat ownership,
-camera, restraint, clearance and sweep. A color/livery alone does not count
-as a body variant.
-Repair any other discovered modeling or texture issues.
+FD2101 repairs evidenced defects. FD2104 reviews the existing 17-style roster
+against real coaster designs and, where useful, documented game counterparts,
+then delivers a finite, recorded list of base-model improvements. The review
+must look beyond FD2101's direct findings. Use references to understand each
+style's construction and appearance, not to copy branded artwork or silently
+change its mechanics. Record evidence and uncertainty per style: an unreviewed
+model is not automatically cleared, and a visual preference is not a proven
+structural defect.
+
+Preserve accepted FD917 mechanics and unaffected visual evidence. Reopen only a
+named affected claim; review existing source and retained views first, then run
+only checks needed for changed geometry, textures, fit or moving attachments.
+A base-model review is not another all-family runtime qualification campaign.
+
+After defect repair and base-model refinement, add two original selectable body
+variants: a compact Wing shell and an open-frame Fixed Inverted shell. Both
+retain their existing seat, restraint, track and motion contracts. Model
+selection uses existing appearance controls, persists, previews and falls back
+to the base model when unavailable. Preserve capacity, seat ownership, camera,
+restraint state, clearance and sweep. A color/livery alone is not a body variant.
 
 | Package / status | Actual prerequisites | Ordered work and completion condition |
 | --- | --- | --- |
-| <a id="fd2101"></a> **FD2101 Car support correction — planned** [Steps](docs/roadmap/1.3-car-models.md#fd2101) | FD917 production assets; affected vehicle specifications | Inventory and fix unsupported-looking seat/car connections in the affected original models. Complete when their structural path remains connected through their actual motion and occupied fit, with no new clipping or false restraint state. |
-| <a id="fd2102"></a> **FD2102 Selectable car body variants — planned** [Steps](docs/roadmap/1.3-car-models.md#fd2102) | FD1603 appearance selection; stable Wing and Fixed Inverted dimensions | Specify and deliver the compact Wing and open-frame Fixed Inverted body choices, including item/preview presentation, persistence and base-model fallback. Complete when both differ in geometry from their base cars and preserve the existing mechanical, rider and clearance contracts during normal play. |
-| <a id="fd2103"></a> **FD2103 Version 1.3 car-model gate — planned** [Steps](docs/roadmap/1.3-car-models.md#fd2103) | FD2101, FD2102 , further model support and final pass before marking complete | Reconcile affected structural views, both model choices, persistence/fallback and relevant package/content checks. Retain FD917 and unrelated 1.0/1.1 evidence. |
+| <a id="fd2101"></a> **FD2101 Base-model defects and support repairs — complete 2026-11-22** [Steps](docs/roadmap/1.3-car-models.md#fd2101) | FD917 production assets; affected vehicle specifications; named defect evidence | The [finite defect record](docs/evidence/1.3/fd2101/README.md) reconciles Fixed Inverted, Arrow, shared original-family, paired-spine, Revised rider intrusion and the later floating bearing-yoke regression with affected source, views and checks. Accepted unchanged FD917 behavior carries forward. Broader reference refinements belong to FD2104. |
+| <a id="fd2104"></a> **FD2104 Base-model reference pass complete 2026-11-17; structural follow-up active; implementation planned** [Steps](docs/roadmap/1.3-car-models.md#fd2104) | Existing 17-style models/specifications and retained views; real-world or documented game references; FD2101 fixes before final baseline acceptance | The [first 17-style review](docs/evidence/1.3/model-reference-review.md) classifies defects versus refinement versus uncertainty and supplies candidate priorities; shared structural follow-up remains active after additional cart-to-support findings, so no architecture-clearance list is frozen. Implement only agreed refinements after FD2101 fixes. Improve the selected base models' proportions, silhouette, credible supports/mechanism presentation, rider/restraint fit, textures/materials and item/world consistency beyond direct gap repairs. Record an explicit disposition for each style; complete agreed refinements and affected checks, then freeze base geometry, attachment points and unchanged mechanical limits for variants. No indefinite polish loop or new vehicle mechanics. |
+| <a id="fd2102"></a> **FD2102 Selectable car body variants — planned; waits for base-model readiness** [Steps](docs/roadmap/1.3-car-models.md#fd2102) | FD2101 and FD2104 accepted base models; FD1603 appearance selection; frozen Wing and Fixed Inverted dimensions | Deliver compact Wing and open-frame Fixed Inverted choices against the refined baseline, including item/preview presentation, persistence and base-model fallback. Both must differ geometrically from their base cars while preserving mechanical, rider and clearance contracts. Do not build variants on unresolved defects or unfinished agreed base-model improvements. |
+| <a id="fd2103"></a> **FD2103 Version 1.3 car-model gate — planned** [Steps](docs/roadmap/1.3-car-models.md#fd2103) | FD2101, FD2104, FD2102 | Reconcile the finite defect/refinement lists, accepted base-model baseline, both model choices, occupied fit, persistence/fallback and affected package/content checks. Close from cumulative evidence; retain unrelated FD917 and 1.0/1.1 acceptance. |
 
 <a id="version-14-specialty-vehicles"></a>
 
@@ -1559,8 +1573,7 @@ while the rider remains upright. Specify distinct supports, restraints,
 boarding platforms, rider/camera positions, swept envelopes and evacuation
 for each. [B&M Surf](https://www.bolliger-mabillard.com/surf-coaster) and
 [SeaWorld Pipeline](https://seaworld.com/orlando/roller-coasters/pipeline/)
-are references for the dynamic seat; the game implementation must define itsn 1.3 car-model gate — planned** [Steps](docs/roadmap/1.3-car-models.md#fd2103) | FD2101, FD2102 , further model support and final pass before marking complete | Reconcile affected structural views, both model choices, persistence/fallback and relevant package/content checks. Retain FD917 and unrelated 1.0/1.1 evidence. |
-
+are references for the dynamic seat; the game implementation must define its
 own travel and capture limits rather than copy a commercial mechanism. The
 next specialty vehicle is a straddle-seated motorbike inspired by https://coasterpedia.net/wiki/Motorbike_roller_coaster
 [Vekoma's Motorbike Coasters](https://www.vekoma.com/motorbike-coasters).

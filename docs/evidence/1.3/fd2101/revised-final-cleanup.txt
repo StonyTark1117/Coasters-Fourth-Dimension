@@ -1,0 +1,23 @@
+FD2101 final Revised geometry check — 2026-11-17
+Owner: 01a1e8b5-8dd3-7110-a26d-e29e8b8ec23e
+Checkout: /home/braydon/Documents/Coasters: Fourth Dimension (main, HEAD 5d385da0)
+Run root: /mnt/NVME4/fourthdimension-runs/fd2101-arrow-20261117
+Private display: :338
+Worlds: server/SkinWorkshop and server/RevisedMotion (both retained)
+Endpoint: 127.0.0.1:25683; RCON 25684
+Client heap: 1536M, client scope: 6G; server scope: 4G; Java 21
+Packaged artifact: build/libs/coasters-fourth-dimension-1.1.0.jar
+SHA-256: 1b8dbd0b8b9d91c262f87d9246d60c3cc171f7b7dec54c339e359b0d7b13ef68
+
+Before each shutdown, `save-all flush` returned `Saved the game`.
+The server logged `All dimensions are saved` and RCON listener stopped.
+Final systemd --user state:
+fd2101-arrow-20261117-client.service ActiveState=inactive MainPID=0
+fd2101-arrow-20261117-server.service ActiveState=inactive MainPID=0
+fd2101-arrow-20261117-xvfb.service ActiveState=inactive MainPID=0
+
+The copied RevisedMotion route ends at its known short-track boundary.
+The final occupied check reached about -2.015 radians with one rider and
+closed restraints, then returned to near zero, opened and dismounted.
+Full client/server logs, screenshots and command/input records remain in
+the run root. The original FD403D source world was not modified.

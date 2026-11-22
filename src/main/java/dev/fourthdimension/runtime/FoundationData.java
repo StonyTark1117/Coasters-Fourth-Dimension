@@ -18,6 +18,7 @@ public final class FoundationData extends SavedData {
   public static final String PROVIDER = "fourthdimension:prototype";
   public final Map<UUID, Vehicle> vehicles = new LinkedHashMap<>();
   public final List<Rail> rails = new ArrayList<>();
+  public final RideLocalState rideLocal = new RideLocalState();
   private ServerLevel owner;
 
   public void checkProfileCapacity(int additionalKeys) {
@@ -157,6 +158,34 @@ public final class FoundationData extends SavedData {
       this.chassis = chassis;
       this.family = family;
     }
+
+    public boolean original() { return !VARIANT.equals(variant); }
+  }
+
+  public static final class RideLocalTrain {
+    public final UUID chassis;
+    public final List<UUID> cars;
+    public int block, nextBlock;
+    public boolean braking, unresolved, restored;
+    public RideLocalTrain(UUID chassis, List<UUID> cars, int block) {
+      this.chassis = chassis; this.cars = List.copyOf(cars); this.block = block; this.nextBlock = (block + 1) % dev.fourthdimension.integration.RideLocalOperations.BLOCKS;
+    }
+  }
+
+  public static final class RideLocalState {
+    public String routeId = "";
+    public List<UUID> rails = List.of();
+    public final Map<UUID, RideLocalTrain> trains = new LinkedHashMap<>();
+    public final Map<Integer, UUID> reservations = new HashMap<>();
+    public boolean restored;
+    public void configure(String id, List<UUID> ordered) { routeId=id; rails=List.copyOf(ordered); restored=false; }
+    public UUID blockOwner(int block) { return reservations.get(block); }
+    public void reserve(int block, UUID train) {
+      var owner = reservations.get(block);
+      if (owner != null && !owner.equals(train)) throw new IllegalArgumentException("Route block already reserved");
+      reservations.put(block, train);
+    }
+    public void release(UUID train) { reservations.entrySet().removeIf(e -> e.getValue().equals(train)); }
   }
 
   public static final class Carrier {
@@ -341,6 +370,15 @@ public final class FoundationData extends SavedData {
       carts.add(tag);
     }
     root.put("vehicles", carts);
+    if (!rideLocal.routeId.isEmpty()) {
+      CompoundTag route = new CompoundTag(); route.putString("id", rideLocal.routeId); route.putBoolean("restored", true);
+      ListTag ids = new ListTag(); for (var id : rideLocal.rails) ids.add(NbtUtils.createUUID(id)); route.put("rails", ids);
+      ListTag trains = new ListTag(); for (var t : rideLocal.trains.values()) {
+        CompoundTag x = new CompoundTag(); x.putUUID("chassis", t.chassis); x.putInt("block", t.block); x.putInt("next", t.nextBlock);
+        x.putBoolean("braking", t.braking); x.putBoolean("unresolved", t.unresolved); x.putBoolean("restored", true);
+        ListTag cars = new ListTag(); for (var id : t.cars) cars.add(NbtUtils.createUUID(id)); x.put("cars", cars); trains.add(x);
+      } route.put("trains", trains); root.put("ride_local", route);
+    }
     return root;
   }
 
@@ -625,6 +663,23 @@ public final class FoundationData extends SavedData {
         if (previous != null && !previous.equals(vehicle.variant))
           throw new IllegalArgumentException("Mixed functional families in saved recovery consist");
       }
+    if (root.contains("ride_local", Tag.TAG_COMPOUND)) {
+      var route = root.getCompound("ride_local");
+      data.rideLocal.routeId = route.getString("id"); data.rideLocal.restored = true;
+      var routeRails = new ArrayList<UUID>();
+      for (var raw : route.getList("rails", Tag.TAG_INT_ARRAY)) routeRails.add(NbtUtils.loadUUID(raw));
+      data.rideLocal.rails = List.copyOf(routeRails);
+      for (var raw : route.getList("trains", Tag.TAG_COMPOUND)) {
+        var tag = (CompoundTag) raw; var ids = new ArrayList<UUID>();
+        for (var id : tag.getList("cars", Tag.TAG_INT_ARRAY)) ids.add(NbtUtils.loadUUID(id));
+        var train = new RideLocalTrain(tag.getUUID("chassis"), ids, tag.getInt("block"));
+        train.nextBlock = tag.contains("next", Tag.TAG_INT) ? tag.getInt("next") : (train.block + 1) % dev.fourthdimension.integration.RideLocalOperations.BLOCKS;
+        train.braking = true; train.restored = true; train.unresolved = tag.getBoolean("unresolved");
+        data.rideLocal.trains.put(train.chassis, train);
+        data.rideLocal.reserve(train.block, train.chassis);
+        data.rideLocal.reserve(train.nextBlock, train.chassis);
+      }
+    }
     data.checkProfileCapacity(0);
     if (data.rails.stream().mapToInt(r -> r.magnets.size()).sum() > 512)
       throw new IllegalArgumentException("Magnetic equipment capacity exceeded");

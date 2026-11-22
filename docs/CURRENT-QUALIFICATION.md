@@ -30,20 +30,30 @@ will carry unaffected acceptance forward; no new JAR or run is required here.
 
 ## Current work queue
 
-### Active 1.2 — agents assigned 2026-11-17
+### Completed 1.2 — accepted 2026-11-22
 
 The human requested **"Assign 1.2 tasks to agents"**. Reuse the three existing
 owners below on primary `main` at `/home/braydon/Documents/Coasters: Fourth Dimension`.
 Assignment baseline: `147c718a`; only pre-existing untracked `logs/`.
 FD1701A and 1.0/1.1 acceptance remain closed. Read the
 [1.2 execution guide](roadmap/1.2-multi-train.md) and current source before changes.
-Publication, stable promotion, 1.3/1.4 implementation and moving-track work are not assigned.
+Publication, stable promotion, remaining 1.3/1.4 implementation and moving-track work are separate assignments.
+
+FD1701B, FD1701C, FD1701 and FD1703 are complete. C1/C3/C4/C5 retain their
+accepted native evidence. The connected occupied C2/C6 run in the copied world
+proved normal rider mount, restraint closure and dispatch with three physical
+trains holding disjoint 0/1, 2/3 and 4/5 reservations. At the rail transition,
+the server logged f24's computed current=3, next=4, next owner=2b and emergency
+brake before manual Capture; the next readback retained all six owners and
+the player-facing state agreed. See the [integration manifest](evidence/1.2/integration-manifest.md)
+and preserved run evidence. The run saved and stopped cleanly. No further 1.2
+acceptance case is queued.
 
 | Outcome / contribution | Owner | Immediate work and handoff |
 | --- | --- | --- |
-| **FD1701B implementation; FD1701 and FD1703 aggregates; integration** | Lead `01a1dd1d-1468-7f81-8f31-5532ad7a178d` | Audit existing authority/upstream block capabilities; declare the one fixed circuit, finite train count and supported homogeneous consists before implementation. Own whole-consist occupancy, reservations, admission, dispatch/braking separation and persistent fail-closed recovery. Supply the stable contract and exact path transfers to the other owners; integrate their accepted work and close the aggregates without duplicate campaigns. |
-| **FD1701B controls, example and guide contribution; FD1703 documentation/content contribution** | Art `01a1dd1d-6e99-70d2-aef3-6dcebac10d72` | Inspect normal operator/editor paths and accepted example mechanisms. Prepare the player workflow and documentation independently; implement normal controls, diagnostics and the example against the lead's declared circuit/count contract. Return source, usable example, guide and affected client evidence to lead and acceptance owner. |
-| **FD1701C acceptance** | Mechanisms `01a1dd1d-c6a6-7be0-9cb5-2b033ac550da` | Map retained FD1701A authority evidence and inspect implementation invariants now. Prepare focused tests, then qualify the integrated FD1701B contract: occupied admission/dispatch/separation at the declared limit and distinct removal, unload, interruption and restart paths. Unresolved occupancy must deny entry. Hand cumulative evidence and precise defects to lead. |
+| **FD1701B implementation; FD1701 and FD1703 aggregates; integration** | Lead `01a1dd1d-1468-7f81-8f31-5532ad7a178d` | Complete. The fixed eight-segment Arrow route, six blocks, three-train limit, admission/dispatch guards, recovery, normal controls and example are integrated. |
+| **FD1701B controls, example and guide contribution; FD1703 documentation/content contribution** | Art `01a1dd1d-6e99-70d2-aef3-6dcebac10d72` | Complete. Art's connected run and coordinator's final occupied replay are retained as evidence. |
+| **FD1701C acceptance** | Mechanisms `01a1dd1d-c6a6-7be0-9cb5-2b033ac550da` | Complete. Native C1/C3/C4/C5 evidence and connected C2/C6 physical separation were reconciled without reopening accepted cases. |
 
 **File and runtime ownership:** After this coordinator activation, lead alone edits
 central `ROADMAP.md`, `PLAN.md`, this queue, shared contract decisions and stages/
@@ -64,7 +74,41 @@ VALIDATION-POLICY and the private-display/resource rules; every runtime has its
 own exact paths, display, ports and units, and must save/stop before completion.
 Lead keeps this finite queue current, reconciles affected packaging/docs and a
 representative workload, selectively commits/pushes and verifies remote HEAD.
-No ongoing heartbeat monitor is activated by this assignment.
+The later human request activated continued coordinator monitoring for 1.2 and FD2101.
+
+### 1.3 model work — FD2101 complete 2026-11-22
+
+FD2101 owner `01a1e8b5-8dd3-7110-a26d-e29e8b8ec23e` resolved the finite
+evidenced original-model defect list in the [FD2101 repair record](evidence/1.3/fd2101/README.md):
+Fixed Inverted pan/frame, Arrow axle-to-bucket and center mount, shared
+original-family controller/axle/seat paths, paired center spines, Revised seat
+intrusion, and the subsequently reported floating parent bearing yoke. The
+last bearing regression has a same-angle open/closed visual comparison, exact
+beam-containment audit, Java 21 build identity, and saved/inactive private run.
+Accepted unaffected FD917 behavior and FD2104's broader structural questions
+remain separate.
+
+The human requested broader model improvements before variants, including a
+comparison with real-life or other-game counterparts. **FD2104 first reference pass is complete** in the [17-style matrix and recommendations](evidence/1.3/model-reference-review.md). The [read-only structural follow-up](evidence/1.3/structural-reference-follow-up.md) confirms five shared architectural gaps and leaves twelve interfaces explicitly unverified; implementation reconciliation remains open, recommendations are candidates, and FD2104 implementation remains planned. FD2104 implementation and FD2102/FD2103 remain planned,
+not newly assigned for implementation. FD2102 now waits for FD2101/FD2104 base
+readiness. See the [revised 1.3 roadmap](../ROADMAP.md#version-13-car-models).
+
+The finite FD2101 source is reconciled against the current checkout and the
+support audit passes. Its generator/factory/parts paths are included in the
+selective central integration with the completed 1.2 work. No FD2104
+implementation is included.
+
+Preserve the active 1.2 ownership and accepted C1/C5. The coordinator monitors
+1.2 and retains the completed FD2101 record; the reference review supplies planning input,
+not permission for a new all-family qualification campaign. Coordinate central
+document edits and exact generator/output paths with the integration lead.
+
+**FD1701 fixture-helper transfer — 2026-11-22:** the validation-only
+`Fd1701FixtureRepair.java` path is transferred to coordinator ownership for a
+bounded `fd1701_stage` command. The command may create one real original Arrow
+car on declared route rail index 4 at parameter `.2`, returning its UUID/center;
+it must not alter reservations, teleport an existing train, or claim motion.
+All other 1.2 paths remain under their existing ownership.
 
 ### Completed 1.1 — authorized and verified 2026-11-17
 

@@ -621,6 +621,75 @@
       }
     },
     {
+      "name": "cradle to bearing web",
+      "from": [
+        0,
+        8,
+        11
+      ],
+      "to": [
+        2,
+        22.5,
+        16
+      ],
+      "faces": {
+        "north": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            2,
+            14.5
+          ]
+        },
+        "south": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            2,
+            14.5
+          ]
+        },
+        "east": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            5,
+            14.5
+          ]
+        },
+        "west": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            5,
+            14.5
+          ]
+        },
+        "up": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            2,
+            5
+          ]
+        },
+        "down": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            2,
+            5
+          ]
+        }
+      }
+    },
+    {
       "name": "separate pair cradle",
       "from": [
         14,
@@ -823,6 +892,384 @@
             0,
             2,
             2
+          ]
+        }
+      }
+    },
+    {
+      "name": "cradle to bearing web",
+      "from": [
+        14,
+        8,
+        11
+      ],
+      "to": [
+        16,
+        22.5,
+        16
+      ],
+      "faces": {
+        "north": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            2,
+            14.5
+          ]
+        },
+        "south": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            2,
+            14.5
+          ]
+        },
+        "east": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            5,
+            14.5
+          ]
+        },
+        "west": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            5,
+            14.5
+          ]
+        },
+        "up": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            2,
+            5
+          ]
+        },
+        "down": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            2,
+            5
+          ]
+        }
+      }
+    },
+    {
+      "name": "rear cradle crossmember",
+      "from": [
+        0,
+        8,
+        13
+      ],
+      "to": [
+        16,
+        11,
+        16
+      ],
+      "faces": {
+        "north": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            16,
+            3
+          ]
+        },
+        "south": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            16,
+            3
+          ]
+        },
+        "east": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            3,
+            3
+          ]
+        },
+        "west": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            3,
+            3
+          ]
+        },
+        "up": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            16,
+            3
+          ]
+        },
+        "down": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            16,
+            3
+          ]
+        }
+      }
+    },
+    {
+      "name": "axle to bearing spine rail",
+      "from": [
+        0,
+        21,
+        -6
+      ],
+      "to": [
+        1.5,
+        22.5,
+        10
+      ],
+      "faces": {
+        "north": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            1.5,
+            1.5
+          ]
+        },
+        "east": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            16,
+            1.5
+          ]
+        },
+        "west": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            16,
+            1.5
+          ]
+        },
+        "up": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            1.5,
+            16
+          ]
+        },
+        "down": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            1.5,
+            16
+          ]
+        }
+      }
+    },
+    {
+      "name": "axle to bearing spine rail",
+      "from": [
+        0,
+        21,
+        10
+      ],
+      "to": [
+        1.5,
+        22.5,
+        21
+      ],
+      "faces": {
+        "south": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            1.5,
+            1.5
+          ]
+        },
+        "east": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            11,
+            1.5
+          ]
+        },
+        "west": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            11,
+            1.5
+          ]
+        },
+        "up": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            1.5,
+            11
+          ]
+        },
+        "down": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            1.5,
+            11
+          ]
+        }
+      }
+    },
+    {
+      "name": "axle to bearing spine rail",
+      "from": [
+        14.5,
+        21,
+        -6
+      ],
+      "to": [
+        16.0,
+        22.5,
+        10
+      ],
+      "faces": {
+        "north": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            1.5,
+            1.5
+          ]
+        },
+        "east": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            16,
+            1.5
+          ]
+        },
+        "west": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            16,
+            1.5
+          ]
+        },
+        "up": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            1.5,
+            16
+          ]
+        },
+        "down": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            1.5,
+            16
+          ]
+        }
+      }
+    },
+    {
+      "name": "axle to bearing spine rail",
+      "from": [
+        14.5,
+        21,
+        10
+      ],
+      "to": [
+        16.0,
+        22.5,
+        21
+      ],
+      "faces": {
+        "south": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            1.5,
+            1.5
+          ]
+        },
+        "east": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            11,
+            1.5
+          ]
+        },
+        "west": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            11,
+            1.5
+          ]
+        },
+        "up": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            1.5,
+            11
+          ]
+        },
+        "down": {
+          "texture": "#metal",
+          "uv": [
+            0,
+            0,
+            1.5,
+            11
           ]
         }
       }

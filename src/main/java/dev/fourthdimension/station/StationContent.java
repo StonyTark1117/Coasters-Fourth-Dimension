@@ -19,7 +19,7 @@ public final class StationContent {
   public static final DeferredBlock<BoardingStation> STATION =
       BLOCKS.register(
           "boarding_station",
-          () -> new BoardingStation(BlockBehaviour.Properties.of().strength(3)));
+          () -> new BoardingStation(BlockBehaviour.Properties.of().noOcclusion().strength(3)));
   public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<BoardingStationEntity>>
       ENTITY =
           ENTITIES.register(

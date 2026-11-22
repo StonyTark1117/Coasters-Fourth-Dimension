@@ -115,4 +115,12 @@ public final class VehicleParts {
           () ->
               new MechanicalPartBlock(
                   BlockBehaviour.Properties.of().strength(4).noOcclusion(), false));
+  public static final DeferredBlock<Block> PAIRED_SPINE =
+      BLOCKS.register("paired_spine", () -> new MechanicalPartBlock(
+          BlockBehaviour.Properties.of().strength(4).noOcclusion(), Block.box(4,1,0,12,5.5,16)));
+  public static final DeferredBlock<Block> PAIRED_SPINE_CROSS =
+      BLOCKS.register("paired_spine_cross", () -> new MechanicalPartBlock(
+          BlockBehaviour.Properties.of().strength(4).noOcclusion(),
+          net.minecraft.world.phys.shapes.Shapes.or(
+              Block.box(4,1,0,12,5.5,16), Block.box(0,4,4,16,12,12))));
 }

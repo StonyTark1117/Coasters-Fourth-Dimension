@@ -1,0 +1,2879 @@
+{
+  "scope": "baked geometry; reconstructed factory placements; contact includes face-touch",
+  "proposed_renderer_patch_included": false,
+  "input_sha256": {
+    "src/main/java/dev/fourthdimension/vehicle/VehicleFactory.java": "ae853d0927784cfc7c506d71b37ecb0ea7a7b70e60764f0eb10b4948d25883c8",
+    "src/main/java/dev/fourthdimension/client/fd917/OriginalCarrierSupportRenderer.java": "0de0ce29d0d628ba85f037a988ec7338681b365b6cba5824bccc916f010fe2a9",
+    "src/main/resources/assets/fourthdimension/models/block/revised_strut.json": "1c8b08b71f219ae3189e4c39bc6ba88ea35611cfef3e1e02c1de91f1201d3b9c",
+    "src/main/resources/assets/fourthdimension/models/block/wing_strut.json": "f7afa652eb88797f55f50b67d5291c94469e2983bbff767db62cc4d7ccc1a8ba",
+    "src/main/resources/assets/fourthdimension/models/block/zacspin_revised_controller.json": "febfdbf718e43c4db775dcc982b553aea9d1b3c3ba6610f310c874d151ddc31d",
+    "src/main/resources/assets/fourthdimension/models/block/sns_free_spin_controller.json": "232a6804739626b26f239605fa15bda0d391c5ff106355b90b7a1ab8551737c5",
+    "src/main/resources/assets/fourthdimension/blockstates/wing_strut.json": "0dd8ae19cbbc888ad6ae6c3d27dca6e04382c55576eb141fe0662a4497f45b64",
+    "src/main/resources/assets/fourthdimension/blockstates/revised_strut.json": "3055d57006b9625b77dbf0c6005c6afed2edef05295525205332e6ef4071da69",
+    "docs/evidence/1.3/fd2101/coordinator-crossbeam-repair.patch": "55da6302ce00eae9a7d73915ee25ec9bf43a9698cbf55616bc71219484b397f7"
+  },
+  "families": {
+    "Free Spin": {
+      "baked_disconnected_cells": [
+        [
+          -2,
+          2,
+          -3
+        ],
+        [
+          -2,
+          2,
+          3
+        ],
+        [
+          -1,
+          2,
+          -3
+        ],
+        [
+          -1,
+          2,
+          3
+        ],
+        [
+          0,
+          2,
+          -3
+        ],
+        [
+          0,
+          2,
+          -2
+        ],
+        [
+          0,
+          2,
+          -1
+        ],
+        [
+          0,
+          2,
+          1
+        ],
+        [
+          0,
+          2,
+          2
+        ],
+        [
+          0,
+          2,
+          3
+        ],
+        [
+          1,
+          2,
+          -3
+        ],
+        [
+          1,
+          2,
+          3
+        ],
+        [
+          2,
+          2,
+          -3
+        ],
+        [
+          2,
+          2,
+          3
+        ]
+      ],
+      "adjacent_spine_cell_z_gap_blocks": 0.5,
+      "boxes": [
+        {
+          "cell": [
+            0,
+            1,
+            0
+          ],
+          "model": "sns_free_spin_controller",
+          "name": "controller casing",
+          "lo": [
+            0.125,
+            1.0,
+            0.125
+          ],
+          "hi": [
+            0.875,
+            1.5,
+            0.875
+          ]
+        },
+        {
+          "cell": [
+            0,
+            1,
+            0
+          ],
+          "model": "sns_free_spin_controller",
+          "name": "beam lower flange",
+          "lo": [
+            0.0,
+            1.5,
+            0.3125
+          ],
+          "hi": [
+            1.0,
+            1.625,
+            0.6875
+          ]
+        },
+        {
+          "cell": [
+            0,
+            1,
+            0
+          ],
+          "model": "sns_free_spin_controller",
+          "name": "beam upper flange",
+          "lo": [
+            0.0,
+            1.875,
+            0.3125
+          ],
+          "hi": [
+            1.0,
+            2.0,
+            0.6875
+          ]
+        },
+        {
+          "cell": [
+            0,
+            1,
+            0
+          ],
+          "model": "sns_free_spin_controller",
+          "name": "beam web",
+          "lo": [
+            0.0,
+            1.625,
+            0.4375
+          ],
+          "hi": [
+            1.0,
+            1.875,
+            0.5625
+          ]
+        },
+        {
+          "cell": [
+            0,
+            1,
+            0
+          ],
+          "model": "sns_free_spin_controller",
+          "name": "access plate",
+          "lo": [
+            0.25,
+            1.125,
+            0.0625
+          ],
+          "hi": [
+            0.75,
+            1.4375,
+            0.125
+          ]
+        },
+        {
+          "cell": [
+            0,
+            1,
+            0
+          ],
+          "model": "sns_free_spin_controller",
+          "name": "plate screw",
+          "lo": [
+            0.3125,
+            1.1875,
+            0.059375
+          ],
+          "hi": [
+            0.375,
+            1.25,
+            0.0625
+          ]
+        },
+        {
+          "cell": [
+            0,
+            1,
+            0
+          ],
+          "model": "sns_free_spin_controller",
+          "name": "access plate",
+          "lo": [
+            0.25,
+            1.125,
+            0.875
+          ],
+          "hi": [
+            0.75,
+            1.4375,
+            0.9375
+          ]
+        },
+        {
+          "cell": [
+            0,
+            1,
+            0
+          ],
+          "model": "sns_free_spin_controller",
+          "name": "plate screw",
+          "lo": [
+            0.3125,
+            1.1875,
+            0.871875
+          ],
+          "hi": [
+            0.375,
+            1.25,
+            0.875
+          ]
+        },
+        {
+          "cell": [
+            0,
+            1,
+            0
+          ],
+          "model": "sns_free_spin_controller",
+          "name": "left chassis to crossbeam stanchion",
+          "lo": [
+            0.125,
+            1.5625,
+            0.3125
+          ],
+          "hi": [
+            0.3125,
+            2.5625,
+            0.6875
+          ]
+        },
+        {
+          "cell": [
+            0,
+            1,
+            0
+          ],
+          "model": "sns_free_spin_controller",
+          "name": "right chassis to crossbeam stanchion",
+          "lo": [
+            0.6875,
+            1.5625,
+            0.3125
+          ],
+          "hi": [
+            0.875,
+            2.5625,
+            0.6875
+          ]
+        },
+        {
+          "cell": [
+            0,
+            1,
+            0
+          ],
+          "model": "sns_free_spin_controller",
+          "name": "crossbeam support saddle",
+          "lo": [
+            0.0625,
+            2.4375,
+            0.3125
+          ],
+          "hi": [
+            0.9375,
+            2.6875,
+            0.75
+          ]
+        },
+        {
+          "cell": [
+            -2,
+            2,
+            0
+          ],
+          "model": "wing_strut",
+          "name": "lower flange",
+          "lo": [
+            -2.0,
+            2.25,
+            0.25
+          ],
+          "hi": [
+            -1.0,
+            2.34375,
+            0.75
+          ]
+        },
+        {
+          "cell": [
+            -2,
+            2,
+            0
+          ],
+          "model": "wing_strut",
+          "name": "upper flange",
+          "lo": [
+            -2.0,
+            2.65625,
+            0.25
+          ],
+          "hi": [
+            -1.0,
+            2.75,
+            0.75
+          ]
+        },
+        {
+          "cell": [
+            -2,
+            2,
+            0
+          ],
+          "model": "wing_strut",
+          "name": "central web",
+          "lo": [
+            -2.0,
+            2.34375,
+            0.4375
+          ],
+          "hi": [
+            -1.0,
+            2.65625,
+            0.5625
+          ]
+        },
+        {
+          "cell": [
+            -1,
+            2,
+            0
+          ],
+          "model": "wing_strut",
+          "name": "lower flange",
+          "lo": [
+            -1.0,
+            2.25,
+            0.25
+          ],
+          "hi": [
+            0.0,
+            2.34375,
+            0.75
+          ]
+        },
+        {
+          "cell": [
+            -1,
+            2,
+            0
+          ],
+          "model": "wing_strut",
+          "name": "upper flange",
+          "lo": [
+            -1.0,
+            2.65625,
+            0.25
+          ],
+          "hi": [
+            0.0,
+            2.75,
+            0.75
+          ]
+        },
+        {
+          "cell": [
+            -1,
+            2,
+            0
+          ],
+          "model": "wing_strut",
+          "name": "central web",
+          "lo": [
+            -1.0,
+            2.34375,
+            0.4375
+          ],
+          "hi": [
+            0.0,
+            2.65625,
+            0.5625
+          ]
+        },
+        {
+          "cell": [
+            0,
+            2,
+            0
+          ],
+          "model": "wing_strut",
+          "name": "lower flange",
+          "lo": [
+            0.0,
+            2.25,
+            0.25
+          ],
+          "hi": [
+            1.0,
+            2.34375,
+            0.75
+          ]
+        },
+        {
+          "cell": [
+            0,
+            2,
+            0
+          ],
+          "model": "wing_strut",
+          "name": "upper flange",
+          "lo": [
+            0.0,
+            2.65625,
+            0.25
+          ],
+          "hi": [
+            1.0,
+            2.75,
+            0.75
+          ]
+        },
+        {
+          "cell": [
+            0,
+            2,
+            0
+          ],
+          "model": "wing_strut",
+          "name": "central web",
+          "lo": [
+            0.0,
+            2.34375,
+            0.4375
+          ],
+          "hi": [
+            1.0,
+            2.65625,
+            0.5625
+          ]
+        },
+        {
+          "cell": [
+            1,
+            2,
+            0
+          ],
+          "model": "wing_strut",
+          "name": "lower flange",
+          "lo": [
+            1.0,
+            2.25,
+            0.25
+          ],
+          "hi": [
+            2.0,
+            2.34375,
+            0.75
+          ]
+        },
+        {
+          "cell": [
+            1,
+            2,
+            0
+          ],
+          "model": "wing_strut",
+          "name": "upper flange",
+          "lo": [
+            1.0,
+            2.65625,
+            0.25
+          ],
+          "hi": [
+            2.0,
+            2.75,
+            0.75
+          ]
+        },
+        {
+          "cell": [
+            1,
+            2,
+            0
+          ],
+          "model": "wing_strut",
+          "name": "central web",
+          "lo": [
+            1.0,
+            2.34375,
+            0.4375
+          ],
+          "hi": [
+            2.0,
+            2.65625,
+            0.5625
+          ]
+        },
+        {
+          "cell": [
+            2,
+            2,
+            0
+          ],
+          "model": "wing_strut",
+          "name": "lower flange",
+          "lo": [
+            2.0,
+            2.25,
+            0.25
+          ],
+          "hi": [
+            3.0,
+            2.34375,
+            0.75
+          ]
+        },
+        {
+          "cell": [
+            2,
+            2,
+            0
+          ],
+          "model": "wing_strut",
+          "name": "upper flange",
+          "lo": [
+            2.0,
+            2.65625,
+            0.25
+          ],
+          "hi": [
+            3.0,
+            2.75,
+            0.75
+          ]
+        },
+        {
+          "cell": [
+            2,
+            2,
+            0
+          ],
+          "model": "wing_strut",
+          "name": "central web",
+          "lo": [
+            2.0,
+            2.34375,
+            0.4375
+          ],
+          "hi": [
+            3.0,
+            2.65625,
+            0.5625
+          ]
+        },
+        {
+          "cell": [
+            0,
+            2,
+            -3
+          ],
+          "model": "wing_strut",
+          "name": "lower flange",
+          "lo": [
+            0.0,
+            2.25,
+            -2.75
+          ],
+          "hi": [
+            1.0,
+            2.34375,
+            -2.25
+          ]
+        },
+        {
+          "cell": [
+            0,
+            2,
+            -3
+          ],
+          "model": "wing_strut",
+          "name": "upper flange",
+          "lo": [
+            0.0,
+            2.65625,
+            -2.75
+          ],
+          "hi": [
+            1.0,
+            2.75,
+            -2.25
+          ]
+        },
+        {
+          "cell": [
+            0,
+            2,
+            -3
+          ],
+          "model": "wing_strut",
+          "name": "central web",
+          "lo": [
+            0.0,
+            2.34375,
+            -2.5625
+          ],
+          "hi": [
+            1.0,
+            2.65625,
+            -2.4375
+          ]
+        },
+        {
+          "cell": [
+            0,
+            2,
+            -2
+          ],
+          "model": "wing_strut",
+          "name": "lower flange",
+          "lo": [
+            0.0,
+            2.25,
+            -1.75
+          ],
+          "hi": [
+            1.0,
+            2.34375,
+            -1.25
+          ]
+        },
+        {
+          "cell": [
+            0,
+            2,
+            -2
+          ],
+          "model": "wing_strut",
+          "name": "upper flange",
+          "lo": [
+            0.0,
+            2.65625,
+            -1.75
+          ],
+          "hi": [
+            1.0,
+            2.75,
+            -1.25
+          ]
+        },
+        {
+          "cell": [
+            0,
+            2,
+            -2
+          ],
+          "model": "wing_strut",
+          "name": "central web",
+          "lo": [
+            0.0,
+            2.34375,
+            -1.5625
+          ],
+          "hi": [
+            1.0,
+            2.65625,
+            -1.4375
+          ]
+        },
+        {
+          "cell": [
+            0,
+            2,
+            -1
+          ],
+          "model": "wing_strut",
+          "name": "lower flange",
+          "lo": [
+            0.0,
+            2.25,
+            -0.75
+          ],
+          "hi": [
+            1.0,
+            2.34375,
+            -0.25
+          ]
+        },
+        {
+          "cell": [
+            0,
+            2,
+            -1
+          ],
+          "model": "wing_strut",
+          "name": "upper flange",
+          "lo": [
+            0.0,
+            2.65625,
+            -0.75
+          ],
+          "hi": [
+            1.0,
+            2.75,
+            -0.25
+          ]
+        },
+        {
+          "cell": [
+            0,
+            2,
+            -1
+          ],
+          "model": "wing_strut",
+          "name": "central web",
+          "lo": [
+            0.0,
+            2.34375,
+            -0.5625
+          ],
+          "hi": [
+            1.0,
+            2.65625,
+            -0.4375
+          ]
+        },
+        {
+          "cell": [
+            0,
+            2,
+            1
+          ],
+          "model": "wing_strut",
+          "name": "lower flange",
+          "lo": [
+            0.0,
+            2.25,
+            1.25
+          ],
+          "hi": [
+            1.0,
+            2.34375,
+            1.75
+          ]
+        },
+        {
+          "cell": [
+            0,
+            2,
+            1
+          ],
+          "model": "wing_strut",
+          "name": "upper flange",
+          "lo": [
+            0.0,
+            2.65625,
+            1.25
+          ],
+          "hi": [
+            1.0,
+            2.75,
+            1.75
+          ]
+        },
+        {
+          "cell": [
+            0,
+            2,
+            1
+          ],
+          "model": "wing_strut",
+          "name": "central web",
+          "lo": [
+            0.0,
+            2.34375,
+            1.4375
+          ],
+          "hi": [
+            1.0,
+            2.65625,
+            1.5625
+          ]
+        },
+        {
+          "cell": [
+            0,
+            2,
+            2
+          ],
+          "model": "wing_strut",
+          "name": "lower flange",
+          "lo": [
+            0.0,
+            2.25,
+            2.25
+          ],
+          "hi": [
+            1.0,
+            2.34375,
+            2.75
+          ]
+        },
+        {
+          "cell": [
+            0,
+            2,
+            2
+          ],
+          "model": "wing_strut",
+          "name": "upper flange",
+          "lo": [
+            0.0,
+            2.65625,
+            2.25
+          ],
+          "hi": [
+            1.0,
+            2.75,
+            2.75
+          ]
+        },
+        {
+          "cell": [
+            0,
+            2,
+            2
+          ],
+          "model": "wing_strut",
+          "name": "central web",
+          "lo": [
+            0.0,
+            2.34375,
+            2.4375
+          ],
+          "hi": [
+            1.0,
+            2.65625,
+            2.5625
+          ]
+        },
+        {
+          "cell": [
+            0,
+            2,
+            3
+          ],
+          "model": "wing_strut",
+          "name": "lower flange",
+          "lo": [
+            0.0,
+            2.25,
+            3.25
+          ],
+          "hi": [
+            1.0,
+            2.34375,
+            3.75
+          ]
+        },
+        {
+          "cell": [
+            0,
+            2,
+            3
+          ],
+          "model": "wing_strut",
+          "name": "upper flange",
+          "lo": [
+            0.0,
+            2.65625,
+            3.25
+          ],
+          "hi": [
+            1.0,
+            2.75,
+            3.75
+          ]
+        },
+        {
+          "cell": [
+            0,
+            2,
+            3
+          ],
+          "model": "wing_strut",
+          "name": "central web",
+          "lo": [
+            0.0,
+            2.34375,
+            3.4375
+          ],
+          "hi": [
+            1.0,
+            2.65625,
+            3.5625
+          ]
+        },
+        {
+          "cell": [
+            -2,
+            2,
+            -3
+          ],
+          "model": "wing_strut",
+          "name": "lower flange",
+          "lo": [
+            -2.0,
+            2.25,
+            -2.75
+          ],
+          "hi": [
+            -1.0,
+            2.34375,
+            -2.25
+          ]
+        },
+        {
+          "cell": [
+            -2,
+            2,
+            -3
+          ],
+          "model": "wing_strut",
+          "name": "upper flange",
+          "lo": [
+            -2.0,
+            2.65625,
+            -2.75
+          ],
+          "hi": [
+            -1.0,
+            2.75,
+            -2.25
+          ]
+        },
+        {
+          "cell": [
+            -2,
+            2,
+            -3
+          ],
+          "model": "wing_strut",
+          "name": "central web",
+          "lo": [
+            -2.0,
+            2.34375,
+            -2.5625
+          ],
+          "hi": [
+            -1.0,
+            2.65625,
+            -2.4375
+          ]
+        },
+        {
+          "cell": [
+            -1,
+            2,
+            -3
+          ],
+          "model": "wing_strut",
+          "name": "lower flange",
+          "lo": [
+            -1.0,
+            2.25,
+            -2.75
+          ],
+          "hi": [
+            0.0,
+            2.34375,
+            -2.25
+          ]
+        },
+        {
+          "cell": [
+            -1,
+            2,
+            -3
+          ],
+          "model": "wing_strut",
+          "name": "upper flange",
+          "lo": [
+            -1.0,
+            2.65625,
+            -2.75
+          ],
+          "hi": [
+            0.0,
+            2.75,
+            -2.25
+          ]
+        },
+        {
+          "cell": [
+            -1,
+            2,
+            -3
+          ],
+          "model": "wing_strut",
+          "name": "central web",
+          "lo": [
+            -1.0,
+            2.34375,
+            -2.5625
+          ],
+          "hi": [
+            0.0,
+            2.65625,
+            -2.4375
+          ]
+        },
+        {
+          "cell": [
+            1,
+            2,
+            -3
+          ],
+          "model": "wing_strut",
+          "name": "lower flange",
+          "lo": [
+            1.0,
+            2.25,
+            -2.75
+          ],
+          "hi": [
+            2.0,
+            2.34375,
+            -2.25
+          ]
+        },
+        {
+          "cell": [
+            1,
+            2,
+            -3
+          ],
+          "model": "wing_strut",
+          "name": "upper flange",
+          "lo": [
+            1.0,
+            2.65625,
+            -2.75
+          ],
+          "hi": [
+            2.0,
+            2.75,
+            -2.25
+          ]
+        },
+        {
+          "cell": [
+            1,
+            2,
+            -3
+          ],
+          "model": "wing_strut",
+          "name": "central web",
+          "lo": [
+            1.0,
+            2.34375,
+            -2.5625
+          ],
+          "hi": [
+            2.0,
+            2.65625,
+            -2.4375
+          ]
+        },
+        {
+          "cell": [
+            2,
+            2,
+            -3
+          ],
+          "model": "wing_strut",
+          "name": "lower flange",
+          "lo": [
+            2.0,
+            2.25,
+            -2.75
+          ],
+          "hi": [
+            3.0,
+            2.34375,
+            -2.25
+          ]
+        },
+        {
+          "cell": [
+            2,
+            2,
+            -3
+          ],
+          "model": "wing_strut",
+          "name": "upper flange",
+          "lo": [
+            2.0,
+            2.65625,
+            -2.75
+          ],
+          "hi": [
+            3.0,
+            2.75,
+            -2.25
+          ]
+        },
+        {
+          "cell": [
+            2,
+            2,
+            -3
+          ],
+          "model": "wing_strut",
+          "name": "central web",
+          "lo": [
+            2.0,
+            2.34375,
+            -2.5625
+          ],
+          "hi": [
+            3.0,
+            2.65625,
+            -2.4375
+          ]
+        },
+        {
+          "cell": [
+            -2,
+            2,
+            3
+          ],
+          "model": "wing_strut",
+          "name": "lower flange",
+          "lo": [
+            -2.0,
+            2.25,
+            3.25
+          ],
+          "hi": [
+            -1.0,
+            2.34375,
+            3.75
+          ]
+        },
+        {
+          "cell": [
+            -2,
+            2,
+            3
+          ],
+          "model": "wing_strut",
+          "name": "upper flange",
+          "lo": [
+            -2.0,
+            2.65625,
+            3.25
+          ],
+          "hi": [
+            -1.0,
+            2.75,
+            3.75
+          ]
+        },
+        {
+          "cell": [
+            -2,
+            2,
+            3
+          ],
+          "model": "wing_strut",
+          "name": "central web",
+          "lo": [
+            -2.0,
+            2.34375,
+            3.4375
+          ],
+          "hi": [
+            -1.0,
+            2.65625,
+            3.5625
+          ]
+        },
+        {
+          "cell": [
+            -1,
+            2,
+            3
+          ],
+          "model": "wing_strut",
+          "name": "lower flange",
+          "lo": [
+            -1.0,
+            2.25,
+            3.25
+          ],
+          "hi": [
+            0.0,
+            2.34375,
+            3.75
+          ]
+        },
+        {
+          "cell": [
+            -1,
+            2,
+            3
+          ],
+          "model": "wing_strut",
+          "name": "upper flange",
+          "lo": [
+            -1.0,
+            2.65625,
+            3.25
+          ],
+          "hi": [
+            0.0,
+            2.75,
+            3.75
+          ]
+        },
+        {
+          "cell": [
+            -1,
+            2,
+            3
+          ],
+          "model": "wing_strut",
+          "name": "central web",
+          "lo": [
+            -1.0,
+            2.34375,
+            3.4375
+          ],
+          "hi": [
+            0.0,
+            2.65625,
+            3.5625
+          ]
+        },
+        {
+          "cell": [
+            1,
+            2,
+            3
+          ],
+          "model": "wing_strut",
+          "name": "lower flange",
+          "lo": [
+            1.0,
+            2.25,
+            3.25
+          ],
+          "hi": [
+            2.0,
+            2.34375,
+            3.75
+          ]
+        },
+        {
+          "cell": [
+            1,
+            2,
+            3
+          ],
+          "model": "wing_strut",
+          "name": "upper flange",
+          "lo": [
+            1.0,
+            2.65625,
+            3.25
+          ],
+          "hi": [
+            2.0,
+            2.75,
+            3.75
+          ]
+        },
+        {
+          "cell": [
+            1,
+            2,
+            3
+          ],
+          "model": "wing_strut",
+          "name": "central web",
+          "lo": [
+            1.0,
+            2.34375,
+            3.4375
+          ],
+          "hi": [
+            2.0,
+            2.65625,
+            3.5625
+          ]
+        },
+        {
+          "cell": [
+            2,
+            2,
+            3
+          ],
+          "model": "wing_strut",
+          "name": "lower flange",
+          "lo": [
+            2.0,
+            2.25,
+            3.25
+          ],
+          "hi": [
+            3.0,
+            2.34375,
+            3.75
+          ]
+        },
+        {
+          "cell": [
+            2,
+            2,
+            3
+          ],
+          "model": "wing_strut",
+          "name": "upper flange",
+          "lo": [
+            2.0,
+            2.65625,
+            3.25
+          ],
+          "hi": [
+            3.0,
+            2.75,
+            3.75
+          ]
+        },
+        {
+          "cell": [
+            2,
+            2,
+            3
+          ],
+          "model": "wing_strut",
+          "name": "central web",
+          "lo": [
+            2.0,
+            2.34375,
+            3.4375
+          ],
+          "hi": [
+            3.0,
+            2.65625,
+            3.5625
+          ]
+        }
+      ]
+    },
+    "Revised": {
+      "baked_disconnected_cells": [
+        [
+          -2,
+          1,
+          -3
+        ],
+        [
+          -2,
+          1,
+          3
+        ],
+        [
+          -1,
+          1,
+          -3
+        ],
+        [
+          -1,
+          1,
+          3
+        ],
+        [
+          0,
+          1,
+          -3
+        ],
+        [
+          0,
+          1,
+          3
+        ],
+        [
+          0,
+          2,
+          -3
+        ],
+        [
+          0,
+          2,
+          -2
+        ],
+        [
+          0,
+          2,
+          -1
+        ],
+        [
+          0,
+          2,
+          1
+        ],
+        [
+          0,
+          2,
+          2
+        ],
+        [
+          0,
+          2,
+          3
+        ],
+        [
+          1,
+          1,
+          -3
+        ],
+        [
+          1,
+          1,
+          3
+        ],
+        [
+          2,
+          1,
+          -3
+        ],
+        [
+          2,
+          1,
+          3
+        ]
+      ],
+      "adjacent_spine_cell_z_gap_blocks": 0.5,
+      "boxes": [
+        {
+          "cell": [
+            0,
+            1,
+            0
+          ],
+          "model": "zacspin_revised_controller",
+          "name": "controller casing",
+          "lo": [
+            0.125,
+            1.0,
+            0.125
+          ],
+          "hi": [
+            0.875,
+            1.5,
+            0.875
+          ]
+        },
+        {
+          "cell": [
+            0,
+            1,
+            0
+          ],
+          "model": "zacspin_revised_controller",
+          "name": "beam lower flange",
+          "lo": [
+            0.0,
+            1.5,
+            0.3125
+          ],
+          "hi": [
+            1.0,
+            1.625,
+            0.6875
+          ]
+        },
+        {
+          "cell": [
+            0,
+            1,
+            0
+          ],
+          "model": "zacspin_revised_controller",
+          "name": "beam upper flange",
+          "lo": [
+            0.0,
+            1.875,
+            0.3125
+          ],
+          "hi": [
+            1.0,
+            2.0,
+            0.6875
+          ]
+        },
+        {
+          "cell": [
+            0,
+            1,
+            0
+          ],
+          "model": "zacspin_revised_controller",
+          "name": "beam web",
+          "lo": [
+            0.0,
+            1.625,
+            0.4375
+          ],
+          "hi": [
+            1.0,
+            1.875,
+            0.5625
+          ]
+        },
+        {
+          "cell": [
+            0,
+            1,
+            0
+          ],
+          "model": "zacspin_revised_controller",
+          "name": "access plate",
+          "lo": [
+            0.25,
+            1.125,
+            0.0625
+          ],
+          "hi": [
+            0.75,
+            1.4375,
+            0.125
+          ]
+        },
+        {
+          "cell": [
+            0,
+            1,
+            0
+          ],
+          "model": "zacspin_revised_controller",
+          "name": "plate screw",
+          "lo": [
+            0.3125,
+            1.1875,
+            0.059375
+          ],
+          "hi": [
+            0.375,
+            1.25,
+            0.0625
+          ]
+        },
+        {
+          "cell": [
+            0,
+            1,
+            0
+          ],
+          "model": "zacspin_revised_controller",
+          "name": "access plate",
+          "lo": [
+            0.25,
+            1.125,
+            0.875
+          ],
+          "hi": [
+            0.75,
+            1.4375,
+            0.9375
+          ]
+        },
+        {
+          "cell": [
+            0,
+            1,
+            0
+          ],
+          "model": "zacspin_revised_controller",
+          "name": "plate screw",
+          "lo": [
+            0.3125,
+            1.1875,
+            0.871875
+          ],
+          "hi": [
+            0.375,
+            1.25,
+            0.875
+          ]
+        },
+        {
+          "cell": [
+            0,
+            1,
+            0
+          ],
+          "model": "zacspin_revised_controller",
+          "name": "left chassis to crossbeam stanchion",
+          "lo": [
+            0.125,
+            1.5625,
+            0.3125
+          ],
+          "hi": [
+            0.3125,
+            2.5625,
+            0.6875
+          ]
+        },
+        {
+          "cell": [
+            0,
+            1,
+            0
+          ],
+          "model": "zacspin_revised_controller",
+          "name": "right chassis to crossbeam stanchion",
+          "lo": [
+            0.6875,
+            1.5625,
+            0.3125
+          ],
+          "hi": [
+            0.875,
+            2.5625,
+            0.6875
+          ]
+        },
+        {
+          "cell": [
+            0,
+            1,
+            0
+          ],
+          "model": "zacspin_revised_controller",
+          "name": "crossbeam support saddle",
+          "lo": [
+            0.0625,
+            2.4375,
+            0.3125
+          ],
+          "hi": [
+            0.9375,
+            2.6875,
+            0.75
+          ]
+        },
+        {
+          "cell": [
+            -2,
+            2,
+            0
+          ],
+          "model": "wing_strut",
+          "name": "lower flange",
+          "lo": [
+            -2.0,
+            2.25,
+            0.25
+          ],
+          "hi": [
+            -1.0,
+            2.34375,
+            0.75
+          ]
+        },
+        {
+          "cell": [
+            -2,
+            2,
+            0
+          ],
+          "model": "wing_strut",
+          "name": "upper flange",
+          "lo": [
+            -2.0,
+            2.65625,
+            0.25
+          ],
+          "hi": [
+            -1.0,
+            2.75,
+            0.75
+          ]
+        },
+        {
+          "cell": [
+            -2,
+            2,
+            0
+          ],
+          "model": "wing_strut",
+          "name": "central web",
+          "lo": [
+            -2.0,
+            2.34375,
+            0.4375
+          ],
+          "hi": [
+            -1.0,
+            2.65625,
+            0.5625
+          ]
+        },
+        {
+          "cell": [
+            -1,
+            2,
+            0
+          ],
+          "model": "wing_strut",
+          "name": "lower flange",
+          "lo": [
+            -1.0,
+            2.25,
+            0.25
+          ],
+          "hi": [
+            0.0,
+            2.34375,
+            0.75
+          ]
+        },
+        {
+          "cell": [
+            -1,
+            2,
+            0
+          ],
+          "model": "wing_strut",
+          "name": "upper flange",
+          "lo": [
+            -1.0,
+            2.65625,
+            0.25
+          ],
+          "hi": [
+            0.0,
+            2.75,
+            0.75
+          ]
+        },
+        {
+          "cell": [
+            -1,
+            2,
+            0
+          ],
+          "model": "wing_strut",
+          "name": "central web",
+          "lo": [
+            -1.0,
+            2.34375,
+            0.4375
+          ],
+          "hi": [
+            0.0,
+            2.65625,
+            0.5625
+          ]
+        },
+        {
+          "cell": [
+            0,
+            2,
+            0
+          ],
+          "model": "wing_strut",
+          "name": "lower flange",
+          "lo": [
+            0.0,
+            2.25,
+            0.25
+          ],
+          "hi": [
+            1.0,
+            2.34375,
+            0.75
+          ]
+        },
+        {
+          "cell": [
+            0,
+            2,
+            0
+          ],
+          "model": "wing_strut",
+          "name": "upper flange",
+          "lo": [
+            0.0,
+            2.65625,
+            0.25
+          ],
+          "hi": [
+            1.0,
+            2.75,
+            0.75
+          ]
+        },
+        {
+          "cell": [
+            0,
+            2,
+            0
+          ],
+          "model": "wing_strut",
+          "name": "central web",
+          "lo": [
+            0.0,
+            2.34375,
+            0.4375
+          ],
+          "hi": [
+            1.0,
+            2.65625,
+            0.5625
+          ]
+        },
+        {
+          "cell": [
+            1,
+            2,
+            0
+          ],
+          "model": "wing_strut",
+          "name": "lower flange",
+          "lo": [
+            1.0,
+            2.25,
+            0.25
+          ],
+          "hi": [
+            2.0,
+            2.34375,
+            0.75
+          ]
+        },
+        {
+          "cell": [
+            1,
+            2,
+            0
+          ],
+          "model": "wing_strut",
+          "name": "upper flange",
+          "lo": [
+            1.0,
+            2.65625,
+            0.25
+          ],
+          "hi": [
+            2.0,
+            2.75,
+            0.75
+          ]
+        },
+        {
+          "cell": [
+            1,
+            2,
+            0
+          ],
+          "model": "wing_strut",
+          "name": "central web",
+          "lo": [
+            1.0,
+            2.34375,
+            0.4375
+          ],
+          "hi": [
+            2.0,
+            2.65625,
+            0.5625
+          ]
+        },
+        {
+          "cell": [
+            2,
+            2,
+            0
+          ],
+          "model": "wing_strut",
+          "name": "lower flange",
+          "lo": [
+            2.0,
+            2.25,
+            0.25
+          ],
+          "hi": [
+            3.0,
+            2.34375,
+            0.75
+          ]
+        },
+        {
+          "cell": [
+            2,
+            2,
+            0
+          ],
+          "model": "wing_strut",
+          "name": "upper flange",
+          "lo": [
+            2.0,
+            2.65625,
+            0.25
+          ],
+          "hi": [
+            3.0,
+            2.75,
+            0.75
+          ]
+        },
+        {
+          "cell": [
+            2,
+            2,
+            0
+          ],
+          "model": "wing_strut",
+          "name": "central web",
+          "lo": [
+            2.0,
+            2.34375,
+            0.4375
+          ],
+          "hi": [
+            3.0,
+            2.65625,
+            0.5625
+          ]
+        },
+        {
+          "cell": [
+            -2,
+            1,
+            -3
+          ],
+          "model": "revised_strut",
+          "name": "lower flange",
+          "lo": [
+            -2.0,
+            1.75,
+            -2.75
+          ],
+          "hi": [
+            -1.0,
+            1.84375,
+            -2.25
+          ]
+        },
+        {
+          "cell": [
+            -2,
+            1,
+            -3
+          ],
+          "model": "revised_strut",
+          "name": "upper flange",
+          "lo": [
+            -2.0,
+            2.15625,
+            -2.75
+          ],
+          "hi": [
+            -1.0,
+            2.25,
+            -2.25
+          ]
+        },
+        {
+          "cell": [
+            -2,
+            1,
+            -3
+          ],
+          "model": "revised_strut",
+          "name": "central web",
+          "lo": [
+            -2.0,
+            1.84375,
+            -2.5625
+          ],
+          "hi": [
+            -1.0,
+            2.15625,
+            -2.4375
+          ]
+        },
+        {
+          "cell": [
+            -1,
+            1,
+            -3
+          ],
+          "model": "revised_strut",
+          "name": "lower flange",
+          "lo": [
+            -1.0,
+            1.75,
+            -2.75
+          ],
+          "hi": [
+            0.0,
+            1.84375,
+            -2.25
+          ]
+        },
+        {
+          "cell": [
+            -1,
+            1,
+            -3
+          ],
+          "model": "revised_strut",
+          "name": "upper flange",
+          "lo": [
+            -1.0,
+            2.15625,
+            -2.75
+          ],
+          "hi": [
+            0.0,
+            2.25,
+            -2.25
+          ]
+        },
+        {
+          "cell": [
+            -1,
+            1,
+            -3
+          ],
+          "model": "revised_strut",
+          "name": "central web",
+          "lo": [
+            -1.0,
+            1.84375,
+            -2.5625
+          ],
+          "hi": [
+            0.0,
+            2.15625,
+            -2.4375
+          ]
+        },
+        {
+          "cell": [
+            0,
+            1,
+            -3
+          ],
+          "model": "revised_strut",
+          "name": "lower flange",
+          "lo": [
+            0.0,
+            1.75,
+            -2.75
+          ],
+          "hi": [
+            1.0,
+            1.84375,
+            -2.25
+          ]
+        },
+        {
+          "cell": [
+            0,
+            1,
+            -3
+          ],
+          "model": "revised_strut",
+          "name": "upper flange",
+          "lo": [
+            0.0,
+            2.15625,
+            -2.75
+          ],
+          "hi": [
+            1.0,
+            2.25,
+            -2.25
+          ]
+        },
+        {
+          "cell": [
+            0,
+            1,
+            -3
+          ],
+          "model": "revised_strut",
+          "name": "central web",
+          "lo": [
+            0.0,
+            1.84375,
+            -2.5625
+          ],
+          "hi": [
+            1.0,
+            2.15625,
+            -2.4375
+          ]
+        },
+        {
+          "cell": [
+            1,
+            1,
+            -3
+          ],
+          "model": "revised_strut",
+          "name": "lower flange",
+          "lo": [
+            1.0,
+            1.75,
+            -2.75
+          ],
+          "hi": [
+            2.0,
+            1.84375,
+            -2.25
+          ]
+        },
+        {
+          "cell": [
+            1,
+            1,
+            -3
+          ],
+          "model": "revised_strut",
+          "name": "upper flange",
+          "lo": [
+            1.0,
+            2.15625,
+            -2.75
+          ],
+          "hi": [
+            2.0,
+            2.25,
+            -2.25
+          ]
+        },
+        {
+          "cell": [
+            1,
+            1,
+            -3
+          ],
+          "model": "revised_strut",
+          "name": "central web",
+          "lo": [
+            1.0,
+            1.84375,
+            -2.5625
+          ],
+          "hi": [
+            2.0,
+            2.15625,
+            -2.4375
+          ]
+        },
+        {
+          "cell": [
+            2,
+            1,
+            -3
+          ],
+          "model": "revised_strut",
+          "name": "lower flange",
+          "lo": [
+            2.0,
+            1.75,
+            -2.75
+          ],
+          "hi": [
+            3.0,
+            1.84375,
+            -2.25
+          ]
+        },
+        {
+          "cell": [
+            2,
+            1,
+            -3
+          ],
+          "model": "revised_strut",
+          "name": "upper flange",
+          "lo": [
+            2.0,
+            2.15625,
+            -2.75
+          ],
+          "hi": [
+            3.0,
+            2.25,
+            -2.25
+          ]
+        },
+        {
+          "cell": [
+            2,
+            1,
+            -3
+          ],
+          "model": "revised_strut",
+          "name": "central web",
+          "lo": [
+            2.0,
+            1.84375,
+            -2.5625
+          ],
+          "hi": [
+            3.0,
+            2.15625,
+            -2.4375
+          ]
+        },
+        {
+          "cell": [
+            -2,
+            1,
+            3
+          ],
+          "model": "revised_strut",
+          "name": "lower flange",
+          "lo": [
+            -2.0,
+            1.75,
+            3.25
+          ],
+          "hi": [
+            -1.0,
+            1.84375,
+            3.75
+          ]
+        },
+        {
+          "cell": [
+            -2,
+            1,
+            3
+          ],
+          "model": "revised_strut",
+          "name": "upper flange",
+          "lo": [
+            -2.0,
+            2.15625,
+            3.25
+          ],
+          "hi": [
+            -1.0,
+            2.25,
+            3.75
+          ]
+        },
+        {
+          "cell": [
+            -2,
+            1,
+            3
+          ],
+          "model": "revised_strut",
+          "name": "central web",
+          "lo": [
+            -2.0,
+            1.84375,
+            3.4375
+          ],
+          "hi": [
+            -1.0,
+            2.15625,
+            3.5625
+          ]
+        },
+        {
+          "cell": [
+            -1,
+            1,
+            3
+          ],
+          "model": "revised_strut",
+          "name": "lower flange",
+          "lo": [
+            -1.0,
+            1.75,
+            3.25
+          ],
+          "hi": [
+            0.0,
+            1.84375,
+            3.75
+          ]
+        },
+        {
+          "cell": [
+            -1,
+            1,
+            3
+          ],
+          "model": "revised_strut",
+          "name": "upper flange",
+          "lo": [
+            -1.0,
+            2.15625,
+            3.25
+          ],
+          "hi": [
+            0.0,
+            2.25,
+            3.75
+          ]
+        },
+        {
+          "cell": [
+            -1,
+            1,
+            3
+          ],
+          "model": "revised_strut",
+          "name": "central web",
+          "lo": [
+            -1.0,
+            1.84375,
+            3.4375
+          ],
+          "hi": [
+            0.0,
+            2.15625,
+            3.5625
+          ]
+        },
+        {
+          "cell": [
+            0,
+            1,
+            3
+          ],
+          "model": "revised_strut",
+          "name": "lower flange",
+          "lo": [
+            0.0,
+            1.75,
+            3.25
+          ],
+          "hi": [
+            1.0,
+            1.84375,
+            3.75
+          ]
+        },
+        {
+          "cell": [
+            0,
+            1,
+            3
+          ],
+          "model": "revised_strut",
+          "name": "upper flange",
+          "lo": [
+            0.0,
+            2.15625,
+            3.25
+          ],
+          "hi": [
+            1.0,
+            2.25,
+            3.75
+          ]
+        },
+        {
+          "cell": [
+            0,
+            1,
+            3
+          ],
+          "model": "revised_strut",
+          "name": "central web",
+          "lo": [
+            0.0,
+            1.84375,
+            3.4375
+          ],
+          "hi": [
+            1.0,
+            2.15625,
+            3.5625
+          ]
+        },
+        {
+          "cell": [
+            1,
+            1,
+            3
+          ],
+          "model": "revised_strut",
+          "name": "lower flange",
+          "lo": [
+            1.0,
+            1.75,
+            3.25
+          ],
+          "hi": [
+            2.0,
+            1.84375,
+            3.75
+          ]
+        },
+        {
+          "cell": [
+            1,
+            1,
+            3
+          ],
+          "model": "revised_strut",
+          "name": "upper flange",
+          "lo": [
+            1.0,
+            2.15625,
+            3.25
+          ],
+          "hi": [
+            2.0,
+            2.25,
+            3.75
+          ]
+        },
+        {
+          "cell": [
+            1,
+            1,
+            3
+          ],
+          "model": "revised_strut",
+          "name": "central web",
+          "lo": [
+            1.0,
+            1.84375,
+            3.4375
+          ],
+          "hi": [
+            2.0,
+            2.15625,
+            3.5625
+          ]
+        },
+        {
+          "cell": [
+            2,
+            1,
+            3
+          ],
+          "model": "revised_strut",
+          "name": "lower flange",
+          "lo": [
+            2.0,
+            1.75,
+            3.25
+          ],
+          "hi": [
+            3.0,
+            1.84375,
+            3.75
+          ]
+        },
+        {
+          "cell": [
+            2,
+            1,
+            3
+          ],
+          "model": "revised_strut",
+          "name": "upper flange",
+          "lo": [
+            2.0,
+            2.15625,
+            3.25
+          ],
+          "hi": [
+            3.0,
+            2.25,
+            3.75
+          ]
+        },
+        {
+          "cell": [
+            2,
+            1,
+            3
+          ],
+          "model": "revised_strut",
+          "name": "central web",
+          "lo": [
+            2.0,
+            1.84375,
+            3.4375
+          ],
+          "hi": [
+            3.0,
+            2.15625,
+            3.5625
+          ]
+        },
+        {
+          "cell": [
+            0,
+            2,
+            -3
+          ],
+          "model": "wing_strut",
+          "name": "lower flange",
+          "lo": [
+            0.0,
+            2.25,
+            -2.75
+          ],
+          "hi": [
+            1.0,
+            2.34375,
+            -2.25
+          ]
+        },
+        {
+          "cell": [
+            0,
+            2,
+            -3
+          ],
+          "model": "wing_strut",
+          "name": "upper flange",
+          "lo": [
+            0.0,
+            2.65625,
+            -2.75
+          ],
+          "hi": [
+            1.0,
+            2.75,
+            -2.25
+          ]
+        },
+        {
+          "cell": [
+            0,
+            2,
+            -3
+          ],
+          "model": "wing_strut",
+          "name": "central web",
+          "lo": [
+            0.0,
+            2.34375,
+            -2.5625
+          ],
+          "hi": [
+            1.0,
+            2.65625,
+            -2.4375
+          ]
+        },
+        {
+          "cell": [
+            0,
+            2,
+            -2
+          ],
+          "model": "wing_strut",
+          "name": "lower flange",
+          "lo": [
+            0.0,
+            2.25,
+            -1.75
+          ],
+          "hi": [
+            1.0,
+            2.34375,
+            -1.25
+          ]
+        },
+        {
+          "cell": [
+            0,
+            2,
+            -2
+          ],
+          "model": "wing_strut",
+          "name": "upper flange",
+          "lo": [
+            0.0,
+            2.65625,
+            -1.75
+          ],
+          "hi": [
+            1.0,
+            2.75,
+            -1.25
+          ]
+        },
+        {
+          "cell": [
+            0,
+            2,
+            -2
+          ],
+          "model": "wing_strut",
+          "name": "central web",
+          "lo": [
+            0.0,
+            2.34375,
+            -1.5625
+          ],
+          "hi": [
+            1.0,
+            2.65625,
+            -1.4375
+          ]
+        },
+        {
+          "cell": [
+            0,
+            2,
+            -1
+          ],
+          "model": "wing_strut",
+          "name": "lower flange",
+          "lo": [
+            0.0,
+            2.25,
+            -0.75
+          ],
+          "hi": [
+            1.0,
+            2.34375,
+            -0.25
+          ]
+        },
+        {
+          "cell": [
+            0,
+            2,
+            -1
+          ],
+          "model": "wing_strut",
+          "name": "upper flange",
+          "lo": [
+            0.0,
+            2.65625,
+            -0.75
+          ],
+          "hi": [
+            1.0,
+            2.75,
+            -0.25
+          ]
+        },
+        {
+          "cell": [
+            0,
+            2,
+            -1
+          ],
+          "model": "wing_strut",
+          "name": "central web",
+          "lo": [
+            0.0,
+            2.34375,
+            -0.5625
+          ],
+          "hi": [
+            1.0,
+            2.65625,
+            -0.4375
+          ]
+        },
+        {
+          "cell": [
+            0,
+            2,
+            1
+          ],
+          "model": "wing_strut",
+          "name": "lower flange",
+          "lo": [
+            0.0,
+            2.25,
+            1.25
+          ],
+          "hi": [
+            1.0,
+            2.34375,
+            1.75
+          ]
+        },
+        {
+          "cell": [
+            0,
+            2,
+            1
+          ],
+          "model": "wing_strut",
+          "name": "upper flange",
+          "lo": [
+            0.0,
+            2.65625,
+            1.25
+          ],
+          "hi": [
+            1.0,
+            2.75,
+            1.75
+          ]
+        },
+        {
+          "cell": [
+            0,
+            2,
+            1
+          ],
+          "model": "wing_strut",
+          "name": "central web",
+          "lo": [
+            0.0,
+            2.34375,
+            1.4375
+          ],
+          "hi": [
+            1.0,
+            2.65625,
+            1.5625
+          ]
+        },
+        {
+          "cell": [
+            0,
+            2,
+            2
+          ],
+          "model": "wing_strut",
+          "name": "lower flange",
+          "lo": [
+            0.0,
+            2.25,
+            2.25
+          ],
+          "hi": [
+            1.0,
+            2.34375,
+            2.75
+          ]
+        },
+        {
+          "cell": [
+            0,
+            2,
+            2
+          ],
+          "model": "wing_strut",
+          "name": "upper flange",
+          "lo": [
+            0.0,
+            2.65625,
+            2.25
+          ],
+          "hi": [
+            1.0,
+            2.75,
+            2.75
+          ]
+        },
+        {
+          "cell": [
+            0,
+            2,
+            2
+          ],
+          "model": "wing_strut",
+          "name": "central web",
+          "lo": [
+            0.0,
+            2.34375,
+            2.4375
+          ],
+          "hi": [
+            1.0,
+            2.65625,
+            2.5625
+          ]
+        },
+        {
+          "cell": [
+            0,
+            2,
+            3
+          ],
+          "model": "wing_strut",
+          "name": "lower flange",
+          "lo": [
+            0.0,
+            2.25,
+            3.25
+          ],
+          "hi": [
+            1.0,
+            2.34375,
+            3.75
+          ]
+        },
+        {
+          "cell": [
+            0,
+            2,
+            3
+          ],
+          "model": "wing_strut",
+          "name": "upper flange",
+          "lo": [
+            0.0,
+            2.65625,
+            3.25
+          ],
+          "hi": [
+            1.0,
+            2.75,
+            3.75
+          ]
+        },
+        {
+          "cell": [
+            0,
+            2,
+            3
+          ],
+          "model": "wing_strut",
+          "name": "central web",
+          "lo": [
+            0.0,
+            2.34375,
+            3.4375
+          ],
+          "hi": [
+            1.0,
+            2.65625,
+            3.5625
+          ]
+        }
+      ]
+    }
+  }
+}

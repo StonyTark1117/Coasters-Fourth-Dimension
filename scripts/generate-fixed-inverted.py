@@ -20,8 +20,8 @@ for closed in (False,True):
  # X=0 and Y=.9375 are exact fractional seat centers in the containing block.
  parts=[box([-7,12,2],[7,15,14],'seat'),box([-6,15,12],[6,28,14],'seat'),
         box([-8,12,14],[8,28,17],'paint'),box([-5,28,13],[5,32,17],'paint'),
-        box([-4,28,12],[4,31,14],'seat'),box([-2,7,8],[2,11,30],'metal'),
-        box([-8,7,28],[8,11,32],'metal')]
+        box([-4,28,12],[4,31,14],'seat'),box([-2,7,8],[2,13,30],'metal'),
+        box([-8,7,20],[8,11,24],'metal'),box([-8,7,28],[8,11,32],'metal')]
  # No front foot platform or shin rods: four seats visibly hang below the track.
  for x in (-7,5):parts += [box([x,26,13],[x+2,31,16.75],'metal'),box([x,28,12.75],[x+2,30,13],'contact')]
  write(f'assets/fourthdimension/models/block/fixed_inverted_seat_{"closed"if closed else "open"}.json',model(parts))
@@ -42,6 +42,10 @@ for i,pos in enumerate(frame):
   lo,hi=(-2.25,-2)if x<0 else(2,2.25)
   ylo=max(-3.75,y-.1875);yhi=min(-.75,y+.8125)
   parts.append(worldbox([lo,ylo,1.25],[hi,yhi,1.5],pos,'metal'))
+ if pos==(-2,-4,0):
+  # The four seat-block rear crossbars start at x=-1.5. Bridge the end post to
+  # the first crossbar in the existing bottom frame cell, without adding a ride block.
+  parts.append(worldbox([-2.25,-3.55,1.25],[-1.5,-3.30,1.5],pos,'metal'))
  write(f'assets/fourthdimension/models/block/fixed_inverted_frame_{i}.json',model(parts))
 write('assets/fourthdimension/blockstates/fixed_inverted_frame.json',{'variants':{f'part={i}':{'model':f'fourthdimension:block/fixed_inverted_frame_{min(i,8)}'}for i in range(10)}})
 # Connect the visible upper rear crossbar to the native bearing. No decorative spine through heads.

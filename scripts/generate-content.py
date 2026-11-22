@@ -7,7 +7,9 @@ R=Path(__file__).resolve().parents[1];OUT=R/'src/main/resources/assets/fourthdim
 OWNED=set((R/'docs/evidence/fd917/art/requested-output-paths.txt').read_text().splitlines())
 def write(path,value):
  p=OUT/path;rel=p.relative_to(R).as_posix()
- assert rel in OWNED or path.startswith(('models/block/fd917/','fd917_articulation/')),rel
+ assert rel in OWNED or path.startswith(('models/block/fd917/','fd917_articulation/')) or path in {
+  'models/block/paired_spine.json','models/block/paired_spine_cross.json',
+  'blockstates/paired_spine.json','blockstates/paired_spine_cross.json'},rel
  p.parent.mkdir(parents=True,exist_ok=True);p.write_text(json.dumps(value,indent=2)+'\n')
 def shoulder():
  p=[]
@@ -26,7 +28,9 @@ def seat(f):
   for x in (0,13):p += [box([x,3,5],[x+3,11,14],'paint','flared pod cheek'),box([x,12,13],[x+3,21,16],'metal','rotor support cheek')]
  elif f=='revised':
   p += [box([2,3,13],[14,21,16],'paint','split pair bucket'),box([4,21,12],[12,25,16],'paint','inset crown')]
-  for x in (0,14):p += [box([x,1,3],[x+2,9,14],'metal','separate pair cradle'),box([x,7,3],[x+2,10,11],'paint','short arm pod'),box([x,11,14],[x+2,24,16],'metal','bearing spine')]
+  for x in (0,14):p += [box([x,1,3],[x+2,9,14],'metal','separate pair cradle'),box([x,7,3],[x+2,10,11],'paint','short arm pod'),box([x,11,14],[x+2,24,16],'metal','bearing spine'),
+                           box([x,8,11],[x+2,22.5,16],'metal','cradle to bearing web')]
+  p.append(box([0,8,13],[16,11,16],'metal','rear cradle crossmember'))
  elif f=='pax':
   p += [box([1,3,13],[15,21,16],'paint','compact shuttle shell'),box([3,21,12],[13,25,16],'paint','shuttle head fairing'),box([2,0,0],[14,2,4],'paint','short car nose')]
   for x in (0,14):p += [box([x,2,1],[x+2,10,14],'paint','boxed shuttle side'),box([x,0,3],[x+2,2,15],'contact','lower mounting rail')]
@@ -34,6 +38,22 @@ def seat(f):
   p += [box([1,4,14.5],[15,22,16],'paint','fixed wing shell'),box([4,22,13],[12,27,16],'paint','high wing head fairing'),box([5,22,11.5],[11,25,13],'cushion','head pad')]
   for x in (0,14):p += [box([x,1,12],[x+2,12,14],'metal','rigid wing upright'),box([x,5,5],[x+2,8,12],'paint','fixed arm fairing')]
  else:raise ValueError(f)
+ # The axle sits ahead of these child-local shells. Rails carry its load to the
+ # rear face; exposed posts then bring it to the pans without crossing the
+ # rotating shoulder restraint at x=2..4/12..14. The paired Free Spin/Revised
+ # seat models rotate 180 degrees on the rear row, but the axle block does not:
+ # their rails reach Z=21 so both orientations overlap the fixed axle position.
+ if f in ('arrow','free_spin','pax'):
+  front=-5 if f=='arrow' else -6
+  rear=21 if f=='free_spin' else 17
+  for x in (0,14.5):
+   p += [box([x,23,front],[x+1.5,24.5,rear],'metal','axle to rear post rail'),
+         box([x,1,15.5],[x+1.5,24.5,17],'metal','exposed rear load post')]
+  p.append(box([1,1,13],[15,2.5,17],'metal','rear underseat crossmember'))
+ elif f=='revised':
+  # Keep the paired rail low enough to sit below the restraint hinge tips.
+  for x in (0,14.5):
+   p.append(box([x,21,-6],[x+1.5,22.5,21],'metal','axle to bearing spine rail'))
  for x in (1,13):p += [box([x,20,13],[x+2,24,16],'metal','fixed restraint hinge'),box([x-.1,21,14],[x+.1,23,16],'contact','hinge pin')]
  return p
 families={'arrow':'red','legacy':'yellow','free_spin':'blue','revised':'purple','pax':'green'}
@@ -45,6 +65,12 @@ for name,color in [('arrow_controlled_controller','red'),('zacspin_legacy_contro
     box([0,14,5],[16,16,11],'metal','beam upper flange'),
     box([0,10,7],[16,14,9],'metal','beam web')]
  for z in (1,14):p += [box([4,2,z],[12,7,z+1],'metal','access plate'),box([5,3,z-.05],[6,4,z],'bolt','plate screw')]
+ # All five original families place a stationary transverse wing strut in the
+ # block above this controller. Two stanchions and a saddle carry its middle
+ # down to the native cart while leaving the controller visible between them.
+ p += [box([2,9,5],[5,25,11],'metal','left chassis to crossbeam stanchion'),
+       box([11,9,5],[14,25,11],'metal','right chassis to crossbeam stanchion'),
+       box([1,20,5],[15,27,12],'metal','crossbeam support saddle')]
  write(f'models/block/{name}.json',model(p,color))
 for f,c in families.items():
  for state in ('open','closed'):write(f'models/block/{f}_seat_{state}.json',model(seat(f),c))
@@ -53,16 +79,39 @@ for f,c in families.items():
  write(f'blockstates/{f}_seat.json',{'variants':{f'facing={d},restrained={str(cl).lower()}':{'model':f'fourthdimension:block/{f}_seat_{"closed"if cl else "open"}','y':a}for d,a in [('north',0),('east',90),('south',180),('west',270)]for cl in (False,True)}})
 for name,z0,z1 in [('carrier_axle',-7,-4),('free_spin_axle',-8,-4),('legacy_axle',11,12.5),('revised_axle',-8,-4)]:
  p=[box([0,6,z0],[16,10,z1],'contact','rotating axle'),box([0,5,z0-.25],[2,11,z1+.25],'metal','journal collar'),box([14,5,z0-.25],[16,11,z1+.25],'metal','journal collar')]
+ if name=='legacy_axle':
+  # The Legacy carrier has two back-to-back seat rows. These outboard rails
+  # belong to the rotating child axle, so both rows meet the common rotor even
+  # though the rear seat models turn 180 degrees without rotating the axle.
+  for x in (0,14):
+   p.append(box([x,6,-16],[x+2,10,32],'metal','common rotor longitudinal rail'))
  write(f'models/block/{name}.json',model(p,'gray'))
 for name,y0,y1 in [('wing_strut',4,12),('revised_strut',12,20)]:
+ # The lower Revised row beams otherwise only face-touch the center spine at
+ # world Y=2.25. One model unit of overlap joins the real row to that spine
+ # without a visible riser above the beam.
+ if name=='revised_strut':y1=21
  p=[box([0,y0,4],[16,y0+1.5,12],'metal','lower flange'),box([0,y1-1.5,4],[16,y1,12],'metal','upper flange'),box([0,y0+1.5,7],[16,y1-1.5,9],'metal','central web')]
  write(f'models/block/{name}.json',model(p,'gray'))
+# Paired cars need a continuous fore-aft connection through the center of the
+# transverse row beams. The old seven wing_strut cells made their isolated
+# upper flanges look like a row of raised spines from the rider's sightline.
+# Keep one real crossbeam at each row, and make the intervening support a
+# low continuous box beam below the transverse top flange.
+spine=[box([4,1,0],[12,5.5,16],'metal','continuous low spine beam')]
+write('models/block/paired_spine.json',model(spine,'gray'))
+cross=[box([0,4,4],[16,5.5,12],'metal','row lower flange'),
+       box([0,10.5,4],[16,12,12],'metal','row upper flange'),
+       box([0,5.5,7],[16,10.5,9],'metal','row web')]
+write('models/block/paired_spine_cross.json',model(spine+cross,'gray'))
+for name in ('paired_spine','paired_spine_cross'):
+ write(f'blockstates/{name}.json',{'variants':{'':{'model':f'fourthdimension:block/{name}'}}})
 p=[box([0,2,4],[16,3.5,12],'metal','fixed wing lower flange'),box([0,6.5,4],[16,8,12],'paint','wing top cap'),box([0,3.5,7],[16,6.5,9],'metal','fixed wing web')]
 write('models/block/fixed_wing_beam.json',model(p,'cyan'))
 write('models/block/wing_fixed_controller.json',{'parent':'fourthdimension:block/fixed_wing_beam'})
 for c in COLORS:
  for state in ('open','closed'):write(f'models/block/wing_seat_{c}_{state}.json',model(seat('wing'),c))
-write('models/block/fd917/wing_restraint.json',model(shoulder(),'cyan'))
+ write('models/block/fd917/wing_restraint.json',model(shoulder(),'cyan'))
 write('fd917_articulation/wing_seat.json',{'parts':[{'model':'fourthdimension:block/fd917/wing_restraint','property':'restrained','pivot':[8,22,14],'axis':'x','open_degrees':55,'rotate_facing':True,'when':{}}]})
 def miniature(f,c):
  # Compact actual shell geometry with the beam at axle/head height, not below feet.

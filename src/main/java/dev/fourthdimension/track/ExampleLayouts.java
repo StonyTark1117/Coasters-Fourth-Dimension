@@ -310,6 +310,15 @@ public final class ExampleLayouts {
                   24, 32, dev.fourthdimension.physics.MagneticSpan.Mode.DAMP, 1, 5, .2, 15));
       magneticRail.revision++;
     }
+    if (design == TrackDesign.ARROW) {
+      var routeRails = new ArrayList<UUID>();
+      for (int i = 0; i < 8; i++) {
+        var from = anchors.get(i); var to = anchors.get((i + 1) % 8);
+        routeRails.add(data.rails.stream().filter(r -> r.matches(from, to)).findFirst()
+            .orElseThrow(() -> new IllegalArgumentException("Arrow route segment was not registered")).id);
+      }
+      dev.fourthdimension.integration.RideLocalOperations.configure(level, routeRails);
+    }
     var stationPos = origin.offset(-6, 0, 20);
     level.setBlockAndUpdate(stationPos, StationContent.STATION.get().defaultBlockState());
     var station = (BoardingStationEntity) level.getBlockEntity(stationPos);

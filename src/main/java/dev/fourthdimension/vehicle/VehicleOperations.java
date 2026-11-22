@@ -100,6 +100,8 @@ public final class VehicleOperations {
       return;
     }
     if (vehicle.authority.owner != null) dev.fourthdimension.integration.RideAuthority.emergencyHold(level,vehicle);
+    if (dev.fourthdimension.integration.RideLocalOperations.isManaged(level, vehicle))
+      dev.fourthdimension.integration.RideLocalOperations.capture(level, vehicle);
     if (S2SpinningVehicle.is(vehicle)) { S2SpinningRuntime.capture(level,vehicle); return; }
     if (DiveVehicle.is(vehicle)) DiveRuntime.acknowledge(level,vehicle);
     if (PipelineVehicle.is(vehicle)) PipelineRuntime.acknowledge(level,vehicle);
@@ -208,6 +210,8 @@ public final class VehicleOperations {
   }
 
   public static void dispatch(ServerLevel level, FoundationData.Vehicle vehicle) {
+    if (dev.fourthdimension.integration.RideLocalOperations.isManaged(level, vehicle))
+      dev.fourthdimension.integration.RideLocalOperations.beforeDispatch(level, vehicle);
     if(PoweredInvertedYawVehicle.is(vehicle)){validateDispatch(level,vehicle);PoweredInvertedYawRuntime.start(level,vehicle);}
     if (S2SpinningVehicle.is(vehicle)) { validateDispatch(level,vehicle); S2SpinningRuntime.start(level,vehicle); }
     if (vehicle.authority.owner != null && dev.fourthdimension.integration.RideAuthority.holds(level,vehicle))

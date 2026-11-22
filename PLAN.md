@@ -394,7 +394,7 @@ sequence is:
 | 1.0 stable | FD1001–FD1003 | Documentation, packaging and separately authorized publication. |
 | 1.1 | FD1602–FD1605 | Shareable presets, colors/liveries and unified operator panel. |
 | 1.2 | FD1701B–C, FD1703 | Ride-local multi-train operation, consuming the earlier FD1701A authority. |
-| 1.3 | FD2101–FD2103 | Coherent car/seat supports and two selectable original body variants on existing Wing and Fixed Inverted vehicles. |
+| 1.3 | FD2101, FD2104, FD2102, FD2103 | Repair model defects, review/refine existing base models against references, then deliver two selectable original body variants on Wing and Fixed Inverted. |
 | 1.4 | FD2201–FD2204 | Standard and Surf-style standing configurations, plus motorbike and suspended flying-bike vehicles, with complete player and recovery behavior. |
 | Post-1.0; versions after feasibility | FD2001–FD2007 | Transfer platforms, turntables, drop tables, tilt tracks and the finite additional moving-track styles. |
 | Independent | FD801 | Inspectable functional Track Styles adapter; unavailable upstream work does not block release. |
@@ -493,7 +493,7 @@ accepted evidence while extending contracts through concrete features.
 | 0.8 / FD1901–FD1902 | Powered Inverted Yaw Coaster | Upright-seated passengers below the track, one independently controlled full-turn yaw carrier per car, powered speed/direction/dwell and scenery-facing show sections. This is the MACK-style concept, distinct from Flying and Arrow-style free lateral swing. |
 | 1.1 / FD1602–FD1605 | Setting presets; colors/original liveries; unified operator panel | Presets validate compatibility/version/permissions and explicitly rebind world references. Appearance preserves mechanics; panel commands use existing authority. No arbitrary texture uploads, scripting or park-wide controller. |
 | 1.2 / FD1701B–C, FD1703 | Ride-local multi-train management | One fixed circuit, finite train limit and declared homogeneous consists; whole-consist occupancy/reservations and fail-closed dispatch. No shared-track network, arbitrary junction routing or automatic depot management. |
-| 1.3 / FD2101–FD2103 | Car structure and body variants | Correct unsupported-looking seat connections in affected models. Add compact Wing and open-frame Fixed Inverted body choices through existing appearance selection; retain their mechanical, seat and track contracts. |
+| 1.3 / FD2101, FD2104, FD2102, FD2103 | Base-model repair/refinement, then body variants | Separate literal defects from broader reference-informed improvements across the existing roster. Complete the finite agreed base-model work before compact Wing and open-frame Fixed Inverted choices; preserve mechanical, seat and track contracts. |
 | 1.4 / FD2201–FD2204 | Standing, motorbike and suspended flying-bike coasters | Standing includes fixed standard and dynamic Surf-style models with distinct restraint/seat behavior and measured fit. Motorbike and flying-bike have their own boarding, occupied camera and recovery; the latter adds suspended track fit and bounded multi-launch propulsion. No moving-track dependency. |
 
 References: [B&M Inverted](https://www.bolliger-mabillard.com/inverted-coaster),
@@ -590,12 +590,22 @@ families because moving-track research produces a new artifact.
 
 ## D21 Post-1.0 car models and specialty vehicle contracts
 
-FD2101–FD2103 are a bounded visual and selection update to existing cars. First
-identify unsupported-looking seat or bar assemblies from the actual model and
-retained views; correct the connection at its real pivot rather than masking it
-with a static trim piece. Check only affected empty/occupied poses, motion limits
-and item/preview views. The 1.0 production acceptance remains valid for
-unchanged assets and contracts.
+The 1.3 order is FD2101 defect repair and FD2104 base-model review/refinement,
+then FD2102 body variants and FD2103 reconciliation. Review the existing 17 styles
+against real coaster designs and useful documented game counterparts, beyond the
+currently reported gaps. Record a finite per-style disposition: confirmed defect,
+required base-model refinement, retained baseline, or unresolved evidence question.
+Do not treat an untouched model as reviewed or every preference as a defect.
+
+FD2101 owns literal gaps, detached supports, incorrect moving connections and
+other evidenced model/texture faults. FD2104 owns the agreed further improvements
+to proportions, silhouette, convincing construction, restraint/rider fit and
+material/detail consistency. Freeze that bounded work list before implementation;
+finish it and the relevant defects before deriving variants. References inform
+original design, not branded copies or undeclared mechanics changes. Check only
+affected empty/occupied poses, motion limits and item/preview views; unchanged
+production acceptance remains valid. Preserve each accepted repair individually
+while the broader model-readiness outcome stays open.
 
 Body choice is a separate, persistent appearance identifier from the 1.1
 upholstery palette/livery. Extend the existing appearance selector to show a

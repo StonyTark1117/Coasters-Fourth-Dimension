@@ -219,6 +219,8 @@ public final class EditorNetwork {
           if(vehicle.authority.owner==null) VehicleOperations.dispatch(level,vehicle);
           else dev.fourthdimension.integration.RideAuthority.dispatch(level,vehicle.authority.controller,vehicle.chassis,dev.fourthdimension.integration.RideAuthority.token(vehicle));
         }
+        case 94 -> dev.fourthdimension.integration.RideLocalOperations.admit(level, vehicle);
+        case 95 -> dev.fourthdimension.integration.RideLocalOperations.resume(level, vehicle.chassis);
         case 71 -> PoweredInvertedYawRuntime.resume(level,vehicle);
         case 72,73 -> PoweredInvertedYawRuntime.direction(level,vehicle,request.action==72?1:-1);
         case 74 -> PoweredInvertedYawEditor.sound(player,vehicle);

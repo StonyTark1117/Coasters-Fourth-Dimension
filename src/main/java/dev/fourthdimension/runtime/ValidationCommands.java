@@ -10,6 +10,7 @@ import dev.fourthdimension.track.TrackPlacement;
 import dev.fourthdimension.vehicle.Boarding;
 import dev.fourthdimension.vehicle.CarrierSeatBlock;
 import dev.ryanhcode.sable.api.sublevel.SubLevelContainer;
+import dev.ryanhcode.sable.sublevel.ServerSubLevel;
 import net.minecraft.core.BlockPos;
 import net.minecraft.commands.Commands;
 import net.minecraft.commands.arguments.EntityArgument;
@@ -28,6 +29,9 @@ public final class ValidationCommands {
             .then(
                 Commands.literal("availability")
                     .executes(context -> availability(context.getSource())))
+            .then(
+                Commands.literal("route_state")
+                    .executes(context -> routeState(context.getSource())))
             .then(
                 Commands.literal("engineered_loop")
                     .executes(context -> engineeredLoop(context.getSource(), TrackDesign.ARROW))
@@ -187,6 +191,64 @@ public final class ValidationCommands {
                     + " assignments="
                     + totalAssignments),
         false);
+    return 1;
+  }
+
+  /** Read-only route telemetry for C2/C6 evidence; deliberately does not mutate route state. */
+  private static int routeState(net.minecraft.commands.CommandSourceStack source) {
+    var route = FoundationData.get(source.getLevel()).rideLocal;
+    source.sendSuccess(
+        () ->
+            Component.literal(
+                "Validation route_state route="
+                    + route.routeId
+                    + " trains="
+                    + route.trains.size()
+                    + " reservations="
+                    + route.reservations.size()),
+        false);
+    route.trains.values().stream()
+        .sorted(java.util.Comparator.comparing(train -> train.chassis.toString()))
+        .forEach(
+            train -> {
+    var body = SubLevelContainer.getContainer(source.getLevel()).getSubLevel(train.chassis);
+    var position = body instanceof ServerSubLevel nativeBody ? nativeBody.logicalPose().position() : null;
+    var center = body == null ? null : dev.silvergold.simulatedcoasters.track.cart.CoasterCartResolve.cartCenterWorld(body);
+    source.sendSuccess(
+                    () ->
+                        Component.literal(
+                            "train chassis="
+                                + train.chassis
+                                + " cars="
+                                + train.cars
+                                + " block="
+                                + train.block
+                                + " nextBlock="
+                                + train.nextBlock
+                                + " pos="
+                                + (position == null ? "missing" : position.x()+","+position.y()+","+position.z())
+                                + " center="
+                                + (center == null ? "missing" : center.x()+","+center.y()+","+center.z())
+                                + " braking="
+                                + train.braking
+                                + " unresolved="
+                                + train.unresolved
+                                + " restored="
+                                + train.restored),
+                    false);
+            });
+    route.reservations.entrySet().stream()
+        .sorted(java.util.Map.Entry.comparingByKey())
+        .forEach(
+            reservation ->
+                source.sendSuccess(
+                    () ->
+                        Component.literal(
+                            "reservation block="
+                                + reservation.getKey()
+                                + " chassis="
+                                + reservation.getValue()),
+                    false));
     return 1;
   }
 

@@ -1,0 +1,20 @@
+Id=fd2101-arrow-20261117-client.service
+ActiveState=inactive
+MainPID=0
+
+Id=fd2101-arrow-20261117-server.service
+ActiveState=inactive
+MainPID=0
+
+Id=fd2101-arrow-20261117-xvfb.service
+ActiveState=inactive
+MainPID=0
+
+Latest center-mount visual check: server log 2026-11-17 02:37:17 saved all
+dimensions; the client left at 02:37:20 and the server stopped at 02:37:24.
+All three owned units were rechecked inactive/MainPID=0 after this run.
+
+Final original-five neutral-view run: the server log records all dimensions
+saved after `save-all flush`, the client left, and the server exited cleanly.
+The :338 client/server/Xvfb units were rechecked inactive/MainPID=0. The copied
+world and screenshots remain under the run root for a targeted reopen.

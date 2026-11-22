@@ -1,0 +1,10 @@
+2026-11-17 Revised center-support visual check
+Run root: /mnt/NVME4/fourthdimension-runs/fd2101-arrow-20261117
+Owner: 01a1e8b5-8dd3-7110-a26d-e29e8b8ec23e
+Display: :338; server: 127.0.0.1:25683; Java 21
+Packaged JAR SHA-256: 644736f1cf477b8e502213cd44a6cb6b10b0f58395b98da56dab710adf5df0e0
+The copied world, raw screenshots, and client/server logs remain under the run root.
+Final `save-all flush` returned Saved the game; `console stop` returned Stopping the server.
+After shutdown: fd2101-arrow-20261117-client.service inactive MainPID=0;
+fd2101-arrow-20261117-server.service inactive MainPID=0;
+fd2101-arrow-20261117-xvfb.service inactive MainPID=0.

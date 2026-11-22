@@ -87,6 +87,7 @@ public final class VehicleLifecycle {
     var data = FoundationData.get(level);
     var container = SubLevelContainer.getContainer(level);
     for (var id : pending) {
+      dev.fourthdimension.integration.RideLocalOperations.onPermanentRemoval(level, id);
       var vehicle = data.vehicles.remove(id);
       if (vehicle == null) continue;
       var bodies = new ArrayList<UUID>();
