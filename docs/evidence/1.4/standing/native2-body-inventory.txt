@@ -1,0 +1,21 @@
+Saved native bodies at attempt2 failure (tick80); source: /mnt/NVME4/fourthdimension-runs/fd14-standing-20261122/native2-world
+
+BODY b8f47fab-a9ee-4dd7-893c-e50e6884c0c0
+pose Compound({'orientation': Compound({'w': Double(0.0), 'x': Double(0.0), 'y': Double(1.0), 'z': Double(0.0)}), 'rotation_point': Compound({'x': Double(20481032.5), 'y': Double(128.85999999999999), 'z': Double(20481032.425)}), 'position': Compound({'x': Double(-1799.5), 'y': Double(110.98499298095703), 'z': Double(420.57501220703125)})})
+chunk 274877907008 section 12 blockWithinSection (8, 0, 7) {'Name': String('fourthdimension:standing_controller')}
+chunk 274877907008 section 12 blockWithinSection (8, 0, 8) {'Properties': Compound({'snap_engaged': String('true')}), 'Name': String('simulatedcoasters:coaster_cart')}
+chunk 274877907008 section 12 blockWithinSection (8, 0, 9) {'Properties': Compound({'surf': String('false')}), 'Name': String('fourthdimension:standing_frame')}
+chunk 274877907008 section 12 blockWithinSection (7, 1, 8) {'Properties': Compound({'surf': String('false'), 'waterlogged': String('false'), 'restrained': String('false'), 'facing': String('north'), 'right': String('false')}), 'Name': String('fourthdimension:standing_seat')}
+chunk 274877907008 section 12 blockWithinSection (9, 1, 8) {'Properties': Compound({'surf': String('false'), 'waterlogged': String('false'), 'restrained': String('false'), 'facing': String('north'), 'right': String('true')}), 'Name': String('fourthdimension:standing_seat')}
+
+BODY 3f35d07c-66ef-4836-8fc0-ba90ea526f80
+pose Compound({'orientation': Compound({'w': Double(2.4605502097624354e-13), 'x': Double(1.533158501413126e-13), 'y': Double(1.0), 'z': Double(-1.3266577298054472e-05)}), 'rotation_point': Compound({'x': Double(20481032.5), 'y': Double(129.4333333333333), 'z': Double(20485128.645833332)}), 'position': Compound({'x': Double(-1699.5), 'y': Double(111.55827331542969), 'z': Double(420.3541259765625)})})
+chunk 274877907008 section 12 blockWithinSection (7, 1, 8) {'Properties': Compound({'surf': String('true'), 'waterlogged': String('false'), 'restrained': String('false'), 'facing': String('north'), 'right': String('false')}), 'Name': String('fourthdimension:standing_seat')}
+chunk 274877907008 section 12 blockWithinSection (8, 1, 8) {'Name': String('fourthdimension:surf_carriage')}
+chunk 274877907008 section 12 blockWithinSection (9, 1, 8) {'Properties': Compound({'surf': String('true'), 'waterlogged': String('false'), 'restrained': String('false'), 'facing': String('north'), 'right': String('true')}), 'Name': String('fourthdimension:standing_seat')}
+
+BODY 021a6e7d-be12-4a84-a825-5e30503ef92c
+pose Compound({'orientation': Compound({'w': Double(2.228141174169529e-13), 'x': Double(1.0748903157798643e-14), 'y': Double(1.0), 'z': Double(-4.814733642888314e-07)}), 'rotation_point': Compound({'x': Double(20481032.5), 'y': Double(128.54166666666666), 'z': Double(20483080.375)}), 'position': Compound({'x': Double(-1699.5), 'y': Double(110.66665649414062), 'z': Double(420.6250305175781)})})
+chunk 274877907008 section 12 blockWithinSection (8, 0, 7) {'Name': String('fourthdimension:standing_controller')}
+chunk 274877907008 section 12 blockWithinSection (8, 0, 8) {'Properties': Compound({'snap_engaged': String('true')}), 'Name': String('simulatedcoasters:coaster_cart')}
+chunk 274877907008 section 12 blockWithinSection (8, 0, 9) {'Properties': Compound({'surf': String('true')}), 'Name': String('fourthdimension:standing_frame')}

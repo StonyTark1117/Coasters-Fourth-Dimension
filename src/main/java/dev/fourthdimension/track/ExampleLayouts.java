@@ -45,6 +45,10 @@ public final class ExampleLayouts {
                     case DIVE -> "dive";
                     case POWERED_INVERTED_YAW -> "powered_inverted_yaw";
                     case PIPELINE -> "pipeline";
+                    case STANDING_STANDARD -> "standing_standard";
+                    case STANDING_SURF -> "standing_surf";
+                    case MOTORBIKE -> "motorbike";
+                    case FLYING_BIKE -> "flying_bike";
                     case S2_SPINNING -> "s2_spinning";
                     case SPINNING -> "spinning";
                     case SUSPENDED -> "suspended";

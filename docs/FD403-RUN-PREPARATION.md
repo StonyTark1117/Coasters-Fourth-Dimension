@@ -63,6 +63,7 @@ export PATH="$JAVA_HOME/bin:$PATH"
 "$JAVA_HOME/bin/java" -version
 ./gradlew --version
 ./gradlew createClientLaunchScript createServerLaunchScript \
+  "--project-cache-dir=$FD_RUN/project-cache" \
   -PfdPackaged -PfdValidation -PfdClientMaxHeap=1536M \
   "-PfdConnect=127.0.0.1:$FD_PORT" \
   "-PfdBuildDirectory=$FD_RUN/build" \
@@ -71,6 +72,13 @@ export PATH="$JAVA_HOME/bin:$PATH"
 ```
 
 This prepares the packaged artifact and launchers; it does not run a test suite.
+Keep the same per-run project cache for every Gradle command in concurrent runs.
+Separate `fdBuildDirectory` values alone still share the checkout's task history
+and file-hash locks. During 1.4 preparation this produced an incomplete class
+inventory despite a successful JAR task. Check the packaged classes/resources
+before launch; if an existing run used the shared cache and has missing outputs,
+rebuild its own compile/resources/JAR tasks with `--rerun-tasks` and the isolated
+cache. Preserve its worlds and evidence; do not use `clean` on live run data.
 Inspect generated paths and the actual runtime mod list. ModDev's generated shell
 scripts on this project do not inherit the `JavaExec.jvmArgs` heap setting. The
 helper therefore applies `JAVA_TOOL_OPTIONS=-Xmx1536M` to its direct client Java

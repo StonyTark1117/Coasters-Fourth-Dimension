@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "SIS",
+    "ITI",
+    "ICI"
+  ],
+  "key": {
+    "S": {
+      "item": "minecraft:saddle"
+    },
+    "I": {
+      "tag": "c:ingots/iron"
+    },
+    "T": {
+      "item": "simulatedcoasters:coaster_track"
+    },
+    "C": {
+      "item": "simulatedcoasters:coaster_cart"
+    }
+  },
+  "result": {
+    "id": "fourthdimension:motorbike_car",
+    "count": 1
+  }
+}

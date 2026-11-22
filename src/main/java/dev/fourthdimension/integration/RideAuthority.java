@@ -204,6 +204,7 @@ public final class RideAuthority {
     FoundationData.get(l).setDirty();
   }
   public static boolean deniesProvider(ServerLevel level, FoundationData.Vehicle v, String provider) {
+    if (v.family.specialty() && !NATIVE_CHAIN.equals(provider)) return true;
     return v.authority.owner!=null && (!provider.equals(v.authority.provider)||holds(level,v));
   }
   public static boolean holds(ServerLevel level, FoundationData.Vehicle v) {
@@ -267,6 +268,8 @@ public final class RideAuthority {
     return result;
   }
   private static void validateExternal(ServerLevel l,List<FoundationData.Vehicle> cars,String id) {
+    if (!NATIVE_CHAIN.equals(id) && cars.stream().anyMatch(car -> car.family.specialty()))
+      throw new IllegalArgumentException("Specialty vehicles require native Chain propulsion");
     var provider=EXTERNAL.get(id);
     if(provider==null) {
       if(!Set.of(NATIVE_CHAIN,ENGINEERED,MAGNETIZED,CTNB).contains(id))

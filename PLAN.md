@@ -619,6 +619,15 @@ track eligibility, propulsion or rider/camera ownership.
 Save/load and unavailable-choice fallback must retain the mechanical vehicle
 and rider state. A new mechanics request receives a new vehicle specification.
 
+The authorized 1.4 implementation is complete on primary `main`. The frozen
+[standing](docs/specs/FD2201-standing.md),
+[motorbike](docs/specs/FD2202-motorbike.md) and
+[flying-bike](docs/specs/FD2204-flying-bike.md) contracts define the finite profiles;
+the [current queue](docs/CURRENT-QUALIFICATION.md#active-14--specialty-vehicles)
+links accepted native/occupied construction, riding and recovery evidence. The
+[1.4 integration record](docs/evidence/1.4/integration.md) freezes the reproducible
+unpublished package and support limits.
+
 FD2201 specifies two dimensioned standing configurations before implementation:
 a standard stand-up model with a fixed upright ride pose, and a Surf-style model
 with bounded vertical seat travel. Give each its own support and restraint

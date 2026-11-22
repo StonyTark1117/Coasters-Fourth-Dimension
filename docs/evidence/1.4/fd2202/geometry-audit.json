@@ -1,0 +1,29 @@
+{
+  "scope": "Source cuboid connectivity, dense 1-degree hinge sweep, approximate limb centerline endpoints; no rendered/occupied acceptance",
+  "connected_elements": 22,
+  "hinge_graph_bounds": {
+    "min": [
+      -1.3125,
+      1.4375,
+      0.13556557948495473
+    ],
+    "max": [
+      1.3125,
+      1.9827827208691593,
+      0.6068812947892714
+    ]
+  },
+  "foot_centerline": {
+    "x": 0.3248750624851211,
+    "y": 0.7388683595366337,
+    "z": -0.48316326542826826
+  },
+  "hand_centerline": {
+    "x": 0.3125,
+    "y": 1.773244984680219,
+    "z": -0.7317925183699943
+  },
+  "hip_graph_y": 1.3125,
+  "cushion_top_graph_y": 1.3,
+  "status": "PASS"
+}

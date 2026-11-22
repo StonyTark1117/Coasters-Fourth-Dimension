@@ -84,6 +84,10 @@ public final class SurvivalBuildingGameTests {
       case FLYING -> TrackItems.FLYING.get();
       case ROLLER_BALL -> TrackItems.ROLLER_BALL.get();
       case NEW_GENERATION_FLYING -> TrackItems.NEW_GENERATION_FLYING.get();
+      case STANDING_STANDARD -> dev.fourthdimension.vehicle.StandingContent.STANDARD_TRACK.get();
+      case STANDING_SURF -> dev.fourthdimension.vehicle.StandingContent.SURF_TRACK.get();
+      case MOTORBIKE -> dev.fourthdimension.vehicle.MotorbikeContent.TRACK.get();
+      case FLYING_BIKE -> dev.fourthdimension.vehicle.FlyingBikeContent.TRACK.get();
     };
   }
 
@@ -105,6 +109,10 @@ public final class SurvivalBuildingGameTests {
       case FLYING -> TrackItems.FLYING_CAR.get();
       case ROLLER_BALL -> TrackItems.ROLLER_BALL_CAR.get();
       case NEW_GENERATION_FLYING -> TrackItems.NEW_GENERATION_FLYING_CAR.get();
+      case STANDING_STANDARD -> dev.fourthdimension.vehicle.StandingContent.STANDARD_CAR.get();
+      case STANDING_SURF -> dev.fourthdimension.vehicle.StandingContent.SURF_CAR.get();
+      case MOTORBIKE -> dev.fourthdimension.vehicle.MotorbikeContent.CAR.get();
+      case FLYING_BIKE -> dev.fourthdimension.vehicle.FlyingBikeContent.CAR.get();
     };
   }
 

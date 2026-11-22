@@ -30,6 +30,29 @@ will carry unaffected acceptance forward; no new JAR or run is required here.
 
 ## Current work queue
 
+<a id="active-14--specialty-vehicles"></a>
+### Completed 1.4 — accepted 2026-11-22
+
+All three specialty outcomes and FD2203 are complete on primary `main`.
+[Integration and package](evidence/1.4/integration.md) freezes four configurations,
+support limits, cumulative checks and the reproducible unpublished artifact.
+Earlier 1.0–1.3 acceptance remains closed; publication is separate.
+
+| Outcome | Owner | Accepted evidence |
+| --- | --- | --- |
+| FD2201 Standard and Surf | `/root/fd13_structure_reconcile` | Native1/1, connected geometry/fit, both occupied circuits/controls/unload, Surf mid-stroke interruption and cold identity/hold/explicit recovery/home capture, both normal recipes and paid Survival placement. [Record](evidence/1.4/standing/README.md). |
+| FD2202 Motorbike | `/root/fd13_body_design` | Native1/1, occupied straddle loop/unload, cold identity/hold and separate shaft-loss/repair/Resume, normal recipes and paid Survival placement. [Record](evidence/1.4/fd2202/README.md). |
+| FD2204 Flying Bike | `/root/fd13_spinning_check` | Native2/2 with measured8/12 launches and acceleration cap, normal crafting/placement/linking, occupied two-launch loop/unload, corrected cold zero-Chain hold/explicit recovery, banked normal evacuation and prone/camera views. [Record](evidence/1.4/flying-bike/README.md). |
+| FD2203 integration | `/root` | Shared Java21 compile/63 unit tests, exact scope and source/resource review, reproducible package with all661 classes/729 resources. All nine specialty client/server/Xvfb units inactive/dead/MainPID0; saved worlds and raw evidence preserved. |
+
+The selected JAR SHA-256 is
+`1cbcef5f501afee150c32d07e19b0947a80786c4146dabe7fe4727600f8a292d`.
+Its internal version remains1.1.0 for this unpublished development checkpoint.
+The independent build is byte-identical. No uncompleted 1.4 assignment remains.
+The separately integrated Launch Systems bridge at `235255cf` remains bounded to
+its accepted consumer scope; its owner's runtimes are separate. Concurrent 1.5
+planning changes and pre-existing `logs/` are preserved outside this integration.
+
 ### Completed 1.2 — accepted 2026-11-22
 
 The human requested **"Assign 1.2 tasks to agents"**. Reuse the three existing

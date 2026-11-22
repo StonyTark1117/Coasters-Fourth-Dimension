@@ -16,7 +16,10 @@ public enum Family {
   FIXED_INVERTED("fixed_inverted", false),
   AXIS("axis", true),
   FLYING("flying", false),
-  ROLLER_BALL("roller_ball", false);
+  ROLLER_BALL("roller_ball", false),
+  STANDING("standing", false),
+  MOTORBIKE("motorbike", false),
+  FLYING_BIKE("flying_bike", false);
 
   private final String id;
   private final boolean driven;
@@ -35,7 +38,13 @@ public enum Family {
   }
 
   public boolean rotary() {
-    return this != WING && this != FIXED_INVERTED && this != DIVE && this != PIPELINE;
+    return this != WING && this != FIXED_INVERTED && this != DIVE && this != PIPELINE
+        && !specialty();
+  }
+
+  /** Specialty vehicles use their own fixed or prismatic rider contracts. */
+  public boolean specialty() {
+    return this == STANDING || this == MOTORBIKE || this == FLYING_BIKE;
   }
 
   public dev.fourthdimension.physics.CarrierAxis axis() {
@@ -44,7 +53,7 @@ public enum Family {
   }
 
   /** The original prototype fixture remains the original five-family acceptance input. */
-  public boolean foundationFixture() { return this != POWERED_INVERTED && this != DIVE && this != PIPELINE && this != WING && this != SPINNING && this != SUSPENDED && this != FIXED_INVERTED && this != AXIS && this != FLYING && this != ROLLER_BALL; }
+  public boolean foundationFixture() { return this != POWERED_INVERTED && this != DIVE && this != PIPELINE && this != WING && this != SPINNING && this != SUSPENDED && this != FIXED_INVERTED && this != AXIS && this != FLYING && this != ROLLER_BALL && !specialty(); }
 
   public static Family byId(String id) {
     for (Family family : values()) if (family.id.equals(id)) return family;

@@ -43,6 +43,10 @@ public record VehicleContract(
       return Eligibility.MISSING_MECHANISM;
     if ((family == Family.SPINNING || family == Family.SUSPENDED || family == Family.FIXED_INVERTED) && !track.mechanisms().contains(Mechanism.STATION_CAPTURE))
       return Eligibility.MISSING_MECHANISM;
+    if (family != null && family.specialty() && !track.mechanisms().contains(Mechanism.STATION_CAPTURE))
+      return Eligibility.MISSING_MECHANISM;
+    if (family == Family.FLYING_BIKE && !track.mechanisms().containsAll(Set.of(Mechanism.OVERHEAD_MOUNT, Mechanism.LONGITUDINAL_DRIVE)))
+      return Eligibility.MISSING_MECHANISM;
     if (family == Family.FIXED_INVERTED && !track.mechanisms().contains(Mechanism.OVERHEAD_MOUNT))
       return Eligibility.MISSING_MECHANISM;
     if (family == Family.FLYING && "route_changeover_yaw_v1".equals(variant)

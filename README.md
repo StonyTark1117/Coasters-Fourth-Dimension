@@ -34,6 +34,17 @@ shareable presets, original upholstery colors and a unified ride panel. It is no
 yet a published release. [Qualification and package](docs/evidence/1.1/README.md)
 record its targeted checks and support limits. The public 1.0.0 Beta files remain unchanged.
 
+The current development checkout also contains accepted 1.2 multi-train operation
+and [1.3 model repairs/body choices](docs/evidence/1.3/integration-manifest.md).
+The accepted 1.4 specialty package adds Standard and Surf-style
+[standing cars](docs/STANDING.md), [Motorbike](docs/MOTORBIKE.md) and
+[suspended Flying Bike](docs/FLYING-BIKE.md): four configurations in addition to the
+original 17. These development additions are unpublished; the [1.4 record](docs/evidence/1.4/integration.md)
+records completed checks, exact support limits and the reproducible package. Each uses its exact matching
+track and native Chain propulsion, with one car and explicit restraint/recovery
+controls. Flying Bike has two ordered launches; a stranded car on an unpowered
+coast uses the guide’s platform-and-station evacuation procedure.
+
 ## Install
 
 Install the same Fourth Dimension build on every client and dedicated server,

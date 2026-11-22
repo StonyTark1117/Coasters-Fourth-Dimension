@@ -29,6 +29,9 @@ public final class VehicleFactory {
       throw new IllegalArgumentException("This CTNB material is not qualified for the selected vehicle");
     if (design == TrackDesign.POWERED_INVERTED_YAW) return PoweredInvertedYawVehicle.create(level,hit);
     if (design == TrackDesign.DIVE) return DiveVehicle.create(level, hit);
+    if (design.family == dev.fourthdimension.contract.Family.STANDING) return StandingVehicle.create(level, hit, design);
+    if (design == TrackDesign.MOTORBIKE) return MotorbikeVehicle.create(level, hit);
+    if (design == TrackDesign.FLYING_BIKE) return FlyingBikeVehicle.create(level, hit);
     if (design == TrackDesign.PIPELINE) return PipelineVehicle.create(level, hit);
     if (design == TrackDesign.NEW_GENERATION_FLYING) return NewGenerationFlyingVehicle.create(level, hit);
     if (design == TrackDesign.ROLLER_BALL) return RollerBallVehicle.create(level, hit);
@@ -192,7 +195,7 @@ public final class VehicleFactory {
                   case PAX -> VehicleParts.PAX_SEAT.get();
                   case AXIS -> VehicleParts.AXIS_SEAT.get();
                   case FLYING -> VehicleParts.FLYING_SEAT.get();
-                  case POWERED_INVERTED_YAW, DIVE, PIPELINE, S2_SPINNING -> throw new IllegalStateException("Vehicle uses its dedicated factory");
+                  case STANDING_STANDARD, STANDING_SURF, MOTORBIKE, FLYING_BIKE, POWERED_INVERTED_YAW, DIVE, PIPELINE, S2_SPINNING -> throw new IllegalStateException("Vehicle uses its dedicated factory");
                   case ROLLER_BALL -> throw new IllegalStateException("Roller Ball uses its own factory");
                   case NEW_GENERATION_FLYING -> throw new IllegalStateException("Compound Flying uses its own factory");
                   case SPINNING -> VehicleParts.SPINNING_SEAT.get();

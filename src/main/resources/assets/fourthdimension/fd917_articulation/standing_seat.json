@@ -1,0 +1,34 @@
+{
+  "parts": [
+    {
+      "model": "fourthdimension:block/standing_restraint_left",
+      "property": "restrained",
+      "pivot": [
+        13.6,
+        31,
+        14
+      ],
+      "axis": "x",
+      "open_degrees": 55,
+      "rotate_facing": false,
+      "when": {
+        "right": "false"
+      }
+    },
+    {
+      "model": "fourthdimension:block/standing_restraint_right",
+      "property": "restrained",
+      "pivot": [
+        2.4,
+        31,
+        14
+      ],
+      "axis": "x",
+      "open_degrees": 55,
+      "rotate_facing": false,
+      "when": {
+        "right": "true"
+      }
+    }
+  ]
+}

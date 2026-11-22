@@ -30,7 +30,7 @@ public final class RecoveryExamples {
     var root = Commands.literal("fd").requires(s -> s.hasPermission(2));
     var demo = Commands.literal("demo");
     for (var design : TrackDesign.values()) {
-      if (design == TrackDesign.SPINNING || design == TrackDesign.SUSPENDED) continue;
+      if (design.family.specialty() || design == TrackDesign.SPINNING || design == TrackDesign.SUSPENDED) continue;
       demo.then(
           Commands.literal("recovery_" + design.name().toLowerCase(Locale.ROOT))
               .executes(
@@ -170,7 +170,7 @@ public final class RecoveryExamples {
               case FREE_SPIN -> TrackItems.FREE_SPIN;
               case REVISED -> TrackItems.REVISED;
               case PAX -> TrackItems.PAX;
-              case POWERED_INVERTED_YAW, DIVE, PIPELINE, S2_SPINNING, ROLLER_BALL, AXIS, FLYING, NEW_GENERATION_FLYING, FIXED_INVERTED, SUSPENDED, SPINNING -> throw new IllegalArgumentException("This ride has no ordinary recovery adapter");
+              case STANDING_STANDARD, STANDING_SURF, MOTORBIKE, FLYING_BIKE, POWERED_INVERTED_YAW, DIVE, PIPELINE, S2_SPINNING, ROLLER_BALL, AXIS, FLYING, NEW_GENERATION_FLYING, FIXED_INVERTED, SUSPENDED, SPINNING -> throw new IllegalArgumentException("This ride has no ordinary recovery adapter");
             })
             .get()
             .getDefaultInstance());

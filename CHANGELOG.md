@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.4 milestone — verified 2026-11-22, unpublished
+
+- Add original Standard and Surf-style standing configurations, straddle Motorbike and suspended prone Flying Bike, each with matching track, recipes, controls and playable examples.
+- Surf uses a bounded native moving carriage with home capture; Flying Bike uses two real Chain launches with bounded acceleration and explicit coast evacuation.
+- Preserve earlier accepted vehicle contracts and public release files. The [1.4 integration record](docs/evidence/1.4/integration.md) records accepted behavior, cold-process recovery, runtime cleanup and reproducible packaging.
+
 ## 1.1.0 — verified 2026-11-17, unpublished
 
 - Rename the S1 and S2 player-facing Spinning variants to Classic Spinning and Launched Inverting Spinning. Saved IDs and existing worlds remain compatible.

@@ -1,0 +1,6 @@
+standing: connected fixed metal support; connected seat/hinge graph; 0..55 degree restraints and physical stroke within fit
+surf: connected fixed metal support; connected seat/hinge graph; 0..55 degree restraints and physical stroke within fit
+Surf paired stance blocks have a child-owned crossmember: complete metal contact graph connected
+Surf: both .01-block guide radial clearances; shoes engaged at q=0 and q=.40; no solid guide overlap
+All model elements fit vanilla [-16,32]; corner-origin root transform restores exact original support geometry
+Limits: source geometry only; native physics and occupied client observations are separate required evidence.

@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "surf=false": {
+      "model": "fourthdimension:block/standing_frame"
+    },
+    "surf=true": {
+      "model": "fourthdimension:block/surf_frame"
+    }
+  }
+}

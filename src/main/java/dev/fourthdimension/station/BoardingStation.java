@@ -123,6 +123,18 @@ public final class BoardingStation extends BaseEntityBlock {
         return InteractionResult.FAIL;
       }
     }
+    if (rebinding && dev.fourthdimension.vehicle.StandingVehicle.is(v)) {
+      try { dev.fourthdimension.vehicle.StandingRuntime.rebindDock(server.serverLevel(),v,pos); }
+      catch (IllegalArgumentException denied) { player.displayClientMessage(Component.literal(denied.getMessage()),true); return InteractionResult.FAIL; }
+    }
+    if (rebinding && dev.fourthdimension.vehicle.MotorbikeVehicle.is(v)) {
+      try { dev.fourthdimension.vehicle.MotorbikeRuntime.rebindDock(server.serverLevel(),v,pos); }
+      catch (IllegalArgumentException denied) { player.displayClientMessage(Component.literal(denied.getMessage()),true); return InteractionResult.FAIL; }
+    }
+    if (rebinding && dev.fourthdimension.vehicle.FlyingBikeVehicle.is(v)) {
+      try { dev.fourthdimension.vehicle.FlyingBikeRuntime.rebindDock(server.serverLevel(),v,pos); }
+      catch (IllegalArgumentException denied) { player.displayClientMessage(Component.literal(denied.getMessage()),true); return InteractionResult.FAIL; }
+    }
     if (rebinding && dev.fourthdimension.vehicle.DiveVehicle.is(v)) {
       try { dev.fourthdimension.vehicle.DiveRuntime.rebindDock(server.serverLevel(),v,pos); }
       catch (IllegalArgumentException denied) { server.displayClientMessage(net.minecraft.network.chat.Component.literal(denied.getMessage()), true); return net.minecraft.world.InteractionResult.FAIL; }
@@ -168,7 +180,7 @@ public final class BoardingStation extends BaseEntityBlock {
     }
     player.displayClientMessage(
         Component.literal(
-            ((dev.fourthdimension.vehicle.RollerBallVehicle.is(v) || dev.fourthdimension.vehicle.NewGenerationFlyingVehicle.is(v) || dev.fourthdimension.vehicle.SpinningVehicle.is(v) || dev.fourthdimension.vehicle.SuspendedVehicle.is(v) || dev.fourthdimension.vehicle.FixedInvertedVehicle.is(v) || dev.fourthdimension.vehicle.AxisVehicle.is(v) || dev.fourthdimension.vehicle.FlyingVehicle.is(v))
+            ((v.family.specialty() || dev.fourthdimension.vehicle.RollerBallVehicle.is(v) || dev.fourthdimension.vehicle.NewGenerationFlyingVehicle.is(v) || dev.fourthdimension.vehicle.SpinningVehicle.is(v) || dev.fourthdimension.vehicle.SuspendedVehicle.is(v) || dev.fourthdimension.vehicle.FixedInvertedVehicle.is(v) || dev.fourthdimension.vehicle.AxisVehicle.is(v) || dev.fourthdimension.vehicle.FlyingVehicle.is(v))
                 ? "Bound dock: power requests capture; use Dispatch explicitly. Front: ready. Right side:"
                 : "Rear redstone input: capture on power; dispatch on release. Front: ready. Right side:")
                 + " restraints closed. "

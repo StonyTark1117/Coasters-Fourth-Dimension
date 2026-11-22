@@ -1,0 +1,52 @@
+{
+  "variants": {
+    "facing=north,restrained=false,load_marker=false": {
+      "model": "fourthdimension:block/flying_bike_seat"
+    },
+    "facing=north,restrained=false,load_marker=true": {
+      "model": "fourthdimension:block/flying_bike_seat"
+    },
+    "facing=north,restrained=true,load_marker=false": {
+      "model": "fourthdimension:block/flying_bike_seat"
+    },
+    "facing=north,restrained=true,load_marker=true": {
+      "model": "fourthdimension:block/flying_bike_seat"
+    },
+    "facing=south,restrained=false,load_marker=false": {
+      "model": "fourthdimension:block/flying_bike_seat"
+    },
+    "facing=south,restrained=false,load_marker=true": {
+      "model": "fourthdimension:block/flying_bike_seat"
+    },
+    "facing=south,restrained=true,load_marker=false": {
+      "model": "fourthdimension:block/flying_bike_seat"
+    },
+    "facing=south,restrained=true,load_marker=true": {
+      "model": "fourthdimension:block/flying_bike_seat"
+    },
+    "facing=east,restrained=false,load_marker=false": {
+      "model": "fourthdimension:block/flying_bike_seat"
+    },
+    "facing=east,restrained=false,load_marker=true": {
+      "model": "fourthdimension:block/flying_bike_seat"
+    },
+    "facing=east,restrained=true,load_marker=false": {
+      "model": "fourthdimension:block/flying_bike_seat"
+    },
+    "facing=east,restrained=true,load_marker=true": {
+      "model": "fourthdimension:block/flying_bike_seat"
+    },
+    "facing=west,restrained=false,load_marker=false": {
+      "model": "fourthdimension:block/flying_bike_seat"
+    },
+    "facing=west,restrained=false,load_marker=true": {
+      "model": "fourthdimension:block/flying_bike_seat"
+    },
+    "facing=west,restrained=true,load_marker=false": {
+      "model": "fourthdimension:block/flying_bike_seat"
+    },
+    "facing=west,restrained=true,load_marker=true": {
+      "model": "fourthdimension:block/flying_bike_seat"
+    }
+  }
+}

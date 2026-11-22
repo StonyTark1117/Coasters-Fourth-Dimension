@@ -79,6 +79,10 @@ public final class CarrierRuntime {
       if (!(container.getSubLevel(vehicle.chassis) instanceof ServerSubLevel parent)
           || parent.isRemoved()) continue;
       physics.updatePose(parent);
+      if (dev.fourthdimension.vehicle.StandingVehicle.is(vehicle)) {
+        dev.fourthdimension.vehicle.StandingRuntime.refresh(level, vehicle);
+        continue;
+      }
       if (dev.fourthdimension.vehicle.NewGenerationFlyingVehicle.is(vehicle)) {
         dev.fourthdimension.vehicle.NewGenerationFlyingRuntime.refresh(level, vehicle);
         continue;
@@ -153,6 +157,18 @@ public final class CarrierRuntime {
       vehicleUpdates++;
       physics.updatePose(parent);
       dev.fourthdimension.integration.RideAuthority.tick(level, vehicle, event.getTimeStep());
+      if (dev.fourthdimension.vehicle.StandingVehicle.is(vehicle)) {
+        dev.fourthdimension.vehicle.StandingRuntime.tick(level,parent,vehicle,event.getTimeStep());
+        continue;
+      }
+      if (dev.fourthdimension.vehicle.MotorbikeVehicle.is(vehicle)) {
+        dev.fourthdimension.vehicle.MotorbikeRuntime.tick(level,parent,vehicle,event.getTimeStep());
+        continue;
+      }
+      if (dev.fourthdimension.vehicle.FlyingBikeVehicle.is(vehicle)) {
+        dev.fourthdimension.vehicle.FlyingBikeRuntime.tick(level,parent,vehicle,event.getTimeStep());
+        continue;
+      }
       if (dev.fourthdimension.vehicle.DiveVehicle.is(vehicle)) {
         dev.fourthdimension.vehicle.DiveRuntime.tick(level,parent,vehicle,event.getTimeStep());
         continue;

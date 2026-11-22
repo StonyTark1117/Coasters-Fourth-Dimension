@@ -19,7 +19,7 @@ public final class SkinAdapter {
     return null;
   }
   public static boolean supported(FoundationData.Vehicle vehicle) {
-    return !FoundationData.VARIANT.equals(vehicle.variant) && !PipelineVehicle.is(vehicle);
+    return !FoundationData.VARIANT.equals(vehicle.variant) && !PipelineVehicle.is(vehicle) && !vehicle.family.specialty();
   }
   public static void select(ServerPlayer player,FoundationData.Vehicle vehicle,String id) {
     var choice=SkinAppearance.require(id);

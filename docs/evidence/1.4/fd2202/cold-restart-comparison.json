@@ -1,0 +1,60 @@
+{
+  "before": {
+    "chassis": [
+      -2128166103,
+      968574858,
+      -1940139035,
+      -682715572
+    ],
+    "family": "motorbike",
+    "variant": "straddle_v1",
+    "restraints": 1,
+    "stopping": 0,
+    "fault": "",
+    "motorbike": {
+      "running": 1,
+      "directions": [
+        {
+          "sign": 1,
+          "pos": 229476
+        },
+        {
+          "sign": -1,
+          "pos": 26388279296100
+        }
+      ],
+      "version": 1
+    }
+  },
+  "after": {
+    "chassis": [
+      -2128166103,
+      968574858,
+      -1940139035,
+      -682715572
+    ],
+    "family": "motorbike",
+    "variant": "straddle_v1",
+    "restraints": 1,
+    "stopping": 1,
+    "fault": "Motorbike restart retained; inspect then Resume",
+    "motorbike": {
+      "running": 0,
+      "directions": [
+        {
+          "sign": 1,
+          "pos": 229476
+        },
+        {
+          "sign": -1,
+          "pos": 26388279296100
+        }
+      ],
+      "version": 1
+    }
+  },
+  "same_rider_seats": true,
+  "before_capture": 0,
+  "after_capture": 1,
+  "same_carrier": true
+}

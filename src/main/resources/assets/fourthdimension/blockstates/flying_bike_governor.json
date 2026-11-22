@@ -1,0 +1,27 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "fourthdimension:block/flying_bike_governor"
+    },
+    "facing=east": {
+      "model": "fourthdimension:block/flying_bike_governor",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "fourthdimension:block/flying_bike_governor",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "fourthdimension:block/flying_bike_governor",
+      "y": 270
+    },
+    "facing=up": {
+      "model": "fourthdimension:block/flying_bike_governor",
+      "x": 270
+    },
+    "facing=down": {
+      "model": "fourthdimension:block/flying_bike_governor",
+      "x": 90
+    }
+  }
+}

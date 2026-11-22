@@ -55,6 +55,9 @@ public final class EligibilityHooks {
       return dev.fourthdimension.vehicle.WingTrack.rejection(level, hit.edge()) == null;
     if (dev.fourthdimension.vehicle.PoweredInvertedYawVehicle.is(vehicle) && dev.fourthdimension.vehicle.PoweredInvertedYawTrack.rejection(level,hit.edge()) != null) return false;
     if (dev.fourthdimension.vehicle.DiveVehicle.is(vehicle) && dev.fourthdimension.vehicle.DiveTrack.rejection(level,hit.edge()) != null) return false;
+    if (dev.fourthdimension.vehicle.StandingVehicle.is(vehicle) && dev.fourthdimension.vehicle.StandingTrack.rejection(level,hit.edge(),dev.fourthdimension.vehicle.StandingVehicle.design(vehicle)) != null) return false;
+    if (dev.fourthdimension.vehicle.MotorbikeVehicle.is(vehicle) && dev.fourthdimension.vehicle.MotorbikeTrack.rejection(level,hit.edge()) != null) return false;
+    if (dev.fourthdimension.vehicle.FlyingBikeVehicle.is(vehicle) && dev.fourthdimension.vehicle.FlyingBikeTrack.rejection(level,hit.edge()) != null) return false;
     if (dev.fourthdimension.vehicle.PipelineVehicle.is(vehicle) && dev.fourthdimension.vehicle.PipelineTrack.rejection(level,hit.edge()) != null) return false;
     if (dev.fourthdimension.vehicle.RollerBallVehicle.is(vehicle) && dev.fourthdimension.vehicle.RollerBallTrack.rejection(level,hit.edge()) != null) return false;
     if (dev.fourthdimension.vehicle.AxisVehicle.is(vehicle) && dev.fourthdimension.vehicle.AxisTrack.rejection(level,hit.edge()) != null) return false;

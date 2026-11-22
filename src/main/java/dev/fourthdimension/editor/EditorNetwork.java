@@ -253,6 +253,9 @@ public final class EditorNetwork {
         case 28 -> {
           if(dev.fourthdimension.vehicle.DiveVehicle.is(vehicle)) { dev.fourthdimension.vehicle.DiveRuntime.resumeToDock(level,vehicle); break; }
           if(dev.fourthdimension.vehicle.PipelineVehicle.is(vehicle)) { dev.fourthdimension.vehicle.PipelineRuntime.resumeToDock(level,vehicle); break; }
+          if(dev.fourthdimension.vehicle.StandingVehicle.is(vehicle)) { dev.fourthdimension.vehicle.StandingRuntime.resumeToDock(level,vehicle); break; }
+          if(dev.fourthdimension.vehicle.MotorbikeVehicle.is(vehicle)) { dev.fourthdimension.vehicle.MotorbikeRuntime.resumeToDock(level,vehicle); break; }
+          if(dev.fourthdimension.vehicle.FlyingBikeVehicle.is(vehicle)) { dev.fourthdimension.vehicle.FlyingBikeRuntime.resumeToDock(level,vehicle); break; }
           if(dev.fourthdimension.vehicle.S2SpinningVehicle.is(vehicle)) { dev.fourthdimension.vehicle.S2SpinningRuntime.resume(level,vehicle); break; }
           if(dev.fourthdimension.vehicle.RollerBallVehicle.is(vehicle)) { dev.fourthdimension.vehicle.RollerBallRuntime.resume(level,vehicle); break; }
           if(dev.fourthdimension.vehicle.AxisVehicle.is(vehicle)) { dev.fourthdimension.vehicle.AxisRuntime.resumeToDock(level,vehicle); break; }

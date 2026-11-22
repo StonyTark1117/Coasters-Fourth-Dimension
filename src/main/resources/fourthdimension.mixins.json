@@ -33,7 +33,11 @@
     "SkinDataGuardMixin",
     "SkinScrewdriverGuardMixin",
     "RotatingSeatBlockEntityMixin",
-    "RotatingSeatDismountMixin"
+    "RotatingSeatDismountMixin",
+    "StandingSeatRiderMixin",
+    "MotorbikeSeatRiderMixin",
+    "FlyingBikeSeatRiderMixin",
+    "FlyingBikeChainRampMixin"
   ],
   "injectors": {
     "defaultRequire": 1
@@ -60,7 +64,13 @@
     "ImmersionComfortScopeMixin",
     "ImmersionComfortTravelMixin",
     "ImmersionComfortNeckMixin",
-    "ImmersionPassengerFacingMixin"
+    "ImmersionPassengerFacingMixin",
+    "StandingBodyFrameMixin",
+    "StandingPlayerModelMixin",
+    "MotorbikeBodyFrameMixin",
+    "MotorbikePlayerModelMixin",
+    "FlyingBikeBodyFrameMixin",
+    "FlyingBikePlayerModelMixin"
   ],
   "plugin": "dev.fourthdimension.mixin.OptionalDriveFencePlugin"
 }

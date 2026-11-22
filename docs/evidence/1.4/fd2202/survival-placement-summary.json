@@ -1,0 +1,182 @@
+{
+  "before_vehicle_count": 1,
+  "after_vehicle_count": 2,
+  "new_vehicles": [
+    {
+      "alignment_required": 0,
+      "contact_layout": "coasters_n_contacts_v1",
+      "mount_frame": "above_rail_v1",
+      "ctnb": {
+        "kind": "",
+        "remaining": 0
+      },
+      "body": "base",
+      "variant": "straddle_v1",
+      "restraints": 0,
+      "palette": "ORIGINAL",
+      "motorbike": {
+        "running": 0,
+        "directions": [],
+        "version": 1
+      },
+      "fault": "",
+      "boundTo": 54975581519972,
+      "carriers": [
+        {
+          "side": 0.0,
+          "control_coupled": 0,
+          "rider_seats": [],
+          "lift_pending": 0,
+          "capture": 1,
+          "body": [
+            571995616,
+            1319387222,
+            -2134824436,
+            1894733246
+          ],
+          "axis": "X",
+          "seats": [
+            -274877906943,
+            274877906945
+          ],
+          "ballast": 0.0,
+          "omega": 0.0,
+          "lift_geometry": 0,
+          "lift_entered": 0,
+          "pivot_height": 0.0,
+          "angle": 0.0,
+          "capture_target": 0.0,
+          "lift_held": 0,
+          "latched": 0,
+          "longitudinal": 0.0,
+          "child_pivot_offset": 0.0,
+          "child_pivot_x": 0.0,
+          "child_pivot_z": 0.0,
+          "occupants": []
+        }
+      ],
+      "chassis": [
+        571995616,
+        1319387222,
+        -2134824436,
+        1894733246
+      ],
+      "damping": 0.0,
+      "boundFrom": 54975581388900,
+      "fixed_consist": [],
+      "ballast": 0.0,
+      "revision": 0,
+      "appearance": "original",
+      "boarding_ready": 0,
+      "stopping": 1,
+      "authority": {},
+      "shuttle_detached": 0,
+      "family": "motorbike",
+      "suspended_consist": [],
+      "maintenance": 0
+    }
+  ],
+  "new_rail": {
+    "original_curve": {
+      "Starts": [
+        {
+          "V": [
+            0.5,
+            0.75,
+            0.5
+          ]
+        },
+        {
+          "V": [
+            0.5,
+            0.75,
+            32.5
+          ]
+        }
+      ],
+      "Girder": 0,
+      "Normals": [
+        {
+          "V": [
+            0.0,
+            1.0,
+            0.0
+          ]
+        },
+        {
+          "V": [
+            0.0,
+            1.0,
+            0.0
+          ]
+        }
+      ],
+      "Primary": 1,
+      "Positions": [
+        {
+          "Pos": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "Pos": [
+            0,
+            0,
+            32
+          ]
+        }
+      ],
+      "Axes": [
+        {
+          "V": [
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        {
+          "V": [
+            0.0,
+            0.0,
+            -1.0
+          ]
+        }
+      ],
+      "Material": "simulatedcoasters:coaster_track"
+    },
+    "magnets": [],
+    "profile": [
+      {
+        "distance": 0.0,
+        "slope": 0.0,
+        "angle": 0.0
+      },
+      {
+        "distance": 32.0,
+        "slope": 0.0,
+        "angle": 0.0
+      }
+    ],
+    "lift_lock": 0,
+    "geometry_hash": 2874807713891373185,
+    "revision": 0,
+    "valid": 1,
+    "appearance": {
+      "tint": -1,
+      "id": "fourthdimension:original"
+    },
+    "provider": "fourthdimension:original",
+    "variant": "straddle_v1",
+    "from": 54975581388900,
+    "to": 54975581519972,
+    "id": [
+      1607598931,
+      -880065536,
+      -1110439084,
+      -1255735498
+    ],
+    "family": "motorbike"
+  }
+}

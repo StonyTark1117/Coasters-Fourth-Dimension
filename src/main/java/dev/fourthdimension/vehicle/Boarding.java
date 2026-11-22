@@ -29,6 +29,7 @@ public final class Boarding {
 
   private static final java.util.Map<java.util.UUID, Restore> RESTORE = new java.util.HashMap<>();
   private static final java.util.Set<java.util.UUID> RESTORING = new java.util.HashSet<>();
+  private static final java.util.Set<java.util.UUID> REMOVAL_RECOVERY = new java.util.HashSet<>();
 
   public record Binding(FoundationData.Vehicle vehicle, FoundationData.Carrier carrier) {}
 
@@ -60,6 +61,9 @@ public final class Boarding {
     if (NewGenerationFlyingVehicle.is(vehicle)) return NewGenerationFlyingRuntime.ready(level,parent,vehicle);
     if (FlyingVehicle.is(vehicle)) return FlyingRuntime.ready(level,parent,vehicle);
     if (DiveVehicle.is(vehicle)) return DiveRuntime.ready(level,parent,vehicle);
+    if (StandingVehicle.is(vehicle)) return StandingRuntime.ready(level,parent,vehicle);
+    if (MotorbikeVehicle.is(vehicle)) return MotorbikeRuntime.ready(level,parent,vehicle);
+    if (FlyingBikeVehicle.is(vehicle)) return FlyingBikeRuntime.ready(level,parent,vehicle);
     if (PipelineVehicle.is(vehicle)) return PipelineRuntime.ready(level,parent,vehicle);
     if (FixedInvertedVehicle.is(vehicle)) return FixedInvertedRuntime.ready(level, parent, vehicle);
     if (SuspendedVehicle.is(vehicle)) return SuspendedRuntime.ready(level, parent, vehicle);
@@ -77,7 +81,7 @@ public final class Boarding {
 
   public static boolean seatOccupied(Level level, BlockPos pos) {
     var binding=at(level,pos);
-    if(binding==null||!(DiveVehicle.is(binding.vehicle)||PipelineVehicle.is(binding.vehicle)||FixedInvertedVehicle.is(binding.vehicle)))
+    if(binding==null||!(binding.vehicle.family.specialty()||DiveVehicle.is(binding.vehicle)||PipelineVehicle.is(binding.vehicle)||FixedInvertedVehicle.is(binding.vehicle)))
       return com.simibubi.create.content.contraptions.actors.seat.SeatBlock.isSeatOccupied(level,pos);
     return level.getEntitiesOfClass(com.simibubi.create.content.contraptions.actors.seat.SeatEntity.class,
         new net.minecraft.world.phys.AABB(pos)).stream().anyMatch(s->s.blockPosition().equals(pos)&&s.isVehicle());
@@ -86,6 +90,7 @@ public final class Boarding {
   public static boolean canBoard(Level level, BlockPos pos) {
     var binding = at(level, pos);
     return binding != null
+        && !(FlyingBikeVehicle.is(binding.vehicle) && FlyingBikeRuntime.evacuation(binding.vehicle))
         && !binding.vehicle.restraints
         && (level instanceof ServerLevel server
             ? ready(server, binding.vehicle)
@@ -171,6 +176,15 @@ public final class Boarding {
     else if (event.isDismounting()
         && event.getEntityMounting() instanceof net.minecraft.server.level.ServerPlayer player) {
       if (!player.connection.isAcceptingMessages()) return;
+      net.minecraft.world.phys.Vec3 flyingBikeExit = null;
+      if (player.isAlive() && FlyingBikeVehicle.is(binding.vehicle)
+          && !REMOVAL_RECOVERY.contains(player.getUUID())) {
+        flyingBikeExit = FlyingBikeRuntime.exit(level, binding.vehicle, seat.blockPosition());
+        if (!ready(level, binding.vehicle) || flyingBikeExit == null) {
+          event.setCanceled(true);
+          return;
+        }
+      }
       if (VALIDATION)
         LOGGER.info(
             "FD_BOARDING_DISMOUNT_CLEAR player={} restraints={} removed={} alive={}",
@@ -182,8 +196,8 @@ public final class Boarding {
         FoundationData.get(level).setDirty();
       var body = Sable.HELPER.getContaining(seat);
       if (player.isAlive()) {
-        net.minecraft.world.phys.Vec3 exit = null;
-        if (body != null) {
+        net.minecraft.world.phys.Vec3 exit = flyingBikeExit;
+        if (exit == null && body != null) {
           var world =
               body.logicalPose()
                   .transformPosition(new Vector3d(seat.getX(), seat.getY(), seat.getZ()));
@@ -243,7 +257,14 @@ public final class Boarding {
           for (var passenger : java.util.List.copyOf(seat.getPassengers())) {
             var exit = findExit(level, passenger, origin);
             if (exit == null) exit = level.getSharedSpawnPos().above().getCenter();
-            passenger.stopRiding();
+            // Permanent native removal uses the existing emergency relocation path;
+            // ordinary Flying Bike dismount still requires its validated dock/evacuation exit.
+            REMOVAL_RECOVERY.add(passenger.getUUID());
+            try {
+              passenger.stopRiding();
+            } finally {
+              REMOVAL_RECOVERY.remove(passenger.getUUID());
+            }
             if (passenger instanceof net.minecraft.server.level.ServerPlayer player)
               queueExit(level, player, exit);
             else passenger.teleportTo(exit.x, exit.y, exit.z);

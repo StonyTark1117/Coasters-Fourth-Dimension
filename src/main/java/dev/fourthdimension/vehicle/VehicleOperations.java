@@ -105,6 +105,9 @@ public final class VehicleOperations {
     if (S2SpinningVehicle.is(vehicle)) { S2SpinningRuntime.capture(level,vehicle); return; }
     if (DiveVehicle.is(vehicle)) DiveRuntime.acknowledge(level,vehicle);
     if (PipelineVehicle.is(vehicle)) PipelineRuntime.acknowledge(level,vehicle);
+    if (StandingVehicle.is(vehicle)) StandingRuntime.acknowledge(level,vehicle);
+    if (MotorbikeVehicle.is(vehicle)) MotorbikeRuntime.acknowledge(level,vehicle);
+    if (FlyingBikeVehicle.is(vehicle)) FlyingBikeRuntime.acknowledge(level,vehicle);
     if (RollerBallVehicle.is(vehicle)) { RollerBallRuntime.capture(level,vehicle); return; }
     if (NewGenerationFlyingVehicle.is(vehicle)) { NewGenerationFlyingRuntime.capture(level,vehicle); return; }
     if (FlyingVehicle.is(vehicle)) { FlyingRuntime.capture(level,vehicle); return; }
@@ -167,6 +170,7 @@ public final class VehicleOperations {
   public static void validateDispatch(ServerLevel level, FoundationData.Vehicle vehicle) {
     if (NewGenerationFlyingVehicle.is(vehicle)) { NewGenerationFlyingRuntime.validateDispatch(level,vehicle); return; }
     if (FlyingVehicle.is(vehicle)) { FlyingRuntime.validateDispatch(level,vehicle); return; }
+    if (FlyingBikeVehicle.is(vehicle)) { FlyingBikeRuntime.validateDispatch(level,vehicle); return; }
     if (vehicle.recoveryCart != null)
       throw new IllegalArgumentException("Disconnect recovery before ride dispatch");
     if(RollerBallVehicle.is(vehicle))RollerBallTrack.validateRoute(level,vehicle);
@@ -214,6 +218,7 @@ public final class VehicleOperations {
       dev.fourthdimension.integration.RideLocalOperations.beforeDispatch(level, vehicle);
     if(PoweredInvertedYawVehicle.is(vehicle)){validateDispatch(level,vehicle);PoweredInvertedYawRuntime.start(level,vehicle);}
     if (S2SpinningVehicle.is(vehicle)) { validateDispatch(level,vehicle); S2SpinningRuntime.start(level,vehicle); }
+    if (FlyingBikeVehicle.is(vehicle)) { validateDispatch(level,vehicle); FlyingBikeRuntime.start(level,vehicle); return; }
     if (vehicle.authority.owner != null && dev.fourthdimension.integration.RideAuthority.holds(level,vehicle))
       throw new IllegalArgumentException("Release through the bound ride authority before dispatch");
     if (NewGenerationFlyingVehicle.is(vehicle)) { NewGenerationFlyingRuntime.dispatch(level,vehicle); return; }
@@ -231,6 +236,8 @@ public final class VehicleOperations {
       if (FixedInvertedVehicle.is(v)) FixedInvertedRuntime.rememberConsist(level, v);
       if (DiveVehicle.is(v)) DiveRuntime.rememberConsist(level,v);
       if (PipelineVehicle.is(v)) PipelineRuntime.rememberConsist(level,v);
+      if (StandingVehicle.is(v)) StandingRuntime.rememberConsist(level,v);
+      if (MotorbikeVehicle.is(v)) MotorbikeRuntime.rememberConsist(level,v);
       if (S2SpinningVehicle.is(v)) S2SpinningRuntime.dispatched(level,v);
       if (PoweredInvertedYawVehicle.is(v)) PoweredInvertedYawRuntime.dispatched(level,v);
       if(SuspendedVehicle.is(v)) {

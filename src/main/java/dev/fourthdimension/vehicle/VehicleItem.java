@@ -85,6 +85,7 @@ public final class VehicleItem extends Item {
     if (!player.isCreative()) stack.shrink(1);
     player.displayClientMessage(
         Component.literal(design == null ? "Wing stopped. Board, close restraints, then dispatch."
+            : design.family.specialty() ? "Bind this car to its level Boarding Station; board, close restraints, then Dispatch."
             : design == TrackDesign.SPINNING ? "Bind a Boarding Station within twelve blocks; Capture, board, close restraints, then Dispatch."
             : "Carrier capture engaged. Wait for alignment before boarding."), true);
   }

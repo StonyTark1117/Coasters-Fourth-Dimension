@@ -100,6 +100,7 @@ public final class BoardingStationEntity extends BlockEntity
             && v.authority.owner == null
             && !dev.fourthdimension.vehicle.PoweredInvertedYawVehicle.is(v)
             && !dev.fourthdimension.vehicle.DiveVehicle.is(v)
+            && !v.family.specialty()
             && !dev.fourthdimension.vehicle.PipelineVehicle.is(v)
             && !dev.fourthdimension.vehicle.S2SpinningVehicle.is(v)
             && !dev.fourthdimension.vehicle.SpinningVehicle.is(v)

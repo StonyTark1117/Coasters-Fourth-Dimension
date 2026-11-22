@@ -22,7 +22,11 @@ public enum TrackDesign {
   AXIS(Family.AXIS, "longitudinal_roll_v1", 0x25b7ba),
   FLYING(Family.FLYING, "station_changeover_v1", 0x379ba6),
   NEW_GENERATION_FLYING(Family.FLYING, "route_changeover_yaw_v1", 0x705ed6),
-  ROLLER_BALL(Family.ROLLER_BALL, "vertical_zigzag_v1", 0x92b83d);
+  ROLLER_BALL(Family.ROLLER_BALL, "vertical_zigzag_v1", 0x92b83d),
+  STANDING_STANDARD(Family.STANDING, "standing_standard_v1", 0x387e62),
+  STANDING_SURF(Family.STANDING, "standing_surf_v1", 0x27b6bc),
+  MOTORBIKE(Family.MOTORBIKE, "straddle_v1", 0xd85a31),
+  FLYING_BIKE(Family.FLYING_BIKE, "prone_multilaunch_v1", 0x4e8ebc);
   // Coasters 0.1.5 wheel renderer: path anchor .3125 + compensation .1875 + axle .1.
   // Main and upstop wheel rows are .55 apart, each with nominal radius .2.
   public static final double HALF_GAUGE = .772;
@@ -53,9 +57,12 @@ public enum TrackDesign {
     this.color = color;
   }
 
-  public boolean overhead() { return this == POWERED_INVERTED_YAW || this == SUSPENDED || this == FIXED_INVERTED || this == FLYING || this == NEW_GENERATION_FLYING; }
+  public boolean overhead() { return this == FLYING_BIKE || this == POWERED_INVERTED_YAW || this == SUSPENDED || this == FIXED_INVERTED || this == FLYING || this == NEW_GENERATION_FLYING; }
 
   public NativeTrackFit nativeFit() {
+    if (family == Family.STANDING) return dev.fourthdimension.vehicle.StandingVehicle.fit(this);
+    if (this == MOTORBIKE) return dev.fourthdimension.vehicle.MotorbikeVehicle.FIT;
+    if (this == FLYING_BIKE) return dev.fourthdimension.vehicle.FlyingBikeVehicle.FIT;
     if (this == POWERED_INVERTED_YAW) return dev.fourthdimension.vehicle.PoweredInvertedYawVehicle.FIT;
     if (this == DIVE) return dev.fourthdimension.vehicle.DiveVehicle.FIT;
     if (this == PIPELINE) return dev.fourthdimension.vehicle.PipelineVehicle.FIT;
@@ -74,6 +81,14 @@ public enum TrackDesign {
   }
 
   public TrackContract contract() {
+    if (family.specialty()) {
+      var e = nativeFit().envelope();
+      return new TrackContract("fourthdimension:original", family, variant,
+          new Gear(2 * HALF_GAUGE, WHEEL_RADIUS, TREAD_OUTER, WHEEL_ROW_SPACING),
+          overhead() ? Set.of(Mechanism.STATION_CAPTURE, Mechanism.OVERHEAD_MOUNT, Mechanism.LONGITUDINAL_DRIVE)
+              : Set.of(Mechanism.STATION_CAPTURE),
+          new Clearance(e.halfWidth(), e.aboveO(), e.belowO()));
+    }
     return new TrackContract(
         "fourthdimension:original",
         family,
@@ -101,6 +116,7 @@ public enum TrackDesign {
   }
 
   public int groups() {
+    if (family.specialty()) return 1;
     return (this == DIVE || this == PIPELINE || this == ROLLER_BALL || this == SPINNING || this == S2_SPINNING || this == AXIS || overhead()) ? 1 : pairedRows() ? 4 : 2;
   }
 
@@ -118,6 +134,7 @@ public enum TrackDesign {
   }
 
   public boolean canLink() {
+    if (family.specialty()) return false;
     return this == DIVE || this == S2_SPINNING || this == PIPELINE || this == ARROW || this == PAX || this == AXIS || overhead();
   }
 

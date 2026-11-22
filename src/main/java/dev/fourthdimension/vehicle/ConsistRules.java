@@ -44,6 +44,7 @@ public final class ConsistRules {
     var second = data.vehicles.get(b.getUniqueId());
     if (first == null && second == null)
       return FamilyControllers.find(a).isEmpty() && FamilyControllers.find(b).isEmpty();
+    if (first != null && first.family.specialty() || second != null && second.family.specialty()) return false;
     if ((first == null) != (second == null))
       return level instanceof net.minecraft.server.level.ServerLevel server
           && RecoveryOperations.canCouple(server, a, b, distance);
@@ -79,6 +80,7 @@ public final class ConsistRules {
         && CoasterCartTrainLinkConstraint.getTrainLinkedCartIds(parent).size()
             > (vehicle.recoveryCart == null ? 4 : 5)) return false;
     var ids = CoasterCartTrainLinkConstraint.getTrainLinkedCartIds(parent);
+    if (vehicle.family.specialty() && (vehicle.recoveryCart != null || ids.stream().anyMatch(id -> !id.equals(vehicle.chassis)))) return false;
     if(PoweredInvertedYawVehicle.is(vehicle)&&ids.size()>4)return false;
     if (DiveVehicle.is(vehicle) && ids.size() > 3) return false;
     if (WingVehicle.is(vehicle) && ids.size() > 2) return false;

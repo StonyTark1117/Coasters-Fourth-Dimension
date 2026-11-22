@@ -16,6 +16,9 @@ public final class FourthDimension {
     dev.fourthdimension.vehicle.YawMarkers.register(bus);
     dev.fourthdimension.vehicle.S2SpinningContent.register(bus);
     dev.fourthdimension.vehicle.DiveContent.register(bus);
+    dev.fourthdimension.vehicle.StandingContent.register(bus);
+    dev.fourthdimension.vehicle.MotorbikeContent.register(bus);
+    dev.fourthdimension.vehicle.FlyingBikeContent.register(bus);
     dev.fourthdimension.vehicle.PoweredInvertedYawContent.register(bus);
     NeoForge.EVENT_BUS.addListener(dev.fourthdimension.vehicle.DiveRuntime::serverTick);
     dev.fourthdimension.integration.create.CreateIntegration.register(bus);
@@ -43,6 +46,9 @@ public final class FourthDimension {
     NeoForge.EVENT_BUS.addListener(dev.fourthdimension.runtime.ValidationCommands::register);
     NeoForge.EVENT_BUS.addListener(dev.fourthdimension.track.ExampleLayouts::register);
     NeoForge.EVENT_BUS.addListener(dev.fourthdimension.vehicle.WingExamples::register);
+    NeoForge.EVENT_BUS.addListener(dev.fourthdimension.vehicle.MotorbikeExamples::register);
+    NeoForge.EVENT_BUS.addListener(dev.fourthdimension.vehicle.StandingExamples::register);
+    NeoForge.EVENT_BUS.addListener(dev.fourthdimension.vehicle.FlyingBikeExamples::register);
     NeoForge.EVENT_BUS.addListener(dev.fourthdimension.vehicle.PipelineExamples::register);
     NeoForge.EVENT_BUS.addListener(dev.fourthdimension.vehicle.PipelineExamples::tick);
     NeoForge.EVENT_BUS.addListener(dev.fourthdimension.vehicle.DiveExamples::register);
